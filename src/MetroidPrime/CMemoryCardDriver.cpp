@@ -427,9 +427,7 @@ void CMemoryCardDriver::StartCardCheck() {
     UpdateCardCheck(result);
 }
 
-void CMemoryCardDriver::ClearError() {
-  x14_error = kE_OK;
-}
+void CMemoryCardDriver::ClearError() { x14_error = kE_OK; }
 
 void CMemoryCardDriver::CheckCardCapacity() {
   if (x18_cardFreeBytes >= 0x2000 && x1c_cardFreeFiles >= 1) {
@@ -454,8 +452,7 @@ void CMemoryCardDriver::IndexFiles() {
         continue;
       } else if (result == kCR_READY) {
         CardStat stat;
-        if (CMemoryCardSys::GetStatus(x0_cardPort, info.second.GetFileNo(), stat) ==
-            kCR_READY) {
+        if (CMemoryCardSys::GetStatus(x0_cardPort, info.second.GetFileNo(), stat) == kCR_READY) {
           int comment = stat.GetCommentAddr();
           if (comment == -1)
             info.first = kFS_BadFile;
@@ -479,9 +476,11 @@ void CMemoryCardDriver::IndexFiles() {
   if (x100_mcFileInfos[0].first == kFS_File) {
     if (x100_mcFileInfos[1].first == kFS_File) {
       CardStat stat;
-      if (CMemoryCardSys::GetStatus(x0_cardPort, x100_mcFileInfos[0].second.GetFileNo(), stat) == kCR_READY) {
+      if (CMemoryCardSys::GetStatus(x0_cardPort, x100_mcFileInfos[0].second.GetFileNo(), stat) ==
+          kCR_READY) {
         u32 timeA = stat.GetTime();
-        if (CMemoryCardSys::GetStatus(x0_cardPort, x100_mcFileInfos[1].second.GetFileNo(), stat) == kCR_READY) {
+        if (CMemoryCardSys::GetStatus(x0_cardPort, x100_mcFileInfos[1].second.GetFileNo(), stat) ==
+            kCR_READY) {
           u32 timeB = stat.GetTime();
           if (timeA > timeB)
             x194_fileIdx = 0;
@@ -519,7 +518,7 @@ void CMemoryCardDriver::IndexFiles() {
 void CMemoryCardDriver::StartFileDeleteBad() {
   x14_error = kE_OK;
   x10_state = kS_FileDeleteBad;
-  
+
   for (int idx = 0; idx < x100_mcFileInfos.capacity(); ++idx) {
     rstl::pair< EFileState, SMemoryCardFileInfo >& info = x100_mcFileInfos[idx];
     if (info.first == kFS_BadFile) {
@@ -533,7 +532,22 @@ void CMemoryCardDriver::StartFileDeleteBad() {
   }
 }
 
-void CMemoryCardDriver::StartFileDeleteAlt() {}
+void CMemoryCardDriver::StartFileDeleteAlt() {
+  x14_error = kE_OK;
+  x10_state = kS_FileDeleteAlt;
+
+  int altFileIdx;
+  if (x194_fileIdx == 0) {
+    altFileIdx = 1;
+  } else {
+    altFileIdx = 0;
+  }
+
+  SMemoryCardFileInfo& fileInfo = x100_mcFileInfos[altFileIdx].second;
+  ECardResult result = CMemoryCardSys::FastDeleteFile(x0_cardPort, fileInfo.GetFileNo());
+  if (result != kCR_READY)
+    UpdateFileDeleteAlt(result);
+}
 
 void CMemoryCardDriver::StartFileRead() {}
 
