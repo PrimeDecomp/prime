@@ -1,11 +1,13 @@
 #ifndef _CMEMORYCARDSYS
 #define _CMEMORYCARDSYS
 
-#include "types.h"
 #include "string.h"
+#include "types.h"
+
+#include "rstl/string.hpp"
 
 // TODO: likely comes from dolphin sdk
-enum ECardResult { 
+enum ECardResult {
   kCR_CRC_MISMATCH = -1003, /* Extension enum for Retro's CRC check */
   kCR_FATAL_ERROR = -128,
   kCR_ENCODING = -13,
@@ -21,6 +23,8 @@ enum ECardResult {
   kCR_BUSY = -1,
   kCR_READY = 0
 };
+enum EMemoryCardPort { kCS_SlotA, kCS_SlotB };
+
 struct FileHandle {
   u8 x0_pad[0x10];
 };
@@ -34,34 +38,31 @@ struct ProbeResults {
 struct CardStat {
   u8 x0_pad[0x6c];
 
-  CardStat()
-  {
-    memset(this, 0, sizeof(CardStat));
-  }
+  CardStat() { memset(this, 0, sizeof(CardStat)); }
 
   int GetTime() const;
   int GetCommentAddr() const;
 };
 
+class CCardFileInfo {
+  uchar pad[0x114];
+
+public:
+  CCardFileInfo(EMemoryCardPort port, const rstl::string& name);
+  ~CCardFileInfo();
+
+  ECardResult PumpCardTransfer();
+  ECardResult CreateFile();
+  ECardResult CloseFile();
+};
+
 class CMemoryCardSys {
 public:
-  enum EMemoryCardPort { kCS_SlotA, kCS_SlotB };
-
   struct CardFileHandle {
     EMemoryCardPort slot;
     FileHandle handle;
     CardFileHandle(EMemoryCardPort slot) : slot(slot) {}
     int GetFileNo() const;
-  };
-
-  class CCardFileInfo {
-    uchar pad[0x114];
-
-  public:
-    ~CCardFileInfo();
-
-    ECardResult PumpCardTransfer();
-    ECardResult CloseFile();
   };
 
   CMemoryCardSys();
