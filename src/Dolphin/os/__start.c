@@ -125,9 +125,6 @@ asm static void __init_registers(void) {
   // clang-format on
 }
 
-__declspec(section ".init") extern __rom_copy_info _rom_copy_info[];
-__declspec(section ".init") extern __bss_init_info _bss_init_info[];
-
 inline static void __copy_rom_section(void* dst, const void* src, unsigned long size) {
   if (size && (dst != src)) {
     memcpy(dst, src, size);
