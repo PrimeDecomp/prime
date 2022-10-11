@@ -706,11 +706,27 @@ void CMemoryCardDriver::ReadFinished() {
   }
 }
 
-void CMemoryCardDriver::EraseFileSlot(int saveIdx) {
-  xe4_fileSlots[saveIdx] = nullptr;
-}
+void CMemoryCardDriver::EraseFileSlot(int saveIdx) { xe4_fileSlots[saveIdx] = nullptr; }
 
-void CMemoryCardDriver::BuildNewFileSlot(int) {}
+void CMemoryCardDriver::BuildNewFileSlot(int saveIdx) {
+  bool fusionBackup = gpGameState->SystemOptions().GetHasFusion();
+  gpGameState->SetFileIdx(saveIdx);
+
+  rstl::auto_ptr< SGameFileSlot >& slot = xe4_fileSlots[saveIdx];
+  if (slot.null())
+    slot = new SGameFileSlot();
+
+  slot->LoadGameState(saveIdx);
+
+  {
+    CMemoryInStream r(x30_systemData.data(), x30_systemData.capacity());
+    gpGameState->ReadSystemOptions(r);
+  }
+
+  ImportPersistentOptions();
+  gpGameState->SetCardSerial(x28_cardSerial);
+  gpGameState->SystemOptions().SetHasFusion(fusionBackup);
+}
 
 void CMemoryCardDriver::BuildExistingFileSlot(int) {}
 
@@ -738,7 +754,9 @@ SGameFileSlot::SGameFileSlot() {}
 
 SGameFileSlot::SGameFileSlot(CMemoryInStream& in) {}
 
-void SGameFileSlot::DoPut(CMemoryStreamOut& w) const { w.Put(x0_saveBuffer.data(), x0_saveBuffer.capacity()); }
+void SGameFileSlot::DoPut(CMemoryStreamOut& w) const {
+  w.Put(x0_saveBuffer.data(), x0_saveBuffer.capacity());
+}
 
 void SGameFileSlot::InitializeFromGameState() {}
 
