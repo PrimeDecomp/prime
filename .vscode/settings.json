@@ -11,7 +11,11 @@
   "files.associations": {
     "source_location": "cpp",
     "console_io.h": "c",
-    "file_struc.h": "c"
+    "file_struc.h": "c",
+    "osreset.h": "c",
+    "vi.h": "c",
+    "gxstruct.h": "c",
+    "vifuncs.h": "c"
   },
   "files.autoSave": "onFocusChange",
   "files.insertFinalNewline": true,
