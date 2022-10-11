@@ -27,8 +27,8 @@ struct SMemoryCardFileInfo {
 
   ECardResult Open();
   ECardResult Close();
-  int GetFileCardPort() const { return x0_fileInfo.slot; }
-  int GetFileNo() const { return x0_fileInfo.getFileNo(); }
+  CMemoryCardSys::EMemoryCardPort GetFileCardPort() const { return x0_fileInfo.slot; }
+  int GetFileNo() const; // { return x0_fileInfo.GetFileNo(); }
   ECardResult StartRead();
   ECardResult TryFileRead();
   ECardResult FileRead();
