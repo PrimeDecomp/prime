@@ -41,7 +41,7 @@ inline void uninitialized_copy_n(S src, int n, D dest) {
 template < typename D, typename S >
 inline void uninitialized_fill_n(D dest, int n, const S& value) {
   D cur = dest;
-  for (size_t i = 0; i < n; ++i, ++cur) {
+  for (int i = 0; i < n; ++i, ++cur) {
     construct(&*cur, value);
   }
 }

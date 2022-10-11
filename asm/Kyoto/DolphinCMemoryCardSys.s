@@ -597,8 +597,8 @@ lbl_8034DBF4:
 /* 8034DC0C 0034AB6C  38 21 00 20 */	addi r1, r1, 0x20
 /* 8034DC10 0034AB70  4E 80 00 20 */	blr
 
-.global PumpCardTransfer__13CCardFileInfoFv
-PumpCardTransfer__13CCardFileInfoFv:
+.global PumpCardTransfer__Q214CMemoryCardSys13CCardFileInfoFv
+PumpCardTransfer__Q214CMemoryCardSys13CCardFileInfoFv:
 /* 8034DC14 0034AB74  94 21 FF 60 */	stwu r1, -0xa0(r1)
 /* 8034DC18 0034AB78  7C 08 02 A6 */	mflr r0
 /* 8034DC1C 0034AB7C  90 01 00 A4 */	stw r0, 0xa4(r1)
@@ -804,8 +804,8 @@ CheckCard__14CMemoryCardSysFv:
 /* 8034DED0 0034AE30  38 21 00 10 */	addi r1, r1, 0x10
 /* 8034DED4 0034AE34  4E 80 00 20 */	blr
 
-.global Rename__14CMemoryCardSysFiPCcPCc
-Rename__14CMemoryCardSysFiPCcPCc:
+.global "Rename__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPortRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
+"Rename__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPortRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>":
 /* 8034DED8 0034AE38  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8034DEDC 0034AE3C  7C 08 02 A6 */	mflr r0
 /* 8034DEE0 0034AE40  38 C0 00 00 */	li r6, 0
@@ -818,8 +818,8 @@ Rename__14CMemoryCardSysFiPCcPCc:
 /* 8034DEFC 0034AE5C  38 21 00 10 */	addi r1, r1, 0x10
 /* 8034DF00 0034AE60  4E 80 00 20 */	blr
 
-.global Close__13CCardFileInfoFv
-Close__13CCardFileInfoFv:
+.global CloseFile__Q214CMemoryCardSys13CCardFileInfoFv
+CloseFile__Q214CMemoryCardSys13CCardFileInfoFv:
 /* 8034DF04 0034AE64  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8034DF08 0034AE68  7C 08 02 A6 */	mflr r0
 /* 8034DF0C 0034AE6C  90 01 00 14 */	stw r0, 0x14(r1)

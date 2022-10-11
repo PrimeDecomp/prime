@@ -2,9 +2,20 @@
 
 #include "MetroidPrime/CMain.hpp"
 
-bool CMemoryCardDriver::IsCardBusy(EState) { return false; }
+static bool lbl_805A9118;
+static const char* const skSaveFileNames[2] = {"MetroidPrime A", "MetroidPrime B"};
 
-bool CMemoryCardDriver::IsCardWriting(EState) { return false; }
+bool CMemoryCardDriver::IsCardBusy(EState v) { return v >= kS_CardMount && v <= kS_CardFormat; }
+
+bool CMemoryCardDriver::IsCardWriting(EState v) {
+  if (v < kS_CardProbe)
+    return false;
+  if (v == kS_CardCheck)
+    return false;
+  if (v == kS_FileRead)
+    return false;
+  return true;
+}
 
 CMemoryCardDriver::CMemoryCardDriver(CMemoryCardSys::EMemoryCardPort cardPort, CAssetId saveBanner,
                                      CAssetId saveIcon0, CAssetId saveIcon1, bool importPersistent)
@@ -18,7 +29,6 @@ CMemoryCardDriver::CMemoryCardDriver(CMemoryCardSys::EMemoryCardPort cardPort, C
 , x1c_cardFreeFiles(0)
 , x20_fileTime(0)
 , x28_cardSerial(0)
-
 , x30_systemData(0)
 , xe4_fileSlots(nullptr)
 , x100_mcFileInfos()
@@ -26,6 +36,7 @@ CMemoryCardDriver::CMemoryCardDriver(CMemoryCardSys::EMemoryCardPort cardPort, C
 , x198_fileInfo(nullptr)
 , x19c_(false)
 , x19d_importPersistent(importPersistent) {
+  lbl_805A9118 = true;
   x100_mcFileInfos.push_back(rstl::pair< EFileState, SMemoryCardFileInfo >(
       kFS_Unknown, SMemoryCardFileInfo(x0_cardPort, rstl::string_l("MetroidPrime A"))));
   x100_mcFileInfos.push_back(rstl::pair< EFileState, SMemoryCardFileInfo >(
@@ -34,7 +45,11 @@ CMemoryCardDriver::CMemoryCardDriver(CMemoryCardSys::EMemoryCardPort cardPort, C
 
 void CMemoryCardDriver::ClearFileInfo() { x198_fileInfo = nullptr; }
 
-CMemoryCardDriver::~CMemoryCardDriver() {}
+CMemoryCardDriver::~CMemoryCardDriver() {
+  CMemoryCardSys::UnmountCard(x0_cardPort);
+  lbl_805A9118 = false;
+  gpMain->SetCardBusy(false);
+}
 
 void CMemoryCardDriver::Update() {
   ProbeResults result = CMemoryCardSys::IsMemoryCardInserted(x0_cardPort);
@@ -59,6 +74,8 @@ void CMemoryCardDriver::Update() {
     cardBusy = true;
 
     switch (x10_state) {
+    case kS_CardProbe:
+      break;
     case kS_CardMount:
       UpdateMountCard(resultCode);
       break;
@@ -105,6 +122,8 @@ void CMemoryCardDriver::Update() {
 
 void CMemoryCardDriver::HandleCardError(ECardResult result, EState state) {
   switch (result) {
+  case kCR_BUSY:
+    break;
   case kCR_WRONGDEVICE:
     x10_state = state;
     x14_error = kE_CardWrongDevice;
@@ -162,7 +181,12 @@ void CMemoryCardDriver::UpdateFileRead(ECardResult result) {
       return;
     }
 
-    int altFileIdx = !bool(x194_fileIdx);
+    int altFileIdx;
+    if (x194_fileIdx == 0) {
+      altFileIdx = 1;
+    } else {
+      altFileIdx = 0;
+    }
     if (readRes == kCR_READY) {
       x10_state = kS_Ready;
       ReadFinished();
@@ -190,21 +214,129 @@ void CMemoryCardDriver::UpdateFileRead(ECardResult result) {
   }
 }
 
-void CMemoryCardDriver::UpdateFileDeleteAlt(ECardResult) {}
+void CMemoryCardDriver::UpdateFileDeleteAlt(ECardResult result) {
+  if (result == kCR_READY) {
+    x10_state = kS_Ready;
+    if (GetCardFreeBytes()) {
+      CheckCardCapacity();
+    }
+  } else {
+    HandleCardError(result, kS_FileDeleteAltFailed);
+  }
+}
 
-void CMemoryCardDriver::UpdateFileDeleteBad(ECardResult) {}
+void CMemoryCardDriver::UpdateFileDeleteBad(ECardResult result) {
+  if (result == kCR_READY) {
+    x100_mcFileInfos[x194_fileIdx].first = kFS_NoFile;
+    if (x100_mcFileInfos[x194_fileIdx ? 0 : 1].first == kFS_BadFile) {
+      x10_state = kS_FileBad;
+      StartFileDeleteBad();
+    } else {
+      x10_state = kS_CardCheckDone;
+      if (!GetCardFreeBytes()) {
+        return;
+      }
+      IndexFiles();
+    }
+  } else {
+    HandleCardError(result, kS_FileDeleteBadFailed);
+  }
+}
 
-void CMemoryCardDriver::UpdateFileCreate(ECardResult) {}
+void CMemoryCardDriver::UpdateFileCreate(ECardResult result) {
+  if (result == kCR_READY) {
+    x10_state = kS_FileCreateDone;
+    StartFileWrite();
+  } else {
+    HandleCardError(result, kS_FileCreateFailed);
+  }
+}
 
-void CMemoryCardDriver::UpdateFileWrite(ECardResult) {}
+void CMemoryCardDriver::UpdateFileWrite(ECardResult result) {
+  if (result == kCR_READY) {
+    ECardResult xferResult = x198_fileInfo->PumpCardTransfer();
+    if (xferResult == kCR_READY) {
+      x10_state = kS_Ready;
+      if (x198_fileInfo->CloseFile() != kCR_READY) {
+        NoCardFound();
+      }
+      return;
+    }
+    if (xferResult == kCR_BUSY) {
+      return;
+    }
+    if (xferResult == kCR_IOERROR) {
+      x10_state = kS_FileWriteFailed;
+      x14_error = kE_CardIOError;
+      return;
+    }
+    NoCardFound();
+  } else {
+    HandleCardError(result, kS_FileWriteFailed);
+  }
+}
 
-void CMemoryCardDriver::UpdateFileCreateTransactional(ECardResult) {}
+void CMemoryCardDriver::UpdateFileCreateTransactional(ECardResult result) {
+  if (result == kCR_READY) {
+    x10_state = kS_FileCreateTransactionalDone;
+    StartFileWriteTransactional();
+  } else {
+    HandleCardError(result, kS_FileCreateTransactionalFailed);
+  }
+}
 
-void CMemoryCardDriver::UpdateFileWriteTransactional(ECardResult) {}
+void CMemoryCardDriver::UpdateFileWriteTransactional(ECardResult result) {
+  if (result == kCR_READY) {
+    ECardResult xferResult = x198_fileInfo->PumpCardTransfer();
+    if (xferResult == kCR_READY) {
+      x10_state = kS_FileWriteTransactionalDone;
+      if (x198_fileInfo->CloseFile() != kCR_READY) {
+        NoCardFound();
+      } else {
+        StartFileDeleteAltTransactional();
+      }
+      return;
+    }
+    if (xferResult == kCR_BUSY) {
+      return;
+    }
+    if (xferResult == kCR_IOERROR) {
+      x10_state = kS_FileWriteTransactionalFailed;
+      x14_error = kE_CardIOError;
+      return;
+    }
+    NoCardFound();
+  } else {
+    HandleCardError(result, kS_FileWriteTransactionalFailed);
+  }
+}
 
-void CMemoryCardDriver::UpdateFileRenameBtoA(ECardResult) {}
+void CMemoryCardDriver::UpdateFileRenameBtoA(ECardResult result) {
+  if (result == kCR_READY) {
+    x10_state = kS_DriverClosed;
+    WriteBackupBuf();
+  } else {
+    HandleCardError(result, kS_FileRenameBtoAFailed);
+  }
+}
 
-void CMemoryCardDriver::StartFileRenameBtoA() {}
+void CMemoryCardDriver::StartFileRenameBtoA() {
+  if (x194_fileIdx == 1) {
+    /* Rename B file to A file (ideally the card is always left with 'A' only) */
+    x14_error = kE_OK;
+    x10_state = kS_FileRenameBtoA;
+    int bidx = x194_fileIdx == 0 ? 1 : 0;
+    ECardResult result =
+        CMemoryCardSys::Rename(x0_cardPort, rstl::string_l(skSaveFileNames[x194_fileIdx]),
+                               rstl::string_l(skSaveFileNames[bidx]));
+    if (result != kCR_READY) {
+      UpdateFileRenameBtoA(result);
+    }
+  } else {
+    x10_state = kS_DriverClosed;
+    WriteBackupBuf();
+  }
+}
 
 void CMemoryCardDriver::WriteBackupBuf() {}
 
