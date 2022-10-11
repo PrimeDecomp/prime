@@ -29,7 +29,7 @@ struct SMemoryCardFileInfo {
 
   ECardResult Open();
   ECardResult Close();
-  EMemoryCardPort GetFileCardPort() const { return x0_fileInfo.slot; }
+  CMemoryCardSys::EMemoryCardPort GetFileCardPort() const { return x0_fileInfo.slot; }
   int GetFileNo() const; // { return x0_fileInfo.GetFileNo(); }
   ECardResult StartRead();
   ECardResult TryFileRead();
@@ -118,7 +118,7 @@ public:
   enum EFileState { kFS_Unknown, kFS_NoFile, kFS_File, kFS_BadFile };
 
 private:
-  EMemoryCardPort x0_cardPort;
+  CMemoryCardSys::EMemoryCardPort x0_cardPort;
   CAssetId x4_saveBanner;
   CAssetId x8_saveIcon0;
   CAssetId xc_saveIcon1;
@@ -132,14 +132,14 @@ private:
   rstl::reserved_vector< rstl::auto_ptr< SGameFileSlot >, 3 > xe4_fileSlots;
   rstl::reserved_vector< rstl::pair< EFileState, SMemoryCardFileInfo >, 2 > x100_mcFileInfos;
   int x194_fileIdx;
-  rstl::single_ptr< CCardFileInfo > x198_fileInfo;
+  rstl::single_ptr< CMemoryCardSys::CCardFileInfo > x198_fileInfo;
   bool x19c_;
   bool x19d_importPersistent;
 
 public:
   static bool IsCardBusy(EState);
   static bool IsCardWriting(EState);
-  CMemoryCardDriver(EMemoryCardPort cardPort, CAssetId saveBanner, CAssetId saveIcon0,
+  CMemoryCardDriver(CMemoryCardSys::EMemoryCardPort cardPort, CAssetId saveBanner, CAssetId saveIcon0,
                     CAssetId saveIcon1, bool importPersistent);
   void ClearFileInfo();
   ~CMemoryCardDriver();
