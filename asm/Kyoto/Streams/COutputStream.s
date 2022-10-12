@@ -13,8 +13,8 @@ __vt__13COutputStream:
 
 .section .text, "ax"
 
-.global WriteBits__13COutputStreamFii
-WriteBits__13COutputStreamFii:
+.global WriteBits__13COutputStreamFUiUi
+WriteBits__13COutputStreamFUiUi:
 /* 8033F3BC 0033C31C  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 8033F3C0 0033C320  7C 08 02 A6 */	mflr r0
 /* 8033F3C4 0033C324  90 01 00 24 */	stw r0, 0x24(r1)

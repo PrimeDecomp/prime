@@ -275,7 +275,7 @@ lbl_800E1D8C:
 /* 800E1D98 000DECF8  7C 04 00 D0 */	neg r0, r4
 /* 800E1D9C 000DECFC  7C 00 23 78 */	or r0, r0, r4
 /* 800E1DA0 000DED00  54 04 0F FE */	srwi r4, r0, 0x1f
-/* 800E1DA4 000DED04  48 25 D6 19 */	bl WriteBits__13COutputStreamFii
+/* 800E1DA4 000DED04  48 25 D6 19 */	bl WriteBits__13COutputStreamFUiUi
 /* 800E1DA8 000DED08  3B 9C 00 01 */	addi r28, r28, 1
 /* 800E1DAC 000DED0C  3B BD 00 01 */	addi r29, r29, 1
 lbl_800E1DB0:
@@ -493,4 +493,3 @@ lbl_803CE5C0:
 	# ROM: 0x3CB5C0
 	.asciz "??(??)"
 	.balign 4
-
