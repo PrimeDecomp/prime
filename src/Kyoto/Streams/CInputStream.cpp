@@ -2,6 +2,7 @@
 
 #include "string.h"
 
+#include "Kyoto/Streams/StreamSupport.hpp"
 #include "Kyoto/Alloc/CMemory.hpp"
 
 CInputStream::CInputStream(int len)
@@ -97,8 +98,6 @@ uint CInputStream::ReadBytes(void* dest, unsigned long len) {
   return curReadLen;
 }
 
-static inline uint BitsToBytes(uint bits) { return (bits / 8) + ((bits % 8) ? 1 : 0); }
-
 uint CInputStream::ReadBits(uint bitCount) {
   if (x20_bitOffset >= bitCount) {
     uint mask = 0xffffffff;
@@ -125,7 +124,7 @@ uint CInputStream::ReadBits(uint bitCount) {
     ret = (mask & (x1c_bitWord >> bwShift)) << shiftAmt;
   }
 
-  uint len = BitsToBytes(shiftAmt);
+  uint len = min_containing_bytes(shiftAmt);
   x20_bitOffset = 0;
   Get(&x1c_bitWord, len);
 
