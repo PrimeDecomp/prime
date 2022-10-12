@@ -1,5 +1,6 @@
 #include "Kyoto/Alloc/IAllocator.hpp"
 
+#include "Kyoto/Alloc/CMemory.hpp"
 #include "Kyoto/Basics/COsContext.hpp"
 
 IAllocator::SMetrics::SMetrics(uint heapSize, uint unk1, uint unk2, uint unk3, uint unk4,
