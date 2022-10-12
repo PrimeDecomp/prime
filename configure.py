@@ -694,7 +694,7 @@ LIBS = [
             "Kyoto/Particles/CSwooshDescription",
             "Kyoto/Particles/CGenDescription",
             "Kyoto/CPakFile",
-            "Kyoto/Animation/CPoseAsTransforms",
+            "Kyoto/Animation/CPoseAsTransformsVariableSize",
             "Kyoto/Input/CRumbleVoice",
             ["Kyoto/Input/RumbleAdsr", True],
             "Kyoto/Input/CRumbleGenerator",
