@@ -335,6 +335,8 @@ public:
   const CAABox& GetRenderBoundsCached() const { return x9c_renderBounds; }
   void SetRenderBounds(const CAABox& bounds) { x9c_renderBounds = bounds; }
 
+  void SetCallTouch(bool);
+
   // 000c0ec8 00001c 801711a8  4 GetUseInSortedLists__6CActorCFv 	CActor.o
   // 000c0ee4 000014 801711c4  4 SetUseInSortedLists__6CActorFb 	CActor.o
   // 000c0ef8 00001c 801711d8  4 GetCallTouch__6CActorCFv 	CActor.o

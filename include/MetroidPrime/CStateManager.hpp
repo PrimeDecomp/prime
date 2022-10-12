@@ -122,6 +122,7 @@ public:
   const CEntity* GetObjectById(TUniqueId uid) const;
   TUniqueId GetIdForScript(TEditorId eid) const;
   TIdListResult GetIdListForScript(TEditorId) const;
+  TEditorId GetEditorIdForUniqueId(TUniqueId) const;
 
   TAreaId GetNextAreaId() const { return x8cc_nextAreaId; }
   void SetCurrentAreaId(TAreaId);
@@ -131,7 +132,8 @@ public:
   CMazeState* CurrentMaze();
   const CMazeState* GetCurrentMaze() const;
   void SetCurrentMaze(rstl::single_ptr< CMazeState > maze);
-
+  void SetLastTriggerId(TUniqueId uid) { xf74_lastTrigger = uid; }
+  TUniqueId GetLastTriggerId() const { return xf74_lastTrigger; }
   CPlayer* Player() { return x84c_player; }
   const CPlayer* GetPlayer() const { return x84c_player; }
   CCameraManager* CameraManager() { return x870_cameraManager; }

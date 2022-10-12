@@ -253,7 +253,7 @@ lbl_80174D74:
 /* 80174E00 00171D60  8B E1 00 87 */	lbz r31, 0x87(r1)
 /* 80174E04 00171D64  90 01 00 10 */	stw r0, 0x10(r1)
 /* 80174E08 00171D68  90 01 00 14 */	stw r0, 0x14(r1)
-/* 80174E0C 00171D6C  4B F0 1F 4D */	bl "__ct__14CScriptTriggerF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fRC6CAABoxRC11CDamageInfoRC9CVector3fUibbb"
+/* 80174E0C 00171D6C  4B F0 1F 4D */	bl "__ct__14CScriptTriggerF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fRC6CAABoxRC11CDamageInfoRC9CVector3f13ETriggerFlagsbbb"
 /* 80174E10 00171D70  EC 5E E8 24 */	fdivs f2, f30, f29
 /* 80174E14 00171D74  3C 60 80 3E */	lis r3, lbl_803E3DA8@ha
 /* 80174E18 00171D78  38 03 3D A8 */	addi r0, r3, lbl_803E3DA8@l

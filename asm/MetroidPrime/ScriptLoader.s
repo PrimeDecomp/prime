@@ -22483,7 +22483,7 @@ lbl_800D97F4:
 /* 800D9994 000D68F4  39 21 00 6C */	addi r9, r1, 0x6c
 /* 800D9998 000D68F8  93 A1 00 10 */	stw r29, 0x10(r1)
 /* 800D999C 000D68FC  90 01 00 14 */	stw r0, 0x14(r1)
-/* 800D99A0 000D6900  4B F9 D3 B9 */	bl "__ct__14CScriptTriggerF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fRC6CAABoxRC11CDamageInfoRC9CVector3fUibbb"
+/* 800D99A0 000D6900  4B F9 D3 B9 */	bl "__ct__14CScriptTriggerF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fRC6CAABoxRC11CDamageInfoRC9CVector3f13ETriggerFlagsbbb"
 /* 800D99A4 000D6904  7C 7A 1B 78 */	mr r26, r3
 lbl_800D99A8:
 /* 800D99A8 000D6908  38 61 00 D0 */	addi r3, r1, 0xd0
@@ -22632,7 +22632,7 @@ lbl_800D9A68:
 /* 800D9BC8 000D6B28  93 61 00 0C */	stw r27, 0xc(r1)
 /* 800D9BCC 000D6B2C  93 81 00 10 */	stw r28, 0x10(r1)
 /* 800D9BD0 000D6B30  93 A1 00 14 */	stw r29, 0x14(r1)
-/* 800D9BD4 000D6B34  4B F9 D1 85 */	bl "__ct__14CScriptTriggerF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fRC6CAABoxRC11CDamageInfoRC9CVector3fUibbb"
+/* 800D9BD4 000D6B34  4B F9 D1 85 */	bl "__ct__14CScriptTriggerF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fRC6CAABoxRC11CDamageInfoRC9CVector3f13ETriggerFlagsbbb"
 /* 800D9BD8 000D6B38  7C 79 1B 78 */	mr r25, r3
 lbl_800D9BDC:
 /* 800D9BDC 000D6B3C  38 61 00 7C */	addi r3, r1, 0x7c

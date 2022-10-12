@@ -1261,7 +1261,7 @@ __ct__11CPhazonPoolFv:
 /* 80293690 002905F0  83 A1 01 34 */	lwz r29, 0x134(r1)
 /* 80293694 002905F4  91 61 00 14 */	stw r11, 0x14(r1)
 /* 80293698 002905F8  8B C1 01 47 */	lbz r30, 0x147(r1)
-/* 8029369C 002905FC  4B DE 36 BD */	bl "__ct__14CScriptTriggerF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fRC6CAABoxRC11CDamageInfoRC9CVector3fUibbb"
+/* 8029369C 002905FC  4B DE 36 BD */	bl "__ct__14CScriptTriggerF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fRC6CAABoxRC11CDamageInfoRC9CVector3f13ETriggerFlagsbbb"
 /* 802936A0 00290600  3C 80 80 3F */	lis r4, lbl_803EBB48@ha
 /* 802936A4 00290604  38 DF 01 5C */	addi r6, r31, 0x15c
 /* 802936A8 00290608  38 04 BB 48 */	addi r0, r4, lbl_803EBB48@l

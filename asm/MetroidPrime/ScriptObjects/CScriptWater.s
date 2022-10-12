@@ -2798,7 +2798,7 @@ lbl_801010D4:
 /* 80101250 000FE1B0  83 E1 03 84 */	lwz r31, 0x384(r1)
 /* 80101254 000FE1B4  C3 C1 03 8C */	lfs f30, 0x38c(r1)
 /* 80101258 000FE1B8  C3 E1 03 90 */	lfs f31, 0x390(r1)
-/* 8010125C 000FE1BC  4B F7 5A FD */	bl "__ct__14CScriptTriggerF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fRC6CAABoxRC11CDamageInfoRC9CVector3fUibbb"
+/* 8010125C 000FE1BC  4B F7 5A FD */	bl "__ct__14CScriptTriggerF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fRC6CAABoxRC11CDamageInfoRC9CVector3f13ETriggerFlagsbbb"
 /* 80101260 000FE1C0  3C 60 80 3E */	lis r3, lbl_803DFE70@ha
 /* 80101264 000FE1C4  38 80 00 00 */	li r4, 0
 /* 80101268 000FE1C8  38 03 FE 70 */	addi r0, r3, lbl_803DFE70@l

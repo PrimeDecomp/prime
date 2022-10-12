@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803DA4D8
-lbl_803DA4D8:
+.global __vt__14CScriptTrigger
+__vt__14CScriptTrigger:
 	# ROM: 0x3D74D8
 	.4byte 0
 	.4byte 0
@@ -1225,8 +1225,8 @@ __dt__14CScriptTriggerFv:
 /* 80076C9C 00073BFC  93 81 00 10 */	stw r28, 0x10(r1)
 /* 80076CA0 00073C00  7C 7C 1B 79 */	or. r28, r3, r3
 /* 80076CA4 00073C04  41 82 00 90 */	beq lbl_80076D34
-/* 80076CA8 00073C08  3C 60 80 3E */	lis r3, lbl_803DA4D8@ha
-/* 80076CAC 00073C0C  38 03 A4 D8 */	addi r0, r3, lbl_803DA4D8@l
+/* 80076CA8 00073C08  3C 60 80 3E */	lis r3, __vt__14CScriptTrigger@ha
+/* 80076CAC 00073C0C  38 03 A4 D8 */	addi r0, r3, __vt__14CScriptTrigger@l
 /* 80076CB0 00073C10  90 1C 00 00 */	stw r0, 0(r28)
 /* 80076CB4 00073C14  83 FC 00 EC */	lwz r31, 0xec(r28)
 /* 80076CB8 00073C18  83 DC 00 F0 */	lwz r30, 0xf0(r28)
@@ -1274,8 +1274,8 @@ lbl_80076D34:
 /* 80076D50 00073CB0  38 21 00 20 */	addi r1, r1, 0x20
 /* 80076D54 00073CB4  4E 80 00 20 */	blr
 
-.global "__ct__14CScriptTriggerF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fRC6CAABoxRC11CDamageInfoRC9CVector3fUibbb"
-"__ct__14CScriptTriggerF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fRC6CAABoxRC11CDamageInfoRC9CVector3fUibbb":
+.global "__ct__14CScriptTriggerF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fRC6CAABoxRC11CDamageInfoRC9CVector3f13ETriggerFlagsbbb"
+"__ct__14CScriptTriggerF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fRC6CAABoxRC11CDamageInfoRC9CVector3f13ETriggerFlagsbbb":
 /* 80076D58 00073CB8  94 21 FE C0 */	stwu r1, -0x140(r1)
 /* 80076D5C 00073CBC  7C 08 02 A6 */	mflr r0
 /* 80076D60 00073CC0  90 01 01 44 */	stw r0, 0x144(r1)
@@ -1335,9 +1335,9 @@ lbl_80076D34:
 /* 80076E38 00073D98  38 61 00 B8 */	addi r3, r1, 0xb8
 /* 80076E3C 00073D9C  38 80 FF FF */	li r4, -1
 /* 80076E40 00073DA0  48 09 FC 0D */	bl __dt__10CModelDataFv
-/* 80076E44 00073DA4  3C 60 80 3E */	lis r3, lbl_803DA4D8@ha
+/* 80076E44 00073DA4  3C 60 80 3E */	lis r3, __vt__14CScriptTrigger@ha
 /* 80076E48 00073DA8  38 94 00 F4 */	addi r4, r20, 0xf4
-/* 80076E4C 00073DAC  38 63 A4 D8 */	addi r3, r3, lbl_803DA4D8@l
+/* 80076E4C 00073DAC  38 63 A4 D8 */	addi r3, r3, __vt__14CScriptTrigger@l
 /* 80076E50 00073DB0  38 00 00 00 */	li r0, 0
 /* 80076E54 00073DB4  90 74 00 00 */	stw r3, 0(r20)
 /* 80076E58 00073DB8  7F 63 DB 78 */	mr r3, r27
