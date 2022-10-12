@@ -40,12 +40,11 @@ public:
 
   void WriteChar(u8 c) {
     FlushShiftRegister();
-    if (mBufLen <= mUnwrittenLen) {
+    if (mUnwrittenLen >= mBufLen) {
       DoFlush();
     }
     ++mNumWrites;
-    *(reinterpret_cast< u8* >(mBufPtr) + mUnwrittenLen) = c;
-    ++mUnwrittenLen;
+    *(reinterpret_cast< u8* >(mBufPtr) + mUnwrittenLen++) = c;
   }
 
 
@@ -82,7 +81,7 @@ inline void coutput_stream_helper(const uint& t, COutputStream& out) {
 
 template <>
 inline void coutput_stream_helper(const bool& t, COutputStream& out) {
-  out.WriteChar(static_cast< char >(t));
+  out.WriteChar(static_cast< u8 >(t));
 }
 
 #endif // _COUTPUTSTREAM
