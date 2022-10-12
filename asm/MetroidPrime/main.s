@@ -3938,7 +3938,7 @@ lbl_80005EB4:
 /* 80005EDC 00002E3C  38 A0 00 01 */	li r5, 0x1
 /* 80005EE0 00002E40  7C 00 23 78 */	or r0, r0, r4
 /* 80005EE4 00002E44  54 04 0F FE */	srwi r4, r0, 31
-/* 80005EE8 00002E48  48 33 95 B5 */	bl WriteBits__13COutputStreamFii
+/* 80005EE8 00002E48  48 33 95 B5 */	bl WriteBits__13COutputStreamFUiUi
 /* 80005EEC 00002E4C  80 6D A0 80 */	lwz r3, gpGameState@sda21(r13)
 /* 80005EF0 00002E50  38 81 00 B4 */	addi r4, r1, 0xb4
 /* 80005EF4 00002E54  38 63 01 7C */	addi r3, r3, 0x17c
@@ -3949,7 +3949,7 @@ lbl_80005EB4:
 /* 80005F08 00002E68  7C 04 00 D0 */	neg r0, r4
 /* 80005F0C 00002E6C  7C 00 23 78 */	or r0, r0, r4
 /* 80005F10 00002E70  54 04 0F FE */	srwi r4, r0, 31
-/* 80005F14 00002E74  48 33 95 89 */	bl WriteBits__13COutputStreamFii
+/* 80005F14 00002E74  48 33 95 89 */	bl WriteBits__13COutputStreamFUiUi
 /* 80005F18 00002E78  38 61 00 B4 */	addi r3, r1, 0xb4
 /* 80005F1C 00002E7C  48 33 97 39 */	bl Flush__13COutputStreamFv
 /* 80005F20 00002E80  38 61 00 B4 */	addi r3, r1, 0xb4
@@ -4174,7 +4174,7 @@ lbl_80005EC0:
 /* 80005EE8 00002E48  38 A0 00 01 */	li r5, 1
 /* 80005EEC 00002E4C  7C 00 23 78 */	or r0, r0, r4
 /* 80005EF0 00002E50  54 04 0F FE */	srwi r4, r0, 0x1f
-/* 80005EF4 00002E54  48 33 94 C9 */	bl WriteBits__13COutputStreamFii
+/* 80005EF4 00002E54  48 33 94 C9 */	bl WriteBits__13COutputStreamFUiUi
 /* 80005EF8 00002E58  80 6D A0 80 */	lwz r3, gpGameState@sda21(r13)
 /* 80005EFC 00002E5C  38 81 00 B4 */	addi r4, r1, 0xb4
 /* 80005F00 00002E60  38 63 01 7C */	addi r3, r3, 0x17c
@@ -4185,7 +4185,7 @@ lbl_80005EC0:
 /* 80005F14 00002E74  7C 04 00 D0 */	neg r0, r4
 /* 80005F18 00002E78  7C 00 23 78 */	or r0, r0, r4
 /* 80005F1C 00002E7C  54 04 0F FE */	srwi r4, r0, 0x1f
-/* 80005F20 00002E80  48 33 94 9D */	bl WriteBits__13COutputStreamFii
+/* 80005F20 00002E80  48 33 94 9D */	bl WriteBits__13COutputStreamFUiUi
 /* 80005F24 00002E84  38 61 00 B4 */	addi r3, r1, 0xb4
 /* 80005F28 00002E88  48 33 96 4D */	bl Flush__13COutputStreamFv
 /* 80005F2C 00002E8C  38 61 00 B4 */	addi r3, r1, 0xb4

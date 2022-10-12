@@ -841,11 +841,11 @@ lbl_80267C20:
 /* 80267C28 00264B88  80 9F 00 00 */	lwz r4, 0(r31)
 /* 80267C2C 00264B8C  7C 65 1B 78 */	mr r5, r3
 /* 80267C30 00264B90  7F C3 F3 78 */	mr r3, r30
-/* 80267C34 00264B94  48 0D 77 89 */	bl WriteBits__13COutputStreamFii
+/* 80267C34 00264B94  48 0D 77 89 */	bl WriteBits__13COutputStreamFUiUi
 /* 80267C38 00264B98  80 9F 00 04 */	lwz r4, 4(r31)
 /* 80267C3C 00264B9C  7F C3 F3 78 */	mr r3, r30
 /* 80267C40 00264BA0  38 A0 00 20 */	li r5, 0x20
-/* 80267C44 00264BA4  48 0D 77 79 */	bl WriteBits__13COutputStreamFii
+/* 80267C44 00264BA4  48 0D 77 79 */	bl WriteBits__13COutputStreamFUiUi
 /* 80267C48 00264BA8  3B FF 00 0C */	addi r31, r31, 0xc
 lbl_80267C4C:
 /* 80267C4C 00264BAC  80 1D 00 04 */	lwz r0, 4(r29)
@@ -1576,4 +1576,3 @@ lbl_803D53C0:
 	# ROM: 0x3D23C0
 	.asciz "??(??)"
 	.balign 4
-

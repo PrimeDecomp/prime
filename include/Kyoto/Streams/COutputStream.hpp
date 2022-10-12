@@ -18,7 +18,7 @@ public:
   COutputStream(int len);
   virtual ~COutputStream();
   virtual void Write(const void* ptr, u32 len);
-  void WriteBits(int val, int bitCount);
+  void WriteBits(uint val, uint bitCount);
 
   void FlushShiftRegister();
   void Put(const void* ptr, size_t len) {
@@ -40,22 +40,22 @@ public:
 
   void WriteChar(u8 c) {
     FlushShiftRegister();
-    if (mBufLen <= mPosition) {
+    if (mBufLen <= mUnwrittenLen) {
       DoFlush();
     }
     ++mNumWrites;
-    *(reinterpret_cast< u8* >(mBufPtr) + mPosition) = c;
-    ++mPosition;
+    *(reinterpret_cast< u8* >(mBufPtr) + mUnwrittenLen) = c;
+    ++mUnwrittenLen;
   }
 
 
 private:
-  uint mPosition;
+  uint mUnwrittenLen;
   uint mBufLen;
   void* mBufPtr;
   uint mNumWrites;
   uint mShiftRegister;
-  uint mShiftRegisterOffset;
+  volatile uint mShiftRegisterOffset;
   uchar mScratch[96];
 };
 

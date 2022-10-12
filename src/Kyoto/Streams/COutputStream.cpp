@@ -5,7 +5,7 @@
 #include <string.h>
 
 COutputStream::COutputStream(int len)
-: mPosition(0)
+: mUnwrittenLen(0)
 , mBufLen(len)
 , mBufPtr(len > 64 ? new uchar[len] : &mScratch[32 - (uint)(mScratch) % 31])
 , mNumWrites(0)
@@ -22,25 +22,23 @@ void COutputStream::DoPut(const void* ptr, size_t len) {
   if (len == 0) {
     return;
   }
-  uint curLen = len;
 
   mNumWrites += len;
-  if (mBufLen <= len + mPosition) {
-    memcpy((uchar*)mBufPtr + mPosition, ptr, len);
-    mPosition += len;
+  if (mBufLen <= len + mUnwrittenLen) {
+    memcpy((uchar*)mBufPtr + mUnwrittenLen, ptr, len);
+    mUnwrittenLen += len;
     return;
   }
-
-  while (curLen != 0) {
-    uint count = mBufLen - mPosition;
-    uint offset = curLen;
-    if (curLen < count) {
-      count = curLen;
+  while (len != 0) {
+    uint count = mBufLen - mUnwrittenLen;
+    uint offset = len;
+    if (count < len) {
+      len = count;
     }
     if (count != 0) {
-      memcpy((uchar*)mBufPtr + mPosition, (uchar*)ptr + offset, count);
-      mPosition += count;
-      curLen -= count;
+      memcpy((uchar*)mBufPtr + mUnwrittenLen, (uchar*)ptr + offset, len);
+      mUnwrittenLen += len;
+      len -= len;
     } else {
       DoFlush();
     }
@@ -53,9 +51,9 @@ void COutputStream::Flush() {
 }
 
 void COutputStream::DoFlush() {
-  if (mPosition != 0) {
-    Write(mBufPtr, mPosition);
-    mPosition = 0;
+  if (mUnwrittenLen != 0) {
+    Write(mBufPtr, mUnwrittenLen);
+    mUnwrittenLen = 0;
   }
 }
 
@@ -66,8 +64,42 @@ static inline u32 min_containing_bytes(u32 v) {
 
 void COutputStream::FlushShiftRegister() {
   if (mShiftRegisterOffset < 32) {
-    DoPut(&mShiftRegister, min_containing_bytes(mShiftRegisterOffset));
+    DoPut((void*)&mShiftRegister, min_containing_bytes(mShiftRegisterOffset));
     mShiftRegister = 0;
     mShiftRegisterOffset = 32;
+  }
+}
+
+void COutputStream::WriteBits(uint value, uint bitCount) {
+
+  uint registerOffset = mShiftRegisterOffset;
+  if (registerOffset >= bitCount) {
+    registerOffset -= bitCount;
+    uint mask = 0xffffffff;
+    uint shiftRegister = mShiftRegister;
+    if (bitCount != 32) {
+      mask = (1 << bitCount) - 1;
+    }
+    mShiftRegister = shiftRegister | ((value & mask) << registerOffset);
+    mShiftRegisterOffset -= bitCount;
+  } else {
+    uint shiftAmt = bitCount - registerOffset;
+    uint shiftRegister = mShiftRegister;
+    uint mask = 0xffffffff;
+    if (registerOffset != 0x20) {
+      mask = (1 << registerOffset) - 1;
+    }
+
+    shiftRegister |= (value >> shiftAmt);
+    shiftRegister &= mask;
+    mShiftRegister = shiftRegister;
+    mShiftRegisterOffset = 0;
+    FlushShiftRegister();
+    uint mask2 = 0xffffffff;
+    if (shiftAmt != 32) {
+      mask2 = (1 << shiftAmt) - 1;
+    }
+    mShiftRegister = (value & mask2) << (32 - shiftAmt);
+    mShiftRegisterOffset -= shiftAmt;
   }
 }
