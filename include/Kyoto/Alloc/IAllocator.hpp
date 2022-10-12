@@ -1,7 +1,6 @@
 #ifndef _IALLOCATOR
 #define _IALLOCATOR
 
-#include "Kyoto/Alloc/CMemory.hpp"
 #include "types.h"
 #include <stddef.h>
 
@@ -22,8 +21,8 @@ public:
   };
 
   enum EType {
-    kTP_Unk0,
-    kTP_Unk1,
+    kTP_Heap,
+    kTP_Array,
   };
 
   struct SMetrics {
@@ -77,6 +76,7 @@ public:
 
   typedef const bool (*FOutOfMemoryCb)(const void*, uint);
   typedef const bool (*FEnumAllocationsCb)(const SAllocInfo& info, const void* ptr);
+  
   virtual ~IAllocator();
 
   virtual bool Initialize(COsContext& ctx) = 0;

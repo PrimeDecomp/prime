@@ -7,7 +7,7 @@
 
 #include "Kyoto/Basics/COsContext.hpp"
 #include "Kyoto/Basics/CStopwatch.hpp"
-#include "Kyoto/CMemorySys.hpp"
+#include "Kyoto/Alloc/CMemorySys.hpp"
 #include "Kyoto/Streams/CInputStream.hpp"
 #include "Kyoto/TReservedAverage.hpp"
 #include "MetroidPrime/CGameArchitectureSupport.hpp"

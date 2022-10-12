@@ -590,7 +590,7 @@ LIBS = [
             "Kyoto/Math/RMathUtils",
             ["Kyoto/CCrc32", True],
             ["Kyoto/Alloc/CCircularBuffer", True],
-            "Kyoto/Alloc/CMemory",
+            ["Kyoto/Alloc/CMemory", True],
             ["Kyoto/Alloc/IAllocator", True],
             "Kyoto/PVS/CPVSVisOctree",
             "Kyoto/PVS/CPVSVisSet",

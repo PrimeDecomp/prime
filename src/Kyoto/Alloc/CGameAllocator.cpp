@@ -112,7 +112,7 @@ void* CGameAllocator::Alloc(size_t size, EHint hint, EScope scope, EType type,
     buf = x74_mediumPool->Alloc(size);
 
     if (buf == nullptr) {
-      buf = Alloc(0x21000, kHI_None, kSC_Unk1, kTP_Unk0,
+      buf = Alloc(0x21000, kHI_None, kSC_Unk1, kTP_Heap,
                   CCallStack(-1, "MediumAllocMainData   ", " - Ignore"));
       x74_mediumPool->AddPuddle(0x1000, buf, 1);
       buf = x74_mediumPool->Alloc(size);
