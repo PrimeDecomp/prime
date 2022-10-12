@@ -623,7 +623,7 @@ KYOTO_2 :=\
 	$(BUILD_DIR)/asm/Kyoto/Particles/CSwooshDescription.o\
 	$(BUILD_DIR)/asm/Kyoto/Particles/CGenDescription.o\
 	$(BUILD_DIR)/asm/Kyoto/CPakFile.o\
-	$(BUILD_DIR)/asm/Kyoto/Animation/CPoseAsTransforms.o\
+	$(BUILD_DIR)/asm/Kyoto/Animation/CPoseAsTransformsVariableSize.o\
 	$(BUILD_DIR)/asm/Kyoto/Input/CRumbleVoice.o\
 	$(BUILD_DIR)/src/Kyoto/Input/RumbleAdsr.o\
 	$(BUILD_DIR)/asm/Kyoto/Input/CRumbleGenerator.o\
