@@ -56,7 +56,6 @@
  */
 
 #include "fdlibm.h"
-
 #ifdef __STDC__
 static const double
 #else

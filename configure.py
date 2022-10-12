@@ -883,7 +883,7 @@ LIBS = [
             "Runtime/e_pow",
             ["Runtime/e_rem_pio2", True],
             ["Runtime/k_cos", True],
-            "Runtime/k_rem_pio2",
+            ["Runtime/k_rem_pio2", True],
             ["Runtime/k_sin", True],
             ["Runtime/k_tan", True],
             "Runtime/s_atan",

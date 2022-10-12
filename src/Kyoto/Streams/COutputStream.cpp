@@ -21,28 +21,32 @@ COutputStream::~COutputStream() {
 }
 
 void COutputStream::DoPut(const void* ptr, size_t len) {
-  if (len == 0) {
-    return;
-  }
-
-  mNumWrites += len;
-  if (mBufLen <= len + mUnwrittenLen) {
-    memcpy((uchar*)mBufPtr + mUnwrittenLen, ptr, len);
-    mUnwrittenLen += len;
-    return;
-  }
-  while (len != 0) {
-    uint count = mBufLen - mUnwrittenLen;
-    uint offset = len;
-    if (count < len) {
-      len = count;
+  uint offset;
+  uchar* offsetPtr;
+  uint tempLen = len;
+  if (tempLen != 0) {
+    mNumWrites += tempLen;
+    if (tempLen + mUnwrittenLen <= mBufLen) {
+      memcpy((uchar*)mBufPtr + mUnwrittenLen, ptr, tempLen);
+      mUnwrittenLen += tempLen;
+      return;
     }
-    if (count != 0) {
-      memcpy((uchar*)mBufPtr + mUnwrittenLen, (uchar*)ptr + offset, len);
-      mUnwrittenLen += len;
-      len -= len;
-    } else {
-      DoFlush();
+
+    offsetPtr = (uchar*)ptr + tempLen;
+    while (tempLen != 0) {
+      uint count = mBufLen - mUnwrittenLen;
+      offset = count;
+      if (tempLen < count) {
+        offset = tempLen;
+      }
+      if (offset != 0) {
+        memcpy((uchar*)mBufPtr + mUnwrittenLen, (offsetPtr - tempLen), offset);
+
+        tempLen -= offset;
+        mUnwrittenLen += offset;
+      } else {
+        DoFlush();
+      }
     }
   }
 }
