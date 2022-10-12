@@ -760,7 +760,7 @@ MSL_COMMON_MATH :=\
 	$(BUILD_DIR)/asm/Runtime/e_pow.o\
 	$(BUILD_DIR)/src/Runtime/e_rem_pio2.o\
 	$(BUILD_DIR)/src/Runtime/k_cos.o\
-	$(BUILD_DIR)/asm/Runtime/k_rem_pio2.o\
+	$(BUILD_DIR)/src/Runtime/k_rem_pio2.o\
 	$(BUILD_DIR)/src/Runtime/k_sin.o\
 	$(BUILD_DIR)/src/Runtime/k_tan.o\
 	$(BUILD_DIR)/asm/Runtime/s_atan.o\
