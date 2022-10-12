@@ -1,5 +1,7 @@
 #include "Kyoto/Streams/COutputStream.hpp"
 
+#include "Kyoto/Streams/StreamSupport.hpp"
+
 #include "Kyoto/Alloc/CMemory.hpp"
 
 #include <string.h>
@@ -57,14 +59,9 @@ void COutputStream::DoFlush() {
   }
 }
 
-static inline u32 min_containing_bytes(u32 v) {
-  v = 32 - v;
-  return (v / 8) + ((v % 8) != 0);
-}
-
 void COutputStream::FlushShiftRegister() {
   if (mShiftRegisterOffset < 32) {
-    DoPut((void*)&mShiftRegister, min_containing_bytes(mShiftRegisterOffset));
+    DoPut((void*)&mShiftRegister, min_containing_bytes(32 - mShiftRegisterOffset));
     mShiftRegister = 0;
     mShiftRegisterOffset = 32;
   }
