@@ -406,7 +406,7 @@ LIBS = [
             "WorldFormat/COBBTree",
             "WorldFormat/CCollidableOBBTree",
             "WorldFormat/CCollidableOBBTreeGroup",
-            "WorldFormat/CPVSVisAreaSet",
+            "WorldFormat/CPVSAreaSet",
             "WorldFormat/CAreaRenderOctTree",
         ],
     },
