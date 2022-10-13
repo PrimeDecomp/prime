@@ -727,14 +727,14 @@ MSL_PPCEABI_BARE_H :=\
 	$(BUILD_DIR)/src/Runtime/Gecko_ExceptionPPC.o\
 	$(BUILD_DIR)/src/Runtime/abort_exit.o\
 	$(BUILD_DIR)/asm/Runtime/alloc.o\
-	$(BUILD_DIR)/asm/Runtime/ansi_files.o\
+	$(BUILD_DIR)/src/Runtime/ansi_files.o\
 	$(BUILD_DIR)/asm/Runtime/ansi_fp.o\
 	$(BUILD_DIR)/asm/Runtime/arith.o\
-	$(BUILD_DIR)/asm/Runtime/buffer_io.o\
+	$(BUILD_DIR)/src/Runtime/buffer_io.o\
 	$(BUILD_DIR)/src/Runtime/ctype.o\
 	$(BUILD_DIR)/src/Runtime/locale.o\
-	$(BUILD_DIR)/asm/Runtime/direct_io.o\
-	$(BUILD_DIR)/asm/Runtime/file_io.o\
+	$(BUILD_DIR)/src/Runtime/direct_io.o\
+	$(BUILD_DIR)/src/Runtime/file_io.o\
 	$(BUILD_DIR)/asm/Runtime/FILE_POS.o\
 	$(BUILD_DIR)/asm/Runtime/mbstring.o\
 	$(BUILD_DIR)/src/Runtime/mem.o\

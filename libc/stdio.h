@@ -1,12 +1,17 @@
-#ifndef _STDIO_H_
-#define _STDIO_H_
+#ifndef _STDIO
+#define _STDIO
 
+#include "types.h"
 #include <stdarg.h>
 #include <stddef.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+#define SEEK_SET 0
+#define SEEK_CUR 1
+#define SEEK_END 2
 
 #define __ungetc_buffer_size 2
 
@@ -16,8 +21,29 @@ typedef unsigned long fpos_t;
 typedef unsigned short wchar_t;
 #endif
 
-enum __file_kinds { __closed_file, __disk_file, __console_file, __unavailable_file };
-enum __file_orientation { __unoriented, __char_oriented, __wide_oriented };
+enum __io_modes {
+  __read = 1,
+  __write = 2,
+  __read_write = 3,
+  __append = 4,
+};
+enum __file_kinds {
+  __closed_file,
+  __disk_file,
+  __console_file,
+  __unavailable_file,
+};
+enum __file_orientation {
+  __unoriented,
+  __char_oriented,
+  __wide_oriented,
+};
+
+enum __io_results {
+  __no_io_error,
+  __io_error,
+  __io_EOF,
+};
 
 typedef struct {
   unsigned int open_mode : 2;
@@ -28,6 +54,13 @@ typedef struct {
   unsigned int binary_io : 1;
 } __file_modes;
 
+enum __io_states {
+  __neutral,
+  __writing,
+  __reading,
+  __rereading,
+};
+
 typedef struct {
   unsigned int io_state : 3;
   unsigned int free_buffer : 1;
@@ -35,12 +68,13 @@ typedef struct {
   unsigned char error;
 } __file_state;
 
-typedef void* __ref_con;
-typedef int (*__pos_proc)(__file_handle file, fpos_t* position, int mode, __ref_con ref_con);
-typedef int (*__io_proc)(__file_handle file, unsigned char* buff, size_t* count, __ref_con ref_con);
+typedef void (*__idle_proc)(void);
+typedef int (*__pos_proc)(__file_handle file, fpos_t* position, int mode, __idle_proc idle_proc);
+typedef int (*__io_proc)(__file_handle file, unsigned char* buff, size_t* count,
+                         __idle_proc idle_proc);
 typedef int (*__close_proc)(__file_handle file);
 
-typedef struct _FILE {
+typedef struct _IO_FILE {
   __file_handle handle;
   __file_modes mode;
   __file_state state;
@@ -61,18 +95,24 @@ typedef struct _FILE {
   __io_proc read_proc;
   __io_proc write_proc;
   __close_proc close_proc;
-  __ref_con ref_con;
-  struct _FILE* next_file_struct;
+  __idle_proc idle_proc;
+  struct _IO_FILE* next_file_struct;
 } FILE;
+
+#define _IONBF 0
+#define _IOLBF 1
+#define _IOFBF 2
 
 int puts(const char* s);
 int printf(const char*, ...);
 int sprintf(char* s, const char* format, ...);
 int vprintf(const char* format, va_list arg);
 int vsprintf(char* s, const char* format, va_list arg);
+size_t fwrite(const void*, size_t memb_size, size_t num_memb, FILE*);
+size_t __fwrite(const void*, size_t, size_t, FILE*);
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif
+#endif // _STDIO
