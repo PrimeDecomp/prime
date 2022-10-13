@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803DA118
-lbl_803DA118:
+.global __vt__7CEffect
+__vt__7CEffect:
 	# ROM: 0x3D7118
 	.4byte 0
 	.4byte 0
@@ -15,8 +15,8 @@ lbl_803DA118:
 	.4byte AcceptScriptMsg__6CActorF20EScriptObjectMessage9TUniqueIdR13CStateManager
 	.4byte SetActive__6CActorFb
 	.4byte PreRender__6CActorFR13CStateManagerRC14CFrustumPlanes
-	.4byte nullsub_83
-	.4byte nullsub_84
+	.4byte AddToRenderer__7CEffectCFRC14CFrustumPlanesRC13CStateManager
+	.4byte Render__7CEffectCFRC13CStateManager
 	.4byte CanRenderUnsorted__6CActorCFRC13CStateManager
 	.4byte CalculateRenderBounds__6CActorFv
 	.4byte HealthInfo__6CActorFR13CStateManager
@@ -83,12 +83,12 @@ lbl_8005AD28:
 /* 8005AD40 00057CA0  38 21 00 20 */	addi r1, r1, 0x20
 /* 8005AD44 00057CA4  4E 80 00 20 */	blr
 
-.global nullsub_83
-nullsub_83:
+.global AddToRenderer__7CEffectCFRC14CFrustumPlanesRC13CStateManager
+AddToRenderer__7CEffectCFRC14CFrustumPlanesRC13CStateManager:
 /* 8005AD48 00057CA8  4E 80 00 20 */	blr
 
-.global nullsub_84
-nullsub_84:
+.global Render__7CEffectCFRC13CStateManager
+Render__7CEffectCFRC13CStateManager:
 /* 8005AD4C 00057CAC  4E 80 00 20 */	blr
 
 .global "__ct__7CEffectF9TUniqueIdRC11CEntityInfobRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC12CTransform4f"
@@ -143,9 +143,9 @@ nullsub_84:
 /* 8005AE0C 00057D6C  38 61 00 88 */	addi r3, r1, 0x88
 /* 8005AE10 00057D70  38 80 FF FF */	li r4, -1
 /* 8005AE14 00057D74  48 0B BC 39 */	bl __dt__10CModelDataFv
-/* 8005AE18 00057D78  3C 80 80 3E */	lis r4, lbl_803DA118@ha
+/* 8005AE18 00057D78  3C 80 80 3E */	lis r4, __vt__7CEffect@ha
 /* 8005AE1C 00057D7C  7F E3 FB 78 */	mr r3, r31
-/* 8005AE20 00057D80  38 04 A1 18 */	addi r0, r4, lbl_803DA118@l
+/* 8005AE20 00057D80  38 04 A1 18 */	addi r0, r4, __vt__7CEffect@l
 /* 8005AE24 00057D84  90 1F 00 00 */	stw r0, 0(r31)
 /* 8005AE28 00057D88  BB 41 00 D8 */	lmw r26, 0xd8(r1)
 /* 8005AE2C 00057D8C  80 01 00 F4 */	lwz r0, 0xf4(r1)
