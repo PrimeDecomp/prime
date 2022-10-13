@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803E02A8
-lbl_803E02A8:
+.global __vt__14CAudioStateWin
+__vt__14CAudioStateWin:
 	# ROM: 0x3DD2A8
 	.4byte 0
 	.4byte 0
@@ -27,9 +27,9 @@ __dt__14CAudioStateWinFv:
 /* 80111CE0 0010EC40  93 C1 00 08 */	stw r30, 8(r1)
 /* 80111CE4 0010EC44  7C 7E 1B 79 */	or. r30, r3, r3
 /* 80111CE8 0010EC48  41 82 00 28 */	beq lbl_80111D10
-/* 80111CEC 0010EC4C  3C A0 80 3E */	lis r5, lbl_803E02A8@ha
+/* 80111CEC 0010EC4C  3C A0 80 3E */	lis r5, __vt__14CAudioStateWin@ha
 /* 80111CF0 0010EC50  38 80 00 00 */	li r4, 0
-/* 80111CF4 0010EC54  38 05 02 A8 */	addi r0, r5, lbl_803E02A8@l
+/* 80111CF4 0010EC54  38 05 02 A8 */	addi r0, r5, __vt__14CAudioStateWin@l
 /* 80111CF8 0010EC58  90 1E 00 00 */	stw r0, 0(r30)
 /* 80111CFC 0010EC5C  4B F4 0E A9 */	bl __dt__6CIOWinFv
 /* 80111D00 0010EC60  7F E0 07 35 */	extsh. r0, r31
@@ -107,9 +107,9 @@ __ct__14CAudioStateWinFv:
 /* 80111DF0 0010ED50  4B F4 0E 1D */	bl "__ct__6CIOWinFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 /* 80111DF4 0010ED54  38 61 00 08 */	addi r3, r1, 8
 /* 80111DF8 0010ED58  48 22 BC E9 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
-/* 80111DFC 0010ED5C  3C 80 80 3E */	lis r4, lbl_803E02A8@ha
+/* 80111DFC 0010ED5C  3C 80 80 3E */	lis r4, __vt__14CAudioStateWin@ha
 /* 80111E00 0010ED60  7F E3 FB 78 */	mr r3, r31
-/* 80111E04 0010ED64  38 04 02 A8 */	addi r0, r4, lbl_803E02A8@l
+/* 80111E04 0010ED64  38 04 02 A8 */	addi r0, r4, __vt__14CAudioStateWin@l
 /* 80111E08 0010ED68  90 1F 00 00 */	stw r0, 0(r31)
 /* 80111E0C 0010ED6C  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80111E10 0010ED70  80 01 00 24 */	lwz r0, 0x24(r1)
@@ -124,4 +124,3 @@ lbl_803CF200:
 	# ROM: 0x3CC200
 	.asciz "CAudioStateWin"
 	.balign 4
-

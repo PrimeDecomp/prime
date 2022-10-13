@@ -8,6 +8,8 @@
 class CVector3f;
 class CSfxManager {
 public:
+  enum ESfxChannels { kSC_Invalid = -1, kSC_Default = 0, kSC_Game, kSC_PauseScreen };
+
   static void Update(float dt);
   static void RemoveEmitter(CSfxHandle handle);
   static void UpdateEmitter(CSfxHandle handle, const CVector3f& pos, const CVector3f& dir,
@@ -31,6 +33,11 @@ public:
   static CSfxHandle SfxStart(ushort id, uchar vol, uchar pan, bool useAcoustics, short prio,
                              bool looped, int areaId);
   static bool IsPlaying(const CSfxHandle& handle);
+
+  static void SetChannel(ESfxChannels);
+  static void KillAll(ESfxChannels);
+  static void TurnOnChannel(ESfxChannels);
+  static void TurnOffChannel(ESfxChannels);
 };
 
 #endif // _CSFXMANAGER
