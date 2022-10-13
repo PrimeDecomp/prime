@@ -207,7 +207,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/Weapons/CPlasmaProjectile.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Player/CPlayerOrbit.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CGameCollision.o\
-	$(BUILD_DIR)/asm/MetroidPrime/CBallFilter.o\
+	$(BUILD_DIR)/src/MetroidPrime/CBallFilter.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CAABoxFilter.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CGroundMovement.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CNewIntroBoss.o\

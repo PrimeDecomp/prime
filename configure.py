@@ -240,7 +240,7 @@ LIBS = [
             "MetroidPrime/Weapons/CPlasmaProjectile",
             "MetroidPrime/Player/CPlayerOrbit",
             "MetroidPrime/CGameCollision",
-            "MetroidPrime/CBallFilter",
+            ["MetroidPrime/CBallFilter", True],
             "MetroidPrime/CAABoxFilter",
             "MetroidPrime/CGroundMovement",
             "MetroidPrime/Enemies/CNewIntroBoss",
