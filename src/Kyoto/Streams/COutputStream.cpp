@@ -75,32 +75,18 @@ void COutputStream::WriteBits(uint value, uint bitCount) {
 
   uint registerOffset = mShiftRegisterOffset;
   if (registerOffset >= bitCount) {
-    registerOffset -= bitCount;
-    uint mask = 0xffffffff;
-    uint shiftRegister = mShiftRegister;
-    if (bitCount != 32) {
-      mask = (1 << bitCount) - 1;
-    }
-    mShiftRegister = shiftRegister | ((value & mask) << registerOffset);
+    int off = registerOffset - bitCount;
+    mShiftRegister |= ((value & (bitCount != 32 ? (1 << bitCount) - 1 : 0xffffffff)) << off);
     mShiftRegisterOffset -= bitCount;
   } else {
     uint shiftAmt = bitCount - registerOffset;
-    uint shiftRegister = mShiftRegister;
-    uint mask = 0xffffffff;
-    if (registerOffset != 0x20) {
-      mask = (1 << registerOffset) - 1;
-    }
+    uint shiftA = value >> shiftAmt;
 
-    shiftRegister |= (value >> shiftAmt);
-    shiftRegister &= mask;
-    mShiftRegister = shiftRegister;
+    mShiftRegister |= (shiftA & (registerOffset != 0x20 ? (1 << registerOffset) - 1 : 0xffffffff));
     mShiftRegisterOffset = 0;
     FlushShiftRegister();
-    uint mask2 = 0xffffffff;
-    if (shiftAmt != 32) {
-      mask2 = (1 << shiftAmt) - 1;
-    }
-    mShiftRegister = (value & mask2) << (32 - shiftAmt);
+    int shift = (32 - shiftAmt);
+    mShiftRegister = (value & (shiftAmt != 32 ? (1 << shiftAmt) - 1 : 0xffffffff)) << shift;
     mShiftRegisterOffset -= shiftAmt;
   }
 }

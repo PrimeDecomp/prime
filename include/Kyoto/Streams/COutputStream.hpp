@@ -11,15 +11,15 @@ void coutput_stream_helper(const T& t, COutputStream& out);
 
 class COutputStream {
   void DoPut(const void* ptr, size_t len);
-  void Flush();
   void DoFlush();
 
 public:
   COutputStream(int len);
   virtual ~COutputStream();
-  virtual void Write(const void* ptr, u32 len);
+  virtual void Write(const void* ptr, size_t len) = 0;
   void WriteBits(uint val, uint bitCount);
 
+  void Flush();
   void FlushShiftRegister();
   void Put(const void* ptr, size_t len) {
     FlushShiftRegister();

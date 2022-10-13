@@ -10,14 +10,17 @@ public:
     kOS_NotOwned,
   };
 
-  CMemoryStreamOut(void* buffer, size_t len, EOwnerShip ownerShip = kOS_NotOwned, int blockLen = 4096);
+  CMemoryStreamOut(void* buffer, size_t len, EOwnerShip ownerShip = kOS_NotOwned,
+                   int blockLen = 4096);
   virtual ~CMemoryStreamOut();
 
+  void Write(const void* ptr, size_t len);
+
 private:
-  u8* x7c_ptr;
-  u32 x80_len;
-  u32 x84_position;
-  bool x88_owned;
+  void* mOutPtr;
+  size_t mOutLength;
+  size_t mCurrentPosition;
+  bool mBufferOwned;
 };
 
 #endif // _CMEMORYSTREAMOUT

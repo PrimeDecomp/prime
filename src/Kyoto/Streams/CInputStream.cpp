@@ -65,7 +65,7 @@ void CInputStream::Get(void* dest, unsigned long len) {
   x18_readPosition += readCount;
 }
 
-uint CInputStream::ReadBytes(void* dest, unsigned long len) {
+size_t CInputStream::ReadBytes(void* dest, size_t len) {
   if (len == 0) {
     return 0;
   }

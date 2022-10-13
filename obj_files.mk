@@ -558,10 +558,10 @@ KYOTO_1 :=\
 	$(BUILD_DIR)/asm/Kyoto/rstl/RstlExtras.o\
 	$(BUILD_DIR)/src/Kyoto/Streams/CInputStream.o\
 	$(BUILD_DIR)/src/Kyoto/Streams/CMemoryInStream.o\
-	$(BUILD_DIR)/asm/Kyoto/Streams/CMemoryStreamOut.o\
-	$(BUILD_DIR)/asm/Kyoto/Streams/COutputStream.o\
-	$(BUILD_DIR)/asm/Kyoto/Streams/CZipInputStream.o\
-	$(BUILD_DIR)/asm/Kyoto/Streams/CZipSupport.o\
+	$(BUILD_DIR)/src/Kyoto/Streams/CMemoryStreamOut.o\
+	$(BUILD_DIR)/src/Kyoto/Streams/COutputStream.o\
+	$(BUILD_DIR)/src/Kyoto/Streams/CZipInputStream.o\
+	$(BUILD_DIR)/src/Kyoto/Streams/CZipSupport.o\
 	$(BUILD_DIR)/asm/Kyoto/CSimplePool.o\
 	$(BUILD_DIR)/asm/Kyoto/CToken.o\
 	$(BUILD_DIR)/src/Kyoto/IObj.o\
