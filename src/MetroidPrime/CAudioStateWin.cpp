@@ -6,8 +6,6 @@
 
 CAudioStateWin::CAudioStateWin() : CIOWin(rstl::string_l("CAudioStateWin")) {}
 
-CAudioStateWin::~CAudioStateWin(){};
-
 CIOWin::EMessageReturn CAudioStateWin::OnMessage(const CArchitectureMessage& msg,
                                                  CArchitectureQueue&) {
   const EArchMsgType msgType = msg.GetType();
@@ -28,3 +26,5 @@ CIOWin::EMessageReturn CAudioStateWin::OnMessage(const CArchitectureMessage& msg
 
   return CIOWin::kMR_Normal;
 }
+
+CAudioStateWin::~CAudioStateWin(){};

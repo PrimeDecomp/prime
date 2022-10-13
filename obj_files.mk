@@ -126,7 +126,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/CInGameGuiManager.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CWarWasp.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CWorldShadow.o\
-	$(BUILD_DIR)/asm/MetroidPrime/CAudioStateWin.o\
+	$(BUILD_DIR)/src/MetroidPrime/CAudioStateWin.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Player/CPlayerVisor.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CModelData.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CDecalManager.o\
