@@ -247,7 +247,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/HUD/CHudBallInterface.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Tweaks/CTweakGuiColors.o\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CFishCloud.o\
-	$(BUILD_DIR)/asm/MetroidPrime/CHealthInfo.o\
+	$(BUILD_DIR)/src/MetroidPrime/CHealthInfo.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Player/CGameState.o\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptVisorFlare.o\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptWorldTeleporter.o\
