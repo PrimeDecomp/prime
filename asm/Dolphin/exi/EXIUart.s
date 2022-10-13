@@ -1,5 +1,21 @@
 .include "macros.inc"
 
+.section .sbss, "wa"
+.balign 8
+
+.global lbl_805A9BE8
+lbl_805A9BE8:
+	.skip 0x4
+.global lbl_805A9BEC
+lbl_805A9BEC:
+	.skip 0x4
+.global lbl_805A9BF0
+lbl_805A9BF0:
+	.skip 0x4
+.global lbl_805A9BF4
+lbl_805A9BF4:
+	.skip 0xC
+  
 .section .text, "ax"
 
 .global InitializeUART
@@ -186,4 +202,3 @@ lbl_803C1B4C:
 /* 803C1B54 003BEAB4  38 21 00 30 */	addi r1, r1, 0x30
 /* 803C1B58 003BEAB8  7C 08 03 A6 */	mtlr r0
 /* 803C1B5C 003BEABC  4E 80 00 20 */	blr
-
