@@ -5,7 +5,7 @@
 
 /* @(#) $Id$ */
 
-#include "zutil.h"
+#include "zlib/zutil.h"
 
 struct internal_state      {int dummy;}; /* for buggy compilers */
 

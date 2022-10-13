@@ -6,4 +6,4 @@ CMemoryInStream::CMemoryInStream(const void* ptr, unsigned long len, EOwnerShip 
 CMemoryInStream::CMemoryInStream(const void* ptr, unsigned long len)
 : CInputStream(ptr, len, false) {}
 
-uint CMemoryInStream::Read(void* dest, uint len) { return 0; }
+size_t CMemoryInStream::Read(void* dest, size_t len) { return 0; }

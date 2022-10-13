@@ -28,8 +28,8 @@
   (zlib format), rfc1951.txt (deflate format) and rfc1952.txt (gzip format).
 */
 
-#ifndef _ZLIB_H
-#define _ZLIB_H
+#ifndef _ZLIB
+#define _ZLIB
 
 #include "zconf.h"
 
@@ -890,4 +890,4 @@ ZEXTERN const uLongf * ZEXPORT get_crc_table    OF((void));
 }
 #endif
 
-#endif /* _ZLIB_H */
+#endif // _ZLIB

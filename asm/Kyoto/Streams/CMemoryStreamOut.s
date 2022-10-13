@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803EE3A8
-lbl_803EE3A8:
+.global __vt__16CMemoryStreamOut
+__vt__16CMemoryStreamOut:
 	# ROM: 0x3EB3A8
 	.4byte 0
 	.4byte 0
@@ -56,8 +56,8 @@ __dt__16CMemoryStreamOutFv:
 /* 8033F2D4 0033C234  93 C1 00 08 */	stw r30, 8(r1)
 /* 8033F2D8 0033C238  7C 7E 1B 79 */	or. r30, r3, r3
 /* 8033F2DC 0033C23C  41 82 00 44 */	beq lbl_8033F320
-/* 8033F2E0 0033C240  3C 80 80 3F */	lis r4, lbl_803EE3A8@ha
-/* 8033F2E4 0033C244  38 04 E3 A8 */	addi r0, r4, lbl_803EE3A8@l
+/* 8033F2E0 0033C240  3C 80 80 3F */	lis r4, __vt__16CMemoryStreamOut@ha
+/* 8033F2E4 0033C244  38 04 E3 A8 */	addi r0, r4, __vt__16CMemoryStreamOut@l
 /* 8033F2E8 0033C248  90 1E 00 00 */	stw r0, 0(r30)
 /* 8033F2EC 0033C24C  48 00 02 89 */	bl Flush__13COutputStreamFv
 /* 8033F2F0 0033C250  88 1E 00 88 */	lbz r0, 0x88(r30)
@@ -97,9 +97,9 @@ __ct__16CMemoryStreamOutFPvUlQ216CMemoryStreamOut10EOwnerShipi:
 /* 8033F364 0033C2C4  93 81 00 10 */	stw r28, 0x10(r1)
 /* 8033F368 0033C2C8  7C 7C 1B 78 */	mr r28, r3
 /* 8033F36C 0033C2CC  48 00 03 91 */	bl __ct__13COutputStreamFi
-/* 8033F370 0033C2D0  3C 60 80 3F */	lis r3, lbl_803EE3A8@ha
+/* 8033F370 0033C2D0  3C 60 80 3F */	lis r3, __vt__16CMemoryStreamOut@ha
 /* 8033F374 0033C2D4  7F E0 00 34 */	cntlzw r0, r31
-/* 8033F378 0033C2D8  38 63 E3 A8 */	addi r3, r3, lbl_803EE3A8@l
+/* 8033F378 0033C2D8  38 63 E3 A8 */	addi r3, r3, __vt__16CMemoryStreamOut@l
 /* 8033F37C 0033C2DC  38 80 00 00 */	li r4, 0
 /* 8033F380 0033C2E0  90 7C 00 00 */	stw r3, 0(r28)
 /* 8033F384 0033C2E4  54 00 D9 7E */	srwi r0, r0, 5

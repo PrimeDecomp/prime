@@ -14,7 +14,7 @@ public:
   CInputStream(int len);
   CInputStream(const void* ptr, int len, bool owned);
   virtual ~CInputStream();
-  virtual uint Read(void* dest, uint len) = 0;
+  virtual size_t Read(void* dest, size_t len) = 0;
 
   float ReadFloat();
   u64 ReadLongLong();
@@ -23,7 +23,7 @@ public:
   bool ReadBool();
   uchar ReadChar();
   uint ReadBits(uint len);
-  uint ReadBytes(void* dest, unsigned long len);
+  size_t ReadBytes(void* dest, size_t len);
   void Get(void* dest, unsigned long len);
 
   template < typename T >

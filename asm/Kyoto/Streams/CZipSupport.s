@@ -38,7 +38,5 @@ Alloc__11CZipSupportFPvUiUi:
 lbl_803D7A88:
 	# ROM: 0x3D4A88
 	.asciz "??(??)"
-	.byte 0x31
-	.asciz ".1.3"
+	.asciz "1.1.3"
 	.balign 4
-
