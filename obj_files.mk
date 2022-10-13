@@ -643,7 +643,7 @@ BASE_FILES :=\
 	$(BUILD_DIR)/src/Dolphin/PPCArch.o\
 	
 DB_FILES :=\
-	$(BUILD_DIR)/asm/Dolphin/db.o\
+	$(BUILD_DIR)/src/Dolphin/db.ep.o\
 	
 DSP_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/dsp/dsp.o\
