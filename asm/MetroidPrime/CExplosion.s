@@ -583,9 +583,9 @@ __dt__10CExplosionFv:
 lbl_8005A890:
 /* 8005A890 000577F0  28 1E 00 00 */	cmplwi r30, 0
 /* 8005A894 000577F4  41 82 00 1C */	beq lbl_8005A8B0
-/* 8005A898 000577F8  3C 80 80 3E */	lis r4, lbl_803DA118@ha
+/* 8005A898 000577F8  3C 80 80 3E */	lis r4, __vt__7CEffect@ha
 /* 8005A89C 000577FC  7F C3 F3 78 */	mr r3, r30
-/* 8005A8A0 00057800  38 04 A1 18 */	addi r0, r4, lbl_803DA118@l
+/* 8005A8A0 00057800  38 04 A1 18 */	addi r0, r4, __vt__7CEffect@l
 /* 8005A8A4 00057804  38 80 00 00 */	li r4, 0
 /* 8005A8A8 00057808  90 1E 00 00 */	stw r0, 0(r30)
 /* 8005A8AC 0005780C  4B FF AE 45 */	bl __dt__6CActorFv
@@ -730,9 +730,9 @@ __dt__7CEffectFv:
 /* 8005AAAC 00057A0C  93 C1 00 08 */	stw r30, 8(r1)
 /* 8005AAB0 00057A10  7C 7E 1B 79 */	or. r30, r3, r3
 /* 8005AAB4 00057A14  41 82 00 28 */	beq lbl_8005AADC
-/* 8005AAB8 00057A18  3C A0 80 3E */	lis r5, lbl_803DA118@ha
+/* 8005AAB8 00057A18  3C A0 80 3E */	lis r5, __vt__7CEffect@ha
 /* 8005AABC 00057A1C  38 80 00 00 */	li r4, 0
-/* 8005AAC0 00057A20  38 05 A1 18 */	addi r0, r5, lbl_803DA118@l
+/* 8005AAC0 00057A20  38 05 A1 18 */	addi r0, r5, __vt__7CEffect@l
 /* 8005AAC4 00057A24  90 1E 00 00 */	stw r0, 0(r30)
 /* 8005AAC8 00057A28  4B FF AC 29 */	bl __dt__6CActorFv
 /* 8005AACC 00057A2C  7F E0 07 35 */	extsh. r0, r31
