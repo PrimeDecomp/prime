@@ -87,21 +87,8 @@ lbl_805A9BD4:
 .global __PADFixBits
 __PADFixBits:
 	.skip 0x8
-.global lbl_805A9BE0
-lbl_805A9BE0:
-	.skip 0x8
-.global lbl_805A9BE8
-lbl_805A9BE8:
-	.skip 0x4
-.global lbl_805A9BEC
-lbl_805A9BEC:
-	.skip 0x4
-.global lbl_805A9BF0
-lbl_805A9BF0:
-	.skip 0x4
-.global lbl_805A9BF4
-lbl_805A9BF4:
-	.skip 0xC
+
+
 
 .section .text, "ax"
 

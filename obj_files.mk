@@ -839,7 +839,7 @@ CARD_FILES :=\
 	
 SI_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/si/SIBios.o\
-	$(BUILD_DIR)/asm/Dolphin/si/SISamplingRate.o
+	$(BUILD_DIR)/src/Dolphin/si/SISamplingRate.ep.o
 	
 EXI_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/exi/EXIBios.o\

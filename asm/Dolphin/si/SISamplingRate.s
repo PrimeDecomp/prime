@@ -34,6 +34,11 @@ lbl_803F6FB8:
 	.balign 4
 	.4byte 0
 
+.section .sbss, "wa"
+.balign 8
+.global lbl_805A9BE0
+lbl_805A9BE0:
+	.skip 0x8
 
 .section .text, "ax"
 
