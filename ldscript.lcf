@@ -35,4 +35,5 @@ SECTIONS
 FORCEFILES 
 {
     __init_cpp_exceptions.o
+    errno.o
 }
