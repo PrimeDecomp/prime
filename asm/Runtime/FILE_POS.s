@@ -1,10 +1,10 @@
 .include "macros.inc"
 
-.section .sbss
-.balign 8
-.global errno
-errno:
-	.skip 0x8
+#.section .sbss
+#.balign 8
+#.global errno
+#errno:
+#	.skip 0x8
 
 .section .text, "ax"
 

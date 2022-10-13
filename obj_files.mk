@@ -735,7 +735,7 @@ MSL_PPCEABI_BARE_H :=\
 	$(BUILD_DIR)/src/Runtime/locale.o\
 	$(BUILD_DIR)/src/Runtime/direct_io.o\
 	$(BUILD_DIR)/src/Runtime/file_io.o\
-	$(BUILD_DIR)/asm/Runtime/FILE_POS.o\
+	$(BUILD_DIR)/src/Runtime/FILE_POS.o\
 	$(BUILD_DIR)/asm/Runtime/mbstring.o\
 	$(BUILD_DIR)/src/Runtime/mem.o\
 	$(BUILD_DIR)/src/Runtime/mem_funcs.o\
