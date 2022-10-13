@@ -6,6 +6,7 @@
 #include "Kyoto/Math/CAABox.hpp"
 #include "Kyoto/Math/CTransform4f.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
+#include "Kyoto/Particles/CWarp.hpp"
 
 #include "rstl/list.hpp"
 
@@ -13,7 +14,7 @@ class CWarp;
 
 class CParticleGen {
 public:
-  virtual ~CParticleGen() = 0;
+  virtual ~CParticleGen() {};
   virtual void Update(double) = 0;
   virtual void Render() const = 0;
   virtual void SetOrientation(const CTransform4f& orientation) = 0;
