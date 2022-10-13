@@ -7,18 +7,17 @@
 extern "C" {
 #endif
 
-#define ExceptionHookDestination 0x80000048
-#define IsDebuggerPresent 0x80000040
+#define OS_DBINTERFACE_ADDR 0x00000040
 
-// static int __DBInterface;
+typedef struct DBInterface
+{
+    u32     bPresent;
+    u32     exceptionMask;
+    void    (*ExceptionDestination) ( void );
+    void    *exceptionReturn;
+} DBInterface;
 
-struct DBInterface {
-  u8 filler0[4];
-  u32 unk4;
-};
-
-static struct DBInterface* __DBInterface;
-static int DBVerbose;
+extern DBInterface* __DBInterface;
 
 void DBInit(void);
 void DBInitComm(int* inputFlagPtr, int* mtrCallback);

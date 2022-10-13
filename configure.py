@@ -731,7 +731,9 @@ LIBS = [
         "lib": "db",
         "mwcc_version": "1.2.5",
         "cflags": "$cflags_base",
-        "objects": ["Dolphin/db"],
+        "objects": [
+            ["Dolphin/db", True],
+        ],
     },
     {
         "lib": "dsp",
