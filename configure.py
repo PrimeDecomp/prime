@@ -280,7 +280,7 @@ LIBS = [
             "MetroidPrime/HUD/CHudBallInterface",
             "MetroidPrime/Tweaks/CTweakGuiColors",
             "MetroidPrime/ScriptObjects/CFishCloud",
-            "MetroidPrime/CHealthInfo",
+            ["MetroidPrime/CHealthInfo", True],
             "MetroidPrime/Player/CGameState",
             "MetroidPrime/ScriptObjects/CScriptVisorFlare",
             "MetroidPrime/ScriptObjects/CScriptWorldTeleporter",

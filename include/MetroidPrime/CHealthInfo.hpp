@@ -3,9 +3,12 @@
 
 #include "types.h"
 
+class CInputStream;
 class CHealthInfo {
 public:
   CHealthInfo(float hp, float resist) : x0_health(hp), x4_knockbackResistance(resist) {}
+  explicit CHealthInfo(CInputStream&);
+
   void SetHP(float hp) { x0_health = hp; }
   void SetKnockbackResistance(float resist) { x4_knockbackResistance = resist; }
   float GetHP() const { return x0_health; }
