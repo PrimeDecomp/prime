@@ -289,12 +289,12 @@ lbl_8038DE20:
 vprintf:
 /* 8038DE34 0038AD94  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 8038DE38 0038AD98  7C 08 02 A6 */	mflr r0
-/* 8038DE3C 0038AD9C  3C A0 80 3F */	lis r5, lbl_803F2778@ha
+/* 8038DE3C 0038AD9C  3C A0 80 3F */	lis r5, __files@ha
 /* 8038DE40 0038ADA0  90 01 00 24 */	stw r0, 0x24(r1)
 /* 8038DE44 0038ADA4  93 E1 00 1C */	stw r31, 0x1c(r1)
 /* 8038DE48 0038ADA8  93 C1 00 18 */	stw r30, 0x18(r1)
 /* 8038DE4C 0038ADAC  7C 9E 23 78 */	mr r30, r4
-/* 8038DE50 0038ADB0  38 85 27 78 */	addi r4, r5, lbl_803F2778@l
+/* 8038DE50 0038ADB0  38 85 27 78 */	addi r4, r5, __files@l
 /* 8038DE54 0038ADB4  93 A1 00 14 */	stw r29, 0x14(r1)
 /* 8038DE58 0038ADB8  3B E4 00 50 */	addi r31, r4, 0x50
 /* 8038DE5C 0038ADBC  7C 7D 1B 78 */	mr r29, r3
@@ -339,9 +339,9 @@ printf:
 /* 8038DEE4 0038AE44  D8 E1 00 58 */	stfd f7, 0x58(r1)
 /* 8038DEE8 0038AE48  D9 01 00 60 */	stfd f8, 0x60(r1)
 lbl_8038DEEC:
-/* 8038DEEC 0038AE4C  3D 60 80 3F */	lis r11, lbl_803F2778@ha
+/* 8038DEEC 0038AE4C  3D 60 80 3F */	lis r11, __files@ha
 /* 8038DEF0 0038AE50  90 81 00 0C */	stw r4, 0xc(r1)
-/* 8038DEF4 0038AE54  39 6B 27 78 */	addi r11, r11, lbl_803F2778@l
+/* 8038DEF4 0038AE54  39 6B 27 78 */	addi r11, r11, __files@l
 /* 8038DEF8 0038AE58  38 80 FF FF */	li r4, -1
 /* 8038DEFC 0038AE5C  90 61 00 08 */	stw r3, 8(r1)
 /* 8038DF00 0038AE60  3B EB 00 50 */	addi r31, r11, 0x50
@@ -2572,4 +2572,3 @@ lbl_805AEC98:
 	# ROM: 0x3FB538
 	.4byte 0
 	.4byte 0
-

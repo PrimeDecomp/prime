@@ -12,15 +12,117 @@ stdout_buff:
 stdin_buff:
   .skip 0x100
 
+.section .data, "wa"
+.balign 8
+
+.global __files
+__files:
+	# ROM: 0x3EF778
+	.4byte 0
+	.4byte 0x0A800000
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte stdin_buff
+	.4byte 0x00000100
+	.4byte stdin_buff
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte __read_console
+	.4byte __write_console
+	.4byte __close_console
+	.4byte 0
+	.4byte lbl_803F27C8
+
+.global lbl_803F27C8
+lbl_803F27C8:
+
+	# ROM: 0x3EF7C8
+	.4byte 0x00000001
+	.4byte 0x12800000
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte stdout_buff
+	.4byte 0x00000100
+	.4byte stdout_buff
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte __read_console
+	.4byte __write_console
+	.4byte __close_console
+	.4byte 0
+	.4byte lbl_803F2818
+
+.global lbl_803F2818
+lbl_803F2818:
+
+	# ROM: 0x3EF818
+	.4byte 0x00000002
+	.4byte 0x10800000
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte stderr_buff
+	.4byte 0x00000100
+	.4byte stderr_buff
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte __read_console
+	.4byte __write_console
+	.4byte __close_console
+	.4byte 0
+	.4byte lbl_803F2868
+
+.global lbl_803F2868
+lbl_803F2868:
+
+	# ROM: 0x3EF868
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+
 .section .text, "ax"
 
 .global __flush_all
 __flush_all:
 /* 8038B0A8 00388008  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8038B0AC 0038800C  7C 08 02 A6 */	mflr r0
-/* 8038B0B0 00388010  3C 60 80 3F */	lis r3, lbl_803F2778@ha
+/* 8038B0B0 00388010  3C 60 80 3F */	lis r3, __files@ha
 /* 8038B0B4 00388014  90 01 00 14 */	stw r0, 0x14(r1)
-/* 8038B0B8 00388018  38 03 27 78 */	addi r0, r3, lbl_803F2778@l
+/* 8038B0B8 00388018  38 03 27 78 */	addi r0, r3, __files@l
 /* 8038B0BC 0038801C  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 8038B0C0 00388020  3B E0 00 00 */	li r31, 0
 /* 8038B0C4 00388024  93 C1 00 08 */	stw r30, 8(r1)
@@ -52,9 +154,9 @@ lbl_8038B0F4:
 __close_all:
 /* 8038B118 00388078  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8038B11C 0038807C  7C 08 02 A6 */	mflr r0
-/* 8038B120 00388080  3C 60 80 3F */	lis r3, lbl_803F2778@ha
+/* 8038B120 00388080  3C 60 80 3F */	lis r3, __files@ha
 /* 8038B124 00388084  90 01 00 14 */	stw r0, 0x14(r1)
-/* 8038B128 00388088  38 03 27 78 */	addi r0, r3, lbl_803F2778@l
+/* 8038B128 00388088  38 03 27 78 */	addi r0, r3, __files@l
 /* 8038B12C 0038808C  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 8038B130 00388090  7C 1F 03 78 */	mr r31, r0
 /* 8038B134 00388094  48 00 00 60 */	b lbl_8038B194
