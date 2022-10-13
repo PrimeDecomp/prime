@@ -368,7 +368,7 @@ WORLDFORMAT :=\
 	$(BUILD_DIR)/asm/WorldFormat/COBBTree.o\
 	$(BUILD_DIR)/asm/WorldFormat/CCollidableOBBTree.o\
 	$(BUILD_DIR)/asm/WorldFormat/CCollidableOBBTreeGroup.o\
-	$(BUILD_DIR)/asm/WorldFormat/CPVSVisAreaSet.o\
+	$(BUILD_DIR)/asm/WorldFormat/CPVSAreaSet.o\
 	$(BUILD_DIR)/asm/WorldFormat/CAreaRenderOctTree.o\
 	
 WEAPONS :=\
@@ -735,6 +735,7 @@ MSL_PPCEABI_BARE_H :=\
 	$(BUILD_DIR)/src/Runtime/locale.o\
 	$(BUILD_DIR)/src/Runtime/direct_io.o\
 	$(BUILD_DIR)/src/Runtime/file_io.o\
+	$(BUILD_DIR)/src/Runtime/errno.o\
 	$(BUILD_DIR)/src/Runtime/FILE_POS.o\
 	$(BUILD_DIR)/asm/Runtime/mbstring.o\
 	$(BUILD_DIR)/src/Runtime/mem.o\

@@ -153,7 +153,7 @@ __ct__Q211CPVSAreaSet14CPVSAreaHolderFiiiiiiii:
 /* 802AE5EC 002AB54C  48 06 7B B9 */	bl MakePVSVisOctree__13CPVSVisOctreeFPCci
 /* 802AE5F0 002AB550  38 7F 00 20 */	addi r3, r31, 0x20
 /* 802AE5F4 002AB554  38 81 00 08 */	addi r4, r1, 8
-/* 802AE5F8 002AB558  48 00 00 39 */	bl sub_802ae630
+/* 802AE5F8 002AB558  48 00 00 39 */	bl __ct__13CPVSVisOctreeFR13CPVSVisOctree
 /* 802AE5FC 002AB55C  34 61 00 28 */	addic. r3, r1, 0x28
 /* 802AE600 002AB560  41 82 00 18 */	beq lbl_802AE618
 /* 802AE604 002AB564  88 03 00 00 */	lbz r0, 0(r3)
@@ -169,8 +169,8 @@ lbl_802AE618:
 /* 802AE628 002AB588  38 21 00 60 */	addi r1, r1, 0x60
 /* 802AE62C 002AB58C  4E 80 00 20 */	blr
 
-.global sub_802ae630
-sub_802ae630:
+.global __ct__13CPVSVisOctreeFR13CPVSVisOctree
+__ct__13CPVSVisOctreeFR13CPVSVisOctree:
 /* 802AE630 002AB590  C0 04 00 00 */	lfs f0, 0(r4)
 /* 802AE634 002AB594  38 00 00 00 */	li r0, 0
 /* 802AE638 002AB598  D0 03 00 00 */	stfs f0, 0(r3)
@@ -216,4 +216,3 @@ lbl_803D6110:
 	# ROM: 0x3D3110
 	.asciz "??(??)"
 	.balign 4
-
