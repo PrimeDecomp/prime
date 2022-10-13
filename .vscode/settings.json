@@ -30,9 +30,12 @@
     {
       "folderPath": "include/rstl",
       "prefix": "RSTL_"
-    }
+    },
   ],
   "C/C++ Include Guard.Auto Update Path Allowlist": [
     "include"
   ],
+  "C/C++ Include Guard.Auto Update Path Blocklist": [
+    "include/zlib"
+  ]
 }
