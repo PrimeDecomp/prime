@@ -448,7 +448,7 @@ lbl_80023E88:
 /* 80023EA8 00020E08  4B FE 2E 59 */	bl InsertMsg__18CArchitectureQueueFRC20CArchitectureMessage
 /* 80023EAC 00020E0C  34 61 00 38 */	addic. r3, r1, 0x38
 /* 80023EB0 00020E10  41 82 00 08 */	beq lbl_80023EB8
-/* 80023EB4 00020E14  4B FE 48 59 */	bl sub_8000870c
+/* 80023EB4 00020E14  4B FE 48 59 */	bl "__dt__Q24rstl34rc_ptr<24IArchitectureMessageParm>Fv"
 lbl_80023EB8:
 /* 80023EB8 00020E18  48 33 14 BD */	bl EnableTextureTimeout__6CModelFv
 /* 80023EBC 00020E1C  38 60 00 02 */	li r3, 2
@@ -1256,7 +1256,7 @@ lbl_800249A4:
 /* 800249DC 0002193C  4B FE 23 25 */	bl InsertMsg__18CArchitectureQueueFRC20CArchitectureMessage
 /* 800249E0 00021940  34 61 00 2C */	addic. r3, r1, 0x2c
 /* 800249E4 00021944  41 82 00 3C */	beq lbl_80024A20
-/* 800249E8 00021948  4B FE 3D 25 */	bl sub_8000870c
+/* 800249E8 00021948  4B FE 3D 25 */	bl "__dt__Q24rstl34rc_ptr<24IArchitectureMessageParm>Fv"
 /* 800249EC 0002194C  48 00 00 34 */	b lbl_80024A20
 lbl_800249F0:
 /* 800249F0 00021950  80 7D 00 14 */	lwz r3, 0x14(r29)
@@ -1478,7 +1478,7 @@ lbl_80024CF4:
 /* 80024D28 00021C88  4B FE 1F D9 */	bl InsertMsg__18CArchitectureQueueFRC20CArchitectureMessage
 /* 80024D2C 00021C8C  34 61 00 20 */	addic. r3, r1, 0x20
 /* 80024D30 00021C90  41 82 00 18 */	beq lbl_80024D48
-/* 80024D34 00021C94  4B FE 39 D9 */	bl sub_8000870c
+/* 80024D34 00021C94  4B FE 39 D9 */	bl "__dt__Q24rstl34rc_ptr<24IArchitectureMessageParm>Fv"
 /* 80024D38 00021C98  48 00 00 10 */	b lbl_80024D48
 .global lbl_80024D3C
 lbl_80024D3C:

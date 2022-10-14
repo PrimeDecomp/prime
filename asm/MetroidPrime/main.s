@@ -5524,7 +5524,7 @@ Update__24CGameArchitectureSupportFv:
 /* 80006CD0 00003C30  48 00 00 31 */	bl InsertMsg__18CArchitectureQueueFRC20CArchitectureMessage
 /* 80006CD4 00003C34  34 61 00 10 */	addic. r3, r1, 0x10
 /* 80006CD8 00003C38  41 82 00 08 */	beq lbl_80006CE0
-/* 80006CDC 00003C3C  48 00 1A 31 */	bl sub_8000870c
+/* 80006CDC 00003C3C  48 00 1A 31 */	bl "__dt__Q24rstl34rc_ptr<24IArchitectureMessageParm>Fv"
 lbl_80006CE0:
 /* 80006CE0 00003C40  38 7F 00 58 */	addi r3, r31, 0x58
 /* 80006CE4 00003C44  38 9F 00 04 */	addi r4, r31, 4
@@ -5668,7 +5668,7 @@ lbl_80006EB4:
 /* 80006ED0 00003E30  4B FF FE 31 */	bl InsertMsg__18CArchitectureQueueFRC20CArchitectureMessage
 /* 80006ED4 00003E34  34 61 00 1C */	addic. r3, r1, 0x1c
 /* 80006ED8 00003E38  41 82 00 08 */	beq lbl_80006EE0
-/* 80006EDC 00003E3C  48 00 18 31 */	bl sub_8000870c
+/* 80006EDC 00003E3C  48 00 18 31 */	bl "__dt__Q24rstl34rc_ptr<24IArchitectureMessageParm>Fv"
 lbl_80006EE0:
 /* 80006EE0 00003E40  C3 E2 80 00 */	lfs f31, lbl_805A9D20@sda21(r2)
 /* 80006EE4 00003E44  3B A1 00 10 */	addi r29, r1, 0x10
@@ -5693,7 +5693,7 @@ lbl_80006F0C:
 /* 80006F28 00003E88  28 1D 00 00 */	cmplwi r29, 0
 /* 80006F2C 00003E8C  41 82 00 0C */	beq lbl_80006F38
 /* 80006F30 00003E90  7F A3 EB 78 */	mr r3, r29
-/* 80006F34 00003E94  48 00 17 D9 */	bl sub_8000870c
+/* 80006F34 00003E94  48 00 17 D9 */	bl "__dt__Q24rstl34rc_ptr<24IArchitectureMessageParm>Fv"
 lbl_80006F38:
 /* 80006F38 00003E98  C0 1E 00 7C */	lfs f0, 0x7c(r30)
 /* 80006F3C 00003E9C  38 7E 00 58 */	addi r3, r30, 0x58
@@ -7389,8 +7389,8 @@ lbl_800086F8:
 /* 80008704 00005664  38 21 00 10 */	addi r1, r1, 0x10
 /* 80008708 00005668  4E 80 00 20 */	blr
 
-.global sub_8000870c
-sub_8000870c:
+.global "__dt__Q24rstl34rc_ptr<24IArchitectureMessageParm>Fv"
+"__dt__Q24rstl34rc_ptr<24IArchitectureMessageParm>Fv":
 /* 8000870C 0000566C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80008710 00005670  7C 08 02 A6 */	mflr r0
 /* 80008714 00005674  90 01 00 14 */	stw r0, 0x14(r1)
@@ -8151,7 +8151,7 @@ lbl_800090D8:
 /* 800090E8 00006048  34 03 00 08 */	addic. r0, r3, 8
 /* 800090EC 0000604C  41 82 00 0C */	beq lbl_800090F8
 /* 800090F0 00006050  38 63 00 08 */	addi r3, r3, 8
-/* 800090F4 00006054  4B FF F6 19 */	bl sub_8000870c
+/* 800090F4 00006054  4B FF F6 19 */	bl "__dt__Q24rstl34rc_ptr<24IArchitectureMessageParm>Fv"
 lbl_800090F8:
 /* 800090F8 00006058  28 1E 00 00 */	cmplwi r30, 0
 /* 800090FC 0000605C  41 82 00 0C */	beq lbl_80009108

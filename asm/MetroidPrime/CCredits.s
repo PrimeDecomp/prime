@@ -3382,7 +3382,7 @@ sub_80027db4:
 /* 80027DEC 00024D4C  4B FD EF 15 */	bl InsertMsg__18CArchitectureQueueFRC20CArchitectureMessage
 /* 80027DF0 00024D50  34 61 00 14 */	addic. r3, r1, 0x14
 /* 80027DF4 00024D54  41 82 00 08 */	beq lbl_80027DFC
-/* 80027DF8 00024D58  4B FE 09 15 */	bl sub_8000870c
+/* 80027DF8 00024D58  4B FE 09 15 */	bl "__dt__Q24rstl34rc_ptr<24IArchitectureMessageParm>Fv"
 lbl_80027DFC:
 /* 80027DFC 00024D5C  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80027E00 00024D60  83 E1 00 1C */	lwz r31, 0x1c(r1)
