@@ -48,7 +48,7 @@ lbl_80051838:
 /* 80051858 0004E7B8  80 85 00 04 */	lwz r4, 4(r5)
 /* 8005185C 0004E7BC  38 04 00 01 */	addi r0, r4, 1
 /* 80051860 0004E7C0  90 05 00 04 */	stw r0, 4(r5)
-/* 80051864 0004E7C4  4B FB 6E A9 */	bl sub_8000870c
+/* 80051864 0004E7C4  4B FB 6E A9 */	bl "__dt__Q24rstl34rc_ptr<24IArchitectureMessageParm>Fv"
 /* 80051868 0004E7C8  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8005186C 0004E7CC  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80051870 0004E7D0  83 C1 00 18 */	lwz r30, 0x18(r1)
@@ -110,7 +110,7 @@ lbl_80051910:
 /* 80051930 0004E890  80 85 00 04 */	lwz r4, 4(r5)
 /* 80051934 0004E894  38 04 00 01 */	addi r0, r4, 1
 /* 80051938 0004E898  90 05 00 04 */	stw r0, 4(r5)
-/* 8005193C 0004E89C  4B FB 6D D1 */	bl sub_8000870c
+/* 8005193C 0004E89C  4B FB 6D D1 */	bl "__dt__Q24rstl34rc_ptr<24IArchitectureMessageParm>Fv"
 /* 80051940 0004E8A0  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80051944 0004E8A4  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80051948 0004E8A8  83 C1 00 18 */	lwz r30, 0x18(r1)
@@ -163,7 +163,7 @@ lbl_800519D0:
 /* 800519F0 0004E950  80 85 00 04 */	lwz r4, 4(r5)
 /* 800519F4 0004E954  38 04 00 01 */	addi r0, r4, 1
 /* 800519F8 0004E958  90 05 00 04 */	stw r0, 4(r5)
-/* 800519FC 0004E95C  4B FB 6D 11 */	bl sub_8000870c
+/* 800519FC 0004E95C  4B FB 6D 11 */	bl "__dt__Q24rstl34rc_ptr<24IArchitectureMessageParm>Fv"
 /* 80051A00 0004E960  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80051A04 0004E964  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80051A08 0004E968  83 C1 00 18 */	lwz r30, 0x18(r1)
@@ -217,7 +217,7 @@ lbl_80051A94:
 /* 80051AB4 0004EA14  80 85 00 04 */	lwz r4, 4(r5)
 /* 80051AB8 0004EA18  38 04 00 01 */	addi r0, r4, 1
 /* 80051ABC 0004EA1C  90 05 00 04 */	stw r0, 4(r5)
-/* 80051AC0 0004EA20  4B FB 6C 4D */	bl sub_8000870c
+/* 80051AC0 0004EA20  4B FB 6C 4D */	bl "__dt__Q24rstl34rc_ptr<24IArchitectureMessageParm>Fv"
 /* 80051AC4 0004EA24  BB 61 00 1C */	lmw r27, 0x1c(r1)
 /* 80051AC8 0004EA28  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80051ACC 0004EA2C  7C 08 03 A6 */	mtlr r0
@@ -282,7 +282,7 @@ lbl_80051B6C:
 /* 80051B8C 0004EAEC  80 85 00 04 */	lwz r4, 4(r5)
 /* 80051B90 0004EAF0  38 04 00 01 */	addi r0, r4, 1
 /* 80051B94 0004EAF4  90 05 00 04 */	stw r0, 4(r5)
-/* 80051B98 0004EAF8  4B FB 6B 75 */	bl sub_8000870c
+/* 80051B98 0004EAF8  4B FB 6B 75 */	bl "__dt__Q24rstl34rc_ptr<24IArchitectureMessageParm>Fv"
 /* 80051B9C 0004EAFC  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80051BA0 0004EB00  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80051BA4 0004EB04  83 C1 00 18 */	lwz r30, 0x18(r1)
@@ -344,7 +344,7 @@ lbl_80051C44:
 /* 80051C64 0004EBC4  80 85 00 04 */	lwz r4, 4(r5)
 /* 80051C68 0004EBC8  38 04 00 01 */	addi r0, r4, 1
 /* 80051C6C 0004EBCC  90 05 00 04 */	stw r0, 4(r5)
-/* 80051C70 0004EBD0  4B FB 6A 9D */	bl sub_8000870c
+/* 80051C70 0004EBD0  4B FB 6A 9D */	bl "__dt__Q24rstl34rc_ptr<24IArchitectureMessageParm>Fv"
 /* 80051C74 0004EBD4  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80051C78 0004EBD8  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80051C7C 0004EBDC  83 C1 00 18 */	lwz r30, 0x18(r1)
@@ -413,7 +413,7 @@ lbl_80051D2C:
 /* 80051D4C 0004ECAC  80 85 00 04 */	lwz r4, 4(r5)
 /* 80051D50 0004ECB0  38 04 00 01 */	addi r0, r4, 1
 /* 80051D54 0004ECB4  90 05 00 04 */	stw r0, 4(r5)
-/* 80051D58 0004ECB8  4B FB 69 B5 */	bl sub_8000870c
+/* 80051D58 0004ECB8  4B FB 69 B5 */	bl "__dt__Q24rstl34rc_ptr<24IArchitectureMessageParm>Fv"
 /* 80051D5C 0004ECBC  BB 41 00 18 */	lmw r26, 0x18(r1)
 /* 80051D60 0004ECC0  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80051D64 0004ECC4  7C 08 03 A6 */	mtlr r0
@@ -433,14 +433,3 @@ lbl_803CCF20:
 	# ROM: 0x3C9F20
 	.asciz "??(??)"
 	.balign 4
-
-.global lbl_803CCF28
-lbl_803CCF28:
-	# ROM: 0x3C9F28
-	.asciz "Msg[%3d] %s"
-	.asciz "-------------------------"
-	.asciz "Draw[%3d] %s"
-	.asciz "??(??)"
-	.balign 4
-	.4byte 0
-

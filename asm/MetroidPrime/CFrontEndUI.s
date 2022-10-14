@@ -602,7 +602,7 @@ lbl_8001BB30:
 /* 8001BB54 00018AB4  4B FE B1 AD */	bl InsertMsg__18CArchitectureQueueFRC20CArchitectureMessage
 /* 8001BB58 00018AB8  34 61 00 14 */	addic. r3, r1, 0x14
 /* 8001BB5C 00018ABC  41 82 00 08 */	beq lbl_8001BB64
-/* 8001BB60 00018AC0  4B FE CB AD */	bl sub_8000870c
+/* 8001BB60 00018AC0  4B FE CB AD */	bl "__dt__Q24rstl34rc_ptr<24IArchitectureMessageParm>Fv"
 lbl_8001BB64:
 /* 8001BB64 00018AC4  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8001BB68 00018AC8  83 E1 00 1C */	lwz r31, 0x1c(r1)
