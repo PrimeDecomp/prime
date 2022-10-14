@@ -6,7 +6,7 @@
 #include "MetroidPrime/CWorld.hpp"
 
 class CScriptAreaAttributes : public CEntity {
-  bool x34_24_showSkybox : 1;
+  uchar x34_24_showSkybox : 1;
   EEnvFxType x38_envFx;
   float x3c_envFxDensity;
   float x40_thermalHeat;
