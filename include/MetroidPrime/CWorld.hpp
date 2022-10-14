@@ -11,6 +11,7 @@
 #include "rstl/string.hpp"
 
 class CMapWorld;
+class CModel;
 class IGameArea;
 
 class IWorld {
@@ -60,6 +61,7 @@ public:
 
   const CGameArea& GetAreaAlways(TAreaId id) const { return *x18_areas[id.Value()]; }
   const CGameArea* GetArea(TAreaId id) const { return x18_areas[id.Value()].get(); }
+  CGameArea* Area(TAreaId id) { return x18_areas[id.Value()].get(); }
   bool IsAreaValid(TAreaId id) const { return x18_areas[id.Value()]->IsLoaded(); }
   CAssetId GetWorldAssetId() const { return x8_mlvlId; }
   TAreaId GetAreaIdForSaveId(int saveId) const;

@@ -536,8 +536,8 @@ sub_8005e1fc:
 /* 8005E208 0005B168  D0 43 11 24 */	stfs f2, 0x1124(r3)
 /* 8005E20C 0005B16C  4E 80 00 20 */	blr
 
-.global sub_8005e210
-sub_8005e210:
+.global SetAreaAttributes__9CGameAreaFPC21CScriptAreaAttributes
+SetAreaAttributes__9CGameAreaFPC21CScriptAreaAttributes:
 /* 8005E210 0005B170  80 A3 01 2C */	lwz r5, 0x12c(r3)
 /* 8005E214 0005B174  28 04 00 00 */	cmplwi r4, 0
 /* 8005E218 0005B178  90 85 10 D8 */	stw r4, 0x10d8(r5)

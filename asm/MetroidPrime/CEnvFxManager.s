@@ -167,8 +167,8 @@ lbl_8020FF34:
 /* 8020FF54 0020CEB4  38 21 00 30 */	addi r1, r1, 0x30
 /* 8020FF58 0020CEB8  4E 80 00 20 */	blr
 
-.global SetFxDensity__13CEnvFxManagerFv
-SetFxDensity__13CEnvFxManagerFv:
+.global SetFxDensity__13CEnvFxManagerFif
+SetFxDensity__13CEnvFxManagerFif:
 /* 8020FF5C 0020CEBC  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8020FF60 0020CEC0  6C 84 80 00 */	xoris r4, r4, 0x8000
 /* 8020FF64 0020CEC4  3C 00 43 30 */	lis r0, 0x4330
