@@ -31,7 +31,7 @@ class CObjectList {
 public:
   CObjectList(EGameObjectList list);
 
-  virtual bool IsQualified(const CEntity& ent);
+  virtual uchar IsQualified(const CEntity& ent);
 
   void AddObject(CEntity& ent);
   void RemoveObject(TUniqueId uid);

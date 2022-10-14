@@ -68,6 +68,9 @@ typedef int BOOL;
 #ifndef nullptr
 #define nullptr NULL
 #endif
+#ifndef final
+#define final
+#endif
 #ifndef override
 #define override
 #endif

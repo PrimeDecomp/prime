@@ -264,7 +264,7 @@ LIBS = [
             "MetroidPrime/Player/CPlayerEnergyDrain",
             "MetroidPrime/CFlameWarp",
             "MetroidPrime/Weapons/CIceImpact",
-            "MetroidPrime/GameObjectLists",
+            ["MetroidPrime/GameObjectLists", True],
             "MetroidPrime/Weapons/CAuxWeapon",
             "MetroidPrime/Weapons/CGunWeapon",
             "MetroidPrime/ScriptObjects/CScriptAreaAttributes",

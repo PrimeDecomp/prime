@@ -3,6 +3,12 @@
 
 #include "types.h"
 
+enum EStateMsg {
+  kStateMsg_Activate = 0,
+  kStateMsg_Update = 1,
+  kStateMsg_Deactivate = 2,
+};
+
 class CAiFuncMap {
 public:
   CAiFuncMap();
