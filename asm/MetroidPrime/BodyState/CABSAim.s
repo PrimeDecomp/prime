@@ -53,8 +53,8 @@ __dt__7CABSAimFv:
 /* 801D9D34 001D6C94  38 03 5C A0 */	addi r0, r3, lbl_803E5CA0@l
 /* 801D9D38 001D6C98  90 1F 00 00 */	stw r0, 0(r31)
 /* 801D9D3C 001D6C9C  41 82 00 10 */	beq lbl_801D9D4C
-/* 801D9D40 001D6CA0  3C 60 80 3E */	lis r3, lbl_803E1350@ha
-/* 801D9D44 001D6CA4  38 03 13 50 */	addi r0, r3, lbl_803E1350@l
+/* 801D9D40 001D6CA0  3C 60 80 3E */	lis r3, __vt__18CAdditiveBodyState@ha
+/* 801D9D44 001D6CA4  38 03 13 50 */	addi r0, r3, __vt__18CAdditiveBodyState@l
 /* 801D9D48 001D6CA8  90 1F 00 00 */	stw r0, 0(r31)
 lbl_801D9D4C:
 /* 801D9D4C 001D6CAC  7C 80 07 35 */	extsh. r0, r4
@@ -559,9 +559,9 @@ lbl_801DA44C:
 
 .global __ct__7CABSAimFv
 __ct__7CABSAimFv:
-/* 801DA468 001D73C8  3C A0 80 3E */	lis r5, lbl_803E1350@ha
+/* 801DA468 001D73C8  3C A0 80 3E */	lis r5, __vt__18CAdditiveBodyState@ha
 /* 801DA46C 001D73CC  3C 80 80 3E */	lis r4, lbl_803E5CA0@ha
-/* 801DA470 001D73D0  38 A5 13 50 */	addi r5, r5, lbl_803E1350@l
+/* 801DA470 001D73D0  38 A5 13 50 */	addi r5, r5, __vt__18CAdditiveBodyState@l
 /* 801DA474 001D73D4  38 00 00 00 */	li r0, 0
 /* 801DA478 001D73D8  90 A3 00 00 */	stw r5, 0(r3)
 /* 801DA47C 001D73DC  38 84 5C A0 */	addi r4, r4, lbl_803E5CA0@l
@@ -605,4 +605,3 @@ lbl_805AC9E0:
 lbl_805AC9E4:
 	# ROM: 0x3F9284
 	.float 0.017453292
-

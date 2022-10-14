@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803E5C60
-lbl_803E5C60:
+.global __vt__8CABSIdle
+__vt__8CABSIdle:
 	# ROM: 0x3E2C60
 	.4byte 0
 	.4byte 0
@@ -25,12 +25,12 @@ __dt__8CABSIdleFv:
 /* 801D9940 001D68A0  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 801D9944 001D68A4  7C 7F 1B 79 */	or. r31, r3, r3
 /* 801D9948 001D68A8  41 82 00 30 */	beq lbl_801D9978
-/* 801D994C 001D68AC  3C 60 80 3E */	lis r3, lbl_803E5C60@ha
-/* 801D9950 001D68B0  38 03 5C 60 */	addi r0, r3, lbl_803E5C60@l
+/* 801D994C 001D68AC  3C 60 80 3E */	lis r3, __vt__8CABSIdle@ha
+/* 801D9950 001D68B0  38 03 5C 60 */	addi r0, r3, __vt__8CABSIdle@l
 /* 801D9954 001D68B4  90 1F 00 00 */	stw r0, 0(r31)
 /* 801D9958 001D68B8  41 82 00 10 */	beq lbl_801D9968
-/* 801D995C 001D68BC  3C 60 80 3E */	lis r3, lbl_803E1350@ha
-/* 801D9960 001D68C0  38 03 13 50 */	addi r0, r3, lbl_803E1350@l
+/* 801D995C 001D68BC  3C 60 80 3E */	lis r3, __vt__18CAdditiveBodyState@ha
+/* 801D9960 001D68C0  38 03 13 50 */	addi r0, r3, __vt__18CAdditiveBodyState@l
 /* 801D9964 001D68C4  90 1F 00 00 */	stw r0, 0(r31)
 lbl_801D9968:
 /* 801D9968 001D68C8  7C 80 07 35 */	extsh. r0, r4
@@ -53,8 +53,8 @@ Start__8CABSIdleFR15CBodyControllerR13CStateManager:
 Shutdown__8CABSIdleFR15CBodyController:
 /* 801D9994 001D68F4  4E 80 00 20 */	blr
 
-.global GetBodyStateTransition__8CABSIdleFfR15CBodyController
-GetBodyStateTransition__8CABSIdleFfR15CBodyController:
+.global GetBodyStateTransition__8CABSIdleCFfR15CBodyController
+GetBodyStateTransition__8CABSIdleCFfR15CBodyController:
 /* 801D9998 001D68F8  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801D999C 001D68FC  7C 08 02 A6 */	mflr r0
 /* 801D99A0 001D6900  90 01 00 14 */	stw r0, 0x14(r1)
@@ -95,7 +95,7 @@ UpdateBody__8CABSIdleFfR15CBodyControllerR13CStateManager:
 /* 801D9A14 001D6974  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801D9A18 001D6978  7C 08 02 A6 */	mflr r0
 /* 801D9A1C 001D697C  90 01 00 14 */	stw r0, 0x14(r1)
-/* 801D9A20 001D6980  4B FF FF 79 */	bl GetBodyStateTransition__8CABSIdleFfR15CBodyController
+/* 801D9A20 001D6980  4B FF FF 79 */	bl GetBodyStateTransition__8CABSIdleCFfR15CBodyController
 /* 801D9A24 001D6984  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801D9A28 001D6988  7C 08 03 A6 */	mtlr r0
 /* 801D9A2C 001D698C  38 21 00 10 */	addi r1, r1, 0x10

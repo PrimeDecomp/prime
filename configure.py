@@ -289,7 +289,7 @@ LIBS = [
             "MetroidPrime/ScriptObjects/CScriptControllerAction",
             "MetroidPrime/Weapons/GunController/CGunMotion",
             ["MetroidPrime/ScriptObjects/CScriptSwitch", True],
-            "MetroidPrime/BodyState/CABSIdle",
+            ["MetroidPrime/BodyState/CABSIdle", True],
             "MetroidPrime/BodyState/CABSFlinch",
             "MetroidPrime/BodyState/CABSAim",
             "MetroidPrime/ScriptObjects/CScriptPlayerStateChange",
