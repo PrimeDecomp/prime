@@ -990,9 +990,9 @@ __ct__14CGuiTableGroupFRCQ210CGuiWidget15CGuiWidgetParmsiiQ214CGuiTableGroup16ET
 /* 802C7234 002C4194  38 7C 00 B8 */	addi r3, r28, 0xb8
 /* 802C7238 002C4198  38 04 C9 70 */	addi r0, r4, lbl_803EC970@l
 /* 802C723C 002C419C  90 1C 00 00 */	stw r0, 0(r28)
-/* 802C7240 002C41A0  48 00 62 7D */	bl sub_802cd4bc
+/* 802C7240 002C41A0  48 00 62 7D */	bl __ct__Q214CGuiTableGroup12CRepeatStateFv
 /* 802C7244 002C41A4  38 7C 00 BC */	addi r3, r28, 0xbc
-/* 802C7248 002C41A8  48 00 62 75 */	bl sub_802cd4bc
+/* 802C7248 002C41A8  48 00 62 75 */	bl __ct__Q214CGuiTableGroup12CRepeatStateFv
 /* 802C724C 002C41AC  93 BC 00 C0 */	stw r29, 0xc0(r28)
 /* 802C7250 002C41B0  38 C0 00 01 */	li r6, 1
 /* 802C7254 002C41B4  38 00 00 00 */	li r0, 0

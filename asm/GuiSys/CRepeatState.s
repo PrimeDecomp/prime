@@ -34,8 +34,8 @@ lbl_802CD4B4:
 /* 802CD4B4 002CA414  54 A3 06 3E */	clrlwi r3, r5, 0x18
 /* 802CD4B8 002CA418  4E 80 00 20 */	blr
 
-.global sub_802cd4bc
-sub_802cd4bc:
+.global __ct__Q214CGuiTableGroup12CRepeatStateFv
+__ct__Q214CGuiTableGroup12CRepeatStateFv:
 /* 802CD4BC 002CA41C  C0 02 C4 70 */	lfs f0, lbl_805AE190@sda21(r2)
 /* 802CD4C0 002CA420  D0 03 00 00 */	stfs f0, 0(r3)
 /* 802CD4C4 002CA424  4E 80 00 20 */	blr
@@ -57,4 +57,3 @@ lbl_805AE198:
 	# ROM: 0x3FAA38
 	.4byte 0x3D4CCCCD
 	.4byte 0
-
