@@ -31,6 +31,7 @@ public:
 class Dock;
 class CToken;
 class IDvdRequest;
+class CScriptAreaAttributes;
 
 class CGameArea : public IGameArea {
 public:
@@ -46,6 +47,8 @@ public:
 
   bool IsLoaded() const { return xf0_24_postConstructed; }
   bool IsActive() const { return xf0_25_active; }
+
+  void SetAreaAttributes(const CScriptAreaAttributes* areaAttributes);
 
 private:
   enum EPhase {

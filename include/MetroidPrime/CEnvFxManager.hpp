@@ -18,6 +18,8 @@
 class CGenDescription;
 class CTexture;
 
+enum EPhazonType { kPT_None, kPT_Blue, kPT_Orange };
+
 class CVectorFixed8_8 {
 private:
   short x;

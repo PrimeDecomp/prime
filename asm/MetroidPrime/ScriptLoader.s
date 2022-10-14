@@ -13037,7 +13037,7 @@ lbl_800D0E18:
 /* 800D0ED8 000CDE38  7F E8 FB 78 */	mr r8, r31
 /* 800D0EDC 000CDE3C  7F 69 DB 78 */	mr r9, r27
 /* 800D0EE0 000CDE40  38 81 00 0C */	addi r4, r1, 0xc
-/* 800D0EE4 000CDE44  48 0E C6 E5 */	bl __ct__21CScriptAreaAttributesF9TUniqueIdRC11CEntityInfob10EEnvFxTypeffffi11EPhazonType
+/* 800D0EE4 000CDE44  48 0E C6 E5 */	bl __ct__21CScriptAreaAttributesF9TUniqueIdRC11CEntityInfob10EEnvFxTypeffffUi11EPhazonType
 /* 800D0EE8 000CDE48  7C 7E 1B 78 */	mr r30, r3
 lbl_800D0EEC:
 /* 800D0EEC 000CDE4C  7F C3 F3 78 */	mr r3, r30
