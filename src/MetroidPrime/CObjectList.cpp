@@ -2,15 +2,13 @@
 
 #include "MetroidPrime/CEntity.hpp"
 
-CObjectList::SObjectListEntry::SObjectListEntry() : mEnt(nullptr), mNext(-1), mPrev(-1) {}
-
 CObjectList::CObjectList(EGameObjectList list) : mListType(list), mFirstId(-1), mCount(0) {
   for (int i = 0; i < kMaxObjects; ++i) {
     mObjects[i] = SObjectListEntry();
   }
 }
 
-bool CObjectList::IsQualified(CEntity& ent) { return true; }
+bool CObjectList::IsQualified(const CEntity& ent) { return true; }
 
 void CObjectList::AddObject(CEntity& ent) {
   if (IsQualified(ent)) {
@@ -28,18 +26,72 @@ void CObjectList::AddObject(CEntity& ent) {
   }
 }
 
-void CObjectList::RemoveObject(TUniqueId uid) {}
+void CObjectList::RemoveObject(TUniqueId uid) {
+  if (mObjects[uid.Value()].mEnt == nullptr) {
+    return;
+  }
 
-CEntity* CObjectList::GetObjectById() { return nullptr; }
+  if (mObjects[uid.Value()].mEnt->GetUniqueId() != uid) {
+    return;
+  }
 
-const CEntity* CObjectList::GetObjectById() const { return nullptr; }
+  if (mFirstId == uid.Value()) {
+    mFirstId = mObjects[uid.Value()].mNext;
+    s16 next = mObjects[uid.Value()].mNext;
+    if (next != -1) {
+      mObjects[next].mPrev = -1;
+    }
+  } else {
+    mObjects[mObjects[uid.Value()].mPrev].mNext = mObjects[uid.Value()].mNext;
+    s16 next = mObjects[uid.Value()].mNext;
+    if (next != -1) {
+      mObjects[next].mPrev = mObjects[uid.Value()].mPrev;
+    }
+  }
+  --mCount;
+  mObjects[uid.Value()].mEnt = nullptr;
+  u16 index = uid.Value();
+  mObjects[index].mNext = -1;
+  mObjects[index].mPrev = -1;
+}
 
-CEntity* CObjectList::GetValidObjectById(TUniqueId uid) { return nullptr; }
+CEntity* CObjectList::GetObjectById(TUniqueId uid) {
+  if (uid == kInvalidUniqueId)
+    return nullptr;
+  CEntity* ret = mObjects[uid.Value()].mEnt;
+  return ret && uid == ret->GetUniqueId() && !ret->IsScriptingBlocked() ? ret : nullptr;
+}
 
-const CEntity* CObjectList::GetValidObjectById(TUniqueId uid) const { return nullptr; }
+const CEntity* CObjectList::GetObjectById(TUniqueId uid) const {
+  if (uid == kInvalidUniqueId)
+    return nullptr;
+  const CEntity* ret = mObjects[uid.Value()].mEnt;
+  return ret && uid == ret->GetUniqueId() && !ret->IsScriptingBlocked() ? ret : nullptr;
+}
 
-CEntity* CObjectList::operator[](int idx) { return nullptr; }
+CEntity* CObjectList::GetValidObjectById(TUniqueId uid) {
+  if (uid == kInvalidUniqueId)
+    return nullptr;
+  CEntity* ret = mObjects[uid.Value()].mEnt;
+  return ret && uid == ret->GetUniqueId() ? ret : nullptr;
+}
 
-const CEntity* CObjectList::operator[](int idx) const { return nullptr; }
+const CEntity* CObjectList::GetValidObjectById(TUniqueId uid) const {
+  if (uid == kInvalidUniqueId)
+    return nullptr;
+  CEntity* ret = mObjects[uid.Value()].mEnt;
+  return ret && uid == ret->GetUniqueId() ? ret : nullptr;
+}
 
-const CEntity* CObjectList::GetValidObjectByIndex(int idx) const { return nullptr; }
+CEntity* CObjectList::operator[](int idx) {
+  CEntity* ret = mObjects[idx].mEnt;
+  return ret == nullptr || ret->IsScriptingBlocked() ?  nullptr :  ret;
+}
+
+const CEntity* CObjectList::operator[](int idx) const {
+  const CEntity* ret = mObjects[idx].mEnt;
+  return ret == nullptr || ret->IsScriptingBlocked() ?  nullptr :  ret;
+}
+
+
+const CEntity* CObjectList::GetObjectByIndex(int idx) const { return mObjects[idx].mEnt; }

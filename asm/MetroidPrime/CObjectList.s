@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803D96D8
-lbl_803D96D8:
+.global __vt__11CObjectList
+__vt__11CObjectList:
 	# ROM: 0x3D66D8
 	.4byte 0
 	.4byte 0
@@ -282,10 +282,10 @@ IsQualified__11CObjectListFRC7CEntity:
 __ct__11CObjectListF15EGameObjectList:
 /* 80010038 0000CF98  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8001003C 0000CF9C  7C 08 02 A6 */	mflr r0
-/* 80010040 0000CFA0  3C A0 80 3E */	lis r5, lbl_803D96D8@ha
+/* 80010040 0000CFA0  3C A0 80 3E */	lis r5, __vt__11CObjectList@ha
 /* 80010044 0000CFA4  38 C0 00 08 */	li r6, 8
 /* 80010048 0000CFA8  90 01 00 14 */	stw r0, 0x14(r1)
-/* 8001004C 0000CFAC  38 05 96 D8 */	addi r0, r5, lbl_803D96D8@l
+/* 8001004C 0000CFAC  38 05 96 D8 */	addi r0, r5, __vt__11CObjectList@l
 /* 80010050 0000CFB0  38 A0 00 00 */	li r5, 0
 /* 80010054 0000CFB4  38 E0 04 00 */	li r7, 0x400
 /* 80010058 0000CFB8  93 E1 00 0C */	stw r31, 0xc(r1)

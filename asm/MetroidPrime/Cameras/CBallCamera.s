@@ -10033,9 +10033,9 @@ UpdateObjectTooCloseId__11CBallCameraFR13CStateManager:
 /* 8008997C 000868DC  80 84 08 4C */	lwz r4, 0x84c(r4)
 /* 80089980 000868E0  48 1F B3 C9 */	bl GetBallPosition__7CPlayerCFv
 /* 80089984 000868E4  80 BF 08 48 */	lwz r5, 0x848(r31)
-/* 80089988 000868E8  3C 60 80 3E */	lis r3, lbl_803D96D8@ha
+/* 80089988 000868E8  3C 60 80 3E */	lis r3, __vt__11CObjectList@ha
 /* 8008998C 000868EC  C3 9E 00 40 */	lfs f28, 0x40(r30)
-/* 80089990 000868F0  38 03 96 D8 */	addi r0, r3, lbl_803D96D8@l
+/* 80089990 000868F0  38 03 96 D8 */	addi r0, r3, __vt__11CObjectList@l
 /* 80089994 000868F4  C3 7E 00 50 */	lfs f27, 0x50(r30)
 /* 80089998 000868F8  38 81 00 70 */	addi r4, r1, 0x70
 /* 8008999C 000868FC  C3 5E 00 60 */	lfs f26, 0x60(r30)

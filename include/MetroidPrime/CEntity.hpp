@@ -32,6 +32,7 @@ public:
   TAreaId GetAreaId() const;
   TAreaId GetAreaIdAlways() const { return x4_areaId; }
   bool GetActive() const { return x30_24_active; }
+  bool IsScriptingBlocked() const { return x30_26_scriptingBlocked; }
 
   // might be fake?
   rstl::vector< SConnection >& ConnectionList() { return x20_conns; }
