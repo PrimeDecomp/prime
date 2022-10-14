@@ -198,8 +198,8 @@ lbl_803E1318:
 	.4byte 0
 	.4byte 0
 
-.global lbl_803E1350
-lbl_803E1350:
+.global __vt__18CAdditiveBodyState
+__vt__18CAdditiveBodyState:
 	# ROM: 0x3DE350
 	.4byte 0
 	.4byte 0
@@ -2773,9 +2773,9 @@ __dt__18CAdditiveBodyStateFv:
 /* 80134348 001312A8  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 8013434C 001312AC  7C 7F 1B 79 */	or. r31, r3, r3
 /* 80134350 001312B0  41 82 00 1C */	beq lbl_8013436C
-/* 80134354 001312B4  3C A0 80 3E */	lis r5, lbl_803E1350@ha
+/* 80134354 001312B4  3C A0 80 3E */	lis r5, __vt__18CAdditiveBodyState@ha
 /* 80134358 001312B8  7C 80 07 35 */	extsh. r0, r4
-/* 8013435C 001312BC  38 05 13 50 */	addi r0, r5, lbl_803E1350@l
+/* 8013435C 001312BC  38 05 13 50 */	addi r0, r5, __vt__18CAdditiveBodyState@l
 /* 80134360 001312C0  90 1F 00 00 */	stw r0, 0(r31)
 /* 80134364 001312C4  40 81 00 08 */	ble lbl_8013436C
 /* 80134368 001312C8  48 1E 15 C9 */	bl Free__7CMemoryFPCv
@@ -2927,11 +2927,11 @@ lbl_80134524:
 /* 80134550 001314B0  48 1E 13 1D */	bl __nw__FUlPCcPCc
 /* 80134554 001314B4  28 03 00 00 */	cmplwi r3, 0
 /* 80134558 001314B8  41 82 00 1C */	beq lbl_80134574
-/* 8013455C 001314BC  3C A0 80 3E */	lis r5, lbl_803E1350@ha
-/* 80134560 001314C0  3C 80 80 3E */	lis r4, lbl_803E5C60@ha
-/* 80134564 001314C4  38 05 13 50 */	addi r0, r5, lbl_803E1350@l
+/* 8013455C 001314BC  3C A0 80 3E */	lis r5, __vt__18CAdditiveBodyState@ha
+/* 80134560 001314C0  3C 80 80 3E */	lis r4, __vt__8CABSIdle@ha
+/* 80134564 001314C4  38 05 13 50 */	addi r0, r5, __vt__18CAdditiveBodyState@l
 /* 80134568 001314C8  90 03 00 00 */	stw r0, 0(r3)
-/* 8013456C 001314CC  38 04 5C 60 */	addi r0, r4, lbl_803E5C60@l
+/* 8013456C 001314CC  38 04 5C 60 */	addi r0, r4, __vt__8CABSIdle@l
 /* 80134570 001314D0  90 03 00 00 */	stw r0, 0(r3)
 lbl_80134574:
 /* 80134574 001314D4  7C 83 00 D0 */	neg r4, r3
@@ -3562,4 +3562,3 @@ lbl_803D0058:
 	# ROM: 0x3CD058
 	.asciz "??(??)"
 	.balign 4
-

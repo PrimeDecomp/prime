@@ -29,8 +29,8 @@ __dt__10CABSFlinchFv:
 /* 801D9A50 001D69B0  38 03 5C 80 */	addi r0, r3, lbl_803E5C80@l
 /* 801D9A54 001D69B4  90 1F 00 00 */	stw r0, 0(r31)
 /* 801D9A58 001D69B8  41 82 00 10 */	beq lbl_801D9A68
-/* 801D9A5C 001D69BC  3C 60 80 3E */	lis r3, lbl_803E1350@ha
-/* 801D9A60 001D69C0  38 03 13 50 */	addi r0, r3, lbl_803E1350@l
+/* 801D9A5C 001D69BC  3C 60 80 3E */	lis r3, __vt__18CAdditiveBodyState@ha
+/* 801D9A60 001D69C0  38 03 13 50 */	addi r0, r3, __vt__18CAdditiveBodyState@l
 /* 801D9A64 001D69C4  90 1F 00 00 */	stw r0, 0(r31)
 lbl_801D9A68:
 /* 801D9A68 001D69C8  7C 80 07 35 */	extsh. r0, r4
@@ -217,9 +217,9 @@ lbl_801D9CCC:
 
 .global __ct__10CABSFlinchFv
 __ct__10CABSFlinchFv:
-/* 801D9CEC 001D6C4C  3C A0 80 3E */	lis r5, lbl_803E1350@ha
+/* 801D9CEC 001D6C4C  3C A0 80 3E */	lis r5, __vt__18CAdditiveBodyState@ha
 /* 801D9CF0 001D6C50  3C 80 80 3E */	lis r4, lbl_803E5C80@ha
-/* 801D9CF4 001D6C54  38 05 13 50 */	addi r0, r5, lbl_803E1350@l
+/* 801D9CF4 001D6C54  38 05 13 50 */	addi r0, r5, __vt__18CAdditiveBodyState@l
 /* 801D9CF8 001D6C58  C0 02 AC A8 */	lfs f0, lbl_805AC9C8@sda21(r2)
 /* 801D9CFC 001D6C5C  90 03 00 00 */	stw r0, 0(r3)
 /* 801D9D00 001D6C60  38 84 5C 80 */	addi r4, r4, lbl_803E5C80@l
@@ -246,4 +246,3 @@ lbl_805AC9C8:
 	# ROM: 0x3F9268
 	.float 1.0
 	.4byte 0
-

@@ -28,8 +28,8 @@ __dt__12CABSReactionFv:
 /* 801F155C 001EE4BC  38 03 67 58 */	addi r0, r3, lbl_803E6758@l
 /* 801F1560 001EE4C0  90 1F 00 00 */	stw r0, 0(r31)
 /* 801F1564 001EE4C4  41 82 00 10 */	beq lbl_801F1574
-/* 801F1568 001EE4C8  3C 60 80 3E */	lis r3, lbl_803E1350@ha
-/* 801F156C 001EE4CC  38 03 13 50 */	addi r0, r3, lbl_803E1350@l
+/* 801F1568 001EE4C8  3C 60 80 3E */	lis r3, __vt__18CAdditiveBodyState@ha
+/* 801F156C 001EE4CC  38 03 13 50 */	addi r0, r3, __vt__18CAdditiveBodyState@l
 /* 801F1570 001EE4D0  90 1F 00 00 */	stw r0, 0(r31)
 lbl_801F1574:
 /* 801F1574 001EE4D4  7C 80 07 35 */	extsh. r0, r4
@@ -376,9 +376,9 @@ lbl_801F1A14:
 
 .global __ct__12CABSReactionFv
 __ct__12CABSReactionFv:
-/* 801F1A30 001EE990  3C A0 80 3E */	lis r5, lbl_803E1350@ha
+/* 801F1A30 001EE990  3C A0 80 3E */	lis r5, __vt__18CAdditiveBodyState@ha
 /* 801F1A34 001EE994  3C 80 80 3E */	lis r4, lbl_803E6758@ha
-/* 801F1A38 001EE998  38 05 13 50 */	addi r0, r5, lbl_803E1350@l
+/* 801F1A38 001EE998  38 05 13 50 */	addi r0, r5, __vt__18CAdditiveBodyState@l
 /* 801F1A3C 001EE99C  C0 02 AE D8 */	lfs f0, lbl_805ACBF8@sda21(r2)
 /* 801F1A40 001EE9A0  90 03 00 00 */	stw r0, 0(r3)
 /* 801F1A44 001EE9A4  38 A4 67 58 */	addi r5, r4, lbl_803E6758@l
@@ -408,4 +408,3 @@ lbl_805ACBF8:
 	# ROM: 0x3F9498
 	.float 1.0
 	.4byte 0
-
