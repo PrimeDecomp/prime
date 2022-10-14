@@ -25,18 +25,14 @@ void CScriptAreaAttributes::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId 
 
   switch (msg) {
   case kSM_InitializedInArea: {
-    TAreaId areaId = x4_areaId;
-    stateMgr.World()->Area(areaId)->SetAreaAttributes(this);
+    stateMgr.World()->Area(GetAreaIdAlways())->SetAreaAttributes(this);
     stateMgr.EnvFxManager()->SetFxDensity(500, x3c_envFxDensity);
     break;
   } 
 
   case kSM_Deleted: {
-    TAreaId areaId = x4_areaId;
-    CGameArea* area = stateMgr.World()->Area(areaId);
-
-    if (area->IsLoaded()) {
-      area->SetAreaAttributes(nullptr);
+    if (stateMgr.World()->Area(GetAreaIdAlways())->IsLoaded()) {
+      stateMgr.World()->Area(GetAreaIdAlways())->SetAreaAttributes(nullptr);
     }
   } 
   }
