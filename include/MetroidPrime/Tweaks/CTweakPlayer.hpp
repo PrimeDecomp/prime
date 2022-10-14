@@ -5,10 +5,16 @@
 
 #include "MetroidPrime/Tweaks/ITweakObject.hpp"
 
+#include "Kyoto/TOneStatic.hpp"
+
 #include "rstl/string.hpp"
 
-class CTweakPlayer : public ITweakObject {
+class CInputStream;
+class CTweakPlayer;
+
+class CTweakPlayer : public ITweakObject, public TOneStatic< CTweakPlayer > {
 public:
+  CTweakPlayer(CInputStream&);
   ~CTweakPlayer() override;
 
   // TODO CPlayer::ESurfaceRestraints

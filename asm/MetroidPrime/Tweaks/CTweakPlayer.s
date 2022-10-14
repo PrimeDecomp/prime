@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803D9CB8
-lbl_803D9CB8:
+.global __vt__12CTweakPlayer
+__vt__12CTweakPlayer:
 	# ROM: 0x3D6CB8
 	.4byte 0
 	.4byte 0
@@ -49,9 +49,9 @@ __ct__12CTweakPlayerFR12CInputStream:
 /* 80034E04 00031D64  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80034E08 00031D68  7C 08 02 A6 */	mflr r0
 /* 80034E0C 00031D6C  3C C0 80 3E */	lis r6, __vt__12ITweakObject@ha
-/* 80034E10 00031D70  3C A0 80 3E */	lis r5, lbl_803D9CB8@ha
+/* 80034E10 00031D70  3C A0 80 3E */	lis r5, __vt__12CTweakPlayer@ha
 /* 80034E14 00031D74  90 01 00 24 */	stw r0, 0x24(r1)
-/* 80034E18 00031D78  38 05 9C B8 */	addi r0, r5, lbl_803D9CB8@l
+/* 80034E18 00031D78  38 05 9C B8 */	addi r0, r5, __vt__12CTweakPlayer@l
 /* 80034E1C 00031D7C  C0 02 83 F8 */	lfs f0, lbl_805AA118@sda21(r2)
 /* 80034E20 00031D80  93 E1 00 1C */	stw r31, 0x1c(r1)
 /* 80034E24 00031D84  7C 9F 23 78 */	mr r31, r4
@@ -757,8 +757,8 @@ __dt__12CTweakPlayerFv:
 /* 800358E8 00032848  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 800358EC 0003284C  7C 7F 1B 79 */	or. r31, r3, r3
 /* 800358F0 00032850  41 82 00 30 */	beq lbl_80035920
-/* 800358F4 00032854  3C 60 80 3E */	lis r3, lbl_803D9CB8@ha
-/* 800358F8 00032858  38 03 9C B8 */	addi r0, r3, lbl_803D9CB8@l
+/* 800358F4 00032854  3C 60 80 3E */	lis r3, __vt__12CTweakPlayer@ha
+/* 800358F8 00032858  38 03 9C B8 */	addi r0, r3, __vt__12CTweakPlayer@l
 /* 800358FC 0003285C  90 1F 00 00 */	stw r0, 0(r31)
 /* 80035900 00032860  41 82 00 10 */	beq lbl_80035910
 /* 80035904 00032864  3C 60 80 3E */	lis r3, __vt__12ITweakObject@ha
