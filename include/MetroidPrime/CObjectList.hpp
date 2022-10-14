@@ -25,23 +25,23 @@ class CObjectList {
     CEntity* mEnt;
     short mNext;
     short mPrev;
-    SObjectListEntry();
+    SObjectListEntry() : mEnt(nullptr), mNext(-1), mPrev(-1) {}
   };
 
 public:
   CObjectList(EGameObjectList list);
 
-  virtual bool IsQualified(CEntity& ent);
+  virtual bool IsQualified(const CEntity& ent);
 
   void AddObject(CEntity& ent);
   void RemoveObject(TUniqueId uid);
-  CEntity* GetObjectById();
-  const CEntity* GetObjectById() const;
+  CEntity* GetObjectById(TUniqueId uid);
+  const CEntity* GetObjectById(TUniqueId uid) const;
   CEntity* GetValidObjectById(TUniqueId uid);
   const CEntity* GetValidObjectById(TUniqueId uid) const;
   CEntity* operator[](int idx);
   const CEntity* operator[](int idx) const;
-  const CEntity* GetValidObjectByIndex(int idx) const;
+  const CEntity* GetObjectByIndex(int idx) const;
   int size() const { return mCount; }
 
   int GetFirstObjectIndex() const { return mFirstId; }

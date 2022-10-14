@@ -7,7 +7,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/Cameras/CCameraManager.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CControlMapper.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Cameras/CFirstPersonCamera.o\
-	$(BUILD_DIR)/asm/MetroidPrime/CObjectList.o\
+	$(BUILD_DIR)/src/MetroidPrime/CObjectList.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Player/CPlayer.o\
 	$(BUILD_DIR)/src/MetroidPrime/CAxisAngle.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CEulerAngles.o\
