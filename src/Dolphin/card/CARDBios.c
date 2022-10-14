@@ -18,7 +18,7 @@ s32 __CARDClearStatus(s32 chan);
 void __CARDSetDiskID(const DVDDiskID* id);
 static s32 Retry(s32 chan);
 
-BOOL OnReset(BOOL final);
+BOOL OnReset(BOOL f);
 static OSResetFunctionInfo ResetFunctionInfo = {OnReset, 127};
 
 void __CARDDefaultApiCallback(s32 chan, s32 result) {}
@@ -545,8 +545,8 @@ s32 CARDFreeBlocks(s32 chan, s32* byteNotUsed, s32* filesNotUsed) {
   return __CARDPutControlBlock(card, CARD_RESULT_READY);
 }
 
-static BOOL OnReset(BOOL final) {
-  if (!final) {
+static BOOL OnReset(BOOL f) {
+  if (!f) {
     if (CARDUnmount(0) == CARD_RESULT_BUSY || CARDUnmount(1) == CARD_RESULT_BUSY) {
       return FALSE;
     }

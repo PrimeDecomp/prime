@@ -694,7 +694,7 @@ void PADSetAnalogMode(u32 mode) {
   OSRestoreInterrupts(enabled);
 }
 
-static BOOL OnReset(BOOL final) {
+static BOOL OnReset(BOOL f) {
   static BOOL recalibrated = FALSE;
   BOOL sync;
 
@@ -702,7 +702,7 @@ static BOOL OnReset(BOOL final) {
     PADSetSamplingCallback(NULL);
   }
 
-  if (!final) {
+  if (!f) {
     sync = PADSync();
     if (!recalibrated && sync) {
       recalibrated = PADRecalibrate(PAD_CHAN0_BIT | PAD_CHAN1_BIT | PAD_CHAN2_BIT | PAD_CHAN3_BIT);
