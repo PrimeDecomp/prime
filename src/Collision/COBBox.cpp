@@ -12,8 +12,8 @@ CAABox COBBox::CalculateAABox(const CTransform4f& xf) const { return CAABox(CVec
 COBBox COBBox::FromAABox(const CAABox& box, const CTransform4f& xf) {
   CVector3f center = box.GetCenterPoint();
   CVector3f extents = box.GetMaxPoint() - center;
-  CTransform4f final = xf * CTransform4f::Translate(center);
-  return COBBox(final, extents);
+  CTransform4f finalTransform = xf * CTransform4f::Translate(center);
+  return COBBox(finalTransform, extents);
 }
 
 bool COBBox::LineIntersectsBox(const CMRay& ray, float& penetration) const { return false; }
