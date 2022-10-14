@@ -1,6 +1,8 @@
 #ifndef _SOBJECTTAG
 #define _SOBJECTTAG
 
+#include "types.h"
+
 #define kInvalidAssetId 0xFFFFFFFFu
 
 typedef uint CAssetId;
