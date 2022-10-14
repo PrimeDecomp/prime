@@ -18,11 +18,14 @@ private:
     static uchar sAllocSpace[sizeof(T)];
     return &sAllocSpace;
   }
-  static uint& ReferenceCount() {
+  static uint& ReferenceCount();
+};
+
+template < typename T >
+uint& TOneStatic< T >::ReferenceCount() {
     static uint sReferenceCount = 0;
     return sReferenceCount;
-  }
-};
+}
 
 template < typename T >
 void TOneStatic< T >::operator delete(void* ptr) {

@@ -11,8 +11,8 @@ lbl_803D9CB8:
 	.4byte __dt__12CTweakPlayerFv
 
 # ITweakObject vtable, ODR strikes again
-.global lbl_803D9CC4
-lbl_803D9CC4:
+.global __vt__12ITweakObject
+__vt__12ITweakObject:
 	# ROM: 0x3D6CC4
 	.4byte 0
 	.4byte 0
@@ -48,7 +48,7 @@ lbl_805AA11C:
 __ct__12CTweakPlayerFR12CInputStream:
 /* 80034E04 00031D64  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80034E08 00031D68  7C 08 02 A6 */	mflr r0
-/* 80034E0C 00031D6C  3C C0 80 3E */	lis r6, lbl_803D9CC4@ha
+/* 80034E0C 00031D6C  3C C0 80 3E */	lis r6, __vt__12ITweakObject@ha
 /* 80034E10 00031D70  3C A0 80 3E */	lis r5, lbl_803D9CB8@ha
 /* 80034E14 00031D74  90 01 00 24 */	stw r0, 0x24(r1)
 /* 80034E18 00031D78  38 05 9C B8 */	addi r0, r5, lbl_803D9CB8@l
@@ -57,7 +57,7 @@ __ct__12CTweakPlayerFR12CInputStream:
 /* 80034E24 00031D84  7C 9F 23 78 */	mr r31, r4
 /* 80034E28 00031D88  93 C1 00 18 */	stw r30, 0x18(r1)
 /* 80034E2C 00031D8C  7C 7E 1B 78 */	mr r30, r3
-/* 80034E30 00031D90  38 66 9C C4 */	addi r3, r6, lbl_803D9CC4@l
+/* 80034E30 00031D90  38 66 9C C4 */	addi r3, r6, __vt__12ITweakObject@l
 /* 80034E34 00031D94  93 A1 00 14 */	stw r29, 0x14(r1)
 /* 80034E38 00031D98  3B A0 00 00 */	li r29, 0
 /* 80034E3C 00031D9C  93 81 00 10 */	stw r28, 0x10(r1)
@@ -761,8 +761,8 @@ __dt__12CTweakPlayerFv:
 /* 800358F8 00032858  38 03 9C B8 */	addi r0, r3, lbl_803D9CB8@l
 /* 800358FC 0003285C  90 1F 00 00 */	stw r0, 0(r31)
 /* 80035900 00032860  41 82 00 10 */	beq lbl_80035910
-/* 80035904 00032864  3C 60 80 3E */	lis r3, lbl_803D9CC4@ha
-/* 80035908 00032868  38 03 9C C4 */	addi r0, r3, lbl_803D9CC4@l
+/* 80035904 00032864  3C 60 80 3E */	lis r3, __vt__12ITweakObject@ha
+/* 80035908 00032868  38 03 9C C4 */	addi r0, r3, __vt__12ITweakObject@l
 /* 8003590C 0003286C  90 1F 00 00 */	stw r0, 0(r31)
 lbl_80035910:
 /* 80035910 00032870  7C 80 07 35 */	extsh. r0, r4

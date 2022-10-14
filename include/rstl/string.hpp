@@ -5,6 +5,8 @@
 
 #include "rstl/rmemory_allocator.hpp"
 
+class CInputStream;
+
 namespace rstl {
 template < typename _CharTp >
 struct char_traits {};
@@ -63,6 +65,8 @@ public:
   //     if (x4_cow)
   //         ++x4_cow->x4_refCount;
   // }
+
+  basic_string(CInputStream& in, const Alloc& = rmemory_allocator());
 
   basic_string(const _CharTp* data, int size = -1, const Alloc& = rmemory_allocator());
   // {

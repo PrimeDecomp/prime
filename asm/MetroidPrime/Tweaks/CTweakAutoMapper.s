@@ -45,11 +45,11 @@ __ct__16CTweakAutoMapperFR12CInputStream:
 /* 800B69D4 000B3934  93 C1 00 18 */	stw r30, 0x18(r1)
 /* 800B69D8 000B3938  93 A1 00 14 */	stw r29, 0x14(r1)
 /* 800B69DC 000B393C  93 81 00 10 */	stw r28, 0x10(r1)
-/* 800B69E0 000B3940  3C C0 80 3E */	lis r6, lbl_803D9CC4@ha
+/* 800B69E0 000B3940  3C C0 80 3E */	lis r6, __vt__12ITweakObject@ha
 /* 800B69E4 000B3944  3C A0 80 3E */	lis r5, lbl_803DF438@ha
 /* 800B69E8 000B3948  7C 7F 1B 78 */	mr r31, r3
 /* 800B69EC 000B394C  7C 9C 23 78 */	mr r28, r4
-/* 800B69F0 000B3950  38 66 9C C4 */	addi r3, r6, lbl_803D9CC4@l
+/* 800B69F0 000B3950  38 66 9C C4 */	addi r3, r6, __vt__12ITweakObject@l
 /* 800B69F4 000B3954  38 05 F4 38 */	addi r0, r5, lbl_803DF438@l
 /* 800B69F8 000B3958  90 7F 00 00 */	stw r3, 0(r31)
 /* 800B69FC 000B395C  7F 83 E3 78 */	mr r3, r28
@@ -347,8 +347,8 @@ lbl_800B6E5C:
 lbl_800B6E64:
 /* 800B6E64 000B3DC4  28 1F 00 00 */	cmplwi r31, 0
 /* 800B6E68 000B3DC8  41 82 00 10 */	beq lbl_800B6E78
-/* 800B6E6C 000B3DCC  3C 60 80 3E */	lis r3, lbl_803D9CC4@ha
-/* 800B6E70 000B3DD0  38 03 9C C4 */	addi r0, r3, lbl_803D9CC4@l
+/* 800B6E6C 000B3DCC  3C 60 80 3E */	lis r3, __vt__12ITweakObject@ha
+/* 800B6E70 000B3DD0  38 03 9C C4 */	addi r0, r3, __vt__12ITweakObject@l
 /* 800B6E74 000B3DD4  90 1F 00 00 */	stw r0, 0(r31)
 lbl_800B6E78:
 /* 800B6E78 000B3DD8  7C 80 07 35 */	extsh. r0, r4

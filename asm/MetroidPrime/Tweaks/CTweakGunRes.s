@@ -59,9 +59,9 @@ lbl_800BB9DC:
 __ct__12CTweakGunResFR12CInputStream:
 /* 800BB9E8 000B8948  94 21 FE 20 */	stwu r1, -0x1e0(r1)
 /* 800BB9EC 000B894C  7C 08 02 A6 */	mflr r0
-/* 800BB9F0 000B8950  3C A0 80 3E */	lis r5, lbl_803D9CC4@ha
+/* 800BB9F0 000B8950  3C A0 80 3E */	lis r5, __vt__12ITweakObject@ha
 /* 800BB9F4 000B8954  90 01 01 E4 */	stw r0, 0x1e4(r1)
-/* 800BB9F8 000B8958  38 05 9C C4 */	addi r0, r5, lbl_803D9CC4@l
+/* 800BB9F8 000B8958  38 05 9C C4 */	addi r0, r5, __vt__12ITweakObject@l
 /* 800BB9FC 000B895C  38 A1 00 58 */	addi r5, r1, 0x58
 /* 800BBA00 000B8960  BF 21 01 C4 */	stmw r25, 0x1c4(r1)
 /* 800BBA04 000B8964  7C 7C 1B 78 */	mr r28, r3
@@ -638,8 +638,8 @@ lbl_800BC230:
 lbl_800BC244:
 /* 800BC244 000B91A4  28 1E 00 00 */	cmplwi r30, 0
 /* 800BC248 000B91A8  41 82 00 10 */	beq lbl_800BC258
-/* 800BC24C 000B91AC  3C 60 80 3E */	lis r3, lbl_803D9CC4@ha
-/* 800BC250 000B91B0  38 03 9C C4 */	addi r0, r3, lbl_803D9CC4@l
+/* 800BC24C 000B91AC  3C 60 80 3E */	lis r3, __vt__12ITweakObject@ha
+/* 800BC250 000B91B0  38 03 9C C4 */	addi r0, r3, __vt__12ITweakObject@l
 /* 800BC254 000B91B4  90 1E 00 00 */	stw r0, 0(r30)
 lbl_800BC258:
 /* 800BC258 000B91B8  7F E0 07 35 */	extsh. r0, r31
@@ -688,4 +688,3 @@ lbl_803CDED4:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-

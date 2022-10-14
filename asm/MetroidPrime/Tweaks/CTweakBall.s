@@ -50,10 +50,10 @@ lbl_805AA824:
 __ct__10CTweakBallFR12CInputStream:
 /* 80090B54 0008DAB4  94 21 FF C0 */	stwu r1, -0x40(r1)
 /* 80090B58 0008DAB8  7C 08 02 A6 */	mflr r0
-/* 80090B5C 0008DABC  3C C0 80 3E */	lis r6, lbl_803D9CC4@ha
+/* 80090B5C 0008DABC  3C C0 80 3E */	lis r6, __vt__12ITweakObject@ha
 /* 80090B60 0008DAC0  3C A0 80 3E */	lis r5, lbl_803DAD30@ha
 /* 80090B64 0008DAC4  90 01 00 44 */	stw r0, 0x44(r1)
-/* 80090B68 0008DAC8  38 C6 9C C4 */	addi r6, r6, lbl_803D9CC4@l
+/* 80090B68 0008DAC8  38 C6 9C C4 */	addi r6, r6, __vt__12ITweakObject@l
 /* 80090B6C 0008DACC  38 05 AD 30 */	addi r0, r5, lbl_803DAD30@l
 /* 80090B70 0008DAD0  C0 22 8A F0 */	lfs f1, lbl_805AA810@sda21(r2)
 /* 80090B74 0008DAD4  93 E1 00 3C */	stw r31, 0x3c(r1)
@@ -457,8 +457,8 @@ __dt__10CTweakBallFv:
 /* 80091190 0008E0F0  38 03 AD 30 */	addi r0, r3, lbl_803DAD30@l
 /* 80091194 0008E0F4  90 1F 00 00 */	stw r0, 0(r31)
 /* 80091198 0008E0F8  41 82 00 10 */	beq lbl_800911A8
-/* 8009119C 0008E0FC  3C 60 80 3E */	lis r3, lbl_803D9CC4@ha
-/* 800911A0 0008E100  38 03 9C C4 */	addi r0, r3, lbl_803D9CC4@l
+/* 8009119C 0008E0FC  3C 60 80 3E */	lis r3, __vt__12ITweakObject@ha
+/* 800911A0 0008E100  38 03 9C C4 */	addi r0, r3, __vt__12ITweakObject@l
 /* 800911A4 0008E104  90 1F 00 00 */	stw r0, 0(r31)
 lbl_800911A8:
 /* 800911A8 0008E108  7C 80 07 35 */	extsh. r0, r4

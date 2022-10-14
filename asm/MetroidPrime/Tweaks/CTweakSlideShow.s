@@ -18,9 +18,9 @@ __ct__15CTweakSlideShowFR12CInputStream:
 /* 8029C5F8 00299558  94 21 FF B0 */	stwu r1, -0x50(r1)
 /* 8029C5FC 0029955C  7C 08 02 A6 */	mflr r0
 /* 8029C600 00299560  3C A0 80 3F */	lis r5, lbl_803EC000@ha
-/* 8029C604 00299564  3C C0 80 3E */	lis r6, lbl_803D9CC4@ha
+/* 8029C604 00299564  3C C0 80 3E */	lis r6, __vt__12ITweakObject@ha
 /* 8029C608 00299568  90 01 00 54 */	stw r0, 0x54(r1)
-/* 8029C60C 0029956C  38 06 9C C4 */	addi r0, r6, lbl_803D9CC4@l
+/* 8029C60C 0029956C  38 06 9C C4 */	addi r0, r6, __vt__12ITweakObject@l
 /* 8029C610 00299570  38 A5 C0 00 */	addi r5, r5, lbl_803EC000@l
 /* 8029C614 00299574  93 E1 00 4C */	stw r31, 0x4c(r1)
 /* 8029C618 00299578  7C 9F 23 78 */	mr r31, r4
@@ -158,8 +158,8 @@ lbl_8029C808:
 lbl_8029C818:
 /* 8029C818 00299778  28 1E 00 00 */	cmplwi r30, 0
 /* 8029C81C 0029977C  41 82 00 10 */	beq lbl_8029C82C
-/* 8029C820 00299780  3C 60 80 3E */	lis r3, lbl_803D9CC4@ha
-/* 8029C824 00299784  38 03 9C C4 */	addi r0, r3, lbl_803D9CC4@l
+/* 8029C820 00299780  3C 60 80 3E */	lis r3, __vt__12ITweakObject@ha
+/* 8029C824 00299784  38 03 9C C4 */	addi r0, r3, __vt__12ITweakObject@l
 /* 8029C828 00299788  90 1E 00 00 */	stw r0, 0(r30)
 lbl_8029C82C:
 /* 8029C82C 0029978C  7F E0 07 35 */	extsh. r0, r31
@@ -200,4 +200,3 @@ lbl_805ADD58:
 lbl_805ADD5C:
 	# ROM: 0x3FA5FC
 	.float 0.001
-
