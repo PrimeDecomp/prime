@@ -42,15 +42,21 @@ public:
   }
 
   ~reserved_vector() { clear(); }
-
+  
   void push_back(const T& in) {
     iterator out = begin() + x0_count;
     out = in;
     ++x0_count;
   }
 
+  void pop_back() {
+    destroy(&data()[x0_count]);
+    --x0_count;
+  }
+
   inline T* data() { return reinterpret_cast< T* >(x4_data); }
   inline const T* data() const { return reinterpret_cast< const T* >(x4_data); }
+  inline bool empty() const { return size() == 0; }
   inline int size() const { return x0_count; }
   inline int capacity() const { return N; }
   inline T& front() { return data()[0]; }

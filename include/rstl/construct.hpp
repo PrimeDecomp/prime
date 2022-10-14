@@ -3,6 +3,8 @@
 
 #include "types.h"
 
+#include "Kyoto/Alloc/CMemory.hpp"
+
 namespace rstl {
 template < typename T >
 inline void construct(void* dest, const T& src) {

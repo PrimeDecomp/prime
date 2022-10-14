@@ -2,8 +2,8 @@
 
 .section .text, "ax"
 
-.global sub_802a07f0
-sub_802a07f0:
+.global GetValue__16SPositionHistoryFRC9CVector3fRC9CVector3f
+GetValue__16SPositionHistoryFRC9CVector3fRC9CVector3f:
 /* 802A07F0 0029D750  94 21 FF 80 */	stwu r1, -0x80(r1)
 /* 802A07F4 0029D754  7C 08 02 A6 */	mflr r0
 /* 802A07F8 0029D758  90 01 00 84 */	stw r0, 0x84(r1)
@@ -89,8 +89,8 @@ lbl_802A08F0:
 /* 802A0928 0029D888  38 21 00 80 */	addi r1, r1, 0x80
 /* 802A092C 0029D88C  4E 80 00 20 */	blr
 
-.global sub_802a0930
-sub_802a0930:
+.global AddValue__16SPositionHistoryFRC9CVector3f
+AddValue__16SPositionHistoryFRC9CVector3f:
 /* 802A0930 0029D890  80 C3 00 04 */	lwz r6, 4(r3)
 /* 802A0934 0029D894  2C 06 00 10 */	cmpwi r6, 0x10
 /* 802A0938 0029D898  4C 80 00 20 */	bgelr
@@ -145,8 +145,8 @@ lbl_802A09E8:
 /* 802A09F0 0029D950  90 03 00 04 */	stw r0, 4(r3)
 /* 802A09F4 0029D954  4E 80 00 20 */	blr
 
-.global sub_802a09f8
-sub_802a09f8:
+.global __ct__16SPositionHistoryFf
+__ct__16SPositionHistoryFf:
 /* 802A09F8 0029D958  EC 01 00 72 */	fmuls f0, f1, f1
 /* 802A09FC 0029D95C  38 00 00 00 */	li r0, 0
 /* 802A0A00 0029D960  D0 03 00 00 */	stfs f0, 0(r3)
@@ -160,4 +160,3 @@ lbl_805ADE38:
 	# ROM: 0x3FA6D8
 	.4byte 0
 	.4byte 0
-
