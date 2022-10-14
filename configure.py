@@ -71,7 +71,7 @@ LIBS = [
             ["MetroidPrime/CIOWin", True],
             "MetroidPrime/CActor",
             "MetroidPrime/CWorld",
-            "MetroidPrime/Tweaks/CTweakParticle",
+            ["MetroidPrime/Tweaks/CTweakParticle", True],
             "MetroidPrime/Clamp_int",
             ["MetroidPrime/CArchMsgParmControllerStatus", True],
             "MetroidPrime/CExplosion",

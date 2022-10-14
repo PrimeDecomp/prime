@@ -126,7 +126,7 @@ FaceReflectionDistanceDebugValueToActualValue__9CTweakGuiFf:
 __ct__9CTweakGuiFR12CInputStream:
 /* 80074360 000712C0  94 21 FF 90 */	stwu r1, -0x70(r1)
 /* 80074364 000712C4  7C 08 02 A6 */	mflr r0
-/* 80074368 000712C8  3C C0 80 3E */	lis r6, lbl_803D9CC4@ha
+/* 80074368 000712C8  3C C0 80 3E */	lis r6, __vt__12ITweakObject@ha
 /* 8007436C 000712CC  3C A0 80 3E */	lis r5, lbl_803DA440@ha
 /* 80074370 000712D0  90 01 00 74 */	stw r0, 0x74(r1)
 /* 80074374 000712D4  38 05 A4 40 */	addi r0, r5, lbl_803DA440@l
@@ -134,7 +134,7 @@ __ct__9CTweakGuiFR12CInputStream:
 /* 8007437C 000712DC  7C 9F 23 78 */	mr r31, r4
 /* 80074380 000712E0  93 C1 00 68 */	stw r30, 0x68(r1)
 /* 80074384 000712E4  7C 7E 1B 78 */	mr r30, r3
-/* 80074388 000712E8  38 66 9C C4 */	addi r3, r6, lbl_803D9CC4@l
+/* 80074388 000712E8  38 66 9C C4 */	addi r3, r6, __vt__12ITweakObject@l
 /* 8007438C 000712EC  93 A1 00 64 */	stw r29, 0x64(r1)
 /* 80074390 000712F0  93 81 00 60 */	stw r28, 0x60(r1)
 /* 80074394 000712F4  90 7E 00 00 */	stw r3, 0(r30)
@@ -896,8 +896,8 @@ lbl_80074EE4:
 lbl_80074EF4:
 /* 80074EF4 00071E54  28 1E 00 00 */	cmplwi r30, 0
 /* 80074EF8 00071E58  41 82 00 10 */	beq lbl_80074F08
-/* 80074EFC 00071E5C  3C 60 80 3E */	lis r3, lbl_803D9CC4@ha
-/* 80074F00 00071E60  38 03 9C C4 */	addi r0, r3, lbl_803D9CC4@l
+/* 80074EFC 00071E5C  3C 60 80 3E */	lis r3, __vt__12ITweakObject@ha
+/* 80074F00 00071E60  38 03 9C C4 */	addi r0, r3, __vt__12ITweakObject@l
 /* 80074F04 00071E64  90 1E 00 00 */	stw r0, 0(r30)
 lbl_80074F08:
 /* 80074F08 00071E68  7F E0 07 35 */	extsh. r0, r31

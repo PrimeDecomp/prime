@@ -38,7 +38,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/src/MetroidPrime/CIOWin.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CActor.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CWorld.o\
-	$(BUILD_DIR)/asm/MetroidPrime/Tweaks/CTweakParticle.o\
+	$(BUILD_DIR)/src/MetroidPrime/Tweaks/CTweakParticle.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Clamp_int.o\
 	$(BUILD_DIR)/src/MetroidPrime/CArchMsgParmControllerStatus.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CExplosion.o\

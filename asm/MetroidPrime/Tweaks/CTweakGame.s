@@ -16,9 +16,9 @@ lbl_803D9CD0:
 __ct__10CTweakGameFR12CInputStream:
 /* 800371E4 00034144  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 800371E8 00034148  7C 08 02 A6 */	mflr r0
-/* 800371EC 0003414C  3C A0 80 3E */	lis r5, lbl_803D9CC4@ha
+/* 800371EC 0003414C  3C A0 80 3E */	lis r5, __vt__12ITweakObject@ha
 /* 800371F0 00034150  90 01 00 24 */	stw r0, 0x24(r1)
-/* 800371F4 00034154  38 05 9C C4 */	addi r0, r5, lbl_803D9CC4@l
+/* 800371F4 00034154  38 05 9C C4 */	addi r0, r5, __vt__12ITweakObject@l
 /* 800371F8 00034158  38 A1 00 0C */	addi r5, r1, 0xc
 /* 800371FC 0003415C  93 E1 00 1C */	stw r31, 0x1c(r1)
 /* 80037200 00034160  7C 9F 23 78 */	mr r31, r4
@@ -129,8 +129,8 @@ lbl_80037384:
 lbl_80037394:
 /* 80037394 000342F4  28 1E 00 00 */	cmplwi r30, 0
 /* 80037398 000342F8  41 82 00 10 */	beq lbl_800373A8
-/* 8003739C 000342FC  3C 60 80 3E */	lis r3, lbl_803D9CC4@ha
-/* 800373A0 00034300  38 03 9C C4 */	addi r0, r3, lbl_803D9CC4@l
+/* 8003739C 000342FC  3C 60 80 3E */	lis r3, __vt__12ITweakObject@ha
+/* 800373A0 00034300  38 03 9C C4 */	addi r0, r3, __vt__12ITweakObject@l
 /* 800373A4 00034304  90 1E 00 00 */	stw r0, 0(r30)
 lbl_800373A8:
 /* 800373A8 00034308  7F E0 07 35 */	extsh. r0, r31

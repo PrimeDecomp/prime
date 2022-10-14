@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803DA088
-lbl_803DA088:
+.global __vt__14CTweakParticle
+__vt__14CTweakParticle:
 	# ROM: 0x3D7088
 	.4byte 0
 	.4byte 0
@@ -17,17 +17,17 @@ lbl_803DA088:
 __ct__14CTweakParticleFR12CInputStream:
 /* 80059F20 00056E80  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80059F24 00056E84  7C 08 02 A6 */	mflr r0
-/* 80059F28 00056E88  3C A0 80 3E */	lis r5, lbl_803D9CC4@ha
+/* 80059F28 00056E88  3C A0 80 3E */	lis r5, __vt__12ITweakObject@ha
 /* 80059F2C 00056E8C  90 01 00 24 */	stw r0, 0x24(r1)
-/* 80059F30 00056E90  38 05 9C C4 */	addi r0, r5, lbl_803D9CC4@l
+/* 80059F30 00056E90  38 05 9C C4 */	addi r0, r5, __vt__12ITweakObject@l
 /* 80059F34 00056E94  38 A1 00 10 */	addi r5, r1, 0x10
 /* 80059F38 00056E98  93 E1 00 1C */	stw r31, 0x1c(r1)
 /* 80059F3C 00056E9C  7C 9F 23 78 */	mr r31, r4
 /* 80059F40 00056EA0  93 C1 00 18 */	stw r30, 0x18(r1)
 /* 80059F44 00056EA4  7C 7E 1B 78 */	mr r30, r3
-/* 80059F48 00056EA8  3C 60 80 3E */	lis r3, lbl_803DA088@ha
+/* 80059F48 00056EA8  3C 60 80 3E */	lis r3, __vt__14CTweakParticle@ha
 /* 80059F4C 00056EAC  90 1E 00 00 */	stw r0, 0(r30)
-/* 80059F50 00056EB0  38 03 A0 88 */	addi r0, r3, lbl_803DA088@l
+/* 80059F50 00056EB0  38 03 A0 88 */	addi r0, r3, __vt__14CTweakParticle@l
 /* 80059F54 00056EB4  38 7E 00 04 */	addi r3, r30, 4
 /* 80059F58 00056EB8  90 1E 00 00 */	stw r0, 0(r30)
 /* 80059F5C 00056EBC  48 2E 43 9D */	bl "__ct__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>FR12CInputStreamRCQ24rstl17rmemory_allocator"
@@ -57,9 +57,9 @@ __dt__14CTweakParticleFv:
 /* 80059FB0 00056F10  93 C1 00 08 */	stw r30, 8(r1)
 /* 80059FB4 00056F14  7C 7E 1B 79 */	or. r30, r3, r3
 /* 80059FB8 00056F18  41 82 00 64 */	beq lbl_8005A01C
-/* 80059FBC 00056F1C  3C 60 80 3E */	lis r3, lbl_803DA088@ha
+/* 80059FBC 00056F1C  3C 60 80 3E */	lis r3, __vt__14CTweakParticle@ha
 /* 80059FC0 00056F20  34 1E 00 24 */	addic. r0, r30, 0x24
-/* 80059FC4 00056F24  38 03 A0 88 */	addi r0, r3, lbl_803DA088@l
+/* 80059FC4 00056F24  38 03 A0 88 */	addi r0, r3, __vt__14CTweakParticle@l
 /* 80059FC8 00056F28  90 1E 00 00 */	stw r0, 0(r30)
 /* 80059FCC 00056F2C  41 82 00 0C */	beq lbl_80059FD8
 /* 80059FD0 00056F30  38 7E 00 24 */	addi r3, r30, 0x24
@@ -77,8 +77,8 @@ lbl_80059FE8:
 lbl_80059FF8:
 /* 80059FF8 00056F58  28 1E 00 00 */	cmplwi r30, 0
 /* 80059FFC 00056F5C  41 82 00 10 */	beq lbl_8005A00C
-/* 8005A000 00056F60  3C 60 80 3E */	lis r3, lbl_803D9CC4@ha
-/* 8005A004 00056F64  38 03 9C C4 */	addi r0, r3, lbl_803D9CC4@l
+/* 8005A000 00056F60  3C 60 80 3E */	lis r3, __vt__12ITweakObject@ha
+/* 8005A004 00056F64  38 03 9C C4 */	addi r0, r3, __vt__12ITweakObject@l
 /* 8005A008 00056F68  90 1E 00 00 */	stw r0, 0(r30)
 lbl_8005A00C:
 /* 8005A00C 00056F6C  7F E0 07 35 */	extsh. r0, r31

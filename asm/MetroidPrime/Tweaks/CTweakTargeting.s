@@ -54,11 +54,11 @@ __ct__15CTweakTargetingFR12CInputStream:
 /* 800B59E0 000B2940  93 C1 00 18 */	stw r30, 0x18(r1)
 /* 800B59E4 000B2944  93 A1 00 14 */	stw r29, 0x14(r1)
 /* 800B59E8 000B2948  93 81 00 10 */	stw r28, 0x10(r1)
-/* 800B59EC 000B294C  3C C0 80 3E */	lis r6, lbl_803D9CC4@ha
+/* 800B59EC 000B294C  3C C0 80 3E */	lis r6, __vt__12ITweakObject@ha
 /* 800B59F0 000B2950  3C A0 80 3E */	lis r5, lbl_803DF428@ha
 /* 800B59F4 000B2954  7C 7E 1B 78 */	mr r30, r3
 /* 800B59F8 000B2958  7C 9F 23 78 */	mr r31, r4
-/* 800B59FC 000B295C  38 66 9C C4 */	addi r3, r6, lbl_803D9CC4@l
+/* 800B59FC 000B295C  38 66 9C C4 */	addi r3, r6, __vt__12ITweakObject@l
 /* 800B5A00 000B2960  38 05 F4 28 */	addi r0, r5, lbl_803DF428@l
 /* 800B5A04 000B2964  90 7E 00 00 */	stw r3, 0(r30)
 /* 800B5A08 000B2968  7F E3 FB 78 */	mr r3, r31
@@ -966,8 +966,8 @@ lbl_800B673C:
 /* 800B6744 000B36A4  4B FF FB 65 */	bl sub_800b62a8
 /* 800B6748 000B36A8  28 1E 00 00 */	cmplwi r30, 0
 /* 800B674C 000B36AC  41 82 00 10 */	beq lbl_800B675C
-/* 800B6750 000B36B0  3C 60 80 3E */	lis r3, lbl_803D9CC4@ha
-/* 800B6754 000B36B4  38 03 9C C4 */	addi r0, r3, lbl_803D9CC4@l
+/* 800B6750 000B36B0  3C 60 80 3E */	lis r3, __vt__12ITweakObject@ha
+/* 800B6754 000B36B4  38 03 9C C4 */	addi r0, r3, __vt__12ITweakObject@l
 /* 800B6758 000B36B8  90 1E 00 00 */	stw r0, 0(r30)
 lbl_800B675C:
 /* 800B675C 000B36BC  7F E0 07 35 */	extsh. r0, r31
@@ -1157,4 +1157,3 @@ lbl_803CDE80:
 	# ROM: 0x3CAE80
 	.asciz "??(??)"
 	.balign 4
-

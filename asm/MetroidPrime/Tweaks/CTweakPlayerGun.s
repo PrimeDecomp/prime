@@ -304,11 +304,11 @@ __ct__15CTweakPlayerGunFR12CInputStream:
 /* 8006FFB4 0006CF14  DB A1 01 A0 */	stfd f29, 0x1a0(r1)
 /* 8006FFB8 0006CF18  F3 A1 01 A8 */	psq_st f29, 424(r1), 0, qr0
 /* 8006FFBC 0006CF1C  BF 41 01 88 */	stmw r26, 0x188(r1)
-/* 8006FFC0 0006CF20  3C C0 80 3E */	lis r6, lbl_803D9CC4@ha
+/* 8006FFC0 0006CF20  3C C0 80 3E */	lis r6, __vt__12ITweakObject@ha
 /* 8006FFC4 0006CF24  3C A0 80 3E */	lis r5, lbl_803DA384@ha
 /* 8006FFC8 0006CF28  7C 7E 1B 78 */	mr r30, r3
 /* 8006FFCC 0006CF2C  7C 9F 23 78 */	mr r31, r4
-/* 8006FFD0 0006CF30  38 66 9C C4 */	addi r3, r6, lbl_803D9CC4@l
+/* 8006FFD0 0006CF30  38 66 9C C4 */	addi r3, r6, __vt__12ITweakObject@l
 /* 8006FFD4 0006CF34  38 05 A3 84 */	addi r0, r5, lbl_803DA384@l
 /* 8006FFD8 0006CF38  90 7E 00 00 */	stw r3, 0(r30)
 /* 8006FFDC 0006CF3C  7F E3 FB 78 */	mr r3, r31
@@ -999,8 +999,8 @@ lbl_80070A28:
 lbl_80070A30:
 /* 80070A30 0006D990  28 1F 00 00 */	cmplwi r31, 0
 /* 80070A34 0006D994  41 82 00 10 */	beq lbl_80070A44
-/* 80070A38 0006D998  3C 60 80 3E */	lis r3, lbl_803D9CC4@ha
-/* 80070A3C 0006D99C  38 03 9C C4 */	addi r0, r3, lbl_803D9CC4@l
+/* 80070A38 0006D998  3C 60 80 3E */	lis r3, __vt__12ITweakObject@ha
+/* 80070A3C 0006D99C  38 03 9C C4 */	addi r0, r3, __vt__12ITweakObject@l
 /* 80070A40 0006D9A0  90 1F 00 00 */	stw r0, 0(r31)
 lbl_80070A44:
 /* 80070A44 0006D9A4  7C 80 07 35 */	extsh. r0, r4
@@ -1048,4 +1048,3 @@ lbl_803CD2A4:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-

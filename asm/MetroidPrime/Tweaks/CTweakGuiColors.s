@@ -17,9 +17,9 @@ lbl_803E5748:
 __ct__15CTweakGuiColorsFR12CInputStream:
 /* 801CDA2C 001CA98C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801CDA30 001CA990  7C 08 02 A6 */	mflr r0
-/* 801CDA34 001CA994  3C A0 80 3E */	lis r5, lbl_803D9CC4@ha
+/* 801CDA34 001CA994  3C A0 80 3E */	lis r5, __vt__12ITweakObject@ha
 /* 801CDA38 001CA998  90 01 00 14 */	stw r0, 0x14(r1)
-/* 801CDA3C 001CA99C  38 05 9C C4 */	addi r0, r5, lbl_803D9CC4@l
+/* 801CDA3C 001CA99C  38 05 9C C4 */	addi r0, r5, __vt__12ITweakObject@l
 /* 801CDA40 001CA9A0  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 801CDA44 001CA9A4  7C 9F 23 78 */	mr r31, r4
 /* 801CDA48 001CA9A8  93 C1 00 08 */	stw r30, 8(r1)
@@ -487,8 +487,8 @@ lbl_801CE144:
 lbl_801CE14C:
 /* 801CE14C 001CB0AC  28 1F 00 00 */	cmplwi r31, 0
 /* 801CE150 001CB0B0  41 82 00 10 */	beq lbl_801CE160
-/* 801CE154 001CB0B4  3C 60 80 3E */	lis r3, lbl_803D9CC4@ha
-/* 801CE158 001CB0B8  38 03 9C C4 */	addi r0, r3, lbl_803D9CC4@l
+/* 801CE154 001CB0B4  3C 60 80 3E */	lis r3, __vt__12ITweakObject@ha
+/* 801CE158 001CB0B8  38 03 9C C4 */	addi r0, r3, __vt__12ITweakObject@l
 /* 801CE15C 001CB0BC  90 1F 00 00 */	stw r0, 0(r31)
 lbl_801CE160:
 /* 801CE160 001CB0C0  7C 80 07 35 */	extsh. r0, r4
