@@ -8,7 +8,7 @@ CObjectList::CObjectList(EGameObjectList list) : mListType(list), mFirstId(-1), 
   }
 }
 
-bool CObjectList::IsQualified(const CEntity& ent) { return true; }
+uchar CObjectList::IsQualified(const CEntity& ent) { return true; }
 
 void CObjectList::AddObject(CEntity& ent) {
   if (IsQualified(ent)) {

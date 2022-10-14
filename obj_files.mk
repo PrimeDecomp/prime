@@ -231,7 +231,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/Player/CPlayerEnergyDrain.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CFlameWarp.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Weapons/CIceImpact.o\
-	$(BUILD_DIR)/asm/MetroidPrime/GameObjectLists.o\
+	$(BUILD_DIR)/src/MetroidPrime/GameObjectLists.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Weapons/CAuxWeapon.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Weapons/CGunWeapon.o\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptAreaAttributes.o\
