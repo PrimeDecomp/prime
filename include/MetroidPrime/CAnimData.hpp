@@ -107,10 +107,10 @@ public:
   // InitializeEffects__9CAnimDataFR13CStateManagerRC9CVector3f
   // SetPhase__9CAnimDataFf -> SetPhase__11IAnimReaderFf
   void SetPhase(float ph);
-  // AddAdditiveAnimation__9CAnimDataFUifbb
+  void AddAdditiveAnimation(uint idx, float weight, bool active, bool fadeOut);
   // DelAdditiveAnimation__9CAnimDataFUi
   // IsAdditiveAnimationActive__9CAnimDataCFUi
-  // GetAdditiveAnimationTree__9CAnimDataCFUi
+  const rstl::rc_ptr<CAnimTreeNode>& GetAdditiveAnimationTree(uint idx) const;
   // GetAnimationTree__9CAnimDataCFv
   // AnimationTree__9CAnimDataFv
   // IsAdditiveAnimation__9CAnimDataCFUi

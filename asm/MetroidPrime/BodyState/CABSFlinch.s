@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803E5C80
-lbl_803E5C80:
+.global __vt__10CABSFlinch
+__vt__10CABSFlinch:
 	# ROM: 0x3E2C80
 	.4byte 0
 	.4byte 0
@@ -25,8 +25,8 @@ __dt__10CABSFlinchFv:
 /* 801D9A40 001D69A0  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 801D9A44 001D69A4  7C 7F 1B 79 */	or. r31, r3, r3
 /* 801D9A48 001D69A8  41 82 00 30 */	beq lbl_801D9A78
-/* 801D9A4C 001D69AC  3C 60 80 3E */	lis r3, lbl_803E5C80@ha
-/* 801D9A50 001D69B0  38 03 5C 80 */	addi r0, r3, lbl_803E5C80@l
+/* 801D9A4C 001D69AC  3C 60 80 3E */	lis r3, __vt__10CABSFlinch@ha
+/* 801D9A50 001D69B0  38 03 5C 80 */	addi r0, r3, __vt__10CABSFlinch@l
 /* 801D9A54 001D69B4  90 1F 00 00 */	stw r0, 0(r31)
 /* 801D9A58 001D69B8  41 82 00 10 */	beq lbl_801D9A68
 /* 801D9A5C 001D69BC  3C 60 80 3E */	lis r3, __vt__18CAdditiveBodyState@ha
@@ -45,8 +45,8 @@ lbl_801D9A78:
 /* 801D9A88 001D69E8  38 21 00 10 */	addi r1, r1, 0x10
 /* 801D9A8C 001D69EC  4E 80 00 20 */	blr
 
-.global GetBodyStateTransition__10CABSFlinchFfR15CBodyController
-GetBodyStateTransition__10CABSFlinchFfR15CBodyController:
+.global GetBodyStateTransition__10CABSFlinchCFfR15CBodyController
+GetBodyStateTransition__10CABSFlinchCFfR15CBodyController:
 /* 801D9A90 001D69F0  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801D9A94 001D69F4  7C 08 02 A6 */	mflr r0
 /* 801D9A98 001D69F8  38 64 00 04 */	addi r3, r4, 4
@@ -77,7 +77,7 @@ UpdateBody__10CABSFlinchFfR15CBodyControllerR13CStateManager:
 /* 801D9AE0 001D6A40  7C 9E 23 78 */	mr r30, r4
 /* 801D9AE4 001D6A44  93 A1 00 14 */	stw r29, 0x14(r1)
 /* 801D9AE8 001D6A48  7C 7D 1B 78 */	mr r29, r3
-/* 801D9AEC 001D6A4C  4B FF FF A5 */	bl GetBodyStateTransition__10CABSFlinchFfR15CBodyController
+/* 801D9AEC 001D6A4C  4B FF FF A5 */	bl GetBodyStateTransition__10CABSFlinchCFfR15CBodyController
 /* 801D9AF0 001D6A50  7C 7F 1B 78 */	mr r31, r3
 /* 801D9AF4 001D6A54  2C 1F FF FF */	cmpwi r31, -1
 /* 801D9AF8 001D6A58  40 82 00 58 */	bne lbl_801D9B50
@@ -161,7 +161,7 @@ Start__10CABSFlinchFR15CBodyControllerR13CStateManager:
 /* 801D9C20 001D6B80  39 21 00 30 */	addi r9, r1, 0x30
 /* 801D9C24 001D6B84  39 41 00 28 */	addi r10, r1, 0x28
 /* 801D9C28 001D6B88  38 80 00 17 */	li r4, 0x17
-/* 801D9C2C 001D6B8C  4B EA 36 99 */	bl __ct__16CPASAnimParmDataFiRC12CPASAnimParmRC12CPASAnimParmRC12CPASAnimParmRC12CPASAnimParmRC12CPASAnimParmRC12CPASAnimParmRC12CPASAnimParmRC12CPASAnimParm
+/* 801D9C2C 001D6B8C  4B EA 36 99 */	bl __ct__16CPASAnimParmDataFQ23pas15EAnimationStateRC12CPASAnimParmRC12CPASAnimParmRC12CPASAnimParmRC12CPASAnimParmRC12CPASAnimParmRC12CPASAnimParmRC12CPASAnimParmRC12CPASAnimParm
 /* 801D9C30 001D6B90  80 DE 09 00 */	lwz r6, 0x900(r30)
 /* 801D9C34 001D6B94  7F E4 FB 78 */	mr r4, r31
 /* 801D9C38 001D6B98  38 61 00 10 */	addi r3, r1, 0x10
@@ -218,11 +218,11 @@ lbl_801D9CCC:
 .global __ct__10CABSFlinchFv
 __ct__10CABSFlinchFv:
 /* 801D9CEC 001D6C4C  3C A0 80 3E */	lis r5, __vt__18CAdditiveBodyState@ha
-/* 801D9CF0 001D6C50  3C 80 80 3E */	lis r4, lbl_803E5C80@ha
+/* 801D9CF0 001D6C50  3C 80 80 3E */	lis r4, __vt__10CABSFlinch@ha
 /* 801D9CF4 001D6C54  38 05 13 50 */	addi r0, r5, __vt__18CAdditiveBodyState@l
 /* 801D9CF8 001D6C58  C0 02 AC A8 */	lfs f0, lbl_805AC9C8@sda21(r2)
 /* 801D9CFC 001D6C5C  90 03 00 00 */	stw r0, 0(r3)
-/* 801D9D00 001D6C60  38 84 5C 80 */	addi r4, r4, lbl_803E5C80@l
+/* 801D9D00 001D6C60  38 84 5C 80 */	addi r4, r4, __vt__10CABSFlinch@l
 /* 801D9D04 001D6C64  38 00 00 00 */	li r0, 0
 /* 801D9D08 001D6C68  90 83 00 00 */	stw r4, 0(r3)
 /* 801D9D0C 001D6C6C  D0 03 00 04 */	stfs f0, 4(r3)

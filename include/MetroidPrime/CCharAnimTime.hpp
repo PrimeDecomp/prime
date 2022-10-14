@@ -12,6 +12,9 @@ public:
     kT_ZeroDecreasing,
     kT_Infinity,
   };
+  float GetSeconds() const { return x0_time; }
+
+  CCharAnimTime(const CCharAnimTime& other) : x0_time(other.x0_time), x4_type(other.x4_type) {}
 
 private:
   float x0_time;

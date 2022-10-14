@@ -33,7 +33,21 @@ enum EBodyStateCmd {
   kBSC_StopReaction
 };
 
-class CBodyStateCmd;
+class CBodyStateCmd {
+  EBodyStateCmd x4_cmd;
+
+public:
+  virtual ~CBodyStateCmd() {};
+  explicit CBodyStateCmd(EBodyStateCmd cmd) : x4_cmd(cmd) {}
+  EBodyStateCmd GetCommandId() const { return x4_cmd; }
+};
+
+class CBCAdditiveFlinchCmd : public CBodyStateCmd {
+  float x8_weight;
+
+public:
+  float GetWeight() const { return x8_weight; }
+};
 
 class CBodyStateCmdMgr {
 public:
