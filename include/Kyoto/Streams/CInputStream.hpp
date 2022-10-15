@@ -56,7 +56,10 @@ template <typename T>
 inline T cinput_stream_helper(const TType<T>& type, CInputStream& in) {
   return T(in);
 }
-
+template <>
+inline bool cinput_stream_helper(const TType< bool >& type, CInputStream& in) {
+  return in.ReadBool();
+}
 template <>
 inline int cinput_stream_helper(const TType< int >& type, CInputStream& in) {
   return in.ReadLong();
