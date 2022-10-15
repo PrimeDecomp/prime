@@ -115,9 +115,9 @@ lbl_802FD3CC:
 /* 802FD3D0 002FA330  42 00 FF D4 */	bdnz lbl_802FD3A4
 lbl_802FD3D4:
 /* 802FD3D4 002FA334  3C 60 80 3D */	lis r3, lbl_803D6E48@ha
-/* 802FD3D8 002FA338  3C 80 80 3D */	lis r4, lbl_803D6AA8@ha
+/* 802FD3D8 002FA338  3C 80 80 3D */	lis r4, kUnknownType__10CCallStack@ha
 /* 802FD3DC 002FA33C  38 A3 6E 48 */	addi r5, r3, lbl_803D6E48@l
-/* 802FD3E0 002FA340  38 C4 6A A8 */	addi r6, r4, lbl_803D6AA8@l
+/* 802FD3E0 002FA340  38 C4 6A A8 */	addi r6, r4, kUnknownType__10CCallStack@l
 /* 802FD3E4 002FA344  38 61 00 08 */	addi r3, r1, 8
 /* 802FD3E8 002FA348  38 80 FF FF */	li r4, -1
 /* 802FD3EC 002FA34C  4B FD 8F E9 */	bl __ct__10CCallStackFUiPCcPCc
@@ -337,4 +337,3 @@ lbl_803D6E48:
 	# ROM: 0x3D3E48
 	.asciz "??(??)"
 	.balign 4
-

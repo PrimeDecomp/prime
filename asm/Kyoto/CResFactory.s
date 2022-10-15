@@ -88,9 +88,9 @@ lbl_80339598:
 /* 803395A8 00336508  4B FD C3 89 */	bl Free__7CMemoryFPCv
 lbl_803395AC:
 /* 803395AC 0033650C  3C 60 80 3D */	lis r3, lbl_803D7A28@ha
-/* 803395B0 00336510  3C 80 80 3D */	lis r4, lbl_803D6AA8@ha
+/* 803395B0 00336510  3C 80 80 3D */	lis r4, kUnknownType__10CCallStack@ha
 /* 803395B4 00336514  38 A3 7A 28 */	addi r5, r3, lbl_803D7A28@l
-/* 803395B8 00336518  38 C4 6A A8 */	addi r6, r4, lbl_803D6AA8@l
+/* 803395B8 00336518  38 C4 6A A8 */	addi r6, r4, kUnknownType__10CCallStack@l
 /* 803395BC 0033651C  38 61 00 2C */	addi r3, r1, 0x2c
 /* 803395C0 00336520  38 80 FF FF */	li r4, -1
 /* 803395C4 00336524  4B F9 CE 11 */	bl __ct__10CCallStackFUiPCcPCc
@@ -741,10 +741,10 @@ BuildAsync__11CResFactoryFRC10SObjectTagRC15CVParamTransferPP4IObj:
 /* 80339EB8 00336E18  90 06 00 00 */	stw r0, 0(r6)
 /* 80339EBC 00336E1C  48 00 1D 95 */	bl ResourceSize__10CResLoaderCFRC10SObjectTag
 /* 80339EC0 00336E20  3C A0 80 3D */	lis r5, lbl_803D7A28@ha
-/* 80339EC4 00336E24  3C 80 80 3D */	lis r4, lbl_803D6AA8@ha
+/* 80339EC4 00336E24  3C 80 80 3D */	lis r4, kUnknownType__10CCallStack@ha
 /* 80339EC8 00336E28  7C 7F 1B 78 */	mr r31, r3
 /* 80339ECC 00336E2C  38 61 00 08 */	addi r3, r1, 8
-/* 80339ED0 00336E30  38 C4 6A A8 */	addi r6, r4, lbl_803D6AA8@l
+/* 80339ED0 00336E30  38 C4 6A A8 */	addi r6, r4, kUnknownType__10CCallStack@l
 /* 80339ED4 00336E34  38 A5 7A 28 */	addi r5, r5, lbl_803D7A28@l
 /* 80339ED8 00336E38  38 80 FF FF */	li r4, -1
 /* 80339EDC 00336E3C  4B F9 C4 F9 */	bl __ct__10CCallStackFUiPCcPCc

@@ -374,9 +374,9 @@ lbl_803587E4:
 /* 803587EC 0035574C  48 00 00 6C */	b lbl_80358858
 lbl_803587F0:
 /* 803587F0 00355750  3C 60 80 3E */	lis r3, lbl_803D8338@ha
-/* 803587F4 00355754  3C 80 80 3D */	lis r4, lbl_803D6AA8@ha
+/* 803587F4 00355754  3C 80 80 3D */	lis r4, kUnknownType__10CCallStack@ha
 /* 803587F8 00355758  38 A3 83 38 */	addi r5, r3, lbl_803D8338@l
-/* 803587FC 0035575C  38 C4 6A A8 */	addi r6, r4, lbl_803D6AA8@l
+/* 803587FC 0035575C  38 C4 6A A8 */	addi r6, r4, kUnknownType__10CCallStack@l
 /* 80358800 00355760  38 61 00 08 */	addi r3, r1, 8
 /* 80358804 00355764  38 80 FF FF */	li r4, -1
 /* 80358808 00355768  4B F7 DB CD */	bl __ct__10CCallStackFUiPCcPCc
@@ -628,4 +628,3 @@ lbl_803D8338:
 	# ROM: 0x3D5338
 	.asciz "??(??)"
 	.balign 4
-

@@ -780,9 +780,9 @@ LoadNewResourcePartSync__10CResLoaderFRC10SObjectTagiiPc:
 /* 8033B6E8 00338648  48 00 00 3C */	b lbl_8033B724
 lbl_8033B6EC:
 /* 8033B6EC 0033864C  3C 60 80 3D */	lis r3, lbl_803D7A38@ha
-/* 8033B6F0 00338650  3C 80 80 3D */	lis r4, lbl_803D6AA8@ha
+/* 8033B6F0 00338650  3C 80 80 3D */	lis r4, kUnknownType__10CCallStack@ha
 /* 8033B6F4 00338654  38 A3 7A 38 */	addi r5, r3, lbl_803D7A38@l
-/* 8033B6F8 00338658  38 C4 6A A8 */	addi r6, r4, lbl_803D6AA8@l
+/* 8033B6F8 00338658  38 C4 6A A8 */	addi r6, r4, kUnknownType__10CCallStack@l
 /* 8033B6FC 0033865C  38 61 00 08 */	addi r3, r1, 8
 /* 8033B700 00338660  38 80 FF FF */	li r4, -1
 /* 8033B704 00338664  4B F9 AC D1 */	bl __ct__10CCallStackFUiPCcPCc
@@ -841,9 +841,9 @@ LoadMemResourceSync__10CResLoaderFRC10SObjectTagPPcPi:
 /* 8033B7C4 00338724  48 02 CE BD */	bl GetSize__Q28CPakFile8SResInfoCFv
 /* 8033B7C8 00338728  38 03 00 1F */	addi r0, r3, 0x1f
 /* 8033B7CC 0033872C  3C A0 80 3D */	lis r5, lbl_803D7A38@ha
-/* 8033B7D0 00338730  3C 80 80 3D */	lis r4, lbl_803D6AA8@ha
+/* 8033B7D0 00338730  3C 80 80 3D */	lis r4, kUnknownType__10CCallStack@ha
 /* 8033B7D4 00338734  38 61 00 08 */	addi r3, r1, 8
-/* 8033B7D8 00338738  38 C4 6A A8 */	addi r6, r4, lbl_803D6AA8@l
+/* 8033B7D8 00338738  38 C4 6A A8 */	addi r6, r4, kUnknownType__10CCallStack@l
 /* 8033B7DC 0033873C  38 A5 7A 38 */	addi r5, r5, lbl_803D7A38@l
 /* 8033B7E0 00338740  54 1D 00 34 */	rlwinm r29, r0, 0, 0, 0x1a
 /* 8033B7E4 00338744  38 80 FF FF */	li r4, -1
@@ -973,9 +973,9 @@ LoadNewResourceSync__10CResLoaderFRC10SObjectTagPc:
 /* 8033B9A8 00338908  48 00 00 3C */	b lbl_8033B9E4
 lbl_8033B9AC:
 /* 8033B9AC 0033890C  3C 60 80 3D */	lis r3, lbl_803D7A38@ha
-/* 8033B9B0 00338910  3C 80 80 3D */	lis r4, lbl_803D6AA8@ha
+/* 8033B9B0 00338910  3C 80 80 3D */	lis r4, kUnknownType__10CCallStack@ha
 /* 8033B9B4 00338914  38 A3 7A 38 */	addi r5, r3, lbl_803D7A38@l
-/* 8033B9B8 00338918  38 C4 6A A8 */	addi r6, r4, lbl_803D6AA8@l
+/* 8033B9B8 00338918  38 C4 6A A8 */	addi r6, r4, kUnknownType__10CCallStack@l
 /* 8033B9BC 0033891C  38 61 00 10 */	addi r3, r1, 0x10
 /* 8033B9C0 00338920  38 80 FF FF */	li r4, -1
 /* 8033B9C4 00338924  4B F9 AA 11 */	bl __ct__10CCallStackFUiPCcPCc
@@ -1913,4 +1913,3 @@ lbl_803D7A38:
 	.byte 0x2E
 	.4byte 0x70616B00
 	.4byte 0
-

@@ -371,9 +371,9 @@ __ct__15CAudioGrpSetLocFR12CInputStream:
 /* 8034A518 00347478  7F 43 C8 2E */	lwzx r26, r3, r25
 /* 8034A51C 0034747C  48 00 02 F9 */	bl sub_8034a814
 /* 8034A520 00347480  3C 60 80 3E */	lis r3, lbl_803D8108@ha
-/* 8034A524 00347484  3C 80 80 3D */	lis r4, lbl_803D6AA8@ha
+/* 8034A524 00347484  3C 80 80 3D */	lis r4, kUnknownType__10CCallStack@ha
 /* 8034A528 00347488  38 A3 81 08 */	addi r5, r3, lbl_803D8108@l
-/* 8034A52C 0034748C  38 C4 6A A8 */	addi r6, r4, lbl_803D6AA8@l
+/* 8034A52C 0034748C  38 C4 6A A8 */	addi r6, r4, kUnknownType__10CCallStack@l
 /* 8034A530 00347490  38 61 00 18 */	addi r3, r1, 0x18
 /* 8034A534 00347494  38 80 FF FF */	li r4, -1
 /* 8034A538 00347498  4B F8 BE 9D */	bl __ct__10CCallStackFUiPCcPCc
@@ -628,4 +628,3 @@ lbl_803D8110:
 	.4byte 0x761E7810
 	.4byte 0x7A067C00
 	.4byte 0x7DFE8000
-

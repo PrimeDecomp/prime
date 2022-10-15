@@ -2630,9 +2630,9 @@ lbl_8005FDA8:
 /* 8005FDB4 0005CD14  42 00 FF DC */	bdnz lbl_8005FD90
 lbl_8005FDB8:
 /* 8005FDB8 0005CD18  3C 60 80 3D */	lis r3, lbl_803CCFAC@ha
-/* 8005FDBC 0005CD1C  3C 80 80 3D */	lis r4, lbl_803D6AA8@ha
+/* 8005FDBC 0005CD1C  3C 80 80 3D */	lis r4, kUnknownType__10CCallStack@ha
 /* 8005FDC0 0005CD20  38 A3 CF AC */	addi r5, r3, lbl_803CCFAC@l
-/* 8005FDC4 0005CD24  38 C4 6A A8 */	addi r6, r4, lbl_803D6AA8@l
+/* 8005FDC4 0005CD24  38 C4 6A A8 */	addi r6, r4, kUnknownType__10CCallStack@l
 /* 8005FDC8 0005CD28  38 61 00 10 */	addi r3, r1, 0x10
 /* 8005FDCC 0005CD2C  38 80 FF FF */	li r4, -1
 /* 8005FDD0 0005CD30  48 27 66 05 */	bl __ct__10CCallStackFUiPCcPCc
@@ -3361,11 +3361,11 @@ GetNumPartSizes__9CGameAreaCFv:
 AllocNewAreaData__9CGameAreaFii:
 /* 8006079C 0005D6FC  94 21 FF B0 */	stwu r1, -0x50(r1)
 /* 800607A0 0005D700  7C 08 02 A6 */	mflr r0
-/* 800607A4 0005D704  3C C0 80 3D */	lis r6, lbl_803D6AA8@ha
+/* 800607A4 0005D704  3C C0 80 3D */	lis r6, kUnknownType__10CCallStack@ha
 /* 800607A8 0005D708  3C E0 80 3D */	lis r7, lbl_803CCFAC@ha
 /* 800607AC 0005D70C  90 01 00 54 */	stw r0, 0x54(r1)
 /* 800607B0 0005D710  38 07 CF AC */	addi r0, r7, lbl_803CCFAC@l
-/* 800607B4 0005D714  38 C6 6A A8 */	addi r6, r6, lbl_803D6AA8@l
+/* 800607B4 0005D714  38 C6 6A A8 */	addi r6, r6, kUnknownType__10CCallStack@l
 /* 800607B8 0005D718  93 E1 00 4C */	stw r31, 0x4c(r1)
 /* 800607BC 0005D71C  93 C1 00 48 */	stw r30, 0x48(r1)
 /* 800607C0 0005D720  7C BE 2B 78 */	mr r30, r5

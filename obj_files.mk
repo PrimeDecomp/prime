@@ -422,7 +422,6 @@ KYOTO_1 :=\
 	$(BUILD_DIR)/asm/Kyoto/Basics/CBasics.o\
 	$(BUILD_DIR)/src/Kyoto/Basics/CStopwatch.o\
 	$(BUILD_DIR)/asm/Kyoto/Basics/CBasicsDolphin.o\
-	$(BUILD_DIR)/asm/Kyoto/Alloc/CCallStackUnknownType.o\
 	$(BUILD_DIR)/src/Kyoto/Alloc/CCallStackDolphin.o\
 	$(BUILD_DIR)/src/Kyoto/Basics/COsContextDolphin.o\
 	$(BUILD_DIR)/src/Kyoto/Basics/CSWDataDolphin.o\

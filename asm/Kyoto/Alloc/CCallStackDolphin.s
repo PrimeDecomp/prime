@@ -1,5 +1,13 @@
 .include "macros.inc"
 
+.section .rodata
+.balign 8
+.global kUnknownType__10CCallStack
+kUnknownType__10CCallStack:
+	# ROM: 0x3D3AA8
+	.asciz "UnknownType"
+	.4byte 0
+
 .section .text, "ax"
 
 .global GetTypeText__10CCallStackCFv

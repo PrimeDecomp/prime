@@ -425,9 +425,9 @@ lbl_8034FDA8:
 StartARAMFileLoad__8CDvdFileFv:
 /* 8034FDC8 0034CD28  94 21 FF C0 */	stwu r1, -0x40(r1)
 /* 8034FDCC 0034CD2C  7C 08 02 A6 */	mflr r0
-/* 8034FDD0 0034CD30  3C 80 80 3D */	lis r4, lbl_803D6AA8@ha
+/* 8034FDD0 0034CD30  3C 80 80 3D */	lis r4, kUnknownType__10CCallStack@ha
 /* 8034FDD4 0034CD34  90 01 00 44 */	stw r0, 0x44(r1)
-/* 8034FDD8 0034CD38  38 C4 6A A8 */	addi r6, r4, lbl_803D6AA8@l
+/* 8034FDD8 0034CD38  38 C4 6A A8 */	addi r6, r4, kUnknownType__10CCallStack@l
 /* 8034FDDC 0034CD3C  38 80 FF FF */	li r4, -1
 /* 8034FDE0 0034CD40  93 E1 00 3C */	stw r31, 0x3c(r1)
 /* 8034FDE4 0034CD44  93 C1 00 38 */	stw r30, 0x38(r1)
@@ -470,9 +470,9 @@ lbl_8034FE58:
 /* 8034FE74 0034CDD4  4B FC 5A BD */	bl Free__7CMemoryFPCv
 lbl_8034FE78:
 /* 8034FE78 0034CDD8  3C 60 80 3E */	lis r3, lbl_803D8230@ha
-/* 8034FE7C 0034CDDC  3C 80 80 3D */	lis r4, lbl_803D6AA8@ha
+/* 8034FE7C 0034CDDC  3C 80 80 3D */	lis r4, kUnknownType__10CCallStack@ha
 /* 8034FE80 0034CDE0  38 A3 82 30 */	addi r5, r3, lbl_803D8230@l
-/* 8034FE84 0034CDE4  38 C4 6A A8 */	addi r6, r4, lbl_803D6AA8@l
+/* 8034FE84 0034CDE4  38 C4 6A A8 */	addi r6, r4, kUnknownType__10CCallStack@l
 /* 8034FE88 0034CDE8  38 61 00 10 */	addi r3, r1, 0x10
 /* 8034FE8C 0034CDEC  38 80 FF FF */	li r4, -1
 /* 8034FE90 0034CDF0  4B F8 65 45 */	bl __ct__10CCallStackFUiPCcPCc
@@ -978,4 +978,3 @@ lbl_803D8230:
 	.byte 0x61
 	.asciz "ram:"
 	.balign 4
-

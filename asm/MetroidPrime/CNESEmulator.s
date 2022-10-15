@@ -469,9 +469,9 @@ Update__12CNESEmulatorFv:
 /* 80294180 002910E0  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 80294184 002910E4  41 82 01 58 */	beq lbl_802942DC
 /* 80294188 002910E8  3C 60 80 3D */	lis r3, lbl_803D5BA4@ha
-/* 8029418C 002910EC  3C 80 80 3D */	lis r4, lbl_803D6AA8@ha
+/* 8029418C 002910EC  3C 80 80 3D */	lis r4, kUnknownType__10CCallStack@ha
 /* 80294190 002910F0  38 A3 5B A4 */	addi r5, r3, lbl_803D5BA4@l
-/* 80294194 002910F4  38 C4 6A A8 */	addi r6, r4, lbl_803D6AA8@l
+/* 80294194 002910F4  38 C4 6A A8 */	addi r6, r4, kUnknownType__10CCallStack@l
 /* 80294198 002910F8  38 61 00 08 */	addi r3, r1, 8
 /* 8029419C 002910FC  38 80 FF FF */	li r4, -1
 /* 802941A0 00291100  48 04 22 35 */	bl __ct__10CCallStackFUiPCcPCc
@@ -837,9 +837,9 @@ __ct__12CNESEmulatorFv:
 /* 80294680 002915E0  38 80 FF FF */	li r4, -1
 /* 80294684 002915E4  93 E1 00 8C */	stw r31, 0x8c(r1)
 /* 80294688 002915E8  7C 7F 1B 78 */	mr r31, r3
-/* 8029468C 002915EC  3C 60 80 3D */	lis r3, lbl_803D6AA8@ha
+/* 8029468C 002915EC  3C 60 80 3D */	lis r3, kUnknownType__10CCallStack@ha
 /* 80294690 002915F0  93 C1 00 88 */	stw r30, 0x88(r1)
-/* 80294694 002915F4  38 C3 6A A8 */	addi r6, r3, lbl_803D6AA8@l
+/* 80294694 002915F4  38 C3 6A A8 */	addi r6, r3, kUnknownType__10CCallStack@l
 /* 80294698 002915F8  38 61 00 48 */	addi r3, r1, 0x48
 /* 8029469C 002915FC  90 1F 00 00 */	stw r0, 0(r31)
 /* 802946A0 00291600  48 04 1D 35 */	bl __ct__10CCallStackFUiPCcPCc
@@ -853,10 +853,10 @@ __ct__12CNESEmulatorFv:
 /* 802946C0 00291620  90 7F 00 04 */	stw r3, 4(r31)
 /* 802946C4 00291624  38 00 00 00 */	li r0, 0
 /* 802946C8 00291628  3C 80 80 3D */	lis r4, lbl_803D5BA4@ha
-/* 802946CC 0029162C  3C 60 80 3D */	lis r3, lbl_803D6AA8@ha
+/* 802946CC 0029162C  3C 60 80 3D */	lis r3, kUnknownType__10CCallStack@ha
 /* 802946D0 00291630  90 1F 00 08 */	stw r0, 8(r31)
 /* 802946D4 00291634  38 A4 5B A4 */	addi r5, r4, lbl_803D5BA4@l
-/* 802946D8 00291638  38 C3 6A A8 */	addi r6, r3, lbl_803D6AA8@l
+/* 802946D8 00291638  38 C3 6A A8 */	addi r6, r3, kUnknownType__10CCallStack@l
 /* 802946DC 0029163C  38 61 00 40 */	addi r3, r1, 0x40
 /* 802946E0 00291640  90 1F 00 0C */	stw r0, 0xc(r31)
 /* 802946E4 00291644  38 80 FF FF */	li r4, -1
@@ -875,9 +875,9 @@ __ct__12CNESEmulatorFv:
 /* 80294718 00291678  38 C0 00 00 */	li r6, 0
 /* 8029471C 0029167C  48 08 12 79 */	bl Alloc__7CMemoryFUlQ210IAllocator5EHintQ210IAllocator6EScopeQ210IAllocator5ETypeRC10CCallStack
 /* 80294720 00291680  3C A0 80 3D */	lis r5, lbl_803D5BA4@ha
-/* 80294724 00291684  3C 80 80 3D */	lis r4, lbl_803D6AA8@ha
+/* 80294724 00291684  3C 80 80 3D */	lis r4, kUnknownType__10CCallStack@ha
 /* 80294728 00291688  90 6D A5 A0 */	stw r3, lbl_805A9160@sda21(r13)
-/* 8029472C 0029168C  38 C4 6A A8 */	addi r6, r4, lbl_803D6AA8@l
+/* 8029472C 0029168C  38 C4 6A A8 */	addi r6, r4, kUnknownType__10CCallStack@l
 /* 80294730 00291690  38 A5 5B A4 */	addi r5, r5, lbl_803D5BA4@l
 /* 80294734 00291694  38 61 00 38 */	addi r3, r1, 0x38
 /* 80294738 00291698  38 80 FF FF */	li r4, -1
@@ -891,11 +891,11 @@ __ct__12CNESEmulatorFv:
 /* 80294758 002916B8  48 08 12 3D */	bl Alloc__7CMemoryFUlQ210IAllocator5EHintQ210IAllocator6EScopeQ210IAllocator5ETypeRC10CCallStack
 /* 8029475C 002916BC  90 7F 00 08 */	stw r3, 8(r31)
 /* 80294760 002916C0  3C 80 80 3D */	lis r4, lbl_803D5BA4@ha
-/* 80294764 002916C4  3C 60 80 3D */	lis r3, lbl_803D6AA8@ha
+/* 80294764 002916C4  3C 60 80 3D */	lis r3, kUnknownType__10CCallStack@ha
 /* 80294768 002916C8  3C 00 00 02 */	lis r0, 2
 /* 8029476C 002916CC  80 FF 00 08 */	lwz r7, 8(r31)
 /* 80294770 002916D0  38 A4 5B A4 */	addi r5, r4, lbl_803D5BA4@l
-/* 80294774 002916D4  38 C3 6A A8 */	addi r6, r3, lbl_803D6AA8@l
+/* 80294774 002916D4  38 C3 6A A8 */	addi r6, r3, kUnknownType__10CCallStack@l
 /* 80294778 002916D8  38 61 00 30 */	addi r3, r1, 0x30
 /* 8029477C 002916DC  90 07 00 48 */	stw r0, 0x48(r7)
 /* 80294780 002916E0  38 80 FF FF */	li r4, -1
@@ -910,9 +910,9 @@ __ct__12CNESEmulatorFv:
 /* 802947A4 00291704  80 DF 00 08 */	lwz r6, 8(r31)
 /* 802947A8 00291708  3C E0 00 01 */	lis r7, 0x00008000@ha
 /* 802947AC 0029170C  3C A0 80 3D */	lis r5, lbl_803D5BA4@ha
-/* 802947B0 00291710  3C 80 80 3D */	lis r4, lbl_803D6AA8@ha
+/* 802947B0 00291710  3C 80 80 3D */	lis r4, kUnknownType__10CCallStack@ha
 /* 802947B4 00291714  90 66 00 00 */	stw r3, 0(r6)
-/* 802947B8 00291718  38 C4 6A A8 */	addi r6, r4, lbl_803D6AA8@l
+/* 802947B8 00291718  38 C4 6A A8 */	addi r6, r4, kUnknownType__10CCallStack@l
 /* 802947BC 0029171C  38 07 80 00 */	addi r0, r7, 0x00008000@l
 /* 802947C0 00291720  38 A5 5B A4 */	addi r5, r5, lbl_803D5BA4@l
 /* 802947C4 00291724  80 9F 00 08 */	lwz r4, 8(r31)
@@ -929,11 +929,11 @@ __ct__12CNESEmulatorFv:
 /* 802947F0 00291750  48 08 11 A5 */	bl Alloc__7CMemoryFUlQ210IAllocator5EHintQ210IAllocator6EScopeQ210IAllocator5ETypeRC10CCallStack
 /* 802947F4 00291754  80 FF 00 08 */	lwz r7, 8(r31)
 /* 802947F8 00291758  3C A0 80 3D */	lis r5, lbl_803D5BA4@ha
-/* 802947FC 0029175C  3C C0 80 3D */	lis r6, lbl_803D6AA8@ha
+/* 802947FC 0029175C  3C C0 80 3D */	lis r6, kUnknownType__10CCallStack@ha
 /* 80294800 00291760  38 80 FF FF */	li r4, -1
 /* 80294804 00291764  90 67 00 0C */	stw r3, 0xc(r7)
 /* 80294808 00291768  38 A5 5B A4 */	addi r5, r5, lbl_803D5BA4@l
-/* 8029480C 0029176C  38 C6 6A A8 */	addi r6, r6, lbl_803D6AA8@l
+/* 8029480C 0029176C  38 C6 6A A8 */	addi r6, r6, kUnknownType__10CCallStack@l
 /* 80294810 00291770  38 61 00 20 */	addi r3, r1, 0x20
 /* 80294814 00291774  80 1F 00 04 */	lwz r0, 4(r31)
 /* 80294818 00291778  80 FF 00 08 */	lwz r7, 8(r31)
@@ -946,9 +946,9 @@ __ct__12CNESEmulatorFv:
 /* 80294834 00291794  38 C0 00 00 */	li r6, 0
 /* 80294838 00291798  48 08 11 5D */	bl Alloc__7CMemoryFUlQ210IAllocator5EHintQ210IAllocator6EScopeQ210IAllocator5ETypeRC10CCallStack
 /* 8029483C 0029179C  3C A0 80 3D */	lis r5, lbl_803D5BA4@ha
-/* 80294840 002917A0  3C 80 80 3D */	lis r4, lbl_803D6AA8@ha
+/* 80294840 002917A0  3C 80 80 3D */	lis r4, kUnknownType__10CCallStack@ha
 /* 80294844 002917A4  90 7F 00 0C */	stw r3, 0xc(r31)
-/* 80294848 002917A8  38 C4 6A A8 */	addi r6, r4, lbl_803D6AA8@l
+/* 80294848 002917A8  38 C4 6A A8 */	addi r6, r4, kUnknownType__10CCallStack@l
 /* 8029484C 002917AC  38 A5 5B A4 */	addi r5, r5, lbl_803D5BA4@l
 /* 80294850 002917B0  38 61 00 18 */	addi r3, r1, 0x18
 /* 80294854 002917B4  38 80 FF FF */	li r4, -1
@@ -960,9 +960,9 @@ __ct__12CNESEmulatorFv:
 /* 8029486C 002917CC  38 C0 00 00 */	li r6, 0
 /* 80294870 002917D0  48 08 11 25 */	bl Alloc__7CMemoryFUlQ210IAllocator5EHintQ210IAllocator6EScopeQ210IAllocator5ETypeRC10CCallStack
 /* 80294874 002917D4  3C A0 80 3D */	lis r5, lbl_803D5BA4@ha
-/* 80294878 002917D8  3C 80 80 3D */	lis r4, lbl_803D6AA8@ha
+/* 80294878 002917D8  3C 80 80 3D */	lis r4, kUnknownType__10CCallStack@ha
 /* 8029487C 002917DC  90 7F 00 18 */	stw r3, 0x18(r31)
-/* 80294880 002917E0  38 C4 6A A8 */	addi r6, r4, lbl_803D6AA8@l
+/* 80294880 002917E0  38 C4 6A A8 */	addi r6, r4, kUnknownType__10CCallStack@l
 /* 80294884 002917E4  38 A5 5B A4 */	addi r5, r5, lbl_803D5BA4@l
 /* 80294888 002917E8  38 61 00 10 */	addi r3, r1, 0x10
 /* 8029488C 002917EC  38 80 FF FF */	li r4, -1
@@ -988,11 +988,11 @@ __ct__12CNESEmulatorFv:
 /* 802948DC 0029183C  48 0B B3 F5 */	bl __ct__8CDvdFileFPCc
 /* 802948E0 00291840  80 C1 00 70 */	lwz r6, 0x70(r1)
 /* 802948E4 00291844  3C A0 80 3D */	lis r5, lbl_803D5BA4@ha
-/* 802948E8 00291848  3C 80 80 3D */	lis r4, lbl_803D6AA8@ha
+/* 802948E8 00291848  3C 80 80 3D */	lis r4, kUnknownType__10CCallStack@ha
 /* 802948EC 0029184C  38 61 00 08 */	addi r3, r1, 8
 /* 802948F0 00291850  38 06 00 1F */	addi r0, r6, 0x1f
 /* 802948F4 00291854  38 A5 5B A4 */	addi r5, r5, lbl_803D5BA4@l
-/* 802948F8 00291858  38 C4 6A A8 */	addi r6, r4, lbl_803D6AA8@l
+/* 802948F8 00291858  38 C4 6A A8 */	addi r6, r4, kUnknownType__10CCallStack@l
 /* 802948FC 0029185C  38 80 FF FF */	li r4, -1
 /* 80294900 00291860  54 1E 00 34 */	rlwinm r30, r0, 0, 0, 0x1a
 /* 80294904 00291864  48 04 1A D1 */	bl __ct__10CCallStackFUiPCcPCc
@@ -1427,4 +1427,3 @@ lbl_803D5BA4:
 	.asciz "??(??)"
 	.balign 4
 	.4byte 0
-
