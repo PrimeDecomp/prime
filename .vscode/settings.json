@@ -14,7 +14,8 @@
     "stddef.h": "c",
     "errno.h": "c",
     "ansi_files.h": "c",
-    "types.h": "c"
+    "types.h": "c",
+    "gba.h": "c"
   },
   "files.autoSave": "onFocusChange",
   "files.insertFinalNewline": true,
