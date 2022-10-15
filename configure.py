@@ -339,7 +339,7 @@ LIBS = [
             "MetroidPrime/Cameras/CBallCameraFailsafeState",
             "MetroidPrime/Enemies/CActorContraption",
             "MetroidPrime/ScriptObjects/CScriptSpindleCamera",
-            "MetroidPrime/ScriptObjects/CScriptMemoryRelay",
+            ["MetroidPrime/ScriptObjects/CScriptMemoryRelay", True],
             "MetroidPrime/CPauseScreenFrame",
             "MetroidPrime/Enemies/CAtomicAlpha",
             "MetroidPrime/CLogBookScreen",

@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803E86E8
-lbl_803E86E8:
+.global __vt__18CScriptMemoryRelay
+__vt__18CScriptMemoryRelay:
 	# ROM: 0x3E56E8
 	.4byte 0
 	.4byte 0
@@ -103,9 +103,9 @@ __dt__18CScriptMemoryRelayFv:
 /* 80241A0C 0023E96C  93 C1 00 08 */	stw r30, 8(r1)
 /* 80241A10 0023E970  7C 7E 1B 79 */	or. r30, r3, r3
 /* 80241A14 0023E974  41 82 00 28 */	beq lbl_80241A3C
-/* 80241A18 0023E978  3C A0 80 3F */	lis r5, lbl_803E86E8@ha
+/* 80241A18 0023E978  3C A0 80 3F */	lis r5, __vt__18CScriptMemoryRelay@ha
 /* 80241A1C 0023E97C  38 80 00 00 */	li r4, 0
-/* 80241A20 0023E980  38 05 86 E8 */	addi r0, r5, lbl_803E86E8@l
+/* 80241A20 0023E980  38 05 86 E8 */	addi r0, r5, __vt__18CScriptMemoryRelay@l
 /* 80241A24 0023E984  90 1E 00 00 */	stw r0, 0(r30)
 /* 80241A28 0023E988  4B E0 F8 4D */	bl __dt__7CEntityFv
 /* 80241A2C 0023E98C  7F E0 07 35 */	extsh. r0, r31
@@ -142,8 +142,8 @@ lbl_80241A3C:
 /* 80241A98 0023E9F8  7C 87 23 78 */	mr r7, r4
 /* 80241A9C 0023E9FC  38 81 00 08 */	addi r4, r1, 8
 /* 80241AA0 0023EA00  4B E0 F8 85 */	bl "__ct__7CEntityF9TUniqueIdRC11CEntityInfobRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
-/* 80241AA4 0023EA04  3C 60 80 3F */	lis r3, lbl_803E86E8@ha
-/* 80241AA8 0023EA08  38 03 86 E8 */	addi r0, r3, lbl_803E86E8@l
+/* 80241AA4 0023EA04  3C 60 80 3F */	lis r3, __vt__18CScriptMemoryRelay@ha
+/* 80241AA8 0023EA08  38 03 86 E8 */	addi r0, r3, __vt__18CScriptMemoryRelay@l
 /* 80241AAC 0023EA0C  90 1C 00 00 */	stw r0, 0(r28)
 /* 80241AB0 0023EA10  7F 83 E3 78 */	mr r3, r28
 /* 80241AB4 0023EA14  88 1C 00 34 */	lbz r0, 0x34(r28)

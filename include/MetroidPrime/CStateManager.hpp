@@ -140,6 +140,8 @@ public:
   const CPlayerState* GetPlayerState() const { return x8b8_playerState.GetPtr(); }
   CWorld* World() { return x850_world.get(); }
   const CWorld* GetWorld() const { return x850_world.get(); }
+  CScriptMailbox* Mailbox() { return x8bc_mailbox.GetPtr(); }
+  const CScriptMailbox* GetMailbox() const { return x8bc_mailbox.GetPtr(); }
   CActorModelParticles* ActorModelParticles() { return x884_actorModelParticles.get(); }
   const CActorModelParticles* GetActorModelParticles() const {
     return x884_actorModelParticles.get();

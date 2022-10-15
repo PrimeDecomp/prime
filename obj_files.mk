@@ -306,7 +306,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/Cameras/CBallCameraFailsafeState.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CActorContraption.o\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptSpindleCamera.o\
-	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptMemoryRelay.o\
+	$(BUILD_DIR)/src/MetroidPrime/ScriptObjects/CScriptMemoryRelay.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CPauseScreenFrame.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CAtomicAlpha.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CLogBookScreen.o\
