@@ -144,17 +144,16 @@ void* CGameAllocator::Alloc(size_t size, EHint hint, EScope scope, EType type,
     void* mediumBuf = nullptr;
     if (x58_oomCallback) {
       x58_oomCallback(x5c_oomTarget, size);
-    }
 
-    static bool bTriedCallback = false;
-    if (!bTriedCallback) {
-      bTriedCallback = true;
-      mediumBuf = Alloc(size, hint, scope, type, callstack);
-      bTriedCallback = false;
-    } else {
-      return nullptr;
+      static bool bTriedCallback = false;
+      if (!bTriedCallback) {
+        bTriedCallback = true;
+        mediumBuf = Alloc(size, hint, scope, type, callstack);
+        bTriedCallback = false;
+      } else {
+        return nullptr;
+      }
     }
-
     if (mediumBuf == nullptr) {
       callstack.GetFileAndLineText();
       callstack.GetTypeText();
@@ -192,7 +191,9 @@ CGameAllocator::SGameMemInfo* CGameAllocator::FindFreeBlockFromTopOfHeap(uint si
   return ret;
 }
 
-uint CGameAllocator::FixupAllocPtrs(SGameMemInfo*, uint, uint, EHint, const CCallStack&) { return 0; }
+uint CGameAllocator::FixupAllocPtrs(SGameMemInfo*, uint, uint, EHint, const CCallStack&) {
+  return 0;
+}
 
 void CGameAllocator::UpdateAllocDebugStats(uint len, uint roundedLen, uint offset) {
   ++x84_;

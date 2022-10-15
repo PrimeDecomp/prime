@@ -653,7 +653,7 @@ LIBS = [
             "Kyoto/Graphics/CCubeMaterial",
             "Kyoto/Graphics/CCubeSurface",
             "Kyoto/Animation/CCharAnimTime",
-            "Kyoto/Animation/CSegIdList",
+            ["Kyoto/Animation/CSegIdList", False],
             ["Kyoto/Input/CFinalInput", True],
             ["Kyoto/Graphics/CColor", True],
             "Kyoto/Audio/DolphinCAudioGroupSet",

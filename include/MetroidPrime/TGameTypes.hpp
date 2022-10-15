@@ -67,11 +67,6 @@ CHECK_SIZEOF(TUniqueId, 0x2)
 typedef ushort TSfxId;
 static TSfxId InvalidSfxId = 0xFFFFu;
 
-class CSegId {
-private:
-  uchar x0_id;
-};
-
 #define ALIGN_UP(x, a) (((x) + (a - 1)) & ~(a - 1))
 
 #endif // _TGAMETYPES
