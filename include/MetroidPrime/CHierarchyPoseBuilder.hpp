@@ -5,6 +5,8 @@
 
 #include "MetroidPrime/TGameTypes.hpp"
 
+#include "Kyoto/Animation/CSegId.hpp"
+
 #include "Kyoto/Math/CQuaternion.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
 #include "Kyoto/TToken.hpp"

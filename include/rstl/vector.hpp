@@ -37,12 +37,12 @@ public:
   typedef pointer_iterator< T, vector< T, Alloc >, Alloc > iterator;
   typedef const_pointer_iterator< T, vector< T, Alloc >, Alloc > const_iterator;
 
-  inline iterator begin() { return iterator(xc_items); }
-  inline const_iterator begin() const { return const_iterator(xc_items); }
-  inline iterator end() { return iterator(xc_items + x4_count); }
-  inline const_iterator end() const { return const_iterator(xc_items + x4_count); }
-  inline vector() : x4_count(0), x8_capacity(0), xc_items(NULL) {}
-  inline vector(int count) : x4_count(0), x8_capacity(0), xc_items(0) { reserve(count); }
+  iterator begin() { return iterator(xc_items); }
+  const_iterator begin() const { return const_iterator(xc_items); }
+  iterator end() { return iterator(xc_items + x4_count); }
+  const_iterator end() const { return const_iterator(xc_items + x4_count); }
+  vector() : x4_count(0), x8_capacity(0), xc_items(NULL) {}
+  vector(int count) : x4_count(0), x8_capacity(0), xc_items(0) { reserve(count); }
   vector(int count, const T& v) : x4_count(count), x8_capacity(count) {
     x0_allocator.allocate(xc_items, x4_count);
     uninitialized_fill_n(xc_items, count, v);
@@ -55,7 +55,7 @@ public:
       uninitialized_copy_n(other.xc_items, x4_count, xc_items);
     }
   }
-  vector(CInputStream& in);
+  vector(CInputStream& in, const Alloc& alloc = Alloc());
   ~vector() {
     destroy(begin(), end());
     x0_allocator.deallocate(xc_items);
@@ -99,19 +99,19 @@ public:
     x4_count = 0;
   }
 
-  inline T* data() { return xc_items; }
-  inline const T* data() const { return xc_items; }
-  inline int size() const { return x4_count; }
-  inline bool empty() const { return x4_count == 0; }
-  inline int capacity() const { return x8_capacity; }
-  inline T& at(int idx) { return xc_items[idx]; }
-  inline const T& at(int idx) const { return xc_items[idx]; }
-  inline T& front() { return at(0); }
-  inline const T& front() const { return at(0); }
-  inline T& back() { return at(x4_count - 1); }
-  inline const T& back() const { return at(x4_count - 1); }
-  inline T& operator[](int idx) { return xc_items[idx]; }
-  inline const T& operator[](int idx) const { return xc_items[idx]; }
+  T* data() { return xc_items; }
+  const T* data() const { return xc_items; }
+  int size() const { return x4_count; }
+  bool empty() const { return x4_count == 0; }
+  int capacity() const { return x8_capacity; }
+  T& at(int idx) { return xc_items[idx]; }
+  const T& at(int idx) const { return xc_items[idx]; }
+  T& front() { return at(0); }
+  const T& front() const { return at(0); }
+  T& back() { return at(x4_count - 1); }
+  const T& back() const { return at(x4_count - 1); }
+  T& operator[](int idx) { return xc_items[idx]; }
+  const T& operator[](int idx) const { return xc_items[idx]; }
 
 protected:
   template < typename In >

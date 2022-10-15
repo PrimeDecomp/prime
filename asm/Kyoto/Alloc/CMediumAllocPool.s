@@ -43,8 +43,8 @@ lbl_80350590:
 /* 803505A8 0034D508  98 05 FF FF */	stb r0, -1(r5)
 /* 803505AC 0034D50C  4E 80 00 20 */	blr
 
-.global GetBlockOffset_18SMediumAllocPuddleFCPvCPv
-GetBlockOffset_18SMediumAllocPuddleFCPvCPv:
+.global GetBlockOffset__18SMediumAllocPuddleFCPvCPv
+GetBlockOffset__18SMediumAllocPuddleFCPvCPv:
 /* 803505B0 0034D510  7C 03 20 50 */	subf r0, r3, r4
 /* 803505B4 0034D514  2C 00 00 01 */	cmpwi r0, 1
 /* 803505B8 0034D518  40 81 00 0C */	ble lbl_803505C4
@@ -73,8 +73,8 @@ lbl_80350604:
 /* 80350604 0034D564  54 03 04 3E */	clrlwi r3, r0, 0x10
 /* 80350608 0034D568  4E 80 00 20 */	blr
 
-.global Free_18SMediumAllocPuddleFCPv
-Free_18SMediumAllocPuddleFCPv:
+.global Free__18SMediumAllocPuddleFCPv
+Free__18SMediumAllocPuddleFCPv:
 /* 8035060C 0034D56C  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80350610 0034D570  7C 08 02 A6 */	mflr r0
 /* 80350614 0034D574  90 01 00 24 */	stw r0, 0x24(r1)
@@ -139,7 +139,7 @@ lbl_803506DC:
 /* 803506E8 0034D648  88 03 00 00 */	lbz r0, 0(r3)
 /* 803506EC 0034D64C  54 00 06 31 */	rlwinm. r0, r0, 0, 0x18, 0x18
 /* 803506F0 0034D650  40 81 00 10 */	ble lbl_80350700
-/* 803506F4 0034D654  4B FF FE BD */	bl GetBlockOffset_18SMediumAllocPuddleFCPvCPv
+/* 803506F4 0034D654  4B FF FE BD */	bl GetBlockOffset__18SMediumAllocPuddleFCPvCPv
 /* 803506F8 0034D658  7C 1D 1A 14 */	add r0, r29, r3
 /* 803506FC 0034D65C  54 1D 04 3E */	clrlwi r29, r0, 0x10
 lbl_80350700:
@@ -201,7 +201,7 @@ lbl_803507B0:
 lbl_803507B8:
 /* 803507B8 0034D718  7F 83 E3 78 */	mr r3, r28
 /* 803507BC 0034D71C  7F A4 EB 78 */	mr r4, r29
-/* 803507C0 0034D720  4B FF FD F1 */	bl GetBlockOffset_18SMediumAllocPuddleFCPvCPv
+/* 803507C0 0034D720  4B FF FD F1 */	bl GetBlockOffset__18SMediumAllocPuddleFCPvCPv
 /* 803507C4 0034D724  54 60 04 3E */	clrlwi r0, r3, 0x10
 /* 803507C8 0034D728  7C 00 D8 40 */	cmplw r0, r27
 /* 803507CC 0034D72C  41 80 00 24 */	blt lbl_803507F0
@@ -509,7 +509,7 @@ lbl_80350BB0:
 /* 80350BC0 0034DB20  54 00 28 34 */	slwi r0, r0, 5
 /* 80350BC4 0034DB24  7C 05 00 40 */	cmplw r5, r0
 /* 80350BC8 0034DB28  40 80 00 48 */	bge lbl_80350C10
-/* 80350BCC 0034DB2C  4B FF FA 41 */	bl Free_18SMediumAllocPuddleFCPv
+/* 80350BCC 0034DB2C  4B FF FA 41 */	bl Free__18SMediumAllocPuddleFCPv
 /* 80350BD0 0034DB30  80 1F 00 20 */	lwz r0, 0x20(r31)
 /* 80350BD4 0034DB34  28 00 00 00 */	cmplwi r0, 0
 /* 80350BD8 0034DB38  40 82 00 30 */	bne lbl_80350C08
@@ -698,4 +698,3 @@ lbl_803D8240:
 	# ROM: 0x3D5240
 	.asciz "??(??)"
 	.balign 4
-

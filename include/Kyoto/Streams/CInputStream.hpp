@@ -7,7 +7,7 @@ class CInputStream;
 template < typename T >
 struct TType {};
 template < typename T >
-inline T cinput_stream_helper(const TType< T >& type, CInputStream& in);
+T cinput_stream_helper(const TType< T >& type, CInputStream& in);
 
 class CInputStream {
 public:
@@ -52,6 +52,11 @@ private:
   uint x20_bitOffset;
 };
 
+template <typename T>
+inline T cinput_stream_helper(const TType<T>& type, CInputStream& in) {
+  return T(in);
+}
+
 template <>
 inline int cinput_stream_helper(const TType< int >& type, CInputStream& in) {
   return in.ReadLong();
@@ -89,8 +94,8 @@ inline rstl::pair< L, R > cinput_stream_helper(const TType< rstl::pair< L, R > >
 }
 
 #include "rstl/vector.hpp"
-template < typename T, typename A >
-inline rstl::vector< T, A >::vector(CInputStream& in)
+template < typename T, typename Alloc >
+inline rstl::vector< T, Alloc >::vector(CInputStream& in, const Alloc& allocator)
 : x4_count(0), x8_capacity(0), xc_items(nullptr) {
   int count = in.ReadInt32();
   reserve(count);
