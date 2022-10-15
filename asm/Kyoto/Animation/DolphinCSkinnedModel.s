@@ -59,8 +59,8 @@ sub_80352668:
 /* 80352684 0034F5E4  93 C1 00 18 */	stw r30, 0x18(r1)
 /* 80352688 0034F5E8  93 A1 00 14 */	stw r29, 0x14(r1)
 /* 8035268C 0034F5EC  80 E3 00 18 */	lwz r7, 0x18(r3)
-/* 80352690 0034F5F0  3C 60 80 3D */	lis r3, lbl_803D6AA8@ha
-/* 80352694 0034F5F4  38 C3 6A A8 */	addi r6, r3, lbl_803D6AA8@l
+/* 80352690 0034F5F0  3C 60 80 3D */	lis r3, kUnknownType__10CCallStack@ha
+/* 80352694 0034F5F4  38 C3 6A A8 */	addi r6, r3, kUnknownType__10CCallStack@l
 /* 80352698 0034F5F8  80 07 00 14 */	lwz r0, 0x14(r7)
 /* 8035269C 0034F5FC  38 61 00 08 */	addi r3, r1, 8
 /* 803526A0 0034F600  83 C7 00 10 */	lwz r30, 0x10(r7)
@@ -1396,4 +1396,3 @@ lbl_803D82F8:
 	# ROM: 0x3D52F8
 	.asciz "??(??)"
 	.balign 4
-

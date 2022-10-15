@@ -603,9 +603,9 @@ Initialize__12CARAMManagerFUi:
 /* 80344D44 00341CA4  93 ED A9 6C */	stw r31, lbl_805A952C@sda21(r13)
 /* 80344D48 00341CA8  48 02 8C CD */	bl ARAlloc
 /* 80344D4C 00341CAC  3C A0 80 3D */	lis r5, lbl_803D7F50@ha
-/* 80344D50 00341CB0  3C 80 80 3D */	lis r4, lbl_803D6AA8@ha
+/* 80344D50 00341CB0  3C 80 80 3D */	lis r4, kUnknownType__10CCallStack@ha
 /* 80344D54 00341CB4  90 6D A9 64 */	stw r3, lbl_805A9524@sda21(r13)
-/* 80344D58 00341CB8  38 C4 6A A8 */	addi r6, r4, lbl_803D6AA8@l
+/* 80344D58 00341CB8  38 C4 6A A8 */	addi r6, r4, kUnknownType__10CCallStack@l
 /* 80344D5C 00341CBC  38 A5 7F 50 */	addi r5, r5, lbl_803D7F50@l
 /* 80344D60 00341CC0  38 61 00 08 */	addi r3, r1, 8
 /* 80344D64 00341CC4  38 80 FF FF */	li r4, -1
@@ -788,4 +788,3 @@ lbl_803D7F50:
 	# ROM: 0x3D4F50
 	.asciz "??(??)"
 	.balign 4
-

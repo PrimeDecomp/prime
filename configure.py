@@ -483,7 +483,6 @@ LIBS = [
             "Kyoto/Basics/CBasics",
             ["Kyoto/Basics/CStopwatch", True],
             "Kyoto/Basics/CBasicsDolphin",
-            ["Kyoto/Alloc/CCallStackUnknownType", False], # This is a hack until all usages of CCallStack's constructor are accounted for
             ["Kyoto/Alloc/CCallStackDolphin", True],
             ["Kyoto/Basics/COsContextDolphin", True],
             ["Kyoto/Basics/CSWDataDolphin", True],

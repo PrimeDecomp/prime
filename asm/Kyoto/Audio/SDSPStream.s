@@ -1011,9 +1011,9 @@ DoAllocateStream__10SDSPStreamFi:
 /* 8036AFC8 00367F28  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 8036AFCC 00367F2C  7C 08 02 A6 */	mflr r0
 /* 8036AFD0 00367F30  3C A0 80 3E */	lis r5, lbl_803D8558@ha
-/* 8036AFD4 00367F34  3C 80 80 3D */	lis r4, lbl_803D6AA8@ha
+/* 8036AFD4 00367F34  3C 80 80 3D */	lis r4, kUnknownType__10CCallStack@ha
 /* 8036AFD8 00367F38  90 01 00 34 */	stw r0, 0x34(r1)
-/* 8036AFDC 00367F3C  38 C4 6A A8 */	addi r6, r4, lbl_803D6AA8@l
+/* 8036AFDC 00367F3C  38 C4 6A A8 */	addi r6, r4, kUnknownType__10CCallStack@l
 /* 8036AFE0 00367F40  38 A5 85 58 */	addi r5, r5, lbl_803D8558@l
 /* 8036AFE4 00367F44  38 80 FF FF */	li r4, -1
 /* 8036AFE8 00367F48  93 E1 00 2C */	stw r31, 0x2c(r1)
@@ -1229,4 +1229,3 @@ lbl_803D8558:
 	# ROM: 0x3D5558
 	.asciz "??(??)"
 	.balign 4
-

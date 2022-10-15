@@ -1388,9 +1388,9 @@ PostDVDReadRequestIfNeeded__12CMoviePlayerFv:
 /* 8035C3A8 00359308  7C 03 00 40 */	cmplw r3, r0
 /* 8035C3AC 0035930C  40 80 00 E0 */	bge lbl_8035C48C
 /* 8035C3B0 00359310  3C 60 80 3E */	lis r3, lbl_803D83D8@ha
-/* 8035C3B4 00359314  3C 80 80 3D */	lis r4, lbl_803D6AA8@ha
+/* 8035C3B4 00359314  3C 80 80 3D */	lis r4, kUnknownType__10CCallStack@ha
 /* 8035C3B8 00359318  38 A3 83 D8 */	addi r5, r3, lbl_803D83D8@l
-/* 8035C3BC 0035931C  38 C4 6A A8 */	addi r6, r4, lbl_803D6AA8@l
+/* 8035C3BC 0035931C  38 C4 6A A8 */	addi r6, r4, kUnknownType__10CCallStack@l
 /* 8035C3C0 00359320  38 61 00 10 */	addi r3, r1, 0x10
 /* 8035C3C4 00359324  38 80 FF FF */	li r4, -1
 /* 8035C3C8 00359328  4B F7 A0 0D */	bl __ct__10CCallStackFUiPCcPCc
@@ -1465,9 +1465,9 @@ InitializeTextures__12CMoviePlayerFv:
 /* 8035C4BC 0035941C  39 C1 00 30 */	addi r14, r1, 0x30
 /* 8035C4C0 00359420  3B 03 83 D8 */	addi r24, r3, lbl_803D83D8@l
 /* 8035C4C4 00359424  39 E1 00 38 */	addi r15, r1, 0x38
-/* 8035C4C8 00359428  3C 60 80 3D */	lis r3, lbl_803D6AA8@ha
+/* 8035C4C8 00359428  3C 60 80 3D */	lis r3, kUnknownType__10CCallStack@ha
 /* 8035C4CC 0035942C  3A 01 00 40 */	addi r16, r1, 0x40
-/* 8035C4D0 00359430  3B 23 6A A8 */	addi r25, r3, lbl_803D6AA8@l
+/* 8035C4D0 00359430  3B 23 6A A8 */	addi r25, r3, kUnknownType__10CCallStack@l
 /* 8035C4D4 00359434  7F 1A C3 78 */	mr r26, r24
 /* 8035C4D8 00359438  7F 37 CB 78 */	mr r23, r25
 /* 8035C4DC 0035943C  7F 15 C3 78 */	mr r21, r24
@@ -2233,11 +2233,11 @@ __ct__12CMoviePlayerFPCcfb:
 /* 8035CF98 00359EF8  38 00 00 00 */	li r0, 0
 /* 8035CF9C 00359EFC  3C 80 80 3E */	lis r4, lbl_803D83D8@ha
 /* 8035CFA0 00359F00  90 1C 00 00 */	stw r0, 0(r28)
-/* 8035CFA4 00359F04  3C 60 80 3D */	lis r3, lbl_803D6AA8@ha
+/* 8035CFA4 00359F04  3C 60 80 3D */	lis r3, kUnknownType__10CCallStack@ha
 /* 8035CFA8 00359F08  38 A4 83 D8 */	addi r5, r4, lbl_803D83D8@l
 /* 8035CFAC 00359F0C  38 80 FF FF */	li r4, -1
 /* 8035CFB0 00359F10  90 1C 00 04 */	stw r0, 4(r28)
-/* 8035CFB4 00359F14  38 C3 6A A8 */	addi r6, r3, lbl_803D6AA8@l
+/* 8035CFB4 00359F14  38 C3 6A A8 */	addi r6, r3, kUnknownType__10CCallStack@l
 /* 8035CFB8 00359F18  38 61 00 08 */	addi r3, r1, 8
 /* 8035CFBC 00359F1C  90 1C 00 08 */	stw r0, 8(r28)
 /* 8035CFC0 00359F20  4B F7 94 15 */	bl __ct__10CCallStackFUiPCcPCc
@@ -3098,4 +3098,3 @@ lbl_803D83D8:
 	# ROM: 0x3D53D8
 	.asciz "??(??)"
 	.balign 4
-

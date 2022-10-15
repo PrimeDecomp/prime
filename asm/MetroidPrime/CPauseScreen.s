@@ -4042,10 +4042,10 @@ __ct__12CPauseScreenFiRC16CDependencyGroupRC16CDependencyGroup:
 /* 80074158 000710B8  90 A1 00 28 */	stw r5, 0x28(r1)
 /* 8007415C 000710BC  48 2C 7A F5 */	bl ResourceSize__10CResLoaderCFRC10SObjectTag
 /* 80074160 000710C0  3C A0 80 3D */	lis r5, lbl_803CD2D8@ha
-/* 80074164 000710C4  3C 80 80 3D */	lis r4, lbl_803D6AA8@ha
+/* 80074164 000710C4  3C 80 80 3D */	lis r4, kUnknownType__10CCallStack@ha
 /* 80074168 000710C8  90 7F 00 58 */	stw r3, 0x58(r31)
 /* 8007416C 000710CC  38 A5 D2 D8 */	addi r5, r5, lbl_803CD2D8@l
-/* 80074170 000710D0  38 C4 6A A8 */	addi r6, r4, lbl_803D6AA8@l
+/* 80074170 000710D0  38 C4 6A A8 */	addi r6, r4, kUnknownType__10CCallStack@l
 /* 80074174 000710D4  38 61 00 1C */	addi r3, r1, 0x1c
 /* 80074178 000710D8  38 A5 02 60 */	addi r5, r5, 0x260
 /* 8007417C 000710DC  38 80 FF FF */	li r4, -1

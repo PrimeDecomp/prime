@@ -961,11 +961,11 @@ lbl_80248E38:
 /* 80248E3C 00245D9C  80 DF 00 14 */	lwz r6, 0x14(r31)
 /* 80248E40 00245DA0  3C A0 80 3D */	lis r5, lbl_803D4768@ha
 /* 80248E44 00245DA4  38 A5 48 68 */	addi r5, r5, lbl_803D4768@l
-/* 80248E48 00245DA8  3C 80 80 3D */	lis r4, lbl_803D6AA8@ha
+/* 80248E48 00245DA8  3C 80 80 3D */	lis r4, kUnknownType__10CCallStack@ha
 /* 80248E4C 00245DAC  38 06 00 1F */	addi r0, r6, 0x1f
 /* 80248E50 00245DB0  38 61 00 08 */	addi r3, r1, 0x8
 /* 80248E54 00245DB4  54 00 00 34 */	rlwinm r0, r0, 0, 0, 26
-/* 80248E58 00245DB8  38 C4 6B B8 */	addi r6, r4, lbl_803D6AA8@l
+/* 80248E58 00245DB8  38 C4 6B B8 */	addi r6, r4, kUnknownType__10CCallStack@l
 /* 80248E5C 00245DBC  90 1F 00 28 */	stw r0, 0x28(r31)
 /* 80248E60 00245DC0  38 A5 00 1E */	addi r5, r5, 0x1e
 /* 80248E64 00245DC4  38 80 FF FF */	li r4, -0x1
@@ -1016,11 +1016,11 @@ __ct__11CGBASupportFv:
 /* 80248D34 00245C94  80 DF 00 14 */	lwz r6, 0x14(r31)
 /* 80248D38 00245C98  3C A0 80 3D */	lis r5, lbl_803D4768@ha
 /* 80248D3C 00245C9C  38 A5 47 68 */	addi r5, r5, lbl_803D4768@l
-/* 80248D40 00245CA0  3C 80 80 3D */	lis r4, lbl_803D6AA8@ha
+/* 80248D40 00245CA0  3C 80 80 3D */	lis r4, kUnknownType__10CCallStack@ha
 /* 80248D44 00245CA4  38 06 00 1F */	addi r0, r6, 0x1f
 /* 80248D48 00245CA8  38 61 00 08 */	addi r3, r1, 8
 /* 80248D4C 00245CAC  54 00 00 34 */	rlwinm r0, r0, 0, 0, 0x1a
-/* 80248D50 00245CB0  38 C4 6A A8 */	addi r6, r4, lbl_803D6AA8@l
+/* 80248D50 00245CB0  38 C4 6A A8 */	addi r6, r4, kUnknownType__10CCallStack@l
 /* 80248D54 00245CB4  90 1F 00 28 */	stw r0, 0x28(r31)
 /* 80248D58 00245CB8  38 A5 00 0F */	addi r5, r5, 0xf
 /* 80248D5C 00245CBC  38 80 FF FF */	li r4, -1
@@ -1095,4 +1095,3 @@ lbl_803D4768:
 	.asciz "client_pad.bin"
 	.asciz "??(??)"
 	.balign 4
-

@@ -760,9 +760,9 @@ lbl_8030EA94:
 /* 8030EA94 0030B9F4  54 E7 06 3E */	clrlwi r7, r7, 0x18
 /* 8030EA98 0030B9F8  48 06 B1 A9 */	bl GXGetTexBufferSize
 /* 8030EA9C 0030B9FC  3C A0 80 3D */	lis r5, lbl_803D7400@ha
-/* 8030EAA0 0030BA00  3C 80 80 3D */	lis r4, lbl_803D6AA8@ha
+/* 8030EAA0 0030BA00  3C 80 80 3D */	lis r4, kUnknownType__10CCallStack@ha
 /* 8030EAA4 0030BA04  90 7F 00 0C */	stw r3, 0xc(r31)
-/* 8030EAA8 0030BA08  38 C4 6A A8 */	addi r6, r4, lbl_803D6AA8@l
+/* 8030EAA8 0030BA08  38 C4 6A A8 */	addi r6, r4, kUnknownType__10CCallStack@l
 /* 8030EAAC 0030BA0C  38 A5 74 00 */	addi r5, r5, lbl_803D7400@l
 /* 8030EAB0 0030BA10  38 61 00 08 */	addi r3, r1, 8
 /* 8030EAB4 0030BA14  38 80 FF FF */	li r4, -1
@@ -1057,9 +1057,9 @@ lbl_8030EE6C:
 /* 8030EE98 0030BDF8  42 00 FF D4 */	bdnz lbl_8030EE6C
 lbl_8030EE9C:
 /* 8030EE9C 0030BDFC  3C 60 80 3D */	lis r3, lbl_803D7400@ha
-/* 8030EEA0 0030BE00  3C 80 80 3D */	lis r4, lbl_803D6AA8@ha
+/* 8030EEA0 0030BE00  3C 80 80 3D */	lis r4, kUnknownType__10CCallStack@ha
 /* 8030EEA4 0030BE04  38 A3 74 00 */	addi r5, r3, lbl_803D7400@l
-/* 8030EEA8 0030BE08  38 C4 6A A8 */	addi r6, r4, lbl_803D6AA8@l
+/* 8030EEA8 0030BE08  38 C4 6A A8 */	addi r6, r4, kUnknownType__10CCallStack@l
 /* 8030EEAC 0030BE0C  38 61 00 0C */	addi r3, r1, 0xc
 /* 8030EEB0 0030BE10  38 80 FF FF */	li r4, -1
 /* 8030EEB4 0030BE14  4B FC 75 21 */	bl __ct__10CCallStackFUiPCcPCc
@@ -1138,9 +1138,9 @@ BeginReloadBitmapData__Q28CTexture25CDumpedBitmapDataReloaderFR11CResFactory:
 /* 8030EFB4 0030BF14  90 A1 00 14 */	stw r5, 0x14(r1)
 /* 8030EFB8 0030BF18  48 02 CC 99 */	bl ResourceSize__10CResLoaderCFRC10SObjectTag
 /* 8030EFBC 0030BF1C  3C A0 80 3D */	lis r5, lbl_803D7400@ha
-/* 8030EFC0 0030BF20  3C 80 80 3D */	lis r4, lbl_803D6AA8@ha
+/* 8030EFC0 0030BF20  3C 80 80 3D */	lis r4, kUnknownType__10CCallStack@ha
 /* 8030EFC4 0030BF24  90 7D 00 08 */	stw r3, 8(r29)
-/* 8030EFC8 0030BF28  38 C4 6A A8 */	addi r6, r4, lbl_803D6AA8@l
+/* 8030EFC8 0030BF28  38 C4 6A A8 */	addi r6, r4, kUnknownType__10CCallStack@l
 /* 8030EFCC 0030BF2C  38 A5 74 00 */	addi r5, r5, lbl_803D7400@l
 /* 8030EFD0 0030BF30  38 61 00 08 */	addi r3, r1, 8
 /* 8030EFD4 0030BF34  38 80 FF FF */	li r4, -1
@@ -2256,4 +2256,3 @@ lbl_803D7400:
 	# ROM: 0x3D4400
 	.asciz "??(??)"
 	.balign 4
-

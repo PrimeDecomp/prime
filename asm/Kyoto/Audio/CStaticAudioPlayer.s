@@ -542,10 +542,10 @@ __ct__18CStaticAudioPlayerFRCQ24rstl12basic_stringii:
 /* 8036C304 00369264  90 1A 00 10 */	stw r0, 0x10(r26)
 /* 8036C308 00369268  38 E0 00 00 */	li r7, 0
 /* 8036C30C 0036926C  38 A4 85 60 */	addi r5, r4, lbl_803D8560@l
-/* 8036C310 00369270  3C 60 80 3D */	lis r3, lbl_803D6AA8@ha
+/* 8036C310 00369270  3C 60 80 3D */	lis r3, kUnknownType__10CCallStack@ha
 /* 8036C314 00369274  90 FA 00 18 */	stw r7, 0x18(r26)
 /* 8036C318 00369278  57 A4 00 3C */	rlwinm r4, r29, 0, 0, 0x1e
-/* 8036C31C 0036927C  38 C3 6A A8 */	addi r6, r3, lbl_803D6AA8@l
+/* 8036C31C 0036927C  38 C3 6A A8 */	addi r6, r3, kUnknownType__10CCallStack@l
 /* 8036C320 00369280  57 80 00 3C */	rlwinm r0, r28, 0, 0, 0x1e
 /* 8036C324 00369284  90 9A 00 1C */	stw r4, 0x1c(r26)
 /* 8036C328 00369288  38 61 00 20 */	addi r3, r1, 0x20
@@ -562,11 +562,11 @@ __ct__18CStaticAudioPlayerFRCQ24rstl12basic_stringii:
 /* 8036C354 003692B4  7C 03 00 D0 */	neg r0, r3
 /* 8036C358 003692B8  3C A0 80 3E */	lis r5, lbl_803D8560@ha
 /* 8036C35C 003692BC  7C 00 1B 78 */	or r0, r0, r3
-/* 8036C360 003692C0  3C 80 80 3D */	lis r4, lbl_803D6AA8@ha
+/* 8036C360 003692C0  3C 80 80 3D */	lis r4, kUnknownType__10CCallStack@ha
 /* 8036C364 003692C4  54 00 0F FE */	srwi r0, r0, 0x1f
 /* 8036C368 003692C8  38 A5 85 60 */	addi r5, r5, lbl_803D8560@l
 /* 8036C36C 003692CC  98 1A 00 28 */	stb r0, 0x28(r26)
-/* 8036C370 003692D0  38 C4 6A A8 */	addi r6, r4, lbl_803D6AA8@l
+/* 8036C370 003692D0  38 C4 6A A8 */	addi r6, r4, kUnknownType__10CCallStack@l
 /* 8036C374 003692D4  38 80 FF FF */	li r4, -1
 /* 8036C378 003692D8  90 7A 00 2C */	stw r3, 0x2c(r26)
 /* 8036C37C 003692DC  38 61 00 18 */	addi r3, r1, 0x18
@@ -611,10 +611,10 @@ __ct__18CStaticAudioPlayerFRCQ24rstl12basic_stringii:
 /* 8036C418 00369378  38 7A 00 38 */	addi r3, r26, 0x38
 /* 8036C41C 0036937C  48 00 01 C9 */	bl sub_8036c5e4
 /* 8036C420 00369380  3C 80 80 3E */	lis r4, lbl_803D8560@ha
-/* 8036C424 00369384  3C 60 80 3D */	lis r3, lbl_803D6AA8@ha
+/* 8036C424 00369384  3C 60 80 3D */	lis r3, kUnknownType__10CCallStack@ha
 /* 8036C428 00369388  83 9A 00 10 */	lwz r28, 0x10(r26)
 /* 8036C42C 0036938C  3B C4 85 60 */	addi r30, r4, lbl_803D8560@l
-/* 8036C430 00369390  3B E3 6A A8 */	addi r31, r3, lbl_803D6AA8@l
+/* 8036C430 00369390  3B E3 6A A8 */	addi r31, r3, kUnknownType__10CCallStack@l
 /* 8036C434 00369394  3F A0 00 02 */	lis r29, 2
 /* 8036C438 00369398  48 00 01 80 */	b lbl_8036C5B8
 lbl_8036C43C:
@@ -1081,4 +1081,3 @@ lbl_803D8560:
 	# ROM: 0x3D5560
 	.asciz "??(??)"
 	.balign 4
-

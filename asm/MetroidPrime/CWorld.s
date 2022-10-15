@@ -1893,10 +1893,10 @@ __ct__11CDummyWorldFUi:
 /* 80057504 00054464  90 01 00 10 */	stw r0, 0x10(r1)
 /* 80057508 00054468  48 2E 47 49 */	bl ResourceSize__10CResLoaderCFRC10SObjectTag
 /* 8005750C 0005446C  3C A0 80 3D */	lis r5, lbl_803CCF70@ha
-/* 80057510 00054470  3C 80 80 3D */	lis r4, lbl_803D6AA8@ha
+/* 80057510 00054470  3C 80 80 3D */	lis r4, kUnknownType__10CCallStack@ha
 /* 80057514 00054474  90 7F 00 38 */	stw r3, 0x38(r31)
 /* 80057518 00054478  38 A5 CF 70 */	addi r5, r5, lbl_803CCF70@l
-/* 8005751C 0005447C  38 C4 6A A8 */	addi r6, r4, lbl_803D6AA8@l
+/* 8005751C 0005447C  38 C4 6A A8 */	addi r6, r4, kUnknownType__10CCallStack@l
 /* 80057520 00054480  38 61 00 08 */	addi r3, r1, 8
 /* 80057524 00054484  38 A5 00 01 */	addi r5, r5, 1
 /* 80057528 00054488  38 80 FF FF */	li r4, -1
@@ -3866,10 +3866,10 @@ __ct__6CWorldFR12IObjectStoreR11CResFactoryUi:
 /* 80058FCC 00055F2C  90 C1 00 14 */	stw r6, 0x14(r1)
 /* 80058FD0 00055F30  48 2E 2C 81 */	bl ResourceSize__10CResLoaderCFRC10SObjectTag
 /* 80058FD4 00055F34  3C A0 80 3D */	lis r5, lbl_803CCF70@ha
-/* 80058FD8 00055F38  3C 80 80 3D */	lis r4, lbl_803D6AA8@ha
+/* 80058FD8 00055F38  3C 80 80 3D */	lis r4, kUnknownType__10CCallStack@ha
 /* 80058FDC 00055F3C  90 7E 00 44 */	stw r3, 0x44(r30)
 /* 80058FE0 00055F40  38 A5 CF 70 */	addi r5, r5, lbl_803CCF70@l
-/* 80058FE4 00055F44  38 C4 6A A8 */	addi r6, r4, lbl_803D6AA8@l
+/* 80058FE4 00055F44  38 C4 6A A8 */	addi r6, r4, kUnknownType__10CCallStack@l
 /* 80058FE8 00055F48  38 61 00 08 */	addi r3, r1, 8
 /* 80058FEC 00055F4C  38 A5 00 01 */	addi r5, r5, 1
 /* 80058FF0 00055F50  38 80 FF FF */	li r4, -1

@@ -117,9 +117,9 @@ __ct__16CGraphicsPaletteFR12CInputStream:
 /* 8030DFC8 0030AF28  7C 60 07 34 */	extsh r0, r3
 /* 8030DFCC 0030AF2C  3C 80 80 3D */	lis r4, lbl_803D73E8@ha
 /* 8030DFD0 0030AF30  7C 00 F9 D6 */	mullw r0, r0, r31
-/* 8030DFD4 0030AF34  3C 60 80 3D */	lis r3, lbl_803D6AA8@ha
+/* 8030DFD4 0030AF34  3C 60 80 3D */	lis r3, kUnknownType__10CCallStack@ha
 /* 8030DFD8 0030AF38  38 A4 73 E8 */	addi r5, r4, lbl_803D73E8@l
-/* 8030DFDC 0030AF3C  38 C3 6A A8 */	addi r6, r3, lbl_803D6AA8@l
+/* 8030DFDC 0030AF3C  38 C3 6A A8 */	addi r6, r3, kUnknownType__10CCallStack@l
 /* 8030DFE0 0030AF40  38 61 00 08 */	addi r3, r1, 8
 /* 8030DFE4 0030AF44  38 80 FF FF */	li r4, -1
 /* 8030DFE8 0030AF48  90 1D 00 08 */	stw r0, 8(r29)
@@ -170,8 +170,8 @@ __ct__16CGraphicsPaletteF14EPaletteFormati:
 /* 8030E090 0030AFF0  93 C1 00 18 */	stw r30, 0x18(r1)
 /* 8030E094 0030AFF4  7C 7E 1B 78 */	mr r30, r3
 /* 8030E098 0030AFF8  90 83 00 00 */	stw r4, 0(r3)
-/* 8030E09C 0030AFFC  3C 60 80 3D */	lis r3, lbl_803D6AA8@ha
-/* 8030E0A0 0030B000  38 C3 6A A8 */	addi r6, r3, lbl_803D6AA8@l
+/* 8030E09C 0030AFFC  3C 60 80 3D */	lis r3, kUnknownType__10CCallStack@ha
+/* 8030E0A0 0030B000  38 C3 6A A8 */	addi r6, r3, kUnknownType__10CCallStack@l
 /* 8030E0A4 0030B004  38 80 FF FF */	li r4, -1
 /* 8030E0A8 0030B008  93 FE 00 08 */	stw r31, 8(r30)
 /* 8030E0AC 0030B00C  38 61 00 08 */	addi r3, r1, 8
@@ -206,4 +206,3 @@ lbl_803D73E8:
 	# ROM: 0x3D43E8
 	.asciz "??(??)"
 	.balign 4
-
