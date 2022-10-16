@@ -671,9 +671,9 @@ lbl_80248A5C:
 /* 80248A7C 002459DC  48 00 00 D8 */	b Update_default
 Update_case4:
 /* 80248A80 002459E0  38 00 00 05 */	li r0, 5
-/* 80248A84 002459E4  3C 60 80 25 */	lis r3, nullsub_130@ha
+/* 80248A84 002459E4  3C 60 80 25 */	lis r3, joyboot_callback__Fv@ha
 /* 80248A88 002459E8  90 1F 00 34 */	stw r0, 0x34(r31)
-/* 80248A8C 002459EC  39 23 8D D8 */	addi r9, r3, nullsub_130@l
+/* 80248A8C 002459EC  39 23 8D D8 */	addi r9, r3, joyboot_callback__Fv@l
 /* 80248A90 002459F0  39 1F 00 3C */	addi r8, r31, 0x3c
 /* 80248A94 002459F4  38 A0 00 02 */	li r5, 2
 /* 80248A98 002459F8  80 7F 00 40 */	lwz r3, 0x40(r31)
@@ -1057,8 +1057,8 @@ __ct__11CGBASupportFv:
 
 .endif
 
-.global nullsub_130
-nullsub_130:
+.global joyboot_callback__Fv
+joyboot_callback__Fv:
 /* 80248DD8 00245D38  4E 80 00 20 */	blr
 
 .section .sdata2, "a"

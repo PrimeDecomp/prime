@@ -8,24 +8,21 @@ enum EGBABootMode {
   kBM_unk2 = 2
 };
 
-enum EGBAProcessStatus {
-  kPS_unk1 = 1,
-  kPS_unk2 = 2,
-};
-
-enum EGBASuccessFailure {
-  kGSF_success = 0,
-  kGSF_failure = 1,
+enum EJoyReturn {
+  kJR_ready = 0,
+  kJR_not_ready = 1,
+  kJR_busy = 2,
+  kJR_unknown = 3,
 };
 
 void GBAInit();
-int GBAJoyBootAsync(uint channel, int channel2, EGBABootMode enumValue, void* data, uint size,
+void GBAJoyBootAsync(uint channel, int channel2, EGBABootMode enumValue, void* data, uint size,
                     uchar* statusOut, void* callbackPtr);
-EGBAProcessStatus GBAGetProcessStatus(uint channel, uchar* statusOut);
-EGBASuccessFailure GBAGetStatus(uint channel, uchar* statusOut);
-EGBASuccessFailure GBAReset(uint channel, uchar* statusOut);
-EGBASuccessFailure GBARead(uint channel, void* out, uchar* statusOut);
-EGBASuccessFailure GBAWrite(uint channel, const void* in, uchar* statusOut);
+EJoyReturn GBAGetProcessStatus(uint channel, uchar* statusOut);
+EJoyReturn GBAGetStatus(uint channel, uchar* statusOut);
+EJoyReturn GBAReset(uint channel, uchar* statusOut);
+EJoyReturn GBARead(uint channel, void* out, uchar* statusOut);
+EJoyReturn GBAWrite(uint channel, const void* in, uchar* statusOut);
 #ifdef __cplusplus
 }
 #endif
