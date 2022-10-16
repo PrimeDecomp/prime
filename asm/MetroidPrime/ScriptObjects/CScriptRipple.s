@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803E3E28
-lbl_803E3E28:
+.global __vt__13CScriptRipple
+__vt__13CScriptRipple:
 	# ROM: 0x3E0E28
 	.4byte 0
 	.4byte 0
@@ -141,9 +141,9 @@ __dt__13CScriptRippleFv:
 /* 801750AC 0017200C  93 C1 00 08 */	stw r30, 8(r1)
 /* 801750B0 00172010  7C 7E 1B 79 */	or. r30, r3, r3
 /* 801750B4 00172014  41 82 00 28 */	beq lbl_801750DC
-/* 801750B8 00172018  3C A0 80 3E */	lis r5, lbl_803E3E28@ha
+/* 801750B8 00172018  3C A0 80 3E */	lis r5, __vt__13CScriptRipple@ha
 /* 801750BC 0017201C  38 80 00 00 */	li r4, 0
-/* 801750C0 00172020  38 05 3E 28 */	addi r0, r5, lbl_803E3E28@l
+/* 801750C0 00172020  38 05 3E 28 */	addi r0, r5, __vt__13CScriptRipple@l
 /* 801750C4 00172024  90 1E 00 00 */	stw r0, 0(r30)
 /* 801750C8 00172028  4B ED C1 AD */	bl __dt__7CEntityFv
 /* 801750CC 0017202C  7F E0 07 35 */	extsh. r0, r31
@@ -159,8 +159,8 @@ lbl_801750DC:
 /* 801750F0 00172050  38 21 00 10 */	addi r1, r1, 0x10
 /* 801750F4 00172054  4E 80 00 20 */	blr
 
-.global "__ct__13CScriptRippleF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fbffff"
-"__ct__13CScriptRippleF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fbffff":
+.global "__ct__13CScriptRippleF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fbf"
+"__ct__13CScriptRippleF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fbf":
 /* 801750F8 00172058  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 801750FC 0017205C  7C 08 02 A6 */	mflr r0
 /* 80175100 00172060  90 01 00 34 */	stw r0, 0x34(r1)
@@ -180,8 +180,8 @@ lbl_801750DC:
 /* 80175138 00172098  38 81 00 08 */	addi r4, r1, 8
 /* 8017513C 0017209C  4B ED C1 E9 */	bl "__ct__7CEntityF9TUniqueIdRC11CEntityInfobRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 /* 80175140 001720A0  C0 02 A1 70 */	lfs f0, lbl_805ABE90@sda21(r2)
-/* 80175144 001720A4  3C 60 80 3E */	lis r3, lbl_803E3E28@ha
-/* 80175148 001720A8  38 03 3E 28 */	addi r0, r3, lbl_803E3E28@l
+/* 80175144 001720A4  3C 60 80 3E */	lis r3, __vt__13CScriptRipple@ha
+/* 80175148 001720A8  38 03 3E 28 */	addi r0, r3, __vt__13CScriptRipple@l
 /* 8017514C 001720AC  FC 1F 00 40 */	fcmpo cr0, f31, f0
 /* 80175150 001720B0  90 1E 00 00 */	stw r0, 0(r30)
 /* 80175154 001720B4  4C 41 13 82 */	cror 2, 1, 2
@@ -215,4 +215,3 @@ lbl_805ABE90:
 	# ROM: 0x3F8730
 	.4byte 0
 	.4byte 0
-
