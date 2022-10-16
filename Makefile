@@ -153,6 +153,8 @@ $(SI_FILES): MWCC_VERSION := 1.2.5
 $(SI_FILES): CFLAGS := $(CFLAGS_BASE)
 $(DB_FILES): MWCC_VERSION := 1.2.5
 $(DB_FILES): CFLAGS := $(CFLAGS_BASE)
+$(GBA_FILES): MWCC_VERSION := 1.2.5
+$(GBA_FILES): CFLAGS := $(CFLAGS_BASE)
 
 #-------------------------------------------------------------------------------
 # Recipes
