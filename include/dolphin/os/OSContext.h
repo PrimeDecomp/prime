@@ -33,6 +33,7 @@ typedef struct OSContext {
 
 void OSSaveContext(OSContext* context);
 void OSClearContext(OSContext* context);
+OSContext* OSGetCurrentContext();
 void OSSetCurrentContext(OSContext* context);
 
 #ifdef __cplusplus

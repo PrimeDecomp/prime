@@ -9,6 +9,9 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+typedef void (*GBATransferCallback)(s32 chan);
+
 typedef struct GBASecParams {
   u8 data[0x40];
 } GBASecParams;
@@ -28,7 +31,7 @@ typedef struct GBA {
   s32 result;
   OSThreadQueue thread_queue;
   OSTime delay;
-  GBACallback _38;
+  GBATransferCallback _38;
   s32 _3c;
   s32 palette_color;
   s32 palette_speed;
@@ -43,14 +46,14 @@ typedef struct GBA {
   char data4[0x100u - 0xfcu];
 } GBA;
 
-
 extern GBA __GBA[4];
 extern BOOL __GBAReset;
 
-//void __GBAHandler(s32 chan, s32 ret);
+// void __GBAHandler(s32 chan, s32 ret);
 void __GBASyncCallback(s32 chan, s32 ret);
 s32 __GBASync(s32 chan);
 OSTime __GBASetDelay(s32 chan, OSTime delay);
+s32 __GBATransfer(s32 chan, s32 w1, s32 w2, GBATransferCallback callback);
 
 #ifdef __cplusplus
 }
