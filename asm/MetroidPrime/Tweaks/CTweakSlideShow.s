@@ -3,12 +3,12 @@
 .section .data
 .balign 8
 
-.global lbl_803EC000
-lbl_803EC000:
+.global __vt__15CTweakSlideShow
+__vt__15CTweakSlideShow:
 	# ROM: 0x3E9000
 	.4byte 0
 	.4byte 0
-	.4byte sub_8029c7cc
+	.4byte __dt__15CTweakSlideShowFv
 	.4byte 0
 
 .section .text, "ax"
@@ -17,11 +17,11 @@ lbl_803EC000:
 __ct__15CTweakSlideShowFR12CInputStream:
 /* 8029C5F8 00299558  94 21 FF B0 */	stwu r1, -0x50(r1)
 /* 8029C5FC 0029955C  7C 08 02 A6 */	mflr r0
-/* 8029C600 00299560  3C A0 80 3F */	lis r5, lbl_803EC000@ha
+/* 8029C600 00299560  3C A0 80 3F */	lis r5, __vt__15CTweakSlideShow@ha
 /* 8029C604 00299564  3C C0 80 3E */	lis r6, __vt__12ITweakObject@ha
 /* 8029C608 00299568  90 01 00 54 */	stw r0, 0x54(r1)
 /* 8029C60C 0029956C  38 06 9C C4 */	addi r0, r6, __vt__12ITweakObject@l
-/* 8029C610 00299570  38 A5 C0 00 */	addi r5, r5, lbl_803EC000@l
+/* 8029C610 00299570  38 A5 C0 00 */	addi r5, r5, __vt__15CTweakSlideShow@l
 /* 8029C614 00299574  93 E1 00 4C */	stw r31, 0x4c(r1)
 /* 8029C618 00299578  7C 9F 23 78 */	mr r31, r4
 /* 8029C61C 0029957C  93 C1 00 48 */	stw r30, 0x48(r1)
@@ -133,8 +133,8 @@ __ct__15CTweakSlideShowFR12CInputStream:
 /* 8029C7C4 00299724  38 21 00 50 */	addi r1, r1, 0x50
 /* 8029C7C8 00299728  4E 80 00 20 */	blr
 
-.global sub_8029c7cc
-sub_8029c7cc:
+.global __dt__15CTweakSlideShowFv
+__dt__15CTweakSlideShowFv:
 /* 8029C7CC 0029972C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8029C7D0 00299730  7C 08 02 A6 */	mflr r0
 /* 8029C7D4 00299734  90 01 00 14 */	stw r0, 0x14(r1)
@@ -143,9 +143,9 @@ sub_8029c7cc:
 /* 8029C7E0 00299740  93 C1 00 08 */	stw r30, 8(r1)
 /* 8029C7E4 00299744  7C 7E 1B 79 */	or. r30, r3, r3
 /* 8029C7E8 00299748  41 82 00 54 */	beq lbl_8029C83C
-/* 8029C7EC 0029974C  3C 60 80 3F */	lis r3, lbl_803EC000@ha
+/* 8029C7EC 0029974C  3C 60 80 3F */	lis r3, __vt__15CTweakSlideShow@ha
 /* 8029C7F0 00299750  34 1E 00 14 */	addic. r0, r30, 0x14
-/* 8029C7F4 00299754  38 03 C0 00 */	addi r0, r3, lbl_803EC000@l
+/* 8029C7F4 00299754  38 03 C0 00 */	addi r0, r3, __vt__15CTweakSlideShow@l
 /* 8029C7F8 00299758  90 1E 00 00 */	stw r0, 0(r30)
 /* 8029C7FC 0029975C  41 82 00 0C */	beq lbl_8029C808
 /* 8029C800 00299760  38 7E 00 14 */	addi r3, r30, 0x14
@@ -165,7 +165,7 @@ lbl_8029C82C:
 /* 8029C82C 0029978C  7F E0 07 35 */	extsh. r0, r31
 /* 8029C830 00299790  40 81 00 0C */	ble lbl_8029C83C
 /* 8029C834 00299794  7F C3 F3 78 */	mr r3, r30
-/* 8029C838 00299798  48 00 00 21 */	bl sub_8029c858
+/* 8029C838 00299798  48 00 00 21 */	bl "__dl__29TOneStatic<15CTweakSlideShow>FPv"
 lbl_8029C83C:
 /* 8029C83C 0029979C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8029C840 002997A0  7F C3 F3 78 */	mr r3, r30
@@ -175,8 +175,8 @@ lbl_8029C83C:
 /* 8029C850 002997B0  38 21 00 10 */	addi r1, r1, 0x10
 /* 8029C854 002997B4  4E 80 00 20 */	blr
 
-.global sub_8029c858
-sub_8029c858:
+.global "__dl__29TOneStatic<15CTweakSlideShow>FPv"
+"__dl__29TOneStatic<15CTweakSlideShow>FPv":
 /* 8029C858 002997B8  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8029C85C 002997BC  7C 08 02 A6 */	mflr r0
 /* 8029C860 002997C0  90 01 00 14 */	stw r0, 0x14(r1)

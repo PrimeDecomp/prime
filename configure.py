@@ -380,7 +380,7 @@ LIBS = [
             "MetroidPrime/Player/CMorphBallShadow",
             "MetroidPrime/Player/CPlayerInputFilter",
             "MetroidPrime/CSlideShow",
-            "MetroidPrime/Tweaks/CTweakSlideShow",
+            ["MetroidPrime/Tweaks/CTweakSlideShow", True],
             "MetroidPrime/CArtifactDoll",
             "MetroidPrime/CProjectedShadow",
             "MetroidPrime/CPreFrontEnd",
