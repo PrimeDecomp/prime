@@ -2,8 +2,8 @@
 
 .section .data
 .balign 8
-.global lbl_803D9CD0
-lbl_803D9CD0:
+.global __vt__10CTweakGame
+__vt__10CTweakGame:
 	# ROM: 0x3D6CD0
 	.4byte 0
 	.4byte 0
@@ -24,9 +24,9 @@ __ct__10CTweakGameFR12CInputStream:
 /* 80037200 00034160  7C 9F 23 78 */	mr r31, r4
 /* 80037204 00034164  93 C1 00 18 */	stw r30, 0x18(r1)
 /* 80037208 00034168  7C 7E 1B 78 */	mr r30, r3
-/* 8003720C 0003416C  3C 60 80 3E */	lis r3, lbl_803D9CD0@ha
+/* 8003720C 0003416C  3C 60 80 3E */	lis r3, __vt__10CTweakGame@ha
 /* 80037210 00034170  90 1E 00 00 */	stw r0, 0(r30)
-/* 80037214 00034174  38 03 9C D0 */	addi r0, r3, lbl_803D9CD0@l
+/* 80037214 00034174  38 03 9C D0 */	addi r0, r3, __vt__10CTweakGame@l
 /* 80037218 00034178  38 7E 00 04 */	addi r3, r30, 4
 /* 8003721C 0003417C  90 1E 00 00 */	stw r0, 0(r30)
 /* 80037220 00034180  48 30 70 D9 */	bl "__ct__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>FR12CInputStreamRCQ24rstl17rmemory_allocator"
@@ -114,9 +114,9 @@ __dt__10CTweakGameFv:
 /* 8003735C 000342BC  93 C1 00 08 */	stw r30, 8(r1)
 /* 80037360 000342C0  7C 7E 1B 79 */	or. r30, r3, r3
 /* 80037364 000342C4  41 82 00 54 */	beq lbl_800373B8
-/* 80037368 000342C8  3C 60 80 3E */	lis r3, lbl_803D9CD0@ha
+/* 80037368 000342C8  3C 60 80 3E */	lis r3, __vt__10CTweakGame@ha
 /* 8003736C 000342CC  34 1E 00 14 */	addic. r0, r30, 0x14
-/* 80037370 000342D0  38 03 9C D0 */	addi r0, r3, lbl_803D9CD0@l
+/* 80037370 000342D0  38 03 9C D0 */	addi r0, r3, __vt__10CTweakGame@l
 /* 80037374 000342D4  90 1E 00 00 */	stw r0, 0(r30)
 /* 80037378 000342D8  41 82 00 0C */	beq lbl_80037384
 /* 8003737C 000342DC  38 7E 00 14 */	addi r3, r30, 0x14

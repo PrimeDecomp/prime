@@ -192,6 +192,10 @@ public:
     return xf90_deferredTransition == kSMT_MessageScreen;
   }
 
+  void SetLastRelayId(const TUniqueId& uid) { xf76_lastRelay = uid; }
+  TUniqueId* GetLastRelayIdPtr() { return &xf76_lastRelay; }
+  TUniqueId GetLastRelayId() const { return xf76_lastRelay; }
+
   void SetEnergyBarActorInfo(TUniqueId bossId, float maxEnergy, uint stringIdx);
   void SetPendingOnScreenTex(CAssetId texId, const CVector2i& origin, const CVector2i& extent); /* {
      xef4_pendingScreenTex.x0_id = texId;

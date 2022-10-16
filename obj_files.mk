@@ -24,7 +24,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/Factories/CAssetFactory.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Tweaks/CTweakPlayer.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Tweaks/CTweaks.o\
-	$(BUILD_DIR)/asm/MetroidPrime/Tweaks/CTweakGame.o\
+	$(BUILD_DIR)/src/MetroidPrime/Tweaks/CTweakGame.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CGameProjectile.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Player/CPlayerGun.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CStateManager.o\
@@ -67,7 +67,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptTimer.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Cameras/CCinematicCamera.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CAutoMapper.o\
-	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptCounter.o\
+	$(BUILD_DIR)/src/MetroidPrime/ScriptObjects/CScriptCounter.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CMapWorld.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CAi.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/PatternedCastTo.o\
@@ -99,7 +99,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/Weapons/CWaveBeam.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Weapons/CIceBeam.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CScriptMailbox.o\
-	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptRelay.o\
+	$(BUILD_DIR)/src/MetroidPrime/ScriptObjects/CScriptRelay.o\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptSpawnPoint.o\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptRandomRelay.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CBeetle.o\
@@ -259,7 +259,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/src/MetroidPrime/BodyState/CABSIdle.o\
 	$(BUILD_DIR)/asm/MetroidPrime/BodyState/CABSFlinch.o\
 	$(BUILD_DIR)/asm/MetroidPrime/BodyState/CABSAim.o\
-	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptPlayerStateChange.o\
+	$(BUILD_DIR)/src/MetroidPrime/ScriptObjects/CScriptPlayerStateChange.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CThardus.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CActorParticles.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CWallCrawlerSwarm.o\
@@ -347,7 +347,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/Player/CMorphBallShadow.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Player/CPlayerInputFilter.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CSlideShow.o\
-	$(BUILD_DIR)/asm/MetroidPrime/Tweaks/CTweakSlideShow.o\
+	$(BUILD_DIR)/src/MetroidPrime/Tweaks/CTweakSlideShow.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CArtifactDoll.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CProjectedShadow.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CPreFrontEnd.o\
@@ -850,8 +850,10 @@ THP_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/thp/THPAudio.o
 
 GBA_FILES :=\
-	$(BUILD_DIR)/asm/Dolphin/GBA/GBA.o\
-	$(BUILD_DIR)/asm/Dolphin/GBA/GBARead.o\
-	$(BUILD_DIR)/asm/Dolphin/GBA/GBAWrite.o\
+	$(BUILD_DIR)/src/Dolphin/GBA/GBA.ep.o\
+	$(BUILD_DIR)/asm/Dolphin/GBA/GBAGetProcessStatus.o\
+	$(BUILD_DIR)/asm/Dolphin/GBA/GBAJoyBoot.o\
+	$(BUILD_DIR)/src/Dolphin/GBA/GBARead.ep.o\
+	$(BUILD_DIR)/src/Dolphin/GBA/GBAWrite.ep.o\
 	$(BUILD_DIR)/asm/Dolphin/GBA/GBAXfer.o\
 	$(BUILD_DIR)/asm/Dolphin/GBA/GBAKey.o\

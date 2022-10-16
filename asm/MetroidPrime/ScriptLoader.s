@@ -16902,7 +16902,7 @@ lbl_800D4710:
 /* 800D475C 000D16BC  B0 01 00 0C */	sth r0, 0xc(r1)
 /* 800D4760 000D16C0  38 81 00 0C */	addi r4, r1, 0xc
 /* 800D4764 000D16C4  38 A1 00 10 */	addi r5, r1, 0x10
-/* 800D4768 000D16C8  48 00 DB A9 */	bl "__ct__12CScriptRelayF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfofb"
+/* 800D4768 000D16C8  48 00 DB A9 */	bl "__ct__12CScriptRelayF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfob"
 /* 800D476C 000D16CC  7C 7F 1B 78 */	mr r31, r3
 lbl_800D4770:
 /* 800D4770 000D16D0  38 61 00 10 */	addi r3, r1, 0x10
@@ -21201,7 +21201,7 @@ lbl_800D8610:
 /* 800D8688 000D55E8  38 81 00 0C */	addi r4, r1, 0xc
 /* 800D868C 000D55EC  38 A1 00 1C */	addi r5, r1, 0x1c
 /* 800D8690 000D55F0  38 E1 00 10 */	addi r7, r1, 0x10
-/* 800D8694 000D55F4  48 09 CA 65 */	bl "__ct__13CScriptRippleF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fbffff"
+/* 800D8694 000D55F4  48 09 CA 65 */	bl "__ct__13CScriptRippleF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fbf"
 /* 800D8698 000D55F8  7C 7E 1B 78 */	mr r30, r3
 lbl_800D869C:
 /* 800D869C 000D55FC  38 61 00 1C */	addi r3, r1, 0x1c

@@ -3,7 +3,7 @@
 .section .data, "wa"
 .balign 8
 
-lbl_803F71A0:
+D35:
 	.byte   0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0
 	.byte   0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 33,  2,255,  0, 33
 	.byte  19,  6, 18,  3, 18,  4, 19,  5,  0,146,  0,255,  0,136,255,255
@@ -70,20 +70,8 @@ lbl_803F752C:
 
 .section .text, "ax"
 
-.global __GBASetDelay
-__GBASetDelay:
-/* 803CAF1C 003C7E7C  3C 80 80 57 */	lis r4, __GBA@ha
-/* 803CAF20 003C7E80  54 63 40 2E */	slwi r3, r3, 8
-/* 803CAF24 003C7E84  38 04 A1 A0 */	addi r0, r4, __GBA@l
-/* 803CAF28 003C7E88  7C E0 1A 14 */	add r7, r0, r3
-/* 803CAF2C 003C7E8C  80 67 00 30 */	lwz r3, 0x30(r7)
-/* 803CAF30 003C7E90  80 87 00 34 */	lwz r4, 0x34(r7)
-/* 803CAF34 003C7E94  90 C7 00 34 */	stw r6, 0x34(r7)
-/* 803CAF38 003C7E98  90 A7 00 30 */	stw r5, 0x30(r7)
-/* 803CAF3C 003C7E9C  4E 80 00 20 */	blr
-
-.global __GBADSPTaskInit
-__GBADSPTaskInit:
+.global __F23
+__F23:
 /* 803CAF40 003C7EA0  7C 08 02 A6 */	mflr r0
 /* 803CAF44 003C7EA4  3C 80 80 57 */	lis r4, __GBA@ha
 /* 803CAF48 003C7EA8  90 01 00 04 */	stw r0, 4(r1)
@@ -147,8 +135,8 @@ lbl_803CAFFC:
 /* 803CB014 003C7F74  7C 08 03 A6 */	mtlr r0
 /* 803CB018 003C7F78  4E 80 00 20 */	blr
 
-.global __GBADSPTaskDone
-__GBADSPTaskDone:
+.global __F25
+__F25:
 /* 803CB01C 003C7F7C  3C 80 80 57 */	lis r4, __GBA@ha
 /* 803CB020 003C7F80  7C 08 02 A6 */	mflr r0
 /* 803CB024 003C7F84  38 84 A1 A0 */	addi r4, r4, __GBA@l
@@ -228,21 +216,21 @@ __GBAX02:
 /* 803CB12C 003C808C  38 80 00 20 */	li r4, 0x20
 /* 803CB130 003C8090  4B FB 39 81 */	bl DCFlushRange
 /* 803CB134 003C8094  38 00 00 FF */	li r0, 0xff
-/* 803CB138 003C8098  3C 80 80 3F */	lis r4, lbl_803F71A0@ha
+/* 803CB138 003C8098  3C 80 80 3F */	lis r4, D35@ha
 /* 803CB13C 003C809C  90 1F 00 AC */	stw r0, 0xac(r31)
-/* 803CB140 003C80A0  38 84 71 A0 */	addi r4, r4, lbl_803F71A0@l
+/* 803CB140 003C80A0  38 84 71 A0 */	addi r4, r4, D35@l
 /* 803CB144 003C80A4  3C 04 80 00 */	addis r0, r4, 0x8000
 /* 803CB148 003C80A8  90 1F 00 B4 */	stw r0, 0xb4(r31)
 /* 803CB14C 003C80AC  38 00 03 80 */	li r0, 0x380
-/* 803CB150 003C80B0  3C A0 80 3D */	lis r5, __GBADSPTaskInit@ha
+/* 803CB150 003C80B0  3C A0 80 3D */	lis r5, __F23@ha
 /* 803CB154 003C80B4  90 1F 00 B8 */	stw r0, 0xb8(r31)
 /* 803CB158 003C80B8  38 C0 00 00 */	li r6, 0
 /* 803CB15C 003C80BC  38 00 00 10 */	li r0, 0x10
 /* 803CB160 003C80C0  90 DF 00 BC */	stw r6, 0xbc(r31)
-/* 803CB164 003C80C4  38 A5 AF 40 */	addi r5, r5, __GBADSPTaskInit@l
-/* 803CB168 003C80C8  3C 80 80 3D */	lis r4, __GBADSPTaskDone@ha
+/* 803CB164 003C80C4  38 A5 AF 40 */	addi r5, r5, __F23@l
+/* 803CB168 003C80C8  3C 80 80 3D */	lis r4, __F25@ha
 /* 803CB16C 003C80CC  B0 1F 00 CC */	sth r0, 0xcc(r31)
-/* 803CB170 003C80D0  38 04 B0 1C */	addi r0, r4, __GBADSPTaskDone@l
+/* 803CB170 003C80D0  38 04 B0 1C */	addi r0, r4, __F25@l
 /* 803CB174 003C80D4  38 7F 00 A8 */	addi r3, r31, 0xa8
 /* 803CB178 003C80D8  90 BF 00 D0 */	stw r5, 0xd0(r31)
 /* 803CB17C 003C80DC  90 DF 00 D4 */	stw r6, 0xd4(r31)

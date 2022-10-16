@@ -17,6 +17,8 @@ enum node_color {
   kNC_Black,
 };
 
+void* rbtree_traverse_forward(const void*, void*);
+
 template < typename T, typename P, int U, typename S = select1st< P >, typename Cmp = less< T >,
            typename Alloc = rmemory_allocator >
 class red_black_tree {
@@ -42,7 +44,19 @@ public:
       return mNode == other.mNode && mHeader == other.mHeader;
     }
     bool operator!=(const const_iterator& other) const {
-      return !(*this == other); // mNode != other.mNode || mHeader != other.mHeader;
+      // return !(*this == other);
+      return mNode != other.mNode || mHeader != other.mHeader;
+    }
+
+    const_iterator& operator++() {
+      mNode = static_cast<node*>(rbtree_traverse_forward(static_cast<const void*>(mHeader), static_cast<void*>(mNode)));
+      return *this;
+    }
+
+    const_iterator operator++(int) {
+      const_iterator result = *this;
+      mNode = static_cast<node*>(rbtree_traverse_forward(static_cast<const void*>(mHeader), static_cast<void*>(mNode)));
+      return result;
     }
   };
 

@@ -7,7 +7,7 @@
 #include "dolphin/os/OSSerial.h"
 #include "rstl/math.hpp"
 
-void joyboot_callback() {}
+void joyboot_callback(s32 chan, s32 ret) {}
 
 const uint MAGIC = 0x414d5445;
 
@@ -56,7 +56,7 @@ inline bool CGBASupport::CheckReadyStatus() {
     buff[0xc9] = (tick >> 8);
     buff[0xca] = (tick >> 16);
     buff[0xcb] = (tick >> 24);
-    buff[0xaf] = 'E'; // ??? 0x45
+    buff[0xaf] = 'E'; // set region to 'E' instead of 'J'
     buff[0xbd] = 0xc9;
     return true;
   }
@@ -97,14 +97,14 @@ void CGBASupport::Update(float dt) {
 
   case kP_StartJoyBusBoot:
     x34_phase = kP_PollJoyBusBoot;
-    GBAJoyBootAsync(x40_siChan, x40_siChan << 1, kBM_unk2, x2c_buffer.get(), x0_file.Length(),
+    GBAJoyBootAsync(x40_siChan, x40_siChan << 1, 2, x2c_buffer.get(), x0_file.Length(),
                     &x3c_status, &joyboot_callback);
     break;
 
   case kP_PollJoyBusBoot:
-    EJoyReturn status = GBAGetProcessStatus(x40_siChan, &x3c_status);
-    if (status != kJR_busy) {
-      if (GBAGetStatus(x40_siChan, &x3c_status) == kJR_not_ready) {
+    int status = GBAGetProcessStatus(x40_siChan, &x3c_status);
+    if (status != GBA_BUSY) {
+      if (GBAGetStatus(x40_siChan, &x3c_status) == GBA_NOT_READY) {
         x34_phase = kP_Failed;
       } else {
         x38_timeout = 4.f;
@@ -151,33 +151,33 @@ bool CGBASupport::PollResponse() {
   uint unk;
 
   // Not sure why this is called twice
-  if (GBAReset(x40_siChan, &gbaStatus) == kJR_not_ready &&
-      GBAReset(x40_siChan, &gbaStatus) == kJR_not_ready) {
+  if (GBAReset(x40_siChan, &gbaStatus) == GBA_NOT_READY &&
+      GBAReset(x40_siChan, &gbaStatus) == GBA_NOT_READY) {
     return false;
   }
-  if (GBAGetStatus(x40_siChan, &gbaStatus) == kJR_not_ready) {
+  if (GBAGetStatus(x40_siChan, &gbaStatus) == GBA_NOT_READY) {
     return false;
   }
   if (gbaStatus != 0x28) {
     return false;
   }
   uint magic;
-  if (GBARead(x40_siChan, &magic, &gbaStatus) == kJR_not_ready) {
+  if (GBARead(x40_siChan, reinterpret_cast<u8*>(&magic), &gbaStatus) == GBA_NOT_READY) {
     return false;
   }
   if (magic != 0x414d5445) { // "AMTE"
     return false;
   }
-  if (GBAGetStatus(x40_siChan, &gbaStatus) == kJR_not_ready) {
+  if (GBAGetStatus(x40_siChan, &gbaStatus) == GBA_NOT_READY) {
     return false;
   }
   if (gbaStatus != 0x20) {
     return false;
   }
-  if (GBAWrite(x40_siChan, &MAGIC, &gbaStatus) == kJR_not_ready) {
+  if (GBAWrite(x40_siChan, reinterpret_cast<const u8*>(&MAGIC), &gbaStatus) == GBA_NOT_READY) {
     return false;
   }
-  if (GBAGetStatus(x40_siChan, &gbaStatus) == kJR_not_ready) {
+  if (GBAGetStatus(x40_siChan, &gbaStatus) == GBA_NOT_READY) {
     return false;
   }
   if ((gbaStatus & 0x30) != 0x30) {
@@ -189,12 +189,12 @@ bool CGBASupport::PollResponse() {
     if (OSTicksToMicroseconds(current - start) > 500) {
       goto end;
     }
-  } while ((GBAGetStatus(x40_siChan, &gbaStatus) == kJR_not_ready || (gbaStatus & 0x8) == 0) ||
-           (GBAGetStatus(x40_siChan, &gbaStatus) != kJR_ready || gbaStatus != 0x38));
+  } while ((GBAGetStatus(x40_siChan, &gbaStatus) == GBA_NOT_READY || (gbaStatus & 0x8) == 0) ||
+           (GBAGetStatus(x40_siChan, &gbaStatus) != GBA_READY || gbaStatus != 0x38));
 
   uint read;
   uchar fusionStatus[4];
-  if (GBARead(x40_siChan, &read, &gbaStatus) != kJR_ready) {
+  if (GBARead(x40_siChan, reinterpret_cast<uchar*>(&read), &gbaStatus) != GBA_READY) {
     return false;
   }
   fusionStatus[0] = read >> 24;
