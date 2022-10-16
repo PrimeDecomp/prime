@@ -347,7 +347,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/Player/CMorphBallShadow.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Player/CPlayerInputFilter.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CSlideShow.o\
-	$(BUILD_DIR)/asm/MetroidPrime/Tweaks/CTweakSlideShow.o\
+	$(BUILD_DIR)/src/MetroidPrime/Tweaks/CTweakSlideShow.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CArtifactDoll.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CProjectedShadow.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CPreFrontEnd.o\

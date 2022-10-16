@@ -38,12 +38,12 @@ class basic_string {
   //         delete[] x4_cow;
   // }
 
-  static const _CharTp _EmptyString;
+  static const _CharTp mNull;
 
 public:
   struct literal_t {};
 
-  basic_string() : x0_ptr(&_EmptyString), x4_cow(nullptr), x8_size(0) {}
+  basic_string() : x0_ptr(&mNull), x4_cow(nullptr), x8_size(0) {}
 
   basic_string(literal_t, const _CharTp* data);
   // {
@@ -72,7 +72,7 @@ public:
   // {
   //     if (size <= 0 && !data)
   //     {
-  //         x0_ptr = &_EmptyString;
+  //         x0_ptr = &mNull;
   //         x4_cow = nullptr;
   //         x8_size = 0;
   //         return;
@@ -97,6 +97,7 @@ public:
 
   ~basic_string() { internal_dereference(); }
 
+  void assign(const basic_string&);
   basic_string& operator=(const basic_string&);
   basic_string operator+(const basic_string&);
   basic_string operator+(const _CharTp*);
@@ -105,9 +106,9 @@ public:
 };
 
 // template <>
-// const char basic_string<char>::_EmptyString = 0;
+// const char basic_string<char>::mNull = 0;
 // template <>
-// const wchar_t basic_string<wchar_t>::_EmptyString = 0;
+// const wchar_t basic_string<wchar_t>::mNull = 0;
 
 typedef basic_string< wchar_t > wstring;
 typedef basic_string< char > string;
