@@ -67,7 +67,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptTimer.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Cameras/CCinematicCamera.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CAutoMapper.o\
-	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptCounter.o\
+	$(BUILD_DIR)/src/MetroidPrime/ScriptObjects/CScriptCounter.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CMapWorld.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CAi.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/PatternedCastTo.o\
