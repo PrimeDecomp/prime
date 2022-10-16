@@ -239,8 +239,8 @@ lbl_800C3884:
 /* 800C3890 000C07F0  38 21 00 40 */	addi r1, r1, 0x40
 /* 800C3894 000C07F4  4E 80 00 20 */	blr
 
-.global SetDockReference__11CScriptDockFi
-SetDockReference__11CScriptDockFi:
+.global SetDockReference__11CScriptDockFR13CStateManageri
+SetDockReference__11CScriptDockFR13CStateManageri:
 /* 800C3898 000C07F8  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 800C389C 000C07FC  7C 08 02 A6 */	mflr r0
 /* 800C38A0 000C0800  90 01 00 24 */	stw r0, 0x24(r1)

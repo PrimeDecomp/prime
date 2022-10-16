@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803E2B48
-lbl_803E2B48:
+.global __vt__21CScriptDockAreaChange
+__vt__21CScriptDockAreaChange:
 	# ROM: 0x3DFB48
 	.4byte 0
 	.4byte 0
@@ -27,9 +27,9 @@ __dt__21CScriptDockAreaChangeFv:
 /* 8014EF68 0014BEC8  93 C1 00 08 */	stw r30, 8(r1)
 /* 8014EF6C 0014BECC  7C 7E 1B 79 */	or. r30, r3, r3
 /* 8014EF70 0014BED0  41 82 00 28 */	beq lbl_8014EF98
-/* 8014EF74 0014BED4  3C A0 80 3E */	lis r5, lbl_803E2B48@ha
+/* 8014EF74 0014BED4  3C A0 80 3E */	lis r5, __vt__21CScriptDockAreaChange@ha
 /* 8014EF78 0014BED8  38 80 00 00 */	li r4, 0
-/* 8014EF7C 0014BEDC  38 05 2B 48 */	addi r0, r5, lbl_803E2B48@l
+/* 8014EF7C 0014BEDC  38 05 2B 48 */	addi r0, r5, __vt__21CScriptDockAreaChange@l
 /* 8014EF80 0014BEE0  90 1E 00 00 */	stw r0, 0(r30)
 /* 8014EF84 0014BEE4  4B F0 22 F1 */	bl __dt__7CEntityFv
 /* 8014EF88 0014BEE8  7F E0 07 35 */	extsh. r0, r31
@@ -113,7 +113,7 @@ lbl_8014F070:
 /* 8014F098 0014BFF8  41 82 00 10 */	beq lbl_8014F0A8
 /* 8014F09C 0014BFFC  80 BB 00 34 */	lwz r5, 0x34(r27)
 /* 8014F0A0 0014C000  7F C4 F3 78 */	mr r4, r30
-/* 8014F0A4 0014C004  4B F7 47 F5 */	bl SetDockReference__11CScriptDockFi
+/* 8014F0A4 0014C004  4B F7 47 F5 */	bl SetDockReference__11CScriptDockFR13CStateManageri
 lbl_8014F0A8:
 /* 8014F0A8 0014C008  7F 43 D3 78 */	mr r3, r26
 /* 8014F0AC 0014C00C  7E E4 BB 78 */	mr r4, r23
@@ -175,9 +175,9 @@ lbl_8014F108:
 /* 8014F168 0014C0C8  7C 87 23 78 */	mr r7, r4
 /* 8014F16C 0014C0CC  38 81 00 08 */	addi r4, r1, 8
 /* 8014F170 0014C0D0  4B F0 21 B5 */	bl "__ct__7CEntityF9TUniqueIdRC11CEntityInfobRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
-/* 8014F174 0014C0D4  3C 80 80 3E */	lis r4, lbl_803E2B48@ha
+/* 8014F174 0014C0D4  3C 80 80 3E */	lis r4, __vt__21CScriptDockAreaChange@ha
 /* 8014F178 0014C0D8  7F C3 F3 78 */	mr r3, r30
-/* 8014F17C 0014C0DC  38 04 2B 48 */	addi r0, r4, lbl_803E2B48@l
+/* 8014F17C 0014C0DC  38 04 2B 48 */	addi r0, r4, __vt__21CScriptDockAreaChange@l
 /* 8014F180 0014C0E0  90 1E 00 00 */	stw r0, 0(r30)
 /* 8014F184 0014C0E4  93 FE 00 34 */	stw r31, 0x34(r30)
 /* 8014F188 0014C0E8  83 E1 00 1C */	lwz r31, 0x1c(r1)
