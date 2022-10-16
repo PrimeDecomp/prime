@@ -17,7 +17,7 @@ s32 GBAWriteAsync(s32 chan, u8* src, u8* status, GBACallback callback) {
   gba = &__GBA[chan];
 
   if (gba->callback != NULL) {
-    ret = 2;
+    ret = GBA_BUSY;
   } else {
     gba->command = 0x15;
     memcpy(gba->src, src, 4);
@@ -35,7 +35,7 @@ s32 GBAWrite(s32 chan, u8* src, u8* status) {
   s32 ret;
   s32 tmp;
   ret = GBAWriteAsync(chan, src, status, __GBASyncCallback);
-  if (ret != 0) {
+  if (ret != GBA_READY) {
     return ret;
   }
   return __GBASync(chan);

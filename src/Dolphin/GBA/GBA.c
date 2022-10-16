@@ -51,7 +51,7 @@ s32 GBAGetStatusAsync(s32 chan, u8* status, GBACallback callback) {
   s32 ret;
   gba = &__GBA[chan];
   if (gba->callback != NULL) {
-    ret = 2;
+    ret = GBA_BUSY;
   } else {
     gba->command = 0;
     gba->status = status;
@@ -67,7 +67,7 @@ s32 GBAGetStatus(s32 chan, u8* status) {
   s32 ret;
   ret = GBAGetStatusAsync(chan, status, __GBASyncCallback);
 
-  if (ret != 0) {
+  if (ret != GBA_READY) {
     return ret;
   }
 
@@ -80,7 +80,7 @@ s32 GBAResetAsync(s32 chan, u8* status, GBACallback callback) {
   s32 ret;
   gba = &__GBA[chan];
   if (gba->callback != NULL) {
-    ret = 2;
+    ret = GBA_BUSY;
   } else {
     gba->command = 0xFF;
     gba->status = status;
@@ -96,7 +96,7 @@ s32 GBAReset(s32 chan, u8* status) {
   s32 ret;
 
   ret = GBAResetAsync(chan, status, __GBASyncCallback);
-  if (ret != 0) {
+  if (ret != GBA_READY) {
     return ret;
   }
 

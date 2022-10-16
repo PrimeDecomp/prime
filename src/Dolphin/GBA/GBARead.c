@@ -34,7 +34,7 @@ s32 GBARead(s32 chan, u8* dst, u8* status) {
   s32 tmp;
   s32 ret;
   ret = GBAReadAsync(chan, dst, status, __GBASyncCallback);
-  if (ret != 0) {
+  if (ret != GBA_READY) {
     return ret;
   }
 
