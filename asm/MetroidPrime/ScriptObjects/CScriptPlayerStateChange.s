@@ -2,8 +2,8 @@
 
 .section .data
 .balign 8
-.global lbl_803E5CC0
-lbl_803E5CC0:
+.global __vt__24CScriptPlayerStateChange
+__vt__24CScriptPlayerStateChange:
 	# ROM: 0x3E2CC0
 	.4byte 0
 	.4byte 0
@@ -26,9 +26,9 @@ __dt__24CScriptPlayerStateChangeFv:
 /* 801DA4B4 001D7414  93 C1 00 08 */	stw r30, 8(r1)
 /* 801DA4B8 001D7418  7C 7E 1B 79 */	or. r30, r3, r3
 /* 801DA4BC 001D741C  41 82 00 28 */	beq lbl_801DA4E4
-/* 801DA4C0 001D7420  3C A0 80 3E */	lis r5, lbl_803E5CC0@ha
+/* 801DA4C0 001D7420  3C A0 80 3E */	lis r5, __vt__24CScriptPlayerStateChange@ha
 /* 801DA4C4 001D7424  38 80 00 00 */	li r4, 0
-/* 801DA4C8 001D7428  38 05 5C C0 */	addi r0, r5, lbl_803E5CC0@l
+/* 801DA4C8 001D7428  38 05 5C C0 */	addi r0, r5, __vt__24CScriptPlayerStateChange@l
 /* 801DA4CC 001D742C  90 1E 00 00 */	stw r0, 0(r30)
 /* 801DA4D0 001D7430  4B E7 6D A5 */	bl __dt__7CEntityFv
 /* 801DA4D4 001D7434  7F E0 07 35 */	extsh. r0, r31
@@ -158,9 +158,9 @@ Accept__24CScriptPlayerStateChangeFR8IVisitor:
 /* 801DA694 001D75F4  7C 87 23 78 */	mr r7, r4
 /* 801DA698 001D75F8  38 81 00 08 */	addi r4, r1, 8
 /* 801DA69C 001D75FC  4B E7 6C 89 */	bl "__ct__7CEntityF9TUniqueIdRC11CEntityInfobRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
-/* 801DA6A0 001D7600  3C 80 80 3E */	lis r4, lbl_803E5CC0@ha
+/* 801DA6A0 001D7600  3C 80 80 3E */	lis r4, __vt__24CScriptPlayerStateChange@ha
 /* 801DA6A4 001D7604  7F 43 D3 78 */	mr r3, r26
-/* 801DA6A8 001D7608  38 04 5C C0 */	addi r0, r4, lbl_803E5CC0@l
+/* 801DA6A8 001D7608  38 04 5C C0 */	addi r0, r4, __vt__24CScriptPlayerStateChange@l
 /* 801DA6AC 001D760C  90 1A 00 00 */	stw r0, 0(r26)
 /* 801DA6B0 001D7610  93 7A 00 34 */	stw r27, 0x34(r26)
 /* 801DA6B4 001D7614  93 9A 00 38 */	stw r28, 0x38(r26)
