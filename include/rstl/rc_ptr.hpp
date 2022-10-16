@@ -35,6 +35,7 @@ public:
   }
   T* operator->() const { return GetPtr(); }
   T& operator*() const { return *GetPtr(); }
+  operator bool() const { return GetPtr() != nullptr; }
 
 private:
   CRefData* x0_refData;

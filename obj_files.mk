@@ -1,6 +1,6 @@
 METROTRK_FILES :=\
 	$(BUILD_DIR)/src/MetroTRK/mslsupp.o
-	
+
 METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/main.o\
 	$(BUILD_DIR)/asm/MetroidPrime/IRenderer.o\
@@ -310,7 +310,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/CPauseScreenFrame.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CAtomicAlpha.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CLogBookScreen.o\
-	$(BUILD_DIR)/asm/MetroidPrime/CGBASupport.o\
+	$(BUILD_DIR)/src/MetroidPrime/CGBASupport.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Player/CSaveWorld.o\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptCameraHintTrigger.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CAmbientAI.o\
@@ -370,7 +370,7 @@ WORLDFORMAT :=\
 	$(BUILD_DIR)/asm/WorldFormat/CCollidableOBBTreeGroup.o\
 	$(BUILD_DIR)/asm/WorldFormat/CPVSAreaSet.o\
 	$(BUILD_DIR)/asm/WorldFormat/CAreaRenderOctTree.o\
-	
+
 WEAPONS :=\
 	$(BUILD_DIR)/asm/Weapons/CProjectileWeapon.o\
 	$(BUILD_DIR)/asm/Weapons/CProjectileWeaponDataFactory.o\
@@ -380,10 +380,10 @@ WEAPONS :=\
 	$(BUILD_DIR)/asm/Weapons/CDecal.o\
 	$(BUILD_DIR)/asm/Weapons/CWeaponDescription.o\
 	$(BUILD_DIR)/asm/Weapons/CDecalDescription.o\
-	
+
 METARENDER :=\
 	$(BUILD_DIR)/asm/MetaRender/CCubeRenderer.o\
-	
+
 GUISYS :=\
 	$(BUILD_DIR)/asm/GuiSys/CAuiMain.o\
 	$(BUILD_DIR)/asm/GuiSys/CAuiMeter.o\
@@ -631,25 +631,25 @@ KYOTO_2 :=\
 	$(BUILD_DIR)/src/Kyoto/Audio/g721.o\
 	$(BUILD_DIR)/asm/Kyoto/Audio/CStaticAudioPlayer.o\
 	$(BUILD_DIR)/asm/Kyoto/CFrameDelayedKiller.o\
-	
+
 AI_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/ai.o\
-	
+
 AR_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/ar/ar.o\
 	$(BUILD_DIR)/asm/Dolphin/ar/arq.o
-	
+
 BASE_FILES :=\
 	$(BUILD_DIR)/src/Dolphin/PPCArch.o\
-	
+
 DB_FILES :=\
 	$(BUILD_DIR)/src/Dolphin/db.ep.o\
-	
+
 DSP_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/dsp/dsp.o\
 	$(BUILD_DIR)/src/Dolphin/dsp/dsp_debug.o\
 	$(BUILD_DIR)/asm/Dolphin/dsp/dsp_task.o
-	
+
 DVD_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/dvd/dvdlow.o\
 	$(BUILD_DIR)/asm/Dolphin/dvd/dvdfs.o\
@@ -659,7 +659,7 @@ DVD_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/dvd/dvdidutils.o\
 	$(BUILD_DIR)/asm/Dolphin/dvd/dvdfatal.o\
 	$(BUILD_DIR)/asm/Dolphin/dvd/fstload.o
-	
+
 GX_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/gx/GXInit.o\
 	$(BUILD_DIR)/asm/Dolphin/gx/GXFifo.o\
@@ -711,10 +711,10 @@ OS_FILES :=\
 PAD_FILES :=\
 	$(BUILD_DIR)/src/Dolphin/pad/PadClamp.ep.o\
 	$(BUILD_DIR)/asm/Dolphin/pad/pad.o
-	
+
 VI_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/vi.o
-	
+
 MSL_PPCEABI_BARE_H :=\
 	$(BUILD_DIR)/src/Runtime/__mem.o\
 	$(BUILD_DIR)/src/Runtime/__va_arg.o\
@@ -782,7 +782,7 @@ MSL_COMMON_MATH :=\
 	$(BUILD_DIR)/src/Runtime/w_log.o\
 	$(BUILD_DIR)/src/Runtime/w_pow.o\
 	$(BUILD_DIR)/src/Runtime/math_ppc.o\
-	
+
 MUSYX_FILES :=\
 	$(BUILD_DIR)/asm/musyx/seq.o\
 	$(BUILD_DIR)/asm/musyx/synth.o\
@@ -815,10 +815,10 @@ MUSYX_FILES :=\
 	$(BUILD_DIR)/asm/musyx/reverb.o\
 	$(BUILD_DIR)/src/musyx/delay_fx.o\
 	$(BUILD_DIR)/asm/musyx/chorus_fx.o\
-	
+
 DTK_FILES :=\
 	$(BUILD_DIR)/src/Dolphin/dtk.o
-	
+
 CARD_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/card/CARDBios.o\
 	$(BUILD_DIR)/src/Dolphin/card/CARDUnlock.ep.o\
@@ -836,11 +836,11 @@ CARD_FILES :=\
 	$(BUILD_DIR)/src/Dolphin/card/CARDStat.ep.o\
 	$(BUILD_DIR)/src/Dolphin/card/CARDRename.ep.o\
 	$(BUILD_DIR)/src/Dolphin/card/CARDNet.ep.o
-	
+
 SI_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/si/SIBios.o\
 	$(BUILD_DIR)/src/Dolphin/si/SISamplingRate.ep.o
-	
+
 EXI_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/exi/EXIBios.o\
 	$(BUILD_DIR)/asm/Dolphin/exi/EXIUart.o
@@ -848,7 +848,7 @@ EXI_FILES :=\
 THP_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/thp/THPDec.o\
 	$(BUILD_DIR)/asm/Dolphin/thp/THPAudio.o
-	
+
 GBA_FILES :=\
 	$(BUILD_DIR)/src/Dolphin/GBA/GBA.ep.o\
 	$(BUILD_DIR)/asm/Dolphin/GBA/GBAGetProcessStatus.o\
