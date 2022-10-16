@@ -1,0 +1,26 @@
+#ifndef _CSCRIPTPLAYERSTATECHANGE
+#define _CSCRIPTPLAYERSTATECHANGE
+
+#include "MetroidPrime/CEntity.hpp"
+
+class CScriptPlayerStateChange : public CEntity {
+public:
+  enum EControl { kC_Unfiltered, kC_Filtered };
+  enum EControlCommandOption { kCCO_Unfiltered, kCCO_Filtered };
+
+private:
+  int x34_itemType;
+  int x38_itemCount;
+  int x3c_itemCapacity;
+  EControl x40_ctrl;
+  EControlCommandOption x44_ctrlCmdOpt;
+
+public:
+  CScriptPlayerStateChange(TUniqueId, const rstl::string&, const CEntityInfo&, bool, int, int, int, EControl,
+                           EControlCommandOption);
+  void Accept(IVisitor& visit) override;
+  void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&) override;
+  ~CScriptPlayerStateChange();
+};
+
+#endif // _CSCRIPTPLAYERSTATECHANGE
