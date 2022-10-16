@@ -21,6 +21,8 @@ public:
   void Accept(IVisitor& visit) override;
   void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&) override;
   ~CScriptPlayerStateChange();
+
+  bool Filtered() { return x44_ctrlCmdOpt == kCCO_Filtered; }
 };
 
 #endif // _CSCRIPTPLAYERSTATECHANGE

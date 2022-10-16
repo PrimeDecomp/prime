@@ -259,7 +259,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/src/MetroidPrime/BodyState/CABSIdle.o\
 	$(BUILD_DIR)/asm/MetroidPrime/BodyState/CABSFlinch.o\
 	$(BUILD_DIR)/asm/MetroidPrime/BodyState/CABSAim.o\
-	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptPlayerStateChange.o\
+	$(BUILD_DIR)/src/MetroidPrime/ScriptObjects/CScriptPlayerStateChange.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CThardus.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CActorParticles.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CWallCrawlerSwarm.o\
