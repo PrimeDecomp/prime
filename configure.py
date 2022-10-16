@@ -132,7 +132,7 @@ LIBS = [
             "MetroidPrime/Weapons/CWaveBeam",
             "MetroidPrime/Weapons/CIceBeam",
             "MetroidPrime/CScriptMailbox",
-            "MetroidPrime/ScriptObjects/CScriptRelay",
+            ["MetroidPrime/ScriptObjects/CScriptRelay", True],
             "MetroidPrime/ScriptObjects/CScriptSpawnPoint",
             "MetroidPrime/ScriptObjects/CScriptRandomRelay",
             "MetroidPrime/Enemies/CBeetle",

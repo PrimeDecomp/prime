@@ -99,7 +99,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/Weapons/CWaveBeam.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Weapons/CIceBeam.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CScriptMailbox.o\
-	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptRelay.o\
+	$(BUILD_DIR)/src/MetroidPrime/ScriptObjects/CScriptRelay.o\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptSpawnPoint.o\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptRandomRelay.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CBeetle.o\

@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803DF830
-lbl_803DF830:
+.global __vt__12CScriptRelay
+__vt__12CScriptRelay:
 	# ROM: 0x3DC830
 	.4byte 0
 	.4byte 0
@@ -27,9 +27,9 @@ __dt__12CScriptRelayFv:
 /* 800E207C 000DEFDC  93 C1 00 08 */	stw r30, 8(r1)
 /* 800E2080 000DEFE0  7C 7E 1B 79 */	or. r30, r3, r3
 /* 800E2084 000DEFE4  41 82 00 28 */	beq lbl_800E20AC
-/* 800E2088 000DEFE8  3C A0 80 3E */	lis r5, lbl_803DF830@ha
+/* 800E2088 000DEFE8  3C A0 80 3E */	lis r5, __vt__12CScriptRelay@ha
 /* 800E208C 000DEFEC  38 80 00 00 */	li r4, 0
-/* 800E2090 000DEFF0  38 05 F8 30 */	addi r0, r5, lbl_803DF830@l
+/* 800E2090 000DEFF0  38 05 F8 30 */	addi r0, r5, __vt__12CScriptRelay@l
 /* 800E2094 000DEFF4  90 1E 00 00 */	stw r0, 0(r30)
 /* 800E2098 000DEFF8  4B F6 F1 DD */	bl __dt__7CEntityFv
 /* 800E209C 000DEFFC  7F E0 07 35 */	extsh. r0, r31
@@ -217,8 +217,8 @@ lbl_800E22F8:
 /* 800E2308 000DF268  38 21 00 20 */	addi r1, r1, 0x20
 /* 800E230C 000DF26C  4E 80 00 20 */	blr
 
-.global "__ct__12CScriptRelayF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfofb"
-"__ct__12CScriptRelayF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfofb":
+.global "__ct__12CScriptRelayF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfob"
+"__ct__12CScriptRelayF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfob":
 /* 800E2310 000DF270  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 800E2314 000DF274  7C 08 02 A6 */	mflr r0
 /* 800E2318 000DF278  90 01 00 24 */	stw r0, 0x24(r1)
@@ -232,9 +232,9 @@ lbl_800E22F8:
 /* 800E2338 000DF298  7C 87 23 78 */	mr r7, r4
 /* 800E233C 000DF29C  38 81 00 08 */	addi r4, r1, 8
 /* 800E2340 000DF2A0  4B F6 EF E5 */	bl "__ct__7CEntityF9TUniqueIdRC11CEntityInfobRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
-/* 800E2344 000DF2A4  3C 60 80 3E */	lis r3, lbl_803DF830@ha
+/* 800E2344 000DF2A4  3C 60 80 3E */	lis r3, __vt__12CScriptRelay@ha
 /* 800E2348 000DF2A8  38 00 00 00 */	li r0, 0
-/* 800E234C 000DF2AC  38 83 F8 30 */	addi r4, r3, lbl_803DF830@l
+/* 800E234C 000DF2AC  38 83 F8 30 */	addi r4, r3, __vt__12CScriptRelay@l
 /* 800E2350 000DF2B0  7F E3 FB 78 */	mr r3, r31
 /* 800E2354 000DF2B4  90 9F 00 00 */	stw r4, 0(r31)
 /* 800E2358 000DF2B8  A0 8D A3 8C */	lhz r4, kInvalidUniqueId@sda21(r13)
