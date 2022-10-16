@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803DA350
-lbl_803DA350:
+.global __vt__19CTweakPlayerControl
+__vt__19CTweakPlayerControl:
 	# ROM: 0x3D7350
 	.4byte 0
 	.4byte 0
@@ -37,9 +37,9 @@ __ct__19CTweakPlayerControlFR12CInputStream:
 /* 8006F98C 0006C8EC  38 05 9C C4 */	addi r0, r5, __vt__12ITweakObject@l
 /* 8006F990 0006C8F0  93 E1 01 1C */	stw r31, 0x11c(r1)
 /* 8006F994 0006C8F4  7C 7F 1B 78 */	mr r31, r3
-/* 8006F998 0006C8F8  3C 60 80 3E */	lis r3, lbl_803DA350@ha
+/* 8006F998 0006C8F8  3C 60 80 3E */	lis r3, __vt__19CTweakPlayerControl@ha
 /* 8006F99C 0006C8FC  90 1F 00 00 */	stw r0, 0(r31)
-/* 8006F9A0 0006C900  38 03 A3 50 */	addi r0, r3, lbl_803DA350@l
+/* 8006F9A0 0006C900  38 03 A3 50 */	addi r0, r3, __vt__19CTweakPlayerControl@l
 /* 8006F9A4 0006C904  38 61 00 08 */	addi r3, r1, 8
 /* 8006F9A8 0006C908  90 1F 00 00 */	stw r0, 0(r31)
 /* 8006F9AC 0006C90C  48 00 00 AD */	bl LoadMappings__FR12CInputStream
@@ -181,9 +181,9 @@ __dt__19CTweakPlayerControlFv:
 /* 8006FB74 0006CAD4  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 8006FB78 0006CAD8  7C 7F 1B 79 */	or. r31, r3, r3
 /* 8006FB7C 0006CADC  41 82 00 90 */	beq lbl_8006FC0C
-/* 8006FB80 0006CAE0  3C 60 80 3E */	lis r3, lbl_803DA350@ha
+/* 8006FB80 0006CAE0  3C 60 80 3E */	lis r3, __vt__19CTweakPlayerControl@ha
 /* 8006FB84 0006CAE4  34 1F 00 04 */	addic. r0, r31, 4
-/* 8006FB88 0006CAE8  38 03 A3 50 */	addi r0, r3, lbl_803DA350@l
+/* 8006FB88 0006CAE8  38 03 A3 50 */	addi r0, r3, __vt__19CTweakPlayerControl@l
 /* 8006FB8C 0006CAEC  90 1F 00 00 */	stw r0, 0(r31)
 /* 8006FB90 0006CAF0  41 82 00 58 */	beq lbl_8006FBE8
 /* 8006FB94 0006CAF4  80 DF 00 04 */	lwz r6, 4(r31)

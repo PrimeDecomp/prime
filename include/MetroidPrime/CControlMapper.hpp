@@ -71,6 +71,33 @@ public:
     kC_MAX
   };
 
+  enum EFunctionList {
+    kFL_None,
+    kFL_LeftStickUp,
+    kFL_LeftStickDown,
+    kFL_LeftStickLeft,
+    kFL_LeftStickRight,
+    kFL_RightStickUp,
+    kFL_RightStickDown,
+    kFL_RightStickLeft,
+    kFL_RightStickRight,
+    kFL_LeftTrigger,
+    kFL_RightTrigger,
+    kFL_DPadUp,
+    kFL_DPadDown,
+    kFL_DPadLeft,
+    kFL_DPadRight,
+    kFL_AButton,
+    kFL_BButton,
+    kFL_XButton,
+    kFL_YButton,
+    kFL_ZButton,
+    kFL_LeftTriggerPress,
+    kFL_RightTriggerPress,
+    kFL_Start,
+    kFL_MAX // default case
+  };
+
   static void SetCommandFiltered(ECommands cmd, bool filtered);
 };
 
