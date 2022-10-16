@@ -12,7 +12,7 @@ void WriteProc(s32 chan) {
 }
 
 s32 GBAWriteAsync(s32 chan, u8* src, u8* status, GBACallback callback) {
-  GBA* gba; 
+  GBA* gba;
   s32 ret;
   gba = &__GBA[chan];
 
