@@ -15,7 +15,7 @@ static CGBASupport* g_GBA;
 
 CGBASupport::CGBASupport()
 : x0_file("client_pad.bin")
-, x28_fileSize((x0_file.Length() + 0x1fu) & 0xffffffe0u)
+, x28_fileSize(OSRoundUp32B(x0_file.Length()))
 , x2c_buffer((uchar*)CMemory::Alloc(x28_fileSize, IAllocator::kHI_RoundUpLen))
 , x30_dvdReq(x0_file.SyncRead(x2c_buffer.get(), x28_fileSize))
 , x34_phase(kP_LoadClientPad)
@@ -174,7 +174,7 @@ bool CGBASupport::PollResponse() {
   if (gbaStatus != 0x20) {
     return false;
   }
-  if (GBAWrite(x40_siChan, reinterpret_cast<const u8*>(&MAGIC), &gbaStatus) == GBA_NOT_READY) {
+  if (GBAWrite(x40_siChan, (u8*)(&MAGIC), &gbaStatus) == GBA_NOT_READY) {
     return false;
   }
   if (GBAGetStatus(x40_siChan, &gbaStatus) == GBA_NOT_READY) {

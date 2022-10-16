@@ -31,7 +31,7 @@ s32 GBAWriteAsync(s32 chan, u8* src, u8* status, GBACallback callback) {
 }
 
 
-s32 GBAWrite(s32 chan, const u8* src, u8* status) {
+s32 GBAWrite(s32 chan, u8* src, u8* status) {
   s32 ret;
   s32 tmp;
   ret = GBAWriteAsync(chan, src, status, __GBASyncCallback);
