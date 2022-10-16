@@ -15,7 +15,9 @@
     "errno.h": "c",
     "ansi_files.h": "c",
     "types.h": "c",
-    "gba.h": "c"
+    "gba.h": "c",
+    "gbapriv.h": "c",
+    "os.h": "c"
   },
   "files.autoSave": "onFocusChange",
   "files.insertFinalNewline": true,

@@ -3,8 +3,8 @@
 .section .bss
 .balign 8
 
-.global lbl_8056A0A0
-lbl_8056A0A0:
+.global SecParams
+SecParams:
 	.skip 0x100
 .global __GBA
 __GBA:
@@ -19,7 +19,7 @@ __GBAReset:
 .section .data, "wa"
 .balign 8
 
-lbl_803F7160:
+ResetFunctionInfo:
     .4byte OnReset
     .4byte 127
     .4byte 0
@@ -71,8 +71,8 @@ GBAInit:
 /* 803C9680 003C65E0  7C 03 00 16 */	mulhwu r0, r3, r0
 /* 803C9684 003C65E4  54 00 8B FE */	srwi r0, r0, 0xf
 /* 803C9688 003C65E8  1C 00 00 3C */	mulli r0, r0, 0x3c
-/* 803C968C 003C65EC  3C 60 80 57 */	lis r3, lbl_8056A0A0@ha
-/* 803C9690 003C65F0  3B 83 A0 A0 */	addi r28, r3, lbl_8056A0A0@l
+/* 803C968C 003C65EC  3C 60 80 57 */	lis r3, SecParams@ha
+/* 803C9690 003C65F0  3B 83 A0 A0 */	addi r28, r3, SecParams@l
 /* 803C9694 003C65F4  54 1E E8 FE */	srwi r30, r0, 3
 lbl_803C9698:
 /* 803C9698 003C65F8  93 DD 00 34 */	stw r30, 0x34(r29)
@@ -88,9 +88,9 @@ lbl_803C9698:
 /* 803C96C0 003C6620  4B FB 49 A5 */	bl OSInitAlarm
 /* 803C96C4 003C6624  4B FA 63 41 */	bl DSPInit
 /* 803C96C8 003C6628  38 00 00 00 */	li r0, 0
-/* 803C96CC 003C662C  3C 60 80 3F */	lis r3, lbl_803F7160@ha
+/* 803C96CC 003C662C  3C 60 80 3F */	lis r3, ResetFunctionInfo@ha
 /* 803C96D0 003C6630  90 0D B1 58 */	stw r0, __GBAReset@sda21(r13)
-/* 803C96D4 003C6634  38 63 71 60 */	addi r3, r3, lbl_803F7160@l
+/* 803C96D4 003C6634  38 63 71 60 */	addi r3, r3, ResetFunctionInfo@l
 /* 803C96D8 003C6638  4B FB 99 55 */	bl OSRegisterResetFunction
 /* 803C96DC 003C663C  BB 61 00 0C */	lmw r27, 0xc(r1)
 /* 803C96E0 003C6640  80 01 00 24 */	lwz r0, 0x24(r1)

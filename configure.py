@@ -1010,7 +1010,7 @@ LIBS = [
         "mwcc_version": "1.2.5",
         "cflags": "$cflags_base",
         "objects": [
-            "Dolphin/GBA/GBA",
+            ["Dolphin/GBA/GBA", True],
             "Dolphin/GBA/GBAGetProcessStatus",
             "Dolphin/GBA/GBAJoyBoot",
             "Dolphin/GBA/GBARead",
