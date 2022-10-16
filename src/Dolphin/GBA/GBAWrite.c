@@ -8,7 +8,7 @@ void WriteProc(s32 chan) {
     return;
   }
 
-  gba->status[0] = gba->dst[0] & 0x3a;
+  gba->status[0] = gba->dst[0] & GBA_JSTAT_MASK;
 }
 
 s32 GBAWriteAsync(s32 chan, u8* src, u8* status, GBACallback callback) {

@@ -24,7 +24,7 @@ void ShortCommandProc(s32 chan) {
     return;
   }
 
-  gba->status[0] = gba->dst[2] & 0x3a;
+  gba->status[0] = gba->dst[2] & GBA_JSTAT_MASK;
 }
 
 void GBAInit() {
