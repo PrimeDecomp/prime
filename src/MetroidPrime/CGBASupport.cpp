@@ -11,6 +11,8 @@ extern "C" {
 void nullsub_130() {}
 }
 
+const uint MAGIC = 0x414d5445;
+
 CGBASupport::CGBASupport() : CDvdFile("client_pad.bin") {
   x28_fileSize = (Length() + 0x1fu) & 0xffffffe0u;
   x2c_buffer =
@@ -74,9 +76,7 @@ inline bool CGBASupport::CheckReadyStatus() {
   return false;
 }
 
-bool CGBASupport::IsReady() {
- return CheckReadyStatus();
-}
+bool CGBASupport::IsReady() { return CheckReadyStatus(); }
 
 void CGBASupport::Update(float dt) {
   switch (x34_phase) {
@@ -117,7 +117,7 @@ void CGBASupport::Update(float dt) {
   case kP_PollJoyBusBoot:
     EGBAProcessStatus status = GBAGetProcessStatus(x40_siChan, &x3c_status);
     if (status != kBM_unk2) {
-      if (GBAGetStatus(x40_siChan, &x3c_status) == 1) {
+      if (GBAGetStatus(x40_siChan, &x3c_status) == kGSF_failure) {
         x34_phase = kP_Failed;
       } else {
         x38_timeout = 4.f;
@@ -136,4 +136,90 @@ void CGBASupport::Update(float dt) {
     break;
   }
 end_switch:;
+}
+
+inline uchar CalculateFusionJBusChecksum(const void* dataPtr) {
+  const uchar* data = reinterpret_cast< const uchar* >(dataPtr);
+  uint sum = -1;
+  uint i = 3;
+  do {
+    uchar ch = *data++;
+    sum ^= ch;
+    for (int j = 0; j < 8; ++j) {
+      if ((sum & 1)) {
+        sum >>= 1;
+        sum ^= 0xb010;
+      } else
+        sum >>= 1;
+    }
+  } while (--i);
+  return sum;
+}
+
+inline uint FusionSwapBytes(uint value) {
+  return (value >> 24) | (value >> 8 & 0xff00) | (value << 8 & 0xff0000) | (value << 24);
+}
+
+bool CGBASupport::PollResponse() {
+  uchar gbaStatus;
+  uint unk;
+
+  // Not sure why this is called twice
+  if (GBAReset(x40_siChan, &gbaStatus) == kGSF_failure &&
+      GBAReset(x40_siChan, &gbaStatus) == kGSF_failure) {
+    return false;
+  }
+  if (GBAGetStatus(x40_siChan, &gbaStatus) == kGSF_failure) {
+    return false;
+  }
+  if (gbaStatus != 0x28) {
+    return false;
+  }
+  uint magic;
+  if (GBARead(x40_siChan, &magic, &gbaStatus) == kGSF_failure) {
+    return false;
+  }
+  if (magic != 0x414d5445) { // "AMTE"
+    return false;
+  }
+  if (GBAGetStatus(x40_siChan, &gbaStatus) == kGSF_failure) {
+    return false;
+  }
+  if (gbaStatus != 0x20) {
+    return false;
+  }
+  if (GBAWrite(x40_siChan, &MAGIC, &gbaStatus) == kGSF_failure) {
+    return false;
+  }
+  if (GBAGetStatus(x40_siChan, &gbaStatus) == kGSF_failure) {
+    return false;
+  }
+  if ((gbaStatus & 0x30) != 0x30) {
+    return false;
+  }
+  uint start = OSGetTick();
+  do {
+    uint current = OSGetTick();
+    if (OSTicksToMicroseconds(current - start) > 500) {
+      goto end;
+    }
+  } while ((GBAGetStatus(x40_siChan, &gbaStatus) == kGSF_failure || (gbaStatus & 0x8) == 0) ||
+           (GBAGetStatus(x40_siChan, &gbaStatus) != kGSF_success || gbaStatus != 0x38));
+
+  uint read;
+  uchar fusionStatus[4];
+  if (GBARead(x40_siChan, &read, &gbaStatus) != kGSF_success) {
+    return false;
+  }
+  // fusionStatus = FusionSwapBytes(read);
+  if (fusionStatus[3] != CalculateFusionJBusChecksum(&fusionStatus)) {
+    return;
+  }
+
+  x44_fusionLinked = (fusionStatus[2] & 0x2) != 0;
+  // if (x44_fusionLinked && (bytes[2] & 0x1) != 0)
+    // x45_fusionBeat = true;
+
+end:
+  return true;
 }

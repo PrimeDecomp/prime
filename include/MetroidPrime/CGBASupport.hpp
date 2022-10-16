@@ -38,8 +38,6 @@ private:
 
   uchar *getBuffer() { return x2c_buffer; }
 
-  static u8 CalculateFusionJBusChecksum(const u8* data, size_t len);
-
 public:
   static void Initialize();
   static void GlobalPoll();
