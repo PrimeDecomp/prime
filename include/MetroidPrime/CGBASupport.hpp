@@ -6,7 +6,7 @@
 #include "rstl/single_ptr.hpp"
 #include "rstl/rc_ptr.hpp"
 
-class CGBASupport : public CDvdFile {
+class CGBASupport {
 public:
   enum EPhase {
     kP_LoadClientPad,
@@ -21,6 +21,7 @@ public:
   };
 
 private:
+  CDvdFile x0_file;
   uint x28_fileSize;
   rstl::single_ptr<uchar> x2c_buffer;
   rstl::single_ptr<IDvdRequest> x30_dvdReq;

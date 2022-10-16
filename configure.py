@@ -12,7 +12,7 @@ parser.add_argument('--version', dest='version',
                     default='0', help='version to build (0, 1, kor)')
 parser.add_argument('--map', dest='map', action='store_true',
                     help='generate map file')
-parser.add_argument('--no-check', dest='check', action='store_false', 
+parser.add_argument('--no-check', dest='check', action='store_false',
                     help='don\'t check hash of resulting dol')
 parser.add_argument('--static-libs', dest='static_libs', action='store_true',
                     help='build and use static libs')
@@ -343,7 +343,7 @@ LIBS = [
             "MetroidPrime/CPauseScreenFrame",
             "MetroidPrime/Enemies/CAtomicAlpha",
             "MetroidPrime/CLogBookScreen",
-            "MetroidPrime/CGBASupport",
+            ["MetroidPrime/CGBASupport", True],
             "MetroidPrime/Player/CSaveWorld",
             "MetroidPrime/ScriptObjects/CScriptCameraHintTrigger",
             "MetroidPrime/Enemies/CAmbientAI",
@@ -1191,7 +1191,7 @@ for lib in LIBS:
     else:
         for object in lib["objects"]:
             completed = False
-            
+
             if type(object) is list:
                 completed = object[1]
                 object = object[0]

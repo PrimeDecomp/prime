@@ -16,10 +16,10 @@ const uint MAGIC = 0x414d5445;
 static CGBASupport* g_GBA;
 
 CGBASupport::CGBASupport()
-: CDvdFile("client_pad.bin")
-, x28_fileSize((Length() + 0x1fu) & 0xffffffe0u)
+: x0_file("client_pad.bin")
+, x28_fileSize((x0_file.Length() + 0x1fu) & 0xffffffe0u)
 , x2c_buffer((uchar*)CMemory::Alloc(x28_fileSize, IAllocator::kHI_RoundUpLen))
-, x30_dvdReq(this->SyncRead(x2c_buffer.get(), x28_fileSize))
+, x30_dvdReq(x0_file.SyncRead(x2c_buffer.get(), x28_fileSize))
 , x34_phase(kP_LoadClientPad)
 , x38_timeout(0.f)
 , x3c_status(0)
@@ -99,8 +99,8 @@ void CGBASupport::Update(float dt) {
 
   case kP_StartJoyBusBoot:
     x34_phase = kP_PollJoyBusBoot;
-    GBAJoyBootAsync(x40_siChan, x40_siChan << 1, kBM_unk2, x2c_buffer.get(), Length(), &x3c_status,
-                    &nullsub_130);
+    GBAJoyBootAsync(x40_siChan, x40_siChan << 1, kBM_unk2, x2c_buffer.get(), x0_file.Length(),
+                    &x3c_status, &nullsub_130);
     break;
 
   case kP_PollJoyBusBoot:
