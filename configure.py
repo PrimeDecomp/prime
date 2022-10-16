@@ -100,7 +100,7 @@ LIBS = [
             "MetroidPrime/ScriptObjects/CScriptTimer",
             "MetroidPrime/Cameras/CCinematicCamera",
             "MetroidPrime/CAutoMapper",
-            "MetroidPrime/ScriptObjects/CScriptCounter",
+            ["MetroidPrime/ScriptObjects/CScriptCounter", True],
             "MetroidPrime/CMapWorld",
             "MetroidPrime/Enemies/CAi",
             "MetroidPrime/Enemies/PatternedCastTo",
