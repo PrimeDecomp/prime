@@ -60,6 +60,15 @@ public:
 
   static const CQuaternion& NoRotation() { return sNoRotation; }
 
+  static float Dot(const CQuaternion& a, const CQuaternion& b) {
+    return (a.GetW() * b.GetW()) + (a.GetX() * b.GetX()) + (a.GetY() * b.GetY()) + (a.GetZ() * b.GetZ());
+  }
+
+  float GetW() const { return w; }
+  float GetX() const { return x; }
+  float GetY() const { return y; }
+  float GetZ() const { return z; }
+
 private:
   float w;
   float x;
