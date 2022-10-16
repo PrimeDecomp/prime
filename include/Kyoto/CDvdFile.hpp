@@ -5,7 +5,7 @@
 
 class IDvdRequest {
 public:
-  virtual void PostCancelRequest(bool) = 0; // 8
+  virtual ~IDvdRequest() = 0; // 8
   virtual void Unknown1(bool) = 0; // c
   virtual bool IsComplete() = 0; // 10
 };
@@ -16,7 +16,7 @@ public:
   ~CDvdFile();
   uint Length() { return x14_size; }
 
-  IDvdRequest* SyncRead(uchar* buf, uint len);
+  IDvdRequest* SyncRead(void* buf, uint len);
 
   static bool FileExists(const char*);
 

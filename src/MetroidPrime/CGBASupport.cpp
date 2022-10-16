@@ -13,32 +13,24 @@ void nullsub_130() {}
 
 const uint MAGIC = 0x414d5445;
 
-CGBASupport::CGBASupport() : CDvdFile("client_pad.bin") {
-  x28_fileSize = (Length() + 0x1fu) & 0xffffffe0u;
-  x2c_buffer =
-      (uchar*)CMemory::Alloc(x28_fileSize, IAllocator::kHI_RoundUpLen, IAllocator::kSC_Unk1,
-                             IAllocator::kTP_Heap, CCallStack(-1, "??(??)"));
-  x30_dvdReq = this->SyncRead(x2c_buffer, x28_fileSize);
-  x34_phase = kP_LoadClientPad;
-  x38_timeout = 0.f;
-  x3c_status = 0;
-  x40_siChan = -1;
-  x44_fusionLinked = false;
-  x45_fusionBeat = false;
+static CGBASupport* g_GBA;
+
+CGBASupport::CGBASupport()
+: CDvdFile("client_pad.bin")
+, x28_fileSize((Length() + 0x1fu) & 0xffffffe0u)
+, x2c_buffer((uchar*)CMemory::Alloc(x28_fileSize, IAllocator::kHI_RoundUpLen))
+, x30_dvdReq(this->SyncRead(x2c_buffer.get(), x28_fileSize))
+, x34_phase(kP_LoadClientPad)
+, x38_timeout(0.f)
+, x3c_status(0)
+, x40_siChan(-1)
+, x44_fusionLinked(false)
+, x45_fusionBeat(false) {
   GBAInit();
   g_GBA = this;
 }
 
-CGBASupport::~CGBASupport() {
-  g_GBA = nullptr;
-
-  if (x30_dvdReq) {
-    x30_dvdReq->PostCancelRequest(true);
-  }
-  if (x2c_buffer) {
-    CMemory::Free(x2c_buffer);
-  }
-}
+CGBASupport::~CGBASupport() { g_GBA = nullptr; }
 
 void CGBASupport::InitializeSupport() {
   x34_phase = kP_Standby;
@@ -58,12 +50,9 @@ inline bool CGBASupport::CheckReadyStatus() {
   if (x34_phase != kP_LoadClientPad)
     return true;
   if (x30_dvdReq->IsComplete()) {
-    if (x30_dvdReq) {
-      x30_dvdReq->PostCancelRequest(true);
-    }
     x30_dvdReq = nullptr;
     x34_phase = kP_Standby;
-    uchar* buff = x2c_buffer;
+    uchar* buff = x2c_buffer.get();
     u32 tick = OSGetTick();
     buff[0xc8] = (tick >> 0);
     buff[0xc9] = (tick >> 8);
@@ -110,7 +99,7 @@ void CGBASupport::Update(float dt) {
 
   case kP_StartJoyBusBoot:
     x34_phase = kP_PollJoyBusBoot;
-    GBAJoyBootAsync(x40_siChan, x40_siChan << 1, kBM_unk2, x2c_buffer, Length(), &x3c_status,
+    GBAJoyBootAsync(x40_siChan, x40_siChan << 1, kBM_unk2, x2c_buffer.get(), Length(), &x3c_status,
                     &nullsub_130);
     break;
 
@@ -134,14 +123,17 @@ void CGBASupport::Update(float dt) {
     if (x38_timeout == 0.f)
       x34_phase = kP_Failed;
     break;
+  case kP_Complete:
+  case kP_Failed:
+    break;
   }
 end_switch:;
 }
 
-inline uchar CalculateFusionJBusChecksum(const void* dataPtr) {
-  const uchar* data = reinterpret_cast< const uchar* >(dataPtr);
+inline uchar CalculateFusionJBusChecksum(const uchar* data, uint i) {
+  // const uchar* data = reinterpret_cast< const uchar* >(dataPtr);
+  // uint i = 3;
   uint sum = -1;
-  uint i = 3;
   do {
     uchar ch = *data++;
     sum ^= ch;
@@ -154,10 +146,6 @@ inline uchar CalculateFusionJBusChecksum(const void* dataPtr) {
     }
   } while (--i);
   return sum;
-}
-
-inline uint FusionSwapBytes(uint value) {
-  return (value >> 24) | (value >> 8 & 0xff00) | (value << 8 & 0xff0000) | (value << 24);
 }
 
 bool CGBASupport::PollResponse() {
@@ -211,14 +199,20 @@ bool CGBASupport::PollResponse() {
   if (GBARead(x40_siChan, &read, &gbaStatus) != kGSF_success) {
     return false;
   }
-  // fusionStatus = FusionSwapBytes(read);
-  if (fusionStatus[3] != CalculateFusionJBusChecksum(&fusionStatus)) {
-    return;
+  fusionStatus[0] = read >> 24;
+  fusionStatus[1] = read >> 16;
+  fusionStatus[2] = read >> 8;
+  fusionStatus[3] = read;
+  if (fusionStatus[3] != CalculateFusionJBusChecksum(fusionStatus, 3)) {
+    return false;
   }
 
-  x44_fusionLinked = (fusionStatus[2] & 0x2) != 0;
-  // if (x44_fusionLinked && (bytes[2] & 0x1) != 0)
-    // x45_fusionBeat = true;
+  x44_fusionLinked = (fusionStatus[2] & 0x2) == 0;
+  bool fusionBeat = false;
+  if (x44_fusionLinked != false && (fusionStatus[2] & 0x1) > 0) {
+    fusionBeat = true;
+  }
+  x45_fusionBeat = fusionBeat;
 
 end:
   return true;

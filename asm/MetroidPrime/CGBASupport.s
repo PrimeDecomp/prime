@@ -32,8 +32,8 @@ lbl_805A82BC:
 .section .sbss, "wa"
 .balign 8
 
-.global lbl_805A9110
-lbl_805A9110:
+.global g_GBA
+g_GBA:
 	.skip 0x8
 
 .section .text, "ax"
@@ -904,7 +904,7 @@ __dt__11CGBASupportFv:
 /* 80248C98 00245BF8  41 82 00 60 */	beq lbl_80248CF8
 /* 80248C9C 00245BFC  38 60 00 00 */	li r3, 0
 /* 80248CA0 00245C00  34 1E 00 30 */	addic. r0, r30, 0x30
-/* 80248CA4 00245C04  90 6D A5 50 */	stw r3, lbl_805A9110@sda21(r13)
+/* 80248CA4 00245C04  90 6D A5 50 */	stw r3, g_GBA@sda21(r13)
 /* 80248CA8 00245C08  41 82 00 24 */	beq lbl_80248CCC
 /* 80248CAC 00245C0C  80 7E 00 30 */	lwz r3, 0x30(r30)
 /* 80248CB0 00245C10  28 03 00 00 */	cmplwi r3, 0
@@ -992,7 +992,7 @@ lbl_80248E38:
 /* 80248EB8 00245E18  98 7F 00 44 */	stb r3, 0x44(r31)
 /* 80248EBC 00245E1C  98 7F 00 45 */	stb r3, 0x45(r31)
 /* 80248EC0 00245E20  48 18 08 91 */	bl GBAInit
-/* 80248EC4 00245E24  93 ED A5 50 */	stw r31, lbl_805A9110@sda21(r13)
+/* 80248EC4 00245E24  93 ED A5 50 */	stw r31, g_GBA@sda21(r13)
 /* 80248EC8 00245E28  48 13 81 ED */	bl OSGetFontEncode
 /* 80248ECC 00245E2C  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80248ED0 00245E30  7F E3 FB 78 */	mr r3, r31
@@ -1047,7 +1047,7 @@ __ct__11CGBASupportFv:
 /* 80248DB0 00245D10  98 7F 00 44 */	stb r3, 0x44(r31)
 /* 80248DB4 00245D14  98 7F 00 45 */	stb r3, 0x45(r31)
 /* 80248DB8 00245D18  48 18 08 95 */	bl GBAInit
-/* 80248DBC 00245D1C  93 ED A5 50 */	stw r31, lbl_805A9110@sda21(r13)
+/* 80248DBC 00245D1C  93 ED A5 50 */	stw r31, g_GBA@sda21(r13)
 /* 80248DC0 00245D20  7F E3 FB 78 */	mr r3, r31
 /* 80248DC4 00245D24  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80248DC8 00245D28  83 E1 00 1C */	lwz r31, 0x1c(r1)

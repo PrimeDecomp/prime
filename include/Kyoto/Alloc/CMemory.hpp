@@ -3,6 +3,7 @@
 
 #include "types.h"
 #include "Kyoto/Alloc/IAllocator.hpp"
+#include "Kyoto/Alloc/CCallStack.hpp"
 
 class COsContext;
 class CMemory {
@@ -14,7 +15,9 @@ public:
   static void Shutdown();
   static void SetAllocator(COsContext& ctx, IAllocator& allocator);
   static IAllocator* GetAllocator();
-  static void* Alloc(size_t len, IAllocator::EHint hint, IAllocator::EScope scope, IAllocator::EType type, const CCallStack& callstack);
+  static void* Alloc(size_t len, IAllocator::EHint hint = IAllocator::kHI_None,
+                     IAllocator::EScope scope = IAllocator::kSC_Unk1, IAllocator::EType type = IAllocator::kTP_Heap,
+                     const CCallStack& callstack = CCallStack(-1, "??(??)"));
   static void Free(const void* ptr);
   static void SetOutOfMemoryCallback(IAllocator::FOutOfMemoryCb callback, const void* context);
   static void OffsetFakeStatics(int);
