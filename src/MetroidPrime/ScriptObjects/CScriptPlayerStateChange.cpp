@@ -28,7 +28,7 @@ void CScriptPlayerStateChange::AcceptScriptMsg(EScriptObjectMessage msg, TUnique
     if (x44_ctrlCmdOpt != kCCO_Unfiltered) {
       switch (x40_ctrl) {
       case kC_Filtered:
-        bool filtered = !(1 - x44_ctrlCmdOpt);
+        bool filtered = Filtered();
         ControlMapper::SetCommandFiltered(ControlMapper::kC_OrbitClose, filtered);
         ControlMapper::SetCommandFiltered(ControlMapper::kC_OrbitConfirm, filtered);
         ControlMapper::SetCommandFiltered(ControlMapper::kC_OrbitDown, filtered);
