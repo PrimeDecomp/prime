@@ -545,8 +545,8 @@ lbl_802488F8:
 
 .endif
 
-.global Update__11CGBASupportFv
-Update__11CGBASupportFv:
+.global Update__11CGBASupportFf
+Update__11CGBASupportFf:
 /* 80248918 00245878  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 8024891C 0024587C  7C 08 02 A6 */	mflr r0
 /* 80248920 00245880  90 01 00 34 */	stw r0, 0x34(r1)

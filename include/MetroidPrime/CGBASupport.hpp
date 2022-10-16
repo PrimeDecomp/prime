@@ -33,6 +33,9 @@ private:
   bool x44_fusionLinked;
   bool x45_fusionBeat;
 
+// this is inlined weirdly... this probably should be handled differently
+  bool CheckReadyStatus();
+
   uchar *getBuffer() { return x2c_buffer; }
 
   static u8 CalculateFusionJBusChecksum(const u8* data, size_t len);

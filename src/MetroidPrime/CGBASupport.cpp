@@ -5,6 +5,11 @@
 #include "dolphin/gba.h"
 #include "dolphin/os.h"
 #include "dolphin/os/OSSerial.h"
+#include "rstl/math.hpp"
+
+extern "C" {
+void nullsub_130() {}
+}
 
 CGBASupport::CGBASupport() : CDvdFile("client_pad.bin") {
   x28_fileSize = (Length() + 0x1fu) & 0xffffffe0u;
@@ -47,7 +52,7 @@ void CGBASupport::StartLink() {
   x40_siChan = -1;
 }
 
-inline bool CGBASupport::IsReady() {
+inline bool CGBASupport::CheckReadyStatus() {
   if (x34_phase != kP_LoadClientPad)
     return true;
   if (x30_dvdReq->IsComplete()) {
@@ -69,10 +74,14 @@ inline bool CGBASupport::IsReady() {
   return false;
 }
 
+bool CGBASupport::IsReady() {
+ return CheckReadyStatus();
+}
+
 void CGBASupport::Update(float dt) {
   switch (x34_phase) {
   case kP_LoadClientPad:
-    IsReady();
+    CheckReadyStatus();
     break;
 
   case kP_StartProbeTimeout:
@@ -87,45 +96,44 @@ void CGBASupport::Update(float dt) {
       if (result == 0x40000) {
         x40_siChan = channel;
         x34_phase = kP_StartJoyBusBoot;
-        break;
+        x38_timeout = 4.f;
+        goto end_switch;
       }
       channel++;
     } while (channel < 4);
-    x34_phase = kP_StartJoyBusBoot;
-    // [[fallthrough]];
+    float newT = rstl::max_val(0.f, x38_timeout - dt);
+    x38_timeout = newT;
+    if (x38_timeout == 0.f) {
+      x34_phase = kP_Failed;
+    }
+    break;
 
   case kP_StartJoyBusBoot:
     x34_phase = kP_PollJoyBusBoot;
-    // if (!g_JbusEndpoint ||
-        // g_JbusEndpoint->GBAJoyBootAsync(x40_siChan * 2, 2, x2c_buffer.get(), x28_fileSize,
-        //                                 &x3c_status, JoyBootDone) != jbus::GBA_READY) {
-      // x34_phase = kP_Failed;
-    // }
+    GBAJoyBootAsync(x40_siChan, x40_siChan << 1, kBM_unk2, x2c_buffer, Length(), &x3c_status,
+                    &nullsub_130);
     break;
 
   case kP_PollJoyBusBoot:
-    u8 percent;
-    // if (g_JbusEndpoint && g_JbusEndpoint->GBAGetProcessStatus(percent) == jbus::GBA_BUSY)
-    //   break;
-    // if (!g_JbusEndpoint || g_JbusEndpoint->GBAGetStatus(&x3c_status) == jbus::GBA_NOT_READY) {
-    //   x34_phase = kP_Failed;
-    //   break;
-    // }
-    x38_timeout = 4.f;
-    x34_phase = kP_DataTransfer;
+    EGBAProcessStatus status = GBAGetProcessStatus(x40_siChan, &x3c_status);
+    if (status != kBM_unk2) {
+      if (GBAGetStatus(x40_siChan, &x3c_status) == 1) {
+        x34_phase = kP_Failed;
+      } else {
+        x38_timeout = 4.f;
+        x34_phase = kP_DataTransfer;
+      }
+    }
     break;
-
   case kP_DataTransfer:
     if (PollResponse()) {
       x34_phase = kP_Complete;
       break;
     }
-    // x38_timeout = std::max(0.f, x38_timeout - dt);
+    x38_timeout = rstl::max_val(0.f, x38_timeout - dt);
     if (x38_timeout == 0.f)
       x34_phase = kP_Failed;
     break;
-
-  default:
-    break;
   }
+end_switch:;
 }
