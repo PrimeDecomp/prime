@@ -5,10 +5,15 @@
 
 #include "MetroidPrime/Tweaks/ITweakObject.hpp"
 
+#include "Kyoto/TOneStatic.hpp"
+
 #include "rstl/string.hpp"
 
-class CTweakGame : public ITweakObject {
+class CTweakGame;
+
+class CTweakGame : public ITweakObject, public TOneStatic< CTweakGame > {
 public:
+  CTweakGame(CInputStream&);
   ~CTweakGame() override;
 
   const rstl::string& GetWorldPrefix() { return x4_worldPrefix; }

@@ -57,7 +57,7 @@ LIBS = [
             "MetroidPrime/Factories/CAssetFactory",
             "MetroidPrime/Tweaks/CTweakPlayer",
             "MetroidPrime/Tweaks/CTweaks",
-            "MetroidPrime/Tweaks/CTweakGame",
+            ["MetroidPrime/Tweaks/CTweakGame", True],
             "MetroidPrime/CGameProjectile",
             "MetroidPrime/Player/CPlayerGun",
             "MetroidPrime/CStateManager",
