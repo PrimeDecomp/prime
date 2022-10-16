@@ -1,6 +1,6 @@
 #include "dolphin/GBAPriv.h"
 
-void WriteProc(s32 chan, s32 ret) {
+void WriteProc(s32 chan) {
   GBA* gba;
   gba = &__GBA[chan];
 

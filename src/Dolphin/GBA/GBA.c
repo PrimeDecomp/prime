@@ -11,7 +11,7 @@ static OSResetFunctionInfo ResetFunctionInfo = {
   127
 };
 
-void ShortCommandProc(s32 chan, s32 ret) {
+void ShortCommandProc(s32 chan) {
   GBA* gba;
   gba = &__GBA[chan];
 
