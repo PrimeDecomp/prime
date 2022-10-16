@@ -6,7 +6,7 @@ void ReadProc(s32 chan) {
 
   if (gba->result == 0) {
     memcpy(gba->buffer, &gba->dst, 4);
-    gba->status[0] = gba->_09 & 0x3a;
+    gba->status[0] = gba->_09 & GBA_JSTAT_MASK;
   }
 }
 
