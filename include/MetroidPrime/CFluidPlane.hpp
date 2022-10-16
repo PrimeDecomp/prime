@@ -8,6 +8,8 @@
 class CScriptWater;
 class CStateManager;
 
+extern "C" uint sub_8012f098();
+
 class CFluidPlaneCPURender {
 public:
   struct SPatchInfo {};
