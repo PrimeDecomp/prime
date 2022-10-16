@@ -24,7 +24,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/Factories/CAssetFactory.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Tweaks/CTweakPlayer.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Tweaks/CTweaks.o\
-	$(BUILD_DIR)/asm/MetroidPrime/Tweaks/CTweakGame.o\
+	$(BUILD_DIR)/src/MetroidPrime/Tweaks/CTweakGame.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CGameProjectile.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Player/CPlayerGun.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CStateManager.o\
