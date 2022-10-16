@@ -17,7 +17,8 @@
     "types.h": "c",
     "gba.h": "c",
     "gbapriv.h": "c",
-    "os.h": "c"
+    "os.h": "c",
+    "sipriv.h": "c"
   },
   "files.autoSave": "onFocusChange",
   "files.insertFinalNewline": true,

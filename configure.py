@@ -1007,14 +1007,14 @@ LIBS = [
     },
     {
         "lib": "gba",
-        "mwcc_version": "1.2.5",
+        "mwcc_version": "1.2.5e",
         "cflags": "$cflags_base",
         "objects": [
             ["Dolphin/GBA/GBA", True],
             "Dolphin/GBA/GBAGetProcessStatus",
             "Dolphin/GBA/GBAJoyBoot",
-            "Dolphin/GBA/GBARead",
-            "Dolphin/GBA/GBAWrite",
+            ["Dolphin/GBA/GBARead", True],
+            ["Dolphin/GBA/GBAWrite", True],
             "Dolphin/GBA/GBAXfer",
             "Dolphin/GBA/GBAKey",
         ],

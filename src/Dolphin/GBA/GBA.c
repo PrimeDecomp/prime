@@ -19,12 +19,12 @@ void ShortCommandProc(s32 chan, s32 ret) {
     return;
   }
 
-  if (gba->_05 != 0 || gba->_06 != 4) {
+  if (gba->dst[0] != 0 || gba->dst[1] != 4) {
     gba->result = 1;
     return;
   }
 
-  gba->status[0] = gba->_07 & 0x3a;
+  gba->status[0] = gba->dst[2] & 0x3a;
 }
 
 void GBAInit() {
@@ -32,7 +32,7 @@ void GBAInit() {
   GBA* gba;
   for (i = 0; i < 4; ++i) {
     gba = &__GBA[i];
-    gba->poll_time = OSMicrosecondsToTicks(60);
+    gba->delay = OSMicrosecondsToTicks(60);
     OSInitThreadQueue(&gba->thread_queue);
     gba->param = &SecParams[i];
 
