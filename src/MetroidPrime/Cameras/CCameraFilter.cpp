@@ -18,7 +18,7 @@ void CCameraFilterPass::DrawWideScreen(const CColor& color, const CTexture* tex,
   gpRender->SetDepthReadWrite(false, false);
   gpRender->SetModelMatrix(CTransform4f::Identity());
   if (tex != nullptr) {
-    tex->Load(GX_TEXMAP0, CTexture::Repeat);
+    tex->Load(GX_TEXMAP0, CTexture::kCM_Repeat);
   }
   CGraphics::SetTevOp(kTS_Stage0, CTevPass_805a5ebc);
   CGraphics::SetTevOp(kTS_Stage1, *PTR_skPassThru_805a8828);
