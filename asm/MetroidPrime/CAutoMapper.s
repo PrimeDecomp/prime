@@ -5023,7 +5023,7 @@ lbl_80099984:
 /* 80099994 000968F4  4B F7 0F D5 */	bl GetCurrentCameraTransform__14CCameraManagerCFRC13CStateManager
 /* 80099998 000968F8  38 61 00 C8 */	addi r3, r1, 0xc8
 /* 8009999C 000968FC  38 81 03 A0 */	addi r4, r1, 0x3a0
-/* 800999A0 00096900  4B F8 1E 61 */	bl sub_8001b800
+/* 800999A0 00096900  4B F8 1E 61 */	bl FromMatrix3f__12CEulerAnglesFRC9CMatrix3f
 /* 800999A4 00096904  C0 81 00 D0 */	lfs f4, 0xd0(r1)
 /* 800999A8 00096908  3C 00 43 30 */	lis r0, 0x4330
 /* 800999AC 0009690C  C0 02 8B A4 */	lfs f0, lbl_805AA8C4@sda21(r2)
