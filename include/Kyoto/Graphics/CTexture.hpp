@@ -10,9 +10,9 @@ class CInputStream;
 class CTexture {
 public:
   enum EClampMode {
-    Clamp,
-    Repeat,
-    Mirror,
+    kCM_Clamp,
+    kCM_Repeat,
+    kCM_Mirror,
   };
   enum EAutoMipmap {
     kAM_Zero,

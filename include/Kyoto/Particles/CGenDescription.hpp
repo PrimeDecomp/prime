@@ -9,6 +9,7 @@
 #include "rstl/optional_object.hpp"
 #include "rstl/single_ptr.hpp"
 
+class CModel;
 class CElectricDescription;
 class CSwooshDescription;
 class CSpawnSystemKeyframeData;

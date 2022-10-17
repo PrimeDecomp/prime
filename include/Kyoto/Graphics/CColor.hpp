@@ -42,6 +42,7 @@ public:
   uchar GetAlphau8() const { return mA; }
   ushort ToRGB5A3() const;
   GXColor ToGX(uint);
+  uint GetColor_u32() const { return mRgba; }
 
   static const CColor& Black();
   static const CColor& White();
