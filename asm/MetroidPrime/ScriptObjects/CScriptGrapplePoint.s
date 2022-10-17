@@ -13,7 +13,7 @@ lbl_803E0D00:
 	.4byte PreThink__7CEntityFfR13CStateManager
 	.4byte Think__19CScriptGrapplePointFfR13CStateManager
 	.4byte AcceptScriptMsg__19CScriptGrapplePointF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__6CActorFb
+	.4byte SetActive__6CActorFUc
 	.4byte PreRender__6CActorFR13CStateManagerRC14CFrustumPlanes
 	.4byte AddToRenderer__19CScriptGrapplePointCFRC14CFrustumPlanesRC13CStateManager
 	.4byte Render__19CScriptGrapplePointCFRC13CStateManager

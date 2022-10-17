@@ -13,7 +13,7 @@ lbl_803DACC0:
 	.4byte PreThink__7CEntityFfR13CStateManager
 	.4byte Think__5CBombFfR13CStateManager
 	.4byte AcceptScriptMsg__5CBombF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__6CActorFb
+	.4byte SetActive__6CActorFUc
 	.4byte PreRender__6CActorFR13CStateManagerRC14CFrustumPlanes
 	.4byte AddToRenderer__5CBombCFRC14CFrustumPlanesRC13CStateManager
 	.4byte nullsub_99

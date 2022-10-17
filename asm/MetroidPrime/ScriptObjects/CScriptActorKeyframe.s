@@ -13,7 +13,7 @@ lbl_803DFE20:
 	.4byte PreThink__7CEntityFfR13CStateManager
 	.4byte Think__20CScriptActorKeyframeFfR13CStateManager
 	.4byte AcceptScriptMsg__20CScriptActorKeyframeF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__7CEntityFb
+	.4byte SetActive__7CEntityFUc
 
 .global lbl_803DFE40
 lbl_803DFE40:

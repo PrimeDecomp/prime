@@ -13,7 +13,7 @@ lbl_803E3618:
 	.4byte PreThink__7CEntityFfR13CStateManager
 	.4byte Think__7CEntityFfR13CStateManager
 	.4byte AcceptScriptMsg__22CScriptPickupGeneratorF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__7CEntityFb
+	.4byte SetActive__7CEntityFUc
 
 .section .sdata
 .balign 8
@@ -971,4 +971,3 @@ lbl_803D0390:
 	# ROM: 0x3CD390
 	.asciz "??(??)"
 	.balign 4
-

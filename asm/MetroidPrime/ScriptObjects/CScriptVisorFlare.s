@@ -13,7 +13,7 @@ lbl_803E5830:
 	.4byte PreThink__7CEntityFfR13CStateManager
 	.4byte Think__17CScriptVisorFlareFfR13CStateManager
 	.4byte AcceptScriptMsg__17CScriptVisorFlareF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__6CActorFb
+	.4byte SetActive__6CActorFUc
 	.4byte PreRender__17CScriptVisorFlareFR13CStateManagerRC14CFrustumPlanes
 	.4byte AddToRenderer__17CScriptVisorFlareCFRC14CFrustumPlanesRC13CStateManager
 	.4byte Render__17CScriptVisorFlareCFRC13CStateManager

@@ -17,7 +17,7 @@ lbl_803E4728:
 	.4byte PreThink__10CPatternedFfR13CStateManager
 	.4byte Think__12CIceSheegothFfR13CStateManager
 	.4byte AcceptScriptMsg__12CIceSheegothF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__6CActorFb
+	.4byte SetActive__6CActorFUc
 	.4byte PreRender__10CPatternedFR13CStateManagerRC14CFrustumPlanes
 	.4byte AddToRenderer__12CIceSheegothCFRC14CFrustumPlanesRC13CStateManager
 	.4byte Render__12CIceSheegothCFRC13CStateManager

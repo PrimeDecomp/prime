@@ -13,7 +13,7 @@ __vt__6CActor:
 	.4byte PreThink__7CEntityFfR13CStateManager
 	.4byte Think__7CEntityFfR13CStateManager
 	.4byte AcceptScriptMsg__6CActorF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__6CActorFb
+	.4byte SetActive__6CActorFUc
 	.4byte PreRender__6CActorFR13CStateManagerRC14CFrustumPlanes
 	.4byte AddToRenderer__6CActorCFRC14CFrustumPlanesRC13CStateManager
 	.4byte Render__6CActorCFRC13CStateManager
@@ -1087,8 +1087,8 @@ lbl_8005381C:
 /* 80053844 000507A4  38 21 00 60 */	addi r1, r1, 0x60
 /* 80053848 000507A8  4E 80 00 20 */	blr
 
-.global SetActive__6CActorFb
-SetActive__6CActorFb:
+.global SetActive__6CActorFUc
+SetActive__6CActorFUc:
 /* 8005384C 000507AC  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80053850 000507B0  7C 08 02 A6 */	mflr r0
 /* 80053854 000507B4  38 C0 00 01 */	li r6, 1
@@ -1105,7 +1105,7 @@ SetActive__6CActorFb:
 /* 80053880 000507E0  88 03 00 E7 */	lbz r0, 0xe7(r3)
 /* 80053884 000507E4  50 80 17 7A */	rlwimi r0, r4, 2, 0x1d, 0x1d
 /* 80053888 000507E8  98 03 00 E7 */	stb r0, 0xe7(r3)
-/* 8005388C 000507EC  4B FF D8 1D */	bl SetActive__7CEntityFb
+/* 8005388C 000507EC  4B FF D8 1D */	bl SetActive__7CEntityFUc
 /* 80053890 000507F0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80053894 000507F4  7C 08 03 A6 */	mtlr r0
 /* 80053898 000507F8  38 21 00 10 */	addi r1, r1, 0x10

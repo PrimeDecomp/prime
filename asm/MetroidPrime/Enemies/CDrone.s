@@ -14,7 +14,7 @@ lbl_803E36A8:
 	.4byte PreThink__10CPatternedFfR13CStateManager
 	.4byte Think__6CDroneFfR13CStateManager
 	.4byte AcceptScriptMsg__6CDroneF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__6CActorFb
+	.4byte SetActive__6CActorFUc
 	.4byte PreRender__6CDroneFR13CStateManagerRC14CFrustumPlanes
 	.4byte AddToRenderer__6CDroneCFRC14CFrustumPlanesRC13CStateManager
 	.4byte Render__6CDroneCFRC13CStateManager
@@ -262,7 +262,7 @@ lbl_803E3A58:
 	.4byte PreThink__7CEntityFfR13CStateManager
 	.4byte Think__11CDroneLaserFfR13CStateManager
 	.4byte AcceptScriptMsg__11CDroneLaserF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__6CActorFb
+	.4byte SetActive__6CActorFUc
 	.4byte PreRender__6CActorFR13CStateManagerRC14CFrustumPlanes
 	.4byte AddToRenderer__11CDroneLaserCFRC14CFrustumPlanesRC13CStateManager
 	.4byte Render__11CDroneLaserCFRC13CStateManager

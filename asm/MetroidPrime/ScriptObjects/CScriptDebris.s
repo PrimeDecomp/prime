@@ -13,7 +13,7 @@ lbl_803DFD78:
 	.4byte PreThink__7CEntityFfR13CStateManager
 	.4byte Think__13CScriptDebrisFfR13CStateManager
 	.4byte AcceptScriptMsg__13CScriptDebrisF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__6CActorFb
+	.4byte SetActive__6CActorFUc
 	.4byte PreRender__13CScriptDebrisFR13CStateManagerRC14CFrustumPlanes
 	.4byte AddToRenderer__13CScriptDebrisCFRC14CFrustumPlanesRC13CStateManager
 	.4byte Render__13CScriptDebrisCFRC13CStateManager

@@ -13,7 +13,7 @@ lbl_803E3638:
 	.4byte PreThink__7CEntityFfR13CStateManager
 	.4byte Think__22CScriptPointOfInterestFfR13CStateManager
 	.4byte AcceptScriptMsg__22CScriptPointOfInterestF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__6CActorFb
+	.4byte SetActive__6CActorFUc
 	.4byte PreRender__6CActorFR13CStateManagerRC14CFrustumPlanes
 	.4byte AddToRenderer__22CScriptPointOfInterestCFRC14CFrustumPlanesRC13CStateManager
 	.4byte Render__22CScriptPointOfInterestCFRC13CStateManager

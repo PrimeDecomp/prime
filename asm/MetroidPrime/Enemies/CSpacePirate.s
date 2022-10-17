@@ -141,7 +141,7 @@ lbl_803E0800:
 	.4byte PreThink__10CPatternedFfR13CStateManager
 	.4byte Think__12CSpacePirateFfR13CStateManager
 	.4byte AcceptScriptMsg__12CSpacePirateF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__6CActorFb
+	.4byte SetActive__6CActorFUc
 	.4byte PreRender__12CSpacePirateFR13CStateManagerRC14CFrustumPlanes
 	.4byte AddToRenderer__10CPatternedCFRC14CFrustumPlanesRC13CStateManager
 	.4byte Render__12CSpacePirateCFRC13CStateManager

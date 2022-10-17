@@ -13,7 +13,7 @@ lbl_803E7048:
 	.4byte PreThink__7CEntityFfR13CStateManager
 	.4byte Think__7CEntityFfR13CStateManager
 	.4byte AcceptScriptMsg__11CScriptMidiF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__7CEntityFb
+	.4byte SetActive__7CEntityFUc
 
 .section .text, "ax"
 
@@ -377,4 +377,3 @@ lbl_805ACED0:
 	# ROM: 0x3F9770
 	.4byte 0
 	.4byte 0
-

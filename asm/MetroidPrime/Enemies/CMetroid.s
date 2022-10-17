@@ -17,7 +17,7 @@ lbl_803E3AD8:
 	.4byte PreThink__10CPatternedFfR13CStateManager
 	.4byte Think__8CMetroidFfR13CStateManager
 	.4byte AcceptScriptMsg__8CMetroidF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__6CActorFb
+	.4byte SetActive__6CActorFUc
 	.4byte PreRender__10CPatternedFR13CStateManagerRC14CFrustumPlanes
 	.4byte AddToRenderer__10CPatternedCFRC14CFrustumPlanesRC13CStateManager
 	.4byte Render__8CMetroidCFRC13CStateManager

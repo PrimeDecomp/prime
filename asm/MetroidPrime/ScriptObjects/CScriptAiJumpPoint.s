@@ -13,7 +13,7 @@ lbl_803E6398:
 	.4byte PreThink__7CEntityFfR13CStateManager
 	.4byte Think__18CScriptAiJumpPointFfR13CStateManager
 	.4byte AcceptScriptMsg__18CScriptAiJumpPointF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__6CActorFb
+	.4byte SetActive__6CActorFUc
 	.4byte PreRender__6CActorFR13CStateManagerRC14CFrustumPlanes
 	.4byte AddToRenderer__18CScriptAiJumpPointCFRC14CFrustumPlanesRC13CStateManager
 	.4byte Render__18CScriptAiJumpPointCFRC13CStateManager
