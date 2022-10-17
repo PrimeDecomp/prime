@@ -141,7 +141,7 @@ LIBS = [
             "MetroidPrime/CMappableObject",
             "MetroidPrime/Player/CPlayerCameraBob",
             "MetroidPrime/ScriptObjects/CScriptCameraFilterKeyframe",
-            "MetroidPrime/ScriptObjects/CScriptCameraBlurKeyframe",
+            ["MetroidPrime/ScriptObjects/CScriptCameraBlurKeyframe", True],
             "MetroidPrime/Cameras/CCameraFilter",
             "MetroidPrime/Player/CMorphBall",
             "MetroidPrime/ScriptObjects/CScriptDamageableTrigger",

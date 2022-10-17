@@ -16650,7 +16650,7 @@ lbl_800D4320:
 /* 800D43C8 000D1328  7F E9 FB 78 */	mr r9, r31
 /* 800D43CC 000D132C  38 81 00 0C */	addi r4, r1, 0xc
 /* 800D43D0 000D1330  38 A1 00 10 */	addi r5, r1, 0x10
-/* 800D43D4 000D1334  48 01 64 CD */	bl "__ct__25CScriptCameraBlurKeyframeF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoUifUiffb"
+/* 800D43D4 000D1334  48 01 64 CD */	bl "__ct__25CScriptCameraBlurKeyframeF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoQ215CCameraBlurPass9EBlurTypefUlffb"
 /* 800D43D8 000D1338  7C 7C 1B 78 */	mr r28, r3
 lbl_800D43DC:
 /* 800D43DC 000D133C  38 61 00 10 */	addi r3, r1, 0x10
