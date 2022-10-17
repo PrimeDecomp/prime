@@ -3,6 +3,13 @@
 
 #include "types.h"
 
+class CTransform4f;
+class CParticleGen;
+class IObjectStore;
+class COsContext;
+class CMemorySys;
+class CResFactory;
+
 class IRenderer {
 public:
   enum EDrawableSorting {
@@ -25,11 +32,6 @@ public:
   virtual void SetModelMatrix(const CTransform4f& xf);
   virtual void AddParticleGen(const CParticleGen& gen);
 };
-
-class IObjectStore;
-class COsContext;
-class CMemorySys;
-class CResFactory;
 
 namespace Renderer {
 IRenderer* AllocateRenderer(IObjectStore&, COsContext&, CMemorySys&, CResFactory&);
