@@ -27,12 +27,7 @@ public:
   rc_ptr(const rc_ptr& other) : x0_refData(other.x0_refData) { x0_refData->AddRef(); }
   ~rc_ptr() { ReleaseData(); }
   T* GetPtr() const { return static_cast< T* >(x0_refData->GetPtr()); }
-  void ReleaseData() {
-    if (x0_refData->DelRef() <= 0) {
-      delete GetPtr();
-      delete x0_refData;
-    }
-  }
+  void ReleaseData();
   T* operator->() const { return GetPtr(); }
   T& operator*() const { return *GetPtr(); }
   operator bool() const { return GetPtr() != nullptr; }
@@ -40,6 +35,14 @@ public:
 private:
   CRefData* x0_refData;
 };
+
+template < typename T >
+void rc_ptr< T >::ReleaseData() {
+  if (x0_refData->DelRef() <= 0) {
+    delete GetPtr();
+    delete x0_refData;
+  }
+}
 
 template < typename T >
 class ncrc_ptr : public rc_ptr< T > {

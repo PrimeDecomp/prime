@@ -2536,7 +2536,7 @@ lbl_80243CD4:
 /* 80243D64 00240CC4  4B DC 2F 9D */	bl InsertMsg__18CArchitectureQueueFRC20CArchitectureMessage
 /* 80243D68 00240CC8  34 61 00 30 */	addic. r3, r1, 0x30
 /* 80243D6C 00240CCC  41 82 00 08 */	beq lbl_80243D74
-/* 80243D70 00240CD0  4B DC 49 9D */	bl "__dt__Q24rstl34rc_ptr<24IArchitectureMessageParm>Fv"
+/* 80243D70 00240CD0  4B DC 49 9D */	bl "ReleaseData__Q24rstl34rc_ptr<24IArchitectureMessageParm>Fv"
 lbl_80243D74:
 /* 80243D74 00240CD4  38 60 00 00 */	li r3, 0
 /* 80243D78 00240CD8  48 0A 5B 3D */	bl SetChannel__11CSfxManagerFQ211CSfxManager12ESfxChannels

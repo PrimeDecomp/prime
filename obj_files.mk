@@ -33,7 +33,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/src/MetroidPrime/CArchMsgParmInt32Int32VoidPtr.o\
 	$(BUILD_DIR)/src/MetroidPrime/CArchMsgParmNull.o\
 	$(BUILD_DIR)/src/MetroidPrime/CArchMsgParmReal32.o\
-	$(BUILD_DIR)/asm/MetroidPrime/Decode.o\
+	$(BUILD_DIR)/src/MetroidPrime/Decode.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CIOWinManager.o\
 	$(BUILD_DIR)/src/MetroidPrime/CIOWin.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CActor.o\
@@ -257,7 +257,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/Weapons/GunController/CGunMotion.o\
 	$(BUILD_DIR)/src/MetroidPrime/ScriptObjects/CScriptSwitch.o\
 	$(BUILD_DIR)/src/MetroidPrime/BodyState/CABSIdle.o\
-	$(BUILD_DIR)/asm/MetroidPrime/BodyState/CABSFlinch.o\
+	$(BUILD_DIR)/src/MetroidPrime/BodyState/CABSFlinch.o\
 	$(BUILD_DIR)/asm/MetroidPrime/BodyState/CABSAim.o\
 	$(BUILD_DIR)/src/MetroidPrime/ScriptObjects/CScriptPlayerStateChange.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CThardus.o\

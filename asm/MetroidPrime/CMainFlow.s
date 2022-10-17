@@ -186,7 +186,7 @@ lbl_8002362C:
 /* 80023650 000205B0  4B FE 36 B1 */	bl InsertMsg__18CArchitectureQueueFRC20CArchitectureMessage
 /* 80023654 000205B4  34 61 00 54 */	addic. r3, r1, 0x54
 /* 80023658 000205B8  41 82 01 E8 */	beq lbl_80023840
-/* 8002365C 000205BC  4B FE 50 B1 */	bl "__dt__Q24rstl34rc_ptr<24IArchitectureMessageParm>Fv"
+/* 8002365C 000205BC  4B FE 50 B1 */	bl "ReleaseData__Q24rstl34rc_ptr<24IArchitectureMessageParm>Fv"
 /* 80023660 000205C0  48 00 01 E0 */	b lbl_80023840
 lbl_80023664:
 /* 80023664 000205C4  3C 80 80 3D */	lis r4, lbl_803CCAA8@ha
@@ -212,7 +212,7 @@ lbl_8002368C:
 /* 800236B0 00020610  4B FE 36 51 */	bl InsertMsg__18CArchitectureQueueFRC20CArchitectureMessage
 /* 800236B4 00020614  34 61 00 48 */	addic. r3, r1, 0x48
 /* 800236B8 00020618  41 82 01 88 */	beq lbl_80023840
-/* 800236BC 0002061C  4B FE 50 51 */	bl "__dt__Q24rstl34rc_ptr<24IArchitectureMessageParm>Fv"
+/* 800236BC 0002061C  4B FE 50 51 */	bl "ReleaseData__Q24rstl34rc_ptr<24IArchitectureMessageParm>Fv"
 /* 800236C0 00020620  48 00 01 80 */	b lbl_80023840
 lbl_800236C4:
 /* 800236C4 00020624  80 6D A0 78 */	lwz r3, gpMain@sda21(r13)
@@ -241,7 +241,7 @@ lbl_800236F8:
 /* 8002371C 0002067C  4B FE 35 E5 */	bl InsertMsg__18CArchitectureQueueFRC20CArchitectureMessage
 /* 80023720 00020680  34 61 00 3C */	addic. r3, r1, 0x3c
 /* 80023724 00020684  41 82 01 1C */	beq lbl_80023840
-/* 80023728 00020688  4B FE 4F E5 */	bl "__dt__Q24rstl34rc_ptr<24IArchitectureMessageParm>Fv"
+/* 80023728 00020688  4B FE 4F E5 */	bl "ReleaseData__Q24rstl34rc_ptr<24IArchitectureMessageParm>Fv"
 /* 8002372C 0002068C  48 00 01 14 */	b lbl_80023840
 lbl_80023730:
 /* 80023730 00020690  80 6D A0 78 */	lwz r3, gpMain@sda21(r13)
@@ -286,7 +286,7 @@ lbl_8002379C:
 /* 800237BC 0002071C  4B FE 35 45 */	bl InsertMsg__18CArchitectureQueueFRC20CArchitectureMessage
 /* 800237C0 00020720  34 61 00 30 */	addic. r3, r1, 0x30
 /* 800237C4 00020724  41 82 00 7C */	beq lbl_80023840
-/* 800237C8 00020728  4B FE 4F 45 */	bl "__dt__Q24rstl34rc_ptr<24IArchitectureMessageParm>Fv"
+/* 800237C8 00020728  4B FE 4F 45 */	bl "ReleaseData__Q24rstl34rc_ptr<24IArchitectureMessageParm>Fv"
 /* 800237CC 0002072C  48 00 00 74 */	b lbl_80023840
 lbl_800237D0:
 /* 800237D0 00020730  80 6D A0 80 */	lwz r3, gpGameState@sda21(r13)
@@ -317,7 +317,7 @@ lbl_80023800:
 /* 80023830 00020790  4B FE 34 D1 */	bl InsertMsg__18CArchitectureQueueFRC20CArchitectureMessage
 /* 80023834 00020794  34 61 00 24 */	addic. r3, r1, 0x24
 /* 80023838 00020798  41 82 00 08 */	beq lbl_80023840
-/* 8002383C 0002079C  4B FE 4E D1 */	bl "__dt__Q24rstl34rc_ptr<24IArchitectureMessageParm>Fv"
+/* 8002383C 0002079C  4B FE 4E D1 */	bl "ReleaseData__Q24rstl34rc_ptr<24IArchitectureMessageParm>Fv"
 lbl_80023840:
 /* 80023840 000207A0  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 80023844 000207A4  83 E1 00 5C */	lwz r31, 0x5c(r1)

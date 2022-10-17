@@ -1190,7 +1190,7 @@ lbl_800290C0:
 /* 800290E4 00026044  4B FD DC 1D */	bl InsertMsg__18CArchitectureQueueFRC20CArchitectureMessage
 /* 800290E8 00026048  34 61 00 14 */	addic. r3, r1, 0x14
 /* 800290EC 0002604C  41 82 00 08 */	beq lbl_800290F4
-/* 800290F0 00026050  4B FD F6 1D */	bl "__dt__Q24rstl34rc_ptr<24IArchitectureMessageParm>Fv"
+/* 800290F0 00026050  4B FD F6 1D */	bl "ReleaseData__Q24rstl34rc_ptr<24IArchitectureMessageParm>Fv"
 lbl_800290F4:
 /* 800290F4 00026054  38 60 00 02 */	li r3, 2
 /* 800290F8 00026058  48 00 00 F0 */	b lbl_800291E8
