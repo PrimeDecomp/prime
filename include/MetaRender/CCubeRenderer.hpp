@@ -34,7 +34,7 @@ public:
   virtual void DrawAreaGeometry();
   virtual void PostRenderFogs();
   virtual void SetModelMatrix(const CTransform4f& xf);
-  virtual void AddParticleGen1();
+  virtual void AddParticleGen(const CParticleGen& gen);
   virtual void AddParticleGen2();
   virtual void AddPlaneObject();
   virtual void AddDrawable(const void* obj, const CVector3f& pos, const CAABox& bounds, int mode,
