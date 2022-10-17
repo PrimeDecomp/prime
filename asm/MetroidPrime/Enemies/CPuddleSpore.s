@@ -41,7 +41,7 @@ lbl_803E20C4:
 	.4byte PreThink__12CPuddleSporeFfR13CStateManager
 	.4byte Think__12CPuddleSporeFfR13CStateManager
 	.4byte AcceptScriptMsg__12CPuddleSporeF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__6CActorFb
+	.4byte SetActive__6CActorFUc
 	.4byte PreRender__10CPatternedFR13CStateManagerRC14CFrustumPlanes
 	.4byte AddToRenderer__10CPatternedCFRC14CFrustumPlanesRC13CStateManager
 	.4byte Render__12CPuddleSporeCFRC13CStateManager

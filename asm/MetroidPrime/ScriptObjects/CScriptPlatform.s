@@ -13,7 +13,7 @@ __vt__15CScriptPlatform:
 	.4byte PreThink__15CScriptPlatformFfR13CStateManager
 	.4byte Think__15CScriptPlatformFfR13CStateManager
 	.4byte AcceptScriptMsg__15CScriptPlatformF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__6CActorFb
+	.4byte SetActive__6CActorFUc
 	.4byte PreRender__15CScriptPlatformFR13CStateManagerRC14CFrustumPlanes
 	.4byte AddToRenderer__6CActorCFRC14CFrustumPlanesRC13CStateManager
 	.4byte Render__15CScriptPlatformCFRC13CStateManager

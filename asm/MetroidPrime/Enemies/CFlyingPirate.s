@@ -82,7 +82,7 @@ __vt__13CFlyingPirate:
 	.4byte PreThink__10CPatternedFfR13CStateManager
 	.4byte Think__13CFlyingPirateFfR13CStateManager
 	.4byte AcceptScriptMsg__13CFlyingPirateF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__6CActorFb
+	.4byte SetActive__6CActorFUc
 	.4byte PreRender__13CFlyingPirateFR13CStateManagerRC14CFrustumPlanes
 	.4byte AddToRenderer__13CFlyingPirateCFRC14CFrustumPlanesRC13CStateManager
 	.4byte Render__10CPatternedCFRC13CStateManager

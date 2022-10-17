@@ -16,7 +16,7 @@ lbl_803D96E8:
 	.4byte PreThink__7CPlayerFfR13CStateManager
 	.4byte Think__7CPlayerFfR13CStateManager
 	.4byte AcceptScriptMsg__7CPlayerF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__6CActorFb
+	.4byte SetActive__6CActorFUc
 	.4byte PreRender__7CPlayerFR13CStateManagerRC14CFrustumPlanes
 	.4byte AddToRenderer__7CPlayerCFRC14CFrustumPlanesRC13CStateManager
 	.4byte Render__7CPlayerCFRC13CStateManager

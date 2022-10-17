@@ -13,7 +13,7 @@ lbl_803EB6C8:
 	.4byte PreThink__7CEntityFfR13CStateManager
 	.4byte Think__Q212COmegaPirate6CFlashFfR13CStateManager
 	.4byte AcceptScriptMsg__6CActorF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__6CActorFb
+	.4byte SetActive__6CActorFUc
 	.4byte PreRender__Q212COmegaPirate6CFlashFR13CStateManagerRC14CFrustumPlanes
 	.4byte AddToRenderer__Q212COmegaPirate6CFlashCFRC14CFrustumPlanesRC13CStateManager
 	.4byte Render__Q212COmegaPirate6CFlashCFRC13CStateManager
@@ -133,7 +133,7 @@ lbl_803EB868:
 	.4byte PreThink__10CPatternedFfR13CStateManager
 	.4byte Think__12COmegaPirateFfR13CStateManager
 	.4byte AcceptScriptMsg__12COmegaPirateF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__6CActorFb
+	.4byte SetActive__6CActorFUc
 	.4byte PreRender__12COmegaPirateFR13CStateManagerRC14CFrustumPlanes
 	.4byte AddToRenderer__10CPatternedCFRC14CFrustumPlanesRC13CStateManager
 	.4byte Render__12COmegaPirateCFRC13CStateManager

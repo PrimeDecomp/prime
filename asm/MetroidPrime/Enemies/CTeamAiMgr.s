@@ -13,7 +13,7 @@ lbl_803E8558:
 	.4byte PreThink__7CEntityFfR13CStateManager
 	.4byte Think__10CTeamAiMgrFfR13CStateManager
 	.4byte AcceptScriptMsg__10CTeamAiMgrF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__7CEntityFb
+	.4byte SetActive__7CEntityFUc
 
 .section .text, "ax"
 
@@ -4156,4 +4156,3 @@ lbl_803D4380:
 	# ROM: 0x3D1380
 	.asciz "??(??)"
 	.balign 4
-

@@ -13,7 +13,7 @@ __vt__13CScriptRipple:
 	.4byte PreThink__7CEntityFfR13CStateManager
 	.4byte Think__13CScriptRippleFfR13CStateManager
 	.4byte AcceptScriptMsg__13CScriptRippleF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__7CEntityFb
+	.4byte SetActive__7CEntityFUc
 
 .section .text, "ax"
 

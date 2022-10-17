@@ -13,7 +13,7 @@ lbl_803EA0F0:
 	.4byte PreThink__11CWallWalkerFfR13CStateManager
 	.4byte Think__11CWallWalkerFfR13CStateManager
 	.4byte AcceptScriptMsg__10CPatternedF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__6CActorFb
+	.4byte SetActive__6CActorFUc
 	.4byte PreRender__10CPatternedFR13CStateManagerRC14CFrustumPlanes
 	.4byte AddToRenderer__10CPatternedCFRC14CFrustumPlanesRC13CStateManager
 	.4byte Render__11CWallWalkerCFRC13CStateManager

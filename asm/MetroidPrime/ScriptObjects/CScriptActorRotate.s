@@ -13,7 +13,7 @@ lbl_803E2D08:
 	.4byte PreThink__7CEntityFfR13CStateManager
 	.4byte Think__18CScriptActorRotateFfR13CStateManager
 	.4byte AcceptScriptMsg__18CScriptActorRotateF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__7CEntityFb
+	.4byte SetActive__7CEntityFUc
 
 
 .section .text, "ax"
@@ -981,4 +981,3 @@ lbl_803D01F0:
 	# ROM: 0x3CD1F0
 	.asciz "??(??)"
 	.balign 4
-

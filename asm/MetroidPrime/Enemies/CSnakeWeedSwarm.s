@@ -13,7 +13,7 @@ lbl_803E8578:
 	.4byte PreThink__7CEntityFfR13CStateManager
 	.4byte Think__15CSnakeWeedSwarmFfR13CStateManager
 	.4byte AcceptScriptMsg__15CSnakeWeedSwarmF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__6CActorFb
+	.4byte SetActive__6CActorFUc
 	.4byte PreRender__15CSnakeWeedSwarmFR13CStateManagerRC14CFrustumPlanes
 	.4byte AddToRenderer__15CSnakeWeedSwarmCFRC14CFrustumPlanesRC13CStateManager
 	.4byte Render__6CActorCFRC13CStateManager

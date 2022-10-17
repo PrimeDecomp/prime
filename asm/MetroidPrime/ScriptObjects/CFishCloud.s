@@ -13,7 +13,7 @@ lbl_803E5758:
 	.4byte PreThink__7CEntityFfR13CStateManager
 	.4byte Think__10CFishCloudFfR13CStateManager
 	.4byte AcceptScriptMsg__10CFishCloudF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__6CActorFb
+	.4byte SetActive__6CActorFUc
 	.4byte PreRender__10CFishCloudFR13CStateManagerRC14CFrustumPlanes
 	.4byte AddToRenderer__6CActorCFRC14CFrustumPlanesRC13CStateManager
 	.4byte Render__10CFishCloudCFRC13CStateManager
@@ -44,7 +44,7 @@ lbl_803E57C4:
 	.4byte PreThink__7CEntityFfR13CStateManager
 	.4byte Think__7CEntityFfR13CStateManager
 	.4byte AcceptScriptMsg__18CFishCloudModifierF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__6CActorFb
+	.4byte SetActive__6CActorFUc
 	.4byte PreRender__6CActorFR13CStateManagerRC14CFrustumPlanes
 	.4byte AddToRenderer__6CActorCFRC14CFrustumPlanesRC13CStateManager
 	.4byte Render__6CActorCFRC13CStateManager

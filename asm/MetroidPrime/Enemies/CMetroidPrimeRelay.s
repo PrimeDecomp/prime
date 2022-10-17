@@ -13,7 +13,7 @@ lbl_803EB638:
 	.4byte PreThink__7CEntityFfR13CStateManager
 	.4byte Think__7CEntityFfR13CStateManager
 	.4byte AcceptScriptMsg__18CMetroidPrimeRelayF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__7CEntityFb
+	.4byte SetActive__7CEntityFUc
 
 .section .text, "ax"
 
@@ -1773,4 +1773,3 @@ lbl_803D58D8:
 	.asciz "etroid Prime! (Stage 1)"
 	.asciz "Metroid Prime"
 	.balign 4
-

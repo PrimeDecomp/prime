@@ -213,7 +213,7 @@ public:
   ~CActor() override;
 
   void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) override;
-  void SetActive(bool active) override;
+  void SetActive(uchar active) override;
 
   virtual void PreRender(CStateManager&, const CFrustumPlanes&);
   virtual void AddToRenderer(const CFrustumPlanes&, const CStateManager&) const;

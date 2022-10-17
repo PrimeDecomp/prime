@@ -13,7 +13,7 @@ lbl_803EC0A0:
 	.4byte PreThink__10CPatternedFfR13CStateManager
 	.4byte Think__11CEnergyBallFfR13CStateManager
 	.4byte AcceptScriptMsg__11CEnergyBallF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__6CActorFb
+	.4byte SetActive__6CActorFUc
 	.4byte PreRender__10CPatternedFR13CStateManagerRC14CFrustumPlanes
 	.4byte AddToRenderer__10CPatternedCFRC14CFrustumPlanesRC13CStateManager
 	.4byte Render__10CPatternedCFRC13CStateManager
@@ -197,7 +197,7 @@ lbl_803EC370:
 	.4byte PreThink__7CEntityFfR13CStateManager
 	.4byte sub_802a0164
 	.4byte sub_802a0100
-	.4byte SetActive__7CEntityFb
+	.4byte SetActive__7CEntityFUc
 
 
 .section .sdata

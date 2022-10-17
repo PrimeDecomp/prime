@@ -13,7 +13,7 @@ lbl_803DF328:
 	.4byte PreThink__7CEntityFfR13CStateManager
 	.4byte Think__7CEntityFfR13CStateManager
 	.4byte AcceptScriptMsg__16CScriptGeneratorF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__7CEntityFb
+	.4byte SetActive__7CEntityFUc
 
 .section .sdata2, "a"
 .balign 8
@@ -941,4 +941,3 @@ lbl_803CDE78:
 	# ROM: 0x3CAE78
 	.asciz "??(??)"
 	.balign 4
-

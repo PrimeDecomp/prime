@@ -13,7 +13,7 @@ lbl_803DFE00:
 	.4byte PreThink__7CEntityFfR13CStateManager
 	.4byte Think__7CEntityFfR13CStateManager
 	.4byte AcceptScriptMsg__19CScriptCameraShakerF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__7CEntityFb
+	.4byte SetActive__7CEntityFUc
 
 .section .text, "ax"
 

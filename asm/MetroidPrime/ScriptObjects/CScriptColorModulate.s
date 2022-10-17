@@ -12,7 +12,7 @@ lbl_803E6BB0:
 	.4byte PreThink__7CEntityFfR13CStateManager
 	.4byte Think__20CScriptColorModulateFfR13CStateManager
 	.4byte AcceptScriptMsg__20CScriptColorModulateF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__7CEntityFb
+	.4byte SetActive__7CEntityFUc
 
 .section .sdata
 .balign 8
@@ -1255,4 +1255,3 @@ lbl_803D2580:
 	# ROM: 0x3CF580
 	.asciz "??(??)"
 	.balign 4
-

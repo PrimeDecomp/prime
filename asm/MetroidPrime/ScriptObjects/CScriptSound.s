@@ -13,7 +13,7 @@ lbl_803DF128:
 	.4byte PreThink__12CScriptSoundFfR13CStateManager
 	.4byte Think__12CScriptSoundFfR13CStateManager
 	.4byte AcceptScriptMsg__12CScriptSoundF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__6CActorFb
+	.4byte SetActive__6CActorFUc
 	.4byte PreRender__6CActorFR13CStateManagerRC14CFrustumPlanes
 	.4byte AddToRenderer__12CScriptSoundCFRC14CFrustumPlanesRC13CStateManager
 	.4byte Render__6CActorCFRC13CStateManager

@@ -17,7 +17,7 @@ lbl_803E4708:
 	.4byte PreThink__7CEntityFfR13CStateManager
 	.4byte Think__20CScriptRoomAcousticsFfR13CStateManager
 	.4byte AcceptScriptMsg__20CScriptRoomAcousticsF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__7CEntityFb
+	.4byte SetActive__7CEntityFUc
 
 .section .sbss, "wa"
 .balign 8

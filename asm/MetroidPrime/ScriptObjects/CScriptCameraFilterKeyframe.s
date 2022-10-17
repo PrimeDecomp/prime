@@ -13,7 +13,7 @@ lbl_803DFC80:
 	.4byte PreThink__7CEntityFfR13CStateManager
 	.4byte Think__7CEntityFfR13CStateManager
 	.4byte AcceptScriptMsg__27CScriptCameraFilterKeyframeF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__7CEntityFb
+	.4byte SetActive__7CEntityFUc
 
 .section .sdata2, "a"
 .balign 8

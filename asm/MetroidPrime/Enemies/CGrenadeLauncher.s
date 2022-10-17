@@ -16,7 +16,7 @@ lbl_803E7F58:
 	.4byte PreThink__7CEntityFfR13CStateManager
 	.4byte Think__16CGrenadeLauncherFfR13CStateManager
 	.4byte AcceptScriptMsg__16CGrenadeLauncherF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__6CActorFb
+	.4byte SetActive__6CActorFUc
 	.4byte PreRender__16CGrenadeLauncherFR13CStateManagerRC14CFrustumPlanes
 	.4byte AddToRenderer__16CGrenadeLauncherCFRC14CFrustumPlanesRC13CStateManager
 	.4byte Render__16CGrenadeLauncherCFRC13CStateManager
