@@ -30,13 +30,83 @@ enum ERglTevStage {
 };
 
 enum ERglPrimitive {
-  kP_Quads = 0x80,
-  kP_Triangles = 0x90,
-  kP_TriangleStrip = 0x98,
-  kP_TriangleFan = 0xA0,
-  kP_Lines = 0xA8,
-  kP_LineStrip = 0xB0,
-  kP_Points = 0xB8,
+  kP_Quads = GX_QUADS,
+  kP_Triangles = GX_TRIANGLES,
+  kP_TriangleStrip = GX_TRIANGLESTRIP,
+  kP_TriangleFan = GX_TRIANGLEFAN,
+  kP_Lines = GX_LINES,
+  kP_LineStrip = GX_LINESTRIP,
+  kP_Points = GX_POINTS,
+};
+
+enum ERglBlendMode {
+  kBM_None = GX_BM_NONE,
+  kBM_Blend = GX_BM_BLEND,
+  kBM_Logic = GX_BM_LOGIC,
+  kBM_Subtract = GX_BM_SUBTRACT,
+  kBM_Max = GX_MAX_BLENDMODE,
+};
+
+enum ERglBlendFactor {
+  kBF_Zero = GX_BL_ZERO,
+  kBF_One = GX_BL_ONE,
+  kBF_SrcColor = GX_BL_SRCCLR,
+  kBF_InvSrcColor = GX_BL_INVSRCCLR,
+  kBF_SrcAlpha = GX_BL_SRCALPHA,
+  kBF_InvSrcAlpha = GX_BL_INVSRCALPHA,
+  kBF_DstAlpha = GX_BL_DSTALPHA,
+  kBF_InvDstAlpha = GX_BL_INVDSTALPHA,
+  kBF_DstColor = GX_BL_DSTCLR,
+  kBF_InvDstColor = GX_BL_INVDSTCLR,
+};
+
+enum ERglLogicOp {
+  kLO_Clear = GX_LO_CLEAR,
+  kLO_And = GX_LO_AND,
+  kLO_RevAnd = GX_LO_REVAND,
+  kLO_Copy = GX_LO_COPY,
+  kLO_InvAnd = GX_LO_INVAND,
+  kLO_NoOp = GX_LO_NOOP,
+  kLO_Xor = GX_LO_XOR,
+  kLO_Or = GX_LO_OR,
+  kLO_Nor = GX_LO_NOR,
+  kLO_Equiv = GX_LO_EQUIV,
+  kLO_Inv = GX_LO_INV,
+  kLO_RevOr = GX_LO_REVOR,
+  kLO_InvCopy = GX_LO_INVCOPY,
+  kLO_InvOr = GX_LO_INVOR,
+  kLO_NAnd = GX_LO_NAND,
+  kLO_Set = GX_LO_SET,
+};
+
+enum ERglAlphaFunc {
+  kAF_Never = GX_NEVER,
+  kAF_Less = GX_LESS,
+  kAF_Equal = GX_EQUAL,
+  kAF_LEqual = GX_LEQUAL,
+  kAF_Greater = GX_GREATER,
+  kAF_NEqual = GX_NEQUAL,
+  kAF_GEqual = GX_GEQUAL,
+  kAF_Always = GX_ALWAYS,
+};
+
+enum ERglAlphaOp {
+  kAO_And = GX_AOP_AND,
+  kAO_Or = GX_AOP_OR,
+  kAO_Xor = GX_AOP_XOR,
+  kAO_XNor = GX_AOP_XNOR,
+  kAO_Max = GX_MAX_ALPHAOP,
+};
+
+enum ERglEnum {
+  kE_Never = GX_NEVER,
+  kE_Less = GX_LESS,
+  kE_Equal = GX_EQUAL,
+  kE_LEqual = GX_LEQUAL,
+  kE_Greater = GX_GREATER,
+  kE_NEqual = GX_NEQUAL,
+  kE_GEqual = GX_GEQUAL,
+  kE_Always = GX_ALWAYS,
 };
 
 class CTimeProvider;
@@ -59,6 +129,23 @@ public:
   static float GetSecondsMod900();
   static void SetExternalTimeProvider(CTimeProvider* provider);
   static void DisableAllLights();
+
+  static void SetModelMatrix(const CTransform4f& xf);
+  static void SetAlphaCompare(ERglAlphaFunc comp0, u8 ref0, ERglAlphaOp op, ERglAlphaFunc comp1,
+                              u8 ref1);
+  static void SetDepthWriteMode(bool test, ERglEnum comp, bool write);
+  static void SetBlendMode(ERglBlendMode, ERglBlendFactor, ERglBlendFactor, ERglLogicOp);
+
+  static CTevCombiners::CTevPass& kEnvPassThru;
+  static CTevCombiners::CTevPass kEnvModulateConstColor;
+  static CTevCombiners::CTevPass kEnvConstColor;
+  static CTevCombiners::CTevPass kEnvModulate;
+  static CTevCombiners::CTevPass kEnvDecal;
+  static CTevCombiners::CTevPass kEnvBlend;
+  static CTevCombiners::CTevPass kEnvReplace;
+  static CTevCombiners::CTevPass kEnvModulateAlpha;
+  static CTevCombiners::CTevPass kEnvModulateColor;
+  static CTevCombiners::CTevPass kEnvModulateColorByalpha;
 
 private:
   static CTransform4f mViewMatrix;

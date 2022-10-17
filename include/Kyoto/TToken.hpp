@@ -55,6 +55,7 @@ public:
 
   operator const TToken< T >&() const { return x0_token; }
   T* operator*() const { return x8_item; }
+  T* operator->() const { return x8_item; }
   bool IsLoaded() const { return x0_token.IsLoaded(); }
 
 private:

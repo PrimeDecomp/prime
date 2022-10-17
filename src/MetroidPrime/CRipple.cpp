@@ -8,21 +8,20 @@
 #include "rstl/math.hpp"
 
 CRipple::CRipple(TUniqueId id, const CVector3f& center, float intensity)
-  : x0_id(id)
-  , x4_time(0.f)
-  , x8_center(center)
-  , x14_timeFalloff(2.f)
-  , x18_distFalloff(12.f)
-  , x1c_frequency(3.f)
-  , x20_amplitude(0.25f)
-  , x24_lookupAmplitude(0.00098039221f)
-  , x28_ooTimeFalloff(0.f)
-  , x2c_ooDistFalloff(0.f)
-  , x30_ooPhase(0.f)
-  , x34_phase(0.f)
-  , x38_lookupPhase(0.f)
-  , x3c_(sub_8012f098())
-{
+: x0_id(id)
+, x4_time(0.f)
+, x8_center(center)
+, x14_timeFalloff(2.f)
+, x18_distFalloff(12.f)
+, x1c_frequency(3.f)
+, x20_amplitude(0.25f)
+, x24_lookupAmplitude(0.00098039221f)
+, x28_ooTimeFalloff(0.f)
+, x2c_ooDistFalloff(0.f)
+, x30_ooPhase(0.f)
+, x34_phase(0.f)
+, x38_lookupPhase(0.f)
+, x3c_(sub_8012f098()) {
   if (0.f < intensity && intensity < 1.f) {
     static CRandom16 sRippleRandom(0xABBA);
 
