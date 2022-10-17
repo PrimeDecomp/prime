@@ -149,10 +149,6 @@ public:
   CEnvFxManager* EnvFxManager() { return x880_envFxManager; }
   const CEnvFxManager* GetEnvFxManager() const { return x880_envFxManager; }
   CRumbleManager* GetRumbleManager() { return x88c_rumbleManager; }
-  CCameraFilterPass& CameraFilterPass(int idx) { return xb84_camFilterPasses[idx]; }
-  const CCameraFilterPass& GetCameraFilterPass(int idx) const { return xb84_camFilterPasses[idx]; }
-  CCameraBlurPass& CameraBlurPass(int idx) { return xd14_camBlurPasses[idx]; }
-  const CCameraBlurPass& GetCameraBlurPass(int idx) const { return xd14_camBlurPasses[idx]; }
 
   CRandom16* GetActiveRandom() const { return x900_random; }
 
@@ -164,6 +160,10 @@ public:
   const CCameraFilterPass& GetCameraFilterPass(ECameraFilterStage stage) const {
     return xb84_camFilterPasses[size_t(stage)];
   }
+  
+  CCameraBlurPass& CameraBlurPass(ECameraFilterStage idx) { return xd14_camBlurPasses[idx]; }
+  
+  const CCameraBlurPass& GetCameraBlurPass(ECameraFilterStage idx) const { return xd14_camBlurPasses[idx]; }
 
   float GetThermalColdScale1() const { return xf24_thermColdScale1; }
   float GetThermalColdScale2() const { return xf28_thermColdScale2; }

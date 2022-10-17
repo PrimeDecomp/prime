@@ -23,12 +23,12 @@ void CScriptCameraBlurKeyframe::AcceptScriptMsg(EScriptObjectMessage msg, TUniqu
   switch (msg) {
   case kSM_Increment:
     if (GetActive()) {
-      stateMgr.CameraBlurPass(3).SetBlur(x34_type, x38_amount, x40_timeIn, false);
+      stateMgr.CameraBlurPass(CStateManager::kCFS_Three).SetBlur(x34_type, x38_amount, x40_timeIn, false);
     }
     break;
   case kSM_Decrement:
     if (GetActive()) {
-      stateMgr.CameraBlurPass(3).DisableBlur(x44_timeOut);
+      stateMgr.CameraBlurPass(CStateManager::kCFS_Three).DisableBlur(x44_timeOut);
     }
     break;
   default:
