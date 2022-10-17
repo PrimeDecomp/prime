@@ -212,7 +212,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/CGroundMovement.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CNewIntroBoss.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Weapons/CPhazonBeam.o\
-	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptTargetingPoint.o\
+	$(BUILD_DIR)/src/MetroidPrime/ScriptObjects/CScriptTargetingPoint.o\
 	$(BUILD_DIR)/asm/MetroidPrime/BodyState/CBSWallHang.o\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptEMPulse.o\
 	$(BUILD_DIR)/asm/MetroidPrime/HUD/CHudDecoInterface.o\
