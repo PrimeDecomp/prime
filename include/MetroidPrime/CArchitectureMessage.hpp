@@ -25,23 +25,19 @@ enum EArchMsgType {
 };
 
 struct IArchitectureMessageParm {
-  inline virtual ~IArchitectureMessageParm() = 0;
+  virtual ~IArchitectureMessageParm() {}
 };
-
-IArchitectureMessageParm::~IArchitectureMessageParm() {}
 
 class CArchitectureMessage {
 
 public:
-  CArchitectureMessage(EArchMsgTarget target, int type, const rstl::rc_ptr<IArchitectureMessageParm>& parm)
-  : x0_target(target)
-  , x4_type(static_cast<EArchMsgType>(type))
-  , x8_parm(parm) {}
-  
+  CArchitectureMessage(EArchMsgTarget target, int type,
+                       const rstl::rc_ptr< IArchitectureMessageParm >& parm)
+  : x0_target(target), x4_type(static_cast< EArchMsgType >(type)), x8_parm(parm) {}
+
   EArchMsgType GetType() const { return x4_type; }
-  const IArchitectureMessageParm* GetParm() const {
-    return x8_parm.GetPtr();
-  }
+  const IArchitectureMessageParm* GetParm() const { return x8_parm.GetPtr(); }
+
 private:
   EArchMsgTarget x0_target;
   EArchMsgType x4_type;

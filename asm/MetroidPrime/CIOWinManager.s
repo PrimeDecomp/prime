@@ -362,7 +362,7 @@ lbl_8005221C:
 /* 8005224C 0004F1AC  90 04 00 04 */	stw r0, 4(r4)
 /* 80052250 0004F1B0  41 82 00 0C */	beq lbl_8005225C
 /* 80052254 0004F1B4  7F C3 F3 78 */	mr r3, r30
-/* 80052258 0004F1B8  4B FB 64 B5 */	bl "__dt__Q24rstl34rc_ptr<24IArchitectureMessageParm>Fv"
+/* 80052258 0004F1B8  4B FB 64 B5 */	bl "ReleaseData__Q24rstl34rc_ptr<24IArchitectureMessageParm>Fv"
 lbl_8005225C:
 /* 8005225C 0004F1BC  80 01 00 20 */	lwz r0, 0x20(r1)
 /* 80052260 0004F1C0  2C 00 00 00 */	cmpwi r0, 0
@@ -395,7 +395,7 @@ lbl_800522B4:
 /* 800522BC 0004F21C  28 1D 00 00 */	cmplwi r29, 0
 /* 800522C0 0004F220  41 82 00 0C */	beq lbl_800522CC
 /* 800522C4 0004F224  7F A3 EB 78 */	mr r3, r29
-/* 800522C8 0004F228  4B FB 64 45 */	bl "__dt__Q24rstl34rc_ptr<24IArchitectureMessageParm>Fv"
+/* 800522C8 0004F228  4B FB 64 45 */	bl "ReleaseData__Q24rstl34rc_ptr<24IArchitectureMessageParm>Fv"
 lbl_800522CC:
 /* 800522CC 0004F22C  38 61 00 10 */	addi r3, r1, 0x10
 /* 800522D0 0004F230  4B FB 63 CD */	bl "__dt__Q24rstl15rc_ptr<6CIOWin>Fv"
@@ -409,7 +409,7 @@ lbl_800522E8:
 /* 800522E8 0004F248  28 1D 00 00 */	cmplwi r29, 0
 /* 800522EC 0004F24C  41 82 00 0C */	beq lbl_800522F8
 /* 800522F0 0004F250  7F A3 EB 78 */	mr r3, r29
-/* 800522F4 0004F254  4B FB 64 19 */	bl "__dt__Q24rstl34rc_ptr<24IArchitectureMessageParm>Fv"
+/* 800522F4 0004F254  4B FB 64 19 */	bl "ReleaseData__Q24rstl34rc_ptr<24IArchitectureMessageParm>Fv"
 lbl_800522F8:
 /* 800522F8 0004F258  80 19 00 1C */	lwz r0, 0x1c(r25)
 /* 800522FC 0004F25C  2C 00 00 00 */	cmpwi r0, 0
@@ -492,7 +492,7 @@ sub_8005238c:
 /* 80052404 0004F364  90 04 00 04 */	stw r0, 4(r4)
 /* 80052408 0004F368  41 82 00 0C */	beq lbl_80052414
 /* 8005240C 0004F36C  7F E3 FB 78 */	mr r3, r31
-/* 80052410 0004F370  4B FB 62 FD */	bl "__dt__Q24rstl34rc_ptr<24IArchitectureMessageParm>Fv"
+/* 80052410 0004F370  4B FB 62 FD */	bl "ReleaseData__Q24rstl34rc_ptr<24IArchitectureMessageParm>Fv"
 lbl_80052414:
 /* 80052414 0004F374  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80052418 0004F378  83 E1 00 1C */	lwz r31, 0x1c(r1)
@@ -531,7 +531,7 @@ lbl_8005245C:
 /* 8005248C 0004F3EC  90 04 00 04 */	stw r0, 4(r4)
 /* 80052490 0004F3F0  41 82 00 0C */	beq lbl_8005249C
 /* 80052494 0004F3F4  7F E3 FB 78 */	mr r3, r31
-/* 80052498 0004F3F8  4B FB 62 75 */	bl "__dt__Q24rstl34rc_ptr<24IArchitectureMessageParm>Fv"
+/* 80052498 0004F3F8  4B FB 62 75 */	bl "ReleaseData__Q24rstl34rc_ptr<24IArchitectureMessageParm>Fv"
 lbl_8005249C:
 /* 8005249C 0004F3FC  7F 83 E3 78 */	mr r3, r28
 /* 800524A0 0004F400  7F A5 EB 78 */	mr r5, r29
@@ -540,7 +540,7 @@ lbl_8005249C:
 /* 800524AC 0004F40C  28 1E 00 00 */	cmplwi r30, 0
 /* 800524B0 0004F410  41 82 00 0C */	beq lbl_800524BC
 /* 800524B4 0004F414  7F C3 F3 78 */	mr r3, r30
-/* 800524B8 0004F418  4B FB 62 55 */	bl "__dt__Q24rstl34rc_ptr<24IArchitectureMessageParm>Fv"
+/* 800524B8 0004F418  4B FB 62 55 */	bl "ReleaseData__Q24rstl34rc_ptr<24IArchitectureMessageParm>Fv"
 lbl_800524BC:
 /* 800524BC 0004F41C  80 1D 00 14 */	lwz r0, 0x14(r29)
 /* 800524C0 0004F420  2C 00 00 00 */	cmpwi r0, 0
