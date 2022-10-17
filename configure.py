@@ -177,7 +177,7 @@ LIBS = [
             "MetroidPrime/Cameras/CPathCamera",
             "MetroidPrime/CFluidPlane",
             "MetroidPrime/CFluidPlaneManager",
-            "MetroidPrime/ScriptObjects/CScriptGrapplePoint",
+            ["MetroidPrime/ScriptObjects/CScriptGrapplePoint", True],
             "MetroidPrime/ScriptObjects/CHUDBillboardEffect",
             "MetroidPrime/Enemies/CFlickerBat",
             "MetroidPrime/BodyState/CBodyStateCmdMgr",

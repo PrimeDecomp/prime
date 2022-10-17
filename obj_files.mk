@@ -144,7 +144,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/Cameras/CPathCamera.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CFluidPlane.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CFluidPlaneManager.o\
-	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptGrapplePoint.o\
+	$(BUILD_DIR)/src/MetroidPrime/ScriptObjects/CScriptGrapplePoint.o\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CHUDBillboardEffect.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CFlickerBat.o\
 	$(BUILD_DIR)/asm/MetroidPrime/BodyState/CBodyStateCmdMgr.o\
