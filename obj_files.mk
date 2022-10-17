@@ -80,7 +80,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/CGameLight.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Tweaks/CTweakTargeting.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Tweaks/CTweakAutoMapper.o\
-	$(BUILD_DIR)/asm/MetroidPrime/CParticleGenInfoGeneric.o\
+	$(BUILD_DIR)/src/MetroidPrime/CParticleGenInfoGeneric.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CParticleGenInfo.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CParticleDatabase.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Tweaks/CTweakGunRes.o\
