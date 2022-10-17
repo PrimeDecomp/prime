@@ -22,6 +22,8 @@ public:
     kBT_XRay,
   };
 
+  void SetBlur(EBlurType type, float amount, float duration, bool usePersistentFb);
+  void DisableBlur(float duration);
   static void DrawWideScreen(const CColor& color, const CTexture* tex, float v);
 
 private:
