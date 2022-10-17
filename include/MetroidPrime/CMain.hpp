@@ -60,6 +60,7 @@ public:
   CMain();
   ~CMain();
 
+  bool LoadAudio();
   void UpdateStreamedAudio();
   void RegisterResourceTweaks();
   void ResetGameState();

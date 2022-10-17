@@ -383,7 +383,7 @@ LIBS = [
             ["MetroidPrime/Tweaks/CTweakSlideShow", True],
             "MetroidPrime/CArtifactDoll",
             "MetroidPrime/CProjectedShadow",
-            "MetroidPrime/CPreFrontEnd",
+            ["MetroidPrime/CPreFrontEnd", True],
             "MetroidPrime/CGameCubeDoll",
             "MetroidPrime/ScriptObjects/CScriptProjectedShadow",
             "MetroidPrime/ScriptObjects/CEnergyBall",
