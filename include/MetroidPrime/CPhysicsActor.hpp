@@ -41,6 +41,11 @@ public:
   , x1c_velocity(velocity)
   , x28_angularMomentum(angularMomentum) {}
 
+  const CVector3f& GetTranslation() const { return x0_translation; }
+  const CNUQuaternion& GetOrientation() const { return xc_orientation; }
+  const CVector3f& GetVelocity() const { return x1c_velocity; }
+  const CAxisAngle& GetAngularMomentum() const { return x28_angularMomentum; }
+
 private:
   CVector3f x0_translation;
   CNUQuaternion xc_orientation;

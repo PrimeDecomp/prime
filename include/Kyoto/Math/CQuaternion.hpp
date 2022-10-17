@@ -8,6 +8,7 @@
 
 class CRelAngle;
 class CUnitVector3f;
+class CNUQuaternion;
 
 class CQuaternion {
 public:
@@ -57,6 +58,7 @@ public:
   static CQuaternion FromMatrixRows(const CVector3f&, const CVector3f&, const CVector3f&);
   static CQuaternion FromMatrix(const CMatrix3f&);
   static CQuaternion FromMatrix(const CTransform4f&);
+  static CQuaternion FromNUQuaternion(const CNUQuaternion&);
 
   static const CQuaternion& NoRotation() { return sNoRotation; }
 

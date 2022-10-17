@@ -91,8 +91,8 @@ CPhysicsState CPhysicsActor::GetPhysicsState() const {
 
 void CPhysicsActor::SetPhysicsState(const CPhysicsState& state) {
   SetTranslation(state.GetTranslation());
-  CQuaternion quat = state.GetOrientationWR();
-  CVector3f translation = GetTranslation();
+  const CQuaternion& quat = state.GetOrientationWR();
+  const CVector3f& translation = GetTranslation();
   SetTransform(quat.BuildTransform4f(translation));
   SetConstantForceWR(state.GetConstantForceWR());
   SetAngularMomentumWR(state.GetAngularMomentumWR());
@@ -105,43 +105,71 @@ void CPhysicsActor::SetPhysicsState(const CPhysicsState& state) {
 }
 
 CVector3f CPhysicsActor::CalculateNewVelocityWR_UsingImpulses() const {
-  float impX;
-  float impY;
-  float impZ;
-  float masRecip;
-  float moveImpX;
-  float moveImpY;
-  float moveImpZ;
-  float velX;
-  float velY;
-  float velZ;
-
-  impX = x168_impulse.GetX();
-  impY = x168_impulse.GetY();
-  impZ = x168_impulse.GetZ();
-  moveImpX = x18c_moveImpulse.GetX();
-  moveImpY = x18c_moveImpulse.GetY();
-  moveImpZ = x18c_moveImpulse.GetZ();
-  masRecip = xec_massRecip;
-  velY = x138_velocity.GetY();
-  velZ = x138_velocity.GetZ();
-
-  return CVector3f(velX + masRecip * (impX + moveImpX), velY + masRecip * (impY + moveImpY),
-                   velZ + masRecip * (impZ + moveImpZ));
+  return x138_velocity + xec_massRecip * (x168_impulse + x18c_moveImpulse);
 }
 
-CMotionState CPhysicsActor::PredictMotion(float dt) const {}
+CMotionState CPhysicsActor::PredictMotion(float dt) const {
+  const CMotionState& msl = PredictLinearMotion(dt);
+  CVector3f translation = msl.GetTranslation();
+  CVector3f velocity = msl.GetVelocity();
 
-CMotionState CPhysicsActor::PredictAngularMotion(float dt) const {}
+  const CMotionState& msa = PredictAngularMotion(dt);
+  CNUQuaternion orientation = msa.GetOrientation();
+  CAxisAngle angularMomentum = msa.GetAngularMomentum();
 
-CMotionState CPhysicsActor::PredictLinearMotion(float dt) const {}
+  return CMotionState(translation, orientation, velocity, angularMomentum);
+}
 
-CMotionState CPhysicsActor::PredictMotion_Internal(float dt) const {}
+CMotionState CPhysicsActor::PredictAngularMotion(float dt) const {
+  CVector3f v1 = (x180_angularImpulse.GetVector() + x198_moveAngularImpulse.GetVector()) *
+                 xf4_inertiaTensorRecip;
+  CVector3f v2 = x144_angularVelocity.GetVector() + v1;
 
-void CPhysicsActor::SetMotionState(const CMotionState& state) {}
+  CNUQuaternion q3 = (0.5f * CNUQuaternion(0.f, v2)) *
+                     CNUQuaternion::BuildFromQuaternion(CQuaternion::FromMatrix(GetTransform()));
+  CAxisAngle torque = x174_torque;
+
+  return CMotionState(CVector3f::Zero(), q3 * dt, CVector3f::Zero(),
+                      (torque * dt) + x180_angularImpulse);
+}
+
+CMotionState CPhysicsActor::PredictLinearMotion(float dt) const {
+  CVector3f velocity = CalculateNewVelocityWR_UsingImpulses();
+  CVector3f sum = x15c_force + x150_momentum;
+
+  return CMotionState(dt * velocity, CNUQuaternion(0.0f, CVector3f::Zero()),
+                      dt * sum + x168_impulse, CAxisAngle::Identity());
+}
+
+CMotionState CPhysicsActor::PredictMotion_Internal(float dt) const {
+  if (!xf8_25_angularEnabled) {
+
+    const CMotionState& msl = PredictLinearMotion(dt);
+    CVector3f translation = msl.GetTranslation();
+    CVector3f velocity = msl.GetVelocity();
+
+    const CMotionState& msa = PredictAngularMotion(dt);
+    CNUQuaternion orientation = msa.GetOrientation();
+    CAxisAngle angularMomentum = msa.GetAngularMomentum();
+
+    return CMotionState(translation, orientation, velocity, angularMomentum);
+  } else {
+    return PredictLinearMotion(dt);
+  }
+}
+
+void CPhysicsActor::SetMotionState(const CMotionState& state) {
+  const CQuaternion& q = CQuaternion::FromNUQuaternion(state.GetOrientation());
+  SetTransform(q.BuildTransform4f(x34_transform.GetTranslation()));
+  SetTranslation(state.GetTranslation());
+
+  xfc_constantForce = state.GetVelocity();
+  x108_angularMomentum = state.GetAngularMomentum();
+  ComputeDerivedQuantities();
+}
 
 CMotionState CPhysicsActor::GetMotionState() const {
-  CNUQuaternion nquat(CNUQuaternion::BuildFromQuaternion(GetRotation()));
+  const CNUQuaternion& nquat = CNUQuaternion::BuildFromQuaternion(GetRotation());
   return CMotionState(GetTranslation(), nquat, GetConstantForceWR(), GetAngularMomentumWR());
 }
 
