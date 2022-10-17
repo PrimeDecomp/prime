@@ -245,7 +245,7 @@ LIBS = [
             "MetroidPrime/CGroundMovement",
             "MetroidPrime/Enemies/CNewIntroBoss",
             "MetroidPrime/Weapons/CPhazonBeam",
-            "MetroidPrime/ScriptObjects/CScriptTargetingPoint",
+            ["MetroidPrime/ScriptObjects/CScriptTargetingPoint", True],
             "MetroidPrime/BodyState/CBSWallHang",
             "MetroidPrime/ScriptObjects/CScriptEMPulse",
             "MetroidPrime/HUD/CHudDecoInterface",

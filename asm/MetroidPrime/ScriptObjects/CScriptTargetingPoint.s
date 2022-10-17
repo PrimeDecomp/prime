@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803E4330
-lbl_803E4330:
+.global __vt__21CScriptTargetingPoint
+__vt__21CScriptTargetingPoint:
 	# ROM: 0x3E1330
 	.4byte 0
 	.4byte 0
@@ -57,9 +57,9 @@ __dt__21CScriptTargetingPointFv:
 /* 8018D278 0018A1D8  93 C1 00 08 */	stw r30, 8(r1)
 /* 8018D27C 0018A1DC  7C 7E 1B 79 */	or. r30, r3, r3
 /* 8018D280 0018A1E0  41 82 00 28 */	beq lbl_8018D2A8
-/* 8018D284 0018A1E4  3C A0 80 3E */	lis r5, lbl_803E4330@ha
+/* 8018D284 0018A1E4  3C A0 80 3E */	lis r5, __vt__21CScriptTargetingPoint@ha
 /* 8018D288 0018A1E8  38 80 00 00 */	li r4, 0
-/* 8018D28C 0018A1EC  38 05 43 30 */	addi r0, r5, lbl_803E4330@l
+/* 8018D28C 0018A1EC  38 05 43 30 */	addi r0, r5, __vt__21CScriptTargetingPoint@l
 /* 8018D290 0018A1F0  90 1E 00 00 */	stw r0, 0(r30)
 /* 8018D294 0018A1F4  4B EC 84 5D */	bl __dt__6CActorFv
 /* 8018D298 0018A1F8  7F E0 07 35 */	extsh. r0, r31
@@ -206,9 +206,9 @@ Accept__21CScriptTargetingPointFR8IVisitor:
 /* 8018D46C 0018A3CC  38 61 00 88 */	addi r3, r1, 0x88
 /* 8018D470 0018A3D0  38 80 FF FF */	li r4, -1
 /* 8018D474 0018A3D4  4B F8 95 D9 */	bl __dt__10CModelDataFv
-/* 8018D478 0018A3D8  3C 60 80 3E */	lis r3, lbl_803E4330@ha
+/* 8018D478 0018A3D8  3C 60 80 3E */	lis r3, __vt__21CScriptTargetingPoint@ha
 /* 8018D47C 0018A3DC  38 80 00 00 */	li r4, 0
-/* 8018D480 0018A3E0  38 03 43 30 */	addi r0, r3, lbl_803E4330@l
+/* 8018D480 0018A3E0  38 03 43 30 */	addi r0, r3, __vt__21CScriptTargetingPoint@l
 /* 8018D484 0018A3E4  C0 02 A4 60 */	lfs f0, lbl_805AC180@sda21(r2)
 /* 8018D488 0018A3E8  90 1F 00 00 */	stw r0, 0(r31)
 /* 8018D48C 0018A3EC  7F E3 FB 78 */	mr r3, r31
