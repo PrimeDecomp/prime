@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803E0D00
-lbl_803E0D00:
+.global __vt__19CScriptGrapplePoint
+__vt__19CScriptGrapplePoint:
 	# ROM: 0x3DDD00
 	.4byte 0
 	.4byte 0
@@ -169,9 +169,9 @@ __dt__19CScriptGrapplePointFv:
 /* 8012F8D4 0012C834  93 C1 00 08 */	stw r30, 8(r1)
 /* 8012F8D8 0012C838  7C 7E 1B 79 */	or. r30, r3, r3
 /* 8012F8DC 0012C83C  41 82 00 28 */	beq lbl_8012F904
-/* 8012F8E0 0012C840  3C A0 80 3E */	lis r5, lbl_803E0D00@ha
+/* 8012F8E0 0012C840  3C A0 80 3E */	lis r5, __vt__19CScriptGrapplePoint@ha
 /* 8012F8E4 0012C844  38 80 00 00 */	li r4, 0
-/* 8012F8E8 0012C848  38 05 0D 00 */	addi r0, r5, lbl_803E0D00@l
+/* 8012F8E8 0012C848  38 05 0D 00 */	addi r0, r5, __vt__19CScriptGrapplePoint@l
 /* 8012F8EC 0012C84C  90 1E 00 00 */	stw r0, 0(r30)
 /* 8012F8F0 0012C850  4B F2 5E 01 */	bl __dt__6CActorFv
 /* 8012F8F4 0012C854  7F E0 07 35 */	extsh. r0, r31
@@ -240,9 +240,9 @@ lbl_8012F904:
 /* 8012F9E0 0012C940  38 61 00 B8 */	addi r3, r1, 0xb8
 /* 8012F9E4 0012C944  38 80 FF FF */	li r4, -1
 /* 8012F9E8 0012C948  4B FE 70 65 */	bl __dt__10CModelDataFv
-/* 8012F9EC 0012C94C  3C 60 80 3E */	lis r3, lbl_803E0D00@ha
+/* 8012F9EC 0012C94C  3C 60 80 3E */	lis r3, __vt__19CScriptGrapplePoint@ha
 /* 8012F9F0 0012C950  C0 02 99 30 */	lfs f0, lbl_805AB650@sda21(r2)
-/* 8012F9F4 0012C954  38 03 0D 00 */	addi r0, r3, lbl_803E0D00@l
+/* 8012F9F4 0012C954  38 03 0D 00 */	addi r0, r3, __vt__19CScriptGrapplePoint@l
 /* 8012F9F8 0012C958  38 7F 00 E8 */	addi r3, r31, 0xe8
 /* 8012F9FC 0012C95C  90 1F 00 00 */	stw r0, 0(r31)
 /* 8012FA00 0012C960  38 81 00 44 */	addi r4, r1, 0x44
