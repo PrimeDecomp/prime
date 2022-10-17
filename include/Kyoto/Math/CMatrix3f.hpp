@@ -14,6 +14,8 @@ public:
 
   static const CMatrix3f& Identity() { return sIdentity; }
 
+  CMatrix3f Orthonormalized() const;
+
 private:
   // TODO maybe individual floats
   CVector3f m0;
