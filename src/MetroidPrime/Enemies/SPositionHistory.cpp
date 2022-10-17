@@ -6,7 +6,7 @@ void SPositionHistory::AddValue(const CVector3f& pos) {
   if (x4_values.size() >= 16) {
     return;
   }
-  if (x4_values.size() == 0) {
+  if (x4_values.empty()) {
     x4_values.push_back(pos);
     return;
   }

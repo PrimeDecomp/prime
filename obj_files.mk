@@ -350,7 +350,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/src/MetroidPrime/Tweaks/CTweakSlideShow.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CArtifactDoll.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CProjectedShadow.o\
-	$(BUILD_DIR)/asm/MetroidPrime/CPreFrontEnd.o\
+	$(BUILD_DIR)/src/MetroidPrime/CPreFrontEnd.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CGameCubeDoll.o\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptProjectedShadow.o\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CEnergyBall.o\
