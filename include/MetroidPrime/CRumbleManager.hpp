@@ -13,8 +13,11 @@ public:
   CRumbleManager();
   ~CRumbleManager();
 
-  void Rumble(CStateManager&, const CVector3f&, ERumbleFxId, float, ERumblePriority);
-  void Rumble(CStateManager&, ERumbleFxId, float, ERumblePriority);
+  short Rumble(CStateManager&, const CVector3f&, ERumbleFxId, float, ERumblePriority);
+  short Rumble(CStateManager&, ERumbleFxId, float, ERumblePriority);
+
+  void StopRumble(short id);
+  void Update(float dt);
 
 private:
   CRumbleGenerator x0_rumbleGenerator;

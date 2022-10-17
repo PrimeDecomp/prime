@@ -80,6 +80,7 @@ private:
   ushort x2c_usedChannels;
   uchar x2e_lastId;
 
+public:
   CRumbleVoice();
 
   short Activate(const SAdsrData& data, ushort idx, float gain, ERumblePriority prio);

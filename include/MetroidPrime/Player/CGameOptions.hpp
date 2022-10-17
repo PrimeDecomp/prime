@@ -17,6 +17,9 @@ public:
   CGameOptions(CInputStream& in);
 
   void EnsureOptions();
+  
+  void SetIsRumbleEnabled(bool rumble);
+  bool GetIsRumbleEnabled() const { return x68_26_rumble; }
 
 private:
   rstl::reserved_vector< bool, 64 > x0_;
