@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803DF850
-lbl_803DF850:
+.global __vt__17CScriptSpawnPoint
+__vt__17CScriptSpawnPoint:
 	# ROM: 0x3DC850
 	.4byte 0
 	.4byte 0
@@ -212,9 +212,9 @@ __dt__17CScriptSpawnPointFv:
 /* 800E2610 000DF570  93 C1 00 08 */	stw r30, 8(r1)
 /* 800E2614 000DF574  7C 7E 1B 79 */	or. r30, r3, r3
 /* 800E2618 000DF578  41 82 00 88 */	beq lbl_800E26A0
-/* 800E261C 000DF57C  3C 60 80 3E */	lis r3, lbl_803DF850@ha
+/* 800E261C 000DF57C  3C 60 80 3E */	lis r3, __vt__17CScriptSpawnPoint@ha
 /* 800E2620 000DF580  34 1E 00 64 */	addic. r0, r30, 0x64
-/* 800E2624 000DF584  38 03 F8 50 */	addi r0, r3, lbl_803DF850@l
+/* 800E2624 000DF584  38 03 F8 50 */	addi r0, r3, __vt__17CScriptSpawnPoint@l
 /* 800E2628 000DF588  90 1E 00 00 */	stw r0, 0(r30)
 /* 800E262C 000DF58C  41 82 00 58 */	beq lbl_800E2684
 /* 800E2630 000DF590  80 BE 00 64 */	lwz r5, 0x64(r30)
@@ -259,8 +259,8 @@ lbl_800E26A0:
 /* 800E26B4 000DF614  38 21 00 10 */	addi r1, r1, 0x10
 /* 800E26B8 000DF618  4E 80 00 20 */	blr
 
-.global "__ct__17CScriptSpawnPointF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fQ24rstl21reserved_vector<i,29>bbb"
-"__ct__17CScriptSpawnPointF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fQ24rstl21reserved_vector<i,29>bbb":
+.global "__ct__17CScriptSpawnPointF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRCQ24rstl21reserved_vector<i,41>bbb"
+"__ct__17CScriptSpawnPointF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRCQ24rstl21reserved_vector<i,41>bbb":
 /* 800E26BC 000DF61C  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 800E26C0 000DF620  7C 08 02 A6 */	mflr r0
 /* 800E26C4 000DF624  90 01 00 34 */	stw r0, 0x34(r1)
@@ -278,9 +278,9 @@ lbl_800E26A0:
 /* 800E26F4 000DF654  7C 87 23 78 */	mr r7, r4
 /* 800E26F8 000DF658  38 81 00 08 */	addi r4, r1, 8
 /* 800E26FC 000DF65C  4B F6 EC 29 */	bl "__ct__7CEntityF9TUniqueIdRC11CEntityInfobRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
-/* 800E2700 000DF660  3C 60 80 3E */	lis r3, lbl_803DF850@ha
+/* 800E2700 000DF660  3C 60 80 3E */	lis r3, __vt__17CScriptSpawnPoint@ha
 /* 800E2704 000DF664  7F 64 DB 78 */	mr r4, r27
-/* 800E2708 000DF668  38 03 F8 50 */	addi r0, r3, lbl_803DF850@l
+/* 800E2708 000DF668  38 03 F8 50 */	addi r0, r3, __vt__17CScriptSpawnPoint@l
 /* 800E270C 000DF66C  38 7F 00 34 */	addi r3, r31, 0x34
 /* 800E2710 000DF670  90 1F 00 00 */	stw r0, 0(r31)
 /* 800E2714 000DF674  48 23 04 61 */	bl __ct__12CTransform4fFRC12CTransform4f

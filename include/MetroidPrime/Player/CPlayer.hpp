@@ -184,6 +184,9 @@ public:
   EGunHolsterState GetGunHolsterState() const { return x498_gunHolsterState; }
   NPlayer::EPlayerMovementState GetPlayerMovementState() const { return x258_movementState; }
 
+  void Teleport(const CTransform4f& xf, CStateManager& mgr, bool resetBallCam);
+  void SetSpawnedMorphBallState(EPlayerMorphBallState state, CStateManager& mgr);
+
 private:
   struct CVisorSteam {
     float x0_curTargetAlpha;

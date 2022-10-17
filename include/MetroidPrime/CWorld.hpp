@@ -7,6 +7,7 @@
 #include "MetroidPrime/TGameTypes.hpp"
 
 #include "Kyoto/IObjectStore.hpp"
+#include "Kyoto/Audio/CSfxHandle.hpp"
 
 #include "rstl/string.hpp"
 
@@ -65,6 +66,8 @@ public:
   bool IsAreaValid(TAreaId id) const { return x18_areas[id.Value()]->IsLoaded(); }
   CAssetId GetWorldAssetId() const { return x8_mlvlId; }
   TAreaId GetAreaIdForSaveId(int saveId) const;
+
+  static void PropogateAreaChain(CGameArea::EOcclusionState occlusionState, CGameArea* area, CWorld* world);
 
 private:
   enum Phase {

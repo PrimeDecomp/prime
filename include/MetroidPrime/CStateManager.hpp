@@ -123,6 +123,7 @@ public:
   TUniqueId GetIdForScript(TEditorId eid) const;
   TIdListResult GetIdListForScript(TEditorId) const;
 
+  void SetActorAreaId(CActor& actor, TAreaId);
   TAreaId GetNextAreaId() const { return x8cc_nextAreaId; }
   void SetCurrentAreaId(TAreaId);
 

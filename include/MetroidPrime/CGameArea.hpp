@@ -49,6 +49,7 @@ public:
   bool IsActive() const { return xf0_25_active; }
 
   void SetAreaAttributes(const CScriptAreaAttributes* areaAttributes);
+  bool TryTakingOutOfARAM();
 
 private:
   enum EPhase {
@@ -79,6 +80,22 @@ private:
   bool xf0_28_validated : 1;
   EPhase xf4_phase;
   rstl::list< rstl::rc_ptr< IDvdRequest > > xf8_loadTransactions;
+
+public:
+  enum EOcclusionState { kOS_Occluded, kOS_Visible };
+
+  struct CPostConstructed {
+    uchar x0_pad[0x10dc];
+    EOcclusionState x10dc_occlusionState;
+  };
+
+  EOcclusionState GetOcclusionState() const { return x12c_postConstructed->x10dc_occlusionState; }
+
+private:
+  uchar x110_pad[0x1c];
+  rstl::single_ptr<CPostConstructed> x12c_postConstructed;
+
+
 };
 
 #endif // _CGAMEAREA
