@@ -88,11 +88,11 @@ void CDecal::RenderQuad(CQuadDecal& decal, const CDecalDescription::SQuadDescr& 
       CGX::SetAlphaCompare(GX_GREATER, 0, GX_AOP_OR, GX_NEVER, 0);
       GXSetTevSwapMode(GX_TEVSTAGE1, GX_TEV_SWAP0, GX_TEV_SWAP1);
     } else {
-      CGraphics::SetTevOp(kTS_Stage1, CGraphics::kEnvPassThru);
+      CGraphics::SetTevOp(kTS_Stage1, CGraphics::kEnvPassthru);
     }
   } else {
-    CGraphics::SetTevOp(kTS_Stage0, CGraphics::kEnvPassThru);
-    CGraphics::SetTevOp(kTS_Stage1, CGraphics::kEnvPassThru);
+    CGraphics::SetTevOp(kTS_Stage0, CGraphics::kEnvPassthru);
+    CGraphics::SetTevOp(kTS_Stage1, CGraphics::kEnvPassthru);
   }
 
   CGX::SetTevOrder(GX_TEVSTAGE0, GX_TEXCOORD0, GX_TEXMAP0, GX_COLOR0A0);

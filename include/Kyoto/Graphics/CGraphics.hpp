@@ -136,7 +136,7 @@ public:
   static void SetDepthWriteMode(bool test, ERglEnum comp, bool write);
   static void SetBlendMode(ERglBlendMode, ERglBlendFactor, ERglBlendFactor, ERglLogicOp);
 
-  static CTevCombiners::CTevPass& kEnvPassThru;
+  static CTevCombiners::CTevPass& kEnvPassthru;
   static CTevCombiners::CTevPass kEnvModulateConstColor;
   static CTevCombiners::CTevPass kEnvConstColor;
   static CTevCombiners::CTevPass kEnvModulate;
