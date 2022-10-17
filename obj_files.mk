@@ -293,7 +293,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptCameraPitchVolume.o\
 	$(BUILD_DIR)/asm/MetroidPrime/RumbleFxTable.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CElitePirate.o\
-	$(BUILD_DIR)/asm/MetroidPrime/CRumbleManager.o\
+	$(BUILD_DIR)/src/MetroidPrime/CRumbleManager.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CBouncyGrenade.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CGrenadeLauncher.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Weapons/CShockWave.o\

@@ -326,7 +326,7 @@ LIBS = [
             "MetroidPrime/ScriptObjects/CScriptCameraPitchVolume",
             "MetroidPrime/RumbleFxTable",
             "MetroidPrime/Enemies/CElitePirate",
-            "MetroidPrime/CRumbleManager",
+            ["MetroidPrime/CRumbleManager", True],
             "MetroidPrime/Enemies/CBouncyGrenade",
             "MetroidPrime/Enemies/CGrenadeLauncher",
             "MetroidPrime/Weapons/CShockWave",
