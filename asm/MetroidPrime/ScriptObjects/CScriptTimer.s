@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803DADD8
-lbl_803DADD8:
+.global __vt__12CScriptTimer
+__vt__12CScriptTimer:
 	# ROM: 0x3D7DD8
 	.4byte 0
 	.4byte 0
@@ -231,9 +231,9 @@ __dt__12CScriptTimerFv:
 /* 80092A4C 0008F9AC  93 C1 00 08 */	stw r30, 8(r1)
 /* 80092A50 0008F9B0  7C 7E 1B 79 */	or. r30, r3, r3
 /* 80092A54 0008F9B4  41 82 00 28 */	beq lbl_80092A7C
-/* 80092A58 0008F9B8  3C A0 80 3E */	lis r5, lbl_803DADD8@ha
+/* 80092A58 0008F9B8  3C A0 80 3E */	lis r5, __vt__12CScriptTimer@ha
 /* 80092A5C 0008F9BC  38 80 00 00 */	li r4, 0
-/* 80092A60 0008F9C0  38 05 AD D8 */	addi r0, r5, lbl_803DADD8@l
+/* 80092A60 0008F9C0  38 05 AD D8 */	addi r0, r5, __vt__12CScriptTimer@l
 /* 80092A64 0008F9C4  90 1E 00 00 */	stw r0, 0(r30)
 /* 80092A68 0008F9C8  4B FB E8 0D */	bl __dt__7CEntityFv
 /* 80092A6C 0008F9CC  7F E0 07 35 */	extsh. r0, r31
@@ -272,9 +272,9 @@ lbl_80092A7C:
 /* 80092AE0 0008FA40  7C 87 23 78 */	mr r7, r4
 /* 80092AE4 0008FA44  38 81 00 08 */	addi r4, r1, 8
 /* 80092AE8 0008FA48  4B FB E8 3D */	bl "__ct__7CEntityF9TUniqueIdRC11CEntityInfobRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
-/* 80092AEC 0008FA4C  3C 80 80 3E */	lis r4, lbl_803DADD8@ha
+/* 80092AEC 0008FA4C  3C 80 80 3E */	lis r4, __vt__12CScriptTimer@ha
 /* 80092AF0 0008FA50  7F A3 EB 78 */	mr r3, r29
-/* 80092AF4 0008FA54  38 04 AD D8 */	addi r0, r4, lbl_803DADD8@l
+/* 80092AF4 0008FA54  38 04 AD D8 */	addi r0, r4, __vt__12CScriptTimer@l
 /* 80092AF8 0008FA58  90 1D 00 00 */	stw r0, 0(r29)
 /* 80092AFC 0008FA5C  D3 DD 00 34 */	stfs f30, 0x34(r29)
 /* 80092B00 0008FA60  D3 DD 00 38 */	stfs f30, 0x38(r29)

@@ -64,7 +64,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/Weapons/CBomb.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Tweaks/CTweakBall.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Player/CPlayerState.o\
-	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptTimer.o\
+	$(BUILD_DIR)/src/MetroidPrime/ScriptObjects/CScriptTimer.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Cameras/CCinematicCamera.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CAutoMapper.o\
 	$(BUILD_DIR)/src/MetroidPrime/ScriptObjects/CScriptCounter.o\
