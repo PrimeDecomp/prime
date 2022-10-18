@@ -3,16 +3,15 @@
 
 #include "types.h"
 
+#include "Kyoto/CRandom16.hpp"
 #include "Kyoto/Math/CMatrix3f.hpp"
 #include "Kyoto/Math/CTransform4f.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
 #include "Kyoto/Particles/CParticleGen.hpp"
 #include "Kyoto/TToken.hpp"
-#include "Kyoto/CRandom16.hpp"
 
 class CGenDescription;
 class CModVectorElement;
-class CParticle;
 
 class CElementGen : public CParticleGen {
 public:
@@ -30,6 +29,16 @@ public:
     kLT_Custom = 1,
     kLT_Directional = 2,
     kLT_Spot = 3,
+  };
+  struct CParticle {
+    int x0_endFrame;
+    CVector3f x4_pos;
+    CVector3f x10_prevPos;
+    CVector3f x1c_vel;
+    int x28_startFrame;
+    float x2c_lineLengthOrSize;
+    float x30_lineWidthOrRota;
+    CColor x34_color;
   };
 
   CElementGen(TToken< CGenDescription >, EModelOrientationType = kMOT_Normal,
@@ -66,6 +75,7 @@ public:
   int GetEmitterTime() const;
 
   int GetCumulativeParticleCount() const { return x260_cumulativeParticles; }
+  float GetExternalVar(int index) const;
 
   static void Initialize();
   static void ShutDown();

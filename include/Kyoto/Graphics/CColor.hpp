@@ -32,10 +32,10 @@ public:
   static uint Lerp(uint a, uint b, float t);
   static CColor Modulate(const CColor& a, const CColor& b);
   static CColor Add(const CColor& a, const CColor& b);
-  float GetRed() const { return CCast::ToReal32(mR) * (1 / 255.f); }
-  float GetGreen() const { return CCast::ToReal32(mG) * (1 / 255.f); }
-  float GetBlue() const { return CCast::ToReal32(mB) * (1 / 255.f); }
-  float GetAlpha() const { return CCast::ToReal32(mA) * (1 / 255.f); }
+  float GetRed() const { return CCast::ToReal32(mR) * (1.f / 255.f); }
+  float GetGreen() const { return CCast::ToReal32(mG) * (1.f / 255.f); }
+  float GetBlue() const { return CCast::ToReal32(mB) * (1.f / 255.f); }
+  float GetAlpha() const { return CCast::ToReal32(mA) * (1.f / 255.f); }
   uchar GetRedu8() const { return mR; }
   uchar GetGreenu8() const { return mG; }
   uchar GetBlueu8() const { return mB; }

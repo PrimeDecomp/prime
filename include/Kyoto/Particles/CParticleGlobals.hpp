@@ -4,8 +4,7 @@
 #include "types.h"
 
 #include "Kyoto/SObjectTag.hpp"
-
-class CElementGen;
+#include "Kyoto/Particles/CElementGen.hpp"
 
 class CParticleGlobals {
 public:
@@ -27,6 +26,8 @@ public:
   static float GetParticleLifetimePercentageRemainder() {
     return mParticleLifetimePercentageRemainder;
   }
+  static CElementGen::CParticle* GetCurrentParticle() { return mCurrentParticle; }
+  static float* GetParticleAccessParameters() { return mParticleAccessParameters; }
   static SParticleSystem* GetCurrentParticleSystem() { return mCurrentParticleSystem; }
 
 private:
@@ -37,6 +38,8 @@ private:
   static int mParticleLifetimePercentage;
   static float mParticleLifetimePercentageReal;
   static float mParticleLifetimePercentageRemainder;
+  static CElementGen::CParticle* mCurrentParticle;
+  static float* mParticleAccessParameters;
   static SParticleSystem* mCurrentParticleSystem;
 };
 

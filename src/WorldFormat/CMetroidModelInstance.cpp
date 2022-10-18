@@ -2,19 +2,20 @@
 
 #include "Kyoto/Basics/CBasics.hpp"
 
-const CTransform4f& TransformFromData(const void* ptr) {
+static const CTransform4f& TransformFromData(const void* ptr) {
   return *static_cast< const CTransform4f* >(ptr);
 }
 
-CAABox BoundingBoxFromData(const void* ptr) {
-  const CAABox* tmp = static_cast< const CAABox* >(ptr);
-  float minX = CBasics::SwapBytes(tmp->GetMinPoint().GetX());
-  float minY = CBasics::SwapBytes(tmp->GetMinPoint().GetY());
-  float minZ = CBasics::SwapBytes(tmp->GetMinPoint().GetZ());
-  float maxX = CBasics::SwapBytes(tmp->GetMaxPoint().GetX());
-  float maxY = CBasics::SwapBytes(tmp->GetMaxPoint().GetY());
-  float maxZ = CBasics::SwapBytes(tmp->GetMaxPoint().GetZ());
-  return CAABox(minX, minY, minZ, maxX, maxY, maxZ);
+static CAABox BoundingBoxFromData(const void* ptr) {
+  float out[6];
+  const float* tmp = reinterpret_cast< const float* >(ptr);
+  out[0] = CBasics::SwapBytes(tmp[0]);
+  out[1] = CBasics::SwapBytes(tmp[1]);
+  out[2] = CBasics::SwapBytes(tmp[2]);
+  out[3] = CBasics::SwapBytes(tmp[3]);
+  out[4] = CBasics::SwapBytes(tmp[4]);
+  out[5] = CBasics::SwapBytes(tmp[5]);
+  return *reinterpret_cast< const CAABox* >(out);
 }
 
 CMetroidModelInstance::CMetroidModelInstance(const void* header, const void* firstGeom,

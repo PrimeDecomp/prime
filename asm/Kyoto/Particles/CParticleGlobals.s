@@ -24,15 +24,12 @@ mParticleLifetimePercentageReal__16CParticleGlobals:
 .global mParticleLifetimePercentageRemainder__16CParticleGlobals
 mParticleLifetimePercentageRemainder__16CParticleGlobals:
 	.skip 0x4
-# mCurrentParticle
-.global lbl_805A94AC
-lbl_805A94AC:
+.global mCurrentParticle__16CParticleGlobals
+mCurrentParticle__16CParticleGlobals:
 	.skip 0x4
-# mParticleAccessParameters
-.global lbl_805A94B0
-lbl_805A94B0:
+.global mParticleAccessParameters__16CParticleGlobals
+mParticleAccessParameters__16CParticleGlobals:
 	.skip 0x4
-# mCurrentParticleSystem
 .global mCurrentParticleSystem__16CParticleGlobals
 mCurrentParticleSystem__16CParticleGlobals:
 	.skip 0x4

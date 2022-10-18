@@ -5,7 +5,6 @@
 
 #include "Kyoto/Particles/IElement.hpp"
 
-#include "rstl/single_ptr.hpp"
 #include "rstl/vector.hpp"
 
 class CInputStream;
