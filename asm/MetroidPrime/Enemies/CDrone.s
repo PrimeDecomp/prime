@@ -8735,7 +8735,7 @@ lbl_80166498:
 /* 801665A0 00163500  39 21 00 1C */	addi r9, r1, 0x1c
 /* 801665A4 00163504  90 01 00 08 */	stw r0, 8(r1)
 /* 801665A8 00163508  90 01 00 0C */	stw r0, 0xc(r1)
-/* 801665AC 0016350C  4B F4 F2 79 */	bl "__ct__10CGameLightF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC12CTransform4f9TUniqueIdRC6CLightUiUif"
+/* 801665AC 0016350C  4B F4 F2 79 */	bl "__ct__10CGameLightF9TUniqueId7TAreaIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC12CTransform4f9TUniqueIdRC6CLightUiUif"
 /* 801665B0 00163510  7C 7D 1B 78 */	mr r29, r3
 lbl_801665B4:
 /* 801665B4 00163514  7F 80 07 75 */	extsb. r0, r28
@@ -9884,7 +9884,7 @@ lbl_801675E4:
 /* 801676A4 00164604  39 21 00 1C */	addi r9, r1, 0x1c
 /* 801676A8 00164608  90 01 00 08 */	stw r0, 8(r1)
 /* 801676AC 0016460C  90 01 00 0C */	stw r0, 0xc(r1)
-/* 801676B0 00164610  4B F4 E1 75 */	bl "__ct__10CGameLightF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC12CTransform4f9TUniqueIdRC6CLightUiUif"
+/* 801676B0 00164610  4B F4 E1 75 */	bl "__ct__10CGameLightF9TUniqueId7TAreaIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC12CTransform4f9TUniqueIdRC6CLightUiUif"
 /* 801676B4 00164614  7C 7D 1B 78 */	mr r29, r3
 lbl_801676B8:
 /* 801676B8 00164618  7F 80 07 75 */	extsb. r0, r28

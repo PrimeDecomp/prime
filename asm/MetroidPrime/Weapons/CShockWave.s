@@ -223,7 +223,7 @@ lbl_802317D4:
 /* 802318C0 0022E820  39 1C 00 34 */	addi r8, r28, 0x34
 /* 802318C4 0022E824  39 21 00 28 */	addi r9, r1, 0x28
 /* 802318C8 0022E828  39 41 00 58 */	addi r10, r1, 0x58
-/* 802318CC 0022E82C  4B E8 3F 59 */	bl "__ct__10CGameLightF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC12CTransform4f9TUniqueIdRC6CLightUiUif"
+/* 802318CC 0022E82C  4B E8 3F 59 */	bl "__ct__10CGameLightF9TUniqueId7TAreaIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC12CTransform4f9TUniqueIdRC6CLightUiUif"
 /* 802318D0 0022E830  7C 7A 1B 78 */	mr r26, r3
 lbl_802318D4:
 /* 802318D4 0022E834  7F E3 FB 78 */	mr r3, r31

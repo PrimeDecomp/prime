@@ -584,7 +584,7 @@ lbl_800378E8:
 /* 800379AC 0003490C  39 21 00 18 */	addi r9, r1, 0x18
 /* 800379B0 00034910  93 A1 00 08 */	stw r29, 8(r1)
 /* 800379B4 00034914  90 01 00 0C */	stw r0, 0xc(r1)
-/* 800379B8 00034918  48 07 DE 6D */	bl "__ct__10CGameLightF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC12CTransform4f9TUniqueIdRC6CLightUiUif"
+/* 800379B8 00034918  48 07 DE 6D */	bl "__ct__10CGameLightF9TUniqueId7TAreaIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC12CTransform4f9TUniqueIdRC6CLightUiUif"
 /* 800379BC 0003491C  7C 7F 1B 78 */	mr r31, r3
 lbl_800379C0:
 /* 800379C0 00034920  7F 83 E3 78 */	mr r3, r28
