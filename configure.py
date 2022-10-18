@@ -603,7 +603,7 @@ LIBS = [
             ["Kyoto/Particles/CParticleGlobals", True],
             "Kyoto/Particles/CParticleSwoosh",
             "Kyoto/Particles/CParticleSwooshDataFactory",
-            ["Kyoto/Particles/CRealElement", False],
+            ["Kyoto/Particles/CRealElement", True],
             "Kyoto/Particles/CSpawnSystemKeyframeData",
             "Kyoto/Particles/CUVElement",
             "Kyoto/Particles/CVectorElement",

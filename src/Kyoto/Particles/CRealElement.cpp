@@ -534,7 +534,7 @@ CREIntTimesReal::~CREIntTimesReal() {
 
 bool CREIntTimesReal::GetValue(int frame, float& valOut) const {
   int a = 0;
-  float b = 0.f;
+  float b = 1.f;
   x8_b->GetValue(frame, b);
   x4_a->GetValue(frame, a);
   valOut = b * static_cast< float >(a);
