@@ -1093,7 +1093,7 @@ lbl_80261D70:
 /* 80261E3C 0025ED9C  39 21 00 18 */	addi r9, r1, 0x18
 /* 80261E40 0025EDA0  39 41 00 3C */	addi r10, r1, 0x3c
 /* 80261E44 0025EDA4  38 C0 00 00 */	li r6, 0
-/* 80261E48 0025EDA8  4B E5 39 DD */	bl "__ct__10CGameLightF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC12CTransform4f9TUniqueIdRC6CLightUiUif"
+/* 80261E48 0025EDA8  4B E5 39 DD */	bl "__ct__10CGameLightF9TUniqueId7TAreaIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC12CTransform4f9TUniqueIdRC6CLightUiUif"
 /* 80261E4C 0025EDAC  7C 7B 1B 78 */	mr r27, r3
 lbl_80261E50:
 /* 80261E50 0025EDB0  7F 00 07 75 */	extsb. r0, r24

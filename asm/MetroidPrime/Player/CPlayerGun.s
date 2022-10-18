@@ -1684,7 +1684,7 @@ CreateGunLight__10CPlayerGunFR13CStateManager:
 /* 8003B8A8 00038808  39 21 00 14 */	addi r9, r1, 0x14
 /* 8003B8AC 0003880C  39 41 00 30 */	addi r10, r1, 0x30
 /* 8003B8B0 00038810  38 C0 00 00 */	li r6, 0
-/* 8003B8B4 00038814  48 07 9F 71 */	bl "__ct__10CGameLightF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC12CTransform4f9TUniqueIdRC6CLightUiUif"
+/* 8003B8B4 00038814  48 07 9F 71 */	bl "__ct__10CGameLightF9TUniqueId7TAreaIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC12CTransform4f9TUniqueIdRC6CLightUiUif"
 /* 8003B8B8 00038818  7C 7C 1B 78 */	mr r28, r3
 lbl_8003B8BC:
 /* 8003B8BC 0003881C  7F E3 FB 78 */	mr r3, r31

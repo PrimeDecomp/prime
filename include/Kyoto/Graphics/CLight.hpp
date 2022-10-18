@@ -48,6 +48,9 @@ public:
   float GetRadius() const;
   const CColor& GetColor() const { return x18_color; }
 
+  void SetPriority(uint priority) { x3c_priority = priority; }
+  void SetLightId(uint lightId) { x40_lightId = lightId; }
+
   CVector3f GetNormalIndependentLightingAtPoint(const CVector3f& point) const;
 
   static CLight BuildDirectional(const CVector3f& dir, const CColor& color);

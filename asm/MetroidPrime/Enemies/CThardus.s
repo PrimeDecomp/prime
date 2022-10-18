@@ -8330,7 +8330,7 @@ lbl_801E14FC:
 /* 801E15A4 001DE504  39 21 00 A0 */	addi r9, r1, 0xa0
 /* 801E15A8 001DE508  39 41 02 F4 */	addi r10, r1, 0x2f4
 /* 801E15AC 001DE50C  38 C0 00 00 */	li r6, 0
-/* 801E15B0 001DE510  4B ED 42 75 */	bl "__ct__10CGameLightF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC12CTransform4f9TUniqueIdRC6CLightUiUif"
+/* 801E15B0 001DE510  4B ED 42 75 */	bl "__ct__10CGameLightF9TUniqueId7TAreaIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC12CTransform4f9TUniqueIdRC6CLightUiUif"
 /* 801E15B4 001DE514  7C 73 1B 78 */	mr r19, r3
 lbl_801E15B8:
 /* 801E15B8 001DE518  7E 63 9B 78 */	mr r3, r19

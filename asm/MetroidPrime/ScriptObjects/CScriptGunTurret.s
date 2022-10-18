@@ -5382,7 +5382,7 @@ lbl_8021A2B0:
 /* 8021A3AC 0021730C  39 1E 00 34 */	addi r8, r30, 0x34
 /* 8021A3B0 00217310  39 21 00 30 */	addi r9, r1, 0x30
 /* 8021A3B4 00217314  39 41 01 50 */	addi r10, r1, 0x150
-/* 8021A3B8 00217318  4B E9 B4 6D */	bl "__ct__10CGameLightF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC12CTransform4f9TUniqueIdRC6CLightUiUif"
+/* 8021A3B8 00217318  4B E9 B4 6D */	bl "__ct__10CGameLightF9TUniqueId7TAreaIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC12CTransform4f9TUniqueIdRC6CLightUiUif"
 /* 8021A3BC 0021731C  7C 7D 1B 78 */	mr r29, r3
 lbl_8021A3C0:
 /* 8021A3C0 00217320  7F E3 FB 78 */	mr r3, r31

@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803DF3B8
-lbl_803DF3B8:
+.global __vt__10CGameLight
+__vt__10CGameLight:
 	# ROM: 0x3DC3B8
 	.4byte 0
 	.4byte 0
@@ -65,9 +65,9 @@ __dt__10CGameLightFv:
 /* 800B55B4 000B2514  93 C1 00 08 */	stw r30, 8(r1)
 /* 800B55B8 000B2518  7C 7E 1B 79 */	or. r30, r3, r3
 /* 800B55BC 000B251C  41 82 00 28 */	beq lbl_800B55E4
-/* 800B55C0 000B2520  3C A0 80 3E */	lis r5, lbl_803DF3B8@ha
+/* 800B55C0 000B2520  3C A0 80 3E */	lis r5, __vt__10CGameLight@ha
 /* 800B55C4 000B2524  38 80 00 00 */	li r4, 0
-/* 800B55C8 000B2528  38 05 F3 B8 */	addi r0, r5, lbl_803DF3B8@l
+/* 800B55C8 000B2528  38 05 F3 B8 */	addi r0, r5, __vt__10CGameLight@l
 /* 800B55CC 000B252C  90 1E 00 00 */	stw r0, 0(r30)
 /* 800B55D0 000B2530  4B FA 01 21 */	bl __dt__6CActorFv
 /* 800B55D4 000B2534  7F E0 07 35 */	extsh. r0, r31
@@ -237,8 +237,8 @@ SetLight__10CGameLightFRC6CLight:
 /* 800B581C 000B277C  38 21 00 10 */	addi r1, r1, 0x10
 /* 800B5820 000B2780  4E 80 00 20 */	blr
 
-.global "__ct__10CGameLightF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC12CTransform4f9TUniqueIdRC6CLightUiUif"
-"__ct__10CGameLightF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC12CTransform4f9TUniqueIdRC6CLightUiUif":
+.global "__ct__10CGameLightF9TUniqueId7TAreaIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC12CTransform4f9TUniqueIdRC6CLightUiUif"
+"__ct__10CGameLightF9TUniqueId7TAreaIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC12CTransform4f9TUniqueIdRC6CLightUiUif":
 /* 800B5824 000B2784  94 21 FE C0 */	stwu r1, -0x140(r1)
 /* 800B5828 000B2788  7C 08 02 A6 */	mflr r0
 /* 800B582C 000B278C  3D 60 80 57 */	lis r11, NullConnectionList__7CEntity@ha
@@ -323,9 +323,9 @@ lbl_800B5954:
 /* 800B5960 000B28C0  41 82 00 08 */	beq lbl_800B5968
 /* 800B5964 000B28C4  48 25 FF CD */	bl Free__7CMemoryFPCv
 lbl_800B5968:
-/* 800B5968 000B28C8  3C 60 80 3E */	lis r3, lbl_803DF3B8@ha
+/* 800B5968 000B28C8  3C 60 80 3E */	lis r3, __vt__10CGameLight@ha
 /* 800B596C 000B28CC  7F A4 EB 78 */	mr r4, r29
-/* 800B5970 000B28D0  38 03 F3 B8 */	addi r0, r3, lbl_803DF3B8@l
+/* 800B5970 000B28D0  38 03 F3 B8 */	addi r0, r3, __vt__10CGameLight@l
 /* 800B5974 000B28D4  38 77 00 EC */	addi r3, r23, 0xec
 /* 800B5978 000B28D8  90 17 00 00 */	stw r0, 0(r23)
 /* 800B597C 000B28DC  A0 1C 00 00 */	lhz r0, 0(r28)
