@@ -536,7 +536,7 @@ GetValue__33CVEParticleSystemOrientationFrontCFiR9CVector3f:
 
 .global GetValue__19CVEParticleVelocityCFiR9CVector3f
 GetValue__19CVEParticleVelocityCFiR9CVector3f:
-/* 80334D0C 00331C6C  80 8D A8 EC */	lwz r4, lbl_805A94AC@sda21(r13)
+/* 80334D0C 00331C6C  80 8D A8 EC */	lwz r4, mCurrentParticle__16CParticleGlobals@sda21(r13)
 /* 80334D10 00331C70  38 60 00 00 */	li r3, 0
 /* 80334D14 00331C74  C0 04 00 1C */	lfs f0, 0x1c(r4)
 /* 80334D18 00331C78  D0 05 00 00 */	stfs f0, 0(r5)
@@ -548,7 +548,7 @@ GetValue__19CVEParticleVelocityCFiR9CVector3f:
 
 .global GetValue__16CVEParticleColorCFiR9CVector3f
 GetValue__16CVEParticleColorCFiR9CVector3f:
-/* 80334D30 00331C90  80 8D A8 EC */	lwz r4, lbl_805A94AC@sda21(r13)
+/* 80334D30 00331C90  80 8D A8 EC */	lwz r4, mCurrentParticle__16CParticleGlobals@sda21(r13)
 /* 80334D34 00331C94  38 60 00 00 */	li r3, 0
 /* 80334D38 00331C98  C0 04 00 10 */	lfs f0, 0x10(r4)
 /* 80334D3C 00331C9C  D0 05 00 00 */	stfs f0, 0(r5)
@@ -560,7 +560,7 @@ GetValue__16CVEParticleColorCFiR9CVector3f:
 
 .global GetValue__19CVEParticleLocationCFiR9CVector3f
 GetValue__19CVEParticleLocationCFiR9CVector3f:
-/* 80334D54 00331CB4  80 8D A8 EC */	lwz r4, lbl_805A94AC@sda21(r13)
+/* 80334D54 00331CB4  80 8D A8 EC */	lwz r4, mCurrentParticle__16CParticleGlobals@sda21(r13)
 /* 80334D58 00331CB8  38 60 00 00 */	li r3, 0
 /* 80334D5C 00331CBC  C0 04 00 04 */	lfs f0, 4(r4)
 /* 80334D60 00331CC0  D0 05 00 00 */	stfs f0, 0(r5)

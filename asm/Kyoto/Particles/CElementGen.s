@@ -146,8 +146,8 @@ IsIndirectTextured__11CElementGenCFv:
 /* 80317664 003145C4  38 60 00 01 */	li r3, 1
 /* 80317668 003145C8  4E 80 00 20 */	blr
 
-.global GetCEXTValue__11CElementGenCFi
-GetCEXTValue__11CElementGenCFi:
+.global GetExternalVar__11CElementGenCFi
+GetExternalVar__11CElementGenCFi:
 /* 8031766C 003145CC  54 80 10 3A */	slwi r0, r4, 2
 /* 80317670 003145D0  7C 63 02 14 */	add r3, r3, r0
 /* 80317674 003145D4  C0 23 00 9C */	lfs f1, 0x9c(r3)
@@ -797,7 +797,7 @@ RenderModels__11CElementGenFv:
 /* 80317F18 00314E78  BE 81 04 E0 */	stmw r20, 0x4e0(r1)
 /* 80317F1C 00314E7C  38 00 00 00 */	li r0, 0
 /* 80317F20 00314E80  7C 7E 1B 78 */	mr r30, r3
-/* 80317F24 00314E84  90 0D A8 F0 */	stw r0, lbl_805A94B0@sda21(r13)
+/* 80317F24 00314E84  90 0D A8 F0 */	stw r0, mParticleAccessParameters__16CParticleGlobals@sda21(r13)
 /* 80317F28 00314E88  88 03 02 6D */	lbz r0, 0x26d(r3)
 /* 80317F2C 00314E8C  54 00 DF FF */	rlwinm. r0, r0, 0x1b, 0x1f, 0x1f
 /* 80317F30 00314E90  41 82 00 10 */	beq lbl_80317F40
@@ -1122,13 +1122,13 @@ lbl_803183CC:
 /* 803183F4 00315354  48 01 23 85 */	bl SetParticleLifetime__16CParticleGlobalsFi
 /* 803183F8 00315358  7E 83 A3 78 */	mr r3, r20
 /* 803183FC 0031535C  48 01 22 81 */	bl UpdateParticleLifetimeTweenValues__16CParticleGlobalsFi
-/* 80318400 00315360  93 8D A8 EC */	stw r28, lbl_805A94AC@sda21(r13)
+/* 80318400 00315360  93 8D A8 EC */	stw r28, mCurrentParticle__16CParticleGlobals@sda21(r13)
 /* 80318404 00315364  88 1E 02 6D */	lbz r0, 0x26d(r30)
 /* 80318408 00315368  54 00 EF FF */	rlwinm. r0, r0, 0x1d, 0x1f, 0x1f
 /* 8031840C 0031536C  41 82 00 10 */	beq lbl_8031841C
 /* 80318410 00315370  80 1E 00 6C */	lwz r0, 0x6c(r30)
 /* 80318414 00315374  7C 00 D2 14 */	add r0, r0, r26
-/* 80318418 00315378  90 0D A8 F0 */	stw r0, lbl_805A94B0@sda21(r13)
+/* 80318418 00315378  90 0D A8 F0 */	stw r0, mParticleAccessParameters__16CParticleGlobals@sda21(r13)
 lbl_8031841C:
 /* 8031841C 0031537C  80 7E 00 28 */	lwz r3, 0x28(r30)
 /* 80318420 00315380  80 63 00 58 */	lwz r3, 0x58(r3)
@@ -6849,7 +6849,7 @@ lbl_8031D880:
 lbl_8031D890:
 /* 8031D890 0031A7F0  38 00 00 00 */	li r0, 0
 /* 8031D894 0031A7F4  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
-/* 8031D898 0031A7F8  90 0D A8 F0 */	stw r0, lbl_805A94B0@sda21(r13)
+/* 8031D898 0031A7F8  90 0D A8 F0 */	stw r0, mParticleAccessParameters__16CParticleGlobals@sda21(r13)
 /* 8031D89C 0031A7FC  3B E3 66 A0 */	addi r31, r3, sZeroVector__9CVector3f@l
 /* 8031D8A0 0031A800  3B 80 00 00 */	li r28, 0
 /* 8031D8A4 0031A804  48 00 03 B8 */	b lbl_8031DC5C
@@ -6922,7 +6922,7 @@ lbl_8031D9A0:
 /* 8031D9A4 0031A904  48 00 CD D5 */	bl SetParticleLifetime__16CParticleGlobalsFi
 /* 8031D9A8 0031A908  38 60 00 00 */	li r3, 0
 /* 8031D9AC 0031A90C  48 00 CC D1 */	bl UpdateParticleLifetimeTweenValues__16CParticleGlobalsFi
-/* 8031D9B0 0031A910  93 CD A8 EC */	stw r30, lbl_805A94AC@sda21(r13)
+/* 8031D9B0 0031A910  93 CD A8 EC */	stw r30, mCurrentParticle__16CParticleGlobals@sda21(r13)
 /* 8031D9B4 0031A914  88 1A 02 6D */	lbz r0, 0x26d(r26)
 /* 8031D9B8 0031A918  54 00 EF FF */	rlwinm. r0, r0, 0x1d, 0x1f, 0x1f
 /* 8031D9BC 0031A91C  41 82 00 14 */	beq lbl_8031D9D0
@@ -7198,7 +7198,7 @@ UpdateExistingParticles__11CElementGenFv:
 /* 8031DD94 0031ACF4  80 63 00 74 */	lwz r3, 0x74(r3)
 /* 8031DD98 0031ACF8  48 00 C9 B1 */	bl SetEmitterTime__16CParticleGlobalsFi
 /* 8031DD9C 0031ACFC  38 00 00 00 */	li r0, 0
-/* 8031DDA0 0031AD00  90 0D A8 F0 */	stw r0, lbl_805A94B0@sda21(r13)
+/* 8031DDA0 0031AD00  90 0D A8 F0 */	stw r0, mParticleAccessParameters__16CParticleGlobals@sda21(r13)
 /* 8031DDA4 0031AD04  48 00 03 98 */	b lbl_8031E13C
 lbl_8031DDA8:
 /* 8031DDA8 0031AD08  80 7F 00 00 */	lwz r3, 0(r31)
@@ -7325,7 +7325,7 @@ lbl_8031DF38:
 /* 8031DF7C 0031AEDC  D0 1F 00 0C */	stfs f0, 0xc(r31)
 /* 8031DF80 0031AEE0  80 7F 00 28 */	lwz r3, 0x28(r31)
 /* 8031DF84 0031AEE4  80 1D 00 74 */	lwz r0, 0x74(r29)
-/* 8031DF88 0031AEE8  93 ED A8 EC */	stw r31, lbl_805A94AC@sda21(r13)
+/* 8031DF88 0031AEE8  93 ED A8 EC */	stw r31, mCurrentParticle__16CParticleGlobals@sda21(r13)
 /* 8031DF8C 0031AEEC  7F C3 00 50 */	subf r30, r3, r0
 /* 8031DF90 0031AEF0  80 7F 00 28 */	lwz r3, 0x28(r31)
 /* 8031DF94 0031AEF4  80 1F 00 00 */	lwz r0, 0(r31)
@@ -7625,7 +7625,7 @@ UpdateAdvanceAccessParameters__11CElementGenFii:
 /* 8031E3D0 0031B330  7C 7D 1B 78 */	mr r29, r3
 /* 8031E3D4 0031B334  80 63 00 6C */	lwz r3, 0x6c(r3)
 /* 8031E3D8 0031B338  7F E3 02 14 */	add r31, r3, r0
-/* 8031E3DC 0031B33C  93 ED A8 F0 */	stw r31, lbl_805A94B0@sda21(r13)
+/* 8031E3DC 0031B33C  93 ED A8 F0 */	stw r31, mParticleAccessParameters__16CParticleGlobals@sda21(r13)
 /* 8031E3E0 0031B340  80 7D 00 28 */	lwz r3, 0x28(r29)
 /* 8031E3E4 0031B344  80 63 01 0C */	lwz r3, 0x10c(r3)
 /* 8031E3E8 0031B348  28 03 00 00 */	cmplwi r3, 0

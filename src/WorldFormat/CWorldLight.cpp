@@ -1,11 +1,9 @@
 #include "WorldFormat/CWorldLight.hpp"
 
 #include "Kyoto/Streams/CInputStream.hpp"
-// #include <hacks.h>
 #include <rstl/math.hpp>
 
 const CVector3f CWorldLight::kDefaultPosition = CVector3f(0.f, 0.f, 0.f);
-// FORCEPADDING(sizeof(CVector3f)) kPadding;
 const CVector3f CWorldLight::kDefaultDirection = CVector3f(0.f, 1.f, 0.f);
 
 CWorldLight::CWorldLight(CInputStream& in)

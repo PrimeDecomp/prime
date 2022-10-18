@@ -75,13 +75,13 @@ public:
     mZ -= other.mZ;
     return *this;
   }
-  CVector3f& operator*=(float v) {
+  CVector3f& operator*=(const float v) {
     mX *= v;
     mY *= v;
     mZ *= v;
     return *this;
   }
-  CVector3f& operator/=(float v) {
+  CVector3f& operator/=(const float v) {
     mX /= v;
     mY /= v;
     mZ /= v;
@@ -137,21 +137,21 @@ inline CVector3f operator+(const CVector3f& lhs, const CVector3f& rhs) {
   float z = lhs.GetZ() + rhs.GetZ();
   return CVector3f(x, y, z);
 }
-inline CVector3f operator*(const CVector3f& vec, float f) {
+inline CVector3f operator*(const CVector3f& vec, const float f) {
   float x = vec.GetX() * f;
   float y = vec.GetY() * f;
   float z = vec.GetZ() * f;
   return CVector3f(x, y, z);
 }
 
-inline CVector3f operator*(float f, const CVector3f& vec) {
+inline CVector3f operator*(const float f, const CVector3f& vec) {
   float x = f * vec.GetX();
   float y = f * vec.GetY();
   float z = f * vec.GetZ();
   return CVector3f(x, y, z);
 }
 
-inline CVector3f operator/(const CVector3f& vec, float f) {
+inline CVector3f operator/(const CVector3f& vec, const float f) {
   float x = vec.GetX() / f;
   float y = vec.GetY() / f;
   float z = vec.GetZ() / f;

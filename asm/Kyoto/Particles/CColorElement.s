@@ -187,7 +187,7 @@ lbl_80316420:
 
 .global GetValue__16CCEParticleColor
 GetValue__16CCEParticleColor:
-/* 80316438 00313398  80 8D A8 EC */	lwz r4, lbl_805A94AC@sda21(r13)
+/* 80316438 00313398  80 8D A8 EC */	lwz r4, mCurrentParticle__16CParticleGlobals@sda21(r13)
 /* 8031643C 0031339C  38 60 00 00 */	li r3, 0
 /* 80316440 003133A0  80 04 00 34 */	lwz r0, 0x34(r4)
 /* 80316444 003133A4  90 05 00 00 */	stw r0, 0(r5)
