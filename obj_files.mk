@@ -542,7 +542,7 @@ KYOTO_1 :=\
 	$(BUILD_DIR)/src/Kyoto/Particles/CParticleGlobals.o\
 	$(BUILD_DIR)/asm/Kyoto/Particles/CParticleSwoosh.o\
 	$(BUILD_DIR)/asm/Kyoto/Particles/CParticleSwooshDataFactory.o\
-	$(BUILD_DIR)/asm/Kyoto/Particles/CRealElement.o\
+	$(BUILD_DIR)/src/Kyoto/Particles/CRealElement.o\
 	$(BUILD_DIR)/asm/Kyoto/Particles/CSpawnSystemKeyframeData.o\
 	$(BUILD_DIR)/asm/Kyoto/Particles/CUVElement.o\
 	$(BUILD_DIR)/asm/Kyoto/Particles/CVectorElement.o\
