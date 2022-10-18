@@ -223,9 +223,7 @@ CRELifetimeTween::~CRELifetimeTween() {
 }
 
 // fake but using it to test
-static inline float Lerp(float a, float b, float c) {
-  return b * c + a * (1.f - c);
-}
+static inline float Lerp(float a, float b, float c) { return b * c + a * (1.f - c); }
 
 bool CRELifetimeTween::GetValue(int frame, float& valOut) const {
   float ltFac = frame / CParticleGlobals::GetParticleLifetimeReal();
@@ -264,15 +262,13 @@ bool CREKeyframeEmitter::GetValue(int frame, float& valOut) const {
     return false;
   }
 
-  int ltPerc = CParticleGlobals::GetParticleLifetimePercentage();
-  if (ltPerc == 100) {
-    valOut = x18_keys[ltPerc];
+  if (CParticleGlobals::GetParticleLifetimePercentage() == 100) {
+    valOut = x18_keys[CParticleGlobals::GetParticleLifetimePercentage()];
   } else {
-    float ltPercRem = CParticleGlobals::GetParticleLifetimePercentageRemainder();
-    float key1 = x18_keys[ltPerc];
-    float key2 = x18_keys[ltPerc + 1];
-    valOut = (1.f - ltPercRem) * key1 + ltPercRem * key2;
-    // valOut = Lerp(key1, key2, ltPercRem);
+    valOut = (1.f - CParticleGlobals::GetParticleLifetimePercentageRemainder()) *
+                 x18_keys[CParticleGlobals::GetParticleLifetimePercentage()] +
+             CParticleGlobals::GetParticleLifetimePercentageRemainder() *
+                 x18_keys[CParticleGlobals::GetParticleLifetimePercentage() + 1];
   }
   return false;
 }
