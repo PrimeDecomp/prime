@@ -1445,7 +1445,7 @@ SetGunLightActive__10CPlayerGunFbR13CStateManager:
 /* 8003B528 00038488  4E 80 04 21 */	bctrl
 /* 8003B52C 0003848C  38 61 00 64 */	addi r3, r1, 0x64
 /* 8003B530 00038490  38 81 00 14 */	addi r4, r1, 0x14
-/* 8003B534 00038494  48 00 00 3D */	bl __ct__6CLightFCR6CLight
+/* 8003B534 00038494  48 00 00 3D */	bl __ct__6CLightFRC6CLight
 /* 8003B538 00038498  48 30 EA 7D */	bl Black__6CColorFv
 /* 8003B53C 0003849C  7C 64 1B 78 */	mr r4, r3
 /* 8003B540 000384A0  38 61 00 64 */	addi r3, r1, 0x64
@@ -1462,8 +1462,8 @@ lbl_8003B554:
 /* 8003B568 000384C8  38 21 00 D0 */	addi r1, r1, 0xd0
 /* 8003B56C 000384CC  4E 80 00 20 */	blr
 
-.global __ct__6CLightFCR6CLight
-__ct__6CLightFCR6CLight:
+.global __ct__6CLightFRC6CLight
+__ct__6CLightFRC6CLight:
 /* 8003B570 000384D0  C0 04 00 00 */	lfs f0, 0(r4)
 /* 8003B574 000384D4  D0 03 00 00 */	stfs f0, 0(r3)
 /* 8003B578 000384D8  C0 04 00 04 */	lfs f0, 4(r4)
@@ -1580,7 +1580,7 @@ UpdateGunLight__10CPlayerGunFRC12CTransform4fR13CStateManager:
 /* 8003B728 00038688  4E 80 04 21 */	bctrl
 /* 8003B72C 0003868C  38 61 00 74 */	addi r3, r1, 0x74
 /* 8003B730 00038690  38 81 00 24 */	addi r4, r1, 0x24
-/* 8003B734 00038694  4B FF FE 3D */	bl __ct__6CLightFCR6CLight
+/* 8003B734 00038694  4B FF FE 3D */	bl __ct__6CLightFRC6CLight
 /* 8003B738 00038698  80 81 00 8C */	lwz r4, 0x8c(r1)
 /* 8003B73C 0003869C  38 60 00 00 */	li r3, 0
 /* 8003B740 000386A0  C0 3F 03 40 */	lfs f1, 0x340(r31)

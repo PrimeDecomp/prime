@@ -348,7 +348,7 @@ UpdateLights__17CPlasmaProjectileFffR13CStateManager:
 /* 80176F28 00173E88  4E 80 04 21 */	bctrl
 /* 80176F2C 00173E8C  38 61 00 80 */	addi r3, r1, 0x80
 /* 80176F30 00173E90  38 81 00 30 */	addi r4, r1, 0x30
-/* 80176F34 00173E94  4B EC 46 3D */	bl __ct__6CLightFCR6CLight
+/* 80176F34 00173E94  4B EC 46 3D */	bl __ct__6CLightFRC6CLight
 /* 80176F38 00173E98  FC 20 F8 90 */	fmr f1, f31
 /* 80176F3C 00173E9C  80 81 00 98 */	lwz r4, 0x98(r1)
 /* 80176F40 00173EA0  38 60 00 00 */	li r3, 0

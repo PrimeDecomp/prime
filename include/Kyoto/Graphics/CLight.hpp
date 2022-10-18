@@ -25,6 +25,7 @@ public:
          const CColor& color, float cutoff);
   CLight(const CVector3f& pos, const CVector3f& direction, const CColor& color, float distC,
          float distL, float distQ, float angleC, float angleL, float angleQ);
+  CLight(const CLight&);
 
   void SetPosition(const CVector3f& pos);
   const CVector3f& GetPosition() const { return x0_pos; }
