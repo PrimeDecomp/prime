@@ -1,0 +1,5 @@
+#ifndef _CVECTORELEMENT
+#define _CVECTORELEMENT
+
+
+#endif // _CVECTORELEMENT

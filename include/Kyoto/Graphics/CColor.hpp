@@ -4,6 +4,7 @@
 #include "types.h"
 
 #include "Kyoto/Basics/CCast.hpp"
+#include "Kyoto/Math/CMath.hpp"
 
 #include <dolphin/gx/GXStruct.h>
 
@@ -14,7 +15,7 @@
 class CInputStream;
 class CColor {
 public:
-  CColor() {}
+  CColor() { Set(255, 0, 255); }
   CColor(uint col) : mRgba(col) {}
   CColor(CInputStream& in);
   CColor(float r, float g, float b, float a = 1.f);
@@ -26,6 +27,12 @@ public:
   }
 
   void Set(float r, float g, float b, float a);
+  void Set(uchar r, uchar g, uchar b, uchar a = 255) {
+    mR = r;
+    mG = g;
+    mB = b;
+    mA = a;
+  }
   void Get(float& r, float& g, float& b, float& a) const;
   void Get(float& r, float& g, float& b) const;
   static CColor Lerp(const CColor& a, const CColor& b, float t);

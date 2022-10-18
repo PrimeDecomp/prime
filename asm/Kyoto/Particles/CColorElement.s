@@ -8,59 +8,59 @@ lbl_803EDA00:
 	# ROM: 0x3EAA00
 	.4byte 0
 	.4byte 0
-	.4byte __dt__16CCEParticleColor
-	.4byte GetValue__16CCEParticleColor
+	.4byte __dt__16CCEParticleColorFv
+	.4byte GetValue__16CCEParticleColorCFiR6CColor
 
-.global lbl_803EDA10
-lbl_803EDA10:
+.global __vt__18CCEKeyframeEmitter
+__vt__18CCEKeyframeEmitter:
 	# ROM: 0x3EAA10
 	.4byte 0
 	.4byte 0
 	.4byte __dt__18CCEKeyframeEmitterFv
 	.4byte GetValue__18CCEKeyframeEmitterCFiR6CColor
 
-.global lbl_803EDA20
-lbl_803EDA20:
+.global __vt__8CCEPulse
+__vt__8CCEPulse:
 	# ROM: 0x3EAA20
 	.4byte 0
 	.4byte 0
 	.4byte __dt__8CCEPulseFv
 	.4byte GetValue__8CCEPulseCFiR6CColor
 
-.global lbl_803EDA30
-lbl_803EDA30:
+.global __vt__12CCETimeChain
+__vt__12CCETimeChain:
 	# ROM: 0x3EAA30
 	.4byte 0
 	.4byte 0
 	.4byte __dt__12CCETimeChainFv
 	.4byte GetValue__12CCETimeChainCFiR6CColor
 
-.global lbl_803EDA40
-lbl_803EDA40:
+.global __vt__10CCEFadeEnd
+__vt__10CCEFadeEnd:
 	# ROM: 0x3EAA40
 	.4byte 0
 	.4byte 0
 	.4byte __dt__10CCEFadeEndFv
 	.4byte GetValue__10CCEFadeEndCFiR6CColor
 
-.global lbl_803EDA50
-lbl_803EDA50:
+.global __vt__7CCEFade
+__vt__7CCEFade:
 	# ROM: 0x3EAA50
 	.4byte 0
 	.4byte 0
 	.4byte __dt__7CCEFadeFv
 	.4byte GetValue__7CCEFadeCFiR6CColor
 
-.global lbl_803EDA60
-lbl_803EDA60:
+.global __vt__15CCEFastConstant
+__vt__15CCEFastConstant:
 	# ROM: 0x3EAA60
 	.4byte 0
 	.4byte 0
 	.4byte __dt__15CCEFastConstantFv
 	.4byte GetValue__15CCEFastConstantCFiR6CColor
 
-.global lbl_803EDA70
-lbl_803EDA70:
+.global __vt__11CCEConstant
+__vt__11CCEConstant:
 	# ROM: 0x3EAA70
 	.4byte 0
 	.4byte 0
@@ -152,8 +152,8 @@ lbl_805A88AC:
 
 .section .text, "ax"
 
-.global __dt__16CCEParticleColor
-__dt__16CCEParticleColor:
+.global __dt__16CCEParticleColorFv
+__dt__16CCEParticleColorFv:
 /* 803163C8 00313328  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803163CC 0031332C  7C 08 02 A6 */	mflr r0
 /* 803163D0 00313330  90 01 00 14 */	stw r0, 0x14(r1)
@@ -185,8 +185,8 @@ lbl_80316420:
 /* 80316430 00313390  38 21 00 10 */	addi r1, r1, 0x10
 /* 80316434 00313394  4E 80 00 20 */	blr
 
-.global GetValue__16CCEParticleColor
-GetValue__16CCEParticleColor:
+.global GetValue__16CCEParticleColorCFiR6CColor
+GetValue__16CCEParticleColorCFiR6CColor:
 /* 80316438 00313398  80 8D A8 EC */	lwz r4, mCurrentParticle__16CParticleGlobals@sda21(r13)
 /* 8031643C 0031339C  38 60 00 00 */	li r3, 0
 /* 80316440 003133A0  80 04 00 34 */	lwz r0, 0x34(r4)
@@ -286,9 +286,9 @@ __dt__18CCEKeyframeEmitterFv:
 /* 80316580 003134E0  93 C1 00 18 */	stw r30, 0x18(r1)
 /* 80316584 003134E4  7C 7E 1B 79 */	or. r30, r3, r3
 /* 80316588 003134E8  41 82 00 90 */	beq lbl_80316618
-/* 8031658C 003134EC  3C 60 80 3F */	lis r3, lbl_803EDA10@ha
+/* 8031658C 003134EC  3C 60 80 3F */	lis r3, __vt__18CCEKeyframeEmitter@ha
 /* 80316590 003134F0  34 1E 00 18 */	addic. r0, r30, 0x18
-/* 80316594 003134F4  38 03 DA 10 */	addi r0, r3, lbl_803EDA10@l
+/* 80316594 003134F4  38 03 DA 10 */	addi r0, r3, __vt__18CCEKeyframeEmitter@l
 /* 80316598 003134F8  90 1E 00 00 */	stw r0, 0(r30)
 /* 8031659C 003134FC  41 82 00 44 */	beq lbl_803165E0
 /* 803165A0 00313500  80 1E 00 1C */	lwz r0, 0x1c(r30)
@@ -347,13 +347,13 @@ __ct__18CCEKeyframeEmitterFR12CInputStream:
 /* 80316654 003135B4  3C 60 80 3F */	lis r3, __vt__8IElement@ha
 /* 80316658 003135B8  93 A1 00 14 */	stw r29, 0x14(r1)
 /* 8031665C 003135BC  38 03 C5 A8 */	addi r0, r3, __vt__8IElement@l
-/* 80316660 003135C0  3C 60 80 3F */	lis r3, lbl_803EDA10@ha
+/* 80316660 003135C0  3C 60 80 3F */	lis r3, __vt__18CCEKeyframeEmitter@ha
 /* 80316664 003135C4  7F C6 F3 78 */	mr r6, r30
 /* 80316668 003135C8  93 81 00 10 */	stw r28, 0x10(r1)
 /* 8031666C 003135CC  90 1E 00 00 */	stw r0, 0(r30)
 /* 80316670 003135D0  38 05 C5 B4 */	addi r0, r5, __vt__13CColorElement@l
 /* 80316674 003135D4  90 1E 00 00 */	stw r0, 0(r30)
-/* 80316678 003135D8  38 03 DA 10 */	addi r0, r3, lbl_803EDA10@l
+/* 80316678 003135D8  38 03 DA 10 */	addi r0, r3, __vt__18CCEKeyframeEmitter@l
 /* 8031667C 003135DC  7F E3 FB 78 */	mr r3, r31
 /* 80316680 003135E0  90 1E 00 00 */	stw r0, 0(r30)
 /* 80316684 003135E4  48 02 86 01 */	bl ReadLong__12CInputStreamFv
@@ -516,8 +516,8 @@ __dt__8CCEPulseFv:
 /* 803168B8 00313818  93 C1 00 08 */	stw r30, 8(r1)
 /* 803168BC 0031381C  7C 7E 1B 79 */	or. r30, r3, r3
 /* 803168C0 00313820  41 82 00 C8 */	beq lbl_80316988
-/* 803168C4 00313824  3C 60 80 3F */	lis r3, lbl_803EDA20@ha
-/* 803168C8 00313828  38 03 DA 20 */	addi r0, r3, lbl_803EDA20@l
+/* 803168C4 00313824  3C 60 80 3F */	lis r3, __vt__8CCEPulse@ha
+/* 803168C8 00313828  38 03 DA 20 */	addi r0, r3, __vt__8CCEPulse@l
 /* 803168CC 0031382C  90 1E 00 00 */	stw r0, 0(r30)
 /* 803168D0 00313830  80 7E 00 04 */	lwz r3, 4(r30)
 /* 803168D4 00313834  28 03 00 00 */	cmplwi r3, 0
@@ -584,10 +584,10 @@ __ct__8CCEPulseFP11CIntElementP11CIntElementP13CColorElementP13CColorElement:
 /* 803169A4 00313904  3D 40 80 3F */	lis r10, __vt__8IElement@ha
 /* 803169A8 00313908  3D 20 80 3F */	lis r9, __vt__13CColorElement@ha
 /* 803169AC 0031390C  38 0A C5 A8 */	addi r0, r10, __vt__8IElement@l
-/* 803169B0 00313910  3D 00 80 3F */	lis r8, lbl_803EDA20@ha
+/* 803169B0 00313910  3D 00 80 3F */	lis r8, __vt__8CCEPulse@ha
 /* 803169B4 00313914  90 03 00 00 */	stw r0, 0(r3)
 /* 803169B8 00313918  39 29 C5 B4 */	addi r9, r9, __vt__13CColorElement@l
-/* 803169BC 0031391C  38 08 DA 20 */	addi r0, r8, lbl_803EDA20@l
+/* 803169BC 0031391C  38 08 DA 20 */	addi r0, r8, __vt__8CCEPulse@l
 /* 803169C0 00313920  91 23 00 00 */	stw r9, 0(r3)
 /* 803169C4 00313924  90 03 00 00 */	stw r0, 0(r3)
 /* 803169C8 00313928  90 83 00 04 */	stw r4, 4(r3)
@@ -651,8 +651,8 @@ __dt__12CCETimeChainFv:
 /* 80316A90 003139F0  93 C1 00 08 */	stw r30, 8(r1)
 /* 80316A94 003139F4  7C 7E 1B 79 */	or. r30, r3, r3
 /* 80316A98 003139F8  41 82 00 A8 */	beq lbl_80316B40
-/* 80316A9C 003139FC  3C 60 80 3F */	lis r3, lbl_803EDA30@ha
-/* 80316AA0 00313A00  38 03 DA 30 */	addi r0, r3, lbl_803EDA30@l
+/* 80316A9C 003139FC  3C 60 80 3F */	lis r3, __vt__12CCETimeChain@ha
+/* 80316AA0 00313A00  38 03 DA 30 */	addi r0, r3, __vt__12CCETimeChain@l
 /* 80316AA4 00313A04  90 1E 00 00 */	stw r0, 0(r30)
 /* 80316AA8 00313A08  80 7E 00 04 */	lwz r3, 4(r30)
 /* 80316AAC 00313A0C  28 03 00 00 */	cmplwi r3, 0
@@ -710,10 +710,10 @@ __ct__12CCETimeChainFP13CColorElementP13CColorElementP11CIntElement:
 /* 80316B5C 00313ABC  3D 20 80 3F */	lis r9, __vt__8IElement@ha
 /* 80316B60 00313AC0  3D 00 80 3F */	lis r8, __vt__13CColorElement@ha
 /* 80316B64 00313AC4  38 09 C5 A8 */	addi r0, r9, __vt__8IElement@l
-/* 80316B68 00313AC8  3C E0 80 3F */	lis r7, lbl_803EDA30@ha
+/* 80316B68 00313AC8  3C E0 80 3F */	lis r7, __vt__12CCETimeChain@ha
 /* 80316B6C 00313ACC  90 03 00 00 */	stw r0, 0(r3)
 /* 80316B70 00313AD0  39 08 C5 B4 */	addi r8, r8, __vt__13CColorElement@l
-/* 80316B74 00313AD4  38 07 DA 30 */	addi r0, r7, lbl_803EDA30@l
+/* 80316B74 00313AD4  38 07 DA 30 */	addi r0, r7, __vt__12CCETimeChain@l
 /* 80316B78 00313AD8  91 03 00 00 */	stw r8, 0(r3)
 /* 80316B7C 00313ADC  90 03 00 00 */	stw r0, 0(r3)
 /* 80316B80 00313AE0  90 83 00 04 */	stw r4, 4(r3)
@@ -852,8 +852,8 @@ __dt__10CCEFadeEndFv:
 /* 80316D74 00313CD4  93 C1 00 08 */	stw r30, 8(r1)
 /* 80316D78 00313CD8  7C 7E 1B 79 */	or. r30, r3, r3
 /* 80316D7C 00313CDC  41 82 00 C8 */	beq lbl_80316E44
-/* 80316D80 00313CE0  3C 60 80 3F */	lis r3, lbl_803EDA40@ha
-/* 80316D84 00313CE4  38 03 DA 40 */	addi r0, r3, lbl_803EDA40@l
+/* 80316D80 00313CE0  3C 60 80 3F */	lis r3, __vt__10CCEFadeEnd@ha
+/* 80316D84 00313CE4  38 03 DA 40 */	addi r0, r3, __vt__10CCEFadeEnd@l
 /* 80316D88 00313CE8  90 1E 00 00 */	stw r0, 0(r30)
 /* 80316D8C 00313CEC  80 7E 00 04 */	lwz r3, 4(r30)
 /* 80316D90 00313CF0  28 03 00 00 */	cmplwi r3, 0
@@ -920,10 +920,10 @@ __ct__10CCEFadeEndFP13CColorElementP13CColorElementP12CRealElementP12CRealElemen
 /* 80316E60 00313DC0  3D 40 80 3F */	lis r10, __vt__8IElement@ha
 /* 80316E64 00313DC4  3D 20 80 3F */	lis r9, __vt__13CColorElement@ha
 /* 80316E68 00313DC8  38 0A C5 A8 */	addi r0, r10, __vt__8IElement@l
-/* 80316E6C 00313DCC  3D 00 80 3F */	lis r8, lbl_803EDA40@ha
+/* 80316E6C 00313DCC  3D 00 80 3F */	lis r8, __vt__10CCEFadeEnd@ha
 /* 80316E70 00313DD0  90 03 00 00 */	stw r0, 0(r3)
 /* 80316E74 00313DD4  39 29 C5 B4 */	addi r9, r9, __vt__13CColorElement@l
-/* 80316E78 00313DD8  38 08 DA 40 */	addi r0, r8, lbl_803EDA40@l
+/* 80316E78 00313DD8  38 08 DA 40 */	addi r0, r8, __vt__10CCEFadeEnd@l
 /* 80316E7C 00313DDC  91 23 00 00 */	stw r9, 0(r3)
 /* 80316E80 00313DE0  90 03 00 00 */	stw r0, 0(r3)
 /* 80316E84 00313DE4  90 83 00 04 */	stw r4, 4(r3)
@@ -1054,8 +1054,8 @@ __dt__7CCEFadeFv:
 /* 80317058 00313FB8  93 C1 00 08 */	stw r30, 8(r1)
 /* 8031705C 00313FBC  7C 7E 1B 79 */	or. r30, r3, r3
 /* 80317060 00313FC0  41 82 00 A8 */	beq lbl_80317108
-/* 80317064 00313FC4  3C 60 80 3F */	lis r3, lbl_803EDA50@ha
-/* 80317068 00313FC8  38 03 DA 50 */	addi r0, r3, lbl_803EDA50@l
+/* 80317064 00313FC4  3C 60 80 3F */	lis r3, __vt__7CCEFade@ha
+/* 80317068 00313FC8  38 03 DA 50 */	addi r0, r3, __vt__7CCEFade@l
 /* 8031706C 00313FCC  90 1E 00 00 */	stw r0, 0(r30)
 /* 80317070 00313FD0  80 7E 00 04 */	lwz r3, 4(r30)
 /* 80317074 00313FD4  28 03 00 00 */	cmplwi r3, 0
@@ -1113,10 +1113,10 @@ __ct__7CCEFadeFP13CColorElementP13CColorElementP12CRealElement:
 /* 80317124 00314084  3D 20 80 3F */	lis r9, __vt__8IElement@ha
 /* 80317128 00314088  3D 00 80 3F */	lis r8, __vt__13CColorElement@ha
 /* 8031712C 0031408C  38 09 C5 A8 */	addi r0, r9, __vt__8IElement@l
-/* 80317130 00314090  3C E0 80 3F */	lis r7, lbl_803EDA50@ha
+/* 80317130 00314090  3C E0 80 3F */	lis r7, __vt__7CCEFade@ha
 /* 80317134 00314094  90 03 00 00 */	stw r0, 0(r3)
 /* 80317138 00314098  39 08 C5 B4 */	addi r8, r8, __vt__13CColorElement@l
-/* 8031713C 0031409C  38 07 DA 50 */	addi r0, r7, lbl_803EDA50@l
+/* 8031713C 0031409C  38 07 DA 50 */	addi r0, r7, __vt__7CCEFade@l
 /* 80317140 003140A0  91 03 00 00 */	stw r8, 0(r3)
 /* 80317144 003140A4  90 03 00 00 */	stw r0, 0(r3)
 /* 80317148 003140A8  90 83 00 04 */	stw r4, 4(r3)
@@ -1139,8 +1139,8 @@ __dt__15CCEFastConstantFv:
 /* 80317174 003140D4  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 80317178 003140D8  7C 7F 1B 79 */	or. r31, r3, r3
 /* 8031717C 003140DC  41 82 00 44 */	beq lbl_803171C0
-/* 80317180 003140E0  3C 60 80 3F */	lis r3, lbl_803EDA60@ha
-/* 80317184 003140E4  38 03 DA 60 */	addi r0, r3, lbl_803EDA60@l
+/* 80317180 003140E0  3C 60 80 3F */	lis r3, __vt__15CCEFastConstant@ha
+/* 80317184 003140E4  38 03 DA 60 */	addi r0, r3, __vt__15CCEFastConstant@l
 /* 80317188 003140E8  90 1F 00 00 */	stw r0, 0(r31)
 /* 8031718C 003140EC  41 82 00 20 */	beq lbl_803171AC
 /* 80317190 003140F0  3C 60 80 3F */	lis r3, __vt__13CColorElement@ha
@@ -1182,10 +1182,10 @@ __ct__15CCEFastConstantFffff:
 /* 8031720C 0031416C  3C 80 80 3F */	lis r4, __vt__13CColorElement@ha
 /* 80317210 00314170  90 1F 00 00 */	stw r0, 0(r31)
 /* 80317214 00314174  38 04 C5 B4 */	addi r0, r4, __vt__13CColorElement@l
-/* 80317218 00314178  3C 60 80 3F */	lis r3, lbl_803EDA60@ha
+/* 80317218 00314178  3C 60 80 3F */	lis r3, __vt__15CCEFastConstant@ha
 /* 8031721C 0031417C  38 C0 00 FF */	li r6, 0xff
 /* 80317220 00314180  90 1F 00 00 */	stw r0, 0(r31)
-/* 80317224 00314184  38 63 DA 60 */	addi r3, r3, lbl_803EDA60@l
+/* 80317224 00314184  38 63 DA 60 */	addi r3, r3, __vt__15CCEFastConstant@l
 /* 80317228 00314188  38 00 00 00 */	li r0, 0
 /* 8031722C 0031418C  38 81 00 08 */	addi r4, r1, 8
 /* 80317230 00314190  90 7F 00 00 */	stw r3, 0(r31)
@@ -1320,8 +1320,8 @@ __dt__11CCEConstantFv:
 /* 8031741C 0031437C  93 C1 00 08 */	stw r30, 8(r1)
 /* 80317420 00314380  7C 7E 1B 79 */	or. r30, r3, r3
 /* 80317424 00314384  41 82 00 C8 */	beq lbl_803174EC
-/* 80317428 00314388  3C 60 80 3F */	lis r3, lbl_803EDA70@ha
-/* 8031742C 0031438C  38 03 DA 70 */	addi r0, r3, lbl_803EDA70@l
+/* 80317428 00314388  3C 60 80 3F */	lis r3, __vt__11CCEConstant@ha
+/* 8031742C 0031438C  38 03 DA 70 */	addi r0, r3, __vt__11CCEConstant@l
 /* 80317430 00314390  90 1E 00 00 */	stw r0, 0(r30)
 /* 80317434 00314394  80 7E 00 04 */	lwz r3, 4(r30)
 /* 80317438 00314398  28 03 00 00 */	cmplwi r3, 0
@@ -1388,10 +1388,10 @@ __ct__11CCEConstantFP12CRealElementP12CRealElementP12CRealElementP12CRealElement
 /* 80317508 00314468  3D 40 80 3F */	lis r10, __vt__8IElement@ha
 /* 8031750C 0031446C  3D 20 80 3F */	lis r9, __vt__13CColorElement@ha
 /* 80317510 00314470  38 0A C5 A8 */	addi r0, r10, __vt__8IElement@l
-/* 80317514 00314474  3D 00 80 3F */	lis r8, lbl_803EDA70@ha
+/* 80317514 00314474  3D 00 80 3F */	lis r8, __vt__11CCEConstant@ha
 /* 80317518 00314478  90 03 00 00 */	stw r0, 0(r3)
 /* 8031751C 0031447C  39 29 C5 B4 */	addi r9, r9, __vt__13CColorElement@l
-/* 80317520 00314480  38 08 DA 70 */	addi r0, r8, lbl_803EDA70@l
+/* 80317520 00314480  38 08 DA 70 */	addi r0, r8, __vt__11CCEConstant@l
 /* 80317524 00314484  91 23 00 00 */	stw r9, 0(r3)
 /* 80317528 00314488  90 03 00 00 */	stw r0, 0(r3)
 /* 8031752C 0031448C  90 83 00 04 */	stw r4, 4(r3)
