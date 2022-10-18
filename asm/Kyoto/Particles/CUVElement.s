@@ -11,19 +11,19 @@ lbl_803EE118:
 	.4byte __dt__15CUVEAnimTextureFv
 	.4byte GetValueUV__15CUVEAnimTextureCFiR13SUVElementSet
 	.4byte GetValueTexture__15CUVEAnimTextureCFi
-	.4byte HasConstantTexture__15CUVEAnimTextureFv
-	.4byte HasConstantUV__15CUVEAnimTextureFv
+	.4byte HasConstantTexture__15CUVEAnimTextureCFv
+	.4byte HasConstantUV__15CUVEAnimTextureCFv
 
-.global lbl_803EE134
-lbl_803EE134:
+.global __vt__12CUVEConstant
+__vt__12CUVEConstant:
 	# ROM: 0x3EB134
 	.4byte 0
 	.4byte 0
 	.4byte __dt__12CUVEConstantFv
 	.4byte GetValueUV__12CUVEConstantCFiR13SUVElementSet
 	.4byte GetValueTexture__12CUVEConstantCFi
-	.4byte HasConstantTexture__12CUVEConstantFv
-	.4byte HasConstantUV__12CUVEConstantFv
+	.4byte HasConstantTexture__12CUVEConstantCFv
+	.4byte HasConstantUV__12CUVEConstantCFv
 
 .section .sdata
 .balign 8
@@ -46,13 +46,13 @@ lbl_805A88F0:
 
 .section .text, "ax"
 
-.global HasConstantTexture__15CUVEAnimTextureFv
-HasConstantTexture__15CUVEAnimTextureFv:
+.global HasConstantTexture__15CUVEAnimTextureCFv
+HasConstantTexture__15CUVEAnimTextureCFv:
 /* 80333FA8 00330F08  38 60 00 01 */	li r3, 1
 /* 80333FAC 00330F0C  4E 80 00 20 */	blr
 
-.global HasConstantUV__15CUVEAnimTextureFv
-HasConstantUV__15CUVEAnimTextureFv:
+.global HasConstantUV__15CUVEAnimTextureCFv
+HasConstantUV__15CUVEAnimTextureCFv:
 /* 80333FB0 00330F10  38 60 00 00 */	li r3, 0
 /* 80333FB4 00330F14  4E 80 00 20 */	blr
 
@@ -378,7 +378,7 @@ lbl_80334444:
 /* 80334448 003313A8  38 79 00 2C */	addi r3, r25, 0x2c
 /* 8033444C 003313AC  7C 9C D1 D6 */	mullw r4, r28, r26
 /* 80334450 003313B0  90 99 00 20 */	stw r4, 0x20(r25)
-/* 80334454 003313B4  48 00 03 21 */	bl sub_80334774
+/* 80334454 003313B4  48 00 03 21 */	bl "reserve__Q24rstl50vector<13SUVElementSet,Q24rstl17rmemory_allocator>Fi"
 /* 80334458 003313B8  CB E2 CB 40 */	lfd f31, lbl_805AE860@sda21(r2)
 /* 8033445C 003313BC  3B 5A FF FF */	addi r26, r26, -1
 /* 80334460 003313C0  6F 7E 80 00 */	xoris r30, r27, 0x8000
@@ -451,7 +451,7 @@ lbl_80334478:
 /* 80334564 003314C4  41 82 00 08 */	beq lbl_8033456C
 /* 80334568 003314C8  54 E4 08 3C */	slwi r4, r7, 1
 lbl_8033456C:
-/* 8033456C 003314CC  48 00 02 09 */	bl sub_80334774
+/* 8033456C 003314CC  48 00 02 09 */	bl "reserve__Q24rstl50vector<13SUVElementSet,Q24rstl17rmemory_allocator>Fi"
 lbl_80334570:
 /* 80334570 003314D0  80 19 00 30 */	lwz r0, 0x30(r25)
 /* 80334574 003314D4  80 79 00 38 */	lwz r3, 0x38(r25)
@@ -529,9 +529,9 @@ __dt__12CUVEConstantFv:
 /* 80334664 003315C4  93 C1 00 08 */	stw r30, 8(r1)
 /* 80334668 003315C8  7C 7E 1B 79 */	or. r30, r3, r3
 /* 8033466C 003315CC  41 82 00 64 */	beq lbl_803346D0
-/* 80334670 003315D0  3C 60 80 3F */	lis r3, lbl_803EE134@ha
+/* 80334670 003315D0  3C 60 80 3F */	lis r3, __vt__12CUVEConstant@ha
 /* 80334674 003315D4  34 1E 00 04 */	addic. r0, r30, 4
-/* 80334678 003315D8  38 03 E1 34 */	addi r0, r3, lbl_803EE134@l
+/* 80334678 003315D8  38 03 E1 34 */	addi r0, r3, __vt__12CUVEConstant@l
 /* 8033467C 003315DC  90 1E 00 00 */	stw r0, 0(r30)
 /* 80334680 003315E0  41 82 00 18 */	beq lbl_80334698
 /* 80334684 003315E4  34 1E 00 04 */	addic. r0, r30, 4
@@ -575,13 +575,13 @@ lbl_803346D0:
 /* 80334704 00331664  3C 60 80 3F */	lis r3, __vt__8IElement@ha
 /* 80334708 00331668  93 C1 00 08 */	stw r30, 8(r1)
 /* 8033470C 0033166C  38 03 C5 A8 */	addi r0, r3, __vt__8IElement@l
-/* 80334710 00331670  3C 60 80 3F */	lis r3, lbl_803EE134@ha
+/* 80334710 00331670  3C 60 80 3F */	lis r3, __vt__12CUVEConstant@ha
 /* 80334714 00331674  3B DF 00 04 */	addi r30, r31, 4
 /* 80334718 00331678  90 1F 00 00 */	stw r0, 0(r31)
 /* 8033471C 0033167C  38 05 C5 68 */	addi r0, r5, __vt__10CUVElement@l
 /* 80334720 00331680  7F E6 FB 78 */	mr r6, r31
 /* 80334724 00331684  90 1F 00 00 */	stw r0, 0(r31)
-/* 80334728 00331688  38 03 E1 34 */	addi r0, r3, lbl_803EE134@l
+/* 80334728 00331688  38 03 E1 34 */	addi r0, r3, __vt__12CUVEConstant@l
 /* 8033472C 0033168C  7F C3 F3 78 */	mr r3, r30
 /* 80334730 00331690  90 1F 00 00 */	stw r0, 0(r31)
 /* 80334734 00331694  48 00 C7 75 */	bl __ct__6CTokenFRC6CToken
@@ -597,18 +597,18 @@ lbl_803346D0:
 /* 8033475C 003316BC  38 21 00 10 */	addi r1, r1, 0x10
 /* 80334760 003316C0  4E 80 00 20 */	blr
 
-.global HasConstantTexture__12CUVEConstantFv
-HasConstantTexture__12CUVEConstantFv:
+.global HasConstantTexture__12CUVEConstantCFv
+HasConstantTexture__12CUVEConstantCFv:
 /* 80334764 003316C4  38 60 00 01 */	li r3, 1
 /* 80334768 003316C8  4E 80 00 20 */	blr
 
-.global HasConstantUV__12CUVEConstantFv
-HasConstantUV__12CUVEConstantFv:
+.global HasConstantUV__12CUVEConstantCFv
+HasConstantUV__12CUVEConstantCFv:
 /* 8033476C 003316CC  38 60 00 01 */	li r3, 1
 /* 80334770 003316D0  4E 80 00 20 */	blr
 
-.global sub_80334774
-sub_80334774:
+.global "reserve__Q24rstl50vector<13SUVElementSet,Q24rstl17rmemory_allocator>Fi"
+"reserve__Q24rstl50vector<13SUVElementSet,Q24rstl17rmemory_allocator>Fi":
 /* 80334774 003316D4  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 80334778 003316D8  7C 08 02 A6 */	mflr r0
 /* 8033477C 003316DC  90 01 00 34 */	stw r0, 0x34(r1)
