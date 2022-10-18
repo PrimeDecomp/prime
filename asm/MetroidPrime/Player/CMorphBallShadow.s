@@ -198,7 +198,7 @@ lbl_80295D78:
 /* 80295DB0 00292D10  48 07 06 BD */	bl BuildDirectional__6CLightFRC9CVector3fRC6CColor
 /* 80295DB4 00292D14  38 61 02 50 */	addi r3, r1, 0x250
 /* 80295DB8 00292D18  38 81 02 00 */	addi r4, r1, 0x200
-/* 80295DBC 00292D1C  4B DA 57 B5 */	bl __ct__6CLightFCR6CLight
+/* 80295DBC 00292D1C  4B DA 57 B5 */	bl __ct__6CLightFRC6CLight
 /* 80295DC0 00292D20  38 81 02 50 */	addi r4, r1, 0x250
 /* 80295DC4 00292D24  38 60 00 00 */	li r3, 0
 /* 80295DC8 00292D28  48 07 6B FD */	bl LoadLight__9CGraphicsF9ERglLightRC6CLight
@@ -1383,4 +1383,3 @@ lbl_803D5C30:
 	# ROM: 0x3D2C30
 	.asciz "??(??)"
 	.balign 4
-

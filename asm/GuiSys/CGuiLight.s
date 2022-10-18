@@ -53,7 +53,7 @@ BuildLight__9CGuiLightCFv:
 /* 802C3790 002C06F0  48 04 2D 15 */	bl BuildLocalAmbient__6CLightFRC9CVector3fRC6CColor
 /* 802C3794 002C06F4  38 61 01 C4 */	addi r3, r1, 0x1c4
 /* 802C3798 002C06F8  38 81 01 74 */	addi r4, r1, 0x174
-/* 802C379C 002C06FC  4B D7 7D D5 */	bl __ct__6CLightFCR6CLight
+/* 802C379C 002C06FC  4B D7 7D D5 */	bl __ct__6CLightFRC6CLight
 /* 802C37A0 002C0700  7F E4 FB 78 */	mr r4, r31
 /* 802C37A4 002C0704  38 61 00 10 */	addi r3, r1, 0x10
 /* 802C37A8 002C0708  48 00 1A 91 */	bl GetWorldPosition__10CGuiObjectCFv
@@ -290,7 +290,7 @@ lbl_802C3B00:
 /* 802C3B2C 002C0A8C  7F C3 F3 78 */	mr r3, r30
 /* 802C3B30 002C0A90  38 81 01 C4 */	addi r4, r1, 0x1c4
 /* 802C3B34 002C0A94  90 01 02 04 */	stw r0, 0x204(r1)
-/* 802C3B38 002C0A98  4B D7 7A 39 */	bl __ct__6CLightFCR6CLight
+/* 802C3B38 002C0A98  4B D7 7A 39 */	bl __ct__6CLightFRC6CLight
 /* 802C3B3C 002C0A9C  80 01 02 24 */	lwz r0, 0x224(r1)
 /* 802C3B40 002C0AA0  83 E1 02 1C */	lwz r31, 0x21c(r1)
 /* 802C3B44 002C0AA4  83 C1 02 18 */	lwz r30, 0x218(r1)
@@ -485,7 +485,7 @@ lbl_802C3DD8:
 /* 802C3DF4 002C0D54  48 04 26 09 */	bl BuildSpot__6CLightFRC9CVector3fRC9CVector3fRC6CColorf
 /* 802C3DF8 002C0D58  38 61 01 CC */	addi r3, r1, 0x1cc
 /* 802C3DFC 002C0D5C  38 81 00 DC */	addi r4, r1, 0xdc
-/* 802C3E00 002C0D60  4B D7 77 71 */	bl __ct__6CLightFCR6CLight
+/* 802C3E00 002C0D60  4B D7 77 71 */	bl __ct__6CLightFRC6CLight
 /* 802C3E04 002C0D64  FC 20 F8 90 */	fmr f1, f31
 /* 802C3E08 002C0D68  38 61 01 CC */	addi r3, r1, 0x1cc
 /* 802C3E0C 002C0D6C  FC 40 F0 90 */	fmr f2, f30
@@ -519,7 +519,7 @@ lbl_802C3E64:
 /* 802C3E74 002C0DD4  48 04 25 C1 */	bl BuildPoint__6CLightFRC9CVector3fRC6CColor
 /* 802C3E78 002C0DD8  38 61 01 7C */	addi r3, r1, 0x17c
 /* 802C3E7C 002C0DDC  38 81 00 8C */	addi r4, r1, 0x8c
-/* 802C3E80 002C0DE0  4B D7 76 F1 */	bl __ct__6CLightFCR6CLight
+/* 802C3E80 002C0DE0  4B D7 76 F1 */	bl __ct__6CLightFRC6CLight
 /* 802C3E84 002C0DE4  FC 20 F8 90 */	fmr f1, f31
 /* 802C3E88 002C0DE8  38 61 01 7C */	addi r3, r1, 0x17c
 /* 802C3E8C 002C0DEC  FC 40 F0 90 */	fmr f2, f30
@@ -548,7 +548,7 @@ lbl_802C3ED0:
 /* 802C3EE0 002C0E40  48 04 25 8D */	bl BuildDirectional__6CLightFRC9CVector3fRC6CColor
 /* 802C3EE4 002C0E44  38 61 01 2C */	addi r3, r1, 0x12c
 /* 802C3EE8 002C0E48  38 81 00 3C */	addi r4, r1, 0x3c
-/* 802C3EEC 002C0E4C  4B D7 76 85 */	bl __ct__6CLightFCR6CLight
+/* 802C3EEC 002C0E4C  4B D7 76 85 */	bl __ct__6CLightFRC6CLight
 /* 802C3EF0 002C0E50  3C 60 80 3D */	lis r3, lbl_803D68A8@ha
 /* 802C3EF4 002C0E54  93 A1 01 6C */	stw r29, 0x16c(r1)
 /* 802C3EF8 002C0E58  38 83 68 A8 */	addi r4, r3, lbl_803D68A8@l
@@ -601,4 +601,3 @@ lbl_803D68A8:
 	# ROM: 0x3D38A8
 	.asciz "??(??)"
 	.balign 4
-

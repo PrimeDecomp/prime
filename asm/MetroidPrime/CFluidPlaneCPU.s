@@ -939,7 +939,7 @@ lbl_8019A4F0:
 /* 8019A55C 001974BC  48 16 BF 11 */	bl BuildDirectional__6CLightFRC9CVector3fRC6CColor
 /* 8019A560 001974C0  38 61 03 30 */	addi r3, r1, 0x330
 /* 8019A564 001974C4  38 81 02 E0 */	addi r4, r1, 0x2e0
-/* 8019A568 001974C8  4B EA 10 09 */	bl __ct__6CLightFCR6CLight
+/* 8019A568 001974C8  4B EA 10 09 */	bl __ct__6CLightFRC6CLight
 /* 8019A56C 001974CC  38 81 03 30 */	addi r4, r1, 0x330
 /* 8019A570 001974D0  38 60 00 03 */	li r3, 3
 /* 8019A574 001974D4  48 17 24 51 */	bl LoadLight__9CGraphicsF9ERglLightRC6CLight

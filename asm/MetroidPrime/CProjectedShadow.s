@@ -90,7 +90,7 @@ lbl_8029D724:
 /* 8029D7C0 0029A720  48 06 8C AD */	bl BuildDirectional__6CLightFRC9CVector3fRC6CColor
 /* 8029D7C4 0029A724  38 61 02 98 */	addi r3, r1, 0x298
 /* 8029D7C8 0029A728  38 81 02 48 */	addi r4, r1, 0x248
-/* 8029D7CC 0029A72C  4B D9 DD A5 */	bl __ct__6CLightFCR6CLight
+/* 8029D7CC 0029A72C  4B D9 DD A5 */	bl __ct__6CLightFRC6CLight
 /* 8029D7D0 0029A730  38 81 02 98 */	addi r4, r1, 0x298
 /* 8029D7D4 0029A734  38 60 00 00 */	li r3, 0
 /* 8029D7D8 0029A738  48 06 F1 ED */	bl LoadLight__9CGraphicsF9ERglLightRC6CLight
@@ -1001,4 +1001,3 @@ lbl_803D5E50:
 	.4byte 0
 	.4byte 0
 	.float 1.0
-

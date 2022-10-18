@@ -914,7 +914,7 @@ Render__17CProjectileWeaponCFv:
 /* 802AF940 002AC8A0  48 05 6B 65 */	bl BuildLocalAmbient__6CLightFRC9CVector3fRC6CColor
 /* 802AF944 002AC8A4  38 61 02 64 */	addi r3, r1, 0x264
 /* 802AF948 002AC8A8  38 81 02 14 */	addi r4, r1, 0x214
-/* 802AF94C 002AC8AC  4B D8 BC 25 */	bl __ct__6CLightFCR6CLight
+/* 802AF94C 002AC8AC  4B D8 BC 25 */	bl __ct__6CLightFRC6CLight
 /* 802AF950 002AC8B0  C0 22 C1 F8 */	lfs f1, lbl_805ADF18@sda21(r2)
 /* 802AF954 002AC8B4  38 80 00 00 */	li r4, 0
 /* 802AF958 002AC8B8  38 00 00 03 */	li r0, 3
@@ -2665,4 +2665,3 @@ lbl_803D6188:
 	# ROM: 0x3D3188
 	.asciz "??(??)"
 	.balign 4
-
