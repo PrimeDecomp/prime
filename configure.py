@@ -217,7 +217,7 @@ LIBS = [
             "MetroidPrime/ScriptObjects/CScriptDockAreaChange",
             "MetroidPrime/ScriptObjects/CScriptSpecialFunction",
             "MetroidPrime/ScriptObjects/CScriptActorRotate",
-            "MetroidPrime/Player/CFidget",
+            ["MetroidPrime/Player/CFidget", True],
             "MetroidPrime/Enemies/CSpankWeed",
             "MetroidPrime/Enemies/CParasite",
             "MetroidPrime/Player/CSamusFaceReflection",

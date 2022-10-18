@@ -184,7 +184,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptDockAreaChange.o\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptSpecialFunction.o\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptActorRotate.o\
-	$(BUILD_DIR)/asm/MetroidPrime/Player/CFidget.o\
+	$(BUILD_DIR)/src/MetroidPrime/Player/CFidget.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CSpankWeed.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CParasite.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Player/CSamusFaceReflection.o\
