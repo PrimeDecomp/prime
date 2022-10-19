@@ -11,14 +11,14 @@ class CDolphinController : public IController {
 
 public:
   CDolphinController();
-  virtual ~CDolphinController();
-  void Poll();
-  uint GetDeviceCount() const;
-  CControllerGamepadData& GetGamepadData(int controller);
-  uint GetControllerType(int) const;
-  void SetMotorState(EIOPort port, EMotorState state);
-  bool Initialize();
+  ~CDolphinController() override;
+  void Poll() override;
+  uint GetDeviceCount() const override;
+  CControllerGamepadData& GetGamepadData(int controller) override;
+  uint GetControllerType(int) const override;
+  void SetMotorState(EIOPort port, EMotorState state) override;
 
+  bool Initialize();
   float GetAnalogStickMaxValue(EJoyAxis axis) const;
 
 private:

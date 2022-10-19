@@ -46,7 +46,7 @@ private:
   uint xa4_;
   uint xa8_;
   uint xac_;
-  rstl::list< void > xb0_;
+  rstl::list< unkptr > xb0_;
 };
 CHECK_SIZEOF(CResFactory, 0xc8);
 
