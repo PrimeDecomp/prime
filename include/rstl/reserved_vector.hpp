@@ -13,8 +13,10 @@ class reserved_vector {
   uchar x4_data[N * sizeof(T)];
 
 public:
-  typedef pointer_iterator< T, reserved_vector< T, N >, void > iterator;
-  typedef const_pointer_iterator< T, reserved_vector< T, N >, void > const_iterator;
+  // typedef pointer_iterator< T, reserved_vector< T, N >, void > iterator;
+  // typedef const_pointer_iterator< T, reserved_vector< T, N >, void > const_iterator;
+  typedef T* iterator;
+  typedef const T* const_iterator;
 
   inline iterator begin() { return iterator(data()); }
   inline const_iterator begin() const { return const_iterator(data()); }

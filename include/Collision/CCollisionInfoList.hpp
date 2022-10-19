@@ -21,10 +21,10 @@ public:
       x0_list.push_back(info.GetSwapped());
   }
 
-  iterator end() { return x0_list.end(); }
-  const_iterator end() const { return x0_list.end(); }
-  iterator begin() { return x0_list.begin(); }
-  const_iterator begin() const { return x0_list.begin(); }
+  iterator End() { return x0_list.end(); }
+  const_iterator End() const { return x0_list.end(); }
+  iterator Begin() { return x0_list.begin(); }
+  const_iterator Begin() const { return x0_list.begin(); }
 };
 
 #endif // _CCOLLISIONINFOLIST
