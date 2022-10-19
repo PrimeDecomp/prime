@@ -42,7 +42,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/Clamp_int.o\
 	$(BUILD_DIR)/src/MetroidPrime/CArchMsgParmControllerStatus.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CExplosion.o\
-	$(BUILD_DIR)/asm/MetroidPrime/CEffect.o\
+	$(BUILD_DIR)/src/MetroidPrime/CEffect.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Cameras/CGameCamera.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CGameArea.o\
 	$(BUILD_DIR)/asm/MetroidPrime/HUD/CSamusHud.o\
