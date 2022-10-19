@@ -1134,6 +1134,10 @@ else:
            description="AR $out")
     n.newline()
 
+n.rule(name="host_cc", command="clang -I include/ -o $out $in",
+           description="host_cc $out")
+n.newline()
+
 ###
 # Build
 ###
@@ -1169,6 +1173,11 @@ for lib in LIBS:
                     variables={
                         "mwcc_version": mwcc_version,
                         "cflags": lib["cflags"],
+                        "basedir": os.path.dirname(f"$builddir/src/{object}"),
+                        "basefile": f"$builddir/src/{object}"
+                    })
+            n.build(f"$builddir/host/{object}.o", "host_cc", c_file,
+                    variables={
                         "basedir": os.path.dirname(f"$builddir/src/{object}"),
                         "basefile": f"$builddir/src/{object}"
                     })
@@ -1215,6 +1224,13 @@ n.newline()
 ###
 n.comment("Adds a command for building all source files")
 n.build("all_source", "phony", all_source_files)
+n.newline()
+
+###
+# Helper rule for building all source files, with a host compiler
+###
+n.comment("Adds a command for building all source files with a host compiler")
+n.build("all_source_host", "phony", [s.replace("/src/", "/host/") for s in all_source_files])
 n.newline()
 
 ###
