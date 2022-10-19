@@ -75,7 +75,7 @@ LIBS = [
             "MetroidPrime/Clamp_int",
             ["MetroidPrime/CArchMsgParmControllerStatus", True],
             "MetroidPrime/CExplosion",
-            "MetroidPrime/CEffect",
+            ["MetroidPrime/CEffect", True],
             "MetroidPrime/Cameras/CGameCamera",
             "MetroidPrime/CGameArea",
             "MetroidPrime/HUD/CSamusHud",

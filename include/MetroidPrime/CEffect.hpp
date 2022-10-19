@@ -11,11 +11,11 @@ public:
           const CTransform4f& xf);
 
   // CEntity
-  ~CEffect() {}
+  ~CEffect() override {}
 
   // CActor
-  virtual void AddToRenderer(const CFrustumPlanes&, const CStateManager&) const;
-  virtual void Render(const CStateManager&) const;
+  void AddToRenderer(const CFrustumPlanes&, const CStateManager&) const override;
+  void Render(const CStateManager&) const override;
 };
 CHECK_SIZEOF(CEffect, 0xe8)
 
