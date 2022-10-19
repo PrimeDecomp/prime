@@ -22,7 +22,8 @@ public:
   list()
   : x4_start(reinterpret_cast< node* >(&xc_empty_prev))
   , x8_end(reinterpret_cast< node* >(&xc_empty_prev))
-  , xc_empty(reinterpret_cast< node* >(&xc_empty_prev), reinterpret_cast< node* >(&xc_empty_prev))
+  , xc_empty_prev(reinterpret_cast< node* >(&xc_empty_prev))
+  , x10_empty_next(reinterpret_cast< node* >(&xc_empty_prev))
   , x14_count(0) {}
   ~list() {
     node* cur = x4_start;
