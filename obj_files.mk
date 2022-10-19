@@ -18,7 +18,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/CMFGame.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CCredits.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CSplashScreen.o\
-	$(BUILD_DIR)/asm/MetroidPrime/CInstruction.o\
+	$(BUILD_DIR)/src/MetroidPrime/CInstruction.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CAnimData.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Factories/CCharacterFactory.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Factories/CAssetFactory.o\

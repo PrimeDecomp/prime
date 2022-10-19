@@ -51,7 +51,7 @@ LIBS = [
             "MetroidPrime/CMFGame",
             "MetroidPrime/CCredits",
             "MetroidPrime/CSplashScreen",
-            ["MetroidPrime/CInstruction", False],
+            ["MetroidPrime/CInstruction", True],
             "MetroidPrime/CAnimData",
             "MetroidPrime/Factories/CCharacterFactory",
             "MetroidPrime/Factories/CAssetFactory",
