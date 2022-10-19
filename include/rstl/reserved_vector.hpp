@@ -42,10 +42,9 @@ public:
   }
 
   ~reserved_vector() { clear(); }
-  
+
   void push_back(const T& in) {
-    iterator out = begin() + x0_count;
-    out = in;
+    construct(&data()[x0_count], in);
     ++x0_count;
   }
 
