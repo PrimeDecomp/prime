@@ -12,15 +12,15 @@
 class CInputStream;
 class CTweakPlayerControl;
 
-class CTweakPlayerControl : public ITweakObject, public TOneStatic< CTweakPlayerControl > {
+class CTweakPlayerControl : public ITweakObject {
 public:
   CTweakPlayerControl(CInputStream&);
   ~CTweakPlayerControl() override;
 
   ControlMapper::EFunctionList GetMapping(ControlMapper::ECommands command) const;
-  
+
 private:
-  rstl::reserved_vector<ControlMapper::EFunctionList, 67> m_mappings;
+  rstl::reserved_vector< ControlMapper::EFunctionList, 67 > m_mappings;
 };
 
 #endif // _CTWEAKPLAYERCONTROL

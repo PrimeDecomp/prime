@@ -48,7 +48,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/HUD/CSamusHud.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CAnimationDatabaseGame.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CTransitionDatabaseGame.o\
-	$(BUILD_DIR)/asm/MetroidPrime/Tweaks/CTweakPlayerControl.o\
+	$(BUILD_DIR)/src/MetroidPrime/Tweaks/CTweakPlayerControl.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Tweaks/CTweakPlayerGun.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CPauseScreen.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Tweaks/CTweakGui.o\
