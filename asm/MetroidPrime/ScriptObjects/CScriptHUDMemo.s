@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803DFBF0
-lbl_803DFBF0:
+.global __vt__14CScriptHUDMemo
+__vt__14CScriptHUDMemo:
 	# ROM: 0x3DCBF0
 	.4byte 0
 	.4byte 0
@@ -160,9 +160,9 @@ __dt__14CScriptHUDMemoFv:
 /* 800E84E0 000E5440  93 C1 00 08 */	stw r30, 8(r1)
 /* 800E84E4 000E5444  7C 7E 1B 79 */	or. r30, r3, r3
 /* 800E84E8 000E5448  41 82 00 60 */	beq lbl_800E8548
-/* 800E84EC 000E544C  3C 60 80 3E */	lis r3, lbl_803DFBF0@ha
+/* 800E84EC 000E544C  3C 60 80 3E */	lis r3, __vt__14CScriptHUDMemo@ha
 /* 800E84F0 000E5450  34 1E 00 44 */	addic. r0, r30, 0x44
-/* 800E84F4 000E5454  38 03 FB F0 */	addi r0, r3, lbl_803DFBF0@l
+/* 800E84F4 000E5454  38 03 FB F0 */	addi r0, r3, __vt__14CScriptHUDMemo@l
 /* 800E84F8 000E5458  90 1E 00 00 */	stw r0, 0(r30)
 /* 800E84FC 000E545C  41 82 00 30 */	beq lbl_800E852C
 /* 800E8500 000E5460  88 1E 00 50 */	lbz r0, 0x50(r30)
@@ -212,9 +212,9 @@ lbl_800E8548:
 /* 800E8598 000E54F8  7C 87 23 78 */	mr r7, r4
 /* 800E859C 000E54FC  38 81 00 08 */	addi r4, r1, 8
 /* 800E85A0 000E5500  4B F6 8D 85 */	bl "__ct__7CEntityF9TUniqueIdRC11CEntityInfobRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
-/* 800E85A4 000E5504  3C 60 80 3E */	lis r3, lbl_803DFBF0@ha
+/* 800E85A4 000E5504  3C 60 80 3E */	lis r3, __vt__14CScriptHUDMemo@ha
 /* 800E85A8 000E5508  3C 1A 00 01 */	addis r0, r26, 1
-/* 800E85AC 000E550C  38 63 FB F0 */	addi r3, r3, lbl_803DFBF0@l
+/* 800E85AC 000E550C  38 63 FB F0 */	addi r3, r3, __vt__14CScriptHUDMemo@l
 /* 800E85B0 000E5510  3B C0 00 00 */	li r30, 0
 /* 800E85B4 000E5514  90 7F 00 00 */	stw r3, 0(r31)
 /* 800E85B8 000E5518  28 00 FF FF */	cmplwi r0, 0xffff

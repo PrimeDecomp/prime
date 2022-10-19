@@ -137,7 +137,7 @@ LIBS = [
             "MetroidPrime/ScriptObjects/CScriptRandomRelay",
             "MetroidPrime/Enemies/CBeetle",
             ["MetroidPrime/HUD/CHUDMemoParms", True],
-            "MetroidPrime/ScriptObjects/CScriptHUDMemo",
+            ["MetroidPrime/ScriptObjects/CScriptHUDMemo", True],
             "MetroidPrime/CMappableObject",
             "MetroidPrime/Player/CPlayerCameraBob",
             "MetroidPrime/ScriptObjects/CScriptCameraFilterKeyframe",

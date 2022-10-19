@@ -179,6 +179,7 @@ public:
                    const CVector3f& knockbackVec);
 
   //
+  void ShowPausedHUDMemo(CAssetId strg, float time);
   void QueueMessage(int frameCount, CAssetId msg, float f1);
   int GetHUDMessageFrameCount() const { return xf80_hudMessageFrameCount; }
 
