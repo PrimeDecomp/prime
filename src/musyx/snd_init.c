@@ -5,9 +5,7 @@ extern "C" {
 #endif
 
 /* TODO: Move these to a more approprate location */
-extern s8 sndActive;
-extern s8 synthIdleWaitActive;
-extern SynthInfo synthInfo;
+
 
 s32 DoInit(u32 rate, u32 aramSize, u8 voices, u32 flags) {
   dataInitStack();
@@ -24,7 +22,7 @@ s32 DoInit(u32 rate, u32 aramSize, u8 voices, u32 flags) {
 }
 
 s32 sndInit(u8 voices, u8 music, u8 sfx, u8 studios, u32 flags, u32 aramSize) {
-  s32 rate;
+  u32 rate;
   s32 ret;
 
   sndActive = 0;
