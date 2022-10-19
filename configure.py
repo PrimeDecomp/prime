@@ -114,7 +114,7 @@ LIBS = [
             "MetroidPrime/Tweaks/CTweakTargeting",
             "MetroidPrime/Tweaks/CTweakAutoMapper",
             ["MetroidPrime/CParticleGenInfoGeneric", True],
-            ["MetroidPrime/CParticleGenInfo", False],
+            ["MetroidPrime/CParticleGenInfo", True],
             "MetroidPrime/CParticleDatabase",
             "MetroidPrime/Tweaks/CTweakGunRes",
             "MetroidPrime/CTargetReticles",
