@@ -89,6 +89,39 @@ lbl_805AAA4C:
 
 .section .text, "ax"
 
+.global "ReleaseData__Q24rstl22rc_ptr<12CParticleGen>Fv"
+"ReleaseData__Q24rstl22rc_ptr<12CParticleGen>Fv":
+/* 800B7A00 000B4960  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 800B7A04 000B4964  7C 08 02 A6 */	mflr r0
+/* 800B7A08 000B4968  90 01 00 14 */	stw r0, 0x14(r1)
+/* 800B7A0C 000B496C  93 E1 00 0C */	stw r31, 0xc(r1)
+/* 800B7A10 000B4970  7C 7F 1B 78 */	mr r31, r3
+/* 800B7A14 000B4974  80 83 00 00 */	lwz r4, 0(r3)
+/* 800B7A18 000B4978  80 64 00 04 */	lwz r3, 4(r4)
+/* 800B7A1C 000B497C  34 03 FF FF */	addic. r0, r3, -1
+/* 800B7A20 000B4980  90 04 00 04 */	stw r0, 4(r4)
+/* 800B7A24 000B4984  41 81 00 38 */	bgt lbl_800B7A5C
+/* 800B7A28 000B4988  80 7F 00 00 */	lwz r3, 0(r31)
+/* 800B7A2C 000B498C  80 63 00 00 */	lwz r3, 0(r3)
+/* 800B7A30 000B4990  28 03 00 00 */	cmplwi r3, 0
+/* 800B7A34 000B4994  41 82 00 18 */	beq lbl_800B7A4C
+/* 800B7A38 000B4998  81 83 00 00 */	lwz r12, 0(r3)
+/* 800B7A3C 000B499C  38 80 00 01 */	li r4, 1
+/* 800B7A40 000B49A0  81 8C 00 08 */	lwz r12, 8(r12)
+/* 800B7A44 000B49A4  7D 89 03 A6 */	mtctr r12
+/* 800B7A48 000B49A8  4E 80 04 21 */	bctrl
+lbl_800B7A4C:
+/* 800B7A4C 000B49AC  80 7F 00 00 */	lwz r3, 0(r31)
+/* 800B7A50 000B49B0  28 03 00 00 */	cmplwi r3, 0
+/* 800B7A54 000B49B4  41 82 00 08 */	beq lbl_800B7A5C
+/* 800B7A58 000B49B8  48 25 DE D9 */	bl Free__7CMemoryFPCv
+lbl_800B7A5C:
+/* 800B7A5C 000B49BC  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 800B7A60 000B49C0  83 E1 00 0C */	lwz r31, 0xc(r1)
+/* 800B7A64 000B49C4  7C 08 03 A6 */	mtlr r0
+/* 800B7A68 000B49C8  38 21 00 10 */	addi r1, r1, 0x10
+/* 800B7A6C 000B49CC  4E 80 00 20 */	blr
+
 .global "SetModulationColorAllActiveEffectsForParticleDB__17CParticleDatabaseFRC6CColorRQ24rstl236map<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,Q24rstl28auto_ptr<16CParticleGenInfo>,Q24rstl81less<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>,Q24rstl17rmemory_allocator>"
 "SetModulationColorAllActiveEffectsForParticleDB__17CParticleDatabaseFRC6CColorRQ24rstl236map<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,Q24rstl28auto_ptr<16CParticleGenInfo>,Q24rstl81less<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>,Q24rstl17rmemory_allocator>":
 /* 800B7A70 000B49D0  94 21 FF E0 */	stwu r1, -0x20(r1)
