@@ -355,7 +355,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptProjectedShadow.o\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CEnergyBall.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CMetroidPrimeProjectile.o\
-	$(BUILD_DIR)/asm/MetroidPrime/Enemies/SPositionHistory.o\
+	$(BUILD_DIR)/src/MetroidPrime/Enemies/SPositionHistory.o\
 
 WORLDFORMAT :=\
 	$(BUILD_DIR)/asm/WorldFormat/CAreaOctTree_Tests.o\
