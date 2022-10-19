@@ -56,8 +56,8 @@ public:
   virtual void SetParticleEmission(bool emission);
   virtual void SetModulationColor(const CColor& col);
   virtual void SetGeneratorRate(float rate) {}
-  virtual CTransform4f GetOrientation() const;
-  virtual CVector3f GetTranslation() const;
+  virtual const CTransform4f& GetOrientation() const;
+  virtual const CVector3f& GetTranslation() const;
   virtual CTransform4f GetGlobalOrientation() const;
   virtual CVector3f GetGlobalTranslation() const;
   virtual CVector3f GetGlobalScale() const;
