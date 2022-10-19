@@ -9,7 +9,7 @@
 #include "rstl/reserved_vector.hpp"
 
 template < typename T, int N >
-class TReservedAverage : rstl::reserved_vector< T, N > {
+class TReservedAverage : public rstl::reserved_vector< T, N > {
 public:
   TReservedAverage() {}
   TReservedAverage(const T& value) {

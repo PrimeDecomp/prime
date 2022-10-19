@@ -77,9 +77,9 @@ class pointer_iterator : public const_pointer_iterator< T, Vec, Alloc > {
   typedef const_pointer_iterator< T, Vec, Alloc > base;
 
 public:
-  typedef base::difference_type difference_type;
-  typedef base::iterator_category iterator_category;
-  typedef base::value_type value_type;
+  typedef typename base::difference_type difference_type;
+  typedef typename base::iterator_category iterator_category;
+  typedef typename base::value_type value_type;
 
   pointer_iterator() : const_pointer_iterator< T, Vec, Alloc >(nullptr) {}
   pointer_iterator(T* begin) : const_pointer_iterator< T, Vec, Alloc >(begin) {}

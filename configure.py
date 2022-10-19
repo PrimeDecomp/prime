@@ -1134,8 +1134,10 @@ else:
            description="AR $out")
     n.newline()
 
-n.rule(name="host_cc", command="clang -I include/ -o $out $in",
+n.rule(name="host_cc", command="clang -I include/ -Wno-trigraphs -o $out $in",
            description="host_cc $out")
+n.rule(name="host_cpp", command="clang++ -std=c++03 -I include/ -Wno-trigraphs -o $out $in",
+           description="host_c++ $out")
 n.newline()
 
 ###
@@ -1176,7 +1178,7 @@ for lib in LIBS:
                         "basedir": os.path.dirname(f"$builddir/src/{object}"),
                         "basefile": f"$builddir/src/{object}"
                     })
-            n.build(f"$builddir/host/{object}.o", "host_cc", c_file,
+            n.build(f"$builddir/host/{object}.o", "host_cc" if c_file.endswith(".c") else "host_cpp", c_file,
                     variables={
                         "basedir": os.path.dirname(f"$builddir/src/{object}"),
                         "basefile": f"$builddir/src/{object}"
