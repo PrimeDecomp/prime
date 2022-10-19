@@ -3,6 +3,7 @@
 
 #include "types.h"
 
+#include "rstl/construct.hpp"
 #include "rstl/rmemory_allocator.hpp"
 
 namespace rstl {
@@ -11,14 +12,18 @@ class list {
 public:
   class iterator;
   class const_iterator;
-  iterator erase(const iterator &item);
+  iterator erase(const iterator& item);
+
 private:
   class node;
-  node *erase(const node *item);
+  node* erase(const node* item);
 
 public:
   list()
-  : x4_start(&xc_empty), x8_end(&xc_empty), xc_empty(&xc_empty, &xc_empty) {}
+  : x4_start(reinterpret_cast< node* >(&xc_empty_prev))
+  , x8_end(reinterpret_cast< node* >(&xc_empty_prev))
+  , xc_empty(reinterpret_cast< node* >(&xc_empty_prev), reinterpret_cast< node* >(&xc_empty_prev))
+  , x14_count(0) {}
   ~list() {
     node* cur = x4_start;
     while (cur != x8_end) {
@@ -27,7 +32,7 @@ public:
       cur = cur->get_next();
     }
   }
-  void push_back(const T&);
+  void push_back(const T& val) { do_insert_before(x8_end, val); }
   void clear() {
     // iterator e = end();
     iterator cur = begin();
@@ -50,28 +55,40 @@ private:
   struct node {
     node* x0_prev;
     node* x4_next;
-    union {
-      T* x8_item;
-      uint x8_count;
-    };
+    uchar x8_item[sizeof(T)];
 
-    node(node* prev, node* next) : x0_prev(prev), x4_next(next), x8_count(0) {}
+    node(node* prev, node* next) : x0_prev(prev), x4_next(next) {}
 
     node* get_prev() const { return x0_prev; }
     node* get_next() const { return x4_next; }
-    T* get_value() { return x8_item; }
-    const T* get_value_const() const { return x8_item; }
-
-    // todo set_next / set_prev
+    void set_prev(node* prev) { x0_prev = prev; }
+    void set_next(node* next) { x4_next = next; }
+    T* get_value() { return reinterpret_cast< T* >(&x8_item); }
   };
+
+  node* create_node(node* prev, node* next, const T& val) {
+    node* n = new node(prev, next);
+    construct(n->get_value(), val);
+    return n;
+  }
+
+  void do_insert_before(node* n, const T& val) {
+    node* nn = create_node(n->get_prev(), n, val);
+    if (n == x4_start) {
+      x4_start = nn;
+    }
+    nn->get_prev()->set_next(nn);
+    nn->get_next()->set_prev(nn);
+    ++x14_count;
+  }
 
 public:
   class const_iterator {
-  public:;
+  public:
     typedef T* value_type;
 
     const_iterator() : current(nullptr) {}
-    const_iterator(const node *begin) : current(begin) {}
+    const_iterator(const node* begin) : current(begin) {}
     const_iterator& operator++() {
       this->current = this->current->x4_next;
       return *this;
@@ -92,17 +109,18 @@ public:
     const node* current;
   };
 
-  class iterator: const_iterator {
+  class iterator : const_iterator {
   public:
     typedef T* value_type;
 
     iterator() : const_iterator(nullptr) {}
-    iterator(node *begin) : const_iterator(begin) {}
+    iterator(node* begin) : const_iterator(begin) {}
     iterator& operator++() {
       this->current = this->current->x4_next;
       return *this;
     }
-    iterator operator++(int) { return const_iterator(this->current->x4_next; }
+    iterator operator++(int) { return const_iterator(this->current->x4_next;
+    }
     iterator& operator--() {
       this->current = this->current->x0_prev;
       return *this;
@@ -113,6 +131,7 @@ public:
     T* operator->() const { return current->get_value(); }
     bool operator==(const iterator& other) const { return current == other.current; }
     bool operator!=(const iterator& other) const { return current != other.current; }
+
   protected:
     node* current;
   };
@@ -121,7 +140,9 @@ private:
   Alloc x0_allocator;
   node* x4_start;
   node* x8_end;
-  node xc_empty;
+  node* xc_empty_prev;
+  node* x10_empty_next;
+  uint x14_count;
 };
 
 } // namespace rstl

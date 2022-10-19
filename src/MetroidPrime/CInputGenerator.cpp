@@ -4,6 +4,7 @@
 #include "MetroidPrime/Decode.hpp"
 
 #include "Kyoto/Basics/COsContext.hpp"
+
 CInputGenerator::CInputGenerator(COsContext* ctx, float leftDiv, float rightDiv)
 : x0_context(ctx)
 , x4_controller(IController::Create(*ctx))
@@ -13,40 +14,48 @@ CInputGenerator::CInputGenerator(COsContext* ctx, float leftDiv, float rightDiv)
     x8_connectedControllers[i] = false;
   }
 }
+
 bool CInputGenerator::Update(float dt, CArchitectureQueue& queue) {
-  bool ret;
+  int availSlot = 0;
   if (!x0_context->Update()) {
-    ret = false;
-  } else {
-    int availSlot = 0;
-    bool firstController = false;
-    if (!x4_controller.null()) {
-      x4_controller->Poll();
-      for (int i = 0; i < x4_controller->GetDeviceCount(); ++i) {
+    return false;
+  }
+
+  bool firstController = false;
+  if (!x4_controller.null()) {
+    int count = x4_controller->GetDeviceCount();
+    x4_controller->Poll();
+    for (int i = 0; i < count; ++i) {
+      const CControllerGamepadData& cont = x4_controller->GetGamepadData(i);
+      if (cont.DeviceIsPresent()) {
         if (i == 0) {
           firstController = true;
         }
 
-        CControllerGamepadData cont = x4_controller->GetGamepadData(i);
-        if (cont.DeviceIsPresent()) {
-          queue.Push(MakeMsg::CreateUserInput(kAMT_Game,
-                                              CFinalInput(i, dt, cont, xc_leftDiv, x10_rightDiv)));
-          ++availSlot;
+        {
+          CFinalInput input(i, dt, cont, xc_leftDiv, x10_rightDiv);
+          CArchitectureMessage msg = MakeMsg::CreateUserInput(kAMT_Game, input);
+          queue.Push(msg);
         }
+        ++availSlot;
+      }
 
-        if (x8_connectedControllers[i] != cont.DeviceIsPresent()) {
-          queue.Push(MakeMsg::CreateControllerStatus(kAMT_Game, i, cont.DeviceIsPresent()));
-          x8_connectedControllers[i] = cont.DeviceIsPresent();
-        }
+      bool connected = cont.DeviceIsPresent();
+      if (x8_connectedControllers[i] != connected) {
+        CArchitectureMessage msg = MakeMsg::CreateControllerStatus(kAMT_Game, i, connected);
+        queue.Push(msg);
+        x8_connectedControllers[i] = connected;
       }
     }
-
-    if (firstController) {
-      queue.Push(MakeMsg::CreateUserInput(kAMT_Game, CFinalInput(availSlot, dt, *x0_context)));
-    } else {
-      queue.Push(MakeMsg::CreateUserInput(kAMT_Game, CFinalInput(0, dt, *x0_context)));
-    }
-    ret = true;
   }
-  return ret;
+
+  if (!firstController) {
+    CArchitectureMessage msg = MakeMsg::CreateUserInput(kAMT_Game, CFinalInput(0, dt, *x0_context));
+    queue.Push(msg);
+  } else {
+    CArchitectureMessage msg =
+        MakeMsg::CreateUserInput(kAMT_Game, CFinalInput(availSlot, dt, *x0_context));
+    queue.Push(msg);
+  }
+  return true;
 }

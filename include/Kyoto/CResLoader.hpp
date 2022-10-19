@@ -28,9 +28,9 @@ public:
   CInputStream* LoadNewResourceSync(const SObjectTag& tag, char* extBuf);
 
 private:
-  rstl::list< void > x0_aramList;
-  rstl::list< void > x18_pakLoadedList;
-  rstl::list< void > x30_pakLoadingList;
+  rstl::list< unkptr > x0_aramList;
+  rstl::list< unkptr > x18_pakLoadedList;
+  rstl::list< unkptr > x30_pakLoadingList;
   unkptr x48_curPak;
   CAssetId x4c_cachedResId;
   SResInfo* x50_cachedResInfo;
