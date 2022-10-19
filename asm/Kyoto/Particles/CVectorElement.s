@@ -3,26 +3,26 @@
 .section .data
 .balign 8
 
-.global lbl_803EE150
-lbl_803EE150:
+.global __vt__16CVEColorToVector
+__vt__16CVEColorToVector:
 	# ROM: 0x3EB150
 	.4byte 0
 	.4byte 0
-	.4byte __dt__7CVECVTC
-	.4byte GetValue__7CVECVTCCFiR9CVector3f
+	.4byte __dt__16CVEColorToVectorFv
+	.4byte GetValue__16CVEColorToVectorCFiR9CVector3f
 	.4byte IsFastConstant__14CVectorElementCFv
 
-.global lbl_803EE164
-lbl_803EE164:
+.global __vt__11CVESubtract
+__vt__11CVESubtract:
 	# ROM: 0x3EB164
 	.4byte 0
 	.4byte 0
-	.4byte __dt__11CVESubtract
+	.4byte __dt__11CVESubtractFv
 	.4byte GetValue__11CVESubtractCFiR9CVector3f
 	.4byte IsFastConstant__14CVectorElementCFv
 
-.global lbl_803EE178
-lbl_803EE178:
+.global __vt__28CVEParticleSystemTranslation
+__vt__28CVEParticleSystemTranslation:
 	# ROM: 0x3EB178
 	.4byte 0
 	.4byte 0
@@ -30,165 +30,165 @@ lbl_803EE178:
 	.4byte GetValue__28CVEParticleSystemTranslationCFiR9CVector3f
 	.4byte IsFastConstant__14CVectorElementCFv
 
-.global lbl_803EE18C
-lbl_803EE18C:
+.global __vt__33CVEParticleSystemOrientationRight
+__vt__33CVEParticleSystemOrientationRight:
 	# ROM: 0x3EB18C
 	.4byte 0
 	.4byte 0
-	.4byte __dt__33CVEParticleSystemOrientationRightF
+	.4byte __dt__33CVEParticleSystemOrientationRightFv
 	.4byte GetValue__33CVEParticleSystemOrientationRightCFiR9CVector3f
 	.4byte IsFastConstant__14CVectorElementCFv
 
-.global lbl_803EE1A0
-lbl_803EE1A0:
+.global __vt__30CVEParticleSystemOrientationUp
+__vt__30CVEParticleSystemOrientationUp:
 	# ROM: 0x3EB1A0
 	.4byte 0
 	.4byte 0
-	.4byte __dt__31CVEParticleSystemOrienatationUpF
-	.4byte GetValue__31CVEParticleSystemOrienatationUpCFiR9CVector3f
+	.4byte __dt__30CVEParticleSystemOrientationUpFv
+	.4byte GetValue__30CVEParticleSystemOrientationUpCFiR9CVector3f
 	.4byte IsFastConstant__14CVectorElementCFv
 
-.global lbl_803EE1B4
-lbl_803EE1B4:
+.global __vt__33CVEParticleSystemOrientationFront
+__vt__33CVEParticleSystemOrientationFront:
 	# ROM: 0x3EB1B4
 	.4byte 0
 	.4byte 0
-	.4byte __dt__33CVEParticleSystemOrientationFrontF
+	.4byte __dt__33CVEParticleSystemOrientationFrontFv
 	.4byte GetValue__33CVEParticleSystemOrientationFrontCFiR9CVector3f
 	.4byte IsFastConstant__14CVectorElementCFv
 
-.global lbl_803EE1C8
-lbl_803EE1C8:
+.global __vt__19CVEParticleVelocity
+__vt__19CVEParticleVelocity:
 	# ROM: 0x3EB1C8
 	.4byte 0
 	.4byte 0
-	.4byte __dt__19CVEParticleVelocityF
+	.4byte __dt__19CVEParticleVelocityFv
 	.4byte GetValue__19CVEParticleVelocityCFiR9CVector3f
 	.4byte IsFastConstant__14CVectorElementCFv
 
-.global lbl_803EE1DC
-lbl_803EE1DC:
+.global __vt__16CVEParticleColor
+__vt__16CVEParticleColor:
 	# ROM: 0x3EB1DC
 	.4byte 0
 	.4byte 0
-	.4byte __dt__16CVEParticleColorF
+	.4byte __dt__16CVEParticleColorFv
 	.4byte GetValue__16CVEParticleColorCFiR9CVector3f
 	.4byte IsFastConstant__14CVectorElementCFv
 
-.global lbl_803EE1F0
-lbl_803EE1F0:
+.global __vt__19CVEParticleLocation
+__vt__19CVEParticleLocation:
 	# ROM: 0x3EB1F0
 	.4byte 0
 	.4byte 0
-	.4byte __dt__19CVEParticleLocation
+	.4byte __dt__19CVEParticleLocationFv
 	.4byte GetValue__19CVEParticleLocationCFiR9CVector3f
 	.4byte IsFastConstant__14CVectorElementCFv
 
-.global lbl_803EE204
-lbl_803EE204:
+.global __vt__15CVERealToVector
+__vt__15CVERealToVector:
 	# ROM: 0x3EB204
 	.4byte 0
 	.4byte 0
-	.4byte __dt__15CVERealToVector
+	.4byte __dt__15CVERealToVectorFv
 	.4byte GetValue__15CVERealToVectorCFiR9CVector3f
 	.4byte IsFastConstant__14CVectorElementCFv
 
-.global lbl_803EE218
-lbl_803EE218:
+.global __vt__18CVEKeyframeEmitterFv
+__vt__18CVEKeyframeEmitter:
 	# ROM: 0x3EB218
 	.4byte 0
 	.4byte 0
-	.4byte __dt__18CVEKeyframeEmitter
+	.4byte __dt__18CVEKeyframeEmitterFv
 	.4byte GetValue__18CVEKeyframeEmitterCFiR9CVector3f
 	.4byte IsFastConstant__14CVectorElementCFv
 
-.global lbl_803EE22C
-lbl_803EE22C:
+.global __vt__8CVEPulse
+__vt__8CVEPulse:
 	# ROM: 0x3EB22C
 	.4byte 0
 	.4byte 0
-	.4byte __dt__8CVEPulse
+	.4byte __dt__8CVEPulseFv
 	.4byte GetValue__8CVEPulseCFiR9CVector3f
 	.4byte IsFastConstant__14CVectorElementCFv
 
-.global lbl_803EE240
-lbl_803EE240:
+.global __vt__11CVEMultiply
+__vt__11CVEMultiply:
 	# ROM: 0x3EB240
 	.4byte 0
 	.4byte 0
-	.4byte __dt__11CVEMultiply
+	.4byte __dt__11CVEMultiplyFv
 	.4byte GetValue__11CVEMultiplyCFiR9CVector3f
 	.4byte IsFastConstant__14CVectorElementCFv
 
-.global lbl_803EE254
-lbl_803EE254:
+.global __vt__6CVEAdd
+__vt__6CVEAdd:
 	# ROM: 0x3EB254
 	.4byte 0
 	.4byte 0
-	.4byte __dt__6CVEAdd
+	.4byte __dt__6CVEAddFv
 	.4byte GetValue__6CVEAddCFiR9CVector3f
 	.4byte IsFastConstant__14CVectorElementCFv
 
-.global lbl_803EE268
-lbl_803EE268:
+.global __vt__16CVECircleCluster
+__vt__16CVECircleCluster:
 	# ROM: 0x3EB268
 	.4byte 0
 	.4byte 0
-	.4byte __dt__16CVECircleCluster
+	.4byte __dt__16CVECircleClusterFv
 	.4byte GetValue__16CVECircleClusterCFiR9CVector3f
 	.4byte IsFastConstant__14CVectorElementCFv
 
-.global lbl_803EE27C
-lbl_803EE27C:
+.global __vt__12CVETimeChain
+__vt__12CVETimeChain:
 	# ROM: 0x3EB27C
 	.4byte 0
 	.4byte 0
-	.4byte __dt__12CVETimeChain
+	.4byte __dt__12CVETimeChainFv
 	.4byte GetValue__12CVETimeChainCFiR9CVector3f
 	.4byte IsFastConstant__14CVectorElementCFv
 
-.global lbl_803EE290
-lbl_803EE290:
+.global __vt__9CVECircle
+__vt__9CVECircle:
 	# ROM: 0x3EB290
 	.4byte 0
 	.4byte 0
-	.4byte __dt__9CVECircle
+	.4byte __dt__9CVECircleFv
 	.4byte GetValue__9CVECircleCFiR9CVector3f
 	.4byte IsFastConstant__14CVectorElementCFv
 
-.global lbl_803EE2A4
-lbl_803EE2A4:
+.global __vt__12CVEAngleCone
+__vt__12CVEAngleCone:
 	# ROM: 0x3EB2A4
 	.4byte 0
 	.4byte 0
-	.4byte __dt__12CVEAngleCone
+	.4byte __dt__12CVEAngleConeFv
 	.4byte GetValue__12CVEAngleConeCFiR9CVector3f
 	.4byte IsFastConstant__14CVectorElementCFv
 
-.global lbl_803EE2B8
-lbl_803EE2B8:
+.global __vt__7CVECone
+__vt__7CVECone:
 	# ROM: 0x3EB2B8
 	.4byte 0
 	.4byte 0
-	.4byte __dt__7CVECone
+	.4byte __dt__7CVEConeFv
 	.4byte GetValue__7CVEConeCFiR9CVector3f
 	.4byte IsFastConstant__14CVectorElementCFv
 
-.global lbl_803EE2CC
-lbl_803EE2CC:
+.global __vt__15CVEFastConstant
+__vt__15CVEFastConstant:
 	# ROM: 0x3EB2CC
 	.4byte 0
 	.4byte 0
-	.4byte __dt__15CVEFastConstant
+	.4byte __dt__15CVEFastConstantFv
 	.4byte GetValue__15CVEFastConstantCFiR9CVector3f
-	.4byte IsFastConstant__15CVEFastConstantCF
+	.4byte IsFastConstant__15CVEFastConstantCFv
 
-.global lbl_803EE2E0
-lbl_803EE2E0:
+.global __vt__11CVEConstant
+__vt__11CVEConstant:
 	# ROM: 0x3EB2E0
 	.4byte 0
 	.4byte 0
-	.4byte __dt__11CVEConstantF
+	.4byte __dt__11CVEConstantFv
 	.4byte GetValue__11CVEConstantCFiR9CVector3f
 	.4byte IsFastConstant__14CVectorElementCFv
 	.4byte 0
@@ -204,8 +204,8 @@ lbl_805A88F8:
 
 .section .text, "ax"
 
-.global GetValue__7CVECVTCCFiR9CVector3f
-GetValue__7CVECVTCCFiR9CVector3f:
+.global GetValue__16CVEColorToVectorCFiR9CVector3f
+GetValue__16CVEColorToVectorCFiR9CVector3f:
 /* 80334878 003317D8  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 8033487C 003317DC  7C 08 02 A6 */	mflr r0
 /* 80334880 003317E0  90 01 00 24 */	stw r0, 0x24(r1)
@@ -244,8 +244,8 @@ GetValue__7CVECVTCCFiR9CVector3f:
 /* 80334904 00331864  38 21 00 20 */	addi r1, r1, 0x20
 /* 80334908 00331868  4E 80 00 20 */	blr
 
-.global __dt__7CVECVTC
-__dt__7CVECVTC:
+.global __dt__16CVEColorToVectorFv
+__dt__16CVEColorToVectorFv:
 /* 8033490C 0033186C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80334910 00331870  7C 08 02 A6 */	mflr r0
 /* 80334914 00331874  90 01 00 14 */	stw r0, 0x14(r1)
@@ -254,8 +254,8 @@ __dt__7CVECVTC:
 /* 80334920 00331880  93 C1 00 08 */	stw r30, 8(r1)
 /* 80334924 00331884  7C 7E 1B 79 */	or. r30, r3, r3
 /* 80334928 00331888  41 82 00 68 */	beq lbl_80334990
-/* 8033492C 0033188C  3C 60 80 3F */	lis r3, lbl_803EE150@ha
-/* 80334930 00331890  38 03 E1 50 */	addi r0, r3, lbl_803EE150@l
+/* 8033492C 0033188C  3C 60 80 3F */	lis r3, __vt__16CVEColorToVector@ha
+/* 80334930 00331890  38 03 E1 50 */	addi r0, r3, __vt__16CVEColorToVector@l
 /* 80334934 00331894  90 1E 00 00 */	stw r0, 0(r30)
 /* 80334938 00331898  80 7E 00 04 */	lwz r3, 4(r30)
 /* 8033493C 0033189C  28 03 00 00 */	cmplwi r3, 0
@@ -290,15 +290,15 @@ lbl_80334990:
 /* 803349A4 00331904  38 21 00 10 */	addi r1, r1, 0x10
 /* 803349A8 00331908  4E 80 00 20 */	blr
 
-.global __ct__7CVECTVCFP13CColorElement
-__ct__7CVECTVCFP13CColorElement:
+.global __ct__16CVEColorToVectorFP13CColorElement
+__ct__16CVEColorToVectorFP13CColorElement:
 /* 803349AC 0033190C  3C E0 80 3F */	lis r7, __vt__8IElement@ha
 /* 803349B0 00331910  3C C0 80 3F */	lis r6, __vt__14CVectorElement@ha
 /* 803349B4 00331914  38 07 C5 A8 */	addi r0, r7, __vt__8IElement@l
-/* 803349B8 00331918  3C A0 80 3F */	lis r5, lbl_803EE150@ha
+/* 803349B8 00331918  3C A0 80 3F */	lis r5, __vt__16CVEColorToVector@ha
 /* 803349BC 0033191C  90 03 00 00 */	stw r0, 0(r3)
 /* 803349C0 00331920  38 C6 C5 94 */	addi r6, r6, __vt__14CVectorElement@l
-/* 803349C4 00331924  38 05 E1 50 */	addi r0, r5, lbl_803EE150@l
+/* 803349C4 00331924  38 05 E1 50 */	addi r0, r5, __vt__16CVEColorToVector@l
 /* 803349C8 00331928  90 C3 00 00 */	stw r6, 0(r3)
 /* 803349CC 0033192C  90 03 00 00 */	stw r0, 0(r3)
 /* 803349D0 00331930  90 83 00 04 */	stw r4, 4(r3)
@@ -360,8 +360,8 @@ GetValue__11CVESubtractCFiR9CVector3f:
 /* 80334AA4 00331A04  38 21 00 30 */	addi r1, r1, 0x30
 /* 80334AA8 00331A08  4E 80 00 20 */	blr
 
-.global __dt__11CVESubtract
-__dt__11CVESubtract:
+.global __dt__11CVESubtractFv
+__dt__11CVESubtractFv:
 /* 80334AAC 00331A0C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80334AB0 00331A10  7C 08 02 A6 */	mflr r0
 /* 80334AB4 00331A14  90 01 00 14 */	stw r0, 0x14(r1)
@@ -370,8 +370,8 @@ __dt__11CVESubtract:
 /* 80334AC0 00331A20  93 C1 00 08 */	stw r30, 8(r1)
 /* 80334AC4 00331A24  7C 7E 1B 79 */	or. r30, r3, r3
 /* 80334AC8 00331A28  41 82 00 88 */	beq lbl_80334B50
-/* 80334ACC 00331A2C  3C 60 80 3F */	lis r3, lbl_803EE164@ha
-/* 80334AD0 00331A30  38 03 E1 64 */	addi r0, r3, lbl_803EE164@l
+/* 80334ACC 00331A2C  3C 60 80 3F */	lis r3, __vt__11CVESubtract@ha
+/* 80334AD0 00331A30  38 03 E1 64 */	addi r0, r3, __vt__11CVESubtract@l
 /* 80334AD4 00331A34  90 1E 00 00 */	stw r0, 0(r30)
 /* 80334AD8 00331A38  80 7E 00 04 */	lwz r3, 4(r30)
 /* 80334ADC 00331A3C  28 03 00 00 */	cmplwi r3, 0
@@ -420,10 +420,10 @@ __ct__10CVESubractFP14CVectorElementP14CVectorElement:
 /* 80334B6C 00331ACC  3D 00 80 3F */	lis r8, __vt__8IElement@ha
 /* 80334B70 00331AD0  3C E0 80 3F */	lis r7, __vt__14CVectorElement@ha
 /* 80334B74 00331AD4  38 08 C5 A8 */	addi r0, r8, __vt__8IElement@l
-/* 80334B78 00331AD8  3C C0 80 3F */	lis r6, lbl_803EE164@ha
+/* 80334B78 00331AD8  3C C0 80 3F */	lis r6, __vt__11CVESubtract@ha
 /* 80334B7C 00331ADC  90 03 00 00 */	stw r0, 0(r3)
 /* 80334B80 00331AE0  38 E7 C5 94 */	addi r7, r7, __vt__14CVectorElement@l
-/* 80334B84 00331AE4  38 06 E1 64 */	addi r0, r6, lbl_803EE164@l
+/* 80334B84 00331AE4  38 06 E1 64 */	addi r0, r6, __vt__11CVESubtract@l
 /* 80334B88 00331AE8  90 E3 00 00 */	stw r7, 0(r3)
 /* 80334B8C 00331AEC  90 03 00 00 */	stw r0, 0(r3)
 /* 80334B90 00331AF0  90 83 00 04 */	stw r4, 4(r3)
@@ -482,8 +482,8 @@ GetValue__33CVEParticleSystemOrientationRightCFiR9CVector3f:
 /* 80334C4C 00331BAC  38 21 00 10 */	addi r1, r1, 0x10
 /* 80334C50 00331BB0  4E 80 00 20 */	blr
 
-.global GetValue__31CVEParticleSystemOrienatationUpCFiR9CVector3f
-GetValue__31CVEParticleSystemOrienatationUpCFiR9CVector3f:
+.global GetValue__30CVEParticleSystemOrientationUpCFiR9CVector3f
+GetValue__30CVEParticleSystemOrientationUpCFiR9CVector3f:
 /* 80334C54 00331BB4  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80334C58 00331BB8  7C 08 02 A6 */	mflr r0
 /* 80334C5C 00331BBC  90 01 00 14 */	stw r0, 0x14(r1)
@@ -596,8 +596,8 @@ GetValue__15CVERealToVectorCFiR9CVector3f:
 /* 80334DCC 00331D2C  38 21 00 20 */	addi r1, r1, 0x20
 /* 80334DD0 00331D30  4E 80 00 20 */	blr
 
-.global __dt__15CVERealToVector
-__dt__15CVERealToVector:
+.global __dt__15CVERealToVectorFv
+__dt__15CVERealToVectorFv:
 /* 80334DD4 00331D34  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80334DD8 00331D38  7C 08 02 A6 */	mflr r0
 /* 80334DDC 00331D3C  90 01 00 14 */	stw r0, 0x14(r1)
@@ -606,8 +606,8 @@ __dt__15CVERealToVector:
 /* 80334DE8 00331D48  93 C1 00 08 */	stw r30, 8(r1)
 /* 80334DEC 00331D4C  7C 7E 1B 79 */	or. r30, r3, r3
 /* 80334DF0 00331D50  41 82 00 68 */	beq lbl_80334E58
-/* 80334DF4 00331D54  3C 60 80 3F */	lis r3, lbl_803EE204@ha
-/* 80334DF8 00331D58  38 03 E2 04 */	addi r0, r3, lbl_803EE204@l
+/* 80334DF4 00331D54  3C 60 80 3F */	lis r3, __vt__15CVERealToVector@ha
+/* 80334DF8 00331D58  38 03 E2 04 */	addi r0, r3, __vt__15CVERealToVector@l
 /* 80334DFC 00331D5C  90 1E 00 00 */	stw r0, 0(r30)
 /* 80334E00 00331D60  80 7E 00 04 */	lwz r3, 4(r30)
 /* 80334E04 00331D64  28 03 00 00 */	cmplwi r3, 0
@@ -647,10 +647,10 @@ __ct__15CVERealToVectorFP12CRealElement:
 /* 80334E74 00331DD4  3C E0 80 3F */	lis r7, __vt__8IElement@ha
 /* 80334E78 00331DD8  3C C0 80 3F */	lis r6, __vt__14CVectorElement@ha
 /* 80334E7C 00331DDC  38 07 C5 A8 */	addi r0, r7, __vt__8IElement@l
-/* 80334E80 00331DE0  3C A0 80 3F */	lis r5, lbl_803EE204@ha
+/* 80334E80 00331DE0  3C A0 80 3F */	lis r5, __vt__15CVERealToVector@ha
 /* 80334E84 00331DE4  90 03 00 00 */	stw r0, 0(r3)
 /* 80334E88 00331DE8  38 C6 C5 94 */	addi r6, r6, __vt__14CVectorElement@l
-/* 80334E8C 00331DEC  38 05 E2 04 */	addi r0, r5, lbl_803EE204@l
+/* 80334E8C 00331DEC  38 05 E2 04 */	addi r0, r5, __vt__15CVERealToVector@l
 /* 80334E90 00331DF0  90 C3 00 00 */	stw r6, 0(r3)
 /* 80334E94 00331DF4  90 03 00 00 */	stw r0, 0(r3)
 /* 80334E98 00331DF8  90 83 00 04 */	stw r4, 4(r3)
@@ -763,8 +763,8 @@ lbl_80335018:
 /* 80335018 00331F78  38 21 00 10 */	addi r1, r1, 0x10
 /* 8033501C 00331F7C  4E 80 00 20 */	blr
 
-.global __dt__18CVEKeyframeEmitter
-__dt__18CVEKeyframeEmitter:
+.global __dt__18CVEKeyframeEmitterFv
+__dt__18CVEKeyframeEmitterFv:
 /* 80335020 00331F80  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80335024 00331F84  7C 08 02 A6 */	mflr r0
 /* 80335028 00331F88  90 01 00 24 */	stw r0, 0x24(r1)
@@ -773,9 +773,9 @@ __dt__18CVEKeyframeEmitter:
 /* 80335034 00331F94  93 C1 00 18 */	stw r30, 0x18(r1)
 /* 80335038 00331F98  7C 7E 1B 79 */	or. r30, r3, r3
 /* 8033503C 00331F9C  41 82 00 90 */	beq lbl_803350CC
-/* 80335040 00331FA0  3C 60 80 3F */	lis r3, lbl_803EE218@ha
+/* 80335040 00331FA0  3C 60 80 3F */	lis r3, __vt__18CVEKeyframeEmitter@ha
 /* 80335044 00331FA4  34 1E 00 18 */	addic. r0, r30, 0x18
-/* 80335048 00331FA8  38 03 E2 18 */	addi r0, r3, lbl_803EE218@l
+/* 80335048 00331FA8  38 03 E2 18 */	addi r0, r3, __vt__18CVEKeyframeEmitter@l
 /* 8033504C 00331FAC  90 1E 00 00 */	stw r0, 0(r30)
 /* 80335050 00331FB0  41 82 00 44 */	beq lbl_80335094
 /* 80335054 00331FB4  80 1E 00 1C */	lwz r0, 0x1c(r30)
@@ -834,13 +834,13 @@ __ct__18CVEKeyframeEmitterFR12CInputStream:
 /* 80335108 00332068  3C 60 80 3F */	lis r3, __vt__8IElement@ha
 /* 8033510C 0033206C  93 A1 00 24 */	stw r29, 0x24(r1)
 /* 80335110 00332070  38 03 C5 A8 */	addi r0, r3, __vt__8IElement@l
-/* 80335114 00332074  3C 60 80 3F */	lis r3, lbl_803EE218@ha
+/* 80335114 00332074  3C 60 80 3F */	lis r3, __vt__18CVEKeyframeEmitter@ha
 /* 80335118 00332078  7F C6 F3 78 */	mr r6, r30
 /* 8033511C 0033207C  93 81 00 20 */	stw r28, 0x20(r1)
 /* 80335120 00332080  90 1E 00 00 */	stw r0, 0(r30)
 /* 80335124 00332084  38 05 C5 94 */	addi r0, r5, __vt__14CVectorElement@l
 /* 80335128 00332088  90 1E 00 00 */	stw r0, 0(r30)
-/* 8033512C 0033208C  38 03 E2 18 */	addi r0, r3, lbl_803EE218@l
+/* 8033512C 0033208C  38 03 E2 18 */	addi r0, r3, __vt__18CVEKeyframeEmitter@l
 /* 80335130 00332090  7F E3 FB 78 */	mr r3, r31
 /* 80335134 00332094  90 1E 00 00 */	stw r0, 0(r30)
 /* 80335138 00332098  48 00 9B 4D */	bl ReadLong__12CInputStreamFv
@@ -990,8 +990,8 @@ lbl_80335330:
 /* 80335348 003322A8  38 21 00 20 */	addi r1, r1, 0x20
 /* 8033534C 003322AC  4E 80 00 20 */	blr
 
-.global __dt__8CVEPulse
-__dt__8CVEPulse:
+.global __dt__8CVEPulseFv
+__dt__8CVEPulseFv:
 /* 80335350 003322B0  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80335354 003322B4  7C 08 02 A6 */	mflr r0
 /* 80335358 003322B8  90 01 00 14 */	stw r0, 0x14(r1)
@@ -1000,8 +1000,8 @@ __dt__8CVEPulse:
 /* 80335364 003322C4  93 C1 00 08 */	stw r30, 8(r1)
 /* 80335368 003322C8  7C 7E 1B 79 */	or. r30, r3, r3
 /* 8033536C 003322CC  41 82 00 C8 */	beq lbl_80335434
-/* 80335370 003322D0  3C 60 80 3F */	lis r3, lbl_803EE22C@ha
-/* 80335374 003322D4  38 03 E2 2C */	addi r0, r3, lbl_803EE22C@l
+/* 80335370 003322D0  3C 60 80 3F */	lis r3, __vt__8CVEPulse@ha
+/* 80335374 003322D4  38 03 E2 2C */	addi r0, r3, __vt__8CVEPulse@l
 /* 80335378 003322D8  90 1E 00 00 */	stw r0, 0(r30)
 /* 8033537C 003322DC  80 7E 00 04 */	lwz r3, 4(r30)
 /* 80335380 003322E0  28 03 00 00 */	cmplwi r3, 0
@@ -1068,10 +1068,10 @@ __ct__8CVEPulseFP11CIntElementP11CIntElementP14CVectorElementP14CVectorElement:
 /* 80335450 003323B0  3D 40 80 3F */	lis r10, __vt__8IElement@ha
 /* 80335454 003323B4  3D 20 80 3F */	lis r9, __vt__14CVectorElement@ha
 /* 80335458 003323B8  38 0A C5 A8 */	addi r0, r10, __vt__8IElement@l
-/* 8033545C 003323BC  3D 00 80 3F */	lis r8, lbl_803EE22C@ha
+/* 8033545C 003323BC  3D 00 80 3F */	lis r8, __vt__8CVEPulse@ha
 /* 80335460 003323C0  90 03 00 00 */	stw r0, 0(r3)
 /* 80335464 003323C4  39 29 C5 94 */	addi r9, r9, __vt__14CVectorElement@l
-/* 80335468 003323C8  38 08 E2 2C */	addi r0, r8, lbl_803EE22C@l
+/* 80335468 003323C8  38 08 E2 2C */	addi r0, r8, __vt__8CVEPulse@l
 /* 8033546C 003323CC  91 23 00 00 */	stw r9, 0(r3)
 /* 80335470 003323D0  90 03 00 00 */	stw r0, 0(r3)
 /* 80335474 003323D4  90 83 00 04 */	stw r4, 4(r3)
@@ -1136,8 +1136,8 @@ GetValue__11CVEMultiplyCFiR9CVector3f:
 /* 80335554 003324B4  38 21 00 30 */	addi r1, r1, 0x30
 /* 80335558 003324B8  4E 80 00 20 */	blr
 
-.global __dt__11CVEMultiply
-__dt__11CVEMultiply:
+.global __dt__11CVEMultiplyFv
+__dt__11CVEMultiplyFv:
 /* 8033555C 003324BC  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80335560 003324C0  7C 08 02 A6 */	mflr r0
 /* 80335564 003324C4  90 01 00 14 */	stw r0, 0x14(r1)
@@ -1146,8 +1146,8 @@ __dt__11CVEMultiply:
 /* 80335570 003324D0  93 C1 00 08 */	stw r30, 8(r1)
 /* 80335574 003324D4  7C 7E 1B 79 */	or. r30, r3, r3
 /* 80335578 003324D8  41 82 00 88 */	beq lbl_80335600
-/* 8033557C 003324DC  3C 60 80 3F */	lis r3, lbl_803EE240@ha
-/* 80335580 003324E0  38 03 E2 40 */	addi r0, r3, lbl_803EE240@l
+/* 8033557C 003324DC  3C 60 80 3F */	lis r3, __vt__11CVEMultiply@ha
+/* 80335580 003324E0  38 03 E2 40 */	addi r0, r3, __vt__11CVEMultiply@l
 /* 80335584 003324E4  90 1E 00 00 */	stw r0, 0(r30)
 /* 80335588 003324E8  80 7E 00 04 */	lwz r3, 4(r30)
 /* 8033558C 003324EC  28 03 00 00 */	cmplwi r3, 0
@@ -1196,10 +1196,10 @@ __ct__11CVEMultiplyFP14CVectorElementP14CVectorElement:
 /* 8033561C 0033257C  3D 00 80 3F */	lis r8, __vt__8IElement@ha
 /* 80335620 00332580  3C E0 80 3F */	lis r7, __vt__14CVectorElement@ha
 /* 80335624 00332584  38 08 C5 A8 */	addi r0, r8, __vt__8IElement@l
-/* 80335628 00332588  3C C0 80 3F */	lis r6, lbl_803EE240@ha
+/* 80335628 00332588  3C C0 80 3F */	lis r6, __vt__11CVEMultiply@ha
 /* 8033562C 0033258C  90 03 00 00 */	stw r0, 0(r3)
 /* 80335630 00332590  38 E7 C5 94 */	addi r7, r7, __vt__14CVectorElement@l
-/* 80335634 00332594  38 06 E2 40 */	addi r0, r6, lbl_803EE240@l
+/* 80335634 00332594  38 06 E2 40 */	addi r0, r6, __vt__11CVEMultiply@l
 /* 80335638 00332598  90 E3 00 00 */	stw r7, 0(r3)
 /* 8033563C 0033259C  90 03 00 00 */	stw r0, 0(r3)
 /* 80335640 003325A0  90 83 00 04 */	stw r4, 4(r3)
@@ -1262,8 +1262,8 @@ GetValue__6CVEAddCFiR9CVector3f:
 /* 80335718 00332678  38 21 00 30 */	addi r1, r1, 0x30
 /* 8033571C 0033267C  4E 80 00 20 */	blr
 
-.global __dt__6CVEAdd
-__dt__6CVEAdd:
+.global __dt__6CVEAddFv
+__dt__6CVEAddFv:
 /* 80335720 00332680  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80335724 00332684  7C 08 02 A6 */	mflr r0
 /* 80335728 00332688  90 01 00 14 */	stw r0, 0x14(r1)
@@ -1272,8 +1272,8 @@ __dt__6CVEAdd:
 /* 80335734 00332694  93 C1 00 08 */	stw r30, 8(r1)
 /* 80335738 00332698  7C 7E 1B 79 */	or. r30, r3, r3
 /* 8033573C 0033269C  41 82 00 88 */	beq lbl_803357C4
-/* 80335740 003326A0  3C 60 80 3F */	lis r3, lbl_803EE254@ha
-/* 80335744 003326A4  38 03 E2 54 */	addi r0, r3, lbl_803EE254@l
+/* 80335740 003326A0  3C 60 80 3F */	lis r3, __vt__6CVEAdd@ha
+/* 80335744 003326A4  38 03 E2 54 */	addi r0, r3, __vt__6CVEAdd@l
 /* 80335748 003326A8  90 1E 00 00 */	stw r0, 0(r30)
 /* 8033574C 003326AC  80 7E 00 04 */	lwz r3, 4(r30)
 /* 80335750 003326B0  28 03 00 00 */	cmplwi r3, 0
@@ -1322,10 +1322,10 @@ __ct__6CVEAddFP14CVectorElementP14CVectorElement:
 /* 803357E0 00332740  3D 00 80 3F */	lis r8, __vt__8IElement@ha
 /* 803357E4 00332744  3C E0 80 3F */	lis r7, __vt__14CVectorElement@ha
 /* 803357E8 00332748  38 08 C5 A8 */	addi r0, r8, __vt__8IElement@l
-/* 803357EC 0033274C  3C C0 80 3F */	lis r6, lbl_803EE254@ha
+/* 803357EC 0033274C  3C C0 80 3F */	lis r6, __vt__6CVEAdd@ha
 /* 803357F0 00332750  90 03 00 00 */	stw r0, 0(r3)
 /* 803357F4 00332754  38 E7 C5 94 */	addi r7, r7, __vt__14CVectorElement@l
-/* 803357F8 00332758  38 06 E2 54 */	addi r0, r6, lbl_803EE254@l
+/* 803357F8 00332758  38 06 E2 54 */	addi r0, r6, __vt__6CVEAdd@l
 /* 803357FC 0033275C  90 E3 00 00 */	stw r7, 0(r3)
 /* 80335800 00332760  90 03 00 00 */	stw r0, 0(r3)
 /* 80335804 00332764  90 83 00 04 */	stw r4, 4(r3)
@@ -1442,8 +1442,8 @@ GetValue__16CVECircleClusterCFiR9CVector3f:
 /* 803359B4 00332914  38 21 00 70 */	addi r1, r1, 0x70
 /* 803359B8 00332918  4E 80 00 20 */	blr
 
-.global __dt__16CVECircleCluster
-__dt__16CVECircleCluster:
+.global __dt__16CVECircleClusterFv
+__dt__16CVECircleClusterFv:
 /* 803359BC 0033291C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803359C0 00332920  7C 08 02 A6 */	mflr r0
 /* 803359C4 00332924  90 01 00 14 */	stw r0, 0x14(r1)
@@ -1452,8 +1452,8 @@ __dt__16CVECircleCluster:
 /* 803359D0 00332930  93 C1 00 08 */	stw r30, 8(r1)
 /* 803359D4 00332934  7C 7E 1B 79 */	or. r30, r3, r3
 /* 803359D8 00332938  41 82 00 88 */	beq lbl_80335A60
-/* 803359DC 0033293C  3C 60 80 3F */	lis r3, lbl_803EE268@ha
-/* 803359E0 00332940  38 03 E2 68 */	addi r0, r3, lbl_803EE268@l
+/* 803359DC 0033293C  3C 60 80 3F */	lis r3, __vt__16CVECircleCluster@ha
+/* 803359E0 00332940  38 03 E2 68 */	addi r0, r3, __vt__16CVECircleCluster@l
 /* 803359E4 00332944  90 1E 00 00 */	stw r0, 0(r30)
 /* 803359E8 00332948  80 7E 00 04 */	lwz r3, 4(r30)
 /* 803359EC 0033294C  28 03 00 00 */	cmplwi r3, 0
@@ -1518,9 +1518,9 @@ __ct__16CVECircleClusterFP14CVectorElementP14CVectorElementP11CIntElementP12CRea
 /* 80335ABC 00332A1C  3C 60 80 3F */	lis r3, __vt__14CVectorElement@ha
 /* 80335AC0 00332A20  90 1F 00 00 */	stw r0, 0(r31)
 /* 80335AC4 00332A24  38 03 C5 94 */	addi r0, r3, __vt__14CVectorElement@l
-/* 80335AC8 00332A28  3D 00 80 3F */	lis r8, lbl_803EE268@ha
+/* 80335AC8 00332A28  3D 00 80 3F */	lis r8, __vt__16CVECircleCluster@ha
 /* 80335ACC 00332A2C  90 1F 00 00 */	stw r0, 0(r31)
-/* 80335AD0 00332A30  38 08 E2 68 */	addi r0, r8, lbl_803EE268@l
+/* 80335AD0 00332A30  38 08 E2 68 */	addi r0, r8, __vt__16CVECircleCluster@l
 /* 80335AD4 00332A34  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 80335AD8 00332A38  7C DE 33 78 */	mr r30, r6
 /* 80335ADC 00332A3C  90 1F 00 00 */	stw r0, 0(r31)
@@ -1720,8 +1720,8 @@ lbl_80335DA4:
 /* 80335DB8 00332D18  38 21 00 20 */	addi r1, r1, 0x20
 /* 80335DBC 00332D1C  4E 80 00 20 */	blr
 
-.global __dt__12CVETimeChain
-__dt__12CVETimeChain:
+.global __dt__12CVETimeChainFv
+__dt__12CVETimeChainFv:
 /* 80335DC0 00332D20  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80335DC4 00332D24  7C 08 02 A6 */	mflr r0
 /* 80335DC8 00332D28  90 01 00 14 */	stw r0, 0x14(r1)
@@ -1730,8 +1730,8 @@ __dt__12CVETimeChain:
 /* 80335DD4 00332D34  93 C1 00 08 */	stw r30, 8(r1)
 /* 80335DD8 00332D38  7C 7E 1B 79 */	or. r30, r3, r3
 /* 80335DDC 00332D3C  41 82 00 A8 */	beq lbl_80335E84
-/* 80335DE0 00332D40  3C 60 80 3F */	lis r3, lbl_803EE27C@ha
-/* 80335DE4 00332D44  38 03 E2 7C */	addi r0, r3, lbl_803EE27C@l
+/* 80335DE0 00332D40  3C 60 80 3F */	lis r3, __vt__12CVETimeChain@ha
+/* 80335DE4 00332D44  38 03 E2 7C */	addi r0, r3, __vt__12CVETimeChain@l
 /* 80335DE8 00332D48  90 1E 00 00 */	stw r0, 0(r30)
 /* 80335DEC 00332D4C  80 7E 00 04 */	lwz r3, 4(r30)
 /* 80335DF0 00332D50  28 03 00 00 */	cmplwi r3, 0
@@ -1789,10 +1789,10 @@ __ct__12CVETimeChainFP14CVectorElementP14CVectorElementP11CIntElement:
 /* 80335EA0 00332E00  3D 20 80 3F */	lis r9, __vt__8IElement@ha
 /* 80335EA4 00332E04  3D 00 80 3F */	lis r8, __vt__14CVectorElement@ha
 /* 80335EA8 00332E08  38 09 C5 A8 */	addi r0, r9, __vt__8IElement@l
-/* 80335EAC 00332E0C  3C E0 80 3F */	lis r7, lbl_803EE27C@ha
+/* 80335EAC 00332E0C  3C E0 80 3F */	lis r7, __vt__12CVETimeChain@ha
 /* 80335EB0 00332E10  90 03 00 00 */	stw r0, 0(r3)
 /* 80335EB4 00332E14  39 08 C5 94 */	addi r8, r8, __vt__14CVectorElement@l
-/* 80335EB8 00332E18  38 07 E2 7C */	addi r0, r7, lbl_803EE27C@l
+/* 80335EB8 00332E18  38 07 E2 7C */	addi r0, r7, __vt__12CVETimeChain@l
 /* 80335EBC 00332E1C  91 03 00 00 */	stw r8, 0(r3)
 /* 80335EC0 00332E20  90 03 00 00 */	stw r0, 0(r3)
 /* 80335EC4 00332E24  90 83 00 04 */	stw r4, 4(r3)
@@ -1913,8 +1913,8 @@ GetValue__9CVECircleCFiR9CVector3f:
 /* 80336084 00332FE4  38 21 00 70 */	addi r1, r1, 0x70
 /* 80336088 00332FE8  4E 80 00 20 */	blr
 
-.global __dt__9CVECircle
-__dt__9CVECircle:
+.global __dt__9CVECircleFv
+__dt__9CVECircleFv:
 /* 8033608C 00332FEC  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80336090 00332FF0  7C 08 02 A6 */	mflr r0
 /* 80336094 00332FF4  90 01 00 14 */	stw r0, 0x14(r1)
@@ -1923,8 +1923,8 @@ __dt__9CVECircle:
 /* 803360A0 00333000  93 C1 00 08 */	stw r30, 8(r1)
 /* 803360A4 00333004  7C 7E 1B 79 */	or. r30, r3, r3
 /* 803360A8 00333008  41 82 00 C8 */	beq lbl_80336170
-/* 803360AC 0033300C  3C 60 80 3F */	lis r3, lbl_803EE290@ha
-/* 803360B0 00333010  38 03 E2 90 */	addi r0, r3, lbl_803EE290@l
+/* 803360AC 0033300C  3C 60 80 3F */	lis r3, __vt__9CVECircle@ha
+/* 803360B0 00333010  38 03 E2 90 */	addi r0, r3, __vt__9CVECircle@l
 /* 803360B4 00333014  90 1E 00 00 */	stw r0, 0(r30)
 /* 803360B8 00333018  80 7E 00 04 */	lwz r3, 4(r30)
 /* 803360BC 0033301C  28 03 00 00 */	cmplwi r3, 0
@@ -2003,9 +2003,9 @@ __ct__9CVECircleFP14CVectorElementP14CVectorElementP12CRealElementP12CRealElemen
 /* 803361BC 0033311C  90 1E 00 00 */	stw r0, 0(r30)
 /* 803361C0 00333120  38 03 C5 94 */	addi r0, r3, __vt__14CVectorElement@l
 /* 803361C4 00333124  7D 25 4B 78 */	mr r5, r9
-/* 803361C8 00333128  3C 60 80 3F */	lis r3, lbl_803EE290@ha
+/* 803361C8 00333128  3C 60 80 3F */	lis r3, __vt__9CVECircle@ha
 /* 803361CC 0033312C  90 09 00 00 */	stw r0, 0(r9)
-/* 803361D0 00333130  38 03 E2 90 */	addi r0, r3, lbl_803EE290@l
+/* 803361D0 00333130  38 03 E2 90 */	addi r0, r3, __vt__9CVECircle@l
 /* 803361D4 00333134  38 A1 00 14 */	addi r5, r1, 0x14
 /* 803361D8 00333138  90 1E 00 00 */	stw r0, 0(r30)
 /* 803361DC 0033313C  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
@@ -2212,8 +2212,8 @@ GetValue__12CVEAngleConeCFiR9CVector3f:
 /* 803364E8 00333448  38 21 00 60 */	addi r1, r1, 0x60
 /* 803364EC 0033344C  4E 80 00 20 */	blr
 
-.global __dt__12CVEAngleCone
-__dt__12CVEAngleCone:
+.global __dt__12CVEAngleConeFv
+__dt__12CVEAngleConeFv:
 /* 803364F0 00333450  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803364F4 00333454  7C 08 02 A6 */	mflr r0
 /* 803364F8 00333458  90 01 00 14 */	stw r0, 0x14(r1)
@@ -2222,8 +2222,8 @@ __dt__12CVEAngleCone:
 /* 80336504 00333464  93 C1 00 08 */	stw r30, 8(r1)
 /* 80336508 00333468  7C 7E 1B 79 */	or. r30, r3, r3
 /* 8033650C 0033346C  41 82 00 E8 */	beq lbl_803365F4
-/* 80336510 00333470  3C 60 80 3F */	lis r3, lbl_803EE2A4@ha
-/* 80336514 00333474  38 03 E2 A4 */	addi r0, r3, lbl_803EE2A4@l
+/* 80336510 00333470  3C 60 80 3F */	lis r3, __vt__12CVEAngleCone@ha
+/* 80336514 00333474  38 03 E2 A4 */	addi r0, r3, __vt__12CVEAngleCone@l
 /* 80336518 00333478  90 1E 00 00 */	stw r0, 0(r30)
 /* 8033651C 0033347C  80 7E 00 04 */	lwz r3, 4(r30)
 /* 80336520 00333480  28 03 00 00 */	cmplwi r3, 0
@@ -2299,10 +2299,10 @@ __ct__12CVEAngleConeFP12CRealElementP12CRealElementP12CRealElementP12CRealElemen
 /* 80336610 00333570  3D 60 80 3F */	lis r11, __vt__8IElement@ha
 /* 80336614 00333574  3D 40 80 3F */	lis r10, __vt__14CVectorElement@ha
 /* 80336618 00333578  38 0B C5 A8 */	addi r0, r11, __vt__8IElement@l
-/* 8033661C 0033357C  3D 20 80 3F */	lis r9, lbl_803EE2A4@ha
+/* 8033661C 0033357C  3D 20 80 3F */	lis r9, __vt__12CVEAngleCone@ha
 /* 80336620 00333580  90 03 00 00 */	stw r0, 0(r3)
 /* 80336624 00333584  39 4A C5 94 */	addi r10, r10, __vt__14CVectorElement@l
-/* 80336628 00333588  38 09 E2 A4 */	addi r0, r9, lbl_803EE2A4@l
+/* 80336628 00333588  38 09 E2 A4 */	addi r0, r9, __vt__12CVEAngleCone@l
 /* 8033662C 0033358C  91 43 00 00 */	stw r10, 0(r3)
 /* 80336630 00333590  90 03 00 00 */	stw r0, 0(r3)
 /* 80336634 00333594  90 83 00 04 */	stw r4, 4(r3)
@@ -2420,8 +2420,8 @@ lbl_80336704:
 /* 803367DC 0033373C  38 21 00 70 */	addi r1, r1, 0x70
 /* 803367E0 00333740  4E 80 00 20 */	blr
 
-.global __dt__7CVECone
-__dt__7CVECone:
+.global __dt__7CVEConeFv
+__dt__7CVEConeFv:
 /* 803367E4 00333744  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803367E8 00333748  7C 08 02 A6 */	mflr r0
 /* 803367EC 0033374C  90 01 00 14 */	stw r0, 0x14(r1)
@@ -2430,8 +2430,8 @@ __dt__7CVECone:
 /* 803367F8 00333758  93 C1 00 08 */	stw r30, 8(r1)
 /* 803367FC 0033375C  7C 7E 1B 79 */	or. r30, r3, r3
 /* 80336800 00333760  41 82 00 88 */	beq lbl_80336888
-/* 80336804 00333764  3C 60 80 3F */	lis r3, lbl_803EE2B8@ha
-/* 80336808 00333768  38 03 E2 B8 */	addi r0, r3, lbl_803EE2B8@l
+/* 80336804 00333764  3C 60 80 3F */	lis r3, __vt__7CVECone@ha
+/* 80336808 00333768  38 03 E2 B8 */	addi r0, r3, __vt__7CVECone@l
 /* 8033680C 0033376C  90 1E 00 00 */	stw r0, 0(r30)
 /* 80336810 00333770  80 7E 00 04 */	lwz r3, 4(r30)
 /* 80336814 00333774  28 03 00 00 */	cmplwi r3, 0
@@ -2483,7 +2483,7 @@ __ct__7CVEConeFP14CVectorElementP12CRealElement:
 /* 803368B0 00333810  C0 02 CB 54 */	lfs f0, lbl_805AE874@sda21(r2)
 /* 803368B4 00333814  90 01 00 34 */	stw r0, 0x34(r1)
 /* 803368B8 00333818  38 06 C5 A8 */	addi r0, r6, __vt__8IElement@l
-/* 803368BC 0033381C  3C C0 80 3F */	lis r6, lbl_803EE2B8@ha
+/* 803368BC 0033381C  3C C0 80 3F */	lis r6, __vt__7CVECone@ha
 /* 803368C0 00333820  93 E1 00 2C */	stw r31, 0x2c(r1)
 /* 803368C4 00333824  7C 7F 1B 78 */	mr r31, r3
 /* 803368C8 00333828  3C 60 80 3F */	lis r3, __vt__14CVectorElement@ha
@@ -2492,7 +2492,7 @@ __ct__7CVEConeFP14CVectorElementP12CRealElement:
 /* 803368D4 00333834  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 803368D8 00333838  7F E7 FB 78 */	mr r7, r31
 /* 803368DC 0033383C  90 1F 00 00 */	stw r0, 0(r31)
-/* 803368E0 00333840  38 06 E2 B8 */	addi r0, r6, lbl_803EE2B8@l
+/* 803368E0 00333840  38 06 E2 B8 */	addi r0, r6, __vt__7CVECone@l
 /* 803368E4 00333844  90 1F 00 00 */	stw r0, 0(r31)
 /* 803368E8 00333848  90 9F 00 04 */	stw r4, 4(r31)
 /* 803368EC 0033384C  38 80 00 00 */	li r4, 0
@@ -2588,16 +2588,16 @@ GetValue__15CVEFastConstantCFiR9CVector3f:
 /* 80336A40 003339A0  D0 05 00 08 */	stfs f0, 8(r5)
 /* 80336A44 003339A4  4E 80 00 20 */	blr
 
-.global __dt__15CVEFastConstant
-__dt__15CVEFastConstant:
+.global __dt__15CVEFastConstantFv
+__dt__15CVEFastConstantFv:
 /* 80336A48 003339A8  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80336A4C 003339AC  7C 08 02 A6 */	mflr r0
 /* 80336A50 003339B0  90 01 00 14 */	stw r0, 0x14(r1)
 /* 80336A54 003339B4  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 80336A58 003339B8  7C 7F 1B 79 */	or. r31, r3, r3
 /* 80336A5C 003339BC  41 82 00 44 */	beq lbl_80336AA0
-/* 80336A60 003339C0  3C 60 80 3F */	lis r3, lbl_803EE2CC@ha
-/* 80336A64 003339C4  38 03 E2 CC */	addi r0, r3, lbl_803EE2CC@l
+/* 80336A60 003339C0  3C 60 80 3F */	lis r3, __vt__15CVEFastConstant@ha
+/* 80336A64 003339C4  38 03 E2 CC */	addi r0, r3, __vt__15CVEFastConstant@l
 /* 80336A68 003339C8  90 1F 00 00 */	stw r0, 0(r31)
 /* 80336A6C 003339CC  41 82 00 20 */	beq lbl_80336A8C
 /* 80336A70 003339D0  3C 60 80 3F */	lis r3, __vt__14CVectorElement@ha
@@ -2626,10 +2626,10 @@ __ct__15CVEFastConstantFfff:
 /* 80336AB8 00333A18  3C C0 80 3F */	lis r6, __vt__8IElement@ha
 /* 80336ABC 00333A1C  3C A0 80 3F */	lis r5, __vt__14CVectorElement@ha
 /* 80336AC0 00333A20  38 06 C5 A8 */	addi r0, r6, __vt__8IElement@l
-/* 80336AC4 00333A24  3C 80 80 3F */	lis r4, lbl_803EE2CC@ha
+/* 80336AC4 00333A24  3C 80 80 3F */	lis r4, __vt__15CVEFastConstant@ha
 /* 80336AC8 00333A28  90 03 00 00 */	stw r0, 0(r3)
 /* 80336ACC 00333A2C  38 A5 C5 94 */	addi r5, r5, __vt__14CVectorElement@l
-/* 80336AD0 00333A30  38 04 E2 CC */	addi r0, r4, lbl_803EE2CC@l
+/* 80336AD0 00333A30  38 04 E2 CC */	addi r0, r4, __vt__15CVEFastConstant@l
 /* 80336AD4 00333A34  90 A3 00 00 */	stw r5, 0(r3)
 /* 80336AD8 00333A38  90 03 00 00 */	stw r0, 0(r3)
 /* 80336ADC 00333A3C  D0 23 00 04 */	stfs f1, 4(r3)
@@ -2683,8 +2683,8 @@ GetValue__11CVEConstantCFiR9CVector3f:
 /* 80336B90 00333AF0  38 21 00 30 */	addi r1, r1, 0x30
 /* 80336B94 00333AF4  4E 80 00 20 */	blr
 
-.global __dt__11CVEConstantF
-__dt__11CVEConstantF:
+.global __dt__11CVEConstantFv
+__dt__11CVEConstantFv:
 /* 80336B98 00333AF8  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80336B9C 00333AFC  7C 08 02 A6 */	mflr r0
 /* 80336BA0 00333B00  90 01 00 14 */	stw r0, 0x14(r1)
@@ -2693,8 +2693,8 @@ __dt__11CVEConstantF:
 /* 80336BAC 00333B0C  93 C1 00 08 */	stw r30, 8(r1)
 /* 80336BB0 00333B10  7C 7E 1B 79 */	or. r30, r3, r3
 /* 80336BB4 00333B14  41 82 00 A8 */	beq lbl_80336C5C
-/* 80336BB8 00333B18  3C 60 80 3F */	lis r3, lbl_803EE2E0@ha
-/* 80336BBC 00333B1C  38 03 E2 E0 */	addi r0, r3, lbl_803EE2E0@l
+/* 80336BB8 00333B18  3C 60 80 3F */	lis r3, __vt__11CVEConstant@ha
+/* 80336BBC 00333B1C  38 03 E2 E0 */	addi r0, r3, __vt__11CVEConstant@l
 /* 80336BC0 00333B20  90 1E 00 00 */	stw r0, 0(r30)
 /* 80336BC4 00333B24  80 7E 00 04 */	lwz r3, 4(r30)
 /* 80336BC8 00333B28  28 03 00 00 */	cmplwi r3, 0
@@ -2752,10 +2752,10 @@ __ct__11CVEConstantFP12CRealElementP12CRealElementP12CRealElement:
 /* 80336C78 00333BD8  3D 20 80 3F */	lis r9, __vt__8IElement@ha
 /* 80336C7C 00333BDC  3D 00 80 3F */	lis r8, __vt__14CVectorElement@ha
 /* 80336C80 00333BE0  38 09 C5 A8 */	addi r0, r9, __vt__8IElement@l
-/* 80336C84 00333BE4  3C E0 80 3F */	lis r7, lbl_803EE2E0@ha
+/* 80336C84 00333BE4  3C E0 80 3F */	lis r7, __vt__11CVEConstant@ha
 /* 80336C88 00333BE8  90 03 00 00 */	stw r0, 0(r3)
 /* 80336C8C 00333BEC  39 08 C5 94 */	addi r8, r8, __vt__14CVectorElement@l
-/* 80336C90 00333BF0  38 07 E2 E0 */	addi r0, r7, lbl_803EE2E0@l
+/* 80336C90 00333BF0  38 07 E2 E0 */	addi r0, r7, __vt__11CVEConstant@l
 /* 80336C94 00333BF4  91 03 00 00 */	stw r8, 0(r3)
 /* 80336C98 00333BF8  90 03 00 00 */	stw r0, 0(r3)
 /* 80336C9C 00333BFC  90 83 00 04 */	stw r4, 4(r3)
@@ -2771,8 +2771,8 @@ __dt__28CVEParticleSystemTranslationFv:
 /* 80336CB8 00333C18  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 80336CBC 00333C1C  7C 7F 1B 79 */	or. r31, r3, r3
 /* 80336CC0 00333C20  41 82 00 44 */	beq lbl_80336D04
-/* 80336CC4 00333C24  3C 60 80 3F */	lis r3, lbl_803EE178@ha
-/* 80336CC8 00333C28  38 03 E1 78 */	addi r0, r3, lbl_803EE178@l
+/* 80336CC4 00333C24  3C 60 80 3F */	lis r3, __vt__28CVEParticleSystemTranslation@ha
+/* 80336CC8 00333C28  38 03 E1 78 */	addi r0, r3, __vt__28CVEParticleSystemTranslation@l
 /* 80336CCC 00333C2C  90 1F 00 00 */	stw r0, 0(r31)
 /* 80336CD0 00333C30  41 82 00 20 */	beq lbl_80336CF0
 /* 80336CD4 00333C34  3C 60 80 3F */	lis r3, __vt__14CVectorElement@ha
@@ -2796,16 +2796,16 @@ lbl_80336D04:
 /* 80336D14 00333C74  38 21 00 10 */	addi r1, r1, 0x10
 /* 80336D18 00333C78  4E 80 00 20 */	blr
 
-.global __dt__33CVEParticleSystemOrientationRightF
-__dt__33CVEParticleSystemOrientationRightF:
+.global __dt__33CVEParticleSystemOrientationRightFv
+__dt__33CVEParticleSystemOrientationRightFv:
 /* 80336D1C 00333C7C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80336D20 00333C80  7C 08 02 A6 */	mflr r0
 /* 80336D24 00333C84  90 01 00 14 */	stw r0, 0x14(r1)
 /* 80336D28 00333C88  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 80336D2C 00333C8C  7C 7F 1B 79 */	or. r31, r3, r3
 /* 80336D30 00333C90  41 82 00 44 */	beq lbl_80336D74
-/* 80336D34 00333C94  3C 60 80 3F */	lis r3, lbl_803EE18C@ha
-/* 80336D38 00333C98  38 03 E1 8C */	addi r0, r3, lbl_803EE18C@l
+/* 80336D34 00333C94  3C 60 80 3F */	lis r3, __vt__33CVEParticleSystemOrientationRight@ha
+/* 80336D38 00333C98  38 03 E1 8C */	addi r0, r3, __vt__33CVEParticleSystemOrientationRight@l
 /* 80336D3C 00333C9C  90 1F 00 00 */	stw r0, 0(r31)
 /* 80336D40 00333CA0  41 82 00 20 */	beq lbl_80336D60
 /* 80336D44 00333CA4  3C 60 80 3F */	lis r3, __vt__14CVectorElement@ha
@@ -2829,16 +2829,16 @@ lbl_80336D74:
 /* 80336D84 00333CE4  38 21 00 10 */	addi r1, r1, 0x10
 /* 80336D88 00333CE8  4E 80 00 20 */	blr
 
-.global __dt__31CVEParticleSystemOrienatationUpF
-__dt__31CVEParticleSystemOrienatationUpF:
+.global __dt__30CVEParticleSystemOrientationUpFv
+__dt__30CVEParticleSystemOrientationUpFv:
 /* 80336D8C 00333CEC  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80336D90 00333CF0  7C 08 02 A6 */	mflr r0
 /* 80336D94 00333CF4  90 01 00 14 */	stw r0, 0x14(r1)
 /* 80336D98 00333CF8  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 80336D9C 00333CFC  7C 7F 1B 79 */	or. r31, r3, r3
 /* 80336DA0 00333D00  41 82 00 44 */	beq lbl_80336DE4
-/* 80336DA4 00333D04  3C 60 80 3F */	lis r3, lbl_803EE1A0@ha
-/* 80336DA8 00333D08  38 03 E1 A0 */	addi r0, r3, lbl_803EE1A0@l
+/* 80336DA4 00333D04  3C 60 80 3F */	lis r3, __vt__30CVEParticleSystemOrientationUp@ha
+/* 80336DA8 00333D08  38 03 E1 A0 */	addi r0, r3, __vt__30CVEParticleSystemOrientationUp@l
 /* 80336DAC 00333D0C  90 1F 00 00 */	stw r0, 0(r31)
 /* 80336DB0 00333D10  41 82 00 20 */	beq lbl_80336DD0
 /* 80336DB4 00333D14  3C 60 80 3F */	lis r3, __vt__14CVectorElement@ha
@@ -2862,16 +2862,16 @@ lbl_80336DE4:
 /* 80336DF4 00333D54  38 21 00 10 */	addi r1, r1, 0x10
 /* 80336DF8 00333D58  4E 80 00 20 */	blr
 
-.global __dt__33CVEParticleSystemOrientationFrontF
-__dt__33CVEParticleSystemOrientationFrontF:
+.global __dt__33CVEParticleSystemOrientationFrontFv
+__dt__33CVEParticleSystemOrientationFrontFv:
 /* 80336DFC 00333D5C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80336E00 00333D60  7C 08 02 A6 */	mflr r0
 /* 80336E04 00333D64  90 01 00 14 */	stw r0, 0x14(r1)
 /* 80336E08 00333D68  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 80336E0C 00333D6C  7C 7F 1B 79 */	or. r31, r3, r3
 /* 80336E10 00333D70  41 82 00 44 */	beq lbl_80336E54
-/* 80336E14 00333D74  3C 60 80 3F */	lis r3, lbl_803EE1B4@ha
-/* 80336E18 00333D78  38 03 E1 B4 */	addi r0, r3, lbl_803EE1B4@l
+/* 80336E14 00333D74  3C 60 80 3F */	lis r3, __vt__33CVEParticleSystemOrientationFront@ha
+/* 80336E18 00333D78  38 03 E1 B4 */	addi r0, r3, __vt__33CVEParticleSystemOrientationFront@l
 /* 80336E1C 00333D7C  90 1F 00 00 */	stw r0, 0(r31)
 /* 80336E20 00333D80  41 82 00 20 */	beq lbl_80336E40
 /* 80336E24 00333D84  3C 60 80 3F */	lis r3, __vt__14CVectorElement@ha
@@ -2895,16 +2895,16 @@ lbl_80336E54:
 /* 80336E64 00333DC4  38 21 00 10 */	addi r1, r1, 0x10
 /* 80336E68 00333DC8  4E 80 00 20 */	blr
 
-.global __dt__19CVEParticleVelocityF
-__dt__19CVEParticleVelocityF:
+.global __dt__19CVEParticleVelocityFv
+__dt__19CVEParticleVelocityFv:
 /* 80336E6C 00333DCC  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80336E70 00333DD0  7C 08 02 A6 */	mflr r0
 /* 80336E74 00333DD4  90 01 00 14 */	stw r0, 0x14(r1)
 /* 80336E78 00333DD8  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 80336E7C 00333DDC  7C 7F 1B 79 */	or. r31, r3, r3
 /* 80336E80 00333DE0  41 82 00 44 */	beq lbl_80336EC4
-/* 80336E84 00333DE4  3C 60 80 3F */	lis r3, lbl_803EE1C8@ha
-/* 80336E88 00333DE8  38 03 E1 C8 */	addi r0, r3, lbl_803EE1C8@l
+/* 80336E84 00333DE4  3C 60 80 3F */	lis r3, __vt__19CVEParticleVelocity@ha
+/* 80336E88 00333DE8  38 03 E1 C8 */	addi r0, r3, __vt__19CVEParticleVelocity@l
 /* 80336E8C 00333DEC  90 1F 00 00 */	stw r0, 0(r31)
 /* 80336E90 00333DF0  41 82 00 20 */	beq lbl_80336EB0
 /* 80336E94 00333DF4  3C 60 80 3F */	lis r3, __vt__14CVectorElement@ha
@@ -2928,16 +2928,16 @@ lbl_80336EC4:
 /* 80336ED4 00333E34  38 21 00 10 */	addi r1, r1, 0x10
 /* 80336ED8 00333E38  4E 80 00 20 */	blr
 
-.global __dt__16CVEParticleColorF
-__dt__16CVEParticleColorF:
+.global __dt__16CVEParticleColorFv
+__dt__16CVEParticleColorFv:
 /* 80336EDC 00333E3C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80336EE0 00333E40  7C 08 02 A6 */	mflr r0
 /* 80336EE4 00333E44  90 01 00 14 */	stw r0, 0x14(r1)
 /* 80336EE8 00333E48  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 80336EEC 00333E4C  7C 7F 1B 79 */	or. r31, r3, r3
 /* 80336EF0 00333E50  41 82 00 44 */	beq lbl_80336F34
-/* 80336EF4 00333E54  3C 60 80 3F */	lis r3, lbl_803EE1DC@ha
-/* 80336EF8 00333E58  38 03 E1 DC */	addi r0, r3, lbl_803EE1DC@l
+/* 80336EF4 00333E54  3C 60 80 3F */	lis r3, __vt__16CVEParticleColor@ha
+/* 80336EF8 00333E58  38 03 E1 DC */	addi r0, r3, __vt__16CVEParticleColor@l
 /* 80336EFC 00333E5C  90 1F 00 00 */	stw r0, 0(r31)
 /* 80336F00 00333E60  41 82 00 20 */	beq lbl_80336F20
 /* 80336F04 00333E64  3C 60 80 3F */	lis r3, __vt__14CVectorElement@ha
@@ -2961,16 +2961,16 @@ lbl_80336F34:
 /* 80336F44 00333EA4  38 21 00 10 */	addi r1, r1, 0x10
 /* 80336F48 00333EA8  4E 80 00 20 */	blr
 
-.global __dt__19CVEParticleLocation
-__dt__19CVEParticleLocation:
+.global __dt__19CVEParticleLocationFv
+__dt__19CVEParticleLocationFv:
 /* 80336F4C 00333EAC  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80336F50 00333EB0  7C 08 02 A6 */	mflr r0
 /* 80336F54 00333EB4  90 01 00 14 */	stw r0, 0x14(r1)
 /* 80336F58 00333EB8  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 80336F5C 00333EBC  7C 7F 1B 79 */	or. r31, r3, r3
 /* 80336F60 00333EC0  41 82 00 44 */	beq lbl_80336FA4
-/* 80336F64 00333EC4  3C 60 80 3F */	lis r3, lbl_803EE1F0@ha
-/* 80336F68 00333EC8  38 03 E1 F0 */	addi r0, r3, lbl_803EE1F0@l
+/* 80336F64 00333EC4  3C 60 80 3F */	lis r3, __vt__19CVEParticleLocation@ha
+/* 80336F68 00333EC8  38 03 E1 F0 */	addi r0, r3, __vt__19CVEParticleLocation@l
 /* 80336F6C 00333ECC  90 1F 00 00 */	stw r0, 0(r31)
 /* 80336F70 00333ED0  41 82 00 20 */	beq lbl_80336F90
 /* 80336F74 00333ED4  3C 60 80 3F */	lis r3, __vt__14CVectorElement@ha
@@ -2994,8 +2994,8 @@ lbl_80336FA4:
 /* 80336FB4 00333F14  38 21 00 10 */	addi r1, r1, 0x10
 /* 80336FB8 00333F18  4E 80 00 20 */	blr
 
-.global IsFastConstant__15CVEFastConstantCF
-IsFastConstant__15CVEFastConstantCF:
+.global IsFastConstant__15CVEFastConstantCFv
+IsFastConstant__15CVEFastConstantCFv:
 /* 80336FBC 00333F1C  38 60 00 01 */	li r3, 1
 /* 80336FC0 00333F20  4E 80 00 20 */	blr
 
