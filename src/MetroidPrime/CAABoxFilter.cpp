@@ -6,14 +6,14 @@
 void CAABoxFilter::FilterBoxFloorCollisions(const CCollisionInfoList& in, CCollisionInfoList& out) {
   float minZ = 10000.f;
 
-  for (CCollisionInfoList::const_iterator it = in.begin(); it != in.end(); ++it) {
+  for (CCollisionInfoList::const_iterator it = in.Begin(); it != in.End(); ++it) {
     if (it->GetMaterialLeft().HasMaterial(kMT_Wall) && it->GetPoint().GetZ() < minZ) {
       minZ = it->GetPoint().GetZ();
     }
   }
 
   CCollisionInfoList temp;
-  for (CCollisionInfoList::const_iterator it = in.begin(); it != in.end(); ++it) {
+  for (CCollisionInfoList::const_iterator it = in.Begin(); it != in.End(); ++it) {
     if (it->GetMaterialLeft().HasMaterial(kMT_Floor)) {
       if (it->GetPoint().GetZ() < minZ) {
         temp.Add(*it, false);
