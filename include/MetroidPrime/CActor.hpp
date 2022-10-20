@@ -338,7 +338,7 @@ public:
   // 000c0ec8 00001c 801711a8  4 GetUseInSortedLists__6CActorCFv 	CActor.o
   // 000c0ee4 000014 801711c4  4 SetUseInSortedLists__6CActorFb 	CActor.o
   // 000c0ef8 00001c 801711d8  4 GetCallTouch__6CActorCFv 	CActor.o
-  // 000c0f14 000014 801711f4  4 SetCallTouch__6CActorFb 	CActor.o
+  void SetCallTouch(bool);
   // GetOrbitDistanceCheck__6CActorCFv
   // GetCalculateLighting__6CActorCFv
   // GetDrawShadow__6CActorCFv
