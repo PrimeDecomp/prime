@@ -104,8 +104,8 @@ CActor::CActor(TUniqueId uid, bool active, const rstl::string& name, const CEnti
 
 CActor::~CActor() { RemoveEmitter(); }
 
-SAdvancementDeltas CActor::UpdateAnimation(float dt, CStateManager& mgr, bool advTree) {
-  SAdvancementDeltas result = ModelData()->AdvanceAnimation(dt, mgr, GetAreaId(), advTree);
+CAdvancementDeltas CActor::UpdateAnimation(float dt, CStateManager& mgr, bool advTree) {
+  CAdvancementDeltas result = ModelData()->AdvanceAnimation(dt, mgr, GetAreaId(), advTree);
   ModelData()->AdvanceParticles(GetTransform(), dt, mgr);
   UpdateSfxEmitters();
   if (HasAnimation()) {
