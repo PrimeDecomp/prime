@@ -20,6 +20,15 @@ public:
   void Update(float dt);
   float GetLastRippleDeltaTime(TUniqueId rippler) const;
   void AddRipple(const CRipple& ripple);
+
+  void SetMaxTimeFalloff(float time) { x0_maxTimeFalloff = time; }
+  float GetMaxTimeFalloff() const { return x0_maxTimeFalloff; }
+
+  rstl::vector<CRipple>& Ripples() { return x4_ripples; }
+  const rstl::vector<CRipple>& GetRipples() const { return x4_ripples; }
+  
+  void SetAlpha(float a) { x14_alpha = a; }
+  float GetAlpha() const { return x14_alpha; }
 };
 
 #endif // _CRIPPLEMANAGER

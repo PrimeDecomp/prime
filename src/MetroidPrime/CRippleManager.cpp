@@ -42,22 +42,23 @@ float CRippleManager::GetLastRippleDeltaTime(TUniqueId rippler) const {
 
 void CRippleManager::AddRipple(const CRipple& ripple) {
   float maxTime = 0.f;
-  float itTime;
-  rstl::vector< CRipple >::iterator t;
   rstl::vector< CRipple >::iterator oldestRipple = x4_ripples.end();
-  rstl::vector< CRipple >::iterator it = x4_ripples.begin();
 
-  for (; (t = oldestRipple,
-         it != x4_ripples.end() && (itTime = it->GetTime(), t = it, itTime != 9999.0f));
-       ++it) {
-    if (itTime > maxTime) {
+  for (rstl::vector< CRipple >::iterator it = x4_ripples.begin(); it != x4_ripples.end(); ++it) {
+    if (it->GetTime() == 9999.0f) {
       oldestRipple = it;
-      maxTime = itTime;
+      break;
+    }
+
+    if (it->GetTime() > maxTime) {
+      oldestRipple = it;
+      maxTime = it->GetTime();
     }
   }
 
-  if (t != x4_ripples.end()) {
-    *t = ripple;
-    x0_maxTimeFalloff = rstl::max_val(x0_maxTimeFalloff, ripple.GetTimeFalloff());
+  if (oldestRipple != x4_ripples.end()) {
+    *oldestRipple = ripple;
+    oldestRipple->SetTime(0.f);
+    SetMaxTimeFalloff(rstl::max_val(GetMaxTimeFalloff(), ripple.GetTimeFalloff()));
   }
 }
