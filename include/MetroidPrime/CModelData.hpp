@@ -95,6 +95,8 @@ public:
   const CVector3f& GetScale() const { return x0_scale; }
   void SetScale(const CVector3f& scale) { x0_scale = scale; }
 
+  bool GetIsLoop() const;
+  void EnableLooping(bool enable);
   static CModelData CModelDataNull();
   static EWhichModel GetRenderingModel(const CStateManager& mgr);
 

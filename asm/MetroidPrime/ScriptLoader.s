@@ -3819,7 +3819,7 @@ lbl_800C8734:
 /* 800C87AC 000C570C  39 41 00 30 */	addi r10, r1, 0x30
 /* 800C87B0 000C5710  93 C1 00 18 */	stw r30, 0x18(r1)
 /* 800C87B4 000C5714  93 E1 00 1C */	stw r31, 0x1c(r1)
-/* 800C87B8 000C5718  48 18 38 49 */	bl __ct__10CAmbientAI
+/* 800C87B8 000C5718  48 18 38 49 */	bl "__ct__10CAmbientAIF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC6CAABoxRC13CMaterialListfRC11CHealthInfoRC20CDamageVulnerabilityRC16CActorParametersffiib"
 /* 800C87BC 000C571C  7C 76 1B 78 */	mr r22, r3
 lbl_800C87C0:
 /* 800C87C0 000C5720  38 61 01 60 */	addi r3, r1, 0x160
