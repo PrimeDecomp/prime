@@ -563,7 +563,7 @@ KYOTO_1 :=\
 	$(BUILD_DIR)/src/Kyoto/Streams/CZipInputStream.o\
 	$(BUILD_DIR)/src/Kyoto/Streams/CZipSupport.o\
 	$(BUILD_DIR)/asm/Kyoto/CSimplePool.o\
-	$(BUILD_DIR)/asm/Kyoto/CToken.o\
+	$(BUILD_DIR)/src/Kyoto/CToken.o\
 	$(BUILD_DIR)/src/Kyoto/IObj.o\
 
 ZLIB_FILES :=\

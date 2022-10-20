@@ -624,7 +624,7 @@ LIBS = [
             ["Kyoto/Streams/CZipInputStream", True],
             ["Kyoto/Streams/CZipSupport", True],
             "Kyoto/CSimplePool",
-            "Kyoto/CToken",
+            ["Kyoto/CToken", True],
             ["Kyoto/IObj", True],
         ],
     },
