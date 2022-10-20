@@ -226,7 +226,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/CCollisionActor.o\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptPlayerActor.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Tweaks/CTweakPlayerRes.o\
-	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CBurstFire.o\
+	$(BUILD_DIR)/src/MetroidPrime/Enemies/CBurstFire.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CFlaahgra.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Player/CPlayerEnergyDrain.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CFlameWarp.o\
