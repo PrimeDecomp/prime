@@ -47,6 +47,7 @@ public:
   void SetKnockBackPower(float k) { x14_knockback = k; }
   float GetDamage() const { return x8_damage; }
   void SetDamage(float d) { x8_damage = d; }
+  bool HasNoDamage() const { return x8_damage <= 0.0f; }
   float GetDamage(const CDamageVulnerability& dVuln) const;
   float GetRadiusDamage() const { return xc_radiusDamage; }
   void SetRadiusDamage(float r) { xc_radiusDamage = r; }

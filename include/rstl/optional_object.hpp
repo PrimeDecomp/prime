@@ -51,6 +51,9 @@ public:
 
   T& operator*() { return data(); }
   T* operator->() { return &data(); }
+  
+  const T& operator*() const { return data(); }
+  const T* operator->() const { return &data(); }
 
 private:
   uchar m_data[sizeof(T)];

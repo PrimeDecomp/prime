@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803DA4D8
-lbl_803DA4D8:
+.global __vt__14CScriptTrigger
+__vt__14CScriptTrigger:
 	# ROM: 0x3D74D8
 	.4byte 0
 	.4byte 0
@@ -59,8 +59,8 @@ lbl_805A6F94:
 .global lbl_805A8E00
 lbl_805A8E00:
 	.skip 0x4
-.global lbl_805A8E04
-lbl_805A8E04:
+.global sktonOHurtWeaponMode$230
+sktonOHurtWeaponMode$230:
 	.skip 0xC
 
 .section .sdata2, "a"
@@ -160,8 +160,8 @@ GetInhabitants__14CScriptTriggerCFv:
 /* 80075D24 00072C84  38 63 00 E8 */	addi r3, r3, 0xe8
 /* 80075D28 00072C88  4E 80 00 20 */	blr
 
-.global UpdateInhabitants__14CScriptTriggerFR13CStateManager
-UpdateInhabitants__14CScriptTriggerFR13CStateManager:
+.global UpdateInhabitants__14CScriptTriggerFfR13CStateManager
+UpdateInhabitants__14CScriptTriggerFfR13CStateManager:
 /* 80075D2C 00072C8C  94 21 FE 50 */	stwu r1, -0x1b0(r1)
 /* 80075D30 00072C90  7C 08 02 A6 */	mflr r0
 /* 80075D34 00072C94  90 01 01 B4 */	stw r0, 0x1b4(r1)
@@ -687,7 +687,7 @@ Think__14CScriptTriggerFfR13CStateManager:
 /* 800764D8 00073438  88 03 00 30 */	lbz r0, 0x30(r3)
 /* 800764DC 0007343C  54 00 CF FF */	rlwinm. r0, r0, 0x19, 0x1f, 0x1f
 /* 800764E0 00073440  41 82 00 08 */	beq lbl_800764E8
-/* 800764E4 00073444  4B FF F8 49 */	bl UpdateInhabitants__14CScriptTriggerFR13CStateManager
+/* 800764E4 00073444  4B FF F8 49 */	bl UpdateInhabitants__14CScriptTriggerFfR13CStateManager
 lbl_800764E8:
 /* 800764E8 00073448  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800764EC 0007344C  7C 08 03 A6 */	mtlr r0
@@ -1136,12 +1136,12 @@ lbl_80076B24:
 /* 80076B50 00073AB0  88 0D A2 40 */	lbz r0, lbl_805A8E00@sda21(r13)
 /* 80076B54 00073AB4  7C 00 07 75 */	extsb. r0, r0
 /* 80076B58 00073AB8  40 82 00 3C */	bne lbl_80076B94
-/* 80076B5C 00073ABC  38 ED A2 44 */	addi r7, r13, lbl_805A8E04@sda21
+/* 80076B5C 00073ABC  38 ED A2 44 */	addi r7, r13, sktonOHurtWeaponMode$230@sda21
 /* 80076B60 00073AC0  38 C0 00 00 */	li r6, 0
 /* 80076B64 00073AC4  88 07 00 04 */	lbz r0, 4(r7)
 /* 80076B68 00073AC8  50 C0 3E 30 */	rlwimi r0, r6, 7, 0x18, 0x18
 /* 80076B6C 00073ACC  38 80 00 01 */	li r4, 1
-/* 80076B70 00073AD0  90 CD A2 44 */	stw r6, lbl_805A8E04@sda21(r13)
+/* 80076B70 00073AD0  90 CD A2 44 */	stw r6, sktonOHurtWeaponMode$230@sda21(r13)
 /* 80076B74 00073AD4  54 05 06 3E */	clrlwi r5, r0, 0x18
 /* 80076B78 00073AD8  50 C5 36 72 */	rlwimi r5, r6, 6, 0x19, 0x19
 /* 80076B7C 00073ADC  98 07 00 04 */	stb r0, 4(r7)
@@ -1152,14 +1152,14 @@ lbl_80076B24:
 /* 80076B90 00073AF0  98 8D A2 40 */	stb r4, lbl_805A8E00@sda21(r13)
 lbl_80076B94:
 /* 80076B94 00073AF4  C0 23 00 00 */	lfs f1, 0(r3)
-/* 80076B98 00073AF8  38 8D A2 44 */	addi r4, r13, lbl_805A8E04@sda21
+/* 80076B98 00073AF8  38 8D A2 44 */	addi r4, r13, sktonOHurtWeaponMode$230@sda21
 /* 80076B9C 00073AFC  C0 42 88 D8 */	lfs f2, lbl_805AA5F8@sda21(r2)
 /* 80076BA0 00073B00  38 A0 00 00 */	li r5, 0
 /* 80076BA4 00073B04  C0 02 88 D0 */	lfs f0, lbl_805AA5F0@sda21(r2)
 /* 80076BA8 00073B08  38 60 00 00 */	li r3, 0
 /* 80076BAC 00073B0C  EC 22 00 72 */	fmuls f1, f2, f1
 /* 80076BB0 00073B10  88 C4 00 04 */	lbz r6, 4(r4)
-/* 80076BB4 00073B14  80 ED A2 44 */	lwz r7, lbl_805A8E04@sda21(r13)
+/* 80076BB4 00073B14  80 ED A2 44 */	lwz r7, sktonOHurtWeaponMode$230@sda21(r13)
 /* 80076BB8 00073B18  38 80 00 01 */	li r4, 1
 /* 80076BBC 00073B1C  88 01 00 D0 */	lbz r0, 0xd0(r1)
 /* 80076BC0 00073B20  50 A0 3E 30 */	rlwimi r0, r5, 7, 0x18, 0x18
@@ -1225,8 +1225,8 @@ __dt__14CScriptTriggerFv:
 /* 80076C9C 00073BFC  93 81 00 10 */	stw r28, 0x10(r1)
 /* 80076CA0 00073C00  7C 7C 1B 79 */	or. r28, r3, r3
 /* 80076CA4 00073C04  41 82 00 90 */	beq lbl_80076D34
-/* 80076CA8 00073C08  3C 60 80 3E */	lis r3, lbl_803DA4D8@ha
-/* 80076CAC 00073C0C  38 03 A4 D8 */	addi r0, r3, lbl_803DA4D8@l
+/* 80076CA8 00073C08  3C 60 80 3E */	lis r3, __vt__14CScriptTrigger@ha
+/* 80076CAC 00073C0C  38 03 A4 D8 */	addi r0, r3, __vt__14CScriptTrigger@l
 /* 80076CB0 00073C10  90 1C 00 00 */	stw r0, 0(r28)
 /* 80076CB4 00073C14  83 FC 00 EC */	lwz r31, 0xec(r28)
 /* 80076CB8 00073C18  83 DC 00 F0 */	lwz r30, 0xf0(r28)
@@ -1255,7 +1255,7 @@ lbl_80076CD4:
 lbl_80076D0C:
 /* 80076D0C 00073C6C  38 7C 00 E8 */	addi r3, r28, 0xe8
 /* 80076D10 00073C70  38 80 FF FF */	li r4, -1
-/* 80076D14 00073C74  48 00 02 E1 */	bl sub_80076ff4
+/* 80076D14 00073C74  48 00 02 E1 */	bl "__dt__Q24rstl67list<Q214CScriptTrigger14CObjectTracker,Q24rstl17rmemory_allocator>Fv"
 /* 80076D18 00073C78  7F 83 E3 78 */	mr r3, r28
 /* 80076D1C 00073C7C  38 80 00 00 */	li r4, 0
 /* 80076D20 00073C80  4B FD E9 D1 */	bl __dt__6CActorFv
@@ -1335,9 +1335,9 @@ lbl_80076D34:
 /* 80076E38 00073D98  38 61 00 B8 */	addi r3, r1, 0xb8
 /* 80076E3C 00073D9C  38 80 FF FF */	li r4, -1
 /* 80076E40 00073DA0  48 09 FC 0D */	bl __dt__10CModelDataFv
-/* 80076E44 00073DA4  3C 60 80 3E */	lis r3, lbl_803DA4D8@ha
+/* 80076E44 00073DA4  3C 60 80 3E */	lis r3, __vt__14CScriptTrigger@ha
 /* 80076E48 00073DA8  38 94 00 F4 */	addi r4, r20, 0xf4
-/* 80076E4C 00073DAC  38 63 A4 D8 */	addi r3, r3, lbl_803DA4D8@l
+/* 80076E4C 00073DAC  38 63 A4 D8 */	addi r3, r3, __vt__14CScriptTrigger@l
 /* 80076E50 00073DB0  38 00 00 00 */	li r0, 0
 /* 80076E54 00073DB4  90 74 00 00 */	stw r3, 0(r20)
 /* 80076E58 00073DB8  7F 63 DB 78 */	mr r3, r27
@@ -1452,8 +1452,8 @@ lbl_80076FCC:
 /* 80076FEC 00073F4C  38 21 00 10 */	addi r1, r1, 0x10
 /* 80076FF0 00073F50  4E 80 00 20 */	blr
 
-.global sub_80076ff4
-sub_80076ff4:
+.global "__dt__Q24rstl67list<Q214CScriptTrigger14CObjectTracker,Q24rstl17rmemory_allocator>Fv"
+"__dt__Q24rstl67list<Q214CScriptTrigger14CObjectTracker,Q24rstl17rmemory_allocator>Fv":
 /* 80076FF4 00073F54  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80076FF8 00073F58  7C 08 02 A6 */	mflr r0
 /* 80076FFC 00073F5C  90 01 00 24 */	stw r0, 0x24(r1)

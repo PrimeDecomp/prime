@@ -68,6 +68,7 @@ private:
     void set_prev(node* prev) { x0_prev = prev; }
     void set_next(node* next) { x4_next = next; }
     T* get_value() { return reinterpret_cast< T* >(&x8_item); }
+    const T* get_value() const { return reinterpret_cast< const T* >(&x8_item); }
   };
 
   node* create_node(node* prev, node* next, const T& val) {
@@ -103,9 +104,9 @@ public:
       return *this;
     }
     const_iterator operator--(int) const { return const_iterator(this->current->x0_prev); }
-    const T* get_pointer() const { return current->x8_item; }
-    const T& operator*() const { return *current->x8_item; }
-    const T* operator->() const { return current->x8_item; }
+    const T* get_pointer() const { return current->get_value(); }
+    const T& operator*() const { return *current->get_value(); }
+    const T* operator->() const { return current->get_value(); }
     bool operator==(const const_iterator& other) const { return current == other.current; }
     bool operator!=(const const_iterator& other) const { return current != other.current; }
 
