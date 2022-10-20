@@ -35,6 +35,10 @@ public:
   }
   void Get(float& r, float& g, float& b, float& a) const;
   void Get(float& r, float& g, float& b) const;
+  void SetAlpha(float a) {
+    mA = CCast::ToUint8(a * 255.f);
+  }
+
   static CColor Lerp(const CColor& a, const CColor& b, float t);
   static uint Lerp(uint a, uint b, float t);
   static CColor Modulate(const CColor& a, const CColor& b);

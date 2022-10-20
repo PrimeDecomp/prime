@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803DF438
-lbl_803DF438:
+.global __vt__16CTweakAutoMapper
+__vt__16CTweakAutoMapper:
 	# ROM: 0x3DC438
 	.4byte 0
 	.4byte 0
@@ -46,11 +46,11 @@ __ct__16CTweakAutoMapperFR12CInputStream:
 /* 800B69D8 000B3938  93 A1 00 14 */	stw r29, 0x14(r1)
 /* 800B69DC 000B393C  93 81 00 10 */	stw r28, 0x10(r1)
 /* 800B69E0 000B3940  3C C0 80 3E */	lis r6, __vt__12ITweakObject@ha
-/* 800B69E4 000B3944  3C A0 80 3E */	lis r5, lbl_803DF438@ha
+/* 800B69E4 000B3944  3C A0 80 3E */	lis r5, __vt__16CTweakAutoMapper@ha
 /* 800B69E8 000B3948  7C 7F 1B 78 */	mr r31, r3
 /* 800B69EC 000B394C  7C 9C 23 78 */	mr r28, r4
 /* 800B69F0 000B3950  38 66 9C C4 */	addi r3, r6, __vt__12ITweakObject@l
-/* 800B69F4 000B3954  38 05 F4 38 */	addi r0, r5, lbl_803DF438@l
+/* 800B69F4 000B3954  38 05 F4 38 */	addi r0, r5, __vt__16CTweakAutoMapper@l
 /* 800B69F8 000B3958  90 7F 00 00 */	stw r3, 0(r31)
 /* 800B69FC 000B395C  7F 83 E3 78 */	mr r3, r28
 /* 800B6A00 000B3960  90 1F 00 00 */	stw r0, 0(r31)
@@ -314,9 +314,9 @@ __dt__16CTweakAutoMapperFv:
 /* 800B6DF0 000B3D50  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 800B6DF4 000B3D54  7C 7F 1B 79 */	or. r31, r3, r3
 /* 800B6DF8 000B3D58  41 82 00 90 */	beq lbl_800B6E88
-/* 800B6DFC 000B3D5C  3C 60 80 3E */	lis r3, lbl_803DF438@ha
+/* 800B6DFC 000B3D5C  3C 60 80 3E */	lis r3, __vt__16CTweakAutoMapper@ha
 /* 800B6E00 000B3D60  34 1F 01 00 */	addic. r0, r31, 0x100
-/* 800B6E04 000B3D64  38 03 F4 38 */	addi r0, r3, lbl_803DF438@l
+/* 800B6E04 000B3D64  38 03 F4 38 */	addi r0, r3, __vt__16CTweakAutoMapper@l
 /* 800B6E08 000B3D68  90 1F 00 00 */	stw r0, 0(r31)
 /* 800B6E0C 000B3D6C  41 82 00 58 */	beq lbl_800B6E64
 /* 800B6E10 000B3D70  80 DF 01 00 */	lwz r6, 0x100(r31)
