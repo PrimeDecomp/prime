@@ -100,7 +100,7 @@ public:
   // CalcPlaybackAlignmentParms__9CAnimDataFRC18CAnimPlaybackParmsRCQ24rstl25ncrc_ptr<13CAnimTreeNode>
   // SetRandomPlaybackRate__9CAnimDataFR9CRandom16
   void SetPlaybackRate(float set);
-  // MultiplyPlaybackRate__9CAnimDataFf
+  void MultiplyPlaybackRate(float scale);
   // GetTimeOfUserEvent__9CAnimDataCF14EUserEventTypeRC13CCharAnimTime
   // GetAdvancementDeltas__9CAnimDataCFRC13CCharAnimTimeRC13CCharAnimTime
   // Touch__9CAnimDataCFRC13CSkinnedModeli

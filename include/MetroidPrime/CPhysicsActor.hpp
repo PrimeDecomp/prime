@@ -23,8 +23,10 @@ struct SMoverData {
   CAxisAngle x24_;
   float x30_mass;
 
-  SMoverData(float mass, const CVector3f& velocity, const CAxisAngle& angularVelocity,
-             const CVector3f& momentum, const CAxisAngle& unk)
+  SMoverData(float mass, const CVector3f& velocity = CVector3f::Zero(),
+             const CAxisAngle& angularVelocity = CAxisAngle::Identity(),
+             const CVector3f& momentum = CVector3f::Zero(),
+             const CAxisAngle& unk = CAxisAngle::Identity())
   : x0_velocity(velocity)
   , xc_angularVelocity(angularVelocity)
   , x18_momentum(momentum)

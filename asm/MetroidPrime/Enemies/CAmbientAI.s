@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803E8CB0
-lbl_803E8CB0:
+.global __vt__10CAmbientAI
+__vt__10CAmbientAI:
 	# ROM: 0x3E5CB0
 	.4byte 0
 	.4byte 0
@@ -53,9 +53,9 @@ __dt__10CAmbientAIFv:
 /* 8024B850 002487B0  93 C1 00 08 */	stw r30, 8(r1)
 /* 8024B854 002487B4  7C 7E 1B 79 */	or. r30, r3, r3
 /* 8024B858 002487B8  41 82 00 28 */	beq lbl_8024B880
-/* 8024B85C 002487BC  3C A0 80 3F */	lis r5, lbl_803E8CB0@ha
+/* 8024B85C 002487BC  3C A0 80 3F */	lis r5, __vt__10CAmbientAI@ha
 /* 8024B860 002487C0  38 80 00 00 */	li r4, 0
-/* 8024B864 002487C4  38 05 8C B0 */	addi r0, r5, lbl_803E8CB0@l
+/* 8024B864 002487C4  38 05 8C B0 */	addi r0, r5, __vt__10CAmbientAI@l
 /* 8024B868 002487C8  90 1E 00 00 */	stw r0, 0(r30)
 /* 8024B86C 002487CC  4B ED 0B A9 */	bl __dt__13CPhysicsActorFv
 /* 8024B870 002487D0  7F E0 07 35 */	extsh. r0, r31
@@ -147,7 +147,7 @@ lbl_8024B944:
 /* 8024B9A0 00248900  4B EC 9B C1 */	bl EnableLooping__10CModelDataFb
 /* 8024B9A4 00248904  7F 83 E3 78 */	mr r3, r28
 /* 8024B9A8 00248908  7F E4 FB 78 */	mr r4, r31
-/* 8024B9AC 0024890C  48 00 05 71 */	bl sub_8024bf1c
+/* 8024B9AC 0024890C  48 00 05 71 */	bl RandomizePlaybackRate__10CAmbientAIFR13CStateManager
 /* 8024B9B0 00248910  88 1C 02 E8 */	lbz r0, 0x2e8(r28)
 /* 8024B9B4 00248914  38 60 00 00 */	li r3, 0
 /* 8024B9B8 00248918  50 60 3E 30 */	rlwimi r0, r3, 7, 0x18, 0x18
@@ -159,7 +159,7 @@ lbl_8024B944:
 /* 8024B9D0 00248930  48 00 00 8C */	b lbl_8024BA5C
 lbl_8024B9D4:
 /* 8024B9D4 00248934  7F E4 FB 78 */	mr r4, r31
-/* 8024B9D8 00248938  48 00 05 45 */	bl sub_8024bf1c
+/* 8024B9D8 00248938  48 00 05 45 */	bl RandomizePlaybackRate__10CAmbientAIFR13CStateManager
 /* 8024B9DC 0024893C  48 00 00 80 */	b lbl_8024BA5C
 lbl_8024B9E0:
 /* 8024B9E0 00248940  88 1C 00 30 */	lbz r0, 0x30(r28)
@@ -192,7 +192,7 @@ lbl_8024B9E0:
 /* 8024BA4C 002489AC  4B EC 9B 15 */	bl EnableLooping__10CModelDataFb
 /* 8024BA50 002489B0  7F 83 E3 78 */	mr r3, r28
 /* 8024BA54 002489B4  7F E4 FB 78 */	mr r4, r31
-/* 8024BA58 002489B8  48 00 04 C5 */	bl sub_8024bf1c
+/* 8024BA58 002489B8  48 00 04 C5 */	bl RandomizePlaybackRate__10CAmbientAIFR13CStateManager
 lbl_8024BA5C:
 /* 8024BA5C 002489BC  A0 1E 00 00 */	lhz r0, 0(r30)
 /* 8024BA60 002489C0  7F 83 E3 78 */	mr r3, r28
@@ -391,7 +391,7 @@ lbl_8024BCDC:
 /* 8024BD40 00248CA0  4B EC 98 21 */	bl EnableLooping__10CModelDataFb
 /* 8024BD44 00248CA4  7F C3 F3 78 */	mr r3, r30
 /* 8024BD48 00248CA8  7F E4 FB 78 */	mr r4, r31
-/* 8024BD4C 00248CAC  48 00 01 D1 */	bl sub_8024bf1c
+/* 8024BD4C 00248CAC  48 00 01 D1 */	bl RandomizePlaybackRate__10CAmbientAIFR13CStateManager
 /* 8024BD50 00248CB0  48 00 01 34 */	b lbl_8024BE84
 lbl_8024BD54:
 /* 8024BD54 00248CB4  28 1B 00 00 */	cmplwi r27, 0
@@ -422,7 +422,7 @@ lbl_8024BD54:
 /* 8024BDB8 00248D18  4B EC 97 A9 */	bl EnableLooping__10CModelDataFb
 /* 8024BDBC 00248D1C  7F C3 F3 78 */	mr r3, r30
 /* 8024BDC0 00248D20  7F E4 FB 78 */	mr r4, r31
-/* 8024BDC4 00248D24  48 00 01 59 */	bl sub_8024bf1c
+/* 8024BDC4 00248D24  48 00 01 59 */	bl RandomizePlaybackRate__10CAmbientAIFR13CStateManager
 /* 8024BDC8 00248D28  48 00 00 BC */	b lbl_8024BE84
 lbl_8024BDCC:
 /* 8024BDCC 00248D2C  28 03 00 00 */	cmplwi r3, 0
@@ -471,7 +471,7 @@ lbl_8024BE0C:
 /* 8024BE74 00248DD4  4B EC 96 ED */	bl EnableLooping__10CModelDataFb
 /* 8024BE78 00248DD8  7F C3 F3 78 */	mr r3, r30
 /* 8024BE7C 00248DDC  7F E4 FB 78 */	mr r4, r31
-/* 8024BE80 00248DE0  48 00 00 9D */	bl sub_8024bf1c
+/* 8024BE80 00248DE0  48 00 00 9D */	bl RandomizePlaybackRate__10CAmbientAIFR13CStateManager
 lbl_8024BE84:
 /* 8024BE84 00248DE4  88 1E 02 E8 */	lbz r0, 0x2e8(r30)
 /* 8024BE88 00248DE8  54 00 CF FF */	rlwinm. r0, r0, 0x19, 0x1f, 0x1f
@@ -513,8 +513,8 @@ lbl_8024BF00:
 /* 8024BF14 00248E74  38 21 01 20 */	addi r1, r1, 0x120
 /* 8024BF18 00248E78  4E 80 00 20 */	blr
 
-.global sub_8024bf1c
-sub_8024bf1c:
+.global RandomizePlaybackRate__10CAmbientAIFR13CStateManager
+RandomizePlaybackRate__10CAmbientAIFR13CStateManager:
 /* 8024BF1C 00248E7C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8024BF20 00248E80  7C 08 02 A6 */	mflr r0
 /* 8024BF24 00248E84  90 01 00 14 */	stw r0, 0x14(r1)
@@ -587,8 +587,8 @@ HealthInfo__10CAmbientAIFR13CStateManager:
 /* 8024BFF8 00248F58  38 63 02 60 */	addi r3, r3, 0x260
 /* 8024BFFC 00248F5C  4E 80 00 20 */	blr
 
-.global __ct__10CAmbientAI
-__ct__10CAmbientAI:
+.global "__ct__10CAmbientAIF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC6CAABoxRC13CMaterialListfRC11CHealthInfoRC20CDamageVulnerabilityRC16CActorParametersffiib"
+"__ct__10CAmbientAIF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC6CAABoxRC13CMaterialListfRC11CHealthInfoRC20CDamageVulnerabilityRC16CActorParametersffiib":
 /* 8024C000 00248F60  94 21 FF 40 */	stwu r1, -0xc0(r1)
 /* 8024C004 00248F64  7C 08 02 A6 */	mflr r0
 /* 8024C008 00248F68  90 01 00 C4 */	stw r0, 0xc4(r1)
@@ -659,9 +659,9 @@ __ct__10CAmbientAI:
 /* 8024C10C 0024906C  90 01 00 0C */	stw r0, 0xc(r1)
 /* 8024C110 00249070  93 61 00 10 */	stw r27, 0x10(r1)
 /* 8024C114 00249074  4B ED 03 9D */	bl "__ct__13CPhysicsActorF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC13CMaterialListRC6CAABoxRC10SMoverDataRC16CActorParametersff"
-/* 8024C118 00249078  3C 60 80 3F */	lis r3, lbl_803E8CB0@ha
+/* 8024C118 00249078  3C 60 80 3F */	lis r3, __vt__10CAmbientAI@ha
 /* 8024C11C 0024907C  38 A0 00 00 */	li r5, 0
-/* 8024C120 00249080  38 03 8C B0 */	addi r0, r3, lbl_803E8CB0@l
+/* 8024C120 00249080  38 03 8C B0 */	addi r0, r3, __vt__10CAmbientAI@l
 /* 8024C124 00249084  38 80 00 01 */	li r4, 1
 /* 8024C128 00249088  90 12 00 00 */	stw r0, 0(r18)
 /* 8024C12C 0024908C  C0 19 00 00 */	lfs f0, 0(r25)

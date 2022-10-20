@@ -346,7 +346,7 @@ LIBS = [
             ["MetroidPrime/CGBASupport", True],
             "MetroidPrime/Player/CSaveWorld",
             "MetroidPrime/ScriptObjects/CScriptCameraHintTrigger",
-            "MetroidPrime/Enemies/CAmbientAI",
+            ["MetroidPrime/Enemies/CAmbientAI", False],
             ["MetroidPrime/CMemoryCardDriver", False],
             "MetroidPrime/CSaveGameScreen",
             "MetroidPrime/Enemies/CAtomicBeta",
