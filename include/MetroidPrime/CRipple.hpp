@@ -23,6 +23,13 @@ class CRipple {
 
 public:
   CRipple(TUniqueId id, const CVector3f& center, float intensity);
+  
+  TUniqueId GetUniqueId() const { return x0_id; }
+  
+  float GetTime() const { return x4_time; }
+  void SetTime(float t) { x4_time = t; }
+  
+  float GetTimeFalloff() const { return x14_timeFalloff; }
 };
 
 #endif // _CRIPPLE

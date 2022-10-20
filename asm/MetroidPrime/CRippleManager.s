@@ -146,9 +146,6 @@ lbl_8011D0F8:
 /* 8011D104 0011A064  7C 04 02 14 */	add r0, r4, r0
 /* 8011D108 0011A068  7C 05 00 40 */	cmplw r5, r0
 /* 8011D10C 0011A06C  40 82 FF CC */	bne lbl_8011D0D8
-
-.global sub_8011d110
-sub_8011d110:
 /* 8011D110 0011A070  4E 80 00 20 */	blr
 
 .global Init__14CRippleManagerFi
@@ -171,7 +168,7 @@ Init__14CRippleManagerFi:
 /* 8011D150 0011A0B0  7C 65 1B 78 */	mr r5, r3
 /* 8011D154 0011A0B4  7F E4 FB 78 */	mr r4, r31
 /* 8011D158 0011A0B8  38 7E 00 04 */	addi r3, r30, 4
-/* 8011D15C 0011A0BC  48 00 00 49 */	bl sub_8011d1a4
+/* 8011D15C 0011A0BC  48 00 00 49 */	bl "resize__Q24rstl43vector<7CRipple,Q24rstl17rmemory_allocator>FiRC7CRipple"
 /* 8011D160 0011A0C0  80 9E 00 10 */	lwz r4, 0x10(r30)
 /* 8011D164 0011A0C4  C0 02 98 F4 */	lfs f0, lbl_805AB614@sda21(r2)
 /* 8011D168 0011A0C8  48 00 00 0C */	b lbl_8011D174
@@ -192,8 +189,8 @@ lbl_8011D174:
 /* 8011D19C 0011A0FC  38 21 00 60 */	addi r1, r1, 0x60
 /* 8011D1A0 0011A100  4E 80 00 20 */	blr
 
-.global sub_8011d1a4
-sub_8011d1a4:
+.global "resize__Q24rstl43vector<7CRipple,Q24rstl17rmemory_allocator>FiRC7CRipple"
+"resize__Q24rstl43vector<7CRipple,Q24rstl17rmemory_allocator>FiRC7CRipple":
 /* 8011D1A4 0011A104  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 8011D1A8 0011A108  7C 08 02 A6 */	mflr r0
 /* 8011D1AC 0011A10C  90 01 00 34 */	stw r0, 0x34(r1)
@@ -208,7 +205,7 @@ sub_8011d1a4:
 /* 8011D1D0 0011A130  41 82 00 F8 */	beq lbl_8011D2C8
 /* 8011D1D4 0011A134  7C 1E 00 00 */	cmpw r30, r0
 /* 8011D1D8 0011A138  40 81 00 B8 */	ble lbl_8011D290
-/* 8011D1DC 0011A13C  48 00 01 55 */	bl sub_8011d330
+/* 8011D1DC 0011A13C  48 00 01 55 */	bl "reserve__Q24rstl43vector<7CRipple,Q24rstl17rmemory_allocator>Fi"
 /* 8011D1E0 0011A140  80 9D 00 04 */	lwz r4, 4(r29)
 /* 8011D1E4 0011A144  80 7D 00 0C */	lwz r3, 0xc(r29)
 /* 8011D1E8 0011A148  54 80 30 32 */	slwi r0, r4, 6
@@ -304,8 +301,8 @@ __ct__14CRippleManagerFif:
 /* 8011D328 0011A288  38 21 00 10 */	addi r1, r1, 0x10
 /* 8011D32C 0011A28C  4E 80 00 20 */	blr
 
-.global sub_8011d330
-sub_8011d330:
+.global "reserve__Q24rstl43vector<7CRipple,Q24rstl17rmemory_allocator>Fi"
+"reserve__Q24rstl43vector<7CRipple,Q24rstl17rmemory_allocator>Fi":
 /* 8011D330 0011A290  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 8011D334 0011A294  7C 08 02 A6 */	mflr r0
 /* 8011D338 0011A298  90 01 00 34 */	stw r0, 0x34(r1)
@@ -340,7 +337,7 @@ lbl_8011D380:
 /* 8011D3A4 0011A304  90 C1 00 08 */	stw r6, 8(r1)
 /* 8011D3A8 0011A308  90 01 00 10 */	stw r0, 0x10(r1)
 /* 8011D3AC 0011A30C  90 01 00 14 */	stw r0, 0x14(r1)
-/* 8011D3B0 0011A310  48 00 00 59 */	bl sub_8011d408
+/* 8011D3B0 0011A310  48 00 00 59 */	bl "uninitialized_copy<Q24rstl106pointer_iterator<7CRipple,Q24rstl43vector<7CRipple,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,7CRipple>__4rstlFQ24rstl106pointer_iterator<7CRipple,Q24rstl43vector<7CRipple,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl106pointer_iterator<7CRipple,Q24rstl43vector<7CRipple,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>P7CRipple"
 /* 8011D3B4 0011A314  80 1E 00 04 */	lwz r0, 4(r30)
 /* 8011D3B8 0011A318  80 7E 00 0C */	lwz r3, 0xc(r30)
 /* 8011D3BC 0011A31C  54 00 30 32 */	slwi r0, r0, 6
@@ -367,8 +364,8 @@ lbl_8011D3EC:
 /* 8011D400 0011A360  38 21 00 30 */	addi r1, r1, 0x30
 /* 8011D404 0011A364  4E 80 00 20 */	blr
 
-.global sub_8011d408
-sub_8011d408:
+.global "uninitialized_copy<Q24rstl106pointer_iterator<7CRipple,Q24rstl43vector<7CRipple,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,7CRipple>__4rstlFQ24rstl106pointer_iterator<7CRipple,Q24rstl43vector<7CRipple,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl106pointer_iterator<7CRipple,Q24rstl43vector<7CRipple,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>P7CRipple"
+"uninitialized_copy<Q24rstl106pointer_iterator<7CRipple,Q24rstl43vector<7CRipple,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,7CRipple>__4rstlFQ24rstl106pointer_iterator<7CRipple,Q24rstl43vector<7CRipple,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl106pointer_iterator<7CRipple,Q24rstl43vector<7CRipple,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>P7CRipple":
 /* 8011D408 0011A368  80 63 00 00 */	lwz r3, 0(r3)
 /* 8011D40C 0011A36C  48 00 00 94 */	b lbl_8011D4A0
 lbl_8011D410:
@@ -423,4 +420,3 @@ lbl_803CF318:
 	# ROM: 0x3CC318
 	.asciz "??(??)"
 	.balign 4
-
