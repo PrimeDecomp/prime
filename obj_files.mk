@@ -285,7 +285,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/CEnvFxManager.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Weapons/CEnergyProjectile.o\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptGunTurret.o\
-	$(BUILD_DIR)/asm/MetroidPrime/Weapons/CProjectileInfo.o\
+	$(BUILD_DIR)/src/MetroidPrime/Weapons/CProjectileInfo.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CInGameTweakManager.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CBabygoth.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CEyeBall.o\

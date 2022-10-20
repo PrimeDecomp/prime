@@ -318,7 +318,7 @@ LIBS = [
             "MetroidPrime/CEnvFxManager",
             "MetroidPrime/Weapons/CEnergyProjectile",
             "MetroidPrime/ScriptObjects/CScriptGunTurret",
-            "MetroidPrime/Weapons/CProjectileInfo",
+            ["MetroidPrime/Weapons/CProjectileInfo", True],
             "MetroidPrime/CInGameTweakManager",
             "MetroidPrime/Enemies/CBabygoth",
             "MetroidPrime/Enemies/CEyeBall",

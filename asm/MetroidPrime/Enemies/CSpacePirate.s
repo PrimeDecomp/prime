@@ -12774,7 +12774,7 @@ __ct__Q212CSpacePirate16CSpacePirateDataFR12CInputStreamUi:
 /* 8012B0D4 00128034  98 7D 00 1C */	stb r3, 0x1c(r29)
 /* 8012B0D8 00128038  7F C4 F3 78 */	mr r4, r30
 /* 8012B0DC 0012803C  38 7D 00 20 */	addi r3, r29, 0x20
-/* 8012B0E0 00128040  48 0F 0F 31 */	bl sub_8021c010
+/* 8012B0E0 00128040  48 0F 0F 31 */	bl __ct__15CProjectileInfoFR12CInputStream
 /* 8012B0E4 00128044  7F C3 F3 78 */	mr r3, r30
 /* 8012B0E8 00128048  48 21 3B 9D */	bl ReadLong__12CInputStreamFv
 /* 8012B0EC 0012804C  54 63 04 3E */	clrlwi r3, r3, 0x10
@@ -12788,7 +12788,7 @@ __ct__Q212CSpacePirate16CSpacePirateDataFR12CInputStreamUi:
 /* 8012B10C 0012806C  D0 3D 00 68 */	stfs f1, 0x68(r29)
 /* 8012B110 00128070  7F C4 F3 78 */	mr r4, r30
 /* 8012B114 00128074  38 7D 00 6C */	addi r3, r29, 0x6c
-/* 8012B118 00128078  48 0F 0E F9 */	bl sub_8021c010
+/* 8012B118 00128078  48 0F 0E F9 */	bl __ct__15CProjectileInfoFR12CInputStream
 /* 8012B11C 0012807C  7F C3 F3 78 */	mr r3, r30
 /* 8012B120 00128080  48 21 3B 09 */	bl ReadFloat__12CInputStreamFv
 /* 8012B124 00128084  D0 3D 00 94 */	stfs f1, 0x94(r29)

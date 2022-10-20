@@ -175,6 +175,7 @@ public:
   }
 
   TUniqueId GetOrbitTargetId() const { return x310_orbitTargetId; }
+  const CVector3f& GetOrbitPoint() const { return x314_orbitPoint; }
   TUniqueId GetOrbitNextTargetId() const { return x33c_orbitNextTargetId; }
   TUniqueId GetScanningObjectId() const { return x3b4_scanningObject; }
   EGrappleState GetGrappleState() const { return x3b8_grappleState; }
@@ -186,6 +187,10 @@ public:
 
   void Teleport(const CTransform4f& xf, CStateManager& mgr, bool resetBallCam);
   void SetSpawnedMorphBallState(EPlayerMorphBallState state, CStateManager& mgr);
+
+  CVector3f GetDampedClampedVelocityWR() const;
+  float GetAverageSpeed() const;
+  float GetGravity() const;
 
 private:
   struct CVisorSteam {

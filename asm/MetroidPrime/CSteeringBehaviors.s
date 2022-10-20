@@ -219,8 +219,8 @@ lbl_8013CCC4:
 /* 8013CD48 00139CA8  38 21 01 30 */	addi r1, r1, 0x130
 /* 8013CD4C 00139CAC  4E 80 00 20 */	blr
 
-.global ProjectOrbitalIntersection__18CSteeringBehaviorsFRC9CVector3ffRC9CVector3fRC9CVector3fRC9CVector3fRC9CVector3fR9CVector3f
-ProjectOrbitalIntersection__18CSteeringBehaviorsFRC9CVector3ffRC9CVector3fRC9CVector3fRC9CVector3fRC9CVector3fR9CVector3f:
+.global ProjectOrbitalIntersection__18CSteeringBehaviorsFRC9CVector3fffRC9CVector3fRC9CVector3fRC9CVector3fRC9CVector3fR9CVector3f
+ProjectOrbitalIntersection__18CSteeringBehaviorsFRC9CVector3fffRC9CVector3fRC9CVector3fRC9CVector3fRC9CVector3fR9CVector3f:
 /* 8013CD50 00139CB0  94 21 FE 80 */	stwu r1, -0x180(r1)
 /* 8013CD54 00139CB4  7C 08 02 A6 */	mflr r0
 /* 8013CD58 00139CB8  90 01 01 84 */	stw r0, 0x184(r1)
@@ -492,8 +492,8 @@ lbl_8013D0D8:
 /* 8013D164 0013A0C4  38 21 01 80 */	addi r1, r1, 0x180
 /* 8013D168 0013A0C8  4E 80 00 20 */	blr
 
-.global ProjectOrbitalIntersection__18CSteeringBehaviorsFRC9CVector3ffRC9CVector3fRC9CVector3fRC9CVector3fR9CVector3f
-ProjectOrbitalIntersection__18CSteeringBehaviorsFRC9CVector3ffRC9CVector3fRC9CVector3fRC9CVector3fR9CVector3f:
+.global ProjectOrbitalIntersection__18CSteeringBehaviorsFRC9CVector3fffRC9CVector3fRC9CVector3fRC9CVector3fR9CVector3f
+ProjectOrbitalIntersection__18CSteeringBehaviorsFRC9CVector3fffRC9CVector3fRC9CVector3fRC9CVector3fR9CVector3f:
 /* 8013D16C 0013A0CC  94 21 FE 80 */	stwu r1, -0x180(r1)
 /* 8013D170 0013A0D0  7C 08 02 A6 */	mflr r0
 /* 8013D174 0013A0D4  90 01 01 84 */	stw r0, 0x184(r1)
@@ -2567,4 +2567,3 @@ lbl_805AB840:
 	# ROM: 0x3F80E0
 	.4byte 0x3FC90FDB
 	.4byte 0
-
