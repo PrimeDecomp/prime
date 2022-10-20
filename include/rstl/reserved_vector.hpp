@@ -6,6 +6,8 @@
 #include "rstl/construct.hpp"
 #include "rstl/pointer_iterator.hpp"
 
+class CInputStream;
+
 namespace rstl {
 template < typename T, int N >
 class reserved_vector {
@@ -24,10 +26,12 @@ public:
   inline const_iterator end() const { return const_iterator(data() + x0_count); }
 
   reserved_vector() : x0_count(0) {}
-  reserved_vector(const T& value) : x0_count(N) { uninitialized_fill_n(data(), N, value); }
+  explicit reserved_vector(const T& value) : x0_count(N) { uninitialized_fill_n(data(), N, value); }
   reserved_vector(const reserved_vector& other) : x0_count(other.x0_count) {
     uninitialized_copy_n(other.data(), x0_count, data());
   }
+  reserved_vector(CInputStream& in);
+
   reserved_vector& operator=(const reserved_vector& other) {
     if (this != &other) {
       clear();

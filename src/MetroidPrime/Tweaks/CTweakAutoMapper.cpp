@@ -1,0 +1,85 @@
+#include "MetroidPrime/Tweaks/CTweakAutoMapper.hpp"
+
+#include "Kyoto/Streams/CInputStream.hpp"
+
+// Used by CGameArea, CMapArea and CMapWorld.
+// TODO: properly handle this
+extern "C" int lbl_805A8EB0 = 0;
+
+CTweakAutoMapper::~CTweakAutoMapper() {}
+
+CTweakAutoMapper::CTweakAutoMapper(CInputStream& in)
+  : x4_24_showOneMiniMapArea(in.ReadBool())
+  , x4_25_(in.ReadBool())
+  , x4_26_scaleMoveSpeedWithCamDist(in.ReadBool())
+  , x8_camDist(in.ReadFloat())
+  , xc_minCamDist(in.ReadFloat())
+  , x10_maxCamDist(in.ReadFloat())
+  , x14_minCamRotateX(in.ReadFloat())
+  , x18_maxCamRotateX(in.ReadFloat())
+  , x1c_camAngle(in.ReadFloat())
+  , x20_(in.ReadFloat())
+  , x24_automapperWidgetColor(in)
+  , x28_miniCamDist(in.ReadFloat())
+  , x2c_miniCamXAngle(in.ReadFloat())
+  , x30_miniCamAngle(in.ReadFloat())
+  , x34_(in.ReadFloat())
+  , x38_automapperWidgetMiniColor(in)
+  , x3c_surfColorVisited(in)
+  , x40_outlineColorVisited(in)
+  , x44_surfColorUnvisited(in)
+  , x48_outlineColorUnvisited(in)
+  , x4c_surfaceSelectColorVisited(in)
+  , x50_outlineSelectColorVisited(in)
+  , x54_mapSurfaceNormColorLinear(in.ReadFloat())
+  , x58_mapSurfaceNormColorConstant(in.ReadFloat())
+  , x5c_(in.ReadFloat())
+  , x60_(0.4f)
+  , x64_openMapScreenTime(in.ReadFloat())
+  , x68_closeMapScreenTime(in.ReadFloat())
+  , x6c_hintPanTime(in.ReadFloat())
+  , x70_zoomUnitsPerFrame(in.ReadFloat())
+  , x74_rotateDegPerFrame(in.ReadFloat())
+  , x78_baseMapScreenCameraMoveSpeed(in.ReadFloat())
+  , x7c_surfaceSelectColorUnvisited(in)
+  , x80_outlineSelectColorUnvisited(in)
+  , x84_miniAlphaSurfaceVisited(in.ReadFloat())
+  , x88_alphaSurfaceVisited(in.ReadFloat())
+  , x8c_miniAlphaOutlineVisited(in.ReadFloat())
+  , x90_alphaOutlineVisited(in.ReadFloat())
+  , x94_miniAlphaSurfaceUnvisited(in.ReadFloat())
+  , x98_alphaSurfaceUnvisited(in.ReadFloat())
+  , x9c_miniAlphaOutlineUnvisited(in.ReadFloat())
+  , xa0_alphaOutlineUnvisited(in.ReadFloat())
+  , xa4_doorCenterA(in.ReadFloat())
+  , xa8_doorCenterB(in.ReadFloat())
+  , xac_doorCenterC(in.ReadFloat())
+  , xb0_(in.ReadFloat())
+  , xb4_(in.ReadFloat())
+  , xb8_miniMapViewportWidth(in.ReadFloat())
+  , xbc_miniMapViewportHeight(in.ReadFloat())
+  , xc0_miniMapCamDistScale(in.ReadFloat())
+  , xc4_mapPlaneScaleX(in.ReadFloat())
+  , xc8_mapPlaneScaleZ(in.ReadFloat())
+  , xcc_(in.ReadBool())
+  , xd0_universeCamDist(in.ReadFloat())
+  , xd4_minUniverseCamDist(in.ReadFloat())
+  , xd8_maxUniverseCamDist(in.ReadFloat())
+  , xdc_switchToFromUniverseTime(in.ReadFloat())
+  , xe0_camPanUnitsPerFrame(in.ReadFloat())
+  , xe4_automapperScaleX(in.ReadFloat())
+  , xe8_automapperScaleZ(in.ReadFloat())
+  , xec_camVerticalOffset(in.ReadFloat())
+  , xf0_miniMapSamusModColor(in)
+  , xf4_areaFlashPulseColor(in)
+  , xf8_(in)
+  , xfc_(in)
+  , x100_doorColors(in)
+  , x118_doorBorderColor(in)
+  , x11c_openDoorColor(in)
+{
+  x3c_surfColorVisited.SetAlpha(1.0f);
+  x40_outlineColorVisited.SetAlpha(1.0f);
+  x44_surfColorUnvisited.SetAlpha(1.0f);
+  x48_outlineColorUnvisited.SetAlpha(1.0f);
+}
