@@ -259,7 +259,7 @@ LIBS = [
             "MetroidPrime/CCollisionActor",
             "MetroidPrime/ScriptObjects/CScriptPlayerActor",
             "MetroidPrime/Tweaks/CTweakPlayerRes",
-            "MetroidPrime/Enemies/CBurstFire",
+            ["MetroidPrime/Enemies/CBurstFire", True],
             "MetroidPrime/Enemies/CFlaahgra",
             "MetroidPrime/Player/CPlayerEnergyDrain",
             "MetroidPrime/CFlameWarp",
