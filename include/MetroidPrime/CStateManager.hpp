@@ -120,6 +120,7 @@ public:
 
   CEntity* ObjectById(TUniqueId uid);
   const CEntity* GetObjectById(TUniqueId uid) const;
+  TEditorId GetEditorIdForUniqueId(TUniqueId) const;
   TUniqueId GetIdForScript(TEditorId eid) const;
   TIdListResult GetIdListForScript(TEditorId) const;
 
@@ -197,6 +198,9 @@ public:
   bool GetWantsToEnterMessageScreen() const {
     return xf90_deferredTransition == kSMT_MessageScreen;
   }
+
+  void SetLastTriggerId(TUniqueId uid) { xf74_lastTrigger = uid; }
+  TUniqueId GetLastTriggerId() const { return xf74_lastTrigger; }
 
   void SetLastRelayId(const TUniqueId& uid) { xf76_lastRelay = uid; }
   TUniqueId* GetLastRelayIdPtr() { return &xf76_lastRelay; }
