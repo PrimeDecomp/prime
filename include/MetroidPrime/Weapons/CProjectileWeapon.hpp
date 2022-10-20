@@ -27,6 +27,8 @@ public:
   virtual void Render();
   virtual CVector3f GetTranslation() const;
   virtual CTransform4f GetTransform() const;
+  
+  static float GetTickPeriod(); // { return 0.0166667f; }
 
 private:
   TLockedToken< CWeaponDescription > x4_weaponDesc;

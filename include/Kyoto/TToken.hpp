@@ -19,6 +19,7 @@ public:
 
   T* GetT() { return reinterpret_cast< T* >(CToken::GetObj()->GetContents()); }
   T* operator*() { return GetT(); }
+  T* operator->() { return GetT(); }
 
   static inline rstl::auto_ptr< TObjOwnerDerivedFromIObj< T > >
   GetIObjObjectFor(const rstl::auto_ptr< T >& obj) {

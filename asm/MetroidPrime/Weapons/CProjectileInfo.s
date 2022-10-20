@@ -63,7 +63,7 @@ PredictInterceptPos__15CProjectileInfoFRC9CVector3fRC9CVector3fRC7CPlayerbff:
 /* 8021BD78 00218CD8  38 A1 00 44 */	addi r5, r1, 0x44
 /* 8021BD7C 00218CDC  38 C1 00 38 */	addi r6, r1, 0x38
 /* 8021BD80 00218CE0  39 01 00 50 */	addi r8, r1, 0x50
-/* 8021BD84 00218CE4  4B F2 0F CD */	bl ProjectOrbitalIntersection__18CSteeringBehaviorsFRC9CVector3ffRC9CVector3fRC9CVector3fRC9CVector3fRC9CVector3fR9CVector3f
+/* 8021BD84 00218CE4  4B F2 0F CD */	bl ProjectOrbitalIntersection__18CSteeringBehaviorsFRC9CVector3fffRC9CVector3fRC9CVector3fRC9CVector3fRC9CVector3fR9CVector3f
 /* 8021BD88 00218CE8  48 00 00 E0 */	b lbl_8021BE68
 lbl_8021BD8C:
 /* 8021BD8C 00218CEC  38 61 00 44 */	addi r3, r1, 0x44
@@ -102,7 +102,7 @@ lbl_8021BDE0:
 /* 8021BE08 00218D68  D0 01 00 30 */	stfs f0, 0x30(r1)
 /* 8021BE0C 00218D6C  C0 08 00 08 */	lfs f0, 8(r8)
 /* 8021BE10 00218D70  D0 01 00 34 */	stfs f0, 0x34(r1)
-/* 8021BE14 00218D74  4B F2 13 59 */	bl ProjectOrbitalIntersection__18CSteeringBehaviorsFRC9CVector3ffRC9CVector3fRC9CVector3fRC9CVector3fR9CVector3f
+/* 8021BE14 00218D74  4B F2 13 59 */	bl ProjectOrbitalIntersection__18CSteeringBehaviorsFRC9CVector3fffRC9CVector3fRC9CVector3fRC9CVector3fR9CVector3f
 /* 8021BE18 00218D78  48 00 00 50 */	b lbl_8021BE68
 lbl_8021BE1C:
 /* 8021BE1C 00218D7C  57 A0 06 3F */	clrlwi. r0, r29, 0x18
@@ -241,8 +241,8 @@ lbl_8021BFE8:
 /* 8021C008 00218F68  38 21 00 30 */	addi r1, r1, 0x30
 /* 8021C00C 00218F6C  4E 80 00 20 */	blr
 
-.global sub_8021c010
-sub_8021c010:
+.global __ct__15CProjectileInfoFR12CInputStream
+__ct__15CProjectileInfoFR12CInputStream:
 /* 8021C010 00218F70  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 8021C014 00218F74  7C 08 02 A6 */	mflr r0
 /* 8021C018 00218F78  90 01 00 24 */	stw r0, 0x24(r1)
@@ -349,4 +349,3 @@ lbl_805AD108:
 	# ROM: 0x3F99A8
 	.4byte 0x472FC800
 	.4byte 0
-
