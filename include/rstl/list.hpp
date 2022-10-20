@@ -28,9 +28,11 @@ public:
   ~list() {
     node* cur = x4_start;
     while (cur != x8_end) {
-      cur->get_value()->~T();
-      x0_allocator.deallocate(cur->get_value());
-      cur = cur->get_next();
+      node* it = cur;
+      node* next = cur->get_next();
+      cur = next;
+      destroy(it);
+      x0_allocator.deallocate(it);
     }
   }
   void push_back(const T& val) { do_insert_before(x8_end, val); }
@@ -57,6 +59,9 @@ private:
     uchar x8_item[sizeof(T)];
 
     node(node* prev, node* next) : x0_prev(prev), x4_next(next) {}
+    ~node() {
+      get_value()->~T();
+    }
 
     node* get_prev() const { return x0_prev; }
     node* get_next() const { return x4_next; }
@@ -104,6 +109,8 @@ public:
     bool operator==(const const_iterator& other) const { return current == other.current; }
     bool operator!=(const const_iterator& other) const { return current != other.current; }
 
+    const node* get_node() const { return current; }
+
   protected:
     const node* current;
   };
@@ -118,7 +125,10 @@ public:
       this->current = this->current->x4_next;
       return *this;
     }
-    iterator operator++(int) { return const_iterator(this->current->x4_next;
+    iterator operator++(int) {
+      node* cur = this->current;
+      this->current = this->current->x4_next;
+      return cur;
     }
     iterator& operator--() {
       this->current = this->current->x0_prev;
