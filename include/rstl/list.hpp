@@ -35,22 +35,20 @@ public:
   }
   void push_back(const T& val) { do_insert_before(x8_end, val); }
   void clear() {
-    // iterator e = end();
-    iterator cur = begin();
-    while (cur != end()) {
-      cur = erase(cur);
-    }
-    // node *e = x8_end;
-    // node *cur = x4_start;
-    // while (cur != e) {
-    //   cur = erase(cur);
-    // }
+    erase(begin(), end());
   }
 
   iterator begin() { return iterator(x4_start); }
   const_iterator begin() const { return const_iterator(x4_start); }
   iterator end() { return iterator(x8_end); }
   const_iterator end() const { return const_iterator(x8_end); }
+
+  void erase(const iterator& start, const iterator& end) {
+    iterator it = start;
+    while (it != end) {
+      erase(it++);
+    }
+  }
 
 private:
   struct node {
