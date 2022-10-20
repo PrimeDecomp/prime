@@ -54,10 +54,10 @@ void CToken::Unlock() {
 }
 
 CToken& CToken::operator=(const CToken& other) {
-  if (&other == const_cast< const CToken* >(this)) {
+  if (&other == this) {
     return *this;
   }
-  
+
   Unlock();
   RemoveRef();
   x0_objRef = other.x0_objRef;
