@@ -43,6 +43,7 @@ public:
   void DisableFilter(float time);
 
   static void DrawWideScreen(const CColor& color, const CTexture* tex, float v);
+  static void DrawFilter(EFilterType type, EFilterShape shape, const CColor& color, const CTexture* tex, float lod);
 
 private:
   EFilterType x0_curType;

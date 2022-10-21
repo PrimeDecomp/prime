@@ -29,6 +29,32 @@ enum EPlayerMovementState {
 };
 
 class CPlayer : public CPhysicsActor {
+  struct CVisorSteam {
+    float x0_curTargetAlpha;
+    float x4_curAlphaInDur;
+    float x8_curAlphaOutDur;
+    CAssetId xc_tex;
+    float x10_nextTargetAlpha;
+    float x14_nextAlphaInDur;
+    float x18_nextAlphaOutDur;
+    CAssetId x1c_txtr;
+    float x20_alpha;
+    float x24_delayTimer;
+    bool x28_affectsThermal;
+
+  public:
+    CVisorSteam(float targetAlpha, float alphaInDur, float alphaOutDur, CAssetId tex)
+    : x0_curTargetAlpha(targetAlpha)
+    , x4_curAlphaInDur(alphaInDur)
+    , x8_curAlphaOutDur(alphaOutDur)
+    , xc_tex(tex) {}
+    CAssetId GetTextureId()  const { return xc_tex; }
+    void SetSteam(float targetAlpha, float alphaInDur, float alphaOutDur, CAssetId txtr,
+                  bool affectsThermal);
+    void Update(float dt);
+    float GetAlpha() const { return x20_alpha; }
+    bool AffectsThermal() const { return x28_affectsThermal; }
+  };
 public:
   enum EPlayerOrbitState {
     kOS_NoOrbit,
@@ -188,6 +214,7 @@ public:
 
   void Teleport(const CTransform4f& xf, CStateManager& mgr, bool resetBallCam);
   void SetSpawnedMorphBallState(EPlayerMorphBallState state, CStateManager& mgr);
+  const CVisorSteam& GetVisorSteam() const { return x7a0_visorSteam; }
   void SetVisorSteam(float targetAlpha, float alphaInDur, float alphaOutDir, CAssetId txtr, bool affectsThermal);
 
   CVector3f GetDampedClampedVelocityWR() const;
@@ -195,32 +222,6 @@ public:
   float GetGravity() const;
 
 private:
-  struct CVisorSteam {
-    float x0_curTargetAlpha;
-    float x4_curAlphaInDur;
-    float x8_curAlphaOutDur;
-    CAssetId xc_tex;
-    float x10_nextTargetAlpha;
-    float x14_nextAlphaInDur;
-    float x18_nextAlphaOutDur;
-    CAssetId x1c_txtr;
-    float x20_alpha;
-    float x24_delayTimer;
-    bool x28_affectsThermal;
-
-  public:
-    CVisorSteam(float targetAlpha, float alphaInDur, float alphaOutDur, CAssetId tex)
-    : x0_curTargetAlpha(targetAlpha)
-    , x4_curAlphaInDur(alphaInDur)
-    , x8_curAlphaOutDur(alphaOutDur)
-    , xc_tex(tex) {}
-    CAssetId GetTextureId() const;
-    void SetSteam(float targetAlpha, float alphaInDur, float alphaOutDur, CAssetId txtr,
-                  bool affectsThermal);
-    void Update(float dt);
-    float GetAlpha() const { return x20_alpha; }
-    bool AffectsThermal() const { return x28_affectsThermal; }
-  };
 
   NPlayer::EPlayerMovementState x258_movementState;
   rstl::vector< CToken > x25c_ballTransitionsRes;
