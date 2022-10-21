@@ -38,11 +38,9 @@ CVector3f CVector3f::Slerp(const CVector3f& a, const CVector3f& b, const CRelAng
 
 CVector3f& CVector3f::Normalize() {
   float mag = 1.f / Magnitude();
-
   mX *= mag;
   mY *= mag;
   mZ *= mag;
-
   return *this;
 }
 
@@ -65,7 +63,6 @@ bool CVector3f::IsNotInf() const {
   int x = __HI(mX);
   int y = __HI(mY);
   int z = __HI(mZ);
-
   if ((x & 0x7f800000) == 0x7f800000 || (y & 0x7f800000) == 0x7f800000 ||
       (z & 0x7f800000) == 0x7f800000) {
     return false;
@@ -74,14 +71,7 @@ bool CVector3f::IsNotInf() const {
   return true;
 }
 
-bool CVector3f::IsMagnitudeSafe() const {
-  bool ret = false;
-  if (IsNotInf() && mX * mX + mY * mY + mZ * mZ >= 9.999999e-29f) {
-    ret = true;
-  }
-
-  return ret;
-}
+bool CVector3f::IsMagnitudeSafe() const { return IsNotInf() && MagSquared() >= 9.999999e-29f; }
 
 bool CVector3f::CanBeNormalized() const {
   int x = __HI(mX);
