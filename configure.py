@@ -298,7 +298,7 @@ LIBS = [
             "MetroidPrime/Enemies/CThardus",
             "MetroidPrime/CActorParticles",
             "MetroidPrime/Enemies/CWallCrawlerSwarm",
-            "MetroidPrime/ScriptObjects/CScriptAiJumpPoint",
+            ["MetroidPrime/ScriptObjects/CScriptAiJumpPoint", True],
             "MetroidPrime/CMessageScreen",
             "MetroidPrime/Enemies/CFlaahgraTentacle",
             "MetroidPrime/Weapons/GunController/CGSFidget",

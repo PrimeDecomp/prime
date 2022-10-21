@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803E6398
-lbl_803E6398:
+.global __vt__18CScriptAiJumpPoint
+__vt__18CScriptAiJumpPoint:
 	# ROM: 0x3E3398
 	.4byte 0
 	.4byte 0
@@ -56,9 +56,9 @@ __dt__18CScriptAiJumpPointFv:
 /* 801EF200 001EC160  93 C1 00 08 */	stw r30, 8(r1)
 /* 801EF204 001EC164  7C 7E 1B 79 */	or. r30, r3, r3
 /* 801EF208 001EC168  41 82 00 3C */	beq lbl_801EF244
-/* 801EF20C 001EC16C  3C 60 80 3E */	lis r3, lbl_803E6398@ha
+/* 801EF20C 001EC16C  3C 60 80 3E */	lis r3, __vt__18CScriptAiJumpPoint@ha
 /* 801EF210 001EC170  34 1E 00 EC */	addic. r0, r30, 0xec
-/* 801EF214 001EC174  38 03 63 98 */	addi r0, r3, lbl_803E6398@l
+/* 801EF214 001EC174  38 03 63 98 */	addi r0, r3, __vt__18CScriptAiJumpPoint@l
 /* 801EF218 001EC178  90 1E 00 00 */	stw r0, 0(r30)
 /* 801EF21C 001EC17C  41 82 00 0C */	beq lbl_801EF228
 /* 801EF220 001EC180  38 00 00 00 */	li r0, 0
@@ -290,9 +290,9 @@ Accept__18CScriptAiJumpPointFR8IVisitor:
 /* 801EF524 001EC484  38 61 00 B8 */	addi r3, r1, 0xb8
 /* 801EF528 001EC488  38 80 FF FF */	li r4, -1
 /* 801EF52C 001EC48C  4B F2 75 21 */	bl __dt__10CModelDataFv
-/* 801EF530 001EC490  3C 80 80 3E */	lis r4, lbl_803E6398@ha
+/* 801EF530 001EC490  3C 80 80 3E */	lis r4, __vt__18CScriptAiJumpPoint@ha
 /* 801EF534 001EC494  38 61 00 38 */	addi r3, r1, 0x38
-/* 801EF538 001EC498  38 04 63 98 */	addi r0, r4, lbl_803E6398@l
+/* 801EF538 001EC498  38 04 63 98 */	addi r0, r4, __vt__18CScriptAiJumpPoint@l
 /* 801EF53C 001EC49C  38 81 00 2C */	addi r4, r1, 0x2c
 /* 801EF540 001EC4A0  90 1F 00 00 */	stw r0, 0(r31)
 /* 801EF544 001EC4A4  38 A1 00 20 */	addi r5, r1, 0x20
