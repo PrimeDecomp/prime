@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803E2438
-lbl_803E2438:
+.global __vt__34CScriptSpiderBallAttractionSurface
+__vt__34CScriptSpiderBallAttractionSurface:
 	# ROM: 0x3DF438
 	.4byte 0
 	.4byte 0
@@ -158,9 +158,9 @@ __dt__34CScriptSpiderBallAttractionSurfaceFv:
 /* 8014AED0 00147E30  93 C1 00 08 */	stw r30, 8(r1)
 /* 8014AED4 00147E34  7C 7E 1B 79 */	or. r30, r3, r3
 /* 8014AED8 00147E38  41 82 00 28 */	beq lbl_8014AF00
-/* 8014AEDC 00147E3C  3C A0 80 3E */	lis r5, lbl_803E2438@ha
+/* 8014AEDC 00147E3C  3C A0 80 3E */	lis r5, __vt__34CScriptSpiderBallAttractionSurface@ha
 /* 8014AEE0 00147E40  38 80 00 00 */	li r4, 0
-/* 8014AEE4 00147E44  38 05 24 38 */	addi r0, r5, lbl_803E2438@l
+/* 8014AEE4 00147E44  38 05 24 38 */	addi r0, r5, __vt__34CScriptSpiderBallAttractionSurface@l
 /* 8014AEE8 00147E48  90 1E 00 00 */	stw r0, 0(r30)
 /* 8014AEEC 00147E4C  4B F0 A8 05 */	bl __dt__6CActorFv
 /* 8014AEF0 00147E50  7F E0 07 35 */	extsh. r0, r31
@@ -229,9 +229,9 @@ lbl_8014AF00:
 /* 8014AFDC 00147F3C  38 61 01 00 */	addi r3, r1, 0x100
 /* 8014AFE0 00147F40  38 80 FF FF */	li r4, -1
 /* 8014AFE4 00147F44  4B FC BA 69 */	bl __dt__10CModelDataFv
-/* 8014AFE8 00147F48  3C 60 80 3E */	lis r3, lbl_803E2438@ha
+/* 8014AFE8 00147F48  3C 60 80 3E */	lis r3, __vt__34CScriptSpiderBallAttractionSurface@ha
 /* 8014AFEC 00147F4C  C0 42 9C E0 */	lfs f2, lbl_805ABA00@sda21(r2)
-/* 8014AFF0 00147F50  38 03 24 38 */	addi r0, r3, lbl_803E2438@l
+/* 8014AFF0 00147F50  38 03 24 38 */	addi r0, r3, __vt__34CScriptSpiderBallAttractionSurface@l
 /* 8014AFF4 00147F54  7F 84 E3 78 */	mr r4, r28
 /* 8014AFF8 00147F58  90 1F 00 00 */	stw r0, 0(r31)
 /* 8014AFFC 00147F5C  38 61 00 68 */	addi r3, r1, 0x68
