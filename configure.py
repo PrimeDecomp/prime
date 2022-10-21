@@ -212,7 +212,7 @@ LIBS = [
             "MetroidPrime/ScriptObjects/CScriptSpiderBallAttractionSurface",
             "MetroidPrime/BodyState/CBSScripted",
             "MetroidPrime/Enemies/CPuddleToadGamma",
-            "MetroidPrime/ScriptObjects/CScriptDistanceFog",
+            ["MetroidPrime/ScriptObjects/CScriptDistanceFog", False],
             "MetroidPrime/BodyState/CBSProjectileAttack",
             "MetroidPrime/Weapons/CPowerBomb",
             "MetroidPrime/Enemies/CMetaree",

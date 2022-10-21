@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803E27B0
-lbl_803E27B0:
+.global __vt__18CScriptDistanceFog
+__vt__18CScriptDistanceFog:
 	# ROM: 0x3DF7B0
 	.4byte 0
 	.4byte 0
@@ -112,7 +112,7 @@ lbl_8014D11C:
 /* 8014D150 0014A0B0  90 A1 00 10 */	stw r5, 0x10(r1)
 /* 8014D154 0014A0B4  7C 64 00 2E */	lwzx r3, r4, r0
 /* 8014D158 0014A0B8  C0 5E 00 50 */	lfs f2, 0x50(r30)
-/* 8014D15C 0014A0BC  4B F1 10 A1 */	bl sub_8005e1fc
+/* 8014D15C 0014A0BC  4B F1 10 A1 */	bl SetThermalSpeedAndTarget__9CGameAreaFff
 lbl_8014D160:
 /* 8014D160 0014A0C0  C0 3E 00 5C */	lfs f1, 0x5c(r30)
 /* 8014D164 0014A0C4  C0 42 9D 20 */	lfs f2, lbl_805ABA40@sda21(r2)
@@ -130,7 +130,7 @@ lbl_8014D160:
 /* 8014D194 0014A0F4  90 A1 00 0C */	stw r5, 0xc(r1)
 /* 8014D198 0014A0F8  7C 64 00 2E */	lwzx r3, r4, r0
 /* 8014D19C 0014A0FC  C0 5E 00 58 */	lfs f2, 0x58(r30)
-/* 8014D1A0 0014A100  4B F1 10 49 */	bl sub_8005e1e8
+/* 8014D1A0 0014A100  4B F1 10 49 */	bl SetXRaySpeedAndTarget__9CGameAreaFff
 lbl_8014D1A4:
 /* 8014D1A4 0014A104  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 8014D1A8 0014A108  83 E1 00 3C */	lwz r31, 0x3c(r1)
@@ -167,9 +167,9 @@ __dt__18CScriptDistanceFogFv:
 /* 8014D20C 0014A16C  93 C1 00 08 */	stw r30, 8(r1)
 /* 8014D210 0014A170  7C 7E 1B 79 */	or. r30, r3, r3
 /* 8014D214 0014A174  41 82 00 28 */	beq lbl_8014D23C
-/* 8014D218 0014A178  3C A0 80 3E */	lis r5, lbl_803E27B0@ha
+/* 8014D218 0014A178  3C A0 80 3E */	lis r5, __vt__18CScriptDistanceFog@ha
 /* 8014D21C 0014A17C  38 80 00 00 */	li r4, 0
-/* 8014D220 0014A180  38 05 27 B0 */	addi r0, r5, lbl_803E27B0@l
+/* 8014D220 0014A180  38 05 27 B0 */	addi r0, r5, __vt__18CScriptDistanceFog@l
 /* 8014D224 0014A184  90 1E 00 00 */	stw r0, 0(r30)
 /* 8014D228 0014A188  4B F0 40 4D */	bl __dt__7CEntityFv
 /* 8014D22C 0014A18C  7F E0 07 35 */	extsh. r0, r31
@@ -185,8 +185,8 @@ lbl_8014D23C:
 /* 8014D250 0014A1B0  38 21 00 10 */	addi r1, r1, 0x10
 /* 8014D254 0014A1B4  4E 80 00 20 */	blr
 
-.global "__ct__18CScriptDistanceFogF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC11ERglFogModeRC6CColorRC9CVector2ff9CVector2fbbffff"
-"__ct__18CScriptDistanceFogF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC11ERglFogModeRC6CColorRC9CVector2ff9CVector2fbbffff":
+.global "__ct__18CScriptDistanceFogF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfo11ERglFogModeRC6CColorRC9CVector2ffRC9CVector2fbbffff"
+"__ct__18CScriptDistanceFogF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfo11ERglFogModeRC6CColorRC9CVector2ffRC9CVector2fbbffff":
 /* 8014D258 0014A1B8  94 21 FF 70 */	stwu r1, -0x90(r1)
 /* 8014D25C 0014A1BC  7C 08 02 A6 */	mflr r0
 /* 8014D260 0014A1C0  90 01 00 94 */	stw r0, 0x94(r1)
@@ -221,9 +221,9 @@ lbl_8014D23C:
 /* 8014D2D4 0014A234  7D 67 5B 78 */	mr r7, r11
 /* 8014D2D8 0014A238  38 81 00 08 */	addi r4, r1, 8
 /* 8014D2DC 0014A23C  4B F0 40 49 */	bl "__ct__7CEntityF9TUniqueIdRC11CEntityInfobRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
-/* 8014D2E0 0014A240  3C 60 80 3E */	lis r3, lbl_803E27B0@ha
+/* 8014D2E0 0014A240  3C 60 80 3E */	lis r3, __vt__18CScriptDistanceFog@ha
 /* 8014D2E4 0014A244  C0 22 9D 20 */	lfs f1, lbl_805ABA40@sda21(r2)
-/* 8014D2E8 0014A248  38 03 27 B0 */	addi r0, r3, lbl_803E27B0@l
+/* 8014D2E8 0014A248  38 03 27 B0 */	addi r0, r3, __vt__18CScriptDistanceFog@l
 /* 8014D2EC 0014A24C  38 61 00 0C */	addi r3, r1, 0xc
 /* 8014D2F0 0014A250  90 19 00 00 */	stw r0, 0(r25)
 /* 8014D2F4 0014A254  FC 40 08 90 */	fmr f2, f1
