@@ -20536,7 +20536,7 @@ lbl_800D7C9C:
 /* 800D7D1C 000D4C7C  38 A1 00 18 */	addi r5, r1, 0x18
 /* 800D7D20 000D4C80  38 E1 00 28 */	addi r7, r1, 0x28
 /* 800D7D24 000D4C84  39 21 00 14 */	addi r9, r1, 0x14
-/* 800D7D28 000D4C88  48 08 70 0D */	bl "__ct__22CScriptPointOfInterestF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fbRC20CScannableParameters"
+/* 800D7D28 000D4C88  48 08 70 0D */	bl "__ct__22CScriptPointOfInterestF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fbRC20CScannableParametersf"
 /* 800D7D2C 000D4C8C  7C 7E 1B 78 */	mr r30, r3
 lbl_800D7D30:
 /* 800D7D30 000D4C90  38 61 00 18 */	addi r3, r1, 0x18

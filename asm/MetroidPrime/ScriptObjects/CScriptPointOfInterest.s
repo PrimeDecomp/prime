@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803E3638
-lbl_803E3638:
+.global __vt__22CScriptPointOfInterest
+__vt__22CScriptPointOfInterest:
 	# ROM: 0x3E0638
 	.4byte 0
 	.4byte 0
@@ -209,9 +209,9 @@ __dt__22CScriptPointOfInterestFv:
 /* 8015ECE8 0015BC48  93 C1 00 08 */	stw r30, 8(r1)
 /* 8015ECEC 0015BC4C  7C 7E 1B 79 */	or. r30, r3, r3
 /* 8015ECF0 0015BC50  41 82 00 28 */	beq lbl_8015ED18
-/* 8015ECF4 0015BC54  3C A0 80 3E */	lis r5, lbl_803E3638@ha
+/* 8015ECF4 0015BC54  3C A0 80 3E */	lis r5, __vt__22CScriptPointOfInterest@ha
 /* 8015ECF8 0015BC58  38 80 00 00 */	li r4, 0
-/* 8015ECFC 0015BC5C  38 05 36 38 */	addi r0, r5, lbl_803E3638@l
+/* 8015ECFC 0015BC5C  38 05 36 38 */	addi r0, r5, __vt__22CScriptPointOfInterest@l
 /* 8015ED00 0015BC60  90 1E 00 00 */	stw r0, 0(r30)
 /* 8015ED04 0015BC64  4B EF 69 ED */	bl __dt__6CActorFv
 /* 8015ED08 0015BC68  7F E0 07 35 */	extsh. r0, r31
@@ -227,8 +227,8 @@ lbl_8015ED18:
 /* 8015ED2C 0015BC8C  38 21 00 10 */	addi r1, r1, 0x10
 /* 8015ED30 0015BC90  4E 80 00 20 */	blr
 
-.global "__ct__22CScriptPointOfInterestF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fbRC20CScannableParameters"
-"__ct__22CScriptPointOfInterestF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fbRC20CScannableParameters":
+.global "__ct__22CScriptPointOfInterestF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fbRC20CScannableParametersf"
+"__ct__22CScriptPointOfInterestF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fbRC20CScannableParametersf":
 /* 8015ED34 0015BC94  94 21 FE 90 */	stwu r1, -0x170(r1)
 /* 8015ED38 0015BC98  7C 08 02 A6 */	mflr r0
 /* 8015ED3C 0015BC9C  90 01 01 74 */	stw r0, 0x174(r1)
@@ -289,9 +289,9 @@ lbl_8015ED18:
 /* 8015EE18 0015BD78  38 61 00 F0 */	addi r3, r1, 0xf0
 /* 8015EE1C 0015BD7C  38 80 FF FF */	li r4, -1
 /* 8015EE20 0015BD80  4B FB 7C 2D */	bl __dt__10CModelDataFv
-/* 8015EE24 0015BD84  3C 80 80 3E */	lis r4, lbl_803E3638@ha
+/* 8015EE24 0015BD84  3C 80 80 3E */	lis r4, __vt__22CScriptPointOfInterest@ha
 /* 8015EE28 0015BD88  7F E3 FB 78 */	mr r3, r31
-/* 8015EE2C 0015BD8C  38 04 36 38 */	addi r0, r4, lbl_803E3638@l
+/* 8015EE2C 0015BD8C  38 04 36 38 */	addi r0, r4, __vt__22CScriptPointOfInterest@l
 /* 8015EE30 0015BD90  90 1F 00 00 */	stw r0, 0(r31)
 /* 8015EE34 0015BD94  D3 FF 00 E8 */	stfs f31, 0xe8(r31)
 /* 8015EE38 0015BD98  CB E1 01 68 */	lfd f31, 0x168(r1)

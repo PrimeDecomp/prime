@@ -102,6 +102,7 @@ public:
   // CActorParameters() {
   //   // TODO
   // }
+  CActorParameters Scannable(const CScannableParameters& sParms) const;
 
   const CLightParameters& GetLighting() const { return x0_lightParams; }
   const CScannableParameters& GetScannable() const { return x40_scanParams; }

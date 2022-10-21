@@ -192,7 +192,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CRipper.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Cameras/CCameraShakeData.o\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptPickupGenerator.o\
-	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptPointOfInterest.o\
+	$(BUILD_DIR)/src/MetroidPrime/ScriptObjects/CScriptPointOfInterest.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CDrone.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CMapWorldInfo.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Factories/CScannableObjectInfo.o\
