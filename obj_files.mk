@@ -658,7 +658,7 @@ DVD_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/dvd/dvd.o\
 	$(BUILD_DIR)/asm/Dolphin/dvd/dvdqueue.o\
 	$(BUILD_DIR)/asm/Dolphin/dvd/dvderror.o\
-	$(BUILD_DIR)/asm/Dolphin/dvd/dvdidutils.o\
+	$(BUILD_DIR)/src/Dolphin/dvd/dvdidutils.ep.o\
 	$(BUILD_DIR)/asm/Dolphin/dvd/dvdfatal.o\
 	$(BUILD_DIR)/asm/Dolphin/dvd/fstload.o
 
