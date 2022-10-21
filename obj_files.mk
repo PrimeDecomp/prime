@@ -281,7 +281,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptStreamedAudio.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CRagDoll.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Player/CGameOptions.o\
-	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CRepulsor.o\
+	$(BUILD_DIR)/src/MetroidPrime/ScriptObjects/CRepulsor.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CEnvFxManager.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Weapons/CEnergyProjectile.o\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptGunTurret.o\

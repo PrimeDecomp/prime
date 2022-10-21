@@ -316,7 +316,7 @@ LIBS = [
             "MetroidPrime/ScriptObjects/CScriptStreamedAudio",
             "MetroidPrime/CRagDoll",
             "MetroidPrime/Player/CGameOptions",
-            "MetroidPrime/ScriptObjects/CRepulsor",
+            ["MetroidPrime/ScriptObjects/CRepulsor", True],
             "MetroidPrime/CEnvFxManager",
             "MetroidPrime/Weapons/CEnergyProjectile",
             "MetroidPrime/ScriptObjects/CScriptGunTurret",

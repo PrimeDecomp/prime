@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803E70E8
-lbl_803E70E8:
+.global __vt__9CRepulsor
+__vt__9CRepulsor:
 	# ROM: 0x3E40E8
 	.4byte 0
 	.4byte 0
@@ -57,9 +57,9 @@ __dt__9CRepulsorFv:
 /* 8020FC5C 0020CBBC  93 C1 00 08 */	stw r30, 8(r1)
 /* 8020FC60 0020CBC0  7C 7E 1B 79 */	or. r30, r3, r3
 /* 8020FC64 0020CBC4  41 82 00 28 */	beq lbl_8020FC8C
-/* 8020FC68 0020CBC8  3C A0 80 3E */	lis r5, lbl_803E70E8@ha
+/* 8020FC68 0020CBC8  3C A0 80 3E */	lis r5, __vt__9CRepulsor@ha
 /* 8020FC6C 0020CBCC  38 80 00 00 */	li r4, 0
-/* 8020FC70 0020CBD0  38 05 70 E8 */	addi r0, r5, lbl_803E70E8@l
+/* 8020FC70 0020CBD0  38 05 70 E8 */	addi r0, r5, __vt__9CRepulsor@l
 /* 8020FC74 0020CBD4  90 1E 00 00 */	stw r0, 0(r30)
 /* 8020FC78 0020CBD8  4B E4 5A 79 */	bl __dt__6CActorFv
 /* 8020FC7C 0020CBDC  7F E0 07 35 */	extsh. r0, r31
@@ -163,9 +163,9 @@ Accept__9CRepulsorFR8IVisitor:
 /* 8020FDDC 0020CD3C  38 61 00 B8 */	addi r3, r1, 0xb8
 /* 8020FDE0 0020CD40  38 80 FF FF */	li r4, -1
 /* 8020FDE4 0020CD44  4B F0 6C 69 */	bl __dt__10CModelDataFv
-/* 8020FDE8 0020CD48  3C 80 80 3E */	lis r4, lbl_803E70E8@ha
+/* 8020FDE8 0020CD48  3C 80 80 3E */	lis r4, __vt__9CRepulsor@ha
 /* 8020FDEC 0020CD4C  7F E3 FB 78 */	mr r3, r31
-/* 8020FDF0 0020CD50  38 04 70 E8 */	addi r0, r4, lbl_803E70E8@l
+/* 8020FDF0 0020CD50  38 04 70 E8 */	addi r0, r4, __vt__9CRepulsor@l
 /* 8020FDF4 0020CD54  90 1F 00 00 */	stw r0, 0(r31)
 /* 8020FDF8 0020CD58  D3 FF 00 E8 */	stfs f31, 0xe8(r31)
 /* 8020FDFC 0020CD5C  CB E1 01 28 */	lfd f31, 0x128(r1)
