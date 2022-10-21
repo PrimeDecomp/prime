@@ -36,10 +36,22 @@ inline short FtoS(register float in) {
   }
   return *ptr;
 }
+
+inline ushort FtoUS(register float in) {
+  ushort a;
+  register ushort* ptr = &a;
+
+  asm {
+            psq_st  in, 0(ptr), 1, OS_FASTCAST_U16
+  }
+  return *ptr;
+}
+
 #else
 inline uchar ToUint8(float in) { return static_cast< uchar >(in); }
 inline float ToReal32(uchar in) { return static_cast< float >(in); }
 inline short FtoS(float in) { return static_cast< short >(in); }
+inline ushort FtoUS(float in) { return static_cast< ushort >(in); }
 #endif
 
 inline int ToInt32(float in) { return static_cast< int >(in); }

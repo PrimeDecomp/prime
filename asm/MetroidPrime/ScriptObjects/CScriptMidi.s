@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803E7048
-lbl_803E7048:
+.global __vt__11CScriptMidi
+__vt__11CScriptMidi:
 	# ROM: 0x3E4048
 	.4byte 0
 	.4byte 0
@@ -202,9 +202,9 @@ __dt__11CScriptMidiFv:
 /* 8020BBDC 00208B3C  93 C1 00 08 */	stw r30, 8(r1)
 /* 8020BBE0 00208B40  7C 7E 1B 79 */	or. r30, r3, r3
 /* 8020BBE4 00208B44  41 82 00 48 */	beq lbl_8020BC2C
-/* 8020BBE8 00208B48  3C 80 80 3E */	lis r4, lbl_803E7048@ha
+/* 8020BBE8 00208B48  3C 80 80 3E */	lis r4, __vt__11CScriptMidi@ha
 /* 8020BBEC 00208B4C  C0 22 B1 B0 */	lfs f1, lbl_805ACED0@sda21(r2)
-/* 8020BBF0 00208B50  38 04 70 48 */	addi r0, r4, lbl_803E7048@l
+/* 8020BBF0 00208B50  38 04 70 48 */	addi r0, r4, __vt__11CScriptMidi@l
 /* 8020BBF4 00208B54  90 1E 00 00 */	stw r0, 0(r30)
 /* 8020BBF8 00208B58  4B FF FD 45 */	bl StopInternal__11CScriptMidiFf
 /* 8020BBFC 00208B5C  34 1E 00 34 */	addic. r0, r30, 0x34
@@ -324,9 +324,9 @@ Accept__11CScriptMidiFR8IVisitor:
 /* 8020BD84 00208CE4  7C 87 23 78 */	mr r7, r4
 /* 8020BD88 00208CE8  38 81 00 08 */	addi r4, r1, 8
 /* 8020BD8C 00208CEC  4B E4 55 99 */	bl "__ct__7CEntityF9TUniqueIdRC11CEntityInfobRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
-/* 8020BD90 00208CF0  3C 60 80 3E */	lis r3, lbl_803E7048@ha
+/* 8020BD90 00208CF0  3C 60 80 3E */	lis r3, __vt__11CScriptMidi@ha
 /* 8020BD94 00208CF4  3C 80 43 53 */	lis r4, 0x43534E47@ha
-/* 8020BD98 00208CF8  38 03 70 48 */	addi r0, r3, lbl_803E7048@l
+/* 8020BD98 00208CF8  38 03 70 48 */	addi r0, r3, __vt__11CScriptMidi@l
 /* 8020BD9C 00208CFC  38 61 00 0C */	addi r3, r1, 0xc
 /* 8020BDA0 00208D00  90 1D 00 00 */	stw r0, 0(r29)
 /* 8020BDA4 00208D04  38 04 4E 47 */	addi r0, r4, 0x43534E47@l

@@ -30,7 +30,7 @@ TUniqueId CScriptCameraWaypoint::GetRandomNextWaypointId(const CStateManager& mg
   rstl::vector< TUniqueId > candidateIds;
 
   rstl::vector< SConnection >::const_iterator conn = x20_conns.begin();
-  
+
   for (; conn != x20_conns.end(); ++conn) {
     if (conn->x0_state == kSS_Arrived && conn->x4_msg == kSM_Next) {
       TUniqueId uid = mgr.GetIdForScript(conn->x8_objId);
