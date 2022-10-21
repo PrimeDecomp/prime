@@ -263,7 +263,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CThardus.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CActorParticles.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CWallCrawlerSwarm.o\
-	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptAiJumpPoint.o\
+	$(BUILD_DIR)/src/MetroidPrime/ScriptObjects/CScriptAiJumpPoint.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CMessageScreen.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CFlaahgraTentacle.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Weapons/GunController/CGSFidget.o\
