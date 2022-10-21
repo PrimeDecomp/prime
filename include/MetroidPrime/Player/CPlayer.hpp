@@ -150,6 +150,7 @@ public:
   virtual bool IsTransparent();
 
   CVector3f GetBallPosition() const;
+  CVector3f GetEyePosition() const;
   CTransform4f CreateTransformFromMovementDirection() const;
   EPlayerOrbitState GetOrbitState() const { return x304_orbitState; }
   const CVector3f& GetMovementDirection() const { return x50c_moveDir; }
@@ -187,6 +188,7 @@ public:
 
   void Teleport(const CTransform4f& xf, CStateManager& mgr, bool resetBallCam);
   void SetSpawnedMorphBallState(EPlayerMorphBallState state, CStateManager& mgr);
+  void SetVisorSteam(float targetAlpha, float alphaInDur, float alphaOutDir, CAssetId txtr, bool affectsThermal);
 
   CVector3f GetDampedClampedVelocityWR() const;
   float GetAverageSpeed() const;
