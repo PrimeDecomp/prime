@@ -348,9 +348,6 @@ lbl_8033FED4:
 /* 8033FF70 0033CED0  7C 08 03 A6 */	mtlr r0
 /* 8033FF74 0033CED4  38 21 00 20 */	addi r1, r1, 0x20
 /* 8033FF78 0033CED8  4E 80 00 20 */	blr
-.include "macros.inc"
-
-.section .text, "ax"
 
 .global "__ct__16CObjectReferenceFR12IObjectStoreRCQ24rstl15auto_ptr<4IObj>RC10SObjectTag15CVParamTransfer"
 "__ct__16CObjectReferenceFR12IObjectStoreRCQ24rstl15auto_ptr<4IObj>RC10SObjectTag15CVParamTransfer":
