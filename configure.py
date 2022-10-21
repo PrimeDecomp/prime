@@ -236,7 +236,7 @@ LIBS = [
             ["MetroidPrime/ScriptObjects/CScriptSteam", False],
             ["MetroidPrime/ScriptObjects/CScriptRipple", False],
             "MetroidPrime/CBoneTracking",
-            "MetroidPrime/Player/CFaceplateDecoration",
+            ["MetroidPrime/Player/CFaceplateDecoration", False],
             "MetroidPrime/BodyState/CBSCover",
             "MetroidPrime/ScriptObjects/CScriptBallTrigger",
             "MetroidPrime/Weapons/CPlasmaProjectile",
