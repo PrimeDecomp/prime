@@ -4,7 +4,6 @@
 #include "MetroidPrime/CStateManager.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptWater.hpp"
 
-
 CScriptRipple::CScriptRipple(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
                              const CVector3f& vec, bool active, float f1)
 : CEntity(uid, info, active, name), x34_magnitude(f1 >= 0.f ? f1 : 0.5f), x38_center(vec) {}
@@ -13,7 +12,7 @@ CScriptRipple::~CScriptRipple() {}
 
 void CScriptRipple::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) {
   switch (msg) {
-  case (kSM_Play):
+  case (kSM_Play): {
     if (!GetActive()) {
       return;
     }
@@ -33,6 +32,7 @@ void CScriptRipple::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CSt
       }
     }
     break;
+  }
   default:
     CEntity::AcceptScriptMsg(msg, uid, mgr);
     break;

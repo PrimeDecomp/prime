@@ -17,7 +17,6 @@ private:
   typedef red_black_tree< K, value_type, 1, select1st< value_type >, Cmp, Alloc > rep_type;
 
 public:
-  typedef pair< K, V > value_type;
   // typedef typename rep_type::iterator iterator;
   typedef typename rep_type::const_iterator const_iterator;
 

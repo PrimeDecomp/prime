@@ -16,11 +16,11 @@ public:
     // resize(value, N); TODO
   }
   void AddValue(const T& value) {
-    push_back(value);
-    for (int i = size() - 1; i > 0; --i) {
-      operator[](i) = operator[](i - 1);
+    this->push_back(value);
+    for (int i = this->size() - 1; i > 0; --i) {
+      this->operator[](i) = this->operator[](i - 1);
     }
-    operator[](0) = value;
+    this->operator[](0) = value;
   }
   rstl::optional_object< T > GetAverage() const;
 };

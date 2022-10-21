@@ -21,6 +21,7 @@ public:
   static float SqrtF(float v);
   static inline float Limit(float v, float h) { return fabs(v) > h ? h * Sign(v) : v; }
   static inline float Sign(float v) { return FastFSel(v, 1.f, -1.f); }
+#ifdef __MWERKS__
   static inline float FastFSel(register float v, register float h, register float l) {
     register float out;
     asm {
@@ -28,6 +29,11 @@ public:
     }
     return out;
   }
+#else
+  static inline float FastFSel(float v, float h, float l) {
+    return v >= 0.f ? h : l;
+  }
+#endif
   static inline float AbsF(float v) { return fabs(v); }
   static inline double AbsD(double v) { return fabs(v); }
   static inline int AbsI(int v) { return abs(v); }

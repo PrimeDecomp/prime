@@ -51,8 +51,9 @@ public:
   CTransform4f CalculateCameraBobTransformation() const;
   static void ReadTweaks(CInputStream& in);
 
-  static const CVector2f& GetCameraBobExtent() { return CVector2f(kCameraBobExtentX, kCameraBobExtentY); }
-  static float GetCameraBobPeriod() { return kCameraBobPeriod; }
+  // static float GetCameraBobExtentX() { return kCameraBobExtentX; }
+  // static float GetCameraBobExtentY() { return kCameraBobExtentY; }
+  // static float GetCameraBobPeriod() { return kCameraBobPeriod; }
   static float GetOrbitBobScale() { return kOrbitBobScale; }
   static float GetMaxOrbitBobScale() { return kMaxOrbitBobScale; }
   static float GetSlowSpeedPeriodScale() { return kSlowSpeedPeriodScale; }
@@ -85,6 +86,7 @@ private:
   float x100_wanderMagnitude;
   float x104_targetWanderMagnitude;
 
+public:
   static float kCameraBobExtentX;
   static float kCameraBobExtentY;
   static float kCameraBobPeriod;

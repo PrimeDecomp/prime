@@ -12,7 +12,7 @@ void joyboot_callback(s32 chan, s32 ret) {}
 const uint MAGIC = 0x414d5445;
 #endif
 
-static CGBASupport* g_GBA;
+CGBASupport* g_GBA;
 
 inline bool GetFontEncoding() { return OSGetFontEncode() == 1; }
 
@@ -87,16 +87,16 @@ bool CGBASupport::IsReady() { return CheckReadyStatus(); }
 
 void CGBASupport::Update(float dt) {
   switch (x34_phase) {
-  case kP_LoadClientPad:
+  case kP_LoadClientPad: {
     CheckReadyStatus();
     break;
-
-  case kP_StartProbeTimeout:
+  }
+  case kP_StartProbeTimeout: {
     x38_timeout = 4.f;
     x34_phase = kP_PollProbe;
     // [[fallthrough]];
-
-  case kP_PollProbe:
+  }
+  case kP_PollProbe: {
     int channel = 1;
     do {
       uint result = SIProbe(channel);
@@ -114,14 +114,14 @@ void CGBASupport::Update(float dt) {
       x34_phase = kP_Failed;
     }
     break;
-
-  case kP_StartJoyBusBoot:
+  }
+  case kP_StartJoyBusBoot: {
     x34_phase = kP_PollJoyBusBoot;
     GBAJoyBootAsync(x40_siChan, x40_siChan << 1, 2, x2c_buffer.get(), x0_file.Length(), &x3c_status,
                     &joyboot_callback);
     break;
-
-  case kP_PollJoyBusBoot:
+  }
+  case kP_PollJoyBusBoot: {
     int status = GBAGetProcessStatus(x40_siChan, &x3c_status);
     if (status != GBA_BUSY) {
       if (GBAGetStatus(x40_siChan, &x3c_status) == GBA_NOT_READY) {
@@ -132,7 +132,8 @@ void CGBASupport::Update(float dt) {
       }
     }
     break;
-  case kP_DataTransfer:
+  }
+  case kP_DataTransfer: {
     if (PollResponse()) {
       x34_phase = kP_Complete;
       break;
@@ -141,6 +142,8 @@ void CGBASupport::Update(float dt) {
     if (x38_timeout == 0.f)
       x34_phase = kP_Failed;
     break;
+  }
+  case kP_Standby:
   case kP_Complete:
   case kP_Failed:
     break;
@@ -181,7 +184,7 @@ bool CGBASupport::PollResponse() {
   if (gbaStatus != 0x28) {
     return false;
   }
-  
+
 #if VERSION >= 2
   const uint targetMagic = GetFontEncoding() ? 0x414D544A : 0x414D5445;
 #endif
@@ -229,25 +232,27 @@ bool CGBASupport::PollResponse() {
   } while ((GBAGetStatus(x40_siChan, &gbaStatus) == GBA_NOT_READY || (gbaStatus & 0x8) == 0) ||
            (GBAGetStatus(x40_siChan, &gbaStatus) != GBA_READY || gbaStatus != 0x38));
 
-  uint read;
-  uchar fusionStatus[4];
-  if (GBARead(x40_siChan, reinterpret_cast< uchar* >(&read), &gbaStatus) != GBA_READY) {
-    return false;
-  }
-  fusionStatus[0] = read >> 24;
-  fusionStatus[1] = read >> 16;
-  fusionStatus[2] = read >> 8;
-  fusionStatus[3] = read;
-  if (fusionStatus[3] != CalculateFusionJBusChecksum(fusionStatus, 3)) {
-    return false;
-  }
+  {
+    uint read;
+    uchar fusionStatus[4];
+    if (GBARead(x40_siChan, reinterpret_cast< uchar* >(&read), &gbaStatus) != GBA_READY) {
+      return false;
+    }
+    fusionStatus[0] = read >> 24;
+    fusionStatus[1] = read >> 16;
+    fusionStatus[2] = read >> 8;
+    fusionStatus[3] = read;
+    if (fusionStatus[3] != CalculateFusionJBusChecksum(fusionStatus, 3)) {
+      return false;
+    }
 
-  x44_fusionLinked = (fusionStatus[2] & 0x2) == 0;
-  bool fusionBeat = false;
-  if (x44_fusionLinked != false && (fusionStatus[2] & 0x1) > 0) {
-    fusionBeat = true;
+    x44_fusionLinked = (fusionStatus[2] & 0x2) == 0;
+    bool fusionBeat = false;
+    if (x44_fusionLinked != false && (fusionStatus[2] & 0x1) > 0) {
+      fusionBeat = true;
+    }
+    x45_fusionBeat = fusionBeat;
   }
-  x45_fusionBeat = fusionBeat;
 
 end:
   return true;

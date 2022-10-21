@@ -10,6 +10,8 @@
 #include "Kyoto/CResLoader.hpp"
 #include "Kyoto/IObjectStore.hpp"
 
+class IDvdRequest;
+
 class CPakFile : CDvdFile {
 public:
   bool IsWorldPak() const { return x28_26_worldPak; }
@@ -23,8 +25,8 @@ private:
   bool x28_25_aramFile : 1;
   bool x28_26_worldPak : 1;
   bool x28_27_stashedInARAM : 1;
-  int x2c_asyncLoadPhase;            // EAsyncPhase
-  rstl::auto_ptr< void > x30_dvdReq; // IDvdRequest
+  int x2c_asyncLoadPhase; // EAsyncPhase
+  rstl::auto_ptr< IDvdRequest > x30_dvdReq;
   rstl::vector< uchar > x38_headerData;
   uint x48_resTableOffset;
   uint x4c_resTableCount;

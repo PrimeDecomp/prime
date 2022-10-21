@@ -18,7 +18,7 @@ CScriptAreaAttributes::CScriptAreaAttributes(TUniqueId uid, const CEntityInfo& i
 void CScriptAreaAttributes::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objId,
                                             CStateManager& stateMgr) override {
   CEntity::AcceptScriptMsg(msg, objId, stateMgr);
- 
+
   if (x4_areaId == kInvalidAreaId) {
     return;
   }
@@ -28,13 +28,13 @@ void CScriptAreaAttributes::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId 
     stateMgr.World()->Area(GetAreaIdAlways())->SetAreaAttributes(this);
     stateMgr.EnvFxManager()->SetFxDensity(500, x3c_envFxDensity);
     break;
-  } 
+  }
 
   case kSM_Deleted: {
     if (stateMgr.World()->Area(GetAreaIdAlways())->IsLoaded()) {
       stateMgr.World()->Area(GetAreaIdAlways())->SetAreaAttributes(nullptr);
     }
-  } 
+  }
   }
 }
 

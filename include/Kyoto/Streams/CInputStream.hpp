@@ -3,6 +3,8 @@
 
 #include "types.h"
 
+#include "stddef.h"
+
 class CInputStream;
 template < typename T >
 struct TType {};

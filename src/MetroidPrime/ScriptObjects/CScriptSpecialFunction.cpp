@@ -196,6 +196,8 @@ void CScriptSpecialFunction::PreRender(CStateManager&, const CFrustumPlanes& fru
     x1e4_30_ = val;
     break;
   }
+  default:
+    break;
   }
 }
 
@@ -476,7 +478,7 @@ void CScriptSpecialFunction::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId
       }
       break;
     }
-    case kSF_RumbleEffect:
+    case kSF_RumbleEffect: {
       if (msg != kSM_Action) {
         break;
       }
@@ -498,6 +500,7 @@ void CScriptSpecialFunction::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId
         mgr.GetRumbleManager()->Rumble(mgr, pos, rumbFx, xfc_float1, kRP_One);
       }
       break;
+    }
     case kSF_InventoryActivator: {
       if (msg == kSM_Action && mgr.GetPlayerState()->HasPowerUp(x1c4_item)) {
         SendScriptMsgs(kSS_Zero, mgr, kSM_None);
