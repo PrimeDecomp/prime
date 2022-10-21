@@ -822,12 +822,12 @@ DTK_FILES :=\
 	$(BUILD_DIR)/src/Dolphin/dtk.o
 
 CARD_FILES :=\
-	$(BUILD_DIR)/asm/Dolphin/card/CARDBios.o\
+	$(BUILD_DIR)/src/Dolphin/card/CARDBios.ep.o\
 	$(BUILD_DIR)/src/Dolphin/card/CARDUnlock.ep.o\
 	$(BUILD_DIR)/src/Dolphin/card/CARDRdwr.ep.o\
 	$(BUILD_DIR)/src/Dolphin/card/CARDBlock.ep.o\
 	$(BUILD_DIR)/src/Dolphin/card/CARDDir.ep.o\
-	$(BUILD_DIR)/asm/Dolphin/card/CARDCheck.o\
+	$(BUILD_DIR)/src/Dolphin/card/CARDCheck.ep.o\
 	$(BUILD_DIR)/src/Dolphin/card/CARDMount.ep.o\
 	$(BUILD_DIR)/src/Dolphin/card/CARDFormat.ep.o\
 	$(BUILD_DIR)/src/Dolphin/card/CARDOpen.ep.o\
