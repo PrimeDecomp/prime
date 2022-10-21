@@ -10,6 +10,7 @@ CUnitVector3f CCollisionSurface::GetNormal() const {
   CVector3f tmp = CVector3f::Cross(baDiff, caDiff);
   return tmp;
 }
+
 CPlane CCollisionSurface::GetPlane() const {
   const CUnitVector3f norm = GetNormal();
   return CPlane(CVector3f::Dot(norm, x0_a), norm);

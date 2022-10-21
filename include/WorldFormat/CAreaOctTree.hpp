@@ -69,6 +69,7 @@ public:
                             float lT, float hT, float maxT, const CVector3f& dirRecip) const;
   };
 
+  CCollisionSurface GetMasterListTriangle(ushort idx) const;
   // TODO
 
 private:

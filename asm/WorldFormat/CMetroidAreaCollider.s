@@ -1,9 +1,9 @@
 .include "macros.inc"
 
-.comm lbl_80572BAC, 0x5000, 4
+.comm sDupVertexList__20CMetroidAreaCollider, 0x5000, 4
 .comm lbl_80577BAC, 0x14000, 4 # MWCC .comm bug
-.comm lbl_8058BBAC, 0xC000, 4
-.comm lbl_80597BAC, 0x8000, 4
+.comm sDupEdgeList__20CMetroidAreaCollider, 0xC000, 4
+.comm sDupTriangleList__20CMetroidAreaCollider, 0x8000, 4
 
 .section .data
 .balign 8
@@ -19,20 +19,20 @@ lbl_803EC428:
 .section .sbss, "wa"
 .balign 8
 
-.global lbl_805A9180
-lbl_805A9180:
+.global gCalledClip
+gCalledClip:
 	.skip 0x4
-.global lbl_805A9184
-lbl_805A9184:
+.global gRejectedByClip
+gRejectedByClip:
 	.skip 0x4
-.global lbl_805A9188
-lbl_805A9188:
+.global gTrianglesProcessed
+gTrianglesProcessed:
 	.skip 0x4
-.global lbl_805A918C
-lbl_805A918C:
+.global gDupTrianglesProcessed
+gDupTrianglesProcessed:
 	.skip 0x4
-.global lbl_805A9190
-lbl_805A9190:
+.global sDupPrimitiveCheckCount__20CMetroidAreaCollider
+sDupPrimitiveCheckCount__20CMetroidAreaCollider:
 	.skip 0x8
 
 .section .rodata
@@ -1419,28 +1419,28 @@ lbl_802A43CC:
 /* 802A43E4 002A1344  38 61 00 10 */	addi r3, r1, 0x10
 /* 802A43E8 002A1348  4B FF E9 55 */	bl GetTriangleArray__Q212CAreaOctTree4NodeCFv
 /* 802A43EC 002A134C  83 21 00 10 */	lwz r25, 0x10(r1)
-/* 802A43F0 002A1350  3C 80 80 59 */	lis r4, lbl_80597BAC@ha
+/* 802A43F0 002A1350  3C 80 80 59 */	lis r4, sDupTriangleList__20CMetroidAreaCollider@ha
 /* 802A43F4 002A1354  80 61 09 48 */	lwz r3, 0x948(r1)
 /* 802A43F8 002A1358  39 C1 09 04 */	addi r14, r1, 0x904
 /* 802A43FC 002A135C  A0 19 00 18 */	lhz r0, 0x18(r25)
-/* 802A4400 002A1360  3B C4 7B AC */	addi r30, r4, lbl_80597BAC@l
+/* 802A4400 002A1360  3B C4 7B AC */	addi r30, r4, sDupTriangleList__20CMetroidAreaCollider@l
 /* 802A4404 002A1364  83 A3 00 1C */	lwz r29, 0x1c(r3)
 /* 802A4408 002A1368  3A E0 00 00 */	li r23, 0
 /* 802A440C 002A136C  90 01 09 40 */	stw r0, 0x940(r1)
 /* 802A4410 002A1370  48 00 06 F4 */	b lbl_802A4B04
 lbl_802A4414:
 /* 802A4414 002A1374  A3 99 00 1A */	lhz r28, 0x1a(r25)
-/* 802A4418 002A1378  A0 AD A5 D0 */	lhz r5, lbl_805A9190@sda21(r13)
+/* 802A4418 002A1378  A0 AD A5 D0 */	lhz r5, sDupPrimitiveCheckCount__20CMetroidAreaCollider@sda21(r13)
 /* 802A441C 002A137C  57 83 0B FC */	rlwinm r3, r28, 1, 0xf, 0x1e
 /* 802A4420 002A1380  7C 1E 1A 2E */	lhzx r0, r30, r3
 /* 802A4424 002A1384  7C 05 00 40 */	cmplw r5, r0
 /* 802A4428 002A1388  41 82 06 D4 */	beq lbl_802A4AFC
-/* 802A442C 002A138C  80 8D A5 C8 */	lwz r4, lbl_805A9188@sda21(r13)
+/* 802A442C 002A138C  80 8D A5 C8 */	lwz r4, gTrianglesProcessed@sda21(r13)
 /* 802A4430 002A1390  38 00 00 00 */	li r0, 0
 /* 802A4434 002A1394  7C BE 1B 2E */	sthx r5, r30, r3
 /* 802A4438 002A1398  38 A4 00 01 */	addi r5, r4, 1
 /* 802A443C 002A139C  80 61 00 0C */	lwz r3, 0xc(r1)
-/* 802A4440 002A13A0  90 AD A5 C8 */	stw r5, lbl_805A9188@sda21(r13)
+/* 802A4440 002A13A0  90 AD A5 C8 */	stw r5, gTrianglesProcessed@sda21(r13)
 /* 802A4444 002A13A4  38 81 00 38 */	addi r4, r1, 0x38
 /* 802A4448 002A13A8  80 BD 00 34 */	lwz r5, 0x34(r29)
 /* 802A444C 002A13AC  80 DD 00 28 */	lwz r6, 0x28(r29)
@@ -1556,13 +1556,13 @@ lbl_802A4414:
 /* 802A4604 002A1564  C8 01 00 28 */	lfd f0, 0x28(r1)
 /* 802A4608 002A1568  D8 13 00 00 */	stfd f0, 0(r19)
 lbl_802A460C:
-/* 802A460C 002A156C  3C 60 80 57 */	lis r3, lbl_80572BAC@ha
+/* 802A460C 002A156C  3C 60 80 57 */	lis r3, sDupVertexList__20CMetroidAreaCollider@ha
 /* 802A4610 002A1570  3B 41 00 30 */	addi r26, r1, 0x30
-/* 802A4614 002A1574  3B E3 2B AC */	addi r31, r3, lbl_80572BAC@l
+/* 802A4614 002A1574  3B E3 2B AC */	addi r31, r3, sDupVertexList__20CMetroidAreaCollider@l
 /* 802A4618 002A1578  3A A0 00 00 */	li r21, 0
 lbl_802A461C:
 /* 802A461C 002A157C  A2 9A 00 00 */	lhz r20, 0(r26)
-/* 802A4620 002A1580  A0 8D A5 D0 */	lhz r4, lbl_805A9190@sda21(r13)
+/* 802A4620 002A1580  A0 8D A5 D0 */	lhz r4, sDupPrimitiveCheckCount__20CMetroidAreaCollider@sda21(r13)
 /* 802A4624 002A1584  56 83 08 3C */	slwi r3, r20, 1
 /* 802A4628 002A1588  7C 1F 1A 2E */	lhzx r0, r31, r3
 /* 802A462C 002A158C  7C 04 00 40 */	cmplw r4, r0
@@ -1667,13 +1667,13 @@ lbl_802A47A4:
 /* 802A47B4 002A1714  7F A3 EB 78 */	mr r3, r29
 /* 802A47B8 002A1718  7F 84 E3 78 */	mr r4, r28
 /* 802A47BC 002A171C  4B FF E1 B5 */	bl GetTriangleEdgeIndices__12CAreaOctTreeCFUs
-/* 802A47C0 002A1720  3C 80 80 59 */	lis r4, lbl_8058BBAC@ha
+/* 802A47C0 002A1720  3C 80 80 59 */	lis r4, sDupEdgeList__20CMetroidAreaCollider@ha
 /* 802A47C4 002A1724  3B 60 00 00 */	li r27, 0
 /* 802A47C8 002A1728  7C 7A 1B 78 */	mr r26, r3
-/* 802A47CC 002A172C  3A 84 BB AC */	addi r20, r4, lbl_8058BBAC@l
+/* 802A47CC 002A172C  3A 84 BB AC */	addi r20, r4, sDupEdgeList__20CMetroidAreaCollider@l
 lbl_802A47D0:
 /* 802A47D0 002A1730  A0 BA 00 00 */	lhz r5, 0(r26)
-/* 802A47D4 002A1734  A0 8D A5 D0 */	lhz r4, lbl_805A9190@sda21(r13)
+/* 802A47D4 002A1734  A0 8D A5 D0 */	lhz r4, sDupPrimitiveCheckCount__20CMetroidAreaCollider@sda21(r13)
 /* 802A47D8 002A1738  54 A3 08 3C */	slwi r3, r5, 1
 /* 802A47DC 002A173C  7C 14 1A 2E */	lhzx r0, r20, r3
 /* 802A47E0 002A1740  7C 04 00 40 */	cmplw r4, r0
@@ -1855,13 +1855,13 @@ lbl_802A4A94:
 /* 802A4A98 002A19F8  7F 84 E3 78 */	mr r4, r28
 /* 802A4A9C 002A19FC  4B FF DE D5 */	bl GetTriangleEdgeIndices__12CAreaOctTreeCFUs
 /* 802A4AA0 002A1A00  A0 C3 00 00 */	lhz r6, 0(r3)
-/* 802A4AA4 002A1A04  3C A0 80 59 */	lis r5, lbl_8058BBAC@ha
-/* 802A4AA8 002A1A08  A0 0D A5 D0 */	lhz r0, lbl_805A9190@sda21(r13)
-/* 802A4AAC 002A1A0C  3C 80 80 57 */	lis r4, lbl_80572BAC@ha
+/* 802A4AA4 002A1A04  3C A0 80 59 */	lis r5, sDupEdgeList__20CMetroidAreaCollider@ha
+/* 802A4AA8 002A1A08  A0 0D A5 D0 */	lhz r0, sDupPrimitiveCheckCount__20CMetroidAreaCollider@sda21(r13)
+/* 802A4AAC 002A1A0C  3C 80 80 57 */	lis r4, sDupVertexList__20CMetroidAreaCollider@ha
 /* 802A4AB0 002A1A10  54 C6 08 3C */	slwi r6, r6, 1
-/* 802A4AB4 002A1A14  39 25 BB AC */	addi r9, r5, lbl_8058BBAC@l
+/* 802A4AB4 002A1A14  39 25 BB AC */	addi r9, r5, sDupEdgeList__20CMetroidAreaCollider@l
 /* 802A4AB8 002A1A18  7C 09 33 2E */	sthx r0, r9, r6
-/* 802A4ABC 002A1A1C  38 C4 2B AC */	addi r6, r4, lbl_80572BAC@l
+/* 802A4ABC 002A1A1C  38 C4 2B AC */	addi r6, r4, sDupVertexList__20CMetroidAreaCollider@l
 /* 802A4AC0 002A1A20  A0 81 00 30 */	lhz r4, 0x30(r1)
 /* 802A4AC4 002A1A24  A1 03 00 02 */	lhz r8, 2(r3)
 /* 802A4AC8 002A1A28  A0 A1 00 32 */	lhz r5, 0x32(r1)
@@ -2090,33 +2090,33 @@ lbl_802A4DE8:
 /* 802A4E00 002A1D60  38 61 00 10 */	addi r3, r1, 0x10
 /* 802A4E04 002A1D64  4B FF DF 39 */	bl GetTriangleArray__Q212CAreaOctTree4NodeCFv
 /* 802A4E08 002A1D68  80 01 00 10 */	lwz r0, 0x10(r1)
-/* 802A4E0C 002A1D6C  3C 80 80 59 */	lis r4, lbl_80597BAC@ha
+/* 802A4E0C 002A1D6C  3C 80 80 59 */	lis r4, sDupTriangleList__20CMetroidAreaCollider@ha
 /* 802A4E10 002A1D70  80 61 03 74 */	lwz r3, 0x374(r1)
 /* 802A4E14 002A1D74  90 01 03 70 */	stw r0, 0x370(r1)
 /* 802A4E18 002A1D78  83 E3 00 1C */	lwz r31, 0x1c(r3)
 /* 802A4E1C 002A1D7C  7C 03 03 78 */	mr r3, r0
 /* 802A4E20 002A1D80  A0 03 00 18 */	lhz r0, 0x18(r3)
 /* 802A4E24 002A1D84  90 01 03 64 */	stw r0, 0x364(r1)
-/* 802A4E28 002A1D88  38 04 7B AC */	addi r0, r4, lbl_80597BAC@l
+/* 802A4E28 002A1D88  38 04 7B AC */	addi r0, r4, sDupTriangleList__20CMetroidAreaCollider@l
 /* 802A4E2C 002A1D8C  90 01 03 78 */	stw r0, 0x378(r1)
 /* 802A4E30 002A1D90  38 00 00 00 */	li r0, 0
 /* 802A4E34 002A1D94  90 01 03 60 */	stw r0, 0x360(r1)
 /* 802A4E38 002A1D98  48 00 0D 98 */	b lbl_802A5BD0
 lbl_802A4E3C:
 /* 802A4E3C 002A1D9C  80 61 03 70 */	lwz r3, 0x370(r1)
-/* 802A4E40 002A1DA0  A0 CD A5 D0 */	lhz r6, lbl_805A9190@sda21(r13)
+/* 802A4E40 002A1DA0  A0 CD A5 D0 */	lhz r6, sDupPrimitiveCheckCount__20CMetroidAreaCollider@sda21(r13)
 /* 802A4E44 002A1DA4  A1 C3 00 1A */	lhz r14, 0x1a(r3)
 /* 802A4E48 002A1DA8  80 61 03 78 */	lwz r3, 0x378(r1)
 /* 802A4E4C 002A1DAC  55 C5 0B FC */	rlwinm r5, r14, 1, 0xf, 0x1e
 /* 802A4E50 002A1DB0  7C 03 2A 2E */	lhzx r0, r3, r5
 /* 802A4E54 002A1DB4  7C 06 00 40 */	cmplw r6, r0
 /* 802A4E58 002A1DB8  41 82 0D 60 */	beq lbl_802A5BB8
-/* 802A4E5C 002A1DBC  80 8D A5 C8 */	lwz r4, lbl_805A9188@sda21(r13)
+/* 802A4E5C 002A1DBC  80 8D A5 C8 */	lwz r4, gTrianglesProcessed@sda21(r13)
 /* 802A4E60 002A1DC0  38 00 00 00 */	li r0, 0
 /* 802A4E64 002A1DC4  7C C3 2B 2E */	sthx r6, r3, r5
 /* 802A4E68 002A1DC8  38 A4 00 01 */	addi r5, r4, 1
 /* 802A4E6C 002A1DCC  80 61 00 0C */	lwz r3, 0xc(r1)
-/* 802A4E70 002A1DD0  90 AD A5 C8 */	stw r5, lbl_805A9188@sda21(r13)
+/* 802A4E70 002A1DD0  90 AD A5 C8 */	stw r5, gTrianglesProcessed@sda21(r13)
 /* 802A4E74 002A1DD4  38 81 00 40 */	addi r4, r1, 0x40
 /* 802A4E78 002A1DD8  80 BF 00 34 */	lwz r5, 0x34(r31)
 /* 802A4E7C 002A1DDC  80 DF 00 28 */	lwz r6, 0x28(r31)
@@ -2424,9 +2424,9 @@ lbl_802A531C:
 /* 802A532C 002A228C  41 82 04 94 */	beq lbl_802A57C0
 lbl_802A5330:
 /* 802A5330 002A2290  A0 DC 00 00 */	lhz r6, 0(r28)
-/* 802A5334 002A2294  3C 60 80 59 */	lis r3, lbl_8058BBAC@ha
-/* 802A5338 002A2298  38 63 BB AC */	addi r3, r3, lbl_8058BBAC@l
-/* 802A533C 002A229C  A0 AD A5 D0 */	lhz r5, lbl_805A9190@sda21(r13)
+/* 802A5334 002A2294  3C 60 80 59 */	lis r3, sDupEdgeList__20CMetroidAreaCollider@ha
+/* 802A5338 002A2298  38 63 BB AC */	addi r3, r3, sDupEdgeList__20CMetroidAreaCollider@l
+/* 802A533C 002A229C  A0 AD A5 D0 */	lhz r5, sDupPrimitiveCheckCount__20CMetroidAreaCollider@sda21(r13)
 /* 802A5340 002A22A0  54 C4 08 3C */	slwi r4, r6, 1
 /* 802A5344 002A22A4  7C 03 22 2E */	lhzx r0, r3, r4
 /* 802A5348 002A22A8  7C 05 00 40 */	cmplw r5, r0
@@ -2738,10 +2738,10 @@ lbl_802A57E8:
 /* 802A57EC 002A274C  A3 2E 00 00 */	lhz r25, 0(r14)
 /* 802A57F0 002A2750  28 00 00 00 */	cmplwi r0, 0
 /* 802A57F4 002A2754  41 82 02 10 */	beq lbl_802A5A04
-/* 802A57F8 002A2758  3C 60 80 57 */	lis r3, lbl_80572BAC@ha
+/* 802A57F8 002A2758  3C 60 80 57 */	lis r3, sDupVertexList__20CMetroidAreaCollider@ha
 /* 802A57FC 002A275C  57 24 08 3C */	slwi r4, r25, 1
-/* 802A5800 002A2760  38 63 2B AC */	addi r3, r3, lbl_80572BAC@l
-/* 802A5804 002A2764  A0 AD A5 D0 */	lhz r5, lbl_805A9190@sda21(r13)
+/* 802A5800 002A2760  38 63 2B AC */	addi r3, r3, sDupVertexList__20CMetroidAreaCollider@l
+/* 802A5804 002A2764  A0 AD A5 D0 */	lhz r5, sDupPrimitiveCheckCount__20CMetroidAreaCollider@sda21(r13)
 /* 802A5808 002A2768  7C 03 22 2E */	lhzx r0, r3, r4
 /* 802A580C 002A276C  7C 05 00 40 */	cmplw r5, r0
 /* 802A5810 002A2770  41 82 02 08 */	beq lbl_802A5A18
@@ -2870,10 +2870,10 @@ lbl_802A57E8:
 /* 802A59FC 002A295C  D8 14 00 00 */	stfd f0, 0(r20)
 /* 802A5A00 002A2960  48 00 00 18 */	b lbl_802A5A18
 lbl_802A5A04:
-/* 802A5A04 002A2964  3C 60 80 57 */	lis r3, lbl_80572BAC@ha
-/* 802A5A08 002A2968  A0 8D A5 D0 */	lhz r4, lbl_805A9190@sda21(r13)
+/* 802A5A04 002A2964  3C 60 80 57 */	lis r3, sDupVertexList__20CMetroidAreaCollider@ha
+/* 802A5A08 002A2968  A0 8D A5 D0 */	lhz r4, sDupPrimitiveCheckCount__20CMetroidAreaCollider@sda21(r13)
 /* 802A5A0C 002A296C  57 20 08 3C */	slwi r0, r25, 1
-/* 802A5A10 002A2970  38 63 2B AC */	addi r3, r3, lbl_80572BAC@l
+/* 802A5A10 002A2970  38 63 2B AC */	addi r3, r3, sDupVertexList__20CMetroidAreaCollider@l
 /* 802A5A14 002A2974  7C 83 03 2E */	sthx r4, r3, r0
 lbl_802A5A18:
 /* 802A5A18 002A2978  3A B5 00 01 */	addi r21, r21, 1
@@ -2959,13 +2959,13 @@ lbl_802A5B50:
 /* 802A5B54 002A2AB4  7D C4 73 78 */	mr r4, r14
 /* 802A5B58 002A2AB8  4B FF CE 19 */	bl GetTriangleEdgeIndices__12CAreaOctTreeCFUs
 /* 802A5B5C 002A2ABC  A0 03 00 00 */	lhz r0, 0(r3)
-/* 802A5B60 002A2AC0  3C A0 80 59 */	lis r5, lbl_8058BBAC@ha
-/* 802A5B64 002A2AC4  A1 2D A5 D0 */	lhz r9, lbl_805A9190@sda21(r13)
-/* 802A5B68 002A2AC8  3C 80 80 57 */	lis r4, lbl_80572BAC@ha
+/* 802A5B60 002A2AC0  3C A0 80 59 */	lis r5, sDupEdgeList__20CMetroidAreaCollider@ha
+/* 802A5B64 002A2AC4  A1 2D A5 D0 */	lhz r9, sDupPrimitiveCheckCount__20CMetroidAreaCollider@sda21(r13)
+/* 802A5B68 002A2AC8  3C 80 80 57 */	lis r4, sDupVertexList__20CMetroidAreaCollider@ha
 /* 802A5B6C 002A2ACC  54 00 08 3C */	slwi r0, r0, 1
-/* 802A5B70 002A2AD0  39 05 BB AC */	addi r8, r5, lbl_8058BBAC@l
+/* 802A5B70 002A2AD0  39 05 BB AC */	addi r8, r5, sDupEdgeList__20CMetroidAreaCollider@l
 /* 802A5B74 002A2AD4  7D 28 03 2E */	sthx r9, r8, r0
-/* 802A5B78 002A2AD8  38 A4 2B AC */	addi r5, r4, lbl_80572BAC@l
+/* 802A5B78 002A2AD8  38 A4 2B AC */	addi r5, r4, sDupVertexList__20CMetroidAreaCollider@l
 /* 802A5B7C 002A2ADC  A0 01 00 38 */	lhz r0, 0x38(r1)
 /* 802A5B80 002A2AE0  A0 E3 00 02 */	lhz r7, 2(r3)
 /* 802A5B84 002A2AE4  A0 81 00 3A */	lhz r4, 0x3a(r1)
@@ -3103,11 +3103,11 @@ lbl_802A5D38:
 /* 802A5D68 002A2CC8  A3 B5 00 18 */	lhz r29, 0x18(r21)
 /* 802A5D6C 002A2CCC  48 00 00 74 */	b lbl_802A5DE0
 lbl_802A5D70:
-/* 802A5D70 002A2CD0  80 AD A5 C8 */	lwz r5, lbl_805A9188@sda21(r13)
+/* 802A5D70 002A2CD0  80 AD A5 C8 */	lwz r5, gTrianglesProcessed@sda21(r13)
 /* 802A5D74 002A2CD4  7E C4 B3 78 */	mr r4, r22
 /* 802A5D78 002A2CD8  38 61 00 18 */	addi r3, r1, 0x18
 /* 802A5D7C 002A2CDC  38 05 00 01 */	addi r0, r5, 1
-/* 802A5D80 002A2CE0  90 0D A5 C8 */	stw r0, lbl_805A9188@sda21(r13)
+/* 802A5D80 002A2CE0  90 0D A5 C8 */	stw r0, gTrianglesProcessed@sda21(r13)
 /* 802A5D84 002A2CE4  A0 B5 00 1A */	lhz r5, 0x1a(r21)
 /* 802A5D88 002A2CE8  4B FF CC AD */	bl GetMasterListTriangle__12CAreaOctTreeCFUs
 /* 802A5D8C 002A2CEC  80 A1 00 3C */	lwz r5, 0x3c(r1)
@@ -3205,11 +3205,11 @@ lbl_802A5E34:
 /* 802A5ED8 002A2E38  A3 3A 00 18 */	lhz r25, 0x18(r26)
 /* 802A5EDC 002A2E3C  48 00 00 74 */	b lbl_802A5F50
 lbl_802A5EE0:
-/* 802A5EE0 002A2E40  80 AD A5 C8 */	lwz r5, lbl_805A9188@sda21(r13)
+/* 802A5EE0 002A2E40  80 AD A5 C8 */	lwz r5, gTrianglesProcessed@sda21(r13)
 /* 802A5EE4 002A2E44  7F 64 DB 78 */	mr r4, r27
 /* 802A5EE8 002A2E48  38 61 00 18 */	addi r3, r1, 0x18
 /* 802A5EEC 002A2E4C  38 05 00 01 */	addi r0, r5, 1
-/* 802A5EF0 002A2E50  90 0D A5 C8 */	stw r0, lbl_805A9188@sda21(r13)
+/* 802A5EF0 002A2E50  90 0D A5 C8 */	stw r0, gTrianglesProcessed@sda21(r13)
 /* 802A5EF4 002A2E54  A0 BA 00 1A */	lhz r5, 0x1a(r26)
 /* 802A5EF8 002A2E58  4B FF CB 3D */	bl GetMasterListTriangle__12CAreaOctTreeCFUs
 /* 802A5EFC 002A2E5C  80 A1 00 3C */	lwz r5, 0x3c(r1)
@@ -3336,25 +3336,25 @@ lbl_802A6098:
 /* 802A60B0 002A3010  38 61 00 08 */	addi r3, r1, 8
 /* 802A60B4 002A3014  4B FF CC 89 */	bl GetTriangleArray__Q212CAreaOctTree4NodeCFv
 /* 802A60B8 002A3018  82 C1 00 08 */	lwz r22, 8(r1)
-/* 802A60BC 002A301C  3C 60 80 59 */	lis r3, lbl_80597BAC@ha
+/* 802A60BC 002A301C  3C 60 80 59 */	lis r3, sDupTriangleList__20CMetroidAreaCollider@ha
 /* 802A60C0 002A3020  83 17 00 1C */	lwz r24, 0x1c(r23)
-/* 802A60C4 002A3024  3B 23 7B AC */	addi r25, r3, lbl_80597BAC@l
+/* 802A60C4 002A3024  3B 23 7B AC */	addi r25, r3, sDupTriangleList__20CMetroidAreaCollider@l
 /* 802A60C8 002A3028  A2 76 00 18 */	lhz r19, 0x18(r22)
 /* 802A60CC 002A302C  3A 40 00 00 */	li r18, 0
 /* 802A60D0 002A3030  48 00 00 C8 */	b lbl_802A6198
 lbl_802A60D4:
-/* 802A60D4 002A3034  80 6D A5 C8 */	lwz r3, lbl_805A9188@sda21(r13)
-/* 802A60D8 002A3038  A0 8D A5 D0 */	lhz r4, lbl_805A9190@sda21(r13)
+/* 802A60D4 002A3034  80 6D A5 C8 */	lwz r3, gTrianglesProcessed@sda21(r13)
+/* 802A60D8 002A3038  A0 8D A5 D0 */	lhz r4, sDupPrimitiveCheckCount__20CMetroidAreaCollider@sda21(r13)
 /* 802A60DC 002A303C  38 03 00 01 */	addi r0, r3, 1
-/* 802A60E0 002A3040  90 0D A5 C8 */	stw r0, lbl_805A9188@sda21(r13)
+/* 802A60E0 002A3040  90 0D A5 C8 */	stw r0, gTrianglesProcessed@sda21(r13)
 /* 802A60E4 002A3044  A0 B6 00 1A */	lhz r5, 0x1a(r22)
 /* 802A60E8 002A3048  54 A3 0B FC */	rlwinm r3, r5, 1, 0xf, 0x1e
 /* 802A60EC 002A304C  7C 19 1A 2E */	lhzx r0, r25, r3
 /* 802A60F0 002A3050  7C 04 00 40 */	cmplw r4, r0
 /* 802A60F4 002A3054  40 82 00 14 */	bne lbl_802A6108
-/* 802A60F8 002A3058  80 6D A5 CC */	lwz r3, lbl_805A918C@sda21(r13)
+/* 802A60F8 002A3058  80 6D A5 CC */	lwz r3, gDupTrianglesProcessed@sda21(r13)
 /* 802A60FC 002A305C  38 03 00 01 */	addi r0, r3, 1
-/* 802A6100 002A3060  90 0D A5 CC */	stw r0, lbl_805A918C@sda21(r13)
+/* 802A6100 002A3060  90 0D A5 CC */	stw r0, gDupTrianglesProcessed@sda21(r13)
 /* 802A6104 002A3064  48 00 00 8C */	b lbl_802A6190
 lbl_802A6108:
 /* 802A6108 002A3068  7C 99 1B 2E */	sthx r4, r25, r3
@@ -3472,25 +3472,25 @@ lbl_802A621C:
 /* 802A62A8 002A3208  38 81 00 7C */	addi r4, r1, 0x7c
 /* 802A62AC 002A320C  4B FF CA 91 */	bl GetTriangleArray__Q212CAreaOctTree4NodeCFv
 /* 802A62B0 002A3210  83 81 00 08 */	lwz r28, 8(r1)
-/* 802A62B4 002A3214  3C 60 80 59 */	lis r3, lbl_80597BAC@ha
+/* 802A62B4 002A3214  3C 60 80 59 */	lis r3, sDupTriangleList__20CMetroidAreaCollider@ha
 /* 802A62B8 002A3218  83 C1 00 98 */	lwz r30, 0x98(r1)
-/* 802A62BC 002A321C  3B E3 7B AC */	addi r31, r3, lbl_80597BAC@l
+/* 802A62BC 002A321C  3B E3 7B AC */	addi r31, r3, sDupTriangleList__20CMetroidAreaCollider@l
 /* 802A62C0 002A3220  A3 3C 00 18 */	lhz r25, 0x18(r28)
 /* 802A62C4 002A3224  3B 00 00 00 */	li r24, 0
 /* 802A62C8 002A3228  48 00 00 C8 */	b lbl_802A6390
 lbl_802A62CC:
-/* 802A62CC 002A322C  80 6D A5 C8 */	lwz r3, lbl_805A9188@sda21(r13)
-/* 802A62D0 002A3230  A0 8D A5 D0 */	lhz r4, lbl_805A9190@sda21(r13)
+/* 802A62CC 002A322C  80 6D A5 C8 */	lwz r3, gTrianglesProcessed@sda21(r13)
+/* 802A62D0 002A3230  A0 8D A5 D0 */	lhz r4, sDupPrimitiveCheckCount__20CMetroidAreaCollider@sda21(r13)
 /* 802A62D4 002A3234  38 03 00 01 */	addi r0, r3, 1
-/* 802A62D8 002A3238  90 0D A5 C8 */	stw r0, lbl_805A9188@sda21(r13)
+/* 802A62D8 002A3238  90 0D A5 C8 */	stw r0, gTrianglesProcessed@sda21(r13)
 /* 802A62DC 002A323C  A0 BC 00 1A */	lhz r5, 0x1a(r28)
 /* 802A62E0 002A3240  54 A3 0B FC */	rlwinm r3, r5, 1, 0xf, 0x1e
 /* 802A62E4 002A3244  7C 1F 1A 2E */	lhzx r0, r31, r3
 /* 802A62E8 002A3248  7C 04 00 40 */	cmplw r4, r0
 /* 802A62EC 002A324C  40 82 00 14 */	bne lbl_802A6300
-/* 802A62F0 002A3250  80 6D A5 CC */	lwz r3, lbl_805A918C@sda21(r13)
+/* 802A62F0 002A3250  80 6D A5 CC */	lwz r3, gDupTrianglesProcessed@sda21(r13)
 /* 802A62F4 002A3254  38 03 00 01 */	addi r0, r3, 1
-/* 802A62F8 002A3258  90 0D A5 CC */	stw r0, lbl_805A918C@sda21(r13)
+/* 802A62F8 002A3258  90 0D A5 CC */	stw r0, gDupTrianglesProcessed@sda21(r13)
 /* 802A62FC 002A325C  48 00 00 8C */	b lbl_802A6388
 lbl_802A6300:
 /* 802A6300 002A3260  7C 9F 1B 2E */	sthx r4, r31, r3
@@ -3684,11 +3684,11 @@ lbl_802A6588:
 /* 802A65B8 002A3518  A3 1A 00 18 */	lhz r24, 0x18(r26)
 /* 802A65BC 002A351C  48 00 00 78 */	b lbl_802A6634
 lbl_802A65C0:
-/* 802A65C0 002A3520  80 AD A5 C8 */	lwz r5, lbl_805A9188@sda21(r13)
+/* 802A65C0 002A3520  80 AD A5 C8 */	lwz r5, gTrianglesProcessed@sda21(r13)
 /* 802A65C4 002A3524  7F 84 E3 78 */	mr r4, r28
 /* 802A65C8 002A3528  38 61 00 3C */	addi r3, r1, 0x3c
 /* 802A65CC 002A352C  38 05 00 01 */	addi r0, r5, 1
-/* 802A65D0 002A3530  90 0D A5 C8 */	stw r0, lbl_805A9188@sda21(r13)
+/* 802A65D0 002A3530  90 0D A5 C8 */	stw r0, gTrianglesProcessed@sda21(r13)
 /* 802A65D4 002A3534  A0 BA 00 1A */	lhz r5, 0x1a(r26)
 /* 802A65D8 002A3538  4B FF C4 5D */	bl GetMasterListTriangle__12CAreaOctTreeCFUs
 /* 802A65DC 002A353C  80 A1 00 60 */	lwz r5, 0x60(r1)
@@ -3787,11 +3787,11 @@ lbl_802A6688:
 /* 802A672C 002A368C  A3 3A 00 18 */	lhz r25, 0x18(r26)
 /* 802A6730 002A3690  48 00 00 78 */	b lbl_802A67A8
 lbl_802A6734:
-/* 802A6734 002A3694  80 AD A5 C8 */	lwz r5, lbl_805A9188@sda21(r13)
+/* 802A6734 002A3694  80 AD A5 C8 */	lwz r5, gTrianglesProcessed@sda21(r13)
 /* 802A6738 002A3698  7F 64 DB 78 */	mr r4, r27
 /* 802A673C 002A369C  38 61 00 18 */	addi r3, r1, 0x18
 /* 802A6740 002A36A0  38 05 00 01 */	addi r0, r5, 1
-/* 802A6744 002A36A4  90 0D A5 C8 */	stw r0, lbl_805A9188@sda21(r13)
+/* 802A6744 002A36A4  90 0D A5 C8 */	stw r0, gTrianglesProcessed@sda21(r13)
 /* 802A6748 002A36A8  A0 BA 00 1A */	lhz r5, 0x1a(r26)
 /* 802A674C 002A36AC  4B FF C2 E9 */	bl GetMasterListTriangle__12CAreaOctTreeCFUs
 /* 802A6750 002A36B0  80 A1 00 3C */	lwz r5, 0x3c(r1)
@@ -4101,25 +4101,25 @@ lbl_802A6BBC:
 /* 802A6BD4 002A3B34  38 61 00 08 */	addi r3, r1, 8
 /* 802A6BD8 002A3B38  4B FF C1 65 */	bl GetTriangleArray__Q212CAreaOctTree4NodeCFv
 /* 802A6BDC 002A3B3C  82 C1 00 08 */	lwz r22, 8(r1)
-/* 802A6BE0 002A3B40  3C 60 80 59 */	lis r3, lbl_80597BAC@ha
+/* 802A6BE0 002A3B40  3C 60 80 59 */	lis r3, sDupTriangleList__20CMetroidAreaCollider@ha
 /* 802A6BE4 002A3B44  83 17 00 1C */	lwz r24, 0x1c(r23)
-/* 802A6BE8 002A3B48  3B 43 7B AC */	addi r26, r3, lbl_80597BAC@l
+/* 802A6BE8 002A3B48  3B 43 7B AC */	addi r26, r3, sDupTriangleList__20CMetroidAreaCollider@l
 /* 802A6BEC 002A3B4C  A2 76 00 18 */	lhz r19, 0x18(r22)
 /* 802A6BF0 002A3B50  3A 40 00 00 */	li r18, 0
 /* 802A6BF4 002A3B54  48 00 01 5C */	b lbl_802A6D50
 lbl_802A6BF8:
-/* 802A6BF8 002A3B58  80 6D A5 C8 */	lwz r3, lbl_805A9188@sda21(r13)
-/* 802A6BFC 002A3B5C  A0 8D A5 D0 */	lhz r4, lbl_805A9190@sda21(r13)
+/* 802A6BF8 002A3B58  80 6D A5 C8 */	lwz r3, gTrianglesProcessed@sda21(r13)
+/* 802A6BFC 002A3B5C  A0 8D A5 D0 */	lhz r4, sDupPrimitiveCheckCount__20CMetroidAreaCollider@sda21(r13)
 /* 802A6C00 002A3B60  38 03 00 01 */	addi r0, r3, 1
-/* 802A6C04 002A3B64  90 0D A5 C8 */	stw r0, lbl_805A9188@sda21(r13)
+/* 802A6C04 002A3B64  90 0D A5 C8 */	stw r0, gTrianglesProcessed@sda21(r13)
 /* 802A6C08 002A3B68  A0 B6 00 1A */	lhz r5, 0x1a(r22)
 /* 802A6C0C 002A3B6C  54 A3 0B FC */	rlwinm r3, r5, 1, 0xf, 0x1e
 /* 802A6C10 002A3B70  7C 1A 1A 2E */	lhzx r0, r26, r3
 /* 802A6C14 002A3B74  7C 04 00 40 */	cmplw r4, r0
 /* 802A6C18 002A3B78  40 82 00 14 */	bne lbl_802A6C2C
-/* 802A6C1C 002A3B7C  80 6D A5 CC */	lwz r3, lbl_805A918C@sda21(r13)
+/* 802A6C1C 002A3B7C  80 6D A5 CC */	lwz r3, gDupTrianglesProcessed@sda21(r13)
 /* 802A6C20 002A3B80  38 03 00 01 */	addi r0, r3, 1
-/* 802A6C24 002A3B84  90 0D A5 CC */	stw r0, lbl_805A918C@sda21(r13)
+/* 802A6C24 002A3B84  90 0D A5 CC */	stw r0, gDupTrianglesProcessed@sda21(r13)
 /* 802A6C28 002A3B88  48 00 01 20 */	b lbl_802A6D48
 lbl_802A6C2C:
 /* 802A6C2C 002A3B8C  7C 9A 1B 2E */	sthx r4, r26, r3
@@ -4293,28 +4293,28 @@ lbl_802A6E90:
 /* 802A6E98 002A3DF8  4B FF BE A5 */	bl GetTriangleArray__Q212CAreaOctTree4NodeCFv
 /* 802A6E9C 002A3DFC  83 81 00 08 */	lwz r28, 8(r1)
 /* 802A6EA0 002A3E00  3C 80 80 5A */	lis r4, mskInvertedBox__6CAABox@ha
-/* 802A6EA4 002A3E04  3C 60 80 59 */	lis r3, lbl_80597BAC@ha
+/* 802A6EA4 002A3E04  3C 60 80 59 */	lis r3, sDupTriangleList__20CMetroidAreaCollider@ha
 /* 802A6EA8 002A3E08  83 B7 00 1C */	lwz r29, 0x1c(r23)
 /* 802A6EAC 002A3E0C  A3 5C 00 18 */	lhz r26, 0x18(r28)
 /* 802A6EB0 002A3E10  3B C4 67 54 */	addi r30, r4, mskInvertedBox__6CAABox@l
 /* 802A6EB4 002A3E14  83 35 00 08 */	lwz r25, 8(r21)
-/* 802A6EB8 002A3E18  3B E3 7B AC */	addi r31, r3, lbl_80597BAC@l
+/* 802A6EB8 002A3E18  3B E3 7B AC */	addi r31, r3, sDupTriangleList__20CMetroidAreaCollider@l
 /* 802A6EBC 002A3E1C  83 15 00 04 */	lwz r24, 4(r21)
 /* 802A6EC0 002A3E20  3A E0 00 00 */	li r23, 0
 /* 802A6EC4 002A3E24  48 00 01 5C */	b lbl_802A7020
 lbl_802A6EC8:
-/* 802A6EC8 002A3E28  80 6D A5 C8 */	lwz r3, lbl_805A9188@sda21(r13)
-/* 802A6ECC 002A3E2C  A0 8D A5 D0 */	lhz r4, lbl_805A9190@sda21(r13)
+/* 802A6EC8 002A3E28  80 6D A5 C8 */	lwz r3, gTrianglesProcessed@sda21(r13)
+/* 802A6ECC 002A3E2C  A0 8D A5 D0 */	lhz r4, sDupPrimitiveCheckCount__20CMetroidAreaCollider@sda21(r13)
 /* 802A6ED0 002A3E30  38 03 00 01 */	addi r0, r3, 1
-/* 802A6ED4 002A3E34  90 0D A5 C8 */	stw r0, lbl_805A9188@sda21(r13)
+/* 802A6ED4 002A3E34  90 0D A5 C8 */	stw r0, gTrianglesProcessed@sda21(r13)
 /* 802A6ED8 002A3E38  A0 BC 00 1A */	lhz r5, 0x1a(r28)
 /* 802A6EDC 002A3E3C  54 A3 0B FC */	rlwinm r3, r5, 1, 0xf, 0x1e
 /* 802A6EE0 002A3E40  7C 1F 1A 2E */	lhzx r0, r31, r3
 /* 802A6EE4 002A3E44  7C 04 00 40 */	cmplw r4, r0
 /* 802A6EE8 002A3E48  40 82 00 14 */	bne lbl_802A6EFC
-/* 802A6EEC 002A3E4C  80 6D A5 CC */	lwz r3, lbl_805A918C@sda21(r13)
+/* 802A6EEC 002A3E4C  80 6D A5 CC */	lwz r3, gDupTrianglesProcessed@sda21(r13)
 /* 802A6EF0 002A3E50  38 03 00 01 */	addi r0, r3, 1
-/* 802A6EF4 002A3E54  90 0D A5 CC */	stw r0, lbl_805A918C@sda21(r13)
+/* 802A6EF4 002A3E54  90 0D A5 CC */	stw r0, gDupTrianglesProcessed@sda21(r13)
 /* 802A6EF8 002A3E58  48 00 01 20 */	b lbl_802A7018
 lbl_802A6EFC:
 /* 802A6EFC 002A3E5C  7C 9F 1B 2E */	sthx r4, r31, r3
@@ -4409,37 +4409,37 @@ ResetInternalCounters__20CMetroidAreaColliderFv:
 /* 802A7044 002A3FA4  7C 08 02 A6 */	mflr r0
 /* 802A7048 002A3FA8  38 60 00 00 */	li r3, 0
 /* 802A704C 002A3FAC  90 01 00 14 */	stw r0, 0x14(r1)
-/* 802A7050 002A3FB0  A0 0D A5 D0 */	lhz r0, lbl_805A9190@sda21(r13)
-/* 802A7054 002A3FB4  90 6D A5 C0 */	stw r3, lbl_805A9180@sda21(r13)
+/* 802A7050 002A3FB0  A0 0D A5 D0 */	lhz r0, sDupPrimitiveCheckCount__20CMetroidAreaCollider@sda21(r13)
+/* 802A7054 002A3FB4  90 6D A5 C0 */	stw r3, gCalledClip@sda21(r13)
 /* 802A7058 002A3FB8  28 00 FF FF */	cmplwi r0, 0xffff
-/* 802A705C 002A3FBC  90 6D A5 C4 */	stw r3, lbl_805A9184@sda21(r13)
-/* 802A7060 002A3FC0  90 6D A5 C8 */	stw r3, lbl_805A9188@sda21(r13)
-/* 802A7064 002A3FC4  90 6D A5 CC */	stw r3, lbl_805A918C@sda21(r13)
+/* 802A705C 002A3FBC  90 6D A5 C4 */	stw r3, gRejectedByClip@sda21(r13)
+/* 802A7060 002A3FC0  90 6D A5 C8 */	stw r3, gTrianglesProcessed@sda21(r13)
+/* 802A7064 002A3FC4  90 6D A5 CC */	stw r3, gDupTrianglesProcessed@sda21(r13)
 /* 802A7068 002A3FC8  40 82 00 54 */	bne lbl_802A70BC
-/* 802A706C 002A3FCC  3C 60 80 57 */	lis r3, lbl_80572BAC@ha
+/* 802A706C 002A3FCC  3C 60 80 57 */	lis r3, sDupVertexList__20CMetroidAreaCollider@ha
 /* 802A7070 002A3FD0  38 80 00 00 */	li r4, 0
-/* 802A7074 002A3FD4  38 63 2B AC */	addi r3, r3, lbl_80572BAC@l
+/* 802A7074 002A3FD4  38 63 2B AC */	addi r3, r3, sDupVertexList__20CMetroidAreaCollider@l
 /* 802A7078 002A3FD8  38 A0 50 00 */	li r5, 0x5000
 /* 802A707C 002A3FDC  4B D5 C3 2D */	bl memset
-/* 802A7080 002A3FE0  3C 60 80 59 */	lis r3, lbl_8058BBAC@ha
+/* 802A7080 002A3FE0  3C 60 80 59 */	lis r3, sDupEdgeList__20CMetroidAreaCollider@ha
 /* 802A7084 002A3FE4  3C A0 00 01 */	lis r5, 0x0000C000@ha
-/* 802A7088 002A3FE8  38 63 BB AC */	addi r3, r3, lbl_8058BBAC@l
+/* 802A7088 002A3FE8  38 63 BB AC */	addi r3, r3, sDupEdgeList__20CMetroidAreaCollider@l
 /* 802A708C 002A3FEC  38 80 00 00 */	li r4, 0
 /* 802A7090 002A3FF0  38 A5 C0 00 */	addi r5, r5, 0x0000C000@l
 /* 802A7094 002A3FF4  4B D5 C3 15 */	bl memset
-/* 802A7098 002A3FF8  3C 60 80 59 */	lis r3, lbl_80597BAC@ha
+/* 802A7098 002A3FF8  3C 60 80 59 */	lis r3, sDupTriangleList__20CMetroidAreaCollider@ha
 /* 802A709C 002A3FFC  3C A0 00 01 */	lis r5, 0x00008000@ha
-/* 802A70A0 002A4000  38 63 7B AC */	addi r3, r3, lbl_80597BAC@l
+/* 802A70A0 002A4000  38 63 7B AC */	addi r3, r3, sDupTriangleList__20CMetroidAreaCollider@l
 /* 802A70A4 002A4004  38 80 00 00 */	li r4, 0
 /* 802A70A8 002A4008  38 A5 80 00 */	addi r5, r5, 0x00008000@l
 /* 802A70AC 002A400C  4B D5 C2 FD */	bl memset
-/* 802A70B0 002A4010  A0 6D A5 D0 */	lhz r3, lbl_805A9190@sda21(r13)
+/* 802A70B0 002A4010  A0 6D A5 D0 */	lhz r3, sDupPrimitiveCheckCount__20CMetroidAreaCollider@sda21(r13)
 /* 802A70B4 002A4014  38 03 00 01 */	addi r0, r3, 1
-/* 802A70B8 002A4018  B0 0D A5 D0 */	sth r0, lbl_805A9190@sda21(r13)
+/* 802A70B8 002A4018  B0 0D A5 D0 */	sth r0, sDupPrimitiveCheckCount__20CMetroidAreaCollider@sda21(r13)
 lbl_802A70BC:
-/* 802A70BC 002A401C  A0 6D A5 D0 */	lhz r3, lbl_805A9190@sda21(r13)
+/* 802A70BC 002A401C  A0 6D A5 D0 */	lhz r3, sDupPrimitiveCheckCount__20CMetroidAreaCollider@sda21(r13)
 /* 802A70C0 002A4020  38 03 00 01 */	addi r0, r3, 1
-/* 802A70C4 002A4024  B0 0D A5 D0 */	sth r0, lbl_805A9190@sda21(r13)
+/* 802A70C4 002A4024  B0 0D A5 D0 */	sth r0, sDupPrimitiveCheckCount__20CMetroidAreaCollider@sda21(r13)
 /* 802A70C8 002A4028  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802A70CC 002A402C  7C 08 03 A6 */	mtlr r0
 /* 802A70D0 002A4030  38 21 00 10 */	addi r1, r1, 0x10
@@ -4459,21 +4459,21 @@ ConvexPolyCollision__20CMetroidAreaColliderFPC6CPlanePC9CVector3fR6CAABox:
 /* 802A70FC 002A405C  93 A1 02 04 */	stw r29, 0x204(r1)
 /* 802A7100 002A4060  93 81 02 00 */	stw r28, 0x200(r1)
 /* 802A7104 002A4064  39 20 00 00 */	li r9, 0
-/* 802A7108 002A4068  81 0D A5 C0 */	lwz r8, lbl_805A9180@sda21(r13)
+/* 802A7108 002A4068  81 0D A5 C0 */	lwz r8, gCalledClip@sda21(r13)
 /* 802A710C 002A406C  1C C9 00 0C */	mulli r6, r9, 0xc
-/* 802A7110 002A4070  80 ED A5 C4 */	lwz r7, lbl_805A9184@sda21(r13)
+/* 802A7110 002A4070  80 ED A5 C4 */	lwz r7, gRejectedByClip@sda21(r13)
 /* 802A7114 002A4074  39 41 00 18 */	addi r10, r1, 0x18
 /* 802A7118 002A4078  91 21 00 14 */	stw r9, 0x14(r1)
 /* 802A711C 002A407C  38 08 00 01 */	addi r0, r8, 1
 /* 802A7120 002A4080  38 E7 00 01 */	addi r7, r7, 1
-/* 802A7124 002A4084  90 0D A5 C0 */	stw r0, lbl_805A9180@sda21(r13)
+/* 802A7124 002A4084  90 0D A5 C0 */	stw r0, gCalledClip@sda21(r13)
 /* 802A7128 002A4088  7C CA 32 15 */	add. r6, r10, r6
 /* 802A712C 002A408C  7C BE 2B 78 */	mr r30, r5
 /* 802A7130 002A4090  3B E1 01 08 */	addi r31, r1, 0x108
 /* 802A7134 002A4094  91 21 01 08 */	stw r9, 0x108(r1)
 /* 802A7138 002A4098  38 00 00 00 */	li r0, 0
 /* 802A713C 002A409C  38 A0 00 01 */	li r5, 1
-/* 802A7140 002A40A0  90 ED A5 C4 */	stw r7, lbl_805A9184@sda21(r13)
+/* 802A7140 002A40A0  90 ED A5 C4 */	stw r7, gRejectedByClip@sda21(r13)
 /* 802A7144 002A40A4  41 82 00 1C */	beq lbl_802A7160
 /* 802A7148 002A40A8  C0 04 00 00 */	lfs f0, 0(r4)
 /* 802A714C 002A40AC  C0 24 00 04 */	lfs f1, 4(r4)
@@ -4742,10 +4742,10 @@ lbl_802A74F4:
 /* 802A7500 002A4460  38 03 00 04 */	addi r0, r3, 4
 /* 802A7504 002A4464  7C 1D 00 40 */	cmplw r29, r0
 /* 802A7508 002A4468  40 82 FF DC */	bne lbl_802A74E4
-/* 802A750C 002A446C  80 6D A5 C4 */	lwz r3, lbl_805A9184@sda21(r13)
+/* 802A750C 002A446C  80 6D A5 C4 */	lwz r3, gRejectedByClip@sda21(r13)
 /* 802A7510 002A4470  28 1F 00 00 */	cmplwi r31, 0
 /* 802A7514 002A4474  38 03 FF FF */	addi r0, r3, -1
-/* 802A7518 002A4478  90 0D A5 C4 */	stw r0, lbl_805A9184@sda21(r13)
+/* 802A7518 002A4478  90 0D A5 C4 */	stw r0, gRejectedByClip@sda21(r13)
 /* 802A751C 002A447C  41 82 00 58 */	beq lbl_802A7574
 /* 802A7520 002A4480  80 A1 01 08 */	lwz r5, 0x108(r1)
 /* 802A7524 002A4484  38 60 00 00 */	li r3, 0

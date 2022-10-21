@@ -904,10 +904,10 @@ GenerateParticlesAgainstWorld__10CIceImpactFR13CStateManagerRCQ220CMetroidAreaCo
 /* 801B67A8 001B3708  38 E0 00 02 */	li r7, 2
 /* 801B67AC 001B370C  38 C0 FF FF */	li r6, -1
 /* 801B67B0 001B3710  38 00 00 00 */	li r0, 0
-/* 801B67B4 001B3714  3C A0 80 59 */	lis r5, lbl_80597BAC@ha
+/* 801B67B4 001B3714  3C A0 80 59 */	lis r5, sDupTriangleList__20CMetroidAreaCollider@ha
 /* 801B67B8 001B3718  90 E1 00 50 */	stw r7, 0x50(r1)
 /* 801B67BC 001B371C  3B B5 00 08 */	addi r29, r21, 8
-/* 801B67C0 001B3720  3B E5 7B AC */	addi r31, r5, lbl_80597BAC@l
+/* 801B67C0 001B3720  3B E5 7B AC */	addi r31, r5, sDupTriangleList__20CMetroidAreaCollider@l
 /* 801B67C4 001B3724  3B 60 00 00 */	li r27, 0
 /* 801B67C8 001B3728  90 C1 00 5C */	stw r6, 0x5c(r1)
 /* 801B67CC 001B372C  90 01 00 58 */	stw r0, 0x58(r1)
@@ -927,7 +927,7 @@ lbl_801B67E0:
 /* 801B6800 001B3760  48 00 01 10 */	b lbl_801B6910
 lbl_801B6804:
 /* 801B6804 001B3764  A0 BC 00 1A */	lhz r5, 0x1a(r28)
-/* 801B6808 001B3768  A0 8D A5 D0 */	lhz r4, lbl_805A9190@sda21(r13)
+/* 801B6808 001B3768  A0 8D A5 D0 */	lhz r4, sDupPrimitiveCheckCount__20CMetroidAreaCollider@sda21(r13)
 /* 801B680C 001B376C  54 A3 0B FC */	rlwinm r3, r5, 1, 0xf, 0x1e
 /* 801B6810 001B3770  7C 1F 1A 2E */	lhzx r0, r31, r3
 /* 801B6814 001B3774  7C 00 20 40 */	cmplw r0, r4
