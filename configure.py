@@ -766,7 +766,7 @@ LIBS = [
     },
     {
         "lib": "dvd",
-        "mwcc_version": "1.2.5",
+        "mwcc_version": "1.2.5e",
         "cflags": "$cflags_base",
         "host": False,
         "objects": [
@@ -775,7 +775,7 @@ LIBS = [
             ["Dolphin/dvd/dvd", False],
             "Dolphin/dvd/dvdqueue",
             "Dolphin/dvd/dvderror",
-            "Dolphin/dvd/dvdidutils",
+            ["Dolphin/dvd/dvdidutils", True],
             "Dolphin/dvd/dvdfatal",
             "Dolphin/dvd/fstload",
         ],
