@@ -18,7 +18,7 @@ public:
   }
 
   uint GetIndexFromPtr(const void* ptr) const {
-    return ((const uchar*)ptr - x0_mainData) / kPointerSize;
+    return ((const uchar*)ptr - (const uchar*)x0_mainData) / kPointerSize;
   }
   long GetEntryValue(uint idx) const { return (long)*((uchar*)x4_bookKeeping + idx); }
   uchar* GetPtrFromIndex(unsigned int idx) const {

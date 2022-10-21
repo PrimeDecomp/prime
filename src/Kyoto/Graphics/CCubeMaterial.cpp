@@ -6,6 +6,11 @@
 
 #include <dolphin/mtx.h>
 
+#ifndef __MWERKS__
+void __memcpy(void*, const void*, int);
+#endif
+
+
 inline void CGX::SetAlphaCompare(GXCompare comp0, uchar ref0, GXAlphaOp op, GXCompare comp1,
                                  uchar ref1) {
   uint flags = MaskAndShiftLeft(comp0, 7, 0) | MaskAndShiftLeft(ref0, 0xFF, 3) |

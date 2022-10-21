@@ -5,7 +5,9 @@
 #include "dolphin/os/OSMemory.h"
 #include "dolphin/pad.h"
 #include "dolphin/vi.h"
+
 #include <stdio.h>
+#include <stdarg.h>
 
 static const char* buildTime = "Build v1.088 10/29/2002 2:21:25";
 static char rs_debugger_buffer[1024];
@@ -42,7 +44,7 @@ void ErrorHandler(OSError code, OSContext* context, int arg1, int arg2) {
         local_60 = 0x2010408;
         if ((pads[1].button & 0xc10) == 0xc10) {
           if ((pads[1].button & 0xf) != 0) {
-            if (pads[1].button & loopExitCriteria == 0) { // TODO: wrong logic with loopExitCriteria
+            if ((pads[1].button & loopExitCriteria) == 0) { // TODO: wrong logic with loopExitCriteria
               if ((loopExitCriteria != 0) &&
                   pads[1].button == 0) { // TODO: wrong logic with pads[1].button
                 loopExitCriteria = 0;
