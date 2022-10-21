@@ -3,15 +3,15 @@
 .section .data
 .balign 8
 
-.global lbl_803E8C40
-lbl_803E8C40:
+.global __vt__24CScriptCameraHintTrigger
+__vt__24CScriptCameraHintTrigger:
 	# ROM: 0x3E5C40
 	.4byte 0
 	.4byte 0
 	.4byte __dt__24CScriptCameraHintTriggerFv
 	.4byte Accept__24CScriptCameraHintTriggerFR8IVisitor
 	.4byte PreThink__7CEntityFfR13CStateManager
-	.4byte AcceptScriptMsg__24CScriptCameraHintTriggerF20EScriptObjectMessage9TUniqueIdR13CStateManager
+	.4byte Think__24CScriptCameraHintTriggerFfR13CStateManager
 	.4byte AcceptScriptMsg__6CActorF20EScriptObjectMessage9TUniqueIdR13CStateManager
 	.4byte SetActive__6CActorFUc
 	.4byte PreRender__6CActorFR13CStateManagerRC14CFrustumPlanes
@@ -56,9 +56,9 @@ __dt__24CScriptCameraHintTriggerFv:
 /* 8024B3B0 00248310  93 C1 00 08 */	stw r30, 8(r1)
 /* 8024B3B4 00248314  7C 7E 1B 79 */	or. r30, r3, r3
 /* 8024B3B8 00248318  41 82 00 28 */	beq lbl_8024B3E0
-/* 8024B3BC 0024831C  3C A0 80 3F */	lis r5, lbl_803E8C40@ha
+/* 8024B3BC 0024831C  3C A0 80 3F */	lis r5, __vt__24CScriptCameraHintTrigger@ha
 /* 8024B3C0 00248320  38 80 00 00 */	li r4, 0
-/* 8024B3C4 00248324  38 05 8C 40 */	addi r0, r5, lbl_803E8C40@l
+/* 8024B3C4 00248324  38 05 8C 40 */	addi r0, r5, __vt__24CScriptCameraHintTrigger@l
 /* 8024B3C8 00248328  90 1E 00 00 */	stw r0, 0(r30)
 /* 8024B3CC 0024832C  4B E0 A3 25 */	bl __dt__6CActorFv
 /* 8024B3D0 00248330  7F E0 07 35 */	extsh. r0, r31
@@ -74,8 +74,8 @@ lbl_8024B3E0:
 /* 8024B3F4 00248354  38 21 00 10 */	addi r1, r1, 0x10
 /* 8024B3F8 00248358  4E 80 00 20 */	blr
 
-.global AcceptScriptMsg__24CScriptCameraHintTriggerF20EScriptObjectMessage9TUniqueIdR13CStateManager
-AcceptScriptMsg__24CScriptCameraHintTriggerF20EScriptObjectMessage9TUniqueIdR13CStateManager:
+.global Think__24CScriptCameraHintTriggerFfR13CStateManager
+Think__24CScriptCameraHintTriggerFfR13CStateManager:
 /* 8024B3FC 0024835C  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 8024B400 00248360  7C 08 02 A6 */	mflr r0
 /* 8024B404 00248364  90 01 00 24 */	stw r0, 0x24(r1)
@@ -281,8 +281,8 @@ Accept__24CScriptCameraHintTriggerFR8IVisitor:
 /* 8024B6E0 00248640  38 21 00 10 */	addi r1, r1, 0x10
 /* 8024B6E4 00248644  4E 80 00 20 */	blr
 
-.global "__ct__24CScriptCameraHintTriggerF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fRC12CTransform4fbb"
-"__ct__24CScriptCameraHintTriggerF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fRC12CTransform4fbb":
+.global "__ct__24CScriptCameraHintTriggerF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fRC12CTransform4fbb"
+"__ct__24CScriptCameraHintTriggerF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fRC12CTransform4fbb":
 /* 8024B6E8 00248648  94 21 FF 00 */	stwu r1, -0x100(r1)
 /* 8024B6EC 0024864C  7C 08 02 A6 */	mflr r0
 /* 8024B6F0 00248650  90 01 01 04 */	stw r0, 0x104(r1)
@@ -336,9 +336,9 @@ Accept__24CScriptCameraHintTriggerFR8IVisitor:
 /* 8024B7B0 00248710  38 61 00 88 */	addi r3, r1, 0x88
 /* 8024B7B4 00248714  38 80 FF FF */	li r4, -1
 /* 8024B7B8 00248718  4B EC B2 95 */	bl __dt__10CModelDataFv
-/* 8024B7BC 0024871C  3C 60 80 3F */	lis r3, lbl_803E8C40@ha
+/* 8024B7BC 0024871C  3C 60 80 3F */	lis r3, __vt__24CScriptCameraHintTrigger@ha
 /* 8024B7C0 00248720  7F A4 EB 78 */	mr r4, r29
-/* 8024B7C4 00248724  38 03 8C 40 */	addi r0, r3, lbl_803E8C40@l
+/* 8024B7C4 00248724  38 03 8C 40 */	addi r0, r3, __vt__24CScriptCameraHintTrigger@l
 /* 8024B7C8 00248728  7F 85 E3 78 */	mr r5, r28
 /* 8024B7CC 0024872C  90 18 00 00 */	stw r0, 0(r24)
 /* 8024B7D0 00248730  38 78 00 E8 */	addi r3, r24, 0xe8

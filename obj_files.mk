@@ -312,7 +312,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/CLogBookScreen.o\
 	$(BUILD_DIR)/src/MetroidPrime/CGBASupport.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Player/CSaveWorld.o\
-	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptCameraHintTrigger.o\
+	$(BUILD_DIR)/src/MetroidPrime/ScriptObjects/CScriptCameraHintTrigger.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CAmbientAI.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CMemoryCardDriver.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CSaveGameScreen.o\

@@ -22514,7 +22514,7 @@ lbl_800D99B8:
 /* 800D9A08 000D6968  38 81 00 1C */	addi r4, r1, 0x1c
 /* 800D9A0C 000D696C  38 C1 00 D0 */	addi r6, r1, 0xd0
 /* 800D9A10 000D6970  39 01 00 60 */	addi r8, r1, 0x60
-/* 800D9A14 000D6974  48 17 1C D5 */	bl "__ct__24CScriptCameraHintTriggerF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fRC12CTransform4fbb"
+/* 800D9A14 000D6974  48 17 1C D5 */	bl "__ct__24CScriptCameraHintTriggerF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fRC12CTransform4fbb"
 /* 800D9A18 000D6978  7C 7A 1B 78 */	mr r26, r3
 lbl_800D9A1C:
 /* 800D9A1C 000D697C  38 61 00 D0 */	addi r3, r1, 0xd0
