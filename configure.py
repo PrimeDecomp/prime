@@ -111,7 +111,7 @@ LIBS = [
             ["MetroidPrime/ScriptObjects/CScriptPlatform", False],
             ["MetroidPrime/UserNames", True],
             "MetroidPrime/ScriptObjects/CScriptGenerator",
-            "MetroidPrime/ScriptObjects/CScriptCameraWaypoint",
+            ["MetroidPrime/ScriptObjects/CScriptCameraWaypoint", False],
             ["MetroidPrime/CGameLight", True],
             "MetroidPrime/Tweaks/CTweakTargeting",
             ["MetroidPrime/Tweaks/CTweakAutoMapper", True],
