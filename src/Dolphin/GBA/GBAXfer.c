@@ -59,6 +59,7 @@ s32 __GBASync(s32 chan) {
 }
 #else
 extern void OSSleepThread();
+/* clang-format off */
 #pragma push
 #pragma optimization_level 0
 #pragma optimizewithasm off
@@ -94,6 +95,7 @@ lbl_803CAD50:
   mtlr r0
   blr
 }
+/* clang-format on */
 #pragma pop
 #endif
 
