@@ -1050,7 +1050,7 @@ LIBS = [
             "Dolphin/GBA/GBAJoyBoot",
             ["Dolphin/GBA/GBARead", True],
             ["Dolphin/GBA/GBAWrite", True],
-            ["Dolphin/GBA/GBAXfer", False],
+            ["Dolphin/GBA/GBAXfer", True],
             "Dolphin/GBA/GBAKey",
         ],
     },
