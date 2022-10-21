@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803DF348
-lbl_803DF348:
+.global __vt__21CScriptCameraWaypoint
+__vt__21CScriptCameraWaypoint:
 	# ROM: 0x3DC348
 	.4byte 0
 	.4byte 0
@@ -243,9 +243,9 @@ __dt__21CScriptCameraWaypointFv:
 /* 800B5450 000B23B0  93 C1 00 08 */	stw r30, 8(r1)
 /* 800B5454 000B23B4  7C 7E 1B 79 */	or. r30, r3, r3
 /* 800B5458 000B23B8  41 82 00 28 */	beq lbl_800B5480
-/* 800B545C 000B23BC  3C A0 80 3E */	lis r5, lbl_803DF348@ha
+/* 800B545C 000B23BC  3C A0 80 3E */	lis r5, __vt__21CScriptCameraWaypoint@ha
 /* 800B5460 000B23C0  38 80 00 00 */	li r4, 0
-/* 800B5464 000B23C4  38 05 F3 48 */	addi r0, r5, lbl_803DF348@l
+/* 800B5464 000B23C4  38 05 F3 48 */	addi r0, r5, __vt__21CScriptCameraWaypoint@l
 /* 800B5468 000B23C8  90 1E 00 00 */	stw r0, 0(r30)
 /* 800B546C 000B23CC  4B FA 02 85 */	bl __dt__6CActorFv
 /* 800B5470 000B23D0  7F E0 07 35 */	extsh. r0, r31
@@ -316,9 +316,9 @@ lbl_800B5480:
 /* 800B5564 000B24C4  38 61 00 88 */	addi r3, r1, 0x88
 /* 800B5568 000B24C8  38 80 FF FF */	li r4, -1
 /* 800B556C 000B24CC  48 06 14 E1 */	bl __dt__10CModelDataFv
-/* 800B5570 000B24D0  3C 80 80 3E */	lis r4, lbl_803DF348@ha
+/* 800B5570 000B24D0  3C 80 80 3E */	lis r4, __vt__21CScriptCameraWaypoint@ha
 /* 800B5574 000B24D4  7F E3 FB 78 */	mr r3, r31
-/* 800B5578 000B24D8  38 04 F3 48 */	addi r0, r4, lbl_803DF348@l
+/* 800B5578 000B24D8  38 04 F3 48 */	addi r0, r4, __vt__21CScriptCameraWaypoint@l
 /* 800B557C 000B24DC  90 1F 00 00 */	stw r0, 0(r31)
 /* 800B5580 000B24E0  D3 FF 00 E8 */	stfs f31, 0xe8(r31)
 /* 800B5584 000B24E4  93 DF 00 EC */	stw r30, 0xec(r31)
