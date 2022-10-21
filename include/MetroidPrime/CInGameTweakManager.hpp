@@ -58,7 +58,11 @@ class CInGameTweakManager {
 public:
   CInGameTweakManager();
 
+  bool HasTweakValue(const rstl::string& name) const;
+  const CTweakValue* GetTweakValue(const rstl::string& name) const;
   bool ReadFromMemoryCard(const rstl::string&);
+
+  static rstl::string GetIdentifierForMidiEvent(CAssetId world, CAssetId area, const rstl::string& midiObj);
 
 private:
   rstl::vector< CTweakValue > x0_values;

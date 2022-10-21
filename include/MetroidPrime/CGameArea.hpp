@@ -99,6 +99,7 @@ public:
     EOcclusionState x10dc_occlusionState;
   };
 
+  CAssetId GetAreaAssetId() const { return x84_mrea; }
   const CAreaFog* GetAreaFog() const { return x12c_postConstructed->x10c4_areaFog.get(); }
   CAreaFog* AreaFog() { return x12c_postConstructed->x10c4_areaFog.get(); }
   EOcclusionState GetOcclusionState() const { return x12c_postConstructed->x10dc_occlusionState; }

@@ -312,7 +312,7 @@ LIBS = [
             "MetroidPrime/CVisorFlare",
             "MetroidPrime/Enemies/CFlaahgraPlants",
             "MetroidPrime/CWorldTransManager",
-            "MetroidPrime/ScriptObjects/CScriptMidi",
+            ["MetroidPrime/ScriptObjects/CScriptMidi", False],
             "MetroidPrime/ScriptObjects/CScriptStreamedAudio",
             "MetroidPrime/CRagDoll",
             "MetroidPrime/Player/CGameOptions",
