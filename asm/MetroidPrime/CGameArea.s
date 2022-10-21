@@ -520,16 +520,16 @@ SetWeaponWorldLighting__9CGameAreaFff:
 /* 8005E1E0 0005B140  D0 43 11 38 */	stfs f2, 0x1138(r3)
 /* 8005E1E4 0005B144  4E 80 00 20 */	blr
 
-.global sub_8005e1e8
-sub_8005e1e8:
+.global SetXRaySpeedAndTarget__9CGameAreaFff
+SetXRaySpeedAndTarget__9CGameAreaFff:
 /* 8005E1E8 0005B148  80 83 01 2C */	lwz r4, 0x12c(r3)
 /* 8005E1EC 0005B14C  D0 24 11 2C */	stfs f1, 0x112c(r4)
 /* 8005E1F0 0005B150  80 63 01 2C */	lwz r3, 0x12c(r3)
 /* 8005E1F4 0005B154  D0 43 11 30 */	stfs f2, 0x1130(r3)
 /* 8005E1F8 0005B158  4E 80 00 20 */	blr
 
-.global sub_8005e1fc
-sub_8005e1fc:
+.global SetThermalSpeedAndTarget__9CGameAreaFff
+SetThermalSpeedAndTarget__9CGameAreaFff:
 /* 8005E1FC 0005B15C  80 83 01 2C */	lwz r4, 0x12c(r3)
 /* 8005E200 0005B160  D0 24 11 20 */	stfs f1, 0x1120(r4)
 /* 8005E204 0005B164  80 63 01 2C */	lwz r3, 0x12c(r3)

@@ -32,6 +32,7 @@ class Dock;
 class CToken;
 class IDvdRequest;
 class CScriptAreaAttributes;
+class CAreaFog;
 
 class CGameArea : public IGameArea {
 public:
@@ -47,6 +48,10 @@ public:
 
   bool IsLoaded() const { return xf0_24_postConstructed; }
   bool IsActive() const { return xf0_25_active; }
+
+  void SetXRaySpeedAndTarget(float speed, float target);
+  void SetThermalSpeedAndTarget(float speed, float target);
+  void SetWeaponWorldLighting(float speed, float target);
 
   void SetAreaAttributes(const CScriptAreaAttributes* areaAttributes);
   bool TryTakingOutOfARAM();
@@ -85,17 +90,23 @@ public:
   enum EOcclusionState { kOS_Occluded, kOS_Visible };
 
   struct CPostConstructed {
-    uchar x0_pad[0x10dc];
+    uchar x0_pad[0x10c4];
+    rstl::single_ptr<CAreaFog> x10c4_areaFog;
+    rstl::optional_object<void*> x10c8_sclyBuf; // was rstl::optional_object<void*>
+    u32 x10d0_sclySize;
+    const u8* x10d4_firstMatPtr;
+    const CScriptAreaAttributes* x10d8_areaAttributes;
     EOcclusionState x10dc_occlusionState;
   };
 
+  const CAreaFog* GetAreaFog() const { return x12c_postConstructed->x10c4_areaFog.get(); }
+  CAreaFog* AreaFog() { return x12c_postConstructed->x10c4_areaFog.get(); }
   EOcclusionState GetOcclusionState() const { return x12c_postConstructed->x10dc_occlusionState; }
+  
 
 private:
   uchar x110_pad[0x1c];
   rstl::single_ptr<CPostConstructed> x12c_postConstructed;
-
-
 };
 
 #endif // _CGAMEAREA

@@ -1308,7 +1308,7 @@ lbl_800C62A4:
 /* 800C637C 000C32DC  38 A1 00 30 */	addi r5, r1, 0x30
 /* 800C6380 000C32E0  39 41 00 28 */	addi r10, r1, 0x28
 /* 800C6384 000C32E4  38 E0 00 00 */	li r7, 0
-/* 800C6388 000C32E8  48 08 6E D1 */	bl "__ct__18CScriptDistanceFogF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC11ERglFogModeRC6CColorRC9CVector2ff9CVector2fbbffff"
+/* 800C6388 000C32E8  48 08 6E D1 */	bl "__ct__18CScriptDistanceFogF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfo11ERglFogModeRC6CColorRC9CVector2ffRC9CVector2fbbffff"
 /* 800C638C 000C32EC  7C 7D 1B 78 */	mr r29, r3
 lbl_800C6390:
 /* 800C6390 000C32F0  38 61 00 30 */	addi r3, r1, 0x30
@@ -2482,7 +2482,7 @@ lbl_800C7300:
 /* 800C73D8 000C4338  38 A1 00 30 */	addi r5, r1, 0x30
 /* 800C73DC 000C433C  39 41 00 28 */	addi r10, r1, 0x28
 /* 800C73E0 000C4340  38 E0 00 00 */	li r7, 0
-/* 800C73E4 000C4344  48 08 5E 75 */	bl "__ct__18CScriptDistanceFogF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC11ERglFogModeRC6CColorRC9CVector2ff9CVector2fbbffff"
+/* 800C73E4 000C4344  48 08 5E 75 */	bl "__ct__18CScriptDistanceFogF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfo11ERglFogModeRC6CColorRC9CVector2ffRC9CVector2fbbffff"
 /* 800C73E8 000C4348  7C 7D 1B 78 */	mr r29, r3
 lbl_800C73EC:
 /* 800C73EC 000C434C  38 61 00 30 */	addi r3, r1, 0x30
@@ -13169,7 +13169,7 @@ lbl_800D1030:
 /* 800D10AC 000CE00C  39 01 00 18 */	addi r8, r1, 0x18
 /* 800D10B0 000CE010  39 21 00 2C */	addi r9, r1, 0x2c
 /* 800D10B4 000CE014  39 41 00 1C */	addi r10, r1, 0x1c
-/* 800D10B8 000CE018  48 07 C1 A1 */	bl "__ct__18CScriptDistanceFogF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC11ERglFogModeRC6CColorRC9CVector2ff9CVector2fbbffff"
+/* 800D10B8 000CE018  48 07 C1 A1 */	bl "__ct__18CScriptDistanceFogF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfo11ERglFogModeRC6CColorRC9CVector2ffRC9CVector2fbbffff"
 /* 800D10BC 000CE01C  7C 7D 1B 78 */	mr r29, r3
 lbl_800D10C0:
 /* 800D10C0 000CE020  38 61 00 34 */	addi r3, r1, 0x34
