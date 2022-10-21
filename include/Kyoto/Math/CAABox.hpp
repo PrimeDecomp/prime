@@ -67,7 +67,7 @@ public:
   CVector3f ClampToBox(const CVector3f& vec) const;
   CAABox GetTransformedAABox(const CTransform4f& xf) const;
 
-  inline CVector3f GetExtents() const {
+  inline CVector3f GetHalfExtent() const {
     // Name is a guess
     return (max - min) * 0.5f;
   }

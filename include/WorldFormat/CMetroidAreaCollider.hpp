@@ -5,9 +5,39 @@
 
 #include "WorldFormat/CAreaOctTree.hpp"
 
+#include "Collision/CCollisionInfoList.hpp"
+#include "Collision/CMaterialFilter.hpp"
+#include "Collision/CMaterialList.hpp"
+
 #include "Kyoto/Math/CAABox.hpp"
+#include "Kyoto/Math/CPlane.hpp"
+#include "Kyoto/Math/CVector3f.hpp"
 
 #include "rstl/reserved_vector.hpp"
+
+class CAABoxAreaCache {
+public:
+  friend class CMetroidAreaCollider;
+
+  CAABoxAreaCache(const CAABox& aabb, const CPlane* pl, const CMaterialFilter& filter,
+                  const CMaterialList& material, CCollisionInfoList& collisionList)
+  : x0_aabb(aabb)
+  , x4_planes(pl)
+  , x8_filter(filter)
+  , xc_material(material)
+  , x10_collisionList(collisionList)
+  , x14_center(aabb.GetCenterPoint())
+  , x20_halfExtent(aabb.GetHalfExtent()) {}
+
+private:
+  const CAABox& x0_aabb;
+  const CPlane* x4_planes;
+  const CMaterialFilter& x8_filter;
+  const CMaterialList& xc_material;
+  CCollisionInfoList& x10_collisionList;
+  CVector3f x14_center;
+  CVector3f x20_halfExtent;
+};
 
 class CMetroidAreaCollider {
 public:
@@ -15,7 +45,8 @@ public:
   public:
     COctreeLeafCache(const CAreaOctTree& octTree);
     void AddLeaf(const CAreaOctTree::Node& node);
-    uint GetNumLeaves() const { return x4_nodeCache.size(); }
+    const CAreaOctTree::Node& GetLeaf(int i) const { return x4_nodeCache[i]; }
+    int GetNumLeaves() const { return x4_nodeCache.size(); }
     bool HasCacheOverflowed() const { return x908_24_overflow; }
     const CAreaOctTree& GetOctTree() const { return x0_octTree; }
     rstl::reserved_vector< CAreaOctTree::Node, 64 >::const_iterator begin() const {
@@ -31,10 +62,18 @@ public:
     bool x908_24_overflow : 1;
   };
 
-  // TODO
+  static bool ConvexPolyCollision(const CPlane* planes, const CVector3f* verts, CAABox& aabb);
+  static bool AABoxCollisionCheck_Cached(const COctreeLeafCache& leafCache, const CAABox& aabb,
+                                         const CMaterialFilter& filter,
+                                         const CMaterialList& matList, CCollisionInfoList& list);
 
 private:
-  // TODO
+  static ushort sDupPrimitiveCheckCount;
+  static ushort sDupVertexList[0x2800];
+  static ushort sDupEdgeList[0x6000];
+  static ushort sDupTriangleList[0x4000];
+  static void ResetInternalCounters();
+  static bool AABoxCollisionCheck_Internal(const CAreaOctTree::Node&, CAABoxAreaCache&);
 };
 
 class CAreaCollisionCache {
