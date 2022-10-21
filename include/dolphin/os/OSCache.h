@@ -1,7 +1,7 @@
 #ifndef _DOLPHIN_OSCACHE
 #define _DOLPHIN_OSCACHE
 
-#include "types.h"
+#include "dolphin/types.h"
 
 #ifdef __cplusplus
 extern "C" {
