@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803E3DA8
-lbl_803E3DA8:
+.global __vt__12CScriptSteam
+__vt__12CScriptSteam:
 	# ROM: 0x3E0DA8
 	.4byte 0
 	.4byte 0
@@ -202,9 +202,9 @@ __dt__12CScriptSteamFv:
 /* 80174D44 00171CA4  93 C1 00 08 */	stw r30, 8(r1)
 /* 80174D48 00171CA8  7C 7E 1B 79 */	or. r30, r3, r3
 /* 80174D4C 00171CAC  41 82 00 28 */	beq lbl_80174D74
-/* 80174D50 00171CB0  3C A0 80 3E */	lis r5, lbl_803E3DA8@ha
+/* 80174D50 00171CB0  3C A0 80 3E */	lis r5, __vt__12CScriptSteam@ha
 /* 80174D54 00171CB4  38 80 00 00 */	li r4, 0
-/* 80174D58 00171CB8  38 05 3D A8 */	addi r0, r5, lbl_803E3DA8@l
+/* 80174D58 00171CB8  38 05 3D A8 */	addi r0, r5, __vt__12CScriptSteam@l
 /* 80174D5C 00171CBC  90 1E 00 00 */	stw r0, 0(r30)
 /* 80174D60 00171CC0  4B F0 1F 21 */	bl __dt__14CScriptTriggerFv
 /* 80174D64 00171CC4  7F E0 07 35 */	extsh. r0, r31
@@ -220,8 +220,8 @@ lbl_80174D74:
 /* 80174D88 00171CE8  38 21 00 10 */	addi r1, r1, 0x10
 /* 80174D8C 00171CEC  4E 80 00 20 */	blr
 
-.global "__ct__12CScriptSteamF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fRC6CAABoxRC11CDamageInfoRC9CVector3fUibUiffff"
-"__ct__12CScriptSteamF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fRC6CAABoxRC11CDamageInfoRC9CVector3fUibUiffff":
+.global "__ct__12CScriptSteamF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fRC6CAABoxRC11CDamageInfoRC9CVector3fUibUiffffb"
+"__ct__12CScriptSteamF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fRC6CAABoxRC11CDamageInfoRC9CVector3fUibUiffffb":
 /* 80174D90 00171CF0  94 21 FF 90 */	stwu r1, -0x70(r1)
 /* 80174D94 00171CF4  7C 08 02 A6 */	mflr r0
 /* 80174D98 00171CF8  90 01 00 74 */	stw r0, 0x74(r1)
@@ -255,8 +255,8 @@ lbl_80174D74:
 /* 80174E08 00171D68  90 01 00 14 */	stw r0, 0x14(r1)
 /* 80174E0C 00171D6C  4B F0 1F 4D */	bl "__ct__14CScriptTriggerF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fRC6CAABoxRC11CDamageInfoRC9CVector3fUibbb"
 /* 80174E10 00171D70  EC 5E E8 24 */	fdivs f2, f30, f29
-/* 80174E14 00171D74  3C 60 80 3E */	lis r3, lbl_803E3DA8@ha
-/* 80174E18 00171D78  38 03 3D A8 */	addi r0, r3, lbl_803E3DA8@l
+/* 80174E14 00171D74  3C 60 80 3E */	lis r3, __vt__12CScriptSteam@ha
+/* 80174E18 00171D78  38 03 3D A8 */	addi r0, r3, __vt__12CScriptSteam@l
 /* 80174E1C 00171D7C  C0 02 A1 50 */	lfs f0, lbl_805ABE70@sda21(r2)
 /* 80174E20 00171D80  90 1C 00 00 */	stw r0, 0(r28)
 /* 80174E24 00171D84  9B FC 01 50 */	stb r31, 0x150(r28)

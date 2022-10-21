@@ -21341,7 +21341,7 @@ lbl_800D8718:
 /* 800D88A0 000D5800  39 21 00 9C */	addi r9, r1, 0x9c
 /* 800D88A4 000D5804  39 41 00 38 */	addi r10, r1, 0x38
 /* 800D88A8 000D5808  93 E1 00 14 */	stw r31, 0x14(r1)
-/* 800D88AC 000D580C  48 09 C4 E5 */	bl "__ct__12CScriptSteamF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fRC6CAABoxRC11CDamageInfoRC9CVector3fUibUiffff"
+/* 800D88AC 000D580C  48 09 C4 E5 */	bl "__ct__12CScriptSteamF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fRC6CAABoxRC11CDamageInfoRC9CVector3fUibUiffffb"
 /* 800D88B0 000D5810  7C 7B 1B 78 */	mr r27, r3
 lbl_800D88B4:
 /* 800D88B4 000D5814  38 61 00 5C */	addi r3, r1, 0x5c

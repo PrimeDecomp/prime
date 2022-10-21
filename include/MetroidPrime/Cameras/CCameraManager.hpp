@@ -31,6 +31,8 @@ public:
   bool IsInCinematicCamera() const;
 
   static float DefaultThirdPersonFov();
+  
+  int GetFluidCounter() const { return x74_fluidCounter; }
 
 private:
   TUniqueId x0_curCameraId;
