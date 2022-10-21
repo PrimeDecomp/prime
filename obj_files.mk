@@ -853,9 +853,9 @@ THP_FILES :=\
 
 GBA_FILES :=\
 	$(BUILD_DIR)/src/Dolphin/GBA/GBA.ep.o\
-	$(BUILD_DIR)/asm/Dolphin/GBA/GBAGetProcessStatus.o\
+	$(BUILD_DIR)/src/Dolphin/GBA/GBAGetProcessStatus.ep.o\
 	$(BUILD_DIR)/asm/Dolphin/GBA/GBAJoyBoot.o\
 	$(BUILD_DIR)/src/Dolphin/GBA/GBARead.ep.o\
 	$(BUILD_DIR)/src/Dolphin/GBA/GBAWrite.ep.o\
-	$(BUILD_DIR)/asm/Dolphin/GBA/GBAXfer.o\
+	$(BUILD_DIR)/src/Dolphin/GBA/GBAXfer.ep.o\
 	$(BUILD_DIR)/asm/Dolphin/GBA/GBAKey.o\
