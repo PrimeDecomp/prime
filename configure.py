@@ -26,6 +26,7 @@ LIBS = [
         "lib": "TRK_MINNOW_DOLPHIN",
         "mwcc_version": "1.2.5",
         "cflags": "$cflags_base",
+        "host": False,
         "objects": [
             ["MetroTRK/mslsupp", True],
         ],
@@ -34,6 +35,7 @@ LIBS = [
         "lib": "MetroidPrimeCW",
         "cflags": "$cflags_retro",
         "mwcc_version": "1.3.2",
+        "host": True,
         "objects": [
             ["MetroidPrime/main", False],
             "MetroidPrime/IRenderer",
@@ -86,7 +88,7 @@ LIBS = [
             "MetroidPrime/CPauseScreen",
             "MetroidPrime/Tweaks/CTweakGui",
             "MetroidPrime/ScriptObjects/CScriptActor",
-            "MetroidPrime/ScriptObjects/CScriptTrigger",
+            ["MetroidPrime/ScriptObjects/CScriptTrigger", False],
             "MetroidPrime/ScriptObjects/CScriptWaypoint",
             "MetroidPrime/Enemies/CPatterned",
             "MetroidPrime/ScriptObjects/CScriptDoor",
@@ -231,7 +233,7 @@ LIBS = [
             "MetroidPrime/Factories/CScannableObjectInfo",
             "MetroidPrime/Enemies/CMetroid",
             "MetroidPrime/Player/CScanDisplay",
-            "MetroidPrime/ScriptObjects/CScriptSteam",
+            ["MetroidPrime/ScriptObjects/CScriptSteam", False],
             ["MetroidPrime/ScriptObjects/CScriptRipple", False],
             "MetroidPrime/CBoneTracking",
             "MetroidPrime/Player/CFaceplateDecoration",
@@ -395,6 +397,7 @@ LIBS = [
         "lib": "WorldFormatCW",
         "mwcc_version": "1.3.2",
         "cflags": "$cflags_retro",
+        "host": True,
         "objects": [
             "WorldFormat/CAreaOctTree_Tests",
             ["WorldFormat/CCollisionSurface", True],
@@ -414,6 +417,7 @@ LIBS = [
         "lib": "WeaponsCW",
         "mwcc_version": "1.3.2",
         "cflags": "$cflags_retro",
+        "host": True,
         "objects": [
             "Weapons/CProjectileWeapon",
             "Weapons/CProjectileWeaponDataFactory",
@@ -429,12 +433,14 @@ LIBS = [
         "lib": "MetaRenderCW",
         "mwcc_version": "1.3.2",
         "cflags": "$cflags_retro",
+        "host": True,
         "objects": ["MetaRender/CCubeRenderer"],
     },
     {
         "lib": "GuiSysCW",
         "mwcc_version": "1.3.2",
         "cflags": "$cflags_retro",
+        "host": True,
         "objects": [
             "GuiSys/CAuiMain",
             "GuiSys/CAuiMeter",
@@ -461,6 +467,7 @@ LIBS = [
         "lib": "CollisionCW",
         "mwcc_version": "1.3.2",
         "cflags": "$cflags_retro",
+        "host": True,
         "objects": [
             "Collision/CCollidableAABox",
             "Collision/CCollidableCollisionSurface",
@@ -479,6 +486,7 @@ LIBS = [
         "lib": "Kyoto_CW1",
         "mwcc_version": "1.3.2",
         "cflags": "$cflags_retro",
+        "host": True,
         "objects": [
             "Kyoto/Basics/CBasics",
             ["Kyoto/Basics/CStopwatch", True],
@@ -632,6 +640,7 @@ LIBS = [
         "lib": "zlib",
         "mwcc_version": "1.3.2",
         "cflags": "$cflags_runtime",
+        "host": True,
         "objects": [
             ["Kyoto/zlib/adler32", True],
             ["Kyoto/zlib/infblock", True],
@@ -647,6 +656,7 @@ LIBS = [
         "lib": "Kyoto_CW2",
         "mwcc_version": "1.3.2",
         "cflags": "$cflags_retro",
+        "host": True,
         "objects": [
             "Kyoto/CARAMManager",
             "Kyoto/Math/CFrustumPlanes",
@@ -708,6 +718,7 @@ LIBS = [
         "lib": "ai",
         "mwcc_version": "1.2.5",
         "cflags": "$cflags_base",
+        "host": False,
         "objects": [
             ["Dolphin/ai", False],
         ],
@@ -716,6 +727,7 @@ LIBS = [
         "lib": "ar",
         "mwcc_version": "1.2.5",
         "cflags": "$cflags_base",
+        "host": False,
         "objects": [
             "Dolphin/ar/ar",
             "Dolphin/ar/arq",
@@ -725,6 +737,7 @@ LIBS = [
         "lib": "base",
         "mwcc_version": "1.2.5",
         "cflags": "$cflags_base",
+        "host": False,
         "objects": [
             ["Dolphin/PPCArch", True],
         ],
@@ -733,6 +746,7 @@ LIBS = [
         "lib": "db",
         "mwcc_version": "1.2.5",
         "cflags": "$cflags_base",
+        "host": False,
         "objects": [
             ["Dolphin/db", True],
         ],
@@ -741,6 +755,7 @@ LIBS = [
         "lib": "dsp",
         "mwcc_version": "1.2.5",
         "cflags": "$cflags_base",
+        "host": False,
         "objects": [
             ["Dolphin/dsp/dsp", False],
             ["Dolphin/dsp/dsp_debug", True],
@@ -751,6 +766,7 @@ LIBS = [
         "lib": "dvd",
         "mwcc_version": "1.2.5",
         "cflags": "$cflags_base",
+        "host": False,
         "objects": [
             "Dolphin/dvd/dvdlow",
             "Dolphin/dvd/dvdfs",
@@ -766,6 +782,7 @@ LIBS = [
         "lib": "gx",
         "mwcc_version": "1.2.5",
         "cflags": "$cflags_base",
+        "host": False,
         "objects": [
             "Dolphin/gx/GXInit",
             "Dolphin/gx/GXFifo",
@@ -788,6 +805,7 @@ LIBS = [
         "lib": "mtx",
         "mwcc_version": "1.2.5",
         "cflags": "$cflags_base",
+        "host": False,
         "objects": [
             "Dolphin/mtx/mtx",
             "Dolphin/mtx/mtx44vec",
@@ -800,6 +818,7 @@ LIBS = [
         "lib": "os",
         "mwcc_version": "1.2.5e",
         "cflags": "$cflags_base",
+        "host": False,
         "objects": [
             ["Dolphin/os/__start", True],
             "Dolphin/os/OS",
@@ -829,6 +848,7 @@ LIBS = [
         "lib": "pad",
         "mwcc_version": "1.2.5e",
         "cflags": "$cflags_base",
+        "host": False,
         "objects": [
             ["Dolphin/pad/PadClamp", True],
             ["Dolphin/pad/pad", False],
@@ -838,12 +858,16 @@ LIBS = [
         "lib": "vi",
         "mwcc_version": "1.2.5",
         "cflags": "$cflags_base",
-        "objects": ["Dolphin/vi"],
+        "host": False,
+        "objects": [
+            "Dolphin/vi"
+        ],
     },
     {
         "lib": "MSL_C.PPCEABI.bare.H",
         "mwcc_version": "1.3.2",
         "cflags": "$cflags_runtime",
+        "host": False,
         "objects": [
             ["Runtime/__mem", True],
             ["Runtime/__va_arg", True],
@@ -915,6 +939,7 @@ LIBS = [
         "lib": "musyx",
         "mwcc_version": "1.3.2",
         "cflags": "$cflags_musyx",
+        "host": False,
         "objects": [
             "musyx/seq",
             "musyx/synth",
@@ -953,6 +978,7 @@ LIBS = [
         "lib": "dtk",
         "mwcc_version": "1.2.5",
         "cflags": "$cflags_base",
+        "host": False,
         "objects": [
             ["Dolphin/dtk", True],
         ],
@@ -961,6 +987,7 @@ LIBS = [
         "lib": "card",
         "mwcc_version": "1.2.5e",
         "cflags": "$cflags_base",
+        "host": False,
         "objects": [
             ["Dolphin/card/CARDBios", False],
             ["Dolphin/card/CARDUnlock", True],
@@ -984,6 +1011,7 @@ LIBS = [
         "lib": "si",
         "mwcc_version": "1.2.5e",
         "cflags": "$cflags_base",
+        "host": False,
         "objects": [
             ["Dolphin/si/SIBios", False],
             ["Dolphin/si/SISamplingRate", True],
@@ -993,6 +1021,7 @@ LIBS = [
         "lib": "exi",
         "mwcc_version": "1.2.5",
         "cflags": "$cflags_base",
+        "host": False,
         "objects": [
             "Dolphin/exi/EXIBios",
             "Dolphin/exi/EXIUart",
@@ -1002,6 +1031,7 @@ LIBS = [
         "lib": "thp",
         "mwcc_version": "1.2.5",
         "cflags": "$cflags_base",
+        "host": False,
         "objects": [
             "Dolphin/thp/THPDec",
             "Dolphin/thp/THPAudio",
@@ -1011,6 +1041,7 @@ LIBS = [
         "lib": "gba",
         "mwcc_version": "1.2.5e",
         "cflags": "$cflags_base",
+        "host": False,
         "objects": [
             ["Dolphin/GBA/GBA", True],
             ["Dolphin/GBA/GBAGetProcessStatus", False],
@@ -1092,6 +1123,9 @@ else:
         n.variable("wine", "wine ")
     n.variable("exe", "")
 n.newline()
+n.variable("host_cflags", "-I include/ -Wno-trigraphs")
+n.variable("host_cppflags",
+           "-std=c++98 -I include/ -fno-exceptions -fno-rtti -Wno-trigraphs")
 
 ###
 # Rules
@@ -1133,17 +1167,17 @@ else:
     n.rule(name="ar", command="$devkitppc/bin/powerpc-eabi-ar crs $out $in",
            description="AR $out")
     n.newline()
-
-n.rule(name="host_cc", command="clang -I include/ -Wno-trigraphs -o $out $in",
-           description="host_cc $out")
-n.rule(name="host_cpp", command="clang++ -std=c++03 -I include/ -Wno-trigraphs -o $out $in",
-           description="host_c++ $out")
+n.rule(name="host_cc", command="clang $host_cflags -c -o $out $in",
+       description="host_cc $out")
+n.rule(name="host_cpp", command="clang++ $host_cppflags -c -o $out $in",
+       description="host_c++ $out")
 n.newline()
 
 ###
 # Build
 ###
 all_source_files = []
+all_host_source_files = []
 for lib in LIBS:
     inputs = []
     if "lib" in lib:
@@ -1152,7 +1186,7 @@ for lib in LIBS:
     else:
         n.comment("Loose files")
     for object in lib["objects"]:
-        completed = False
+        completed = None
         add_to_all = True
         if type(object) is list:
             if len(object) > 2:
@@ -1167,6 +1201,8 @@ for lib in LIBS:
         elif os.path.exists(os.path.join("src", f"{object}.c")):
             c_file = os.path.join("src", f"{object}.c")
         if c_file is not None:
+            if completed is None:
+                print(f"Mark as incomplete: {c_file}")
             rule = "mwcc"
             if mwcc_version == "1.2.5e":
                 mwcc_version = "1.2.5"
@@ -1178,11 +1214,14 @@ for lib in LIBS:
                         "basedir": os.path.dirname(f"$builddir/src/{object}"),
                         "basefile": f"$builddir/src/{object}"
                     })
-            n.build(f"$builddir/host/{object}.o", "host_cc" if c_file.endswith(".c") else "host_cpp", c_file,
-                    variables={
-                        "basedir": os.path.dirname(f"$builddir/src/{object}"),
-                        "basefile": f"$builddir/src/{object}"
-                    })
+            if lib["host"]:
+                n.build(f"$builddir/host/{object}.o", "host_cc" if c_file.endswith(".c") else "host_cpp", c_file,
+                        variables={
+                            "basedir": os.path.dirname(f"$builddir/src/{object}"),
+                            "basefile": f"$builddir/src/{object}"
+                        })
+                if add_to_all:
+                    all_host_source_files.append(f"$builddir/host/{object}.o")
             if add_to_all:
                 all_source_files.append(f"$builddir/src/{object}.o")
         if os.path.exists(os.path.join("asm", f"{object}.s")):
@@ -1232,7 +1271,7 @@ n.newline()
 # Helper rule for building all source files, with a host compiler
 ###
 n.comment("Adds a command for building all source files with a host compiler")
-n.build("all_source_host", "phony", [s.replace("/src/", "/host/") for s in all_source_files])
+n.build("all_source_host", "phony", all_host_source_files)
 n.newline()
 
 ###

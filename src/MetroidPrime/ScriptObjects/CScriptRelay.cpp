@@ -24,7 +24,7 @@ void CScriptRelay::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objId,
   CEntity::AcceptScriptMsg(msg, objId, stateMgr);
 
   switch (msg) {
-  case kSM_SetToZero:
+  case kSM_SetToZero: {
     if (!x30_24_active) {
       return;
     }
@@ -46,7 +46,7 @@ void CScriptRelay::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objId,
       stateMgr.SetLastRelayId(GetUniqueId());
     }
     break;
-
+  }
   case kSM_Deleted:
     UpdateObjectRef(stateMgr);
     break;

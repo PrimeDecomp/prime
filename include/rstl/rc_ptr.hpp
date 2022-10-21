@@ -47,7 +47,7 @@ void rc_ptr< T >::ReleaseData() {
 template < typename T >
 class ncrc_ptr : public rc_ptr< T > {
 public:
-  ncrc_ptr(T* ptr) : rc_ptr(ptr) {}
+  ncrc_ptr(T* ptr) : rc_ptr< T >(ptr) {}
 };
 } // namespace rstl
 

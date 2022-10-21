@@ -144,7 +144,7 @@ void vector< T, Alloc >::reserve(int newSize) {
   if (newSize <= x8_capacity) {
     return;
   }
-  T* newData = x0_allocator.allocate2< T >(newSize);
+  T* newData = x0_allocator.template allocate2< T >(newSize);
   uninitialized_copy(begin(), end(), newData);
   destroy(xc_items, xc_items + x4_count);
   x0_allocator.deallocate(xc_items);
@@ -154,7 +154,7 @@ void vector< T, Alloc >::reserve(int newSize) {
 
 template < typename T, typename Alloc >
 typename vector< T, Alloc >::iterator vector< T, Alloc >::insert(iterator it, const T& value) {
-  iterator::difference_type diff = it - begin(); // distance(begin(), it);
+  typename iterator::difference_type diff = it - begin(); // distance(begin(), it);
   const_counting_iterator< T > in(&value, 0);
   insert_into(it, 1, in);
   return begin() + diff;

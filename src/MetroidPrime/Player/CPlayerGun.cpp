@@ -215,8 +215,8 @@ CPlayerGun::CPlayerGun(TUniqueId playerId)
 , x538_playerId(playerId)
 , x53a_powerBomb(kInvalidUniqueId)
 , x53c_lightId(kInvalidUniqueId)
-, x550_camBob(CPlayerCameraBob::kCBT_One, CPlayerCameraBob::GetCameraBobPeriod(),
-              CPlayerCameraBob::GetCameraBobExtent())
+, x550_camBob(CPlayerCameraBob::kCBT_One, CPlayerCameraBob::kCameraBobPeriod,
+              CVector2f(CPlayerCameraBob::kCameraBobExtentX, CPlayerCameraBob::kCameraBobExtentY))
 , x658_(1)
 , x65c_(0.f)
 , x660_(0.f)
@@ -311,24 +311,26 @@ CPlayerGun::~CPlayerGun() {}
 
 void CPlayerGun::AddToRenderer(const CFrustumPlanes& frustum, const CStateManager&) const {
   rstl::optional_object< CModelData >& model = x72c_currentBeam->SolidModelData();
-  if (model)
+  if (model) {
     model->RenderParticles(frustum);
+  }
 }
 
 void CPlayerGun::PreRender(CStateManager& mgr, const CFrustumPlanes& frustum,
                            const CVector3f& camPos) {
   const CPlayerState& playerState = *mgr.GetPlayerState();
-  if (playerState.GetCurrentVisor() == CPlayerState::kPV_Scan)
+  if (playerState.GetCurrentVisor() == CPlayerState::kPV_Scan) {
     return;
+  }
 
   CPlayerState::EPlayerVisor activeVisor = playerState.GetActiveVisor(mgr);
   switch (activeVisor) {
-  case CPlayerState::kPV_Thermal:
+  case CPlayerState::kPV_Thermal: {
     float rgb =
         CMath::Clamp(0.6f, 0.5f * x380_shotSmokeTimer + 0.6f - x378_shotSmokeStartTimer, 1.f);
     x0_lights.BuildConstantAmbientLighting(CColor(rgb, rgb, rgb, 1.f));
     break;
-
+  }
   case CPlayerState::kPV_Combat: {
     CAABox aabb = x72c_currentBeam->GetBounds(CTransform4f::Translate(camPos) * x4a8_gunWorldXf);
     if (mgr.GetNextAreaId() != kInvalidAreaId) {
@@ -351,15 +353,18 @@ void CPlayerGun::PreRender(CStateManager& mgr, const CFrustumPlanes& frustum,
     break;
   }
 
-  if (x740_grappleArm->GetActive())
+  if (x740_grappleArm->GetActive()) {
     x740_grappleArm->PreRender(mgr, frustum, camPos);
+  }
 
   if (x678_morph.GetGunState() != CGunMorph::kGS_OutWipeDone ||
-      activeVisor == CPlayerState::kPV_XRay)
+      activeVisor == CPlayerState::kPV_XRay) {
     x6e0_rightHandModel.AnimationData()->PreRender();
+  }
 
-  if (x833_28_phazonBeamActive)
+  if (x833_28_phazonBeamActive) {
     gpRender->AllocatePhazonSuitMaskTexture();
+  }
 }
 
 void CPlayerGun::TouchModel(const CStateManager&) const {}

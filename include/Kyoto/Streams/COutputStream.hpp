@@ -3,6 +3,7 @@
 
 #include "types.h"
 
+#include "stddef.h"
 
 class COutputStream;
 

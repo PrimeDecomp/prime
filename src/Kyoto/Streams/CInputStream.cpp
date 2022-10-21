@@ -2,8 +2,8 @@
 
 #include "string.h"
 
-#include "Kyoto/Streams/StreamSupport.hpp"
 #include "Kyoto/Alloc/CMemory.hpp"
+#include "Kyoto/Streams/StreamSupport.hpp"
 
 CInputStream::CInputStream(int len)
 : x4_blockOffset(0)
