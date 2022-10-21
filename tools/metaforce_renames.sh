@@ -5,6 +5,7 @@ path=$1
 
 sed -i "s/std::string_view/const rstl::string\&/g" "$path"
 sed -i "s/std::optional/rstl::optional_object/g" "$path"
+sed -i "s/std::nullopt/rstl::optional_object_null()/g" "$path"
 sed -i "s/zeus::CTransform/CTransform4f/g" "$path"
 sed -i "s/zeus::skZero2f/CVector2f(0.f, 0.f)/g" "$path"
 sed -i "s/zeus::skZero3f/CVector3f::Zero()/g" "$path"
