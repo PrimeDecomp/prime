@@ -338,7 +338,7 @@ void CScriptMazeNode::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, C
       if (mgr.CurrentMaze() == nullptr) {
         rstl::single_ptr< CMazeState > maze =
             new CMazeState(skEnterCol, skEnterRow, skTargetCol, skTargetRow);
-        maze->Reset(sMazeSeeds[mgr.GetActiveRandom()->Next() % 300]);
+        maze->Reset(sMazeSeeds[mgr.Random()->Next() % 300]);
         maze->Initialize();
         maze->GenerateObstacles();
         mgr.SetCurrentMaze(maze);

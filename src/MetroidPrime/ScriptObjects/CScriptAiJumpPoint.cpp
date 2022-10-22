@@ -24,8 +24,8 @@ void CScriptAiJumpPoint::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId oth
 
   switch (msg) {
   case kSM_InitializedInArea:
-    rstl::vector< SConnection >::const_iterator conn = x20_conns.begin();
-    for (; conn != x20_conns.end(); ++conn) {
+    rstl::vector< SConnection >::const_iterator conn = GetConnectionList().begin();
+    for (; conn != GetConnectionList().end(); ++conn) {
       if (conn->x0_state != kSS_Arrived || conn->x4_msg != kSM_Next) {
         continue;
       }

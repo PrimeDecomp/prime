@@ -45,7 +45,7 @@ int CGSFreeLook::SetAnim(CAnimData& data, int gunId, int setId, int loopState, C
   rstl::pair< float, int > anim = pas.FindBestAnimation(
       CPASAnimParmData(pas::kAS_Step, CPASAnimParm::FromInt32(gunId),
                        CPASAnimParm::FromInt32(setId), CPASAnimParm::FromEnum(useLoopState)),
-      *mgr.GetActiveRandom(), -1);
+      *mgr.Random(), -1);
 
   CPASAnimParm animParm = pas.GetAnimState(pas::kAS_Step)->GetAnimParmData(anim.second, 1);
   xc_gunId = gunId;

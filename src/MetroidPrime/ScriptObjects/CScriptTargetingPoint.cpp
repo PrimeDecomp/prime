@@ -24,7 +24,7 @@ void CScriptTargetingPoint::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId 
 }
 
 bool CScriptTargetingPoint::GetLocked() const {
-  return x20_conns.size() > 0;
+  return GetConnectionList().size() > 0;
 }
 
 void CScriptTargetingPoint::Think(float dt, CStateManager&) {

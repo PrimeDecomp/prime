@@ -41,7 +41,7 @@ void CScriptSpawnPoint::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objI
   case kSM_SetToZero:
     if (GetActive()) {
       CPlayer* player = stateMgr.Player();
-      TAreaId thisAreaId = x4_areaId;
+      TAreaId thisAreaId = GetCurrentAreaId();
       TAreaId nextAreaId = stateMgr.GetNextAreaId();
 
       if (thisAreaId != nextAreaId) {

@@ -137,7 +137,7 @@ CAABox CScriptTrigger::GetTriggerBoundsWR() const {
 }
 
 rstl::optional_object< CAABox > CScriptTrigger::GetTouchBounds() const override {
-  if (x30_24_active) {
+  if (GetActive()) {
     return GetTriggerBoundsWR();
   }
   return rstl::optional_object_null();
@@ -159,7 +159,7 @@ void CScriptTrigger::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid,
           x148_29_didPhazonDamage = false;
         }
 
-        if (x8_uid == mgr.GetLastTriggerId()) {
+        if (GetUniqueId() == mgr.GetLastTriggerId()) {
           mgr.SetLastTriggerId(kInvalidUniqueId);
         }
       }
@@ -174,7 +174,7 @@ void CScriptTrigger::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid,
           x148_29_didPhazonDamage = false;
         }
 
-        if (x8_uid == mgr.GetLastTriggerId()) {
+        if (GetUniqueId() == mgr.GetLastTriggerId()) {
           mgr.SetLastTriggerId(kInvalidUniqueId);
         }
       }

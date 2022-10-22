@@ -26,13 +26,13 @@ bool CGunMotion::PlayPasAnim(SamusGun::EAnimationState state, CStateManager& mgr
   switch (state) {
   case SamusGun::kAS_Wander: {
     CPASAnimParmData parms((pas::EAnimationState(state)));
-    rstl::pair< float, int > anim = pas.FindBestAnimation(parms, *mgr.GetActiveRandom(), -1);
+    rstl::pair< float, int > anim = pas.FindBestAnimation(parms, *mgr.Random(), -1);
     animId = anim.second;
     break;
   }
   case SamusGun::kAS_Idle: {
     CPASAnimParmData parms(pas::EAnimationState(state), CPASAnimParm::FromEnum(0));
-    rstl::pair< float, int > anim = pas.FindBestAnimation(parms, *mgr.GetActiveRandom(), -1);
+    rstl::pair< float, int > anim = pas.FindBestAnimation(parms, *mgr.Random(), -1);
     animId = anim.second;
     break;
   }
@@ -40,7 +40,7 @@ bool CGunMotion::PlayPasAnim(SamusGun::EAnimationState state, CStateManager& mgr
     CPASAnimParmData parms(pas::EAnimationState(state), CPASAnimParm::FromInt32(0),
                            CPASAnimParm::FromReal32(angle), CPASAnimParm::FromBool(bigStrike),
                            CPASAnimParm::FromBool(false));
-    rstl::pair< float, int > anim = pas.FindBestAnimation(parms, *mgr.GetActiveRandom(), -1);
+    rstl::pair< float, int > anim = pas.FindBestAnimation(parms, *mgr.Random(), -1);
     animId = anim.second;
     loop = false;
     break;

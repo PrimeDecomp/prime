@@ -152,7 +152,7 @@ public:
   const CEnvFxManager* GetEnvFxManager() const { return x880_envFxManager; }
   CRumbleManager* GetRumbleManager() { return x88c_rumbleManager; }
 
-  CRandom16* GetActiveRandom() const { return x900_random; }
+  CRandom16* Random() const { return x900_random; }
 
   CObjectList& GetObjectListById(EGameObjectList id) { return *x808_objectLists[id]; }
 

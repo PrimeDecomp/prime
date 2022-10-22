@@ -957,8 +957,8 @@ void CPlayerGun::CMotionState::Update(bool firing, float dt, CTransform4f& xf, C
       x18_startRotation = x1c_endRotation;
       x14_rotationT = 0.f;
       if (x24_fireState == kFS_StartFire) {
-        x1c_endRotation = mgr.GetActiveRandom()->Next() % 15;
-        x1c_endRotation *= (mgr.GetActiveRandom()->Next() % 100) > 45 ? 1.f : -1.f;
+        x1c_endRotation = mgr.Random()->Next() % 15;
+        x1c_endRotation *= (mgr.Random()->Next() % 100) > 45 ? 1.f : -1.f;
       } else {
         x1c_endRotation = 0.f;
         if (x18_startRotation == x1c_endRotation) {

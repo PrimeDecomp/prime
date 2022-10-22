@@ -566,7 +566,7 @@ void CScriptSpecialFunction::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId
     }
     case kSF_PlayerInAreaRelay: {
       if ((msg == kSM_Action || msg == kSM_SetToZero) &&
-          GetAreaIdAlways() == mgr.GetPlayer()->GetAreaIdAlways()) {
+          GetCurrentAreaId() == mgr.GetPlayer()->GetCurrentAreaId()) {
         SendScriptMsgs(kSS_Zero, mgr, kSM_None);
       }
       break;
@@ -627,7 +627,7 @@ void CScriptSpecialFunction::RingScramble(CStateManager& mgr) {
   float dir = x1b8_ringReverse ? 1.f : -1.f;
   for (int i = 0; i < x198_ringControllers.size(); ++i) {
     x198_ringControllers[i].x4_rotateSpeed =
-        dir * mgr.GetActiveRandom()->Range(x100_float2, x104_float3);
+        dir * mgr.Random()->Range(x100_float2, x104_float3);
     dir = -dir;
     x198_ringControllers[i].x8_reachedTarget = false;
   }
@@ -994,7 +994,7 @@ void CScriptSpecialFunction::ThinkChaffTarget(float dt, CStateManager& mgr) {
     if (CEnergyProjectile* proj = TCastToPtr< CEnergyProjectile >(mgr.ObjectById(nearList[i]))) {
       if (proj->GetHomingTargetId() == GetUniqueId()) {
         proj->Set3d0_26(true);
-        if (mgr.GetPlayer()->GetAreaIdAlways() == GetAreaIdAlways()) {
+        if (mgr.GetPlayer()->GetCurrentAreaId() == GetCurrentAreaId()) {
           mgr.Player()->SetHudDisable(x100_float2);
           x194_ = xfc_float1;
 
@@ -1009,7 +1009,7 @@ void CScriptSpecialFunction::ThinkChaffTarget(float dt, CStateManager& mgr) {
 
   bool addedInterference = false;
   x194_ = CMath::Max(0.f, x194_ - dt);
-  if (x194_ && mgr.GetPlayer()->GetAreaIdAlways() == GetAreaIdAlways()) {
+  if (x194_ && mgr.GetPlayer()->GetCurrentAreaId() == GetCurrentAreaId()) {
     addedInterference = true;
     float intfMag = x104_float3 * (0.5f + ((0.5f * x194_) / xfc_float1));
     if (x194_ < 1.f) {
@@ -1034,7 +1034,7 @@ void CScriptSpecialFunction::ThinkRainSimulator(float, CStateManager& mgr) {
 
 void CScriptSpecialFunction::ThinkAreaDamage(float dt, CStateManager& mgr) {
   const CPlayer* player = mgr.GetPlayer();
-  bool inArea = player->GetAreaIdAlways() == GetAreaIdAlways();
+  bool inArea = player->GetCurrentAreaId() == GetCurrentAreaId();
   bool immune = mgr.GetPlayerState()->GetCurrentSuitRaw() > CPlayerState::kPS_Power;
   if (x1e4_31_inAreaDamage) {
     if (!inArea || immune) {
@@ -1090,7 +1090,7 @@ void CScriptSpecialFunction::ThinkActorScale(float dt, CStateManager& mgr) {
 }
 
 void CScriptSpecialFunction::ThinkPlayerInArea(float dt, CStateManager& mgr) {
-  if (mgr.GetPlayer()->GetAreaIdAlways() == GetAreaIdAlways()) {
+  if (mgr.GetPlayer()->GetCurrentAreaId() == GetCurrentAreaId()) {
     if (x1e5_25_playerInArea) {
       return;
     }
