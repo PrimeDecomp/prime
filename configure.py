@@ -40,7 +40,7 @@ LIBS = [
             ["MetroidPrime/main", False],
             "MetroidPrime/IRenderer",
             "MetroidPrime/Cameras/CCameraManager",
-            ["MetroidPrime/CControlMapper", False],
+            ["MetroidPrime/CControlMapper", True],
             "MetroidPrime/Cameras/CFirstPersonCamera",
             ["MetroidPrime/CObjectList", True],
             "MetroidPrime/Player/CPlayer",

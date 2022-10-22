@@ -32,7 +32,6 @@ const FAnalogInput ControlMapper::gAnalogInputs[] = {
     &CFinalInput::AL,
     &CFinalInput::AR,
     &CFinalInput::AStart,
-    nullptr,
 };
 
 const FDigitalInput ControlMapper::gDigitalInputs[] = {
@@ -59,7 +58,6 @@ const FDigitalInput ControlMapper::gDigitalInputs[] = {
     &CFinalInput::DL,
     &CFinalInput::DR,
     &CFinalInput::DStart,
-    nullptr,
 };
 
 const FDigitalInput ControlMapper::gPressInputs[] = {
@@ -86,7 +84,6 @@ const FDigitalInput ControlMapper::gPressInputs[] = {
     &CFinalInput::PL,
     &CFinalInput::PR,
     &CFinalInput::PStart,
-    nullptr,
 };
 
 const char* ControlMapper::GetDescriptionForFunction(EFunctionList function) {
