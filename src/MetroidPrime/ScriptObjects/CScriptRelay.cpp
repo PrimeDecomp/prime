@@ -25,7 +25,7 @@ void CScriptRelay::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objId,
 
   switch (msg) {
   case kSM_SetToZero: {
-    if (!x30_24_active) {
+    if (!GetActive()) {
       return;
     }
 

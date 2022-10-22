@@ -44,7 +44,7 @@ rstl::optional_object< CAABox > CAmbientAI::GetTouchBounds() const {
 }
 
 void CAmbientAI::RandomizePlaybackRate(CStateManager& mgr) {
-  ModelData()->AnimationData()->MultiplyPlaybackRate(0.4f * mgr.GetActiveRandom()->Float() + 0.8f);
+  ModelData()->AnimationData()->MultiplyPlaybackRate(0.4f * mgr.Random()->Float() + 0.8f);
 }
 
 void CAmbientAI::Think(float dt, CStateManager& mgr) {

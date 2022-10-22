@@ -21,7 +21,7 @@ void CABSFlinch::Start(CBodyController& bc, CStateManager& mgr) {
   const CPASDatabase& pasDB = bc.GetPASDatabase();
 
   CPASAnimParmData parms(pas::kAS_AdditiveFlinch);
-  rstl::pair< float, int > best = pasDB.FindBestAnimation(parms, *mgr.GetActiveRandom(), -1);
+  rstl::pair< float, int > best = pasDB.FindBestAnimation(parms, *mgr.Random(), -1);
   x8_anim = best.second;
 
   CAnimData& animData = *bc.GetOwner().ModelData()->AnimationData();

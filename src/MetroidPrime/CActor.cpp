@@ -110,7 +110,7 @@ CAdvancementDeltas CActor::UpdateAnimation(float dt, CStateManager& mgr, bool ad
   UpdateSfxEmitters();
   if (HasAnimation()) {
     ushort maxVol = xd4_maxVol;
-    int aid = x4_areaId.Value();
+    int aid = GetCurrentAreaId().Value();
 
     const CGameCamera* camera = mgr.GetCameraManager()->GetCurrentCamera(mgr);
     const CVector3f origin = GetTranslation();
@@ -236,8 +236,8 @@ void CActor::PreRender(CStateManager& mgr, const CFrustumPlanes& planes) {
           ActorLights()->BuildConstantAmbientLighting();
         } else {
           if (lightsDirty == true) {
-            if (x4_areaId != kInvalidAreaId) {
-              TAreaId aid = x4_areaId;
+            if (GetCurrentAreaId() != kInvalidAreaId) {
+              TAreaId aid = GetCurrentAreaId();
               if (mgr.GetWorld()->IsAreaValid(aid)) {
                 const CGameArea* area = mgr.GetWorld()->GetArea(aid);
                 if (ActorLights()->BuildAreaLightList(mgr, *area, bounds)) {

@@ -17,8 +17,8 @@ void CScriptRipple::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CSt
       return;
     }
 
-    rstl::vector< SConnection >::const_iterator conn = x20_conns.begin();
-    for (; conn != x20_conns.end(); ++conn) {
+    rstl::vector< SConnection >::const_iterator conn = GetConnectionList().begin();
+    for (; conn != GetConnectionList().end(); ++conn) {
       if (conn->x0_state != kSS_Active || conn->x4_msg != kSM_Next) {
         continue;
       }

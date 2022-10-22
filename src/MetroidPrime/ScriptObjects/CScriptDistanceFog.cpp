@@ -34,11 +34,11 @@ void CScriptDistanceFog::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId obj
                                          CStateManager& stateMgr) {
   CEntity::AcceptScriptMsg(msg, objId, stateMgr);
 
-  if (GetAreaIdAlways() != kInvalidAreaId && GetActive()) {
+  if (GetCurrentAreaId() != kInvalidAreaId && GetActive()) {
     switch (msg) {
     case kSM_InitializedInArea:
       if (x60_explicit) {
-        CAreaFog* fog = stateMgr.World()->Area(GetAreaIdAlways())->AreaFog();
+        CAreaFog* fog = stateMgr.World()->Area(GetCurrentAreaId())->AreaFog();
         if (x34_mode == kRFM_None) {
           fog->DisableFog();
         } else {
@@ -48,7 +48,7 @@ void CScriptDistanceFog::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId obj
       break;
     case kSM_Action:
       if (x61_nonZero) {
-        CAreaFog* fog = stateMgr.World()->Area(GetAreaIdAlways())->AreaFog();
+        CAreaFog* fog = stateMgr.World()->Area(GetCurrentAreaId())->AreaFog();
         if (x34_mode != kRFM_None) {
           fog->FadeFog(x34_mode, x38_color, x3c_range, x44_colorDelta, x48_rangeDelta);
         } else {
@@ -57,10 +57,10 @@ void CScriptDistanceFog::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId obj
       }
 
       if (!close_enough(x54_thermalSpeed, 0.f)) {
-        stateMgr.World()->Area(GetAreaIdAlways())->SetThermalSpeedAndTarget(x54_thermalSpeed, x50_thermalTarget);
+        stateMgr.World()->Area(GetCurrentAreaId())->SetThermalSpeedAndTarget(x54_thermalSpeed, x50_thermalTarget);
       }
       if (!close_enough(x5c_xraySpeed, 0.f)) {
-        stateMgr.World()->Area(GetAreaIdAlways())->SetXRaySpeedAndTarget(x5c_xraySpeed, x58_xrayTarget);
+        stateMgr.World()->Area(GetCurrentAreaId())->SetXRaySpeedAndTarget(x5c_xraySpeed, x58_xrayTarget);
       }
       break;
     }

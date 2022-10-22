@@ -28,7 +28,7 @@ void CBurstFire::Start(CStateManager& mgr) {
     burstIdx = xc_firstBurstIdx >= 0 ? xc_firstBurstIdx : 0;
 
   } else {
-    int random = mgr.GetActiveRandom()->Range(0, 100);
+    int random = mgr.Random()->Range(0, 100);
     int advanceAccum = 0;
     do {
       burstIdx += 1;
@@ -59,7 +59,7 @@ void CBurstFire::Update(CStateManager& mgr, float dt) {
       x14_24_shouldFire = true;
       x8_timeToNextShot = x18_curBursts->x24_timeToNextShot;
       x8_timeToNextShot +=
-          (mgr.GetActiveRandom()->Float() - 0.5f) * x18_curBursts->x28_timeToNextShotVariance;
+          (mgr.Random()->Float() - 0.5f) * x18_curBursts->x28_timeToNextShotVariance;
     } else {
       x18_curBursts = nullptr;
     }

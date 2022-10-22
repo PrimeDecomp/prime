@@ -30,7 +30,7 @@ public:
   TUniqueId GetUniqueId() const { return x8_uid; }
   TEditorId GetEditorId() const { return xc_editorId; }
   TAreaId GetAreaId() const;
-  TAreaId GetAreaIdAlways() const { return x4_areaId; }
+  TAreaId GetCurrentAreaId() const { return x4_areaId; }
   bool GetActive() const { return x30_24_active; }
   bool IsScriptingBlocked() const { return x30_26_scriptingBlocked; }
 
@@ -40,7 +40,7 @@ public:
 
   static rstl::vector< SConnection > NullConnectionList;
 
-protected:
+private:
   TAreaId x4_areaId;
   TUniqueId x8_uid;
   TEditorId xc_editorId;

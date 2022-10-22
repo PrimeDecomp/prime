@@ -16,7 +16,7 @@ CScriptTimer::CScriptTimer(TUniqueId uid, const rstl::string& name, const CEntit
 CScriptTimer::~CScriptTimer() {}
 
 void CScriptTimer::Reset(CStateManager& mgr) {
-  const float rDt = mgr.GetActiveRandom()->Float();
+  const float rDt = mgr.Random()->Float();
   x34_time = (x3c_maxRandDelay * rDt) + x38_startTime;
 }
 

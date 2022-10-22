@@ -13,8 +13,8 @@ void CScriptDockAreaChange::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId 
   switch (msg) {
   case kSM_Action:
     if (GetActive()) {
-      rstl::vector< SConnection >::const_iterator it = x20_conns.begin();
-      for (; it != x20_conns.end(); ++it) {
+      rstl::vector< SConnection >::const_iterator it = GetConnectionList().begin();
+      for (; it != GetConnectionList().end(); ++it) {
         if (it->x0_state != kSS_Play || it->x4_msg == kSM_UNKM0) {
           continue;
         }

@@ -114,7 +114,7 @@ CFidget::EState CFidget::Update(int fireButtonStates, bool bobbing, bool inStrik
 
     if ((x8_delayTriggerBits & 0x3) == 0x3) {
       EState newState = kS_MinorFidget;
-      x0_state = 50 < (mgr.GetActiveRandom()->Next() % 100) ? kS_MajorFidget : kS_MinorFidget;
+      x0_state = 50 < (mgr.Random()->Next() % 100) ? kS_MajorFidget : kS_MinorFidget;
     } else if ((x8_delayTriggerBits & 0x1)) {
       x0_state = kS_MinorFidget;
     } else {
@@ -131,17 +131,17 @@ CFidget::EState CFidget::Update(int fireButtonStates, bool bobbing, bool inStrik
     x34_24_loading = true;
     x10_delayTimerEnableBits = 2;
     x8_delayTriggerBits &= ~0x1;
-    kMinorFidgetDelay = mgr.GetActiveRandom()->Range(20.f, 29.f);
+    kMinorFidgetDelay = mgr.Random()->Range(20.f, 29.f);
     x4_type = SamusGun::kFT_Minor;
-    xc_animSet = mgr.GetActiveRandom()->Range(0, 4);
+    xc_animSet = mgr.Random()->Range(0, 4);
     break;
   case kS_MajorFidget:
     x34_24_loading = true;
     x10_delayTimerEnableBits = 1;
     x8_delayTriggerBits &= ~0x2;
-    kMajorFidgetDelay = mgr.GetActiveRandom()->Range(20.f, 30.f);
+    kMajorFidgetDelay = mgr.Random()->Range(20.f, 30.f);
     x4_type = SamusGun::kFT_Major;
-    xc_animSet = mgr.GetActiveRandom()->Range(0, 5);
+    xc_animSet = mgr.Random()->Range(0, 5);
     break;
   case kS_HolsterBeam:
     x4_type = SamusGun::kFT_Minor;

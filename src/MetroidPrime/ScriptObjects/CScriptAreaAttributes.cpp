@@ -19,21 +19,22 @@ void CScriptAreaAttributes::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId 
                                             CStateManager& stateMgr) override {
   CEntity::AcceptScriptMsg(msg, objId, stateMgr);
 
-  if (x4_areaId == kInvalidAreaId) {
+  if (GetCurrentAreaId() == kInvalidAreaId) {
     return;
   }
 
   switch (msg) {
   case kSM_InitializedInArea: {
-    stateMgr.World()->Area(GetAreaIdAlways())->SetAreaAttributes(this);
+    stateMgr.World()->Area(GetCurrentAreaId())->SetAreaAttributes(this);
     stateMgr.EnvFxManager()->SetFxDensity(500, x3c_envFxDensity);
     break;
   }
 
   case kSM_Deleted: {
-    if (stateMgr.World()->Area(GetAreaIdAlways())->IsLoaded()) {
-      stateMgr.World()->Area(GetAreaIdAlways())->SetAreaAttributes(nullptr);
+    if (stateMgr.World()->IsAreaValid(GetCurrentAreaId())) {
+      stateMgr.World()->Area(GetCurrentAreaId())->SetAreaAttributes(nullptr);
     }
+    break;
   }
   }
 }
