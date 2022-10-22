@@ -43,9 +43,9 @@ void CScriptMidi::Play(CStateManager& mgr, float fadeTime) {
   short volume = x48_volume;
 
   const CWorld* wld = mgr.GetWorld();
-  const CGameArea& area = wld->GetAreaAlways(GetAreaIdAlways());
+  const CGameArea& area = wld->GetAreaAlways(GetCurrentAreaId());
   rstl::string twkName = CInGameTweakManager::GetIdentifierForMidiEvent(
-      wld->GetWorldAssetId(), area.GetAreaAssetId(), x10_name);
+      wld->GetWorldAssetId(), area.GetAreaAssetId(), GetDebugName());
 
   if (gpTweakManager->HasTweakValue(twkName)) {
     const CTweakValue::Audio& audio = gpTweakManager->GetTweakValue(twkName)->GetAudio();
@@ -59,9 +59,9 @@ void CScriptMidi::Play(CStateManager& mgr, float fadeTime) {
 
 void CScriptMidi::Stop(CStateManager& mgr, float fadeTime) {
   const CWorld* wld = mgr.GetWorld();
-  const CGameArea& area = wld->GetAreaAlways(GetAreaIdAlways());
+  const CGameArea& area = wld->GetAreaAlways(GetCurrentAreaId());
   const rstl::string twkName = CInGameTweakManager::GetIdentifierForMidiEvent(
-      wld->GetWorldAssetId(), area.GetAreaAssetId(), x10_name);
+      wld->GetWorldAssetId(), area.GetAreaAssetId(), GetDebugName());
 
   if (gpTweakManager->HasTweakValue(twkName)) {
     const CTweakValue::Audio& audio = gpTweakManager->GetTweakValue(twkName)->GetAudio();
