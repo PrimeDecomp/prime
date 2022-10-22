@@ -777,7 +777,7 @@ LIBS = [
             "Dolphin/dvd/dvderror",
             ["Dolphin/dvd/dvdidutils", True],
             "Dolphin/dvd/dvdfatal",
-            "Dolphin/dvd/fstload",
+            ["Dolphin/dvd/fstload", True],
         ],
     },
     {

@@ -660,7 +660,7 @@ DVD_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/dvd/dvderror.o\
 	$(BUILD_DIR)/src/Dolphin/dvd/dvdidutils.ep.o\
 	$(BUILD_DIR)/asm/Dolphin/dvd/dvdfatal.o\
-	$(BUILD_DIR)/asm/Dolphin/dvd/fstload.o
+	$(BUILD_DIR)/src/Dolphin/dvd/fstload.ep.o
 
 GX_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/gx/GXInit.o\

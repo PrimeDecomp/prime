@@ -18,7 +18,10 @@
     "gba.h": "c",
     "gbapriv.h": "c",
     "os.h": "c",
-    "sipriv.h": "c"
+    "sipriv.h": "c",
+    "dvd_regs.h": "c",
+    "dvd.h": "c",
+    "dvdpriv.h": "c"
   },
   "files.autoSave": "onFocusChange",
   "files.insertFinalNewline": true,
