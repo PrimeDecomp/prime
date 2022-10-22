@@ -83,6 +83,7 @@ void DSPHalt(void) {
 
 u32 DSPGetDMAStatus(void) { return __DSPRegs[5] & 0x200; }
 
+#if NONMATCHING
 DSPTaskInfo* DSPAddTask(DSPTaskInfo* task) {
   u32 oldInt;
   oldInt = OSDisableInterrupts();
@@ -96,7 +97,48 @@ DSPTaskInfo* DSPAddTask(DSPTaskInfo* task) {
 
   return task;
 }
-
+#else 
+#pragma push
+#include "__ppc_eabi_linker.h"
+/* clang-format off */
+#pragma optimization_level 0
+#pragma optimizewithasm off
+extern void __DSP_insert_task(DSPTaskInfo* task);
+asm DSPTaskInfo* DSPAddTask(DSPTaskInfo* task) {
+  nofralloc
+  mflr r0
+  stw r0, 4(r1)
+  stwu r1, -0x18(r1)
+  stw r31, 0x14(r1)
+  stw r30, 0x10(r1)
+  mr r30, r3
+  bl OSDisableInterrupts
+  addi r31, r3, 0
+  addi r3, r30, 0
+  bl __DSP_insert_task
+  li r0, 0
+  stw r0, 0(r30)
+  li r0, 1
+  addi r3, r31, 0
+  stw r0, 8(r30)
+  bl OSRestoreInterrupts
+  lwz r0, __DSP_first_task
+  cmplw r30, r0
+  bne lbl_8036FBB4
+  mr r3, r30
+  bl __DSP_boot_task
+lbl_8036FBB4:
+  mr r3, r30
+  lwz r0, 0x1c(r1)
+  lwz r31, 0x14(r1)
+  lwz r30, 0x10(r1)
+  addi r1, r1, 0x18
+  mtlr r0
+  blr
+}
+#endif
+/* clang-format on */
+#pragma pop
 #ifdef __cplusplus
 }
 #endif
