@@ -7,6 +7,7 @@
 #include "rstl/reserved_vector.hpp"
 
 class ITweakObject;
+class CTweakPlayerControl;
 
 class CTweaks {
 public:
@@ -20,5 +21,7 @@ private:
   rstl::reserved_vector< rstl::auto_ptr< ITweakObject >, 12 > x0_;
 };
 CHECK_SIZEOF(CTweaks, 0x64)
+
+extern CTweakPlayerControl* gpTweakPlayerControlCurrent;
 
 #endif // _CTWEAKS
