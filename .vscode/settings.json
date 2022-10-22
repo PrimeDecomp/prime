@@ -21,7 +21,8 @@
     "sipriv.h": "c",
     "dvd_regs.h": "c",
     "dvd.h": "c",
-    "dvdpriv.h": "c"
+    "dvdpriv.h": "c",
+    "__ppc_eabi_linker.h": "c"
   },
   "files.autoSave": "onFocusChange",
   "files.insertFinalNewline": true,

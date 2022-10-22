@@ -648,7 +648,7 @@ DB_FILES :=\
 	$(BUILD_DIR)/src/Dolphin/db.ep.o\
 
 DSP_FILES :=\
-	$(BUILD_DIR)/asm/Dolphin/dsp/dsp.o\
+	$(BUILD_DIR)/src/Dolphin/dsp/dsp.ep.o\
 	$(BUILD_DIR)/src/Dolphin/dsp/dsp_debug.o\
 	$(BUILD_DIR)/asm/Dolphin/dsp/dsp_task.o
 
