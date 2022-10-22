@@ -29,6 +29,7 @@ public:
   }
   TUniqueId GetUniqueId() const { return x8_uid; }
   TEditorId GetEditorId() const { return xc_editorId; }
+  const rstl::string& GetDebugName() const { return x10_name; }
   TAreaId GetAreaId() const;
   TAreaId GetCurrentAreaId() const { return x4_areaId; }
   bool GetActive() const { return x30_24_active; }
