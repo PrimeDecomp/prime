@@ -115,8 +115,8 @@ lbl_80280594:
 /* 802805A0 0027D500  7C 60 1B 78 */	mr r0, r3
 /* 802805A4 0027D504  38 61 00 88 */	addi r3, r1, 0x88
 /* 802805A8 0027D508  7C 04 03 78 */	mr r4, r0
-/* 802805AC 0027D50C  4B E2 4E C1 */	bl sub_800a546c
-/* 802805B0 0027D510  4B E2 4E 91 */	bl "CastTo<16CMetroidPrimeExo>__10CPatternedFP7CEntity"
+/* 802805AC 0027D50C  4B E2 4E C1 */	bl "__ct__34TPatternedCast<16CMetroidPrimeExo>FP7CEntity"
+/* 802805B0 0027D510  4B E2 4E 91 */	bl "CastTo<16CMetroidPrimeExo>__10CPatternedFRC34TPatternedCast<16CMetroidPrimeExo>"
 /* 802805B4 0027D514  28 03 00 00 */	cmplwi r3, 0
 /* 802805B8 0027D518  40 82 02 58 */	bne lbl_80280810
 /* 802805BC 0027D51C  2C 15 FF FF */	cmpwi r21, -1
@@ -301,8 +301,8 @@ ForwardMessageToMetroidPrimeExo__18CMetroidPrimeRelayF20EScriptObjectMessageR13C
 /* 80280858 0027D7B8  4B DC BD 1D */	bl ObjectById__13CStateManagerF9TUniqueId
 /* 8028085C 0027D7BC  7C 64 1B 78 */	mr r4, r3
 /* 80280860 0027D7C0  38 61 00 14 */	addi r3, r1, 0x14
-/* 80280864 0027D7C4  4B E2 4C 09 */	bl sub_800a546c
-/* 80280868 0027D7C8  4B E2 4B D9 */	bl "CastTo<16CMetroidPrimeExo>__10CPatternedFP7CEntity"
+/* 80280864 0027D7C4  4B E2 4C 09 */	bl "__ct__34TPatternedCast<16CMetroidPrimeExo>FP7CEntity"
+/* 80280868 0027D7C8  4B E2 4B D9 */	bl "CastTo<16CMetroidPrimeExo>__10CPatternedFRC34TPatternedCast<16CMetroidPrimeExo>"
 /* 8028086C 0027D7CC  7C 64 1B 79 */	or. r4, r3, r3
 /* 80280870 0027D7D0  41 82 00 30 */	beq lbl_802808A0
 /* 80280874 0027D7D4  2C 1E 00 24 */	cmpwi r30, 0x24

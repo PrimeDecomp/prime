@@ -436,8 +436,8 @@ lbl_802614D4:
 /* 80261500 0025E460  40 82 00 1C */	bne lbl_8026151C
 /* 80261504 0025E464  7F C4 F3 78 */	mr r4, r30
 /* 80261508 0025E468  38 61 00 08 */	addi r3, r1, 8
-/* 8026150C 0025E46C  4B E4 3E F9 */	bl sub_800a5404
-/* 80261510 0025E470  4B E4 3E C9 */	bl "CastTo<11CPuddleToad>__10CPatternedFP7CEntity"
+/* 8026150C 0025E46C  4B E4 3E F9 */	bl "__ct__29TPatternedCast<11CPuddleToad>FP7CEntity"
+/* 80261510 0025E470  4B E4 3E C9 */	bl "CastTo<11CPuddleToad>__10CPatternedFRC29TPatternedCast<11CPuddleToad>"
 /* 80261514 0025E474  28 03 00 00 */	cmplwi r3, 0
 /* 80261518 0025E478  41 82 00 0C */	beq lbl_80261524
 lbl_8026151C:

@@ -1958,8 +1958,8 @@ lbl_80121514:
 /* 8012151C 0011E47C  4B EE E7 C1 */	bl __vc__11CObjectListCFi
 /* 80121520 0011E480  7C 64 1B 78 */	mr r4, r3
 /* 80121524 0011E484  38 61 00 20 */	addi r3, r1, 0x20
-/* 80121528 0011E488  4B F8 3E A9 */	bl sub_800a53d0
-/* 8012152C 0011E48C  4B F8 3E 79 */	bl "CastTo<12CSpacePirate>__10CPatternedFP7CEntity"
+/* 80121528 0011E488  4B F8 3E A9 */	bl "__ct__30TPatternedCast<12CSpacePirate>FP7CEntity"
+/* 8012152C 0011E48C  4B F8 3E 79 */	bl "CastTo<12CSpacePirate>__10CPatternedFRC30TPatternedCast<12CSpacePirate>"
 /* 80121530 0011E490  28 03 00 00 */	cmplwi r3, 0
 /* 80121534 0011E494  41 82 00 38 */	beq lbl_8012156C
 /* 80121538 0011E498  7C 03 E8 40 */	cmplw r3, r29
@@ -5259,8 +5259,8 @@ lbl_8012441C:
 /* 80124434 00121394  4B F2 81 71 */	bl GetObjectById__13CStateManagerCF9TUniqueId
 /* 80124438 00121398  7C 64 1B 78 */	mr r4, r3
 /* 8012443C 0012139C  38 61 00 0C */	addi r3, r1, 0xc
-/* 80124440 001213A0  4B F8 10 95 */	bl sub_800a54d4
-/* 80124444 001213A4  4B F8 10 65 */	bl "CastTo<8CMetroid>__10CPatternedFP7CEntity"
+/* 80124440 001213A0  4B F8 10 95 */	bl "__ct__25TPatternedCast<8CMetroid>FP7CEntity"
+/* 80124444 001213A4  4B F8 10 65 */	bl "CastTo<8CMetroid>__10CPatternedFRC25TPatternedCast<8CMetroid>"
 /* 80124448 001213A8  28 03 00 00 */	cmplwi r3, 0
 /* 8012444C 001213AC  41 82 00 68 */	beq lbl_801244B4
 /* 80124450 001213B0  88 03 09 BF */	lbz r0, 0x9bf(r3)
@@ -7463,8 +7463,8 @@ lbl_80126444:
 /* 8012644C 001233AC  4B EE 98 91 */	bl __vc__11CObjectListCFi
 /* 80126450 001233B0  7C 64 1B 78 */	mr r4, r3
 /* 80126454 001233B4  38 61 00 08 */	addi r3, r1, 8
-/* 80126458 001233B8  4B F7 EF 79 */	bl sub_800a53d0
-/* 8012645C 001233BC  4B F7 EF 49 */	bl "CastTo<12CSpacePirate>__10CPatternedFP7CEntity"
+/* 80126458 001233B8  4B F7 EF 79 */	bl "__ct__30TPatternedCast<12CSpacePirate>FP7CEntity"
+/* 8012645C 001233BC  4B F7 EF 49 */	bl "CastTo<12CSpacePirate>__10CPatternedFRC30TPatternedCast<12CSpacePirate>"
 /* 80126460 001233C0  28 03 00 00 */	cmplwi r3, 0
 /* 80126464 001233C4  41 82 00 84 */	beq lbl_801264E8
 /* 80126468 001233C8  7C 03 F8 40 */	cmplw r3, r31
@@ -7547,8 +7547,8 @@ lbl_80126574:
 /* 8012657C 001234DC  4B EE 97 61 */	bl __vc__11CObjectListCFi
 /* 80126580 001234E0  7C 64 1B 78 */	mr r4, r3
 /* 80126584 001234E4  38 61 00 08 */	addi r3, r1, 8
-/* 80126588 001234E8  4B F7 EE 49 */	bl sub_800a53d0
-/* 8012658C 001234EC  4B F7 EE 19 */	bl "CastTo<12CSpacePirate>__10CPatternedFP7CEntity"
+/* 80126588 001234E8  4B F7 EE 49 */	bl "__ct__30TPatternedCast<12CSpacePirate>FP7CEntity"
+/* 8012658C 001234EC  4B F7 EE 19 */	bl "CastTo<12CSpacePirate>__10CPatternedFRC30TPatternedCast<12CSpacePirate>"
 /* 80126590 001234F0  28 03 00 00 */	cmplwi r3, 0
 /* 80126594 001234F4  41 82 00 2C */	beq lbl_801265C0
 /* 80126598 001234F8  7C 03 E0 40 */	cmplw r3, r28
@@ -8417,8 +8417,8 @@ lbl_801271F4:
 /* 801271FC 0012415C  4B EE 8A E1 */	bl __vc__11CObjectListCFi
 /* 80127200 00124160  7C 64 1B 78 */	mr r4, r3
 /* 80127204 00124164  38 61 00 18 */	addi r3, r1, 0x18
-/* 80127208 00124168  4B F7 E1 C9 */	bl sub_800a53d0
-/* 8012720C 0012416C  4B F7 E1 99 */	bl "CastTo<12CSpacePirate>__10CPatternedFP7CEntity"
+/* 80127208 00124168  4B F7 E1 C9 */	bl "__ct__30TPatternedCast<12CSpacePirate>FP7CEntity"
+/* 8012720C 0012416C  4B F7 E1 99 */	bl "CastTo<12CSpacePirate>__10CPatternedFRC30TPatternedCast<12CSpacePirate>"
 /* 80127210 00124170  28 03 00 00 */	cmplwi r3, 0
 /* 80127214 00124174  41 82 00 98 */	beq lbl_801272AC
 /* 80127218 00124178  7C 03 F0 40 */	cmplw r3, r30
@@ -9906,8 +9906,8 @@ lbl_80128724:
 /* 8012872C 0012568C  4B EE 75 B1 */	bl __vc__11CObjectListCFi
 /* 80128730 00125690  7C 64 1B 78 */	mr r4, r3
 /* 80128734 00125694  38 61 00 08 */	addi r3, r1, 8
-/* 80128738 00125698  4B F7 CC 99 */	bl sub_800a53d0
-/* 8012873C 0012569C  4B F7 CC 69 */	bl "CastTo<12CSpacePirate>__10CPatternedFP7CEntity"
+/* 80128738 00125698  4B F7 CC 99 */	bl "__ct__30TPatternedCast<12CSpacePirate>FP7CEntity"
+/* 8012873C 0012569C  4B F7 CC 69 */	bl "CastTo<12CSpacePirate>__10CPatternedFRC30TPatternedCast<12CSpacePirate>"
 /* 80128740 001256A0  28 03 00 00 */	cmplwi r3, 0
 /* 80128744 001256A4  41 82 00 D8 */	beq lbl_8012881C
 /* 80128748 001256A8  7C 03 C8 40 */	cmplw r3, r25
@@ -10296,8 +10296,8 @@ lbl_80128C94:
 /* 80128CE8 00125C48  40 82 00 BC */	bne lbl_80128DA4
 /* 80128CEC 00125C4C  7F 84 E3 78 */	mr r4, r28
 /* 80128CF0 00125C50  38 61 00 08 */	addi r3, r1, 8
-/* 80128CF4 00125C54  4B F7 C6 DD */	bl sub_800a53d0
-/* 80128CF8 00125C58  4B F7 C6 AD */	bl "CastTo<12CSpacePirate>__10CPatternedFP7CEntity"
+/* 80128CF4 00125C54  4B F7 C6 DD */	bl "__ct__30TPatternedCast<12CSpacePirate>FP7CEntity"
+/* 80128CF8 00125C58  4B F7 C6 AD */	bl "CastTo<12CSpacePirate>__10CPatternedFRC30TPatternedCast<12CSpacePirate>"
 /* 80128CFC 00125C5C  28 03 00 00 */	cmplwi r3, 0
 /* 80128D00 00125C60  41 82 00 A4 */	beq lbl_80128DA4
 /* 80128D04 00125C64  C0 03 07 48 */	lfs f0, 0x748(r3)

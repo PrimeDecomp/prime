@@ -2,8 +2,8 @@
 
 .section .text, "ax"
 
-.global "CastTo<8CWarWasp>__10CPatternedFP7CEntity"
-"CastTo<8CWarWasp>__10CPatternedFP7CEntity":
+.global "CastTo<8CWarWasp>__10CPatternedFRC25TPatternedCast<8CWarWasp>"
+"CastTo<8CWarWasp>__10CPatternedFRC25TPatternedCast<8CWarWasp>":
 /* 800A533C 000A229C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 800A5340 000A22A0  7C 08 02 A6 */	mflr r0
 /* 800A5344 000A22A4  7C 64 1B 78 */	mr r4, r3
@@ -16,13 +16,13 @@
 /* 800A5360 000A22C0  38 21 00 10 */	addi r1, r1, 0x10
 /* 800A5364 000A22C4  4E 80 00 20 */	blr
 
-.global sub_800a5368
-sub_800a5368:
+.global "__ct__25TPatternedCast<8CWarWasp>FP7CEntity"
+"__ct__25TPatternedCast<8CWarWasp>FP7CEntity":
 /* 800A5368 000A22C8  90 83 00 00 */	stw r4, 0(r3)
 /* 800A536C 000A22CC  4E 80 00 20 */	blr
 
-.global "CastTo<22CThardusRockProjectile>__10CPatternedFP7CEntity"
-"CastTo<22CThardusRockProjectile>__10CPatternedFP7CEntity":
+.global "CastTo<22CThardusRockProjectile>__10CPatternedFRC40TPatternedCast<22CThardusRockProjectile>"
+"CastTo<22CThardusRockProjectile>__10CPatternedFRC40TPatternedCast<22CThardusRockProjectile>":
 /* 800A5370 000A22D0  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 800A5374 000A22D4  7C 08 02 A6 */	mflr r0
 /* 800A5378 000A22D8  7C 64 1B 78 */	mr r4, r3
@@ -35,13 +35,13 @@ sub_800a5368:
 /* 800A5394 000A22F4  38 21 00 10 */	addi r1, r1, 0x10
 /* 800A5398 000A22F8  4E 80 00 20 */	blr
 
-.global sub_800a539c
-sub_800a539c:
+.global "__ct__40TPatternedCast<22CThardusRockProjectile>FP7CEntity"
+"__ct__40TPatternedCast<22CThardusRockProjectile>FP7CEntity":
 /* 800A539C 000A22FC  90 83 00 00 */	stw r4, 0(r3)
 /* 800A53A0 000A2300  4E 80 00 20 */	blr
 
-.global "CastTo<12CSpacePirate>__10CPatternedFP7CEntity"
-"CastTo<12CSpacePirate>__10CPatternedFP7CEntity":
+.global "CastTo<12CSpacePirate>__10CPatternedFRC30TPatternedCast<12CSpacePirate>"
+"CastTo<12CSpacePirate>__10CPatternedFRC30TPatternedCast<12CSpacePirate>":
 /* 800A53A4 000A2304  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 800A53A8 000A2308  7C 08 02 A6 */	mflr r0
 /* 800A53AC 000A230C  7C 64 1B 78 */	mr r4, r3
@@ -54,13 +54,13 @@ sub_800a539c:
 /* 800A53C8 000A2328  38 21 00 10 */	addi r1, r1, 0x10
 /* 800A53CC 000A232C  4E 80 00 20 */	blr
 
-.global sub_800a53d0
-sub_800a53d0:
+.global "__ct__30TPatternedCast<12CSpacePirate>FP7CEntity"
+"__ct__30TPatternedCast<12CSpacePirate>FP7CEntity":
 /* 800A53D0 000A2330  90 83 00 00 */	stw r4, 0(r3)
 /* 800A53D4 000A2334  4E 80 00 20 */	blr
 
-.global "CastTo<11CPuddleToad>__10CPatternedFP7CEntity"
-"CastTo<11CPuddleToad>__10CPatternedFP7CEntity":
+.global "CastTo<11CPuddleToad>__10CPatternedFRC29TPatternedCast<11CPuddleToad>"
+"CastTo<11CPuddleToad>__10CPatternedFRC29TPatternedCast<11CPuddleToad>":
 /* 800A53D8 000A2338  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 800A53DC 000A233C  7C 08 02 A6 */	mflr r0
 /* 800A53E0 000A2340  7C 64 1B 78 */	mr r4, r3
@@ -73,13 +73,13 @@ sub_800a53d0:
 /* 800A53FC 000A235C  38 21 00 10 */	addi r1, r1, 0x10
 /* 800A5400 000A2360  4E 80 00 20 */	blr
 
-.global sub_800a5404
-sub_800a5404:
+.global "__ct__29TPatternedCast<11CPuddleToad>FP7CEntity"
+"__ct__29TPatternedCast<11CPuddleToad>FP7CEntity":
 /* 800A5404 000A2364  90 83 00 00 */	stw r4, 0(r3)
 /* 800A5408 000A2368  4E 80 00 20 */	blr
 
-.global "CastTo<9CParasite>__10CPatternedFP7CEntity"
-"CastTo<9CParasite>__10CPatternedFP7CEntity":
+.global "CastTo<9CParasite>__10CPatternedFRC26TPatternedCast<9CParasite>"
+"CastTo<9CParasite>__10CPatternedFRC26TPatternedCast<9CParasite>":
 /* 800A540C 000A236C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 800A5410 000A2370  7C 08 02 A6 */	mflr r0
 /* 800A5414 000A2374  7C 64 1B 78 */	mr r4, r3
@@ -92,13 +92,13 @@ sub_800a5404:
 /* 800A5430 000A2390  38 21 00 10 */	addi r1, r1, 0x10
 /* 800A5434 000A2394  4E 80 00 20 */	blr
 
-.global sub_800a5438
-sub_800a5438:
+.global "__ct__26TPatternedCast<9CParasite>FP7CEntity"
+"__ct__26TPatternedCast<9CParasite>FP7CEntity":
 /* 800A5438 000A2398  90 83 00 00 */	stw r4, 0(r3)
 /* 800A543C 000A239C  4E 80 00 20 */	blr
 
-.global "CastTo<16CMetroidPrimeExo>__10CPatternedFP7CEntity"
-"CastTo<16CMetroidPrimeExo>__10CPatternedFP7CEntity":
+.global "CastTo<16CMetroidPrimeExo>__10CPatternedFRC34TPatternedCast<16CMetroidPrimeExo>"
+"CastTo<16CMetroidPrimeExo>__10CPatternedFRC34TPatternedCast<16CMetroidPrimeExo>":
 /* 800A5440 000A23A0  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 800A5444 000A23A4  7C 08 02 A6 */	mflr r0
 /* 800A5448 000A23A8  7C 64 1B 78 */	mr r4, r3
@@ -111,13 +111,13 @@ sub_800a5438:
 /* 800A5464 000A23C4  38 21 00 10 */	addi r1, r1, 0x10
 /* 800A5468 000A23C8  4E 80 00 20 */	blr
 
-.global sub_800a546c
-sub_800a546c:
+.global "__ct__34TPatternedCast<16CMetroidPrimeExo>FP7CEntity"
+"__ct__34TPatternedCast<16CMetroidPrimeExo>FP7CEntity":
 /* 800A546C 000A23CC  90 83 00 00 */	stw r4, 0(r3)
 /* 800A5470 000A23D0  4E 80 00 20 */	blr
 
-.global "CastTo<12CMetroidBeta>__10CPatternedFP7CEntity"
-"CastTo<12CMetroidBeta>__10CPatternedFP7CEntity":
+.global "CastTo<12CMetroidBeta>__10CPatternedFRC30TPatternedCast<12CMetroidBeta>"
+"CastTo<12CMetroidBeta>__10CPatternedFRC30TPatternedCast<12CMetroidBeta>":
 /* 800A5474 000A23D4  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 800A5478 000A23D8  7C 08 02 A6 */	mflr r0
 /* 800A547C 000A23DC  7C 64 1B 78 */	mr r4, r3
@@ -130,13 +130,13 @@ sub_800a546c:
 /* 800A5498 000A23F8  38 21 00 10 */	addi r1, r1, 0x10
 /* 800A549C 000A23FC  4E 80 00 20 */	blr
 
-.global sub_800a54a0
-sub_800a54a0:
+.global "__ct__30TPatternedCast<12CMetroidBeta>FP7CEntity"
+"__ct__30TPatternedCast<12CMetroidBeta>FP7CEntity":
 /* 800A54A0 000A2400  90 83 00 00 */	stw r4, 0(r3)
 /* 800A54A4 000A2404  4E 80 00 20 */	blr
 
-.global "CastTo<8CMetroid>__10CPatternedFP7CEntity"
-"CastTo<8CMetroid>__10CPatternedFP7CEntity":
+.global "CastTo<8CMetroid>__10CPatternedFRC25TPatternedCast<8CMetroid>"
+"CastTo<8CMetroid>__10CPatternedFRC25TPatternedCast<8CMetroid>":
 /* 800A54A8 000A2408  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 800A54AC 000A240C  7C 08 02 A6 */	mflr r0
 /* 800A54B0 000A2410  7C 64 1B 78 */	mr r4, r3
@@ -149,13 +149,13 @@ sub_800a54a0:
 /* 800A54CC 000A242C  38 21 00 10 */	addi r1, r1, 0x10
 /* 800A54D0 000A2430  4E 80 00 20 */	blr
 
-.global sub_800a54d4
-sub_800a54d4:
+.global "__ct__25TPatternedCast<8CMetroid>FP7CEntity"
+"__ct__25TPatternedCast<8CMetroid>FP7CEntity":
 /* 800A54D4 000A2434  90 83 00 00 */	stw r4, 0(r3)
 /* 800A54D8 000A2438  4E 80 00 20 */	blr
 
-.global "CastTo<9CJellyZap>__10CPatternedFP7CEntity"
-"CastTo<9CJellyZap>__10CPatternedFP7CEntity":
+.global "CastTo<9CJellyZap>__10CPatternedFRC26TPatternedCast<9CJellyZap>"
+"CastTo<9CJellyZap>__10CPatternedFRC26TPatternedCast<9CJellyZap>":
 /* 800A54DC 000A243C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 800A54E0 000A2440  7C 08 02 A6 */	mflr r0
 /* 800A54E4 000A2444  7C 64 1B 78 */	mr r4, r3
@@ -168,13 +168,13 @@ sub_800a54d4:
 /* 800A5500 000A2460  38 21 00 10 */	addi r1, r1, 0x10
 /* 800A5504 000A2464  4E 80 00 20 */	blr
 
-.global sub_800a5508
-sub_800a5508:
+.global "__ct__26TPatternedCast<9CJellyZap>FP7CEntity"
+"__ct__26TPatternedCast<9CJellyZap>FP7CEntity":
 /* 800A5508 000A2468  90 83 00 00 */	stw r4, 0(r3)
 /* 800A550C 000A246C  4E 80 00 20 */	blr
 
-.global "CastTo<12CIceSheegoth>__10CPatternedFP7CEntity"
-"CastTo<12CIceSheegoth>__10CPatternedFP7CEntity":
+.global "CastTo<12CIceSheegoth>__10CPatternedFRC30TPatternedCast<12CIceSheegoth>"
+"CastTo<12CIceSheegoth>__10CPatternedFRC30TPatternedCast<12CIceSheegoth>":
 /* 800A5510 000A2470  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 800A5514 000A2474  7C 08 02 A6 */	mflr r0
 /* 800A5518 000A2478  7C 64 1B 78 */	mr r4, r3
@@ -187,13 +187,13 @@ sub_800a5508:
 /* 800A5534 000A2494  38 21 00 10 */	addi r1, r1, 0x10
 /* 800A5538 000A2498  4E 80 00 20 */	blr
 
-.global sub_800a553c
-sub_800a553c:
+.global "__ct__30TPatternedCast<12CIceSheegoth>FP7CEntity"
+"__ct__30TPatternedCast<12CIceSheegoth>FP7CEntity":
 /* 800A553C 000A249C  90 83 00 00 */	stw r4, 0(r3)
 /* 800A5540 000A24A0  4E 80 00 20 */	blr
 
-.global "CastTo<11CFlickerBat>__10CPatternedFP7CEntity"
-"CastTo<11CFlickerBat>__10CPatternedFP7CEntity":
+.global "CastTo<11CFlickerBat>__10CPatternedFRC29TPatternedCast<11CFlickerBat>"
+"CastTo<11CFlickerBat>__10CPatternedFRC29TPatternedCast<11CFlickerBat>":
 /* 800A5544 000A24A4  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 800A5548 000A24A8  7C 08 02 A6 */	mflr r0
 /* 800A554C 000A24AC  7C 64 1B 78 */	mr r4, r3
@@ -206,13 +206,13 @@ sub_800a553c:
 /* 800A5568 000A24C8  38 21 00 10 */	addi r1, r1, 0x10
 /* 800A556C 000A24CC  4E 80 00 20 */	blr
 
-.global sub_800a5570
-sub_800a5570:
+.global "__ct__29TPatternedCast<11CFlickerBat>FP7CEntity"
+"__ct__29TPatternedCast<11CFlickerBat>FP7CEntity":
 /* 800A5570 000A24D0  90 83 00 00 */	stw r4, 0(r3)
 /* 800A5574 000A24D4  4E 80 00 20 */	blr
 
-.global "CastTo<11CEnergyBall>__10CPatternedFP7CEntity"
-"CastTo<11CEnergyBall>__10CPatternedFP7CEntity":
+.global "CastTo<11CEnergyBall>__10CPatternedFRC29TPatternedCast<11CEnergyBall>"
+"CastTo<11CEnergyBall>__10CPatternedFRC29TPatternedCast<11CEnergyBall>":
 /* 800A5578 000A24D8  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 800A557C 000A24DC  7C 08 02 A6 */	mflr r0
 /* 800A5580 000A24E0  7C 64 1B 78 */	mr r4, r3
@@ -225,8 +225,8 @@ sub_800a5570:
 /* 800A559C 000A24FC  38 21 00 10 */	addi r1, r1, 0x10
 /* 800A55A0 000A2500  4E 80 00 20 */	blr
 
-.global sub_800a55a4
-sub_800a55a4:
+.global "__ct__29TPatternedCast<11CEnergyBall>FP7CEntity"
+"__ct__29TPatternedCast<11CEnergyBall>FP7CEntity":
 /* 800A55A4 000A2504  90 83 00 00 */	stw r4, 0(r3)
 /* 800A55A8 000A2508  4E 80 00 20 */	blr
 

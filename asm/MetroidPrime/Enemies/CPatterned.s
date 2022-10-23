@@ -2359,8 +2359,8 @@ lbl_80078C2C:
 /* 80078C74 00075BD4  4B FD 39 31 */	bl GetObjectById__13CStateManagerCF9TUniqueId
 /* 80078C78 00075BD8  7C 64 1B 78 */	mr r4, r3
 /* 80078C7C 00075BDC  38 61 00 10 */	addi r3, r1, 0x10
-/* 80078C80 00075BE0  48 02 C8 55 */	bl sub_800a54d4
-/* 80078C84 00075BE4  48 02 C8 25 */	bl "CastTo<8CMetroid>__10CPatternedFP7CEntity"
+/* 80078C80 00075BE0  48 02 C8 55 */	bl "__ct__25TPatternedCast<8CMetroid>FP7CEntity"
+/* 80078C84 00075BE4  48 02 C8 25 */	bl "CastTo<8CMetroid>__10CPatternedFRC25TPatternedCast<8CMetroid>"
 /* 80078C88 00075BE8  28 03 00 00 */	cmplwi r3, 0
 /* 80078C8C 00075BEC  41 82 00 08 */	beq lbl_80078C94
 /* 80078C90 00075BF0  3B 80 00 01 */	li r28, 1

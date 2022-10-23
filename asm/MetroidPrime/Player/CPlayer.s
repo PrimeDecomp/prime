@@ -3868,8 +3868,8 @@ lbl_80012A20:
 /* 80012A34 0000F994  48 03 9B 71 */	bl GetObjectById__13CStateManagerCF9TUniqueId
 /* 80012A38 0000F998  7C 64 1B 78 */	mr r4, r3
 /* 80012A3C 0000F99C  38 61 00 10 */	addi r3, r1, 0x10
-/* 80012A40 0000F9A0  48 09 2A 61 */	bl sub_800a54a0
-/* 80012A44 0000F9A4  48 09 2A 31 */	bl "CastTo<12CMetroidBeta>__10CPatternedFP7CEntity"
+/* 80012A40 0000F9A0  48 09 2A 61 */	bl "__ct__30TPatternedCast<12CMetroidBeta>FP7CEntity"
+/* 80012A44 0000F9A4  48 09 2A 31 */	bl "CastTo<12CMetroidBeta>__10CPatternedFRC30TPatternedCast<12CMetroidBeta>"
 /* 80012A48 0000F9A8  28 03 00 00 */	cmplwi r3, 0
 /* 80012A4C 0000F9AC  41 82 00 0C */	beq lbl_80012A58
 /* 80012A50 0000F9B0  38 60 00 01 */	li r3, 1
