@@ -9,6 +9,11 @@ enum EStateMsg {
   kStateMsg_Deactivate = 2,
 };
 
+class CAi;
+class CStateManager;
+typedef void (CAi::*CAiStateFunc)(CStateManager& mgr, EStateMsg msg, float arg);
+typedef bool (CAi::*CAiTriggerFunc)(CStateManager& mgr, float arg);
+
 class CAiFuncMap {
 public:
   CAiFuncMap();

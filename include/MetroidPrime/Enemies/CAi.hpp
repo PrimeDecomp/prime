@@ -16,8 +16,8 @@ class CAiFuncMap;
 class CAi : public CPhysicsActor {
 public:
   // static void CreateFuncLookup(CAiFuncMap* funcMap);
-  // static CAiStateFunc GetStateFunc(std::string_view func);
-  // static CAiTriggerFunc GetTriggerFunc(std::string_view func);
+  static CAiStateFunc GetStateFunc(const char* func);
+  static CAiTriggerFunc GetTriggerFunc(const char* func);
 
   // const CStateMachine* GetStateMachine() const;
   ~CAi();
