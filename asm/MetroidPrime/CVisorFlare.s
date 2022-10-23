@@ -35,8 +35,8 @@ lbl_805A7F64:
 
 .section .text, "ax"
 
-.global sub_802075fc
-sub_802075fc:
+.global ResetTevSwapMode__11CVisorFlareCFRC13CStateManager
+ResetTevSwapMode__11CVisorFlareCFRC13CStateManager:
 /* 802075FC 0020455C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80207600 00204560  7C 08 02 A6 */	mflr r0
 /* 80207604 00204564  90 01 00 14 */	stw r0, 0x14(r1)
@@ -53,8 +53,8 @@ lbl_80207624:
 /* 8020762C 0020458C  38 21 00 10 */	addi r1, r1, 0x10
 /* 80207630 00204590  4E 80 00 20 */	blr
 
-.global sub_80207634
-sub_80207634:
+.global SetupRenderState__11CVisorFlareCFRC13CStateManager
+SetupRenderState__11CVisorFlareCFRC13CStateManager:
 /* 80207634 00204594  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80207638 00204598  7C 08 02 A6 */	mflr r0
 /* 8020763C 0020459C  90 01 00 14 */	stw r0, 0x14(r1)
@@ -188,8 +188,8 @@ lbl_80207810:
 /* 8020781C 0020477C  38 21 00 10 */	addi r1, r1, 0x10
 /* 80207820 00204780  4E 80 00 20 */	blr
 
-.global sub_80207824
-sub_80207824:
+.global DrawStreamed__11CVisorFlareCFRC6CColorff
+DrawStreamed__11CVisorFlareCFRC6CColorff:
 /* 80207824 00204784  94 21 FF A0 */	stwu r1, -0x60(r1)
 /* 80207828 00204788  7C 08 02 A6 */	mflr r0
 /* 8020782C 0020478C  90 01 00 64 */	stw r0, 0x64(r1)
@@ -273,8 +273,8 @@ sub_80207824:
 /* 80207964 002048C4  38 21 00 60 */	addi r1, r1, 0x60
 /* 80207968 002048C8  4E 80 00 20 */	blr
 
-.global sub_8020796c
-sub_8020796c:
+.global DrawDirect__11CVisorFlareCFRC6CColorff
+DrawDirect__11CVisorFlareCFRC6CColorff:
 /* 8020796C 002048CC  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 80207970 002048D0  7C 08 02 A6 */	mflr r0
 /* 80207974 002048D4  90 01 00 34 */	stw r0, 0x34(r1)
@@ -519,7 +519,7 @@ lbl_80207D04:
 /* 80207D0C 00204C6C  7F E4 FB 78 */	mr r4, r31
 /* 80207D10 00204C70  7C 00 00 34 */	cntlzw r0, r0
 /* 80207D14 00204C74  54 1A D9 7E */	srwi r26, r0, 5
-/* 80207D18 00204C78  4B FF F9 1D */	bl sub_80207634
+/* 80207D18 00204C78  4B FF F9 1D */	bl SetupRenderState__11CVisorFlareCFRC13CStateManager
 /* 80207D1C 00204C7C  C0 02 B0 E8 */	lfs f0, lbl_805ACE08@sda21(r2)
 /* 80207D20 00204C80  3C 60 80 5A */	lis r3, sUpVector__9CVector3f@ha
 /* 80207D24 00204C84  C3 C2 B0 EC */	lfs f30, lbl_805ACE0C@sda21(r2)
@@ -626,14 +626,14 @@ lbl_80207E98:
 /* 80207EA8 00204E08  90 61 00 0C */	stw r3, 0xc(r1)
 /* 80207EAC 00204E0C  7F C3 F3 78 */	mr r3, r30
 /* 80207EB0 00204E10  38 81 00 0C */	addi r4, r1, 0xc
-/* 80207EB4 00204E14  4B FF FA B9 */	bl sub_8020796c
+/* 80207EB4 00204E14  4B FF FA B9 */	bl DrawDirect__11CVisorFlareCFRC6CColorff
 /* 80207EB8 00204E18  48 00 00 18 */	b lbl_80207ED0
 lbl_80207EBC:
 /* 80207EBC 00204E1C  FC 20 B8 90 */	fmr f1, f23
 /* 80207EC0 00204E20  90 61 00 08 */	stw r3, 8(r1)
 /* 80207EC4 00204E24  7F C3 F3 78 */	mr r3, r30
 /* 80207EC8 00204E28  38 81 00 08 */	addi r4, r1, 8
-/* 80207ECC 00204E2C  4B FF F9 59 */	bl sub_80207824
+/* 80207ECC 00204E2C  4B FF F9 59 */	bl DrawStreamed__11CVisorFlareCFRC6CColorff
 lbl_80207ED0:
 /* 80207ED0 00204E30  38 61 00 58 */	addi r3, r1, 0x58
 /* 80207ED4 00204E34  38 80 00 00 */	li r4, 0
@@ -647,7 +647,7 @@ lbl_80207EE4:
 /* 80207EEC 00204E4C  41 80 FE 54 */	blt lbl_80207D40
 /* 80207EF0 00204E50  7F C3 F3 78 */	mr r3, r30
 /* 80207EF4 00204E54  7F E4 FB 78 */	mr r4, r31
-/* 80207EF8 00204E58  4B FF F7 05 */	bl sub_802075fc
+/* 80207EF8 00204E58  4B FF F7 05 */	bl ResetTevSwapMode__11CVisorFlareCFRC13CStateManager
 lbl_80207EFC:
 /* 80207EFC 00204E5C  E3 E1 02 08 */	psq_l f31, 520(r1), 0, qr0
 /* 80207F00 00204E60  CB E1 02 00 */	lfd f31, 0x200(r1)
@@ -914,8 +914,8 @@ lbl_802082AC:
 /* 802082D0 00205230  38 21 09 20 */	addi r1, r1, 0x920
 /* 802082D4 00205234  4E 80 00 20 */	blr
 
-.global "__ct__11CVisorFlareFQ211CVisorFlare10EBlendModebfffRCQ24rstl60vector<Q211CVisorFlare9CFlareDef,Q24rstl17rmemory_allocator>"
-"__ct__11CVisorFlareFQ211CVisorFlare10EBlendModebfffRCQ24rstl60vector<Q211CVisorFlare9CFlareDef,Q24rstl17rmemory_allocator>":
+.global "__ct__11CVisorFlareFQ211CVisorFlare10EBlendModebfffUiUiRCQ24rstl60vector<Q211CVisorFlare9CFlareDef,Q24rstl17rmemory_allocator>"
+"__ct__11CVisorFlareFQ211CVisorFlare10EBlendModebfffUiUiRCQ24rstl60vector<Q211CVisorFlare9CFlareDef,Q24rstl17rmemory_allocator>":
 /* 802082D8 00205238  94 21 FF C0 */	stwu r1, -0x40(r1)
 /* 802082DC 0020523C  7C 08 02 A6 */	mflr r0
 /* 802082E0 00205240  90 01 00 44 */	stw r0, 0x44(r1)
@@ -937,7 +937,7 @@ lbl_802082AC:
 /* 80208320 00205280  7C FF 3B 78 */	mr r31, r7
 /* 80208324 00205284  7D 04 43 78 */	mr r4, r8
 /* 80208328 00205288  38 7C 00 04 */	addi r3, r28, 4
-/* 8020832C 0020528C  4B EC 61 41 */	bl sub_800ce46c
+/* 8020832C 0020528C  4B EC 61 41 */	bl "__ct__Q24rstl60vector<Q211CVisorFlare9CFlareDef,Q24rstl17rmemory_allocator>FRCQ24rstl60vector<Q211CVisorFlare9CFlareDef,Q24rstl17rmemory_allocator>"
 /* 80208330 00205290  9B BC 00 14 */	stb r29, 0x14(r28)
 /* 80208334 00205294  C0 2D 93 90 */	lfs f1, lbl_805A7F50@sda21(r13)
 /* 80208338 00205298  C0 01 00 08 */	lfs f0, 8(r1)

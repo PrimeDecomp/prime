@@ -9191,12 +9191,12 @@ lbl_800CD61C:
 /* 800CD684 000CA5E4  38 A1 00 3C */	addi r5, r1, 0x3c
 /* 800CD688 000CA5E8  90 01 00 10 */	stw r0, 0x10(r1)
 /* 800CD68C 000CA5EC  39 01 00 30 */	addi r8, r1, 0x30
-/* 800CD690 000CA5F0  48 10 90 9D */	bl "__ct__17CScriptVisorFlareF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfobRC9CVector3fQ211CVisorFlare10EBlendModebfffRCQ24rstl60vector<Q211CVisorFlare9CFlareDef,Q24rstl17rmemory_allocator>"
+/* 800CD690 000CA5F0  48 10 90 9D */	bl "__ct__17CScriptVisorFlareF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfobRC9CVector3fQ211CVisorFlare10EBlendModebfffUiUiRCQ24rstl60vector<Q211CVisorFlare9CFlareDef,Q24rstl17rmemory_allocator>"
 /* 800CD694 000CA5F4  7C 7B 1B 78 */	mr r27, r3
 lbl_800CD698:
 /* 800CD698 000CA5F8  38 61 00 20 */	addi r3, r1, 0x20
 /* 800CD69C 000CA5FC  38 80 FF FF */	li r4, -1
-/* 800CD6A0 000CA600  48 00 01 19 */	bl sub_800cd7b8
+/* 800CD6A0 000CA600  48 00 01 19 */	bl "__dt__Q24rstl60vector<Q211CVisorFlare9CFlareDef,Q24rstl17rmemory_allocator>Fv"
 /* 800CD6A4 000CA604  88 01 00 D8 */	lbz r0, 0xd8(r1)
 /* 800CD6A8 000CA608  28 00 00 00 */	cmplwi r0, 0
 /* 800CD6AC 000CA60C  41 82 00 1C */	beq lbl_800CD6C8
@@ -9273,8 +9273,8 @@ lbl_800CD78C:
 /* 800CD7B0 000CA710  38 21 01 90 */	addi r1, r1, 0x190
 /* 800CD7B4 000CA714  4E 80 00 20 */	blr
 
-.global sub_800cd7b8
-sub_800cd7b8:
+.global "__dt__Q24rstl60vector<Q211CVisorFlare9CFlareDef,Q24rstl17rmemory_allocator>Fv"
+"__dt__Q24rstl60vector<Q211CVisorFlare9CFlareDef,Q24rstl17rmemory_allocator>Fv":
 /* 800CD7B8 000CA718  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 800CD7BC 000CA71C  7C 08 02 A6 */	mflr r0
 /* 800CD7C0 000CA720  90 01 00 34 */	stw r0, 0x34(r1)
@@ -9783,7 +9783,7 @@ lbl_800CDEE4:
 /* 800CDEFC 000CAE5C  41 82 01 08 */	beq lbl_800CE004
 /* 800CDF00 000CAE60  38 61 00 98 */	addi r3, r1, 0x98
 /* 800CDF04 000CAE64  38 80 FF FF */	li r4, -1
-/* 800CDF08 000CAE68  4B FF F8 B1 */	bl sub_800cd7b8
+/* 800CDF08 000CAE68  4B FF F8 B1 */	bl "__dt__Q24rstl60vector<Q211CVisorFlare9CFlareDef,Q24rstl17rmemory_allocator>Fv"
 /* 800CDF0C 000CAE6C  88 01 01 6C */	lbz r0, 0x16c(r1)
 /* 800CDF10 000CAE70  28 00 00 00 */	cmplwi r0, 0
 /* 800CDF14 000CAE74  41 82 00 1C */	beq lbl_800CDF30
@@ -9942,7 +9942,7 @@ lbl_800CE004:
 /* 800CE160 000CB0C0  41 82 01 40 */	beq lbl_800CE2A0
 /* 800CE164 000CB0C4  38 61 00 88 */	addi r3, r1, 0x88
 /* 800CE168 000CB0C8  38 81 00 98 */	addi r4, r1, 0x98
-/* 800CE16C 000CB0CC  48 00 03 01 */	bl sub_800ce46c
+/* 800CE16C 000CB0CC  48 00 03 01 */	bl "__ct__Q24rstl60vector<Q211CVisorFlare9CFlareDef,Q24rstl17rmemory_allocator>FRCQ24rstl60vector<Q211CVisorFlare9CFlareDef,Q24rstl17rmemory_allocator>"
 /* 800CE170 000CB0D0  80 E1 04 70 */	lwz r7, 0x470(r1)
 /* 800CE174 000CB0D4  38 A0 00 01 */	li r5, 1
 /* 800CE178 000CB0D8  80 C1 04 74 */	lwz r6, 0x474(r1)
@@ -10030,11 +10030,11 @@ lbl_800CE2B4:
 /* 800CE2B8 000CB218  41 82 00 10 */	beq lbl_800CE2C8
 /* 800CE2BC 000CB21C  38 61 00 88 */	addi r3, r1, 0x88
 /* 800CE2C0 000CB220  38 80 FF FF */	li r4, -1
-/* 800CE2C4 000CB224  4B FF F4 F5 */	bl sub_800cd7b8
+/* 800CE2C4 000CB224  4B FF F4 F5 */	bl "__dt__Q24rstl60vector<Q211CVisorFlare9CFlareDef,Q24rstl17rmemory_allocator>Fv"
 lbl_800CE2C8:
 /* 800CE2C8 000CB228  38 61 00 98 */	addi r3, r1, 0x98
 /* 800CE2CC 000CB22C  38 80 FF FF */	li r4, -1
-/* 800CE2D0 000CB230  4B FF F4 E9 */	bl sub_800cd7b8
+/* 800CE2D0 000CB230  4B FF F4 E9 */	bl "__dt__Q24rstl60vector<Q211CVisorFlare9CFlareDef,Q24rstl17rmemory_allocator>Fv"
 /* 800CE2D4 000CB234  88 01 01 6C */	lbz r0, 0x16c(r1)
 /* 800CE2D8 000CB238  28 00 00 00 */	cmplwi r0, 0
 /* 800CE2DC 000CB23C  41 82 00 1C */	beq lbl_800CE2F8
@@ -10144,8 +10144,8 @@ lbl_800CE3C8:
 /* 800CE464 000CB3C4  38 21 06 30 */	addi r1, r1, 0x630
 /* 800CE468 000CB3C8  4E 80 00 20 */	blr
 
-.global sub_800ce46c
-sub_800ce46c:
+.global "__ct__Q24rstl60vector<Q211CVisorFlare9CFlareDef,Q24rstl17rmemory_allocator>FRCQ24rstl60vector<Q211CVisorFlare9CFlareDef,Q24rstl17rmemory_allocator>"
+"__ct__Q24rstl60vector<Q211CVisorFlare9CFlareDef,Q24rstl17rmemory_allocator>FRCQ24rstl60vector<Q211CVisorFlare9CFlareDef,Q24rstl17rmemory_allocator>":
 /* 800CE46C 000CB3CC  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 800CE470 000CB3D0  7C 08 02 A6 */	mflr r0
 /* 800CE474 000CB3D4  90 01 00 24 */	stw r0, 0x24(r1)

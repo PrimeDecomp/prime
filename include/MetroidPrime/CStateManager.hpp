@@ -97,6 +97,7 @@ public:
     kCFS_Max,
   };
 
+  bool RenderLast(const TUniqueId&);
   void ResetEscapeSequenceTimer(float);
   void SendScriptMsg(TUniqueId uid, TEditorId target, EScriptObjectMessage msg,
                      EScriptObjectState state);
@@ -109,6 +110,9 @@ public:
   void AddObject(CEntity*);
   TUniqueId AllocateUniqueId();
 
+
+  void BuildNearList(TEntityList& nearList, const CVector3f& pos, const CVector3f& dir, float mag, const CMaterialFilter&,
+                     const CActor*) const;
   void BuildNearList(TEntityList& nearList, const CAABox&, const CMaterialFilter&,
                      const CActor*) const;
   bool RayCollideWorld(const CVector3f& start, const CVector3f& end, const TEntityList& nearList,
@@ -169,6 +173,7 @@ public:
 
   float GetThermalColdScale1() const { return xf24_thermColdScale1; }
   float GetThermalColdScale2() const { return xf28_thermColdScale2; }
+  void SetThermalColdScale2(float s) { xf28_thermColdScale2 = s; }
 
   bool IsGeneratingObject() const { return xf94_26_generatingObject; }
   void SetIsGeneratingObject(bool gen) { xf94_26_generatingObject = gen; }
@@ -198,6 +203,8 @@ public:
   bool GetWantsToEnterMessageScreen() const {
     return xf90_deferredTransition == kSMT_MessageScreen;
   }
+  
+  EThermalDrawFlag GetThermalDrawFlag() const { return xf34_thermalFlag; }
 
   void SetLastTriggerId(TUniqueId uid) { xf74_lastTrigger = uid; }
   TUniqueId GetLastTriggerId() const { return xf74_lastTrigger; }
