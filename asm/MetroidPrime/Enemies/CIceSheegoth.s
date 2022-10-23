@@ -3387,8 +3387,8 @@ lbl_801A0E04:
 /* 801A0E2C 0019DD8C  41 82 01 50 */	beq lbl_801A0F7C
 /* 801A0E30 0019DD90  7F E4 FB 78 */	mr r4, r31
 /* 801A0E34 0019DD94  38 61 00 10 */	addi r3, r1, 0x10
-/* 801A0E38 0019DD98  4B F0 47 05 */	bl sub_800a553c
-/* 801A0E3C 0019DD9C  4B F0 46 D5 */	bl "CastTo<12CIceSheegoth>__10CPatternedFP7CEntity"
+/* 801A0E38 0019DD98  4B F0 47 05 */	bl "__ct__30TPatternedCast<12CIceSheegoth>FP7CEntity"
+/* 801A0E3C 0019DD9C  4B F0 46 D5 */	bl "CastTo<12CIceSheegoth>__10CPatternedFRC30TPatternedCast<12CIceSheegoth>"
 /* 801A0E40 0019DDA0  28 03 00 00 */	cmplwi r3, 0
 /* 801A0E44 0019DDA4  40 82 01 38 */	bne lbl_801A0F7C
 /* 801A0E48 0019DDA8  80 7D 00 04 */	lwz r3, 4(r29)
@@ -3518,8 +3518,8 @@ lbl_801A1008:
 /* 801A1018 0019DF78  4B EA B5 8D */	bl GetObjectById__13CStateManagerCF9TUniqueId
 /* 801A101C 0019DF7C  7C 64 1B 78 */	mr r4, r3
 /* 801A1020 0019DF80  38 61 00 0C */	addi r3, r1, 0xc
-/* 801A1024 0019DF84  4B F0 45 19 */	bl sub_800a553c
-/* 801A1028 0019DF88  4B F0 44 E9 */	bl "CastTo<12CIceSheegoth>__10CPatternedFP7CEntity"
+/* 801A1024 0019DF84  4B F0 45 19 */	bl "__ct__30TPatternedCast<12CIceSheegoth>FP7CEntity"
+/* 801A1028 0019DF88  4B F0 44 E9 */	bl "CastTo<12CIceSheegoth>__10CPatternedFRC30TPatternedCast<12CIceSheegoth>"
 /* 801A102C 0019DF8C  28 03 00 00 */	cmplwi r3, 0
 /* 801A1030 0019DF90  41 82 00 54 */	beq lbl_801A1084
 /* 801A1034 0019DF94  A0 83 00 08 */	lhz r4, 8(r3)

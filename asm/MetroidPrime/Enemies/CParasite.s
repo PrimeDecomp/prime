@@ -903,8 +903,8 @@ lbl_80157210:
 /* 80157220 00154180  4B EF 53 55 */	bl ObjectById__13CStateManagerF9TUniqueId
 /* 80157224 00154184  7C 64 1B 78 */	mr r4, r3
 /* 80157228 00154188  38 61 00 0C */	addi r3, r1, 0xc
-/* 8015722C 0015418C  4B F4 E2 0D */	bl sub_800a5438
-/* 80157230 00154190  4B F4 E1 DD */	bl "CastTo<9CParasite>__10CPatternedFP7CEntity"
+/* 8015722C 0015418C  4B F4 E2 0D */	bl "__ct__26TPatternedCast<9CParasite>FP7CEntity"
+/* 80157230 00154190  4B F4 E1 DD */	bl "CastTo<9CParasite>__10CPatternedFRC26TPatternedCast<9CParasite>"
 /* 80157234 00154194  28 03 00 00 */	cmplwi r3, 0
 /* 80157238 00154198  41 82 00 A0 */	beq lbl_801572D8
 /* 8015723C 0015419C  A0 A3 00 08 */	lhz r5, 8(r3)
@@ -1599,8 +1599,8 @@ lbl_80157C2C:
 /* 80157C3C 00154B9C  4B EF 49 39 */	bl ObjectById__13CStateManagerF9TUniqueId
 /* 80157C40 00154BA0  7C 64 1B 78 */	mr r4, r3
 /* 80157C44 00154BA4  38 61 00 0C */	addi r3, r1, 0xc
-/* 80157C48 00154BA8  4B F4 D7 F1 */	bl sub_800a5438
-/* 80157C4C 00154BAC  4B F4 D7 C1 */	bl "CastTo<9CParasite>__10CPatternedFP7CEntity"
+/* 80157C48 00154BA8  4B F4 D7 F1 */	bl "__ct__26TPatternedCast<9CParasite>FP7CEntity"
+/* 80157C4C 00154BAC  4B F4 D7 C1 */	bl "CastTo<9CParasite>__10CPatternedFRC26TPatternedCast<9CParasite>"
 /* 80157C50 00154BB0  7C 7F 1B 79 */	or. r31, r3, r3
 /* 80157C54 00154BB4  40 82 00 18 */	bne lbl_80157C6C
 /* 80157C58 00154BB8  7F C3 F3 78 */	mr r3, r30

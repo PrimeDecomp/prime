@@ -1374,8 +1374,8 @@ lbl_801DB2A4:
 /* 801DB2B8 001D8218  4B E7 12 BD */	bl ObjectById__13CStateManagerF9TUniqueId
 /* 801DB2BC 001D821C  7C 64 1B 78 */	mr r4, r3
 /* 801DB2C0 001D8220  38 61 00 0C */	addi r3, r1, 0xc
-/* 801DB2C4 001D8224  4B EC A0 D9 */	bl sub_800a539c
-/* 801DB2C8 001D8228  4B EC A0 A9 */	bl "CastTo<22CThardusRockProjectile>__10CPatternedFP7CEntity"
+/* 801DB2C4 001D8224  4B EC A0 D9 */	bl "__ct__40TPatternedCast<22CThardusRockProjectile>FP7CEntity"
+/* 801DB2C8 001D8228  4B EC A0 A9 */	bl "CastTo<22CThardusRockProjectile>__10CPatternedFRC40TPatternedCast<22CThardusRockProjectile>"
 /* 801DB2CC 001D822C  28 03 00 00 */	cmplwi r3, 0
 /* 801DB2D0 001D8230  41 82 00 0C */	beq lbl_801DB2DC
 /* 801DB2D4 001D8234  7F 84 E3 78 */	mr r4, r28
@@ -3316,8 +3316,8 @@ lbl_801DCDBC:
 /* 801DCDD0 001D9D30  4B E6 F7 A5 */	bl ObjectById__13CStateManagerF9TUniqueId
 /* 801DCDD4 001D9D34  7C 64 1B 78 */	mr r4, r3
 /* 801DCDD8 001D9D38  38 61 00 0C */	addi r3, r1, 0xc
-/* 801DCDDC 001D9D3C  4B EC 85 C1 */	bl sub_800a539c
-/* 801DCDE0 001D9D40  4B EC 85 91 */	bl "CastTo<22CThardusRockProjectile>__10CPatternedFP7CEntity"
+/* 801DCDDC 001D9D3C  4B EC 85 C1 */	bl "__ct__40TPatternedCast<22CThardusRockProjectile>FP7CEntity"
+/* 801DCDE0 001D9D40  4B EC 85 91 */	bl "CastTo<22CThardusRockProjectile>__10CPatternedFRC40TPatternedCast<22CThardusRockProjectile>"
 /* 801DCDE4 001D9D44  28 03 00 00 */	cmplwi r3, 0
 /* 801DCDE8 001D9D48  41 82 00 0C */	beq lbl_801DCDF4
 /* 801DCDEC 001D9D4C  7F 64 DB 78 */	mr r4, r27
@@ -7290,8 +7290,8 @@ lbl_801E0640:
 /* 801E0674 001DD5D4  4B E6 BF 01 */	bl ObjectById__13CStateManagerF9TUniqueId
 /* 801E0678 001DD5D8  7C 64 1B 78 */	mr r4, r3
 /* 801E067C 001DD5DC  38 61 00 88 */	addi r3, r1, 0x88
-/* 801E0680 001DD5E0  4B EC 4D 1D */	bl sub_800a539c
-/* 801E0684 001DD5E4  4B EC 4C ED */	bl "CastTo<22CThardusRockProjectile>__10CPatternedFP7CEntity"
+/* 801E0680 001DD5E0  4B EC 4D 1D */	bl "__ct__40TPatternedCast<22CThardusRockProjectile>FP7CEntity"
+/* 801E0684 001DD5E4  4B EC 4C ED */	bl "CastTo<22CThardusRockProjectile>__10CPatternedFRC40TPatternedCast<22CThardusRockProjectile>"
 /* 801E0688 001DD5E8  7C 7A 1B 79 */	or. r26, r3, r3
 /* 801E068C 001DD5EC  41 82 02 9C */	beq lbl_801E0928
 /* 801E0690 001DD5F0  81 83 00 00 */	lwz r12, 0(r3)
@@ -8597,8 +8597,8 @@ lbl_801E195C:
 /* 801E196C 001DE8CC  4B E6 AC 09 */	bl ObjectById__13CStateManagerF9TUniqueId
 /* 801E1970 001DE8D0  7C 64 1B 78 */	mr r4, r3
 /* 801E1974 001DE8D4  38 61 00 E4 */	addi r3, r1, 0xe4
-/* 801E1978 001DE8D8  4B EC 3A 25 */	bl sub_800a539c
-/* 801E197C 001DE8DC  4B EC 39 F5 */	bl "CastTo<22CThardusRockProjectile>__10CPatternedFP7CEntity"
+/* 801E1978 001DE8D8  4B EC 3A 25 */	bl "__ct__40TPatternedCast<22CThardusRockProjectile>FP7CEntity"
+/* 801E197C 001DE8DC  4B EC 39 F5 */	bl "CastTo<22CThardusRockProjectile>__10CPatternedFRC40TPatternedCast<22CThardusRockProjectile>"
 /* 801E1980 001DE8E0  28 03 00 00 */	cmplwi r3, 0
 /* 801E1984 001DE8E4  41 82 00 2C */	beq lbl_801E19B0
 /* 801E1988 001DE8E8  A0 01 00 C4 */	lhz r0, 0xc4(r1)

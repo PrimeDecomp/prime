@@ -511,8 +511,8 @@ UpdateTelegraphMoveSpeed__8CWarWaspFR13CStateManager:
 /* 8010AE18 00107D78  4B F4 17 8D */	bl GetObjectById__13CStateManagerCF9TUniqueId
 /* 8010AE1C 00107D7C  7C 64 1B 78 */	mr r4, r3
 /* 8010AE20 00107D80  38 61 00 14 */	addi r3, r1, 0x14
-/* 8010AE24 00107D84  4B F9 A5 45 */	bl sub_800a5368
-/* 8010AE28 00107D88  4B F9 A5 15 */	bl "CastTo<8CWarWasp>__10CPatternedFP7CEntity"
+/* 8010AE24 00107D84  4B F9 A5 45 */	bl "__ct__25TPatternedCast<8CWarWasp>FP7CEntity"
+/* 8010AE28 00107D88  4B F9 A5 15 */	bl "CastTo<8CWarWasp>__10CPatternedFRC25TPatternedCast<8CWarWasp>"
 /* 8010AE2C 00107D8C  28 03 00 00 */	cmplwi r3, 0
 /* 8010AE30 00107D90  41 82 00 A4 */	beq lbl_8010AED4
 /* 8010AE34 00107D94  A0 81 00 10 */	lhz r4, 0x10(r1)
@@ -659,8 +659,8 @@ lbl_8010B014:
 /* 8010B028 00107F88  4B F4 15 7D */	bl GetObjectById__13CStateManagerCF9TUniqueId
 /* 8010B02C 00107F8C  7C 64 1B 78 */	mr r4, r3
 /* 8010B030 00107F90  38 61 00 1C */	addi r3, r1, 0x1c
-/* 8010B034 00107F94  4B F9 A3 35 */	bl sub_800a5368
-/* 8010B038 00107F98  4B F9 A3 05 */	bl "CastTo<8CWarWasp>__10CPatternedFP7CEntity"
+/* 8010B034 00107F94  4B F9 A3 35 */	bl "__ct__25TPatternedCast<8CWarWasp>FP7CEntity"
+/* 8010B038 00107F98  4B F9 A3 05 */	bl "CastTo<8CWarWasp>__10CPatternedFRC25TPatternedCast<8CWarWasp>"
 /* 8010B03C 00107F9C  28 03 00 00 */	cmplwi r3, 0
 /* 8010B040 00107FA0  41 82 00 14 */	beq lbl_8010B054
 /* 8010B044 00107FA4  80 03 07 08 */	lwz r0, 0x708(r3)
@@ -724,8 +724,8 @@ lbl_8010B0FC:
 /* 8010B110 00108070  4B F4 14 95 */	bl GetObjectById__13CStateManagerCF9TUniqueId
 /* 8010B114 00108074  7C 64 1B 78 */	mr r4, r3
 /* 8010B118 00108078  38 61 00 1C */	addi r3, r1, 0x1c
-/* 8010B11C 0010807C  4B F9 A2 4D */	bl sub_800a5368
-/* 8010B120 00108080  4B F9 A2 1D */	bl "CastTo<8CWarWasp>__10CPatternedFP7CEntity"
+/* 8010B11C 0010807C  4B F9 A2 4D */	bl "__ct__25TPatternedCast<8CWarWasp>FP7CEntity"
+/* 8010B120 00108080  4B F9 A2 1D */	bl "CastTo<8CWarWasp>__10CPatternedFRC25TPatternedCast<8CWarWasp>"
 /* 8010B124 00108084  28 03 00 00 */	cmplwi r3, 0
 /* 8010B128 00108088  41 82 00 1C */	beq lbl_8010B144
 /* 8010B12C 0010808C  80 03 07 08 */	lwz r0, 0x708(r3)
@@ -809,8 +809,8 @@ lbl_8010B230:
 /* 8010B244 001081A4  4B F4 13 31 */	bl ObjectById__13CStateManagerF9TUniqueId
 /* 8010B248 001081A8  7C 64 1B 78 */	mr r4, r3
 /* 8010B24C 001081AC  38 61 00 20 */	addi r3, r1, 0x20
-/* 8010B250 001081B0  4B F9 A1 19 */	bl sub_800a5368
-/* 8010B254 001081B4  4B F9 A0 E9 */	bl "CastTo<8CWarWasp>__10CPatternedFP7CEntity"
+/* 8010B250 001081B0  4B F9 A1 19 */	bl "__ct__25TPatternedCast<8CWarWasp>FP7CEntity"
+/* 8010B254 001081B4  4B F9 A0 E9 */	bl "CastTo<8CWarWasp>__10CPatternedFRC25TPatternedCast<8CWarWasp>"
 /* 8010B258 001081B8  28 03 00 00 */	cmplwi r3, 0
 /* 8010B25C 001081BC  41 82 00 1C */	beq lbl_8010B278
 /* 8010B260 001081C0  80 03 07 08 */	lwz r0, 0x708(r3)
@@ -882,8 +882,8 @@ lbl_8010B338:
 /* 8010B34C 001082AC  4B F4 12 59 */	bl GetObjectById__13CStateManagerCF9TUniqueId
 /* 8010B350 001082B0  7C 64 1B 78 */	mr r4, r3
 /* 8010B354 001082B4  38 61 00 1C */	addi r3, r1, 0x1c
-/* 8010B358 001082B8  4B F9 A0 11 */	bl sub_800a5368
-/* 8010B35C 001082BC  4B F9 9F E1 */	bl "CastTo<8CWarWasp>__10CPatternedFP7CEntity"
+/* 8010B358 001082B8  4B F9 A0 11 */	bl "__ct__25TPatternedCast<8CWarWasp>FP7CEntity"
+/* 8010B35C 001082BC  4B F9 9F E1 */	bl "CastTo<8CWarWasp>__10CPatternedFRC25TPatternedCast<8CWarWasp>"
 /* 8010B360 001082C0  28 03 00 00 */	cmplwi r3, 0
 /* 8010B364 001082C4  41 82 00 58 */	beq lbl_8010B3BC
 /* 8010B368 001082C8  80 9A 07 0C */	lwz r4, 0x70c(r26)
@@ -1002,8 +1002,8 @@ lbl_8010B4D4:
 /* 8010B4FC 0010845C  4B F4 10 A9 */	bl GetObjectById__13CStateManagerCF9TUniqueId
 /* 8010B500 00108460  7C 64 1B 78 */	mr r4, r3
 /* 8010B504 00108464  38 61 00 24 */	addi r3, r1, 0x24
-/* 8010B508 00108468  4B F9 9E 61 */	bl sub_800a5368
-/* 8010B50C 0010846C  4B F9 9E 31 */	bl "CastTo<8CWarWasp>__10CPatternedFP7CEntity"
+/* 8010B508 00108468  4B F9 9E 61 */	bl "__ct__25TPatternedCast<8CWarWasp>FP7CEntity"
+/* 8010B50C 0010846C  4B F9 9E 31 */	bl "CastTo<8CWarWasp>__10CPatternedFRC25TPatternedCast<8CWarWasp>"
 /* 8010B510 00108470  28 03 00 00 */	cmplwi r3, 0
 /* 8010B514 00108474  41 82 01 60 */	beq lbl_8010B674
 /* 8010B518 00108478  C3 A3 00 60 */	lfs f29, 0x60(r3)
@@ -1036,8 +1036,8 @@ lbl_8010B564:
 /* 8010B580 001084E0  4B F4 10 25 */	bl GetObjectById__13CStateManagerCF9TUniqueId
 /* 8010B584 001084E4  7C 64 1B 78 */	mr r4, r3
 /* 8010B588 001084E8  38 61 00 20 */	addi r3, r1, 0x20
-/* 8010B58C 001084EC  4B F9 9D DD */	bl sub_800a5368
-/* 8010B590 001084F0  4B F9 9D AD */	bl "CastTo<8CWarWasp>__10CPatternedFP7CEntity"
+/* 8010B58C 001084EC  4B F9 9D DD */	bl "__ct__25TPatternedCast<8CWarWasp>FP7CEntity"
+/* 8010B590 001084F0  4B F9 9D AD */	bl "CastTo<8CWarWasp>__10CPatternedFRC25TPatternedCast<8CWarWasp>"
 /* 8010B594 001084F4  28 03 00 00 */	cmplwi r3, 0
 /* 8010B598 001084F8  41 82 00 84 */	beq lbl_8010B61C
 /* 8010B59C 001084FC  80 03 07 08 */	lwz r0, 0x708(r3)
@@ -1249,8 +1249,8 @@ lbl_8010B87C:
 /* 8010B89C 001087FC  4B F4 0D 09 */	bl GetObjectById__13CStateManagerCF9TUniqueId
 /* 8010B8A0 00108800  7C 64 1B 78 */	mr r4, r3
 /* 8010B8A4 00108804  38 61 00 20 */	addi r3, r1, 0x20
-/* 8010B8A8 00108808  4B F9 9A C1 */	bl sub_800a5368
-/* 8010B8AC 0010880C  4B F9 9A 91 */	bl "CastTo<8CWarWasp>__10CPatternedFP7CEntity"
+/* 8010B8A8 00108808  4B F9 9A C1 */	bl "__ct__25TPatternedCast<8CWarWasp>FP7CEntity"
+/* 8010B8AC 0010880C  4B F9 9A 91 */	bl "CastTo<8CWarWasp>__10CPatternedFRC25TPatternedCast<8CWarWasp>"
 /* 8010B8B0 00108810  28 03 00 00 */	cmplwi r3, 0
 /* 8010B8B4 00108814  41 82 00 8C */	beq lbl_8010B940
 /* 8010B8B8 00108818  80 83 07 08 */	lwz r4, 0x708(r3)
@@ -2190,8 +2190,8 @@ lbl_8010C65C:
 /* 8010C66C 001095CC  4B F3 FF 39 */	bl GetObjectById__13CStateManagerCF9TUniqueId
 /* 8010C670 001095D0  7C 64 1B 78 */	mr r4, r3
 /* 8010C674 001095D4  38 61 00 0C */	addi r3, r1, 0xc
-/* 8010C678 001095D8  4B F9 8C F1 */	bl sub_800a5368
-/* 8010C67C 001095DC  4B F9 8C C1 */	bl "CastTo<8CWarWasp>__10CPatternedFP7CEntity"
+/* 8010C678 001095D8  4B F9 8C F1 */	bl "__ct__25TPatternedCast<8CWarWasp>FP7CEntity"
+/* 8010C67C 001095DC  4B F9 8C C1 */	bl "CastTo<8CWarWasp>__10CPatternedFRC25TPatternedCast<8CWarWasp>"
 /* 8010C680 001095E0  7C 7D 1B 79 */	or. r29, r3, r3
 /* 8010C684 001095E4  41 82 01 14 */	beq lbl_8010C798
 /* 8010C688 001095E8  A0 7D 00 08 */	lhz r3, 8(r29)
@@ -5825,8 +5825,8 @@ lbl_8010FB08:
 /* 8010FB14 0010CA74  4B F3 CA 91 */	bl GetObjectById__13CStateManagerCF9TUniqueId
 /* 8010FB18 0010CA78  7C 64 1B 78 */	mr r4, r3
 /* 8010FB1C 0010CA7C  38 61 00 30 */	addi r3, r1, 0x30
-/* 8010FB20 0010CA80  4B F9 58 49 */	bl sub_800a5368
-/* 8010FB24 0010CA84  4B F9 58 19 */	bl "CastTo<8CWarWasp>__10CPatternedFP7CEntity"
+/* 8010FB20 0010CA80  4B F9 58 49 */	bl "__ct__25TPatternedCast<8CWarWasp>FP7CEntity"
+/* 8010FB24 0010CA84  4B F9 58 19 */	bl "CastTo<8CWarWasp>__10CPatternedFRC25TPatternedCast<8CWarWasp>"
 /* 8010FB28 0010CA88  28 03 00 00 */	cmplwi r3, 0
 /* 8010FB2C 0010CA8C  41 82 00 3C */	beq lbl_8010FB68
 /* 8010FB30 0010CA90  88 03 07 2E */	lbz r0, 0x72e(r3)

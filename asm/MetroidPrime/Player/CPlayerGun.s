@@ -2449,8 +2449,8 @@ lbl_8003C340:
 /* 8003C354 000392B4  48 01 02 51 */	bl GetObjectById__13CStateManagerCF9TUniqueId
 /* 8003C358 000392B8  7C 64 1B 78 */	mr r4, r3
 /* 8003C35C 000392BC  38 61 00 14 */	addi r3, r1, 0x14
-/* 8003C360 000392C0  48 06 91 41 */	bl sub_800a54a0
-/* 8003C364 000392C4  48 06 91 11 */	bl "CastTo<12CMetroidBeta>__10CPatternedFP7CEntity"
+/* 8003C360 000392C0  48 06 91 41 */	bl "__ct__30TPatternedCast<12CMetroidBeta>FP7CEntity"
+/* 8003C364 000392C4  48 06 91 11 */	bl "CastTo<12CMetroidBeta>__10CPatternedFRC30TPatternedCast<12CMetroidBeta>"
 /* 8003C368 000392C8  28 03 00 00 */	cmplwi r3, 0
 /* 8003C36C 000392CC  41 82 00 0C */	beq lbl_8003C378
 /* 8003C370 000392D0  48 18 92 BD */	bl RenderHitGunEffect__12CMetroidBetaCFv
@@ -2838,8 +2838,8 @@ lbl_8003C894:
 /* 8003C8FC 0003985C  48 00 FC A9 */	bl GetObjectById__13CStateManagerCF9TUniqueId
 /* 8003C900 00039860  7C 64 1B 78 */	mr r4, r3
 /* 8003C904 00039864  38 61 00 34 */	addi r3, r1, 0x34
-/* 8003C908 00039868  48 06 8B CD */	bl sub_800a54d4
-/* 8003C90C 0003986C  48 06 8B 9D */	bl "CastTo<8CMetroid>__10CPatternedFP7CEntity"
+/* 8003C908 00039868  48 06 8B CD */	bl "__ct__25TPatternedCast<8CMetroid>FP7CEntity"
+/* 8003C90C 0003986C  48 06 8B 9D */	bl "CastTo<8CMetroid>__10CPatternedFRC25TPatternedCast<8CMetroid>"
 /* 8003C910 00039870  7C 03 00 D0 */	neg r0, r3
 /* 8003C914 00039874  7C 00 1B 78 */	or r0, r0, r3
 /* 8003C918 00039878  54 19 0F FE */	srwi r25, r0, 0x1f

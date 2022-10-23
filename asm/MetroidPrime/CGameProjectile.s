@@ -2221,8 +2221,8 @@ lbl_80039178:
 /* 800391A4 00036104  40 82 00 1C */	bne lbl_800391C0
 /* 800391A8 00036108  7F C4 F3 78 */	mr r4, r30
 /* 800391AC 0003610C  38 61 00 08 */	addi r3, r1, 8
-/* 800391B0 00036110  48 06 C2 55 */	bl sub_800a5404
-/* 800391B4 00036114  48 06 C2 25 */	bl "CastTo<11CPuddleToad>__10CPatternedFP7CEntity"
+/* 800391B0 00036110  48 06 C2 55 */	bl "__ct__29TPatternedCast<11CPuddleToad>FP7CEntity"
+/* 800391B4 00036114  48 06 C2 25 */	bl "CastTo<11CPuddleToad>__10CPatternedFRC29TPatternedCast<11CPuddleToad>"
 /* 800391B8 00036118  28 03 00 00 */	cmplwi r3, 0
 /* 800391BC 0003611C  41 82 00 1C */	beq lbl_800391D8
 lbl_800391C0:
@@ -2278,8 +2278,8 @@ CanCollideWithComplexCollision__15CGameProjectileFR6CActorR13CStateManager:
 lbl_80039270:
 /* 80039270 000361D0  7F C4 F3 78 */	mr r4, r30
 /* 80039274 000361D4  38 61 00 08 */	addi r3, r1, 8
-/* 80039278 000361D8  48 06 C1 8D */	bl sub_800a5404
-/* 8003927C 000361DC  48 06 C1 5D */	bl "CastTo<11CPuddleToad>__10CPatternedFP7CEntity"
+/* 80039278 000361D8  48 06 C1 8D */	bl "__ct__29TPatternedCast<11CPuddleToad>FP7CEntity"
+/* 8003927C 000361DC  48 06 C1 5D */	bl "CastTo<11CPuddleToad>__10CPatternedFRC29TPatternedCast<11CPuddleToad>"
 /* 80039280 000361E0  28 03 00 00 */	cmplwi r3, 0
 /* 80039284 000361E4  41 82 00 0C */	beq lbl_80039290
 /* 80039288 000361E8  7F DA F3 78 */	mr r26, r30

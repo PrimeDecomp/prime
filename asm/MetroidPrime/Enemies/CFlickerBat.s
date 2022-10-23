@@ -571,8 +571,8 @@ lbl_801307F4:
 /* 80130804 0012D764  4B F1 BD 71 */	bl ObjectById__13CStateManagerF9TUniqueId
 /* 80130808 0012D768  7C 64 1B 78 */	mr r4, r3
 /* 8013080C 0012D76C  38 61 00 0C */	addi r3, r1, 0xc
-/* 80130810 0012D770  4B F7 4D 61 */	bl sub_800a5570
-/* 80130814 0012D774  4B F7 4D 31 */	bl "CastTo<11CFlickerBat>__10CPatternedFP7CEntity"
+/* 80130810 0012D770  4B F7 4D 61 */	bl "__ct__29TPatternedCast<11CFlickerBat>FP7CEntity"
+/* 80130814 0012D774  4B F7 4D 31 */	bl "CastTo<11CFlickerBat>__10CPatternedFRC29TPatternedCast<11CFlickerBat>"
 /* 80130818 0012D778  28 03 00 00 */	cmplwi r3, 0
 /* 8013081C 0012D77C  40 82 00 18 */	bne lbl_80130834
 /* 80130820 0012D780  7F E3 FB 78 */	mr r3, r31

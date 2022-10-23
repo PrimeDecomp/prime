@@ -5,7 +5,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/main.o\
 	$(BUILD_DIR)/asm/MetroidPrime/IRenderer.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Cameras/CCameraManager.o\
-	$(BUILD_DIR)/asm/MetroidPrime/CControlMapper.o\
+	$(BUILD_DIR)/src/MetroidPrime/CControlMapper.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Cameras/CFirstPersonCamera.o\
 	$(BUILD_DIR)/src/MetroidPrime/CObjectList.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Player/CPlayer.o\
@@ -70,7 +70,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/src/MetroidPrime/ScriptObjects/CScriptCounter.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CMapWorld.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CAi.o\
-	$(BUILD_DIR)/asm/MetroidPrime/Enemies/PatternedCastTo.o\
+	$(BUILD_DIR)/src/MetroidPrime/Enemies/PatternedCastTo.o\
 	$(BUILD_DIR)/src/MetroidPrime/TCastTo.o\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptSound.o\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptPlatform.o\

@@ -33,16 +33,16 @@ public:
 
   void Setup(CAiTriggerFunc func, bool lnot, float arg, CAiTrigger* andTrig) {
     x0_func = func;
-    x18_lNot = lnot;
     xc_arg = arg;
     x10_andTrigger = andTrig;
+    x18_lNot = lnot;
   }
 
   void Setup(CAiTriggerFunc func, bool lnot, float arg, CAiState* state) {
     x0_func = func;
-    x18_lNot = lnot;
     xc_arg = arg;
     x14_state = state;
+    x18_lNot = lnot;
   }
 
 private:

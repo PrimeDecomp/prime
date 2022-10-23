@@ -3601,8 +3601,8 @@ lbl_802739AC:
 /* 802739BC 0027091C  4B DD 8B B9 */	bl ObjectById__13CStateManagerF9TUniqueId
 /* 802739C0 00270920  7C 64 1B 78 */	mr r4, r3
 /* 802739C4 00270924  38 61 00 0C */	addi r3, r1, 0xc
-/* 802739C8 00270928  4B E3 1B DD */	bl sub_800a55a4
-/* 802739CC 0027092C  4B E3 1B AD */	bl "CastTo<11CEnergyBall>__10CPatternedFP7CEntity"
+/* 802739C8 00270928  4B E3 1B DD */	bl "__ct__29TPatternedCast<11CEnergyBall>FP7CEntity"
+/* 802739CC 0027092C  4B E3 1B AD */	bl "CastTo<11CEnergyBall>__10CPatternedFRC29TPatternedCast<11CEnergyBall>"
 /* 802739D0 00270930  7C 7D 1B 79 */	or. r29, r3, r3
 /* 802739D4 00270934  41 82 00 64 */	beq lbl_80273A38
 /* 802739D8 00270938  38 82 BB D4 */	addi r4, r2, lbl_805AD8F4@sda21
@@ -3702,8 +3702,8 @@ lbl_80273AF0:
 /* 80273B18 00270A78  4B DD 8A 8D */	bl GetObjectById__13CStateManagerCF9TUniqueId
 /* 80273B1C 00270A7C  7C 64 1B 78 */	mr r4, r3
 /* 80273B20 00270A80  38 61 00 20 */	addi r3, r1, 0x20
-/* 80273B24 00270A84  4B E3 1A 81 */	bl sub_800a55a4
-/* 80273B28 00270A88  4B E3 1A 51 */	bl "CastTo<11CEnergyBall>__10CPatternedFP7CEntity"
+/* 80273B24 00270A84  4B E3 1A 81 */	bl "__ct__29TPatternedCast<11CEnergyBall>FP7CEntity"
+/* 80273B28 00270A88  4B E3 1A 51 */	bl "CastTo<11CEnergyBall>__10CPatternedFRC29TPatternedCast<11CEnergyBall>"
 /* 80273B2C 00270A8C  28 03 00 00 */	cmplwi r3, 0
 /* 80273B30 00270A90  41 82 01 1C */	beq lbl_80273C4C
 /* 80273B34 00270A94  80 03 05 70 */	lwz r0, 0x570(r3)
@@ -3721,8 +3721,8 @@ lbl_80273AF0:
 /* 80273B64 00270AC4  4B DD 8A 11 */	bl ObjectById__13CStateManagerF9TUniqueId
 /* 80273B68 00270AC8  7C 64 1B 78 */	mr r4, r3
 /* 80273B6C 00270ACC  38 61 00 24 */	addi r3, r1, 0x24
-/* 80273B70 00270AD0  4B E3 1A 35 */	bl sub_800a55a4
-/* 80273B74 00270AD4  4B E3 1A 05 */	bl "CastTo<11CEnergyBall>__10CPatternedFP7CEntity"
+/* 80273B70 00270AD0  4B E3 1A 35 */	bl "__ct__29TPatternedCast<11CEnergyBall>FP7CEntity"
+/* 80273B74 00270AD4  4B E3 1A 05 */	bl "CastTo<11CEnergyBall>__10CPatternedFRC29TPatternedCast<11CEnergyBall>"
 /* 80273B78 00270AD8  7C 7A 1B 79 */	or. r26, r3, r3
 /* 80273B7C 00270ADC  41 82 00 D0 */	beq lbl_80273C4C
 /* 80273B80 00270AE0  80 CD A5 84 */	lwz r6, lbl_805A9144@sda21(r13)
@@ -3813,8 +3813,8 @@ lbl_80273CA8:
 /* 80273CB4 00270C14  7C 60 1B 78 */	mr r0, r3
 /* 80273CB8 00270C18  38 61 00 08 */	addi r3, r1, 8
 /* 80273CBC 00270C1C  7C 04 03 78 */	mr r4, r0
-/* 80273CC0 00270C20  4B E3 18 E5 */	bl sub_800a55a4
-/* 80273CC4 00270C24  4B E3 18 B5 */	bl "CastTo<11CEnergyBall>__10CPatternedFP7CEntity"
+/* 80273CC0 00270C20  4B E3 18 E5 */	bl "__ct__29TPatternedCast<11CEnergyBall>FP7CEntity"
+/* 80273CC4 00270C24  4B E3 18 B5 */	bl "CastTo<11CEnergyBall>__10CPatternedFRC29TPatternedCast<11CEnergyBall>"
 /* 80273CC8 00270C28  28 03 00 00 */	cmplwi r3, 0
 /* 80273CCC 00270C2C  41 82 00 24 */	beq lbl_80273CF0
 /* 80273CD0 00270C30  80 83 00 04 */	lwz r4, 4(r3)

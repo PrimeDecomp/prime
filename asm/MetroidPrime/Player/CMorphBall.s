@@ -2581,8 +2581,8 @@ lbl_800EF064:
 /* 800EF078 000EBFD8  4B F5 D5 2D */	bl GetObjectById__13CStateManagerCF9TUniqueId
 /* 800EF07C 000EBFDC  7C 64 1B 78 */	mr r4, r3
 /* 800EF080 000EBFE0  38 61 00 10 */	addi r3, r1, 0x10
-/* 800EF084 000EBFE4  4B FB 64 1D */	bl sub_800a54a0
-/* 800EF088 000EBFE8  4B FB 63 ED */	bl "CastTo<12CMetroidBeta>__10CPatternedFP7CEntity"
+/* 800EF084 000EBFE4  4B FB 64 1D */	bl "__ct__30TPatternedCast<12CMetroidBeta>FP7CEntity"
+/* 800EF088 000EBFE8  4B FB 63 ED */	bl "CastTo<12CMetroidBeta>__10CPatternedFRC30TPatternedCast<12CMetroidBeta>"
 /* 800EF08C 000EBFEC  28 03 00 00 */	cmplwi r3, 0
 /* 800EF090 000EBFF0  41 82 00 0C */	beq lbl_800EF09C
 /* 800EF094 000EBFF4  48 0D 65 D5 */	bl RenderHitBallEffect__12CMetroidBetaCFv

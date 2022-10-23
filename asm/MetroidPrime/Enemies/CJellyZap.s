@@ -362,8 +362,8 @@ lbl_801D7AC0:
 /* 801D7ACC 001D4A2C  7C 60 1B 78 */	mr r0, r3
 /* 801D7AD0 001D4A30  38 61 00 08 */	addi r3, r1, 8
 /* 801D7AD4 001D4A34  7C 04 03 78 */	mr r4, r0
-/* 801D7AD8 001D4A38  4B EC DA 31 */	bl sub_800a5508
-/* 801D7ADC 001D4A3C  4B EC DA 01 */	bl "CastTo<9CJellyZap>__10CPatternedFP7CEntity"
+/* 801D7AD8 001D4A38  4B EC DA 31 */	bl "__ct__26TPatternedCast<9CJellyZap>FP7CEntity"
+/* 801D7ADC 001D4A3C  4B EC DA 01 */	bl "CastTo<9CJellyZap>__10CPatternedFRC26TPatternedCast<9CJellyZap>"
 /* 801D7AE0 001D4A40  28 03 00 00 */	cmplwi r3, 0
 /* 801D7AE4 001D4A44  41 82 00 74 */	beq lbl_801D7B58
 /* 801D7AE8 001D4A48  80 83 00 04 */	lwz r4, 4(r3)

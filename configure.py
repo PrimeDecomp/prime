@@ -105,7 +105,7 @@ LIBS = [
             ["MetroidPrime/ScriptObjects/CScriptCounter", True],
             "MetroidPrime/CMapWorld",
             "MetroidPrime/Enemies/CAi",
-            "MetroidPrime/Enemies/PatternedCastTo",
+            ["MetroidPrime/Enemies/PatternedCastTo", True],
             ["MetroidPrime/TCastTo", True],
             "MetroidPrime/ScriptObjects/CScriptSound",
             ["MetroidPrime/ScriptObjects/CScriptPlatform", False],

@@ -818,8 +818,8 @@ lbl_8016A578:
 /* 8016A588 001674E8  4B EE 20 1D */	bl GetObjectById__13CStateManagerCF9TUniqueId
 /* 8016A58C 001674EC  7C 64 1B 78 */	mr r4, r3
 /* 8016A590 001674F0  38 61 00 10 */	addi r3, r1, 0x10
-/* 8016A594 001674F4  4B F3 AF 0D */	bl sub_800a54a0
-/* 8016A598 001674F8  4B F3 AE DD */	bl "CastTo<12CMetroidBeta>__10CPatternedFP7CEntity"
+/* 8016A594 001674F4  4B F3 AF 0D */	bl "__ct__30TPatternedCast<12CMetroidBeta>FP7CEntity"
+/* 8016A598 001674F8  4B F3 AE DD */	bl "CastTo<12CMetroidBeta>__10CPatternedFRC30TPatternedCast<12CMetroidBeta>"
 /* 8016A59C 001674FC  28 03 00 00 */	cmplwi r3, 0
 /* 8016A5A0 00167500  41 82 00 0C */	beq lbl_8016A5AC
 /* 8016A5A4 00167504  38 60 00 01 */	li r3, 1
@@ -881,8 +881,8 @@ sub_8016a5e8:
 /* 8016A668 001675C8  48 00 00 40 */	b lbl_8016A6A8
 lbl_8016A66C:
 /* 8016A66C 001675CC  38 61 00 10 */	addi r3, r1, 0x10
-/* 8016A670 001675D0  4B F3 AD 61 */	bl sub_800a53d0
-/* 8016A674 001675D4  4B F3 AD 31 */	bl "CastTo<12CSpacePirate>__10CPatternedFP7CEntity"
+/* 8016A670 001675D0  4B F3 AD 61 */	bl "__ct__30TPatternedCast<12CSpacePirate>FP7CEntity"
+/* 8016A674 001675D4  4B F3 AD 31 */	bl "CastTo<12CSpacePirate>__10CPatternedFRC30TPatternedCast<12CSpacePirate>"
 /* 8016A678 001675D8  28 03 00 00 */	cmplwi r3, 0
 /* 8016A67C 001675DC  41 82 00 28 */	beq lbl_8016A6A4
 /* 8016A680 001675E0  A0 63 07 B4 */	lhz r3, 0x7b4(r3)
@@ -2813,8 +2813,8 @@ lbl_8016C300:
 /* 8016C31C 0016927C  4B EE 02 89 */	bl GetObjectById__13CStateManagerCF9TUniqueId
 /* 8016C320 00169280  7C 64 1B 78 */	mr r4, r3
 /* 8016C324 00169284  38 61 00 0C */	addi r3, r1, 0xc
-/* 8016C328 00169288  4B F3 90 A9 */	bl sub_800a53d0
-/* 8016C32C 0016928C  4B F3 90 79 */	bl "CastTo<12CSpacePirate>__10CPatternedFP7CEntity"
+/* 8016C328 00169288  4B F3 90 A9 */	bl "__ct__30TPatternedCast<12CSpacePirate>FP7CEntity"
+/* 8016C32C 0016928C  4B F3 90 79 */	bl "CastTo<12CSpacePirate>__10CPatternedFRC30TPatternedCast<12CSpacePirate>"
 /* 8016C330 00169290  28 03 00 00 */	cmplwi r3, 0
 /* 8016C334 00169294  41 82 00 44 */	beq lbl_8016C378
 /* 8016C338 00169298  88 03 06 38 */	lbz r0, 0x638(r3)
@@ -3739,8 +3739,8 @@ lbl_8016D0A4:
 /* 8016D0C0 0016A020  4B ED F4 B5 */	bl ObjectById__13CStateManagerF9TUniqueId
 /* 8016D0C4 0016A024  7C 64 1B 78 */	mr r4, r3
 /* 8016D0C8 0016A028  38 61 00 14 */	addi r3, r1, 0x14
-/* 8016D0CC 0016A02C  4B F3 83 05 */	bl sub_800a53d0
-/* 8016D0D0 0016A030  4B F3 82 D5 */	bl "CastTo<12CSpacePirate>__10CPatternedFP7CEntity"
+/* 8016D0CC 0016A02C  4B F3 83 05 */	bl "__ct__30TPatternedCast<12CSpacePirate>FP7CEntity"
+/* 8016D0D0 0016A030  4B F3 82 D5 */	bl "CastTo<12CSpacePirate>__10CPatternedFRC30TPatternedCast<12CSpacePirate>"
 /* 8016D0D4 0016A034  7C 7C 1B 79 */	or. r28, r3, r3
 /* 8016D0D8 0016A038  41 82 00 58 */	beq lbl_8016D130
 /* 8016D0DC 0016A03C  A0 9C 07 B4 */	lhz r4, 0x7b4(r28)
@@ -3950,8 +3950,8 @@ sub_8016d370:
 /* 8016D3C4 0016A324  4B ED F1 B1 */	bl ObjectById__13CStateManagerF9TUniqueId
 /* 8016D3C8 0016A328  7C 64 1B 78 */	mr r4, r3
 /* 8016D3CC 0016A32C  38 61 00 0C */	addi r3, r1, 0xc
-/* 8016D3D0 0016A330  4B F3 81 05 */	bl sub_800a54d4
-/* 8016D3D4 0016A334  4B F3 80 D5 */	bl "CastTo<8CMetroid>__10CPatternedFP7CEntity"
+/* 8016D3D0 0016A330  4B F3 81 05 */	bl "__ct__25TPatternedCast<8CMetroid>FP7CEntity"
+/* 8016D3D4 0016A334  4B F3 80 D5 */	bl "CastTo<8CMetroid>__10CPatternedFRC25TPatternedCast<8CMetroid>"
 /* 8016D3D8 0016A338  7C 7F 1B 79 */	or. r31, r3, r3
 /* 8016D3DC 0016A33C  41 82 01 60 */	beq lbl_8016D53C
 /* 8016D3E0 0016A340  C0 3E 00 50 */	lfs f1, 0x50(r30)
@@ -4634,8 +4634,8 @@ sub_8016ddb0:
 /* 8016DDF0 0016AD50  4B ED E7 85 */	bl ObjectById__13CStateManagerF9TUniqueId
 /* 8016DDF4 0016AD54  7C 64 1B 78 */	mr r4, r3
 /* 8016DDF8 0016AD58  38 61 00 28 */	addi r3, r1, 0x28
-/* 8016DDFC 0016AD5C  4B F3 75 D5 */	bl sub_800a53d0
-/* 8016DE00 0016AD60  4B F3 75 A5 */	bl "CastTo<12CSpacePirate>__10CPatternedFP7CEntity"
+/* 8016DDFC 0016AD5C  4B F3 75 D5 */	bl "__ct__30TPatternedCast<12CSpacePirate>FP7CEntity"
+/* 8016DE00 0016AD60  4B F3 75 A5 */	bl "CastTo<12CSpacePirate>__10CPatternedFRC30TPatternedCast<12CSpacePirate>"
 /* 8016DE04 0016AD64  7C 7D 1B 79 */	or. r29, r3, r3
 /* 8016DE08 0016AD68  41 82 01 18 */	beq lbl_8016DF20
 /* 8016DE0C 0016AD6C  7F C3 F3 78 */	mr r3, r30
@@ -6025,8 +6025,8 @@ lbl_8016F1F8:
 /* 8016F208 0016C168  4B ED D3 6D */	bl ObjectById__13CStateManagerF9TUniqueId
 /* 8016F20C 0016C16C  7C 64 1B 78 */	mr r4, r3
 /* 8016F210 0016C170  38 61 00 28 */	addi r3, r1, 0x28
-/* 8016F214 0016C174  4B F3 61 BD */	bl sub_800a53d0
-/* 8016F218 0016C178  4B F3 61 8D */	bl "CastTo<12CSpacePirate>__10CPatternedFP7CEntity"
+/* 8016F214 0016C174  4B F3 61 BD */	bl "__ct__30TPatternedCast<12CSpacePirate>FP7CEntity"
+/* 8016F218 0016C178  4B F3 61 8D */	bl "CastTo<12CSpacePirate>__10CPatternedFRC30TPatternedCast<12CSpacePirate>"
 /* 8016F21C 0016C17C  7C 7A 1B 79 */	or. r26, r3, r3
 /* 8016F220 0016C180  41 82 00 5C */	beq lbl_8016F27C
 /* 8016F224 0016C184  7F C3 F3 78 */	mr r3, r30
@@ -6103,8 +6103,8 @@ lbl_8016F310:
 /* 8016F320 0016C280  4B ED D2 55 */	bl ObjectById__13CStateManagerF9TUniqueId
 /* 8016F324 0016C284  7C 64 1B 78 */	mr r4, r3
 /* 8016F328 0016C288  38 61 00 24 */	addi r3, r1, 0x24
-/* 8016F32C 0016C28C  4B F3 60 A5 */	bl sub_800a53d0
-/* 8016F330 0016C290  4B F3 60 75 */	bl "CastTo<12CSpacePirate>__10CPatternedFP7CEntity"
+/* 8016F32C 0016C28C  4B F3 60 A5 */	bl "__ct__30TPatternedCast<12CSpacePirate>FP7CEntity"
+/* 8016F330 0016C290  4B F3 60 75 */	bl "CastTo<12CSpacePirate>__10CPatternedFRC30TPatternedCast<12CSpacePirate>"
 /* 8016F334 0016C294  7C 64 1B 79 */	or. r4, r3, r3
 /* 8016F338 0016C298  41 82 01 B8 */	beq lbl_8016F4F0
 /* 8016F33C 0016C29C  A0 1E 00 08 */	lhz r0, 8(r30)
@@ -6973,8 +6973,8 @@ Inside__8CMetroidFR13CStateManagerf:
 /* 8016FFB4 0016CF14  4B ED C5 F1 */	bl GetObjectById__13CStateManagerCF9TUniqueId
 /* 8016FFB8 0016CF18  7C 64 1B 78 */	mr r4, r3
 /* 8016FFBC 0016CF1C  38 61 00 0C */	addi r3, r1, 0xc
-/* 8016FFC0 0016CF20  4B F3 55 15 */	bl sub_800a54d4
-/* 8016FFC4 0016CF24  4B F3 54 E5 */	bl "CastTo<8CMetroid>__10CPatternedFP7CEntity"
+/* 8016FFC0 0016CF20  4B F3 55 15 */	bl "__ct__25TPatternedCast<8CMetroid>FP7CEntity"
+/* 8016FFC4 0016CF24  4B F3 54 E5 */	bl "CastTo<8CMetroid>__10CPatternedFRC25TPatternedCast<8CMetroid>"
 /* 8016FFC8 0016CF28  28 03 00 00 */	cmplwi r3, 0
 /* 8016FFCC 0016CF2C  41 82 00 64 */	beq lbl_80170030
 /* 8016FFD0 0016CF30  C0 02 A0 80 */	lfs f0, lbl_805ABDA0@sda21(r2)
@@ -7207,8 +7207,8 @@ AggressionCheck__8CMetroidFR13CStateManagerf:
 /* 801702F8 0016D258  83 E3 00 04 */	lwz r31, 4(r3)
 /* 801702FC 0016D25C  38 61 00 0C */	addi r3, r1, 0xc
 /* 80170300 0016D260  7F E4 FB 78 */	mr r4, r31
-/* 80170304 0016D264  4B F3 50 CD */	bl sub_800a53d0
-/* 80170308 0016D268  4B F3 50 9D */	bl "CastTo<12CSpacePirate>__10CPatternedFP7CEntity"
+/* 80170304 0016D264  4B F3 50 CD */	bl "__ct__30TPatternedCast<12CSpacePirate>FP7CEntity"
+/* 80170308 0016D268  4B F3 50 9D */	bl "CastTo<12CSpacePirate>__10CPatternedFRC30TPatternedCast<12CSpacePirate>"
 /* 8017030C 0016D26C  7C 64 1B 79 */	or. r4, r3, r3
 /* 80170310 0016D270  41 82 00 28 */	beq lbl_80170338
 /* 80170314 0016D274  7F A3 EB 78 */	mr r3, r29
@@ -7316,8 +7316,8 @@ lbl_80170468:
 /* 80170488 0016D3E8  4B ED C1 1D */	bl GetObjectById__13CStateManagerCF9TUniqueId
 /* 8017048C 0016D3EC  7C 64 1B 78 */	mr r4, r3
 /* 80170490 0016D3F0  38 61 00 14 */	addi r3, r1, 0x14
-/* 80170494 0016D3F4  4B F3 50 41 */	bl sub_800a54d4
-/* 80170498 0016D3F8  4B F3 50 11 */	bl "CastTo<8CMetroid>__10CPatternedFP7CEntity"
+/* 80170494 0016D3F4  4B F3 50 41 */	bl "__ct__25TPatternedCast<8CMetroid>FP7CEntity"
+/* 80170498 0016D3F8  4B F3 50 11 */	bl "CastTo<8CMetroid>__10CPatternedFRC25TPatternedCast<8CMetroid>"
 /* 8017049C 0016D3FC  28 03 00 00 */	cmplwi r3, 0
 /* 801704A0 0016D400  41 82 00 50 */	beq lbl_801704F0
 /* 801704A4 0016D404  A0 03 07 B0 */	lhz r0, 0x7b0(r3)
@@ -7453,8 +7453,8 @@ lbl_8017066C:
 /* 8017067C 0016D5DC  4B ED BE F9 */	bl ObjectById__13CStateManagerF9TUniqueId
 /* 80170680 0016D5E0  7C 64 1B 78 */	mr r4, r3
 /* 80170684 0016D5E4  38 61 00 18 */	addi r3, r1, 0x18
-/* 80170688 0016D5E8  4B F3 4D 49 */	bl sub_800a53d0
-/* 8017068C 0016D5EC  4B F3 4D 19 */	bl "CastTo<12CSpacePirate>__10CPatternedFP7CEntity"
+/* 80170688 0016D5E8  4B F3 4D 49 */	bl "__ct__30TPatternedCast<12CSpacePirate>FP7CEntity"
+/* 8017068C 0016D5EC  4B F3 4D 19 */	bl "CastTo<12CSpacePirate>__10CPatternedFRC30TPatternedCast<12CSpacePirate>"
 /* 80170690 0016D5F0  7C 7B 1B 79 */	or. r27, r3, r3
 /* 80170694 0016D5F4  41 82 00 90 */	beq lbl_80170724
 /* 80170698 0016D5F8  7F C3 F3 78 */	mr r3, r30
@@ -7621,8 +7621,8 @@ InRange__8CMetroidFR13CStateManagerf:
 /* 801708D0 0016D830  41 82 00 A0 */	beq lbl_80170970
 /* 801708D4 0016D834  7F E4 FB 78 */	mr r4, r31
 /* 801708D8 0016D838  38 61 00 0C */	addi r3, r1, 0xc
-/* 801708DC 0016D83C  4B F3 4A F5 */	bl sub_800a53d0
-/* 801708E0 0016D840  4B F3 4A C5 */	bl "CastTo<12CSpacePirate>__10CPatternedFP7CEntity"
+/* 801708DC 0016D83C  4B F3 4A F5 */	bl "__ct__30TPatternedCast<12CSpacePirate>FP7CEntity"
+/* 801708E0 0016D840  4B F3 4A C5 */	bl "CastTo<12CSpacePirate>__10CPatternedFRC30TPatternedCast<12CSpacePirate>"
 /* 801708E4 0016D844  7C 64 1B 79 */	or. r4, r3, r3
 /* 801708E8 0016D848  41 82 00 20 */	beq lbl_80170908
 /* 801708EC 0016D84C  7F A3 EB 78 */	mr r3, r29
@@ -8052,8 +8052,8 @@ PatternShagged__8CMetroidFR13CStateManagerf:
 /* 80170F04 0016DE64  4B ED B6 A1 */	bl GetObjectById__13CStateManagerCF9TUniqueId
 /* 80170F08 0016DE68  7C 64 1B 78 */	mr r4, r3
 /* 80170F0C 0016DE6C  38 61 00 0C */	addi r3, r1, 0xc
-/* 80170F10 0016DE70  4B F3 44 C1 */	bl sub_800a53d0
-/* 80170F14 0016DE74  4B F3 44 91 */	bl "CastTo<12CSpacePirate>__10CPatternedFP7CEntity"
+/* 80170F10 0016DE70  4B F3 44 C1 */	bl "__ct__30TPatternedCast<12CSpacePirate>FP7CEntity"
+/* 80170F14 0016DE74  4B F3 44 91 */	bl "CastTo<12CSpacePirate>__10CPatternedFRC30TPatternedCast<12CSpacePirate>"
 /* 80170F18 0016DE78  28 03 00 00 */	cmplwi r3, 0
 /* 80170F1C 0016DE7C  41 82 00 18 */	beq lbl_80170F34
 /* 80170F20 0016DE80  88 03 04 00 */	lbz r0, 0x400(r3)
@@ -8118,8 +8118,8 @@ LostInterest__8CMetroidFR13CStateManagerf:
 /* 80170FEC 0016DF4C  28 04 00 00 */	cmplwi r4, 0
 /* 80170FF0 0016DF50  41 82 00 8C */	beq lbl_8017107C
 /* 80170FF4 0016DF54  38 61 00 0C */	addi r3, r1, 0xc
-/* 80170FF8 0016DF58  4B F3 43 D9 */	bl sub_800a53d0
-/* 80170FFC 0016DF5C  4B F3 43 A9 */	bl "CastTo<12CSpacePirate>__10CPatternedFP7CEntity"
+/* 80170FF8 0016DF58  4B F3 43 D9 */	bl "__ct__30TPatternedCast<12CSpacePirate>FP7CEntity"
+/* 80170FFC 0016DF5C  4B F3 43 A9 */	bl "CastTo<12CSpacePirate>__10CPatternedFRC30TPatternedCast<12CSpacePirate>"
 /* 80171000 0016DF60  28 03 00 00 */	cmplwi r3, 0
 /* 80171004 0016DF64  41 82 00 2C */	beq lbl_80171030
 /* 80171008 0016DF68  A0 63 07 B4 */	lhz r3, 0x7b4(r3)

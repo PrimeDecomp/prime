@@ -2501,8 +2501,8 @@ SetOrbitTargetId__7CPlayerF9TUniqueIdR13CStateManager:
 /* 8017B670 001785D0  4B ED 0F 35 */	bl GetObjectById__13CStateManagerCF9TUniqueId
 /* 8017B674 001785D4  7C 64 1B 78 */	mr r4, r3
 /* 8017B678 001785D8  38 61 00 18 */	addi r3, r1, 0x18
-/* 8017B67C 001785DC  4B F2 9D 21 */	bl sub_800a539c
-/* 8017B680 001785E0  4B F2 9C F1 */	bl "CastTo<22CThardusRockProjectile>__10CPatternedFP7CEntity"
+/* 8017B67C 001785DC  4B F2 9D 21 */	bl "__ct__40TPatternedCast<22CThardusRockProjectile>FP7CEntity"
+/* 8017B680 001785E0  4B F2 9C F1 */	bl "CastTo<22CThardusRockProjectile>__10CPatternedFRC40TPatternedCast<22CThardusRockProjectile>"
 /* 8017B684 001785E4  A0 1E 00 00 */	lhz r0, 0(r30)
 /* 8017B688 001785E8  7C 7C 1B 78 */	mr r28, r3
 /* 8017B68C 001785EC  7F E3 FB 78 */	mr r3, r31
