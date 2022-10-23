@@ -476,8 +476,8 @@ lbl_80169F44:
 /* 80169F68 00166EC8  38 21 00 10 */	addi r1, r1, 0x10
 /* 80169F6C 00166ECC  4E 80 00 20 */	blr
 
-.global GetImagePaneName__16CPauseScreenBaseFUi
-GetImagePaneName__16CPauseScreenBaseFUi:
+.global GetImagePaneName__20CScannableObjectInfoFUi
+GetImagePaneName__20CScannableObjectInfoFUi:
 /* 80169F70 00166ED0  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80169F74 00166ED4  7C 08 02 A6 */	mflr r0
 /* 80169F78 00166ED8  3C 80 80 3D */	lis r4, lbl_803D0440@ha
@@ -669,4 +669,3 @@ lbl_803D04C7:
 	.asciz "??(??)"
 	.byte 0x25
 	.4byte 0x73257300
-

@@ -1747,7 +1747,7 @@ lbl_8007206C:
 /* 80072088 0006EFE8  3B 3F 00 F4 */	addi r25, r31, 0xf4
 lbl_8007208C:
 /* 8007208C 0006EFEC  7F 43 D3 78 */	mr r3, r26
-/* 80072090 0006EFF0  48 0F 7E E1 */	bl GetImagePaneName__16CPauseScreenBaseFUi
+/* 80072090 0006EFF0  48 0F 7E E1 */	bl GetImagePaneName__20CScannableObjectInfoFUi
 /* 80072094 0006EFF4  7C 64 1B 78 */	mr r4, r3
 /* 80072098 0006EFF8  80 7F 00 08 */	lwz r3, 8(r31)
 /* 8007209C 0006EFFC  48 25 00 B9 */	bl FindWidget__9CGuiFrameCFPCc

@@ -1719,7 +1719,7 @@ StartScan__12CScanDisplayF9TUniqueIdRC20CScannableObjectInfoP12CGuiTextPaneP10CG
 /* 801741C0 00171120  3B FE 01 74 */	addi r31, r30, 0x174
 lbl_801741C4:
 /* 801741C4 00171124  7F 83 E3 78 */	mr r3, r28
-/* 801741C8 00171128  4B FF 5D A9 */	bl GetImagePaneName__16CPauseScreenBaseFUi
+/* 801741C8 00171128  4B FF 5D A9 */	bl GetImagePaneName__20CScannableObjectInfoFUi
 /* 801741CC 0017112C  7C 64 1B 78 */	mr r4, r3
 /* 801741D0 00171130  38 61 00 3C */	addi r3, r1, 0x3c
 /* 801741D4 00171134  38 C1 00 0C */	addi r6, r1, 0xc

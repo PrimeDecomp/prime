@@ -230,7 +230,7 @@ LIBS = [
             ["MetroidPrime/ScriptObjects/CScriptPointOfInterest", True],
             "MetroidPrime/Enemies/CDrone",
             "MetroidPrime/CMapWorldInfo",
-            "MetroidPrime/Factories/CScannableObjectInfo",
+            ["MetroidPrime/Factories/CScannableObjectInfo", False],
             "MetroidPrime/Enemies/CMetroid",
             "MetroidPrime/Player/CScanDisplay",
             ["MetroidPrime/ScriptObjects/CScriptSteam", False],
