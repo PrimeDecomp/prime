@@ -40,6 +40,8 @@ public:
   // why?
   int ReadInt32() { return static_cast< uint >(Get(TType< int >())); }
 
+  uint GetBlockOffset() const { return x4_blockOffset; }
+
 private:
   bool GrabAnotherBlock();
   bool InternalReadNext();
