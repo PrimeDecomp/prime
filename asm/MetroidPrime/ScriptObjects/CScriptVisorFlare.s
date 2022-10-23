@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803E5830
-lbl_803E5830:
+.global __vt__17CScriptVisorFlare
+__vt__17CScriptVisorFlare:
 	# ROM: 0x3E2830
 	.4byte 0
 	.4byte 0
@@ -193,12 +193,12 @@ __dt__17CScriptVisorFlareFv:
 /* 801D6678 001D35D8  93 C1 00 08 */	stw r30, 8(r1)
 /* 801D667C 001D35DC  7C 7E 1B 79 */	or. r30, r3, r3
 /* 801D6680 001D35E0  41 82 00 38 */	beq lbl_801D66B8
-/* 801D6684 001D35E4  3C 80 80 3E */	lis r4, lbl_803E5830@ha
+/* 801D6684 001D35E4  3C 80 80 3E */	lis r4, __vt__17CScriptVisorFlare@ha
 /* 801D6688 001D35E8  38 7E 00 E8 */	addi r3, r30, 0xe8
-/* 801D668C 001D35EC  38 04 58 30 */	addi r0, r4, lbl_803E5830@l
+/* 801D668C 001D35EC  38 04 58 30 */	addi r0, r4, __vt__17CScriptVisorFlare@l
 /* 801D6690 001D35F0  38 80 FF FF */	li r4, -1
 /* 801D6694 001D35F4  90 1E 00 00 */	stw r0, 0(r30)
-/* 801D6698 001D35F8  48 00 00 3D */	bl sub_801d66d4
+/* 801D6698 001D35F8  48 00 00 3D */	bl __dt__11CVisorFlareFv
 /* 801D669C 001D35FC  7F C3 F3 78 */	mr r3, r30
 /* 801D66A0 001D3600  38 80 00 00 */	li r4, 0
 /* 801D66A4 001D3604  4B E7 F0 4D */	bl __dt__6CActorFv
@@ -215,8 +215,8 @@ lbl_801D66B8:
 /* 801D66CC 001D362C  38 21 00 10 */	addi r1, r1, 0x10
 /* 801D66D0 001D3630  4E 80 00 20 */	blr
 
-.global sub_801d66d4
-sub_801d66d4:
+.global __dt__11CVisorFlareFv
+__dt__11CVisorFlareFv:
 /* 801D66D4 001D3634  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801D66D8 001D3638  7C 08 02 A6 */	mflr r0
 /* 801D66DC 001D363C  90 01 00 14 */	stw r0, 0x14(r1)
@@ -227,7 +227,7 @@ sub_801d66d4:
 /* 801D66F0 001D3650  41 82 00 20 */	beq lbl_801D6710
 /* 801D66F4 001D3654  38 7E 00 04 */	addi r3, r30, 4
 /* 801D66F8 001D3658  38 80 FF FF */	li r4, -1
-/* 801D66FC 001D365C  4B EF 70 BD */	bl sub_800cd7b8
+/* 801D66FC 001D365C  4B EF 70 BD */	bl "__dt__Q24rstl60vector<Q211CVisorFlare9CFlareDef,Q24rstl17rmemory_allocator>Fv"
 /* 801D6700 001D3660  7F E0 07 35 */	extsh. r0, r31
 /* 801D6704 001D3664  40 81 00 0C */	ble lbl_801D6710
 /* 801D6708 001D3668  7F C3 F3 78 */	mr r3, r30
@@ -241,8 +241,8 @@ lbl_801D6710:
 /* 801D6724 001D3684  38 21 00 10 */	addi r1, r1, 0x10
 /* 801D6728 001D3688  4E 80 00 20 */	blr
 
-.global "__ct__17CScriptVisorFlareF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfobRC9CVector3fQ211CVisorFlare10EBlendModebfffRCQ24rstl60vector<Q211CVisorFlare9CFlareDef,Q24rstl17rmemory_allocator>"
-"__ct__17CScriptVisorFlareF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfobRC9CVector3fQ211CVisorFlare10EBlendModebfffRCQ24rstl60vector<Q211CVisorFlare9CFlareDef,Q24rstl17rmemory_allocator>":
+.global "__ct__17CScriptVisorFlareF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfobRC9CVector3fQ211CVisorFlare10EBlendModebfffUiUiRCQ24rstl60vector<Q211CVisorFlare9CFlareDef,Q24rstl17rmemory_allocator>"
+"__ct__17CScriptVisorFlareF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfobRC9CVector3fQ211CVisorFlare10EBlendModebfffUiUiRCQ24rstl60vector<Q211CVisorFlare9CFlareDef,Q24rstl17rmemory_allocator>":
 /* 801D672C 001D368C  94 21 FE B0 */	stwu r1, -0x150(r1)
 /* 801D6730 001D3690  7C 08 02 A6 */	mflr r0
 /* 801D6734 001D3694  90 01 01 54 */	stw r0, 0x154(r1)
@@ -307,9 +307,9 @@ lbl_801D6710:
 /* 801D6820 001D3780  38 61 00 B8 */	addi r3, r1, 0xb8
 /* 801D6824 001D3784  38 80 FF FF */	li r4, -1
 /* 801D6828 001D3788  4B F4 02 25 */	bl __dt__10CModelDataFv
-/* 801D682C 001D378C  3C 60 80 3E */	lis r3, lbl_803E5830@ha
+/* 801D682C 001D378C  3C 60 80 3E */	lis r3, __vt__17CScriptVisorFlare@ha
 /* 801D6830 001D3790  FC 20 E8 90 */	fmr f1, f29
-/* 801D6834 001D3794  38 03 58 30 */	addi r0, r3, lbl_803E5830@l
+/* 801D6834 001D3794  38 03 58 30 */	addi r0, r3, __vt__17CScriptVisorFlare@l
 /* 801D6838 001D3798  FC 40 F0 90 */	fmr f2, f30
 /* 801D683C 001D379C  FC 60 F8 90 */	fmr f3, f31
 /* 801D6840 001D37A0  90 16 00 00 */	stw r0, 0(r22)
@@ -319,7 +319,7 @@ lbl_801D6710:
 /* 801D6850 001D37B0  7F C7 F3 78 */	mr r7, r30
 /* 801D6854 001D37B4  7F E8 FB 78 */	mr r8, r31
 /* 801D6858 001D37B8  38 76 00 E8 */	addi r3, r22, 0xe8
-/* 801D685C 001D37BC  48 03 1A 7D */	bl "__ct__11CVisorFlareFQ211CVisorFlare10EBlendModebfffRCQ24rstl60vector<Q211CVisorFlare9CFlareDef,Q24rstl17rmemory_allocator>"
+/* 801D685C 001D37BC  48 03 1A 7D */	bl "__ct__11CVisorFlareFQ211CVisorFlare10EBlendModebfffUiUiRCQ24rstl60vector<Q211CVisorFlare9CFlareDef,Q24rstl17rmemory_allocator>"
 /* 801D6860 001D37C0  38 00 00 01 */	li r0, 1
 /* 801D6864 001D37C4  38 80 00 02 */	li r4, 2
 /* 801D6868 001D37C8  98 16 01 1C */	stb r0, 0x11c(r22)

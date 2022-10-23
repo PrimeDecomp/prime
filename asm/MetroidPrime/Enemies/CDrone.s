@@ -708,7 +708,7 @@ lbl_8015F0C0:
 lbl_8015F0E8:
 /* 8015F0E8 0015C048  38 7E 05 7C */	addi r3, r30, 0x57c
 /* 8015F0EC 0015C04C  38 80 FF FF */	li r4, -1
-/* 8015F0F0 0015C050  4B F6 E6 C9 */	bl sub_800cd7b8
+/* 8015F0F0 0015C050  4B F6 E6 C9 */	bl "__dt__Q24rstl60vector<Q211CVisorFlare9CFlareDef,Q24rstl17rmemory_allocator>Fv"
 /* 8015F0F4 0015C054  34 1E 05 6C */	addic. r0, r30, 0x56c
 /* 8015F0F8 0015C058  41 82 00 18 */	beq lbl_8015F110
 /* 8015F0FC 0015C05C  34 1E 05 6C */	addic. r0, r30, 0x56c
@@ -8481,7 +8481,7 @@ sub_801660a4:
 /* 80166210 00163170  90 01 00 10 */	stw r0, 0x10(r1)
 /* 80166214 00163174  39 20 00 00 */	li r9, 0
 /* 80166218 00163178  39 40 00 01 */	li r10, 1
-/* 8016621C 0016317C  48 07 05 11 */	bl "__ct__17CScriptVisorFlareF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfobRC9CVector3fQ211CVisorFlare10EBlendModebfffRCQ24rstl60vector<Q211CVisorFlare9CFlareDef,Q24rstl17rmemory_allocator>"
+/* 8016621C 0016317C  48 07 05 11 */	bl "__ct__17CScriptVisorFlareF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfobRC9CVector3fQ211CVisorFlare10EBlendModebfffUiUiRCQ24rstl60vector<Q211CVisorFlare9CFlareDef,Q24rstl17rmemory_allocator>"
 /* 80166220 00163180  7C 7F 1B 78 */	mr r31, r3
 lbl_80166224:
 /* 80166224 00163184  7F 40 07 75 */	extsb. r0, r26
@@ -8990,7 +8990,7 @@ lbl_8016689C:
 /* 80166954 001638B4  B0 1E 05 78 */	sth r0, 0x578(r30)
 /* 80166958 001638B8  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8016695C 001638BC  B0 1E 05 7A */	sth r0, 0x57a(r30)
-/* 80166960 001638C0  4B F6 7B 0D */	bl sub_800ce46c
+/* 80166960 001638C0  4B F6 7B 0D */	bl "__ct__Q24rstl60vector<Q211CVisorFlare9CFlareDef,Q24rstl17rmemory_allocator>FRCQ24rstl60vector<Q211CVisorFlare9CFlareDef,Q24rstl17rmemory_allocator>"
 /* 80166964 001638C4  38 00 00 02 */	li r0, 2
 /* 80166968 001638C8  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 8016696C 001638CC  90 1E 05 8C */	stw r0, 0x58c(r30)

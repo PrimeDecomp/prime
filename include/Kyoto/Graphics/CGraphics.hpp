@@ -120,6 +120,7 @@ public:
   static void StreamBegin(ERglPrimitive primitive);
   static void StreamColor(const CColor& color);
   static void StreamTexcoord(float u, float v);
+  static void StreamVertex(float, float, float);
   static void StreamVertex(const CVector3f& vtx);
   static void StreamEnd();
 
