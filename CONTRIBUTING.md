@@ -41,6 +41,8 @@ Metaforce is a non-matching decompilation, and often uses modern C++ features th
 
 ### Converting types
 
+The python script at `tool/metaforce_renames.py` automates many simple renames listed next, but not everything works perfectly.
+
 Metaforce -> decomp
 - `s8` -> `char`
 - `u8` -> `uchar`
