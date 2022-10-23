@@ -97,6 +97,7 @@ public:
 
   ~basic_string() { internal_dereference(); }
 
+  size_t size() const { return x8_size; }
   void assign(const basic_string&);
   basic_string& operator=(const basic_string&);
   basic_string operator+(const basic_string&);
