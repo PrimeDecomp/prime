@@ -2,8 +2,8 @@
 
 .section .data
 .balign 8
-.global lbl_803D9928
-lbl_803D9928:
+.global __vt__9CMainFlow
+__vt__9CMainFlow:
 	# ROM: 0x3D6928
 	.4byte 0
 	.4byte 0
@@ -108,9 +108,9 @@ __dt__9CMainFlowFv:
 /* 80023538 00020498  93 C1 00 08 */	stw r30, 8(r1)
 /* 8002353C 0002049C  7C 7E 1B 79 */	or. r30, r3, r3
 /* 80023540 000204A0  41 82 00 28 */	beq lbl_80023568
-/* 80023544 000204A4  3C A0 80 3E */	lis r5, lbl_803D9928@ha
+/* 80023544 000204A4  3C A0 80 3E */	lis r5, __vt__9CMainFlow@ha
 /* 80023548 000204A8  38 80 00 00 */	li r4, 0
-/* 8002354C 000204AC  38 05 99 28 */	addi r0, r5, lbl_803D9928@l
+/* 8002354C 000204AC  38 05 99 28 */	addi r0, r5, __vt__9CMainFlow@l
 /* 80023550 000204B0  90 1E 00 00 */	stw r0, 0(r30)
 /* 80023554 000204B4  48 02 F6 51 */	bl __dt__6CIOWinFv
 /* 80023558 000204B8  7F E0 07 35 */	extsh. r0, r31
@@ -183,7 +183,7 @@ lbl_8002362C:
 /* 80023644 000205A4  48 02 E6 69 */	bl CreateCreateIOWin__7MakeMsgF14EArchMsgTargetRCiRCiRCP6CIOWin
 /* 80023648 000205A8  7F E3 FB 78 */	mr r3, r31
 /* 8002364C 000205AC  38 81 00 4C */	addi r4, r1, 0x4c
-/* 80023650 000205B0  4B FE 36 B1 */	bl InsertMsg__18CArchitectureQueueFRC20CArchitectureMessage
+/* 80023650 000205B0  4B FE 36 B1 */	bl Push__18CArchitectureQueueFRC20CArchitectureMessage
 /* 80023654 000205B4  34 61 00 54 */	addic. r3, r1, 0x54
 /* 80023658 000205B8  41 82 01 E8 */	beq lbl_80023840
 /* 8002365C 000205BC  4B FE 50 B1 */	bl "ReleaseData__Q24rstl34rc_ptr<24IArchitectureMessageParm>Fv"
@@ -209,7 +209,7 @@ lbl_8002368C:
 /* 800236A4 00020604  48 02 E6 09 */	bl CreateCreateIOWin__7MakeMsgF14EArchMsgTargetRCiRCiRCP6CIOWin
 /* 800236A8 00020608  7F E3 FB 78 */	mr r3, r31
 /* 800236AC 0002060C  38 81 00 40 */	addi r4, r1, 0x40
-/* 800236B0 00020610  4B FE 36 51 */	bl InsertMsg__18CArchitectureQueueFRC20CArchitectureMessage
+/* 800236B0 00020610  4B FE 36 51 */	bl Push__18CArchitectureQueueFRC20CArchitectureMessage
 /* 800236B4 00020614  34 61 00 48 */	addic. r3, r1, 0x48
 /* 800236B8 00020618  41 82 01 88 */	beq lbl_80023840
 /* 800236BC 0002061C  4B FE 50 51 */	bl "ReleaseData__Q24rstl34rc_ptr<24IArchitectureMessageParm>Fv"
@@ -238,7 +238,7 @@ lbl_800236F8:
 /* 80023710 00020670  48 02 E5 9D */	bl CreateCreateIOWin__7MakeMsgF14EArchMsgTargetRCiRCiRCP6CIOWin
 /* 80023714 00020674  7F E3 FB 78 */	mr r3, r31
 /* 80023718 00020678  38 81 00 34 */	addi r4, r1, 0x34
-/* 8002371C 0002067C  4B FE 35 E5 */	bl InsertMsg__18CArchitectureQueueFRC20CArchitectureMessage
+/* 8002371C 0002067C  4B FE 35 E5 */	bl Push__18CArchitectureQueueFRC20CArchitectureMessage
 /* 80023720 00020680  34 61 00 3C */	addic. r3, r1, 0x3c
 /* 80023724 00020684  41 82 01 1C */	beq lbl_80023840
 /* 80023728 00020688  4B FE 4F E5 */	bl "ReleaseData__Q24rstl34rc_ptr<24IArchitectureMessageParm>Fv"
@@ -283,7 +283,7 @@ lbl_8002379C:
 /* 800237B0 00020710  48 02 E4 FD */	bl CreateCreateIOWin__7MakeMsgF14EArchMsgTargetRCiRCiRCP6CIOWin
 /* 800237B4 00020714  7F E3 FB 78 */	mr r3, r31
 /* 800237B8 00020718  38 81 00 28 */	addi r4, r1, 0x28
-/* 800237BC 0002071C  4B FE 35 45 */	bl InsertMsg__18CArchitectureQueueFRC20CArchitectureMessage
+/* 800237BC 0002071C  4B FE 35 45 */	bl Push__18CArchitectureQueueFRC20CArchitectureMessage
 /* 800237C0 00020720  34 61 00 30 */	addic. r3, r1, 0x30
 /* 800237C4 00020724  41 82 00 7C */	beq lbl_80023840
 /* 800237C8 00020728  4B FE 4F 45 */	bl "ReleaseData__Q24rstl34rc_ptr<24IArchitectureMessageParm>Fv"
@@ -314,7 +314,7 @@ lbl_80023800:
 /* 80023824 00020784  48 02 E4 89 */	bl CreateCreateIOWin__7MakeMsgF14EArchMsgTargetRCiRCiRCP6CIOWin
 /* 80023828 00020788  7F E3 FB 78 */	mr r3, r31
 /* 8002382C 0002078C  38 81 00 1C */	addi r4, r1, 0x1c
-/* 80023830 00020790  4B FE 34 D1 */	bl InsertMsg__18CArchitectureQueueFRC20CArchitectureMessage
+/* 80023830 00020790  4B FE 34 D1 */	bl Push__18CArchitectureQueueFRC20CArchitectureMessage
 /* 80023834 00020794  34 61 00 24 */	addic. r3, r1, 0x24
 /* 80023838 00020798  41 82 00 08 */	beq lbl_80023840
 /* 8002383C 0002079C  4B FE 4E D1 */	bl "ReleaseData__Q24rstl34rc_ptr<24IArchitectureMessageParm>Fv"
@@ -340,25 +340,21 @@ AdvanceGameState__9CMainFlowFR18CArchitectureQueue:
 /* 8002387C 000207DC  7C 05 00 2E */	lwzx r0, r5, r0
 /* 80023880 000207E0  7C 09 03 A6 */	mtctr r0
 /* 80023884 000207E4  4E 80 04 20 */	bctr
-.global lbl_80023888
 lbl_80023888:
 /* 80023888 000207E8  7C 85 23 78 */	mr r5, r4
 /* 8002388C 000207EC  38 80 00 0F */	li r4, 0xf
 /* 80023890 000207F0  4B FF FC F5 */	bl SetGameState__9CMainFlowF17EClientFlowStatesR18CArchitectureQueue
 /* 80023894 000207F4  48 00 00 58 */	b lbl_800238EC
-.global lbl_80023898
 lbl_80023898:
 /* 80023898 000207F8  7C 85 23 78 */	mr r5, r4
 /* 8002389C 000207FC  38 80 00 08 */	li r4, 8
 /* 800238A0 00020800  4B FF FC E5 */	bl SetGameState__9CMainFlowF17EClientFlowStatesR18CArchitectureQueue
 /* 800238A4 00020804  48 00 00 48 */	b lbl_800238EC
-.global lbl_800238A8
 lbl_800238A8:
 /* 800238A8 00020808  7C 85 23 78 */	mr r5, r4
 /* 800238AC 0002080C  38 80 00 0E */	li r4, 0xe
 /* 800238B0 00020810  4B FF FC D5 */	bl SetGameState__9CMainFlowF17EClientFlowStatesR18CArchitectureQueue
 /* 800238B4 00020814  48 00 00 38 */	b lbl_800238EC
-.global lbl_800238B8
 lbl_800238B8:
 /* 800238B8 00020818  80 CD A0 78 */	lwz r6, gpMain@sda21(r13)
 /* 800238BC 0002081C  80 06 01 2C */	lwz r0, 0x12c(r6)
@@ -370,12 +366,10 @@ lbl_800238B8:
 /* 800238D4 00020834  38 A0 00 01 */	li r5, 1
 /* 800238D8 00020838  50 A0 0F BC */	rlwimi r0, r5, 1, 0x1e, 0x1e
 /* 800238DC 0002083C  98 06 01 60 */	stb r0, 0x160(r6)
-.global lbl_800238E0
 lbl_800238E0:
 /* 800238E0 00020840  7C 85 23 78 */	mr r5, r4
 /* 800238E4 00020844  38 80 00 07 */	li r4, 7
 /* 800238E8 00020848  4B FF FC 9D */	bl SetGameState__9CMainFlowF17EClientFlowStatesR18CArchitectureQueue
-.global lbl_800238EC
 lbl_800238EC:
 /* 800238EC 0002084C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800238F0 00020850  7C 08 03 A6 */	mtlr r0
@@ -461,9 +455,9 @@ __ct__9CMainFlowFv:
 /* 800239EC 0002094C  48 02 F2 21 */	bl "__ct__6CIOWinFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 /* 800239F0 00020950  38 61 00 08 */	addi r3, r1, 8
 /* 800239F4 00020954  48 31 A0 ED */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
-/* 800239F8 00020958  3C 60 80 3E */	lis r3, lbl_803D9928@ha
+/* 800239F8 00020958  3C 60 80 3E */	lis r3, __vt__9CMainFlow@ha
 /* 800239FC 0002095C  38 00 FF FF */	li r0, -1
-/* 80023A00 00020960  38 83 99 28 */	addi r4, r3, lbl_803D9928@l
+/* 80023A00 00020960  38 83 99 28 */	addi r4, r3, __vt__9CMainFlow@l
 /* 80023A04 00020964  7F E3 FB 78 */	mr r3, r31
 /* 80023A08 00020968  90 9F 00 00 */	stw r4, 0(r31)
 /* 80023A0C 0002096C  90 1F 00 14 */	stw r0, 0x14(r31)

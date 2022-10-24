@@ -87,6 +87,10 @@ public:
     x160_26_screenFading = v;
   }
 
+  void SetX30(bool v) {
+    x160_30_ = v;
+  }
+
   static void EnsureWorldPaksReady();
   static void EnsureWorldPakReady(CAssetId id);
 

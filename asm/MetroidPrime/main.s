@@ -5521,7 +5521,7 @@ Update__24CGameArchitectureSupportFv:
 /* 80006CC4 00003C24  48 04 AA F9 */	bl CreateFrameEnd__7MakeMsgF14EArchMsgTargetRCi
 /* 80006CC8 00003C28  38 7F 00 04 */	addi r3, r31, 4
 /* 80006CCC 00003C2C  38 81 00 08 */	addi r4, r1, 8
-/* 80006CD0 00003C30  48 00 00 31 */	bl InsertMsg__18CArchitectureQueueFRC20CArchitectureMessage
+/* 80006CD0 00003C30  48 00 00 31 */	bl Push__18CArchitectureQueueFRC20CArchitectureMessage
 /* 80006CD4 00003C34  34 61 00 10 */	addic. r3, r1, 0x10
 /* 80006CD8 00003C38  41 82 00 08 */	beq lbl_80006CE0
 /* 80006CDC 00003C3C  48 00 1A 31 */	bl "ReleaseData__Q24rstl34rc_ptr<24IArchitectureMessageParm>Fv"
@@ -5535,8 +5535,8 @@ lbl_80006CE0:
 /* 80006CF8 00003C58  38 21 00 20 */	addi r1, r1, 0x20
 /* 80006CFC 00003C5C  4E 80 00 20 */	blr
 
-.global InsertMsg__18CArchitectureQueueFRC20CArchitectureMessage
-InsertMsg__18CArchitectureQueueFRC20CArchitectureMessage:
+.global Push__18CArchitectureQueueFRC20CArchitectureMessage
+Push__18CArchitectureQueueFRC20CArchitectureMessage:
 /* 80006D00 00003C60  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80006D04 00003C64  7C 08 02 A6 */	mflr r0
 /* 80006D08 00003C68  90 01 00 14 */	stw r0, 0x14(r1)
@@ -5665,7 +5665,7 @@ lbl_80006EB4:
 /* 80006EC4 00003E24  48 04 A9 D1 */	bl CreateFrameBegin__7MakeMsgF14EArchMsgTargetRCi
 /* 80006EC8 00003E28  38 7E 00 04 */	addi r3, r30, 4
 /* 80006ECC 00003E2C  38 81 00 14 */	addi r4, r1, 0x14
-/* 80006ED0 00003E30  4B FF FE 31 */	bl InsertMsg__18CArchitectureQueueFRC20CArchitectureMessage
+/* 80006ED0 00003E30  4B FF FE 31 */	bl Push__18CArchitectureQueueFRC20CArchitectureMessage
 /* 80006ED4 00003E34  34 61 00 1C */	addic. r3, r1, 0x1c
 /* 80006ED8 00003E38  41 82 00 08 */	beq lbl_80006EE0
 /* 80006EDC 00003E3C  48 00 18 31 */	bl "ReleaseData__Q24rstl34rc_ptr<24IArchitectureMessageParm>Fv"
@@ -5689,7 +5689,7 @@ lbl_80006F0C:
 /* 80006F18 00003E78  48 04 AC B1 */	bl CreateTimerTick__7MakeMsgF14EArchMsgTargetRCf
 /* 80006F1C 00003E7C  38 7E 00 04 */	addi r3, r30, 4
 /* 80006F20 00003E80  38 81 00 08 */	addi r4, r1, 8
-/* 80006F24 00003E84  4B FF FD DD */	bl InsertMsg__18CArchitectureQueueFRC20CArchitectureMessage
+/* 80006F24 00003E84  4B FF FD DD */	bl Push__18CArchitectureQueueFRC20CArchitectureMessage
 /* 80006F28 00003E88  28 1D 00 00 */	cmplwi r29, 0
 /* 80006F2C 00003E8C  41 82 00 0C */	beq lbl_80006F38
 /* 80006F30 00003E90  7F A3 EB 78 */	mr r3, r29
