@@ -8,7 +8,7 @@
 #include "MetroidPrime/CMFGameLoader.hpp"
 #include "MetroidPrime/CPlayMovie.hpp"
 #include "MetroidPrime/CPreFrontEnd.hpp"
-#include "MetroidPrime/CStateFlowSetter.hpp"
+#include "MetroidPrime/CStateSetterFlow.hpp"
 #include "MetroidPrime/Decode.hpp"
 
 #include "MetroidPrime/CMain.hpp"
@@ -63,7 +63,7 @@ void CMainFlow::AdvanceGameState(CArchitectureQueue& queue) {
 void CMainFlow::SetGameState(EClientFlowStates state, CArchitectureQueue& queue) {
   x14_gameState = state;
 
-  switch (state) {
+  switch (x14_gameState) {
   case kCFS_GameExit: {
     switch (gpMain->GetRestartMode()) {
     case CMain::kRM_WinBad:
@@ -78,6 +78,7 @@ void CMainFlow::SetGameState(EClientFlowStates state, CArchitectureQueue& queue)
     default:
       break;
     }
+    break;
   }
   case kCFS_PreFrontEnd: {
     if (gpMain->GetRestartMode() == CMain::kRM_None) {
@@ -88,22 +89,13 @@ void CMainFlow::SetGameState(EClientFlowStates state, CArchitectureQueue& queue)
     break;
   }
   case kCFS_FrontEnd:
-    CIOWin* ioWin = nullptr;
-    switch (gpMain->GetRestartMode()) {
-    case CMain::kRM_StateSetter:
-      ioWin = new CStateFlowSetter();
-      break;
-    case CMain::kRM_WinBad:
-    case CMain::kRM_WinGood:
-    case CMain::kRM_WinBest:
-    case CMain::kRM_LoseGame:
-    case CMain::kRM_Default:
-      ioWin = new CFrontEndUI();
-    default:
+    if (gpMain->GetRestartMode() == CMain::kRM_None) {
       break;
     }
-
-    queue.Push(MakeMsg::CreateCreateIOWin(kAMT_IOWinManager, 12, 11, ioWin));
+    queue.Push(MakeMsg::CreateCreateIOWin(kAMT_IOWinManager, 12, 11,
+                                          gpMain->GetRestartMode() == CMain::kRM_StateSetter
+                                              ? (CIOWin*)new CStateSetterFlow()
+                                              : (CIOWin*)new CFrontEndUI()));
     break;
   case kCFS_Game:
     gpGameState->GameOptions().EnsureOptions();
