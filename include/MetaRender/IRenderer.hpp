@@ -2,6 +2,7 @@
 #define _IRENDERER
 
 #include "types.h"
+#include "rstl/pair.hpp"
 
 class CTransform4f;
 class CParticleGen;
@@ -9,6 +10,7 @@ class IObjectStore;
 class COsContext;
 class CMemorySys;
 class CResFactory;
+class CAABox;
 
 class IRenderer {
 public:
