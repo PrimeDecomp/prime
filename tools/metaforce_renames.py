@@ -17,6 +17,8 @@ _LITERAL_REPLACEMENTS = [
   ("zeus::skWhite", "CColor::White()"),
   ("zeus::CFrustum", "CFrustumPlanes"),
   ("zeus::lookAt", "CTransform4f::LookAt"),
+  ("zeus::radToDeg", "CMath::Rad2Deg"),
+  ("zeus::degToRad", "CMath::Deg2Rad"),
   ("zeus::", ""),
   ("u32 ", "uint "),
   ("s32 ", "int "),

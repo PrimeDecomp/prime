@@ -35,8 +35,8 @@ __dt__8CBSCoverFv:
 /* 80175CF4 00172C54  38 03 3E 48 */	addi r0, r3, lbl_803E3E48@l
 /* 80175CF8 00172C58  90 1F 00 00 */	stw r0, 0(r31)
 /* 80175CFC 00172C5C  41 82 00 10 */	beq lbl_80175D0C
-/* 80175D00 00172C60  3C 60 80 3E */	lis r3, lbl_803E1318@ha
-/* 80175D04 00172C64  38 03 13 18 */	addi r0, r3, lbl_803E1318@l
+/* 80175D00 00172C60  3C 60 80 3E */	lis r3, __vt__10CBodyState@ha
+/* 80175D04 00172C64  38 03 13 18 */	addi r0, r3, __vt__10CBodyState@l
 /* 80175D08 00172C68  90 1F 00 00 */	stw r0, 0(r31)
 lbl_80175D0C:
 /* 80175D0C 00172C6C  7C 80 07 35 */	extsh. r0, r4
@@ -580,9 +580,9 @@ lbl_80176484:
 
 .global __ct__8CBSCoverFv
 __ct__8CBSCoverFv:
-/* 80176498 001733F8  3C C0 80 3E */	lis r6, lbl_803E1318@ha
+/* 80176498 001733F8  3C C0 80 3E */	lis r6, __vt__10CBodyState@ha
 /* 8017649C 001733FC  3C A0 80 3E */	lis r5, lbl_803E3E48@ha
-/* 801764A0 00173400  38 06 13 18 */	addi r0, r6, lbl_803E1318@l
+/* 801764A0 00173400  38 06 13 18 */	addi r0, r6, __vt__10CBodyState@l
 /* 801764A4 00173404  38 80 FF FF */	li r4, -1
 /* 801764A8 00173408  90 03 00 00 */	stw r0, 0(r3)
 /* 801764AC 0017340C  38 A5 3E 48 */	addi r5, r5, lbl_803E3E48@l

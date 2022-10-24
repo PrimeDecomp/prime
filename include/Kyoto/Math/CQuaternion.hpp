@@ -44,6 +44,7 @@ public:
   // XRotation__11CQuaternionFRC9CRelAngle
   // YRotation__11CQuaternionFRC9CRelAngle
   // ZRotation__11CQuaternionFRC9CRelAngle
+  static CQuaternion ZRotation(const CRelAngle&);
   // BuildTransform__11CQuaternionCFv
   CTransform4f BuildTransform4f() const;
   CTransform4f BuildTransform4f(const CVector3f&) const;

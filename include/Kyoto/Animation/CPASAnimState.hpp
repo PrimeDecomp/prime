@@ -3,39 +3,10 @@
 
 #include "types.h"
 
+#include "Kyoto/Animation/CharacterCommon.hpp"
+
 #include "rstl/reserved_vector.hpp"
 #include "rstl/vector.hpp"
-
-namespace pas {
-enum EAnimationState {
-  kAS_Invalid = -1,
-  kAS_Fall = 0,
-  kAS_Getup = 1,
-  kAS_LieOnGround = 2,
-  kAS_Step = 3,
-  kAS_Death = 4,
-  kAS_Locomotion = 5,
-  kAS_KnockBack = 6,
-  kAS_MeleeAttack = 7,
-  kAS_Turn = 8,
-  kAS_LoopAttack = 9,
-  kAS_LoopReaction = 10,
-  kAS_GroundHit = 11,
-  kAS_Generate = 12,
-  kAS_Jump = 13,
-  kAS_Hurled = 14,
-  kAS_Slide = 15,
-  kAS_Taunt = 16,
-  kAS_Scripted = 17,
-  kAS_ProjectileAttack = 18,
-  kAS_Cover = 19,
-  kAS_WallHang = 20,
-  kAS_AdditiveIdle = 21,
-  kAS_AdditiveAim = 22,
-  kAS_AdditiveFlinch = 23,
-  kAS_AdditiveReaction = 24,
-};
-} // namespace pas
 
 class CPASAnimParm {
 public:
@@ -63,6 +34,7 @@ public:
   static CPASAnimParm NoParameter();
 
   int GetInt32Value() const;
+  float GetReal32Value() const;
 
 private:
   UParmValue x0_value;

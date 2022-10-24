@@ -60,8 +60,8 @@ __dt__9CBSAttackFv:
 lbl_80134E20:
 /* 80134E20 00131D80  28 1F 00 00 */	cmplwi r31, 0
 /* 80134E24 00131D84  41 82 00 10 */	beq lbl_80134E34
-/* 80134E28 00131D88  3C 60 80 3E */	lis r3, lbl_803E1318@ha
-/* 80134E2C 00131D8C  38 03 13 18 */	addi r0, r3, lbl_803E1318@l
+/* 80134E28 00131D88  3C 60 80 3E */	lis r3, __vt__10CBodyState@ha
+/* 80134E2C 00131D8C  38 03 13 18 */	addi r0, r3, __vt__10CBodyState@l
 /* 80134E30 00131D90  90 1F 00 00 */	stw r0, 0(r31)
 lbl_80134E34:
 /* 80134E34 00131D94  7C 80 07 35 */	extsh. r0, r4
@@ -593,9 +593,9 @@ lbl_80135584:
 
 .global __ct__9CBSAttackFv
 __ct__9CBSAttackFv:
-/* 80135598 001324F8  3C A0 80 3E */	lis r5, lbl_803E1318@ha
+/* 80135598 001324F8  3C A0 80 3E */	lis r5, __vt__10CBodyState@ha
 /* 8013559C 001324FC  94 21 FF E0 */	stwu r1, -0x20(r1)
-/* 801355A0 00132500  38 05 13 18 */	addi r0, r5, lbl_803E1318@l
+/* 801355A0 00132500  38 05 13 18 */	addi r0, r5, __vt__10CBodyState@l
 /* 801355A4 00132504  3C C0 80 5A */	lis r6, sZeroVector__9CVector3f@ha
 /* 801355A8 00132508  3C 80 80 3E */	lis r4, lbl_803E1370@ha
 /* 801355AC 0013250C  90 03 00 00 */	stw r0, 0(r3)

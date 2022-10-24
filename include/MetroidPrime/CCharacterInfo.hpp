@@ -23,7 +23,7 @@ public:
     rstl::vector< CAssetId > x30_elsc;
   };
 
-  const CPASDatabase& GetPASDatabase() const { return x30_pasDatabase; }
+  const CPASDatabase& GetPASDatabase() const; // { return x30_pasDatabase; }
 
 private:
   ushort x0_tableCount;

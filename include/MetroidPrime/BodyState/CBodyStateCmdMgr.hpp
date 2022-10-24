@@ -1,43 +1,14 @@
 #ifndef _CBODYSTATECMDMGR
 #define _CBODYSTATECMDMGR
 
-// TODO: CharacterCommon
-enum EBodyStateCmd {
-  kBSC_Getup,
-  kBSC_Step,
-  kBSC_Die,
-  kBSC_KnockDown,
-  kBSC_KnockBack,
-  kBSC_MeleeAttack,
-  kBSC_ProjectileAttack,
-  kBSC_LoopAttack,
-  kBSC_LoopReaction,
-  kBSC_LoopHitReaction,
-  kBSC_ExitState,
-  kBSC_LeanFromCover,
-  kBSC_NextState,
-  kBSC_MaintainVelocity,
-  kBSC_Generate,
-  kBSC_Hurled,
-  kBSC_Jump,
-  kBSC_Slide,
-  kBSC_Taunt,
-  kBSC_Scripted,
-  kBSC_Cover,
-  kBSC_WallHang,
-  kBSC_Locomotion,
-  kBSC_AdditiveIdle,
-  kBSC_AdditiveAim,
-  kBSC_AdditiveFlinch,
-  kBSC_AdditiveReaction,
-  kBSC_StopReaction
-};
+#include "Kyoto/Animation/CharacterCommon.hpp"
+#include "Kyoto/Math/CVector3f.hpp"
 
 class CBodyStateCmd {
   EBodyStateCmd x4_cmd;
 
 public:
-  virtual ~CBodyStateCmd() {};
+  virtual ~CBodyStateCmd(){};
   explicit CBodyStateCmd(EBodyStateCmd cmd) : x4_cmd(cmd) {}
   EBodyStateCmd GetCommandId() const { return x4_cmd; }
 };
@@ -49,9 +20,29 @@ public:
   float GetWeight() const { return x8_weight; }
 };
 
+class CBCSlideCmd : public CBodyStateCmd {
+
+public:
+  explicit CBCSlideCmd() : CBodyStateCmd(kBSC_Slide), x8_type(pas::kSlide_Invalid), xc_dir(CVector3f::Zero()) {}
+  explicit CBCSlideCmd(pas::ESlideType type, const CVector3f& dir)
+  : CBodyStateCmd(kBSC_Slide), x8_type(type), xc_dir(dir) {}
+
+  pas::ESlideType GetSlideType() const { return x8_type; }
+  const CVector3f& GetSlideDirection() const { return xc_dir; }
+
+private:
+  pas::ESlideType x8_type;
+  CVector3f xc_dir;
+};
+
+//
+
 class CBodyStateCmdMgr {
 public:
   CBodyStateCmd* GetCmd(EBodyStateCmd cmd);
+
+private:
+  uchar x0_pad[0x2a0];
 };
 
 #endif // _CBODYSTATECMDMGR
