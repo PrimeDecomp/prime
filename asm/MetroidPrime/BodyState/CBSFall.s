@@ -35,8 +35,8 @@ __dt__7CBSFallFv:
 /* 80135954 001328B4  38 03 13 E0 */	addi r0, r3, lbl_803E13E0@l
 /* 80135958 001328B8  90 1F 00 00 */	stw r0, 0(r31)
 /* 8013595C 001328BC  41 82 00 10 */	beq lbl_8013596C
-/* 80135960 001328C0  3C 60 80 3E */	lis r3, lbl_803E1318@ha
-/* 80135964 001328C4  38 03 13 18 */	addi r0, r3, lbl_803E1318@l
+/* 80135960 001328C0  3C 60 80 3E */	lis r3, __vt__10CBodyState@ha
+/* 80135964 001328C4  38 03 13 18 */	addi r0, r3, __vt__10CBodyState@l
 /* 80135968 001328C8  90 1F 00 00 */	stw r0, 0(r31)
 lbl_8013596C:
 /* 8013596C 001328CC  7C 80 07 35 */	extsh. r0, r4
@@ -387,9 +387,9 @@ lbl_80135E3C:
 
 .global __ct__7CBSFallFv
 __ct__7CBSFallFv:
-/* 80135E58 00132DB8  3C A0 80 3E */	lis r5, lbl_803E1318@ha
+/* 80135E58 00132DB8  3C A0 80 3E */	lis r5, __vt__10CBodyState@ha
 /* 80135E5C 00132DBC  3C 80 80 3E */	lis r4, lbl_803E13E0@ha
-/* 80135E60 00132DC0  38 05 13 18 */	addi r0, r5, lbl_803E1318@l
+/* 80135E60 00132DC0  38 05 13 18 */	addi r0, r5, __vt__10CBodyState@l
 /* 80135E64 00132DC4  C0 02 99 C0 */	lfs f0, lbl_805AB6E0@sda21(r2)
 /* 80135E68 00132DC8  90 03 00 00 */	stw r0, 0(r3)
 /* 80135E6C 00132DCC  38 84 13 E0 */	addi r4, r4, lbl_803E13E0@l

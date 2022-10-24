@@ -47,8 +47,8 @@ __dt__9CBSHurledFv:
 /* 80144428 00141388  38 03 1F B0 */	addi r0, r3, lbl_803E1FB0@l
 /* 8014442C 0014138C  90 1F 00 00 */	stw r0, 0(r31)
 /* 80144430 00141390  41 82 00 10 */	beq lbl_80144440
-/* 80144434 00141394  3C 60 80 3E */	lis r3, lbl_803E1318@ha
-/* 80144438 00141398  38 03 13 18 */	addi r0, r3, lbl_803E1318@l
+/* 80144434 00141394  3C 60 80 3E */	lis r3, __vt__10CBodyState@ha
+/* 80144438 00141398  38 03 13 18 */	addi r0, r3, __vt__10CBodyState@l
 /* 8014443C 0014139C  90 1F 00 00 */	stw r0, 0(r31)
 lbl_80144440:
 /* 80144440 001413A0  7C 80 07 35 */	extsh. r0, r4
@@ -1272,9 +1272,9 @@ IsInAir__9CBSHurledCFRC15CBodyController:
 
 .global __ct__9CBSHurledFv
 __ct__9CBSHurledFv:
-/* 801455A0 00142500  3C C0 80 3E */	lis r6, lbl_803E1318@ha
+/* 801455A0 00142500  3C C0 80 3E */	lis r6, __vt__10CBodyState@ha
 /* 801455A4 00142504  3C A0 80 3E */	lis r5, lbl_803E1FB0@ha
-/* 801455A8 00142508  38 06 13 18 */	addi r0, r6, lbl_803E1318@l
+/* 801455A8 00142508  38 06 13 18 */	addi r0, r6, __vt__10CBodyState@l
 /* 801455AC 0014250C  C0 22 9C 28 */	lfs f1, lbl_805AB948@sda21(r2)
 /* 801455B0 00142510  90 03 00 00 */	stw r0, 0(r3)
 /* 801455B4 00142514  38 C5 1F B0 */	addi r6, r5, lbl_803E1FB0@l

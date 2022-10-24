@@ -35,8 +35,8 @@ __dt__15CBSLoopReactionFv:
 /* 8013C064 00138FC4  38 03 18 78 */	addi r0, r3, lbl_803E1878@l
 /* 8013C068 00138FC8  90 1F 00 00 */	stw r0, 0(r31)
 /* 8013C06C 00138FCC  41 82 00 10 */	beq lbl_8013C07C
-/* 8013C070 00138FD0  3C 60 80 3E */	lis r3, lbl_803E1318@ha
-/* 8013C074 00138FD4  38 03 13 18 */	addi r0, r3, lbl_803E1318@l
+/* 8013C070 00138FD0  3C 60 80 3E */	lis r3, __vt__10CBodyState@ha
+/* 8013C074 00138FD4  38 03 13 18 */	addi r0, r3, __vt__10CBodyState@l
 /* 8013C078 00138FD8  90 1F 00 00 */	stw r0, 0(r31)
 lbl_8013C07C:
 /* 8013C07C 00138FDC  7C 80 07 35 */	extsh. r0, r4
@@ -733,9 +733,9 @@ lbl_8013CA00:
 
 .global __ct__15CBSLoopReactionFv
 __ct__15CBSLoopReactionFv:
-/* 8013CA20 00139980  3C A0 80 3E */	lis r5, lbl_803E1318@ha
+/* 8013CA20 00139980  3C A0 80 3E */	lis r5, __vt__10CBodyState@ha
 /* 8013CA24 00139984  3C 80 80 3E */	lis r4, lbl_803E1878@ha
-/* 8013CA28 00139988  38 C5 13 18 */	addi r6, r5, lbl_803E1318@l
+/* 8013CA28 00139988  38 C5 13 18 */	addi r6, r5, __vt__10CBodyState@l
 /* 8013CA2C 0013998C  38 00 FF FF */	li r0, -1
 /* 8013CA30 00139990  90 C3 00 00 */	stw r6, 0(r3)
 /* 8013CA34 00139994  38 A4 18 78 */	addi r5, r4, lbl_803E1878@l

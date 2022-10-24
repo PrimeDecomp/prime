@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803E1F78
-lbl_803E1F78:
+.global __vt__8CBSSlide
+__vt__8CBSSlide:
 	# ROM: 0x3DEF78
 	.4byte 0
 	.4byte 0
@@ -31,12 +31,12 @@ __dt__8CBSSlideFv:
 /* 80143F90 00140EF0  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 80143F94 00140EF4  7C 7F 1B 79 */	or. r31, r3, r3
 /* 80143F98 00140EF8  41 82 00 30 */	beq lbl_80143FC8
-/* 80143F9C 00140EFC  3C 60 80 3E */	lis r3, lbl_803E1F78@ha
-/* 80143FA0 00140F00  38 03 1F 78 */	addi r0, r3, lbl_803E1F78@l
+/* 80143F9C 00140EFC  3C 60 80 3E */	lis r3, __vt__8CBSSlide@ha
+/* 80143FA0 00140F00  38 03 1F 78 */	addi r0, r3, __vt__8CBSSlide@l
 /* 80143FA4 00140F04  90 1F 00 00 */	stw r0, 0(r31)
 /* 80143FA8 00140F08  41 82 00 10 */	beq lbl_80143FB8
-/* 80143FAC 00140F0C  3C 60 80 3E */	lis r3, lbl_803E1318@ha
-/* 80143FB0 00140F10  38 03 13 18 */	addi r0, r3, lbl_803E1318@l
+/* 80143FAC 00140F0C  3C 60 80 3E */	lis r3, __vt__10CBodyState@ha
+/* 80143FB0 00140F10  38 03 13 18 */	addi r0, r3, __vt__10CBodyState@l
 /* 80143FB4 00140F14  90 1F 00 00 */	stw r0, 0(r31)
 lbl_80143FB8:
 /* 80143FB8 00140F18  7C 80 07 35 */	extsh. r0, r4
@@ -344,12 +344,12 @@ lbl_801443C4:
 
 .global __ct__8CBSSlideFv
 __ct__8CBSSlideFv:
-/* 801443E8 00141348  3C A0 80 3E */	lis r5, lbl_803E1318@ha
-/* 801443EC 0014134C  3C 80 80 3E */	lis r4, lbl_803E1F78@ha
-/* 801443F0 00141350  38 A5 13 18 */	addi r5, r5, lbl_803E1318@l
+/* 801443E8 00141348  3C A0 80 3E */	lis r5, __vt__10CBodyState@ha
+/* 801443EC 0014134C  3C 80 80 3E */	lis r4, __vt__8CBSSlide@ha
+/* 801443F0 00141350  38 A5 13 18 */	addi r5, r5, __vt__10CBodyState@l
 /* 801443F4 00141354  C0 02 9B F0 */	lfs f0, lbl_805AB910@sda21(r2)
 /* 801443F8 00141358  90 A3 00 00 */	stw r5, 0(r3)
-/* 801443FC 0014135C  38 04 1F 78 */	addi r0, r4, lbl_803E1F78@l
+/* 801443FC 0014135C  38 04 1F 78 */	addi r0, r4, __vt__8CBSSlide@l
 /* 80144400 00141360  90 03 00 00 */	stw r0, 0(r3)
 /* 80144404 00141364  D0 03 00 04 */	stfs f0, 4(r3)
 /* 80144408 00141368  4E 80 00 20 */	blr

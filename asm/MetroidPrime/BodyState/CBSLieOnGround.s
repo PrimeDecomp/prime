@@ -35,8 +35,8 @@ __dt__14CBSLieOnGroundFv:
 /* 801367E8 00133748  38 03 14 88 */	addi r0, r3, lbl_803E1488@l
 /* 801367EC 0013374C  90 1F 00 00 */	stw r0, 0(r31)
 /* 801367F0 00133750  41 82 00 10 */	beq lbl_80136800
-/* 801367F4 00133754  3C 60 80 3E */	lis r3, lbl_803E1318@ha
-/* 801367F8 00133758  38 03 13 18 */	addi r0, r3, lbl_803E1318@l
+/* 801367F4 00133754  3C 60 80 3E */	lis r3, __vt__10CBodyState@ha
+/* 801367F8 00133758  38 03 13 18 */	addi r0, r3, __vt__10CBodyState@l
 /* 801367FC 0013375C  90 1F 00 00 */	stw r0, 0(r31)
 lbl_80136800:
 /* 80136800 00133760  7C 80 07 35 */	extsh. r0, r4
@@ -251,10 +251,10 @@ lbl_80136ABC:
 __ct__14CBSLieOnGroundFRC6CActor:
 /* 80136ADC 00133A3C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80136AE0 00133A40  7C 08 02 A6 */	mflr r0
-/* 80136AE4 00133A44  3C C0 80 3E */	lis r6, lbl_803E1318@ha
+/* 80136AE4 00133A44  3C C0 80 3E */	lis r6, __vt__10CBodyState@ha
 /* 80136AE8 00133A48  3C A0 80 3E */	lis r5, lbl_803E1488@ha
 /* 80136AEC 00133A4C  90 01 00 14 */	stw r0, 0x14(r1)
-/* 80136AF0 00133A50  38 C6 13 18 */	addi r6, r6, lbl_803E1318@l
+/* 80136AF0 00133A50  38 C6 13 18 */	addi r6, r6, __vt__10CBodyState@l
 /* 80136AF4 00133A54  38 05 14 88 */	addi r0, r5, lbl_803E1488@l
 /* 80136AF8 00133A58  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 80136AFC 00133A5C  7C 7F 1B 78 */	mr r31, r3

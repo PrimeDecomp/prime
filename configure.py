@@ -201,7 +201,7 @@ LIBS = [
             "MetroidPrime/BodyState/CBSGroundHit",
             "MetroidPrime/Enemies/CChozoGhost",
             "MetroidPrime/Enemies/CFireFlea",
-            "MetroidPrime/BodyState/CBSSlide",
+            ["MetroidPrime/BodyState/CBSSlide", False],
             "MetroidPrime/BodyState/CBSHurled",
             "MetroidPrime/BodyState/CBSJump",
             "MetroidPrime/BodyState/CBSGenerate",

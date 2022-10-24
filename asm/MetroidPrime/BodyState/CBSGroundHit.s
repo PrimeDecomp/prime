@@ -35,8 +35,8 @@ __dt__12CBSGroundHitFv:
 /* 8013ED78 0013BCD8  38 03 18 B0 */	addi r0, r3, lbl_803E18B0@l
 /* 8013ED7C 0013BCDC  90 1F 00 00 */	stw r0, 0(r31)
 /* 8013ED80 0013BCE0  41 82 00 10 */	beq lbl_8013ED90
-/* 8013ED84 0013BCE4  3C 60 80 3E */	lis r3, lbl_803E1318@ha
-/* 8013ED88 0013BCE8  38 03 13 18 */	addi r0, r3, lbl_803E1318@l
+/* 8013ED84 0013BCE4  3C 60 80 3E */	lis r3, __vt__10CBodyState@ha
+/* 8013ED88 0013BCE8  38 03 13 18 */	addi r0, r3, __vt__10CBodyState@l
 /* 8013ED8C 0013BCEC  90 1F 00 00 */	stw r0, 0(r31)
 lbl_8013ED90:
 /* 8013ED90 0013BCF0  7C 80 07 35 */	extsh. r0, r4
@@ -406,9 +406,9 @@ lbl_8013F2A4:
 
 .global __ct__12CBSGroundHitFv
 __ct__12CBSGroundHitFv:
-/* 8013F2C0 0013C220  3C A0 80 3E */	lis r5, lbl_803E1318@ha
+/* 8013F2C0 0013C220  3C A0 80 3E */	lis r5, __vt__10CBodyState@ha
 /* 8013F2C4 0013C224  3C 80 80 3E */	lis r4, lbl_803E18B0@ha
-/* 8013F2C8 0013C228  38 05 13 18 */	addi r0, r5, lbl_803E1318@l
+/* 8013F2C8 0013C228  38 05 13 18 */	addi r0, r5, __vt__10CBodyState@l
 /* 8013F2CC 0013C22C  C0 02 9B 28 */	lfs f0, lbl_805AB848@sda21(r2)
 /* 8013F2D0 0013C230  90 03 00 00 */	stw r0, 0(r3)
 /* 8013F2D4 0013C234  38 84 18 B0 */	addi r4, r4, lbl_803E18B0@l

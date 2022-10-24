@@ -50,8 +50,8 @@ __dt__11CBSWallHangFv:
 /* 8018D4D8 0018A438  38 03 43 A0 */	addi r0, r3, lbl_803E43A0@l
 /* 8018D4DC 0018A43C  90 1F 00 00 */	stw r0, 0(r31)
 /* 8018D4E0 0018A440  41 82 00 10 */	beq lbl_8018D4F0
-/* 8018D4E4 0018A444  3C 60 80 3E */	lis r3, lbl_803E1318@ha
-/* 8018D4E8 0018A448  38 03 13 18 */	addi r0, r3, lbl_803E1318@l
+/* 8018D4E4 0018A444  3C 60 80 3E */	lis r3, __vt__10CBodyState@ha
+/* 8018D4E8 0018A448  38 03 13 18 */	addi r0, r3, __vt__10CBodyState@l
 /* 8018D4EC 0018A44C  90 1F 00 00 */	stw r0, 0(r31)
 lbl_8018D4F0:
 /* 8018D4F0 0018A450  7C 80 07 35 */	extsh. r0, r4
@@ -1634,9 +1634,9 @@ lbl_8018EB34:
 
 .global __ct__11CBSWallHangFv
 __ct__11CBSWallHangFv:
-/* 8018EB4C 0018BAAC  3C C0 80 3E */	lis r6, lbl_803E1318@ha
+/* 8018EB4C 0018BAAC  3C C0 80 3E */	lis r6, __vt__10CBodyState@ha
 /* 8018EB50 0018BAB0  3C A0 80 3E */	lis r5, lbl_803E43A0@ha
-/* 8018EB54 0018BAB4  38 06 13 18 */	addi r0, r6, lbl_803E1318@l
+/* 8018EB54 0018BAB4  38 06 13 18 */	addi r0, r6, __vt__10CBodyState@l
 /* 8018EB58 0018BAB8  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 8018EB5C 0018BABC  90 03 00 00 */	stw r0, 0(r3)
 /* 8018EB60 0018BAC0  38 C5 43 A0 */	addi r6, r5, lbl_803E43A0@l

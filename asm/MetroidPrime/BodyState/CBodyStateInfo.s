@@ -180,8 +180,8 @@ lbl_803E12F8:
 	.4byte lbl_801344B4
 
 
-.global lbl_803E1318
-lbl_803E1318:
+.global __vt__10CBodyState
+__vt__10CBodyState:
 	# ROM: 0x3DE318
 	.4byte 0
 	.4byte 0
