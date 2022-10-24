@@ -2533,7 +2533,7 @@ lbl_80243CD4:
 /* 80243D58 00240CB8  4B E0 DC 09 */	bl CreateQuitGameplay__7MakeMsgF14EArchMsgTarget
 /* 80243D5C 00240CBC  7F E3 FB 78 */	mr r3, r31
 /* 80243D60 00240CC0  38 81 00 28 */	addi r4, r1, 0x28
-/* 80243D64 00240CC4  4B DC 2F 9D */	bl InsertMsg__18CArchitectureQueueFRC20CArchitectureMessage
+/* 80243D64 00240CC4  4B DC 2F 9D */	bl Push__18CArchitectureQueueFRC20CArchitectureMessage
 /* 80243D68 00240CC8  34 61 00 30 */	addic. r3, r1, 0x30
 /* 80243D6C 00240CCC  41 82 00 08 */	beq lbl_80243D74
 /* 80243D70 00240CD0  4B DC 49 9D */	bl "ReleaseData__Q24rstl34rc_ptr<24IArchitectureMessageParm>Fv"

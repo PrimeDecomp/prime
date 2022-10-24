@@ -445,7 +445,7 @@ lbl_80023E88:
 /* 80023E9C 00020DFC  48 02 DE 11 */	bl CreateCreateIOWin__7MakeMsgF14EArchMsgTargetRCiRCiRCP6CIOWin
 /* 80023EA0 00020E00  7F C3 F3 78 */	mr r3, r30
 /* 80023EA4 00020E04  38 81 00 30 */	addi r4, r1, 0x30
-/* 80023EA8 00020E08  4B FE 2E 59 */	bl InsertMsg__18CArchitectureQueueFRC20CArchitectureMessage
+/* 80023EA8 00020E08  4B FE 2E 59 */	bl Push__18CArchitectureQueueFRC20CArchitectureMessage
 /* 80023EAC 00020E0C  34 61 00 38 */	addic. r3, r1, 0x38
 /* 80023EB0 00020E10  41 82 00 08 */	beq lbl_80023EB8
 /* 80023EB4 00020E14  4B FE 48 59 */	bl "ReleaseData__Q24rstl34rc_ptr<24IArchitectureMessageParm>Fv"
@@ -1253,7 +1253,7 @@ lbl_800249A4:
 /* 800249D0 00021930  48 02 CF 91 */	bl CreateQuitGameplay__7MakeMsgF14EArchMsgTarget
 /* 800249D4 00021934  7F C3 F3 78 */	mr r3, r30
 /* 800249D8 00021938  38 81 00 24 */	addi r4, r1, 0x24
-/* 800249DC 0002193C  4B FE 23 25 */	bl InsertMsg__18CArchitectureQueueFRC20CArchitectureMessage
+/* 800249DC 0002193C  4B FE 23 25 */	bl Push__18CArchitectureQueueFRC20CArchitectureMessage
 /* 800249E0 00021940  34 61 00 2C */	addic. r3, r1, 0x2c
 /* 800249E4 00021944  41 82 00 3C */	beq lbl_80024A20
 /* 800249E8 00021948  4B FE 3D 25 */	bl "ReleaseData__Q24rstl34rc_ptr<24IArchitectureMessageParm>Fv"
@@ -1475,7 +1475,7 @@ lbl_80024CF4:
 /* 80024D1C 00021C7C  48 02 CC 45 */	bl CreateQuitGameplay__7MakeMsgF14EArchMsgTarget
 /* 80024D20 00021C80  7F C3 F3 78 */	mr r3, r30
 /* 80024D24 00021C84  38 81 00 18 */	addi r4, r1, 0x18
-/* 80024D28 00021C88  4B FE 1F D9 */	bl InsertMsg__18CArchitectureQueueFRC20CArchitectureMessage
+/* 80024D28 00021C88  4B FE 1F D9 */	bl Push__18CArchitectureQueueFRC20CArchitectureMessage
 /* 80024D2C 00021C8C  34 61 00 20 */	addic. r3, r1, 0x20
 /* 80024D30 00021C90  41 82 00 18 */	beq lbl_80024D48
 /* 80024D34 00021C94  4B FE 39 D9 */	bl "ReleaseData__Q24rstl34rc_ptr<24IArchitectureMessageParm>Fv"

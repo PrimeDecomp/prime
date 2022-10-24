@@ -1187,7 +1187,7 @@ lbl_800290C0:
 /* 800290D8 00026038  48 02 8B D5 */	bl CreateCreateIOWin__7MakeMsgF14EArchMsgTargetRCiRCiRCP6CIOWin
 /* 800290DC 0002603C  7F E3 FB 78 */	mr r3, r31
 /* 800290E0 00026040  38 81 00 0C */	addi r4, r1, 0xc
-/* 800290E4 00026044  4B FD DC 1D */	bl InsertMsg__18CArchitectureQueueFRC20CArchitectureMessage
+/* 800290E4 00026044  4B FD DC 1D */	bl Push__18CArchitectureQueueFRC20CArchitectureMessage
 /* 800290E8 00026048  34 61 00 14 */	addic. r3, r1, 0x14
 /* 800290EC 0002604C  41 82 00 08 */	beq lbl_800290F4
 /* 800290F0 00026050  4B FD F6 1D */	bl "ReleaseData__Q24rstl34rc_ptr<24IArchitectureMessageParm>Fv"

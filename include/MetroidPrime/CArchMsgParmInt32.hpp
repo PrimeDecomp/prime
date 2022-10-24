@@ -6,11 +6,14 @@
 #include "MetroidPrime/CArchitectureMessage.hpp"
 
 class CArchMsgParmInt32 : public IArchitectureMessageParm {
-  int mVal;
-
 public:
   CArchMsgParmInt32(int);
   ~CArchMsgParmInt32();
+
+  int GetInt32() const { return mVal; }
+
+private:
+  int mVal;
 };
 
 #endif // _CARCHMSGPARMINT32

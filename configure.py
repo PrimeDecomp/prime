@@ -49,7 +49,7 @@ LIBS = [
             ["MetroidPrime/CArchMsgParmUserInput", True],
             "MetroidPrime/CFrontEndUI",
             ["MetroidPrime/CInputGenerator", False],
-            "MetroidPrime/CMainFlow",
+            ["MetroidPrime/CMainFlow", False],
             "MetroidPrime/CMFGame",
             "MetroidPrime/CCredits",
             "MetroidPrime/CSplashScreen",

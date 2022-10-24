@@ -404,7 +404,7 @@ lbl_800522CC:
 lbl_800522DC:
 /* 800522DC 0004F23C  7F 63 DB 78 */	mr r3, r27
 /* 800522E0 0004F240  38 81 00 20 */	addi r4, r1, 0x20
-/* 800522E4 0004F244  4B FB 4A 1D */	bl InsertMsg__18CArchitectureQueueFRC20CArchitectureMessage
+/* 800522E4 0004F244  4B FB 4A 1D */	bl Push__18CArchitectureQueueFRC20CArchitectureMessage
 lbl_800522E8:
 /* 800522E8 0004F248  28 1D 00 00 */	cmplwi r29, 0
 /* 800522EC 0004F24C  41 82 00 0C */	beq lbl_800522F8
