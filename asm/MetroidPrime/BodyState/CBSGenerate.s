@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803E2040
-lbl_803E2040:
+.global __vt__11CBSGenerate
+__vt__11CBSGenerate:
 	# ROM: 0x3DF040
 	.4byte 0
 	.4byte 0
@@ -31,8 +31,8 @@ __dt__11CBSGenerateFv:
 /* 801466C0 00143620  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 801466C4 00143624  7C 7F 1B 79 */	or. r31, r3, r3
 /* 801466C8 00143628  41 82 00 30 */	beq lbl_801466F8
-/* 801466CC 0014362C  3C 60 80 3E */	lis r3, lbl_803E2040@ha
-/* 801466D0 00143630  38 03 20 40 */	addi r0, r3, lbl_803E2040@l
+/* 801466CC 0014362C  3C 60 80 3E */	lis r3, __vt__11CBSGenerate@ha
+/* 801466D0 00143630  38 03 20 40 */	addi r0, r3, __vt__11CBSGenerate@l
 /* 801466D4 00143634  90 1F 00 00 */	stw r0, 0(r31)
 /* 801466D8 00143638  41 82 00 10 */	beq lbl_801466E8
 /* 801466DC 0014363C  3C 60 80 3E */	lis r3, __vt__10CBodyState@ha
@@ -307,10 +307,10 @@ lbl_80146A7C:
 .global __ct__11CBSGenerateFv
 __ct__11CBSGenerateFv:
 /* 80146A90 001439F0  3C A0 80 3E */	lis r5, __vt__10CBodyState@ha
-/* 80146A94 001439F4  3C 80 80 3E */	lis r4, lbl_803E2040@ha
+/* 80146A94 001439F4  3C 80 80 3E */	lis r4, __vt__11CBSGenerate@ha
 /* 80146A98 001439F8  38 A5 13 18 */	addi r5, r5, __vt__10CBodyState@l
 /* 80146A9C 001439FC  90 A3 00 00 */	stw r5, 0(r3)
-/* 80146AA0 00143A00  38 04 20 40 */	addi r0, r4, lbl_803E2040@l
+/* 80146AA0 00143A00  38 04 20 40 */	addi r0, r4, __vt__11CBSGenerate@l
 /* 80146AA4 00143A04  90 03 00 00 */	stw r0, 0(r3)
 /* 80146AA8 00143A08  4E 80 00 20 */	blr
 

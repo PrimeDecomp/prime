@@ -20,10 +20,45 @@ public:
   float GetWeight() const { return x8_weight; }
 };
 
-class CBCSlideCmd : public CBodyStateCmd {
+class CBCGenerateCmd : public CBodyStateCmd {
+  pas::EGenerateType x8_type;
+  CVector3f xc_targetPos;
+  int x18_animId;
+  bool x1c_24_targetTransform : 1;
+  bool x1c_25_overrideAnim : 1;
 
 public:
-  explicit CBCSlideCmd() : CBodyStateCmd(kBSC_Slide), x8_type(pas::kSlide_Invalid), xc_dir(CVector3f::Zero()) {}
+  explicit CBCGenerateCmd() : CBodyStateCmd(kBSC_Generate), xc_targetPos(0.f, 0.f, 0.f) {}
+
+  explicit CBCGenerateCmd(pas::EGenerateType type)
+  : CBodyStateCmd(kBSC_Generate), x8_type(type), xc_targetPos(0.f, 0.f, 0.f) {}
+
+  explicit CBCGenerateCmd(pas::EGenerateType type, int animId)
+  : CBodyStateCmd(kBSC_Generate)
+  , x8_type(type)
+  , xc_targetPos(0.f, 0.f, 0.f)
+  , x18_animId(animId)
+  , x1c_25_overrideAnim(animId != -1) {}
+
+  explicit CBCGenerateCmd(pas::EGenerateType type, const CVector3f& vec,
+                          bool targetTransform = false, bool overrideAnim = false)
+  : CBodyStateCmd(kBSC_Generate)
+  , x8_type(type)
+  , xc_targetPos(vec)
+  , x1c_24_targetTransform(targetTransform)
+  , x1c_25_overrideAnim(overrideAnim) {}
+  
+  pas::EGenerateType GetGenerateType() const { return x8_type; }
+  const CVector3f& GetExitTargetPos() const { return xc_targetPos; }
+  bool HasExitTargetPos() const { return x1c_24_targetTransform; }
+  int GetSpecialAnimId() const { return x18_animId; }
+  bool UseSpecialAnimId() const { return x1c_25_overrideAnim; }
+};
+
+class CBCSlideCmd : public CBodyStateCmd {
+public:
+  explicit CBCSlideCmd()
+  : CBodyStateCmd(kBSC_Slide), x8_type(pas::kSlide_Invalid), xc_dir(CVector3f::Zero()) {}
   explicit CBCSlideCmd(pas::ESlideType type, const CVector3f& dir)
   : CBodyStateCmd(kBSC_Slide), x8_type(type), xc_dir(dir) {}
 
@@ -40,9 +75,14 @@ private:
 class CBodyStateCmdMgr {
 public:
   CBodyStateCmd* GetCmd(EBodyStateCmd cmd);
+  const CVector3f& GetTargetVector() const { return x18_target; }
 
 private:
-  uchar x0_pad[0x2a0];
+  CVector3f x0_move;
+  CVector3f xc_face;
+  CVector3f x18_target;
+  CVector3f x24_additiveTarget;
+  uchar x30_pad[0x270];
 };
 
 #endif // _CBODYSTATECMDMGR

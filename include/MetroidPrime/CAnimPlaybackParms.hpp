@@ -14,11 +14,11 @@ private:
   float x8_blendWeight;
   bool xc_animating;
   int x10_;
-  CVector3f* x14_targetPos;
+  const CVector3f* x14_targetPos;
   bool x18_useLocator;
-  CQuaternion* x1c_deltaOrient;
-  CTransform4f* x20_objectXf;
-  CVector3f* x24_objectScale;
+  const CQuaternion* x1c_deltaOrient;
+  const CTransform4f* x20_objectXf;
+  const CVector3f* x24_objectScale;
 
 public:
   CAnimPlaybackParms(int animA, int animB, float blendWeight, bool animating)
@@ -32,6 +32,19 @@ public:
   , x1c_deltaOrient(nullptr)
   , x20_objectXf(nullptr)
   , x24_objectScale(nullptr) {}
+
+  CAnimPlaybackParms(int anim, const CQuaternion* deltaOrient, const CVector3f* targetPos,
+                               const CTransform4f* xf, const CVector3f* scale, bool useLocator)
+  : x0_animA(anim)
+  , x4_animB(-1)
+  , x8_blendWeight(1.f)
+  , xc_animating(true)
+  , x10_(0)
+  , x14_targetPos(targetPos)
+  , x18_useLocator(useLocator)
+  , x1c_deltaOrient(deltaOrient)
+  , x20_objectXf(xf)
+  , x24_objectScale(scale) {}
 };
 CHECK_SIZEOF(CAnimPlaybackParms, 0x28)
 
