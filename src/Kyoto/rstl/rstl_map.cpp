@@ -70,40 +70,39 @@ void rbtree_rotate_right(void* header_void, void* node_void) {
 }
 
 void rbtree_rebalance(void* header_void, void* node_void) {
-  _header* header = static_cast< _header* >(header_void);
   _node* node = static_cast< _node* >(node_void);
-  _node* it;
+  _header* header = static_cast< _header* >(header_void);
 
-  while ((it = node->mParent) != nullptr && it->mColor == kNC_Black) {
-    _node* p = it->mParent->mLeft;
-    if (it == p) {
-      p = it->mParent->mRight;
+  while (node->mParent != nullptr && node->mParent->mColor == kNC_Black) {
+    _node* p = node->mParent->mParent->mLeft;
+    if (node->mParent == p) {
+      p = node->mParent->mParent->mRight;
       if ((p != nullptr && p->mColor == kNC_Black)) {
-        it->mColor = kNC_Red;
+        node->mParent->mColor = kNC_Red;
         p->mColor = kNC_Red;
         node->mParent->mParent->mColor = kNC_Black;
         node = node->mParent->mParent;
 
       } else {
-        if (node == it->mRight) {
-          rbtree_rotate_left(header, it);
+        if (node == node->mParent->mRight) {
+          rbtree_rotate_left(header, node->mParent);
         }
-        node = it;
+        // node = node->mParent;
         node->mParent->mColor = kNC_Red;
         node->mParent->mParent->mColor = kNC_Black;
         rbtree_rotate_right(header, node->mParent->mParent);
       }
     } else if (p != nullptr && p->mColor == kNC_Black) {
-      it->mColor = kNC_Red;
+      node->mParent->mColor = kNC_Red;
       p->mColor = kNC_Red;
       node->mParent->mParent->mColor = kNC_Black;
       node = node->mParent->mParent;
       
     } else {
-      if (node == it->mLeft) {
-        rbtree_rotate_right(header, it);
+      if (node == node->mParent->mLeft) {
+        rbtree_rotate_right(header, node->mParent);
       }
-      node = it;
+      // node = node->mParent;
       node->mParent->mColor = kNC_Red;
       node->mParent->mParent->mColor = kNC_Black;
       rbtree_rotate_left(header, node->mParent->mParent);
