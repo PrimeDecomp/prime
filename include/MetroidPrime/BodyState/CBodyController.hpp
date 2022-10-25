@@ -23,6 +23,7 @@ public:
   float GetAnimTimeRemaining() const;
   void SetDeltaRotation(const CQuaternion& q);
   void SetCurrentAnimation(const CAnimPlaybackParms& parms, bool loop, bool noTrans);
+  void FaceDirection(const CVector3f& v0, float dt);
 
   bool IsAnimationOver() const { return x300_24_animationOver; }
   pas::ELocomotionType GetLocomotionType() const { return x2ec_locomotionType; }
