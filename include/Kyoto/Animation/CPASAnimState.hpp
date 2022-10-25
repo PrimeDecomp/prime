@@ -67,6 +67,8 @@ private:
 class CPASAnimState {
 public:
   CPASAnimParm GetAnimParmData(int, unsigned int) const;
+  
+  pas::EAnimationState GetStateId() const { return x0_id; }
 
 private:
   pas::EAnimationState x0_id;

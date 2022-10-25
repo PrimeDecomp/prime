@@ -171,6 +171,17 @@ enum EWallHangState {
 };
 } // namespace pas
 
+enum EBodyType {
+  kBT_Invalid,
+  kBT_BiPedal,
+  kBT_Restricted,
+  kBT_Flyer,
+  kBT_Pitchable,
+  kBT_RestrictedFlyer,
+  kBT_WallWalker,
+  kBT_NewFlyer
+};
+
 enum EBodyStateCmd {
   kBSC_Getup,
   kBSC_Step,

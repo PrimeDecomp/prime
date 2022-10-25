@@ -183,7 +183,7 @@ LIBS = [
             "MetroidPrime/ScriptObjects/CHUDBillboardEffect",
             "MetroidPrime/Enemies/CFlickerBat",
             "MetroidPrime/BodyState/CBodyStateCmdMgr",
-            "MetroidPrime/BodyState/CBodyStateInfo",
+            ["MetroidPrime/BodyState/CBodyStateInfo", False],
             "MetroidPrime/BodyState/CBSAttack",
             "MetroidPrime/BodyState/CBSDie",
             "MetroidPrime/BodyState/CBSFall",

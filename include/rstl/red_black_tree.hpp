@@ -54,11 +54,9 @@ private:
     node* get_right() { return mRight; }
     void set_right(node* n) { mRight = n; }
   };
-  struct header {
-    node* mLeftmost;
-    node* mRightmost;
-    node* mRootNode;
-
+  class header {
+  public:
+    header() : mLeftmost(nullptr), mRightmost(nullptr), mRootNode(nullptr) {}
     void set_root(node* n) { mRootNode = n; }
     void set_leftmost(node* n) { mLeftmost = n; }
     void set_rightmost(node* n) { mRightmost = n; }
@@ -66,6 +64,11 @@ private:
     node* get_root() const { return mRootNode; }
     node* get_leftmost() const { return mLeftmost; }
     node* get_rightmost() const { return mRightmost; }
+
+  private:
+    node* mLeftmost;
+    node* mRightmost;
+    node* mRootNode;
   };
 
 public:
@@ -103,6 +106,9 @@ public:
     iterator(node* node, const header* header, bool b) : const_iterator(node, header, b) {}
   };
 
+  red_black_tree() : x0_(0), x1_(0), x4_count(0) {}
+  ~red_black_tree() { clear(); }
+
   iterator insert_into(node* n, const P& item);
   iterator insert(const P& item) { return insert_into(x8_header.get_root(), item); }
 
@@ -119,7 +125,7 @@ public:
     node* n = x8_header.get_root();
     node* needle = nullptr;
     while (n != nullptr) {
-      if (!x1_cmp(x2_selector(*n->get_value()), key)) {
+      if (!x2_cmp(x3_selector(*n->get_value()), key)) {
         needle = n;
         n = n->get_left();
       } else {
@@ -127,7 +133,7 @@ public:
       }
     }
     bool noResult = false;
-    if (needle == nullptr || x1_cmp(key, x2_selector(*needle->get_value()))) {
+    if (needle == nullptr || x2_cmp(key, x3_selector(*needle->get_value()))) {
       noResult = true;
     }
     if (noResult) {
@@ -137,7 +143,6 @@ public:
   }
 
   void clear() {
-    // x0_allocator.deallocate(x10_rootNode);
     node* root = x8_header.get_root();
     if (root != nullptr) {
       free_node_and_sub_nodes(root);
@@ -148,18 +153,17 @@ public:
     x4_count = 0;
   }
 
-  ~red_black_tree() { clear(); }
-
 private:
-  Alloc x0_allocator;
-  Cmp x1_cmp;
-  S x2_selector;
+  uchar x0_;
+  uchar x1_;
+  Cmp x2_cmp;
+  S x3_selector;
   int x4_count;
   header x8_header;
 
   node* create_node(node* left, node* right, node* parent, node_color color, const P& value) {
     node* n;
-    x0_allocator.allocate(n, 1);
+    Alloc::allocate(n, 1);
     new (n) node(left, right, parent, color, value);
     return n;
   }
@@ -176,7 +180,7 @@ private:
 
   void free_node(node* n) {
     n->~node();
-    x0_allocator.deallocate(n);
+    Alloc::deallocate(n);
   }
 
   void rebalance(node* n) { rbtree_rebalance(&x8_header, n); }
@@ -199,8 +203,8 @@ red_black_tree< T, P, U, S, Cmp, Alloc >::insert_into(node* n, const P& item) {
   } else {
     node* newNode = nullptr;
     while (newNode == nullptr) {
-      bool firstComp = x1_cmp(x2_selector(*n->get_value()), x2_selector(item));
-      if (!firstComp && !x1_cmp(x2_selector(item), x2_selector(*n->get_value()))) {
+      bool firstComp = x2_cmp(x3_selector(*n->get_value()), x3_selector(item));
+      if (!firstComp && !x2_cmp(x3_selector(item), x3_selector(*n->get_value()))) {
         return iterator(n, &x8_header, kUnknownValueEqualKey);
       }
       if (firstComp) {
