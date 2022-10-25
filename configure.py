@@ -622,7 +622,7 @@ LIBS = [
             "Kyoto/CFactoryMgr",
             "Kyoto/CResFactory",
             "Kyoto/CResLoader",
-            "Kyoto/rstl/rstl_map",
+            ["Kyoto/rstl/rstl_map", False],
             "Kyoto/rstl/rstl_strings",
             "Kyoto/rstl/RstlExtras",
             ["Kyoto/Streams/CInputStream", True],
