@@ -14,11 +14,16 @@ public:
   typedef pair< K, V > value_type;
 
 private:
-  typedef red_black_tree< K, value_type, 1, select1st< value_type >, Cmp, Alloc > rep_type;
+  // TODO: some things use a 0, others use a 1
+  typedef red_black_tree< K, value_type, 0, select1st< value_type >, Cmp, Alloc > rep_type;
 
 public:
   // typedef typename rep_type::iterator iterator;
   typedef typename rep_type::const_iterator const_iterator;
+
+  void insert(const value_type& item) {
+    inner.insert(item);
+  }
 
 private:
   rep_type inner;
