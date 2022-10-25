@@ -21,9 +21,12 @@ public:
   // typedef typename rep_type::iterator iterator;
   typedef typename rep_type::const_iterator const_iterator;
 
-  void insert(const value_type& item) {
-    inner.insert(item);
-  }
+  void insert(const value_type& item) { inner.insert(item); }
+
+  const_iterator begin() const { return inner.begin(); }
+  const_iterator end() const { return inner.end(); }
+
+  const_iterator find(const K& key) const { return inner.find(key); }
 
 private:
   rep_type inner;
