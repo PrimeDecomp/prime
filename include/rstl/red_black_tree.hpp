@@ -54,14 +54,16 @@ private:
     node* get_right() { return mRight; }
     void set_right(node* n) { mRight = n; }
   };
-  struct header {};
+  struct header {
+    node* mNode;
+  };
 
   struct unknown {
-    node* x0_nodeA;
-    node** x4_nodeB;
+    node* x0_node;
+    const header* x4_header;
     bool x8_;
 
-    unknown(node* a, node** b, bool flag) : x0_nodeA(a), x4_nodeB(b), x8_(flag) {}
+    unknown(node* a, const header* h, bool b) : x0_node(a), x4_header(h), x8_(b) {}
   };
 
 public:
@@ -69,7 +71,10 @@ public:
     node* mNode;
     const header* mHeader;
 
-    const P* operator->() const { return &mNode->get_value(); }
+    const_iterator(node* node, const header* header)
+    : mNode(node), mHeader(header) {}
+
+    const P* operator->() const { return mNode->get_value(); }
     bool operator==(const const_iterator& other) const {
       return mNode == other.mNode && mHeader == other.mHeader;
     }
@@ -95,13 +100,43 @@ public:
   unknown insert_into(node* n, const P& item);
   unknown insert(const P& item) { return insert_into(x10_rootNode, item); }
 
+  const_iterator begin() const {
+    // TODO
+    return const_iterator(nullptr, nullptr);
+  }
+  const_iterator end() const {
+    // TODO
+    return const_iterator(nullptr, nullptr);
+  }
+
+  const_iterator find(const T& key) const {
+    node* n = x10_rootNode;
+    node* needle = nullptr;
+    while (n != nullptr) {
+      if (!x1_cmp(x2_selector(*n->get_value()), key)) {
+        needle = n;
+        n = n->get_left();
+      } else {
+        n = n->get_right();
+      }
+    }
+    bool noResult = false;
+    if (needle == nullptr || x1_cmp(key, x2_selector(*needle->get_value()))) {
+      noResult = true;
+    }
+    if (noResult) {
+      needle = nullptr;
+    }
+    return const_iterator(needle, nullptr);
+  }
+
 private:
   Alloc x0_allocator;
   Cmp x1_cmp;
   S x2_selector;
   int x4_count;
-  node* x8_nodeA;
-  node* xc_nodeB;
+  header x8_headerA;
+  header xc_headerB;
   node* x10_rootNode;
 };
 
@@ -117,24 +152,24 @@ red_black_tree< T, P, U, S, Cmp, Alloc >::insert_into(node* n, const P& item) {
     new (n) node(item);
     x10_rootNode = n;
     x4_count += 1;
-    x8_nodeA = x10_rootNode;
-    xc_nodeB = x10_rootNode;
-    return unknown(x10_rootNode, &x8_nodeA, kUnknownValueNewRoot);
+    x8_headerA.mNode = x10_rootNode;
+    xc_headerB.mNode = x10_rootNode;
+    return unknown(x10_rootNode, &x8_headerA, kUnknownValueNewRoot);
 
   } else {
     node* newNode = nullptr;
     while (newNode == nullptr) {
       bool firstComp = x1_cmp(x2_selector(*n->get_value()), x2_selector(item));
       if (!firstComp && !x1_cmp(x2_selector(item), x2_selector(*n->get_value()))) {
-        return unknown(n, &x8_nodeA, kUnknownValueEqualKey);
+        return unknown(n, &x8_headerA, kUnknownValueEqualKey);
       }
       if (firstComp) {
         if (n->get_left() == nullptr) {
           x0_allocator.allocate(newNode, 1);
           new (newNode) node(item, kNC_Black);
           n->set_left(newNode);
-          if (n == x8_nodeA) {
-            x8_nodeA = newNode;
+          if (n == x8_headerA.mNode) {
+            x8_headerA.mNode = newNode;
           }
         } else {
           n = n->get_left();
@@ -144,8 +179,8 @@ red_black_tree< T, P, U, S, Cmp, Alloc >::insert_into(node* n, const P& item) {
           x0_allocator.allocate(newNode, 1);
           new (newNode) node(item, kNC_Black);
           n->set_right(newNode);
-          if (n == xc_nodeB) {
-            xc_nodeB = newNode;
+          if (n == xc_headerB.mNode) {
+            xc_headerB.mNode = newNode;
           }
         } else {
           n = n->get_right();
@@ -153,8 +188,8 @@ red_black_tree< T, P, U, S, Cmp, Alloc >::insert_into(node* n, const P& item) {
       }
     }
     x4_count += 1;
-    rbtree_rebalance(&x8_nodeA, newNode);
-    return unknown(newNode, &x8_nodeA, kUnknownValueNewItem);
+    rbtree_rebalance(&x8_headerA, newNode);
+    return unknown(newNode, &x8_headerA, kUnknownValueNewItem);
   }
 }
 
