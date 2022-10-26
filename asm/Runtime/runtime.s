@@ -2,8 +2,8 @@
 
 .section .rodata
 .balign 8
-.global lbl_803D85A8
-lbl_803D85A8:
+.global __constants
+__constants:
 	# ROM: 0x3D55A8
 	.4byte 0
 	.4byte 0
@@ -18,8 +18,8 @@ lbl_803D85A8:
 .global __cvt_fp2unsigned
 __cvt_fp2unsigned:
 /* 80389954 003868B4  94 21 FF F0 */	stwu r1, -0x10(r1)
-/* 80389958 003868B8  3C 80 80 3D */	lis r4, lbl_803D85A8@h
-/* 8038995C 003868BC  60 84 85 A8 */	ori r4, r4, lbl_803D85A8@l
+/* 80389958 003868B8  3C 80 80 3D */	lis r4, __constants@h
+/* 8038995C 003868BC  60 84 85 A8 */	ori r4, r4, __constants@l
 /* 80389960 003868C0  38 60 00 00 */	li r3, 0
 /* 80389964 003868C4  C8 04 00 00 */	lfd f0, 0(r4)
 /* 80389968 003868C8  C8 64 00 08 */	lfd f3, 8(r4)
@@ -45,6 +45,8 @@ lbl_803899A8:
 
 .global __save_fpr
 __save_fpr:
+.global _savefpr_14
+_savefpr_14:
 /* 803899B0 00386910  D9 CB FF 70 */	stfd f14, -0x90(r11)
 
 .global _savefpr_15
@@ -115,6 +117,8 @@ _savefpr_31:
 
 .global __restore_fpr
 __restore_fpr:
+.global _restfpr_14
+_restfpr_14:
 /* 803899FC 0038695C  C9 CB FF 70 */	lfd f14, -0x90(r11)
 
 .global _restfpr_15
@@ -188,6 +192,8 @@ _restfpr_31:
 
 .global __save_gpr
 __save_gpr:
+.global _savegpr_14
+_savegpr_14:
 /* 80389A48 003869A8  91 CB FF B8 */	stw r14, -0x48(r11)
 
 .global _savegpr_15
@@ -207,7 +213,7 @@ _savegpr_18:
 /* 80389A58 003869B8  92 4B FF C8 */	stw r18, -0x38(r11)
 
 .global _savegpr_19
-_savegpr_1:
+_savegpr_19:
 /* 80389A5C 003869BC  92 6B FF CC */	stw r19, -0x34(r11)
 
 .global _savegpr_20
@@ -257,10 +263,12 @@ _savegpr_31:
 
 .global __restore_gpr
 __restore_gpr:
+.global _restgpr_14
+_restgpr_14:
 /* 80389A94 003869F4  81 CB FF B8 */	lwz r14, -0x48(r11)
 
-.global func_80389A98
-func_80389A98:
+.global _restgpr_15
+_restgpr_15:
 /* 80389A98 003869F8  81 EB FF BC */	lwz r15, -0x44(r11)
 
 .global _restgpr_16
@@ -324,7 +332,7 @@ _restgpr_30:
 /* 80389AD4 00386A34  83 CB FF F8 */	lwz r30, -8(r11)
 
 .global _restgpr_31
-_restgpr_13:
+_restgpr_31:
 /* 80389AD8 00386A38  83 EB FF FC */	lwz r31, -4(r11)
 /* 80389ADC 00386A3C  4E 80 00 20 */	blr
 
@@ -558,9 +566,6 @@ lbl_80389DD4:
 /* 80389DD8 00386D38  7D 04 43 78 */	mr r4, r8
 /* 80389DDC 00386D3C  7C E3 3B 78 */	mr r3, r7
 /* 80389DE0 00386D40  4E 80 00 20 */	blr
-
-.global sub_80389de4
-sub_80389de4:
 /* 80389DE4 00386D44  4E 80 00 20 */	blr
 
 .global __mod2i

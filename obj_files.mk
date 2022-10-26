@@ -724,7 +724,7 @@ MSL_PPCEABI_BARE_H :=\
 	$(BUILD_DIR)/src/Runtime/CPlusLibPPC.o\
 	$(BUILD_DIR)/src/Runtime/NMWException.o\
 	$(BUILD_DIR)/src/Runtime/ptmf.o\
-	$(BUILD_DIR)/asm/Runtime/runtime.o\
+	$(BUILD_DIR)/src/Runtime/runtime.o\
 	$(BUILD_DIR)/src/Runtime/__init_cpp_exceptions.o\
 	$(BUILD_DIR)/src/Runtime/Gecko_ExceptionPPC.o\
 	$(BUILD_DIR)/src/Runtime/abort_exit.o\
