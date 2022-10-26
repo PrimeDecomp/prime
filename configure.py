@@ -877,7 +877,7 @@ LIBS = [
             ["Runtime/CPlusLibPPC", True],
             ["Runtime/NMWException", True],
             ["Runtime/ptmf", True],
-            "Runtime/runtime",
+            ["Runtime/runtime", True],
             ["Runtime/__init_cpp_exceptions", True],
             ["Runtime/Gecko_ExceptionPPC", True],
             ["Runtime/abort_exit", True],
