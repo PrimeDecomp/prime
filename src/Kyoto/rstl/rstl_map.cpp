@@ -85,9 +85,9 @@ void rbtree_rebalance(void* header_void, void* node_void) {
 
       } else {
         if (node == node->mParent->mRight) {
-          rbtree_rotate_left(header, node->mParent);
+          node = node->mParent;
+          rbtree_rotate_left(header, node);
         }
-        // node = node->mParent;
         node->mParent->mColor = kNC_Red;
         node->mParent->mParent->mColor = kNC_Black;
         rbtree_rotate_right(header, node->mParent->mParent);
@@ -100,9 +100,9 @@ void rbtree_rebalance(void* header_void, void* node_void) {
       
     } else {
       if (node == node->mParent->mLeft) {
-        rbtree_rotate_right(header, node->mParent);
+        node = node->mParent;
+        rbtree_rotate_right(header, node);
       }
-      // node = node->mParent;
       node->mParent->mColor = kNC_Red;
       node->mParent->mParent->mColor = kNC_Black;
       rbtree_rotate_left(header, node->mParent->mParent);
