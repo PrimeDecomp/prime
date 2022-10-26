@@ -842,7 +842,7 @@ LIBS = [
             ["Dolphin/os/OSRtc", False],
             ["Dolphin/os/OSSync", True],
             "Dolphin/os/OSThread",
-            "Dolphin/os/OSTime",
+            ["Dolphin/os/OSTime", True],
             ["Dolphin/os/__ppc_eabi_init", True],
         ],
     },
