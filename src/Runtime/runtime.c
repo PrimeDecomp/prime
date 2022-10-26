@@ -1,4 +1,4 @@
-
+/* clang-format off */
 #define SAVE_FPR(reg) _savefpr_ ## reg
 #define RESTORE_FPR(reg) _restfpr_ ## reg
 #define SAVE_GPR(reg) _savegpr_ ## reg
