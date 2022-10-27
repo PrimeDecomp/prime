@@ -554,7 +554,7 @@ lbl_8014DE38:
 /* 8014DFD8 0014AF38  93 41 00 10 */	stw r26, 0x10(r1)
 /* 8014DFDC 0014AF3C  91 61 00 14 */	stw r11, 0x14(r1)
 /* 8014DFE0 0014AF40  90 01 00 18 */	stw r0, 0x18(r1)
-/* 8014DFE4 0014AF44  4B FB 42 B1 */	bl "__ct__7CWeaponF9TUniqueIdb9TUniqueId11EWeaponTypeRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC12CTransform4fRC15CMaterialFilterRC13CMaterialListRC11CDamageInfoiRC10CModelData"
+/* 8014DFE4 0014AF44  4B FB 42 B1 */	bl "__ct__7CWeaponF9TUniqueId7TAreaIdb9TUniqueId11EWeaponTypeRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>R12CTransform4fRC15CMaterialFilterRC13CMaterialListRC11CDamageInfo17EProjectileAttribRC10CModelData"
 /* 8014DFE8 0014AF48  38 61 00 78 */	addi r3, r1, 0x78
 /* 8014DFEC 0014AF4C  38 80 FF FF */	li r4, -1
 /* 8014DFF0 0014AF50  4B FC 8A 5D */	bl __dt__10CModelDataFv

@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803DFEF0
-lbl_803DFEF0:
+.global __vt__7CWeapon
+__vt__7CWeapon:
 	# ROM: 0x3DCEF0
 	.4byte 0
 	.4byte 0
@@ -123,30 +123,23 @@ FluidFXThink__7CWeaponFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager:
 /* 80101F54 000FEEB4  7C 03 00 2E */	lwzx r0, r3, r0
 /* 80101F58 000FEEB8  7C 09 03 A6 */	mtctr r0
 /* 80101F5C 000FEEBC  4E 80 04 20 */	bctr
-.global lbl_80101F60
 lbl_80101F60:
 /* 80101F60 000FEEC0  C3 E2 93 EC */	lfs f31, lbl_805AB10C@sda21(r2)
 /* 80101F64 000FEEC4  48 00 00 2C */	b lbl_80101F90
-.global lbl_80101F68
 lbl_80101F68:
 /* 80101F68 000FEEC8  C3 E2 93 F0 */	lfs f31, lbl_805AB110@sda21(r2)
 /* 80101F6C 000FEECC  48 00 00 24 */	b lbl_80101F90
-.global lbl_80101F70
 lbl_80101F70:
 /* 80101F70 000FEED0  C3 E2 93 EC */	lfs f31, lbl_805AB10C@sda21(r2)
 /* 80101F74 000FEED4  48 00 00 1C */	b lbl_80101F90
-.global lbl_80101F78
 lbl_80101F78:
 /* 80101F78 000FEED8  48 00 00 18 */	b lbl_80101F90
-.global lbl_80101F7C
 lbl_80101F7C:
 /* 80101F7C 000FEEDC  C3 E2 93 F4 */	lfs f31, lbl_805AB114@sda21(r2)
 /* 80101F80 000FEEE0  48 00 00 10 */	b lbl_80101F90
-.global lbl_80101F84
 lbl_80101F84:
 /* 80101F84 000FEEE4  C3 E2 93 EC */	lfs f31, lbl_805AB10C@sda21(r2)
 /* 80101F88 000FEEE8  48 00 00 08 */	b lbl_80101F90
-.global lbl_80101F8C
 lbl_80101F8C:
 /* 80101F8C 000FEEEC  3B 60 00 00 */	li r27, 0
 lbl_80101F90:
@@ -326,8 +319,8 @@ lbl_801021E8:
 /* 80102210 000FF170  38 21 00 40 */	addi r1, r1, 0x40
 /* 80102214 000FF174  4E 80 00 20 */	blr
 
-.global sub_80102218
-sub_80102218:
+.global SetDamageFalloffSpeed__7CWeaponFf
+SetDamageFalloffSpeed__7CWeaponFf:
 /* 80102218 000FF178  C0 02 93 E8 */	lfs f0, lbl_805AB108@sda21(r2)
 /* 8010221C 000FF17C  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 80102220 000FF180  4C 81 00 20 */	blelr
@@ -346,9 +339,9 @@ __dt__7CWeaponFv:
 /* 80102248 000FF1A8  93 C1 00 08 */	stw r30, 8(r1)
 /* 8010224C 000FF1AC  7C 7E 1B 79 */	or. r30, r3, r3
 /* 80102250 000FF1B0  41 82 00 28 */	beq lbl_80102278
-/* 80102254 000FF1B4  3C A0 80 3E */	lis r5, lbl_803DFEF0@ha
+/* 80102254 000FF1B4  3C A0 80 3E */	lis r5, __vt__7CWeapon@ha
 /* 80102258 000FF1B8  38 80 00 00 */	li r4, 0
-/* 8010225C 000FF1BC  38 05 FE F0 */	addi r0, r5, lbl_803DFEF0@l
+/* 8010225C 000FF1BC  38 05 FE F0 */	addi r0, r5, __vt__7CWeapon@l
 /* 80102260 000FF1C0  90 1E 00 00 */	stw r0, 0(r30)
 /* 80102264 000FF1C4  4B F5 34 8D */	bl __dt__6CActorFv
 /* 80102268 000FF1C8  7F E0 07 35 */	extsh. r0, r31
@@ -364,8 +357,8 @@ lbl_80102278:
 /* 8010228C 000FF1EC  38 21 00 10 */	addi r1, r1, 0x10
 /* 80102290 000FF1F0  4E 80 00 20 */	blr
 
-.global "__ct__7CWeaponF9TUniqueIdb9TUniqueId11EWeaponTypeRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC12CTransform4fRC15CMaterialFilterRC13CMaterialListRC11CDamageInfoiRC10CModelData"
-"__ct__7CWeaponF9TUniqueIdb9TUniqueId11EWeaponTypeRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC12CTransform4fRC15CMaterialFilterRC13CMaterialListRC11CDamageInfoiRC10CModelData":
+.global "__ct__7CWeaponF9TUniqueId7TAreaIdb9TUniqueId11EWeaponTypeRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>R12CTransform4fRC15CMaterialFilterRC13CMaterialListRC11CDamageInfo17EProjectileAttribRC10CModelData"
+"__ct__7CWeaponF9TUniqueId7TAreaIdb9TUniqueId11EWeaponTypeRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>R12CTransform4fRC15CMaterialFilterRC13CMaterialListRC11CDamageInfo17EProjectileAttribRC10CModelData":
 /* 80102294 000FF1F4  94 21 FE B0 */	stwu r1, -0x150(r1)
 /* 80102298 000FF1F8  7C 08 02 A6 */	mflr r0
 /* 8010229C 000FF1FC  3D 60 80 57 */	lis r11, NullConnectionList__7CEntity@ha
@@ -397,7 +390,7 @@ lbl_80102278:
 /* 80102304 000FF264  38 61 00 48 */	addi r3, r1, 0x48
 /* 80102308 000FF268  38 81 00 B0 */	addi r4, r1, 0xb0
 /* 8010230C 000FF26C  38 A0 00 01 */	li r5, 1
-/* 80102310 000FF270  48 00 44 FD */	bl sub_8010680c
+/* 80102310 000FF270  48 00 44 FD */	bl HotInThermal__16CActorParametersCFb
 /* 80102314 000FF274  A0 6D A3 8C */	lhz r3, kInvalidUniqueId@sda21(r13)
 /* 80102318 000FF278  38 81 00 48 */	addi r4, r1, 0x48
 /* 8010231C 000FF27C  A0 F4 00 00 */	lhz r7, 0(r20)
@@ -440,9 +433,9 @@ lbl_8010239C:
 /* 801023A8 000FF308  41 82 00 08 */	beq lbl_801023B0
 /* 801023AC 000FF30C  48 21 35 85 */	bl Free__7CMemoryFPCv
 lbl_801023B0:
-/* 801023B0 000FF310  3C 60 80 3E */	lis r3, lbl_803DFEF0@ha
+/* 801023B0 000FF310  3C 60 80 3E */	lis r3, __vt__7CWeapon@ha
 /* 801023B4 000FF314  C0 02 93 E8 */	lfs f0, lbl_805AB108@sda21(r2)
-/* 801023B8 000FF318  38 03 FE F0 */	addi r0, r3, lbl_803DFEF0@l
+/* 801023B8 000FF318  38 03 FE F0 */	addi r0, r3, __vt__7CWeapon@l
 /* 801023BC 000FF31C  7F 23 CB 78 */	mr r3, r25
 /* 801023C0 000FF320  90 19 00 00 */	stw r0, 0(r25)
 /* 801023C4 000FF324  93 F9 00 E8 */	stw r31, 0xe8(r25)

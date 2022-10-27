@@ -9,7 +9,10 @@
 
 class CWeapon : public CActor {
 public:
-  // TODO
+  CWeapon(TUniqueId uid, TAreaId areaId, bool active, TUniqueId owner, EWeaponType type,
+          const rstl::string& name, CTransform4f& xf, const CMaterialFilter& filter,
+          const CMaterialList& mList, const CDamageInfo& dInfo, EProjectileAttrib attribs,
+          const CModelData& mData);
 
   // CEntity
   ~CWeapon() override;
@@ -23,7 +26,7 @@ public:
   void FluidFXThink(EFluidState, CScriptWater&, CStateManager&) override;
 
   EProjectileAttrib GetAttribField() const { return xe8_projectileAttribs; }
-
+  void SetDamageFalloffSpeed(float d);
 private:
   EProjectileAttrib xe8_projectileAttribs;
   TUniqueId xec_ownerId;

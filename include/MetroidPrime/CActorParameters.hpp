@@ -118,6 +118,11 @@ public:
   float GetFadeOutTime() const { return x60_fadeOutTime; }
 
   static CActorParameters None();
+  CActorParameters HotInThermal(bool hot) const;/* {
+    CActorParameters ret = *this;
+    ret.x58_25_thermalHeat = hot;
+    return ret;
+  }*/
 
 private:
   CLightParameters x0_lightParams;

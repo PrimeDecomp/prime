@@ -336,8 +336,8 @@ MakeDamageableTriggerActorParms__FRC16CActorParametersRC16CVisorParameters:
 /* 80106804 00103764  38 21 00 80 */	addi r1, r1, 0x80
 /* 80106808 00103768  4E 80 00 20 */	blr
 
-.global sub_8010680c
-sub_8010680c:
+.global HotInThermal__16CActorParametersCFb
+HotInThermal__16CActorParametersCFb:
 /* 8010680C 0010376C  94 21 FF 80 */	stwu r1, -0x80(r1)
 /* 80106810 00103770  7C 08 02 A6 */	mflr r0
 /* 80106814 00103774  90 01 00 84 */	stw r0, 0x84(r1)
