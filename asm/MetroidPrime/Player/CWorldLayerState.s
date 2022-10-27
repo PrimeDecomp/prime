@@ -356,8 +356,8 @@ lbl_80234404:
 /* 80234418 00231378  38 21 00 40 */	addi r1, r1, 0x40
 /* 8023441C 0023137C  4E 80 00 20 */	blr
 
-.global __ct__16CWorldLayerStateFR16CBitStreamReaderRC10CSaveWorld
-__ct__16CWorldLayerStateFR16CBitStreamReaderRC10CSaveWorld:
+.global __ct__16CWorldLayerStateFR16CBitStreamReaderRC18CWorldSaveGameInfo
+__ct__16CWorldLayerStateFR16CBitStreamReaderRC18CWorldSaveGameInfo:
 /* 80234420 00231380  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80234424 00231384  7C 08 02 A6 */	mflr r0
 /* 80234428 00231388  90 01 00 24 */	stw r0, 0x24(r1)

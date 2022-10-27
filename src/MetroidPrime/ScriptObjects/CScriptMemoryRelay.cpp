@@ -19,14 +19,14 @@ void CScriptMemoryRelay::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId obj
 
   switch (msg) {
     case kSM_Activate:
-      stateMgr.Mailbox()->AddRelay(GetEditorId());
+      stateMgr.Mailbox()->AddMsg(GetEditorId());
       if (!x34_25_skipSendActive) {
         SendScriptMsgs(kSS_Active, stateMgr, kSM_None);
       }
       break;
 
     case kSM_Deactivate:
-      stateMgr.Mailbox()->RemoveRelay(GetEditorId());
+      stateMgr.Mailbox()->RemoveMsg(GetEditorId());
       break;
     
     default:

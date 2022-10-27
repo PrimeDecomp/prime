@@ -1287,7 +1287,7 @@ lbl_801D48F0:
 /* 801D4948 001D18A8  7F C4 F3 78 */	mr r4, r30
 /* 801D494C 001D18AC  7E E5 BB 78 */	mr r5, r23
 /* 801D4950 001D18B0  38 61 00 3C */	addi r3, r1, 0x3c
-/* 801D4954 001D18B4  48 00 04 E5 */	bl __ct__11CWorldStateFR12CInputStreamPCvR10CSaveWorld
+/* 801D4954 001D18B4  48 00 04 E5 */	bl __ct__11CWorldStateFR12CInputStreamPCvR18CWorldSaveGameInfo
 /* 801D4958 001D18B8  38 7D 00 88 */	addi r3, r29, 0x88
 /* 801D495C 001D18BC  38 81 00 3C */	addi r4, r1, 0x3c
 /* 801D4960 001D18C0  4B FF F1 7D */	bl __ct__11CWorldStateFRC11CWorldState
@@ -1648,13 +1648,13 @@ PutTo__11CWorldStateFR16CMemoryStreamOut:
 /* 801D4DE0 001D1D40  7F C4 F3 78 */	mr r4, r30
 /* 801D4DE4 001D1D44  7F E5 FB 78 */	mr r5, r31
 /* 801D4DE8 001D1D48  80 63 00 00 */	lwz r3, 0(r3)
-/* 801D4DEC 001D1D4C  4B F0 CE D1 */	bl PutTo__14CScriptMailboxCFR13COutputStream
+/* 801D4DEC 001D1D4C  4B F0 CE D1 */	bl PutTo__14CScriptMailboxCFR13COutputStreamR18CWorldSaveGameInfo
 /* 801D4DF0 001D1D50  80 7D 00 0C */	lwz r3, 0xc(r29)
 /* 801D4DF4 001D1D54  7F C4 F3 78 */	mr r4, r30
 /* 801D4DF8 001D1D58  80 DD 00 00 */	lwz r6, 0(r29)
 /* 801D4DFC 001D1D5C  7F E5 FB 78 */	mr r5, r31
 /* 801D4E00 001D1D60  80 63 00 00 */	lwz r3, 0(r3)
-/* 801D4E04 001D1D64  4B F9 3D 99 */	bl PutTo__13CMapWorldInfoCFR13COutputStreamRC10CSaveWorldi
+/* 801D4E04 001D1D64  4B F9 3D 99 */	bl PutTo__13CMapWorldInfoCFR13COutputStreamRC18CWorldSaveGameInfoi
 /* 801D4E08 001D1D68  80 7D 00 14 */	lwz r3, 0x14(r29)
 /* 801D4E0C 001D1D6C  7F C4 F3 78 */	mr r4, r30
 /* 801D4E10 001D1D70  7F E5 FB 78 */	mr r5, r31
@@ -1668,8 +1668,8 @@ PutTo__11CWorldStateFR16CMemoryStreamOut:
 /* 801D4E30 001D1D90  38 21 00 20 */	addi r1, r1, 0x20
 /* 801D4E34 001D1D94  4E 80 00 20 */	blr
 
-.global __ct__11CWorldStateFR12CInputStreamPCvR10CSaveWorld
-__ct__11CWorldStateFR12CInputStreamPCvR10CSaveWorld:
+.global __ct__11CWorldStateFR12CInputStreamPCvR18CWorldSaveGameInfo
+__ct__11CWorldStateFR12CInputStreamPCvR18CWorldSaveGameInfo:
 /* 801D4E38 001D1D98  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 801D4E3C 001D1D9C  7C 08 02 A6 */	mflr r0
 /* 801D4E40 001D1DA0  90 01 00 24 */	stw r0, 0x24(r1)
@@ -1742,7 +1742,7 @@ lbl_801D4F04:
 /* 801D4F40 001D1EA0  41 82 00 14 */	beq lbl_801D4F54
 /* 801D4F44 001D1EA4  7F C4 F3 78 */	mr r4, r30
 /* 801D4F48 001D1EA8  7F E5 FB 78 */	mr r5, r31
-/* 801D4F4C 001D1EAC  4B F0 CF 6D */	bl __ct__14CScriptMailboxFR12CInputStreamRC10CSaveWorld
+/* 801D4F4C 001D1EAC  4B F0 CF 6D */	bl __ct__14CScriptMailboxFR12CInputStreamRC18CWorldSaveGameInfo
 /* 801D4F50 001D1EB0  7C 7C 1B 78 */	mr r28, r3
 lbl_801D4F54:
 /* 801D4F54 001D1EB4  38 7D 00 08 */	addi r3, r29, 8
@@ -1769,7 +1769,7 @@ lbl_801D4F84:
 /* 801D4FA4 001D1F04  80 DD 00 00 */	lwz r6, 0(r29)
 /* 801D4FA8 001D1F08  7F C4 F3 78 */	mr r4, r30
 /* 801D4FAC 001D1F0C  7F E5 FB 78 */	mr r5, r31
-/* 801D4FB0 001D1F10  4B F9 3F 95 */	bl __ct__13CMapWorldInfoFR16CBitStreamReaderRC10CSaveWorldUi
+/* 801D4FB0 001D1F10  4B F9 3F 95 */	bl __ct__13CMapWorldInfoFR16CBitStreamReaderRC18CWorldSaveGameInfoUi
 /* 801D4FB4 001D1F14  7C 7C 1B 78 */	mr r28, r3
 lbl_801D4FB8:
 /* 801D4FB8 001D1F18  38 7D 00 0C */	addi r3, r29, 0xc
@@ -1795,7 +1795,7 @@ lbl_801D4FE8:
 /* 801D5004 001D1F64  41 82 00 14 */	beq lbl_801D5018
 /* 801D5008 001D1F68  7F C4 F3 78 */	mr r4, r30
 /* 801D500C 001D1F6C  7F E5 FB 78 */	mr r5, r31
-/* 801D5010 001D1F70  48 05 F4 11 */	bl __ct__16CWorldLayerStateFR16CBitStreamReaderRC10CSaveWorld
+/* 801D5010 001D1F70  48 05 F4 11 */	bl __ct__16CWorldLayerStateFR16CBitStreamReaderRC18CWorldSaveGameInfo
 /* 801D5014 001D1F74  7C 7C 1B 78 */	mr r28, r3
 lbl_801D5018:
 /* 801D5018 001D1F78  38 7D 00 14 */	addi r3, r29, 0x14
