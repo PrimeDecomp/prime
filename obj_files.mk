@@ -311,7 +311,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CAtomicAlpha.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CLogBookScreen.o\
 	$(BUILD_DIR)/src/MetroidPrime/CGBASupport.o\
-	$(BUILD_DIR)/asm/MetroidPrime/Player/CSaveWorld.o\
+	$(BUILD_DIR)/asm/MetroidPrime/Player/CWorldSaveGameInfo.o\
 	$(BUILD_DIR)/src/MetroidPrime/ScriptObjects/CScriptCameraHintTrigger.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CAmbientAI.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CMemoryCardDriver.o\
@@ -330,7 +330,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CWallWalker.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CErrorOutputWindow.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CRainSplashGenerator.o\
-	$(BUILD_DIR)/asm/MetroidPrime/Factories/CSaveWorldFactory.o\
+	$(BUILD_DIR)/asm/MetroidPrime/Factories/CWorldSaveGameInfoFactory.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CFluidPlaneRender.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CBurrower.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CMetroidPrimeExo.o\

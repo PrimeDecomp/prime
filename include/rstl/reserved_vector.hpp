@@ -70,6 +70,7 @@ public:
   inline const T& back() const { return data()[x0_count - 1]; }
   inline T& operator[](int idx) { return data()[idx]; }
   inline const T& operator[](int idx) const { return data()[idx]; }
+  iterator erase(iterator it) {}
 };
 } // namespace rstl
 

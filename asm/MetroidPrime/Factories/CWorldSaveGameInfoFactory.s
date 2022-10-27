@@ -19,7 +19,7 @@ FSaveWorldFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer:
 /* 8026AD90 00267CF0  7C 64 1B 79 */	or. r4, r3, r3
 /* 8026AD94 00267CF4  41 82 00 10 */	beq lbl_8026ADA4
 /* 8026AD98 00267CF8  7F E4 FB 78 */	mr r4, r31
-/* 8026AD9C 00267CFC  48 00 04 8D */	bl __ct__10CSaveWorldFR12CinputStream
+/* 8026AD9C 00267CFC  48 00 04 8D */	bl __ct__18CWorldSaveGameInfoFR12CinputStream
 /* 8026ADA0 00267D00  7C 64 1B 78 */	mr r4, r3
 lbl_8026ADA4:
 /* 8026ADA4 00267D04  7F C3 F3 78 */	mr r3, r30
@@ -333,8 +333,8 @@ lbl_8026B1BC:
 /* 8026B1D0 00268130  38 21 00 10 */	addi r1, r1, 0x10
 /* 8026B1D4 00268134  4E 80 00 20 */	blr
 
-.global GetRelayIndex__10CSaveWorldCFRC9TEditorId
-GetRelayIndex__10CSaveWorldCFRC9TEditorId:
+.global GetRelayIndex__18CWorldSaveGameInfoCFRC9TEditorId
+GetRelayIndex__18CWorldSaveGameInfoCFRC9TEditorId:
 /* 8026B1D8 00268138  80 03 00 18 */	lwz r0, 0x18(r3)
 /* 8026B1DC 0026813C  38 E0 00 00 */	li r7, 0
 /* 8026B1E0 00268140  38 C0 00 00 */	li r6, 0
@@ -359,8 +359,8 @@ lbl_8026B220:
 /* 8026B220 00268180  38 60 FF FF */	li r3, -1
 /* 8026B224 00268184  4E 80 00 20 */	blr
 
-.global __ct__10CSaveWorldFR12CinputStream
-__ct__10CSaveWorldFR12CinputStream:
+.global __ct__18CWorldSaveGameInfoFR12CinputStream
+__ct__18CWorldSaveGameInfoFR12CinputStream:
 /* 8026B228 00268188  94 21 FE D0 */	stwu r1, -0x130(r1)
 /* 8026B22C 0026818C  7C 08 02 A6 */	mflr r0
 /* 8026B230 00268190  90 01 01 34 */	stw r0, 0x134(r1)
@@ -1088,4 +1088,3 @@ lbl_803D5418:
 	# ROM: 0x3D2418
 	.asciz "??(??)"
 	.balign 4
-

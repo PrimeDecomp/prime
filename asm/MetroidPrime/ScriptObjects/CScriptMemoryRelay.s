@@ -59,7 +59,7 @@ lbl_80241968:
 /* 80241974 0023E8D4  80 7F 08 BC */	lwz r3, 0x8bc(r31)
 /* 80241978 0023E8D8  90 01 00 14 */	stw r0, 0x14(r1)
 /* 8024197C 0023E8DC  80 63 00 00 */	lwz r3, 0(r3)
-/* 80241980 0023E8E0  4B EA 01 8D */	bl AddRelay__14CScriptMailboxF9TEditorId
+/* 80241980 0023E8E0  4B EA 01 8D */	bl AddMsg__14CScriptMailboxF9TEditorId
 /* 80241984 0023E8E4  88 1E 00 34 */	lbz r0, 0x34(r30)
 /* 80241988 0023E8E8  54 00 D7 FF */	rlwinm. r0, r0, 0x1a, 0x1f, 0x1f
 /* 8024198C 0023E8EC  40 82 00 54 */	bne lbl_802419E0
@@ -76,7 +76,7 @@ lbl_802419A8:
 /* 802419B4 0023E914  80 7F 08 BC */	lwz r3, 0x8bc(r31)
 /* 802419B8 0023E918  90 01 00 0C */	stw r0, 0xc(r1)
 /* 802419BC 0023E91C  80 63 00 00 */	lwz r3, 0(r3)
-/* 802419C0 0023E920  4B EA 00 C5 */	bl RemoveRelay__14CScriptMailboxF9TEditorId
+/* 802419C0 0023E920  4B EA 00 C5 */	bl RemoveMsg__14CScriptMailboxF9TEditorId
 /* 802419C4 0023E924  48 00 00 1C */	b lbl_802419E0
 lbl_802419C8:
 /* 802419C8 0023E928  A0 05 00 00 */	lhz r0, 0(r5)

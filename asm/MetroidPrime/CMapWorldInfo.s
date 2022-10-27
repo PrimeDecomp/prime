@@ -1114,8 +1114,8 @@ lbl_80168B88:
 /* 80168B94 00165AF4  38 21 00 30 */	addi r1, r1, 0x30
 /* 80168B98 00165AF8  4E 80 00 20 */	blr
 
-.global PutTo__13CMapWorldInfoCFR13COutputStreamRC10CSaveWorldi
-PutTo__13CMapWorldInfoCFR13COutputStreamRC10CSaveWorldi:
+.global PutTo__13CMapWorldInfoCFR13COutputStreamRC18CWorldSaveGameInfoi
+PutTo__13CMapWorldInfoCFR13COutputStreamRC18CWorldSaveGameInfoi:
 /* 80168B9C 00165AFC  94 21 FF 70 */	stwu r1, -0x90(r1)
 /* 80168BA0 00165B00  7C 08 02 A6 */	mflr r0
 /* 80168BA4 00165B04  90 01 00 94 */	stw r0, 0x94(r1)
@@ -1370,8 +1370,8 @@ sub_80168e78:
 /* 80168F3C 00165E9C  38 21 00 40 */	addi r1, r1, 0x40
 /* 80168F40 00165EA0  4E 80 00 20 */	blr
 
-.global __ct__13CMapWorldInfoFR16CBitStreamReaderRC10CSaveWorldUi
-__ct__13CMapWorldInfoFR16CBitStreamReaderRC10CSaveWorldUi:
+.global __ct__13CMapWorldInfoFR16CBitStreamReaderRC18CWorldSaveGameInfoUi
+__ct__13CMapWorldInfoFR16CBitStreamReaderRC18CWorldSaveGameInfoUi:
 /* 80168F44 00165EA4  94 21 FF 80 */	stwu r1, -0x80(r1)
 /* 80168F48 00165EA8  7C 08 02 A6 */	mflr r0
 /* 80168F4C 00165EAC  90 01 00 84 */	stw r0, 0x84(r1)

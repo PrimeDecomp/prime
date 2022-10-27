@@ -32,14 +32,14 @@ struct TEditorId {
   TEditorId(uint value) : value(value) {}
   TEditorId(CInputStream& in);
   // TODO
-  uint Value() const { return value; }
+  uint Value() const { return value & 0x3FFFFFF; }
   uint Id() const { return value; }
   uint AreaNum() const { return value; }
 
   void PutTo(COutputStream&) const;
 
-  bool operator==(const TEditorId& other) const { return value == other.value; }
-  bool operator!=(const TEditorId& other) const { return value != other.value; }
+  bool operator==(const TEditorId& other) const { return Value() == other.Value(); }
+  bool operator!=(const TEditorId& other) const { return Value() != other.Value(); }
 };
 CHECK_SIZEOF(TEditorId, 0x4)
 

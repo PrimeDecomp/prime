@@ -16,8 +16,8 @@ lbl_805A7329:
 
 .section .text, "ax"
 
-.global HasObject__14CScriptMailboxCF9TEditorId
-HasObject__14CScriptMailboxCF9TEditorId:
+.global HasMsg__14CScriptMailboxCF9TEditorId
+HasMsg__14CScriptMailboxCF9TEditorId:
 /* 800E1A38 000DE998  80 03 00 00 */	lwz r0, 0(r3)
 /* 800E1A3C 000DE99C  38 C3 00 04 */	addi r6, r3, 4
 /* 800E1A40 000DE9A0  54 00 10 3A */	slwi r0, r0, 2
@@ -41,8 +41,8 @@ lbl_800E1A74:
 /* 800E1A7C 000DE9DC  38 60 00 00 */	li r3, 0
 /* 800E1A80 000DE9E0  4E 80 00 20 */	blr
 
-.global RemoveRelay__14CScriptMailboxF9TEditorId
-RemoveRelay__14CScriptMailboxF9TEditorId:
+.global RemoveMsg__14CScriptMailboxF9TEditorId
+RemoveMsg__14CScriptMailboxF9TEditorId:
 /* 800E1A84 000DE9E4  80 03 00 00 */	lwz r0, 0(r3)
 /* 800E1A88 000DE9E8  38 E3 00 04 */	addi r7, r3, 4
 /* 800E1A8C 000DE9EC  54 00 10 3A */	slwi r0, r0, 2
@@ -83,8 +83,8 @@ lbl_800E1B00:
 /* 800E1B04 000DEA64  40 82 FF 98 */	bne lbl_800E1A9C
 /* 800E1B08 000DEA68  4E 80 00 20 */	blr
 
-.global AddRelay__14CScriptMailboxF9TEditorId
-AddRelay__14CScriptMailboxF9TEditorId:
+.global AddMsg__14CScriptMailboxF9TEditorId
+AddMsg__14CScriptMailboxF9TEditorId:
 /* 800E1B0C 000DEA6C  80 03 00 00 */	lwz r0, 0(r3)
 /* 800E1B10 000DEA70  38 E3 00 04 */	addi r7, r3, 4
 /* 800E1B14 000DEA74  54 00 10 3A */	slwi r0, r0, 2
@@ -140,7 +140,7 @@ lbl_800E1BA0:
 /* 800E1BC0 000DEB20  38 81 00 18 */	addi r4, r1, 0x18
 /* 800E1BC4 000DEB24  90 01 00 20 */	stw r0, 0x20(r1)
 /* 800E1BC8 000DEB28  90 01 00 18 */	stw r0, 0x18(r1)
-/* 800E1BCC 000DEB2C  4B FF FE 6D */	bl HasObject__14CScriptMailboxCF9TEditorId
+/* 800E1BCC 000DEB2C  4B FF FE 6D */	bl HasMsg__14CScriptMailboxCF9TEditorId
 /* 800E1BD0 000DEB30  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 800E1BD4 000DEB34  41 82 00 3C */	beq lbl_800E1C10
 /* 800E1BD8 000DEB38  80 A1 00 24 */	lwz r5, 0x24(r1)
@@ -180,7 +180,7 @@ lbl_800E1C38:
 /* 800E1C54 000DEBB4  38 81 00 10 */	addi r4, r1, 0x10
 /* 800E1C58 000DEBB8  90 01 00 1C */	stw r0, 0x1c(r1)
 /* 800E1C5C 000DEBBC  90 01 00 10 */	stw r0, 0x10(r1)
-/* 800E1C60 000DEBC0  4B FF FD D9 */	bl HasObject__14CScriptMailboxCF9TEditorId
+/* 800E1C60 000DEBC0  4B FF FD D9 */	bl HasMsg__14CScriptMailboxCF9TEditorId
 /* 800E1C64 000DEBC4  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 800E1C68 000DEBC8  41 82 00 24 */	beq lbl_800E1C8C
 /* 800E1C6C 000DEBCC  88 1D 00 0A */	lbz r0, 0xa(r29)
@@ -190,7 +190,7 @@ lbl_800E1C38:
 /* 800E1C7C 000DEBDC  7F 23 CB 78 */	mr r3, r25
 /* 800E1C80 000DEBE0  38 81 00 0C */	addi r4, r1, 0xc
 /* 800E1C84 000DEBE4  90 01 00 0C */	stw r0, 0xc(r1)
-/* 800E1C88 000DEBE8  4B FF FD FD */	bl RemoveRelay__14CScriptMailboxF9TEditorId
+/* 800E1C88 000DEBE8  4B FF FD FD */	bl RemoveMsg__14CScriptMailboxF9TEditorId
 lbl_800E1C8C:
 /* 800E1C8C 000DEBEC  3B BD 00 0C */	addi r29, r29, 0xc
 lbl_800E1C90:
@@ -207,8 +207,8 @@ lbl_800E1CA8:
 /* 800E1CB4 000DEC14  38 21 00 50 */	addi r1, r1, 0x50
 /* 800E1CB8 000DEC18  4E 80 00 20 */	blr
 
-.global PutTo__14CScriptMailboxCFR13COutputStream
-PutTo__14CScriptMailboxCFR13COutputStream:
+.global PutTo__14CScriptMailboxCFR13COutputStreamR18CWorldSaveGameInfo
+PutTo__14CScriptMailboxCFR13COutputStreamR18CWorldSaveGameInfo:
 /* 800E1CBC 000DEC1C  94 21 FF B0 */	stwu r1, -0x50(r1)
 /* 800E1CC0 000DEC20  7C 08 02 A6 */	mflr r0
 /* 800E1CC4 000DEC24  90 01 00 54 */	stw r0, 0x54(r1)
@@ -254,7 +254,7 @@ lbl_800E1D48:
 /* 800E1D4C 000DECAC  7F 63 DB 78 */	mr r3, r27
 /* 800E1D50 000DECB0  38 81 00 18 */	addi r4, r1, 0x18
 /* 800E1D54 000DECB4  90 01 00 18 */	stw r0, 0x18(r1)
-/* 800E1D58 000DECB8  48 18 94 81 */	bl GetRelayIndex__10CSaveWorldCFRC9TEditorId
+/* 800E1D58 000DECB8  48 18 94 81 */	bl GetRelayIndex__18CWorldSaveGameInfoCFRC9TEditorId
 /* 800E1D5C 000DECBC  7F DD 19 AE */	stbx r30, r29, r3
 /* 800E1D60 000DECC0  3B 9C 00 04 */	addi r28, r28, 4
 lbl_800E1D64:
@@ -358,8 +358,8 @@ lbl_800E1E9C:
 /* 800E1EB0 000DEE10  38 21 00 10 */	addi r1, r1, 0x10
 /* 800E1EB4 000DEE14  4E 80 00 20 */	blr
 
-.global __ct__14CScriptMailboxFR12CInputStreamRC10CSaveWorld
-__ct__14CScriptMailboxFR12CInputStreamRC10CSaveWorld:
+.global __ct__14CScriptMailboxFR12CInputStreamRC18CWorldSaveGameInfo
+__ct__14CScriptMailboxFR12CInputStreamRC18CWorldSaveGameInfo:
 /* 800E1EB8 000DEE18  94 21 FF C0 */	stwu r1, -0x40(r1)
 /* 800E1EBC 000DEE1C  7C 08 02 A6 */	mflr r0
 /* 800E1EC0 000DEE20  90 01 00 44 */	stw r0, 0x44(r1)
