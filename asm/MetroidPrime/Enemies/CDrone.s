@@ -10078,7 +10078,7 @@ __ct__11CDroneLaserF9TUniqueIdRC12CTransform4fUi:
 /* 80167974 001648D4  38 61 00 78 */	addi r3, r1, 0x78
 /* 80167978 001648D8  38 81 00 E0 */	addi r4, r1, 0xe0
 /* 8016797C 001648DC  38 A0 00 01 */	li r5, 1
-/* 80167980 001648E0  4B F9 EE 8D */	bl sub_8010680c
+/* 80167980 001648E0  4B F9 EE 8D */	bl HotInThermal__16CActorParametersCFb
 /* 80167984 001648E4  A0 8D A3 8C */	lhz r4, kInvalidUniqueId@sda21(r13)
 /* 80167988 001648E8  38 00 00 00 */	li r0, 0
 /* 8016798C 001648EC  80 AD 8D 00 */	lwz r5, lbl_805A78C0@sda21(r13)
