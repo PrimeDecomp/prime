@@ -24,9 +24,12 @@ public:
   void SetDeltaRotation(const CQuaternion& q);
   void SetCurrentAnimation(const CAnimPlaybackParms& parms, bool loop, bool noTrans);
   void FaceDirection(const CVector3f& v0, float dt);
+  void EnableAnimation(bool enable);
 
-  bool IsAnimationOver() const { return x300_24_animationOver; }
+  pas::EFallState GetFallState() const; // { return x2f0_fallState; }
   pas::ELocomotionType GetLocomotionType() const { return x2ec_locomotionType; }
+  bool IsAnimationOver() const { return x300_24_animationOver; }
+  bool ShouldPlayDeathAnims() const { return x300_28_playDeathAnims; }
 
 private:
   CActor& x0_actor;
@@ -39,6 +42,10 @@ private:
   int x2f8_curAnim ;
   float x2fc_turnSpeed;
   bool x300_24_animationOver : 1;
+  bool x300_25_active : 1;
+  bool x300_26_frozen : 1;
+  bool x300_27_hasBeenFrozen : 1;
+  bool x300_28_playDeathAnims : 1;
 };
 
 #endif // _CBODYCONTROLLER

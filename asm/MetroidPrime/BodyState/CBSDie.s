@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803E13A8
-lbl_803E13A8:
+.global __vt__6CBSDie
+__vt__6CBSDie:
 	# ROM: 0x3DE3A8
 	.4byte 0
 	.4byte 0
@@ -31,8 +31,8 @@ __dt__6CBSDieFv:
 /* 80135658 001325B8  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 8013565C 001325BC  7C 7F 1B 79 */	or. r31, r3, r3
 /* 80135660 001325C0  41 82 00 30 */	beq lbl_80135690
-/* 80135664 001325C4  3C 60 80 3E */	lis r3, lbl_803E13A8@ha
-/* 80135668 001325C8  38 03 13 A8 */	addi r0, r3, lbl_803E13A8@l
+/* 80135664 001325C4  3C 60 80 3E */	lis r3, __vt__6CBSDie@ha
+/* 80135668 001325C8  38 03 13 A8 */	addi r0, r3, __vt__6CBSDie@l
 /* 8013566C 001325CC  90 1F 00 00 */	stw r0, 0(r31)
 /* 80135670 001325D0  41 82 00 10 */	beq lbl_80135680
 /* 80135674 001325D4  3C 60 80 3E */	lis r3, __vt__10CBodyState@ha
@@ -232,11 +232,11 @@ lbl_801358F0:
 .global __ct__6CBSDieFv
 __ct__6CBSDieFv:
 /* 8013590C 0013286C  3C A0 80 3E */	lis r5, __vt__10CBodyState@ha
-/* 80135910 00132870  3C 80 80 3E */	lis r4, lbl_803E13A8@ha
+/* 80135910 00132870  3C 80 80 3E */	lis r4, __vt__6CBSDie@ha
 /* 80135914 00132874  38 05 13 18 */	addi r0, r5, __vt__10CBodyState@l
 /* 80135918 00132878  C0 02 99 B0 */	lfs f0, lbl_805AB6D0@sda21(r2)
 /* 8013591C 0013287C  90 03 00 00 */	stw r0, 0(r3)
-/* 80135920 00132880  38 84 13 A8 */	addi r4, r4, lbl_803E13A8@l
+/* 80135920 00132880  38 84 13 A8 */	addi r4, r4, __vt__6CBSDie@l
 /* 80135924 00132884  38 00 00 00 */	li r0, 0
 /* 80135928 00132888  90 83 00 00 */	stw r4, 0(r3)
 /* 8013592C 0013288C  D0 03 00 04 */	stfs f0, 4(r3)
