@@ -70,7 +70,7 @@ public:
   , xc_24_loopAnim(false)
   , xc_25_timedLoop(false)
   , x10_loopDur(0.f) {}
-  
+
   explicit CBCScriptedCmd(int i, bool b1, bool b2, float f)
   : CBodyStateCmd(kBSC_Scripted)
   , x8_anim(i)
@@ -86,13 +86,26 @@ public:
 
 //
 
-class CBCGetupCmd : public CBodyStateCmd {
-  pas::EGetupType x8_type;
+class CBCTauntCmd : public CBodyStateCmd {
+public:
+  explicit CBCTauntCmd() : CBodyStateCmd(kBSC_Taunt), x8_type(pas::kTT_Invalid) {}
+  explicit CBCTauntCmd(pas::ETauntType type) : CBodyStateCmd(kBSC_Taunt), x8_type(type) {}
+  pas::ETauntType GetTauntType() const { return x8_type; }
 
+private:
+  pas::ETauntType x8_type;
+};
+
+//
+
+class CBCGetupCmd : public CBodyStateCmd {
 public:
   explicit CBCGetupCmd() : CBodyStateCmd(kBSC_Getup), x8_type(pas::kGetup_Invalid) {}
   explicit CBCGetupCmd(pas::EGetupType type) : CBodyStateCmd(kBSC_Getup), x8_type(type) {}
   pas::EGetupType GetGetupType() const { return x8_type; }
+
+private:
+  pas::EGetupType x8_type;
 };
 
 //

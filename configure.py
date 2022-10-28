@@ -206,7 +206,7 @@ LIBS = [
             "MetroidPrime/BodyState/CBSJump",
             ["MetroidPrime/BodyState/CBSGenerate", True],
             "MetroidPrime/Enemies/CPuddleSpore",
-            "MetroidPrime/BodyState/CBSTaunt",
+            ["MetroidPrime/BodyState/CBSTaunt", True],
             "MetroidPrime/CSortedLists",
             ["MetroidPrime/ScriptObjects/CScriptDebugCameraWaypoint", True],
             ["MetroidPrime/ScriptObjects/CScriptSpiderBallAttractionSurface", False],
