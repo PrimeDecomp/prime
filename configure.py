@@ -302,7 +302,7 @@ LIBS = [
             "MetroidPrime/CMessageScreen",
             "MetroidPrime/Enemies/CFlaahgraTentacle",
             "MetroidPrime/Weapons/GunController/CGSFidget",
-            "MetroidPrime/BodyState/CABSReaction",
+            ["MetroidPrime/BodyState/CABSReaction", True],
             "MetroidPrime/Weapons/CIceProjectile",
             "MetroidPrime/Enemies/CFlyingPirate",
             "MetroidPrime/ScriptObjects/CScriptColorModulate",

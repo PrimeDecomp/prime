@@ -28,6 +28,7 @@ public:
   void FaceDirection(const CVector3f& v0, float dt);
   void EnableAnimation(bool enable);
   void PlayBestAnimation(const CPASAnimParmData& parms, CRandom16& r);
+  bool HasIceBreakoutState();
 
   void SetFallState(pas::EFallState state); // { x2f0_fallState = state; }
   pas::EFallState GetFallState() const; // { return x2f0_fallState; }

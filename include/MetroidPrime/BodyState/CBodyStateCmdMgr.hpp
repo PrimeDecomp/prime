@@ -128,6 +128,29 @@ private:
 
 //
 
+class CBCAdditiveReactionCmd : public CBodyStateCmd {
+public:
+  explicit CBCAdditiveReactionCmd()
+  : CBodyStateCmd(kBSC_AdditiveReaction)
+  , x8_weight(1.f)
+  , xc_type(pas::kART_Invalid)
+  , x10_active(false) {}
+  
+  explicit CBCAdditiveReactionCmd(pas::EAdditiveReactionType type, float weight, bool active)
+  : CBodyStateCmd(kBSC_AdditiveReaction), x8_weight(weight), xc_type(type), x10_active(active) {}
+
+  pas::EAdditiveReactionType GetType() const { return xc_type; }
+  float GetWeight() const { return x8_weight; }
+  bool GetIsActive() const { return x10_active; }
+
+private:
+  float x8_weight;
+  pas::EAdditiveReactionType xc_type;
+  bool x10_active;
+};
+
+//
+
 class CBCSlideCmd : public CBodyStateCmd {
 public:
   explicit CBCSlideCmd()

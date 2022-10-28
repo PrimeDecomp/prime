@@ -16,9 +16,11 @@ class CPASDatabase {
 public:
   bool HasState(int id) const;
   const CPASAnimState* GetAnimState(int) const;
+
+  rstl::pair< float, int > FindBestAnimation(const CPASAnimParmData& data, int ignoreAnim) const;
   rstl::pair< float, int > FindBestAnimation(const CPASAnimParmData&, CRandom16&, int) const;
 
-  size_t GetNumAnimStates() const; // { return x0_states.size(); }
+  size_t GetNumAnimStates() const;                           // { return x0_states.size(); }
   const CPASAnimState* GetAnimStateByIndex(int index) const; /* {
     if (index >= x0_states.size()) {
       return nullptr;

@@ -4,18 +4,25 @@
 #include "MetroidPrime/BodyState/CAdditiveBodyState.hpp"
 
 class CABSReaction : public CAdditiveBodyState {
-  float x4_weight;
-  s32 x8_anim;
-  pas::EAdditiveReactionType xc_type;
-  bool x10_active;
-  pas::EAnimationState GetBodyStateTransition(float dt, CBodyController& bc) const;
-  void StopAnimation(CBodyController& bc);
-
 public:
   CABSReaction();
+  ~CABSReaction();
+
   void Start(CBodyController& bc, CStateManager& mgr) override;
   pas::EAnimationState UpdateBody(float dt, CBodyController& bc, CStateManager& mgr) override;
-  void Shutdown(CBodyController& bc) override { StopAnimation(bc); }
+  void Shutdown(CBodyController& bc) override;
+
+  float GetWeight() const { return x4_weight; }
+  bool IsActive() const { return x10_active; }
+
+private:
+  float x4_weight;
+  int x8_anim;
+  pas::EAdditiveReactionType xc_type;
+  bool x10_active;
+
+  pas::EAnimationState GetBodyStateTransition(float dt, CBodyController& bc);
+  void StopAnimation(CBodyController& bc);
 };
 
 #endif // _CABSREACTION
