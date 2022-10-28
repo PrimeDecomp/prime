@@ -8957,7 +8957,7 @@ lbl_8016689C:
 /* 801668D0 00163830  91 61 00 14 */	stw r11, 0x14(r1)
 /* 801668D4 00163834  92 A1 00 18 */	stw r21, 0x18(r1)
 /* 801668D8 00163838  90 01 00 1C */	stw r0, 0x1c(r1)
-/* 801668DC 0016383C  4B F1 6B 75 */	bl "__ct__10CPatternedFUi9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParametersUi"
+/* 801668DC 0016383C  4B F1 6B 75 */	bl "__ct__10CPatternedFQ210CPatterned10ECharacter9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParameters17EKnockBackVariant"
 /* 801668E0 00163840  3C 60 80 3E */	lis r3, lbl_803E36A8@ha
 /* 801668E4 00163844  3C 80 43 52 */	lis r4, 0x43525343@ha
 /* 801668E8 00163848  38 03 36 A8 */	addi r0, r3, lbl_803E36A8@l

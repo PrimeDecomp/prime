@@ -3,8 +3,44 @@
 .section .data
 .balign 8
 
-.global lbl_803E96C0
-lbl_803E96C0:
+.global skGasJetLocators
+skGasJetLocators:
+	# ROM: 0x3E6650
+	.4byte lbl_803D5100
+	.4byte lbl_803D5109
+	.4byte lbl_803D5112
+	.4byte lbl_803D511B
+	.4byte lbl_803D5124
+	.4byte lbl_803D512D
+	.4byte lbl_803D5136
+	.4byte lbl_803D513F
+	.4byte lbl_803D5148
+	.4byte lbl_803D5151
+	.4byte lbl_803D515A
+	.4byte lbl_803D5163
+	.4byte lbl_803D516C
+	.4byte lbl_803D5175
+
+.global skGasLocators
+skGasLocators:
+	# ROM: 0x3E6688
+	.4byte lbl_803D517E
+	.4byte lbl_803D518A
+	.4byte lbl_803D5196
+	.4byte lbl_803D51A2
+	.4byte lbl_803D51AE
+	.4byte lbl_803D51BA
+	.4byte lbl_803D51C6
+	.4byte lbl_803D51D2
+	.4byte lbl_803D51DE
+	.4byte lbl_803D51EA
+	.4byte lbl_803D51F6
+	.4byte lbl_803D5202
+	.4byte lbl_803D520E
+	.4byte lbl_803D521A
+
+.global __vt__7CPuffer
+__vt__7CPuffer:
 	# ROM: 0x3E66C0
 	.4byte 0
 	.4byte 0
@@ -23,7 +59,7 @@ lbl_803E96C0:
 	.4byte GetDamageVulnerability__3CAiCFv
 	.4byte GetDamageVulnerability__6CActorCFRC9CVector3fRC9CVector3fRC11CDamageInfo
 	.4byte GetTouchBounds__7CPufferCFv
-	.4byte Touch__7CPufferR6CActorR13CStateManager
+	.4byte Touch__7CPufferFR6CActorR13CStateManager
 	.4byte GetOrbitPosition__10CPatternedCFRC13CStateManager
 	.4byte GetAimPosition__10CPatternedCFRC13CStateManagerf
 	.4byte GetHomingPosition__6CActorCFRC13CStateManagerf
@@ -39,7 +75,7 @@ lbl_803E96C0:
 	.4byte GetStepDownHeight__13CPhysicsActorCFv
 	.4byte GetStepUpHeight__13CPhysicsActorCFv
 	.4byte GetWeight__13CPhysicsActorCFv
-	.4byte Death__7CPufferFRC9CVector3fR13CStateManager
+	.4byte Death__7CPufferFR13CStateManagerRC9CVector3f18EScriptObjectState
 	.4byte KnockBack__10CPatternedFRC9CVector3fR13CStateManagerRC11CDamageInfo14EKnockBackTypef
 	.4byte GetDamageVulnerability__3CAiFv
 	.4byte TakeDamage__10CPatternedFRC9CVector3ff
@@ -208,8 +244,8 @@ lbl_805A8388:
 
 .section .text, "ax"
 
-.global sub_8025bfa4
-sub_8025bfa4:
+.global sub8025bfa4__7CPufferFR13CStateManager
+sub8025bfa4__7CPufferFR13CStateManager:
 /* 8025BFA4 00258F04  94 21 FE F0 */	stwu r1, -0x110(r1)
 /* 8025BFA8 00258F08  7C 08 02 A6 */	mflr r0
 /* 8025BFAC 00258F0C  90 01 01 14 */	stw r0, 0x114(r1)
@@ -238,9 +274,9 @@ sub_8025bfa4:
 /* 8025C008 00258F68  80 1D 05 D4 */	lwz r0, 0x5d4(r29)
 /* 8025C00C 00258F6C  2C 00 00 00 */	cmpwi r0, 0
 /* 8025C010 00258F70  40 82 00 7C */	bne lbl_8025C08C
-/* 8025C014 00258F74  3C 60 80 3F */	lis r3, lbl_803E9688@ha
+/* 8025C014 00258F74  3C 60 80 3F */	lis r3, skGasLocators@ha
 /* 8025C018 00258F78  3B 9D 05 D8 */	addi r28, r29, 0x5d8
-/* 8025C01C 00258F7C  3B E3 96 88 */	addi r31, r3, lbl_803E9688@l
+/* 8025C01C 00258F7C  3B E3 96 88 */	addi r31, r3, skGasLocators@l
 /* 8025C020 00258F80  3B 40 00 00 */	li r26, 0
 lbl_8025C024:
 /* 8025C024 00258F84  80 9F 00 00 */	lwz r4, 0(r31)
@@ -279,9 +315,9 @@ lbl_8025C08C:
 /* 8025C0A0 00259000  38 81 00 50 */	addi r4, r1, 0x50
 /* 8025C0A4 00259004  48 0B 87 AD */	bl AsNormalized__9CVector3fCFv
 /* 8025C0A8 00259008  C0 41 00 34 */	lfs f2, 0x34(r1)
-/* 8025C0AC 0025900C  3C 60 80 3F */	lis r3, lbl_803E9650@ha
+/* 8025C0AC 0025900C  3C 60 80 3F */	lis r3, skGasJetLocators@ha
 /* 8025C0B0 00259010  C0 21 00 38 */	lfs f1, 0x38(r1)
-/* 8025C0B4 00259014  3B 63 96 50 */	addi r27, r3, lbl_803E9650@l
+/* 8025C0B4 00259014  3B 63 96 50 */	addi r27, r3, skGasJetLocators@l
 /* 8025C0B8 00259018  C0 01 00 3C */	lfs f0, 0x3c(r1)
 /* 8025C0BC 0025901C  FF E0 10 50 */	fneg f31, f2
 /* 8025C0C0 00259020  FF C0 08 50 */	fneg f30, f1
@@ -321,7 +357,7 @@ lbl_8025C0D0:
 /* 8025C144 002590A4  7F C6 F3 78 */	mr r6, r30
 /* 8025C148 002590A8  38 81 00 18 */	addi r4, r1, 0x18
 /* 8025C14C 002590AC  80 63 00 10 */	lwz r3, 0x10(r3)
-/* 8025C150 002590B0  4B DC EC 71 */	bl SetParticleEffectState__9CAnimDataFQ24rstl6stringbR13CStateManager
+/* 8025C150 002590B0  4B DC EC 71 */	bl "SetParticleEffectState__9CAnimDataFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>bR13CStateManager"
 /* 8025C154 002590B4  38 61 00 18 */	addi r3, r1, 0x18
 /* 8025C158 002590B8  48 0E 19 89 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 lbl_8025C15C:
@@ -342,9 +378,9 @@ lbl_8025C178:
 /* 8025C18C 002590EC  41 80 FF 44 */	blt lbl_8025C0D0
 /* 8025C190 002590F0  48 00 00 68 */	b lbl_8025C1F8
 lbl_8025C194:
-/* 8025C194 002590F4  3C 60 80 3F */	lis r3, lbl_803E9650@ha
+/* 8025C194 002590F4  3C 60 80 3F */	lis r3, skGasJetLocators@ha
 /* 8025C198 002590F8  3B 20 00 00 */	li r25, 0
-/* 8025C19C 002590FC  3B 63 96 50 */	addi r27, r3, lbl_803E9650@l
+/* 8025C19C 002590FC  3B 63 96 50 */	addi r27, r3, skGasJetLocators@l
 /* 8025C1A0 00259100  3B E0 00 01 */	li r31, 1
 lbl_8025C1A4:
 /* 8025C1A4 00259104  80 7D 05 D0 */	lwz r3, 0x5d0(r29)
@@ -359,7 +395,7 @@ lbl_8025C1A4:
 /* 8025C1C8 00259128  38 81 00 08 */	addi r4, r1, 8
 /* 8025C1CC 0025912C  38 A0 00 00 */	li r5, 0
 /* 8025C1D0 00259130  80 63 00 10 */	lwz r3, 0x10(r3)
-/* 8025C1D4 00259134  4B DC EB ED */	bl SetParticleEffectState__9CAnimDataFQ24rstl6stringbR13CStateManager
+/* 8025C1D4 00259134  4B DC EB ED */	bl "SetParticleEffectState__9CAnimDataFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>bR13CStateManager"
 /* 8025C1D8 00259138  38 61 00 08 */	addi r3, r1, 8
 /* 8025C1DC 0025913C  48 0E 19 05 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 lbl_8025C1E0:
@@ -403,7 +439,7 @@ Think__7CPufferFfR13CStateManager:
 /* 8025C264 002591C4  4B E1 D8 B5 */	bl Think__10CPatternedFfR13CStateManager
 /* 8025C268 002591C8  7F C3 F3 78 */	mr r3, r30
 /* 8025C26C 002591CC  7F E4 FB 78 */	mr r4, r31
-/* 8025C270 002591D0  4B FF FD 35 */	bl sub_8025bfa4
+/* 8025C270 002591D0  4B FF FD 35 */	bl sub8025bfa4__7CPufferFR13CStateManager
 /* 8025C274 002591D4  80 7E 04 50 */	lwz r3, 0x450(r30)
 /* 8025C278 002591D8  C0 03 00 04 */	lfs f0, 4(r3)
 /* 8025C27C 002591DC  D0 01 00 30 */	stfs f0, 0x30(r1)
@@ -496,8 +532,8 @@ lbl_8025C3B8:
 /* 8025C3D0 00259330  38 21 00 70 */	addi r1, r1, 0x70
 /* 8025C3D4 00259334  4E 80 00 20 */	blr
 
-.global Death__7CPufferFRC9CVector3fR13CStateManager
-Death__7CPufferFRC9CVector3fR13CStateManager:
+.global Death__7CPufferFR13CStateManagerRC9CVector3f18EScriptObjectState
+Death__7CPufferFR13CStateManagerRC9CVector3f18EScriptObjectState:
 /* 8025C3D8 00259338  94 21 FE A0 */	stwu r1, -0x160(r1)
 /* 8025C3DC 0025933C  7C 08 02 A6 */	mflr r0
 /* 8025C3E0 00259340  90 01 01 64 */	stw r0, 0x164(r1)
@@ -619,7 +655,7 @@ Death__7CPufferFRC9CVector3fR13CStateManager:
 /* 8025C5B0 00259510  54 00 D7 FE */	rlwinm r0, r0, 0x1a, 0x1f, 0x1f
 /* 8025C5B4 00259514  90 01 00 20 */	stw r0, 0x20(r1)
 /* 8025C5B8 00259518  C0 5E 05 B8 */	lfs f2, 0x5b8(r30)
-/* 8025C5BC 0025951C  48 00 0C 21 */	bl "__ct__5CFireF25TToken<15CGenDescription>9TUniqueId7TAreaIdb9TUniqueIdRC12CTransform4fRC11CDamageInfoRC6CAABoxRC9CVector3fbUibbbffff"
+/* 8025C5BC 0025951C  48 00 0C 21 */	bl "__ct__5CFireFRC25TToken<15CGenDescription>9TUniqueId7TAreaIdb9TUniqueIdRC12CTransform4fRC11CDamageInfoRC6CAABoxRC9CVector3fbUibbbffff"
 /* 8025C5C0 00259520  7C 64 1B 78 */	mr r4, r3
 lbl_8025C5C4:
 /* 8025C5C4 00259524  7F E3 FB 78 */	mr r3, r31
@@ -745,8 +781,8 @@ lbl_8025C778:
 /* 8025C784 002596E4  38 21 00 80 */	addi r1, r1, 0x80
 /* 8025C788 002596E8  4E 80 00 20 */	blr
 
-.global Touch__7CPufferR6CActorR13CStateManager
-Touch__7CPufferR6CActorR13CStateManager:
+.global Touch__7CPufferFR6CActorR13CStateManager
+Touch__7CPufferFR6CActorR13CStateManager:
 /* 8025C78C 002596EC  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 8025C790 002596F0  7C 08 02 A6 */	mflr r0
 /* 8025C794 002596F4  90 01 00 24 */	stw r0, 0x24(r1)
@@ -867,9 +903,9 @@ __dt__7CPufferFv:
 /* 8025C92C 0025988C  93 C1 00 08 */	stw r30, 8(r1)
 /* 8025C930 00259890  7C 7E 1B 79 */	or. r30, r3, r3
 /* 8025C934 00259894  41 82 00 9C */	beq lbl_8025C9D0
-/* 8025C938 00259898  3C 60 80 3F */	lis r3, lbl_803E96C0@ha
+/* 8025C938 00259898  3C 60 80 3F */	lis r3, __vt__7CPuffer@ha
 /* 8025C93C 0025989C  34 1E 05 D4 */	addic. r0, r30, 0x5d4
-/* 8025C940 002598A0  38 03 96 C0 */	addi r0, r3, lbl_803E96C0@l
+/* 8025C940 002598A0  38 03 96 C0 */	addi r0, r3, __vt__7CPuffer@l
 /* 8025C944 002598A4  90 1E 00 00 */	stw r0, 0(r30)
 /* 8025C948 002598A8  41 82 00 58 */	beq lbl_8025C9A0
 /* 8025C94C 002598AC  80 BE 05 D4 */	lwz r5, 0x5d4(r30)
@@ -920,8 +956,8 @@ lbl_8025C9D0:
 /* 8025C9E4 00259944  38 21 00 10 */	addi r1, r1, 0x10
 /* 8025C9E8 00259948  4E 80 00 20 */	blr
 
-.global __ct__7CPuffer
-__ct__7CPuffer:
+.global "__ct__7CPufferF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC16CActorParametersRC14CPatternedInfofUiRC11CDamageInfoUifbbbRC11CDamageInfoUs"
+"__ct__7CPufferF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC16CActorParametersRC14CPatternedInfofUiRC11CDamageInfoUifbbbRC11CDamageInfoUs":
 /* 8025C9EC 0025994C  94 21 FF 80 */	stwu r1, -0x80(r1)
 /* 8025C9F0 00259950  7C 08 02 A6 */	mflr r0
 /* 8025C9F4 00259954  90 01 00 84 */	stw r0, 0x84(r1)
@@ -962,10 +998,10 @@ __ct__7CPuffer:
 /* 8025CA80 002599E0  8B C1 00 9F */	lbz r30, 0x9f(r1)
 /* 8025CA84 002599E4  83 E1 00 A0 */	lwz r31, 0xa0(r1)
 /* 8025CA88 002599E8  A2 C1 00 A6 */	lhz r22, 0xa6(r1)
-/* 8025CA8C 002599EC  4B E2 09 C5 */	bl "__ct__10CPatternedFUi9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParametersUi"
-/* 8025CA90 002599F0  3C 60 80 3F */	lis r3, lbl_803E96C0@ha
+/* 8025CA8C 002599EC  4B E2 09 C5 */	bl "__ct__10CPatternedFQ210CPatterned10ECharacter9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParameters17EKnockBackVariant"
+/* 8025CA90 002599F0  3C 60 80 3F */	lis r3, __vt__7CPuffer@ha
 /* 8025CA94 002599F4  3C 80 50 41 */	lis r4, 0x50415254@ha
-/* 8025CA98 002599F8  38 03 96 C0 */	addi r0, r3, lbl_803E96C0@l
+/* 8025CA98 002599F8  38 03 96 C0 */	addi r0, r3, __vt__7CPuffer@l
 /* 8025CA9C 002599FC  38 61 00 24 */	addi r3, r1, 0x24
 /* 8025CAA0 00259A00  90 17 00 00 */	stw r0, 0(r23)
 /* 8025CAA4 00259A04  38 04 52 54 */	addi r0, r4, 0x50415254@l
@@ -1087,3 +1123,200 @@ lbl_805AD710:
 lbl_805AD714:
 	# ROM: 0x3F9FB4
 	.float -1.0
+
+.rodata
+.balign 8
+
+.global lbl_803D5100
+lbl_803D5100:
+
+	# ROM: 0x3D2100
+	.asciz "GasJet01"
+
+.global lbl_803D5109
+lbl_803D5109:
+
+	# ROM: 0x3D2109
+	.byte 0x47, 0x61, 0x73
+	.asciz "Jet02"
+
+.global lbl_803D5112
+lbl_803D5112:
+
+	# ROM: 0x3D2112
+	.byte 0x47, 0x61
+	.asciz "sJet03"
+
+.global lbl_803D511B
+lbl_803D511B:
+
+	# ROM: 0x3D211B
+	.byte 0x47
+	.asciz "asJet04"
+
+.global lbl_803D5124
+lbl_803D5124:
+
+	# ROM: 0x3D2124
+	.asciz "GasJet05"
+
+.global lbl_803D512D
+lbl_803D512D:
+
+	# ROM: 0x3D212D
+	.byte 0x47, 0x61, 0x73
+	.asciz "Jet06"
+
+.global lbl_803D5136
+lbl_803D5136:
+
+	# ROM: 0x3D2136
+	.byte 0x47, 0x61
+	.asciz "sJet07"
+
+.global lbl_803D513F
+lbl_803D513F:
+
+	# ROM: 0x3D213F
+	.byte 0x47
+	.asciz "asJet08"
+
+.global lbl_803D5148
+lbl_803D5148:
+
+	# ROM: 0x3D2148
+	.asciz "GasJet09"
+
+.global lbl_803D5151
+lbl_803D5151:
+
+	# ROM: 0x3D2151
+	.byte 0x47, 0x61, 0x73
+	.asciz "Jet10"
+
+.global lbl_803D515A
+lbl_803D515A:
+
+	# ROM: 0x3D215A
+	.byte 0x47, 0x61
+	.asciz "sJet11"
+
+.global lbl_803D5163
+lbl_803D5163:
+
+	# ROM: 0x3D2163
+	.byte 0x47
+	.asciz "asJet12"
+
+.global lbl_803D516C
+lbl_803D516C:
+
+	# ROM: 0x3D216C
+	.asciz "GasJet13"
+
+.global lbl_803D5175
+lbl_803D5175:
+
+	# ROM: 0x3D2175
+	.byte 0x47, 0x61, 0x73
+	.asciz "Jet14"
+
+.global lbl_803D517E
+lbl_803D517E:
+
+	# ROM: 0x3D217E
+	.byte 0x47, 0x61
+	.asciz "s_01_LCTR"
+
+.global lbl_803D518A
+lbl_803D518A:
+
+	# ROM: 0x3D218A
+	.byte 0x47, 0x61
+	.asciz "s_02_LCTR"
+
+.global lbl_803D5196
+lbl_803D5196:
+
+	# ROM: 0x3D2196
+	.byte 0x47, 0x61
+	.asciz "s_03_LCTR"
+
+.global lbl_803D51A2
+lbl_803D51A2:
+
+	# ROM: 0x3D21A2
+	.byte 0x47, 0x61
+	.asciz "s_04_LCTR"
+
+.global lbl_803D51AE
+lbl_803D51AE:
+
+	# ROM: 0x3D21AE
+	.byte 0x47, 0x61
+	.asciz "s_05_LCTR"
+
+.global lbl_803D51BA
+lbl_803D51BA:
+
+	# ROM: 0x3D21BA
+	.byte 0x47, 0x61
+	.asciz "s_06_LCTR"
+
+.global lbl_803D51C6
+lbl_803D51C6:
+
+	# ROM: 0x3D21C6
+	.byte 0x47, 0x61
+	.asciz "s_07_LCTR"
+
+.global lbl_803D51D2
+lbl_803D51D2:
+
+	# ROM: 0x3D21D2
+	.byte 0x47, 0x61
+	.asciz "s_08_LCTR"
+
+.global lbl_803D51DE
+lbl_803D51DE:
+
+	# ROM: 0x3D21DE
+	.byte 0x47, 0x61
+	.asciz "s_09_LCTR"
+
+.global lbl_803D51EA
+lbl_803D51EA:
+
+	# ROM: 0x3D21EA
+	.byte 0x47, 0x61
+	.asciz "s_10_LCTR"
+
+.global lbl_803D51F6
+lbl_803D51F6:
+
+	# ROM: 0x3D21F6
+	.byte 0x47, 0x61
+	.asciz "s_11_LCTR"
+
+.global lbl_803D5202
+lbl_803D5202:
+
+	# ROM: 0x3D2202
+	.byte 0x47, 0x61
+	.asciz "s_12_LCTR"
+
+.global lbl_803D520E
+lbl_803D520E:
+
+	# ROM: 0x3D220E
+	.byte 0x47, 0x61
+	.asciz "s_13_LCTR"
+
+.global lbl_803D521A
+lbl_803D521A:
+
+	# ROM: 0x3D221A
+	.byte 0x47, 0x61
+	.asciz "s_14_LCTR"
+	.byte 0x3F, 0x3F
+	.asciz "(??)"

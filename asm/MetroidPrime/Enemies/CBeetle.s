@@ -428,7 +428,7 @@ IsListening__7CBeetleCFv:
 .global GetGravityConstant__7CBeetleCFv
 GetGravityConstant__7CBeetleCFv:
 /* 800E2EFC 000DFE5C  C0 22 8F CC */	lfs f1, lbl_805AACEC@sda21(r2)
-/* 800E2F00 000DFE60  C0 02 96 A0 */	lfs f0, skGravityConstant__13CPhysicsActor@sda21(r2)
+/* 800E2F00 000DFE60  C0 02 96 A0 */	lfs f0, kGravityAccel__13CPhysicsActor@sda21(r2)
 /* 800E2F04 000DFE64  EC 21 00 32 */	fmuls f1, f1, f0
 /* 800E2F08 000DFE68  4E 80 00 20 */	blr
 
@@ -5809,7 +5809,7 @@ lbl_800E7BA4:
 /* 800E7C64 000E4BC4  38 80 00 03 */	li r4, 3
 /* 800E7C68 000E4BC8  83 E1 02 A8 */	lwz r31, 0x2a8(r1)
 /* 800E7C6C 000E4BCC  82 E1 02 B0 */	lwz r23, 0x2b0(r1)
-/* 800E7C70 000E4BD0  4B F9 57 E1 */	bl "__ct__10CPatternedFUi9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParametersUi"
+/* 800E7C70 000E4BD0  4B F9 57 E1 */	bl "__ct__10CPatternedFQ210CPatterned10ECharacter9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParameters17EKnockBackVariant"
 /* 800E7C74 000E4BD4  3C 60 80 3E */	lis r3, lbl_803DF890@ha
 /* 800E7C78 000E4BD8  38 00 FF FF */	li r0, -1
 /* 800E7C7C 000E4BDC  38 63 F8 90 */	addi r3, r3, lbl_803DF890@l

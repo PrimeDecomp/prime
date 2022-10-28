@@ -45,7 +45,13 @@ public:
   bool CanBeNormalized() const;
   static float GetAngleDiff(const CVector3f& a, const CVector3f& b);
   bool IsEqu(const CVector3f& other, float epsilon = FLT_EPSILON) const;
-  // Lerp__9CVector3fFRC9CVector3fRC9CVector3ff
+  static CVector3f Lerp(const CVector3f& a, const CVector3f& b, float v) {
+    float inv = 1.f - v;
+    float x = inv * a.GetX() + v * b.GetX();
+    float y = inv * a.GetY() + v * b.GetY();
+    float z = inv * a.GetZ() + v * b.GetZ();
+    return CVector3f(x, y, z);
+  }
   inline float MagSquared() const { return GetX() * GetX() + GetY() * GetY() + GetZ() * GetZ(); }
   static CVector3f Cross(const CVector3f& lhs, const CVector3f& rhs) {
     const float x = (lhs.GetY() * rhs.GetZ()) - (rhs.GetY() * lhs.GetZ());

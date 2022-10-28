@@ -3587,7 +3587,7 @@ Accept__10CMagdoliteFR8IVisitor:
 /* 802374C0 00234420  C3 E1 01 74 */	lfs f31, 0x174(r1)
 /* 802374C4 00234424  38 80 00 11 */	li r4, 0x11
 /* 802374C8 00234428  38 E0 00 00 */	li r7, 0
-/* 802374CC 0023442C  4B E4 5F 85 */	bl "__ct__10CPatternedFUi9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParametersUi"
+/* 802374CC 0023442C  4B E4 5F 85 */	bl "__ct__10CPatternedFQ210CPatterned10ECharacter9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParameters17EKnockBackVariant"
 /* 802374D0 00234430  3C 60 80 3F */	lis r3, lbl_803E8240@ha
 /* 802374D4 00234434  C0 02 B7 44 */	lfs f0, lbl_805AD464@sda21(r2)
 /* 802374D8 00234438  38 03 82 40 */	addi r0, r3, lbl_803E8240@l

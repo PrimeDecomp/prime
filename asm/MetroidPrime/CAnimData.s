@@ -1968,8 +1968,8 @@ lbl_8002ADA8:
 /* 8002ADB8 00027D18  38 21 00 20 */	addi r1, r1, 0x20
 /* 8002ADBC 00027D1C  4E 80 00 20 */	blr
 
-.global SetParticleEffectState__9CAnimDataFQ24rstl6stringbR13CStateManager
-SetParticleEffectState__9CAnimDataFQ24rstl6stringbR13CStateManager:
+.global "SetParticleEffectState__9CAnimDataFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>bR13CStateManager"
+"SetParticleEffectState__9CAnimDataFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>bR13CStateManager":
 /* 8002ADC0 00027D20  94 21 FF C0 */	stwu r1, -0x40(r1)
 /* 8002ADC4 00027D24  7C 08 02 A6 */	mflr r0
 /* 8002ADC8 00027D28  90 01 00 44 */	stw r0, 0x44(r1)

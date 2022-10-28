@@ -1229,7 +1229,7 @@ __ct__11CAtomicBeta:
 /* 802518FC 0024E85C  38 80 00 01 */	li r4, 1
 /* 80251900 0024E860  A3 E1 01 06 */	lhz r31, 0x106(r1)
 /* 80251904 0024E864  38 E0 00 00 */	li r7, 0
-/* 80251908 0024E868  4B E2 BB 49 */	bl "__ct__10CPatternedFUi9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParametersUi"
+/* 80251908 0024E868  4B E2 BB 49 */	bl "__ct__10CPatternedFQ210CPatterned10ECharacter9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParameters17EKnockBackVariant"
 /* 8025190C 0024E86C  3C 80 80 3F */	lis r4, lbl_803E8E4C@ha
 /* 80251910 0024E870  3C 60 45 4C */	lis r3, 0x454C5343@ha
 /* 80251914 0024E874  38 04 8E 4C */	addi r0, r4, lbl_803E8E4C@l

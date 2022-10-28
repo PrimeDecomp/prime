@@ -912,7 +912,7 @@ lbl_8015C714:
 /* 8015C794 001596F4  90 01 00 14 */	stw r0, 0x14(r1)
 /* 8015C798 001596F8  91 81 00 18 */	stw r12, 0x18(r1)
 /* 8015C79C 001596FC  91 61 00 1C */	stw r11, 0x1c(r1)
-/* 8015C7A0 00159700  4B F2 0C B1 */	bl "__ct__10CPatternedFUi9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParametersUi"
+/* 8015C7A0 00159700  4B F2 0C B1 */	bl "__ct__10CPatternedFQ210CPatterned10ECharacter9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParameters17EKnockBackVariant"
 /* 8015C7A4 00159704  3C 60 80 3E */	lis r3, lbl_803E3348@ha
 /* 8015C7A8 00159708  38 A0 00 00 */	li r5, 0
 /* 8015C7AC 0015970C  38 03 33 48 */	addi r0, r3, lbl_803E3348@l

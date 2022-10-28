@@ -3484,7 +3484,7 @@ LaunchBoid__17CWallCrawlerSwarmFRQ217CWallCrawlerSwarm5CBoidRC9CVector3f:
 /* 801EA594 001E74F4  D0 41 00 44 */	stfs f2, 0x44(r1)
 /* 801EA598 001E74F8  40 82 00 28 */	bne lbl_801EA5C0
 /* 801EA59C 001E74FC  C0 22 AD C8 */	lfs f1, lbl_805ACAE8@sda21(r2)
-/* 801EA5A0 001E7500  C0 02 96 A0 */	lfs f0, skGravityConstant__13CPhysicsActor@sda21(r2)
+/* 801EA5A0 001E7500  C0 02 96 A0 */	lfs f0, kGravityAccel__13CPhysicsActor@sda21(r2)
 /* 801EA5A4 001E7504  EC 21 00 24 */	fdivs f1, f1, f0
 /* 801EA5A8 001E7508  48 12 AF 59 */	bl SqrtF__5CMathFf
 /* 801EA5AC 001E750C  C0 02 AD EC */	lfs f0, lbl_805ACB0C@sda21(r2)
@@ -3506,7 +3506,7 @@ lbl_801EA5E4:
 /* 801EA5E4 001E7544  C0 3D 00 04 */	lfs f1, 4(r29)
 /* 801EA5E8 001E7548  38 61 00 30 */	addi r3, r1, 0x30
 /* 801EA5EC 001E754C  C0 01 00 40 */	lfs f0, 0x40(r1)
-/* 801EA5F0 001E7550  C0 62 96 A0 */	lfs f3, skGravityConstant__13CPhysicsActor@sda21(r2)
+/* 801EA5F0 001E7550  C0 62 96 A0 */	lfs f3, kGravityAccel__13CPhysicsActor@sda21(r2)
 /* 801EA5F4 001E7554  EC 81 00 28 */	fsubs f4, f1, f0
 /* 801EA5F8 001E7558  C0 02 AD A0 */	lfs f0, lbl_805ACAC0@sda21(r2)
 /* 801EA5FC 001E755C  C0 5D 00 00 */	lfs f2, 0(r29)
@@ -5230,7 +5230,7 @@ lbl_801EBF0C:
 lbl_801EBF20:
 /* 801EBF20 001E8E80  57 A0 06 3F */	clrlwi. r0, r29, 0x18
 /* 801EBF24 001E8E84  40 82 06 30 */	bne lbl_801EC554
-/* 801EBF28 001E8E88  C0 22 96 A0 */	lfs f1, skGravityConstant__13CPhysicsActor@sda21(r2)
+/* 801EBF28 001E8E88  C0 22 96 A0 */	lfs f1, kGravityAccel__13CPhysicsActor@sda21(r2)
 /* 801EBF2C 001E8E8C  80 1B 05 58 */	lwz r0, 0x558(r27)
 /* 801EBF30 001E8E90  FC 00 08 90 */	fmr f0, f1
 /* 801EBF34 001E8E94  2C 00 00 01 */	cmpwi r0, 1

@@ -13,9 +13,6 @@ class CRelAngle;
 
 class CTransform4f {
 public:
-  // CTransform4f() {
-  //   // TODO
-  // }
   CTransform4f(const CVector3f& m0, const CVector3f& m1, const CVector3f& m2, const CVector3f& pos)
   : m0(m0), posX(pos.GetX()), m1(m1), posY(pos.GetY()), m2(m2), posZ(pos.GetZ()) {}
   CTransform4f(float, float, float, float, float, float, float, float, float, float, float, float);
@@ -70,8 +67,8 @@ public:
   // RotateX__12CTransform4fFRC9CRelAngle
   // RotateY__12CTransform4fFRC9CRelAngle
   static CTransform4f RotateZ(const CRelAngle&);
-  // Scale__12CTransform4fFf
-  // Scale__12CTransform4fFfff
+  static CTransform4f Scale(float);
+  static CTransform4f Scale(float, float, float);
   static CTransform4f Scale(const CVector3f&);
   // ScaleBy__12CTransform4fFf
   // SetRotation__12CTransform4fFRC12CTransform4f

@@ -3,7 +3,7 @@
 
 static inline CMaterialList MakeMaterialList() { return CMaterialList(kMT_Projectile); }
 
-CFire::CFire(TToken< CGenDescription > effect, TUniqueId uid, TAreaId area, bool active,
+CFire::CFire(const TToken< CGenDescription >& effect, TUniqueId uid, TAreaId area, bool active,
              TUniqueId owner, const CTransform4f& xf, const CDamageInfo& dInfo, const CAABox& aabox,
              const CVector3f& vec, bool b1, CAssetId visorEffect, bool b2, bool b3, bool b4,
              float f1, float f2, float f3, float f4)

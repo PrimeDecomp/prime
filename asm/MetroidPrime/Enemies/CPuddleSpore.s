@@ -2035,7 +2035,7 @@ Accept__12CPuddleSporeFR8IVisitor:
 /* 8014843C 0014539C  7D 69 5B 78 */	mr r9, r11
 /* 80148440 001453A0  38 A1 00 20 */	addi r5, r1, 0x20
 /* 80148444 001453A4  38 80 00 1B */	li r4, 0x1b
-/* 80148448 001453A8  4B F3 50 09 */	bl "__ct__10CPatternedFUi9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParametersUi"
+/* 80148448 001453A8  4B F3 50 09 */	bl "__ct__10CPatternedFQ210CPatterned10ECharacter9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParameters17EKnockBackVariant"
 /* 8014844C 001453AC  3C 60 80 3E */	lis r3, lbl_803E20C4@ha
 /* 80148450 001453B0  C0 42 9C 88 */	lfs f2, lbl_805AB9A8@sda21(r2)
 /* 80148454 001453B4  38 03 20 C4 */	addi r0, r3, lbl_803E20C4@l

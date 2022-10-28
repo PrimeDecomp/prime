@@ -25,6 +25,7 @@ public:
   , x10_radius(0.f)
   , x14_knockback(0.f)
   , x18_24_noImmunity(false) {}
+
   CDamageInfo(const CWeaponMode& mode, float damage, float radius, float knockback,
               bool noImmunity = false)
   : x0_weaponMode(mode)
@@ -33,6 +34,7 @@ public:
   , x10_radius(radius)
   , x14_knockback(knockback)
   , x18_24_noImmunity(noImmunity) {}
+
   CDamageInfo(CInputStream& in);
   CDamageInfo(const CDamageInfo&, float);
   CDamageInfo(const SShotParam& other);

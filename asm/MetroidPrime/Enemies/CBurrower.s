@@ -1404,7 +1404,7 @@ __ct__9CBurrower:
 /* 80270B78 0026DAD8  91 41 00 18 */	stw r10, 0x18(r1)
 /* 80270B7C 0026DADC  7D 8A 63 78 */	mr r10, r12
 /* 80270B80 0026DAE0  91 61 00 1C */	stw r11, 0x1c(r1)
-/* 80270B84 0026DAE4  4B E0 C8 CD */	bl "__ct__10CPatternedFUi9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParametersUi"
+/* 80270B84 0026DAE4  4B E0 C8 CD */	bl "__ct__10CPatternedFQ210CPatterned10ECharacter9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParameters17EKnockBackVariant"
 /* 80270B88 0026DAE8  3C 60 80 3F */	lis r3, lbl_803EA7C4@ha
 /* 80270B8C 0026DAEC  C0 22 BB B8 */	lfs f1, lbl_805AD8D8@sda21(r2)
 /* 80270B90 0026DAF0  38 03 A7 C4 */	addi r0, r3, lbl_803EA7C4@l

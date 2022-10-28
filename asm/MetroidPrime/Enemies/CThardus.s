@@ -9258,7 +9258,7 @@ Accept__8CThardusFR8IVisitor:
 /* 801E2304 001DF264  83 C1 01 F4 */	lwz r30, 0x1f4(r1)
 /* 801E2308 001DF268  83 E1 01 F8 */	lwz r31, 0x1f8(r1)
 /* 801E230C 001DF26C  81 C1 01 FC */	lwz r14, 0x1fc(r1)
-/* 801E2310 001DF270  4B E9 B1 41 */	bl "__ct__10CPatternedFUi9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParametersUi"
+/* 801E2310 001DF270  4B E9 B1 41 */	bl "__ct__10CPatternedFQ210CPatterned10ECharacter9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParameters17EKnockBackVariant"
 /* 801E2314 001DF274  3C 60 80 3E */	lis r3, lbl_803E5CE0@ha
 /* 801E2318 001DF278  38 A0 00 00 */	li r5, 0
 /* 801E231C 001DF27C  38 63 5C E0 */	addi r3, r3, lbl_803E5CE0@l

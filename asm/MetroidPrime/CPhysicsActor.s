@@ -57,8 +57,8 @@ lbl_805A7634:
 .section .sdata2, "a"
 .balign 8
 
-.global skGravityConstant__13CPhysicsActor
-skGravityConstant__13CPhysicsActor:
+.global kGravityAccel__13CPhysicsActor
+kGravityAccel__13CPhysicsActor:
 	# ROM: 0x3F7C60
 	.float 24.525002
 

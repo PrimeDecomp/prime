@@ -2798,7 +2798,7 @@ Accept__22CThardusRockProjectileFR8IVisitor:
 /* 80205BC4 00202B24  91 21 00 18 */	stw r9, 0x18(r1)
 /* 80205BC8 00202B28  7D 89 63 78 */	mr r9, r12
 /* 80205BCC 00202B2C  91 61 00 1C */	stw r11, 0x1c(r1)
-/* 80205BD0 00202B30  4B E7 78 81 */	bl "__ct__10CPatternedFUi9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParametersUi"
+/* 80205BD0 00202B30  4B E7 78 81 */	bl "__ct__10CPatternedFQ210CPatterned10ECharacter9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParameters17EKnockBackVariant"
 /* 80205BD4 00202B34  3C 60 80 3E */	lis r3, lbl_803E6BE0@ha
 /* 80205BD8 00202B38  C0 02 B0 88 */	lfs f0, lbl_805ACDA8@sda21(r2)
 /* 80205BDC 00202B3C  38 03 6B E0 */	addi r0, r3, lbl_803E6BE0@l

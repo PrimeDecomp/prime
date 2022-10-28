@@ -5003,7 +5003,7 @@ __sinit_CParasite_cpp:
 /* 8015AD50 00157CB0  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8015AD54 00157CB4  7C 08 02 A6 */	mflr r0
 /* 8015AD58 00157CB8  C0 22 9E 9C */	lfs f1, lbl_805ABBBC@sda21(r2)
-/* 8015AD5C 00157CBC  C0 02 96 A0 */	lfs f0, skGravityConstant__13CPhysicsActor@sda21(r2)
+/* 8015AD5C 00157CBC  C0 02 96 A0 */	lfs f0, kGravityAccel__13CPhysicsActor@sda21(r2)
 /* 8015AD60 00157CC0  90 01 00 14 */	stw r0, 0x14(r1)
 /* 8015AD64 00157CC4  EC 21 00 24 */	fdivs f1, f1, f0
 /* 8015AD68 00157CC8  48 1B A7 99 */	bl SqrtF__5CMathFf
@@ -5011,7 +5011,7 @@ __sinit_CParasite_cpp:
 /* 8015AD70 00157CD0  C0 42 9E 70 */	lfs f2, lbl_805ABB90@sda21(r2)
 /* 8015AD74 00157CD4  EC 60 00 72 */	fmuls f3, f0, f1
 /* 8015AD78 00157CD8  C0 22 9E 9C */	lfs f1, lbl_805ABBBC@sda21(r2)
-/* 8015AD7C 00157CDC  C0 02 96 A0 */	lfs f0, skGravityConstant__13CPhysicsActor@sda21(r2)
+/* 8015AD7C 00157CDC  C0 02 96 A0 */	lfs f0, kGravityAccel__13CPhysicsActor@sda21(r2)
 /* 8015AD80 00157CE0  EC 42 18 24 */	fdivs f2, f2, f3
 /* 8015AD84 00157CE4  D0 6D A3 F0 */	stfs f3, lbl_805A8FB0@sda21(r13)
 /* 8015AD88 00157CE8  EC 21 00 24 */	fdivs f1, f1, f0

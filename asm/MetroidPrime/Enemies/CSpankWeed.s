@@ -1958,7 +1958,7 @@ Accept__10CSpankWeedFR8IVisitor:
 /* 801564A0 00153400  91 21 00 18 */	stw r9, 0x18(r1)
 /* 801564A4 00153404  7F 89 E3 78 */	mr r9, r28
 /* 801564A8 00153408  91 61 00 1C */	stw r11, 0x1c(r1)
-/* 801564AC 0015340C  4B F2 6F A5 */	bl "__ct__10CPatternedFUi9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParametersUi"
+/* 801564AC 0015340C  4B F2 6F A5 */	bl "__ct__10CPatternedFQ210CPatterned10ECharacter9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParameters17EKnockBackVariant"
 /* 801564B0 00153410  3C 80 80 3E */	lis r4, lbl_803E2D28@ha
 /* 801564B4 00153414  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 801564B8 00153418  38 04 2D 28 */	addi r0, r4, lbl_803E2D28@l

@@ -13,6 +13,26 @@
 
 class CPatternedInfo {
   friend class CPatterned;
+
+public:
+  CPatternedInfo(CInputStream& in, uint pcount);
+
+  float GetTurnSpeed() const { return x8_turnSpeed; }
+  float GetDetectionHeightRange() const { return x10_detectionHeightRange; }
+  const CHealthInfo& GetHealthInfo() const { return x54_healthInfo; }
+  const CDamageVulnerability& GetDamageVulnerability() const { return x5c_damageVulnerability; }
+  float GetHalfExtent() const { return xc4_halfExtent; }
+  float GetHeight() const { return xc8_height; }
+  CVector3f GetBodyOrigin() const { return xcc_bodyOrigin; }
+  CAnimationParameters& GetAnimationParameters() { return xec_animParams; }
+  const CAnimationParameters& GetAnimationParameters() const { return xec_animParams; }
+  uint GetPathfindingIndex() const { return x10c_pathfindingIndex; }
+  bool GetActive() const { return xf8_active; }
+  void SetActive(bool active) { xf8_active = active; }
+
+  static rstl::pair< bool, uint > HasCorrectParameterCount(CInputStream& in);
+
+private:
   float x0_mass;
   float x4_speed;
   float x8_turnSpeed;
@@ -44,33 +64,14 @@ class CPatternedInfo {
   float x100_intoFreezeDur;
   float x104_outofFreezeDur;
   float x108_freezeDur;
-
   uint x10c_pathfindingIndex;
-
   CVector3f x110_particle1Scale;
   CAssetId x11c_particle1;
   CAssetId x120_electric;
   CVector3f x124_particle2Scale;
   CAssetId x130_particle2;
-
   uint x134_iceShatterSfx;
-
-public:
-  CPatternedInfo(CInputStream& in, uint pcount);
-  static rstl::pair< bool, uint > HasCorrectParameterCount(CInputStream& in);
-
-  float GetTurnSpeed() const { return x8_turnSpeed; }
-  float GetDetectionHeightRange() const { return x10_detectionHeightRange; }
-  const CHealthInfo& GetHealthInfo() const { return x54_healthInfo; }
-  const CDamageVulnerability& GetDamageVulnerability() const { return x5c_damageVulnerability; }
-  float GetHalfExtent() const { return xc4_halfExtent; }
-  float GetHeight() const { return xc8_height; }
-  CVector3f GetBodyOrigin() const { return xcc_bodyOrigin; }
-  CAnimationParameters& GetAnimationParameters() { return xec_animParams; }
-  const CAnimationParameters& GetAnimationParameters() const { return xec_animParams; }
-  u32 GetPathfindingIndex() const { return x10c_pathfindingIndex; }
-  bool GetActive() const { return xf8_active; }
-  void SetActive(bool active) { xf8_active = active; }
 };
+CHECK_SIZEOF(CPatternedInfo, 0x138)
 
 #endif // _CPATTERNEDINFO

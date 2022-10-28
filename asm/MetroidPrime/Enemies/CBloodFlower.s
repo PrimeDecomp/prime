@@ -581,7 +581,7 @@ sub_80118fec:
 /* 80119028 00115F88  38 81 00 08 */	addi r4, r1, 8
 /* 8011902C 00115F8C  38 A0 00 00 */	li r5, 0
 /* 80119030 00115F90  80 63 00 10 */	lwz r3, 0x10(r3)
-/* 80119034 00115F94  4B F1 1D 8D */	bl SetParticleEffectState__9CAnimDataFQ24rstl6stringbR13CStateManager
+/* 80119034 00115F94  4B F1 1D 8D */	bl "SetParticleEffectState__9CAnimDataFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>bR13CStateManager"
 /* 80119038 00115F98  38 61 00 08 */	addi r3, r1, 8
 /* 8011903C 00115F9C  48 22 4A A5 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 80119040 00115FA0  80 01 00 24 */	lwz r0, 0x24(r1)
@@ -611,7 +611,7 @@ sub_80119058:
 /* 80119094 00115FF4  38 81 00 08 */	addi r4, r1, 8
 /* 80119098 00115FF8  38 A0 00 01 */	li r5, 1
 /* 8011909C 00115FFC  80 63 00 10 */	lwz r3, 0x10(r3)
-/* 801190A0 00116000  4B F1 1D 21 */	bl SetParticleEffectState__9CAnimDataFQ24rstl6stringbR13CStateManager
+/* 801190A0 00116000  4B F1 1D 21 */	bl "SetParticleEffectState__9CAnimDataFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>bR13CStateManager"
 /* 801190A4 00116004  38 61 00 08 */	addi r3, r1, 8
 /* 801190A8 00116008  48 22 4A 39 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 801190AC 0011600C  80 01 00 24 */	lwz r0, 0x24(r1)
@@ -1748,7 +1748,7 @@ Accept__12CBloodFlowerFR8IVisitor:
 /* 8011A084 00116FE4  83 41 01 98 */	lwz r26, 0x198(r1)
 /* 8011A088 00116FE8  83 61 01 9C */	lwz r27, 0x19c(r1)
 /* 8011A08C 00116FEC  83 81 01 A0 */	lwz r28, 0x1a0(r1)
-/* 8011A090 00116FF0  4B F6 33 C1 */	bl "__ct__10CPatternedFUi9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParametersUi"
+/* 8011A090 00116FF0  4B F6 33 C1 */	bl "__ct__10CPatternedFQ210CPatterned10ECharacter9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParameters17EKnockBackVariant"
 /* 8011A094 00116FF4  3C 60 80 3E */	lis r3, lbl_803E0350@ha
 /* 8011A098 00116FF8  3C 80 50 41 */	lis r4, 0x50415254@ha
 /* 8011A09C 00116FFC  38 03 03 50 */	addi r0, r3, lbl_803E0350@l

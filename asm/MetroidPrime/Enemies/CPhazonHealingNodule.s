@@ -1125,7 +1125,7 @@ lbl_802958F8:
 /* 80295978 002928D8  91 21 00 18 */	stw r9, 0x18(r1)
 /* 8029597C 002928DC  7D 89 63 78 */	mr r9, r12
 /* 80295980 002928E0  91 61 00 1C */	stw r11, 0x1c(r1)
-/* 80295984 002928E4  4B DE 7A CD */	bl "__ct__10CPatternedFUi9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParametersUi"
+/* 80295984 002928E4  4B DE 7A CD */	bl "__ct__10CPatternedFQ210CPatterned10ECharacter9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParameters17EKnockBackVariant"
 /* 80295988 002928E8  3C 80 80 3F */	lis r4, lbl_803EBC70@ha
 /* 8029598C 002928EC  3C 60 45 4C */	lis r3, 0x454C5343@ha
 /* 80295990 002928F0  38 04 BC 70 */	addi r0, r4, lbl_803EBC70@l

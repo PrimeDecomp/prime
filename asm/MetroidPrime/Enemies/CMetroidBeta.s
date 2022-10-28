@@ -6182,7 +6182,7 @@ lbl_801C6070:
 /* 801C60F8 001C3058  91 41 00 18 */	stw r10, 0x18(r1)
 /* 801C60FC 001C305C  7D 8A 63 78 */	mr r10, r12
 /* 801C6100 001C3060  90 01 00 1C */	stw r0, 0x1c(r1)
-/* 801C6104 001C3064  4B EB 73 4D */	bl "__ct__10CPatternedFUi9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParametersUi"
+/* 801C6104 001C3064  4B EB 73 4D */	bl "__ct__10CPatternedFQ210CPatterned10ECharacter9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParameters17EKnockBackVariant"
 /* 801C6108 001C3068  3C 60 80 3E */	lis r3, lbl_803E5388@ha
 /* 801C610C 001C306C  38 00 FF FF */	li r0, -1
 /* 801C6110 001C3070  38 63 53 88 */	addi r3, r3, lbl_803E5388@l

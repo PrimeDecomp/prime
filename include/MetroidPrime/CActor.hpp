@@ -257,6 +257,7 @@ public:
   void DrawTouchBounds() const;
   bool IsModelOpaque(const CStateManager& mgr) const;
   void RenderInternal(const CStateManager& mgr) const;
+  void CreateShadow(bool);
 
   const CTransform4f& GetTransform() const { return x34_transform; }
   void SetTransform(const CTransform4f& xf) {

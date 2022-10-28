@@ -1570,7 +1570,7 @@ Accept__9CJellyZapFR8IVisitor:
 /* 801D8BB0 001D5B10  38 A1 00 20 */	addi r5, r1, 0x20
 /* 801D8BB4 001D5B14  38 80 00 10 */	li r4, 0x10
 /* 801D8BB8 001D5B18  38 E0 00 00 */	li r7, 0
-/* 801D8BBC 001D5B1C  4B EA 48 95 */	bl "__ct__10CPatternedFUi9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParametersUi"
+/* 801D8BBC 001D5B1C  4B EA 48 95 */	bl "__ct__10CPatternedFQ210CPatterned10ECharacter9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParameters17EKnockBackVariant"
 /* 801D8BC0 001D5B20  3C 60 80 3E */	lis r3, lbl_803E5954@ha
 /* 801D8BC4 001D5B24  38 C0 00 00 */	li r6, 0
 /* 801D8BC8 001D5B28  38 03 59 54 */	addi r0, r3, lbl_803E5954@l

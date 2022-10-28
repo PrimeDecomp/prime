@@ -339,7 +339,7 @@ GetCollisionPrimitive__9CBabygothCFv:
 .global GetGravityConstant__9CBabygothCFv
 GetGravityConstant__9CBabygothCFv:
 /* 8021D468 0021A3C8  C0 22 B4 00 */	lfs f1, lbl_805AD120@sda21(r2)
-/* 8021D46C 0021A3CC  C0 02 96 A0 */	lfs f0, skGravityConstant__13CPhysicsActor@sda21(r2)
+/* 8021D46C 0021A3CC  C0 02 96 A0 */	lfs f0, kGravityAccel__13CPhysicsActor@sda21(r2)
 /* 8021D470 0021A3D0  EC 21 00 32 */	fmuls f1, f1, f0
 /* 8021D474 0021A3D4  4E 80 00 20 */	blr
 
@@ -7296,7 +7296,7 @@ lbl_80223764:
 /* 802237DC 0022073C  91 41 00 18 */	stw r10, 0x18(r1)
 /* 802237E0 00220740  7D 6A 5B 78 */	mr r10, r11
 /* 802237E4 00220744  90 01 00 1C */	stw r0, 0x1c(r1)
-/* 802237E8 00220748  4B E5 9C 69 */	bl "__ct__10CPatternedFUi9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParametersUi"
+/* 802237E8 00220748  4B E5 9C 69 */	bl "__ct__10CPatternedFQ210CPatterned10ECharacter9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParameters17EKnockBackVariant"
 /* 802237EC 0022074C  3C 60 80 3E */	lis r3, lbl_803E7350@ha
 /* 802237F0 00220750  38 A0 FF FF */	li r5, -1
 /* 802237F4 00220754  38 63 73 50 */	addi r3, r3, lbl_803E7350@l

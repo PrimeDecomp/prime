@@ -1393,7 +1393,7 @@ lbl_801312E0:
 /* 80131378 0012E2D8  38 80 00 0D */	li r4, 0xd
 /* 8013137C 0012E2DC  91 61 00 18 */	stw r11, 0x18(r1)
 /* 80131380 0012E2E0  90 01 00 1C */	stw r0, 0x1c(r1)
-/* 80131384 0012E2E4  4B F4 C0 CD */	bl "__ct__10CPatternedFUi9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParametersUi"
+/* 80131384 0012E2E4  4B F4 C0 CD */	bl "__ct__10CPatternedFQ210CPatterned10ECharacter9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParameters17EKnockBackVariant"
 /* 80131388 0012E2E8  3C 60 80 3E */	lis r3, lbl_803E0DE0@ha
 /* 8013138C 0012E2EC  7F A0 00 34 */	cntlzw r0, r29
 /* 80131390 0012E2F0  38 63 0D E0 */	addi r3, r3, lbl_803E0DE0@l

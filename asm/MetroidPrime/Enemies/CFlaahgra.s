@@ -7557,7 +7557,7 @@ lbl_801B39AC:
 /* 801B3A80 001B09E0  90 01 00 14 */	stw r0, 0x14(r1)
 /* 801B3A84 001B09E4  93 E1 00 18 */	stw r31, 0x18(r1)
 /* 801B3A88 001B09E8  90 01 00 1C */	stw r0, 0x1c(r1)
-/* 801B3A8C 001B09EC  4B EC 99 C5 */	bl "__ct__10CPatternedFUi9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParametersUi"
+/* 801B3A8C 001B09EC  4B EC 99 C5 */	bl "__ct__10CPatternedFQ210CPatterned10ECharacter9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParameters17EKnockBackVariant"
 /* 801B3A90 001B09F0  38 61 00 88 */	addi r3, r1, 0x88
 /* 801B3A94 001B09F4  38 80 FF FF */	li r4, -1
 /* 801B3A98 001B09F8  4B F6 2F B5 */	bl __dt__10CModelDataFv

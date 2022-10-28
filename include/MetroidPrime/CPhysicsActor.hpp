@@ -59,7 +59,7 @@ CHECK_SIZEOF(CMotionState, 0x34)
 class CCollisionInfoList;
 
 class CPhysicsActor : public CActor {
-  static const float skGravityConstant;
+  static const float kGravityAccel;
 
 public:
   CPhysicsActor(TUniqueId uid, bool active, const rstl::string& name, const CEntityInfo& info,
@@ -149,7 +149,7 @@ public:
 
   CVector3f GetTotalForcesWR() const;
 
-  static float GetGravityConstant() { return skGravityConstant; }
+  static float GravityConstant() { return kGravityAccel; }
 
 private:
   float xe8_mass;

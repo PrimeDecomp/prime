@@ -1281,7 +1281,7 @@ __ct__14CBouncyGrenade:
 /* 8022F440 0022C3A0  48 00 01 5D */	bl sub_8022f59c
 /* 8022F444 0022C3A4  90 77 02 AC */	stw r3, 0x2ac(r23)
 /* 8022F448 0022C3A8  38 A0 00 00 */	li r5, 0
-/* 8022F44C 0022C3AC  C0 02 96 A0 */	lfs f0, skGravityConstant__13CPhysicsActor@sda21(r2)
+/* 8022F44C 0022C3AC  C0 02 96 A0 */	lfs f0, kGravityAccel__13CPhysicsActor@sda21(r2)
 /* 8022F450 0022C3B0  7E E3 BB 78 */	mr r3, r23
 /* 8022F454 0022C3B4  D3 F7 02 B0 */	stfs f31, 0x2b0(r23)
 /* 8022F458 0022C3B8  38 81 00 28 */	addi r4, r1, 0x28

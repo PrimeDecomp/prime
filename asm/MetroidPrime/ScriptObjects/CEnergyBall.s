@@ -1001,7 +1001,7 @@ __ct__11CEnergyBall:
 /* 8029FDC0 0029CD20  A3 A1 01 02 */	lhz r29, 0x102(r1)
 /* 8029FDC4 0029CD24  83 C1 01 04 */	lwz r30, 0x104(r1)
 /* 8029FDC8 0029CD28  83 E1 01 08 */	lwz r31, 0x108(r1)
-/* 8029FDCC 0029CD2C  4B DD D6 85 */	bl "__ct__10CPatternedFUi9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParametersUi"
+/* 8029FDCC 0029CD2C  4B DD D6 85 */	bl "__ct__10CPatternedFQ210CPatterned10ECharacter9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParameters17EKnockBackVariant"
 /* 8029FDD0 0029CD30  3C 80 80 3F */	lis r4, lbl_803EC0A0@ha
 /* 8029FDD4 0029CD34  38 75 05 68 */	addi r3, r21, 0x568
 /* 8029FDD8 0029CD38  38 04 C0 A0 */	addi r0, r4, lbl_803EC0A0@l

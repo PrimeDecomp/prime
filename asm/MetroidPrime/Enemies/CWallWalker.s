@@ -1129,7 +1129,7 @@ ProjectPointToPlane__11CWallWalkerFRC9CVector3fRC9CVector3fRC9CVector3f:
 /* 802692FC 0026625C  83 C1 00 F0 */	lwz r30, 0xf0(r1)
 /* 80269300 00266260  90 01 00 1C */	stw r0, 0x1c(r1)
 /* 80269304 00266264  8B E1 00 F7 */	lbz r31, 0xf7(r1)
-/* 80269308 00266268  4B E1 41 49 */	bl "__ct__10CPatternedFUi9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParametersUi"
+/* 80269308 00266268  4B E1 41 49 */	bl "__ct__10CPatternedFQ210CPatterned10ECharacter9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParameters17EKnockBackVariant"
 /* 8026930C 0026626C  3C 60 80 3F */	lis r3, lbl_803EA0F0@ha
 /* 80269310 00266270  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 80269314 00266274  38 03 A0 F0 */	addi r0, r3, lbl_803EA0F0@l

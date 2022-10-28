@@ -386,42 +386,6 @@ lbl_803E95A4:
 	.4byte lbl_80259194
 	.4byte lbl_802598FC
 
-.global lbl_803E9650
-lbl_803E9650:
-	# ROM: 0x3E6650
-	.4byte lbl_803D5100
-	.4byte lbl_803D5109
-	.4byte lbl_803D5112
-	.4byte lbl_803D511B
-	.4byte lbl_803D5124
-	.4byte lbl_803D512D
-	.4byte lbl_803D5136
-	.4byte lbl_803D513F
-	.4byte lbl_803D5148
-	.4byte lbl_803D5151
-	.4byte lbl_803D515A
-	.4byte lbl_803D5163
-	.4byte lbl_803D516C
-	.4byte lbl_803D5175
-
-.global lbl_803E9688
-lbl_803E9688:
-	# ROM: 0x3E6688
-	.4byte lbl_803D517E
-	.4byte lbl_803D518A
-	.4byte lbl_803D5196
-	.4byte lbl_803D51A2
-	.4byte lbl_803D51AE
-	.4byte lbl_803D51BA
-	.4byte lbl_803D51C6
-	.4byte lbl_803D51D2
-	.4byte lbl_803D51DE
-	.4byte lbl_803D51EA
-	.4byte lbl_803D51F6
-	.4byte lbl_803D5202
-	.4byte lbl_803D520E
-	.4byte lbl_803D521A
-
 .section .sdata
 .balign 8
 
@@ -2147,7 +2111,7 @@ lbl_80253A6C:
 /* 80253A74 002509D4  7F A6 EB 78 */	mr r6, r29
 /* 80253A78 002509D8  38 A0 00 00 */	li r5, 0
 /* 80253A7C 002509DC  80 63 00 10 */	lwz r3, 0x10(r3)
-/* 80253A80 002509E0  4B DD 73 41 */	bl SetParticleEffectState__9CAnimDataFQ24rstl6stringbR13CStateManager
+/* 80253A80 002509E0  4B DD 73 41 */	bl "SetParticleEffectState__9CAnimDataFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>bR13CStateManager"
 /* 80253A84 002509E4  3B DE 00 01 */	addi r30, r30, 1
 /* 80253A88 002509E8  3B FF 00 10 */	addi r31, r31, 0x10
 /* 80253A8C 002509EC  28 1E 00 18 */	cmplwi r30, 0x18
@@ -8208,7 +8172,7 @@ lbl_802592BC:
 /* 802592C4 00256224  7F C6 F3 78 */	mr r6, r30
 /* 802592C8 00256228  38 A0 00 01 */	li r5, 1
 /* 802592CC 0025622C  80 63 00 10 */	lwz r3, 0x10(r3)
-/* 802592D0 00256230  4B DD 1A F1 */	bl SetParticleEffectState__9CAnimDataFQ24rstl6stringbR13CStateManager
+/* 802592D0 00256230  4B DD 1A F1 */	bl "SetParticleEffectState__9CAnimDataFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>bR13CStateManager"
 /* 802592D4 00256234  3B 9C 00 01 */	addi r28, r28, 1
 /* 802592D8 00256238  3B 5A 00 10 */	addi r26, r26, 0x10
 /* 802592DC 0025623C  28 1C 00 18 */	cmplwi r28, 0x18
@@ -8934,7 +8898,7 @@ Accept__7CRidleyFR8IVisitor:
 /* 80259D94 00256CF4  91 41 00 18 */	stw r10, 0x18(r1)
 /* 80259D98 00256CF8  7F CA F3 78 */	mr r10, r30
 /* 80259D9C 00256CFC  90 01 00 1C */	stw r0, 0x1c(r1)
-/* 80259DA0 00256D00  4B E2 36 B1 */	bl "__ct__10CPatternedFUi9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParametersUi"
+/* 80259DA0 00256D00  4B E2 36 B1 */	bl "__ct__10CPatternedFQ210CPatterned10ECharacter9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParameters17EKnockBackVariant"
 /* 80259DA4 00256D04  3C 60 80 3F */	lis r3, lbl_803E9258@ha
 /* 80259DA8 00256D08  7F A4 EB 78 */	mr r4, r29
 /* 80259DAC 00256D0C  38 03 92 58 */	addi r0, r3, lbl_803E9258@l
@@ -11732,198 +11696,3 @@ lbl_803D4DD7:
 	.asciz "ingtip_3_LCTR"
 	.balign 4
 	.4byte 0
-
-.global lbl_803D5100
-lbl_803D5100:
-
-	# ROM: 0x3D2100
-	.asciz "GasJet01"
-
-.global lbl_803D5109
-lbl_803D5109:
-
-	# ROM: 0x3D2109
-	.byte 0x47, 0x61, 0x73
-	.asciz "Jet02"
-
-.global lbl_803D5112
-lbl_803D5112:
-
-	# ROM: 0x3D2112
-	.byte 0x47, 0x61
-	.asciz "sJet03"
-
-.global lbl_803D511B
-lbl_803D511B:
-
-	# ROM: 0x3D211B
-	.byte 0x47
-	.asciz "asJet04"
-
-.global lbl_803D5124
-lbl_803D5124:
-
-	# ROM: 0x3D2124
-	.asciz "GasJet05"
-
-.global lbl_803D512D
-lbl_803D512D:
-
-	# ROM: 0x3D212D
-	.byte 0x47, 0x61, 0x73
-	.asciz "Jet06"
-
-.global lbl_803D5136
-lbl_803D5136:
-
-	# ROM: 0x3D2136
-	.byte 0x47, 0x61
-	.asciz "sJet07"
-
-.global lbl_803D513F
-lbl_803D513F:
-
-	# ROM: 0x3D213F
-	.byte 0x47
-	.asciz "asJet08"
-
-.global lbl_803D5148
-lbl_803D5148:
-
-	# ROM: 0x3D2148
-	.asciz "GasJet09"
-
-.global lbl_803D5151
-lbl_803D5151:
-
-	# ROM: 0x3D2151
-	.byte 0x47, 0x61, 0x73
-	.asciz "Jet10"
-
-.global lbl_803D515A
-lbl_803D515A:
-
-	# ROM: 0x3D215A
-	.byte 0x47, 0x61
-	.asciz "sJet11"
-
-.global lbl_803D5163
-lbl_803D5163:
-
-	# ROM: 0x3D2163
-	.byte 0x47
-	.asciz "asJet12"
-
-.global lbl_803D516C
-lbl_803D516C:
-
-	# ROM: 0x3D216C
-	.asciz "GasJet13"
-
-.global lbl_803D5175
-lbl_803D5175:
-
-	# ROM: 0x3D2175
-	.byte 0x47, 0x61, 0x73
-	.asciz "Jet14"
-
-.global lbl_803D517E
-lbl_803D517E:
-
-	# ROM: 0x3D217E
-	.byte 0x47, 0x61
-	.asciz "s_01_LCTR"
-
-.global lbl_803D518A
-lbl_803D518A:
-
-	# ROM: 0x3D218A
-	.byte 0x47, 0x61
-	.asciz "s_02_LCTR"
-
-.global lbl_803D5196
-lbl_803D5196:
-
-	# ROM: 0x3D2196
-	.byte 0x47, 0x61
-	.asciz "s_03_LCTR"
-
-.global lbl_803D51A2
-lbl_803D51A2:
-
-	# ROM: 0x3D21A2
-	.byte 0x47, 0x61
-	.asciz "s_04_LCTR"
-
-.global lbl_803D51AE
-lbl_803D51AE:
-
-	# ROM: 0x3D21AE
-	.byte 0x47, 0x61
-	.asciz "s_05_LCTR"
-
-.global lbl_803D51BA
-lbl_803D51BA:
-
-	# ROM: 0x3D21BA
-	.byte 0x47, 0x61
-	.asciz "s_06_LCTR"
-
-.global lbl_803D51C6
-lbl_803D51C6:
-
-	# ROM: 0x3D21C6
-	.byte 0x47, 0x61
-	.asciz "s_07_LCTR"
-
-.global lbl_803D51D2
-lbl_803D51D2:
-
-	# ROM: 0x3D21D2
-	.byte 0x47, 0x61
-	.asciz "s_08_LCTR"
-
-.global lbl_803D51DE
-lbl_803D51DE:
-
-	# ROM: 0x3D21DE
-	.byte 0x47, 0x61
-	.asciz "s_09_LCTR"
-
-.global lbl_803D51EA
-lbl_803D51EA:
-
-	# ROM: 0x3D21EA
-	.byte 0x47, 0x61
-	.asciz "s_10_LCTR"
-
-.global lbl_803D51F6
-lbl_803D51F6:
-
-	# ROM: 0x3D21F6
-	.byte 0x47, 0x61
-	.asciz "s_11_LCTR"
-
-.global lbl_803D5202
-lbl_803D5202:
-
-	# ROM: 0x3D2202
-	.byte 0x47, 0x61
-	.asciz "s_12_LCTR"
-
-.global lbl_803D520E
-lbl_803D520E:
-
-	# ROM: 0x3D220E
-	.byte 0x47, 0x61
-	.asciz "s_13_LCTR"
-
-.global lbl_803D521A
-lbl_803D521A:
-
-	# ROM: 0x3D221A
-	.byte 0x47, 0x61
-	.asciz "s_14_LCTR"
-	.byte 0x3F, 0x3F
-	.asciz "(??)"
-	.balign 4

@@ -1139,7 +1139,7 @@ Accept__8CMetareeFR8IVisitor:
 /* 8014EE20 0014BD80  7D 6A 5B 78 */	mr r10, r11
 /* 8014EE24 0014BD84  38 A1 00 20 */	addi r5, r1, 0x20
 /* 8014EE28 0014BD88  38 80 00 12 */	li r4, 0x12
-/* 8014EE2C 0014BD8C  4B F2 E6 25 */	bl "__ct__10CPatternedFUi9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParametersUi"
+/* 8014EE2C 0014BD8C  4B F2 E6 25 */	bl "__ct__10CPatternedFQ210CPatterned10ECharacter9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParameters17EKnockBackVariant"
 /* 8014EE30 0014BD90  3C 80 80 3E */	lis r4, lbl_803E2878@ha
 /* 8014EE34 0014BD94  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 8014EE38 0014BD98  38 04 28 78 */	addi r0, r4, lbl_803E2878@l

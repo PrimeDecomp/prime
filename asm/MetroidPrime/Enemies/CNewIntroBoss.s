@@ -2498,7 +2498,7 @@ ProjectileInfo__13CNewIntroBossFv:
 /* 8018BEFC 00188E5C  38 E0 00 00 */	li r7, 0
 /* 8018BF00 00188E60  91 61 00 1C */	stw r11, 0x1c(r1)
 /* 8018BF04 00188E64  83 E1 00 8C */	lwz r31, 0x8c(r1)
-/* 8018BF08 00188E68  4B EF 15 49 */	bl "__ct__10CPatternedFUi9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParametersUi"
+/* 8018BF08 00188E68  4B EF 15 49 */	bl "__ct__10CPatternedFQ210CPatterned10ECharacter9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParameters17EKnockBackVariant"
 /* 8018BF0C 00188E6C  3C 80 80 3E */	lis r4, lbl_803E4018@ha
 /* 8018BF10 00188E70  3C 60 80 3D */	lis r3, lbl_803D07E4@ha
 /* 8018BF14 00188E74  38 04 40 18 */	addi r0, r4, lbl_803E4018@l

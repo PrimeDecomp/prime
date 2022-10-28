@@ -9189,7 +9189,7 @@ lbl_80171E4C:
 /* 80171EF0 0016EE50  83 C1 01 30 */	lwz r30, 0x130(r1)
 /* 80171EF4 0016EE54  93 A1 00 18 */	stw r29, 0x18(r1)
 /* 80171EF8 0016EE58  91 61 00 1C */	stw r11, 0x1c(r1)
-/* 80171EFC 0016EE5C  4B F0 B5 55 */	bl "__ct__10CPatternedFUi9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParametersUi"
+/* 80171EFC 0016EE5C  4B F0 B5 55 */	bl "__ct__10CPatternedFQ210CPatterned10ECharacter9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParameters17EKnockBackVariant"
 /* 80171F00 0016EE60  3C 60 80 3E */	lis r3, lbl_803E3AD8@ha
 /* 80171F04 0016EE64  38 00 FF FF */	li r0, -1
 /* 80171F08 0016EE68  38 63 3A D8 */	addi r3, r3, lbl_803E3AD8@l
