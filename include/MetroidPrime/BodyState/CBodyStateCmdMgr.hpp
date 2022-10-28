@@ -135,7 +135,7 @@ public:
   , x8_weight(1.f)
   , xc_type(pas::kART_Invalid)
   , x10_active(false) {}
-  
+
   explicit CBCAdditiveReactionCmd(pas::EAdditiveReactionType type, float weight, bool active)
   : CBodyStateCmd(kBSC_AdditiveReaction), x8_weight(weight), xc_type(type), x10_active(active) {}
 
@@ -164,6 +164,24 @@ public:
 private:
   pas::ESlideType x8_type;
   CVector3f xc_dir;
+};
+
+//
+
+class CBCKnockDownCmd : public CBodyStateCmd {
+public:
+  explicit CBCKnockDownCmd()
+  : CBodyStateCmd(kBSC_KnockDown), x8_dir(0.f, 0.f, 0.f), x14_severity(pas::kS_Invalid) {}
+
+  explicit CBCKnockDownCmd(const CVector3f& vec, pas::ESeverity severity)
+  : CBodyStateCmd(kBSC_KnockDown), x8_dir(vec), x14_severity(severity) {}
+
+  const CVector3f& GetHitDirection() const { return x8_dir; }
+  pas::ESeverity GetHitSeverity() const { return x14_severity; }
+
+private:
+  CVector3f x8_dir;
+  pas::ESeverity x14_severity;
 };
 
 //
