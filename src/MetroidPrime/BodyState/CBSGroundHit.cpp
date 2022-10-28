@@ -1,4 +1,4 @@
-#include "MetroidPrime/BodyState/CBSFall.hpp"
+#include "MetroidPrime/BodyState/CBSGroundHit.hpp"
 
 #include "MetroidPrime/BodyState/CBodyController.hpp"
 #include "MetroidPrime/CActor.hpp"
@@ -10,30 +10,33 @@
 #include "Kyoto/Math/CAbsAngle.hpp"
 #include "Kyoto/Math/CRelAngle.hpp"
 
-
 #include "math.h"
 #include "rstl/math.hpp"
 
-CBSFall::CBSFall() : x4_rotateSpeed(0.f), x8_remTime(0.f), xc_fallState(pas::kFS_Invalid) {}
+CBSGroundHit::CBSGroundHit()
+: x4_rotateSpeed(0.f), x8_remTime(0.f), xc_fallState(pas::kFS_Invalid) {}
 
-void CBSFall::Start(CBodyController& bc, CStateManager& mgr) {
-  const CBCKnockDownCmd* cmd =
-      static_cast< const CBCKnockDownCmd* >(bc.CommandMgr().GetCmd(kBSC_KnockDown));
+void CBSGroundHit::Start(CBodyController& bc, CStateManager& mgr) {
+  const CBCKnockBackCmd* cmd =
+      static_cast< const CBCKnockBackCmd* >(bc.CommandMgr().GetCmd(kBSC_KnockBack));
+
   CVector3f localDir = bc.GetOwner().GetTransform().TransposeRotate(cmd->GetHitDirection());
-  CAbsAngle angle = CAbsAngle::FromRadians(atan2(localDir.GetY(), localDir.GetZ())); // TODO: x
+  CAbsAngle angle = CAbsAngle::FromRadians(atan2(localDir.GetY(), localDir.GetX()));
 
+  int fallState = bc.GetFallState();
   const CPASDatabase& db = bc.GetPASDatabase();
-  const CPASAnimParmData parms(pas::kAS_Fall, CPASAnimParm::FromReal32(angle.AsDegrees()),
-                               CPASAnimParm::FromEnum(cmd->GetHitSeverity()));
+
+  const CPASAnimParmData parms(pas::kAS_GroundHit, CPASAnimParm::FromEnum(fallState),
+                               CPASAnimParm::FromReal32(angle.AsDegrees()));
   const rstl::pair< float, int > best = db.FindBestAnimation(parms, *mgr.Random(), -1);
   const CAnimPlaybackParms playParms(best.second, -1, 1.f, true);
   bc.SetCurrentAnimation(playParms, false, false);
 
-  const CPASAnimState* knockdownState = db.GetAnimState(pas::kAS_Fall);
-  CPASAnimParm knockdownParm2(knockdownState->GetAnimParmData(best.second, 2));
-  if (!knockdownParm2.GetBoolValue()) {
-    CPASAnimParm knockdownParm0(knockdownState->GetAnimParmData(best.second, 0));
-    float knockdownAngle = knockdownParm0.GetReal32Value();
+  const CPASAnimState* groundHitState = db.GetAnimState(pas::kAS_GroundHit);
+  CPASAnimParm parm2(groundHitState->GetAnimParmData(best.second, 2));
+  if (!parm2.GetBoolValue()) {
+    CPASAnimParm parm1(groundHitState->GetAnimParmData(best.second, 1));
+    float knockdownAngle = parm1.GetReal32Value();
     float delta1 = CAbsAngle::FromRadians(angle.AsRadians() -
                                           CRelAngle::FromDegrees(knockdownAngle).AsRadians())
                        .AsRadians();
@@ -41,9 +44,7 @@ void CBSFall::Start(CBodyController& bc, CStateManager& mgr) {
                                           angle.AsRadians())
                        .AsRadians();
     float minAngle = rstl::min_val(delta1, delta2);
-    // There's a missing `if (delta1 < 0) { delta1 += M_2PIF; }` here
-    // But it's not exactly delta1, but a temporary from inside the FromRadians call?!
-    // Same problem in CBSGroundHit
+    // There's missing code here. Same problem in CBSFall, see there for details
     const float flippedAngle = (delta1 > M_PIF) ? -minAngle : minAngle;
     x8_remTime = 0.15f * bc.GetAnimTimeRemaining();
     x4_rotateSpeed = (x8_remTime > FLT_EPSILON) ? flippedAngle / x8_remTime : flippedAngle;
@@ -51,12 +52,11 @@ void CBSFall::Start(CBodyController& bc, CStateManager& mgr) {
     x8_remTime = 0.f;
     x4_rotateSpeed = 0.f;
   }
-
-  CPASAnimParm knockdownParm3(knockdownState->GetAnimParmData(best.second, 3));
-  xc_fallState = pas::EFallState(knockdownParm3.GetEnumValue());
+  CPASAnimParm parm3(groundHitState->GetAnimParmData(best.second, 3));
+  xc_fallState = pas::EFallState(parm3.GetEnumValue());
 }
 
-pas::EAnimationState CBSFall::UpdateBody(float dt, CBodyController& bc, CStateManager& mgr) {
+pas::EAnimationState CBSGroundHit::UpdateBody(float dt, CBodyController& bc, CStateManager& mgr) {
   const pas::EAnimationState st = GetBodyStateTransition(dt, bc);
   if (st == pas::kAS_Invalid && x8_remTime > 0.f) {
     bc.SetDeltaRotation(CQuaternion::ZRotation(CRelAngle::FromRadians(x4_rotateSpeed * dt)));
@@ -65,13 +65,17 @@ pas::EAnimationState CBSFall::UpdateBody(float dt, CBodyController& bc, CStateMa
   return st;
 }
 
-void CBSFall::Shutdown(CBodyController& bc) { bc.SetFallState(xc_fallState); }
+void CBSGroundHit::Shutdown(CBodyController& bc) { bc.SetFallState(xc_fallState); }
 
-pas::EAnimationState CBSFall::GetBodyStateTransition(float dt, CBodyController& bc) {
+pas::EAnimationState CBSGroundHit::GetBodyStateTransition(float dt, CBodyController& bc) {
+  CBodyStateCmdMgr& cmdMgr = bc.CommandMgr();
   if (bc.IsAnimationOver()) {
+    if (cmdMgr.GetCmd(kBSC_Die)) {
+      return pas::kAS_Death;
+    }
     return pas::kAS_LieOnGround;
   }
   return pas::kAS_Invalid;
 }
 
-CBSFall::~CBSFall() {}
+CBSGroundHit::~CBSGroundHit() {}

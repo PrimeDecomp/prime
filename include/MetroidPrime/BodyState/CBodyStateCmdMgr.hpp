@@ -186,6 +186,24 @@ private:
 
 //
 
+class CBCKnockBackCmd : public CBodyStateCmd {
+public:
+  explicit CBCKnockBackCmd()
+  : CBodyStateCmd(kBSC_KnockBack), x8_dir(0.f, 0.f, 0.f), x14_severity(pas::kS_Invalid) {}
+  
+  explicit CBCKnockBackCmd(const CVector3f& vec, pas::ESeverity severity)
+  : CBodyStateCmd(kBSC_KnockBack), x8_dir(vec), x14_severity(severity) {}
+
+  const CVector3f& GetHitDirection() const { return x8_dir; }
+  pas::ESeverity GetHitSeverity() const { return x14_severity; }
+
+private:
+  CVector3f x8_dir;
+  pas::ESeverity x14_severity;
+};
+
+//
+
 class CBodyStateCmdMgr {
 public:
   CBodyStateCmd* GetCmd(EBodyStateCmd cmd);

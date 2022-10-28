@@ -198,7 +198,7 @@ LIBS = [
             "MetroidPrime/Weapons/CTargetableProjectile",
             "MetroidPrime/BodyState/CBSLoopReaction",
             "MetroidPrime/CSteeringBehaviors",
-            "MetroidPrime/BodyState/CBSGroundHit",
+            ["MetroidPrime/BodyState/CBSGroundHit", False],
             "MetroidPrime/Enemies/CChozoGhost",
             "MetroidPrime/Enemies/CFireFlea",
             ["MetroidPrime/BodyState/CBSSlide", False],
