@@ -10,7 +10,6 @@
 #include "Kyoto/Math/CAbsAngle.hpp"
 #include "Kyoto/Math/CRelAngle.hpp"
 
-
 #include "math.h"
 #include "rstl/math.hpp"
 
@@ -43,7 +42,7 @@ void CBSFall::Start(CBodyController& bc, CStateManager& mgr) {
     float minAngle = rstl::min_val(delta1, delta2);
     // There's a missing `if (delta1 < 0) { delta1 += M_2PIF; }` here
     // But it's not exactly delta1, but a temporary from inside the FromRadians call?!
-    // Same problem in CBSGroundHit
+    // Same problem in CBSGroundHit and CBSKnockBack
     const float flippedAngle = (delta1 > M_PIF) ? -minAngle : minAngle;
     x8_remTime = 0.15f * bc.GetAnimTimeRemaining();
     x4_rotateSpeed = (x8_remTime > FLT_EPSILON) ? flippedAngle / x8_remTime : flippedAngle;
