@@ -661,8 +661,8 @@ void CMemoryCardDriver::InitializeFileInfo() {
 
   char nameBuffer[36];
 
-  sprintf(nameBuffer, "%02d.%02d.%02d  %02d:%02d", time.x10_mon + 1, time.xc_mday,
-          time.x14_year % 100, time.x8_hour, time.x4_min);
+  sprintf(nameBuffer, "%02d.%02d.%02d  %02d:%02d", time.mon + 1, time.mday,
+          time.year % 100, time.hour, time.min);
 
   fileInfo.SetComment(rstl::string_l(nameConstant) + nameBuffer);
   fileInfo.LockBannerToken(x4_saveBanner, *gpSimplePool);
