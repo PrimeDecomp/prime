@@ -33,6 +33,7 @@ public:
   static CPASAnimParm FromInt32(int val);
   static CPASAnimParm NoParameter();
 
+  int GetEnumValue() const; // { return x0_value.m_int; }
   int GetInt32Value() const;
   float GetReal32Value() const;
 
