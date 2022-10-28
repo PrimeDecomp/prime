@@ -20,7 +20,7 @@ void CBSFall::Start(CBodyController& bc, CStateManager& mgr) {
   const CBCKnockDownCmd* cmd =
       static_cast< const CBCKnockDownCmd* >(bc.CommandMgr().GetCmd(kBSC_KnockDown));
   CVector3f localDir = bc.GetOwner().GetTransform().TransposeRotate(cmd->GetHitDirection());
-  CAbsAngle angle = CAbsAngle::FromRadians(atan2(localDir.GetY(), localDir.GetZ())); // TODO: x
+  CAbsAngle angle = CAbsAngle::FromRadians(atan2(localDir.GetY(), localDir.GetX()));
 
   const CPASDatabase& db = bc.GetPASDatabase();
   const CPASAnimParmData parms(pas::kAS_Fall, CPASAnimParm::FromReal32(angle.AsDegrees()),
