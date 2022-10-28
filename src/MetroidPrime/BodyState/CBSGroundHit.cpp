@@ -32,10 +32,10 @@ void CBSGroundHit::Start(CBodyController& bc, CStateManager& mgr) {
   const CAnimPlaybackParms playParms(best.second, -1, 1.f, true);
   bc.SetCurrentAnimation(playParms, false, false);
 
-  const CPASAnimState* groundHitState = db.GetAnimState(pas::kAS_GroundHit);
-  CPASAnimParm parm2(groundHitState->GetAnimParmData(best.second, 2));
+  const CPASAnimState* animState = db.GetAnimState(pas::kAS_GroundHit);
+  CPASAnimParm parm2(animState->GetAnimParmData(best.second, 2));
   if (!parm2.GetBoolValue()) {
-    CPASAnimParm parm1(groundHitState->GetAnimParmData(best.second, 1));
+    CPASAnimParm parm1(animState->GetAnimParmData(best.second, 1));
     float knockdownAngle = parm1.GetReal32Value();
     float delta1 = CAbsAngle::FromRadians(angle.AsRadians() -
                                           CRelAngle::FromDegrees(knockdownAngle).AsRadians())
@@ -52,7 +52,7 @@ void CBSGroundHit::Start(CBodyController& bc, CStateManager& mgr) {
     x8_remTime = 0.f;
     x4_rotateSpeed = 0.f;
   }
-  CPASAnimParm parm3(groundHitState->GetAnimParmData(best.second, 3));
+  CPASAnimParm parm3(animState->GetAnimParmData(best.second, 3));
   xc_fallState = pas::EFallState(parm3.GetEnumValue());
 }
 
