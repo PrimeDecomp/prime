@@ -10,6 +10,8 @@ class CActor;
 class CPASDatabase;
 class CQuaternion;
 class CAnimPlaybackParms;
+class CPASAnimParmData;
+class CRandom16;
 
 class CBodyController {
 
@@ -25,6 +27,7 @@ public:
   void SetCurrentAnimation(const CAnimPlaybackParms& parms, bool loop, bool noTrans);
   void FaceDirection(const CVector3f& v0, float dt);
   void EnableAnimation(bool enable);
+  void PlayBestAnimation(const CPASAnimParmData& parms, CRandom16& r);
 
   void SetFallState(pas::EFallState state); // { x2f0_fallState = state; }
   pas::EFallState GetFallState() const; // { return x2f0_fallState; }

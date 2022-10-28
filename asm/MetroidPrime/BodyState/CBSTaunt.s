@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803E2390
-lbl_803E2390:
+.global __vt__8CBSTaunt
+__vt__8CBSTaunt:
 	# ROM: 0x3DF390
 	.4byte 0
 	.4byte 0
@@ -31,8 +31,8 @@ __dt__8CBSTauntFv:
 /* 801492BC 0014621C  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 801492C0 00146220  7C 7F 1B 79 */	or. r31, r3, r3
 /* 801492C4 00146224  41 82 00 30 */	beq lbl_801492F4
-/* 801492C8 00146228  3C 60 80 3E */	lis r3, lbl_803E2390@ha
-/* 801492CC 0014622C  38 03 23 90 */	addi r0, r3, lbl_803E2390@l
+/* 801492C8 00146228  3C 60 80 3E */	lis r3, __vt__8CBSTaunt@ha
+/* 801492CC 0014622C  38 03 23 90 */	addi r0, r3, __vt__8CBSTaunt@l
 /* 801492D0 00146230  90 1F 00 00 */	stw r0, 0(r31)
 /* 801492D4 00146234  41 82 00 10 */	beq lbl_801492E4
 /* 801492D8 00146238  3C 60 80 3E */	lis r3, __vt__10CBodyState@ha
@@ -251,10 +251,10 @@ lbl_8014959C:
 .global __ct__8CBSTauntFv
 __ct__8CBSTauntFv:
 /* 801495B8 00146518  3C A0 80 3E */	lis r5, __vt__10CBodyState@ha
-/* 801495BC 0014651C  3C 80 80 3E */	lis r4, lbl_803E2390@ha
+/* 801495BC 0014651C  3C 80 80 3E */	lis r4, __vt__8CBSTaunt@ha
 /* 801495C0 00146520  38 A5 13 18 */	addi r5, r5, __vt__10CBodyState@l
 /* 801495C4 00146524  90 A3 00 00 */	stw r5, 0(r3)
-/* 801495C8 00146528  38 04 23 90 */	addi r0, r4, lbl_803E2390@l
+/* 801495C8 00146528  38 04 23 90 */	addi r0, r4, __vt__8CBSTaunt@l
 /* 801495CC 0014652C  90 03 00 00 */	stw r0, 0(r3)
 /* 801495D0 00146530  4E 80 00 20 */	blr
 

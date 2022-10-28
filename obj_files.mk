@@ -171,7 +171,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/BodyState/CBSJump.o\
 	$(BUILD_DIR)/src/MetroidPrime/BodyState/CBSGenerate.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CPuddleSpore.o\
-	$(BUILD_DIR)/asm/MetroidPrime/BodyState/CBSTaunt.o\
+	$(BUILD_DIR)/src/MetroidPrime/BodyState/CBSTaunt.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CSortedLists.o\
 	$(BUILD_DIR)/src/MetroidPrime/ScriptObjects/CScriptDebugCameraWaypoint.o\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptSpiderBallAttractionSurface.o\
