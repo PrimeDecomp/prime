@@ -47,12 +47,41 @@ public:
   , xc_targetPos(vec)
   , x1c_24_targetTransform(targetTransform)
   , x1c_25_overrideAnim(overrideAnim) {}
-  
+
   pas::EGenerateType GetGenerateType() const { return x8_type; }
   const CVector3f& GetExitTargetPos() const { return xc_targetPos; }
   bool HasExitTargetPos() const { return x1c_24_targetTransform; }
   int GetSpecialAnimId() const { return x18_animId; }
   bool UseSpecialAnimId() const { return x1c_25_overrideAnim; }
+};
+
+//
+
+class CBCScriptedCmd : public CBodyStateCmd {
+  s32 x8_anim;
+  bool xc_24_loopAnim : 1;
+  bool xc_25_timedLoop : 1;
+  float x10_loopDur;
+
+public:
+  explicit CBCScriptedCmd()
+  : CBodyStateCmd(kBSC_Scripted)
+  , x8_anim(-1)
+  , xc_24_loopAnim(false)
+  , xc_25_timedLoop(false)
+  , x10_loopDur(0.f) {}
+  
+  explicit CBCScriptedCmd(int i, bool b1, bool b2, float f)
+  : CBodyStateCmd(kBSC_Scripted)
+  , x8_anim(i)
+  , xc_24_loopAnim(b1)
+  , xc_25_timedLoop(b2)
+  , x10_loopDur(f) {}
+
+  int GetAnimId() const { return x8_anim; }
+  bool IsLooped() const { return xc_24_loopAnim; }
+  bool GetUseLoopDuration() const { return xc_25_timedLoop; }
+  float GetLoopDuration() const { return x10_loopDur; }
 };
 
 //

@@ -210,7 +210,7 @@ LIBS = [
             "MetroidPrime/CSortedLists",
             ["MetroidPrime/ScriptObjects/CScriptDebugCameraWaypoint", True],
             ["MetroidPrime/ScriptObjects/CScriptSpiderBallAttractionSurface", False],
-            "MetroidPrime/BodyState/CBSScripted",
+            ["MetroidPrime/BodyState/CBSScripted", True],
             "MetroidPrime/Enemies/CPuddleToadGamma",
             ["MetroidPrime/ScriptObjects/CScriptDistanceFog", False],
             "MetroidPrime/BodyState/CBSProjectileAttack",

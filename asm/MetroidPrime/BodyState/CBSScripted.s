@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803E24A8
-lbl_803E24A8:
+.global __vt__11CBSScripted
+__vt__11CBSScripted:
 	# ROM: 0x3DF4A8
 	.4byte 0
 	.4byte 0
@@ -31,8 +31,8 @@ __dt__11CBSScriptedFv:
 /* 8014B0CC 0014802C  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 8014B0D0 00148030  7C 7F 1B 79 */	or. r31, r3, r3
 /* 8014B0D4 00148034  41 82 00 30 */	beq lbl_8014B104
-/* 8014B0D8 00148038  3C 60 80 3E */	lis r3, lbl_803E24A8@ha
-/* 8014B0DC 0014803C  38 03 24 A8 */	addi r0, r3, lbl_803E24A8@l
+/* 8014B0D8 00148038  3C 60 80 3E */	lis r3, __vt__11CBSScripted@ha
+/* 8014B0DC 0014803C  38 03 24 A8 */	addi r0, r3, __vt__11CBSScripted@l
 /* 8014B0E0 00148040  90 1F 00 00 */	stw r0, 0(r31)
 /* 8014B0E4 00148044  41 82 00 10 */	beq lbl_8014B0F4
 /* 8014B0E8 00148048  3C 60 80 3E */	lis r3, __vt__10CBodyState@ha
@@ -258,11 +258,11 @@ Start__11CBSScriptedFR15CBodyControllerR13CStateManager:
 .global __ct__11CBSScriptedFv
 __ct__11CBSScriptedFv:
 /* 8014B3E0 00148340  3C C0 80 3E */	lis r6, __vt__10CBodyState@ha
-/* 8014B3E4 00148344  3C A0 80 3E */	lis r5, lbl_803E24A8@ha
+/* 8014B3E4 00148344  3C A0 80 3E */	lis r5, __vt__11CBSScripted@ha
 /* 8014B3E8 00148348  38 C6 13 18 */	addi r6, r6, __vt__10CBodyState@l
 /* 8014B3EC 0014834C  38 80 00 00 */	li r4, 0
 /* 8014B3F0 00148350  90 C3 00 00 */	stw r6, 0(r3)
-/* 8014B3F4 00148354  38 05 24 A8 */	addi r0, r5, lbl_803E24A8@l
+/* 8014B3F4 00148354  38 05 24 A8 */	addi r0, r5, __vt__11CBSScripted@l
 /* 8014B3F8 00148358  C0 02 9C E8 */	lfs f0, lbl_805ABA08@sda21(r2)
 /* 8014B3FC 0014835C  90 03 00 00 */	stw r0, 0(r3)
 /* 8014B400 00148360  88 03 00 04 */	lbz r0, 4(r3)
