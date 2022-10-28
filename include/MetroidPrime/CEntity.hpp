@@ -32,7 +32,7 @@ public:
   const rstl::string& GetDebugName() const { return x10_name; }
   TAreaId GetAreaId() const;
   TAreaId GetCurrentAreaId() const { return x4_areaId; }
-  bool GetActive() const { return x30_24_active; }
+  uchar GetActive() const { return x30_24_active; }
   bool IsScriptingBlocked() const { return x30_26_scriptingBlocked; }
 
   // might be fake?

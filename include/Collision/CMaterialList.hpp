@@ -103,9 +103,9 @@ public:
   CMaterialList(u64 value) : value(value) {}
 
   void Add(EMaterialTypes material) { value |= u64(1) << material; }
-  // Add__13CMaterialListFRC13CMaterialList weak
-  // Remove__13CMaterialListF14EMaterialTypes weak
-  // Remove__13CMaterialListFRC13CMaterialList weak
+  void Add(const CMaterialList& material) { value |= material.value; }
+  void Remove(EMaterialTypes material) { value &= ~(u64(1) << material); }
+  void Remove(const CMaterialList& material) { value &= ~material.value; }
   const CMaterialList& Union(const CMaterialList& other) {
     value |= other.value;
     return *this;

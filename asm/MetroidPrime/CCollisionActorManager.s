@@ -706,8 +706,8 @@ lbl_801A78B8:
 /* 801A78D4 001A4834  38 21 03 A0 */	addi r1, r1, 0x3a0
 /* 801A78D8 001A4838  4E 80 00 20 */	blr
 
-.global sub_801a78dc
-sub_801a78dc:
+.global __dt__22CCollisionActorManagerFv
+__dt__22CCollisionActorManagerFv:
 /* 801A78DC 001A483C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801A78E0 001A4840  7C 08 02 A6 */	mflr r0
 /* 801A78E4 001A4844  90 01 00 14 */	stw r0, 0x14(r1)
@@ -1826,4 +1826,3 @@ lbl_803D1498:
 	# ROM: 0x3CE498
 	.asciz "??(??)"
 	.balign 4
-
