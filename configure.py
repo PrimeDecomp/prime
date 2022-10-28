@@ -185,7 +185,7 @@ LIBS = [
             "MetroidPrime/BodyState/CBodyStateCmdMgr",
             ["MetroidPrime/BodyState/CBodyStateInfo", False],
             "MetroidPrime/BodyState/CBSAttack",
-            "MetroidPrime/BodyState/CBSDie",
+            ["MetroidPrime/BodyState/CBSDie", True],
             "MetroidPrime/BodyState/CBSFall",
             "MetroidPrime/BodyState/CBSGetup",
             "MetroidPrime/BodyState/CBSKnockBack",
