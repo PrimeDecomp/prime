@@ -14,6 +14,7 @@ class CRandom16;
 class CPASDatabase {
 
 public:
+  bool HasState(int id) const;
   const CPASAnimState* GetAnimState(int) const;
   rstl::pair< float, int > FindBestAnimation(const CPASAnimParmData&, CRandom16&, int) const;
 
