@@ -6253,7 +6253,7 @@ lbl_801F9394:
 /* 801F93AC 001F630C  7F C6 F3 78 */	mr r6, r30
 /* 801F93B0 001F6310  80 65 00 10 */	lwz r3, 0x10(r5)
 /* 801F93B4 001F6314  38 A0 00 00 */	li r5, 0
-/* 801F93B8 001F6318  4B E3 1A 09 */	bl SetParticleEffectState__9CAnimDataFQ24rstl6stringbR13CStateManager
+/* 801F93B8 001F6318  4B E3 1A 09 */	bl "SetParticleEffectState__9CAnimDataFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>bR13CStateManager"
 /* 801F93BC 001F631C  A1 1D 00 08 */	lhz r8, 8(r29)
 /* 801F93C0 001F6320  7F C4 F3 78 */	mr r4, r30
 /* 801F93C4 001F6324  38 A1 00 10 */	addi r5, r1, 0x10
@@ -11204,7 +11204,7 @@ lbl_801FDB4C:
 /* 801FDB58 001FAAB8  7F E6 FB 78 */	mr r6, r31
 /* 801FDB5C 001FAABC  80 65 00 10 */	lwz r3, 0x10(r5)
 /* 801FDB60 001FAAC0  38 A0 00 01 */	li r5, 1
-/* 801FDB64 001FAAC4  4B E2 D2 5D */	bl SetParticleEffectState__9CAnimDataFQ24rstl6stringbR13CStateManager
+/* 801FDB64 001FAAC4  4B E2 D2 5D */	bl "SetParticleEffectState__9CAnimDataFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>bR13CStateManager"
 /* 801FDB68 001FAAC8  48 00 00 58 */	b lbl_801FDBC0
 lbl_801FDB6C:
 /* 801FDB6C 001FAACC  3B BE 06 88 */	addi r29, r30, 0x688
@@ -11229,7 +11229,7 @@ lbl_801FDB98:
 /* 801FDBB0 001FAB10  7F E6 FB 78 */	mr r6, r31
 /* 801FDBB4 001FAB14  80 65 00 10 */	lwz r3, 0x10(r5)
 /* 801FDBB8 001FAB18  38 A0 00 00 */	li r5, 0
-/* 801FDBBC 001FAB1C  4B E2 D2 05 */	bl SetParticleEffectState__9CAnimDataFQ24rstl6stringbR13CStateManager
+/* 801FDBBC 001FAB1C  4B E2 D2 05 */	bl "SetParticleEffectState__9CAnimDataFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>bR13CStateManager"
 lbl_801FDBC0:
 /* 801FDBC0 001FAB20  E3 E1 00 F8 */	psq_l f31, 248(r1), 0, qr0
 /* 801FDBC4 001FAB24  80 01 01 04 */	lwz r0, 0x104(r1)
@@ -11273,7 +11273,7 @@ lbl_801FDC34:
 /* 801FDC4C 001FABAC  7F 64 DB 78 */	mr r4, r27
 /* 801FDC50 001FABB0  7F C5 F3 78 */	mr r5, r30
 /* 801FDC54 001FABB4  7F A6 EB 78 */	mr r6, r29
-/* 801FDC58 001FABB8  4B E2 D1 69 */	bl SetParticleEffectState__9CAnimDataFQ24rstl6stringbR13CStateManager
+/* 801FDC58 001FABB8  4B E2 D1 69 */	bl "SetParticleEffectState__9CAnimDataFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>bR13CStateManager"
 /* 801FDC5C 001FABBC  88 1C 06 A0 */	lbz r0, 0x6a0(r28)
 /* 801FDC60 001FABC0  54 00 D7 FF */	rlwinm. r0, r0, 0x1a, 0x1f, 0x1f
 /* 801FDC64 001FABC4  41 82 00 1C */	beq lbl_801FDC80
@@ -11282,7 +11282,7 @@ lbl_801FDC34:
 /* 801FDC70 001FABD0  38 84 20 E8 */	addi r4, r4, lbl_805720E8@l
 /* 801FDC74 001FABD4  7F C5 F3 78 */	mr r5, r30
 /* 801FDC78 001FABD8  7F A6 EB 78 */	mr r6, r29
-/* 801FDC7C 001FABDC  4B E2 D1 45 */	bl SetParticleEffectState__9CAnimDataFQ24rstl6stringbR13CStateManager
+/* 801FDC7C 001FABDC  4B E2 D1 45 */	bl "SetParticleEffectState__9CAnimDataFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>bR13CStateManager"
 lbl_801FDC80:
 /* 801FDC80 001FABE0  88 1C 06 A2 */	lbz r0, 0x6a2(r28)
 /* 801FDC84 001FABE4  53 C0 2E B4 */	rlwimi r0, r30, 5, 0x1a, 0x1a
@@ -11325,7 +11325,7 @@ lbl_801FDCF4:
 /* 801FDD0C 001FAC6C  7F E3 FB 78 */	mr r3, r31
 /* 801FDD10 001FAC70  38 84 20 F8 */	addi r4, r4, lbl_805720F8@l
 /* 801FDD14 001FAC74  7F A6 EB 78 */	mr r6, r29
-/* 801FDD18 001FAC78  4B E2 D0 A9 */	bl SetParticleEffectState__9CAnimDataFQ24rstl6stringbR13CStateManager
+/* 801FDD18 001FAC78  4B E2 D0 A9 */	bl "SetParticleEffectState__9CAnimDataFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>bR13CStateManager"
 /* 801FDD1C 001FAC7C  88 1C 06 A2 */	lbz r0, 0x6a2(r28)
 /* 801FDD20 001FAC80  53 C0 26 F6 */	rlwimi r0, r30, 4, 0x1b, 0x1b
 /* 801FDD24 001FAC84  98 1C 06 A2 */	stb r0, 0x6a2(r28)
@@ -11586,7 +11586,7 @@ lbl_801FE090:
 /* 801FE0B4 001FB014  7F C6 F3 78 */	mr r6, r30
 /* 801FE0B8 001FB018  80 65 00 10 */	lwz r3, 0x10(r5)
 /* 801FE0BC 001FB01C  38 A0 00 01 */	li r5, 1
-/* 801FE0C0 001FB020  4B E2 CD 01 */	bl SetParticleEffectState__9CAnimDataFQ24rstl6stringbR13CStateManager
+/* 801FE0C0 001FB020  4B E2 CD 01 */	bl "SetParticleEffectState__9CAnimDataFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>bR13CStateManager"
 /* 801FE0C4 001FB024  48 00 02 B4 */	b lbl_801FE378
 .global lbl_801FE0C8
 lbl_801FE0C8:
@@ -11841,7 +11841,7 @@ Accept__13CFlyingPirateFR8IVisitor:
 /* 801FE44C 001FB3AC  91 21 00 18 */	stw r9, 0x18(r1)
 /* 801FE450 001FB3B0  7D 89 63 78 */	mr r9, r12
 /* 801FE454 001FB3B4  91 61 00 1C */	stw r11, 0x1c(r1)
-/* 801FE458 001FB3B8  4B E7 EF F9 */	bl "__ct__10CPatternedFUi9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParametersUi"
+/* 801FE458 001FB3B8  4B E7 EF F9 */	bl "__ct__10CPatternedFQ210CPatterned10ECharacter9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParameters17EKnockBackVariant"
 /* 801FE45C 001FB3BC  3C 60 80 3E */	lis r3, __vt__13CFlyingPirate@ha
 /* 801FE460 001FB3C0  7F 24 CB 78 */	mr r4, r25
 /* 801FE464 001FB3C4  38 03 68 5C */	addi r0, r3, __vt__13CFlyingPirate@l

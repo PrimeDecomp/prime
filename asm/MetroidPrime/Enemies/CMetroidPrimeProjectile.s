@@ -250,7 +250,7 @@ Explode__23CMetroidPrimeProjectileFRC9CVector3fRC9CVector3f29EWeaponCollisionRes
 /* 802A0650 0029D5B0  93 41 00 1C */	stw r26, 0x1c(r1)
 /* 802A0654 0029D5B4  93 81 00 40 */	stw r28, 0x40(r1)
 /* 802A0658 0029D5B8  93 61 00 20 */	stw r27, 0x20(r1)
-/* 802A065C 0029D5BC  4B FB CB 81 */	bl "__ct__5CFireF25TToken<15CGenDescription>9TUniqueId7TAreaIdb9TUniqueIdRC12CTransform4fRC11CDamageInfoRC6CAABoxRC9CVector3fbUibbbffff"
+/* 802A065C 0029D5BC  4B FB CB 81 */	bl "__ct__5CFireFRC25TToken<15CGenDescription>9TUniqueId7TAreaIdb9TUniqueIdRC12CTransform4fRC11CDamageInfoRC6CAABoxRC9CVector3fbUibbbffff"
 /* 802A0660 0029D5C0  7C 64 1B 78 */	mr r4, r3
 lbl_802A0664:
 /* 802A0664 0029D5C4  28 04 00 00 */	cmplwi r4, 0

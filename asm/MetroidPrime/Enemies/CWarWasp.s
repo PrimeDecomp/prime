@@ -7054,7 +7054,7 @@ lbl_80110BE0:
 /* 80110C78 0010DBD8  91 41 00 18 */	stw r10, 0x18(r1)
 /* 80110C7C 0010DBDC  7D 6A 5B 78 */	mr r10, r11
 /* 80110C80 0010DBE0  90 01 00 1C */	stw r0, 0x1c(r1)
-/* 80110C84 0010DBE4  4B F6 C7 CD */	bl "__ct__10CPatternedFUi9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParametersUi"
+/* 80110C84 0010DBE4  4B F6 C7 CD */	bl "__ct__10CPatternedFQ210CPatterned10ECharacter9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParameters17EKnockBackVariant"
 /* 80110C88 0010DBE8  3C 60 80 3E */	lis r3, lbl_803DFF90@ha
 /* 80110C8C 0010DBEC  3A F8 05 70 */	addi r23, r24, 0x570
 /* 80110C90 0010DBF0  38 03 FF 90 */	addi r0, r3, lbl_803DFF90@l

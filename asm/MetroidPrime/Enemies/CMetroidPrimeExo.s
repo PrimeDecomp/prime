@@ -5422,7 +5422,7 @@ lbl_80275428:
 lbl_80275438:
 /* 80275438 00272398  28 00 00 00 */	cmplwi r0, 0
 /* 8027543C 0027239C  C2 F9 00 E8 */	lfs f23, 0xe8(r25)
-/* 80275440 002723A0  C3 02 96 A0 */	lfs f24, skGravityConstant__13CPhysicsActor@sda21(r2)
+/* 80275440 002723A0  C3 02 96 A0 */	lfs f24, kGravityAccel__13CPhysicsActor@sda21(r2)
 /* 80275444 002723A4  41 82 00 28 */	beq lbl_8027546C
 /* 80275448 002723A8  C0 02 BC 9C */	lfs f0, lbl_805AD9BC@sda21(r2)
 /* 8027544C 002723AC  38 60 00 00 */	li r3, 0
@@ -6547,7 +6547,7 @@ lbl_802763E0:
 /* 802763F4 00273354  7F 66 DB 78 */	mr r6, r27
 /* 802763F8 00273358  38 81 00 28 */	addi r4, r1, 0x28
 /* 802763FC 0027335C  80 63 00 10 */	lwz r3, 0x10(r3)
-/* 80276400 00273360  4B DB 49 C1 */	bl SetParticleEffectState__9CAnimDataFQ24rstl6stringbR13CStateManager
+/* 80276400 00273360  4B DB 49 C1 */	bl "SetParticleEffectState__9CAnimDataFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>bR13CStateManager"
 /* 80276404 00273364  38 61 00 28 */	addi r3, r1, 0x28
 /* 80276408 00273368  48 0C 76 D9 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 8027640C 0027336C  3B BD 00 01 */	addi r29, r29, 1
@@ -8573,7 +8573,7 @@ lbl_802780CC:
 /* 80278100 00275060  38 81 00 10 */	addi r4, r1, 0x10
 /* 80278104 00275064  38 A0 00 00 */	li r5, 0
 /* 80278108 00275068  80 63 00 10 */	lwz r3, 0x10(r3)
-/* 8027810C 0027506C  4B DB 2C B5 */	bl SetParticleEffectState__9CAnimDataFQ24rstl6stringbR13CStateManager
+/* 8027810C 0027506C  4B DB 2C B5 */	bl "SetParticleEffectState__9CAnimDataFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>bR13CStateManager"
 /* 80278110 00275070  38 61 00 10 */	addi r3, r1, 0x10
 /* 80278114 00275074  48 0C 59 CD */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 lbl_80278118:
@@ -8873,7 +8873,7 @@ sub_80278508:
 /* 80278550 002754B0  38 81 00 20 */	addi r4, r1, 0x20
 /* 80278554 002754B4  38 A0 00 01 */	li r5, 1
 /* 80278558 002754B8  80 63 00 10 */	lwz r3, 0x10(r3)
-/* 8027855C 002754BC  4B DB 28 65 */	bl SetParticleEffectState__9CAnimDataFQ24rstl6stringbR13CStateManager
+/* 8027855C 002754BC  4B DB 28 65 */	bl "SetParticleEffectState__9CAnimDataFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>bR13CStateManager"
 /* 80278560 002754C0  38 61 00 20 */	addi r3, r1, 0x20
 /* 80278564 002754C4  48 0C 55 7D */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 80278568 002754C8  81 1D 00 04 */	lwz r8, 4(r29)
@@ -9082,7 +9082,7 @@ sub_80278800:
 /* 80278858 002757B8  7F C6 F3 78 */	mr r6, r30
 /* 8027885C 002757BC  38 81 00 08 */	addi r4, r1, 8
 /* 80278860 002757C0  80 63 00 10 */	lwz r3, 0x10(r3)
-/* 80278864 002757C4  4B DB 25 5D */	bl SetParticleEffectState__9CAnimDataFQ24rstl6stringbR13CStateManager
+/* 80278864 002757C4  4B DB 25 5D */	bl "SetParticleEffectState__9CAnimDataFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>bR13CStateManager"
 /* 80278868 002757C8  38 61 00 08 */	addi r3, r1, 8
 /* 8027886C 002757CC  48 0C 52 75 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 80278870 002757D0  57 E0 06 3F */	clrlwi. r0, r31, 0x18
@@ -11761,7 +11761,7 @@ __ct__16CMetroidPrimeExo:
 /* 8027AFBC 00277F1C  7D CA 73 78 */	mr r10, r14
 /* 8027AFC0 00277F20  81 C1 02 10 */	lwz r14, 0x210(r1)
 /* 8027AFC4 00277F24  91 61 00 1C */	stw r11, 0x1c(r1)
-/* 8027AFC8 00277F28  4B E0 24 89 */	bl "__ct__10CPatternedFUi9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParametersUi"
+/* 8027AFC8 00277F28  4B E0 24 89 */	bl "__ct__10CPatternedFQ210CPatterned10ECharacter9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParameters17EKnockBackVariant"
 /* 8027AFCC 00277F2C  3C 60 80 3F */	lis r3, lbl_803EAD54@ha
 /* 8027AFD0 00277F30  38 A0 00 00 */	li r5, 0
 /* 8027AFD4 00277F34  38 03 AD 54 */	addi r0, r3, lbl_803EAD54@l

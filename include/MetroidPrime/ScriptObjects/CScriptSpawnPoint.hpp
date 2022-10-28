@@ -18,12 +18,13 @@ public:
                     const CTransform4f& xf,
                     const rstl::reserved_vector< int, int(CPlayerState::kIT_Max) >& itemCounts,
                     bool, bool, bool);
-  ~CScriptSpawnPoint();
+
+  ~CScriptSpawnPoint() override;
+  void Accept(IVisitor&) override;
+  void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&) override;
 
   const CTransform4f& GetTransform() const;
   int GetPowerup(const CPlayerState::EItemType&) const;
-  void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&);
-  void Accept(IVisitor&);
 };
 
 #endif // _CSCRIPTSPAWNPOINT

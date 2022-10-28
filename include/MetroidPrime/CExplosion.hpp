@@ -18,7 +18,7 @@ public:
              const CVector3f& scale, const CColor& color);
 
   // CEntity
-  ~CExplosion();
+  ~CExplosion() override;
   void Accept(IVisitor& visitor) override;
   void Think(float dt, CStateManager& mgr) override;
   void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) override;

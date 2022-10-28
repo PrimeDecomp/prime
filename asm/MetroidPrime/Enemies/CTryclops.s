@@ -1557,7 +1557,7 @@ sub_8025ece4:
 /* 8025ED8C 0025BCEC  48 0B 37 51 */	bl Float__9CRandom16Fv
 /* 8025ED90 0025BCF0  C0 62 BA 44 */	lfs f3, lbl_805AD764@sda21(r2)
 /* 8025ED94 0025BCF4  C0 02 BA 4C */	lfs f0, lbl_805AD76C@sda21(r2)
-/* 8025ED98 0025BCF8  C0 42 96 A0 */	lfs f2, skGravityConstant__13CPhysicsActor@sda21(r2)
+/* 8025ED98 0025BCF8  C0 42 96 A0 */	lfs f2, kGravityAccel__13CPhysicsActor@sda21(r2)
 /* 8025ED9C 0025BCFC  EC 23 00 7A */	fmadds f1, f3, f1, f0
 /* 8025EDA0 0025BD00  C0 02 BA 34 */	lfs f0, lbl_805AD754@sda21(r2)
 /* 8025EDA4 0025BD04  FC 80 10 50 */	fneg f4, f2
@@ -3812,7 +3812,7 @@ __ct__9CTryclops:
 /* 80260DF4 0025DD54  91 41 00 18 */	stw r10, 0x18(r1)
 /* 80260DF8 0025DD58  7D 8A 63 78 */	mr r10, r12
 /* 80260DFC 0025DD5C  91 61 00 1C */	stw r11, 0x1c(r1)
-/* 80260E00 0025DD60  4B E1 C6 51 */	bl "__ct__10CPatternedFUi9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParametersUi"
+/* 80260E00 0025DD60  4B E1 C6 51 */	bl "__ct__10CPatternedFQ210CPatterned10ECharacter9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParameters17EKnockBackVariant"
 /* 80260E04 0025DD64  3C 60 80 3F */	lis r3, lbl_803E9A40@ha
 /* 80260E08 0025DD68  C0 22 BA 3C */	lfs f1, lbl_805AD75C@sda21(r2)
 /* 80260E0C 0025DD6C  38 03 9A 40 */	addi r0, r3, lbl_803E9A40@l

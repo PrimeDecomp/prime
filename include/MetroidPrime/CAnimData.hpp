@@ -38,9 +38,7 @@ public:
     x220_24_animating = true;
   }
   void SetIsAnimating(bool v) { x220_24_animating = v; }
-  void SetParticleEffectState(const rstl::string& name, bool active, CStateManager& mgr) {
-    x120_particleDB.SetParticleEffectState(name, active, mgr);
-  }
+  void SetParticleEffectState(const rstl::string& name, bool active, CStateManager& mgr);
 
   int GetCharacterIndex() const { return x204_charIdx; }
   float GetAverageVelocity(int idx) const;

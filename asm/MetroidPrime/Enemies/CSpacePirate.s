@@ -11231,13 +11231,13 @@ lbl_80129A50:
 /* 80129A5C 001269BC  3C 80 80 57 */	lis r4, lbl_8056F8A4@ha
 /* 80129A60 001269C0  7C E3 3B 78 */	mr r3, r7
 /* 80129A64 001269C4  38 84 F8 A4 */	addi r4, r4, lbl_8056F8A4@l
-/* 80129A68 001269C8  4B F0 13 59 */	bl SetParticleEffectState__9CAnimDataFQ24rstl6stringbR13CStateManager
+/* 80129A68 001269C8  4B F0 13 59 */	bl "SetParticleEffectState__9CAnimDataFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>bR13CStateManager"
 /* 80129A6C 001269CC  48 00 00 14 */	b lbl_80129A80
 lbl_80129A70:
 /* 80129A70 001269D0  3C 80 80 57 */	lis r4, lbl_8056F894@ha
 /* 80129A74 001269D4  7C E3 3B 78 */	mr r3, r7
 /* 80129A78 001269D8  38 84 F8 94 */	addi r4, r4, lbl_8056F894@l
-/* 80129A7C 001269DC  4B F0 13 45 */	bl SetParticleEffectState__9CAnimDataFQ24rstl6stringbR13CStateManager
+/* 80129A7C 001269DC  4B F0 13 45 */	bl "SetParticleEffectState__9CAnimDataFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>bR13CStateManager"
 lbl_80129A80:
 /* 80129A80 001269E0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80129A84 001269E4  7C 08 03 A6 */	mtlr r0
@@ -11904,7 +11904,7 @@ Accept__12CSpacePirateFR8IVisitor:
 /* 8012A3B4 00127314  91 21 00 18 */	stw r9, 0x18(r1)
 /* 8012A3B8 00127318  7D 69 5B 78 */	mr r9, r11
 /* 8012A3BC 0012731C  90 01 00 1C */	stw r0, 0x1c(r1)
-/* 8012A3C0 00127320  4B F5 30 91 */	bl "__ct__10CPatternedFUi9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParametersUi"
+/* 8012A3C0 00127320  4B F5 30 91 */	bl "__ct__10CPatternedFQ210CPatterned10ECharacter9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParameters17EKnockBackVariant"
 /* 8012A3C4 00127324  3C 60 80 3E */	lis r3, lbl_803E0800@ha
 /* 8012A3C8 00127328  7F 84 E3 78 */	mr r4, r28
 /* 8012A3CC 0012732C  38 03 08 00 */	addi r0, r3, lbl_803E0800@l

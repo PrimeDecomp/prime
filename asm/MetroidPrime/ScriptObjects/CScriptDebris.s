@@ -2672,7 +2672,7 @@ lbl_800FDC10:
 /* 800FDC2C 000FAB8C  38 80 00 00 */	li r4, 0
 /* 800FDC30 000FAB90  48 24 32 11 */	bl __dt__6CTokenFv
 lbl_800FDC34:
-/* 800FDC34 000FAB94  C0 02 96 A0 */	lfs f0, skGravityConstant__13CPhysicsActor@sda21(r2)
+/* 800FDC34 000FAB94  C0 02 96 A0 */	lfs f0, kGravityAccel__13CPhysicsActor@sda21(r2)
 /* 800FDC38 000FAB98  C0 5D 00 E8 */	lfs f2, 0xe8(r29)
 /* 800FDC3C 000FAB9C  FC 20 00 50 */	fneg f1, f0
 /* 800FDC40 000FABA0  C0 02 93 64 */	lfs f0, lbl_805AB084@sda21(r2)

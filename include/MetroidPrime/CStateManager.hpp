@@ -110,9 +110,8 @@ public:
   void AddObject(CEntity*);
   TUniqueId AllocateUniqueId();
 
-
-  void BuildNearList(TEntityList& nearList, const CVector3f& pos, const CVector3f& dir, float mag, const CMaterialFilter&,
-                     const CActor*) const;
+  void BuildNearList(TEntityList& nearList, const CVector3f& pos, const CVector3f& dir, float mag,
+                     const CMaterialFilter&, const CActor*) const;
   void BuildNearList(TEntityList& nearList, const CAABox&, const CMaterialFilter&,
                      const CActor*) const;
   bool RayCollideWorld(const CVector3f& start, const CVector3f& end, const TEntityList& nearList,
@@ -166,10 +165,12 @@ public:
   const CCameraFilterPass& GetCameraFilterPass(ECameraFilterStage stage) const {
     return xb84_camFilterPasses[size_t(stage)];
   }
-  
+
   CCameraBlurPass& CameraBlurPass(ECameraFilterStage idx) { return xd14_camBlurPasses[idx]; }
-  
-  const CCameraBlurPass& GetCameraBlurPass(ECameraFilterStage idx) const { return xd14_camBlurPasses[idx]; }
+
+  const CCameraBlurPass& GetCameraBlurPass(ECameraFilterStage idx) const {
+    return xd14_camBlurPasses[idx];
+  }
 
   float GetThermalColdScale1() const { return xf24_thermColdScale1; }
   float GetThermalColdScale2() const { return xf28_thermColdScale2; }
@@ -179,7 +180,7 @@ public:
   void SetIsGeneratingObject(bool gen) { xf94_26_generatingObject = gen; }
 
   void ApplyDamageToWorld(TUniqueId, const CActor&, const CVector3f&, const CDamageInfo& info,
-                          CMaterialFilter&);
+                          const CMaterialFilter&);
   bool ApplyDamage(TUniqueId damagerId, TUniqueId damageeId, TUniqueId radiusSender,
                    const CDamageInfo& info, const CMaterialFilter& filter,
                    const CVector3f& knockbackVec);
@@ -203,7 +204,7 @@ public:
   bool GetWantsToEnterMessageScreen() const {
     return xf90_deferredTransition == kSMT_MessageScreen;
   }
-  
+
   EThermalDrawFlag GetThermalDrawFlag() const { return xf34_thermalFlag; }
 
   void SetLastTriggerId(TUniqueId uid) { xf74_lastTrigger = uid; }

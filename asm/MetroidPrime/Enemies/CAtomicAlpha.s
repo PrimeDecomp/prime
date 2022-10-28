@@ -1045,7 +1045,7 @@ __ct__12CAtomicAlpha:
 /* 80245730 00242690  90 81 00 1C */	stw r4, 0x1c(r1)
 /* 80245734 00242694  38 80 00 00 */	li r4, 0
 /* 80245738 00242698  38 E0 00 00 */	li r7, 0
-/* 8024573C 0024269C  4B E3 7D 15 */	bl "__ct__10CPatternedFUi9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParametersUi"
+/* 8024573C 0024269C  4B E3 7D 15 */	bl "__ct__10CPatternedFQ210CPatterned10ECharacter9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParameters17EKnockBackVariant"
 /* 80245740 002426A0  3C 60 80 3F */	lis r3, lbl_803E88A8@ha
 /* 80245744 002426A4  C0 22 B8 40 */	lfs f1, lbl_805AD560@sda21(r2)
 /* 80245748 002426A8  38 03 88 A8 */	addi r0, r3, lbl_803E88A8@l

@@ -1383,7 +1383,7 @@ lbl_801F0FA0:
 /* 801F1010 001EDF70  91 41 00 18 */	stw r10, 0x18(r1)
 /* 801F1014 001EDF74  7D 8A 63 78 */	mr r10, r12
 /* 801F1018 001EDF78  90 01 00 1C */	stw r0, 0x1c(r1)
-/* 801F101C 001EDF7C  4B E8 C4 35 */	bl "__ct__10CPatternedFUi9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParametersUi"
+/* 801F101C 001EDF7C  4B E8 C4 35 */	bl "__ct__10CPatternedFQ210CPatterned10ECharacter9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParameters17EKnockBackVariant"
 /* 801F1020 001EDF80  3C 80 80 3E */	lis r4, lbl_803E6408@ha
 /* 801F1024 001EDF84  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 801F1028 001EDF88  38 84 64 08 */	addi r4, r4, lbl_803E6408@l

@@ -1643,7 +1643,7 @@ lbl_801404B4:
 /* 80140544 0013D4A4  7F C6 F3 78 */	mr r6, r30
 /* 80140548 0013D4A8  80 65 00 10 */	lwz r3, 0x10(r5)
 /* 8014054C 0013D4AC  38 A0 00 01 */	li r5, 1
-/* 80140550 0013D4B0  4B EE A8 71 */	bl SetParticleEffectState__9CAnimDataFQ24rstl6stringbR13CStateManager
+/* 80140550 0013D4B0  4B EE A8 71 */	bl "SetParticleEffectState__9CAnimDataFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>bR13CStateManager"
 /* 80140554 0013D4B4  88 1F 06 65 */	lbz r0, 0x665(r31)
 /* 80140558 0013D4B8  38 60 00 00 */	li r3, 0
 /* 8014055C 0013D4BC  50 60 3E 30 */	rlwimi r0, r3, 7, 0x18, 0x18
@@ -1704,7 +1704,7 @@ lbl_801405F4:
 /* 80140634 0013D594  7F C6 F3 78 */	mr r6, r30
 /* 80140638 0013D598  80 65 00 10 */	lwz r3, 0x10(r5)
 /* 8014063C 0013D59C  38 A0 00 00 */	li r5, 0
-/* 80140640 0013D5A0  4B EE A7 81 */	bl SetParticleEffectState__9CAnimDataFQ24rstl6stringbR13CStateManager
+/* 80140640 0013D5A0  4B EE A7 81 */	bl "SetParticleEffectState__9CAnimDataFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>bR13CStateManager"
 /* 80140644 0013D5A4  38 7F 04 60 */	addi r3, r31, 0x460
 /* 80140648 0013D5A8  38 80 00 02 */	li r4, 2
 /* 8014064C 0013D5AC  38 A0 00 01 */	li r5, 1
@@ -3463,7 +3463,7 @@ Accept__11CChozoGhostFR8IVisitor:
 /* 80141F44 0013EEA4  C3 E1 03 30 */	lfs f31, 0x330(r1)
 /* 80141F48 0013EEA8  82 E1 03 34 */	lwz r23, 0x334(r1)
 /* 80141F4C 0013EEAC  81 E1 03 38 */	lwz r15, 0x338(r1)
-/* 80141F50 0013EEB0  4B F3 B5 01 */	bl "__ct__10CPatternedFUi9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParametersUi"
+/* 80141F50 0013EEB0  4B F3 B5 01 */	bl "__ct__10CPatternedFQ210CPatterned10ECharacter9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParameters17EKnockBackVariant"
 /* 80141F54 0013EEB4  3C 60 80 3E */	lis r3, lbl_803E1918@ha
 /* 80141F58 0013EEB8  7F 24 CB 78 */	mr r4, r25
 /* 80141F5C 0013EEBC  38 03 19 18 */	addi r0, r3, lbl_803E1918@l

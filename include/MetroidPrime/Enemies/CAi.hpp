@@ -1,6 +1,8 @@
 #ifndef _CAI
 #define _CAI
 
+#include "MetroidPrime/CDamageVulnerability.hpp"
+#include "MetroidPrime/CHealthInfo.hpp"
 #include "MetroidPrime/CPhysicsActor.hpp"
 #include "MetroidPrime/Enemies/CAiFuncMap.hpp"
 #include "MetroidPrime/Enemies/CKnockBackController.hpp"
@@ -13,6 +15,8 @@ enum EListenNoiseType {
 
 class CTeamAiRole;
 class CAiFuncMap;
+class CStateMachine;
+
 class CAi : public CPhysicsActor {
 public:
   // static void CreateFuncLookup(CAiFuncMap* funcMap);
@@ -165,6 +169,11 @@ public:
   virtual bool FixedRandom(CStateManager&, float);
   virtual bool IsDizzy(CStateManager&, float);
   virtual bool ShouldCallForBackup(CStateManager&, float);
+
+private:
+  CHealthInfo x258_healthInfo;
+  CDamageVulnerability x260_damageVulnerability;
+  TLockedToken< CStateMachine > x2c8_stateMachine;
 };
 
 #endif // _CAI

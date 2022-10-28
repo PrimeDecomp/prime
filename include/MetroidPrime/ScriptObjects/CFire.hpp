@@ -12,12 +12,21 @@
 
 class CFire : public CActor {
 public:
-  CFire(TToken< CGenDescription > effect, TUniqueId uid, TAreaId area, bool active, TUniqueId owner,
-        const CTransform4f& xf, const CDamageInfo& dInfo, const CAABox& aabox, const CVector3f& vec,
-        bool b1, CAssetId visorEffect, bool b2, bool b3, bool b4, float f1, float f2, float f3,
-        float f4);
+  CFire(const TToken< CGenDescription >& effect, TUniqueId uid, TAreaId area, bool active,
+        TUniqueId owner, const CTransform4f& xf, const CDamageInfo& dInfo, const CAABox& aabox,
+        const CVector3f& vec, bool b1, CAssetId visorEffect, bool b2, bool b3, bool b4, float f1,
+        float f2, float f3, float f4);
 
-  ~CFire();
+  // CEntity
+  ~CFire() override;
+  void Accept(IVisitor& visitor) override;
+  void Think(float dt, CStateManager& mgr) override;
+  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) override;
+
+  // CActor
+  void Render(const CStateManager&) const override;
+  rstl::optional_object< CAABox > GetTouchBounds() const override;
+  void Touch(CActor&, CStateManager&) override;
 
 private:
   rstl::single_ptr< CElementGen > xe8_;

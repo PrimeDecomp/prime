@@ -2995,7 +2995,7 @@ lbl_800C7A14:
 /* 800C7B74 000C4AD4  93 E1 00 1C */	stw r31, 0x1c(r1)
 /* 800C7B78 000C4AD8  90 01 00 20 */	stw r0, 0x20(r1)
 /* 800C7B7C 000C4ADC  93 41 00 24 */	stw r26, 0x24(r1)
-/* 800C7B80 000C4AE0  48 19 4E 6D */	bl __ct__7CPuffer
+/* 800C7B80 000C4AE0  48 19 4E 6D */	bl "__ct__7CPufferF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC16CActorParametersRC14CPatternedInfofUiRC11CDamageInfoUifbbbRC11CDamageInfoUs"
 /* 800C7B84 000C4AE4  7C 77 1B 78 */	mr r23, r3
 lbl_800C7B88:
 /* 800C7B88 000C4AE8  7E C0 07 75 */	extsb. r0, r22

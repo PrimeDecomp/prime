@@ -885,7 +885,7 @@ IsOnGround__10CPatternedCFv:
 
 .global GetGravityConstant__10CPatternedCFv
 GetGravityConstant__10CPatternedCFv:
-/* 80077818 00074778  C0 22 96 A0 */	lfs f1, skGravityConstant__13CPhysicsActor@sda21(r2)
+/* 80077818 00074778  C0 22 96 A0 */	lfs f1, kGravityAccel__13CPhysicsActor@sda21(r2)
 /* 8007781C 0007477C  4E 80 00 20 */	blr
 
 .global GetProjectileInfo__10CPatternedFv
@@ -7386,8 +7386,8 @@ lbl_8007D438:
 /* 8007D448 0007A3A8  38 21 00 10 */	addi r1, r1, 0x10
 /* 8007D44C 0007A3AC  4E 80 00 20 */	blr
 
-.global "__ct__10CPatternedFUi9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParametersUi"
-"__ct__10CPatternedFUi9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParametersUi":
+.global "__ct__10CPatternedFQ210CPatterned10ECharacter9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParameters17EKnockBackVariant"
+"__ct__10CPatternedFQ210CPatterned10ECharacter9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParameters17EKnockBackVariant":
 /* 8007D450 0007A3B0  94 21 FF 40 */	stwu r1, -0xc0(r1)
 /* 8007D454 0007A3B4  7C 08 02 A6 */	mflr r0
 /* 8007D458 0007A3B8  39 8D A2 68 */	addi r12, r13, lbl_805A8E28@sda21

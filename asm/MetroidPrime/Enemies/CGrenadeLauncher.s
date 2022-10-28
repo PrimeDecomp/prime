@@ -1309,7 +1309,7 @@ lbl_802306CC:
 /* 80230710 0022D670  48 0E 39 E5 */	bl Magnitude__9CVector2fCFv
 /* 80230714 0022D674  C0 42 B6 94 */	lfs f2, lbl_805AD3B4@sda21(r2)
 /* 80230718 0022D678  FF E0 08 90 */	fmr f31, f1
-/* 8023071C 0022D67C  C0 02 96 A0 */	lfs f0, skGravityConstant__13CPhysicsActor@sda21(r2)
+/* 8023071C 0022D67C  C0 02 96 A0 */	lfs f0, kGravityAccel__13CPhysicsActor@sda21(r2)
 /* 80230720 0022D680  C0 3D 00 00 */	lfs f1, 0(r29)
 /* 80230724 0022D684  EC 02 00 32 */	fmuls f0, f2, f0
 /* 80230728 0022D688  C0 5D 00 04 */	lfs f2, 4(r29)

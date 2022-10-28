@@ -1455,7 +1455,7 @@ Accept__8CEyeBallFR8IVisitor:
 /* 802257A4 00222704  83 A1 00 BC */	lwz r29, 0xbc(r1)
 /* 802257A8 00222708  83 C1 00 C0 */	lwz r30, 0xc0(r1)
 /* 802257AC 0022270C  8B E1 00 C7 */	lbz r31, 0xc7(r1)
-/* 802257B0 00222710  4B E5 7C A1 */	bl "__ct__10CPatternedFUi9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParametersUi"
+/* 802257B0 00222710  4B E5 7C A1 */	bl "__ct__10CPatternedFQ210CPatterned10ECharacter9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParameters17EKnockBackVariant"
 /* 802257B4 00222714  3C 60 80 3E */	lis r3, lbl_803E774C@ha
 /* 802257B8 00222718  3C 80 80 3D */	lis r4, lbl_803D3248@ha
 /* 802257BC 0022271C  38 03 77 4C */	addi r0, r3, lbl_803E774C@l
