@@ -36,6 +36,7 @@ public:
   int GetEnumValue() const; // { return x0_value.m_int; }
   int GetInt32Value() const;
   float GetReal32Value() const;
+  bool GetBoolValue() const;
 
 private:
   UParmValue x0_value;
