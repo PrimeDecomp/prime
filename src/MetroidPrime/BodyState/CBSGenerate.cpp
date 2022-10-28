@@ -40,8 +40,9 @@ pas::EAnimationState CBSGenerate::UpdateBody(float dt, CBodyController& bc,
                                              CStateManager& mgr) override {
   const pas::EAnimationState st = GetBodyStateTransition(dt, bc);
   if (st == pas::kAS_Invalid) {
-    if (bc.GetCommandMgr().GetTargetVector().IsNonZero()) {
-      bc.FaceDirection(bc.GetCommandMgr().GetTargetVector(), dt);
+    CBodyStateCmdMgr& commandMgr = bc.CommandMgr();
+    if (commandMgr.GetTargetVector().IsNonZero()) {
+      bc.FaceDirection(commandMgr.GetTargetVector(), dt);
     }
   }
   return st;

@@ -204,7 +204,7 @@ LIBS = [
             ["MetroidPrime/BodyState/CBSSlide", False],
             "MetroidPrime/BodyState/CBSHurled",
             "MetroidPrime/BodyState/CBSJump",
-            ["MetroidPrime/BodyState/CBSGenerate", False],
+            ["MetroidPrime/BodyState/CBSGenerate", True],
             "MetroidPrime/Enemies/CPuddleSpore",
             "MetroidPrime/BodyState/CBSTaunt",
             "MetroidPrime/CSortedLists",
