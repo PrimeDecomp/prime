@@ -3,7 +3,6 @@
 #include "MetroidPrime/BodyState/CBodyController.hpp"
 #include "MetroidPrime/CStateManager.hpp"
 
-
 #include "Kyoto/Animation/CPASAnimParmData.hpp"
 
 CBSStep::CBSStep() {}

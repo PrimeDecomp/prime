@@ -61,7 +61,6 @@ public:
     count = x218_passedSoundCount;
     return mSoundPOINodes.data();
   }
-
   CParticleDatabase& GetParticleDB() { return x120_particleDB; }
   const CParticleDatabase& GetParticleDB() const { return x120_particleDB; }
   // SetIsAnimating__9CAnimDataFb
@@ -108,12 +107,13 @@ public:
   // SetPhase__9CAnimDataFf -> SetPhase__11IAnimReaderFf
   void SetPhase(float ph);
   void AddAdditiveAnimation(uint idx, float weight, bool active, bool fadeOut);
-  // DelAdditiveAnimation__9CAnimDataFUi
+  void DelAdditiveAnimation(uint idx);
   // IsAdditiveAnimationActive__9CAnimDataCFUi
   const rstl::rc_ptr<CAnimTreeNode>& GetAdditiveAnimationTree(uint idx) const;
   // GetAnimationTree__9CAnimDataCFv
   // AnimationTree__9CAnimDataFv
   // IsAdditiveAnimation__9CAnimDataCFUi
+  bool IsAdditiveAnimationAdded(uint idx) const;
   // UpdateAdditiveAnims__9CAnimDataFf
   // AdvanceAdditiveAnims__9CAnimDataFf
   // AddAdditiveSegData__9CAnimDataCFRC10CSegIdListR16CSegStatementSet
