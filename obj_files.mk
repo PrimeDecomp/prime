@@ -154,7 +154,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/BodyState/CBSFall.o\
 	$(BUILD_DIR)/src/MetroidPrime/BodyState/CBSGetup.o\
 	$(BUILD_DIR)/asm/MetroidPrime/BodyState/CBSKnockBack.o\
-	$(BUILD_DIR)/asm/MetroidPrime/BodyState/CBSLieOnGround.o\
+	$(BUILD_DIR)/src/MetroidPrime/BodyState/CBSLieOnGround.o\
 	$(BUILD_DIR)/asm/MetroidPrime/BodyState/CBSLocomotion.o\
 	$(BUILD_DIR)/asm/MetroidPrime/BodyState/CBSStep.o\
 	$(BUILD_DIR)/asm/MetroidPrime/BodyState/CBSTurn.o\
