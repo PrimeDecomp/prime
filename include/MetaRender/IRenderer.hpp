@@ -11,6 +11,8 @@ class COsContext;
 class CMemorySys;
 class CResFactory;
 class CAABox;
+class CVector2f;
+class CVector3f;
 
 class IRenderer {
 public:
