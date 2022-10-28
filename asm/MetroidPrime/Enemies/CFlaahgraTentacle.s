@@ -553,7 +553,7 @@ SetupCollisionManager__17CFlaahgraTentacleFR13CStateManager:
 lbl_801F0498:
 /* 801F0498 001ED3F8  80 7D 05 6C */	lwz r3, 0x56c(r29)
 /* 801F049C 001ED3FC  38 80 00 01 */	li r4, 1
-/* 801F04A0 001ED400  4B FB 74 3D */	bl sub_801a78dc
+/* 801F04A0 001ED400  4B FB 74 3D */	bl __dt__22CCollisionActorManagerFv
 /* 801F04A4 001ED404  93 9D 05 6C */	stw r28, 0x56c(r29)
 /* 801F04A8 001ED408  3B E0 00 00 */	li r31, 0
 /* 801F04AC 001ED40C  48 00 01 50 */	b lbl_801F05FC
@@ -1339,7 +1339,7 @@ __dt__17CFlaahgraTentacleFv:
 /* 801F0F74 001EDED4  41 82 00 10 */	beq lbl_801F0F84
 /* 801F0F78 001EDED8  80 7E 05 6C */	lwz r3, 0x56c(r30)
 /* 801F0F7C 001EDEDC  38 80 00 01 */	li r4, 1
-/* 801F0F80 001EDEE0  4B FB 69 5D */	bl sub_801a78dc
+/* 801F0F80 001EDEE0  4B FB 69 5D */	bl __dt__22CCollisionActorManagerFv
 lbl_801F0F84:
 /* 801F0F84 001EDEE4  7F C3 F3 78 */	mr r3, r30
 /* 801F0F88 001EDEE8  38 80 00 00 */	li r4, 0

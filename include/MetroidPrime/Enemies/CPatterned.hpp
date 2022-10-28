@@ -67,6 +67,7 @@ public:
 private:
   char data[0xf4];
   ECharacter x34c_characterType;
+  char data2[0x568 - 0x350];
 };
 
 #endif // _CPATTERNED

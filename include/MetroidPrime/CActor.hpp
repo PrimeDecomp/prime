@@ -220,6 +220,9 @@ public:
   virtual void Render(const CStateManager&) const;
   virtual bool CanRenderUnsorted(const CStateManager&) const;
   virtual void CalculateRenderBounds();
+  const CHealthInfo* GetHealthInfo(const CStateManager& mgr) const {
+    return const_cast< CActor* >(this)->HealthInfo(const_cast< CStateManager& >(mgr));
+  }
   virtual CHealthInfo* HealthInfo(CStateManager&);
   virtual const CDamageVulnerability* GetDamageVulnerability() const;
   virtual const CDamageVulnerability* GetDamageVulnerability(const CVector3f&, const CVector3f&,
@@ -330,7 +333,9 @@ public:
   void AddMaterial(EMaterialTypes, EMaterialTypes, EMaterialTypes, CStateManager&);
   void AddMaterial(EMaterialTypes, EMaterialTypes, CStateManager&);
   void AddMaterial(EMaterialTypes, CStateManager&);
-  void AddMaterial(const CMaterialList& l);
+  void AddMaterial(const CMaterialList& l) {
+    x68_material.Add(l);
+  }
 
   const CAABox& GetRenderBoundsCached() const { return x9c_renderBounds; }
   void SetRenderBounds(const CAABox& bounds) { x9c_renderBounds = bounds; }

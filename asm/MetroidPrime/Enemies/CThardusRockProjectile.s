@@ -317,7 +317,7 @@ lbl_802037D0:
 /* 802037D4 00200734  41 82 00 10 */	beq lbl_802037E4
 /* 802037D8 00200738  80 7E 05 78 */	lwz r3, 0x578(r30)
 /* 802037DC 0020073C  38 80 00 01 */	li r4, 1
-/* 802037E0 00200740  4B FA 40 FD */	bl sub_801a78dc
+/* 802037E0 00200740  4B FA 40 FD */	bl __dt__22CCollisionActorManagerFv
 lbl_802037E4:
 /* 802037E4 00200744  7F C3 F3 78 */	mr r3, r30
 /* 802037E8 00200748  38 80 00 00 */	li r4, 0
@@ -1331,7 +1331,7 @@ InitializeCollisionManager__22CThardusRockProjectileFR13CStateManager:
 lbl_8020468C:
 /* 8020468C 002015EC  80 7E 05 78 */	lwz r3, 0x578(r30)
 /* 80204690 002015F0  38 80 00 01 */	li r4, 1
-/* 80204694 002015F4  4B FA 32 49 */	bl sub_801a78dc
+/* 80204694 002015F4  4B FA 32 49 */	bl __dt__22CCollisionActorManagerFv
 /* 80204698 002015F8  93 7E 05 78 */	stw r27, 0x578(r30)
 /* 8020469C 002015FC  7F C3 F3 78 */	mr r3, r30
 /* 802046A0 00201600  7F E5 FB 78 */	mr r5, r31
