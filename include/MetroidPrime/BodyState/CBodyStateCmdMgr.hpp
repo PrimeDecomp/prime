@@ -55,6 +55,19 @@ public:
   bool UseSpecialAnimId() const { return x1c_25_overrideAnim; }
 };
 
+//
+
+class CBCGetupCmd : public CBodyStateCmd {
+  pas::EGetupType x8_type;
+
+public:
+  explicit CBCGetupCmd() : CBodyStateCmd(kBSC_Getup), x8_type(pas::kGetup_Invalid) {}
+  explicit CBCGetupCmd(pas::EGetupType type) : CBodyStateCmd(kBSC_Getup), x8_type(type) {}
+  pas::EGetupType GetGetupType() const { return x8_type; }
+};
+
+//
+
 class CBCSlideCmd : public CBodyStateCmd {
 public:
   explicit CBCSlideCmd()

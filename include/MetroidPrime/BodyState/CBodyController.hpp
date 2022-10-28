@@ -26,7 +26,9 @@ public:
   void FaceDirection(const CVector3f& v0, float dt);
   void EnableAnimation(bool enable);
 
+  void SetFallState(pas::EFallState state); // { x2f0_fallState = state; }
   pas::EFallState GetFallState() const; // { return x2f0_fallState; }
+  int GetCurrentAnimId() const { return x2f8_curAnim; }
   pas::ELocomotionType GetLocomotionType() const { return x2ec_locomotionType; }
   bool IsAnimationOver() const { return x300_24_animationOver; }
   bool ShouldPlayDeathAnims() const { return x300_28_playDeathAnims; }

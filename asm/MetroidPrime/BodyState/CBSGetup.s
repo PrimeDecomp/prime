@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803E1418
-lbl_803E1418:
+.global __vt__8CBSGetup
+__vt__8CBSGetup:
 	# ROM: 0x3DE418
 	.4byte 0
 	.4byte 0
@@ -31,8 +31,8 @@ __dt__8CBSGetupFv:
 /* 80135E94 00132DF4  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 80135E98 00132DF8  7C 7F 1B 79 */	or. r31, r3, r3
 /* 80135E9C 00132DFC  41 82 00 30 */	beq lbl_80135ECC
-/* 80135EA0 00132E00  3C 60 80 3E */	lis r3, lbl_803E1418@ha
-/* 80135EA4 00132E04  38 03 14 18 */	addi r0, r3, lbl_803E1418@l
+/* 80135EA0 00132E00  3C 60 80 3E */	lis r3, __vt__8CBSGetup@ha
+/* 80135EA4 00132E04  38 03 14 18 */	addi r0, r3, __vt__8CBSGetup@l
 /* 80135EA8 00132E08  90 1F 00 00 */	stw r0, 0(r31)
 /* 80135EAC 00132E0C  41 82 00 10 */	beq lbl_80135EBC
 /* 80135EB0 00132E10  3C 60 80 3E */	lis r3, __vt__10CBodyState@ha
@@ -267,11 +267,11 @@ lbl_801361C4:
 .global __ct__8CBSGetupFv
 __ct__8CBSGetupFv:
 /* 801361D8 00133138  3C A0 80 3E */	lis r5, __vt__10CBodyState@ha
-/* 801361DC 0013313C  3C 80 80 3E */	lis r4, lbl_803E1418@ha
+/* 801361DC 0013313C  3C 80 80 3E */	lis r4, __vt__8CBSGetup@ha
 /* 801361E0 00133140  38 A5 13 18 */	addi r5, r5, __vt__10CBodyState@l
 /* 801361E4 00133144  38 00 FF FF */	li r0, -1
 /* 801361E8 00133148  90 A3 00 00 */	stw r5, 0(r3)
-/* 801361EC 0013314C  38 84 14 18 */	addi r4, r4, lbl_803E1418@l
+/* 801361EC 0013314C  38 84 14 18 */	addi r4, r4, __vt__8CBSGetup@l
 /* 801361F0 00133150  90 83 00 00 */	stw r4, 0(r3)
 /* 801361F4 00133154  90 03 00 04 */	stw r0, 4(r3)
 /* 801361F8 00133158  4E 80 00 20 */	blr
