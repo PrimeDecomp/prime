@@ -86,6 +86,24 @@ public:
 
 //
 
+class CBCStepCmd : public CBodyStateCmd {
+public:
+  explicit CBCStepCmd()
+  : CBodyStateCmd(kBSC_Step), x8_dir(pas::kSD_Invalid), xc_type(pas::kStep_Normal) {}
+
+  explicit CBCStepCmd(pas::EStepDirection dir, pas::EStepType type)
+  : CBodyStateCmd(kBSC_Step), x8_dir(dir), xc_type(type) {}
+
+  pas::EStepDirection GetStepDirection() const { return x8_dir; }
+  pas::EStepType GetStepType() const { return xc_type; }
+
+private:
+  pas::EStepDirection x8_dir;
+  pas::EStepType xc_type;
+};
+
+//
+
 class CBCTauntCmd : public CBodyStateCmd {
 public:
   explicit CBCTauntCmd() : CBodyStateCmd(kBSC_Taunt), x8_type(pas::kTT_Invalid) {}

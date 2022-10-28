@@ -191,7 +191,7 @@ LIBS = [
             "MetroidPrime/BodyState/CBSKnockBack",
             ["MetroidPrime/BodyState/CBSLieOnGround", True],
             "MetroidPrime/BodyState/CBSLocomotion",
-            "MetroidPrime/BodyState/CBSStep",
+            ["MetroidPrime/BodyState/CBSStep", True],
             "MetroidPrime/BodyState/CBSTurn",
             "MetroidPrime/BodyState/CBodyController",
             "MetroidPrime/BodyState/CBSLoopAttack",
