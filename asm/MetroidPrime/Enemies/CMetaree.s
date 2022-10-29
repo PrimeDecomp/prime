@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803E2878
-lbl_803E2878:
+.global __vt__8CMetaree
+__vt__8CMetaree:
 	# ROM: 0x3DF878
 	.4byte 0
 	.4byte 0
@@ -218,9 +218,9 @@ __dt__8CMetareeFv:
 /* 8014E118 0014B078  93 C1 00 08 */	stw r30, 8(r1)
 /* 8014E11C 0014B07C  7C 7E 1B 79 */	or. r30, r3, r3
 /* 8014E120 0014B080  41 82 00 28 */	beq lbl_8014E148
-/* 8014E124 0014B084  3C A0 80 3E */	lis r5, lbl_803E2878@ha
+/* 8014E124 0014B084  3C A0 80 3E */	lis r5, __vt__8CMetaree@ha
 /* 8014E128 0014B088  38 80 00 00 */	li r4, 0
-/* 8014E12C 0014B08C  38 05 28 78 */	addi r0, r5, lbl_803E2878@l
+/* 8014E12C 0014B08C  38 05 28 78 */	addi r0, r5, __vt__8CMetaree@l
 /* 8014E130 0014B090  90 1E 00 00 */	stw r0, 0(r30)
 /* 8014E134 0014B094  4B F2 94 3D */	bl __dt__10CPatternedFv
 /* 8014E138 0014B098  7F E0 07 35 */	extsh. r0, r31
@@ -1140,9 +1140,9 @@ Accept__8CMetareeFR8IVisitor:
 /* 8014EE24 0014BD84  38 A1 00 20 */	addi r5, r1, 0x20
 /* 8014EE28 0014BD88  38 80 00 12 */	li r4, 0x12
 /* 8014EE2C 0014BD8C  4B F2 E6 25 */	bl "__ct__10CPatternedFQ210CPatterned10ECharacter9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParameters17EKnockBackVariant"
-/* 8014EE30 0014BD90  3C 80 80 3E */	lis r4, lbl_803E2878@ha
+/* 8014EE30 0014BD90  3C 80 80 3E */	lis r4, __vt__8CMetaree@ha
 /* 8014EE34 0014BD94  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
-/* 8014EE38 0014BD98  38 04 28 78 */	addi r0, r4, lbl_803E2878@l
+/* 8014EE38 0014BD98  38 04 28 78 */	addi r0, r4, __vt__8CMetaree@l
 /* 8014EE3C 0014BD9C  C0 02 9D 8C */	lfs f0, lbl_805ABAAC@sda21(r2)
 /* 8014EE40 0014BDA0  90 1F 00 00 */	stw r0, 0(r31)
 /* 8014EE44 0014BDA4  38 A3 66 A0 */	addi r5, r3, sZeroVector__9CVector3f@l

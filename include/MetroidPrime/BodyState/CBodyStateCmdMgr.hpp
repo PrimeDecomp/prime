@@ -49,21 +49,22 @@ public:
   : CBodyStateCmd(kBSC_Generate)
   , x8_type(type)
   , xc_targetPos(vec)
+  , x18_animId(-1)
   , x1c_24_targetTransform(targetTransform)
   , x1c_25_overrideAnim(overrideAnim) {}
 
   pas::EGenerateType GetGenerateType() const { return x8_type; }
   const CVector3f& GetExitTargetPos() const { return xc_targetPos; }
-  bool HasExitTargetPos() const { return x1c_24_targetTransform; }
   int GetSpecialAnimId() const { return x18_animId; }
+  bool HasExitTargetPos() const { return x1c_24_targetTransform; }
   bool UseSpecialAnimId() const { return x1c_25_overrideAnim; }
 
 private:
   pas::EGenerateType x8_type;
   CVector3f xc_targetPos;
   int x18_animId;
-  bool x1c_24_targetTransform : 1;
-  bool x1c_25_overrideAnim : 1;
+  uint x1c_24_targetTransform : 1;
+  uint x1c_25_overrideAnim : 1;
 };
 
 //
@@ -390,8 +391,20 @@ class CBodyStateCmdMgr {
 public:
   void ClearLocomotionCmds();
   void DeliverCmd(const CBCLocomotionCmd& cmd);
-  CBodyStateCmd* GetCmd(EBodyStateCmd cmd);
+  void DeliverCmd(EBodyStateCmd cmd);
 
+  void DeliverCmd(const CBCGenerateCmd& cmd) {
+    DeliverCmd(kBSC_Generate);
+    x18c_generate = cmd;
+  }
+  void DeliverCmd(const CBCKnockDownCmd& cmd) {
+    DeliverCmd(kBSC_KnockDown);
+    xdc_knockDown = cmd;
+  }
+
+  void DeliverTargetVector(const CVector3f& t) { x18_target = t; }
+
+  CBodyStateCmd* GetCmd(EBodyStateCmd cmd);
   const CVector3f& GetMoveVector() const { return x0_move; }
   const CVector3f& GetTargetVector() const { return x18_target; }
 

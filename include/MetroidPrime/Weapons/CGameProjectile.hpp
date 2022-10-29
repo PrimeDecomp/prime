@@ -32,6 +32,7 @@ public:
   virtual void ResolveCollisionWithActor(const CRayCastResult& res, CActor& act,
                                          CStateManager& mgr);
 
+  const CVector3f& GetPreviousPos() const { return x298_previousPos; }
   TUniqueId GetHomingTargetId() const { return x2c0_homingTargetId; }
 
 private:

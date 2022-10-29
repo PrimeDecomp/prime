@@ -28,9 +28,12 @@ public:
   void PlayBestAnimation(const CPASAnimParmData& parms, CRandom16& r);
   bool HasIceBreakoutState();
   void Activate(CStateManager& mgr);
+  void SetLocomotionType(pas::ELocomotionType type);
+  float GetPercentageFrozen() const;
 
   void SetFallState(pas::EFallState state); // { x2f0_fallState = state; }
   pas::EFallState GetFallState() const;     // { return x2f0_fallState; }
+  const CBodyStateInfo& GetBodyStateInfo() const { return x2a4_bodyStateInfo; }
   int GetCurrentAnimId() const { return x2f8_curAnim; }
   pas::ELocomotionType GetLocomotionType() const { return x2ec_locomotionType; }
   bool IsAnimationOver() const { return x300_24_animationOver; }

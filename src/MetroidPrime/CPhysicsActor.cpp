@@ -2,7 +2,7 @@
 
 #include "Kyoto/Math/CloseEnough.hpp"
 
-const float CPhysicsActor::skGravityConstant = 9.81f * 2.5f;
+const float CPhysicsActor::kGravityAccel = 9.81f * 2.5f;
 
 CPhysicsActor::CPhysicsActor(TUniqueId uid, bool active, const rstl::string& name,
                              const CEntityInfo& info, const CTransform4f& xf,

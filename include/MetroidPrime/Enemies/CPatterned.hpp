@@ -240,7 +240,15 @@ public:
     return x520_deathExplosionParticle;
   }
 
+  void DeathDelete(CStateManager& mgr);
+
+  TUniqueId GetDestObj() const { return x2dc_destObj; } // TODO: name?
+  CStateMachineState& StateMachineState() { return x330_stateMachineState; }
+  const CStateMachineState& GetStateMachineState() const { return x330_stateMachineState; }
   ECharacter GetCharacterType() const { return x34c_characterType; }
+  bool IsAlive() const { return x400_25_alive; }
+  void SetWasHit(bool v) { x400_24_hitByPlayerProjectile = v; }
+  void SetPendingDeath(bool v) { x401_30_pendingDeath = v; }
   CBodyController* GetBodyCtrl() { return x450_bodyController.get(); }
   const CBodyController* GetBodyCtrl() const { return x450_bodyController.get(); }
   CKnockBackController& GetKnockBackCtrl() { return x460_knockBackController; }
@@ -249,7 +257,7 @@ public:
   template < class T >
   static T* CastTo(const TPatternedCast< T >& ent);
 
-public:
+private:
   EPatrolState x2d8_patrolState;
   TUniqueId x2dc_destObj;
   CVector3f x2e0_destPos;

@@ -20,6 +20,7 @@ public:
     else
       x0_list.push_back(info.GetSwapped());
   }
+  int GetCount() const { return x0_list.size(); }
 
   iterator End() { return x0_list.end(); }
   const_iterator End() const { return x0_list.end(); }
