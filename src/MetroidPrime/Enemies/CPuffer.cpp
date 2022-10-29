@@ -58,7 +58,7 @@ void CPuffer::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateMan
     break;
   case kSM_Action:
     if (GetActive()) {
-      x401_30_pendingDeath = true;
+      SetPendingDeath(true);
     }
     break;
   default:
@@ -69,8 +69,8 @@ void CPuffer::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateMan
 void CPuffer::Touch(CActor& act, CStateManager& mgr) {
   CPatterned::Touch(act, mgr);
 
-  if (x400_25_alive && mgr.GetPlayer()->GetUniqueId() == act.GetUniqueId()) {
-    x401_30_pendingDeath = true;
+  if (IsAlive() && mgr.GetPlayer()->GetUniqueId() == act.GetUniqueId()) {
+    SetPendingDeath(true);
   }
 }
 
@@ -105,24 +105,24 @@ void CPuffer::Think(float dt, CStateManager& mgr) {
   CPatterned::Think(dt, mgr);
 
   sub8025bfa4(mgr);
-  CVector3f moveVector = x450_bodyController->GetCommandMgr().GetMoveVector();
+  CVector3f moveVector = GetBodyCtrl()->GetCommandMgr().GetMoveVector();
 
-  if (x5cc_ != x2dc_destObj) {
-    x5cc_ = x2dc_destObj;
+  if (x5cc_ != GetDestObj()) {
+    x5cc_ = GetDestObj();
     CSfxManager::AddEmitter(x59a_, GetTranslation(), CVector3f::Zero(), true, false);
   }
 
-  x450_bodyController->CommandMgr().ClearLocomotionCmds();
+  GetBodyCtrl()->CommandMgr().ClearLocomotionCmds();
   if (moveVector.CanBeNormalized()) {
     x5c0_move = CVector3f::Lerp(x5c0_move, moveVector, dt / 0.5f).AsNormalized();
-    x450_bodyController->CommandMgr().DeliverCmd(CBCLocomotionCmd(x5c0_move, x568_face, 1.f));
+    GetBodyCtrl()->CommandMgr().DeliverCmd(CBCLocomotionCmd(x5c0_move, x568_face, 1.f));
   }
 }
 
-#define ARRAY_SIZE(arr) int(sizeof(arr) / sizeof(arr[0]))
+#define ARRAY_SIZE(arr) static_cast< int >(sizeof(arr) / sizeof(arr[0]))
 
 void CPuffer::sub8025bfa4(CStateManager& mgr) {
-  CVector3f moveVector = x450_bodyController->GetCommandMgr().GetMoveVector();
+  CVector3f moveVector = GetBodyCtrl()->GetCommandMgr().GetMoveVector();
 
   if (x5d4_gasLocators.empty()) {
     for (int i = 0; i < ARRAY_SIZE(skGasLocators); ++i) {

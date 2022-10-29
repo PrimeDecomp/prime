@@ -25,8 +25,11 @@ public:
                                                          int /*EProjectileAttrib?*/) const override;
   void FluidFXThink(EFluidState, CScriptWater&, CStateManager&) override;
 
-  EProjectileAttrib GetAttribField() const { return xe8_projectileAttribs; }
   void SetDamageFalloffSpeed(float d);
+
+  EProjectileAttrib GetAttribField() const { return xe8_projectileAttribs; }
+  TUniqueId GetOwnerId() const { return xec_ownerId; }
+
 private:
   EProjectileAttrib xe8_projectileAttribs;
   TUniqueId xec_ownerId;
