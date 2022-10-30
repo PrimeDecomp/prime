@@ -577,7 +577,7 @@ lbl_8026FFF0:
 /* 80270000 0026CF60  7F A4 EB 78 */	mr r4, r29
 /* 80270004 0026CF64  7F C5 F3 78 */	mr r5, r30
 /* 80270008 0026CF68  7F E6 FB 78 */	mr r6, r31
-/* 8027000C 0026CF6C  4B E0 8E A5 */	bl DoUserAnimEvent__10CPatternedFR13CStateManagerRC13CInt32POINode14EUserEventType
+/* 8027000C 0026CF6C  4B E0 8E A5 */	bl DoUserAnimEvent__10CPatternedFR13CStateManagerRC13CInt32POINode14EUserEventTypef
 lbl_80270010:
 /* 80270010 0026CF70  E3 E1 00 D8 */	psq_l f31, 216(r1), 0, qr0
 /* 80270014 0026CF74  CB E1 00 D0 */	lfd f31, 0xd0(r1)

@@ -32,7 +32,7 @@ lbl_803E4018:
 	.4byte FluidFXThink__3CAiFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager
 	.4byte OnScanStateChange__13CNewIntroBossFQ26CActor10EScanStateR13CStateManager
 	.4byte GetRenderBounds__13CNewIntroBossCFRC12CTransform4f
-	.4byte DoUserAnimEvent__13CNewIntroBossFR13CStateManagerRC13CInt32POINode14EUserEventType
+	.4byte DoUserAnimEvent__13CNewIntroBossFR13CStateManagerRC13CInt32POINode14EUserEventTypef
 	.4byte GetCollisionPrimitive__13CPhysicsActorCFv
 	.4byte GetPrimitiveTransform__13CPhysicsActorCFv
 	.4byte CollidedWith__10CPatternedFRC9TUniqueIdRC18CCollisionInfoListR13CStateManager
@@ -2169,8 +2169,8 @@ GetTouchBounds__13CNewIntroBossCFv:
 /* 8018BA38 00188998  98 03 00 18 */	stb r0, 0x18(r3)
 /* 8018BA3C 0018899C  4E 80 00 20 */	blr
 
-.global DoUserAnimEvent__13CNewIntroBossFR13CStateManagerRC13CInt32POINode14EUserEventType
-DoUserAnimEvent__13CNewIntroBossFR13CStateManagerRC13CInt32POINode14EUserEventType:
+.global DoUserAnimEvent__13CNewIntroBossFR13CStateManagerRC13CInt32POINode14EUserEventTypef
+DoUserAnimEvent__13CNewIntroBossFR13CStateManagerRC13CInt32POINode14EUserEventTypef:
 /* 8018BA40 001889A0  94 21 FE F0 */	stwu r1, -0x110(r1)
 /* 8018BA44 001889A4  7C 08 02 A6 */	mflr r0
 /* 8018BA48 001889A8  90 01 01 14 */	stw r0, 0x114(r1)
@@ -2336,7 +2336,7 @@ lbl_8018BC94:
 /* 8018BCA4 00188C04  7F A4 EB 78 */	mr r4, r29
 /* 8018BCA8 00188C08  7F C5 F3 78 */	mr r5, r30
 /* 8018BCAC 00188C0C  7F E6 FB 78 */	mr r6, r31
-/* 8018BCB0 00188C10  4B EE D2 01 */	bl DoUserAnimEvent__10CPatternedFR13CStateManagerRC13CInt32POINode14EUserEventType
+/* 8018BCB0 00188C10  4B EE D2 01 */	bl DoUserAnimEvent__10CPatternedFR13CStateManagerRC13CInt32POINode14EUserEventTypef
 lbl_8018BCB4:
 /* 8018BCB4 00188C14  E3 E1 01 08 */	psq_l f31, 264(r1), 0, qr0
 /* 8018BCB8 00188C18  80 01 01 14 */	lwz r0, 0x114(r1)

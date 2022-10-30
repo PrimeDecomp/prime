@@ -48,13 +48,14 @@ class CPlayer : public CPhysicsActor {
     , x4_curAlphaInDur(alphaInDur)
     , x8_curAlphaOutDur(alphaOutDur)
     , xc_tex(tex) {}
-    CAssetId GetTextureId()  const { return xc_tex; }
+    CAssetId GetTextureId() const { return xc_tex; }
     void SetSteam(float targetAlpha, float alphaInDur, float alphaOutDur, CAssetId txtr,
                   bool affectsThermal);
     void Update(float dt);
     float GetAlpha() const { return x20_alpha; }
     bool AffectsThermal() const { return x28_affectsThermal; }
   };
+
 public:
   enum EPlayerOrbitState {
     kOS_NoOrbit,
@@ -177,6 +178,7 @@ public:
 
   CVector3f GetBallPosition() const;
   CVector3f GetEyePosition() const;
+  float GetEyeHeight() const;
   CTransform4f CreateTransformFromMovementDirection() const;
   EPlayerOrbitState GetOrbitState() const { return x304_orbitState; }
   const CVector3f& GetMovementDirection() const { return x50c_moveDir; }
@@ -215,14 +217,14 @@ public:
   void Teleport(const CTransform4f& xf, CStateManager& mgr, bool resetBallCam);
   void SetSpawnedMorphBallState(EPlayerMorphBallState state, CStateManager& mgr);
   const CVisorSteam& GetVisorSteam() const { return x7a0_visorSteam; }
-  void SetVisorSteam(float targetAlpha, float alphaInDur, float alphaOutDir, CAssetId txtr, bool affectsThermal);
+  void SetVisorSteam(float targetAlpha, float alphaInDur, float alphaOutDir, CAssetId txtr,
+                     bool affectsThermal);
 
   CVector3f GetDampedClampedVelocityWR() const;
   float GetAverageSpeed() const;
   float GetGravity() const;
 
 private:
-
   NPlayer::EPlayerMovementState x258_movementState;
   rstl::vector< CToken > x25c_ballTransitionsRes;
   TUniqueId x26c_attachedActor;

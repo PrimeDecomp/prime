@@ -233,7 +233,7 @@ public:
   virtual u8 GetModelAlphau8(const CStateManager&) const { return x42c_color.GetAlphau8(); }
   virtual bool IsOnGround() const { return x328_27_onGround; }
   virtual float GetGravityConstant() const { return CPhysicsActor::GravityConstant(); }
-  virtual CProjectileInfo* GetProjectileInfo() { return nullptr; }
+  virtual CProjectileInfo* ProjectileInfo() { return nullptr; }
   virtual void PhazeOut(CStateManager&);
   virtual const rstl::optional_object< TLockedToken< CGenDescription > >&
   GetDeathExplosionParticle() const {
@@ -241,6 +241,7 @@ public:
   }
 
   void DeathDelete(CStateManager& mgr);
+  CTransform4f GetLctrTransform(const rstl::string&) const;
 
   TUniqueId GetDestObj() const { return x2dc_destObj; } // TODO: name?
   CStateMachineState& StateMachineState() { return x330_stateMachineState; }

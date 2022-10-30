@@ -83,19 +83,20 @@ void CWeapon::FluidFXThink(EFluidState state, CScriptWater& water, CStateManager
 #if 0
   if (doRipple) {
     CVector3f pos = GetTranslation();
-    pos.SetZ(float(water.GetTriggerBoundsWR().GetMax().GetZ()));
+    pos.SetZ(water.GetSurfaceZ()); // <- GetTriggerBoundsWR().GetMax().GetZ()
     if (True(xe8_projectileAttribs & EProjectileAttrib::ComboShot)) {
-      if (!water.CanRippleAtPoint(pos))
+      if (!water.CanRippleAtPoint(pos)) {
         doRipple = false;
+      }
     } else if (state == EFluidState::InFluid) {
       doRipple = false;
     }
 
     if (doRipple) {
-      water.GetFluidPlane().AddRipple(mag, x8_uid, pos, water, mgr);
-      mgr.GetFluidPlaneManager()->CreateSplash(x8_uid, mgr, water, pos, mag,
-                                               state == EFluidState::EnteredFluid ||
-                                                   state == EFluidState::LeftFluid);
+      water.FluidPlane().AddRipple(mag, x8_uid, pos, water, mgr);
+      mgr.FluidPlaneManager()->CreateSplash(x8_uid, mgr, water, pos, mag,
+                                            state == EFluidState::EnteredFluid ||
+                                                state == EFluidState::LeftFluid);
     }
   }
 #endif
