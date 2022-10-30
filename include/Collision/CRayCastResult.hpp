@@ -16,9 +16,11 @@ public:
   };
 
   float GetTime() const { return x0_t; }
-  bool IsValid() const { return x20_valid; }
+  bool IsValid() const { return x20_valid == kI_Valid; }
+  // TODO: figure out what's going on here
+  bool IsInvalid() const { return x20_valid == kI_Invalid; }
   // GetPlane__14CRayCastResultCFv
-  // GetPoint__14CRayCastResultCFv
+  const CVector3f& GetPoint() const { return x4_point; }
   // GetMaterial__14CRayCastResultCFv
   // Transform__14CRayCastResultFRC12CTransform4f
 

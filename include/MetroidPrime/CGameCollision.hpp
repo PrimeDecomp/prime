@@ -9,6 +9,7 @@ class CCollisionPrimitive;
 class CMaterialFilter;
 class CStateManager;
 class CTransform4f;
+class CRayCastResult;
 
 class CGameCollision {
 public:
@@ -25,6 +26,8 @@ public:
                                             const CCollisionPrimitive&, const CTransform4f&,
                                             const CMaterialFilter&, const TEntityList&, CVector3f,
                                             TUniqueId&, CCollisionInfo&, double&);
+  static CRayCastResult RayStaticIntersection(const CStateManager&, const CVector3f&,
+                                              const CVector3f&, float, const CMaterialFilter&);
 };
 
 #endif // _CGAMECOLLISION

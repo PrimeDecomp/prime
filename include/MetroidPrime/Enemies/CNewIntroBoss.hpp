@@ -3,12 +3,13 @@
 
 #include "MetroidPrime/Enemies/CPatterned.hpp"
 
+#include "Kyoto/Animation/CharacterCommon.hpp"
 #include "MetroidPrime/CBoneTracking.hpp"
 #include "MetroidPrime/Weapons/CProjectileInfo.hpp"
-#include "Kyoto/Animation/CharacterCommon.hpp"
 
 class CCollisionActorManager;
 class CPatternedInfo;
+
 class CNewIntroBoss : public CPatterned {
 public:
   CNewIntroBoss(TUniqueId, const rstl::string&, const CEntityInfo& info, const CTransform4f& xf,
@@ -16,6 +17,32 @@ public:
                 const CActorParameters& actParms, float minTurnAngle, CAssetId projectile,
                 const CDamageInfo& dInfo, CAssetId beamContactFxId, CAssetId beamPulseFxId,
                 CAssetId beamTextureId, CAssetId beamGlowTextureId);
+
+  // CEntity
+  void Accept(IVisitor& visitor) override;
+  void Think(float dt, CStateManager& mgr) override;
+  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) override;
+
+  // CActor
+  void AddToRenderer(const CFrustumPlanes&, const CStateManager&) const override;
+  rstl::optional_object< CAABox > GetTouchBounds() const override;
+  void OnScanStateChange(EScanState, CStateManager&) override;
+  CAABox GetSortingBounds(const CStateManager&) const override;
+  void DoUserAnimEvent(CStateManager& mgr, const CInt32POINode& node, EUserEventType type,
+                       float dt) override;
+
+  // CAi
+  void Patrol(CStateManager&, EStateMsg, float) override;
+  void Generate(CStateManager& mgr, EStateMsg msg, float arg) override;
+  void Attack(CStateManager&, EStateMsg, float) override;
+  bool InAttackPosition(CStateManager&, float) override;
+  bool AnimOver(CStateManager&, float) override;
+  bool ShouldAttack(CStateManager&, float) override;
+  bool ShouldTurn(CStateManager&, float) override;
+  bool AIStage(CStateManager&, float) override;
+
+  // CPatterned
+  CProjectileInfo* ProjectileInfo() override;
 
   pas::ELocomotionType GetLocoForHealth(const CStateManager& mgr) const;
   pas::EGenerateType GetGenerateForHealth(const CStateManager& mgr) const;
@@ -26,10 +53,9 @@ public:
 
   float GetInitialHP() const { return x640_initialHp; }
 
-  void Generate(CStateManager& mgr, EStateMsg msg, float arg);
 private:
   pas::ELocomotionType x568_locomotion;
-  u32 x56c_stateProg;
+  uint x56c_stateProg;
   float x570_minTurnAngle;
   CBoneTracking x574_boneTracking;
   CProjectileInfo x5ac_projectileInfo;
@@ -53,7 +79,7 @@ private:
   float x63c_attackTime;
   float x640_initialHp;
   CTransform4f x644_initialXf;
-  s16 x674_rumbleVoice;
+  short x674_rumbleVoice;
   TUniqueId x676_curProjectile;
   bool x678_;
 };

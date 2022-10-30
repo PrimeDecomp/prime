@@ -7968,11 +7968,11 @@ lbl_801E1060:
 /* 801E106C 001DDFCC  48 00 00 10 */	b lbl_801E107C
 .global lbl_801E1070
 lbl_801E1070:
-/* 801E1070 001DDFD0  4B E9 7E 41 */	bl DoUserAnimEvent__10CPatternedFR13CStateManagerRC13CInt32POINode14EUserEventType
+/* 801E1070 001DDFD0  4B E9 7E 41 */	bl DoUserAnimEvent__10CPatternedFR13CStateManagerRC13CInt32POINode14EUserEventTypef
 /* 801E1074 001DDFD4  48 00 00 08 */	b lbl_801E107C
 .global lbl_801E1078
 lbl_801E1078:
-/* 801E1078 001DDFD8  4B E9 7E 39 */	bl DoUserAnimEvent__10CPatternedFR13CStateManagerRC13CInt32POINode14EUserEventType
+/* 801E1078 001DDFD8  4B E9 7E 39 */	bl DoUserAnimEvent__10CPatternedFR13CStateManagerRC13CInt32POINode14EUserEventTypef
 .global lbl_801E107C
 lbl_801E107C:
 /* 801E107C 001DDFDC  E3 E1 05 68 */	psq_l f31, 1384(r1), 0, qr0

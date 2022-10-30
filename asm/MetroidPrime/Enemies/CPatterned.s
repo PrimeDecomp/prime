@@ -36,7 +36,7 @@ lbl_803DA5C8:
 	.4byte FluidFXThink__3CAiFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager
 	.4byte OnScanStateChange__6CActorFQ26CActor10EScanStateR13CStateManager
 	.4byte GetSortingBounds__6CActorCFRC13CStateManager
-	.4byte DoUserAnimEvent__10CPatternedFR13CStateManagerRC13CInt32POINode14EUserEventType
+	.4byte DoUserAnimEvent__10CPatternedFR13CStateManagerRC13CInt32POINode14EUserEventTypef
 	.4byte GetCollisionPrimitive__13CPhysicsActorCFv
 	.4byte GetPrimitiveTransform__13CPhysicsActorCFv
 	.4byte CollidedWith__10CPatternedFRC9TUniqueIdRC18CCollisionInfoListR13CStateManager
@@ -2515,8 +2515,8 @@ lbl_80078E8C:
 /* 80078EA8 00075E08  38 21 00 40 */	addi r1, r1, 0x40
 /* 80078EAC 00075E0C  4E 80 00 20 */	blr
 
-.global DoUserAnimEvent__10CPatternedFR13CStateManagerRC13CInt32POINode14EUserEventType
-DoUserAnimEvent__10CPatternedFR13CStateManagerRC13CInt32POINode14EUserEventType:
+.global DoUserAnimEvent__10CPatternedFR13CStateManagerRC13CInt32POINode14EUserEventTypef
+DoUserAnimEvent__10CPatternedFR13CStateManagerRC13CInt32POINode14EUserEventTypef:
 /* 80078EB0 00075E10  94 21 FD 80 */	stwu r1, -0x280(r1)
 /* 80078EB4 00075E14  7C 08 02 A6 */	mflr r0
 /* 80078EB8 00075E18  90 01 02 84 */	stw r0, 0x284(r1)
