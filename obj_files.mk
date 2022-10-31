@@ -178,7 +178,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/src/MetroidPrime/BodyState/CBSScripted.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CPuddleToadGamma.o\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptDistanceFog.o\
-	$(BUILD_DIR)/asm/MetroidPrime/BodyState/CBSProjectileAttack.o\
+	$(BUILD_DIR)/src/MetroidPrime/BodyState/CBSProjectileAttack.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Weapons/CPowerBomb.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CMetaree.o\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptDockAreaChange.o\
