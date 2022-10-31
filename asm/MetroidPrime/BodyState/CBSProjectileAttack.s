@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803E27D0
-lbl_803E27D0:
+.global __vt__19CBSProjectileAttack
+__vt__19CBSProjectileAttack:
 	# ROM: 0x3DF7D0
 	.4byte 0
 	.4byte 0
@@ -31,8 +31,8 @@ __dt__19CBSProjectileAttackFv:
 /* 8014D3D0 0014A330  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 8014D3D4 0014A334  7C 7F 1B 79 */	or. r31, r3, r3
 /* 8014D3D8 0014A338  41 82 00 30 */	beq lbl_8014D408
-/* 8014D3DC 0014A33C  3C 60 80 3E */	lis r3, lbl_803E27D0@ha
-/* 8014D3E0 0014A340  38 03 27 D0 */	addi r0, r3, lbl_803E27D0@l
+/* 8014D3DC 0014A33C  3C 60 80 3E */	lis r3, __vt__19CBSProjectileAttack@ha
+/* 8014D3E0 0014A340  38 03 27 D0 */	addi r0, r3, __vt__19CBSProjectileAttack@l
 /* 8014D3E4 0014A344  90 1F 00 00 */	stw r0, 0(r31)
 /* 8014D3E8 0014A348  41 82 00 10 */	beq lbl_8014D3F8
 /* 8014D3EC 0014A34C  3C 60 80 3E */	lis r3, __vt__10CBodyState@ha
@@ -413,10 +413,10 @@ lbl_8014D908:
 .global __ct__19CBSProjectileAttackFv
 __ct__19CBSProjectileAttackFv:
 /* 8014D92C 0014A88C  3C A0 80 3E */	lis r5, __vt__10CBodyState@ha
-/* 8014D930 0014A890  3C 80 80 3E */	lis r4, lbl_803E27D0@ha
+/* 8014D930 0014A890  3C 80 80 3E */	lis r4, __vt__19CBSProjectileAttack@ha
 /* 8014D934 0014A894  38 A5 13 18 */	addi r5, r5, __vt__10CBodyState@l
 /* 8014D938 0014A898  90 A3 00 00 */	stw r5, 0(r3)
-/* 8014D93C 0014A89C  38 04 27 D0 */	addi r0, r4, lbl_803E27D0@l
+/* 8014D93C 0014A89C  38 04 27 D0 */	addi r0, r4, __vt__19CBSProjectileAttack@l
 /* 8014D940 0014A8A0  90 03 00 00 */	stw r0, 0(r3)
 /* 8014D944 0014A8A4  4E 80 00 20 */	blr
 
