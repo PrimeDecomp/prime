@@ -453,8 +453,8 @@ SetIsBeginSceneClearFb__9CGraphicsFb:
 /* 803094A8 00306408  98 6D 9C 6C */	stb r3, mIsBeginSceneClearFb__9CGraphics@sda21(r13)
 /* 803094AC 0030640C  4E 80 00 20 */	blr
 
-.global sub_803094b0
-sub_803094b0:
+.global sub_803094b0__9CGraphicsFUiUiUi
+sub_803094b0__9CGraphicsFUiUiUi:
 /* 803094B0 00306410  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 803094B4 00306414  7C 08 02 A6 */	mflr r0
 /* 803094B8 00306418  90 01 00 24 */	stw r0, 0x24(r1)
@@ -503,8 +503,8 @@ lbl_80309548:
 /* 8030955C 003064BC  38 21 00 20 */	addi r1, r1, 0x20
 /* 80309560 003064C0  4E 80 00 20 */	blr
 
-.global sub_80309564
-sub_80309564:
+.global sub_80309564__9CGraphicsFPUiPUiPUi
+sub_80309564__9CGraphicsFPUiPUiPUi:
 /* 80309564 003064C4  28 03 00 00 */	cmplwi r3, 0
 /* 80309568 003064C8  41 82 00 0C */	beq lbl_80309574
 /* 8030956C 003064CC  80 0D A8 48 */	lwz r0, lbl_805A9408@sda21(r13)

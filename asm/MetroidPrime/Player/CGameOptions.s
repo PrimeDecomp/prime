@@ -205,14 +205,14 @@ lbl_8020E9C8:
 /* 8020E9C8 0020B928  80 0D A1 30 */	lwz r0, gpTweakPlayerControl2@sda21(r13)
 /* 8020E9CC 0020B92C  90 0D A1 28 */	stw r0, gpTweakPlayerControlCurrent@sda21(r13)
 lbl_8020E9D0:
-/* 8020E9D0 0020B930  48 00 00 15 */	bl ResetControllerAssets__12CGameOptionsFv
+/* 8020E9D0 0020B930  48 00 00 15 */	bl ResetControllerAssets__12CGameOptionsFi
 /* 8020E9D4 0020B934  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8020E9D8 0020B938  7C 08 03 A6 */	mtlr r0
 /* 8020E9DC 0020B93C  38 21 00 10 */	addi r1, r1, 0x10
 /* 8020E9E0 0020B940  4E 80 00 20 */	blr
 
-.global ResetControllerAssets__12CGameOptionsFv
-ResetControllerAssets__12CGameOptionsFv:
+.global ResetControllerAssets__12CGameOptionsFi
+ResetControllerAssets__12CGameOptionsFi:
 /* 8020E9E4 0020B944  94 21 FF 30 */	stwu r1, -0xd0(r1)
 /* 8020E9E8 0020B948  7C 08 02 A6 */	mflr r0
 /* 8020E9EC 0020B94C  2C 04 00 01 */	cmpwi r4, 1
@@ -402,7 +402,7 @@ lbl_8020EC44:
 /* 8020EC90 0020BBF0  90 C1 00 20 */	stw r6, 0x20(r1)
 /* 8020EC94 0020BBF4  90 01 00 18 */	stw r0, 0x18(r1)
 /* 8020EC98 0020BBF8  90 01 00 14 */	stw r0, 0x14(r1)
-/* 8020EC9C 0020BBFC  48 00 0D 05 */	bl sub_8020f9a0
+/* 8020EC9C 0020BBFC  48 00 0D 05 */	bl "sort<Q24rstl130pointer_iterator<Q24rstl11pair<Ui,Ui>,Q24rstl55vector<Q24rstl11pair<Ui,Ui>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,Q226@unnamed@CGameOptions_cpp@13AssetIdSorter>__4rstlFQ24rstl130pointer_iterator<Q24rstl11pair<Ui,Ui>,Q24rstl55vector<Q24rstl11pair<Ui,Ui>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl130pointer_iterator<Q24rstl11pair<Ui,Ui>,Q24rstl55vector<Q24rstl11pair<Ui,Ui>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q226@unnamed@CGameOptions_cpp@13AssetIdSorter"
 lbl_8020ECA0:
 /* 8020ECA0 0020BC00  BA 81 00 A0 */	lmw r20, 0xa0(r1)
 /* 8020ECA4 0020BC04  80 01 00 D4 */	lwz r0, 0xd4(r1)
@@ -497,8 +497,8 @@ GetHudAlpha__12CGameOptionsCFv:
 /* 8020EDA0 0020BD00  38 21 00 10 */	addi r1, r1, 0x10
 /* 8020EDA4 0020BD04  4E 80 00 20 */	blr
 
-.global SetSurroundMode__12CGameOptionsFQ29CAudioSys14ESurroundModesi
-SetSurroundMode__12CGameOptionsFQ29CAudioSys14ESurroundModesi:
+.global SetSurroundMode__12CGameOptionsFQ29CAudioSys14ESurroundModesb
+SetSurroundMode__12CGameOptionsFQ29CAudioSys14ESurroundModesb:
 /* 8020EDA8 0020BD08  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 8020EDAC 0020BD0C  7C 08 02 A6 */	mflr r0
 /* 8020EDB0 0020BD10  90 01 00 24 */	stw r0, 0x24(r1)
@@ -544,7 +544,7 @@ SetMusicVolume__12CGameOptionsFib:
 /* 8020EE40 0020BDA0  90 7E 00 5C */	stw r3, 0x5c(r30)
 /* 8020EE44 0020BDA4  41 82 00 0C */	beq lbl_8020EE50
 /* 8020EE48 0020BDA8  80 7E 00 5C */	lwz r3, 0x5c(r30)
-/* 8020EE4C 0020BDAC  48 15 6B E9 */	bl SetMusicVolume__19CStreamAudioManagerFi
+/* 8020EE4C 0020BDAC  48 15 6B E9 */	bl SetMusicVolume__19CStreamAudioManagerFUi
 lbl_8020EE50:
 /* 8020EE50 0020BDB0  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8020EE54 0020BDB4  83 E1 00 1C */	lwz r31, 0x1c(r1)
@@ -578,7 +578,7 @@ SetSfxVolume__12CGameOptionsFib:
 /* 8020EEB8 0020BE18  54 03 06 3E */	clrlwi r3, r0, 0x18
 /* 8020EEBC 0020BE1C  48 13 D6 31 */	bl SysSetSfxVolume__9CAudioSysFUcUsUcUc
 /* 8020EEC0 0020BE20  80 7E 00 58 */	lwz r3, 0x58(r30)
-/* 8020EEC4 0020BE24  48 15 6B 59 */	bl SetSfxVolume__21CStreamedAudioManagerFUc
+/* 8020EEC4 0020BE24  48 15 6B 59 */	bl SetSfxVolume__19CStreamAudioManagerFUi
 /* 8020EEC8 0020BE28  80 1E 00 58 */	lwz r0, 0x58(r30)
 /* 8020EECC 0020BE2C  54 03 06 3E */	clrlwi r3, r0, 0x18
 /* 8020EED0 0020BE30  48 14 C7 0D */	bl SetSfxVolume__12CMoviePlayerFUc
@@ -611,11 +611,11 @@ SetScreenStretch__12CGameOptionsFib:
 /* 8020EF2C 0020BE8C  38 61 00 14 */	addi r3, r1, 0x14
 /* 8020EF30 0020BE90  38 81 00 10 */	addi r4, r1, 0x10
 /* 8020EF34 0020BE94  38 A1 00 0C */	addi r5, r1, 0xc
-/* 8020EF38 0020BE98  48 0F A6 2D */	bl sub_80309564
+/* 8020EF38 0020BE98  48 0F A6 2D */	bl sub_80309564__9CGraphicsFPUiPUiPUi
 /* 8020EF3C 0020BE9C  80 7E 00 54 */	lwz r3, 0x54(r30)
 /* 8020EF40 0020BEA0  80 81 00 10 */	lwz r4, 0x10(r1)
 /* 8020EF44 0020BEA4  80 A1 00 0C */	lwz r5, 0xc(r1)
-/* 8020EF48 0020BEA8  48 0F A5 69 */	bl sub_803094b0
+/* 8020EF48 0020BEA8  48 0F A5 69 */	bl sub_803094b0__9CGraphicsFUiUiUi
 lbl_8020EF4C:
 /* 8020EF4C 0020BEAC  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8020EF50 0020BEB0  83 E1 00 1C */	lwz r31, 0x1c(r1)
@@ -645,11 +645,11 @@ SetScreenPositionY__12CGameOptionsFib:
 /* 8020EFA4 0020BF04  38 61 00 14 */	addi r3, r1, 0x14
 /* 8020EFA8 0020BF08  38 81 00 10 */	addi r4, r1, 0x10
 /* 8020EFAC 0020BF0C  38 A1 00 0C */	addi r5, r1, 0xc
-/* 8020EFB0 0020BF10  48 0F A5 B5 */	bl sub_80309564
+/* 8020EFB0 0020BF10  48 0F A5 B5 */	bl sub_80309564__9CGraphicsFPUiPUiPUi
 /* 8020EFB4 0020BF14  80 61 00 14 */	lwz r3, 0x14(r1)
 /* 8020EFB8 0020BF18  80 81 00 10 */	lwz r4, 0x10(r1)
 /* 8020EFBC 0020BF1C  80 BE 00 50 */	lwz r5, 0x50(r30)
-/* 8020EFC0 0020BF20  48 0F A4 F1 */	bl sub_803094b0
+/* 8020EFC0 0020BF20  48 0F A4 F1 */	bl sub_803094b0__9CGraphicsFUiUiUi
 lbl_8020EFC4:
 /* 8020EFC4 0020BF24  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8020EFC8 0020BF28  83 E1 00 1C */	lwz r31, 0x1c(r1)
@@ -679,11 +679,11 @@ SetScreenPositionX__12CGameOptionsFib:
 /* 8020F01C 0020BF7C  38 61 00 14 */	addi r3, r1, 0x14
 /* 8020F020 0020BF80  38 81 00 10 */	addi r4, r1, 0x10
 /* 8020F024 0020BF84  38 A1 00 0C */	addi r5, r1, 0xc
-/* 8020F028 0020BF88  48 0F A5 3D */	bl sub_80309564
+/* 8020F028 0020BF88  48 0F A5 3D */	bl sub_80309564__9CGraphicsFPUiPUiPUi
 /* 8020F02C 0020BF8C  80 61 00 14 */	lwz r3, 0x14(r1)
 /* 8020F030 0020BF90  80 9E 00 4C */	lwz r4, 0x4c(r30)
 /* 8020F034 0020BF94  80 A1 00 0C */	lwz r5, 0xc(r1)
-/* 8020F038 0020BF98  48 0F A4 79 */	bl sub_803094b0
+/* 8020F038 0020BF98  48 0F A4 79 */	bl sub_803094b0__9CGraphicsFUiUiUi
 lbl_8020F03C:
 /* 8020F03C 0020BF9C  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8020F040 0020BFA0  83 E1 00 1C */	lwz r31, 0x1c(r1)
@@ -774,7 +774,7 @@ EnsureOptions__12CGameOptionsFv:
 /* 8020F16C 0020C0CC  80 9F 00 44 */	lwz r4, 0x44(r31)
 /* 8020F170 0020C0D0  7F E3 FB 78 */	mr r3, r31
 /* 8020F174 0020C0D4  38 A0 00 01 */	li r5, 1
-/* 8020F178 0020C0D8  4B FF FC 31 */	bl SetSurroundMode__12CGameOptionsFQ29CAudioSys14ESurroundModesi
+/* 8020F178 0020C0D8  4B FF FC 31 */	bl SetSurroundMode__12CGameOptionsFQ29CAudioSys14ESurroundModesb
 /* 8020F17C 0020C0DC  80 9F 00 64 */	lwz r4, 0x64(r31)
 /* 8020F180 0020C0E0  7F E3 FB 78 */	mr r3, r31
 /* 8020F184 0020C0E4  4B FF FB B5 */	bl SetHelmetAlpha__12CGameOptionsFi
@@ -840,7 +840,7 @@ ResetToDefaults__12CGameOptionsFv:
 /* 8020F268 0020C1C8  88 03 00 68 */	lbz r0, 0x68(r3)
 /* 8020F26C 0020C1CC  50 80 1F 38 */	rlwimi r0, r4, 3, 0x1c, 0x1c
 /* 8020F270 0020C1D0  98 03 00 68 */	stb r0, 0x68(r3)
-/* 8020F274 0020C1D4  48 00 06 B5 */	bl InitSoundMode__12CGameOptionsFi
+/* 8020F274 0020C1D4  48 00 06 B5 */	bl InitSoundMode__12CGameOptionsFv
 /* 8020F278 0020C1D8  7F E3 FB 78 */	mr r3, r31
 /* 8020F27C 0020C1DC  4B FF FE 81 */	bl EnsureOptions__12CGameOptionsFv
 /* 8020F280 0020C1E0  80 01 00 14 */	lwz r0, 0x14(r1)
@@ -1193,7 +1193,7 @@ lbl_8020F608:
 /* 8020F7A0 0020C700  7F C3 F3 78 */	mr r3, r30
 /* 8020F7A4 0020C704  50 80 2E F6 */	rlwimi r0, r4, 5, 0x1b, 0x1b
 /* 8020F7A8 0020C708  98 1E 00 68 */	stb r0, 0x68(r30)
-/* 8020F7AC 0020C70C  48 00 01 7D */	bl InitSoundMode__12CGameOptionsFi
+/* 8020F7AC 0020C70C  48 00 01 7D */	bl InitSoundMode__12CGameOptionsFv
 /* 8020F7B0 0020C710  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8020F7B4 0020C714  7F C3 F3 78 */	mr r3, r30
 /* 8020F7B8 0020C718  83 E1 00 1C */	lwz r31, 0x1c(r1)
@@ -1293,7 +1293,7 @@ lbl_8020F87C:
 /* 8020F900 0020C860  90 BF 00 70 */	stw r5, 0x70(r31)
 /* 8020F904 0020C864  90 BF 00 74 */	stw r5, 0x74(r31)
 /* 8020F908 0020C868  90 BF 00 78 */	stw r5, 0x78(r31)
-/* 8020F90C 0020C86C  48 00 00 1D */	bl InitSoundMode__12CGameOptionsFi
+/* 8020F90C 0020C86C  48 00 00 1D */	bl InitSoundMode__12CGameOptionsFv
 /* 8020F910 0020C870  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8020F914 0020C874  7F E3 FB 78 */	mr r3, r31
 /* 8020F918 0020C878  83 E1 00 0C */	lwz r31, 0xc(r1)
@@ -1301,8 +1301,8 @@ lbl_8020F87C:
 /* 8020F920 0020C880  38 21 00 10 */	addi r1, r1, 0x10
 /* 8020F924 0020C884  4E 80 00 20 */	blr
 
-.global InitSoundMode__12CGameOptionsFi
-InitSoundMode__12CGameOptionsFi:
+.global InitSoundMode__12CGameOptionsFv
+InitSoundMode__12CGameOptionsFv:
 /* 8020F928 0020C888  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8020F92C 0020C88C  7C 08 02 A6 */	mflr r0
 /* 8020F930 0020C890  90 01 00 14 */	stw r0, 0x14(r1)
@@ -1343,8 +1343,8 @@ lbl_8020F990:
 /* 8020F99C 0020C8FC  4E 80 00 20 */	blr
 
 
-.global sub_8020f9a0
-sub_8020f9a0:
+.global "sort<Q24rstl130pointer_iterator<Q24rstl11pair<Ui,Ui>,Q24rstl55vector<Q24rstl11pair<Ui,Ui>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,Q226@unnamed@CGameOptions_cpp@13AssetIdSorter>__4rstlFQ24rstl130pointer_iterator<Q24rstl11pair<Ui,Ui>,Q24rstl55vector<Q24rstl11pair<Ui,Ui>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl130pointer_iterator<Q24rstl11pair<Ui,Ui>,Q24rstl55vector<Q24rstl11pair<Ui,Ui>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q226@unnamed@CGameOptions_cpp@13AssetIdSorter"
+"sort<Q24rstl130pointer_iterator<Q24rstl11pair<Ui,Ui>,Q24rstl55vector<Q24rstl11pair<Ui,Ui>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,Q226@unnamed@CGameOptions_cpp@13AssetIdSorter>__4rstlFQ24rstl130pointer_iterator<Q24rstl11pair<Ui,Ui>,Q24rstl55vector<Q24rstl11pair<Ui,Ui>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl130pointer_iterator<Q24rstl11pair<Ui,Ui>,Q24rstl55vector<Q24rstl11pair<Ui,Ui>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q226@unnamed@CGameOptions_cpp@13AssetIdSorter":
 /* 8020F9A0 0020C900  94 21 FF B0 */	stwu r1, -0x50(r1)
 /* 8020F9A4 0020C904  7C 08 02 A6 */	mflr r0
 /* 8020F9A8 0020C908  90 01 00 54 */	stw r0, 0x54(r1)
@@ -1445,7 +1445,7 @@ lbl_8020FAF4:
 /* 8020FB0C 0020CA6C  98 E1 00 0C */	stb r7, 0xc(r1)
 /* 8020FB10 0020CA70  90 C1 00 20 */	stw r6, 0x20(r1)
 /* 8020FB14 0020CA74  90 01 00 24 */	stw r0, 0x24(r1)
-/* 8020FB18 0020CA78  4B FF FE 89 */	bl sub_8020f9a0
+/* 8020FB18 0020CA78  4B FF FE 89 */	bl "sort<Q24rstl130pointer_iterator<Q24rstl11pair<Ui,Ui>,Q24rstl55vector<Q24rstl11pair<Ui,Ui>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,Q226@unnamed@CGameOptions_cpp@13AssetIdSorter>__4rstlFQ24rstl130pointer_iterator<Q24rstl11pair<Ui,Ui>,Q24rstl55vector<Q24rstl11pair<Ui,Ui>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl130pointer_iterator<Q24rstl11pair<Ui,Ui>,Q24rstl55vector<Q24rstl11pair<Ui,Ui>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q226@unnamed@CGameOptions_cpp@13AssetIdSorter"
 /* 8020FB1C 0020CA7C  88 FF 00 00 */	lbz r7, 0(r31)
 /* 8020FB20 0020CA80  38 61 00 1C */	addi r3, r1, 0x1c
 /* 8020FB24 0020CA84  80 DE 00 00 */	lwz r6, 0(r30)
@@ -1455,7 +1455,7 @@ lbl_8020FAF4:
 /* 8020FB34 0020CA94  98 E1 00 08 */	stb r7, 8(r1)
 /* 8020FB38 0020CA98  90 C1 00 18 */	stw r6, 0x18(r1)
 /* 8020FB3C 0020CA9C  90 01 00 1C */	stw r0, 0x1c(r1)
-/* 8020FB40 0020CAA0  4B FF FE 61 */	bl sub_8020f9a0
+/* 8020FB40 0020CAA0  4B FF FE 61 */	bl "sort<Q24rstl130pointer_iterator<Q24rstl11pair<Ui,Ui>,Q24rstl55vector<Q24rstl11pair<Ui,Ui>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,Q226@unnamed@CGameOptions_cpp@13AssetIdSorter>__4rstlFQ24rstl130pointer_iterator<Q24rstl11pair<Ui,Ui>,Q24rstl55vector<Q24rstl11pair<Ui,Ui>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl130pointer_iterator<Q24rstl11pair<Ui,Ui>,Q24rstl55vector<Q24rstl11pair<Ui,Ui>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q226@unnamed@CGameOptions_cpp@13AssetIdSorter"
 lbl_8020FB44:
 /* 8020FB44 0020CAA4  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 8020FB48 0020CAA8  83 E1 00 4C */	lwz r31, 0x4c(r1)

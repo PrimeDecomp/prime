@@ -23,5 +23,7 @@ private:
 CHECK_SIZEOF(CTweaks, 0x64)
 
 extern CTweakPlayerControl* gpTweakPlayerControlCurrent;
+extern CTweakPlayerControl* gpTweakPlayerControl1;
+extern CTweakPlayerControl* gpTweakPlayerControl2;
 
 #endif // _CTWEAKS

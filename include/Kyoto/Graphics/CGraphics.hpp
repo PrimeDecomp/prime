@@ -126,6 +126,7 @@ public:
 
   static const CTransform4f& GetViewMatrix() { return mViewMatrix; }
   static const CTransform4f& GetModelMatrix() { return mModelMatrix; }
+  static void SetBrightness(float b) { mBrightness = b; }
 
   static float GetSecondsMod900();
   static void SetExternalTimeProvider(CTimeProvider* provider);
@@ -136,6 +137,10 @@ public:
                               u8 ref1);
   static void SetDepthWriteMode(bool test, ERglEnum comp, bool write);
   static void SetBlendMode(ERglBlendMode, ERglBlendFactor, ERglBlendFactor, ERglLogicOp);
+
+  // Screen Position
+  static void sub_80309564(uint* stretch, uint* xOffset, uint* yOffset);
+  static void sub_803094b0(uint stretch, uint xOffset, uint yOffset);
 
   static CTevCombiners::CTevPass& kEnvPassthru;
   static CTevCombiners::CTevPass kEnvModulateConstColor;
@@ -151,6 +156,7 @@ public:
 private:
   static CTransform4f mViewMatrix;
   static CTransform4f mModelMatrix;
+  static float mBrightness;
 };
 
 #endif // _CGRAPHICS

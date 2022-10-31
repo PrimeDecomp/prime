@@ -553,7 +553,7 @@ lbl_802494E0:
 /* 8024953C 0024649C  90 C1 00 20 */	stw r6, 0x20(r1)
 /* 80249540 002464A0  90 01 00 18 */	stw r0, 0x18(r1)
 /* 80249544 002464A4  90 01 00 14 */	stw r0, 0x14(r1)
-/* 80249548 002464A8  4B FC 64 59 */	bl sub_8020f9a0
+/* 80249548 002464A8  4B FC 64 59 */	bl "sort<Q24rstl130pointer_iterator<Q24rstl11pair<Ui,Ui>,Q24rstl55vector<Q24rstl11pair<Ui,Ui>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,Q226@unnamed@CGameOptions_cpp@13AssetIdSorter>__4rstlFQ24rstl130pointer_iterator<Q24rstl11pair<Ui,Ui>,Q24rstl55vector<Q24rstl11pair<Ui,Ui>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl130pointer_iterator<Q24rstl11pair<Ui,Ui>,Q24rstl55vector<Q24rstl11pair<Ui,Ui>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q226@unnamed@CGameOptions_cpp@13AssetIdSorter"
 lbl_8024954C:
 /* 8024954C 002464AC  38 60 00 00 */	li r3, 0
 lbl_80249550:
@@ -2805,4 +2805,3 @@ lbl_803D4780:
 	.asciz "INT_Hints"
 	.balign 4
 	.4byte 0
-

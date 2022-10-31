@@ -2820,7 +2820,7 @@ lbl_80244138:
 /* 80244158 002410B8  7F E3 FB 78 */	mr r3, r31
 /* 8024415C 002410BC  38 80 00 01 */	li r4, 1
 /* 80244160 002410C0  38 A0 00 01 */	li r5, 1
-/* 80244164 002410C4  4B FC AC 45 */	bl SetSurroundMode__12CGameOptionsFQ29CAudioSys14ESurroundModesi
+/* 80244164 002410C4  4B FC AC 45 */	bl SetSurroundMode__12CGameOptionsFQ29CAudioSys14ESurroundModesb
 /* 80244168 002410C8  48 00 00 28 */	b lbl_80244190
 lbl_8024416C:
 /* 8024416C 002410CC  88 82 B2 21 */	lbz r4, lbl_805ACF41@sda21(r2)
@@ -2920,7 +2920,7 @@ lbl_80244270:
 lbl_80244280:
 /* 80244280 002411E0  7C C3 33 78 */	mr r3, r6
 /* 80244284 002411E4  38 A0 00 01 */	li r5, 1
-/* 80244288 002411E8  4B FC AB 21 */	bl SetSurroundMode__12CGameOptionsFQ29CAudioSys14ESurroundModesi
+/* 80244288 002411E8  4B FC AB 21 */	bl SetSurroundMode__12CGameOptionsFQ29CAudioSys14ESurroundModesb
 /* 8024428C 002411EC  48 00 00 48 */	b lbl_802442D4
 .global lbl_80244290
 lbl_80244290:

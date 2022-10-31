@@ -5901,7 +5901,7 @@ __ct__24CGameArchitectureSupportFR10COsContext:
 /* 80007228 00004188  48 34 35 E5 */	bl SetVolumeScale__9CAudioSysFs
 /* 8000722C 0000418C  48 35 D4 29 */	bl Initialize__17CDSPStreamManagerFv
 /* 80007230 00004190  38 60 00 7F */	li r3, 0x7f
-/* 80007234 00004194  48 35 E8 01 */	bl SetMusicVolume__19CStreamAudioManagerFi
+/* 80007234 00004194  48 35 E8 01 */	bl SetMusicVolume__19CStreamAudioManagerFUi
 /* 80007238 00004198  38 60 00 01 */	li r3, 1
 /* 8000723C 0000419C  48 34 40 A1 */	bl TrkSetSampleRate__9CAudioSysF14ETRKSampleRate
 /* 80007240 000041A0  80 6D A0 78 */	lwz r3, gpMain@sda21(r13)

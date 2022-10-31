@@ -35,12 +35,8 @@ void CBSKnockBack::Start(CBodyController& bc, CStateManager& mgr) {
   if (!parm2.GetBoolValue()) {
     CPASAnimParm parm0(animState->GetAnimParmData(best.second, 0));
     float knockdownAngle = parm0.GetReal32Value();
-    float delta1 = CAbsAngle::FromRadians(angle.AsRadians() -
-                                          CRelAngle::FromDegrees(knockdownAngle).AsRadians())
-                       .AsRadians();
-    float delta2 = CAbsAngle::FromRadians(CRelAngle::FromDegrees(knockdownAngle).AsRadians() -
-                                          angle.AsRadians())
-                       .AsRadians();
+    float delta1 = CAbsAngle::FromRadians(angle.AsRadians() - CRelAngle::FromDegrees(knockdownAngle).AsRadians()).AsRadians();
+    float delta2 = CAbsAngle::FromRadians(CRelAngle::FromDegrees(knockdownAngle).AsRadians() - angle.AsRadians()).AsRadians();
     float minAngle = rstl::min_val(delta1, delta2);
     // There's missing code here. Same problem in CBSFall, see there for details
     const float flippedAngle = (delta1 > M_PIF) ? -minAngle : minAngle;

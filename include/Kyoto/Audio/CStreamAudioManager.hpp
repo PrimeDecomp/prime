@@ -7,7 +7,8 @@ class CStreamAudioManager {
 public:
   static void Update(float dt);
   static void StopAll();
-  static void SetMusicVolume(uchar);
+  static void SetMusicVolume(uint);
+  static void SetSfxVolume(uint);
 
 private:
 };
