@@ -77,22 +77,7 @@ public:
     ++x4_count;
   }
 
-  vector& operator=(const vector& other); /* {
-    if (this == &other)
-      return *this;
-    clear();
-    if (other.size() == 0) {
-      x0_allocator.deallocate(xc_items);
-      x4_count = 0;
-      x8_capacity = 0;
-      xc_items = nullptr;
-    } else {
-      reserve(other.size());
-      uninitialized_copy(other.data(), other.data() + other.size(), data());
-      x4_count = other.x4_count;
-    }
-    return *this;
-  }*/
+  vector& operator=(const vector& other);
 
   void clear() {
     destroy(begin(), end());
@@ -116,12 +101,12 @@ public:
 protected:
   template < typename In >
   void insert_into(iterator at, int n, In in) {
-     int insertAt = xc_items + n;
-     if (x8_capacity < insertAt) {
+    //  int insertAt = xc_items + n;
+    // TODO: finish
+     if (x8_capacity < n) {
        int newCapacity = x8_capacity != 0 ? x8_capacity * 2 : 4;
        T* newData;
        x0_allocator.allocate(newData, newCapacity);
-
      }
    }
 };
@@ -159,6 +144,25 @@ typename vector< T, Alloc >::iterator vector< T, Alloc >::insert(iterator it, co
   insert_into(it, 1, in);
   return begin() + diff;
 }
+
+template < typename T, typename Alloc >
+vector< T, Alloc >& vector< T, Alloc >::operator=(const vector< T, Alloc >& other) {
+  if (this == &other)
+    return *this;
+  clear();
+  if (other.size() == 0) {
+    x0_allocator.deallocate(xc_items);
+    x4_count = 0;
+    x8_capacity = 0;
+    xc_items = nullptr;
+  } else {
+    reserve(other.size());
+    uninitialized_copy(other.data(), other.data() + other.size(), data());
+    x4_count = other.x4_count;
+  }
+  return *this;
+}
+
 
 typedef vector< void > unk_vector;
 CHECK_SIZEOF(unk_vector, 0x10)
