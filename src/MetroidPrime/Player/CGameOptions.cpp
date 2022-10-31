@@ -125,7 +125,6 @@ void CGameOptions::PutTo(CMemoryStreamOut& out) {
   WriteValue(out, x5c_musicVol, 0x7f);
   WriteValue(out, x60_hudAlpha, 0xff);
   WriteValue(out, x64_helmetAlpha, 0xff);
-  
 
   out.WriteBits(x68_24_hudLag != false, 1);
   out.WriteBits(x68_28_hintSystem != false, 1);
@@ -178,7 +177,7 @@ void CGameOptions::SetScreenBrightness(int value, bool apply) {
 
 float CGameOptions::TuneScreenBrightness() {
   float f = x48_screenBrightness - 4;
-  return f * 0.25f * 0.375f + 1.f;
+  return f / 4.f * 0.375f + 1.f;
 }
 
 void CGameOptions::SetScreenPositionX(int position, bool apply) {
