@@ -7,10 +7,9 @@
 #include "rstl/reserved_vector.hpp"
 #include "rstl/vector.hpp"
 
-#include "Kyoto/SObjectTag.hpp"
 #include "Kyoto/Audio/CAudioSys.hpp"
+#include "Kyoto/SObjectTag.hpp"
 #include "MetroidPrime/TGameTypes.hpp"
-
 
 class CInputStream;
 class CMemoryStreamOut;
@@ -62,7 +61,7 @@ private:
   bool x68_24_hudLag : 1;
   bool x68_25_invertY : 1;
   bool x68_26_rumble : 1;
-  uchar x68_27_swapBeamsControls : 1;
+  bool x68_27_swapBeamsControls : 1;
   bool x68_28_hintSystem : 1;
   rstl::vector< rstl::pair< CAssetId, CAssetId > > x6c_controlTxtrMap;
 };
