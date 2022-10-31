@@ -2355,8 +2355,8 @@ Accept__17CPlasmaProjectileFR8IVisitor:
 /* 80178C20 00175B80  38 21 00 10 */	addi r1, r1, 0x10
 /* 80178C24 00175B84  4E 80 00 20 */	blr
 
-.global "__ct__17CPlasmaProjectileFRC28TToken<18CWeaponDescription>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>11EWeaponTypeRC9CBeamInfoRC12CTransform4f14EMaterialTypesRC11CDamageInfo9TUniqueId9TUniqueIdbUi"
-"__ct__17CPlasmaProjectileFRC28TToken<18CWeaponDescription>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>11EWeaponTypeRC9CBeamInfoRC12CTransform4f14EMaterialTypesRC11CDamageInfo9TUniqueId9TUniqueIdbUi":
+.global "__ct__17CPlasmaProjectileFRC28TToken<18CWeaponDescription>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>11EWeaponTypeRC9CBeamInfoRC12CTransform4f14EMaterialTypesRC11CDamageInfo9TUniqueId7TAreaId9TUniqueIdRCQ217CPlasmaProjectile21PlayerEffectResourcesb17EProjectileAttrib"
+"__ct__17CPlasmaProjectileFRC28TToken<18CWeaponDescription>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>11EWeaponTypeRC9CBeamInfoRC12CTransform4f14EMaterialTypesRC11CDamageInfo9TUniqueId7TAreaId9TUniqueIdRCQ217CPlasmaProjectile21PlayerEffectResourcesb17EProjectileAttrib":
 /* 80178C28 00175B88  94 21 FE C0 */	stwu r1, -0x140(r1)
 /* 80178C2C 00175B8C  7C 08 02 A6 */	mflr r0
 /* 80178C30 00175B90  90 01 01 44 */	stw r0, 0x144(r1)

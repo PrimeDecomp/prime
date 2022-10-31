@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803EB180
-lbl_803EB180:
+.global __vt__11CScriptBeam
+__vt__11CScriptBeam:
 	# ROM: 0x3E8180
 	.4byte 0
 	.4byte 0
@@ -48,9 +48,9 @@ __dt__11CScriptBeamFv:
 /* 8027C5E0 00279540  93 C1 00 08 */	stw r30, 8(r1)
 /* 8027C5E4 00279544  7C 7E 1B 79 */	or. r30, r3, r3
 /* 8027C5E8 00279548  41 82 00 48 */	beq lbl_8027C630
-/* 8027C5EC 0027954C  3C 60 80 3F */	lis r3, lbl_803EB180@ha
+/* 8027C5EC 0027954C  3C 60 80 3F */	lis r3, __vt__11CScriptBeam@ha
 /* 8027C5F0 00279550  34 1E 00 E8 */	addic. r0, r30, 0xe8
-/* 8027C5F4 00279554  38 03 B1 80 */	addi r0, r3, lbl_803EB180@l
+/* 8027C5F4 00279554  38 03 B1 80 */	addi r0, r3, __vt__11CScriptBeam@l
 /* 8027C5F8 00279558  90 1E 00 00 */	stw r0, 0(r30)
 /* 8027C5FC 0027955C  41 82 00 18 */	beq lbl_8027C614
 /* 8027C600 00279560  34 1E 00 E8 */	addic. r0, r30, 0xe8
@@ -222,7 +222,7 @@ lbl_8027C764:
 /* 8027C85C 002797BC  91 21 00 18 */	stw r9, 0x18(r1)
 /* 8027C860 002797C0  39 20 00 23 */	li r9, 0x23
 /* 8027C864 002797C4  90 01 00 1C */	stw r0, 0x1c(r1)
-/* 8027C868 002797C8  4B EF C3 C1 */	bl "__ct__17CPlasmaProjectileFRC28TToken<18CWeaponDescription>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>11EWeaponTypeRC9CBeamInfoRC12CTransform4f14EMaterialTypesRC11CDamageInfo9TUniqueId9TUniqueIdbUi"
+/* 8027C868 002797C8  4B EF C3 C1 */	bl "__ct__17CPlasmaProjectileFRC28TToken<18CWeaponDescription>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>11EWeaponTypeRC9CBeamInfoRC12CTransform4f14EMaterialTypesRC11CDamageInfo9TUniqueId7TAreaId9TUniqueIdRCQ217CPlasmaProjectile21PlayerEffectResourcesb17EProjectileAttrib"
 /* 8027C86C 002797CC  7C 7F 1B 78 */	mr r31, r3
 lbl_8027C870:
 /* 8027C870 002797D0  7F C3 F3 78 */	mr r3, r30
@@ -299,8 +299,8 @@ lbl_8027C950:
 /* 8027C978 002798D8  38 21 00 B0 */	addi r1, r1, 0xb0
 /* 8027C97C 002798DC  4E 80 00 20 */	blr
 
-.global "__ct__11CScriptBeamF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fbRC34TLockedToken<18CWeaponDescription>RC9CBeamInfoRC11CDamageInfo"
-"__ct__11CScriptBeamF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fbRC34TLockedToken<18CWeaponDescription>RC9CBeamInfoRC11CDamageInfo":
+.global "__ct__11CScriptBeamF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fbRC28TToken<18CWeaponDescription>RC9CBeamInfoRC11CDamageInfo"
+"__ct__11CScriptBeamF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fbRC28TToken<18CWeaponDescription>RC9CBeamInfoRC11CDamageInfo":
 /* 8027C980 002798E0  94 21 FF 00 */	stwu r1, -0x100(r1)
 /* 8027C984 002798E4  7C 08 02 A6 */	mflr r0
 /* 8027C988 002798E8  90 01 01 04 */	stw r0, 0x104(r1)
@@ -344,9 +344,9 @@ lbl_8027C950:
 /* 8027CA20 00279980  38 61 00 88 */	addi r3, r1, 0x88
 /* 8027CA24 00279984  38 80 FF FF */	li r4, -1
 /* 8027CA28 00279988  4B E9 A0 25 */	bl __dt__10CModelDataFv
-/* 8027CA2C 0027998C  3C 60 80 3F */	lis r3, lbl_803EB180@ha
+/* 8027CA2C 0027998C  3C 60 80 3F */	lis r3, __vt__11CScriptBeam@ha
 /* 8027CA30 00279990  3A FD 00 E8 */	addi r23, r29, 0xe8
-/* 8027CA34 00279994  38 03 B1 80 */	addi r0, r3, lbl_803EB180@l
+/* 8027CA34 00279994  38 03 B1 80 */	addi r0, r3, __vt__11CScriptBeam@l
 /* 8027CA38 00279998  7F 84 E3 78 */	mr r4, r28
 /* 8027CA3C 0027999C  90 1D 00 00 */	stw r0, 0(r29)
 /* 8027CA40 002799A0  7E E3 BB 78 */	mr r3, r23

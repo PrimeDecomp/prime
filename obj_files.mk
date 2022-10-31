@@ -334,7 +334,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/CFluidPlaneRender.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CBurrower.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CMetroidPrimeExo.o\
-	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptBeam.o\
+	$(BUILD_DIR)/src/MetroidPrime/ScriptObjects/CScriptBeam.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CMetroidPrimeEssence.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CMetroidPrimeRelay.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Player/CPlayerDynamics.o\

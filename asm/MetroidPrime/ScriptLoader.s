@@ -1409,7 +1409,7 @@ lbl_800C6444:
 /* 800C64F4 000C3454  39 21 00 18 */	addi r9, r1, 0x18
 /* 800C64F8 000C3458  39 41 00 8C */	addi r10, r1, 0x8c
 /* 800C64FC 000C345C  3B 20 00 01 */	li r25, 1
-/* 800C6500 000C3460  48 1B 64 81 */	bl "__ct__11CScriptBeamF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fbRC34TLockedToken<18CWeaponDescription>RC9CBeamInfoRC11CDamageInfo"
+/* 800C6500 000C3460  48 1B 64 81 */	bl "__ct__11CScriptBeamF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fbRC28TToken<18CWeaponDescription>RC9CBeamInfoRC11CDamageInfo"
 /* 800C6504 000C3464  7C 7F 1B 78 */	mr r31, r3
 lbl_800C6508:
 /* 800C6508 000C3468  7F 20 07 75 */	extsb. r0, r25
