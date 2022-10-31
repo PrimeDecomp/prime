@@ -517,8 +517,8 @@ AreStringsNotEqual__21CStreamedAudioManagerFPCcPCc:
 /* 80365A14 00362974  38 21 00 10 */	addi r1, r1, 0x10
 /* 80365A18 00362978  4E 80 00 20 */	blr
 
-.global SetSfxVolume__21CStreamedAudioManagerFUc
-SetSfxVolume__21CStreamedAudioManagerFUc:
+.global SetSfxVolume__19CStreamAudioManagerFUi
+SetSfxVolume__19CStreamAudioManagerFUi:
 /* 80365A1C 0036297C  2C 03 00 7F */	cmpwi r3, 0x7f
 /* 80365A20 00362980  90 6D 9E 7C */	stw r3, lbl_805A8A3C@sda21(r13)
 /* 80365A24 00362984  4C 81 00 20 */	blelr
@@ -526,8 +526,8 @@ SetSfxVolume__21CStreamedAudioManagerFUc:
 /* 80365A2C 0036298C  90 0D 9E 7C */	stw r0, lbl_805A8A3C@sda21(r13)
 /* 80365A30 00362990  4E 80 00 20 */	blr
 
-.global SetMusicVolume__19CStreamAudioManagerFi
-SetMusicVolume__19CStreamAudioManagerFi:
+.global SetMusicVolume__19CStreamAudioManagerFUi
+SetMusicVolume__19CStreamAudioManagerFUi:
 /* 80365A34 00362994  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80365A38 00362998  7C 08 02 A6 */	mflr r0
 /* 80365A3C 0036299C  2C 03 00 7F */	cmpwi r3, 0x7f

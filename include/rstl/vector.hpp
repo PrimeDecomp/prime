@@ -77,7 +77,7 @@ public:
     ++x4_count;
   }
 
-  vector& operator=(const vector& other) {
+  vector& operator=(const vector& other); /* {
     if (this == &other)
       return *this;
     clear();
@@ -92,7 +92,7 @@ public:
       x4_count = other.x4_count;
     }
     return *this;
-  }
+  }*/
 
   void clear() {
     destroy(begin(), end());
@@ -115,7 +115,7 @@ public:
 
 protected:
   template < typename In >
-  void insert_into(iterator at, int n, In in); /* {
+  void insert_into(iterator at, int n, In in) {
      int insertAt = xc_items + n;
      if (x8_capacity < insertAt) {
        int newCapacity = x8_capacity != 0 ? x8_capacity * 2 : 4;
@@ -123,7 +123,7 @@ protected:
        x0_allocator.allocate(newData, newCapacity);
 
      }
-   }*/
+   }
 };
 
 template < typename T, typename Alloc >
