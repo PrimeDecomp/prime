@@ -127,6 +127,8 @@ string string_l(const char* data);
 //     return string(string::literal_t(), data);
 // }
 
+string operator+(const string&, const string&);
+
 CHECK_SIZEOF(string, 0x10)
 } // namespace rstl
 

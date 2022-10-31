@@ -8349,7 +8349,7 @@ lbl_80277D38:
 /* 80277DB4 00274D14  39 20 00 21 */	li r9, 0x21
 /* 80277DB8 00274D18  90 01 00 18 */	stw r0, 0x18(r1)
 /* 80277DBC 00274D1C  93 E1 00 1C */	stw r31, 0x1c(r1)
-/* 80277DC0 00274D20  4B F0 0E 69 */	bl "__ct__17CPlasmaProjectileFRC28TToken<18CWeaponDescription>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>11EWeaponTypeRC9CBeamInfoRC12CTransform4f14EMaterialTypesRC11CDamageInfo9TUniqueId9TUniqueIdbUi"
+/* 80277DC0 00274D20  4B F0 0E 69 */	bl "__ct__17CPlasmaProjectileFRC28TToken<18CWeaponDescription>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>11EWeaponTypeRC9CBeamInfoRC12CTransform4f14EMaterialTypesRC11CDamageInfo9TUniqueId7TAreaId9TUniqueIdRCQ217CPlasmaProjectile21PlayerEffectResourcesb17EProjectileAttrib"
 /* 80277DC4 00274D24  7C 7D 1B 78 */	mr r29, r3
 lbl_80277DC8:
 /* 80277DC8 00274D28  7F 80 07 75 */	extsb. r0, r28

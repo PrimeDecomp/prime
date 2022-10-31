@@ -369,7 +369,7 @@ LIBS = [
             "MetroidPrime/CFluidPlaneRender",
             "MetroidPrime/Enemies/CBurrower",
             "MetroidPrime/Enemies/CMetroidPrimeExo",
-            "MetroidPrime/ScriptObjects/CScriptBeam",
+            ["MetroidPrime/ScriptObjects/CScriptBeam", True],
             "MetroidPrime/Enemies/CMetroidPrimeEssence",
             "MetroidPrime/Enemies/CMetroidPrimeRelay",
             "MetroidPrime/Player/CPlayerDynamics",

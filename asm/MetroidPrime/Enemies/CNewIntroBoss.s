@@ -673,7 +673,7 @@ lbl_8018A148:
 /* 8018A450 001873B0  38 C0 00 09 */	li r6, 9
 /* 8018A454 001873B4  39 20 00 21 */	li r9, 0x21
 /* 8018A458 001873B8  90 01 00 1C */	stw r0, 0x1c(r1)
-/* 8018A45C 001873BC  4B FE E7 CD */	bl "__ct__17CPlasmaProjectileFRC28TToken<18CWeaponDescription>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>11EWeaponTypeRC9CBeamInfoRC12CTransform4f14EMaterialTypesRC11CDamageInfo9TUniqueId9TUniqueIdbUi"
+/* 8018A45C 001873BC  4B FE E7 CD */	bl "__ct__17CPlasmaProjectileFRC28TToken<18CWeaponDescription>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>11EWeaponTypeRC9CBeamInfoRC12CTransform4f14EMaterialTypesRC11CDamageInfo9TUniqueId7TAreaId9TUniqueIdRCQ217CPlasmaProjectile21PlayerEffectResourcesb17EProjectileAttrib"
 /* 8018A460 001873C0  7C 7B 1B 78 */	mr r27, r3
 lbl_8018A464:
 /* 8018A464 001873C4  7E E0 07 75 */	extsb. r0, r23
@@ -737,7 +737,7 @@ lbl_8018A478:
 /* 8018A548 001874A8  38 C0 00 09 */	li r6, 9
 /* 8018A54C 001874AC  39 20 00 21 */	li r9, 0x21
 /* 8018A550 001874B0  90 01 00 1C */	stw r0, 0x1c(r1)
-/* 8018A554 001874B4  4B FE E6 D5 */	bl "__ct__17CPlasmaProjectileFRC28TToken<18CWeaponDescription>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>11EWeaponTypeRC9CBeamInfoRC12CTransform4f14EMaterialTypesRC11CDamageInfo9TUniqueId9TUniqueIdbUi"
+/* 8018A554 001874B4  4B FE E6 D5 */	bl "__ct__17CPlasmaProjectileFRC28TToken<18CWeaponDescription>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>11EWeaponTypeRC9CBeamInfoRC12CTransform4f14EMaterialTypesRC11CDamageInfo9TUniqueId7TAreaId9TUniqueIdRCQ217CPlasmaProjectile21PlayerEffectResourcesb17EProjectileAttrib"
 /* 8018A558 001874B8  7C 7B 1B 78 */	mr r27, r3
 lbl_8018A55C:
 /* 8018A55C 001874BC  7E E0 07 75 */	extsb. r0, r23
@@ -818,7 +818,7 @@ lbl_8018A570:
 /* 8018A684 001875E4  38 C0 00 09 */	li r6, 9
 /* 8018A688 001875E8  39 20 00 21 */	li r9, 0x21
 /* 8018A68C 001875EC  90 01 00 1C */	stw r0, 0x1c(r1)
-/* 8018A690 001875F0  4B FE E5 99 */	bl "__ct__17CPlasmaProjectileFRC28TToken<18CWeaponDescription>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>11EWeaponTypeRC9CBeamInfoRC12CTransform4f14EMaterialTypesRC11CDamageInfo9TUniqueId9TUniqueIdbUi"
+/* 8018A690 001875F0  4B FE E5 99 */	bl "__ct__17CPlasmaProjectileFRC28TToken<18CWeaponDescription>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>11EWeaponTypeRC9CBeamInfoRC12CTransform4f14EMaterialTypesRC11CDamageInfo9TUniqueId7TAreaId9TUniqueIdRCQ217CPlasmaProjectile21PlayerEffectResourcesb17EProjectileAttrib"
 /* 8018A694 001875F4  7C 7B 1B 78 */	mr r27, r3
 lbl_8018A698:
 /* 8018A698 001875F8  7E E0 07 75 */	extsb. r0, r23
