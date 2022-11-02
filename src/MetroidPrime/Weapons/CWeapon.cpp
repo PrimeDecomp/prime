@@ -1,6 +1,8 @@
 #include "MetroidPrime/Weapons/CWeapon.hpp"
 
 #include "MetroidPrime/CActorParameters.hpp"
+#include "MetroidPrime/CFluidPlaneCPU.hpp"
+#include "MetroidPrime/CFluidPlaneManager.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptWater.hpp"
 
 #include <rstl/math.hpp>
@@ -33,10 +35,13 @@ void CWeapon::SetDamageFalloffSpeed(float speed) {
 void CWeapon::Think(float dt, CStateManager& mgr) {
   x148_curTime += dt;
   if ((xe8_projectileAttribs & kPA_DamageFalloff) == kPA_DamageFalloff) {
-    float damMul = CMath::Max(0.f, 1.f - x148_curTime * x14c_damageFalloffSpeed);
-    x12c_curDamageInfo = CDamageInfo(
-        x110_origDamageInfo.GetWeaponMode(), damMul * x110_origDamageInfo.GetDamage(),
-        damMul * x110_origDamageInfo.GetRadius(), damMul * x110_origDamageInfo.GetKnockBackPower());
+    float max = 1.f - x148_curTime * x14c_damageFalloffSpeed;
+    float scale = CMath::Max(0.f, max);
+    float damage = scale * x110_origDamageInfo.GetDamage();
+    float radius = scale * x110_origDamageInfo.GetRadius();
+    float knockback = scale * x110_origDamageInfo.GetKnockBackPower();
+    x12c_curDamageInfo =
+        CDamageInfo(x110_origDamageInfo.GetWeaponMode(), damage, radius, knockback);
   } else {
     x12c_curDamageInfo = x110_origDamageInfo;
   }
@@ -57,6 +62,7 @@ void CWeapon::FluidFXThink(EFluidState state, CScriptWater& water, CStateManager
     mag = 0.1f;
     break;
   case kWT_Plasma:
+    mag = 0.f;
     break;
   case kWT_Missile:
     mag = 0.5f;
@@ -80,26 +86,23 @@ void CWeapon::FluidFXThink(EFluidState state, CScriptWater& water, CStateManager
   if (mag > 1.f) {
     mag = 1.f;
   }
-#if 0
+
   if (doRipple) {
-    CVector3f pos = GetTranslation();
-    pos.SetZ(water.GetSurfaceZ()); // <- GetTriggerBoundsWR().GetMax().GetZ()
-    if (True(xe8_projectileAttribs & EProjectileAttrib::ComboShot)) {
+    CVector3f pos(GetTranslation().GetX(), GetTranslation().GetY(), water.GetSurfaceZ());
+    if ((xe8_projectileAttribs & kPA_ComboShot) != 0) {
       if (!water.CanRippleAtPoint(pos)) {
         doRipple = false;
       }
-    } else if (state == EFluidState::InFluid) {
+    } else if (state == kFS_InFluid) {
       doRipple = false;
     }
 
     if (doRipple) {
-      water.FluidPlane().AddRipple(mag, x8_uid, pos, water, mgr);
-      mgr.FluidPlaneManager()->CreateSplash(x8_uid, mgr, water, pos, mag,
-                                            state == EFluidState::EnteredFluid ||
-                                                state == EFluidState::LeftFluid);
+      bool sfx = state == kFS_EnteredFluid || state == kFS_LeftFluid;
+      water.FluidPlane().AddRipple(mag, GetUniqueId(), pos, water, mgr);
+      mgr.FluidPlaneManager()->CreateSplash(GetUniqueId(), mgr, water, pos, mag, sfx);
     }
   }
-#endif
 }
 
 void CWeapon::Render(const CStateManager& mgr) const {}
