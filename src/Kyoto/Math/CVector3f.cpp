@@ -29,11 +29,11 @@ void CVector3f::PutTo(COutputStream& out) const {
 }
 
 CVector3f CVector3f::Slerp(const CVector3f& a, const CVector3f& b, const CRelAngle& angle) {
-  CVector3f ab = CVector3f::Cross(a, b);
-  CVector3f vec = CVector3f::Cross(ab.AsNormalized(), a);
-  float sinAngle = sine(angle);
-  float cosAngle = cosine(angle);
-  return cosAngle * a + vec * sinAngle;
+  CVector3f axb = CVector3f::Cross(a, b).AsNormalized();
+  CVector3f crs = CVector3f::Cross(axb, a);
+  float asin = sine(angle);
+  float acos = cosine(angle);
+  return acos * a + asin * crs;
 }
 
 CVector3f& CVector3f::Normalize() {

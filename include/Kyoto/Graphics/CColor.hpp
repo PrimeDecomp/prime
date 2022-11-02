@@ -26,8 +26,6 @@ public:
     mA = a;
   }
 
-  CColor(CColor rgb, float a) : mRgba((rgb.GetColor_u32() & 0xffffff00) | CCast::ToUint8(a * 255.f)) {}
-
   void Set(float r, float g, float b, float a);
   void Set(uchar r, uchar g, uchar b, uchar a = 255) {
     mR = r;
@@ -37,9 +35,9 @@ public:
   }
   void Get(float& r, float& g, float& b, float& a) const;
   void Get(float& r, float& g, float& b) const;
-  void SetAlpha(float a) {
-    mA = CCast::ToUint8(a * 255.f);
-  }
+  // TODO check
+  void SetAlpha(float a) { mA = CCast::ToUint8(a * 255.f); }
+  void SetAlpha(uchar a) { mRgba = (mRgba & ~0xff) | a; }
 
   static CColor Lerp(const CColor& a, const CColor& b, float t);
   static uint Lerp(uint a, uint b, float t);
@@ -54,7 +52,8 @@ public:
   uchar GetBlueu8() const { return mB; }
   uchar GetAlphau8() const { return mA; }
   ushort ToRGB5A3() const;
-  GXColor ToGX(uint);
+  // TODO check
+  static GXColor ToGX(uint c) { return *reinterpret_cast< const GXColor* >(&c); }
   uint GetColor_u32() const { return mRgba; }
 
   static const CColor& Black();

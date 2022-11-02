@@ -135,7 +135,9 @@ void CVisorFlare::Render(const CVector3f& inPos, const CStateManager& mgr) const
   if (!close_enough(x24_, 0.f, 1.0E-5f)) {
     float acos = 0.f;
     if (!close_enough(x20_f3, 0.f, 1.0E-5f)) {
-      CVector3f camDist(CVector3f(inPosCopy.GetX() - camPos.GetX(), inPosCopy.GetY() - camPos.GetY(), 0.f).AsNormalized());
+      CVector3f camDist(
+          CVector3f(inPosCopy.GetX() - camPos.GetX(), inPosCopy.GetY() - camPos.GetY(), 0.f)
+              .AsNormalized());
       CVector3f camDir(CVector3f(camFront.GetX(), camFront.GetY(), 0.f).AsNormalized());
       acos = CMath::ArcCosineR(CVector3f::Dot(camDist, camDir));
       if (camDist.GetX() * camDir.GetY() - camDir.GetX() * camDist.GetY() < 0.f) {
@@ -179,27 +181,32 @@ void CVisorFlare::Render(const CVector3f& inPos, const CStateManager& mgr) const
 }
 
 void CVisorFlare::DrawDirect(const CColor& color, float f1, float f2) const {
-  // Giant TODO
-  // CColor kcolor = color;
-  // kcolor.a() *= x24_; // TODO i think this is wrong
-  GXColor gxColor;
-  CGX::SetTevKColor(GX_KCOLOR0, gxColor);
+  CColor kcolor = color;
+  kcolor.SetAlpha(kcolor.GetAlpha() * x24_);
+  CGX::SetTevKColor(GX_KCOLOR0, *reinterpret_cast< const GXColor* >(&kcolor));
   CGX::Begin(GX_TRIANGLESTRIP, GX_VTXFMT0, 4);
-  // GXPosition3f32(f1 - f2, 0.f, f2 + f1);
-  // GXTexCoord2f32(0.f, 1.f);
-  // GXPosition3f32(f2 + f1, 0.f, f2 - f1);
-  // GXTexCoord2f32(1.f, 1.f);
-  // GXPosition3f32(-(f2 - f1), 0.f, -(f2 - f1));
-  // GXTexCoord2f32(0.f, 0.f);
-  // GXPosition3f32(-f1 + f2, 0.f, -f2 - f1);
-  // GXTexCoord2f32(1.f, 0.f);
+  GXPosition3f32(f1 - f2, 0.f, f2 + f1);
+  GXTexCoord2f32(0.f, 1.f);
+  GXPosition3f32(f2 + f1, 0.f, f2 - f1);
+  GXTexCoord2f32(1.f, 1.f);
+  GXPosition3f32(-(f2 - f1), 0.f, -(f2 - f1));
+  GXTexCoord2f32(0.f, 0.f);
+  GXPosition3f32(-f1 + f2, 0.f, -f2 - f1);
+  GXTexCoord2f32(1.f, 0.f);
   CGX::End();
+}
+
+// fake but close
+static inline CColor ModulateAlpha(const CColor& color, float alphaMod) {
+  uchar a = CCast::ToUint8(static_cast< float >(color.GetAlphau8()) * alphaMod);
+  CColor result = color;
+  result.SetAlpha(a);
+  return result;
 }
 
 void CVisorFlare::DrawStreamed(const CColor& color, float f1, float f2) const {
   CGraphics::StreamBegin(kP_TriangleStrip);
-  float a = color.GetAlpha();  // TODO: incorrect
-  CGraphics::StreamColor(CColor(color, a * x24_));
+  CGraphics::StreamColor(ModulateAlpha(color, x24_));
   CGraphics::StreamTexcoord(0.f, 1.f);
   CGraphics::StreamVertex(f1 - f2, 0.f, f2 + f1);
   CGraphics::StreamTexcoord(1.f, 1.f);

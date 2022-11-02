@@ -17,8 +17,7 @@ public:
                           CAssetId c = kInvalidAssetId, CAssetId d = kInvalidAssetId,
                           CAssetId e = kInvalidAssetId, CAssetId f = kInvalidAssetId,
                           CAssetId g = kInvalidAssetId, CAssetId h = kInvalidAssetId)
-    : count(8)
-    {
+    : count(8) {
       data[0] = a;
       data[1] = b;
       data[2] = c;
@@ -33,9 +32,8 @@ public:
   CPlasmaProjectile(const TToken< CWeaponDescription >& wDesc, const rstl::string& name,
                     EWeaponType wType, const CBeamInfo& bInfo, const CTransform4f& xf,
                     EMaterialTypes matType, const CDamageInfo& dInfo, TUniqueId uid, TAreaId aid,
-                    TUniqueId owner,
-
-                    const PlayerEffectResources& res, bool growingBeam, EProjectileAttrib attribs);
+                    TUniqueId owner, const PlayerEffectResources& res, bool growingBeam,
+                    EProjectileAttrib attribs);
 
   void Accept(IVisitor& visitor) override;
   void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId sender, CStateManager& mgr) override;
