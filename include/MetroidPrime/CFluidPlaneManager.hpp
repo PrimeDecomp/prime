@@ -9,6 +9,12 @@
 #include "rstl/reserved_vector.hpp"
 
 class CFluidPlaneManager {
+public:
+  // TODO
+
+  void CreateSplash(TUniqueId splasher, CStateManager& mgr, const CScriptWater& water,
+                    const CVector3f& pos, float factor, bool sfx);
+
 private:
   class CSplashRecord {
     float x0_time;

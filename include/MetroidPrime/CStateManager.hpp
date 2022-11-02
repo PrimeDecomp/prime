@@ -154,6 +154,8 @@ public:
   CEnvFxManager* EnvFxManager() { return x880_envFxManager; }
   const CEnvFxManager* GetEnvFxManager() const { return x880_envFxManager; }
   CRumbleManager* GetRumbleManager() { return x88c_rumbleManager; }
+  CFluidPlaneManager* FluidPlaneManager() { return x87c_fluidPlaneManager; }
+  const CFluidPlaneManager* GetFluidPlaneManager() const { return x87c_fluidPlaneManager; }
 
   CRandom16* Random() const { return x900_random; }
 
