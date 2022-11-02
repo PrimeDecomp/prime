@@ -8,6 +8,7 @@ class CVector2f {
 
 public:
   CVector2f(float x, float y);
+
   float GetX() const { return mX; }
   float GetY() const { return mY; }
 

@@ -109,6 +109,13 @@ enum ERglEnum {
   kE_Always = GX_ALWAYS,
 };
 
+enum ERglCullMode {
+  kCM_None = GX_CULL_NONE,
+  kCM_Front = GX_CULL_FRONT,
+  kCM_Back = GX_CULL_BACK,
+  kCM_All = GX_CULL_ALL,
+};
+
 class CTimeProvider;
 
 class CGraphics {
@@ -122,6 +129,7 @@ public:
   static void StreamTexcoord(float u, float v);
   static void StreamVertex(float, float, float);
   static void StreamVertex(const CVector3f& vtx);
+  static void StreamVertex(const float*);
   static void StreamEnd();
 
   static const CTransform4f& GetViewMatrix() { return mViewMatrix; }
@@ -137,6 +145,7 @@ public:
                               u8 ref1);
   static void SetDepthWriteMode(bool test, ERglEnum comp, bool write);
   static void SetBlendMode(ERglBlendMode, ERglBlendFactor, ERglBlendFactor, ERglLogicOp);
+  static void SetCullMode(ERglCullMode);
 
   // Screen Position
   static void sub_80309564(uint* stretch, uint* xOffset, uint* yOffset);

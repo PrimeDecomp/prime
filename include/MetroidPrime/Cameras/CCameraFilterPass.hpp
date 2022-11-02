@@ -38,12 +38,20 @@ public:
     kFS_CookieCutterDepthRandomStatic
   };
 
+  CCameraFilterPass();
+
   void SetFilter(EFilterType type, EFilterShape shape, float time, const CColor& color,
                  CAssetId txtr);
   void DisableFilter(float time);
+  void Update(float dt);
 
   static void DrawWideScreen(const CColor& color, const CTexture* tex, float v);
-  static void DrawFilter(EFilterType type, EFilterShape shape, const CColor& color, const CTexture* tex, float lod);
+  static void DrawFilter(EFilterType type, EFilterShape shape, const CColor& color,
+                         const CTexture* tex, float lod);
+  static void DrawFullScreenColoredQuad(const CColor& color);
+  static void DrawFullScreenTexturedQuad(const CColor& color, const CTexture* tex, float lod);
+  static void DrawFullScreenTexturedQuadQuarters(const CColor& color, const CTexture* tex,
+                                                 float lod);
 
 private:
   EFilterType x0_curType;
