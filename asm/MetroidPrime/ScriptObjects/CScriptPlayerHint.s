@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803E32D8
-lbl_803E32D8:
+.global __vt__17CScriptPlayerHint
+__vt__17CScriptPlayerHint:
 	# ROM: 0x3E02D8
 	.4byte 0
 	.4byte 0
@@ -57,9 +57,9 @@ __dt__17CScriptPlayerHintFv:
 /* 8015B868 001587C8  93 C1 00 08 */	stw r30, 8(r1)
 /* 8015B86C 001587CC  7C 7E 1B 79 */	or. r30, r3, r3
 /* 8015B870 001587D0  41 82 00 88 */	beq lbl_8015B8F8
-/* 8015B874 001587D4  3C 60 80 3E */	lis r3, lbl_803E32D8@ha
+/* 8015B874 001587D4  3C 60 80 3E */	lis r3, __vt__17CScriptPlayerHint@ha
 /* 8015B878 001587D8  34 1E 00 E8 */	addic. r0, r30, 0xe8
-/* 8015B87C 001587DC  38 03 32 D8 */	addi r0, r3, lbl_803E32D8@l
+/* 8015B87C 001587DC  38 03 32 D8 */	addi r0, r3, __vt__17CScriptPlayerHint@l
 /* 8015B880 001587E0  90 1E 00 00 */	stw r0, 0(r30)
 /* 8015B884 001587E4  41 82 00 58 */	beq lbl_8015B8DC
 /* 8015B888 001587E8  80 BE 00 E8 */	lwz r5, 0xe8(r30)
@@ -219,7 +219,7 @@ lbl_8015BA94:
 /* 8015BAA0 00158A00  7F 83 E3 78 */	mr r3, r28
 /* 8015BAA4 00158A04  38 81 00 20 */	addi r4, r1, 0x20
 /* 8015BAA8 00158A08  B0 01 00 20 */	sth r0, 0x20(r1)
-/* 8015BAAC 00158A0C  48 00 01 61 */	bl AddToObjectList__17CScriptPlayerHintF9TUniqueIdR13CStateManager
+/* 8015BAAC 00158A0C  48 00 01 61 */	bl AddToObjectList__17CScriptPlayerHintF9TUniqueId
 /* 8015BAB0 00158A10  A0 1C 00 08 */	lhz r0, 8(r28)
 /* 8015BAB4 00158A14  7F 63 DB 78 */	mr r3, r27
 /* 8015BAB8 00158A18  7F E5 FB 78 */	mr r5, r31
@@ -321,8 +321,8 @@ lbl_8015BBE8:
 /* 8015BC04 00158B64  90 03 00 E8 */	stw r0, 0xe8(r3)
 /* 8015BC08 00158B68  4E 80 00 20 */	blr
 
-.global AddToObjectList__17CScriptPlayerHintF9TUniqueIdR13CStateManager
-AddToObjectList__17CScriptPlayerHintF9TUniqueIdR13CStateManager:
+.global AddToObjectList__17CScriptPlayerHintF9TUniqueId
+AddToObjectList__17CScriptPlayerHintF9TUniqueId:
 /* 8015BC0C 00158B6C  80 03 00 E8 */	lwz r0, 0xe8(r3)
 /* 8015BC10 00158B70  38 C3 00 EC */	addi r6, r3, 0xec
 /* 8015BC14 00158B74  54 00 08 3C */	slwi r0, r0, 1
@@ -433,9 +433,9 @@ lbl_8015BCB0:
 /* 8015BD80 00158CE0  38 61 00 88 */	addi r3, r1, 0x88
 /* 8015BD84 00158CE4  38 80 FF FF */	li r4, -1
 /* 8015BD88 00158CE8  4B FB AC C5 */	bl __dt__10CModelDataFv
-/* 8015BD8C 00158CEC  3C 60 80 3E */	lis r3, lbl_803E32D8@ha
+/* 8015BD8C 00158CEC  3C 60 80 3E */	lis r3, __vt__17CScriptPlayerHint@ha
 /* 8015BD90 00158CF0  38 00 00 00 */	li r0, 0
-/* 8015BD94 00158CF4  38 83 32 D8 */	addi r4, r3, lbl_803E32D8@l
+/* 8015BD94 00158CF4  38 83 32 D8 */	addi r4, r3, __vt__17CScriptPlayerHint@l
 /* 8015BD98 00158CF8  7F E3 FB 78 */	mr r3, r31
 /* 8015BD9C 00158CFC  90 9F 00 00 */	stw r4, 0(r31)
 /* 8015BDA0 00158D00  90 1F 00 E8 */	stw r0, 0xe8(r31)

@@ -223,7 +223,7 @@ LIBS = [
             "MetroidPrime/Enemies/CSpankWeed",
             "MetroidPrime/Enemies/CParasite",
             "MetroidPrime/Player/CSamusFaceReflection",
-            "MetroidPrime/ScriptObjects/CScriptPlayerHint",
+            ["MetroidPrime/ScriptObjects/CScriptPlayerHint", True],
             "MetroidPrime/Enemies/CRipper",
             "MetroidPrime/Cameras/CCameraShakeData",
             "MetroidPrime/ScriptObjects/CScriptPickupGenerator",
