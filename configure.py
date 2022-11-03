@@ -142,7 +142,7 @@ LIBS = [
             ["MetroidPrime/ScriptObjects/CScriptHUDMemo", True],
             "MetroidPrime/CMappableObject",
             "MetroidPrime/Player/CPlayerCameraBob",
-            "MetroidPrime/ScriptObjects/CScriptCameraFilterKeyframe",
+            ["MetroidPrime/ScriptObjects/CScriptCameraFilterKeyframe", True],
             ["MetroidPrime/ScriptObjects/CScriptCameraBlurKeyframe", True],
             ["MetroidPrime/Cameras/CCameraFilter", False],
             "MetroidPrime/Player/CMorphBall",
