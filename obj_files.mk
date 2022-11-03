@@ -113,7 +113,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/Player/CMorphBall.o\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptDamageableTrigger.o\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptDebris.o\
-	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptCameraShaker.o\
+	$(BUILD_DIR)/src/MetroidPrime/ScriptObjects/CScriptCameraShaker.o\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptActorKeyframe.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CConsoleOutputWindow.o\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptWater.o\

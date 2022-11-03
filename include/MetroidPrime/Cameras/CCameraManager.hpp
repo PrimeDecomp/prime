@@ -29,6 +29,9 @@ public:
   void SetPlayerCamera(CStateManager& mgr, TUniqueId newCamId);
   void SetFogDensity(float fogDensityTarget, float fogDensitySpeed);
   bool IsInCinematicCamera() const;
+  
+  void RemoveCameraShaker(int id);
+  int AddCameraShaker(const CCameraShakeData& data, bool sfx);
 
   static float DefaultThirdPersonFov();
   

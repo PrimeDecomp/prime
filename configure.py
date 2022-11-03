@@ -148,7 +148,7 @@ LIBS = [
             "MetroidPrime/Player/CMorphBall",
             "MetroidPrime/ScriptObjects/CScriptDamageableTrigger",
             "MetroidPrime/ScriptObjects/CScriptDebris",
-            "MetroidPrime/ScriptObjects/CScriptCameraShaker",
+            ["MetroidPrime/ScriptObjects/CScriptCameraShaker", True],
             "MetroidPrime/ScriptObjects/CScriptActorKeyframe",
             ["MetroidPrime/CConsoleOutputWindow", False],
             "MetroidPrime/ScriptObjects/CScriptWater",

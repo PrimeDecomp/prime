@@ -1400,20 +1400,20 @@ lbl_801AE260:
 /* 801AE2BC 001AB21C  4B E5 C7 65 */	bl AddCameraShaker__14CCameraManagerFRC16CCameraShakeDatab
 /* 801AE2C0 001AB220  34 81 00 A4 */	addic. r4, r1, 0xa4
 /* 801AE2C4 001AB224  41 82 00 10 */	beq lbl_801AE2D4
-/* 801AE2C8 001AB228  3C 60 80 3E */	lis r3, lbl_803D8EA8@ha
-/* 801AE2CC 001AB22C  38 03 8E A8 */	addi r0, r3, lbl_803D8EA8@l
+/* 801AE2C8 001AB228  3C 60 80 3E */	lis r3, __vt__22CCameraShakerComponent@ha
+/* 801AE2CC 001AB22C  38 03 8E A8 */	addi r0, r3, __vt__22CCameraShakerComponent@l
 /* 801AE2D0 001AB230  90 04 00 00 */	stw r0, 0(r4)
 lbl_801AE2D4:
 /* 801AE2D4 001AB234  34 81 00 68 */	addic. r4, r1, 0x68
 /* 801AE2D8 001AB238  41 82 00 10 */	beq lbl_801AE2E8
-/* 801AE2DC 001AB23C  3C 60 80 3E */	lis r3, lbl_803D8EA8@ha
-/* 801AE2E0 001AB240  38 03 8E A8 */	addi r0, r3, lbl_803D8EA8@l
+/* 801AE2DC 001AB23C  3C 60 80 3E */	lis r3, __vt__22CCameraShakerComponent@ha
+/* 801AE2E0 001AB240  38 03 8E A8 */	addi r0, r3, __vt__22CCameraShakerComponent@l
 /* 801AE2E4 001AB244  90 04 00 00 */	stw r0, 0(r4)
 lbl_801AE2E8:
 /* 801AE2E8 001AB248  34 81 00 2C */	addic. r4, r1, 0x2c
 /* 801AE2EC 001AB24C  41 82 00 84 */	beq lbl_801AE370
-/* 801AE2F0 001AB250  3C 60 80 3E */	lis r3, lbl_803D8EA8@ha
-/* 801AE2F4 001AB254  38 03 8E A8 */	addi r0, r3, lbl_803D8EA8@l
+/* 801AE2F0 001AB250  3C 60 80 3E */	lis r3, __vt__22CCameraShakerComponent@ha
+/* 801AE2F4 001AB254  38 03 8E A8 */	addi r0, r3, __vt__22CCameraShakerComponent@l
 /* 801AE2F8 001AB258  90 04 00 00 */	stw r0, 0(r4)
 /* 801AE2FC 001AB25C  48 00 00 74 */	b lbl_801AE370
 lbl_801AE300:
