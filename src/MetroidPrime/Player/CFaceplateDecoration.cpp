@@ -24,14 +24,20 @@ void CFaceplateDecoration::Update(float dt, const CStateManager& stateMgr) {
   }
 }
 
+// fake but close
+static inline CColor ChangeAlpha(CColor color, float alpha) {
+  color.SetAlpha(CCast::ToUint8(alpha * 255.f));
+  return color;
+}
+
 void CFaceplateDecoration::Draw(const CStateManager& stateMgr) const {
   if (x4_tex.valid() && x4_tex->IsLoaded()) {
     CTexture* texture = TToken< CTexture >(*x4_tex).GetT();
     float alpha = stateMgr.GetPlayer()->GetVisorSteam().GetAlpha();
     if (!close_enough(alpha, 0.f)) {
-      CColor color(CColor::White(), alpha);
       CCameraFilterPass::DrawFilter(CCameraFilterPass::kFT_Blend,
-                                    CCameraFilterPass::kFS_FullscreenQuarters, color, texture, 1.f);
+                                    CCameraFilterPass::kFS_FullscreenQuarters,
+                                    ChangeAlpha(CColor::White(), alpha), texture, 1.f);
     }
   }
 }
