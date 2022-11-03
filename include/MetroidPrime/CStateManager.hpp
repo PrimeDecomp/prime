@@ -180,6 +180,8 @@ public:
   float GetThermalColdScale1() const { return xf24_thermColdScale1; }
   float GetThermalColdScale2() const { return xf28_thermColdScale2; }
   void SetThermalColdScale2(float s) { xf28_thermColdScale2 = s; }
+  // TODO ?
+  void AddThermalColdScale2(float s) { xf28_thermColdScale2 += s; }
 
   bool IsGeneratingObject() const { return xf94_26_generatingObject; }
   void SetIsGeneratingObject(bool gen) { xf94_26_generatingObject = gen; }

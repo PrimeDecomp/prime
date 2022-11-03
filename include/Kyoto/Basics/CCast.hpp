@@ -10,13 +10,11 @@ namespace CCast {
 inline uchar ToUint8(register float in) {
   uchar a;
   register uchar* ptr = &a;
-  register uchar r;
 
   asm {
             psq_st  in, 0(ptr), 1, OS_FASTCAST_U8
-            lbz     r, 0(ptr)
   }
-  return r;
+  return *ptr;
 }
 
 inline float ToReal32(register const uchar& in) {

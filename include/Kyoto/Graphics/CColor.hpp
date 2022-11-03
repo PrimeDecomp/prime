@@ -16,7 +16,7 @@ class CInputStream;
 class CColor {
 public:
   CColor() { Set(255, 0, 255); }
-  CColor(uint col) : mRgba(col) {}
+  CColor(uint col) { Set(col); }
   CColor(CInputStream& in);
   CColor(float r, float g, float b, float a = 1.f);
   CColor(uchar r, uchar g, uchar b, uchar a = 255) {
@@ -33,6 +33,7 @@ public:
     mB = b;
     mA = a;
   }
+  void Set(uint col) { mRgba = col; }
   void Get(float& r, float& g, float& b, float& a) const;
   void Get(float& r, float& g, float& b) const;
   // TODO check. Maybe this calls SetAlpha(uchar)?
@@ -52,9 +53,16 @@ public:
   uchar GetBlueu8() const { return mB; }
   uchar GetAlphau8() const { return mA; }
   ushort ToRGB5A3() const;
+  uint GetColor_u32() const { return mRgba; }
+  const GXColor& GetGXColor() const { return *reinterpret_cast< const GXColor* >(this); }
+
+  CColor WithAlphaOf(float a) const { return CColor((mRgba & ~0xff) | CCast::ToUint8(a * 255.f)); }
+  CColor WithAlphaModulatedBy(float a) const {
+    return CColor((mRgba & ~0xff) | CCast::ToUint8(a * static_cast< float >(mA)));
+  }
+
   // TODO check
   static GXColor ToGX(uint c) { return *reinterpret_cast< const GXColor* >(&c); }
-  uint GetColor_u32() const { return mRgba; }
 
   static const CColor& Black();
   static const CColor& White();

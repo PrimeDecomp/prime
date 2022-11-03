@@ -57,54 +57,50 @@ CVisorFlare::CVisorFlare(EBlendMode blendMode, bool b1, float f1, float f2, floa
 , x30_w2(w2) {}
 
 void CVisorFlare::Update(float dt, const CVector3f& pos, const CActor* act, CStateManager& mgr) {
-  const CPlayerState::EPlayerVisor visor = mgr.GetPlayerState()->GetCurrentVisor();
+  CPlayerState::EPlayerVisor visor = mgr.GetPlayerState()->GetCurrentVisor();
 
   if ((visor == CPlayerState::kPV_Combat || (x2c_w1 != 1 && visor == CPlayerState::kPV_Thermal)) &&
       mgr.GetPlayer()->GetMorphballTransitionState() == CPlayer::kMS_Unmorphed) {
 
     CVector3f camPos = mgr.GetCameraManager()->GetCurrentCamera(mgr)->GetTranslation();
     CVector3f camDiff = pos - camPos;
-    const float mag = camDiff.Magnitude();
-    camDiff = camDiff * (1.f / mag);
+    float mag = camDiff.Magnitude();
+    camDiff *= (1.f / mag);
 
-    bool rayCastIsValid;
+    CMaterialFilter nearMaterialList = CMaterialFilter::MakeInclude(CMaterialList(kMT_Occluder));
+    TEntityList nearVec;
+    mgr.BuildNearList(nearVec, camPos, camDiff, mag, nearMaterialList, act);
 
-    {
-      const CMaterialFilter& nearMaterialList =
-          CMaterialFilter::MakeInclude(CMaterialList(kMT_Occluder));
-      TEntityList nearVec;
-      mgr.BuildNearList(nearVec, camPos, camDiff, mag, nearMaterialList, act);
+    CMaterialFilter rayMaterialList = CMaterialFilter::MakeIncludeExclude(
+        CMaterialList(kMT_Solid), CMaterialList(kMT_SeeThrough));
+    TUniqueId id(kInvalidUniqueId);
+    CRayCastResult result =
+        mgr.RayWorldIntersection(id, camPos, camDiff, mag, rayMaterialList, nearVec);
+    nearVec.clear();
 
-      const CMaterialFilter& rayMaterialList = CMaterialFilter::MakeIncludeExclude(
-          CMaterialList(kMT_Solid), CMaterialList(kMT_SeeThrough));
-      TUniqueId id(kInvalidUniqueId);
-      rayCastIsValid =
-          mgr.RayWorldIntersection(id, camPos, camDiff, mag, rayMaterialList, nearVec).IsValid();
-    }
-
-    if (!rayCastIsValid) {
-      x28_ -= dt;
-    } else {
+    if (result.IsValid()) {
       x28_ += dt;
+    } else {
+      x28_ -= dt;
     }
-    x28_ = rstl::max_val(x18_f1, rstl::min_val(x28_, 0.f));
+    x28_ = rstl::max_val(rstl::max_val(0.f, x28_), x18_f1);
 
     const CGameCamera* curCam = mgr.GetCameraManager()->GetCurrentCamera(mgr);
-    const CVector3f cameraForward = curCam->GetTransform().GetForward();
-    x24_ = 1.f - (x28_ / x18_f1);
+    CVector3f cameraForward = curCam->GetTransform().GetColumn(kDY);
+    CVector3f dir = pos - curCam->GetTranslation();
+    x24_ = 1.f - x28_ / x18_f1;
 
-    const CVector3f dir = (pos - curCam->GetTranslation()).AsNormalized();
-    float dot = CVector3f::Dot(dir, cameraForward);
+    float dot = CVector3f::Dot(dir.AsNormalized(), cameraForward);
     x24_ *= rstl::max_val(0.f, 1.f - (x1c_f2 * 4.f * (1.f - dot)));
 
     if (x2c_w1 == 2) {
-      mgr.SetThermalColdScale2(mgr.GetThermalColdScale2() + x24_);
+      mgr.AddThermalColdScale2(x24_);
     }
   }
 }
 
 void CVisorFlare::Render(const CVector3f& inPos, const CStateManager& mgr) const {
-  if (close_enough(x28_, x18_f1, 1.0E-5f) ||
+  if (close_enough(x28_, x18_f1) ||
       mgr.GetPlayer()->GetMorphballTransitionState() != CPlayer::kMS_Unmorphed) {
     return;
   }
@@ -126,15 +122,15 @@ void CVisorFlare::Render(const CVector3f& inPos, const CStateManager& mgr) const
   gpRender->SetDepthReadWrite(false, false);
   const CGameCamera* cam = mgr.GetCameraManager()->GetCurrentCamera(mgr);
   CVector3f camPos = cam->GetTranslation();
-  CVector3f inPosCopy(inPos);
+  CVector3f inPosCopy = inPos;
 
   CTransform4f viewMatrix = CGraphics::GetViewMatrix();
   const CVector3f invPos = viewMatrix.GetInverse() * inPosCopy;
   const CVector3f invPos2 = viewMatrix * CVector3f(-invPos.GetX(), invPos.GetY(), -invPos.GetZ());
   CVector3f camFront = cam->GetTransform().GetForward();
-  if (!close_enough(x24_, 0.f, 1.0E-5f)) {
+  if (!close_enough(x24_, 0.f)) {
     float acos = 0.f;
-    if (!close_enough(x20_f3, 0.f, 1.0E-5f)) {
+    if (!close_enough(x20_f3, 0.f)) {
       CVector3f camDist(
           CVector3f(inPosCopy.GetX() - camPos.GetX(), inPosCopy.GetY() - camPos.GetY(), 0.f)
               .AsNormalized());
@@ -148,10 +144,8 @@ void CVisorFlare::Render(const CVector3f& inPos, const CStateManager& mgr) const
     SetupRenderState(mgr);
     for (rstl::vector< CFlareDef >::const_iterator item = x4_flareDefs.begin();
          item != x4_flareDefs.end(); ++item) {
-
-      const float itemPos = item->GetPosition();
-      const CVector3f origin = inPosCopy * (1.f - itemPos) + invPos2 * itemPos;
-      CTransform4f modelMatrix(CTransform4f::LookAt(origin, camPos));
+      CVector3f origin = CVector3f::Lerp(inPosCopy, invPos2, item->GetPosition());
+      CTransform4f modelMatrix = CTransform4f::LookAt(origin, camPos);
       gpRender->SetModelMatrix(modelMatrix);
       float scale = 0.5f * x24_ * item->GetScale();
       if (x14_b1) {
@@ -161,7 +155,8 @@ void CVisorFlare::Render(const CVector3f& inPos, const CStateManager& mgr) const
         }
       }
       if (item->GetTexture().IsLoaded()) {
-        item->GetTexture()->Load(GX_TEXMAP0, CTexture::kCM_Repeat);
+        TToken< CTexture > tok = item->GetTexture();
+        tok->Load(GX_TEXMAP0, CTexture::kCM_Repeat);
         float f1;
         if (close_enough(acos, 0.f)) {
           f1 = 0.f;
@@ -182,31 +177,23 @@ void CVisorFlare::Render(const CVector3f& inPos, const CStateManager& mgr) const
 
 void CVisorFlare::DrawDirect(const CColor& color, float f1, float f2) const {
   CColor kcolor = color;
-  kcolor.SetAlpha(kcolor.GetAlpha() * x24_);
-  CGX::SetTevKColor(GX_KCOLOR0, *reinterpret_cast< const GXColor* >(&kcolor));
+  kcolor.SetAlpha(kcolor.GetRed() * x24_);
+  CGX::SetTevKColor(GX_KCOLOR0, kcolor.GetGXColor());
   CGX::Begin(GX_TRIANGLESTRIP, GX_VTXFMT0, 4);
   GXPosition3f32(f1 - f2, 0.f, f2 + f1);
   GXTexCoord2f32(0.f, 1.f);
-  GXPosition3f32(f2 + f1, 0.f, f2 - f1);
+  GXPosition3f32(f1 + f2, 0.f, f2 - f1);
   GXTexCoord2f32(1.f, 1.f);
-  GXPosition3f32(-(f2 - f1), 0.f, -(f2 - f1));
+  GXPosition3f32(-(f1 + f2), 0.f, -(f2 - f1));
   GXTexCoord2f32(0.f, 0.f);
   GXPosition3f32(-f1 + f2, 0.f, -f2 - f1);
   GXTexCoord2f32(1.f, 0.f);
   CGX::End();
 }
 
-// fake but close
-static inline CColor ModulateAlpha(const CColor& color, float alphaMod) {
-  uchar a = CCast::ToUint8(static_cast< float >(color.GetAlphau8()) * alphaMod);
-  CColor result = color;
-  result.SetAlpha(a);
-  return result;
-}
-
 void CVisorFlare::DrawStreamed(const CColor& color, float f1, float f2) const {
   CGraphics::StreamBegin(kP_TriangleStrip);
-  CGraphics::StreamColor(ModulateAlpha(color, x24_));
+  CGraphics::StreamColor(color.WithAlphaModulatedBy(x24_));
   CGraphics::StreamTexcoord(0.f, 1.f);
   CGraphics::StreamVertex(f1 - f2, 0.f, f2 + f1);
   CGraphics::StreamTexcoord(1.f, 1.f);
