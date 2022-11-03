@@ -31,6 +31,8 @@ public:
   bool HasShadowLight() const { return x29c_shadowLightArrIdx != -1; }
   int GetShadowLightIndex() const { return x2a0_shadowLightIdx; }
 
+  void SetAmbientColor(const CColor& color);
+  void SetCastShadows(bool v) { x298_25_castShadows = v; }
   void SetFindShadowLight(bool v) { x298_27_findShadowLight = v; }
   void SetShadowDynamicRangeThreshold(float t) { x2d0_shadowDynamicRangeThreshold = t; }
 

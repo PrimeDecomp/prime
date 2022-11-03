@@ -20,7 +20,8 @@ CScriptPlayerHint::CScriptPlayerHint(TUniqueId uid, const rstl::string& name,
 void CScriptPlayerHint::ClearObjectList() { xe8_objectList.clear(); }
 
 void CScriptPlayerHint::AddToObjectList(TUniqueId uid) {
-  rstl::reserved_vector< TUniqueId, 8 >::iterator it = rstl::find(xe8_objectList.begin(), xe8_objectList.end(), uid);
+  rstl::reserved_vector< TUniqueId, 8 >::iterator it =
+      rstl::find(xe8_objectList.begin(), xe8_objectList.end(), uid);
   if (it != xe8_objectList.end()) {
     return;
   }
@@ -32,7 +33,8 @@ void CScriptPlayerHint::RemoveFromObjectList(TUniqueId uid, CStateManager& mgr) 
     return;
   }
 
-  rstl::reserved_vector< TUniqueId, 8 >::iterator it = rstl::find(xe8_objectList.begin(), xe8_objectList.end(), uid);
+  rstl::reserved_vector< TUniqueId, 8 >::iterator it =
+      rstl::find(xe8_objectList.begin(), xe8_objectList.end(), uid);
 
   if (it == xe8_objectList.end()) {
     xe8_objectList.erase(xe8_objectList.begin());
@@ -46,12 +48,13 @@ void CScriptPlayerHint::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId send
 
   switch (msg) {
   case kSM_Deactivate:
-  case kSM_Deleted:
+  case kSM_Deleted: {
     RemoveFromObjectList(sender, mgr);
     CPlayer* player = mgr.Player();
     player->AddToPlayerHintRemoveList(GetUniqueId(), mgr);
     xfc_deactivated = true;
     break;
+  }
   case kSM_Increment:
     x108_mpId = kInvalidUniqueId;
     if ((x104_overrideFlags & 0x4000) != 0) {
@@ -74,7 +77,7 @@ void CScriptPlayerHint::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId send
   }
   if (GetActive()) {
     CPlayer* player = mgr.Player();
-    
+
     switch (msg) {
     case kSM_Increment:
       AddToObjectList(sender);

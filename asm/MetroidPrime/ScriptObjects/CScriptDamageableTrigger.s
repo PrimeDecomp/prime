@@ -1051,7 +1051,7 @@ lbl_800FB240:
 /* 800FB2B8 000F8218  7E 05 83 78 */	mr r5, r16
 /* 800FB2BC 000F821C  38 61 01 FC */	addi r3, r1, 0x1fc
 /* 800FB2C0 000F8220  38 81 02 64 */	addi r4, r1, 0x264
-/* 800FB2C4 000F8224  48 00 B4 ED */	bl MakeDamageableTriggerActorParms__FRC16CActorParametersRC16CVisorParameters
+/* 800FB2C4 000F8224  48 00 B4 ED */	bl MakeDamageableTriggerActorParms__16CActorParametersCFRC16CVisorParameters
 /* 800FB2C8 000F8228  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 800FB2CC 000F822C  2C 1E 00 01 */	cmpwi r30, 1
 /* 800FB2D0 000F8230  3A 21 00 10 */	addi r17, r1, 0x10

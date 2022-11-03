@@ -8124,7 +8124,7 @@ lbl_801E119C:
 /* 801E129C 001DE1FC  38 E0 00 01 */	li r7, 1
 /* 801E12A0 001DE200  39 00 00 02 */	li r8, 2
 /* 801E12A4 001DE204  39 20 00 00 */	li r9, 0
-/* 801E12A8 001DE208  4B F2 54 51 */	bl __ct__16CLightParametersFbfQ216CLightParameters19EShadowTessellationffRC6CColorbQ216CLightParameters21EWorldLightingOptionsQ216CLightParameters26ELightRecalculationOptionsRC9CVector3fii
+/* 801E12A8 001DE208  4B F2 54 51 */	bl __ct__16CLightParametersFbfQ216CLightParameters19EShadowTessellationffRC6CColorbQ216CLightParameters21EWorldLightingOptionsQ216CLightParameters26ELightRecalculationOptionsRC9CVector3fiibi
 /* 801E12AC 001DE20C  C0 22 AC DC */	lfs f1, lbl_805AC9FC@sda21(r2)
 /* 801E12B0 001DE210  38 00 00 00 */	li r0, 0
 /* 801E12B4 001DE214  90 01 00 08 */	stw r0, 8(r1)
@@ -8140,7 +8140,7 @@ lbl_801E119C:
 /* 801E12DC 001DE23C  3A E0 00 01 */	li r23, 1
 /* 801E12E0 001DE240  39 20 00 01 */	li r9, 1
 /* 801E12E4 001DE244  39 40 00 01 */	li r10, 1
-/* 801E12E8 001DE248  4B F2 55 E1 */	bl sub_801068c8
+/* 801E12E8 001DE248  4B F2 55 E1 */	bl "__ct__16CActorParametersFRC16CLightParametersRC20CScannableParametersRCQ24rstl11pair<Ui,Ui>RCQ24rstl11pair<Ui,Ui>RC16CVisorParametersbbbbfff"
 /* 801E12EC 001DE24C  C0 02 AC DC */	lfs f0, lbl_805AC9FC@sda21(r2)
 /* 801E12F0 001DE250  3C 60 80 57 */	lis r3, NullConnectionList__7CEntity@ha
 /* 801E12F4 001DE254  38 A3 D4 10 */	addi r5, r3, NullConnectionList__7CEntity@l

@@ -14,7 +14,7 @@ class CActorLights;
 
 class CLightParameters {
 public:
-  enum EShadowTesselation {
+  enum EShadowTessellation {
     kST_Invalid = -1,
     kST_Zero,
   };
@@ -33,22 +33,26 @@ public:
     kLR_OneFrame,
   };
 
-  // CLightParameters() {
-  //   // TODO
-  // }
-
+  CLightParameters();
+  CLightParameters(bool, float, EShadowTessellation, float, float, const CColor&, bool,
+                   EWorldLightingOptions, ELightRecalculationOptions, const CVector3f&, int, int,
+                   bool, int);
   virtual ~CLightParameters();
 
   const CColor& GetAmbientColor() const { return x18_noLightsAmbient; }
   bool ShouldMakeLights() const { return x1c_makeLights; }
+  CVector3f GetActorPosBias() const { return x2c_actorPosBias; }
   int GetMaxAreaLights() const { return x3c_maxAreaLights; }
 
+  static CLightParameters None();
+
+  static uint GetFramesBetweenRecalculation(ELightRecalculationOptions opts);
   rstl::auto_ptr< CActorLights > MakeActorLights() const;
 
 private:
   bool x4_castShadow;
   float x8_shadowScale;
-  EShadowTesselation xc_shadowTesselation;
+  EShadowTessellation xc_shadowTesselation;
   float x10_shadowAlpha;
   float x14_maxShadowHeight;
   CColor x18_noLightsAmbient;
@@ -77,9 +81,7 @@ CHECK_SIZEOF(CScannableParameters, 0x4)
 
 class CVisorParameters {
 public:
-  CVisorParameters() {
-    // TODO
-  }
+  CVisorParameters() : x0_mask(0xf), x0_4_b1(false), x0_5_scanPassthrough(false) {}
   CVisorParameters(uchar mask, bool b1, bool scanPassthrough)
   : x0_mask(mask), x0_4_b1(b1), x0_5_scanPassthrough(scanPassthrough) {}
 
@@ -99,10 +101,18 @@ CHECK_SIZEOF(CVisorParameters, 0x4)
 
 class CActorParameters {
 public:
-  // CActorParameters() {
-  //   // TODO
-  // }
+  CActorParameters();
+  CActorParameters(const CLightParameters& lightParms, const CScannableParameters& scanParms,
+                   const rstl::pair< CAssetId, CAssetId >& xrayAssets,
+                   const rstl::pair< CAssetId, CAssetId >& thermalAssets,
+                   const CVisorParameters& visorParms, bool globalTimeProvider, bool thermalHeat,
+                   bool renderUnsorted, bool noSortThermal, float fadeInTime, float fadeOutTime,
+                   float thermalMag);
+  CActorParameters(const CActorParameters&);
+
   CActorParameters Scannable(const CScannableParameters& sParms) const;
+  CActorParameters HotInThermal(bool hot) const;
+  CActorParameters MakeDamageableTriggerActorParms(const CVisorParameters& visorParam) const;
 
   const CLightParameters& GetLighting() const { return x0_lightParams; }
   const CScannableParameters& GetScannable() const { return x40_scanParams; }
@@ -118,11 +128,6 @@ public:
   float GetFadeOutTime() const { return x60_fadeOutTime; }
 
   static CActorParameters None();
-  CActorParameters HotInThermal(bool hot) const;/* {
-    CActorParameters ret = *this;
-    ret.x58_25_thermalHeat = hot;
-    return ret;
-  }*/
 
 private:
   CLightParameters x0_lightParams;
@@ -138,6 +143,6 @@ private:
   float x60_fadeOutTime;
   float x64_thermalMag;
 };
-CHECK_SIZEOF(CActorParameters, 0x68)
+// CHECK_SIZEOF(CActorParameters, 0x68)
 
 #endif // _CACTORPARAMETERS

@@ -2266,7 +2266,7 @@ lbl_80205314:
 /* 80205404 00202364  38 E0 00 01 */	li r7, 1
 /* 80205408 00202368  39 00 00 02 */	li r8, 2
 /* 8020540C 0020236C  39 20 00 00 */	li r9, 0
-/* 80205410 00202370  4B F0 12 E9 */	bl __ct__16CLightParametersFbfQ216CLightParameters19EShadowTessellationffRC6CColorbQ216CLightParameters21EWorldLightingOptionsQ216CLightParameters26ELightRecalculationOptionsRC9CVector3fii
+/* 80205410 00202370  4B F0 12 E9 */	bl __ct__16CLightParametersFbfQ216CLightParameters19EShadowTessellationffRC6CColorbQ216CLightParameters21EWorldLightingOptionsQ216CLightParameters26ELightRecalculationOptionsRC9CVector3fiibi
 /* 80205414 00202374  C0 22 B0 A0 */	lfs f1, lbl_805ACDC0@sda21(r2)
 /* 80205418 00202378  38 00 00 00 */	li r0, 0
 /* 8020541C 0020237C  90 01 00 08 */	stw r0, 8(r1)
@@ -2282,7 +2282,7 @@ lbl_80205314:
 /* 80205444 002023A4  3A C0 00 01 */	li r22, 1
 /* 80205448 002023A8  39 20 00 01 */	li r9, 1
 /* 8020544C 002023AC  39 40 00 01 */	li r10, 1
-/* 80205450 002023B0  4B F0 14 79 */	bl sub_801068c8
+/* 80205450 002023B0  4B F0 14 79 */	bl "__ct__16CActorParametersFRC16CLightParametersRC20CScannableParametersRCQ24rstl11pair<Ui,Ui>RCQ24rstl11pair<Ui,Ui>RC16CVisorParametersbbbbfff"
 /* 80205454 002023B4  7F E3 FB 78 */	mr r3, r31
 /* 80205458 002023B8  7F C4 F3 78 */	mr r4, r30
 /* 8020545C 002023BC  81 9F 00 00 */	lwz r12, 0(r31)
