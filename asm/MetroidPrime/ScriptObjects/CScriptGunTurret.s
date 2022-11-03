@@ -2305,7 +2305,7 @@ lbl_802176A0:
 /* 8021777C 002146DC  90 01 00 20 */	stw r0, 0x20(r1)
 /* 80217780 002146E0  93 81 00 24 */	stw r28, 0x24(r1)
 /* 80217784 002146E4  91 81 00 28 */	stw r12, 0x28(r1)
-/* 80217788 002146E8  4B FF DF 11 */	bl "__ct__17CEnergyProjectileFbRC28TToken<18CWeaponDescription>11EWeaponTypeRC12CTransform4f14EMaterialTypesRC11CDamageInfo9TUniqueId7TAreaId9TUniqueId9TUniqueIdUibRC9CVector3fRCQ24rstl50optional_object<31TLockedToken<15CGenDescription>>sb"
+/* 80217788 002146E8  4B FF DF 11 */	bl "__ct__17CEnergyProjectileFbRC28TToken<18CWeaponDescription>11EWeaponTypeRC12CTransform4f14EMaterialTypesRC11CDamageInfo9TUniqueId7TAreaId9TUniqueId9TUniqueIdUibRC9CVector3fRCQ24rstl50optional_object<31TLockedToken<15CGenDescription>>Usb"
 /* 8021778C 002146EC  7C 7D 1B 78 */	mr r29, r3
 lbl_80217790:
 /* 80217790 002146F0  28 1D 00 00 */	cmplwi r29, 0

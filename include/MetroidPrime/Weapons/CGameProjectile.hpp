@@ -35,7 +35,7 @@ public:
   const CVector3f& GetPreviousPos() const { return x298_previousPos; }
   TUniqueId GetHomingTargetId() const { return x2c0_homingTargetId; }
 
-private:
+protected:
   rstl::optional_object< TLockedToken< CGenDescription > > x158_visorParticle;
   ushort x168_visorSfx;
   CProjectileWeapon x170_projectile;

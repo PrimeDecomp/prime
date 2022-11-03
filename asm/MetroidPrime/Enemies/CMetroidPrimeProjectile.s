@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803EC390
-lbl_803EC390:
+.global __vt__23CMetroidPrimeProjectile
+__vt__23CMetroidPrimeProjectile:
 	# ROM: 0x3E9390
 	.4byte 0
 	.4byte 0
@@ -49,9 +49,9 @@ __dt__23CMetroidPrimeProjectileFv:
 /* 802A034C 0029D2AC  93 C1 00 08 */	stw r30, 8(r1)
 /* 802A0350 0029D2B0  7C 7E 1B 79 */	or. r30, r3, r3
 /* 802A0354 0029D2B4  41 82 00 44 */	beq lbl_802A0398
-/* 802A0358 0029D2B8  3C 60 80 3F */	lis r3, lbl_803EC390@ha
+/* 802A0358 0029D2B8  3C 60 80 3F */	lis r3, __vt__23CMetroidPrimeProjectile@ha
 /* 802A035C 0029D2BC  34 1E 03 D8 */	addic. r0, r30, 0x3d8
-/* 802A0360 0029D2C0  38 03 C3 90 */	addi r0, r3, lbl_803EC390@l
+/* 802A0360 0029D2C0  38 03 C3 90 */	addi r0, r3, __vt__23CMetroidPrimeProjectile@l
 /* 802A0364 0029D2C4  90 1E 00 00 */	stw r0, 0(r30)
 /* 802A0368 0029D2C8  41 82 00 14 */	beq lbl_802A037C
 /* 802A036C 0029D2CC  34 7E 03 DC */	addic. r3, r30, 0x3dc
@@ -282,8 +282,8 @@ Accept__23CMetroidPrimeProjectileFR8IVisitor:
 /* 802A06BC 0029D61C  38 21 00 10 */	addi r1, r1, 0x10
 /* 802A06C0 0029D620  4E 80 00 20 */	blr
 
-.global "__ct__23CMetroidPrimeProjectileFbRC28TToken<18CWeaponDescription>11EWeaponTypeRC12CTransform4f14EMaterialTypesRC11CDamageInfo9TUniqueId7TAreaId9TUniqueIdUi9TUniqueIdUiRC9CVector3fRCQ24rstl50optional_object<31TLockedToken<15CGenDescription>>sb"
-"__ct__23CMetroidPrimeProjectileFbRC28TToken<18CWeaponDescription>11EWeaponTypeRC12CTransform4f14EMaterialTypesRC11CDamageInfo9TUniqueId7TAreaId9TUniqueIdUi9TUniqueIdUiRC9CVector3fRCQ24rstl50optional_object<31TLockedToken<15CGenDescription>>sb":
+.global "__ct__23CMetroidPrimeProjectileFbRC28TToken<18CWeaponDescription>11EWeaponTypeRC12CTransform4f14EMaterialTypesRC11CDamageInfo9TUniqueId7TAreaId9TUniqueIdRC20SPrimeProjectileInfo9TUniqueIdUiRC9CVector3fRCQ24rstl50optional_object<31TLockedToken<15CGenDescription>>Usb"
+"__ct__23CMetroidPrimeProjectileFbRC28TToken<18CWeaponDescription>11EWeaponTypeRC12CTransform4f14EMaterialTypesRC11CDamageInfo9TUniqueId7TAreaId9TUniqueIdRC20SPrimeProjectileInfo9TUniqueIdUiRC9CVector3fRCQ24rstl50optional_object<31TLockedToken<15CGenDescription>>Usb":
 /* 802A06C4 0029D624  94 21 FF A0 */	stwu r1, -0x60(r1)
 /* 802A06C8 0029D628  7C 08 02 A6 */	mflr r0
 /* 802A06CC 0029D62C  90 01 00 64 */	stw r0, 0x64(r1)
@@ -320,10 +320,10 @@ Accept__23CMetroidPrimeProjectileFR8IVisitor:
 /* 802A0748 0029D6A8  93 41 00 20 */	stw r26, 0x20(r1)
 /* 802A074C 0029D6AC  93 61 00 24 */	stw r27, 0x24(r1)
 /* 802A0750 0029D6B0  93 81 00 28 */	stw r28, 0x28(r1)
-/* 802A0754 0029D6B4  4B F7 4F 45 */	bl "__ct__17CEnergyProjectileFbRC28TToken<18CWeaponDescription>11EWeaponTypeRC12CTransform4f14EMaterialTypesRC11CDamageInfo9TUniqueId7TAreaId9TUniqueId9TUniqueIdUibRC9CVector3fRCQ24rstl50optional_object<31TLockedToken<15CGenDescription>>sb"
-/* 802A0758 0029D6B8  3C 80 80 3F */	lis r4, lbl_803EC390@ha
+/* 802A0754 0029D6B4  4B F7 4F 45 */	bl "__ct__17CEnergyProjectileFbRC28TToken<18CWeaponDescription>11EWeaponTypeRC12CTransform4f14EMaterialTypesRC11CDamageInfo9TUniqueId7TAreaId9TUniqueId9TUniqueIdUibRC9CVector3fRCQ24rstl50optional_object<31TLockedToken<15CGenDescription>>Usb"
+/* 802A0758 0029D6B8  3C 80 80 3F */	lis r4, __vt__23CMetroidPrimeProjectile@ha
 /* 802A075C 0029D6BC  38 7F 03 DC */	addi r3, r31, 0x3dc
-/* 802A0760 0029D6C0  38 04 C3 90 */	addi r0, r4, lbl_803EC390@l
+/* 802A0760 0029D6C0  38 04 C3 90 */	addi r0, r4, __vt__23CMetroidPrimeProjectile@l
 /* 802A0764 0029D6C4  38 9D 00 04 */	addi r4, r29, 4
 /* 802A0768 0029D6C8  90 1F 00 00 */	stw r0, 0(r31)
 /* 802A076C 0029D6CC  80 1D 00 00 */	lwz r0, 0(r29)

@@ -466,7 +466,7 @@ lbl_800E04E4:
 /* 800E0610 000DD570  91 81 00 20 */	stw r12, 0x20(r1)
 /* 800E0614 000DD574  91 61 00 24 */	stw r11, 0x24(r1)
 /* 800E0618 000DD578  90 01 00 28 */	stw r0, 0x28(r1)
-/* 800E061C 000DD57C  48 13 50 7D */	bl "__ct__17CEnergyProjectileFbRC28TToken<18CWeaponDescription>11EWeaponTypeRC12CTransform4f14EMaterialTypesRC11CDamageInfo9TUniqueId7TAreaId9TUniqueId9TUniqueIdUibRC9CVector3fRCQ24rstl50optional_object<31TLockedToken<15CGenDescription>>sb"
+/* 800E061C 000DD57C  48 13 50 7D */	bl "__ct__17CEnergyProjectileFbRC28TToken<18CWeaponDescription>11EWeaponTypeRC12CTransform4f14EMaterialTypesRC11CDamageInfo9TUniqueId7TAreaId9TUniqueId9TUniqueIdUibRC9CVector3fRCQ24rstl50optional_object<31TLockedToken<15CGenDescription>>Usb"
 /* 800E0620 000DD580  7C 7D 1B 78 */	mr r29, r3
 lbl_800E0624:
 /* 800E0624 000DD584  7E 40 07 75 */	extsb. r0, r18
