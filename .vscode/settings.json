@@ -23,7 +23,9 @@
     "dvd.h": "c",
     "dvdpriv.h": "c",
     "__ppc_eabi_linker.h": "c",
-    "hack.h": "c"
+    "hack.h": "c",
+    "db.h": "c",
+    "ppcarch.h": "c"
   },
   "files.autoSave": "onFocusChange",
   "files.insertFinalNewline": true,

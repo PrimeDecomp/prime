@@ -289,7 +289,7 @@ lbl_80353BD0:
 /* 80353BD0 00350B30  1C BF 00 0C */	mulli r5, r31, 0xc
 /* 80353BD4 00350B34  38 05 00 1F */	addi r0, r5, 0x1f
 /* 80353BD8 00350B38  54 05 00 34 */	rlwinm r5, r0, 0, 0, 0x1a
-/* 80353BDC 00350B3C  48 02 B1 85 */	bl sub_8037ed60
+/* 80353BDC 00350B3C  48 02 B1 85 */	bl LCLoadData
 /* 80353BE0 00350B40  88 0D 9E 04 */	lbz r0, lbl_805A89C4@sda21(r13)
 /* 80353BE4 00350B44  80 6D AA 74 */	lwz r3, lbl_805A9634@sda21(r13)
 /* 80353BE8 00350B48  7C 00 00 34 */	cntlzw r0, r0
@@ -1126,4 +1126,3 @@ lbl_803D8300:
 	# ROM: 0x3D5300
 	.asciz "??(??)"
 	.balign 4
-
