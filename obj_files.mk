@@ -689,7 +689,7 @@ MTX_FILES :=\
 OS_FILES :=\
 	$(BUILD_DIR)/src/Dolphin/os/__start.ep.o\
 	$(BUILD_DIR)/asm/Dolphin/os/OS.o\
-	$(BUILD_DIR)/asm/Dolphin/os/OSAlarm.o\
+	$(BUILD_DIR)/src/Dolphin/os/OSAlarm.ep.o\
 	$(BUILD_DIR)/asm/Dolphin/os/OSArena.o\
 	$(BUILD_DIR)/src/Dolphin/os/OSAudioSystem.ep.o\
 	$(BUILD_DIR)/src/Dolphin/os/OSCache.ep.o\

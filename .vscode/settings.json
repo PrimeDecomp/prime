@@ -25,7 +25,9 @@
     "__ppc_eabi_linker.h": "c",
     "hack.h": "c",
     "db.h": "c",
-    "ppcarch.h": "c"
+    "ppcarch.h": "c",
+    "osalarm.h": "c",
+    "ospriv.h": "c"
   },
   "files.autoSave": "onFocusChange",
   "files.insertFinalNewline": true,
