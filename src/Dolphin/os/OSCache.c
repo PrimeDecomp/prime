@@ -171,64 +171,64 @@ asm void ICEnable() {
 
 asm void __LCEnable() {
   nofralloc
-    mfmsr   r5
-    ori     r5, r5, 0x1000
-    mtmsr   r5
+  mfmsr   r5
+  ori     r5, r5, 0x1000
+  mtmsr   r5
 
-    lis     r3, OS_CACHED_REGION_PREFIX
-    li      r4, CACHE_LINES
-    mtctr   r4
+  lis     r3, OS_CACHED_REGION_PREFIX
+  li      r4, CACHE_LINES
+  mtctr   r4
 _touchloop:
-    dcbt    0,r3
-    dcbst   0,r3
-    addi    r3,r3,32
-    bdnz    _touchloop
-    mfspr   r4, HID2
-    oris    r4, r4, 0x100F
-    mtspr   HID2, r4
+  dcbt    0,r3
+  dcbst   0,r3
+  addi    r3,r3,32
+  bdnz    _touchloop
+  mfspr   r4, HID2
+  oris    r4, r4, 0x100F
+  mtspr   HID2, r4
 
-    nop 
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    lis     r3, LC_BASE_PREFIX
-    ori     r3, r3, 0x0002
-    mtspr   DBAT3L, r3
-    ori     r3, r3, 0x01fe
-    mtspr   DBAT3U, r3
-    isync
-    lis     r3, LC_BASE_PREFIX
-    li      r6, LC_LINES
-    mtctr   r6
-    li      r6, 0
+  nop 
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+  lis     r3, LC_BASE_PREFIX
+  ori     r3, r3, 0x0002
+  mtspr   DBAT3L, r3
+  ori     r3, r3, 0x01fe
+  mtspr   DBAT3U, r3
+  isync
+  lis     r3, LC_BASE_PREFIX
+  li      r6, LC_LINES
+  mtctr   r6
+  li      r6, 0
 
 _lockloop:
-    dcbz_l  r6, r3
-    addi    r3, r3, 32
-    bdnz+    _lockloop
+  dcbz_l  r6, r3
+  addi    r3, r3, 32
+  bdnz+    _lockloop
 
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
 
-    blr
+  blr
 }
 
 void LCEnable() {
