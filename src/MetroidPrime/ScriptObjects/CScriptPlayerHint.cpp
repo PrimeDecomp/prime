@@ -5,6 +5,8 @@
 #include "MetroidPrime/Enemies/CMetroidPrimeRelay.hpp"
 #include "MetroidPrime/Player/CPlayer.hpp"
 
+#include "rstl/algorithm.hpp"
+
 CScriptPlayerHint::CScriptPlayerHint(TUniqueId uid, const rstl::string& name,
                                      const CEntityInfo& info, const CTransform4f& xf, bool active,
                                      int priority, int overrideFlags)
@@ -18,7 +20,7 @@ CScriptPlayerHint::CScriptPlayerHint(TUniqueId uid, const rstl::string& name,
 void CScriptPlayerHint::ClearObjectList() { xe8_objectList.clear(); }
 
 void CScriptPlayerHint::AddToObjectList(TUniqueId uid) {
-  rstl::reserved_vector< TUniqueId, 8 >::iterator it = xe8_objectList.find(uid);
+  rstl::reserved_vector< TUniqueId, 8 >::iterator it = rstl::find(xe8_objectList.begin(), xe8_objectList.end(), uid);
   if (it != xe8_objectList.end()) {
     return;
   }
@@ -30,7 +32,7 @@ void CScriptPlayerHint::RemoveFromObjectList(TUniqueId uid, CStateManager& mgr) 
     return;
   }
 
-  rstl::reserved_vector< TUniqueId, 8 >::iterator it = xe8_objectList.find(uid);
+  rstl::reserved_vector< TUniqueId, 8 >::iterator it = rstl::find(xe8_objectList.begin(), xe8_objectList.end(), uid);
 
   if (it == xe8_objectList.end()) {
     xe8_objectList.erase(xe8_objectList.begin());
