@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803DFF80
-lbl_803DFF80:
+.global __vt__16CLightParameters
+__vt__16CLightParameters:
 	# ROM: 0x3DCF80
 	.4byte 0
 	.4byte 0
@@ -75,7 +75,7 @@ MakeActorLights__16CLightParametersCFv:
 /* 80106474 001033D4  80 7F 00 24 */	lwz r3, 0x24(r31)
 /* 80106478 001033D8  90 81 00 1C */	stw r4, 0x1c(r1)
 /* 8010647C 001033DC  90 01 00 20 */	stw r0, 0x20(r1)
-/* 80106480 001033E0  48 00 01 35 */	bl GetFramesBetweenRecalculation__16CLightParametersF26ELightRecalculationOptions
+/* 80106480 001033E0  48 00 01 35 */	bl GetFramesBetweenRecalculation__16CLightParametersFQ216CLightParameters26ELightRecalculationOptions
 /* 80106484 001033E4  80 BF 00 28 */	lwz r5, 0x28(r31)
 /* 80106488 001033E8  7C 64 1B 78 */	mr r4, r3
 /* 8010648C 001033EC  80 1F 00 20 */	lwz r0, 0x20(r31)
@@ -160,8 +160,8 @@ lbl_80106598:
 /* 801065AC 0010350C  38 21 00 40 */	addi r1, r1, 0x40
 /* 801065B0 00103510  4E 80 00 20 */	blr
 
-.global GetFramesBetweenRecalculation__16CLightParametersF26ELightRecalculationOptions
-GetFramesBetweenRecalculation__16CLightParametersF26ELightRecalculationOptions:
+.global GetFramesBetweenRecalculation__16CLightParametersFQ216CLightParameters26ELightRecalculationOptions
+GetFramesBetweenRecalculation__16CLightParametersFQ216CLightParameters26ELightRecalculationOptions:
 /* 801065B4 00103514  2C 03 00 02 */	cmpwi r3, 2
 /* 801065B8 00103518  41 82 00 38 */	beq lbl_801065F0
 /* 801065BC 0010351C  40 80 00 14 */	bge lbl_801065D0
@@ -198,9 +198,9 @@ __dt__16CLightParametersFv:
 /* 80106614 00103574  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 80106618 00103578  7C 7F 1B 79 */	or. r31, r3, r3
 /* 8010661C 0010357C  41 82 00 1C */	beq lbl_80106638
-/* 80106620 00103580  3C A0 80 3E */	lis r5, lbl_803DFF80@ha
+/* 80106620 00103580  3C A0 80 3E */	lis r5, __vt__16CLightParameters@ha
 /* 80106624 00103584  7C 80 07 35 */	extsh. r0, r4
-/* 80106628 00103588  38 05 FF 80 */	addi r0, r5, lbl_803DFF80@l
+/* 80106628 00103588  38 05 FF 80 */	addi r0, r5, __vt__16CLightParameters@l
 /* 8010662C 0010358C  90 1F 00 00 */	stw r0, 0(r31)
 /* 80106630 00103590  40 81 00 08 */	ble lbl_80106638
 /* 80106634 00103594  48 20 F2 FD */	bl Free__7CMemoryFPCv
@@ -216,13 +216,13 @@ lbl_80106638:
 __ct__16CLightParametersFv:
 /* 80106650 001035B0  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80106654 001035B4  7C 08 02 A6 */	mflr r0
-/* 80106658 001035B8  3C 80 80 3E */	lis r4, lbl_803DFF80@ha
+/* 80106658 001035B8  3C 80 80 3E */	lis r4, __vt__16CLightParameters@ha
 /* 8010665C 001035BC  C0 02 94 78 */	lfs f0, lbl_805AB198@sda21(r2)
 /* 80106660 001035C0  90 01 00 14 */	stw r0, 0x14(r1)
 /* 80106664 001035C4  38 00 00 00 */	li r0, 0
 /* 80106668 001035C8  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 8010666C 001035CC  7C 7F 1B 78 */	mr r31, r3
-/* 80106670 001035D0  38 64 FF 80 */	addi r3, r4, lbl_803DFF80@l
+/* 80106670 001035D0  38 64 FF 80 */	addi r3, r4, __vt__16CLightParameters@l
 /* 80106674 001035D4  90 7F 00 00 */	stw r3, 0(r31)
 /* 80106678 001035D8  98 1F 00 04 */	stb r0, 4(r31)
 /* 8010667C 001035DC  D0 1F 00 08 */	stfs f0, 8(r31)
@@ -257,11 +257,11 @@ __ct__16CLightParametersFv:
 /* 801066F0 00103650  38 21 00 10 */	addi r1, r1, 0x10
 /* 801066F4 00103654  4E 80 00 20 */	blr
 
-.global __ct__16CLightParametersFbfQ216CLightParameters19EShadowTessellationffRC6CColorbQ216CLightParameters21EWorldLightingOptionsQ216CLightParameters26ELightRecalculationOptionsRC9CVector3fii
-__ct__16CLightParametersFbfQ216CLightParameters19EShadowTessellationffRC6CColorbQ216CLightParameters21EWorldLightingOptionsQ216CLightParameters26ELightRecalculationOptionsRC9CVector3fii:
+.global __ct__16CLightParametersFbfQ216CLightParameters19EShadowTessellationffRC6CColorbQ216CLightParameters21EWorldLightingOptionsQ216CLightParameters26ELightRecalculationOptionsRC9CVector3fiibi
+__ct__16CLightParametersFbfQ216CLightParameters19EShadowTessellationffRC6CColorbQ216CLightParameters21EWorldLightingOptionsQ216CLightParameters26ELightRecalculationOptionsRC9CVector3fiibi:
 /* 801066F8 00103658  94 21 FF F0 */	stwu r1, -0x10(r1)
-/* 801066FC 0010365C  3D 60 80 3E */	lis r11, lbl_803DFF80@ha
-/* 80106700 00103660  38 0B FF 80 */	addi r0, r11, lbl_803DFF80@l
+/* 801066FC 0010365C  3D 60 80 3E */	lis r11, __vt__16CLightParameters@ha
+/* 80106700 00103660  38 0B FF 80 */	addi r0, r11, __vt__16CLightParameters@l
 /* 80106704 00103664  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 80106708 00103668  89 81 00 23 */	lbz r12, 0x23(r1)
 /* 8010670C 0010366C  90 03 00 00 */	stw r0, 0(r3)
@@ -310,8 +310,8 @@ lbl_801067A4:
 /* 801067A8 00103708  38 21 00 10 */	addi r1, r1, 0x10
 /* 801067AC 0010370C  4E 80 00 20 */	blr
 
-.global MakeDamageableTriggerActorParms__FRC16CActorParametersRC16CVisorParameters
-MakeDamageableTriggerActorParms__FRC16CActorParametersRC16CVisorParameters:
+.global MakeDamageableTriggerActorParms__16CActorParametersCFRC16CVisorParameters
+MakeDamageableTriggerActorParms__16CActorParametersCFRC16CVisorParameters:
 /* 801067B0 00103710  94 21 FF 80 */	stwu r1, -0x80(r1)
 /* 801067B4 00103714  7C 08 02 A6 */	mflr r0
 /* 801067B8 00103718  90 01 00 84 */	stw r0, 0x84(r1)
@@ -389,10 +389,10 @@ Scannable__16CActorParametersCFRC20CScannableParameters:
 /* 801068C0 00103820  38 21 00 80 */	addi r1, r1, 0x80
 /* 801068C4 00103824  4E 80 00 20 */	blr
 
-.global sub_801068c8
-sub_801068c8:
-/* 801068C8 00103828  3D 60 80 3E */	lis r11, lbl_803DFF80@ha
-/* 801068CC 0010382C  38 0B FF 80 */	addi r0, r11, lbl_803DFF80@l
+.global "__ct__16CActorParametersFRC16CLightParametersRC20CScannableParametersRCQ24rstl11pair<Ui,Ui>RCQ24rstl11pair<Ui,Ui>RC16CVisorParametersbbbbfff"
+"__ct__16CActorParametersFRC16CLightParametersRC20CScannableParametersRCQ24rstl11pair<Ui,Ui>RCQ24rstl11pair<Ui,Ui>RC16CVisorParametersbbbbfff":
+/* 801068C8 00103828  3D 60 80 3E */	lis r11, __vt__16CLightParameters@ha
+/* 801068CC 0010382C  38 0B FF 80 */	addi r0, r11, __vt__16CLightParameters@l
 /* 801068D0 00103830  90 03 00 00 */	stw r0, 0(r3)
 /* 801068D4 00103834  55 2B 06 3E */	clrlwi r11, r9, 0x18
 /* 801068D8 00103838  89 21 00 0B */	lbz r9, 0xb(r1)
@@ -467,9 +467,9 @@ __ct__16CActorParametersFv:
 /* 801069E0 00103940  7C 7F 1B 78 */	mr r31, r3
 /* 801069E4 00103944  38 61 00 0C */	addi r3, r1, 0xc
 /* 801069E8 00103948  4B FD 3A 05 */	bl None__16CLightParametersFv
-/* 801069EC 0010394C  3C 80 80 3E */	lis r4, lbl_803DFF80@ha
+/* 801069EC 0010394C  3C 80 80 3E */	lis r4, __vt__16CLightParameters@ha
 /* 801069F0 00103950  38 61 00 0C */	addi r3, r1, 0xc
-/* 801069F4 00103954  38 04 FF 80 */	addi r0, r4, lbl_803DFF80@l
+/* 801069F4 00103954  38 04 FF 80 */	addi r0, r4, __vt__16CLightParameters@l
 /* 801069F8 00103958  38 80 FF FF */	li r4, -1
 /* 801069FC 0010395C  90 1F 00 00 */	stw r0, 0(r31)
 /* 80106A00 00103960  88 01 00 10 */	lbz r0, 0x10(r1)

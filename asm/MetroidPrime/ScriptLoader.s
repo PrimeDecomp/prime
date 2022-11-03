@@ -398,8 +398,8 @@ lbl_800C55E0:
 
 .global __ct__16CActorParametersFRC16CActorParameters
 __ct__16CActorParametersFRC16CActorParameters:
-/* 800C561C 000C257C  3C A0 80 3E */	lis r5, lbl_803DFF80@ha
-/* 800C5620 000C2580  38 05 FF 80 */	addi r0, r5, lbl_803DFF80@l
+/* 800C561C 000C257C  3C A0 80 3E */	lis r5, __vt__16CLightParameters@ha
+/* 800C5620 000C2580  38 05 FF 80 */	addi r0, r5, __vt__16CLightParameters@l
 /* 800C5624 000C2584  90 03 00 00 */	stw r0, 0(r3)
 /* 800C5628 000C2588  88 04 00 04 */	lbz r0, 4(r4)
 /* 800C562C 000C258C  98 03 00 04 */	stb r0, 4(r3)
@@ -19000,9 +19000,9 @@ lbl_800D65CC:
 /* 800D666C 000D35CC  38 61 00 40 */	addi r3, r1, 0x40
 /* 800D6670 000D35D0  48 00 3B ED */	bl LoadLightParameters__FR12CInputStream
 /* 800D6674 000D35D4  8A 21 00 44 */	lbz r17, 0x44(r1)
-/* 800D6678 000D35D8  3C 60 80 3E */	lis r3, lbl_803DFF80@ha
+/* 800D6678 000D35D8  3C 60 80 3E */	lis r3, __vt__16CLightParameters@ha
 /* 800D667C 000D35DC  C0 A1 00 48 */	lfs f5, 0x48(r1)
-/* 800D6680 000D35E0  3A 03 FF 80 */	addi r16, r3, lbl_803DFF80@l
+/* 800D6680 000D35E0  3A 03 FF 80 */	addi r16, r3, __vt__16CLightParameters@l
 /* 800D6684 000D35E4  81 81 00 4C */	lwz r12, 0x4c(r1)
 /* 800D6688 000D35E8  38 61 00 40 */	addi r3, r1, 0x40
 /* 800D668C 000D35EC  C0 81 00 50 */	lfs f4, 0x50(r1)
@@ -22785,9 +22785,9 @@ lbl_800D9DDC:
 /* 800D9DE0 000D6D40  38 61 00 58 */	addi r3, r1, 0x58
 /* 800D9DE4 000D6D44  48 00 04 79 */	bl LoadLightParameters__FR12CInputStream
 /* 800D9DE8 000D6D48  8A A1 00 5C */	lbz r21, 0x5c(r1)
-/* 800D9DEC 000D6D4C  3C 60 80 3E */	lis r3, lbl_803DFF80@ha
+/* 800D9DEC 000D6D4C  3C 60 80 3E */	lis r3, __vt__16CLightParameters@ha
 /* 800D9DF0 000D6D50  C0 A1 00 60 */	lfs f5, 0x60(r1)
-/* 800D9DF4 000D6D54  3A C3 FF 80 */	addi r22, r3, lbl_803DFF80@l
+/* 800D9DF4 000D6D54  3A C3 FF 80 */	addi r22, r3, __vt__16CLightParameters@l
 /* 800D9DF8 000D6D58  81 81 00 64 */	lwz r12, 0x64(r1)
 /* 800D9DFC 000D6D5C  38 61 00 58 */	addi r3, r1, 0x58
 /* 800D9E00 000D6D60  C0 81 00 68 */	lfs f4, 0x68(r1)
@@ -22997,7 +22997,7 @@ lbl_800DA098:
 /* 800DA0D0 000D7030  92 C1 00 08 */	stw r22, 8(r1)
 /* 800DA0D4 000D7034  39 01 00 20 */	addi r8, r1, 0x20
 /* 800DA0D8 000D7038  92 A1 00 0C */	stw r21, 0xc(r1)
-/* 800DA0DC 000D703C  48 02 C7 ED */	bl sub_801068c8
+/* 800DA0DC 000D703C  48 02 C7 ED */	bl "__ct__16CActorParametersFRC16CLightParametersRC20CScannableParametersRCQ24rstl11pair<Ui,Ui>RCQ24rstl11pair<Ui,Ui>RC16CVisorParametersbbbbfff"
 /* 800DA0E0 000D7040  38 61 00 98 */	addi r3, r1, 0x98
 /* 800DA0E4 000D7044  38 80 FF FF */	li r4, -1
 /* 800DA0E8 000D7048  48 02 C5 21 */	bl __dt__16CLightParametersFv
@@ -23211,7 +23211,7 @@ lbl_800DA388:
 /* 800DA3BC 000D731C  38 C1 00 18 */	addi r6, r1, 0x18
 /* 800DA3C0 000D7320  57 87 06 3E */	clrlwi r7, r28, 0x18
 /* 800DA3C4 000D7324  39 41 00 1C */	addi r10, r1, 0x1c
-/* 800DA3C8 000D7328  48 02 C3 31 */	bl __ct__16CLightParametersFbfQ216CLightParameters19EShadowTessellationffRC6CColorbQ216CLightParameters21EWorldLightingOptionsQ216CLightParameters26ELightRecalculationOptionsRC9CVector3fii
+/* 800DA3C8 000D7328  48 02 C3 31 */	bl __ct__16CLightParametersFbfQ216CLightParameters19EShadowTessellationffRC6CColorbQ216CLightParameters21EWorldLightingOptionsQ216CLightParameters26ELightRecalculationOptionsRC9CVector3fiibi
 lbl_800DA3CC:
 /* 800DA3CC 000D732C  CB E1 00 68 */	lfd f31, 0x68(r1)
 /* 800DA3D0 000D7330  CB C1 00 60 */	lfd f30, 0x60(r1)
