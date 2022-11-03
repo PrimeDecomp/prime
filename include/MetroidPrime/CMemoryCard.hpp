@@ -5,12 +5,7 @@
 
 #include "Kyoto/CObjectReference.hpp"
 #include "MetroidPrime/TGameTypes.hpp"
-
-class CWorldSaveGameInfo {
-  // TODO: move to it's own file
-public:
-  enum EScanCategory { kSC_None, kSC_Data, kSC_Lore, kSC_Creature, kSC_Research, kSC_Artifact };
-};
+#include "MetroidPrime/Player/CWorldSaveGameInfo.hpp"
 
 class CMemoryCard {
 public:
