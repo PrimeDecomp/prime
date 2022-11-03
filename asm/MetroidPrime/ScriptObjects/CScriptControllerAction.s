@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803E5C20
-lbl_803E5C20:
+.global __vt__23CScriptControllerAction
+__vt__23CScriptControllerAction:
 	# ROM: 0x3E2C20
 	.4byte 0
 	.4byte 0
@@ -27,9 +27,9 @@ __dt__23CScriptControllerActionFv:
 /* 801D8D08 001D5C68  93 C1 00 08 */	stw r30, 8(r1)
 /* 801D8D0C 001D5C6C  7C 7E 1B 79 */	or. r30, r3, r3
 /* 801D8D10 001D5C70  41 82 00 28 */	beq lbl_801D8D38
-/* 801D8D14 001D5C74  3C A0 80 3E */	lis r5, lbl_803E5C20@ha
+/* 801D8D14 001D5C74  3C A0 80 3E */	lis r5, __vt__23CScriptControllerAction@ha
 /* 801D8D18 001D5C78  38 80 00 00 */	li r4, 0
-/* 801D8D1C 001D5C7C  38 05 5C 20 */	addi r0, r5, lbl_803E5C20@l
+/* 801D8D1C 001D5C7C  38 05 5C 20 */	addi r0, r5, __vt__23CScriptControllerAction@l
 /* 801D8D20 001D5C80  90 1E 00 00 */	stw r0, 0(r30)
 /* 801D8D24 001D5C84  4B E7 85 51 */	bl __dt__7CEntityFv
 /* 801D8D28 001D5C88  7F E0 07 35 */	extsh. r0, r31
@@ -159,8 +159,8 @@ Accept__23CScriptControllerActionFR8IVisitor:
 /* 801D8ED4 001D5E34  38 21 00 10 */	addi r1, r1, 0x10
 /* 801D8ED8 001D5E38  4E 80 00 20 */	blr
 
-.global "__ct__23CScriptControllerActionF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfobQ223CScriptControllerAction9ECommandsb"
-"__ct__23CScriptControllerActionF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfobQ223CScriptControllerAction9ECommandsb":
+.global "__ct__23CScriptControllerActionF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfobQ213ControlMapper9ECommandsbUib"
+"__ct__23CScriptControllerActionF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfobQ213ControlMapper9ECommandsbUib":
 /* 801D8EDC 001D5E3C  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 801D8EE0 001D5E40  7C 08 02 A6 */	mflr r0
 /* 801D8EE4 001D5E44  90 01 00 34 */	stw r0, 0x34(r1)
@@ -178,9 +178,9 @@ Accept__23CScriptControllerActionFR8IVisitor:
 /* 801D8F14 001D5E74  7C 87 23 78 */	mr r7, r4
 /* 801D8F18 001D5E78  38 81 00 08 */	addi r4, r1, 8
 /* 801D8F1C 001D5E7C  4B E7 84 09 */	bl "__ct__7CEntityF9TUniqueIdRC11CEntityInfobRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
-/* 801D8F20 001D5E80  3C 60 80 3E */	lis r3, lbl_803E5C20@ha
+/* 801D8F20 001D5E80  3C 60 80 3E */	lis r3, __vt__23CScriptControllerAction@ha
 /* 801D8F24 001D5E84  38 80 00 00 */	li r4, 0
-/* 801D8F28 001D5E88  38 03 5C 20 */	addi r0, r3, lbl_803E5C20@l
+/* 801D8F28 001D5E88  38 03 5C 20 */	addi r0, r3, __vt__23CScriptControllerAction@l
 /* 801D8F2C 001D5E8C  90 1B 00 00 */	stw r0, 0(r27)
 /* 801D8F30 001D5E90  7F 63 DB 78 */	mr r3, r27
 /* 801D8F34 001D5E94  93 9B 00 34 */	stw r28, 0x34(r27)

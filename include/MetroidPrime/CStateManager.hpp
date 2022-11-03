@@ -9,6 +9,7 @@
 #include "Kyoto/Math/CVector2i.hpp"
 #include "Kyoto/TOneStatic.hpp"
 #include "Kyoto/TToken.hpp"
+#include "Kyoto/Input/CFinalInput.hpp"
 
 #include "MetroidPrime/CEntityInfo.hpp"
 #include "MetroidPrime/CObjectList.hpp"
@@ -161,6 +162,8 @@ public:
 
   CObjectList& GetObjectListById(EGameObjectList id) { return *x808_objectLists[id]; }
 
+  const CFinalInput& GetFinalInput() const { return xb54_finalInput; }
+
   CCameraFilterPass& CameraFilterPass(ECameraFilterStage stage) {
     return xb84_camFilterPasses[size_t(stage)];
   }
@@ -230,6 +233,8 @@ public:
   void SetCinematicSkipObject(TUniqueId id) { xf38_skipCineSpecialFunc = id; }
   void SetInSaveUI(bool b) { xf94_28_inSaveUI = b; }
   bool GetInSaveUI() const { return xf94_28_inSaveUI; }
+  void SetInMapScreen(bool b) { xf94_27_inMapScreen = b; }
+  bool GetInMapScreen() const { return xf94_27_inMapScreen; }
   void SetIsFullThreat(bool v) { xf94_30_fullThreat = v; }
   uint GetInputFrameIdx() const { return x8d4_inputFrameIdx; }
 
@@ -271,8 +276,9 @@ private:
   CRandom16 x8fc_random;
   CRandom16* x900_random;
 
-  uchar x904_pad[0x280];
+  uchar x904_pad[0x250];
 
+  CFinalInput xb54_finalInput;
   rstl::reserved_vector< CCameraFilterPass, kCFS_Max > xb84_camFilterPasses;
   rstl::reserved_vector< CCameraBlurPass, kCFS_Max > xd14_camBlurPasses;
   int xeec_hintIdx;
