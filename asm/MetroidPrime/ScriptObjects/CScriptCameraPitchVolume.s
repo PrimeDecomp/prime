@@ -1,6 +1,6 @@
 .include "macros.inc"
 
-.comm lbl_80572134, 0xC, 4
+.comm skScaleFactor__24CScriptCameraPitchVolume, 0xC, 4
 
 .section .ctors, "wa"
 lbl_ctor:
@@ -9,8 +9,8 @@ lbl_ctor:
 .section .data
 .balign 8
 
-.global lbl_803E7A70
-lbl_803E7A70:
+.global __vt__24CScriptCameraPitchVolume
+__vt__24CScriptCameraPitchVolume:
 	# ROM: 0x3E4A70
 	.4byte 0
 	.4byte 0
@@ -63,9 +63,9 @@ __dt__24CScriptCameraPitchVolumeFv:
 /* 802264E8 00223448  93 C1 00 08 */	stw r30, 8(r1)
 /* 802264EC 0022344C  7C 7E 1B 79 */	or. r30, r3, r3
 /* 802264F0 00223450  41 82 00 28 */	beq lbl_80226518
-/* 802264F4 00223454  3C A0 80 3E */	lis r5, lbl_803E7A70@ha
+/* 802264F4 00223454  3C A0 80 3E */	lis r5, __vt__24CScriptCameraPitchVolume@ha
 /* 802264F8 00223458  38 80 00 00 */	li r4, 0
-/* 802264FC 0022345C  38 05 7A 70 */	addi r0, r5, lbl_803E7A70@l
+/* 802264FC 0022345C  38 05 7A 70 */	addi r0, r5, __vt__24CScriptCameraPitchVolume@l
 /* 80226500 00223460  90 1E 00 00 */	stw r0, 0(r30)
 /* 80226504 00223464  4B E2 F1 ED */	bl __dt__6CActorFv
 /* 80226508 00223468  7F E0 07 35 */	extsh. r0, r31
@@ -337,12 +337,12 @@ Accept__24CScriptCameraPitchVolumeFR8IVisitor:
 /* 802268BC 0022381C  38 61 00 94 */	addi r3, r1, 0x94
 /* 802268C0 00223820  38 80 FF FF */	li r4, -1
 /* 802268C4 00223824  4B EF 01 89 */	bl __dt__10CModelDataFv
-/* 802268C8 00223828  3C 80 80 3E */	lis r4, lbl_803E7A70@ha
-/* 802268CC 0022382C  3C 60 80 57 */	lis r3, lbl_80572134@ha
-/* 802268D0 00223830  38 04 7A 70 */	addi r0, r4, lbl_803E7A70@l
+/* 802268C8 00223828  3C 80 80 3E */	lis r4, __vt__24CScriptCameraPitchVolume@ha
+/* 802268CC 0022382C  3C 60 80 57 */	lis r3, skScaleFactor__24CScriptCameraPitchVolume@ha
+/* 802268D0 00223830  38 04 7A 70 */	addi r0, r4, __vt__24CScriptCameraPitchVolume@l
 /* 802268D4 00223834  7F A4 EB 78 */	mr r4, r29
 /* 802268D8 00223838  90 18 00 00 */	stw r0, 0(r24)
-/* 802268DC 0022383C  3B 23 21 34 */	addi r25, r3, lbl_80572134@l
+/* 802268DC 0022383C  3B 23 21 34 */	addi r25, r3, skScaleFactor__24CScriptCameraPitchVolume@l
 /* 802268E0 00223840  38 78 00 E8 */	addi r3, r24, 0xe8
 /* 802268E4 00223844  38 A1 00 20 */	addi r5, r1, 0x20
 /* 802268E8 00223848  C0 3C 00 08 */	lfs f1, 8(r28)
@@ -359,8 +359,8 @@ Accept__24CScriptCameraPitchVolumeFR8IVisitor:
 /* 80226914 00223874  D0 01 00 20 */	stfs f0, 0x20(r1)
 /* 80226918 00223878  48 0A F6 7D */	bl __ct__6COBBoxFRC12CTransform4fRC9CVector3f
 /* 8022691C 0022387C  C0 1E 00 00 */	lfs f0, 0(r30)
-/* 80226920 00223880  3C 60 80 57 */	lis r3, lbl_80572134@ha
-/* 80226924 00223884  38 A3 21 34 */	addi r5, r3, lbl_80572134@l
+/* 80226920 00223880  3C 60 80 57 */	lis r3, skScaleFactor__24CScriptCameraPitchVolume@ha
+/* 80226924 00223884  38 A3 21 34 */	addi r5, r3, skScaleFactor__24CScriptCameraPitchVolume@l
 /* 80226928 00223888  38 80 00 00 */	li r4, 0
 /* 8022692C 0022388C  D0 18 01 24 */	stfs f0, 0x124(r24)
 /* 80226930 00223890  7F 03 C3 78 */	mr r3, r24
@@ -396,8 +396,8 @@ Accept__24CScriptCameraPitchVolumeFR8IVisitor:
 .global __sinit_CScriptCameraPitchVolume_cpp
 __sinit_CScriptCameraPitchVolume_cpp:
 /* 802269A4 00223904  C0 02 B4 B8 */	lfs f0, lbl_805AD1D8@sda21(r2)
-/* 802269A8 00223908  3C 60 80 57 */	lis r3, lbl_80572134@ha
-/* 802269AC 0022390C  D4 03 21 34 */	stfsu f0, lbl_80572134@l(r3)
+/* 802269A8 00223908  3C 60 80 57 */	lis r3, skScaleFactor__24CScriptCameraPitchVolume@ha
+/* 802269AC 0022390C  D4 03 21 34 */	stfsu f0, skScaleFactor__24CScriptCameraPitchVolume@l(r3)
 /* 802269B0 00223910  D0 03 00 04 */	stfs f0, 4(r3)
 /* 802269B4 00223914  D0 03 00 08 */	stfs f0, 8(r3)
 /* 802269B8 00223918  4E 80 00 20 */	blr

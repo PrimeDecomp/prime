@@ -325,7 +325,7 @@ LIBS = [
             "MetroidPrime/Enemies/CBabygoth",
             "MetroidPrime/Enemies/CEyeBall",
             "MetroidPrime/CIkChain",
-            "MetroidPrime/ScriptObjects/CScriptCameraPitchVolume",
+            ["MetroidPrime/ScriptObjects/CScriptCameraPitchVolume", True],
             "MetroidPrime/RumbleFxTable",
             "MetroidPrime/Enemies/CElitePirate",
             ["MetroidPrime/CRumbleManager", True],
