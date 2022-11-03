@@ -17,7 +17,7 @@ CHECK_SIZEOF(SCameraShakePoint, 0x18)
 
 class CCameraShakerComponent {
 public:
-  virtual ~CCameraShakerComponent();
+  virtual ~CCameraShakerComponent() {}
 
 private:
   bool x4_useModulation;
@@ -28,13 +28,18 @@ private:
 CHECK_SIZEOF(CCameraShakerComponent, 0x3c)
 
 class CCameraShakeData {
+public:
+  CCameraShakeData(const CCameraShakeData&);
+  void SetShakerId(int id) { xbc_shakerId = id; }
+  int GetShakerId() const { return xbc_shakerId; }
+
 private:
   float x0_duration;
   float x4_curTime;
   CCameraShakerComponent x8_shakerX;
   CCameraShakerComponent x44_shakerY;
   CCameraShakerComponent x80_shakerZ;
-  uint xbc_shakerId;
+  int xbc_shakerId;
   uint xc0_flags;
   CVector3f xc4_sfxPos;
   float xd0_sfxDist;

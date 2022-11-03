@@ -103,20 +103,20 @@ __dt__17CEnergyProjectileFv:
 /* 8013B924 00138884  41 82 00 40 */	beq lbl_8013B964
 /* 8013B928 00138888  34 1E 03 7C */	addic. r0, r30, 0x37c
 /* 8013B92C 0013888C  41 82 00 10 */	beq lbl_8013B93C
-/* 8013B930 00138890  3C 60 80 3E */	lis r3, lbl_803D8EA8@ha
-/* 8013B934 00138894  38 03 8E A8 */	addi r0, r3, lbl_803D8EA8@l
+/* 8013B930 00138890  3C 60 80 3E */	lis r3, __vt__22CCameraShakerComponent@ha
+/* 8013B934 00138894  38 03 8E A8 */	addi r0, r3, __vt__22CCameraShakerComponent@l
 /* 8013B938 00138898  90 1E 03 7C */	stw r0, 0x37c(r30)
 lbl_8013B93C:
 /* 8013B93C 0013889C  34 1E 03 40 */	addic. r0, r30, 0x340
 /* 8013B940 001388A0  41 82 00 10 */	beq lbl_8013B950
-/* 8013B944 001388A4  3C 60 80 3E */	lis r3, lbl_803D8EA8@ha
-/* 8013B948 001388A8  38 03 8E A8 */	addi r0, r3, lbl_803D8EA8@l
+/* 8013B944 001388A4  3C 60 80 3E */	lis r3, __vt__22CCameraShakerComponent@ha
+/* 8013B948 001388A8  38 03 8E A8 */	addi r0, r3, __vt__22CCameraShakerComponent@l
 /* 8013B94C 001388AC  90 1E 03 40 */	stw r0, 0x340(r30)
 lbl_8013B950:
 /* 8013B950 001388B0  34 1E 03 04 */	addic. r0, r30, 0x304
 /* 8013B954 001388B4  41 82 00 10 */	beq lbl_8013B964
-/* 8013B958 001388B8  3C 60 80 3E */	lis r3, lbl_803D8EA8@ha
-/* 8013B95C 001388BC  38 03 8E A8 */	addi r0, r3, lbl_803D8EA8@l
+/* 8013B958 001388B8  3C 60 80 3E */	lis r3, __vt__22CCameraShakerComponent@ha
+/* 8013B95C 001388BC  38 03 8E A8 */	addi r0, r3, __vt__22CCameraShakerComponent@l
 /* 8013B960 001388C0  90 1E 03 04 */	stw r0, 0x304(r30)
 lbl_8013B964:
 /* 8013B964 001388C4  7F C3 F3 78 */	mr r3, r30

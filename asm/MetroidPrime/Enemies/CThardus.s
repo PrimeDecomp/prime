@@ -1994,20 +1994,20 @@ lbl_801DBACC:
 /* 801DBB44 001D8AA4  4B E2 EE DD */	bl AddCameraShaker__14CCameraManagerFRC16CCameraShakeDatab
 /* 801DBB48 001D8AA8  34 81 00 B4 */	addic. r4, r1, 0xb4
 /* 801DBB4C 001D8AAC  41 82 00 10 */	beq lbl_801DBB5C
-/* 801DBB50 001D8AB0  3C 60 80 3E */	lis r3, lbl_803D8EA8@ha
-/* 801DBB54 001D8AB4  38 03 8E A8 */	addi r0, r3, lbl_803D8EA8@l
+/* 801DBB50 001D8AB0  3C 60 80 3E */	lis r3, __vt__22CCameraShakerComponent@ha
+/* 801DBB54 001D8AB4  38 03 8E A8 */	addi r0, r3, __vt__22CCameraShakerComponent@l
 /* 801DBB58 001D8AB8  90 04 00 00 */	stw r0, 0(r4)
 lbl_801DBB5C:
 /* 801DBB5C 001D8ABC  34 81 00 78 */	addic. r4, r1, 0x78
 /* 801DBB60 001D8AC0  41 82 00 10 */	beq lbl_801DBB70
-/* 801DBB64 001D8AC4  3C 60 80 3E */	lis r3, lbl_803D8EA8@ha
-/* 801DBB68 001D8AC8  38 03 8E A8 */	addi r0, r3, lbl_803D8EA8@l
+/* 801DBB64 001D8AC4  3C 60 80 3E */	lis r3, __vt__22CCameraShakerComponent@ha
+/* 801DBB68 001D8AC8  38 03 8E A8 */	addi r0, r3, __vt__22CCameraShakerComponent@l
 /* 801DBB6C 001D8ACC  90 04 00 00 */	stw r0, 0(r4)
 lbl_801DBB70:
 /* 801DBB70 001D8AD0  34 81 00 3C */	addic. r4, r1, 0x3c
 /* 801DBB74 001D8AD4  41 82 00 10 */	beq lbl_801DBB84
-/* 801DBB78 001D8AD8  3C 60 80 3E */	lis r3, lbl_803D8EA8@ha
-/* 801DBB7C 001D8ADC  38 03 8E A8 */	addi r0, r3, lbl_803D8EA8@l
+/* 801DBB78 001D8AD8  3C 60 80 3E */	lis r3, __vt__22CCameraShakerComponent@ha
+/* 801DBB7C 001D8ADC  38 03 8E A8 */	addi r0, r3, __vt__22CCameraShakerComponent@l
 /* 801DBB80 001D8AE0  90 04 00 00 */	stw r0, 0(r4)
 lbl_801DBB84:
 /* 801DBB84 001D8AE4  88 1E 09 08 */	lbz r0, 0x908(r30)
@@ -7121,20 +7121,20 @@ lbl_801E032C:
 /* 801E0414 001DD374  4B E2 A6 0D */	bl AddCameraShaker__14CCameraManagerFRC16CCameraShakeDatab
 /* 801E0418 001DD378  34 81 01 3C */	addic. r4, r1, 0x13c
 /* 801E041C 001DD37C  41 82 00 10 */	beq lbl_801E042C
-/* 801E0420 001DD380  3C 60 80 3E */	lis r3, lbl_803D8EA8@ha
-/* 801E0424 001DD384  38 03 8E A8 */	addi r0, r3, lbl_803D8EA8@l
+/* 801E0420 001DD380  3C 60 80 3E */	lis r3, __vt__22CCameraShakerComponent@ha
+/* 801E0424 001DD384  38 03 8E A8 */	addi r0, r3, __vt__22CCameraShakerComponent@l
 /* 801E0428 001DD388  90 04 00 00 */	stw r0, 0(r4)
 lbl_801E042C:
 /* 801E042C 001DD38C  34 81 01 00 */	addic. r4, r1, 0x100
 /* 801E0430 001DD390  41 82 00 10 */	beq lbl_801E0440
-/* 801E0434 001DD394  3C 60 80 3E */	lis r3, lbl_803D8EA8@ha
-/* 801E0438 001DD398  38 03 8E A8 */	addi r0, r3, lbl_803D8EA8@l
+/* 801E0434 001DD394  3C 60 80 3E */	lis r3, __vt__22CCameraShakerComponent@ha
+/* 801E0438 001DD398  38 03 8E A8 */	addi r0, r3, __vt__22CCameraShakerComponent@l
 /* 801E043C 001DD39C  90 04 00 00 */	stw r0, 0(r4)
 lbl_801E0440:
 /* 801E0440 001DD3A0  34 81 00 C4 */	addic. r4, r1, 0xc4
 /* 801E0444 001DD3A4  41 82 00 10 */	beq lbl_801E0454
-/* 801E0448 001DD3A8  3C 60 80 3E */	lis r3, lbl_803D8EA8@ha
-/* 801E044C 001DD3AC  38 03 8E A8 */	addi r0, r3, lbl_803D8EA8@l
+/* 801E0448 001DD3A8  3C 60 80 3E */	lis r3, __vt__22CCameraShakerComponent@ha
+/* 801E044C 001DD3AC  38 03 8E A8 */	addi r0, r3, __vt__22CCameraShakerComponent@l
 /* 801E0450 001DD3B0  90 04 00 00 */	stw r0, 0(r4)
 lbl_801E0454:
 /* 801E0454 001DD3B4  C0 02 AC DC */	lfs f0, lbl_805AC9FC@sda21(r2)

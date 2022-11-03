@@ -898,20 +898,20 @@ __sinit_CPlasmaBeam_cpp:
 /* 800DF648 000DC5A8  48 2A A0 45 */	bl __register_global_object
 /* 800DF64C 000DC5AC  34 81 00 88 */	addic. r4, r1, 0x88
 /* 800DF650 000DC5B0  41 82 00 10 */	beq lbl_800DF660
-/* 800DF654 000DC5B4  3C 60 80 3E */	lis r3, lbl_803D8EA8@ha
-/* 800DF658 000DC5B8  38 03 8E A8 */	addi r0, r3, lbl_803D8EA8@l
+/* 800DF654 000DC5B4  3C 60 80 3E */	lis r3, __vt__22CCameraShakerComponent@ha
+/* 800DF658 000DC5B8  38 03 8E A8 */	addi r0, r3, __vt__22CCameraShakerComponent@l
 /* 800DF65C 000DC5BC  90 04 00 00 */	stw r0, 0(r4)
 lbl_800DF660:
 /* 800DF660 000DC5C0  34 81 00 4C */	addic. r4, r1, 0x4c
 /* 800DF664 000DC5C4  41 82 00 10 */	beq lbl_800DF674
-/* 800DF668 000DC5C8  3C 60 80 3E */	lis r3, lbl_803D8EA8@ha
-/* 800DF66C 000DC5CC  38 03 8E A8 */	addi r0, r3, lbl_803D8EA8@l
+/* 800DF668 000DC5C8  3C 60 80 3E */	lis r3, __vt__22CCameraShakerComponent@ha
+/* 800DF66C 000DC5CC  38 03 8E A8 */	addi r0, r3, __vt__22CCameraShakerComponent@l
 /* 800DF670 000DC5D0  90 04 00 00 */	stw r0, 0(r4)
 lbl_800DF674:
 /* 800DF674 000DC5D4  34 81 00 10 */	addic. r4, r1, 0x10
 /* 800DF678 000DC5D8  41 82 00 10 */	beq lbl_800DF688
-/* 800DF67C 000DC5DC  3C 60 80 3E */	lis r3, lbl_803D8EA8@ha
-/* 800DF680 000DC5E0  38 03 8E A8 */	addi r0, r3, lbl_803D8EA8@l
+/* 800DF67C 000DC5DC  3C 60 80 3E */	lis r3, __vt__22CCameraShakerComponent@ha
+/* 800DF680 000DC5E0  38 03 8E A8 */	addi r0, r3, __vt__22CCameraShakerComponent@l
 /* 800DF684 000DC5E4  90 04 00 00 */	stw r0, 0(r4)
 lbl_800DF688:
 /* 800DF688 000DC5E8  80 01 00 E4 */	lwz r0, 0xe4(r1)
@@ -929,4 +929,3 @@ lbl_803CE530:
 	.asciz "lasma2nd_1"
 	.balign 4
 	.4byte 0
-
