@@ -16,7 +16,7 @@ public:
   };
 
   float GetTime() const { return x0_t; }
-  bool IsValid() const { return x20_valid == kI_Valid; }
+  bool IsValid() const { return x20_valid != kI_Invalid; }
   // TODO: figure out what's going on here
   bool IsInvalid() const { return x20_valid == kI_Invalid; }
   // GetPlane__14CRayCastResultCFv
