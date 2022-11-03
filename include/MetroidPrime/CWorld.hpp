@@ -6,8 +6,8 @@
 #include "MetroidPrime/CGameArea.hpp"
 #include "MetroidPrime/TGameTypes.hpp"
 
-#include "Kyoto/IObjectStore.hpp"
 #include "Kyoto/Audio/CSfxHandle.hpp"
+#include "Kyoto/IObjectStore.hpp"
 
 #include "rstl/string.hpp"
 
@@ -36,6 +36,20 @@ class CRelay;
 class CSoundGroupData;
 class IDvdRequest;
 class IFactory;
+
+class CRelay {
+public:
+  const TEditorId& GetRelayId() const { return x0_relay; }
+  const TEditorId& GetTargetId() const { return x4_target; }
+  ushort GetMessage() const { return x8_msg; }
+  bool GetActive() const { return xa_active; }
+
+private:
+  TEditorId x0_relay;
+  TEditorId x4_target;
+  ushort x8_msg;
+  bool xa_active;
+};
 
 // TODO move?
 enum EEnvFxType {
@@ -66,8 +80,10 @@ public:
   bool IsAreaValid(TAreaId id) const { return GetArea(id)->IsLoaded(); }
   CAssetId GetWorldAssetId() const { return x8_mlvlId; }
   TAreaId GetAreaIdForSaveId(int saveId) const;
+  const rstl::vector< CRelay >& GetRelays() const { return x2c_relays; }
 
-  static void PropogateAreaChain(CGameArea::EOcclusionState occlusionState, CGameArea* area, CWorld* world);
+  static void PropogateAreaChain(CGameArea::EOcclusionState occlusionState, CGameArea* area,
+                                 CWorld* world);
 
 private:
   enum Phase {

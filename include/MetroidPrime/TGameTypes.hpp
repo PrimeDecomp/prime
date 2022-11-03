@@ -33,8 +33,8 @@ struct TEditorId {
   TEditorId(CInputStream& in);
   // TODO
   uint Value() const { return value & 0x3FFFFFF; }
-  uint Id() const { return value; }
-  uint AreaNum() const { return value; }
+  uint Id() const { return value & 0xffff; }
+  int AreaNum() const { return (value >> 16) & 0x3ff; }
 
   void PutTo(COutputStream&) const;
 
