@@ -35,7 +35,7 @@ public:
   }
   void Get(float& r, float& g, float& b, float& a) const;
   void Get(float& r, float& g, float& b) const;
-  // TODO check
+  // TODO check. Maybe this calls SetAlpha(uchar)?
   void SetAlpha(float a) { mA = CCast::ToUint8(a * 255.f); }
   void SetAlpha(uchar a) { mRgba = (mRgba & ~0xff) | a; }
 
