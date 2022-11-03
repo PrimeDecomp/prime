@@ -237,6 +237,8 @@ private:
   };
 };
 
+CHECK_SIZEOF(CFinalInput, 48)
+
 #ifdef __MWERKS__
 #pragma cpp_extensions reset
 #endif

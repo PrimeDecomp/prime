@@ -8482,7 +8482,7 @@ lbl_800CCC24:
 /* 800CCC7C 000C9BDC  93 A1 00 08 */	stw r29, 8(r1)
 /* 800CCC80 000C9BE0  38 81 00 14 */	addi r4, r1, 0x14
 /* 800CCC84 000C9BE4  38 A1 00 18 */	addi r5, r1, 0x18
-/* 800CCC88 000C9BE8  48 10 C2 55 */	bl "__ct__23CScriptControllerActionF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfobQ223CScriptControllerAction9ECommandsb"
+/* 800CCC88 000C9BE8  48 10 C2 55 */	bl "__ct__23CScriptControllerActionF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfobQ213ControlMapper9ECommandsbUib"
 /* 800CCC8C 000C9BEC  7C 78 1B 78 */	mr r24, r3
 lbl_800CCC90:
 /* 800CCC90 000C9BF0  38 61 00 18 */	addi r3, r1, 0x18
