@@ -188,7 +188,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CSpankWeed.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CParasite.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Player/CSamusFaceReflection.o\
-	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptPlayerHint.o\
+	$(BUILD_DIR)/src/MetroidPrime/ScriptObjects/CScriptPlayerHint.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CRipper.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Cameras/CCameraShakeData.o\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptPickupGenerator.o\

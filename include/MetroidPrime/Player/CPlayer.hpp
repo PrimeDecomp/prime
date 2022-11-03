@@ -224,6 +224,13 @@ public:
   float GetAverageSpeed() const;
   float GetGravity() const;
 
+  // PlayerHint
+  // bool SetAreaPlayerHint(const CScriptPlayerHint& hint, CStateManager& mgr);
+  void AddToPlayerHintRemoveList(TUniqueId id, CStateManager& mgr);
+  void AddToPlayerHintAddList(TUniqueId id, CStateManager& mgr);
+  // void DeactivatePlayerHint(TUniqueId id, CStateManager& mgr);
+  // void UpdatePlayerHints(CStateManager& mgr);
+
 private:
   NPlayer::EPlayerMovementState x258_movementState;
   rstl::vector< CToken > x25c_ballTransitionsRes;

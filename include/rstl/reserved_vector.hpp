@@ -81,6 +81,13 @@ public:
       --x0_count;
     }
   }
+
+  iterator find(const T& value) {
+    rstl::reserved_vector< TUniqueId, 8 >::iterator it = begin();
+    for (; it != end() && *it != value; ++it) {
+    }
+    return it;
+  }
 };
 } // namespace rstl
 
