@@ -360,7 +360,7 @@ METROIDPRIME :=\
 WORLDFORMAT :=\
 	$(BUILD_DIR)/asm/WorldFormat/CAreaOctTree_Tests.o\
 	$(BUILD_DIR)/src/WorldFormat/CCollisionSurface.o\
-	$(BUILD_DIR)/asm/WorldFormat/CMetroidModelInstance.o\
+	$(BUILD_DIR)/src/WorldFormat/CMetroidModelInstance.o\
 	$(BUILD_DIR)/asm/WorldFormat/CAreaBspTree.o\
 	$(BUILD_DIR)/asm/WorldFormat/CAreaOctTree.o\
 	$(BUILD_DIR)/asm/WorldFormat/CMetroidAreaCollider.o\

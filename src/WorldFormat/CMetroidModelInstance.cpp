@@ -9,12 +9,10 @@ static const CTransform4f& TransformFromData(const void* ptr) {
 static CAABox BoundingBoxFromData(const void* ptr) {
   float out[6];
   const float* tmp = reinterpret_cast< const float* >(ptr);
-  out[0] = CBasics::SwapBytes(tmp[0]);
-  out[1] = CBasics::SwapBytes(tmp[1]);
-  out[2] = CBasics::SwapBytes(tmp[2]);
-  out[3] = CBasics::SwapBytes(tmp[3]);
-  out[4] = CBasics::SwapBytes(tmp[4]);
-  out[5] = CBasics::SwapBytes(tmp[5]);
+  for (int i = 0; i < 6; ++i) {
+    out[i] = CBasics::SwapBytes(tmp[i]);
+  }
+
   return *reinterpret_cast< const CAABox* >(out);
 }
 
