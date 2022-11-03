@@ -824,7 +824,7 @@ LIBS = [
         "objects": [
             ["Dolphin/os/__start", True],
             "Dolphin/os/OS",
-            "Dolphin/os/OSAlarm",
+            ["Dolphin/os/OSAlarm", True],
             "Dolphin/os/OSArena",
             ["Dolphin/os/OSAudioSystem", True],
             ["Dolphin/os/OSCache", True],
