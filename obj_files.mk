@@ -290,7 +290,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CBabygoth.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CEyeBall.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CIkChain.o\
-	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptCameraPitchVolume.o\
+	$(BUILD_DIR)/src/MetroidPrime/ScriptObjects/CScriptCameraPitchVolume.o\
 	$(BUILD_DIR)/asm/MetroidPrime/RumbleFxTable.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CElitePirate.o\
 	$(BUILD_DIR)/src/MetroidPrime/CRumbleManager.o\
