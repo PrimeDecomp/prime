@@ -401,7 +401,7 @@ LIBS = [
         "objects": [
             "WorldFormat/CAreaOctTree_Tests",
             ["WorldFormat/CCollisionSurface", True],
-            ["WorldFormat/CMetroidModelInstance", False],
+            ["WorldFormat/CMetroidModelInstance", True],
             "WorldFormat/CAreaBspTree",
             "WorldFormat/CAreaOctTree",
             ["WorldFormat/CMetroidAreaCollider", False],
