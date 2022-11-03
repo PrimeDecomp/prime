@@ -107,7 +107,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/src/MetroidPrime/ScriptObjects/CScriptHUDMemo.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CMappableObject.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Player/CPlayerCameraBob.o\
-	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptCameraFilterKeyframe.o\
+	$(BUILD_DIR)/src/MetroidPrime/ScriptObjects/CScriptCameraFilterKeyframe.o\
 	$(BUILD_DIR)/src/MetroidPrime/ScriptObjects/CScriptCameraBlurKeyframe.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Cameras/CCameraFilter.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Player/CMorphBall.o\
