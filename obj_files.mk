@@ -692,7 +692,7 @@ OS_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/os/OSAlarm.o\
 	$(BUILD_DIR)/asm/Dolphin/os/OSArena.o\
 	$(BUILD_DIR)/src/Dolphin/os/OSAudioSystem.ep.o\
-	$(BUILD_DIR)/asm/Dolphin/os/OSCache.o\
+	$(BUILD_DIR)/src/Dolphin/os/OSCache.ep.o\
 	$(BUILD_DIR)/asm/Dolphin/os/OSContext.o\
 	$(BUILD_DIR)/asm/Dolphin/os/OSError.o\
 	$(BUILD_DIR)/asm/Dolphin/os/OSFatal.o\

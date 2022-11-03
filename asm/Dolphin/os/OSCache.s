@@ -131,9 +131,6 @@ lbl_8037EB84:
 /* 8037EB84 0037BAE4  7C 00 1F EC */	dcbz r0, r3
 /* 8037EB88 0037BAE8  38 63 00 20 */	addi r3, r3, 0x20
 /* 8037EB8C 0037BAEC  42 00 FF F8 */	bdnz lbl_8037EB84
-
-.global sub_8037eb90
-sub_8037eb90:
 /* 8037EB90 0037BAF0  4E 80 00 20 */	blr
 
 .global ICInvalidateRange
@@ -255,8 +252,8 @@ lbl_8037ECFC:
 /* 8037ED10 0037BC70  7C 98 E3 A6 */	mtspr 0x398, r4
 /* 8037ED14 0037BC74  4E 80 00 20 */	blr
 
-.global sub_8037ed18
-sub_8037ed18:
+.global LCLoadBlocks
+LCLoadBlocks:
 /* 8037ED18 0037BC78  54 A6 F6 FE */	rlwinm r6, r5, 0x1e, 0x1b, 0x1f
 /* 8037ED1C 0037BC7C  54 84 01 3E */	clrlwi r4, r4, 4
 /* 8037ED20 0037BC80  7C C6 23 78 */	or r6, r6, r4
@@ -279,8 +276,8 @@ LCStoreBlocks:
 /* 8037ED58 0037BCB8  7C DB E3 A6 */	mtspr 0x39b, r6
 /* 8037ED5C 0037BCBC  4E 80 00 20 */	blr
 
-.global sub_8037ed60
-sub_8037ed60:
+.global LCLoadData
+LCLoadData:
 /* 8037ED60 0037BCC0  7C 08 02 A6 */	mflr r0
 /* 8037ED64 0037BCC4  90 01 00 04 */	stw r0, 4(r1)
 /* 8037ED68 0037BCC8  94 21 FF D8 */	stwu r1, -0x28(r1)
@@ -306,14 +303,14 @@ lbl_8037EDA4:
 /* 8037EDAC 0037BD0C  7F 83 E3 78 */	mr r3, r28
 /* 8037EDB0 0037BD10  7F A4 EB 78 */	mr r4, r29
 /* 8037EDB4 0037BD14  7F E5 FB 78 */	mr r5, r31
-/* 8037EDB8 0037BD18  4B FF FF 61 */	bl sub_8037ed18
+/* 8037EDB8 0037BD18  4B FF FF 61 */	bl LCLoadBlocks
 /* 8037EDBC 0037BD1C  3B E0 00 00 */	li r31, 0
 /* 8037EDC0 0037BD20  48 00 00 20 */	b lbl_8037EDE0
 lbl_8037EDC4:
 /* 8037EDC4 0037BD24  7F 83 E3 78 */	mr r3, r28
 /* 8037EDC8 0037BD28  7F A4 EB 78 */	mr r4, r29
 /* 8037EDCC 0037BD2C  38 A0 00 00 */	li r5, 0
-/* 8037EDD0 0037BD30  4B FF FF 49 */	bl sub_8037ed18
+/* 8037EDD0 0037BD30  4B FF FF 49 */	bl LCLoadBlocks
 /* 8037EDD4 0037BD34  3B FF FF 80 */	addi r31, r31, -128
 /* 8037EDD8 0037BD38  3B 9C 10 00 */	addi r28, r28, 0x1000
 /* 8037EDDC 0037BD3C  3B BD 10 00 */	addi r29, r29, 0x1000
