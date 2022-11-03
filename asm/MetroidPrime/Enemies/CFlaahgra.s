@@ -8209,7 +8209,7 @@ lbl_801B43A8:
 /* 801B4464 001B13C4  91 61 00 20 */	stw r11, 0x20(r1)
 /* 801B4468 001B13C8  90 01 00 24 */	stw r0, 0x24(r1)
 /* 801B446C 001B13CC  92 C1 00 28 */	stw r22, 0x28(r1)
-/* 801B4470 001B13D0  48 06 12 29 */	bl "__ct__17CEnergyProjectileFbRC28TToken<18CWeaponDescription>11EWeaponTypeRC12CTransform4f14EMaterialTypesRC11CDamageInfo9TUniqueId7TAreaId9TUniqueId9TUniqueIdUibRC9CVector3fRCQ24rstl50optional_object<31TLockedToken<15CGenDescription>>sb"
+/* 801B4470 001B13D0  48 06 12 29 */	bl "__ct__17CEnergyProjectileFbRC28TToken<18CWeaponDescription>11EWeaponTypeRC12CTransform4f14EMaterialTypesRC11CDamageInfo9TUniqueId7TAreaId9TUniqueId9TUniqueIdUibRC9CVector3fRCQ24rstl50optional_object<31TLockedToken<15CGenDescription>>Usb"
 /* 801B4474 001B13D4  88 01 00 4C */	lbz r0, 0x4c(r1)
 /* 801B4478 001B13D8  28 00 00 00 */	cmplwi r0, 0
 /* 801B447C 001B13DC  41 82 00 1C */	beq lbl_801B4498

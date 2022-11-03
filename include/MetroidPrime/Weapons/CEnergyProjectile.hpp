@@ -11,7 +11,12 @@
 
 class CEnergyProjectile : public CGameProjectile {
 public:
-  // TODO ctor
+  CEnergyProjectile(bool active, const TToken< CWeaponDescription >& desc, EWeaponType type,
+                    const CTransform4f& xf, EMaterialTypes excludeMat, const CDamageInfo& damage,
+                    TUniqueId uid, TAreaId aid, TUniqueId owner, TUniqueId homingTarget,
+                    uint attribs, bool underwater, const CVector3f& scale,
+                    const rstl::optional_object< TLockedToken< CGenDescription > >& visorParticle,
+                    ushort visorSfx, bool sendCollideMsg);
 
   // CEntity
   ~CEnergyProjectile() override;

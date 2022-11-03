@@ -1453,7 +1453,7 @@ lbl_80147AB0:
 /* 80147C18 00144B78  91 61 00 20 */	stw r11, 0x20(r1)
 /* 80147C1C 00144B7C  90 01 00 24 */	stw r0, 0x24(r1)
 /* 80147C20 00144B80  93 21 00 28 */	stw r25, 0x28(r1)
-/* 80147C24 00144B84  48 0C DA 75 */	bl "__ct__17CEnergyProjectileFbRC28TToken<18CWeaponDescription>11EWeaponTypeRC12CTransform4f14EMaterialTypesRC11CDamageInfo9TUniqueId7TAreaId9TUniqueId9TUniqueIdUibRC9CVector3fRCQ24rstl50optional_object<31TLockedToken<15CGenDescription>>sb"
+/* 80147C24 00144B84  48 0C DA 75 */	bl "__ct__17CEnergyProjectileFbRC28TToken<18CWeaponDescription>11EWeaponTypeRC12CTransform4f14EMaterialTypesRC11CDamageInfo9TUniqueId7TAreaId9TUniqueId9TUniqueIdUibRC9CVector3fRCQ24rstl50optional_object<31TLockedToken<15CGenDescription>>Usb"
 /* 80147C28 00144B88  7C 7F 1B 78 */	mr r31, r3
 lbl_80147C2C:
 /* 80147C2C 00144B8C  7F 40 07 75 */	extsb. r0, r26
