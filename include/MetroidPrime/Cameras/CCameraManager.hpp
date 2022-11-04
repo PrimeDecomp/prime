@@ -22,8 +22,8 @@ class CStateManager;
 
 class CCameraManager {
 public:
-  CGameCamera* GetCurrentCamera(CStateManager& mgr) const /* map */;
-  const CGameCamera* GetCurrentCamera(const CStateManager& mgr) const;
+  CGameCamera& CurrentCamera(CStateManager& mgr) const;
+  const CGameCamera& GetCurrentCamera(const CStateManager& mgr) const;
   CFirstPersonCamera* FirstPersonCamera() const /* map */ { return x7c_fpCamera; }
   const CFirstPersonCamera* GetFirstPersonCamera() const { return x7c_fpCamera; }
   void SetPlayerCamera(CStateManager& mgr, TUniqueId newCamId);
