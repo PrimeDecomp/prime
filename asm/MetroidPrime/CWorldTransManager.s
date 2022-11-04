@@ -1472,7 +1472,7 @@ DrawAllModels__18CWorldTransManagerCFv:
 /* 8020A224 00207184  91 01 00 40 */	stw r8, 0x40(r1)
 /* 8020A228 00207188  39 00 00 00 */	li r8, 0
 /* 8020A22C 0020718C  90 01 00 44 */	stw r0, 0x44(r1)
-/* 8020A230 00207190  4B EF AF 9D */	bl __ct__12CActorLightsFUiRC9CVector3fiibbbf
+/* 8020A230 00207190  4B EF AF 9D */	bl __ct__12CActorLightsFUi9CVector3fiifbbb
 /* 8020A234 00207194  C0 22 B1 80 */	lfs f1, lbl_805ACEA0@sda21(r2)
 /* 8020A238 00207198  38 61 00 08 */	addi r3, r1, 8
 /* 8020A23C 0020719C  C0 82 B1 30 */	lfs f4, lbl_805ACE50@sda21(r2)

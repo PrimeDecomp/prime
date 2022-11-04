@@ -68,7 +68,7 @@ CActor::CActor(TUniqueId uid, bool active, const rstl::string& name, const CEnti
 , xe5_26_muted(false)
 , xe5_27_useInSortedLists(true)
 , xe5_28_callTouch(true)
-, xe5_29_globalTimeProvider(params.GetUseGlobalRenderTime())
+, xe5_29_globalTimeProvider(params.UseGlobalRenderTime())
 , xe5_30_renderUnsorted(params.ForceRenderUnsorted())
 , xe5_31_pointGeneratorParticles(false)
 , xe6_24_fluidCounter(0)

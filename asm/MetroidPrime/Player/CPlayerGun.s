@@ -10201,7 +10201,7 @@ __ct__10CPlayerGunF9TUniqueId:
 /* 80043218 00040178  90 E1 00 5C */	stw r7, 0x5c(r1)
 /* 8004321C 0004017C  38 E0 00 04 */	li r7, 4
 /* 80043220 00040180  90 01 00 60 */	stw r0, 0x60(r1)
-/* 80043224 00040184  48 0C 1F A9 */	bl __ct__12CActorLightsFUiRC9CVector3fiibbbf
+/* 80043224 00040184  48 0C 1F A9 */	bl __ct__12CActorLightsFUi9CVector3fiifbbb
 /* 80043228 00040188  38 E0 00 00 */	li r7, 0
 /* 8004322C 0004018C  38 C0 00 01 */	li r6, 1
 /* 80043230 00040190  90 FF 02 E0 */	stw r7, 0x2e0(r31)
