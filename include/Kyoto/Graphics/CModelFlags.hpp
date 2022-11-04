@@ -105,4 +105,9 @@ private:
 };
 CHECK_SIZEOF(CModelFlags, 0x8)
 
+static inline bool operator==(const CModelFlags& lhs, const CModelFlags& rhs) {
+  return lhs.GetTrans() == rhs.GetTrans() && lhs.GetShaderSet() == rhs.GetShaderSet() &&
+         lhs.GetOtherFlags() == rhs.GetOtherFlags() && lhs.GetColor() == rhs.GetColor();
+}
+
 #endif // _CMODELFLAGS

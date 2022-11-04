@@ -19,7 +19,7 @@ lbl_803E4BE0:
 	.4byte Render__18CScriptPlayerActorCFRC13CStateManager
 	.4byte CanRenderUnsorted__6CActorCFRC13CStateManager
 	.4byte CalculateRenderBounds__6CActorFv
-	.4byte GetHealthInfo__12CScriptActorCFRC13CStateManager
+	.4byte HealthInfo__12CScriptActorFR13CStateManager
 	.4byte GetDamageVulnerability__12CScriptActorCFv
 	.4byte GetDamageVulnerability__6CActorCFRC9CVector3fRC9CVector3fRC11CDamageInfo
 	.4byte GetTouchBounds__12CScriptActorCFv
@@ -28,7 +28,7 @@ lbl_803E4BE0:
 	.4byte GetAimPosition__13CPhysicsActorCFRC13CStateManagerf
 	.4byte GetHomingPosition__6CActorCFRC13CStateManagerf
 	.4byte GetScanObjectIndicatorPosition__6CActorCFRC13CStateManager
-	.4byte GetCollisionResponseType__12CScriptActorCFRC9CVector3fRC9CVector3fRC11CWeaponModei
+	.4byte GetCollisionResponseType__12CScriptActorCFRC9CVector3fRC9CVector3fRC11CWeaponMode17EProjectileAttrib
 	.4byte FluidFXThink__6CActorFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager
 	.4byte OnScanStateChange__6CActorFQ26CActor10EScanStateR13CStateManager
 	.4byte GetSortingBounds__12CScriptActorCFRC13CStateManager
@@ -2235,7 +2235,7 @@ lbl_801ABFAC:
 /* 801AC054 001A8FB4  90 01 00 24 */	stw r0, 0x24(r1)
 /* 801AC058 001A8FB8  90 01 00 28 */	stw r0, 0x28(r1)
 /* 801AC05C 001A8FBC  90 01 00 2C */	stw r0, 0x2c(r1)
-/* 801AC060 001A8FC0  4B EC 98 4D */	bl "__ct__12CScriptActorF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC6CAABoxRC13CMaterialListffRC11CHealthInfoRC20CDamageVulnerabilityRC16CActorParametersbbUibbbb"
+/* 801AC060 001A8FC0  4B EC 98 4D */	bl "__ct__12CScriptActorF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC6CAABoxRC13CMaterialListffRC11CHealthInfoRC20CDamageVulnerabilityRC16CActorParametersbbUifbbbb"
 /* 801AC064 001A8FC4  3C 60 80 3E */	lis r3, lbl_803E4BE0@ha
 /* 801AC068 001A8FC8  38 00 FF FF */	li r0, -1
 /* 801AC06C 001A8FCC  38 63 4B E0 */	addi r3, r3, lbl_803E4BE0@l

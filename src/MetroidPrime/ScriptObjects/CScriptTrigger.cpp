@@ -3,10 +3,10 @@
 #include "MetroidPrime/CActorParameters.hpp"
 #include "MetroidPrime/CDamageVulnerability.hpp"
 #include "MetroidPrime/CStateManager.hpp"
-#include "MetroidPrime/Player/CPlayer.hpp"
-#include "MetroidPrime/Weapons/CWeapon.hpp"
 #include "MetroidPrime/Cameras/CCameraManager.hpp"
 #include "MetroidPrime/Cameras/CGameCamera.hpp"
+#include "MetroidPrime/Player/CPlayer.hpp"
+#include "MetroidPrime/Weapons/CWeapon.hpp"
 
 CScriptTrigger::CScriptTrigger(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
                                const CVector3f& pos, const CAABox& bounds, const CDamageInfo& dInfo,
@@ -132,8 +132,8 @@ void CScriptTrigger::Touch(CActor& act, CStateManager& mgr) {
 }
 
 CAABox CScriptTrigger::GetTriggerBoundsWR() const {
-  return CAABox(x130_bounds.GetMinPoint() + x34_transform.GetTranslation(),
-                x130_bounds.GetMaxPoint() + x34_transform.GetTranslation());
+  return CAABox(x130_bounds.GetMinPoint() + GetTranslation(),
+                x130_bounds.GetMaxPoint() + GetTranslation());
 }
 
 rstl::optional_object< CAABox > CScriptTrigger::GetTouchBounds() const override {
@@ -193,11 +193,12 @@ void CScriptTrigger::Think(float dt, CStateManager& mgr) override {
 void CScriptTrigger::UpdateInhabitants(float dt, CStateManager& mgr) {
   bool sendInside = false;
   bool sendExited = false;
-  rstl::list<CObjectTracker>::iterator nextIt;
-  for (rstl::list<CObjectTracker>::iterator it = xe8_inhabitants.begin(); it != xe8_inhabitants.end(); it = nextIt) {
+  rstl::list< CObjectTracker >::iterator nextIt;
+  for (rstl::list< CObjectTracker >::iterator it = xe8_inhabitants.begin();
+       it != xe8_inhabitants.end(); it = nextIt) {
     nextIt = it;
     ++nextIt;
-    if (CActor* act = TCastToPtr<CActor>(mgr.ObjectById(it->GetObjectId()))) {
+    if (CActor* act = TCastToPtr< CActor >(mgr.ObjectById(it->GetObjectId()))) {
       bool playerValid = true;
       if (it->GetObjectId() == mgr.GetPlayer()->GetUniqueId()) {
         if ((x12c_flags & kTFL_DetectPlayer == 0) &&
@@ -229,19 +230,23 @@ void CScriptTrigger::UpdateInhabitants(float dt, CStateManager& mgr) {
 
       rstl::optional_object< CAABox > touchBounds = GetTouchBounds();
       rstl::optional_object< CAABox > actTouchBounds = act->GetTouchBounds();
-      if (touchBounds.valid() && actTouchBounds.valid() && touchBounds->DoBoundsOverlap(*actTouchBounds)) {
+      if (touchBounds.valid() && actTouchBounds.valid() &&
+          touchBounds->DoBoundsOverlap(*actTouchBounds)) {
         sendInside = true;
         InhabitantIdle(*act, mgr);
         if (act->HealthInfo(mgr) && x100_damageInfo.GetDamage() > 0.f) {
-          // mgr.ApplyDamage(GetUniqueId(), act->GetUniqueId(), GetUniqueId(), {x100_damageInfo, dt},
-          //                 CMaterialFilter::MakeIncludeExclude({EMaterialTypes::Solid}, {}), zeus::skZero3f);
+          // mgr.ApplyDamage(GetUniqueId(), act->GetUniqueId(), GetUniqueId(), {x100_damageInfo,
+          // dt},
+          //                 CMaterialFilter::MakeIncludeExclude({EMaterialTypes::Solid}, {}),
+          //                 zeus::skZero3f);
         }
 
         if (x128_forceMagnitude > 0.f) {
-          if (CPhysicsActor* pact = TCastToPtr<CPhysicsActor>(act)) {
+          if (CPhysicsActor* pact = TCastToPtr< CPhysicsActor >(act)) {
             float forceMult = 1.f;
             if ((x12c_flags & kTFL_UseBooleanIntersection)) {
-              forceMult = touchBounds->GetBooleanIntersection(*actTouchBounds).GetVolume() / actTouchBounds->GetVolume();
+              forceMult = touchBounds->GetBooleanIntersection(*actTouchBounds).GetVolume() /
+                          actTouchBounds->GetVolume();
             }
 
             const CVector3f force = forceMult * x11c_forceField;

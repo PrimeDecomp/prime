@@ -14,7 +14,6 @@ CScriptBeam::CScriptBeam(TUniqueId uid, const rstl::string& name, const CEntityI
 , x138_damageInfo(dInfo)
 , x154_projectileId(kInvalidUniqueId) {}
 
-
 void CScriptBeam::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objId, CStateManager& mgr) {
   switch (msg) {
 
@@ -22,7 +21,7 @@ void CScriptBeam::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objId, CSt
     x154_projectileId = mgr.AllocateUniqueId();
     mgr.AddObject(new CPlasmaProjectile(
         xe8_weaponDescription, GetDebugName() + rstl::string_l("-Projectile"),
-        x138_damageInfo.GetWeaponMode().GetType(), xf4_beamInfo, x34_transform, kMT_Projectile,
+        x138_damageInfo.GetWeaponMode().GetType(), xf4_beamInfo, GetTransform(), kMT_Projectile,
         x138_damageInfo, x154_projectileId, GetCurrentAreaId(), GetUniqueId(),
         CPlasmaProjectile::PlayerEffectResources(), false,
         kPA_KeepInCinematic // TODO: wrong attrib definition?
@@ -58,7 +57,7 @@ void CScriptBeam::Think(float dt, CStateManager& mgr) {
   if (CPlasmaProjectile* proj =
           static_cast< CPlasmaProjectile* >(mgr.ObjectById(x154_projectileId))) {
     if (proj->GetActive()) {
-      proj->UpdateFx(x34_transform, dt, mgr);
+      proj->UpdateFx(GetTransform(), dt, mgr);
     }
   } else {
     x154_projectileId = kInvalidUniqueId;

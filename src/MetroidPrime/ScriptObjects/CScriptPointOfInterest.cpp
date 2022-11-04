@@ -21,7 +21,7 @@ void CScriptPointOfInterest::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId
 }
 
 rstl::optional_object< CAABox > CScriptPointOfInterest::GetTouchBounds() const {
-  return CAABox(x34_transform.GetTranslation(), x34_transform.GetTranslation());
+  return CAABox(GetTranslation(), GetTranslation());
 }
 
 void CScriptPointOfInterest::Render(const CStateManager&) const {}
@@ -31,7 +31,7 @@ void CScriptPointOfInterest::AddToRenderer(const CFrustumPlanes&, const CStateMa
 void CScriptPointOfInterest::Accept(IVisitor& visitor) { visitor.Visit(*this); }
 
 void CScriptPointOfInterest::Think(float dt, CStateManager& mgr) {
-  xe7_31_targetable = mgr.GetPlayerState()->GetCurrentVisor() == CPlayerState::kPV_Scan;
+  SetTargetable(mgr.GetPlayerState()->GetCurrentVisor() == CPlayerState::kPV_Scan);
   CEntity::Think(dt, mgr);
 }
 
@@ -39,9 +39,8 @@ void CScriptPointOfInterest::CalculateRenderBounds() {
   if (xe8_pointSize == 0.f) {
     CActor::CalculateRenderBounds();
   } else {
-    CVector3f origin = x34_transform.GetTranslation();
-    x9c_renderBounds = CAABox(
-        origin - CVector3f(xe8_pointSize, xe8_pointSize, xe8_pointSize),
-        origin + CVector3f(xe8_pointSize, xe8_pointSize, xe8_pointSize));
+    CVector3f origin = GetTranslation();
+    SetRenderBounds(CAABox(origin - CVector3f(xe8_pointSize, xe8_pointSize, xe8_pointSize),
+                           origin + CVector3f(xe8_pointSize, xe8_pointSize, xe8_pointSize)));
   }
 }

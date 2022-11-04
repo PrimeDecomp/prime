@@ -172,7 +172,7 @@ enum EScriptObjectState {
   kSS_UnFrozen = 29,
   kSS_Default = 30,
   kSS_ReflectedDamage = 31,
-  InheritBounds = 32
+  kSS_InheritBounds = 32,
 };
 
 enum EScriptObjectMessage {

@@ -20458,7 +20458,7 @@ lbl_800D7B64:
 /* 800D7BFC 000D4B5C  91 81 00 24 */	stw r12, 0x24(r1)
 /* 800D7C00 000D4B60  91 61 00 28 */	stw r11, 0x28(r1)
 /* 800D7C04 000D4B64  90 01 00 2C */	stw r0, 0x2c(r1)
-/* 800D7C08 000D4B68  4B F9 DC A5 */	bl "__ct__12CScriptActorF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC6CAABoxRC13CMaterialListffRC11CHealthInfoRC20CDamageVulnerabilityRC16CActorParametersbbUibbbb"
+/* 800D7C08 000D4B68  4B F9 DC A5 */	bl "__ct__12CScriptActorF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC6CAABoxRC13CMaterialListffRC11CHealthInfoRC20CDamageVulnerabilityRC16CActorParametersbbUifbbbb"
 /* 800D7C0C 000D4B6C  7C 70 1B 78 */	mr r16, r3
 lbl_800D7C10:
 /* 800D7C10 000D4B70  38 61 02 64 */	addi r3, r1, 0x264

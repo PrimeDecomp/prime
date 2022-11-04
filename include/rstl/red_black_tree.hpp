@@ -75,12 +75,14 @@ public:
   struct const_iterator {
     node* mNode;
     const header* mHeader;
-    bool x8_;
+    // bool x8_;
 
+    // TODO why is this bool here?
     const_iterator(node* node, const header* header, bool b)
-    : mNode(node), mHeader(header), x8_(b) {}
+    : mNode(node), mHeader(header)/*, x8_(b)*/ {}
 
     const P* operator->() const { return mNode->get_value(); }
+    const P* operator*() const { return mNode->get_value(); }
     bool operator==(const const_iterator& other) const {
       return mNode == other.mNode && mHeader == other.mHeader;
     }
