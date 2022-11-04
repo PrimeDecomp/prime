@@ -141,7 +141,7 @@ public:
   void MoveToWR(const CVector3f&, float);
   void MoveToInOneFrameWR(const CVector3f&, float);
   CVector3f GetMoveToORImpulseWR(const CVector3f& impulse, float d) const;
-  CAxisAngle GetRotateToORAngularMomentumWR(const CQuaternion& q, float d) const;
+  CVector3f GetRotateToORAngularMomentumWR(const CQuaternion& q, float d) const;
   void RotateToWR(const CQuaternion&, float);
 
   void MoveToOR(const CVector3f&, float);

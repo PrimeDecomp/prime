@@ -76,6 +76,7 @@ double atan2(double y, double x);
 _MATH_INLINE float sinf(float x) { return (float)sin((double)x); }
 _MATH_INLINE float cosf(float x) { return (float)cos((double)x); }
 float tanf(float x);
+double acos(double x);
 float acosf(float x);
 
 double ldexp(double x, int exp);
