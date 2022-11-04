@@ -56,8 +56,11 @@ public:
   , x2_flags(flags.x2_flags)
   , x4_color(color) {}
 
-  // CModelFlags(const CModelFlags& other) : x0_blendMode(other.x0_blendMode),
-  // x1_matSetIdx(other.x1_matSetIdx), x2_flags(other.x2_flags), x4_color(other.x4_color) {}
+  // CModelFlags(const CModelFlags& other)
+  // : x0_blendMode(other.x0_blendMode)
+  // , x1_matSetIdx(other.x1_matSetIdx)
+  // , x2_flags(other.x2_flags)
+  // , x4_color(other.x4_color) {}
   CModelFlags& operator=(const CModelFlags& other) {
     x0_blendMode = other.x0_blendMode;
     x1_matSetIdx = other.x1_matSetIdx;
@@ -89,6 +92,13 @@ public:
   uint GetOtherFlags() const { return x2_flags; }
   CColor GetColor() const { return x4_color; }
 
+  bool operator==(const CModelFlags& other) const {
+    // TODO: cast to char for extsb; see CScriptActor::PreRender
+    return static_cast< char >(x0_blendMode) == static_cast< char >(other.x0_blendMode) &&
+           static_cast< char >(x1_matSetIdx) == static_cast< char >(other.x1_matSetIdx) &&
+           x2_flags == other.x2_flags && x4_color == other.x4_color;
+  }
+
   static CModelFlags Normal() { return CModelFlags(kT_Opaque, 1.f); }
   static CModelFlags AlphaBlended(float alpha) { return CModelFlags(kT_Blend, alpha); }
   static CModelFlags AlphaBlended(const CColor& color) { return CModelFlags(kT_Blend, color); }
@@ -104,10 +114,5 @@ private:
   CColor x4_color;
 };
 CHECK_SIZEOF(CModelFlags, 0x8)
-
-static inline bool operator==(const CModelFlags& lhs, const CModelFlags& rhs) {
-  return lhs.GetTrans() == rhs.GetTrans() && lhs.GetShaderSet() == rhs.GetShaderSet() &&
-         lhs.GetOtherFlags() == rhs.GetOtherFlags() && lhs.GetColor() == rhs.GetColor();
-}
 
 #endif // _CMODELFLAGS
