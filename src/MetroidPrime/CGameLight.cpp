@@ -29,10 +29,10 @@ void CGameLight::SetLight(const CLight& light) {
 CLight CGameLight::GetLight() const {
   CLight ret = xec_light;
 
-  ret.SetPosition(x34_transform * xec_light.GetPosition());
+  ret.SetPosition(GetTransform() * xec_light.GetPosition());
 
   if (ret.GetType() != kLT_Point)
-    ret.SetDirection(x34_transform.Rotate(xec_light.GetDirection()).AsNormalized());
+    ret.SetDirection(GetTransform().Rotate(xec_light.GetDirection()).AsNormalized());
 
   return ret;
 }

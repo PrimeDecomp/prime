@@ -19,7 +19,7 @@ lbl_803E85E8:
 	.4byte Render__13CPhysicsActorCFRC13CStateManager
 	.4byte CanRenderUnsorted__6CActorCFRC13CStateManager
 	.4byte CalculateRenderBounds__6CActorFv
-	.4byte GetHealthInfo__12CScriptActorCFRC13CStateManager
+	.4byte HealthInfo__12CScriptActorFR13CStateManager
 	.4byte GetDamageVulnerability__12CScriptActorCFv
 	.4byte GetDamageVulnerability__6CActorCFRC9CVector3fRC9CVector3fRC11CDamageInfo
 	.4byte GetTouchBounds__12CScriptActorCFv
@@ -28,7 +28,7 @@ lbl_803E85E8:
 	.4byte GetAimPosition__13CPhysicsActorCFRC13CStateManagerf
 	.4byte GetHomingPosition__6CActorCFRC13CStateManagerf
 	.4byte GetScanObjectIndicatorPosition__6CActorCFRC13CStateManager
-	.4byte GetCollisionResponseType__12CScriptActorCFRC9CVector3fRC9CVector3fRC11CWeaponModei
+	.4byte GetCollisionResponseType__12CScriptActorCFRC9CVector3fRC9CVector3fRC11CWeaponMode17EProjectileAttrib
 	.4byte FluidFXThink__6CActorFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager
 	.4byte OnScanStateChange__6CActorFQ26CActor10EScanStateR13CStateManager
 	.4byte GetSortingBounds__12CScriptActorCFRC13CStateManager
@@ -534,7 +534,7 @@ lbl_8023F978:
 /* 8023F9F0 0023C950  90 01 00 24 */	stw r0, 0x24(r1)
 /* 8023F9F4 0023C954  90 01 00 28 */	stw r0, 0x28(r1)
 /* 8023F9F8 0023C958  90 01 00 2C */	stw r0, 0x2c(r1)
-/* 8023F9FC 0023C95C  4B E3 5E B1 */	bl "__ct__12CScriptActorF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC6CAABoxRC13CMaterialListffRC11CHealthInfoRC20CDamageVulnerabilityRC16CActorParametersbbUibbbb"
+/* 8023F9FC 0023C95C  4B E3 5E B1 */	bl "__ct__12CScriptActorF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC6CAABoxRC13CMaterialListffRC11CHealthInfoRC20CDamageVulnerabilityRC16CActorParametersbbUifbbbb"
 /* 8023FA00 0023C960  3C 80 80 3F */	lis r4, lbl_803E85E8@ha
 /* 8023FA04 0023C964  3C 60 80 3D */	lis r3, lbl_803D43A0@ha
 /* 8023FA08 0023C968  38 04 85 E8 */	addi r0, r4, lbl_803E85E8@l

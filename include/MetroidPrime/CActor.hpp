@@ -311,7 +311,11 @@ public:
   bool GetDrawShadow() const { return xe5_24_shadowEnabled; }
   bool GetShadowDirty() const { return xe5_25_shadowDirty; }
   bool GetMuted() const { return xe5_26_muted; }
+  EThermalFlags GetThermalFlags() const {
+    return static_cast< EThermalFlags >(xe6_27_thermalVisorFlags);
+  }
   bool GetRenderParticleDatabaseInside() const { return xe6_29_renderParticleDBInside; }
+  bool GetTargetable() const { return xe7_31_targetable; }
 
   void SetTransformDirty(bool b) { xe4_27_notInSortedLists = b; }
   void SetTransformDirtySpare(bool b) { xe4_28_transformDirty = b; }
@@ -322,6 +326,7 @@ public:
   void SetShadowDirty(bool b) { xe5_25_shadowDirty = b; }
   void SetMuted(bool b) { xe5_26_muted = b; }
   void SetRenderParticleDatabaseInside(bool b) { xe6_29_renderParticleDBInside = b; }
+  void SetTargetable(bool b) { xe7_31_targetable = b; }
 
   void RemoveMaterial(EMaterialTypes, EMaterialTypes, EMaterialTypes, EMaterialTypes,
                       CStateManager&);
@@ -334,9 +339,7 @@ public:
   void AddMaterial(EMaterialTypes, EMaterialTypes, EMaterialTypes, CStateManager&);
   void AddMaterial(EMaterialTypes, EMaterialTypes, CStateManager&);
   void AddMaterial(EMaterialTypes, CStateManager&);
-  void AddMaterial(const CMaterialList& l) {
-    x68_material.Add(l);
-  }
+  void AddMaterial(const CMaterialList& l) { x68_material.Add(l); }
 
   const CAABox& GetRenderBoundsCached() const { return x9c_renderBounds; }
   void SetRenderBounds(const CAABox& bounds) { x9c_renderBounds = bounds; }
@@ -353,7 +356,7 @@ public:
 
   // HasModelParticles__6CActorCFv
 
-protected:
+private:
   CTransform4f x34_transform;
   rstl::single_ptr< CModelData > x64_modelData;
   CMaterialList x68_material;
@@ -389,7 +392,7 @@ protected:
   uint xe5_30_renderUnsorted : 1;
   uint xe5_31_pointGeneratorParticles : 1;
   uint xe6_24_fluidCounter : 3;
-  EThermalFlags xe6_27_thermalVisorFlags : 2;
+  uint xe6_27_thermalVisorFlags : 2;
   uint xe6_29_renderParticleDBInside : 1;
   uint xe6_30_enablePitchBend : 1;
   uint xe6_31_targetableVisorFlags : 4;

@@ -19,7 +19,7 @@ lbl_803DA450:
 	.4byte Render__13CPhysicsActorCFRC13CStateManager
 	.4byte CanRenderUnsorted__6CActorCFRC13CStateManager
 	.4byte CalculateRenderBounds__6CActorFv
-	.4byte GetHealthInfo__12CScriptActorCFRC13CStateManager
+	.4byte HealthInfo__12CScriptActorFR13CStateManager
 	.4byte GetDamageVulnerability__12CScriptActorCFv
 	.4byte GetDamageVulnerability__6CActorCFRC9CVector3fRC9CVector3fRC11CDamageInfo
 	.4byte GetTouchBounds__12CScriptActorCFv
@@ -28,7 +28,7 @@ lbl_803DA450:
 	.4byte GetAimPosition__13CPhysicsActorCFRC13CStateManagerf
 	.4byte GetHomingPosition__6CActorCFRC13CStateManagerf
 	.4byte GetScanObjectIndicatorPosition__6CActorCFRC13CStateManager
-	.4byte GetCollisionResponseType__12CScriptActorCFRC9CVector3fRC9CVector3fRC11CWeaponModei
+	.4byte GetCollisionResponseType__12CScriptActorCFRC9CVector3fRC9CVector3fRC11CWeaponMode17EProjectileAttrib
 	.4byte FluidFXThink__6CActorFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager
 	.4byte OnScanStateChange__6CActorFQ26CActor10EScanStateR13CStateManager
 	.4byte GetSortingBounds__12CScriptActorCFRC13CStateManager
@@ -115,8 +115,8 @@ lbl_80074FC8:
 /* 80074FDC 00071F3C  38 21 00 20 */	addi r1, r1, 0x20
 /* 80074FE0 00071F40  4E 80 00 20 */	blr
 
-.global GetCollisionResponseType__12CScriptActorCFRC9CVector3fRC9CVector3fRC11CWeaponModei
-GetCollisionResponseType__12CScriptActorCFRC9CVector3fRC9CVector3fRC11CWeaponModei:
+.global GetCollisionResponseType__12CScriptActorCFRC9CVector3fRC9CVector3fRC11CWeaponMode17EProjectileAttrib
+GetCollisionResponseType__12CScriptActorCFRC9CVector3fRC9CVector3fRC11CWeaponMode17EProjectileAttrib:
 /* 80074FE4 00071F44  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80074FE8 00071F48  7C 08 02 A6 */	mflr r0
 /* 80074FEC 00071F4C  90 01 00 24 */	stw r0, 0x24(r1)
@@ -710,8 +710,8 @@ GetDamageVulnerability__12CScriptActorCFv:
 /* 8007583C 0007279C  38 63 02 68 */	addi r3, r3, 0x268
 /* 80075840 000727A0  4E 80 00 20 */	blr
 
-.global GetHealthInfo__12CScriptActorCFRC13CStateManager
-GetHealthInfo__12CScriptActorCFRC13CStateManager:
+.global HealthInfo__12CScriptActorFR13CStateManager
+HealthInfo__12CScriptActorFR13CStateManager:
 /* 80075844 000727A4  38 63 02 60 */	addi r3, r3, 0x260
 /* 80075848 000727A8  4E 80 00 20 */	blr
 
@@ -743,8 +743,8 @@ lbl_80075890:
 /* 800758A4 00072804  38 21 00 10 */	addi r1, r1, 0x10
 /* 800758A8 00072808  4E 80 00 20 */	blr
 
-.global "__ct__12CScriptActorF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC6CAABoxRC13CMaterialListffRC11CHealthInfoRC20CDamageVulnerabilityRC16CActorParametersbbUibbbb"
-"__ct__12CScriptActorF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC6CAABoxRC13CMaterialListffRC11CHealthInfoRC20CDamageVulnerabilityRC16CActorParametersbbUibbbb":
+.global "__ct__12CScriptActorF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC6CAABoxRC13CMaterialListffRC11CHealthInfoRC20CDamageVulnerabilityRC16CActorParametersbbUifbbbb"
+"__ct__12CScriptActorF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC6CAABoxRC13CMaterialListffRC11CHealthInfoRC20CDamageVulnerabilityRC16CActorParametersbbUifbbbb":
 /* 800758AC 0007280C  94 21 FF 30 */	stwu r1, -0xd0(r1)
 /* 800758B0 00072810  7C 08 02 A6 */	mflr r0
 /* 800758B4 00072814  90 01 00 D4 */	stw r0, 0xd4(r1)

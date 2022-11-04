@@ -61,6 +61,8 @@ public:
     return CColor((mRgba & ~0xff) | CCast::ToUint8(a * static_cast< float >(mA)));
   }
 
+  bool operator==(const CColor& other) { return mRgba == other.mRgba; }
+
   // TODO check
   static GXColor ToGX(uint c) { return *reinterpret_cast< const GXColor* >(&c); }
 
