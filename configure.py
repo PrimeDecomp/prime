@@ -238,7 +238,7 @@ LIBS = [
             "MetroidPrime/CBoneTracking",
             ["MetroidPrime/Player/CFaceplateDecoration", False],
             "MetroidPrime/BodyState/CBSCover",
-            "MetroidPrime/ScriptObjects/CScriptBallTrigger",
+            ["MetroidPrime/ScriptObjects/CScriptBallTrigger", False],
             "MetroidPrime/Weapons/CPlasmaProjectile",
             "MetroidPrime/Player/CPlayerOrbit",
             "MetroidPrime/CGameCollision",

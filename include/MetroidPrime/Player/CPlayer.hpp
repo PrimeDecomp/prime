@@ -198,6 +198,9 @@ public:
   CPlayerGun* PlayerGun() { return x490_gun.get(); }
   const CPlayerGun* GetPlayerGun() const { return x490_gun.get(); }
 
+  CMorphBall* MorphBall() { return x768_morphball.get(); }
+  const CMorphBall* GetMorphBall() const { return x768_morphball.get(); }
+
   ESurfaceRestraints GetCurrentSurfaceRestraint() const { return x2ac_surfaceRestraint; }
   ESurfaceRestraints GetSurfaceRestraint() const {
     return x2b0_outOfWaterTicks == 2 ? GetCurrentSurfaceRestraint() : kSR_Water;

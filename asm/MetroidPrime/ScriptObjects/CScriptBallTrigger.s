@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803E3E80
-lbl_803E3E80:
+.global __vt__18CScriptBallTrigger
+__vt__18CScriptBallTrigger:
 	# ROM: 0x3E0E80
 	.4byte 0
 	.4byte 0
@@ -328,9 +328,9 @@ __dt__18CScriptBallTriggerFv:
 /* 801768E0 00173840  93 C1 00 08 */	stw r30, 8(r1)
 /* 801768E4 00173844  7C 7E 1B 79 */	or. r30, r3, r3
 /* 801768E8 00173848  41 82 00 28 */	beq lbl_80176910
-/* 801768EC 0017384C  3C A0 80 3E */	lis r5, lbl_803E3E80@ha
+/* 801768EC 0017384C  3C A0 80 3E */	lis r5, __vt__18CScriptBallTrigger@ha
 /* 801768F0 00173850  38 80 00 00 */	li r4, 0
-/* 801768F4 00173854  38 05 3E 80 */	addi r0, r5, lbl_803E3E80@l
+/* 801768F4 00173854  38 05 3E 80 */	addi r0, r5, __vt__18CScriptBallTrigger@l
 /* 801768F8 00173858  90 1E 00 00 */	stw r0, 0(r30)
 /* 801768FC 0017385C  4B F0 03 85 */	bl __dt__14CScriptTriggerFv
 /* 80176900 00173860  7F E0 07 35 */	extsh. r0, r31
@@ -346,8 +346,8 @@ lbl_80176910:
 /* 80176924 00173884  38 21 00 10 */	addi r1, r1, 0x10
 /* 80176928 00173888  4E 80 00 20 */	blr
 
-.global "__ct__18CScriptBallTriggerF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fRC9CVector3fbfff9CVector3f"
-"__ct__18CScriptBallTriggerF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fRC9CVector3fbfff9CVector3f":
+.global "__ct__18CScriptBallTriggerF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fRC9CVector3fbfffRC9CVector3fb"
+"__ct__18CScriptBallTriggerF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fRC9CVector3fbfffRC9CVector3fb":
 /* 8017692C 0017388C  94 21 FF 40 */	stwu r1, -0xc0(r1)
 /* 80176930 00173890  7C 08 02 A6 */	mflr r0
 /* 80176934 00173894  90 01 00 C4 */	stw r0, 0xc4(r1)
@@ -409,9 +409,9 @@ lbl_80176910:
 /* 80176A14 00173974  39 21 00 30 */	addi r9, r1, 0x30
 /* 80176A18 00173978  90 01 00 14 */	stw r0, 0x14(r1)
 /* 80176A1C 0017397C  4B F0 03 3D */	bl "__ct__14CScriptTriggerF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fRC6CAABoxRC11CDamageInfoRC9CVector3fUibbb"
-/* 80176A20 00173980  3C 80 80 3E */	lis r4, lbl_803E3E80@ha
+/* 80176A20 00173980  3C 80 80 3E */	lis r4, __vt__18CScriptBallTrigger@ha
 /* 80176A24 00173984  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
-/* 80176A28 00173988  38 04 3E 80 */	addi r0, r4, lbl_803E3E80@l
+/* 80176A28 00173988  38 04 3E 80 */	addi r0, r4, __vt__18CScriptBallTrigger@l
 /* 80176A2C 0017398C  38 80 00 00 */	li r4, 0
 /* 80176A30 00173990  90 1D 00 00 */	stw r0, 0(r29)
 /* 80176A34 00173994  38 A3 66 A0 */	addi r5, r3, sZeroVector__9CVector3f@l
