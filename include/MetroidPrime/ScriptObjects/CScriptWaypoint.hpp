@@ -9,8 +9,8 @@ class CScriptWaypoint : public CActor {
 public:
   CScriptWaypoint(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
                   const CTransform4f& xf, bool active, float speed, float pause,
-                  uint patternTranslate, uint patternOrient, uint patternFit, uint behaviour,
-                  uint behaviourOrient, uint behaviourModifiers, uint animation);
+                  int patternTranslate, int patternOrient, int patternFit, int behaviour,
+                  int behaviourOrient, int behaviourModifiers, uint animation);
 
   // CEntity
   ~CScriptWaypoint() override;
@@ -23,7 +23,7 @@ public:
 
   // CScriptWaypoint
   TUniqueId NextWaypoint(const CStateManager& mgr) const;
-  void FollowWaypoint(const CStateManager& mgr) const;
+  TUniqueId FollowWaypoint(CStateManager& mgr) const;
 
   float GetSpeed() const { return xe8_speed; }
   uint GetAnimation() const { return xec_animation; }
