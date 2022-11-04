@@ -255,7 +255,7 @@ LIBS = [
             "MetroidPrime/Weapons/CBeamProjectile",
             "MetroidPrime/CFluidPlaneCPU",
             "MetroidPrime/CFluidPlaneDoor",
-            "MetroidPrime/ScriptObjects/CScriptRoomAcoustics",
+            ["MetroidPrime/ScriptObjects/CScriptRoomAcoustics", True],
             "MetroidPrime/Enemies/CIceSheegoth",
             ["MetroidPrime/CCollisionActorManager", False],
             "MetroidPrime/CCollisionActor",

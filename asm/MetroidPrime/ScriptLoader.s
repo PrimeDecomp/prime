@@ -10842,7 +10842,7 @@ lbl_800CEC80:
 /* 800CEEB8 000CBE18  93 C1 00 48 */	stw r30, 0x48(r1)
 /* 800CEEBC 000CBE1C  93 E1 00 4C */	stw r31, 0x4c(r1)
 /* 800CEEC0 000CBE20  91 C1 00 50 */	stw r14, 0x50(r1)
-/* 800CEEC4 000CBE24  48 0C F1 49 */	bl "__ct__20CScriptRoomAcousticsF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfobbbfffffffbfffbbfffffbiiiiiiiii"
+/* 800CEEC4 000CBE24  48 0C F1 49 */	bl "__ct__20CScriptRoomAcousticsF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfobUibbffffffbfffbbfffffbiiiiiiiii"
 /* 800CEEC8 000CBE28  7C 6F 1B 78 */	mr r15, r3
 lbl_800CEECC:
 /* 800CEECC 000CBE2C  38 61 00 68 */	addi r3, r1, 0x68
