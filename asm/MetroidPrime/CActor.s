@@ -1188,7 +1188,7 @@ SetCalculateLighting__6CActorFb:
 /* 8005399C 000508FC  39 40 00 00 */	li r10, 0
 /* 800539A0 00050900  91 61 00 0C */	stw r11, 0xc(r1)
 /* 800539A4 00050904  90 01 00 10 */	stw r0, 0x10(r1)
-/* 800539A8 00050908  48 0B 18 25 */	bl __ct__12CActorLightsFUiRC9CVector3fiibbbf
+/* 800539A8 00050908  48 0B 18 25 */	bl __ct__12CActorLightsFUi9CVector3fiifbbb
 /* 800539AC 0005090C  7C 7F 1B 78 */	mr r31, r3
 lbl_800539B0:
 /* 800539B0 00050910  80 7D 00 90 */	lwz r3, 0x90(r29)

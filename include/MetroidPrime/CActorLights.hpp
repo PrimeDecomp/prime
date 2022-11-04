@@ -17,9 +17,9 @@ class CAABox;
 
 class CActorLights {
 public:
-  CActorLights(uint areaUpdateFramePeriod, const CVector3f& actorPosBias, int maxDynamicLights,
-               int maxAreaLights, bool ambientChannelOverflow, bool layer2, bool disableWorldLights,
-               float positionUpdateThreshold);
+  CActorLights(uint areaUpdateFramePeriod, CVector3f lightingPositionOffset, int maxDynamicLights,
+               int maxAreaLights, float positionUpdateThreshold, bool ambientChannelOverflow,
+               bool useLightSet2, bool disableWorldLights);
   ~CActorLights();
 
   void BuildConstantAmbientLighting();
@@ -57,7 +57,7 @@ private:
   int x2a0_shadowLightIdx;
   uint x2a4_lastUpdateFrame;
   uint x2a8_areaUpdateFramePeriod;
-  CVector3f x2ac_actorPosBias;
+  CVector3f x2ac_lightingPositionOffset;
   int x2b8_maxAreaLights;
   int x2bc_maxDynamicLights;
   CVector3f x2c0_lastActorPos;

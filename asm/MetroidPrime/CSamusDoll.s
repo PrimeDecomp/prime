@@ -4338,7 +4338,7 @@ lbl_800DE350:
 /* 800DE418 000DB378  39 40 00 00 */	li r10, 0
 /* 800DE41C 000DB37C  91 61 00 8C */	stw r11, 0x8c(r1)
 /* 800DE420 000DB380  90 01 00 90 */	stw r0, 0x90(r1)
-/* 800DE424 000DB384  48 02 6D A9 */	bl __ct__12CActorLightsFUiRC9CVector3fiibbbf
+/* 800DE424 000DB384  48 02 6D A9 */	bl __ct__12CActorLightsFUi9CVector3fiifbbb
 /* 800DE428 000DB388  7C 60 1B 78 */	mr r0, r3
 lbl_800DE42C:
 /* 800DE42C 000DB38C  90 1F 02 4C */	stw r0, 0x24c(r31)

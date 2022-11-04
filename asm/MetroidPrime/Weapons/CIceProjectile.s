@@ -644,7 +644,7 @@ __ct__Q220CIceAttackProjectile12CTrailObjectFP11CElementGen9TUniqueIdRC9CVector3
 /* 801F226C 001EF1CC  91 81 00 14 */	stw r12, 0x14(r1)
 /* 801F2270 001EF1D0  91 61 00 18 */	stw r11, 0x18(r1)
 /* 801F2274 001EF1D4  90 01 00 1C */	stw r0, 0x1c(r1)
-/* 801F2278 001EF1D8  4B F1 2F 55 */	bl __ct__12CActorLightsFUiRC9CVector3fiibbbf
+/* 801F2278 001EF1D8  4B F1 2F 55 */	bl __ct__12CActorLightsFUi9CVector3fiifbbb
 /* 801F227C 001EF1DC  C0 1D 00 00 */	lfs f0, 0(r29)
 /* 801F2280 001EF1E0  38 00 00 00 */	li r0, 0
 /* 801F2284 001EF1E4  7F 83 E3 78 */	mr r3, r28

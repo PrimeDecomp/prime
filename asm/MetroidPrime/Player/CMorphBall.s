@@ -14641,7 +14641,7 @@ lbl_800F9EAC:
 /* 800F9F04 000F6E64  39 40 00 00 */	li r10, 0
 /* 800F9F08 000F6E68  91 61 00 E4 */	stw r11, 0xe4(r1)
 /* 800F9F0C 000F6E6C  90 01 00 E8 */	stw r0, 0xe8(r1)
-/* 800F9F10 000F6E70  48 00 B2 BD */	bl __ct__12CActorLightsFUiRC9CVector3fiibbbf
+/* 800F9F10 000F6E70  48 00 B2 BD */	bl __ct__12CActorLightsFUi9CVector3fiifbbb
 /* 800F9F14 000F6E74  7C 60 1B 78 */	mr r0, r3
 lbl_800F9F18:
 /* 800F9F18 000F6E78  3C 60 80 3D */	lis r3, lbl_803CEBF4@ha

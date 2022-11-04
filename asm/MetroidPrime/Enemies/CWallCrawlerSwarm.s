@@ -2819,7 +2819,7 @@ SoftwareLight__17CWallCrawlerSwarmCFRC13CStateManagerRC6CAABox:
 /* 801E9BE4 001E6B44  90 01 00 44 */	stw r0, 0x44(r1)
 /* 801E9BE8 001E6B48  39 20 00 00 */	li r9, 0
 /* 801E9BEC 001E6B4C  39 40 00 00 */	li r10, 0
-/* 801E9BF0 001E6B50  4B F1 B5 DD */	bl __ct__12CActorLightsFUiRC9CVector3fiibbbf
+/* 801E9BF0 001E6B50  4B F1 B5 DD */	bl __ct__12CActorLightsFUi9CVector3fiifbbb
 /* 801E9BF4 001E6B54  88 01 02 E0 */	lbz r0, 0x2e0(r1)
 /* 801E9BF8 001E6B58  38 60 00 01 */	li r3, 1
 /* 801E9BFC 001E6B5C  50 60 3E 30 */	rlwimi r0, r3, 7, 0x18, 0x18
@@ -2967,7 +2967,7 @@ HardwareLight__17CWallCrawlerSwarmCFRC13CStateManagerRC6CAABox:
 /* 801E9E18 001E6D78  90 E1 00 14 */	stw r7, 0x14(r1)
 /* 801E9E1C 001E6D7C  38 E0 00 04 */	li r7, 4
 /* 801E9E20 001E6D80  90 01 00 18 */	stw r0, 0x18(r1)
-/* 801E9E24 001E6D84  4B F1 B3 A9 */	bl __ct__12CActorLightsFUiRC9CVector3fiibbbf
+/* 801E9E24 001E6D84  4B F1 B3 A9 */	bl __ct__12CActorLightsFUi9CVector3fiifbbb
 /* 801E9E28 001E6D88  88 01 02 B4 */	lbz r0, 0x2b4(r1)
 /* 801E9E2C 001E6D8C  38 60 00 01 */	li r3, 1
 /* 801E9E30 001E6D90  50 60 3E 30 */	rlwimi r0, r3, 7, 0x18, 0x18
