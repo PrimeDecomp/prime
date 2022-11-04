@@ -71,6 +71,9 @@ public:
   float GetX() const { return x; }
   float GetY() const { return y; }
   float GetZ() const { return z; }
+  const CVector3f& GetImaginary() const { 
+    // TODO: hack! has a Vector3f field?
+    return *reinterpret_cast<const CVector3f*>(&x); }
 
 private:
   float w;
