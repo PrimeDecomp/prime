@@ -42,7 +42,7 @@ void CScriptTrigger::Touch(CActor& act, CStateManager& mgr) {
       uint testFlags = kTFL_None;
       CPlayer* pl = TCastToPtr< CPlayer >(act);
       if (pl) {
-        if (x128_forceMagnitude > 0.f && (x12c_flags & kTFL_DetectPlayer != 0)) {
+        if (x128_forceMagnitude > 0.f && ((x12c_flags & kTFL_DetectPlayer) != 0)) {
           if (mgr.GetLastTriggerId() != kInvalidUniqueId) {
             return;
           }
@@ -201,7 +201,7 @@ void CScriptTrigger::UpdateInhabitants(float dt, CStateManager& mgr) {
     if (CActor* act = TCastToPtr< CActor >(mgr.ObjectById(it->GetObjectId()))) {
       bool playerValid = true;
       if (it->GetObjectId() == mgr.GetPlayer()->GetUniqueId()) {
-        if ((x12c_flags & kTFL_DetectPlayer == 0) &&
+        if (((x12c_flags & kTFL_DetectPlayer) == 0) &&
             ((mgr.GetPlayer()->GetMorphballTransitionState() == CPlayer::kMS_Morphed &&
               (x12c_flags & kTFL_DetectUnmorphedPlayer)) ||
              (mgr.GetPlayer()->GetMorphballTransitionState() == CPlayer::kMS_Unmorphed &&
@@ -293,18 +293,18 @@ void CScriptTrigger::UpdateInhabitants(float dt, CStateManager& mgr) {
   }
 
   if ((x12c_flags & kTFL_DetectCamera) || x148_24_detectCamera) {
-    CGameCamera* cam = mgr.GetCameraManager()->GetCurrentCamera(mgr);
-    const bool camInTrigger = GetTriggerBoundsWR().PointInside(cam->GetTranslation());
+    CGameCamera& cam = mgr.CameraManager()->CurrentCamera(mgr);
+    const bool camInTrigger = GetTriggerBoundsWR().PointInside(cam.GetTranslation());
     if (x148_25_camSubmerged) {
       if (!camInTrigger) {
         x148_25_camSubmerged = false;
         if ((x12c_flags & kTFL_DetectCamera)) {
           sendExited = true;
-          InhabitantExited(*cam, mgr);
+          InhabitantExited(cam, mgr);
         }
       } else {
         if ((x12c_flags & kTFL_DetectCamera)) {
-          InhabitantIdle(*cam, mgr);
+          InhabitantIdle(cam, mgr);
           sendInside = true;
         }
       }
@@ -312,7 +312,7 @@ void CScriptTrigger::UpdateInhabitants(float dt, CStateManager& mgr) {
       if (camInTrigger) {
         x148_25_camSubmerged = true;
         if ((x12c_flags & kTFL_DetectCamera)) {
-          InhabitantAdded(*cam, mgr);
+          InhabitantAdded(cam, mgr);
           SendScriptMsgs(kSS_Entered, mgr, kSM_None);
         }
       }

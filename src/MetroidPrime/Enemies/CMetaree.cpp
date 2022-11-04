@@ -223,7 +223,7 @@ void CMetaree::Think(float dt, CStateManager& mgr) {
   if (!b && !x5ca_26_deactivated) {
     target = false;
   }
-  xe7_31_targetable = target;
+  SetTargetable(target);
   CPatterned::Think(dt, mgr);
 }
 

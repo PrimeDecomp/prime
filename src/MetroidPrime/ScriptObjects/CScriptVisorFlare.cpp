@@ -4,14 +4,16 @@
 #include "MetroidPrime/CStateManager.hpp"
 #include "MetroidPrime/Player/CPlayer.hpp"
 
-CScriptVisorFlare::CScriptVisorFlare(TUniqueId uid, const rstl::string& name, const CEntityInfo& info, bool active,
-                                     const CVector3f& pos, CVisorFlare::EBlendMode blendMode, bool b1, float f1,
-                                     float f2, float f3, uint w1, uint w2, const rstl::vector<CVisorFlare::CFlareDef>& flares)
+CScriptVisorFlare::CScriptVisorFlare(TUniqueId uid, const rstl::string& name,
+                                     const CEntityInfo& info, bool active, const CVector3f& pos,
+                                     CVisorFlare::EBlendMode blendMode, bool b1, float f1, float f2,
+                                     float f3, uint w1, uint w2,
+                                     const rstl::vector< CVisorFlare::CFlareDef >& flares)
 : CActor(uid, active, name, info, CTransform4f::Translate(pos), CModelData::CModelDataNull(),
          CMaterialList(kMT_NoStepLogic), CActorParameters::None(), kInvalidUniqueId)
 , xe8_flare(blendMode, b1, f1, f2, f3, w1, w2, flares)
 , x11c_notInRenderLast(true) {
-  xe6_27_thermalVisorFlags = kTF_Hot;
+  SetThermalFlags(kTF_Hot);
 }
 
 CScriptVisorFlare::~CScriptVisorFlare() {}
@@ -24,7 +26,8 @@ void CScriptVisorFlare::Think(float dt, CStateManager& stateMgr) {
   }
 }
 
-void CScriptVisorFlare::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objId, CStateManager& stateMgr) {
+void CScriptVisorFlare::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objId,
+                                        CStateManager& stateMgr) {
   CActor::AcceptScriptMsg(msg, objId, stateMgr);
 }
 
@@ -38,4 +41,6 @@ void CScriptVisorFlare::AddToRenderer(const CFrustumPlanes&, const CStateManager
   }
 }
 
-void CScriptVisorFlare::Render(const CStateManager& stateMgr) const { xe8_flare.Render(GetTranslation(), stateMgr); }
+void CScriptVisorFlare::Render(const CStateManager& stateMgr) const {
+  xe8_flare.Render(GetTranslation(), stateMgr);
+}

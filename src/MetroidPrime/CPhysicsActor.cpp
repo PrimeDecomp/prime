@@ -66,20 +66,20 @@ void CPhysicsActor::ApplyForceWR(const CVector3f& force, const CAxisAngle& torqu
 }
 
 void CPhysicsActor::ApplyImpulseOR(const CVector3f& impulse, const CAxisAngle& angle) {
-  x168_impulse = x168_impulse + x34_transform.Rotate(impulse);
-  CAxisAngle rotatedAngle(x34_transform.Rotate(angle.GetVector()));
+  x168_impulse = x168_impulse + GetTransform().Rotate(impulse);
+  CAxisAngle rotatedAngle(GetTransform().Rotate(angle.GetVector()));
   x180_angularImpulse = x180_angularImpulse + rotatedAngle;
 }
 
 void CPhysicsActor::ApplyForceOR(const CVector3f& force, const CAxisAngle& torque) {
-  x15c_force = x15c_force + x34_transform.Rotate(force);
-  CAxisAngle rotatedTorque(x34_transform.Rotate(torque.GetVector()));
+  x15c_force = x15c_force + GetTransform().Rotate(force);
+  CAxisAngle rotatedTorque(GetTransform().Rotate(torque.GetVector()));
   x174_torque = x174_torque + rotatedTorque;
 }
 
 void CPhysicsActor::ComputeDerivedQuantities() {
   x138_velocity = xfc_constantForce * xec_massRecip;
-  x114_ = x34_transform.BuildMatrix3f();
+  x114_ = GetTransform().BuildMatrix3f();
   x144_angularVelocity = CAxisAngle(x108_angularMomentum.GetVector() * xf4_inertiaTensorRecip);
 }
 
@@ -160,7 +160,7 @@ CMotionState CPhysicsActor::PredictMotion_Internal(float dt) const {
 
 void CPhysicsActor::SetMotionState(const CMotionState& state) {
   const CQuaternion& q = CQuaternion::FromNUQuaternion(state.GetOrientation());
-  SetTransform(q.BuildTransform4f(x34_transform.GetTranslation()));
+  SetTransform(q.BuildTransform4f(GetTransform().GetTranslation()));
   SetTranslation(state.GetTranslation());
 
   xfc_constantForce = state.GetVelocity();
@@ -225,7 +225,7 @@ void CPhysicsActor::MoveToInOneFrameWR(const CVector3f& trans, float d) {
 }
 
 CVector3f CPhysicsActor::GetMoveToORImpulseWR(const CVector3f& trans, float d) const {
-  CVector3f impulse = x34_transform.Rotate(trans);
+  CVector3f impulse = GetTransform().Rotate(trans);
   return (GetMass() * impulse) * (1.f / d);
 }
 
