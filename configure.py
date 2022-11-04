@@ -334,7 +334,7 @@ LIBS = [
             "MetroidPrime/Weapons/CShockWave",
             "MetroidPrime/Enemies/CRipperControlledPlatform",
             "MetroidPrime/Enemies/CKnockBackController",
-            "MetroidPrime/Player/CWorldLayerState",
+            ["MetroidPrime/Player/CWorldLayerState", False],
             "MetroidPrime/Enemies/CMagdolite",
             "MetroidPrime/Enemies/CTeamAiMgr",
             "MetroidPrime/Enemies/CSnakeWeedSwarm",

@@ -3668,7 +3668,7 @@ lbl_801522F0:
 /* 80152314 0014F274  38 A1 00 3C */	addi r5, r1, 0x3c
 /* 80152318 0014F278  90 E1 00 3C */	stw r7, 0x3c(r1)
 /* 8015231C 0014F27C  90 01 00 40 */	stw r0, 0x40(r1)
-/* 80152320 0014F280  48 0E 1F A1 */	bl SetLayerActive__16CWorldLayerStateFiib
+/* 80152320 0014F280  48 0E 1F A1 */	bl SetLayerActive__16CWorldLayerStateFRC7TAreaIdRCib
 lbl_80152324:
 /* 80152324 0014F284  2C 1C 00 13 */	cmpwi r28, 0x13
 /* 80152328 0014F288  40 82 05 78 */	bne lbl_801528A0

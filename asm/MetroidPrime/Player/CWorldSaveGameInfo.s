@@ -322,7 +322,7 @@ lbl_802491F8:
 /* 80249200 00246160  4B E1 A4 FD */	bl "clear__Q24rstl37vector<Ui,Q24rstl17rmemory_allocator>Fv"
 /* 80249204 00246164  38 7F 00 1C */	addi r3, r31, 0x1c
 /* 80249208 00246168  38 9D 00 1C */	addi r4, r29, 0x1c
-/* 8024920C 0024616C  4B FE AF 61 */	bl sub_8023416c
+/* 8024920C 0024616C  4B FE AF 61 */	bl "__as__Q24rstl56vector<Q212CWorldLayers4Area,Q24rstl17rmemory_allocator>FRCQ24rstl56vector<Q212CWorldLayers4Area,Q24rstl17rmemory_allocator>"
 /* 80249210 00246170  80 9D 00 38 */	lwz r4, 0x38(r29)
 /* 80249214 00246174  38 78 00 20 */	addi r3, r24, 0x20
 /* 80249218 00246178  83 C4 00 08 */	lwz r30, 8(r4)
@@ -853,7 +853,7 @@ lbl_8024991C:
 /* 80249950 002468B0  4B FE A6 61 */	bl nullsub_5
 /* 80249954 002468B4  7C 64 1B 78 */	mr r4, r3
 /* 80249958 002468B8  38 7F 00 1C */	addi r3, r31, 0x1c
-/* 8024995C 002468BC  4B FE A8 11 */	bl sub_8023416c
+/* 8024995C 002468BC  4B FE A8 11 */	bl "__as__Q24rstl56vector<Q212CWorldLayers4Area,Q24rstl17rmemory_allocator>FRCQ24rstl56vector<Q212CWorldLayers4Area,Q24rstl17rmemory_allocator>"
 /* 80249960 002468C0  80 7F 00 08 */	lwz r3, 8(r31)
 /* 80249964 002468C4  3C 03 00 01 */	addis r0, r3, 1
 /* 80249968 002468C8  28 00 FF FF */	cmplwi r0, 0xffff

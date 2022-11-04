@@ -26,18 +26,16 @@ lbl_805A8200:
 nullsub_5:
 /* 80233FB0 00230F10  4E 80 00 20 */	blr
 
-.global GetAreaLayerCount__16CWorldLayerStateFi
-GetAreaLayerCount__16CWorldLayerStateFi:
+.global GetAreaLayerCount__16CWorldLayerStateFRC7TAreaId
+GetAreaLayerCount__16CWorldLayerStateFRC7TAreaId:
 /* 80233FB4 00230F14  80 04 00 00 */	lwz r0, 0(r4)
 /* 80233FB8 00230F18  80 63 00 0C */	lwz r3, 0xc(r3)
 /* 80233FBC 00230F1C  54 00 20 36 */	slwi r0, r0, 4
 /* 80233FC0 00230F20  7C 63 00 2E */	lwzx r3, r3, r0
-.global lbl_80233FC4
-lbl_80233FC4:
 /* 80233FC4 00230F24  4E 80 00 20 */	blr
 
-.global "InitializeWorldLayers__16CWorldLayerStateFQ24rstl6vector<Q2CWorldLayers4Area>"
-"InitializeWorldLayers__16CWorldLayerStateFQ24rstl6vector<Q2CWorldLayers4Area>":
+.global "InitializeWorldLayers__16CWorldLayerStateFRCQ24rstl56vector<Q212CWorldLayers4Area,Q24rstl17rmemory_allocator>"
+"InitializeWorldLayers__16CWorldLayerStateFRCQ24rstl56vector<Q212CWorldLayers4Area,Q24rstl17rmemory_allocator>":
 /* 80233FC8 00230F28  94 21 FF 90 */	stwu r1, -0x70(r1)
 /* 80233FCC 00230F2C  7C 08 02 A6 */	mflr r0
 /* 80233FD0 00230F30  90 01 00 74 */	stw r0, 0x74(r1)
@@ -46,7 +44,7 @@ lbl_80233FC4:
 /* 80233FDC 00230F3C  80 03 00 04 */	lwz r0, 4(r3)
 /* 80233FE0 00230F40  2C 00 00 00 */	cmpwi r0, 0
 /* 80233FE4 00230F44  40 82 01 34 */	bne lbl_80234118
-/* 80233FE8 00230F48  48 00 01 85 */	bl sub_8023416c
+/* 80233FE8 00230F48  48 00 01 85 */	bl "__as__Q24rstl56vector<Q212CWorldLayers4Area,Q24rstl17rmemory_allocator>FRCQ24rstl56vector<Q212CWorldLayers4Area,Q24rstl17rmemory_allocator>"
 /* 80233FEC 00230F4C  80 1A 00 10 */	lwz r0, 0x10(r26)
 /* 80233FF0 00230F50  2C 00 00 00 */	cmpwi r0, 0
 /* 80233FF4 00230F54  41 82 01 24 */	beq lbl_80234118
@@ -59,7 +57,7 @@ lbl_80234008:
 /* 8023400C 00230F6C  7F 43 D3 78 */	mr r3, r26
 /* 80234010 00230F70  38 81 00 34 */	addi r4, r1, 0x34
 /* 80234014 00230F74  93 81 00 34 */	stw r28, 0x34(r1)
-/* 80234018 00230F78  4B FF FF 9D */	bl GetAreaLayerCount__16CWorldLayerStateFi
+/* 80234018 00230F78  4B FF FF 9D */	bl GetAreaLayerCount__16CWorldLayerStateFRC7TAreaId
 /* 8023401C 00230F7C  93 81 00 28 */	stw r28, 0x28(r1)
 /* 80234020 00230F80  7C 7F 1B 78 */	mr r31, r3
 /* 80234024 00230F84  3B 60 00 01 */	li r27, 1
@@ -93,7 +91,7 @@ lbl_8023402C:
 /* 80234090 00230FF0  3B BD 00 01 */	addi r29, r29, 1
 /* 80234094 00230FF4  93 61 00 24 */	stw r27, 0x24(r1)
 /* 80234098 00230FF8  93 81 00 2C */	stw r28, 0x2c(r1)
-/* 8023409C 00230FFC  48 00 02 25 */	bl SetLayerActive__16CWorldLayerStateFiib
+/* 8023409C 00230FFC  48 00 02 25 */	bl SetLayerActive__16CWorldLayerStateFRC7TAreaIdRCib
 /* 802340A0 00231000  3B 7B 00 01 */	addi r27, r27, 1
 lbl_802340A4:
 /* 802340A4 00231004  7C 1B F8 00 */	cmpw r27, r31
@@ -109,7 +107,7 @@ lbl_802340B0:
 /* 802340C8 00231028  90 01 00 48 */	stw r0, 0x48(r1)
 /* 802340CC 0023102C  90 01 00 4C */	stw r0, 0x4c(r1)
 /* 802340D0 00231030  90 01 00 50 */	stw r0, 0x50(r1)
-/* 802340D4 00231034  48 00 00 59 */	bl sub_8023412c
+/* 802340D4 00231034  48 00 00 59 */	bl __as__10WordBitmapFRC10WordBitmap
 /* 802340D8 00231038  80 01 00 48 */	lwz r0, 0x48(r1)
 /* 802340DC 0023103C  80 61 00 50 */	lwz r3, 0x50(r1)
 /* 802340E0 00231040  54 00 10 3A */	slwi r0, r0, 2
@@ -135,8 +133,8 @@ lbl_80234118:
 /* 80234124 00231084  38 21 00 70 */	addi r1, r1, 0x70
 /* 80234128 00231088  4E 80 00 20 */	blr
 
-.global sub_8023412c
-sub_8023412c:
+.global __as__10WordBitmapFRC10WordBitmap
+__as__10WordBitmapFRC10WordBitmap:
 /* 8023412C 0023108C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80234130 00231090  7C 08 02 A6 */	mflr r0
 /* 80234134 00231094  90 01 00 14 */	stw r0, 0x14(r1)
@@ -154,8 +152,8 @@ sub_8023412c:
 /* 80234164 002310C4  38 21 00 10 */	addi r1, r1, 0x10
 /* 80234168 002310C8  4E 80 00 20 */	blr
 
-.global sub_8023416c
-sub_8023416c:
+.global "__as__Q24rstl56vector<Q212CWorldLayers4Area,Q24rstl17rmemory_allocator>FRCQ24rstl56vector<Q212CWorldLayers4Area,Q24rstl17rmemory_allocator>"
+"__as__Q24rstl56vector<Q212CWorldLayers4Area,Q24rstl17rmemory_allocator>FRCQ24rstl56vector<Q212CWorldLayers4Area,Q24rstl17rmemory_allocator>":
 /* 8023416C 002310CC  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80234170 002310D0  7C 08 02 A6 */	mflr r0
 /* 80234174 002310D4  90 01 00 24 */	stw r0, 0x24(r1)
@@ -198,7 +196,7 @@ lbl_802341E8:
 /* 802341F8 00231158  48 00 00 5C */	b lbl_80234254
 lbl_802341FC:
 /* 802341FC 0023115C  7F C3 F3 78 */	mr r3, r30
-/* 80234200 00231160  4B E2 58 B5 */	bl sub_80059ab4
+/* 80234200 00231160  4B E2 58 B5 */	bl "reserve__Q24rstl56vector<Q212CWorldLayers4Area,Q24rstl17rmemory_allocator>Fi"
 /* 80234204 00231164  80 1F 00 04 */	lwz r0, 4(r31)
 /* 80234208 00231168  80 DF 00 0C */	lwz r6, 0xc(r31)
 /* 8023420C 0023116C  54 00 20 36 */	slwi r0, r0, 4
@@ -232,8 +230,8 @@ lbl_80234258:
 /* 80234268 002311C8  38 21 00 20 */	addi r1, r1, 0x20
 /* 8023426C 002311CC  4E 80 00 20 */	blr
 
-.global IsLayerActive__16CWorldLayerStateFii
-IsLayerActive__16CWorldLayerStateFii:
+.global IsLayerActive__16CWorldLayerStateFRC7TAreaIdRCi
+IsLayerActive__16CWorldLayerStateFRC7TAreaIdRCi:
 /* 80234270 002311D0  80 E4 00 00 */	lwz r7, 0(r4)
 /* 80234274 002311D4  38 C0 00 01 */	li r6, 1
 /* 80234278 002311D8  80 05 00 00 */	lwz r0, 0(r5)
@@ -255,8 +253,8 @@ IsLayerActive__16CWorldLayerStateFii:
 /* 802342B8 00231218  7C 60 19 10 */	subfe r3, r0, r3
 /* 802342BC 0023121C  4E 80 00 20 */	blr
 
-.global SetLayerActive__16CWorldLayerStateFiib
-SetLayerActive__16CWorldLayerStateFiib:
+.global SetLayerActive__16CWorldLayerStateFRC7TAreaIdRCib
+SetLayerActive__16CWorldLayerStateFRC7TAreaIdRCib:
 /* 802342C0 00231220  54 C0 06 3F */	clrlwi. r0, r6, 0x18
 /* 802342C4 00231224  80 84 00 00 */	lwz r4, 0(r4)
 /* 802342C8 00231228  80 63 00 0C */	lwz r3, 0xc(r3)
@@ -304,7 +302,7 @@ lbl_80234358:
 /* 8023435C 002312BC  7F 43 D3 78 */	mr r3, r26
 /* 80234360 002312C0  38 81 00 24 */	addi r4, r1, 0x24
 /* 80234364 002312C4  93 A1 00 24 */	stw r29, 0x24(r1)
-/* 80234368 002312C8  4B FF FC 4D */	bl GetAreaLayerCount__16CWorldLayerStateFi
+/* 80234368 002312C8  4B FF FC 4D */	bl GetAreaLayerCount__16CWorldLayerStateFRC7TAreaId
 /* 8023436C 002312CC  7F E3 FA 14 */	add r31, r3, r31
 /* 80234370 002312D0  3B BD 00 01 */	addi r29, r29, 1
 /* 80234374 002312D4  3B FF FF FF */	addi r31, r31, -1
@@ -322,7 +320,7 @@ lbl_80234398:
 /* 8023439C 002312FC  7F 43 D3 78 */	mr r3, r26
 /* 802343A0 00231300  38 81 00 1C */	addi r4, r1, 0x1c
 /* 802343A4 00231304  93 A1 00 1C */	stw r29, 0x1c(r1)
-/* 802343A8 00231308  4B FF FC 0D */	bl GetAreaLayerCount__16CWorldLayerStateFi
+/* 802343A8 00231308  4B FF FC 0D */	bl GetAreaLayerCount__16CWorldLayerStateFRC7TAreaId
 /* 802343AC 0023130C  93 A1 00 10 */	stw r29, 0x10(r1)
 /* 802343B0 00231310  7C 7F 1B 78 */	mr r31, r3
 /* 802343B4 00231314  3B 80 00 01 */	li r28, 1
@@ -334,7 +332,7 @@ lbl_802343BC:
 /* 802343C8 00231328  38 A1 00 0C */	addi r5, r1, 0xc
 /* 802343CC 0023132C  93 81 00 0C */	stw r28, 0xc(r1)
 /* 802343D0 00231330  93 A1 00 14 */	stw r29, 0x14(r1)
-/* 802343D4 00231334  4B FF FE 9D */	bl IsLayerActive__16CWorldLayerStateFii
+/* 802343D4 00231334  4B FF FE 9D */	bl IsLayerActive__16CWorldLayerStateFRC7TAreaIdRCi
 /* 802343D8 00231338  54 64 06 3E */	clrlwi r4, r3, 0x18
 /* 802343DC 0023133C  7F 63 DB 78 */	mr r3, r27
 /* 802343E0 00231340  7C 04 00 D0 */	neg r0, r4
