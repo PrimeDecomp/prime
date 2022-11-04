@@ -89,7 +89,7 @@ LIBS = [
             "MetroidPrime/Tweaks/CTweakGui",
             "MetroidPrime/ScriptObjects/CScriptActor",
             ["MetroidPrime/ScriptObjects/CScriptTrigger", False],
-            "MetroidPrime/ScriptObjects/CScriptWaypoint",
+            ["MetroidPrime/ScriptObjects/CScriptWaypoint", True],
             "MetroidPrime/Enemies/CPatterned",
             "MetroidPrime/ScriptObjects/CScriptDoor",
             ["MetroidPrime/Enemies/CStateMachine", False],

@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803DA558
-lbl_803DA558:
+.global __vt__15CScriptWaypoint
+__vt__15CScriptWaypoint:
 	# ROM: 0x3D7558
 	.4byte 0
 	.4byte 0
@@ -318,9 +318,9 @@ __dt__15CScriptWaypointFv:
 /* 800773C8 00074328  93 C1 00 08 */	stw r30, 8(r1)
 /* 800773CC 0007432C  7C 7E 1B 79 */	or. r30, r3, r3
 /* 800773D0 00074330  41 82 00 28 */	beq lbl_800773F8
-/* 800773D4 00074334  3C A0 80 3E */	lis r5, lbl_803DA558@ha
+/* 800773D4 00074334  3C A0 80 3E */	lis r5, __vt__15CScriptWaypoint@ha
 /* 800773D8 00074338  38 80 00 00 */	li r4, 0
-/* 800773DC 0007433C  38 05 A5 58 */	addi r0, r5, lbl_803DA558@l
+/* 800773DC 0007433C  38 05 A5 58 */	addi r0, r5, __vt__15CScriptWaypoint@l
 /* 800773E0 00074340  90 1E 00 00 */	stw r0, 0(r30)
 /* 800773E4 00074344  4B FD E3 0D */	bl __dt__6CActorFv
 /* 800773E8 00074348  7F E0 07 35 */	extsh. r0, r31
@@ -399,9 +399,9 @@ lbl_800773F8:
 /* 800774FC 0007445C  38 61 00 88 */	addi r3, r1, 0x88
 /* 80077500 00074460  38 80 FF FF */	li r4, -1
 /* 80077504 00074464  48 09 F5 49 */	bl __dt__10CModelDataFv
-/* 80077508 00074468  3C 80 80 3E */	lis r4, lbl_803DA558@ha
+/* 80077508 00074468  3C 80 80 3E */	lis r4, __vt__15CScriptWaypoint@ha
 /* 8007750C 0007446C  7E 63 9B 78 */	mr r3, r19
-/* 80077510 00074470  38 04 A5 58 */	addi r0, r4, lbl_803DA558@l
+/* 80077510 00074470  38 04 A5 58 */	addi r0, r4, __vt__15CScriptWaypoint@l
 /* 80077514 00074474  90 13 00 00 */	stw r0, 0(r19)
 /* 80077518 00074478  38 80 00 00 */	li r4, 0
 /* 8007751C 0007447C  D3 D3 00 E8 */	stfs f30, 0xe8(r19)

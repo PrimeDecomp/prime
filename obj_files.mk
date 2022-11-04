@@ -54,7 +54,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/Tweaks/CTweakGui.o\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptActor.o\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptTrigger.o\
-	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptWaypoint.o\
+	$(BUILD_DIR)/src/MetroidPrime/ScriptObjects/CScriptWaypoint.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CPatterned.o\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptDoor.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CStateMachine.o\
