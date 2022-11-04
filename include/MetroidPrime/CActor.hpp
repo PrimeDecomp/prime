@@ -325,6 +325,7 @@ public:
   void SetDrawShadow(bool b) { xe5_24_shadowEnabled = b; }
   void SetShadowDirty(bool b) { xe5_25_shadowDirty = b; }
   void SetMuted(bool b) { xe5_26_muted = b; }
+  void SetThermalFlags(EThermalFlags flags) { xe6_27_thermalVisorFlags = flags; }
   void SetRenderParticleDatabaseInside(bool b) { xe6_29_renderParticleDBInside = b; }
   void SetTargetable(bool b) { xe7_31_targetable = b; }
 

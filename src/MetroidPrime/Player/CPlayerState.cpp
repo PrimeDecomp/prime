@@ -397,7 +397,7 @@ void CPlayerState::UpdateStaticInterference(CStateManager& stateMgr, const float
 
 CPlayerState::EPlayerVisor CPlayerState::GetActiveVisor(const CStateManager& stateMgr) const {
   const CFirstPersonCamera* cam = TCastToConstPtr< CFirstPersonCamera >(
-      *stateMgr.GetCameraManager()->GetCurrentCamera(stateMgr));
+      stateMgr.GetCameraManager()->GetCurrentCamera(stateMgr));
   return (cam ? x14_currentVisor : kPV_Combat);
 }
 

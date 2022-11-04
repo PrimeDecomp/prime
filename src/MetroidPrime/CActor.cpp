@@ -112,9 +112,9 @@ CAdvancementDeltas CActor::UpdateAnimation(float dt, CStateManager& mgr, bool ad
     ushort maxVol = xd4_maxVol;
     int aid = GetCurrentAreaId().Value();
 
-    const CGameCamera* camera = mgr.GetCameraManager()->GetCurrentCamera(mgr);
+    const CGameCamera& camera = mgr.GetCameraManager()->GetCurrentCamera(mgr);
     const CVector3f origin = GetTranslation();
-    const CVector3f toCamera = camera->GetTranslation() - origin;
+    const CVector3f toCamera = camera.GetTranslation() - origin;
 
     const CInt32POINode* intNode;
     const CSoundPOINode* soundNode;

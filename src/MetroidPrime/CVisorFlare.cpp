@@ -62,7 +62,7 @@ void CVisorFlare::Update(float dt, const CVector3f& pos, const CActor* act, CSta
   if ((visor == CPlayerState::kPV_Combat || (x2c_w1 != 1 && visor == CPlayerState::kPV_Thermal)) &&
       mgr.GetPlayer()->GetMorphballTransitionState() == CPlayer::kMS_Unmorphed) {
 
-    CVector3f camPos = mgr.GetCameraManager()->GetCurrentCamera(mgr)->GetTranslation();
+    CVector3f camPos = mgr.GetCameraManager()->GetCurrentCamera(mgr).GetTranslation();
     CVector3f camDiff = pos - camPos;
     float mag = camDiff.Magnitude();
     camDiff *= (1.f / mag);
@@ -85,9 +85,9 @@ void CVisorFlare::Update(float dt, const CVector3f& pos, const CActor* act, CSta
     }
     x28_ = rstl::max_val(rstl::max_val(0.f, x28_), x18_f1);
 
-    const CGameCamera* curCam = mgr.GetCameraManager()->GetCurrentCamera(mgr);
-    CVector3f cameraForward = curCam->GetTransform().GetColumn(kDY);
-    CVector3f dir = pos - curCam->GetTranslation();
+    const CGameCamera& curCam = mgr.GetCameraManager()->GetCurrentCamera(mgr);
+    CVector3f cameraForward = curCam.GetTransform().GetColumn(kDY);
+    CVector3f dir = pos - curCam.GetTranslation();
     x24_ = 1.f - x28_ / x18_f1;
 
     float dot = CVector3f::Dot(dir.AsNormalized(), cameraForward);
@@ -120,14 +120,14 @@ void CVisorFlare::Render(const CVector3f& inPos, const CStateManager& mgr) const
 
   CGraphics::DisableAllLights();
   gpRender->SetDepthReadWrite(false, false);
-  const CGameCamera* cam = mgr.GetCameraManager()->GetCurrentCamera(mgr);
-  CVector3f camPos = cam->GetTranslation();
+  const CGameCamera& cam = mgr.GetCameraManager()->GetCurrentCamera(mgr);
+  CVector3f camPos = cam.GetTranslation();
   CVector3f inPosCopy = inPos;
 
   CTransform4f viewMatrix = CGraphics::GetViewMatrix();
   const CVector3f invPos = viewMatrix.GetInverse() * inPosCopy;
   const CVector3f invPos2 = viewMatrix * CVector3f(-invPos.GetX(), invPos.GetY(), -invPos.GetZ());
-  CVector3f camFront = cam->GetTransform().GetForward();
+  CVector3f camFront = cam.GetTransform().GetForward();
   if (!close_enough(x24_, 0.f)) {
     float acos = 0.f;
     if (!close_enough(x20_f3, 0.f)) {
