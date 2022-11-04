@@ -968,7 +968,7 @@ lbl_801D4468:
 /* 801D44B8 001D1418  90 07 00 04 */	stw r0, 4(r7)
 /* 801D44BC 001D141C  80 61 00 10 */	lwz r3, 0x10(r1)
 /* 801D44C0 001D1420  80 63 00 00 */	lwz r3, 0(r3)
-/* 801D44C4 001D1424  48 05 FB 05 */	bl "InitializeWorldLayers__16CWorldLayerStateFQ24rstl6vector<Q2CWorldLayers4Area>"
+/* 801D44C4 001D1424  48 05 FB 05 */	bl "InitializeWorldLayers__16CWorldLayerStateFRCQ24rstl56vector<Q212CWorldLayers4Area,Q24rstl17rmemory_allocator>"
 /* 801D44C8 001D1428  38 61 00 08 */	addi r3, r1, 8
 /* 801D44CC 001D142C  4B E8 59 99 */	bl sub_80059e64
 /* 801D44D0 001D1430  38 61 00 0C */	addi r3, r1, 0xc

@@ -4185,7 +4185,7 @@ lbl_8005942C:
 /* 80059448 000563A8  38 A1 00 24 */	addi r5, r1, 0x24
 /* 8005944C 000563AC  38 C1 00 20 */	addi r6, r1, 0x20
 /* 80059450 000563B0  80 63 00 00 */	lwz r3, 0(r3)
-/* 80059454 000563B4  48 1D AB 75 */	bl "InitializeWorldLayers__16CWorldLayerStateFQ24rstl6vector<Q2CWorldLayers4Area>"
+/* 80059454 000563B4  48 1D AB 75 */	bl "InitializeWorldLayers__16CWorldLayerStateFRCQ24rstl56vector<Q212CWorldLayers4Area,Q24rstl17rmemory_allocator>"
 /* 80059458 000563B8  38 61 00 20 */	addi r3, r1, 0x20
 /* 8005945C 000563BC  48 00 0A 09 */	bl sub_80059e64
 /* 80059460 000563C0  38 61 00 24 */	addi r3, r1, 0x24
@@ -4263,7 +4263,7 @@ sub_80059520:
 /* 80059550 000564B0  7C 7C 1B 78 */	mr r28, r3
 /* 80059554 000564B4  7F 23 CB 78 */	mr r3, r25
 /* 80059558 000564B8  7F 84 E3 78 */	mr r4, r28
-/* 8005955C 000564BC  48 00 05 59 */	bl sub_80059ab4
+/* 8005955C 000564BC  48 00 05 59 */	bl "reserve__Q24rstl56vector<Q212CWorldLayers4Area,Q24rstl17rmemory_allocator>Fi"
 /* 80059560 000564C0  3B 60 00 00 */	li r27, 0
 /* 80059564 000564C4  48 00 00 78 */	b lbl_800595DC
 lbl_80059568:
@@ -4284,7 +4284,7 @@ lbl_80059568:
 /* 800595A0 00056500  41 82 00 08 */	beq lbl_800595A8
 /* 800595A4 00056504  54 A4 08 3C */	slwi r4, r5, 1
 lbl_800595A8:
-/* 800595A8 00056508  48 00 05 0D */	bl sub_80059ab4
+/* 800595A8 00056508  48 00 05 0D */	bl "reserve__Q24rstl56vector<Q212CWorldLayers4Area,Q24rstl17rmemory_allocator>Fi"
 lbl_800595AC:
 /* 800595AC 0005650C  80 19 00 04 */	lwz r0, 4(r25)
 /* 800595B0 00056510  80 79 00 0C */	lwz r3, 0xc(r25)
@@ -4664,8 +4664,8 @@ lbl_80059AA0:
 /* 80059AAC 00056A0C  38 21 00 30 */	addi r1, r1, 0x30
 /* 80059AB0 00056A10  4E 80 00 20 */	blr
 
-.global sub_80059ab4
-sub_80059ab4:
+.global "reserve__Q24rstl56vector<Q212CWorldLayers4Area,Q24rstl17rmemory_allocator>Fi"
+"reserve__Q24rstl56vector<Q212CWorldLayers4Area,Q24rstl17rmemory_allocator>Fi":
 /* 80059AB4 00056A14  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 80059AB8 00056A18  7C 08 02 A6 */	mflr r0
 /* 80059ABC 00056A1C  90 01 00 34 */	stw r0, 0x34(r1)
