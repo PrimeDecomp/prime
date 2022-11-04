@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803E0628
-lbl_803E0628:
+.global __vt__13CPhysicsActor
+__vt__13CPhysicsActor:
 	# ROM: 0x3DD628
 	.4byte 0
 	.4byte 0
@@ -2322,9 +2322,9 @@ __dt__13CPhysicsActorFv:
 /* 8011C428 00119388  93 C1 00 08 */	stw r30, 8(r1)
 /* 8011C42C 0011938C  7C 7E 1B 79 */	or. r30, r3, r3
 /* 8011C430 00119390  41 82 00 64 */	beq lbl_8011C494
-/* 8011C434 00119394  3C 60 80 3E */	lis r3, lbl_803E0628@ha
+/* 8011C434 00119394  3C 60 80 3E */	lis r3, __vt__13CPhysicsActor@ha
 /* 8011C438 00119398  34 1E 02 28 */	addic. r0, r30, 0x228
-/* 8011C43C 0011939C  38 03 06 28 */	addi r0, r3, lbl_803E0628@l
+/* 8011C43C 0011939C  38 03 06 28 */	addi r0, r3, __vt__13CPhysicsActor@l
 /* 8011C440 001193A0  90 1E 00 00 */	stw r0, 0(r30)
 /* 8011C444 001193A4  41 82 00 0C */	beq lbl_8011C450
 /* 8011C448 001193A8  38 00 00 00 */	li r0, 0
@@ -2384,9 +2384,9 @@ lbl_8011C494:
 /* 8011C508 00119468  38 81 00 14 */	addi r4, r1, 0x14
 /* 8011C50C 0011946C  90 01 00 0C */	stw r0, 0xc(r1)
 /* 8011C510 00119470  4B F3 93 11 */	bl "__ct__6CActorF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC13CMaterialListRC16CActorParameters9TUniqueId"
-/* 8011C514 00119474  3C 60 80 3E */	lis r3, lbl_803E0628@ha
+/* 8011C514 00119474  3C 60 80 3E */	lis r3, __vt__13CPhysicsActor@ha
 /* 8011C518 00119478  C0 02 96 A4 */	lfs f0, lbl_805AB3C4@sda21(r2)
-/* 8011C51C 0011947C  38 03 06 28 */	addi r0, r3, lbl_803E0628@l
+/* 8011C51C 0011947C  38 03 06 28 */	addi r0, r3, __vt__13CPhysicsActor@l
 /* 8011C520 00119480  90 1D 00 00 */	stw r0, 0(r29)
 /* 8011C524 00119484  C0 3F 00 30 */	lfs f1, 0x30(r31)
 /* 8011C528 00119488  D0 3D 00 E8 */	stfs f1, 0xe8(r29)

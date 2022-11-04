@@ -83,8 +83,12 @@ public:
   virtual float GetWeight() const;
   float GetMass() const { return xe8_mass; }
   void SetMass(float mass);
+  void SetInertiaTensorScalar(float tensor);
 
+  const CAABox& GetBaseBoundingBox() const;
   CAABox GetBoundingBox() const;
+  void SetBoundingBox(const CAABox& box);
+  CAABox GetMotionVolume(float dt) const;
 
   void ApplyImpulseWR(const CVector3f& impulse, const CAxisAngle& angularImpulse);
   void ApplyTorqueWR(const CVector3f& torque);
@@ -106,6 +110,7 @@ public:
   bool WillMove(const CStateManager& mgr);
   void Stop();
 
+  CVector3f GetPrimitiveOffset() const;
   const CVector3f& GetConstantForceWR() const { return xfc_constantForce; }
   void SetConstantForceWR(const CVector3f& force) { xfc_constantForce = force; }
   const CAxisAngle& GetAngularMomentumWR() const { return x108_angularMomentum; }
@@ -125,6 +130,13 @@ public:
     x180_angularImpulse = angularImpulse;
   }
 
+  float GetCoefficientOfRestitutionModifier() const;
+  void SetCoefficientOfRestitutionModifier(float modifier);
+  float GetCollisionAccuracyModifier() const;
+  void SetCollisionAccuracyModifier(float modifier);
+  float GetMaximumCollisionVelocity() const;
+  void SetMaximumCollisionVelocity(float velocity);
+
   CPhysicsState GetPhysicsState() const;
   void SetPhysicsState(const CPhysicsState& state);
   CMotionState GetMotionState() const;
@@ -143,11 +155,14 @@ public:
   CVector3f GetMoveToORImpulseWR(const CVector3f& impulse, float d) const;
   CVector3f GetRotateToORAngularMomentumWR(const CQuaternion& q, float d) const;
   void RotateToWR(const CQuaternion&, float);
+  
+  void MoveInOneFrameOR(const CVector3f& trans, float d);
+  void RotateInOneFrameOR(const CQuaternion&, float);
 
   void MoveToOR(const CVector3f&, float);
   void RotateToOR(const CQuaternion&, float);
 
-  CVector3f GetTotalForcesWR() const;
+  CVector3f GetTotalForceWR() const;
 
   static float GravityConstant() { return kGravityAccel; }
 

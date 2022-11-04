@@ -15,6 +15,7 @@ public:
   static CNUQuaternion BuildFromMatrix3f(const CMatrix3f& matrix);
   static CNUQuaternion BuildFromQuaternion(const CQuaternion& quat);
 
+  CNUQuaternion& operator+=(const CNUQuaternion&);
   CNUQuaternion operator*(const CNUQuaternion&) const;
 
 private:
