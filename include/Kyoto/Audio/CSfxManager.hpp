@@ -5,6 +5,65 @@
 
 #include "Kyoto/Audio/CSfxHandle.hpp"
 
+struct _SND_REVSTD_DELAYLINE {
+  int inPoint;
+  int outPoint;
+  int length;
+  float* inputs;
+  float lastOutput;
+};
+
+struct _SND_REVSTD_WORK {
+  struct _SND_REVSTD_DELAYLINE AP[6];
+  struct _SND_REVSTD_DELAYLINE C[6];
+  float allPassCoef;
+  float combCoef[6];
+  float lpLastout[3];
+  float level;
+  float damping;
+  int preDelayTime;
+  float* preDelayLine[3];
+  float* preDelayPtr[3];
+};
+
+struct SND_AUX_REVERBHI {
+  uchar pad0[0x1c4];
+  bool hiDis;
+  float damping;
+  float crosstalk;
+  float coloration;
+  float time;
+  float mix;
+  float preDelay;
+};
+struct SND_AUX_CHORUS {
+  uchar pad[144];
+  uint baseDelay;
+  uint variation;
+  uint period;
+};
+struct SND_AUX_REVERBSTD {
+  _SND_REVSTD_WORK rv;
+  bool tempDisableFX;
+  float damping;
+  float preDelay;
+  float coloration;
+  float time;
+  float mix;
+};
+struct SND_AUX_DELAY {
+  uint currentSize[3];
+  uint currentPos[3];
+  uint currentFeedback[3];
+  uint currentOutput[3];
+  uint* left;
+  uint* right;
+  uint* sur;
+  uint delay[3];    // delay buffer length in ms per channel
+  uint feedback[3]; // feedback volume in % per channel
+  uint output[3];   // output volume in % per channel
+};
+
 class CVector3f;
 class CSfxManager {
 public:
@@ -38,6 +97,14 @@ public:
   static void KillAll(ESfxChannels);
   static void TurnOnChannel(ESfxChannels);
   static void TurnOffChannel(ESfxChannels);
+
+  static void DisableAuxCallback();
+  static void EnableAuxCallback();
+  static void PrepareDelayCallback(const SND_AUX_DELAY& info);
+  static void PrepareReverbStdCallback(const SND_AUX_REVERBSTD& info);
+  static void PrepareChorusCallback(const SND_AUX_CHORUS& info);
+  static void PrepareReverbHiCallback(const SND_AUX_REVERBHI& info);
+  static void DisableAuxProcessing();
 };
 
 #endif // _CSFXMANAGER

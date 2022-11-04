@@ -220,7 +220,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/Weapons/CBeamProjectile.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CFluidPlaneCPU.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CFluidPlaneDoor.o\
-	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptRoomAcoustics.o\
+	$(BUILD_DIR)/src/MetroidPrime/ScriptObjects/CScriptRoomAcoustics.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CIceSheegoth.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CCollisionActorManager.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CCollisionActor.o\
