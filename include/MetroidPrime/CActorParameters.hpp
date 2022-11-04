@@ -143,6 +143,6 @@ private:
   float x60_fadeOutTime;
   float x64_thermalMag;
 };
-// CHECK_SIZEOF(CActorParameters, 0x68)
+CHECK_SIZEOF(CActorParameters, 0x68)
 
 #endif // _CACTORPARAMETERS
