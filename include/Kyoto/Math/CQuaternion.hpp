@@ -12,7 +12,7 @@ class CNUQuaternion;
 
 class CQuaternion {
 public:
-  CQuaternion(float w, float x, float y, float z) : w(w), x(x), y(y), z(z) {}
+  CQuaternion(float w, float x, float y, float z) : w(w), imaginary(x, y, z) {}
   // __ct__11CQuaternionFfRC9CVector3f
 
   // CQuaternion(const CQuaternion& other)
@@ -53,7 +53,7 @@ public:
     // double x = -this->x;
     // double y = -this->y;
     // double z = -this->z;
-    return CQuaternion(w, -x, -y, -z);
+    return CQuaternion(w, -imaginary.GetX(), -imaginary.GetY(), -imaginary.GetZ());
   }
 
   static CQuaternion FromMatrixRows(const CVector3f&, const CVector3f&, const CVector3f&);
@@ -68,19 +68,14 @@ public:
   }
 
   float GetW() const { return w; }
-  float GetX() const { return x; }
-  float GetY() const { return y; }
-  float GetZ() const { return z; }
-  const CVector3f& GetImaginary() const { 
-    // TODO: hack! has a Vector3f field?
-    return *reinterpret_cast<const CVector3f*>(&x);
-  }
+  float GetX() const { return imaginary.GetX(); }
+  float GetY() const { return imaginary.GetY(); }
+  float GetZ() const { return imaginary.GetZ(); }
+  const CVector3f& GetImaginary() const { return imaginary; }
 
 private:
   float w;
-  float x;
-  float y;
-  float z;
+  CVector3f imaginary;
 
   static const CQuaternion sNoRotation;
 };
