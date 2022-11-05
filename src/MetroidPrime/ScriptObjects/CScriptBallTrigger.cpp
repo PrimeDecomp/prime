@@ -65,7 +65,8 @@ void CScriptBallTrigger::Think(float dt, CStateManager& mgr) {
         x168_24_canApplyForce = true;
       } else {
         const CVector3f offset = radiusPosDif.AsNormalized();
-        float angleCos = cosf(x154_minAngle * 0.01745329f);
+        // TODO: why doesn't Deg2Rad match?
+        float angleCos = cosf(x154_minAngle * (1.f * (M_PIF / 180.f)));
         if (angleCos < CVector3f::Dot(-offset, x15c_forceAngle) && distance < x158_maxDistance) {
           float a = x150_force * (x158_maxDistance / (distance * distance));
           float b = 1.f / dt * distance;
