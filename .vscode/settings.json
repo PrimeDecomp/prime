@@ -27,7 +27,15 @@
     "db.h": "c",
     "ppcarch.h": "c",
     "osalarm.h": "c",
-    "ospriv.h": "c"
+    "ospriv.h": "c",
+    "gx.h": "c",
+    "osthread.h": "c",
+    "osserial.h": "c",
+    "osmutex.h": "c",
+    "osexception.h": "c",
+    "oserror.h": "c",
+    "oscontext.h": "c",
+    "oscache.h": "c"
   },
   "files.autoSave": "onFocusChange",
   "files.insertFinalNewline": true,

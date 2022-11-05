@@ -80,7 +80,7 @@ extern "C" {
 #define OS_CONTEXT_FPR30 384
 #define OS_CONTEXT_FPR31 392
 
-#define OS_CONTEXT_FPSCR 400 
+#define OS_CONTEXT_FPSCR 400
 
 #define OS_CONTEXT_SRR0 408
 #define OS_CONTEXT_SRR1 412
@@ -130,6 +130,7 @@ extern "C" {
 #define OS_CONTEXT_PSF29 688
 #define OS_CONTEXT_PSF30 696
 #define OS_CONTEXT_PSF31 704
+#define OS_CONTEXT_STATE_EXC 0x02u
 
 typedef struct OSContext {
   u32 gpr[32];
@@ -155,7 +156,7 @@ typedef struct OSContext {
 
 } OSContext;
 
-void OSSaveContext(OSContext* context);
+u32 OSSaveContext(OSContext* context);
 void OSClearContext(OSContext* context);
 OSContext* OSGetCurrentContext();
 void OSSetCurrentContext(OSContext* context);
