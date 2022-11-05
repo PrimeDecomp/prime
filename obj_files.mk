@@ -706,7 +706,7 @@ OS_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/os/OSResetSW.o\
 	$(BUILD_DIR)/asm/Dolphin/os/OSRtc.o\
 	$(BUILD_DIR)/src/Dolphin/os/OSSync.o\
-	$(BUILD_DIR)/asm/Dolphin/os/OSThread.o\
+	$(BUILD_DIR)/src/Dolphin/os/OSThread.ep.o\
 	$(BUILD_DIR)/src/Dolphin/os/OSTime.ep.o\
 	$(BUILD_DIR)/src/Dolphin/os/__ppc_eabi_init.ep.o\
 

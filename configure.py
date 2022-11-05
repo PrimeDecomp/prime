@@ -841,7 +841,7 @@ LIBS = [
             "Dolphin/os/OSResetSW",
             ["Dolphin/os/OSRtc", False],
             ["Dolphin/os/OSSync", True],
-            "Dolphin/os/OSThread",
+            ["Dolphin/os/OSThread", True],
             ["Dolphin/os/OSTime", True],
             ["Dolphin/os/__ppc_eabi_init", True],
         ],

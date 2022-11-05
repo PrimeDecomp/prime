@@ -67,10 +67,10 @@ OSTime OSGetTime();
 OSTick OSGetTick();
 
 typedef struct OSCalendarTime {
-  int sec;   // seconds after the minute [0, 61]
-  int min;   // minutes after the hour [0, 59]
-  int hour;  // hours since midnight [0, 23]
-  int mday;  // day of the month [1, 31]
+  int sec;  // seconds after the minute [0, 61]
+  int min;  // minutes after the hour [0, 59]
+  int hour; // hours since midnight [0, 23]
+  int mday; // day of the month [1, 31]
   int mon;  // month since January [0, 11]
   int year; // years in AD [1, ...]
   int wday; // days since Sunday [0, 6]
@@ -80,9 +80,8 @@ typedef struct OSCalendarTime {
   int usec; // microseconds after the millisecond [0,999]
 } OSCalendarTime;
 
-OSTime OSCalendarTimeToTicks( OSCalendarTime* td );
-void   OSTicksToCalendarTime( OSTime ticks, OSCalendarTime* td );
-
+OSTime OSCalendarTimeToTicks(OSCalendarTime* td);
+void OSTicksToCalendarTime(OSTime ticks, OSCalendarTime* td);
 
 #define OS_CONSOLE_MASK 0xf0000000
 #define OS_CONSOLE_RETAIL 0x00000000
@@ -157,6 +156,7 @@ void OSFatal(GXColor fg, GXColor bg, const char* msg);
 #include <dolphin/os/OSException.h>
 #include <dolphin/os/OSFont.h>
 #include <dolphin/os/OSInterrupt.h>
+#include <dolphin/os/OSMutex.h>
 #include <dolphin/os/OSReset.h>
 #include <dolphin/os/OSSerial.h>
 #include <dolphin/os/OSThread.h>
