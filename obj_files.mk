@@ -203,7 +203,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/CBoneTracking.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Player/CFaceplateDecoration.o\
 	$(BUILD_DIR)/asm/MetroidPrime/BodyState/CBSCover.o\
-	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptBallTrigger.o\
+	$(BUILD_DIR)/src/MetroidPrime/ScriptObjects/CScriptBallTrigger.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Weapons/CPlasmaProjectile.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Player/CPlayerOrbit.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CGameCollision.o\
