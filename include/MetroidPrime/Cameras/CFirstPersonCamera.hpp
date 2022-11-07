@@ -5,7 +5,11 @@
 
 class CFirstPersonCamera : public CGameCamera {
 public:
+  CFirstPersonCamera(const TUniqueId& uid, const CTransform4f& xf, TUniqueId watchedObj,
+                     float orbitCameraSpeed, float fov, float nearz, float farz, float aspect);
   void SetScriptPitchId(TUniqueId uid) { x1c4_pitchId = uid; }
+  void ProcessInput(const CFinalInput& input, CStateManager& mgr);
+  void Reset(const CTransform4f& xf, CStateManager& mgr);
 
 private:
   float x188_orbitCameraSpeed;

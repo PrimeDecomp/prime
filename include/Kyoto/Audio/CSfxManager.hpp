@@ -3,6 +3,7 @@
 
 #include "types.h"
 
+#include "Kyoto/Audio/CAudioSys.hpp"
 #include "Kyoto/Audio/CSfxHandle.hpp"
 
 struct _SND_REVSTD_DELAYLINE {
@@ -84,6 +85,10 @@ public:
   static CSfxHandle AddEmitter(ushort id, const CVector3f& pos, const CVector3f& dir, uchar vol,
                                bool useAcoustics, bool looped, short prio = kMedPriority,
                                int areaId = kAllAreas);
+
+  static void AddListener(ESfxChannels channel, const CVector3f& pos, const CVector3f& dir,
+                          const CVector3f& vec1, const CVector3f& vec2, float f1, float f2,
+                          uint w1, uchar maxVolume, float f3);
   static void Shutdown();
   static ushort TranslateSFXID(ushort);
 
