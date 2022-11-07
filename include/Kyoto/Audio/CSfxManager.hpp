@@ -88,7 +88,7 @@ public:
 
   static void AddListener(ESfxChannels channel, const CVector3f& pos, const CVector3f& dir,
                           const CVector3f& vec1, const CVector3f& vec2, float f1, float f2,
-                          uint w1, uchar maxVolume, float f3);
+                          float f3, uint w1, const uchar maxVolume);
   static void Shutdown();
   static ushort TranslateSFXID(ushort);
 

@@ -46,8 +46,8 @@ CCameraManager::CCameraManager(TUniqueId curCamera)
 , x3b8_25_(false)
 , x3bc_curFov(sThirdPersonFOV) {
   CSfxManager::AddListener(CSfxManager::kSC_Game, CVector3f::Zero(), CVector3f::Zero(),
-                           CVector3f(1.f, 0.f, 0.f), CVector3f(0.f, 0.f, 1.f), 50.f, 50.f, 1,
-                           CAudioSys::kMaxVolume, 1000.f);
+                           CVector3f(1.f, 0.f, 0.f), CVector3f(0.f, 0.f, 1.f), 50.f, 50.f, 1000.f,
+                           1, CAudioSys::kMaxVolume);
   sAspectRatio = (float)CGraphics::GetViewport().mWidth / CGraphics::GetViewport().mHeight;
   sFirstPersonFOV = gpTweakGame->GetFirstPersonFOV();
 }
