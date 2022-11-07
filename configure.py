@@ -301,7 +301,7 @@ LIBS = [
             ["MetroidPrime/ScriptObjects/CScriptAiJumpPoint", True],
             "MetroidPrime/CMessageScreen",
             "MetroidPrime/Enemies/CFlaahgraTentacle",
-            ["MetroidPrime/Weapons/GunController/CGSFidget", False],
+            ["MetroidPrime/Weapons/GunController/CGSFidget", True],
             ["MetroidPrime/BodyState/CABSReaction", True],
             "MetroidPrime/Weapons/CIceProjectile",
             "MetroidPrime/Enemies/CFlyingPirate",

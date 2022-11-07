@@ -742,7 +742,7 @@ lbl_8011DC38:
 /* 8011DC8C 0011ABEC  80 1E 03 A8 */	lwz r0, 0x3a8(r30)
 /* 8011DC90 0011ABF0  54 00 20 36 */	slwi r0, r0, 4
 /* 8011DC94 0011ABF4  7C 7D 02 14 */	add r3, r29, r0
-/* 8011DC98 0011ABF8  4B EE 8B 6D */	bl sub_80006804
+/* 8011DC98 0011ABF8  4B EE 8B 6D */	bl "__as__Q24rstl42vector<6CToken,Q24rstl17rmemory_allocator>FRCQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>"
 /* 8011DC9C 0011ABFC  80 01 00 1C */	lwz r0, 0x1c(r1)
 /* 8011DCA0 0011AC00  83 81 00 24 */	lwz r28, 0x24(r1)
 /* 8011DCA4 0011AC04  54 00 18 38 */	slwi r0, r0, 3

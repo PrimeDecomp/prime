@@ -28,7 +28,7 @@ UnLoadAnim__9CGSFidgetFv:
 /* 801F1110 001EE070  90 01 00 1C */	stw r0, 0x1c(r1)
 /* 801F1114 001EE074  90 01 00 20 */	stw r0, 0x20(r1)
 /* 801F1118 001EE078  90 01 00 24 */	stw r0, 0x24(r1)
-/* 801F111C 001EE07C  4B E1 56 E9 */	bl sub_80006804
+/* 801F111C 001EE07C  4B E1 56 E9 */	bl "__as__Q24rstl42vector<6CToken,Q24rstl17rmemory_allocator>FRCQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>"
 /* 801F1120 001EE080  80 01 00 1C */	lwz r0, 0x1c(r1)
 /* 801F1124 001EE084  83 C1 00 24 */	lwz r30, 0x24(r1)
 /* 801F1128 001EE088  54 00 18 38 */	slwi r0, r0, 3

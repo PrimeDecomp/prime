@@ -4000,7 +4000,7 @@ lbl_8002CAD0:
 /* 8002CB0C 00029A6C  90 01 00 34 */	stw r0, 0x34(r1)
 /* 8002CB10 00029A70  90 01 00 38 */	stw r0, 0x38(r1)
 /* 8002CB14 00029A74  90 01 00 3C */	stw r0, 0x3c(r1)
-/* 8002CB18 00029A78  4B FD 9C ED */	bl sub_80006804
+/* 8002CB18 00029A78  4B FD 9C ED */	bl "__as__Q24rstl42vector<6CToken,Q24rstl17rmemory_allocator>FRCQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>"
 /* 8002CB1C 00029A7C  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8002CB20 00029A80  83 61 00 3C */	lwz r27, 0x3c(r1)
 /* 8002CB24 00029A84  54 00 18 38 */	slwi r0, r0, 3

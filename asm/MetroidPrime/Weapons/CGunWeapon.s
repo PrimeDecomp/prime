@@ -1191,7 +1191,7 @@ lbl_801BACD4:
 /* 801BACFC 001B7C5C  38 81 00 18 */	addi r4, r1, 0x18
 /* 801BAD00 001B7C60  90 01 00 20 */	stw r0, 0x20(r1)
 /* 801BAD04 001B7C64  90 01 00 24 */	stw r0, 0x24(r1)
-/* 801BAD08 001B7C68  4B E4 BA FD */	bl sub_80006804
+/* 801BAD08 001B7C68  4B E4 BA FD */	bl "__as__Q24rstl42vector<6CToken,Q24rstl17rmemory_allocator>FRCQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>"
 /* 801BAD0C 001B7C6C  80 01 00 1C */	lwz r0, 0x1c(r1)
 /* 801BAD10 001B7C70  83 81 00 24 */	lwz r28, 0x24(r1)
 /* 801BAD14 001B7C74  54 00 18 38 */	slwi r0, r0, 3

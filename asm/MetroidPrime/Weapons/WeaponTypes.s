@@ -387,7 +387,7 @@ lbl_8028AF2C:
 /* 8028AF40 00287EA0  38 81 00 48 */	addi r4, r1, 0x48
 /* 8028AF44 00287EA4  90 01 00 50 */	stw r0, 0x50(r1)
 /* 8028AF48 00287EA8  90 01 00 54 */	stw r0, 0x54(r1)
-/* 8028AF4C 00287EAC  4B D7 B8 B9 */	bl sub_80006804
+/* 8028AF4C 00287EAC  4B D7 B8 B9 */	bl "__as__Q24rstl42vector<6CToken,Q24rstl17rmemory_allocator>FRCQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>"
 /* 8028AF50 00287EB0  80 01 00 4C */	lwz r0, 0x4c(r1)
 /* 8028AF54 00287EB4  83 A1 00 54 */	lwz r29, 0x54(r1)
 /* 8028AF58 00287EB8  54 00 18 38 */	slwi r0, r0, 3

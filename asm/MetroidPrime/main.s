@@ -5134,7 +5134,7 @@ lbl_80006778:
 /* 80006784 000036E4  38 81 00 18 */	addi r4, r1, 0x18
 /* 80006788 000036E8  90 01 00 20 */	stw r0, 0x20(r1)
 /* 8000678C 000036EC  90 01 00 24 */	stw r0, 0x24(r1)
-/* 80006790 000036F0  48 00 00 75 */	bl sub_80006804
+/* 80006790 000036F0  48 00 00 75 */	bl "__as__Q24rstl42vector<6CToken,Q24rstl17rmemory_allocator>FRCQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>"
 /* 80006794 000036F4  80 01 00 1C */	lwz r0, 0x1c(r1)
 /* 80006798 000036F8  83 C1 00 24 */	lwz r30, 0x24(r1)
 /* 8000679C 000036FC  54 00 18 38 */	slwi r0, r0, 3
@@ -5167,8 +5167,8 @@ lbl_800067E0:
 /* 800067FC 0000375C  38 21 00 50 */	addi r1, r1, 0x50
 /* 80006800 00003760  4E 80 00 20 */	blr
 
-.global sub_80006804
-sub_80006804:
+.global "__as__Q24rstl42vector<6CToken,Q24rstl17rmemory_allocator>FRCQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>"
+"__as__Q24rstl42vector<6CToken,Q24rstl17rmemory_allocator>FRCQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>":
 /* 80006804 00003764  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 80006808 00003768  7C 08 02 A6 */	mflr r0
 /* 8000680C 0000376C  90 01 00 34 */	stw r0, 0x34(r1)
@@ -5363,7 +5363,7 @@ lbl_80006A60:
 /* 80006A98 000039F8  38 81 00 20 */	addi r4, r1, 0x20
 /* 80006A9C 000039FC  90 01 00 28 */	stw r0, 0x28(r1)
 /* 80006AA0 00003A00  90 01 00 2C */	stw r0, 0x2c(r1)
-/* 80006AA4 00003A04  4B FF FD 61 */	bl sub_80006804
+/* 80006AA4 00003A04  4B FF FD 61 */	bl "__as__Q24rstl42vector<6CToken,Q24rstl17rmemory_allocator>FRCQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>"
 /* 80006AA8 00003A08  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80006AAC 00003A0C  83 81 00 2C */	lwz r28, 0x2c(r1)
 /* 80006AB0 00003A10  54 00 18 38 */	slwi r0, r0, 3
@@ -5414,7 +5414,7 @@ PreloadAudio__24CGameArchitectureSupportFv:
 /* 80006B48 00003AA8  38 81 00 28 */	addi r4, r1, 0x28
 /* 80006B4C 00003AAC  90 01 00 30 */	stw r0, 0x30(r1)
 /* 80006B50 00003AB0  90 01 00 34 */	stw r0, 0x34(r1)
-/* 80006B54 00003AB4  4B FF FC B1 */	bl sub_80006804
+/* 80006B54 00003AB4  4B FF FC B1 */	bl "__as__Q24rstl42vector<6CToken,Q24rstl17rmemory_allocator>FRCQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>"
 /* 80006B58 00003AB8  80 01 00 2C */	lwz r0, 0x2c(r1)
 /* 80006B5C 00003ABC  83 A1 00 34 */	lwz r29, 0x34(r1)
 /* 80006B60 00003AC0  54 00 18 38 */	slwi r0, r0, 3

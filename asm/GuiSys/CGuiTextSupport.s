@@ -1132,7 +1132,7 @@ lbl_802C8B74:
 /* 802C8B84 002C5AE4  48 03 97 31 */	bl GetAssets__18CTextExecuteBufferFv
 /* 802C8B88 002C5AE8  38 7D 02 BC */	addi r3, r29, 0x2bc
 /* 802C8B8C 002C5AEC  38 81 00 30 */	addi r4, r1, 0x30
-/* 802C8B90 002C5AF0  4B D3 DC 75 */	bl sub_80006804
+/* 802C8B90 002C5AF0  4B D3 DC 75 */	bl "__as__Q24rstl42vector<6CToken,Q24rstl17rmemory_allocator>FRCQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>"
 /* 802C8B94 002C5AF4  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 802C8B98 002C5AF8  83 C1 00 3C */	lwz r30, 0x3c(r1)
 /* 802C8B9C 002C5AFC  54 00 18 38 */	slwi r0, r0, 3
@@ -3148,4 +3148,3 @@ lbl_803D68E0:
 	.byte 0x26
 	.asciz "font=%8.8X;"
 	.4byte 0
-

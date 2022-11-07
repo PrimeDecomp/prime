@@ -2395,7 +2395,7 @@ lbl_800EED48:
 /* 800EEE10 000EBD70  38 81 00 30 */	addi r4, r1, 0x30
 /* 800EEE14 000EBD74  90 01 00 38 */	stw r0, 0x38(r1)
 /* 800EEE18 000EBD78  90 01 00 3C */	stw r0, 0x3c(r1)
-/* 800EEE1C 000EBD7C  4B F1 79 E9 */	bl sub_80006804
+/* 800EEE1C 000EBD7C  4B F1 79 E9 */	bl "__as__Q24rstl42vector<6CToken,Q24rstl17rmemory_allocator>FRCQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>"
 /* 800EEE20 000EBD80  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 800EEE24 000EBD84  83 81 00 3C */	lwz r28, 0x3c(r1)
 /* 800EEE28 000EBD88  54 00 18 38 */	slwi r0, r0, 3
