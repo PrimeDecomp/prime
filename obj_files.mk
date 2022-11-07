@@ -266,7 +266,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/src/MetroidPrime/ScriptObjects/CScriptAiJumpPoint.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CMessageScreen.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CFlaahgraTentacle.o\
-	$(BUILD_DIR)/asm/MetroidPrime/Weapons/GunController/CGSFidget.o\
+	$(BUILD_DIR)/src/MetroidPrime/Weapons/GunController/CGSFidget.o\
 	$(BUILD_DIR)/src/MetroidPrime/BodyState/CABSReaction.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Weapons/CIceProjectile.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CFlyingPirate.o\

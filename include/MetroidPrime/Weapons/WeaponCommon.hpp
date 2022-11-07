@@ -23,8 +23,11 @@ enum EGunAnimType {
 };
 
 CSfxHandle play_sfx(ushort sfx, bool underwater, bool looped, short pan);
+void get_token_vector(CAnimData& animData, int, rstl::vector< CToken >& tokensOut,
+                      bool preLock);
 void get_token_vector(const CAnimData& animData, int begin, int end,
                       rstl::vector< CToken >& tokensOut, bool preLock);
+bool are_tokens_ready(const rstl::vector< CToken >&);
 
 } // namespace NWeaponTypes
 

@@ -3179,7 +3179,7 @@ lbl_801095F0:
 /* 80109614 00106574  38 81 00 68 */	addi r4, r1, 0x68
 /* 80109618 00106578  90 01 00 70 */	stw r0, 0x70(r1)
 /* 8010961C 0010657C  90 01 00 74 */	stw r0, 0x74(r1)
-/* 80109620 00106580  4B EF D1 E5 */	bl sub_80006804
+/* 80109620 00106580  4B EF D1 E5 */	bl "__as__Q24rstl42vector<6CToken,Q24rstl17rmemory_allocator>FRCQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>"
 /* 80109624 00106584  80 01 00 6C */	lwz r0, 0x6c(r1)
 /* 80109628 00106588  83 81 00 74 */	lwz r28, 0x74(r1)
 /* 8010962C 0010658C  54 00 18 38 */	slwi r0, r0, 3
