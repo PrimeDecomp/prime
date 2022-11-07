@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803E80C0
-lbl_803E80C0:
+.global __vt__25CRipperControlledPlatform
+__vt__25CRipperControlledPlatform:
 	# ROM: 0x3E50C0
 	.4byte 0
 	.4byte 0
@@ -40,7 +40,7 @@ lbl_803E80C0:
 	.4byte GetStepUpHeight__13CPhysicsActorCFv
 	.4byte GetWeight__13CPhysicsActorCFv
 	.4byte SplashThink__15CScriptPlatformCFRC6CAABoxRC11CFluidPlanefR13CStateManager
-	.4byte Move__25CRipperControlledPlatformFR13CStateManager
+	.4byte Move__25CRipperControlledPlatformFfR13CStateManager
 	.4byte 0
 
 .section .text, "ax"
@@ -55,9 +55,9 @@ __dt__25CRipperControlledPlatformFv:
 /* 802327D4 0022F734  93 C1 00 08 */	stw r30, 8(r1)
 /* 802327D8 0022F738  7C 7E 1B 79 */	or. r30, r3, r3
 /* 802327DC 0022F73C  41 82 00 28 */	beq lbl_80232804
-/* 802327E0 0022F740  3C A0 80 3F */	lis r5, lbl_803E80C0@ha
+/* 802327E0 0022F740  3C A0 80 3F */	lis r5, __vt__25CRipperControlledPlatform@ha
 /* 802327E4 0022F744  38 80 00 00 */	li r4, 0
-/* 802327E8 0022F748  38 05 80 C0 */	addi r0, r5, lbl_803E80C0@l
+/* 802327E8 0022F748  38 05 80 C0 */	addi r0, r5, __vt__25CRipperControlledPlatform@l
 /* 802327EC 0022F74C  90 1E 00 00 */	stw r0, 0(r30)
 /* 802327F0 0022F750  4B E8 14 1D */	bl __dt__15CScriptPlatformFv
 /* 802327F4 0022F754  7F E0 07 35 */	extsh. r0, r31
@@ -73,8 +73,8 @@ lbl_80232804:
 /* 80232818 0022F778  38 21 00 10 */	addi r1, r1, 0x10
 /* 8023281C 0022F77C  4E 80 00 20 */	blr
 
-.global Move__25CRipperControlledPlatformFR13CStateManager
-Move__25CRipperControlledPlatformFR13CStateManager:
+.global Move__25CRipperControlledPlatformFfR13CStateManager
+Move__25CRipperControlledPlatformFfR13CStateManager:
 /* 80232820 0022F780  94 21 EF 40 */	stwu r1, -0x10c0(r1)
 /* 80232824 0022F784  7C 08 02 A6 */	mflr r0
 /* 80232828 0022F788  90 01 10 C4 */	stw r0, 0x10c4(r1)
@@ -314,8 +314,8 @@ lbl_80232B78:
 /* 80232B90 0022FAF0  38 21 10 C0 */	addi r1, r1, 0x10c0
 /* 80232B94 0022FAF4  4E 80 00 20 */	blr
 
-.global "__ct__25CRipperControlledPlatformF9TUniqueId9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC6CAABoxbRCQ24rstl58optional_object<39TLockedToken<23CCollidableOBBTreeGroup>>"
-"__ct__25CRipperControlledPlatformF9TUniqueId9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC6CAABoxbRCQ24rstl58optional_object<39TLockedToken<23CCollidableOBBTreeGroup>>":
+.global "__ct__25CRipperControlledPlatformF9TUniqueId9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC6CAABoxbRCQ24rstl67optional_object<48TLockedToken<32CCollidableOBBTreeGroupContainer>>"
+"__ct__25CRipperControlledPlatformF9TUniqueId9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC6CAABoxbRCQ24rstl67optional_object<48TLockedToken<32CCollidableOBBTreeGroupContainer>>":
 /* 80232B98 0022FAF8  94 21 FE F0 */	stwu r1, -0x110(r1)
 /* 80232B9C 0022FAFC  7C 08 02 A6 */	mflr r0
 /* 80232BA0 0022FB00  90 01 01 14 */	stw r0, 0x114(r1)
@@ -369,9 +369,9 @@ lbl_80232B78:
 /* 80232C60 0022FBC0  38 61 00 9C */	addi r3, r1, 0x9c
 /* 80232C64 0022FBC4  38 80 FF FF */	li r4, -1
 /* 80232C68 0022FBC8  4B EE 3D E5 */	bl __dt__10CModelDataFv
-/* 80232C6C 0022FBCC  3C 80 80 3F */	lis r4, lbl_803E80C0@ha
+/* 80232C6C 0022FBCC  3C 80 80 3F */	lis r4, __vt__25CRipperControlledPlatform@ha
 /* 80232C70 0022FBD0  7F E3 FB 78 */	mr r3, r31
-/* 80232C74 0022FBD4  38 04 80 C0 */	addi r0, r4, lbl_803E80C0@l
+/* 80232C74 0022FBD4  38 04 80 C0 */	addi r0, r4, __vt__25CRipperControlledPlatform@l
 /* 80232C78 0022FBD8  90 1F 00 00 */	stw r0, 0(r31)
 /* 80232C7C 0022FBDC  A0 17 00 00 */	lhz r0, 0(r23)
 /* 80232C80 0022FBE0  B0 1F 03 58 */	sth r0, 0x358(r31)

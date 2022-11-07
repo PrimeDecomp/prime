@@ -321,7 +321,7 @@ AddPlatform__7CRipperFR13CStateManager:
 /* 8015BF5C 00158EBC  3B 60 00 01 */	li r27, 1
 /* 8015BF60 00158EC0  B1 61 00 10 */	sth r11, 0x10(r1)
 /* 8015BF64 00158EC4  90 01 00 08 */	stw r0, 8(r1)
-/* 8015BF68 00158EC8  48 0D 6C 31 */	bl "__ct__25CRipperControlledPlatformF9TUniqueId9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC6CAABoxbRCQ24rstl58optional_object<39TLockedToken<23CCollidableOBBTreeGroup>>"
+/* 8015BF68 00158EC8  48 0D 6C 31 */	bl "__ct__25CRipperControlledPlatformF9TUniqueId9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC6CAABoxbRCQ24rstl67optional_object<48TLockedToken<32CCollidableOBBTreeGroupContainer>>"
 /* 8015BF6C 00158ECC  7C 7F 1B 78 */	mr r31, r3
 lbl_8015BF70:
 /* 8015BF70 00158ED0  7F 60 07 75 */	extsb. r0, r27

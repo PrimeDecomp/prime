@@ -332,7 +332,7 @@ LIBS = [
             "MetroidPrime/Enemies/CBouncyGrenade",
             "MetroidPrime/Enemies/CGrenadeLauncher",
             "MetroidPrime/Weapons/CShockWave",
-            "MetroidPrime/Enemies/CRipperControlledPlatform",
+            ["MetroidPrime/Enemies/CRipperControlledPlatform", True],
             "MetroidPrime/Enemies/CKnockBackController",
             ["MetroidPrime/Player/CWorldLayerState", False],
             "MetroidPrime/Enemies/CMagdolite",
