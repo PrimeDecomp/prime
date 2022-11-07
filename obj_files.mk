@@ -297,7 +297,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CBouncyGrenade.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CGrenadeLauncher.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Weapons/CShockWave.o\
-	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CRipperControlledPlatform.o\
+	$(BUILD_DIR)/src/MetroidPrime/Enemies/CRipperControlledPlatform.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CKnockBackController.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Player/CWorldLayerState.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CMagdolite.o\

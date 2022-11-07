@@ -272,6 +272,7 @@ public:
   void SetTranslation(const CVector3f& vec);
   CTransform4f GetLocatorTransform(const rstl::string& segName) const;
   CTransform4f GetScaledLocatorTransform(const rstl::string& segName) const;
+  float GetYaw() const;
 
   /// ????
   bool NullModel() const { return !GetAnimationData() && !GetModelData()->HasNormalModel(); }

@@ -28,6 +28,8 @@ public:
                                             TUniqueId&, CCollisionInfo&, double&);
   static CRayCastResult RayStaticIntersection(const CStateManager&, const CVector3f&,
                                               const CVector3f&, float, const CMaterialFilter&);
+
+  static void Move(CStateManager& mgr, CPhysicsActor& actor, float dt, const TEntityList*);
 };
 
 #endif // _CGAMECOLLISION

@@ -67,6 +67,9 @@ public:
   TUniqueId GetWaypoint(CStateManager& mgr);
   TUniqueId GetNext(TUniqueId uid, CStateManager& mgr);
 
+  bool IsRider(TUniqueId id) const;
+  bool IsSlave(TUniqueId id) const;
+
   void SetControlledAnimation(bool controlled) { x356_25_controlledAnimation = controlled; }
 
   static void AddRider(rstl::vector< SRiders >& riders, TUniqueId riderId,
