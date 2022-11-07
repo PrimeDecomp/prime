@@ -38,7 +38,7 @@ void CScriptDistanceFog::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId obj
     switch (msg) {
     case kSM_InitializedInArea:
       if (x60_explicit) {
-        CAreaFog* fog = stateMgr.World()->Area(GetCurrentAreaId())->AreaFog();
+        CGameArea::CAreaFog* fog = stateMgr.World()->Area(GetCurrentAreaId())->AreaFog();
         if (x34_mode == kRFM_None) {
           fog->DisableFog();
         } else {
@@ -48,7 +48,7 @@ void CScriptDistanceFog::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId obj
       break;
     case kSM_Action:
       if (x61_nonZero) {
-        CAreaFog* fog = stateMgr.World()->Area(GetCurrentAreaId())->AreaFog();
+        CGameArea::CAreaFog* fog = stateMgr.World()->Area(GetCurrentAreaId())->AreaFog();
         if (x34_mode != kRFM_None) {
           fog->FadeFog(x34_mode, x38_color, x3c_range, x44_colorDelta, x48_rangeDelta);
         } else {

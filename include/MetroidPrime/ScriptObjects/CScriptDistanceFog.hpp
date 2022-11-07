@@ -4,6 +4,7 @@
 #include "MetroidPrime/CEntity.hpp"
 
 #include "MetroidPrime/CAreaFog.hpp"
+#include "MetroidPrime/CGameArea.hpp"
 
 class CScriptDistanceFog : public CEntity {
   ERglFogMode x34_mode;
