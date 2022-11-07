@@ -116,6 +116,16 @@ enum ERglCullMode {
   kCM_All = GX_CULL_ALL,
 };
 
+
+struct CViewport {
+  int mLeft;
+  int mTop;
+  int mWidth;
+  int mHeight;
+  float mHalfWidth;
+  float mHalfHeight;
+};
+
 class CTimeProvider;
 
 class CGraphics {
@@ -132,6 +142,7 @@ public:
   static void StreamVertex(const float*);
   static void StreamEnd();
 
+  static const CViewport& GetViewport() { return mViewport; }
   static const CTransform4f& GetViewMatrix() { return mViewMatrix; }
   static const CTransform4f& GetModelMatrix() { return mModelMatrix; }
   static void SetBrightness(float b) { mBrightness = b; }
@@ -165,6 +176,7 @@ public:
 private:
   static CTransform4f mViewMatrix;
   static CTransform4f mModelMatrix;
+  static CViewport mViewport;
   static float mBrightness;
 };
 

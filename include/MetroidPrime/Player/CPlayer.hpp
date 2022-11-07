@@ -175,7 +175,7 @@ public:
 
   // CPlayer
   virtual bool IsTransparent();
-
+  
   CVector3f GetBallPosition() const;
   CVector3f GetEyePosition() const;
   float GetEyeHeight() const;
@@ -214,6 +214,7 @@ public:
   bool IsInFreeLook() const { return x3dc_inFreeLook; }
   bool GetFreeLookStickState() const { return x3de_lookAnalogHeld; }
   EPlayerCameraState GetCameraState() const { return x2f4_cameraState; }
+  void SetCameraState(EPlayerCameraState state, CStateManager& mgr);
   EGunHolsterState GetGunHolsterState() const { return x498_gunHolsterState; }
   NPlayer::EPlayerMovementState GetPlayerMovementState() const { return x258_movementState; }
 

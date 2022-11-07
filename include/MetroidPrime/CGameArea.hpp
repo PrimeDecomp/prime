@@ -5,15 +5,35 @@
 
 #include "MetroidPrime/TGameTypes.hpp"
 
+#include "Kyoto/Graphics/CColor.hpp"
 #include "Kyoto/IObjectStore.hpp"
 #include "Kyoto/Math/CAABox.hpp"
 #include "Kyoto/Math/CTransform4f.hpp"
+#include "Kyoto/Math/CVector2f.hpp"
 
 #include "rstl/auto_ptr.hpp"
 #include "rstl/list.hpp"
 #include "rstl/pair.hpp"
 #include "rstl/rc_ptr.hpp"
+#include "rstl/single_ptr.hpp"
 #include "rstl/vector.hpp"
+#include "rstl/optional_object.hpp"
+
+enum ERglFogMode {
+  kRFM_None = GX_FOG_NONE,
+
+  kRFM_PerspLin = GX_FOG_PERSP_LIN,
+  kRFM_PerspExp = GX_FOG_PERSP_EXP,
+  kRFM_PerspExp2 = GX_FOG_ORTHO_EXP2,
+  kRFM_PerspRevExp = GX_FOG_PERSP_REVEXP,
+  kRFM_PerspRevExp2 = GX_FOG_PERSP_REVEXP2,
+
+  kRFM_OrthoLin = GX_FOG_ORTHO_LIN,
+  kRFM_OrthoExp = GX_FOG_ORTHO_EXP,
+  kRFM_OrthoExp2 = GX_FOG_ORTHO_EXP2,
+  kRFM_OrthoRevExp = GX_FOG_ORTHO_REVEXP,
+  kRFM_OrthoRevExp2 = GX_FOG_ORTHO_REVEXP2,
+};
 
 class IGameArea {
 public:
@@ -32,10 +52,35 @@ class Dock;
 class CToken;
 class IDvdRequest;
 class CScriptAreaAttributes;
-class CAreaFog;
 
 class CGameArea : public IGameArea {
 public:
+  class CAreaFog {
+  private:
+    ERglFogMode x0_fogMode;
+    CVector2f x4_rangeCur;
+    CVector2f xc_rangeTarget;
+    CVector2f x14_rangeDelta;
+    CColor x1c_colorCur;
+    unkptr x20_;
+    unkptr x24_;
+    CColor x28_colorTarget;
+    unkptr x2c_;
+    unkptr x30_;
+    float x34_colorDelta;
+
+  public:
+    CAreaFog();
+    void SetCurrent() const;
+    void Update(float dt);
+    void RollFogOut(float rangeDelta, float colorDelta, const CColor& color);
+    void FadeFog(ERglFogMode, const CColor& color, const CVector2f& vec1, float,
+                 const CVector2f& vec2);
+    void SetFogExplicit(ERglFogMode mode, const CColor& color, const CVector2f& range);
+    bool IsFogDisabled() const;
+    void DisableFog();
+  };
+
   ~CGameArea();
   const CTransform4f& IGetTM() const override;
   CAssetId IGetStringTableAssetId() const override;
@@ -91,8 +136,8 @@ public:
 
   struct CPostConstructed {
     uchar x0_pad[0x10c4];
-    rstl::single_ptr<CAreaFog> x10c4_areaFog;
-    rstl::optional_object<void*> x10c8_sclyBuf; // was rstl::optional_object<void*>
+    rstl::single_ptr< CAreaFog > x10c4_areaFog;
+    rstl::optional_object< void* > x10c8_sclyBuf; // was rstl::optional_object<void*>
     u32 x10d0_sclySize;
     const u8* x10d4_firstMatPtr;
     const CScriptAreaAttributes* x10d8_areaAttributes;
@@ -103,11 +148,12 @@ public:
   const CAreaFog* GetAreaFog() const { return x12c_postConstructed->x10c4_areaFog.get(); }
   CAreaFog* AreaFog() { return x12c_postConstructed->x10c4_areaFog.get(); }
   EOcclusionState GetOcclusionState() const { return x12c_postConstructed->x10dc_occlusionState; }
-  
 
 private:
   uchar x110_pad[0x1c];
-  rstl::single_ptr<CPostConstructed> x12c_postConstructed;
+  rstl::single_ptr< CPostConstructed > x12c_postConstructed;
 };
+
+//CHECK_SIZEOF(CGamearea::CAreaFog, 0x38)
 
 #endif // _CGAMEAREA

@@ -3,8 +3,9 @@
 
 #include "types.h"
 
-#include "MetroidPrime/CAreaFog.hpp"
+#include "MetroidPrime/CGameArea.hpp"
 #include "MetroidPrime/TGameTypes.hpp"
+#include "MetroidPrime/Cameras/CCameraShakeData.hpp"
 
 #include "Kyoto/Math/CVector3f.hpp"
 
@@ -21,11 +22,23 @@ class CInterpolationCamera;
 class CStateManager;
 
 class CCameraManager {
+  static float sFirstPersonFOV;
+  static float sThirdPersonFOV;
+  static float sNearPlane;
+  static float sFarPlane;
+  static float sAspectRatio;
+  static float lbl_805A6BE4;
+  static float lbl_805A6BE8;
 public:
+  CCameraManager(TUniqueId curCamera);
+
+  void CreateStandardCameras(CStateManager& mgr);
+  
   CGameCamera& CurrentCamera(CStateManager& mgr) const;
   const CGameCamera& GetCurrentCamera(const CStateManager& mgr) const;
   CFirstPersonCamera* FirstPersonCamera() const /* map */ { return x7c_fpCamera; }
   const CFirstPersonCamera* GetFirstPersonCamera() const { return x7c_fpCamera; }
+  void SetCurrentCameraId(TUniqueId camId);
   void SetPlayerCamera(CStateManager& mgr, TUniqueId newCamId);
   void SetFogDensity(float fogDensityTarget, float fogDensitySpeed);
   bool IsInCinematicCamera() const;
@@ -33,17 +46,23 @@ public:
   void RemoveCameraShaker(int id);
   int AddCameraShaker(const CCameraShakeData& data, bool sfx);
 
-  static float DefaultThirdPersonFov();
+  void SetCurrentFov(float fov) { x3bc_curFov = fov; }
   
   int GetFluidCounter() const { return x74_fluidCounter; }
 
+
+  static float DefaultThirdPersonFov();
+  static float DefaultFirstPersonFov();
+  static float DefaultNearPlane();
+  static float DefaultFarPlane();
+  static float DefaultAspect();
 private:
   TUniqueId x0_curCameraId;
   rstl::vector< TUniqueId > x4_cineCameras;
   rstl::list< CCameraShakeData > x14_shakers;
   uint x2c_lastShakeId;
   CVector3f x30_shakeOffset;
-  CAreaFog x3c_fog;
+  CGameArea::CAreaFog x3c_fog;
   int x74_fluidCounter;
   TUniqueId x78_fluidId;
   CFirstPersonCamera* x7c_fpCamera;

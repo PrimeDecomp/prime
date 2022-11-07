@@ -39,7 +39,7 @@ LIBS = [
         "objects": [
             ["MetroidPrime/main", False],
             "MetroidPrime/IRenderer",
-            "MetroidPrime/Cameras/CCameraManager",
+            ["MetroidPrime/Cameras/CCameraManager", False],
             ["MetroidPrime/CControlMapper", True],
             "MetroidPrime/Cameras/CFirstPersonCamera",
             ["MetroidPrime/CObjectList", True],

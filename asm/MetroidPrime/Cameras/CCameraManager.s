@@ -77,28 +77,28 @@ lbl_805A9DC0:
 
 .section .sdata
 .balign 8
-.global lbl_805A6BD0
-lbl_805A6BD0:
+.global sFirstPersonFOV__14CCameraManager
+sFirstPersonFOV__14CCameraManager:
 	# ROM: 0x3F4570
 	.4byte 0x425C0000
 
-.global lbl_805A6BD4
-lbl_805A6BD4:
+.global sThirdPersonFOV__14CCameraManager
+sThirdPersonFOV__14CCameraManager:
 	# ROM: 0x3F4574
 	.4byte 0x42700000
 
-.global lbl_805A6BD8
-lbl_805A6BD8:
+.global sNearPlane__14CCameraManager
+sNearPlane__14CCameraManager:
 	# ROM: 0x3F4578
 	.float 0.2
 
-.global lbl_805A6BDC
-lbl_805A6BDC:
+.global sFarPlane__14CCameraManager
+sFarPlane__14CCameraManager:
 	# ROM: 0x3F457C
 	.4byte 0x443B8000
 
-.global lbl_805A6BE0
-lbl_805A6BE0:
+.global sAspectRatio__14CCameraManager
+sAspectRatio__14CCameraManager:
 	# ROM: 0x3F4580
 	.4byte 0x3FB5C28F
 
@@ -2641,7 +2641,7 @@ lbl_8000B3E0:
 /* 8000B440 000083A0  FC 60 08 90 */	fmr f3, f1
 lbl_8000B444:
 /* 8000B444 000083A4  C0 23 01 5C */	lfs f1, 0x15c(r3)
-/* 8000B448 000083A8  C0 4D 80 10 */	lfs f2, lbl_805A6BD0@sda21(r13)
+/* 8000B448 000083A8  C0 4D 80 10 */	lfs f2, sFirstPersonFOV__14CCameraManager@sda21(r13)
 /* 8000B44C 000083AC  48 04 FA CD */	bl SetFovInterpolation__11CGameCameraFffff
 lbl_8000B450:
 /* 8000B450 000083B0  80 01 00 34 */	lwz r0, 0x34(r1)
@@ -2754,7 +2754,7 @@ Update__14CCameraManagerFfR13CStateManager:
 /* 8000B5C4 00008524  38 21 00 20 */	addi r1, r1, 0x20
 /* 8000B5C8 00008528  4E 80 00 20 */	blr
 
-.global SetFogDensity__14CCameraManagerFfFf
+.global SetFogDensity__14CCameraManagerFfff
 SetFogDensity__14CCameraManagerFfFf:
 /* 8000B5CC 0000852C  D0 23 00 9C */	stfs f1, 0x9c(r3)
 /* 8000B5D0 00008530  C0 23 00 9C */	lfs f1, 0x9c(r3)
@@ -3534,27 +3534,27 @@ lbl_8000C06C:
 
 .global DefaultAspect__14CCameraManagerFv
 DefaultAspect__14CCameraManagerFv:
-/* 8000C0B8 00009018  C0 2D 80 20 */	lfs f1, lbl_805A6BE0@sda21(r13)
+/* 8000C0B8 00009018  C0 2D 80 20 */	lfs f1, sAspectRatio__14CCameraManager@sda21(r13)
 /* 8000C0BC 0000901C  4E 80 00 20 */	blr
 
 .global DefaultFarPlane__14CCameraManagerFv
 DefaultFarPlane__14CCameraManagerFv:
-/* 8000C0C0 00009020  C0 2D 80 1C */	lfs f1, lbl_805A6BDC@sda21(r13)
+/* 8000C0C0 00009020  C0 2D 80 1C */	lfs f1, sFarPlane__14CCameraManager@sda21(r13)
 /* 8000C0C4 00009024  4E 80 00 20 */	blr
 
 .global DefaultNearPlane__14CCameraManagerFv
 DefaultNearPlane__14CCameraManagerFv:
-/* 8000C0C8 00009028  C0 2D 80 18 */	lfs f1, lbl_805A6BD8@sda21(r13)
+/* 8000C0C8 00009028  C0 2D 80 18 */	lfs f1, sNearPlane__14CCameraManager@sda21(r13)
 /* 8000C0CC 0000902C  4E 80 00 20 */	blr
 
 .global DefaultFirstPersonFov__14CCameraManagerFv
 DefaultFirstPersonFov__14CCameraManagerFv:
-/* 8000C0D0 00009030  C0 2D 80 10 */	lfs f1, lbl_805A6BD0@sda21(r13)
+/* 8000C0D0 00009030  C0 2D 80 10 */	lfs f1, sFirstPersonFOV__14CCameraManager@sda21(r13)
 /* 8000C0D4 00009034  4E 80 00 20 */	blr
 
 .global DefaultThirdPersonFov__14CCameraManagerFv
 DefaultThirdPersonFov__14CCameraManagerFv:
-/* 8000C0D8 00009038  C0 2D 80 14 */	lfs f1, lbl_805A6BD4@sda21(r13)
+/* 8000C0D8 00009038  C0 2D 80 14 */	lfs f1, sThirdPersonFOV__14CCameraManager@sda21(r13)
 /* 8000C0DC 0000903C  4E 80 00 20 */	blr
 
 .global __ct__14CCameraManagerF9TUniqueId
@@ -3640,7 +3640,7 @@ __ct__14CCameraManagerF9TUniqueId:
 /* 8000C218 00009178  88 1F 03 B8 */	lbz r0, 0x3b8(r31)
 /* 8000C21C 0000917C  51 60 36 72 */	rlwimi r0, r11, 6, 0x19, 0x19
 /* 8000C220 00009180  98 1F 03 B8 */	stb r0, 0x3b8(r31)
-/* 8000C224 00009184  C0 0D 80 14 */	lfs f0, lbl_805A6BD4@sda21(r13)
+/* 8000C224 00009184  C0 0D 80 14 */	lfs f0, sThirdPersonFOV__14CCameraManager@sda21(r13)
 /* 8000C228 00009188  D0 1F 03 BC */	stfs f0, 0x3bc(r31)
 /* 8000C22C 0000918C  D0 A1 00 08 */	stfs f5, 8(r1)
 /* 8000C230 00009190  D0 A1 00 0C */	stfs f5, 0xc(r1)
@@ -3668,9 +3668,9 @@ __ct__14CCameraManagerF9TUniqueId:
 /* 8000C288 000091E8  EC 21 10 28 */	fsubs f1, f1, f2
 /* 8000C28C 000091EC  EC 00 10 28 */	fsubs f0, f0, f2
 /* 8000C290 000091F0  EC 01 00 24 */	fdivs f0, f1, f0
-/* 8000C294 000091F4  D0 0D 80 20 */	stfs f0, lbl_805A6BE0@sda21(r13)
+/* 8000C294 000091F4  D0 0D 80 20 */	stfs f0, sAspectRatio__14CCameraManager@sda21(r13)
 /* 8000C298 000091F8  C0 04 00 24 */	lfs f0, 0x24(r4)
-/* 8000C29C 000091FC  D0 0D 80 10 */	stfs f0, lbl_805A6BD0@sda21(r13)
+/* 8000C29C 000091FC  D0 0D 80 10 */	stfs f0, sFirstPersonFOV__14CCameraManager@sda21(r13)
 /* 8000C2A0 00009200  83 E1 00 3C */	lwz r31, 0x3c(r1)
 /* 8000C2A4 00009204  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 8000C2A8 00009208  7C 08 03 A6 */	mtlr r0
