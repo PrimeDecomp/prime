@@ -2755,7 +2755,7 @@ Update__14CCameraManagerFfR13CStateManager:
 /* 8000B5C8 00008528  4E 80 00 20 */	blr
 
 .global SetFogDensity__14CCameraManagerFfff
-SetFogDensity__14CCameraManagerFfFf:
+SetFogDensity__14CCameraManagerFfff:
 /* 8000B5CC 0000852C  D0 23 00 9C */	stfs f1, 0x9c(r3)
 /* 8000B5D0 00008530  C0 23 00 9C */	lfs f1, 0x9c(r3)
 /* 8000B5D4 00008534  C0 03 00 94 */	lfs f0, 0x94(r3)
