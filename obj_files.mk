@@ -243,7 +243,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/PathFinding/CPathFindArea.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Weapons/GunController/CGunController.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Weapons/GunController/CGSFreeLook.o\
-	$(BUILD_DIR)/asm/MetroidPrime/Weapons/GunController/CGSComboFire.o\
+	$(BUILD_DIR)/src/MetroidPrime/Weapons/GunController/CGSComboFire.o\
 	$(BUILD_DIR)/asm/MetroidPrime/HUD/CHudBallInterface.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Tweaks/CTweakGuiColors.o\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CFishCloud.o\
