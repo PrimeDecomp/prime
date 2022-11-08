@@ -1127,7 +1127,7 @@ else:
 n.newline()
 n.variable("host_cflags", "-I include/ -Wno-trigraphs")
 n.variable("host_cppflags",
-           "-std=c++98 -I include/ -fno-exceptions -fno-rtti -D_CRT_SECURE_NO_WARNINGS -Wno-trigraphs")
+           "-std=c++98 -I include/ -fno-exceptions -fno-rtti -D_CRT_SECURE_NO_WARNINGS -Wno-trigraphs -Wno-c++11-extensions")
 
 ###
 # Rules
