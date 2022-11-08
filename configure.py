@@ -387,7 +387,7 @@ LIBS = [
             "MetroidPrime/CProjectedShadow",
             ["MetroidPrime/CPreFrontEnd", True],
             "MetroidPrime/CGameCubeDoll",
-            "MetroidPrime/ScriptObjects/CScriptProjectedShadow",
+            ["MetroidPrime/ScriptObjects/CScriptProjectedShadow", False],
             "MetroidPrime/ScriptObjects/CEnergyBall",
             ["MetroidPrime/Enemies/CMetroidPrimeProjectile", False],
             ["MetroidPrime/Enemies/SPositionHistory", True],

@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803EC030
-lbl_803EC030:
+.global __vt__22CScriptShadowProjector
+__vt__22CScriptShadowProjector:
 	# ROM: 0x3E9030
 	.4byte 0
 	.4byte 0
@@ -47,9 +47,9 @@ __dt__22CScriptShadowProjectorFv:
 /* 8029ECEC 0029BC4C  93 C1 00 08 */	stw r30, 8(r1)
 /* 8029ECF0 0029BC50  7C 7E 1B 79 */	or. r30, r3, r3
 /* 8029ECF4 0029BC54  41 82 00 40 */	beq lbl_8029ED34
-/* 8029ECF8 0029BC58  3C 60 80 3F */	lis r3, lbl_803EC030@ha
+/* 8029ECF8 0029BC58  3C 60 80 3F */	lis r3, __vt__22CScriptShadowProjector@ha
 /* 8029ECFC 0029BC5C  34 1E 01 08 */	addic. r0, r30, 0x108
-/* 8029ED00 0029BC60  38 03 C0 30 */	addi r0, r3, lbl_803EC030@l
+/* 8029ED00 0029BC60  38 03 C0 30 */	addi r0, r3, __vt__22CScriptShadowProjector@l
 /* 8029ED04 0029BC64  90 1E 00 00 */	stw r0, 0(r30)
 /* 8029ED08 0029BC68  41 82 00 10 */	beq lbl_8029ED18
 /* 8029ED0C 0029BC6C  80 7E 01 08 */	lwz r3, 0x108(r30)
@@ -340,7 +340,7 @@ lbl_8029F0AC:
 /* 8029F0F8 0029C058  80 9E 01 0C */	lwz r4, 0x10c(r30)
 /* 8029F0FC 0029C05C  54 06 CF FE */	rlwinm r6, r0, 0x19, 0x1f, 0x1f
 /* 8029F100 0029C060  7C 85 23 78 */	mr r5, r4
-/* 8029F104 0029C064  4B FF F2 D9 */	bl __ct__16CProjectedShadowFv
+/* 8029F104 0029C064  4B FF F2 D9 */	bl __ct__16CProjectedShadowFiiUc
 /* 8029F108 0029C068  7C 7F 1B 78 */	mr r31, r3
 lbl_8029F10C:
 /* 8029F10C 0029C06C  80 7E 01 08 */	lwz r3, 0x108(r30)
@@ -433,9 +433,9 @@ lbl_8029F164:
 /* 8029F250 0029C1B0  38 61 00 88 */	addi r3, r1, 0x88
 /* 8029F254 0029C1B4  38 80 FF FF */	li r4, -1
 /* 8029F258 0029C1B8  4B E7 77 F5 */	bl __dt__10CModelDataFv
-/* 8029F25C 0029C1BC  3C 60 80 3F */	lis r3, lbl_803EC030@ha
+/* 8029F25C 0029C1BC  3C 60 80 3F */	lis r3, __vt__22CScriptShadowProjector@ha
 /* 8029F260 0029C1C0  C0 22 C0 E8 */	lfs f1, lbl_805ADE08@sda21(r2)
-/* 8029F264 0029C1C4  38 03 C0 30 */	addi r0, r3, lbl_803EC030@l
+/* 8029F264 0029C1C4  38 03 C0 30 */	addi r0, r3, __vt__22CScriptShadowProjector@l
 /* 8029F268 0029C1C8  C8 02 C0 F0 */	lfd f0, lbl_805ADE10@sda21(r2)
 /* 8029F26C 0029C1CC  90 1F 00 00 */	stw r0, 0(r31)
 /* 8029F270 0029C1D0  EC 3E 08 28 */	fsubs f1, f30, f1
