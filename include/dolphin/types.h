@@ -71,9 +71,13 @@ typedef int BOOL;
 #ifndef final
 #define final
 #endif
+
+#if defined(__MWERKS__)
 #ifndef override
 #define override
 #endif
+#endif
+
 #endif
 
 #ifndef ATTRIBUTE_ALIGN
