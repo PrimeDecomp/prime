@@ -175,7 +175,7 @@ LIBS = [
             ["MetroidPrime/CRippleManager", False],
             ["MetroidPrime/Player/CGrappleArm", False],
             "MetroidPrime/Enemies/CSpacePirate",
-            "MetroidPrime/ScriptObjects/CScriptCoverPoint",
+            ["MetroidPrime/ScriptObjects/CScriptCoverPoint", False],
             "MetroidPrime/Cameras/CPathCamera",
             "MetroidPrime/CFluidPlane",
             "MetroidPrime/CFluidPlaneManager",

@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803E0BF8
-lbl_803E0BF8:
+.global __vt__17CScriptCoverPoint
+__vt__17CScriptCoverPoint:
 	# ROM: 0x3DDBF8
 	.4byte 0
 	.4byte 0
@@ -79,9 +79,9 @@ __dt__17CScriptCoverPointFv:
 /* 8012D31C 0012A27C  93 C1 00 08 */	stw r30, 8(r1)
 /* 8012D320 0012A280  7C 7E 1B 79 */	or. r30, r3, r3
 /* 8012D324 0012A284  41 82 00 3C */	beq lbl_8012D360
-/* 8012D328 0012A288  3C 60 80 3E */	lis r3, lbl_803E0BF8@ha
+/* 8012D328 0012A288  3C 60 80 3E */	lis r3, __vt__17CScriptCoverPoint@ha
 /* 8012D32C 0012A28C  34 1E 01 00 */	addic. r0, r30, 0x100
-/* 8012D330 0012A290  38 03 0B F8 */	addi r0, r3, lbl_803E0BF8@l
+/* 8012D330 0012A290  38 03 0B F8 */	addi r0, r3, __vt__17CScriptCoverPoint@l
 /* 8012D334 0012A294  90 1E 00 00 */	stw r0, 0(r30)
 /* 8012D338 0012A298  41 82 00 0C */	beq lbl_8012D344
 /* 8012D33C 0012A29C  38 00 00 00 */	li r0, 0
@@ -453,9 +453,9 @@ Accept__17CScriptCoverPointFR8IVisitor:
 /* 8012D7FC 0012A75C  38 61 00 B8 */	addi r3, r1, 0xb8
 /* 8012D800 0012A760  38 80 FF FF */	li r4, -1
 /* 8012D804 0012A764  4B FE 92 49 */	bl __dt__10CModelDataFv
-/* 8012D808 0012A768  3C 60 80 3E */	lis r3, lbl_803E0BF8@ha
+/* 8012D808 0012A768  3C 60 80 3E */	lis r3, __vt__17CScriptCoverPoint@ha
 /* 8012D80C 0012A76C  C0 02 98 A4 */	lfs f0, lbl_805AB5C4@sda21(r2)
-/* 8012D810 0012A770  38 03 0B F8 */	addi r0, r3, lbl_803E0BF8@l
+/* 8012D810 0012A770  38 03 0B F8 */	addi r0, r3, __vt__17CScriptCoverPoint@l
 /* 8012D814 0012A774  90 1E 00 00 */	stw r0, 0(r30)
 /* 8012D818 0012A778  EC 20 07 72 */	fmuls f1, f0, f29
 /* 8012D81C 0012A77C  93 9E 00 E8 */	stw r28, 0xe8(r30)
