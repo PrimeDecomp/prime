@@ -48,7 +48,7 @@ pas::EAnimationState CBSSlide::UpdateBody(float dt, CBodyController& bc, CStateM
   return st;
 }
 
-void CBSSlide::Shutdown(CBodyController&) override {}
+void CBSSlide::Shutdown(CBodyController&) {}
 
 pas::EAnimationState CBSSlide::GetBodyStateTransition(float dt, CBodyController& bc) {
   CBodyStateCmdMgr& mgr = bc.CommandMgr();
@@ -68,7 +68,7 @@ pas::EAnimationState CBSSlide::GetBodyStateTransition(float dt, CBodyController&
   }
 }
 
-bool CBSSlide::ApplyHeadTracking() const override { return false; }
-bool CBSSlide::IsMoving() const override { return true; }
+bool CBSSlide::ApplyHeadTracking() const { return false; }
+bool CBSSlide::IsMoving() const { return true; }
 
 CBSSlide::~CBSSlide() {}

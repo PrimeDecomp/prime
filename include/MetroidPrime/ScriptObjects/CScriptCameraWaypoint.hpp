@@ -14,8 +14,8 @@ public:
 
   void Accept(IVisitor& visitor) override;
   void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&) override;
-  void AddToRenderer(const CFrustumPlanes&, const CStateManager&) override const;
-  void Render(const CStateManager&) override const;
+  void AddToRenderer(const CFrustumPlanes&, const CStateManager&) const override;
+  void Render(const CStateManager&) const override;
 
   TUniqueId GetRandomNextWaypointId(const CStateManager& mgr) const;
   float GetHFov() const { return xe8_hfov; }

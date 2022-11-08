@@ -39,6 +39,6 @@ void CScriptRipple::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CSt
   }
 }
 
-void CScriptRipple::Think(float, CStateManager&) override {}
+void CScriptRipple::Think(float, CStateManager&) {}
 
 void CScriptRipple::Accept(IVisitor& visitor) { visitor.Visit(*this); }

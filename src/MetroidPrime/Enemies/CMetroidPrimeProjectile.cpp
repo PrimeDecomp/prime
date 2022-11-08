@@ -16,13 +16,13 @@ CMetroidPrimeProjectile::CMetroidPrimeProjectile(
                     attribs, false, scale, visorParticle, visorSfx, sendCollideMsg)
 , x3d8_auxData(auxData) {}
 
-void CMetroidPrimeProjectile::Accept(IVisitor& visitor) override { visitor.Visit(*this); }
+void CMetroidPrimeProjectile::Accept(IVisitor& visitor) { visitor.Visit(*this); }
 
 // CEnergyProjectile
 bool CMetroidPrimeProjectile::Explode(const CVector3f& pos, const CVector3f& normal,
                                       EWeaponCollisionResponseTypes type, CStateManager& mgr,
                                       const CDamageVulnerability& dVuln,
-                                      TUniqueId hitActor) override {
+                                      TUniqueId hitActor) {
 
   bool result = CEnergyProjectile::Explode(pos, normal, type, mgr, dVuln, hitActor);
   if (!x2e4_24_active) {
@@ -60,4 +60,4 @@ SPrimeProjectileInfo::SPrimeProjectileInfo(CInputStream& in)
   x38_27_ = in.ReadBool();
 }
 
-CMetroidPrimeProjectile::~CMetroidPrimeProjectile() override {}
+CMetroidPrimeProjectile::~CMetroidPrimeProjectile() {}

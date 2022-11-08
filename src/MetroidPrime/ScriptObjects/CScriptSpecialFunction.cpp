@@ -156,7 +156,7 @@ void CScriptSpecialFunction::Think(float dt, CStateManager& mgr) {
   }
 }
 
-void CScriptSpecialFunction::AddToRenderer(const CFrustumPlanes&, CStateManager& mgr) {
+void CScriptSpecialFunction::AddToRenderer(const CFrustumPlanes&, const CStateManager& mgr) const {
   if (!GetActive()) {
     return;
   }
@@ -960,7 +960,7 @@ void CScriptSpecialFunction::ThinkObjectFollowObject(float, CStateManager& mgr) 
   }
 }
 
-void CScriptSpecialFunction::Render(CStateManager& mgr) {
+void CScriptSpecialFunction::Render(const CStateManager& mgr) const {
   if (xe8_function == kSF_FogVolume) {
     if (GetActive()) {
       const float z = mgr.IntegrateVisorFog(

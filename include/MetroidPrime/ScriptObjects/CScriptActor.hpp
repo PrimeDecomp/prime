@@ -34,7 +34,7 @@ public:
   // CPhysicsActor
   EWeaponCollisionResponseTypes GetCollisionResponseType(const CVector3f&, const CVector3f&,
                                                          const CWeaponMode&,
-                                                         EProjectileAttrib) const override;
+                                                         int) const override;
   CAABox GetSortingBounds(const CStateManager&) const override;
 
 private:

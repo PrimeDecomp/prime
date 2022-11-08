@@ -10,7 +10,7 @@
 
 CBSGenerate::CBSGenerate() {}
 
-void CBSGenerate::Start(CBodyController& bc, CStateManager& mgr) override {
+void CBSGenerate::Start(CBodyController& bc, CStateManager& mgr) {
   const CBCGenerateCmd* cmd =
       static_cast< const CBCGenerateCmd* >(bc.CommandMgr().GetCmd(kBSC_Generate));
 
@@ -37,7 +37,7 @@ void CBSGenerate::Start(CBodyController& bc, CStateManager& mgr) override {
 }
 
 pas::EAnimationState CBSGenerate::UpdateBody(float dt, CBodyController& bc,
-                                             CStateManager& mgr) override {
+                                             CStateManager& mgr) {
   const pas::EAnimationState st = GetBodyStateTransition(dt, bc);
   if (st == pas::kAS_Invalid) {
     CBodyStateCmdMgr& commandMgr = bc.CommandMgr();
@@ -48,7 +48,7 @@ pas::EAnimationState CBSGenerate::UpdateBody(float dt, CBodyController& bc,
   return st;
 }
 
-void CBSGenerate::Shutdown(CBodyController&) override {}
+void CBSGenerate::Shutdown(CBodyController&) {}
 
 pas::EAnimationState CBSGenerate::GetBodyStateTransition(float dt, CBodyController& bc) {
   CBodyStateCmdMgr& cmdMgr = bc.CommandMgr();

@@ -27,8 +27,7 @@ void CScriptCoverPoint::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid,
 
   switch (msg) {
   case kSM_InitializedInArea:
-    rstl::vector< SConnection >::const_iterator conn = GetConnectionList().begin();
-    for (; conn != GetConnectionList().end(); ++conn) {
+    for (rstl::vector< SConnection >::const_iterator conn = GetConnectionList().begin(); conn != GetConnectionList().end(); ++conn) {
       if (conn->x0_state == kSS_Retreat) {
         xfc_retreating = mgr.GetIdForScript(conn->x8_objId);
         break;
@@ -119,9 +118,9 @@ void CScriptCoverPoint::Think(float delta, CStateManager&) {
     x11c_timeLeft -= delta;
 }
 
-void CScriptCoverPoint::AddToRenderer(const CFrustumPlanes&, const CStateManager&) const override {}
+void CScriptCoverPoint::AddToRenderer(const CFrustumPlanes&, const CStateManager&) const {}
 
-void CScriptCoverPoint::Render(const CStateManager&) const override {}
+void CScriptCoverPoint::Render(const CStateManager&) const {}
 
 rstl::optional_object< CAABox > CScriptCoverPoint::GetTouchBounds() const {
   return x100_touchBounds;

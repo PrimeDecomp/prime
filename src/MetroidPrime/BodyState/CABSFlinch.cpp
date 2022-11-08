@@ -40,7 +40,7 @@ pas::EAnimationState CABSFlinch::UpdateBody(float dt, CBodyController& bc, CStat
   return st;
 }
 
-void CABSFlinch::Shutdown(CBodyController& bc) override {}
+void CABSFlinch::Shutdown(CBodyController& bc) {}
 
 pas::EAnimationState CABSFlinch::GetBodyStateTransition(float dt, CBodyController& bc) const {
   CBodyStateCmdMgr& commandMgr = bc.CommandMgr();

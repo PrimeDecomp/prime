@@ -20,7 +20,7 @@ void CScriptRelay::UpdateObjectRef(CStateManager& stateMgr) {
 }
 
 void CScriptRelay::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objId,
-                                   CStateManager& stateMgr) override {
+                                   CStateManager& stateMgr) {
   CEntity::AcceptScriptMsg(msg, objId, stateMgr);
 
   switch (msg) {
@@ -53,7 +53,7 @@ void CScriptRelay::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objId,
   }
 }
 
-void CScriptRelay::Think(float, CStateManager& stateMgr) override {
+void CScriptRelay::Think(float, CStateManager& stateMgr) {
   switch (x38_sendCount) {
   default:
     while (x38_sendCount != 0) {
@@ -66,6 +66,6 @@ void CScriptRelay::Think(float, CStateManager& stateMgr) override {
   }
 }
 
-void CScriptRelay::Accept(IVisitor& visitor) override { visitor.Visit(*this); }
+void CScriptRelay::Accept(IVisitor& visitor) { visitor.Visit(*this); }
 
 CScriptRelay::~CScriptRelay() {}

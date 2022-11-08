@@ -13,7 +13,7 @@ CREConstant::CREConstant(float val) : x4_val(val) {}
 
 CREConstant::~CREConstant() {}
 
-bool CREConstant::GetValue(int frame, float& valOut) const override {
+bool CREConstant::GetValue(int frame, float& valOut) const {
   valOut = x4_val;
   return false;
 }

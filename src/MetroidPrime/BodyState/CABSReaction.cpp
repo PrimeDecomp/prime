@@ -59,7 +59,7 @@ pas::EAnimationState CABSReaction::UpdateBody(float dt, CBodyController& bc, CSt
   return st;
 }
 
-void CABSReaction::Shutdown(CBodyController& bc) override { StopAnimation(bc); }
+void CABSReaction::Shutdown(CBodyController& bc) { StopAnimation(bc); }
 
 bool CBodyController::HasIceBreakoutState() {
   // Inline function that ends here?

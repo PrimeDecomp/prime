@@ -18,7 +18,7 @@ CScriptHUDMemo::CScriptHUDMemo(TUniqueId uid, const rstl::string& name, const CE
 CScriptHUDMemo::~CScriptHUDMemo() {}
 
 void CScriptHUDMemo::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid,
-                                     CStateManager& mgr) override {
+                                     CStateManager& mgr) {
   switch (msg) {
   case kSM_SetToZero:
     if (GetActive()) {
@@ -43,4 +43,4 @@ void CScriptHUDMemo::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid,
   CEntity::AcceptScriptMsg(msg, uid, mgr);
 }
 
-void CScriptHUDMemo::Accept(IVisitor& visitor) override { visitor.Visit(*this); }
+void CScriptHUDMemo::Accept(IVisitor& visitor) { visitor.Visit(*this); }
