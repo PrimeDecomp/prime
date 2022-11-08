@@ -893,8 +893,8 @@ lbl_8029E3C0:
 /* 8029E3D4 0029B334  38 21 00 10 */	addi r1, r1, 0x10
 /* 8029E3D8 0029B338  4E 80 00 20 */	blr
 
-.global __ct__16CProjectedShadowFv
-__ct__16CProjectedShadowFv:
+.global __ct__16CProjectedShadowFiiUc
+__ct__16CProjectedShadowFiiUc:
 /* 8029E3DC 0029B33C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8029E3E0 0029B340  7C 08 02 A6 */	mflr r0
 /* 8029E3E4 0029B344  38 E0 00 01 */	li r7, 1
