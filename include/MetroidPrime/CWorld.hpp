@@ -74,6 +74,8 @@ public:
   rstl::string IGetDefaultAudioTrack() const override;
   int IGetAreaCount() const override;
 
+  void SetLoadPauseState(bool);
+
   const CGameArea& GetAreaAlways(TAreaId id) const { return *x18_areas[id.Value()]; }
   CGameArea* Area(TAreaId id) { return x18_areas[id.Value()].get(); }
   const CGameArea* GetArea(TAreaId id) const { return x18_areas[id.Value()].get(); }

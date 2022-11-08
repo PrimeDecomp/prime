@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803E58A0
-lbl_803E58A0:
+.global __vt__22CScriptWorldTeleporter
+__vt__22CScriptWorldTeleporter:
 	# ROM: 0x3E28A0
 	.4byte 0
 	.4byte 0
@@ -17,8 +17,8 @@ lbl_803E58A0:
 
 .section .text, "ax"
 
-.global StartTransition__22CScriptWorldTeleporterFv
-StartTransition__22CScriptWorldTeleporterFv:
+.global StartTransition__22CScriptWorldTeleporterFR13CStateManager
+StartTransition__22CScriptWorldTeleporterFR13CStateManager:
 /* 801D689C 001D37FC  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 801D68A0 001D3800  7C 08 02 A6 */	mflr r0
 /* 801D68A4 001D3804  90 01 00 34 */	stw r0, 0x34(r1)
@@ -75,7 +75,7 @@ lbl_801D6950:
 /* 801D696C 001D38CC  C0 3F 00 44 */	lfs f1, 0x44(r31)
 /* 801D6970 001D38D0  C0 5F 00 48 */	lfs f2, 0x48(r31)
 /* 801D6974 001D38D4  C0 7F 00 4C */	lfs f3, 0x4c(r31)
-/* 801D6978 001D38D8  48 03 2C 79 */	bl EnableTransition__18CWorldTransManagerFviibbfff
+/* 801D6978 001D38D8  48 03 2C 79 */	bl EnableTransition__18CWorldTransManagerFiiibfff
 /* 801D697C 001D38DC  88 1F 00 40 */	lbz r0, 0x40(r31)
 /* 801D6980 001D38E0  38 60 00 01 */	li r3, 1
 /* 801D6984 001D38E4  50 60 36 72 */	rlwimi r0, r3, 6, 0x19, 0x19
@@ -135,7 +135,7 @@ lbl_801D6A00:
 /* 801D6A40 001D39A0  40 82 00 4C */	bne lbl_801D6A8C
 /* 801D6A44 001D39A4  7F 83 E3 78 */	mr r3, r28
 /* 801D6A48 001D39A8  7F E4 FB 78 */	mr r4, r31
-/* 801D6A4C 001D39AC  4B FF FE 51 */	bl StartTransition__22CScriptWorldTeleporterFv
+/* 801D6A4C 001D39AC  4B FF FE 51 */	bl StartTransition__22CScriptWorldTeleporterFR13CStateManager
 /* 801D6A50 001D39B0  80 6D A0 80 */	lwz r3, gpGameState@sda21(r13)
 /* 801D6A54 001D39B4  80 9C 00 34 */	lwz r4, 0x34(r28)
 /* 801D6A58 001D39B8  4B FF CE ED */	bl SetCurrentWorldId__10CGameStateFUi
@@ -164,14 +164,14 @@ lbl_801D6A8C:
 /* 801D6AB0 001D3A10  48 00 00 4C */	b lbl_801D6AFC
 lbl_801D6AB4:
 /* 801D6AB4 001D3A14  7F E4 FB 78 */	mr r4, r31
-/* 801D6AB8 001D3A18  4B FF FD E5 */	bl StartTransition__22CScriptWorldTeleporterFv
+/* 801D6AB8 001D3A18  4B FF FD E5 */	bl StartTransition__22CScriptWorldTeleporterFR13CStateManager
 /* 801D6ABC 001D3A1C  A0 9C 00 88 */	lhz r4, 0x88(r28)
 /* 801D6AC0 001D3A20  7F 63 DB 78 */	mr r3, r27
 /* 801D6AC4 001D3A24  88 BC 00 8A */	lbz r5, 0x8a(r28)
 /* 801D6AC8 001D3A28  88 DC 00 8B */	lbz r6, 0x8b(r28)
-/* 801D6ACC 001D3A2C  48 03 2E 99 */	bl sub_80209964
+/* 801D6ACC 001D3A2C  48 03 2E 99 */	bl SetSfx__18CWorldTransManagerFUsUcUc
 /* 801D6AD0 001D3A30  7F 63 DB 78 */	mr r3, r27
-/* 801D6AD4 001D3A34  48 03 2E ED */	bl sub_802099c0
+/* 801D6AD4 001D3A34  48 03 2E ED */	bl SfxStart__18CWorldTransManagerFv
 /* 801D6AD8 001D3A38  48 00 00 24 */	b lbl_801D6AFC
 lbl_801D6ADC:
 /* 801D6ADC 001D3A3C  88 1C 00 40 */	lbz r0, 0x40(r28)
@@ -181,7 +181,7 @@ lbl_801D6ADC:
 /* 801D6AEC 001D3A4C  98 1C 00 40 */	stb r0, 0x40(r28)
 /* 801D6AF0 001D3A50  48 03 49 99 */	bl DisableTransition__18CWorldTransManagerFv
 /* 801D6AF4 001D3A54  7F 63 DB 78 */	mr r3, r27
-/* 801D6AF8 001D3A58  48 03 2E 7D */	bl sub_80209974
+/* 801D6AF8 001D3A58  48 03 2E 7D */	bl SfxStop__18CWorldTransManagerFv
 lbl_801D6AFC:
 /* 801D6AFC 001D3A5C  A0 1E 00 00 */	lhz r0, 0(r30)
 /* 801D6B00 001D3A60  7F 83 E3 78 */	mr r3, r28
@@ -223,9 +223,9 @@ __dt__22CScriptWorldTeleporterFv:
 /* 801D6B78 001D3AD8  93 C1 00 08 */	stw r30, 8(r1)
 /* 801D6B7C 001D3ADC  7C 7E 1B 79 */	or. r30, r3, r3
 /* 801D6B80 001D3AE0  41 82 00 28 */	beq lbl_801D6BA8
-/* 801D6B84 001D3AE4  3C A0 80 3E */	lis r5, lbl_803E58A0@ha
+/* 801D6B84 001D3AE4  3C A0 80 3E */	lis r5, __vt__22CScriptWorldTeleporter@ha
 /* 801D6B88 001D3AE8  38 80 00 00 */	li r4, 0
-/* 801D6B8C 001D3AEC  38 05 58 A0 */	addi r0, r5, lbl_803E58A0@l
+/* 801D6B8C 001D3AEC  38 05 58 A0 */	addi r0, r5, __vt__22CScriptWorldTeleporter@l
 /* 801D6B90 001D3AF0  90 1E 00 00 */	stw r0, 0(r30)
 /* 801D6B94 001D3AF4  4B E7 A6 E1 */	bl __dt__7CEntityFv
 /* 801D6B98 001D3AF8  7F E0 07 35 */	extsh. r0, r31
@@ -241,8 +241,8 @@ lbl_801D6BA8:
 /* 801D6BBC 001D3B1C  38 21 00 10 */	addi r1, r1, 0x10
 /* 801D6BC0 001D3B20  4E 80 00 20 */	blr
 
-.global "__ct__22CScriptWorldTeleporterF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfobUiUiUiUiRC9CVector3fUiRC9CVector3fUiRC9CVector3fb"
-"__ct__22CScriptWorldTeleporterF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfobUiUiUiUiRC9CVector3fUiRC9CVector3fUiRC9CVector3fb":
+.global "__ct__22CScriptWorldTeleporterF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfobUiUiUsUcUcUiUibfff"
+"__ct__22CScriptWorldTeleporterF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfobUiUiUsUcUcUiUibfff":
 /* 801D6BC4 001D3B24  94 21 FF 90 */	stwu r1, -0x70(r1)
 /* 801D6BC8 001D3B28  7C 08 02 A6 */	mflr r0
 /* 801D6BCC 001D3B2C  90 01 00 74 */	stw r0, 0x74(r1)
@@ -273,9 +273,9 @@ lbl_801D6BA8:
 /* 801D6C30 001D3B90  7D 5A 53 78 */	mr r26, r10
 /* 801D6C34 001D3B94  38 81 00 08 */	addi r4, r1, 8
 /* 801D6C38 001D3B98  4B E7 A6 ED */	bl "__ct__7CEntityF9TUniqueIdRC11CEntityInfobRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
-/* 801D6C3C 001D3B9C  3C 80 80 3E */	lis r4, lbl_803E58A0@ha
+/* 801D6C3C 001D3B9C  3C 80 80 3E */	lis r4, __vt__22CScriptWorldTeleporter@ha
 /* 801D6C40 001D3BA0  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
-/* 801D6C44 001D3BA4  38 04 58 A0 */	addi r0, r4, lbl_803E58A0@l
+/* 801D6C44 001D3BA4  38 04 58 A0 */	addi r0, r4, __vt__22CScriptWorldTeleporter@l
 /* 801D6C48 001D3BA8  38 A0 00 02 */	li r5, 2
 /* 801D6C4C 001D3BAC  90 17 00 00 */	stw r0, 0(r23)
 /* 801D6C50 001D3BB0  38 C0 00 00 */	li r6, 0
@@ -339,8 +339,8 @@ lbl_801D6BA8:
 /* 801D6D38 001D3C98  38 21 00 70 */	addi r1, r1, 0x70
 /* 801D6D3C 001D3C9C  4E 80 00 20 */	blr
 
-.global "__ct__22CScriptWorldTeleporterF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
-"__ct__22CScriptWorldTeleporterF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>":
+.global "__ct__22CScriptWorldTeleporterF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfobUiUiUiUiUiRC9CVector3fUiRC9CVector3fUiRC9CVector3fbUsUcUc"
+"__ct__22CScriptWorldTeleporterF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfobUiUiUiUiUiRC9CVector3fUiRC9CVector3fUiRC9CVector3fbUsUcUc":
 /* 801D6D40 001D3CA0  94 21 FF B0 */	stwu r1, -0x50(r1)
 /* 801D6D44 001D3CA4  7C 08 02 A6 */	mflr r0
 /* 801D6D48 001D3CA8  90 01 00 54 */	stw r0, 0x54(r1)
@@ -368,9 +368,9 @@ lbl_801D6BA8:
 /* 801D6DA0 001D3D00  7C 87 23 78 */	mr r7, r4
 /* 801D6DA4 001D3D04  38 81 00 08 */	addi r4, r1, 8
 /* 801D6DA8 001D3D08  4B E7 A5 7D */	bl "__ct__7CEntityF9TUniqueIdRC11CEntityInfobRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
-/* 801D6DAC 001D3D0C  3C 60 80 3E */	lis r3, lbl_803E58A0@ha
+/* 801D6DAC 001D3D0C  3C 60 80 3E */	lis r3, __vt__22CScriptWorldTeleporter@ha
 /* 801D6DB0 001D3D10  38 00 00 01 */	li r0, 1
-/* 801D6DB4 001D3D14  38 63 58 A0 */	addi r3, r3, lbl_803E58A0@l
+/* 801D6DB4 001D3D14  38 63 58 A0 */	addi r3, r3, __vt__22CScriptWorldTeleporter@l
 /* 801D6DB8 001D3D18  38 80 00 00 */	li r4, 0
 /* 801D6DBC 001D3D1C  90 78 00 00 */	stw r3, 0(r24)
 /* 801D6DC0 001D3D20  7E A3 AB 78 */	mr r3, r21
@@ -445,9 +445,9 @@ lbl_801D6BA8:
 /* 801D6EC8 001D3E28  7C 87 23 78 */	mr r7, r4
 /* 801D6ECC 001D3E2C  38 81 00 08 */	addi r4, r1, 8
 /* 801D6ED0 001D3E30  4B E7 A4 55 */	bl "__ct__7CEntityF9TUniqueIdRC11CEntityInfobRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
-/* 801D6ED4 001D3E34  3C 80 80 3E */	lis r4, lbl_803E58A0@ha
+/* 801D6ED4 001D3E34  3C 80 80 3E */	lis r4, __vt__22CScriptWorldTeleporter@ha
 /* 801D6ED8 001D3E38  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
-/* 801D6EDC 001D3E3C  38 04 58 A0 */	addi r0, r4, lbl_803E58A0@l
+/* 801D6EDC 001D3E3C  38 04 58 A0 */	addi r0, r4, __vt__22CScriptWorldTeleporter@l
 /* 801D6EE0 001D3E40  38 E0 00 00 */	li r7, 0
 /* 801D6EE4 001D3E44  90 1D 00 00 */	stw r0, 0(r29)
 /* 801D6EE8 001D3E48  38 A0 FF FF */	li r5, -1

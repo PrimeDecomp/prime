@@ -8713,7 +8713,7 @@ lbl_800CCF34:
 /* 800CCFA4 000C9F04  38 A1 00 80 */	addi r5, r1, 0x80
 /* 800CCFA8 000C9F08  92 C1 00 14 */	stw r22, 0x14(r1)
 /* 800CCFAC 000C9F0C  93 E1 00 18 */	stw r31, 0x18(r1)
-/* 800CCFB0 000C9F10  48 10 9C 15 */	bl "__ct__22CScriptWorldTeleporterF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfobUiUiUiUiRC9CVector3fUiRC9CVector3fUiRC9CVector3fb"
+/* 800CCFB0 000C9F10  48 10 9C 15 */	bl "__ct__22CScriptWorldTeleporterF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfobUiUiUsUcUcUiUibfff"
 /* 800CCFB4 000C9F14  7C 6E 1B 78 */	mr r14, r3
 lbl_800CCFB8:
 /* 800CCFB8 000C9F18  38 61 00 80 */	addi r3, r1, 0x80
@@ -8758,7 +8758,7 @@ lbl_800CCFC8:
 /* 800CD050 000C9FB0  93 41 00 28 */	stw r26, 0x28(r1)
 /* 800CD054 000C9FB4  93 21 00 2C */	stw r25, 0x2c(r1)
 /* 800CD058 000C9FB8  93 01 00 30 */	stw r24, 0x30(r1)
-/* 800CD05C 000C9FBC  48 10 9C E5 */	bl "__ct__22CScriptWorldTeleporterF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
+/* 800CD05C 000C9FBC  48 10 9C E5 */	bl "__ct__22CScriptWorldTeleporterF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfobUiUiUiUiUiRC9CVector3fUiRC9CVector3fUiRC9CVector3fbUsUcUc"
 /* 800CD060 000C9FC0  7C 70 1B 78 */	mr r16, r3
 lbl_800CD064:
 /* 800CD064 000C9FC4  38 61 00 80 */	addi r3, r1, 0x80

@@ -26,6 +26,7 @@ public:
   void AsyncIdlePakLoading();
   bool AreAllPaksLoaded() const;
   CInputStream* LoadNewResourceSync(const SObjectTag& tag, char* extBuf);
+  FourCC GetResourceTypeById(CAssetId) const;
 
 private:
   rstl::list< unkptr > x0_aramList;

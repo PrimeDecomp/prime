@@ -157,6 +157,8 @@ public:
   CRumbleManager* GetRumbleManager() { return x88c_rumbleManager; }
   CFluidPlaneManager* FluidPlaneManager() { return x87c_fluidPlaneManager; }
   const CFluidPlaneManager* GetFluidPlaneManager() const { return x87c_fluidPlaneManager; }
+  CWorldTransManager* WorldTransManager() { return x8c4_worldTransManager.GetPtr(); }
+  const CWorldTransManager* GetWorldTransManager() const { return x8c4_worldTransManager.GetPtr(); }
 
   CRandom16* Random() const { return x900_random; }
 
