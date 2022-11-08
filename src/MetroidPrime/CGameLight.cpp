@@ -37,7 +37,7 @@ CLight CGameLight::GetLight() const {
   return ret;
 }
 
-void CGameLight::Think(float dt, CStateManager& mgr) override {
+void CGameLight::Think(float dt, CStateManager& mgr) {
   if (x144_lifeTime > 0.f) {
     x144_lifeTime -= dt;
 
@@ -46,7 +46,7 @@ void CGameLight::Think(float dt, CStateManager& mgr) override {
   }
 }
 
-void CGameLight::Accept(IVisitor& visitor) override { visitor.Visit(*this); }
+void CGameLight::Accept(IVisitor& visitor) { visitor.Visit(*this); }
 
 void CGameLight::SetLightPriorityAndId() {
   xec_light.SetPriority(x140_priority);

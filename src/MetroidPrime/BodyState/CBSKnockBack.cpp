@@ -50,7 +50,7 @@ void CBSKnockBack::Start(CBodyController& bc, CStateManager& mgr) {
 }
 
 pas::EAnimationState CBSKnockBack::UpdateBody(float dt, CBodyController& bc,
-                                              CStateManager& mgr) override {
+                                              CStateManager& mgr) {
   const pas::EAnimationState st = GetBodyStateTransition(dt, bc);
   if (st == pas::kAS_Invalid) {
     x4_curTime += dt;
@@ -62,7 +62,7 @@ pas::EAnimationState CBSKnockBack::UpdateBody(float dt, CBodyController& bc,
   return st;
 }
 
-void CBSKnockBack::Shutdown(CBodyController&) override {}
+void CBSKnockBack::Shutdown(CBodyController&) {}
 
 pas::EAnimationState CBSKnockBack::GetBodyStateTransition(float dt, CBodyController& bc) {
   CBodyStateCmdMgr& commandMgr = bc.CommandMgr();
@@ -85,6 +85,6 @@ pas::EAnimationState CBSKnockBack::GetBodyStateTransition(float dt, CBodyControl
   return pas::kAS_Invalid;
 }
 
-bool CBSKnockBack::IsMoving() const override { return true; }
+bool CBSKnockBack::IsMoving() const { return true; }
 
 CBSKnockBack::~CBSKnockBack() {}

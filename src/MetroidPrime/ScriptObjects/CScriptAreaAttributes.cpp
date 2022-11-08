@@ -16,7 +16,7 @@ CScriptAreaAttributes::CScriptAreaAttributes(TUniqueId uid, const CEntityInfo& i
 , x50_phazon(phazonType) {}
 
 void CScriptAreaAttributes::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objId,
-                                            CStateManager& stateMgr) override {
+                                            CStateManager& stateMgr) {
   CEntity::AcceptScriptMsg(msg, objId, stateMgr);
 
   if (GetCurrentAreaId() == kInvalidAreaId) {
@@ -39,6 +39,6 @@ void CScriptAreaAttributes::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId 
   }
 }
 
-void CScriptAreaAttributes::Accept(IVisitor& visitor) override { visitor.Visit(*this); }
+void CScriptAreaAttributes::Accept(IVisitor& visitor) { visitor.Visit(*this); }
 
 CScriptAreaAttributes::~CScriptAreaAttributes() {}

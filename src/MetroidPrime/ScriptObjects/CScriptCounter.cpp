@@ -11,7 +11,7 @@ CScriptCounter::CScriptCounter(TUniqueId uid, const rstl::string& name, const CE
 CScriptCounter::~CScriptCounter() {}
 
 void CScriptCounter::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objId,
-                                     CStateManager& stateMgr) override {
+                                     CStateManager& stateMgr) {
   switch (msg) {
   case kSM_SetToZero:
     if (GetActive()) {
@@ -62,4 +62,4 @@ void CScriptCounter::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objId,
   CEntity::AcceptScriptMsg(msg, objId, stateMgr);
 }
 
-void CScriptCounter::Accept(IVisitor& visitor) override { visitor.Visit(*this); }
+void CScriptCounter::Accept(IVisitor& visitor) { visitor.Visit(*this); }

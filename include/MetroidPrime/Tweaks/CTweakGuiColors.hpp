@@ -7,85 +7,85 @@
 
 class CTweakGuiColors : public ITweakObject {
 public:
-  const CColor& GetPauseBlurFilterColor() const override { return x4_pauseBlurFilterColor; }
-  const CColor& GetRadarStuffColor() const override { return x8_radarStuffColor; }
-  const CColor& GetRadarPlayerPaintColor() const override { return xc_radarPlayerPaintColor; }
-  const CColor& GetRadarEnemyPaintColor() const override { return x10_radarEnemyPaintColor; }
-  const CColor& GetHudMessageFill() const override { return x14_hudMessageFill; }
-  const CColor& GetHudMessageOutline() const override { return x18_hudMessageOutline; }
-  const CColor& GetHudFrameColor() const override { return x1c_hudFrameColor; }
-  const CColor& GetMissileIconColorActive() const override { return x28_missileIconColorActive; }
-  const CColor& GetVisorBeamMenuItemActive() const override { return x2c_visorBeamMenuItemActive; }
-  const CColor& GetVisorBeamMenuItemInactive() const override { return x30_visorBeamMenuColorInactive; }
-  const CColor& GetEnergyBarFilledLowEnergy() const override { return x34_energyBarFilledLowEnergy; }
-  const CColor& GetEnergyBarShadowLowEnergy() const override { return x38_energyBarShadowLowEnergy; }
-  const CColor& GetEnergyBarEmptyLowEnergy() const override { return x3c_energyBarEmptyLowEnergy; }
-  const CColor& GetHudDamageLightColor() const override { return x40_hudDamageLightColor; }
-  const CColor& GetVisorMenuTextFont() const override { return x4c_visorMenuTextFont; }
-  const CColor& GetVisorMenuTextOutline() const override { return x50_visorMenuTextOutline; }
-  const CColor& GetBeamMenuTextFont() const override { return x54_beamMenuTextFont; }
-  const CColor& GetBeamMenuTextOutline() const override { return x58_beamMenuTextOutline; }
-  const CColor& GetEnergyWarningFont() const override { return x5c_energyWarningFont; }
-  const CColor& GetThreatWarningFont() const override { return x60_threatWarningFont; }
-  const CColor& GetMissileWarningFont() const override { return x64_missileWarningFont; }
-  const CColor& GetThreatBarFilled() const override { return x68_threatBarFilled; }
-  const CColor& GetThreatBarShadow() const override { return x6c_threatBarShadow; }
-  const CColor& GetThreatBarEmpty() const override { return x70_threatBarEmpty; }
-  const CColor& GetMissileBarFilled() const override { return x74_missileBarFilled; }
-  const CColor& GetMissileBarShadow() const override { return x78_missileBarShadow; }
-  const CColor& GetMissileBarEmpty() const override { return x7c_missileBarEmpty; }
-  const CColor& GetThreatIconColor() const override { return x80_threatIconColor; }
-  const CColor& GetTickDecoColor() const override { return x88_tickDecoColor; }
-  const CColor& GetHelmetLightColor() const override { return x8c_helmetLightColor; }
-  const CColor& GetThreatIconSafeColor() const override { return x90_threatIconSafeColor; }
-  const CColor& GetMissileIconColorInactive() const override { return x94_missileIconColorInactive; }
-  const CColor& GetMissileIconColorChargedCanAlt() const override { return x98_missileIconColorChargedCanAlt; }
-  const CColor& GetMissileIconColorChargedNoAlt() const override { return x9c_missileIconColorChargedNoAlt; }
-  const CColor& GetMissileIconColorDepleteAlt() const override { return xa0_missileIconColorDepleteAlt; }
-  const CColor& GetVisorBeamMenuLozColor() const override { return xb0_visorBeamMenuLozColor; }
-  const CColor& GetEnergyWarningOutline() const override { return xb4_energyWarningOutline; }
-  const CColor& GetThreatWarningOutline() const override { return xb8_threatWarningOutline; }
-  const CColor& GetMissileWarningOutline() const override { return xbc_missileWarningOutline; }
-  const CColor& GetDamageAmbientColor() const override { return xc4_damageAmbientColor; }
-  const CColor& GetScanFrameInactiveColor() const override { return xc8_scanFrameInactiveColor; }
-  const CColor& GetScanFrameActiveColor() const override { return xcc_scanFrameActiveColor; }
-  const CColor& GetScanFrameImpulseColor() const override { return xd0_scanFrameImpulseColor; }
-  const CColor& GetScanVisorHudLightMultiply() const override { return xd4_scanVisorHudLightMultiply; }
-  const CColor& GetScanVisorScreenDimColor() const override { return xd8_scanVisorScreenDimColor; }
-  const CColor& GetThermalVisorHudLightMultiply() const override { return xdc_thermalVisorHudLightMultiply; }
-  const CColor& GetEnergyDrainFilterColor() const override { return xe0_energyDrainFilterColor; }
-  const CColor& GetDamageAmbientPulseColor() const override { return xe4_damageAmbientPulseColor; }
-  const CColor& GetEnergyBarFlashColor() const override { return xe8_energyBarFlashColor; }
-  const CColor& GetXRayEnergyDecoColor() const override { return x100_xrayEnergyDecoColor; }
-  const CColor& GetScanDataDotColor() const override { return x138_scanDataDotColor; }
-  const CColor& GetPowerBombDigitAvailableFont() const override { return x13c_powerBombDigitAvailableFont; }
-  const CColor& GetPowerBombDigitAvailableOutline() const override { return x140_powerBombDigitAvailableOutline; }
-  const CColor& GetBallBombFilledColor() const override { return x148_ballBombFilled; }
-  const CColor& GetBallBombEmptyColor() const override { return x14c_ballBombEmpty; }
-  const CColor& GetPowerBombIconAvailableColor() const override { return x150_powerBombIconAvailable; }
-  const CColor& GetBallBombEnergyColor() const override { return x158_ballEnergyDeco; }
-  const CColor& GetBallBombDecoColor() const override { return x15c_ballBombDeco; }
-  const CColor& GetPowerBombDigitDelpetedFont() const override { return x160_powerBombDigitDepletedFont; }
-  const CColor& GetPowerBombDigitDelpetedOutline() const override { return x164_powerBombDigitDepletedOutline; }
-  const CColor& GetPowerBombIconDepletedColor() const override { return x168_powerBombIconUnavailable; }
-  const CColor& GetScanDisplayImagePaneColor() const override { return x174_scanDisplayImagePaneColor; }
-  const CColor& GetThreatIconWarningColor() const override { return x17c_threatIconWarningColor; }
-  const CColor& GetHudCounterFill() const override { return x180_hudCounterFill; }
-  const CColor& GetHudCounterOutline() const override { return x184_hudCounterOutline; }
-  const CColor& GetScanIconCriticalColor() const override { return x188_scanIconCriticalColor; }
-  const CColor& GetScanIconCriticalDimColor() const override { return x18c_scanIconCriticalDimColor; }
-  const CColor& GetScanIconNoncriticalColor() const override { return x190_scanIconNoncriticalColor; }
-  const CColor& GetScanIconNoncriticalDimColor() const override { return x194_scanIconNoncriticalDimColor; }
-  const CColor& GetScanReticuleColor() const override { return x198_scanReticuleColor; }
-  const CColor& GetThreatDigitsFont() const override { return x19c_threatDigitsFont; }
-  const CColor& GetThreatDigitsOutline() const override { return x1a0_threatDigitsOutline; }
-  const CColor& GetMissileDigitsFont() const override { return x1a4_missileDigitsFont; }
-  const CColor& GetMissileDigitsOutline() const override { return x1a8_missileDigitsOutline; }
-  const CColor& GetThermalDecoColor() const override { return x1ac_thermalDecoColor; }
-  const CColor& GetThermalOutlinesColor() const override { return x1b0_thermalOutlinesColor; }
-  const CColor& GetThermalLockColor() const override { return x1b8_thermalLockColor; }
-  const CColor& GetPauseItemAmberColor() const override { return x1bc_pauseItemAmber; }
-  const CColor& GetPauseItemBlueColor() const override { return x1c0_pauseItemBlue; }
+  const CColor& GetPauseBlurFilterColor() const { return x4_pauseBlurFilterColor; }
+  const CColor& GetRadarStuffColor() const { return x8_radarStuffColor; }
+  const CColor& GetRadarPlayerPaintColor() const { return xc_radarPlayerPaintColor; }
+  const CColor& GetRadarEnemyPaintColor() const { return x10_radarEnemyPaintColor; }
+  const CColor& GetHudMessageFill() const { return x14_hudMessageFill; }
+  const CColor& GetHudMessageOutline() const { return x18_hudMessageOutline; }
+  const CColor& GetHudFrameColor() const { return x1c_hudFrameColor; }
+  const CColor& GetMissileIconColorActive() const { return x28_missileIconColorActive; }
+  const CColor& GetVisorBeamMenuItemActive() const { return x2c_visorBeamMenuItemActive; }
+  const CColor& GetVisorBeamMenuItemInactive() const { return x30_visorBeamMenuColorInactive; }
+  const CColor& GetEnergyBarFilledLowEnergy() const { return x34_energyBarFilledLowEnergy; }
+  const CColor& GetEnergyBarShadowLowEnergy() const { return x38_energyBarShadowLowEnergy; }
+  const CColor& GetEnergyBarEmptyLowEnergy() const { return x3c_energyBarEmptyLowEnergy; }
+  const CColor& GetHudDamageLightColor() const { return x40_hudDamageLightColor; }
+  const CColor& GetVisorMenuTextFont() const { return x4c_visorMenuTextFont; }
+  const CColor& GetVisorMenuTextOutline() const { return x50_visorMenuTextOutline; }
+  const CColor& GetBeamMenuTextFont() const { return x54_beamMenuTextFont; }
+  const CColor& GetBeamMenuTextOutline() const { return x58_beamMenuTextOutline; }
+  const CColor& GetEnergyWarningFont() const { return x5c_energyWarningFont; }
+  const CColor& GetThreatWarningFont() const { return x60_threatWarningFont; }
+  const CColor& GetMissileWarningFont() const { return x64_missileWarningFont; }
+  const CColor& GetThreatBarFilled() const { return x68_threatBarFilled; }
+  const CColor& GetThreatBarShadow() const { return x6c_threatBarShadow; }
+  const CColor& GetThreatBarEmpty() const { return x70_threatBarEmpty; }
+  const CColor& GetMissileBarFilled() const { return x74_missileBarFilled; }
+  const CColor& GetMissileBarShadow() const { return x78_missileBarShadow; }
+  const CColor& GetMissileBarEmpty() const { return x7c_missileBarEmpty; }
+  const CColor& GetThreatIconColor() const { return x80_threatIconColor; }
+  const CColor& GetTickDecoColor() const { return x88_tickDecoColor; }
+  const CColor& GetHelmetLightColor() const { return x8c_helmetLightColor; }
+  const CColor& GetThreatIconSafeColor() const { return x90_threatIconSafeColor; }
+  const CColor& GetMissileIconColorInactive() const { return x94_missileIconColorInactive; }
+  const CColor& GetMissileIconColorChargedCanAlt() const { return x98_missileIconColorChargedCanAlt; }
+  const CColor& GetMissileIconColorChargedNoAlt() const { return x9c_missileIconColorChargedNoAlt; }
+  const CColor& GetMissileIconColorDepleteAlt() const { return xa0_missileIconColorDepleteAlt; }
+  const CColor& GetVisorBeamMenuLozColor() const { return xb0_visorBeamMenuLozColor; }
+  const CColor& GetEnergyWarningOutline() const { return xb4_energyWarningOutline; }
+  const CColor& GetThreatWarningOutline() const { return xb8_threatWarningOutline; }
+  const CColor& GetMissileWarningOutline() const { return xbc_missileWarningOutline; }
+  const CColor& GetDamageAmbientColor() const { return xc4_damageAmbientColor; }
+  const CColor& GetScanFrameInactiveColor() const { return xc8_scanFrameInactiveColor; }
+  const CColor& GetScanFrameActiveColor() const { return xcc_scanFrameActiveColor; }
+  const CColor& GetScanFrameImpulseColor() const { return xd0_scanFrameImpulseColor; }
+  const CColor& GetScanVisorHudLightMultiply() const { return xd4_scanVisorHudLightMultiply; }
+  const CColor& GetScanVisorScreenDimColor() const { return xd8_scanVisorScreenDimColor; }
+  const CColor& GetThermalVisorHudLightMultiply() const { return xdc_thermalVisorHudLightMultiply; }
+  const CColor& GetEnergyDrainFilterColor() const { return xe0_energyDrainFilterColor; }
+  const CColor& GetDamageAmbientPulseColor() const { return xe4_damageAmbientPulseColor; }
+  const CColor& GetEnergyBarFlashColor() const { return xe8_energyBarFlashColor; }
+  const CColor& GetXRayEnergyDecoColor() const { return x100_xrayEnergyDecoColor; }
+  const CColor& GetScanDataDotColor() const { return x138_scanDataDotColor; }
+  const CColor& GetPowerBombDigitAvailableFont() const { return x13c_powerBombDigitAvailableFont; }
+  const CColor& GetPowerBombDigitAvailableOutline() const { return x140_powerBombDigitAvailableOutline; }
+  const CColor& GetBallBombFilledColor() const { return x148_ballBombFilled; }
+  const CColor& GetBallBombEmptyColor() const { return x14c_ballBombEmpty; }
+  const CColor& GetPowerBombIconAvailableColor() const { return x150_powerBombIconAvailable; }
+  const CColor& GetBallBombEnergyColor() const { return x158_ballEnergyDeco; }
+  const CColor& GetBallBombDecoColor() const { return x15c_ballBombDeco; }
+  const CColor& GetPowerBombDigitDelpetedFont() const { return x160_powerBombDigitDepletedFont; }
+  const CColor& GetPowerBombDigitDelpetedOutline() const { return x164_powerBombDigitDepletedOutline; }
+  const CColor& GetPowerBombIconDepletedColor() const { return x168_powerBombIconUnavailable; }
+  const CColor& GetScanDisplayImagePaneColor() const { return x174_scanDisplayImagePaneColor; }
+  const CColor& GetThreatIconWarningColor() const { return x17c_threatIconWarningColor; }
+  const CColor& GetHudCounterFill() const { return x180_hudCounterFill; }
+  const CColor& GetHudCounterOutline() const { return x184_hudCounterOutline; }
+  const CColor& GetScanIconCriticalColor() const { return x188_scanIconCriticalColor; }
+  const CColor& GetScanIconCriticalDimColor() const { return x18c_scanIconCriticalDimColor; }
+  const CColor& GetScanIconNoncriticalColor() const { return x190_scanIconNoncriticalColor; }
+  const CColor& GetScanIconNoncriticalDimColor() const { return x194_scanIconNoncriticalDimColor; }
+  const CColor& GetScanReticuleColor() const { return x198_scanReticuleColor; }
+  const CColor& GetThreatDigitsFont() const { return x19c_threatDigitsFont; }
+  const CColor& GetThreatDigitsOutline() const { return x1a0_threatDigitsOutline; }
+  const CColor& GetMissileDigitsFont() const { return x1a4_missileDigitsFont; }
+  const CColor& GetMissileDigitsOutline() const { return x1a8_missileDigitsOutline; }
+  const CColor& GetThermalDecoColor() const { return x1ac_thermalDecoColor; }
+  const CColor& GetThermalOutlinesColor() const { return x1b0_thermalOutlinesColor; }
+  const CColor& GetThermalLockColor() const { return x1b8_thermalLockColor; }
+  const CColor& GetPauseItemAmberColor() const { return x1bc_pauseItemAmber; }
+  const CColor& GetPauseItemBlueColor() const { return x1c0_pauseItemBlue; }
 
 private:
   CColor x4_pauseBlurFilterColor;

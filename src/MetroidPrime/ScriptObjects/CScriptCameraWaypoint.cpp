@@ -48,8 +48,8 @@ TUniqueId CScriptCameraWaypoint::GetRandomNextWaypointId(const CStateManager& mg
 }
 
 void CScriptCameraWaypoint::AddToRenderer(const CFrustumPlanes&,
-                                          const CStateManager&) override const {}
+                                          const CStateManager&) const {}
 
-void CScriptCameraWaypoint::Render(const CStateManager&) override const {}
+void CScriptCameraWaypoint::Render(const CStateManager&) const {}
 
 void CScriptCameraWaypoint::Accept(IVisitor& visitor) { visitor.Visit(*this); }

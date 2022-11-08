@@ -193,16 +193,16 @@ void CScriptPickup::Touch(CActor& act, CStateManager& mgr) {
   }
 }
 
-rstl::optional_object< CAABox > CScriptPickup::GetTouchBounds() const override {
+rstl::optional_object< CAABox > CScriptPickup::GetTouchBounds() const {
   return CPhysicsActor::GetBoundingBox();
 }
 
 void CScriptPickup::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid,
-                                    CStateManager& mgr) override {
+                                    CStateManager& mgr) {
   CPhysicsActor::AcceptScriptMsg(msg, uid, mgr);
 }
 
-void CScriptPickup::Render(const CStateManager& mgr) const override { CPhysicsActor::Render(mgr); }
+void CScriptPickup::Render(const CStateManager& mgr) const { CPhysicsActor::Render(mgr); }
 
 void CScriptPickup::Accept(IVisitor& visitor) { visitor.Visit(*this); }
 

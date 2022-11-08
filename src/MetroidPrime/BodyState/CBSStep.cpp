@@ -25,7 +25,7 @@ pas::EAnimationState CBSStep::UpdateBody(float dt, CBodyController& bc, CStateMa
   return st;
 }
 
-void CBSStep::Shutdown(CBodyController&) override {}
+void CBSStep::Shutdown(CBodyController&) {}
 
 pas::EAnimationState CBSStep::GetBodyStateTransition(float dt, CBodyController& bc) {
   CBodyStateCmdMgr& commandMgr = bc.CommandMgr();
@@ -71,9 +71,9 @@ pas::EAnimationState CBSStep::GetBodyStateTransition(float dt, CBodyController& 
   }
   return pas::kAS_Invalid;
 }
-bool CBSStep::CanShoot() const override { return true; }
+bool CBSStep::CanShoot() const { return true; }
 
 
-bool CBSStep::IsMoving() const override { return true; }
+bool CBSStep::IsMoving() const { return true; }
 
 CBSStep::~CBSStep() {}

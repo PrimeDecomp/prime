@@ -54,7 +54,7 @@ CScriptActor::~CScriptActor() {}
 
 CHealthInfo* CScriptActor::HealthInfo(CStateManager&) { return &x260_currentHealth; }
 
-const CDamageVulnerability* CScriptActor::GetDamageVulnerability() const override {
+const CDamageVulnerability* CScriptActor::GetDamageVulnerability() const {
   return &x268_damageVulnerability;
 }
 
@@ -196,12 +196,12 @@ void CScriptActor::PreRender(CStateManager& mgr, const CFrustumPlanes& frustum) 
   }
 }
 
-void CScriptActor::Accept(IVisitor& visitor) override { visitor.Visit(*this); }
+void CScriptActor::Accept(IVisitor& visitor) { visitor.Visit(*this); }
 
 EWeaponCollisionResponseTypes CScriptActor::GetCollisionResponseType(const CVector3f& v1,
                                                                      const CVector3f& v2,
                                                                      const CWeaponMode& wMode,
-                                                                     EProjectileAttrib w) const {
+                                                                     int w) const {
 
   const CDamageVulnerability* dVuln = GetDamageVulnerability();
   if (dVuln->GetVulnerability(wMode, false) == kVN_Deflect) {

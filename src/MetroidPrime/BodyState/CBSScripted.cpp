@@ -35,7 +35,7 @@ pas::EAnimationState CBSScripted::UpdateBody(float dt, CBodyController& bc, CSta
   return st;
 }
 
-void CBSScripted::Shutdown(CBodyController&) override {}
+void CBSScripted::Shutdown(CBodyController&) {}
 
 pas::EAnimationState CBSScripted::GetBodyStateTransition(float dt, CBodyController& bc) {
   CBodyStateCmdMgr& commandMgr = bc.CommandMgr();
@@ -65,6 +65,6 @@ pas::EAnimationState CBSScripted::GetBodyStateTransition(float dt, CBodyControll
   return pas::kAS_Invalid;
 }
 
-bool CBSScripted::ApplyHeadTracking() const override { return false; }
+bool CBSScripted::ApplyHeadTracking() const { return false; }
 
 CBSScripted::~CBSScripted() {}

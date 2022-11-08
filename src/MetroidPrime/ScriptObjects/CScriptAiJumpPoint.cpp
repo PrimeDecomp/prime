@@ -50,10 +50,10 @@ void CScriptAiJumpPoint::Think(float dt, CStateManager&) {
   }
 }
 
-void CScriptAiJumpPoint::AddToRenderer(const CFrustumPlanes&, const CStateManager&) const override {
+void CScriptAiJumpPoint::AddToRenderer(const CFrustumPlanes&, const CStateManager&) const {
 }
 
-void CScriptAiJumpPoint::Render(const CStateManager&) const override {}
+void CScriptAiJumpPoint::Render(const CStateManager&) const {}
 
 rstl::optional_object< CAABox > CScriptAiJumpPoint::GetTouchBounds() const {
   return xec_touchBounds;

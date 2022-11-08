@@ -19,7 +19,7 @@ CScriptPlayerStateChange::CScriptPlayerStateChange(TUniqueId uid, const rstl::st
 void CScriptPlayerStateChange::Accept(IVisitor& visitor) { visitor.Visit(*this); }
 
 void CScriptPlayerStateChange::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objId,
-                                               CStateManager& stateMgr) override {
+                                               CStateManager& stateMgr) {
   if (GetActive() && msg == kSM_SetToZero) {
     stateMgr.PlayerState()->InitializePowerUp(CPlayerState::EItemType(x34_itemType),
                                               x3c_itemCapacity);

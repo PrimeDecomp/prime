@@ -12,7 +12,7 @@ public:
   ~CErrorOutputWindow() override;
   EMessageReturn OnMessage(const CArchitectureMessage&, CArchitectureQueue&) override;
   bool GetIsContinueDraw() const override;
-  void Draw() override;
+  void Draw() const override;
 };
 
 #endif // _CERROROUTPUTWINDOW

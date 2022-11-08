@@ -76,6 +76,6 @@ void CScriptWaypoint::AddToRenderer(const CFrustumPlanes&, const CStateManager&)
   // Empty
 }
 
-void CScriptWaypoint::Render(const CStateManager&) const override {}
+void CScriptWaypoint::Render(const CStateManager&) const {}
 
 void CScriptWaypoint::Accept(IVisitor& visitor) { visitor.Visit(*this); }

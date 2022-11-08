@@ -136,7 +136,7 @@ CAABox CScriptTrigger::GetTriggerBoundsWR() const {
                 x130_bounds.GetMaxPoint() + GetTranslation());
 }
 
-rstl::optional_object< CAABox > CScriptTrigger::GetTouchBounds() const override {
+rstl::optional_object< CAABox > CScriptTrigger::GetTouchBounds() const {
   if (GetActive()) {
     return GetTriggerBoundsWR();
   }
@@ -144,7 +144,7 @@ rstl::optional_object< CAABox > CScriptTrigger::GetTouchBounds() const override 
 }
 
 void CScriptTrigger::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid,
-                                     CStateManager& mgr) override {
+                                     CStateManager& mgr) {
   if (GetActive()) {
     if (msg == kSM_Deactivate) {
       xe8_inhabitants.clear();
@@ -184,7 +184,7 @@ void CScriptTrigger::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid,
   CActor::AcceptScriptMsg(msg, uid, mgr);
 }
 
-void CScriptTrigger::Think(float dt, CStateManager& mgr) override {
+void CScriptTrigger::Think(float dt, CStateManager& mgr) {
   if (GetActive()) {
     UpdateInhabitants(dt, mgr);
   }
@@ -346,7 +346,7 @@ const CScriptTrigger::CObjectTracker* CScriptTrigger::FindObject(TUniqueId id) {
   return nullptr;
 }
 
-void CScriptTrigger::Accept(IVisitor& visitor) override { visitor.Visit(*this); }
+void CScriptTrigger::Accept(IVisitor& visitor) { visitor.Visit(*this); }
 
 void CScriptTrigger::InhabitantAdded(CActor&, CStateManager&) {}
 

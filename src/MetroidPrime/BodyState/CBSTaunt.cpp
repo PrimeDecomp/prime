@@ -24,7 +24,7 @@ pas::EAnimationState CBSTaunt::UpdateBody(float dt, CBodyController& bc, CStateM
   return st;
 }
 
-void CBSTaunt::Shutdown(CBodyController&) override {}
+void CBSTaunt::Shutdown(CBodyController&) {}
 
 pas::EAnimationState CBSTaunt::GetBodyStateTransition(float dt, CBodyController& bc) {
   CBodyStateCmdMgr& cmdMgr = bc.CommandMgr();

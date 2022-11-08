@@ -9,7 +9,7 @@
 
 CBSDie::CBSDie() : x4_remTime(0.0f), x8_isDead(false) {}
 
-void CBSDie::Start(CBodyController& bc, CStateManager& mgr) override {
+void CBSDie::Start(CBodyController& bc, CStateManager& mgr) {
   const CPASDatabase& db = bc.GetPASDatabase();
   int fallState = bc.GetFallState();
   
@@ -35,7 +35,7 @@ void CBSDie::Start(CBodyController& bc, CStateManager& mgr) override {
 }
 
 pas::EAnimationState CBSDie::UpdateBody(float dt, CBodyController& bc,
-                                        CStateManager& mgr) override {
+                                        CStateManager& mgr) {
   x4_remTime -= dt;
   if (x4_remTime <= 0.f) {
     bc.EnableAnimation(false);
@@ -44,10 +44,10 @@ pas::EAnimationState CBSDie::UpdateBody(float dt, CBodyController& bc,
   return pas::kAS_Invalid;
 }
 
-void CBSDie::Shutdown(CBodyController&) override {}
+void CBSDie::Shutdown(CBodyController&) {}
 
-bool CBSDie::IsDying() const override { return true; }
+bool CBSDie::IsDying() const { return true; }
 
-bool CBSDie::IsDead() const override { return x8_isDead; }
+bool CBSDie::IsDead() const { return x8_isDead; }
 
 CBSDie::~CBSDie() {}

@@ -42,8 +42,8 @@ public:
   void Fire(const CTransform4f& xf, CStateManager& mgr, bool b) override;
   void Touch(CActor& other, CStateManager& mgr) override;
   bool CanRenderUnsorted(const CStateManager& mgr) const override;
-  void AddToRenderer(const CFrustumPlanes& frustum, CStateManager& mgr) override;
-  void Render(CStateManager& mgr) override;
+  void AddToRenderer(const CFrustumPlanes& frustum, const CStateManager& mgr) const override;
+  void Render(const CStateManager& mgr) const override;
   CColor GetInnerColor() const { return x490_innerColor; }
   CColor GetOuterColor() const { return x494_outerColor; }
   bool IsFiring() const { return x548_26_firing; }

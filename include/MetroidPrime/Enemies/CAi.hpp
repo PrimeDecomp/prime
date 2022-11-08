@@ -30,7 +30,7 @@ public:
   const CDamageVulnerability* GetDamageVulnerability() const override { return nullptr; }
   EWeaponCollisionResponseTypes GetCollisionResponseType(const CVector3f&, const CVector3f&,
                                                          const CWeaponMode&,
-                                                         EProjectileAttrib) const override;
+                                                         int) const override;
   void FluidFXThink(EFluidState, CScriptWater&, CStateManager&) override;
   ;
 

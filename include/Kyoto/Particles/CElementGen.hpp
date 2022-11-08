@@ -45,32 +45,32 @@ public:
               EOptionalSystemFlags = kOSF_One);
   ~CElementGen() override;
 
-  virtual void Update(double);
-  virtual void Render() const;
-  virtual void SetOrientation(const CTransform4f& orientation);
-  virtual void SetTranslation(const CVector3f& translation);
-  virtual void SetGlobalOrientation(const CTransform4f& orientation);
-  virtual void SetGlobalTranslation(const CVector3f& translation);
-  virtual void SetGlobalScale(const CVector3f& scale);
-  virtual void SetLocalScale(const CVector3f& scale);
-  virtual void SetParticleEmission(bool emission);
-  virtual void SetModulationColor(const CColor& col);
-  virtual void SetGeneratorRate(float rate) {}
-  virtual const CTransform4f& GetOrientation() const;
-  virtual const CVector3f& GetTranslation() const;
-  virtual CTransform4f GetGlobalOrientation() const;
-  virtual CVector3f GetGlobalTranslation() const;
-  virtual CVector3f GetGlobalScale() const;
-  virtual bool GetParticleEmission() const;
-  virtual CColor GetModulationColor() const;
-  virtual bool IsSystemDeletable() const;
-  virtual CAABox GetBounds() const;
-  virtual int GetParticleCount() const;
-  virtual bool SystemHasLight() const;
-  virtual CLight GetLight();
-  virtual void DestroyParticles();
-  virtual void AddModifier(CWarp*);
-  virtual uint Get4CharId() const;
+  virtual void Update(double) override;
+  virtual void Render() const override;
+  virtual void SetOrientation(const CTransform4f& orientation) override;
+  virtual void SetTranslation(const CVector3f& translation) override;
+  virtual void SetGlobalOrientation(const CTransform4f& orientation) override;
+  virtual void SetGlobalTranslation(const CVector3f& translation) override;
+  virtual void SetGlobalScale(const CVector3f& scale) override;
+  virtual void SetLocalScale(const CVector3f& scale) override;
+  virtual void SetParticleEmission(bool emission) override;
+  virtual void SetModulationColor(const CColor& col) override;
+  virtual void SetGeneratorRate(float rate) override {}
+  virtual const CTransform4f& GetOrientation() const override;
+  virtual const CVector3f& GetTranslation() const override;
+  virtual CTransform4f GetGlobalOrientation() const override;
+  virtual CVector3f GetGlobalTranslation() const override;
+  virtual CVector3f GetGlobalScale() const override;
+  virtual bool GetParticleEmission() const override;
+  virtual CColor GetModulationColor() const override;
+  virtual bool IsSystemDeletable() const override;
+  virtual CAABox GetBounds() const override;
+  virtual int GetParticleCount() const override;
+  virtual bool SystemHasLight() const override;
+  virtual CLight GetLight() override;
+  virtual void DestroyParticles() override;
+  virtual void AddModifier(CWarp*) override;
+  virtual uint Get4CharId() const override;
 
   int GetEmitterTime() const;
 

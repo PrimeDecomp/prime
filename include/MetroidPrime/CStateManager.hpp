@@ -228,7 +228,7 @@ public:
      xef4_pendingScreenTex.xc_extent = extent;
    }*/
   const SOnScreenTex& GetPendingScreenTex() const { return xef4_pendingScreenTex; }
-  float IntegrateVisorFog(float f);
+  float IntegrateVisorFog(float f) const;
 
   void QuitGame() { xf94_25_quitGame = true; }
   bool GetWantsToQuit() const { return xf94_25_quitGame; }

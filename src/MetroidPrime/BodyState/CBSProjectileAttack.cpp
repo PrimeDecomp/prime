@@ -11,7 +11,7 @@
 
 CBSProjectileAttack::CBSProjectileAttack() {}
 
-void CBSProjectileAttack::Start(CBodyController& bc, CStateManager& mgr) override {
+void CBSProjectileAttack::Start(CBodyController& bc, CStateManager& mgr) {
   const CBCProjectileAttackCmd* cmd =
       static_cast< const CBCProjectileAttackCmd* >(bc.CommandMgr().GetCmd(kBSC_ProjectileAttack));
 
@@ -53,7 +53,7 @@ void CBSProjectileAttack::Start(CBodyController& bc, CStateManager& mgr) overrid
 }
 
 pas::EAnimationState CBSProjectileAttack::UpdateBody(float dt, CBodyController& bc,
-                                                     CStateManager& mgr) override {
+                                                     CStateManager& mgr) {
   const pas::EAnimationState st = GetBodyStateTransition(dt, bc);
   if (st == pas::kAS_Invalid) {
     CBodyStateCmdMgr& cmdMgr = bc.CommandMgr();
@@ -64,7 +64,7 @@ pas::EAnimationState CBSProjectileAttack::UpdateBody(float dt, CBodyController& 
   return st;
 }
 
-void CBSProjectileAttack::Shutdown(CBodyController&) override {}
+void CBSProjectileAttack::Shutdown(CBodyController&) {}
 
 pas::EAnimationState CBSProjectileAttack::GetBodyStateTransition(float dt, CBodyController& bc) {
   CBodyStateCmdMgr& cmdMgr = bc.CommandMgr();
@@ -89,6 +89,6 @@ pas::EAnimationState CBSProjectileAttack::GetBodyStateTransition(float dt, CBody
   return pas::kAS_Invalid;
 }
 
-bool CBSProjectileAttack::CanShoot() const override { return true; }
+bool CBSProjectileAttack::CanShoot() const { return true; }
 
 CBSProjectileAttack::~CBSProjectileAttack() {}

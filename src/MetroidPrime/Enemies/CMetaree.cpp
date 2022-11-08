@@ -227,6 +227,6 @@ void CMetaree::Think(float dt, CStateManager& mgr) {
   CPatterned::Think(dt, mgr);
 }
 
-bool CMetaree::Delay(CStateManager&, float) override {
+bool CMetaree::Delay(CStateManager&, float) {
   return GetStateMachineState().GetTime() > x568_delay;
 }
