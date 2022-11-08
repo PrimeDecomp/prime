@@ -285,7 +285,7 @@ LIBS = [
             ["MetroidPrime/CHealthInfo", True],
             "MetroidPrime/Player/CGameState",
             ["MetroidPrime/ScriptObjects/CScriptVisorFlare", False],
-            "MetroidPrime/ScriptObjects/CScriptWorldTeleporter",
+            ["MetroidPrime/ScriptObjects/CScriptWorldTeleporter", False],
             "MetroidPrime/ScriptObjects/CScriptVisorGoo",
             "MetroidPrime/Enemies/CJellyZap",
             ["MetroidPrime/ScriptObjects/CScriptControllerAction", False],

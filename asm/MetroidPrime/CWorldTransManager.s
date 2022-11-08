@@ -629,8 +629,8 @@ lbl_802095D4:
 /* 802095E8 00206548  38 21 00 40 */	addi r1, r1, 0x40
 /* 802095EC 0020654C  4E 80 00 20 */	blr
 
-.global EnableTransition__18CWorldTransManagerFviibbfff
-EnableTransition__18CWorldTransManagerFviibbfff:
+.global EnableTransition__18CWorldTransManagerFiiibfff
+EnableTransition__18CWorldTransManagerFiiibfff:
 /* 802095F0 00206550  94 21 FF 80 */	stwu r1, -0x80(r1)
 /* 802095F4 00206554  7C 08 02 A6 */	mflr r0
 /* 802095F8 00206558  90 01 00 84 */	stw r0, 0x84(r1)
@@ -874,15 +874,15 @@ lbl_80209948:
 /* 8020995C 002068BC  38 21 00 20 */	addi r1, r1, 0x20
 /* 80209960 002068C0  4E 80 00 20 */	blr
 
-.global sub_80209964
-sub_80209964:
+.global SetSfx__18CWorldTransManagerFUsUcUc
+SetSfx__18CWorldTransManagerFUsUcUc:
 /* 80209964 002068C4  B0 83 00 24 */	sth r4, 0x24(r3)
 /* 80209968 002068C8  98 A3 00 2C */	stb r5, 0x2c(r3)
 /* 8020996C 002068CC  98 C3 00 2D */	stb r6, 0x2d(r3)
 /* 80209970 002068D0  4E 80 00 20 */	blr
 
-.global sub_80209974
-sub_80209974:
+.global SfxStop__18CWorldTransManagerFv
+SfxStop__18CWorldTransManagerFv:
 /* 80209974 002068D4  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80209978 002068D8  7C 08 02 A6 */	mflr r0
 /* 8020997C 002068DC  90 01 00 24 */	stw r0, 0x24(r1)
@@ -904,8 +904,8 @@ lbl_802099AC:
 /* 802099B8 00206918  38 21 00 20 */	addi r1, r1, 0x20
 /* 802099BC 0020691C  4E 80 00 20 */	blr
 
-.global sub_802099c0
-sub_802099c0:
+.global SfxStart__18CWorldTransManagerFv
+SfxStart__18CWorldTransManagerFv:
 /* 802099C0 00206920  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 802099C4 00206924  7C 08 02 A6 */	mflr r0
 /* 802099C8 00206928  90 01 00 24 */	stw r0, 0x24(r1)

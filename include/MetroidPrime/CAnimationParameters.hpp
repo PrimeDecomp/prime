@@ -15,6 +15,10 @@ public:
 
   CAnimationParameters(CInputStream& in)
   : x0_ancs(in.ReadLong()), x4_charIdx(in.ReadLong()), x8_defaultAnim(in.ReadLong()) {}
+
+  CAssetId GetACSFile() const { return x0_ancs; }
+  uint GetCharacter() const { return x4_charIdx; }
+  uint GetInitialAnimation() const { return x8_defaultAnim; }
 };
 
 

@@ -24,9 +24,13 @@ public:
   void PutTo(COutputStream& out) const;
   void WriteSystemOptions(COutputStream& out);
 
+  void SetCurrentWorldId(CAssetId);
+
   rstl::rc_ptr< CPlayerState >& PlayerState();
-  CAssetId CurrentWorldAssetId();
+  CAssetId CurrentWorldAssetId() const;
   void WriteBackupBuf();
+
+  CWorldState& CurrentWorldState();
 
   void ImportPersistentOptions(const CSystemOptions&);
   void ExportPersistentOptions(CSystemOptions&);

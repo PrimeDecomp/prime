@@ -740,7 +740,7 @@ lbl_80024258:
 /* 800242C0 00021220  38 E0 00 00 */	li r7, 0
 /* 800242C4 00021224  C0 42 83 04 */	lfs f2, lbl_805AA024@sda21(r2)
 /* 800242C8 00021228  C0 62 83 08 */	lfs f3, lbl_805AA028@sda21(r2)
-/* 800242CC 0002122C  48 1E 53 25 */	bl EnableTransition__18CWorldTransManagerFviibbfff
+/* 800242CC 0002122C  48 1E 53 25 */	bl EnableTransition__18CWorldTransManagerFiiibfff
 lbl_800242D0:
 /* 800242D0 00021230  80 6D A0 80 */	lwz r3, gpGameState@sda21(r13)
 /* 800242D4 00021234  48 1A F6 FD */	bl CurrentWorldAssetId__10CGameStateCFv
@@ -777,7 +777,7 @@ lbl_800242D0:
 /* 80024350 000212B0  C0 22 83 00 */	lfs f1, lbl_805AA020@sda21(r2)
 /* 80024354 000212B4  C0 42 83 04 */	lfs f2, lbl_805AA024@sda21(r2)
 /* 80024358 000212B8  C0 62 83 08 */	lfs f3, lbl_805AA028@sda21(r2)
-/* 8002435C 000212BC  48 1E 52 95 */	bl EnableTransition__18CWorldTransManagerFviibbfff
+/* 8002435C 000212BC  48 1E 52 95 */	bl EnableTransition__18CWorldTransManagerFiiibfff
 lbl_80024360:
 /* 80024360 000212C0  88 1F 00 2C */	lbz r0, 0x2c(r31)
 /* 80024364 000212C4  38 60 00 01 */	li r3, 1
