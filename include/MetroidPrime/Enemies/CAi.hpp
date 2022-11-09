@@ -6,12 +6,7 @@
 #include "MetroidPrime/CPhysicsActor.hpp"
 #include "MetroidPrime/Enemies/CAiFuncMap.hpp"
 #include "MetroidPrime/Enemies/CKnockBackController.hpp"
-
-enum EListenNoiseType {
-  kLNT_PlayerFire,
-  kLNT_BombExplode,
-  kLNT_ProjectileExplode,
-};
+#include "MetroidPrime/Enemies/EListenNoiseType.hpp"
 
 class CTeamAiRole;
 class CAiFuncMap;

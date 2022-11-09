@@ -17,7 +17,7 @@ public:
   CAABox CalculateLocalAABox() const override;
   FourCC GetPrimType() const override;
   ~CCollidableAABox() override{};
-  CRayCastResult CastRayInternal(const CInternalRayCastStructure&) const;
+  CRayCastResult CastRayInternal(const CInternalRayCastStructure&) const override;
 
 private:
   CAABox x10_aabb;

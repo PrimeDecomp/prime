@@ -1123,7 +1123,7 @@ lbl_80090788:
 /* 80090938 0008D898  93 A1 00 10 */	stw r29, 0x10(r1)
 /* 8009093C 0008D89C  91 61 00 14 */	stw r11, 0x14(r1)
 /* 80090940 0008D8A0  90 01 00 18 */	stw r0, 0x18(r1)
-/* 80090944 0008D8A4  48 07 19 51 */	bl "__ct__7CWeaponF9TUniqueId7TAreaIdb9TUniqueId11EWeaponTypeRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>R12CTransform4fRC15CMaterialFilterRC13CMaterialListRC11CDamageInfo17EProjectileAttribRC10CModelData"
+/* 80090944 0008D8A4  48 07 19 51 */	bl "__ct__7CWeaponF9TUniqueId7TAreaIdb9TUniqueId11EWeaponTypeRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC12CTransform4fRC15CMaterialFilterRC13CMaterialListRC11CDamageInfo17EProjectileAttribRC10CModelData"
 /* 80090948 0008D8A8  38 61 00 90 */	addi r3, r1, 0x90
 /* 8009094C 0008D8AC  38 80 FF FF */	li r4, -1
 /* 80090950 0008D8B0  48 08 60 FD */	bl __dt__10CModelDataFv

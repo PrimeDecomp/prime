@@ -357,8 +357,8 @@ lbl_80102278:
 /* 8010228C 000FF1EC  38 21 00 10 */	addi r1, r1, 0x10
 /* 80102290 000FF1F0  4E 80 00 20 */	blr
 
-.global "__ct__7CWeaponF9TUniqueId7TAreaIdb9TUniqueId11EWeaponTypeRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>R12CTransform4fRC15CMaterialFilterRC13CMaterialListRC11CDamageInfo17EProjectileAttribRC10CModelData"
-"__ct__7CWeaponF9TUniqueId7TAreaIdb9TUniqueId11EWeaponTypeRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>R12CTransform4fRC15CMaterialFilterRC13CMaterialListRC11CDamageInfo17EProjectileAttribRC10CModelData":
+.global "__ct__7CWeaponF9TUniqueId7TAreaIdb9TUniqueId11EWeaponTypeRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC12CTransform4fRC15CMaterialFilterRC13CMaterialListRC11CDamageInfo17EProjectileAttribRC10CModelData"
+"__ct__7CWeaponF9TUniqueId7TAreaIdb9TUniqueId11EWeaponTypeRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC12CTransform4fRC15CMaterialFilterRC13CMaterialListRC11CDamageInfo17EProjectileAttribRC10CModelData":
 /* 80102294 000FF1F4  94 21 FE B0 */	stwu r1, -0x150(r1)
 /* 80102298 000FF1F8  7C 08 02 A6 */	mflr r0
 /* 8010229C 000FF1FC  3D 60 80 57 */	lis r11, NullConnectionList__7CEntity@ha

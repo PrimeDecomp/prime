@@ -195,6 +195,8 @@ public:
   void AddOrbitDisableSource(CStateManager& mgr, TUniqueId addId);
   void RemoveOrbitDisableSource(TUniqueId uid);
 
+  void ApplySubmergedPitchBend(CSfxHandle& sfx);
+
   CPlayerGun* PlayerGun() { return x490_gun.get(); }
   const CPlayerGun* GetPlayerGun() const { return x490_gun.get(); }
 
