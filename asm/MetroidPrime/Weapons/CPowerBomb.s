@@ -20,7 +20,7 @@ lbl_803E2808:
 	.4byte SetActive__6CActorFUc
 	.4byte PreRender__6CActorFR13CStateManagerRC14CFrustumPlanes
 	.4byte AddToRenderer__10CPowerBombCFRC14CFrustumPlanesRC13CStateManager
-	.4byte nullsub_228
+	.4byte Render__10CPowerBombCFRC13CStateManager
 	.4byte CanRenderUnsorted__6CActorCFRC13CStateManager
 	.4byte CalculateRenderBounds__6CActorFv
 	.4byte HealthInfo__6CActorFR13CStateManager
@@ -82,8 +82,8 @@ lbl_805A77F0:
 .balign 8
 
 # CPowerBomb
-.global lbl_805A8FA8
-lbl_805A8FA8:
+.global kFadeColor__10CPowerBomb
+kFadeColor__10CPowerBomb:
 	.skip 0x8
 
 .section .text, "ax"
@@ -243,7 +243,7 @@ Think__10CPowerBombFfR13CStateManager:
 /* 8014DB74 0014AAD4  38 7F 0C 90 */	addi r3, r31, 0xc90
 /* 8014DB78 0014AAD8  38 80 00 03 */	li r4, 3
 /* 8014DB7C 0014AADC  38 A0 00 00 */	li r5, 0
-/* 8014DB80 0014AAE0  38 CD A3 E8 */	addi r6, r13, lbl_805A8FA8@sda21
+/* 8014DB80 0014AAE0  38 CD A3 E8 */	addi r6, r13, kFadeColor__10CPowerBomb@sda21
 /* 8014DB84 0014AAE4  38 E0 FF FF */	li r7, -1
 /* 8014DB88 0014AAE8  4B F9 F8 19 */	bl SetFilter__17CCameraFilterPassFQ217CCameraFilterPass11EFilterTypeQ217CCameraFilterPass12EFilterShapefRC6CColorUi
 /* 8014DB8C 0014AAEC  88 1E 01 58 */	lbz r0, 0x158(r30)
@@ -323,7 +323,7 @@ lbl_8014DC64:
 /* 8014DCA0 0014AC00  D0 01 00 18 */	stfs f0, 0x18(r1)
 /* 8014DCA4 0014AC04  D0 21 00 1C */	stfs f1, 0x1c(r1)
 /* 8014DCA8 0014AC08  D0 41 00 20 */	stfs f2, 0x20(r1)
-/* 8014DCAC 0014AC0C  48 00 00 AD */	bl sub_8014dd58
+/* 8014DCAC 0014AC0C  48 00 00 AD */	bl ApplyDynamicDamage__10CPowerBombFRC9CVector3fR13CStateManager
 /* 8014DCB0 0014AC10  C0 3E 01 64 */	lfs f1, 0x164(r30)
 /* 8014DCB4 0014AC14  C0 1E 01 60 */	lfs f0, 0x160(r30)
 /* 8014DCB8 0014AC18  EC 01 07 FA */	fmadds f0, f1, f31, f0
@@ -348,8 +348,8 @@ lbl_8014DCE4:
 /* 8014DCFC 0014AC5C  38 21 00 40 */	addi r1, r1, 0x40
 /* 8014DD00 0014AC60  4E 80 00 20 */	blr
 
-.global nullsub_228
-nullsub_228:
+.global Render__10CPowerBombCFRC13CStateManager
+Render__10CPowerBombCFRC13CStateManager:
 /* 8014DD04 0014AC64  4E 80 00 20 */	blr
 
 .global AddToRenderer__10CPowerBombCFRC14CFrustumPlanesRC13CStateManager
@@ -381,8 +381,8 @@ Touch__10CPowerBombFR6CActorR13CStateManager:
 /* 8014DD50 0014ACB0  54 00 CF FF */	rlwinm. r0, r0, 0x19, 0x1f, 0x1f
 /* 8014DD54 0014ACB4  4E 80 00 20 */	blr
 
-.global sub_8014dd58
-sub_8014dd58:
+.global ApplyDynamicDamage__10CPowerBombFRC9CVector3fR13CStateManager
+ApplyDynamicDamage__10CPowerBombFRC9CVector3fR13CStateManager:
 /* 8014DD58 0014ACB8  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 8014DD5C 0014ACBC  7C 08 02 A6 */	mflr r0
 /* 8014DD60 0014ACC0  7C 86 23 78 */	mr r6, r4
@@ -554,7 +554,7 @@ lbl_8014DE38:
 /* 8014DFD8 0014AF38  93 41 00 10 */	stw r26, 0x10(r1)
 /* 8014DFDC 0014AF3C  91 61 00 14 */	stw r11, 0x14(r1)
 /* 8014DFE0 0014AF40  90 01 00 18 */	stw r0, 0x18(r1)
-/* 8014DFE4 0014AF44  4B FB 42 B1 */	bl "__ct__7CWeaponF9TUniqueId7TAreaIdb9TUniqueId11EWeaponTypeRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>R12CTransform4fRC15CMaterialFilterRC13CMaterialListRC11CDamageInfo17EProjectileAttribRC10CModelData"
+/* 8014DFE4 0014AF44  4B FB 42 B1 */	bl "__ct__7CWeaponF9TUniqueId7TAreaIdb9TUniqueId11EWeaponTypeRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC12CTransform4fRC15CMaterialFilterRC13CMaterialListRC11CDamageInfo17EProjectileAttribRC10CModelData"
 /* 8014DFE8 0014AF48  38 61 00 78 */	addi r3, r1, 0x78
 /* 8014DFEC 0014AF4C  38 80 FF FF */	li r4, -1
 /* 8014DFF0 0014AF50  4B FC 8A 5D */	bl __dt__10CModelDataFv
@@ -629,7 +629,7 @@ lbl_8014E0A8:
 .global __sinit_CPowerBomb_cpp
 __sinit_CPowerBomb_cpp:
 /* 8014E0F8 0014B058  38 00 FF 7F */	li r0, -129
-/* 8014E0FC 0014B05C  90 0D A3 E8 */	stw r0, lbl_805A8FA8@sda21(r13)
+/* 8014E0FC 0014B05C  90 0D A3 E8 */	stw r0, kFadeColor__10CPowerBomb@sda21(r13)
 /* 8014E100 0014B060  4E 80 00 20 */	blr
 
 .section .sdata2, "a"

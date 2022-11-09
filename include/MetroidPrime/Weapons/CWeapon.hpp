@@ -10,7 +10,7 @@
 class CWeapon : public CActor {
 public:
   CWeapon(TUniqueId uid, TAreaId areaId, bool active, TUniqueId owner, EWeaponType type,
-          const rstl::string& name, CTransform4f& xf, const CMaterialFilter& filter,
+          const rstl::string& name, const CTransform4f& xf, const CMaterialFilter& filter,
           const CMaterialList& mList, const CDamageInfo& dInfo, EProjectileAttrib attribs,
           const CModelData& mData);
 
@@ -29,8 +29,10 @@ public:
 
   EProjectileAttrib GetAttribField() const { return xe8_projectileAttribs; }
   TUniqueId GetOwnerId() const { return xec_ownerId; }
+  EWeaponType GetWeaponType() const { return xf0_weaponType; }
+  CDamageInfo& OrigDamageInfo() { return x110_origDamageInfo; }
 
-private:
+protected:
   EProjectileAttrib xe8_projectileAttribs;
   TUniqueId xec_ownerId;
   EWeaponType xf0_weaponType;

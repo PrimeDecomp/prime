@@ -214,7 +214,7 @@ LIBS = [
             "MetroidPrime/Enemies/CPuddleToadGamma",
             ["MetroidPrime/ScriptObjects/CScriptDistanceFog", False],
             ["MetroidPrime/BodyState/CBSProjectileAttack", True],
-            "MetroidPrime/Weapons/CPowerBomb",
+            ["MetroidPrime/Weapons/CPowerBomb", False],
             ["MetroidPrime/Enemies/CMetaree", False],
             ["MetroidPrime/ScriptObjects/CScriptDockAreaChange", False],
             ["MetroidPrime/ScriptObjects/CScriptSpecialFunction", False],

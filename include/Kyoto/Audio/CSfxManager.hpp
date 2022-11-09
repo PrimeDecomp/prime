@@ -94,8 +94,8 @@ public:
 
   static void PitchBend(CSfxHandle handle, int pitch);
 
-  static CSfxHandle SfxStart(ushort id, uchar vol, uchar pan, bool useAcoustics, short prio,
-                             bool looped, int areaId);
+  static CSfxHandle SfxStart(ushort id, short vol, short pan, bool useAcoustics, short prio = kMaxPriority,
+                             bool looped = false, int areaId = kAllAreas);
   static bool IsPlaying(const CSfxHandle& handle);
 
   static void SetChannel(ESfxChannels);

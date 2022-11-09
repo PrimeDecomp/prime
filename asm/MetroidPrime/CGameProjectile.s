@@ -3616,7 +3616,7 @@ Render__15CGameProjectileCFRC13CStateManager:
 /* 8003A600 00037560  90 E1 00 14 */	stw r7, 0x14(r1)
 /* 8003A604 00037564  38 E1 00 20 */	addi r7, r1, 0x20
 /* 8003A608 00037568  90 01 00 18 */	stw r0, 0x18(r1)
-/* 8003A60C 0003756C  48 0C 7C 89 */	bl "__ct__7CWeaponF9TUniqueId7TAreaIdb9TUniqueId11EWeaponTypeRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>R12CTransform4fRC15CMaterialFilterRC13CMaterialListRC11CDamageInfo17EProjectileAttribRC10CModelData"
+/* 8003A60C 0003756C  48 0C 7C 89 */	bl "__ct__7CWeaponF9TUniqueId7TAreaIdb9TUniqueId11EWeaponTypeRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC12CTransform4fRC15CMaterialFilterRC13CMaterialListRC11CDamageInfo17EProjectileAttribRC10CModelData"
 /* 8003A610 00037570  38 61 00 90 */	addi r3, r1, 0x90
 /* 8003A614 00037574  38 80 FF FF */	li r4, -1
 /* 8003A618 00037578  48 0D C4 35 */	bl __dt__10CModelDataFv

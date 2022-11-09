@@ -17,6 +17,7 @@
 #include "MetroidPrime/Cameras/CCameraFilterPass.hpp"
 #include "MetroidPrime/TGameTypes.hpp"
 #include "MetroidPrime/Weapons/WeaponTypes.hpp"
+#include "MetroidPrime/Enemies/EListenNoiseType.hpp"
 
 #include "rstl/auto_ptr.hpp"
 #include "rstl/list.hpp"
@@ -194,10 +195,16 @@ public:
                    const CDamageInfo& info, const CMaterialFilter& filter,
                    const CVector3f& knockbackVec);
 
+  void InformListeners(const CVector3f&, EListenNoiseType);
+
   //
   void ShowPausedHUDMemo(CAssetId strg, float time);
   void QueueMessage(int frameCount, CAssetId msg, float f1);
   int GetHUDMessageFrameCount() const { return xf80_hudMessageFrameCount; }
+
+  // Weapon
+  void RemoveWeaponId(TUniqueId, EWeaponType);
+  void AddWeaponId(TUniqueId, EWeaponType);
 
   // State transitions
   void DeferStateTransition(EStateManagerTransition t);
