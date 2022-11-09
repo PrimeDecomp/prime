@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803DF870
-lbl_803DF870:
+.global __vt__18CScriptRandomRelay
+__vt__18CScriptRandomRelay:
 	# ROM: 0x3DC870
 	.4byte 0
 	.4byte 0
@@ -461,9 +461,9 @@ __dt__18CScriptRandomRelayFv:
 /* 800E2CF8 000DFC58  93 C1 00 08 */	stw r30, 8(r1)
 /* 800E2CFC 000DFC5C  7C 7E 1B 79 */	or. r30, r3, r3
 /* 800E2D00 000DFC60  41 82 00 28 */	beq lbl_800E2D28
-/* 800E2D04 000DFC64  3C A0 80 3E */	lis r5, lbl_803DF870@ha
+/* 800E2D04 000DFC64  3C A0 80 3E */	lis r5, __vt__18CScriptRandomRelay@ha
 /* 800E2D08 000DFC68  38 80 00 00 */	li r4, 0
-/* 800E2D0C 000DFC6C  38 05 F8 70 */	addi r0, r5, lbl_803DF870@l
+/* 800E2D0C 000DFC6C  38 05 F8 70 */	addi r0, r5, __vt__18CScriptRandomRelay@l
 /* 800E2D10 000DFC70  90 1E 00 00 */	stw r0, 0(r30)
 /* 800E2D14 000DFC74  4B F6 E5 61 */	bl __dt__7CEntityFv
 /* 800E2D18 000DFC78  7F E0 07 35 */	extsh. r0, r31
@@ -500,9 +500,9 @@ lbl_800E2D28:
 /* 800E2D84 000DFCE4  7C 87 23 78 */	mr r7, r4
 /* 800E2D88 000DFCE8  38 81 00 08 */	addi r4, r1, 8
 /* 800E2D8C 000DFCEC  4B F6 E5 99 */	bl "__ct__7CEntityF9TUniqueIdRC11CEntityInfobRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
-/* 800E2D90 000DFCF0  3C 60 80 3E */	lis r3, lbl_803DF870@ha
+/* 800E2D90 000DFCF0  3C 60 80 3E */	lis r3, __vt__18CScriptRandomRelay@ha
 /* 800E2D94 000DFCF4  57 E0 06 3F */	clrlwi. r0, r31, 0x18
-/* 800E2D98 000DFCF8  38 63 F8 70 */	addi r3, r3, lbl_803DF870@l
+/* 800E2D98 000DFCF8  38 63 F8 70 */	addi r3, r3, __vt__18CScriptRandomRelay@l
 /* 800E2D9C 000DFCFC  90 7C 00 00 */	stw r3, 0(r28)
 /* 800E2DA0 000DFD00  93 BC 00 34 */	stw r29, 0x34(r28)
 /* 800E2DA4 000DFD04  93 DC 00 38 */	stw r30, 0x38(r28)
