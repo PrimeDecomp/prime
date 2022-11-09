@@ -1,7 +1,7 @@
 #ifndef _CWORLDTRANSMANAGER
 #define _CWORLDTRANSMANAGER
 
-#include "types.h"
+#include "Kyoto/SObjectTag.hpp"
 
 class CAnimRes;
 class CVector3f;
@@ -14,7 +14,7 @@ public:
   void SfxStart();
   void SfxStop();
 
-  void EnableTransition(const CAnimRes&, unsigned int, const CVector3f&, unsigned int, const CVector3f&, bool);
+  void EnableTransition(const CAnimRes&, const CAssetId, const CVector3f&, const CAssetId, const CVector3f&, bool);
   void EnableTransition(int fontId, int stringId, int stringIdx, bool fadeWhite, float chFadeTime, float chFadeRate, float textStartTime);
   void DisableTransition();
 

@@ -136,7 +136,7 @@ LIBS = [
             ["MetroidPrime/CScriptMailbox", False],
             ["MetroidPrime/ScriptObjects/CScriptRelay", True],
             ["MetroidPrime/ScriptObjects/CScriptSpawnPoint", False],
-            "MetroidPrime/ScriptObjects/CScriptRandomRelay",
+            ["MetroidPrime/ScriptObjects/CScriptRandomRelay", False],
             "MetroidPrime/Enemies/CBeetle",
             ["MetroidPrime/HUD/CHUDMemoParms", True],
             ["MetroidPrime/ScriptObjects/CScriptHUDMemo", True],
