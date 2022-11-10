@@ -120,7 +120,7 @@ LIBS = [
             "MetroidPrime/CParticleDatabase",
             "MetroidPrime/Tweaks/CTweakGunRes",
             "MetroidPrime/CTargetReticles",
-            "MetroidPrime/CWeaponMgr",
+            ["MetroidPrime/CWeaponMgr", False],
             ["MetroidPrime/ScriptObjects/CScriptPickup", True],
             ["MetroidPrime/CDamageInfo", False],
             ["MetroidPrime/CMemoryDrawEnum", True],

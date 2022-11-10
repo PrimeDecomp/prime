@@ -323,7 +323,7 @@ lbl_800C20C4:
 /* 800C20DC 000BF03C  38 05 00 01 */	addi r0, r5, 1
 /* 800C20E0 000BF040  7C 08 39 2E */	stwx r0, r8, r7
 /* 800C20E4 000BF044  80 A4 00 10 */	lwz r5, 0x10(r4)
-/* 800C20E8 000BF048  48 00 02 3D */	bl sub_800c2324
+/* 800C20E8 000BF048  48 00 02 3D */	bl "insert_into__Q24rstl215red_black_tree<9TUniqueId,Q24rstl47pair<9TUniqueId,Q24rstl21reserved_vector<i,15>>,0,Q24rstl67select1st<Q24rstl47pair<9TUniqueId,Q24rstl21reserved_vector<i,15>>>,Q24rstl16less<9TUniqueId>,Q24rstl17rmemory_allocator>FPQ34rstl215red_black_tree<9TUniqueId,Q24rstl47pair<9TUniqueId,Q24rstl21reserved_vector<i,15>>,0,Q24rstl67select1st<Q24rstl47pair<9TUniqueId,Q24rstl21reserved_vector<i,15>>>,Q24rstl16less<9TUniqueId>,Q24rstl17rmemory_allocator>4nodeRCQ24rstl47pair<9TUniqueId,Q24rstl21reserved_vector<i,15>>"
 /* 800C20EC 000BF04C  28 1F 00 00 */	cmplwi r31, 0
 /* 800C20F0 000BF050  41 82 00 70 */	beq lbl_800C2160
 /* 800C20F4 000BF054  80 A1 00 64 */	lwz r5, 0x64(r1)
@@ -497,8 +497,8 @@ __dl__FPv:
 /* 800C231C 000BF27C  38 21 00 10 */	addi r1, r1, 0x10
 /* 800C2320 000BF280  4E 80 00 20 */	blr
 
-.global sub_800c2324
-sub_800c2324:
+.global "insert_into__Q24rstl215red_black_tree<9TUniqueId,Q24rstl47pair<9TUniqueId,Q24rstl21reserved_vector<i,15>>,0,Q24rstl67select1st<Q24rstl47pair<9TUniqueId,Q24rstl21reserved_vector<i,15>>>,Q24rstl16less<9TUniqueId>,Q24rstl17rmemory_allocator>FPQ34rstl215red_black_tree<9TUniqueId,Q24rstl47pair<9TUniqueId,Q24rstl21reserved_vector<i,15>>,0,Q24rstl67select1st<Q24rstl47pair<9TUniqueId,Q24rstl21reserved_vector<i,15>>>,Q24rstl16less<9TUniqueId>,Q24rstl17rmemory_allocator>4nodeRCQ24rstl47pair<9TUniqueId,Q24rstl21reserved_vector<i,15>>"
+"insert_into__Q24rstl215red_black_tree<9TUniqueId,Q24rstl47pair<9TUniqueId,Q24rstl21reserved_vector<i,15>>,0,Q24rstl67select1st<Q24rstl47pair<9TUniqueId,Q24rstl21reserved_vector<i,15>>>,Q24rstl16less<9TUniqueId>,Q24rstl17rmemory_allocator>FPQ34rstl215red_black_tree<9TUniqueId,Q24rstl47pair<9TUniqueId,Q24rstl21reserved_vector<i,15>>,0,Q24rstl67select1st<Q24rstl47pair<9TUniqueId,Q24rstl21reserved_vector<i,15>>>,Q24rstl16less<9TUniqueId>,Q24rstl17rmemory_allocator>4nodeRCQ24rstl47pair<9TUniqueId,Q24rstl21reserved_vector<i,15>>":
 /* 800C2324 000BF284  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 800C2328 000BF288  7C 08 02 A6 */	mflr r0
 /* 800C232C 000BF28C  28 05 00 00 */	cmplwi r5, 0
