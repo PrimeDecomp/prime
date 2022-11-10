@@ -41,7 +41,7 @@ void CWeapon::Think(float dt, CStateManager& mgr) {
     float radius = scale * x110_origDamageInfo.GetRadius();
     float knockback = scale * x110_origDamageInfo.GetKnockBackPower();
     x12c_curDamageInfo =
-        CDamageInfo(x110_origDamageInfo.GetWeaponMode(), damage, radius, knockback);
+        CDamageInfo(x110_origDamageInfo.GetWeaponMode(), damage, (double)(scale * x110_origDamageInfo.GetDamage()), radius, knockback);
   } else {
     x12c_curDamageInfo = x110_origDamageInfo;
   }
