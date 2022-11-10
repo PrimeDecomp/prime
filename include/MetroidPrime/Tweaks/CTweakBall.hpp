@@ -7,7 +7,6 @@
 
 #include "Kyoto/TOneStatic.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
-#include "Kyoto/Math/CRelAngle.hpp"
 
 #include "rstl/string.hpp"
 

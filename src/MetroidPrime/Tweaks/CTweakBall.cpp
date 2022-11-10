@@ -1,6 +1,7 @@
 #include "MetroidPrime/Tweaks/CTweakBall.hpp"
 
 #include "Kyoto/Streams/CInputStream.hpp"
+#include "Kyoto/Math/CMath.hpp"
 
 CTweakBall::~CTweakBall() {}
 

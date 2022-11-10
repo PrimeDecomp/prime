@@ -280,7 +280,7 @@ LIBS = [
             ["MetroidPrime/Weapons/GunController/CGSFreeLook", False],
             ["MetroidPrime/Weapons/GunController/CGSComboFire", True],
             ["MetroidPrime/HUD/CHudBallInterface", False],
-            "MetroidPrime/Tweaks/CTweakGuiColors",
+            ["MetroidPrime/Tweaks/CTweakGuiColors", False],
             "MetroidPrime/ScriptObjects/CFishCloud",
             ["MetroidPrime/CHealthInfo", True],
             "MetroidPrime/Player/CGameState",
