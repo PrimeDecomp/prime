@@ -151,6 +151,8 @@ public:
   static void SetExternalTimeProvider(CTimeProvider* provider);
   static void DisableAllLights();
 
+  static void SetAmbientColor(const CColor&);
+
   static void SetModelMatrix(const CTransform4f& xf);
   static void SetAlphaCompare(ERglAlphaFunc comp0, u8 ref0, ERglAlphaOp op, ERglAlphaFunc comp1,
                               u8 ref1);

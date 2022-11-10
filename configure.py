@@ -356,7 +356,7 @@ LIBS = [
             "MetroidPrime/Enemies/CRidley",
             ["MetroidPrime/Enemies/CPuffer", False],
             ["MetroidPrime/ScriptObjects/CFire", False],
-            "MetroidPrime/CPauseScreenBlur",
+            ["MetroidPrime/CPauseScreenBlur", True],
             "MetroidPrime/Enemies/CTryclops",
             "MetroidPrime/Weapons/CNewFlameThrower",
             "MetroidPrime/Cameras/CInterpolationCamera",

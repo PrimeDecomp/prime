@@ -1957,7 +1957,7 @@ lbl_80108464:
 /* 80108470 001053D0  7F A4 EB 78 */	mr r4, r29
 /* 80108474 001053D4  7C 00 00 34 */	cntlzw r0, r0
 /* 80108478 001053D8  54 05 D9 7E */	srwi r5, r0, 5
-/* 8010847C 001053DC  48 15 53 F9 */	bl Update__16CPauseScreenBlurfRC13CStateManagerb
+/* 8010847C 001053DC  48 15 53 F9 */	bl Update__16CPauseScreenBlurFfRC13CStateManagerb
 /* 80108480 001053E0  80 7C 00 4C */	lwz r3, 0x4c(r28)
 /* 80108484 001053E4  28 03 00 00 */	cmplwi r3, 0
 /* 80108488 001053E8  41 82 00 3C */	beq lbl_801084C4
