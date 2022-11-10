@@ -15781,7 +15781,7 @@ lbl_800D36AC:
 /* 800D3700 000D0660  38 81 00 14 */	addi r4, r1, 0x14
 /* 800D3704 000D0664  38 A1 00 68 */	addi r5, r1, 0x68
 /* 800D3708 000D0668  39 20 00 00 */	li r9, 0
-/* 800D370C 000D066C  48 02 B0 A5 */	bl "__ct__20CScriptActorKeyframeF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoibfbUib"
+/* 800D370C 000D066C  48 02 B0 A5 */	bl "__ct__20CScriptActorKeyframeF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoibfbibf"
 /* 800D3710 000D0670  7C 7B 1B 78 */	mr r27, r3
 lbl_800D3714:
 /* 800D3714 000D0674  38 61 00 68 */	addi r3, r1, 0x68

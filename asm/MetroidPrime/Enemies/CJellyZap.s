@@ -1022,9 +1022,9 @@ lbl_801D835C:
 /* 801D8410 001D5370  4B FE 87 29 */	bl AddSource__19CStaticInterferenceF9TUniqueIdff
 /* 801D8414 001D5374  48 00 00 7C */	b lbl_801D8490
 lbl_801D8418:
-/* 801D8418 001D5378  3C 60 80 3E */	lis r3, lbl_803DAA68@ha
+/* 801D8418 001D5378  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
 /* 801D841C 001D537C  38 00 00 0A */	li r0, 0xa
-/* 801D8420 001D5380  38 63 AA 68 */	addi r3, r3, lbl_803DAA68@l
+/* 801D8420 001D5380  38 63 AA 68 */	addi r3, r3, __vt__13CBodyStateCmd@l
 /* 801D8424 001D5384  90 01 00 1C */	stw r0, 0x1c(r1)
 /* 801D8428 001D5388  38 81 00 18 */	addi r4, r1, 0x18
 /* 801D842C 001D538C  90 61 00 18 */	stw r3, 0x18(r1)
@@ -1033,8 +1033,8 @@ lbl_801D8418:
 /* 801D8438 001D5398  4B F5 93 81 */	bl DeliverCmd__16CBodyStateCmdMgrFRC13CBodyStateCmd
 /* 801D843C 001D539C  34 01 00 18 */	addic. r0, r1, 0x18
 /* 801D8440 001D53A0  41 82 00 10 */	beq lbl_801D8450
-/* 801D8444 001D53A4  3C 60 80 3E */	lis r3, lbl_803DAA68@ha
-/* 801D8448 001D53A8  38 03 AA 68 */	addi r0, r3, lbl_803DAA68@l
+/* 801D8444 001D53A4  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
+/* 801D8448 001D53A8  38 03 AA 68 */	addi r0, r3, __vt__13CBodyStateCmd@l
 /* 801D844C 001D53AC  90 01 00 18 */	stw r0, 0x18(r1)
 lbl_801D8450:
 /* 801D8450 001D53B0  A0 1E 00 08 */	lhz r0, 8(r30)

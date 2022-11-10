@@ -149,7 +149,7 @@ LIBS = [
             "MetroidPrime/ScriptObjects/CScriptDamageableTrigger",
             "MetroidPrime/ScriptObjects/CScriptDebris",
             ["MetroidPrime/ScriptObjects/CScriptCameraShaker", True],
-            "MetroidPrime/ScriptObjects/CScriptActorKeyframe",
+            ["MetroidPrime/ScriptObjects/CScriptActorKeyframe", False],
             ["MetroidPrime/CConsoleOutputWindow", False],
             "MetroidPrime/ScriptObjects/CScriptWater",
             ["MetroidPrime/Weapons/CWeapon", False],
