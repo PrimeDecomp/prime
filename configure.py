@@ -97,7 +97,7 @@ LIBS = [
             ["MetroidPrime/Cameras/CBallCamera", False],
             "MetroidPrime/ScriptObjects/CScriptEffect",
             "MetroidPrime/Weapons/CBomb",
-            "MetroidPrime/Tweaks/CTweakBall",
+            ["MetroidPrime/Tweaks/CTweakBall", True],
             ["MetroidPrime/Player/CPlayerState", False],
             ["MetroidPrime/ScriptObjects/CScriptTimer", True],
             "MetroidPrime/Cameras/CCinematicCamera",
