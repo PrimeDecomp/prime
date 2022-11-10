@@ -53,7 +53,7 @@ struct TUniqueId {
 
   bool operator==(const TUniqueId& other) const { return value == other.value; }
   bool operator!=(const TUniqueId& other) const { return value != other.value; }
-  bool operator<(const TUniqueId& other) const; // TODO
+  bool operator<(const TUniqueId& other) const { return value < other.value; }
 
 private:
 };

@@ -29,6 +29,7 @@ enum node_color {
 
 void rbtree_rebalance(void*, void*);
 void* rbtree_traverse_forward(const void*, void*);
+void* rbtree_rebalance_for_erase(void* header_void, void* node_void);
 
 template < typename T, typename P, int U, typename S = select1st< P >, typename Cmp = less< T >,
            typename Alloc = rmemory_allocator >
@@ -44,6 +45,9 @@ private:
     node(node* left, node* right, node* parent, node_color color, const P& value)
     : mLeft(left), mRight(right), mParent(parent), mColor(color) {
       construct(get_value(), value);
+    }
+    ~node() {
+      get_value()->~P();
     }
 
     P* get_value() { return reinterpret_cast< P* >(&mValue); }
@@ -106,6 +110,10 @@ public:
   };
   struct iterator : public const_iterator {
     iterator(node* node, const header* header, bool b) : const_iterator(node, header, b) {}
+
+    P* operator->() { return mNode->get_value(); }
+    P* operator*() { return mNode->get_value(); }
+    node* get_node() { return mNode; }
   };
 
   red_black_tree() : x0_(0), x1_(0), x4_count(0) {}
@@ -142,6 +150,35 @@ public:
       needle = nullptr;
     }
     return const_iterator(needle, &x8_header, false);
+  }
+
+  iterator find(const T& key) {
+    node* n = x8_header.get_root();
+    node* needle = nullptr;
+    while (n != nullptr) {
+      if (!x2_cmp(x3_selector(*n->get_value()), key)) {
+        needle = n;
+        n = n->get_left();
+      } else {
+        n = n->get_right();
+      }
+    }
+    bool noResult = false;
+    if (needle == nullptr || x2_cmp(key, x3_selector(*needle->get_value()))) {
+      noResult = true;
+    }
+    if (noResult) {
+      needle = nullptr;
+    }
+    return iterator(needle, &x8_header, false);
+  }
+  
+  iterator erase(iterator it) {
+    node* node = it.get_node();
+    ++it;
+    free_node(rebalance_for_erase(node));
+    x4_count--;
+    return it;
   }
 
   void clear() {
@@ -186,6 +223,8 @@ private:
   }
 
   void rebalance(node* n) { rbtree_rebalance(&x8_header, n); }
+
+  node* rebalance_for_erase(node* n) { return static_cast<node*>(rbtree_rebalance_for_erase(&x8_header, n)); }
 };
 
 static bool kUnknownValueNewRoot = true;

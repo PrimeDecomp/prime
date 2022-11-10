@@ -18,16 +18,20 @@ private:
   typedef red_black_tree< K, value_type, 0, select1st< value_type >, Cmp, Alloc > rep_type;
 
 public:
-  // typedef typename rep_type::iterator iterator;
+  typedef typename rep_type::iterator iterator;
   typedef typename rep_type::const_iterator const_iterator;
 
-  void insert(const value_type& item) { inner.insert(item); }
+  iterator insert(const value_type& item) { return inner.insert(item); }
 
   const_iterator begin() const { return inner.begin(); }
   const_iterator end() const { return inner.end(); }
 
+  iterator find(const K& key) { return inner.find(key); }
   const_iterator find(const K& key) const { return inner.find(key); }
 
+  void erase(iterator it) { inner.erase(it); }
+
+  rep_type& get_inner() { return inner; }  // hack for CWeaponMgr inlining depth
 private:
   rep_type inner;
 };
