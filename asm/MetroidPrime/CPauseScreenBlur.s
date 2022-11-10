@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803E9A00
-lbl_803E9A00:
+.global __vt__16CPauseScreenBlur
+__vt__16CPauseScreenBlur:
 	# ROM: 0x3E6A00
 	.4byte 0
 	.4byte 0
@@ -135,8 +135,8 @@ lbl_8025D710:
 /* 8025D724 0025A684  38 21 00 20 */	addi r1, r1, 0x20
 /* 8025D728 0025A688  4E 80 00 20 */	blr
 
-.global sub_8025d72c
-sub_8025d72c:
+.global OnBlurComplete__16CPauseScreenBlurFb
+OnBlurComplete__16CPauseScreenBlurFb:
 /* 8025D72C 0025A68C  80 03 00 14 */	lwz r0, 0x14(r3)
 /* 8025D730 0025A690  2C 00 00 00 */	cmpwi r0, 0
 /* 8025D734 0025A694  40 82 00 0C */	bne lbl_8025D740
@@ -226,8 +226,8 @@ lbl_8025D858:
 /* 8025D86C 0025A7CC  38 21 00 30 */	addi r1, r1, 0x30
 /* 8025D870 0025A7D0  4E 80 00 20 */	blr
 
-.global Update__16CPauseScreenBlurfRC13CStateManagerb
-Update__16CPauseScreenBlurfRC13CStateManagerb:
+.global Update__16CPauseScreenBlurFfRC13CStateManagerb
+Update__16CPauseScreenBlurFfRC13CStateManagerb:
 /* 8025D874 0025A7D4  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 8025D878 0025A7D8  7C 08 02 A6 */	mflr r0
 /* 8025D87C 0025A7DC  90 01 00 24 */	stw r0, 0x24(r1)
@@ -283,7 +283,7 @@ lbl_8025D910:
 lbl_8025D92C:
 /* 8025D92C 0025A88C  7F C3 F3 78 */	mr r3, r30
 /* 8025D930 0025A890  7F E4 FB 78 */	mr r4, r31
-/* 8025D934 0025A894  4B FF FD F9 */	bl sub_8025d72c
+/* 8025D934 0025A894  4B FF FD F9 */	bl OnBlurComplete__16CPauseScreenBlurFb
 lbl_8025D938:
 /* 8025D938 0025A898  C0 22 BA 18 */	lfs f1, lbl_805AD738@sda21(r2)
 /* 8025D93C 0025A89C  C0 1E 00 18 */	lfs f0, 0x18(r30)
@@ -377,9 +377,9 @@ __dt__16CPauseScreenBlurFv:
 /* 8025DA5C 0025A9BC  93 C1 00 08 */	stw r30, 8(r1)
 /* 8025DA60 0025A9C0  7C 7E 1B 79 */	or. r30, r3, r3
 /* 8025DA64 0025A9C4  41 82 00 78 */	beq lbl_8025DADC
-/* 8025DA68 0025A9C8  3C 60 80 3F */	lis r3, lbl_803E9A00@ha
+/* 8025DA68 0025A9C8  3C 60 80 3F */	lis r3, __vt__16CPauseScreenBlur@ha
 /* 8025DA6C 0025A9CC  34 1E 00 1C */	addic. r0, r30, 0x1c
-/* 8025DA70 0025A9D0  38 03 9A 00 */	addi r0, r3, lbl_803E9A00@l
+/* 8025DA70 0025A9D0  38 03 9A 00 */	addi r0, r3, __vt__16CPauseScreenBlur@l
 /* 8025DA74 0025A9D4  90 1E 00 00 */	stw r0, 0(r30)
 /* 8025DA78 0025A9D8  41 82 00 38 */	beq lbl_8025DAB0
 /* 8025DA7C 0025A9DC  34 1E 00 1C */	addic. r0, r30, 0x1c
@@ -422,9 +422,9 @@ lbl_8025DADC:
 __ct__16CPauseScreenBlurFv:
 /* 8025DAF8 0025AA58  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 8025DAFC 0025AA5C  7C 08 02 A6 */	mflr r0
-/* 8025DB00 0025AA60  3C 80 80 3F */	lis r4, lbl_803E9A00@ha
+/* 8025DB00 0025AA60  3C 80 80 3F */	lis r4, __vt__16CPauseScreenBlur@ha
 /* 8025DB04 0025AA64  90 01 00 24 */	stw r0, 0x24(r1)
-/* 8025DB08 0025AA68  38 04 9A 00 */	addi r0, r4, lbl_803E9A00@l
+/* 8025DB08 0025AA68  38 04 9A 00 */	addi r0, r4, __vt__16CPauseScreenBlur@l
 /* 8025DB0C 0025AA6C  93 E1 00 1C */	stw r31, 0x1c(r1)
 /* 8025DB10 0025AA70  93 C1 00 18 */	stw r30, 0x18(r1)
 /* 8025DB14 0025AA74  7C 7E 1B 78 */	mr r30, r3

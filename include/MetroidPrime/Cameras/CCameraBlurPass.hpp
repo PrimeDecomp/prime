@@ -21,10 +21,16 @@ public:
     kBT_HiBlur,
     kBT_XRay,
   };
+  CCameraBlurPass();
 
   void SetBlur(EBlurType type, float amount, float duration, bool usePersistentFb);
   void DisableBlur(float duration);
+  void Draw() const;
+
   static void DrawWideScreen(const CColor& color, const CTexture* tex, float v);
+  
+  EBlurType GetCurrType() const { return x10_curType; }
+  bool GetNoPersistentCopy() const { return x2d_noPersistentCopy; }
 
 private:
   rstl::optional_object< TLockedToken< CTexture > > x0_paletteTex;
