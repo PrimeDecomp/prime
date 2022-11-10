@@ -87,9 +87,9 @@ lbl_80139E0C:
 /* 80139E50 00136DB0  48 0B 77 E5 */	bl HasIceBreakoutState__15CBodyControllerFv
 /* 80139E54 00136DB4  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 80139E58 00136DB8  41 82 00 84 */	beq lbl_80139EDC
-/* 80139E5C 00136DBC  3C 60 80 3E */	lis r3, lbl_803DAA68@ha
+/* 80139E5C 00136DBC  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
 /* 80139E60 00136DC0  C0 02 9A 70 */	lfs f0, lbl_805AB790@sda21(r2)
-/* 80139E64 00136DC4  38 03 AA 68 */	addi r0, r3, lbl_803DAA68@l
+/* 80139E64 00136DC4  38 03 AA 68 */	addi r0, r3, __vt__13CBodyStateCmd@l
 /* 80139E68 00136DC8  3C 60 80 3E */	lis r3, lbl_803E10C8@ha
 /* 80139E6C 00136DCC  90 01 00 08 */	stw r0, 8(r1)
 /* 80139E70 00136DD0  38 C3 10 C8 */	addi r6, r3, lbl_803E10C8@l
@@ -108,9 +108,9 @@ lbl_80139E0C:
 /* 80139EA4 00136E04  80 01 00 0C */	lwz r0, 0xc(r1)
 /* 80139EA8 00136E08  3C 60 80 3E */	lis r3, lbl_803E10C8@ha
 /* 80139EAC 00136E0C  38 83 10 C8 */	addi r4, r3, lbl_803E10C8@l
-/* 80139EB0 00136E10  3C 60 80 3E */	lis r3, lbl_803DAA68@ha
+/* 80139EB0 00136E10  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
 /* 80139EB4 00136E14  90 1F 02 88 */	stw r0, 0x288(r31)
-/* 80139EB8 00136E18  38 03 AA 68 */	addi r0, r3, lbl_803DAA68@l
+/* 80139EB8 00136E18  38 03 AA 68 */	addi r0, r3, __vt__13CBodyStateCmd@l
 /* 80139EBC 00136E1C  C0 01 00 10 */	lfs f0, 0x10(r1)
 /* 80139EC0 00136E20  80 A1 00 14 */	lwz r5, 0x14(r1)
 /* 80139EC4 00136E24  D0 1F 02 8C */	stfs f0, 0x28c(r31)
@@ -138,9 +138,9 @@ StopElectrocution__15CBodyControllerFv:
 /* 80139F0C 00136E6C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80139F10 00136E70  7C 08 02 A6 */	mflr r0
 /* 80139F14 00136E74  7C 66 1B 78 */	mr r6, r3
-/* 80139F18 00136E78  3C 60 80 3E */	lis r3, lbl_803DAA68@ha
+/* 80139F18 00136E78  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
 /* 80139F1C 00136E7C  90 01 00 14 */	stw r0, 0x14(r1)
-/* 80139F20 00136E80  38 A3 AA 68 */	addi r5, r3, lbl_803DAA68@l
+/* 80139F20 00136E80  38 A3 AA 68 */	addi r5, r3, __vt__13CBodyStateCmd@l
 /* 80139F24 00136E84  C0 02 9A 78 */	lfs f0, lbl_805AB798@sda21(r2)
 /* 80139F28 00136E88  38 00 00 1B */	li r0, 0x1b
 /* 80139F2C 00136E8C  38 66 00 04 */	addi r3, r6, 4
@@ -152,8 +152,8 @@ StopElectrocution__15CBodyControllerFv:
 /* 80139F44 00136EA4  4B FF 78 75 */	bl DeliverCmd__16CBodyStateCmdMgrFRC13CBodyStateCmd
 /* 80139F48 00136EA8  34 01 00 08 */	addic. r0, r1, 8
 /* 80139F4C 00136EAC  41 82 00 10 */	beq lbl_80139F5C
-/* 80139F50 00136EB0  3C 60 80 3E */	lis r3, lbl_803DAA68@ha
-/* 80139F54 00136EB4  38 03 AA 68 */	addi r0, r3, lbl_803DAA68@l
+/* 80139F50 00136EB0  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
+/* 80139F54 00136EB4  38 03 AA 68 */	addi r0, r3, __vt__13CBodyStateCmd@l
 /* 80139F58 00136EB8  90 01 00 08 */	stw r0, 8(r1)
 lbl_80139F5C:
 /* 80139F5C 00136EBC  80 01 00 14 */	lwz r0, 0x14(r1)
@@ -176,9 +176,9 @@ SetElectrocuting__15CBodyControllerFf:
 /* 80139F94 00136EF4  FF E0 08 90 */	fmr f31, f1
 /* 80139F98 00136EF8  FC 02 00 40 */	fcmpo cr0, f2, f0
 /* 80139F9C 00136EFC  41 81 00 84 */	bgt lbl_8013A020
-/* 80139FA0 00136F00  3C 60 80 3E */	lis r3, lbl_803DAA68@ha
+/* 80139FA0 00136F00  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
 /* 80139FA4 00136F04  C0 02 9A 70 */	lfs f0, lbl_805AB790@sda21(r2)
-/* 80139FA8 00136F08  38 03 AA 68 */	addi r0, r3, lbl_803DAA68@l
+/* 80139FA8 00136F08  38 03 AA 68 */	addi r0, r3, __vt__13CBodyStateCmd@l
 /* 80139FAC 00136F0C  3C 60 80 3E */	lis r3, lbl_803E10C8@ha
 /* 80139FB0 00136F10  90 01 00 08 */	stw r0, 8(r1)
 /* 80139FB4 00136F14  38 C3 10 C8 */	addi r6, r3, lbl_803E10C8@l
@@ -197,9 +197,9 @@ SetElectrocuting__15CBodyControllerFf:
 /* 80139FE8 00136F48  80 01 00 0C */	lwz r0, 0xc(r1)
 /* 80139FEC 00136F4C  3C 60 80 3E */	lis r3, lbl_803E10C8@ha
 /* 80139FF0 00136F50  38 83 10 C8 */	addi r4, r3, lbl_803E10C8@l
-/* 80139FF4 00136F54  3C 60 80 3E */	lis r3, lbl_803DAA68@ha
+/* 80139FF4 00136F54  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
 /* 80139FF8 00136F58  90 1E 02 88 */	stw r0, 0x288(r30)
-/* 80139FFC 00136F5C  38 03 AA 68 */	addi r0, r3, lbl_803DAA68@l
+/* 80139FFC 00136F5C  38 03 AA 68 */	addi r0, r3, __vt__13CBodyStateCmd@l
 /* 8013A000 00136F60  C0 01 00 10 */	lfs f0, 0x10(r1)
 /* 8013A004 00136F64  80 A1 00 14 */	lwz r5, 0x14(r1)
 /* 8013A008 00136F68  D0 1E 02 8C */	stfs f0, 0x28c(r30)
@@ -1287,4 +1287,3 @@ lbl_803D0060:
 	.asciz "Whole Body"
 	.balign 4
 	.4byte 0
-

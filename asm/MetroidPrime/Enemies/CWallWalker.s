@@ -735,9 +735,9 @@ lbl_80268CF4:
 /* 80268D4C 00265CAC  4B ED 1E 69 */	bl HasBodyState__15CBodyControllerCFQ23pas15EAnimationState
 /* 80268D50 00265CB0  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 80268D54 00265CB4  41 82 00 7C */	beq lbl_80268DD0
-/* 80268D58 00265CB8  3C 80 80 3E */	lis r4, lbl_803DAA68@ha
+/* 80268D58 00265CB8  3C 80 80 3E */	lis r4, __vt__13CBodyStateCmd@ha
 /* 80268D5C 00265CBC  80 74 04 50 */	lwz r3, 0x450(r20)
-/* 80268D60 00265CC0  38 04 AA 68 */	addi r0, r4, lbl_803DAA68@l
+/* 80268D60 00265CC0  38 04 AA 68 */	addi r0, r4, __vt__13CBodyStateCmd@l
 /* 80268D64 00265CC4  3C 80 80 3E */	lis r4, lbl_803DA9E4@ha
 /* 80268D68 00265CC8  90 01 00 0C */	stw r0, 0xc(r1)
 /* 80268D6C 00265CCC  38 C4 A9 E4 */	addi r6, r4, lbl_803DA9E4@l
@@ -755,9 +755,9 @@ lbl_80268CF4:
 /* 80268D9C 00265CFC  80 01 00 10 */	lwz r0, 0x10(r1)
 /* 80268DA0 00265D00  3C 60 80 3E */	lis r3, lbl_803DA9E4@ha
 /* 80268DA4 00265D04  38 83 A9 E4 */	addi r4, r3, lbl_803DA9E4@l
-/* 80268DA8 00265D08  3C 60 80 3E */	lis r3, lbl_803DAA68@ha
+/* 80268DA8 00265D08  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
 /* 80268DAC 00265D0C  90 15 00 C8 */	stw r0, 0xc8(r21)
-/* 80268DB0 00265D10  38 03 AA 68 */	addi r0, r3, lbl_803DAA68@l
+/* 80268DB0 00265D10  38 03 AA 68 */	addi r0, r3, __vt__13CBodyStateCmd@l
 /* 80268DB4 00265D14  80 A1 00 14 */	lwz r5, 0x14(r1)
 /* 80268DB8 00265D18  90 81 00 0C */	stw r4, 0xc(r1)
 /* 80268DBC 00265D1C  80 61 00 18 */	lwz r3, 0x18(r1)

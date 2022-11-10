@@ -3484,20 +3484,20 @@ CodeTrigger__16CMetroidPrimeExoFR13CStateManagerf:
 sub_8027381c:
 /* 8027381C 0027077C  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 80273820 00270780  7C 08 02 A6 */	mflr r0
-/* 80273824 00270784  3C E0 80 3E */	lis r7, lbl_803DAA68@ha
+/* 80273824 00270784  3C E0 80 3E */	lis r7, __vt__13CBodyStateCmd@ha
 /* 80273828 00270788  C0 02 BC 08 */	lfs f0, lbl_805AD928@sda21(r2)
 /* 8027382C 0027078C  90 01 00 34 */	stw r0, 0x34(r1)
-/* 80273830 00270790  38 E7 AA 68 */	addi r7, r7, lbl_803DAA68@l
+/* 80273830 00270790  38 E7 AA 68 */	addi r7, r7, __vt__13CBodyStateCmd@l
 /* 80273834 00270794  39 00 00 13 */	li r8, 0x13
 /* 80273838 00270798  88 81 00 14 */	lbz r4, 0x14(r1)
 /* 8027383C 0027079C  93 E1 00 2C */	stw r31, 0x2c(r1)
 /* 80273840 002707A0  38 C0 00 00 */	li r6, 0
 /* 80273844 002707A4  50 C4 3E 30 */	rlwimi r4, r6, 7, 0x18, 0x18
 /* 80273848 002707A8  81 23 04 50 */	lwz r9, 0x450(r3)
-/* 8027384C 002707AC  3C 60 80 3E */	lis r3, lbl_803DFE40@ha
+/* 8027384C 002707AC  3C 60 80 3E */	lis r3, __vt__14CBCScriptedCmd@ha
 /* 80273850 002707B0  90 E1 00 08 */	stw r7, 8(r1)
 /* 80273854 002707B4  54 80 06 3E */	clrlwi r0, r4, 0x18
-/* 80273858 002707B8  38 E3 FE 40 */	addi r7, r3, lbl_803DFE40@l
+/* 80273858 002707B8  38 E3 FE 40 */	addi r7, r3, __vt__14CBCScriptedCmd@l
 /* 8027385C 002707BC  3B E9 00 04 */	addi r31, r9, 4
 /* 80273860 002707C0  98 81 00 14 */	stb r4, 0x14(r1)
 /* 80273864 002707C4  50 C0 36 72 */	rlwimi r0, r6, 6, 0x19, 0x19
@@ -3510,11 +3510,11 @@ sub_8027381c:
 /* 80273880 002707E0  D0 01 00 18 */	stfs f0, 0x18(r1)
 /* 80273884 002707E4  4B EB DB B5 */	bl DeliverCmd__16CBodyStateCmdMgrF13EBodyStateCmd
 /* 80273888 002707E8  80 01 00 0C */	lwz r0, 0xc(r1)
-/* 8027388C 002707EC  3C 60 80 3E */	lis r3, lbl_803DFE40@ha
-/* 80273890 002707F0  38 83 FE 40 */	addi r4, r3, lbl_803DFE40@l
-/* 80273894 002707F4  3C 60 80 3E */	lis r3, lbl_803DAA68@ha
+/* 8027388C 002707EC  3C 60 80 3E */	lis r3, __vt__14CBCScriptedCmd@ha
+/* 80273890 002707F0  38 83 FE 40 */	addi r4, r3, __vt__14CBCScriptedCmd@l
+/* 80273894 002707F4  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
 /* 80273898 002707F8  90 1F 02 20 */	stw r0, 0x220(r31)
-/* 8027389C 002707FC  38 03 AA 68 */	addi r0, r3, lbl_803DAA68@l
+/* 8027389C 002707FC  38 03 AA 68 */	addi r0, r3, __vt__13CBodyStateCmd@l
 /* 802738A0 00270800  80 A1 00 10 */	lwz r5, 0x10(r1)
 /* 802738A4 00270804  88 61 00 14 */	lbz r3, 0x14(r1)
 /* 802738A8 00270808  90 BF 02 24 */	stw r5, 0x224(r31)
@@ -6456,8 +6456,8 @@ lbl_80276264:
 /* 802762A4 00273204  90 01 00 08 */	stw r0, 8(r1)
 /* 802762A8 00273208  48 07 3F 11 */	bl AddEmitter__11CSfxManagerFUsRC9CVector3fRC9CVector3fUcbbsi
 /* 802762AC 0027320C  80 01 00 14 */	lwz r0, 0x14(r1)
-/* 802762B0 00273210  3C 60 80 3E */	lis r3, lbl_803DAA68@ha
-/* 802762B4 00273214  38 C3 AA 68 */	addi r6, r3, lbl_803DAA68@l
+/* 802762B0 00273210  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
+/* 802762B4 00273214  38 C3 AA 68 */	addi r6, r3, __vt__13CBodyStateCmd@l
 /* 802762B8 00273218  C0 02 BC 30 */	lfs f0, lbl_805AD950@sda21(r2)
 /* 802762BC 0027321C  90 1F 0F BC */	stw r0, 0xfbc(r31)
 /* 802762C0 00273220  3C 80 80 3E */	lis r4, lbl_803E10C8@ha
@@ -6479,9 +6479,9 @@ lbl_80276264:
 /* 80276300 00273260  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80276304 00273264  3C 60 80 3E */	lis r3, lbl_803E10C8@ha
 /* 80276308 00273268  38 83 10 C8 */	addi r4, r3, lbl_803E10C8@l
-/* 8027630C 0027326C  3C 60 80 3E */	lis r3, lbl_803DAA68@ha
+/* 8027630C 0027326C  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
 /* 80276310 00273270  90 1F 02 88 */	stw r0, 0x288(r31)
-/* 80276314 00273274  38 03 AA 68 */	addi r0, r3, lbl_803DAA68@l
+/* 80276314 00273274  38 03 AA 68 */	addi r0, r3, __vt__13CBodyStateCmd@l
 /* 80276318 00273278  C0 01 00 38 */	lfs f0, 0x38(r1)
 /* 8027631C 0027327C  80 A1 00 3C */	lwz r5, 0x3c(r1)
 /* 80276320 00273280  D0 1F 02 8C */	stfs f0, 0x28c(r31)
@@ -6497,9 +6497,9 @@ lbl_8027633C:
 /* 80276344 002732A4  90 01 00 10 */	stw r0, 0x10(r1)
 /* 80276348 002732A8  48 07 3B 3D */	bl RemoveEmitter__11CSfxManagerF10CSfxHandle
 /* 8027634C 002732AC  38 00 00 00 */	li r0, 0
-/* 80276350 002732B0  3C 60 80 3E */	lis r3, lbl_803DAA68@ha
+/* 80276350 002732B0  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
 /* 80276354 002732B4  90 1F 0F BC */	stw r0, 0xfbc(r31)
-/* 80276358 002732B8  38 63 AA 68 */	addi r3, r3, lbl_803DAA68@l
+/* 80276358 002732B8  38 63 AA 68 */	addi r3, r3, __vt__13CBodyStateCmd@l
 /* 8027635C 002732BC  38 00 00 1B */	li r0, 0x1b
 /* 80276360 002732C0  38 81 00 1C */	addi r4, r1, 0x1c
 /* 80276364 002732C4  90 61 00 1C */	stw r3, 0x1c(r1)
@@ -6507,8 +6507,8 @@ lbl_8027633C:
 /* 8027636C 002732CC  80 7F 04 50 */	lwz r3, 0x450(r31)
 /* 80276370 002732D0  38 63 00 04 */	addi r3, r3, 4
 /* 80276374 002732D4  4B EB B4 45 */	bl DeliverCmd__16CBodyStateCmdMgrFRC13CBodyStateCmd
-/* 80276378 002732D8  3C 60 80 3E */	lis r3, lbl_803DAA68@ha
-/* 8027637C 002732DC  38 03 AA 68 */	addi r0, r3, lbl_803DAA68@l
+/* 80276378 002732D8  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
+/* 8027637C 002732DC  38 03 AA 68 */	addi r0, r3, __vt__13CBodyStateCmd@l
 /* 80276380 002732E0  90 01 00 1C */	stw r0, 0x1c(r1)
 lbl_80276384:
 /* 80276384 002732E4  80 01 00 54 */	lwz r0, 0x54(r1)

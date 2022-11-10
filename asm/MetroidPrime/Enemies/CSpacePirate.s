@@ -1674,9 +1674,9 @@ lbl_801210AC:
 /* 801210E0 0011E040  C0 3E 08 C4 */	lfs f1, 0x8c4(r30)
 /* 801210E4 0011E044  FC 01 00 00 */	fcmpu cr0, f1, f0
 /* 801210E8 0011E048  40 82 01 10 */	bne lbl_801211F8
-/* 801210EC 0011E04C  3C 80 80 3E */	lis r4, lbl_803DAA68@ha
+/* 801210EC 0011E04C  3C 80 80 3E */	lis r4, __vt__13CBodyStateCmd@ha
 /* 801210F0 0011E050  80 7E 04 50 */	lwz r3, 0x450(r30)
-/* 801210F4 0011E054  38 04 AA 68 */	addi r0, r4, lbl_803DAA68@l
+/* 801210F4 0011E054  38 04 AA 68 */	addi r0, r4, __vt__13CBodyStateCmd@l
 /* 801210F8 0011E058  3C 80 80 3E */	lis r4, lbl_803E061C@ha
 /* 801210FC 0011E05C  90 01 00 14 */	stw r0, 0x14(r1)
 /* 80121100 0011E060  38 04 06 1C */	addi r0, r4, lbl_803E061C@l
@@ -1690,9 +1690,9 @@ lbl_801210AC:
 /* 80121120 0011E080  3C 60 80 3E */	lis r3, lbl_803E061C@ha
 /* 80121124 0011E084  80 C1 00 18 */	lwz r6, 0x18(r1)
 /* 80121128 0011E088  38 03 06 1C */	addi r0, r3, lbl_803E061C@l
-/* 8012112C 0011E08C  3C 60 80 3E */	lis r3, lbl_803DAA68@ha
+/* 8012112C 0011E08C  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
 /* 80121130 0011E090  90 01 00 14 */	stw r0, 0x14(r1)
-/* 80121134 0011E094  38 03 AA 68 */	addi r0, r3, lbl_803DAA68@l
+/* 80121134 0011E094  38 03 AA 68 */	addi r0, r3, __vt__13CBodyStateCmd@l
 /* 80121138 0011E098  7F C4 F3 78 */	mr r4, r30
 /* 8012113C 0011E09C  7F E5 FB 78 */	mr r5, r31
 /* 80121140 0011E0A0  90 DD 02 74 */	stw r6, 0x274(r29)
@@ -1730,17 +1730,17 @@ lbl_801211B0:
 /* 801211BC 0011E11C  88 1E 06 34 */	lbz r0, 0x634(r30)
 /* 801211C0 0011E120  54 00 E7 FF */	rlwinm. r0, r0, 0x1c, 0x1f, 0x1f
 /* 801211C4 0011E124  40 82 00 34 */	bne lbl_801211F8
-/* 801211C8 0011E128  3C 60 80 3E */	lis r3, lbl_803DAA68@ha
+/* 801211C8 0011E128  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
 /* 801211CC 0011E12C  38 00 00 17 */	li r0, 0x17
-/* 801211D0 0011E130  38 63 AA 68 */	addi r3, r3, lbl_803DAA68@l
+/* 801211D0 0011E130  38 63 AA 68 */	addi r3, r3, __vt__13CBodyStateCmd@l
 /* 801211D4 0011E134  90 01 00 10 */	stw r0, 0x10(r1)
 /* 801211D8 0011E138  38 81 00 0C */	addi r4, r1, 0xc
 /* 801211DC 0011E13C  90 61 00 0C */	stw r3, 0xc(r1)
 /* 801211E0 0011E140  80 7E 04 50 */	lwz r3, 0x450(r30)
 /* 801211E4 0011E144  38 63 00 04 */	addi r3, r3, 4
 /* 801211E8 0011E148  48 01 05 D1 */	bl DeliverCmd__16CBodyStateCmdMgrFRC13CBodyStateCmd
-/* 801211EC 0011E14C  3C 60 80 3E */	lis r3, lbl_803DAA68@ha
-/* 801211F0 0011E150  38 03 AA 68 */	addi r0, r3, lbl_803DAA68@l
+/* 801211EC 0011E14C  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
+/* 801211F0 0011E150  38 03 AA 68 */	addi r0, r3, __vt__13CBodyStateCmd@l
 /* 801211F4 0011E154  90 01 00 0C */	stw r0, 0xc(r1)
 lbl_801211F8:
 /* 801211F8 0011E158  80 01 00 54 */	lwz r0, 0x54(r1)
@@ -3292,10 +3292,10 @@ lbl_8012280C:
 TryJumpInLoop__10CPatternedFR13CStateManageri:
 /* 80122828 0011F788  94 21 FF C0 */	stwu r1, -0x40(r1)
 /* 8012282C 0011F78C  7C 08 02 A6 */	mflr r0
-/* 80122830 0011F790  3C E0 80 3E */	lis r7, lbl_803DAA68@ha
+/* 80122830 0011F790  3C E0 80 3E */	lis r7, __vt__13CBodyStateCmd@ha
 /* 80122834 0011F794  39 00 00 10 */	li r8, 0x10
 /* 80122838 0011F798  90 01 00 44 */	stw r0, 0x44(r1)
-/* 8012283C 0011F79C  39 27 AA 68 */	addi r9, r7, lbl_803DAA68@l
+/* 8012283C 0011F79C  39 27 AA 68 */	addi r9, r7, __vt__13CBodyStateCmd@l
 /* 80122840 0011F7A0  3C E0 80 3E */	lis r7, lbl_803DA9FC@ha
 /* 80122844 0011F7A4  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 80122848 0011F7A8  93 E1 00 3C */	stw r31, 0x3c(r1)
@@ -3332,9 +3332,9 @@ TryJumpInLoop__10CPatternedFR13CStateManageri:
 /* 801228C4 0011F824  80 01 00 0C */	lwz r0, 0xc(r1)
 /* 801228C8 0011F828  3C 60 80 3E */	lis r3, lbl_803DA9FC@ha
 /* 801228CC 0011F82C  38 83 A9 FC */	addi r4, r3, lbl_803DA9FC@l
-/* 801228D0 0011F830  3C 60 80 3E */	lis r3, lbl_803DAA68@ha
+/* 801228D0 0011F830  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
 /* 801228D4 0011F834  90 1F 01 D4 */	stw r0, 0x1d4(r31)
-/* 801228D8 0011F838  38 03 AA 68 */	addi r0, r3, lbl_803DAA68@l
+/* 801228D8 0011F838  38 03 AA 68 */	addi r0, r3, __vt__13CBodyStateCmd@l
 /* 801228DC 0011F83C  80 A1 00 10 */	lwz r5, 0x10(r1)
 /* 801228E0 0011F840  80 61 00 14 */	lwz r3, 0x14(r1)
 /* 801228E4 0011F844  90 BF 01 D8 */	stw r5, 0x1d8(r31)
@@ -3509,12 +3509,12 @@ lbl_80122AEC:
 /* 80122B3C 0011FA9C  81 03 00 04 */	lwz r8, 4(r3)
 /* 80122B40 0011FAA0  28 08 00 00 */	cmplwi r8, 0
 /* 80122B44 0011FAA4  41 82 01 20 */	beq lbl_80122C64
-/* 80122B48 0011FAA8  3C 60 80 3E */	lis r3, lbl_803DAA68@ha
+/* 80122B48 0011FAA8  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
 /* 80122B4C 0011FAAC  88 A1 00 48 */	lbz r5, 0x48(r1)
 /* 80122B50 0011FAB0  38 00 00 01 */	li r0, 1
 /* 80122B54 0011FAB4  80 FE 04 50 */	lwz r7, 0x450(r30)
 /* 80122B58 0011FAB8  50 05 3E 30 */	rlwimi r5, r0, 7, 0x18, 0x18
-/* 80122B5C 0011FABC  38 83 AA 68 */	addi r4, r3, lbl_803DAA68@l
+/* 80122B5C 0011FABC  38 83 AA 68 */	addi r4, r3, __vt__13CBodyStateCmd@l
 /* 80122B60 0011FAC0  C0 A8 00 60 */	lfs f5, 0x60(r8)
 /* 80122B64 0011FAC4  3C 60 80 3E */	lis r3, lbl_803DA9FC@ha
 /* 80122B68 0011FAC8  C0 88 00 50 */	lfs f4, 0x50(r8)
@@ -3546,9 +3546,9 @@ lbl_80122AEC:
 /* 80122BD0 0011FB30  80 01 00 28 */	lwz r0, 0x28(r1)
 /* 80122BD4 0011FB34  3C 60 80 3E */	lis r3, lbl_803DA9FC@ha
 /* 80122BD8 0011FB38  38 83 A9 FC */	addi r4, r3, lbl_803DA9FC@l
-/* 80122BDC 0011FB3C  3C 60 80 3E */	lis r3, lbl_803DAA68@ha
+/* 80122BDC 0011FB3C  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
 /* 80122BE0 0011FB40  90 1F 01 D4 */	stw r0, 0x1d4(r31)
-/* 80122BE4 0011FB44  38 03 AA 68 */	addi r0, r3, lbl_803DAA68@l
+/* 80122BE4 0011FB44  38 03 AA 68 */	addi r0, r3, __vt__13CBodyStateCmd@l
 /* 80122BE8 0011FB48  80 A1 00 2C */	lwz r5, 0x2c(r1)
 /* 80122BEC 0011FB4C  80 61 00 30 */	lwz r3, 0x30(r1)
 /* 80122BF0 0011FB50  90 BF 01 D8 */	stw r5, 0x1d8(r31)
@@ -4240,9 +4240,9 @@ lbl_801235DC:
 /* 801235DC 0012053C  88 1E 06 39 */	lbz r0, 0x639(r30)
 /* 801235E0 00120540  54 00 D7 FF */	rlwinm. r0, r0, 0x1a, 0x1f, 0x1f
 /* 801235E4 00120544  40 82 00 BC */	bne lbl_801236A0
-/* 801235E8 00120548  3C 60 80 3E */	lis r3, lbl_803DAA68@ha
+/* 801235E8 00120548  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
 /* 801235EC 0012054C  38 C0 00 01 */	li r6, 1
-/* 801235F0 00120550  38 03 AA 68 */	addi r0, r3, lbl_803DAA68@l
+/* 801235F0 00120550  38 03 AA 68 */	addi r0, r3, __vt__13CBodyStateCmd@l
 /* 801235F4 00120554  80 7E 04 50 */	lwz r3, 0x450(r30)
 /* 801235F8 00120558  3C 80 80 3E */	lis r4, lbl_803DA9E4@ha
 /* 801235FC 0012055C  90 01 00 20 */	stw r0, 0x20(r1)
@@ -4259,9 +4259,9 @@ lbl_801235DC:
 /* 80123628 00120588  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8012362C 0012058C  3C 60 80 3E */	lis r3, lbl_803DA9E4@ha
 /* 80123630 00120590  38 C3 A9 E4 */	addi r6, r3, lbl_803DA9E4@l
-/* 80123634 00120594  3C 60 80 3E */	lis r3, lbl_803DAA68@ha
+/* 80123634 00120594  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
 /* 80123638 00120598  90 1D 00 C8 */	stw r0, 0xc8(r29)
-/* 8012363C 0012059C  38 03 AA 68 */	addi r0, r3, lbl_803DAA68@l
+/* 8012363C 0012059C  38 03 AA 68 */	addi r0, r3, __vt__13CBodyStateCmd@l
 /* 80123640 001205A0  80 61 00 28 */	lwz r3, 0x28(r1)
 /* 80123644 001205A4  7F C4 F3 78 */	mr r4, r30
 /* 80123648 001205A8  80 E1 00 2C */	lwz r7, 0x2c(r1)
@@ -4390,17 +4390,17 @@ lbl_801237DC:
 /* 801237E8 00120748  98 03 06 37 */	stb r0, 0x637(r3)
 /* 801237EC 0012074C  48 00 00 48 */	b lbl_80123834
 lbl_801237F0:
-/* 801237F0 00120750  3C 80 80 3E */	lis r4, lbl_803DAA68@ha
+/* 801237F0 00120750  3C 80 80 3E */	lis r4, __vt__13CBodyStateCmd@ha
 /* 801237F4 00120754  38 00 00 0A */	li r0, 0xa
-/* 801237F8 00120758  38 A4 AA 68 */	addi r5, r4, lbl_803DAA68@l
+/* 801237F8 00120758  38 A4 AA 68 */	addi r5, r4, __vt__13CBodyStateCmd@l
 /* 801237FC 0012075C  90 01 00 0C */	stw r0, 0xc(r1)
 /* 80123800 00120760  38 81 00 08 */	addi r4, r1, 8
 /* 80123804 00120764  90 A1 00 08 */	stw r5, 8(r1)
 /* 80123808 00120768  80 63 04 50 */	lwz r3, 0x450(r3)
 /* 8012380C 0012076C  38 63 00 04 */	addi r3, r3, 4
 /* 80123810 00120770  48 00 DF A9 */	bl DeliverCmd__16CBodyStateCmdMgrFRC13CBodyStateCmd
-/* 80123814 00120774  3C 60 80 3E */	lis r3, lbl_803DAA68@ha
-/* 80123818 00120778  38 03 AA 68 */	addi r0, r3, lbl_803DAA68@l
+/* 80123814 00120774  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
+/* 80123818 00120778  38 03 AA 68 */	addi r0, r3, __vt__13CBodyStateCmd@l
 /* 8012381C 0012077C  90 01 00 08 */	stw r0, 8(r1)
 /* 80123820 00120780  48 00 00 14 */	b lbl_80123834
 lbl_80123824:
@@ -5150,9 +5150,9 @@ lbl_80124274:
 TryRollingDodge__10CPatternedFR13CStateManageri:
 /* 80124298 001211F8  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 8012429C 001211FC  7C 08 02 A6 */	mflr r0
-/* 801242A0 00121200  3C 80 80 3E */	lis r4, lbl_803DAA68@ha
+/* 801242A0 00121200  3C 80 80 3E */	lis r4, __vt__13CBodyStateCmd@ha
 /* 801242A4 00121204  90 01 00 24 */	stw r0, 0x24(r1)
-/* 801242A8 00121208  38 04 AA 68 */	addi r0, r4, lbl_803DAA68@l
+/* 801242A8 00121208  38 04 AA 68 */	addi r0, r4, __vt__13CBodyStateCmd@l
 /* 801242AC 0012120C  38 80 00 01 */	li r4, 1
 /* 801242B0 00121210  93 E1 00 1C */	stw r31, 0x1c(r1)
 /* 801242B4 00121214  80 E3 04 50 */	lwz r7, 0x450(r3)
@@ -5171,9 +5171,9 @@ TryRollingDodge__10CPatternedFR13CStateManageri:
 /* 801242E8 00121248  80 01 00 0C */	lwz r0, 0xc(r1)
 /* 801242EC 0012124C  3C 60 80 3E */	lis r3, lbl_803DA9E4@ha
 /* 801242F0 00121250  38 83 A9 E4 */	addi r4, r3, lbl_803DA9E4@l
-/* 801242F4 00121254  3C 60 80 3E */	lis r3, lbl_803DAA68@ha
+/* 801242F4 00121254  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
 /* 801242F8 00121258  90 1F 00 C8 */	stw r0, 0xc8(r31)
-/* 801242FC 0012125C  38 03 AA 68 */	addi r0, r3, lbl_803DAA68@l
+/* 801242FC 0012125C  38 03 AA 68 */	addi r0, r3, __vt__13CBodyStateCmd@l
 /* 80124300 00121260  80 A1 00 10 */	lwz r5, 0x10(r1)
 /* 80124304 00121264  90 81 00 08 */	stw r4, 8(r1)
 /* 80124308 00121268  80 61 00 14 */	lwz r3, 0x14(r1)
@@ -6428,9 +6428,9 @@ lbl_80125554:
 /* 80125558 001224B8  80 06 02 B8 */	lwz r0, 0x2b8(r6)
 /* 8012555C 001224BC  2C 00 00 03 */	cmpwi r0, 3
 /* 80125560 001224C0  41 82 00 88 */	beq lbl_801255E8
-/* 80125564 001224C4  3C 80 80 3E */	lis r4, lbl_803DAA68@ha
+/* 80125564 001224C4  3C 80 80 3E */	lis r4, __vt__13CBodyStateCmd@ha
 /* 80125568 001224C8  80 E3 08 34 */	lwz r7, 0x834(r3)
-/* 8012556C 001224CC  38 04 AA 68 */	addi r0, r4, lbl_803DAA68@l
+/* 8012556C 001224CC  38 04 AA 68 */	addi r0, r4, __vt__13CBodyStateCmd@l
 /* 80125570 001224D0  3C 60 80 3E */	lis r3, lbl_803DA9E4@ha
 /* 80125574 001224D4  90 01 00 08 */	stw r0, 8(r1)
 /* 80125578 001224D8  38 A3 A9 E4 */	addi r5, r3, lbl_803DA9E4@l
@@ -6447,9 +6447,9 @@ lbl_80125554:
 /* 801255A4 00122504  80 01 00 0C */	lwz r0, 0xc(r1)
 /* 801255A8 00122508  3C 60 80 3E */	lis r3, lbl_803DA9E4@ha
 /* 801255AC 0012250C  38 83 A9 E4 */	addi r4, r3, lbl_803DA9E4@l
-/* 801255B0 00122510  3C 60 80 3E */	lis r3, lbl_803DAA68@ha
+/* 801255B0 00122510  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
 /* 801255B4 00122514  90 1F 00 C8 */	stw r0, 0xc8(r31)
-/* 801255B8 00122518  38 03 AA 68 */	addi r0, r3, lbl_803DAA68@l
+/* 801255B8 00122518  38 03 AA 68 */	addi r0, r3, __vt__13CBodyStateCmd@l
 /* 801255BC 0012251C  80 A1 00 10 */	lwz r5, 0x10(r1)
 /* 801255C0 00122520  90 81 00 08 */	stw r4, 8(r1)
 /* 801255C4 00122524  80 61 00 14 */	lwz r3, 0x14(r1)
@@ -7234,17 +7234,17 @@ Enraged__12CSpacePirateFR13CStateManager9EStateMsgf:
 /* 80126118 00123078  41 82 00 08 */	beq lbl_80126120
 /* 8012611C 0012307C  48 00 00 34 */	b lbl_80126150
 lbl_80126120:
-/* 80126120 00123080  3C 80 80 3E */	lis r4, lbl_803DAA68@ha
+/* 80126120 00123080  3C 80 80 3E */	lis r4, __vt__13CBodyStateCmd@ha
 /* 80126124 00123084  38 00 00 0A */	li r0, 0xa
-/* 80126128 00123088  38 A4 AA 68 */	addi r5, r4, lbl_803DAA68@l
+/* 80126128 00123088  38 A4 AA 68 */	addi r5, r4, __vt__13CBodyStateCmd@l
 /* 8012612C 0012308C  90 01 00 0C */	stw r0, 0xc(r1)
 /* 80126130 00123090  38 81 00 08 */	addi r4, r1, 8
 /* 80126134 00123094  90 A1 00 08 */	stw r5, 8(r1)
 /* 80126138 00123098  80 63 04 50 */	lwz r3, 0x450(r3)
 /* 8012613C 0012309C  38 63 00 04 */	addi r3, r3, 4
 /* 80126140 001230A0  48 00 B6 79 */	bl DeliverCmd__16CBodyStateCmdMgrFRC13CBodyStateCmd
-/* 80126144 001230A4  3C 60 80 3E */	lis r3, lbl_803DAA68@ha
-/* 80126148 001230A8  38 03 AA 68 */	addi r0, r3, lbl_803DAA68@l
+/* 80126144 001230A4  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
+/* 80126148 001230A8  38 03 AA 68 */	addi r0, r3, __vt__13CBodyStateCmd@l
 /* 8012614C 001230AC  90 01 00 08 */	stw r0, 8(r1)
 lbl_80126150:
 /* 80126150 001230B0  80 01 00 14 */	lwz r0, 0x14(r1)
@@ -7270,9 +7270,9 @@ lbl_8012618C:
 /* 80126190 001230F0  40 80 00 6C */	bge lbl_801261FC
 /* 80126194 001230F4  48 00 00 58 */	b lbl_801261EC
 lbl_80126198:
-/* 80126198 001230F8  3C 60 80 3E */	lis r3, lbl_803DAA68@ha
+/* 80126198 001230F8  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
 /* 8012619C 001230FC  38 00 00 0B */	li r0, 0xb
-/* 801261A0 00123100  38 63 AA 68 */	addi r3, r3, lbl_803DAA68@l
+/* 801261A0 00123100  38 63 AA 68 */	addi r3, r3, __vt__13CBodyStateCmd@l
 /* 801261A4 00123104  90 01 00 0C */	stw r0, 0xc(r1)
 /* 801261A8 00123108  38 81 00 08 */	addi r4, r1, 8
 /* 801261AC 0012310C  90 61 00 08 */	stw r3, 8(r1)
@@ -7281,8 +7281,8 @@ lbl_80126198:
 /* 801261B8 00123118  48 00 B6 01 */	bl DeliverCmd__16CBodyStateCmdMgrFRC13CBodyStateCmd
 /* 801261BC 0012311C  34 01 00 08 */	addic. r0, r1, 8
 /* 801261C0 00123120  41 82 00 10 */	beq lbl_801261D0
-/* 801261C4 00123124  3C 60 80 3E */	lis r3, lbl_803DAA68@ha
-/* 801261C8 00123128  38 03 AA 68 */	addi r0, r3, lbl_803DAA68@l
+/* 801261C4 00123124  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
+/* 801261C8 00123128  38 03 AA 68 */	addi r0, r3, __vt__13CBodyStateCmd@l
 /* 801261CC 0012312C  90 01 00 08 */	stw r0, 8(r1)
 lbl_801261D0:
 /* 801261D0 00123130  88 1F 06 36 */	lbz r0, 0x636(r31)
@@ -9186,9 +9186,9 @@ Death__12CSpacePirateFRC9CVector3fR13CStateManager:
 /* 80127CB8 00124C18  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80127CBC 00124C1C  7C 03 00 40 */	cmplw r3, r0
 /* 80127CC0 00124C20  41 82 00 98 */	beq lbl_80127D58
-/* 80127CC4 00124C24  3C 60 80 3E */	lis r3, lbl_803DAA68@ha
+/* 80127CC4 00124C24  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
 /* 80127CC8 00124C28  C0 5F 00 58 */	lfs f2, 0x58(r31)
-/* 80127CCC 00124C2C  38 A3 AA 68 */	addi r5, r3, lbl_803DAA68@l
+/* 80127CCC 00124C2C  38 A3 AA 68 */	addi r5, r3, __vt__13CBodyStateCmd@l
 /* 80127CD0 00124C30  C0 3F 00 48 */	lfs f1, 0x48(r31)
 /* 80127CD4 00124C34  C0 1F 00 38 */	lfs f0, 0x38(r31)
 /* 80127CD8 00124C38  3C 80 80 3E */	lis r4, lbl_803DAA50@ha
@@ -9210,9 +9210,9 @@ Death__12CSpacePirateFRC9CVector3fR13CStateManager:
 /* 80127D18 00124C78  80 01 00 0C */	lwz r0, 0xc(r1)
 /* 80127D1C 00124C7C  3C 60 80 3E */	lis r3, lbl_803DAA50@ha
 /* 80127D20 00124C80  38 83 AA 50 */	addi r4, r3, lbl_803DAA50@l
-/* 80127D24 00124C84  3C 60 80 3E */	lis r3, lbl_803DAA68@ha
+/* 80127D24 00124C84  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
 /* 80127D28 00124C88  90 1F 00 E0 */	stw r0, 0xe0(r31)
-/* 80127D2C 00124C8C  38 03 AA 68 */	addi r0, r3, lbl_803DAA68@l
+/* 80127D2C 00124C8C  38 03 AA 68 */	addi r0, r3, __vt__13CBodyStateCmd@l
 /* 80127D30 00124C90  80 A1 00 10 */	lwz r5, 0x10(r1)
 /* 80127D34 00124C94  80 61 00 14 */	lwz r3, 0x14(r1)
 /* 80127D38 00124C98  90 BF 00 E4 */	stw r5, 0xe4(r31)
@@ -9452,9 +9452,9 @@ TryWallHang__10CPatternedFR13CStateManageri:
 /* 8012809C 00124FFC  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 801280A0 00125000  7C 08 02 A6 */	mflr r0
 /* 801280A4 00125004  38 A0 00 15 */	li r5, 0x15
-/* 801280A8 00125008  3C 80 80 3E */	lis r4, lbl_803DAA68@ha
+/* 801280A8 00125008  3C 80 80 3E */	lis r4, __vt__13CBodyStateCmd@ha
 /* 801280AC 0012500C  90 01 00 24 */	stw r0, 0x24(r1)
-/* 801280B0 00125010  38 04 AA 68 */	addi r0, r4, lbl_803DAA68@l
+/* 801280B0 00125010  38 04 AA 68 */	addi r0, r4, __vt__13CBodyStateCmd@l
 /* 801280B4 00125014  93 E1 00 1C */	stw r31, 0x1c(r1)
 /* 801280B8 00125018  A0 C3 02 DC */	lhz r6, 0x2dc(r3)
 /* 801280BC 0012501C  80 83 04 50 */	lwz r4, 0x450(r3)
@@ -9472,9 +9472,9 @@ TryWallHang__10CPatternedFR13CStateManageri:
 /* 801280EC 0012504C  80 01 00 10 */	lwz r0, 0x10(r1)
 /* 801280F0 00125050  3C 60 80 3E */	lis r3, lbl_803E0B98@ha
 /* 801280F4 00125054  38 83 0B 98 */	addi r4, r3, lbl_803E0B98@l
-/* 801280F8 00125058  3C 60 80 3E */	lis r3, lbl_803DAA68@ha
+/* 801280F8 00125058  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
 /* 801280FC 0012505C  90 1F 02 58 */	stw r0, 0x258(r31)
-/* 80128100 00125060  38 03 AA 68 */	addi r0, r3, lbl_803DAA68@l
+/* 80128100 00125060  38 03 AA 68 */	addi r0, r3, __vt__13CBodyStateCmd@l
 /* 80128104 00125064  A0 61 00 14 */	lhz r3, 0x14(r1)
 /* 80128108 00125068  90 81 00 0C */	stw r4, 0xc(r1)
 /* 8012810C 0012506C  B0 7F 02 5C */	sth r3, 0x25c(r31)
@@ -9497,8 +9497,8 @@ __dt__14CBCWallHangCmdFv:
 /* 80128144 001250A4  38 03 0B 98 */	addi r0, r3, lbl_803E0B98@l
 /* 80128148 001250A8  90 1F 00 00 */	stw r0, 0(r31)
 /* 8012814C 001250AC  41 82 00 10 */	beq lbl_8012815C
-/* 80128150 001250B0  3C 60 80 3E */	lis r3, lbl_803DAA68@ha
-/* 80128154 001250B4  38 03 AA 68 */	addi r0, r3, lbl_803DAA68@l
+/* 80128150 001250B0  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
+/* 80128154 001250B4  38 03 AA 68 */	addi r0, r3, __vt__13CBodyStateCmd@l
 /* 80128158 001250B8  90 1F 00 00 */	stw r0, 0(r31)
 lbl_8012815C:
 /* 8012815C 001250BC  7C 80 07 35 */	extsh. r0, r4
@@ -9530,9 +9530,9 @@ TryCover__10CPatternedFR13CStateManageri:
 /* 801281B4 00125114  28 03 00 00 */	cmplwi r3, 0
 /* 801281B8 00125118  41 82 00 C8 */	beq lbl_80128280
 /* 801281BC 0012511C  C0 43 00 58 */	lfs f2, 0x58(r3)
-/* 801281C0 00125120  3C 80 80 3E */	lis r4, lbl_803DAA68@ha
+/* 801281C0 00125120  3C 80 80 3E */	lis r4, __vt__13CBodyStateCmd@ha
 /* 801281C4 00125124  C0 23 00 48 */	lfs f1, 0x48(r3)
-/* 801281C8 00125128  38 04 AA 68 */	addi r0, r4, lbl_803DAA68@l
+/* 801281C8 00125128  38 04 AA 68 */	addi r0, r4, __vt__13CBodyStateCmd@l
 /* 801281CC 0012512C  C0 03 00 38 */	lfs f0, 0x38(r3)
 /* 801281D0 00125130  FC 40 10 50 */	fneg f2, f2
 /* 801281D4 00125134  FC 20 08 50 */	fneg f1, f1
@@ -9560,9 +9560,9 @@ TryCover__10CPatternedFR13CStateManageri:
 /* 8012822C 0012518C  3C 60 80 3E */	lis r3, lbl_803E0B8C@ha
 /* 80128230 00125190  38 83 0B 8C */	addi r4, r3, lbl_803E0B8C@l
 /* 80128234 00125194  80 A1 00 18 */	lwz r5, 0x18(r1)
-/* 80128238 00125198  3C 60 80 3E */	lis r3, lbl_803DAA68@ha
+/* 80128238 00125198  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
 /* 8012823C 0012519C  90 1F 02 34 */	stw r0, 0x234(r31)
-/* 80128240 001251A0  38 03 AA 68 */	addi r0, r3, lbl_803DAA68@l
+/* 80128240 001251A0  38 03 AA 68 */	addi r0, r3, __vt__13CBodyStateCmd@l
 /* 80128244 001251A4  7F C3 F3 78 */	mr r3, r30
 /* 80128248 001251A8  90 81 00 0C */	stw r4, 0xc(r1)
 /* 8012824C 001251AC  90 7F 02 38 */	stw r3, 0x238(r31)
@@ -9598,8 +9598,8 @@ __dt__11CBCCoverCmdFv:
 /* 801282B4 00125214  38 03 0B 8C */	addi r0, r3, lbl_803E0B8C@l
 /* 801282B8 00125218  90 1F 00 00 */	stw r0, 0(r31)
 /* 801282BC 0012521C  41 82 00 10 */	beq lbl_801282CC
-/* 801282C0 00125220  3C 60 80 3E */	lis r3, lbl_803DAA68@ha
-/* 801282C4 00125224  38 03 AA 68 */	addi r0, r3, lbl_803DAA68@l
+/* 801282C0 00125220  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
+/* 801282C4 00125224  38 03 AA 68 */	addi r0, r3, __vt__13CBodyStateCmd@l
 /* 801282C8 00125228  90 1F 00 00 */	stw r0, 0(r31)
 lbl_801282CC:
 /* 801282CC 0012522C  7C 80 07 35 */	extsh. r0, r4

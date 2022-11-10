@@ -1089,9 +1089,9 @@ lbl_8013FD80:
 /* 8013FD90 0013CCF0  C0 1F 06 38 */	lfs f0, 0x638(r31)
 /* 8013FD94 0013CCF4  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 8013FD98 0013CCF8  40 81 00 88 */	ble lbl_8013FE20
-/* 8013FD9C 0013CCFC  3C 60 80 3E */	lis r3, lbl_803DAA68@ha
+/* 8013FD9C 0013CCFC  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
 /* 8013FDA0 0013CD00  38 00 00 0A */	li r0, 0xa
-/* 8013FDA4 0013CD04  38 63 AA 68 */	addi r3, r3, lbl_803DAA68@l
+/* 8013FDA4 0013CD04  38 63 AA 68 */	addi r3, r3, __vt__13CBodyStateCmd@l
 /* 8013FDA8 0013CD08  90 01 00 0C */	stw r0, 0xc(r1)
 /* 8013FDAC 0013CD0C  38 81 00 08 */	addi r4, r1, 8
 /* 8013FDB0 0013CD10  90 61 00 08 */	stw r3, 8(r1)
@@ -1100,8 +1100,8 @@ lbl_8013FD80:
 /* 8013FDBC 0013CD1C  4B FF 19 FD */	bl DeliverCmd__16CBodyStateCmdMgrFRC13CBodyStateCmd
 /* 8013FDC0 0013CD20  34 01 00 08 */	addic. r0, r1, 8
 /* 8013FDC4 0013CD24  41 82 00 10 */	beq lbl_8013FDD4
-/* 8013FDC8 0013CD28  3C 60 80 3E */	lis r3, lbl_803DAA68@ha
-/* 8013FDCC 0013CD2C  38 03 AA 68 */	addi r0, r3, lbl_803DAA68@l
+/* 8013FDC8 0013CD28  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
+/* 8013FDCC 0013CD2C  38 03 AA 68 */	addi r0, r3, __vt__13CBodyStateCmd@l
 /* 8013FDD0 0013CD30  90 01 00 08 */	stw r0, 8(r1)
 lbl_8013FDD4:
 /* 8013FDD4 0013CD34  80 7F 04 50 */	lwz r3, 0x450(r31)

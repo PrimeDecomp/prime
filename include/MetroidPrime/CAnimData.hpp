@@ -106,7 +106,7 @@ public:
   void SetPhase(float ph);
   void AddAdditiveAnimation(uint idx, float weight, bool active, bool fadeOut);
   void DelAdditiveAnimation(uint idx);
-  // IsAdditiveAnimationActive__9CAnimDataCFUi
+  bool IsAdditiveAnimation(uint idx) const;
   const rstl::rc_ptr<CAnimTreeNode>& GetAdditiveAnimationTree(uint idx) const;
   // GetAnimationTree__9CAnimDataCFv
   // AnimationTree__9CAnimDataFv

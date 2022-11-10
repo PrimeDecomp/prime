@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803DFE20
-lbl_803DFE20:
+.global __vt__20CScriptActorKeyframe
+__vt__20CScriptActorKeyframe:
 	# ROM: 0x3DCE20
 	.4byte 0
 	.4byte 0
@@ -15,8 +15,8 @@ lbl_803DFE20:
 	.4byte AcceptScriptMsg__20CScriptActorKeyframeF20EScriptObjectMessage9TUniqueIdR13CStateManager
 	.4byte SetActive__7CEntityFUc
 
-.global lbl_803DFE40
-lbl_803DFE40:
+.global __vt__14CBCScriptedCmd
+__vt__14CBCScriptedCmd:
 	# ROM: 0x3DCE40
 	.4byte 0
 	.4byte 0
@@ -48,9 +48,9 @@ __dt__20CScriptActorKeyframeFv:
 /* 800FE050 000FAFB0  93 C1 00 08 */	stw r30, 8(r1)
 /* 800FE054 000FAFB4  7C 7E 1B 79 */	or. r30, r3, r3
 /* 800FE058 000FAFB8  41 82 00 28 */	beq lbl_800FE080
-/* 800FE05C 000FAFBC  3C A0 80 3E */	lis r5, lbl_803DFE20@ha
+/* 800FE05C 000FAFBC  3C A0 80 3E */	lis r5, __vt__20CScriptActorKeyframe@ha
 /* 800FE060 000FAFC0  38 80 00 00 */	li r4, 0
-/* 800FE064 000FAFC4  38 05 FE 20 */	addi r0, r5, lbl_803DFE20@l
+/* 800FE064 000FAFC4  38 05 FE 20 */	addi r0, r5, __vt__20CScriptActorKeyframe@l
 /* 800FE068 000FAFC8  90 1E 00 00 */	stw r0, 0(r30)
 /* 800FE06C 000FAFCC  4B F5 32 09 */	bl __dt__7CEntityFv
 /* 800FE070 000FAFD0  7F E0 07 35 */	extsh. r0, r31
@@ -189,16 +189,16 @@ lbl_800FE244:
 /* 800FE260 000FB1C0  A8 03 02 08 */	lha r0, 0x208(r3)
 /* 800FE264 000FB1C4  7C 04 00 00 */	cmpw r4, r0
 /* 800FE268 000FB1C8  40 82 00 30 */	bne lbl_800FE298
-/* 800FE26C 000FB1CC  3C 60 80 3E */	lis r3, lbl_803DAA68@ha
+/* 800FE26C 000FB1CC  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
 /* 800FE270 000FB1D0  38 00 00 0A */	li r0, 0xa
-/* 800FE274 000FB1D4  38 A3 AA 68 */	addi r5, r3, lbl_803DAA68@l
+/* 800FE274 000FB1D4  38 A3 AA 68 */	addi r5, r3, __vt__13CBodyStateCmd@l
 /* 800FE278 000FB1D8  90 01 00 1C */	stw r0, 0x1c(r1)
 /* 800FE27C 000FB1DC  38 66 00 04 */	addi r3, r6, 4
 /* 800FE280 000FB1E0  38 81 00 18 */	addi r4, r1, 0x18
 /* 800FE284 000FB1E4  90 A1 00 18 */	stw r5, 0x18(r1)
 /* 800FE288 000FB1E8  48 03 35 31 */	bl DeliverCmd__16CBodyStateCmdMgrFRC13CBodyStateCmd
-/* 800FE28C 000FB1EC  3C 60 80 3E */	lis r3, lbl_803DAA68@ha
-/* 800FE290 000FB1F0  38 03 AA 68 */	addi r0, r3, lbl_803DAA68@l
+/* 800FE28C 000FB1EC  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
+/* 800FE290 000FB1F0  38 03 AA 68 */	addi r0, r3, __vt__13CBodyStateCmd@l
 /* 800FE294 000FB1F4  90 01 00 18 */	stw r0, 0x18(r1)
 lbl_800FE298:
 /* 800FE298 000FB1F8  3B FF 00 0C */	addi r31, r31, 0xc
@@ -363,17 +363,17 @@ lbl_800FE49C:
 /* 800FE4EC 000FB44C  48 00 00 9C */	b lbl_800FE588
 lbl_800FE4F0:
 /* 800FE4F0 000FB450  88 DE 00 44 */	lbz r6, 0x44(r30)
-/* 800FE4F4 000FB454  3C 60 80 3E */	lis r3, lbl_803DAA68@ha
+/* 800FE4F4 000FB454  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
 /* 800FE4F8 000FB458  88 01 00 40 */	lbz r0, 0x40(r1)
-/* 800FE4FC 000FB45C  38 A3 AA 68 */	addi r5, r3, lbl_803DAA68@l
+/* 800FE4FC 000FB45C  38 A3 AA 68 */	addi r5, r3, __vt__13CBodyStateCmd@l
 /* 800FE500 000FB460  50 C0 06 30 */	rlwimi r0, r6, 0, 0x18, 0x18
 /* 800FE504 000FB464  C0 1E 00 38 */	lfs f0, 0x38(r30)
 /* 800FE508 000FB468  81 1E 00 34 */	lwz r8, 0x34(r30)
-/* 800FE50C 000FB46C  3C 60 80 3E */	lis r3, lbl_803DFE40@ha
+/* 800FE50C 000FB46C  3C 60 80 3E */	lis r3, __vt__14CBCScriptedCmd@ha
 /* 800FE510 000FB470  80 FF 04 50 */	lwz r7, 0x450(r31)
 /* 800FE514 000FB474  38 80 00 13 */	li r4, 0x13
 /* 800FE518 000FB478  90 A1 00 34 */	stw r5, 0x34(r1)
-/* 800FE51C 000FB47C  38 A3 FE 40 */	addi r5, r3, lbl_803DFE40@l
+/* 800FE51C 000FB47C  38 A3 FE 40 */	addi r5, r3, __vt__14CBCScriptedCmd@l
 /* 800FE520 000FB480  3B C7 00 04 */	addi r30, r7, 4
 /* 800FE524 000FB484  98 01 00 40 */	stb r0, 0x40(r1)
 /* 800FE528 000FB488  54 00 06 3E */	clrlwi r0, r0, 0x18
@@ -387,11 +387,11 @@ lbl_800FE4F0:
 /* 800FE548 000FB4A8  D0 01 00 44 */	stfs f0, 0x44(r1)
 /* 800FE54C 000FB4AC  48 03 2E ED */	bl DeliverCmd__16CBodyStateCmdMgrF13EBodyStateCmd
 /* 800FE550 000FB4B0  80 01 00 38 */	lwz r0, 0x38(r1)
-/* 800FE554 000FB4B4  3C 60 80 3E */	lis r3, lbl_803DFE40@ha
-/* 800FE558 000FB4B8  38 83 FE 40 */	addi r4, r3, lbl_803DFE40@l
-/* 800FE55C 000FB4BC  3C 60 80 3E */	lis r3, lbl_803DAA68@ha
+/* 800FE554 000FB4B4  3C 60 80 3E */	lis r3, __vt__14CBCScriptedCmd@ha
+/* 800FE558 000FB4B8  38 83 FE 40 */	addi r4, r3, __vt__14CBCScriptedCmd@l
+/* 800FE55C 000FB4BC  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
 /* 800FE560 000FB4C0  90 1E 02 20 */	stw r0, 0x220(r30)
-/* 800FE564 000FB4C4  38 03 AA 68 */	addi r0, r3, lbl_803DAA68@l
+/* 800FE564 000FB4C4  38 03 AA 68 */	addi r0, r3, __vt__13CBodyStateCmd@l
 /* 800FE568 000FB4C8  80 A1 00 3C */	lwz r5, 0x3c(r1)
 /* 800FE56C 000FB4CC  88 61 00 40 */	lbz r3, 0x40(r1)
 /* 800FE570 000FB4D0  90 BE 02 24 */	stw r5, 0x224(r30)
@@ -418,12 +418,12 @@ __dt__14CBCScriptedCmdFv:
 /* 800FE5B4 000FB514  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 800FE5B8 000FB518  7C 7F 1B 79 */	or. r31, r3, r3
 /* 800FE5BC 000FB51C  41 82 00 30 */	beq lbl_800FE5EC
-/* 800FE5C0 000FB520  3C 60 80 3E */	lis r3, lbl_803DFE40@ha
-/* 800FE5C4 000FB524  38 03 FE 40 */	addi r0, r3, lbl_803DFE40@l
+/* 800FE5C0 000FB520  3C 60 80 3E */	lis r3, __vt__14CBCScriptedCmd@ha
+/* 800FE5C4 000FB524  38 03 FE 40 */	addi r0, r3, __vt__14CBCScriptedCmd@l
 /* 800FE5C8 000FB528  90 1F 00 00 */	stw r0, 0(r31)
 /* 800FE5CC 000FB52C  41 82 00 10 */	beq lbl_800FE5DC
-/* 800FE5D0 000FB530  3C 60 80 3E */	lis r3, lbl_803DAA68@ha
-/* 800FE5D4 000FB534  38 03 AA 68 */	addi r0, r3, lbl_803DAA68@l
+/* 800FE5D0 000FB530  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
+/* 800FE5D4 000FB534  38 03 AA 68 */	addi r0, r3, __vt__13CBodyStateCmd@l
 /* 800FE5D8 000FB538  90 1F 00 00 */	stw r0, 0(r31)
 lbl_800FE5DC:
 /* 800FE5DC 000FB53C  7C 80 07 35 */	extsh. r0, r4
@@ -562,8 +562,8 @@ lbl_800FE780:
 /* 800FE7A8 000FB708  38 21 00 50 */	addi r1, r1, 0x50
 /* 800FE7AC 000FB70C  4E 80 00 20 */	blr
 
-.global "__ct__20CScriptActorKeyframeF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoibfbUib"
-"__ct__20CScriptActorKeyframeF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoibfbUib":
+.global "__ct__20CScriptActorKeyframeF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoibfbibf"
+"__ct__20CScriptActorKeyframeF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoibfbibf":
 /* 800FE7B0 000FB710  94 21 FF C0 */	stwu r1, -0x40(r1)
 /* 800FE7B4 000FB714  7C 08 02 A6 */	mflr r0
 /* 800FE7B8 000FB718  7C AB 2B 78 */	mr r11, r5
@@ -586,9 +586,9 @@ lbl_800FE780:
 /* 800FE7FC 000FB75C  7C 86 23 78 */	mr r6, r4
 /* 800FE800 000FB760  38 81 00 08 */	addi r4, r1, 8
 /* 800FE804 000FB764  4B F5 2B 21 */	bl "__ct__7CEntityF9TUniqueIdRC11CEntityInfobRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
-/* 800FE808 000FB768  3C 60 80 3E */	lis r3, lbl_803DFE20@ha
+/* 800FE808 000FB768  3C 60 80 3E */	lis r3, __vt__20CScriptActorKeyframe@ha
 /* 800FE80C 000FB76C  38 80 00 00 */	li r4, 0
-/* 800FE810 000FB770  38 03 FE 20 */	addi r0, r3, lbl_803DFE20@l
+/* 800FE810 000FB770  38 03 FE 20 */	addi r0, r3, __vt__20CScriptActorKeyframe@l
 /* 800FE814 000FB774  90 1F 00 00 */	stw r0, 0(r31)
 /* 800FE818 000FB778  7F E3 FB 78 */	mr r3, r31
 /* 800FE81C 000FB77C  93 7F 00 34 */	stw r27, 0x34(r31)

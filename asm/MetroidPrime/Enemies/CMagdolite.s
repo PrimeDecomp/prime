@@ -1620,9 +1620,9 @@ lbl_8023584C:
 /* 80235864 002327C4  50 A0 3E 30 */	rlwimi r0, r5, 7, 0x18, 0x18
 /* 80235868 002327C8  98 1F 07 54 */	stb r0, 0x754(r31)
 /* 8023586C 002327CC  4B F3 F9 B9 */	bl SetActive__13CBoneTrackingFb
-/* 80235870 002327D0  3C 60 80 3E */	lis r3, lbl_803DAA68@ha
+/* 80235870 002327D0  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
 /* 80235874 002327D4  38 00 00 0C */	li r0, 0xc
-/* 80235878 002327D8  38 63 AA 68 */	addi r3, r3, lbl_803DAA68@l
+/* 80235878 002327D8  38 63 AA 68 */	addi r3, r3, __vt__13CBodyStateCmd@l
 /* 8023587C 002327DC  90 01 00 0C */	stw r0, 0xc(r1)
 /* 80235880 002327E0  38 81 00 08 */	addi r4, r1, 8
 /* 80235884 002327E4  90 61 00 08 */	stw r3, 8(r1)
@@ -1631,8 +1631,8 @@ lbl_8023584C:
 /* 80235890 002327F0  4B EF BF 29 */	bl DeliverCmd__16CBodyStateCmdMgrFRC13CBodyStateCmd
 /* 80235894 002327F4  34 01 00 08 */	addic. r0, r1, 8
 /* 80235898 002327F8  41 82 00 10 */	beq lbl_802358A8
-/* 8023589C 002327FC  3C 60 80 3E */	lis r3, lbl_803DAA68@ha
-/* 802358A0 00232800  38 03 AA 68 */	addi r0, r3, lbl_803DAA68@l
+/* 8023589C 002327FC  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
+/* 802358A0 00232800  38 03 AA 68 */	addi r0, r3, __vt__13CBodyStateCmd@l
 /* 802358A4 00232804  90 01 00 08 */	stw r0, 8(r1)
 lbl_802358A8:
 /* 802358A8 00232808  88 1F 07 54 */	lbz r0, 0x754(r31)

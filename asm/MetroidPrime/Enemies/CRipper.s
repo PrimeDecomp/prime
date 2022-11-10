@@ -596,9 +596,9 @@ KnockBack__7CRipperFRC9CVector3fR13CStateManagerRC11CDamageInfo14EKnockBackTypef
 /* 8015C324 00159284  7C 7E 1B 78 */	mr r30, r3
 /* 8015C328 00159288  4B F1 E4 55 */	bl KnockBack__10CPatternedFRC9CVector3fR13CStateManagerRC11CDamageInfo14EKnockBackTypef
 /* 8015C32C 0015928C  C0 5F 00 08 */	lfs f2, 8(r31)
-/* 8015C330 00159290  3C 60 80 3E */	lis r3, lbl_803DAA68@ha
+/* 8015C330 00159290  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
 /* 8015C334 00159294  C0 3F 00 04 */	lfs f1, 4(r31)
-/* 8015C338 00159298  38 A3 AA 68 */	addi r5, r3, lbl_803DAA68@l
+/* 8015C338 00159298  38 A3 AA 68 */	addi r5, r3, __vt__13CBodyStateCmd@l
 /* 8015C33C 0015929C  C0 1F 00 00 */	lfs f0, 0(r31)
 /* 8015C340 001592A0  FC 40 10 50 */	fneg f2, f2
 /* 8015C344 001592A4  FC 20 08 50 */	fneg f1, f1
@@ -622,9 +622,9 @@ KnockBack__7CRipperFRC9CVector3fR13CStateManagerRC11CDamageInfo14EKnockBackTypef
 /* 8015C38C 001592EC  80 01 00 0C */	lwz r0, 0xc(r1)
 /* 8015C390 001592F0  3C 60 80 3E */	lis r3, lbl_803DAA44@ha
 /* 8015C394 001592F4  38 83 AA 44 */	addi r4, r3, lbl_803DAA44@l
-/* 8015C398 001592F8  3C 60 80 3E */	lis r3, lbl_803DAA68@ha
+/* 8015C398 001592F8  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
 /* 8015C39C 001592FC  90 1F 00 F8 */	stw r0, 0xf8(r31)
-/* 8015C3A0 00159300  38 03 AA 68 */	addi r0, r3, lbl_803DAA68@l
+/* 8015C3A0 00159300  38 03 AA 68 */	addi r0, r3, __vt__13CBodyStateCmd@l
 /* 8015C3A4 00159304  80 A1 00 10 */	lwz r5, 0x10(r1)
 /* 8015C3A8 00159308  80 61 00 14 */	lwz r3, 0x14(r1)
 /* 8015C3AC 0015930C  90 BF 00 FC */	stw r5, 0xfc(r31)

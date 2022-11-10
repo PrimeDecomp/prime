@@ -393,6 +393,8 @@ public:
   void DeliverCmd(const CBCLocomotionCmd& cmd);
   void DeliverCmd(EBodyStateCmd cmd);
 
+  void DeliverCmd(const CBodyStateCmd& cmd);
+
   void DeliverCmd(const CBCGenerateCmd& cmd) {
     DeliverCmd(kBSC_Generate);
     x18c_generate = cmd;
@@ -400,6 +402,10 @@ public:
   void DeliverCmd(const CBCKnockDownCmd& cmd) {
     DeliverCmd(kBSC_KnockDown);
     xdc_knockDown = cmd;
+  }
+  void DeliverCmd(const CBCScriptedCmd& cmd) {
+    DeliverCmd(kBSC_Scripted);
+    x21c_scripted = cmd;
   }
 
   void DeliverTargetVector(const CVector3f& t) { x18_target = t; }
