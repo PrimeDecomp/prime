@@ -21,6 +21,9 @@ class CGameCamera;
 class CInterpolationCamera;
 class CStateManager;
 
+#ifdef __MWERKS__
+#pragma cpp_extensions on
+#endif 
 class CCameraManager {
   static float sFirstPersonFOV;
   static float sThirdPersonFOV;
@@ -33,15 +36,29 @@ public:
   CCameraManager(TUniqueId curCamera);
 
   void CreateStandardCameras(CStateManager& mgr);
-  
-  CGameCamera& CurrentCamera(CStateManager& mgr) const;
+  void ThinkCameras(float dt, CStateManager& mgr);
+  void ResetCameras(CStateManager& mgr);
+  void RenderCameras(const CStateManager& mgr);
+  TUniqueId GetCurrentCameraId() const;
+
+  CGameCamera& CurrentCamera(CStateManager& mgr);
   const CGameCamera& GetCurrentCamera(const CStateManager& mgr) const;
+  const CGameCamera& GetLastCineCamera(CStateManager& mgr) const;
+  TUniqueId GetLastCineCameraId() const;
+
+  void SetCurrentCameraId(TUniqueId camId);
+  
+  void UpdateSfxListener(CStateManager& mgr);
+  void UpdateRumble(float dt, CStateManager& mgr);
+
   CFirstPersonCamera* FirstPersonCamera() const /* map */ { return x7c_fpCamera; }
   const CFirstPersonCamera* GetFirstPersonCamera() const { return x7c_fpCamera; }
-  void SetCurrentCameraId(TUniqueId camId);
+
+  CTransform4f GetCurrentCameraTransform(const CStateManager& mgr) const;
   void SetPlayerCamera(CStateManager& mgr, TUniqueId newCamId);
   void SetFogDensity(float fogDensityTarget, float fogDensitySpeed);
   bool IsInCinematicCamera() const;
+
   
   void RemoveCameraShaker(int id);
   int AddCameraShaker(const CCameraShakeData& data, bool sfx);
@@ -74,9 +91,15 @@ private:
   float x94_fogDensityFactor;
   float x98_fogDensitySpeed;
   float x9c_fogDensityFactorTarget;
-  bool xa0_24_pendingRumble : 1;
-  bool xa0_25_rumbling : 1;
-  bool xa0_26_inWater : 1;
+  union {
+    struct {
+      bool xa0_24_pendingRumble : 1;
+      bool xa0_25_rumbling : 1;
+      bool xa0_26_inWater : 1;
+    };
+    uchar xa0_flags;
+  };
+
   TUniqueId xa2_spindleCamId;
   TUniqueId xa4_pathCamId;
   TUniqueId xa6_camHintId;
@@ -90,4 +113,7 @@ private:
 };
 CHECK_SIZEOF(CCameraManager, 0x3c0)
 
+#ifdef __MWERKS
+#pragma cpp_extensions reset
+#endif 
 #endif // _CCAMERAMANAGER

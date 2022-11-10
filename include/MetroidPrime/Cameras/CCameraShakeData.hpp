@@ -27,11 +27,17 @@ private:
 };
 CHECK_SIZEOF(CCameraShakerComponent, 0x3c)
 
+class CStateManager;
 class CCameraShakeData {
 public:
   CCameraShakeData(const CCameraShakeData&);
   void SetShakerId(int id) { xbc_shakerId = id; }
   int GetShakerId() const { return xbc_shakerId; }
+  void Update(float dt, CStateManager& mgr);
+
+  float GetDuration() const { return x0_duration; }
+  float GetCurTime() const { return x4_curTime; }
+  const CVector3f& GetPoint() const;// { return xc4_sfxPos; }
 
 private:
   float x0_duration;

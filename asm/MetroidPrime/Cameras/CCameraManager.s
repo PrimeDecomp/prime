@@ -1697,7 +1697,7 @@ SkipBallCameraCinematic__14CCameraManagerFR13CStateManager:
 /* 8000A738 00007698  A0 05 00 08 */	lhz r0, 8(r5)
 /* 8000A73C 0000769C  B0 01 00 08 */	sth r0, 8(r1)
 /* 8000A740 000076A0  B0 01 00 0C */	sth r0, 0xc(r1)
-/* 8000A744 000076A4  48 00 13 81 */	bl SetCurrentCameraId__14CCameraManagerF9TUniqueIdR13CStateManager
+/* 8000A744 000076A4  48 00 13 81 */	bl SetCurrentCameraId__14CCameraManagerF9TUniqueId
 lbl_8000A748:
 /* 8000A748 000076A8  E3 E1 00 28 */	psq_l f31, 40(r1), 0, qr0
 /* 8000A74C 000076AC  80 01 00 34 */	lwz r0, 0x34(r1)
@@ -1757,7 +1757,7 @@ InterpolateToBallCamera__14CCameraManagerFRC12CTransform4f9TUniqueIdRC9CVector3f
 /* 8000A818 00007778  A0 05 00 08 */	lhz r0, 8(r5)
 /* 8000A81C 0000777C  B0 01 00 08 */	sth r0, 8(r1)
 /* 8000A820 00007780  B0 01 00 0C */	sth r0, 0xc(r1)
-/* 8000A824 00007784  48 00 12 A1 */	bl SetCurrentCameraId__14CCameraManagerF9TUniqueIdR13CStateManager
+/* 8000A824 00007784  48 00 12 A1 */	bl SetCurrentCameraId__14CCameraManagerF9TUniqueId
 lbl_8000A828:
 /* 8000A828 00007788  CB E1 00 48 */	lfd f31, 0x48(r1)
 /* 8000A82C 0000778C  CB C1 00 40 */	lfd f30, 0x40(r1)
@@ -1796,7 +1796,7 @@ SetPlayerCamera__14CCameraManagerFR13CStateManager9TUniqueId:
 /* 8000A8A4 00007804  7F C3 F3 78 */	mr r3, r30
 /* 8000A8A8 00007808  38 81 00 08 */	addi r4, r1, 8
 /* 8000A8AC 0000780C  B0 01 00 08 */	sth r0, 8(r1)
-/* 8000A8B0 00007810  48 00 12 15 */	bl SetCurrentCameraId__14CCameraManagerF9TUniqueIdR13CStateManager
+/* 8000A8B0 00007810  48 00 12 15 */	bl SetCurrentCameraId__14CCameraManagerF9TUniqueId
 lbl_8000A8B4:
 /* 8000A8B4 00007814  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8000A8B8 00007818  83 E1 00 1C */	lwz r31, 0x1c(r1)
@@ -3104,8 +3104,8 @@ UpdateSfxListener__14CCameraManagerFR13CStateManager:
 /* 8000BABC 00008A1C  38 21 00 90 */	addi r1, r1, 0x90
 /* 8000BAC0 00008A20  4E 80 00 20 */	blr
 
-.global SetCurrentCameraId__14CCameraManagerF9TUniqueIdR13CStateManager
-SetCurrentCameraId__14CCameraManagerF9TUniqueIdR13CStateManager:
+.global SetCurrentCameraId__14CCameraManagerF9TUniqueId
+SetCurrentCameraId__14CCameraManagerF9TUniqueId:
 /* 8000BAC4 00008A24  A0 04 00 00 */	lhz r0, 0(r4)
 /* 8000BAC8 00008A28  B0 03 00 00 */	sth r0, 0(r3)
 /* 8000BACC 00008A2C  4E 80 00 20 */	blr
@@ -3455,7 +3455,7 @@ lbl_8000BF60:
 /* 8000BF84 00008EE4  7F C3 F3 78 */	mr r3, r30
 /* 8000BF88 00008EE8  38 81 00 1C */	addi r4, r1, 0x1c
 /* 8000BF8C 00008EEC  B0 01 00 1C */	sth r0, 0x1c(r1)
-/* 8000BF90 00008EF0  4B FF FB 35 */	bl SetCurrentCameraId__14CCameraManagerF9TUniqueIdR13CStateManager
+/* 8000BF90 00008EF0  4B FF FB 35 */	bl SetCurrentCameraId__14CCameraManagerF9TUniqueId
 /* 8000BF94 00008EF4  7F E4 FB 78 */	mr r4, r31
 /* 8000BF98 00008EF8  38 61 00 18 */	addi r3, r1, 0x18
 /* 8000BF9C 00008EFC  48 04 11 41 */	bl AllocateUniqueId__13CStateManagerFv

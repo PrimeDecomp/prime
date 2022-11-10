@@ -74,6 +74,7 @@ public:
   static void RemoveEmitter(CSfxHandle handle);
   static void UpdateEmitter(CSfxHandle handle, const CVector3f& pos, const CVector3f& dir,
                             uchar maxVol);
+  static void UpdateListener(const CVector3f& pos, const CVector3f& dir, const CVector3f&, const CVector3f&, const uchar);
 
   static const short kMaxPriority;           // 0xFF
   static const short kMedPriority;           // 0x7F

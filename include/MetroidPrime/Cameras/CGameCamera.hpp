@@ -30,6 +30,7 @@ public:
   float GetFov() const { return x15c_currentFov; }
   void SetFov(float fov) { x15c_currentFov = fov; }
   void SetFovInterpolation(float start, float fov, float time, float delayTime);
+  void UpdatePerspective(float dt);
 
 private:
   TUniqueId xe8_watchedObject;

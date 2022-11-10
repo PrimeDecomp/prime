@@ -9003,7 +9003,7 @@ lbl_800172FC:
 /* 80017304 00014264  A0 05 00 08 */	lhz r0, 8(r5)
 /* 80017308 00014268  B0 01 00 18 */	sth r0, 0x18(r1)
 /* 8001730C 0001426C  B0 01 00 1C */	sth r0, 0x1c(r1)
-/* 80017310 00014270  4B FF 47 B5 */	bl SetCurrentCameraId__14CCameraManagerF9TUniqueIdR13CStateManager
+/* 80017310 00014270  4B FF 47 B5 */	bl SetCurrentCameraId__14CCameraManagerF9TUniqueId
 /* 80017314 00014274  80 7E 07 68 */	lwz r3, 0x768(r30)
 /* 80017318 00014278  7F E4 FB 78 */	mr r4, r31
 /* 8001731C 0001427C  38 A0 00 00 */	li r5, 0
@@ -9015,7 +9015,7 @@ lbl_80017328:
 /* 80017330 00014290  A0 05 00 08 */	lhz r0, 8(r5)
 /* 80017334 00014294  B0 01 00 10 */	sth r0, 0x10(r1)
 /* 80017338 00014298  B0 01 00 14 */	sth r0, 0x14(r1)
-/* 8001733C 0001429C  4B FF 47 89 */	bl SetCurrentCameraId__14CCameraManagerF9TUniqueIdR13CStateManager
+/* 8001733C 0001429C  4B FF 47 89 */	bl SetCurrentCameraId__14CCameraManagerF9TUniqueId
 /* 80017340 000142A0  80 7E 07 68 */	lwz r3, 0x768(r30)
 /* 80017344 000142A4  7F E4 FB 78 */	mr r4, r31
 /* 80017348 000142A8  38 A0 00 01 */	li r5, 1
@@ -9027,7 +9027,7 @@ lbl_80017354:
 /* 8001735C 000142BC  A0 05 00 08 */	lhz r0, 8(r5)
 /* 80017360 000142C0  B0 01 00 08 */	sth r0, 8(r1)
 /* 80017364 000142C4  B0 01 00 0C */	sth r0, 0xc(r1)
-/* 80017368 000142C8  4B FF 47 5D */	bl SetCurrentCameraId__14CCameraManagerF9TUniqueIdR13CStateManager
+/* 80017368 000142C8  4B FF 47 5D */	bl SetCurrentCameraId__14CCameraManagerF9TUniqueId
 /* 8001736C 000142CC  80 7E 07 68 */	lwz r3, 0x768(r30)
 /* 80017370 000142D0  7F E4 FB 78 */	mr r4, r31
 /* 80017374 000142D4  38 A0 00 01 */	li r5, 1
