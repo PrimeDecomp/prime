@@ -113,7 +113,7 @@ private:
 };
 CHECK_SIZEOF(CCameraManager, 0x3c0)
 
-#ifdef __MWERKS
+#ifdef __MWERKS__
 #pragma cpp_extensions reset
 #endif 
 #endif // _CCAMERAMANAGER
