@@ -271,7 +271,7 @@ LIBS = [
             "MetroidPrime/Weapons/CGunWeapon",
             ["MetroidPrime/ScriptObjects/CScriptAreaAttributes", False],
             "MetroidPrime/Weapons/CWaveBuster",
-            "MetroidPrime/Player/CStaticInterference",
+            ["MetroidPrime/Player/CStaticInterference", False],
             "MetroidPrime/Enemies/CMetroidBeta",
             "MetroidPrime/PathFinding/CPathFindSearch",
             "MetroidPrime/PathFinding/CPathFindRegion",

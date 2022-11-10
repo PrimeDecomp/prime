@@ -41,7 +41,7 @@ Update__19CStaticInterferenceFR13CStateManagerf:
 /* 801C07E4 001BD744  90 01 00 28 */	stw r0, 0x28(r1)
 /* 801C07E8 001BD748  90 01 00 2C */	stw r0, 0x2c(r1)
 /* 801C07EC 001BD74C  80 9F 00 04 */	lwz r4, 4(r31)
-/* 801C07F0 001BD750  48 00 04 9D */	bl sub_801c0c8c
+/* 801C07F0 001BD750  48 00 04 9D */	bl "reserve__Q24rstl62vector<25CStaticInterferenceSource,Q24rstl17rmemory_allocator>Fi"
 /* 801C07F4 001BD754  C3 E2 AA 78 */	lfs f31, lbl_805AC798@sda21(r2)
 /* 801C07F8 001BD758  48 00 00 80 */	b lbl_801C0878
 lbl_801C07FC:
@@ -58,7 +58,7 @@ lbl_801C07FC:
 /* 801C0824 001BD784  41 82 00 08 */	beq lbl_801C082C
 /* 801C0828 001BD788  54 A4 08 3C */	slwi r4, r5, 1
 lbl_801C082C:
-/* 801C082C 001BD78C  48 00 04 61 */	bl sub_801c0c8c
+/* 801C082C 001BD78C  48 00 04 61 */	bl "reserve__Q24rstl62vector<25CStaticInterferenceSource,Q24rstl17rmemory_allocator>Fi"
 lbl_801C0830:
 /* 801C0830 001BD790  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 801C0834 001BD794  80 61 00 2C */	lwz r3, 0x2c(r1)
@@ -96,7 +96,7 @@ lbl_801C0898:
 /* 801C08A0 001BD800  38 81 00 0C */	addi r4, r1, 0xc
 /* 801C08A4 001BD804  B0 01 00 08 */	sth r0, 8(r1)
 /* 801C08A8 001BD808  B0 01 00 0C */	sth r0, 0xc(r1)
-/* 801C08AC 001BD80C  48 00 01 09 */	bl sub_801c09b4
+/* 801C08AC 001BD80C  48 00 01 09 */	bl RemoveSource__19CStaticInterferenceF9TUniqueId
 /* 801C08B0 001BD810  3B DE 00 0C */	addi r30, r30, 0xc
 lbl_801C08B4:
 /* 801C08B4 001BD814  80 01 00 24 */	lwz r0, 0x24(r1)
@@ -177,8 +177,8 @@ lbl_801C09A8:
 /* 801C09AC 001BD90C  38 21 00 10 */	addi r1, r1, 0x10
 /* 801C09B0 001BD910  4E 80 00 20 */	blr
 
-.global sub_801c09b4
-sub_801c09b4:
+.global RemoveSource__19CStaticInterferenceF9TUniqueId
+RemoveSource__19CStaticInterferenceF9TUniqueId:
 /* 801C09B4 001BD914  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 801C09B8 001BD918  7C 08 02 A6 */	mflr r0
 /* 801C09BC 001BD91C  90 01 00 24 */	stw r0, 0x24(r1)
@@ -210,15 +210,15 @@ lbl_801C0A04:
 /* 801C0A18 001BD978  38 61 00 0C */	addi r3, r1, 0xc
 /* 801C0A1C 001BD97C  38 A1 00 08 */	addi r5, r1, 8
 /* 801C0A20 001BD980  90 01 00 08 */	stw r0, 8(r1)
-/* 801C0A24 001BD984  48 00 00 15 */	bl sub_801c0a38
+/* 801C0A24 001BD984  48 00 00 15 */	bl "erase__Q24rstl62vector<25CStaticInterferenceSource,Q24rstl17rmemory_allocator>FQ24rstl144pointer_iterator<25CStaticInterferenceSource,Q24rstl62vector<25CStaticInterferenceSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>"
 lbl_801C0A28:
 /* 801C0A28 001BD988  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 801C0A2C 001BD98C  7C 08 03 A6 */	mtlr r0
 /* 801C0A30 001BD990  38 21 00 20 */	addi r1, r1, 0x20
 /* 801C0A34 001BD994  4E 80 00 20 */	blr
 
-.global sub_801c0a38
-sub_801c0a38:
+.global "erase__Q24rstl62vector<25CStaticInterferenceSource,Q24rstl17rmemory_allocator>FQ24rstl144pointer_iterator<25CStaticInterferenceSource,Q24rstl62vector<25CStaticInterferenceSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>"
+"erase__Q24rstl62vector<25CStaticInterferenceSource,Q24rstl17rmemory_allocator>FQ24rstl144pointer_iterator<25CStaticInterferenceSource,Q24rstl62vector<25CStaticInterferenceSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>":
 /* 801C0A38 001BD998  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 801C0A3C 001BD99C  7C 08 02 A6 */	mflr r0
 /* 801C0A40 001BD9A0  90 01 00 24 */	stw r0, 0x24(r1)
@@ -232,15 +232,15 @@ sub_801c0a38:
 /* 801C0A60 001BD9C0  90 E1 00 08 */	stw r7, 8(r1)
 /* 801C0A64 001BD9C4  90 E1 00 0C */	stw r7, 0xc(r1)
 /* 801C0A68 001BD9C8  90 01 00 10 */	stw r0, 0x10(r1)
-/* 801C0A6C 001BD9CC  48 00 00 19 */	bl sub_801c0a84
+/* 801C0A6C 001BD9CC  48 00 00 19 */	bl "erase__Q24rstl62vector<25CStaticInterferenceSource,Q24rstl17rmemory_allocator>FQ24rstl144pointer_iterator<25CStaticInterferenceSource,Q24rstl62vector<25CStaticInterferenceSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl144pointer_iterator<25CStaticInterferenceSource,Q24rstl62vector<25CStaticInterferenceSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>"
 /* 801C0A70 001BD9D0  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 801C0A74 001BD9D4  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 801C0A78 001BD9D8  7C 08 03 A6 */	mtlr r0
 /* 801C0A7C 001BD9DC  38 21 00 20 */	addi r1, r1, 0x20
 /* 801C0A80 001BD9E0  4E 80 00 20 */	blr
 
-.global sub_801c0a84
-sub_801c0a84:
+.global "erase__Q24rstl62vector<25CStaticInterferenceSource,Q24rstl17rmemory_allocator>FQ24rstl144pointer_iterator<25CStaticInterferenceSource,Q24rstl62vector<25CStaticInterferenceSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl144pointer_iterator<25CStaticInterferenceSource,Q24rstl62vector<25CStaticInterferenceSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>"
+"erase__Q24rstl62vector<25CStaticInterferenceSource,Q24rstl17rmemory_allocator>FQ24rstl144pointer_iterator<25CStaticInterferenceSource,Q24rstl62vector<25CStaticInterferenceSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl144pointer_iterator<25CStaticInterferenceSource,Q24rstl62vector<25CStaticInterferenceSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>":
 /* 801C0A84 001BD9E4  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801C0A88 001BD9E8  80 E5 00 00 */	lwz r7, 0(r5)
 /* 801C0A8C 001BD9EC  80 06 00 00 */	lwz r0, 0(r6)
@@ -345,7 +345,7 @@ lbl_801C0BC4:
 /* 801C0BE8 001BDB48  41 82 00 08 */	beq lbl_801C0BF0
 /* 801C0BEC 001BDB4C  54 A4 08 3C */	slwi r4, r5, 1
 lbl_801C0BF0:
-/* 801C0BF0 001BDB50  48 00 00 9D */	bl sub_801c0c8c
+/* 801C0BF0 001BDB50  48 00 00 9D */	bl "reserve__Q24rstl62vector<25CStaticInterferenceSource,Q24rstl17rmemory_allocator>Fi"
 lbl_801C0BF4:
 /* 801C0BF4 001BDB54  80 1F 00 04 */	lwz r0, 4(r31)
 /* 801C0BF8 001BDB58  80 7F 00 0C */	lwz r3, 0xc(r31)
@@ -383,7 +383,7 @@ __ct__19CStaticInterferenceFi:
 /* 801C0C64 001BDBC4  90 03 00 04 */	stw r0, 4(r3)
 /* 801C0C68 001BDBC8  90 03 00 08 */	stw r0, 8(r3)
 /* 801C0C6C 001BDBCC  90 03 00 0C */	stw r0, 0xc(r3)
-/* 801C0C70 001BDBD0  48 00 00 1D */	bl sub_801c0c8c
+/* 801C0C70 001BDBD0  48 00 00 1D */	bl "reserve__Q24rstl62vector<25CStaticInterferenceSource,Q24rstl17rmemory_allocator>Fi"
 /* 801C0C74 001BDBD4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801C0C78 001BDBD8  7F E3 FB 78 */	mr r3, r31
 /* 801C0C7C 001BDBDC  83 E1 00 0C */	lwz r31, 0xc(r1)
@@ -391,8 +391,8 @@ __ct__19CStaticInterferenceFi:
 /* 801C0C84 001BDBE4  38 21 00 10 */	addi r1, r1, 0x10
 /* 801C0C88 001BDBE8  4E 80 00 20 */	blr
 
-.global sub_801c0c8c
-sub_801c0c8c:
+.global "reserve__Q24rstl62vector<25CStaticInterferenceSource,Q24rstl17rmemory_allocator>Fi"
+"reserve__Q24rstl62vector<25CStaticInterferenceSource,Q24rstl17rmemory_allocator>Fi":
 /* 801C0C8C 001BDBEC  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 801C0C90 001BDBF0  7C 08 02 A6 */	mflr r0
 /* 801C0C94 001BDBF4  90 01 00 34 */	stw r0, 0x34(r1)
