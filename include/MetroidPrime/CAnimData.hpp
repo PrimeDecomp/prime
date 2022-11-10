@@ -119,6 +119,8 @@ public:
   // GetAnimationManager__9CAnimDataFv
   // SetPoseValid__9CAnimDataFb
 
+  float GetAdditiveAnimationWeight(uint idx);
+
   short GetDefaultAnimation() const { return x208_defaultAnim; }
   const CCharacterInfo& GetCharacterInfo() const { return xc_charInfo; }
   // GetCharLayoutInfo__9CAnimDataCFv

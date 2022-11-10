@@ -293,7 +293,7 @@ LIBS = [
             ["MetroidPrime/ScriptObjects/CScriptSwitch", True],
             ["MetroidPrime/BodyState/CABSIdle", True],
             ["MetroidPrime/BodyState/CABSFlinch", True],
-            "MetroidPrime/BodyState/CABSAim",
+            ["MetroidPrime/BodyState/CABSAim", False],
             ["MetroidPrime/ScriptObjects/CScriptPlayerStateChange", True],
             "MetroidPrime/Enemies/CThardus",
             "MetroidPrime/CActorParticles",

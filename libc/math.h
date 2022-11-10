@@ -47,7 +47,6 @@ typedef unsigned int _UINT32;
 #define abs(n) __abs(n)
 #define labs(n) __labs(n)
 static inline double fabs(double x) { return __fabs(x); }
-static inline float fabsf(float x) { return (float)fabs((double)x); }
 #else
 static inline int abs(int n) {
   int mask = n >> 31;
@@ -73,8 +72,10 @@ double cos(double x);
 double atan(double x);
 double atan2(double y, double x);
 
+_MATH_INLINE float fabsf(float x) { return (float)fabs((double)x); }
 _MATH_INLINE float sinf(float x) { return (float)sin((double)x); }
 _MATH_INLINE float cosf(float x) { return (float)cos((double)x); }
+_MATH_INLINE float atan2f(float y, float x) { return (float)atan2((double)y, (double)x); }
 float tanf(float x);
 double acos(double x);
 float acosf(float x);
