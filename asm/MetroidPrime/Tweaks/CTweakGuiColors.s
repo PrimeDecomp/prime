@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803E5748
-lbl_803E5748:
+.global __vt__15CTweakGuiColors
+__vt__15CTweakGuiColors:
 	# ROM: 0x3E2748
 	.4byte 0
 	.4byte 0
@@ -24,9 +24,9 @@ __ct__15CTweakGuiColorsFR12CInputStream:
 /* 801CDA44 001CA9A4  7C 9F 23 78 */	mr r31, r4
 /* 801CDA48 001CA9A8  93 C1 00 08 */	stw r30, 8(r1)
 /* 801CDA4C 001CA9AC  7C 7E 1B 78 */	mr r30, r3
-/* 801CDA50 001CA9B0  3C 60 80 3E */	lis r3, lbl_803E5748@ha
+/* 801CDA50 001CA9B0  3C 60 80 3E */	lis r3, __vt__15CTweakGuiColors@ha
 /* 801CDA54 001CA9B4  90 1E 00 00 */	stw r0, 0(r30)
-/* 801CDA58 001CA9B8  38 03 57 48 */	addi r0, r3, lbl_803E5748@l
+/* 801CDA58 001CA9B8  38 03 57 48 */	addi r0, r3, __vt__15CTweakGuiColors@l
 /* 801CDA5C 001CA9BC  38 7E 00 04 */	addi r3, r30, 4
 /* 801CDA60 001CA9C0  90 1E 00 00 */	stw r0, 0(r30)
 /* 801CDA64 001CA9C4  48 19 59 E9 */	bl __ct__6CColorFR12CInputStream
@@ -365,7 +365,7 @@ __ct__15CTweakGuiColorsFR12CInputStream:
 /* 801CDF98 001CAEF8  48 19 54 B5 */	bl __ct__6CColorFR12CInputStream
 /* 801CDF9C 001CAEFC  7F E4 FB 78 */	mr r4, r31
 /* 801CDFA0 001CAF00  38 7E 01 C4 */	addi r3, r30, 0x1c4
-/* 801CDFA4 001CAF04  48 00 00 21 */	bl sub_801cdfc4
+/* 801CDFA4 001CAF04  48 00 00 21 */	bl "__ct__Q24rstl55reserved_vector<Q215CTweakGuiColors15SPerVisorColors,5>FR12CInputStream"
 /* 801CDFA8 001CAF08  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801CDFAC 001CAF0C  7F C3 F3 78 */	mr r3, r30
 /* 801CDFB0 001CAF10  83 E1 00 0C */	lwz r31, 0xc(r1)
@@ -374,8 +374,8 @@ __ct__15CTweakGuiColorsFR12CInputStream:
 /* 801CDFBC 001CAF1C  38 21 00 10 */	addi r1, r1, 0x10
 /* 801CDFC0 001CAF20  4E 80 00 20 */	blr
 
-.global sub_801cdfc4
-sub_801cdfc4:
+.global "__ct__Q24rstl55reserved_vector<Q215CTweakGuiColors15SPerVisorColors,5>FR12CInputStream"
+"__ct__Q24rstl55reserved_vector<Q215CTweakGuiColors15SPerVisorColors,5>FR12CInputStream":
 /* 801CDFC4 001CAF24  94 21 FF B0 */	stwu r1, -0x50(r1)
 /* 801CDFC8 001CAF28  7C 08 02 A6 */	mflr r0
 /* 801CDFCC 001CAF2C  90 01 00 54 */	stw r0, 0x54(r1)
@@ -454,9 +454,9 @@ __dt__15CTweakGuiColorsFv:
 /* 801CE0D8 001CB038  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 801CE0DC 001CB03C  7C 7F 1B 79 */	or. r31, r3, r3
 /* 801CE0E0 001CB040  41 82 00 90 */	beq lbl_801CE170
-/* 801CE0E4 001CB044  3C 60 80 3E */	lis r3, lbl_803E5748@ha
+/* 801CE0E4 001CB044  3C 60 80 3E */	lis r3, __vt__15CTweakGuiColors@ha
 /* 801CE0E8 001CB048  34 1F 01 C4 */	addic. r0, r31, 0x1c4
-/* 801CE0EC 001CB04C  38 03 57 48 */	addi r0, r3, lbl_803E5748@l
+/* 801CE0EC 001CB04C  38 03 57 48 */	addi r0, r3, __vt__15CTweakGuiColors@l
 /* 801CE0F0 001CB050  90 1F 00 00 */	stw r0, 0(r31)
 /* 801CE0F4 001CB054  41 82 00 58 */	beq lbl_801CE14C
 /* 801CE0F8 001CB058  80 DF 01 C4 */	lwz r6, 0x1c4(r31)

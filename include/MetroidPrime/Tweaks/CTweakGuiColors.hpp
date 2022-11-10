@@ -4,9 +4,18 @@
 #include "MetroidPrime/Tweaks/ITweakObject.hpp"
 
 #include "Kyoto/Graphics/CColor.hpp"
+#include "Kyoto/Streams/CInputStream.hpp"
+#include "Kyoto/TOneStatic.hpp"
 
-class CTweakGuiColors : public ITweakObject {
+
+#include "rstl/reserved_vector.hpp"
+
+class CTweakGuiColors;
+class CTweakGuiColors : public ITweakObject, public TOneStatic< CTweakGuiColors > {
 public:
+  ~CTweakGuiColors() override;
+  CTweakGuiColors(CInputStream& in);
+
   const CColor& GetPauseBlurFilterColor() const { return x4_pauseBlurFilterColor; }
   const CColor& GetRadarStuffColor() const { return x8_radarStuffColor; }
   const CColor& GetRadarPlayerPaintColor() const { return xc_radarPlayerPaintColor; }
@@ -39,7 +48,9 @@ public:
   const CColor& GetHelmetLightColor() const { return x8c_helmetLightColor; }
   const CColor& GetThreatIconSafeColor() const { return x90_threatIconSafeColor; }
   const CColor& GetMissileIconColorInactive() const { return x94_missileIconColorInactive; }
-  const CColor& GetMissileIconColorChargedCanAlt() const { return x98_missileIconColorChargedCanAlt; }
+  const CColor& GetMissileIconColorChargedCanAlt() const {
+    return x98_missileIconColorChargedCanAlt;
+  }
   const CColor& GetMissileIconColorChargedNoAlt() const { return x9c_missileIconColorChargedNoAlt; }
   const CColor& GetMissileIconColorDepleteAlt() const { return xa0_missileIconColorDepleteAlt; }
   const CColor& GetVisorBeamMenuLozColor() const { return xb0_visorBeamMenuLozColor; }
@@ -59,14 +70,18 @@ public:
   const CColor& GetXRayEnergyDecoColor() const { return x100_xrayEnergyDecoColor; }
   const CColor& GetScanDataDotColor() const { return x138_scanDataDotColor; }
   const CColor& GetPowerBombDigitAvailableFont() const { return x13c_powerBombDigitAvailableFont; }
-  const CColor& GetPowerBombDigitAvailableOutline() const { return x140_powerBombDigitAvailableOutline; }
+  const CColor& GetPowerBombDigitAvailableOutline() const {
+    return x140_powerBombDigitAvailableOutline;
+  }
   const CColor& GetBallBombFilledColor() const { return x148_ballBombFilled; }
   const CColor& GetBallBombEmptyColor() const { return x14c_ballBombEmpty; }
   const CColor& GetPowerBombIconAvailableColor() const { return x150_powerBombIconAvailable; }
   const CColor& GetBallBombEnergyColor() const { return x158_ballEnergyDeco; }
   const CColor& GetBallBombDecoColor() const { return x15c_ballBombDeco; }
   const CColor& GetPowerBombDigitDelpetedFont() const { return x160_powerBombDigitDepletedFont; }
-  const CColor& GetPowerBombDigitDelpetedOutline() const { return x164_powerBombDigitDepletedOutline; }
+  const CColor& GetPowerBombDigitDelpetedOutline() const {
+    return x164_powerBombDigitDepletedOutline;
+  }
   const CColor& GetPowerBombIconDepletedColor() const { return x168_powerBombIconUnavailable; }
   const CColor& GetScanDisplayImagePaneColor() const { return x174_scanDisplayImagePaneColor; }
   const CColor& GetThreatIconWarningColor() const { return x17c_threatIconWarningColor; }
@@ -200,7 +215,28 @@ private:
   CColor x1b8_thermalLockColor;
   CColor x1bc_pauseItemAmber;
   CColor x1c0_pauseItemBlue;
+  struct SPerVisorColors {
+    CColor x0_energyBarFilled;
+    CColor x4_energyBarEmpty;
+    CColor x8_energyBarShadow;
+    CColor xc_energyTankFilled;
+    CColor x10_energyTankEmpty;
+    CColor x14_energyDigitsFont;
+    CColor x18_energyDigitsOutline;
+
+    explicit SPerVisorColors(CInputStream& in)
+    : x0_energyBarFilled(in)
+    , x4_energyBarEmpty(in)
+    , x8_energyBarShadow(in)
+    , xc_energyTankFilled(in)
+    , x10_energyTankEmpty(in)
+    , x14_energyDigitsFont(in)
+    , x18_energyDigitsOutline(in) {}
+  };
+  /* Combat, Scan, XRay, Thermal, Ball */
+  rstl::reserved_vector< SPerVisorColors, 5 > x1c4_perVisorColors;
 };
+CHECK_SIZEOF(CTweakGuiColors, 0x254)
 
 extern CTweakGuiColors* gpTweakGuiColors;
 
