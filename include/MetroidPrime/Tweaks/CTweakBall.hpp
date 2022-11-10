@@ -5,13 +5,18 @@
 
 #include "MetroidPrime/Tweaks/ITweakObject.hpp"
 
+#include "Kyoto/TOneStatic.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
+#include "Kyoto/Math/CRelAngle.hpp"
 
 #include "rstl/string.hpp"
 
-class CTweakBall : public ITweakObject {
+class CTweakBall;
+
+class CTweakBall : public ITweakObject, public TOneStatic< CTweakBall > {
 public:
   ~CTweakBall() override;
+  CTweakBall(CInputStream&);
 
   float GetMaxBallTranslationAcceleration(int s) const { return x4_maxTranslationAcceleration[s]; }
   float GetBallTranslationFriction(int s) const { return x24_translationFriction[s]; }
@@ -157,8 +162,8 @@ private:
   float x12c_ballSlipFactor[8];
   float x14c_;
   float x150_;
-  float x158_;
   float x154_;
+  float x158_;
   float x15c_;
   float x160_;
   float x164_;
@@ -189,27 +194,29 @@ private:
   float x1d8_;
   float x1dc_minimumAlignmentSpeed;
   float x1e0_tireness;
+  float x1e4_leftStickDivisor;
+  float x1e8_rightStickDivisor;
   float x1ec_maxLeanAngle;
   float x1f0_tireToMarbleThresholdSpeed;
   float x1f4_marbleToTireThresholdSpeed;
   float x1f8_forceToLeanGain;
   float x1fc_leanTrackingGain;
-  float x1e4_leftStickDivisor;
-  float x1e8_rightStickDivisor;
   float x200_;
   float x204_ballTouchRadius;
   float x208_;
   float x20c_boostBallDrainTime;
+  float x210_boostBallMaxChargeTime;
+  float x214_;
   float x218_boostBallMinChargeTime;
   float x21c_boostBallMinRelativeSpeedForDamage;
   float x220_boostBallChargeTime0;
   float x224_boostBallChargeTime1;
   float x228_boostBallChargeTime2;
-  float x210_boostBallMaxChargeTime;
   float x22c_boostBallIncrementalSpeed0;
   float x230_boostBallIncrementalSpeed1;
   float x234_boostBallIncrementalSpeed2;
 };
+CHECK_SIZEOF(CTweakBall, 0x238)
 
 extern CTweakBall* gpTweakBall;
 
