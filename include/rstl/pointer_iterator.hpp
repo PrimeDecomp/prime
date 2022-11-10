@@ -90,7 +90,9 @@ public:
     ++this->current;
     return *this;
   }
-  pointer_iterator operator++(int) { return pointer_iterator(this->current++); }
+  pointer_iterator operator++(int) {
+    return *this += 1;
+  }
   pointer_iterator& operator--() {
     --this->current;
     return *this;
@@ -131,7 +133,7 @@ inline typename It::difference_type __distance(It first, It last, random_access_
 
 template < typename It >
 inline typename It::difference_type distance(It first, It last) {
-  return __distance(first, last, It::iterator_category());
+  return __distance(first, last, typename It::iterator_category());
 }
 } // namespace rstl
 

@@ -66,7 +66,9 @@ public:
   iterator insert(iterator it, const T& value); // TODO
   template < typename from_iterator >
   iterator insert(iterator it, from_iterator begin, from_iterator end);
+
   iterator erase(iterator it);
+  iterator erase(iterator first, iterator last);
 
   void push_back(const T& in) {
     if (x4_count >= x8_capacity) {
@@ -103,12 +105,12 @@ protected:
   void insert_into(iterator at, int n, In in) {
     //  int insertAt = xc_items + n;
     // TODO: finish
-     if (x8_capacity < n) {
-       int newCapacity = x8_capacity != 0 ? x8_capacity * 2 : 4;
-       T* newData;
-       x0_allocator.allocate(newData, newCapacity);
-     }
-   }
+    if (x8_capacity < n) {
+      int newCapacity = x8_capacity != 0 ? x8_capacity * 2 : 4;
+      T* newData;
+      x0_allocator.allocate(newData, newCapacity);
+    }
+  }
 };
 
 template < typename T, typename Alloc >
@@ -163,6 +165,27 @@ vector< T, Alloc >& vector< T, Alloc >::operator=(const vector< T, Alloc >& othe
   return *this;
 }
 
+template < typename T, typename Alloc >
+typename vector< T, Alloc >::iterator vector< T, Alloc >::erase(iterator it) {
+  return erase(it, it + 1);
+}
+
+template < typename T, typename Alloc >
+typename vector< T, Alloc >::iterator vector< T, Alloc >::erase(iterator first, iterator last) {
+  destroy(first, last);
+  iterator start = begin();
+  int newCount = rstl::distance(first, start);
+  
+  iterator moved = start + newCount;
+  for (iterator it = last; it != end(); ++it) {
+    construct(&*moved, *it);
+    ++moved;
+    ++newCount;
+  }
+  x4_count = newCount;
+
+  return first;
+}
 
 typedef vector< void > unk_vector;
 CHECK_SIZEOF(unk_vector, 0x10)

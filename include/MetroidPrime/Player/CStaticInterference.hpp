@@ -8,6 +8,12 @@
 #include "rstl/vector.hpp"
 
 struct CStaticInterferenceSource {
+  CStaticInterferenceSource(TUniqueId id, float magnitude, float timeLeft)
+  : x0_id(id), x4_magnitude(magnitude), x8_timeLeft(timeLeft) {}
+
+  TUniqueId GetId() const { return x0_id; }
+  float GetMagnitude() const { return x4_magnitude; }
+  
   TUniqueId x0_id;
   float x4_magnitude;
   float x8_timeLeft;
