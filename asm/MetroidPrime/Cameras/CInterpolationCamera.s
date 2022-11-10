@@ -298,7 +298,7 @@ sub_80265314:
 /* 80265358 002622B8  38 81 00 08 */	addi r4, r1, 8
 /* 8026535C 002622BC  B0 01 00 08 */	sth r0, 8(r1)
 /* 80265360 002622C0  80 7F 08 70 */	lwz r3, 0x870(r31)
-/* 80265364 002622C4  4B DA 67 61 */	bl SetCurrentCameraId__14CCameraManagerF9TUniqueIdR13CStateManager
+/* 80265364 002622C4  4B DA 67 61 */	bl SetCurrentCameraId__14CCameraManagerF9TUniqueId
 lbl_80265368:
 /* 80265368 002622C8  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8026536C 002622CC  83 E1 00 1C */	lwz r31, 0x1c(r1)

@@ -40,16 +40,21 @@ public:
     erase(begin(), end());
   }
 
+  size_t size() const { return x14_count; }
+  bool empty() const { return x14_count == 0; }
+
   iterator begin() { return iterator(x4_start); }
   const_iterator begin() const { return const_iterator(x4_start); }
   iterator end() { return iterator(x8_end); }
   const_iterator end() const { return const_iterator(x8_end); }
 
-  void erase(const iterator& start, const iterator& end) {
+  iterator erase(const iterator& start, const iterator& end) {
     iterator it = start;
     while (it != end) {
       erase(it++);
     }
+
+    return it;
   }
 
 private:
@@ -152,7 +157,7 @@ private:
   node* x8_end;
   node* xc_empty_prev;
   node* x10_empty_next;
-  uint x14_count;
+  int x14_count;
 };
 
 } // namespace rstl

@@ -163,7 +163,8 @@ public:
 
   CRandom16* Random() const { return x900_random; }
 
-  CObjectList& GetObjectListById(EGameObjectList id) { return *x808_objectLists[id]; }
+  CObjectList& ObjectListById(EGameObjectList id) { return *x808_objectLists[id]; }
+  const CObjectList& GetObjectListById(EGameObjectList id) const { return *x808_objectLists[id]; }
 
   const CFinalInput& GetFinalInput() const { return xb54_finalInput; }
 
