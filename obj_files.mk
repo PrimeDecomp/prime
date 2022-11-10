@@ -62,7 +62,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/Cameras/CBallCamera.o\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptEffect.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Weapons/CBomb.o\
-	$(BUILD_DIR)/asm/MetroidPrime/Tweaks/CTweakBall.o\
+	$(BUILD_DIR)/src/MetroidPrime/Tweaks/CTweakBall.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Player/CPlayerState.o\
 	$(BUILD_DIR)/src/MetroidPrime/ScriptObjects/CScriptTimer.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Cameras/CCinematicCamera.o\
@@ -321,7 +321,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CRidley.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CPuffer.o\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CFire.o\
-	$(BUILD_DIR)/asm/MetroidPrime/CPauseScreenBlur.o\
+	$(BUILD_DIR)/src/MetroidPrime/CPauseScreenBlur.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CTryclops.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Weapons/CNewFlameThrower.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Cameras/CInterpolationCamera.o\
