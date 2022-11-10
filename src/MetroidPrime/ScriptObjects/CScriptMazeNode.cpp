@@ -441,7 +441,7 @@ void CScriptMazeNode::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, C
               }
             }
           }
-          CObjectList& list = mgr.GetObjectListById(kOL_All);
+          CObjectList& list = mgr.ObjectListById(kOL_All);
           for (int objIdx = list.GetFirstObjectIndex(); objIdx != -1;
                objIdx = list.GetNextObjectIndex(objIdx)) {
             if (CScriptMazeNode* node = TCastToPtr< CScriptMazeNode >(list[objIdx])) {

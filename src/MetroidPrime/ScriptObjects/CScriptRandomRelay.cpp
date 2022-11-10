@@ -41,7 +41,7 @@ void CScriptRandomRelay::SendLocalScriptMsgs(EScriptObjectState state, CStateMan
     rstl::vector< SConnection >::const_iterator conn = GetConnectionList().begin();
     for (; conn != GetConnectionList().end(); ++conn) {
       if (conn->x0_state == kSS_Zero) {
-        CObjectList& objList = stateMgr.GetObjectListById(kOL_All);
+        CObjectList& objList = stateMgr.ObjectListById(kOL_All);
         CStateManager::TIdListResult list = stateMgr.GetIdListForScript(conn->x8_objId);
         if (!(list.first == list.second)) {
           for (CStateManager::TIdList::const_iterator it = list.first; it != list.second; ++it) {
