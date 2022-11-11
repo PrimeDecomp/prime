@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803E1370
-lbl_803E1370:
+.global __vt__9CBSAttack
+__vt__9CBSAttack:
 	# ROM: 0x3DE370
 	.4byte 0
 	.4byte 0
@@ -44,14 +44,14 @@ __dt__9CBSAttackFv:
 /* 80134DE0 00131D40  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 80134DE4 00131D44  7C 7F 1B 79 */	or. r31, r3, r3
 /* 80134DE8 00131D48  41 82 00 5C */	beq lbl_80134E44
-/* 80134DEC 00131D4C  3C 60 80 3E */	lis r3, lbl_803E1370@ha
+/* 80134DEC 00131D4C  3C 60 80 3E */	lis r3, __vt__9CBSAttack@ha
 /* 80134DF0 00131D50  34 1F 00 08 */	addic. r0, r31, 8
-/* 80134DF4 00131D54  38 03 13 70 */	addi r0, r3, lbl_803E1370@l
+/* 80134DF4 00131D54  38 03 13 70 */	addi r0, r3, __vt__9CBSAttack@l
 /* 80134DF8 00131D58  90 1F 00 00 */	stw r0, 0(r31)
 /* 80134DFC 00131D5C  41 82 00 24 */	beq lbl_80134E20
-/* 80134E00 00131D60  3C 60 80 3E */	lis r3, lbl_803DAA08@ha
+/* 80134E00 00131D60  3C 60 80 3E */	lis r3, __vt__11CBCSlideCmd@ha
 /* 80134E04 00131D64  34 1F 00 08 */	addic. r0, r31, 8
-/* 80134E08 00131D68  38 03 AA 08 */	addi r0, r3, lbl_803DAA08@l
+/* 80134E08 00131D68  38 03 AA 08 */	addi r0, r3, __vt__11CBCSlideCmd@l
 /* 80134E0C 00131D6C  90 1F 00 08 */	stw r0, 8(r31)
 /* 80134E10 00131D70  41 82 00 10 */	beq lbl_80134E20
 /* 80134E14 00131D74  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
@@ -597,16 +597,16 @@ __ct__9CBSAttackFv:
 /* 8013559C 001324FC  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 801355A0 00132500  38 05 13 18 */	addi r0, r5, __vt__10CBodyState@l
 /* 801355A4 00132504  3C C0 80 5A */	lis r6, sZeroVector__9CVector3f@ha
-/* 801355A8 00132508  3C 80 80 3E */	lis r4, lbl_803E1370@ha
+/* 801355A8 00132508  3C 80 80 3E */	lis r4, __vt__9CBSAttack@ha
 /* 801355AC 0013250C  90 03 00 00 */	stw r0, 0(r3)
-/* 801355B0 00132510  38 04 13 70 */	addi r0, r4, lbl_803E1370@l
+/* 801355B0 00132510  38 04 13 70 */	addi r0, r4, __vt__9CBSAttack@l
 /* 801355B4 00132514  39 40 FF FF */	li r10, -1
 /* 801355B8 00132518  90 03 00 00 */	stw r0, 0(r3)
-/* 801355BC 0013251C  3C 80 80 3E */	lis r4, lbl_803DAA08@ha
+/* 801355BC 0013251C  3C 80 80 3E */	lis r4, __vt__11CBCSlideCmd@ha
 /* 801355C0 00132520  39 26 66 A0 */	addi r9, r6, sZeroVector__9CVector3f@l
 /* 801355C4 00132524  3C A0 80 3E */	lis r5, __vt__13CBodyStateCmd@ha
 /* 801355C8 00132528  91 43 00 04 */	stw r10, 4(r3)
-/* 801355CC 0013252C  38 04 AA 08 */	addi r0, r4, lbl_803DAA08@l
+/* 801355CC 0013252C  38 04 AA 08 */	addi r0, r4, __vt__11CBCSlideCmd@l
 /* 801355D0 00132530  38 C5 AA 68 */	addi r6, r5, __vt__13CBodyStateCmd@l
 /* 801355D4 00132534  38 A0 00 11 */	li r5, 0x11
 /* 801355D8 00132538  81 09 00 00 */	lwz r8, 0(r9)

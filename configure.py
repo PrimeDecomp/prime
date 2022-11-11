@@ -184,7 +184,7 @@ LIBS = [
             "MetroidPrime/Enemies/CFlickerBat",
             "MetroidPrime/BodyState/CBodyStateCmdMgr",
             ["MetroidPrime/BodyState/CBodyStateInfo", False],
-            "MetroidPrime/BodyState/CBSAttack",
+            ["MetroidPrime/BodyState/CBSAttack", False],
             ["MetroidPrime/BodyState/CBSDie", True],
             ["MetroidPrime/BodyState/CBSFall", False],
             ["MetroidPrime/BodyState/CBSGetup", True],

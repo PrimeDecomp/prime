@@ -315,8 +315,8 @@ lbl_803DA9FC:
 	.4byte 0
 	.4byte __dt__10CBCJumpCmd
 
-.global lbl_803DAA08
-lbl_803DAA08:
+.global __vt__11CBCSlideCmd
+__vt__11CBCSlideCmd:
 	# ROM: 0x3D7A08
 	.4byte 0
 	.4byte 0
@@ -5858,8 +5858,8 @@ __dt__11CBCSlideCmd:
 /* 8007BEA4 00078E04  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 8007BEA8 00078E08  7C 7F 1B 79 */	or. r31, r3, r3
 /* 8007BEAC 00078E0C  41 82 00 30 */	beq lbl_8007BEDC
-/* 8007BEB0 00078E10  3C 60 80 3E */	lis r3, lbl_803DAA08@ha
-/* 8007BEB4 00078E14  38 03 AA 08 */	addi r0, r3, lbl_803DAA08@l
+/* 8007BEB0 00078E10  3C 60 80 3E */	lis r3, __vt__11CBCSlideCmd@ha
+/* 8007BEB4 00078E14  38 03 AA 08 */	addi r0, r3, __vt__11CBCSlideCmd@l
 /* 8007BEB8 00078E18  90 1F 00 00 */	stw r0, 0(r31)
 /* 8007BEBC 00078E1C  41 82 00 10 */	beq lbl_8007BECC
 /* 8007BEC0 00078E20  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
