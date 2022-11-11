@@ -7,8 +7,8 @@ lbl_ctor:
 .section .data
 .balign 8
 
-.global lbl_803E7158
-lbl_803E7158:
+.global __vt__17CEnergyProjectile
+__vt__17CEnergyProjectile:
 	# ROM: 0x3E4158
 	.4byte 0
 	.4byte 0
@@ -2010,9 +2010,9 @@ lbl_80215680:
 /* 80215778 002126D8  4B E2 4D 0D */	bl "__ct__15CGameProjectileFbRC28TToken<18CWeaponDescription>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>11EWeaponTypeRC12CTransform4f14EMaterialTypesRC11CDamageInfo9TUniqueId7TAreaId9TUniqueId9TUniqueIdUibRC9CVector3fRCQ24rstl50optional_object<31TLockedToken<15CGenDescription>>sb"
 /* 8021577C 002126DC  38 61 00 40 */	addi r3, r1, 0x40
 /* 80215780 002126E0  48 12 83 61 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
-/* 80215784 002126E4  3C 60 80 3E */	lis r3, lbl_803E7158@ha
+/* 80215784 002126E4  3C 60 80 3E */	lis r3, __vt__17CEnergyProjectile@ha
 /* 80215788 002126E8  38 00 00 00 */	li r0, 0
-/* 8021578C 002126EC  38 83 71 58 */	addi r4, r3, lbl_803E7158@l
+/* 8021578C 002126EC  38 83 71 58 */	addi r4, r3, __vt__17CEnergyProjectile@l
 /* 80215790 002126F0  38 70 02 EC */	addi r3, r16, 0x2ec
 /* 80215794 002126F4  90 90 00 00 */	stw r4, 0(r16)
 /* 80215798 002126F8  90 10 02 E8 */	stw r0, 0x2e8(r16)
