@@ -7,6 +7,7 @@
 
 #include "Kyoto/Animation/CharacterCommon.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
+#include "Kyoto/Math/CUnitVector3f.hpp"
 
 enum ESteeringBlendMode {
   kSBM_Normal,
@@ -341,12 +342,12 @@ public:
 
   pas::ECoverDirection GetDirection() const { return x8_dir; }
   const CVector3f& GetTarget() const { return xc_targetPos; }
-  const CVector3f& GetAlignDirection() const { return x18_alignDir; }
+  CUnitVector3f GetAlignDirection() const { return x18_alignDir; }
 
 private:
   pas::ECoverDirection x8_dir;
   CVector3f xc_targetPos;
-  CVector3f x18_alignDir;
+  CUnitVector3f x18_alignDir;
 };
 
 //

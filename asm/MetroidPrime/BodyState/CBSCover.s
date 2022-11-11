@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803E3E48
-lbl_803E3E48:
+.global __vt__8CBSCover
+__vt__8CBSCover:
 	# ROM: 0x3E0E48
 	.4byte 0
 	.4byte 0
@@ -31,8 +31,8 @@ __dt__8CBSCoverFv:
 /* 80175CE4 00172C44  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 80175CE8 00172C48  7C 7F 1B 79 */	or. r31, r3, r3
 /* 80175CEC 00172C4C  41 82 00 30 */	beq lbl_80175D1C
-/* 80175CF0 00172C50  3C 60 80 3E */	lis r3, lbl_803E3E48@ha
-/* 80175CF4 00172C54  38 03 3E 48 */	addi r0, r3, lbl_803E3E48@l
+/* 80175CF0 00172C50  3C 60 80 3E */	lis r3, __vt__8CBSCover@ha
+/* 80175CF4 00172C54  38 03 3E 48 */	addi r0, r3, __vt__8CBSCover@l
 /* 80175CF8 00172C58  90 1F 00 00 */	stw r0, 0(r31)
 /* 80175CFC 00172C5C  41 82 00 10 */	beq lbl_80175D0C
 /* 80175D00 00172C60  3C 60 80 3E */	lis r3, __vt__10CBodyState@ha
@@ -273,7 +273,6 @@ lbl_80175FEC:
 /* 80176024 00172F84  48 16 D0 59 */	bl NoParameter__12CPASAnimParmFv
 /* 80176028 00172F88  38 61 00 78 */	addi r3, r1, 0x78
 /* 8017602C 00172F8C  48 16 D0 51 */	bl NoParameter__12CPASAnimParmFv
-.global lbl_80176030
 lbl_80176030:
 /* 80176030 00172F90  7F 64 DB 78 */	mr r4, r27
 /* 80176034 00172F94  38 61 00 80 */	addi r3, r1, 0x80
@@ -581,11 +580,11 @@ lbl_80176484:
 .global __ct__8CBSCoverFv
 __ct__8CBSCoverFv:
 /* 80176498 001733F8  3C C0 80 3E */	lis r6, __vt__10CBodyState@ha
-/* 8017649C 001733FC  3C A0 80 3E */	lis r5, lbl_803E3E48@ha
+/* 8017649C 001733FC  3C A0 80 3E */	lis r5, __vt__8CBSCover@ha
 /* 801764A0 00173400  38 06 13 18 */	addi r0, r6, __vt__10CBodyState@l
 /* 801764A4 00173404  38 80 FF FF */	li r4, -1
 /* 801764A8 00173408  90 03 00 00 */	stw r0, 0(r3)
-/* 801764AC 0017340C  38 A5 3E 48 */	addi r5, r5, lbl_803E3E48@l
+/* 801764AC 0017340C  38 A5 3E 48 */	addi r5, r5, __vt__8CBSCover@l
 /* 801764B0 00173410  38 00 00 00 */	li r0, 0
 /* 801764B4 00173414  90 A3 00 00 */	stw r5, 0(r3)
 /* 801764B8 00173418  90 83 00 04 */	stw r4, 4(r3)
