@@ -118,7 +118,7 @@ void CPauseScreenBlur::SetState(EState state) {
   }
 
   switch (state) {
-  case kS_InGame:
+  case kS_InGame: {
     bool valid = true;
     if (x10_prevState == kS_InGame && x14_nextState == kS_InGame) {
       valid = false;
@@ -135,6 +135,7 @@ void CPauseScreenBlur::SetState(EState state) {
       x18_blurAmt = -1.f;
     }
     break;
+  }
   case kS_MapScreen:
   case kS_SaveGame:
   case kS_HUDMessage:
