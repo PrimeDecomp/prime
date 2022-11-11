@@ -252,11 +252,11 @@ public:
   : CBodyStateCmd(kBSC_LoopAttack), x8_type(type), xc_waitForAnimOver(waitForAnimOver) {}
 
   pas::ELoopAttackType GetAttackType() const { return x8_type; }
-  bool WaitForAnimOver() const { return xc_waitForAnimOver; }
+  int WaitForAnimOver() const { return xc_waitForAnimOver; }
 
 private:
   pas::ELoopAttackType x8_type;
-  bool xc_waitForAnimOver;
+  int xc_waitForAnimOver;
 };
 
 //
@@ -423,6 +423,7 @@ public:
 
   CBodyStateCmd* GetCmd(EBodyStateCmd cmd);
   const CVector3f& GetMoveVector() const { return x0_move; }
+  const CVector3f& GetFaceVector() const { return xc_face; }
   const CVector3f& GetTargetVector() const { return x18_target; }
   const CVector3f& GetAdditiveTargetVector() const { return x24_additiveTarget; }
 
