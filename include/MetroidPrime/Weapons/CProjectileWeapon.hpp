@@ -28,6 +28,8 @@ public:
   virtual CVector3f GetTranslation() const;
   virtual CTransform4f GetTransform() const;
   
+  const CVector3f& GetVelocity() const; // { return xb0_velocity; }
+  CVector3f GetGravity() const; // { return xbc_gravity; }
   static float GetTickPeriod(); // { return 0.0166667f; }
 
 private:

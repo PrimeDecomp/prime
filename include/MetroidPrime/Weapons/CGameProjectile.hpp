@@ -34,6 +34,10 @@ public:
 
   const CVector3f& GetPreviousPos() const { return x298_previousPos; }
   TUniqueId GetHomingTargetId() const { return x2c0_homingTargetId; }
+  TUniqueId GetHitProjectileOwner() const { return x2c4_hitProjectileOwner; }
+  void SetHitProjectileOwner(TUniqueId id) { x2c4_hitProjectileOwner = id; }
+
+  bool GetWeaponActive() const { return x2e4_24_active; }
 
 protected:
   rstl::optional_object< TLockedToken< CGenDescription > > x158_visorParticle;

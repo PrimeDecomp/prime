@@ -4,8 +4,8 @@
 .balign 8
 
 
-.global lbl_803E1800
-lbl_803E1800:
+.global __vt__21CTargetableProjectile
+__vt__21CTargetableProjectile:
 	# ROM: 0x3DE800
 	.4byte 0
 	.4byte 0
@@ -35,7 +35,7 @@ lbl_803E1800:
 	.4byte GetSortingBounds__6CActorCFRC13CStateManager
 	.4byte DoUserAnimEvent__6CActorFR13CStateManagerRC13CInt32POINode14EUserEventTypef
 	.4byte ResolveCollisionWithActor__21CTargetableProjectileFRC14CRayCastResultR6CActorR13CStateManager
-	.4byte Think__21CTargetableProjectileFfR13CStateManager
+	.4byte Explode__21CTargetableProjectileFRC9CVector3fRC9CVector3f29EWeaponCollisionResponseTypesR13CStateManagerRC20CDamageVulnerability9TUniqueId
 	.4byte 0
 
 .section .sbss
@@ -61,9 +61,9 @@ __dt__21CTargetableProjectileFv:
 /* 8013B890 001387F0  93 C1 00 08 */	stw r30, 8(r1)
 /* 8013B894 001387F4  7C 7E 1B 79 */	or. r30, r3, r3
 /* 8013B898 001387F8  41 82 00 40 */	beq lbl_8013B8D8
-/* 8013B89C 001387FC  3C 60 80 3E */	lis r3, lbl_803E1800@ha
+/* 8013B89C 001387FC  3C 60 80 3E */	lis r3, __vt__21CTargetableProjectile@ha
 /* 8013B8A0 00138800  34 1E 03 D8 */	addic. r0, r30, 0x3d8
-/* 8013B8A4 00138804  38 03 18 00 */	addi r0, r3, lbl_803E1800@l
+/* 8013B8A4 00138804  38 03 18 00 */	addi r0, r3, __vt__21CTargetableProjectile@l
 /* 8013B8A8 00138808  90 1E 00 00 */	stw r0, 0(r30)
 /* 8013B8AC 0013880C  41 82 00 10 */	beq lbl_8013B8BC
 /* 8013B8B0 00138810  38 7E 03 D8 */	addi r3, r30, 0x3d8
@@ -259,7 +259,7 @@ lbl_8013BB3C:
 /* 8013BB68 00138AC8  EF 43 00 72 */	fmuls f26, f3, f1
 /* 8013BB6C 00138ACC  7F E3 FB 78 */	mr r3, r31
 /* 8013BB70 00138AD0  EF 63 00 32 */	fmuls f27, f3, f0
-/* 8013BB74 00138AD4  48 17 35 9D */	bl sub_802af110
+/* 8013BB74 00138AD4  48 17 35 9D */	bl GetGravity__17CProjectileWeaponCFv
 /* 8013BB78 00138AD8  C1 0D A3 C8 */	lfs f8, lbl_805A8F88@sda21(r13)
 /* 8013BB7C 00138ADC  EC 1C 06 72 */	fmuls f0, f28, f25
 /* 8013BB80 00138AE0  C0 63 00 00 */	lfs f3, 0(r3)
@@ -311,8 +311,8 @@ lbl_8013BB3C:
 /* 8013BC38 00138B98  38 21 00 90 */	addi r1, r1, 0x90
 /* 8013BC3C 00138B9C  4E 80 00 20 */	blr
 
-.global Think__21CTargetableProjectileFfR13CStateManager
-Think__21CTargetableProjectileFfR13CStateManager:
+.global Explode__21CTargetableProjectileFRC9CVector3fRC9CVector3f29EWeaponCollisionResponseTypesR13CStateManagerRC20CDamageVulnerability9TUniqueId
+Explode__21CTargetableProjectileFRC9CVector3fRC9CVector3f29EWeaponCollisionResponseTypesR13CStateManagerRC20CDamageVulnerability9TUniqueId:
 /* 8013BC40 00138BA0  94 21 FE F0 */	stwu r1, -0x110(r1)
 /* 8013BC44 00138BA4  7C 08 02 A6 */	mflr r0
 /* 8013BC48 00138BA8  90 01 01 14 */	stw r0, 0x114(r1)
@@ -494,8 +494,8 @@ Accept__21CTargetableProjectileFR8IVisitor:
 /* 8013BEEC 00138E4C  38 21 00 10 */	addi r1, r1, 0x10
 /* 8013BEF0 00138E50  4E 80 00 20 */	blr
 
-.global "__ct__21CTargetableProjectileFRC28TToken<18CWeaponDescription>11EWeaponTypeRC12CTransform4f14EMaterialTypesRC11CDamageInfoRC11CDamageInfo9TUniqueId9TUniqueIdRC28TToken<18CWeaponDescription>9TUniqueIdUi"
-"__ct__21CTargetableProjectileFRC28TToken<18CWeaponDescription>11EWeaponTypeRC12CTransform4f14EMaterialTypesRC11CDamageInfoRC11CDamageInfo9TUniqueId9TUniqueIdRC28TToken<18CWeaponDescription>9TUniqueIdUi":
+.global "__ct__21CTargetableProjectileFRC28TToken<18CWeaponDescription>11EWeaponTypeRC12CTransform4f14EMaterialTypesRC11CDamageInfoRC11CDamageInfo9TUniqueId7TAreaId9TUniqueIdRC34TLockedToken<18CWeaponDescription>9TUniqueId17EProjectileAttribRCQ24rstl50optional_object<31TLockedToken<15CGenDescription>>Usb"
+"__ct__21CTargetableProjectileFRC28TToken<18CWeaponDescription>11EWeaponTypeRC12CTransform4f14EMaterialTypesRC11CDamageInfoRC11CDamageInfo9TUniqueId7TAreaId9TUniqueIdRC34TLockedToken<18CWeaponDescription>9TUniqueId17EProjectileAttribRCQ24rstl50optional_object<31TLockedToken<15CGenDescription>>Usb":
 /* 8013BEF4 00138E54  94 21 FF 80 */	stwu r1, -0x80(r1)
 /* 8013BEF8 00138E58  7C 08 02 A6 */	mflr r0
 /* 8013BEFC 00138E5C  7C EC 3B 78 */	mr r12, r7
@@ -549,9 +549,9 @@ Accept__21CTargetableProjectileFR8IVisitor:
 /* 8013BFBC 00138F1C  90 01 00 24 */	stw r0, 0x24(r1)
 /* 8013BFC0 00138F20  93 A1 00 28 */	stw r29, 0x28(r1)
 /* 8013BFC4 00138F24  48 0D 96 D5 */	bl "__ct__17CEnergyProjectileFbRC28TToken<18CWeaponDescription>11EWeaponTypeRC12CTransform4f14EMaterialTypesRC11CDamageInfo9TUniqueId7TAreaId9TUniqueId9TUniqueIdUibRC9CVector3fRCQ24rstl50optional_object<31TLockedToken<15CGenDescription>>Usb"
-/* 8013BFC8 00138F28  3C 60 80 3E */	lis r3, lbl_803E1800@ha
+/* 8013BFC8 00138F28  3C 60 80 3E */	lis r3, __vt__21CTargetableProjectile@ha
 /* 8013BFCC 00138F2C  7F C4 F3 78 */	mr r4, r30
-/* 8013BFD0 00138F30  38 03 18 00 */	addi r0, r3, lbl_803E1800@l
+/* 8013BFD0 00138F30  38 03 18 00 */	addi r0, r3, __vt__21CTargetableProjectile@l
 /* 8013BFD4 00138F34  38 7C 03 D8 */	addi r3, r28, 0x3d8
 /* 8013BFD8 00138F38  90 1C 00 00 */	stw r0, 0(r28)
 /* 8013BFDC 00138F3C  48 20 4E CD */	bl __ct__6CTokenFRC6CToken
