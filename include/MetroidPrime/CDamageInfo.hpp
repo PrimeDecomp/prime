@@ -35,6 +35,7 @@ public:
   , x14_knockback(knockback)
   , x18_24_noImmunity(noImmunity) {}
 
+  // HACK: This constructor exists to fix CWeapon::Think writing xc_radiusDamage as a double
   CDamageInfo(const CWeaponMode& mode, float damage, float radiusDamage, float radius, float knockback,
               bool noImmunity = false)
   : x0_weaponMode(mode)
