@@ -180,7 +180,7 @@ LIBS = [
             "MetroidPrime/CFluidPlane",
             "MetroidPrime/CFluidPlaneManager",
             ["MetroidPrime/ScriptObjects/CScriptGrapplePoint", True],
-            "MetroidPrime/ScriptObjects/CHUDBillboardEffect",
+            ["MetroidPrime/ScriptObjects/CHUDBillboardEffect", False],
             "MetroidPrime/Enemies/CFlickerBat",
             "MetroidPrime/BodyState/CBodyStateCmdMgr",
             ["MetroidPrime/BodyState/CBodyStateInfo", False],

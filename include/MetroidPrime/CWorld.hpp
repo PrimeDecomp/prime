@@ -81,6 +81,7 @@ public:
   const CGameArea* GetArea(TAreaId id) const { return x18_areas[id.Value()].get(); }
   bool IsAreaValid(TAreaId id) const { return GetArea(id)->IsLoaded(); }
   CAssetId GetWorldAssetId() const { return x8_mlvlId; }
+  TAreaId GetCurrentAreaId() const { return x68_curAreaId; }
   TAreaId GetAreaIdForSaveId(int saveId) const;
   const rstl::vector< CRelay >& GetRelays() const { return x2c_relays; }
 
