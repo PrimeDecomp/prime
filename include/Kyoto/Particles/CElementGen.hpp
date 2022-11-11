@@ -75,6 +75,7 @@ public:
   int GetEmitterTime() const;
 
   int GetCumulativeParticleCount() const { return x260_cumulativeParticles; }
+  bool IsIndirectTextured() const; // { return x28_loadedGenDesc->x54_x40_TEXR && x28_loadedGenDesc->x58_x44_TIND; }
   float GetExternalVar(int index) const;
 
   static void Initialize();
