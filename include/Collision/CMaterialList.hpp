@@ -72,7 +72,7 @@ static EMaterialTypes SolidMaterial = kMT_Solid;
 class CMaterialList {
 public:
   CMaterialList() : value(0) {}
-  CMaterialList(const EMaterialTypes& m1) : value(0) { Add(m1); }
+  explicit CMaterialList(const EMaterialTypes& m1) : value(0) { Add(m1); }
   CMaterialList(const EMaterialTypes& m1, const EMaterialTypes& m2) : value(0) {
     Add(m1);
     Add(m2);
@@ -100,7 +100,7 @@ public:
     Add(m4);
     Add(m5);
   }
-  CMaterialList(u64 value) : value(value) {}
+  explicit CMaterialList(u64 value) : value(value) {}
 
   void Add(EMaterialTypes material) { value |= u64(1) << material; }
   void Add(const CMaterialList& material) { value |= material.value; }

@@ -192,8 +192,10 @@ public:
   void IncrementPhazon();
   void DecrementPhazon();
   // GetMovementDirection2D__7CPlayerCFv ??
+  void SetOrbitTargetId(TUniqueId id, CStateManager& mgr);
   void AddOrbitDisableSource(CStateManager& mgr, TUniqueId addId);
   void RemoveOrbitDisableSource(TUniqueId uid);
+  void ResetAimTargetPrediction(TUniqueId target);
 
   void ApplySubmergedPitchBend(CSfxHandle& sfx);
 

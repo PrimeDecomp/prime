@@ -319,8 +319,8 @@ SetGlobalSeed__17CProjectileWeaponFUs:
 /* 802AF108 002AC068  90 6D 9A 88 */	stw r3, lbl_805A8648@sda21(r13)
 /* 802AF10C 002AC06C  4E 80 00 20 */	blr
 
-.global sub_802af110
-sub_802af110:
+.global GetGravity__17CProjectileWeaponCFv
+GetGravity__17CProjectileWeaponCFv:
 /* 802AF110 002AC070  38 63 00 BC */	addi r3, r3, 0xbc
 /* 802AF114 002AC074  4E 80 00 20 */	blr
 
