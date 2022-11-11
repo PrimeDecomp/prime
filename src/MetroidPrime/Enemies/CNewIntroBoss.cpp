@@ -122,7 +122,7 @@ CVector3f CNewIntroBoss::PlayerPos(const CStateManager& mgr) const {
   float z0 = mgr.GetPlayer()->GetEyeHeight() / 2.f;
   CVector3f pos = mgr.GetPlayer()->GetTranslation() + CVector3f(0.f, 0.f, z0);
   CRayCastResult result = CGameCollision::RayStaticIntersection(
-      mgr, pos, CVector3f::Down(), 30.f, CMaterialFilter::MakeInclude(kMT_Solid));
+      mgr, pos, CVector3f::Down(), 30.f, CMaterialFilter::MakeInclude(CMaterialList(kMT_Solid)));
   if (result.IsInvalid()) {
     float z = mgr.GetPlayer()->GetEyeHeight() / 2.f + 0.2f;
     return mgr.GetPlayer()->GetTranslation() + CVector3f(0.f, 0.f, z);

@@ -56,7 +56,7 @@ void CMetaree::CollidedWith(const TUniqueId& id, const CCollisionInfoList& colLi
                             CStateManager& mgr) {
   if (IsAlive() && colList.GetCount() > 0) {
     mgr.ApplyDamageToWorld(GetUniqueId(), *this, GetTranslation(), x5ac_damageInfo,
-                           CMaterialFilter::MakeInclude(kMT_Player));
+                           CMaterialFilter::MakeInclude(CMaterialList(kMT_Player)));
     SendScriptMsgs(kSS_Arrived, mgr, kSM_None);
     MassiveDeath(mgr);
   }
