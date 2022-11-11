@@ -26,6 +26,7 @@ public:
   void FaceDirection(const CVector3f& v0, float dt);
   void EnableAnimation(bool enable);
   void PlayBestAnimation(const CPASAnimParmData& parms, CRandom16& r);
+  void LoopBestAnimation(const CPASAnimParmData& parms, CRandom16& r);
   bool HasIceBreakoutState();
   void Activate(CStateManager& mgr);
   void SetLocomotionType(pas::ELocomotionType type);

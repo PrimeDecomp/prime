@@ -16,8 +16,14 @@ public:
       Normalize();
     }
   }
-  CUnitVector3f(const CVector3f& vec); // : CVector3f(vec) { Normalize(); }
+  CUnitVector3f(
+      const CVector3f& vec); // : CVector3f(vec.IsNonZero() ? vec.AsNormalized() : Zero()) {}
   // TODO
+
+  static CUnitVector3f Forward() {
+    return CUnitVector3f(CVector3f::Forward().GetX(), CVector3f::Forward().GetY(),
+                         CVector3f::Forward().GetZ(), kN_No);
+  }
 };
 CHECK_SIZEOF(CUnitVector3f, 0xc)
 

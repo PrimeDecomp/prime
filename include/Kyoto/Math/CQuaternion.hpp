@@ -33,6 +33,7 @@ public:
   // Slerp__11CQuaternionFRC11CQuaternionRC11CQuaternionf
   // ShortestRotationArc__11CQuaternionFRC9CVector3fRC9CVector3f
   // LookAt__11CQuaternionFRC13CUnitVector3fRC13CUnitVector3fRC9CRelAngle
+  static CQuaternion LookAt(const CUnitVector3f&, const CUnitVector3f&, const CRelAngle&);
   // normalize_angle__Ff
   // IsValidQuaternion__11CQuaternionCFf
   // SlerpLocal__11CQuaternionFRC11CQuaternionRC11CQuaternionf
