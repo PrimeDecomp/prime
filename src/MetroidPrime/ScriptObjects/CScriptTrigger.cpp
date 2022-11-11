@@ -107,9 +107,10 @@ void CScriptTrigger::Touch(CActor& act, CStateManager& mgr) {
           mgr.SendScriptMsg(GetUniqueId(), mgr.GetEditorIdForUniqueId(GetUniqueId()),
                             kSM_Deactivate, kSS_Entered);
           if (act.HealthInfo(mgr) && x100_damageInfo.GetDamage() > 0.f) {
-            mgr.ApplyDamage(GetUniqueId(), act.GetUniqueId(), GetUniqueId(), x100_damageInfo,
-                            CMaterialFilter::MakeIncludeExclude(SolidMaterial, CMaterialList(0)),
-                            CVector3f::Zero());
+            mgr.ApplyDamage(
+                GetUniqueId(), act.GetUniqueId(), GetUniqueId(), x100_damageInfo,
+                CMaterialFilter::MakeIncludeExclude(CMaterialList(SolidMaterial), CMaterialList(0)),
+                CVector3f::Zero());
           }
         }
 
@@ -119,9 +120,10 @@ void CScriptTrigger::Touch(CActor& act, CStateManager& mgr) {
             static CWeaponMode sktonOHurtWeaponMode(kWT_Power, false, false, true);
             CDamageInfo dmg(sktonOHurtWeaponMode, 10.f * hInfo->GetHP(), 0.f, 0.f);
 
-            mgr.ApplyDamage(GetUniqueId(), act.GetUniqueId(), GetUniqueId(), dmg,
-                            CMaterialFilter::MakeIncludeExclude(SolidMaterial, CMaterialList(0)),
-                            CVector3f::Zero());
+            mgr.ApplyDamage(
+                GetUniqueId(), act.GetUniqueId(), GetUniqueId(), dmg,
+                CMaterialFilter::MakeIncludeExclude(CMaterialList(SolidMaterial), CMaterialList(0)),
+                CVector3f::Zero());
           }
         }
       } else {
@@ -143,8 +145,7 @@ rstl::optional_object< CAABox > CScriptTrigger::GetTouchBounds() const {
   return rstl::optional_object_null();
 }
 
-void CScriptTrigger::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid,
-                                     CStateManager& mgr) {
+void CScriptTrigger::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) {
   if (GetActive()) {
     if (msg == kSM_Deactivate) {
       xe8_inhabitants.clear();

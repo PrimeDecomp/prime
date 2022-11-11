@@ -626,8 +626,7 @@ void CScriptSpecialFunction::RingScramble(CStateManager& mgr) {
   x1b8_ringReverse = !x1b8_ringReverse;
   float dir = x1b8_ringReverse ? 1.f : -1.f;
   for (int i = 0; i < x198_ringControllers.size(); ++i) {
-    x198_ringControllers[i].x4_rotateSpeed =
-        dir * mgr.Random()->Range(x100_float2, x104_float3);
+    x198_ringControllers[i].x4_rotateSpeed = dir * mgr.Random()->Range(x100_float2, x104_float3);
     dir = -dir;
     x198_ringControllers[i].x8_reachedTarget = false;
   }
@@ -988,7 +987,8 @@ void CScriptSpecialFunction::ThinkChaffTarget(float dt, CStateManager& mgr) {
   TEntityList nearList;
   const CVector3f offset(5.f, 5.f, 5.f);
   const CAABox box(GetTranslation() - offset, GetTranslation() + offset);
-  mgr.BuildNearList(nearList, box, CMaterialFilter::MakeInclude(kMT_Projectile), nullptr);
+  mgr.BuildNearList(nearList, box, CMaterialFilter::MakeInclude(CMaterialList(kMT_Projectile)),
+                    nullptr);
 
   for (int i = 0; i < nearList.size(); ++i) {
     if (CEnergyProjectile* proj = TCastToPtr< CEnergyProjectile >(mgr.ObjectById(nearList[i]))) {

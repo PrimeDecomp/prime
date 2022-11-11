@@ -54,7 +54,8 @@ void CPuffer::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateMan
   switch (msg) {
   case kSM_Registered:
     GetBodyCtrl()->Activate(mgr);
-    SetMaterialFilter(CMaterialFilter::MakeIncludeExclude(kMT_Player, kMT_NoStaticCollision));
+    SetMaterialFilter(CMaterialFilter::MakeIncludeExclude(CMaterialList(kMT_Player),
+                                                          CMaterialList(kMT_NoStaticCollision)));
     break;
   case kSM_Action:
     if (GetActive()) {
