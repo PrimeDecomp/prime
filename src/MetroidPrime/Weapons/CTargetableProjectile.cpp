@@ -55,15 +55,16 @@ bool CTargetableProjectile::Explode(const CVector3f& pos, const CVector3f& norma
 
 CVector3f CTargetableProjectile::GetAimPosition(const CStateManager& mgr, float dt) const {
   static float tickRecip = 1.f / CProjectileWeapon::GetTickPeriod();
+  const CProjectileWeapon& projectile = GetProjectile();
 
-  // CVector3f translation = GetTranslation();
-  // CVector3f velocity = tickRecip * x170_projectile.GetVelocity();
-  // CVector3f gravity = (tickRecip * x170_projectile.GetGravity()) * 0.5f;
+  CVector3f translation = GetTranslation();
+  CVector3f velocity = tickRecip * projectile.GetVelocity();
+  CVector3f gravity = tickRecip * projectile.GetGravity();
 
-  // return (dt * dt * gravity) + (dt * velocity) + translation;
+  return (dt * (dt * (gravity * 0.5f))) + (dt * velocity) + translation;
 
-  return (dt * dt * ((tickRecip * x170_projectile.GetGravity()) * 0.5f)) +
-         (dt * (tickRecip * x170_projectile.GetVelocity())) + GetTranslation();
+  // return (dt * (dt * ((tickRecip * projectile.GetGravity()) * 0.5f))) +
+  //        (dt * (tickRecip * projectile.GetVelocity())) + translation;
 }
 
 void CTargetableProjectile::ResolveCollisionWithActor(const CRayCastResult& res, CActor& act,
@@ -75,3 +76,7 @@ void CTargetableProjectile::ResolveCollisionWithActor(const CRayCastResult& res,
   SetTransform(xf);
   CEnergyProjectile::ResolveCollisionWithActor(res, act, mgr);
 }
+
+CEnergyProjectile::~CEnergyProjectile() {}
+
+CTargetableProjectile::~CTargetableProjectile() {}

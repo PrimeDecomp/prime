@@ -96,9 +96,9 @@ __dt__17CEnergyProjectileFv:
 /* 8013B908 00138868  93 C1 00 08 */	stw r30, 8(r1)
 /* 8013B90C 0013886C  7C 7E 1B 79 */	or. r30, r3, r3
 /* 8013B910 00138870  41 82 00 70 */	beq lbl_8013B980
-/* 8013B914 00138874  3C 60 80 3E */	lis r3, lbl_803E7158@ha
+/* 8013B914 00138874  3C 60 80 3E */	lis r3, __vt__17CEnergyProjectile@ha
 /* 8013B918 00138878  34 1E 02 FC */	addic. r0, r30, 0x2fc
-/* 8013B91C 0013887C  38 03 71 58 */	addi r0, r3, lbl_803E7158@l
+/* 8013B91C 0013887C  38 03 71 58 */	addi r0, r3, __vt__17CEnergyProjectile@l
 /* 8013B920 00138880  90 1E 00 00 */	stw r0, 0(r30)
 /* 8013B924 00138884  41 82 00 40 */	beq lbl_8013B964
 /* 8013B928 00138888  34 1E 03 7C */	addic. r0, r30, 0x37c

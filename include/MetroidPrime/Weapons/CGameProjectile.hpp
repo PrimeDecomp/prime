@@ -32,6 +32,7 @@ public:
   virtual void ResolveCollisionWithActor(const CRayCastResult& res, CActor& act,
                                          CStateManager& mgr);
 
+  const CProjectileWeapon& GetProjectile() const { return x170_projectile; }
   const CVector3f& GetPreviousPos() const { return x298_previousPos; }
   TUniqueId GetHomingTargetId() const { return x2c0_homingTargetId; }
   TUniqueId GetHitProjectileOwner() const { return x2c4_hitProjectileOwner; }
