@@ -6,8 +6,9 @@
 #include "MetroidPrime/TGameTypes.hpp"
 
 #include "Kyoto/Animation/CharacterCommon.hpp"
-#include "Kyoto/Math/CVector3f.hpp"
 #include "Kyoto/Math/CUnitVector3f.hpp"
+#include "Kyoto/Math/CVector3f.hpp"
+
 
 enum ESteeringBlendMode {
   kSBM_Normal,
@@ -151,8 +152,13 @@ private:
 
 class CBCSlideCmd : public CBodyStateCmd {
 public:
+  explicit CBCSlideCmd()
+  : CBodyStateCmd(kBSC_Slide), x8_type(pas::kSlide_Invalid), xc_dir(CVector3f::Zero()) {}
+
   CBCSlideCmd(pas::ESlideType type, const CVector3f& dir)
   : CBodyStateCmd(kBSC_Slide), x8_type(type), xc_dir(dir) {}
+
+  ~CBCSlideCmd() override {}
 
   pas::ESlideType GetSlideType() const { return x8_type; }
   const CVector3f& GetSlideDirection() const { return xc_dir; }
@@ -394,7 +400,7 @@ public:
   void DeliverCmd(const CBCLocomotionCmd& cmd);
   void DeliverCmd(EBodyStateCmd cmd);
 
-  void DeliverCmd(const CBodyStateCmd& cmd);
+  void DeliverCmd(const CBodyStateCmd& cmd) {}
 
   void DeliverCmd(const CBCGenerateCmd& cmd) {
     DeliverCmd(kBSC_Generate);
@@ -407,6 +413,10 @@ public:
   void DeliverCmd(const CBCScriptedCmd& cmd) {
     DeliverCmd(kBSC_Scripted);
     x21c_scripted = cmd;
+  }
+  void DeliverCmd(const CBCSlideCmd& cmd) {
+    DeliverCmd(cmd.GetCommandId());
+    x1f8_slide = cmd;
   }
 
   void DeliverTargetVector(const CVector3f& t) { x18_target = t; }

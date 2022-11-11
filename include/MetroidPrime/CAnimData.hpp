@@ -3,8 +3,10 @@
 
 #include "types.h"
 
+#include "MetroidPrime/ActorCommon.hpp"
 #include "MetroidPrime/CAdditiveAnimPlayback.hpp"
 #include "MetroidPrime/CAnimPlaybackParms.hpp"
+#include "MetroidPrime/CCharAnimTime.hpp"
 #include "MetroidPrime/CCharacterInfo.hpp"
 #include "MetroidPrime/CHierarchyPoseBuilder.hpp"
 #include "MetroidPrime/CPOINode.hpp"
@@ -37,6 +39,7 @@ public:
     x220_25_loop = v;
     x220_24_animating = true;
   }
+
   void SetIsAnimating(bool v) { x220_24_animating = v; }
   void SetParticleEffectState(const rstl::string& name, bool active, CStateManager& mgr);
 
@@ -98,7 +101,7 @@ public:
   // SetRandomPlaybackRate__9CAnimDataFR9CRandom16
   void SetPlaybackRate(float set);
   void MultiplyPlaybackRate(float scale);
-  // GetTimeOfUserEvent__9CAnimDataCF14EUserEventTypeRC13CCharAnimTime
+  CCharAnimTime GetTimeOfUserEvent(EUserEventType type, const CCharAnimTime& time) const;
   // GetAdvancementDeltas__9CAnimDataCFRC13CCharAnimTimeRC13CCharAnimTime
   // Touch__9CAnimDataCFRC13CSkinnedModeli
   // InitializeEffects__9CAnimDataFR13CStateManagerRC9CVector3f
@@ -107,7 +110,7 @@ public:
   void AddAdditiveAnimation(uint idx, float weight, bool active, bool fadeOut);
   void DelAdditiveAnimation(uint idx);
   bool IsAdditiveAnimation(uint idx) const;
-  const rstl::rc_ptr<CAnimTreeNode>& GetAdditiveAnimationTree(uint idx) const;
+  const rstl::rc_ptr< CAnimTreeNode >& GetAdditiveAnimationTree(uint idx) const;
   // GetAnimationTree__9CAnimDataCFv
   // AnimationTree__9CAnimDataFv
   // IsAdditiveAnimation__9CAnimDataCFUi

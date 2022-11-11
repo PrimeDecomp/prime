@@ -14,7 +14,12 @@ public:
   };
   float GetSeconds() const { return x0_time; }
 
+  explicit CCharAnimTime(EType type, float time) : x0_time(time), x4_type(type) {}
   CCharAnimTime(const CCharAnimTime& other) : x0_time(other.x0_time), x4_type(other.x4_type) {}
+
+  bool operator!=(const CCharAnimTime& other) const;
+  
+  static CCharAnimTime Infinity() { return CCharAnimTime(kT_Infinity, 1.0f); }
 
 private:
   float x0_time;

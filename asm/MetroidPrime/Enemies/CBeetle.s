@@ -2990,13 +2990,13 @@ lbl_800E53DC:
 /* 800E5408 000E2368  C0 3E 00 48 */	lfs f1, 0x48(r30)
 /* 800E540C 000E236C  38 E3 AA 68 */	addi r7, r3, __vt__13CBodyStateCmd@l
 /* 800E5410 000E2370  C0 1E 00 58 */	lfs f0, 0x58(r30)
-/* 800E5414 000E2374  3C 80 80 3E */	lis r4, lbl_803DAA08@ha
+/* 800E5414 000E2374  3C 80 80 3E */	lis r4, __vt__11CBCSlideCmd@ha
 /* 800E5418 000E2378  D0 41 00 08 */	stfs f2, 8(r1)
 /* 800E541C 000E237C  38 C0 00 11 */	li r6, 0x11
 /* 800E5420 000E2380  80 7E 04 50 */	lwz r3, 0x450(r30)
 /* 800E5424 000E2384  38 00 00 00 */	li r0, 0
 /* 800E5428 000E2388  D0 21 00 0C */	stfs f1, 0xc(r1)
-/* 800E542C 000E238C  38 A4 AA 08 */	addi r5, r4, lbl_803DAA08@l
+/* 800E542C 000E238C  38 A4 AA 08 */	addi r5, r4, __vt__11CBCSlideCmd@l
 /* 800E5430 000E2390  81 41 00 08 */	lwz r10, 8(r1)
 /* 800E5434 000E2394  3B E3 00 04 */	addi r31, r3, 4
 /* 800E5438 000E2398  D0 01 00 10 */	stfs f0, 0x10(r1)
@@ -3019,8 +3019,8 @@ lbl_800E53DC:
 /* 800E547C 000E23DC  D0 01 00 34 */	stfs f0, 0x34(r1)
 /* 800E5480 000E23E0  48 04 BF B9 */	bl DeliverCmd__16CBodyStateCmdMgrF13EBodyStateCmd
 /* 800E5484 000E23E4  80 01 00 24 */	lwz r0, 0x24(r1)
-/* 800E5488 000E23E8  3C 60 80 3E */	lis r3, lbl_803DAA08@ha
-/* 800E548C 000E23EC  38 83 AA 08 */	addi r4, r3, lbl_803DAA08@l
+/* 800E5488 000E23E8  3C 60 80 3E */	lis r3, __vt__11CBCSlideCmd@ha
+/* 800E548C 000E23EC  38 83 AA 08 */	addi r4, r3, __vt__11CBCSlideCmd@l
 /* 800E5490 000E23F0  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
 /* 800E5494 000E23F4  90 1F 01 FC */	stw r0, 0x1fc(r31)
 /* 800E5498 000E23F8  38 63 AA 68 */	addi r3, r3, __vt__13CBodyStateCmd@l
