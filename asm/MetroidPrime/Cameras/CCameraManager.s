@@ -1902,7 +1902,7 @@ lbl_8000A9E8:
 /* 8000A9F0 00007950  40 82 00 14 */	bne lbl_8000AA04
 /* 8000A9F4 00007954  7C A4 2B 78 */	mr r4, r5
 /* 8000A9F8 00007958  38 63 00 14 */	addi r3, r3, 0x14
-/* 8000A9FC 0000795C  48 00 1A F9 */	bl sub_8000c4f4
+/* 8000A9FC 0000795C  48 00 1A F9 */	bl "erase__Q24rstl51list<16CCameraShakeData,Q24rstl17rmemory_allocator>FRCQ34rstl51list<16CCameraShakeData,Q24rstl17rmemory_allocator>8iterator"
 /* 8000AA00 00007960  48 00 00 10 */	b lbl_8000AA10
 lbl_8000AA04:
 /* 8000AA04 00007964  80 A5 00 04 */	lwz r5, 4(r5)
@@ -2980,7 +2980,7 @@ lbl_8000B8C4:
 /* 8000B8F0 00008850  40 82 00 14 */	bne lbl_8000B904
 /* 8000B8F4 00008854  7F 64 DB 78 */	mr r4, r27
 /* 8000B8F8 00008858  38 7D 00 14 */	addi r3, r29, 0x14
-/* 8000B8FC 0000885C  48 00 0B F9 */	bl sub_8000c4f4
+/* 8000B8FC 0000885C  48 00 0B F9 */	bl "erase__Q24rstl51list<16CCameraShakeData,Q24rstl17rmemory_allocator>FRCQ34rstl51list<16CCameraShakeData,Q24rstl17rmemory_allocator>8iterator"
 /* 8000B900 00008860  48 00 00 3C */	b lbl_8000B93C
 lbl_8000B904:
 /* 8000B904 00008864  38 61 00 08 */	addi r3, r1, 8
@@ -3847,8 +3847,8 @@ lbl_8000C4D8:
 /* 8000C4EC 0000944C  38 21 00 30 */	addi r1, r1, 0x30
 /* 8000C4F0 00009450  4E 80 00 20 */	blr
 
-.global sub_8000c4f4
-sub_8000c4f4:
+.global "erase__Q24rstl51list<16CCameraShakeData,Q24rstl17rmemory_allocator>FRCQ34rstl51list<16CCameraShakeData,Q24rstl17rmemory_allocator>8iterator"
+"erase__Q24rstl51list<16CCameraShakeData,Q24rstl17rmemory_allocator>FRCQ34rstl51list<16CCameraShakeData,Q24rstl17rmemory_allocator>8iterator":
 /* 8000C4F4 00009454  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8000C4F8 00009458  7C 08 02 A6 */	mflr r0
 /* 8000C4FC 0000945C  90 01 00 14 */	stw r0, 0x14(r1)
