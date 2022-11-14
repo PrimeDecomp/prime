@@ -49,7 +49,7 @@ class CEntity;
 class CMazeState;
 class CRayCastResult;
 class CMaterialFilter;
-class CScriptLayerManager;
+class CWorldLayerState;
 class CLight;
 class CDamageInfo;
 class CTexture;
@@ -99,6 +99,9 @@ public:
     kCFS_Eight,
     kCFS_Max,
   };
+
+  CStateManager();
+  ~CStateManager();
 
   bool RenderLast(const TUniqueId&);
   void ResetEscapeSequenceTimer(float);
@@ -167,6 +170,8 @@ public:
 
   CObjectList& ObjectListById(EGameObjectList id) { return *x808_objectLists[id]; }
   const CObjectList& GetObjectListById(EGameObjectList id) const { return *x808_objectLists[id]; }
+  
+  void RemoveObject(TUniqueId);
 
   const CFinalInput& GetFinalInput() const { return xb54_finalInput; }
 
@@ -276,7 +281,7 @@ private:
   rstl::rc_ptr< CScriptMailbox > x8bc_mailbox;
   rstl::rc_ptr< CMapWorldInfo > x8c0_mapWorldInfo;
   rstl::rc_ptr< CWorldTransManager > x8c4_worldTransManager;
-  rstl::rc_ptr< CScriptLayerManager > x8c8_worldLayerState;
+  rstl::rc_ptr< CWorldLayerState > x8c8_worldLayerState;
 
   TAreaId x8cc_nextAreaId;
   TAreaId x8d0_prevAreaId;
@@ -330,6 +335,8 @@ private:
   bool xf94_28_inSaveUI : 1;
   bool xf94_29_cinematicPause : 1;
   bool xf94_30_fullThreat : 1;
+
+  void ClearGraveyard();
 };
 CHECK_SIZEOF(CStateManager, 0xf98)
 

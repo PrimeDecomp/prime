@@ -15013,12 +15013,12 @@ __sinit_CSpacePirate_cpp:
 /* 8012D240 0012A1A0  38 61 00 28 */	addi r3, r1, 0x28
 /* 8012D244 0012A1A4  48 21 08 9D */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 8012D248 0012A1A8  3C 60 80 57 */	lis r3, lbl_8056F85C@ha
-/* 8012D24C 0012A1AC  3C 80 80 05 */	lis r4, sub_80050534@ha
+/* 8012D24C 0012A1AC  3C 80 80 05 */	lis r4, "__dt__Q24rstl43list<9TUniqueId,Q24rstl17rmemory_allocator>Fv"@ha
 /* 8012D250 0012A1B0  38 63 F8 5C */	addi r3, r3, lbl_8056F85C@l
 /* 8012D254 0012A1B4  38 00 00 00 */	li r0, 0
 /* 8012D258 0012A1B8  38 C3 00 0C */	addi r6, r3, 0xc
 /* 8012D25C 0012A1BC  90 03 00 14 */	stw r0, 0x14(r3)
-/* 8012D260 0012A1C0  38 84 05 34 */	addi r4, r4, sub_80050534@l
+/* 8012D260 0012A1C0  38 84 05 34 */	addi r4, r4, "__dt__Q24rstl43list<9TUniqueId,Q24rstl17rmemory_allocator>Fv"@l
 /* 8012D264 0012A1C4  38 BF 01 88 */	addi r5, r31, 0x188
 /* 8012D268 0012A1C8  90 C3 00 04 */	stw r6, 4(r3)
 /* 8012D26C 0012A1CC  90 C3 00 08 */	stw r6, 8(r3)

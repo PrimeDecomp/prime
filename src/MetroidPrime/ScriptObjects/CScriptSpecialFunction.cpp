@@ -448,7 +448,7 @@ void CScriptSpecialFunction::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId
       if (msg == kSM_Decrement || msg == kSM_Increment) {
         if (x1bc_areaSaveId != -1 && x1c0_layerIdx != -1) {
           TAreaId aId = mgr.GetWorld()->GetAreaIdForSaveId(x1bc_areaSaveId);
-          rstl::rc_ptr< CScriptLayerManager > worldLayerState(NULL);
+          rstl::rc_ptr< CWorldLayerState > worldLayerState(NULL);
 
           if (aId != kInvalidAreaId) {
             // worldLayerState = mgr.WorldLayerState();

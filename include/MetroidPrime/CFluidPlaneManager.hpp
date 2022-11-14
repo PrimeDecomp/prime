@@ -8,6 +8,8 @@
 
 #include "rstl/reserved_vector.hpp"
 
+class CScriptWater;
+
 class CFluidPlaneManager {
 public:
   // TODO

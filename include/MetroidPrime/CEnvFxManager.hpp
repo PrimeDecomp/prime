@@ -41,6 +41,7 @@ public:
   static void Initialize();
   void SetFxDensity(int, float);
   void SetSplashRate(float f) { xb54_baseSplashRate = f; }
+  void Cleanup();
 
 private:
   CAABox x0_particleBounds;

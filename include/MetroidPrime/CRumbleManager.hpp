@@ -17,6 +17,7 @@ public:
   short Rumble(CStateManager&, ERumbleFxId, float, ERumblePriority);
 
   void StopRumble(short id);
+  void HardStopAll() { x0_rumbleGenerator.HardStopAll(); } 
   void Update(float dt);
 
 private:

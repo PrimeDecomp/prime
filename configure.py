@@ -62,7 +62,7 @@ LIBS = [
             ["MetroidPrime/Tweaks/CTweakGame", True],
             "MetroidPrime/CGameProjectile",
             ["MetroidPrime/Player/CPlayerGun", False],
-            "MetroidPrime/CStateManager",
+            ["MetroidPrime/CStateManager", False],
             ["MetroidPrime/CEntity", True],
             ["MetroidPrime/CArchMsgParmInt32", True],
             ["MetroidPrime/CArchMsgParmInt32Int32VoidPtr", True],
