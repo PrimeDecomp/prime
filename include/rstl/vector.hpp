@@ -47,6 +47,8 @@ public:
     x0_allocator.allocate(xc_items, x4_count);
     uninitialized_fill_n(xc_items, count, v);
   }
+  vector(int count, const T& v, const Alloc& alloc);
+  
   vector(const vector& other) : x4_count(other.x4_count), x8_capacity(other.x8_capacity) {
     if (other.x4_count == 0 && other.x8_capacity == 0) {
       xc_items = nullptr;

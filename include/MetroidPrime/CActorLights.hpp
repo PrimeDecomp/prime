@@ -26,6 +26,9 @@ public:
   void BuildConstantAmbientLighting(const CColor&);
   bool BuildAreaLightList(const CStateManager& mgr, const CGameArea& area, const CAABox& bounds);
   void BuildDynamicLightList(const CStateManager& mgr, const CAABox& bounds);
+  void BuildFakeLightList(const rstl::vector<CLight>&, const CColor&);
+
+  void ActivateLights() const;
 
   bool GetNeedsRelight() const { return x298_24_dirty == TRUE; }
   bool HasShadowLight() const { return x29c_shadowLightArrIdx != -1; }

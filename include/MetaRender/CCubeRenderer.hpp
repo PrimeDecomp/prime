@@ -22,39 +22,39 @@ class CModel;
 
 class CCubeRenderer : public IRenderer, public IWeaponRenderer {
 public:
-  virtual ~CCubeRenderer();
+  ~CCubeRenderer() override;
   // TODO types
-  virtual void AddStaticGeometry();
-  virtual void EnablePVS();
-  virtual void DisablePVS();
-  virtual void RemoveStaticGeometry();
-  virtual void DrawUnsortedGeometry();
-  virtual void DrawSortedGeometry();
-  virtual void DrawStaticGeometry();
-  virtual void DrawAreaGeometry();
-  virtual void PostRenderFogs();
-  virtual void SetModelMatrix(const CTransform4f& xf);
-  virtual void AddParticleGen(const CParticleGen& gen);
-  virtual void AddParticleGen2();
-  virtual void AddPlaneObject();
-  virtual void AddDrawable(const void* obj, const CVector3f& pos, const CAABox& bounds, int mode,
-                           IRenderer::EDrawableSorting sorting);
-  virtual void SetDrawableCallback();
-  virtual void SetWorldViewpoint();
-  virtual void SetPerspective1();
-  virtual void SetPerspective2();
-  virtual rstl::pair< CVector2f, CVector2f > SetViewportOrtho(bool centered, float znear,
-                                                              float zfar);
-  virtual void SetClippingPlanes();
-  virtual void SetViewport();
-  virtual void SetDepthReadWrite(bool read, bool update);
-  virtual void SetBlendMode_AdditiveAlpha();
-  virtual void SetBlendMode_AlphaBlended();
-  virtual void SetBlendMode_NoColorWrite();
-  virtual void SetBlendMode_ColorMultiply();
-  virtual void SetBlendMode_InvertDst();
-  virtual void SetBlendMode_InvertSrc();
-  virtual void SetBlendMode_AdditiveDestColor();
+  void AddStaticGeometry() override;
+  void EnablePVS() override;
+  void DisablePVS() override;
+  void RemoveStaticGeometry() override;
+  void DrawUnsortedGeometry() override;
+  void DrawSortedGeometry() override;
+  void DrawStaticGeometry() override;
+  void DrawAreaGeometry() override;
+  void PostRenderFogs() override;
+  void SetModelMatrix(const CTransform4f& xf) override;
+  void AddParticleGen(const CParticleGen& gen) override;
+  void AddParticleGen2() override;
+  void AddPlaneObject() override;
+  void AddDrawable(const void* obj, const CVector3f& pos, const CAABox& bounds, int mode,
+                   IRenderer::EDrawableSorting sorting) override;
+  void SetDrawableCallback() override;
+  void SetWorldViewpoint() override;
+  void SetPerspective1(float, float, float, float, float) override;
+  void SetPerspective2() override;
+  rstl::pair< CVector2f, CVector2f > SetViewportOrtho(bool centered, float znear,
+                                                      float zfar) override;
+  void SetClippingPlanes() override;
+  void SetViewport() override;
+  void SetDepthReadWrite(bool read, bool update) override;
+  void SetBlendMode_AdditiveAlpha() override;
+  void SetBlendMode_AlphaBlended() override;
+  void SetBlendMode_NoColorWrite() override;
+  void SetBlendMode_ColorMultiply() override;
+  void SetBlendMode_InvertDst() override;
+  void SetBlendMode_InvertSrc() override;
+  void SetBlendMode_AdditiveDestColor() override;
   virtual void SetDebugOption();
   virtual void BeginScene();
   virtual void EndScene();
@@ -80,7 +80,7 @@ public:
   virtual void SetWireframeFlags();
   virtual void SetWorldFog();
   virtual void RenderFogVolume(const CColor&, const CAABox&, const TLockedToken< CModel >*,
-                               const CSkinnedModel*);
+                       const CSkinnedModel*);
   virtual void SetThermal();
   virtual void SetThermalColdScale();
   virtual void DoThermalBlendCold();

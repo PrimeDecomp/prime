@@ -41,7 +41,7 @@ public:
                            IRenderer::EDrawableSorting sorting);
   virtual void SetDrawableCallback();
   virtual void SetWorldViewpoint();
-  virtual void SetPerspective1();
+  virtual void SetPerspective1(float, float, float, float, float);
   virtual void SetPerspective2();
   virtual rstl::pair< CVector2f, CVector2f > SetViewportOrtho(bool centered, float znear,
                                                               float zfar);

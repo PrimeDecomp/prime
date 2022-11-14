@@ -145,6 +145,7 @@ public:
   static const CViewport& GetViewport() { return mViewport; }
   static const CTransform4f& GetViewMatrix() { return mViewMatrix; }
   static const CTransform4f& GetModelMatrix() { return mModelMatrix; }
+  static void SetViewPointMatrix(const CTransform4f&);
   static void SetBrightness(float b) { mBrightness = b; }
 
   static float GetSecondsMod900();
