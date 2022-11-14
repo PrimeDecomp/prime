@@ -249,7 +249,7 @@ LIBS = [
             "MetroidPrime/Weapons/CPhazonBeam",
             ["MetroidPrime/ScriptObjects/CScriptTargetingPoint", True],
             "MetroidPrime/BodyState/CBSWallHang",
-            "MetroidPrime/ScriptObjects/CScriptEMPulse",
+            ["MetroidPrime/ScriptObjects/CScriptEMPulse", False],
             "MetroidPrime/HUD/CHudDecoInterface",
             "MetroidPrime/Weapons/CFlameThrower",
             "MetroidPrime/Weapons/CBeamProjectile",

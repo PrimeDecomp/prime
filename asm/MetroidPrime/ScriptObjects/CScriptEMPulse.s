@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803E4400
-lbl_803E4400:
+.global __vt__14CScriptEMPulse
+__vt__14CScriptEMPulse:
 	# ROM: 0x3E1400
 	.4byte 0
 	.4byte 0
@@ -56,9 +56,9 @@ __dt__14CScriptEMPulseFv:
 /* 8018EBC8 0018BB28  93 C1 00 08 */	stw r30, 8(r1)
 /* 8018EBCC 0018BB2C  7C 7E 1B 79 */	or. r30, r3, r3
 /* 8018EBD0 0018BB30  41 82 00 70 */	beq lbl_8018EC40
-/* 8018EBD4 0018BB34  3C 60 80 3E */	lis r3, lbl_803E4400@ha
+/* 8018EBD4 0018BB34  3C 60 80 3E */	lis r3, __vt__14CScriptEMPulse@ha
 /* 8018EBD8 0018BB38  34 1E 01 14 */	addic. r0, r30, 0x114
-/* 8018EBDC 0018BB3C  38 03 44 00 */	addi r0, r3, lbl_803E4400@l
+/* 8018EBDC 0018BB3C  38 03 44 00 */	addi r0, r3, __vt__14CScriptEMPulse@l
 /* 8018EBE0 0018BB40  90 1E 00 00 */	stw r0, 0(r30)
 /* 8018EBE4 0018BB44  41 82 00 24 */	beq lbl_8018EC08
 /* 8018EBE8 0018BB48  80 7E 01 14 */	lwz r3, 0x114(r30)
@@ -469,8 +469,8 @@ lbl_8018F18C:
 /* 8018F1A4 0018C104  38 21 00 70 */	addi r1, r1, 0x70
 /* 8018F1A8 0018C108  4E 80 00 20 */	blr
 
-.global "__ct__14CScriptEMPulseF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fbfffffUi"
-"__ct__14CScriptEMPulseF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fbfffffUi":
+.global "__ct__14CScriptEMPulseF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fbfffffffUi"
+"__ct__14CScriptEMPulseF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fbfffffffUi":
 /* 8018F1AC 0018C10C  94 21 FE 50 */	stwu r1, -0x1b0(r1)
 /* 8018F1B0 0018C110  7C 08 02 A6 */	mflr r0
 /* 8018F1B4 0018C114  90 01 01 B4 */	stw r0, 0x1b4(r1)
@@ -538,9 +538,9 @@ lbl_8018F18C:
 /* 8018F2AC 0018C20C  38 61 01 00 */	addi r3, r1, 0x100
 /* 8018F2B0 0018C210  38 80 FF FF */	li r4, -1
 /* 8018F2B4 0018C214  4B F8 77 99 */	bl __dt__10CModelDataFv
-/* 8018F2B8 0018C218  3C 60 80 3E */	lis r3, lbl_803E4400@ha
+/* 8018F2B8 0018C218  3C 60 80 3E */	lis r3, __vt__14CScriptEMPulse@ha
 /* 8018F2BC 0018C21C  3C 80 50 41 */	lis r4, 0x50415254@ha
-/* 8018F2C0 0018C220  38 03 44 00 */	addi r0, r3, lbl_803E4400@l
+/* 8018F2C0 0018C220  38 03 44 00 */	addi r0, r3, __vt__14CScriptEMPulse@l
 /* 8018F2C4 0018C224  38 61 00 18 */	addi r3, r1, 0x18
 /* 8018F2C8 0018C228  90 1F 00 00 */	stw r0, 0(r31)
 /* 8018F2CC 0018C22C  38 04 52 54 */	addi r0, r4, 0x50415254@l
