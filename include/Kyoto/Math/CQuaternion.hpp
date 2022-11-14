@@ -42,11 +42,10 @@ public:
   // BuildNormalized__11CQuaternionCFv
   static CQuaternion AxisAngle(const CUnitVector3f&, const CRelAngle&);
   CVector3f Transform(const CVector3f&) const;
-  // XRotation__11CQuaternionFRC9CRelAngle
-  // YRotation__11CQuaternionFRC9CRelAngle
-  // ZRotation__11CQuaternionFRC9CRelAngle
+  static CQuaternion XRotation(const CRelAngle&);
+  static CQuaternion YRotation(const CRelAngle&);
   static CQuaternion ZRotation(const CRelAngle&);
-  // BuildTransform__11CQuaternionCFv
+  CMatrix3f BuildTransform() const;
   CTransform4f BuildTransform4f() const;
   CTransform4f BuildTransform4f(const CVector3f&) const;
   CQuaternion BuildInverted() const {

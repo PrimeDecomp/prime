@@ -126,7 +126,7 @@ LIBS = [
             ["MetroidPrime/CMemoryDrawEnum", True],
             "MetroidPrime/ScriptObjects/CScriptDock",
             "MetroidPrime/ScriptObjects/CScriptCameraHint",
-            "MetroidPrime/ScriptLoader",
+            ["MetroidPrime/ScriptLoader", False],
             "MetroidPrime/CSamusDoll",
             "MetroidPrime/Factories/CStateMachineFactory",
             "MetroidPrime/Weapons/CPlasmaBeam",

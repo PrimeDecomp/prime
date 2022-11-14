@@ -64,8 +64,8 @@ public:
   void RotateLocalX(const CRelAngle& angle);
   void RotateLocalY(const CRelAngle& angle);
   void RotateLocalZ(const CRelAngle& angle);
-  // RotateX__12CTransform4fFRC9CRelAngle
-  // RotateY__12CTransform4fFRC9CRelAngle
+  static CTransform4f RotateX(const CRelAngle&);
+  static CTransform4f RotateY(const CRelAngle&);
   static CTransform4f RotateZ(const CRelAngle&);
   static CTransform4f Scale(float);
   static CTransform4f Scale(float, float, float);

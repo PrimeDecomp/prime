@@ -13,11 +13,12 @@
 
 #include "rstl/auto_ptr.hpp"
 #include "rstl/list.hpp"
+#include "rstl/optional_object.hpp"
 #include "rstl/pair.hpp"
 #include "rstl/rc_ptr.hpp"
 #include "rstl/single_ptr.hpp"
 #include "rstl/vector.hpp"
-#include "rstl/optional_object.hpp"
+
 
 enum ERglFogMode {
   kRFM_None = GX_FOG_NONE,
@@ -91,6 +92,7 @@ public:
   int IGetAreaSaveId() const override;
   rstl::pair< rstl::auto_ptr< uchar >, int > IGetScriptingMemoryAlways() const override;
 
+  const CTransform4f& GetTM() const { return xc_transform; }
   bool IsLoaded() const { return xf0_24_postConstructed; }
   bool IsActive() const { return xf0_25_active; }
 
@@ -154,6 +156,6 @@ private:
   rstl::single_ptr< CPostConstructed > x12c_postConstructed;
 };
 
-//CHECK_SIZEOF(CGamearea::CAreaFog, 0x38)
+// CHECK_SIZEOF(CGamearea::CAreaFog, 0x38)
 
 #endif // _CGAMEAREA
