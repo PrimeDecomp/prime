@@ -61,7 +61,7 @@ public:
 
   CModelData();
   CModelData(const CAnimRes&);
-  // __ct__10CModelDataFRC10CStaticRes
+  CModelData(const CStaticRes&);
   CModelData(const CModelData& other);
   ~CModelData();
 

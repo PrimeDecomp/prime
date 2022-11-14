@@ -35,6 +35,7 @@ public:
   void AsyncIdle(uint time);
 
   CResLoader& GetResLoader() { return x4_resLoader; }
+  FourCC GetResourceTypeById(CAssetId id) { return GetResLoader().GetResourceTypeById(id); }
 
 private:
   CResLoader x4_resLoader;

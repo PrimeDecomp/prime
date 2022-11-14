@@ -14,6 +14,8 @@ public:
   static CEntity* LoadCameraHintTrigger(CStateManager&, CInputStream&, int, const CEntityInfo&);
   static CEntity* LoadDamageableTrigger(CStateManager&, CInputStream&, int, const CEntityInfo&);
   static CEntity* LoadSpawnPoint(CStateManager&, CInputStream&, int, const CEntityInfo&);
+  static CEntity* LoadDock(CStateManager&, CInputStream&, int, const CEntityInfo&);
+  static CEntity* LoadActor(CStateManager&, CInputStream&, int, const CEntityInfo&);  
 };
 
 #endif // _SCRIPTLOADER
