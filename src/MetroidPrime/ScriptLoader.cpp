@@ -1,20 +1,26 @@
 #include "MetroidPrime/ScriptLoader.hpp"
 
 #include "MetroidPrime/CActorParameters.hpp"
+#include "MetroidPrime/CAnimRes.hpp"
 #include "MetroidPrime/CAnimationParameters.hpp"
 #include "MetroidPrime/CDamageVulnerability.hpp"
 #include "MetroidPrime/CGrappleParameters.hpp"
 #include "MetroidPrime/CHealthInfo.hpp"
+#include "MetroidPrime/CModelData.hpp"
 #include "MetroidPrime/CStateManager.hpp"
 #include "MetroidPrime/CWorld.hpp"
 #include "MetroidPrime/Player/CPlayerState.hpp"
 
+#include "MetroidPrime/ScriptObjects/CScriptActor.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptCameraHintTrigger.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptDamageableTrigger.hpp"
+#include "MetroidPrime/ScriptObjects/CScriptDock.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptSpawnPoint.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptTrigger.hpp"
 
+
 #include "Kyoto/Alloc/CMemory.hpp"
+#include "Kyoto/CResFactory.hpp"
 #include "Kyoto/Math/CQuaternion.hpp"
 #include "Kyoto/Math/CRelAngle.hpp"
 #include "Kyoto/Streams/CInputStream.hpp"
@@ -304,4 +310,96 @@ CEntity* ScriptLoader::LoadSpawnPoint(CStateManager& mgr, CInputStream& in, int 
                                ConvertEditorEulerToTransform4f(rotation, position),
                                rstl::reserved_vector< int, int(CPlayerState::kIT_Max) >(itemCounts),
                                defaultSpawn, active, morphed);
+}
+
+CEntity* ScriptLoader::LoadDock(CStateManager& mgr, CInputStream& in, int propCount,
+                                const CEntityInfo& info) {
+  if (propCount != 7)
+    return nullptr;
+
+  rstl::string name = mgr.HashInstanceName(in);
+  bool active = in.Get< bool >();
+  CVector3f position(in);
+  CVector3f scale(in);
+  int dock = in.Get< int >();
+  TAreaId area = in.Get< int >();
+  bool loadConnected = in.Get< bool >();
+  return new CScriptDock(mgr.AllocateUniqueId(), name, info, position, scale, dock, area, active, 0,
+                         loadConnected);
+}
+
+static CAABox GetCollisionBox(CStateManager& stateMgr, TAreaId id, const CVector3f& extent,
+                              const CVector3f& offset) {
+  CAABox box(-extent * 0.5f + offset, extent * 0.5f + offset);
+  const CTransform4f& rot = stateMgr.GetWorld()->GetAreaAlways(id).GetTM().GetRotation();
+  return box.GetTransformedAABox(rot);
+}
+
+CEntity* ScriptLoader::LoadActor(CStateManager& mgr, CInputStream& in, int propCount,
+                                 const CEntityInfo& info) {
+  if (propCount != 24)
+    return nullptr;
+
+  SScaledActorHead head(in, mgr);
+  CVector3f collisionExtent(in);
+  CVector3f centroid(in);
+
+  float mass = in.ReadFloat();
+  float zMomentum = in.ReadFloat();
+
+  CHealthInfo hInfo(in);
+
+  CDamageVulnerability dVuln(in);
+
+  CAssetId staticId = in.Get< CAssetId >();
+  CAnimationParameters aParms = LoadAnimationParameters(in);
+
+  CActorParameters actParms = LoadActorParameters(in);
+
+  bool looping = in.Get< bool >();
+  bool immovable = in.Get< bool >();
+  bool solid = in.Get< bool >();
+  bool cameraPassthrough = in.Get< bool >();
+  bool active = in.Get< bool >();
+  int shaderIdx = in.Get< int >();
+  float xrayAlpha = in.Get< float >();
+  bool noThermalHotZ = in.Get< bool >();
+  bool castsShadow = in.Get< bool >();
+  bool scaleAdvancementDelta = in.Get< bool >();
+  bool materialFlag54 = in.Get< bool >();
+
+  FourCC animType = gpResourceFactory->GetResourceTypeById(aParms.GetACSFile());
+  if (gpResourceFactory->GetResourceTypeById(staticId) == 0 && animType == 0)
+    return nullptr;
+
+  CAABox aabb = GetCollisionBox(mgr, info.GetAreaId(), collisionExtent, centroid);
+
+  CMaterialList list;
+  if (immovable) // Bool 2
+    list.Add(kMT_Immovable);
+
+  if (solid) // Bool 3
+    list.Add(kMT_Solid);
+
+  if (cameraPassthrough) // Bool 4
+    list.Add(kMT_CameraPassthrough);
+
+  bool negativeCollisionExtent =
+      collisionExtent.GetX() < 0.f || collisionExtent.GetY() < 0.f || collisionExtent.GetZ() < 0.f;
+
+  CModelData data(CModelData::CModelDataNull());
+  if (animType == 'ANCS') {
+    data = CModelData(CAnimRes(aParms.GetACSFile(), aParms.GetCharacter(), head.x40_scale,
+                               aParms.GetInitialAnimation(), false));
+  } else {
+    data = CModelData(CStaticRes(staticId, head.x40_scale));
+  }
+
+  if (collisionExtent == CVector3f::Zero() || negativeCollisionExtent)
+    aabb = data.GetBounds(head.x0_actorHead.x10_transform.GetRotation());
+
+  return new CScriptActor(mgr.AllocateUniqueId(), head.x0_actorHead.x0_name, info,
+                          head.x0_actorHead.x10_transform, data, aabb, list, mass, zMomentum, hInfo,
+                          dVuln, actParms, looping, active, shaderIdx, xrayAlpha, noThermalHotZ,
+                          castsShadow, scaleAdvancementDelta, materialFlag54);
 }
