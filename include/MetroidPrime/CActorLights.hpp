@@ -10,6 +10,7 @@
 #include "Kyoto/Math/CVector3f.hpp"
 
 #include "rstl/reserved_vector.hpp"
+#include "rstl/vector.hpp"
 
 class CGameArea;
 class CStateManager;
