@@ -28,6 +28,22 @@ enum EPlayerMovementState {
 };
 };
 
+enum EPlayerOrbitRequest {
+  kOR_StopOrbit,
+  kOR_Respawn,
+  kOR_EnterMorphBall,
+  kOR_Default,
+  kOR_Four,
+  kOR_Five,
+  kOR_InvalidateTarget,
+  kOR_BadVerticalAngle,
+  kOR_ActivateOrbitSource,
+  kOR_ProjectileCollide,
+  kOR_Freeze,
+  kOR_DamageOnGrapple,
+  kOR_LostGrappleLineOfSight,
+};
+
 class CPlayer : public CPhysicsActor {
   struct CVisorSteam {
     float x0_curTargetAlpha;
@@ -92,21 +108,6 @@ public:
     kOT_Close,
     kOT_Far,
     kOT_Default,
-  };
-  enum EPlayerOrbitRequest {
-    kOR_StopOrbit,
-    kOR_Respawn,
-    kOR_EnterMorphBall,
-    kOR_Default,
-    kOR_Four,
-    kOR_Five,
-    kOR_InvalidateTarget,
-    kOR_BadVerticalAngle,
-    kOR_ActivateOrbitSource,
-    kOR_ProjectileCollide,
-    kOR_Freeze,
-    kOR_DamageOnGrapple,
-    kOR_LostGrappleLineOfSight,
   };
   enum EPlayerZoneInfo {
     kZI_Targeting,
@@ -175,7 +176,7 @@ public:
 
   // CPlayer
   virtual bool IsTransparent();
-  
+
   CVector3f GetBallPosition() const;
   CVector3f GetEyePosition() const;
   float GetEyeHeight() const;
@@ -193,6 +194,7 @@ public:
   void DecrementPhazon();
   // GetMovementDirection2D__7CPlayerCFv ??
   void SetOrbitTargetId(TUniqueId id, CStateManager& mgr);
+  void SetOrbitRequestForTarget(TUniqueId id, EPlayerOrbitRequest req, CStateManager& mgr);
   void AddOrbitDisableSource(CStateManager& mgr, TUniqueId addId);
   void RemoveOrbitDisableSource(TUniqueId uid);
   void ResetAimTargetPrediction(TUniqueId target);
@@ -204,6 +206,8 @@ public:
 
   CMorphBall* MorphBall() { return x768_morphball.get(); }
   const CMorphBall* GetMorphBall() const { return x768_morphball.get(); }
+
+  float GetStaticTimer() const { return x740_staticTimer; }
 
   ESurfaceRestraints GetCurrentSurfaceRestraint() const { return x2ac_surfaceRestraint; }
   ESurfaceRestraints GetSurfaceRestraint() const {
