@@ -178,7 +178,7 @@ LoadEnergyBall__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
 lbl_800C52D4:
 /* 800C52D4 000C2234  7E A5 AB 78 */	mr r5, r21
 /* 800C52D8 000C2238  38 61 01 F0 */	addi r3, r1, 0x1f0
-/* 800C52DC 000C223C  48 01 51 A1 */	bl LoadScaledActorHead__FR12CInputStreamR13CStateManager
+/* 800C52DC 000C223C  48 01 51 A1 */	bl __ct__16SScaledActorHeadFR12CInputStreamR13CStateManager
 /* 800C52E0 000C2240  3C 60 80 3D */	lis r3, lbl_803CE07C@ha
 /* 800C52E4 000C2244  7E C4 B3 78 */	mr r4, r22
 /* 800C52E8 000C2248  38 A3 E0 7C */	addi r5, r3, lbl_803CE07C@l
@@ -564,7 +564,7 @@ LoadPhazonHealingNodule__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEnt
 lbl_800C5884:
 /* 800C5884 000C27E4  7F C5 F3 78 */	mr r5, r30
 /* 800C5888 000C27E8  38 61 01 6C */	addi r3, r1, 0x16c
-/* 800C588C 000C27EC  48 01 4B F1 */	bl LoadScaledActorHead__FR12CInputStreamR13CStateManager
+/* 800C588C 000C27EC  48 01 4B F1 */	bl __ct__16SScaledActorHeadFR12CInputStreamR13CStateManager
 /* 800C5890 000C27F0  3C 60 80 3D */	lis r3, lbl_803CE07C@ha
 /* 800C5894 000C27F4  7F 84 E3 78 */	mr r4, r28
 /* 800C5898 000C27F8  38 A3 E0 7C */	addi r5, r3, lbl_803CE07C@l
@@ -706,7 +706,7 @@ LoadPhazonPool__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
 lbl_800C5A98:
 /* 800C5A98 000C29F8  7F 05 C3 78 */	mr r5, r24
 /* 800C5A9C 000C29FC  38 61 00 CC */	addi r3, r1, 0xcc
-/* 800C5AA0 000C2A00  48 01 49 DD */	bl LoadScaledActorHead__FR12CInputStreamR13CStateManager
+/* 800C5AA0 000C2A00  48 01 49 DD */	bl __ct__16SScaledActorHeadFR12CInputStreamR13CStateManager
 /* 800C5AA4 000C2A04  7F 23 CB 78 */	mr r3, r25
 /* 800C5AA8 000C2A08  48 27 92 35 */	bl ReadBool__12CInputStreamFv
 /* 800C5AAC 000C2A0C  7C 7B 1B 78 */	mr r27, r3
@@ -857,7 +857,7 @@ LoadOmegaPirate__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
 lbl_800C5CDC:
 /* 800C5CDC 000C2C3C  7F C5 F3 78 */	mr r5, r30
 /* 800C5CE0 000C2C40  38 61 01 60 */	addi r3, r1, 0x160
-/* 800C5CE4 000C2C44  48 01 47 99 */	bl LoadScaledActorHead__FR12CInputStreamR13CStateManager
+/* 800C5CE4 000C2C44  48 01 47 99 */	bl __ct__16SScaledActorHeadFR12CInputStreamR13CStateManager
 /* 800C5CE8 000C2C48  3C 60 80 3D */	lis r3, lbl_803CE07C@ha
 /* 800C5CEC 000C2C4C  7F A4 EB 78 */	mr r4, r29
 /* 800C5CF0 000C2C50  38 A3 E0 7C */	addi r5, r3, lbl_803CE07C@l
@@ -1003,7 +1003,7 @@ LoadMazeNode__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
 lbl_800C5EF8:
 /* 800C5EF8 000C2E58  7F 25 CB 78 */	mr r5, r25
 /* 800C5EFC 000C2E5C  38 61 00 44 */	addi r3, r1, 0x44
-/* 800C5F00 000C2E60  48 01 45 C5 */	bl LoadActorHead__FR12CInputStreamR13CStateManager
+/* 800C5F00 000C2E60  48 01 45 C5 */	bl __ct__10SActorHeadFR12CInputStreamR13CStateManager
 /* 800C5F04 000C2E64  7F 63 DB 78 */	mr r3, r27
 /* 800C5F08 000C2E68  48 27 8D D5 */	bl ReadBool__12CInputStreamFv
 /* 800C5F0C 000C2E6C  7C 7E 1B 78 */	mr r30, r3
@@ -1082,7 +1082,7 @@ LoadMetroidPrimeEssence__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEnt
 lbl_800C601C:
 /* 800C601C 000C2F7C  7F 25 CB 78 */	mr r5, r25
 /* 800C6020 000C2F80  38 61 01 BC */	addi r3, r1, 0x1bc
-/* 800C6024 000C2F84  48 01 44 59 */	bl LoadScaledActorHead__FR12CInputStreamR13CStateManager
+/* 800C6024 000C2F84  48 01 44 59 */	bl __ct__16SScaledActorHeadFR12CInputStreamR13CStateManager
 /* 800C6028 000C2F88  3C 60 80 3D */	lis r3, lbl_803CE07C@ha
 /* 800C602C 000C2F8C  7E E4 BB 78 */	mr r4, r23
 /* 800C6030 000C2F90  38 A3 E0 7C */	addi r5, r3, lbl_803CE07C@l
@@ -1344,7 +1344,7 @@ LoadScriptBeam__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
 lbl_800C63F8:
 /* 800C63F8 000C3358  7F 65 DB 78 */	mr r5, r27
 /* 800C63FC 000C335C  38 61 00 4C */	addi r3, r1, 0x4c
-/* 800C6400 000C3360  48 01 40 C5 */	bl LoadActorHead__FR12CInputStreamR13CStateManager
+/* 800C6400 000C3360  48 01 40 C5 */	bl __ct__10SActorHeadFR12CInputStreamR13CStateManager
 /* 800C6404 000C3364  7F E3 FB 78 */	mr r3, r31
 /* 800C6408 000C3368  48 27 88 D5 */	bl ReadBool__12CInputStreamFv
 /* 800C640C 000C336C  7C 7E 1B 78 */	mr r30, r3
@@ -1535,7 +1535,7 @@ lbl_800C66BC:
 /* 800C66BC 000C361C  7F 04 C3 78 */	mr r4, r24
 /* 800C66C0 000C3620  7E A5 AB 78 */	mr r5, r21
 /* 800C66C4 000C3624  38 61 01 38 */	addi r3, r1, 0x138
-/* 800C66C8 000C3628  48 01 3D B5 */	bl LoadScaledActorHead__FR12CInputStreamR13CStateManager
+/* 800C66C8 000C3628  48 01 3D B5 */	bl __ct__16SScaledActorHeadFR12CInputStreamR13CStateManager
 /* 800C66CC 000C362C  7F 03 C3 78 */	mr r3, r24
 /* 800C66D0 000C3630  48 27 86 0D */	bl ReadBool__12CInputStreamFv
 /* 800C66D4 000C3634  7C 79 1B 78 */	mr r25, r3
@@ -2258,7 +2258,7 @@ LoadBurrower__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
 lbl_800C7080:
 /* 800C7080 000C3FE0  7F C5 F3 78 */	mr r5, r30
 /* 800C7084 000C3FE4  38 61 01 B8 */	addi r3, r1, 0x1b8
-/* 800C7088 000C3FE8  48 01 33 F5 */	bl LoadScaledActorHead__FR12CInputStreamR13CStateManager
+/* 800C7088 000C3FE8  48 01 33 F5 */	bl __ct__16SScaledActorHeadFR12CInputStreamR13CStateManager
 /* 800C708C 000C3FEC  3C 60 80 3D */	lis r3, lbl_803CE07C@ha
 /* 800C7090 000C3FF0  7F 64 DB 78 */	mr r4, r27
 /* 800C7094 000C3FF4  38 A3 E0 7C */	addi r5, r3, lbl_803CE07C@l
@@ -2529,7 +2529,7 @@ LoadSeedling__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
 lbl_800C7480:
 /* 800C7480 000C43E0  7F C5 F3 78 */	mr r5, r30
 /* 800C7484 000C43E4  38 61 01 D8 */	addi r3, r1, 0x1d8
-/* 800C7488 000C43E8  48 01 2F F5 */	bl LoadScaledActorHead__FR12CInputStreamR13CStateManager
+/* 800C7488 000C43E8  48 01 2F F5 */	bl __ct__16SScaledActorHeadFR12CInputStreamR13CStateManager
 /* 800C748C 000C43EC  3C 60 80 3D */	lis r3, lbl_803CE07C@ha
 /* 800C7490 000C43F0  7F A4 EB 78 */	mr r4, r29
 /* 800C7494 000C43F4  38 A3 E0 7C */	addi r5, r3, lbl_803CE07C@l
@@ -2730,7 +2730,7 @@ LoadTryclops__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
 lbl_800C7780:
 /* 800C7780 000C46E0  7F A5 EB 78 */	mr r5, r29
 /* 800C7784 000C46E4  38 61 01 50 */	addi r3, r1, 0x150
-/* 800C7788 000C46E8  48 01 2C F5 */	bl LoadScaledActorHead__FR12CInputStreamR13CStateManager
+/* 800C7788 000C46E8  48 01 2C F5 */	bl __ct__16SScaledActorHeadFR12CInputStreamR13CStateManager
 /* 800C778C 000C46EC  3C 60 80 3D */	lis r3, lbl_803CE07C@ha
 /* 800C7790 000C46F0  7F E4 FB 78 */	mr r4, r31
 /* 800C7794 000C46F4  38 A3 E0 7C */	addi r5, r3, lbl_803CE07C@l
@@ -2876,7 +2876,7 @@ LoadPuffer__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
 lbl_800C79A4:
 /* 800C79A4 000C4904  7F 05 C3 78 */	mr r5, r24
 /* 800C79A8 000C4908  38 61 01 A8 */	addi r3, r1, 0x1a8
-/* 800C79AC 000C490C  48 01 2A D1 */	bl LoadScaledActorHead__FR12CInputStreamR13CStateManager
+/* 800C79AC 000C490C  48 01 2A D1 */	bl __ct__16SScaledActorHeadFR12CInputStreamR13CStateManager
 /* 800C79B0 000C4910  3C 60 80 3D */	lis r3, lbl_803CE07C@ha
 /* 800C79B4 000C4914  7E E4 BB 78 */	mr r4, r23
 /* 800C79B8 000C4918  38 A3 E0 7C */	addi r5, r3, lbl_803CE07C@l
@@ -3039,7 +3039,7 @@ LoadRidley__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
 lbl_800C7C0C:
 /* 800C7C0C 000C4B6C  7F 85 E3 78 */	mr r5, r28
 /* 800C7C10 000C4B70  38 61 01 58 */	addi r3, r1, 0x158
-/* 800C7C14 000C4B74  48 01 28 69 */	bl LoadScaledActorHead__FR12CInputStreamR13CStateManager
+/* 800C7C14 000C4B74  48 01 28 69 */	bl __ct__16SScaledActorHeadFR12CInputStreamR13CStateManager
 /* 800C7C18 000C4B78  3C 60 80 3D */	lis r3, lbl_803CE07C@ha
 /* 800C7C1C 000C4B7C  7F A4 EB 78 */	mr r4, r29
 /* 800C7C20 000C4B80  38 A3 E0 7C */	addi r5, r3, lbl_803CE07C@l
@@ -3173,7 +3173,7 @@ LoadIceZoomer__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
 lbl_800C7E00:
 /* 800C7E00 000C4D60  7F 65 DB 78 */	mr r5, r27
 /* 800C7E04 000C4D64  38 61 02 34 */	addi r3, r1, 0x234
-/* 800C7E08 000C4D68  48 01 26 75 */	bl LoadScaledActorHead__FR12CInputStreamR13CStateManager
+/* 800C7E08 000C4D68  48 01 26 75 */	bl __ct__16SScaledActorHeadFR12CInputStreamR13CStateManager
 /* 800C7E0C 000C4D6C  3C 60 80 3D */	lis r3, lbl_803CE07C@ha
 /* 800C7E10 000C4D70  7F 24 CB 78 */	mr r4, r25
 /* 800C7E14 000C4D74  38 A3 E0 7C */	addi r5, r3, lbl_803CE07C@l
@@ -3408,7 +3408,7 @@ LoadAtomicBeta__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
 lbl_800C8188:
 /* 800C8188 000C50E8  7F 05 C3 78 */	mr r5, r24
 /* 800C818C 000C50EC  38 61 01 F4 */	addi r3, r1, 0x1f4
-/* 800C8190 000C50F0  48 01 22 ED */	bl LoadScaledActorHead__FR12CInputStreamR13CStateManager
+/* 800C8190 000C50F0  48 01 22 ED */	bl __ct__16SScaledActorHeadFR12CInputStreamR13CStateManager
 /* 800C8194 000C50F4  3C 60 80 3D */	lis r3, lbl_803CE07C@ha
 /* 800C8198 000C50F8  7E E4 BB 78 */	mr r4, r23
 /* 800C819C 000C50FC  38 A3 E0 7C */	addi r5, r3, lbl_803CE07C@l
@@ -3605,7 +3605,7 @@ LoadAmbientAI__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
 lbl_800C8478:
 /* 800C8478 000C53D8  7E E5 BB 78 */	mr r5, r23
 /* 800C847C 000C53DC  38 61 02 7C */	addi r3, r1, 0x27c
-/* 800C8480 000C53E0  48 01 1F FD */	bl LoadScaledActorHead__FR12CInputStreamR13CStateManager
+/* 800C8480 000C53E0  48 01 1F FD */	bl __ct__16SScaledActorHeadFR12CInputStreamR13CStateManager
 /* 800C8484 000C53E4  7E C4 B3 78 */	mr r4, r22
 /* 800C8488 000C53E8  38 61 00 58 */	addi r3, r1, 0x58
 /* 800C848C 000C53EC  48 24 C7 01 */	bl __ct__9CVector3fFR12CInputStream
@@ -4006,7 +4006,7 @@ LoadAtomicAlpha__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
 lbl_800C8A68:
 /* 800C8A68 000C59C8  7F C5 F3 78 */	mr r5, r30
 /* 800C8A6C 000C59CC  38 61 01 84 */	addi r3, r1, 0x184
-/* 800C8A70 000C59D0  48 01 1A 0D */	bl LoadScaledActorHead__FR12CInputStreamR13CStateManager
+/* 800C8A70 000C59D0  48 01 1A 0D */	bl __ct__16SScaledActorHeadFR12CInputStreamR13CStateManager
 /* 800C8A74 000C59D4  3C 60 80 3D */	lis r3, lbl_803CE07C@ha
 /* 800C8A78 000C59D8  7F 24 CB 78 */	mr r4, r25
 /* 800C8A7C 000C59DC  38 A3 E0 7C */	addi r5, r3, lbl_803CE07C@l
@@ -4173,7 +4173,7 @@ LoadGeemer__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
 lbl_800C8CE0:
 /* 800C8CE0 000C5C40  7F 45 D3 78 */	mr r5, r26
 /* 800C8CE4 000C5C44  38 61 01 CC */	addi r3, r1, 0x1cc
-/* 800C8CE8 000C5C48  48 01 17 95 */	bl LoadScaledActorHead__FR12CInputStreamR13CStateManager
+/* 800C8CE8 000C5C48  48 01 17 95 */	bl __ct__16SScaledActorHeadFR12CInputStreamR13CStateManager
 /* 800C8CEC 000C5C4C  3C 60 80 3D */	lis r3, lbl_803CE07C@ha
 /* 800C8CF0 000C5C50  7E E4 BB 78 */	mr r4, r23
 /* 800C8CF4 000C5C54  38 A3 E0 7C */	addi r5, r3, lbl_803CE07C@l
@@ -4409,7 +4409,7 @@ LoadOcculus__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
 lbl_800C906C:
 /* 800C906C 000C5FCC  7F 85 E3 78 */	mr r5, r28
 /* 800C9070 000C5FD0  38 61 02 2C */	addi r3, r1, 0x22c
-/* 800C9074 000C5FD4  48 01 14 09 */	bl LoadScaledActorHead__FR12CInputStreamR13CStateManager
+/* 800C9074 000C5FD4  48 01 14 09 */	bl __ct__16SScaledActorHeadFR12CInputStreamR13CStateManager
 /* 800C9078 000C5FD8  3C 60 80 3D */	lis r3, lbl_803CE07C@ha
 /* 800C907C 000C5FDC  7F 44 D3 78 */	mr r4, r26
 /* 800C9080 000C5FE0  38 A3 E0 7C */	addi r5, r3, lbl_803CE07C@l
@@ -4611,7 +4611,7 @@ LoadActorContraption__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntity
 lbl_800C9370:
 /* 800C9370 000C62D0  7F 05 C3 78 */	mr r5, r24
 /* 800C9374 000C62D4  38 61 02 B4 */	addi r3, r1, 0x2b4
-/* 800C9378 000C62D8  48 01 11 05 */	bl LoadScaledActorHead__FR12CInputStreamR13CStateManager
+/* 800C9378 000C62D8  48 01 11 05 */	bl __ct__16SScaledActorHeadFR12CInputStreamR13CStateManager
 /* 800C937C 000C62DC  7E E4 BB 78 */	mr r4, r23
 /* 800C9380 000C62E0  38 61 00 58 */	addi r3, r1, 0x58
 /* 800C9384 000C62E4  48 24 B8 09 */	bl __ct__9CVector3fFR12CInputStream
@@ -5238,7 +5238,7 @@ LoadMagdolite__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
 lbl_800C9CB0:
 /* 800C9CB0 000C6C10  7F C5 F3 78 */	mr r5, r30
 /* 800C9CB4 000C6C14  38 61 02 98 */	addi r3, r1, 0x298
-/* 800C9CB8 000C6C18  48 01 07 C5 */	bl LoadScaledActorHead__FR12CInputStreamR13CStateManager
+/* 800C9CB8 000C6C18  48 01 07 C5 */	bl __ct__16SScaledActorHeadFR12CInputStreamR13CStateManager
 /* 800C9CBC 000C6C1C  3C 60 80 3D */	lis r3, lbl_803CE07C@ha
 /* 800C9CC0 000C6C20  7F 64 DB 78 */	mr r4, r27
 /* 800C9CC4 000C6C24  38 A3 E0 7C */	addi r5, r3, lbl_803CE07C@l
@@ -5610,7 +5610,7 @@ LoadElitePirate__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
 lbl_800CA234:
 /* 800CA234 000C7194  7F C5 F3 78 */	mr r5, r30
 /* 800CA238 000C7198  38 61 01 58 */	addi r3, r1, 0x158
-/* 800CA23C 000C719C  48 01 02 41 */	bl LoadScaledActorHead__FR12CInputStreamR13CStateManager
+/* 800CA23C 000C719C  48 01 02 41 */	bl __ct__16SScaledActorHeadFR12CInputStreamR13CStateManager
 /* 800CA240 000C71A0  3C 60 80 3D */	lis r3, lbl_803CE07C@ha
 /* 800CA244 000C71A4  7F 84 E3 78 */	mr r4, r28
 /* 800CA248 000C71A8  38 A3 E0 7C */	addi r5, r3, lbl_803CE07C@l
@@ -5756,7 +5756,7 @@ LoadScriptCameraPitchVolume__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11
 lbl_800CA450:
 /* 800CA450 000C73B0  7F 85 E3 78 */	mr r5, r28
 /* 800CA454 000C73B4  38 61 00 20 */	addi r3, r1, 0x20
-/* 800CA458 000C73B8  48 01 00 25 */	bl LoadScaledActorHead__FR12CInputStreamR13CStateManager
+/* 800CA458 000C73B8  48 01 00 25 */	bl __ct__16SScaledActorHeadFR12CInputStreamR13CStateManager
 /* 800CA45C 000C73BC  7F C3 F3 78 */	mr r3, r30
 /* 800CA460 000C73C0  48 27 48 7D */	bl ReadBool__12CInputStreamFv
 /* 800CA464 000C73C4  7C 7F 1B 78 */	mr r31, r3
@@ -6161,7 +6161,7 @@ LoadBabygoth__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
 lbl_800CAA4C:
 /* 800CAA4C 000C79AC  7F C5 F3 78 */	mr r5, r30
 /* 800CAA50 000C79B0  38 61 01 58 */	addi r3, r1, 0x158
-/* 800CAA54 000C79B4  48 00 FA 29 */	bl LoadScaledActorHead__FR12CInputStreamR13CStateManager
+/* 800CAA54 000C79B4  48 00 FA 29 */	bl __ct__16SScaledActorHeadFR12CInputStreamR13CStateManager
 /* 800CAA58 000C79B8  3C 60 80 3D */	lis r3, lbl_803CE07C@ha
 /* 800CAA5C 000C79BC  7F 84 E3 78 */	mr r4, r28
 /* 800CAA60 000C79C0  38 A3 E0 7C */	addi r5, r3, lbl_803CE07C@l
@@ -6744,7 +6744,7 @@ LoadThardusRockProjectile__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CE
 lbl_800CB2C0:
 /* 800CB2C0 000C8220  7F C5 F3 78 */	mr r5, r30
 /* 800CB2C4 000C8224  38 61 01 D4 */	addi r3, r1, 0x1d4
-/* 800CB2C8 000C8228  48 00 F1 B5 */	bl LoadScaledActorHead__FR12CInputStreamR13CStateManager
+/* 800CB2C8 000C8228  48 00 F1 B5 */	bl __ct__16SScaledActorHeadFR12CInputStreamR13CStateManager
 /* 800CB2CC 000C822C  3C 60 80 3D */	lis r3, lbl_803CE07C@ha
 /* 800CB2D0 000C8230  7F A4 EB 78 */	mr r4, r29
 /* 800CB2D4 000C8234  38 A3 E0 7C */	addi r5, r3, lbl_803CE07C@l
@@ -6977,7 +6977,7 @@ LoadFlaahgraTentacle__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntity
 lbl_800CB610:
 /* 800CB610 000C8570  7F A5 EB 78 */	mr r5, r29
 /* 800CB614 000C8574  38 61 01 50 */	addi r3, r1, 0x150
-/* 800CB618 000C8578  48 00 EE 65 */	bl LoadScaledActorHead__FR12CInputStreamR13CStateManager
+/* 800CB618 000C8578  48 00 EE 65 */	bl __ct__16SScaledActorHeadFR12CInputStreamR13CStateManager
 /* 800CB61C 000C857C  3C 60 80 3D */	lis r3, lbl_803CE07C@ha
 /* 800CB620 000C8580  7F E4 FB 78 */	mr r4, r31
 /* 800CB624 000C8584  38 A3 E0 7C */	addi r5, r3, lbl_803CE07C@l
@@ -7130,7 +7130,7 @@ LoadWallCrawlerSwarm__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntity
 lbl_800CB850:
 /* 800CB850 000C87B0  7E 05 83 78 */	mr r5, r16
 /* 800CB854 000C87B4  38 61 02 78 */	addi r3, r1, 0x278
-/* 800CB858 000C87B8  48 00 EC 25 */	bl LoadScaledActorHead__FR12CInputStreamR13CStateManager
+/* 800CB858 000C87B8  48 00 EC 25 */	bl __ct__16SScaledActorHeadFR12CInputStreamR13CStateManager
 /* 800CB85C 000C87BC  7D C3 73 78 */	mr r3, r14
 /* 800CB860 000C87C0  48 27 34 7D */	bl ReadBool__12CInputStreamFv
 /* 800CB864 000C87C4  98 61 02 C4 */	stb r3, 0x2c4(r1)
@@ -7406,7 +7406,7 @@ LoadThardus__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
 lbl_800CBC84:
 /* 800CBC84 000C8BE4  7F E5 FB 78 */	mr r5, r31
 /* 800CBC88 000C8BE8  38 61 06 E4 */	addi r3, r1, 0x6e4
-/* 800CBC8C 000C8BEC  48 00 E7 F1 */	bl LoadScaledActorHead__FR12CInputStreamR13CStateManager
+/* 800CBC8C 000C8BEC  48 00 E7 F1 */	bl __ct__16SScaledActorHeadFR12CInputStreamR13CStateManager
 /* 800CBC90 000C8BF0  3C 60 80 3D */	lis r3, lbl_803CE07C@ha
 /* 800CBC94 000C8BF4  7F C4 F3 78 */	mr r4, r30
 /* 800CBC98 000C8BF8  38 A3 E0 7C */	addi r5, r3, lbl_803CE07C@l
@@ -7970,7 +7970,7 @@ LoadJellyZap__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
 lbl_800CC510:
 /* 800CC510 000C9470  7F C5 F3 78 */	mr r5, r30
 /* 800CC514 000C9474  38 61 01 84 */	addi r3, r1, 0x184
-/* 800CC518 000C9478  48 00 DF 65 */	bl LoadScaledActorHead__FR12CInputStreamR13CStateManager
+/* 800CC518 000C9478  48 00 DF 65 */	bl __ct__16SScaledActorHeadFR12CInputStreamR13CStateManager
 /* 800CC51C 000C947C  3C 60 80 3D */	lis r3, lbl_803CE07C@ha
 /* 800CC520 000C9480  7F 84 E3 78 */	mr r4, r28
 /* 800CC524 000C9484  38 A3 E0 7C */	addi r5, r3, lbl_803CE07C@l
@@ -10444,7 +10444,7 @@ LoadFishCloud__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
 lbl_800CE8A4:
 /* 800CE8A4 000CB804  7E 05 83 78 */	mr r5, r16
 /* 800CE8A8 000CB808  38 61 00 E8 */	addi r3, r1, 0xe8
-/* 800CE8AC 000CB80C  48 00 BB D1 */	bl LoadScaledActorHead__FR12CInputStreamR13CStateManager
+/* 800CE8AC 000CB80C  48 00 BB D1 */	bl __ct__16SScaledActorHeadFR12CInputStreamR13CStateManager
 /* 800CE8B0 000CB810  7D C3 73 78 */	mr r3, r14
 /* 800CE8B4 000CB814  48 27 04 29 */	bl ReadBool__12CInputStreamFv
 /* 800CE8B8 000CB818  98 61 01 40 */	stb r3, 0x140(r1)
@@ -10877,7 +10877,7 @@ LoadPlayerActor__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
 lbl_800CEF30:
 /* 800CEF30 000CBE90  7E E5 BB 78 */	mr r5, r23
 /* 800CEF34 000CBE94  38 61 02 74 */	addi r3, r1, 0x274
-/* 800CEF38 000CBE98  48 00 B5 45 */	bl LoadScaledActorHead__FR12CInputStreamR13CStateManager
+/* 800CEF38 000CBE98  48 00 B5 45 */	bl __ct__16SScaledActorHeadFR12CInputStreamR13CStateManager
 /* 800CEF3C 000CBE9C  7F 24 CB 78 */	mr r4, r25
 /* 800CEF40 000CBEA0  38 61 00 80 */	addi r3, r1, 0x80
 /* 800CEF44 000CBEA4  48 24 5C 49 */	bl __ct__9CVector3fFR12CInputStream
@@ -11160,7 +11160,7 @@ LoadIceSheegoth__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
 lbl_800CF350:
 /* 800CF350 000CC2B0  7F C5 F3 78 */	mr r5, r30
 /* 800CF354 000CC2B4  38 61 01 58 */	addi r3, r1, 0x158
-/* 800CF358 000CC2B8  48 00 B1 25 */	bl LoadScaledActorHead__FR12CInputStreamR13CStateManager
+/* 800CF358 000CC2B8  48 00 B1 25 */	bl __ct__16SScaledActorHeadFR12CInputStreamR13CStateManager
 /* 800CF35C 000CC2BC  3C 60 80 3D */	lis r3, lbl_803CE07C@ha
 /* 800CF360 000CC2C0  7F 84 E3 78 */	mr r4, r28
 /* 800CF364 000CC2C4  38 A3 E0 7C */	addi r5, r3, lbl_803CE07C@l
@@ -11289,7 +11289,7 @@ LoadEMPulse__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
 lbl_800CF530:
 /* 800CF530 000CC490  7F 65 DB 78 */	mr r5, r27
 /* 800CF534 000CC494  38 61 00 10 */	addi r3, r1, 0x10
-/* 800CF538 000CC498  48 00 AF 8D */	bl LoadActorHead__FR12CInputStreamR13CStateManager
+/* 800CF538 000CC498  48 00 AF 8D */	bl __ct__10SActorHeadFR12CInputStreamR13CStateManager
 /* 800CF53C 000CC49C  7F A3 EB 78 */	mr r3, r29
 /* 800CF540 000CC4A0  48 26 F7 9D */	bl ReadBool__12CInputStreamFv
 /* 800CF544 000CC4A4  7C 7F 1B 78 */	mr r31, r3
@@ -11378,7 +11378,7 @@ LoadTargetingPoint__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityIn
 lbl_800CF67C:
 /* 800CF67C 000CC5DC  7F 85 E3 78 */	mr r5, r28
 /* 800CF680 000CC5E0  38 61 00 10 */	addi r3, r1, 0x10
-/* 800CF684 000CC5E4  48 00 AE 41 */	bl LoadActorHead__FR12CInputStreamR13CStateManager
+/* 800CF684 000CC5E4  48 00 AE 41 */	bl __ct__10SActorHeadFR12CInputStreamR13CStateManager
 /* 800CF688 000CC5E8  7F C3 F3 78 */	mr r3, r30
 /* 800CF68C 000CC5EC  48 26 F6 51 */	bl ReadBool__12CInputStreamFv
 /* 800CF690 000CC5F0  3C 80 80 3D */	lis r4, lbl_803CE07C@ha
@@ -12436,7 +12436,7 @@ LoadFlaahgra__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
 lbl_800D0608:
 /* 800D0608 000CD568  7F C5 F3 78 */	mr r5, r30
 /* 800D060C 000CD56C  38 61 01 34 */	addi r3, r1, 0x134
-/* 800D0610 000CD570  48 00 9E 6D */	bl LoadScaledActorHead__FR12CInputStreamR13CStateManager
+/* 800D0610 000CD570  48 00 9E 6D */	bl __ct__16SScaledActorHeadFR12CInputStreamR13CStateManager
 /* 800D0614 000CD574  3C 60 80 3D */	lis r3, lbl_803CE07C@ha
 /* 800D0618 000CD578  7F 84 E3 78 */	mr r4, r28
 /* 800D061C 000CD57C  38 A3 E0 7C */	addi r5, r3, lbl_803CE07C@l
@@ -12591,7 +12591,7 @@ LoadNewIntroBoss__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 lbl_800D0848:
 /* 800D0848 000CD7A8  7F 25 CB 78 */	mr r5, r25
 /* 800D084C 000CD7AC  38 61 01 84 */	addi r3, r1, 0x184
-/* 800D0850 000CD7B0  48 00 9C 2D */	bl LoadScaledActorHead__FR12CInputStreamR13CStateManager
+/* 800D0850 000CD7B0  48 00 9C 2D */	bl __ct__16SScaledActorHeadFR12CInputStreamR13CStateManager
 /* 800D0854 000CD7B4  3C 60 80 3D */	lis r3, lbl_803CE07C@ha
 /* 800D0858 000CD7B8  7F 04 C3 78 */	mr r4, r24
 /* 800D085C 000CD7BC  38 A3 E0 7C */	addi r5, r3, lbl_803CE07C@l
@@ -13211,7 +13211,7 @@ LoadSpankWeed__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
 lbl_800D1140:
 /* 800D1140 000CE0A0  7F A5 EB 78 */	mr r5, r29
 /* 800D1144 000CE0A4  38 61 01 50 */	addi r3, r1, 0x150
-/* 800D1148 000CE0A8  48 00 93 35 */	bl LoadScaledActorHead__FR12CInputStreamR13CStateManager
+/* 800D1148 000CE0A8  48 00 93 35 */	bl __ct__16SScaledActorHeadFR12CInputStreamR13CStateManager
 /* 800D114C 000CE0AC  3C 60 80 3D */	lis r3, lbl_803CE07C@ha
 /* 800D1150 000CE0B0  7F E4 FB 78 */	mr r4, r31
 /* 800D1154 000CE0B4  38 A3 E0 7C */	addi r5, r3, lbl_803CE07C@l
@@ -13363,7 +13363,7 @@ LoadFireFlea__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
 lbl_800D137C:
 /* 800D137C 000CE2DC  7F A5 EB 78 */	mr r5, r29
 /* 800D1380 000CE2E0  38 61 01 50 */	addi r3, r1, 0x150
-/* 800D1384 000CE2E4  48 00 90 F9 */	bl LoadScaledActorHead__FR12CInputStreamR13CStateManager
+/* 800D1384 000CE2E4  48 00 90 F9 */	bl __ct__16SScaledActorHeadFR12CInputStreamR13CStateManager
 /* 800D1388 000CE2E8  3C 60 80 3D */	lis r3, lbl_803CE07C@ha
 /* 800D138C 000CE2EC  7F E4 FB 78 */	mr r4, r31
 /* 800D1390 000CE2F0  38 A3 E0 7C */	addi r5, r3, lbl_803CE07C@l
@@ -13691,7 +13691,7 @@ LoadDebugCameraWaypoint__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEnt
 lbl_800D1858:
 /* 800D1858 000CE7B8  7F 85 E3 78 */	mr r5, r28
 /* 800D185C 000CE7BC  38 61 00 10 */	addi r3, r1, 0x10
-/* 800D1860 000CE7C0  48 00 8C 65 */	bl LoadActorHead__FR12CInputStreamR13CStateManager
+/* 800D1860 000CE7C0  48 00 8C 65 */	bl __ct__10SActorHeadFR12CInputStreamR13CStateManager
 /* 800D1864 000CE7C4  7F C3 F3 78 */	mr r3, r30
 /* 800D1868 000CE7C8  48 26 D4 1D */	bl ReadLong__12CInputStreamFv
 /* 800D186C 000CE7CC  3C 80 80 3D */	lis r4, lbl_803CE07C@ha
@@ -13749,7 +13749,7 @@ LoadSpiderBallAttractionSurface__12ScriptLoaderFR13CStateManagerR12CInputStreami
 lbl_800D1928:
 /* 800D1928 000CE888  7F 85 E3 78 */	mr r5, r28
 /* 800D192C 000CE88C  38 61 00 10 */	addi r3, r1, 0x10
-/* 800D1930 000CE890  48 00 8B 4D */	bl LoadScaledActorHead__FR12CInputStreamR13CStateManager
+/* 800D1930 000CE890  48 00 8B 4D */	bl __ct__16SScaledActorHeadFR12CInputStreamR13CStateManager
 /* 800D1934 000CE894  7F C3 F3 78 */	mr r3, r30
 /* 800D1938 000CE898  48 26 D3 A5 */	bl ReadBool__12CInputStreamFv
 /* 800D193C 000CE89C  3C 80 80 3D */	lis r4, lbl_803CE07C@ha
@@ -14020,7 +14020,7 @@ LoadChozoGhost__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
 lbl_800D1D28:
 /* 800D1D28 000CEC88  7E 45 93 78 */	mr r5, r18
 /* 800D1D2C 000CEC8C  38 61 02 30 */	addi r3, r1, 0x230
-/* 800D1D30 000CEC90  48 00 87 4D */	bl LoadScaledActorHead__FR12CInputStreamR13CStateManager
+/* 800D1D30 000CEC90  48 00 87 4D */	bl __ct__16SScaledActorHeadFR12CInputStreamR13CStateManager
 /* 800D1D34 000CEC94  3C 60 80 3D */	lis r3, lbl_803CE07C@ha
 /* 800D1D38 000CEC98  7E 24 8B 78 */	mr r4, r17
 /* 800D1D3C 000CEC9C  38 A3 E0 7C */	addi r5, r3, lbl_803CE07C@l
@@ -14531,7 +14531,7 @@ LoadBloodFlower__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
 lbl_800D24C0:
 /* 800D24C0 000CF420  7E A5 AB 78 */	mr r5, r21
 /* 800D24C4 000CF424  38 61 01 D4 */	addi r3, r1, 0x1d4
-/* 800D24C8 000CF428  48 00 7F B5 */	bl LoadScaledActorHead__FR12CInputStreamR13CStateManager
+/* 800D24C8 000CF428  48 00 7F B5 */	bl __ct__16SScaledActorHeadFR12CInputStreamR13CStateManager
 /* 800D24CC 000CF42C  3C 60 80 3D */	lis r3, lbl_803CE07C@ha
 /* 800D24D0 000CF430  7E 84 A3 78 */	mr r4, r20
 /* 800D24D4 000CF434  38 A3 E0 7C */	addi r5, r3, lbl_803CE07C@l
@@ -14706,7 +14706,7 @@ LoadSpiderBallWaypoint__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEnti
 lbl_800D2758:
 /* 800D2758 000CF6B8  7F 65 DB 78 */	mr r5, r27
 /* 800D275C 000CF6BC  38 61 00 10 */	addi r3, r1, 0x10
-/* 800D2760 000CF6C0  48 00 7D 65 */	bl LoadActorHead__FR12CInputStreamR13CStateManager
+/* 800D2760 000CF6C0  48 00 7D 65 */	bl __ct__10SActorHeadFR12CInputStreamR13CStateManager
 /* 800D2764 000CF6C4  7F A3 EB 78 */	mr r3, r29
 /* 800D2768 000CF6C8  48 26 C5 75 */	bl ReadBool__12CInputStreamFv
 /* 800D276C 000CF6CC  7C 7F 1B 78 */	mr r31, r3
@@ -14766,7 +14766,7 @@ LoadAiJumpPoint__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
 lbl_800D2830:
 /* 800D2830 000CF790  7F 85 E3 78 */	mr r5, r28
 /* 800D2834 000CF794  38 61 00 10 */	addi r3, r1, 0x10
-/* 800D2838 000CF798  48 00 7C 8D */	bl LoadActorHead__FR12CInputStreamR13CStateManager
+/* 800D2838 000CF798  48 00 7C 8D */	bl __ct__10SActorHeadFR12CInputStreamR13CStateManager
 /* 800D283C 000CF79C  7F C3 F3 78 */	mr r3, r30
 /* 800D2840 000CF7A0  48 26 C4 9D */	bl ReadBool__12CInputStreamFv
 /* 800D2844 000CF7A4  7C 7F 1B 78 */	mr r31, r3
@@ -14829,7 +14829,7 @@ LoadCoverPoint__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
 lbl_800D2914:
 /* 800D2914 000CF874  7F 45 D3 78 */	mr r5, r26
 /* 800D2918 000CF878  38 61 00 10 */	addi r3, r1, 0x10
-/* 800D291C 000CF87C  48 00 7B A9 */	bl LoadActorHead__FR12CInputStreamR13CStateManager
+/* 800D291C 000CF87C  48 00 7B A9 */	bl __ct__10SActorHeadFR12CInputStreamR13CStateManager
 /* 800D2920 000CF880  7F 83 E3 78 */	mr r3, r28
 /* 800D2924 000CF884  48 26 C3 B9 */	bl ReadBool__12CInputStreamFv
 /* 800D2928 000CF888  7C 7F 1B 78 */	mr r31, r3
@@ -14906,7 +14906,7 @@ LoadFlyingPirate__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 lbl_800D2A30:
 /* 800D2A30 000CF990  7F 85 E3 78 */	mr r5, r28
 /* 800D2A34 000CF994  38 61 01 58 */	addi r3, r1, 0x158
-/* 800D2A38 000CF998  48 00 7A 45 */	bl LoadScaledActorHead__FR12CInputStreamR13CStateManager
+/* 800D2A38 000CF998  48 00 7A 45 */	bl __ct__16SScaledActorHeadFR12CInputStreamR13CStateManager
 /* 800D2A3C 000CF99C  3C 60 80 3D */	lis r3, lbl_803CE07C@ha
 /* 800D2A40 000CF9A0  7F A4 EB 78 */	mr r4, r29
 /* 800D2A44 000CF9A4  38 A3 E0 7C */	addi r5, r3, lbl_803CE07C@l
@@ -15031,7 +15031,7 @@ LoadSpacePirate__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
 lbl_800D2C00:
 /* 800D2C00 000CFB60  7F 85 E3 78 */	mr r5, r28
 /* 800D2C04 000CFB64  38 61 01 A8 */	addi r3, r1, 0x1a8
-/* 800D2C08 000CFB68  48 00 78 75 */	bl LoadScaledActorHead__FR12CInputStreamR13CStateManager
+/* 800D2C08 000CFB68  48 00 78 75 */	bl __ct__16SScaledActorHeadFR12CInputStreamR13CStateManager
 /* 800D2C0C 000CFB6C  3C 60 80 3D */	lis r3, lbl_803CE07C@ha
 /* 800D2C10 000CFB70  7F A4 EB 78 */	mr r4, r29
 /* 800D2C14 000CFB74  38 A3 E0 7C */	addi r5, r3, lbl_803CE07C@l
@@ -15355,7 +15355,7 @@ LoadSpecialFunction__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityI
 lbl_800D30C0:
 /* 800D30C0 000D0020  7E A5 AB 78 */	mr r5, r21
 /* 800D30C4 000D0024  38 61 00 70 */	addi r3, r1, 0x70
-/* 800D30C8 000D0028  48 00 73 FD */	bl LoadActorHead__FR12CInputStreamR13CStateManager
+/* 800D30C8 000D0028  48 00 73 FD */	bl __ct__10SActorHeadFR12CInputStreamR13CStateManager
 /* 800D30CC 000D002C  7E E3 BB 78 */	mr r3, r23
 /* 800D30D0 000D0030  48 26 BB B5 */	bl ReadLong__12CInputStreamFv
 /* 800D30D4 000D0034  7C 7B 1B 78 */	mr r27, r3
@@ -16170,7 +16170,7 @@ LoadDebrisExtended__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityIn
 lbl_800D3C94:
 /* 800D3C94 000D0BF4  7E 25 8B 78 */	mr r5, r17
 /* 800D3C98 000D0BF8  38 61 02 38 */	addi r3, r1, 0x238
-/* 800D3C9C 000D0BFC  48 00 67 E1 */	bl LoadScaledActorHead__FR12CInputStreamR13CStateManager
+/* 800D3C9C 000D0BFC  48 00 67 E1 */	bl __ct__16SScaledActorHeadFR12CInputStreamR13CStateManager
 /* 800D3CA0 000D0C00  7D C3 73 78 */	mr r3, r14
 /* 800D3CA4 000D0C04  48 26 AF 85 */	bl ReadFloat__12CInputStreamFv
 /* 800D3CA8 000D0C08  FF 60 08 90 */	fmr f27, f1
@@ -16448,7 +16448,7 @@ LoadDebris__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
 lbl_800D40C4:
 /* 800D40C4 000D1024  7E C5 B3 78 */	mr r5, r22
 /* 800D40C8 000D1028  38 61 01 78 */	addi r3, r1, 0x178
-/* 800D40CC 000D102C  48 00 63 B1 */	bl LoadScaledActorHead__FR12CInputStreamR13CStateManager
+/* 800D40CC 000D102C  48 00 63 B1 */	bl __ct__16SScaledActorHeadFR12CInputStreamR13CStateManager
 /* 800D40D0 000D1030  7E E3 BB 78 */	mr r3, r23
 /* 800D40D4 000D1034  48 26 AB 55 */	bl ReadFloat__12CInputStreamFv
 /* 800D40D8 000D1038  FF E0 08 90 */	fmr f31, f1
@@ -17082,7 +17082,7 @@ LoadSpindleCamera__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInf
 lbl_800D49E0:
 /* 800D49E0 000D1940  7D C5 73 78 */	mr r5, r14
 /* 800D49E4 000D1944  38 61 04 84 */	addi r3, r1, 0x484
-/* 800D49E8 000D1948  48 00 5A DD */	bl LoadActorHead__FR12CInputStreamR13CStateManager
+/* 800D49E8 000D1948  48 00 5A DD */	bl __ct__10SActorHeadFR12CInputStreamR13CStateManager
 /* 800D49EC 000D194C  7D E3 7B 78 */	mr r3, r15
 /* 800D49F0 000D1950  48 26 A2 ED */	bl ReadBool__12CInputStreamFv
 /* 800D49F4 000D1954  98 61 04 C8 */	stb r3, 0x4c8(r1)
@@ -17695,7 +17695,7 @@ LoadPathCamera__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
 lbl_800D535C:
 /* 800D535C 000D22BC  7F 45 D3 78 */	mr r5, r26
 /* 800D5360 000D22C0  38 61 00 10 */	addi r3, r1, 0x10
-/* 800D5364 000D22C4  48 00 51 61 */	bl LoadActorHead__FR12CInputStreamR13CStateManager
+/* 800D5364 000D22C4  48 00 51 61 */	bl __ct__10SActorHeadFR12CInputStreamR13CStateManager
 /* 800D5368 000D22C8  7F C3 F3 78 */	mr r3, r30
 /* 800D536C 000D22CC  48 26 99 71 */	bl ReadBool__12CInputStreamFv
 /* 800D5370 000D22D0  7C 7F 1B 78 */	mr r31, r3
@@ -17798,7 +17798,7 @@ lbl_800D54D8:
 /* 800D54D8 000D2438  7F 44 D3 78 */	mr r4, r26
 /* 800D54DC 000D243C  7F 05 C3 78 */	mr r5, r24
 /* 800D54E0 000D2440  38 61 00 10 */	addi r3, r1, 0x10
-/* 800D54E4 000D2444  48 00 4F E1 */	bl LoadActorHead__FR12CInputStreamR13CStateManager
+/* 800D54E4 000D2444  48 00 4F E1 */	bl __ct__10SActorHeadFR12CInputStreamR13CStateManager
 /* 800D54E8 000D2448  7F 43 D3 78 */	mr r3, r26
 /* 800D54EC 000D244C  48 26 97 F1 */	bl ReadBool__12CInputStreamFv
 /* 800D54F0 000D2450  7C 7B 1B 78 */	mr r27, r3
@@ -17971,7 +17971,7 @@ LoadCameraWaypoint__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityIn
 lbl_800D5770:
 /* 800D5770 000D26D0  7F 65 DB 78 */	mr r5, r27
 /* 800D5774 000D26D4  38 61 00 10 */	addi r3, r1, 0x10
-/* 800D5778 000D26D8  48 00 4D 4D */	bl LoadActorHead__FR12CInputStreamR13CStateManager
+/* 800D5778 000D26D8  48 00 4D 4D */	bl __ct__10SActorHeadFR12CInputStreamR13CStateManager
 /* 800D577C 000D26DC  7F A3 EB 78 */	mr r3, r29
 /* 800D5780 000D26E0  48 26 95 5D */	bl ReadBool__12CInputStreamFv
 /* 800D5784 000D26E4  7C 7F 1B 78 */	mr r31, r3
@@ -18036,7 +18036,7 @@ LoadPlatform__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
 lbl_800D585C:
 /* 800D585C 000D27BC  7E 65 9B 78 */	mr r5, r19
 /* 800D5860 000D27C0  38 61 03 9C */	addi r3, r1, 0x39c
-/* 800D5864 000D27C4  48 00 4C 19 */	bl LoadScaledActorHead__FR12CInputStreamR13CStateManager
+/* 800D5864 000D27C4  48 00 4C 19 */	bl __ct__16SScaledActorHeadFR12CInputStreamR13CStateManager
 /* 800D5868 000D27C8  7E A4 AB 78 */	mr r4, r21
 /* 800D586C 000D27CC  38 61 00 94 */	addi r3, r1, 0x94
 /* 800D5870 000D27D0  48 23 F3 1D */	bl __ct__9CVector3fFR12CInputStream
@@ -18549,7 +18549,7 @@ LoadSound__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
 lbl_800D5FD0:
 /* 800D5FD0 000D2F30  7F A5 EB 78 */	mr r5, r29
 /* 800D5FD4 000D2F34  38 61 00 48 */	addi r3, r1, 0x48
-/* 800D5FD8 000D2F38  48 00 44 ED */	bl LoadActorHead__FR12CInputStreamR13CStateManager
+/* 800D5FD8 000D2F38  48 00 44 ED */	bl __ct__10SActorHeadFR12CInputStreamR13CStateManager
 /* 800D5FDC 000D2F3C  7F C3 F3 78 */	mr r3, r30
 /* 800D5FE0 000D2F40  48 26 8C A5 */	bl ReadLong__12CInputStreamFv
 /* 800D5FE4 000D2F44  7C 72 1B 78 */	mr r18, r3
@@ -18909,7 +18909,7 @@ LoadEffect__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
 lbl_800D650C:
 /* 800D650C 000D346C  7F E5 FB 78 */	mr r5, r31
 /* 800D6510 000D3470  38 61 00 C0 */	addi r3, r1, 0xc0
-/* 800D6514 000D3474  48 00 3F 69 */	bl LoadScaledActorHead__FR12CInputStreamR13CStateManager
+/* 800D6514 000D3474  48 00 3F 69 */	bl __ct__16SScaledActorHeadFR12CInputStreamR13CStateManager
 /* 800D6518 000D3478  7E 23 8B 78 */	mr r3, r17
 /* 800D651C 000D347C  48 26 87 69 */	bl ReadLong__12CInputStreamFv
 /* 800D6520 000D3480  7C 74 1B 78 */	mr r20, r3
@@ -19134,7 +19134,7 @@ lbl_800D6868:
 /* 800D6868 000D37C8  7F 04 C3 78 */	mr r4, r24
 /* 800D686C 000D37CC  7E E5 BB 78 */	mr r5, r23
 /* 800D6870 000D37D0  38 61 02 10 */	addi r3, r1, 0x210
-/* 800D6874 000D37D4  48 00 3C 09 */	bl LoadScaledActorHead__FR12CInputStreamR13CStateManager
+/* 800D6874 000D37D4  48 00 3C 09 */	bl __ct__16SScaledActorHeadFR12CInputStreamR13CStateManager
 /* 800D6878 000D37D8  7F 04 C3 78 */	mr r4, r24
 /* 800D687C 000D37DC  38 61 00 30 */	addi r3, r1, 0x30
 /* 800D6880 000D37E0  48 00 3B 8D */	bl LoadAnimationParameters__FR12CInputStream
@@ -19345,7 +19345,7 @@ LoadWaypoint__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
 lbl_800D6B8C:
 /* 800D6B8C 000D3AEC  7E A5 AB 78 */	mr r5, r21
 /* 800D6B90 000D3AF0  38 61 00 28 */	addi r3, r1, 0x28
-/* 800D6B94 000D3AF4  48 00 39 31 */	bl LoadActorHead__FR12CInputStreamR13CStateManager
+/* 800D6B94 000D3AF4  48 00 39 31 */	bl __ct__10SActorHeadFR12CInputStreamR13CStateManager
 /* 800D6B98 000D3AF8  7E E3 BB 78 */	mr r3, r23
 /* 800D6B9C 000D3AFC  48 26 81 41 */	bl ReadBool__12CInputStreamFv
 /* 800D6BA0 000D3B00  7C 7A 1B 78 */	mr r26, r3
@@ -19876,7 +19876,7 @@ LoadPickup__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
 lbl_800D735C:
 /* 800D735C 000D42BC  7E 65 9B 78 */	mr r5, r19
 /* 800D7360 000D42C0  38 61 02 F8 */	addi r3, r1, 0x2f8
-/* 800D7364 000D42C4  48 00 31 19 */	bl LoadScaledActorHead__FR12CInputStreamR13CStateManager
+/* 800D7364 000D42C4  48 00 31 19 */	bl __ct__16SScaledActorHeadFR12CInputStreamR13CStateManager
 /* 800D7368 000D42C8  7E 44 93 78 */	mr r4, r18
 /* 800D736C 000D42CC  38 61 00 58 */	addi r3, r1, 0x58
 /* 800D7370 000D42D0  48 23 D8 1D */	bl __ct__9CVector3fFR12CInputStream
@@ -20164,7 +20164,7 @@ LoadActor__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
 lbl_800D779C:
 /* 800D779C 000D46FC  7F C5 F3 78 */	mr r5, r30
 /* 800D77A0 000D4700  38 61 03 80 */	addi r3, r1, 0x380
-/* 800D77A4 000D4704  48 00 2C D9 */	bl LoadScaledActorHead__FR12CInputStreamR13CStateManager
+/* 800D77A4 000D4704  48 00 2C D9 */	bl __ct__16SScaledActorHeadFR12CInputStreamR13CStateManager
 /* 800D77A8 000D4708  7D C4 73 78 */	mr r4, r14
 /* 800D77AC 000D470C  38 61 00 78 */	addi r3, r1, 0x78
 /* 800D77B0 000D4710  48 23 D3 DD */	bl __ct__9CVector3fFR12CInputStream
@@ -20503,7 +20503,7 @@ LoadPointOfInterest__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityI
 lbl_800D7C9C:
 /* 800D7C9C 000D4BFC  7F 85 E3 78 */	mr r5, r28
 /* 800D7CA0 000D4C00  38 61 00 18 */	addi r3, r1, 0x18
-/* 800D7CA4 000D4C04  48 00 28 21 */	bl LoadActorHead__FR12CInputStreamR13CStateManager
+/* 800D7CA4 000D4C04  48 00 28 21 */	bl __ct__10SActorHeadFR12CInputStreamR13CStateManager
 /* 800D7CA8 000D4C08  7F C3 F3 78 */	mr r3, r30
 /* 800D7CAC 000D4C0C  48 26 70 31 */	bl ReadBool__12CInputStreamFv
 /* 800D7CB0 000D4C10  7C 7F 1B 78 */	mr r31, r3
@@ -20569,7 +20569,7 @@ LoadPlayerHint__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
 lbl_800D7D8C:
 /* 800D7D8C 000D4CEC  7F 45 D3 78 */	mr r5, r26
 /* 800D7D90 000D4CF0  38 61 00 10 */	addi r3, r1, 0x10
-/* 800D7D94 000D4CF4  48 00 27 31 */	bl LoadActorHead__FR12CInputStreamR13CStateManager
+/* 800D7D94 000D4CF4  48 00 27 31 */	bl __ct__10SActorHeadFR12CInputStreamR13CStateManager
 /* 800D7D98 000D4CF8  7F 83 E3 78 */	mr r3, r28
 /* 800D7D9C 000D4CFC  48 26 6F 41 */	bl ReadBool__12CInputStreamFv
 /* 800D7DA0 000D4D00  7C 7F 1B 78 */	mr r31, r3
@@ -20656,7 +20656,7 @@ LoadCameraHint__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
 lbl_800D7ED0:
 /* 800D7ED0 000D4E30  7F 25 CB 78 */	mr r5, r25
 /* 800D7ED4 000D4E34  38 61 00 68 */	addi r3, r1, 0x68
-/* 800D7ED8 000D4E38  48 00 25 ED */	bl LoadActorHead__FR12CInputStreamR13CStateManager
+/* 800D7ED8 000D4E38  48 00 25 ED */	bl __ct__10SActorHeadFR12CInputStreamR13CStateManager
 /* 800D7EDC 000D4E3C  7F 43 D3 78 */	mr r3, r26
 /* 800D7EE0 000D4E40  48 26 6D FD */	bl ReadBool__12CInputStreamFv
 /* 800D7EE4 000D4E44  7C 7F 1B 78 */	mr r31, r3
@@ -22378,7 +22378,7 @@ LoadCameraHintTrigger__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntit
 lbl_800D97F4:
 /* 800D97F4 000D6754  7F 65 DB 78 */	mr r5, r27
 /* 800D97F8 000D6758  38 61 00 D0 */	addi r3, r1, 0xd0
-/* 800D97FC 000D675C  48 00 0C C9 */	bl LoadActorHead__FR12CInputStreamR13CStateManager
+/* 800D97FC 000D675C  48 00 0C C9 */	bl __ct__10SActorHeadFR12CInputStreamR13CStateManager
 /* 800D9800 000D6760  7F 24 CB 78 */	mr r4, r25
 /* 800D9804 000D6764  38 61 00 54 */	addi r3, r1, 0x54
 /* 800D9808 000D6768  48 23 B3 85 */	bl __ct__9CVector3fFR12CInputStream
@@ -22408,7 +22408,7 @@ lbl_800D97F4:
 /* 800D9868 000D67C8  3C 80 80 5A */	lis r4, sIdentity__12CTransform4f@ha
 /* 800D986C 000D67CC  38 61 00 A0 */	addi r3, r1, 0xa0
 /* 800D9870 000D67D0  38 84 66 70 */	addi r4, r4, sIdentity__12CTransform4f@l
-/* 800D9874 000D67D4  48 23 94 B5 */	bl sub_80312d28
+/* 800D9874 000D67D4  48 23 94 B5 */	bl __eq__FRC12CTransform4fRC12CTransform4f
 /* 800D9878 000D67D8  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 800D987C 000D67DC  41 82 01 3C */	beq lbl_800D99B8
 /* 800D9880 000D67E0  C0 81 00 68 */	lfs f4, 0x68(r1)
@@ -22643,9 +22643,6 @@ lbl_800D9BE8:
 /* 800D9BEC 000D6B4C  80 01 00 E4 */	lwz r0, 0xe4(r1)
 /* 800D9BF0 000D6B50  7C 08 03 A6 */	mtlr r0
 /* 800D9BF4 000D6B54  38 21 00 E0 */	addi r1, r1, 0xe0
-
-.global sub_800d9bf8
-sub_800d9bf8:
 /* 800D9BF8 000D6B58  4E 80 00 20 */	blr
 
 .global LoadParameterFlags__FR12CInputStream
@@ -23262,13 +23259,10 @@ LoadAnimationParameters__FR12CInputStream:
 /* 800DA46C 000D73CC  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 800DA470 000D73D0  7C 08 03 A6 */	mtlr r0
 /* 800DA474 000D73D4  38 21 00 20 */	addi r1, r1, 0x20
-
-.global sub_800da478
-sub_800da478:
 /* 800DA478 000D73D8  4E 80 00 20 */	blr
 
-.global LoadScaledActorHead__FR12CInputStreamR13CStateManager
-LoadScaledActorHead__FR12CInputStreamR13CStateManager:
+.global __ct__16SScaledActorHeadFR12CInputStreamR13CStateManager
+__ct__16SScaledActorHeadFR12CInputStreamR13CStateManager:
 /* 800DA47C 000D73DC  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 800DA480 000D73E0  7C 08 02 A6 */	mflr r0
 /* 800DA484 000D73E4  90 01 00 14 */	stw r0, 0x14(r1)
@@ -23276,7 +23270,7 @@ LoadScaledActorHead__FR12CInputStreamR13CStateManager:
 /* 800DA48C 000D73EC  7C 9F 23 78 */	mr r31, r4
 /* 800DA490 000D73F0  93 C1 00 08 */	stw r30, 8(r1)
 /* 800DA494 000D73F4  7C 7E 1B 78 */	mr r30, r3
-/* 800DA498 000D73F8  48 00 00 2D */	bl LoadActorHead__FR12CInputStreamR13CStateManager
+/* 800DA498 000D73F8  48 00 00 2D */	bl __ct__10SActorHeadFR12CInputStreamR13CStateManager
 /* 800DA49C 000D73FC  7F E4 FB 78 */	mr r4, r31
 /* 800DA4A0 000D7400  38 7E 00 40 */	addi r3, r30, 0x40
 /* 800DA4A4 000D7404  48 23 A6 E9 */	bl __ct__9CVector3fFR12CInputStream
@@ -23288,8 +23282,8 @@ LoadScaledActorHead__FR12CInputStreamR13CStateManager:
 /* 800DA4BC 000D741C  38 21 00 10 */	addi r1, r1, 0x10
 /* 800DA4C0 000D7420  4E 80 00 20 */	blr
 
-.global LoadActorHead__FR12CInputStreamR13CStateManager
-LoadActorHead__FR12CInputStreamR13CStateManager:
+.global __ct__10SActorHeadFR12CInputStreamR13CStateManager
+__ct__10SActorHeadFR12CInputStreamR13CStateManager:
 /* 800DA4C4 000D7424  94 21 FF C0 */	stwu r1, -0x40(r1)
 /* 800DA4C8 000D7428  7C 08 02 A6 */	mflr r0
 /* 800DA4CC 000D742C  90 01 00 44 */	stw r0, 0x44(r1)

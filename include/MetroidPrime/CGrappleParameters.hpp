@@ -13,7 +13,7 @@ class CGrappleParameters {
   float x20_i;
   float x24_j;
   float x28_k;
-  bool x2c_lockSwingTurn;
+  bool x2c_lockSwingTurn : 1;
 
 public:
   CGrappleParameters(float a, float b, float c, float d, float e, float f, float g, float h,

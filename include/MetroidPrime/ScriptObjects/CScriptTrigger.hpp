@@ -60,7 +60,7 @@ public:
                  uint triggerFlags, bool active, bool deactivateOnEntered, bool deactivateOnExited);
   ~CScriptTrigger();
 
-  void Touch(CActor&, CStateManager&);
+  void Touch(CActor&, CStateManager&) override;
   CAABox GetTriggerBoundsWR() const;
   rstl::optional_object<CAABox> GetTouchBounds() const override;
   void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&) override;

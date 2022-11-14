@@ -16,6 +16,11 @@ public:
 
   CMatrix3f Orthonormalized() const;
 
+  // TODO: names/check
+  inline const CVector3f& GetRow(EDimX dim) const { return m0; }
+  inline const CVector3f& GetRow(EDimY dim) const { return m1; }
+  inline const CVector3f& GetRow(EDimZ dim) const { return m2; }
+
 private:
   // TODO maybe individual floats
   CVector3f m0;

@@ -443,8 +443,8 @@ GetQuickInverse__12CTransform4fCFv:
 /* 80312D20 0030FC80  D0 03 00 2C */	stfs f0, 0x2c(r3)
 /* 80312D24 0030FC84  4E 80 00 20 */	blr
 
-.global sub_80312d28
-sub_80312d28:
+.global __eq__FRC12CTransform4fRC12CTransform4f
+__eq__FRC12CTransform4fRC12CTransform4f:
 /* 80312D28 0030FC88  C0 23 00 00 */	lfs f1, 0(r3)
 /* 80312D2C 0030FC8C  38 00 00 00 */	li r0, 0
 /* 80312D30 0030FC90  C0 04 00 00 */	lfs f0, 0(r4)
@@ -1615,4 +1615,3 @@ lbl_805AE608:
 	# ROM: 0x3FAEA8
 	.float -1.0
 	.4byte 0
-

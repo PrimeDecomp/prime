@@ -26,6 +26,7 @@
 #include "rstl/rc_ptr.hpp"
 #include "rstl/reserved_vector.hpp"
 #include "rstl/single_ptr.hpp"
+#include "rstl/string.hpp"
 
 class CAABox;
 class CActor;
@@ -111,6 +112,7 @@ public:
   rstl::pair< TEditorId, TUniqueId > GenerateObject(const TEditorId& eid);
   void AddObject(CEntity*);
   TUniqueId AllocateUniqueId();
+  const rstl::string& HashInstanceName(CInputStream& in);
 
   void BuildNearList(TEntityList& nearList, const CVector3f& pos, const CVector3f& dir, float mag,
                      const CMaterialFilter&, const CActor*) const;
