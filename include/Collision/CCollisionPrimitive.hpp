@@ -25,6 +25,8 @@ public:
   virtual ~CCollisionPrimitive();
   virtual CRayCastResult CastRayInternal(const CInternalRayCastStructure&) const = 0;
 
+  static void Uninitialize();
+
 private:
   uint x4_;
   CMaterialList x8_material;

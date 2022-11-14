@@ -8264,7 +8264,7 @@ lbl_8004AB6C:
 /* 8004AB90 00047AF0  38 C0 00 00 */	li r6, 0
 /* 8004AB94 00047AF4  48 00 D0 19 */	bl TravelToArea__6CWorldFRC7TAreaIdR13CStateManagerb
 /* 8004AB98 00047AF8  7F C3 F3 78 */	mr r3, r30
-/* 8004AB9C 00047AFC  48 00 15 F9 */	bl BringOutYourDead__13CStateManagerFv
+/* 8004AB9C 00047AFC  48 00 15 F9 */	bl ClearGraveyard__13CStateManagerFv
 /* 8004ABA0 00047B00  80 7E 08 D8 */	lwz r3, 0x8d8(r30)
 /* 8004ABA4 00047B04  38 03 00 01 */	addi r0, r3, 1
 /* 8004ABA8 00047B08  90 1E 08 D8 */	stw r0, 0x8d8(r30)
@@ -9838,8 +9838,8 @@ lbl_8004C17C:
 /* 8004C18C 000490EC  38 21 00 20 */	addi r1, r1, 0x20
 /* 8004C190 000490F0  4E 80 00 20 */	blr
 
-.global BringOutYourDead__13CStateManagerFv
-BringOutYourDead__13CStateManagerFv:
+.global ClearGraveyard__13CStateManagerFv
+ClearGraveyard__13CStateManagerFv:
 /* 8004C194 000490F4  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 8004C198 000490F8  7C 08 02 A6 */	mflr r0
 /* 8004C19C 000490FC  90 01 00 34 */	stw r0, 0x34(r1)
@@ -11027,13 +11027,13 @@ __dt__13CStateManagerFv:
 /* 8004D1DC 0004A13C  80 7D 08 8C */	lwz r3, 0x88c(r29)
 /* 8004D1E0 0004A140  48 31 CB 6D */	bl HardStopAll__16CRumbleGeneratorFv
 /* 8004D1E4 0004A144  80 7D 08 80 */	lwz r3, 0x880(r29)
-/* 8004D1E8 0004A148  48 1C 54 DD */	bl sub_802126c4
+/* 8004D1E8 0004A148  48 1C 54 DD */	bl Cleanup__13CEnvFxManagerFv
 /* 8004D1EC 0004A14C  38 1D 08 FC */	addi r0, r29, 0x8fc
 /* 8004D1F0 0004A150  3B FD 08 0C */	addi r31, r29, 0x80c
 /* 8004D1F4 0004A154  90 1D 09 00 */	stw r0, 0x900(r29)
 /* 8004D1F8 0004A158  7F A3 EB 78 */	mr r3, r29
 /* 8004D1FC 0004A15C  83 7D 08 10 */	lwz r27, 0x810(r29)
-/* 8004D200 0004A160  4B FF EF 95 */	bl BringOutYourDead__13CStateManagerFv
+/* 8004D200 0004A160  4B FF EF 95 */	bl ClearGraveyard__13CStateManagerFv
 /* 8004D204 0004A164  3B 40 00 00 */	li r26, 0
 lbl_8004D208:
 /* 8004D208 0004A168  7F 63 DB 78 */	mr r3, r27
@@ -11074,7 +11074,7 @@ lbl_8004D28C:
 /* 8004D290 0004A1F0  2C 1A 04 00 */	cmpwi r26, 0x400
 /* 8004D294 0004A1F4  40 82 FF 74 */	bne lbl_8004D208
 /* 8004D298 0004A1F8  7F A3 EB 78 */	mr r3, r29
-/* 8004D29C 0004A1FC  4B FF EE F9 */	bl BringOutYourDead__13CStateManagerFv
+/* 8004D29C 0004A1FC  4B FF EE F9 */	bl ClearGraveyard__13CStateManagerFv
 /* 8004D2A0 0004A200  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8004D2A4 0004A204  7F A6 EB 78 */	mr r6, r29
 /* 8004D2A8 0004A208  38 A1 00 10 */	addi r5, r1, 0x10
@@ -11114,10 +11114,10 @@ lbl_8004D304:
 lbl_8004D32C:
 /* 8004D32C 0004A28C  38 7D 0F 54 */	addi r3, r29, 0xf54
 /* 8004D330 0004A290  38 80 FF FF */	li r4, -1
-/* 8004D334 0004A294  48 00 32 01 */	bl sub_80050534
+/* 8004D334 0004A294  48 00 32 01 */	bl "__dt__Q24rstl43list<9TUniqueId,Q24rstl17rmemory_allocator>Fv"
 /* 8004D338 0004A298  38 7D 0F 3C */	addi r3, r29, 0xf3c
 /* 8004D33C 0004A29C  38 80 FF FF */	li r4, -1
-/* 8004D340 0004A2A0  48 00 31 F5 */	bl sub_80050534
+/* 8004D340 0004A2A0  48 00 31 F5 */	bl "__dt__Q24rstl43list<9TUniqueId,Q24rstl17rmemory_allocator>Fv"
 /* 8004D344 0004A2A4  38 7D 0D 14 */	addi r3, r29, 0xd14
 /* 8004D348 0004A2A8  38 80 FF FF */	li r4, -1
 /* 8004D34C 0004A2AC  48 00 0C F9 */	bl "__dt__Q24rstl36reserved_vector<15CCameraBlurPass,9>Fv"
@@ -14704,8 +14704,8 @@ lbl_80050518:
 /* 8005052C 0004D48C  38 21 00 30 */	addi r1, r1, 0x30
 /* 80050530 0004D490  4E 80 00 20 */	blr
 
-.global sub_80050534
-sub_80050534:
+.global "__dt__Q24rstl43list<9TUniqueId,Q24rstl17rmemory_allocator>Fv"
+"__dt__Q24rstl43list<9TUniqueId,Q24rstl17rmemory_allocator>Fv":
 /* 80050534 0004D494  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80050538 0004D498  7C 08 02 A6 */	mflr r0
 /* 8005053C 0004D49C  90 01 00 24 */	stw r0, 0x24(r1)

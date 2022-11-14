@@ -2897,8 +2897,8 @@ lbl_802126AC:
 /* 802126BC 0020F61C  38 21 00 20 */	addi r1, r1, 0x20
 /* 802126C0 0020F620  4E 80 00 20 */	blr
 
-.global sub_802126c4
-sub_802126c4:
+.global Cleanup__13CEnvFxManagerFv
+Cleanup__13CEnvFxManagerFv:
 /* 802126C4 0020F624  A0 8D A3 8C */	lhz r4, kInvalidUniqueId@sda21(r13)
 /* 802126C8 0020F628  38 00 00 00 */	li r0, 0
 /* 802126CC 0020F62C  B0 83 0B 68 */	sth r4, 0xb68(r3)
