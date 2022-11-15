@@ -13,6 +13,8 @@ public:
 
 private:
   // TODO
+  uchar x0_pad[0xe8];
 };
+CHECK_SIZEOF(CActorModelParticles, 0xe8);
 
 #endif // _CACTORMODELPARTICLES

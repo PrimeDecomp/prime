@@ -33,7 +33,7 @@ public:
   bool GetNoPersistentCopy() const { return x2d_noPersistentCopy; }
 
 private:
-  rstl::optional_object< TLockedToken< CTexture > > x0_paletteTex;
+  rstl::optional_object< TCachedToken< CTexture > > x0_paletteTex;
   EBlurType x10_curType;
   EBlurType x14_endType;
   float x18_endValue;

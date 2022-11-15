@@ -16,7 +16,7 @@ class CVector3f;
 
 class IRenderer {
 public:
-  typedef void (*TDrawableCallback)(void*, void*, int);
+  typedef void (*TDrawableCallback)(const void*, const void*, int);
   
   enum EDrawableSorting {
     kDS_SortedCallback,

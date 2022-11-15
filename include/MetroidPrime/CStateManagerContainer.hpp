@@ -31,5 +31,6 @@ private:
   rstl::reserved_vector< TUniqueId, 20 > xf370_;
   rstl::reserved_vector< TUniqueId, 20 > xf39c_renderLast;
 };
+CHECK_SIZEOF(CStateManagerContainer, 0xf3c8);
 
 #endif // _CSTATEMANAGERCONTAINER

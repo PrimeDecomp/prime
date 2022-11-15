@@ -17,6 +17,11 @@ struct select1st< pair< K, V > > {
   const K& operator()(const pair< K, V >& it) const { return it.first; }
 };
 
+template < typename P >
+struct identity {
+  const P& operator()(const P& it) const { return it; }
+};
+
 template < typename T >
 struct less {
   bool operator()(const T& a, const T& b) const { return a < b; }
