@@ -33,7 +33,7 @@ class CCameraManager {
   static float lbl_805A6BE4;
   static float lbl_805A6BE8;
 public:
-  CCameraManager(TUniqueId curCamera);
+  CCameraManager(TUniqueId curCamera = kInvalidUniqueId);
 
   void CreateStandardCameras(CStateManager& mgr);
   void ThinkCameras(float dt, CStateManager& mgr);

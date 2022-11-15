@@ -38,6 +38,8 @@ private:
 
 class CEnvFxManager {
 public:
+  CEnvFxManager();
+
   static void Initialize();
   void SetFxDensity(int, float);
   void SetSplashRate(float f) { xb54_baseSplashRate = f; }

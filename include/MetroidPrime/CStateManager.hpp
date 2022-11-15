@@ -5,19 +5,20 @@
 
 #include "Kyoto/CObjectReference.hpp"
 #include "Kyoto/CRandom16.hpp"
+#include "Kyoto/Input/CFinalInput.hpp"
 #include "Kyoto/Math/CVector2f.hpp"
 #include "Kyoto/Math/CVector2i.hpp"
 #include "Kyoto/TOneStatic.hpp"
 #include "Kyoto/TToken.hpp"
-#include "Kyoto/Input/CFinalInput.hpp"
 
 #include "MetroidPrime/CEntityInfo.hpp"
 #include "MetroidPrime/CObjectList.hpp"
 #include "MetroidPrime/Cameras/CCameraBlurPass.hpp"
 #include "MetroidPrime/Cameras/CCameraFilterPass.hpp"
+#include "MetroidPrime/Enemies/EListenNoiseType.hpp"
+#include "MetroidPrime/ScriptLoader.hpp"
 #include "MetroidPrime/TGameTypes.hpp"
 #include "MetroidPrime/Weapons/WeaponTypes.hpp"
-#include "MetroidPrime/Enemies/EListenNoiseType.hpp"
 
 #include "rstl/auto_ptr.hpp"
 #include "rstl/list.hpp"
@@ -80,12 +81,16 @@ struct SOnScreenTex {
   CAssetId x0_id;
   CVector2i x4_origin;
   CVector2i xc_extent;
+
+  SOnScreenTex() : x0_id(kInvalidAssetId), x4_origin(0, 0), xc_extent(0, 0) {}
 };
 
 class CStateManager : public TOneStatic< CStateManager > {
 public:
   typedef rstl::map< TEditorId, TUniqueId > TIdList;
   typedef rstl::pair< TIdList::const_iterator, TIdList::const_iterator > TIdListResult;
+
+  enum EGameState { kGS_Running, kGS_SoftPaused, kGS_Paused };
 
   enum ECameraFilterStage {
     kCFS_Zero,
@@ -100,7 +105,9 @@ public:
     kCFS_Max,
   };
 
-  CStateManager();
+  CStateManager(const rstl::ncrc_ptr< CScriptMailbox >&, const rstl::ncrc_ptr< CMapWorldInfo >&,
+                const rstl::ncrc_ptr< CPlayerState >&, const rstl::ncrc_ptr< CWorldTransManager >&,
+                const rstl::ncrc_ptr< CWorldLayerState >&);
   ~CStateManager();
 
   bool RenderLast(const TUniqueId&);
@@ -170,7 +177,7 @@ public:
 
   CObjectList& ObjectListById(EGameObjectList id) { return *x808_objectLists[id]; }
   const CObjectList& GetObjectListById(EGameObjectList id) const { return *x808_objectLists[id]; }
-  
+
   void RemoveObject(TUniqueId);
 
   const CFinalInput& GetFinalInput() const { return xb54_finalInput; }
@@ -258,6 +265,8 @@ public:
   uint GetInputFrameIdx() const { return x8d4_inputFrameIdx; }
 
 private:
+  enum EInitPhase { kIP_LoadWorld, kIP_LoadFirstArea, kIP_Done };
+
   ushort x0_nextFreeIndex;
   rstl::reserved_vector< ushort, 1024 > x8_objectIndexArray;
   rstl::reserved_vector< rstl::auto_ptr< CObjectList >, 8 > x808_objectLists;
@@ -291,11 +300,14 @@ private:
 
   rstl::vector< CLight > x8e0_dynamicLights;
 
-  TLockedToken< CTexture > x8f0_shadowTex;
+  TCachedToken< CTexture > x8f0_shadowTex;
   CRandom16 x8fc_random;
   CRandom16* x900_random;
 
-  uchar x904_pad[0x250];
+  EGameState x904_gameState;
+  rstl::reserved_vector< FScriptLoader, int(kST_MAX) > x90c_loaderFuncs;
+  EInitPhase xb3c_initPhase;
+  uchar xb40_pad[0x14]; // rstl::set<rstl::string> xb40_uniqueInstanceNames;
 
   CFinalInput xb54_finalInput;
   rstl::reserved_vector< CCameraFilterPass, kCFS_Max > xb84_camFilterPasses;
@@ -337,6 +349,8 @@ private:
   bool xf94_30_fullThreat : 1;
 
   void ClearGraveyard();
+  static void RendererDrawCallback(void*, void*, int);
+  static const bool MemoryAllocatorAllocationFailedCallback(const void*, unsigned int);
 };
 CHECK_SIZEOF(CStateManager, 0xf98)
 

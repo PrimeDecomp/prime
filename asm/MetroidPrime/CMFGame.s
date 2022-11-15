@@ -254,7 +254,7 @@ lbl_80023B58:
 /* 80023BDC 00020B3C  7F 66 DB 78 */	mr r6, r27
 /* 80023BE0 00020B40  7F E7 FB 78 */	mr r7, r31
 /* 80023BE4 00020B44  7F 48 D3 78 */	mr r8, r26
-/* 80023BE8 00020B48  48 02 A5 4D */	bl "__ct__13CStateManagerFRCQ24rstl26ncrc_ptr<14CScriptMailbox>RCQ24rstl25ncrc_ptr<13CMapWorldInfo>RCQ24rstl24ncrc_ptr<12CPlayerState>RCQ24rstl30ncrc_ptr<18CWorldTransManager>"
+/* 80023BE8 00020B48  48 02 A5 4D */	bl "__ct__13CStateManagerFRCQ24rstl26ncrc_ptr<14CScriptMailbox>RCQ24rstl25ncrc_ptr<13CMapWorldInfo>RCQ24rstl24ncrc_ptr<12CPlayerState>RCQ24rstl30ncrc_ptr<18CWorldTransManager>RCQ24rstl28ncrc_ptr<16CWorldLayerState>"
 /* 80023BEC 00020B4C  7C 79 1B 78 */	mr r25, r3
 lbl_80023BF0:
 /* 80023BF0 00020B50  3C 80 80 3D */	lis r4, lbl_803CCAB8@ha

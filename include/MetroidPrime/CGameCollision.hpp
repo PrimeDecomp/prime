@@ -10,9 +10,11 @@ class CMaterialFilter;
 class CStateManager;
 class CTransform4f;
 class CRayCastResult;
+class CPhysicsActor;
 
 class CGameCollision {
 public:
+  static void InitCollision();
   static bool DetectStaticCollisionBoolean(const CStateManager&, const CCollisionPrimitive&,
                                            const CTransform4f&, const CMaterialFilter&);
   static bool DetectDynamicCollisionBoolean(const CCollisionPrimitive&, const CTransform4f&,

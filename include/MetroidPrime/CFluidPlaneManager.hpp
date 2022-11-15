@@ -12,6 +12,7 @@ class CScriptWater;
 
 class CFluidPlaneManager {
 public:
+  CFluidPlaneManager();
   // TODO
 
   void CreateSplash(TUniqueId splasher, CStateManager& mgr, const CScriptWater& water,
