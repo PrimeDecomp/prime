@@ -14,7 +14,12 @@
 
 #include "rstl/reserved_vector.hpp"
 
-class CStateManagerContainer {
+class CStateManagerContainer;
+
+class CStateManagerContainer : public TOneStatic<CStateManagerContainer> {
+private:
+  friend class CStateManager;
+  
   CCameraManager x0_cameraManager;
   SL::CSortedListManager x3c0_sortedListManager;
   CWeaponMgr xe3d8_weaponManager;

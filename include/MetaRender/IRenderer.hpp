@@ -16,6 +16,8 @@ class CVector3f;
 
 class IRenderer {
 public:
+  typedef void (*TDrawableCallback)(void*, void*, int);
+  
   enum EDrawableSorting {
     kDS_SortedCallback,
     kDS_UnsortedCallback,
@@ -39,7 +41,7 @@ public:
   virtual void AddPlaneObject();
   virtual void AddDrawable(const void* obj, const CVector3f& pos, const CAABox& bounds, int mode,
                            IRenderer::EDrawableSorting sorting);
-  virtual void SetDrawableCallback();
+  virtual void SetDrawableCallback(TDrawableCallback cb, void* ctx);
   virtual void SetWorldViewpoint();
   virtual void SetPerspective1(float, float, float, float, float);
   virtual void SetPerspective2();

@@ -26,6 +26,10 @@ struct SSortedList {
 CHECK_SIZEOF(SSortedList, 0x804);
 
 class CSortedListManager {
+public:
+  CSortedListManager();
+
+private:
   SNode x0_nodes[kMaxObjects];
   SSortedList xb000_sortedLists[6];
 };

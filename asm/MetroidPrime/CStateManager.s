@@ -12171,8 +12171,8 @@ lbl_8004E100:
 /* 8004E12C 0004B08C  38 21 00 20 */	addi r1, r1, 0x20
 /* 8004E130 0004B090  4E 80 00 20 */	blr
 
-.global "__ct__13CStateManagerFRCQ24rstl26ncrc_ptr<14CScriptMailbox>RCQ24rstl25ncrc_ptr<13CMapWorldInfo>RCQ24rstl24ncrc_ptr<12CPlayerState>RCQ24rstl30ncrc_ptr<18CWorldTransManager>"
-"__ct__13CStateManagerFRCQ24rstl26ncrc_ptr<14CScriptMailbox>RCQ24rstl25ncrc_ptr<13CMapWorldInfo>RCQ24rstl24ncrc_ptr<12CPlayerState>RCQ24rstl30ncrc_ptr<18CWorldTransManager>":
+.global "__ct__13CStateManagerFRCQ24rstl26ncrc_ptr<14CScriptMailbox>RCQ24rstl25ncrc_ptr<13CMapWorldInfo>RCQ24rstl24ncrc_ptr<12CPlayerState>RCQ24rstl30ncrc_ptr<18CWorldTransManager>RCQ24rstl28ncrc_ptr<16CWorldLayerState>"
+"__ct__13CStateManagerFRCQ24rstl26ncrc_ptr<14CScriptMailbox>RCQ24rstl25ncrc_ptr<13CMapWorldInfo>RCQ24rstl24ncrc_ptr<12CPlayerState>RCQ24rstl30ncrc_ptr<18CWorldTransManager>RCQ24rstl28ncrc_ptr<16CWorldLayerState>":
 /* 8004E134 0004B094  94 21 FF 00 */	stwu r1, -0x100(r1)
 /* 8004E138 0004B098  7C 08 02 A6 */	mflr r0
 /* 8004E13C 0004B09C  39 20 00 00 */	li r9, 0

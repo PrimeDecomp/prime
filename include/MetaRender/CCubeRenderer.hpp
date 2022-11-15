@@ -39,7 +39,7 @@ public:
   void AddPlaneObject() override;
   void AddDrawable(const void* obj, const CVector3f& pos, const CAABox& bounds, int mode,
                    IRenderer::EDrawableSorting sorting) override;
-  void SetDrawableCallback() override;
+  void SetDrawableCallback(TDrawableCallback cb, void* ctx) override;
   void SetWorldViewpoint() override;
   void SetPerspective1(float, float, float, float, float) override;
   void SetPerspective2() override;

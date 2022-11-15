@@ -9,6 +9,7 @@
 
 enum EScriptObjectType {
   kST_Actor = 0x00,
+  kST_Enemy = 0x01,
   kST_Waypoint = 0x02,
   kST_Door = 0x03,
   kST_Trigger = 0x04,
@@ -25,6 +26,7 @@ enum EScriptObjectType {
   kST_SpawnPoint = 0x0F,
   kST_CameraHint = 0x10,
   kST_Pickup = 0x11,
+  kST_JumpPoint = 0x12,
   kST_MemoryRelay = 0x13,
   kST_RandomRelay = 0x14,
   kST_Relay = 0x15,
@@ -38,6 +40,7 @@ enum EScriptObjectType {
   kST_ActorKeyframe = 0x1D,
   kST_Water = 0x20,
   kST_Warwasp = 0x21,
+  kST_MapStation = 0x21,
   kST_SpacePirate = 0x24,
   kST_FlyingPirate = 0x25,
   kST_ElitePirate = 0x26,
@@ -88,6 +91,7 @@ enum EScriptObjectType {
   kST_Switch = 0x56,
   kST_PlayerStateChange = 0x57,
   kST_Thardus = 0x58,
+  kST_SaveStation = 0x59,
   kST_WallCrawlerSwarm = 0x5A,
   kST_AIJumpPoint = 0x5B,
   kST_FlaahgraTentacle = 0x5C,
