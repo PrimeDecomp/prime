@@ -370,7 +370,7 @@ Fire__9CWaveBeamFbfQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateManage
 /* 800E0498 000DD3F8  A0 18 00 00 */	lhz r0, 0(r24)
 /* 800E049C 000DD3FC  39 01 00 44 */	addi r8, r1, 0x44
 /* 800E04A0 000DD400  B0 01 00 44 */	sth r0, 0x44(r1)
-/* 800E04A4 000DD404  48 0D B3 E5 */	bl Fire__10CGunWeaponFbfQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateManager9TUniqueId
+/* 800E04A4 000DD404  48 0D B3 E5 */	bl Fire__10CGunWeaponFbfQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateManager9TUniqueIdff
 /* 800E04A8 000DD408  48 00 01 E4 */	b lbl_800E068C
 lbl_800E04AC:
 /* 800E04AC 000DD40C  80 77 09 00 */	lwz r3, 0x900(r23)

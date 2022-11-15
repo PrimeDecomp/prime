@@ -14,7 +14,7 @@ lbl_803E52B0:
 	.4byte PreRenderGunFx__10CGunWeaponFRC13CStateManagerRC12CTransform4f
 	.4byte PostRenderGunFx__10CGunWeaponFRC13CStateManagerRC12CTransform4f
 	.4byte UpdateGunFx__10CGunWeaponFbfRC13CStateManagerRC12CTransform4f
-	.4byte Fire__10CGunWeaponFbfQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateManager9TUniqueId
+	.4byte Fire__10CGunWeaponFbfQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateManager9TUniqueIdff
 	.4byte EnableFx__10CGunWeaponFb
 	.4byte EnableSecondaryFx__10CGunWeaponFQ210CGunWeapon16ESecondaryFxType
 	.4byte Draw__10CGunWeaponCFbRC13CStateManagerRC12CTransform4fRC11CModelFlagsPC12CActorLights
@@ -2036,8 +2036,8 @@ ReturnToDefault__10CGunWeaponFR13CStateManager:
 /* 801BB880 001B87E0  38 21 00 10 */	addi r1, r1, 0x10
 /* 801BB884 001B87E4  4E 80 00 20 */	blr
 
-.global Fire__10CGunWeaponFbfQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateManager9TUniqueId
-Fire__10CGunWeaponFbfQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateManager9TUniqueId:
+.global Fire__10CGunWeaponFbfQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateManager9TUniqueIdff
+Fire__10CGunWeaponFbfQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateManager9TUniqueIdff:
 /* 801BB888 001B87E8  94 21 FE E0 */	stwu r1, -0x120(r1)
 /* 801BB88C 001B87EC  7C 08 02 A6 */	mflr r0
 /* 801BB890 001B87F0  90 01 01 24 */	stw r0, 0x124(r1)

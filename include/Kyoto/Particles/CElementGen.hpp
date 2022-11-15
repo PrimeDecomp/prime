@@ -73,6 +73,7 @@ public:
   virtual uint Get4CharId() const override;
 
   int GetEmitterTime() const;
+  int GetSystemCount();
 
   int GetCumulativeParticleCount() const { return x260_cumulativeParticles; }
   bool IsIndirectTextured() const; // { return x28_loadedGenDesc->x54_x40_TEXR && x28_loadedGenDesc->x58_x44_TIND; }
@@ -80,6 +81,8 @@ public:
 
   static void Initialize();
   static void ShutDown();
+
+  void SetGlobalOrientAndTrans(const CTransform4f& xf);
 
 public:
   TLockedToken< CGenDescription > x1c_genDesc;

@@ -24,6 +24,9 @@ public:
   void RemoveRef();
   CToken& operator=(const CToken&);
 
+protected:
+  bool HasLock() { return x4_lockHeld; }
+
 private:
   CObjectReference* x0_objRef;
   bool x4_lockHeld;

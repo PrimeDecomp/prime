@@ -130,7 +130,7 @@ LIBS = [
             "MetroidPrime/CSamusDoll",
             "MetroidPrime/Factories/CStateMachineFactory",
             "MetroidPrime/Weapons/CPlasmaBeam",
-            "MetroidPrime/Weapons/CPowerBeam",
+            ["MetroidPrime/Weapons/CPowerBeam", False],
             "MetroidPrime/Weapons/CWaveBeam",
             "MetroidPrime/Weapons/CIceBeam",
             ["MetroidPrime/CScriptMailbox", False],

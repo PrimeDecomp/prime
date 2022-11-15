@@ -13,6 +13,7 @@
 #include "rstl/auto_ptr.hpp"
 #include "rstl/optional_object.hpp"
 #include "rstl/pair.hpp"
+#include "rstl/string.hpp"
 
 class CAABox;
 class CActorLights;
@@ -81,6 +82,8 @@ public:
   CAnimData* AnimationData() { return xc_animData.get(); }
   CAABox GetBounds(const CTransform4f& xf) const;
   CAABox GetBounds() const;
+
+  CTransform4f GetScaledLocatorTransform(const rstl::string& name) const;
 
   bool HasAnimation() const { return !xc_animData.null(); }
   bool IsNull() const { return xc_animData.null() && !x1c_normalModel; }
