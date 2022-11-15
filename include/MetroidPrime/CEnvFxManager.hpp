@@ -69,6 +69,8 @@ private:
   rstl::reserved_vector< CVector3f, 16 > xb84_snowZDeltas;
   TLockedToken< CTexture > xc48_underwaterFlake;
   bool xc54_;
+  int xc58_;
 };
+CHECK_SIZEOF(CEnvFxManager, 0xc58);
 
 #endif // _CENVFXMANAGER

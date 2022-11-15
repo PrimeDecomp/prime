@@ -25,16 +25,8 @@ public:
   , xc_empty_prev(reinterpret_cast< node* >(&xc_empty_prev))
   , x10_empty_next(reinterpret_cast< node* >(&xc_empty_prev))
   , x14_count(0) {}
-  ~list() {
-    node* cur = x4_start;
-    while (cur != x8_end) {
-      node* it = cur;
-      node* next = cur->get_next();
-      cur = next;
-      destroy(it);
-      x0_allocator.deallocate(it);
-    }
-  }
+  ~list();
+  
   void push_back(const T& val) { do_insert_before(x8_end, val); }
   void clear() {
     erase(begin(), end());
@@ -159,6 +151,18 @@ private:
   node* x10_empty_next;
   int x14_count;
 };
+
+template < typename T, typename Alloc>
+  list<T, Alloc>::~list() {
+    node* cur = x4_start;
+    while (cur != x8_end) {
+      node* it = cur;
+      node* next = cur->get_next();
+      cur = next;
+      destroy(it);
+      x0_allocator.deallocate(it);
+    }
+  }
 
 } // namespace rstl
 

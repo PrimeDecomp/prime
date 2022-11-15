@@ -22,7 +22,9 @@
 
 #include "rstl/auto_ptr.hpp"
 #include "rstl/list.hpp"
+#include "rstl/set.hpp"
 #include "rstl/map.hpp"
+#include "rstl/multimap.hpp"
 #include "rstl/pair.hpp"
 #include "rstl/rc_ptr.hpp"
 #include "rstl/reserved_vector.hpp"
@@ -75,6 +77,13 @@ enum EThermalDrawFlag {
   kTD_Hot,
   kTD_Cold,
   kTD_Bypass,
+};
+
+struct SScriptObjectStream {
+  // CEntity* x0_obj;
+  EScriptObjectType x0_type;
+  u32 x4_position;
+  u32 x8_length;
 };
 
 struct SOnScreenTex {
@@ -268,7 +277,7 @@ private:
   enum EInitPhase { kIP_LoadWorld, kIP_LoadFirstArea, kIP_Done };
 
   ushort x0_nextFreeIndex;
-  rstl::reserved_vector< ushort, 1024 > x8_objectIndexArray;
+  rstl::reserved_vector< ushort, 1024 > x4_objectIndexArray;
   rstl::reserved_vector< rstl::auto_ptr< CObjectList >, 8 > x808_objectLists;
   CPlayer* x84c_player;
   rstl::single_ptr< CWorld > x850_world;
@@ -282,10 +291,8 @@ private:
   rstl::single_ptr< CActorModelParticles > x884_actorModelParticles;
   uint x888_;
   CRumbleManager* x88c_rumbleManager;
-  // TODO
-  // rstl::multimap< TEditorId, TUniqueId > x890_scriptIdMap;
-  // rstl::map< TEditorId, SScriptObjectStream > x8a4_loadedScriptObjects;
-  uchar pad[0x28];
+  rstl::multimap< TEditorId, TUniqueId > x890_scriptIdMap;
+  rstl::map< TEditorId, SScriptObjectStream > x8a4_loadedScriptObjects;
   rstl::rc_ptr< CPlayerState > x8b8_playerState;
   rstl::rc_ptr< CScriptMailbox > x8bc_mailbox;
   rstl::rc_ptr< CMapWorldInfo > x8c0_mapWorldInfo;
@@ -307,7 +314,7 @@ private:
   EGameState x904_gameState;
   rstl::reserved_vector< FScriptLoader, int(kST_MAX) > x90c_loaderFuncs;
   EInitPhase xb3c_initPhase;
-  uchar xb40_pad[0x14]; // rstl::set<rstl::string> xb40_uniqueInstanceNames;
+  rstl::set<rstl::string> xb40_uniqueInstanceNames;
 
   CFinalInput xb54_finalInput;
   rstl::reserved_vector< CCameraFilterPass, kCFS_Max > xb84_camFilterPasses;
@@ -324,7 +331,8 @@ private:
   uint xf20_bossStringIdx;
   float xf24_thermColdScale1;
   float xf28_thermColdScale2;
-  CVector2f xf2c_viewportScale;
+  float xf2c_viewportScaleX;
+  float xf30_viewportScaleY;
   EThermalDrawFlag xf34_thermalFlag;
   TUniqueId xf38_skipCineSpecialFunc;
   rstl::list< TUniqueId > xf3c_activeFlickerBats;
@@ -349,7 +357,7 @@ private:
   bool xf94_30_fullThreat : 1;
 
   void ClearGraveyard();
-  static void RendererDrawCallback(void*, void*, int);
+  static void RendererDrawCallback(const void*, const void*, int);
   static const bool MemoryAllocatorAllocationFailedCallback(const void*, unsigned int);
 };
 CHECK_SIZEOF(CStateManager, 0xf98)

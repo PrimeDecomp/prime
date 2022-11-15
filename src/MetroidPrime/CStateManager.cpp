@@ -17,6 +17,7 @@
 #include "MetroidPrime/ScriptObjects/CScriptMazeNode.hpp"
 
 #include "Collision/CCollisionPrimitive.hpp"
+#include "Kyoto/Basics/RAssertDolphin.hpp"
 #include "Kyoto/Graphics/CLight.hpp"
 #include "MetaRender/CCubeRenderer.hpp"
 
@@ -25,7 +26,9 @@ CStateManager::CStateManager(const rstl::ncrc_ptr< CScriptMailbox >& mailbox,
                              const rstl::ncrc_ptr< CPlayerState >& playerState,
                              const rstl::ncrc_ptr< CWorldTransManager >& wtMgr,
                              const rstl::ncrc_ptr< CWorldLayerState >& layerState)
-: x808_objectLists(rstl::auto_ptr< CObjectList >())
+: x0_nextFreeIndex(0)
+, x4_objectIndexArray(0)
+, x808_objectLists(rstl::auto_ptr< CObjectList >())
 
 , x86c_stateManagerContainer(new CStateManagerContainer())
 
@@ -54,8 +57,15 @@ CStateManager::CStateManager(const rstl::ncrc_ptr< CScriptMailbox >& mailbox,
 , x904_gameState(kGS_Running)
 , xb3c_initPhase(kIP_LoadWorld)
 
+// based on map, uses the call with the count.
+, xb84_camFilterPasses(CCameraFilterPass())
+
+// TODO: should not be inlined, but the constructor above is inlined
+, xd14_camBlurPasses(kCFS_Max, CCameraBlurPass())
+
 , xeec_hintIdx(-1)
 , xef0_hintPeriods(0)
+, xef4_pendingScreenTex()
 , xf08_pauseHudMessage(kInvalidAssetId)
 
 , xf0c_escapeTimer(0.0f)
@@ -68,7 +78,8 @@ CStateManager::CStateManager(const rstl::ncrc_ptr< CScriptMailbox >& mailbox,
 , xf24_thermColdScale1(0.0f)
 , xf28_thermColdScale2(0.0f)
 
-, xf2c_viewportScale(1.f, 1.f)
+, xf2c_viewportScaleX(1.f)
+, xf30_viewportScaleY(1.f)
 , xf34_thermalFlag(kTD_Bypass)
 
 , xf38_skipCineSpecialFunc(kInvalidUniqueId)
@@ -107,9 +118,7 @@ CStateManager::CStateManager(const rstl::ncrc_ptr< CScriptMailbox >& mailbox,
   gpRender->SetDrawableCallback(RendererDrawCallback, this);
   CMemory::SetOutOfMemoryCallback(MemoryAllocatorAllocationFailedCallback, this);
 
-  for (int i = x90c_loaderFuncs.size(); i < x90c_loaderFuncs.capacity(); ++i) {
-    x90c_loaderFuncs.push_back(nullptr);
-  }
+  x90c_loaderFuncs.resize(x90c_loaderFuncs.capacity(), nullptr);
   x90c_loaderFuncs[kST_Trigger] = ScriptLoader::LoadTrigger;
   x90c_loaderFuncs[kST_DamageableTrigger] = ScriptLoader::LoadDamageableTrigger;
   x90c_loaderFuncs[kST_Actor] = ScriptLoader::LoadActor;
@@ -283,6 +292,29 @@ CStateManager::~CStateManager() {
   CMemory::SetOutOfMemoryCallback(nullptr, nullptr);
 }
 
+TUniqueId CStateManager::AllocateUniqueId() {
+  const ushort lastIndex = x0_nextFreeIndex;
+  ushort ourIndex;
+  do {
+    ourIndex = x0_nextFreeIndex;
+    x0_nextFreeIndex = (ourIndex + 1) & 0x3ff;
+    if (x0_nextFreeIndex == lastIndex) {
+      rs_debugger_printf("Object list full!");
+    }
+  } while (ObjectListById(kOL_All).GetObjectByIndex(ourIndex) != nullptr);
+
+  x4_objectIndexArray[ourIndex] = (x4_objectIndexArray[ourIndex] + 1) & 0x3f;
+  if (TUniqueId(x4_objectIndexArray[ourIndex], ourIndex) == kInvalidUniqueId) {
+    x4_objectIndexArray[ourIndex] = 0;
+  }
+
+  return TUniqueId(x4_objectIndexArray[ourIndex], ourIndex);
+}
+
 void CStateManager::RemoveObject(TUniqueId id) {}
 
 void CStateManager::ClearGraveyard() {}
+
+void CStateManager::RendererDrawCallback(const void*, const void*, int) {}
+
+const bool CStateManager::MemoryAllocatorAllocationFailedCallback(const void*, unsigned int) {}

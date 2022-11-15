@@ -11296,10 +11296,10 @@ lbl_8004D58C:
 lbl_8004D5A0:
 /* 8004D5A0 0004A500  38 7D 08 6C */	addi r3, r29, 0x86c
 /* 8004D5A4 0004A504  38 80 FF FF */	li r4, -1
-/* 8004D5A8 0004A508  48 00 01 05 */	bl sub_8004d6ac
+/* 8004D5A8 0004A508  48 00 01 05 */	bl "__dt__Q24rstl36single_ptr<22CStateManagerContainer>Fv"
 /* 8004D5AC 0004A50C  38 7D 08 54 */	addi r3, r29, 0x854
 /* 8004D5B0 0004A510  38 80 FF FF */	li r4, -1
-/* 8004D5B4 0004A514  48 00 30 D1 */	bl sub_80050684
+/* 8004D5B4 0004A514  48 00 30 D1 */	bl "__dt__Q24rstl72list<Q24rstl30reserved_vector<9TUniqueId,32>,Q24rstl17rmemory_allocator>Fv"
 /* 8004D5B8 0004A518  34 1D 08 50 */	addic. r0, r29, 0x850
 /* 8004D5BC 0004A51C  41 82 00 24 */	beq lbl_8004D5E0
 /* 8004D5C0 0004A520  80 7D 08 50 */	lwz r3, 0x850(r29)
@@ -11373,8 +11373,8 @@ lbl_8004D694:
 /* 8004D6A4 0004A604  38 21 00 50 */	addi r1, r1, 0x50
 /* 8004D6A8 0004A608  4E 80 00 20 */	blr
 
-.global sub_8004d6ac
-sub_8004d6ac:
+.global "__dt__Q24rstl36single_ptr<22CStateManagerContainer>Fv"
+"__dt__Q24rstl36single_ptr<22CStateManagerContainer>Fv":
 /* 8004D6AC 0004A60C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8004D6B0 0004A610  7C 08 02 A6 */	mflr r0
 /* 8004D6B4 0004A614  90 01 00 14 */	stw r0, 0x14(r1)
@@ -12521,7 +12521,7 @@ lbl_8004E634:
 /* 8004E63C 0004B59C  38 7F 0D 14 */	addi r3, r31, 0xd14
 /* 8004E640 0004B5A0  38 A1 00 74 */	addi r5, r1, 0x74
 /* 8004E644 0004B5A4  38 80 00 09 */	li r4, 9
-/* 8004E648 0004B5A8  48 00 0C 99 */	bl sub_8004f2e0
+/* 8004E648 0004B5A8  48 00 0C 99 */	bl "__ct__Q24rstl36reserved_vector<15CCameraBlurPass,9>FiRC15CCameraBlurPass"
 /* 8004E64C 0004B5AC  88 01 00 80 */	lbz r0, 0x80(r1)
 /* 8004E650 0004B5B0  28 00 00 00 */	cmplwi r0, 0
 /* 8004E654 0004B5B4  41 82 00 1C */	beq lbl_8004E670
@@ -13365,8 +13365,8 @@ lbl_8004EC74:
 /* 8004F2D8 0004C238  38 21 01 00 */	addi r1, r1, 0x100
 /* 8004F2DC 0004C23C  4E 80 00 20 */	blr
 
-.global sub_8004f2e0
-sub_8004f2e0:
+.global "__ct__Q24rstl36reserved_vector<15CCameraBlurPass,9>FiRC15CCameraBlurPass"
+"__ct__Q24rstl36reserved_vector<15CCameraBlurPass,9>FiRC15CCameraBlurPass":
 /* 8004F2E0 0004C240  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8004F2E4 0004C244  7C 08 02 A6 */	mflr r0
 /* 8004F2E8 0004C248  90 01 00 14 */	stw r0, 0x14(r1)
@@ -13374,7 +13374,7 @@ sub_8004f2e0:
 /* 8004F2F0 0004C250  7C 7F 1B 78 */	mr r31, r3
 /* 8004F2F4 0004C254  90 83 00 00 */	stw r4, 0(r3)
 /* 8004F2F8 0004C258  38 7F 00 04 */	addi r3, r31, 4
-/* 8004F2FC 0004C25C  48 00 00 1D */	bl sub_8004f318
+/* 8004F2FC 0004C25C  48 00 00 1D */	bl "uninitialized_fill_n<P15CCameraBlurPass,15CCameraBlurPass>__4rstlFP15CCameraBlurPassiRC15CCameraBlurPass"
 /* 8004F300 0004C260  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8004F304 0004C264  7F E3 FB 78 */	mr r3, r31
 /* 8004F308 0004C268  83 E1 00 0C */	lwz r31, 0xc(r1)
@@ -13382,8 +13382,8 @@ sub_8004f2e0:
 /* 8004F310 0004C270  38 21 00 10 */	addi r1, r1, 0x10
 /* 8004F314 0004C274  4E 80 00 20 */	blr
 
-.global sub_8004f318
-sub_8004f318:
+.global "uninitialized_fill_n<P15CCameraBlurPass,15CCameraBlurPass>__4rstlFP15CCameraBlurPassiRC15CCameraBlurPass"
+"uninitialized_fill_n<P15CCameraBlurPass,15CCameraBlurPass>__4rstlFP15CCameraBlurPassiRC15CCameraBlurPass":
 /* 8004F318 0004C278  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 8004F31C 0004C27C  7C 08 02 A6 */	mflr r0
 /* 8004F320 0004C280  90 01 00 24 */	stw r0, 0x24(r1)
@@ -14804,8 +14804,8 @@ lbl_8005065C:
 /* 8005067C 0004D5DC  38 21 00 10 */	addi r1, r1, 0x10
 /* 80050680 0004D5E0  4E 80 00 20 */	blr
 
-.global sub_80050684
-sub_80050684:
+.global "__dt__Q24rstl72list<Q24rstl30reserved_vector<9TUniqueId,32>,Q24rstl17rmemory_allocator>Fv"
+"__dt__Q24rstl72list<Q24rstl30reserved_vector<9TUniqueId,32>,Q24rstl17rmemory_allocator>Fv":
 /* 80050684 0004D5E4  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80050688 0004D5E8  7C 08 02 A6 */	mflr r0
 /* 8005068C 0004D5EC  90 01 00 24 */	stw r0, 0x24(r1)

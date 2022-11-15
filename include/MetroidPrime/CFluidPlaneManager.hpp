@@ -30,5 +30,6 @@ private:
   bool x120_;
   bool x121_;
 };
+CHECK_SIZEOF(CFluidPlaneManager, 0x124);
 
 #endif // _CFLUIDPLANEMANAGER
