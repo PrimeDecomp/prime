@@ -35,6 +35,23 @@ public:
 
   T* operator*() { return x8_item; }
 
+  bool IsLoaded() {
+    if (x8_item != nullptr) {
+      return true;
+    }
+    if (HasLock() && CToken::IsLoaded()) {
+      x8_item = GetT();
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  void Unlock() {
+    x8_item = nullptr;
+    TToken<T>::Unlock();
+  }
+
 private:
   T* x8_item;
 };

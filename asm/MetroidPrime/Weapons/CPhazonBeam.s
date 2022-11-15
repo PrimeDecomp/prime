@@ -539,7 +539,7 @@ lbl_8018C918:
 /* 8018C944 001898A4  7F 46 D3 78 */	mr r6, r26
 /* 8018C948 001898A8  7F 67 DB 78 */	mr r7, r27
 /* 8018C94C 001898AC  39 01 00 0C */	addi r8, r1, 0xc
-/* 8018C950 001898B0  48 02 EF 39 */	bl Fire__10CGunWeaponFbfQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateManager9TUniqueId
+/* 8018C950 001898B0  48 02 EF 39 */	bl Fire__10CGunWeaponFbfQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateManager9TUniqueIdff
 /* 8018C954 001898B4  80 7B 08 D8 */	lwz r3, 0x8d8(r27)
 /* 8018C958 001898B8  48 12 27 B1 */	bl SetGlobalSeed__17CProjectileWeaponFUs
 /* 8018C95C 001898BC  3B DE 03 E8 */	addi r30, r30, 0x3e8
@@ -555,7 +555,7 @@ lbl_8018C97C:
 /* 8018C97C 001898DC  A0 1C 00 00 */	lhz r0, 0(r28)
 /* 8018C980 001898E0  39 01 00 08 */	addi r8, r1, 8
 /* 8018C984 001898E4  B0 01 00 08 */	sth r0, 8(r1)
-/* 8018C988 001898E8  48 02 EF 01 */	bl Fire__10CGunWeaponFbfQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateManager9TUniqueId
+/* 8018C988 001898E8  48 02 EF 01 */	bl Fire__10CGunWeaponFbfQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateManager9TUniqueIdff
 /* 8018C98C 001898EC  38 00 00 01 */	li r0, 1
 lbl_8018C990:
 /* 8018C990 001898F0  54 00 06 3F */	clrlwi. r0, r0, 0x18
@@ -1325,4 +1325,3 @@ lbl_803D0912:
 	.asciz "azon2nd_1"
 	.balign 4
 	.4byte 0
-

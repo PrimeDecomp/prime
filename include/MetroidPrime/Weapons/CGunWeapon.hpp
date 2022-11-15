@@ -3,10 +3,12 @@
 
 #include "types.h"
 
+#include "MetroidPrime/CModelData.hpp"
 #include "MetroidPrime/Player/CPlayerState.hpp"
 #include "MetroidPrime/Weapons/WeaponCommon.hpp"
 #include "MetroidPrime/Weapons/WeaponTypes.hpp"
 
+#include "Kyoto/Math/CAABox.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
 #include "Kyoto/TToken.hpp"
 
@@ -16,13 +18,16 @@
 #include "rstl/reserved_vector.hpp"
 #include "rstl/single_ptr.hpp"
 
-class CModelData;
 class CGenDescription;
 class CGunController;
 class CAnimCharacterSet;
 class CWeaponDescription;
 class CElementGen;
 class CRainSplashGenerator;
+class CTransform4f;
+class CModelFlags;
+class CActorLights;
+class SWeaponInfo;
 
 class CVelocityInfo {
 public:
@@ -42,10 +47,9 @@ private:
 
 class CGunWeapon {
 public:
-  // TODO ctor
-  CGunWeapon();
+  CGunWeapon(CAssetId ancsId, EWeaponType type, TUniqueId playerId, EMaterialTypes playerMaterial,
+             const CVector3f& scale);
   virtual ~CGunWeapon();
-  // TODO other virtual methods
 
   enum ESecondaryFxType {
     kSFT_None,
@@ -87,7 +91,7 @@ public:
   CAABox GetBounds(const CTransform4f& xf) const;
   const SWeaponInfo& GetWeaponInfo() const;
 
-private:
+protected:
   // x0 is vtable
   CVector3f x4_scale;
   rstl::optional_object< CModelData > x10_solidModelData;

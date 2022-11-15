@@ -448,7 +448,7 @@ Fire__11CPlasmaBeamFbfQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateMan
 /* 800DEFFC 000DBF5C  7F A6 EB 78 */	mr r6, r29
 /* 800DF000 000DBF60  7F C7 F3 78 */	mr r7, r30
 /* 800DF004 000DBF64  39 01 00 0C */	addi r8, r1, 0xc
-/* 800DF008 000DBF68  48 0D C8 81 */	bl Fire__10CGunWeaponFbfQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateManager9TUniqueId
+/* 800DF008 000DBF68  48 0D C8 81 */	bl Fire__10CGunWeaponFbfQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateManager9TUniqueIdff
 /* 800DF00C 000DBF6C  C0 1A 02 30 */	lfs f0, 0x230(r26)
 /* 800DF010 000DBF70  38 00 00 01 */	li r0, 1
 /* 800DF014 000DBF74  C0 22 8F 40 */	lfs f1, lbl_805AAC60@sda21(r2)
@@ -461,7 +461,7 @@ lbl_800DF028:
 /* 800DF02C 000DBF8C  39 01 00 08 */	addi r8, r1, 8
 /* 800DF030 000DBF90  C0 62 8F 38 */	lfs f3, lbl_805AAC58@sda21(r2)
 /* 800DF034 000DBF94  B0 01 00 08 */	sth r0, 8(r1)
-/* 800DF038 000DBF98  48 0D C8 51 */	bl Fire__10CGunWeaponFbfQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateManager9TUniqueId
+/* 800DF038 000DBF98  48 0D C8 51 */	bl Fire__10CGunWeaponFbfQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateManager9TUniqueIdff
 /* 800DF03C 000DBF9C  3C 80 80 57 */	lis r4, lbl_8056D420@ha
 /* 800DF040 000DBFA0  80 7E 08 70 */	lwz r3, 0x870(r30)
 /* 800DF044 000DBFA4  38 84 D4 20 */	addi r4, r4, lbl_8056D420@l

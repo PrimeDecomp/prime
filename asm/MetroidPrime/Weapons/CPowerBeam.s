@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803DF758
-lbl_803DF758:
+.global __vt__10CPowerBeam
+__vt__10CPowerBeam:
 	# ROM: 0x3DC758
 	.4byte 0
 	.4byte 0
@@ -14,7 +14,7 @@ lbl_803DF758:
 	.4byte PreRenderGunFx__10CPowerBeamFRC13CStateManagerRC12CTransform4f
 	.4byte PostRenderGunFx__10CPowerBeamFRC13CStateManagerRC12CTransform4f
 	.4byte UpdateGunFx__10CPowerBeamFbfRC13CStateManagerRC12CTransform4f
-	.4byte Fire__10CPowerBeamFbfQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateManager9TUniqueId
+	.4byte Fire__10CPowerBeamFbfQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateManager9TUniqueIdff
 	.4byte EnableFx__10CGunWeaponFb
 	.4byte EnableSecondaryFx__10CPowerBeamFQ210CGunWeapon16ESecondaryFxType
 	.4byte Draw__10CGunWeaponCFbRC13CStateManagerRC12CTransform4fRC11CModelFlagsPC12CActorLights
@@ -202,8 +202,8 @@ Load__10CPowerBeamFR13CStateManagerb:
 /* 800DF8AC 000DC80C  38 21 00 10 */	addi r1, r1, 0x10
 /* 800DF8B0 000DC810  4E 80 00 20 */	blr
 
-.global Fire__10CPowerBeamFbfQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateManager9TUniqueId
-Fire__10CPowerBeamFbfQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateManager9TUniqueId:
+.global Fire__10CPowerBeamFbfQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateManager9TUniqueIdff
+Fire__10CPowerBeamFbfQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateManager9TUniqueIdff:
 /* 800DF8B4 000DC814  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 800DF8B8 000DC818  7C 08 02 A6 */	mflr r0
 /* 800DF8BC 000DC81C  90 01 00 24 */	stw r0, 0x24(r1)
@@ -214,7 +214,7 @@ Fire__10CPowerBeamFbfQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateMana
 /* 800DF8D0 000DC830  A0 08 00 00 */	lhz r0, 0(r8)
 /* 800DF8D4 000DC834  39 01 00 08 */	addi r8, r1, 8
 /* 800DF8D8 000DC838  B0 01 00 08 */	sth r0, 8(r1)
-/* 800DF8DC 000DC83C  48 0D BF AD */	bl Fire__10CGunWeaponFbfQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateManager9TUniqueId
+/* 800DF8DC 000DC83C  48 0D BF AD */	bl Fire__10CGunWeaponFbfQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateManager9TUniqueIdff
 /* 800DF8E0 000DC840  57 E0 08 3C */	slwi r0, r31, 1
 /* 800DF8E4 000DC844  38 62 8F 68 */	addi r3, r2, lbl_805AAC88@sda21
 /* 800DF8E8 000DC848  7C 83 02 2E */	lhzx r4, r3, r0
@@ -638,9 +638,9 @@ __dt__10CPowerBeamFv:
 /* 800DFEC8 000DCE28  93 C1 00 08 */	stw r30, 8(r1)
 /* 800DFECC 000DCE2C  7C 7E 1B 79 */	or. r30, r3, r3
 /* 800DFED0 000DCE30  41 82 00 B4 */	beq lbl_800DFF84
-/* 800DFED4 000DCE34  3C 60 80 3E */	lis r3, lbl_803DF758@ha
+/* 800DFED4 000DCE34  3C 60 80 3E */	lis r3, __vt__10CPowerBeam@ha
 /* 800DFED8 000DCE38  34 1E 02 38 */	addic. r0, r30, 0x238
-/* 800DFEDC 000DCE3C  38 03 F7 58 */	addi r0, r3, lbl_803DF758@l
+/* 800DFEDC 000DCE3C  38 03 F7 58 */	addi r0, r3, __vt__10CPowerBeam@l
 /* 800DFEE0 000DCE40  90 1E 00 00 */	stw r0, 0(r30)
 /* 800DFEE4 000DCE44  41 82 00 24 */	beq lbl_800DFF08
 /* 800DFEE8 000DCE48  80 7E 02 38 */	lwz r3, 0x238(r30)
@@ -707,9 +707,9 @@ __ct__10CPowerBeamFUi11EWeaponType9TUniqueId14EMaterialTypesRC9CVector3f:
 /* 800DFFBC 000DCF1C  38 C1 00 08 */	addi r6, r1, 8
 /* 800DFFC0 000DCF20  B0 01 00 08 */	sth r0, 8(r1)
 /* 800DFFC4 000DCF24  48 0D D1 ED */	bl __ct__10CGunWeaponFUi11EWeaponType9TUniqueId14EMaterialTypesRC9CVector3f
-/* 800DFFC8 000DCF28  3C 60 80 3E */	lis r3, lbl_803DF758@ha
+/* 800DFFC8 000DCF28  3C 60 80 3E */	lis r3, __vt__10CPowerBeam@ha
 /* 800DFFCC 000DCF2C  3C 80 80 3D */	lis r4, lbl_803CE548@ha
-/* 800DFFD0 000DCF30  38 03 F7 58 */	addi r0, r3, lbl_803DF758@l
+/* 800DFFD0 000DCF30  38 03 F7 58 */	addi r0, r3, __vt__10CPowerBeam@l
 /* 800DFFD4 000DCF34  38 61 00 14 */	addi r3, r1, 0x14
 /* 800DFFD8 000DCF38  90 1F 00 00 */	stw r0, 0(r31)
 /* 800DFFDC 000DCF3C  38 84 E5 48 */	addi r4, r4, lbl_803CE548@l
@@ -777,4 +777,3 @@ lbl_803CE548:
 	.byte 0x50, 0x6F, 0x77
 	.asciz "er2nd_1"
 	.4byte 0
-

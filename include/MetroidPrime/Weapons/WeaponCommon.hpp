@@ -5,6 +5,7 @@
 
 class CToken;
 class CSfxHandle;
+class CAnimData;
 
 namespace NWeaponTypes {
 
