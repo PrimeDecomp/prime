@@ -403,7 +403,7 @@ GUISYS :=\
 	$(BUILD_DIR)/asm/GuiSys/CGuiWidgetDrawParms.o\
 	$(BUILD_DIR)/asm/GuiSys/CAuiEnergyBarT01.o\
 	$(BUILD_DIR)/asm/GuiSys/CAuiImagePane.o\
-	$(BUILD_DIR)/asm/GuiSys/CRepeatState.o\
+	$(BUILD_DIR)/src/GuiSys/CRepeatState.o\
 
 COLLISION :=\
 	$(BUILD_DIR)/asm/Collision/CCollidableAABox.o\
