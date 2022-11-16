@@ -8713,7 +8713,7 @@ lbl_800CCF34:
 /* 800CCFA4 000C9F04  38 A1 00 80 */	addi r5, r1, 0x80
 /* 800CCFA8 000C9F08  92 C1 00 14 */	stw r22, 0x14(r1)
 /* 800CCFAC 000C9F0C  93 E1 00 18 */	stw r31, 0x18(r1)
-/* 800CCFB0 000C9F10  48 10 9C 15 */	bl "__ct__22CScriptWorldTeleporterF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfobUiUiUsUcUcUiUibfff"
+/* 800CCFB0 000C9F10  48 10 9C 15 */	bl "__ct__22CScriptWorldTeleporterF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfobUiUiiUcUcUiUibfff"
 /* 800CCFB4 000C9F14  7C 6E 1B 78 */	mr r14, r3
 lbl_800CCFB8:
 /* 800CCFB8 000C9F18  38 61 00 80 */	addi r3, r1, 0x80

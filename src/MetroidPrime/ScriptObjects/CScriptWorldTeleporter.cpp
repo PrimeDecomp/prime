@@ -63,7 +63,7 @@ CScriptWorldTeleporter::CScriptWorldTeleporter(
 
 CScriptWorldTeleporter::CScriptWorldTeleporter(TUniqueId uid, const rstl::string& name,
                                                const CEntityInfo& info, bool active,
-                                               CAssetId worldId, CAssetId areaId, ushort soundId,
+                                               CAssetId worldId, CAssetId areaId, int soundId,
                                                uchar volume, uchar panning, CAssetId fontId,
                                                CAssetId stringId, bool fadeWhite, float charFadeIn,
                                                float charsPerSecond, float showDelay)
