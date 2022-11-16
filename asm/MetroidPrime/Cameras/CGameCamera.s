@@ -2758,7 +2758,7 @@ lbl_8005D2E8:
 /* 8005D300 0005A260  38 81 00 C8 */	addi r4, r1, 0xc8
 /* 8005D304 0005A264  90 01 00 D0 */	stw r0, 0xd0(r1)
 /* 8005D308 0005A268  90 01 00 D4 */	stw r0, 0xd4(r1)
-/* 8005D30C 0005A26C  48 00 01 A5 */	bl sub_8005d4b0
+/* 8005D30C 0005A26C  48 00 01 A5 */	bl "__as__Q24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>FRCQ24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>"
 /* 8005D310 0005A270  80 01 00 CC */	lwz r0, 0xcc(r1)
 /* 8005D314 0005A274  80 61 00 D4 */	lwz r3, 0xd4(r1)
 /* 8005D318 0005A278  54 00 08 3C */	slwi r0, r0, 1
@@ -2873,8 +2873,8 @@ lbl_8005D49C:
 /* 8005D4A8 0005A408  38 21 00 F0 */	addi r1, r1, 0xf0
 /* 8005D4AC 0005A40C  4E 80 00 20 */	blr
 
-.global sub_8005d4b0
-sub_8005d4b0:
+.global "__as__Q24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>FRCQ24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>"
+"__as__Q24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>FRCQ24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>":
 /* 8005D4B0 0005A410  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 8005D4B4 0005A414  7C 08 02 A6 */	mflr r0
 /* 8005D4B8 0005A418  90 01 00 24 */	stw r0, 0x24(r1)

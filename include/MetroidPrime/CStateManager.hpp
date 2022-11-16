@@ -266,6 +266,7 @@ public:
   void QuitGame() { xf94_25_quitGame = true; }
   bool GetWantsToQuit() const { return xf94_25_quitGame; }
   void SetCinematicSkipObject(TUniqueId id) { xf38_skipCineSpecialFunc = id; }
+  void SetCinematicPause(bool pause) { xf94_29_cinematicPause = pause; }
   void SetInSaveUI(bool b) { xf94_28_inSaveUI = b; }
   bool GetInSaveUI() const { return xf94_28_inSaveUI; }
   void SetInMapScreen(bool b) { xf94_27_inMapScreen = b; }

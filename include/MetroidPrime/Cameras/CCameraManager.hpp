@@ -45,6 +45,7 @@ public:
   const CGameCamera& GetCurrentCamera(const CStateManager& mgr) const;
   const CGameCamera& GetLastCineCamera(CStateManager& mgr) const;
   TUniqueId GetLastCineCameraId() const;
+  void RemoveCinemaCamera(TUniqueId uid, CStateManager& mgr);
 
   void SetCurrentCameraId(TUniqueId camId);
   

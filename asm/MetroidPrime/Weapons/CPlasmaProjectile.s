@@ -463,7 +463,7 @@ lbl_801770A8:
 /* 801770CC 0017402C  38 81 00 1C */	addi r4, r1, 0x1c
 /* 801770D0 00174030  90 01 00 24 */	stw r0, 0x24(r1)
 /* 801770D4 00174034  90 01 00 28 */	stw r0, 0x28(r1)
-/* 801770D8 00174038  4B EE 63 D9 */	bl sub_8005d4b0
+/* 801770D8 00174038  4B EE 63 D9 */	bl "__as__Q24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>FRCQ24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>"
 /* 801770DC 0017403C  80 01 00 20 */	lwz r0, 0x20(r1)
 /* 801770E0 00174040  80 61 00 28 */	lwz r3, 0x28(r1)
 /* 801770E4 00174044  54 00 08 3C */	slwi r0, r0, 1

@@ -17,6 +17,7 @@ public:
   void SetBallBoostState(EBallBoostState state);
   EBombJumpState GetBombJumpState() const; // { return x1e40_bombJumpState; }
   void SetBombJumpState(EBombJumpState state);
+  void LoadMorphBallModel(CStateManager& mgr);
 
 };
 
