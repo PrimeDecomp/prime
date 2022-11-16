@@ -460,7 +460,7 @@ LIBS = [
             "GuiSys/CGuiWidgetDrawParms",
             "GuiSys/CAuiEnergyBarT01",
             "GuiSys/CAuiImagePane",
-            "GuiSys/CRepeatState",
+            ["GuiSys/CRepeatState", True],
         ],
     },
     {
