@@ -18,7 +18,7 @@ public:
                          CAssetId backgroundModel, const CVector3f& backgroundScale,
                          bool upElevator, ushort soundId, uchar volume, uchar panning);
   CScriptWorldTeleporter(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
-                         bool active, CAssetId worldId, CAssetId areaId, ushort soundId,
+                         bool active, CAssetId worldId, CAssetId areaId, int soundId,
                          uchar volume, uchar panning, CAssetId fontId, CAssetId stringId,
                          bool fadeWhite, float charFadeIn, float charsPerSecond, float showDelay);
   ~CScriptWorldTeleporter();

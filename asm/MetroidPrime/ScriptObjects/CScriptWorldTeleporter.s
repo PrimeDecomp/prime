@@ -241,8 +241,8 @@ lbl_801D6BA8:
 /* 801D6BBC 001D3B1C  38 21 00 10 */	addi r1, r1, 0x10
 /* 801D6BC0 001D3B20  4E 80 00 20 */	blr
 
-.global "__ct__22CScriptWorldTeleporterF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfobUiUiUsUcUcUiUibfff"
-"__ct__22CScriptWorldTeleporterF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfobUiUiUsUcUcUiUibfff":
+.global "__ct__22CScriptWorldTeleporterF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfobUiUiiUcUcUiUibfff"
+"__ct__22CScriptWorldTeleporterF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfobUiUiiUcUcUiUibfff":
 /* 801D6BC4 001D3B24  94 21 FF 90 */	stwu r1, -0x70(r1)
 /* 801D6BC8 001D3B28  7C 08 02 A6 */	mflr r0
 /* 801D6BCC 001D3B2C  90 01 00 74 */	stw r0, 0x74(r1)
