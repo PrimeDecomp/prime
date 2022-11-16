@@ -37,6 +37,8 @@ public:
                                                          int) const override;
   CAABox GetSortingBounds(const CStateManager&) const override;
 
+  bool IsPlayerActor() const { return x2e3_24_isPlayerActor; }
+
 private:
   CHealthInfo x258_initialHealth;
   CHealthInfo x260_currentHealth;

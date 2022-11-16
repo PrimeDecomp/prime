@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803DADF8
-lbl_803DADF8:
+.global __vt__16CCinematicCamera
+__vt__16CCinematicCamera:
 	# ROM: 0x3D7DF8
 	.4byte 0
 	.4byte 0
@@ -1844,7 +1844,7 @@ lbl_80094404:
 /* 80094410 00091370  38 81 00 A0 */	addi r4, r1, 0xa0
 /* 80094414 00091374  90 01 00 A8 */	stw r0, 0xa8(r1)
 /* 80094418 00091378  90 01 00 AC */	stw r0, 0xac(r1)
-/* 8009441C 0009137C  4B FC 90 95 */	bl sub_8005d4b0
+/* 8009441C 0009137C  4B FC 90 95 */	bl "__as__Q24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>FRCQ24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>"
 /* 80094420 00091380  80 01 00 A4 */	lwz r0, 0xa4(r1)
 /* 80094424 00091384  80 61 00 AC */	lwz r3, 0xac(r1)
 /* 80094428 00091388  54 00 08 3C */	slwi r0, r0, 1
@@ -1896,7 +1896,7 @@ lbl_800944BC:
 /* 800944C8 00091428  38 81 00 80 */	addi r4, r1, 0x80
 /* 800944CC 0009142C  90 01 00 88 */	stw r0, 0x88(r1)
 /* 800944D0 00091430  90 01 00 8C */	stw r0, 0x8c(r1)
-/* 800944D4 00091434  4B FC 8F DD */	bl sub_8005d4b0
+/* 800944D4 00091434  4B FC 8F DD */	bl "__as__Q24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>FRCQ24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>"
 /* 800944D8 00091438  80 01 00 84 */	lwz r0, 0x84(r1)
 /* 800944DC 0009143C  80 61 00 8C */	lwz r3, 0x8c(r1)
 /* 800944E0 00091440  54 00 08 3C */	slwi r0, r0, 1
@@ -2837,9 +2837,9 @@ __dt__16CCinematicCameraFv:
 /* 800951F4 00092154  93 C1 00 68 */	stw r30, 0x68(r1)
 /* 800951F8 00092158  7C 7E 1B 79 */	or. r30, r3, r3
 /* 800951FC 0009215C  41 82 01 DC */	beq lbl_800953D8
-/* 80095200 00092160  3C 60 80 3E */	lis r3, lbl_803DADF8@ha
+/* 80095200 00092160  3C 60 80 3E */	lis r3, __vt__16CCinematicCamera@ha
 /* 80095204 00092164  34 1E 01 D8 */	addic. r0, r30, 0x1d8
-/* 80095208 00092168  38 03 AD F8 */	addi r0, r3, lbl_803DADF8@l
+/* 80095208 00092168  38 03 AD F8 */	addi r0, r3, __vt__16CCinematicCamera@l
 /* 8009520C 0009216C  90 1E 00 00 */	stw r0, 0(r30)
 /* 80095210 00092170  41 82 00 44 */	beq lbl_80095254
 /* 80095214 00092174  80 1E 01 DC */	lwz r0, 0x1dc(r30)
@@ -3019,9 +3019,9 @@ lbl_800953D8:
 /* 80095474 000923D4  39 21 00 10 */	addi r9, r1, 0x10
 /* 80095478 000923D8  57 EA DF FE */	rlwinm r10, r31, 0x1b, 0x1f, 0x1f
 /* 8009547C 000923DC  4B FC 86 41 */	bl "__ct__11CGameCameraF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fffff9TUniqueIdbi"
-/* 80095480 000923E0  3C 60 80 3E */	lis r3, lbl_803DADF8@ha
+/* 80095480 000923E0  3C 60 80 3E */	lis r3, __vt__16CCinematicCamera@ha
 /* 80095484 000923E4  38 00 00 00 */	li r0, 0
-/* 80095488 000923E8  38 63 AD F8 */	addi r3, r3, lbl_803DADF8@l
+/* 80095488 000923E8  38 63 AD F8 */	addi r3, r3, __vt__16CCinematicCamera@l
 /* 8009548C 000923EC  C0 02 8B 40 */	lfs f0, lbl_805AA860@sda21(r2)
 /* 80095490 000923F0  90 7D 00 00 */	stw r3, 0(r29)
 /* 80095494 000923F4  7F C4 F3 78 */	mr r4, r30

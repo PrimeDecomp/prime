@@ -236,6 +236,8 @@ struct SConnection {
   EScriptObjectState x0_state;
   EScriptObjectMessage x4_msg;
   TEditorId x8_objId;
+  SConnection(EScriptObjectState state, EScriptObjectMessage msg, TEditorId id)
+  : x0_state(state), x4_msg(msg), x8_objId(id) {}
 };
 
 class CEntityInfo {

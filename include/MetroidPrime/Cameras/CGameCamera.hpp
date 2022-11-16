@@ -33,7 +33,7 @@ public:
   void SetFovInterpolation(float start, float fov, float time, float delayTime);
   void UpdatePerspective(float dt);
 
-private:
+protected:
   TUniqueId xe8_watchedObject;
   mutable CMatrix4f xec_perspectiveMatrix;
   CTransform4f x12c_origXf;
