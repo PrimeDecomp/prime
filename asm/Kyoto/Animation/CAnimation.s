@@ -23,7 +23,7 @@ __ct__10CAnimationFR12CInputStream:
 /* 802D6DC4 002D3D24  80 85 00 04 */	lwz r4, 4(r5)
 /* 802D6DC8 002D3D28  38 04 00 01 */	addi r0, r4, 1
 /* 802D6DCC 002D3D2C  90 05 00 04 */	stw r0, 4(r5)
-/* 802D6DD0 002D3D30  4B D5 A1 61 */	bl sub_80030f30
+/* 802D6DD0 002D3D30  4B D5 A1 61 */	bl "ReleaseData__Q24rstl18rc_ptr<9IMetaAnim>Fv"
 /* 802D6DD4 002D3D34  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802D6DD8 002D3D38  7F C3 F3 78 */	mr r3, r30
 /* 802D6DDC 002D3D3C  83 E1 00 1C */	lwz r31, 0x1c(r1)

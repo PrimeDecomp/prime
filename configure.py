@@ -81,7 +81,7 @@ LIBS = [
             "MetroidPrime/Cameras/CGameCamera",
             "MetroidPrime/CGameArea",
             "MetroidPrime/HUD/CSamusHud",
-            "MetroidPrime/CAnimationDatabaseGame",
+            ["MetroidPrime/CAnimationDatabaseGame", False],
             "MetroidPrime/CTransitionDatabaseGame",
             ["MetroidPrime/Tweaks/CTweakPlayerControl", True],
             "MetroidPrime/Tweaks/CTweakPlayerGun",

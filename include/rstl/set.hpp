@@ -24,11 +24,14 @@ public:
 
   const_iterator begin() const { return inner.begin(); }
   const_iterator end() const { return inner.end(); }
+  iterator begin() { return inner.begin(); }
+  iterator end() { return inner.end(); }
 
   iterator find(const T& key) { return inner.find(key); }
   const_iterator find(const T& key) const { return inner.find(key); }
 
   void erase(iterator it) { inner.erase(it); }
+  int size() const { return inner.size(); }
 private:
   rep_type inner;
 };

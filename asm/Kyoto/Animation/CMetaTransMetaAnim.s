@@ -31,7 +31,7 @@ __dt__18CMetaTransMetaAnimFv:
 /* 802E2008 002DEF68  90 1E 00 00 */	stw r0, 0(r30)
 /* 802E200C 002DEF6C  41 82 00 0C */	beq lbl_802E2018
 /* 802E2010 002DEF70  38 7E 00 04 */	addi r3, r30, 4
-/* 802E2014 002DEF74  4B D4 EF 1D */	bl sub_80030f30
+/* 802E2014 002DEF74  4B D4 EF 1D */	bl "ReleaseData__Q24rstl18rc_ptr<9IMetaAnim>Fv"
 lbl_802E2018:
 /* 802E2018 002DEF78  28 1E 00 00 */	cmplwi r30, 0
 /* 802E201C 002DEF7C  41 82 00 10 */	beq lbl_802E202C
@@ -172,7 +172,7 @@ __ct__18CMetaTransMetaAnimFR12CInputStream:
 /* 802E21F4 002DF154  80 85 00 04 */	lwz r4, 4(r5)
 /* 802E21F8 002DF158  38 04 00 01 */	addi r0, r4, 1
 /* 802E21FC 002DF15C  90 05 00 04 */	stw r0, 4(r5)
-/* 802E2200 002DF160  4B D4 ED 31 */	bl sub_80030f30
+/* 802E2200 002DF160  4B D4 ED 31 */	bl "ReleaseData__Q24rstl18rc_ptr<9IMetaAnim>Fv"
 /* 802E2204 002DF164  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802E2208 002DF168  7F E3 FB 78 */	mr r3, r31
 /* 802E220C 002DF16C  83 E1 00 1C */	lwz r31, 0x1c(r1)
@@ -187,4 +187,3 @@ lbl_803D6D90:
 	# ROM: 0x3D3D90
 	.asciz "??(??)"
 	.balign 4
-

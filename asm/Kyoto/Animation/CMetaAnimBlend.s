@@ -34,12 +34,12 @@ __dt__14CMetaAnimBlendFv:
 /* 802DF914 002DC874  90 1E 00 00 */	stw r0, 0(r30)
 /* 802DF918 002DC878  41 82 00 0C */	beq lbl_802DF924
 /* 802DF91C 002DC87C  38 7E 00 08 */	addi r3, r30, 8
-/* 802DF920 002DC880  4B D5 16 11 */	bl sub_80030f30
+/* 802DF920 002DC880  4B D5 16 11 */	bl "ReleaseData__Q24rstl18rc_ptr<9IMetaAnim>Fv"
 lbl_802DF924:
 /* 802DF924 002DC884  34 1E 00 04 */	addic. r0, r30, 4
 /* 802DF928 002DC888  41 82 00 0C */	beq lbl_802DF934
 /* 802DF92C 002DC88C  38 7E 00 04 */	addi r3, r30, 4
-/* 802DF930 002DC890  4B D5 16 01 */	bl sub_80030f30
+/* 802DF930 002DC890  4B D5 16 01 */	bl "ReleaseData__Q24rstl18rc_ptr<9IMetaAnim>Fv"
 lbl_802DF934:
 /* 802DF934 002DC894  28 1E 00 00 */	cmplwi r30, 0
 /* 802DF938 002DC898  41 82 00 10 */	beq lbl_802DF948
@@ -471,7 +471,7 @@ __ct__14CMetaAnimBlendFR12CInputStream:
 /* 802DFF6C 002DCECC  80 85 00 04 */	lwz r4, 4(r5)
 /* 802DFF70 002DCED0  38 04 00 01 */	addi r0, r4, 1
 /* 802DFF74 002DCED4  90 05 00 04 */	stw r0, 4(r5)
-/* 802DFF78 002DCED8  4B D5 0F B9 */	bl sub_80030f30
+/* 802DFF78 002DCED8  4B D5 0F B9 */	bl "ReleaseData__Q24rstl18rc_ptr<9IMetaAnim>Fv"
 /* 802DFF7C 002DCEDC  7F E4 FB 78 */	mr r4, r31
 /* 802DFF80 002DCEE0  38 61 00 08 */	addi r3, r1, 8
 /* 802DFF84 002DCEE4  48 00 00 59 */	bl CreateMetaAnim__16CMetaAnimFactoryFR12CInputStream
@@ -482,7 +482,7 @@ __ct__14CMetaAnimBlendFR12CInputStream:
 /* 802DFF98 002DCEF8  80 85 00 04 */	lwz r4, 4(r5)
 /* 802DFF9C 002DCEFC  38 04 00 01 */	addi r0, r4, 1
 /* 802DFFA0 002DCF00  90 05 00 04 */	stw r0, 4(r5)
-/* 802DFFA4 002DCF04  4B D5 0F 8D */	bl sub_80030f30
+/* 802DFFA4 002DCF04  4B D5 0F 8D */	bl "ReleaseData__Q24rstl18rc_ptr<9IMetaAnim>Fv"
 /* 802DFFA8 002DCF08  7F E3 FB 78 */	mr r3, r31
 /* 802DFFAC 002DCF0C  48 05 EC 7D */	bl ReadFloat__12CInputStreamFv
 /* 802DFFB0 002DCF10  D0 3E 00 0C */	stfs f1, 0xc(r30)
@@ -504,4 +504,3 @@ lbl_803D6D58:
 	# ROM: 0x3D3D58
 	.asciz "??(??)"
 	.balign 4
-

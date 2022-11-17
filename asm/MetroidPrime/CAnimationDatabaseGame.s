@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803DA320
-lbl_803DA320:
+.global __vt__22CAnimationDatabaseGame
+__vt__22CAnimationDatabaseGame:
 	# ROM: 0x3D7320
 	.4byte 0
 	.4byte 0
@@ -81,7 +81,7 @@ lbl_8006D884:
 /* 8006D8E4 0006A844  93 C1 00 2C */	stw r30, 0x2c(r1)
 /* 8006D8E8 0006A848  90 01 00 10 */	stw r0, 0x10(r1)
 /* 8006D8EC 0006A84C  90 01 00 14 */	stw r0, 0x14(r1)
-/* 8006D8F0 0006A850  48 00 00 41 */	bl sub_8006d930
+/* 8006D8F0 0006A850  48 00 00 41 */	bl "insert<Q34rstl130red_black_tree<10CPrimitive,10CPrimitive,0,Q24rstl22identity<10CPrimitive>,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>8iterator>__Q24rstl47vector<10CPrimitive,Q24rstl17rmemory_allocator>FQ24rstl114pointer_iterator<10CPrimitive,Q24rstl47vector<10CPrimitive,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q34rstl130red_black_tree<10CPrimitive,10CPrimitive,0,Q24rstl22identity<10CPrimitive>,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>8iteratorQ34rstl130red_black_tree<10CPrimitive,10CPrimitive,0,Q24rstl22identity<10CPrimitive>,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>8iterator"
 /* 8006D8F4 0006A854  80 81 00 48 */	lwz r4, 0x48(r1)
 /* 8006D8F8 0006A858  28 04 00 00 */	cmplwi r4, 0
 /* 8006D8FC 0006A85C  41 82 00 0C */	beq lbl_8006D908
@@ -99,8 +99,8 @@ lbl_8006D908:
 /* 8006D928 0006A888  38 21 00 70 */	addi r1, r1, 0x70
 /* 8006D92C 0006A88C  4E 80 00 20 */	blr
 
-.global sub_8006d930
-sub_8006d930:
+.global "insert<Q34rstl130red_black_tree<10CPrimitive,10CPrimitive,0,Q24rstl22identity<10CPrimitive>,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>8iterator>__Q24rstl47vector<10CPrimitive,Q24rstl17rmemory_allocator>FQ24rstl114pointer_iterator<10CPrimitive,Q24rstl47vector<10CPrimitive,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q34rstl130red_black_tree<10CPrimitive,10CPrimitive,0,Q24rstl22identity<10CPrimitive>,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>8iteratorQ34rstl130red_black_tree<10CPrimitive,10CPrimitive,0,Q24rstl22identity<10CPrimitive>,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>8iterator"
+"insert<Q34rstl130red_black_tree<10CPrimitive,10CPrimitive,0,Q24rstl22identity<10CPrimitive>,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>8iterator>__Q24rstl47vector<10CPrimitive,Q24rstl17rmemory_allocator>FQ24rstl114pointer_iterator<10CPrimitive,Q24rstl47vector<10CPrimitive,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q34rstl130red_black_tree<10CPrimitive,10CPrimitive,0,Q24rstl22identity<10CPrimitive>,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>8iteratorQ34rstl130red_black_tree<10CPrimitive,10CPrimitive,0,Q24rstl22identity<10CPrimitive>,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>8iterator":
 /* 8006D930 0006A890  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 8006D934 0006A894  7C 08 02 A6 */	mflr r0
 /* 8006D938 0006A898  90 01 00 34 */	stw r0, 0x34(r1)
@@ -396,7 +396,7 @@ GetMetaAnimName__22CAnimationDatabaseGameCFUi:
 "__ct__22CAnimationDatabaseGameFRCQ24rstl47vector<10CAnimation,Q24rstl17rmemory_allocator>":
 /* 8006DD1C 0006AC7C  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 8006DD20 0006AC80  7C 08 02 A6 */	mflr r0
-/* 8006DD24 0006AC84  3C A0 80 3E */	lis r5, lbl_803D9BE0@ha
+/* 8006DD24 0006AC84  3C A0 80 3E */	lis r5, __vt__18CAnimationDatabase@ha
 /* 8006DD28 0006AC88  90 01 00 34 */	stw r0, 0x34(r1)
 /* 8006DD2C 0006AC8C  38 00 00 00 */	li r0, 0
 /* 8006DD30 0006AC90  93 E1 00 2C */	stw r31, 0x2c(r1)
@@ -405,7 +405,7 @@ GetMetaAnimName__22CAnimationDatabaseGameCFUi:
 /* 8006DD3C 0006AC9C  93 A1 00 24 */	stw r29, 0x24(r1)
 /* 8006DD40 0006ACA0  7C 9D 23 78 */	mr r29, r4
 /* 8006DD44 0006ACA4  98 01 00 10 */	stb r0, 0x10(r1)
-/* 8006DD48 0006ACA8  38 05 9B E0 */	addi r0, r5, lbl_803D9BE0@l
+/* 8006DD48 0006ACA8  38 05 9B E0 */	addi r0, r5, __vt__18CAnimationDatabase@l
 /* 8006DD4C 0006ACAC  90 03 00 00 */	stw r0, 0(r3)
 /* 8006DD50 0006ACB0  88 01 00 10 */	lbz r0, 0x10(r1)
 /* 8006DD54 0006ACB4  98 03 00 0C */	stb r0, 0xc(r3)
@@ -426,9 +426,9 @@ lbl_8006DD74:
 /* 8006DD8C 0006ACEC  48 2D 30 B5 */	bl __dt__6CTokenFv
 lbl_8006DD90:
 /* 8006DD90 0006ACF0  38 80 00 00 */	li r4, 0
-/* 8006DD94 0006ACF4  3C 60 80 3E */	lis r3, lbl_803DA320@ha
+/* 8006DD94 0006ACF4  3C 60 80 3E */	lis r3, __vt__22CAnimationDatabaseGame@ha
 /* 8006DD98 0006ACF8  98 81 00 10 */	stb r4, 0x10(r1)
-/* 8006DD9C 0006ACFC  38 03 A3 20 */	addi r0, r3, lbl_803DA320@l
+/* 8006DD9C 0006ACFC  38 03 A3 20 */	addi r0, r3, __vt__22CAnimationDatabaseGame@l
 /* 8006DDA0 0006AD00  38 7F 00 10 */	addi r3, r31, 0x10
 /* 8006DDA4 0006AD04  90 1F 00 00 */	stw r0, 0(r31)
 /* 8006DDA8 0006AD08  90 9F 00 14 */	stw r4, 0x14(r31)
@@ -682,7 +682,7 @@ lbl_8006E0F4:
 /* 8006E0F4 0006B054  28 1B 00 00 */	cmplwi r27, 0
 /* 8006E0F8 0006B058  41 82 00 0C */	beq lbl_8006E104
 /* 8006E0FC 0006B05C  7F 63 DB 78 */	mr r3, r27
-/* 8006E100 0006B060  4B FC 2E 31 */	bl sub_80030f30
+/* 8006E100 0006B060  4B FC 2E 31 */	bl "ReleaseData__Q24rstl18rc_ptr<9IMetaAnim>Fv"
 lbl_8006E104:
 /* 8006E104 0006B064  3B 7B 00 04 */	addi r27, r27, 4
 lbl_8006E108:
@@ -710,4 +710,3 @@ lbl_803CD250:
 	.asciz "??(??)"
 	.byte 0x4D
 	.asciz "eta-animation name unavailable in Release mode."
-

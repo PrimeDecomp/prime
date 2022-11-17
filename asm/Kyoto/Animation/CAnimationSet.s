@@ -870,7 +870,7 @@ lbl_802D7A84:
 /* 802D7A8C 002D49EC  34 1E 00 10 */	addic. r0, r30, 0x10
 /* 802D7A90 002D49F0  41 82 00 0C */	beq lbl_802D7A9C
 /* 802D7A94 002D49F4  38 7E 00 10 */	addi r3, r30, 0x10
-/* 802D7A98 002D49F8  4B D5 94 99 */	bl sub_80030f30
+/* 802D7A98 002D49F8  4B D5 94 99 */	bl "ReleaseData__Q24rstl18rc_ptr<9IMetaAnim>Fv"
 lbl_802D7A9C:
 /* 802D7A9C 002D49FC  28 1E 00 00 */	cmplwi r30, 0
 /* 802D7AA0 002D4A00  41 82 00 0C */	beq lbl_802D7AAC
@@ -963,7 +963,7 @@ lbl_802D7BC4:
 /* 802D7BD0 002D4B30  90 1A 00 04 */	stw r0, 4(r26)
 /* 802D7BD4 002D4B34  41 82 00 0C */	beq lbl_802D7BE0
 /* 802D7BD8 002D4B38  7F A3 EB 78 */	mr r3, r29
-/* 802D7BDC 002D4B3C  4B D5 93 55 */	bl sub_80030f30
+/* 802D7BDC 002D4B3C  4B D5 93 55 */	bl "ReleaseData__Q24rstl18rc_ptr<9IMetaAnim>Fv"
 lbl_802D7BE0:
 /* 802D7BE0 002D4B40  38 61 00 0C */	addi r3, r1, 0xc
 /* 802D7BE4 002D4B44  48 06 5E FD */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
@@ -1070,7 +1070,7 @@ lbl_802D7D30:
 /* 802D7D38 002D4C98  34 1A 00 10 */	addic. r0, r26, 0x10
 /* 802D7D3C 002D4C9C  41 82 00 0C */	beq lbl_802D7D48
 /* 802D7D40 002D4CA0  38 7A 00 10 */	addi r3, r26, 0x10
-/* 802D7D44 002D4CA4  4B D5 91 ED */	bl sub_80030f30
+/* 802D7D44 002D4CA4  4B D5 91 ED */	bl "ReleaseData__Q24rstl18rc_ptr<9IMetaAnim>Fv"
 lbl_802D7D48:
 /* 802D7D48 002D4CA8  28 1A 00 00 */	cmplwi r26, 0
 /* 802D7D4C 002D4CAC  41 82 00 0C */	beq lbl_802D7D58
@@ -1352,4 +1352,3 @@ lbl_803D6D28:
 	# ROM: 0x3D3D28
 	.asciz "??(??)"
 	.balign 4
-

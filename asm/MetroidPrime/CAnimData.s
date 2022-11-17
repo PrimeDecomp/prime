@@ -3573,7 +3573,7 @@ GetAnimationDuration__9CAnimDataCFi:
 /* 8002C51C 0002947C  80 85 00 04 */	lwz r4, 4(r5)
 /* 8002C520 00029480  38 04 00 01 */	addi r0, r4, 1
 /* 8002C524 00029484  90 05 00 04 */	stw r0, 4(r5)
-/* 8002C528 00029488  48 00 4A 09 */	bl sub_80030f30
+/* 8002C528 00029488  48 00 4A 09 */	bl "ReleaseData__Q24rstl18rc_ptr<9IMetaAnim>Fv"
 /* 8002C52C 0002948C  38 61 00 18 */	addi r3, r1, 0x18
 /* 8002C530 00029490  48 00 4E 7D */	bl sub_800313ac
 /* 8002C534 00029494  88 61 00 08 */	lbz r3, 8(r1)
@@ -3714,7 +3714,7 @@ lbl_8002C718:
 /* 8002C724 00029684  90 01 00 5C */	stw r0, 0x5c(r1)
 /* 8002C728 00029688  90 01 00 60 */	stw r0, 0x60(r1)
 /* 8002C72C 0002968C  90 01 00 58 */	stw r0, 0x58(r1)
-/* 8002C730 00029690  48 00 48 01 */	bl sub_80030f30
+/* 8002C730 00029690  48 00 48 01 */	bl "ReleaseData__Q24rstl18rc_ptr<9IMetaAnim>Fv"
 /* 8002C734 00029694  FC 20 F8 90 */	fmr f1, f31
 /* 8002C738 00029698  E3 E1 00 98 */	psq_l f31, 152(r1), 0, qr0
 /* 8002C73C 0002969C  CB E1 00 90 */	lfd f31, 0x90(r1)
@@ -4132,7 +4132,7 @@ lbl_8002CC5C:
 /* 8002CCE4 00029C44  7D 89 03 A6 */	mtctr r12
 /* 8002CCE8 00029C48  4E 80 04 21 */	bctrl
 /* 8002CCEC 00029C4C  38 61 00 10 */	addi r3, r1, 0x10
-/* 8002CCF0 00029C50  48 00 42 41 */	bl sub_80030f30
+/* 8002CCF0 00029C50  48 00 42 41 */	bl "ReleaseData__Q24rstl18rc_ptr<9IMetaAnim>Fv"
 /* 8002CCF4 00029C54  38 61 00 14 */	addi r3, r1, 0x14
 /* 8002CCF8 00029C58  48 00 46 B5 */	bl sub_800313ac
 /* 8002CCFC 00029C5C  2C 1F FF FF */	cmpwi r31, -1
@@ -4156,7 +4156,7 @@ lbl_8002CC5C:
 /* 8002CD44 00029CA4  7D 89 03 A6 */	mtctr r12
 /* 8002CD48 00029CA8  4E 80 04 21 */	bctrl
 /* 8002CD4C 00029CAC  38 61 00 08 */	addi r3, r1, 8
-/* 8002CD50 00029CB0  48 00 41 E1 */	bl sub_80030f30
+/* 8002CD50 00029CB0  48 00 41 E1 */	bl "ReleaseData__Q24rstl18rc_ptr<9IMetaAnim>Fv"
 /* 8002CD54 00029CB4  38 61 00 0C */	addi r3, r1, 0xc
 /* 8002CD58 00029CB8  48 00 46 55 */	bl sub_800313ac
 lbl_8002CD5C:
@@ -5824,7 +5824,7 @@ GetAverageVelocity__9CAnimDataCFi:
 /* 8002E574 0002B4D4  80 85 00 04 */	lwz r4, 4(r5)
 /* 8002E578 0002B4D8  38 04 00 01 */	addi r0, r4, 1
 /* 8002E57C 0002B4DC  90 05 00 04 */	stw r0, 4(r5)
-/* 8002E580 0002B4E0  48 00 29 B1 */	bl sub_80030f30
+/* 8002E580 0002B4E0  48 00 29 B1 */	bl "ReleaseData__Q24rstl18rc_ptr<9IMetaAnim>Fv"
 /* 8002E584 0002B4E4  88 61 00 08 */	lbz r3, 8(r1)
 /* 8002E588 0002B4E8  38 00 00 00 */	li r0, 0
 /* 8002E58C 0002B4EC  88 A1 00 0C */	lbz r5, 0xc(r1)
@@ -6000,7 +6000,7 @@ lbl_8002E7D4:
 /* 8002E7E0 0002B740  90 01 00 5C */	stw r0, 0x5c(r1)
 /* 8002E7E4 0002B744  90 01 00 60 */	stw r0, 0x60(r1)
 /* 8002E7E8 0002B748  90 01 00 58 */	stw r0, 0x58(r1)
-/* 8002E7EC 0002B74C  48 00 27 45 */	bl sub_80030f30
+/* 8002E7EC 0002B74C  48 00 27 45 */	bl "ReleaseData__Q24rstl18rc_ptr<9IMetaAnim>Fv"
 /* 8002E7F0 0002B750  FC 20 F8 90 */	fmr f1, f31
 /* 8002E7F4 0002B754  E3 E1 00 B8 */	psq_l f31, 184(r1), 0, qr0
 /* 8002E7F8 0002B758  CB E1 00 B0 */	lfd f31, 0xb0(r1)
@@ -8840,8 +8840,8 @@ lbl_80030F1C:
 /* 80030F28 0002DE88  38 21 00 10 */	addi r1, r1, 0x10
 /* 80030F2C 0002DE8C  4E 80 00 20 */	blr
 
-.global sub_80030f30
-sub_80030f30:
+.global "ReleaseData__Q24rstl18rc_ptr<9IMetaAnim>Fv"
+"ReleaseData__Q24rstl18rc_ptr<9IMetaAnim>Fv":
 /* 80030F30 0002DE90  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80030F34 0002DE94  7C 08 02 A6 */	mflr r0
 /* 80030F38 0002DE98  90 01 00 14 */	stw r0, 0x14(r1)
