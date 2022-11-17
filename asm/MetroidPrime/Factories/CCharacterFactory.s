@@ -29,8 +29,8 @@ lbl_803D9BD4:
 	.4byte 0
 	.4byte sub_80033d50
 
-.global lbl_803D9BE0
-lbl_803D9BE0:
+.global __vt__18CAnimationDatabase
+__vt__18CAnimationDatabase:
 	# ROM: 0x3D6BE0
 	.4byte 0
 	.4byte 0
@@ -2015,9 +2015,9 @@ sub_80033440:
 /* 8003345C 000303BC  93 81 00 20 */	stw r28, 0x20(r1)
 /* 80033460 000303C0  7C 9C 23 78 */	mr r28, r4
 /* 80033464 000303C4  41 82 00 B8 */	beq lbl_8003351C
-/* 80033468 000303C8  3C 60 80 3E */	lis r3, lbl_803DA320@ha
+/* 80033468 000303C8  3C 60 80 3E */	lis r3, __vt__22CAnimationDatabaseGame@ha
 /* 8003346C 000303CC  34 1F 00 10 */	addic. r0, r31, 0x10
-/* 80033470 000303D0  38 03 A3 20 */	addi r0, r3, lbl_803DA320@l
+/* 80033470 000303D0  38 03 A3 20 */	addi r0, r3, __vt__22CAnimationDatabaseGame@l
 /* 80033474 000303D4  90 1F 00 00 */	stw r0, 0(r31)
 /* 80033478 000303D8  41 82 00 54 */	beq lbl_800334CC
 /* 8003347C 000303DC  80 1F 00 14 */	lwz r0, 0x14(r31)
@@ -2033,7 +2033,7 @@ lbl_800334A0:
 /* 800334A0 00030400  28 1D 00 00 */	cmplwi r29, 0
 /* 800334A4 00030404  41 82 00 0C */	beq lbl_800334B0
 /* 800334A8 00030408  7F A3 EB 78 */	mr r3, r29
-/* 800334AC 0003040C  4B FF DA 85 */	bl sub_80030f30
+/* 800334AC 0003040C  4B FF DA 85 */	bl "ReleaseData__Q24rstl18rc_ptr<9IMetaAnim>Fv"
 lbl_800334B0:
 /* 800334B0 00030410  3B BD 00 04 */	addi r29, r29, 4
 lbl_800334B4:
@@ -2046,9 +2046,9 @@ lbl_800334B4:
 lbl_800334CC:
 /* 800334CC 0003042C  28 1F 00 00 */	cmplwi r31, 0
 /* 800334D0 00030430  41 82 00 3C */	beq lbl_8003350C
-/* 800334D4 00030434  3C 60 80 3E */	lis r3, lbl_803D9BE0@ha
+/* 800334D4 00030434  3C 60 80 3E */	lis r3, __vt__18CAnimationDatabase@ha
 /* 800334D8 00030438  34 1F 00 04 */	addic. r0, r31, 4
-/* 800334DC 0003043C  38 03 9B E0 */	addi r0, r3, lbl_803D9BE0@l
+/* 800334DC 0003043C  38 03 9B E0 */	addi r0, r3, __vt__18CAnimationDatabase@l
 /* 800334E0 00030440  90 1F 00 00 */	stw r0, 0(r31)
 /* 800334E4 00030444  41 82 00 28 */	beq lbl_8003350C
 /* 800334E8 00030448  88 1F 00 0C */	lbz r0, 0xc(r31)

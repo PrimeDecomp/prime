@@ -68,12 +68,12 @@ __dt__19CMetaAnimPhaseBlendFv:
 /* 802E026C 002DD1CC  90 1E 00 00 */	stw r0, 0(r30)
 /* 802E0270 002DD1D0  41 82 00 0C */	beq lbl_802E027C
 /* 802E0274 002DD1D4  38 7E 00 08 */	addi r3, r30, 8
-/* 802E0278 002DD1D8  4B D5 0C B9 */	bl sub_80030f30
+/* 802E0278 002DD1D8  4B D5 0C B9 */	bl "ReleaseData__Q24rstl18rc_ptr<9IMetaAnim>Fv"
 lbl_802E027C:
 /* 802E027C 002DD1DC  34 1E 00 04 */	addic. r0, r30, 4
 /* 802E0280 002DD1E0  41 82 00 0C */	beq lbl_802E028C
 /* 802E0284 002DD1E4  38 7E 00 04 */	addi r3, r30, 4
-/* 802E0288 002DD1E8  4B D5 0C A9 */	bl sub_80030f30
+/* 802E0288 002DD1E8  4B D5 0C A9 */	bl "ReleaseData__Q24rstl18rc_ptr<9IMetaAnim>Fv"
 lbl_802E028C:
 /* 802E028C 002DD1EC  28 1E 00 00 */	cmplwi r30, 0
 /* 802E0290 002DD1F0  41 82 00 10 */	beq lbl_802E02A0
@@ -556,7 +556,7 @@ __ct__19CMetaAnimPhaseBlendFR12CInputStream:
 /* 802E0978 002DD8D8  80 85 00 04 */	lwz r4, 4(r5)
 /* 802E097C 002DD8DC  38 04 00 01 */	addi r0, r4, 1
 /* 802E0980 002DD8E0  90 05 00 04 */	stw r0, 4(r5)
-/* 802E0984 002DD8E4  4B D5 05 AD */	bl sub_80030f30
+/* 802E0984 002DD8E4  4B D5 05 AD */	bl "ReleaseData__Q24rstl18rc_ptr<9IMetaAnim>Fv"
 /* 802E0988 002DD8E8  7F E4 FB 78 */	mr r4, r31
 /* 802E098C 002DD8EC  38 61 00 08 */	addi r3, r1, 8
 /* 802E0990 002DD8F0  4B FF F6 4D */	bl CreateMetaAnim__16CMetaAnimFactoryFR12CInputStream
@@ -567,7 +567,7 @@ __ct__19CMetaAnimPhaseBlendFR12CInputStream:
 /* 802E09A4 002DD904  80 85 00 04 */	lwz r4, 4(r5)
 /* 802E09A8 002DD908  38 04 00 01 */	addi r0, r4, 1
 /* 802E09AC 002DD90C  90 05 00 04 */	stw r0, 4(r5)
-/* 802E09B0 002DD910  4B D5 05 81 */	bl sub_80030f30
+/* 802E09B0 002DD910  4B D5 05 81 */	bl "ReleaseData__Q24rstl18rc_ptr<9IMetaAnim>Fv"
 /* 802E09B4 002DD914  7F E3 FB 78 */	mr r3, r31
 /* 802E09B8 002DD918  48 05 E2 71 */	bl ReadFloat__12CInputStreamFv
 /* 802E09BC 002DD91C  D0 3E 00 0C */	stfs f1, 0xc(r30)
@@ -602,4 +602,3 @@ lbl_803D6D68:
 	# ROM: 0x3D3D68
 	.asciz "??(??)"
 	.balign 4
-

@@ -5,13 +5,9 @@
 #include "types.h"
 
 #include "rstl/construct.hpp"
+#include "rstl/iterator.hpp"
 
 namespace rstl {
-struct input_iterator_tag {};
-struct output_iterator_tag {};
-struct forward_iterator_tag : public input_iterator_tag {};
-struct bidirectional_iterator_tag : public forward_iterator_tag {};
-struct random_access_iterator_tag : public bidirectional_iterator_tag {};
 
 template < typename T, typename Vec, typename Alloc >
 class const_pointer_iterator {
@@ -131,10 +127,7 @@ inline typename It::difference_type __distance(It first, It last, random_access_
   return last - first;
 }
 
-template < typename It >
-inline typename It::difference_type distance(It first, It last) {
-  return __distance(first, last, typename It::iterator_category());
-}
+
 } // namespace rstl
 
 #endif // _RSTL_POINTER_ITERATOR

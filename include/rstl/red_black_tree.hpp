@@ -5,6 +5,7 @@
 
 #include "rstl/pair.hpp"
 #include "rstl/rmemory_allocator.hpp"
+#include "rstl/iterator.hpp"
 
 namespace rstl {
 template < typename P >
@@ -82,6 +83,10 @@ private:
 
 public:
   struct const_iterator {
+    typedef int difference_type;
+    typedef forward_iterator_tag iterator_category;
+    typedef P* value_type;
+
     node* mNode;
     const header* mHeader;
     // bool x8_;
@@ -134,6 +139,15 @@ public:
   const_iterator end() const {
     // TODO
     return const_iterator(nullptr, &x8_header, false);
+  }
+
+  iterator begin() {
+    // TODO
+    return iterator(x8_header.get_leftmost(), &x8_header, false);
+  }
+  iterator end() {
+    // TODO
+    return iterator(nullptr, &x8_header, false);
   }
 
   const_iterator find(const T& key) const {
@@ -196,6 +210,8 @@ public:
     x8_header.set_rightmost(nullptr);
     x4_count = 0;
   }
+
+  int size() const { return x4_count; }
 
 private:
   uchar x0_;
