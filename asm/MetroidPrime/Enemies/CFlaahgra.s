@@ -625,7 +625,7 @@ sub_801ad790:
 /* 801AD7E0 001AA740  4B EA 55 8D */	bl CreateShadow__6CActorFb
 /* 801AD7E4 001AA744  80 7F 00 94 */	lwz r3, 0x94(r31)
 /* 801AD7E8 001AA748  38 80 00 00 */	li r4, 0
-/* 801AD7EC 001AA74C  4B F5 85 05 */	bl sub_80105cf0
+/* 801AD7EC 001AA74C  4B F5 85 05 */	bl SetAlwaysCalculateRadius__13CSimpleShadowFb
 /* 801AD7F0 001AA750  7F E3 FB 78 */	mr r3, r31
 /* 801AD7F4 001AA754  38 80 00 02 */	li r4, 2
 /* 801AD7F8 001AA758  4B EC F9 19 */	bl BuildBodyController__10CPatternedF9EBodyType

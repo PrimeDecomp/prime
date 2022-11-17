@@ -191,7 +191,7 @@ void CCameraFilterPass::DrawWideScreen(const CColor& color, const CTexture* tex,
     tex->Load(GX_TEXMAP0, CTexture::kCM_Repeat);
   }
   CGraphics::SetTevOp(kTS_Stage0, CTevPass_805a5ebc);
-  CGraphics::SetTevOp(kTS_Stage1, *PTR_skPassThru_805a8828);
+  CGraphics::SetTevOp(kTS_Stage1, CGraphics::kEnvPassthru);
 
   {
     CGraphics::StreamBegin(kP_TriangleStrip);

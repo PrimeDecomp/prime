@@ -191,8 +191,8 @@ GetBounds__13CSimpleShadowCFv:
 /* 80105CE8 00102C48  38 21 00 30 */	addi r1, r1, 0x30
 /* 80105CEC 00102C4C  4E 80 00 20 */	blr
 
-.global sub_80105cf0
-sub_80105cf0:
+.global SetAlwaysCalculateRadius__13CSimpleShadowFb
+SetAlwaysCalculateRadius__13CSimpleShadowFb:
 /* 80105CF0 00102C50  88 03 00 48 */	lbz r0, 0x48(r3)
 /* 80105CF4 00102C54  50 80 36 72 */	rlwimi r0, r4, 6, 0x19, 0x19
 /* 80105CF8 00102C58  98 03 00 48 */	stb r0, 0x48(r3)

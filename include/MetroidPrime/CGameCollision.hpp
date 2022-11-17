@@ -3,6 +3,8 @@
 
 #include "types.h"
 
+#include "MetroidPrime/CStateManager.hpp"
+
 class CAreaCollisionCache;
 class CCollisionInfo;
 class CCollisionPrimitive;
@@ -30,6 +32,9 @@ public:
                                             TUniqueId&, CCollisionInfo&, double&);
   static CRayCastResult RayStaticIntersection(const CStateManager&, const CVector3f&,
                                               const CVector3f&, float, const CMaterialFilter&);
+  static CRayCastResult RayDynamicIntersection(const CStateManager& mgr, TUniqueId& idOut, const CVector3f& pos,
+                                               const CVector3f& dir, float mag, const CMaterialFilter& filter,
+                                               const TEntityList& nearList);
 
   static void Move(CStateManager& mgr, CPhysicsActor& actor, float dt, const TEntityList*);
 };
