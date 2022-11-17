@@ -9,6 +9,7 @@ public:
   static void CollectGarbage();
   static void PreInitializeAlloc(uint size) { mPreInitializeAlloc += size; }
   static void Initialize(uint);
+  static void WaitForAllDMAsToComplete();
 
 private:
   static uint mPreInitializeAlloc;

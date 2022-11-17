@@ -17,9 +17,16 @@
 #include "MetroidPrime/ScriptObjects/CScriptMazeNode.hpp"
 
 #include "Collision/CCollisionPrimitive.hpp"
+#include "Collision/CRayCastResult.hpp"
 #include "Kyoto/Basics/RAssertDolphin.hpp"
+#include "Kyoto/CARAMManager.hpp"
+#include "Kyoto/CARAMToken.hpp"
 #include "Kyoto/Graphics/CLight.hpp"
 #include "MetaRender/CCubeRenderer.hpp"
+
+extern "C" {
+void sub_8036ccfc();
+}
 
 CStateManager::CStateManager(const rstl::ncrc_ptr< CScriptMailbox >& mailbox,
                              const rstl::ncrc_ptr< CMapWorldInfo >& mwInfo,
@@ -311,10 +318,25 @@ TUniqueId CStateManager::AllocateUniqueId() {
   return TUniqueId(x4_objectIndexArray[ourIndex], ourIndex);
 }
 
+CRayCastResult CStateManager::RayStaticIntersection(const CVector3f& pos, const CVector3f& dir,
+                                                    float length,
+                                                    const CMaterialFilter& filter) const {
+  return CGameCollision::RayStaticIntersection(*this, pos, dir, length, filter);
+}
+
 void CStateManager::RemoveObject(TUniqueId id) {}
 
 void CStateManager::ClearGraveyard() {}
 
-void CStateManager::RendererDrawCallback(const void*, const void*, int) {}
+const bool CStateManager::MemoryAllocatorAllocationFailedCallback(const void* obj, unsigned int) {
+  return static_cast< CStateManager* >(const_cast< void* >(obj))->SwapOutAllPossibleMemory();
+}
 
-const bool CStateManager::MemoryAllocatorAllocationFailedCallback(const void*, unsigned int) {}
+bool CStateManager::SwapOutAllPossibleMemory() {
+  sub_8036ccfc();
+  CARAMManager::WaitForAllDMAsToComplete();
+  CARAMToken::UpdateAllDMAs();
+  return true;
+}
+
+void CStateManager::RendererDrawCallback(const void*, const void*, int) {}
