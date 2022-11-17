@@ -425,7 +425,7 @@ LIBS = [
             ["Weapons/IWeaponRenderer", True],
             "Weapons/CDecalDataFactory",
             ["Weapons/CDecal", False],
-            "Weapons/CWeaponDescription",
+            ["Weapons/CWeaponDescription", True],
             ["Weapons/CDecalDescription", True],
         ],
     },

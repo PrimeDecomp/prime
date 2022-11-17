@@ -18,7 +18,7 @@ float CProjectileInfo::GetProjectileSpeed() const {
   float result = 45000.0f;
   TToken< CWeaponDescription > token(x0_weaponDescription);
 
-  if (!token->x4_IVEC.null()) {
+  if (token->x4_IVEC) {
     CVector3f vec = CVector3f::Zero();
     token->x4_IVEC->GetValue(0, vec);
     result = vec.Magnitude() / CProjectileWeapon::GetTickPeriod();

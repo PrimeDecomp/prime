@@ -378,7 +378,7 @@ WEAPONS :=\
 	$(BUILD_DIR)/src/Weapons/IWeaponRenderer.o\
 	$(BUILD_DIR)/asm/Weapons/CDecalDataFactory.o\
 	$(BUILD_DIR)/asm/Weapons/CDecal.o\
-	$(BUILD_DIR)/asm/Weapons/CWeaponDescription.o\
+	$(BUILD_DIR)/src/Weapons/CWeaponDescription.o\
 	$(BUILD_DIR)/src/Weapons/CDecalDescription.o\
 
 METARENDER :=\
