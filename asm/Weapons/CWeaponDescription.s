@@ -314,15 +314,3 @@ __ct__18CWeaponDescriptionFv:
 /* 802B5CB4 002B2C14  90 A3 00 AC */	stw r5, 0xac(r3)
 /* 802B5CB8 002B2C18  90 A3 00 B0 */	stw r5, 0xb0(r3)
 /* 802B5CBC 002B2C1C  4E 80 00 20 */	blr
-
-.global sub_802b5cc0
-sub_802b5cc0:
-/* 802B5CC0 002B2C20  38 00 00 00 */	li r0, 0
-/* 802B5CC4 002B2C24  90 03 00 00 */	stw r0, 0(r3)
-/* 802B5CC8 002B2C28  90 03 00 04 */	stw r0, 4(r3)
-/* 802B5CCC 002B2C2C  90 03 00 08 */	stw r0, 8(r3)
-/* 802B5CD0 002B2C30  90 03 00 0C */	stw r0, 0xc(r3)
-/* 802B5CD4 002B2C34  90 03 00 10 */	stw r0, 0x10(r3)
-/* 802B5CD8 002B2C38  90 03 00 14 */	stw r0, 0x14(r3)
-/* 802B5CDC 002B2C3C  98 03 00 18 */	stb r0, 0x18(r3)
-/* 802B5CE0 002B2C40  4E 80 00 20 */	blr

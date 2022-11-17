@@ -379,7 +379,7 @@ WEAPONS :=\
 	$(BUILD_DIR)/asm/Weapons/CDecalDataFactory.o\
 	$(BUILD_DIR)/asm/Weapons/CDecal.o\
 	$(BUILD_DIR)/asm/Weapons/CWeaponDescription.o\
-	$(BUILD_DIR)/asm/Weapons/CDecalDescription.o\
+	$(BUILD_DIR)/src/Weapons/CDecalDescription.o\
 
 METARENDER :=\
 	$(BUILD_DIR)/asm/MetaRender/CCubeRenderer.o\

@@ -13,7 +13,10 @@ public:
     rstl::single_ptr< CColorElement > x10_CLR;
     rstl::single_ptr< CUVElement > x14_TEX;
     bool x18_ADD;
+    SQuadDescr();
   };
+
+  CDecalDescription();
 
 // private:
   SQuadDescr x0_quad1;
