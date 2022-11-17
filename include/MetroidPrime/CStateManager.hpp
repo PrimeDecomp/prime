@@ -132,6 +132,7 @@ public:
   void AddObject(CEntity*);
   TUniqueId AllocateUniqueId();
   const rstl::string& HashInstanceName(CInputStream& in);
+  bool SwapOutAllPossibleMemory();
 
   void BuildNearList(TEntityList& nearList, const CVector3f& pos, const CVector3f& dir, float mag,
                      const CMaterialFilter&, const CActor*) const;
