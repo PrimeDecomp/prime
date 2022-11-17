@@ -31,6 +31,8 @@ public:
     return CMaterialFilter(include, exclude, kFT_IncludeExclude);
   }
 
+  static const CMaterialFilter& GetPassEverything() { return skPassEverything; }
+
   bool Passes(const CMaterialList& other) const;
 
 private:

@@ -139,6 +139,9 @@ public:
                      const CActor*) const;
   bool RayCollideWorld(const CVector3f& start, const CVector3f& end, const TEntityList& nearList,
                        const CMaterialFilter& filter, const CActor* damagee) const;
+
+  CRayCastResult RayStaticIntersection(const CVector3f& pos, const CVector3f& dir, float length,
+                                       const CMaterialFilter& filter) const;
   CRayCastResult RayWorldIntersection(TUniqueId& idOut, const CVector3f& pos, const CVector3f& dir,
                                       float length, const CMaterialFilter& filter,
                                       const TEntityList& list) const;

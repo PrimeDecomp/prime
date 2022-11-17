@@ -135,6 +135,7 @@ public:
   static void EndScene();
   static void SetTevOp(ERglTevStage stage, const CTevCombiners::CTevPass& pass);
   static void StreamBegin(ERglPrimitive primitive);
+  static void StreamColor(uint color);
   static void StreamColor(const CColor& color);
   static void StreamTexcoord(float u, float v);
   static void StreamVertex(float, float, float);

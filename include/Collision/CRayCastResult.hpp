@@ -20,6 +20,7 @@ public:
   // TODO: figure out what's going on here
   bool IsInvalid() const { return x20_valid == kI_Invalid; }
   // GetPlane__14CRayCastResultCFv
+  const CPlane& GetPlane() const { return x10_plane; }
   const CVector3f& GetPoint() const { return x4_point; }
   // GetMaterial__14CRayCastResultCFv
   // Transform__14CRayCastResultFRC12CTransform4f

@@ -2251,7 +2251,7 @@ lbl_800A2DE4:
 /* 800A30C0 000A0020  4B FA FC AD */	bl CreateShadow__6CActorFb
 /* 800A30C4 000A0024  80 7F 00 94 */	lwz r3, 0x94(r31)
 /* 800A30C8 000A0028  38 80 00 00 */	li r4, 0
-/* 800A30CC 000A002C  48 06 2C 25 */	bl sub_80105cf0
+/* 800A30CC 000A002C  48 06 2C 25 */	bl SetAlwaysCalculateRadius__13CSimpleShadowFb
 lbl_800A30D0:
 /* 800A30D0 000A0030  80 9F 00 90 */	lwz r4, 0x90(r31)
 /* 800A30D4 000A0034  28 04 00 00 */	cmplwi r4, 0

@@ -96,7 +96,5 @@ public:
 };
 
 extern CTevCombiners::CTevPass CTevPass_805a5ebc;
-// TODO move to CGraphics
-extern CTevCombiners::CTevPass* PTR_skPassThru_805a8828;
 
 #endif // _CTEVCOMBINERS
