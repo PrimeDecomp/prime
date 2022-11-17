@@ -2,6 +2,18 @@
 
 .section .text, "ax"
 
+.global __ct__Q217CDecalDescription10SQuadDescrFv
+__ct__Q217CDecalDescription10SQuadDescrFv:
+/* 802B5CC0 002B2C20  38 00 00 00 */	li r0, 0
+/* 802B5CC4 002B2C24  90 03 00 00 */	stw r0, 0(r3)
+/* 802B5CC8 002B2C28  90 03 00 04 */	stw r0, 4(r3)
+/* 802B5CCC 002B2C2C  90 03 00 08 */	stw r0, 8(r3)
+/* 802B5CD0 002B2C30  90 03 00 0C */	stw r0, 0xc(r3)
+/* 802B5CD4 002B2C34  90 03 00 10 */	stw r0, 0x10(r3)
+/* 802B5CD8 002B2C38  90 03 00 14 */	stw r0, 0x14(r3)
+/* 802B5CDC 002B2C3C  98 03 00 18 */	stb r0, 0x18(r3)
+/* 802B5CE0 002B2C40  4E 80 00 20 */	blr
+
 .global __ct__17CDecalDescriptionFv
 __ct__17CDecalDescriptionFv:
 /* 802B5CE4 002B2C44  94 21 FF F0 */	stwu r1, -0x10(r1)
@@ -9,9 +21,9 @@ __ct__17CDecalDescriptionFv:
 /* 802B5CEC 002B2C4C  90 01 00 14 */	stw r0, 0x14(r1)
 /* 802B5CF0 002B2C50  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 802B5CF4 002B2C54  7C 7F 1B 78 */	mr r31, r3
-/* 802B5CF8 002B2C58  4B FF FF C9 */	bl sub_802b5cc0
+/* 802B5CF8 002B2C58  4B FF FF C9 */	bl __ct__Q217CDecalDescription10SQuadDescrFv
 /* 802B5CFC 002B2C5C  38 7F 00 1C */	addi r3, r31, 0x1c
-/* 802B5D00 002B2C60  4B FF FF C1 */	bl sub_802b5cc0
+/* 802B5D00 002B2C60  4B FF FF C1 */	bl __ct__Q217CDecalDescription10SQuadDescrFv
 /* 802B5D04 002B2C64  38 80 00 00 */	li r4, 0
 /* 802B5D08 002B2C68  7F E3 FB 78 */	mr r3, r31
 /* 802B5D0C 002B2C6C  98 9F 00 44 */	stb r4, 0x44(r31)

@@ -426,7 +426,7 @@ LIBS = [
             "Weapons/CDecalDataFactory",
             ["Weapons/CDecal", False],
             "Weapons/CWeaponDescription",
-            "Weapons/CDecalDescription",
+            ["Weapons/CDecalDescription", True],
         ],
     },
     {
