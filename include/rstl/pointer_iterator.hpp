@@ -120,6 +120,11 @@ struct const_counting_iterator {
   int count;
 
   const_counting_iterator(const T* ptr, int count) : ptr(ptr), count(count) {}
+  
+  const_counting_iterator& operator++() {
+    ++this->count;
+    return *this;
+  }
 };
 
 template < typename It >

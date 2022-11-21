@@ -30,6 +30,7 @@
 
 #include "math.h"
 #include "rstl/math.hpp"
+#include "rstl/iterator.hpp"
 
 namespace rstl {
 static int string_find(const string& haystack, const string& needle, int) {
