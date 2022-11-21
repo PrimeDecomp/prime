@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803E1878
-lbl_803E1878:
+.global __vt__15CBSLoopReaction
+__vt__15CBSLoopReaction:
 	# ROM: 0x3DE878
 	.4byte 0
 	.4byte 0
@@ -31,8 +31,8 @@ __dt__15CBSLoopReactionFv:
 /* 8013C054 00138FB4  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 8013C058 00138FB8  7C 7F 1B 79 */	or. r31, r3, r3
 /* 8013C05C 00138FBC  41 82 00 30 */	beq lbl_8013C08C
-/* 8013C060 00138FC0  3C 60 80 3E */	lis r3, lbl_803E1878@ha
-/* 8013C064 00138FC4  38 03 18 78 */	addi r0, r3, lbl_803E1878@l
+/* 8013C060 00138FC0  3C 60 80 3E */	lis r3, __vt__15CBSLoopReaction@ha
+/* 8013C064 00138FC4  38 03 18 78 */	addi r0, r3, __vt__15CBSLoopReaction@l
 /* 8013C068 00138FC8  90 1F 00 00 */	stw r0, 0(r31)
 /* 8013C06C 00138FCC  41 82 00 10 */	beq lbl_8013C07C
 /* 8013C070 00138FD0  3C 60 80 3E */	lis r3, __vt__10CBodyState@ha
@@ -734,11 +734,11 @@ lbl_8013CA00:
 .global __ct__15CBSLoopReactionFv
 __ct__15CBSLoopReactionFv:
 /* 8013CA20 00139980  3C A0 80 3E */	lis r5, __vt__10CBodyState@ha
-/* 8013CA24 00139984  3C 80 80 3E */	lis r4, lbl_803E1878@ha
+/* 8013CA24 00139984  3C 80 80 3E */	lis r4, __vt__15CBSLoopReaction@ha
 /* 8013CA28 00139988  38 C5 13 18 */	addi r6, r5, __vt__10CBodyState@l
 /* 8013CA2C 0013998C  38 00 FF FF */	li r0, -1
 /* 8013CA30 00139990  90 C3 00 00 */	stw r6, 0(r3)
-/* 8013CA34 00139994  38 A4 18 78 */	addi r5, r4, lbl_803E1878@l
+/* 8013CA34 00139994  38 A4 18 78 */	addi r5, r4, __vt__15CBSLoopReaction@l
 /* 8013CA38 00139998  38 80 00 00 */	li r4, 0
 /* 8013CA3C 0013999C  90 A3 00 00 */	stw r5, 0(r3)
 /* 8013CA40 001399A0  90 03 00 04 */	stw r0, 4(r3)
