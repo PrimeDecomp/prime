@@ -12,6 +12,7 @@ class CMath {
 public:
   static float FastCosR(float v);
   static float FastSinR(float v);
+  static float FastArcCosR(float v);
   static inline float FastFmod(float x, float y) {
     int v = static_cast< int >(x * (1.f / y));
     return x - v * y;
