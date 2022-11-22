@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803E58C0
-lbl_803E58C0:
+.global __vt__15CScriptVisorGoo
+__vt__15CScriptVisorGoo:
 	# ROM: 0x3E28C0
 	.4byte 0
 	.4byte 0
@@ -482,9 +482,9 @@ __dt__15CScriptVisorGooFv:
 /* 801D75B8 001D4518  93 C1 00 08 */	stw r30, 8(r1)
 /* 801D75BC 001D451C  7C 7E 1B 79 */	or. r30, r3, r3
 /* 801D75C0 001D4520  41 82 00 54 */	beq lbl_801D7614
-/* 801D75C4 001D4524  3C 60 80 3E */	lis r3, lbl_803E58C0@ha
+/* 801D75C4 001D4524  3C 60 80 3E */	lis r3, __vt__15CScriptVisorGoo@ha
 /* 801D75C8 001D4528  34 1E 00 F0 */	addic. r0, r30, 0xf0
-/* 801D75CC 001D452C  38 03 58 C0 */	addi r0, r3, lbl_803E58C0@l
+/* 801D75CC 001D452C  38 03 58 C0 */	addi r0, r3, __vt__15CScriptVisorGoo@l
 /* 801D75D0 001D4530  90 1E 00 00 */	stw r0, 0(r30)
 /* 801D75D4 001D4534  41 82 00 10 */	beq lbl_801D75E4
 /* 801D75D8 001D4538  38 7E 00 F0 */	addi r3, r30, 0xf0
@@ -570,9 +570,9 @@ lbl_801D7614:
 /* 801D7700 001D4660  38 61 00 D0 */	addi r3, r1, 0xd0
 /* 801D7704 001D4664  38 80 FF FF */	li r4, -1
 /* 801D7708 001D4668  4B F3 F3 45 */	bl __dt__10CModelDataFv
-/* 801D770C 001D466C  3C 60 80 3E */	lis r3, lbl_803E58C0@ha
+/* 801D770C 001D466C  3C 60 80 3E */	lis r3, __vt__15CScriptVisorGoo@ha
 /* 801D7710 001D4670  3A BA 00 E8 */	addi r21, r26, 0xe8
-/* 801D7714 001D4674  38 03 58 C0 */	addi r0, r3, lbl_803E58C0@l
+/* 801D7714 001D4674  38 03 58 C0 */	addi r0, r3, __vt__15CScriptVisorGoo@l
 /* 801D7718 001D4678  38 61 00 28 */	addi r3, r1, 0x28
 /* 801D771C 001D467C  90 1A 00 00 */	stw r0, 0(r26)
 /* 801D7720 001D4680  38 80 00 00 */	li r4, 0
