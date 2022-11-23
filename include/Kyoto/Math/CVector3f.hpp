@@ -98,6 +98,10 @@ public:
     return *this;
   }
 
+  CVector2f ToVec2f() const {
+    return CVector2f(mX, mY);
+  }
+
   static float Dot(const CVector3f& a, const CVector3f& b) {
     return (a.GetX() * b.GetX()) + (a.GetY() * b.GetY()) + (a.GetZ() * b.GetZ());
   }

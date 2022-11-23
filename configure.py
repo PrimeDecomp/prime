@@ -192,7 +192,7 @@ LIBS = [
             ["MetroidPrime/BodyState/CBSLieOnGround", True],
             "MetroidPrime/BodyState/CBSLocomotion",
             ["MetroidPrime/BodyState/CBSStep", True],
-            "MetroidPrime/BodyState/CBSTurn",
+            ["MetroidPrime/BodyState/CBSTurn", False],
             "MetroidPrime/BodyState/CBodyController",
             ["MetroidPrime/BodyState/CBSLoopAttack", False],
             ["MetroidPrime/Weapons/CTargetableProjectile", False],

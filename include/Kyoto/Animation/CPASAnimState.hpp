@@ -71,6 +71,7 @@ public:
   CPASAnimParm GetAnimParmData(int, unsigned int) const;
 
   pas::EAnimationState GetStateId() const { return x0_id; }
+  bool HasAnims() const { return static_cast<uint>(x14_anims.size()) != 0; }
 
 private:
   pas::EAnimationState x0_id;

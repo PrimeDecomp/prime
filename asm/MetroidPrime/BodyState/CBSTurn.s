@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803E1750
-lbl_803E1750:
+.global __vt__12CBSFlyerTurn
+__vt__12CBSFlyerTurn:
 	# ROM: 0x3DE750
 	.4byte 0
 	.4byte 0
@@ -22,8 +22,8 @@ lbl_803E1750:
 	.4byte Shutdown__7CBSTurnFR15CBodyController
 	.4byte GetBodyStateTransition__7CBSTurnFfR15CBodyController
 
-.global lbl_803E178C
-lbl_803E178C:
+.global __vt__7CBSTurn
+__vt__7CBSTurn:
 	# ROM: 0x3DE78C
 	.4byte 0
 	.4byte 0
@@ -51,12 +51,12 @@ __dt__12CBSFlyerTurnFv:
 /* 801391D0 00136130  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 801391D4 00136134  7C 7F 1B 79 */	or. r31, r3, r3
 /* 801391D8 00136138  41 82 00 40 */	beq lbl_80139218
-/* 801391DC 0013613C  3C 60 80 3E */	lis r3, lbl_803E1750@ha
-/* 801391E0 00136140  38 03 17 50 */	addi r0, r3, lbl_803E1750@l
+/* 801391DC 0013613C  3C 60 80 3E */	lis r3, __vt__12CBSFlyerTurn@ha
+/* 801391E0 00136140  38 03 17 50 */	addi r0, r3, __vt__12CBSFlyerTurn@l
 /* 801391E4 00136144  90 1F 00 00 */	stw r0, 0(r31)
 /* 801391E8 00136148  41 82 00 20 */	beq lbl_80139208
-/* 801391EC 0013614C  3C 60 80 3E */	lis r3, lbl_803E178C@ha
-/* 801391F0 00136150  38 03 17 8C */	addi r0, r3, lbl_803E178C@l
+/* 801391EC 0013614C  3C 60 80 3E */	lis r3, __vt__7CBSTurn@ha
+/* 801391F0 00136150  38 03 17 8C */	addi r0, r3, __vt__7CBSTurn@l
 /* 801391F4 00136154  90 1F 00 00 */	stw r0, 0(r31)
 /* 801391F8 00136158  41 82 00 10 */	beq lbl_80139208
 /* 801391FC 0013615C  3C 60 80 3E */	lis r3, __vt__10CBodyState@ha
@@ -361,9 +361,9 @@ __ct__12CBSFlyerTurnFv:
 /* 80139630 00136590  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 80139634 00136594  7C 7F 1B 78 */	mr r31, r3
 /* 80139638 00136598  48 00 06 A9 */	bl __ct__7CBSTurnFv
-/* 8013963C 0013659C  3C 80 80 3E */	lis r4, lbl_803E1750@ha
+/* 8013963C 0013659C  3C 80 80 3E */	lis r4, __vt__12CBSFlyerTurn@ha
 /* 80139640 001365A0  7F E3 FB 78 */	mr r3, r31
-/* 80139644 001365A4  38 04 17 50 */	addi r0, r4, lbl_803E1750@l
+/* 80139644 001365A4  38 04 17 50 */	addi r0, r4, __vt__12CBSFlyerTurn@l
 /* 80139648 001365A8  90 1F 00 00 */	stw r0, 0(r31)
 /* 8013964C 001365AC  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80139650 001365B0  80 01 00 14 */	lwz r0, 0x14(r1)
@@ -379,8 +379,8 @@ __dt__7CBSTurnFv:
 /* 8013966C 001365CC  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 80139670 001365D0  7C 7F 1B 79 */	or. r31, r3, r3
 /* 80139674 001365D4  41 82 00 30 */	beq lbl_801396A4
-/* 80139678 001365D8  3C 60 80 3E */	lis r3, lbl_803E178C@ha
-/* 8013967C 001365DC  38 03 17 8C */	addi r0, r3, lbl_803E178C@l
+/* 80139678 001365D8  3C 60 80 3E */	lis r3, __vt__7CBSTurn@ha
+/* 8013967C 001365DC  38 03 17 8C */	addi r0, r3, __vt__7CBSTurn@l
 /* 80139680 001365E0  90 1F 00 00 */	stw r0, 0(r31)
 /* 80139684 001365E4  41 82 00 10 */	beq lbl_80139694
 /* 80139688 001365E8  3C 60 80 3E */	lis r3, __vt__10CBodyState@ha
@@ -851,9 +851,9 @@ __ct__7CBSTurnFv:
 /* 80139CF8 00136C58  FC 40 08 90 */	fmr f2, f1
 /* 80139CFC 00136C5C  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 80139D00 00136C60  7C 7F 1B 78 */	mr r31, r3
-/* 80139D04 00136C64  3C 60 80 3E */	lis r3, lbl_803E178C@ha
+/* 80139D04 00136C64  3C 60 80 3E */	lis r3, __vt__7CBSTurn@ha
 /* 80139D08 00136C68  90 1F 00 00 */	stw r0, 0(r31)
-/* 80139D0C 00136C6C  38 03 17 8C */	addi r0, r3, lbl_803E178C@l
+/* 80139D0C 00136C6C  38 03 17 8C */	addi r0, r3, __vt__7CBSTurn@l
 /* 80139D10 00136C70  38 7F 00 08 */	addi r3, r31, 8
 /* 80139D14 00136C74  90 1F 00 00 */	stw r0, 0(r31)
 /* 80139D18 00136C78  D0 3F 00 04 */	stfs f1, 4(r31)
