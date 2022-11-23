@@ -990,7 +990,7 @@ lbl_80251538:
 /* 802515A8 0024E508  91 61 00 0C */	stw r11, 0xc(r1)
 /* 802515AC 0024E50C  93 41 00 2C */	stw r26, 0x2c(r1)
 /* 802515B0 0024E510  90 01 00 10 */	stw r0, 0x10(r1)
-/* 802515B4 0024E514  48 00 0D 89 */	bl __ct__23CElectricBeamProjectile
+/* 802515B4 0024E514  48 00 0D 89 */	bl "__ct__23CElectricBeamProjectileFRC28TToken<18CWeaponDescription>11EWeaponTypeRC17SElectricBeamInfoRC12CTransform4f14EMaterialTypesRC11CDamageInfo9TUniqueId7TAreaId9TUniqueId17EProjectileAttrib"
 /* 802515B8 0024E518  7C 64 1B 78 */	mr r4, r3
 lbl_802515BC:
 /* 802515BC 0024E51C  7F A3 EB 78 */	mr r3, r29
