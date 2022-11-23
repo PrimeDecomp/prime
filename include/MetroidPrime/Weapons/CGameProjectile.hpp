@@ -39,6 +39,7 @@ public:
   void SetHitProjectileOwner(TUniqueId id) { x2c4_hitProjectileOwner = id; }
 
   bool GetWeaponActive() const { return x2e4_24_active; }
+  void DeleteProjectileLight(CStateManager&);
 
 protected:
   rstl::optional_object< TLockedToken< CGenDescription > > x158_visorParticle;

@@ -39,8 +39,19 @@ public:
   void AddModifier(CWarp*) override;
   uint Get4CharId() const override;
 
+  
+  void SetOverrideIPos(const CVector3f& vec) { x178_overrideIPos = vec; }
+  void SetOverrideIVel(const CVector3f& vec) { x188_overrideIVel = vec; }
+  void SetOverrideFPos(const CVector3f& vec) { x198_overrideFPos = vec; }
+  void SetOverrideFVel(const CVector3f& vec) { x1a8_overrideFVel = vec; }
+
 private:
-  uchar x4_pad[0x43c];
+  uchar x1c_pad[0x15c];
+  rstl::optional_object<CVector3f> x178_overrideIPos;
+  rstl::optional_object<CVector3f> x188_overrideIVel;
+  rstl::optional_object<CVector3f> x198_overrideFPos;
+  rstl::optional_object<CVector3f> x1a8_overrideFVel;
+  uchar x1b8_pad[0x2a0];
 };
 CHECK_SIZEOF(CParticleElectric, 0x458)
 

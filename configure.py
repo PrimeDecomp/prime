@@ -352,7 +352,7 @@ LIBS = [
             ["MetroidPrime/CMemoryCardDriver", False],
             "MetroidPrime/CSaveGameScreen",
             "MetroidPrime/Enemies/CAtomicBeta",
-            "MetroidPrime/Weapons/CElectricBeamProjectile",
+            ["MetroidPrime/Weapons/CElectricBeamProjectile", False],
             "MetroidPrime/Enemies/CRidley",
             ["MetroidPrime/Enemies/CPuffer", False],
             ["MetroidPrime/ScriptObjects/CFire", False],

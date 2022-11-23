@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803E9118
-lbl_803E9118:
+.global __vt__23CElectricBeamProjectile
+__vt__23CElectricBeamProjectile:
 	# ROM: 0x3E6118
 	.4byte 0
 	.4byte 0
@@ -23,7 +23,7 @@ lbl_803E9118:
 	.4byte GetDamageVulnerability__6CActorCFv
 	.4byte GetDamageVulnerability__6CActorCFRC9CVector3fRC9CVector3fRC11CDamageInfo
 	.4byte GetTouchBounds__15CBeamProjectileCFv
-	.4byte nullsub_65
+	.4byte Touch__23CElectricBeamProjectileFR6CActorR13CStateManager
 	.4byte GetOrbitPosition__6CActorCFRC13CStateManager
 	.4byte GetAimPosition__6CActorCFRC13CStateManagerf
 	.4byte GetHomingPosition__6CActorCFRC13CStateManagerf
@@ -34,9 +34,9 @@ lbl_803E9118:
 	.4byte GetSortingBounds__6CActorCFRC13CStateManager
 	.4byte DoUserAnimEvent__6CActorFR13CStateManagerRC13CInt32POINode14EUserEventTypef
 	.4byte ResolveCollisionWithActor__15CGameProjectileFRC14CRayCastResultR6CActorR13CStateManager
-	.4byte sub_80251e84
-	.4byte sub_80251d38
-	.4byte sub_80251dd4
+	.4byte UpdateFx__23CElectricBeamProjectileFRC12CTransform4ffR13CStateManager
+	.4byte ResetBeam__23CElectricBeamProjectileFR13CStateManagerb
+	.4byte Fire__23CElectricBeamProjectileFRC12CTransform4fR13CStateManagerb
 	.4byte 0
 
 .section .sdata
@@ -60,9 +60,9 @@ __dt__23CElectricBeamProjectileFv:
 /* 80251BC4 0024EB24  93 C1 00 08 */	stw r30, 8(r1)
 /* 80251BC8 0024EB28  7C 7E 1B 79 */	or. r30, r3, r3
 /* 80251BCC 0024EB2C  41 82 00 98 */	beq lbl_80251C64
-/* 80251BD0 0024EB30  3C 60 80 3F */	lis r3, lbl_803E9118@ha
+/* 80251BD0 0024EB30  3C 60 80 3F */	lis r3, __vt__23CElectricBeamProjectile@ha
 /* 80251BD4 0024EB34  34 1E 04 78 */	addic. r0, r30, 0x478
-/* 80251BD8 0024EB38  38 03 91 18 */	addi r0, r3, lbl_803E9118@l
+/* 80251BD8 0024EB38  38 03 91 18 */	addi r0, r3, __vt__23CElectricBeamProjectile@l
 /* 80251BDC 0024EB3C  90 1E 00 00 */	stw r0, 0(r30)
 /* 80251BE0 0024EB40  41 82 00 24 */	beq lbl_80251C04
 /* 80251BE4 0024EB44  80 7E 04 78 */	lwz r3, 0x478(r30)
@@ -161,8 +161,8 @@ lbl_80251CFC:
 /* 80251D30 0024EC90  38 21 00 30 */	addi r1, r1, 0x30
 /* 80251D34 0024EC94  4E 80 00 20 */	blr
 
-.global sub_80251d38
-sub_80251d38:
+.global ResetBeam__23CElectricBeamProjectileFR13CStateManagerb
+ResetBeam__23CElectricBeamProjectileFR13CStateManagerb:
 /* 80251D38 0024EC98  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80251D3C 0024EC9C  7C 08 02 A6 */	mflr r0
 /* 80251D40 0024ECA0  90 01 00 14 */	stw r0, 0x14(r1)
@@ -205,8 +205,8 @@ lbl_80251DBC:
 /* 80251DCC 0024ED2C  38 21 00 10 */	addi r1, r1, 0x10
 /* 80251DD0 0024ED30  4E 80 00 20 */	blr
 
-.global sub_80251dd4
-sub_80251dd4:
+.global Fire__23CElectricBeamProjectileFRC12CTransform4fR13CStateManagerb
+Fire__23CElectricBeamProjectileFRC12CTransform4fR13CStateManagerb:
 /* 80251DD4 0024ED34  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80251DD8 0024ED38  7C 08 02 A6 */	mflr r0
 /* 80251DDC 0024ED3C  38 80 00 01 */	li r4, 1
@@ -256,8 +256,8 @@ lbl_80251E70:
 /* 80251E7C 0024EDDC  38 21 00 10 */	addi r1, r1, 0x10
 /* 80251E80 0024EDE0  4E 80 00 20 */	blr
 
-.global sub_80251e84
-sub_80251e84:
+.global UpdateFx__23CElectricBeamProjectileFRC12CTransform4ffR13CStateManager
+UpdateFx__23CElectricBeamProjectileFRC12CTransform4ffR13CStateManager:
 /* 80251E84 0024EDE4  94 21 FF 70 */	stwu r1, -0x90(r1)
 /* 80251E88 0024EDE8  7C 08 02 A6 */	mflr r0
 /* 80251E8C 0024EDEC  90 01 00 94 */	stw r0, 0x94(r1)
@@ -569,8 +569,8 @@ lbl_802522DC:
 /* 802522F8 0024F258  38 21 00 90 */	addi r1, r1, 0x90
 /* 802522FC 0024F25C  4E 80 00 20 */	blr
 
-.global nullsub_65
-nullsub_65:
+.global Touch__23CElectricBeamProjectileFR6CActorR13CStateManager
+Touch__23CElectricBeamProjectileFR6CActorR13CStateManager:
 /* 80252300 0024F260  4E 80 00 20 */	blr
 
 .global Accept__23CElectricBeamProjectileFR8IVisitor
@@ -590,8 +590,8 @@ Accept__23CElectricBeamProjectileFR8IVisitor:
 /* 80252334 0024F294  38 21 00 10 */	addi r1, r1, 0x10
 /* 80252338 0024F298  4E 80 00 20 */	blr
 
-.global __ct__23CElectricBeamProjectile
-__ct__23CElectricBeamProjectile:
+.global "__ct__23CElectricBeamProjectileFRC28TToken<18CWeaponDescription>11EWeaponTypeRC17SElectricBeamInfoRC12CTransform4f14EMaterialTypesRC11CDamageInfo9TUniqueId7TAreaId9TUniqueId17EProjectileAttrib"
+"__ct__23CElectricBeamProjectileFRC28TToken<18CWeaponDescription>11EWeaponTypeRC17SElectricBeamInfoRC12CTransform4f14EMaterialTypesRC11CDamageInfo9TUniqueId7TAreaId9TUniqueId17EProjectileAttrib":
 /* 8025233C 0024F29C  94 21 FF 60 */	stwu r1, -0xa0(r1)
 /* 80252340 0024F2A0  7C 08 02 A6 */	mflr r0
 /* 80252344 0024F2A4  3D 60 80 3D */	lis r11, lbl_803D4B78@ha
@@ -640,12 +640,12 @@ __ct__23CElectricBeamProjectile:
 /* 802523F0 0024F350  C0 5B 00 10 */	lfs f2, 0x10(r27)
 /* 802523F4 0024F354  D8 01 00 60 */	stfd f0, 0x60(r1)
 /* 802523F8 0024F358  81 01 00 64 */	lwz r8, 0x64(r1)
-/* 802523FC 0024F35C  4B F4 70 91 */	bl "__ct__15CBeamProjectileFRC28TToken<18CWeaponDescription>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>11EWeaponTypeRC12CTransform4fiff14EMaterialTypesRC11CDamageInfo9TUniqueId9TUniqueIdUib"
+/* 802523FC 0024F35C  4B F4 70 91 */	bl "__ct__15CBeamProjectileFRC28TToken<18CWeaponDescription>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>11EWeaponTypeRC12CTransform4fiff14EMaterialTypesRC11CDamageInfo9TUniqueId7TAreaId9TUniqueId17EProjectileAttribb"
 /* 80252400 0024F360  38 61 00 4C */	addi r3, r1, 0x4c
 /* 80252404 0024F364  48 0E B6 DD */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
-/* 80252408 0024F368  3C 80 80 3F */	lis r4, lbl_803E9118@ha
+/* 80252408 0024F368  3C 80 80 3F */	lis r4, __vt__23CElectricBeamProjectile@ha
 /* 8025240C 0024F36C  3C 60 80 3D */	lis r3, lbl_803D4B78@ha
-/* 80252410 0024F370  38 04 91 18 */	addi r0, r4, lbl_803E9118@l
+/* 80252410 0024F370  38 04 91 18 */	addi r0, r4, __vt__23CElectricBeamProjectile@l
 /* 80252414 0024F374  3A A0 00 00 */	li r21, 0
 /* 80252418 0024F378  38 63 4B 78 */	addi r3, r3, lbl_803D4B78@l
 /* 8025241C 0024F37C  90 18 00 00 */	stw r0, 0(r24)

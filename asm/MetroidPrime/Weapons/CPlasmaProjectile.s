@@ -2387,7 +2387,7 @@ Accept__17CPlasmaProjectileFR8IVisitor:
 /* 80178C94 00175BF4  81 1E 00 18 */	lwz r8, 0x18(r30)
 /* 80178C98 00175BF8  C0 3E 00 1C */	lfs f1, 0x1c(r30)
 /* 80178C9C 00175BFC  C0 5E 00 38 */	lfs f2, 0x38(r30)
-/* 80178CA0 00175C00  48 02 07 ED */	bl "__ct__15CBeamProjectileFRC28TToken<18CWeaponDescription>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>11EWeaponTypeRC12CTransform4fiff14EMaterialTypesRC11CDamageInfo9TUniqueId9TUniqueIdUib"
+/* 80178CA0 00175C00  48 02 07 ED */	bl "__ct__15CBeamProjectileFRC28TToken<18CWeaponDescription>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>11EWeaponTypeRC12CTransform4fiff14EMaterialTypesRC11CDamageInfo9TUniqueId7TAreaId9TUniqueId17EProjectileAttribb"
 /* 80178CA4 00175C04  3C 60 80 3E */	lis r3, lbl_803E3F00@ha
 /* 80178CA8 00175C08  C0 22 A1 C0 */	lfs f1, lbl_805ABEE0@sda21(r2)
 /* 80178CAC 00175C0C  38 03 3F 00 */	addi r0, r3, lbl_803E3F00@l

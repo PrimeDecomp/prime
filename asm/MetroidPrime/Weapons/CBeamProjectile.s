@@ -513,8 +513,8 @@ lbl_80199484:
 /* 80199484 001963E4  38 21 00 20 */	addi r1, r1, 0x20
 /* 80199488 001963E8  4E 80 00 20 */	blr
 
-.global "__ct__15CBeamProjectileFRC28TToken<18CWeaponDescription>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>11EWeaponTypeRC12CTransform4fiff14EMaterialTypesRC11CDamageInfo9TUniqueId9TUniqueIdUib"
-"__ct__15CBeamProjectileFRC28TToken<18CWeaponDescription>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>11EWeaponTypeRC12CTransform4fiff14EMaterialTypesRC11CDamageInfo9TUniqueId9TUniqueIdUib":
+.global "__ct__15CBeamProjectileFRC28TToken<18CWeaponDescription>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>11EWeaponTypeRC12CTransform4fiff14EMaterialTypesRC11CDamageInfo9TUniqueId7TAreaId9TUniqueId17EProjectileAttribb"
+"__ct__15CBeamProjectileFRC28TToken<18CWeaponDescription>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>11EWeaponTypeRC12CTransform4fiff14EMaterialTypesRC11CDamageInfo9TUniqueId7TAreaId9TUniqueId17EProjectileAttribb":
 /* 8019948C 001963EC  94 21 FF 40 */	stwu r1, -0xc0(r1)
 /* 80199490 001963F0  7C 08 02 A6 */	mflr r0
 /* 80199494 001963F4  90 01 00 C4 */	stw r0, 0xc4(r1)
