@@ -83,6 +83,7 @@ public:
   static void ShutDown();
 
   void SetGlobalOrientAndTrans(const CTransform4f& xf);
+  static void SetSubtractBlend(bool subtract) { sSubtractBlend = subtract; }
 
 public:
   TLockedToken< CGenDescription > x1c_genDesc;
@@ -160,6 +161,8 @@ public:
   float x330_LFOR;
   float x334_LSLA;
   CColor x338_moduColor;
+
+  static bool sSubtractBlend;
 };
 CHECK_SIZEOF(CElementGen, 0x340)
 

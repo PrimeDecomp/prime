@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803DF7E8
-lbl_803DF7E8:
+.global __vt__8CIceBeam
+__vt__8CIceBeam:
 	# ROM: 0x3DC7E8
 	.4byte 0
 	.4byte 0
@@ -14,13 +14,13 @@ lbl_803DF7E8:
 	.4byte PreRenderGunFx__8CIceBeamFRC13CStateManagerRC12CTransform4f
 	.4byte PostRenderGunFx__8CIceBeamFRC13CStateManagerRC12CTransform4f
 	.4byte UpdateGunFx__8CIceBeamFbfRC13CStateManagerRC12CTransform4f
-	.4byte Fire__8CIceBeamFbfQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateManager9TUniqueId
+	.4byte Fire__8CIceBeamFbfQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateManager9TUniqueIdff
 	.4byte EnableFx__8CIceBeamFb
 	.4byte EnableSecondaryFx__8CIceBeamFQ210CGunWeapon16ESecondaryFxType
 	.4byte Draw__10CGunWeaponCFbRC13CStateManagerRC12CTransform4fRC11CModelFlagsPC12CActorLights
 	.4byte DrawMuzzleFx__10CGunWeaponCFRC13CStateManager
 	.4byte Update__8CIceBeamFfR13CStateManager
-	.4byte Load__8CIceBeamFb
+	.4byte Load__8CIceBeamFR13CStateManagerb
 	.4byte Unload__8CIceBeamFR13CStateManager
 	.4byte IsLoaded__8CIceBeamCFv
 	.4byte 0
@@ -247,8 +247,8 @@ Unload__8CIceBeamFR13CStateManager:
 /* 800E11BC 000DE11C  38 21 00 10 */	addi r1, r1, 0x10
 /* 800E11C0 000DE120  4E 80 00 20 */	blr
 
-.global Load__8CIceBeamFb
-Load__8CIceBeamFb:
+.global Load__8CIceBeamFR13CStateManagerb
+Load__8CIceBeamFR13CStateManagerb:
 /* 800E11C4 000DE124  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 800E11C8 000DE128  7C 08 02 A6 */	mflr r0
 /* 800E11CC 000DE12C  90 01 00 14 */	stw r0, 0x14(r1)
@@ -271,8 +271,8 @@ Load__8CIceBeamFb:
 /* 800E1210 000DE170  38 21 00 10 */	addi r1, r1, 0x10
 /* 800E1214 000DE174  4E 80 00 20 */	blr
 
-.global Fire__8CIceBeamFbfQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateManager9TUniqueId
-Fire__8CIceBeamFbfQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateManager9TUniqueId:
+.global Fire__8CIceBeamFbfQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateManager9TUniqueIdff
+Fire__8CIceBeamFbfQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateManager9TUniqueIdff:
 /* 800E1218 000DE178  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 800E121C 000DE17C  7C 08 02 A6 */	mflr r0
 /* 800E1220 000DE180  90 01 00 24 */	stw r0, 0x24(r1)
@@ -695,9 +695,9 @@ __dt__8CIceBeamFv:
 /* 800E17F8 000DE758  93 C1 00 08 */	stw r30, 8(r1)
 /* 800E17FC 000DE75C  7C 7E 1B 79 */	or. r30, r3, r3
 /* 800E1800 000DE760  41 82 00 D0 */	beq lbl_800E18D0
-/* 800E1804 000DE764  3C 60 80 3E */	lis r3, lbl_803DF7E8@ha
+/* 800E1804 000DE764  3C 60 80 3E */	lis r3, __vt__8CIceBeam@ha
 /* 800E1808 000DE768  34 1E 02 44 */	addic. r0, r30, 0x244
-/* 800E180C 000DE76C  38 03 F7 E8 */	addi r0, r3, lbl_803DF7E8@l
+/* 800E180C 000DE76C  38 03 F7 E8 */	addi r0, r3, __vt__8CIceBeam@l
 /* 800E1810 000DE770  90 1E 00 00 */	stw r0, 0(r30)
 /* 800E1814 000DE774  41 82 00 24 */	beq lbl_800E1838
 /* 800E1818 000DE778  80 7E 02 44 */	lwz r3, 0x244(r30)
@@ -772,9 +772,9 @@ __ct__8CIceBeamFUi11EWeaponType9TUniqueId14EMaterialTypesRC9CVector3f:
 /* 800E1908 000DE868  38 C1 00 08 */	addi r6, r1, 8
 /* 800E190C 000DE86C  B0 01 00 08 */	sth r0, 8(r1)
 /* 800E1910 000DE870  48 0D B8 A1 */	bl __ct__10CGunWeaponFUi11EWeaponType9TUniqueId14EMaterialTypesRC9CVector3f
-/* 800E1914 000DE874  3C 60 80 3E */	lis r3, lbl_803DF7E8@ha
+/* 800E1914 000DE874  3C 60 80 3E */	lis r3, __vt__8CIceBeam@ha
 /* 800E1918 000DE878  3C 80 80 3D */	lis r4, lbl_803CE598@ha
-/* 800E191C 000DE87C  38 03 F7 E8 */	addi r0, r3, lbl_803DF7E8@l
+/* 800E191C 000DE87C  38 03 F7 E8 */	addi r0, r3, __vt__8CIceBeam@l
 /* 800E1920 000DE880  38 61 00 1C */	addi r3, r1, 0x1c
 /* 800E1924 000DE884  90 1F 00 00 */	stw r0, 0(r31)
 /* 800E1928 000DE888  38 84 E5 98 */	addi r4, r4, lbl_803CE598@l
