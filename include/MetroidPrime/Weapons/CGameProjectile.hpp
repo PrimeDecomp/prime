@@ -3,6 +3,7 @@
 
 #include "types.h"
 
+#include "MetroidPrime/CStateManager.hpp"
 #include "MetroidPrime/Weapons/CProjectileWeapon.hpp"
 #include "MetroidPrime/Weapons/CWeapon.hpp"
 
@@ -16,7 +17,13 @@ class CProjectileTouchResult;
 
 class CGameProjectile : public CWeapon {
 public:
-  // TODO ctor
+  CGameProjectile(bool active, const TToken< CWeaponDescription >&, const rstl::string& name,
+                  EWeaponType wType, const CTransform4f& xf, EMaterialTypes excludeMat,
+                  const CDamageInfo& dInfo, TUniqueId uid, TAreaId aid, TUniqueId owner,
+                  TUniqueId homingTarget, uint attribs, bool underwater,
+                  const CVector3f& scale,
+                  const rstl::optional_object< TLockedToken< CGenDescription > >& visorParticle,
+                  ushort visorSfx, bool sendCollideMsg);
 
   // CEntity
   ~CGameProjectile() override;
@@ -40,6 +47,10 @@ public:
 
   bool GetWeaponActive() const { return x2e4_24_active; }
   void DeleteProjectileLight(CStateManager&);
+
+  void ApplyDamageToActors(CStateManager& mgr, const CDamageInfo& dInfo);
+  CRayCastResult RayCollisionCheckWithWorld(TUniqueId& idOut, const CVector3f& start, const CVector3f& end,
+                                            float mag, const TEntityList& nearList, CStateManager& mgr);
 
 protected:
   rstl::optional_object< TLockedToken< CGenDescription > > x158_visorParticle;

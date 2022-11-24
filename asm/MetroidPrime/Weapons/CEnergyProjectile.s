@@ -2007,7 +2007,7 @@ lbl_80215680:
 /* 8021576C 002126CC  93 C1 00 24 */	stw r30, 0x24(r1)
 /* 80215770 002126D0  93 E1 00 28 */	stw r31, 0x28(r1)
 /* 80215774 002126D4  91 E1 00 2C */	stw r15, 0x2c(r1)
-/* 80215778 002126D8  4B E2 4D 0D */	bl "__ct__15CGameProjectileFbRC28TToken<18CWeaponDescription>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>11EWeaponTypeRC12CTransform4f14EMaterialTypesRC11CDamageInfo9TUniqueId7TAreaId9TUniqueId9TUniqueIdUibRC9CVector3fRCQ24rstl50optional_object<31TLockedToken<15CGenDescription>>sb"
+/* 80215778 002126D8  4B E2 4D 0D */	bl "__ct__15CGameProjectileFbRC28TToken<18CWeaponDescription>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>11EWeaponTypeRC12CTransform4f14EMaterialTypesRC11CDamageInfo9TUniqueId7TAreaId9TUniqueId9TUniqueIdUibRC9CVector3fRCQ24rstl50optional_object<31TLockedToken<15CGenDescription>>Usb"
 /* 8021577C 002126DC  38 61 00 40 */	addi r3, r1, 0x40
 /* 80215780 002126E0  48 12 83 61 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 80215784 002126E4  3C 60 80 3E */	lis r3, __vt__17CEnergyProjectile@ha

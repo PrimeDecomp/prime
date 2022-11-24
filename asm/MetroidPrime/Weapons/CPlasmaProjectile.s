@@ -203,9 +203,9 @@ __dt__15CBeamProjectileFv:
 /* 80176D2C 00173C8C  93 C1 00 08 */	stw r30, 8(r1)
 /* 80176D30 00173C90  7C 9E 23 78 */	mr r30, r4
 /* 80176D34 00173C94  41 82 00 E4 */	beq lbl_80176E18
-/* 80176D38 00173C98  3C 60 80 3E */	lis r3, lbl_803E4648@ha
+/* 80176D38 00173C98  3C 60 80 3E */	lis r3, __vt__15CBeamProjectile@ha
 /* 80176D3C 00173C9C  34 1F 04 00 */	addic. r0, r31, 0x400
-/* 80176D40 00173CA0  38 03 46 48 */	addi r0, r3, lbl_803E4648@l
+/* 80176D40 00173CA0  38 03 46 48 */	addi r0, r3, __vt__15CBeamProjectile@l
 /* 80176D44 00173CA4  90 1F 00 00 */	stw r0, 0(r31)
 /* 80176D48 00173CA8  41 82 00 58 */	beq lbl_80176DA0
 /* 80176D4C 00173CAC  80 BF 04 00 */	lwz r5, 0x400(r31)
