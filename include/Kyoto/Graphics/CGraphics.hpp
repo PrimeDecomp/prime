@@ -130,6 +130,7 @@ class CTimeProvider;
 
 class CGraphics {
 public:
+  static bool IsBeginSceneClearFb();
   static void SetIsBeginSceneClearFb(bool);
   static void BeginScene();
   static void EndScene();

@@ -64,6 +64,8 @@ s32 DVDGetStreamErrorStatus(DVDCommandBlock* block);
 BOOL DVDGetStreamPlayAddrAsync(DVDCommandBlock* block, DVDCBCallback callback);
 s32 DVDGetStreamPlayAddr(DVDCommandBlock* block);
 
+s32 DVDGetDriveStatus();
+
 #ifdef __cplusplus
 }
 #endif

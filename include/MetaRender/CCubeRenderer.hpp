@@ -92,6 +92,11 @@ public:
   virtual void PrepareDynamicLights();
 
   void AllocatePhazonSuitMaskTexture();
+
+  uchar x8_pad[0x310];
+  bool x318_24_ : 1;
+  bool x318_25_ : 1;
+  bool x318_26_ : 1;
 };
 
 extern CCubeRenderer* gpRender;
