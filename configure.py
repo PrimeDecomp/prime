@@ -363,7 +363,7 @@ LIBS = [
             "MetroidPrime/Enemies/CSeedling",
             "MetroidPrime/Player/CGameHintInfo",
             "MetroidPrime/Enemies/CWallWalker",
-            "MetroidPrime/CErrorOutputWindow",
+            ["MetroidPrime/CErrorOutputWindow", False],
             "MetroidPrime/CRainSplashGenerator",
             "MetroidPrime/Factories/CWorldSaveGameInfoFactory",
             "MetroidPrime/CFluidPlaneRender",
