@@ -252,7 +252,7 @@ LIBS = [
             ["MetroidPrime/ScriptObjects/CScriptEMPulse", False],
             "MetroidPrime/HUD/CHudDecoInterface",
             "MetroidPrime/Weapons/CFlameThrower",
-            "MetroidPrime/Weapons/CBeamProjectile",
+            ["MetroidPrime/Weapons/CBeamProjectile", False],
             "MetroidPrime/CFluidPlaneCPU",
             "MetroidPrime/CFluidPlaneDoor",
             ["MetroidPrime/ScriptObjects/CScriptRoomAcoustics", True],

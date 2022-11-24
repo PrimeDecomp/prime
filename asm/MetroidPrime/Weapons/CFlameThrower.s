@@ -1639,7 +1639,7 @@ lbl_80198AE8:
 /* 80198BB0 00195B10  91 61 00 24 */	stw r11, 0x24(r1)
 /* 80198BB4 00195B14  90 01 00 28 */	stw r0, 0x28(r1)
 /* 80198BB8 00195B18  92 A1 00 2C */	stw r21, 0x2c(r1)
-/* 80198BBC 00195B1C  4B EA 18 C9 */	bl "__ct__15CGameProjectileFbRC28TToken<18CWeaponDescription>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>11EWeaponTypeRC12CTransform4f14EMaterialTypesRC11CDamageInfo9TUniqueId7TAreaId9TUniqueId9TUniqueIdUibRC9CVector3fRCQ24rstl50optional_object<31TLockedToken<15CGenDescription>>sb"
+/* 80198BBC 00195B1C  4B EA 18 C9 */	bl "__ct__15CGameProjectileFbRC28TToken<18CWeaponDescription>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>11EWeaponTypeRC12CTransform4f14EMaterialTypesRC11CDamageInfo9TUniqueId7TAreaId9TUniqueId9TUniqueIdUibRC9CVector3fRCQ24rstl50optional_object<31TLockedToken<15CGenDescription>>Usb"
 /* 80198BC0 00195B20  88 01 00 70 */	lbz r0, 0x70(r1)
 /* 80198BC4 00195B24  28 00 00 00 */	cmplwi r0, 0
 /* 80198BC8 00195B28  41 82 00 1C */	beq lbl_80198BE4

@@ -30,6 +30,7 @@ public:
   EProjectileAttrib GetAttribField() const { return xe8_projectileAttribs; }
   TUniqueId GetOwnerId() const { return xec_ownerId; }
   EWeaponType GetWeaponType() const { return xf0_weaponType; }
+  CMaterialFilter GetFilter() const { return xf8_filter; }
   CDamageInfo& OrigDamageInfo() { return x110_origDamageInfo; }
 
 protected:

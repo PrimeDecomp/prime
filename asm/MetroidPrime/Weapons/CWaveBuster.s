@@ -3040,7 +3040,7 @@ sub_801c0144:
 /* 801C025C 001BD1BC  91 81 00 24 */	stw r12, 0x24(r1)
 /* 801C0260 001BD1C0  91 61 00 28 */	stw r11, 0x28(r1)
 /* 801C0264 001BD1C4  90 01 00 2C */	stw r0, 0x2c(r1)
-/* 801C0268 001BD1C8  4B E7 A2 1D */	bl "__ct__15CGameProjectileFbRC28TToken<18CWeaponDescription>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>11EWeaponTypeRC12CTransform4f14EMaterialTypesRC11CDamageInfo9TUniqueId7TAreaId9TUniqueId9TUniqueIdUibRC9CVector3fRCQ24rstl50optional_object<31TLockedToken<15CGenDescription>>sb"
+/* 801C0268 001BD1C8  4B E7 A2 1D */	bl "__ct__15CGameProjectileFbRC28TToken<18CWeaponDescription>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>11EWeaponTypeRC12CTransform4f14EMaterialTypesRC11CDamageInfo9TUniqueId7TAreaId9TUniqueId9TUniqueIdUibRC9CVector3fRCQ24rstl50optional_object<31TLockedToken<15CGenDescription>>Usb"
 /* 801C026C 001BD1CC  88 01 00 A4 */	lbz r0, 0xa4(r1)
 /* 801C0270 001BD1D0  28 00 00 00 */	cmplwi r0, 0
 /* 801C0274 001BD1D4  41 82 00 1C */	beq lbl_801C0290

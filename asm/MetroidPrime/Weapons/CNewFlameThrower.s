@@ -3798,7 +3798,7 @@ GetTouchBounds__16CNewFlameThrowerCFv:
 /* 802644D4 00261434  91 61 00 24 */	stw r11, 0x24(r1)
 /* 802644D8 00261438  90 01 00 28 */	stw r0, 0x28(r1)
 /* 802644DC 0026143C  93 01 00 2C */	stw r24, 0x2c(r1)
-/* 802644E0 00261440  4B DD 5F A5 */	bl "__ct__15CGameProjectileFbRC28TToken<18CWeaponDescription>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>11EWeaponTypeRC12CTransform4f14EMaterialTypesRC11CDamageInfo9TUniqueId7TAreaId9TUniqueId9TUniqueIdUibRC9CVector3fRCQ24rstl50optional_object<31TLockedToken<15CGenDescription>>sb"
+/* 802644E0 00261440  4B DD 5F A5 */	bl "__ct__15CGameProjectileFbRC28TToken<18CWeaponDescription>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>11EWeaponTypeRC12CTransform4f14EMaterialTypesRC11CDamageInfo9TUniqueId7TAreaId9TUniqueId9TUniqueIdUibRC9CVector3fRCQ24rstl50optional_object<31TLockedToken<15CGenDescription>>Usb"
 /* 802644E4 00261444  88 01 00 DC */	lbz r0, 0xdc(r1)
 /* 802644E8 00261448  28 00 00 00 */	cmplwi r0, 0
 /* 802644EC 0026144C  41 82 00 1C */	beq lbl_80264508

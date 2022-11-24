@@ -19,8 +19,17 @@ public:
                   const CTransform4f& xf, int maxLength, float beamRadius, float travelSpeed,
                   EMaterialTypes matType, const CDamageInfo& dInfo, TUniqueId uid, TAreaId aid, TUniqueId owner,
                   EProjectileAttrib attribs, bool growingBeam);
-  ~CBeamProjectile() override;
 
+  // CEntity
+  ~CBeamProjectile() override;
+  void Accept(IVisitor& visitor) override;
+
+  // CActor
+  rstl::optional_object<CAABox> GetTouchBounds() const override;
+  void Touch(CActor&, CStateManager&) override;
+  void CalculateRenderBounds() override;
+
+  // CBeamProjectile
   virtual void UpdateFx(const CTransform4f&, float, CStateManager&);
   virtual void ResetBeam(CStateManager&, bool);
   virtual void Fire(const CTransform4f&, CStateManager&, bool) = 0;
@@ -51,6 +60,8 @@ private:
   rstl::reserved_vector< CVector3f, 8 > x400_pointCache;
   bool x464_24_growingBeam : 1;
   bool x464_25_enableTouchDamage : 1;
+
+  void SetCollisionResultData(EDamageType dType, CRayCastResult& res, TUniqueId id);
 };
 CHECK_SIZEOF(CBeamProjectile, 0x468)
 

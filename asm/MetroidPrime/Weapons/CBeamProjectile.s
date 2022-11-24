@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803E4648
-lbl_803E4648:
+.global __vt__15CBeamProjectile
+__vt__15CBeamProjectile:
 	# ROM: 0x3E1648
 	.4byte 0
 	.4byte 0
@@ -23,7 +23,7 @@ lbl_803E4648:
 	.4byte GetDamageVulnerability__6CActorCFv
 	.4byte GetDamageVulnerability__6CActorCFRC9CVector3fRC9CVector3fRC11CDamageInfo
 	.4byte GetTouchBounds__15CBeamProjectileCFv
-	.4byte nullsub_142
+	.4byte Touch__15CBeamProjectileFR6CActorR13CStateManager
 	.4byte GetOrbitPosition__6CActorCFRC13CStateManager
 	.4byte GetAimPosition__6CActorCFRC13CStateManagerf
 	.4byte GetHomingPosition__6CActorCFRC13CStateManagerf
@@ -263,7 +263,7 @@ lbl_80198E8C:
 /* 80199118 00196078  38 C1 00 14 */	addi r6, r1, 0x14
 /* 8019911C 0019607C  B0 01 00 14 */	sth r0, 0x14(r1)
 /* 80199120 00196080  38 80 00 01 */	li r4, 1
-/* 80199124 00196084  48 00 01 9D */	bl SetCollisionResultData__15CBeamProjectileFQ215CBeamProjectile11EDamageTypeRC14CRayCastResult
+/* 80199124 00196084  48 00 01 9D */	bl SetCollisionResultData__15CBeamProjectileFQ215CBeamProjectile11EDamageTypeR14CRayCastResult9TUniqueId
 /* 80199128 00196088  88 1C 04 64 */	lbz r0, 0x464(r28)
 /* 8019912C 0019608C  54 00 D7 FF */	rlwinm. r0, r0, 0x1a, 0x1f, 0x1f
 /* 80199130 00196090  41 82 01 08 */	beq lbl_80199238
@@ -286,7 +286,7 @@ lbl_80199158:
 /* 80199170 001960D0  38 C1 00 10 */	addi r6, r1, 0x10
 /* 80199174 001960D4  B0 01 00 10 */	sth r0, 0x10(r1)
 /* 80199178 001960D8  38 80 00 02 */	li r4, 2
-/* 8019917C 001960DC  48 00 01 45 */	bl SetCollisionResultData__15CBeamProjectileFQ215CBeamProjectile11EDamageTypeRC14CRayCastResult
+/* 8019917C 001960DC  48 00 01 45 */	bl SetCollisionResultData__15CBeamProjectileFQ215CBeamProjectile11EDamageTypeR14CRayCastResult9TUniqueId
 /* 80199180 001960E0  88 1C 04 64 */	lbz r0, 0x464(r28)
 /* 80199184 001960E4  54 00 D7 FF */	rlwinm. r0, r0, 0x1a, 0x1f, 0x1f
 /* 80199188 001960E8  41 82 00 B0 */	beq lbl_80199238
@@ -375,8 +375,8 @@ lbl_80199298:
 /* 801992B8 00196218  38 21 09 F0 */	addi r1, r1, 0x9f0
 /* 801992BC 0019621C  4E 80 00 20 */	blr
 
-.global SetCollisionResultData__15CBeamProjectileFQ215CBeamProjectile11EDamageTypeRC14CRayCastResult
-SetCollisionResultData__15CBeamProjectileFQ215CBeamProjectile11EDamageTypeRC14CRayCastResult:
+.global SetCollisionResultData__15CBeamProjectileFQ215CBeamProjectile11EDamageTypeR14CRayCastResult9TUniqueId
+SetCollisionResultData__15CBeamProjectileFQ215CBeamProjectile11EDamageTypeR14CRayCastResult9TUniqueId:
 /* 801992C0 00196220  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801992C4 00196224  7C 08 02 A6 */	mflr r0
 /* 801992C8 00196228  2C 04 00 01 */	cmpwi r4, 1
@@ -419,8 +419,8 @@ ResetBeam__15CBeamProjectileFR13CStateManagerb:
 /* 80199348 001962A8  D0 03 03 00 */	stfs f0, 0x300(r3)
 /* 8019934C 001962AC  4E 80 00 20 */	blr
 
-.global nullsub_142
-nullsub_142:
+.global Touch__15CBeamProjectileFR6CActorR13CStateManager
+Touch__15CBeamProjectileFR6CActorR13CStateManager:
 /* 80199350 001962B0  4E 80 00 20 */	blr
 
 .global Accept__15CBeamProjectileFR8IVisitor
@@ -571,7 +571,7 @@ lbl_80199484:
 /* 80199560 001964C0  93 01 00 24 */	stw r24, 0x24(r1)
 /* 80199564 001964C4  93 21 00 28 */	stw r25, 0x28(r1)
 /* 80199568 001964C8  90 01 00 2C */	stw r0, 0x2c(r1)
-/* 8019956C 001964CC  4B EA 0F 19 */	bl "__ct__15CGameProjectileFbRC28TToken<18CWeaponDescription>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>11EWeaponTypeRC12CTransform4f14EMaterialTypesRC11CDamageInfo9TUniqueId7TAreaId9TUniqueId9TUniqueIdUibRC9CVector3fRCQ24rstl50optional_object<31TLockedToken<15CGenDescription>>sb"
+/* 8019956C 001964CC  4B EA 0F 19 */	bl "__ct__15CGameProjectileFbRC28TToken<18CWeaponDescription>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>11EWeaponTypeRC12CTransform4f14EMaterialTypesRC11CDamageInfo9TUniqueId7TAreaId9TUniqueId9TUniqueIdUibRC9CVector3fRCQ24rstl50optional_object<31TLockedToken<15CGenDescription>>Usb"
 /* 80199570 001964D0  88 01 00 4C */	lbz r0, 0x4c(r1)
 /* 80199574 001964D4  28 00 00 00 */	cmplwi r0, 0
 /* 80199578 001964D8  41 82 00 1C */	beq lbl_80199594
@@ -583,9 +583,9 @@ lbl_80199484:
 /* 80199590 001964F0  48 1A 78 B1 */	bl __dt__6CTokenFv
 lbl_80199594:
 /* 80199594 001964F4  38 00 00 00 */	li r0, 0
-/* 80199598 001964F8  3C 60 80 3E */	lis r3, lbl_803E4648@ha
+/* 80199598 001964F8  3C 60 80 3E */	lis r3, __vt__15CBeamProjectile@ha
 /* 8019959C 001964FC  98 01 00 4C */	stb r0, 0x4c(r1)
-/* 801995A0 00196500  38 03 46 48 */	addi r0, r3, lbl_803E4648@l
+/* 801995A0 00196500  38 03 46 48 */	addi r0, r3, __vt__15CBeamProjectile@l
 /* 801995A4 00196504  7F C3 F3 78 */	mr r3, r30
 /* 801995A8 00196508  90 1A 00 00 */	stw r0, 0(r26)
 /* 801995AC 0019650C  48 1F 38 71 */	bl abs
