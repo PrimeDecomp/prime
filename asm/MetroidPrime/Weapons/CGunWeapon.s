@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803E52B0
-lbl_803E52B0:
+.global __vt__10CGunWeapon
+__vt__10CGunWeapon:
 	# ROM: 0x3E22B0
 	.4byte 0
 	.4byte 0
@@ -590,9 +590,9 @@ LoadSuitArm__10CGunWeaponFR13CStateManager:
 /* 801BA4BC 001B741C  41 82 00 88 */	beq lbl_801BA544
 /* 801BA4C0 001B7420  7C 83 23 78 */	mr r3, r4
 /* 801BA4C4 001B7424  48 0D 05 09 */	bl get_current_suit__12NWeaponTypesFRC13CStateManager
-/* 801BA4C8 001B7428  3C 80 80 3D */	lis r4, lbl_803D17DC@ha
+/* 801BA4C8 001B7428  3C 80 80 3D */	lis r4, skSuitArmNames@ha
 /* 801BA4CC 001B742C  54 60 10 3A */	slwi r0, r3, 2
-/* 801BA4D0 001B7430  38 64 17 DC */	addi r3, r4, lbl_803D17DC@l
+/* 801BA4D0 001B7430  38 64 17 DC */	addi r3, r4, skSuitArmNames@l
 /* 801BA4D4 001B7434  7C 63 00 2E */	lwzx r3, r3, r0
 /* 801BA4D8 001B7438  48 0D 0F 71 */	bl get_asset_id_from_name__12NWeaponTypesFPCc
 /* 801BA4DC 001B743C  90 61 00 08 */	stw r3, 8(r1)
@@ -607,7 +607,7 @@ LoadSuitArm__10CGunWeaponFR13CStateManager:
 /* 801BA500 001B7460  4B F5 C8 5D */	bl __ct__10CModelDataFRC10CStaticRes
 /* 801BA504 001B7464  38 7F 00 B0 */	addi r3, r31, 0xb0
 /* 801BA508 001B7468  38 81 00 18 */	addi r4, r1, 0x18
-/* 801BA50C 001B746C  4B F2 39 6D */	bl sub_800dde78
+/* 801BA50C 001B746C  4B F2 39 6D */	bl "__as__Q24rstl29optional_object<10CModelData>FRC10CModelData"
 /* 801BA510 001B7470  38 61 00 18 */	addi r3, r1, 0x18
 /* 801BA514 001B7474  38 80 FF FF */	li r4, -1
 /* 801BA518 001B7478  4B F5 C5 35 */	bl __dt__10CModelDataFv
@@ -643,7 +643,7 @@ AsyncLoadSuitArm__10CGunWeaponFR13CStateManager:
 /* 801BA580 001B74E0  98 01 00 64 */	stb r0, 0x64(r1)
 /* 801BA584 001B74E4  38 7E 00 B0 */	addi r3, r30, 0xb0
 /* 801BA588 001B74E8  38 81 00 18 */	addi r4, r1, 0x18
-/* 801BA58C 001B74EC  4B F6 37 C1 */	bl sub_8011dd4c
+/* 801BA58C 001B74EC  4B F6 37 C1 */	bl "__as__Q24rstl29optional_object<10CModelData>FRCQ24rstl29optional_object<10CModelData>"
 /* 801BA590 001B74F0  88 01 00 64 */	lbz r0, 0x64(r1)
 /* 801BA594 001B74F4  28 00 00 00 */	cmplwi r0, 0
 /* 801BA598 001B74F8  41 82 00 10 */	beq lbl_801BA5A8
@@ -652,11 +652,11 @@ AsyncLoadSuitArm__10CGunWeaponFR13CStateManager:
 /* 801BA5A4 001B7504  4B F5 C4 A9 */	bl __dt__10CModelDataFv
 lbl_801BA5A8:
 /* 801BA5A8 001B7508  38 00 00 00 */	li r0, 0
-/* 801BA5AC 001B750C  3C 60 80 3D */	lis r3, lbl_803D17DC@ha
+/* 801BA5AC 001B750C  3C 60 80 3D */	lis r3, skSuitArmNames@ha
 /* 801BA5B0 001B7510  98 01 00 64 */	stb r0, 0x64(r1)
 /* 801BA5B4 001B7514  57 E0 10 3A */	slwi r0, r31, 2
 /* 801BA5B8 001B7518  80 8D A0 64 */	lwz r4, gpSimplePool@sda21(r13)
-/* 801BA5BC 001B751C  38 A3 17 DC */	addi r5, r3, lbl_803D17DC@l
+/* 801BA5BC 001B751C  38 A3 17 DC */	addi r5, r3, skSuitArmNames@l
 /* 801BA5C0 001B7520  38 61 00 10 */	addi r3, r1, 0x10
 /* 801BA5C4 001B7524  7C A5 00 2E */	lwzx r5, r5, r0
 /* 801BA5C8 001B7528  81 84 00 00 */	lwz r12, 0(r4)
@@ -733,10 +733,10 @@ AsyncLoadFidget__10CGunWeaponFR13CStateManagerQ28SamusGun11EFidgetTypei:
 BuildDependencyList__10CGunWeaponFQ212CPlayerState7EBeamId:
 /* 801BA6B8 001B7618  94 21 FF C0 */	stwu r1, -0x40(r1)
 /* 801BA6BC 001B761C  7C 08 02 A6 */	mflr r0
-/* 801BA6C0 001B7620  3C A0 80 3D */	lis r5, lbl_803D17C8@ha
+/* 801BA6C0 001B7620  3C A0 80 3D */	lis r5, skDependencyNames@ha
 /* 801BA6C4 001B7624  90 01 00 44 */	stw r0, 0x44(r1)
 /* 801BA6C8 001B7628  7C 80 23 78 */	mr r0, r4
-/* 801BA6CC 001B762C  38 A5 17 C8 */	addi r5, r5, lbl_803D17C8@l
+/* 801BA6CC 001B762C  38 A5 17 C8 */	addi r5, r5, skDependencyNames@l
 /* 801BA6D0 001B7630  93 E1 00 3C */	stw r31, 0x3c(r1)
 /* 801BA6D4 001B7634  93 C1 00 38 */	stw r30, 0x38(r1)
 /* 801BA6D8 001B7638  54 1E 10 3A */	slwi r30, r0, 2
@@ -761,8 +761,8 @@ BuildDependencyList__10CGunWeaponFQ212CPlayerState7EBeamId:
 /* 801BA724 001B7684  90 01 00 2C */	stw r0, 0x2c(r1)
 /* 801BA728 001B7688  48 18 67 19 */	bl __dt__6CTokenFv
 /* 801BA72C 001B768C  80 8D A0 64 */	lwz r4, gpSimplePool@sda21(r13)
-/* 801BA730 001B7690  3C 60 80 3D */	lis r3, lbl_803D17B4@ha
-/* 801BA734 001B7694  38 A3 17 B4 */	addi r5, r3, lbl_803D17B4@l
+/* 801BA730 001B7690  3C 60 80 3D */	lis r3, skAnimDependencyNames@ha
+/* 801BA734 001B7694  38 A3 17 B4 */	addi r5, r3, skAnimDependencyNames@l
 /* 801BA738 001B7698  38 61 00 08 */	addi r3, r1, 8
 /* 801BA73C 001B769C  81 84 00 00 */	lwz r12, 0(r4)
 /* 801BA740 001B76A0  7C A5 F0 2E */	lwzx r5, r5, r30
@@ -790,11 +790,11 @@ BuildDependencyList__10CGunWeaponFQ212CPlayerState7EBeamId:
 /* 801BA798 001B76F8  7F E3 FB 78 */	mr r3, r31
 /* 801BA79C 001B76FC  38 9D 01 2C */	addi r4, r29, 0x12c
 /* 801BA7A0 001B7700  38 A0 00 01 */	li r5, 1
-/* 801BA7A4 001B7704  48 00 00 49 */	bl "FillTokenVector__10CGunWeaponFRCQ24rstl47vector<10SObjectTag,Q24rstl17rmemory_allocator>RQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>"
+/* 801BA7A4 001B7704  48 00 00 49 */	bl "FillTokenVector__10CGunWeaponFRCQ24rstl47vector<10SObjectTag,Q24rstl17rmemory_allocator>RQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>b"
 /* 801BA7A8 001B7708  7F C3 F3 78 */	mr r3, r30
 /* 801BA7AC 001B770C  38 9D 01 2C */	addi r4, r29, 0x12c
 /* 801BA7B0 001B7710  38 A0 00 00 */	li r5, 0
-/* 801BA7B4 001B7714  48 00 00 39 */	bl "FillTokenVector__10CGunWeaponFRCQ24rstl47vector<10SObjectTag,Q24rstl17rmemory_allocator>RQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>"
+/* 801BA7B4 001B7714  48 00 00 39 */	bl "FillTokenVector__10CGunWeaponFRCQ24rstl47vector<10SObjectTag,Q24rstl17rmemory_allocator>RQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>b"
 /* 801BA7B8 001B7718  38 61 00 18 */	addi r3, r1, 0x18
 /* 801BA7BC 001B771C  38 80 00 00 */	li r4, 0
 /* 801BA7C0 001B7720  48 18 66 81 */	bl __dt__6CTokenFv
@@ -809,8 +809,8 @@ BuildDependencyList__10CGunWeaponFQ212CPlayerState7EBeamId:
 /* 801BA7E4 001B7744  38 21 00 40 */	addi r1, r1, 0x40
 /* 801BA7E8 001B7748  4E 80 00 20 */	blr
 
-.global "FillTokenVector__10CGunWeaponFRCQ24rstl47vector<10SObjectTag,Q24rstl17rmemory_allocator>RQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>"
-"FillTokenVector__10CGunWeaponFRCQ24rstl47vector<10SObjectTag,Q24rstl17rmemory_allocator>RQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>":
+.global "FillTokenVector__10CGunWeaponFRCQ24rstl47vector<10SObjectTag,Q24rstl17rmemory_allocator>RQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>b"
+"FillTokenVector__10CGunWeaponFRCQ24rstl47vector<10SObjectTag,Q24rstl17rmemory_allocator>RQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>b":
 /* 801BA7EC 001B774C  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 801BA7F0 001B7750  7C 08 02 A6 */	mflr r0
 /* 801BA7F4 001B7754  90 01 00 34 */	stw r0, 0x34(r1)
@@ -1545,11 +1545,11 @@ AllocResPools__10CGunWeaponFQ212CPlayerState7EBeamId:
 /* 801BB1A8 001B8108  7C 96 23 78 */	mr r22, r4
 /* 801BB1AC 001B810C  80 6D A1 48 */	lwz r3, gpTweakGunRes@sda21(r13)
 /* 801BB1B0 001B8110  4B F0 07 A9 */	bl GetWeaponResourcePair__12CTweakGunResCFi
-/* 801BB1B4 001B8114  3C A0 80 3D */	lis r5, lbl_803D1750@ha
+/* 801BB1B4 001B8114  3C A0 80 3D */	lis r5, skMuzzleNames@ha
 /* 801BB1B8 001B8118  3C 80 57 50 */	lis r4, 0x57505343@ha
 /* 801BB1BC 001B811C  56 DA 18 38 */	slwi r26, r22, 3
 /* 801BB1C0 001B8120  7C 7F 1B 78 */	mr r31, r3
-/* 801BB1C4 001B8124  38 05 17 50 */	addi r0, r5, lbl_803D1750@l
+/* 801BB1C4 001B8124  38 05 17 50 */	addi r0, r5, skMuzzleNames@l
 /* 801BB1C8 001B8128  3B 98 01 70 */	addi r28, r24, 0x170
 /* 801BB1CC 001B812C  7F C0 D2 14 */	add r30, r0, r26
 /* 801BB1D0 001B8130  3B 78 01 48 */	addi r27, r24, 0x148
@@ -1628,9 +1628,9 @@ lbl_801BB2BC:
 /* 801BB2E8 001B8248  2C 19 00 02 */	cmpwi r25, 2
 /* 801BB2EC 001B824C  3B DE 00 04 */	addi r30, r30, 4
 /* 801BB2F0 001B8250  41 80 FE F0 */	blt lbl_801BB1E0
-/* 801BB2F4 001B8254  3C 60 80 3D */	lis r3, lbl_803D1778@ha
+/* 801BB2F4 001B8254  3C 60 80 3D */	lis r3, skFrozenNames@ha
 /* 801BB2F8 001B8258  3B 38 01 8C */	addi r25, r24, 0x18c
-/* 801BB2FC 001B825C  38 03 17 78 */	addi r0, r3, lbl_803D1778@l
+/* 801BB2FC 001B825C  38 03 17 78 */	addi r0, r3, skFrozenNames@l
 /* 801BB300 001B8260  3B 60 00 00 */	li r27, 0
 /* 801BB304 001B8264  7E E0 D2 14 */	add r23, r0, r26
 lbl_801BB308:
@@ -1695,7 +1695,7 @@ Unload__10CGunWeaponFR13CStateManager:
 /* 801BB3D4 001B8334  38 81 00 A8 */	addi r4, r1, 0xa8
 /* 801BB3D8 001B8338  90 1F 02 04 */	stw r0, 0x204(r31)
 /* 801BB3DC 001B833C  98 01 00 F4 */	stb r0, 0xf4(r1)
-/* 801BB3E0 001B8340  4B F6 29 6D */	bl sub_8011dd4c
+/* 801BB3E0 001B8340  4B F6 29 6D */	bl "__as__Q24rstl29optional_object<10CModelData>FRCQ24rstl29optional_object<10CModelData>"
 /* 801BB3E4 001B8344  88 01 00 F4 */	lbz r0, 0xf4(r1)
 /* 801BB3E8 001B8348  28 00 00 00 */	cmplwi r0, 0
 /* 801BB3EC 001B834C  41 82 00 10 */	beq lbl_801BB3FC
@@ -1708,7 +1708,7 @@ lbl_801BB3FC:
 /* 801BB404 001B8364  98 01 00 F4 */	stb r0, 0xf4(r1)
 /* 801BB408 001B8368  38 81 00 58 */	addi r4, r1, 0x58
 /* 801BB40C 001B836C  98 01 00 A4 */	stb r0, 0xa4(r1)
-/* 801BB410 001B8370  4B F6 29 3D */	bl sub_8011dd4c
+/* 801BB410 001B8370  4B F6 29 3D */	bl "__as__Q24rstl29optional_object<10CModelData>FRCQ24rstl29optional_object<10CModelData>"
 /* 801BB414 001B8374  88 01 00 A4 */	lbz r0, 0xa4(r1)
 /* 801BB418 001B8378  28 00 00 00 */	cmplwi r0, 0
 /* 801BB41C 001B837C  41 82 00 10 */	beq lbl_801BB42C
@@ -1721,7 +1721,7 @@ lbl_801BB42C:
 /* 801BB434 001B8394  98 01 00 A4 */	stb r0, 0xa4(r1)
 /* 801BB438 001B8398  38 81 00 08 */	addi r4, r1, 8
 /* 801BB43C 001B839C  98 01 00 54 */	stb r0, 0x54(r1)
-/* 801BB440 001B83A0  4B F6 29 0D */	bl sub_8011dd4c
+/* 801BB440 001B83A0  4B F6 29 0D */	bl "__as__Q24rstl29optional_object<10CModelData>FRCQ24rstl29optional_object<10CModelData>"
 /* 801BB444 001B83A4  88 01 00 54 */	lbz r0, 0x54(r1)
 /* 801BB448 001B83A8  28 00 00 00 */	cmplwi r0, 0
 /* 801BB44C 001B83AC  41 82 00 10 */	beq lbl_801BB45C
@@ -2030,7 +2030,7 @@ ReturnToDefault__10CGunWeaponFR13CStateManager:
 /* 801BB868 001B87C8  38 A0 00 00 */	li r5, 0
 /* 801BB86C 001B87CC  90 01 00 14 */	stw r0, 0x14(r1)
 /* 801BB870 001B87D0  80 63 01 00 */	lwz r3, 0x100(r3)
-/* 801BB874 001B87D4  48 01 0A 85 */	bl ReturnToDefault__14CGunControllerFR13CStateManagerf
+/* 801BB874 001B87D4  48 01 0A 85 */	bl ReturnToDefault__14CGunControllerFR13CStateManagerfb
 /* 801BB878 001B87D8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801BB87C 001B87DC  7C 08 03 A6 */	mtlr r0
 /* 801BB880 001B87E0  38 21 00 10 */	addi r1, r1, 0x10
@@ -2219,8 +2219,8 @@ lbl_801BBB08:
 /* 801BBB18 001B8A78  50 60 36 72 */	rlwimi r0, r3, 6, 0x19, 0x19
 /* 801BBB1C 001B8A7C  38 A0 00 00 */	li r5, 0
 /* 801BBB20 001B8A80  98 17 02 18 */	stb r0, 0x218(r23)
-/* 801BBB24 001B8A84  3C 60 80 57 */	lis r3, lbl_805719E8@ha
-/* 801BBB28 001B8A88  38 83 19 E8 */	addi r4, r3, lbl_805719E8@l
+/* 801BBB24 001B8A84  3C 60 80 57 */	lis r3, skChargedShotCameraShakeData__16CCameraShakeData@ha
+/* 801BBB28 001B8A88  38 83 19 E8 */	addi r4, r3, skChargedShotCameraShakeData__16CCameraShakeData@l
 /* 801BBB2C 001B8A8C  80 7B 08 70 */	lwz r3, 0x870(r27)
 /* 801BBB30 001B8A90  4B E4 EE F1 */	bl AddCameraShaker__14CCameraManagerFRC16CCameraShakeDatab
 lbl_801BBB34:
@@ -2281,7 +2281,7 @@ DrawHologram__10CGunWeaponCFRC13CStateManagerRC12CTransform4fRC11CModelFlags:
 /* 801BBC00 001B8B60  38 7E 00 60 */	addi r3, r30, 0x60
 /* 801BBC04 001B8B64  38 80 00 00 */	li r4, 0
 /* 801BBC08 001B8B68  38 C0 00 00 */	li r6, 0
-/* 801BBC0C 001B8B6C  4B F5 A3 B9 */	bl FlatDraw__10CModelDataF11EWhichModelRC12CTransform4fbRC11CModelFlags
+/* 801BBC0C 001B8B6C  4B F5 A3 B9 */	bl FlatDraw__10CModelDataCF11EWhichModelRC12CTransform4fbRC11CModelFlags
 /* 801BBC10 001B8B70  48 00 00 E0 */	b lbl_801BBCF0
 lbl_801BBC14:
 /* 801BBC14 001B8B74  C0 5E 00 10 */	lfs f2, 0x10(r30)
@@ -2330,7 +2330,7 @@ lbl_801BBC14:
 /* 801BBCC0 001B8C20  4B E7 0C 5D */	bl "Render__9CAnimDataCFRC13CSkinnedModelRC11CModelFlagsRCQ24rstl37optional_object<18CVertexMorphEffect>PCf"
 /* 801BBCC4 001B8C24  38 61 00 A4 */	addi r3, r1, 0xa4
 /* 801BBCC8 001B8C28  38 80 FF FF */	li r4, -1
-/* 801BBCCC 001B8C2C  4B EB BF C1 */	bl sub_80077c8c
+/* 801BBCCC 001B8C2C  4B EB BF C1 */	bl "__dt__Q24rstl37optional_object<18CVertexMorphEffect>Fv"
 /* 801BBCD0 001B8C30  48 18 E2 DD */	bl White__6CColorFv
 /* 801BBCD4 001B8C34  7C 64 1B 78 */	mr r4, r3
 /* 801BBCD8 001B8C38  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
@@ -2386,7 +2386,7 @@ Draw__10CGunWeaponCFbRC13CStateManagerRC12CTransform4fRC11CModelFlagsPC12CActorL
 /* 801BBD90 001B8CF0  41 82 00 10 */	beq lbl_801BBDA0
 /* 801BBD94 001B8CF4  3C 80 80 1C */	lis r4, PointGenerator__10CGunWeaponFPvPC9CVector3fPC9CVector3fi@ha
 /* 801BBD98 001B8CF8  38 84 A4 7C */	addi r4, r4, PointGenerator__10CGunWeaponFPvPC9CVector3fPC9CVector3fi@l
-/* 801BBD9C 001B8CFC  48 19 69 79 */	bl SetPointGeneratorFunc__13CSkinnedModelFUiPFUiPC9CVector3fPC9CVector3fi_v
+/* 801BBD9C 001B8CFC  48 19 69 79 */	bl SetPointGeneratorFunc__13CSkinnedModelFPvPFPvPC9CVector3fPC9CVector3fi_v
 lbl_801BBDA0:
 /* 801BBDA0 001B8D00  80 1C 0F 34 */	lwz r0, 0xf34(r28)
 /* 801BBDA4 001B8D04  2C 00 00 00 */	cmpwi r0, 0
@@ -3014,11 +3014,11 @@ PlayAnim__10CGunWeaponFQ212NWeaponTypes12EGunAnimTypeb:
 lbl_801BC684:
 /* 801BC684 001B95E4  80 63 00 20 */	lwz r3, 0x20(r3)
 /* 801BC688 001B95E8  54 A7 06 3E */	clrlwi r7, r5, 0x18
-/* 801BC68C 001B95EC  3C A0 80 3D */	lis r5, lbl_803D17FC@ha
+/* 801BC68C 001B95EC  3C A0 80 3D */	lis r5, skAnimTypeList@ha
 /* 801BC690 001B95F0  54 80 10 3A */	slwi r0, r4, 2
 /* 801BC694 001B95F4  88 C3 02 20 */	lbz r6, 0x220(r3)
 /* 801BC698 001B95F8  50 E6 36 72 */	rlwimi r6, r7, 6, 0x19, 0x19
-/* 801BC69C 001B95FC  38 85 17 FC */	addi r4, r5, lbl_803D17FC@l
+/* 801BC69C 001B95FC  38 85 17 FC */	addi r4, r5, skAnimTypeList@l
 /* 801BC6A0 001B9600  39 00 00 01 */	li r8, 1
 /* 801BC6A4 001B9604  98 C3 02 20 */	stb r6, 0x220(r3)
 /* 801BC6A8 001B9608  38 C0 FF FF */	li r6, -1
@@ -3271,7 +3271,7 @@ lbl_801BC9DC:
 /* 801BCA14 001B9974  4B F5 A1 41 */	bl __ct__10CModelDataFRC8CAnimRes
 /* 801BCA18 001B9978  38 7F 00 10 */	addi r3, r31, 0x10
 /* 801BCA1C 001B997C  38 81 00 B4 */	addi r4, r1, 0xb4
-/* 801BCA20 001B9980  4B F2 14 59 */	bl sub_800dde78
+/* 801BCA20 001B9980  4B F2 14 59 */	bl "__as__Q24rstl29optional_object<10CModelData>FRC10CModelData"
 /* 801BCA24 001B9984  38 61 00 B4 */	addi r3, r1, 0xb4
 /* 801BCA28 001B9988  38 80 FF FF */	li r4, -1
 /* 801BCA2C 001B998C  4B F5 A0 21 */	bl __dt__10CModelDataFv
@@ -3293,7 +3293,7 @@ lbl_801BC9DC:
 /* 801BCA6C 001B99CC  4B F5 A0 E9 */	bl __ct__10CModelDataFRC8CAnimRes
 /* 801BCA70 001B99D0  38 7F 00 60 */	addi r3, r31, 0x60
 /* 801BCA74 001B99D4  38 81 00 68 */	addi r4, r1, 0x68
-/* 801BCA78 001B99D8  4B F2 14 01 */	bl sub_800dde78
+/* 801BCA78 001B99D8  4B F2 14 01 */	bl "__as__Q24rstl29optional_object<10CModelData>FRC10CModelData"
 /* 801BCA7C 001B99DC  38 61 00 68 */	addi r3, r1, 0x68
 /* 801BCA80 001B99E0  38 80 FF FF */	li r4, -1
 /* 801BCA84 001B99E4  4B F5 9F C9 */	bl __dt__10CModelDataFv
@@ -3464,12 +3464,12 @@ __dt__10CGunWeaponFv:
 /* 801BCCDC 001B9C3C  93 A1 00 44 */	stw r29, 0x44(r1)
 /* 801BCCE0 001B9C40  93 81 00 40 */	stw r28, 0x40(r1)
 /* 801BCCE4 001B9C44  41 82 03 54 */	beq lbl_801BD038
-/* 801BCCE8 001B9C48  3C 80 80 3E */	lis r4, lbl_803E52B0@ha
+/* 801BCCE8 001B9C48  3C 80 80 3E */	lis r4, __vt__10CGunWeapon@ha
 /* 801BCCEC 001B9C4C  38 7E 01 D0 */	addi r3, r30, 0x1d0
-/* 801BCCF0 001B9C50  38 04 52 B0 */	addi r0, r4, lbl_803E52B0@l
+/* 801BCCF0 001B9C50  38 04 52 B0 */	addi r0, r4, __vt__10CGunWeapon@l
 /* 801BCCF4 001B9C54  38 80 FF FF */	li r4, -1
 /* 801BCCF8 001B9C58  90 1E 00 00 */	stw r0, 0(r30)
-/* 801BCCFC 001B9C5C  48 00 03 61 */	bl sub_801bd05c
+/* 801BCCFC 001B9C5C  48 00 03 61 */	bl __dt__13CVelocityInfoFv
 /* 801BCD00 001B9C60  34 1E 01 B8 */	addic. r0, r30, 0x1b8
 /* 801BCD04 001B9C64  41 82 00 24 */	beq lbl_801BCD28
 /* 801BCD08 001B9C68  80 7E 01 B8 */	lwz r3, 0x1b8(r30)
@@ -3722,8 +3722,8 @@ lbl_801BD038:
 /* 801BD054 001B9FB4  38 21 00 50 */	addi r1, r1, 0x50
 /* 801BD058 001B9FB8  4E 80 00 20 */	blr
 
-.global sub_801bd05c
-sub_801bd05c:
+.global __dt__13CVelocityInfoFv
+__dt__13CVelocityInfoFv:
 /* 801BD05C 001B9FBC  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801BD060 001B9FC0  7C 08 02 A6 */	mflr r0
 /* 801BD064 001B9FC4  90 01 00 14 */	stw r0, 0x14(r1)
@@ -3830,9 +3830,9 @@ lbl_801BD198:
 __ct__10CGunWeaponFUi11EWeaponType9TUniqueId14EMaterialTypesRC9CVector3f:
 /* 801BD1B0 001BA110  94 21 FF C0 */	stwu r1, -0x40(r1)
 /* 801BD1B4 001BA114  7C 08 02 A6 */	mflr r0
-/* 801BD1B8 001BA118  3D 20 80 3E */	lis r9, lbl_803E52B0@ha
+/* 801BD1B8 001BA118  3D 20 80 3E */	lis r9, __vt__10CGunWeapon@ha
 /* 801BD1BC 001BA11C  90 01 00 44 */	stw r0, 0x44(r1)
-/* 801BD1C0 001BA120  38 09 52 B0 */	addi r0, r9, lbl_803E52B0@l
+/* 801BD1C0 001BA120  38 09 52 B0 */	addi r0, r9, __vt__10CGunWeapon@l
 /* 801BD1C4 001BA124  39 20 00 00 */	li r9, 0
 /* 801BD1C8 001BA128  BF 41 00 28 */	stmw r26, 0x28(r1)
 /* 801BD1CC 001BA12C  7C 7E 1B 78 */	mr r30, r3
@@ -3869,9 +3869,9 @@ __ct__10CGunWeaponFUi11EWeaponType9TUniqueId14EMaterialTypesRC9CVector3f:
 /* 801BD248 001BA1A8  38 80 FF FF */	li r4, -1
 /* 801BD24C 001BA1AC  48 18 3B F5 */	bl __dt__6CTokenFv
 /* 801BD250 001BA1B0  38 00 00 00 */	li r0, 0
-/* 801BD254 001BA1B4  3C 60 80 3D */	lis r3, lbl_803D17DC@ha
+/* 801BD254 001BA1B4  3C 60 80 3D */	lis r3, skSuitArmNames@ha
 /* 801BD258 001BA1B8  90 1E 01 10 */	stw r0, 0x110(r30)
-/* 801BD25C 001BA1BC  38 83 17 DC */	addi r4, r3, lbl_803D17DC@l
+/* 801BD25C 001BA1BC  38 83 17 DC */	addi r4, r3, skSuitArmNames@l
 /* 801BD260 001BA1C0  38 61 00 10 */	addi r3, r1, 0x10
 /* 801BD264 001BA1C4  80 A4 00 00 */	lwz r5, 0(r4)
 /* 801BD268 001BA1C8  90 1E 01 14 */	stw r0, 0x114(r30)
@@ -4057,8 +4057,8 @@ lbl_805AC710:
 
 .section .rodata
 .balign 8
-.global lbl_803D1750
-lbl_803D1750:
+.global skMuzzleNames
+skMuzzleNames:
 	# ROM: 0x3CE750
 	.4byte lbl_803D1828
 	.4byte lbl_803D1834
@@ -4071,8 +4071,8 @@ lbl_803D1750:
 	.4byte lbl_803D1879
 	.4byte lbl_803D1886
 
-.global lbl_803D1778
-lbl_803D1778:
+.global skFrozenNames
+skFrozenNames:
 	# ROM: 0x3CE778
 	.4byte lbl_803D1892
 	.4byte lbl_803D189E
@@ -4094,8 +4094,8 @@ lbl_803D17A0:
 	.4byte lbl_803D18E4
 	.4byte lbl_803D18EF
 
-.global lbl_803D17B4
-lbl_803D17B4:
+.global skAnimDependencyNames
+skAnimDependencyNames:
 	# ROM: 0x3CE7B4
 	.4byte lbl_803D18FA
 	.4byte lbl_803D190A
@@ -4103,8 +4103,8 @@ lbl_803D17B4:
 	.4byte lbl_803D1927
 	.4byte lbl_803D1938
 
-.global lbl_803D17C8
-lbl_803D17C8:
+.global skDependencyNames
+skDependencyNames:
 	# ROM: 0x3CE7C8
 	.4byte lbl_803D1949
 	.4byte lbl_803D1954
@@ -4112,8 +4112,8 @@ lbl_803D17C8:
 	.4byte lbl_803D1967
 	.4byte lbl_803D1973
 
-.global lbl_803D17DC
-lbl_803D17DC:
+.global skSuitArmNames
+skSuitArmNames:
 	# ROM: 0x3CE7DC
 	.4byte lbl_803D197F
 	.4byte lbl_803D1988
@@ -4124,8 +4124,8 @@ lbl_803D17DC:
 	.4byte lbl_803D19BB
 	.4byte lbl_803D19C6
 
-.global lbl_803D17FC
-lbl_803D17FC:
+.global skAnimTypeList
+skAnimTypeList:
 	# ROM: 0x3CE7FC
 	.4byte 0
 	.4byte 0x00000004

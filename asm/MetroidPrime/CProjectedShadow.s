@@ -684,7 +684,7 @@ RenderShadowBuffer__16CProjectedShadowFR13CStateManagerRC10CModelDataRC12CTransf
 /* 8029E0BC 0029B01C  4B D8 E8 BD */	bl "SetupRender__9CAnimDataCFRC13CSkinnedModelRCQ24rstl37optional_object<18CVertexMorphEffect>PCf"
 /* 8029E0C0 0029B020  38 61 01 64 */	addi r3, r1, 0x164
 /* 8029E0C4 0029B024  38 80 FF FF */	li r4, -1
-/* 8029E0C8 0029B028  4B DD 9B C5 */	bl sub_80077c8c
+/* 8029E0C8 0029B028  4B DD 9B C5 */	bl "__dt__Q24rstl37optional_object<18CVertexMorphEffect>Fv"
 /* 8029E0CC 0029B02C  7F 60 00 34 */	cntlzw r0, r27
 /* 8029E0D0 0029B030  C0 59 00 00 */	lfs f2, 0(r25)
 /* 8029E0D4 0029B034  C0 39 00 04 */	lfs f1, 4(r25)

@@ -23,6 +23,7 @@ class CFrustumPlanes;
 class CModel;
 class CModelFlags;
 class CStateManager;
+class CSkinnedModel;
 
 // TODO move
 #include "Kyoto/Math/CQuaternion.hpp"
@@ -48,15 +49,15 @@ public:
   CStaticRes(CAssetId id, const CVector3f& scale) : x0_cmdlId(id), x4_scale(scale) {}
 };
 
+enum EWhichModel {
+  kWM_Normal,
+  kWM_XRay,
+  kWM_Thermal,
+  kWM_ThermalHot,
+};
+
 class CModelData {
 public:
-  enum EWhichModel {
-    kWM_Normal,
-    kWM_XRay,
-    kWM_Thermal,
-    kWM_ThermalHot,
-  };
-
   // TODO these probably aren't real
   bool HasNormalModel() const { return x1c_normalModel; }
 
@@ -75,13 +76,18 @@ public:
                      const CModelFlags& flags) const;
   void Render(const CStateManager&, const CTransform4f&, const CActorLights*,
               const CModelFlags&) const;
-  void Render(CModelData::EWhichModel, const CTransform4f&, const CActorLights*,
+  void Render(EWhichModel, const CTransform4f&, const CActorLights*,
               const CModelFlags&) const;
+  void FlatDraw(EWhichModel which, const CTransform4f& xf, bool unsortedOnly,
+                const CModelFlags& flags) const;
+  CSkinnedModel& PickAnimatedModel(EWhichModel which) const;
+  void Touch(const CStateManager& mgr, int) const;
 
   const CAnimData* GetAnimationData() const { return xc_animData.get(); }
   CAnimData* AnimationData() { return xc_animData.get(); }
   CAABox GetBounds(const CTransform4f& xf) const;
   CAABox GetBounds() const;
+  bool IsLoaded(int shaderIdx) const;
 
   CTransform4f GetScaledLocatorTransform(const rstl::string& name) const;
 

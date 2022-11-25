@@ -89,7 +89,7 @@ ReturnToDefault__10CGunMotionFR13CStateManager:
 /* 801D9088 001D5FE8  C0 22 AC 9C */	lfs f1, lbl_805AC9BC@sda21(r2)
 /* 801D908C 001D5FEC  38 63 00 4C */	addi r3, r3, 0x4c
 /* 801D9090 001D5FF0  90 01 00 14 */	stw r0, 0x14(r1)
-/* 801D9094 001D5FF4  4B FF 32 65 */	bl ReturnToDefault__14CGunControllerFR13CStateManagerf
+/* 801D9094 001D5FF4  4B FF 32 65 */	bl ReturnToDefault__14CGunControllerFR13CStateManagerfb
 /* 801D9098 001D5FF8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801D909C 001D5FFC  7C 08 03 A6 */	mtlr r0
 /* 801D90A0 001D6000  38 21 00 10 */	addi r1, r1, 0x10

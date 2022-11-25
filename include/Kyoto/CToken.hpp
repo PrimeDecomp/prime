@@ -16,15 +16,15 @@ public:
   CToken(const CToken& other);
   ~CToken();
 
-
   CObjOwnerDerivedFromIObjUntyped* GetObj();
   void Lock();
   void Unlock();
   bool IsLoaded() const { return x0_objRef->IsLoaded(); }
   void RemoveRef();
   CToken& operator=(const CToken&);
+  bool HasReference() const { return x0_objRef != nullptr; }
+  FourCC GetReferenceType() { return x0_objRef->GetTag().type; }
 
-protected:
   bool HasLock() { return x4_lockHeld; }
 
 private:

@@ -271,7 +271,7 @@ RenderXRayModel__11CGrappleArmFRC13CStateManagerRC12CTransform4fRC11CModelFlags:
 /* 8011D5FC 0011A55C  4B F0 F3 21 */	bl "Render__9CAnimDataCFRC13CSkinnedModelRC11CModelFlagsRCQ24rstl37optional_object<18CVertexMorphEffect>PCf"
 /* 8011D600 0011A560  38 61 00 A4 */	addi r3, r1, 0xa4
 /* 8011D604 0011A564  38 80 FF FF */	li r4, -1
-/* 8011D608 0011A568  4B F5 A6 85 */	bl sub_80077c8c
+/* 8011D608 0011A568  4B F5 A6 85 */	bl "__dt__Q24rstl37optional_object<18CVertexMorphEffect>Fv"
 /* 8011D60C 0011A56C  48 22 C9 A1 */	bl White__6CColorFv
 /* 8011D610 0011A570  7C 64 1B 78 */	mr r4, r3
 /* 8011D614 0011A574  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
@@ -535,7 +535,7 @@ lbl_8011D95C:
 /* 8011D99C 0011A8FC  4B FF 91 B9 */	bl __ct__10CModelDataFRC8CAnimRes
 /* 8011D9A0 0011A900  38 7F 00 50 */	addi r3, r31, 0x50
 /* 8011D9A4 0011A904  38 81 00 24 */	addi r4, r1, 0x24
-/* 8011D9A8 0011A908  4B FC 04 D1 */	bl sub_800dde78
+/* 8011D9A8 0011A908  4B FC 04 D1 */	bl "__as__Q24rstl29optional_object<10CModelData>FRC10CModelData"
 /* 8011D9AC 0011A90C  38 61 00 24 */	addi r3, r1, 0x24
 /* 8011D9B0 0011A910  38 80 FF FF */	li r4, -1
 /* 8011D9B4 0011A914  4B FF 90 99 */	bl __dt__10CModelDataFv
@@ -583,7 +583,7 @@ LoadSuitPoll__11CGrappleArmFv:
 /* 8011DA50 0011A9B0  4B FF 91 05 */	bl __ct__10CModelDataFRC8CAnimRes
 /* 8011DA54 0011A9B4  7F E3 FB 78 */	mr r3, r31
 /* 8011DA58 0011A9B8  38 81 00 24 */	addi r4, r1, 0x24
-/* 8011DA5C 0011A9BC  4B FC 04 1D */	bl sub_800dde78
+/* 8011DA5C 0011A9BC  4B FC 04 1D */	bl "__as__Q24rstl29optional_object<10CModelData>FRC10CModelData"
 /* 8011DA60 0011A9C0  38 61 00 24 */	addi r3, r1, 0x24
 /* 8011DA64 0011A9C4  38 80 FF FF */	li r4, -1
 /* 8011DA68 0011A9C8  4B FF 8F E5 */	bl __dt__10CModelDataFv
@@ -710,7 +710,7 @@ AsyncLoadSuit__11CGrappleArmFR13CStateManager:
 /* 8011DC10 0011AB70  7F C3 F3 78 */	mr r3, r30
 /* 8011DC14 0011AB74  98 01 00 74 */	stb r0, 0x74(r1)
 /* 8011DC18 0011AB78  38 81 00 28 */	addi r4, r1, 0x28
-/* 8011DC1C 0011AB7C  48 00 01 31 */	bl sub_8011dd4c
+/* 8011DC1C 0011AB7C  48 00 01 31 */	bl "__as__Q24rstl29optional_object<10CModelData>FRCQ24rstl29optional_object<10CModelData>"
 /* 8011DC20 0011AB80  88 01 00 74 */	lbz r0, 0x74(r1)
 /* 8011DC24 0011AB84  28 00 00 00 */	cmplwi r0, 0
 /* 8011DC28 0011AB88  41 82 00 10 */	beq lbl_8011DC38
@@ -795,8 +795,8 @@ lbl_8011DD2C:
 /* 8011DD44 0011ACA4  38 21 00 90 */	addi r1, r1, 0x90
 /* 8011DD48 0011ACA8  4E 80 00 20 */	blr
 
-.global sub_8011dd4c
-sub_8011dd4c:
+.global "__as__Q24rstl29optional_object<10CModelData>FRCQ24rstl29optional_object<10CModelData>"
+"__as__Q24rstl29optional_object<10CModelData>FRCQ24rstl29optional_object<10CModelData>":
 /* 8011DD4C 0011ACAC  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8011DD50 0011ACB0  7C 08 02 A6 */	mflr r0
 /* 8011DD54 0011ACB4  90 01 00 14 */	stw r0, 0x14(r1)
@@ -944,7 +944,7 @@ ReturnToDefault__11CGrappleArmFR13CStateManagerf:
 /* 8011DF34 0011AE94  54 00 F7 FF */	rlwinm. r0, r0, 0x1e, 0x1f, 0x1f
 /* 8011DF38 0011AE98  40 82 00 0C */	bne lbl_8011DF44
 /* 8011DF3C 0011AE9C  80 63 03 28 */	lwz r3, 0x328(r3)
-/* 8011DF40 0011AEA0  48 0A E3 B9 */	bl ReturnToDefault__14CGunControllerFR13CStateManagerf
+/* 8011DF40 0011AEA0  48 0A E3 B9 */	bl ReturnToDefault__14CGunControllerFR13CStateManagerfb
 lbl_8011DF44:
 /* 8011DF44 0011AEA4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8011DF48 0011AEA8  7C 08 03 A6 */	mtlr r0
@@ -1048,7 +1048,7 @@ LoadAnimations__11CGrappleArmFv:
 /* 8011E094 0011AFF4  7F E3 FB 78 */	mr r3, r31
 /* 8011E098 0011AFF8  98 01 00 54 */	stb r0, 0x54(r1)
 /* 8011E09C 0011AFFC  38 81 00 08 */	addi r4, r1, 8
-/* 8011E0A0 0011B000  4B FF FC AD */	bl sub_8011dd4c
+/* 8011E0A0 0011B000  4B FF FC AD */	bl "__as__Q24rstl29optional_object<10CModelData>FRCQ24rstl29optional_object<10CModelData>"
 /* 8011E0A4 0011B004  88 01 00 54 */	lbz r0, 0x54(r1)
 /* 8011E0A8 0011B008  28 00 00 00 */	cmplwi r0, 0
 /* 8011E0AC 0011B00C  41 82 00 10 */	beq lbl_8011E0BC
@@ -2083,7 +2083,7 @@ lbl_8011EF44:
 /* 8011EF54 0011BEB4  38 7E 00 50 */	addi r3, r30, 0x50
 /* 8011EF58 0011BEB8  98 01 01 34 */	stb r0, 0x134(r1)
 /* 8011EF5C 0011BEBC  38 81 00 E8 */	addi r4, r1, 0xe8
-/* 8011EF60 0011BEC0  4B FF ED ED */	bl sub_8011dd4c
+/* 8011EF60 0011BEC0  4B FF ED ED */	bl "__as__Q24rstl29optional_object<10CModelData>FRCQ24rstl29optional_object<10CModelData>"
 /* 8011EF64 0011BEC4  88 01 01 34 */	lbz r0, 0x134(r1)
 /* 8011EF68 0011BEC8  28 00 00 00 */	cmplwi r0, 0
 /* 8011EF6C 0011BECC  41 82 00 10 */	beq lbl_8011EF7C
@@ -2638,7 +2638,7 @@ lbl_8011F728:
 /* 8011F73C 0011C69C  41 82 00 10 */	beq lbl_8011F74C
 /* 8011F740 0011C6A0  3C 80 80 12 */	lis r4, PointGenerator__11CGrappleArmFPvPC9CVector3fPC9CVector3fi@ha
 /* 8011F744 0011C6A4  38 84 D5 0C */	addi r4, r4, PointGenerator__11CGrappleArmFPvPC9CVector3fPC9CVector3fi@l
-/* 8011F748 0011C6A8  48 23 2F CD */	bl SetPointGeneratorFunc__13CSkinnedModelFUiPFUiPC9CVector3fPC9CVector3fi_v
+/* 8011F748 0011C6A8  48 23 2F CD */	bl SetPointGeneratorFunc__13CSkinnedModelFPvPFPvPC9CVector3fPC9CVector3fi_v
 lbl_8011F74C:
 /* 8011F74C 0011C6AC  7F 83 E3 78 */	mr r3, r28
 /* 8011F750 0011C6B0  7F A4 EB 78 */	mr r4, r29

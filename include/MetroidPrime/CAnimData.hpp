@@ -26,9 +26,13 @@ class CCharLayoutInfo;
 class CSkinnedModel;
 class CSkinnedModelWithAvgNormals;
 class CTransitionManager;
+class CVertexMorphEffect;
+class CModelFlags;
 
 class CAnimData {
 public:
+  ~CAnimData();
+
   enum EAnimDir {
     kAD_Forward,
     kAD_Backward,
@@ -39,6 +43,8 @@ public:
     x220_25_loop = v;
     x220_24_animating = true;
   }
+
+  const TLockedToken< CSkinnedModel >& GetModelData() const { return xd8_modelData; }
 
   void SetIsAnimating(bool v) { x220_24_animating = v; }
   void SetParticleEffectState(const rstl::string& name, bool active, CStateManager& mgr);
@@ -89,6 +95,7 @@ public:
   // PreRender__9CAnimDataFv
   // SetupRender__9CAnimDataCFRC13CSkinnedModelRCQ24rstl37optional_object<18CVertexMorphEffect>PCf
   // Render__9CAnimDataCFRC13CSkinnedModelRC11CModelFlagsRCQ24rstl37optional_object<18CVertexMorphEffect>PCf
+  void Render(const CSkinnedModel&, const CModelFlags&, const rstl::optional_object<CVertexMorphEffect>&, const float*) const;
   // RenderAuxiliary__9CAnimDataCFRC14CFrustumPlanes
   // RecalcPoseBuilder__9CAnimDataCFPC13CCharAnimTime
   float GetAnimationDuration(int animIn) const;

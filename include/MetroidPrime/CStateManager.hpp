@@ -187,6 +187,7 @@ public:
   const CWorldTransManager* GetWorldTransManager() const { return x8c4_worldTransManager.GetPtr(); }
 
   CRandom16* Random() const { return x900_random; }
+  uint GetUpdateFrameIndex() const { return x8d8_updateFrameIdx; }
 
   CObjectList& ObjectListById(EGameObjectList id) { return *x808_objectLists[id]; }
   const CObjectList& GetObjectListById(EGameObjectList id) const { return *x808_objectLists[id]; }

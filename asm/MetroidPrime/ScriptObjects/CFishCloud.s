@@ -2216,7 +2216,7 @@ sub_801cff50:
 /* 801CFFDC 001CCF3C  48 18 2D 1D */	bl "Calculate__13CSkinnedModelFRC17CPoseAsTransformsRCQ24rstl37optional_object<18CVertexMorphEffect>PCfPf"
 /* 801CFFE0 001CCF40  38 61 00 5C */	addi r3, r1, 0x5c
 /* 801CFFE4 001CCF44  38 80 FF FF */	li r4, -1
-/* 801CFFE8 001CCF48  4B EA 7C A5 */	bl sub_80077c8c
+/* 801CFFE8 001CCF48  4B EA 7C A5 */	bl "__dt__Q24rstl37optional_object<18CVertexMorphEffect>Fv"
 lbl_801CFFEC:
 /* 801CFFEC 001CCF4C  C0 38 00 04 */	lfs f1, 4(r24)
 /* 801CFFF0 001CCF50  3C 60 80 5A */	lis r3, sUpVector__9CVector3f@ha

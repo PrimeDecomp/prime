@@ -14,6 +14,13 @@ public:
   typedef CAssetId ResId;
   typedef CPlayerState::EBeamId EBeamId;
 
+  struct WeaponResourcePair {
+    ResId a;
+    ResId b;
+    ResId c;
+    ResId* d;
+  };
+
   ~CTweakGunRes() override;
 
   ResId x4_gunMotion;
@@ -43,6 +50,14 @@ public:
   ResId xbc_grappleHit;
   ResId xc0_grappleMuzzle;
   ResId xc4_grappleSwoosh;
+
+  const WeaponResourcePair* GetWeaponResourcePair(int beam) const; /* {
+    const int b = int(beam);
+    if (b < 0 || b > 4) {
+      return x34_weapons[0];
+    }
+    return x34_weapons[b];
+  }*/
 };
 
 extern CTweakGunRes* gpTweakGunRes;

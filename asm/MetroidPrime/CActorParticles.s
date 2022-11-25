@@ -1123,7 +1123,7 @@ SetupHook__20CActorModelParticlesCF9TUniqueId:
 /* 801E47AC 001E170C  3C 80 80 1E */	lis r4, PointGenerator__20CActorModelParticlesFUiPC9CVector3fPC9CVector3fi@ha
 /* 801E47B0 001E1710  38 63 00 08 */	addi r3, r3, 8
 /* 801E47B4 001E1714  38 84 4E 20 */	addi r4, r4, PointGenerator__20CActorModelParticlesFUiPC9CVector3fPC9CVector3fi@l
-/* 801E47B8 001E1718  48 16 DF 5D */	bl SetPointGeneratorFunc__13CSkinnedModelFUiPFUiPC9CVector3fPC9CVector3fi_v
+/* 801E47B8 001E1718  48 16 DF 5D */	bl SetPointGeneratorFunc__13CSkinnedModelFPvPFPvPC9CVector3fPC9CVector3fi_v
 lbl_801E47BC:
 /* 801E47BC 001E171C  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 801E47C0 001E1720  83 E1 00 1C */	lwz r31, 0x1c(r1)

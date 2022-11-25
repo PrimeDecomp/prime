@@ -4,6 +4,8 @@
 #include "types.h"
 
 #include "MetroidPrime/Weapons/GunController/CGSFreeLook.hpp"
+#include "MetroidPrime/Weapons/GunController/CGSComboFire.hpp"
+#include "MetroidPrime/Weapons/GunController/CGSFidget.hpp"
 
 class CModelData;
 
@@ -23,9 +25,9 @@ class CStateManager;
 class CGunController {
   CModelData& x0_modelData;
   CGSFreeLook x4_freeLook;
-  // CGSComboFire x1c_comboFire;
-  // CGSFidget x30_fidget;
-  uchar x1c_pad[0x34];
+  CGSComboFire x1c_comboFire;
+  CGSFidget x30_fidget;
+  char x48_pad[0x4];
   EGunState x50_gunState;
   int x54_curAnimId;
   bool x58_24_animDone : 1;
@@ -33,7 +35,7 @@ class CGunController {
 
 public:
   explicit CGunController(CModelData& modelData);
-  ~CGunController();
+  ~CGunController(); 
 
   void EnterFreeLook(CStateManager&, int, int);
   void EnterComboFire(CStateManager&, int);
@@ -42,9 +44,12 @@ public:
   void LoadFidgetAnimAsync(CStateManager&, int, int, int);
   int Update(float, CStateManager&);
   void EnterIdle(CStateManager&);
-  void ReturnToDefault(CStateManager&, float);
+  void ReturnToDefault(CStateManager&, float, bool);
   void Reset();
   void ReturnToBasePosition(CStateManager&);
+  bool IsComboOver() const { return x1c_comboFire.IsComboOver(); }
+  void UnLoadFidget() { x30_fidget.UnLoadAnim(); }
+  bool IsFidgetLoaded() const { return x30_fidget.IsAnimLoaded(); }
 
   int GetFreeLookSetId() const { return x4_freeLook.GetSetId(); }
 };

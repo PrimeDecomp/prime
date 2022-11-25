@@ -5023,7 +5023,7 @@ Render__12COmegaPirateCFRC13CStateManager:
 /* 8028F518 0028C478  4B D9 D4 05 */	bl "Render__9CAnimDataCFRC13CSkinnedModelRC11CModelFlagsRCQ24rstl37optional_object<18CVertexMorphEffect>PCf"
 /* 8028F51C 0028C47C  38 61 01 20 */	addi r3, r1, 0x120
 /* 8028F520 0028C480  38 80 FF FF */	li r4, -1
-/* 8028F524 0028C484  4B DE 87 69 */	bl sub_80077c8c
+/* 8028F524 0028C484  4B DE 87 69 */	bl "__dt__Q24rstl37optional_object<18CVertexMorphEffect>Fv"
 lbl_8028F528:
 /* 8028F528 0028C488  88 1E 09 A0 */	lbz r0, 0x9a0(r30)
 /* 8028F52C 0028C48C  28 00 00 00 */	cmplwi r0, 0
@@ -5081,7 +5081,7 @@ lbl_8028F580:
 /* 8028F5F8 0028C558  4B D9 D3 25 */	bl "Render__9CAnimDataCFRC13CSkinnedModelRC11CModelFlagsRCQ24rstl37optional_object<18CVertexMorphEffect>PCf"
 /* 8028F5FC 0028C55C  38 61 00 D4 */	addi r3, r1, 0xd4
 /* 8028F600 0028C560  38 80 FF FF */	li r4, -1
-/* 8028F604 0028C564  4B DE 86 89 */	bl sub_80077c8c
+/* 8028F604 0028C564  4B DE 86 89 */	bl "__dt__Q24rstl37optional_object<18CVertexMorphEffect>Fv"
 lbl_8028F608:
 /* 8028F608 0028C568  7F C3 F3 78 */	mr r3, r30
 /* 8028F60C 0028C56C  7F E4 FB 78 */	mr r4, r31

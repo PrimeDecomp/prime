@@ -22,19 +22,19 @@ private:
 class CVEParticleLocation : public CVectorElement {
 public:
   ~CVEParticleLocation() override {}
-  bool GetValue(int frame, CVector3f& valOut) const;
+  bool GetValue(int frame, CVector3f& valOut) const override;
 };
 
 class CVEParticleColor : public CVectorElement {
 public:
   ~CVEParticleColor() override {}
-  bool GetValue(int frame, CVector3f& valOut) const;
+  bool GetValue(int frame, CVector3f& valOut) const override;
 };
 
 class CVEParticleVelocity : public CVectorElement {
 public:
   ~CVEParticleVelocity() override {}
-  bool GetValue(int frame, CVector3f& valOut) const;
+  bool GetValue(int frame, CVector3f& valOut) const override;
 };
 
 class CVEParticleSystemOrientationFront : public CVectorElement {

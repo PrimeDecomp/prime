@@ -56,7 +56,44 @@ public:
   virtual void SetBlendMode_ColorMultiply();
   virtual void SetBlendMode_InvertDst();
   virtual void SetBlendMode_InvertSrc();
+  virtual void SetBlendMode_Replace();
   virtual void SetBlendMode_AdditiveDestColor();
+
+  virtual void SetDebugOption();
+  virtual void BeginScene();
+  virtual void EndScene();
+  virtual void BeginPrimitive(GXPrimitive prim, int count);
+  virtual void BeginLines(int nverts);
+  virtual void BeginLineStrip(int nverts);
+  virtual void BeginTriangles(int nverts);
+  virtual void BeginTriangleStrip(int nverts);
+  virtual void BeginTriangleFan(int nverts);
+  virtual void PrimVertex(const CVector3f& vtx);
+  virtual void PrimNormal(const CVector3f& nrm);
+  virtual void PrimColor(float r, float g, float b, float a);
+  virtual void PrimColor(const CColor& color);
+  virtual void EndPrimitive();
+  virtual void SetAmbientColor(const CColor& color);
+  virtual void DrawString();
+  virtual void GetFPS();
+  virtual void CacheReflection();
+  virtual void DrawSpaceWarp();
+  virtual void DrawThermalModel();
+  virtual void DrawModelDisintegrate();
+  virtual void DrawModelFlat();
+  virtual void SetWireframeFlags();
+  virtual void SetWorldFog();
+  virtual void RenderFogVolume(const CColor&, const CAABox&, const TLockedToken< CModel >*,
+                       const CSkinnedModel*);
+  virtual void SetThermal();
+  virtual void SetThermalColdScale();
+  virtual void DoThermalBlendCold();
+  virtual void DoThermalBlendHot();
+  virtual void GetStaticWorldDataSize();
+  virtual void SetGXRegister1Color();
+  virtual void SetWorldLightFadeLevel();
+  virtual void Something();
+  virtual void PrepareDynamicLights();
 };
 
 namespace Renderer {
