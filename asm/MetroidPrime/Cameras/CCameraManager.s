@@ -2133,8 +2133,8 @@ lbl_8000AD08:
 /* 8000AD24 00007C84  38 21 00 20 */	addi r1, r1, 0x20
 /* 8000AD28 00007C88  4E 80 00 20 */	blr
 
-.global sub_8000ad2c
-sub_8000ad2c:
+.global __dt__16CCameraShakeDataFv
+__dt__16CCameraShakeDataFv:
 /* 8000AD2C 00007C8C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8000AD30 00007C90  7C 08 02 A6 */	mflr r0
 /* 8000AD34 00007C94  90 01 00 14 */	stw r0, 0x14(r1)

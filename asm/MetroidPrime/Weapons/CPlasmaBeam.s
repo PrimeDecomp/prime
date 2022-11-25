@@ -7,8 +7,8 @@ lbl_ctor:
 .section .data
 .balign 8
 
-.global lbl_803DF710
-lbl_803DF710:
+.global __vt__11CPlasmaBeam
+__vt__11CPlasmaBeam:
 	# ROM: 0x3DC710
 	.4byte 0
 	.4byte 0
@@ -18,13 +18,13 @@ lbl_803DF710:
 	.4byte PreRenderGunFx__10CGunWeaponFRC13CStateManagerRC12CTransform4f
 	.4byte PostRenderGunFx__11CPlasmaBeamFRC13CStateManagerRC12CTransform4f
 	.4byte UpdateGunFx__11CPlasmaBeamFbfRC13CStateManagerRC12CTransform4f
-	.4byte Fire__11CPlasmaBeamFbfQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateManager9TUniqueId
+	.4byte Fire__11CPlasmaBeamFbfQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateManager9TUniqueIdff
 	.4byte EnableFx__10CGunWeaponFb
 	.4byte EnableSecondaryFx__11CPlasmaBeamFQ210CGunWeapon16ESecondaryFxType
 	.4byte Draw__10CGunWeaponCFbRC13CStateManagerRC12CTransform4fRC11CModelFlagsPC12CActorLights
 	.4byte DrawMuzzleFx__10CGunWeaponCFRC13CStateManager
 	.4byte Update__11CPlasmaBeamFfR13CStateManager
-	.4byte Load__11CPlasmaBeamFb
+	.4byte Load__11CPlasmaBeamFR13CStateManagerb
 	.4byte Unload__11CPlasmaBeamFR13CStateManager
 	.4byte IsLoaded__11CPlasmaBeamCFv
 	.4byte 0
@@ -43,7 +43,7 @@ lbl_805A7320:
 .balign 8
 
 .lcomm lbl_8046C488, 0x10, 4
-.comm lbl_8056D420, 0xD4, 4
+.comm CameraShaker, 0xD4, 4
 
 .section .sdata2, "a"
 .balign 8
@@ -339,8 +339,8 @@ Unload__11CPlasmaBeamFR13CStateManager:
 /* 800DEEA8 000DBE08  38 21 00 10 */	addi r1, r1, 0x10
 /* 800DEEAC 000DBE0C  4E 80 00 20 */	blr
 
-.global Load__11CPlasmaBeamFb
-Load__11CPlasmaBeamFb:
+.global Load__11CPlasmaBeamFR13CStateManagerb
+Load__11CPlasmaBeamFR13CStateManagerb:
 /* 800DEEB0 000DBE10  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 800DEEB4 000DBE14  7C 08 02 A6 */	mflr r0
 /* 800DEEB8 000DBE18  90 01 00 14 */	stw r0, 0x14(r1)
@@ -407,8 +407,8 @@ StopBeam__11CPlasmaBeamFR13CStateManagerb:
 UpdateBeam__11CPlasmaBeamFfRC12CTransform4fRC9CVector3fR13CStateManager:
 /* 800DEF68 000DBEC8  4E 80 00 20 */	blr
 
-.global Fire__11CPlasmaBeamFbfQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateManager9TUniqueId
-Fire__11CPlasmaBeamFbfQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateManager9TUniqueId:
+.global Fire__11CPlasmaBeamFbfQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateManager9TUniqueIdff
+Fire__11CPlasmaBeamFbfQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateManager9TUniqueIdff:
 /* 800DEF6C 000DBECC  94 21 FF 90 */	stwu r1, -0x70(r1)
 /* 800DEF70 000DBED0  7C 08 02 A6 */	mflr r0
 /* 800DEF74 000DBED4  90 01 00 74 */	stw r0, 0x74(r1)
@@ -462,9 +462,9 @@ lbl_800DF028:
 /* 800DF030 000DBF90  C0 62 8F 38 */	lfs f3, lbl_805AAC58@sda21(r2)
 /* 800DF034 000DBF94  B0 01 00 08 */	sth r0, 8(r1)
 /* 800DF038 000DBF98  48 0D C8 51 */	bl Fire__10CGunWeaponFbfQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateManager9TUniqueIdff
-/* 800DF03C 000DBF9C  3C 80 80 57 */	lis r4, lbl_8056D420@ha
+/* 800DF03C 000DBF9C  3C 80 80 57 */	lis r4, CameraShaker@ha
 /* 800DF040 000DBFA0  80 7E 08 70 */	lwz r3, 0x870(r30)
-/* 800DF044 000DBFA4  38 84 D4 20 */	addi r4, r4, lbl_8056D420@l
+/* 800DF044 000DBFA4  38 84 D4 20 */	addi r4, r4, CameraShaker@l
 /* 800DF048 000DBFA8  38 A0 00 00 */	li r5, 0
 /* 800DF04C 000DBFAC  4B F2 B9 D5 */	bl AddCameraShaker__14CCameraManagerFRC16CCameraShakeDatab
 /* 800DF050 000DBFB0  C0 02 8F 44 */	lfs f0, lbl_805AAC64@sda21(r2)
@@ -770,9 +770,6 @@ lbl_800DF468:
 /* 800DF484 000DC3E4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800DF488 000DC3E8  7C 08 03 A6 */	mtlr r0
 /* 800DF48C 000DC3EC  38 21 00 10 */	addi r1, r1, 0x10
-
-.global sub_800df490
-sub_800df490:
 /* 800DF490 000DC3F0  4E 80 00 20 */	blr
 
 .global __dt__11CPlasmaBeamFv
@@ -785,9 +782,9 @@ __dt__11CPlasmaBeamFv:
 /* 800DF4A8 000DC408  93 C1 00 08 */	stw r30, 8(r1)
 /* 800DF4AC 000DC40C  7C 7E 1B 79 */	or. r30, r3, r3
 /* 800DF4B0 000DC410  41 82 00 70 */	beq lbl_800DF520
-/* 800DF4B4 000DC414  3C 60 80 3E */	lis r3, lbl_803DF710@ha
+/* 800DF4B4 000DC414  3C 60 80 3E */	lis r3, __vt__11CPlasmaBeam@ha
 /* 800DF4B8 000DC418  34 1E 02 28 */	addic. r0, r30, 0x228
-/* 800DF4BC 000DC41C  38 03 F7 10 */	addi r0, r3, lbl_803DF710@l
+/* 800DF4BC 000DC41C  38 03 F7 10 */	addi r0, r3, __vt__11CPlasmaBeam@l
 /* 800DF4C0 000DC420  90 1E 00 00 */	stw r0, 0(r30)
 /* 800DF4C4 000DC424  41 82 00 24 */	beq lbl_800DF4E8
 /* 800DF4C8 000DC428  80 7E 02 28 */	lwz r3, 0x228(r30)
@@ -835,9 +832,9 @@ __ct__11CPlasmaBeamFUi11EWeaponType9TUniqueId14EMaterialTypesRC9CVector3f:
 /* 800DF558 000DC4B8  38 C1 00 08 */	addi r6, r1, 8
 /* 800DF55C 000DC4BC  B0 01 00 08 */	sth r0, 8(r1)
 /* 800DF560 000DC4C0  48 0D DC 51 */	bl __ct__10CGunWeaponFUi11EWeaponType9TUniqueId14EMaterialTypesRC9CVector3f
-/* 800DF564 000DC4C4  3C 60 80 3E */	lis r3, lbl_803DF710@ha
+/* 800DF564 000DC4C4  3C 60 80 3E */	lis r3, __vt__11CPlasmaBeam@ha
 /* 800DF568 000DC4C8  3C 80 80 3D */	lis r4, lbl_803CE530@ha
-/* 800DF56C 000DC4CC  38 03 F7 10 */	addi r0, r3, lbl_803DF710@l
+/* 800DF56C 000DC4CC  38 03 F7 10 */	addi r0, r3, __vt__11CPlasmaBeam@l
 /* 800DF570 000DC4D0  38 61 00 0C */	addi r3, r1, 0xc
 /* 800DF574 000DC4D4  90 1F 00 00 */	stw r0, 0(r31)
 /* 800DF578 000DC4D8  38 84 E5 30 */	addi r4, r4, lbl_803CE530@l
@@ -887,13 +884,13 @@ __sinit_CPlasmaBeam_cpp:
 /* 800DF61C 000DC57C  38 61 00 08 */	addi r3, r1, 8
 /* 800DF620 000DC580  C0 42 8F 64 */	lfs f2, lbl_805AAC84@sda21(r2)
 /* 800DF624 000DC584  48 07 E2 0D */	bl __ct__16CCameraShakeDataFff
-/* 800DF628 000DC588  3C 60 80 57 */	lis r3, lbl_8056D420@ha
+/* 800DF628 000DC588  3C 60 80 57 */	lis r3, CameraShaker@ha
 /* 800DF62C 000DC58C  38 81 00 08 */	addi r4, r1, 8
-/* 800DF630 000DC590  38 63 D4 20 */	addi r3, r3, lbl_8056D420@l
+/* 800DF630 000DC590  38 63 D4 20 */	addi r3, r3, CameraShaker@l
 /* 800DF634 000DC594  4B F2 B7 75 */	bl __ct__16CCameraShakeDataFRC16CCameraShakeData
-/* 800DF638 000DC598  3C 80 80 01 */	lis r4, sub_8000ad2c@ha
+/* 800DF638 000DC598  3C 80 80 01 */	lis r4, __dt__16CCameraShakeDataFv@ha
 /* 800DF63C 000DC59C  3C A0 80 47 */	lis r5, lbl_8046C488@ha
-/* 800DF640 000DC5A0  38 84 AD 2C */	addi r4, r4, sub_8000ad2c@l
+/* 800DF640 000DC5A0  38 84 AD 2C */	addi r4, r4, __dt__16CCameraShakeDataFv@l
 /* 800DF644 000DC5A4  38 A5 C4 88 */	addi r5, r5, lbl_8046C488@l
 /* 800DF648 000DC5A8  48 2A A0 45 */	bl __register_global_object
 /* 800DF64C 000DC5AC  34 81 00 88 */	addic. r4, r1, 0x88

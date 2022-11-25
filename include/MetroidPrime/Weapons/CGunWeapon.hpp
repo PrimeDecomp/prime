@@ -76,7 +76,7 @@ public:
   virtual void EnableFx(bool enable);
   virtual void EnableSecondaryFx(ESecondaryFxType type);
   virtual void Draw(bool drawSuitArm, const CStateManager& mgr, const CTransform4f& xf,
-                    const CModelFlags& flags, const CActorLights* lights);
+                    const CModelFlags& flags, const CActorLights* lights) const;
   virtual void DrawMuzzleFx(const CStateManager& mgr) const;
   virtual void Update(float dt, CStateManager& mgr);
   virtual void Load(CStateManager& mgr, bool subtypeBasePose);
@@ -90,6 +90,7 @@ public:
   CAABox GetBounds() const;
   CAABox GetBounds(const CTransform4f& xf) const;
   const SWeaponInfo& GetWeaponInfo() const;
+  void ActivateCharge(bool enable, bool resetEffect);
 
 protected:
   // x0 is vtable
