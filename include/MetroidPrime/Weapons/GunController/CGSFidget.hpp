@@ -3,9 +3,10 @@
 
 #include "rstl/vector.hpp"
 
+#include "Kyoto/TToken.hpp"
+
 class CAnimData;
 class CStateManager;
-class CToken;
 
 class CGSFidget {
 public:

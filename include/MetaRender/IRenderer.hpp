@@ -4,6 +4,8 @@
 #include "types.h"
 #include "rstl/pair.hpp"
 
+#include "Kyoto/TToken.hpp"
+
 class CTransform4f;
 class CParticleGen;
 class IObjectStore;
@@ -13,6 +15,9 @@ class CResFactory;
 class CAABox;
 class CVector2f;
 class CVector3f;
+class CModel;
+class CSkinnedModel;
+class CColor;
 
 class IRenderer {
 public:

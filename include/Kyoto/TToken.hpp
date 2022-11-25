@@ -40,7 +40,7 @@ public:
       return true;
     }
     if (HasLock() && CToken::IsLoaded()) {
-      x8_item = GetT();
+      x8_item = TToken::GetT();
       return true;
     } else {
       return false;

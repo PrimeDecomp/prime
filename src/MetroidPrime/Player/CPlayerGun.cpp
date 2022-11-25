@@ -843,7 +843,7 @@ void CPlayerGun::UpdateGunIdle(bool inStrikeCooldown, float camBobT, float dt, C
   } else {
     if (x833_31_inFreeLook) {
       if ((x2f8_stateFlags & 0x10) != 0x10) {
-        x73c_gunMotion->ReturnToDefault(mgr);
+        x73c_gunMotion->ReturnToDefault(mgr, x834_30_inBigStrike);
         x740_grappleArm->ReturnToDefault(mgr, 0.f, false);
       }
       x833_31_inFreeLook = false;

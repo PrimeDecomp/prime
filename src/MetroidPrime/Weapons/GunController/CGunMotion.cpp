@@ -76,8 +76,8 @@ void CGunMotion::Draw(const CStateManager& mgr, const CTransform4f& xf) const {
   x0_modelData.Render(mgr, xf, nullptr, CModelFlags::Normal());
 }
 
-void CGunMotion::ReturnToDefault(CStateManager& mgr) {
-  x4c_gunController.ReturnToDefault(mgr, 0.f);
+void CGunMotion::ReturnToDefault(CStateManager& mgr, bool b) {
+  x4c_gunController.ReturnToDefault(mgr, 0.f, b);
 }
 
 int CGunMotion::GetFreeLookSetId() const { return x4c_gunController.GetFreeLookSetId(); }

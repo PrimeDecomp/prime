@@ -15,6 +15,8 @@ class CRandom16;
 
 class CBodyController {
 public:
+  CBodyController();
+  
   CActor& GetOwner() const { return x0_actor; }
   CBodyStateCmdMgr& CommandMgr() { return x4_cmdMgr; }
   const CBodyStateCmdMgr& GetCommandMgr() const { return x4_cmdMgr; }

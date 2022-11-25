@@ -35,7 +35,7 @@ CIOWin::EMessageReturn CErrorOutputWindow::OnMessage(const CArchitectureMessage&
   case kAM_FrameEnd:
     {
       int result = x14_state ^ 1;
-      result = (result >> 1) - (result & x14_state) >> 0x1f;
+      result = (result >> 1) - ((result & x14_state) >> 0x1f);
       return CIOWin::EMessageReturn(result);
     }
     break;

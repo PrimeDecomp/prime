@@ -27,7 +27,7 @@ CInputStream::CInputStream(const void* ptr, int len, bool owned)
 
 CInputStream::~CInputStream() {
   if (x14_owned) {
-    delete x10_ptr;
+    delete[] x10_ptr;
   }
 }
 
