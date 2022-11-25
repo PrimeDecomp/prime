@@ -52,7 +52,7 @@ const char* skSuitArmNames[] = {
     "FusionArm", "FusionArmG", "FusionArmV", "FusionArmP",
 };
 
-const int skAnimTypeList[] = {
+int skAnimTypeList[] = {
     0, 4, 1, 2, 3, 5, 6, 7, 8, 9, 10,
 };
 
@@ -75,11 +75,10 @@ CPlayerState::EBeamId GetWeaponIndex(EWeaponType type) {
 
 CGunWeapon::CGunWeapon(CAssetId ancsId, EWeaponType type, TUniqueId playerId,
                        EMaterialTypes playerMaterial, const CVector3f& scale)
-
 : x4_scale(scale)
 , x104_gunCharacter(gpSimplePool->GetObj(SObjectTag('ANCS', ancsId)))
 , x13c_armCharacter(gpSimplePool->GetObj(skSuitArmNames[0]))
-, x160_xferEffect(gpSimplePool->GetObj(skBeamXferNames[size_t(GetWeaponIndex(type))]))
+, x160_xferEffect(gpSimplePool->GetObj(skBeamXferNames[GetWeaponIndex(type)]))
 , x1bc_rainSplashGenerator(nullptr)
 , x1c0_weaponType(type)
 , x1c4_playerId(playerId)
@@ -587,6 +586,20 @@ void CGunWeapon::LoadFxIdle(float dt, CStateManager& mgr) {
   }
 }
 
+void CGunWeapon::LoadAnimations() {
+  NWeaponTypes::get_token_vector(*x10_solidModelData->GetAnimationData(), 0, 15, x10c_anims, true);
+}
+
+bool CGunWeapon::IsAnimsLoaded() const {
+  for (rstl::vector< CToken >::const_iterator it = x10c_anims.begin(); it != x10c_anims.end();
+       ++it) {
+    if (!it->IsLoaded()) {
+      return false;
+    }
+  }
+  return true;
+}
+
 void CGunWeapon::LockTokens(CStateManager& mgr) {
   AsyncLoadSuitArm(mgr);
   NWeaponTypes::lock_tokens(x12c_deps);
@@ -628,22 +641,8 @@ void CGunWeapon::UnLoadFidget() { x100_gunController->UnLoadFidget(); }
 
 bool CGunWeapon::IsFidgetLoaded() { return x100_gunController->IsFidgetLoaded(); }
 
-void CGunWeapon::LoadAnimations() {
-  NWeaponTypes::get_token_vector(*x10_solidModelData->GetAnimationData(), 0, 15, x10c_anims, true);
-}
-
-bool CGunWeapon::IsAnimsLoaded() const {
-  for (rstl::vector< CToken >::const_iterator it = x10c_anims.begin(); it != x10c_anims.end();
-       ++it) {
-    if (!it->IsLoaded()) {
-      return false;
-    }
-  }
-  return true;
-}
-
 void CGunWeapon::AsyncLoadSuitArm(CStateManager& mgr) {
-  CPlayerState::EPlayerSuit suit = NWeaponTypes::get_current_suit(mgr);
+  int suit = NWeaponTypes::get_current_suit(mgr);
   xb0_suitArmModelData = rstl::optional_object_null();
   x13c_armCharacter = gpSimplePool->GetObj(skSuitArmNames[suit]);
   x13c_armCharacter.Lock();
@@ -654,7 +653,7 @@ void CGunWeapon::LoadSuitArm(CStateManager& mgr) {
   if (!x13c_armCharacter.IsLoaded()) {
     return;
   }
-  CPlayerState::EPlayerSuit suit = NWeaponTypes::get_current_suit(mgr);
+  int suit = NWeaponTypes::get_current_suit(mgr);
   const CAssetId armId = NWeaponTypes::get_asset_id_from_name(skSuitArmNames[suit]);
   xb0_suitArmModelData = CStaticRes(armId, x4_scale);
   xb0_suitArmModelData->SetSortThermal(true);
