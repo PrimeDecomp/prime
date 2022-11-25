@@ -143,8 +143,8 @@ Reset__14CGunControllerFv:
 /* 801CC2F0 001C9250  90 83 00 50 */	stw r4, 0x50(r3)
 /* 801CC2F4 001C9254  4E 80 00 20 */	blr
 
-.global ReturnToDefault__14CGunControllerFR13CStateManagerf
-ReturnToDefault__14CGunControllerFR13CStateManagerf:
+.global ReturnToDefault__14CGunControllerFR13CStateManagerfb
+ReturnToDefault__14CGunControllerFR13CStateManagerfb:
 /* 801CC2F8 001C9258  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801CC2FC 001C925C  7C 08 02 A6 */	mflr r0
 /* 801CC300 001C9260  7C 88 23 78 */	mr r8, r4

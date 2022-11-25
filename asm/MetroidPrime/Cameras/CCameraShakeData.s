@@ -40,7 +40,7 @@ lbl_805A789C:
 .section .bss
 .balign 8
 .lcomm lbl_8046C7D0, 0x78, 4
-.comm lbl_805719E8, 0xD4, 4
+.comm skChargedShotCameraShakeData__16CCameraShakeData, 0xD4, 4
 .comm lbl_80571ABC, 0xD4, 4 # MWCC .comm bug
 .comm lbl_80571B90, 0xD4, 4
 
@@ -1476,12 +1476,12 @@ __sinit_CCameraShakeData_cpp:
 /* 8015DD54 0015ACB4  4B FF F4 FD */	bl __ct__22CCameraShakerComponentFiRC17SCameraShakePointRC17SCameraShakePoint
 /* 8015DD58 0015ACB8  38 61 00 BC */	addi r3, r1, 0xbc
 /* 8015DD5C 0015ACBC  4B FF F3 D5 */	bl __ct__22CCameraShakerComponentFv
-/* 8015DD60 0015ACC0  3C 60 80 57 */	lis r3, lbl_805719E8@ha
+/* 8015DD60 0015ACC0  3C 60 80 57 */	lis r3, skChargedShotCameraShakeData__16CCameraShakeData@ha
 /* 8015DD64 0015ACC4  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 8015DD68 0015ACC8  38 A4 66 A0 */	addi r5, r4, sZeroVector__9CVector3f@l
 /* 8015DD6C 0015ACCC  C0 22 9F 18 */	lfs f1, lbl_805ABC38@sda21(r2)
 /* 8015DD70 0015ACD0  C0 42 9E F4 */	lfs f2, lbl_805ABC14@sda21(r2)
-/* 8015DD74 0015ACD4  38 63 19 E8 */	addi r3, r3, lbl_805719E8@l
+/* 8015DD74 0015ACD4  38 63 19 E8 */	addi r3, r3, skChargedShotCameraShakeData__16CCameraShakeData@l
 /* 8015DD78 0015ACD8  38 C1 01 34 */	addi r6, r1, 0x134
 /* 8015DD7C 0015ACDC  38 E1 00 F8 */	addi r7, r1, 0xf8
 /* 8015DD80 0015ACE0  39 01 00 BC */	addi r8, r1, 0xbc

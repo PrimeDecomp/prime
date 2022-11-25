@@ -5429,7 +5429,7 @@ lbl_8021A3FC:
 /* 8021A458 002173B8  4B EC DE 41 */	bl sub_800e8298
 /* 8021A45C 002173BC  38 7E 04 A4 */	addi r3, r30, 0x4a4
 /* 8021A460 002173C0  38 81 00 B4 */	addi r4, r1, 0xb4
-/* 8021A464 002173C4  4B F0 38 E9 */	bl sub_8011dd4c
+/* 8021A464 002173C4  4B F0 38 E9 */	bl "__as__Q24rstl29optional_object<10CModelData>FRCQ24rstl29optional_object<10CModelData>"
 /* 8021A468 002173C8  88 01 01 00 */	lbz r0, 0x100(r1)
 /* 8021A46C 002173CC  28 00 00 00 */	cmplwi r0, 0
 /* 8021A470 002173D0  41 82 00 10 */	beq lbl_8021A480

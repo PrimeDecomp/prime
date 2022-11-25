@@ -21,7 +21,7 @@ int CGunController::Update(float, CStateManager&) { return 0; }
 
 void CGunController::EnterIdle(CStateManager&) {}
 
-void CGunController::ReturnToDefault(CStateManager&, float) {}
+void CGunController::ReturnToDefault(CStateManager&, float, bool) {}
 
 void CGunController::Reset() {}
 

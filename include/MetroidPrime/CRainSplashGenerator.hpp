@@ -5,7 +5,11 @@
 #include "rstl/vector.hpp"
 #include "types.h"
 
+#include "Kyoto/CRandom16.hpp"
+#include "Kyoto/Math/CVector3f.hpp"
+
 class CVector3f;
+class CStateManager;
 
 class CRainSplashGenerator {
   struct SSplashLine {
@@ -39,11 +43,27 @@ public:
                        float alpha);
   ~CRainSplashGenerator() {}
 
+  
+  bool IsRaining() const { return x48_25_raining; }
+  void Draw(const CTransform4f& xf) const;
+  void GeneratePoints(const CVector3f* vertices, const CVector3f* normals, int count);
+
 private:
   rstl::vector< SRainSplash > x0_rainSplashes;
   CRandom16 x10_random;
   CVector3f x14_scale;
-  uchar x0_pad[0x2c];
+  float x20_generateTimer;
+  float x24_generateInterval;
+  float x28_dt;
+  float x2c_minZ;
+  float x30_alpha;
+  uint x34_curPoint;
+  uint x38_queueTail;
+  uint x3c_queueHead;
+  uint x40_queueSize;
+  uint x44_genRate;
+  bool x48_24 : 1;
+  bool x48_25_raining : 1;
 };
 CHECK_SIZEOF(CRainSplashGenerator, 0x4c)
 

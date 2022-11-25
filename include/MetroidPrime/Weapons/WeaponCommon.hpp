@@ -29,6 +29,10 @@ void get_token_vector(CAnimData& animData, int, rstl::vector< CToken >& tokensOu
 void get_token_vector(const CAnimData& animData, int begin, int end,
                       rstl::vector< CToken >& tokensOut, bool preLock);
 bool are_tokens_ready(const rstl::vector< CToken >&);
+CAssetId get_asset_id_from_name(const char* name);
+void lock_tokens(rstl::vector< CToken >&);
+void unlock_tokens(rstl::vector< CToken >&);
+CPlayerState::EPlayerSuit get_current_suit(const CStateManager& mgr);
 
 } // namespace NWeaponTypes
 

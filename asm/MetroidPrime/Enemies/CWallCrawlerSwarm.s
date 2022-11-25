@@ -2633,7 +2633,7 @@ lbl_801E98C4:
 /* 801E9924 001E6884  48 16 93 D5 */	bl "Calculate__13CSkinnedModelFRC17CPoseAsTransformsRCQ24rstl37optional_object<18CVertexMorphEffect>PCfPf"
 /* 801E9928 001E6888  38 61 00 88 */	addi r3, r1, 0x88
 /* 801E992C 001E688C  38 80 FF FF */	li r4, -1
-/* 801E9930 001E6890  4B E8 E3 5D */	bl sub_80077c8c
+/* 801E9930 001E6890  4B E8 E3 5D */	bl "__dt__Q24rstl37optional_object<18CVertexMorphEffect>Fv"
 lbl_801E9934:
 /* 801E9934 001E6894  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
 /* 801E9938 001E6898  38 97 00 40 */	addi r4, r23, 0x40
@@ -2716,7 +2716,7 @@ lbl_801E9934:
 /* 801E9A6C 001E69CC  4B E4 2E B1 */	bl "Render__9CAnimDataCFRC13CSkinnedModelRC11CModelFlagsRCQ24rstl37optional_object<18CVertexMorphEffect>PCf"
 /* 801E9A70 001E69D0  38 61 00 3C */	addi r3, r1, 0x3c
 /* 801E9A74 001E69D4  38 80 FF FF */	li r4, -1
-/* 801E9A78 001E69D8  4B E8 E2 15 */	bl sub_80077c8c
+/* 801E9A78 001E69D8  4B E8 E2 15 */	bl "__dt__Q24rstl37optional_object<18CVertexMorphEffect>Fv"
 /* 801E9A7C 001E69DC  48 00 00 B4 */	b lbl_801E9B30
 lbl_801E9A80:
 /* 801E9A80 001E69E0  57 20 06 3F */	clrlwi. r0, r25, 0x18

@@ -1208,7 +1208,7 @@ RenderIceModelWithFlags__10CPatternedCFRC11CModelFlags:
 /* 80077C60 00074BC0  4B FB 4C BD */	bl "Render__9CAnimDataCFRC13CSkinnedModelRC11CModelFlagsRCQ24rstl37optional_object<18CVertexMorphEffect>PCf"
 /* 80077C64 00074BC4  38 61 00 10 */	addi r3, r1, 0x10
 /* 80077C68 00074BC8  38 80 FF FF */	li r4, -1
-/* 80077C6C 00074BCC  48 00 00 21 */	bl sub_80077c8c
+/* 80077C6C 00074BCC  48 00 00 21 */	bl "__dt__Q24rstl37optional_object<18CVertexMorphEffect>Fv"
 lbl_80077C70:
 /* 80077C70 00074BD0  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 80077C74 00074BD4  83 E1 00 6C */	lwz r31, 0x6c(r1)
@@ -1218,8 +1218,8 @@ lbl_80077C70:
 /* 80077C84 00074BE4  38 21 00 70 */	addi r1, r1, 0x70
 /* 80077C88 00074BE8  4E 80 00 20 */	blr
 
-.global sub_80077c8c
-sub_80077c8c:
+.global "__dt__Q24rstl37optional_object<18CVertexMorphEffect>Fv"
+"__dt__Q24rstl37optional_object<18CVertexMorphEffect>Fv":
 /* 80077C8C 00074BEC  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80077C90 00074BF0  7C 08 02 A6 */	mflr r0
 /* 80077C94 00074BF4  90 01 00 14 */	stw r0, 0x14(r1)

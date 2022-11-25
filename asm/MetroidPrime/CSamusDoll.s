@@ -3822,7 +3822,7 @@ lbl_800DDC60:
 /* 800DDC70 000DABD0  4B FF F9 85 */	bl BuildSuitModelData1__10CSamusDollFQ212CPlayerState11EPlayerSuit
 /* 800DDC74 000DABD4  38 7A 00 C8 */	addi r3, r26, 0xc8
 /* 800DDC78 000DABD8  38 81 00 D8 */	addi r4, r1, 0xd8
-/* 800DDC7C 000DABDC  48 00 01 FD */	bl sub_800dde78
+/* 800DDC7C 000DABDC  48 00 01 FD */	bl "__as__Q24rstl29optional_object<10CModelData>FRC10CModelData"
 /* 800DDC80 000DABE0  38 61 00 D8 */	addi r3, r1, 0xd8
 /* 800DDC84 000DABE4  38 80 FF FF */	li r4, -1
 /* 800DDC88 000DABE8  48 03 8D C5 */	bl __dt__10CModelDataFv
@@ -3895,7 +3895,7 @@ lbl_800DDD70:
 /* 800DDD88 000DACE8  4B FF F7 65 */	bl BuildSuitModelDataBoots__10CSamusDollFQ212CPlayerState11EPlayerSuit
 /* 800DDD8C 000DACEC  38 7A 01 34 */	addi r3, r26, 0x134
 /* 800DDD90 000DACF0  38 81 00 8C */	addi r4, r1, 0x8c
-/* 800DDD94 000DACF4  48 00 00 E5 */	bl sub_800dde78
+/* 800DDD94 000DACF4  48 00 00 E5 */	bl "__as__Q24rstl29optional_object<10CModelData>FRC10CModelData"
 /* 800DDD98 000DACF8  38 61 00 8C */	addi r3, r1, 0x8c
 /* 800DDD9C 000DACFC  38 80 FF FF */	li r4, -1
 /* 800DDDA0 000DAD00  48 03 8C AD */	bl __dt__10CModelDataFv
@@ -3934,7 +3934,7 @@ lbl_800DDDC0:
 /* 800DDE20 000DAD80  48 03 8D 35 */	bl __ct__10CModelDataFRC8CAnimRes
 /* 800DDE24 000DAD84  38 7A 01 84 */	addi r3, r26, 0x184
 /* 800DDE28 000DAD88  38 81 00 40 */	addi r4, r1, 0x40
-/* 800DDE2C 000DAD8C  48 00 00 4D */	bl sub_800dde78
+/* 800DDE2C 000DAD8C  48 00 00 4D */	bl "__as__Q24rstl29optional_object<10CModelData>FRC10CModelData"
 /* 800DDE30 000DAD90  38 61 00 40 */	addi r3, r1, 0x40
 /* 800DDE34 000DAD94  38 80 FF FF */	li r4, -1
 /* 800DDE38 000DAD98  48 03 8C 15 */	bl __dt__10CModelDataFv
@@ -3955,8 +3955,8 @@ lbl_800DDE64:
 /* 800DDE70 000DADD0  38 21 01 90 */	addi r1, r1, 0x190
 /* 800DDE74 000DADD4  4E 80 00 20 */	blr
 
-.global sub_800dde78
-sub_800dde78:
+.global "__as__Q24rstl29optional_object<10CModelData>FRC10CModelData"
+"__as__Q24rstl29optional_object<10CModelData>FRC10CModelData":
 /* 800DDE78 000DADD8  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 800DDE7C 000DADDC  7C 08 02 A6 */	mflr r0
 /* 800DDE80 000DADE0  90 01 00 14 */	stw r0, 0x14(r1)

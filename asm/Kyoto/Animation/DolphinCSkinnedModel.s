@@ -97,8 +97,8 @@ ClearPointGeneratorFunc__13CSkinnedModelFv:
 /* 8035270C 0034F66C  90 0D AA 30 */	stw r0, lbl_805A95F0@sda21(r13)
 /* 80352710 0034F670  4E 80 00 20 */	blr
 
-.global SetPointGeneratorFunc__13CSkinnedModelFUiPFUiPC9CVector3fPC9CVector3fi_v
-SetPointGeneratorFunc__13CSkinnedModelFUiPFUiPC9CVector3fPC9CVector3fi_v:
+.global SetPointGeneratorFunc__13CSkinnedModelFPvPFPvPC9CVector3fPC9CVector3fi_v
+SetPointGeneratorFunc__13CSkinnedModelFPvPFPvPC9CVector3fPC9CVector3fi_v:
 /* 80352714 0034F674  90 8D AA 30 */	stw r4, lbl_805A95F0@sda21(r13)
 /* 80352718 0034F678  90 6D AA 34 */	stw r3, lbl_805A95F4@sda21(r13)
 /* 8035271C 0034F67C  4E 80 00 20 */	blr

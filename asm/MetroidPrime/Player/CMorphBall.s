@@ -5681,7 +5681,7 @@ lbl_800F1C54:
 /* 800F1CE4 000EEC44  38 E1 00 18 */	addi r7, r1, 0x18
 /* 800F1CE8 000EEC48  38 80 00 00 */	li r4, 0
 /* 800F1CEC 000EEC4C  38 C0 00 00 */	li r6, 0
-/* 800F1CF0 000EEC50  48 02 42 D5 */	bl FlatDraw__10CModelDataF11EWhichModelRC12CTransform4fbRC11CModelFlags
+/* 800F1CF0 000EEC50  48 02 42 D5 */	bl FlatDraw__10CModelDataCF11EWhichModelRC12CTransform4fbRC11CModelFlags
 /* 800F1CF4 000EEC54  3B FF 00 01 */	addi r31, r31, 1
 /* 800F1CF8 000EEC58  2C 1F 00 05 */	cmpwi r31, 5
 /* 800F1CFC 000EEC5C  41 80 FF 58 */	blt lbl_800F1C54
@@ -6250,7 +6250,7 @@ lbl_800F2500:
 /* 800F2514 000EF474  41 82 00 10 */	beq lbl_800F2524
 /* 800F2518 000EF478  3C 80 80 0F */	lis r4, PointGenerator__10CMorphBallFPvPC9CVector3fPC9CVector3fi@ha
 /* 800F251C 000EF47C  38 84 E7 88 */	addi r4, r4, PointGenerator__10CMorphBallFPvPC9CVector3fPC9CVector3fi@l
-/* 800F2520 000EF480  48 26 01 F5 */	bl SetPointGeneratorFunc__13CSkinnedModelFUiPFUiPC9CVector3fPC9CVector3fi_v
+/* 800F2520 000EF480  48 26 01 F5 */	bl SetPointGeneratorFunc__13CSkinnedModelFPvPFPvPC9CVector3fPC9CVector3fi_v
 lbl_800F2524:
 /* 800F2524 000EF484  C0 22 91 5C */	lfs f1, lbl_805AAE7C@sda21(r2)
 /* 800F2528 000EF488  C0 1D 1C 34 */	lfs f0, 0x1c34(r29)

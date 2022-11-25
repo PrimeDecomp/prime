@@ -70,6 +70,8 @@ public:
   float GetCurTime() const { return x4_curTime; }
   const CVector3f& GetPoint() const; // { return xc4_sfxPos; }
 
+  static CCameraShakeData skChargedShotCameraShakeData;
+
 private:
   float x0_duration;
   float x4_curTime;

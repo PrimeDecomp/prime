@@ -30,6 +30,17 @@ struct SShotParam {
   , x10_radius(0.f)
   , x14_knockback(0.f)
   , x18_24_noImmunity(false) {}
+
+  SShotParam(float chargeFactor, const SShotParam& other) {
+    x14_knockback = chargeFactor * other.x14_knockback;
+    x0_weaponType = other.x0_weaponType;
+    x10_radius = chargeFactor * other.x10_radius;
+    x8_damage = chargeFactor * other.x8_damage;
+    x18_24_noImmunity = false;
+    *(reinterpret_cast<int*>(this) + 1) = *(reinterpret_cast<const int*>(&other) + 1);
+    xc_radiusDamage = chargeFactor * other.xc_radiusDamage;
+  }
+
   explicit SShotParam(CInputStream& in);
 };
 
@@ -76,6 +87,8 @@ public:
   float GetGunExtendDistance() const { return x48_gunExtendDistance; }
   const CVector3f& GetGunPosition() const { return x4c_gunPosition; }
   const CVector3f& GetGrapplingArmPosition() const { return x64_grapplingArmPosition; }
+
+  const SWeaponInfo& GetBeamInfo(int beam) const;
 
 private:
   float x4_upLookAngle;

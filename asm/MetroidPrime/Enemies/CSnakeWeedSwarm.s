@@ -1377,7 +1377,7 @@ sub_8023c688:
 /* 8023C714 00239674  48 11 65 E5 */	bl "Calculate__13CSkinnedModelFRC17CPoseAsTransformsRCQ24rstl37optional_object<18CVertexMorphEffect>PCfPf"
 /* 8023C718 00239678  38 61 00 AC */	addi r3, r1, 0xac
 /* 8023C71C 0023967C  38 80 FF FF */	li r4, -1
-/* 8023C720 00239680  4B E3 B5 6D */	bl sub_80077c8c
+/* 8023C720 00239680  4B E3 B5 6D */	bl "__dt__Q24rstl37optional_object<18CVertexMorphEffect>Fv"
 lbl_8023C724:
 /* 8023C724 00239684  7F 03 C3 78 */	mr r3, r24
 /* 8023C728 00239688  48 00 1C 5D */	bl sub_8023e384

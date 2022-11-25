@@ -1334,7 +1334,7 @@ lbl_80115DF4:
 /* 80115E28 00112D88  4B F1 6B 51 */	bl "SetupRender__9CAnimDataCFRC13CSkinnedModelRCQ24rstl37optional_object<18CVertexMorphEffect>PCf"
 /* 80115E2C 00112D8C  38 61 00 A4 */	addi r3, r1, 0xa4
 /* 80115E30 00112D90  38 80 FF FF */	li r4, -1
-/* 80115E34 00112D94  4B F6 1E 59 */	bl sub_80077c8c
+/* 80115E34 00112D94  4B F6 1E 59 */	bl "__dt__Q24rstl37optional_object<18CVertexMorphEffect>Fv"
 /* 80115E38 00112D98  3C 60 80 11 */	lis r3, MultipassDrawCallback__10CModelDataFPCfPCfPC21SMultipassDrawContext@ha
 /* 80115E3C 00112D9C  93 C1 00 08 */	stw r30, 8(r1)
 /* 80115E40 00112DA0  38 83 64 48 */	addi r4, r3, MultipassDrawCallback__10CModelDataFPCfPCfPC21SMultipassDrawContext@l
@@ -1412,7 +1412,7 @@ MultiLightingDraw__10CModelDataF11EWhichModelRC12CTransform4fPC12CActorLightsRC6
 /* 80115F44 00112EA4  4B F1 6A 35 */	bl "SetupRender__9CAnimDataCFRC13CSkinnedModelRCQ24rstl37optional_object<18CVertexMorphEffect>PCf"
 /* 80115F48 00112EA8  38 61 00 B8 */	addi r3, r1, 0xb8
 /* 80115F4C 00112EAC  38 80 FF FF */	li r4, -1
-/* 80115F50 00112EB0  4B F6 1D 3D */	bl sub_80077c8c
+/* 80115F50 00112EB0  4B F6 1D 3D */	bl "__dt__Q24rstl37optional_object<18CVertexMorphEffect>Fv"
 /* 80115F54 00112EB4  80 1F 00 0C */	lwz r0, 0xc(r31)
 /* 80115F58 00112EB8  3C 60 80 11 */	lis r3, MultiLightingDrawCallback__10CModelDataFPCfPCfPC25SMultiLightingDrawContext@ha
 /* 80115F5C 00112EBC  38 83 64 B8 */	addi r4, r3, MultiLightingDrawCallback__10CModelDataFPCfPCfPC25SMultiLightingDrawContext@l
@@ -1444,8 +1444,8 @@ lbl_80115FB0:
 /* 80115FBC 00112F1C  38 21 01 20 */	addi r1, r1, 0x120
 /* 80115FC0 00112F20  4E 80 00 20 */	blr
 
-.global FlatDraw__10CModelDataF11EWhichModelRC12CTransform4fbRC11CModelFlags
-FlatDraw__10CModelDataF11EWhichModelRC12CTransform4fbRC11CModelFlags:
+.global FlatDraw__10CModelDataCF11EWhichModelRC12CTransform4fbRC11CModelFlags
+FlatDraw__10CModelDataCF11EWhichModelRC12CTransform4fbRC11CModelFlags:
 /* 80115FC4 00112F24  94 21 FE F0 */	stwu r1, -0x110(r1)
 /* 80115FC8 00112F28  7C 08 02 A6 */	mflr r0
 /* 80115FCC 00112F2C  90 01 01 14 */	stw r0, 0x114(r1)
@@ -1488,7 +1488,7 @@ FlatDraw__10CModelDataF11EWhichModelRC12CTransform4fbRC11CModelFlags:
 /* 80116060 00112FC0  4B F1 69 19 */	bl "SetupRender__9CAnimDataCFRC13CSkinnedModelRCQ24rstl37optional_object<18CVertexMorphEffect>PCf"
 /* 80116064 00112FC4  38 61 00 A4 */	addi r3, r1, 0xa4
 /* 80116068 00112FC8  38 80 FF FF */	li r4, -1
-/* 8011606C 00112FCC  4B F6 1C 21 */	bl sub_80077c8c
+/* 8011606C 00112FCC  4B F6 1C 21 */	bl "__dt__Q24rstl37optional_object<18CVertexMorphEffect>Fv"
 /* 80116070 00112FD0  3C 60 80 11 */	lis r3, FlatDrawCallback__10CModelDataFPCfPCfPC16SFlatDrawContext@ha
 /* 80116074 00112FD4  93 E1 00 08 */	stw r31, 8(r1)
 /* 80116078 00112FD8  38 83 66 40 */	addi r4, r3, FlatDrawCallback__10CModelDataFPCfPCfPC16SFlatDrawContext@l
@@ -1604,7 +1604,7 @@ DisintegrateDraw__10CModelDataF11EWhichModelRC12CTransform4fRC8CTextureRC6CColor
 /* 80116210 00113170  4B F1 67 69 */	bl "SetupRender__9CAnimDataCFRC13CSkinnedModelRCQ24rstl37optional_object<18CVertexMorphEffect>PCf"
 /* 80116214 00113174  38 61 00 C0 */	addi r3, r1, 0xc0
 /* 80116218 00113178  38 80 FF FF */	li r4, -1
-/* 8011621C 0011317C  4B F6 1A 71 */	bl sub_80077c8c
+/* 8011621C 0011317C  4B F6 1A 71 */	bl "__dt__Q24rstl37optional_object<18CVertexMorphEffect>Fv"
 /* 80116220 00113180  80 1E 00 00 */	lwz r0, 0(r30)
 /* 80116224 00113184  3C 60 80 11 */	lis r3, DisintegrateDrawCallback__10CModelDataFPCfPCfPC22SOneTextureDrawContext@ha
 /* 80116228 00113188  38 83 66 8C */	addi r4, r3, DisintegrateDrawCallback__10CModelDataFPCfPCfPC22SOneTextureDrawContext@l
@@ -1684,7 +1684,7 @@ RenderThermal__10CModelDataCFRC12CTransform4fRC6CColorRC6CColorRC11CModelFlags:
 /* 8011633C 0011329C  4B F1 66 3D */	bl "SetupRender__9CAnimDataCFRC13CSkinnedModelRCQ24rstl37optional_object<18CVertexMorphEffect>PCf"
 /* 80116340 001132A0  38 61 00 98 */	addi r3, r1, 0x98
 /* 80116344 001132A4  38 80 FF FF */	li r4, -1
-/* 80116348 001132A8  4B F6 19 45 */	bl sub_80077c8c
+/* 80116348 001132A8  4B F6 19 45 */	bl "__dt__Q24rstl37optional_object<18CVertexMorphEffect>Fv"
 /* 8011634C 001132AC  7F E3 FB 78 */	mr r3, r31
 /* 80116350 001132B0  7F 84 E3 78 */	mr r4, r28
 /* 80116354 001132B4  7F A5 EB 78 */	mr r5, r29
@@ -2143,7 +2143,7 @@ lbl_80116984:
 /* 801169B8 00113918  4B F1 5F 65 */	bl "Render__9CAnimDataCFRC13CSkinnedModelRC11CModelFlagsRCQ24rstl37optional_object<18CVertexMorphEffect>PCf"
 /* 801169BC 0011391C  38 61 00 A0 */	addi r3, r1, 0xa0
 /* 801169C0 00113920  38 80 FF FF */	li r4, -1
-/* 801169C4 00113924  4B F6 12 C9 */	bl sub_80077c8c
+/* 801169C4 00113924  4B F6 12 C9 */	bl "__dt__Q24rstl37optional_object<18CVertexMorphEffect>Fv"
 /* 801169C8 00113928  48 00 00 40 */	b lbl_80116A08
 lbl_801169CC:
 /* 801169CC 0011392C  88 1F 00 28 */	lbz r0, 0x28(r31)

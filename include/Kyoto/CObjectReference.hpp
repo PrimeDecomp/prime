@@ -27,6 +27,7 @@ public:
   void Lock();
   void Unlock();
   IObj* GetObject();
+  const SObjectTag& GetTag() const { return x4_objTag; }
 
 private:
   short x0_refCount;

@@ -327,8 +327,8 @@ lbl_801B8D14:
 /* 801B8D24 001B5C84  38 E0 00 4A */	li r7, 0x4a
 /* 801B8D28 001B5C88  48 0D 1D D1 */	bl play_sfx__12NWeaponTypesFUsbbs
 /* 801B8D2C 001B5C8C  80 01 00 28 */	lwz r0, 0x28(r1)
-/* 801B8D30 001B5C90  3C 60 80 57 */	lis r3, lbl_805719E8@ha
-/* 801B8D34 001B5C94  38 83 19 E8 */	addi r4, r3, lbl_805719E8@l
+/* 801B8D30 001B5C90  3C 60 80 57 */	lis r3, skChargedShotCameraShakeData__16CCameraShakeData@ha
+/* 801B8D34 001B5C94  38 83 19 E8 */	addi r4, r3, skChargedShotCameraShakeData__16CCameraShakeData@l
 /* 801B8D38 001B5C98  38 A0 00 00 */	li r5, 0
 /* 801B8D3C 001B5C9C  90 1C 00 7C */	stw r0, 0x7c(r28)
 /* 801B8D40 001B5CA0  80 7F 08 70 */	lwz r3, 0x870(r31)
