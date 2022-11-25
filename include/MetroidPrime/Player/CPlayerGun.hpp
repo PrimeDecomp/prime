@@ -180,6 +180,7 @@ public:
 
   int GetStateFlags() const { return x2f8_stateFlags; }
   void SetStateFlags(int flags) { x2f8_stateFlags = flags; }
+  bool IsCharging() const { return x834_24_charging; }
 
 private:
   class CGunMorph {

@@ -12,11 +12,32 @@ struct SCameraShakePoint {
   float xc_attackTime;
   float x10_sustainTime;
   float x14_duration;
+
+  SCameraShakePoint()
+  : x0_useEnvelope(false)
+  , x8_magnitude(0.f)
+  , xc_attackTime(0.f)
+  , x10_sustainTime(0.f)
+  , x14_duration(0.f) {}
+
+  SCameraShakePoint(bool useEnvelope, float attackTime, float sustainTime, float duration,
+                    float magnitude)
+  : x0_useEnvelope(useEnvelope)
+  , x8_magnitude(magnitude)
+  , xc_attackTime(attackTime)
+  , x10_sustainTime(sustainTime)
+  , x14_duration(duration) {}
 };
 CHECK_SIZEOF(SCameraShakePoint, 0x18)
 
 class CCameraShakerComponent {
 public:
+  CCameraShakerComponent() : x4_useModulation(false), x38_value(0.f) {}
+
+  CCameraShakerComponent(bool useModulation, const SCameraShakePoint& am,
+                         const SCameraShakePoint& fm)
+  : x4_useModulation(useModulation), x8_am(am), x20_fm(fm) {}
+
   virtual ~CCameraShakerComponent() {}
 
 private:
@@ -30,14 +51,24 @@ CHECK_SIZEOF(CCameraShakerComponent, 0x3c)
 class CStateManager;
 class CCameraShakeData {
 public:
+  CCameraShakeData(float duration, float magnitude)
+  : x0_duration(duration)
+  , xd0_sfxDist(100.f)
+  , xc0_flags(0)
+  , xc4_sfxPos(CVector3f::Zero())
+  , x8_shakerX()
+  , x44_shakerY()
+  , x80_shakerZ(true, SCameraShakePoint(false, 0.25f * duration, 0.f, 0.75f * duration, magnitude),
+                SCameraShakePoint(true, 0.f, 0.f, 0.5f * duration, 2.f)) {}
   CCameraShakeData(const CCameraShakeData&);
+
   void SetShakerId(int id) { xbc_shakerId = id; }
   int GetShakerId() const { return xbc_shakerId; }
   void Update(float dt, CStateManager& mgr);
 
   float GetDuration() const { return x0_duration; }
   float GetCurTime() const { return x4_curTime; }
-  const CVector3f& GetPoint() const;// { return xc4_sfxPos; }
+  const CVector3f& GetPoint() const; // { return xc4_sfxPos; }
 
 private:
   float x0_duration;

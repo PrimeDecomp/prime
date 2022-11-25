@@ -1487,9 +1487,9 @@ __sinit_CCameraShakeData_cpp:
 /* 8015DD80 0015ACE0  39 01 00 BC */	addi r8, r1, 0xbc
 /* 8015DD84 0015ACE4  38 80 00 00 */	li r4, 0
 /* 8015DD88 0015ACE8  4B FF F1 11 */	bl __ct__16CCameraShakeDataFffiRC9CVector3fRC22CCameraShakerComponentRC22CCameraShakerComponentRC22CCameraShakerComponent
-/* 8015DD8C 0015ACEC  3C 80 80 01 */	lis r4, sub_8000ad2c@ha
+/* 8015DD8C 0015ACEC  3C 80 80 01 */	lis r4, __dt__16CCameraShakeDataFv@ha
 /* 8015DD90 0015ACF0  38 BF 00 60 */	addi r5, r31, 0x60
-/* 8015DD94 0015ACF4  38 84 AD 2C */	addi r4, r4, sub_8000ad2c@l
+/* 8015DD94 0015ACF4  38 84 AD 2C */	addi r4, r4, __dt__16CCameraShakeDataFv@l
 /* 8015DD98 0015ACF8  48 22 B8 F5 */	bl __register_global_object
 /* 8015DD9C 0015ACFC  34 01 00 BC */	addic. r0, r1, 0xbc
 /* 8015DDA0 0015AD00  41 82 00 10 */	beq lbl_8015DDB0
@@ -1529,9 +1529,9 @@ lbl_8015DDD8:
 /* 8015DE1C 0015AD7C  39 01 00 08 */	addi r8, r1, 8
 /* 8015DE20 0015AD80  38 80 00 00 */	li r4, 0
 /* 8015DE24 0015AD84  4B FF F0 75 */	bl __ct__16CCameraShakeDataFffiRC9CVector3fRC22CCameraShakerComponentRC22CCameraShakerComponentRC22CCameraShakerComponent
-/* 8015DE28 0015AD88  3C 80 80 01 */	lis r4, sub_8000ad2c@ha
+/* 8015DE28 0015AD88  3C 80 80 01 */	lis r4, __dt__16CCameraShakeDataFv@ha
 /* 8015DE2C 0015AD8C  38 BF 00 6C */	addi r5, r31, 0x6c
-/* 8015DE30 0015AD90  38 84 AD 2C */	addi r4, r4, sub_8000ad2c@l
+/* 8015DE30 0015AD90  38 84 AD 2C */	addi r4, r4, __dt__16CCameraShakeDataFv@l
 /* 8015DE34 0015AD94  48 22 B8 59 */	bl __register_global_object
 /* 8015DE38 0015AD98  34 01 00 08 */	addic. r0, r1, 8
 /* 8015DE3C 0015AD9C  41 82 00 10 */	beq lbl_8015DE4C
