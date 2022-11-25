@@ -3898,11 +3898,11 @@ __ct__10CGunWeaponFUi11EWeaponType9TUniqueId14EMaterialTypesRC9CVector3f:
 /* 801BD2BC 001BA21C  90 1E 01 44 */	stw r0, 0x144(r30)
 /* 801BD2C0 001BA220  48 00 01 29 */	bl GetWeaponIndex__F11EWeaponType
 /* 801BD2C4 001BA224  80 8D A0 64 */	lwz r4, gpSimplePool@sda21(r13)
-/* 801BD2C8 001BA228  3C A0 80 3D */	lis r5, lbl_803D17A0@ha
+/* 801BD2C8 001BA228  3C A0 80 3D */	lis r5, skBeamXferNames@ha
 /* 801BD2CC 001BA22C  54 60 10 3A */	slwi r0, r3, 2
 /* 801BD2D0 001BA230  38 61 00 08 */	addi r3, r1, 8
 /* 801BD2D4 001BA234  81 84 00 00 */	lwz r12, 0(r4)
-/* 801BD2D8 001BA238  38 A5 17 A0 */	addi r5, r5, lbl_803D17A0@l
+/* 801BD2D8 001BA238  38 A5 17 A0 */	addi r5, r5, skBeamXferNames@l
 /* 801BD2DC 001BA23C  7C A5 00 2E */	lwzx r5, r5, r0
 /* 801BD2E0 001BA240  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 801BD2E4 001BA244  7D 89 03 A6 */	mtctr r12
@@ -4085,8 +4085,8 @@ skFrozenNames:
 	.4byte lbl_803D18A7
 	.4byte lbl_803D189E
 
-.global lbl_803D17A0
-lbl_803D17A0:
+.global skBeamXferNames
+skBeamXferNames:
 	# ROM: 0x3CE7A0
 	.4byte lbl_803D18C9
 	.4byte lbl_803D18D3

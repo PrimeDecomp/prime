@@ -32,7 +32,7 @@ bool are_tokens_ready(const rstl::vector< CToken >&);
 CAssetId get_asset_id_from_name(const char* name);
 void lock_tokens(rstl::vector< CToken >&);
 void unlock_tokens(rstl::vector< CToken >&);
-CPlayerState::EPlayerSuit get_current_suit(const CStateManager& mgr);
+int get_current_suit(const CStateManager& mgr);
 
 } // namespace NWeaponTypes
 
