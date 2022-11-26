@@ -275,7 +275,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CThardusRockProjectile.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CInventoryScreen.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CVisorFlare.o\
-	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CFlaahgraPlants.o\
+	$(BUILD_DIR)/src/MetroidPrime/Enemies/CFlaahgraPlants.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CWorldTransManager.o\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptMidi.o\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptStreamedAudio.o\
