@@ -28,7 +28,7 @@ public:
   , x18_defaultAnim(defaultAnim) {}
 
   // name?
-  static int kDefaultCharIdx;
+  static const int kDefaultCharIdx;
 };
 CHECK_SIZEOF(CAnimRes, 0x1c)
 
