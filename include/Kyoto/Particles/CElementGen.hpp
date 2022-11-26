@@ -83,6 +83,8 @@ public:
   static void ShutDown();
 
   void SetGlobalOrientAndTrans(const CTransform4f& xf);
+  void SetLeaveLightsEnabledForModelRender(bool b) { x26d_26_modelsUseLights = b; }
+
   static void SetSubtractBlend(bool subtract) { sSubtractBlend = subtract; }
 
 public:

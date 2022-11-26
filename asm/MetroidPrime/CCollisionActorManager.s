@@ -927,7 +927,7 @@ lbl_801A7B98:
 /* 801A7C24 001A4B84  B1 61 00 78 */	sth r11, 0x78(r1)
 /* 801A7C28 001A4B88  91 41 00 A8 */	stw r10, 0xa8(r1)
 /* 801A7C2C 001A4B8C  B0 01 00 74 */	sth r0, 0x74(r1)
-/* 801A7C30 001A4B90  48 00 21 79 */	bl __ct__15CCollisionActorF9TUniqueIdCRi9TUniqueIdRC9CVector3fRC9CVector3fbf
+/* 801A7C30 001A4B90  48 00 21 79 */	bl __ct__15CCollisionActorF9TUniqueId7TAreaId9TUniqueIdRC9CVector3fRC9CVector3fbf
 /* 801A7C34 001A4B94  7C 73 1B 78 */	mr r19, r3
 lbl_801A7C38:
 /* 801A7C38 001A4B98  80 01 04 F4 */	lwz r0, 0x4f4(r1)
@@ -1406,7 +1406,7 @@ lbl_801A8310:
 /* 801A835C 001A52BC  90 C1 00 98 */	stw r6, 0x98(r1)
 /* 801A8360 001A52C0  38 C1 00 40 */	addi r6, r1, 0x40
 /* 801A8364 001A52C4  B0 01 00 3C */	sth r0, 0x3c(r1)
-/* 801A8368 001A52C8  48 00 1A 41 */	bl __ct__15CCollisionActorF9TUniqueIdCRi9TUniqueIdRC9CVector3fRC9CVector3fbf
+/* 801A8368 001A52C8  48 00 1A 41 */	bl __ct__15CCollisionActorF9TUniqueId7TAreaId9TUniqueIdRC9CVector3fRC9CVector3fbf
 /* 801A836C 001A52CC  7C 60 1B 78 */	mr r0, r3
 lbl_801A8370:
 /* 801A8370 001A52D0  7C 13 03 78 */	mr r19, r0
