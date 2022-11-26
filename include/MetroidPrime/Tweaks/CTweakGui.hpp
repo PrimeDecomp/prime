@@ -142,6 +142,13 @@ public:
   const CColor& GetCreditsTextFontColor() const { return x300_; }
   const CColor& GetCreditsTextBorderColor() const { return x304_; }
 
+  
+  static float FaceReflectionDistanceDebugValueToActualValue(float v);
+  static float FaceReflectionHeightDebugValueToActualValue(float v);
+  static float FaceReflectionAspectDebugValueToActualValue(float v);
+  static float FaceReflectionOrthoWidthDebugValueToActualValue(float v);
+  static float FaceReflectionOrthoHeightDebugValueToActualValue(float v);
+
 private:
   bool x4_;
   float x8_mapAlphaInterp;
@@ -217,11 +224,11 @@ private:
   bool x130_noAbsoluteFreeLookSfxPitch;
   float x134_;
   float x138_;
-  uint x13c_faceReflectionOrthoWidth;
-  uint x140_faceReflectionOrthoHeight;
-  uint x144_faceReflectionDistance;
-  uint x148_faceReflectionHeight;
-  uint x14c_faceReflectionAspect;
+  float x13c_faceReflectionOrthoWidth;
+  float x140_faceReflectionOrthoHeight;
+  float x144_faceReflectionDistance;
+  float x148_faceReflectionHeight;
+  float x14c_faceReflectionAspect;
   rstl::string x150_;
   rstl::string x160_;
   rstl::string x170_;

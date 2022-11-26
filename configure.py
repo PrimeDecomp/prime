@@ -222,7 +222,7 @@ LIBS = [
             ["MetroidPrime/Player/CFidget", True],
             "MetroidPrime/Enemies/CSpankWeed",
             "MetroidPrime/Enemies/CParasite",
-            "MetroidPrime/Player/CSamusFaceReflection",
+            ["MetroidPrime/Player/CSamusFaceReflection", False],
             ["MetroidPrime/ScriptObjects/CScriptPlayerHint", True],
             "MetroidPrime/Enemies/CRipper",
             "MetroidPrime/Cameras/CCameraShakeData",

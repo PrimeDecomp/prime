@@ -5,6 +5,7 @@
 
 #include "MetroidPrime/TGameTypes.hpp"
 
+#include "Kyoto/Animation/IAnimReader.hpp"
 #include "Kyoto/Graphics/CColor.hpp"
 #include "Kyoto/Math/CTransform4f.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
@@ -24,6 +25,7 @@ class CModel;
 class CModelFlags;
 class CStateManager;
 class CSkinnedModel;
+class CRandom16;
 
 // TODO move
 #include "Kyoto/Math/CQuaternion.hpp"
@@ -76,12 +78,12 @@ public:
                      const CModelFlags& flags) const;
   void Render(const CStateManager&, const CTransform4f&, const CActorLights*,
               const CModelFlags&) const;
-  void Render(EWhichModel, const CTransform4f&, const CActorLights*,
-              const CModelFlags&) const;
+  void Render(EWhichModel, const CTransform4f&, const CActorLights*, const CModelFlags&) const;
   void FlatDraw(EWhichModel which, const CTransform4f& xf, bool unsortedOnly,
                 const CModelFlags& flags) const;
   CSkinnedModel& PickAnimatedModel(EWhichModel which) const;
   void Touch(const CStateManager& mgr, int) const;
+  SAdvancementDeltas AdvanceAnimationIgnoreParticles(float dt, CRandom16& rand, bool advTree);
 
   const CAnimData* GetAnimationData() const { return xc_animData.get(); }
   CAnimData* AnimationData() { return xc_animData.get(); }

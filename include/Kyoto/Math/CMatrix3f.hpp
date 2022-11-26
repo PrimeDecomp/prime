@@ -21,6 +21,8 @@ public:
   inline const CVector3f& GetRow(EDimY dim) const { return m1; }
   inline const CVector3f& GetRow(EDimZ dim) const { return m2; }
 
+  inline CVector3f GetColumn(EDimY dim) const { return CVector3f(m0.GetY(), m1.GetY(), m2.GetY()); }
+
 private:
   // TODO maybe individual floats
   CVector3f m0;

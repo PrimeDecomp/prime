@@ -149,6 +149,7 @@ public:
   static const CTransform4f& GetModelMatrix() { return mModelMatrix; }
   static void SetViewPointMatrix(const CTransform4f&);
   static void SetBrightness(float b) { mBrightness = b; }
+  static void SetOrtho(float left, float right, float top, float bottom, float znear, float zfar);
 
   static float GetSecondsMod900();
   static void SetExternalTimeProvider(CTimeProvider* provider);

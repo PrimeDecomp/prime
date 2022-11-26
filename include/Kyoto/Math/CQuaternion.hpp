@@ -36,7 +36,7 @@ public:
   static CQuaternion LookAt(const CUnitVector3f&, const CUnitVector3f&, const CRelAngle&);
   // normalize_angle__Ff
   // IsValidQuaternion__11CQuaternionCFf
-  // SlerpLocal__11CQuaternionFRC11CQuaternionRC11CQuaternionf
+  static CQuaternion SlerpLocal(const CQuaternion& from, const CQuaternion& to, float t);
   // AngleFrom__11CQuaternionCFRC11CQuaternion
   // BuildEquivalent__11CQuaternionCFv
   // BuildNormalized__11CQuaternionCFv
