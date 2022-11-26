@@ -152,7 +152,7 @@ lbl_80208454:
 /* 80208528 00205488  A0 1D 01 6C */	lhz r0, 0x16c(r29)
 /* 8020852C 0020548C  91 41 00 28 */	stw r10, 0x28(r1)
 /* 80208530 00205490  B0 01 00 0C */	sth r0, 0xc(r1)
-/* 80208534 00205494  4B FA 18 75 */	bl __ct__15CCollisionActorF9TUniqueIdCRi9TUniqueIdRC9CVector3fRC9CVector3fbf
+/* 80208534 00205494  4B FA 18 75 */	bl __ct__15CCollisionActorF9TUniqueId7TAreaId9TUniqueIdRC9CVector3fRC9CVector3fbf
 /* 80208538 00205498  7C 7F 1B 78 */	mr r31, r3
 lbl_8020853C:
 /* 8020853C 0020549C  28 1F 00 00 */	cmplwi r31, 0
@@ -543,8 +543,8 @@ lbl_80208AB8:
 /* 80208ACC 00205A2C  38 21 00 10 */	addi r1, r1, 0x10
 /* 80208AD0 00205A30  4E 80 00 20 */	blr
 
-.global "__ct__15CFlaahgraPlantsF25TToken<15CGenDescription>9TUniqueId9TUniqueIdRC12CTransform4fRC11CDamageInfoRC9CVector3f"
-"__ct__15CFlaahgraPlantsF25TToken<15CGenDescription>9TUniqueId9TUniqueIdRC12CTransform4fRC11CDamageInfoRC9CVector3f":
+.global "__ct__15CFlaahgraPlantsFRC25TToken<15CGenDescription>RC16CActorParameters9TUniqueId7TAreaId9TUniqueIdRC12CTransform4fRC11CDamageInfoRC9CVector3f"
+"__ct__15CFlaahgraPlantsFRC25TToken<15CGenDescription>RC16CActorParameters9TUniqueId7TAreaId9TUniqueIdRC12CTransform4fRC11CDamageInfoRC9CVector3f":
 /* 80208AD4 00205A34  94 21 FE C0 */	stwu r1, -0x140(r1)
 /* 80208AD8 00205A38  7C 08 02 A6 */	mflr r0
 /* 80208ADC 00205A3C  3D 60 80 3D */	lis r11, lbl_803D2738@ha
@@ -740,7 +740,6 @@ lbl_80208C98:
 /* 80208DC0 00205D20  D0 03 00 14 */	stfs f0, 0x14(r3)
 lbl_80208DC4:
 /* 80208DC4 00205D24  38 00 00 01 */	li r0, 1
-.global lbl_80208DC8
 lbl_80208DC8:
 /* 80208DC8 00205D28  98 18 01 28 */	stb r0, 0x128(r24)
 /* 80208DCC 00205D2C  48 00 00 34 */	b lbl_80208E00

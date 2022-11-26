@@ -20,6 +20,9 @@ public:
   bool AABoxIntersectsBox(const CAABox& box) const;
   bool OBBIntersectsBox(const COBBox& box) const;
 
+  const CTransform4f& GetTransform() const { return mTransform; }
+  const CVector3f& GetSize() const { return mExtents; }
+
 private:
   CTransform4f mTransform;
   CVector3f mExtents;

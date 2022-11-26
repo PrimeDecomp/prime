@@ -310,7 +310,7 @@ LIBS = [
             "MetroidPrime/Enemies/CThardusRockProjectile",
             "MetroidPrime/CInventoryScreen",
             ["MetroidPrime/CVisorFlare", False],
-            "MetroidPrime/Enemies/CFlaahgraPlants",
+            ["MetroidPrime/Enemies/CFlaahgraPlants", True],
             "MetroidPrime/CWorldTransManager",
             ["MetroidPrime/ScriptObjects/CScriptMidi", False],
             "MetroidPrime/ScriptObjects/CScriptStreamedAudio",

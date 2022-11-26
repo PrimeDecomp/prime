@@ -6405,7 +6405,7 @@ lbl_801B28EC:
 /* 801B2A7C 001AF9DC  D0 21 00 64 */	stfs f1, 0x64(r1)
 /* 801B2A80 001AF9E0  B1 61 00 18 */	sth r11, 0x18(r1)
 /* 801B2A84 001AF9E4  90 01 00 08 */	stw r0, 8(r1)
-/* 801B2A88 001AF9E8  48 05 60 4D */	bl "__ct__15CFlaahgraPlantsF25TToken<15CGenDescription>9TUniqueId9TUniqueIdRC12CTransform4fRC11CDamageInfoRC9CVector3f"
+/* 801B2A88 001AF9E8  48 05 60 4D */	bl "__ct__15CFlaahgraPlantsFRC25TToken<15CGenDescription>RC16CActorParameters9TUniqueId7TAreaId9TUniqueIdRC12CTransform4fRC11CDamageInfoRC9CVector3f"
 /* 801B2A8C 001AF9EC  7C 7A 1B 78 */	mr r26, r3
 lbl_801B2A90:
 /* 801B2A90 001AF9F0  7F 20 07 75 */	extsb. r0, r25

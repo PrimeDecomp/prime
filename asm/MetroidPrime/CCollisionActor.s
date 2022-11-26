@@ -1616,8 +1616,8 @@ lbl_801A9BEC:
 /* 801A9DA0 001A6D00  38 21 01 D0 */	addi r1, r1, 0x1d0
 /* 801A9DA4 001A6D04  4E 80 00 20 */	blr
 
-.global __ct__15CCollisionActorF9TUniqueIdCRi9TUniqueIdRC9CVector3fRC9CVector3fbf
-__ct__15CCollisionActorF9TUniqueIdCRi9TUniqueIdRC9CVector3fRC9CVector3fbf:
+.global __ct__15CCollisionActorF9TUniqueId7TAreaId9TUniqueIdRC9CVector3fRC9CVector3fbf
+__ct__15CCollisionActorF9TUniqueId7TAreaId9TUniqueIdRC9CVector3fRC9CVector3fbf:
 /* 801A9DA8 001A6D08  94 21 FE 70 */	stwu r1, -0x190(r1)
 /* 801A9DAC 001A6D0C  7C 08 02 A6 */	mflr r0
 /* 801A9DB0 001A6D10  90 01 01 94 */	stw r0, 0x194(r1)
