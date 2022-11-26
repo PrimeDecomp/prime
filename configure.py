@@ -1308,7 +1308,7 @@ if args.check:
 # Progress script
 ###
 if args.map:
-    n.rule(name="progress", command=ALLOW_CHAIN+"$python tools/calcprogress.py $in && touch $out",
+    n.rule(name="progress", command=ALLOW_CHAIN+"$python tools/calcprogress.py $in -o $out",
            description="PROGRESS $in")
     n.build("$builddir/main.dol.progress", "progress",
             ["$builddir/main.dol", "$builddir/MetroidPrime.MAP"])

@@ -24,15 +24,14 @@ import sys
 import struct
 import re
 import math
+import argparse
+import json
 
 ###############################################
 #                                             #
 #                 Constants                   #
 #                                             #
 ###############################################
-
-DOL_PATH = sys.argv[1]
-MAP_PATH = sys.argv[2]
 
 MEM1_HI = 0x81200000
 MEM1_LO = 0x80004000
@@ -83,6 +82,12 @@ dataItem = "missiles"   # data flavor item
 ###############################################
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Calculate progress.")
+    parser.add_argument("dol", help="Path to DOL")
+    parser.add_argument("map", help="Path to map")
+    parser.add_argument("-o", "--output", help="JSON output file")
+    args = parser.parse_args()
+
     # HACK: Check asm or src in obj_file.mk
     # to avoid counting .comm/.lcomm as decompiled
     asm_objs = []
@@ -92,11 +97,11 @@ if __name__ == "__main__":
                 asm_objs.append(line.strip().rsplit('/', 1)[-1].rstrip('\\'))
 
     # Sum up DOL section sizes
-    dol_handle = open(DOL_PATH, "rb")
+    dol_handle = open(args.dol, "rb")
 
     # Seek to virtual addresses
     dol_handle.seek(0x48)
-    
+
     # Read virtual addresses
     text_starts = list()
     for i in range(TEXT_SECTION_COUNT):
@@ -134,7 +139,7 @@ if __name__ == "__main__":
         dol_code_size += i
 
     # Open map file
-    mapfile = open(MAP_PATH, "r")
+    mapfile = open(args.map, "r")
     symbols = mapfile.readlines()
 
     decomp_code_size = 0
@@ -145,7 +150,7 @@ if __name__ == "__main__":
     first_section = 0
     while (symbols[first_section].startswith(".") == False and "section layout" not in symbols[first_section]): first_section += 1
     assert(first_section < len(symbols)), "Map file contains no sections!!!"
-    
+
     cur_object = None
     cur_size = 0
     j = 0
@@ -197,7 +202,7 @@ if __name__ == "__main__":
     dataCompletionPcnt = (decomp_data_size / dol_data_size) # data completion percent
     bytesPerCodeItem = dol_code_size / codeFrac # bytes per code item
     bytesPerDataItem = dol_data_size / dataFrac # bytes per data item
-    
+
     codeCount = math.floor(decomp_code_size / bytesPerCodeItem)
     dataCount = math.floor(decomp_data_size / bytesPerDataItem)
 
@@ -205,3 +210,15 @@ if __name__ == "__main__":
     print(f"\tCode sections: {decomp_code_size} / {dol_code_size}\tbytes in src ({codeCompletionPcnt:%})")
     print(f"\tData sections: {decomp_data_size} / {dol_data_size}\tbytes in src ({dataCompletionPcnt:%})")
     print("\nYou have {} out of {} {} and collected {} out of {} {}.".format(codeCount, codeFrac, codeItem, dataCount, dataFrac, dataItem))
+
+    if args.output:
+        data = {
+            "dol": {
+                "code": decomp_code_size,
+                "code/total": dol_code_size,
+                "data": decomp_data_size,
+                "data/total": dol_data_size,
+            }
+        }
+        with open(args.output, "w") as f:
+            json.dump(data, f)
