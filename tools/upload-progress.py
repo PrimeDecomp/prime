@@ -52,7 +52,7 @@ if __name__ == '__main__':
     print("Publishing entries to", url)
     pprint(entries)
     data = {
-        "api_key": args.api_key,
+        "api_key": api_key,
         "entries": entries,
     }
     r = requests.post(url, json=data)
