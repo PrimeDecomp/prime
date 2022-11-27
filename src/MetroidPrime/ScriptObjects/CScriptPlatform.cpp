@@ -276,3 +276,30 @@ void CScriptPlatform::PreThink(float dt, CStateManager& mgr) {
     }
   }
 }
+
+
+void CScriptPlatform::BuildSlaveList(CStateManager& mgr) {
+  x328_slavesStatic.reserve(GetConnectionList().size());
+  rstl::vector< SConnection >::const_iterator conn = GetConnectionList().begin();
+  for (; conn != GetConnectionList().end(); ++conn) {
+    if (conn->x0_state == kSS_Play && conn->x4_msg == kSM_Activate) {
+      if (CActor* act = TCastToPtr<CActor>(mgr.ObjectById(mgr.GetIdForScript(conn->x8_objId)))) {
+        act->AddMaterial(kMT_PlatformSlave, mgr);
+        CTransform4f xf = act->GetTransform();
+        xf.SetTranslation(act->GetTranslation() - GetTranslation());
+        x328_slavesStatic.push_back(SRiders(act->GetUniqueId(), 0.166667f, xf));
+      }
+    } else if (conn->x0_state == kSS_InheritBounds && conn->x4_msg == kSM_Activate) {
+      
+      CStateManager::TIdListResult search = mgr.GetIdListForScript(conn->x8_objId);
+      CStateManager::TIdList::const_iterator current = search.first;
+      CStateManager::TIdList::const_iterator end = search.second;
+      while (current != end) {
+        if (TCastToConstPtr<CScriptTrigger>(mgr.GetObjectById(current->second))) {
+          x354_boundsTrigger = current->second;
+        }
+        ++current;
+      }
+    }
+  }
+}
