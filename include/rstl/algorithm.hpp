@@ -40,13 +40,10 @@ void __insertion_sort(It first, It last, Cmp cmp) {
     typename iterator_traits< It >::value_type value = *next;
 
     It t1 = next;
-    It t2 = next;
-    while (first < t1 && cmp(value, *(t2 - 1))) {
-      *t1 = *(t2 - 1);
+    for (It t2 = next - 1; first < t1 && cmp(value, *t2); --t2) {
+      *t1 = *t2;
       --t1;
-      --t2;
     }
-    
     *t1 = value;
   }
 }

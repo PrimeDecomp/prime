@@ -28,20 +28,16 @@
 #include "Kyoto/Math/CVector2i.hpp"
 #include "Kyoto/Math/CloseEnough.hpp"
 
-#include "math.h"
 #include "rstl/math.hpp"
 #include "rstl/iterator.hpp"
+#include "rstl/algorithm.hpp"
+
+#include "math.h"
 
 namespace rstl {
 static int string_find(const string& haystack, const string& needle, int) {
   // TODO: proper implementation
   return 0;
-}
-
-template < class It, class Cmp >
-void sort(It first, It last, Cmp cmp) {
-  // TODO: proper implementation
-  cmp(*first, *last);
 }
 } // namespace rstl
 

@@ -4633,7 +4633,7 @@ lbl_80153040:
 /* 801530C4 00150024  90 E1 00 3C */	stw r7, 0x3c(r1)
 /* 801530C8 00150028  90 C1 00 40 */	stw r6, 0x40(r1)
 /* 801530CC 0015002C  90 01 00 44 */	stw r0, 0x44(r1)
-/* 801530D0 00150030  48 00 07 BD */	bl sub_8015388c
+/* 801530D0 00150030  48 00 07 BD */	bl "__insertion_sort<Q24rstl176pointer_iterator<Q222CScriptSpecialFunction15SRingController,Q24rstl78vector<Q222CScriptSpecialFunction15SRingController,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,Q236@unnamed@CScriptSpecialFunction_cpp@11CRingSorter>__4rstlFQ24rstl176pointer_iterator<Q222CScriptSpecialFunction15SRingController,Q24rstl78vector<Q222CScriptSpecialFunction15SRingController,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl176pointer_iterator<Q222CScriptSpecialFunction15SRingController,Q24rstl78vector<Q222CScriptSpecialFunction15SRingController,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q236@unnamed@CScriptSpecialFunction_cpp@11CRingSorter"
 /* 801530D4 00150034  48 00 02 F4 */	b lbl_801533C8
 lbl_801530D8:
 /* 801530D8 00150038  54 80 0F FE */	srwi r0, r4, 0x1f
@@ -4647,7 +4647,7 @@ lbl_801530D8:
 /* 801530F8 00150058  90 01 00 38 */	stw r0, 0x38(r1)
 /* 801530FC 0015005C  7F 43 22 14 */	add r26, r3, r4
 /* 80153100 00150060  7F 44 D3 78 */	mr r4, r26
-/* 80153104 00150064  48 00 03 F5 */	bl sub_801534f8
+/* 80153104 00150064  48 00 03 F5 */	bl "__sort3<Q222CScriptSpecialFunction15SRingController,Q236@unnamed@CScriptSpecialFunction_cpp@11CRingSorter>__4rstlFRQ222CScriptSpecialFunction15SRingControllerRQ222CScriptSpecialFunction15SRingControllerRQ222CScriptSpecialFunction15SRingControllerQ236@unnamed@CScriptSpecialFunction_cpp@11CRingSorter"
 /* 80153108 00150068  80 9C 00 00 */	lwz r4, 0(r28)
 /* 8015310C 0015006C  A0 DA 00 00 */	lhz r6, 0(r26)
 /* 80153110 00150070  80 61 00 4C */	lwz r3, 0x4c(r1)
@@ -4923,8 +4923,8 @@ lbl_801534DC:
 /* 801534F0 00150450  38 21 00 30 */	addi r1, r1, 0x30
 /* 801534F4 00150454  4E 80 00 20 */	blr
 
-.global sub_801534f8
-sub_801534f8:
+.global "__sort3<Q222CScriptSpecialFunction15SRingController,Q236@unnamed@CScriptSpecialFunction_cpp@11CRingSorter>__4rstlFRQ222CScriptSpecialFunction15SRingControllerRQ222CScriptSpecialFunction15SRingControllerRQ222CScriptSpecialFunction15SRingControllerQ236@unnamed@CScriptSpecialFunction_cpp@11CRingSorter"
+"__sort3<Q222CScriptSpecialFunction15SRingController,Q236@unnamed@CScriptSpecialFunction_cpp@11CRingSorter>__4rstlFRQ222CScriptSpecialFunction15SRingControllerRQ222CScriptSpecialFunction15SRingControllerRQ222CScriptSpecialFunction15SRingControllerQ236@unnamed@CScriptSpecialFunction_cpp@11CRingSorter":
 /* 801534F8 00150458  94 21 FF 20 */	stwu r1, -0xe0(r1)
 /* 801534FC 0015045C  7C 08 02 A6 */	mflr r0
 /* 80153500 00150460  90 01 00 E4 */	stw r0, 0xe4(r1)
@@ -5164,8 +5164,8 @@ lbl_80153878:
 /* 80153884 001507E4  38 21 00 E0 */	addi r1, r1, 0xe0
 /* 80153888 001507E8  4E 80 00 20 */	blr
 
-.global sub_8015388c
-sub_8015388c:
+.global "__insertion_sort<Q24rstl176pointer_iterator<Q222CScriptSpecialFunction15SRingController,Q24rstl78vector<Q222CScriptSpecialFunction15SRingController,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,Q236@unnamed@CScriptSpecialFunction_cpp@11CRingSorter>__4rstlFQ24rstl176pointer_iterator<Q222CScriptSpecialFunction15SRingController,Q24rstl78vector<Q222CScriptSpecialFunction15SRingController,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl176pointer_iterator<Q222CScriptSpecialFunction15SRingController,Q24rstl78vector<Q222CScriptSpecialFunction15SRingController,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q236@unnamed@CScriptSpecialFunction_cpp@11CRingSorter"
+"__insertion_sort<Q24rstl176pointer_iterator<Q222CScriptSpecialFunction15SRingController,Q24rstl78vector<Q222CScriptSpecialFunction15SRingController,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,Q236@unnamed@CScriptSpecialFunction_cpp@11CRingSorter>__4rstlFQ24rstl176pointer_iterator<Q222CScriptSpecialFunction15SRingController,Q24rstl78vector<Q222CScriptSpecialFunction15SRingController,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl176pointer_iterator<Q222CScriptSpecialFunction15SRingController,Q24rstl78vector<Q222CScriptSpecialFunction15SRingController,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q236@unnamed@CScriptSpecialFunction_cpp@11CRingSorter":
 /* 8015388C 001507EC  94 21 FF 90 */	stwu r1, -0x70(r1)
 /* 80153890 001507F0  7C 08 02 A6 */	mflr r0
 /* 80153894 001507F4  90 01 00 74 */	stw r0, 0x74(r1)
