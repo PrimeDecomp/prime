@@ -23,11 +23,81 @@ inline void iter_swap(I1 a, I2 b) {
   swap(*a, *b);
 }
 
-template < class It, class Cmp >
-void __sort3(It a, It b, It c, Cmp comp); // TODO
+template < typename It, class Cmp >
+void __insertion_sort(It first, It last, Cmp cmp);
+
+template < class T, class Cmp >
+void __sort3(T& a, T& b, T& c, Cmp comp); // TODO
 
 template < typename It, class Cmp >
-inline void sort(It first, It last, Cmp cmp); // TODO
+void sort(It first, It last, Cmp cmp); // TODO
+
+// Implementations
+
+template < typename It, class Cmp >
+void __insertion_sort(It first, It last, Cmp cmp) {
+  for (It next = first + 1; next < last; ++next) {
+    typename iterator_traits< It >::value_type value = *next;
+
+    It t1 = next;
+    It t2 = next;
+    while (first < t1 && cmp(value, *(t2 - 1))) {
+      *t1 = *(t2 - 1);
+      --t1;
+      --t2;
+    }
+    
+    *t1 = value;
+  }
+}
+
+template < typename T, class Cmp >
+void __sort3(T& a, T& b, T& c, Cmp comp) {
+  if (comp(b, a)) {
+    swap(a, b);
+  }
+  if (comp(c, b)) {
+    T tmp(c);
+    c = b;
+    if (comp(tmp, a)) {
+      b = a;
+      a = tmp;
+    } else {
+      b = tmp;
+    }
+  }
+}
+
+template < typename It, class Cmp >
+void sort(It first, It last, Cmp cmp) {
+  int count = last - first;
+  if (count > 1) {
+    if (count <= 20) {
+      __insertion_sort(first, last, cmp);
+    } else {
+      It beforeLast = last - 1;
+      __sort3(*first, *(first + count / 2), *(last - 1), cmp);
+
+      It middle = first + count / 2;
+      It it = first + 1;
+
+      while (true) {
+        for (; cmp(*it, *middle); ++it)
+          ;
+        for (; cmp(*middle, *beforeLast); --beforeLast)
+          ;
+        if (!cmp(*it, *beforeLast))
+          break;
+        rstl::swap(*it, *beforeLast);
+        ++it;
+        --beforeLast;
+      }
+      sort(first, it, cmp);
+      sort(it, last, cmp);
+    }
+  }
+}
+
 } // namespace rstl
 
 #endif // _RSTL_ALGORITHM

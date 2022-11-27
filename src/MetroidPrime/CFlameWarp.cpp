@@ -10,7 +10,6 @@
 #include "rstl/pair.hpp"
 #include "rstl/vector.hpp"
 
-
 CFlameWarp::CFlameWarp(float maxInfluenceDist, const CVector3f& warpPoint, bool collisionWarp)
 : x4_collisionPoints(warpPoint)
 , x74_warpPoint(warpPoint)
@@ -111,7 +110,6 @@ void CFlameWarp::ModifyParticles(int particleCount, int stripe, int*, CVector3f*
   }
 
   rstl::sort(vec.begin(), vec.end(), Comparer());
-
 
   int vecIdx = 0;
   const int pitch = particleCount / 9;

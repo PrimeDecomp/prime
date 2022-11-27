@@ -37,6 +37,7 @@ class Dock;
 class CToken;
 class IDvdRequest;
 class CScriptAreaAttributes;
+class CWorldLight;
 
 class CGameArea : public IGameArea {
 public:
@@ -134,6 +135,8 @@ public:
   const CAreaFog* GetAreaFog() const { return x12c_postConstructed->x10c4_areaFog.get(); }
   CAreaFog* AreaFog() { return x12c_postConstructed->x10c4_areaFog.get(); }
   EOcclusionState GetOcclusionState() const { return x12c_postConstructed->x10dc_occlusionState; }
+  const rstl::vector<CWorldLight>& GetLightsA() const;
+  const rstl::vector<CWorldLight>& GetLightsB() const;
 
 private:
   uchar x110_pad[0x1c];
