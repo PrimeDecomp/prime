@@ -67,7 +67,7 @@ void __sort3(T& a, T& b, T& c, Cmp comp) {
 
 template < typename It, class Cmp >
 void sort(It first, It last, Cmp cmp) {
-  int count = last - first;
+  int count = last - first;  // use distance?
   if (count > 1) {
     if (count <= 20) {
       __insertion_sort(first, last, cmp);
@@ -75,18 +75,18 @@ void sort(It first, It last, Cmp cmp) {
       It beforeLast = last - 1;
       It middle = first + count / 2;
       __sort3(*first, *middle, *(last - 1), cmp);
+
       typename iterator_traits< It >::value_type value = *middle;
-      
       It it = first + 1;
 
       while (true) {
-        for (; cmp(*it, value); ++it)
-          ;
-        for (; cmp(value, *beforeLast); --beforeLast)
-          ;
-        if (it > beforeLast)
+        while (cmp(*it, value))
+          ++it;
+        while (cmp(value, *beforeLast))
+          --beforeLast;
+        if (it >= beforeLast)
           break;
-        rstl::swap(*it, *beforeLast);
+        iter_swap(beforeLast, it);  // wrong order?
         ++it;
         --beforeLast;
       }
