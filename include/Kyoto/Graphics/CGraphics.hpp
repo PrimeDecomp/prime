@@ -161,6 +161,7 @@ public:
   static void StreamEnd();
 
   static const CViewport& GetViewport() { return mViewport; }
+  static const CVector3f& GetViewpoint() { return mViewpoint; }
   static const CTransform4f& GetViewMatrix() { return mViewMatrix; }
   static const CTransform4f& GetModelMatrix() { return mModelMatrix; }
   static void SetViewPointMatrix(const CTransform4f&);
@@ -200,6 +201,7 @@ private:
   static CTransform4f mViewMatrix;
   static CTransform4f mModelMatrix;
   static CViewport mViewport;
+  static CVector3f mViewpoint;
   static float mBrightness;
 };
 

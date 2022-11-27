@@ -11,6 +11,7 @@
 #include "MetroidPrime/Player/CGameState.hpp"
 #include "MetroidPrime/Player/CPlayer.hpp"
 #include "MetroidPrime/Player/CPlayerState.hpp"
+#include "MetroidPrime/Player/CWorldLayerState.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptPlatform.hpp"
 #include "MetroidPrime/TCastTo.hpp"
 #include "MetroidPrime/Weapons/CEnergyProjectile.hpp"
@@ -28,9 +29,9 @@
 #include "Kyoto/Math/CVector2i.hpp"
 #include "Kyoto/Math/CloseEnough.hpp"
 
-#include "rstl/math.hpp"
-#include "rstl/iterator.hpp"
 #include "rstl/algorithm.hpp"
+#include "rstl/iterator.hpp"
+#include "rstl/math.hpp"
 
 #include "math.h"
 

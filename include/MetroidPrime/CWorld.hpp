@@ -75,6 +75,7 @@ public:
   int IGetAreaCount() const override;
 
   void SetLoadPauseState(bool);
+  void TouchSky() const;
 
   const CGameArea& GetAreaAlways(TAreaId id) const { return *x18_areas[id.Value()]; }
   CGameArea* Area(TAreaId id) { return x18_areas[id.Value()].get(); }
@@ -87,6 +88,9 @@ public:
 
   static void PropogateAreaChain(CGameArea::EOcclusionState occlusionState, CGameArea* area,
                                  CWorld* world);
+
+  CGameArea::CConstChainIterator GetChainHead(EChain chain) const { return CGameArea::CConstChainIterator(x4c_chainHeads[size_t(chain)]); }
+  static CGameArea::CConstChainIterator GetAliveAreasEnd();
 
 private:
   enum Phase {
