@@ -26,6 +26,10 @@ struct SRiders {
 
   SRiders(TUniqueId uid)
   : x0_uid(uid), x4_decayTimer(1.f / 6.f), x8_transform(CTransform4f::Identity()) {}
+
+  SRiders(TUniqueId uid, float timer, const CTransform4f& xf)
+  : x0_uid(uid), x4_decayTimer(timer), x8_transform(xf) {}
+
   bool operator==(const SRiders& other) const { return x0_uid == other.x0_uid; }
 };
 
@@ -69,6 +73,7 @@ public:
 
   bool IsRider(TUniqueId id) const;
   bool IsSlave(TUniqueId id) const;
+  void BuildSlaveList(CStateManager& mgr);
 
   void SetControlledAnimation(bool controlled) { x356_25_controlledAnimation = controlled; }
 
