@@ -8,6 +8,7 @@
 #include "Kyoto/Input/CFinalInput.hpp"
 #include "Kyoto/Math/CVector2f.hpp"
 #include "Kyoto/Math/CVector2i.hpp"
+#include "Kyoto/Math/CFrustumPlanes.hpp"
 #include "Kyoto/TOneStatic.hpp"
 #include "Kyoto/TToken.hpp"
 
@@ -56,6 +57,7 @@ class CWorldLayerState;
 class CLight;
 class CDamageInfo;
 class CTexture;
+class CViewport;
 
 namespace SL {
 class CSortedListManager;
@@ -157,6 +159,7 @@ public:
   void SetActorAreaId(CActor& actor, TAreaId);
   TAreaId GetNextAreaId() const { return x8cc_nextAreaId; }
   void SetCurrentAreaId(TAreaId);
+  TAreaId GetVisAreaId() const;
 
   bool CanCreateProjectile(TUniqueId, EWeaponType, int) const;
 
@@ -237,6 +240,10 @@ public:
   // Weapon
   void RemoveWeaponId(TUniqueId, EWeaponType);
   void AddWeaponId(TUniqueId, EWeaponType);
+
+  // Draw
+  CFrustumPlanes SetupViewForDraw(const CViewport&) const;
+  void DrawWorld() const;
 
   // State transitions
   void DeferStateTransition(EStateManagerTransition t);

@@ -33,6 +33,15 @@ public:
   virtual rstl::pair< rstl::auto_ptr< uchar >, int > IGetScriptingMemoryAlways() const = 0;
 };
 
+enum EChain {
+  kC_Invalid = -1,
+  kC_ToDeallocate,
+  kC_Deallocated,
+  kC_Loading,
+  kC_Alive,
+  kC_AliveJudgement,
+};
+
 class Dock;
 class CToken;
 class IDvdRequest;
@@ -67,6 +76,22 @@ public:
     void DisableFog();
   };
 
+  class CConstChainIterator {
+    const CGameArea* m_area;
+
+  public:
+    CConstChainIterator() : m_area(nullptr) {}
+    explicit CConstChainIterator(const CGameArea* area) : m_area(area) {}
+    const CGameArea& operator*() const { return *m_area; }
+    const CGameArea* operator->() const { return m_area; }
+    CConstChainIterator& operator++() {
+      m_area = m_area->GetNext();
+      return *this;
+    }
+    bool operator!=(const CConstChainIterator& other) const { return m_area != other.m_area; }
+    bool operator==(const CConstChainIterator& other) const { return m_area == other.m_area; }
+  };
+
   ~CGameArea();
   const CTransform4f& IGetTM() const override;
   CAssetId IGetStringTableAssetId() const override;
@@ -77,9 +102,12 @@ public:
   int IGetAreaSaveId() const override;
   rstl::pair< rstl::auto_ptr< uchar >, int > IGetScriptingMemoryAlways() const override;
 
+  TAreaId GetId() const { return x4_selfIdx; }
   const CTransform4f& GetTM() const { return xc_transform; }
   bool IsLoaded() const { return xf0_24_postConstructed; }
   bool IsActive() const { return xf0_25_active; }
+  const CAABox& GetAABB() const { return x6c_aabb; }
+  CGameArea* GetNext() const; // { return x130_next; }
 
   void SetXRaySpeedAndTarget(float speed, float target);
   void SetThermalSpeedAndTarget(float speed, float target);

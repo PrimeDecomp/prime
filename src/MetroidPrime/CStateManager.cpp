@@ -21,12 +21,43 @@
 #include "Kyoto/Basics/RAssertDolphin.hpp"
 #include "Kyoto/CARAMManager.hpp"
 #include "Kyoto/CARAMToken.hpp"
+#include "Kyoto/CTimeProvider.hpp"
 #include "Kyoto/Graphics/CLight.hpp"
 #include "MetaRender/CCubeRenderer.hpp"
+
+#include "rstl/algorithm.hpp"
 
 extern "C" {
 void sub_8036ccfc();
 }
+
+namespace {
+class area_sorter {
+public:
+  area_sorter(CVector3f ref, TAreaId aid) : reference(ref), visAreaId(aid) {}
+
+  bool operator()(const CGameArea* a, const CGameArea* b) const;
+
+private:
+  CVector3f reference;
+  TAreaId visAreaId;
+};
+
+bool area_sorter::operator()(const CGameArea* a, const CGameArea* b) const {
+  if (a->GetId() == b->GetId()) {
+    return false;
+  }
+  if (visAreaId == a->GetId()) {
+    return false;
+  }
+  if (visAreaId == b->GetId()) {
+    return true;
+  }
+  return CVector3f::Dot(reference, a->GetAABB().GetCenterPoint()) >
+         CVector3f::Dot(reference, b->GetAABB().GetCenterPoint());
+}
+
+} // namespace
 
 CStateManager::CStateManager(const rstl::ncrc_ptr< CScriptMailbox >& mailbox,
                              const rstl::ncrc_ptr< CMapWorldInfo >& mwInfo,
@@ -340,3 +371,37 @@ bool CStateManager::SwapOutAllPossibleMemory() {
 }
 
 void CStateManager::RendererDrawCallback(const void*, const void*, int) {}
+
+void CStateManager::DrawWorld() const {
+
+  const CTimeProvider timeProvider(xf14_curTimeMod900);
+  const CViewport backupViewport = CGraphics::GetViewport();
+
+  /* Area camera is in (not necessarily player) */
+  const TAreaId visAreaId = GetVisAreaId();
+
+  x850_world->TouchSky();
+
+  const CFrustumPlanes frustum = SetupViewForDraw(CGraphics::GetViewport());
+  const CTransform4f backupViewMatrix = CGraphics::GetViewMatrix();
+
+  int areaCount = 0;
+  const CGameArea* areaArr[10];
+
+  CGameArea::CConstChainIterator it = x850_world->GetChainHead(kC_Alive);
+  CGameArea::CConstChainIterator end = x850_world->GetAliveAreasEnd();
+  for (; it != end; ++it) {
+    if (areaCount == 10) {
+      break;
+    }
+    CGameArea::EOcclusionState occState = CGameArea::kOS_Occluded;
+    if (it->IsLoaded()) {
+      occState = it->GetOcclusionState();
+    }
+    if (occState == CGameArea::kOS_Visible) {
+      areaArr[areaCount++] = &*it;
+    }
+  }
+
+  rstl::sort(&areaArr[0], &areaArr[areaCount], area_sorter(CGraphics::GetViewpoint(), visAreaId));
+}
