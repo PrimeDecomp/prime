@@ -8751,7 +8751,7 @@ lbl_8031F390:
 /* 8031F3A0 0031C300  38 04 DD 08 */	addi r0, r4, __vt__12CParticleGen@l
 /* 8031F3A4 0031C304  38 80 FF FF */	li r4, -1
 /* 8031F3A8 0031C308  90 1E 00 00 */	stw r0, 0(r30)
-/* 8031F3AC 0031C30C  4B D3 B9 25 */	bl __dt__12CParticleGenFv
+/* 8031F3AC 0031C30C  4B D3 B9 25 */	bl "__dt__Q24rstl52list<Q24rstl10pair<Us,b>,Q24rstl17rmemory_allocator>Fv"
 lbl_8031F3B0:
 /* 8031F3B0 0031C310  7F E0 07 35 */	extsh. r0, r31
 /* 8031F3B4 0031C314  40 81 00 0C */	ble lbl_8031F3C0

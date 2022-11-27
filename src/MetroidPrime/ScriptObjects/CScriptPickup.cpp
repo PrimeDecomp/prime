@@ -154,10 +154,11 @@ void CScriptPickup::Touch(CActor& act, CStateManager& mgr) {
     if (x27c_pickupParticleDesc) {
       if (mgr.GetPlayerState()->GetActiveVisor(mgr) != CPlayerState::kPV_Thermal) {
         mgr.AddObject(new CExplosion(
-            *x27c_pickupParticleDesc, mgr.AllocateUniqueId(), true,
+            TLockedToken< CGenDescription >(*x27c_pickupParticleDesc), mgr.AllocateUniqueId(), true,
             CEntityInfo(GetCurrentAreaId(), CEntity::NullConnectionList, kInvalidEditorId),
             rstl::string_l("Explosion - Pickup Effect"), GetTransform(), 0,
             CVector3f(1.f, 1.f, 1.f), CColor::White()));
+
       }
     }
 

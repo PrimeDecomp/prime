@@ -3909,7 +3909,7 @@ lbl_80361EC0:
 /* 80361ED0 0035EE30  38 04 DD 08 */	addi r0, r4, __vt__12CParticleGen@l
 /* 80361ED4 0035EE34  38 80 FF FF */	li r4, -1
 /* 80361ED8 0035EE38  90 1E 00 00 */	stw r0, 0(r30)
-/* 80361EDC 0035EE3C  4B CF 8D F5 */	bl __dt__12CParticleGenFv
+/* 80361EDC 0035EE3C  4B CF 8D F5 */	bl "__dt__Q24rstl52list<Q24rstl10pair<Us,b>,Q24rstl17rmemory_allocator>Fv"
 lbl_80361EE0:
 /* 80361EE0 0035EE40  7F E0 07 35 */	extsh. r0, r31
 /* 80361EE4 0035EE44  40 81 00 0C */	ble lbl_80361EF0

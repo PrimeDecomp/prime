@@ -103,7 +103,6 @@ public:
     assign(other);
     return *this;
   }
-  basic_string operator+(const basic_string&);
   basic_string operator+(const _CharTp*);
 
   const char* data() const { return x0_ptr; }

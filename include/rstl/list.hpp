@@ -26,11 +26,9 @@ public:
   , x10_empty_next(reinterpret_cast< node* >(&xc_empty_prev))
   , x14_count(0) {}
   ~list();
-  
+
   void push_back(const T& val) { do_insert_before(x8_end, val); }
-  void clear() {
-    erase(begin(), end());
-  }
+  void clear() { erase(begin(), end()); }
 
   size_t size() const { return x14_count; }
   bool empty() const { return x14_count == 0; }
@@ -56,9 +54,7 @@ private:
     uchar x8_item[sizeof(T)];
 
     node(node* prev, node* next) : x0_prev(prev), x4_next(next) {}
-    ~node() {
-      get_value()->~T();
-    }
+    ~node() { get_value()->~T(); }
 
     node* get_prev() const { return x0_prev; }
     node* get_next() const { return x4_next; }
@@ -152,17 +148,17 @@ private:
   int x14_count;
 };
 
-template < typename T, typename Alloc>
-  list<T, Alloc>::~list() {
-    node* cur = x4_start;
-    while (cur != x8_end) {
-      node* it = cur;
-      node* next = cur->get_next();
-      cur = next;
-      destroy(it);
-      x0_allocator.deallocate(it);
-    }
+template < typename T, typename Alloc >
+list< T, Alloc >::~list() {
+  node* cur = x4_start;
+  while (cur != x8_end) {
+    node* it = cur;
+    node* next = cur->get_next();
+    cur = next;
+    destroy(it);
+    x0_allocator.deallocate(it);
   }
+}
 
 } // namespace rstl
 

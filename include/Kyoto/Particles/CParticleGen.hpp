@@ -9,6 +9,8 @@
 #include "Kyoto/Particles/CWarp.hpp"
 
 #include "rstl/list.hpp"
+#include "rstl/pair.hpp"
+#include "rstl/optional_object.hpp"
 
 class CWarp;
 
@@ -35,7 +37,7 @@ public:
   virtual CColor GetModulationColor() const = 0;
   virtual float GetGeneratorRate() const { return 1.f; }
   virtual bool IsSystemDeletable() const = 0;
-  virtual CAABox GetBounds() const = 0;
+  virtual rstl::optional_object<CAABox> GetBounds() const = 0;
   virtual int GetParticleCount() const = 0;
   virtual bool SystemHasLight() const = 0;
   virtual CLight GetLight() = 0;
@@ -44,7 +46,7 @@ public:
   virtual uint Get4CharId() const = 0;
 
 private:
-  rstl::list< CWarp > x4_modifiersList;
+  rstl::list< rstl::pair<ushort, bool> > x4_modifiersList;
 };
 
 #endif // _CPARTICLEGEN

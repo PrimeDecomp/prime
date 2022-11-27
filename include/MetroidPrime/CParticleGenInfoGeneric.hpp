@@ -24,7 +24,7 @@ public:
   virtual void SetGlobalScale(const CVector3f& scale) override;
   virtual void SetParticleEmission(bool isActive, CStateManager& stateMgr) override;
   virtual bool IsSystemDeletable() const override;
-  virtual CAABox GetBounds() const override;
+  virtual rstl::optional_object<CAABox> GetBounds() const override;
   virtual bool HasActiveParticles() const override;
   virtual void DestroyParticles() override;
   virtual bool HasLight() const override;

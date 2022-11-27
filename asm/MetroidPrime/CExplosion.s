@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803DA0A8
-lbl_803DA0A8:
+.global __vt__10CExplosion
+__vt__10CExplosion:
 	# ROM: 0x3D70A8
 	.4byte 0
 	.4byte 0
@@ -567,9 +567,9 @@ __dt__10CExplosionFv:
 /* 8005A850 000577B0  93 C1 00 08 */	stw r30, 8(r1)
 /* 8005A854 000577B4  7C 7E 1B 79 */	or. r30, r3, r3
 /* 8005A858 000577B8  41 82 00 68 */	beq lbl_8005A8C0
-/* 8005A85C 000577BC  3C 60 80 3E */	lis r3, lbl_803DA0A8@ha
+/* 8005A85C 000577BC  3C 60 80 3E */	lis r3, __vt__10CExplosion@ha
 /* 8005A860 000577C0  34 1E 00 E8 */	addic. r0, r30, 0xe8
-/* 8005A864 000577C4  38 03 A0 A8 */	addi r0, r3, lbl_803DA0A8@l
+/* 8005A864 000577C4  38 03 A0 A8 */	addi r0, r3, __vt__10CExplosion@l
 /* 8005A868 000577C8  90 1E 00 00 */	stw r0, 0(r30)
 /* 8005A86C 000577CC  41 82 00 24 */	beq lbl_8005A890
 /* 8005A870 000577D0  80 7E 00 E8 */	lwz r3, 0xe8(r30)
@@ -603,8 +603,8 @@ lbl_8005A8C0:
 /* 8005A8D4 00057834  38 21 00 10 */	addi r1, r1, 0x10
 /* 8005A8D8 00057838  4E 80 00 20 */	blr
 
-.global "__ct__10CExplosionFRC31TLockedToken<20CElectricDescription>9TUniqueIdbRC11CEntityInfoRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC12CTransform4fUiRC9CVector3fRC6CColor"
-"__ct__10CExplosionFRC31TLockedToken<20CElectricDescription>9TUniqueIdbRC11CEntityInfoRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC12CTransform4fUiRC9CVector3fRC6CColor":
+.global "__ct__10CExplosionFRC36TLockedToken<20CElectricDescription>9TUniqueIdbRC11CEntityInfoRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC12CTransform4fUiRC9CVector3fRC6CColor"
+"__ct__10CExplosionFRC36TLockedToken<20CElectricDescription>9TUniqueIdbRC11CEntityInfoRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC12CTransform4fUiRC9CVector3fRC6CColor":
 /* 8005A8DC 0005783C  94 21 FF 80 */	stwu r1, -0x80(r1)
 /* 8005A8E0 00057840  7C 08 02 A6 */	mflr r0
 /* 8005A8E4 00057844  90 01 00 84 */	stw r0, 0x84(r1)
@@ -622,9 +622,9 @@ lbl_8005A8C0:
 /* 8005A914 00057874  7F 88 E3 78 */	mr r8, r28
 /* 8005A918 00057878  B0 01 00 08 */	sth r0, 8(r1)
 /* 8005A91C 0005787C  48 00 04 35 */	bl "__ct__7CEffectF9TUniqueIdRC11CEntityInfobRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC12CTransform4f"
-/* 8005A920 00057880  3C 80 80 3E */	lis r4, lbl_803DA0A8@ha
+/* 8005A920 00057880  3C 80 80 3E */	lis r4, __vt__10CExplosion@ha
 /* 8005A924 00057884  3C 60 80 3D */	lis r3, lbl_803CCF78@ha
-/* 8005A928 00057888  38 04 A0 A8 */	addi r0, r4, lbl_803DA0A8@l
+/* 8005A928 00057888  38 04 A0 A8 */	addi r0, r4, __vt__10CExplosion@l
 /* 8005A92C 0005788C  3B 00 00 00 */	li r24, 0
 /* 8005A930 00057890  90 1A 00 00 */	stw r0, 0(r26)
 /* 8005A934 00057894  38 83 CF 78 */	addi r4, r3, lbl_803CCF78@l
@@ -767,9 +767,9 @@ lbl_8005AADC:
 /* 8005AB30 00057A90  7F 88 E3 78 */	mr r8, r28
 /* 8005AB34 00057A94  B0 01 00 08 */	sth r0, 8(r1)
 /* 8005AB38 00057A98  48 00 02 19 */	bl "__ct__7CEffectF9TUniqueIdRC11CEntityInfobRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC12CTransform4f"
-/* 8005AB3C 00057A9C  3C 80 80 3E */	lis r4, lbl_803DA0A8@ha
+/* 8005AB3C 00057A9C  3C 80 80 3E */	lis r4, __vt__10CExplosion@ha
 /* 8005AB40 00057AA0  3C 60 80 3D */	lis r3, lbl_803CCF78@ha
-/* 8005AB44 00057AA4  38 04 A0 A8 */	addi r0, r4, lbl_803DA0A8@l
+/* 8005AB44 00057AA4  38 04 A0 A8 */	addi r0, r4, __vt__10CExplosion@l
 /* 8005AB48 00057AA8  3B 00 00 00 */	li r24, 0
 /* 8005AB4C 00057AAC  90 1A 00 00 */	stw r0, 0(r26)
 /* 8005AB50 00057AB0  38 83 CF 78 */	addi r4, r3, lbl_803CCF78@l
@@ -873,8 +873,8 @@ lbl_8005AC20:
 /* 8005ACC8 00057C28  38 21 00 80 */	addi r1, r1, 0x80
 /* 8005ACCC 00057C2C  4E 80 00 20 */	blr
 
-.global __dt__12CParticleGenFv
-__dt__12CParticleGenFv:
+.global "__dt__Q24rstl52list<Q24rstl10pair<Us,b>,Q24rstl17rmemory_allocator>Fv"
+"__dt__Q24rstl52list<Q24rstl10pair<Us,b>,Q24rstl17rmemory_allocator>Fv":
 /* 8005ACD0 00057C30  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 8005ACD4 00057C34  7C 08 02 A6 */	mflr r0
 /* 8005ACD8 00057C38  90 01 00 24 */	stw r0, 0x24(r1)

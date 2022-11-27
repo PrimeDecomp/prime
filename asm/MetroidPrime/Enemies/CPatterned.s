@@ -5032,7 +5032,7 @@ lbl_8007B214:
 /* 8007B2FC 0007825C  39 21 00 EC */	addi r9, r1, 0xec
 /* 8007B300 00078260  38 C0 00 01 */	li r6, 1
 /* 8007B304 00078264  39 40 00 00 */	li r10, 0
-/* 8007B308 00078268  4B FD F5 D5 */	bl "__ct__10CExplosionFRC31TLockedToken<20CElectricDescription>9TUniqueIdbRC11CEntityInfoRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC12CTransform4fUiRC9CVector3fRC6CColor"
+/* 8007B308 00078268  4B FD F5 D5 */	bl "__ct__10CExplosionFRC36TLockedToken<20CElectricDescription>9TUniqueIdbRC11CEntityInfoRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC12CTransform4fUiRC9CVector3fRC6CColor"
 /* 8007B30C 0007826C  7C 7F 1B 78 */	mr r31, r3
 lbl_8007B310:
 /* 8007B310 00078270  7F 40 07 75 */	extsb. r0, r26

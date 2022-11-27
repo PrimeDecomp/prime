@@ -12,7 +12,6 @@
 #include "rstl/rc_ptr.hpp"
 #include "rstl/string.hpp"
 
-
 enum EParticleGenType { kPGT_Normal, kPGT_Auxiliary };
 
 class CStateManager;
@@ -37,7 +36,8 @@ public:
   virtual void SetGlobalScale(const CVector3f& scale) = 0;
   virtual void SetParticleEmission(bool isActive, CStateManager& stateMgr) = 0;
   virtual bool IsSystemDeletable() const = 0;
-  virtual CAABox GetBounds() const = 0;  // This should match CParticleGen::GetBounds result
+  virtual rstl::optional_object< CAABox >
+  GetBounds() const = 0; // This should match CParticleGen::GetBounds result
   virtual bool HasActiveParticles() const = 0;
   virtual void DestroyParticles() = 0;
   virtual bool HasLight() const = 0;
