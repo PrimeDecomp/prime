@@ -64,7 +64,7 @@ public:
   virtual bool GetParticleEmission() const override;
   virtual CColor GetModulationColor() const override;
   virtual bool IsSystemDeletable() const override;
-  virtual CAABox GetBounds() const override;
+  virtual rstl::optional_object<CAABox> GetBounds() const override;
   virtual int GetParticleCount() const override;
   virtual bool SystemHasLight() const override;
   virtual CLight GetLight() override;

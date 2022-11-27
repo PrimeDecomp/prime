@@ -9,6 +9,22 @@
 
 #include "Kyoto/Graphics/CTevCombiners.hpp"
 
+enum ERglFogMode {
+  kRFM_None = GX_FOG_NONE,
+
+  kRFM_PerspLin = GX_FOG_PERSP_LIN,
+  kRFM_PerspExp = GX_FOG_PERSP_EXP,
+  kRFM_PerspExp2 = GX_FOG_ORTHO_EXP2,
+  kRFM_PerspRevExp = GX_FOG_PERSP_REVEXP,
+  kRFM_PerspRevExp2 = GX_FOG_PERSP_REVEXP2,
+
+  kRFM_OrthoLin = GX_FOG_ORTHO_LIN,
+  kRFM_OrthoExp = GX_FOG_ORTHO_EXP,
+  kRFM_OrthoExp2 = GX_FOG_ORTHO_EXP2,
+  kRFM_OrthoRevExp = GX_FOG_ORTHO_REVEXP,
+  kRFM_OrthoRevExp2 = GX_FOG_ORTHO_REVEXP2,
+};
+
 enum ERglTevStage {
   kTS_Stage0,
   kTS_Stage1,
@@ -156,6 +172,7 @@ public:
   static void DisableAllLights();
 
   static void SetAmbientColor(const CColor&);
+  static void SetFog(ERglFogMode mode, float startz, float endz, const CColor& color);
 
   static void SetModelMatrix(const CTransform4f& xf);
   static void SetAlphaCompare(ERglAlphaFunc comp0, u8 ref0, ERglAlphaOp op, ERglAlphaFunc comp1,

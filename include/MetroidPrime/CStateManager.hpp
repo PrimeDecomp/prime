@@ -226,6 +226,9 @@ public:
 
   void InformListeners(const CVector3f&, EListenNoiseType);
 
+  // Fog
+  void SetupFogForArea(TAreaId area) const;
+
   //
   void ShowPausedHUDMemo(CAssetId strg, float time);
   void QueueMessage(int frameCount, CAssetId msg, float f1);

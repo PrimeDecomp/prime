@@ -125,6 +125,6 @@ bool CParticleGenInfoGeneric::HasActiveParticles() const {
   return x84_system->GetParticleCount() > 0;
 }
 
-CAABox CParticleGenInfoGeneric::GetBounds() const { return x84_system->GetBounds(); }
+rstl::optional_object<CAABox> CParticleGenInfoGeneric::GetBounds() const { return x84_system->GetBounds(); }
 
 bool CParticleGenInfoGeneric::IsSystemDeletable() const { return x84_system->IsSystemDeletable(); }

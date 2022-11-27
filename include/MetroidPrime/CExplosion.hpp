@@ -17,6 +17,10 @@ public:
              const CEntityInfo& info, const rstl::string& name, const CTransform4f& xf, uint flags,
              const CVector3f& scale, const CColor& color);
 
+  CExplosion(const TLockedToken< CElectricDescription >& electric, TUniqueId uid, bool active,
+             const CEntityInfo& info, const rstl::string& name, const CTransform4f& xf, uint flags,
+             const CVector3f& scale, const CColor& color);
+
   // CEntity
   ~CExplosion() override;
   void Accept(IVisitor& visitor) override;
@@ -32,10 +36,7 @@ public:
 public:
   rstl::single_ptr< CParticleGen > xe8_particleGen;
   TUniqueId xec_explosionLight;
-  union {
-    const CGenDescription* xf0_particleDesc;
-    const CElectricDescription* xf0_electricDesc;
-  };
+  uint xf0_sourceId;
   bool xf4_24_renderThermalHot : 1;
   bool xf4_25_ : 1;
   bool xf4_26_renderXray : 1;

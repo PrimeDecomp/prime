@@ -31,7 +31,7 @@ public:
   bool GetParticleEmission() const override;
   CColor GetModulationColor() const override;
   bool IsSystemDeletable() const override;
-  CAABox GetBounds() const override;
+  rstl::optional_object<CAABox> GetBounds() const override;
   int GetParticleCount() const override;
   bool SystemHasLight() const override;
   CLight GetLight() override;
