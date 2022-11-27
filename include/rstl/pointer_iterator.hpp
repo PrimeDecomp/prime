@@ -14,7 +14,7 @@ class const_pointer_iterator {
 public:
   typedef ptrdiff_t difference_type;
   typedef random_access_iterator_tag iterator_category;
-  typedef T* value_type;
+  typedef T value_type;
 
   const_pointer_iterator() : current(nullptr) {}
   const_pointer_iterator(const T* begin) : current(const_cast< T* >(begin)) {}
@@ -132,6 +132,19 @@ inline typename It::difference_type __distance(It first, It last, random_access_
   return last - first;
 }
 
+
+template < typename T >
+struct iterator_traits {};
+
+template < typename T >
+struct iterator_traits<T*> {
+  typedef T value_type;
+};
+
+template < typename T, typename Vec, typename Alloc >
+struct iterator_traits< pointer_iterator<T, Vec, Alloc> > {
+  typedef typename pointer_iterator<T, Vec, Alloc>::value_type value_type;
+};
 
 } // namespace rstl
 

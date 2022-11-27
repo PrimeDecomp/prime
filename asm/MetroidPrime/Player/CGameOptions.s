@@ -1373,7 +1373,7 @@ lbl_8020F990:
 /* 8020FA04 0020C964  98 E1 00 14 */	stb r7, 0x14(r1)
 /* 8020FA08 0020C968  90 C1 00 30 */	stw r6, 0x30(r1)
 /* 8020FA0C 0020C96C  90 01 00 34 */	stw r0, 0x34(r1)
-/* 8020FA10 0020C970  48 00 01 CD */	bl sub_8020fbdc
+/* 8020FA10 0020C970  48 00 01 CD */	bl "__insertion_sort<Q24rstl130pointer_iterator<Q24rstl11pair<Ui,Ui>,Q24rstl55vector<Q24rstl11pair<Ui,Ui>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,Q226@unnamed@CGameOptions_cpp@13AssetIdSorter>__4rstlFQ24rstl130pointer_iterator<Q24rstl11pair<Ui,Ui>,Q24rstl55vector<Q24rstl11pair<Ui,Ui>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl130pointer_iterator<Q24rstl11pair<Ui,Ui>,Q24rstl55vector<Q24rstl11pair<Ui,Ui>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q226@unnamed@CGameOptions_cpp@13AssetIdSorter"
 /* 8020FA14 0020C974  48 00 01 30 */	b lbl_8020FB44
 lbl_8020FA18:
 /* 8020FA18 0020C978  54 80 0F FE */	srwi r0, r4, 0x1f
@@ -1387,7 +1387,7 @@ lbl_8020FA18:
 /* 8020FA38 0020C998  7F 83 22 14 */	add r28, r3, r4
 /* 8020FA3C 0020C99C  98 01 00 10 */	stb r0, 0x10(r1)
 /* 8020FA40 0020C9A0  7F 84 E3 78 */	mr r4, r28
-/* 8020FA44 0020C9A4  48 00 01 21 */	bl sub_8020fb64
+/* 8020FA44 0020C9A4  48 00 01 21 */	bl "__sort3<Q24rstl11pair<Ui,Ui>,Q226@unnamed@CGameOptions_cpp@13AssetIdSorter>__4rstlFRQ24rstl11pair<Ui,Ui>RQ24rstl11pair<Ui,Ui>RQ24rstl11pair<Ui,Ui>Q226@unnamed@CGameOptions_cpp@13AssetIdSorter"
 /* 8020FA48 0020C9A8  80 9D 00 00 */	lwz r4, 0(r29)
 /* 8020FA4C 0020C9AC  80 61 00 3C */	lwz r3, 0x3c(r1)
 /* 8020FA50 0020C9B0  38 84 00 08 */	addi r4, r4, 8
@@ -1466,8 +1466,8 @@ lbl_8020FB44:
 /* 8020FB5C 0020CABC  38 21 00 50 */	addi r1, r1, 0x50
 /* 8020FB60 0020CAC0  4E 80 00 20 */	blr
 
-.global sub_8020fb64
-sub_8020fb64:
+.global "__sort3<Q24rstl11pair<Ui,Ui>,Q226@unnamed@CGameOptions_cpp@13AssetIdSorter>__4rstlFRQ24rstl11pair<Ui,Ui>RQ24rstl11pair<Ui,Ui>RQ24rstl11pair<Ui,Ui>Q226@unnamed@CGameOptions_cpp@13AssetIdSorter"
+"__sort3<Q24rstl11pair<Ui,Ui>,Q226@unnamed@CGameOptions_cpp@13AssetIdSorter>__4rstlFRQ24rstl11pair<Ui,Ui>RQ24rstl11pair<Ui,Ui>RQ24rstl11pair<Ui,Ui>Q226@unnamed@CGameOptions_cpp@13AssetIdSorter":
 /* 8020FB64 0020CAC4  80 04 00 00 */	lwz r0, 0(r4)
 /* 8020FB68 0020CAC8  80 E3 00 00 */	lwz r7, 0(r3)
 /* 8020FB6C 0020CACC  7C 00 38 40 */	cmplw r0, r7
@@ -1501,8 +1501,8 @@ lbl_8020FBD0:
 /* 8020FBD4 0020CB34  90 C4 00 04 */	stw r6, 4(r4)
 /* 8020FBD8 0020CB38  4E 80 00 20 */	blr
 
-.global sub_8020fbdc
-sub_8020fbdc:
+.global "__insertion_sort<Q24rstl130pointer_iterator<Q24rstl11pair<Ui,Ui>,Q24rstl55vector<Q24rstl11pair<Ui,Ui>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,Q226@unnamed@CGameOptions_cpp@13AssetIdSorter>__4rstlFQ24rstl130pointer_iterator<Q24rstl11pair<Ui,Ui>,Q24rstl55vector<Q24rstl11pair<Ui,Ui>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl130pointer_iterator<Q24rstl11pair<Ui,Ui>,Q24rstl55vector<Q24rstl11pair<Ui,Ui>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q226@unnamed@CGameOptions_cpp@13AssetIdSorter"
+"__insertion_sort<Q24rstl130pointer_iterator<Q24rstl11pair<Ui,Ui>,Q24rstl55vector<Q24rstl11pair<Ui,Ui>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,Q226@unnamed@CGameOptions_cpp@13AssetIdSorter>__4rstlFQ24rstl130pointer_iterator<Q24rstl11pair<Ui,Ui>,Q24rstl55vector<Q24rstl11pair<Ui,Ui>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl130pointer_iterator<Q24rstl11pair<Ui,Ui>,Q24rstl55vector<Q24rstl11pair<Ui,Ui>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q226@unnamed@CGameOptions_cpp@13AssetIdSorter":
 /* 8020FBDC 0020CB3C  80 A3 00 00 */	lwz r5, 0(r3)
 /* 8020FBE0 0020CB40  38 A5 00 08 */	addi r5, r5, 8
 /* 8020FBE4 0020CB44  48 00 00 54 */	b lbl_8020FC38

@@ -13,16 +13,6 @@
 
 #include "dolphin/os.h"
 
-namespace rstl {
-#ifndef __MWERKS__
-template < class It, class Cmp >
-void sort(It first, It last, Cmp cmp) {
-  // TODO: proper implementation
-  cmp(*first, *last);
-}
-#endif
-} // namespace rstl
-
 namespace {
 class AssetIdSorter {
 public:

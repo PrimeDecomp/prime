@@ -154,7 +154,7 @@ LIBS = [
             "MetroidPrime/ScriptObjects/CScriptWater",
             ["MetroidPrime/Weapons/CWeapon", False],
             ["MetroidPrime/CDamageVulnerability", False],
-            "MetroidPrime/CActorLights",
+            ["MetroidPrime/CActorLights", False],
             ["MetroidPrime/Enemies/CPatternedInfo", True],
             ["MetroidPrime/CSimpleShadow", False],
             ["MetroidPrime/CActorParameters", False],
