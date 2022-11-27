@@ -997,7 +997,7 @@ Reset__13CFlameThrowerFR13CStateManagerb:
 /* 80198290 001951F0  D0 01 00 08 */	stfs f0, 8(r1)
 /* 80198294 001951F4  D0 21 00 0C */	stfs f1, 0xc(r1)
 /* 80198298 001951F8  D0 41 00 10 */	stfs f2, 0x10(r1)
-/* 8019829C 001951FC  48 01 CC D9 */	bl sub_801b4f74
+/* 8019829C 001951FC  48 01 CC D9 */	bl ResetPosition__10CFlameWarpFRC9CVector3f
 /* 801982A0 00195200  48 00 00 34 */	b lbl_801982D4
 lbl_801982A4:
 /* 801982A4 00195204  80 7E 03 48 */	lwz r3, 0x348(r30)
