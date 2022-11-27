@@ -264,7 +264,7 @@ LIBS = [
             ["MetroidPrime/Enemies/CBurstFire", True],
             "MetroidPrime/Enemies/CFlaahgra",
             "MetroidPrime/Player/CPlayerEnergyDrain",
-            "MetroidPrime/CFlameWarp",
+            ["MetroidPrime/CFlameWarp", False],
             "MetroidPrime/Weapons/CIceImpact",
             ["MetroidPrime/GameObjectLists", True],
             "MetroidPrime/Weapons/CAuxWeapon",
