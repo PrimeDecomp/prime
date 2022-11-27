@@ -73,17 +73,18 @@ void sort(It first, It last, Cmp cmp) {
       __insertion_sort(first, last, cmp);
     } else {
       It beforeLast = last - 1;
-      __sort3(*first, *(first + count / 2), *(last - 1), cmp);
-
       It middle = first + count / 2;
+      __sort3(*first, *middle, *(last - 1), cmp);
+      typename iterator_traits< It >::value_type value = *middle;
+      
       It it = first + 1;
 
       while (true) {
-        for (; cmp(*it, *middle); ++it)
+        for (; cmp(*it, value); ++it)
           ;
-        for (; cmp(*middle, *beforeLast); --beforeLast)
+        for (; cmp(value, *beforeLast); --beforeLast)
           ;
-        if (!cmp(*it, *beforeLast))
+        if (it > beforeLast)
           break;
         rstl::swap(*it, *beforeLast);
         ++it;
