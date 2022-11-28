@@ -72,23 +72,21 @@ void sort(It first, It last, Cmp cmp) {
     if (count <= 20) {
       __insertion_sort(first, last, cmp);
     } else {
-      It beforeLast = last - 1;
-      It middle = first + count / 2;
-      __sort3(*first, *middle, *(last - 1), cmp);
-
-      typename iterator_traits< It >::value_type value = *middle;
+      It end = last;
+      __sort3(*first, *(first + count / 2), *--end, cmp);
+      typename iterator_traits< It >::value_type value = *(first + count / 2);
       It it = first + 1;
-
+      --end;
       while (true) {
         while (cmp(*it, value))
           ++it;
-        while (cmp(value, *beforeLast))
-          --beforeLast;
-        if (it >= beforeLast)
+        while (cmp(value, *end))
+          --end;
+        if (it >= end)
           break;
-        iter_swap(beforeLast, it);  // wrong order?
+        iter_swap(it, end);
         ++it;
-        --beforeLast;
+        --end;
       }
       sort(first, it, cmp);
       sort(it, last, cmp);
