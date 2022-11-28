@@ -40,6 +40,7 @@ jobs:
         python3 configure.py --map --version ${{matrix.version}} --wine ./tools/WiBo/build/wibo
         ninja
     - name: Upload progress
+      if: github.ref == 'refs/heads/main'
       continue-on-error: true
       env:
         PROGRESS_API_KEY: ${{secrets.PROGRESS_API_KEY}}
