@@ -49,6 +49,7 @@ public:
   float GetRadius() const;
   const CColor& GetColor() const { return x18_color; }
 
+  int GetPriority() const { return x3c_priority; }
   void SetPriority(uint priority) { x3c_priority = priority; }
   void SetLightId(uint lightId) { x40_lightId = lightId; }
 
@@ -75,7 +76,7 @@ private:
   float x30_angleC;
   float x34_angleL;
   float x38_angleQ;
-  uint x3c_priority;
+  int x3c_priority;
   uint x40_lightId;
   mutable float x44_cachedRadius;
   mutable float x48_cachedIntensity;

@@ -1806,7 +1806,7 @@ lbl_8020A6C4:
 /* 8020A71C 0020767C  48 0F BC 41 */	bl SetColor__6CLightFRC6CColor
 /* 8020A720 00207680  7F E3 FB 78 */	mr r3, r31
 /* 8020A724 00207684  38 81 00 94 */	addi r4, r1, 0x94
-/* 8020A728 00207688  4B E3 B2 9D */	bl sub_800459c4
+/* 8020A728 00207688  4B E3 B2 9D */	bl "push_back__Q24rstl42vector<6CLight,Q24rstl17rmemory_allocator>FRC6CLight"
 /* 8020A72C 0020768C  48 13 F8 89 */	bl Black__6CColorFv
 /* 8020A730 00207690  FC 20 F8 90 */	fmr f1, f31
 /* 8020A734 00207694  7C 64 1B 78 */	mr r4, r3
@@ -1819,7 +1819,7 @@ lbl_8020A6C4:
 lbl_8020A750:
 /* 8020A750 002076B0  7F E3 FB 78 */	mr r3, r31
 /* 8020A754 002076B4  38 81 00 E4 */	addi r4, r1, 0xe4
-/* 8020A758 002076B8  4B E3 B2 6D */	bl sub_800459c4
+/* 8020A758 002076B8  4B E3 B2 6D */	bl "push_back__Q24rstl42vector<6CLight,Q24rstl17rmemory_allocator>FRC6CLight"
 lbl_8020A75C:
 /* 8020A75C 002076BC  E3 E1 01 98 */	psq_l f31, 408(r1), 0, qr0
 /* 8020A760 002076C0  80 01 01 A4 */	lwz r0, 0x1a4(r1)
@@ -2876,7 +2876,7 @@ sub_8020b4e4:
 /* 8020B640 002085A0  D0 1F 01 D4 */	stfs f0, 0x1d4(r31)
 /* 8020B644 002085A4  D0 1F 01 D8 */	stfs f0, 0x1d8(r31)
 /* 8020B648 002085A8  98 1F 01 DC */	stb r0, 0x1dc(r31)
-/* 8020B64C 002085AC  4B E4 4B B9 */	bl sub_80050204
+/* 8020B64C 002085AC  4B E4 4B B9 */	bl "reserve__Q24rstl42vector<6CLight,Q24rstl17rmemory_allocator>Fi"
 /* 8020B650 002085B0  80 01 01 44 */	lwz r0, 0x144(r1)
 /* 8020B654 002085B4  7F E3 FB 78 */	mr r3, r31
 /* 8020B658 002085B8  83 E1 01 3C */	lwz r31, 0x13c(r1)

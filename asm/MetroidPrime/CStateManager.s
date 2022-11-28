@@ -2330,7 +2330,7 @@ BuildDynamicLightListForWorld__13CStateManagerFv:
 /* 800457C4 00042724  38 81 00 5C */	addi r4, r1, 0x5c
 /* 800457C8 00042728  90 01 00 64 */	stw r0, 0x64(r1)
 /* 800457CC 0004272C  90 01 00 68 */	stw r0, 0x68(r1)
-/* 800457D0 00042730  48 00 02 99 */	bl sub_80045a68
+/* 800457D0 00042730  48 00 02 99 */	bl "__as__Q24rstl42vector<6CLight,Q24rstl17rmemory_allocator>FRCQ24rstl42vector<6CLight,Q24rstl17rmemory_allocator>"
 /* 800457D4 00042734  80 01 00 60 */	lwz r0, 0x60(r1)
 /* 800457D8 00042738  80 61 00 68 */	lwz r3, 0x68(r1)
 /* 800457DC 0004273C  1C 00 00 50 */	mulli r0, r0, 0x50
@@ -2364,7 +2364,7 @@ lbl_80045818:
 /* 80045840 000427A0  38 81 00 4C */	addi r4, r1, 0x4c
 /* 80045844 000427A4  90 01 00 54 */	stw r0, 0x54(r1)
 /* 80045848 000427A8  90 01 00 58 */	stw r0, 0x58(r1)
-/* 8004584C 000427AC  48 00 02 1D */	bl sub_80045a68
+/* 8004584C 000427AC  48 00 02 1D */	bl "__as__Q24rstl42vector<6CLight,Q24rstl17rmemory_allocator>FRCQ24rstl42vector<6CLight,Q24rstl17rmemory_allocator>"
 /* 80045850 000427B0  80 01 00 50 */	lwz r0, 0x50(r1)
 /* 80045854 000427B4  80 61 00 58 */	lwz r3, 0x58(r1)
 /* 80045858 000427B8  1C 00 00 50 */	mulli r0, r0, 0x50
@@ -2386,7 +2386,7 @@ lbl_8004587C:
 lbl_80045890:
 /* 80045890 000427F0  7F A4 EB 78 */	mr r4, r29
 /* 80045894 000427F4  38 7E 08 E0 */	addi r3, r30, 0x8e0
-/* 80045898 000427F8  48 00 A9 6D */	bl sub_80050204
+/* 80045898 000427F8  48 00 A9 6D */	bl "reserve__Q24rstl42vector<6CLight,Q24rstl17rmemory_allocator>Fi"
 /* 8004589C 000427FC  48 00 00 3C */	b lbl_800458D8
 lbl_800458A0:
 /* 800458A0 00042800  80 1E 08 E4 */	lwz r0, 0x8e4(r30)
@@ -2433,7 +2433,7 @@ lbl_800458E0:
 /* 80045934 00042894  40 81 00 10 */	ble lbl_80045944
 /* 80045938 00042898  7F 84 E3 78 */	mr r4, r28
 /* 8004593C 0004289C  38 7E 08 E0 */	addi r3, r30, 0x8e0
-/* 80045940 000428A0  48 00 00 85 */	bl sub_800459c4
+/* 80045940 000428A0  48 00 00 85 */	bl "push_back__Q24rstl42vector<6CLight,Q24rstl17rmemory_allocator>FRC6CLight"
 lbl_80045944:
 /* 80045944 000428A4  2C 1D FF FF */	cmpwi r29, -1
 /* 80045948 000428A8  41 82 00 14 */	beq lbl_8004595C
@@ -2460,7 +2460,7 @@ lbl_80045960:
 /* 80045994 000428F4  90 C1 00 3C */	stw r6, 0x3c(r1)
 /* 80045998 000428F8  90 01 00 44 */	stw r0, 0x44(r1)
 /* 8004599C 000428FC  90 01 00 48 */	stw r0, 0x48(r1)
-/* 800459A0 00042900  48 00 9F 39 */	bl sub_8004f8d8
+/* 800459A0 00042900  48 00 9F 39 */	bl "sort<Q24rstl104pointer_iterator<6CLight,Q24rstl42vector<6CLight,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,15CLightPredicate>__4rstlFQ24rstl104pointer_iterator<6CLight,Q24rstl42vector<6CLight,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl104pointer_iterator<6CLight,Q24rstl42vector<6CLight,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>15CLightPredicate"
 lbl_800459A4:
 /* 800459A4 00042904  80 01 00 D4 */	lwz r0, 0xd4(r1)
 /* 800459A8 00042908  83 E1 00 CC */	lwz r31, 0xcc(r1)
@@ -2471,8 +2471,8 @@ lbl_800459A4:
 /* 800459BC 0004291C  38 21 00 D0 */	addi r1, r1, 0xd0
 /* 800459C0 00042920  4E 80 00 20 */	blr
 
-.global sub_800459c4
-sub_800459c4:
+.global "push_back__Q24rstl42vector<6CLight,Q24rstl17rmemory_allocator>FRC6CLight"
+"push_back__Q24rstl42vector<6CLight,Q24rstl17rmemory_allocator>FRC6CLight":
 /* 800459C4 00042924  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 800459C8 00042928  7C 08 02 A6 */	mflr r0
 /* 800459CC 0004292C  90 01 00 14 */	stw r0, 0x14(r1)
@@ -2489,14 +2489,14 @@ sub_800459c4:
 /* 800459F8 00042958  41 82 00 08 */	beq lbl_80045A00
 /* 800459FC 0004295C  54 A4 08 3C */	slwi r4, r5, 1
 lbl_80045A00:
-/* 80045A00 00042960  48 00 A8 05 */	bl sub_80050204
+/* 80045A00 00042960  48 00 A8 05 */	bl "reserve__Q24rstl42vector<6CLight,Q24rstl17rmemory_allocator>Fi"
 lbl_80045A04:
 /* 80045A04 00042964  80 1E 00 04 */	lwz r0, 4(r30)
 /* 80045A08 00042968  7F E4 FB 78 */	mr r4, r31
 /* 80045A0C 0004296C  80 7E 00 0C */	lwz r3, 0xc(r30)
 /* 80045A10 00042970  1C 00 00 50 */	mulli r0, r0, 0x50
 /* 80045A14 00042974  7C 63 02 14 */	add r3, r3, r0
-/* 80045A18 00042978  48 00 00 29 */	bl sub_80045a40
+/* 80045A18 00042978  48 00 00 29 */	bl "construct<6CLight>__4rstlFPvRC6CLight"
 /* 80045A1C 0004297C  80 7E 00 04 */	lwz r3, 4(r30)
 /* 80045A20 00042980  38 03 00 01 */	addi r0, r3, 1
 /* 80045A24 00042984  90 1E 00 04 */	stw r0, 4(r30)
@@ -2507,8 +2507,8 @@ lbl_80045A04:
 /* 80045A38 00042998  38 21 00 10 */	addi r1, r1, 0x10
 /* 80045A3C 0004299C  4E 80 00 20 */	blr
 
-.global sub_80045a40
-sub_80045a40:
+.global "construct<6CLight>__4rstlFPvRC6CLight"
+"construct<6CLight>__4rstlFPvRC6CLight":
 /* 80045A40 000429A0  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80045A44 000429A4  7C 08 02 A6 */	mflr r0
 /* 80045A48 000429A8  28 03 00 00 */	cmplwi r3, 0
@@ -2521,8 +2521,8 @@ lbl_80045A58:
 /* 80045A60 000429C0  38 21 00 10 */	addi r1, r1, 0x10
 /* 80045A64 000429C4  4E 80 00 20 */	blr
 
-.global sub_80045a68
-sub_80045a68:
+.global "__as__Q24rstl42vector<6CLight,Q24rstl17rmemory_allocator>FRCQ24rstl42vector<6CLight,Q24rstl17rmemory_allocator>"
+"__as__Q24rstl42vector<6CLight,Q24rstl17rmemory_allocator>FRCQ24rstl42vector<6CLight,Q24rstl17rmemory_allocator>":
 /* 80045A68 000429C8  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80045A6C 000429CC  7C 08 02 A6 */	mflr r0
 /* 80045A70 000429D0  90 01 00 24 */	stw r0, 0x24(r1)
@@ -2565,13 +2565,13 @@ lbl_80045AE4:
 /* 80045AF4 00042A54  48 00 00 2C */	b lbl_80045B20
 lbl_80045AF8:
 /* 80045AF8 00042A58  7F C3 F3 78 */	mr r3, r30
-/* 80045AFC 00042A5C  48 00 A7 09 */	bl sub_80050204
+/* 80045AFC 00042A5C  48 00 A7 09 */	bl "reserve__Q24rstl42vector<6CLight,Q24rstl17rmemory_allocator>Fi"
 /* 80045B00 00042A60  80 1F 00 04 */	lwz r0, 4(r31)
 /* 80045B04 00042A64  80 7F 00 0C */	lwz r3, 0xc(r31)
 /* 80045B08 00042A68  1C 00 00 50 */	mulli r0, r0, 0x50
 /* 80045B0C 00042A6C  80 BE 00 0C */	lwz r5, 0xc(r30)
 /* 80045B10 00042A70  7C 83 02 14 */	add r4, r3, r0
-/* 80045B14 00042A74  48 00 00 29 */	bl sub_80045b3c
+/* 80045B14 00042A74  48 00 00 29 */	bl "uninitialized_copy<PC6CLight,6CLight>__4rstlFPC6CLightPC6CLightP6CLight"
 /* 80045B18 00042A78  80 1F 00 04 */	lwz r0, 4(r31)
 /* 80045B1C 00042A7C  90 1E 00 04 */	stw r0, 4(r30)
 lbl_80045B20:
@@ -2584,8 +2584,8 @@ lbl_80045B24:
 /* 80045B34 00042A94  38 21 00 20 */	addi r1, r1, 0x20
 /* 80045B38 00042A98  4E 80 00 20 */	blr
 
-.global sub_80045b3c
-sub_80045b3c:
+.global "uninitialized_copy<PC6CLight,6CLight>__4rstlFPC6CLightPC6CLightP6CLight"
+"uninitialized_copy<PC6CLight,6CLight>__4rstlFPC6CLightPC6CLightP6CLight":
 /* 80045B3C 00042A9C  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80045B40 00042AA0  7C 08 02 A6 */	mflr r0
 /* 80045B44 00042AA4  90 01 00 24 */	stw r0, 0x24(r1)
@@ -2599,7 +2599,7 @@ sub_80045b3c:
 lbl_80045B64:
 /* 80045B64 00042AC4  7F E3 FB 78 */	mr r3, r31
 /* 80045B68 00042AC8  7F C4 F3 78 */	mr r4, r30
-/* 80045B6C 00042ACC  4B FF FE D5 */	bl sub_80045a40
+/* 80045B6C 00042ACC  4B FF FE D5 */	bl "construct<6CLight>__4rstlFPvRC6CLight"
 /* 80045B70 00042AD0  3B FF 00 50 */	addi r31, r31, 0x50
 /* 80045B74 00042AD4  3B DE 00 50 */	addi r30, r30, 0x50
 lbl_80045B78:
@@ -13818,8 +13818,8 @@ lbl_8004F8C4:
 /* 8004F8D0 0004C830  38 21 00 60 */	addi r1, r1, 0x60
 /* 8004F8D4 0004C834  4E 80 00 20 */	blr
 
-.global sub_8004f8d8
-sub_8004f8d8:
+.global "sort<Q24rstl104pointer_iterator<6CLight,Q24rstl42vector<6CLight,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,15CLightPredicate>__4rstlFQ24rstl104pointer_iterator<6CLight,Q24rstl42vector<6CLight,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl104pointer_iterator<6CLight,Q24rstl42vector<6CLight,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>15CLightPredicate"
+"sort<Q24rstl104pointer_iterator<6CLight,Q24rstl42vector<6CLight,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,15CLightPredicate>__4rstlFQ24rstl104pointer_iterator<6CLight,Q24rstl42vector<6CLight,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl104pointer_iterator<6CLight,Q24rstl42vector<6CLight,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>15CLightPredicate":
 /* 8004F8D8 0004C838  94 21 FF 50 */	stwu r1, -0xb0(r1)
 /* 8004F8DC 0004C83C  7C 08 02 A6 */	mflr r0
 /* 8004F8E0 0004C840  90 01 00 B4 */	stw r0, 0xb4(r1)
@@ -13867,7 +13867,7 @@ lbl_8004F964:
 /* 8004F984 0004C8E4  98 01 00 10 */	stb r0, 0x10(r1)
 /* 8004F988 0004C8E8  7F 83 22 14 */	add r28, r3, r4
 /* 8004F98C 0004C8EC  7F 84 E3 78 */	mr r4, r28
-/* 8004F990 0004C8F0  48 00 0E ED */	bl sub_8005087c
+/* 8004F990 0004C8F0  48 00 0E ED */	bl "__sort3<6CLight,15CLightPredicate>__4rstlFR6CLightR6CLightR6CLight15CLightPredicate"
 /* 8004F994 0004C8F4  7F 84 E3 78 */	mr r4, r28
 /* 8004F998 0004C8F8  38 61 00 40 */	addi r3, r1, 0x40
 /* 8004F99C 0004C8FC  4B FE BB D5 */	bl __ct__6CLightFRC6CLight
@@ -13962,7 +13962,7 @@ lbl_8004FABC:
 /* 8004FAD4 0004CA34  98 E1 00 0C */	stb r7, 0xc(r1)
 /* 8004FAD8 0004CA38  90 C1 00 20 */	stw r6, 0x20(r1)
 /* 8004FADC 0004CA3C  90 01 00 24 */	stw r0, 0x24(r1)
-/* 8004FAE0 0004CA40  4B FF FD F9 */	bl sub_8004f8d8
+/* 8004FAE0 0004CA40  4B FF FD F9 */	bl "sort<Q24rstl104pointer_iterator<6CLight,Q24rstl42vector<6CLight,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,15CLightPredicate>__4rstlFQ24rstl104pointer_iterator<6CLight,Q24rstl42vector<6CLight,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl104pointer_iterator<6CLight,Q24rstl42vector<6CLight,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>15CLightPredicate"
 /* 8004FAE4 0004CA44  88 FF 00 00 */	lbz r7, 0(r31)
 /* 8004FAE8 0004CA48  38 61 00 1C */	addi r3, r1, 0x1c
 /* 8004FAEC 0004CA4C  80 DE 00 00 */	lwz r6, 0(r30)
@@ -13972,7 +13972,7 @@ lbl_8004FABC:
 /* 8004FAFC 0004CA5C  98 E1 00 08 */	stb r7, 8(r1)
 /* 8004FB00 0004CA60  90 C1 00 18 */	stw r6, 0x18(r1)
 /* 8004FB04 0004CA64  90 01 00 1C */	stw r0, 0x1c(r1)
-/* 8004FB08 0004CA68  4B FF FD D1 */	bl sub_8004f8d8
+/* 8004FB08 0004CA68  4B FF FD D1 */	bl "sort<Q24rstl104pointer_iterator<6CLight,Q24rstl42vector<6CLight,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,15CLightPredicate>__4rstlFQ24rstl104pointer_iterator<6CLight,Q24rstl42vector<6CLight,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl104pointer_iterator<6CLight,Q24rstl42vector<6CLight,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>15CLightPredicate"
 lbl_8004FB0C:
 /* 8004FB0C 0004CA6C  80 01 00 B4 */	lwz r0, 0xb4(r1)
 /* 8004FB10 0004CA70  CB E1 00 A8 */	lfd f31, 0xa8(r1)
@@ -14462,8 +14462,8 @@ lbl_800501EC:
 /* 800501FC 0004D15C  38 21 00 10 */	addi r1, r1, 0x10
 /* 80050200 0004D160  4E 80 00 20 */	blr
 
-.global sub_80050204
-sub_80050204:
+.global "reserve__Q24rstl42vector<6CLight,Q24rstl17rmemory_allocator>Fi"
+"reserve__Q24rstl42vector<6CLight,Q24rstl17rmemory_allocator>Fi":
 /* 80050204 0004D164  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 80050208 0004D168  7C 08 02 A6 */	mflr r0
 /* 8005020C 0004D16C  90 01 00 34 */	stw r0, 0x34(r1)
@@ -14541,7 +14541,7 @@ sub_800502e0:
 lbl_80050308:
 /* 80050308 0004D268  7F C3 F3 78 */	mr r3, r30
 /* 8005030C 0004D26C  7F E4 FB 78 */	mr r4, r31
-/* 80050310 0004D270  4B FF 57 31 */	bl sub_80045a40
+/* 80050310 0004D270  4B FF 57 31 */	bl "construct<6CLight>__4rstlFPvRC6CLight"
 /* 80050314 0004D274  3B DE 00 50 */	addi r30, r30, 0x50
 /* 80050318 0004D278  3B FF 00 50 */	addi r31, r31, 0x50
 lbl_8005031C:
@@ -14955,8 +14955,8 @@ lbl_80050860:
 /* 80050874 0004D7D4  38 21 00 30 */	addi r1, r1, 0x30
 /* 80050878 0004D7D8  4E 80 00 20 */	blr
 
-.global sub_8005087c
-sub_8005087c:
+.global "__sort3<6CLight,15CLightPredicate>__4rstlFR6CLightR6CLightR6CLight15CLightPredicate"
+"__sort3<6CLight,15CLightPredicate>__4rstlFR6CLightR6CLightR6CLight15CLightPredicate":
 /* 8005087C 0004D7DC  94 21 FF 80 */	stwu r1, -0x80(r1)
 /* 80050880 0004D7E0  7C 08 02 A6 */	mflr r0
 /* 80050884 0004D7E4  90 01 00 84 */	stw r0, 0x84(r1)
@@ -14991,7 +14991,7 @@ lbl_800508E8:
 /* 800508EC 0004D84C  41 82 00 10 */	beq lbl_800508FC
 /* 800508F0 0004D850  7F A3 EB 78 */	mr r3, r29
 /* 800508F4 0004D854  7F C4 F3 78 */	mr r4, r30
-/* 800508F8 0004D858  48 00 03 51 */	bl sub_80050c48
+/* 800508F8 0004D858  48 00 03 51 */	bl "swap<6CLight>__4rstlFR6CLightR6CLight"
 lbl_800508FC:
 /* 800508FC 0004D85C  80 7F 00 3C */	lwz r3, 0x3c(r31)
 /* 80050900 0004D860  80 1E 00 3C */	lwz r0, 0x3c(r30)
@@ -15213,8 +15213,8 @@ lbl_80050C24:
 /* 80050C40 0004DBA0  38 21 00 80 */	addi r1, r1, 0x80
 /* 80050C44 0004DBA4  4E 80 00 20 */	blr
 
-.global sub_80050c48
-sub_80050c48:
+.global "swap<6CLight>__4rstlFR6CLightR6CLight"
+"swap<6CLight>__4rstlFR6CLightR6CLight":
 /* 80050C48 0004DBA8  94 21 FF A0 */	stwu r1, -0x60(r1)
 /* 80050C4C 0004DBAC  7C 08 02 A6 */	mflr r0
 /* 80050C50 0004DBB0  90 01 00 64 */	stw r0, 0x64(r1)

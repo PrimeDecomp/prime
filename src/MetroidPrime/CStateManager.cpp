@@ -3,6 +3,7 @@
 #include "MetroidPrime/CControlMapper.hpp"
 #include "MetroidPrime/CEnvFxManager.hpp"
 #include "MetroidPrime/CGameCollision.hpp"
+#include "MetroidPrime/CGameLight.hpp"
 #include "MetroidPrime/CMapWorldInfo.hpp"
 #include "MetroidPrime/CRipple.hpp"
 #include "MetroidPrime/CRumbleManager.hpp"
@@ -58,6 +59,21 @@ bool area_sorter::operator()(const CGameArea* a, const CGameArea* b) const {
 }
 
 } // namespace
+
+
+class CLightPredicate {
+public:
+  bool operator()(const CLight& a, const CLight& b) const {
+    if (b.GetPriority() > a.GetPriority()) {
+      return true;
+    } else if (b.GetPriority() == a.GetPriority()) {
+      return a.GetIntensity() > b.GetIntensity();
+    } else {
+      return false;
+    }
+  }
+};
+
 
 CStateManager::CStateManager(const rstl::ncrc_ptr< CScriptMailbox >& mailbox,
                              const rstl::ncrc_ptr< CMapWorldInfo >& mwInfo,
@@ -404,4 +420,34 @@ void CStateManager::DrawWorld() const {
   }
 
   rstl::sort(&areaArr[0], &areaArr[areaCount], area_sorter(CGraphics::GetViewpoint(), visAreaId));
+}
+
+void CStateManager::BuildDynamicLightListForWorld() {
+  if (x8b8_playerState->GetActiveVisor(*this) == CPlayerState::kPV_Thermal) {
+    x8e0_dynamicLights = rstl::vector< CLight >();
+    return;
+  }
+
+  const CObjectList& list = GetObjectListById(kOL_GameLight);
+  if (list.size() == 0) {
+    return;
+  }
+
+  if (x8e0_dynamicLights.capacity() != list.size()) {
+    x8e0_dynamicLights = rstl::vector< CLight >();
+    x8e0_dynamicLights.reserve(list.size());
+  } else {
+    x8e0_dynamicLights.clear();
+  }
+
+  for (int idx = list.GetFirstObjectIndex(); idx != -1; idx = list.GetNextObjectIndex(idx)) {
+    const CGameLight* light = static_cast< const CGameLight* >(list[idx]);
+    if (light && light->GetActive()) {
+      const CLight& l = light->GetLight();
+      if (l.GetIntensity() > FLT_EPSILON && l.GetRadius() > FLT_EPSILON) {
+        x8e0_dynamicLights.push_back(l);
+      }
+    }
+  }
+  rstl::sort(x8e0_dynamicLights.begin(), x8e0_dynamicLights.end(), CLightPredicate());
 }
