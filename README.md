@@ -23,9 +23,10 @@ Dependencies
 
 Windows:
 --------
+- Install [ninja](https://github.com/ninja-build/ninja/releases) and add it to `%PATH%`.
 - Install [devkitPro](https://github.com/devkitPro/installer/releases/latest) with GameCube development package.
 - Open `C:\devkitPro\msys2\msys2.exe`
-- Run the following:
+- Install GameCube development packages:
   ```
   pacman -Sy --noconfirm --needed msys2-keyring
   pacman -Su --noconfirm --needed gcc git gamecube-dev
@@ -33,25 +34,28 @@ Windows:
 
 macOS:
 ------
-- Install wine:
+- Install [ninja](https://github.com/ninja-build/ninja/wiki/Pre-built-Ninja-packages):
   ```
-  brew tap gcenx/wine
-  brew install wine-crossover
-  sudo xattr -r -d com.apple.quarantine "/Applications/Wine Crossover.app"
+  brew install ninja
+  ```
+- Install [wine-crossover](https://github.com/Gcenx/homebrew-wine):
+  ```
+  brew install --cask --no-quarantine gcenx/wine/wine-crossover
   ```
 - Install [devkitPro](https://github.com/devkitPro/pacman/releases/latest).
-- Run the following:
+- Install GameCube development packages:
   ```
   sudo dkp-pacman -Syu --noconfirm --needed gamecube-dev
   ```
 
 Linux:
 ------
+- Install [ninja](https://github.com/ninja-build/ninja/wiki/Pre-built-Ninja-packages).
 - Install wine from your package manager.
   - Faster alternative: [WiBo](https://github.com/decompals/WiBo), a minimal 32-bit Windows binary wrapper.  
     Ensure the binary is in `PATH`.
 - Install [devkitPro](https://devkitpro.org/wiki/devkitPro_pacman).
-- Run the following:
+- Install GameCube development packages:
   ```
   sudo dkp-pacman -Syu --noconfirm --needed gamecube-dev
   ```
@@ -64,8 +68,13 @@ Building
   git clone https://github.com/PrimeDecomp/prime.git
   ```
 - Download [GC_WII_COMPILERS.zip](https://cdn.discordapp.com/attachments/727918646525165659/917185027656286218/GC_WII_COMPILERS.zip)
-- Extract the contents of the `GC` directory to `tools/mwcc_compiler`
+- Extract the _contents_ of the `GC` directory to `tools/mwcc_compiler`.
+  - Resulting structure should be (for example) `tools/mwcc_compiler/1.3.2/mwcceppc.exe`
+- Configure:
+  ```
+  python configure.py
+  ```
 - Build:
   ```
-  make -j
+  ninja
   ```
