@@ -27,6 +27,8 @@ import math
 import argparse
 import json
 
+from configure import LIBS
+
 ###############################################
 #                                             #
 #                 Constants                   #
@@ -88,13 +90,22 @@ if __name__ == "__main__":
     parser.add_argument("-o", "--output", help="JSON output file")
     args = parser.parse_args()
 
-    # HACK: Check asm or src in obj_file.mk
+    # HACK: Check asm or src in configure.py
     # to avoid counting .comm/.lcomm as decompiled
     asm_objs = []
-    with open('obj_files.mk', 'r') as file:
-        for line in file:
-            if "asm/" in line:
-                asm_objs.append(line.strip().rsplit('/', 1)[-1].rstrip('\\'))
+    for lib in LIBS:
+        for obj in lib["objects"]:
+            is_asm = False
+            obj_name = None
+            if type(obj) is list:
+                obj_name = obj[0]
+                is_asm = not obj[1]
+            else:
+                obj_name = obj
+                is_asm = True
+            if is_asm:
+                name = obj_name.split('/')[-1]
+                asm_objs.append(f"{name}.o")
 
     # Sum up DOL section sizes
     dol_handle = open(args.dol, "rb")
