@@ -673,7 +673,7 @@ lbl_801B57B8:
 /* 801B5894 001B27F4  38 81 00 20 */	addi r4, r1, 0x20
 /* 801B5898 001B27F8  90 A1 00 20 */	stw r5, 0x20(r1)
 /* 801B589C 001B27FC  90 01 00 24 */	stw r0, 0x24(r1)
-/* 801B58A0 001B2800  48 00 02 99 */	bl sub_801b5b38
+/* 801B58A0 001B2800  48 00 02 99 */	bl "__insertion_sort<Q24rstl128pointer_iterator<Q24rstl10pair<f,Uc>,Q24rstl54vector<Q24rstl10pair<f,Uc>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,8Comparer>__4rstlFQ24rstl128pointer_iterator<Q24rstl10pair<f,Uc>,Q24rstl54vector<Q24rstl10pair<f,Uc>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl128pointer_iterator<Q24rstl10pair<f,Uc>,Q24rstl54vector<Q24rstl10pair<f,Uc>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>8Comparer"
 /* 801B58A4 001B2804  48 00 01 0C */	b lbl_801B59B0
 lbl_801B58A8:
 /* 801B58A8 001B2808  54 80 0F FE */	srwi r0, r4, 0x1f
@@ -684,7 +684,7 @@ lbl_801B58A8:
 /* 801B58BC 001B281C  54 00 18 38 */	slwi r0, r0, 3
 /* 801B58C0 001B2820  7F A3 02 14 */	add r29, r3, r0
 /* 801B58C4 001B2824  7F A4 EB 78 */	mr r4, r29
-/* 801B58C8 001B2828  48 00 01 F9 */	bl sub_801b5ac0
+/* 801B58C8 001B2828  48 00 01 F9 */	bl "__sort3<Q24rstl10pair<f,Uc>,8Comparer>__4rstlFRQ24rstl10pair<f,Uc>RQ24rstl10pair<f,Uc>RQ24rstl10pair<f,Uc>8Comparer"
 /* 801B58CC 001B282C  80 9E 00 00 */	lwz r4, 0(r30)
 /* 801B58D0 001B2830  80 61 00 2C */	lwz r3, 0x2c(r1)
 /* 801B58D4 001B2834  38 84 00 08 */	addi r4, r4, 8
@@ -829,8 +829,8 @@ lbl_801B5AA4:
 /* 801B5AB8 001B2A18  38 21 00 30 */	addi r1, r1, 0x30
 /* 801B5ABC 001B2A1C  4E 80 00 20 */	blr
 
-.global sub_801b5ac0
-sub_801b5ac0:
+.global "__sort3<Q24rstl10pair<f,Uc>,8Comparer>__4rstlFRQ24rstl10pair<f,Uc>RQ24rstl10pair<f,Uc>RQ24rstl10pair<f,Uc>8Comparer"
+"__sort3<Q24rstl10pair<f,Uc>,8Comparer>__4rstlFRQ24rstl10pair<f,Uc>RQ24rstl10pair<f,Uc>RQ24rstl10pair<f,Uc>8Comparer":
 /* 801B5AC0 001B2A20  C0 24 00 00 */	lfs f1, 0(r4)
 /* 801B5AC4 001B2A24  C0 03 00 00 */	lfs f0, 0(r3)
 /* 801B5AC8 001B2A28  FC 01 00 40 */	fcmpo cr0, f1, f0
@@ -864,8 +864,8 @@ lbl_801B5B2C:
 /* 801B5B30 001B2A90  98 C4 00 04 */	stb r6, 4(r4)
 /* 801B5B34 001B2A94  4E 80 00 20 */	blr
 
-.global sub_801b5b38
-sub_801b5b38:
+.global "__insertion_sort<Q24rstl128pointer_iterator<Q24rstl10pair<f,Uc>,Q24rstl54vector<Q24rstl10pair<f,Uc>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,8Comparer>__4rstlFQ24rstl128pointer_iterator<Q24rstl10pair<f,Uc>,Q24rstl54vector<Q24rstl10pair<f,Uc>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl128pointer_iterator<Q24rstl10pair<f,Uc>,Q24rstl54vector<Q24rstl10pair<f,Uc>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>8Comparer"
+"__insertion_sort<Q24rstl128pointer_iterator<Q24rstl10pair<f,Uc>,Q24rstl54vector<Q24rstl10pair<f,Uc>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,8Comparer>__4rstlFQ24rstl128pointer_iterator<Q24rstl10pair<f,Uc>,Q24rstl54vector<Q24rstl10pair<f,Uc>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl128pointer_iterator<Q24rstl10pair<f,Uc>,Q24rstl54vector<Q24rstl10pair<f,Uc>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>8Comparer":
 /* 801B5B38 001B2A98  80 A3 00 00 */	lwz r5, 0(r3)
 /* 801B5B3C 001B2A9C  38 A5 00 08 */	addi r5, r5, 8
 /* 801B5B40 001B2AA0  48 00 00 54 */	b lbl_801B5B94
