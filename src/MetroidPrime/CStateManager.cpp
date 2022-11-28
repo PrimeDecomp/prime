@@ -429,13 +429,14 @@ void CStateManager::BuildDynamicLightListForWorld() {
   }
 
   const CObjectList& list = GetObjectListById(kOL_GameLight);
-  if (list.size() == 0) {
+  int listSize = list.size();
+  if (listSize == 0) {
     return;
   }
 
-  if (x8e0_dynamicLights.capacity() != list.size()) {
+  if (x8e0_dynamicLights.capacity() != listSize) {
     x8e0_dynamicLights = rstl::vector< CLight >();
-    x8e0_dynamicLights.reserve(list.size());
+    x8e0_dynamicLights.reserve(listSize);
   } else {
     x8e0_dynamicLights.clear();
   }
@@ -445,6 +446,7 @@ void CStateManager::BuildDynamicLightListForWorld() {
     if (light && light->GetActive()) {
       const CLight& l = light->GetLight();
       if (l.GetIntensity() > FLT_EPSILON && l.GetRadius() > FLT_EPSILON) {
+        // TODO: This shouldn't be inlined, but currently is.
         x8e0_dynamicLights.push_back(l);
       }
     }
