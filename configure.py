@@ -1464,7 +1464,7 @@ if __name__ == "__main__":
         n.comment("Check DOL hash")
         n.rule(
             name="check",
-            command=ALLOW_CHAIN + "$dtk shasum -c $in && touch $out",
+            command="$dtk shasum -c $in -o $out",
             description="CHECK $in",
         )
         n.build(

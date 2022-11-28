@@ -2,6 +2,7 @@ import argparse
 import urllib.request
 import os
 import stat
+import platform
 from pathlib import Path
 
 REPO = "https://github.com/encounter/decomp-toolkit"
@@ -16,18 +17,18 @@ def main():
     with open(args.tag_file, "r") as f:
         tag = f.readline().rstrip()
 
-    uname = os.uname()
+    uname = platform.uname()
     suffix = ""
-    platform = uname.sysname.lower()
-    if platform == "darwin":
-        platform = "macos"
-    elif platform == "windows":
+    system = uname.system.lower()
+    if system == "darwin":
+        system = "macos"
+    elif system == "windows":
         suffix = ".exe"
     arch = uname.machine.lower()
     if arch == "amd64":
         arch = "x86_64"
 
-    url = f"{REPO}/releases/download/{tag}/dtk-{platform}-{arch}{suffix}"
+    url = f"{REPO}/releases/download/{tag}/dtk-{system}-{arch}{suffix}"
     output = args.output
     # print(f"Downloading {url} to {output}")
     urllib.request.urlretrieve(url, output)
