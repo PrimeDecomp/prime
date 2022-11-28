@@ -7,6 +7,9 @@
     "files.encoding": "shiftjis",
     "editor.defaultFormatter": "xaver.clang-format"
   },
+  "[python]":{
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  },
   "editor.tabSize": 2,
   "files.associations": {
     "source_location": "cpp",

@@ -2,6 +2,7 @@
   "recommendations": [
     "ms-vscode.cpptools",
     "xaver.clang-format",
-    "akiramiyakoda.cppincludeguard"
+    "akiramiyakoda.cppincludeguard",
+    "ms-python.black-formatter"
   ]
 }
