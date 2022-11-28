@@ -4512,7 +4512,7 @@ lbl_800617C4:
 /* 800617D4 0005E734  80 7F 01 2C */	lwz r3, 0x12c(r31)
 /* 800617D8 0005E738  7F 24 CB 78 */	mr r4, r25
 /* 800617DC 0005E73C  38 63 00 70 */	addi r3, r3, 0x70
-/* 800617E0 0005E740  4B FE EA 25 */	bl sub_80050204
+/* 800617E0 0005E740  4B FE EA 25 */	bl "reserve__Q24rstl42vector<6CLight,Q24rstl17rmemory_allocator>Fi"
 /* 800617E4 0005E744  3A C0 00 00 */	li r22, 0
 /* 800617E8 0005E748  3B 00 00 00 */	li r24, 0
 /* 800617EC 0005E74C  48 00 00 48 */	b lbl_80061834
@@ -4531,7 +4531,7 @@ lbl_800617F0:
 /* 8006181C 0005E77C  48 24 5D E1 */	bl GetAsCGraphicsLight__11CWorldLightCFv
 /* 80061820 0005E780  38 7D 00 70 */	addi r3, r29, 0x70
 /* 80061824 0005E784  38 81 02 80 */	addi r4, r1, 0x280
-/* 80061828 0005E788  4B FE 41 9D */	bl sub_800459c4
+/* 80061828 0005E788  4B FE 41 9D */	bl "push_back__Q24rstl42vector<6CLight,Q24rstl17rmemory_allocator>FRC6CLight"
 /* 8006182C 0005E78C  3B 18 00 44 */	addi r24, r24, 0x44
 /* 80061830 0005E790  3A D6 00 01 */	addi r22, r22, 1
 lbl_80061834:
@@ -4550,7 +4550,7 @@ lbl_80061834:
 /* 80061864 0005E7C4  80 7F 01 2C */	lwz r3, 0x12c(r31)
 /* 80061868 0005E7C8  7F 24 CB 78 */	mr r4, r25
 /* 8006186C 0005E7CC  38 63 00 90 */	addi r3, r3, 0x90
-/* 80061870 0005E7D0  4B FE E9 95 */	bl sub_80050204
+/* 80061870 0005E7D0  4B FE E9 95 */	bl "reserve__Q24rstl42vector<6CLight,Q24rstl17rmemory_allocator>Fi"
 /* 80061874 0005E7D4  3A C0 00 00 */	li r22, 0
 /* 80061878 0005E7D8  3B 00 00 00 */	li r24, 0
 /* 8006187C 0005E7DC  48 00 00 48 */	b lbl_800618C4
@@ -4569,7 +4569,7 @@ lbl_80061880:
 /* 800618AC 0005E80C  48 24 5D 51 */	bl GetAsCGraphicsLight__11CWorldLightCFv
 /* 800618B0 0005E810  38 7D 00 90 */	addi r3, r29, 0x90
 /* 800618B4 0005E814  38 81 01 EC */	addi r4, r1, 0x1ec
-/* 800618B8 0005E818  4B FE 41 0D */	bl sub_800459c4
+/* 800618B8 0005E818  4B FE 41 0D */	bl "push_back__Q24rstl42vector<6CLight,Q24rstl17rmemory_allocator>FRC6CLight"
 /* 800618BC 0005E81C  3B 18 00 44 */	addi r24, r24, 0x44
 /* 800618C0 0005E820  3A D6 00 01 */	addi r22, r22, 1
 lbl_800618C4:
@@ -4586,7 +4586,7 @@ lbl_800618CC:
 /* 800618E8 0005E848  80 9F 01 2C */	lwz r4, 0x12c(r31)
 /* 800618EC 0005E84C  38 64 00 90 */	addi r3, r4, 0x90
 /* 800618F0 0005E850  38 84 00 70 */	addi r4, r4, 0x70
-/* 800618F4 0005E854  4B FE 41 75 */	bl sub_80045a68
+/* 800618F4 0005E854  4B FE 41 75 */	bl "__as__Q24rstl42vector<6CLight,Q24rstl17rmemory_allocator>FRCQ24rstl42vector<6CLight,Q24rstl17rmemory_allocator>"
 lbl_800618F8:
 /* 800618F8 0005E858  3C 80 80 3F */	lis r4, __vt__15CMemoryInStream@ha
 /* 800618FC 0005E85C  38 61 01 A4 */	addi r3, r1, 0x1a4
