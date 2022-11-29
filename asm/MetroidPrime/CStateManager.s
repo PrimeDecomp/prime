@@ -2496,7 +2496,7 @@ lbl_80045A04:
 /* 80045A0C 0004296C  80 7E 00 0C */	lwz r3, 0xc(r30)
 /* 80045A10 00042970  1C 00 00 50 */	mulli r0, r0, 0x50
 /* 80045A14 00042974  7C 63 02 14 */	add r3, r3, r0
-/* 80045A18 00042978  48 00 00 29 */	bl "construct<6CLight>__4rstlFPvRC6CLight"
+/* 80045A18 00042978  48 00 00 29 */	bl sub_80045a40
 /* 80045A1C 0004297C  80 7E 00 04 */	lwz r3, 4(r30)
 /* 80045A20 00042980  38 03 00 01 */	addi r0, r3, 1
 /* 80045A24 00042984  90 1E 00 04 */	stw r0, 4(r30)
@@ -2507,8 +2507,8 @@ lbl_80045A04:
 /* 80045A38 00042998  38 21 00 10 */	addi r1, r1, 0x10
 /* 80045A3C 0004299C  4E 80 00 20 */	blr
 
-.global "construct<6CLight>__4rstlFPvRC6CLight"
-"construct<6CLight>__4rstlFPvRC6CLight":
+.global sub_80045a40
+sub_80045a40:
 /* 80045A40 000429A0  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80045A44 000429A4  7C 08 02 A6 */	mflr r0
 /* 80045A48 000429A8  28 03 00 00 */	cmplwi r3, 0
@@ -2599,7 +2599,7 @@ lbl_80045B24:
 lbl_80045B64:
 /* 80045B64 00042AC4  7F E3 FB 78 */	mr r3, r31
 /* 80045B68 00042AC8  7F C4 F3 78 */	mr r4, r30
-/* 80045B6C 00042ACC  4B FF FE D5 */	bl "construct<6CLight>__4rstlFPvRC6CLight"
+/* 80045B6C 00042ACC  4B FF FE D5 */	bl sub_80045a40
 /* 80045B70 00042AD0  3B FF 00 50 */	addi r31, r31, 0x50
 /* 80045B74 00042AD4  3B DE 00 50 */	addi r30, r30, 0x50
 lbl_80045B78:
@@ -14541,7 +14541,7 @@ sub_800502e0:
 lbl_80050308:
 /* 80050308 0004D268  7F C3 F3 78 */	mr r3, r30
 /* 8005030C 0004D26C  7F E4 FB 78 */	mr r4, r31
-/* 80050310 0004D270  4B FF 57 31 */	bl "construct<6CLight>__4rstlFPvRC6CLight"
+/* 80050310 0004D270  4B FF 57 31 */	bl sub_80045a40
 /* 80050314 0004D274  3B DE 00 50 */	addi r30, r30, 0x50
 /* 80050318 0004D278  3B FF 00 50 */	addi r31, r31, 0x50
 lbl_8005031C:
