@@ -131,7 +131,7 @@ public:
   bool HasPowerUp(EItemType type) const;
   uint GetPowerUp(EItemType type);
   int GetItemCapacity(EItemType type) const;
-  uint GetItemAmount(EItemType type) const;
+  int GetItemAmount(EItemType type) const;
   void DecrPickUp(EItemType type, int amount);
   void IncrPickUp(EItemType type, int amount);
   void ResetAndIncrPickUp(EItemType type, int amount);
@@ -152,7 +152,7 @@ public:
     return x170_scanTimes;
   }
 
-  CHealthInfo& GetHealthInfo() { return xc_health; }
+  CHealthInfo* HealthInfo() { return &xc_health; }
 
   const CHealthInfo& GetHealthInfo() const { return xc_health; }
 

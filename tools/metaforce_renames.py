@@ -37,8 +37,13 @@ _LITERAL_REPLACEMENTS = [
   # Transform
   (".frontVector()", ".GetForward()"),
 
+  # CStateManager
+  (".GetActiveRandom()", ".Random()"),
+
   # Enums
   ("EMaterialTypes::", "kMT_"),
+  ("EScriptObjectState::", "kSS_"),
+  ("EScriptObjectMessage::", "kSM_"),
   ("CPlayer::EPlayerOrbitState::", "CPlayer::kOS_"),
   ("CPlayer::ESurfaceRestraints::", "CPlayer::kSR_"),
   ("CPlayer::EPlayerCameraState::", "CPlayer::kCS_"),

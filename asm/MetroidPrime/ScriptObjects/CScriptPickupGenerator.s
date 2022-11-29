@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803E3618
-lbl_803E3618:
+.global __vt__22CScriptPickupGenerator
+__vt__22CScriptPickupGenerator:
 	# ROM: 0x3E0618
 	.4byte 0
 	.4byte 0
@@ -84,7 +84,7 @@ lbl_8015DF30:
 /* 8015DF48 0015AEA8  90 E1 00 98 */	stw r7, 0x98(r1)
 /* 8015DF4C 0015AEAC  90 E1 00 9C */	stw r7, 0x9c(r1)
 /* 8015DF50 0015AEB0  B0 01 00 10 */	sth r0, 0x10(r1)
-/* 8015DF54 0015AEB4  48 00 07 F5 */	bl "GetGeneratorIds__22CScriptPickupGeneratorFR13CStateManager9TUniqueIdRQ24rstl18vector<9TUniqueId>"
+/* 8015DF54 0015AEB4  48 00 07 F5 */	bl "GetGeneratorIds__22CScriptPickupGeneratorCFR13CStateManager9TUniqueIdRQ24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>"
 /* 8015DF58 0015AEB8  38 00 00 00 */	li r0, 0
 /* 8015DF5C 0015AEBC  7F 83 E3 78 */	mr r3, r28
 /* 8015DF60 0015AEC0  90 01 00 84 */	stw r0, 0x84(r1)
@@ -92,7 +92,7 @@ lbl_8015DF30:
 /* 8015DF68 0015AEC8  38 A1 00 80 */	addi r5, r1, 0x80
 /* 8015DF6C 0015AECC  90 01 00 88 */	stw r0, 0x88(r1)
 /* 8015DF70 0015AED0  90 01 00 8C */	stw r0, 0x8c(r1)
-/* 8015DF74 0015AED4  48 00 04 E9 */	bl "GetPickupTemplates__22CScriptPickupGeneratorFR13CStateManagerRQ24rstl35vector<Q24rstl18pair<f,9TEditorId>>"
+/* 8015DF74 0015AED4  48 00 04 E9 */	bl "GetPickupTemplates__22CScriptPickupGeneratorCFR13CStateManagerRQ24rstl62vector<Q24rstl18pair<f,9TEditorId>,Q24rstl17rmemory_allocator>"
 /* 8015DF78 0015AED8  80 01 00 84 */	lwz r0, 0x84(r1)
 /* 8015DF7C 0015AEDC  2C 00 00 00 */	cmpwi r0, 0
 /* 8015DF80 0015AEE0  40 82 00 84 */	bne lbl_8015E004
@@ -233,7 +233,7 @@ lbl_8015E0EC:
 /* 8015E160 0015B0C0  7C E8 3A 2E */	lhzx r7, r8, r7
 /* 8015E164 0015B0C4  B0 E1 00 0C */	sth r7, 0xc(r1)
 /* 8015E168 0015B0C8  90 01 00 74 */	stw r0, 0x74(r1)
-/* 8015E16C 0015B0CC  48 00 00 E9 */	bl GeneratePickup__22CScriptPickupGeneratorFR13CStateManager9TUniqueId9TEditorId
+/* 8015E16C 0015B0CC  48 00 00 E9 */	bl GeneratePickup__22CScriptPickupGeneratorCFR13CStateManager9TEditorId9TUniqueId
 /* 8015E170 0015B0D0  80 01 00 84 */	lwz r0, 0x84(r1)
 /* 8015E174 0015B0D4  80 61 00 8C */	lwz r3, 0x8c(r1)
 /* 8015E178 0015B0D8  54 00 18 38 */	slwi r0, r0, 3
@@ -302,8 +302,8 @@ lbl_8015E248:
 /* 8015E24C 0015B1AC  D0 03 00 44 */	stfs f0, 0x44(r3)
 /* 8015E250 0015B1B0  4E 80 00 20 */	blr
 
-.global GeneratePickup__22CScriptPickupGeneratorFR13CStateManager9TUniqueId9TEditorId
-GeneratePickup__22CScriptPickupGeneratorFR13CStateManager9TUniqueId9TEditorId:
+.global GeneratePickup__22CScriptPickupGeneratorCFR13CStateManager9TEditorId9TUniqueId
+GeneratePickup__22CScriptPickupGeneratorCFR13CStateManager9TEditorId9TUniqueId:
 /* 8015E254 0015B1B4  94 21 FF 60 */	stwu r1, -0xa0(r1)
 /* 8015E258 0015B1B8  7C 08 02 A6 */	mflr r0
 /* 8015E25C 0015B1BC  90 01 00 A4 */	stw r0, 0xa4(r1)
@@ -439,8 +439,8 @@ lbl_8015E448:
 /* 8015E454 0015B3B4  38 21 00 A0 */	addi r1, r1, 0xa0
 /* 8015E458 0015B3B8  4E 80 00 20 */	blr
 
-.global "GetPickupTemplates__22CScriptPickupGeneratorFR13CStateManagerRQ24rstl35vector<Q24rstl18pair<f,9TEditorId>>"
-"GetPickupTemplates__22CScriptPickupGeneratorFR13CStateManagerRQ24rstl35vector<Q24rstl18pair<f,9TEditorId>>":
+.global "GetPickupTemplates__22CScriptPickupGeneratorCFR13CStateManagerRQ24rstl62vector<Q24rstl18pair<f,9TEditorId>,Q24rstl17rmemory_allocator>"
+"GetPickupTemplates__22CScriptPickupGeneratorCFR13CStateManagerRQ24rstl62vector<Q24rstl18pair<f,9TEditorId>,Q24rstl17rmemory_allocator>":
 /* 8015E45C 0015B3BC  94 21 FF 80 */	stwu r1, -0x80(r1)
 /* 8015E460 0015B3C0  7C 08 02 A6 */	mflr r0
 /* 8015E464 0015B3C4  90 01 00 84 */	stw r0, 0x84(r1)
@@ -461,7 +461,7 @@ lbl_8015E448:
 /* 8015E4A0 0015B400  7F A3 EB 78 */	mr r3, r29
 /* 8015E4A4 0015B404  83 E4 00 00 */	lwz r31, 0(r4)
 /* 8015E4A8 0015B408  80 9B 00 24 */	lwz r4, 0x24(r27)
-/* 8015E4AC 0015B40C  48 00 05 31 */	bl sub_8015e9dc
+/* 8015E4AC 0015B40C  48 00 05 31 */	bl "reserve__Q24rstl62vector<Q24rstl18pair<f,9TEditorId>,Q24rstl17rmemory_allocator>Fi"
 /* 8015E4B0 0015B410  83 DB 00 2C */	lwz r30, 0x2c(r27)
 /* 8015E4B4 0015B414  48 00 02 44 */	b lbl_8015E6F8
 lbl_8015E4B8:
@@ -608,7 +608,7 @@ lbl_8015E690:
 /* 8015E6C0 0015B620  41 82 00 08 */	beq lbl_8015E6C8
 /* 8015E6C4 0015B624  54 A4 08 3C */	slwi r4, r5, 1
 lbl_8015E6C8:
-/* 8015E6C8 0015B628  48 00 03 15 */	bl sub_8015e9dc
+/* 8015E6C8 0015B628  48 00 03 15 */	bl "reserve__Q24rstl62vector<Q24rstl18pair<f,9TEditorId>,Q24rstl17rmemory_allocator>Fi"
 lbl_8015E6CC:
 /* 8015E6CC 0015B62C  80 1D 00 04 */	lwz r0, 4(r29)
 /* 8015E6D0 0015B630  80 7D 00 0C */	lwz r3, 0xc(r29)
@@ -645,8 +645,8 @@ lbl_8015E6F8:
 /* 8015E740 0015B6A0  38 21 00 80 */	addi r1, r1, 0x80
 /* 8015E744 0015B6A4  4E 80 00 20 */	blr
 
-.global "GetGeneratorIds__22CScriptPickupGeneratorFR13CStateManager9TUniqueIdRQ24rstl18vector<9TUniqueId>"
-"GetGeneratorIds__22CScriptPickupGeneratorFR13CStateManager9TUniqueIdRQ24rstl18vector<9TUniqueId>":
+.global "GetGeneratorIds__22CScriptPickupGeneratorCFR13CStateManager9TUniqueIdRQ24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>"
+"GetGeneratorIds__22CScriptPickupGeneratorCFR13CStateManager9TUniqueIdRQ24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>":
 /* 8015E748 0015B6A8  94 21 FF C0 */	stwu r1, -0x40(r1)
 /* 8015E74C 0015B6AC  7C 08 02 A6 */	mflr r0
 /* 8015E750 0015B6B0  90 01 00 44 */	stw r0, 0x44(r1)
@@ -769,9 +769,9 @@ __dt__22CScriptPickupGeneratorFv:
 /* 8015E8EC 0015B84C  93 C1 00 08 */	stw r30, 8(r1)
 /* 8015E8F0 0015B850  7C 7E 1B 79 */	or. r30, r3, r3
 /* 8015E8F4 0015B854  41 82 00 28 */	beq lbl_8015E91C
-/* 8015E8F8 0015B858  3C A0 80 3E */	lis r5, lbl_803E3618@ha
+/* 8015E8F8 0015B858  3C A0 80 3E */	lis r5, __vt__22CScriptPickupGenerator@ha
 /* 8015E8FC 0015B85C  38 80 00 00 */	li r4, 0
-/* 8015E900 0015B860  38 05 36 18 */	addi r0, r5, lbl_803E3618@l
+/* 8015E900 0015B860  38 05 36 18 */	addi r0, r5, __vt__22CScriptPickupGenerator@l
 /* 8015E904 0015B864  90 1E 00 00 */	stw r0, 0(r30)
 /* 8015E908 0015B868  4B EF 29 6D */	bl __dt__7CEntityFv
 /* 8015E90C 0015B86C  7F E0 07 35 */	extsh. r0, r31
@@ -807,9 +807,9 @@ lbl_8015E91C:
 /* 8015E974 0015B8D4  7D 06 43 78 */	mr r6, r8
 /* 8015E978 0015B8D8  38 81 00 08 */	addi r4, r1, 8
 /* 8015E97C 0015B8DC  4B EF 29 A9 */	bl "__ct__7CEntityF9TUniqueIdRC11CEntityInfobRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
-/* 8015E980 0015B8E0  3C 60 80 3E */	lis r3, lbl_803E3618@ha
+/* 8015E980 0015B8E0  3C 60 80 3E */	lis r3, __vt__22CScriptPickupGenerator@ha
 /* 8015E984 0015B8E4  C0 02 9F 34 */	lfs f0, lbl_805ABC54@sda21(r2)
-/* 8015E988 0015B8E8  38 03 36 18 */	addi r0, r3, lbl_803E3618@l
+/* 8015E988 0015B8E8  38 03 36 18 */	addi r0, r3, __vt__22CScriptPickupGenerator@l
 /* 8015E98C 0015B8EC  7F C3 F3 78 */	mr r3, r30
 /* 8015E990 0015B8F0  90 1E 00 00 */	stw r0, 0(r30)
 /* 8015E994 0015B8F4  C0 3F 00 00 */	lfs f1, 0(r31)
@@ -831,8 +831,8 @@ lbl_8015E91C:
 /* 8015E9D4 0015B934  38 21 00 30 */	addi r1, r1, 0x30
 /* 8015E9D8 0015B938  4E 80 00 20 */	blr
 
-.global sub_8015e9dc
-sub_8015e9dc:
+.global "reserve__Q24rstl62vector<Q24rstl18pair<f,9TEditorId>,Q24rstl17rmemory_allocator>Fi"
+"reserve__Q24rstl62vector<Q24rstl18pair<f,9TEditorId>,Q24rstl17rmemory_allocator>Fi":
 /* 8015E9DC 0015B93C  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 8015E9E0 0015B940  7C 08 02 A6 */	mflr r0
 /* 8015E9E4 0015B944  90 01 00 34 */	stw r0, 0x34(r1)

@@ -204,7 +204,7 @@ LIBS = [
             ["MetroidPrime/ScriptObjects/CScriptPlayerHint", True],
             "MetroidPrime/Enemies/CRipper",
             "MetroidPrime/Cameras/CCameraShakeData",
-            "MetroidPrime/ScriptObjects/CScriptPickupGenerator",
+            ["MetroidPrime/ScriptObjects/CScriptPickupGenerator", False],
             ["MetroidPrime/ScriptObjects/CScriptPointOfInterest", True],
             "MetroidPrime/Enemies/CDrone",
             "MetroidPrime/CMapWorldInfo",
