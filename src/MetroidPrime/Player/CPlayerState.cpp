@@ -247,7 +247,7 @@ void CPlayerState::DecrPickUp(CPlayerState::EItemType type, int amount) {
   }
 }
 
-uint CPlayerState::GetItemAmount(CPlayerState::EItemType type) const {
+int CPlayerState::GetItemAmount(CPlayerState::EItemType type) const {
   if (type < 0 || kIT_Max - 1 < type) {
     return 0;
   }

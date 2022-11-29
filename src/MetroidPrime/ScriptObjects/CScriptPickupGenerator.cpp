@@ -1,0 +1,195 @@
+#include "MetroidPrime/ScriptObjects/CScriptPickupGenerator.hpp"
+
+#include "MetroidPrime/CStateManager.hpp"
+#include "MetroidPrime/Enemies/CWallCrawlerSwarm.hpp"
+#include "MetroidPrime/Player/CPlayerState.hpp"
+#include "MetroidPrime/ScriptObjects/CScriptPickup.hpp"
+
+#include "rstl/math.hpp"
+
+CScriptPickupGenerator::CScriptPickupGenerator(TUniqueId uid, const rstl::string& name,
+                                               const CEntityInfo& info, const CVector3f& pos,
+                                               float frequency, bool active)
+: CEntity(uid, info, active, name)
+, x34_position(pos)
+, x40_frequency(frequency)
+, x44_delayTimer(0.0f) {
+  ResetDelayTimer();
+}
+
+void CScriptPickupGenerator::GetGeneratorIds(CStateManager& mgr, TUniqueId sender,
+                                             rstl::vector< TUniqueId >& idsOut) const {
+  idsOut.reserve(rstl::max_val(1, GetConnectionList().size()));
+  rstl::vector< SConnection >::const_iterator iter = GetConnectionList().begin();
+  for (; iter != GetConnectionList().end(); ++iter) {
+    if (iter->x0_state == kSS_Zero && iter->x4_msg == kSM_Follow) {
+      const TUniqueId id = mgr.GetIdForScript(iter->x8_objId);
+      if (id != kInvalidUniqueId) {
+        if (const CEntity* ent = mgr.GetObjectById(id)) {
+          if (ent->GetActive()) {
+            idsOut.push_back(id);
+          }
+        }
+      }
+    }
+  }
+  if (idsOut.empty()) {
+    idsOut.push_back(sender);
+  }
+}
+
+float CScriptPickupGenerator::GetPickupTemplates(
+    CStateManager& mgr, rstl::vector< rstl::pair< float, TEditorId > >& idsOut) const {
+  float totalPossibility = 0.f;
+  CPlayerState& pState = *mgr.PlayerState();
+  idsOut.reserve(GetConnectionList().size());
+  rstl::vector< SConnection >::const_iterator iter = GetConnectionList().begin();
+  for (; iter != GetConnectionList().end(); ++iter) {
+    if (iter->x0_state == kSS_Zero && iter->x4_msg == kSM_Activate) {
+      const TUniqueId id = mgr.GetIdForScript(iter->x8_objId);
+      if (id != kInvalidUniqueId) {
+        if (const CScriptPickup* pickup = TCastToConstPtr< CScriptPickup >(mgr.GetObjectById(id))) {
+          const CPlayerState::EItemType item = pickup->GetItem();
+          float possibility = pickup->GetPossibility();
+          float multiplier = 1.f;
+          bool doAlways = false;
+          bool doThirtyPerc = false;
+          switch (item) {
+          case CPlayerState::kIT_Missiles:
+            if (pState.HasPowerUp(CPlayerState::kIT_Missiles)) {
+              if (pState.GetItemAmount(CPlayerState::kIT_Missiles) <
+                  pState.GetItemCapacity(CPlayerState::kIT_Missiles)) {
+                doAlways = true;
+              } else {
+                doThirtyPerc = true;
+              }
+            }
+            break;
+          case CPlayerState::kIT_PowerBombs:
+            if (pState.HasPowerUp(CPlayerState::kIT_PowerBombs)) {
+              if (pState.GetItemAmount(CPlayerState::kIT_PowerBombs) <
+                  pState.GetItemCapacity(CPlayerState::kIT_PowerBombs)) {
+                doAlways = true;
+                if (pState.GetItemAmount(CPlayerState::kIT_PowerBombs) < 2 && possibility >= 10.f &&
+                    possibility < 25.f) {
+                  multiplier = 2.f;
+                }
+              } else {
+                doThirtyPerc = true;
+              }
+            }
+            break;
+          case CPlayerState::kIT_HealthRefill: {
+            CHealthInfo* healthInfo = pState.HealthInfo();
+            if (healthInfo && healthInfo->GetHP() < pState.CalculateHealth()) {
+              doAlways = true;
+            } else {
+              doThirtyPerc = true;
+            }
+          } break;
+          default:
+            doAlways = true;
+            break;
+          }
+          const bool thirtyPercTest = mgr.Random()->Float() < 0.3f;
+          if ((doAlways || (doThirtyPerc && thirtyPercTest)) && possibility > 0.f) {
+            totalPossibility += possibility * multiplier;
+            idsOut.push_back(rstl::pair< float, TEditorId >(possibility, iter->x8_objId));
+          }
+        }
+      }
+    }
+  }
+  return totalPossibility;
+}
+
+void CScriptPickupGenerator::GeneratePickup(CStateManager& mgr, TEditorId templateId,
+                                            TUniqueId generatorId) const {
+  TUniqueId templateUnideId = mgr.GetIdForScript(templateId);
+  CEntity* pickupTempl = mgr.ObjectById(templateUnideId);
+  CEntity* generator = mgr.ObjectById(generatorId);
+
+  if (pickupTempl && generator) {
+    const bool oldGeneratingObject = mgr.IsGeneratingObject();
+    mgr.SetIsGeneratingObject(true);
+    const TUniqueId p = mgr.GenerateObject(templateId).second;
+    mgr.SetIsGeneratingObject(oldGeneratingObject);
+
+    if (p == kInvalidUniqueId) {
+      return;
+    }
+
+    CEntity* newObj = mgr.ObjectById(p);
+    CActor* newAct = TCastToPtr< CActor >(newObj);
+    CScriptPickup* newPickup = TCastToPtr< CScriptPickup >(newObj);
+    const CActor* generatorAct = TCastToConstPtr< CActor >(generator);
+    const CWallCrawlerSwarm* swarmAct = TCastToConstPtr< CWallCrawlerSwarm >(generator);
+
+    if (newAct && swarmAct) {
+      newAct->SetTranslation(swarmAct->GetLastKilledOffset() + x34_position);
+    } else if (newAct && generatorAct) {
+      newAct->SetTranslation(generatorAct->GetTranslation() + x34_position);
+    }
+
+    if (newPickup) {
+      newPickup->SetSpawned();
+    }
+
+    mgr.SendScriptMsg(newObj, GetUniqueId(), kSM_Activate);
+  }
+}
+
+void CScriptPickupGenerator::ResetDelayTimer() {
+  if (x40_frequency > 0.f) {
+    x44_delayTimer += 100.f / x40_frequency;
+  } else {
+    x44_delayTimer = FLT_MAX;
+  }
+}
+
+void CScriptPickupGenerator::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId sender,
+                                             CStateManager& stateMgr) {
+  switch (msg) {
+  case kSM_SetToZero:
+    if (GetActive() && x40_frequency != 100.f) {
+      x44_delayTimer -= 1.f;
+      if (x44_delayTimer < 0.000009f) {
+        ResetDelayTimer();
+      } else {
+        rstl::vector< TUniqueId > generatorIds;
+        GetGeneratorIds(stateMgr, sender, generatorIds);
+        rstl::vector< rstl::pair< float, TEditorId > > pickupTemplates;
+        const float totalProb = GetPickupTemplates(stateMgr, pickupTemplates);
+        if (pickupTemplates.empty()) {
+          break;
+        } else {
+          int count = 0;
+          const float r = stateMgr.Random()->Range(0.f, totalProb);
+          float f2 = 0.f;
+
+          for (int i = 0; i < pickupTemplates.size(); ++i) {
+            if (r >= f2 && r <= f2 + pickupTemplates[i].first) {
+              break;
+            }
+            f2 += pickupTemplates[i].first;
+            ++count;
+          }
+          if (count == pickupTemplates.size()) {
+            break;
+          } else {
+            const TEditorId templateId = pickupTemplates[count].second;
+            GeneratePickup(stateMgr, templateId,
+                           generatorIds[stateMgr.Random()->Float() * generatorIds.size() * 0.99f]);
+          }
+        }
+      }
+    }
+    break;
+  default:
+    break;
+  }
+
+  CEntity::AcceptScriptMsg(msg, sender, stateMgr);
+}
+
+void CScriptPickupGenerator::Accept(IVisitor& visitor) { visitor.Visit(*this); }
