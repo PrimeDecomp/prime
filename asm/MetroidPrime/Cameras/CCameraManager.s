@@ -2492,15 +2492,15 @@ lbl_8000B220:
 /* 8000B238 00008198  38 61 00 0C */	addi r3, r1, 0xc
 /* 8000B23C 0000819C  38 86 00 04 */	addi r4, r6, 4
 /* 8000B240 000081A0  38 A1 00 08 */	addi r5, r1, 8
-/* 8000B244 000081A4  48 00 00 15 */	bl "find<Q24rstl110pointer_iterator<9TUniqueId,Q24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,9TUniqueId>__4rstlFQ24rstl110pointer_iterator<9TUniqueId,Q24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl110pointer_iterator<9TUniqueId,Q24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>RC9TUniqueId"
+/* 8000B244 000081A4  48 00 00 15 */	bl "erase__Q24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>FQ24rstl110pointer_iterator<9TUniqueId,Q24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>"
 lbl_8000B248:
 /* 8000B248 000081A8  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8000B24C 000081AC  7C 08 03 A6 */	mtlr r0
 /* 8000B250 000081B0  38 21 00 30 */	addi r1, r1, 0x30
 /* 8000B254 000081B4  4E 80 00 20 */	blr
 
-.global "find<Q24rstl110pointer_iterator<9TUniqueId,Q24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,9TUniqueId>__4rstlFQ24rstl110pointer_iterator<9TUniqueId,Q24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl110pointer_iterator<9TUniqueId,Q24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>RC9TUniqueId"
-"find<Q24rstl110pointer_iterator<9TUniqueId,Q24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,9TUniqueId>__4rstlFQ24rstl110pointer_iterator<9TUniqueId,Q24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl110pointer_iterator<9TUniqueId,Q24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>RC9TUniqueId":
+.global "erase__Q24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>FQ24rstl110pointer_iterator<9TUniqueId,Q24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>"
+"erase__Q24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>FQ24rstl110pointer_iterator<9TUniqueId,Q24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>":
 /* 8000B258 000081B8  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 8000B25C 000081BC  7C 08 02 A6 */	mflr r0
 /* 8000B260 000081C0  90 01 00 24 */	stw r0, 0x24(r1)
