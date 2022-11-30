@@ -93,6 +93,10 @@ typedef struct _GXColorS10 {
   s16 a;
 } GXColorS10;
 
+typedef struct _GXTexRegion {
+  u32 dummy[4];
+} GXTexRegion;
+
 #ifdef __cplusplus
 }
 #endif

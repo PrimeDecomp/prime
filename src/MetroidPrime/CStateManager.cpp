@@ -419,7 +419,7 @@ void CStateManager::DrawWorld() const {
     }
   }
 
-  rstl::sort(&areaArr[0], &areaArr[areaCount], area_sorter(CGraphics::GetViewpoint(), visAreaId));
+  rstl::sort(&areaArr[0], &areaArr[areaCount], area_sorter(CGraphics::GetViewPoint(), visAreaId));
 }
 
 void CStateManager::BuildDynamicLightListForWorld() {

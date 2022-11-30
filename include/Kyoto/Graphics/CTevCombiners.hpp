@@ -25,10 +25,19 @@ public:
     kCS_Konst,
     kCS_Zero,
   };
-  struct ColorVar {
+  class ColorVar {
+  public:
+    ColorVar(EColorSrc src);
+
+  private:
     EColorSrc x0_src;
   };
-  struct ColorPass {
+  class ColorPass {
+  public:
+    ColorPass(const ColorVar& a, const ColorVar& b, const ColorVar& c, const ColorVar& d)
+    : x0_a(a), x4_b(b), x8_c(c), xc_d(d) {}
+
+  private:
     ColorVar x0_a;
     ColorVar x4_b;
     ColorVar x8_c;
@@ -42,14 +51,22 @@ public:
     kAS_RegisterA2,
     kAS_TextureAlpha,
     kAS_RasterAlpha,
-    kAS_One,
-    kAS_Zero,
     kAS_Konst,
+    kAS_Zero,
   };
-  struct AlphaVar {
+  class AlphaVar {
+  public:
+    AlphaVar(EAlphaSrc src);
+
+  private:
     EAlphaSrc x0_src;
   };
-  struct AlphaPass {
+  class AlphaPass {
+  public:
+    AlphaPass(const AlphaVar& a, const AlphaVar& b, const AlphaVar& c, const AlphaVar& d)
+    : x0_a(a), x4_b(b), x8_c(c), xc_d(d) {}
+
+  private:
     AlphaVar x0_a;
     AlphaVar x4_b;
     AlphaVar x8_c;
@@ -77,7 +94,13 @@ public:
     kTO_Register1,
     kTO_Register2,
   };
-  struct CTevOp {
+  class CTevOp {
+  public:
+    CTevOp(ETevOp op = kTO_Add, ETevBias bias = kTB_Zero, ETevScale scale = kTS_Scale1,
+           bool clamp = true, ETevOutput output = kTO_Previous)
+    : x0_clamp(clamp), x4_op(op), x8_bias(bias), xc_scale(scale), x10_output(output) {}
+
+  private:
     bool x0_clamp;
     ETevOp x4_op;
     ETevBias x8_bias;
@@ -87,12 +110,20 @@ public:
 
   class CTevPass {
   public:
+    CTevPass(const ColorPass& colorPass, const AlphaPass& alphaPass,
+             const CTevOp& colorOp = CTevOp(), const CTevOp& alphaOp = CTevOp());
+
+  private:
     uint x0_id;
     ColorPass x4_colorPass;
     AlphaPass x14_alphaPass;
     CTevOp x24_colorOp;
     CTevOp x38_alphaOp;
   };
+
+  static void Init();
+
+  static CTevPass kEnvPassthru;
 };
 
 extern CTevCombiners::CTevPass CTevPass_805a5ebc;

@@ -3,11 +3,15 @@
 
 #include "types.h"
 
+#include "Kyoto/CTimeProvider.hpp"
 #include "Kyoto/Graphics/CColor.hpp"
+#include "Kyoto/Graphics/CLight.hpp"
+#include "Kyoto/Graphics/CTevCombiners.hpp"
 #include "Kyoto/Math/CTransform4f.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
 
-#include "Kyoto/Graphics/CTevCombiners.hpp"
+#include "dolphin/gx.h"
+#include "dolphin/mtx.h"
 
 enum ERglFogMode {
   kRFM_None = GX_FOG_NONE,
@@ -132,6 +136,17 @@ enum ERglCullMode {
   kCM_All = GX_CULL_ALL,
 };
 
+enum ERglLight {
+  kLight0,
+  kLight1,
+  kLight2,
+  kLight3,
+  kLight4,
+  kLight5,
+  kLight6,
+  kLight7,
+  kLightMax,
+};
 
 struct CViewport {
   int mLeft;
@@ -142,10 +157,69 @@ struct CViewport {
   float mHalfHeight;
 };
 
+class COsContext;
 class CTimeProvider;
+
+typedef struct {
+  float x;
+  float y;
+} Vec2, *Vec2Ptr;
 
 class CGraphics {
 public:
+  class CRenderState {
+  public:
+    CRenderState();
+
+    void ResetFlushAll();
+
+  private:
+    int x0_;
+    int x4_;
+  };
+  class CProjectionState {
+  public:
+    CProjectionState(bool persp, float left, float right, float top, float bottom, float near,
+                     float far)
+    : x0_persp(persp)
+    , x4_left(left)
+    , x8_right(right)
+    , xc_top(top)
+    , x10_bottom(bottom)
+    , x14_near(near)
+    , x18_far(far) {}
+
+    float GetNear() const { return x14_near; }
+    float GetFar() const { return x18_far; }
+
+  private:
+    bool x0_persp;
+    float x4_left;
+    float x8_right;
+    float xc_top;
+    float x10_bottom;
+    float x14_near;
+    float x18_far;
+  };
+
+  static bool Startup(const COsContext& osContext, uint fifoSize, void* fifoBase);
+  static GXTexRegion* TexRegionCallback(const GXTexObj* obj, GXTexMapID id);
+  static void InitGraphicsVariables();
+  static void Shutdown();
+  static void InitGraphicsDefaults();
+  static void ConfigureFrameBuffer(const COsContext& osContext);
+  static void EnableLight(ERglLight light);
+  static void LoadLight(ERglLight light, const CLight& info);
+
+  static void SetIdentityViewPointMatrix();
+  static void SetIdentityModelMatrix();
+  static void SetViewport(int left, int bottom, int width, int height);
+  static void SetPerspective(float fovy, float aspect, float znear, float zfar);
+  static void SetCopyClear(const CColor& color, float depth);
+  static void SetDepthRange(float near, float far);
+  static void FlushProjection();
+  static void SetDefaultVtxAttrFmt();
+
   static bool IsBeginSceneClearFb();
   static void SetIsBeginSceneClearFb(bool);
   static void BeginScene();
@@ -161,7 +235,7 @@ public:
   static void StreamEnd();
 
   static const CViewport& GetViewport() { return mViewport; }
-  static const CVector3f& GetViewpoint() { return mViewpoint; }
+  static const CVector3f& GetViewPoint() { return mViewPoint; }
   static const CTransform4f& GetViewMatrix() { return mViewMatrix; }
   static const CTransform4f& GetModelMatrix() { return mModelMatrix; }
   static void SetViewPointMatrix(const CTransform4f&);
@@ -195,14 +269,85 @@ public:
   static CTevCombiners::CTevPass kEnvReplace;
   static CTevCombiners::CTevPass kEnvModulateAlpha;
   static CTevCombiners::CTevPass kEnvModulateColor;
-  static CTevCombiners::CTevPass kEnvModulateColorByalpha;
+  static CTevCombiners::CTevPass kEnvModulateColorByAlpha;
 
 private:
+  static CRenderState sRenderState;
+  static VecPtr vtxBuffer;
+  static VecPtr nrmBuffer;
+  static Vec2Ptr txtBuffer0;
+  static Vec2Ptr txtBuffer1;
+  static GXColor* clrBuffer;
+  static bool mJustReset;
+  static ERglCullMode mCullMode;
+  static int mNumLightsActive;
+  static float mDepthNear;
+  static VecPtr mpVtxBuffer;
+  static VecPtr mpNrmBuffer;
+  static Vec2Ptr mpTxtBuffer0;
+  static Vec2Ptr mpTxtBuffer1;
+  static GXColor* mpClrBuffer;
+  static int mNumPrimitives;
+  static int mFrameCounter;
+  static float mFramesPerSecond;
+  static float mLastFramesPerSecond;
+  static int mNumBreakpointsWaiting;
+  static int mFlippingState;
+  static bool mLastFrameUsedAbove;
+  static bool mInterruptLastFrameUsedAbove;
+  static uchar mLightActive;
+  static uchar mLightsWereOn;
+  static void* mpFrameBuf1;
+  static void* mpFrameBuf2;
+  static void* mpCurrenFrameBuf;
+  static int mSpareBufferSize;
+  static void* mpSpareBuffer;
+  static int mSpareBufferTexCacheSize;
+  static GXTexRegionCallback mGXDefaultTexRegionCallback;
+  static void* mpFifo;
+  static GXFifoObj* mpFifoObj;
+  static int mRenderTimings;
+  static float mSecondsMod900;
+  static CTimeProvider* mpExternalTimeProvider;
+  // lbl_805A9408
+  // lbl_805A940C
+  // lbl_805A9410
+  // "nextTexRgn$2336"
+  // "init$2337"
+  // "nextTexRgnCI$2339"
+  // "init$2340"
+
+  static CVector3f kDefaultPositionVector;
+  static CVector3f kDefaultDirectionVector;
+  static CProjectionState mProj;
   static CTransform4f mViewMatrix;
   static CTransform4f mModelMatrix;
+  static CColor mClearColor;
+  static CVector3f mViewPoint;
   static CViewport mViewport;
-  static CVector3f mViewpoint;
+  static ELightType mLightTypes[8];
+  static GXLightObj mLightObj[8];
+  static GXTexRegion mTexRegions[GX_MAX_TEXMAP];
+  static GXTexRegion mTexRegionsCI[GX_MAX_TEXMAP / 2];
+  static GXRenderModeObj mRenderModeObj;
+  static Mtx mGXViewPointMatrix;
+  static Mtx mGXModelMatrix;
+  static Mtx mGxModelView;
+  static Mtx mCameraMtx;
+
+  // .sdata
+  static bool mIsBeginSceneClearFb;
+  static ERglEnum mDepthFunc;
+  static ERglPrimitive mCurrentPrimitive;
+  static float mDepthFar;
+  static u32 mClearDepthValue; // = GX_MAX_Z24
+  static bool mIsGXModelMatrixIdentity;
+  static bool mFirstFrame;
+  static bool mUseVideoFilter;
   static float mBrightness;
+  // static const float mBrightnessMin;
+  // static const float mBrightnessMax;
+  static Vec2 mBrightnessRange;
 };
 
 #endif // _CGRAPHICS

@@ -780,6 +780,20 @@ typedef enum _GXTlutFmt {
   GX_MAX_TLUTFMT,
 } GXTlutFmt;
 
+typedef enum _GXMiscToken {
+  GX_MT_NULL = 0,
+  GX_MT_XF_FLUSH = 1,
+  GX_MT_DL_SAVE_CONTEXT = 2,
+  GX_MT_ABORT_WAIT_COPYOUT = 3,
+} GXMiscToken;
+
+typedef enum _GXTexCacheSize {
+  GX_TEXCACHE_32K,
+  GX_TEXCACHE_128K,
+  GX_TEXCACHE_512K,
+  GX_TEXCACHE_NONE
+} GXTexCacheSize;
+
 #ifdef __cplusplus
 }
 #endif

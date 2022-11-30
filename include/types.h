@@ -19,6 +19,8 @@ typedef void* unkptr;
 
 #define SBig(x) x
 
+#define ARRAY_SIZE(arr) static_cast< int >(sizeof(arr) / sizeof(arr[0]))
+
 #ifdef __cplusplus
 }
 #endif
