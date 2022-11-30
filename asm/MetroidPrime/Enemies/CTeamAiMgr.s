@@ -753,7 +753,7 @@ lbl_80238578:
 /* 8023859C 002354FC  38 61 00 1C */	addi r3, r1, 0x1c
 /* 802385A0 00235500  38 9F 00 78 */	addi r4, r31, 0x78
 /* 802385A4 00235504  38 A1 00 18 */	addi r5, r1, 0x18
-/* 802385A8 00235508  4B DD 2C B1 */	bl "find<Q24rstl110pointer_iterator<9TUniqueId,Q24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,9TUniqueId>__4rstlFQ24rstl110pointer_iterator<9TUniqueId,Q24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl110pointer_iterator<9TUniqueId,Q24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>RC9TUniqueId"
+/* 802385A8 00235508  4B DD 2C B1 */	bl "erase__Q24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>FQ24rstl110pointer_iterator<9TUniqueId,Q24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>"
 lbl_802385AC:
 /* 802385AC 0023550C  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 802385B0 00235510  83 E1 00 3C */	lwz r31, 0x3c(r1)
@@ -1253,7 +1253,7 @@ lbl_80238C60:
 /* 80238C84 00235BE4  38 61 00 1C */	addi r3, r1, 0x1c
 /* 80238C88 00235BE8  38 9F 00 68 */	addi r4, r31, 0x68
 /* 80238C8C 00235BEC  38 A1 00 18 */	addi r5, r1, 0x18
-/* 80238C90 00235BF0  4B DD 25 C9 */	bl "find<Q24rstl110pointer_iterator<9TUniqueId,Q24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,9TUniqueId>__4rstlFQ24rstl110pointer_iterator<9TUniqueId,Q24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl110pointer_iterator<9TUniqueId,Q24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>RC9TUniqueId"
+/* 80238C90 00235BF0  4B DD 25 C9 */	bl "erase__Q24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>FQ24rstl110pointer_iterator<9TUniqueId,Q24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>"
 lbl_80238C94:
 /* 80238C94 00235BF4  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 80238C98 00235BF8  83 E1 00 3C */	lwz r31, 0x3c(r1)

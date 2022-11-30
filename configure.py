@@ -88,7 +88,7 @@ LIBS = [
             "MetroidPrime/ScriptObjects/CScriptSound",
             ["MetroidPrime/ScriptObjects/CScriptPlatform", False],
             ["MetroidPrime/UserNames", True],
-            "MetroidPrime/ScriptObjects/CScriptGenerator",
+            ["MetroidPrime/ScriptObjects/CScriptGenerator", False],
             ["MetroidPrime/ScriptObjects/CScriptCameraWaypoint", False],
             ["MetroidPrime/CGameLight", True],
             "MetroidPrime/Tweaks/CTweakTargeting",
