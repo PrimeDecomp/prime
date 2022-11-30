@@ -3,6 +3,9 @@
 
 #include "types.h"
 
+class COsContext;
+class CMemorySys;
+
 class CGraphicsSys {
 public:
   CGraphicsSys(const COsContext& osContext, const CMemorySys& memorySys, uint, void*);
@@ -10,6 +13,8 @@ public:
 
 private:
   uint pad;
+
+  static bool mGraphicsInitialized;
 };
 
 #endif // _CGRAPHICSSYS

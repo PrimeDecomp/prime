@@ -120,8 +120,6 @@ void CPuffer::Think(float dt, CStateManager& mgr) {
   }
 }
 
-#define ARRAY_SIZE(arr) static_cast< int >(sizeof(arr) / sizeof(arr[0]))
-
 void CPuffer::sub8025bfa4(CStateManager& mgr) {
   CVector3f moveVector = GetBodyCtrl()->GetCommandMgr().GetMoveVector();
 

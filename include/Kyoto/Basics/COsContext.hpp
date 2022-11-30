@@ -50,6 +50,10 @@ public:
     return ((hiAddr & ~31) - ((loAddr + 31) & ~31));
   }
 
+  void* GetFramebuf1() const { return x24_frameBuffer1; }
+  void* GetFramebuf2() const { return x28_frameBuffer2; }
+  const GXRenderModeObj& GetRenderModeObj() const { return x30_renderMode; }
+
   static void SetProgressiveMode(bool progressive) { mProgressiveMode = progressive; }
   static bool GetProgressiveMode() { return mProgressiveMode; }
 

@@ -297,7 +297,7 @@ __sinit_CTevCombiners_cpp:
 /* 80309234 00306194  91 21 00 3C */	stw r9, 0x3c(r1)
 /* 80309238 00306198  91 01 00 40 */	stw r8, 0x40(r1)
 /* 8030923C 0030619C  90 01 00 44 */	stw r0, 0x44(r1)
-/* 80309240 003061A0  48 00 00 15 */	bl sub_80309254
+/* 80309240 003061A0  48 00 00 15 */	bl __ct__Q213CTevCombiners8CTevPassFRCQ213CTevCombiners9ColorPassRCQ213CTevCombiners9AlphaPassRCQ213CTevCombiners6CTevOpRCQ213CTevCombiners6CTevOp
 /* 80309244 003061A4  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 80309248 003061A8  7C 08 03 A6 */	mtlr r0
 /* 8030924C 003061AC  38 21 00 70 */	addi r1, r1, 0x70

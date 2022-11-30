@@ -15,6 +15,7 @@ void GXDrawDone(void);
 void GXSetDrawDone(void);
 void GXFlush(void);
 void GXPixModeSync(void);
+void GXSetMisc(GXMiscToken token, u32 val);
 
 #ifdef __cplusplus
 }

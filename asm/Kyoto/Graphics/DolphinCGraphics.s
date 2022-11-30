@@ -130,10 +130,7 @@ mGraphicsInitialized__12CGraphicsSys:
 	.skip 0x8
 .global sFPSTimer
 sFPSTimer:
-	.skip 0x4
-.global lbl_805A9374
-lbl_805A9374:
-	.skip 0x4
+	.skip 0x8
 .global sRenderState__9CGraphics
 sRenderState__9CGraphics:
 	.skip 0x8
@@ -257,23 +254,23 @@ lbl_805A940C:
 .global lbl_805A9410
 lbl_805A9410:
 	.skip 0x4
-.global lbl_805A9414
-lbl_805A9414:
+.global "nextTexRgn$2336"
+"nextTexRgn$2336":
 	.skip 0x4
-.global lbl_805A9418
-lbl_805A9418:
+.global "init$2337"
+"init$2337":
 	.skip 0x4
-.global lbl_805A941C
-lbl_805A941C:
+.global "nextTexRgnCI$2339"
+"nextTexRgnCI$2339":
 	.skip 0x4
-.global lbl_805A9420
-lbl_805A9420:
+.global "init$2340"
+"init$2340":
 	.skip 0x8
 
 .section .text, "ax"
 
-.global sub_80309254
-sub_80309254:
+.global __ct__Q213CTevCombiners8CTevPassFRCQ213CTevCombiners9ColorPassRCQ213CTevCombiners9AlphaPassRCQ213CTevCombiners6CTevOpRCQ213CTevCombiners6CTevOp
+__ct__Q213CTevCombiners8CTevPassFRCQ213CTevCombiners9ColorPassRCQ213CTevCombiners9AlphaPassRCQ213CTevCombiners6CTevOpRCQ213CTevCombiners6CTevOp:
 /* 80309254 003061B4  81 0D A7 98 */	lwz r8, lbl_805A9358@sda21(r13)
 /* 80309258 003061B8  38 08 00 01 */	addi r0, r8, 1
 /* 8030925C 003061BC  90 0D A7 98 */	stw r0, lbl_805A9358@sda21(r13)
@@ -3349,7 +3346,7 @@ VideoPostCallback__9CGraphicsFUl:
 /* 8030BD68 00308CC8  3B ED A7 B0 */	addi r31, r13, sFPSTimer@sda21
 /* 8030BD6C 00308CCC  90 0D A8 10 */	stw r0, mFlippingState__9CGraphics@sda21(r13)
 /* 8030BD70 00308CD0  48 07 96 39 */	bl OSGetTime
-/* 8030BD74 00308CD4  80 0D A7 B4 */	lwz r0, lbl_805A9374@sda21(r13)
+/* 8030BD74 00308CD4  80 0D A7 B4 */	lwz r0, sFPSTimer+4@sda21(r13)
 /* 8030BD78 00308CD8  C0 0D A8 04 */	lfs f0, mFramesPerSecond__9CGraphics@sda21(r13)
 /* 8030BD7C 00308CDC  7C 80 20 10 */	subfc r4, r0, r4
 /* 8030BD80 00308CE0  80 0D A7 B0 */	lwz r0, sFPSTimer@sda21(r13)
@@ -4756,26 +4753,26 @@ InitGraphicsVariables__9CGraphicsFv:
 /* 8030D1B0 0030A110  38 21 00 30 */	addi r1, r1, 0x30
 /* 8030D1B4 0030A114  4E 80 00 20 */	blr
 
-.global TexRegionCallback__9CGraphicsFP9_GXTexObj11_GXTexMapID
-TexRegionCallback__9CGraphicsFP9_GXTexObj11_GXTexMapID:
+.global TexRegionCallback__9CGraphicsFPC9_GXTexObj11_GXTexMapID
+TexRegionCallback__9CGraphicsFPC9_GXTexObj11_GXTexMapID:
 /* 8030D1B8 0030A118  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8030D1BC 0030A11C  7C 08 02 A6 */	mflr r0
 /* 8030D1C0 0030A120  90 01 00 14 */	stw r0, 0x14(r1)
-/* 8030D1C4 0030A124  88 0D A8 58 */	lbz r0, lbl_805A9418@sda21(r13)
+/* 8030D1C4 0030A124  88 0D A8 58 */	lbz r0, "init$2337"@sda21(r13)
 /* 8030D1C8 0030A128  7C 00 07 75 */	extsb. r0, r0
 /* 8030D1CC 0030A12C  40 82 00 14 */	bne lbl_8030D1E0
 /* 8030D1D0 0030A130  38 A0 00 00 */	li r5, 0
 /* 8030D1D4 0030A134  38 00 00 01 */	li r0, 1
-/* 8030D1D8 0030A138  90 AD A8 54 */	stw r5, lbl_805A9414@sda21(r13)
-/* 8030D1DC 0030A13C  98 0D A8 58 */	stb r0, lbl_805A9418@sda21(r13)
+/* 8030D1D8 0030A138  90 AD A8 54 */	stw r5, "nextTexRgn$2336"@sda21(r13)
+/* 8030D1DC 0030A13C  98 0D A8 58 */	stb r0, "init$2337"@sda21(r13)
 lbl_8030D1E0:
-/* 8030D1E0 0030A140  88 0D A8 60 */	lbz r0, lbl_805A9420@sda21(r13)
+/* 8030D1E0 0030A140  88 0D A8 60 */	lbz r0, "init$2340"@sda21(r13)
 /* 8030D1E4 0030A144  7C 00 07 75 */	extsb. r0, r0
 /* 8030D1E8 0030A148  40 82 00 14 */	bne lbl_8030D1FC
 /* 8030D1EC 0030A14C  38 A0 00 00 */	li r5, 0
 /* 8030D1F0 0030A150  38 00 00 01 */	li r0, 1
-/* 8030D1F4 0030A154  90 AD A8 5C */	stw r5, lbl_805A941C@sda21(r13)
-/* 8030D1F8 0030A158  98 0D A8 60 */	stb r0, lbl_805A9420@sda21(r13)
+/* 8030D1F4 0030A154  90 AD A8 5C */	stw r5, "nextTexRgnCI$2339"@sda21(r13)
+/* 8030D1F8 0030A158  98 0D A8 60 */	stb r0, "init$2340"@sda21(r13)
 lbl_8030D1FC:
 /* 8030D1FC 0030A15C  2C 04 00 07 */	cmpwi r4, 7
 /* 8030D200 0030A160  40 82 00 10 */	bne lbl_8030D210
@@ -4790,27 +4787,27 @@ lbl_8030D210:
 /* 8030D220 0030A180  41 82 00 40 */	beq lbl_8030D260
 /* 8030D224 0030A184  2C 03 00 0A */	cmpwi r3, 0xa
 /* 8030D228 0030A188  41 82 00 38 */	beq lbl_8030D260
-/* 8030D22C 0030A18C  80 6D A8 54 */	lwz r3, lbl_805A9414@sda21(r13)
+/* 8030D22C 0030A18C  80 6D A8 54 */	lwz r3, "nextTexRgn$2336"@sda21(r13)
 /* 8030D230 0030A190  2C 03 00 00 */	cmpwi r3, 0
 /* 8030D234 0030A194  40 82 00 0C */	bne lbl_8030D240
 /* 8030D238 0030A198  38 03 00 01 */	addi r0, r3, 1
-/* 8030D23C 0030A19C  90 0D A8 54 */	stw r0, lbl_805A9414@sda21(r13)
+/* 8030D23C 0030A19C  90 0D A8 54 */	stw r0, "nextTexRgn$2336"@sda21(r13)
 lbl_8030D240:
-/* 8030D240 0030A1A0  80 AD A8 54 */	lwz r5, lbl_805A9414@sda21(r13)
+/* 8030D240 0030A1A0  80 AD A8 54 */	lwz r5, "nextTexRgn$2336"@sda21(r13)
 /* 8030D244 0030A1A4  3C 60 80 5A */	lis r3, mTexRegions__9CGraphics@ha
 /* 8030D248 0030A1A8  38 03 64 40 */	addi r0, r3, mTexRegions__9CGraphics@l
 /* 8030D24C 0030A1AC  38 85 00 01 */	addi r4, r5, 1
 /* 8030D250 0030A1B0  54 A3 26 76 */	rlwinm r3, r5, 4, 0x19, 0x1b
-/* 8030D254 0030A1B4  90 8D A8 54 */	stw r4, lbl_805A9414@sda21(r13)
+/* 8030D254 0030A1B4  90 8D A8 54 */	stw r4, "nextTexRgn$2336"@sda21(r13)
 /* 8030D258 0030A1B8  7C 60 1A 14 */	add r3, r0, r3
 /* 8030D25C 0030A1BC  48 00 00 20 */	b lbl_8030D27C
 lbl_8030D260:
-/* 8030D260 0030A1C0  80 AD A8 5C */	lwz r5, lbl_805A941C@sda21(r13)
+/* 8030D260 0030A1C0  80 AD A8 5C */	lwz r5, "nextTexRgnCI$2339"@sda21(r13)
 /* 8030D264 0030A1C4  3C 60 80 5A */	lis r3, mTexRegionsCI__9CGraphics@ha
 /* 8030D268 0030A1C8  38 03 64 C0 */	addi r0, r3, mTexRegionsCI__9CGraphics@l
 /* 8030D26C 0030A1CC  38 85 00 01 */	addi r4, r5, 1
 /* 8030D270 0030A1D0  54 A3 26 B6 */	rlwinm r3, r5, 4, 0x1a, 0x1b
-/* 8030D274 0030A1D4  90 8D A8 5C */	stw r4, lbl_805A941C@sda21(r13)
+/* 8030D274 0030A1D4  90 8D A8 5C */	stw r4, "nextTexRgnCI$2339"@sda21(r13)
 /* 8030D278 0030A1D8  7C 60 1A 14 */	add r3, r0, r3
 lbl_8030D27C:
 /* 8030D27C 0030A1DC  80 01 00 14 */	lwz r0, 0x14(r1)
@@ -4899,8 +4896,8 @@ lbl_8030D38C:
 /* 8030D3B4 0030A314  3B FF 00 10 */	addi r31, r31, 0x10
 /* 8030D3B8 0030A318  3B BD 00 02 */	addi r29, r29, 2
 /* 8030D3BC 0030A31C  41 80 FF D0 */	blt lbl_8030D38C
-/* 8030D3C0 0030A320  3C 60 80 31 */	lis r3, TexRegionCallback__9CGraphicsFP9_GXTexObj11_GXTexMapID@ha
-/* 8030D3C4 0030A324  38 63 D1 B8 */	addi r3, r3, TexRegionCallback__9CGraphicsFP9_GXTexObj11_GXTexMapID@l
+/* 8030D3C0 0030A320  3C 60 80 31 */	lis r3, TexRegionCallback__9CGraphicsFPC9_GXTexObj11_GXTexMapID@ha
+/* 8030D3C4 0030A324  38 63 D1 B8 */	addi r3, r3, TexRegionCallback__9CGraphicsFPC9_GXTexObj11_GXTexMapID@l
 /* 8030D3C8 0030A328  48 06 D4 C1 */	bl GXSetTexRegionCallback
 /* 8030D3CC 0030A32C  3C A0 00 04 */	lis r5, 0x00046000@ha
 /* 8030D3D0 0030A330  3C 80 80 48 */	lis r4, sSpareFrameBuffer@ha
@@ -4929,7 +4926,7 @@ __sinit_DolphinCGraphics_cpp:
 /* 8030D420 0030A380  48 07 7F 89 */	bl OSGetTime
 /* 8030D424 0030A384  38 00 00 00 */	li r0, 0
 /* 8030D428 0030A388  38 A0 00 01 */	li r5, 1
-/* 8030D42C 0030A38C  90 8D A7 B4 */	stw r4, lbl_805A9374@sda21(r13)
+/* 8030D42C 0030A38C  90 8D A7 B4 */	stw r4, sFPSTimer+4@sda21(r13)
 /* 8030D430 0030A390  38 80 00 07 */	li r4, 7
 /* 8030D434 0030A394  90 6D A7 B0 */	stw r3, sFPSTimer@sda21(r13)
 /* 8030D438 0030A398  38 61 01 28 */	addi r3, r1, 0x128
@@ -4987,7 +4984,7 @@ __sinit_DolphinCGraphics_cpp:
 /* 8030D508 0030A468  91 21 02 7C */	stw r9, 0x27c(r1)
 /* 8030D50C 0030A46C  91 01 02 80 */	stw r8, 0x280(r1)
 /* 8030D510 0030A470  90 01 02 84 */	stw r0, 0x284(r1)
-/* 8030D514 0030A474  4B FF BD 41 */	bl sub_80309254
+/* 8030D514 0030A474  4B FF BD 41 */	bl __ct__Q213CTevCombiners8CTevPassFRCQ213CTevCombiners9ColorPassRCQ213CTevCombiners9AlphaPassRCQ213CTevCombiners6CTevOpRCQ213CTevCombiners6CTevOp
 /* 8030D518 0030A478  38 00 00 00 */	li r0, 0
 /* 8030D51C 0030A47C  38 A0 00 01 */	li r5, 1
 /* 8030D520 0030A480  98 A1 03 C8 */	stb r5, 0x3c8(r1)
@@ -5046,7 +5043,7 @@ __sinit_DolphinCGraphics_cpp:
 /* 8030D5F4 0030A554  91 21 02 5C */	stw r9, 0x25c(r1)
 /* 8030D5F8 0030A558  91 01 02 60 */	stw r8, 0x260(r1)
 /* 8030D5FC 0030A55C  90 01 02 64 */	stw r0, 0x264(r1)
-/* 8030D600 0030A560  4B FF BC 55 */	bl sub_80309254
+/* 8030D600 0030A560  4B FF BC 55 */	bl __ct__Q213CTevCombiners8CTevPassFRCQ213CTevCombiners9ColorPassRCQ213CTevCombiners9AlphaPassRCQ213CTevCombiners6CTevOpRCQ213CTevCombiners6CTevOp
 /* 8030D604 0030A564  38 00 00 00 */	li r0, 0
 /* 8030D608 0030A568  38 A0 00 01 */	li r5, 1
 /* 8030D60C 0030A56C  98 A1 03 A0 */	stb r5, 0x3a0(r1)
@@ -5105,7 +5102,7 @@ __sinit_DolphinCGraphics_cpp:
 /* 8030D6E0 0030A640  91 21 02 3C */	stw r9, 0x23c(r1)
 /* 8030D6E4 0030A644  91 01 02 40 */	stw r8, 0x240(r1)
 /* 8030D6E8 0030A648  90 01 02 44 */	stw r0, 0x244(r1)
-/* 8030D6EC 0030A64C  4B FF BB 69 */	bl sub_80309254
+/* 8030D6EC 0030A64C  4B FF BB 69 */	bl __ct__Q213CTevCombiners8CTevPassFRCQ213CTevCombiners9ColorPassRCQ213CTevCombiners9AlphaPassRCQ213CTevCombiners6CTevOpRCQ213CTevCombiners6CTevOp
 /* 8030D6F0 0030A650  38 00 00 00 */	li r0, 0
 /* 8030D6F4 0030A654  38 A0 00 01 */	li r5, 1
 /* 8030D6F8 0030A658  98 A1 03 78 */	stb r5, 0x378(r1)
@@ -5164,7 +5161,7 @@ __sinit_DolphinCGraphics_cpp:
 /* 8030D7CC 0030A72C  91 21 02 1C */	stw r9, 0x21c(r1)
 /* 8030D7D0 0030A730  91 01 02 20 */	stw r8, 0x220(r1)
 /* 8030D7D4 0030A734  90 01 02 24 */	stw r0, 0x224(r1)
-/* 8030D7D8 0030A738  4B FF BA 7D */	bl sub_80309254
+/* 8030D7D8 0030A738  4B FF BA 7D */	bl __ct__Q213CTevCombiners8CTevPassFRCQ213CTevCombiners9ColorPassRCQ213CTevCombiners9AlphaPassRCQ213CTevCombiners6CTevOpRCQ213CTevCombiners6CTevOp
 /* 8030D7DC 0030A73C  38 00 00 00 */	li r0, 0
 /* 8030D7E0 0030A740  38 A0 00 01 */	li r5, 1
 /* 8030D7E4 0030A744  98 A1 03 50 */	stb r5, 0x350(r1)
@@ -5223,7 +5220,7 @@ __sinit_DolphinCGraphics_cpp:
 /* 8030D8B8 0030A818  91 21 01 FC */	stw r9, 0x1fc(r1)
 /* 8030D8BC 0030A81C  91 01 02 00 */	stw r8, 0x200(r1)
 /* 8030D8C0 0030A820  90 01 02 04 */	stw r0, 0x204(r1)
-/* 8030D8C4 0030A824  4B FF B9 91 */	bl sub_80309254
+/* 8030D8C4 0030A824  4B FF B9 91 */	bl __ct__Q213CTevCombiners8CTevPassFRCQ213CTevCombiners9ColorPassRCQ213CTevCombiners9AlphaPassRCQ213CTevCombiners6CTevOpRCQ213CTevCombiners6CTevOp
 /* 8030D8C8 0030A828  38 00 00 00 */	li r0, 0
 /* 8030D8CC 0030A82C  38 A0 00 01 */	li r5, 1
 /* 8030D8D0 0030A830  98 A1 03 28 */	stb r5, 0x328(r1)
@@ -5282,7 +5279,7 @@ __sinit_DolphinCGraphics_cpp:
 /* 8030D9A4 0030A904  91 21 01 DC */	stw r9, 0x1dc(r1)
 /* 8030D9A8 0030A908  91 01 01 E0 */	stw r8, 0x1e0(r1)
 /* 8030D9AC 0030A90C  90 01 01 E4 */	stw r0, 0x1e4(r1)
-/* 8030D9B0 0030A910  4B FF B8 A5 */	bl sub_80309254
+/* 8030D9B0 0030A910  4B FF B8 A5 */	bl __ct__Q213CTevCombiners8CTevPassFRCQ213CTevCombiners9ColorPassRCQ213CTevCombiners9AlphaPassRCQ213CTevCombiners6CTevOpRCQ213CTevCombiners6CTevOp
 /* 8030D9B4 0030A914  38 00 00 00 */	li r0, 0
 /* 8030D9B8 0030A918  38 A0 00 01 */	li r5, 1
 /* 8030D9BC 0030A91C  98 A1 03 00 */	stb r5, 0x300(r1)
@@ -5341,7 +5338,7 @@ __sinit_DolphinCGraphics_cpp:
 /* 8030DA90 0030A9F0  91 21 01 BC */	stw r9, 0x1bc(r1)
 /* 8030DA94 0030A9F4  91 01 01 C0 */	stw r8, 0x1c0(r1)
 /* 8030DA98 0030A9F8  90 01 01 C4 */	stw r0, 0x1c4(r1)
-/* 8030DA9C 0030A9FC  4B FF B7 B9 */	bl sub_80309254
+/* 8030DA9C 0030A9FC  4B FF B7 B9 */	bl __ct__Q213CTevCombiners8CTevPassFRCQ213CTevCombiners9ColorPassRCQ213CTevCombiners9AlphaPassRCQ213CTevCombiners6CTevOpRCQ213CTevCombiners6CTevOp
 /* 8030DAA0 0030AA00  38 00 00 00 */	li r0, 0
 /* 8030DAA4 0030AA04  38 A0 00 01 */	li r5, 1
 /* 8030DAA8 0030AA08  98 A1 02 D8 */	stb r5, 0x2d8(r1)
@@ -5400,7 +5397,7 @@ __sinit_DolphinCGraphics_cpp:
 /* 8030DB7C 0030AADC  91 21 01 9C */	stw r9, 0x19c(r1)
 /* 8030DB80 0030AAE0  91 01 01 A0 */	stw r8, 0x1a0(r1)
 /* 8030DB84 0030AAE4  90 01 01 A4 */	stw r0, 0x1a4(r1)
-/* 8030DB88 0030AAE8  4B FF B6 CD */	bl sub_80309254
+/* 8030DB88 0030AAE8  4B FF B6 CD */	bl __ct__Q213CTevCombiners8CTevPassFRCQ213CTevCombiners9ColorPassRCQ213CTevCombiners9AlphaPassRCQ213CTevCombiners6CTevOpRCQ213CTevCombiners6CTevOp
 /* 8030DB8C 0030AAEC  38 00 00 00 */	li r0, 0
 /* 8030DB90 0030AAF0  38 A0 00 01 */	li r5, 1
 /* 8030DB94 0030AAF4  98 A1 02 B0 */	stb r5, 0x2b0(r1)
@@ -5459,7 +5456,7 @@ __sinit_DolphinCGraphics_cpp:
 /* 8030DC68 0030ABC8  91 21 01 7C */	stw r9, 0x17c(r1)
 /* 8030DC6C 0030ABCC  91 01 01 80 */	stw r8, 0x180(r1)
 /* 8030DC70 0030ABD0  90 01 01 84 */	stw r0, 0x184(r1)
-/* 8030DC74 0030ABD4  4B FF B5 E1 */	bl sub_80309254
+/* 8030DC74 0030ABD4  4B FF B5 E1 */	bl __ct__Q213CTevCombiners8CTevPassFRCQ213CTevCombiners9ColorPassRCQ213CTevCombiners9AlphaPassRCQ213CTevCombiners6CTevOpRCQ213CTevCombiners6CTevOp
 /* 8030DC78 0030ABD8  38 00 00 00 */	li r0, 0
 /* 8030DC7C 0030ABDC  38 A0 00 01 */	li r5, 1
 /* 8030DC80 0030ABE0  98 A1 02 88 */	stb r5, 0x288(r1)
@@ -5518,7 +5515,7 @@ __sinit_DolphinCGraphics_cpp:
 /* 8030DD54 0030ACB4  91 21 01 5C */	stw r9, 0x15c(r1)
 /* 8030DD58 0030ACB8  91 01 01 60 */	stw r8, 0x160(r1)
 /* 8030DD5C 0030ACBC  90 01 01 64 */	stw r0, 0x164(r1)
-/* 8030DD60 0030ACC0  4B FF B4 F5 */	bl sub_80309254
+/* 8030DD60 0030ACC0  4B FF B4 F5 */	bl __ct__Q213CTevCombiners8CTevPassFRCQ213CTevCombiners9ColorPassRCQ213CTevCombiners9AlphaPassRCQ213CTevCombiners6CTevOpRCQ213CTevCombiners6CTevOp
 /* 8030DD64 0030ACC4  38 6D A7 B8 */	addi r3, r13, sRenderState__9CGraphics@sda21
 /* 8030DD68 0030ACC8  4B FF B6 81 */	bl __ct__Q29CGraphics12CRenderStateFv
 /* 8030DD6C 0030ACCC  3C 60 80 5A */	lis r3, mLightParams@ha
