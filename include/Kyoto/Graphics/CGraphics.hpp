@@ -210,6 +210,8 @@ public:
   static void ConfigureFrameBuffer(const COsContext& osContext);
   static void EnableLight(ERglLight light);
   static void LoadLight(ERglLight light, const CLight& info);
+  static void SetLightState(uchar lights);
+  static void SetViewMatrix();
 
   static void SetIdentityViewPointMatrix();
   static void SetIdentityModelMatrix();
