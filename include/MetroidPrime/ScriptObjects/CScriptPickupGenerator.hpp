@@ -7,6 +7,7 @@ class CScriptPickupGenerator : public CEntity {
 public:
   CScriptPickupGenerator(TUniqueId, const rstl::string&, const CEntityInfo&, const CVector3f&,
                          float, bool);
+  ~CScriptPickupGenerator();
 
   void Accept(IVisitor& visitor) override;
   void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId sender,
