@@ -383,6 +383,9 @@ void CGraphics::EnableLight(ERglLight light) {
 }
 
 static inline GXLightID get_hw_light_index(ERglLight light) {
+#if NONMATCHING
+  return static_cast< GXLightID >((light << 1) & (GX_MAX_LIGHT - 1));
+#else
   if (light == kLight0) {
     return GX_LIGHT0;
   } else if (light == kLight1) {
@@ -400,6 +403,7 @@ static inline GXLightID get_hw_light_index(ERglLight light) {
   }
   // wtf?
   return static_cast< GXLightID >(light == kLight7 ? GX_LIGHT7 : 0);
+#endif
 }
 
 void CGraphics::LoadLight(ERglLight light, const CLight& info) {
@@ -461,4 +465,108 @@ void CGraphics::DisableAllLights() {
   mLightActive = 0;
   CGX::SetChanCtrl(CGX::Channel0, false, GX_SRC_REG, GX_SRC_REG, GX_LIGHT_NULL, GX_DF_NONE,
                    GX_AF_NONE);
+}
+
+// https://en.wikipedia.org/wiki/Hamming_weight
+static inline uint popcount8(uint b) {
+  b = (b & 0x55) + ((b & 0xAA) >> 1);
+  b = (b & 0x33) + ((b & 0xCC) >> 2);
+  return (static_cast< uchar >(b) & 0xF) + (static_cast< uchar >(b) >> 4);
+}
+
+void CGraphics::SetLightState(uchar lights) {
+  GXAttnFn attnFn = GX_AF_NONE;
+  if (lights != 0) {
+    attnFn = GX_AF_SPOT;
+  }
+  GXDiffuseFn diffFn = GX_DF_NONE;
+  if (lights != 0) {
+    diffFn = GX_DF_CLAMP;
+  }
+  CGX::SetChanCtrl(CGX::Channel0, lights != 0 ? GX_TRUE : GX_FALSE, GX_SRC_REG,
+                   (vtxDescr.streamFlags & 2) != 0 ? GX_SRC_VTX : GX_SRC_REG,
+                   static_cast< GXLightID >(lights), diffFn, attnFn);
+  mLightActive = lights;
+  mNumLightsActive = popcount8(lights);
+}
+
+void CGraphics::SetViewMatrix() {
+  Mtx mtx;
+  MTXTrans(mtx, -mViewPoint.GetX(), -mViewPoint.GetY(), -mViewPoint.GetZ());
+  MTXConcat(mGXViewPointMatrix, mtx, mCameraMtx);
+  if (mIsGXModelMatrixIdentity) {
+    MTXCopy(mCameraMtx, mGxModelView);
+  } else {
+    MTXConcat(mCameraMtx, mGXModelMatrix, mGxModelView);
+  }
+  GXLoadPosMtxImm(mGxModelView, GX_PNMTX0);
+
+  Mtx nrmMtx;
+  MTXInvXpose(mGxModelView, nrmMtx);
+  GXLoadNrmMtxImm(nrmMtx, GX_PNMTX0);
+}
+
+void CGraphics::SetViewPointMatrix(const CTransform4f& xf) {
+  mViewMatrix = xf;
+  mGXViewPointMatrix[0][0] = xf.Get00();
+  mGXViewPointMatrix[0][1] = xf.Get10();
+  mGXViewPointMatrix[0][2] = xf.Get20();
+  mGXViewPointMatrix[0][3] = 0.f;
+  mGXViewPointMatrix[1][0] = xf.Get02();
+  mGXViewPointMatrix[1][1] = xf.Get12();
+  mGXViewPointMatrix[1][2] = xf.Get22();
+  mGXViewPointMatrix[1][3] = 0.f;
+  mGXViewPointMatrix[2][0] = -xf.Get01();
+  mGXViewPointMatrix[2][1] = -xf.Get11();
+  mGXViewPointMatrix[2][2] = -xf.Get21();
+  mGXViewPointMatrix[2][3] = 0.f;
+  mViewPoint = xf.GetTranslation();
+  SetViewMatrix();
+}
+
+void CGraphics::SetIdentityViewPointMatrix() {
+  mViewMatrix = CTransform4f::Identity();
+  MTXIdentity(mGXViewPointMatrix);
+  mGXViewPointMatrix[2][2] = 0.0;
+  mGXViewPointMatrix[1][1] = 0.0;
+  mGXViewPointMatrix[1][2] = 1.0;
+  mGXViewPointMatrix[2][1] = -1.0;
+  mViewPoint = CVector3f::Zero();
+  SetViewMatrix();
+}
+
+// TODO: non-matching
+void CGraphics::SetModelMatrix(const CTransform4f& xf) {
+  if (&xf == &CTransform4f::Identity()) {
+    if (!mIsGXModelMatrixIdentity) {
+      mModelMatrix = CTransform4f::Identity();
+      mIsGXModelMatrixIdentity = true;
+      SetViewMatrix();
+    }
+    return;
+  }
+
+  mModelMatrix = xf;
+  mIsGXModelMatrixIdentity = false;
+  mGXModelMatrix[0][0] = xf.Get00();
+  mGXModelMatrix[0][1] = xf.Get01();
+  mGXModelMatrix[0][2] = xf.Get02();
+  mGXModelMatrix[0][3] = xf.Get03();
+  mGXModelMatrix[1][0] = xf.Get10();
+  mGXModelMatrix[1][1] = xf.Get11();
+  mGXModelMatrix[1][2] = xf.Get12();
+  mGXModelMatrix[1][3] = xf.Get13();
+  mGXModelMatrix[2][0] = xf.Get20();
+  mGXModelMatrix[2][1] = xf.Get21();
+  mGXModelMatrix[2][2] = xf.Get22();
+  mGXModelMatrix[2][3] = xf.Get23();
+  SetViewMatrix();
+}
+
+void CGraphics::SetIdentityModelMatrix() {
+  if (!mIsGXModelMatrixIdentity) {
+    mModelMatrix = CTransform4f::Identity();
+    mIsGXModelMatrixIdentity = true;
+    SetViewMatrix();
+  }
 }
