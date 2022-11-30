@@ -38,7 +38,9 @@
     "osexception.h": "c",
     "oserror.h": "c",
     "oscontext.h": "c",
-    "oscache.h": "c"
+    "oscache.h": "c",
+    "stdlib.h": "c",
+    "musyx_priv.h": "c"
   },
   "files.autoSave": "onFocusChange",
   "files.insertFinalNewline": true,

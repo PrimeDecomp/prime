@@ -79,6 +79,22 @@ u32 salInitDsp(u32);
 u32 salInitDspCtrl(u32, u32, u16);
 u32 salStartAi();
 
+/* Stream */
+typedef s32 (*SND_STREAM_UPDATE_CALLBACK)(void * buffer1, u32 len1, void * buffer2, u32 len2, void* user);
+typedef struct SND_STREAM_INFO {
+  u32 x0_;
+  u32 x4_;
+  u32 x8_;
+  u8 xc_;
+  char data2[0x10 - 0xd];
+  SND_STREAM_UPDATE_CALLBACK updateCb;
+  char data3[0x4C - 0x14];
+  SND_VOICEID voiceId;
+  void* user;
+  char data4[0x64 - 0x54];
+} SND_STREAM_INFO;
+
+
 /* TODO: Figure out what `unk` is */
 bool hwAddInput(u8 studio, void* unk);
 bool hwRemoveInput(u8 studio, void* unk);
