@@ -17,6 +17,8 @@ CScriptPickupGenerator::CScriptPickupGenerator(TUniqueId uid, const rstl::string
   ResetDelayTimer();
 }
 
+CScriptPickupGenerator::~CScriptPickupGenerator() {}
+
 void CScriptPickupGenerator::GetGeneratorIds(CStateManager& mgr, TUniqueId sender,
                                              rstl::vector< TUniqueId >& idsOut) const {
   idsOut.reserve(rstl::max_val(1, GetConnectionList().size()));
