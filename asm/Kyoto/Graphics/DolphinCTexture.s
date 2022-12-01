@@ -54,8 +54,8 @@ lbl_805A9438:
 
 .section .text, "ax"
 
-.global sub_8030e10c
-sub_8030e10c:
+.global sub_8030e10c__8CTextureFv
+sub_8030e10c__8CTextureFv:
 /* 8030E10C 0030B06C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8030E110 0030B070  7C 08 02 A6 */	mflr r0
 /* 8030E114 0030B074  90 01 00 14 */	stw r0, 0x14(r1)

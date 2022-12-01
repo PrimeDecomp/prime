@@ -138,7 +138,7 @@ LIBS = [
             ["MetroidPrime/CActorParameters", False],
             "MetroidPrime/CInGameGuiManager",
             "MetroidPrime/Enemies/CWarWasp",
-            "MetroidPrime/CWorldShadow",
+            ["MetroidPrime/CWorldShadow", False],
             ["MetroidPrime/CAudioStateWin", True],
             "MetroidPrime/Player/CPlayerVisor",
             "MetroidPrime/CModelData",

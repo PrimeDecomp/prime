@@ -908,7 +908,7 @@ __dt__12CWorldShadowFv:
 /* 80111B74 0010EAD4  80 7E 00 00 */	lwz r3, 0(r30)
 /* 80111B78 0010EAD8  28 03 00 00 */	cmplwi r3, 0
 /* 80111B7C 0010EADC  41 82 00 08 */	beq lbl_80111B84
-/* 80111B80 0010EAE0  48 1F C5 8D */	bl sub_8030e10c
+/* 80111B80 0010EAE0  48 1F C5 8D */	bl sub_8030e10c__8CTextureFv
 lbl_80111B84:
 /* 80111B84 0010EAE4  28 1E 00 00 */	cmplwi r30, 0
 /* 80111B88 0010EAE8  41 82 00 10 */	beq lbl_80111B98
@@ -1007,4 +1007,3 @@ lbl_803CF1F8:
 	# ROM: 0x3CC1F8
 	.asciz "??(??)"
 	.balign 4
-

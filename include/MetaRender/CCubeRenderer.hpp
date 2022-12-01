@@ -25,13 +25,13 @@ public:
   ~CCubeRenderer() override;
   // TODO types
   void AddStaticGeometry() override;
-  void EnablePVS() override;
+  void EnablePVS(const CPVSVisSet& set, int areaIdx) override;
   void DisablePVS() override;
   void RemoveStaticGeometry() override;
-  void DrawUnsortedGeometry() override;
-  void DrawSortedGeometry() override;
-  void DrawStaticGeometry() override;
-  void DrawAreaGeometry() override;
+  void DrawUnsortedGeometry(int areaIdx, int mask, int targetMask) override;
+  void DrawSortedGeometry(int areaIdx, int mask, int targetMask) override;
+  void DrawStaticGeometry(int areaIdx, int mask, int targetMask) override;
+  void DrawAreaGeometry(int areaIdx, int mask, int targetMask) override;
   void PostRenderFogs() override;
   void SetModelMatrix(const CTransform4f& xf) override;
   void AddParticleGen(const CParticleGen& gen) override;
@@ -45,8 +45,8 @@ public:
   void SetPerspective2() override;
   rstl::pair< CVector2f, CVector2f > SetViewportOrtho(bool centered, float znear,
                                                       float zfar) override;
-  void SetClippingPlanes() override;
-  void SetViewport() override;
+  void SetClippingPlanes(const CFrustumPlanes&) override;
+  void SetViewport(int left, int right, int width, int height) override;
   void SetDepthReadWrite(bool read, bool update) override;
   void SetBlendMode_AdditiveAlpha() override;
   void SetBlendMode_AlphaBlended() override;
@@ -90,7 +90,7 @@ public:
   void SetGXRegister1Color() override;
   void SetWorldLightFadeLevel() override;
   void Something() override;
-  void PrepareDynamicLights() override;
+  void PrepareDynamicLights(const rstl::vector<CLight>& lights) override;
 
   void AllocatePhazonSuitMaskTexture();
 
