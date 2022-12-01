@@ -30,6 +30,7 @@ _LITERAL_REPLACEMENTS = [
 
   ("g_SimplePool", "gpSimplePool"),
   ("g_Renderer", "gpRender"),
+  ("g_ResFactory", "gpResourceFactory"),
 
   # Vector
   (".magnitude()", ".Magnitude()"),

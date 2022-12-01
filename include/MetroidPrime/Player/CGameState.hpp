@@ -45,6 +45,8 @@ public:
   void SetFileIdx(u32 idx) { x20c_saveIdx = idx; }
   void SetCardSerial(u64 serial) { x210_cardSerial = serial; }
   u64 GetCardSerial() const { return x210_cardSerial; }
+  bool GetHardMode() const { return x228_24_hardMode; }
+  float GetHardModeWeaponMultiplier() const;
   rstl::rc_ptr< CWorldTransManager >& WorldTransitionManager(); // { return x9c_transManager.GetPtr(); }
 
   struct GameFileStateInfo {

@@ -74,7 +74,8 @@ public:
   static void RemoveEmitter(CSfxHandle handle);
   static void UpdateEmitter(CSfxHandle handle, const CVector3f& pos, const CVector3f& dir,
                             uchar maxVol);
-  static void UpdateListener(const CVector3f& pos, const CVector3f& dir, const CVector3f&, const CVector3f&, const uchar);
+  static void UpdateListener(const CVector3f& pos, const CVector3f& dir, const CVector3f&,
+                             const CVector3f&, const uchar);
 
   static const short kMaxPriority;           // 0xFF
   static const short kMedPriority;           // 0x7F
@@ -86,6 +87,8 @@ public:
   static CSfxHandle AddEmitter(ushort id, const CVector3f& pos, const CVector3f& dir, uchar vol,
                                bool useAcoustics, bool looped, short prio = kMedPriority,
                                int areaId = kAllAreas);
+  static CSfxHandle AddEmitter(CAudioSys::C3DEmitterParmData& parmData, bool useAcoustics,
+                               short prio, bool looped, int areaId = kAllAreas);
 
   static void AddListener(ESfxChannels channel, const CVector3f& pos, const CVector3f& dir,
                           const CVector3f& vec1, const CVector3f& vec2, float f1, float f2,
@@ -95,8 +98,10 @@ public:
 
   static void PitchBend(CSfxHandle handle, int pitch);
 
-  static CSfxHandle SfxStart(ushort id, short vol, short pan, bool useAcoustics, short prio = kMaxPriority,
-                             bool looped = false, int areaId = kAllAreas);
+  static CSfxHandle SfxStart(ushort id, short vol, short pan, bool useAcoustics,
+                             short prio = kMaxPriority, bool looped = false,
+                             int areaId = kAllAreas);
+  static void SfxSpan(CSfxHandle, uchar);
   static bool IsPlaying(const CSfxHandle& handle);
 
   static void SetChannel(ESfxChannels);

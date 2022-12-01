@@ -11,7 +11,7 @@ get_current_suit__12NWeaponTypesFRC13CStateManager:
 /* 8028A9DC 0028793C  80 63 08 B8 */	lwz r3, 0x8b8(r3)
 /* 8028A9E0 00287940  83 E3 00 00 */	lwz r31, 0(r3)
 /* 8028A9E4 00287944  7F E3 FB 78 */	mr r3, r31
-/* 8028A9E8 00287948  4B E0 6A F5 */	bl GetCurrentSuit__12CPlayerStateFv
+/* 8028A9E8 00287948  4B E0 6A F5 */	bl GetCurrentSuit__12CPlayerStateCFv
 /* 8028A9EC 0028794C  2C 03 00 00 */	cmpwi r3, 0
 /* 8028A9F0 00287950  41 80 00 0C */	blt lbl_8028A9FC
 /* 8028A9F4 00287954  2C 03 00 05 */	cmpwi r3, 5
@@ -127,8 +127,8 @@ lbl_8028AB68:
 /* 8028AB80 00287AE0  38 21 00 20 */	addi r1, r1, 0x20
 /* 8028AB84 00287AE4  4E 80 00 20 */	blr
 
-.global "do_sound_event__12NWeaponTypesFRQ24rstl21pair<Us,10CSfxHandle>RibUifUiffUcRC9CVector3fRC9CVector3f7TAreaId"
-"do_sound_event__12NWeaponTypesFRQ24rstl21pair<Us,10CSfxHandle>RibUifUiffUcRC9CVector3fRC9CVector3f7TAreaId":
+.global "do_sound_event__12NWeaponTypesFRQ24rstl21pair<Us,10CSfxHandle>RibUifUiffUcUcRC9CVector3fRC9CVector3f7TAreaIdR13CStateManager"
+"do_sound_event__12NWeaponTypesFRQ24rstl21pair<Us,10CSfxHandle>RibUifUiffUcUcRC9CVector3fRC9CVector3f7TAreaIdR13CStateManager":
 /* 8028AB88 00287AE8  94 21 FF 20 */	stwu r1, -0xe0(r1)
 /* 8028AB8C 00287AEC  7C 08 02 A6 */	mflr r0
 /* 8028AB90 00287AF0  90 01 00 E4 */	stw r0, 0xe4(r1)
@@ -674,7 +674,7 @@ lbl_8028B308:
 /* 8028B328 00288288  28 04 00 00 */	cmplwi r4, 0
 /* 8028B32C 0028828C  41 82 00 0C */	beq lbl_8028B338
 /* 8028B330 00288290  38 61 00 10 */	addi r3, r1, 0x10
-/* 8028B334 00288294  4B DA 5F 75 */	bl sub_800312a8
+/* 8028B334 00288294  4B DA 5F 75 */	bl "free_node_and_sub_nodes__Q24rstl130red_black_tree<10CPrimitive,10CPrimitive,0,Q24rstl22identity<10CPrimitive>,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>FPQ34rstl130red_black_tree<10CPrimitive,10CPrimitive,0,Q24rstl22identity<10CPrimitive>,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>4node"
 lbl_8028B338:
 /* 8028B338 00288298  38 00 00 00 */	li r0, 0
 /* 8028B33C 0028829C  90 01 00 20 */	stw r0, 0x20(r1)
@@ -734,7 +734,7 @@ lbl_8028B338:
 /* 8028B408 00288368  28 04 00 00 */	cmplwi r4, 0
 /* 8028B40C 0028836C  41 82 00 0C */	beq lbl_8028B418
 /* 8028B410 00288370  38 61 00 10 */	addi r3, r1, 0x10
-/* 8028B414 00288374  4B DA 5E 95 */	bl sub_800312a8
+/* 8028B414 00288374  4B DA 5E 95 */	bl "free_node_and_sub_nodes__Q24rstl130red_black_tree<10CPrimitive,10CPrimitive,0,Q24rstl22identity<10CPrimitive>,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>FPQ34rstl130red_black_tree<10CPrimitive,10CPrimitive,0,Q24rstl22identity<10CPrimitive>,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>4node"
 lbl_8028B418:
 /* 8028B418 00288378  38 00 00 00 */	li r0, 0
 /* 8028B41C 0028837C  90 01 00 20 */	stw r0, 0x20(r1)

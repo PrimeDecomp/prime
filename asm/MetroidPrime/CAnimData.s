@@ -3706,7 +3706,7 @@ lbl_8002C704:
 /* 8002C708 00029668  28 04 00 00 */	cmplwi r4, 0
 /* 8002C70C 0002966C  41 82 00 0C */	beq lbl_8002C718
 /* 8002C710 00029670  38 61 00 54 */	addi r3, r1, 0x54
-/* 8002C714 00029674  48 00 4B 95 */	bl sub_800312a8
+/* 8002C714 00029674  48 00 4B 95 */	bl "free_node_and_sub_nodes__Q24rstl130red_black_tree<10CPrimitive,10CPrimitive,0,Q24rstl22identity<10CPrimitive>,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>FPQ34rstl130red_black_tree<10CPrimitive,10CPrimitive,0,Q24rstl22identity<10CPrimitive>,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>4node"
 lbl_8002C718:
 /* 8002C718 00029678  38 00 00 00 */	li r0, 0
 /* 8002C71C 0002967C  38 61 00 1C */	addi r3, r1, 0x1c
@@ -5992,7 +5992,7 @@ lbl_8002E7C0:
 /* 8002E7C4 0002B724  28 04 00 00 */	cmplwi r4, 0
 /* 8002E7C8 0002B728  41 82 00 0C */	beq lbl_8002E7D4
 /* 8002E7CC 0002B72C  38 61 00 54 */	addi r3, r1, 0x54
-/* 8002E7D0 0002B730  48 00 2A D9 */	bl sub_800312a8
+/* 8002E7D0 0002B730  48 00 2A D9 */	bl "free_node_and_sub_nodes__Q24rstl130red_black_tree<10CPrimitive,10CPrimitive,0,Q24rstl22identity<10CPrimitive>,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>FPQ34rstl130red_black_tree<10CPrimitive,10CPrimitive,0,Q24rstl22identity<10CPrimitive>,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>4node"
 lbl_8002E7D4:
 /* 8002E7D4 0002B734  38 00 00 00 */	li r0, 0
 /* 8002E7D8 0002B738  38 61 00 14 */	addi r3, r1, 0x14
@@ -9096,8 +9096,8 @@ lbl_80031284:
 /* 800312A0 0002E200  38 21 00 30 */	addi r1, r1, 0x30
 /* 800312A4 0002E204  4E 80 00 20 */	blr
 
-.global sub_800312a8
-sub_800312a8:
+.global "free_node_and_sub_nodes__Q24rstl130red_black_tree<10CPrimitive,10CPrimitive,0,Q24rstl22identity<10CPrimitive>,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>FPQ34rstl130red_black_tree<10CPrimitive,10CPrimitive,0,Q24rstl22identity<10CPrimitive>,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>4node"
+"free_node_and_sub_nodes__Q24rstl130red_black_tree<10CPrimitive,10CPrimitive,0,Q24rstl22identity<10CPrimitive>,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>FPQ34rstl130red_black_tree<10CPrimitive,10CPrimitive,0,Q24rstl22identity<10CPrimitive>,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>4node":
 /* 800312A8 0002E208  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 800312AC 0002E20C  7C 08 02 A6 */	mflr r0
 /* 800312B0 0002E210  90 01 00 14 */	stw r0, 0x14(r1)
@@ -9108,13 +9108,13 @@ sub_800312a8:
 /* 800312C4 0002E224  80 84 00 00 */	lwz r4, 0(r4)
 /* 800312C8 0002E228  28 04 00 00 */	cmplwi r4, 0
 /* 800312CC 0002E22C  41 82 00 08 */	beq lbl_800312D4
-/* 800312D0 0002E230  4B FF FF D9 */	bl sub_800312a8
+/* 800312D0 0002E230  4B FF FF D9 */	bl "free_node_and_sub_nodes__Q24rstl130red_black_tree<10CPrimitive,10CPrimitive,0,Q24rstl22identity<10CPrimitive>,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>FPQ34rstl130red_black_tree<10CPrimitive,10CPrimitive,0,Q24rstl22identity<10CPrimitive>,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>4node"
 lbl_800312D4:
 /* 800312D4 0002E234  80 9F 00 04 */	lwz r4, 4(r31)
 /* 800312D8 0002E238  28 04 00 00 */	cmplwi r4, 0
 /* 800312DC 0002E23C  41 82 00 0C */	beq lbl_800312E8
 /* 800312E0 0002E240  7F C3 F3 78 */	mr r3, r30
-/* 800312E4 0002E244  4B FF FF C5 */	bl sub_800312a8
+/* 800312E4 0002E244  4B FF FF C5 */	bl "free_node_and_sub_nodes__Q24rstl130red_black_tree<10CPrimitive,10CPrimitive,0,Q24rstl22identity<10CPrimitive>,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>FPQ34rstl130red_black_tree<10CPrimitive,10CPrimitive,0,Q24rstl22identity<10CPrimitive>,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>4node"
 lbl_800312E8:
 /* 800312E8 0002E248  28 1F 00 00 */	cmplwi r31, 0
 /* 800312EC 0002E24C  41 82 00 18 */	beq lbl_80031304

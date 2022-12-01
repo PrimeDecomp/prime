@@ -86,7 +86,7 @@ lbl_8006D884:
 /* 8006D8F8 0006A858  28 04 00 00 */	cmplwi r4, 0
 /* 8006D8FC 0006A85C  41 82 00 0C */	beq lbl_8006D908
 /* 8006D900 0006A860  38 61 00 38 */	addi r3, r1, 0x38
-/* 8006D904 0006A864  4B FC 39 A5 */	bl sub_800312a8
+/* 8006D904 0006A864  4B FC 39 A5 */	bl "free_node_and_sub_nodes__Q24rstl130red_black_tree<10CPrimitive,10CPrimitive,0,Q24rstl22identity<10CPrimitive>,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>FPQ34rstl130red_black_tree<10CPrimitive,10CPrimitive,0,Q24rstl22identity<10CPrimitive>,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>4node"
 lbl_8006D908:
 /* 8006D908 0006A868  38 00 00 00 */	li r0, 0
 /* 8006D90C 0006A86C  90 01 00 48 */	stw r0, 0x48(r1)

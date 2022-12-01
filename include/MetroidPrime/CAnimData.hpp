@@ -17,6 +17,7 @@
 #include "Kyoto/TToken.hpp"
 
 #include "rstl/reserved_vector.hpp"
+#include "rstl/set.hpp"
 
 class CAnimationManager;
 class CAnimSysContext;
@@ -28,6 +29,7 @@ class CSkinnedModelWithAvgNormals;
 class CTransitionManager;
 class CVertexMorphEffect;
 class CModelFlags;
+class CPrimitive;
 
 class CAnimData {
 public:
@@ -89,7 +91,8 @@ public:
   // Advance__9CAnimDataFfRC9CVector3fR13CStateManagerb
   // DoAdvance__9CAnimDataFfRbR9CRandom16b
   void SetAnimation(const CAnimPlaybackParms& parms, bool noTrans);
-  // GetAnimationPrimitives__9CAnimDataCFRC18CAnimPlaybackParmsRQ24rstl72set<10CPrimitive,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>
+  void GetAnimationPrimitives(const CAnimPlaybackParms& parms,
+                              rstl::set< CPrimitive >& primsOut) const;
   // PrimitiveSetToTokenVector__9CAnimDataFRCQ24rstl72set<10CPrimitive,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>RQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>b
   // BuildPose__9CAnimDataFv
   // PreRender__9CAnimDataFv
@@ -125,7 +128,7 @@ public:
   // UpdateAdditiveAnims__9CAnimDataFf
   // AdvanceAdditiveAnims__9CAnimDataFf
   // AddAdditiveSegData__9CAnimDataCFRC10CSegIdListR16CSegStatementSet
-  // GetEventResourceIdForAnimResourceId__9CAnimDataCFi
+  int GetEventResourceIdForAnimResourceId(int id) const;
   // GetAnimationManager__9CAnimDataFv
   // SetPoseValid__9CAnimDataFb
 

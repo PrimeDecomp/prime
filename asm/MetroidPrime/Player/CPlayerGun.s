@@ -1379,7 +1379,7 @@ lbl_8003B3D8:
 /* 8003B430 00038390  28 04 00 00 */	cmplwi r4, 0
 /* 8003B434 00038394  41 82 00 0C */	beq lbl_8003B440
 /* 8003B438 00038398  38 61 00 10 */	addi r3, r1, 0x10
-/* 8003B43C 0003839C  4B FF 5E 6D */	bl sub_800312a8
+/* 8003B43C 0003839C  4B FF 5E 6D */	bl "free_node_and_sub_nodes__Q24rstl130red_black_tree<10CPrimitive,10CPrimitive,0,Q24rstl22identity<10CPrimitive>,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>FPQ34rstl130red_black_tree<10CPrimitive,10CPrimitive,0,Q24rstl22identity<10CPrimitive>,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>4node"
 lbl_8003B440:
 /* 8003B440 000383A0  38 00 00 00 */	li r0, 0
 /* 8003B444 000383A4  90 01 00 20 */	stw r0, 0x20(r1)
@@ -2345,7 +2345,7 @@ lbl_8003C1BC:
 /* 8003C1EC 0003914C  80 FB 00 34 */	lwz r7, 0x34(r27)
 /* 8003C1F0 00039150  C0 5B 00 3C */	lfs f2, 0x3c(r27)
 /* 8003C1F4 00039154  C0 7B 00 40 */	lfs f3, 0x40(r27)
-/* 8003C1F8 00039158  48 24 E9 91 */	bl "do_sound_event__12NWeaponTypesFRQ24rstl21pair<Us,10CSfxHandle>RibUifUiffUcRC9CVector3fRC9CVector3f7TAreaId"
+/* 8003C1F8 00039158  48 24 E9 91 */	bl "do_sound_event__12NWeaponTypesFRQ24rstl21pair<Us,10CSfxHandle>RibUifUiffUcUcRC9CVector3fRC9CVector3f7TAreaIdR13CStateManager"
 lbl_8003C1FC:
 /* 8003C1FC 0003915C  3B 7B 00 44 */	addi r27, r27, 0x44
 /* 8003C200 00039160  3B 39 00 01 */	addi r25, r25, 1
@@ -2402,7 +2402,7 @@ lbl_8003C284:
 /* 8003C2B4 00039214  80 DB 00 38 */	lwz r6, 0x38(r27)
 /* 8003C2B8 00039218  C0 3B 00 2C */	lfs f1, 0x2c(r27)
 /* 8003C2BC 0003921C  80 FB 00 34 */	lwz r7, 0x34(r27)
-/* 8003C2C0 00039220  48 24 E8 C9 */	bl "do_sound_event__12NWeaponTypesFRQ24rstl21pair<Us,10CSfxHandle>RibUifUiffUcRC9CVector3fRC9CVector3f7TAreaId"
+/* 8003C2C0 00039220  48 24 E8 C9 */	bl "do_sound_event__12NWeaponTypesFRQ24rstl21pair<Us,10CSfxHandle>RibUifUiffUcUcRC9CVector3fRC9CVector3f7TAreaIdR13CStateManager"
 lbl_8003C2C4:
 /* 8003C2C4 00039224  3B 7B 00 4C */	addi r27, r27, 0x4c
 /* 8003C2C8 00039228  3B 5A 00 01 */	addi r26, r26, 1
