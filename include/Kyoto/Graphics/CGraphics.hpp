@@ -289,9 +289,6 @@ public:
   static void sub_80309564(uint* stretch, uint* xOffset, uint* yOffset);
   static void sub_803094b0(uint stretch, uint xOffset, uint yOffset);
 
-  // Render
-  static void Render2D(const CTexture& tex, int x, int y, int w, int h, const CColor& col);
-
   static CTevCombiners::CTevPass& kEnvPassthru;
   static CTevCombiners::CTevPass kEnvModulateConstColor;
   static CTevCombiners::CTevPass kEnvConstColor;

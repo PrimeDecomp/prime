@@ -10,6 +10,7 @@
 
 class CAABox;
 class CSphere;
+class CTransform4f;
 
 class CFrustumPlanes {
 public:
