@@ -632,7 +632,7 @@ lbl_801F04B0:
 /* 801F05CC 001ED52C  4B E1 46 ED */	bl string_l__4rstlFPCc
 /* 801F05D0 001ED530  38 7C 00 2C */	addi r3, r28, 0x2c
 /* 801F05D4 001ED534  38 81 00 28 */	addi r4, r1, 0x28
-/* 801F05D8 001ED538  4B E6 20 09 */	bl "find__Q24rstl418red_black_tree<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,Q24rstl83pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,s>,0,Q24rstl103select1st<Q24rstl83pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,s>>,Q24rstl81less<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>,Q24rstl17rmemory_allocator>CFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocat"
+/* 801F05D8 001ED538  4B E6 20 09 */	bl "__eq__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>CFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 /* 801F05DC 001ED53C  7C 7C 1B 78 */	mr r28, r3
 /* 801F05E0 001ED540  38 61 00 28 */	addi r3, r1, 0x28
 /* 801F05E4 001ED544  48 14 D4 FD */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"

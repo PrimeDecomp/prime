@@ -161,6 +161,8 @@ CSfxHandle play_sfx(u16 sfx, bool underwater, bool looped, short pan) {
   return hnd;
 }
 
+} // namespace NWeaponTypes
+
 CDamageInfo CGunWeapon::GetShotDamageInfo(const SShotParam& shotParam, CStateManager& mgr) const {
   // CWeaponMode mode(shotParam.x0_weaponType, 0);
   // float damage = shotParam.x8_damage;
@@ -182,6 +184,9 @@ CDamageInfo CGunWeapon::GetShotDamageInfo(const SShotParam& shotParam, CStateMan
   }
   return result;
 }
+
+
+namespace NWeaponTypes {
 
 int get_current_suit(const CStateManager& mgr) {
   const CPlayerState* state = mgr.GetPlayerState();

@@ -20,7 +20,7 @@ lbl_802CAFA4:
 /* 802CAFA4 002C7F04  80 1C 00 0C */	lwz r0, 0xc(r28)
 /* 802CAFA8 002C7F08  7F A4 EB 78 */	mr r4, r29
 /* 802CAFAC 002C7F0C  7C 60 FA 14 */	add r3, r0, r31
-/* 802CAFB0 002C7F10  4B D8 76 31 */	bl "find__Q24rstl418red_black_tree<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,Q24rstl83pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,s>,0,Q24rstl103select1st<Q24rstl83pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,s>>,Q24rstl81less<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>,Q24rstl17rmemory_allocator>CFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocat"
+/* 802CAFB0 002C7F10  4B D8 76 31 */	bl "__eq__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>CFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 /* 802CAFB4 002C7F14  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 802CAFB8 002C7F18  41 82 00 0C */	beq lbl_802CAFC4
 /* 802CAFBC 002C7F1C  7F C3 07 34 */	extsh r3, r30
@@ -196,4 +196,3 @@ lbl_803D6948:
 	.asciz "??(??)"
 	.balign 4
 	.4byte 0
-

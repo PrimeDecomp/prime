@@ -1483,15 +1483,15 @@ sub_8002a750:
 /* 8002A750 000276B0  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8002A754 000276B4  7C 08 02 A6 */	mflr r0
 /* 8002A758 000276B8  90 01 00 14 */	stw r0, 0x14(r1)
-/* 8002A75C 000276BC  48 00 00 19 */	bl sub_8002a774
+/* 8002A75C 000276BC  48 00 00 19 */	bl "_eq_helper__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>CFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 /* 8002A760 000276C0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8002A764 000276C4  54 63 0F FE */	srwi r3, r3, 0x1f
 /* 8002A768 000276C8  7C 08 03 A6 */	mtlr r0
 /* 8002A76C 000276CC  38 21 00 10 */	addi r1, r1, 0x10
 /* 8002A770 000276D0  4E 80 00 20 */	blr
 
-.global sub_8002a774
-sub_8002a774:
+.global "_eq_helper__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>CFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
+"_eq_helper__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>CFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>":
 /* 8002A774 000276D4  94 21 FF B0 */	stwu r1, -0x50(r1)
 /* 8002A778 000276D8  7C 08 02 A6 */	mflr r0
 /* 8002A77C 000276DC  38 E0 00 00 */	li r7, 0

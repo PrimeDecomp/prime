@@ -136,7 +136,7 @@ lbl_8023F460:
 lbl_8023F468:
 /* 8023F468 0023C3C8  38 7F 00 0C */	addi r3, r31, 0xc
 /* 8023F46C 0023C3CC  38 9E 00 3C */	addi r4, r30, 0x3c
-/* 8023F470 0023C3D0  4B E1 31 71 */	bl "find__Q24rstl418red_black_tree<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,Q24rstl83pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,s>,0,Q24rstl103select1st<Q24rstl83pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,s>>,Q24rstl81less<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>,Q24rstl17rmemory_allocator>CFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocat"
+/* 8023F470 0023C3D0  4B E1 31 71 */	bl "__eq__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>CFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 /* 8023F474 0023C3D4  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 8023F478 0023C3D8  41 82 00 38 */	beq lbl_8023F4B0
 /* 8023F47C 0023C3DC  A0 1F 00 08 */	lhz r0, 8(r31)
@@ -360,7 +360,7 @@ sub_8023f748:
 lbl_8023F76C:
 /* 8023F76C 0023C6CC  7F 84 E3 78 */	mr r4, r28
 /* 8023F770 0023C6D0  38 7A 00 0C */	addi r3, r26, 0xc
-/* 8023F774 0023C6D4  4B E1 2E 6D */	bl "find__Q24rstl418red_black_tree<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,Q24rstl83pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,s>,0,Q24rstl103select1st<Q24rstl83pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,s>>,Q24rstl81less<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>,Q24rstl17rmemory_allocator>CFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocat"
+/* 8023F774 0023C6D4  4B E1 2E 6D */	bl "__eq__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>CFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 /* 8023F778 0023C6D8  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 8023F77C 0023C6DC  41 82 00 1C */	beq lbl_8023F798
 /* 8023F780 0023C6E0  A0 1A 00 08 */	lhz r0, 8(r26)

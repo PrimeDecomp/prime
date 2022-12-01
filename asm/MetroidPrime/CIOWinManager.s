@@ -15,8 +15,8 @@ lbl_803CCF28:
 
 .section .text, "ax"
 
-.global sub_80051d7c
-sub_80051d7c:
+.global "erase__Q24rstl55list<20CArchitectureMessage,Q24rstl17rmemory_allocator>FPQ34rstl55list<20CArchitectureMessage,Q24rstl17rmemory_allocator>4node"
+"erase__Q24rstl55list<20CArchitectureMessage,Q24rstl17rmemory_allocator>FPQ34rstl55list<20CArchitectureMessage,Q24rstl17rmemory_allocator>4node":
 /* 80051D7C 0004ECDC  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80051D80 0004ECE0  7C 08 02 A6 */	mflr r0
 /* 80051D84 0004ECE4  90 01 00 24 */	stw r0, 0x24(r1)
@@ -119,7 +119,7 @@ lbl_80051ECC:
 /* 80051ED8 0004EE38  7F E4 FB 78 */	mr r4, r31
 /* 80051EDC 0004EE3C  38 61 00 18 */	addi r3, r1, 0x18
 /* 80051EE0 0004EE40  38 A5 00 04 */	addi r5, r5, 4
-/* 80051EE4 0004EE44  48 00 06 05 */	bl sub_800524e8
+/* 80051EE4 0004EE44  48 00 06 05 */	bl FindIOWin__13CIOWinManagerFPCc
 /* 80051EE8 0004EE48  80 A1 00 18 */	lwz r5, 0x18(r1)
 /* 80051EEC 0004EE4C  38 61 00 18 */	addi r3, r1, 0x18
 /* 80051EF0 0004EE50  90 A1 00 24 */	stw r5, 0x24(r1)
@@ -186,7 +186,7 @@ lbl_80051FC0:
 /* 80051FD4 0004EF34  38 61 00 0C */	addi r3, r1, 0xc
 /* 80051FD8 0004EF38  83 A5 00 08 */	lwz r29, 8(r5)
 /* 80051FDC 0004EF3C  38 A5 00 0C */	addi r5, r5, 0xc
-/* 80051FE0 0004EF40  48 00 05 09 */	bl sub_800524e8
+/* 80051FE0 0004EF40  48 00 05 09 */	bl FindIOWin__13CIOWinManagerFPCc
 /* 80051FE4 0004EF44  80 A1 00 0C */	lwz r5, 0xc(r1)
 /* 80051FE8 0004EF48  38 61 00 0C */	addi r3, r1, 0xc
 /* 80051FEC 0004EF4C  90 A1 00 1C */	stw r5, 0x1c(r1)
@@ -206,7 +206,7 @@ lbl_80051FC0:
 /* 80052024 0004EF84  38 81 00 08 */	addi r4, r1, 8
 /* 80052028 0004EF88  38 07 00 01 */	addi r0, r7, 1
 /* 8005202C 0004EF8C  90 08 00 04 */	stw r0, 4(r8)
-/* 80052030 0004EF90  48 00 05 D9 */	bl sub_80052608
+/* 80052030 0004EF90  48 00 05 D9 */	bl "ChangeIOWinPriority__13CIOWinManagerFQ24rstl17ncrc_ptr<6CIOWin>ii"
 /* 80052034 0004EF94  38 61 00 08 */	addi r3, r1, 8
 /* 80052038 0004EF98  4B FB 66 65 */	bl "__dt__Q24rstl15rc_ptr<6CIOWin>Fv"
 lbl_8005203C:
@@ -349,7 +349,7 @@ lbl_800521CC:
 lbl_8005221C:
 /* 8005221C 0004F17C  38 61 00 14 */	addi r3, r1, 0x14
 /* 80052220 0004F180  38 99 00 08 */	addi r4, r25, 8
-/* 80052224 0004F184  48 00 01 69 */	bl sub_8005238c
+/* 80052224 0004F184  48 00 01 69 */	bl Pop__18CArchitectureQueueFv
 /* 80052228 0004F188  80 61 00 14 */	lwz r3, 0x14(r1)
 /* 8005222C 0004F18C  28 1E 00 00 */	cmplwi r30, 0
 /* 80052230 0004F190  80 01 00 18 */	lwz r0, 0x18(r1)
@@ -377,7 +377,7 @@ lbl_8005225C:
 /* 80052284 0004F1E4  48 00 00 10 */	b lbl_80052294
 lbl_80052288:
 /* 80052288 0004F1E8  38 79 00 08 */	addi r3, r25, 8
-/* 8005228C 0004F1EC  4B FF FA F1 */	bl sub_80051d7c
+/* 8005228C 0004F1EC  4B FF FA F1 */	bl "erase__Q24rstl55list<20CArchitectureMessage,Q24rstl17rmemory_allocator>FPQ34rstl55list<20CArchitectureMessage,Q24rstl17rmemory_allocator>4node"
 /* 80052290 0004F1F0  7C 64 1B 78 */	mr r4, r3
 lbl_80052294:
 /* 80052294 0004F1F4  7C 04 D0 40 */	cmplw r4, r26
@@ -387,7 +387,7 @@ lbl_80052294:
 /* 800522A4 0004F204  48 00 00 10 */	b lbl_800522B4
 lbl_800522A8:
 /* 800522A8 0004F208  7F 63 DB 78 */	mr r3, r27
-/* 800522AC 0004F20C  4B FF FA D1 */	bl sub_80051d7c
+/* 800522AC 0004F20C  4B FF FA D1 */	bl "erase__Q24rstl55list<20CArchitectureMessage,Q24rstl17rmemory_allocator>FPQ34rstl55list<20CArchitectureMessage,Q24rstl17rmemory_allocator>4node"
 /* 800522B0 0004F210  7C 64 1B 78 */	mr r4, r3
 lbl_800522B4:
 /* 800522B4 0004F214  7C 04 C8 40 */	cmplw r4, r25
@@ -457,8 +457,8 @@ lbl_80052378:
 /* 80052384 0004F2E4  38 21 00 50 */	addi r1, r1, 0x50
 /* 80052388 0004F2E8  4E 80 00 20 */	blr
 
-.global sub_8005238c
-sub_8005238c:
+.global Pop__18CArchitectureQueueFv
+Pop__18CArchitectureQueueFv:
 /* 8005238C 0004F2EC  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80052390 0004F2F0  7C 08 02 A6 */	mflr r0
 /* 80052394 0004F2F4  90 01 00 24 */	stw r0, 0x24(r1)
@@ -478,7 +478,7 @@ sub_8005238c:
 /* 800523CC 0004F32C  38 05 00 01 */	addi r0, r5, 1
 /* 800523D0 0004F330  90 06 00 04 */	stw r0, 4(r6)
 /* 800523D4 0004F334  80 84 00 04 */	lwz r4, 4(r4)
-/* 800523D8 0004F338  4B FF F9 A5 */	bl sub_80051d7c
+/* 800523D8 0004F338  4B FF F9 A5 */	bl "erase__Q24rstl55list<20CArchitectureMessage,Q24rstl17rmemory_allocator>FPQ34rstl55list<20CArchitectureMessage,Q24rstl17rmemory_allocator>4node"
 /* 800523DC 0004F33C  80 01 00 08 */	lwz r0, 8(r1)
 /* 800523E0 0004F340  28 1F 00 00 */	cmplwi r31, 0
 /* 800523E4 0004F344  90 1E 00 00 */	stw r0, 0(r30)
@@ -518,7 +518,7 @@ PumpMessages__13CIOWinManagerFR18CArchitectureQueue:
 lbl_8005245C:
 /* 8005245C 0004F3BC  7F A4 EB 78 */	mr r4, r29
 /* 80052460 0004F3C0  38 61 00 08 */	addi r3, r1, 8
-/* 80052464 0004F3C4  4B FF FF 29 */	bl sub_8005238c
+/* 80052464 0004F3C4  4B FF FF 29 */	bl Pop__18CArchitectureQueueFv
 /* 80052468 0004F3C8  80 61 00 08 */	lwz r3, 8(r1)
 /* 8005246C 0004F3CC  28 1F 00 00 */	cmplwi r31, 0
 /* 80052470 0004F3D0  80 01 00 0C */	lwz r0, 0xc(r1)
@@ -554,8 +554,8 @@ lbl_800524BC:
 /* 800524E0 0004F440  38 21 00 30 */	addi r1, r1, 0x30
 /* 800524E4 0004F444  4E 80 00 20 */	blr
 
-.global sub_800524e8
-sub_800524e8:
+.global FindIOWin__13CIOWinManagerFPCc
+FindIOWin__13CIOWinManagerFPCc:
 /* 800524E8 0004F448  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 800524EC 0004F44C  7C 08 02 A6 */	mflr r0
 /* 800524F0 0004F450  90 01 00 34 */	stw r0, 0x34(r1)
@@ -573,7 +573,7 @@ lbl_8005250C:
 /* 8005251C 0004F47C  80 63 00 00 */	lwz r3, 0(r3)
 /* 80052520 0004F480  48 00 06 7D */	bl GetName__6CIOWinCFv
 /* 80052524 0004F484  7F A4 EB 78 */	mr r4, r29
-/* 80052528 0004F488  48 00 00 B9 */	bl "find__Q24rstl418red_black_tree<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,Q24rstl83pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,s>,0,Q24rstl103select1st<Q24rstl83pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,s>>,Q24rstl81less<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>,Q24rstl17rmemory_allocator>CFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocat"
+/* 80052528 0004F488  48 00 00 B9 */	bl "__eq__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>CFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 /* 8005252C 0004F48C  7C 7F 1B 78 */	mr r31, r3
 /* 80052530 0004F490  38 61 00 0C */	addi r3, r1, 0xc
 /* 80052534 0004F494  4B FB 61 69 */	bl "__dt__Q24rstl15rc_ptr<6CIOWin>Fv"
@@ -598,7 +598,7 @@ lbl_80052564:
 /* 80052574 0004F4D4  80 63 00 00 */	lwz r3, 0(r3)
 /* 80052578 0004F4D8  48 00 06 25 */	bl GetName__6CIOWinCFv
 /* 8005257C 0004F4DC  7F A4 EB 78 */	mr r4, r29
-/* 80052580 0004F4E0  48 00 00 61 */	bl "find__Q24rstl418red_black_tree<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,Q24rstl83pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,s>,0,Q24rstl103select1st<Q24rstl83pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,s>>,Q24rstl81less<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>,Q24rstl17rmemory_allocator>CFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocat"
+/* 80052580 0004F4E0  48 00 00 61 */	bl "__eq__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>CFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 /* 80052584 0004F4E4  7C 7F 1B 78 */	mr r31, r3
 /* 80052588 0004F4E8  38 61 00 08 */	addi r3, r1, 8
 /* 8005258C 0004F4EC  4B FB 61 11 */	bl "__dt__Q24rstl15rc_ptr<6CIOWin>Fv"
@@ -626,12 +626,12 @@ lbl_800525CC:
 /* 800525D8 0004F538  38 21 00 30 */	addi r1, r1, 0x30
 /* 800525DC 0004F53C  4E 80 00 20 */	blr
 
-.global "find__Q24rstl418red_black_tree<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,Q24rstl83pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,s>,0,Q24rstl103select1st<Q24rstl83pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,s>>,Q24rstl81less<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>,Q24rstl17rmemory_allocator>CFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocat"
-"find__Q24rstl418red_black_tree<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,Q24rstl83pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,s>,0,Q24rstl103select1st<Q24rstl83pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,s>>,Q24rstl81less<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>,Q24rstl17rmemory_allocator>CFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocat":
+.global "__eq__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>CFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
+"__eq__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>CFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>":
 /* 800525E0 0004F540  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 800525E4 0004F544  7C 08 02 A6 */	mflr r0
 /* 800525E8 0004F548  90 01 00 14 */	stw r0, 0x14(r1)
-/* 800525EC 0004F54C  4B FD 81 89 */	bl sub_8002a774
+/* 800525EC 0004F54C  4B FD 81 89 */	bl "_eq_helper__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>CFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 /* 800525F0 0004F550  7C 60 00 34 */	cntlzw r0, r3
 /* 800525F4 0004F554  54 03 D9 7E */	srwi r3, r0, 5
 /* 800525F8 0004F558  80 01 00 14 */	lwz r0, 0x14(r1)
@@ -639,8 +639,8 @@ lbl_800525CC:
 /* 80052600 0004F560  38 21 00 10 */	addi r1, r1, 0x10
 /* 80052604 0004F564  4E 80 00 20 */	blr
 
-.global sub_80052608
-sub_80052608:
+.global "ChangeIOWinPriority__13CIOWinManagerFQ24rstl17ncrc_ptr<6CIOWin>ii"
+"ChangeIOWinPriority__13CIOWinManagerFQ24rstl17ncrc_ptr<6CIOWin>ii":
 /* 80052608 0004F568  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 8005260C 0004F56C  7C 08 02 A6 */	mflr r0
 /* 80052610 0004F570  90 01 00 34 */	stw r0, 0x34(r1)

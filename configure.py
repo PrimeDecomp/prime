@@ -47,7 +47,7 @@ LIBS = [
             ["MetroidPrime/CArchMsgParmNull", True],
             ["MetroidPrime/CArchMsgParmReal32", True],
             ["MetroidPrime/Decode", True],
-            "MetroidPrime/CIOWinManager",
+            ["MetroidPrime/CIOWinManager", False],
             ["MetroidPrime/CIOWin", True],
             ["MetroidPrime/CActor", False],
             "MetroidPrime/CWorld",

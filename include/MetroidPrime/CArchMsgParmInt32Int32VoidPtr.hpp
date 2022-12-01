@@ -14,6 +14,10 @@ class CArchMsgParmInt32Int32VoidPtr : public IArchitectureMessageParm {
 public:
   CArchMsgParmInt32Int32VoidPtr(int val1, int val2, const void* ptr);
   ~CArchMsgParmInt32Int32VoidPtr();
+
+  int GetInt1() const { return mInt1; }
+  int GetInt2() const { return mInt2; }
+  const void* GetPtr() const { return mPtr; }
 };
 
 #endif // _CARCHMSGPARMINT32INT32VOIDPTR
