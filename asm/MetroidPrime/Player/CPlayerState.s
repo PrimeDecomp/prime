@@ -320,8 +320,8 @@ GetIsFusionEnabled__12CPlayerStateCFv:
 /* 800914D4 0008E434  54 03 0F FE */	srwi r3, r0, 0x1f
 /* 800914D8 0008E438  4E 80 00 20 */	blr
 
-.global GetCurrentSuit__12CPlayerStateFv
-GetCurrentSuit__12CPlayerStateFv:
+.global GetCurrentSuit__12CPlayerStateCFv
+GetCurrentSuit__12CPlayerStateCFv:
 /* 800914DC 0008E43C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 800914E0 0008E440  7C 08 02 A6 */	mflr r0
 /* 800914E4 0008E444  90 01 00 14 */	stw r0, 0x14(r1)

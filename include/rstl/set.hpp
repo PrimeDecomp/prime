@@ -32,6 +32,7 @@ public:
 
   void erase(iterator it) { inner.erase(it); }
   int size() const { return inner.size(); }
+  
 private:
   rep_type inner;
 };

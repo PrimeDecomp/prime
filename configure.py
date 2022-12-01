@@ -352,7 +352,7 @@ LIBS = [
             "MetroidPrime/Enemies/CMetroidPrimeRelay",
             "MetroidPrime/Player/CPlayerDynamics",
             ["MetroidPrime/ScriptObjects/CScriptMazeNode", False],
-            "MetroidPrime/Weapons/WeaponTypes",
+            ["MetroidPrime/Weapons/WeaponTypes", False],
             "MetroidPrime/Enemies/COmegaPirate",
             "MetroidPrime/Enemies/CPhazonPool",
             "MetroidPrime/CNESEmulator",

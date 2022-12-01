@@ -34,7 +34,7 @@ public:
   , x24_objectScale(nullptr) {}
 
   CAnimPlaybackParms(int anim, const CQuaternion* deltaOrient, const CVector3f* targetPos,
-                               const CTransform4f* xf, const CVector3f* scale, bool useLocator)
+                     const CTransform4f* xf, const CVector3f* scale, bool useLocator)
   : x0_animA(anim)
   , x4_animB(-1)
   , x8_blendWeight(1.f)

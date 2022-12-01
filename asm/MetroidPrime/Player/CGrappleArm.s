@@ -1317,7 +1317,7 @@ lbl_8011E430:
 /* 8011E460 0011B3C0  80 FC 00 34 */	lwz r7, 0x34(r28)
 /* 8011E464 0011B3C4  C0 5C 00 3C */	lfs f2, 0x3c(r28)
 /* 8011E468 0011B3C8  C0 7C 00 40 */	lfs f3, 0x40(r28)
-/* 8011E46C 0011B3CC  48 16 C7 1D */	bl "do_sound_event__12NWeaponTypesFRQ24rstl21pair<Us,10CSfxHandle>RibUifUiffUcRC9CVector3fRC9CVector3f7TAreaId"
+/* 8011E46C 0011B3CC  48 16 C7 1D */	bl "do_sound_event__12NWeaponTypesFRQ24rstl21pair<Us,10CSfxHandle>RibUifUiffUcUcRC9CVector3fRC9CVector3f7TAreaIdR13CStateManager"
 lbl_8011E470:
 /* 8011E470 0011B3D0  3B 9C 00 44 */	addi r28, r28, 0x44
 /* 8011E474 0011B3D4  3B 5A 00 01 */	addi r26, r26, 1
@@ -1375,7 +1375,7 @@ lbl_8011E4FC:
 /* 8011E52C 0011B48C  80 DC 00 38 */	lwz r6, 0x38(r28)
 /* 8011E530 0011B490  C0 3C 00 2C */	lfs f1, 0x2c(r28)
 /* 8011E534 0011B494  80 FC 00 34 */	lwz r7, 0x34(r28)
-/* 8011E538 0011B498  48 16 C6 51 */	bl "do_sound_event__12NWeaponTypesFRQ24rstl21pair<Us,10CSfxHandle>RibUifUiffUcRC9CVector3fRC9CVector3f7TAreaId"
+/* 8011E538 0011B498  48 16 C6 51 */	bl "do_sound_event__12NWeaponTypesFRQ24rstl21pair<Us,10CSfxHandle>RibUifUiffUcUcRC9CVector3fRC9CVector3f7TAreaIdR13CStateManager"
 lbl_8011E53C:
 /* 8011E53C 0011B49C  3B 9C 00 4C */	addi r28, r28, 0x4c
 /* 8011E540 0011B4A0  3B 7B 00 01 */	addi r27, r27, 1

@@ -406,7 +406,7 @@ bool CPlayerState::CanVisorSeeFog(const CStateManager& stateMgr) const {
   return (activeVisor == kPV_Combat || activeVisor == kPV_Scan);
 }
 
-CPlayerState::EPlayerSuit CPlayerState::GetCurrentSuit() {
+CPlayerState::EPlayerSuit CPlayerState::GetCurrentSuit() const {
   if (GetIsFusionEnabled())
     return kPS_FusionPower;
 

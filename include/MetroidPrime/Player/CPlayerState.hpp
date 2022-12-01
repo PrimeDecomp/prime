@@ -105,7 +105,7 @@ public:
   void SetIsFusionEnabled(bool v);
   bool GetIsFusionEnabled() const;
 
-  EPlayerSuit GetCurrentSuit();
+  EPlayerSuit GetCurrentSuit() const;
   EPlayerSuit GetCurrentSuitRaw() const { return x20_currentSuit; }
   EBeamId GetCurrentBeam() const { return x8_currentBeam; }
   void SetCurrentBeam(EBeamId beam) { x8_currentBeam = beam; }

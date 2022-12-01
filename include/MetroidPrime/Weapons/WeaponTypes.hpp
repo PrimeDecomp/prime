@@ -34,6 +34,9 @@ public:
   , x4_24_charged(charged)
   , x4_25_comboed(comboed)
   , x4_26_instantKill(instaKill) {}
+  
+  CWeaponMode(int type, int flags) 
+  : x0_weaponType(EWeaponType(type)) {}
 
   EWeaponType GetType() const { return x0_weaponType; }
 
