@@ -161,6 +161,7 @@ struct CViewport {
 class COsContext;
 class CTexture;
 class CTimeProvider;
+class CTexture;
 
 // TODO
 typedef struct {
@@ -234,6 +235,9 @@ public:
   static void SetDefaultVtxAttrFmt();
   static CMatrix4f GetPerspectiveProjectionMatrix();
   static CMatrix4f CalculatePerspectiveMatrix(float fovy, float aspect, float znear, float zfar);
+  
+  static float GetDepthNear() { return mDepthNear; }
+  static float GetDepthFar() { return mDepthFar; }
 
   static bool IsBeginSceneClearFb();
   static void SetIsBeginSceneClearFb(bool);
@@ -243,6 +247,7 @@ public:
   static void SetTevOp(ERglTevStage stage, const CTevCombiners::CTevPass& pass);
   static void StreamBegin(ERglPrimitive primitive);
   static void StreamColor(uint color);
+  static void StreamColor(float, float, float, float);
   static void StreamColor(const CColor& color);
   static void StreamTexcoord(float u, float v);
   static void StreamVertex(float, float, float);
@@ -283,6 +288,9 @@ public:
   // Screen Position
   static void sub_80309564(uint* stretch, uint* xOffset, uint* yOffset);
   static void sub_803094b0(uint stretch, uint xOffset, uint yOffset);
+
+  // Render
+  static void Render2D(const CTexture& tex, int x, int y, int w, int h, const CColor& col);
 
   static CTevCombiners::CTevPass& kEnvPassthru;
   static CTevCombiners::CTevPass kEnvModulateConstColor;

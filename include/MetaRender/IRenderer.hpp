@@ -3,6 +3,7 @@
 
 #include "types.h"
 #include "rstl/pair.hpp"
+#include "rstl/vector.hpp"
 
 #include "Kyoto/TToken.hpp"
 
@@ -16,8 +17,11 @@ class CAABox;
 class CVector2f;
 class CVector3f;
 class CModel;
+class CFrustumPlanes;
 class CSkinnedModel;
 class CColor;
+class CLight;
+class CPVSVisSet;
 
 class IRenderer {
 public:
@@ -32,13 +36,13 @@ public:
   // TODO vtable
   
   virtual void AddStaticGeometry();
-  virtual void EnablePVS();
+  virtual void EnablePVS(const CPVSVisSet& set, int areaIdx);
   virtual void DisablePVS();
   virtual void RemoveStaticGeometry();
-  virtual void DrawUnsortedGeometry();
-  virtual void DrawSortedGeometry();
-  virtual void DrawStaticGeometry();
-  virtual void DrawAreaGeometry();
+  virtual void DrawUnsortedGeometry(int areaIdx, int mask, int targetMask);
+  virtual void DrawSortedGeometry(int areaIdx, int mask, int targetMask);
+  virtual void DrawStaticGeometry(int areaIdx, int mask, int targetMask);
+  virtual void DrawAreaGeometry(int areaIdx, int mask, int targetMask);
   virtual void PostRenderFogs();
   virtual void SetModelMatrix(const CTransform4f& xf);
   virtual void AddParticleGen(const CParticleGen& gen);
@@ -52,8 +56,8 @@ public:
   virtual void SetPerspective2();
   virtual rstl::pair< CVector2f, CVector2f > SetViewportOrtho(bool centered, float znear,
                                                               float zfar);
-  virtual void SetClippingPlanes();
-  virtual void SetViewport();
+  virtual void SetClippingPlanes(const CFrustumPlanes&);
+  virtual void SetViewport(int left, int right, int width, int height);
   virtual void SetDepthReadWrite(bool read, bool update);
   virtual void SetBlendMode_AdditiveAlpha();
   virtual void SetBlendMode_AlphaBlended();
@@ -98,7 +102,7 @@ public:
   virtual void SetGXRegister1Color();
   virtual void SetWorldLightFadeLevel();
   virtual void Something();
-  virtual void PrepareDynamicLights();
+  virtual void PrepareDynamicLights(const rstl::vector<CLight>& lights);
 };
 
 namespace Renderer {

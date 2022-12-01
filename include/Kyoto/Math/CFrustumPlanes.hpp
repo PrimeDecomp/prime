@@ -20,6 +20,7 @@ public:
     float z;
     float d;
   };
+  CFrustumPlanes(const CTransform4f&, float, float, float, bool, float);
 
   bool BoxInFrustumPlanes(const CAABox& box) const;
   bool BoxInFrustumPlanes(const rstl::optional_object< CAABox >& box) const;

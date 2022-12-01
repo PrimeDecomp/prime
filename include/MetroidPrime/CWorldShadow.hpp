@@ -9,6 +9,8 @@
 #include "rstl/single_ptr.hpp"
 
 class CTexture;
+class CStateManager;
+class CAABox;
 
 class CWorldShadow {
   rstl::single_ptr< CTexture > x0_texture;
@@ -25,8 +27,8 @@ public:
   CWorldShadow(uint w, uint h, bool rgba8);
   ~CWorldShadow();
 
-  void EnableModelProjectedShadow(const CTransform4f& pos, uint lightIdx, float f1);
-  void DisableModelProjectedShadow();
+  void EnableModelProjectedShadow(const CTransform4f& pos, uint lightIdx, float f1) const;
+  void DisableModelProjectedShadow() const;
   void BuildLightShadowTexture(const CStateManager& mgr, TAreaId aid, uint lightIdx,
                                const CAABox& aabb, bool motionBlur, bool lighten);
   void ResetBlur();

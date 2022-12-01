@@ -47,6 +47,7 @@ class CToken;
 class IDvdRequest;
 class CScriptAreaAttributes;
 class CWorldLight;
+class CPVSAreaSet;
 
 class CGameArea : public IGameArea {
 public:
@@ -150,9 +151,11 @@ public:
   enum EOcclusionState { kOS_Occluded, kOS_Visible };
 
   struct CPostConstructed {
-    uchar x0_pad[0x10c4];
+    uchar x0_pad[0xa0];
+    CPVSAreaSet* xa0_pvs;
+    uchar xa4_pad[0x1020];
     rstl::single_ptr< CAreaFog > x10c4_areaFog;
-    rstl::optional_object< void* > x10c8_sclyBuf; // was rstl::optional_object<void*>
+    rstl::optional_object< void* > x10c8_sclyBuf;
     u32 x10d0_sclySize;
     const u8* x10d4_firstMatPtr;
     const CScriptAreaAttributes* x10d8_areaAttributes;
@@ -165,6 +168,7 @@ public:
   EOcclusionState GetOcclusionState() const { return x12c_postConstructed->x10dc_occlusionState; }
   const rstl::vector<CWorldLight>& GetLightsA() const;
   const rstl::vector<CWorldLight>& GetLightsB() const;
+  const CPVSAreaSet* GetAreaVisSet() const { return x12c_postConstructed->xa0_pvs; }
 
 private:
   uchar x110_pad[0x1c];

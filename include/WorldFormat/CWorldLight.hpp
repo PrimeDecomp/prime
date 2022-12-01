@@ -24,6 +24,8 @@ public:
 
 
   CLight GetAsCGraphicsLight() const;
+  const CVector3f& GetPosition() const { return x10_position; }
+
 public:
   EWorldLightType x0_type;
   CVector3f x4_color;
