@@ -63,8 +63,8 @@ private:
   uchar mNumMips;
   uchar mBitsPerPixel;
   uchar mFlag1 : 1;
-  uchar pad[0x57];
+  uchar pad[0x5A];
 };
-// CHECK_SIZEOF(CTexture, )
+CHECK_SIZEOF(CTexture, 0x68)
 
 #endif // _CTEXTURE
