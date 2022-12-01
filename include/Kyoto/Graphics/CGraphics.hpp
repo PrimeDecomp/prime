@@ -7,6 +7,7 @@
 #include "Kyoto/Graphics/CColor.hpp"
 #include "Kyoto/Graphics/CLight.hpp"
 #include "Kyoto/Graphics/CTevCombiners.hpp"
+#include "Kyoto/Math/CMatrix4f.hpp"
 #include "Kyoto/Math/CTransform4f.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
 
@@ -158,8 +159,10 @@ struct CViewport {
 };
 
 class COsContext;
+class CTexture;
 class CTimeProvider;
 
+// TODO
 typedef struct {
   float x;
   float y;
@@ -189,6 +192,11 @@ public:
     , x14_near(near)
     , x18_far(far) {}
 
+    bool IsPerspective() const { return x0_persp; }
+    float GetLeft() const { return x4_left; }
+    float GetRight() const { return x8_right; }
+    float GetTop() const { return xc_top; }
+    float GetBottom() const { return x10_bottom; }
     float GetNear() const { return x14_near; }
     float GetFar() const { return x18_far; }
 
@@ -212,20 +220,26 @@ public:
   static void LoadLight(ERglLight light, const CLight& info);
   static void SetLightState(uchar lights);
   static void SetViewMatrix();
+  static void SetScissor(int left, int bottom, int width, int height);
+  static void ClearBackAndDepthBuffers();
 
   static void SetIdentityViewPointMatrix();
   static void SetIdentityModelMatrix();
   static void SetViewport(int left, int bottom, int width, int height);
   static void SetPerspective(float fovy, float aspect, float znear, float zfar);
   static void SetCopyClear(const CColor& color, float depth);
+  static void SetClearColor(const CColor& color);
   static void SetDepthRange(float near, float far);
   static void FlushProjection();
   static void SetDefaultVtxAttrFmt();
+  static CMatrix4f GetPerspectiveProjectionMatrix();
+  static CMatrix4f CalculatePerspectiveMatrix(float fovy, float aspect, float znear, float zfar);
 
   static bool IsBeginSceneClearFb();
   static void SetIsBeginSceneClearFb(bool);
   static void BeginScene();
   static void EndScene();
+  static void SwapBuffers();
   static void SetTevOp(ERglTevStage stage, const CTevCombiners::CTevPass& pass);
   static void StreamBegin(ERglPrimitive primitive);
   static void StreamColor(uint color);
@@ -234,7 +248,13 @@ public:
   static void StreamVertex(float, float, float);
   static void StreamVertex(const CVector3f& vtx);
   static void StreamVertex(const float*);
+  static void StreamNormal(const float*);
   static void StreamEnd();
+  static void Render2D(const CTexture& tex, int x, int y, int w, int h, const CColor& col);
+  static void DrawPrimitive(ERglPrimitive primitive, const float* pos, const CVector3f& normal, const CColor& col, int numVerts);
+
+  static void VideoPreCallback(u32 retraceCount);
+  static void VideoPostCallback(u32 retraceCount);
 
   static const CViewport& GetViewport() { return mViewport; }
   static const CVector3f& GetViewPoint() { return mViewPoint; }
@@ -252,11 +272,13 @@ public:
   static void SetFog(ERglFogMode mode, float startz, float endz, const CColor& color);
 
   static void SetModelMatrix(const CTransform4f& xf);
-  static void SetAlphaCompare(ERglAlphaFunc comp0, u8 ref0, ERglAlphaOp op, ERglAlphaFunc comp1,
-                              u8 ref1);
+  static void SetAlphaCompare(ERglAlphaFunc comp0, uchar ref0, ERglAlphaOp op, ERglAlphaFunc comp1,
+                              uchar ref1);
   static void SetDepthWriteMode(bool test, ERglEnum comp, bool write);
-  static void SetBlendMode(ERglBlendMode, ERglBlendFactor, ERglBlendFactor, ERglLogicOp);
-  static void SetCullMode(ERglCullMode);
+  static void SetBlendMode(ERglBlendMode mode, ERglBlendFactor src, ERglBlendFactor dst,
+                           ERglLogicOp op);
+  static void SetCullMode(ERglCullMode cullMode);
+  static void SetTevStates(uchar);
 
   // Screen Position
   static void sub_80309564(uint* stretch, uint* xOffset, uint* yOffset);

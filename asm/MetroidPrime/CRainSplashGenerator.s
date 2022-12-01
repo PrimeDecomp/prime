@@ -442,7 +442,7 @@ DoDraw__20CRainSplashGeneratorCFRC12CTransform4f:
 /* 8026A2A0 00267200  38 60 00 01 */	li r3, 1
 /* 8026A2A4 00267204  38 80 00 03 */	li r4, 3
 /* 8026A2A8 00267208  38 A0 00 00 */	li r5, 0
-/* 8026A2AC 0026720C  48 09 E5 D1 */	bl SetZMode__3CGXFb10_GXCompareb
+/* 8026A2AC 0026720C  48 09 E5 D1 */	bl SetZMode__3CGXFUi10_GXCompareUi
 /* 8026A2B0 00267210  80 8D 9C 68 */	lwz r4, kEnvPassthru__9CGraphics@sda21(r13)
 /* 8026A2B4 00267214  38 60 00 00 */	li r3, 0
 /* 8026A2B8 00267218  48 0A 00 01 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
@@ -1328,4 +1328,3 @@ lbl_803D5410:
 	# ROM: 0x3D2410
 	.asciz "??(??)"
 	.balign 4
-

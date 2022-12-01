@@ -4,6 +4,10 @@
 #include "types.h"
 
 class CMatrix4f {
+public:
+  CMatrix4f(float, float, float, float, float, float, float, float, float, float, float, float,
+            float, float, float, float);
+
 private:
   float m00;
   float m01;

@@ -72,6 +72,7 @@ double sin(double x);
 double cos(double x);
 double atan(double x);
 double atan2(double y, double x);
+double tan(double x);
 
 _MATH_INLINE float fabsf(float x) { return (float)fabs((double)x); }
 _MATH_INLINE float sinf(float x) { return (float)sin((double)x); }

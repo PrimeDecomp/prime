@@ -43,6 +43,9 @@ CHECK_SIZEOF(CRelAngle, 0x4)
 // __mi__FRC9CRelAngleRC9CRelAngle
 // __pl__FRC9CRelAngleRC9CRelAngle
 // __dv__FRC9CRelAnglef
+// static inline CRelAngle operator/(const CRelAngle& ang, float f) {
+//   return CRelAngle::FromRadians(ang.AsRadians() / f);
+// }
 static inline float sine(const CRelAngle& angle) { return sin(angle.AsRadians()); }
 static inline float cosine(const CRelAngle& angle) { return cos(angle.AsRadians()); }
 

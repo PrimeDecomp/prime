@@ -3159,7 +3159,7 @@ SetDepthWriteMode__9CGraphicsFb8ERglEnumb:
 /* 8030BAA0 00308A00  54 A5 06 3E */	clrlwi r5, r5, 0x18
 /* 8030BAA4 00308A04  90 01 00 14 */	stw r0, 0x14(r1)
 /* 8030BAA8 00308A08  90 8D 9C 70 */	stw r4, mDepthFunc__9CGraphics@sda21(r13)
-/* 8030BAAC 00308A0C  4B FF CD D1 */	bl SetZMode__3CGXFb10_GXCompareb
+/* 8030BAAC 00308A0C  4B FF CD D1 */	bl SetZMode__3CGXFUi10_GXCompareUi
 /* 8030BAB0 00308A10  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8030BAB4 00308A14  7C 08 03 A6 */	mtlr r0
 /* 8030BAB8 00308A18  38 21 00 10 */	addi r1, r1, 0x10
@@ -3176,7 +3176,7 @@ EndScene__9CGraphicsFv:
 /* 8030BAD8 00308A38  93 E1 00 9C */	stw r31, 0x9c(r1)
 /* 8030BADC 00308A3C  93 C1 00 98 */	stw r30, 0x98(r1)
 /* 8030BAE0 00308A40  93 A1 00 94 */	stw r29, 0x94(r1)
-/* 8030BAE4 00308A44  4B FF CD 99 */	bl SetZMode__3CGXFb10_GXCompareb
+/* 8030BAE4 00308A44  4B FF CD 99 */	bl SetZMode__3CGXFUi10_GXCompareUi
 /* 8030BAE8 00308A48  3B AD A8 0C */	addi r29, r13, mNumBreakpointsWaiting__9CGraphics@sda21
 /* 8030BAEC 00308A4C  48 00 00 08 */	b lbl_8030BAF4
 lbl_8030BAF0:
@@ -3311,7 +3311,7 @@ lbl_8030BB40:
 /* 8030BCE8 00308C48  48 06 AE 45 */	bl GXGetGPFifo
 /* 8030BCEC 00308C4C  38 81 00 0C */	addi r4, r1, 0xc
 /* 8030BCF0 00308C50  38 A1 00 08 */	addi r5, r1, 8
-/* 8030BCF4 00308C54  48 06 AA 2D */	bl __GXSaveCPUFifoAux
+/* 8030BCF4 00308C54  48 06 AA 2D */	bl GXGetFifoPtrs
 /* 8030BCF8 00308C58  80 61 00 08 */	lwz r3, 8(r1)
 /* 8030BCFC 00308C5C  48 06 AB 01 */	bl GXEnableBreakPt
 /* 8030BD00 00308C60  80 6D A8 00 */	lwz r3, mFrameCounter__9CGraphics@sda21(r13)
@@ -3319,7 +3319,7 @@ lbl_8030BB40:
 /* 8030BD08 00308C68  38 03 00 01 */	addi r0, r3, 1
 /* 8030BD0C 00308C6C  98 8D A8 14 */	stb r4, mLastFrameUsedAbove__9CGraphics@sda21(r13)
 /* 8030BD10 00308C70  90 0D A8 00 */	stw r0, mFrameCounter__9CGraphics@sda21(r13)
-/* 8030BD14 00308C74  48 06 0E 7D */	bl sub_8036cb90
+/* 8030BD14 00308C74  48 06 0E 7D */	bl sub_8036cb90__19CFrameDelayedKillerFv
 /* 8030BD18 00308C78  80 01 00 A4 */	lwz r0, 0xa4(r1)
 /* 8030BD1C 00308C7C  83 E1 00 9C */	lwz r31, 0x9c(r1)
 /* 8030BD20 00308C80  83 C1 00 98 */	lwz r30, 0x98(r1)
