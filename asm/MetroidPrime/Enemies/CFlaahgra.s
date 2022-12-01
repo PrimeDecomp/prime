@@ -2287,7 +2287,7 @@ lbl_801AEE88:
 /* 801AEF1C 001ABE7C  4B E5 5D 9D */	bl string_l__4rstlFPCc
 /* 801AEF20 001ABE80  38 7A 00 2C */	addi r3, r26, 0x2c
 /* 801AEF24 001ABE84  38 81 00 18 */	addi r4, r1, 0x18
-/* 801AEF28 001ABE88  4B EA 36 B9 */	bl "find__Q24rstl418red_black_tree<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,Q24rstl83pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,s>,0,Q24rstl103select1st<Q24rstl83pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,s>>,Q24rstl81less<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>,Q24rstl17rmemory_allocator>CFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocat"
+/* 801AEF28 001ABE88  4B EA 36 B9 */	bl "__eq__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>CFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 /* 801AEF2C 001ABE8C  7C 7B 1B 78 */	mr r27, r3
 /* 801AEF30 001ABE90  38 61 00 18 */	addi r3, r1, 0x18
 /* 801AEF34 001ABE94  48 18 EB AD */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"

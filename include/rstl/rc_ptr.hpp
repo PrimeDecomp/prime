@@ -23,6 +23,7 @@ public:
 template < typename T >
 class rc_ptr {
 public:
+  rc_ptr() : x0_refData(&CRefData::sNull) { x0_refData->AddRef(); }
   rc_ptr(const T* ptr) : x0_refData(new CRefData(ptr)) {}
   rc_ptr(const rc_ptr& other) : x0_refData(other.x0_refData) { x0_refData->AddRef(); }
   ~rc_ptr() { ReleaseData(); }
@@ -47,8 +48,16 @@ void rc_ptr< T >::ReleaseData() {
 template < typename T >
 class ncrc_ptr : public rc_ptr< T > {
 public:
+  ncrc_ptr() {}
   ncrc_ptr(T* ptr) : rc_ptr< T >(ptr) {}
+  ncrc_ptr(const rc_ptr< T >& other) : rc_ptr< T >(other) {}
 };
+
+template < typename T >
+bool operator==(const rc_ptr< T >& left, const rc_ptr< T >& right) {
+  return left.GetPtr() == right.GetPtr();
+}
+
 } // namespace rstl
 
 #endif // _RSTL_RC_PTR

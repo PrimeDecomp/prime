@@ -15,8 +15,8 @@ public:
   iterator erase(const iterator& item);
 
 private:
-  class node;
-  node* erase(const node* item);
+  struct node;
+  node* erase(node* item);
 
 public:
   list()
@@ -33,18 +33,22 @@ public:
   size_t size() const { return x14_count; }
   bool empty() const { return x14_count == 0; }
 
+  void pop_front() {
+    erase(x4_start);
+  }
+
   iterator begin() { return iterator(x4_start); }
   const_iterator begin() const { return const_iterator(x4_start); }
   iterator end() { return iterator(x8_end); }
   const_iterator end() const { return const_iterator(x8_end); }
 
   iterator erase(const iterator& start, const iterator& end) {
-    iterator it = start;
-    while (it != end) {
-      erase(it++);
+    node* last = end.get_node();
+    node* it = start.get_node();
+    while (it != last) {
+      it = erase(it);
     }
-
-    return it;
+    return iterator(it);
   }
 
 private:
@@ -135,6 +139,8 @@ public:
     bool operator==(const iterator& other) const { return current == other.current; }
     bool operator!=(const iterator& other) const { return current != other.current; }
 
+    node* get_node() const { return current; }
+
   protected:
     node* current;
   };
@@ -158,6 +164,21 @@ list< T, Alloc >::~list() {
     destroy(it);
     x0_allocator.deallocate(it);
   }
+}
+
+
+template < typename T, typename Alloc >
+typename list< T, Alloc >::node* list< T, Alloc >::erase(node* node) {
+  typename list< T, Alloc >::node* result = node->get_next();
+  if (node == x4_start) {
+    x4_start = result;
+  }
+  node->get_prev()->set_next(node->get_next());
+  node->get_next()->set_prev(node->get_prev());
+  destroy(node);
+  x0_allocator.deallocate(node);
+  x14_count--;
+  return result;
 }
 
 } // namespace rstl

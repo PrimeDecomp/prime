@@ -10,9 +10,13 @@
 class CArchitectureQueue {
 public:
   bool Push(const CArchitectureMessage& msg);
-  void Pop();           // TODO
-  void Clear();         // TODO
-  bool IsEmpty() const; // TODO
+  CArchitectureMessage Pop() {
+    CArchitectureMessage result = *x0_queue.begin();
+    x0_queue.pop_front();
+    return result;
+  }
+  void Clear() { x0_queue.clear(); }
+  bool IsEmpty() const { return x0_queue.empty(); }
 
 private:
   rstl::list< CArchitectureMessage > x0_queue;

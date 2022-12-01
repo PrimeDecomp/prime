@@ -96,7 +96,7 @@ sub_802dd89c:
 lbl_802DD8CC:
 /* 802DD8CC 002DA82C  7F A4 EB 78 */	mr r4, r29
 /* 802DD8D0 002DA830  38 7E 00 14 */	addi r3, r30, 0x14
-/* 802DD8D4 002DA834  4B D7 4D 0D */	bl "find__Q24rstl418red_black_tree<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,Q24rstl83pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,s>,0,Q24rstl103select1st<Q24rstl83pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,s>>,Q24rstl81less<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>,Q24rstl17rmemory_allocator>CFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocat"
+/* 802DD8D4 002DA834  4B D7 4D 0D */	bl "__eq__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>CFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 /* 802DD8D8 002DA838  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 802DD8DC 002DA83C  41 82 00 0C */	beq lbl_802DD8E8
 /* 802DD8E0 002DA840  80 7E 00 00 */	lwz r3, 0(r30)
@@ -2168,4 +2168,3 @@ lbl_803D6D48:
 	# ROM: 0x3D3D48
 	.asciz "??(??)"
 	.balign 4
-

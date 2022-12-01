@@ -37,6 +37,7 @@ public:
 
   EArchMsgType GetType() const { return x4_type; }
   const IArchitectureMessageParm* GetParm() const { return x8_parm.GetPtr(); }
+  EArchMsgTarget GetTarget() const { return x0_target; }
 
 private:
   EArchMsgTarget x0_target;

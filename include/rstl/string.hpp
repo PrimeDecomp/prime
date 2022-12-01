@@ -105,8 +105,16 @@ public:
   }
   basic_string operator+(const _CharTp*);
 
+  int _eq_helper(const basic_string& other) const;
+  bool operator==(const basic_string& other) const;
+
   const char* data() const { return x0_ptr; }
 };
+
+template < typename _CharTp, typename Traits, typename Alloc >
+bool basic_string< _CharTp, Traits, Alloc >::operator==(const basic_string& other) const {
+  return _eq_helper(other) == 0;
+}
 
 // template <>
 // const char basic_string<char>::mNull = 0;
