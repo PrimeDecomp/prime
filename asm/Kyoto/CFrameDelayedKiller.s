@@ -125,8 +125,8 @@ sub_8036cb78:
 /* 8036CB88 00369AE8  90 03 00 08 */	stw r0, 8(r3)
 /* 8036CB8C 00369AEC  4E 80 00 20 */	blr
 
-.global sub_8036cb90
-sub_8036cb90:
+.global sub_8036cb90__19CFrameDelayedKillerFv
+sub_8036cb90__19CFrameDelayedKillerFv:
 /* 8036CB90 00369AF0  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 8036CB94 00369AF4  7C 08 02 A6 */	mflr r0
 /* 8036CB98 00369AF8  3C 60 80 54 */	lis r3, lbl_80540A4C@ha
@@ -250,7 +250,7 @@ sub_8036cd20:
 /* 8036CD2C 00369C8C  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 8036CD30 00369C90  3B E0 00 00 */	li r31, 0
 lbl_8036CD34:
-/* 8036CD34 00369C94  4B FF FE 5D */	bl sub_8036cb90
+/* 8036CD34 00369C94  4B FF FE 5D */	bl sub_8036cb90__19CFrameDelayedKillerFv
 /* 8036CD38 00369C98  3B FF 00 01 */	addi r31, r31, 1
 /* 8036CD3C 00369C9C  2C 1F 00 02 */	cmpwi r31, 2
 /* 8036CD40 00369CA0  41 80 FF F4 */	blt lbl_8036CD34

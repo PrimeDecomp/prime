@@ -3,11 +3,15 @@
 
 #include <dolphin/types.h>
 
+#include <dolphin/vitypes.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif
 
 u32 VIGetNextField(void);
+VIRetraceCallback VISetPreRetraceCallback(VIRetraceCallback callback);
+VIRetraceCallback VISetPostRetraceCallback(VIRetraceCallback callback);
 
 #ifdef __cplusplus
 }

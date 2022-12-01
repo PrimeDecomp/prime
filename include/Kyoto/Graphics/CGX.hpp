@@ -107,7 +107,8 @@ public:
                           GXChannelID color);
   static void SetBlendMode(GXBlendMode mode, GXBlendFactor srcFac, GXBlendFactor dstFac,
                            GXLogicOp op);
-  static void SetZMode(bool compareEnable, GXCompare func, bool updateEnable);
+  // TODO: GXBool doesn't work, why?
+  static void SetZMode(uint compareEnable, GXCompare func, uint updateEnable);
   static void SetAlphaCompare(GXCompare comp0, uchar ref0, GXAlphaOp op, GXCompare comp1,
                               uchar ref1);
   static void SetTevIndirect(GXTevStageID stageId, GXIndTexStageID indStage, GXIndTexFormat fmt,

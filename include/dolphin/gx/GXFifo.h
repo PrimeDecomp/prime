@@ -11,6 +11,8 @@ typedef struct {
   u8 pad[128];
 } GXFifoObj;
 
+typedef void (*GXBreakPtCallback)(void);
+
 void GXInitFifoBase(GXFifoObj* fifo, void* base, u32 size);
 void GXInitFifoPtrs(GXFifoObj* fifo, void* readPtr, void* writePtr);
 void GXGetFifoPtrs(GXFifoObj* fifo, void** readPtr, void** writePtr);
@@ -24,6 +26,9 @@ void GXGetFifoStatus(GXFifoObj* fifo, GXBool* overhi, GXBool* underlow, u32* fif
 void GXGetGPStatus(GXBool* overhi, GXBool* underlow, GXBool* readIdle, GXBool* cmdIdle,
                    GXBool* brkpt);
 void GXInitFifoLimits(GXFifoObj* fifo, u32 hiWaterMark, u32 loWaterMark);
+GXBreakPtCallback GXSetBreakPtCallback(GXBreakPtCallback cb);
+void GXEnableBreakPt(void* breakPt);
+void GXDisableBreakPt(void);
 
 #ifdef __cplusplus
 }

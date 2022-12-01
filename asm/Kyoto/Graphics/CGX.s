@@ -951,8 +951,8 @@ lbl_80308868:
 /* 80308874 003057D4  38 21 00 10 */	addi r1, r1, 0x10
 /* 80308878 003057D8  4E 80 00 20 */	blr
 
-.global SetZMode__3CGXFb10_GXCompareb
-SetZMode__3CGXFb10_GXCompareb:
+.global SetZMode__3CGXFUi10_GXCompareUi
+SetZMode__3CGXFUi10_GXCompareUi:
 /* 8030887C 003057DC  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80308880 003057E0  7C 08 02 A6 */	mflr r0
 /* 80308884 003057E4  3C C0 80 5A */	lis r6, sGXState__3CGX@ha
@@ -1465,4 +1465,3 @@ lbl_803D73B8:
 	.4byte 0x00000003
 	.4byte 0x000000FF
 	.4byte 0
-

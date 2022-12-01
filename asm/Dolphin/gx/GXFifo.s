@@ -345,8 +345,8 @@ lbl_803766F0:
 /* 80376718 00373678  7C 08 03 A6 */	mtlr r0
 /* 8037671C 0037367C  4E 80 00 20 */	blr
 
-.global __GXSaveCPUFifoAux
-__GXSaveCPUFifoAux:
+.global GXGetFifoPtrs
+GXGetFifoPtrs:
 /* 80376720 00373680  80 0D AC 88 */	lwz r0, lbl_805A9848@sda21(r13)
 /* 80376724 00373684  7C 03 00 40 */	cmplw r3, r0
 /* 80376728 00373688  40 82 00 18 */	bne lbl_80376740
@@ -829,4 +829,3 @@ lbl_80376DA0:
 /* 80376DB4 00373D14  38 21 00 18 */	addi r1, r1, 0x18
 /* 80376DB8 00373D18  7C 08 03 A6 */	mtlr r0
 /* 80376DBC 00373D1C  4E 80 00 20 */	blr
-
