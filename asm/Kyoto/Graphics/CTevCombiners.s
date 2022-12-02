@@ -23,8 +23,8 @@ sNumEnabledPasses__13CTevCombiners:
 .section .sbss, "wa"
 .balign 8
 
-.global sUniquePass__13CTevCombiners
-sUniquePass__13CTevCombiners:
+.global sNextUniquePass__13CTevCombiners
+sNextUniquePass__13CTevCombiners:
 	.skip 0x4
 .global skAlphaOne__13CTevCombiners
 skAlphaOne__13CTevCombiners:
@@ -303,13 +303,11 @@ __sinit_CTevCombiners_cpp:
 /* 8030924C 003061AC  38 21 00 70 */	addi r1, r1, 0x70
 /* 80309250 003061B0  4E 80 00 20 */	blr
 
-.if 0
-# TODO: Figure out why this doesn't inline and get rid of the fake TU
 .global __ct__Q213CTevCombiners8CTevPassFRCQ213CTevCombiners9ColorPassRCQ213CTevCombiners9AlphaPassRCQ213CTevCombiners6CTevOpRCQ213CTevCombiners6CTevOp
 __ct__Q213CTevCombiners8CTevPassFRCQ213CTevCombiners9ColorPassRCQ213CTevCombiners9AlphaPassRCQ213CTevCombiners6CTevOpRCQ213CTevCombiners6CTevOp:
-/* 80309254 003061B4  81 0D A7 98 */	lwz r8, sUniquePass__13CTevCombiners@sda21(r13)
+/* 80309254 003061B4  81 0D A7 98 */	lwz r8, sNextUniquePass__13CTevCombiners@sda21(r13)
 /* 80309258 003061B8  38 08 00 01 */	addi r0, r8, 1
-/* 8030925C 003061BC  90 0D A7 98 */	stw r0, sUniquePass__13CTevCombiners@sda21(r13)
+/* 8030925C 003061BC  90 0D A7 98 */	stw r0, sNextUniquePass__13CTevCombiners@sda21(r13)
 /* 80309260 003061C0  91 03 00 00 */	stw r8, 0(r3)
 /* 80309264 003061C4  80 04 00 00 */	lwz r0, 0(r4)
 /* 80309268 003061C8  90 03 00 04 */	stw r0, 4(r3)
@@ -348,4 +346,3 @@ __ct__Q213CTevCombiners8CTevPassFRCQ213CTevCombiners9ColorPassRCQ213CTevCombiner
 /* 803092EC 0030624C  80 07 00 10 */	lwz r0, 0x10(r7)
 /* 803092F0 00306250  90 03 00 48 */	stw r0, 0x48(r3)
 /* 803092F4 00306254  4E 80 00 20 */	blr
-.endif

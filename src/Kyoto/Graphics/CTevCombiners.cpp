@@ -5,7 +5,7 @@
 
 #define TEV_MAX_PASSES 2
 
-int CTevCombiners::sUniquePass = 0;
+int CTevCombiners::sNextUniquePass = 0;
 const CTevCombiners::AlphaVar CTevCombiners::skAlphaOne(CTevCombiners::kAS_Konst);
 const CTevCombiners::ColorVar CTevCombiners::skColorOne(CTevCombiners::kCS_One);
 

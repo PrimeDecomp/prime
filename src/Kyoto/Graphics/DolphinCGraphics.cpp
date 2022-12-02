@@ -244,7 +244,7 @@ ELightType CGraphics::mLightTypes[8] = {
     kLT_Directional, kLT_Directional, kLT_Directional, kLT_Directional,
 };
 
-CTevCombiners::CTevPass& CGraphics::kEnvPassthru = CTevCombiners::kEnvPassthru;
+const CTevCombiners::CTevPass& CGraphics::kEnvPassthru = CTevCombiners::kEnvPassthru;
 bool CGraphics::mIsBeginSceneClearFb = true;
 ERglEnum CGraphics::mDepthFunc = kE_LEqual;
 ERglPrimitive CGraphics::mCurrentPrimitive = kP_Points;
