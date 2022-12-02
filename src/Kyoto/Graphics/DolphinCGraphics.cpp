@@ -10,6 +10,8 @@
 
 #include "dolphin/vi.h"
 
+#include <string.h>
+
 bool CGraphicsSys::mGraphicsInitialized;
 static CStopwatch sFPSTimer;
 static uchar sSpareFrameBuffer[640 * 448];
@@ -162,7 +164,7 @@ VecPtr CGraphics::vtxBuffer;
 VecPtr CGraphics::nrmBuffer;
 Vec2Ptr CGraphics::txtBuffer0;
 Vec2Ptr CGraphics::txtBuffer1;
-GXColor* CGraphics::clrBuffer;
+uint* CGraphics::clrBuffer;
 bool CGraphics::mJustReset;
 ERglCullMode CGraphics::mCullMode;
 int CGraphics::mNumLightsActive;
@@ -171,7 +173,7 @@ VecPtr CGraphics::mpVtxBuffer;
 VecPtr CGraphics::mpNrmBuffer;
 Vec2Ptr CGraphics::mpTxtBuffer0;
 Vec2Ptr CGraphics::mpTxtBuffer1;
-GXColor* CGraphics::mpClrBuffer;
+uint* CGraphics::mpClrBuffer;
 
 struct CGXLightParams {
   int x0_;
@@ -187,11 +189,10 @@ CGXLightParams mLightParams[8];
 struct {
   Vec vtx;
   Vec nrm;
-  float uvU, uvV;
-  int unk0;
-  int unk1;
-  GXColor color;
-  short textureUsed;
+  Vec2 uv0;
+  Vec2 uv1;
+  uint color;
+  ushort textureUsed;
   uchar streamFlags;
 } vtxDescr;
 
@@ -354,7 +355,7 @@ void CGraphics::ConfigureFrameBuffer(const COsContext& osContext) {
   GXSetDispCopyDst(mRenderModeObj.fbWidth, mRenderModeObj.efbHeight);
   GXSetDispCopyYScale(static_cast< float >(mRenderModeObj.xfbHeight) /
                       static_cast< float >(mRenderModeObj.efbHeight));
-  GXSetCopyFilter(mRenderModeObj.aa, mRenderModeObj.sample_pattern, GX_TRUE,
+  GXSetCopyFilter(mRenderModeObj.aa, mRenderModeObj.sample_pattern, GX_ENABLE,
                   mRenderModeObj.vfilter);
   if (mRenderModeObj.aa) {
     GXSetPixelFmt(GX_PF_RGB565_Z16, GX_ZC_LINEAR);
@@ -487,7 +488,7 @@ void CGraphics::SetLightState(uchar lights) {
   if (lights != 0) {
     diffFn = GX_DF_CLAMP;
   }
-  CGX::SetChanCtrl(CGX::Channel0, lights != 0 ? GX_TRUE : GX_FALSE, GX_SRC_REG,
+  CGX::SetChanCtrl(CGX::Channel0, lights != 0 ? GX_ENABLE : GX_DISABLE, GX_SRC_REG,
                    (vtxDescr.streamFlags & 2) != 0 ? GX_SRC_VTX : GX_SRC_REG,
                    static_cast< GXLightID >(lights), diffFn, attnFn);
   mLightActive = lights;
@@ -754,7 +755,7 @@ void CGraphics::EndScene() {
   GXSetCopyFilter(mRenderModeObj.aa, mRenderModeObj.sample_pattern, true, vfilter);
   GXCopyDisp(frameBuf, mIsBeginSceneClearFb ? GX_TRUE : GX_FALSE);
   GXSetCopyFilter(mRenderModeObj.aa, mRenderModeObj.sample_pattern,
-                  mUseVideoFilter ? GX_TRUE : GX_FALSE, mRenderModeObj.vfilter);
+                  mUseVideoFilter ? GX_ENABLE : GX_DISABLE, mRenderModeObj.vfilter);
   GXSetBreakPtCallback(SwapBuffers);
   VISetPreRetraceCallback(VideoPreCallback);
   VISetPostRetraceCallback(VideoPostCallback);
@@ -863,4 +864,269 @@ void CGraphics::DrawPrimitive(ERglPrimitive primitive, const float* pos, const C
     StreamVertex(pos + i * 3);
   }
   StreamEnd();
+}
+
+#define STREAM_PRIM_BUFFER_SIZE 240
+
+#define VTX_BUFFER_ADDR LC_BASE
+#if NONMATCHING
+// Bug fix: these should be 3 times larger to avoid overflow
+// Likely the result of bad pointer arithmetic
+#define NRM_BUFFER_ADDR (VTX_BUFFER_ADDR + ((STREAM_PRIM_BUFFER_SIZE + 1) * sizeof(Vec)))
+#define TXT0_BUFFER_ADDR (NRM_BUFFER_ADDR + ((STREAM_PRIM_BUFFER_SIZE + 1) * sizeof(Vec)))
+#else
+#define NRM_BUFFER_ADDR (VTX_BUFFER_ADDR + ((STREAM_PRIM_BUFFER_SIZE + 1) * sizeof(float)))
+#define TXT0_BUFFER_ADDR (NRM_BUFFER_ADDR + ((STREAM_PRIM_BUFFER_SIZE + 1) * sizeof(float)))
+#endif
+#define TXT1_BUFFER_ADDR (TXT0_BUFFER_ADDR + ((STREAM_PRIM_BUFFER_SIZE + 1) * sizeof(Vec2)))
+#define CLR_BUFFER_ADDR (TXT1_BUFFER_ADDR + ((STREAM_PRIM_BUFFER_SIZE + 1) * sizeof(Vec2)))
+
+static const uchar kHasNormals = 1;
+static const uchar kHasColor = 2;
+static const uchar kHasTexture = 4;
+
+void CGraphics::StreamBegin(ERglPrimitive primitive) {
+  vtxBuffer = reinterpret_cast< VecPtr >(VTX_BUFFER_ADDR);
+  nrmBuffer = reinterpret_cast< VecPtr >(NRM_BUFFER_ADDR);
+  txtBuffer0 = reinterpret_cast< Vec2Ptr >(TXT0_BUFFER_ADDR);
+  txtBuffer1 = reinterpret_cast< Vec2Ptr >(TXT1_BUFFER_ADDR);
+  clrBuffer = reinterpret_cast< uint* >(CLR_BUFFER_ADDR);
+  ResetVertexDataStream(true);
+  mCurrentPrimitive = primitive;
+  vtxDescr.streamFlags = kHasColor;
+}
+
+void CGraphics::StreamVertex(float x, float y, float z) {
+  vtxDescr.vtx.x = x;
+  vtxDescr.vtx.y = y;
+  vtxDescr.vtx.z = z;
+  UpdateVertexDataStream();
+}
+
+void CGraphics::StreamVertex(const float* vtx) {
+  vtxDescr.vtx.x = vtx[0];
+  vtxDescr.vtx.y = vtx[1];
+  vtxDescr.vtx.z = vtx[2];
+  UpdateVertexDataStream();
+}
+
+void CGraphics::StreamVertex(const CVector3f& vtx) {
+  vtxDescr.vtx.x = vtx.GetX();
+  vtxDescr.vtx.y = vtx.GetY();
+  vtxDescr.vtx.z = vtx.GetZ();
+  UpdateVertexDataStream();
+}
+
+void CGraphics::StreamNormal(const float* nrm) {
+  vtxDescr.nrm.x = nrm[0];
+  vtxDescr.nrm.y = nrm[1];
+  vtxDescr.nrm.z = nrm[2];
+  vtxDescr.streamFlags |= kHasNormals;
+}
+
+void CGraphics::StreamColor(uint color) {
+  vtxDescr.color = color;
+  vtxDescr.streamFlags |= kHasColor;
+}
+
+void CGraphics::StreamColor(const CColor& color) {
+  vtxDescr.color = color.GetColor_u32();
+  vtxDescr.streamFlags |= kHasColor;
+}
+
+void CGraphics::StreamColor(float r, float g, float b, float a) {
+  // clang-format off
+  vtxDescr.color = (static_cast< uchar >(r * 255.f) << 24) |
+                   (static_cast< uchar >(g * 255.f) << 16) |
+                   (static_cast< uchar >(b * 255.f) << 8) |
+                   static_cast< uchar >(a * 255.f);
+  // clang-format on
+  vtxDescr.streamFlags |= kHasColor;
+}
+
+void CGraphics::StreamTexcoord(const CVector2f& uv) {
+  vtxDescr.uv0.x = uv.GetX();
+  vtxDescr.uv0.y = uv.GetY();
+  vtxDescr.streamFlags |= kHasTexture;
+  vtxDescr.textureUsed |= 1;
+}
+
+void CGraphics::StreamTexcoord(float u, float v) {
+  vtxDescr.uv0.x = u;
+  vtxDescr.uv0.y = v;
+  vtxDescr.streamFlags |= kHasTexture;
+  vtxDescr.textureUsed |= 1;
+}
+
+void CGraphics::StreamEnd() {
+  if (mNumPrimitives != 0) {
+    FlushStream();
+  }
+  vtxBuffer = nullptr;
+  vtxDescr.streamFlags = 0;
+  vtxDescr.textureUsed = 0;
+  nrmBuffer = nullptr;
+  txtBuffer0 = nullptr;
+  txtBuffer1 = nullptr;
+  clrBuffer = nullptr;
+}
+
+void CGraphics::SetLineWidth(float w, ERglTexOffset offs) {
+  CGX::SetLineWidth(static_cast< uchar >(w * 6.f), static_cast< GXTexOffset >(offs));
+}
+
+void CGraphics::UpdateVertexDataStream() {
+  ++mNumPrimitives;
+  mpVtxBuffer->x = vtxDescr.vtx.x;
+  mpVtxBuffer->y = vtxDescr.vtx.y;
+  mpVtxBuffer->z = vtxDescr.vtx.z;
+  ++mpVtxBuffer;
+  if ((vtxDescr.streamFlags & kHasNormals) != 0) {
+    mpNrmBuffer->x = vtxDescr.nrm.x;
+    mpNrmBuffer->y = vtxDescr.nrm.y;
+    mpNrmBuffer->z = vtxDescr.nrm.z;
+    ++mpNrmBuffer;
+  }
+  if ((vtxDescr.streamFlags & kHasTexture) != 0) {
+    mpTxtBuffer0->x = vtxDescr.uv0.x;
+    mpTxtBuffer0->y = vtxDescr.uv0.y;
+    ++mpTxtBuffer0;
+
+    mpTxtBuffer1->x = vtxDescr.uv1.x;
+    mpTxtBuffer1->y = vtxDescr.uv1.y;
+    ++mpTxtBuffer1;
+  }
+  if ((vtxDescr.streamFlags & kHasColor) != 0) {
+    *mpClrBuffer = vtxDescr.color;
+    ++mpClrBuffer;
+  }
+  mJustReset = 0;
+  if (mNumPrimitives == STREAM_PRIM_BUFFER_SIZE) {
+    FlushStream();
+    ResetVertexDataStream(false);
+  }
+}
+
+void CGraphics::ResetVertexDataStream(bool initial) {
+  mpVtxBuffer = vtxBuffer;
+  mpNrmBuffer = nrmBuffer;
+  mpTxtBuffer0 = txtBuffer0;
+  mpTxtBuffer1 = txtBuffer1;
+  mpClrBuffer = clrBuffer;
+  mNumPrimitives = 0;
+
+  if (initial) {
+    return;
+  }
+
+  switch (mCurrentPrimitive) {
+  case kP_TriangleFan:
+    mpVtxBuffer = vtxBuffer + 1;
+    memcpy(mpVtxBuffer, &vtxDescr.vtx, sizeof(Vec));
+    ++mpVtxBuffer;
+
+    if ((vtxDescr.streamFlags & kHasNormals) != 0) {
+      ++mpNrmBuffer;
+      memcpy(mpNrmBuffer, &vtxDescr.nrm, sizeof(Vec));
+      ++mpNrmBuffer;
+    }
+
+    if ((vtxDescr.streamFlags & kHasTexture) != 0) {
+      ++mpTxtBuffer0;
+      memcpy(mpTxtBuffer0, &vtxDescr.uv0, sizeof(Vec2));
+      ++mpTxtBuffer0;
+
+      ++mpTxtBuffer1;
+      memcpy(mpTxtBuffer1, &vtxDescr.uv1, sizeof(Vec2));
+      ++mpTxtBuffer1;
+    }
+
+    if ((vtxDescr.streamFlags & kHasColor) != 0) {
+      ++mpClrBuffer;
+      *mpClrBuffer = vtxDescr.color;
+      ++mpClrBuffer;
+    }
+
+    mNumPrimitives += 2;
+    break;
+
+  default:
+    break;
+  }
+
+  mJustReset = 1;
+}
+
+void CGraphics::FlushStream() {
+  GXVtxDescList vtxDesc[10];
+
+  GXVtxDescList* curDesc = vtxDesc;
+  const GXVtxDescList vtxDescPos = {GX_VA_POS, GX_DIRECT};
+  *curDesc++ = vtxDescPos;
+
+  if ((vtxDescr.streamFlags & kHasNormals) != 0) {
+    const GXVtxDescList vtxDescNrm = {GX_VA_CLR0, GX_DIRECT};
+    *curDesc++ = vtxDescNrm;
+  }
+
+  if ((vtxDescr.streamFlags & kHasColor) != 0) {
+    const GXVtxDescList vtxDescClr0 = {GX_VA_CLR0, GX_DIRECT};
+    *curDesc++ = vtxDescClr0;
+  }
+
+  if ((vtxDescr.streamFlags & kHasTexture) != 0) {
+    const GXVtxDescList vtxDescTex0 = {GX_VA_TEX0, GX_DIRECT};
+    *curDesc++ = vtxDescTex0;
+  }
+
+  const GXVtxDescList vtxDescNull = {GX_VA_NULL, GX_NONE};
+  *curDesc = vtxDescNull;
+
+  CGX::SetVtxDescv(vtxDesc);
+  SetTevStates(vtxDescr.streamFlags);
+  FullRender();
+}
+
+void CGraphics::SetTevStates(uchar flags) {
+  switch (flags) {
+  case 0:
+  case kHasNormals:
+  case kHasColor:
+  case kHasNormals | kHasColor:
+    CGX::SetNumChans(1);
+    CGX::SetNumTexGens(0);
+    CGX::SetNumTevStages(1);
+    CGX::SetTevOrder(GX_TEVSTAGE0, GX_TEXCOORD_NULL, GX_TEXMAP_NULL, GX_COLOR0A0);
+    CGX::SetTevOrder(GX_TEVSTAGE1, GX_TEXCOORD_NULL, GX_TEXMAP_NULL, GX_COLOR0A0);
+    break;
+  case kHasTexture:
+  case kHasNormals | kHasTexture:
+  case kHasColor | kHasTexture:
+  case kHasNormals | kHasColor | kHasTexture:
+    CGX::SetNumChans(1);
+    if ((vtxDescr.textureUsed & 3) != 0) {
+      CGX::SetNumTexGens(2);
+    } else {
+      CGX::SetNumTexGens(1);
+    }
+    CGX::SetTevOrder(GX_TEVSTAGE0, GX_TEXCOORD0, GX_TEXMAP0, GX_COLOR0A0);
+    CGX::SetTevOrder(GX_TEVSTAGE1, GX_TEXCOORD1, GX_TEXMAP1, GX_COLOR0A0);
+    break;
+  }
+  CGX::SetNumIndStages(0);
+  CGX::SetTexCoordGen(GX_TEXCOORD0, GX_TG_MTX2x4, GX_TG_TEX0, GX_IDENTITY, false, GX_PTIDENTITY);
+  CGX::SetTexCoordGen(GX_TEXCOORD1, GX_TG_MTX2x4, GX_TG_TEX1, GX_IDENTITY, false, GX_PTIDENTITY);
+
+  uint light = mLightActive;
+  GXAttnFn attnFn = GX_AF_NONE;
+  if (light != 0) {
+    attnFn = GX_AF_SPOT;
+  }
+  GXDiffuseFn diffFn = GX_DF_NONE;
+  if (light != 0) {
+    diffFn = GX_DF_CLAMP;
+  }
+  CGX::SetChanCtrl(CGX::Channel0, light ? GX_ENABLE : GX_DISABLE, GX_SRC_REG,
+                   (flags & kHasColor) ? GX_SRC_VTX : GX_SRC_REG, static_cast< GXLightID >(light),
+                   diffFn, attnFn);
 }

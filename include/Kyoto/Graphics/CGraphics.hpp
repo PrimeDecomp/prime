@@ -149,6 +149,15 @@ enum ERglLight {
   kLightMax,
 };
 
+enum ERglTexOffset {
+  kTO_Zero = GX_TO_ZERO,
+  kTO_Sixteenth = GX_TO_SIXTEENTH,
+  kTO_Eighth = GX_TO_EIGHTH,
+  kTO_Fourth = GX_TO_FOURTH,
+  kTO_Half = GX_TO_HALF,
+  kTO_One = GX_TO_ONE,
+};
+
 struct CViewport {
   int mLeft;
   int mTop;
@@ -222,6 +231,7 @@ public:
   static void SetLightState(uchar lights);
   static void SetViewMatrix();
   static void SetScissor(int left, int bottom, int width, int height);
+  static void SetLineWidth(float w, ERglTexOffset offs);
   static void ClearBackAndDepthBuffers();
 
   static void SetIdentityViewPointMatrix();
@@ -247,13 +257,14 @@ public:
   static void SetTevOp(ERglTevStage stage, const CTevCombiners::CTevPass& pass);
   static void StreamBegin(ERglPrimitive primitive);
   static void StreamColor(uint color);
-  static void StreamColor(float, float, float, float);
+  static void StreamColor(float r, float g, float b, float a);
   static void StreamColor(const CColor& color);
   static void StreamTexcoord(float u, float v);
-  static void StreamVertex(float, float, float);
+  static void StreamTexcoord(const CVector2f& uv);
+  static void StreamVertex(float x, float y, float z);
   static void StreamVertex(const CVector3f& vtx);
-  static void StreamVertex(const float*);
-  static void StreamNormal(const float*);
+  static void StreamVertex(const float* vtx);
+  static void StreamNormal(const float* nrm);
   static void StreamEnd();
   static void Render2D(const CTexture& tex, int x, int y, int w, int h, const CColor& col);
   static void DrawPrimitive(ERglPrimitive primitive, const float* pos, const CVector3f& normal, const CColor& col, int numVerts);
@@ -301,12 +312,17 @@ public:
   static CTevCombiners::CTevPass kEnvModulateColorByAlpha;
 
 private:
+  static void UpdateVertexDataStream();
+  static void ResetVertexDataStream(bool initial);
+  static void FlushStream();
+  static void FullRender();
+
   static CRenderState sRenderState;
   static VecPtr vtxBuffer;
   static VecPtr nrmBuffer;
   static Vec2Ptr txtBuffer0;
   static Vec2Ptr txtBuffer1;
-  static GXColor* clrBuffer;
+  static uint* clrBuffer;
   static bool mJustReset;
   static ERglCullMode mCullMode;
   static int mNumLightsActive;
@@ -315,7 +331,7 @@ private:
   static VecPtr mpNrmBuffer;
   static Vec2Ptr mpTxtBuffer0;
   static Vec2Ptr mpTxtBuffer1;
-  static GXColor* mpClrBuffer;
+  static uint* mpClrBuffer;
   static int mNumPrimitives;
   static int mFrameCounter;
   static float mFramesPerSecond;
