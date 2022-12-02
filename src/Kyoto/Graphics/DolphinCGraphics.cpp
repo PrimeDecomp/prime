@@ -231,7 +231,7 @@ int CGraphics::mSpareBufferTexCacheSize;
 GXTexRegionCallback CGraphics::mGXDefaultTexRegionCallback;
 void* CGraphics::mpFifo;
 GXFifoObj* CGraphics::mpFifoObj;
-int CGraphics::mRenderTimings;
+uint CGraphics::mRenderTimings;
 float CGraphics::mSecondsMod900;
 CTimeProvider* CGraphics::mpExternalTimeProvider;
 int lbl_805A9408;
@@ -1129,4 +1129,227 @@ void CGraphics::SetTevStates(uchar flags) {
   CGX::SetChanCtrl(CGX::Channel0, light ? GX_ENABLE : GX_DISABLE, GX_SRC_REG,
                    (flags & kHasColor) ? GX_SRC_VTX : GX_SRC_REG, static_cast< GXLightID >(light),
                    diffFn, attnFn);
+}
+
+void CGraphics::FullRender() {
+  CGX::Begin(static_cast< GXPrimitive >(mCurrentPrimitive), GX_VTXFMT0, mNumPrimitives);
+  switch (vtxDescr.streamFlags) {
+  case 0:
+    for (int i = 0; i < mNumPrimitives; i++) {
+      const Vec& vtx = vtxBuffer[i];
+      GXPosition3f32(vtx.x, vtx.y, vtx.z);
+    }
+    break;
+  case kHasNormals:
+    for (int i = 0; i < mNumPrimitives; i++) {
+      const Vec& vtx = vtxBuffer[i];
+      GXPosition3f32(vtx.x, vtx.y, vtx.z);
+      const Vec& nrm = nrmBuffer[i];
+      GXNormal3f32(nrm.x, nrm.y, nrm.z);
+    }
+    break;
+  case kHasColor:
+    for (int i = 0; i < mNumPrimitives; i++) {
+      const Vec& vtx = vtxBuffer[i];
+      GXPosition3f32(vtx.x, vtx.y, vtx.z);
+      GXColor1u32(clrBuffer[i]);
+    }
+    break;
+  case kHasTexture:
+    for (int i = 0; i < mNumPrimitives; i++) {
+      const Vec& vtx = vtxBuffer[i];
+      GXPosition3f32(vtx.x, vtx.y, vtx.z);
+      const Vec2& uv = txtBuffer0[i];
+      GXTexCoord2f32(uv.x, uv.y);
+    }
+    break;
+  case kHasNormals | kHasTexture:
+    for (int i = 0; i < mNumPrimitives; i++) {
+      const Vec& vtx = vtxBuffer[i];
+      GXPosition3f32(vtx.x, vtx.y, vtx.z);
+      const Vec& nrm = nrmBuffer[i];
+      GXNormal3f32(nrm.x, nrm.y, nrm.z);
+      const Vec2& uv = txtBuffer0[i];
+      GXTexCoord2f32(uv.x, uv.y);
+    }
+    break;
+  case kHasNormals | kHasColor:
+    for (int i = 0; i < mNumPrimitives; i++) {
+      const Vec& vtx = vtxBuffer[i];
+      GXPosition3f32(vtx.x, vtx.y, vtx.z);
+      const Vec& nrm = nrmBuffer[i];
+      GXNormal3f32(nrm.x, nrm.y, nrm.z);
+      GXColor1u32(clrBuffer[i]);
+    }
+    break;
+  case kHasColor | kHasTexture:
+    for (int i = 0; i < mNumPrimitives; i++) {
+      const Vec& vtx = vtxBuffer[i];
+      GXPosition3f32(vtx.x, vtx.y, vtx.z);
+      GXColor1u32(clrBuffer[i]);
+      const Vec2& uv = txtBuffer0[i];
+      GXTexCoord2f32(uv.x, uv.y);
+    }
+    break;
+  case kHasNormals | kHasColor | kHasTexture:
+    for (int i = 0; i < mNumPrimitives; i++) {
+      const Vec& vtx = vtxBuffer[i];
+      GXPosition3f32(vtx.x, vtx.y, vtx.z);
+      const Vec& nrm = nrmBuffer[i];
+      GXNormal3f32(nrm.x, nrm.y, nrm.z);
+      GXColor1u32(clrBuffer[i]);
+      const Vec2& uv = txtBuffer0[i];
+      GXTexCoord2f32(uv.x, uv.y);
+    }
+    break;
+  }
+  CGX::End();
+}
+
+void CGraphics::SetDepthRange(float near, float far) {
+  mDepthNear = near;
+  mDepthFar = far;
+  GXSetViewport(static_cast< float >(mViewport.mLeft), static_cast< float >(mViewport.mTop),
+                static_cast< float >(mViewport.mWidth), static_cast< float >(mViewport.mHeight),
+                mDepthNear, mDepthFar);
+}
+
+static inline GXTevStageID get_texture_unit(ERglTevStage stage) {
+#if NONMATCHING
+  // one instruction, no branches
+  return static_cast< GXTevStageID >(stage & (GX_MAX_TEVSTAGE - 1));
+#else
+  if (stage == kTS_Stage0) {
+    return GX_TEVSTAGE0;
+  } else if (stage == kTS_Stage1) {
+    return GX_TEVSTAGE1;
+  } else if (stage == kTS_Stage2) {
+    return GX_TEVSTAGE2;
+  } else if (stage == kTS_Stage3) {
+    return GX_TEVSTAGE3;
+  } else if (stage == kTS_Stage4) {
+    return GX_TEVSTAGE4;
+  } else if (stage == kTS_Stage5) {
+    return GX_TEVSTAGE5;
+  } else if (stage == kTS_Stage6) {
+    return GX_TEVSTAGE6;
+  } else if (stage == kTS_Stage7) {
+    return GX_TEVSTAGE7;
+  } else if (stage == kTS_Stage8) {
+    return GX_TEVSTAGE8;
+  } else if (stage == kTS_Stage9) {
+    return GX_TEVSTAGE9;
+  } else if (stage == kTS_Stage10) {
+    return GX_TEVSTAGE10;
+  } else if (stage == kTS_Stage11) {
+    return GX_TEVSTAGE11;
+  } else if (stage == kTS_Stage12) {
+    return GX_TEVSTAGE12;
+  } else if (stage == kTS_Stage13) {
+    return GX_TEVSTAGE13;
+  } else if (stage == kTS_Stage14) {
+    return GX_TEVSTAGE14;
+  }
+  // wtf?
+  return static_cast< GXTevStageID >(stage == kTS_Stage15 ? GX_TEVSTAGE15 : 0);
+#endif
+}
+
+void CGraphics::SetTevOp(ERglTevStage stage, const CTevCombiners::CTevPass& pass) {
+  CTevCombiners::SetupPass(get_texture_unit(stage), pass);
+}
+
+void CGraphics::SetFog(ERglFogMode mode, float startz, float endz, const CColor& color) {
+  CGX::SetFog(static_cast< GXFogType >(mode), startz, endz, mProj.GetNear(), mProj.GetFar(),
+              color.GetGXColor());
+}
+
+void CGraphics::ResetGfxStates() { sRenderState.Set(0); }
+
+void CGraphics::SetDefaultVtxAttrFmt() {
+  GXSetVtxAttrFmt(GX_VTXFMT0, GX_VA_POS, GX_POS_XYZ, GX_F32, 0);
+  GXSetVtxAttrFmt(GX_VTXFMT1, GX_VA_POS, GX_POS_XYZ, GX_F32, 0);
+  GXSetVtxAttrFmt(GX_VTXFMT2, GX_VA_POS, GX_POS_XYZ, GX_F32, 0);
+  GXSetVtxAttrFmt(GX_VTXFMT0, GX_VA_NRM, GX_NRM_XYZ, GX_F32, 0);
+  GXSetVtxAttrFmt(GX_VTXFMT1, GX_VA_NRM, GX_NRM_XYZ, GX_S16, 14);
+  GXSetVtxAttrFmt(GX_VTXFMT2, GX_VA_NRM, GX_NRM_XYZ, GX_S16, 14);
+  GXSetVtxAttrFmt(GX_VTXFMT0, GX_VA_CLR0, GX_CLR_RGBA, GX_RGBA8, 0);
+  GXSetVtxAttrFmt(GX_VTXFMT1, GX_VA_CLR0, GX_CLR_RGBA, GX_RGBA8, 0);
+  GXSetVtxAttrFmt(GX_VTXFMT2, GX_VA_CLR0, GX_CLR_RGBA, GX_RGBA8, 0);
+  GXSetVtxAttrFmt(GX_VTXFMT0, GX_VA_TEX0, GX_TEX_ST, GX_F32, 0);
+  GXSetVtxAttrFmt(GX_VTXFMT1, GX_VA_TEX0, GX_TEX_ST, GX_F32, 0);
+  GXSetVtxAttrFmt(GX_VTXFMT2, GX_VA_TEX0, GX_TEX_ST, GX_U16, 15);
+  for (int i = 1; i <= 7; ++i) {
+    GXAttr attr = static_cast< GXAttr >(GX_VA_TEX0 + i);
+    GXSetVtxAttrFmt(GX_VTXFMT0, attr, GX_TEX_ST, GX_F32, 0);
+    GXSetVtxAttrFmt(GX_VTXFMT1, attr, GX_TEX_ST, GX_F32, 0);
+    GXSetVtxAttrFmt(GX_VTXFMT2, attr, GX_TEX_ST, GX_F32, 0);
+  }
+}
+
+void CGraphics::LoadDolphinSpareTexture(int width, int height, GXTexFmt fmt, void* data,
+                                        GXTexMapID texId) {
+  GXTexObj texObj;
+  GXInitTexObj(&texObj, data != nullptr ? data : mpSpareBuffer, width, height, fmt, GX_CLAMP,
+               GX_CLAMP, GX_DISABLE);
+  GXInitTexObjLOD(&texObj, GX_NEAR, GX_NEAR, 0.f, 0.f, 0.f, GX_DISABLE, GX_DISABLE, GX_ANISO_1);
+  GXLoadTexObj(&texObj, texId);
+  CTexture::InvalidateTexmap(texId);
+  if (texId == GX_TEXMAP7) {
+    GXInvalidateTexRegion(&mTexRegions[0]);
+  }
+}
+
+void CGraphics::LoadDolphinSpareTexture(int width, int height, GXCITexFmt fmt, GXTlut tlut,
+                                        void* data, GXTexMapID texId) {
+  GXTexObj texObj;
+  GXInitTexObjCI(&texObj, data != nullptr ? data : mpSpareBuffer, width, height, fmt, GX_CLAMP,
+                 GX_CLAMP, GX_DISABLE, tlut);
+  GXInitTexObjLOD(&texObj, GX_NEAR, GX_NEAR, 0.f, 0.f, 0.f, GX_DISABLE, GX_DISABLE, GX_ANISO_1);
+  GXLoadTexObj(&texObj, texId);
+  CTexture::InvalidateTexmap(texId);
+  if (texId == GX_TEXMAP7) {
+    GXInvalidateTexRegion(&mTexRegions[0]);
+  }
+}
+
+void CGraphics::TickRenderTimings() {
+  mRenderTimings = (mRenderTimings + 1) % (900 * 60);
+  mSecondsMod900 = static_cast< float >(mRenderTimings) / 60.f;
+}
+
+float CGraphics::GetSecondsMod900() {
+  if (mpExternalTimeProvider != nullptr) {
+    return mpExternalTimeProvider->GetSecondsMod900();
+  }
+  return mSecondsMod900;
+}
+
+void CGraphics::SetExternalTimeProvider(CTimeProvider* timeProvider) {
+  mpExternalTimeProvider = timeProvider;
+}
+
+void CGraphics::FlushProjection() {
+  float right = mProj.GetRight();
+  float left = mProj.GetLeft();
+  float top = mProj.GetTop();
+  float bottom = mProj.GetBottom();
+  float near = mProj.GetNear();
+  float far = mProj.GetFar();
+  if (mProj.IsPerspective()) {
+    Mtx44 mtx;
+    MTXFrustum(mtx, top, bottom, left, right, near, far);
+    GXSetProjection(mtx, GX_PERSPECTIVE);
+  } else {
+    Mtx44 mtx;
+    MTXOrtho(mtx, top, bottom, left, right, near, far);
+    GXSetProjection(mtx, GX_ORTHOGRAPHIC);
+  }
+}
+
+const CGraphics::CProjectionState& CGraphics::GetProjectionState() { return mProj; }
+
+void CGraphics::SetProjectionState(const CProjectionState& proj) {
+  mProj = proj;
+  FlushProjection();
 }
