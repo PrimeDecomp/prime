@@ -24,8 +24,10 @@ CTevCombiners::AlphaVar::AlphaVar(EAlphaSrc src) : x0_src(src) {}
 CTevCombiners::ColorVar::ColorVar(EColorSrc src) : x0_src(src) {}
 
 void CTevCombiners::RecomputePasses() {
-  sNumEnabledPasses = (uchar)(1 + (sValidPasses[TEV_MAX_PASSES - 1] != 0));
-  CGX::SetNumTevStages(sNumEnabledPasses);
+  uchar tmp = (uchar)((sValidPasses[TEV_MAX_PASSES - 1] != 0));
+  tmp++;
+  sNumEnabledPasses = tmp;
+  CGX::SetNumTevStages(tmp);
 }
 
 void CTevCombiners::Init() {
