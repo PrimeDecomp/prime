@@ -29,6 +29,8 @@ public:
   public:
     ColorVar(EColorSrc src);
 
+    EColorSrc GetSource() const { return x0_src; }
+
   private:
     EColorSrc x0_src;
   };
@@ -36,6 +38,10 @@ public:
   public:
     ColorPass(const ColorVar& a, const ColorVar& b, const ColorVar& c, const ColorVar& d)
     : x0_a(a), x4_b(b), x8_c(c), xc_d(d) {}
+    ColorVar GetA() const { return x0_a; }
+    ColorVar GetB() const { return x4_b; }
+    ColorVar GetC() const { return x8_c; }
+    ColorVar GetD() const { return xc_d; }
 
   private:
     ColorVar x0_a;
@@ -57,6 +63,7 @@ public:
   class AlphaVar {
   public:
     AlphaVar(EAlphaSrc src);
+    EAlphaSrc GetSource() const { return x0_src; }
 
   private:
     EAlphaSrc x0_src;
@@ -65,6 +72,11 @@ public:
   public:
     AlphaPass(const AlphaVar& a, const AlphaVar& b, const AlphaVar& c, const AlphaVar& d)
     : x0_a(a), x4_b(b), x8_c(c), xc_d(d) {}
+
+    AlphaVar GetA() const { return x0_a; }
+    AlphaVar GetB() const { return x4_b; }
+    AlphaVar GetC() const { return x8_c; }
+    AlphaVar GetD() const { return xc_d; }
 
   private:
     AlphaVar x0_a;
@@ -100,6 +112,12 @@ public:
            bool clamp = true, ETevOutput output = kTO_Previous)
     : x0_clamp(clamp), x4_op(op), x8_bias(bias), xc_scale(scale), x10_output(output) {}
 
+    bool GetClamp() const { return x0_clamp; }
+    ETevOp GetOp() const { return x4_op; }
+    ETevBias GetBias() const { return x8_bias; }
+    ETevScale GetScale() const { return xc_scale; }
+    ETevOutput GetOutput() const { return x10_output; }
+
   private:
     bool x0_clamp;
     ETevOp x4_op;
@@ -111,7 +129,15 @@ public:
   class CTevPass {
   public:
     CTevPass(const ColorPass& colorPass, const AlphaPass& alphaPass,
-             const CTevOp& colorOp = CTevOp(), const CTevOp& alphaOp = CTevOp());
+             const CTevOp& colorOp = CTevOp(), const CTevOp& alphaOp = CTevOp());/*
+    : x0_id(sUniquePass++)
+    , x4_colorPass(colorPass)
+    , x14_alphaPass(alphaPass)
+    , x24_colorOp(colorOp)
+    , x38_alphaOp(alphaOp) {}
+    */
+
+    void Execute(int) const;
 
   private:
     uint x0_id;
@@ -121,9 +147,21 @@ public:
     CTevOp x38_alphaOp;
   };
 
+  static void RecomputePasses();
   static void Init();
+  static void DeletePass(int);
+  static void SetupPass(int, const CTevPass& pass);
+  static bool SetPassCombiners(int stage, const CTevPass& pass);
+  static void ResetStates();
 
-  static CTevPass kEnvPassthru;
+  static int sUniquePass;
+  static const CTevPass kEnvPassthru;
+  static const AlphaVar skAlphaOne;
+  static const ColorVar skColorOne;
+
+private:
+  static bool sValidPasses[2];
+  static uint sNumEnabledPasses;
 };
 
 extern CTevCombiners::CTevPass CTevPass_805a5ebc;
