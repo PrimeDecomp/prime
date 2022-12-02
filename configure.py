@@ -558,7 +558,6 @@ LIBS = [
             "Kyoto/Graphics/CCubeModel",
             ["Kyoto/Graphics/CGX", True],
             ["Kyoto/Graphics/CTevCombiners", True],
-            ["Kyoto/Graphics/CTevPass", True],
             "Kyoto/Graphics/DolphinCGraphics",
             "Kyoto/Graphics/DolphinCPalette",
             "Kyoto/Graphics/DolphinCTexture",

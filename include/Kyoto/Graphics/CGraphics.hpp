@@ -300,7 +300,7 @@ public:
   static void sub_80309564(uint* stretch, uint* xOffset, uint* yOffset);
   static void sub_803094b0(uint stretch, uint xOffset, uint yOffset);
 
-  static CTevCombiners::CTevPass& kEnvPassthru;
+  static const CTevCombiners::CTevPass& kEnvPassthru;
   static CTevCombiners::CTevPass kEnvModulateConstColor;
   static CTevCombiners::CTevPass kEnvConstColor;
   static CTevCombiners::CTevPass kEnvModulate;
