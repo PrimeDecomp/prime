@@ -28,6 +28,7 @@ void GXSetTexCoordScaleManually(GXTexCoordID coord, GXBool enable, u16 ss, u16 t
 void GXInitTexCacheRegion(GXTexRegion* region, GXBool is_32b_mipmap, u32 tmem_even,
                           GXTexCacheSize size_even, u32 tmem_odd, GXTexCacheSize size_odd);
 GXTexRegionCallback GXSetTexRegionCallback(GXTexRegionCallback callback);
+void GXInvalidateTexRegion(const GXTexRegion* region);
 
 #ifdef __cplusplus
 }

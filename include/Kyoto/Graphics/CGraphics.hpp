@@ -184,12 +184,18 @@ public:
   public:
     CRenderState();
 
+    void Flush();
     void ResetFlushAll();
+    void SetVtxState(const float*, const float*, const unsigned int*);
+
+    // In map this takes two args, but x4 is unused?
+    void Set(int v0) { x0_ = v0; }
 
   private:
     int x0_;
     int x4_;
   };
+
   class CProjectionState {
   public:
     CProjectionState(bool persp, float left, float right, float top, float bottom, float near,
@@ -245,7 +251,15 @@ public:
   static void SetDefaultVtxAttrFmt();
   static CMatrix4f GetPerspectiveProjectionMatrix();
   static CMatrix4f CalculatePerspectiveMatrix(float fovy, float aspect, float znear, float zfar);
-  
+  static void ResetGfxStates();
+  static void LoadDolphinSpareTexture(int width, int height, GXTexFmt fmt, void* data,
+                                      GXTexMapID texId);
+  static void LoadDolphinSpareTexture(int width, int height, GXCITexFmt fmt, GXTlut tlut,
+                                      void* data, GXTexMapID texId);
+  static void TickRenderTimings();
+  static const CProjectionState& GetProjectionState();
+  static void SetProjectionState(const CProjectionState& proj);
+
   static float GetDepthNear() { return mDepthNear; }
   static float GetDepthFar() { return mDepthFar; }
 
@@ -267,7 +281,8 @@ public:
   static void StreamNormal(const float* nrm);
   static void StreamEnd();
   static void Render2D(const CTexture& tex, int x, int y, int w, int h, const CColor& col);
-  static void DrawPrimitive(ERglPrimitive primitive, const float* pos, const CVector3f& normal, const CColor& col, int numVerts);
+  static void DrawPrimitive(ERglPrimitive primitive, const float* pos, const CVector3f& normal,
+                            const CColor& col, int numVerts);
 
   static void VideoPreCallback(u32 retraceCount);
   static void VideoPostCallback(u32 retraceCount);
@@ -351,7 +366,7 @@ private:
   static GXTexRegionCallback mGXDefaultTexRegionCallback;
   static void* mpFifo;
   static GXFifoObj* mpFifoObj;
-  static int mRenderTimings;
+  static uint mRenderTimings;
   static float mSecondsMod900;
   static CTimeProvider* mpExternalTimeProvider;
   // lbl_805A9408
