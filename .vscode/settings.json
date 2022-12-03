@@ -40,7 +40,8 @@
     "oscontext.h": "c",
     "oscache.h": "c",
     "stdlib.h": "c",
-    "musyx_priv.h": "c"
+    "musyx_priv.h": "c",
+    "gxenum.h": "c"
   },
   "files.autoSave": "onFocusChange",
   "files.insertFinalNewline": true,

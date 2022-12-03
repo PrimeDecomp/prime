@@ -3,8 +3,8 @@
 .section .sbss, "wa"
 .balign 8
 
-.global lbl_805A9428
-lbl_805A9428:
+.global sCurrentFrameCount__16CGraphicsPalette
+sCurrentFrameCount__16CGraphicsPalette:
 	.skip 0x8
 
 .section .text, "ax"
@@ -48,7 +48,7 @@ Load__16CGraphicsPaletteCFv:
 /* 8030DED8 0030AE38  7C 7F 1B 78 */	mr r31, r3
 /* 8030DEDC 0030AE3C  38 7F 00 10 */	addi r3, r31, 0x10
 /* 8030DEE0 0030AE40  48 06 C6 51 */	bl GXLoadTlut
-/* 8030DEE4 0030AE44  80 0D A8 68 */	lwz r0, lbl_805A9428@sda21(r13)
+/* 8030DEE4 0030AE44  80 0D A8 68 */	lwz r0, sCurrentFrameCount__16CGraphicsPalette@sda21(r13)
 /* 8030DEE8 0030AE48  90 1F 00 04 */	stw r0, 4(r31)
 /* 8030DEEC 0030AE4C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8030DEF0 0030AE50  83 E1 00 0C */	lwz r31, 0xc(r1)
@@ -67,7 +67,7 @@ __dt__16CGraphicsPaletteFv:
 /* 8030DF18 0030AE78  7C 7E 1B 79 */	or. r30, r3, r3
 /* 8030DF1C 0030AE7C  41 82 00 50 */	beq lbl_8030DF6C
 /* 8030DF20 0030AE80  80 7E 00 04 */	lwz r3, 4(r30)
-/* 8030DF24 0030AE84  80 0D A8 68 */	lwz r0, lbl_805A9428@sda21(r13)
+/* 8030DF24 0030AE84  80 0D A8 68 */	lwz r0, sCurrentFrameCount__16CGraphicsPalette@sda21(r13)
 /* 8030DF28 0030AE88  7C 03 00 50 */	subf r0, r3, r0
 /* 8030DF2C 0030AE8C  28 00 00 02 */	cmplwi r0, 2
 /* 8030DF30 0030AE90  40 80 00 1C */	bge lbl_8030DF4C
@@ -76,7 +76,7 @@ __dt__16CGraphicsPaletteFv:
 /* 8030DF3C 0030AE9C  7C 00 00 34 */	cntlzw r0, r0
 /* 8030DF40 0030AEA0  90 7E 00 0C */	stw r3, 0xc(r30)
 /* 8030DF44 0030AEA4  54 03 D9 7E */	srwi r3, r0, 5
-/* 8030DF48 0030AEA8  48 05 EC D5 */	bl sub_8036cc1c
+/* 8030DF48 0030AEA8  48 05 EC D5 */	bl sub_8036cc1c__19CFrameDelayedKillerFbPv
 lbl_8030DF4C:
 /* 8030DF4C 0030AEAC  34 1E 00 0C */	addic. r0, r30, 0xc
 /* 8030DF50 0030AEB0  41 82 00 0C */	beq lbl_8030DF5C

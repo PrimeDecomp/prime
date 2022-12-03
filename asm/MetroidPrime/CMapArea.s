@@ -1007,7 +1007,7 @@ __dt__8CMapAreaFv:
 /* 80080EB0 0007DE10  90 8D A2 F0 */	stw r4, lbl_805A8EB0@sda21(r13)
 /* 80080EB4 0007DE14  80 9E 00 44 */	lwz r4, 0x44(r30)
 /* 80080EB8 0007DE18  90 1E 00 44 */	stw r0, 0x44(r30)
-/* 80080EBC 0007DE1C  48 2E BD 61 */	bl sub_8036cc1c
+/* 80080EBC 0007DE1C  48 2E BD 61 */	bl sub_8036cc1c__19CFrameDelayedKillerFbPv
 /* 80080EC0 0007DE20  34 1E 00 44 */	addic. r0, r30, 0x44
 /* 80080EC4 0007DE24  41 82 00 0C */	beq lbl_80080ED0
 /* 80080EC8 0007DE28  80 7E 00 44 */	lwz r3, 0x44(r30)
@@ -1146,4 +1146,3 @@ lbl_803CD66C:
 	.asciz "??(??)"
 	.balign 4
 	.4byte 0
-

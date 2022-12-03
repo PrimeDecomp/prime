@@ -902,7 +902,7 @@ __dt__6CModelFv:
 /* 80355C98 00352BF8  38 00 00 00 */	li r0, 0
 /* 80355C9C 00352BFC  38 60 00 01 */	li r3, 1
 /* 80355CA0 00352C00  90 1E 00 00 */	stw r0, 0(r30)
-/* 80355CA4 00352C04  48 01 6F 79 */	bl sub_8036cc1c
+/* 80355CA4 00352C04  48 01 6F 79 */	bl sub_8036cc1c__19CFrameDelayedKillerFbPv
 /* 80355CA8 00352C08  48 00 00 24 */	b lbl_80355CCC
 lbl_80355CAC:
 /* 80355CAC 00352C0C  38 03 FF FF */	addi r0, r3, -1
@@ -912,7 +912,7 @@ lbl_80355CAC:
 /* 80355CBC 00352C1C  38 00 00 00 */	li r0, 0
 /* 80355CC0 00352C20  38 60 00 00 */	li r3, 0
 /* 80355CC4 00352C24  90 1E 00 00 */	stw r0, 0(r30)
-/* 80355CC8 00352C28  48 01 6F 55 */	bl sub_8036cc1c
+/* 80355CC8 00352C28  48 01 6F 55 */	bl sub_8036cc1c__19CFrameDelayedKillerFbPv
 lbl_80355CCC:
 /* 80355CCC 00352C2C  34 1E 00 28 */	addic. r0, r30, 0x28
 /* 80355CD0 00352C30  41 82 00 0C */	beq lbl_80355CDC
@@ -1523,4 +1523,3 @@ lbl_803D8308:
 	# ROM: 0x3D5308
 	.asciz "??(??)"
 	.balign 4
-
