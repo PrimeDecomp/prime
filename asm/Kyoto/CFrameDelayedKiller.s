@@ -167,8 +167,8 @@ lbl_8036CBF8:
 /* 8036CC14 00369B74  38 21 00 20 */	addi r1, r1, 0x20
 /* 8036CC18 00369B78  4E 80 00 20 */	blr
 
-.global sub_8036cc1c
-sub_8036cc1c:
+.global sub_8036cc1c__19CFrameDelayedKillerFbPv
+sub_8036cc1c__19CFrameDelayedKillerFbPv:
 /* 8036CC1C 00369B7C  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 8036CC20 00369B80  7C 08 02 A6 */	mflr r0
 /* 8036CC24 00369B84  2C 03 00 01 */	cmpwi r3, 1
