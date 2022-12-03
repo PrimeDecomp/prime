@@ -37,19 +37,19 @@ lbl_803ED994:
 .section .bss
 .balign 8
 
-.lcomm lbl_804BFD10, 0x20, 4
+.lcomm sLoadedTextures, 0x20, 4
 
 .section .sbss, "wa"
 .balign 8
 
-.global lbl_805A9430
-lbl_805A9430:
+.global sCurrentFrameCount__8CTexture
+sCurrentFrameCount__8CTexture:
 	.skip 0x4
-.global lbl_805A9434
-lbl_805A9434:
+.global sTotalAllocatedMemory__8CTexture
+sTotalAllocatedMemory__8CTexture:
 	.skip 0x4
-.global lbl_805A9438
-lbl_805A9438:
+.global sMangleMips__8CTexture
+sMangleMips__8CTexture:
 	.skip 0x8
 
 .section .text, "ax"
@@ -75,9 +75,9 @@ lbl_8030E138:
 
 .global InvalidateTexmap__8CTextureF11_GXTexMapID
 InvalidateTexmap__8CTextureF11_GXTexMapID:
-/* 8030E148 0030B0A8  3C 80 80 4C */	lis r4, lbl_804BFD10@ha
+/* 8030E148 0030B0A8  3C 80 80 4C */	lis r4, sLoadedTextures@ha
 /* 8030E14C 0030B0AC  54 60 10 3A */	slwi r0, r3, 2
-/* 8030E150 0030B0B0  38 64 FD 10 */	addi r3, r4, lbl_804BFD10@l
+/* 8030E150 0030B0B0  38 64 FD 10 */	addi r3, r4, sLoadedTextures@l
 /* 8030E154 0030B0B4  38 80 00 00 */	li r4, 0
 /* 8030E158 0030B0B8  7C 83 01 2E */	stwx r4, r3, r0
 /* 8030E15C 0030B0BC  4E 80 00 20 */	blr
@@ -89,11 +89,11 @@ UncountMemory__8CTextureCFv:
 /* 8030E168 0030B0C8  4D 82 00 20 */	beqlr
 /* 8030E16C 0030B0CC  38 00 00 00 */	li r0, 0
 /* 8030E170 0030B0D0  50 04 1F 38 */	rlwimi r4, r0, 3, 0x1c, 0x1c
-/* 8030E174 0030B0D4  80 0D A8 74 */	lwz r0, lbl_805A9434@sda21(r13)
+/* 8030E174 0030B0D4  80 0D A8 74 */	lwz r0, sTotalAllocatedMemory__8CTexture@sda21(r13)
 /* 8030E178 0030B0D8  98 83 00 0A */	stb r4, 0xa(r3)
 /* 8030E17C 0030B0DC  80 63 00 0C */	lwz r3, 0xc(r3)
 /* 8030E180 0030B0E0  7C 03 00 50 */	subf r0, r3, r0
-/* 8030E184 0030B0E4  90 0D A8 74 */	stw r0, lbl_805A9434@sda21(r13)
+/* 8030E184 0030B0E4  90 0D A8 74 */	stw r0, sTotalAllocatedMemory__8CTexture@sda21(r13)
 /* 8030E188 0030B0E8  4E 80 00 20 */	blr
 
 .global CountMemory__8CTextureCFv
@@ -102,12 +102,12 @@ CountMemory__8CTextureCFv:
 /* 8030E190 0030B0F0  54 A0 EF FF */	rlwinm. r0, r5, 0x1d, 0x1f, 0x1f
 /* 8030E194 0030B0F4  4C 82 00 20 */	bnelr
 /* 8030E198 0030B0F8  38 00 00 01 */	li r0, 1
-/* 8030E19C 0030B0FC  80 8D A8 74 */	lwz r4, lbl_805A9434@sda21(r13)
+/* 8030E19C 0030B0FC  80 8D A8 74 */	lwz r4, sTotalAllocatedMemory__8CTexture@sda21(r13)
 /* 8030E1A0 0030B100  50 05 1F 38 */	rlwimi r5, r0, 3, 0x1c, 0x1c
 /* 8030E1A4 0030B104  98 A3 00 0A */	stb r5, 0xa(r3)
 /* 8030E1A8 0030B108  80 03 00 0C */	lwz r0, 0xc(r3)
 /* 8030E1AC 0030B10C  7C 04 02 14 */	add r0, r4, r0
-/* 8030E1B0 0030B110  90 0D A8 74 */	stw r0, lbl_805A9434@sda21(r13)
+/* 8030E1B0 0030B110  90 0D A8 74 */	stw r0, sTotalAllocatedMemory__8CTexture@sda21(r13)
 /* 8030E1B4 0030B114  4E 80 00 20 */	blr
 
 .global MakeSwappable__8CTextureCFv
@@ -838,7 +838,7 @@ lbl_8030EBAC:
 /* 8030EBB8 0030BB18  38 60 00 00 */	li r3, 0
 /* 8030EBBC 0030BB1C  48 00 00 54 */	b lbl_8030EC10
 lbl_8030EBC0:
-/* 8030EBC0 0030BB20  80 6D A8 70 */	lwz r3, lbl_805A9430@sda21(r13)
+/* 8030EBC0 0030BB20  80 6D A8 70 */	lwz r3, sCurrentFrameCount__8CTexture@sda21(r13)
 /* 8030EBC4 0030BB24  80 9E 00 64 */	lwz r4, 0x64(r30)
 /* 8030EBC8 0030BB28  38 03 FF FF */	addi r0, r3, -1
 /* 8030EBCC 0030BB2C  7C 04 00 40 */	cmplw r4, r0
@@ -881,7 +881,7 @@ LoadToMRAM__8CTextureCFv:
 /* 8030EC48 0030BBA8  38 60 00 00 */	li r3, 0
 /* 8030EC4C 0030BBAC  48 00 00 18 */	b lbl_8030EC64
 lbl_8030EC50:
-/* 8030EC50 0030BBB0  80 0D A8 70 */	lwz r0, lbl_805A9430@sda21(r13)
+/* 8030EC50 0030BBB0  80 0D A8 70 */	lwz r0, sCurrentFrameCount__8CTexture@sda21(r13)
 /* 8030EC54 0030BBB4  90 1F 00 64 */	stw r0, 0x64(r31)
 /* 8030EC58 0030BBB8  4B FF F5 35 */	bl CountMemory__8CTextureCFv
 /* 8030EC5C 0030BBBC  38 7F 00 44 */	addi r3, r31, 0x44
@@ -1639,11 +1639,11 @@ lbl_8030F700:
 /* 8030F700 0030C660  7F E4 FB 78 */	mr r4, r31
 /* 8030F704 0030C664  38 61 00 08 */	addi r3, r1, 8
 /* 8030F708 0030C668  48 06 AD 8D */	bl GXLoadTexObj
-/* 8030F70C 0030C66C  80 0D A8 70 */	lwz r0, lbl_805A9430@sda21(r13)
-/* 8030F710 0030C670  3C 60 80 4C */	lis r3, lbl_804BFD10@ha
+/* 8030F70C 0030C66C  80 0D A8 70 */	lwz r0, sCurrentFrameCount__8CTexture@sda21(r13)
+/* 8030F710 0030C670  3C 60 80 4C */	lis r3, sLoadedTextures@ha
 /* 8030F714 0030C674  57 E4 10 3A */	slwi r4, r31, 2
 /* 8030F718 0030C678  38 A0 00 00 */	li r5, 0
-/* 8030F71C 0030C67C  38 63 FD 10 */	addi r3, r3, lbl_804BFD10@l
+/* 8030F71C 0030C67C  38 63 FD 10 */	addi r3, r3, sLoadedTextures@l
 /* 8030F720 0030C680  90 1D 00 64 */	stw r0, 0x64(r29)
 /* 8030F724 0030C684  7C A3 21 2E */	stwx r5, r3, r4
 /* 8030F728 0030C688  BB 61 00 2C */	lmw r27, 0x2c(r1)
@@ -1659,11 +1659,11 @@ Load__8CTextureCF11_GXTexMapIDQ28CTexture10EClampMode:
 /* 8030F744 0030C6A4  90 01 00 24 */	stw r0, 0x24(r1)
 /* 8030F748 0030C6A8  BF 41 00 08 */	stmw r26, 8(r1)
 /* 8030F74C 0030C6AC  7C 9E 23 78 */	mr r30, r4
-/* 8030F750 0030C6B0  3C 80 80 4C */	lis r4, lbl_804BFD10@ha
+/* 8030F750 0030C6B0  3C 80 80 4C */	lis r4, sLoadedTextures@ha
 /* 8030F754 0030C6B4  7C 7D 1B 78 */	mr r29, r3
 /* 8030F758 0030C6B8  57 DF 10 3A */	slwi r31, r30, 2
 /* 8030F75C 0030C6BC  7C BA 2B 78 */	mr r26, r5
-/* 8030F760 0030C6C0  3B 84 FD 10 */	addi r28, r4, lbl_804BFD10@l
+/* 8030F760 0030C6C0  3B 84 FD 10 */	addi r28, r4, sLoadedTextures@l
 /* 8030F764 0030C6C4  7C 1C F8 2E */	lwzx r0, r28, r31
 /* 8030F768 0030C6C8  7C 00 E8 40 */	cmplw r0, r29
 /* 8030F76C 0030C6CC  40 82 00 10 */	bne lbl_8030F77C
@@ -1712,7 +1712,7 @@ lbl_8030F7F8:
 /* 8030F804 0030C764  7F C4 F3 78 */	mr r4, r30
 /* 8030F808 0030C768  38 7D 00 20 */	addi r3, r29, 0x20
 /* 8030F80C 0030C76C  48 06 AC 89 */	bl GXLoadTexObj
-/* 8030F810 0030C770  80 0D A8 70 */	lwz r0, lbl_805A9430@sda21(r13)
+/* 8030F810 0030C770  80 0D A8 70 */	lwz r0, sCurrentFrameCount__8CTexture@sda21(r13)
 /* 8030F814 0030C774  7F BC F9 2E */	stwx r29, r28, r31
 /* 8030F818 0030C778  90 1D 00 64 */	stw r0, 0x64(r29)
 lbl_8030F81C:
@@ -1951,7 +1951,7 @@ __ct__8CTextureFR12CInputStreamQ28CTexture11EAutoMipmapQ28CTexture9EBlackKey:
 /* 8030FB60 0030CAC0  90 1D 00 1C */	stw r0, 0x1c(r29)
 /* 8030FB64 0030CAC4  90 DD 00 40 */	stw r6, 0x40(r29)
 /* 8030FB68 0030CAC8  48 04 8F 95 */	bl __ct__10CARAMTokenFv
-/* 8030FB6C 0030CACC  80 0D A8 70 */	lwz r0, lbl_805A9430@sda21(r13)
+/* 8030FB6C 0030CACC  80 0D A8 70 */	lwz r0, sCurrentFrameCount__8CTexture@sda21(r13)
 /* 8030FB70 0030CAD0  7F C3 F3 78 */	mr r3, r30
 /* 8030FB74 0030CAD4  90 1D 00 64 */	stw r0, 0x64(r29)
 /* 8030FB78 0030CAD8  48 02 F1 0D */	bl ReadLong__12CInputStreamFv
@@ -2116,7 +2116,7 @@ lbl_8030FDA0:
 lbl_8030FDC8:
 /* 8030FDC8 0030CD28  7C 1A F8 00 */	cmpw r26, r31
 /* 8030FDCC 0030CD2C  41 80 FF C4 */	blt lbl_8030FD90
-/* 8030FDD0 0030CD30  88 0D A8 78 */	lbz r0, lbl_805A9438@sda21(r13)
+/* 8030FDD0 0030CD30  88 0D A8 78 */	lbz r0, sMangleMips__8CTexture@sda21(r13)
 /* 8030FDD4 0030CD34  28 00 00 00 */	cmplwi r0, 0
 /* 8030FDD8 0030CD38  41 82 00 30 */	beq lbl_8030FE08
 /* 8030FDDC 0030CD3C  7F BB EB 78 */	mr r27, r29
@@ -2191,7 +2191,7 @@ __ct__8CTextureF12ETexelFormatssi:
 /* 8030FED8 0030CE38  90 1B 00 1C */	stw r0, 0x1c(r27)
 /* 8030FEDC 0030CE3C  90 DB 00 40 */	stw r6, 0x40(r27)
 /* 8030FEE0 0030CE40  48 04 8C 1D */	bl __ct__10CARAMTokenFv
-/* 8030FEE4 0030CE44  80 0D A8 70 */	lwz r0, lbl_805A9430@sda21(r13)
+/* 8030FEE4 0030CE44  80 0D A8 70 */	lwz r0, sCurrentFrameCount__8CTexture@sda21(r13)
 /* 8030FEE8 0030CE48  7F 63 DB 78 */	mr r3, r27
 /* 8030FEEC 0030CE4C  7F 84 E3 78 */	mr r4, r28
 /* 8030FEF0 0030CE50  7F A5 EB 78 */	mr r5, r29

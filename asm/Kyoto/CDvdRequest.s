@@ -77,7 +77,7 @@ IsComplete__15CARAMDvdRequestFv:
 /* 802FE63C 002FB59C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 802FE640 002FB5A0  7C 08 02 A6 */	mflr r0
 /* 802FE644 002FB5A4  90 01 00 14 */	stw r0, 0x14(r1)
-/* 802FE648 002FB5A8  80 02 CB AC */	lwz r0, lbl_805AE8CC@sda21(r2)
+/* 802FE648 002FB5A8  80 02 CB AC */	lwz r0, kInvalidHandle__12CARAMManager@sda21(r2)
 /* 802FE64C 002FB5AC  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 802FE650 002FB5B0  7C 7F 1B 78 */	mr r31, r3
 /* 802FE654 002FB5B4  80 63 00 04 */	lwz r3, 4(r3)
@@ -89,7 +89,7 @@ IsComplete__15CARAMDvdRequestFv:
 /* 802FE66C 002FB5CC  38 60 00 00 */	li r3, 0
 /* 802FE670 002FB5D0  48 00 00 10 */	b lbl_802FE680
 lbl_802FE674:
-/* 802FE674 002FB5D4  80 02 CB AC */	lwz r0, lbl_805AE8CC@sda21(r2)
+/* 802FE674 002FB5D4  80 02 CB AC */	lwz r0, kInvalidHandle__12CARAMManager@sda21(r2)
 /* 802FE678 002FB5D8  90 1F 00 04 */	stw r0, 4(r31)
 lbl_802FE67C:
 /* 802FE67C 002FB5DC  38 60 00 01 */	li r3, 1
@@ -105,14 +105,14 @@ WaitUntilComplete__15CARAMDvdRequestFv:
 /* 802FE694 002FB5F4  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 802FE698 002FB5F8  7C 08 02 A6 */	mflr r0
 /* 802FE69C 002FB5FC  90 01 00 14 */	stw r0, 0x14(r1)
-/* 802FE6A0 002FB600  80 02 CB AC */	lwz r0, lbl_805AE8CC@sda21(r2)
+/* 802FE6A0 002FB600  80 02 CB AC */	lwz r0, kInvalidHandle__12CARAMManager@sda21(r2)
 /* 802FE6A4 002FB604  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 802FE6A8 002FB608  7C 7F 1B 78 */	mr r31, r3
 /* 802FE6AC 002FB60C  80 63 00 04 */	lwz r3, 4(r3)
 /* 802FE6B0 002FB610  7C 03 00 40 */	cmplw r3, r0
 /* 802FE6B4 002FB614  41 82 00 10 */	beq lbl_802FE6C4
 /* 802FE6B8 002FB618  48 04 60 91 */	bl WaitForDMACompletion__12CARAMManagerFUi
-/* 802FE6BC 002FB61C  80 02 CB AC */	lwz r0, lbl_805AE8CC@sda21(r2)
+/* 802FE6BC 002FB61C  80 02 CB AC */	lwz r0, kInvalidHandle__12CARAMManager@sda21(r2)
 /* 802FE6C0 002FB620  90 1F 00 04 */	stw r0, 4(r31)
 lbl_802FE6C4:
 /* 802FE6C4 002FB624  80 01 00 14 */	lwz r0, 0x14(r1)

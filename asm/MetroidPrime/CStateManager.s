@@ -8989,7 +8989,7 @@ FrameBegin__13CStateManagerFUi:
 /* 8004B56C 000484CC  90 83 08 D4 */	stw r4, 0x8d4(r3)
 /* 8004B570 000484D0  38 80 00 02 */	li r4, 2
 /* 8004B574 000484D4  80 03 08 D4 */	lwz r0, 0x8d4(r3)
-/* 8004B578 000484D8  90 0D A8 70 */	stw r0, lbl_805A9430@sda21(r13)
+/* 8004B578 000484D8  90 0D A8 70 */	stw r0, sCurrentFrameCount__8CTexture@sda21(r13)
 /* 8004B57C 000484DC  80 03 08 D4 */	lwz r0, 0x8d4(r3)
 /* 8004B580 000484E0  90 0D A8 68 */	stw r0, sCurrentFrameCount__16CGraphicsPalette@sda21(r13)
 /* 8004B584 000484E4  4B FF FF D5 */	bl SwapOutTexturesToARAM__13CStateManagerFiUi
