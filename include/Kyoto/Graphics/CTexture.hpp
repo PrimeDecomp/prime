@@ -3,9 +3,14 @@
 
 #include "types.h"
 
-#include <dolphin/gx/GXEnum.h>
+#include "Kyoto/CARAMToken.hpp"
+#include "rstl/single_ptr.hpp"
 
+#include <dolphin/gx.h>
+
+class CDvdRequest;
 class CInputStream;
+class CGraphicsPalette;
 
 enum ETexelFormat {
   kTF_Invalid = -1,
@@ -24,6 +29,16 @@ enum ETexelFormat {
 
 class CTexture {
 public:
+  class CDumpedBitmapDataReloader {
+    int x0_;
+    uint x4_;
+    int x8_;
+    uint xc_;
+    bool x10_;
+    rstl::single_ptr< CDvdRequest > x14_;
+    rstl::single_ptr< uchar > x18_;
+  };
+
   enum EClampMode {
     kCM_Clamp,
     kCM_Repeat,
@@ -39,7 +54,7 @@ public:
   CTexture(ETexelFormat fmt, short w, short h, int mips);
   CTexture(CInputStream& stream, EAutoMipmap mip, EBlackKey bk);
   ~CTexture();
-  
+
   // Used in certain destructors
   void sub_8030e10c();
 
@@ -48,22 +63,50 @@ public:
 
   void* GetBitMapData(int);
 
-  static void InvalidateTexmap(GXTexMapID id);
-
-  uint GetTexelFormat() const { return mTexelFormat; }
+  void InitBitmapBuffers(ETexelFormat fmt, short w, short h, int mips);
+  void InitTextureObjects();
+  ETexelFormat GetTexelFormat() const { return mTexelFormat; }
   short GetWidth() const { return mWidth; }
   short GetHeight() const { return mHeight; }
-  
-  void SetFlag1(bool b) { mFlag1 = b; }
+
+  void* Lock() {
+    mLocked = true;
+    return GetBitMapData(0);
+  }
+
+  void MakeSwappable() const;
+  void CountMemory() const;
+  void UncountMemory() const;
+  void SetFlag1(bool b) { mLocked = b; }
+
+  static uint TexelFormatBitsPerPixel(ETexelFormat fmt);
+  static void InvalidateTexmap(GXTexMapID id);
+
+  static int sCurrentFrameCount;
+  static int sTotalAllocatedMemory;
+  static bool sMangleMips;
 
 private:
-  uint mTexelFormat; // TODO: Enum
+  ETexelFormat mTexelFormat; // TODO: Enum
   short mWidth;
   short mHeight;
   uchar mNumMips;
   uchar mBitsPerPixel;
-  uchar mFlag1 : 1;
-  uchar pad[0x5A];
+  bool mLocked : 1;
+  bool mCanLoadPalette : 1;
+  bool mIsPowerOfTwo : 1;
+  mutable bool mNoSwap : 1;
+  mutable bool mCounted : 1;
+  uchar mCanLoadObj : 1;
+  uint mMemoryAllocated;
+  rstl::single_ptr< CGraphicsPalette > mGraphicsPalette;
+  rstl::single_ptr< CDumpedBitmapDataReloader > mBitmapReloader;
+  uint mNativeFormat;
+  uint mNativeCIFormat;
+  GXTexObj mTexObj;
+  EClampMode mClampMode;
+  CARAMToken mARAMToken;
+  uint mFrameAllocated;
 };
 CHECK_SIZEOF(CTexture, 0x68)
 

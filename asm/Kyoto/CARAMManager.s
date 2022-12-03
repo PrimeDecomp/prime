@@ -19,6 +19,18 @@ mPreInitializeAlloc__12CARAMManager:
 .comm lbl_805A679C, 0x18, 4
 .lcomm lbl_804BFF40, 0x10, 4
 
+.section .sdata2, "a"
+.balign 8
+.global kInvalidAlloc__12CARAMManager
+kInvalidAlloc__12CARAMManager:
+	# ROM: 0x3FB168
+	.4byte 0xFFFFFFFF
+
+.global kInvalidHandle__12CARAMManager
+kInvalidHandle__12CARAMManager:
+	# ROM: 0x3FB16C
+	.4byte 0xFFFFFFFF
+
 .section .sbss, "wa"
 .balign 8
 
@@ -310,7 +322,7 @@ lbl_803448FC:
 /* 80344948 003418A8  80 9E 00 20 */	lwz r4, 0x20(r30)
 /* 8034494C 003418AC  48 02 AD 25 */	bl ARQPostRequest
 /* 80344950 003418B0  80 6D A9 74 */	lwz r3, lbl_805A9534@sda21(r13)
-/* 80344954 003418B4  80 02 CB AC */	lwz r0, lbl_805AE8CC@sda21(r2)
+/* 80344954 003418B4  80 02 CB AC */	lwz r0, kInvalidHandle__12CARAMManager@sda21(r2)
 /* 80344958 003418B8  38 63 00 01 */	addi r3, r3, 1
 /* 8034495C 003418BC  7C 03 00 40 */	cmplw r3, r0
 /* 80344960 003418C0  90 6D A9 74 */	stw r3, lbl_805A9534@sda21(r13)
@@ -394,7 +406,7 @@ lbl_80344A30:
 /* 80344A7C 003419DC  80 9E 00 20 */	lwz r4, 0x20(r30)
 /* 80344A80 003419E0  48 02 AB F1 */	bl ARQPostRequest
 /* 80344A84 003419E4  80 6D A9 74 */	lwz r3, lbl_805A9534@sda21(r13)
-/* 80344A88 003419E8  80 02 CB AC */	lwz r0, lbl_805AE8CC@sda21(r2)
+/* 80344A88 003419E8  80 02 CB AC */	lwz r0, kInvalidHandle__12CARAMManager@sda21(r2)
 /* 80344A8C 003419EC  38 63 00 01 */	addi r3, r3, 1
 /* 80344A90 003419F0  7C 03 00 40 */	cmplw r3, r0
 /* 80344A94 003419F4  90 6D A9 74 */	stw r3, lbl_805A9534@sda21(r13)
@@ -411,7 +423,7 @@ lbl_80344AA4:
 
 .global Free__12CARAMManagerFPCv
 Free__12CARAMManagerFPCv:
-/* 80344ABC 00341A1C  80 02 CB A8 */	lwz r0, lbl_805AE8C8@sda21(r2)
+/* 80344ABC 00341A1C  80 02 CB A8 */	lwz r0, kInvalidAlloc__12CARAMManager@sda21(r2)
 /* 80344AC0 00341A20  7C 00 18 40 */	cmplw r0, r3
 /* 80344AC4 00341A24  40 82 00 0C */	bne lbl_80344AD0
 /* 80344AC8 00341A28  38 60 00 00 */	li r3, 0

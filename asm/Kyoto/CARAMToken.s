@@ -1,6 +1,6 @@
 .include "macros.inc"
 
-.comm lbl_805A680C, 0x1C, 4
+.comm sLists__10CARAMToken, 0x1C, 4
 
 .section .text, "ax"
 
@@ -83,9 +83,9 @@ MakeInvalid__10CARAMTokenFv:
 /* 80358428 00355388  7C 7F 1B 78 */	mr r31, r3
 /* 8035842C 0035538C  48 00 00 7D */	bl MoveToList__10CARAMTokenFQ210CARAMToken7EStatus
 /* 80358430 00355390  38 80 00 00 */	li r4, 0
-/* 80358434 00355394  80 62 CB A8 */	lwz r3, lbl_805AE8C8@sda21(r2)
+/* 80358434 00355394  80 62 CB A8 */	lwz r3, kInvalidAlloc__12CARAMManager@sda21(r2)
 /* 80358438 00355398  90 9F 00 04 */	stw r4, 4(r31)
-/* 8035843C 0035539C  80 02 CB AC */	lwz r0, lbl_805AE8CC@sda21(r2)
+/* 8035843C 0035539C  80 02 CB AC */	lwz r0, kInvalidHandle__12CARAMManager@sda21(r2)
 /* 80358440 003553A0  90 7F 00 08 */	stw r3, 8(r31)
 /* 80358444 003553A4  90 9F 00 0C */	stw r4, 0xc(r31)
 /* 80358448 003553A8  90 1F 00 10 */	stw r0, 0x10(r31)
@@ -101,9 +101,9 @@ RemoveFromList__10CARAMTokenFv:
 /* 80358464 003553C4  28 04 00 00 */	cmplwi r4, 0
 /* 80358468 003553C8  40 82 00 20 */	bne lbl_80358488
 /* 8035846C 003553CC  80 03 00 00 */	lwz r0, 0(r3)
-/* 80358470 003553D0  3C 80 80 5A */	lis r4, lbl_805A680C@ha
+/* 80358470 003553D0  3C 80 80 5A */	lis r4, sLists__10CARAMToken@ha
 /* 80358474 003553D4  80 A3 00 18 */	lwz r5, 0x18(r3)
-/* 80358478 003553D8  38 84 68 0C */	addi r4, r4, lbl_805A680C@l
+/* 80358478 003553D8  38 84 68 0C */	addi r4, r4, sLists__10CARAMToken@l
 /* 8035847C 003553DC  54 00 10 3A */	slwi r0, r0, 2
 /* 80358480 003553E0  7C A4 01 2E */	stwx r5, r4, r0
 /* 80358484 003553E4  48 00 00 0C */	b lbl_80358490
@@ -145,9 +145,9 @@ lbl_803584E0:
 .global InitiallyMoveToList__10CARAMTokenFv
 InitiallyMoveToList__10CARAMTokenFv:
 /* 803584F8 00355458  38 00 00 00 */	li r0, 0
-/* 803584FC 0035545C  3C 80 80 5A */	lis r4, lbl_805A680C@ha
+/* 803584FC 0035545C  3C 80 80 5A */	lis r4, sLists__10CARAMToken@ha
 /* 80358500 00355460  90 03 00 14 */	stw r0, 0x14(r3)
-/* 80358504 00355464  38 84 68 0C */	addi r4, r4, lbl_805A680C@l
+/* 80358504 00355464  38 84 68 0C */	addi r4, r4, sLists__10CARAMToken@l
 /* 80358508 00355468  80 03 00 00 */	lwz r0, 0(r3)
 /* 8035850C 0035546C  54 00 10 3A */	slwi r0, r0, 2
 /* 80358510 00355470  7C 04 00 2E */	lwzx r0, r4, r0
@@ -165,9 +165,9 @@ InitiallyMoveToList__10CARAMTokenFv:
 UpdateAllDMAs__10CARAMTokenFv:
 /* 80358538 00355498  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 8035853C 0035549C  7C 08 02 A6 */	mflr r0
-/* 80358540 003554A0  3C 60 80 5A */	lis r3, lbl_805A680C@ha
+/* 80358540 003554A0  3C 60 80 5A */	lis r3, sLists__10CARAMToken@ha
 /* 80358544 003554A4  90 01 00 24 */	stw r0, 0x24(r1)
-/* 80358548 003554A8  38 63 68 0C */	addi r3, r3, lbl_805A680C@l
+/* 80358548 003554A8  38 63 68 0C */	addi r3, r3, sLists__10CARAMToken@l
 /* 8035854C 003554AC  93 E1 00 1C */	stw r31, 0x1c(r1)
 /* 80358550 003554B0  3B E3 00 08 */	addi r31, r3, 8
 /* 80358554 003554B4  93 C1 00 18 */	stw r30, 0x18(r1)
@@ -218,7 +218,7 @@ lbl_803585D8:
 /* 803585E8 00355548  38 60 00 00 */	li r3, 0
 /* 803585EC 0035554C  48 00 00 78 */	b lbl_80358664
 lbl_803585F0:
-/* 803585F0 00355550  80 02 CB AC */	lwz r0, lbl_805AE8CC@sda21(r2)
+/* 803585F0 00355550  80 02 CB AC */	lwz r0, kInvalidHandle__12CARAMManager@sda21(r2)
 /* 803585F4 00355554  90 1F 00 10 */	stw r0, 0x10(r31)
 /* 803585F8 00355558  80 1F 00 00 */	lwz r0, 0(r31)
 /* 803585FC 0035555C  2C 00 00 05 */	cmpwi r0, 5
@@ -234,7 +234,7 @@ lbl_80358618:
 /* 80358620 00355580  40 82 00 14 */	bne lbl_80358634
 /* 80358624 00355584  80 7F 00 08 */	lwz r3, 8(r31)
 /* 80358628 00355588  4B FE C4 95 */	bl Free__12CARAMManagerFPCv
-/* 8035862C 0035558C  80 02 CB A8 */	lwz r0, lbl_805AE8C8@sda21(r2)
+/* 8035862C 0035558C  80 02 CB A8 */	lwz r0, kInvalidAlloc__12CARAMManager@sda21(r2)
 /* 80358630 00355590  90 1F 00 08 */	stw r0, 8(r31)
 lbl_80358634:
 /* 80358634 00355594  7F E3 FB 78 */	mr r3, r31
@@ -306,7 +306,7 @@ lbl_80358700:
 /* 8035870C 0035566C  80 7F 00 0C */	lwz r3, 0xc(r31)
 /* 80358710 00355670  4B FE C5 19 */	bl Alloc__12CARAMManagerFUi
 /* 80358714 00355674  90 7F 00 08 */	stw r3, 8(r31)
-/* 80358718 00355678  80 02 CB A8 */	lwz r0, lbl_805AE8C8@sda21(r2)
+/* 80358718 00355678  80 02 CB A8 */	lwz r0, kInvalidAlloc__12CARAMManager@sda21(r2)
 /* 8035871C 0035567C  80 9F 00 08 */	lwz r4, 8(r31)
 /* 80358720 00355680  7C 00 20 40 */	cmplw r0, r4
 /* 80358724 00355684  40 82 00 0C */	bne lbl_80358730
@@ -439,8 +439,8 @@ lbl_803588BC:
 /* 803588CC 0035582C  38 21 00 10 */	addi r1, r1, 0x10
 /* 803588D0 00355830  4E 80 00 20 */	blr
 
-.global PostConstruct__10CARAMTokenFPvUi
-PostConstruct__10CARAMTokenFPvUi:
+.global PostConstruct__10CARAMTokenFPvUii
+PostConstruct__10CARAMTokenFPvUii:
 /* 803588D4 00355834  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 803588D8 00355838  7C 08 02 A6 */	mflr r0
 /* 803588DC 0035583C  90 01 00 24 */	stw r0, 0x24(r1)
@@ -481,7 +481,7 @@ __dt__10CARAMTokenFv:
 /* 8035895C 003558BC  7C 7E 1B 79 */	or. r30, r3, r3
 /* 80358960 003558C0  41 82 00 50 */	beq lbl_803589B0
 /* 80358964 003558C4  80 7E 00 10 */	lwz r3, 0x10(r30)
-/* 80358968 003558C8  80 02 CB AC */	lwz r0, lbl_805AE8CC@sda21(r2)
+/* 80358968 003558C8  80 02 CB AC */	lwz r0, kInvalidHandle__12CARAMManager@sda21(r2)
 /* 8035896C 003558CC  7C 03 00 40 */	cmplw r3, r0
 /* 80358970 003558D0  41 82 00 18 */	beq lbl_80358988
 /* 80358974 003558D4  4B FE BD 49 */	bl CancelDMA__12CARAMManagerFUi
@@ -548,7 +548,7 @@ __ct__10CARAMTokenFRC10CARAMToken:
 __ct__10CARAMTokenFPvUi:
 /* 80358A4C 003559AC  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80358A50 003559B0  7C 08 02 A6 */	mflr r0
-/* 80358A54 003559B4  80 E2 CB A8 */	lwz r7, lbl_805AE8C8@sda21(r2)
+/* 80358A54 003559B4  80 E2 CB A8 */	lwz r7, kInvalidAlloc__12CARAMManager@sda21(r2)
 /* 80358A58 003559B8  90 01 00 14 */	stw r0, 0x14(r1)
 /* 80358A5C 003559BC  38 00 00 01 */	li r0, 1
 /* 80358A60 003559C0  93 E1 00 0C */	stw r31, 0xc(r1)
@@ -558,7 +558,7 @@ __ct__10CARAMTokenFPvUi:
 /* 80358A70 003559D0  38 C0 00 00 */	li r6, 0
 /* 80358A74 003559D4  90 83 00 04 */	stw r4, 4(r3)
 /* 80358A78 003559D8  54 04 D9 7E */	srwi r4, r0, 5
-/* 80358A7C 003559DC  80 02 CB AC */	lwz r0, lbl_805AE8CC@sda21(r2)
+/* 80358A7C 003559DC  80 02 CB AC */	lwz r0, kInvalidHandle__12CARAMManager@sda21(r2)
 /* 80358A80 003559E0  90 E3 00 08 */	stw r7, 8(r3)
 /* 80358A84 003559E4  90 A3 00 0C */	stw r5, 0xc(r3)
 /* 80358A88 003559E8  90 03 00 10 */	stw r0, 0x10(r3)
@@ -582,7 +582,7 @@ __ct__10CARAMTokenFPvUi:
 /* 80358AD0 00355A30  90 7F 00 10 */	stw r3, 0x10(r31)
 /* 80358AD4 00355A34  80 7F 00 10 */	lwz r3, 0x10(r31)
 /* 80358AD8 00355A38  4B FE BC 71 */	bl WaitForDMACompletion__12CARAMManagerFUi
-/* 80358ADC 00355A3C  80 02 CB AC */	lwz r0, lbl_805AE8CC@sda21(r2)
+/* 80358ADC 00355A3C  80 02 CB AC */	lwz r0, kInvalidHandle__12CARAMManager@sda21(r2)
 /* 80358AE0 00355A40  90 1F 00 10 */	stw r0, 0x10(r31)
 lbl_80358AE4:
 /* 80358AE4 00355A44  80 01 00 14 */	lwz r0, 0x14(r1)
@@ -597,13 +597,13 @@ __ct__10CARAMTokenFv:
 /* 80358AFC 00355A5C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80358B00 00355A60  7C 08 02 A6 */	mflr r0
 /* 80358B04 00355A64  38 A0 00 00 */	li r5, 0
-/* 80358B08 00355A68  80 82 CB A8 */	lwz r4, lbl_805AE8C8@sda21(r2)
+/* 80358B08 00355A68  80 82 CB A8 */	lwz r4, kInvalidAlloc__12CARAMManager@sda21(r2)
 /* 80358B0C 00355A6C  90 01 00 14 */	stw r0, 0x14(r1)
 /* 80358B10 00355A70  38 00 00 06 */	li r0, 6
 /* 80358B14 00355A74  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 80358B18 00355A78  7C 7F 1B 78 */	mr r31, r3
 /* 80358B1C 00355A7C  90 03 00 00 */	stw r0, 0(r3)
-/* 80358B20 00355A80  80 02 CB AC */	lwz r0, lbl_805AE8CC@sda21(r2)
+/* 80358B20 00355A80  80 02 CB AC */	lwz r0, kInvalidHandle__12CARAMManager@sda21(r2)
 /* 80358B24 00355A84  90 A3 00 04 */	stw r5, 4(r3)
 /* 80358B28 00355A88  90 83 00 08 */	stw r4, 8(r3)
 /* 80358B2C 00355A8C  90 A3 00 0C */	stw r5, 0xc(r3)
