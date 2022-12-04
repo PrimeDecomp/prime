@@ -439,8 +439,8 @@ lbl_803588BC:
 /* 803588CC 0035582C  38 21 00 10 */	addi r1, r1, 0x10
 /* 803588D0 00355830  4E 80 00 20 */	blr
 
-.global PostConstruct__10CARAMTokenFPvUii
-PostConstruct__10CARAMTokenFPvUii:
+.global PostConstruct__10CARAMTokenFPvUi
+PostConstruct__10CARAMTokenFPvUi:
 /* 803588D4 00355834  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 803588D8 00355838  7C 08 02 A6 */	mflr r0
 /* 803588DC 0035583C  90 01 00 24 */	stw r0, 0x24(r1)
