@@ -88,5 +88,6 @@ private:
 CHECK_SIZEOF(CTweakAutoMapper, 0x120)
 
 extern CTweakAutoMapper* gpTweakAutoMapper;
+extern "C" int lbl_805A8EB0;
 
 #endif // _CTWEAKAUTOMAPPER

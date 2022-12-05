@@ -16,9 +16,8 @@ private:
 class CFactoryFnReturn {
 public:
   template < typename T >
-  CFactoryFnReturn(T* ptr);
-  // TODO this forces inlining, were they really manually specialized?
-  // : obj(TToken< T >::GetIObjObjectFor(ptr).release()) {}
+  CFactoryFnReturn(T* ptr)
+  : obj(TToken< T >::GetIObjObjectFor(ptr).release()) {}
 
 private:
   rstl::auto_ptr< CObjOwnerDerivedFromIObjUntyped > obj;

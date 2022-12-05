@@ -125,6 +125,11 @@ static inline void GXTexCoord2f32(const f32 u, const f32 v) {
   GXWGFifo.f32 = v;
 }
 
+
+static inline void GXPosition1x8(u8 index) {
+  GXWGFifo.u8 = index;
+}
+
 static inline void GXEnd(void) {}
 
 #endif
