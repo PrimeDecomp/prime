@@ -25,6 +25,18 @@ inline typename It::difference_type distance(It first, It last) {
   return __distance(first, last, typename It::iterator_category());
 }
 
+template < typename It, typename S >
+void __advance(It& it, S count, forward_iterator_tag) {
+  while (count > 0) {
+    ++it;
+  }
+}
+
+template < typename It, typename S >
+inline void advance(It& it, S count) {
+  return __advance(it, count, typename It::iterator_category());
+}
+
 } // namespace rstl
 
 #endif // _RSTL_ITERATOR

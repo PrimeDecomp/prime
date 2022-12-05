@@ -32,7 +32,7 @@ LIBS = [
             "MetroidPrime/CCredits",
             "MetroidPrime/CSplashScreen",
             ["MetroidPrime/CInstruction", True],
-            "MetroidPrime/CAnimData",
+            ["MetroidPrime/CAnimData", False],
             "MetroidPrime/Factories/CCharacterFactory",
             "MetroidPrime/Factories/CAssetFactory",
             ["MetroidPrime/Tweaks/CTweakPlayer", False],

@@ -1,6 +1,8 @@
 #ifndef _RSTL_ALGORITHM
 #define _RSTL_ALGORITHM
 
+#include "rstl/functional.hpp"
+#include "rstl/pair.hpp"
 #include "rstl/pointer_iterator.hpp"
 
 namespace rstl {
@@ -67,7 +69,7 @@ void __sort3(T& a, T& b, T& c, Cmp comp) {
 
 template < typename It, class Cmp >
 void sort(It first, It last, Cmp cmp) {
-  int count = last - first;  // use distance?
+  int count = last - first; // use distance?
   if (count > 1) {
     if (count <= 20) {
       __insertion_sort(first, last, cmp);
@@ -91,6 +93,87 @@ void sort(It first, It last, Cmp cmp) {
       sort(it, last, cmp);
     }
   }
+}
+
+template < typename It, typename T, typename Cmp >
+It lower_bound(It start, It end, const T& value, Cmp cmp) {
+  int dist = distance(start, end);
+  It it = start;
+  while (dist > 0) {
+    it = start;
+    int halfDist = dist / 2;
+    advance(it, halfDist);
+    if (cmp(*it, value)) {
+      start = it;
+      ++start;
+      dist = (dist - halfDist) - 1;
+    } else {
+      dist = halfDist;
+    }
+  }
+  return start;
+}
+
+template < typename It, typename T, typename Cmp >
+It binary_find(It start, It end, const T& value, Cmp cmp) {
+  It lower = lower_bound(start, end, value, cmp);
+  bool found = false;
+  if (lower != end && !cmp(value, *lower)) {
+    found = true;
+  }
+  if (found) {
+    return lower;
+  } else {
+    return end;
+  }
+}
+
+template < typename T, typename Cmp >
+class pair_sorter_finder;
+
+template < typename K, typename V, typename Cmp >
+class pair_sorter_finder< pair< K, V >, Cmp > {
+public:
+  typedef K key_type;
+
+  Cmp cmp;
+
+  pair_sorter_finder(const Cmp& cmp) : cmp(cmp) {}
+
+  bool operator()(const K& a, const pair< K, V >& b) const;
+  /* {
+    return cmp(a, b.first);
+  }*/
+  
+  bool operator()(const pair< K, V >& a, const K& b) const;
+  /* {
+    return cmp(a.first, b);
+  }*/
+};
+
+template < typename K, typename V, typename Cmp >
+bool pair_sorter_finder< pair< K, V >, Cmp >::operator()(const K& a, const pair< K, V >& b) const {
+  return cmp(a, b.first);
+}
+
+template < typename K, typename V, typename Cmp >
+bool pair_sorter_finder< pair< K, V >, Cmp >::operator()(const pair< K, V >& a, const K& b) const {
+  return cmp(a.first, b);
+}
+
+template < typename T >
+typename T::const_iterator
+find_by_key(const T& container,
+            const typename select1st< typename T::value_type >::value_type& key);
+
+template < typename T >
+typename T::const_iterator
+find_by_key(const T& container,
+            const typename select1st< typename T::value_type >::value_type& key) {
+  typedef typename select1st< typename T::value_type >::value_type K;
+
+  return binary_find(container.begin(), container.end(), key,
+                     pair_sorter_finder< typename T::value_type, less< K > >(rstl::less< K >()));
 }
 
 } // namespace rstl

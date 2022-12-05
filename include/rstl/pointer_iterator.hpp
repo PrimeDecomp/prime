@@ -132,6 +132,10 @@ inline typename It::difference_type __distance(It first, It last, random_access_
   return last - first;
 }
 
+template < typename It, typename S >
+inline void __advance(It& it, S count, random_access_iterator_tag) {
+  it += count;
+}
 
 template < typename T >
 struct iterator_traits {};

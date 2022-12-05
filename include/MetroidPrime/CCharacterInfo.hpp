@@ -24,6 +24,7 @@ public:
   };
 
   const CPASDatabase& GetPASDatabase() const { return x30_pasDatabase; }
+  const rstl::vector< rstl::pair< rstl::string, CAABox > >& GetAnimBBoxList() const { return x88_aabbs; }
 
 private:
   ushort x0_tableCount;

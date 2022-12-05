@@ -195,5 +195,6 @@ private:
   int x184_scanCompletionRateSecond;
   CStaticInterference x188_staticIntf;
 };
+CHECK_SIZEOF(CPlayerState, 0x198)
 
 #endif // _CPLAYERSTATE
