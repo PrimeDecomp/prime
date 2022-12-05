@@ -31,6 +31,8 @@ public:
   void CancelBuild(const SObjectTag&) override;
   bool CanBuild(const SObjectTag&) override;
   const SObjectTag* GetResourceIdByName(const char* name) const override;
+  
+  uint ResourceSize(const SObjectTag& tag) const { return x4_resLoader.ResourceSize(tag); }
 
   void AsyncIdle(uint time);
 

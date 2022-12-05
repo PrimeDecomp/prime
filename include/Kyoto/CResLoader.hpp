@@ -27,6 +27,7 @@ public:
   bool AreAllPaksLoaded() const;
   CInputStream* LoadNewResourceSync(const SObjectTag& tag, char* extBuf);
   FourCC GetResourceTypeById(CAssetId) const;
+  uint ResourceSize(const SObjectTag& tag) const;
 
 private:
   rstl::list< unkptr > x0_aramList;

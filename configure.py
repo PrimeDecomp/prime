@@ -71,7 +71,7 @@ LIBS = [
             "MetroidPrime/Enemies/CPatterned",
             "MetroidPrime/ScriptObjects/CScriptDoor",
             ["MetroidPrime/Enemies/CStateMachine", False],
-            "MetroidPrime/CMapArea",
+            ["MetroidPrime/CMapArea", False],
             ["MetroidPrime/Cameras/CBallCamera", False],
             "MetroidPrime/ScriptObjects/CScriptEffect",
             "MetroidPrime/Weapons/CBomb",

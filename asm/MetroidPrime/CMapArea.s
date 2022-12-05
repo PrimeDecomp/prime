@@ -7,8 +7,8 @@ lbl_ctor:
 .section .data
 .balign 8
 
-.global lbl_803DAB80
-lbl_803DAB80:
+.global "__vt__35TObjOwnerDerivedFromIObj<8CMapArea>"
+"__vt__35TObjOwnerDerivedFromIObj<8CMapArea>":
 	# ROM: 0x3D7B80
 	.4byte 0
 	.4byte 0
@@ -18,8 +18,8 @@ lbl_803DAB80:
 .section .sdata
 .balign 8
 
-.global lbl_805A7010
-lbl_805A7010:
+.global gHackAssetId
+gHackAssetId:
 	# ROM: 0x3F49B0
 	.4byte 0xFFFFFFFF
 	.4byte 0
@@ -27,7 +27,7 @@ lbl_805A7010:
 .section .bss
 .balign 8
 
-.lcomm lbl_8046C3E0, 0x28, 4
+.lcomm MinesPostTransforms, 0x28, 4
 
 .section .sdata2, "a"
 .balign 8
@@ -92,7 +92,7 @@ FMapAreaFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer:
 /* 800801C0 0007D120  3C 80 80 3D */	lis r4, lbl_803CD66C@ha
 /* 800801C4 0007D124  80 1C 00 04 */	lwz r0, 4(r28)
 /* 800801C8 0007D128  38 84 D6 6C */	addi r4, r4, lbl_803CD66C@l
-/* 800801CC 0007D12C  90 0D 84 50 */	stw r0, lbl_805A7010@sda21(r13)
+/* 800801CC 0007D12C  90 0D 84 50 */	stw r0, gHackAssetId@sda21(r13)
 /* 800801D0 0007D130  48 29 56 9D */	bl __nw__FUlPCcPCc
 /* 800801D4 0007D134  7C 7E 1B 79 */	or. r30, r3, r3
 /* 800801D8 0007D138  41 82 00 28 */	beq lbl_80080200
@@ -160,8 +160,8 @@ lbl_80080284:
 /* 800802B8 0007D218  93 C1 00 08 */	stw r30, 8(r1)
 /* 800802BC 0007D21C  7C 7E 1B 79 */	or. r30, r3, r3
 /* 800802C0 0007D220  41 82 00 58 */	beq lbl_80080318
-/* 800802C4 0007D224  3C 60 80 3E */	lis r3, lbl_803DAB80@ha
-/* 800802C8 0007D228  38 03 AB 80 */	addi r0, r3, lbl_803DAB80@l
+/* 800802C4 0007D224  3C 60 80 3E */	lis r3, "__vt__35TObjOwnerDerivedFromIObj<8CMapArea>"@ha
+/* 800802C8 0007D228  38 03 AB 80 */	addi r0, r3, "__vt__35TObjOwnerDerivedFromIObj<8CMapArea>"@l
 /* 800802CC 0007D22C  90 1E 00 00 */	stw r0, 0(r30)
 /* 800802D0 0007D230  80 7E 00 04 */	lwz r3, 4(r30)
 /* 800802D4 0007D234  28 03 00 00 */	cmplwi r3, 0
@@ -226,11 +226,11 @@ lbl_80080318:
 /* 8008039C 0007D2FC  3C 80 80 3E */	lis r4, __vt__4IObj@ha
 /* 800803A0 0007D300  3C A0 80 3E */	lis r5, __vt__31CObjOwnerDerivedFromIObjUntyped@ha
 /* 800803A4 0007D304  38 04 8D 6C */	addi r0, r4, __vt__4IObj@l
-/* 800803A8 0007D308  3C 80 80 3E */	lis r4, lbl_803DAB80@ha
+/* 800803A8 0007D308  3C 80 80 3E */	lis r4, "__vt__35TObjOwnerDerivedFromIObj<8CMapArea>"@ha
 /* 800803AC 0007D30C  90 03 00 00 */	stw r0, 0(r3)
 /* 800803B0 0007D310  38 C5 8D 78 */	addi r6, r5, __vt__31CObjOwnerDerivedFromIObjUntyped@l
 /* 800803B4 0007D314  38 A0 00 00 */	li r5, 0
-/* 800803B8 0007D318  38 04 AB 80 */	addi r0, r4, lbl_803DAB80@l
+/* 800803B8 0007D318  38 04 AB 80 */	addi r0, r4, "__vt__35TObjOwnerDerivedFromIObj<8CMapArea>"@l
 /* 800803BC 0007D31C  90 C3 00 00 */	stw r6, 0(r3)
 /* 800803C0 0007D320  98 BF 00 00 */	stb r5, 0(r31)
 /* 800803C4 0007D324  80 9F 00 04 */	lwz r4, 4(r31)
@@ -263,11 +263,11 @@ GetAreaPostTranslate__8CMapAreaFRC6IWorld7TAreaId:
 /* 80080420 0007D380  3C 03 4E 54 */	addis r0, r3, 0x4e54
 /* 80080424 0007D384  28 00 4D 65 */	cmplwi r0, 0x4d65
 /* 80080428 0007D388  40 82 00 24 */	bne lbl_8008044C
-/* 8008042C 0007D38C  3C 80 80 3D */	lis r4, lbl_803CD640@ha
-/* 80080430 0007D390  3C 60 80 47 */	lis r3, lbl_8046C3E0@ha
-/* 80080434 0007D394  38 84 D6 40 */	addi r4, r4, lbl_803CD640@l
+/* 8008042C 0007D38C  3C 80 80 3D */	lis r4, MinesPostTransformIndices@ha
+/* 80080430 0007D390  3C 60 80 47 */	lis r3, MinesPostTransforms@ha
+/* 80080434 0007D394  38 84 D6 40 */	addi r4, r4, MinesPostTransformIndices@l
 /* 80080438 0007D398  7C 84 F8 AE */	lbzx r4, r4, r31
-/* 8008043C 0007D39C  38 03 C3 E0 */	addi r0, r3, lbl_8046C3E0@l
+/* 8008043C 0007D39C  38 03 C3 E0 */	addi r0, r3, MinesPostTransforms@l
 /* 80080440 0007D3A0  1C 64 00 0C */	mulli r3, r4, 0xc
 /* 80080444 0007D3A4  7C 60 1A 14 */	add r3, r0, r3
 /* 80080448 0007D3A8  48 00 00 0C */	b lbl_80080454
@@ -312,12 +312,12 @@ GetAreaPostTransform__8CMapAreaFRC6CWorld7TAreaId:
 /* 800804D0 0007D430  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 800804D4 0007D434  7D 89 03 A6 */	mtctr r12
 /* 800804D8 0007D438  4E 80 04 21 */	bctrl
-/* 800804DC 0007D43C  3C A0 80 3D */	lis r5, lbl_803CD640@ha
-/* 800804E0 0007D440  3C 80 80 47 */	lis r4, lbl_8046C3E0@ha
-/* 800804E4 0007D444  38 A5 D6 40 */	addi r5, r5, lbl_803CD640@l
+/* 800804DC 0007D43C  3C A0 80 3D */	lis r5, MinesPostTransformIndices@ha
+/* 800804E0 0007D440  3C 80 80 47 */	lis r4, MinesPostTransforms@ha
+/* 800804E4 0007D444  38 A5 D6 40 */	addi r5, r5, MinesPostTransformIndices@l
 /* 800804E8 0007D448  7C 7F 1B 78 */	mr r31, r3
 /* 800804EC 0007D44C  7C A5 F0 AE */	lbzx r5, r5, r30
-/* 800804F0 0007D450  38 04 C3 E0 */	addi r0, r4, lbl_8046C3E0@l
+/* 800804F0 0007D450  38 04 C3 E0 */	addi r0, r4, MinesPostTransforms@l
 /* 800804F4 0007D454  38 61 00 18 */	addi r3, r1, 0x18
 /* 800804F8 0007D458  1C 85 00 0C */	mulli r4, r5, 0xc
 /* 800804FC 0007D45C  7C 80 22 14 */	add r4, r0, r4
@@ -1101,9 +1101,9 @@ __ct__8CMapAreaFR12CInputStreamUi:
 .global __sinit_CMapArea_cpp
 __sinit_CMapArea_cpp:
 /* 80081010 0007DF70  C0 42 89 8C */	lfs f2, lbl_805AA6AC@sda21(r2)
-/* 80081014 0007DF74  3C 60 80 47 */	lis r3, lbl_8046C3E0@ha
+/* 80081014 0007DF74  3C 60 80 47 */	lis r3, MinesPostTransforms@ha
 /* 80081018 0007DF78  C0 22 89 A8 */	lfs f1, lbl_805AA6C8@sda21(r2)
-/* 8008101C 0007DF7C  D4 43 C3 E0 */	stfsu f2, lbl_8046C3E0@l(r3)
+/* 8008101C 0007DF7C  D4 43 C3 E0 */	stfsu f2, MinesPostTransforms@l(r3)
 /* 80081020 0007DF80  C0 02 89 AC */	lfs f0, lbl_805AA6CC@sda21(r2)
 /* 80081024 0007DF84  D0 43 00 04 */	stfs f2, 4(r3)
 /* 80081028 0007DF88  D0 23 00 08 */	stfs f1, 8(r3)
@@ -1125,8 +1125,8 @@ lbl_803CD630:
 	.4byte 0x000000FF
 	.4byte 0
 
-.global lbl_803CD640
-lbl_803CD640:
+.global MinesPostTransformIndices
+MinesPostTransformIndices:
 	# ROM: 0x3CA640
 	.4byte 0
 	.4byte 0

@@ -8,8 +8,10 @@
 
 #include "Kyoto/Audio/CSfxHandle.hpp"
 #include "Kyoto/IObjectStore.hpp"
+#include "Kyoto/TToken.hpp"
 
 #include "rstl/string.hpp"
+#include "rstl/reserved_vector.hpp"
 
 class CMapWorld;
 class CModel;
@@ -89,7 +91,9 @@ public:
   static void PropogateAreaChain(CGameArea::EOcclusionState occlusionState, CGameArea* area,
                                  CWorld* world);
 
-  CGameArea::CConstChainIterator GetChainHead(EChain chain) const { return CGameArea::CConstChainIterator(x4c_chainHeads[size_t(chain)]); }
+  CGameArea::CConstChainIterator GetChainHead(EChain chain) const {
+    return CGameArea::CConstChainIterator(x4c_chainHeads[size_t(chain)]);
+  }
   static CGameArea::CConstChainIterator GetAliveAreasEnd();
 
 private:
