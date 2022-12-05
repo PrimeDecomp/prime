@@ -3,30 +3,12 @@
 
 #include "types.h"
 
+#include "rstl/functional.hpp"
+#include "rstl/iterator.hpp"
 #include "rstl/pair.hpp"
 #include "rstl/rmemory_allocator.hpp"
-#include "rstl/iterator.hpp"
 
 namespace rstl {
-template < typename P >
-struct select1st {
-  const P& operator()(const P& it) const { return it; }
-};
-
-template < typename K, typename V >
-struct select1st< pair< K, V > > {
-  const K& operator()(const pair< K, V >& it) const { return it.first; }
-};
-
-template < typename P >
-struct identity {
-  const P& operator()(const P& it) const { return it; }
-};
-
-template < typename T >
-struct less {
-  bool operator()(const T& a, const T& b) const { return a < b; }
-};
 
 enum node_color {
   kNC_Red,
@@ -52,9 +34,7 @@ private:
     : mLeft(left), mRight(right), mParent(parent), mColor(color) {
       construct(get_value(), value);
     }
-    ~node() {
-      get_value()->~P();
-    }
+    ~node() { get_value()->~P(); }
 
     P* get_value() { return reinterpret_cast< P* >(&mValue); }
     const P* get_value() const { return reinterpret_cast< const P* >(&mValue); }
@@ -93,7 +73,7 @@ public:
 
     // TODO why is this bool here?
     const_iterator(node* node, const header* header, bool b)
-    : mNode(node), mHeader(header)/*, x8_(b)*/ {}
+    : mNode(node), mHeader(header) /*, x8_(b)*/ {}
 
     const P* operator->() const { return mNode->get_value(); }
     const P* operator*() const { return mNode->get_value(); }
@@ -191,7 +171,7 @@ public:
     }
     return iterator(needle, &x8_header, false);
   }
-  
+
   iterator erase(iterator it) {
     node* node = it.get_node();
     ++it;
@@ -245,7 +225,9 @@ private:
 
   void rebalance(node* n) { rbtree_rebalance(&x8_header, n); }
 
-  node* rebalance_for_erase(node* n) { return static_cast<node*>(rbtree_rebalance_for_erase(&x8_header, n)); }
+  node* rebalance_for_erase(node* n) {
+    return static_cast< node* >(rbtree_rebalance_for_erase(&x8_header, n));
+  }
 };
 
 static bool kUnknownValueNewRoot = true;

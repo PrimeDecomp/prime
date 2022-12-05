@@ -74,7 +74,7 @@ public:
   const CParticleDatabase& GetParticleDB() const { return x120_particleDB; }
   // SetIsAnimating__9CAnimDataFb
   // SetAnimDir__9CAnimDataFQ29CAnimData8EAnimDir
-  // GetBoundingBox__9CAnimDataCFv
+  CAABox GetBoundingBox() const;
   // GetBoundingBox__9CAnimDataCFRC12CTransform4f
   // GetLocatorSegId__9CAnimDataCFRCQ24rstl66basic_string
   // ResetPOILists__9CAnimDataFv

@@ -1720,7 +1720,7 @@ sub_802edef0:
 /* 802EDF08 002EAE68  7C 9E 23 78 */	mr r30, r4
 /* 802EDF0C 002EAE6C  93 A1 00 14 */	stw r29, 0x14(r1)
 /* 802EDF10 002EAE70  7C 7D 1B 78 */	mr r29, r3
-/* 802EDF14 002EAE74  4B D3 C8 3D */	bl sub_8002a750
+/* 802EDF14 002EAE74  4B D3 C8 3D */	bl "__lt__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>CFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 /* 802EDF18 002EAE78  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 802EDF1C 002EAE7C  40 82 00 28 */	bne lbl_802EDF44
 /* 802EDF20 002EAE80  7F A3 EB 78 */	mr r3, r29

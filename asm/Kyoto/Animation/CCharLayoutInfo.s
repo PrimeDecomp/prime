@@ -136,7 +136,7 @@ lbl_802F7D60:
 /* 802F7D60 002F4CC0  7F A5 EB 78 */	mr r5, r29
 /* 802F7D64 002F4CC4  38 7C 00 01 */	addi r3, r28, 1
 /* 802F7D68 002F4CC8  38 9F 00 10 */	addi r4, r31, 0x10
-/* 802F7D6C 002F4CCC  4B D3 29 BD */	bl "__cl__Q24rstl140select1st<Q24rstl119pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,Q24rstl28auto_ptr<16CParticleGenInfo>>>CFRCQ24rstl119pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,Q24rstl28auto_ptr<16CParticleGenInfo>>"
+/* 802F7D6C 002F4CCC  4B D3 29 BD */	bl "__cl__Q24rstl81less<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>CFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 /* 802F7D70 002F4CD0  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 802F7D74 002F4CD4  40 82 00 10 */	bne lbl_802F7D84
 /* 802F7D78 002F4CD8  7F FE FB 78 */	mr r30, r31
@@ -153,7 +153,7 @@ lbl_802F7D88:
 /* 802F7D9C 002F4CFC  7F A4 EB 78 */	mr r4, r29
 /* 802F7DA0 002F4D00  38 7C 00 01 */	addi r3, r28, 1
 /* 802F7DA4 002F4D04  38 BE 00 10 */	addi r5, r30, 0x10
-/* 802F7DA8 002F4D08  4B D3 29 81 */	bl "__cl__Q24rstl140select1st<Q24rstl119pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,Q24rstl28auto_ptr<16CParticleGenInfo>>>CFRCQ24rstl119pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,Q24rstl28auto_ptr<16CParticleGenInfo>>"
+/* 802F7DA8 002F4D08  4B D3 29 81 */	bl "__cl__Q24rstl81less<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>CFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 /* 802F7DAC 002F4D0C  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 802F7DB0 002F4D10  41 82 00 08 */	beq lbl_802F7DB8
 lbl_802F7DB4:
@@ -999,14 +999,14 @@ lbl_802F890C:
 /* 802F890C 002F586C  7F C4 F3 78 */	mr r4, r30
 /* 802F8910 002F5870  38 7D 00 01 */	addi r3, r29, 1
 /* 802F8914 002F5874  38 BF 00 10 */	addi r5, r31, 0x10
-/* 802F8918 002F5878  4B D3 1E 11 */	bl "__cl__Q24rstl140select1st<Q24rstl119pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,Q24rstl28auto_ptr<16CParticleGenInfo>>>CFRCQ24rstl119pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,Q24rstl28auto_ptr<16CParticleGenInfo>>"
+/* 802F8918 002F5878  4B D3 1E 11 */	bl "__cl__Q24rstl81less<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>CFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 /* 802F891C 002F587C  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 802F8920 002F5880  7C 7B 1B 78 */	mr r27, r3
 /* 802F8924 002F5884  40 82 00 34 */	bne lbl_802F8958
 /* 802F8928 002F5888  7F C5 F3 78 */	mr r5, r30
 /* 802F892C 002F588C  38 7D 00 01 */	addi r3, r29, 1
 /* 802F8930 002F5890  38 9F 00 10 */	addi r4, r31, 0x10
-/* 802F8934 002F5894  4B D3 1D F5 */	bl "__cl__Q24rstl140select1st<Q24rstl119pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,Q24rstl28auto_ptr<16CParticleGenInfo>>>CFRCQ24rstl119pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,Q24rstl28auto_ptr<16CParticleGenInfo>>"
+/* 802F8934 002F5894  4B D3 1D F5 */	bl "__cl__Q24rstl81less<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>CFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 /* 802F8938 002F5898  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 802F893C 002F589C  40 82 00 1C */	bne lbl_802F8958
 /* 802F8940 002F58A0  93 FC 00 00 */	stw r31, 0(r28)
@@ -1311,4 +1311,3 @@ lbl_803D6E28:
 	# ROM: 0x3D3E28
 	.asciz "??(??)"
 	.balign 4
-

@@ -36,6 +36,7 @@ protected:
 public:
   typedef pointer_iterator< T, vector< T, Alloc >, Alloc > iterator;
   typedef const_pointer_iterator< T, vector< T, Alloc >, Alloc > const_iterator;
+  typedef T value_type;
 
   iterator begin() { return iterator(xc_items); }
   const_iterator begin() const { return const_iterator(xc_items); }

@@ -5,8 +5,10 @@
 
 class CAnimTreeNode : public IAnimReader {
 public:
-  virtual CCharAnimTime VGetTimeRemaining() const;
-
+  virtual CAnimTreeEffectiveContribution VGetContributionOfHighestInfluence() const = 0;
+  CAnimTreeEffectiveContribution GetContributionOfHighestInfluence() const {
+    return VGetContributionOfHighestInfluence();
+  }
 };
 
 #endif // _CANIMTREENODE
