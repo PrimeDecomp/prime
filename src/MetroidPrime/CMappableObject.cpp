@@ -118,8 +118,7 @@ void CMappableObject::PostConstruct(const void*) { x10_transform = AdjustTransfo
 
 void CMappableObject::Draw(int curArea, const CMapWorldInfo& mwInfo, float alpha,
                            bool needsVtxLoad) const {
-  bool flag = -1 < x0_type && x0_type < 0x10;
-  if (flag) {
+  if (IsDoorType(x0_type) == true) {
     rstl::pair< CColor, CColor > colors = GetDoorColors(curArea, mwInfo, alpha);
     for (int i = 0; i < 6; ++i) {
       if (needsVtxLoad) {

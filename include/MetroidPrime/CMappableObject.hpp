@@ -47,6 +47,11 @@ public:
   rstl::pair< CColor, CColor > GetDoorColors(int idx, const CMapWorldInfo&, float alpha) const;
   void Draw(int, const CMapWorldInfo&, float, bool) const;
 
+
+  static bool IsDoorType(EMappableObjectType type) {
+    return type >= kMOT_BlueDoor && type <= kMOT_PlasmaDoorFloor2;
+  }
+
 private:
   EMappableObjectType x0_type;
   EVisMode x4_visibilityMode;
