@@ -118,7 +118,7 @@ LIBS = [
             "MetroidPrime/Enemies/CBeetle",
             ["MetroidPrime/HUD/CHUDMemoParms", True],
             ["MetroidPrime/ScriptObjects/CScriptHUDMemo", True],
-            "MetroidPrime/CMappableObject",
+            ["MetroidPrime/CMappableObject", False],
             "MetroidPrime/Player/CPlayerCameraBob",
             ["MetroidPrime/ScriptObjects/CScriptCameraFilterKeyframe", True],
             ["MetroidPrime/ScriptObjects/CScriptCameraBlurKeyframe", True],

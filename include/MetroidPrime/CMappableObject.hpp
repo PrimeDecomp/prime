@@ -2,7 +2,14 @@
 #define _CMAPPABLEOBJECT
 
 #include "MetroidPrime/TGameTypes.hpp"
+
+#include "Kyoto/Graphics/CColor.hpp"
 #include "Kyoto/Math/CTransform4f.hpp"
+
+#include "rstl/pair.hpp"
+
+class CTweakAutoMapper;
+class CMapWorldInfo;
 
 class CMappableObject {
 public:
@@ -37,6 +44,8 @@ public:
   enum EVisMode { kVM_Always, kVM_MapStationOrVisit, kVM_Visit, kVM_Never, kVM_MapStationOrVisit2 };
 
   void PostConstruct(const void*);
+  rstl::pair< CColor, CColor > GetDoorColors(int idx, const CMapWorldInfo&, float alpha) const;
+  void Draw(int, const CMapWorldInfo&, float, bool) const;
 
 private:
   EMappableObjectType x0_type;
@@ -45,6 +54,11 @@ private:
   uint xc_;
   CTransform4f x10_transform;
   uchar x40_pad[0x10];
+
+  static void ReadAutomapperTweaks(const CTweakAutoMapper&);
+  CTransform4f AdjustTransformForType();
+
+  static CVector3f skDoorVerts[8];
 };
 CHECK_SIZEOF(CMappableObject, 0x50)
 
