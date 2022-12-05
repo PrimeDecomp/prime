@@ -69,7 +69,7 @@ lbl_805A7374:
 .section .bss
 .balign 8
 
-.lcomm lbl_8046C498, 0x60, 4
+.lcomm skDoorVerts__15CMappableObject, 0x60, 4
 
 .section .sdata2, "a"
 .balign 8
@@ -556,21 +556,21 @@ DrawDoorSurface__15CMappableObjectCFiRC13CMapWorldInfofib:
 /* 800E8CB8 000E5C18  7C 06 03 78 */	mr r6, r0
 /* 800E8CBC 000E5C1C  93 C1 00 18 */	stw r30, 0x18(r1)
 /* 800E8CC0 000E5C20  7C FE 3B 78 */	mr r30, r7
-/* 800E8CC4 000E5C24  48 00 05 45 */	bl GetDoorColors__15CMappableObjectCFiRC13CMapWorldInfo
+/* 800E8CC4 000E5C24  48 00 05 45 */	bl GetDoorColors__15CMappableObjectCFiRC13CMapWorldInfof
 /* 800E8CC8 000E5C28  57 C0 06 3F */	clrlwi. r0, r30, 0x18
 /* 800E8CCC 000E5C2C  80 81 00 08 */	lwz r4, 8(r1)
 /* 800E8CD0 000E5C30  80 A1 00 0C */	lwz r5, 0xc(r1)
-/* 800E8CD4 000E5C34  3C 60 80 3D */	lis r3, lbl_803CE5F0@ha
+/* 800E8CD4 000E5C34  3C 60 80 3D */	lis r3, sDoorData@ha
 /* 800E8CD8 000E5C38  90 81 00 10 */	stw r4, 0x10(r1)
 /* 800E8CDC 000E5C3C  57 E4 20 36 */	slwi r4, r31, 4
-/* 800E8CE0 000E5C40  38 03 E5 F0 */	addi r0, r3, lbl_803CE5F0@l
+/* 800E8CE0 000E5C40  38 03 E5 F0 */	addi r0, r3, sDoorData@l
 /* 800E8CE4 000E5C44  3B C1 00 14 */	addi r30, r1, 0x14
 /* 800E8CE8 000E5C48  90 A1 00 14 */	stw r5, 0x14(r1)
 /* 800E8CEC 000E5C4C  7F E0 22 14 */	add r31, r0, r4
 /* 800E8CF0 000E5C50  41 82 00 18 */	beq lbl_800E8D08
-/* 800E8CF4 000E5C54  3C 80 80 47 */	lis r4, lbl_8046C498@ha
+/* 800E8CF4 000E5C54  3C 80 80 47 */	lis r4, skDoorVerts__15CMappableObject@ha
 /* 800E8CF8 000E5C58  38 60 00 09 */	li r3, 9
-/* 800E8CFC 000E5C5C  38 84 C4 98 */	addi r4, r4, lbl_8046C498@l
+/* 800E8CFC 000E5C5C  38 84 C4 98 */	addi r4, r4, skDoorVerts__15CMappableObject@l
 /* 800E8D00 000E5C60  38 A0 00 0C */	li r5, 0xc
 /* 800E8D04 000E5C64  48 21 F9 41 */	bl SetArray__3CGXF7_GXAttrPCvUc
 lbl_800E8D08:
@@ -646,23 +646,23 @@ lbl_800E8DF8:
 /* 800E8E0C 000E5D6C  7D 25 4B 78 */	mr r5, r9
 /* 800E8E10 000E5D70  7D 06 43 78 */	mr r6, r8
 /* 800E8E14 000E5D74  38 61 00 38 */	addi r3, r1, 0x38
-/* 800E8E18 000E5D78  48 00 03 F1 */	bl GetDoorColors__15CMappableObjectCFiRC13CMapWorldInfo
+/* 800E8E18 000E5D78  48 00 03 F1 */	bl GetDoorColors__15CMappableObjectCFiRC13CMapWorldInfof
 /* 800E8E1C 000E5D7C  80 81 00 38 */	lwz r4, 0x38(r1)
-/* 800E8E20 000E5D80  3C 60 80 3D */	lis r3, lbl_803CE5F0@ha
+/* 800E8E20 000E5D80  3C 60 80 3D */	lis r3, sDoorData@ha
 /* 800E8E24 000E5D84  80 01 00 3C */	lwz r0, 0x3c(r1)
 /* 800E8E28 000E5D88  57 7D 06 3E */	clrlwi r29, r27, 0x18
 /* 800E8E2C 000E5D8C  90 81 00 40 */	stw r4, 0x40(r1)
 /* 800E8E30 000E5D90  3B E1 00 44 */	addi r31, r1, 0x44
-/* 800E8E34 000E5D94  3B 83 E5 F0 */	addi r28, r3, lbl_803CE5F0@l
+/* 800E8E34 000E5D94  3B 83 E5 F0 */	addi r28, r3, sDoorData@l
 /* 800E8E38 000E5D98  3B 60 00 00 */	li r27, 0
 /* 800E8E3C 000E5D9C  90 01 00 44 */	stw r0, 0x44(r1)
 /* 800E8E40 000E5DA0  3F C0 CC 01 */	lis r30, 0xcc01
 lbl_800E8E44:
 /* 800E8E44 000E5DA4  28 1D 00 00 */	cmplwi r29, 0
 /* 800E8E48 000E5DA8  41 82 00 18 */	beq lbl_800E8E60
-/* 800E8E4C 000E5DAC  3C 80 80 47 */	lis r4, lbl_8046C498@ha
+/* 800E8E4C 000E5DAC  3C 80 80 47 */	lis r4, skDoorVerts__15CMappableObject@ha
 /* 800E8E50 000E5DB0  38 60 00 09 */	li r3, 9
-/* 800E8E54 000E5DB4  38 84 C4 98 */	addi r4, r4, lbl_8046C498@l
+/* 800E8E54 000E5DB4  38 84 C4 98 */	addi r4, r4, skDoorVerts__15CMappableObject@l
 /* 800E8E58 000E5DB8  38 A0 00 0C */	li r5, 0xc
 /* 800E8E5C 000E5DBC  48 21 F7 E9 */	bl SetArray__3CGXF7_GXAttrPCvUc
 lbl_800E8E60:
@@ -716,7 +716,6 @@ lbl_800E8EF8:
 /* 800E8F18 000E5E78  7C 03 00 2E */	lwzx r0, r3, r0
 /* 800E8F1C 000E5E7C  7C 09 03 A6 */	mtctr r0
 /* 800E8F20 000E5E80  4E 80 04 20 */	bctr
-.global lbl_800E8F24
 lbl_800E8F24:
 /* 800E8F24 000E5E84  38 80 00 FF */	li r4, 0xff
 /* 800E8F28 000E5E88  38 00 00 96 */	li r0, 0x96
@@ -728,7 +727,6 @@ lbl_800E8F24:
 /* 800E8F40 000E5EA0  98 81 00 27 */	stb r4, 0x27(r1)
 /* 800E8F44 000E5EA4  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 800E8F48 000E5EA8  48 00 00 FC */	b lbl_800E9044
-.global lbl_800E8F4C
 lbl_800E8F4C:
 /* 800E8F4C 000E5EAC  38 80 00 FF */	li r4, 0xff
 /* 800E8F50 000E5EB0  38 00 00 96 */	li r0, 0x96
@@ -740,7 +738,6 @@ lbl_800E8F4C:
 /* 800E8F68 000E5EC8  98 81 00 23 */	stb r4, 0x23(r1)
 /* 800E8F6C 000E5ECC  83 A1 00 20 */	lwz r29, 0x20(r1)
 /* 800E8F70 000E5ED0  48 00 00 D4 */	b lbl_800E9044
-.global lbl_800E8F74
 lbl_800E8F74:
 /* 800E8F74 000E5ED4  38 80 00 FF */	li r4, 0xff
 /* 800E8F78 000E5ED8  38 A0 00 64 */	li r5, 0x64
@@ -753,7 +750,6 @@ lbl_800E8F74:
 /* 800E8F94 000E5EF4  98 81 00 1F */	stb r4, 0x1f(r1)
 /* 800E8F98 000E5EF8  83 A1 00 1C */	lwz r29, 0x1c(r1)
 /* 800E8F9C 000E5EFC  48 00 00 A8 */	b lbl_800E9044
-.global lbl_800E8FA0
 lbl_800E8FA0:
 /* 800E8FA0 000E5F00  38 80 00 FF */	li r4, 0xff
 /* 800E8FA4 000E5F04  38 A0 00 64 */	li r5, 0x64
@@ -766,7 +762,6 @@ lbl_800E8FA0:
 /* 800E8FC0 000E5F20  98 81 00 1B */	stb r4, 0x1b(r1)
 /* 800E8FC4 000E5F24  83 A1 00 18 */	lwz r29, 0x18(r1)
 /* 800E8FC8 000E5F28  48 00 00 7C */	b lbl_800E9044
-.global lbl_800E8FCC
 lbl_800E8FCC:
 /* 800E8FCC 000E5F2C  38 A0 00 FF */	li r5, 0xff
 /* 800E8FD0 000E5F30  38 80 00 64 */	li r4, 0x64
@@ -779,7 +774,6 @@ lbl_800E8FCC:
 /* 800E8FEC 000E5F4C  98 A1 00 17 */	stb r5, 0x17(r1)
 /* 800E8FF0 000E5F50  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 800E8FF4 000E5F54  48 00 00 50 */	b lbl_800E9044
-.global lbl_800E8FF8
 lbl_800E8FF8:
 /* 800E8FF8 000E5F58  38 A0 00 FF */	li r5, 0xff
 /* 800E8FFC 000E5F5C  38 80 00 64 */	li r4, 0x64
@@ -792,17 +786,14 @@ lbl_800E8FF8:
 /* 800E9018 000E5F78  98 A1 00 13 */	stb r5, 0x13(r1)
 /* 800E901C 000E5F7C  83 A1 00 10 */	lwz r29, 0x10(r1)
 /* 800E9020 000E5F80  48 00 00 24 */	b lbl_800E9044
-.global lbl_800E9024
 lbl_800E9024:
 /* 800E9024 000E5F84  80 6D A1 4C */	lwz r3, gpTweakPlayerRes@sda21(r13)
 /* 800E9028 000E5F88  80 C3 00 04 */	lwz r6, 4(r3)
 /* 800E902C 000E5F8C  48 00 00 18 */	b lbl_800E9044
-.global lbl_800E9030
 lbl_800E9030:
 /* 800E9030 000E5F90  80 6D A1 4C */	lwz r3, gpTweakPlayerRes@sda21(r13)
 /* 800E9034 000E5F94  80 C3 00 08 */	lwz r6, 8(r3)
 /* 800E9038 000E5F98  48 00 00 0C */	b lbl_800E9044
-.global lbl_800E903C
 lbl_800E903C:
 /* 800E903C 000E5F9C  80 6D A1 4C */	lwz r3, gpTweakPlayerRes@sda21(r13)
 /* 800E9040 000E5FA0  80 C3 00 0C */	lwz r6, 0xc(r3)
@@ -925,8 +916,8 @@ PostConstruct__15CMappableObjectFPCv:
 /* 800E9200 000E6160  38 21 00 40 */	addi r1, r1, 0x40
 /* 800E9204 000E6164  4E 80 00 20 */	blr
 
-.global GetDoorColors__15CMappableObjectCFiRC13CMapWorldInfo
-GetDoorColors__15CMappableObjectCFiRC13CMapWorldInfo:
+.global GetDoorColors__15CMappableObjectCFiRC13CMapWorldInfof
+GetDoorColors__15CMappableObjectCFiRC13CMapWorldInfof:
 /* 800E9208 000E6168  94 21 FF A0 */	stwu r1, -0x60(r1)
 /* 800E920C 000E616C  7C 08 02 A6 */	mflr r0
 /* 800E9210 000E6170  90 01 00 64 */	stw r0, 0x64(r1)
@@ -977,22 +968,17 @@ lbl_800E92A4:
 /* 800E92C0 000E6220  7C 03 00 2E */	lwzx r0, r3, r0
 /* 800E92C4 000E6224  7C 09 03 A6 */	mtctr r0
 /* 800E92C8 000E6228  4E 80 04 20 */	bctr
-.global lbl_800E92CC
 lbl_800E92CC:
 /* 800E92CC 000E622C  38 80 00 01 */	li r4, 1
 /* 800E92D0 000E6230  48 00 00 18 */	b lbl_800E92E8
-.global lbl_800E92D4
 lbl_800E92D4:
 /* 800E92D4 000E6234  38 80 00 02 */	li r4, 2
 /* 800E92D8 000E6238  48 00 00 10 */	b lbl_800E92E8
-.global lbl_800E92DC
 lbl_800E92DC:
 /* 800E92DC 000E623C  38 80 00 03 */	li r4, 3
 /* 800E92E0 000E6240  48 00 00 08 */	b lbl_800E92E8
-.global lbl_800E92E4
 lbl_800E92E4:
 /* 800E92E4 000E6244  38 80 00 04 */	li r4, 4
-.global lbl_800E92E8
 lbl_800E92E8:
 /* 800E92E8 000E6248  80 6D A1 44 */	lwz r3, gpTweakAutoMapper@sda21(r13)
 /* 800E92EC 000E624C  54 80 10 3A */	slwi r0, r4, 2
@@ -1105,7 +1091,7 @@ lbl_800E9424:
 .global ReadAutomapperTweaks__15CMappableObjectFRC16CTweakAutoMapper
 ReadAutomapperTweaks__15CMappableObjectFRC16CTweakAutoMapper:
 /* 800E9468 000E63C8  C0 03 00 AC */	lfs f0, 0xac(r3)
-/* 800E946C 000E63CC  3C 80 80 47 */	lis r4, lbl_8046C498@ha
+/* 800E946C 000E63CC  3C 80 80 47 */	lis r4, skDoorVerts__15CMappableObject@ha
 /* 800E9470 000E63D0  C0 A3 00 A8 */	lfs f5, 0xa8(r3)
 /* 800E9474 000E63D4  FC 40 00 50 */	fneg f2, f0
 /* 800E9478 000E63D8  C0 02 90 70 */	lfs f0, lbl_805AAD90@sda21(r2)
@@ -1114,7 +1100,7 @@ ReadAutomapperTweaks__15CMappableObjectFRC16CTweakAutoMapper:
 /* 800E9484 000E63E4  C0 22 90 20 */	lfs f1, lbl_805AAD40@sda21(r2)
 /* 800E9488 000E63E8  EC 80 00 B2 */	fmuls f4, f0, f2
 /* 800E948C 000E63EC  C0 02 90 48 */	lfs f0, lbl_805AAD68@sda21(r2)
-/* 800E9490 000E63F0  D4 44 C4 98 */	stfsu f2, lbl_8046C498@l(r4)
+/* 800E9490 000E63F0  D4 44 C4 98 */	stfsu f2, skDoorVerts__15CMappableObject@l(r4)
 /* 800E9494 000E63F4  EC 00 01 B2 */	fmuls f0, f0, f6
 /* 800E9498 000E63F8  D0 64 00 04 */	stfs f3, 4(r4)
 /* 800E949C 000E63FC  D0 24 00 08 */	stfs f1, 8(r4)
@@ -1145,8 +1131,8 @@ ReadAutomapperTweaks__15CMappableObjectFRC16CTweakAutoMapper:
 __sinit_CMappableObject_cpp:
 /* 800E94F8 000E6458  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 800E94FC 000E645C  C4 04 66 A0 */	lfsu f0, sZeroVector__9CVector3f@l(r4)
-/* 800E9500 000E6460  3C 60 80 47 */	lis r3, lbl_8046C498@ha
-/* 800E9504 000E6464  D4 03 C4 98 */	stfsu f0, lbl_8046C498@l(r3)
+/* 800E9500 000E6460  3C 60 80 47 */	lis r3, skDoorVerts__15CMappableObject@ha
+/* 800E9504 000E6464  D4 03 C4 98 */	stfsu f0, skDoorVerts__15CMappableObject@l(r3)
 /* 800E9508 000E6468  C0 24 00 04 */	lfs f1, 4(r4)
 /* 800E950C 000E646C  C0 44 00 08 */	lfs f2, 8(r4)
 /* 800E9510 000E6470  D0 23 00 04 */	stfs f1, 4(r3)
@@ -1176,8 +1162,8 @@ __sinit_CMappableObject_cpp:
 
 .section .rodata
 .balign 8
-.global lbl_803CE5F0
-lbl_803CE5F0:
+.global sDoorData
+sDoorData:
 	# ROM: 0x3CB5F0
 	.4byte 0
 	.4byte 0
@@ -1203,4 +1189,3 @@ lbl_803CE5F0:
 	.4byte 0
 	.4byte 0
 	.4byte 0x05040706
-

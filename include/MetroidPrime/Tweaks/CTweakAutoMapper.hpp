@@ -4,6 +4,7 @@
 #include "MetroidPrime/Tweaks/ITweakObject.hpp"
 
 #include "Kyoto/Graphics/CColor.hpp"
+#include "Kyoto/Math/CVector3f.hpp"
 #include "Kyoto/TOneStatic.hpp"
 
 #include "rstl/reserved_vector.hpp"
@@ -14,6 +15,12 @@ class CTweakAutoMapper : public ITweakObject, public TOneStatic< CTweakAutoMappe
 public:
   ~CTweakAutoMapper();
   CTweakAutoMapper(CInputStream&);
+
+  const CColor& GetDoorColor(int idx) const { return x100_doorColors[idx]; }
+  const CColor& GetOpenDoorColor() const { return x11c_openDoorColor; }
+  const CVector3f& GetDoorCenter() const {
+    return CVector3f(xa4_doorCenterA, xa8_doorCenterB, xac_doorCenterC);
+  }
 
 private:
   bool x4_24_showOneMiniMapArea : 1;
