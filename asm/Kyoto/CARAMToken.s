@@ -31,8 +31,8 @@ lbl_80358374:
 /* 80358380 003552E0  38 21 00 10 */	addi r1, r1, 0x10
 /* 80358384 003552E4  4E 80 00 20 */	blr
 
-.global sub_80358388
-sub_80358388:
+.global sub_80358388__10CARAMTokenFv
+sub_80358388__10CARAMTokenFv:
 /* 80358388 003552E8  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8035838C 003552EC  7C 08 02 A6 */	mflr r0
 /* 80358390 003552F0  90 01 00 14 */	stw r0, 0x14(r1)
@@ -54,8 +54,8 @@ lbl_803583C0:
 /* 803583CC 0035532C  38 21 00 10 */	addi r1, r1, 0x10
 /* 803583D0 00355330  4E 80 00 20 */	blr
 
-.global sub_803583d4
-sub_803583d4:
+.global sub_803583d4__10CARAMTokenFv
+sub_803583d4__10CARAMTokenFv:
 /* 803583D4 00355334  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803583D8 00355338  7C 08 02 A6 */	mflr r0
 /* 803583DC 0035533C  90 01 00 14 */	stw r0, 0x14(r1)
@@ -544,8 +544,8 @@ __ct__10CARAMTokenFRC10CARAMToken:
 /* 80358A44 003559A4  38 21 00 10 */	addi r1, r1, 0x10
 /* 80358A48 003559A8  4E 80 00 20 */	blr
 
-.global __ct__10CARAMTokenFPvUi
-__ct__10CARAMTokenFPvUi:
+.global __ct__10CARAMTokenFPvUii
+__ct__10CARAMTokenFPvUii:
 /* 80358A4C 003559AC  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80358A50 003559B0  7C 08 02 A6 */	mflr r0
 /* 80358A54 003559B4  80 E2 CB A8 */	lwz r7, kInvalidAlloc__12CARAMManager@sda21(r2)
