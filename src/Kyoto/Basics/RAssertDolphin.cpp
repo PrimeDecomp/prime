@@ -12,19 +12,7 @@
 static const char* buildTime = "Build v1.088 10/29/2002 2:21:25";
 static char rs_debugger_buffer[1024];
 static int rs_debugger_buffer_size;
-static char DAT_805a9248;
-
-void rs_debugger_printf(const char* format, ...) {
-  va_list arg;
-
-  va_start(arg, format);
-  rs_debugger_buffer_size = vsprintf(rs_debugger_buffer, format, arg);
-  va_end(arg);
-
-  OSContext context;
-  OSSaveContext(&context);
-  ErrorHandler(0xff, &context, 0, 0xd1dd0d1e);
-}
+static bool DAT_805a9248;
 
 void ErrorHandler(OSError code, OSContext* context, int arg1, int arg2) {
   uint loopExitCriteria;
@@ -114,7 +102,7 @@ void ErrorHandler(OSError code, OSContext* context, int arg1, int arg2) {
              "(read from DAR)\n",
              context->srr0, arg2);
 
-    if (DAT_805a9248 == '\0') {
+    if (!DAT_805a9248) {
       GXColor fg; // = &DAT_80000000;
       GXColor bg; // = 0xffffff00;
       OSFatal(fg, bg, rs_debugger_buffer);
@@ -127,4 +115,16 @@ void SetErrorHandlers() {
   OSSetErrorHandler(3, (OSErrorHandler*)ErrorHandler);
   OSSetErrorHandler(5, (OSErrorHandler*)ErrorHandler);
   OSSetErrorHandler(15, (OSErrorHandler*)ErrorHandler);
+}
+
+void rs_debugger_printf(const char* format, ...) {
+  va_list arg;
+
+  va_start(arg, format);
+  rs_debugger_buffer_size = vsprintf(rs_debugger_buffer, format, arg);
+  va_end(arg);
+
+  OSContext context;
+  OSSaveContext(&context);
+  ErrorHandler(0xff, &context, 0, 0xd1dd0d1e);
 }
