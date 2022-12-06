@@ -16,6 +16,8 @@ public:
   void Finish();
   bool Process(bool v);
   void Write(const void* ptr, size_t len);
+
+  int GetCompressedBytesWritten() { return mCompressedBytesWritten; }
 private:
   COutputStream* mOutput;
   int mCompressedBytesWritten;
