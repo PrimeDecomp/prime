@@ -11,6 +11,7 @@
 #include "Kyoto/Streams/COutputStream.hpp"
 
 #include "rstl/math.hpp"
+#include "rstl/algorithm.hpp"
 
 #include <math.h>
 
@@ -370,22 +371,16 @@ void CPlayerState::InitializeScanTimes() {
 }
 
 float CPlayerState::GetScanTime(CAssetId res) const {
-  // TODO
-  rstl::vector< rstl::pair< CAssetId, float > >::const_iterator it = x170_scanTimes.end();
-  // const auto it = std::find_if(x170_scanTimes.cbegin(), x170_scanTimes.cend(),
-  //                              [&](const auto& test) -> bool { return test.first == res; });
+  rstl::vector< rstl::pair< CAssetId, float > >::const_iterator it = rstl::find_by_key(x170_scanTimes, res);
 
-  if (it == x170_scanTimes.end())
+  if (it != x170_scanTimes.end())
     return 0.f;
 
   return it->second;
 }
 
 void CPlayerState::SetScanTime(CAssetId res, float time) {
-  // TODO
-  rstl::vector< rstl::pair< CAssetId, float > >::iterator it = x170_scanTimes.end();
-  // auto it = std::find_if(x170_scanTimes.begin(), x170_scanTimes.end(),
-  //                        [&](const auto& test) -> bool { return test.first == res; });
+  rstl::vector< rstl::pair< CAssetId, float > >::iterator it = rstl::find_by_key_nc(x170_scanTimes, res);
 
   if (it != x170_scanTimes.end())
     it->second = time;
