@@ -45,7 +45,7 @@ typedef unsigned int _UINT32;
 
 int abs(int n);
 #ifdef __MWERKS__
-// #define abs(n) __abs(n)
+#define abs(n) __abs(n)
 #define labs(n) __labs(n)
 static inline double fabs(double x) { return __fabs(x); }
 #else

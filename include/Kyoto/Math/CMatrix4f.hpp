@@ -8,6 +8,8 @@ public:
   CMatrix4f(float, float, float, float, float, float, float, float, float, float, float, float,
             float, float, float, float);
 
+  CVector3f MultiplyOneOverW(const CVector3f& vec) const;
+
 private:
   float m00;
   float m01;

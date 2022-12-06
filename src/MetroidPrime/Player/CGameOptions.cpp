@@ -175,18 +175,18 @@ float CGameOptions::TuneScreenBrightness() {
 void CGameOptions::SetScreenPositionX(int position, bool apply) {
   x4c_screenXOffset = CMath::Clamp(-30, position, 30);
   if (apply) {
-    uint a, b, c;
-    CGraphics::sub_80309564(&a, &b, &c);
-    CGraphics::sub_803094b0(a, x4c_screenXOffset, c);
+    int a, b, c;
+    CGraphics::GetScreenPosition(&a, &b, &c);
+    CGraphics::SetScreenPosition(a, x4c_screenXOffset, c);
   }
 }
 
 void CGameOptions::SetScreenPositionY(int position, bool apply) {
   x50_screenYOffset = CMath::Clamp(-30, position, 30);
   if (apply) {
-    uint a, b, c;
-    CGraphics::sub_80309564(&a, &b, &c);
-    CGraphics::sub_803094b0(a, b, x50_screenYOffset);
+    int a, b, c;
+    CGraphics::GetScreenPosition(&a, &b, &c);
+    CGraphics::SetScreenPosition(a, b, x50_screenYOffset);
   }
 }
 
@@ -194,9 +194,9 @@ void CGameOptions::SetScreenStretch(int value, bool apply) {
   x54_screenStretch = CMath::Clamp(-10, value, 10);
 
   if (apply) {
-    uint a, b, c;
-    CGraphics::sub_80309564(&a, &b, &c);
-    CGraphics::sub_803094b0(x54_screenStretch, b, c);
+    int a, b, c;
+    CGraphics::GetScreenPosition(&a, &b, &c);
+    CGraphics::SetScreenPosition(x54_screenStretch, b, c);
   }
 }
 

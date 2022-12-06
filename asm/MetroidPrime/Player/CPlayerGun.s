@@ -9298,7 +9298,7 @@ DrawScreenTex__Ff:
 /* 800425AC 0003F50C  38 80 00 06 */	li r4, 6
 /* 800425B0 0003F510  38 A0 00 01 */	li r5, 1
 /* 800425B4 0003F514  48 2C 94 E1 */	bl SetDepthWriteMode__9CGraphicsFb8ERglEnumb
-/* 800425B8 0003F518  80 E2 C7 A8 */	lwz r7, lbl_805AE4C8@sda21(r2)
+/* 800425B8 0003F518  80 E2 C7 A8 */	lwz r7, kSpareBufferTexMapID__9CGraphics@sda21(r2)
 /* 800425BC 0003F51C  38 60 01 40 */	li r3, 0x140
 /* 800425C0 0003F520  38 80 00 E0 */	li r4, 0xe0
 /* 800425C4 0003F524  38 A0 00 06 */	li r5, 6
@@ -9326,7 +9326,7 @@ DrawScreenTex__Ff:
 /* 8004261C 0003F57C  48 2C 67 F9 */	bl SetNumTexGens__3CGXFUc
 /* 80042620 0003F580  38 60 00 01 */	li r3, 1
 /* 80042624 0003F584  48 2C 66 6D */	bl SetNumTevStages__3CGXFUc
-/* 80042628 0003F588  80 A2 C7 A8 */	lwz r5, lbl_805AE4C8@sda21(r2)
+/* 80042628 0003F588  80 A2 C7 A8 */	lwz r5, kSpareBufferTexMapID__9CGraphics@sda21(r2)
 /* 8004262C 0003F58C  38 60 00 00 */	li r3, 0
 /* 80042630 0003F590  38 80 00 00 */	li r4, 0
 /* 80042634 0003F594  38 C0 00 FF */	li r6, 0xff

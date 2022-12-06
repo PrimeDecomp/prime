@@ -10,6 +10,9 @@ public:
   int GetX() const { return mX; }
   int GetY() const { return mY; }
 
+  int& operator[](int idx) { return *(&mX + idx); }
+  const int& operator[](int idx) const { return *(&mX + idx); }
+
 private:
   int mX;
   int mY;
