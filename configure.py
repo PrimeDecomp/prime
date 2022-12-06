@@ -669,7 +669,7 @@ LIBS = [
             "Kyoto/Animation/CVertexMorphEffect",
             "Kyoto/Animation/CSkinnedModelWithAvgNormals",
             ["Kyoto/CTimeProvider", True],
-            ["Kyoto/CARAMToken", False],
+            ["Kyoto/CARAMToken", True],
             "Kyoto/Audio/CMidiManager",
             ["Kyoto/Text/CFontImageDef", True],
             "Kyoto/Text/CImageInstruction",
