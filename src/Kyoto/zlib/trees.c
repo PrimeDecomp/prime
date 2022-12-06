@@ -33,7 +33,7 @@
 
 /* #define GEN_TREES_H */
 
-#include "deflate.h"
+#include "zlib/deflate.h"
 
 #ifdef DEBUG
 #  include <ctype.h>
@@ -115,7 +115,7 @@ local int base_dist[D_CODES];
 /* First normalized distance for each code (0 = distance of 1) */
 
 #else
-#  include "trees.h"
+#  include "zlib/trees.h"
 #endif /* GEN_TREES_H */
 
 struct static_tree_desc_s {

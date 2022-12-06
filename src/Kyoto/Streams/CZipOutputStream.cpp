@@ -3,6 +3,7 @@
 #include "rstl/math.hpp"
 
 #include "Kyoto/Streams/CZipSupport.hpp"
+#include "Kyoto/Alloc/CMemory.hpp"
 
 CZipOutputStream::CZipOutputStream(COutputStream* out, int level)
 : COutputStream(1024)
@@ -13,7 +14,7 @@ CZipOutputStream::CZipOutputStream(COutputStream* out, int level)
   mZStream->zalloc = CZipSupport::Alloc;
   mZStream->zfree = CZipSupport::Free;
   mZStream->opaque = nullptr;
-  
+
   int useLevel = 9;
   if (level < 10) {
     useLevel = level;
