@@ -468,7 +468,7 @@ LIBS = [
         "objects": [
             "Kyoto/Basics/CBasics",
             ["Kyoto/Basics/CStopwatch", True],
-            "Kyoto/Basics/CBasicsDolphin",
+            ["Kyoto/Basics/CBasicsDolphin", True],
             ["Kyoto/Alloc/CCallStackDolphin", True],
             ["Kyoto/Basics/COsContextDolphin", True],
             ["Kyoto/Basics/CSWDataDolphin", True],

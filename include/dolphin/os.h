@@ -154,6 +154,7 @@ void OSFatal(GXColor fg, GXColor bg, const char* msg);
 #include <dolphin/os/OSContext.h>
 #include <dolphin/os/OSError.h>
 #include <dolphin/os/OSException.h>
+#include <dolphin/os/OSFastCast.h>
 #include <dolphin/os/OSFont.h>
 #include <dolphin/os/OSInterrupt.h>
 #include <dolphin/os/OSMutex.h>

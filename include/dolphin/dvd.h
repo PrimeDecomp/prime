@@ -46,6 +46,8 @@ struct DVDFileInfo {
   DVDCallback callback;
 };
 
+void DVDInit();
+
 void DVDSetAutoFatalMessaging(BOOL);
 void DVDReset();
 
