@@ -466,7 +466,7 @@ LIBS = [
         "cflags": "$cflags_retro",
         "host": True,
         "objects": [
-            "Kyoto/Basics/CBasics",
+            ["Kyoto/Basics/CBasics", True],
             ["Kyoto/Basics/CStopwatch", True],
             ["Kyoto/Basics/CBasicsDolphin", True],
             ["Kyoto/Alloc/CCallStackDolphin", True],
