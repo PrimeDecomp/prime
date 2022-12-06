@@ -4,7 +4,7 @@
 #include "types.h"
 
 namespace CBasics {
-void Init();
+bool Init();
 char* Stringize(const char* fmt, ...);
 inline uint SwapBytes(uint x) {
 #if 0
