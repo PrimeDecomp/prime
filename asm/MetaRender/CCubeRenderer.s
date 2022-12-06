@@ -690,7 +690,7 @@ ReallyDrawPhazonSuitIndirectEffect__13CCubeRendererFRC6CColorRC8CTextureRC8CText
 lbl_802B6330:
 /* 802B6330 002B3290  80 CD A8 28 */	lwz r6, mpSpareBuffer__9CGraphics@sda21(r13)
 /* 802B6334 002B3294  38 A0 00 04 */	li r5, 4
-/* 802B6338 002B3298  80 E2 C7 A8 */	lwz r7, lbl_805AE4C8@sda21(r2)
+/* 802B6338 002B3298  80 E2 C7 A8 */	lwz r7, kSpareBufferTexMapID__9CGraphics@sda21(r2)
 /* 802B633C 002B329C  48 05 3C E5 */	bl LoadDolphinSpareTexture__9CGraphicsFii9_GXTexFmtPv11_GXTexMapID
 /* 802B6340 002B32A0  7F 63 DB 78 */	mr r3, r27
 /* 802B6344 002B32A4  38 80 00 01 */	li r4, 1
@@ -762,7 +762,7 @@ lbl_802B6330:
 /* 802B644C 002B33AC  38 E0 00 00 */	li r7, 0
 /* 802B6450 002B33B0  39 00 00 7D */	li r8, 0x7d
 /* 802B6454 002B33B4  48 05 22 79 */	bl SetTexCoordGen__3CGXF13_GXTexCoordID13_GXTexGenType12_GXTexGenSrc9_GXTexMtxUc11_GXPTTexMtx
-/* 802B6458 002B33B8  80 A2 C7 A8 */	lwz r5, lbl_805AE4C8@sda21(r2)
+/* 802B6458 002B33B8  80 A2 C7 A8 */	lwz r5, kSpareBufferTexMapID__9CGraphics@sda21(r2)
 /* 802B645C 002B33BC  38 60 00 00 */	li r3, 0
 /* 802B6460 002B33C0  38 80 00 00 */	li r4, 0
 /* 802B6464 002B33C4  38 C0 00 FF */	li r6, 0xff
@@ -1087,7 +1087,7 @@ ReallyDrawPhazonSuitEffect__13CCubeRendererFRC6CColorRC8CTexture:
 /* 802B6940 002B38A0  90 01 00 34 */	stw r0, 0x34(r1)
 /* 802B6944 002B38A4  93 E1 00 2C */	stw r31, 0x2c(r1)
 /* 802B6948 002B38A8  7C 9F 23 78 */	mr r31, r4
-/* 802B694C 002B38AC  80 82 C7 A8 */	lwz r4, lbl_805AE4C8@sda21(r2)
+/* 802B694C 002B38AC  80 82 C7 A8 */	lwz r4, kSpareBufferTexMapID__9CGraphics@sda21(r2)
 /* 802B6950 002B38B0  93 C1 00 28 */	stw r30, 0x28(r1)
 /* 802B6954 002B38B4  7C 7E 1B 78 */	mr r30, r3
 /* 802B6958 002B38B8  7C A3 2B 78 */	mr r3, r5
@@ -1124,7 +1124,7 @@ ReallyDrawPhazonSuitEffect__13CCubeRendererFRC6CColorRC8CTexture:
 /* 802B69D4 002B3934  48 05 24 41 */	bl SetNumTexGens__3CGXFUc
 /* 802B69D8 002B3938  38 60 00 01 */	li r3, 1
 /* 802B69DC 002B393C  48 05 22 B5 */	bl SetNumTevStages__3CGXFUc
-/* 802B69E0 002B3940  80 A2 C7 A8 */	lwz r5, lbl_805AE4C8@sda21(r2)
+/* 802B69E0 002B3940  80 A2 C7 A8 */	lwz r5, kSpareBufferTexMapID__9CGraphics@sda21(r2)
 /* 802B69E4 002B3944  38 60 00 00 */	li r3, 0
 /* 802B69E8 002B3948  38 80 00 00 */	li r4, 0
 /* 802B69EC 002B394C  38 C0 00 04 */	li r6, 4
@@ -1291,7 +1291,7 @@ DoPhazonSuitIndirectAlphaBlur__13CCubeRendererFff:
 /* 802B6C64 002B3BC4  7C 66 1B 78 */	mr r6, r3
 /* 802B6C68 002B3BC8  7C 83 0E 70 */	srawi r3, r4, 1
 /* 802B6C6C 002B3BCC  7C 00 FA 14 */	add r0, r0, r31
-/* 802B6C70 002B3BD0  80 E2 C7 A8 */	lwz r7, lbl_805AE4C8@sda21(r2)
+/* 802B6C70 002B3BD0  80 E2 C7 A8 */	lwz r7, kSpareBufferTexMapID__9CGraphics@sda21(r2)
 /* 802B6C74 002B3BD4  7C 04 0E 70 */	srawi r4, r0, 1
 /* 802B6C78 002B3BD8  38 A0 00 01 */	li r5, 1
 /* 802B6C7C 002B3BDC  48 05 33 A5 */	bl LoadDolphinSpareTexture__9CGraphicsFii9_GXTexFmtPv11_GXTexMapID
@@ -1321,7 +1321,7 @@ DoPhazonSuitIndirectAlphaBlur__13CCubeRendererFff:
 /* 802B6CDC 002B3C3C  48 05 21 39 */	bl SetNumTexGens__3CGXFUc
 /* 802B6CE0 002B3C40  38 60 00 01 */	li r3, 1
 /* 802B6CE4 002B3C44  48 05 1F AD */	bl SetNumTevStages__3CGXFUc
-/* 802B6CE8 002B3C48  80 A2 C7 A8 */	lwz r5, lbl_805AE4C8@sda21(r2)
+/* 802B6CE8 002B3C48  80 A2 C7 A8 */	lwz r5, kSpareBufferTexMapID__9CGraphics@sda21(r2)
 /* 802B6CEC 002B3C4C  38 60 00 00 */	li r3, 0
 /* 802B6CF0 002B3C50  38 80 00 00 */	li r4, 0
 /* 802B6CF4 002B3C54  38 C0 00 04 */	li r6, 4
@@ -1435,7 +1435,7 @@ DoPhazonSuitIndirectAlphaBlur__13CCubeRendererFff:
 /* 802B6EA4 002B3E04  7F BE 16 70 */	srawi r30, r29, 2
 /* 802B6EA8 002B3E08  7C 66 1B 78 */	mr r6, r3
 /* 802B6EAC 002B3E0C  7F FF 16 70 */	srawi r31, r31, 2
-/* 802B6EB0 002B3E10  80 E2 C7 A8 */	lwz r7, lbl_805AE4C8@sda21(r2)
+/* 802B6EB0 002B3E10  80 E2 C7 A8 */	lwz r7, kSpareBufferTexMapID__9CGraphics@sda21(r2)
 /* 802B6EB4 002B3E14  7F C3 F3 78 */	mr r3, r30
 /* 802B6EB8 002B3E18  38 A0 00 01 */	li r5, 1
 /* 802B6EBC 002B3E1C  7F E4 FB 78 */	mr r4, r31
@@ -1637,7 +1637,7 @@ lbl_802B6FAC:
 /* 802B71C8 002B4128  48 0C 4D 39 */	bl GXSetColorUpdate
 /* 802B71CC 002B412C  38 60 00 08 */	li r3, 8
 /* 802B71D0 002B4130  48 00 02 85 */	bl GetRenderToTexBuffer__13CCubeRendererFi
-/* 802B71D4 002B4134  80 E2 C7 A8 */	lwz r7, lbl_805AE4C8@sda21(r2)
+/* 802B71D4 002B4134  80 E2 C7 A8 */	lwz r7, kSpareBufferTexMapID__9CGraphics@sda21(r2)
 /* 802B71D8 002B4138  7C 66 1B 78 */	mr r6, r3
 /* 802B71DC 002B413C  7F C3 F3 78 */	mr r3, r30
 /* 802B71E0 002B4140  7F E4 FB 78 */	mr r4, r31
@@ -5221,7 +5221,7 @@ DoThermalBlendHot__13CCubeRendererFv:
 /* 802BA538 002B7498  48 0B EF FD */	bl GXCopyTex
 /* 802BA53C 002B749C  38 7A 02 88 */	addi r3, r26, 0x288
 /* 802BA540 002B74A0  48 05 39 85 */	bl Load__16CGraphicsPaletteCFv
-/* 802BA544 002B74A4  81 02 C7 A8 */	lwz r8, lbl_805AE4C8@sda21(r2)
+/* 802BA544 002B74A4  81 02 C7 A8 */	lwz r8, kSpareBufferTexMapID__9CGraphics@sda21(r2)
 /* 802BA548 002B74A8  7F E3 FB 78 */	mr r3, r31
 /* 802BA54C 002B74AC  7F C4 F3 78 */	mr r4, r30
 /* 802BA550 002B74B0  38 A0 00 08 */	li r5, 8
@@ -5242,7 +5242,7 @@ DoThermalBlendHot__13CCubeRendererFv:
 /* 802BA58C 002B74EC  48 04 E6 09 */	bl SetTevAlphaIn__3CGXF13_GXTevStageID14_GXTevAlphaArg14_GXTevAlphaArg14_GXTevAlphaArg14_GXTevAlphaArg
 /* 802BA590 002B74F0  38 60 00 00 */	li r3, 0
 /* 802BA594 002B74F4  48 04 D6 BD */	bl SetStandardTevColorAlphaOp__3CGXF13_GXTevStageID
-/* 802BA598 002B74F8  80 A2 C7 A8 */	lwz r5, lbl_805AE4C8@sda21(r2)
+/* 802BA598 002B74F8  80 A2 C7 A8 */	lwz r5, kSpareBufferTexMapID__9CGraphics@sda21(r2)
 /* 802BA59C 002B74FC  38 60 00 00 */	li r3, 0
 /* 802BA5A0 002B7500  38 80 00 00 */	li r4, 0
 /* 802BA5A4 002B7504  38 C0 00 FF */	li r6, 0xff
@@ -5440,7 +5440,7 @@ DoThermalBlendCold__13CCubeRendererFv:
 /* 802BA898 002B77F8  7F 43 D3 78 */	mr r3, r26
 /* 802BA89C 002B77FC  38 80 00 01 */	li r4, 1
 /* 802BA8A0 002B7800  48 0B EC 95 */	bl GXCopyTex
-/* 802BA8A4 002B7804  80 E2 C7 A8 */	lwz r7, lbl_805AE4C8@sda21(r2)
+/* 802BA8A4 002B7804  80 E2 C7 A8 */	lwz r7, kSpareBufferTexMapID__9CGraphics@sda21(r2)
 /* 802BA8A8 002B7808  7F C3 F3 78 */	mr r3, r30
 /* 802BA8AC 002B780C  7F A4 EB 78 */	mr r4, r29
 /* 802BA8B0 002B7810  38 A0 00 00 */	li r5, 0
@@ -5600,7 +5600,7 @@ lbl_802BAA1C:
 /* 802BAB08 002B7A68  48 04 E0 8D */	bl SetTevAlphaIn__3CGXF13_GXTevStageID14_GXTevAlphaArg14_GXTevAlphaArg14_GXTevAlphaArg14_GXTevAlphaArg
 /* 802BAB0C 002B7A6C  38 60 00 00 */	li r3, 0
 /* 802BAB10 002B7A70  48 04 D1 41 */	bl SetStandardTevColorAlphaOp__3CGXF13_GXTevStageID
-/* 802BAB14 002B7A74  80 A2 C7 A8 */	lwz r5, lbl_805AE4C8@sda21(r2)
+/* 802BAB14 002B7A74  80 A2 C7 A8 */	lwz r5, kSpareBufferTexMapID__9CGraphics@sda21(r2)
 /* 802BAB18 002B7A78  38 60 00 00 */	li r3, 0
 /* 802BAB1C 002B7A7C  38 80 00 00 */	li r4, 0
 /* 802BAB20 002B7A80  38 C0 00 FF */	li r6, 0xff
@@ -6980,7 +6980,7 @@ lbl_802BBEB8:
 /* 802BBF48 002B8EA8  38 A0 00 06 */	li r5, 6
 /* 802BBF4C 002B8EAC  80 81 00 54 */	lwz r4, 0x54(r1)
 /* 802BBF50 002B8EB0  38 C0 00 00 */	li r6, 0
-/* 802BBF54 002B8EB4  80 E2 C7 A8 */	lwz r7, lbl_805AE4C8@sda21(r2)
+/* 802BBF54 002B8EB4  80 E2 C7 A8 */	lwz r7, kSpareBufferTexMapID__9CGraphics@sda21(r2)
 /* 802BBF58 002B8EB8  48 04 E0 C9 */	bl LoadDolphinSpareTexture__9CGraphicsFii9_GXTexFmtPv11_GXTexMapID
 /* 802BBF5C 002B8EBC  38 7B 01 50 */	addi r3, r27, 0x150
 /* 802BBF60 002B8EC0  38 80 00 01 */	li r4, 1
@@ -7013,7 +7013,7 @@ lbl_802BBEB8:
 /* 802BBFCC 002B8F2C  38 E0 00 00 */	li r7, 0
 /* 802BBFD0 002B8F30  39 00 00 7D */	li r8, 0x7d
 /* 802BBFD4 002B8F34  48 04 C6 F9 */	bl SetTexCoordGen__3CGXF13_GXTexCoordID13_GXTexGenType12_GXTexGenSrc9_GXTexMtxUc11_GXPTTexMtx
-/* 802BBFD8 002B8F38  80 A2 C7 A8 */	lwz r5, lbl_805AE4C8@sda21(r2)
+/* 802BBFD8 002B8F38  80 A2 C7 A8 */	lwz r5, kSpareBufferTexMapID__9CGraphics@sda21(r2)
 /* 802BBFDC 002B8F3C  38 60 00 00 */	li r3, 0
 /* 802BBFE0 002B8F40  38 80 00 00 */	li r4, 0
 /* 802BBFE4 002B8F44  38 C0 00 FF */	li r6, 0xff

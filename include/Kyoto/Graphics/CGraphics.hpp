@@ -7,8 +7,10 @@
 #include "Kyoto/Graphics/CColor.hpp"
 #include "Kyoto/Graphics/CLight.hpp"
 #include "Kyoto/Graphics/CTevCombiners.hpp"
+#include "Kyoto/Graphics/CTexture.hpp"
 #include "Kyoto/Math/CMatrix4f.hpp"
 #include "Kyoto/Math/CTransform4f.hpp"
+#include "Kyoto/Math/CVector2i.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
 
 #include "dolphin/gx.h"
@@ -170,7 +172,6 @@ struct CViewport {
 class COsContext;
 class CTexture;
 class CTimeProvider;
-class CTexture;
 
 // TODO
 typedef struct {
@@ -186,7 +187,7 @@ public:
 
     void Flush();
     void ResetFlushAll();
-    void SetVtxState(const float*, const float*, const unsigned int*);
+    int SetVtxState(const float* pos, const float* nrm, const uint* clr);
 
     // In map this takes two args, but x4 is unused?
     void Set(int v0) { x0_ = v0; }
@@ -226,6 +227,46 @@ public:
     float x18_far;
   };
 
+  class CClippedScreenRect {
+  public:
+    CClippedScreenRect() : x0_valid(false) {}
+    CClippedScreenRect(int x, int y, int width, int height, int texWidth, float minU, float maxU,
+                       float minV, float maxV)
+    : x0_valid(true)
+    , x4_x(x)
+    , x8_y(y)
+    , xc_width(width)
+    , x10_height(height)
+    , x14_texWidth(texWidth)
+    , x18_minU(minU)
+    , x1c_maxU(maxU)
+    , x20_minV(minV)
+    , x24_maxV(maxV) {}
+
+    bool IsValid() const { return x0_valid; }
+    int GetX() const { return x4_x; }
+    int GetY() const { return x8_y; }
+    int GetWidth() const { return xc_width; }
+    int GetHeight() const { return x10_height; }
+    int GetTexWidth() const { return x14_texWidth; }
+    float GetMinU() const { return x18_minU; }
+    float GetMaxU() const { return x1c_maxU; }
+    float GetMinV() const { return x20_minV; }
+    float GetMaxV() const { return x24_maxV; }
+
+  private:
+    bool x0_valid;
+    int x4_x;
+    int x8_y;
+    int xc_width;
+    int x10_height;
+    int x14_texWidth;
+    float x18_minU;
+    float x1c_maxU;
+    float x20_minV;
+    float x24_maxV;
+  };
+
   static bool Startup(const COsContext& osContext, uint fifoSize, void* fifoBase);
   static GXTexRegion* TexRegionCallback(const GXTexObj* obj, GXTexMapID id);
   static void InitGraphicsVariables();
@@ -259,6 +300,11 @@ public:
   static void TickRenderTimings();
   static const CProjectionState& GetProjectionState();
   static void SetProjectionState(const CProjectionState& proj);
+  static CClippedScreenRect ClipScreenRectFromVS(const CVector3f& p1, const CVector3f& p2,
+                                                 ETexelFormat fmt);
+  static CClippedScreenRect ClipScreenRectFromMS(const CVector3f& p1, const CVector3f& p2,
+                                                 ETexelFormat fmt);
+  static CVector2i ProjectPoint(const CVector3f& point);
 
   static float GetDepthNear() { return mDepthNear; }
   static float GetDepthFar() { return mDepthFar; }
@@ -296,6 +342,7 @@ public:
   static void SetOrtho(float left, float right, float top, float bottom, float znear, float zfar);
 
   static float GetSecondsMod900();
+  static float GetFPS();
   static void SetExternalTimeProvider(CTimeProvider* provider);
   static void DisableAllLights();
 
@@ -311,9 +358,17 @@ public:
   static void SetCullMode(ERglCullMode cullMode);
   static void SetTevStates(uchar);
 
+  static void SetUseVideoFilter(bool b);
+  static GXBool GetUseVideoFilter();
+  static int GetFrameCounter();
+  static void SetProgressiveMode(bool b);
+  static bool GetProgressiveMode();
+  static bool CanSetProgressiveMode();
+  static bool GetProgressiveDefault();
+
   // Screen Position
-  static void sub_80309564(uint* stretch, uint* xOffset, uint* yOffset);
-  static void sub_803094b0(uint stretch, uint xOffset, uint yOffset);
+  static void GetScreenPosition(int* stretch, int* xOffset, int* yOffset);
+  static void SetScreenPosition(int stretch, int xOffset, int yOffset);
 
   static const CTevCombiners::CTevPass& kEnvPassthru;
   static CTevCombiners::CTevPass kEnvModulateConstColor;
@@ -369,13 +424,9 @@ private:
   static uint mRenderTimings;
   static float mSecondsMod900;
   static CTimeProvider* mpExternalTimeProvider;
-  // lbl_805A9408
-  // lbl_805A940C
-  // lbl_805A9410
-  // "nextTexRgn$2336"
-  // "init$2337"
-  // "nextTexRgnCI$2339"
-  // "init$2340"
+  static int mScreenStretch;
+  static int mScreenPositionX;
+  static int mScreenPositionY;
 
   static CVector3f kDefaultPositionVector;
   static CVector3f kDefaultDirectionVector;
@@ -403,11 +454,11 @@ private:
   static u32 mClearDepthValue; // = GX_MAX_Z24
   static bool mIsGXModelMatrixIdentity;
   static bool mFirstFrame;
-  static bool mUseVideoFilter;
+  static GXBool mUseVideoFilter;
   static float mBrightness;
-  // static const float mBrightnessMin;
-  // static const float mBrightnessMax;
-  static Vec2 mBrightnessRange;
+
+  // .sdata2
+  static const GXTexMapID kSpareBufferTexMapID;
 };
 
 #endif // _CGRAPHICS

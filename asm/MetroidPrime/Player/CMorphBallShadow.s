@@ -156,7 +156,7 @@ lbl_80295CF0:
 /* 80295D0C 00292C6C  7C 00 2B 78 */	or r0, r0, r5
 /* 80295D10 00292C70  54 1D 0F FE */	srwi r29, r0, 0x1f
 /* 80295D14 00292C74  48 07 88 E1 */	bl GetConstBitMapData__8CTextureCFi
-/* 80295D18 00292C78  80 E2 C7 A8 */	lwz r7, lbl_805AE4C8@sda21(r2)
+/* 80295D18 00292C78  80 E2 C7 A8 */	lwz r7, kSpareBufferTexMapID__9CGraphics@sda21(r2)
 /* 80295D1C 00292C7C  7C 66 1B 78 */	mr r6, r3
 /* 80295D20 00292C80  7F 63 DB 78 */	mr r3, r27
 /* 80295D24 00292C84  7F 84 E3 78 */	mr r4, r28

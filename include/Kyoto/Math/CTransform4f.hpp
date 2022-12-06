@@ -73,7 +73,9 @@ public:
   // ScaleBy__12CTransform4fFf
   // SetRotation__12CTransform4fFRC12CTransform4f
   // SetRotation__12CTransform4fFRC9CMatrix3f
-  // TransposeMultiply__12CTransform4fCFRC9CVector3f
+  CVector3f TransposeMultiply(const CVector3f& in) const {
+    return TransposeRotate(CVector3f(in.GetX() - posX, in.GetY() - posY, in.GetZ() - posZ));
+  }
   CVector3f TransposeRotate(const CVector3f& in) const;
 
   void SetTranslation(const CVector3f& vec) {

@@ -1,5 +1,6 @@
 #include "Kyoto/Graphics/CGraphics.hpp"
 
+#include "Kyoto/Alloc/CMemory.hpp"
 #include "Kyoto/Basics/COsContext.hpp"
 #include "Kyoto/Basics/CStopwatch.hpp"
 #include "Kyoto/CFrameDelayedKiller.hpp"
@@ -7,6 +8,8 @@
 #include "Kyoto/Graphics/CGraphicsSys.hpp"
 #include "Kyoto/Graphics/CTexture.hpp"
 #include "Kyoto/Math/CRelAngle.hpp"
+
+#include "rstl/math.hpp"
 
 #include "dolphin/vi.h"
 
@@ -234,9 +237,9 @@ GXFifoObj* CGraphics::mpFifoObj;
 uint CGraphics::mRenderTimings;
 float CGraphics::mSecondsMod900;
 CTimeProvider* CGraphics::mpExternalTimeProvider;
-int lbl_805A9408;
-int lbl_805A940C;
-int lbl_805A9410;
+int CGraphics::mScreenStretch;
+int CGraphics::mScreenPositionX;
+int CGraphics::mScreenPositionY;
 
 CViewport CGraphics::mViewport = {0, 0, 640, 448, 320.f, 240.f};
 ELightType CGraphics::mLightTypes[8] = {
@@ -252,9 +255,10 @@ float CGraphics::mDepthFar = 1.f;
 u32 CGraphics::mClearDepthValue = GX_MAX_Z24;
 bool CGraphics::mIsGXModelMatrixIdentity = true;
 bool CGraphics::mFirstFrame = true;
-bool CGraphics::mUseVideoFilter = true;
+GXBool CGraphics::mUseVideoFilter = GX_ENABLE;
 float CGraphics::mBrightness = 1.f;
-// Vec2 CGraphics::mBrightnessRange = {0.f, 2.f};
+
+const GXTexMapID CGraphics::kSpareBufferTexMapID = GX_TEXMAP7;
 
 bool CGraphics::Startup(const COsContext& osContext, uint fifoSize, void* fifoBase) {
   mpFifo = fifoBase;
@@ -1065,7 +1069,7 @@ void CGraphics::FlushStream() {
   *curDesc++ = vtxDescPos;
 
   if ((vtxDescr.streamFlags & kHasNormals) != 0) {
-    const GXVtxDescList vtxDescNrm = {GX_VA_CLR0, GX_DIRECT};
+    const GXVtxDescList vtxDescNrm = {GX_VA_NRM, GX_DIRECT};
     *curDesc++ = vtxDescNrm;
   }
 
@@ -1353,3 +1357,229 @@ void CGraphics::SetProjectionState(const CProjectionState& proj) {
   mProj = proj;
   FlushProjection();
 }
+
+// TODO non-matching (regswaps)
+CGraphics::CClippedScreenRect
+CGraphics::ClipScreenRectFromVS(const CVector3f& p1, const CVector3f& p2, ETexelFormat fmt) {
+  if (!p1.IsNonZero() || !p2.IsNonZero()) {
+    return CClippedScreenRect();
+  }
+  if (p1.GetY() < GetProjectionState().GetNear() || p2.GetY() < GetProjectionState().GetNear()) {
+    return CClippedScreenRect();
+  }
+  if (p1.GetY() > GetProjectionState().GetFar() || p2.GetY() > GetProjectionState().GetFar()) {
+    return CClippedScreenRect();
+  }
+
+  CVector2i p1p = ProjectPoint(p1);
+  CVector2i p2p = ProjectPoint(p2);
+
+  int minX = rstl::min_val(p1p.GetX(), p2p.GetX());
+  int minY = rstl::min_val(p1p.GetY(), p2p.GetY());
+
+  int maxX = abs(p1p.GetX() - p2p.GetX());
+  int maxY = abs(p1p.GetY() - p2p.GetY());
+
+  int left = minX & 0xfffffffe;
+  if (left >= mViewport.mLeft + mViewport.mWidth) {
+    return CClippedScreenRect();
+  }
+
+  int right = minX + maxX + 2 & 0xfffffffe;
+  if (right <= mViewport.mLeft) {
+    return CClippedScreenRect();
+  }
+  left = rstl::max_val(left, mViewport.mLeft) & 0xfffffffe;
+  right = rstl::min_val(right, mViewport.mLeft + mViewport.mWidth) + 1 & 0xfffffffe;
+
+  int top = minY & 0xfffffffe;
+  if (top >= mViewport.mTop + mViewport.mHeight) {
+    return CClippedScreenRect();
+  }
+
+  int bottom = minY + maxY + 2 & 0xfffffffe;
+  if (bottom <= mViewport.mTop) {
+    return CClippedScreenRect();
+  }
+  top = rstl::max_val(top, mViewport.mTop) & 0xfffffffe;
+  bottom = rstl::min_val(bottom, mViewport.mTop + mViewport.mHeight) + 1 & 0xfffffffe;
+
+  // int height = bottom - top;
+  float minV = static_cast< float >(minY - top) / static_cast< float >(bottom - top);
+  float maxV = static_cast< float >(maxY + (minY - top) + 1) / static_cast< float >(bottom - top);
+
+  int texAlign = 4;
+  switch (fmt) {
+  case kTF_I8:
+    texAlign = 8;
+    break;
+  case kTF_IA8:
+  case kTF_RGB565:
+  case kTF_RGB5A3:
+    texAlign = 4;
+    break;
+  case kTF_RGBA8:
+    texAlign = 2;
+    break;
+  }
+  // int width = right - left;
+  int texWidth = texAlign + (right - left) - 1 & ~(texAlign - 1);
+
+  float minU = static_cast< float >(minX - left) / static_cast< float >(texWidth);
+  float maxU = static_cast< float >(maxX + (minX - left) + 1) / static_cast< float >(texWidth);
+  return CClippedScreenRect(left, top, right - left, bottom - top, texWidth, minU, maxU, minV,
+                            maxV);
+}
+
+CGraphics::CClippedScreenRect
+CGraphics::ClipScreenRectFromMS(const CVector3f& p1, const CVector3f& p2, ETexelFormat fmt) {
+  return ClipScreenRectFromVS(mViewMatrix.TransposeMultiply(mModelMatrix * p1),
+                              mViewMatrix.TransposeMultiply(mModelMatrix * p2), fmt);
+}
+
+float CGraphics::GetFPS() {
+  BOOL level = OSDisableInterrupts();
+  float value = rstl::min_val(mFramesPerSecond, mLastFramesPerSecond);
+  OSRestoreInterrupts(level);
+  return value;
+}
+
+void CGraphics::SetUseVideoFilter(bool b) {
+  mUseVideoFilter = b;
+  GXSetCopyFilter(mRenderModeObj.aa, mRenderModeObj.sample_pattern, b ? GX_ENABLE : GX_DISABLE,
+                  mRenderModeObj.vfilter);
+}
+
+GXBool CGraphics::GetUseVideoFilter() { return mUseVideoFilter; }
+
+int CGraphics::GetFrameCounter() { return mFrameCounter; }
+
+CVector2i CGraphics::ProjectPoint(const CVector3f& point) {
+  CVector3f vec = GetPerspectiveProjectionMatrix().MultiplyOneOverW(point);
+  vec.SetX(vec.GetX() * GetViewport().mHalfWidth + GetViewport().mHalfWidth);
+  vec.SetY(-vec.GetY() * GetViewport().mHalfHeight + GetViewport().mHalfHeight);
+  return CVector2i(CCast::FtoL(vec.GetX()), CCast::FtoL(vec.GetY()));
+}
+
+void CGraphics::SetProgressiveMode(bool b) {
+  bool isProgressive = GetProgressiveMode();
+  OSSetProgressiveMode(b ? OS_PROGRESSIVE_MODE_ON : OS_PROGRESSIVE_MODE_OFF);
+  if (b == isProgressive) {
+    return;
+  }
+
+  VISetBlack(TRUE);
+  VIFlush();
+  VIWaitForRetrace();
+  for (int i = 0; i < 10; ++i) {
+    VIWaitForRetrace();
+  }
+
+  if (b) {
+    mRenderModeObj.viTVmode = VI_TVMODE_NTSC_PROG;
+    mRenderModeObj.xFBmode = VI_XFBMODE_SF;
+    const u8 vfilter[7] = {0x04, 0x04, 0x10, 0x10, 0x10, 0x04, 0x04};
+    memcpy(mRenderModeObj.vfilter, vfilter, 7);
+  } else {
+    mRenderModeObj.viTVmode = VI_TVMODE_NTSC_INT;
+    mRenderModeObj.xFBmode = VI_XFBMODE_DF;
+    memcpy(mRenderModeObj.vfilter, GXNtsc480IntDf.vfilter, 7);
+  }
+  GXSetCopyFilter(mRenderModeObj.aa, mRenderModeObj.sample_pattern, GX_ENABLE,
+                  mRenderModeObj.vfilter);
+
+  VIConfigure(&mRenderModeObj);
+  VISetBlack(TRUE);
+  VIFlush();
+  for (int i = 0; i < 100; ++i) {
+    VIWaitForRetrace();
+  }
+  VISetBlack(FALSE);
+  VIFlush();
+  for (int i = 0; i < 2; ++i) {
+    VIWaitForRetrace();
+  }
+}
+
+bool CGraphics::GetProgressiveMode() { return mRenderModeObj.viTVmode == VI_TVMODE_NTSC_PROG; }
+
+bool CGraphics::CanSetProgressiveMode() { return VIGetDTVStatus() != 0; }
+
+bool CGraphics::GetProgressiveDefault() { return OSGetProgressiveMode() == OS_PROGRESSIVE_MODE_ON; }
+
+void CGraphics::GetScreenPosition(int* stretch, int* xOffset, int* yOffset) {
+  if (stretch != nullptr) {
+    *stretch = mScreenStretch;
+  }
+  if (xOffset != nullptr) {
+    *xOffset = mScreenPositionX;
+  }
+  if (yOffset != nullptr) {
+    *yOffset = mScreenPositionY;
+  }
+}
+
+void CGraphics::SetScreenPosition(int stretch, int xOffset, int yOffset) {
+  int stretchChange = stretch - mScreenStretch;
+  int xChange = xOffset - mScreenPositionX;
+  int yChange = yOffset - mScreenPositionY;
+  if (stretchChange == 0 && xChange == 0 && yChange == 0) {
+    return;
+  }
+  mRenderModeObj.viWidth += stretchChange * 2;
+  mRenderModeObj.viXOrigin += xChange - stretchChange;
+  mRenderModeObj.viYOrigin += yChange;
+  VIConfigure(&mRenderModeObj);
+  VIFlush();
+  mScreenStretch = stretch;
+  mScreenPositionX = xOffset;
+  mScreenPositionY = yOffset;
+}
+
+void CGraphics::SetIsBeginSceneClearFb(bool b) { mIsBeginSceneClearFb = b; }
+
+CGraphicsSys::CGraphicsSys(const COsContext& osContext, const CMemorySys& memorySys, uint fifoSize,
+                           void* fifoBase) {
+  if (mGraphicsInitialized != true) {
+    mGraphicsInitialized = CGraphics::Startup(osContext, fifoSize, fifoBase);
+  }
+}
+
+CGraphicsSys::~CGraphicsSys() {
+  if (mGraphicsInitialized == true) {
+    CGraphics::Shutdown();
+    mGraphicsInitialized = false;
+  }
+}
+
+CGraphics::CRenderState::CRenderState() {
+  x0_ = 0;
+  x4_ = 0;
+}
+
+void CGraphics::CRenderState::Flush() {}
+
+int CGraphics::CRenderState::SetVtxState(const float* pos, const float* nrm, const uint* clr) {
+  CGX::SetArray(GX_VA_POS, pos, 12);
+  CGX::SetArray(GX_VA_NRM, nrm, 12);
+  CGX::SetArray(GX_VA_CLR0, clr, 4);
+  int result = 1;
+  if (nrm != nullptr) {
+    result |= 2;
+  }
+  if (clr != nullptr) {
+    result |= 16;
+  }
+  return result;
+}
+
+void CGraphics::CRenderState::ResetFlushAll() {
+  x0_ = 0;
+  SetVtxState(nullptr, nullptr, nullptr);
+  for (int i = 0; i < 8; i++) {
+    CGX::SetArray(static_cast< GXAttr >(GX_VA_TEX0 + i), nullptr, 8);
+  }
+  Flush();
+}
+
+// static float stripped(int n) { return static_cast<float>(n); }

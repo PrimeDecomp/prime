@@ -611,11 +611,11 @@ SetScreenStretch__12CGameOptionsFib:
 /* 8020EF2C 0020BE8C  38 61 00 14 */	addi r3, r1, 0x14
 /* 8020EF30 0020BE90  38 81 00 10 */	addi r4, r1, 0x10
 /* 8020EF34 0020BE94  38 A1 00 0C */	addi r5, r1, 0xc
-/* 8020EF38 0020BE98  48 0F A6 2D */	bl sub_80309564__9CGraphicsFPUiPUiPUi
+/* 8020EF38 0020BE98  48 0F A6 2D */	bl GetScreenPosition__9CGraphicsFPiPiPi
 /* 8020EF3C 0020BE9C  80 7E 00 54 */	lwz r3, 0x54(r30)
 /* 8020EF40 0020BEA0  80 81 00 10 */	lwz r4, 0x10(r1)
 /* 8020EF44 0020BEA4  80 A1 00 0C */	lwz r5, 0xc(r1)
-/* 8020EF48 0020BEA8  48 0F A5 69 */	bl sub_803094b0__9CGraphicsFUiUiUi
+/* 8020EF48 0020BEA8  48 0F A5 69 */	bl SetScreenPosition__9CGraphicsFiii
 lbl_8020EF4C:
 /* 8020EF4C 0020BEAC  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8020EF50 0020BEB0  83 E1 00 1C */	lwz r31, 0x1c(r1)
@@ -645,11 +645,11 @@ SetScreenPositionY__12CGameOptionsFib:
 /* 8020EFA4 0020BF04  38 61 00 14 */	addi r3, r1, 0x14
 /* 8020EFA8 0020BF08  38 81 00 10 */	addi r4, r1, 0x10
 /* 8020EFAC 0020BF0C  38 A1 00 0C */	addi r5, r1, 0xc
-/* 8020EFB0 0020BF10  48 0F A5 B5 */	bl sub_80309564__9CGraphicsFPUiPUiPUi
+/* 8020EFB0 0020BF10  48 0F A5 B5 */	bl GetScreenPosition__9CGraphicsFPiPiPi
 /* 8020EFB4 0020BF14  80 61 00 14 */	lwz r3, 0x14(r1)
 /* 8020EFB8 0020BF18  80 81 00 10 */	lwz r4, 0x10(r1)
 /* 8020EFBC 0020BF1C  80 BE 00 50 */	lwz r5, 0x50(r30)
-/* 8020EFC0 0020BF20  48 0F A4 F1 */	bl sub_803094b0__9CGraphicsFUiUiUi
+/* 8020EFC0 0020BF20  48 0F A4 F1 */	bl SetScreenPosition__9CGraphicsFiii
 lbl_8020EFC4:
 /* 8020EFC4 0020BF24  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8020EFC8 0020BF28  83 E1 00 1C */	lwz r31, 0x1c(r1)
@@ -679,11 +679,11 @@ SetScreenPositionX__12CGameOptionsFib:
 /* 8020F01C 0020BF7C  38 61 00 14 */	addi r3, r1, 0x14
 /* 8020F020 0020BF80  38 81 00 10 */	addi r4, r1, 0x10
 /* 8020F024 0020BF84  38 A1 00 0C */	addi r5, r1, 0xc
-/* 8020F028 0020BF88  48 0F A5 3D */	bl sub_80309564__9CGraphicsFPUiPUiPUi
+/* 8020F028 0020BF88  48 0F A5 3D */	bl GetScreenPosition__9CGraphicsFPiPiPi
 /* 8020F02C 0020BF8C  80 61 00 14 */	lwz r3, 0x14(r1)
 /* 8020F030 0020BF90  80 9E 00 4C */	lwz r4, 0x4c(r30)
 /* 8020F034 0020BF94  80 A1 00 0C */	lwz r5, 0xc(r1)
-/* 8020F038 0020BF98  48 0F A4 79 */	bl sub_803094b0__9CGraphicsFUiUiUi
+/* 8020F038 0020BF98  48 0F A4 79 */	bl SetScreenPosition__9CGraphicsFiii
 lbl_8020F03C:
 /* 8020F03C 0020BF9C  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8020F040 0020BFA0  83 E1 00 1C */	lwz r31, 0x1c(r1)

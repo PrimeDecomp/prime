@@ -94,7 +94,7 @@ mBrightnessMax__9CGraphics:
 .balign 8
 
 .lcomm sSpareFrameBuffer, 0x46000, 4
-.lcomm kEnvBlendCTandCConCF, 0x50, 4
+.lcomm kEnvBlendCTandCConCF, 0x4C, 4
 .comm kEnvModulateConstColor__9CGraphics, 0x4C, 4
 .comm lbl_805A56E4, 0x78C, 4 # MWCC .comm bug
 .comm kEnvConstColor__9CGraphics, 0x4C, 4
@@ -245,14 +245,14 @@ mSecondsMod900__9CGraphics:
 .global mpExternalTimeProvider__9CGraphics
 mpExternalTimeProvider__9CGraphics:
 	.skip 0x4
-.global lbl_805A9408
-lbl_805A9408:
+.global mScreenStretch__9CGraphics
+mScreenStretch__9CGraphics:
 	.skip 0x4
-.global lbl_805A940C
-lbl_805A940C:
+.global mScreenPositionX__9CGraphics
+mScreenPositionX__9CGraphics:
 	.skip 0x4
-.global lbl_805A9410
-lbl_805A9410:
+.global mScreenPositionY__9CGraphics
+mScreenPositionY__9CGraphics:
 	.skip 0x4
 .global "nextTexRgn$2336"
 "nextTexRgn$2336":
@@ -406,8 +406,8 @@ SetIsBeginSceneClearFb__9CGraphicsFb:
 /* 803094A8 00306408  98 6D 9C 6C */	stb r3, mIsBeginSceneClearFb__9CGraphics@sda21(r13)
 /* 803094AC 0030640C  4E 80 00 20 */	blr
 
-.global sub_803094b0__9CGraphicsFUiUiUi
-sub_803094b0__9CGraphicsFUiUiUi:
+.global SetScreenPosition__9CGraphicsFiii
+SetScreenPosition__9CGraphicsFiii:
 /* 803094B0 00306410  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 803094B4 00306414  7C 08 02 A6 */	mflr r0
 /* 803094B8 00306418  90 01 00 24 */	stw r0, 0x24(r1)
@@ -417,10 +417,10 @@ sub_803094b0__9CGraphicsFUiUiUi:
 /* 803094C8 00306428  7C 7E 1B 78 */	mr r30, r3
 /* 803094CC 0030642C  93 A1 00 14 */	stw r29, 0x14(r1)
 /* 803094D0 00306430  7C BD 2B 78 */	mr r29, r5
-/* 803094D4 00306434  80 0D A8 48 */	lwz r0, lbl_805A9408@sda21(r13)
-/* 803094D8 00306438  80 6D A8 4C */	lwz r3, lbl_805A940C@sda21(r13)
+/* 803094D4 00306434  80 0D A8 48 */	lwz r0, mScreenStretch__9CGraphics@sda21(r13)
+/* 803094D8 00306438  80 6D A8 4C */	lwz r3, mScreenPositionX__9CGraphics@sda21(r13)
 /* 803094DC 0030643C  7C 80 F0 51 */	subf. r4, r0, r30
-/* 803094E0 00306440  80 0D A8 50 */	lwz r0, lbl_805A9410@sda21(r13)
+/* 803094E0 00306440  80 0D A8 50 */	lwz r0, mScreenPositionY__9CGraphics@sda21(r13)
 /* 803094E4 00306444  7C A3 F8 50 */	subf r5, r3, r31
 /* 803094E8 00306448  7C E0 E8 50 */	subf r7, r0, r29
 /* 803094EC 0030644C  40 82 00 14 */	bne lbl_80309500
@@ -444,9 +444,9 @@ lbl_80309500:
 /* 80309530 00306490  B0 03 00 0C */	sth r0, 0xc(r3)
 /* 80309534 00306494  48 07 F0 21 */	bl VIConfigure
 /* 80309538 00306498  48 07 FB D9 */	bl VIFlush
-/* 8030953C 0030649C  93 CD A8 48 */	stw r30, lbl_805A9408@sda21(r13)
-/* 80309540 003064A0  93 ED A8 4C */	stw r31, lbl_805A940C@sda21(r13)
-/* 80309544 003064A4  93 AD A8 50 */	stw r29, lbl_805A9410@sda21(r13)
+/* 8030953C 0030649C  93 CD A8 48 */	stw r30, mScreenStretch__9CGraphics@sda21(r13)
+/* 80309540 003064A0  93 ED A8 4C */	stw r31, mScreenPositionX__9CGraphics@sda21(r13)
+/* 80309544 003064A4  93 AD A8 50 */	stw r29, mScreenPositionY__9CGraphics@sda21(r13)
 lbl_80309548:
 /* 80309548 003064A8  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8030954C 003064AC  83 E1 00 1C */	lwz r31, 0x1c(r1)
@@ -456,21 +456,21 @@ lbl_80309548:
 /* 8030955C 003064BC  38 21 00 20 */	addi r1, r1, 0x20
 /* 80309560 003064C0  4E 80 00 20 */	blr
 
-.global sub_80309564__9CGraphicsFPUiPUiPUi
-sub_80309564__9CGraphicsFPUiPUiPUi:
+.global GetScreenPosition__9CGraphicsFPiPiPi
+GetScreenPosition__9CGraphicsFPiPiPi:
 /* 80309564 003064C4  28 03 00 00 */	cmplwi r3, 0
 /* 80309568 003064C8  41 82 00 0C */	beq lbl_80309574
-/* 8030956C 003064CC  80 0D A8 48 */	lwz r0, lbl_805A9408@sda21(r13)
+/* 8030956C 003064CC  80 0D A8 48 */	lwz r0, mScreenStretch__9CGraphics@sda21(r13)
 /* 80309570 003064D0  90 03 00 00 */	stw r0, 0(r3)
 lbl_80309574:
 /* 80309574 003064D4  28 04 00 00 */	cmplwi r4, 0
 /* 80309578 003064D8  41 82 00 0C */	beq lbl_80309584
-/* 8030957C 003064DC  80 0D A8 4C */	lwz r0, lbl_805A940C@sda21(r13)
+/* 8030957C 003064DC  80 0D A8 4C */	lwz r0, mScreenPositionX__9CGraphics@sda21(r13)
 /* 80309580 003064E0  90 04 00 00 */	stw r0, 0(r4)
 lbl_80309584:
 /* 80309584 003064E4  28 05 00 00 */	cmplwi r5, 0
 /* 80309588 003064E8  4D 82 00 20 */	beqlr
-/* 8030958C 003064EC  80 0D A8 50 */	lwz r0, lbl_805A9410@sda21(r13)
+/* 8030958C 003064EC  80 0D A8 50 */	lwz r0, mScreenPositionY__9CGraphics@sda21(r13)
 /* 80309590 003064F0  90 05 00 00 */	stw r0, 0(r5)
 /* 80309594 003064F4  4E 80 00 20 */	blr
 
@@ -5532,8 +5532,8 @@ __ct__14CGXLightParamsFv:
 
 .section .sdata2, "a"
 .balign 8
-.global lbl_805AE4C8
-lbl_805AE4C8:
+.global kSpareBufferTexMapID__9CGraphics
+kSpareBufferTexMapID__9CGraphics:
 	# ROM: 0x3FAD68
 	.4byte 0x00000007
 
