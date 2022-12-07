@@ -21,7 +21,7 @@ typename It::difference_type __distance(It first, It last, forward_iterator_tag)
 }
 
 template < typename It >
-inline typename It::difference_type distance(It first, It last) {
+typename It::difference_type distance(It first, It last) {
   return __distance(first, last, typename It::iterator_category());
 }
 
@@ -33,7 +33,7 @@ void __advance(It& it, S count, forward_iterator_tag) {
 }
 
 template < typename It, typename S >
-inline void advance(It& it, S count) {
+void advance(It& it, S count) {
   return __advance(it, count, typename It::iterator_category());
 }
 

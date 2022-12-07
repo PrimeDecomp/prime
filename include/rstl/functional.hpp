@@ -10,8 +10,11 @@ struct identity {
 
 template < typename T >
 struct less {
-  bool operator()(const T& a, const T& b) const { return a < b; }
+  bool operator()(const T& a, const T& b) const; // { return a < b; }
 };
+
+template < typename T >
+bool less<T>::operator()(const T& a, const T& b) const { return a < b; }
 
 } // namespace rstl
 

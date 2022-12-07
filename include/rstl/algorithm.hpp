@@ -115,7 +115,7 @@ It lower_bound(It start, It end, const T& value, Cmp cmp) {
 }
 
 template < typename It, typename T, typename Cmp >
-inline It binary_find(It start, It end, const T& value, Cmp cmp) {
+It binary_find(It start, It end, const T& value, Cmp cmp) {
   It lower = lower_bound(start, end, value, cmp);
   bool found = false;
   if (lower != end && !cmp(value, *lower)) {
@@ -158,13 +158,13 @@ inline pair_sorter_finder< T::value_type, less< select1st< typename T::value_typ
 }
 
 template < typename K, typename V, typename Cmp >
-inline bool pair_sorter_finder< pair< K, V >, Cmp >::operator()(const K& a,
+bool pair_sorter_finder< pair< K, V >, Cmp >::operator()(const K& a,
                                                                 const pair< K, V >& b) const {
   return cmp(a, b.first);
 }
 
 template < typename K, typename V, typename Cmp >
-inline bool pair_sorter_finder< pair< K, V >, Cmp >::operator()(const pair< K, V >& a,
+bool pair_sorter_finder< pair< K, V >, Cmp >::operator()(const pair< K, V >& a,
                                                                 const K& b) const {
   return cmp(a.first, b);
 }
@@ -175,7 +175,7 @@ find_by_key(const T& container,
             const typename select1st< typename T::value_type >::value_type& key);
 
 template < typename T >
-typename T::const_iterator inline find_by_key(
+typename T::const_iterator find_by_key(
     const T& container, const typename select1st< typename T::value_type >::value_type& key) {
   return binary_find(container.begin(), container.end(), key,
                      default_pair_sorter_finder<T>());

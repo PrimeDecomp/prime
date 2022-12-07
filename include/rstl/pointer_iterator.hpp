@@ -128,12 +128,12 @@ struct const_counting_iterator {
 };
 
 template < typename It >
-inline typename It::difference_type __distance(It first, It last, random_access_iterator_tag) {
+typename It::difference_type __distance(It first, It last, random_access_iterator_tag) {
   return last - first;
 }
 
 template < typename It, typename S >
-inline void __advance(It& it, S count, random_access_iterator_tag) {
+void __advance(It& it, S count, random_access_iterator_tag) {
   it += count;
 }
 
