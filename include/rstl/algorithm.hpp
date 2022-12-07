@@ -100,8 +100,8 @@ It lower_bound(It start, It end, const T& value, Cmp cmp) {
   int dist = distance(start, end);
   It it = start;
   while (dist > 0) {
-    it = start;
     int halfDist = dist / 2;
+    it = start;
     advance(it, halfDist);
     if (cmp(*it, value)) {
       start = it;
