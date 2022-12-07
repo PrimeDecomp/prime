@@ -49,7 +49,9 @@ public:
   const TLockedToken< CSkinnedModel >& GetModelData() const { return xd8_modelData; }
 
   void SetIsAnimating(bool v) { x220_24_animating = v; }
-  void SetParticleEffectState(const rstl::string& name, bool active, CStateManager& mgr);
+  void SetParticleEffectState(const rstl::string& name, bool active, CStateManager& mgr) {
+    x120_particleDB.SetParticleEffectState(name, active, mgr);
+  }
 
   int GetCharacterIndex() const { return x204_charIdx; }
   float GetAverageVelocity(int idx) const;
@@ -98,7 +100,8 @@ public:
   // PreRender__9CAnimDataFv
   // SetupRender__9CAnimDataCFRC13CSkinnedModelRCQ24rstl37optional_object<18CVertexMorphEffect>PCf
   // Render__9CAnimDataCFRC13CSkinnedModelRC11CModelFlagsRCQ24rstl37optional_object<18CVertexMorphEffect>PCf
-  void Render(const CSkinnedModel&, const CModelFlags&, const rstl::optional_object<CVertexMorphEffect>&, const float*) const;
+  void Render(const CSkinnedModel&, const CModelFlags&,
+              const rstl::optional_object< CVertexMorphEffect >&, const float*) const;
   // RenderAuxiliary__9CAnimDataCFRC14CFrustumPlanes
   // RecalcPoseBuilder__9CAnimDataCFPC13CCharAnimTime
   float GetAnimationDuration(int animIn) const;
