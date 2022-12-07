@@ -5,7 +5,9 @@
 
 class ITweakObject {
 public:
-  virtual ~ITweakObject() {};
+  virtual ~ITweakObject() = 0;
 };
+
+inline ITweakObject::~ITweakObject() {}
 
 #endif // _ITWEAKOBJECT
