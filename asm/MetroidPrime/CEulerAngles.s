@@ -207,8 +207,8 @@ lbl_8001B7C4:
 /* 8001B7F8 00018758  38 21 00 60 */	addi r1, r1, 0x60
 /* 8001B7FC 0001875C  4E 80 00 20 */	blr
 
-.global FromMatrix3f__12CEulerAnglesFRC9CMatrix3f
-FromMatrix3f__12CEulerAnglesFRC9CMatrix3f:
+.global FromTransform__12CEulerAnglesFRC12CTransform4f
+FromTransform__12CEulerAnglesFRC12CTransform4f:
 /* 8001B800 00018760  94 21 FF 90 */	stwu r1, -0x70(r1)
 /* 8001B804 00018764  7C 08 02 A6 */	mflr r0
 /* 8001B808 00018768  90 01 00 74 */	stw r0, 0x74(r1)
