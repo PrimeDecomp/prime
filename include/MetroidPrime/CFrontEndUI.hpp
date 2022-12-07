@@ -8,7 +8,9 @@ public:
   CFrontEndUI();
 
   EMessageReturn OnMessage(const CArchitectureMessage& message, CArchitectureQueue& queue);
+
 private:
+  uchar pad[0xe4];
 };
 
 #endif // _CFRONTENDUI

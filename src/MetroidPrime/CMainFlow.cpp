@@ -23,7 +23,7 @@ CIOWin::EMessageReturn CMainFlow::OnMessage(const CArchitectureMessage& msg,
     break;
   case kAM_SetGameState:
     CArchMsgParmInt32 state = MakeMsg::GetParmNewGameflowState(msg);
-    SetGameState((EClientFlowStates)state.GetInt32(), queue);
+    SetGameState(static_cast< EClientFlowStates >(state.GetInt32()), queue);
     return CIOWin::kMR_Exit;
   }
 
@@ -60,20 +60,30 @@ void CMainFlow::AdvanceGameState(CArchitectureQueue& queue) {
   }
 }
 
+static inline bool IsCreditsMode(CMain::ERestartMode m) {
+  return m >= CMain::kRM_WinBad && m <= CMain::kRM_LoseGame;
+}
+
 void CMainFlow::SetGameState(EClientFlowStates state, CArchitectureQueue& queue) {
   x14_gameState = state;
 
   switch (x14_gameState) {
   case kCFS_GameExit: {
-    switch (gpMain->GetRestartMode()) {
-    case CMain::kRM_WinBad:
-    case CMain::kRM_WinGood:
-    case CMain::kRM_WinBest:
-      queue.Push(MakeMsg::CreateCreateIOWin(kAMT_IOWinManager, 12, 11, new CCredits()));
-      break;
-    case CMain::kRM_LoseGame:
-      queue.Push(MakeMsg::CreateCreateIOWin(kAMT_IOWinManager, 12, 11,
-                                            new CPlayMovie(CPlayMovie::kWM_LoseGame)));
+    CMain::ERestartMode m = gpMain->GetRestartMode();
+    if (IsCreditsMode(m)) {
+      switch (m) {
+      case CMain::kRM_WinBad:
+      case CMain::kRM_WinGood:
+      case CMain::kRM_WinBest:
+        queue.Push(MakeMsg::CreateCreateIOWin(kAMT_IOWinManager, kFrontEndUIMsgPriority,
+                                              kFrontEndUIDrawPriority, new CCredits()));
+        break;
+      default:
+        queue.Push(MakeMsg::CreateCreateIOWin(kAMT_IOWinManager, kFrontEndUIMsgPriority,
+                                              kFrontEndUIDrawPriority,
+                                              new CPlayMovie(CPlayMovie::kWM_LoseGame)));
+        break;
+      }
       break;
     default:
       break;
@@ -85,23 +95,29 @@ void CMainFlow::SetGameState(EClientFlowStates state, CArchitectureQueue& queue)
       break;
     }
 
-    queue.Push(MakeMsg::CreateCreateIOWin(kAMT_IOWinManager, 12, 11, new CPreFrontEnd()));
+    queue.Push(MakeMsg::CreateCreateIOWin(kAMT_IOWinManager, kFrontEndUIMsgPriority,
+                                          kFrontEndUIDrawPriority, new CPreFrontEnd()));
     break;
   }
   case kCFS_FrontEnd:
     if (gpMain->GetRestartMode() == CMain::kRM_None) {
       break;
     }
-    queue.Push(MakeMsg::CreateCreateIOWin(kAMT_IOWinManager, 12, 11,
-                                          gpMain->GetRestartMode() == CMain::kRM_StateSetter
-                                              ? (CIOWin*)new CStateSetterFlow()
-                                              : (CIOWin*)new CFrontEndUI()));
+    CIOWin* ioWin;
+    if (gpMain->GetRestartMode() == CMain::kRM_StateSetter) {
+      ioWin = new CStateSetterFlow();
+    } else {
+      ioWin = new CFrontEndUI();
+    }
+    queue.Push(MakeMsg::CreateCreateIOWin(kAMT_IOWinManager, kFrontEndUIMsgPriority,
+                                          kFrontEndUIDrawPriority, ioWin));
     break;
   case kCFS_Game:
     gpGameState->GameOptions().EnsureOptions();
-    CMFGameLoader* gameFlow = new CMFGameLoader();
+    CIOWin* gameFlow = new CMFGameLoader();
     gpMain->SetRestartMode(CMain::kRM_Default);
-    queue.Push(MakeMsg::CreateCreateIOWin(kAMT_IOWinManager, 10, 1000, gameFlow));
+    queue.Push(MakeMsg::CreateCreateIOWin(kAMT_IOWinManager, kMFGameMsgPriority,
+                                          kMFGameDrawPriority, gameFlow));
     break;
   }
 }

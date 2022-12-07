@@ -5,9 +5,9 @@
 
 #include "rstl/reserved_vector.hpp"
 
+#include "Kyoto/Alloc/CMemorySys.hpp"
 #include "Kyoto/Basics/COsContext.hpp"
 #include "Kyoto/Basics/CStopwatch.hpp"
-#include "Kyoto/Alloc/CMemorySys.hpp"
 #include "Kyoto/Streams/CInputStream.hpp"
 #include "Kyoto/TReservedAverage.hpp"
 #include "MetroidPrime/CGameArchitectureSupport.hpp"
@@ -87,9 +87,7 @@ public:
     x160_26_screenFading = v;
   }
 
-  void SetX30(bool v) {
-    x160_30_ = v;
-  }
+  void SetX30(bool v) { x160_30_ = v; }
 
   static void EnsureWorldPaksReady();
   static void EnsureWorldPakReady(CAssetId id);
