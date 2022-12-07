@@ -10,22 +10,23 @@ CTweakPlayer::CTweakPlayer(CInputStream& in)
 , x2dc_grappleBeamXWaveAmplitude(0.0)
 , x2e0_grappleBeamZWaveAmplitude(0.0)
 , x2e4_grappleBeamAnglePhaseDelta(0.0) {
-  for (int i = 0; i < 8; ++i) {
+  int i;
+  for (i = 0; i < ARRAY_SIZE(x4_maxTranslationalAcceleration); ++i) {
     x4_maxTranslationalAcceleration[i] = in.ReadFloat();
   }
-  for (int i = 0; i < 8; ++i) {
+  for (i = 0; i < ARRAY_SIZE(x24_maxRotationalAcceleration); ++i) {
     x24_maxRotationalAcceleration[i] = in.ReadFloat();
   }
-  for (int i = 0; i < 8; ++i) {
+  for (i = 0; i < ARRAY_SIZE(x44_translationFriction); ++i) {
     x44_translationFriction[i] = in.ReadFloat();
   }
-  for (int i = 0; i < 8; ++i) {
+  for (i = 0; i < ARRAY_SIZE(x64_rotationFriction); ++i) {
     x64_rotationFriction[i] = in.ReadFloat();
   }
-  for (int i = 0; i < 8; ++i) {
+  for (i = 0; i < ARRAY_SIZE(x84_rotationMaxSpeed); ++i) {
     x84_rotationMaxSpeed[i] = in.ReadFloat();
   }
-  for (int i = 0; i < 8; ++i) {
+  for (i = 0; i < ARRAY_SIZE(xa4_translationMaxSpeed); ++i) {
     xa4_translationMaxSpeed[i] = in.ReadFloat();
   }
 
@@ -109,7 +110,7 @@ CTweakPlayer::CTweakPlayer(CInputStream& in)
   x264_aimAssistHorizontalAngle = in.ReadFloat() * (M_PIF / 180.f);
   x268_aimAssistVerticalAngle = in.ReadFloat() * (M_PIF / 180.f);
 
-  for (int i = 0; i < 3; ++i) {
+  for (i = 0; i < 3; ++i) {
     x158_orbitMinDistance[i] = in.ReadFloat();
     x164_orbitNormalDistance[i] = in.ReadFloat();
     x170_orbitMaxDistance[i] = in.ReadFloat();
@@ -127,7 +128,7 @@ CTweakPlayer::CTweakPlayer(CInputStream& in)
   x1a0_orbitMaxLockDistance = in.ReadFloat();
   x1a4_orbitDistanceThreshold = in.ReadFloat();
 
-  for (int i = 0; i < 2; ++i) {
+  for (i = 0; i < 2; ++i) {
     x1a8_orbitScreenBoxHalfExtentX[i] = in.ReadLong();
     x1b0_orbitScreenBoxHalfExtentY[i] = in.ReadLong();
     x1b8_orbitScreenBoxCenterX[i] = in.ReadLong();
