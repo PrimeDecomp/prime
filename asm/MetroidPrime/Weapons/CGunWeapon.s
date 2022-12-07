@@ -2230,7 +2230,7 @@ lbl_801BBB34:
 /* 801BBB40 001B8AA0  57 25 10 3A */	slwi r5, r25, 2
 /* 801BBB44 001B8AA4  88 03 02 20 */	lbz r0, 0x220(r3)
 /* 801BBB48 001B8AA8  51 20 36 72 */	rlwimi r0, r9, 6, 0x19, 0x19
-/* 801BBB4C 001B8AAC  38 82 A9 D0 */	addi r4, r2, lbl_805AC6F0@sda21
+/* 801BBB4C 001B8AAC  38 82 A9 D0 */	addi r4, r2, skShootAnim__10CGunWeapon@sda21
 /* 801BBB50 001B8AB0  C0 02 A9 D8 */	lfs f0, lbl_805AC6F8@sda21(r2)
 /* 801BBB54 001B8AB4  98 03 02 20 */	stb r0, 0x220(r3)
 /* 801BBB58 001B8AB8  38 00 FF FF */	li r0, -1
@@ -4017,8 +4017,8 @@ lbl_805AC6EC:
 	# ROM: 0x3F8F8C
 	.4byte lbl_803D19D7
 
-.global lbl_805AC6F0
-lbl_805AC6F0:
+.global skShootAnim__10CGunWeapon
+skShootAnim__10CGunWeapon:
 	# ROM: 0x3F8F90
 	.4byte 0x00000004
 	.4byte 0x00000003

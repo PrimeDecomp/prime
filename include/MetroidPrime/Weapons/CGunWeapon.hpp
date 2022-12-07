@@ -96,7 +96,9 @@ public:
   rstl::optional_object< CModelData >& SolidModelData() { return x10_solidModelData; }
   const CModelData& GetSolidModelData() const { return x10_solidModelData.data(); }
 
+  EWeaponType GetWeaponType() const { return x1c0_weaponType; }
   TUniqueId GetPlayerId() const { return x1c4_playerId; }
+  EMaterialTypes GetPlayerMaterial() const { return x1c8_playerMaterial; }
 
   CAABox GetBounds() const;
   CAABox GetBounds(const CTransform4f& xf) const;
@@ -162,7 +164,7 @@ protected:
   bool x218_28_suitArmLocked : 1;
   bool x218_29_drawHologram : 1;
 
-  static int skShootAnim[2];
+  static const int skShootAnim[2];
 
   void AllocResPools(CPlayerState::EBeamId beam);
   void FreeResPools();
