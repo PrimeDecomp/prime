@@ -230,7 +230,7 @@ void CGunWeapon::Update(float dt, CStateManager& mgr) {
 
       LoadFxIdle(dt, mgr);
       if ((x210_loadFlags & 0x1f) == 0x1f) {
-        CSkinnedModel& model = x10_solidModelData->PickAnimatedModel(kWM_Normal);
+        CSkinnedModel& model = x10_solidModelData->PickAnimatedModel(CModelData::kWM_Normal);
         bool flag1 = model.GetModel()->IsLoaded(x20c_shaderIdx);
         bool flag2 = xb0_suitArmModelData->IsLoaded(0);
         if (flag1 && flag2) {
@@ -358,7 +358,7 @@ void CGunWeapon::DrawHologram(const CStateManager& mgr, const CTransform4f& xf,
 
   // TODO
   if (x218_29_drawHologram) {
-    x60_holoModelData->FlatDraw(kWM_Normal, xf, false, flags);
+    x60_holoModelData->FlatDraw(CModelData::kWM_Normal, xf, false, flags);
   } else {
     const CVector3f& scale = x10_solidModelData->GetScale();
     CTransform4f modelMatrix(xf);

@@ -422,8 +422,8 @@ lbl_801E3E04:
 /* 801E3E1C 001E0D7C  38 21 00 20 */	addi r1, r1, 0x20
 /* 801E3E20 001E0D80  4E 80 00 20 */	blr
 
-.global Render__20CActorModelParticlesCFRC6CActor
-Render__20CActorModelParticlesCFRC6CActor:
+.global Render__20CActorModelParticlesCFRC13CStateManagerRC6CActor
+Render__20CActorModelParticlesCFRC13CStateManagerRC6CActor:
 /* 801E3E24 001E0D84  94 21 FF A0 */	stwu r1, -0x60(r1)
 /* 801E3E28 001E0D88  7C 08 02 A6 */	mflr r0
 /* 801E3E2C 001E0D8C  3C C0 80 5A */	lis r6, mModelMatrix__9CGraphics@ha

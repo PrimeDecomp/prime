@@ -296,7 +296,7 @@ void CActor::AddToRenderer(const CFrustumPlanes& planes, const CStateManager& mg
 void CActor::EnsureRendered(const CStateManager& mgr, const CVector3f& pos,
                             const CAABox& bounds) const {
   if (GetModelData()) {
-    const EWhichModel which = CModelData::GetRenderingModel(mgr);
+    const CModelData::EWhichModel which = CModelData::GetRenderingModel(mgr);
     GetModelData()->RenderUnsortedParts(which, GetTransform(), GetActorLights(), GetModelFlags());
   }
   mgr.AddDrawableActor(*this, pos, bounds);
@@ -354,8 +354,8 @@ void CActor::Render(const CStateManager& mgr) const {
 }
 
 void CActor::RenderInternal(const CStateManager& mgr) const {
-  EWhichModel which = CModelData::GetRenderingModel(mgr);
-  if (which == kWM_ThermalHot) {
+  CModelData::EWhichModel which = CModelData::GetRenderingModel(mgr);
+  if (which == CModelData::kWM_ThermalHot) {
     if (GetModelData()->GetSortThermal()) {
       uchar addMag;
       uchar mulMag = 255;

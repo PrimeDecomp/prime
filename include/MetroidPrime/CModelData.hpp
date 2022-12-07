@@ -51,15 +51,15 @@ public:
   CStaticRes(CAssetId id, const CVector3f& scale) : x0_cmdlId(id), x4_scale(scale) {}
 };
 
-enum EWhichModel {
-  kWM_Normal,
-  kWM_XRay,
-  kWM_Thermal,
-  kWM_ThermalHot,
-};
-
 class CModelData {
 public:
+  enum EWhichModel {
+    kWM_Normal,
+    kWM_XRay,
+    kWM_Thermal,
+    kWM_ThermalHot,
+  };
+
   // TODO these probably aren't real
   bool HasNormalModel() const { return x1c_normalModel; }
 
