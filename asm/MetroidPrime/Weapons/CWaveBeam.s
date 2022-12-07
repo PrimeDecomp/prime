@@ -7,8 +7,8 @@ lbl_ctor:
 .section .data
 .balign 8
 
-.global lbl_803DF7A0
-lbl_803DF7A0:
+.global __vt__9CWaveBeam
+__vt__9CWaveBeam:
 	# ROM: 0x3DC7A0
 	.4byte 0
 	.4byte 0
@@ -18,13 +18,13 @@ lbl_803DF7A0:
 	.4byte PreRenderGunFx__10CGunWeaponFRC13CStateManagerRC12CTransform4f
 	.4byte PostRenderGunFx__9CWaveBeamFRC13CStateManagerRC12CTransform4f
 	.4byte UpdateGunFx__9CWaveBeamFbfRC13CStateManagerRC12CTransform4f
-	.4byte Fire__9CWaveBeamFbfQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateManager9TUniqueId
+	.4byte Fire__9CWaveBeamFbfQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateManager9TUniqueIdff
 	.4byte EnableFx__10CGunWeaponFb
 	.4byte EnableSecondaryFx__9CWaveBeamFQ210CGunWeapon16ESecondaryFxType
 	.4byte Draw__10CGunWeaponCFbRC13CStateManagerRC12CTransform4fRC11CModelFlagsPC12CActorLights
 	.4byte DrawMuzzleFx__10CGunWeaponCFRC13CStateManager
 	.4byte Update__9CWaveBeamFfR13CStateManager
-	.4byte Load__9CWaveBeamFb
+	.4byte Load__9CWaveBeamFR13CStateManagerb
 	.4byte Unload__9CWaveBeamFR13CStateManager
 	.4byte IsLoaded__9CWaveBeamCFv
 	.4byte 0
@@ -33,8 +33,8 @@ lbl_803DF7A0:
 .balign 8
 
 # CWaveBeam
-.global lbl_805A8EB8
-lbl_805A8EB8:
+.global skShotAnglePitch
+skShotAnglePitch:
 	.skip 0x8
 
 .section .sdata2, "a"
@@ -75,8 +75,8 @@ lbl_805AACB0:
 	# ROM: 0x3F7550
 	.double 4.503601774854144E15
 
-.global lbl_805AACB8
-lbl_805AACB8:
+.global skShotAnglePitchSource
+skShotAnglePitchSource:
 	# ROM: 0x3F7558
 	.4byte 0x42F00000
 	.4byte 0
@@ -318,8 +318,8 @@ Unload__9CWaveBeamFR13CStateManager:
 /* 800E03E0 000DD340  38 21 00 10 */	addi r1, r1, 0x10
 /* 800E03E4 000DD344  4E 80 00 20 */	blr
 
-.global Load__9CWaveBeamFb
-Load__9CWaveBeamFb:
+.global Load__9CWaveBeamFR13CStateManagerb
+Load__9CWaveBeamFR13CStateManagerb:
 /* 800E03E8 000DD348  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 800E03EC 000DD34C  7C 08 02 A6 */	mflr r0
 /* 800E03F0 000DD350  90 01 00 14 */	stw r0, 0x14(r1)
@@ -340,8 +340,8 @@ Load__9CWaveBeamFb:
 /* 800E042C 000DD38C  38 21 00 10 */	addi r1, r1, 0x10
 /* 800E0430 000DD390  4E 80 00 20 */	blr
 
-.global Fire__9CWaveBeamFbfQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateManager9TUniqueId
-Fire__9CWaveBeamFbfQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateManager9TUniqueId:
+.global Fire__9CWaveBeamFbfQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateManager9TUniqueIdff
+Fire__9CWaveBeamFbfQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateManager9TUniqueIdff:
 /* 800E0434 000DD394  94 21 FE 10 */	stwu r1, -0x1f0(r1)
 /* 800E0438 000DD398  7C 08 02 A6 */	mflr r0
 /* 800E043C 000DD39C  90 01 01 F4 */	stw r0, 0x1f4(r1)
@@ -380,7 +380,7 @@ lbl_800E04AC:
 /* 800E04BC 000DD41C  3C 60 80 3D */	lis r3, lbl_803CE568@ha
 /* 800E04C0 000DD420  C3 A2 8F 88 */	lfs f29, lbl_805AACA8@sda21(r2)
 /* 800E04C4 000DD424  EF 80 00 72 */	fmuls f28, f0, f1
-/* 800E04C8 000DD428  C3 CD A2 F8 */	lfs f30, lbl_805A8EB8@sda21(r13)
+/* 800E04C8 000DD428  C3 CD A2 F8 */	lfs f30, skShotAnglePitch@sda21(r13)
 /* 800E04CC 000DD42C  7F 53 02 14 */	add r26, r19, r0
 /* 800E04D0 000DD430  CB E2 8F 90 */	lfd f31, lbl_805AACB0@sda21(r2)
 /* 800E04D4 000DD434  3B E3 E5 68 */	addi r31, r3, lbl_803CE568@l
@@ -519,7 +519,7 @@ lbl_800E06A4:
 /* 800E06D0 000DD630  56 A5 10 3A */	slwi r5, r21, 2
 /* 800E06D4 000DD634  88 03 02 20 */	lbz r0, 0x220(r3)
 /* 800E06D8 000DD638  51 20 36 72 */	rlwimi r0, r9, 6, 0x19, 0x19
-/* 800E06DC 000DD63C  38 82 A9 D0 */	addi r4, r2, lbl_805AC6F0@sda21
+/* 800E06DC 000DD63C  38 82 A9 D0 */	addi r4, r2, skShootAnim__10CGunWeapon@sda21
 /* 800E06E0 000DD640  C0 02 8F 8C */	lfs f0, lbl_805AACAC@sda21(r2)
 /* 800E06E4 000DD644  98 03 02 20 */	stb r0, 0x220(r3)
 /* 800E06E8 000DD648  38 00 FF FF */	li r0, -1
@@ -897,9 +897,9 @@ __dt__9CWaveBeamFv:
 /* 800E0C28 000DDB88  93 C1 00 08 */	stw r30, 8(r1)
 /* 800E0C2C 000DDB8C  7C 7E 1B 79 */	or. r30, r3, r3
 /* 800E0C30 000DDB90  41 82 00 EC */	beq lbl_800E0D1C
-/* 800E0C34 000DDB94  3C 60 80 3E */	lis r3, lbl_803DF7A0@ha
+/* 800E0C34 000DDB94  3C 60 80 3E */	lis r3, __vt__9CWaveBeam@ha
 /* 800E0C38 000DDB98  34 1E 02 54 */	addic. r0, r30, 0x254
-/* 800E0C3C 000DDB9C  38 03 F7 A0 */	addi r0, r3, lbl_803DF7A0@l
+/* 800E0C3C 000DDB9C  38 03 F7 A0 */	addi r0, r3, __vt__9CWaveBeam@l
 /* 800E0C40 000DDBA0  90 1E 00 00 */	stw r0, 0(r30)
 /* 800E0C44 000DDBA4  41 82 00 24 */	beq lbl_800E0C68
 /* 800E0C48 000DDBA8  80 7E 02 54 */	lwz r3, 0x254(r30)
@@ -982,9 +982,9 @@ __ct__9CWaveBeamFUi11EWeaponType9TUniqueId14EMaterialTypesRC9CVector3f:
 /* 800E0D54 000DDCB4  38 C1 00 08 */	addi r6, r1, 8
 /* 800E0D58 000DDCB8  B0 01 00 08 */	sth r0, 8(r1)
 /* 800E0D5C 000DDCBC  48 0D C4 55 */	bl __ct__10CGunWeaponFUi11EWeaponType9TUniqueId14EMaterialTypesRC9CVector3f
-/* 800E0D60 000DDCC0  3C 60 80 3E */	lis r3, lbl_803DF7A0@ha
+/* 800E0D60 000DDCC0  3C 60 80 3E */	lis r3, __vt__9CWaveBeam@ha
 /* 800E0D64 000DDCC4  3C 80 80 3D */	lis r4, lbl_803CE568@ha
-/* 800E0D68 000DDCC8  38 03 F7 A0 */	addi r0, r3, lbl_803DF7A0@l
+/* 800E0D68 000DDCC8  38 03 F7 A0 */	addi r0, r3, __vt__9CWaveBeam@l
 /* 800E0D6C 000DDCCC  38 61 00 24 */	addi r3, r1, 0x24
 /* 800E0D70 000DDCD0  90 1F 00 00 */	stw r0, 0(r31)
 /* 800E0D74 000DDCD4  38 84 E5 68 */	addi r4, r4, lbl_803CE568@l
@@ -1078,8 +1078,8 @@ __ct__9CWaveBeamFUi11EWeaponType9TUniqueId14EMaterialTypesRC9CVector3f:
 
 .global __sinit_CWaveBeam_cpp
 __sinit_CWaveBeam_cpp:
-/* 800E0ED4 000DDE34  C0 02 8F 98 */	lfs f0, lbl_805AACB8@sda21(r2)
-/* 800E0ED8 000DDE38  D0 0D A2 F8 */	stfs f0, lbl_805A8EB8@sda21(r13)
+/* 800E0ED4 000DDE34  C0 02 8F 98 */	lfs f0, skShotAnglePitchSource@sda21(r2)
+/* 800E0ED8 000DDE38  D0 0D A2 F8 */	stfs f0, skShotAnglePitch@sda21(r13)
 /* 800E0EDC 000DDE3C  4E 80 00 20 */	blr
 
 .section .rodata

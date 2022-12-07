@@ -375,7 +375,7 @@ void CGunWeapon::DrawHologram(const CStateManager& mgr, const CTransform4f& xf,
   }
 }
 
-int CGunWeapon::skShootAnim[2] = {4, 3};
+const int CGunWeapon::skShootAnim[2] = {4, 3};
 
 static float kChargeScaleFactor = 1.0f;
 
