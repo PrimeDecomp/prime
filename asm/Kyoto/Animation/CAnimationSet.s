@@ -195,7 +195,7 @@ lbl_802D7160:
 /* 802D716C 002D40CC  90 1A 00 04 */	stw r0, 4(r26)
 /* 802D7170 002D40D0  41 82 00 0C */	beq lbl_802D717C
 /* 802D7174 002D40D4  7F A3 EB 78 */	mr r3, r29
-/* 802D7178 002D40D8  4B D5 D1 1D */	bl __dt__17CMetaTransFactoryFv
+/* 802D7178 002D40D8  4B D5 D1 1D */	bl "ReleaseData__Q24rstl20rc_ptr<10IMetaTrans>Fv"
 lbl_802D717C:
 /* 802D717C 002D40DC  3B 9C 00 01 */	addi r28, r28, 1
 lbl_802D7180:
@@ -417,7 +417,7 @@ __ct__13CAnimationSetFR12CInputStream:
 /* 802D7464 002D43C4  80 85 00 04 */	lwz r4, 4(r5)
 /* 802D7468 002D43C8  38 04 00 01 */	addi r0, r4, 1
 /* 802D746C 002D43CC  90 05 00 04 */	stw r0, 4(r5)
-/* 802D7470 002D43D0  4B D5 CE 25 */	bl __dt__17CMetaTransFactoryFv
+/* 802D7470 002D43D0  4B D5 CE 25 */	bl "ReleaseData__Q24rstl20rc_ptr<10IMetaTrans>Fv"
 /* 802D7474 002D43D4  A0 9E 00 00 */	lhz r4, 0(r30)
 /* 802D7478 002D43D8  7F E5 FB 78 */	mr r5, r31
 /* 802D747C 002D43DC  38 61 00 5C */	addi r3, r1, 0x5c
@@ -656,7 +656,7 @@ lbl_802D77A8:
 /* 802D77B0 002D4710  34 1E 00 04 */	addic. r0, r30, 4
 /* 802D77B4 002D4714  41 82 00 0C */	beq lbl_802D77C0
 /* 802D77B8 002D4718  38 7E 00 04 */	addi r3, r30, 4
-/* 802D77BC 002D471C  4B D5 CA D9 */	bl __dt__17CMetaTransFactoryFv
+/* 802D77BC 002D471C  4B D5 CA D9 */	bl "ReleaseData__Q24rstl20rc_ptr<10IMetaTrans>Fv"
 lbl_802D77C0:
 /* 802D77C0 002D4720  3B DE 00 08 */	addi r30, r30, 8
 lbl_802D77C4:
@@ -709,7 +709,7 @@ lbl_802D785C:
 /* 802D7864 002D47C4  34 1E 00 0C */	addic. r0, r30, 0xc
 /* 802D7868 002D47C8  41 82 00 0C */	beq lbl_802D7874
 /* 802D786C 002D47CC  38 7E 00 0C */	addi r3, r30, 0xc
-/* 802D7870 002D47D0  4B D5 CA 25 */	bl __dt__17CMetaTransFactoryFv
+/* 802D7870 002D47D0  4B D5 CA 25 */	bl "ReleaseData__Q24rstl20rc_ptr<10IMetaTrans>Fv"
 lbl_802D7874:
 /* 802D7874 002D47D4  3B DE 00 10 */	addi r30, r30, 0x10
 lbl_802D7878:
@@ -800,7 +800,7 @@ lbl_802D7998:
 /* 802D79A4 002D4904  90 1A 00 04 */	stw r0, 4(r26)
 /* 802D79A8 002D4908  41 82 00 0C */	beq lbl_802D79B4
 /* 802D79AC 002D490C  7F A3 EB 78 */	mr r3, r29
-/* 802D79B0 002D4910  4B D5 C8 E5 */	bl __dt__17CMetaTransFactoryFv
+/* 802D79B0 002D4910  4B D5 C8 E5 */	bl "ReleaseData__Q24rstl20rc_ptr<10IMetaTrans>Fv"
 lbl_802D79B4:
 /* 802D79B4 002D4914  3B 9C 00 01 */	addi r28, r28, 1
 lbl_802D79B8:
@@ -1159,7 +1159,7 @@ lbl_802D7E5C:
 /* 802D7E64 002D4DC4  34 1B 00 0C */	addic. r0, r27, 0xc
 /* 802D7E68 002D4DC8  41 82 00 0C */	beq lbl_802D7E74
 /* 802D7E6C 002D4DCC  38 7B 00 0C */	addi r3, r27, 0xc
-/* 802D7E70 002D4DD0  4B D5 C4 25 */	bl __dt__17CMetaTransFactoryFv
+/* 802D7E70 002D4DD0  4B D5 C4 25 */	bl "ReleaseData__Q24rstl20rc_ptr<10IMetaTrans>Fv"
 lbl_802D7E74:
 /* 802D7E74 002D4DD4  3B 7B 00 10 */	addi r27, r27, 0x10
 lbl_802D7E78:
@@ -1239,7 +1239,7 @@ lbl_802D7F68:
 /* 802D7F70 002D4ED0  34 1B 00 04 */	addic. r0, r27, 4
 /* 802D7F74 002D4ED4  41 82 00 0C */	beq lbl_802D7F80
 /* 802D7F78 002D4ED8  38 7B 00 04 */	addi r3, r27, 4
-/* 802D7F7C 002D4EDC  4B D5 C3 19 */	bl __dt__17CMetaTransFactoryFv
+/* 802D7F7C 002D4EDC  4B D5 C3 19 */	bl "ReleaseData__Q24rstl20rc_ptr<10IMetaTrans>Fv"
 lbl_802D7F80:
 /* 802D7F80 002D4EE0  3B 7B 00 08 */	addi r27, r27, 8
 lbl_802D7F84:

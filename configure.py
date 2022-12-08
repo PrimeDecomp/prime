@@ -499,7 +499,7 @@ LIBS = [
             "Kyoto/Animation/CPASParmInfo",
             "Kyoto/Animation/CPrimitive",
             "Kyoto/Animation/CSequenceHelper",
-            "Kyoto/Animation/CTransition",
+            ["Kyoto/Animation/CTransition", True],
             "Kyoto/Animation/CTransitionManager",
             "Kyoto/Animation/CTreeUtils",
             "Kyoto/Animation/IMetaAnim",

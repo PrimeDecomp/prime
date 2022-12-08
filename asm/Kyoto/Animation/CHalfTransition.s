@@ -24,7 +24,7 @@ __ct__15CHalfTransitionFR12CInputStream:
 /* 8036678C 003636EC  80 85 00 04 */	lwz r4, 4(r5)
 /* 80366790 003636F0  38 04 00 01 */	addi r0, r4, 1
 /* 80366794 003636F4  90 05 00 04 */	stw r0, 4(r5)
-/* 80366798 003636F8  4B CC DA FD */	bl __dt__17CMetaTransFactoryFv
+/* 80366798 003636F8  4B CC DA FD */	bl "ReleaseData__Q24rstl20rc_ptr<10IMetaTrans>Fv"
 /* 8036679C 003636FC  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 803667A0 00363700  7F C3 F3 78 */	mr r3, r30
 /* 803667A4 00363704  83 E1 00 1C */	lwz r31, 0x1c(r1)

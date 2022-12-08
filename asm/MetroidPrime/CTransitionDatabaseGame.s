@@ -260,7 +260,7 @@ lbl_8006E468:
 /* 8006E478 0006B3D8  90 1F 00 18 */	stw r0, 0x18(r31)
 /* 8006E47C 0006B3DC  41 82 00 0C */	beq lbl_8006E488
 /* 8006E480 0006B3E0  7F A3 EB 78 */	mr r3, r29
-/* 8006E484 0006B3E4  4B FC 5E 11 */	bl __dt__17CMetaTransFactoryFv
+/* 8006E484 0006B3E4  4B FC 5E 11 */	bl "ReleaseData__Q24rstl20rc_ptr<10IMetaTrans>Fv"
 lbl_8006E488:
 /* 8006E488 0006B3E8  7C 1C F0 40 */	cmplw r28, r30
 /* 8006E48C 0006B3EC  40 82 FF 54 */	bne lbl_8006E3E0
@@ -330,7 +330,7 @@ lbl_8006E56C:
 /* 8006E57C 0006B4DC  90 1F 00 28 */	stw r0, 0x28(r31)
 /* 8006E580 0006B4E0  41 82 00 0C */	beq lbl_8006E58C
 /* 8006E584 0006B4E4  7F A3 EB 78 */	mr r3, r29
-/* 8006E588 0006B4E8  4B FC 5D 0D */	bl __dt__17CMetaTransFactoryFv
+/* 8006E588 0006B4E8  4B FC 5D 0D */	bl "ReleaseData__Q24rstl20rc_ptr<10IMetaTrans>Fv"
 lbl_8006E58C:
 /* 8006E58C 0006B4EC  7C 1C F0 40 */	cmplw r28, r30
 /* 8006E590 0006B4F0  40 82 FF 64 */	bne lbl_8006E4F4
@@ -514,7 +514,7 @@ lbl_8006E7D0:
 /* 8006E820 0006B780  28 1F 00 00 */	cmplwi r31, 0
 /* 8006E824 0006B784  41 82 00 0C */	beq lbl_8006E830
 /* 8006E828 0006B788  7F E3 FB 78 */	mr r3, r31
-/* 8006E82C 0006B78C  4B FC 5A 69 */	bl __dt__17CMetaTransFactoryFv
+/* 8006E82C 0006B78C  4B FC 5A 69 */	bl "ReleaseData__Q24rstl20rc_ptr<10IMetaTrans>Fv"
 lbl_8006E830:
 /* 8006E830 0006B790  BB 61 00 5C */	lmw r27, 0x5c(r1)
 /* 8006E834 0006B794  80 01 00 74 */	lwz r0, 0x74(r1)
@@ -554,7 +554,7 @@ sub_8006e844:
 /* 8006E8B0 0006B810  7C 03 00 40 */	cmplw r3, r0
 /* 8006E8B4 0006B814  41 82 00 24 */	beq lbl_8006E8D8
 /* 8006E8B8 0006B818  38 7C 00 08 */	addi r3, r28, 8
-/* 8006E8BC 0006B81C  4B FC 59 D9 */	bl __dt__17CMetaTransFactoryFv
+/* 8006E8BC 0006B81C  4B FC 59 D9 */	bl "ReleaseData__Q24rstl20rc_ptr<10IMetaTrans>Fv"
 /* 8006E8C0 0006B820  80 1D 00 08 */	lwz r0, 8(r29)
 /* 8006E8C4 0006B824  90 1C 00 08 */	stw r0, 8(r28)
 /* 8006E8C8 0006B828  80 9C 00 08 */	lwz r4, 8(r28)
@@ -572,7 +572,7 @@ lbl_8006E8D8:
 /* 8006E8F4 0006B854  7C 03 00 40 */	cmplw r3, r0
 /* 8006E8F8 0006B858  41 82 00 24 */	beq lbl_8006E91C
 /* 8006E8FC 0006B85C  38 7C 00 08 */	addi r3, r28, 8
-/* 8006E900 0006B860  4B FC 59 95 */	bl __dt__17CMetaTransFactoryFv
+/* 8006E900 0006B860  4B FC 59 95 */	bl "ReleaseData__Q24rstl20rc_ptr<10IMetaTrans>Fv"
 /* 8006E904 0006B864  80 01 00 10 */	lwz r0, 0x10(r1)
 /* 8006E908 0006B868  90 1C 00 08 */	stw r0, 8(r28)
 /* 8006E90C 0006B86C  80 9C 00 08 */	lwz r4, 8(r28)
@@ -583,7 +583,7 @@ lbl_8006E91C:
 /* 8006E91C 0006B87C  28 1F 00 00 */	cmplwi r31, 0
 /* 8006E920 0006B880  41 82 00 0C */	beq lbl_8006E92C
 /* 8006E924 0006B884  7F E3 FB 78 */	mr r3, r31
-/* 8006E928 0006B888  4B FC 59 6D */	bl __dt__17CMetaTransFactoryFv
+/* 8006E928 0006B888  4B FC 59 6D */	bl "ReleaseData__Q24rstl20rc_ptr<10IMetaTrans>Fv"
 lbl_8006E92C:
 /* 8006E92C 0006B88C  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8006E930 0006B890  83 E1 00 2C */	lwz r31, 0x2c(r1)
@@ -713,7 +713,7 @@ lbl_8006EAA8:
 /* 8006EAF8 0006BA58  28 1F 00 00 */	cmplwi r31, 0
 /* 8006EAFC 0006BA5C  41 82 00 0C */	beq lbl_8006EB08
 /* 8006EB00 0006BA60  7F E3 FB 78 */	mr r3, r31
-/* 8006EB04 0006BA64  4B FC 57 91 */	bl __dt__17CMetaTransFactoryFv
+/* 8006EB04 0006BA64  4B FC 57 91 */	bl "ReleaseData__Q24rstl20rc_ptr<10IMetaTrans>Fv"
 lbl_8006EB08:
 /* 8006EB08 0006BA68  BB 61 00 4C */	lmw r27, 0x4c(r1)
 /* 8006EB0C 0006BA6C  80 01 00 64 */	lwz r0, 0x64(r1)
@@ -749,7 +749,7 @@ sub_8006eb1c:
 /* 8006EB78 0006BAD8  7C 03 00 40 */	cmplw r3, r0
 /* 8006EB7C 0006BADC  41 82 00 24 */	beq lbl_8006EBA0
 /* 8006EB80 0006BAE0  38 7D 00 04 */	addi r3, r29, 4
-/* 8006EB84 0006BAE4  4B FC 57 11 */	bl __dt__17CMetaTransFactoryFv
+/* 8006EB84 0006BAE4  4B FC 57 11 */	bl "ReleaseData__Q24rstl20rc_ptr<10IMetaTrans>Fv"
 /* 8006EB88 0006BAE8  80 1E 00 04 */	lwz r0, 4(r30)
 /* 8006EB8C 0006BAEC  90 1D 00 04 */	stw r0, 4(r29)
 /* 8006EB90 0006BAF0  80 9D 00 04 */	lwz r4, 4(r29)
@@ -765,7 +765,7 @@ lbl_8006EBA0:
 /* 8006EBB4 0006BB14  7C 03 00 40 */	cmplw r3, r0
 /* 8006EBB8 0006BB18  41 82 00 24 */	beq lbl_8006EBDC
 /* 8006EBBC 0006BB1C  38 7D 00 04 */	addi r3, r29, 4
-/* 8006EBC0 0006BB20  4B FC 56 D5 */	bl __dt__17CMetaTransFactoryFv
+/* 8006EBC0 0006BB20  4B FC 56 D5 */	bl "ReleaseData__Q24rstl20rc_ptr<10IMetaTrans>Fv"
 /* 8006EBC4 0006BB24  80 01 00 0C */	lwz r0, 0xc(r1)
 /* 8006EBC8 0006BB28  90 1D 00 04 */	stw r0, 4(r29)
 /* 8006EBCC 0006BB2C  80 9D 00 04 */	lwz r4, 4(r29)
@@ -776,7 +776,7 @@ lbl_8006EBDC:
 /* 8006EBDC 0006BB3C  28 1F 00 00 */	cmplwi r31, 0
 /* 8006EBE0 0006BB40  41 82 00 0C */	beq lbl_8006EBEC
 /* 8006EBE4 0006BB44  7F E3 FB 78 */	mr r3, r31
-/* 8006EBE8 0006BB48  4B FC 56 AD */	bl __dt__17CMetaTransFactoryFv
+/* 8006EBE8 0006BB48  4B FC 56 AD */	bl "ReleaseData__Q24rstl20rc_ptr<10IMetaTrans>Fv"
 lbl_8006EBEC:
 /* 8006EBEC 0006BB4C  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8006EBF0 0006BB50  83 E1 00 1C */	lwz r31, 0x1c(r1)
@@ -973,7 +973,7 @@ lbl_8006EE88:
 /* 8006EE90 0006BDF0  34 1B 00 08 */	addic. r0, r27, 8
 /* 8006EE94 0006BDF4  41 82 00 0C */	beq lbl_8006EEA0
 /* 8006EE98 0006BDF8  38 7B 00 08 */	addi r3, r27, 8
-/* 8006EE9C 0006BDFC  4B FC 53 F9 */	bl __dt__17CMetaTransFactoryFv
+/* 8006EE9C 0006BDFC  4B FC 53 F9 */	bl "ReleaseData__Q24rstl20rc_ptr<10IMetaTrans>Fv"
 lbl_8006EEA0:
 /* 8006EEA0 0006BE00  3B 7B 00 0C */	addi r27, r27, 0xc
 lbl_8006EEA4:
@@ -1053,7 +1053,7 @@ lbl_8006EF94:
 /* 8006EF9C 0006BEFC  34 1B 00 04 */	addic. r0, r27, 4
 /* 8006EFA0 0006BF00  41 82 00 0C */	beq lbl_8006EFAC
 /* 8006EFA4 0006BF04  38 7B 00 04 */	addi r3, r27, 4
-/* 8006EFA8 0006BF08  4B FC 52 ED */	bl __dt__17CMetaTransFactoryFv
+/* 8006EFA8 0006BF08  4B FC 52 ED */	bl "ReleaseData__Q24rstl20rc_ptr<10IMetaTrans>Fv"
 lbl_8006EFAC:
 /* 8006EFAC 0006BF0C  3B 7B 00 08 */	addi r27, r27, 8
 lbl_8006EFB0:
@@ -1215,7 +1215,7 @@ lbl_8006F168:
 /* 8006F1A4 0006C104  7C 03 00 40 */	cmplw r3, r0
 /* 8006F1A8 0006C108  41 82 00 24 */	beq lbl_8006F1CC
 /* 8006F1AC 0006C10C  38 7C 00 04 */	addi r3, r28, 4
-/* 8006F1B0 0006C110  4B FC 50 E5 */	bl __dt__17CMetaTransFactoryFv
+/* 8006F1B0 0006C110  4B FC 50 E5 */	bl "ReleaseData__Q24rstl20rc_ptr<10IMetaTrans>Fv"
 /* 8006F1B4 0006C114  80 1E 00 04 */	lwz r0, 4(r30)
 /* 8006F1B8 0006C118  90 1C 00 04 */	stw r0, 4(r28)
 /* 8006F1BC 0006C11C  80 9C 00 04 */	lwz r4, 4(r28)
@@ -1233,7 +1233,7 @@ lbl_8006F1CC:
 /* 8006F1E8 0006C148  7C 03 00 40 */	cmplw r3, r0
 /* 8006F1EC 0006C14C  41 82 00 24 */	beq lbl_8006F210
 /* 8006F1F0 0006C150  38 7E 00 04 */	addi r3, r30, 4
-/* 8006F1F4 0006C154  4B FC 50 A1 */	bl __dt__17CMetaTransFactoryFv
+/* 8006F1F4 0006C154  4B FC 50 A1 */	bl "ReleaseData__Q24rstl20rc_ptr<10IMetaTrans>Fv"
 /* 8006F1F8 0006C158  80 1D 00 04 */	lwz r0, 4(r29)
 /* 8006F1FC 0006C15C  90 1E 00 04 */	stw r0, 4(r30)
 /* 8006F200 0006C160  80 9E 00 04 */	lwz r4, 4(r30)
@@ -1248,7 +1248,7 @@ lbl_8006F210:
 /* 8006F220 0006C180  7C 03 00 40 */	cmplw r3, r0
 /* 8006F224 0006C184  41 82 00 5C */	beq lbl_8006F280
 /* 8006F228 0006C188  38 7D 00 04 */	addi r3, r29, 4
-/* 8006F22C 0006C18C  4B FC 50 69 */	bl __dt__17CMetaTransFactoryFv
+/* 8006F22C 0006C18C  4B FC 50 69 */	bl "ReleaseData__Q24rstl20rc_ptr<10IMetaTrans>Fv"
 /* 8006F230 0006C190  80 01 00 0C */	lwz r0, 0xc(r1)
 /* 8006F234 0006C194  90 1D 00 04 */	stw r0, 4(r29)
 /* 8006F238 0006C198  80 9D 00 04 */	lwz r4, 4(r29)
@@ -1263,7 +1263,7 @@ lbl_8006F24C:
 /* 8006F258 0006C1B8  7C 03 00 40 */	cmplw r3, r0
 /* 8006F25C 0006C1BC  41 82 00 24 */	beq lbl_8006F280
 /* 8006F260 0006C1C0  38 7E 00 04 */	addi r3, r30, 4
-/* 8006F264 0006C1C4  4B FC 50 31 */	bl __dt__17CMetaTransFactoryFv
+/* 8006F264 0006C1C4  4B FC 50 31 */	bl "ReleaseData__Q24rstl20rc_ptr<10IMetaTrans>Fv"
 /* 8006F268 0006C1C8  80 01 00 0C */	lwz r0, 0xc(r1)
 /* 8006F26C 0006C1CC  90 1E 00 04 */	stw r0, 4(r30)
 /* 8006F270 0006C1D0  80 9E 00 04 */	lwz r4, 4(r30)
@@ -1274,7 +1274,7 @@ lbl_8006F280:
 /* 8006F280 0006C1E0  28 1F 00 00 */	cmplwi r31, 0
 /* 8006F284 0006C1E4  41 82 00 0C */	beq lbl_8006F290
 /* 8006F288 0006C1E8  7F E3 FB 78 */	mr r3, r31
-/* 8006F28C 0006C1EC  4B FC 50 09 */	bl __dt__17CMetaTransFactoryFv
+/* 8006F28C 0006C1EC  4B FC 50 09 */	bl "ReleaseData__Q24rstl20rc_ptr<10IMetaTrans>Fv"
 lbl_8006F290:
 /* 8006F290 0006C1F0  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8006F294 0006C1F4  83 E1 00 1C */	lwz r31, 0x1c(r1)
@@ -1310,7 +1310,7 @@ sub_8006f2b0:
 /* 8006F300 0006C260  7C 03 00 40 */	cmplw r3, r0
 /* 8006F304 0006C264  41 82 00 24 */	beq lbl_8006F328
 /* 8006F308 0006C268  38 7D 00 04 */	addi r3, r29, 4
-/* 8006F30C 0006C26C  4B FC 4F 89 */	bl __dt__17CMetaTransFactoryFv
+/* 8006F30C 0006C26C  4B FC 4F 89 */	bl "ReleaseData__Q24rstl20rc_ptr<10IMetaTrans>Fv"
 /* 8006F310 0006C270  80 1E 00 04 */	lwz r0, 4(r30)
 /* 8006F314 0006C274  90 1D 00 04 */	stw r0, 4(r29)
 /* 8006F318 0006C278  80 9D 00 04 */	lwz r4, 4(r29)
@@ -1325,7 +1325,7 @@ lbl_8006F328:
 /* 8006F338 0006C298  7C 03 00 40 */	cmplw r3, r0
 /* 8006F33C 0006C29C  41 82 00 24 */	beq lbl_8006F360
 /* 8006F340 0006C2A0  38 7E 00 04 */	addi r3, r30, 4
-/* 8006F344 0006C2A4  4B FC 4F 51 */	bl __dt__17CMetaTransFactoryFv
+/* 8006F344 0006C2A4  4B FC 4F 51 */	bl "ReleaseData__Q24rstl20rc_ptr<10IMetaTrans>Fv"
 /* 8006F348 0006C2A8  80 01 00 0C */	lwz r0, 0xc(r1)
 /* 8006F34C 0006C2AC  90 1E 00 04 */	stw r0, 4(r30)
 /* 8006F350 0006C2B0  80 9E 00 04 */	lwz r4, 4(r30)
@@ -1336,7 +1336,7 @@ lbl_8006F360:
 /* 8006F360 0006C2C0  28 1F 00 00 */	cmplwi r31, 0
 /* 8006F364 0006C2C4  41 82 00 0C */	beq lbl_8006F370
 /* 8006F368 0006C2C8  7F E3 FB 78 */	mr r3, r31
-/* 8006F36C 0006C2CC  4B FC 4F 29 */	bl __dt__17CMetaTransFactoryFv
+/* 8006F36C 0006C2CC  4B FC 4F 29 */	bl "ReleaseData__Q24rstl20rc_ptr<10IMetaTrans>Fv"
 lbl_8006F370:
 /* 8006F370 0006C2D0  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8006F374 0006C2D4  83 E1 00 1C */	lwz r31, 0x1c(r1)
@@ -1418,7 +1418,7 @@ lbl_8006F440:
 /* 8006F484 0006C3E4  7C 03 00 40 */	cmplw r3, r0
 /* 8006F488 0006C3E8  41 82 00 24 */	beq lbl_8006F4AC
 /* 8006F48C 0006C3EC  38 7E 00 08 */	addi r3, r30, 8
-/* 8006F490 0006C3F0  4B FC 4E 05 */	bl __dt__17CMetaTransFactoryFv
+/* 8006F490 0006C3F0  4B FC 4E 05 */	bl "ReleaseData__Q24rstl20rc_ptr<10IMetaTrans>Fv"
 /* 8006F494 0006C3F4  80 1D 00 08 */	lwz r0, 8(r29)
 /* 8006F498 0006C3F8  90 1E 00 08 */	stw r0, 8(r30)
 /* 8006F49C 0006C3FC  80 9E 00 08 */	lwz r4, 8(r30)
@@ -1454,7 +1454,7 @@ lbl_8006F4E8:
 /* 8006F508 0006C468  7C 03 00 40 */	cmplw r3, r0
 /* 8006F50C 0006C46C  41 82 00 24 */	beq lbl_8006F530
 /* 8006F510 0006C470  38 7D 00 08 */	addi r3, r29, 8
-/* 8006F514 0006C474  4B FC 4D 81 */	bl __dt__17CMetaTransFactoryFv
+/* 8006F514 0006C474  4B FC 4D 81 */	bl "ReleaseData__Q24rstl20rc_ptr<10IMetaTrans>Fv"
 /* 8006F518 0006C478  80 1C 00 08 */	lwz r0, 8(r28)
 /* 8006F51C 0006C47C  90 1D 00 08 */	stw r0, 8(r29)
 /* 8006F520 0006C480  80 9D 00 08 */	lwz r4, 8(r29)
@@ -1471,7 +1471,7 @@ lbl_8006F530:
 /* 8006F548 0006C4A8  7C 03 00 40 */	cmplw r3, r0
 /* 8006F54C 0006C4AC  41 82 00 68 */	beq lbl_8006F5B4
 /* 8006F550 0006C4B0  38 7C 00 08 */	addi r3, r28, 8
-/* 8006F554 0006C4B4  4B FC 4D 41 */	bl __dt__17CMetaTransFactoryFv
+/* 8006F554 0006C4B4  4B FC 4D 41 */	bl "ReleaseData__Q24rstl20rc_ptr<10IMetaTrans>Fv"
 /* 8006F558 0006C4B8  80 01 00 10 */	lwz r0, 0x10(r1)
 /* 8006F55C 0006C4BC  90 1C 00 08 */	stw r0, 8(r28)
 /* 8006F560 0006C4C0  80 9C 00 08 */	lwz r4, 8(r28)
@@ -1489,7 +1489,7 @@ lbl_8006F574:
 /* 8006F58C 0006C4EC  7C 03 00 40 */	cmplw r3, r0
 /* 8006F590 0006C4F0  41 82 00 24 */	beq lbl_8006F5B4
 /* 8006F594 0006C4F4  38 7D 00 08 */	addi r3, r29, 8
-/* 8006F598 0006C4F8  4B FC 4C FD */	bl __dt__17CMetaTransFactoryFv
+/* 8006F598 0006C4F8  4B FC 4C FD */	bl "ReleaseData__Q24rstl20rc_ptr<10IMetaTrans>Fv"
 /* 8006F59C 0006C4FC  80 01 00 10 */	lwz r0, 0x10(r1)
 /* 8006F5A0 0006C500  90 1D 00 08 */	stw r0, 8(r29)
 /* 8006F5A4 0006C504  80 9D 00 08 */	lwz r4, 8(r29)
@@ -1500,7 +1500,7 @@ lbl_8006F5B4:
 /* 8006F5B4 0006C514  28 1F 00 00 */	cmplwi r31, 0
 /* 8006F5B8 0006C518  41 82 00 0C */	beq lbl_8006F5C4
 /* 8006F5BC 0006C51C  7F E3 FB 78 */	mr r3, r31
-/* 8006F5C0 0006C520  4B FC 4C D5 */	bl __dt__17CMetaTransFactoryFv
+/* 8006F5C0 0006C520  4B FC 4C D5 */	bl "ReleaseData__Q24rstl20rc_ptr<10IMetaTrans>Fv"
 lbl_8006F5C4:
 /* 8006F5C4 0006C524  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8006F5C8 0006C528  83 E1 00 2C */	lwz r31, 0x2c(r1)
@@ -1540,7 +1540,7 @@ sub_8006f5e4:
 /* 8006F644 0006C5A4  7C 03 00 40 */	cmplw r3, r0
 /* 8006F648 0006C5A8  41 82 00 24 */	beq lbl_8006F66C
 /* 8006F64C 0006C5AC  38 7D 00 08 */	addi r3, r29, 8
-/* 8006F650 0006C5B0  4B FC 4C 45 */	bl __dt__17CMetaTransFactoryFv
+/* 8006F650 0006C5B0  4B FC 4C 45 */	bl "ReleaseData__Q24rstl20rc_ptr<10IMetaTrans>Fv"
 /* 8006F654 0006C5B4  80 1E 00 08 */	lwz r0, 8(r30)
 /* 8006F658 0006C5B8  90 1D 00 08 */	stw r0, 8(r29)
 /* 8006F65C 0006C5BC  80 9D 00 08 */	lwz r4, 8(r29)
@@ -1557,7 +1557,7 @@ lbl_8006F66C:
 /* 8006F684 0006C5E4  7C 03 00 40 */	cmplw r3, r0
 /* 8006F688 0006C5E8  41 82 00 24 */	beq lbl_8006F6AC
 /* 8006F68C 0006C5EC  38 7E 00 08 */	addi r3, r30, 8
-/* 8006F690 0006C5F0  4B FC 4C 05 */	bl __dt__17CMetaTransFactoryFv
+/* 8006F690 0006C5F0  4B FC 4C 05 */	bl "ReleaseData__Q24rstl20rc_ptr<10IMetaTrans>Fv"
 /* 8006F694 0006C5F4  80 01 00 10 */	lwz r0, 0x10(r1)
 /* 8006F698 0006C5F8  90 1E 00 08 */	stw r0, 8(r30)
 /* 8006F69C 0006C5FC  80 9E 00 08 */	lwz r4, 8(r30)
@@ -1568,7 +1568,7 @@ lbl_8006F6AC:
 /* 8006F6AC 0006C60C  28 1F 00 00 */	cmplwi r31, 0
 /* 8006F6B0 0006C610  41 82 00 0C */	beq lbl_8006F6BC
 /* 8006F6B4 0006C614  7F E3 FB 78 */	mr r3, r31
-/* 8006F6B8 0006C618  4B FC 4B DD */	bl __dt__17CMetaTransFactoryFv
+/* 8006F6B8 0006C618  4B FC 4B DD */	bl "ReleaseData__Q24rstl20rc_ptr<10IMetaTrans>Fv"
 lbl_8006F6BC:
 /* 8006F6BC 0006C61C  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8006F6C0 0006C620  83 E1 00 2C */	lwz r31, 0x2c(r1)
@@ -1609,7 +1609,7 @@ lbl_8006F728:
 /* 8006F738 0006C698  7C 03 00 40 */	cmplw r3, r0
 /* 8006F73C 0006C69C  41 82 00 24 */	beq lbl_8006F760
 /* 8006F740 0006C6A0  38 7D 00 04 */	addi r3, r29, 4
-/* 8006F744 0006C6A4  4B FC 4B 51 */	bl __dt__17CMetaTransFactoryFv
+/* 8006F744 0006C6A4  4B FC 4B 51 */	bl "ReleaseData__Q24rstl20rc_ptr<10IMetaTrans>Fv"
 /* 8006F748 0006C6A8  80 1E 00 04 */	lwz r0, 4(r30)
 /* 8006F74C 0006C6AC  90 1D 00 04 */	stw r0, 4(r29)
 /* 8006F750 0006C6B0  80 9D 00 04 */	lwz r4, 4(r29)
@@ -1635,7 +1635,7 @@ lbl_8006F784:
 /* 8006F794 0006C6F4  7C 03 00 40 */	cmplw r3, r0
 /* 8006F798 0006C6F8  41 82 00 24 */	beq lbl_8006F7BC
 /* 8006F79C 0006C6FC  38 7D 00 04 */	addi r3, r29, 4
-/* 8006F7A0 0006C700  4B FC 4A F5 */	bl __dt__17CMetaTransFactoryFv
+/* 8006F7A0 0006C700  4B FC 4A F5 */	bl "ReleaseData__Q24rstl20rc_ptr<10IMetaTrans>Fv"
 /* 8006F7A4 0006C704  80 01 00 0C */	lwz r0, 0xc(r1)
 /* 8006F7A8 0006C708  90 1D 00 04 */	stw r0, 4(r29)
 /* 8006F7AC 0006C70C  80 9D 00 04 */	lwz r4, 4(r29)
@@ -1646,7 +1646,7 @@ lbl_8006F7BC:
 /* 8006F7BC 0006C71C  28 1C 00 00 */	cmplwi r28, 0
 /* 8006F7C0 0006C720  41 82 00 0C */	beq lbl_8006F7CC
 /* 8006F7C4 0006C724  7F 83 E3 78 */	mr r3, r28
-/* 8006F7C8 0006C728  4B FC 4A CD */	bl __dt__17CMetaTransFactoryFv
+/* 8006F7C8 0006C728  4B FC 4A CD */	bl "ReleaseData__Q24rstl20rc_ptr<10IMetaTrans>Fv"
 lbl_8006F7CC:
 /* 8006F7CC 0006C72C  3B FF 00 08 */	addi r31, r31, 8
 lbl_8006F7D0:
@@ -1694,7 +1694,7 @@ lbl_8006F848:
 /* 8006F860 0006C7C0  7C 03 00 40 */	cmplw r3, r0
 /* 8006F864 0006C7C4  41 82 00 24 */	beq lbl_8006F888
 /* 8006F868 0006C7C8  38 7D 00 08 */	addi r3, r29, 8
-/* 8006F86C 0006C7CC  4B FC 4A 29 */	bl __dt__17CMetaTransFactoryFv
+/* 8006F86C 0006C7CC  4B FC 4A 29 */	bl "ReleaseData__Q24rstl20rc_ptr<10IMetaTrans>Fv"
 /* 8006F870 0006C7D0  80 1E 00 08 */	lwz r0, 8(r30)
 /* 8006F874 0006C7D4  90 1D 00 08 */	stw r0, 8(r29)
 /* 8006F878 0006C7D8  80 9D 00 08 */	lwz r4, 8(r29)
@@ -1737,7 +1737,7 @@ lbl_8006F8E0:
 /* 8006F8F8 0006C858  7C 03 00 40 */	cmplw r3, r0
 /* 8006F8FC 0006C85C  41 82 00 24 */	beq lbl_8006F920
 /* 8006F900 0006C860  38 7D 00 08 */	addi r3, r29, 8
-/* 8006F904 0006C864  4B FC 49 91 */	bl __dt__17CMetaTransFactoryFv
+/* 8006F904 0006C864  4B FC 49 91 */	bl "ReleaseData__Q24rstl20rc_ptr<10IMetaTrans>Fv"
 /* 8006F908 0006C868  80 01 00 10 */	lwz r0, 0x10(r1)
 /* 8006F90C 0006C86C  90 1D 00 08 */	stw r0, 8(r29)
 /* 8006F910 0006C870  80 9D 00 08 */	lwz r4, 8(r29)
@@ -1748,7 +1748,7 @@ lbl_8006F920:
 /* 8006F920 0006C880  28 1C 00 00 */	cmplwi r28, 0
 /* 8006F924 0006C884  41 82 00 0C */	beq lbl_8006F930
 /* 8006F928 0006C888  7F 83 E3 78 */	mr r3, r28
-/* 8006F92C 0006C88C  4B FC 49 69 */	bl __dt__17CMetaTransFactoryFv
+/* 8006F92C 0006C88C  4B FC 49 69 */	bl "ReleaseData__Q24rstl20rc_ptr<10IMetaTrans>Fv"
 lbl_8006F930:
 /* 8006F930 0006C890  3B FF 00 0C */	addi r31, r31, 0xc
 lbl_8006F934:
@@ -1768,4 +1768,3 @@ lbl_803CD288:
 	# ROM: 0x3CA288
 	.asciz "??(??)"
 	.balign 4
-

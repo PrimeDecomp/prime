@@ -30,7 +30,7 @@ __ct__11CTransitionFR12CInputStream:
 /* 802E6E80 002E3DE0  80 85 00 04 */	lwz r4, 4(r5)
 /* 802E6E84 002E3DE4  38 04 00 01 */	addi r0, r4, 1
 /* 802E6E88 002E3DE8  90 05 00 04 */	stw r0, 4(r5)
-/* 802E6E8C 002E3DEC  4B D4 D4 09 */	bl __dt__17CMetaTransFactoryFv
+/* 802E6E8C 002E3DEC  4B D4 D4 09 */	bl "ReleaseData__Q24rstl20rc_ptr<10IMetaTrans>Fv"
 /* 802E6E90 002E3DF0  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802E6E94 002E3DF4  7F C3 F3 78 */	mr r3, r30
 /* 802E6E98 002E3DF8  83 E1 00 1C */	lwz r31, 0x1c(r1)
