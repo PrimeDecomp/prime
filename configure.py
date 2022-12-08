@@ -266,7 +266,7 @@ LIBS = [
             ["MetroidPrime/ScriptObjects/CScriptWorldTeleporter", False],
             ["MetroidPrime/ScriptObjects/CScriptVisorGoo", False],
             "MetroidPrime/Enemies/CJellyZap",
-            ["MetroidPrime/ScriptObjects/CScriptControllerAction", False],
+            ["MetroidPrime/ScriptObjects/CScriptControllerAction", True],
             ["MetroidPrime/Weapons/GunController/CGunMotion", False],
             ["MetroidPrime/ScriptObjects/CScriptSwitch", True],
             ["MetroidPrime/BodyState/CABSIdle", True],
