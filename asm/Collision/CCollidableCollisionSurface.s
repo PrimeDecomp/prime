@@ -3,8 +3,8 @@
 .section .sdata
 .balign 8
 
-.global lbl_805A86F0
-lbl_805A86F0:
+.global sTableIndex__27CCollidableCollisionSurface
+sTableIndex__27CCollidableCollisionSurface:
 	# ROM: 0x3F6090
 	.4byte 0xFFFFFFFF
 	.4byte 0
@@ -23,7 +23,7 @@ GetType__27CCollidableCollisionSurfaceFv:
 
 .global SetStaticTableIndex__27CCollidableCollisionSurfaceFUi
 SetStaticTableIndex__27CCollidableCollisionSurfaceFUi:
-/* 802CE0B0 002CB010  90 6D 9B 30 */	stw r3, lbl_805A86F0@sda21(r13)
+/* 802CE0B0 002CB010  90 6D 9B 30 */	stw r3, sTableIndex__27CCollidableCollisionSurface@sda21(r13)
 /* 802CE0B4 002CB014  4E 80 00 20 */	blr
 
 .section .rodata
@@ -33,4 +33,3 @@ lbl_803D6A00:
 	# ROM: 0x3D3A00
 	.asciz "CCollidableCollisionSurface"
 	.4byte 0
-

@@ -12,8 +12,21 @@
 class CRayCastResult;
 class CInternalRayCastStructure;
 
+typedef void(*PrimitiveSetter)(uint);
+
 class CCollisionPrimitive {
 public:
+  class Type {
+  public:
+    Type(PrimitiveSetter setter, const char* info) : mSetter(setter), mInfo(info) {}
+
+    PrimitiveSetter GetSetter() const { return mSetter; }
+    const char* GetInfo() const { return mInfo; }
+  private:
+    PrimitiveSetter mSetter;
+    const char* mInfo;
+  };
+
   CCollisionPrimitive(const CMaterialList& list);
 
   virtual uint GetTableIndex() const = 0;
