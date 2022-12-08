@@ -2,11 +2,9 @@
 
 #include "MetroidPrime/CStateManager.hpp"
 
-extern "C" ControlMapper::ECommands nullsub_51(float, ControlMapper::ECommands);
-
 CScriptControllerAction::CScriptControllerAction(TUniqueId uid, const rstl::string& name,
                                                  const CEntityInfo& info, bool active,
-                                                 ControlMapper::ECommands command,
+                                                 ECommands command,
                                                  bool mapScreenResponse, uint w1,
                                                  bool deactivateOnClose)
 : CEntity(uid, info, active, name)
@@ -33,7 +31,7 @@ void CScriptControllerAction::Think(float dt, CStateManager& stateMgr) {
       break;
     }
   } else {
-    if (ControlMapper::GetDigitalInput(nullsub_51(dt, x34_command), stateMgr.GetFinalInput())) {
+    if (ControlMapper::GetDigitalInput(GetCommand(x34_command), stateMgr.GetFinalInput())) {
       x3c_26_pressed = true;
     } else {
       x3c_26_pressed = false;
@@ -53,6 +51,7 @@ void CScriptControllerAction::Think(float dt, CStateManager& stateMgr) {
   }
 }
 
-extern "C" ControlMapper::ECommands nullsub_51(float, ControlMapper::ECommands c) { return c; }
-
-CScriptControllerAction::~CScriptControllerAction() {}
+ControlMapper::ECommands
+CScriptControllerAction::GetCommand(CScriptControllerAction::ECommands c) {
+  return (ControlMapper::ECommands)(c);
+}
