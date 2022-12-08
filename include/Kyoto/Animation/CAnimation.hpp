@@ -5,9 +5,11 @@
 #include "rstl/string.hpp"
 
 class IMetaAnim;
+class CInputStream;
 
 class CAnimation {
 public:
+  CAnimation(CInputStream& in);
   const rstl::rc_ptr< IMetaAnim >& GetMetaAnim() const { return x10_anim; }
 
 private:

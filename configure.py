@@ -473,7 +473,7 @@ LIBS = [
             ["Kyoto/Basics/COsContextDolphin", True],
             ["Kyoto/Basics/CSWDataDolphin", True],
             ["Kyoto/Basics/RAssertDolphin", False],
-            "Kyoto/Animation/CAnimation",
+            ["Kyoto/Animation/CAnimation", True],
             "Kyoto/Animation/CAnimationManager",
             "Kyoto/Animation/CAnimationSet",
             "Kyoto/Animation/CAnimCharacterSet",
