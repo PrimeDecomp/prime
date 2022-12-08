@@ -345,7 +345,7 @@ lbl_802D8520:
 /* 802D8520 002D5480  34 1E 00 24 */	addic. r0, r30, 0x24
 /* 802D8524 002D5484  41 82 00 0C */	beq lbl_802D8530
 /* 802D8528 002D5488  38 7E 00 24 */	addi r3, r30, 0x24
-/* 802D852C 002D548C  4B D5 BD 69 */	bl __dt__17CMetaTransFactoryFv
+/* 802D852C 002D548C  4B D5 BD 69 */	bl "ReleaseData__Q24rstl20rc_ptr<10IMetaTrans>Fv"
 lbl_802D8530:
 /* 802D8530 002D5490  38 7E 00 14 */	addi r3, r30, 0x14
 /* 802D8534 002D5494  38 80 FF FF */	li r4, -1
@@ -486,4 +486,3 @@ lbl_803D6D30:
 	# ROM: 0x3D3D30
 	.asciz "??(??)"
 	.balign 4
-

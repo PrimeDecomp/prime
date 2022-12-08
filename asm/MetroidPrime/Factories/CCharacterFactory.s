@@ -1363,7 +1363,7 @@ lbl_80032B4C:
 /* 80032B4C 0002FAAC  7F 00 07 75 */	extsb. r0, r24
 /* 80032B50 0002FAB0  41 82 00 0C */	beq lbl_80032B5C
 /* 80032B54 0002FAB4  38 61 00 24 */	addi r3, r1, 0x24
-/* 80032B58 0002FAB8  48 00 17 3D */	bl __dt__17CMetaTransFactoryFv
+/* 80032B58 0002FAB8  48 00 17 3D */	bl "ReleaseData__Q24rstl20rc_ptr<10IMetaTrans>Fv"
 lbl_80032B5C:
 /* 80032B5C 0002FABC  3C 80 80 3D */	lis r4, lbl_803CCD78@ha
 /* 80032B60 0002FAC0  38 60 00 04 */	li r3, 4
@@ -1646,7 +1646,7 @@ lbl_80032F40:
 /* 80032F6C 0002FECC  38 80 00 00 */	li r4, 0
 /* 80032F70 0002FED0  48 30 DE D1 */	bl __dt__6CTokenFv
 /* 80032F74 0002FED4  38 61 00 2C */	addi r3, r1, 0x2c
-/* 80032F78 0002FED8  48 00 13 1D */	bl __dt__17CMetaTransFactoryFv
+/* 80032F78 0002FED8  48 00 13 1D */	bl "ReleaseData__Q24rstl20rc_ptr<10IMetaTrans>Fv"
 /* 80032F7C 0002FEDC  7F E3 FB 78 */	mr r3, r31
 /* 80032F80 0002FEE0  BB 01 00 C0 */	lmw r24, 0xc0(r1)
 /* 80032F84 0002FEE4  80 01 00 E4 */	lwz r0, 0xe4(r1)
@@ -1782,7 +1782,7 @@ sub_800330f8:
 /* 8003313C 0003009C  34 1E 00 10 */	addic. r0, r30, 0x10
 /* 80033140 000300A0  41 82 00 0C */	beq lbl_8003314C
 /* 80033144 000300A4  38 7E 00 10 */	addi r3, r30, 0x10
-/* 80033148 000300A8  48 00 11 4D */	bl __dt__17CMetaTransFactoryFv
+/* 80033148 000300A8  48 00 11 4D */	bl "ReleaseData__Q24rstl20rc_ptr<10IMetaTrans>Fv"
 lbl_8003314C:
 /* 8003314C 000300AC  28 1E 00 00 */	cmplwi r30, 0
 /* 80033150 000300B0  41 82 00 3C */	beq lbl_8003318C
@@ -1842,7 +1842,7 @@ lbl_80033204:
 /* 8003320C 0003016C  34 1E 00 08 */	addic. r0, r30, 8
 /* 80033210 00030170  41 82 00 0C */	beq lbl_8003321C
 /* 80033214 00030174  38 7E 00 08 */	addi r3, r30, 8
-/* 80033218 00030178  48 00 10 7D */	bl __dt__17CMetaTransFactoryFv
+/* 80033218 00030178  48 00 10 7D */	bl "ReleaseData__Q24rstl20rc_ptr<10IMetaTrans>Fv"
 lbl_8003321C:
 /* 8003321C 0003017C  3B DE 00 0C */	addi r30, r30, 0xc
 lbl_80033220:
@@ -1895,7 +1895,7 @@ lbl_800332B8:
 /* 800332C0 00030220  34 1E 00 04 */	addic. r0, r30, 4
 /* 800332C4 00030224  41 82 00 0C */	beq lbl_800332D0
 /* 800332C8 00030228  38 7E 00 04 */	addi r3, r30, 4
-/* 800332CC 0003022C  48 00 0F C9 */	bl __dt__17CMetaTransFactoryFv
+/* 800332CC 0003022C  48 00 0F C9 */	bl "ReleaseData__Q24rstl20rc_ptr<10IMetaTrans>Fv"
 lbl_800332D0:
 /* 800332D0 00030230  3B DE 00 08 */	addi r30, r30, 8
 lbl_800332D4:
@@ -3031,8 +3031,8 @@ lbl_8003427C:
 /* 8003428C 000311EC  38 21 00 10 */	addi r1, r1, 0x10
 /* 80034290 000311F0  4E 80 00 20 */	blr
 
-.global __dt__17CMetaTransFactoryFv
-__dt__17CMetaTransFactoryFv:
+.global "ReleaseData__Q24rstl20rc_ptr<10IMetaTrans>Fv"
+"ReleaseData__Q24rstl20rc_ptr<10IMetaTrans>Fv":
 /* 80034294 000311F4  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80034298 000311F8  7C 08 02 A6 */	mflr r0
 /* 8003429C 000311FC  90 01 00 14 */	stw r0, 0x14(r1)
