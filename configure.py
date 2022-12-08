@@ -448,7 +448,7 @@ LIBS = [
         "host": True,
         "objects": [
             "Collision/CCollidableAABox",
-            "Collision/CCollidableCollisionSurface",
+            ["Collision/CCollidableCollisionSurface", True],
             ["Collision/CCollisionInfo", True],
             "Collision/InternalColliders",
             "Collision/CCollisionPrimitive",
