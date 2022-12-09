@@ -121,11 +121,7 @@ inline It binary_find(It start, It end, const T& value, Cmp cmp) {
   if (lower != end && !cmp(value, *lower)) {
     found = true;
   }
-  if (found) {
-    return lower;
-  } else {
-    return end;
-  }
+  return found ? lower : end;
 }
 
 template < typename T, typename Cmp >
