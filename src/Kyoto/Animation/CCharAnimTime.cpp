@@ -9,22 +9,29 @@ CCharAnimTime::CCharAnimTime(CInputStream& in)
 CCharAnimTime::CCharAnimTime(float time) : x0_time(time) {
   if (time == 0.f) {
     x4_type = kT_ZeroSteady;
-    return;
+  } else {
+    x4_type = kT_NonZero;
   }
-  x4_type = kT_NonZero;
 }
 
 bool CCharAnimTime::operator<(const CCharAnimTime& other) const {}
 
 bool CCharAnimTime::operator==(const CCharAnimTime& other) const {}
 
-bool CCharAnimTime::operator!=(const CCharAnimTime& other) const {}
+bool CCharAnimTime::operator!=(const CCharAnimTime& other) const { return !(*this == other); }
 
-bool CCharAnimTime::operator>(const CCharAnimTime& other) const {}
+bool CCharAnimTime::operator>(const CCharAnimTime& other) const {
+  return !(*this == other) && !(*this < other);
+}
 
-CCharAnimTime CCharAnimTime::operator/(const CCharAnimTime& other) const {}
+float CCharAnimTime::operator/(const CCharAnimTime& other) const {
+  if (EqualsZero())
+    return 0.f;
 
-CCharAnimTime CCharAnimTime::operator*(const float& other) const {}
+  return x0_time / other.x0_time;
+}
+
+float CCharAnimTime::operator*(const float& other) const {}
 
 CCharAnimTime CCharAnimTime::operator-(const CCharAnimTime& other) const {}
 
