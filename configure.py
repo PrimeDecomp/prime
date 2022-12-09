@@ -528,7 +528,7 @@ LIBS = [
             "Kyoto/Animation/CHierarchyPoseBuilder",
             "Kyoto/Animation/CInt32POINode",
             "Kyoto/Animation/CParticlePOINode",
-            ["Kyoto/Animation/CPOINode", False],
+            ["Kyoto/Animation/CPOINode", True],
             "Kyoto/Animation/CSegStatementSet",
             "Kyoto/Animation/CTimeScaleFunctions",
             "Kyoto/Animation/IAnimReader",

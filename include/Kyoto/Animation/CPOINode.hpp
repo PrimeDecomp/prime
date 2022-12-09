@@ -21,7 +21,10 @@ enum EPOIType {
 
 class CPOINode {
 public:
-  virtual ~CPOINode();
+  CPOINode(const rstl::string& name, ushort type, const CCharAnimTime& time, int index, bool unique,
+           float weight, int charIdx, int flags);
+  CPOINode(CInputStream& in);
+  virtual ~CPOINode() {}
 
   const rstl::string& GetString() const { return x8_name; }
   EPOIType GetPoiType() const { return static_cast< EPOIType >(x18_type); }
@@ -29,6 +32,10 @@ public:
   float GetWeight() const { return x2c_weight; }
   int GetCharacterIndex() const { return x30_charIdx; }
   int GetFlags() const { return x34_flags; }
+
+  bool operator>(const CPOINode& other) const;
+  bool operator<(const CPOINode& other) const;
+  static int compare(const void* a, const void* b);
 
 protected:
   ushort x4_;
