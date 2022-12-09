@@ -3656,7 +3656,7 @@ lbl_8003A660:
 /* 8003A69C 000375FC  38 6F 01 70 */	addi r3, r15, 0x170
 /* 8003A6A0 00037600  38 A1 00 38 */	addi r5, r1, 0x38
 /* 8003A6A4 00037604  38 C1 00 60 */	addi r6, r1, 0x60
-/* 8003A6A8 00037608  48 27 63 45 */	bl "__ct__17CProjectileWeaponFRC28TToken<18CWeaponDescription>RC9CVector3fRC12CTransform4fRC9CVector3fi"
+/* 8003A6A8 00037608  48 27 63 45 */	bl "__ct__17CProjectileWeaponFRC28TToken<18CWeaponDescription>RC9CVector3fRC12CTransform4fRC9CVector3f"
 /* 8003A6AC 0003760C  C0 54 00 2C */	lfs f2, 0x2c(r20)
 /* 8003A6B0 00037610  C0 34 00 1C */	lfs f1, 0x1c(r20)
 /* 8003A6B4 00037614  C0 14 00 0C */	lfs f0, 0xc(r20)
