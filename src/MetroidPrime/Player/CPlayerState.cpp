@@ -372,18 +372,12 @@ void CPlayerState::InitializeScanTimes() {
 
 float CPlayerState::GetScanTime(CAssetId res) const {
   rstl::vector< rstl::pair< CAssetId, float > >::const_iterator it = rstl::find_by_key(x170_scanTimes, res);
-
-  if (it != x170_scanTimes.end())
-    return 0.f;
-
   return it->second;
 }
 
 void CPlayerState::SetScanTime(CAssetId res, float time) {
   rstl::vector< rstl::pair< CAssetId, float > >::iterator it = rstl::find_by_key_nc(x170_scanTimes, res);
-
-  if (it != x170_scanTimes.end())
-    it->second = time;
+  it->second = time;
 }
 
 void CPlayerState::UpdateStaticInterference(CStateManager& stateMgr, const float& dt) {
