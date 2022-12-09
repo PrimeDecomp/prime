@@ -3,6 +3,8 @@
 
 #include "types.h"
 
+#include "Weapons/IWeaponProjectile.hpp"
+
 #include "Kyoto/CRandom16.hpp"
 #include "Kyoto/Graphics/CColor.hpp"
 #include "Kyoto/Math/CTransform4f.hpp"
@@ -17,20 +19,24 @@ class CElementGen;
 class CModel;
 class CParticleSwoosh;
 
-class CProjectileWeapon {
+class CProjectileWeapon : public IWeaponProjectile {
 public:
-  // TODO ctor
+  CProjectileWeapon(const TToken< CWeaponDescription >&, const CVector3f&, const CTransform4f&,
+                    const CVector3f&, int flags);
 
-  virtual ~CProjectileWeapon();
+  ~CProjectileWeapon();
   virtual void Update(float dt);
   virtual void AddToRenderer();
   virtual void Render();
   virtual CVector3f GetTranslation() const;
   virtual CTransform4f GetTransform() const;
-  
+  void SetRelativeOrientation(const CTransform4f& xf);
+
   const CVector3f& GetVelocity() const; // { return xb0_velocity; }
-  CVector3f GetGravity() const; // { return xbc_gravity; }
-  static float GetTickPeriod(); // { return 0.0166667f; }
+  CVector3f GetGravity() const;         // { return xbc_gravity; }
+  static float GetTickPeriod() { return 1.f / 60.f; }
+
+  void UpdateChildParticleSystems(float dt);
 
 private:
   TLockedToken< CWeaponDescription > x4_weaponDesc;
@@ -54,13 +60,13 @@ private:
   int xf0_;
   int xf4_curFrame;
   int xf8_lastParticleFrame;
-  rstl::single_ptr< CElementGen > xfc_APSMGen;
-  rstl::single_ptr< CElementGen > x100_APS2Gen;
-  rstl::single_ptr< CElementGen > x104_;
-  rstl::optional_object< TLockedToken< CModel > > x108_model;
-  rstl::single_ptr< CParticleSwoosh > x118_swoosh1;
-  rstl::single_ptr< CParticleSwoosh > x11c_swoosh2;
-  rstl::single_ptr< CParticleSwoosh > x120_swoosh3;
+  CElementGen* xfc_APSMGen;
+  CElementGen* x100_APS2Gen;
+  CElementGen* x104_;
+  rstl::optional_object< TCachedToken< CModel > > x108_model;
+  CParticleSwoosh* x118_swoosh1;
+  CParticleSwoosh* x11c_swoosh2;
+  CParticleSwoosh* x120_swoosh3;
   bool x124_24_active : 1;
   bool x124_25_APSO : 1;
   bool x124_26_AP11 : 1;

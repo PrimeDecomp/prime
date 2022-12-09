@@ -397,7 +397,7 @@ LIBS = [
         "cflags": "$cflags_retro",
         "host": True,
         "objects": [
-            "Weapons/CProjectileWeapon",
+            ["Weapons/CProjectileWeapon", False],
             "Weapons/CProjectileWeaponDataFactory",
             "Weapons/CCollisionResponseData",
             ["Weapons/IWeaponRenderer", True],
