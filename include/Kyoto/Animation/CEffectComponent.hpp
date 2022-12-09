@@ -3,7 +3,7 @@
 
 #include "types.h"
 
-#include "MetroidPrime/CParticleData.hpp"
+#include "Kyoto/Animation/CParticleData.hpp"
 
 class CEffectComponent {
 private:

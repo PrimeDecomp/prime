@@ -4,8 +4,7 @@
 #include "Kyoto/Math/CVector3f.hpp"
 #include "Kyoto/Math/CQuaternion.hpp"
 
-// TODO: wrong module?
-#include "MetroidPrime/CCharAnimTime.hpp"
+#include "Kyoto/Animation/CCharAnimTime.hpp"
 
 #include "rstl/string.hpp"
 

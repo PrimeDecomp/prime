@@ -4,10 +4,10 @@
 #include "MetroidPrime/CActor.hpp"
 #include "MetroidPrime/CAnimData.hpp"
 #include "MetroidPrime/CAnimPlaybackParms.hpp"
-#include "MetroidPrime/CCharAnimTime.hpp"
 #include "MetroidPrime/CPhysicsActor.hpp"
 #include "MetroidPrime/CStateManager.hpp"
 
+#include "Kyoto/Animation/CCharAnimTime.hpp"
 #include "Kyoto/Animation/CPASAnimParmData.hpp"
 #include "Kyoto/Animation/CPASDatabase.hpp"
 
@@ -122,8 +122,9 @@ void CBSAttack::UpdatePhysicsActor(CBodyController& bc, float dt) {
       CVector3f delta = x20_targetPos - act->GetTranslation();
       const float dur = x30_alignTargetPosTime - x2c_alignTargetPosStartTime;
       CVector3f deltaMod = (dur > 0.f) ? (delta * (dt / dur)) : delta;
-      
-      CVector3f impulse = act->GetMoveToORImpulseWR(act->GetTransform().TransposeRotate(deltaMod), dt);
+
+      CVector3f impulse =
+          act->GetMoveToORImpulseWR(act->GetTransform().TransposeRotate(deltaMod), dt);
       act->ApplyImpulseWR(impulse, CAxisAngle::Identity());
     }
   }

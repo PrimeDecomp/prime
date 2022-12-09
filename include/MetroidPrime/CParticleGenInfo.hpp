@@ -1,7 +1,7 @@
 #ifndef _CPARTICLEGENINFO
 #define _CPARTICLEGENINFO
 
-#include "MetroidPrime/CParticleData.hpp"
+#include "Kyoto/Animation/CParticleData.hpp"
 
 #include "MetroidPrime/TGameTypes.hpp"
 
