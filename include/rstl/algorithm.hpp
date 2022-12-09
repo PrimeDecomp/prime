@@ -135,9 +135,7 @@ template < typename K, typename V, typename Cmp >
 class pair_sorter_finder< pair< K, V >, Cmp > {
 public:
   typedef K key_type;
-
   Cmp cmp;
-
   pair_sorter_finder(const Cmp& cmp) : cmp(cmp) {}
 
   bool operator()(const K& a, const pair< K, V >& b) const;
@@ -150,6 +148,14 @@ public:
     return cmp(a.first, b);
   }*/
 };
+
+template <typename T>
+inline pair_sorter_finder< T::value_type, less< select1st< typename T::value_type >::value_type > > default_pair_sorter_finder()
+{
+    less< select1st< typename T::value_type >::value_type > l;
+    pair_sorter_finder< T::value_type, less< select1st< typename T::value_type >::value_type > > a(l);
+    return a;
+}
 
 template < typename K, typename V, typename Cmp >
 inline bool pair_sorter_finder< pair< K, V >, Cmp >::operator()(const K& a,
@@ -171,10 +177,8 @@ find_by_key(const T& container,
 template < typename T >
 typename T::const_iterator inline find_by_key(
     const T& container, const typename select1st< typename T::value_type >::value_type& key) {
-  typedef typename select1st< typename T::value_type >::value_type K;
-
   return binary_find(container.begin(), container.end(), key,
-                     pair_sorter_finder< typename T::value_type, less< K > >(rstl::less< K >()));
+                     default_pair_sorter_finder<T>());
 }
 
 template < typename T >
@@ -184,10 +188,8 @@ find_by_key_nc(T& container, const typename select1st< typename T::value_type >:
 template < typename T >
 typename T::iterator inline find_by_key_nc(
     T& container, const typename select1st< typename T::value_type >::value_type& key) {
-  typedef typename select1st< typename T::value_type >::value_type K;
-
   return binary_find(container.begin(), container.end(), key,
-                     pair_sorter_finder< typename T::value_type, less< K > >(rstl::less< K >()));
+                     default_pair_sorter_finder<T>());
 }
 
 } // namespace rstl
