@@ -1,7 +1,5 @@
-#ifndef _CMETAANIMFACTORY_20COPY
-#define _CMETAANIMFACTORY_20COPY
-#ifndef _CMETAANIMFACTORY
-#define _CMETAANIMFACTORY
+#ifndef _CMETATRANSFACTORY
+#define _CMETATRANSFACTORY
 
 #include "rstl/rc_ptr.hpp"
 
@@ -12,7 +10,4 @@ public:
   static rstl::rc_ptr< IMetaTrans > CreateMetaTrans(CInputStream& in);
 };
 
-#endif // _CMETAANIMFACTORY
-
-
-#endif // _CMETAANIMFACTORY_20COPY
+#endif // _CMETATRANSFACTORY
