@@ -3,7 +3,7 @@
 
 #include "types.h"
 
-#include "MetroidPrime/CEffectComponent.hpp"
+#include "Kyoto/Animation/CEffectComponent.hpp"
 
 #include "Kyoto/Animation/CPASDatabase.hpp"
 #include "Kyoto/IObjectStore.hpp"

@@ -5,8 +5,10 @@
 
 #include "rstl/string.hpp"
 
+class CInputStream;
 class CPrimitive {
 public:
+  CPrimitive(CInputStream& in);
   CAssetId GetAnimResId() const { return x0_animId; }
 
 private:

@@ -3,8 +3,8 @@
 
 #include "types.h"
 
-#include "MetroidPrime/CCharAnimTime.hpp"
-#include "MetroidPrime/CParticleData.hpp"
+#include "Kyoto/Animation/CCharAnimTime.hpp"
+#include "Kyoto/Animation/CParticleData.hpp"
 
 #include "rstl/string.hpp"
 

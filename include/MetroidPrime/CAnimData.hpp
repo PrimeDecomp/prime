@@ -6,13 +6,13 @@
 #include "MetroidPrime/ActorCommon.hpp"
 #include "MetroidPrime/CAdditiveAnimPlayback.hpp"
 #include "MetroidPrime/CAnimPlaybackParms.hpp"
-#include "MetroidPrime/CCharAnimTime.hpp"
-#include "MetroidPrime/CCharacterInfo.hpp"
+#include "Kyoto/Animation/CCharacterInfo.hpp"
 #include "MetroidPrime/CHierarchyPoseBuilder.hpp"
-#include "MetroidPrime/CPOINode.hpp"
+#include "Kyoto/Animation/CPOINode.hpp"
 #include "MetroidPrime/CParticleDatabase.hpp"
 #include "MetroidPrime/CPoseAsTransforms.hpp"
 
+#include "Kyoto/Animation/CCharAnimTime.hpp"
 #include "Kyoto/Animation/CSkinnedModel.hpp"
 #include "Kyoto/TToken.hpp"
 

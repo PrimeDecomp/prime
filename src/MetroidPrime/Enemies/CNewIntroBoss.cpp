@@ -3,7 +3,7 @@
 #include "MetroidPrime/CCollisionActorManager.hpp"
 #include "MetroidPrime/CGameCollision.hpp"
 #include "MetroidPrime/CHealthInfo.hpp"
-#include "MetroidPrime/CPOINode.hpp"
+#include "Kyoto/Animation/CPOINode.hpp"
 #include "MetroidPrime/CRumbleManager.hpp"
 #include "MetroidPrime/Player/CPlayer.hpp"
 #include "MetroidPrime/Weapons/CBeamProjectile.hpp"
