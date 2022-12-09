@@ -420,7 +420,7 @@ LIBS = [
         "cflags": "$cflags_retro",
         "host": True,
         "objects": [
-            "GuiSys/CAuiMain",
+            ["GuiSys/CAuiMain", True],
             "GuiSys/CAuiMeter",
             "GuiSys/CGuiGroup",
             "GuiSys/CGuiHeadWidget",
