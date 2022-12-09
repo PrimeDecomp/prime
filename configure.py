@@ -645,7 +645,7 @@ LIBS = [
             "Kyoto/Math/CFrustumPlanes",
             ["Kyoto/Graphics/CCubeMaterial", False],
             ["Kyoto/Graphics/CCubeSurface", False],
-            "Kyoto/Animation/CCharAnimTime",
+            ["Kyoto/Animation/CCharAnimTime", False],
             ["Kyoto/Animation/CSegIdList", False],
             ["Kyoto/Input/CFinalInput", True],
             ["Kyoto/Graphics/CColor", True],
