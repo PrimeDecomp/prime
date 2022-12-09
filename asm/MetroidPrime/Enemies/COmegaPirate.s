@@ -6007,9 +6007,9 @@ lbl_802902C0:
 /* 8029036C 0028D2CC  41 82 00 08 */	beq lbl_80290374
 /* 80290370 0028D2D0  48 0A D7 71 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 lbl_80290374:
-/* 80290374 0028D2D4  3C 80 80 3E */	lis r4, lbl_803D9B8C@ha
+/* 80290374 0028D2D4  3C 80 80 3E */	lis r4, __vt__8CPOINode@ha
 /* 80290378 0028D2D8  34 61 00 DC */	addic. r3, r1, 0xdc
-/* 8029037C 0028D2DC  38 04 9B 8C */	addi r0, r4, lbl_803D9B8C@l
+/* 8029037C 0028D2DC  38 04 9B 8C */	addi r0, r4, __vt__8CPOINode@l
 /* 80290380 0028D2E0  90 01 00 D4 */	stw r0, 0xd4(r1)
 /* 80290384 0028D2E4  41 82 00 08 */	beq lbl_8029038C
 /* 80290388 0028D2E8  48 0A D7 59 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
