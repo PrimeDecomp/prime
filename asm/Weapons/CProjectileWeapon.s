@@ -2084,8 +2084,8 @@ lbl_802B09D0:
 /* 802B09E4 002AD944  38 21 00 10 */	addi r1, r1, 0x10
 /* 802B09E8 002AD948  4E 80 00 20 */	blr
 
-.global "__ct__17CProjectileWeaponFRC28TToken<18CWeaponDescription>RC9CVector3fRC12CTransform4fRC9CVector3fi"
-"__ct__17CProjectileWeaponFRC28TToken<18CWeaponDescription>RC9CVector3fRC12CTransform4fRC9CVector3fi":
+.global "__ct__17CProjectileWeaponFRC28TToken<18CWeaponDescription>RC9CVector3fRC12CTransform4fRC9CVector3f"
+"__ct__17CProjectileWeaponFRC28TToken<18CWeaponDescription>RC9CVector3fRC12CTransform4fRC9CVector3f":
 /* 802B09EC 002AD94C  94 21 FF 60 */	stwu r1, -0xa0(r1)
 /* 802B09F0 002AD950  7C 08 02 A6 */	mflr r0
 /* 802B09F4 002AD954  3D 20 80 3F */	lis r9, lbl_803EC4E8@ha
