@@ -3,6 +3,6 @@
 
 class CGuiSys;
 
-bool InitializeApplicationUI(CGuiSys&);
+void InitializeApplicationUI(CGuiSys&);
 
 #endif // _CAUIMAIN
