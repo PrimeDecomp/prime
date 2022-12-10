@@ -699,11 +699,11 @@ LIBS = [
     },
     {
         "lib": "ai",
-        "mwcc_version": "1.2.5",
+        "mwcc_version": "1.2.5e",
         "cflags": "$cflags_base",
         "host": False,
         "objects": [
-            ["Dolphin/ai", False],
+            ["Dolphin/ai", True],
         ],
     },
     {
