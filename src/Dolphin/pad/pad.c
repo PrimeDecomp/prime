@@ -833,5 +833,6 @@ lbl_80387664:
   mtlr r0
   blr
 }
+/* clang-format on */
 #pragma pop
 #endif
