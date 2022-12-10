@@ -820,7 +820,7 @@ LIBS = [
             "Dolphin/os/OSReboot",
             ["Dolphin/os/OSReset", True],
             "Dolphin/os/OSResetSW",
-            ["Dolphin/os/OSRtc", False],
+            ["Dolphin/os/OSRtc", True],
             ["Dolphin/os/OSSync", True],
             ["Dolphin/os/OSThread", True],
             ["Dolphin/os/OSTime", True],
