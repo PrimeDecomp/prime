@@ -42,8 +42,8 @@ static void (*MakeStatus)(s32, PADStatus*, u32[2]) = SPEC2_MakeStatus;
 static u32 Type[SI_MAX_CHAN];
 static PADStatus Origin[SI_MAX_CHAN];
 
-static u32 CmdReadOrigin = 41 << 24;
-static u32 CmdCalibrate = 42 << 24;
+static u32 CmdReadOrigin = 0x41 << 24;
+static u32 CmdCalibrate = 0x42 << 24;
 static u32 CmdProbeDevice[SI_MAX_CHAN];
 
 static BOOL OnReset(BOOL final);
@@ -730,6 +730,7 @@ static void SamplingHandler(__OSInterrupt interrupt, OSContext* context) {
   }
 }
 
+#if NONMATCHING
 PADSamplingCallback PADSetSamplingCallback(PADSamplingCallback callback) {
   PADSamplingCallback prev;
 
@@ -742,7 +743,41 @@ PADSamplingCallback PADSetSamplingCallback(PADSamplingCallback callback) {
   }
   return prev;
 }
+#else
+/* clang-format off */
+#pragma push
+#pragma optimization_level 0
+#pragma optimizewithasm off
+asm PADSamplingCallback PADSetSamplingCallback(PADSamplingCallback callback) {
+  nofralloc
+  mflr r0
+  cmplwi r3, 0
+  stw r0, 4(r1)
+  stwu r1, -0x18(r1)
+  stw r31, 0x14(r1)
+  lwz r31, SamplingCallback
+  stw r3, SamplingCallback
+  beq lbl_803875E4
+  lis r3, SamplingHandler@ha
+  addi r3, r3, SamplingHandler@l
+  bl SIRegisterPollingHandler
+  b lbl_803875F0
+lbl_803875E4:
+  lis r3, SamplingHandler@ha
+  addi r3, r3, SamplingHandler@l
+  bl SIUnregisterPollingHandler
+lbl_803875F0:
+  mr r3, r31
+  lwz r0, 0x1c(r1)
+  lwz r31, 0x14(r1)
+  addi r1, r1, 0x18
+  mtlr r0
+  blr
+}
+#pragma pop
+#endif
 
+#if NONMATCHING
 BOOL __PADDisableRecalibration(BOOL disable) {
   BOOL enabled;
   BOOL prev;
@@ -756,3 +791,47 @@ BOOL __PADDisableRecalibration(BOOL disable) {
   OSRestoreInterrupts(enabled);
   return prev;
 }
+#else
+/* clang-format off */
+#pragma push
+#pragma optimization_level 0
+#pragma optimizewithasm off
+asm BOOL __PADDisableRecalibration(BOOL disable) {
+  nofralloc
+  mflr r0
+  stw r0, 4(r1)
+  stwu r1, -0x18(r1)
+  stw r31, 0x14(r1)
+  stw r30, 0x10(r1)
+  mr r30, r3
+  bl OSDisableInterrupts
+  lis r4, UnkVal@ha
+  lbz r0, UnkVal@l(r4)
+  rlwinm. r0, r0, 0, 0x19, 0x19
+  beq lbl_8038763C
+  li r31, 1
+  b lbl_80387640
+lbl_8038763C:
+  li r31, 0
+lbl_80387640:
+  lis r4, UnkVal@ha
+  lbz r0, UnkVal@l(r4)
+  andi. r0, r0, 0xbf
+  cmpwi r30, 0
+  stb r0, UnkVal@l(r4)
+  beq lbl_80387664
+  lbz r0, UnkVal@l(r4)
+  ori r0, r0, 0x40
+  stb r0, UnkVal@l(r4)
+lbl_80387664:
+  bl OSRestoreInterrupts
+  mr r3, r31
+  lwz r0, 0x1c(r1)
+  lwz r31, 0x14(r1)
+  lwz r30, 0x10(r1)
+  addi r1, r1, 0x18
+  mtlr r0
+  blr
+}
+#pragma pop
+#endif
