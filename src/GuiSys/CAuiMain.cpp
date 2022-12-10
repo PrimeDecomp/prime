@@ -1,5 +1,5 @@
 #include "GuiSys/CAuiMain.hpp"
 
-bool InitializeApplicationUI(CGuiSys&) {
+void InitializeApplicationUI(CGuiSys&) {
   
 }
