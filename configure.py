@@ -362,7 +362,7 @@ LIBS = [
             "MetroidPrime/CSlideShow",
             ["MetroidPrime/Tweaks/CTweakSlideShow", True],
             "MetroidPrime/CArtifactDoll",
-            "MetroidPrime/CProjectedShadow",
+            ["MetroidPrime/CProjectedShadow", False],
             ["MetroidPrime/CPreFrontEnd", True],
             ["MetroidPrime/CGameCubeDoll", False],
             ["MetroidPrime/ScriptObjects/CScriptProjectedShadow", False],
