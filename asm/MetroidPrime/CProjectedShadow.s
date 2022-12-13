@@ -18,8 +18,8 @@ lbl_805AF480:
 
 .section .text, "ax"
 
-.global sub_8029d6c8
-sub_8029d6c8:
+.global sub_8029d6c8__16CProjectedShadowFv
+sub_8029d6c8__16CProjectedShadowFv:
 /* 8029D6C8 0029A628  38 00 00 00 */	li r0, 0
 /* 8029D6CC 0029A62C  98 03 00 80 */	stb r0, 0x80(r3)
 /* 8029D6D0 0029A630  4E 80 00 20 */	blr
@@ -52,7 +52,7 @@ lbl_8029D724:
 /* 8029D728 0029A688  38 61 00 50 */	addi r3, r1, 0x50
 /* 8029D72C 0029A68C  38 9E 00 68 */	addi r4, r30, 0x68
 /* 8029D730 0029A690  38 BE 00 88 */	addi r5, r30, 0x88
-/* 8029D734 0029A694  48 00 05 65 */	bl sub_8029dc98
+/* 8029D734 0029A694  48 00 05 65 */	bl sub_8029dc98__16CProjectedShadowFv
 /* 8029D738 0029A698  C0 A1 00 50 */	lfs f5, 0x50(r1)
 /* 8029D73C 0029A69C  7F C3 F3 78 */	mr r3, r30
 /* 8029D740 0029A6A0  C0 81 00 54 */	lfs f4, 0x54(r1)
@@ -411,8 +411,8 @@ lbl_8029DC74:
 /* 8029DC90 0029ABF0  38 21 0B 30 */	addi r1, r1, 0xb30
 /* 8029DC94 0029ABF4  4E 80 00 20 */	blr
 
-.global sub_8029dc98
-sub_8029dc98:
+.global sub_8029dc98__16CProjectedShadowFv
+sub_8029dc98__16CProjectedShadowFv:
 /* 8029DC98 0029ABF8  94 21 FF B0 */	stwu r1, -0x50(r1)
 /* 8029DC9C 0029ABFC  7C 08 02 A6 */	mflr r0
 /* 8029DCA0 0029AC00  90 01 00 54 */	stw r0, 0x54(r1)
@@ -519,7 +519,7 @@ RenderShadowBuffer__16CProjectedShadowFR13CStateManagerRC10CModelDataRC12CTransf
 /* 8029DE28 0029AD88  D0 17 00 90 */	stfs f0, 0x90(r23)
 /* 8029DE2C 0029AD8C  D3 D7 00 94 */	stfs f30, 0x94(r23)
 /* 8029DE30 0029AD90  98 17 00 80 */	stb r0, 0x80(r23)
-/* 8029DE34 0029AD94  48 00 03 E1 */	bl sub_8029e214
+/* 8029DE34 0029AD94  48 00 03 E1 */	bl sub_8029e214__16CProjectedShadowFv
 /* 8029DE38 0029AD98  3C 80 80 5A */	lis r4, mViewMatrix__9CGraphics@ha
 /* 8029DE3C 0029AD9C  38 61 01 34 */	addi r3, r1, 0x134
 /* 8029DE40 0029ADA0  38 84 61 D4 */	addi r4, r4, mViewMatrix__9CGraphics@l
@@ -768,8 +768,8 @@ RenderShadowBuffer__16CProjectedShadowFR13CStateManagerRC10CModelDataRC12CTransf
 /* 8029E20C 0029B16C  38 21 02 00 */	addi r1, r1, 0x200
 /* 8029E210 0029B170  4E 80 00 20 */	blr
 
-.global sub_8029e214
-sub_8029e214:
+.global sub_8029e214__16CProjectedShadowFv
+sub_8029e214__16CProjectedShadowFv:
 /* 8029E214 0029B174  94 21 FF B0 */	stwu r1, -0x50(r1)
 /* 8029E218 0029B178  7C 08 02 A6 */	mflr r0
 /* 8029E21C 0029B17C  C8 22 C0 A8 */	lfd f1, lbl_805ADDC8@sda21(r2)
