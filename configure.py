@@ -1085,6 +1085,12 @@ if __name__ == "__main__":
         dest="build_dtk",
         help="path to decomp-toolkit source",
     )
+    parser.add_argument(
+        "--debug",
+        dest="debug",
+        action="store_true",
+        help="build with debug info (non-matching)",
+    )
     args = parser.parse_args()
 
     # On Windows, we need this to use && in commands
@@ -1124,10 +1130,10 @@ if __name__ == "__main__":
         n.variable("devkitppc", os.environ["DEVKITPPC"])
     else:
         n.variable("devkitppc", "/opt/devkitpro/devkitPPC")
-    n.variable(
-        "cflags_base",
-        "-proc gekko -nodefaults -Cpp_exceptions off -RTTI off -fp hard -fp_contract on -O4,p -maxerrors 1 -enum int -inline auto -str reuse -nosyspath -MMD -DPRIME1 -DVERSION=$version_num -DNONMATCHING=0 -i include/ -i libc/",
-    )
+    cflags_base = "-proc gekko -nodefaults -Cpp_exceptions off -RTTI off -fp hard -fp_contract on -O4,p -maxerrors 1 -enum int -inline auto -str reuse -nosyspath -MMD -DPRIME1 -DVERSION=$version_num -DNONMATCHING=0 -i include/ -i libc/"
+    if args.debug:
+        cflags_base += " -sym on"
+    n.variable("cflags_base", cflags_base)
     n.variable(
         "cflags_retro",
         "$cflags_base -use_lmw_stmw on -str reuse,pool,readonly -gccinc -inline deferred,noauto -common on",
@@ -1137,8 +1143,9 @@ if __name__ == "__main__":
         "$cflags_base -use_lmw_stmw on -str reuse,pool,readonly -gccinc -inline deferred,auto",
     )
     n.variable("cflags_musyx", "$cflags_base -str reuse,pool,readonly")
-    n.variable("asflags", "-mgekko -I include/ --defsym version=$version_num -W")
-    ldflags = "-fp fmadd -nodefaults -lcf ldscript.lcf -w off"
+    asflags = "-mgekko -I include/ --defsym version=$version_num -W --strip-local-absolute -gdwarf-2"
+    n.variable("asflags", asflags)
+    ldflags = "-fp fmadd -nodefaults -lcf ldscript.lcf"
     if args.map:
         ldflags += " -map $builddir/MetroidPrime.MAP"
     n.variable("ldflags", ldflags)
@@ -1242,7 +1249,8 @@ if __name__ == "__main__":
         n.comment("Assemble asm")
         n.rule(
             name="as",
-            command="$devkitppc/bin/powerpc-eabi-as $asflags -o $out $in -MD $out.d",
+            command="$devkitppc/bin/powerpc-eabi-as $asflags -o $out $in -MD $out.d"
+            + " && $dtk elf fixup $out $out",
             description="AS $out",
             depfile="$out.d",
             deps="gcc",
@@ -1272,6 +1280,42 @@ if __name__ == "__main__":
         description="host_c++ $out",
     )
     n.newline()
+
+    ###
+    # Tooling
+    ###
+    n.comment("decomp-toolkit")
+    if args.build_dtk:
+        n.variable("dtk", os.path.join("build", "tools", "release", "dtk$exe"))
+        n.rule(
+            name="cargo",
+            command="cargo build --release --manifest-path $in --bin $bin --target-dir $target",
+            description="CARGO $bin",
+            depfile="$target/release/$bin.d",
+            deps="gcc",
+        )
+        n.build(
+            outputs="$dtk",
+            rule="cargo",
+            inputs=os.path.join(args.build_dtk, "Cargo.toml"),
+            variables={
+                "bin": "dtk",
+                "target": os.path.join("build", "tools"),
+            },
+        )
+    else:
+        n.variable("dtk", os.path.join("build", "tools", "dtk$exe"))
+        n.rule(
+            name="download_dtk",
+            command="$python tools/download_dtk.py $in $out",
+            description="DOWNLOAD $out",
+        )
+        n.build(
+            outputs="$dtk",
+            rule="download_dtk",
+            inputs="dtk_version",
+            implicit=["tools/download_dtk.py"],
+        )
 
     ###
     # Rules for source files
@@ -1338,6 +1382,7 @@ if __name__ == "__main__":
                     outputs=f"$builddir/asm/{object}.o",
                     rule="as",
                     inputs=f"asm/{object}.s",
+                    implicit="$dtk",
                 )
             if completed:
                 inputs.append(f"$builddir/src/{object}.o")
@@ -1411,40 +1456,9 @@ if __name__ == "__main__":
     n.newline()
 
     ###
-    # Tooling
+    # Generate DOL
     ###
-    n.comment("decomp-toolkit")
-    if args.build_dtk:
-        n.variable("dtk", os.path.join("build", "tools", "release", "dtk$exe"))
-        n.rule(
-            name="cargo",
-            command="cargo build --release --manifest-path $in --bin $bin --target-dir $target",
-            description="CARGO $bin",
-            depfile="$target/release/$bin.d",
-            deps="gcc",
-        )
-        n.build(
-            outputs="$dtk",
-            rule="cargo",
-            inputs=os.path.join(args.build_dtk, "Cargo.toml"),
-            variables={
-                "bin": "dtk",
-                "target": os.path.join("build", "tools"),
-            },
-        )
-    else:
-        n.variable("dtk", os.path.join("build", "tools", "dtk$exe"))
-        n.rule(
-            name="download_dtk",
-            command="$python tools/download_dtk.py $in $out",
-            description="DOWNLOAD $out",
-        )
-        n.build(
-            outputs="$dtk",
-            rule="download_dtk",
-            inputs="dtk_version",
-            implicit=["tools/download_dtk.py"],
-        )
+    n.comment("Generate DOL")
     n.rule(
         name="elf2dol",
         command=ALLOW_CHAIN
