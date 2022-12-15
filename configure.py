@@ -1064,10 +1064,10 @@ if __name__ == "__main__":
         help="don't check hash of resulting dol",
     )
     parser.add_argument(
-        "--static-libs",
+        "--no-static-libs",
         dest="static_libs",
-        action="store_true",
-        help="build and use static libs",
+        action="store_false",
+        help="don't build and use static libs",
     )
     parser.add_argument(
         "--devkitppc",
@@ -1202,7 +1202,9 @@ if __name__ == "__main__":
         n.comment("Assemble asm")
         n.rule(
             name="as",
-            command="$devkitppc\\bin\\powerpc-eabi-as.exe $asflags -o $out $in -MD $out.d",
+            command=ALLOW_CHAIN
+            + "$devkitppc\\bin\\powerpc-eabi-as.exe $asflags -o $out $in -MD $out.d"
+            + " && $dtk elf fixup $out $out",
             description="AS $out",
             depfile="$out.d",
             deps="gcc",
@@ -1211,8 +1213,10 @@ if __name__ == "__main__":
         n.comment("Create static library")
         n.rule(
             name="ar",
-            command="$devkitppc\\bin\\powerpc-eabi-ar.exe crs $out $in",
+            command="$dtk ar create $out @$out.rsp",
             description="AR $out",
+            rspfile="$out.rsp",
+            rspfile_content="$in_newline",
         )
         n.newline()
     else:
@@ -1243,7 +1247,7 @@ if __name__ == "__main__":
             command="${wine}tools/mwcc_compiler/$mwcc_version/mwldeppc.exe $ldflags -o $out @$out.rsp",
             description="LINK $out",
             rspfile="$out.rsp",
-            rspfile_content="$in",
+            rspfile_content="$in_newline",
         )
         n.newline()
         n.comment("Assemble asm")
@@ -1259,8 +1263,10 @@ if __name__ == "__main__":
         n.comment("Create static library")
         n.rule(
             name="ar",
-            command="$devkitppc/bin/powerpc-eabi-ar crs $out $in",
+            command="$dtk ar create $out @$out.rsp",
             description="AR $out",
+            rspfile="$out.rsp",
+            rspfile_content="$in_newline",
         )
         n.newline()
     n.comment("Host build")
@@ -1394,6 +1400,7 @@ if __name__ == "__main__":
                 outputs=f"$builddir/lib/{lib_name}.a",
                 rule="ar",
                 inputs=inputs,
+                implicit="$dtk",
             )
         n.newline()
 
@@ -1506,6 +1513,7 @@ if __name__ == "__main__":
             outputs="$builddir/main.dol.progress",
             rule="progress",
             inputs=["$builddir/main.dol", "$builddir/MetroidPrime.MAP"],
+            implicit="progress.py",
         )
         n.newline()
 

@@ -27,8 +27,6 @@ import math
 import argparse
 import json
 
-from configure import LIBS
-
 ###############################################
 #                                             #
 #                 Constants                   #
@@ -45,7 +43,7 @@ r"(?P<VirtOfs>\w{8})\s+"\
 r"(?P<FileOfs>\w{8})\s+"\
 r"(\w{1,2})\s+"\
 r"(?P<Symbol>[0-9A-Za-z_<>$@.*]*)\s*"\
-r"(?P<Object>\S*)"
+r"(?P<Object>[\S ]*)"
 
 MW_GC_SYMBOL_REGEX = r"^\s*"\
 r"(?P<SectOfs>\w{8})\s+"\
@@ -53,7 +51,7 @@ r"(?P<Size>\w{6})\s+"\
 r"(?P<VirtOfs>\w{8})\s+"\
 r"(\w{1,2})\s+"\
 r"(?P<Symbol>[0-9A-Za-z_<>$@.*]*)\s*"\
-r"(?P<Object>\S*)"
+r"(?P<Object>[\S ]*)"
 
 REGEX_TO_USE = MW_GC_SYMBOL_REGEX
 
@@ -89,23 +87,6 @@ if __name__ == "__main__":
     parser.add_argument("map", help="Path to map")
     parser.add_argument("-o", "--output", help="JSON output file")
     args = parser.parse_args()
-
-    # HACK: Check asm or src in configure.py
-    # to avoid counting .comm/.lcomm as decompiled
-    asm_objs = []
-    for lib in LIBS:
-        for obj in lib["objects"]:
-            is_asm = False
-            obj_name = None
-            if type(obj) is list:
-                obj_name = obj[0]
-                is_asm = not obj[1]
-            else:
-                obj_name = obj
-                is_asm = True
-            if is_asm:
-                name = obj_name.split('/')[-1]
-                asm_objs.append(f"{name}.o")
 
     # Sum up DOL section sizes
     dol_handle = open(args.dol, "rb")
@@ -194,7 +175,7 @@ if __name__ == "__main__":
             # Has the object file changed?
             last_object = cur_object
             cur_object = match_obj.group("Object").strip()
-            if last_object != cur_object or cur_object in asm_objs: continue
+            if last_object != cur_object or cur_object.endswith(" (asm)"): continue
             # Is the symbol a file-wide section?
             symb = match_obj.group("Symbol")
             if (symb.startswith("*fill*")) or (symb.startswith(".") and symb[1:] in TEXT_SECTIONS or symb[1:] in DATA_SECTIONS): continue
