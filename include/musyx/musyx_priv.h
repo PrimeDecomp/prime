@@ -9,7 +9,8 @@ extern "C" {
 
 typedef struct _SynthInfo {
   u32 freq;
-  u8 unk[0x20c];
+  u32 _4;
+  u8 unk[0x208];
   u8 voices;
   u8 music;
   u8 sfx;
@@ -25,11 +26,47 @@ typedef struct DSPVoice {
   char data2[0x70 - 0x38];
   u16 sampleId;
   u16 _72;
-  char data3[0x90 - 0x74];
+  u32 _74;
+  u32 _78;
+  u32 _7c;
+  u32 _80;
+  u32 _84;
+  u32 _88;
+  u32 _8c;
   u32 sampleType;
-  char data4[0xec - 0x94];
-  u8 active;
-  char data5[0xf0 - 0xed];
+  u32 _94;
+  u32 _98;
+  u32 _9c;
+  u32 _a0;
+  u8 _a4;
+  u8 _a5;
+  u8 _a6;
+  u8 _a7;
+  u32 _a8;
+  u32 _ac;
+  u32 _b0;
+  u32 _b4;
+  u32 _b8;
+  u32 _bc;
+  u16 _c0;
+  u16 _c2;
+  u32 _c4;
+  u32 _c8;
+  u32 _cc;
+  u32 _d0;
+  u32 _d4;
+  u32 _d8;
+  u32 _dc;
+  u32 _e0;
+  u8 _e4;
+  u8 _e5;
+  u8 _e6;
+  u8 _e7;
+  u32 _e8;
+  u8 status;
+  u8 _ed;
+  u8 breakSet;
+  u8 _ef;
   u32 itdFlags;
 } DSPVoice;
 
@@ -39,6 +76,8 @@ typedef s32 (*SND_COMPARE)(u16*, u8*);
 void dataInit(u32, s32);                                       /* extern */
 void dataInitStack();                                          /* extern */
 s32 hwInit(u32* rate, u8 numVoices, u8 numStudios, u32 flags); /* extern */
+void hwEnableIrq();
+void hwDisableIrq();
 void s3dInit(s32);                                             /* extern */
 void seqInit();                                                /* extern */
 void streamInit();                                             /* extern */
@@ -79,6 +118,9 @@ u32 salInitDsp(u32);
 u32 salInitDspCtrl(u32, u32, u16);
 u32 salStartAi();
 
+void* salMalloc(u32 len);
+void salFree(void* addr);
+
 /* Stream */
 typedef s32 (*SND_STREAM_UPDATE_CALLBACK)(void * buffer1, u32 len1, void * buffer2, u32 len2, void* user);
 typedef struct SND_STREAM_INFO {
@@ -98,6 +140,9 @@ typedef struct SND_STREAM_INFO {
 /* TODO: Figure out what `unk` is */
 bool hwAddInput(u8 studio, void* unk);
 bool hwRemoveInput(u8 studio, void* unk);
+
+extern u32 dspCmdList;
+extern u16 dspCmdFirstSize;
 #ifdef __cplusplus
 }
 #endif
