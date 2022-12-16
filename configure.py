@@ -945,7 +945,7 @@ LIBS = [
             ["musyx/hardware", False],
             "musyx/hw_aramdma",
             ["musyx/dsp_import", True],
-            "musyx/hw_dolphin",
+            ["musyx/hw_dolphin", True],
             ["musyx/hw_memory", True],
             ["musyx/creverb_fx", True],
             "musyx/creverb",
