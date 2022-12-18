@@ -28,9 +28,9 @@ extern "C" {
 #define OS_ERROR_MAX (OS_ERROR_FPE + 1)
 
 typedef u16 OSError;
-typedef void OSErrorHandler(OSError, OSContext* context, ...);
+typedef void (*OSErrorHandler)( OSError error, OSContext* context, ... );
 
-void OSSetErrorHandler(OSError code, OSErrorHandler* handler);
+void OSSetErrorHandler(OSError code, OSErrorHandler handler);
 
 #ifdef __cplusplus
 }

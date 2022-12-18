@@ -2,8 +2,8 @@
 
 .section .bss
 .balign 8
-.global lbl_80541250
-lbl_80541250:
+.global __OSErrorTable
+__OSErrorTable:
 	.skip 0x48
 
 .section .data
@@ -206,9 +206,9 @@ OSSetErrorHandler:
 /* 8037FB74 0037CAD4  93 81 00 20 */	stw r28, 0x20(r1)
 /* 8037FB78 0037CAD8  3B 84 00 00 */	addi r28, r4, 0
 /* 8037FB7C 0037CADC  48 00 1A E5 */	bl OSDisableInterrupts
-/* 8037FB80 0037CAE0  3C 80 80 54 */	lis r4, lbl_80541250@ha
+/* 8037FB80 0037CAE0  3C 80 80 54 */	lis r4, __OSErrorTable@ha
 /* 8037FB84 0037CAE4  57 A5 13 BA */	rlwinm r5, r29, 2, 0xe, 0x1d
-/* 8037FB88 0037CAE8  38 04 12 50 */	addi r0, r4, lbl_80541250@l
+/* 8037FB88 0037CAE8  38 04 12 50 */	addi r0, r4, __OSErrorTable@l
 /* 8037FB8C 0037CAEC  57 A6 04 3E */	clrlwi r6, r29, 0x10
 /* 8037FB90 0037CAF0  7C 80 2A 14 */	add r4, r0, r5
 /* 8037FB94 0037CAF4  83 C4 00 00 */	lwz r30, 0(r4)
@@ -343,7 +343,7 @@ lbl_8037FD44:
 .global __OSUnhandledException
 __OSUnhandledException:
 /* 8037FD70 0037CCD0  7C 08 02 A6 */	mflr r0
-/* 8037FD74 0037CCD4  3D 00 80 54 */	lis r8, lbl_80541250@ha
+/* 8037FD74 0037CCD4  3D 00 80 54 */	lis r8, __OSErrorTable@ha
 /* 8037FD78 0037CCD8  90 01 00 04 */	stw r0, 4(r1)
 /* 8037FD7C 0037CCDC  3C E0 80 3F */	lis r7, lbl_803F1430@ha
 /* 8037FD80 0037CCE0  94 21 FF C0 */	stwu r1, -0x40(r1)
@@ -352,7 +352,7 @@ __OSUnhandledException:
 /* 8037FD8C 0037CCEC  3B 24 00 00 */	addi r25, r4, 0
 /* 8037FD90 0037CCF0  3B 45 00 00 */	addi r26, r5, 0
 /* 8037FD94 0037CCF4  3B 66 00 00 */	addi r27, r6, 0
-/* 8037FD98 0037CCF8  3B C8 12 50 */	addi r30, r8, lbl_80541250@l
+/* 8037FD98 0037CCF8  3B C8 12 50 */	addi r30, r8, __OSErrorTable@l
 /* 8037FD9C 0037CCFC  3B E7 14 30 */	addi r31, r7, lbl_803F1430@l
 /* 8037FDA0 0037CD00  48 00 56 09 */	bl OSGetTime
 /* 8037FDA4 0037CD04  80 B9 01 9C */	lwz r5, 0x19c(r25)

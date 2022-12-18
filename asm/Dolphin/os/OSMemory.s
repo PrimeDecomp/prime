@@ -38,9 +38,9 @@ MEMIntrruptHandler:
 /* 80382A60 0037F9C0  38 00 00 00 */	li r0, 0
 /* 80382A64 0037F9C4  94 21 FF F8 */	stwu r1, -8(r1)
 /* 80382A68 0037F9C8  A0 E3 40 24 */	lhz r7, 0x4024(r3)
-/* 80382A6C 0037F9CC  3C 60 80 54 */	lis r3, lbl_80541250@ha
+/* 80382A6C 0037F9CC  3C 60 80 54 */	lis r3, __OSErrorTable@ha
 /* 80382A70 0037F9D0  A0 C8 00 22 */	lhz r6, 0x22(r8)
-/* 80382A74 0037F9D4  38 63 12 50 */	addi r3, r3, lbl_80541250@l
+/* 80382A74 0037F9D4  38 63 12 50 */	addi r3, r3, __OSErrorTable@l
 /* 80382A78 0037F9D8  A0 A8 00 1E */	lhz r5, 0x1e(r8)
 /* 80382A7C 0037F9DC  50 E6 81 9E */	rlwimi r6, r7, 0x10, 6, 0xf
 /* 80382A80 0037F9E0  B0 08 00 20 */	sth r0, 0x20(r8)
