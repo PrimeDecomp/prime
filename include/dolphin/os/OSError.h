@@ -30,7 +30,7 @@ extern "C" {
 typedef u16 OSError;
 typedef void (*OSErrorHandler)( OSError error, OSContext* context, ... );
 
-void OSSetErrorHandler(OSError code, OSErrorHandler handler);
+OSErrorHandler OSSetErrorHandler(OSError code, OSErrorHandler handler);
 
 #ifdef __cplusplus
 }
