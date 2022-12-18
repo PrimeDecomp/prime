@@ -107,9 +107,9 @@ u8* sndBSearch(u16* key, u8* subTab, s32 mainTab, s32 len, SND_COMPARE cmp);
 void sndConvertMs(u32* time);
 void sndConvertTicks(u32* out, u32 seconds);
 u32 sndConvert2Ms(u32 time);
-
+void hwActivateStudio(u8 studio, u32 arg1, u32 arg2);
 void hwDeactivateStudio(u8);
-bool hwIsActive(s32);
+u32 hwIsActive(s32);
 
 extern SND_HOOKS salHooks;
 extern u8 sndActive;
@@ -149,10 +149,12 @@ typedef struct SND_STREAM_INFO {
   char data4[0x64 - 0x54];
 } SND_STREAM_INFO;
 
+void streamOutputModeChanged();
 
 /* TODO: Figure out what `unk` is */
 bool hwAddInput(u8 studio, void* unk);
 bool hwRemoveInput(u8 studio, void* unk);
+void hwDisableHRTF();
 
 extern u32 dspCmdList;
 extern u16 dspCmdFirstSize;

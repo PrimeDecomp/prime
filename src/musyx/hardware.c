@@ -94,7 +94,7 @@ void hwSetTimeOffset(u8 offset) { salTimeOffset = offset; }
 
 u8 hwGetTimeOffset() { return salTimeOffset; }
 
-bool hwIsActive(s32 idx) { return dspVoice[idx].status != 0; }
+u32 hwIsActive(s32 idx) { return dspVoice[idx].status != 0; }
 
 void hwSetMesgCallback(SND_MESSAGE_CALLBACK callback) { salMessageCallback = callback; }
 

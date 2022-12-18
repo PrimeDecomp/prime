@@ -925,7 +925,7 @@ LIBS = [
             "musyx/seq",
             "musyx/synth",
             ["musyx/seq_api", True],
-            ["musyx/snd_synthapi", False, False],
+            ["musyx/snd_synthapi", True, False],
             ["musyx/stream", False],
             "musyx/synthdata",
             "musyx/synthmacros",
