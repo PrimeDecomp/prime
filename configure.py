@@ -813,7 +813,7 @@ LIBS = [
             "Dolphin/os/OSError",
             "Dolphin/os/OSFatal",
             "Dolphin/os/OSFont",
-            "Dolphin/os/OSInterrupt",
+            ["Dolphin/os/OSInterrupt", True],
             ["Dolphin/os/OSLink", True],
             "Dolphin/os/OSMemory",
             ["Dolphin/os/OSMutex", True],

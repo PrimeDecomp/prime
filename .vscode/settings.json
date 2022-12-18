@@ -45,7 +45,8 @@
     "trees.h": "c",
     "musyx.h": "c",
     "dsp_import.h": "c",
-    "osinterrupt.h": "c"
+    "osinterrupt.h": "c",
+    "osmodule.h": "c"
   },
   "files.autoSave": "onFocusChange",
   "files.insertFinalNewline": true,
