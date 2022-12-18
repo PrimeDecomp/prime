@@ -810,7 +810,7 @@ LIBS = [
             ["Dolphin/os/OSAudioSystem", True],
             ["Dolphin/os/OSCache", True],
             ["Dolphin/os/OSContext", True, True, True],
-            "Dolphin/os/OSError",
+            ["Dolphin/os/OSError", True],
             "Dolphin/os/OSFatal",
             "Dolphin/os/OSFont",
             ["Dolphin/os/OSInterrupt", True],
