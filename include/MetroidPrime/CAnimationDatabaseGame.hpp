@@ -30,7 +30,7 @@ private:
   rstl::optional_object< CToken > x4_;
 };
 
-class CAnimationDatabaseGame final : public CAnimationDatabase {
+class CAnimationDatabaseGame : public CAnimationDatabase {
 public:
   explicit CAnimationDatabaseGame(const rstl::vector< CAnimation >& anims);
 
