@@ -70,6 +70,19 @@ typedef struct DSPVoice {
   u32 itdFlags;
 } DSPVoice;
 
+typedef struct SND_VS {
+  u8 _0;
+  u8 _1;
+  u8 _2;
+  u8 _3;
+  u8 unk1[0x908 - 0x4];
+  u8 _908[64];
+  u16 _948;
+  u32 _94c;
+} SND_VS;
+
+extern SND_VS vs;
+
 extern DSPVoice* dspVoice;
 typedef s32 (*SND_COMPARE)(u16*, u8*);
 

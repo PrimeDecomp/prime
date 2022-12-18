@@ -932,7 +932,7 @@ LIBS = [
             "musyx/synthvoice",
             ["musyx/synth_ac", True],
             "musyx/synth_adsr",
-            "musyx/synth_vsamples",
+            ["musyx/synth_vsamples", False],
             ["musyx/synth_dbtab", True],
             "musyx/s_data",
             "musyx/hw_dspctrl",
