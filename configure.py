@@ -806,7 +806,7 @@ LIBS = [
             ["Dolphin/os/__start", True],
             "Dolphin/os/OS",
             ["Dolphin/os/OSAlarm", True],
-            "Dolphin/os/OSArena",
+            ["Dolphin/os/OSArena", True],
             ["Dolphin/os/OSAudioSystem", True],
             ["Dolphin/os/OSCache", True],
             "Dolphin/os/OSContext",
