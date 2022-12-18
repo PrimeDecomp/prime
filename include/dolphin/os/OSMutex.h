@@ -16,6 +16,18 @@ struct OSMutex {
   OSMutexLink link; // for OSThread.queueMutex
 };
 
+struct OSCond {
+  OSThreadQueue queue;
+};
+
+void OSInitMutex(OSMutex* mutex);
+void OSLockMutex(OSMutex* mutex);
+void OSUnlockMutex(OSMutex* mutex);
+BOOL OSTryLockMutex(OSMutex* mutex);
+void OSInitCond(OSCond* cond);
+void OSWaitCond(OSCond* cond, OSMutex* mutex);
+void OSSignalCond(OSCond* cond);
+
 #ifdef __cplusplus
 }
 #endif

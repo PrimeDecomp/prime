@@ -44,7 +44,8 @@
     "gxenum.h": "c",
     "trees.h": "c",
     "musyx.h": "c",
-    "dsp_import.h": "c"
+    "dsp_import.h": "c",
+    "osinterrupt.h": "c"
   },
   "files.autoSave": "onFocusChange",
   "files.insertFinalNewline": true,
