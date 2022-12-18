@@ -815,6 +815,7 @@ LIBS = [
             "Dolphin/os/OSFont",
             ["Dolphin/os/OSInterrupt", True],
             ["Dolphin/os/OSLink", True],
+            ["Dolphin/os/OSMessage", True],
             "Dolphin/os/OSMemory",
             ["Dolphin/os/OSMutex", True],
             "Dolphin/os/OSReboot",
