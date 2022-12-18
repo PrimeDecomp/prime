@@ -809,7 +809,7 @@ LIBS = [
             ["Dolphin/os/OSArena", True],
             ["Dolphin/os/OSAudioSystem", True],
             ["Dolphin/os/OSCache", True],
-            "Dolphin/os/OSContext",
+            ["Dolphin/os/OSContext", True, True, True],
             "Dolphin/os/OSError",
             "Dolphin/os/OSFatal",
             "Dolphin/os/OSFont",
@@ -1339,9 +1339,12 @@ if __name__ == "__main__":
         for object in lib["objects"]:
             completed = None
             add_to_all = True
+            no_frank = False
             if type(object) is list:
                 if len(object) > 2:
                     add_to_all = object[2]
+                if len(object) > 3:
+                    no_frank = object[3]
                 completed = object[1]
                 object = object[0]
 
@@ -1357,7 +1360,8 @@ if __name__ == "__main__":
                 rule = "mwcc"
                 if mwcc_version == "1.2.5e":
                     mwcc_version = "1.2.5"
-                    rule = "mwcc_frank"
+                    if no_frank is False:
+                        rule = "mwcc_frank"
                 n.build(
                     outputs=f"$builddir/src/{object}.o",
                     rule=rule,

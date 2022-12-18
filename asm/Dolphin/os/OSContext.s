@@ -154,7 +154,7 @@ __OSSaveFPUContext:
 /* 8037F380 0037C2E0  C8 05 00 90 */	lfd f0, 0x90(r5)
 /* 8037F384 0037C2E4  7C 78 E2 A6 */	mfspr r3, 0x398
 /* 8037F388 0037C2E8  54 63 1F FF */	rlwinm. r3, r3, 3, 0x1f, 0x1f
-/* 8037F38C 0037C2EC  41 82 00 84 */	beq sub_8037f410
+/* 8037F38C 0037C2EC  41 82 00 84 */	beq lbl_8037f410
 /* 8037F390 0037C2F0  F0 05 01 C8 */	psq_st f0, 456(r5), 0, qr0
 /* 8037F394 0037C2F4  F0 25 01 D0 */	psq_st f1, 464(r5), 0, qr0
 /* 8037F398 0037C2F8  F0 45 01 D8 */	psq_st f2, 472(r5), 0, qr0
@@ -187,9 +187,7 @@ __OSSaveFPUContext:
 /* 8037F404 0037C364  F3 A5 02 B0 */	psq_st f29, 688(r5), 0, qr0
 /* 8037F408 0037C368  F3 C5 02 B8 */	psq_st f30, 696(r5), 0, qr0
 /* 8037F40C 0037C36C  F3 E5 02 C0 */	psq_st f31, 704(r5), 0, qr0
-
-.global sub_8037f410
-sub_8037f410:
+lbl_8037f410:
 /* 8037F410 0037C370  4E 80 00 20 */	blr
 
 .global OSSaveFPUContext
@@ -267,9 +265,9 @@ OSSaveContext:
 
 .global OSLoadContext
 OSLoadContext:
-/* 8037F504 0037C464  3C 80 80 38 */	lis r4, OSDisableInterrupts@ha
+/* 8037F504 0037C464  3C 80 80 38 */	lis r4, __RAS_OSDisableInterrupts_begin@ha
 /* 8037F508 0037C468  80 C3 01 98 */	lwz r6, 0x198(r3)
-/* 8037F50C 0037C46C  38 A4 16 60 */	addi r5, r4, OSDisableInterrupts@l
+/* 8037F50C 0037C46C  38 A4 16 60 */	addi r5, r4, __RAS_OSDisableInterrupts_begin@l
 /* 8037F510 0037C470  7C 06 28 40 */	cmplw r6, r5
 /* 8037F514 0037C474  40 81 00 18 */	ble lbl_8037F52C
 /* 8037F518 0037C478  3C 80 80 38 */	lis r4, __RAS_OSDisableInterrupts_end@ha

@@ -132,6 +132,8 @@ extern "C" {
 #define OS_CONTEXT_PSF31 704
 #define OS_CONTEXT_STATE_EXC 0x02u
 
+#define OS_CONTEXT_STATE_FPSAVED 0x01u
+
 typedef struct OSContext {
   u32 gpr[32];
   u32 cr;

@@ -8,6 +8,8 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+#define __OS_EXCEPTION_FLOATING_POINT       7
+
 typedef u8 __OSException;
 typedef void (*__OSExceptionHandler)(__OSException exception, OSContext* context);
 
