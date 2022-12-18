@@ -10,23 +10,24 @@ lbl_803F22E0:
 
 .section .text, "ax"
 
-OnReset:
+.fn OnReset, local
 /* 80382A14 0037F974  7C 08 02 A6 */	mflr r0
 /* 80382A18 0037F978  2C 03 00 00 */	cmpwi r3, 0
 /* 80382A1C 0037F97C  90 01 00 04 */	stw r0, 4(r1)
 /* 80382A20 0037F980  94 21 FF F8 */	stwu r1, -8(r1)
-/* 80382A24 0037F984  41 82 00 18 */	beq lbl_80382A3C
+/* 80382A24 0037F984  41 82 00 18 */	beq .L_80382A3C
 /* 80382A28 0037F988  3C 60 CC 00 */	lis r3, 0xCC004010@ha
 /* 80382A2C 0037F98C  38 00 00 FF */	li r0, 0xff
 /* 80382A30 0037F990  B0 03 40 10 */	sth r0, 0xCC004010@l(r3)
 /* 80382A34 0037F994  3C 60 F0 00 */	lis r3, 0xf000
 /* 80382A38 0037F998  4B FF EF F1 */	bl __OSMaskInterrupts
-lbl_80382A3C:
+.L_80382A3C:
 /* 80382A3C 0037F99C  38 60 00 01 */	li r3, 1
 /* 80382A40 0037F9A0  80 01 00 0C */	lwz r0, 0xc(r1)
 /* 80382A44 0037F9A4  38 21 00 08 */	addi r1, r1, 8
 /* 80382A48 0037F9A8  7C 08 03 A6 */	mtlr r0
 /* 80382A4C 0037F9AC  4E 80 00 20 */	blr
+.endfn OnReset
 
 .global MEMIntrruptHandler
 MEMIntrruptHandler:

@@ -68,9 +68,6 @@ typedef int BOOL;
 #ifndef nullptr
 #define nullptr NULL
 #endif
-#ifndef final
-#define final
-#endif
 
 #if defined(__MWERKS__)
 #ifndef override

@@ -3,37 +3,37 @@
 
 #include "MetroidPrime/CObjectList.hpp"
 
-class CActorList final : public CObjectList {
+class CActorList : public CObjectList {
 public:
   CActorList();
   uchar IsQualified(const CEntity& ent) override;
 };
 
-class CPhysicsActorList final : public CObjectList {
+class CPhysicsActorList : public CObjectList {
 public:
   CPhysicsActorList();
   uchar IsQualified(const CEntity& ent) override;
 };
 
-class CGameCameraList final : public CObjectList {
+class CGameCameraList : public CObjectList {
 public:
   CGameCameraList();
   uchar IsQualified(const CEntity& ent) override;
 };
 
-class CListeningAiList final : public CObjectList {
+class CListeningAiList : public CObjectList {
 public:
   CListeningAiList();
   uchar IsQualified(const CEntity& ent) override;
 };
 
-class CAiWaypointList final : public CObjectList {
+class CAiWaypointList : public CObjectList {
 public:
   CAiWaypointList();
   uchar IsQualified(const CEntity& ent) override;
 };
 
-class CPlatformAndDoorList final : public CObjectList {
+class CPlatformAndDoorList : public CObjectList {
 public:
   CPlatformAndDoorList();
   uchar IsQualified(const CEntity& ent) override;
