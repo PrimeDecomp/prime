@@ -6,6 +6,16 @@
 extern "C" {
 #endif
 
+typedef struct VoiceID VoiceID;
+
+struct VoiceID {
+  VoiceID* next;
+  VoiceID* prev;
+  s32 pubId;
+  s32 privId;
+};
+
+
 typedef struct SynthVoice {
   char data1[0xf4];
   u32 _f4;
@@ -19,6 +29,8 @@ typedef struct SynthVoice {
   char data3[0x404 - 0x120];
 } SynthVoice;
 
+extern SynthVoice* synthVoice;
+
 typedef void (*SND_AUX_CALLBACK)(u8 reason, SND_AUX_INFO* info, void* user);
 
 extern SND_AUX_CALLBACK synthAuxACallback[8];
@@ -29,6 +41,9 @@ extern SND_AUX_CALLBACK synthAuxBCallback[8];
 extern u8 synthAuxBMIDI[8];
 extern u8 synthAuxBMIDISet[8];
 extern void* synthAuxBUser[8];
+
+extern u8 synthITDDefault[16];
+extern u32 synthFlags;
 
 s32 vidGetInternalId(SND_VOICEID id);
 bool synthFXSetCtrl(SND_VOICEID vid, u8 ctrl, u8 value);
