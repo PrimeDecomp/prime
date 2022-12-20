@@ -736,7 +736,7 @@ LIBS = [
     },
     {
         "lib": "dsp",
-        "mwcc_version": "1.2.5",
+        "mwcc_version": "1.2.5e",
         "cflags": "$cflags_base",
         "host": False,
         "objects": [
