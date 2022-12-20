@@ -1183,7 +1183,7 @@ lbl_80372934:
 /* 80372940 0036F8A0  7C 08 03 A6 */	mtlr r0
 /* 80372944 0036F8A4  4E 80 00 20 */	blr
 
-AlarmHandler:
+.fn AlarmHandler, local
 /* 80372948 0036F8A8  7C 08 02 A6 */	mflr r0
 /* 8037294C 0036F8AC  90 01 00 04 */	stw r0, 4(r1)
 /* 80372950 0036F8B0  94 21 FF F8 */	stwu r1, -8(r1)
@@ -1201,6 +1201,7 @@ AlarmHandler:
 /* 80372980 0036F8E0  38 21 00 08 */	addi r1, r1, 8
 /* 80372984 0036F8E4  7C 08 03 A6 */	mtlr r0
 /* 80372988 0036F8E8  4E 80 00 20 */	blr
+.endfn AlarmHandler
 
 .global stateCoverClosed
 stateCoverClosed:

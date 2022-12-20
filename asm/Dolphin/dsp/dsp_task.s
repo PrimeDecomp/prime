@@ -2,7 +2,7 @@
 
 .section .data
 .balign 8
-lbl_803EFA50:
+__DSP_msg1:
 	.asciz "DSP is booting task: 0x%08X\n"
 .balign 4
 	.asciz "__DSP_boot_task()  : IRAM MMEM ADDR: 0x%08X\n"
@@ -469,11 +469,11 @@ lbl_803701CC:
 .global __DSP_boot_task
 __DSP_boot_task:
 /* 803701E4 0036D144  7C 08 02 A6 */	mflr r0
-/* 803701E8 0036D148  3C 80 80 3F */	lis r4, lbl_803EFA50@ha
+/* 803701E8 0036D148  3C 80 80 3F */	lis r4, __DSP_msg1@ha
 /* 803701EC 0036D14C  90 01 00 04 */	stw r0, 4(r1)
 /* 803701F0 0036D150  94 21 FF E8 */	stwu r1, -0x18(r1)
 /* 803701F4 0036D154  93 E1 00 14 */	stw r31, 0x14(r1)
-/* 803701F8 0036D158  3B E4 FA 50 */	addi r31, r4, lbl_803EFA50@l
+/* 803701F8 0036D158  3B E4 FA 50 */	addi r31, r4, __DSP_msg1@l
 /* 803701FC 0036D15C  93 C1 00 10 */	stw r30, 0x10(r1)
 /* 80370200 0036D160  3B C3 00 00 */	addi r30, r3, 0
 lbl_80370204:
@@ -670,4 +670,3 @@ lbl_80370480:
 /* 80370498 0036D3F8  80 63 00 38 */	lwz r3, 0x38(r3)
 /* 8037049C 0036D3FC  90 03 00 3C */	stw r0, 0x3c(r3)
 /* 803704A0 0036D400  4E 80 00 20 */	blr
-

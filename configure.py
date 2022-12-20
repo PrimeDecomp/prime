@@ -742,7 +742,7 @@ LIBS = [
         "objects": [
             ["Dolphin/dsp/dsp", True],
             ["Dolphin/dsp/dsp_debug", True],
-            "Dolphin/dsp/dsp_task",
+            ["Dolphin/dsp/dsp_task", True],
         ],
     },
     {

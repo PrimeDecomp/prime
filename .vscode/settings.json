@@ -46,7 +46,9 @@
     "musyx.h": "c",
     "dsp_import.h": "c",
     "osinterrupt.h": "c",
-    "osmodule.h": "c"
+    "osmodule.h": "c",
+    "dsp_regs.h": "c",
+    "dsp.h": "c"
   },
   "files.autoSave": "onFocusChange",
   "files.insertFinalNewline": true,
