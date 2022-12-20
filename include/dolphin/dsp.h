@@ -8,6 +8,15 @@
 extern "C" {
 #endif
 
+#define DSP_TASK_FLAG_CLEARALL 0x00000000
+#define DSP_TASK_FLAG_ATTACHED 0x00000001
+#define DSP_TASK_FLAG_CANCEL 0x00000002
+
+#define DSP_TASK_STATE_INIT 0
+#define DSP_TASK_STATE_RUN 1
+#define DSP_TASK_STATE_YIELD 2
+#define DSP_TASK_STATE_DONE 3
+
 typedef void (*DSPCallback)(void* task);
 
 typedef struct DSPTaskInfo DSPTaskInfo;
@@ -32,8 +41,8 @@ typedef struct DSPTaskInfo {
   DSPCallback done_cb;
   DSPCallback req_cb;
 
-  struct STRUCT_DSP_TASK* next;
-  struct STRUCT_DSP_TASK* prev;
+  struct DSPTaskInfo* next;
+  struct DSPTaskInfo* prev;
 
   OSTime t_context;
   OSTime t_task;
@@ -50,6 +59,10 @@ u32 DSPGetDMAStatus();
 
 DSPTaskInfo* DSPAddTask(DSPTaskInfo* task);
 
+void __DSP_exec_task(DSPTaskInfo* curr, DSPTaskInfo* next);
+void __DSP_boot_task(DSPTaskInfo* task);
+void __DSP_remove_task(DSPTaskInfo* task);
+void __DSP_add_task(DSPTaskInfo* task);
 void __DSP_debug_printf(const char* fmt, ...);
 
 #ifdef __cplusplus
