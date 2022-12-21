@@ -16,29 +16,29 @@ lbl_805A8A70:
 
 .section .sbss
 .balign 8
-.global lbl_805A96F8
-lbl_805A96F8:
+.global __AR_Callback
+__AR_Callback:
 	.skip 0x4
-.global lbl_805A96FC
-lbl_805A96FC:
+.global __AR_Size
+__AR_Size:
 	.skip 0x4
-.global lbl_805A9700
-lbl_805A9700:
+.global __AR_InternalSize
+__AR_InternalSize:
 	.skip 0x4
-.global lbl_805A9704
-lbl_805A9704:
+.global __AR_ExpansionSize
+__AR_ExpansionSize:
 	.skip 0x4
-.global lbl_805A9708
-lbl_805A9708:
+.global __AR_StackPointer
+__AR_StackPointer:
 	.skip 0x4
-.global lbl_805A970C
-lbl_805A970C:
+.global __AR_FreeBlocks
+__AR_FreeBlocks:
 	.skip 0x4
-.global lbl_805A9710
-lbl_805A9710:
+.global __AR_BlockLength
+__AR_BlockLength:
 	.skip 0x4
-.global lbl_805A9714
-lbl_805A9714:
+.global __AR_init_flag
+__AR_init_flag:
 	.skip 0x4
 
 .section .text, "ax"
@@ -51,9 +51,9 @@ ARRegisterDMACallback:
 /* 8036D8B0 0036A810  93 E1 00 14 */	stw r31, 0x14(r1)
 /* 8036D8B4 0036A814  93 C1 00 10 */	stw r30, 0x10(r1)
 /* 8036D8B8 0036A818  7C 7E 1B 78 */	mr r30, r3
-/* 8036D8BC 0036A81C  83 ED AB 38 */	lwz r31, lbl_805A96F8@sda21(r13)
+/* 8036D8BC 0036A81C  83 ED AB 38 */	lwz r31, __AR_Callback@sda21(r13)
 /* 8036D8C0 0036A820  48 01 3D A1 */	bl OSDisableInterrupts
-/* 8036D8C4 0036A824  93 CD AB 38 */	stw r30, lbl_805A96F8@sda21(r13)
+/* 8036D8C4 0036A824  93 CD AB 38 */	stw r30, __AR_Callback@sda21(r13)
 /* 8036D8C8 0036A828  48 01 3D C1 */	bl OSRestoreInterrupts
 /* 8036D8CC 0036A82C  7F E3 FB 78 */	mr r3, r31
 /* 8036D8D0 0036A830  80 01 00 1C */	lwz r0, 0x1c(r1)
@@ -153,17 +153,17 @@ ARAlloc:
 /* 8036DA24 0036A984  93 C1 00 10 */	stw r30, 0x10(r1)
 /* 8036DA28 0036A988  7C 7E 1B 78 */	mr r30, r3
 /* 8036DA2C 0036A98C  48 01 3C 35 */	bl OSDisableInterrupts
-/* 8036DA30 0036A990  83 ED AB 48 */	lwz r31, lbl_805A9708@sda21(r13)
-/* 8036DA34 0036A994  80 8D AB 50 */	lwz r4, lbl_805A9710@sda21(r13)
+/* 8036DA30 0036A990  83 ED AB 48 */	lwz r31, __AR_StackPointer@sda21(r13)
+/* 8036DA34 0036A994  80 8D AB 50 */	lwz r4, __AR_BlockLength@sda21(r13)
 /* 8036DA38 0036A998  7C 1F F2 14 */	add r0, r31, r30
-/* 8036DA3C 0036A99C  90 0D AB 48 */	stw r0, lbl_805A9708@sda21(r13)
+/* 8036DA3C 0036A99C  90 0D AB 48 */	stw r0, __AR_StackPointer@sda21(r13)
 /* 8036DA40 0036A9A0  93 C4 00 00 */	stw r30, 0(r4)
-/* 8036DA44 0036A9A4  80 AD AB 50 */	lwz r5, lbl_805A9710@sda21(r13)
-/* 8036DA48 0036A9A8  80 8D AB 4C */	lwz r4, lbl_805A970C@sda21(r13)
+/* 8036DA44 0036A9A4  80 AD AB 50 */	lwz r5, __AR_BlockLength@sda21(r13)
+/* 8036DA48 0036A9A8  80 8D AB 4C */	lwz r4, __AR_FreeBlocks@sda21(r13)
 /* 8036DA4C 0036A9AC  38 A5 00 04 */	addi r5, r5, 4
 /* 8036DA50 0036A9B0  38 04 FF FF */	addi r0, r4, -1
-/* 8036DA54 0036A9B4  90 AD AB 50 */	stw r5, lbl_805A9710@sda21(r13)
-/* 8036DA58 0036A9B8  90 0D AB 4C */	stw r0, lbl_805A970C@sda21(r13)
+/* 8036DA54 0036A9B4  90 AD AB 50 */	stw r5, __AR_BlockLength@sda21(r13)
+/* 8036DA58 0036A9B8  90 0D AB 4C */	stw r0, __AR_FreeBlocks@sda21(r13)
 /* 8036DA5C 0036A9BC  48 01 3C 2D */	bl OSRestoreInterrupts
 /* 8036DA60 0036A9C0  7F E3 FB 78 */	mr r3, r31
 /* 8036DA64 0036A9C4  80 01 00 1C */	lwz r0, 0x1c(r1)
@@ -181,25 +181,25 @@ ARFree:
 /* 8036DA88 0036A9E8  93 E1 00 14 */	stw r31, 0x14(r1)
 /* 8036DA8C 0036A9EC  7C 7F 1B 78 */	mr r31, r3
 /* 8036DA90 0036A9F0  48 01 3B D1 */	bl OSDisableInterrupts
-/* 8036DA94 0036A9F4  80 8D AB 50 */	lwz r4, lbl_805A9710@sda21(r13)
+/* 8036DA94 0036A9F4  80 8D AB 50 */	lwz r4, __AR_BlockLength@sda21(r13)
 /* 8036DA98 0036A9F8  28 1F 00 00 */	cmplwi r31, 0
 /* 8036DA9C 0036A9FC  38 04 FF FC */	addi r0, r4, -4
-/* 8036DAA0 0036AA00  90 0D AB 50 */	stw r0, lbl_805A9710@sda21(r13)
+/* 8036DAA0 0036AA00  90 0D AB 50 */	stw r0, __AR_BlockLength@sda21(r13)
 /* 8036DAA4 0036AA04  41 82 00 10 */	beq lbl_8036DAB4
-/* 8036DAA8 0036AA08  80 8D AB 50 */	lwz r4, lbl_805A9710@sda21(r13)
+/* 8036DAA8 0036AA08  80 8D AB 50 */	lwz r4, __AR_BlockLength@sda21(r13)
 /* 8036DAAC 0036AA0C  80 04 00 00 */	lwz r0, 0(r4)
 /* 8036DAB0 0036AA10  90 1F 00 00 */	stw r0, 0(r31)
 lbl_8036DAB4:
-/* 8036DAB4 0036AA14  80 AD AB 50 */	lwz r5, lbl_805A9710@sda21(r13)
-/* 8036DAB8 0036AA18  80 8D AB 4C */	lwz r4, lbl_805A970C@sda21(r13)
+/* 8036DAB4 0036AA14  80 AD AB 50 */	lwz r5, __AR_BlockLength@sda21(r13)
+/* 8036DAB8 0036AA18  80 8D AB 4C */	lwz r4, __AR_FreeBlocks@sda21(r13)
 /* 8036DABC 0036AA1C  80 C5 00 00 */	lwz r6, 0(r5)
 /* 8036DAC0 0036AA20  38 04 00 01 */	addi r0, r4, 1
-/* 8036DAC4 0036AA24  80 AD AB 48 */	lwz r5, lbl_805A9708@sda21(r13)
-/* 8036DAC8 0036AA28  90 0D AB 4C */	stw r0, lbl_805A970C@sda21(r13)
+/* 8036DAC4 0036AA24  80 AD AB 48 */	lwz r5, __AR_StackPointer@sda21(r13)
+/* 8036DAC8 0036AA28  90 0D AB 4C */	stw r0, __AR_FreeBlocks@sda21(r13)
 /* 8036DACC 0036AA2C  7C 06 28 50 */	subf r0, r6, r5
-/* 8036DAD0 0036AA30  90 0D AB 48 */	stw r0, lbl_805A9708@sda21(r13)
+/* 8036DAD0 0036AA30  90 0D AB 48 */	stw r0, __AR_StackPointer@sda21(r13)
 /* 8036DAD4 0036AA34  48 01 3B B5 */	bl OSRestoreInterrupts
-/* 8036DAD8 0036AA38  80 6D AB 48 */	lwz r3, lbl_805A9708@sda21(r13)
+/* 8036DAD8 0036AA38  80 6D AB 48 */	lwz r3, __AR_StackPointer@sda21(r13)
 /* 8036DADC 0036AA3C  80 01 00 1C */	lwz r0, 0x1c(r1)
 /* 8036DAE0 0036AA40  83 E1 00 14 */	lwz r31, 0x14(r1)
 /* 8036DAE4 0036AA44  38 21 00 18 */	addi r1, r1, 0x18
@@ -216,7 +216,7 @@ ARInit:
 /* 8036DB04 0036AA64  3B C4 00 00 */	addi r30, r4, 0
 /* 8036DB08 0036AA68  93 A1 00 14 */	stw r29, 0x14(r1)
 /* 8036DB0C 0036AA6C  3B A3 00 00 */	addi r29, r3, 0
-/* 8036DB10 0036AA70  80 0D AB 54 */	lwz r0, lbl_805A9714@sda21(r13)
+/* 8036DB10 0036AA70  80 0D AB 54 */	lwz r0, __AR_init_flag@sda21(r13)
 /* 8036DB14 0036AA74  2C 00 00 01 */	cmpwi r0, 1
 /* 8036DB18 0036AA78  40 82 00 0C */	bne lbl_8036DB24
 /* 8036DB1C 0036AA7C  38 60 40 00 */	li r3, 0x4000
@@ -227,7 +227,7 @@ lbl_8036DB24:
 /* 8036DB2C 0036AA8C  48 01 3B 35 */	bl OSDisableInterrupts
 /* 8036DB30 0036AA90  38 00 00 00 */	li r0, 0
 /* 8036DB34 0036AA94  3C 80 80 37 */	lis r4, __ARHandler@ha
-/* 8036DB38 0036AA98  90 0D AB 38 */	stw r0, lbl_805A96F8@sda21(r13)
+/* 8036DB38 0036AA98  90 0D AB 38 */	stw r0, __AR_Callback@sda21(r13)
 /* 8036DB3C 0036AA9C  3B E3 00 00 */	addi r31, r3, 0
 /* 8036DB40 0036AAA0  38 84 DB C4 */	addi r4, r4, __ARHandler@l
 /* 8036DB44 0036AAA4  38 60 00 06 */	li r3, 6
@@ -235,11 +235,11 @@ lbl_8036DB24:
 /* 8036DB4C 0036AAAC  3C 60 02 00 */	lis r3, 0x200
 /* 8036DB50 0036AAB0  48 01 3F 61 */	bl __OSUnmaskInterrupts
 /* 8036DB54 0036AAB4  38 00 40 00 */	li r0, 0x4000
-/* 8036DB58 0036AAB8  93 CD AB 4C */	stw r30, lbl_805A970C@sda21(r13)
+/* 8036DB58 0036AAB8  93 CD AB 4C */	stw r30, __AR_FreeBlocks@sda21(r13)
 /* 8036DB5C 0036AABC  3C 60 CC 00 */	lis r3, 0xCC005000@ha
-/* 8036DB60 0036AAC0  90 0D AB 48 */	stw r0, lbl_805A9708@sda21(r13)
+/* 8036DB60 0036AAC0  90 0D AB 48 */	stw r0, __AR_StackPointer@sda21(r13)
 /* 8036DB64 0036AAC4  38 83 50 00 */	addi r4, r3, 0xCC005000@l
-/* 8036DB68 0036AAC8  93 AD AB 50 */	stw r29, lbl_805A9710@sda21(r13)
+/* 8036DB68 0036AAC8  93 AD AB 50 */	stw r29, __AR_BlockLength@sda21(r13)
 /* 8036DB6C 0036AACC  A0 04 00 1A */	lhz r0, 0x1a(r4)
 /* 8036DB70 0036AAD0  A0 63 50 1A */	lhz r3, 0x501a(r3)
 /* 8036DB74 0036AAD4  54 00 00 2E */	rlwinm r0, r0, 0, 0, 0x17
@@ -247,10 +247,10 @@ lbl_8036DB24:
 /* 8036DB7C 0036AADC  B0 04 00 1A */	sth r0, 0x1a(r4)
 /* 8036DB80 0036AAE0  48 00 00 BD */	bl __ARChecksize
 /* 8036DB84 0036AAE4  38 00 00 01 */	li r0, 1
-/* 8036DB88 0036AAE8  90 0D AB 54 */	stw r0, lbl_805A9714@sda21(r13)
+/* 8036DB88 0036AAE8  90 0D AB 54 */	stw r0, __AR_init_flag@sda21(r13)
 /* 8036DB8C 0036AAEC  7F E3 FB 78 */	mr r3, r31
 /* 8036DB90 0036AAF0  48 01 3A F9 */	bl OSRestoreInterrupts
-/* 8036DB94 0036AAF4  80 6D AB 48 */	lwz r3, lbl_805A9708@sda21(r13)
+/* 8036DB94 0036AAF4  80 6D AB 48 */	lwz r3, __AR_StackPointer@sda21(r13)
 lbl_8036DB98:
 /* 8036DB98 0036AAF8  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8036DB9C 0036AAFC  83 E1 00 1C */	lwz r31, 0x1c(r1)
@@ -267,7 +267,7 @@ ARGetBaseAddress:
 
 .global ARGetSize
 ARGetSize:
-/* 8036DBBC 0036AB1C  80 6D AB 3C */	lwz r3, lbl_805A96FC@sda21(r13)
+/* 8036DBBC 0036AB1C  80 6D AB 3C */	lwz r3, __AR_Size@sda21(r13)
 /* 8036DBC0 0036AB20  4E 80 00 20 */	blr
 
 .global __ARHandler
@@ -288,7 +288,7 @@ __ARHandler:
 /* 8036DBF8 0036AB58  48 01 1A 1D */	bl OSClearContext
 /* 8036DBFC 0036AB5C  38 61 00 10 */	addi r3, r1, 0x10
 /* 8036DC00 0036AB60  48 01 18 1D */	bl OSSetCurrentContext
-/* 8036DC04 0036AB64  81 8D AB 38 */	lwz r12, lbl_805A96F8@sda21(r13)
+/* 8036DC04 0036AB64  81 8D AB 38 */	lwz r12, __AR_Callback@sda21(r13)
 /* 8036DC08 0036AB68  28 0C 00 00 */	cmplwi r12, 0
 /* 8036DC0C 0036AB6C  41 82 00 0C */	beq lbl_8036DC18
 /* 8036DC10 0036AB70  7D 88 03 A6 */	mtlr r12
@@ -321,7 +321,7 @@ lbl_8036DC54:
 /* 8036DC68 0036ABC8  90 01 02 48 */	stw r0, 0x248(r1)
 /* 8036DC6C 0036ABCC  3C 60 01 00 */	lis r3, 0x01000000@ha
 /* 8036DC70 0036ABD0  38 01 01 F3 */	addi r0, r1, 0x1f3
-/* 8036DC74 0036ABD4  90 6D AB 40 */	stw r3, lbl_805A9700@sda21(r13)
+/* 8036DC74 0036ABD4  90 6D AB 40 */	stw r3, __AR_InternalSize@sda21(r13)
 /* 8036DC78 0036ABD8  3C A0 DE AE */	lis r5, 0xDEADBEEF@ha
 /* 8036DC7C 0036ABDC  80 81 02 48 */	lwz r4, 0x248(r1)
 /* 8036DC80 0036ABE0  54 16 00 34 */	rlwinm r22, r0, 0, 0, 0x1a
@@ -379,7 +379,7 @@ lbl_8036DC54:
 /* 8036DD50 0036ACB0  38 80 00 20 */	li r4, 0x20
 /* 8036DD54 0036ACB4  48 01 0D 5D */	bl DCFlushRange
 /* 8036DD58 0036ACB8  38 00 00 00 */	li r0, 0
-/* 8036DD5C 0036ACBC  90 0D AB 44 */	stw r0, lbl_805A9704@sda21(r13)
+/* 8036DD5C 0036ACBC  90 0D AB 44 */	stw r0, __AR_ExpansionSize@sda21(r13)
 /* 8036DD60 0036ACC0  38 7C 00 00 */	addi r3, r28, 0
 /* 8036DD64 0036ACC4  38 80 00 20 */	li r4, 0x20
 /* 8036DD68 0036ACC8  48 01 0D 1D */	bl DCInvalidateRange
@@ -909,7 +909,7 @@ lbl_8036E550:
 /* 8036E56C 0036B4CC  60 63 00 20 */	ori r3, r3, 0x20
 /* 8036E570 0036B4D0  B0 7F 00 00 */	sth r3, 0(r31)
 /* 8036E574 0036B4D4  3E 73 00 20 */	addis r19, r19, 0x20
-/* 8036E578 0036B4D8  90 0D AB 44 */	stw r0, lbl_805A9704@sda21(r13)
+/* 8036E578 0036B4D8  90 0D AB 44 */	stw r0, __AR_ExpansionSize@sda21(r13)
 /* 8036E57C 0036B4DC  48 00 0E 78 */	b lbl_8036F3F4
 lbl_8036E580:
 /* 8036E580 0036B4E0  A0 19 00 00 */	lhz r0, 0(r25)
@@ -1116,7 +1116,7 @@ lbl_8036E870:
 /* 8036E890 0036B7F0  B0 1F 00 00 */	sth r0, 0(r31)
 /* 8036E894 0036B7F4  3E 73 00 40 */	addis r19, r19, 0x40
 /* 8036E898 0036B7F8  A0 01 02 70 */	lhz r0, 0x270(r1)
-/* 8036E89C 0036B7FC  90 6D AB 44 */	stw r3, lbl_805A9704@sda21(r13)
+/* 8036E89C 0036B7FC  90 6D AB 44 */	stw r3, __AR_ExpansionSize@sda21(r13)
 /* 8036E8A0 0036B800  60 00 00 08 */	ori r0, r0, 8
 /* 8036E8A4 0036B804  B0 01 02 70 */	sth r0, 0x270(r1)
 /* 8036E8A8 0036B808  48 00 0B 4C */	b lbl_8036F3F4
@@ -1367,7 +1367,7 @@ lbl_8036EC40:
 /* 8036EC60 0036BBC0  B0 1F 00 00 */	sth r0, 0(r31)
 /* 8036EC64 0036BBC4  3E 73 00 80 */	addis r19, r19, 0x80
 /* 8036EC68 0036BBC8  A0 01 02 70 */	lhz r0, 0x270(r1)
-/* 8036EC6C 0036BBCC  90 6D AB 44 */	stw r3, lbl_805A9704@sda21(r13)
+/* 8036EC6C 0036BBCC  90 6D AB 44 */	stw r3, __AR_ExpansionSize@sda21(r13)
 /* 8036EC70 0036BBD0  60 00 00 10 */	ori r0, r0, 0x10
 /* 8036EC74 0036BBD4  B0 01 02 70 */	sth r0, 0x270(r1)
 /* 8036EC78 0036BBD8  48 00 07 7C */	b lbl_8036F3F4
@@ -1658,7 +1658,7 @@ lbl_8036F0AC:
 /* 8036F0CC 0036C02C  B0 1F 00 00 */	sth r0, 0(r31)
 /* 8036F0D0 0036C030  3E 73 01 00 */	addis r19, r19, 0x100
 /* 8036F0D4 0036C034  A0 01 02 70 */	lhz r0, 0x270(r1)
-/* 8036F0D8 0036C038  90 6D AB 44 */	stw r3, lbl_805A9704@sda21(r13)
+/* 8036F0D8 0036C038  90 6D AB 44 */	stw r3, __AR_ExpansionSize@sda21(r13)
 /* 8036F0DC 0036C03C  60 00 00 18 */	ori r0, r0, 0x18
 /* 8036F0E0 0036C040  B0 01 02 70 */	sth r0, 0x270(r1)
 /* 8036F0E4 0036C044  48 00 03 10 */	b lbl_8036F3F4
@@ -1860,7 +1860,7 @@ lbl_8036F3BC:
 /* 8036F3DC 0036C33C  B0 1F 00 00 */	sth r0, 0(r31)
 /* 8036F3E0 0036C340  3E 73 02 00 */	addis r19, r19, 0x200
 /* 8036F3E4 0036C344  A0 01 02 70 */	lhz r0, 0x270(r1)
-/* 8036F3E8 0036C348  90 6D AB 44 */	stw r3, lbl_805A9704@sda21(r13)
+/* 8036F3E8 0036C348  90 6D AB 44 */	stw r3, __AR_ExpansionSize@sda21(r13)
 /* 8036F3EC 0036C34C  60 00 00 20 */	ori r0, r0, 0x20
 /* 8036F3F0 0036C350  B0 01 02 70 */	sth r0, 0x270(r1)
 lbl_8036F3F4:
@@ -1874,7 +1874,7 @@ lbl_8036F3F4:
 lbl_8036F410:
 /* 8036F410 0036C370  3C 60 C0 00 */	lis r3, 0xC00000D0@ha
 /* 8036F414 0036C374  92 63 00 D0 */	stw r19, 0xC00000D0@l(r3)
-/* 8036F418 0036C378  92 6D AB 3C */	stw r19, lbl_805A96FC@sda21(r13)
+/* 8036F418 0036C378  92 6D AB 3C */	stw r19, __AR_Size@sda21(r13)
 /* 8036F41C 0036C37C  80 01 02 C4 */	lwz r0, 0x2c4(r1)
 /* 8036F420 0036C380  B9 C1 02 78 */	lmw r14, 0x278(r1)
 /* 8036F424 0036C384  38 21 02 C0 */	addi r1, r1, 0x2c0
