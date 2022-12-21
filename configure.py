@@ -708,11 +708,11 @@ LIBS = [
     },
     {
         "lib": "ar",
-        "mwcc_version": "1.2.5",
+        "mwcc_version": "1.2.5e",
         "cflags": "$cflags_base",
         "host": False,
         "objects": [
-            "Dolphin/ar/ar",
+            ["Dolphin/ar/ar", False],
             "Dolphin/ar/arq",
         ],
     },

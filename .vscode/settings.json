@@ -48,7 +48,8 @@
     "osinterrupt.h": "c",
     "osmodule.h": "c",
     "dsp_regs.h": "c",
-    "dsp.h": "c"
+    "dsp.h": "c",
+    "ar.h": "c"
   },
   "files.autoSave": "onFocusChange",
   "files.insertFinalNewline": true,
