@@ -1,7 +1,7 @@
 .include "macros.inc"
 
 .section .bss
-.balign 8
+.balign 32
 .global lbl_80569F60
 lbl_80569F60:
 	.skip 0x118
@@ -8049,4 +8049,3 @@ THPInit:
 /* 803C90BC 003C601C  38 21 00 10 */	addi r1, r1, 0x10
 /* 803C90C0 003C6020  7C 08 03 A6 */	mtlr r0
 /* 803C90C4 003C6024  4E 80 00 20 */	blr
-

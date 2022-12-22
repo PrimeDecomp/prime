@@ -1005,8 +1005,8 @@ LIBS = [
         "cflags": "$cflags_base",
         "host": False,
         "objects": [
-            "Dolphin/exi/EXIBios",
-            "Dolphin/exi/EXIUart",
+            ["Dolphin/exi/EXIBios", True],
+            ["Dolphin/exi/EXIUart", True],
         ],
     },
     {
