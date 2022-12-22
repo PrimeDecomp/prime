@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803E7068
-lbl_803E7068:
+.global __vt__20CScriptStreamedMusic
+__vt__20CScriptStreamedMusic:
 	# ROM: 0x3E4068
 	.4byte 0
 	.4byte 0
@@ -49,9 +49,9 @@ __dt__20CScriptStreamedMusicFv:
 /* 8020BE30 00208D90  93 C1 00 08 */	stw r30, 8(r1)
 /* 8020BE34 00208D94  7C 7E 1B 79 */	or. r30, r3, r3
 /* 8020BE38 00208D98  41 82 00 3C */	beq lbl_8020BE74
-/* 8020BE3C 00208D9C  3C 60 80 3E */	lis r3, lbl_803E7068@ha
+/* 8020BE3C 00208D9C  3C 60 80 3E */	lis r3, __vt__20CScriptStreamedMusic@ha
 /* 8020BE40 00208DA0  34 1E 00 34 */	addic. r0, r30, 0x34
-/* 8020BE44 00208DA4  38 03 70 68 */	addi r0, r3, lbl_803E7068@l
+/* 8020BE44 00208DA4  38 03 70 68 */	addi r0, r3, __vt__20CScriptStreamedMusic@l
 /* 8020BE48 00208DA8  90 1E 00 00 */	stw r0, 0(r30)
 /* 8020BE4C 00208DAC  41 82 00 0C */	beq lbl_8020BE58
 /* 8020BE50 00208DB0  38 7E 00 34 */	addi r3, r30, 0x34
@@ -339,8 +339,8 @@ lbl_8020C23C:
 /* 8020C23C 0020919C  38 21 00 40 */	addi r1, r1, 0x40
 /* 8020C240 002091A0  4E 80 00 20 */	blr
 
-.global sub_8020c244
-sub_8020c244:
+.global TweakOverride__20CScriptStreamedMusicFR13CStateManager
+TweakOverride__20CScriptStreamedMusicFR13CStateManager:
 /* 8020C244 002091A4  94 21 FF 90 */	stwu r1, -0x70(r1)
 /* 8020C248 002091A8  7C 08 02 A6 */	mflr r0
 /* 8020C24C 002091AC  90 01 00 74 */	stw r0, 0x74(r1)
@@ -362,7 +362,7 @@ sub_8020c244:
 /* 8020C28C 002091EC  7C 86 00 2E */	lwzx r4, r6, r0
 /* 8020C290 002091F0  90 E1 00 10 */	stw r7, 0x10(r1)
 /* 8020C294 002091F4  80 84 00 84 */	lwz r4, 0x84(r4)
-/* 8020C298 002091F8  48 01 08 A1 */	bl sub_8021cb38
+/* 8020C298 002091F8  48 01 08 A1 */	bl sub_8021cb38__19CInGameTweakManagerFv
 /* 8020C29C 002091FC  38 61 00 34 */	addi r3, r1, 0x34
 /* 8020C2A0 00209200  38 81 00 14 */	addi r4, r1, 0x14
 /* 8020C2A4 00209204  48 13 1E BD */	bl "__ct__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>FRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
@@ -391,7 +391,7 @@ sub_8020c244:
 /* 8020C300 00209260  8B E1 00 08 */	lbz r31, 8(r1)
 /* 8020C304 00209264  48 13 1A 59 */	bl "assign__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>FRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 /* 8020C308 00209268  38 7E 00 34 */	addi r3, r30, 0x34
-/* 8020C30C 0020926C  48 00 03 65 */	bl IsDSPFile__20CScriptStreamedMusicFRCQ24rstl6string
+/* 8020C30C 0020926C  48 00 03 65 */	bl "IsDSPFile__20CScriptStreamedMusicFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 /* 8020C310 00209270  98 7E 00 45 */	stb r3, 0x45(r30)
 /* 8020C314 00209274  7F E0 07 74 */	extsb r0, r31
 /* 8020C318 00209278  7F C3 F3 78 */	mr r3, r30
@@ -427,7 +427,7 @@ StopStream__20CScriptStreamedMusicFR13CStateManager:
 /* 8020C380 002092E0  88 63 00 46 */	lbz r3, 0x46(r3)
 /* 8020C384 002092E4  48 00 04 5D */	bl IsOneShot__20CScriptStreamedMusicFb
 /* 8020C388 002092E8  38 9F 00 34 */	addi r4, r31, 0x34
-/* 8020C38C 002092EC  48 15 9C 39 */	bl Stop__19CStreamAudioManagerFiRCQ24rstl6string
+/* 8020C38C 002092EC  48 15 9C 39 */	bl "Stop__19CStreamAudioManagerFiRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 /* 8020C390 002092F0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8020C394 002092F4  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8020C398 002092F8  7C 08 03 A6 */	mtlr r0
@@ -524,7 +524,7 @@ Play__20CScriptStreamedMusicFR13CStateManager:
 /* 8020C4B8 00209418  7C 9F 23 78 */	mr r31, r4
 /* 8020C4BC 0020941C  93 C1 00 08 */	stw r30, 8(r1)
 /* 8020C4C0 00209420  7C 7E 1B 78 */	mr r30, r3
-/* 8020C4C4 00209424  4B FF FD 81 */	bl sub_8020c244
+/* 8020C4C4 00209424  4B FF FD 81 */	bl TweakOverride__20CScriptStreamedMusicFR13CStateManager
 /* 8020C4C8 00209428  88 1E 00 45 */	lbz r0, 0x45(r30)
 /* 8020C4CC 0020942C  28 00 00 00 */	cmplwi r0, 0
 /* 8020C4D0 00209430  41 82 00 14 */	beq lbl_8020C4E4
@@ -585,7 +585,6 @@ AcceptScriptMsg__20CScriptStreamedMusicF20EScriptObjectMessage9TUniqueIdR13CStat
 /* 8020C58C 002094EC  7C 03 00 2E */	lwzx r0, r3, r0
 /* 8020C590 002094F0  7C 09 03 A6 */	mtctr r0
 /* 8020C594 002094F4  4E 80 04 20 */	bctr
-.global lbl_8020C598
 lbl_8020C598:
 /* 8020C598 002094F8  88 1D 00 30 */	lbz r0, 0x30(r29)
 /* 8020C59C 002094FC  54 00 CF FF */	rlwinm. r0, r0, 0x19, 0x1f, 0x1f
@@ -594,7 +593,6 @@ lbl_8020C598:
 /* 8020C5A8 00209508  7F E4 FB 78 */	mr r4, r31
 /* 8020C5AC 0020950C  4B FF FE FD */	bl Play__20CScriptStreamedMusicFR13CStateManager
 /* 8020C5B0 00209510  48 00 00 A4 */	b lbl_8020C654
-.global lbl_8020C5B4
 lbl_8020C5B4:
 /* 8020C5B4 00209514  88 1D 00 30 */	lbz r0, 0x30(r29)
 /* 8020C5B8 00209518  54 00 CF FF */	rlwinm. r0, r0, 0x19, 0x1f, 0x1f
@@ -603,7 +601,6 @@ lbl_8020C5B4:
 /* 8020C5C4 00209524  7F E4 FB 78 */	mr r4, r31
 /* 8020C5C8 00209528  4B FF FE AD */	bl Stop__20CScriptStreamedMusicFR13CStateManager
 /* 8020C5CC 0020952C  48 00 00 88 */	b lbl_8020C654
-.global lbl_8020C5D0
 lbl_8020C5D0:
 /* 8020C5D0 00209530  88 7D 00 45 */	lbz r3, 0x45(r29)
 /* 8020C5D4 00209534  28 03 00 00 */	cmplwi r3, 0
@@ -619,7 +616,6 @@ lbl_8020C5F0:
 /* 8020C5F4 00209554  7F E4 FB 78 */	mr r4, r31
 /* 8020C5F8 00209558  4B FF FE 7D */	bl Stop__20CScriptStreamedMusicFR13CStateManager
 /* 8020C5FC 0020955C  48 00 00 58 */	b lbl_8020C654
-.global lbl_8020C600
 lbl_8020C600:
 /* 8020C600 00209560  88 1D 00 45 */	lbz r0, 0x45(r29)
 /* 8020C604 00209564  28 00 00 00 */	cmplwi r0, 0
@@ -633,7 +629,6 @@ lbl_8020C620:
 /* 8020C620 00209580  C0 3D 00 48 */	lfs f1, 0x48(r29)
 /* 8020C624 00209584  48 15 8D D5 */	bl sub_803653f8
 /* 8020C628 00209588  48 00 00 2C */	b lbl_8020C654
-.global lbl_8020C62C
 lbl_8020C62C:
 /* 8020C62C 0020958C  88 1D 00 45 */	lbz r0, 0x45(r29)
 /* 8020C630 00209590  28 00 00 00 */	cmplwi r0, 0
@@ -646,7 +641,6 @@ lbl_8020C62C:
 lbl_8020C64C:
 /* 8020C64C 002095AC  C0 3D 00 4C */	lfs f1, 0x4c(r29)
 /* 8020C650 002095B0  48 15 8D D5 */	bl sub_80365424
-.global lbl_8020C654
 lbl_8020C654:
 /* 8020C654 002095B4  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8020C658 002095B8  83 E1 00 1C */	lwz r31, 0x1c(r1)
@@ -656,8 +650,8 @@ lbl_8020C654:
 /* 8020C668 002095C8  38 21 00 20 */	addi r1, r1, 0x20
 /* 8020C66C 002095CC  4E 80 00 20 */	blr
 
-.global IsDSPFile__20CScriptStreamedMusicFRCQ24rstl6string
-IsDSPFile__20CScriptStreamedMusicFRCQ24rstl6string:
+.global "IsDSPFile__20CScriptStreamedMusicFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
+"IsDSPFile__20CScriptStreamedMusicFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>":
 /* 8020C670 002095D0  94 21 FF C0 */	stwu r1, -0x40(r1)
 /* 8020C674 002095D4  7C 08 02 A6 */	mflr r0
 /* 8020C678 002095D8  3C 80 80 3D */	lis r4, lbl_803D2778@ha
@@ -710,8 +704,8 @@ lbl_8020C6FC:
 nullsub_42:
 /* 8020C724 00209684  4E 80 00 20 */	blr
 
-.global "__ct__20CScriptStreamedMusicF9TUniqueIdRC11CEntityInfoRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>bRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>bffi"
-"__ct__20CScriptStreamedMusicF9TUniqueIdRC11CEntityInfoRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>bRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>bffi":
+.global "__ct__20CScriptStreamedMusicF9TUniqueIdRC11CEntityInfoRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>bRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>bffUibb"
+"__ct__20CScriptStreamedMusicF9TUniqueIdRC11CEntityInfoRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>bRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>bffUibb":
 /* 8020C728 00209688  94 21 FF C0 */	stwu r1, -0x40(r1)
 /* 8020C72C 0020968C  7C 08 02 A6 */	mflr r0
 /* 8020C730 00209690  90 01 00 44 */	stw r0, 0x44(r1)
@@ -733,15 +727,15 @@ nullsub_42:
 /* 8020C770 002096D0  7C 87 23 78 */	mr r7, r4
 /* 8020C774 002096D4  38 81 00 08 */	addi r4, r1, 8
 /* 8020C778 002096D8  4B E4 4B AD */	bl "__ct__7CEntityF9TUniqueIdRC11CEntityInfobRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
-/* 8020C77C 002096DC  3C 60 80 3E */	lis r3, lbl_803E7068@ha
+/* 8020C77C 002096DC  3C 60 80 3E */	lis r3, __vt__20CScriptStreamedMusic@ha
 /* 8020C780 002096E0  7F 64 DB 78 */	mr r4, r27
-/* 8020C784 002096E4  38 03 70 68 */	addi r0, r3, lbl_803E7068@l
+/* 8020C784 002096E4  38 03 70 68 */	addi r0, r3, __vt__20CScriptStreamedMusic@l
 /* 8020C788 002096E8  38 7A 00 34 */	addi r3, r26, 0x34
 /* 8020C78C 002096EC  90 1A 00 00 */	stw r0, 0(r26)
 /* 8020C790 002096F0  48 13 19 D1 */	bl "__ct__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>FRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 /* 8020C794 002096F4  9B 9A 00 44 */	stb r28, 0x44(r26)
 /* 8020C798 002096F8  7F 63 DB 78 */	mr r3, r27
-/* 8020C79C 002096FC  4B FF FE D5 */	bl IsDSPFile__20CScriptStreamedMusicFRCQ24rstl6string
+/* 8020C79C 002096FC  4B FF FE D5 */	bl "IsDSPFile__20CScriptStreamedMusicFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 /* 8020C7A0 00209700  98 7A 00 45 */	stb r3, 0x45(r26)
 /* 8020C7A4 00209704  7F 43 D3 78 */	mr r3, r26
 /* 8020C7A8 00209708  9B DA 00 46 */	stb r30, 0x46(r26)

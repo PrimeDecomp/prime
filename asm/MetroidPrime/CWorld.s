@@ -3450,7 +3450,7 @@ lbl_8005897C:
 /* 80058A18 00055978  8B 21 00 08 */	lbz r25, 8(r1)
 lbl_80058A1C:
 /* 80058A1C 0005597C  38 7F 00 84 */	addi r3, r31, 0x84
-/* 80058A20 00055980  48 1B 3C 51 */	bl IsDSPFile__20CScriptStreamedMusicFRCQ24rstl6string
+/* 80058A20 00055980  48 1B 3C 51 */	bl "IsDSPFile__20CScriptStreamedMusicFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 /* 80058A24 00055984  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 80058A28 00055988  40 82 00 18 */	bne lbl_80058A40
 /* 80058A2C 0005598C  C0 22 86 A0 */	lfs f1, lbl_805AA3C0@sda21(r2)

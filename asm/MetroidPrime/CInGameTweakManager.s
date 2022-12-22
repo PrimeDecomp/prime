@@ -729,8 +729,8 @@ lbl_8021CB2C:
 /* 8021CB30 00219A90  38 21 00 60 */	addi r1, r1, 0x60
 /* 8021CB34 00219A94  4E 80 00 20 */	blr
 
-.global sub_8021cb38
-sub_8021cb38:
+.global sub_8021cb38__19CInGameTweakManagerFv
+sub_8021cb38__19CInGameTweakManagerFv:
 /* 8021CB38 00219A98  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 8021CB3C 00219A9C  7C 08 02 A6 */	mflr r0
 /* 8021CB40 00219AA0  3C C0 80 3D */	lis r6, lbl_803D3038@ha
@@ -1466,4 +1466,3 @@ lbl_803D3038:
 	.asciz "alue:"
 	.byte 0x20, 0x09
 	.4byte 0x0A0D2200
-
