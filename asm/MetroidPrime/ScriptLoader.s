@@ -6637,7 +6637,7 @@ lbl_800CB070:
 /* 800CB140 000C80A0  38 81 00 18 */	addi r4, r1, 0x18
 /* 800CB144 000C80A4  38 C1 00 2C */	addi r6, r1, 0x2c
 /* 800CB148 000C80A8  39 01 00 1C */	addi r8, r1, 0x1c
-/* 800CB14C 000C80AC  48 14 15 DD */	bl "__ct__20CScriptStreamedMusicF9TUniqueIdRC11CEntityInfoRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>bRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>bffi"
+/* 800CB14C 000C80AC  48 14 15 DD */	bl "__ct__20CScriptStreamedMusicF9TUniqueIdRC11CEntityInfoRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>bRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>bffUibb"
 /* 800CB150 000C80B0  7C 7B 1B 78 */	mr r27, r3
 lbl_800CB154:
 /* 800CB154 000C80B4  38 61 00 1C */	addi r3, r1, 0x1c

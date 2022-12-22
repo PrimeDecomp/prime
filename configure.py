@@ -291,7 +291,7 @@ LIBS = [
             ["MetroidPrime/Enemies/CFlaahgraPlants", True],
             "MetroidPrime/CWorldTransManager",
             ["MetroidPrime/ScriptObjects/CScriptMidi", False],
-            "MetroidPrime/ScriptObjects/CScriptStreamedAudio",
+            ["MetroidPrime/ScriptObjects/CScriptStreamedAudio", False],
             "MetroidPrime/CRagDoll",
             ["MetroidPrime/Player/CGameOptions", False],
             ["MetroidPrime/ScriptObjects/CRepulsor", True],

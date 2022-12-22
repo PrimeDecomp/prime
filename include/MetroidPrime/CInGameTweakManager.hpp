@@ -62,6 +62,8 @@ public:
   const CTweakValue* GetTweakValue(const rstl::string& name) const;
   bool ReadFromMemoryCard(const rstl::string&);
 
+  static rstl::string sub_8021cb38();
+
   static rstl::string GetIdentifierForMidiEvent(CAssetId world, CAssetId area, const rstl::string& midiObj);
 
 private:
