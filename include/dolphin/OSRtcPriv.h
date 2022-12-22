@@ -28,5 +28,7 @@ typedef struct OSSramEx {
 
 OSSram* __OSLockSram();
 OSSramEx* __OSLockSramEx();
+void OSSetWirelessID(s32 chan, u16 id);
+u16 OSGetWirelessID(s32 chan);
 
 #endif // _DOLPHIN_OSRTCPRIV

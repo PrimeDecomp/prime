@@ -472,7 +472,7 @@ lbl_8038428C:
 #endif
 
 #if NONMATCHING
-u32 OSGetWirelessID(u32 channel) {
+u16 OSGetWirelessID(s32 channel) {
   OSSramEx* sram;
   u16 id;
 
@@ -487,7 +487,7 @@ u32 OSGetWirelessID(u32 channel) {
 #pragma optimization_level 
 #pragma optimizewithasm off
 
-asm u32 OSGetWirelessID(u32 channel) {
+asm u16 OSGetWirelessID(s32 channel) {
   nofralloc
   mflr r0
   lis r4, Scb@ha
@@ -530,7 +530,7 @@ lbl_80384304:
 #endif
 
 
-void OSSetWirelessID(u32 channel, u16 id) {
+void OSSetWirelessID(s32 channel, u16 id) {
   OSSramEx* sram;
 
   sram = __OSLockSramEx();
