@@ -2,22 +2,16 @@
 
 .section .bss
 .balign 8
-.global Packet
 Packet:
 	.skip 0x80
-.global lbl_80569D18
 lbl_80569D18:
 	.skip 0xA0
-.global lbl_80569DB8
 lbl_80569DB8:
 	.skip 0x20
-.global lbl_80569DD8
 lbl_80569DD8:
 	.skip 0x20
-.global lbl_80569DF8
 lbl_80569DF8:
 	.skip 0x40
-.global lbl_80569E38
 lbl_80569E38:
 	.skip 0x60
 
@@ -25,13 +19,11 @@ lbl_80569E38:
 .section .data, "wa"
 .balign 8
 
-.global lbl_803F6EA0
 lbl_803F6EA0:
 	.asciz "<< Dolphin SDK - SI\trelease build: Sep  5 2002 05:33:08 (0x2301) >>"
 
 .balign 4
 
-.global Si
 Si:
 	# ROM: 0x3F3EE4
 	.4byte 0xFFFFFFFF
@@ -41,7 +33,6 @@ Si:
 	.4byte 0
 
 
-.global Type
 Type:
 	# ROM: 0x3F3EF8
 	.4byte 0x00000008
@@ -65,28 +56,23 @@ Type:
 	.asciz "Keyboard"
 	.balign 4
 	.asciz "Steering"
-	.balign 4
-	.4byte 0
 
 
 .section .sdata, "wa"
 .balign 8
-.global __SIVersion
 __SIVersion:
 	.4byte lbl_803F6EA0
 	.skip 4
 
 .section .sbss, "wa"
 .balign 8
-.global lbl_805A9BD0
 lbl_805A9BD0:
 	.skip 0x4
-.global lbl_805A9BD4
 lbl_805A9BD4:
 	.skip 0x4
 .global __PADFixBits
 __PADFixBits:
-	.skip 0x8
+	.skip 0x4
 
 
 
@@ -1196,7 +1182,7 @@ lbl_803BF5EC:
 /* 803BF604 003BC564  7C 08 03 A6 */	mtlr r0
 /* 803BF608 003BC568  4E 80 00 20 */	blr
 
-AlarmHandler:
+.fn AlarmHandler, local
 /* 803BF60C 003BC56C  7C 08 02 A6 */	mflr r0
 /* 803BF610 003BC570  3C 80 80 57 */	lis r4, lbl_80569D18@ha
 /* 803BF614 003BC574  90 01 00 04 */	stw r0, 4(r1)
@@ -1233,6 +1219,7 @@ lbl_803BF684:
 /* 803BF68C 003BC5EC  38 21 00 20 */	addi r1, r1, 0x20
 /* 803BF690 003BC5F0  7C 08 03 A6 */	mtlr r0
 /* 803BF694 003BC5F4  4E 80 00 20 */	blr
+.endfn AlarmHandler
 
 .global SITransfer
 SITransfer:
