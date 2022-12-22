@@ -146,10 +146,10 @@ public:
 };
 
 template <typename T>
-inline pair_sorter_finder< T::value_type, less< select1st< typename T::value_type >::value_type > > default_pair_sorter_finder()
+inline pair_sorter_finder< typename T::value_type, less< typename select1st< typename T::value_type >::value_type > > default_pair_sorter_finder()
 {
-    less< select1st< typename T::value_type >::value_type > l;
-    pair_sorter_finder< T::value_type, less< select1st< typename T::value_type >::value_type > > a(l);
+    less< typename select1st< typename T::value_type >::value_type > l;
+    pair_sorter_finder< typename T::value_type, less< typename select1st< typename T::value_type >::value_type > > a(l);
     return a;
 }
 

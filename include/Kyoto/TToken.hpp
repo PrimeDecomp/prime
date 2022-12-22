@@ -39,8 +39,8 @@ public:
     if (x8_item != nullptr) {
       return true;
     }
-    if (HasLock() && CToken::IsLoaded()) {
-      x8_item = TToken::GetT();
+    if (CToken::HasLock() && CToken::IsLoaded()) {
+      x8_item = TToken< T >::GetT();
       return true;
     } else {
       return false;

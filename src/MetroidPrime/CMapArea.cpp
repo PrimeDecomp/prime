@@ -13,6 +13,7 @@
 
 #include "dolphin/os.h"
 #include "limits.h"
+#include "stdint.h"
 
 static const CVector3f MinesPostTransforms[3] = {
     CVector3f(0.f, 0.f, 200.f),

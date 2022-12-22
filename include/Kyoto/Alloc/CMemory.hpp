@@ -42,11 +42,11 @@ inline void* operator new(size_t n, void* ptr) { return ptr; };
 #ifdef __MWERKS__
 inline void operator delete(void* ptr) { CMemory::Free(ptr); }
 inline void operator delete[](void* ptr) { CMemory::Free(ptr); }
+#define NEW new ("??(??)", nullptr)
 #else
 __attribute__((weak)) void operator delete(void* ptr) { CMemory::Free(ptr); }
 __attribute__((weak)) void operator delete[](void* ptr) { CMemory::Free(ptr); }
+#define NEW new
 #endif
-
-#define NEW new ("??(??)", nullptr)
 
 #endif // _CMEMORY

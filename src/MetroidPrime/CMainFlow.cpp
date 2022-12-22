@@ -85,8 +85,6 @@ void CMainFlow::SetGameState(EClientFlowStates state, CArchitectureQueue& queue)
         break;
       }
       break;
-    default:
-      break;
     }
     break;
   }

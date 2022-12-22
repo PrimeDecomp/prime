@@ -36,23 +36,7 @@ static inline void OSInitFastCast(void) {
         mtspr   GQR5, r3
   }
 #else
-    asm volatile ("
-        li      3, 0x0004
-        oris    3, 3, 0x0004
-        mtspr   GQR2, 3
 
-        li      3, 0x0005
-        oris    3, 3, 0x0005
-        mtspr   GQR3, 3
-
-        li      3, 0x0006
-        oris    3, 3, 0x0006
-        mtspr   GQR4, 3
-
-        li      3, 0x0007
-        oris    3, 3, 0x0007
-        mtspr   GQR5, 3
-    " : : : "r3" );
 #endif
 }
 // clang-format off
