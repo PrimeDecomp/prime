@@ -688,3 +688,5 @@ char* EXIGetTypeString(u32 type) {
     return "IS Viewer";
   }
 }
+
+#pragma scheduling reset
