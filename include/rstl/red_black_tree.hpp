@@ -101,9 +101,9 @@ public:
   struct iterator : public const_iterator {
     iterator(node* node, const header* header, bool b) : const_iterator(node, header, b) {}
 
-    P* operator->() { return mNode->get_value(); }
-    P* operator*() { return mNode->get_value(); }
-    node* get_node() { return mNode; }
+    P* operator->() { return const_iterator::mNode->get_value(); }
+    P* operator*() { return const_iterator::mNode->get_value(); }
+    node* get_node() { return const_iterator::mNode; }
   };
 
   red_black_tree() : x0_(0), x1_(0), x4_count(0) {}

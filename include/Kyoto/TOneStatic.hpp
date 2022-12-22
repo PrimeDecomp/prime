@@ -2,6 +2,7 @@
 #define _TONESTATIC
 
 #include "types.h"
+#include "stdio.h"
 
 template < typename T >
 class TOneStatic {

@@ -111,10 +111,10 @@ void ErrorHandler(OSError code, OSContext* context, int arg1, int arg2) {
 }
 
 void SetErrorHandlers() {
-  OSSetErrorHandler(2, (OSErrorHandler*)ErrorHandler);
-  OSSetErrorHandler(3, (OSErrorHandler*)ErrorHandler);
-  OSSetErrorHandler(5, (OSErrorHandler*)ErrorHandler);
-  OSSetErrorHandler(15, (OSErrorHandler*)ErrorHandler);
+  OSSetErrorHandler(2, (OSErrorHandler)ErrorHandler);
+  OSSetErrorHandler(3, (OSErrorHandler)ErrorHandler);
+  OSSetErrorHandler(5, (OSErrorHandler)ErrorHandler);
+  OSSetErrorHandler(15, (OSErrorHandler)ErrorHandler);
 }
 
 void rs_debugger_printf(const char* format, ...) {
