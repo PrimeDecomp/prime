@@ -50,7 +50,8 @@
     "dsp_regs.h": "c",
     "dsp.h": "c",
     "ar.h": "c",
-    "osrtcpriv.h": "c"
+    "osrtcpriv.h": "c",
+    "osbootinfo.h": "c"
   },
   "files.autoSave": "onFocusChange",
   "files.insertFinalNewline": true,
