@@ -1,4 +1,4 @@
-#include "Kyoto/Text/CSavableState.hpp"
+#include "Kyoto/Text/CSaveableState.hpp"
 
 CSaveableState::CSaveableState()
 : x54_colors(3, CTextColor(0, 0, 0, 255))
