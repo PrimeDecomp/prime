@@ -3,12 +3,14 @@
 
 #include "types.h"
 
+#include "Kyoto/TToken.hpp"
 #include "rstl/pair.hpp"
 #include "rstl/vector.hpp"
 
 class CGlyph;
 class CKernPair;
 class CTexture;
+class IObjectStore;
 
 class CFontInfo {
 private:
@@ -25,6 +27,7 @@ public:
   ~CRasterFont();
 
   void SetTexture(TToken< CTexture > token) { x7c_texture = token; }
+  bool IsFinishedLoading();
 
 private:
   bool x0_initialized;

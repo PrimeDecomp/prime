@@ -480,7 +480,9 @@ entry __OSDBJUMPSTART
 entry __OSDBJUMPEND
     /* clang-format on */
 
-} __OSExceptionHandler
+} 
+
+__OSExceptionHandler
     __OSSetExceptionHandler(__OSException exception, __OSExceptionHandler handler) {
   __OSExceptionHandler oldHandler;
   oldHandler = OSExceptionTable[exception];
