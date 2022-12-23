@@ -1,5 +1,5 @@
-#ifndef _CSAVABLESTATE
-#define _CSAVABLESTATE
+#ifndef _CSAVEABLESTATE
+#define _CSAVEABLESTATE
 
 #include "Kyoto/Text/CDrawStringOptions.hpp"
 #include "Kyoto/Text/CRasterFont.hpp"
@@ -25,4 +25,4 @@ private:
   EVerticalJustification x84_vjust;
 };
 
-#endif // _CSAVABLESTATE
+#endif // _CSAVEABLESTATE
