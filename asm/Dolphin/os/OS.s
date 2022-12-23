@@ -4,7 +4,9 @@
 .balign 8
 .global DriveInfo
 DriveInfo:
-	.skip 0x50
+	.skip 0x20
+DriveBlock:
+	.skip 0x30
 
 .section .sbss
 .balign 8
@@ -256,7 +258,7 @@ OSInit:
 /* 8037D900 0037A860  3C 80 80 00 */	lis r4, 0x800000F4@ha
 /* 8037D904 0037A864  90 0D AC C4 */	stw r0, BI2DebugFlag@sda21(r13)
 /* 8037D908 0037A868  90 8D AC C0 */	stw r4, BootInfo@sda21(r13)
-/* 8037D90C 0037A86C  90 0D AC 04 */	stw r0, lbl_805A97C4@sda21(r13)
+/* 8037D90C 0037A86C  90 0D AC 04 */	stw r0, __DVDLongFileNameFlag@sda21(r13)
 /* 8037D910 0037A870  80 64 00 F4 */	lwz r3, 0x800000F4@l(r4)
 /* 8037D914 0037A874  28 03 00 00 */	cmplwi r3, 0
 /* 8037D918 0037A878  41 82 00 34 */	beq lbl_8037D94C
@@ -285,7 +287,7 @@ lbl_8037D94C:
 lbl_8037D970:
 /* 8037D970 0037A8D0  38 00 00 01 */	li r0, 1
 /* 8037D974 0037A8D4  80 6D AC C0 */	lwz r3, BootInfo@sda21(r13)
-/* 8037D978 0037A8D8  90 0D AC 04 */	stw r0, lbl_805A97C4@sda21(r13)
+/* 8037D978 0037A8D8  90 0D AC 04 */	stw r0, __DVDLongFileNameFlag@sda21(r13)
 /* 8037D97C 0037A8DC  80 63 00 30 */	lwz r3, 0x30(r3)
 /* 8037D980 0037A8E0  28 03 00 00 */	cmplwi r3, 0
 /* 8037D984 0037A8E4  40 82 00 10 */	bne lbl_8037D994
@@ -304,8 +306,8 @@ lbl_8037D994:
 /* 8037D9B4 0037A914  80 03 00 00 */	lwz r0, 0(r3)
 /* 8037D9B8 0037A918  28 00 00 02 */	cmplwi r0, 2
 /* 8037D9BC 0037A91C  40 80 00 18 */	bge lbl_8037D9D4
-/* 8037D9C0 0037A920  3C 60 80 5C */	lis r3, _stack_addr@ha
-/* 8037D9C4 0037A924  38 63 00 C8 */	addi r3, r3, _stack_addr@l
+/* 8037D9C0 0037A920  3C 60 80 5C */	lis r3, _db_stack_end@ha
+/* 8037D9C4 0037A924  38 63 00 C8 */	addi r3, r3, _db_stack_end@l
 /* 8037D9C8 0037A928  38 03 00 1F */	addi r0, r3, 0x1f
 /* 8037D9CC 0037A92C  54 03 00 34 */	rlwinm r3, r0, 0, 0, 0x1a
 /* 8037D9D0 0037A930  48 00 0D D9 */	bl OSSetArenaLo

@@ -17,8 +17,8 @@ lbl_805A97BC:
 .global lbl_805A97C0
 lbl_805A97C0:
 	.skip 0x4
-.global lbl_805A97C4
-lbl_805A97C4:
+.global __DVDLongFileNameFlag
+__DVDLongFileNameFlag:
 	.skip 0x4
 .global __DVDThreadQueue
 __DVDThreadQueue:
@@ -139,7 +139,7 @@ lbl_803713D4:
 /* 803713DC 0036E33C  7F 43 D3 78 */	mr r3, r26
 /* 803713E0 0036E340  48 00 02 1C */	b lbl_803715FC
 lbl_803713E4:
-/* 803713E4 0036E344  80 0D AC 04 */	lwz r0, lbl_805A97C4@sda21(r13)
+/* 803713E4 0036E344  80 0D AC 04 */	lwz r0, __DVDLongFileNameFlag@sda21(r13)
 /* 803713E8 0036E348  28 00 00 00 */	cmplwi r0, 0
 /* 803713EC 0036E34C  40 82 00 AC */	bne lbl_80371498
 /* 803713F0 0036E350  3B 97 00 00 */	addi r28, r23, 0
@@ -731,4 +731,3 @@ lbl_80371B90:
 /* 80371B94 0036EAF4  38 21 00 08 */	addi r1, r1, 8
 /* 80371B98 0036EAF8  7C 08 03 A6 */	mtlr r0
 /* 80371B9C 0036EAFC  4E 80 00 20 */	blr
-
