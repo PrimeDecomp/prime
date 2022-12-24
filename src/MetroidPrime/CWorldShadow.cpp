@@ -166,13 +166,13 @@ void CWorldShadow::BuildLightShadowTexture(const CStateManager& mgr, TAreaId aid
 void CWorldShadow::EnableModelProjectedShadow(const CTransform4f& pos, uint lightIdx,
                                               float f1) const {
 
-  static float M_SQRT2 = CMath::SqrtD(2.0); // TODO: should be an inlined function
+  static float sqrt2 = CMath::SqrtD(2.0); // TODO: should be an inlined function
   CTransform4f texTransform = CTransform4f::LookAt(CVector3f::Zero(), x74_lightPos - x68_objPos,
                                                    CVector3f(0.0f, 0.0f, 1.0f));
   CTransform4f posXf = pos;
   posXf.SetTranslation(CVector3f::Zero());
   texTransform = posXf.GetInverse() * texTransform;
-  texTransform = texTransform * CTransform4f::Scale(float(M_SQRT2) * x64_objHalfExtent * f1);
+  texTransform = texTransform * CTransform4f::Scale(float(sqrt2) * x64_objHalfExtent * f1);
   texTransform = texTransform.GetInverse();
   texTransform = CTransform4f::Translate(0.5f, 0.f, 0.5f) * texTransform;
 

@@ -5,11 +5,13 @@
 #include "Kyoto/Alloc/CMemory.hpp"
 
 #include <string.h>
+#include <stdint.h>
+
 
 COutputStream::COutputStream(int len)
 : mUnwrittenLen(0)
 , mBufLen(len)
-, mBufPtr(len > 64 ? new uchar[len] : &mScratch[32 - (uint)(mScratch) % 31])
+, mBufPtr(len > 64 ? new uchar[len] : &mScratch[32 - (uintptr_t)(mScratch) % 31])
 , mNumWrites(0)
 , mShiftRegister(0)
 , mShiftRegisterOffset(32) {}

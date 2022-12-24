@@ -5,7 +5,7 @@
 
 #include "rstl/construct.hpp"
 
-#include "dolphin/OS/OSCache.h"
+#include "dolphin/os/OSCache.h"
 
 CARAMToken* CARAMToken::sLists[7];
 CARAMToken::CARAMToken() {

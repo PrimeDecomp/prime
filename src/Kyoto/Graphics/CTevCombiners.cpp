@@ -10,12 +10,14 @@ const CTevCombiners::AlphaVar CTevCombiners::skAlphaOne(CTevCombiners::kAS_Konst
 const CTevCombiners::ColorVar CTevCombiners::skColorOne(CTevCombiners::kCS_One);
 
 const CTevCombiners::CTevPass CTevCombiners::kEnvPassthru(
-    CTevCombiners::ColorPass(CTevCombiners::ColorVar(kCS_Zero), CTevCombiners::ColorVar(kCS_Zero),
-                             CTevCombiners::ColorVar(kCS_Zero),
-                             CTevCombiners::ColorVar(kCS_RasterColor)),
-    CTevCombiners::AlphaPass(CTevCombiners::AlphaVar(kAS_Zero), CTevCombiners::AlphaVar(kAS_Zero),
-                             CTevCombiners::AlphaVar(kAS_Zero),
-                             CTevCombiners::AlphaVar(kAS_RasterAlpha)));
+    CTevCombiners::ColorPass((CTevCombiners::ColorVar(CTevCombiners::kCS_Zero)),
+                             CTevCombiners::ColorVar(CTevCombiners::kCS_Zero),
+                             CTevCombiners::ColorVar(CTevCombiners::kCS_Zero),
+                             CTevCombiners::ColorVar(CTevCombiners::kCS_RasterColor)),
+    CTevCombiners::AlphaPass(CTevCombiners::AlphaVar(CTevCombiners::kAS_Zero),
+                             CTevCombiners::AlphaVar(CTevCombiners::kAS_Zero),
+                             CTevCombiners::AlphaVar(CTevCombiners::kAS_Zero),
+                             CTevCombiners::AlphaVar(CTevCombiners::kAS_RasterAlpha)));
 
 bool CTevCombiners::sValidPasses[2] = {false, false};
 uint CTevCombiners::sNumEnabledPasses = -1;
