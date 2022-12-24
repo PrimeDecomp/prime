@@ -34,17 +34,17 @@ bool ReverbHICreate(_SND_REVHI_WORK* rev, f32 coloration, f32 time, f32 mix, f32
 
   for (i = 0; i < 3; ++i) {
     for (j = 0; j < 3; ++j) {
-      DLcreate(&rev->C[i], lens[j] + 2);
-      DLsetdelay(&rev->C[i], lens[j]);
+      DLcreate(&rev->C[j + i], lens[j] + 2);
+      DLsetdelay(&rev->C[j + i], lens[j]);
       rev->combCoef[j + i * 3] = pow(10.f, (lens[j] * -3) / (32000.f * time));
     }
 
     for (j = 0; j < 2; ++j) {
-      DLcreate(&rev->AP[i], lens[j + 3] + 2);
-      DLsetdelay(&rev->AP[i], lens[j + 3]);
+      DLcreate(&rev->AP[j + i], lens[j + 3] + 2);
+      DLsetdelay(&rev->AP[j + i], lens[j + 3]);
     }
-    DLcreate(&rev->AP[i], lens[i + 5] + 2);
-    DLsetdelay(&rev->AP[i], lens[i + 5]);
+    DLcreate(&rev->AP[i + 2], lens[i + 5] + 2);
+    DLsetdelay(&rev->AP[i + 2], lens[i + 5]);
     rev->lpLastout[i] = 0.f;
   }
 
@@ -74,11 +74,32 @@ bool ReverbHICreate(_SND_REVHI_WORK* rev, f32 coloration, f32 time, f32 mix, f32
 
   return TRUE;
 }
-void DoCrossTalk() {}
 
-void HandleReverb_0() {}
+static void DoCrossTalk(s32* a, s32* b, f32 start, f32 end) {}
 
-void ReverbHICallback() {}
+static void HandleReverb(s32*, SND_AUX_REVERBHI* rev, s32) {}
+
+#pragma dont_inline on
+void ReverbHICallback(s32* left, s32* right, s32* surround, SND_AUX_REVERBHI* rev) {
+  u8 i;
+  for (i = 0; i < 3; ++i) {
+    switch (i) {
+    case 0:
+      if (rev->rv.crosstalk != 0.f) {
+        DoCrossTalk(left, right, 0.5f * rev->rv.crosstalk, 1.f - (0.5f * rev->rv.crosstalk));
+      }
+      HandleReverb(left, rev, 0);
+      break;
+    case 1:
+      HandleReverb(right, rev, 1);
+      break;
+    case 2:
+      HandleReverb(surround, rev, 2);
+      break;
+    }
+  }
+}
+#pragma dont_inline reset
 
 void ReverbHIFree(_SND_REVHI_WORK* rv) {
   u8 i;

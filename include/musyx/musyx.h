@@ -236,7 +236,49 @@ SND_VOICEID sndFXCheck(SND_VOICEID vid);
 bool sndFXKeyOff(SND_VOICEID vid);
 bool sndFXCtrl(SND_VOICEID vid, u8 ctrl, u8 value);
 bool sndFXCtrl14(SND_VOICEID vid, u8 ctrl, u16 value);
+#define _SND_CHORUS_NUM_BLOCKS 3
+typedef struct _SND_CHORUS_SRCINFO {
+  s32* dest;
+  s32* smpBase;
+  s32* old;
+  u32 posLo;
+  u32 posHi;
+  u32 pitchLo;
+  u32 pitchHi;
+  u32 trigger;
+  u32 target;
+} _SND_CHORUS_SRCINFO;
 
+typedef struct _SND_CHORUS_WORK {
+  s32* lastLeft[_SND_CHORUS_NUM_BLOCKS];
+  s32* lastRight[_SND_CHORUS_NUM_BLOCKS];
+  s32* lastSur[_SND_CHORUS_NUM_BLOCKS];
+  u8 currentLast;
+  s32 oldLeft[4];
+  s32 oldRight[4];
+  s32 oldSur[4];
+
+  u32 currentPosLo;
+  u32 currentPosHi;
+
+  s32 pitchOffset;
+  u32 pitchOffsetPeriodCount;
+  u32 pitchOffsetPeriod;
+
+  _SND_CHORUS_SRCINFO src;
+} _SND_CHORUS_WORK;
+
+typedef struct SND_AUX_CHORUS {
+  _SND_CHORUS_WORK work;
+  u32 baseDelay;
+  u32 variation;
+  u32 period;
+} SND_AUX_CHORUS;
+
+void sndAuxCallbackChorus(u8 reason, SND_AUX_INFO* info, void* user);
+bool sndAuxCallbackPrepareChorus(SND_AUX_CHORUS* ch);
+bool sndAuxCallbackShutdownChorus(SND_AUX_CHORUS* ch);
+bool sndAuxCallbackUpdateSettingsChorus(SND_AUX_CHORUS* ch);
 #ifdef __cplusplus
 }
 #endif

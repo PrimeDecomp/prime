@@ -1,11 +1,6 @@
 #include "musyx/musyx_priv.h"
-
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-/* TODO: Move these to a more approprate location */
-
+//#define _DEBUG
+#include "musyx/assert.h"
 
 s32 DoInit(u32 rate, u32 aramSize, u8 voices, u32 flags) {
   dataInitStack();
@@ -54,6 +49,9 @@ void sndQuit() {
   sndActive = 0;
 }
 
-#ifdef __cplusplus
+void sndSetMaxVoices(u8 music, u8 sfx) {
+  ASSERT_MSG(music > synthInfo.voices, "Music voices are above maximum voice number.");
+  ASSERT_MSG(sfx > synthInfo.voices, "Sfx voices are above maximum voice number.");
+  synthInfo.music = music;
+  synthInfo.sfx = sfx;
 }
-#endif
