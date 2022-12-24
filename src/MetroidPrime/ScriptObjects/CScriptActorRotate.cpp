@@ -68,7 +68,7 @@ void CScriptActorRotate::RebuildSpiderBallWaypoints(CStateManager& mgr) {
     CScriptSpiderBallWaypoint* wp = static_cast< CScriptSpiderBallWaypoint* >(mgr.ObjectById(*it));
     if (wp) {
       wp->BuildWaypointListAndBounds(mgr);
-      wp->SetTransformDirty(false);
+      wp->SetTransformDirty(true);
     }
   }
 
@@ -76,40 +76,42 @@ void CScriptActorRotate::RebuildSpiderBallWaypoints(CStateManager& mgr) {
 }
 
 void CScriptActorRotate::Think(float dt, CStateManager& mgr) {
-  if (x58_24_updateRotation && GetActive()) {
-    x44_currentTime += dt;
-    if (x44_currentTime >= x40_maxTime) {
-      x58_24_updateRotation = false;
-      x44_currentTime = x40_maxTime;
-    }
+  if (!x58_24_updateRotation || !GetActive()) {
+    return;
+  }
 
-    const float timeOffset = x44_currentTime / x40_maxTime;
+  x44_currentTime += dt;
+  if (x44_currentTime >= x40_maxTime) {
+    x58_24_updateRotation = false;
+    x44_currentTime = x40_maxTime;
+  }
 
-    rstl::vector< rstl::pair< TUniqueId, CTransform4f > >::const_iterator it = x48_actors.begin();
-    for (; it != x48_actors.end(); ++it) {
-      if (CActor* act = TCastToPtr< CActor >(mgr.ObjectById(it->first))) {
-        const CTransform4f xf =
-            CTransform4f::RotateX(CRelAngle::FromDegrees(timeOffset * x34_rotation.GetX())) *
-            CTransform4f::RotateY(CRelAngle::FromDegrees(timeOffset * x34_rotation.GetY())) *
-            CTransform4f::RotateZ(CRelAngle::FromDegrees(timeOffset * x34_rotation.GetZ()));
-        CTransform4f localRot = it->second * xf;
-        localRot.SetTranslation(localRot.GetTranslation() + act->GetTranslation());
-        act->SetTransform(localRot);
+  const float timeOffset = x44_currentTime / x40_maxTime;
 
-        if (CScriptPlatform* plat = TCastToPtr< CScriptPlatform >(mgr.ObjectById(it->first))) {
-          UpdatePlatformRiders(*plat, xf, mgr);
-        }
+  rstl::vector< rstl::pair< TUniqueId, CTransform4f > >::const_iterator it = x48_actors.begin();
+  for (; it != x48_actors.end(); ++it) {
+    if (CActor* act = TCastToPtr< CActor >(mgr.ObjectById(it->first))) {
+      const CTransform4f xf =
+          CTransform4f::RotateX(CRelAngle::FromDegrees(timeOffset * x34_rotation.GetX())) *
+          CTransform4f::RotateY(CRelAngle::FromDegrees(timeOffset * x34_rotation.GetY())) *
+          CTransform4f::RotateZ(CRelAngle::FromDegrees(timeOffset * x34_rotation.GetZ()));
+      CTransform4f localRot = it->second * xf;
+      localRot.SetTranslation(localRot.GetTranslation() + act->GetTranslation());
+      act->SetTransform(localRot);
+
+      if (CScriptPlatform* plat = TCastToPtr< CScriptPlatform >(mgr.ObjectById(it->first))) {
+        UpdatePlatformRiders(*plat, xf, mgr);
       }
     }
+  }
 
-    if (!x58_24_updateRotation) {
-      if (x58_25_updateSpiderBallWaypoints) {
-        RebuildSpiderBallWaypoints(mgr);
-      }
+  if (!x58_24_updateRotation) {
+    if (x58_25_updateSpiderBallWaypoints) {
+      RebuildSpiderBallWaypoints(mgr);
+    }
 
-      if (x58_26_updateActors) {
-        UpdateActors(false, mgr);
-      }
+    if (x58_26_updateActors) {
+      UpdateActors(false, mgr);
     }
   }
 }
@@ -144,7 +146,11 @@ void CScriptActorRotate::UpdateActors(bool next, CStateManager& mgr) {
 
   if (!x48_actors.empty()) {
     x58_24_updateRotation = true;
-    x44_currentTime = (next ? x40_maxTime : 0.f);
+    if (next) {
+      x44_currentTime = x40_maxTime;
+    } else {
+      x44_currentTime = 0.f;
+    }
   }
 }
 
