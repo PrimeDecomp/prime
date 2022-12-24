@@ -199,8 +199,11 @@ void CMain::ShutdownSubsystems() {
       break;
     }
   }
+#ifdef __MWERKS__
+  // TODO: assuming pointer is int-sized
   OSReport("Stack usage: %d bytes (%dk)\n", (int)(stackBase - ptr),
            ((uint)((int)stackBase - (int)ptr) / 1024));
+#endif
 }
 
 CGameGlobalObjects::CGameGlobalObjects(COsContext& osContext, CMemorySys& memorySys)

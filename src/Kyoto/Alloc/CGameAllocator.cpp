@@ -6,6 +6,8 @@
 #include <Kyoto/Basics/COsContext.hpp>
 #include <Kyoto/Basics/CStopwatch.hpp>
 
+#include <stdint.h>
+
 /* Here just to make sure the data section matches */
 static const char* string_NULL = "<NULL>";
 static const char* string_SOURCE_MODULE_UNLOADED = "<SOURCE MODULE UNLOADED>";
@@ -301,7 +303,7 @@ IAllocator::SMetrics CGameAllocator::GetMetrics() const {
                x60_smallAllocPool != nullptr ? x60_smallAllocPool->GetAllocatedSize() : 0,
                x60_smallAllocPool != nullptr ? x60_smallAllocPool->GetNumBlocksAvailable() : 0,
                mediumAllocNumAllocs, mediumAllocAllocatedSize, mediumAllocBlocksAvailable,
-               x80_ - xb0_, (uint)xb4_physicalAddr, xbc_, mediumAllocTotalAllocated,
+               x80_ - xb0_, (uintptr_t)xb4_physicalAddr, xbc_, mediumAllocTotalAllocated,
                xb8_fakeStatics);
   xb0_ = x80_;
   return ret;

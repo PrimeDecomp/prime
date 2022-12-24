@@ -24,18 +24,20 @@ public:
   static void OffsetFakeStatics(int);
 };
 
+#ifdef __MWERKS__
 void* operator new(size_t sz, const char*, const char*);
 void* operator new[](size_t sz, const char*, const char*);
 // TODO remove
-#ifdef __MWERKS__
+
 inline void* operator new(size_t sz) { return operator new(sz, "??(??)", nullptr); }
 inline void* operator new[](size_t sz) { return operator new[](sz, "??(??)", nullptr); }
 #else
-__attribute__((weak)) void* operator new(size_t sz) { return operator new(sz, "??(??)", nullptr); }
+/*__attribute__((weak)) void* operator new(size_t sz) { return operator new(sz, "??(??)", nullptr); }
 __attribute__((weak)) void* operator new[](size_t sz) {
   return operator new[](sz, "??(??)", nullptr);
-}
+}*/
 #endif
+
 // placement new
 inline void* operator new(size_t n, void* ptr) { return ptr; };
 
