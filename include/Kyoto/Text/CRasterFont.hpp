@@ -10,9 +10,8 @@
 
 #include "string.h"
 
-class CGlyph;
-class CKernPair;
 class CTexture;
+class CDrawStringOptions;
 class IObjectStore;
 
 class CFontInfo {
@@ -104,6 +103,8 @@ public:
   CRasterFont(CInputStream& in, IObjectStore* store);
   ~CRasterFont();
 
+  EFontMode GetMode() const;
+  void GetSize(const CDrawStringOptions&, int&, int&, const wchar_t*, int) const;
   void SetTexture(TToken< CTexture > token) { x80_texture = token; }
   bool IsFinishedLoading();
 
