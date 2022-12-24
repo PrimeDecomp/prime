@@ -2810,7 +2810,7 @@ SoftwareLight__17CWallCrawlerSwarmCFRC13CStateManagerRC6CAABox:
 /* 801E9BC0 001E6B20  38 61 00 48 */	addi r3, r1, 0x48
 /* 801E9BC4 001E6B24  90 81 00 3C */	stw r4, 0x3c(r1)
 /* 801E9BC8 001E6B28  38 A1 00 3C */	addi r5, r1, 0x3c
-/* 801E9BCC 001E6B2C  C0 22 94 04 */	lfs f1, lbl_805AB124@sda21(r2)
+/* 801E9BCC 001E6B2C  C0 22 94 04 */	lfs f1, kDefaultPositionUpdateThreshold__12CActorLights@sda21(r2)
 /* 801E9BD0 001E6B30  38 80 00 08 */	li r4, 8
 /* 801E9BD4 001E6B34  90 E1 00 40 */	stw r7, 0x40(r1)
 /* 801E9BD8 001E6B38  38 C0 00 04 */	li r6, 4
@@ -2945,7 +2945,7 @@ HardwareLight__17CWallCrawlerSwarmCFRC13CStateManagerRC6CAABox:
 /* 801E9DC0 001E6D20  94 21 FC F0 */	stwu r1, -0x310(r1)
 /* 801E9DC4 001E6D24  7C 08 02 A6 */	mflr r0
 /* 801E9DC8 001E6D28  3C C0 80 5A */	lis r6, sZeroVector__9CVector3f@ha
-/* 801E9DCC 001E6D2C  C0 22 94 04 */	lfs f1, lbl_805AB124@sda21(r2)
+/* 801E9DCC 001E6D2C  C0 22 94 04 */	lfs f1, kDefaultPositionUpdateThreshold__12CActorLights@sda21(r2)
 /* 801E9DD0 001E6D30  90 01 03 14 */	stw r0, 0x314(r1)
 /* 801E9DD4 001E6D34  39 00 00 00 */	li r8, 0
 /* 801E9DD8 001E6D38  39 20 00 00 */	li r9, 0

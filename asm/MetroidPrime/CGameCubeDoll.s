@@ -427,7 +427,7 @@ __ct__13CGameCubeDollFv:
 /* 8029EC4C 0029BBAC  7C 60 1B 79 */	or. r0, r3, r3
 /* 8029EC50 0029BBB0  41 82 00 4C */	beq lbl_8029EC9C
 /* 8029EC54 0029BBB4  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
-/* 8029EC58 0029BBB8  C0 22 94 04 */	lfs f1, lbl_805AB124@sda21(r2)
+/* 8029EC58 0029BBB8  C0 22 94 04 */	lfs f1, kDefaultPositionUpdateThreshold__12CActorLights@sda21(r2)
 /* 8029EC5C 0029BBBC  38 E4 66 A0 */	addi r7, r4, sZeroVector__9CVector3f@l
 /* 8029EC60 0029BBC0  38 A1 00 18 */	addi r5, r1, 0x18
 /* 8029EC64 0029BBC4  81 07 00 00 */	lwz r8, 0(r7)

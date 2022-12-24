@@ -14626,7 +14626,7 @@ lbl_800F9EAC:
 /* 800F9EC8 000F6E28  7C 60 1B 79 */	or. r0, r3, r3
 /* 800F9ECC 000F6E2C  41 82 00 4C */	beq lbl_800F9F18
 /* 800F9ED0 000F6E30  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
-/* 800F9ED4 000F6E34  C0 22 94 04 */	lfs f1, lbl_805AB124@sda21(r2)
+/* 800F9ED4 000F6E34  C0 22 94 04 */	lfs f1, kDefaultPositionUpdateThreshold__12CActorLights@sda21(r2)
 /* 800F9ED8 000F6E38  38 E4 66 A0 */	addi r7, r4, sZeroVector__9CVector3f@l
 /* 800F9EDC 000F6E3C  38 A1 00 E0 */	addi r5, r1, 0xe0
 /* 800F9EE0 000F6E40  81 07 00 00 */	lwz r8, 0(r7)

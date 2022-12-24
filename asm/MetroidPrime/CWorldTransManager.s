@@ -1452,7 +1452,7 @@ DrawAllModels__18CWorldTransManagerCFv:
 /* 8020A1D4 00207134  94 21 FC 10 */	stwu r1, -0x3f0(r1)
 /* 8020A1D8 00207138  7C 08 02 A6 */	mflr r0
 /* 8020A1DC 0020713C  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
-/* 8020A1E0 00207140  C0 22 94 04 */	lfs f1, lbl_805AB124@sda21(r2)
+/* 8020A1E0 00207140  C0 22 94 04 */	lfs f1, kDefaultPositionUpdateThreshold__12CActorLights@sda21(r2)
 /* 8020A1E4 00207144  90 01 03 F4 */	stw r0, 0x3f4(r1)
 /* 8020A1E8 00207148  38 A1 00 3C */	addi r5, r1, 0x3c
 /* 8020A1EC 0020714C  38 E0 00 04 */	li r7, 4

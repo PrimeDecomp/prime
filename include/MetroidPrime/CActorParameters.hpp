@@ -114,6 +114,7 @@ public:
                    bool renderUnsorted, bool noSortThermal, float fadeInTime, float fadeOutTime,
                    float thermalMag);
   CActorParameters(const CActorParameters&);
+  ~CActorParameters() {}
 
   CActorParameters Scannable(const CScannableParameters& sParms) const;
   CActorParameters HotInThermal(bool hot) const;

@@ -10184,7 +10184,7 @@ __ct__10CPlayerGunF9TUniqueId:
 /* 800431D4 00040134  3C C0 80 3E */	lis r6, kVerticalAngleTable@ha
 /* 800431D8 00040138  90 01 00 A4 */	stw r0, 0xa4(r1)
 /* 800431DC 0004013C  39 00 00 00 */	li r8, 0
-/* 800431E0 00040140  C0 22 94 04 */	lfs f1, lbl_805AB124@sda21(r2)
+/* 800431E0 00040140  C0 22 94 04 */	lfs f1, kDefaultPositionUpdateThreshold__12CActorLights@sda21(r2)
 /* 800431E4 00040144  39 20 00 00 */	li r9, 0
 /* 800431E8 00040148  BF 61 00 8C */	stmw r27, 0x8c(r1)
 /* 800431EC 0004014C  7C 9E 23 78 */	mr r30, r4

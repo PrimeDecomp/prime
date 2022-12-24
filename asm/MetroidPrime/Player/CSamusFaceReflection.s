@@ -636,7 +636,7 @@ __ct__20CSamusFaceReflectionFRC13CStateManager:
 /* 8015B6E8 00158648  7C 60 1B 79 */	or. r0, r3, r3
 /* 8015B6EC 0015864C  41 82 00 4C */	beq lbl_8015B738
 /* 8015B6F0 00158650  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
-/* 8015B6F4 00158654  C0 22 94 04 */	lfs f1, lbl_805AB124@sda21(r2)
+/* 8015B6F4 00158654  C0 22 94 04 */	lfs f1, kDefaultPositionUpdateThreshold__12CActorLights@sda21(r2)
 /* 8015B6F8 00158658  38 E4 66 A0 */	addi r7, r4, sZeroVector__9CVector3f@l
 /* 8015B6FC 0015865C  38 A1 00 08 */	addi r5, r1, 8
 /* 8015B700 00158660  81 07 00 00 */	lwz r8, 0(r7)

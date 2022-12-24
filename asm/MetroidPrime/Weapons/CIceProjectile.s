@@ -613,7 +613,7 @@ __ct__Q220CIceAttackProjectile12CTrailObjectFP11CElementGen9TUniqueIdRC9CVector3
 /* 801F21F0 001EF150  93 E1 00 2C */	stw r31, 0x2c(r1)
 /* 801F21F4 001EF154  7D 1F 43 78 */	mr r31, r8
 /* 801F21F8 001EF158  54 00 0F FE */	srwi r0, r0, 0x1f
-/* 801F21FC 001EF15C  C0 22 94 04 */	lfs f1, lbl_805AB124@sda21(r2)
+/* 801F21FC 001EF15C  C0 22 94 04 */	lfs f1, kDefaultPositionUpdateThreshold__12CActorLights@sda21(r2)
 /* 801F2200 001EF160  93 C1 00 28 */	stw r30, 0x28(r1)
 /* 801F2204 001EF164  7C FE 3B 78 */	mr r30, r7
 /* 801F2208 001EF168  38 E0 00 04 */	li r7, 4

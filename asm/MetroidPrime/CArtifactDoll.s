@@ -928,7 +928,7 @@ __ct__13CArtifactDollFv:
 /* 8029D534 0029A494  7C 60 1B 79 */	or. r0, r3, r3
 /* 8029D538 0029A498  41 82 00 4C */	beq lbl_8029D584
 /* 8029D53C 0029A49C  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
-/* 8029D540 0029A4A0  C0 22 94 04 */	lfs f1, lbl_805AB124@sda21(r2)
+/* 8029D540 0029A4A0  C0 22 94 04 */	lfs f1, kDefaultPositionUpdateThreshold__12CActorLights@sda21(r2)
 /* 8029D544 0029A4A4  38 E4 66 A0 */	addi r7, r4, sZeroVector__9CVector3f@l
 /* 8029D548 0029A4A8  38 A1 00 20 */	addi r5, r1, 0x20
 /* 8029D54C 0029A4AC  81 07 00 00 */	lwz r8, 0(r7)
