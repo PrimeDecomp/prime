@@ -545,8 +545,7 @@ lbl_803B6164:
 /* 803B6254 003B31B4  38 21 00 30 */	addi r1, r1, 0x30
 /* 803B6258 003B31B8  4E 80 00 20 */	blr
 
-.global HandleReverb_0
-HandleReverb_0:
+.fn HandleReverb, local
 /* 803B625C 003B31BC  94 21 FF 40 */	stwu r1, -0xc0(r1)
 /* 803B6260 003B31C0  BD C1 00 08 */	stmw r14, 8(r1)
 /* 803B6264 003B31C4  D9 C1 00 60 */	stfd f14, 0x60(r1)
@@ -899,6 +898,7 @@ lbl_803B66C0:
 /* 803B675C 003B36BC  B9 C1 00 08 */	lmw r14, 8(r1)
 /* 803B6760 003B36C0  38 21 00 C0 */	addi r1, r1, 0xc0
 /* 803B6764 003B36C4  4E 80 00 20 */	blr
+.endfn HandleReverb
 
 .global ReverbHICallback
 ReverbHICallback:
@@ -941,19 +941,19 @@ lbl_803B67E8:
 /* 803B67E8 003B3748  7F 63 DB 78 */	mr r3, r27
 /* 803B67EC 003B374C  7F C4 F3 78 */	mr r4, r30
 /* 803B67F0 003B3750  38 A0 00 00 */	li r5, 0
-/* 803B67F4 003B3754  4B FF FA 69 */	bl HandleReverb_0
+/* 803B67F4 003B3754  4B FF FA 69 */	bl HandleReverb
 /* 803B67F8 003B3758  48 00 00 28 */	b lbl_803B6820
 lbl_803B67FC:
 /* 803B67FC 003B375C  7F 83 E3 78 */	mr r3, r28
 /* 803B6800 003B3760  7F C4 F3 78 */	mr r4, r30
 /* 803B6804 003B3764  38 A0 00 01 */	li r5, 1
-/* 803B6808 003B3768  4B FF FA 55 */	bl HandleReverb_0
+/* 803B6808 003B3768  4B FF FA 55 */	bl HandleReverb
 /* 803B680C 003B376C  48 00 00 14 */	b lbl_803B6820
 lbl_803B6810:
 /* 803B6810 003B3770  7F A3 EB 78 */	mr r3, r29
 /* 803B6814 003B3774  7F C4 F3 78 */	mr r4, r30
 /* 803B6818 003B3778  38 A0 00 02 */	li r5, 2
-/* 803B681C 003B377C  4B FF FA 41 */	bl HandleReverb_0
+/* 803B681C 003B377C  4B FF FA 41 */	bl HandleReverb
 lbl_803B6820:
 /* 803B6820 003B3780  3B FF 00 01 */	addi r31, r31, 1
 lbl_803B6824:

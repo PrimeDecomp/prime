@@ -51,7 +51,9 @@
     "dsp.h": "c",
     "ar.h": "c",
     "osrtcpriv.h": "c",
-    "osbootinfo.h": "c"
+    "osbootinfo.h": "c",
+    "assert.h": "c",
+    "math.h": "c"
   },
   "files.autoSave": "onFocusChange",
   "files.insertFinalNewline": true,

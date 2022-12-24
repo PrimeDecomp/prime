@@ -940,8 +940,8 @@ LIBS = [
             "musyx/hw_volconv",
             ["musyx/snd3d", False],
             ["musyx/snd_init", True],
-            ["musyx/snd_math", False],
-            "musyx/snd_midictrl",
+            ["musyx/snd_math", True],
+            ["musyx/snd_midictrl", False],
             ["musyx/snd_service", True],
             ["musyx/hardware", False],
             "musyx/hw_aramdma",
@@ -953,7 +953,7 @@ LIBS = [
             ["musyx/reverb_fx", True],
             ["musyx/reverb", False],
             ["musyx/delay_fx", True],
-            "musyx/chorus_fx",
+            ["musyx/chorus_fx", True],
         ],
     },
     {
@@ -1133,7 +1133,10 @@ if __name__ == "__main__":
         n.variable("devkitppc", "/opt/devkitpro/devkitPPC")
     cflags_base = "-proc gekko -nodefaults -Cpp_exceptions off -RTTI off -fp hard -fp_contract on -O4,p -maxerrors 1 -enum int -inline auto -str reuse -nosyspath -MMD -DPRIME1 -DVERSION=$version_num -DNONMATCHING=0 -i include/ -i libc/"
     if args.debug:
-        cflags_base += " -sym on"
+        cflags_base += " -sym on -D_DEBUG"
+    else:
+        cflags_base += " -DNDEBUG"
+
     n.variable("cflags_base", cflags_base)
     n.variable(
         "cflags_retro",
@@ -1143,7 +1146,7 @@ if __name__ == "__main__":
         "cflags_runtime",
         "$cflags_base -use_lmw_stmw on -str reuse,pool,readonly -gccinc -inline deferred,auto",
     )
-    n.variable("cflags_musyx", "$cflags_base -str reuse,pool,readonly")
+    n.variable("cflags_musyx", "$cflags_base -str reuse,pool,readonly -fp_contract off")
     asflags = "-mgekko -I include/ --defsym version=$version_num -W --strip-local-absolute -gdwarf-2"
     n.variable("asflags", asflags)
     ldflags = "-fp fmadd -nodefaults -lcf ldscript.lcf"

@@ -89,6 +89,7 @@ double copysign(double x, double y);
 double floor(double x);
 
 double fabs(double x);
+double pow(double x, double y);
 
 #ifdef __MWERKS__
 #pragma cplusplus on
