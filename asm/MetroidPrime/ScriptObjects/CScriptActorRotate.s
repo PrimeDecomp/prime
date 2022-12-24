@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803E2D08
-lbl_803E2D08:
+.global __vt__18CScriptActorRotate
+__vt__18CScriptActorRotate:
 	# ROM: 0x3DFD08
 	.4byte 0
 	.4byte 0
@@ -28,9 +28,9 @@ __dt__18CScriptActorRotateFv:
 /* 80153A40 001509A0  93 C1 00 18 */	stw r30, 0x18(r1)
 /* 80153A44 001509A4  7C 7E 1B 79 */	or. r30, r3, r3
 /* 80153A48 001509A8  41 82 00 74 */	beq lbl_80153ABC
-/* 80153A4C 001509AC  3C 60 80 3E */	lis r3, lbl_803E2D08@ha
+/* 80153A4C 001509AC  3C 60 80 3E */	lis r3, __vt__18CScriptActorRotate@ha
 /* 80153A50 001509B0  34 1E 00 48 */	addic. r0, r30, 0x48
-/* 80153A54 001509B4  38 03 2D 08 */	addi r0, r3, lbl_803E2D08@l
+/* 80153A54 001509B4  38 03 2D 08 */	addi r0, r3, __vt__18CScriptActorRotate@l
 /* 80153A58 001509B8  90 1E 00 00 */	stw r0, 0(r30)
 /* 80153A5C 001509BC  41 82 00 44 */	beq lbl_80153AA0
 /* 80153A60 001509C0  80 1E 00 4C */	lwz r0, 0x4c(r30)
@@ -458,7 +458,7 @@ lbl_80153EF8:
 /* 80154054 00150FB4  7F C3 F3 78 */	mr r3, r30
 /* 80154058 00150FB8  7F E6 FB 78 */	mr r6, r31
 /* 8015405C 00150FBC  38 A1 01 7C */	addi r5, r1, 0x17c
-/* 80154060 00150FC0  48 00 01 D1 */	bl sub_80154230
+/* 80154060 00150FC0  48 00 01 D1 */	bl UpdatePlatformRiders__18CScriptActorRotateFR15CScriptPlatformRC12CTransform4fR13CStateManager
 lbl_80154064:
 /* 80154064 00150FC4  3B BD 00 34 */	addi r29, r29, 0x34
 lbl_80154068:
@@ -592,8 +592,8 @@ lbl_80154214:
 /* 80154228 00151188  38 21 08 30 */	addi r1, r1, 0x830
 /* 8015422C 0015118C  4E 80 00 20 */	blr
 
-.global sub_80154230
-sub_80154230:
+.global UpdatePlatformRiders__18CScriptActorRotateFR15CScriptPlatformRC12CTransform4fR13CStateManager
+UpdatePlatformRiders__18CScriptActorRotateFR15CScriptPlatformRC12CTransform4fR13CStateManager:
 /* 80154230 00151190  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80154234 00151194  7C 08 02 A6 */	mflr r0
 /* 80154238 00151198  90 01 00 24 */	stw r0, 0x24(r1)
@@ -609,13 +609,13 @@ sub_80154230:
 /* 80154260 001511C0  93 81 00 10 */	stw r28, 0x10(r1)
 /* 80154264 001511C4  7C 7C 1B 78 */	mr r28, r3
 /* 80154268 001511C8  38 9D 03 28 */	addi r4, r29, 0x328
-/* 8015426C 001511CC  48 00 00 3D */	bl sub_801542a8
+/* 8015426C 001511CC  48 00 00 3D */	bl "UpdatePlatformRiders__18CScriptActorRotateFRQ24rstl43vector<7SRiders,Q24rstl17rmemory_allocator>R15CScriptPlatformRC12CTransform4fR13CStateManager"
 /* 80154270 001511D0  7F 83 E3 78 */	mr r3, r28
 /* 80154274 001511D4  7F A5 EB 78 */	mr r5, r29
 /* 80154278 001511D8  7F C6 F3 78 */	mr r6, r30
 /* 8015427C 001511DC  7F E7 FB 78 */	mr r7, r31
 /* 80154280 001511E0  38 9D 03 38 */	addi r4, r29, 0x338
-/* 80154284 001511E4  48 00 00 25 */	bl sub_801542a8
+/* 80154284 001511E4  48 00 00 25 */	bl "UpdatePlatformRiders__18CScriptActorRotateFRQ24rstl43vector<7SRiders,Q24rstl17rmemory_allocator>R15CScriptPlatformRC12CTransform4fR13CStateManager"
 /* 80154288 001511E8  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8015428C 001511EC  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80154290 001511F0  83 C1 00 18 */	lwz r30, 0x18(r1)
@@ -625,8 +625,8 @@ sub_80154230:
 /* 801542A0 00151200  38 21 00 20 */	addi r1, r1, 0x20
 /* 801542A4 00151204  4E 80 00 20 */	blr
 
-.global sub_801542a8
-sub_801542a8:
+.global "UpdatePlatformRiders__18CScriptActorRotateFRQ24rstl43vector<7SRiders,Q24rstl17rmemory_allocator>R15CScriptPlatformRC12CTransform4fR13CStateManager"
+"UpdatePlatformRiders__18CScriptActorRotateFRQ24rstl43vector<7SRiders,Q24rstl17rmemory_allocator>R15CScriptPlatformRC12CTransform4fR13CStateManager":
 /* 801542A8 00151208  94 21 FF 40 */	stwu r1, -0xc0(r1)
 /* 801542AC 0015120C  7C 08 02 A6 */	mflr r0
 /* 801542B0 00151210  90 01 00 C4 */	stw r0, 0xc4(r1)
@@ -745,7 +745,7 @@ lbl_80154440:
 /* 8015446C 001513CC  7F 03 C3 78 */	mr r3, r24
 /* 80154470 001513D0  7F 65 DB 78 */	mr r5, r27
 /* 80154474 001513D4  7F 86 E3 78 */	mr r6, r28
-/* 80154478 001513D8  4B FF FD B9 */	bl sub_80154230
+/* 80154478 001513D8  4B FF FD B9 */	bl UpdatePlatformRiders__18CScriptActorRotateFR15CScriptPlatformRC12CTransform4fR13CStateManager
 lbl_8015447C:
 /* 8015447C 001513DC  3B FF 00 38 */	addi r31, r31, 0x38
 lbl_80154480:
@@ -785,9 +785,9 @@ lbl_80154480:
 /* 801544F8 00151458  7D 46 53 78 */	mr r6, r10
 /* 801544FC 0015145C  38 81 00 08 */	addi r4, r1, 8
 /* 80154500 00151460  4B EF CE 25 */	bl "__ct__7CEntityF9TUniqueIdRC11CEntityInfobRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
-/* 80154504 00151464  3C 60 80 3E */	lis r3, lbl_803E2D08@ha
+/* 80154504 00151464  3C 60 80 3E */	lis r3, __vt__18CScriptActorRotate@ha
 /* 80154508 00151468  C0 02 9D F8 */	lfs f0, lbl_805ABB18@sda21(r2)
-/* 8015450C 0015146C  38 03 2D 08 */	addi r0, r3, lbl_803E2D08@l
+/* 8015450C 0015146C  38 03 2D 08 */	addi r0, r3, __vt__18CScriptActorRotate@l
 /* 80154510 00151470  38 C0 00 00 */	li r6, 0
 /* 80154514 00151474  90 1C 00 00 */	stw r0, 0(r28)
 /* 80154518 00151478  7F 83 E3 78 */	mr r3, r28

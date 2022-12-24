@@ -196,7 +196,7 @@ LIBS = [
             ["MetroidPrime/Enemies/CMetaree", False],
             ["MetroidPrime/ScriptObjects/CScriptDockAreaChange", False],
             ["MetroidPrime/ScriptObjects/CScriptSpecialFunction", False],
-            "MetroidPrime/ScriptObjects/CScriptActorRotate",
+            ["MetroidPrime/ScriptObjects/CScriptActorRotate", False],
             ["MetroidPrime/Player/CFidget", True],
             "MetroidPrime/Enemies/CSpankWeed",
             "MetroidPrime/Enemies/CParasite",
