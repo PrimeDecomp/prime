@@ -544,7 +544,7 @@ LIBS = [
             "Kyoto/Text/CLineSpacingInstruction",
             "Kyoto/Text/CPopStateInstruction",
             "Kyoto/Text/CPushStateInstruction",
-            "Kyoto/Text/CRasterFont",
+            ["Kyoto/Text/CRasterFont", False],
             "Kyoto/Text/CRemoveColorOverrideInstruction",
             ["Kyoto/Text/CSaveableState", True],
             "Kyoto/Text/CTextExecuteBuffer",
