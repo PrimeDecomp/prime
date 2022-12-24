@@ -65,8 +65,9 @@ CRasterFont::CRasterFont(CInputStream& in, IObjectStore* store)
             rstl::pair< wchar_t, CGlyph >(chr, CGlyph(a, b, c, startU, startV, endU, endV,
                                                       cellWidth, cellHeight, baseline, kernStart)));
       }
-      //rstl::sort(xc_glyphs.begin(), xc_glyphs.end(),
-      //           rstl::pair_sorter_finder< wchar_t, CGlyph, rstl::less< wchar_t > >());
+      rstl::sort(
+          xc_glyphs.begin(), xc_glyphs.end(),
+          rstl::default_pair_sorter_finder< rstl::vector< rstl::pair< wchar_t, CGlyph > > >());
     }
   }
 }
