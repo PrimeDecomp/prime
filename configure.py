@@ -451,7 +451,7 @@ LIBS = [
             ["Collision/CCollidableCollisionSurface", True],
             ["Collision/CCollisionInfo", True],
             "Collision/InternalColliders",
-            "Collision/CCollisionPrimitive",
+            ["Collision/CCollisionPrimitive", False],
             ["Collision/CMaterialList", True],
             "Collision/CollisionUtil",
             "Collision/CCollidableSphere",
