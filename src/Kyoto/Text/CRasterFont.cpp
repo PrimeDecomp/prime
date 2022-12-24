@@ -16,7 +16,12 @@ CRasterFont::CRasterFont(CInputStream& in, IObjectStore* store)
     if (version >= 0 && version <= 2) {
       x4_monoWidth = in.ReadInt32();
       x8_monoHeight = in.ReadInt32();
-      x8c_baseline = version >= 1 ? in.ReadInt32() : x8_monoHeight;
+      if (version >= 1) {
+        x8c_baseline = in.ReadInt32();
+      } else {
+        x8c_baseline = x8_monoHeight;
+      }
+      
       if (version >= 2) {
         x90_lineMargin = in.ReadInt32();
       }
@@ -68,6 +73,22 @@ CRasterFont::CRasterFont(CInputStream& in, IObjectStore* store)
       rstl::sort(
           xc_glyphs.begin(), xc_glyphs.end(),
           rstl::default_pair_sorter_finder< rstl::vector< rstl::pair< wchar_t, CGlyph > > >());
+
+      int kerningCount = in.ReadInt32();
+      x1c_kerning.reserve(kerningCount);
+
+      for (int i = 0; i < kerningCount; ++i) {
+        short first = in.ReadShort();
+        short second = in.ReadShort();
+        int howMuch = in.ReadInt32();
+        x1c_kerning.push_back(CKernPair(first, second, howMuch));
+      }
+
+      x0_initialized = true;
     }
   }
 }
+
+EFontMode CRasterFont::GetMode() const { return x2c_mode; }
+
+void CRasterFont::GetSize(const CDrawStringOptions&, int&, int&, const wchar_t*, int) const {}
