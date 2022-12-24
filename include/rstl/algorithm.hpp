@@ -143,6 +143,8 @@ public:
   /* {
     return cmp(a.first, b);
   }*/
+
+  bool operator()(const pair< K, V >& a, const pair< K, V >& b) const;
 };
 
 template <typename T>
@@ -163,6 +165,12 @@ template < typename K, typename V, typename Cmp >
 inline bool pair_sorter_finder< pair< K, V >, Cmp >::operator()(const pair< K, V >& a,
                                                                 const K& b) const {
   return cmp(a.first, b);
+}
+
+template < typename K, typename V, typename Cmp >
+inline bool pair_sorter_finder< pair< K, V >, Cmp >::operator()(const pair< K, V >& a,
+                                                                const pair< K, V >& b) const {
+  return cmp(a.first, b.first);
 }
 
 template < typename T >
