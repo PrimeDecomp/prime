@@ -8,11 +8,21 @@
 #include "Kyoto/IObjectStore.hpp"
 #include "Kyoto/Math/CAABox.hpp"
 #include "Kyoto/Math/CTransform4f.hpp"
+#include "rstl/single_ptr.hpp"
+#include "rstl/vector.hpp"
 
 class CRayCastResult;
+class CCollisionInfoList;
+class CInternalCollisionStructure;
 class CInternalRayCastStructure;
+class CCollisionInfo;
 
-typedef void(*PrimitiveSetter)(uint);
+typedef void (*PrimitiveSetter)(uint);
+
+typedef bool (*ComparisonFunc)(const CInternalCollisionStructure&, CCollisionInfoList&);
+typedef bool (*BooleanComparisonFunc)(const CInternalCollisionStructure&);
+typedef bool (*MovingComparisonFunc)(const CInternalCollisionStructure&, const CVector3f&, double&,
+                                     CCollisionInfo&);
 
 class CCollisionPrimitive {
 public:
@@ -22,6 +32,7 @@ public:
 
     PrimitiveSetter GetSetter() const { return mSetter; }
     const char* GetInfo() const { return mInfo; }
+
   private:
     PrimitiveSetter mSetter;
     const char* mInfo;
@@ -38,9 +49,26 @@ public:
   virtual ~CCollisionPrimitive();
   virtual CRayCastResult CastRayInternal(const CInternalRayCastStructure&) const = 0;
 
+  static void InitBeginTypes();
+  static void InitAddType(const Type& type);
+  static void InitEndTypes();
   static void Uninitialize();
 
 private:
+  static int sNumTypes;
+  static bool sInitComplete;
+  static bool sTypesAdded;
+  static bool sTypesAdding;
+  static bool sCollidersAdded;
+  static bool sCollidersAdding;
+  static rstl::single_ptr< rstl::vector< Type > > sCollisionTypeList;
+  static rstl::single_ptr< ComparisonFunc > sTableOfCollidables;
+  static rstl::single_ptr< BooleanComparisonFunc > sTableOfBooleanCollidables;
+  static rstl::single_ptr< MovingComparisonFunc > sTableOfMovingCollidables;
+  static ComparisonFunc sNullCollider;
+  static BooleanComparisonFunc sNullBooleanCollider;
+  static MovingComparisonFunc sNullMovingCollider;
+
   uint x4_;
   CMaterialList x8_material;
 };
