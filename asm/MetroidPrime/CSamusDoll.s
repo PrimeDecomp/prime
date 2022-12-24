@@ -4323,7 +4323,7 @@ lbl_800DE350:
 /* 800DE3DC 000DB33C  7C 60 1B 79 */	or. r0, r3, r3
 /* 800DE3E0 000DB340  41 82 00 4C */	beq lbl_800DE42C
 /* 800DE3E4 000DB344  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
-/* 800DE3E8 000DB348  C0 22 94 04 */	lfs f1, lbl_805AB124@sda21(r2)
+/* 800DE3E8 000DB348  C0 22 94 04 */	lfs f1, kDefaultPositionUpdateThreshold__12CActorLights@sda21(r2)
 /* 800DE3EC 000DB34C  38 E4 66 A0 */	addi r7, r4, sZeroVector__9CVector3f@l
 /* 800DE3F0 000DB350  38 A1 00 88 */	addi r5, r1, 0x88
 /* 800DE3F4 000DB354  81 07 00 00 */	lwz r8, 0(r7)

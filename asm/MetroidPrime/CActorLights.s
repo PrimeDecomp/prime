@@ -48,8 +48,8 @@ lbl_805AB120:
 	# ROM: 0x3F79C0
 	.4byte 0xFFFFFFFF
 
-.global lbl_805AB124
-lbl_805AB124:
+.global kDefaultPositionUpdateThreshold__12CActorLights
+kDefaultPositionUpdateThreshold__12CActorLights:
 	# ROM: 0x3F79C4
 	.float 0.1
 	

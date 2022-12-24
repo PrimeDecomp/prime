@@ -85,7 +85,7 @@ MakeActorLights__16CLightParametersCFv:
 /* 8010649C 001033FC  20 00 00 03 */	subfic r0, r0, 3
 /* 801064A0 00103400  80 FF 00 3C */	lwz r7, 0x3c(r31)
 /* 801064A4 00103404  7C A9 00 34 */	cntlzw r9, r5
-/* 801064A8 00103408  C0 22 94 04 */	lfs f1, lbl_805AB124@sda21(r2)
+/* 801064A8 00103408  C0 22 94 04 */	lfs f1, kDefaultPositionUpdateThreshold__12CActorLights@sda21(r2)
 /* 801064AC 0010340C  7C 00 00 34 */	cntlzw r0, r0
 /* 801064B0 00103410  89 1F 00 1D */	lbz r8, 0x1d(r31)
 /* 801064B4 00103414  38 A1 00 18 */	addi r5, r1, 0x18

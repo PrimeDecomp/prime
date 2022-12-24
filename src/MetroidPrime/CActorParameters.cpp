@@ -120,7 +120,7 @@ rstl::auto_ptr< CActorLights > CLightParameters::MakeActorLights() const {
   if (x1c_makeLights) {
     result = new CActorLights(GetFramesBetweenRecalculation(x24_lightRecalculation),
                               x2c_lightingPositionOffset, x38_maxDynamicLights, x3c_maxAreaLights,
-                              0.1f, x1d_ambientChannelOverflow, x28_useLightSet == 1,
+                              CActorLights::kDefaultPositionUpdateThreshold, x1d_ambientChannelOverflow, x28_useLightSet == 1,
                               x20_useWorldLighting == kLO_DisableWorld);
     if (x20_useWorldLighting == kLO_NoShadowCast) {
       result->SetCastShadows(false);

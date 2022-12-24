@@ -1173,7 +1173,7 @@ SetCalculateLighting__6CActorFb:
 /* 80053960 000508C0  7C 7F 1B 79 */	or. r31, r3, r3
 /* 80053964 000508C4  41 82 00 4C */	beq lbl_800539B0
 /* 80053968 000508C8  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
-/* 8005396C 000508CC  C0 22 94 04 */	lfs f1, lbl_805AB124@sda21(r2)
+/* 8005396C 000508CC  C0 22 94 04 */	lfs f1, kDefaultPositionUpdateThreshold__12CActorLights@sda21(r2)
 /* 80053970 000508D0  38 E4 66 A0 */	addi r7, r4, sZeroVector__9CVector3f@l
 /* 80053974 000508D4  38 A1 00 08 */	addi r5, r1, 8
 /* 80053978 000508D8  81 07 00 00 */	lwz r8, 0(r7)
