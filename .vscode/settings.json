@@ -53,7 +53,8 @@
     "osrtcpriv.h": "c",
     "osbootinfo.h": "c",
     "assert.h": "c",
-    "math.h": "c"
+    "math.h": "c",
+    "gxpriv.h": "c"
   },
   "files.autoSave": "onFocusChange",
   "files.insertFinalNewline": true,
