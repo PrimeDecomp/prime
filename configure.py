@@ -764,7 +764,7 @@ LIBS = [
     {
         "lib": "gx",
         "mwcc_version": "1.2.5",
-        "cflags": "$cflags_base",
+        "cflags": "$cflags_base -fp_contract off",
         "host": False,
         "objects": [
             "Dolphin/gx/GXInit",
@@ -773,7 +773,7 @@ LIBS = [
             "Dolphin/gx/GXMisc",
             "Dolphin/gx/GXGeometry",
             "Dolphin/gx/GXFrameBuf",
-            "Dolphin/gx/GXLight",
+            ["Dolphin/gx/GXLight", False],
             "Dolphin/gx/GXTexture",
             "Dolphin/gx/GXBump",
             "Dolphin/gx/GXTev",

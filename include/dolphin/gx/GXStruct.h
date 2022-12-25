@@ -97,6 +97,10 @@ typedef struct _GXTexRegion {
   u32 dummy[4];
 } GXTexRegion;
 
+typedef struct _GXTlutRegion {
+  u32 dummy[4];
+} GXTlutRegion;
+
 #ifdef __cplusplus
 }
 #endif
