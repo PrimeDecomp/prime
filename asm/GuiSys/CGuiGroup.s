@@ -678,7 +678,7 @@ OnVisible__18CGuiCompoundWidgetFv:
 /* 802C1A04 002BE964  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 802C1A08 002BE968  93 C1 00 08 */	stw r30, 8(r1)
 /* 802C1A0C 002BE96C  7C 7E 1B 78 */	mr r30, r3
-/* 802C1A10 002BE970  48 00 33 21 */	bl GetChildObject__10CGuiObjectFv
+/* 802C1A10 002BE970  48 00 33 21 */	bl ChildObject__10CGuiObjectFv
 /* 802C1A14 002BE974  7C 7F 1B 78 */	mr r31, r3
 /* 802C1A18 002BE978  48 00 00 30 */	b lbl_802C1A48
 lbl_802C1A1C:
@@ -691,7 +691,7 @@ lbl_802C1A1C:
 /* 802C1A34 002BE994  7F E3 FB 78 */	mr r3, r31
 /* 802C1A38 002BE998  48 00 8B F5 */	bl SetIsVisible__10CGuiWidgetFb
 /* 802C1A3C 002BE99C  7F E3 FB 78 */	mr r3, r31
-/* 802C1A40 002BE9A0  48 00 32 E1 */	bl GetNextSibling__10CGuiObjectFv
+/* 802C1A40 002BE9A0  48 00 32 E1 */	bl NextSibling__10CGuiObjectFv
 /* 802C1A44 002BE9A4  7C 7F 1B 78 */	mr r31, r3
 lbl_802C1A48:
 /* 802C1A48 002BE9A8  28 1F 00 00 */	cmplwi r31, 0
@@ -713,7 +713,7 @@ OnActivate__18CGuiCompoundWidgetFb:
 /* 802C1A7C 002BE9DC  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 802C1A80 002BE9E0  93 C1 00 08 */	stw r30, 8(r1)
 /* 802C1A84 002BE9E4  7C 7E 1B 78 */	mr r30, r3
-/* 802C1A88 002BE9E8  48 00 32 A9 */	bl GetChildObject__10CGuiObjectFv
+/* 802C1A88 002BE9E8  48 00 32 A9 */	bl ChildObject__10CGuiObjectFv
 /* 802C1A8C 002BE9EC  7C 7F 1B 78 */	mr r31, r3
 /* 802C1A90 002BE9F0  48 00 00 30 */	b lbl_802C1AC0
 lbl_802C1A94:
@@ -726,7 +726,7 @@ lbl_802C1A94:
 /* 802C1AAC 002BEA0C  7F E3 FB 78 */	mr r3, r31
 /* 802C1AB0 002BEA10  48 00 8B 35 */	bl SetIsActive__10CGuiWidgetFb
 /* 802C1AB4 002BEA14  7F E3 FB 78 */	mr r3, r31
-/* 802C1AB8 002BEA18  48 00 32 69 */	bl GetNextSibling__10CGuiObjectFv
+/* 802C1AB8 002BEA18  48 00 32 69 */	bl NextSibling__10CGuiObjectFv
 /* 802C1ABC 002BEA1C  7C 7F 1B 78 */	mr r31, r3
 lbl_802C1AC0:
 /* 802C1AC0 002BEA20  28 1F 00 00 */	cmplwi r31, 0
@@ -747,13 +747,13 @@ GetWorkerWidget__18CGuiCompoundWidgetFi:
 /* 802C1AF0 002BEA50  90 01 00 14 */	stw r0, 0x14(r1)
 /* 802C1AF4 002BEA54  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 802C1AF8 002BEA58  7C 9F 23 78 */	mr r31, r4
-/* 802C1AFC 002BEA5C  48 00 32 3D */	bl GetChildObject__18CGuiCompoundWidgetFv
+/* 802C1AFC 002BEA5C  48 00 32 3D */	bl GetChildObject__10CGuiObjectCFv
 /* 802C1B00 002BEA60  48 00 00 14 */	b lbl_802C1B14
 lbl_802C1B04:
 /* 802C1B04 002BEA64  A8 03 00 B4 */	lha r0, 0xb4(r3)
 /* 802C1B08 002BEA68  7C 1F 00 00 */	cmpw r31, r0
 /* 802C1B0C 002BEA6C  41 82 00 10 */	beq lbl_802C1B1C
-/* 802C1B10 002BEA70  48 00 32 19 */	bl GetNextSibling__18CGuiCompoundWidgetFv
+/* 802C1B10 002BEA70  48 00 32 19 */	bl GetNextSibling__10CGuiObjectCFv
 lbl_802C1B14:
 /* 802C1B14 002BEA74  28 03 00 00 */	cmplwi r3, 0
 /* 802C1B18 002BEA78  40 82 FF EC */	bne lbl_802C1B04

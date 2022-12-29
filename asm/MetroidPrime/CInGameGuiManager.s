@@ -1365,7 +1365,7 @@ UpdateAutoMapper__17CInGameGuiManagerFR13CStateManagerf:
 /* 80107BC4 00104B24  80 9F 01 44 */	lwz r4, 0x144(r31)
 /* 80107BC8 00104B28  80 7F 01 48 */	lwz r3, 0x148(r31)
 /* 80107BCC 00104B2C  3B C4 00 74 */	addi r30, r4, 0x74
-/* 80107BD0 00104B30  48 1B D1 49 */	bl GetParent__10CGuiObjectFv
+/* 80107BD0 00104B30  48 1B D1 49 */	bl Parent__10CGuiObjectFv
 /* 80107BD4 00104B34  7C 64 1B 78 */	mr r4, r3
 /* 80107BD8 00104B38  7F C5 F3 78 */	mr r5, r30
 /* 80107BDC 00104B3C  38 61 03 98 */	addi r3, r1, 0x398

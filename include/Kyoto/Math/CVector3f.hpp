@@ -17,6 +17,7 @@ enum EDimZ { kDZ };
 
 class CVector3f {
 public:
+  CVector3f() {}
   explicit CVector3f(float x, float y, float z) : mX(x), mY(y), mZ(z) {}
   CVector3f(const CVector2f& v, float z) : mX(v.GetX()), mY(v.GetY()), mZ(z) {}
 
