@@ -426,7 +426,7 @@ LIBS = [
             "GuiSys/CGuiHeadWidget",
             "GuiSys/CGuiLight",
             "GuiSys/CGuiModel",
-            "GuiSys/CGuiObject",
+            ["GuiSys/CGuiObject", False],
             "GuiSys/CGuiPane",
             "GuiSys/CGuiSliderGroup",
             "GuiSys/CGuiSys",

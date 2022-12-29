@@ -10358,14 +10358,14 @@ InitializeFrameGluePermanent__9CSamusHudFRC13CStateManager:
 /* 8006D33C 0006A29C  48 25 4E 19 */	bl FindWidget__9CGuiFrameCFPCc
 /* 8006D340 0006A2A0  90 7E 05 98 */	stw r3, 0x598(r30)
 /* 8006D344 0006A2A4  80 7E 05 98 */	lwz r3, 0x598(r30)
-/* 8006D348 0006A2A8  48 25 79 E9 */	bl GetChildObject__10CGuiObjectFv
+/* 8006D348 0006A2A8  48 25 79 E9 */	bl ChildObject__10CGuiObjectFv
 /* 8006D34C 0006A2AC  3B 80 00 00 */	li r28, 0
 /* 8006D350 0006A2B0  48 00 00 14 */	b lbl_8006D364
 lbl_8006D354:
 /* 8006D354 0006A2B4  88 03 00 B6 */	lbz r0, 0xb6(r3)
 /* 8006D358 0006A2B8  53 80 07 FE */	rlwimi r0, r28, 0, 0x1f, 0x1f
 /* 8006D35C 0006A2BC  98 03 00 B6 */	stb r0, 0xb6(r3)
-/* 8006D360 0006A2C0  48 25 79 C1 */	bl GetNextSibling__10CGuiObjectFv
+/* 8006D360 0006A2C0  48 25 79 C1 */	bl NextSibling__10CGuiObjectFv
 lbl_8006D364:
 /* 8006D364 0006A2C4  28 03 00 00 */	cmplwi r3, 0
 /* 8006D368 0006A2C8  40 82 FF EC */	bne lbl_8006D354

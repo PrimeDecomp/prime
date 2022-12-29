@@ -132,31 +132,31 @@ SetVisibility__10CGuiWidgetFb14ETraversalMode:
 /* 802CA718 002C7678  48 00 00 70 */	b lbl_802CA788
 /* 802CA71C 002C767C  48 00 00 6C */	b lbl_802CA788
 lbl_802CA720:
-/* 802CA720 002C7680  4B FF A6 11 */	bl GetChildObject__10CGuiObjectFv
+/* 802CA720 002C7680  4B FF A6 11 */	bl ChildObject__10CGuiObjectFv
 /* 802CA724 002C7684  28 03 00 00 */	cmplwi r3, 0
 /* 802CA728 002C7688  41 82 00 60 */	beq lbl_802CA788
 /* 802CA72C 002C768C  7F C3 F3 78 */	mr r3, r30
-/* 802CA730 002C7690  4B FF A6 01 */	bl GetChildObject__10CGuiObjectFv
+/* 802CA730 002C7690  4B FF A6 01 */	bl ChildObject__10CGuiObjectFv
 /* 802CA734 002C7694  7F E4 FB 78 */	mr r4, r31
 /* 802CA738 002C7698  38 A0 00 00 */	li r5, 0
 /* 802CA73C 002C769C  4B FF FF AD */	bl SetVisibility__10CGuiWidgetFb14ETraversalMode
 /* 802CA740 002C76A0  48 00 00 48 */	b lbl_802CA788
 lbl_802CA744:
-/* 802CA744 002C76A4  4B FF A5 ED */	bl GetChildObject__10CGuiObjectFv
+/* 802CA744 002C76A4  4B FF A5 ED */	bl ChildObject__10CGuiObjectFv
 /* 802CA748 002C76A8  28 03 00 00 */	cmplwi r3, 0
 /* 802CA74C 002C76AC  41 82 00 18 */	beq lbl_802CA764
 /* 802CA750 002C76B0  7F C3 F3 78 */	mr r3, r30
-/* 802CA754 002C76B4  4B FF A5 DD */	bl GetChildObject__10CGuiObjectFv
+/* 802CA754 002C76B4  4B FF A5 DD */	bl ChildObject__10CGuiObjectFv
 /* 802CA758 002C76B8  7F E4 FB 78 */	mr r4, r31
 /* 802CA75C 002C76BC  38 A0 00 00 */	li r5, 0
 /* 802CA760 002C76C0  4B FF FF 89 */	bl SetVisibility__10CGuiWidgetFb14ETraversalMode
 lbl_802CA764:
 /* 802CA764 002C76C4  7F C3 F3 78 */	mr r3, r30
-/* 802CA768 002C76C8  4B FF A5 B9 */	bl GetNextSibling__10CGuiObjectFv
+/* 802CA768 002C76C8  4B FF A5 B9 */	bl NextSibling__10CGuiObjectFv
 /* 802CA76C 002C76CC  28 03 00 00 */	cmplwi r3, 0
 /* 802CA770 002C76D0  41 82 00 18 */	beq lbl_802CA788
 /* 802CA774 002C76D4  7F C3 F3 78 */	mr r3, r30
-/* 802CA778 002C76D8  4B FF A5 A9 */	bl GetNextSibling__10CGuiObjectFv
+/* 802CA778 002C76D8  4B FF A5 A9 */	bl NextSibling__10CGuiObjectFv
 /* 802CA77C 002C76DC  7F E4 FB 78 */	mr r4, r31
 /* 802CA780 002C76E0  38 A0 00 00 */	li r5, 0
 /* 802CA784 002C76E4  4B FF FF 65 */	bl SetVisibility__10CGuiWidgetFb14ETraversalMode
@@ -180,7 +180,7 @@ RecalcWidgetColor__10CGuiWidgetF14ETraversalMode:
 /* 802CA7BC 002C771C  7C 9F 23 78 */	mr r31, r4
 /* 802CA7C0 002C7720  93 C1 00 18 */	stw r30, 0x18(r1)
 /* 802CA7C4 002C7724  7C 7E 1B 78 */	mr r30, r3
-/* 802CA7C8 002C7728  4B FF A5 51 */	bl GetParent__10CGuiObjectFv
+/* 802CA7C8 002C7728  4B FF A5 51 */	bl Parent__10CGuiObjectFv
 /* 802CA7CC 002C772C  7C 65 1B 79 */	or. r5, r3, r3
 /* 802CA7D0 002C7730  41 82 00 20 */	beq lbl_802CA7F0
 /* 802CA7D4 002C7734  38 61 00 08 */	addi r3, r1, 8
@@ -203,20 +203,20 @@ lbl_802CA7F8:
 /* 802CA810 002C7770  48 00 00 44 */	b lbl_802CA854
 lbl_802CA814:
 /* 802CA814 002C7774  7F C3 F3 78 */	mr r3, r30
-/* 802CA818 002C7778  4B FF A5 09 */	bl GetNextSibling__10CGuiObjectFv
+/* 802CA818 002C7778  4B FF A5 09 */	bl NextSibling__10CGuiObjectFv
 /* 802CA81C 002C777C  28 03 00 00 */	cmplwi r3, 0
 /* 802CA820 002C7780  41 82 00 14 */	beq lbl_802CA834
 /* 802CA824 002C7784  7F C3 F3 78 */	mr r3, r30
-/* 802CA828 002C7788  4B FF A4 F9 */	bl GetNextSibling__10CGuiObjectFv
+/* 802CA828 002C7788  4B FF A4 F9 */	bl NextSibling__10CGuiObjectFv
 /* 802CA82C 002C778C  38 80 00 00 */	li r4, 0
 /* 802CA830 002C7790  4B FF FF 7D */	bl RecalcWidgetColor__10CGuiWidgetF14ETraversalMode
 lbl_802CA834:
 /* 802CA834 002C7794  7F C3 F3 78 */	mr r3, r30
-/* 802CA838 002C7798  4B FF A4 F9 */	bl GetChildObject__10CGuiObjectFv
+/* 802CA838 002C7798  4B FF A4 F9 */	bl ChildObject__10CGuiObjectFv
 /* 802CA83C 002C779C  28 03 00 00 */	cmplwi r3, 0
 /* 802CA840 002C77A0  41 82 00 14 */	beq lbl_802CA854
 /* 802CA844 002C77A4  7F C3 F3 78 */	mr r3, r30
-/* 802CA848 002C77A8  4B FF A4 E9 */	bl GetChildObject__10CGuiObjectFv
+/* 802CA848 002C77A8  4B FF A4 E9 */	bl ChildObject__10CGuiObjectFv
 /* 802CA84C 002C77AC  38 80 00 00 */	li r4, 0
 /* 802CA850 002C77B0  4B FF FF 5D */	bl RecalcWidgetColor__10CGuiWidgetF14ETraversalMode
 lbl_802CA854:
@@ -256,11 +256,11 @@ FindWidget__10CGuiWidgetFs:
 /* 802CA8C0 002C7820  40 82 00 08 */	bne lbl_802CA8C8
 /* 802CA8C4 002C7824  48 00 00 5C */	b lbl_802CA920
 lbl_802CA8C8:
-/* 802CA8C8 002C7828  4B FF A4 69 */	bl GetChildObject__10CGuiObjectFv
+/* 802CA8C8 002C7828  4B FF A4 69 */	bl ChildObject__10CGuiObjectFv
 /* 802CA8CC 002C782C  28 03 00 00 */	cmplwi r3, 0
 /* 802CA8D0 002C7830  41 82 00 20 */	beq lbl_802CA8F0
 /* 802CA8D4 002C7834  7F C3 F3 78 */	mr r3, r30
-/* 802CA8D8 002C7838  4B FF A4 59 */	bl GetChildObject__10CGuiObjectFv
+/* 802CA8D8 002C7838  4B FF A4 59 */	bl ChildObject__10CGuiObjectFv
 /* 802CA8DC 002C783C  7F E4 FB 78 */	mr r4, r31
 /* 802CA8E0 002C7840  4B FF FF B9 */	bl FindWidget__10CGuiWidgetFs
 /* 802CA8E4 002C7844  28 03 00 00 */	cmplwi r3, 0
@@ -268,11 +268,11 @@ lbl_802CA8C8:
 /* 802CA8EC 002C784C  48 00 00 34 */	b lbl_802CA920
 lbl_802CA8F0:
 /* 802CA8F0 002C7850  7F C3 F3 78 */	mr r3, r30
-/* 802CA8F4 002C7854  4B FF A4 2D */	bl GetNextSibling__10CGuiObjectFv
+/* 802CA8F4 002C7854  4B FF A4 2D */	bl NextSibling__10CGuiObjectFv
 /* 802CA8F8 002C7858  28 03 00 00 */	cmplwi r3, 0
 /* 802CA8FC 002C785C  41 82 00 20 */	beq lbl_802CA91C
 /* 802CA900 002C7860  7F C3 F3 78 */	mr r3, r30
-/* 802CA904 002C7864  4B FF A4 1D */	bl GetNextSibling__10CGuiObjectFv
+/* 802CA904 002C7864  4B FF A4 1D */	bl NextSibling__10CGuiObjectFv
 /* 802CA908 002C7868  7F E4 FB 78 */	mr r4, r31
 /* 802CA90C 002C786C  4B FF FF 8D */	bl FindWidget__10CGuiWidgetFs
 /* 802CA910 002C7870  28 03 00 00 */	cmplwi r3, 0
@@ -314,19 +314,19 @@ DispatchInitialize__10CGuiWidgetFv:
 /* 802CA980 002C78E0  7D 89 03 A6 */	mtctr r12
 /* 802CA984 002C78E4  4E 80 04 21 */	bctrl
 /* 802CA988 002C78E8  7F E3 FB 78 */	mr r3, r31
-/* 802CA98C 002C78EC  4B FF A3 A5 */	bl GetChildObject__10CGuiObjectFv
+/* 802CA98C 002C78EC  4B FF A3 A5 */	bl ChildObject__10CGuiObjectFv
 /* 802CA990 002C78F0  28 03 00 00 */	cmplwi r3, 0
 /* 802CA994 002C78F4  41 82 00 10 */	beq lbl_802CA9A4
 /* 802CA998 002C78F8  7F E3 FB 78 */	mr r3, r31
-/* 802CA99C 002C78FC  4B FF A3 95 */	bl GetChildObject__10CGuiObjectFv
+/* 802CA99C 002C78FC  4B FF A3 95 */	bl ChildObject__10CGuiObjectFv
 /* 802CA9A0 002C7900  4B FF FF C5 */	bl DispatchInitialize__10CGuiWidgetFv
 lbl_802CA9A4:
 /* 802CA9A4 002C7904  7F E3 FB 78 */	mr r3, r31
-/* 802CA9A8 002C7908  4B FF A3 79 */	bl GetNextSibling__10CGuiObjectFv
+/* 802CA9A8 002C7908  4B FF A3 79 */	bl NextSibling__10CGuiObjectFv
 /* 802CA9AC 002C790C  28 03 00 00 */	cmplwi r3, 0
 /* 802CA9B0 002C7910  41 82 00 10 */	beq lbl_802CA9C0
 /* 802CA9B4 002C7914  7F E3 FB 78 */	mr r3, r31
-/* 802CA9B8 002C7918  4B FF A3 69 */	bl GetNextSibling__10CGuiObjectFv
+/* 802CA9B8 002C7918  4B FF A3 69 */	bl NextSibling__10CGuiObjectFv
 /* 802CA9BC 002C791C  4B FF FF A9 */	bl DispatchInitialize__10CGuiWidgetFv
 lbl_802CA9C0:
 /* 802CA9C0 002C7920  80 01 00 14 */	lwz r0, 0x14(r1)
@@ -344,11 +344,11 @@ Update__10CGuiWidgetFf:
 /* 802CA9E4 002C7944  FF E0 08 90 */	fmr f31, f1
 /* 802CA9E8 002C7948  93 E1 00 14 */	stw r31, 0x14(r1)
 /* 802CA9EC 002C794C  7C 7F 1B 78 */	mr r31, r3
-/* 802CA9F0 002C7950  4B FF A3 41 */	bl GetChildObject__10CGuiObjectFv
+/* 802CA9F0 002C7950  4B FF A3 41 */	bl ChildObject__10CGuiObjectFv
 /* 802CA9F4 002C7954  28 03 00 00 */	cmplwi r3, 0
 /* 802CA9F8 002C7958  41 82 00 20 */	beq lbl_802CAA18
 /* 802CA9FC 002C795C  7F E3 FB 78 */	mr r3, r31
-/* 802CAA00 002C7960  4B FF A3 31 */	bl GetChildObject__10CGuiObjectFv
+/* 802CAA00 002C7960  4B FF A3 31 */	bl ChildObject__10CGuiObjectFv
 /* 802CAA04 002C7964  81 83 00 00 */	lwz r12, 0(r3)
 /* 802CAA08 002C7968  FC 20 F8 90 */	fmr f1, f31
 /* 802CAA0C 002C796C  81 8C 00 0C */	lwz r12, 0xc(r12)
@@ -356,11 +356,11 @@ Update__10CGuiWidgetFf:
 /* 802CAA14 002C7974  4E 80 04 21 */	bctrl
 lbl_802CAA18:
 /* 802CAA18 002C7978  7F E3 FB 78 */	mr r3, r31
-/* 802CAA1C 002C797C  4B FF A3 05 */	bl GetNextSibling__10CGuiObjectFv
+/* 802CAA1C 002C797C  4B FF A3 05 */	bl NextSibling__10CGuiObjectFv
 /* 802CAA20 002C7980  28 03 00 00 */	cmplwi r3, 0
 /* 802CAA24 002C7984  41 82 00 20 */	beq lbl_802CAA44
 /* 802CAA28 002C7988  7F E3 FB 78 */	mr r3, r31
-/* 802CAA2C 002C798C  4B FF A2 F5 */	bl GetNextSibling__10CGuiObjectFv
+/* 802CAA2C 002C798C  4B FF A2 F5 */	bl NextSibling__10CGuiObjectFv
 /* 802CAA30 002C7990  81 83 00 00 */	lwz r12, 0(r3)
 /* 802CAA34 002C7994  FC 20 F8 90 */	fmr f1, f31
 /* 802CAA38 002C7998  81 8C 00 0C */	lwz r12, 0xc(r12)
@@ -739,4 +739,3 @@ lbl_803D68F8:
 	.asciz "Warning: Discarding useless worker id.  Parent is not a compound widget."
 	.byte 0x3F, 0x3F, 0x28
 	.4byte 0x3F3F2900
-
