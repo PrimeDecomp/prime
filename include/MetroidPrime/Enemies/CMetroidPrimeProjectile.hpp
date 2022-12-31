@@ -22,10 +22,10 @@ struct SPrimeProjectileInfo {
   float Get_0x2c() const { return x2c_; }
   float Get_0x30() const { return x30_; }
   CAssetId GetTexture() const { return x34_texture; }
-  bool GetFlag_24() const { return x38_24_; }
-  bool GetFlag_25() const { return x38_25_; }
-  bool GetFlag_26() const { return x38_26_; }
-  bool GetFlag_27() const { return x38_27_; }
+  const bool GetFlag_24() const { return x38_24_; }
+  const bool GetFlag_25() const { return x38_25_; }
+  const bool GetFlag_26() const { return x38_26_; }
+  const bool GetFlag_27() const { return x38_27_; }
 };
 CHECK_SIZEOF(SPrimeProjectileInfo, 60);
 
