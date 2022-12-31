@@ -7,7 +7,7 @@ lbl_ctor:
 .section .bss
 .balign 8
 
-.lcomm lbl_80479510, 0x48, 4
+.lcomm normalTable, 0x48, 4
 
 .section .text, "ax"
 
@@ -3358,11 +3358,11 @@ lbl_802D2BD0:
 /* 802D2CBC 002CFC1C  FC 02 08 40 */	fcmpo cr0, f2, f1
 /* 802D2CC0 002CFC20  4C 40 13 82 */	cror 2, 0, 2
 /* 802D2CC4 002CFC24  7C 00 00 26 */	mfcr r0
-/* 802D2CC8 002CFC28  3C 60 80 48 */	lis r3, lbl_80479510@ha
+/* 802D2CC8 002CFC28  3C 60 80 48 */	lis r3, normalTable@ha
 /* 802D2CCC 002CFC2C  54 00 2F 7A */	rlwinm r0, r0, 5, 0x1d, 0x1d
 /* 802D2CD0 002CFC30  3B 81 00 50 */	addi r28, r1, 0x50
 /* 802D2CD4 002CFC34  50 80 37 38 */	rlwimi r0, r4, 6, 0x1c, 0x1c
-/* 802D2CD8 002CFC38  3B 63 95 10 */	addi r27, r3, lbl_80479510@l
+/* 802D2CD8 002CFC38  3B 63 95 10 */	addi r27, r3, normalTable@l
 /* 802D2CDC 002CFC3C  50 A0 27 BC */	rlwimi r0, r5, 4, 0x1e, 0x1e
 /* 802D2CE0 002CFC40  3B 20 00 00 */	li r25, 0
 /* 802D2CE4 002CFC44  50 C0 1F FE */	rlwimi r0, r6, 3, 0x1f, 0x1f
@@ -3385,9 +3385,9 @@ lbl_802D2D18:
 /* 802D2D20 002CFC80  48 00 00 60 */	b lbl_802D2D80
 lbl_802D2D24:
 /* 802D2D24 002CFC84  C0 5B 00 0C */	lfs f2, 0xc(r27)
-/* 802D2D28 002CFC88  3C 60 80 48 */	lis r3, lbl_80479510@ha
+/* 802D2D28 002CFC88  3C 60 80 48 */	lis r3, normalTable@ha
 /* 802D2D2C 002CFC8C  C0 3B 00 10 */	lfs f1, 0x10(r27)
-/* 802D2D30 002CFC90  38 03 95 10 */	addi r0, r3, lbl_80479510@l
+/* 802D2D30 002CFC90  38 03 95 10 */	addi r0, r3, normalTable@l
 /* 802D2D34 002CFC94  C0 1B 00 14 */	lfs f0, 0x14(r27)
 /* 802D2D38 002CFC98  FC 40 10 50 */	fneg f2, f2
 /* 802D2D3C 002CFC9C  FC 20 08 50 */	fneg f1, f1
@@ -3438,9 +3438,9 @@ lbl_802D2DD0:
 /* 802D2DE8 002CFD48  80 1F 00 00 */	lwz r0, 0(r31)
 /* 802D2DEC 002CFD4C  2C 00 00 00 */	cmpwi r0, 0
 /* 802D2DF0 002CFD50  40 82 00 B4 */	bne lbl_802D2EA4
-/* 802D2DF4 002CFD54  3C 60 80 48 */	lis r3, lbl_80479510@ha
+/* 802D2DF4 002CFD54  3C 60 80 48 */	lis r3, normalTable@ha
 /* 802D2DF8 002CFD58  7F A5 EB 78 */	mr r5, r29
-/* 802D2DFC 002CFD5C  38 63 95 10 */	addi r3, r3, lbl_80479510@l
+/* 802D2DFC 002CFD5C  38 63 95 10 */	addi r3, r3, normalTable@l
 /* 802D2E00 002CFD60  7F C6 F3 78 */	mr r6, r30
 /* 802D2E04 002CFD64  C0 23 00 34 */	lfs f1, 0x34(r3)
 /* 802D2E08 002CFD68  38 E3 00 30 */	addi r7, r3, 0x30
@@ -3460,9 +3460,9 @@ lbl_802D2DD0:
 /* 802D2E40 002CFDA0  7F E3 FB 78 */	mr r3, r31
 /* 802D2E44 002CFDA4  38 A0 00 00 */	li r5, 0
 /* 802D2E48 002CFDA8  4B EB 27 D9 */	bl Add__18CCollisionInfoListFRC14CCollisionInfob
-/* 802D2E4C 002CFDAC  3C 60 80 48 */	lis r3, lbl_80479510@ha
+/* 802D2E4C 002CFDAC  3C 60 80 48 */	lis r3, normalTable@ha
 /* 802D2E50 002CFDB0  7F A5 EB 78 */	mr r5, r29
-/* 802D2E54 002CFDB4  38 63 95 10 */	addi r3, r3, lbl_80479510@l
+/* 802D2E54 002CFDB4  38 63 95 10 */	addi r3, r3, normalTable@l
 /* 802D2E58 002CFDB8  7F C6 F3 78 */	mr r6, r30
 /* 802D2E5C 002CFDBC  C0 23 00 40 */	lfs f1, 0x40(r3)
 /* 802D2E60 002CFDC0  38 E3 00 3C */	addi r7, r3, 0x3c
@@ -4593,9 +4593,9 @@ lbl_802D3DE0:
 .global __sinit_CollisionUtil_cpp
 __sinit_CollisionUtil_cpp:
 /* 802D3E14 002D0D74  C0 42 C4 C0 */	lfs f2, lbl_805AE1E0@sda21(r2)
-/* 802D3E18 002D0D78  3C 60 80 48 */	lis r3, lbl_80479510@ha
+/* 802D3E18 002D0D78  3C 60 80 48 */	lis r3, normalTable@ha
 /* 802D3E1C 002D0D7C  C0 22 C4 B8 */	lfs f1, lbl_805AE1D8@sda21(r2)
-/* 802D3E20 002D0D80  D4 43 95 10 */	stfsu f2, lbl_80479510@l(r3)
+/* 802D3E20 002D0D80  D4 43 95 10 */	stfsu f2, normalTable@l(r3)
 /* 802D3E24 002D0D84  C0 02 C4 BC */	lfs f0, lbl_805AE1DC@sda21(r2)
 /* 802D3E28 002D0D88  D0 23 00 04 */	stfs f1, 4(r3)
 /* 802D3E2C 002D0D8C  D0 23 00 08 */	stfs f1, 8(r3)
@@ -4775,4 +4775,3 @@ lbl_803D6A78:
 	.4byte 0
 	.4byte 0xBFF00000
 	.4byte 0
-

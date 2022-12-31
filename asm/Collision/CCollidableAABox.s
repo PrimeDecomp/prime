@@ -33,7 +33,7 @@ sTableIndex__16CCollidableAABox:
 .section .bss
 .balign 8
 
-.lcomm lbl_80479498, 0x48, 4
+.lcomm normalTable, 0x48, 4
 
 .section .text, "ax"
 
@@ -820,9 +820,9 @@ SetStaticTableIndex__16CCollidableAABoxFUi:
 .global __sinit_CCollidableAABox_cpp
 __sinit_CCollidableAABox_cpp:
 /* 802CE038 002CAF98  C0 42 C4 88 */	lfs f2, lbl_805AE1A8@sda21(r2)
-/* 802CE03C 002CAF9C  3C 60 80 48 */	lis r3, lbl_80479498@ha
+/* 802CE03C 002CAF9C  3C 60 80 48 */	lis r3, normalTable@ha
 /* 802CE040 002CAFA0  C0 22 C4 80 */	lfs f1, lbl_805AE1A0@sda21(r2)
-/* 802CE044 002CAFA4  D4 43 94 98 */	stfsu f2, lbl_80479498@l(r3)
+/* 802CE044 002CAFA4  D4 43 94 98 */	stfsu f2, normalTable@l(r3)
 /* 802CE048 002CAFA8  C0 02 C4 84 */	lfs f0, lbl_805AE1A4@sda21(r2)
 /* 802CE04C 002CAFAC  D0 23 00 04 */	stfs f1, 4(r3)
 /* 802CE050 002CAFB0  D0 23 00 08 */	stfs f1, 8(r3)
