@@ -188,14 +188,19 @@ void CMetaree::Flee(CStateManager& mgr, EStateMsg msg, float) {
     break;
   }
   case kStateMsg_Update: {
-    if (x5a8_ == 0) {
+    switch (x5a8_) {
+    case 0:
       if (GetBodyCtrl()->GetBodyStateInfo().GetCurrentStateId() == pas::kAS_LieOnGround) {
         x5a8_ = 1;
       } else {
         GetBodyCtrl()->CommandMgr().DeliverCmd(
             CBCKnockDownCmd(CVector3f(0.f, 1.f, 0.f), pas::kS_Zero));
       }
+      break;
+    default:
+      break;
     }
+
     break;
   }
   case kStateMsg_Deactivate:
