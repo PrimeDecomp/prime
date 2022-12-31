@@ -33,8 +33,7 @@ public:
     gGuiSystem = ptr;
     spGuiSys = ptr;
   }
-  static CGuiWidget* CreateWidgetInGame(uint type, CInputStream& in,
-                                                         CGuiFrame* parent);
+  static CGuiWidget* CreateWidgetInGame(uint type, CInputStream& in, CGuiFrame* parent);
 
   void AddFactories(EUsageMode mode);
 
@@ -46,7 +45,6 @@ private:
   rstl::single_ptr< CTextParser > x10_textParser;
   static CGuiSys* spGuiSys;
 };
-
 
 CHECK_SIZEOF(CGuiSys, 0x14);
 
