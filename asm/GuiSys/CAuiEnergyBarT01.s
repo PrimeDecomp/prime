@@ -709,7 +709,7 @@ __ct__16CAuiEnergyBarT01FRCQ210CGuiWidget15CGuiWidgetParmsUi:
 /* 802CBB0C 002C8A6C  D0 3F 00 F8 */	stfs f1, 0xf8(r31)
 /* 802CBB10 002C8A70  D0 3F 00 FC */	stfs f1, 0xfc(r31)
 /* 802CBB14 002C8A74  D0 3F 01 00 */	stfs f1, 0x100(r31)
-/* 802CBB18 002C8A78  80 6D A6 40 */	lwz r3, lbl_805A9200@sda21(r13)
+/* 802CBB18 002C8A78  80 6D A6 40 */	lwz r3, spGuiSys__7CGuiSys@sda21(r13)
 /* 802CBB1C 002C8A7C  80 03 00 08 */	lwz r0, 8(r3)
 /* 802CBB20 002C8A80  2C 00 00 02 */	cmpwi r0, 2
 /* 802CBB24 002C8A84  41 82 00 B4 */	beq lbl_802CBBD8
@@ -889,4 +889,3 @@ lbl_803D69B0:
 	.asciz "(??)"
 	.balign 4
 	.4byte 0
-

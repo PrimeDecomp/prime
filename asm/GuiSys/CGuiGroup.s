@@ -810,8 +810,8 @@ __ct__18CGuiCompoundWidgetFRCQ210CGuiWidget15CGuiWidgetParms:
 /* 802C1BC4 002BEB24  38 21 00 10 */	addi r1, r1, 0x10
 /* 802C1BC8 002BEB28  4E 80 00 20 */	blr
 
-.global FGuiWidgetFactoryInGame__FUiP9CGuiFrameR12CInputStreamb
-FGuiWidgetFactoryInGame__FUiP9CGuiFrameR12CInputStreamb:
+.global FGuiWidgetFactoryInGame__FUiP9CGuiFrameR12CInputStream
+FGuiWidgetFactoryInGame__FUiP9CGuiFrameR12CInputStream:
 /* 802C1BCC 002BEB2C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 802C1BD0 002BEB30  7C 08 02 A6 */	mflr r0
 /* 802C1BD4 002BEB34  3C E0 4C 49 */	lis r7, 0x4C495445@ha
@@ -986,7 +986,7 @@ RGuiFrameFactoryInGame__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer:
 /* 802C1E1C 002BED7C  80 C1 00 08 */	lwz r6, 8(r1)
 /* 802C1E20 002BED80  80 64 00 04 */	lwz r3, 4(r4)
 /* 802C1E24 002BED84  80 C6 00 00 */	lwz r6, 0(r6)
-/* 802C1E28 002BED88  80 8D A6 40 */	lwz r4, lbl_805A9200@sda21(r13)
+/* 802C1E28 002BED88  80 8D A6 40 */	lwz r4, spGuiSys__7CGuiSys@sda21(r13)
 /* 802C1E2C 002BED8C  80 C6 00 04 */	lwz r6, 4(r6)
 /* 802C1E30 002BED90  48 00 0B 8D */	bl CreateFrame__9CGuiFrameFUiR7CGuiSysR12CInputStreami
 /* 802C1E34 002BED94  7C 03 00 D0 */	neg r0, r3

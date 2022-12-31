@@ -3,13 +3,22 @@
 
 #include "types.h"
 
+#include "rstl/rc_ptr.hpp"
+#include "rstl/single_ptr.hpp"
+
+#include "GuiSys/CGuiTextSupport.hpp"
+
 class IFactory;
 class CSimplePool;
+class CTextExecuteBuffer;
+class CTextParser;
+class CGuiWidget;
 
 class CGuiSys;
 extern CGuiSys* gGuiSystem;
 
 class CGuiSys {
+
 public:
   enum EUsageMode {
     kUM_Zero,
@@ -24,11 +33,21 @@ public:
     gGuiSystem = ptr;
     spGuiSys = ptr;
   }
+  static CGuiWidget* CreateWidgetInGame(uint type, CInputStream& in,
+                                                         CGuiFrame* parent);
+
+  void AddFactories(EUsageMode mode);
 
 private:
-  uchar pad[0x14];
-
+  IFactory* x0_resFactory;
+  CSimplePool* x4_resStore;
+  EUsageMode x8_mode;
+  rstl::single_ptr< CTextExecuteBuffer > xc_textExecuteBuffer;
+  rstl::single_ptr< CTextParser > x10_textParser;
   static CGuiSys* spGuiSys;
 };
+
+
+CHECK_SIZEOF(CGuiSys, 0x14);
 
 #endif // _CGUISYS
