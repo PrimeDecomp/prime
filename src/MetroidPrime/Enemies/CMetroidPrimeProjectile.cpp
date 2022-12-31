@@ -21,8 +21,7 @@ void CMetroidPrimeProjectile::Accept(IVisitor& visitor) { visitor.Visit(*this); 
 // CEnergyProjectile
 bool CMetroidPrimeProjectile::Explode(const CVector3f& pos, const CVector3f& normal,
                                       EWeaponCollisionResponseTypes type, CStateManager& mgr,
-                                      const CDamageVulnerability& dVuln,
-                                      TUniqueId hitActor) {
+                                      const CDamageVulnerability& dVuln, TUniqueId hitActor) {
 
   bool result = CEnergyProjectile::Explode(pos, normal, type, mgr, dVuln, hitActor);
   if (!x2e4_24_active) {
@@ -53,11 +52,10 @@ SPrimeProjectileInfo::SPrimeProjectileInfo(CInputStream& in)
 , x28_(in.ReadFloat())
 , x2c_(in.ReadFloat())
 , x30_(in.ReadFloat())
-, x34_texture(in.ReadLong()) {
-  x38_24_ = in.ReadBool();
-  x38_25_ = in.ReadBool();
-  x38_26_ = in.ReadBool();
-  x38_27_ = in.ReadBool();
-}
+, x34_texture(in.ReadLong())
+, x38_24_(in.ReadBool())
+, x38_25_(in.ReadBool())
+, x38_26_(in.ReadBool())
+, x38_27_(in.ReadBool()) {}
 
 CMetroidPrimeProjectile::~CMetroidPrimeProjectile() {}
