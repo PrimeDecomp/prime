@@ -82,7 +82,7 @@ lbl_805A86F8:
 .section .bss
 .balign 8
 
-.lcomm lbl_80479558, 0x48, 4
+.lcomm normalTable, 0x48, 4
 
 .section .text, "ax"
 
@@ -1527,9 +1527,9 @@ SetStaticTableIndex__17CCollidableSphereFUi:
 .global __sinit_CCollidableSphere_cpp
 __sinit_CCollidableSphere_cpp:
 /* 802D52F0 002D2250  C0 42 C5 3C */	lfs f2, lbl_805AE25C@sda21(r2)
-/* 802D52F4 002D2254  3C 60 80 48 */	lis r3, lbl_80479558@ha
+/* 802D52F4 002D2254  3C 60 80 48 */	lis r3, normalTable@ha
 /* 802D52F8 002D2258  C0 22 C5 30 */	lfs f1, lbl_805AE250@sda21(r2)
-/* 802D52FC 002D225C  D4 43 95 58 */	stfsu f2, lbl_80479558@l(r3)
+/* 802D52FC 002D225C  D4 43 95 58 */	stfsu f2, normalTable@l(r3)
 /* 802D5300 002D2260  C0 02 C5 34 */	lfs f0, lbl_805AE254@sda21(r2)
 /* 802D5304 002D2264  D0 23 00 04 */	stfs f1, 4(r3)
 /* 802D5308 002D2268  D0 23 00 08 */	stfs f1, 8(r3)
@@ -1587,4 +1587,3 @@ lbl_803D6A90:
 	.asciz "CCollidableSphere"
 	.balign 4
 	.4byte 0
-
