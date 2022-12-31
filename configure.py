@@ -435,7 +435,7 @@ LIBS = [
             "GuiSys/CGuiTextSupport",
             "GuiSys/CGuiWidget",
             "GuiSys/CGuiWidgetIdDB",
-            "GuiSys/CGuiWidgetDrawParms",
+            ["GuiSys/CGuiWidgetDrawParms", True],
             "GuiSys/CAuiEnergyBarT01",
             "GuiSys/CAuiImagePane",
             ["GuiSys/CRepeatState", True],

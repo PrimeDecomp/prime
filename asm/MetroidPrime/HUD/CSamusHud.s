@@ -1936,8 +1936,8 @@ lbl_80065C08:
 /* 80065C08 00062B68  80 7F 02 74 */	lwz r3, 0x274(r31)
 /* 80065C0C 00062B6C  28 03 00 00 */	cmplwi r3, 0
 /* 80065C10 00062B70  41 82 00 48 */	beq lbl_80065C58
-/* 80065C14 00062B74  3C 80 80 5A */	lis r4, lbl_8059FD08@ha
-/* 80065C18 00062B78  38 84 FD 08 */	addi r4, r4, lbl_8059FD08@l
+/* 80065C14 00062B74  3C 80 80 5A */	lis r4, sDefaultDrawParms__19CGuiWidgetDrawParms@ha
+/* 80065C18 00062B78  38 84 FD 08 */	addi r4, r4, sDefaultDrawParms__19CGuiWidgetDrawParms@l
 /* 80065C1C 00062B7C  48 25 CB 19 */	bl Draw__9CGuiFrameCFRC19CGuiWidgetDrawParms
 /* 80065C20 00062B80  7F B5 EB 78 */	mr r21, r29
 /* 80065C24 00062B84  7F 36 CB 78 */	mr r22, r25

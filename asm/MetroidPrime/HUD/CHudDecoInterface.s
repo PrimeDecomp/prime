@@ -7553,8 +7553,8 @@ Draw__21CHudDecoInterfaceScanCFv:
 /* 8019589C 001927FC  80 7F 00 10 */	lwz r3, 0x10(r31)
 /* 801958A0 00192800  28 03 00 00 */	cmplwi r3, 0
 /* 801958A4 00192804  41 82 00 10 */	beq lbl_801958B4
-/* 801958A8 00192808  3C 80 80 5A */	lis r4, lbl_8059FD08@ha
-/* 801958AC 0019280C  38 84 FD 08 */	addi r4, r4, lbl_8059FD08@l
+/* 801958A8 00192808  3C 80 80 5A */	lis r4, sDefaultDrawParms__19CGuiWidgetDrawParms@ha
+/* 801958AC 0019280C  38 84 FD 08 */	addi r4, r4, sDefaultDrawParms__19CGuiWidgetDrawParms@l
 /* 801958B0 00192810  48 12 CE 85 */	bl Draw__9CGuiFrameCFRC19CGuiWidgetDrawParms
 lbl_801958B4:
 /* 801958B4 00192814  80 01 00 14 */	lwz r0, 0x14(r1)
