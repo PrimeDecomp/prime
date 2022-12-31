@@ -4015,8 +4015,8 @@ lbl_8001EB40:
 /* 8001EB40 0001BAA0  80 63 00 24 */	lwz r3, 0x24(r3)
 /* 8001EB44 0001BAA4  28 03 00 00 */	cmplwi r3, 0
 /* 8001EB48 0001BAA8  41 82 00 10 */	beq lbl_8001EB58
-/* 8001EB4C 0001BAAC  3C 80 80 5A */	lis r4, lbl_8059FD08@ha
-/* 8001EB50 0001BAB0  38 84 FD 08 */	addi r4, r4, lbl_8059FD08@l
+/* 8001EB4C 0001BAAC  3C 80 80 5A */	lis r4, sDefaultDrawParms__19CGuiWidgetDrawParms@ha
+/* 8001EB50 0001BAB0  38 84 FD 08 */	addi r4, r4, sDefaultDrawParms__19CGuiWidgetDrawParms@l
 /* 8001EB54 0001BAB4  48 2A 3B E1 */	bl Draw__9CGuiFrameCFRC19CGuiWidgetDrawParms
 lbl_8001EB58:
 /* 8001EB58 0001BAB8  80 01 00 14 */	lwz r0, 0x14(r1)
@@ -5658,9 +5658,9 @@ Draw__19SNewFileSelectFrameFv:
 /* 800202EC 0001D24C  88 03 01 0C */	lbz r0, 0x10c(r3)
 /* 800202F0 0001D250  28 00 00 00 */	cmplwi r0, 0
 /* 800202F4 0001D254  41 82 00 14 */	beq lbl_80020308
-/* 800202F8 0001D258  3C 80 80 5A */	lis r4, lbl_8059FD08@ha
+/* 800202F8 0001D258  3C 80 80 5A */	lis r4, sDefaultDrawParms__19CGuiWidgetDrawParms@ha
 /* 800202FC 0001D25C  7C A3 2B 78 */	mr r3, r5
-/* 80020300 0001D260  38 84 FD 08 */	addi r4, r4, lbl_8059FD08@l
+/* 80020300 0001D260  38 84 FD 08 */	addi r4, r4, sDefaultDrawParms__19CGuiWidgetDrawParms@l
 /* 80020304 0001D264  48 2A 24 31 */	bl Draw__9CGuiFrameCFRC19CGuiWidgetDrawParms
 lbl_80020308:
 /* 80020308 0001D268  80 01 00 14 */	lwz r0, 0x14(r1)
@@ -6824,9 +6824,9 @@ lbl_80021360:
 Draw__14SFrontEndFrameFv:
 /* 80021374 0001E2D4  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80021378 0001E2D8  7C 08 02 A6 */	mflr r0
-/* 8002137C 0001E2DC  3C 80 80 5A */	lis r4, lbl_8059FD08@ha
+/* 8002137C 0001E2DC  3C 80 80 5A */	lis r4, sDefaultDrawParms__19CGuiWidgetDrawParms@ha
 /* 80021380 0001E2E0  90 01 00 14 */	stw r0, 0x14(r1)
-/* 80021384 0001E2E4  38 84 FD 08 */	addi r4, r4, lbl_8059FD08@l
+/* 80021384 0001E2E4  38 84 FD 08 */	addi r4, r4, sDefaultDrawParms__19CGuiWidgetDrawParms@l
 /* 80021388 0001E2E8  80 63 00 14 */	lwz r3, 0x14(r3)
 /* 8002138C 0001E2EC  48 2A 13 A9 */	bl Draw__9CGuiFrameCFRC19CGuiWidgetDrawParms
 /* 80021390 0001E2F0  80 01 00 14 */	lwz r0, 0x14(r1)
@@ -7841,9 +7841,9 @@ FinishedLoading__13SGBALinkFrameFv:
 Draw__13SGBALinkFrameFv:
 /* 800221BC 0001F11C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 800221C0 0001F120  7C 08 02 A6 */	mflr r0
-/* 800221C4 0001F124  3C 80 80 5A */	lis r4, lbl_8059FD08@ha
+/* 800221C4 0001F124  3C 80 80 5A */	lis r4, sDefaultDrawParms__19CGuiWidgetDrawParms@ha
 /* 800221C8 0001F128  90 01 00 14 */	stw r0, 0x14(r1)
-/* 800221CC 0001F12C  38 84 FD 08 */	addi r4, r4, lbl_8059FD08@l
+/* 800221CC 0001F12C  38 84 FD 08 */	addi r4, r4, sDefaultDrawParms__19CGuiWidgetDrawParms@l
 /* 800221D0 0001F130  80 63 00 08 */	lwz r3, 8(r3)
 /* 800221D4 0001F134  48 2A 05 61 */	bl Draw__9CGuiFrameCFRC19CGuiWidgetDrawParms
 /* 800221D8 0001F138  80 01 00 14 */	lwz r0, 0x14(r1)

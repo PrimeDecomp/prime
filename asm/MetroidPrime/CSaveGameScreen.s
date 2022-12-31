@@ -517,8 +517,8 @@ Draw__15CSaveGameScreenFv:
 /* 8024F72C 0024C68C  80 63 00 50 */	lwz r3, 0x50(r3)
 /* 8024F730 0024C690  28 03 00 00 */	cmplwi r3, 0
 /* 8024F734 0024C694  41 82 00 10 */	beq lbl_8024F744
-/* 8024F738 0024C698  3C 80 80 5A */	lis r4, lbl_8059FD08@ha
-/* 8024F73C 0024C69C  38 84 FD 08 */	addi r4, r4, lbl_8059FD08@l
+/* 8024F738 0024C698  3C 80 80 5A */	lis r4, sDefaultDrawParms__19CGuiWidgetDrawParms@ha
+/* 8024F73C 0024C69C  38 84 FD 08 */	addi r4, r4, sDefaultDrawParms__19CGuiWidgetDrawParms@l
 /* 8024F740 0024C6A0  48 07 2F F5 */	bl Draw__9CGuiFrameCFRC19CGuiWidgetDrawParms
 lbl_8024F744:
 /* 8024F744 0024C6A4  80 01 00 14 */	lwz r0, 0x14(r1)
