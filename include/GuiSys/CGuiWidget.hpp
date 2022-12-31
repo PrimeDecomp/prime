@@ -2,17 +2,27 @@
 #define _CGUIWIDGET
 
 #include "GuiSys/CGuiObject.hpp"
+#include "Kyoto/Graphics/CColor.hpp"
 #include "Kyoto/SObjectTag.hpp"
 
-class CColor;
 class CFinalInput;
 
-enum ETraversalMode { kTM_ChildrenAndSiblings = 0, kTM_Children = 1, kTM_Single = 2 };
+enum ETraversalMode {
+  kTM_ChildrenAndSiblings = 0,
+  kTM_Children = 1,
+  kTM_Single = 2,
+};
 
 class CGuiWidget : public CGuiObject {
 public:
-  enum EGuiModelDrawFlags { kGMDF_Shadeless = 0, kGMDF_Opaque = 1, kGMDF_Alpha = 2, kGMDF_Additive = 3, kGMDF_AlphaAdditiveOverdraw = 4 };
-  class CGuiWidgetParms {};
+  enum EGuiModelDrawFlags {
+    kGMDF_Shadeless = 0,
+    kGMDF_Opaque = 1,
+    kGMDF_Alpha = 2,
+    kGMDF_Additive = 3,
+    kGMDF_AlphaAdditiveOverdraw = 4
+  };
+  class CGuiWidgetParms;
 
   void Update(float dt) override;
   void Draw(const CGuiWidgetDrawParms& drawParms) override;
@@ -29,10 +39,10 @@ public:
   virtual bool GetIsFinishedLoadingWidgetSpecific();
   virtual void OnVisibleChange();
   virtual void OnActiveChange();
-  
+
   void SetColor(const CColor& color);
   void SetVisibility(bool visible, ETraversalMode mode);
-  
+
 private:
   short x70_selfId;
   short x72_parentId;
@@ -55,5 +65,6 @@ private:
 };
 CHECK_SIZEOF(CGuiWidget, 0xb8)
 
+CGuiWidget* FGuiWidgetFactoryInGame(uint type, CGuiFrame* parent, CInputStream& in);
 
 #endif // _CGUIWIDGET

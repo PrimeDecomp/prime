@@ -449,7 +449,7 @@ __ct__9CGuiModelFRCQ210CGuiWidget15CGuiWidgetParmsUiUib:
 /* 802C453C 002C149C  98 7F 00 C4 */	stb r3, 0xc4(r31)
 /* 802C4540 002C14A0  93 9F 00 C8 */	stw r28, 0xc8(r31)
 /* 802C4544 002C14A4  93 BF 00 CC */	stw r29, 0xcc(r31)
-/* 802C4548 002C14A8  80 8D A6 40 */	lwz r4, lbl_805A9200@sda21(r13)
+/* 802C4548 002C14A8  80 8D A6 40 */	lwz r4, spGuiSys__7CGuiSys@sda21(r13)
 /* 802C454C 002C14AC  41 82 00 CC */	beq lbl_802C4618
 /* 802C4550 002C14B0  80 7F 00 C8 */	lwz r3, 0xc8(r31)
 /* 802C4554 002C14B4  3C 03 00 01 */	addis r0, r3, 1
@@ -604,4 +604,3 @@ lbl_803D68B0:
 	# ROM: 0x3D38B0
 	.asciz "??(??)"
 	.balign 4
-

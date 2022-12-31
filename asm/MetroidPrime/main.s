@@ -6084,7 +6084,7 @@ lbl_800074A8:
 /* 800074D8 00004438  80 6D A0 80 */	lwz r3, gpGameState@sda21(r13)
 /* 800074DC 0000443C  90 0D A0 70 */	stw r0, gGuiSystem@sda21(r13)
 /* 800074E0 00004440  38 63 01 7C */	addi r3, r3, 0x17c
-/* 800074E4 00004444  90 0D A6 40 */	stw r0, lbl_805A9200@sda21(r13)
+/* 800074E4 00004444  90 0D A6 40 */	stw r0, spGuiSys__7CGuiSys@sda21(r13)
 /* 800074E8 00004448  80 1E 00 34 */	lwz r0, 0x34(r30)
 /* 800074EC 0000444C  90 0D A0 7C */	stw r0, gpController@sda21(r13)
 /* 800074F0 00004450  48 20 7C 0D */	bl EnsureOptions__12CGameOptionsFv

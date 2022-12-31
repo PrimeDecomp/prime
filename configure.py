@@ -429,7 +429,7 @@ LIBS = [
             ["GuiSys/CGuiObject", False],
             "GuiSys/CGuiPane",
             "GuiSys/CGuiSliderGroup",
-            "GuiSys/CGuiSys",
+            ["GuiSys/CGuiSys", True],
             "GuiSys/CGuiTableGroup",
             "GuiSys/CGuiTextPane",
             "GuiSys/CGuiTextSupport",

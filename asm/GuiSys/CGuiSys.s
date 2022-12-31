@@ -3,14 +3,14 @@
 .section .sbss, "wa"
 .balign 8
 
-.global lbl_805A9200
-lbl_805A9200:
+.global spGuiSys__7CGuiSys
+spGuiSys__7CGuiSys:
 	.skip 0x8
 
 .section .text, "ax"
 
-.global nullsub_7
-nullsub_7:
+.global AddFactories__7CGuiSysFQ27CGuiSys10EUsageMode
+AddFactories__7CGuiSysFQ27CGuiSys10EUsageMode:
 /* 802C63E0 002C3340  4E 80 00 20 */	blr
 
 .global CreateWidgetInGame__7CGuiSysFUiR12CInputStreamP9CGuiFrame
@@ -21,7 +21,7 @@ CreateWidgetInGame__7CGuiSysFUiR12CInputStreamP9CGuiFrame:
 /* 802C63F0 002C3350  7C 80 23 78 */	mr r0, r4
 /* 802C63F4 002C3354  7C A4 2B 78 */	mr r4, r5
 /* 802C63F8 002C3358  7C 05 03 78 */	mr r5, r0
-/* 802C63FC 002C335C  4B FF B7 D1 */	bl FGuiWidgetFactoryInGame__FUiP9CGuiFrameR12CInputStreamb
+/* 802C63FC 002C335C  4B FF B7 D1 */	bl FGuiWidgetFactoryInGame__FUiP9CGuiFrameR12CInputStream
 /* 802C6400 002C3360  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802C6404 002C3364  7C 08 03 A6 */	mtlr r0
 /* 802C6408 002C3368  38 21 00 10 */	addi r1, r1, 0x10
@@ -44,7 +44,7 @@ __dt__7CGuiSysFv:
 lbl_802C6440:
 /* 802C6440 002C33A0  38 7E 00 0C */	addi r3, r30, 0xc
 /* 802C6444 002C33A4  38 80 FF FF */	li r4, -1
-/* 802C6448 002C33A8  48 00 00 31 */	bl sub_802c6478
+/* 802C6448 002C33A8  48 00 00 31 */	bl "__dt__Q24rstl32single_ptr<18CTextExecuteBuffer>Fv"
 /* 802C644C 002C33AC  7F E0 07 35 */	extsh. r0, r31
 /* 802C6450 002C33B0  40 81 00 0C */	ble lbl_802C645C
 /* 802C6454 002C33B4  7F C3 F3 78 */	mr r3, r30
@@ -58,8 +58,8 @@ lbl_802C645C:
 /* 802C6470 002C33D0  38 21 00 10 */	addi r1, r1, 0x10
 /* 802C6474 002C33D4  4E 80 00 20 */	blr
 
-.global sub_802c6478
-sub_802c6478:
+.global "__dt__Q24rstl32single_ptr<18CTextExecuteBuffer>Fv"
+"__dt__Q24rstl32single_ptr<18CTextExecuteBuffer>Fv":
 /* 802C6478 002C33D8  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 802C647C 002C33DC  7C 08 02 A6 */	mflr r0
 /* 802C6480 002C33E0  90 01 00 14 */	stw r0, 0x14(r1)
@@ -101,7 +101,7 @@ __ct__7CGuiSysFP8IFactoryP11CSimplePoolQ27CGuiSys10EUsageMode:
 /* 802C6500 002C3460  90 03 00 0C */	stw r0, 0xc(r3)
 /* 802C6504 002C3464  90 03 00 10 */	stw r0, 0x10(r3)
 /* 802C6508 002C3468  80 83 00 08 */	lwz r4, 8(r3)
-/* 802C650C 002C346C  4B FF FE D5 */	bl nullsub_7
+/* 802C650C 002C346C  4B FF FE D5 */	bl AddFactories__7CGuiSysFQ27CGuiSys10EUsageMode
 /* 802C6510 002C3470  3C 80 80 3D */	lis r4, lbl_803D68C8@ha
 /* 802C6514 002C3474  38 60 00 DC */	li r3, 0xdc
 /* 802C6518 002C3478  38 84 68 C8 */	addi r4, r4, lbl_803D68C8@l
@@ -113,7 +113,7 @@ __ct__7CGuiSysFP8IFactoryP11CSimplePoolQ27CGuiSys10EUsageMode:
 /* 802C6530 002C3490  7C 64 1B 78 */	mr r4, r3
 lbl_802C6534:
 /* 802C6534 002C3494  38 7D 00 0C */	addi r3, r29, 0xc
-/* 802C6538 002C3498  48 00 00 69 */	bl sub_802c65a0
+/* 802C6538 002C3498  48 00 00 69 */	bl "__as__Q24rstl32single_ptr<18CTextExecuteBuffer>FP18CTextExecuteBuffer"
 /* 802C653C 002C349C  3C 80 80 3D */	lis r4, lbl_803D68C8@ha
 /* 802C6540 002C34A0  38 60 00 04 */	li r3, 4
 /* 802C6544 002C34A4  38 84 68 C8 */	addi r4, r4, lbl_803D68C8@l
@@ -131,8 +131,8 @@ lbl_802C6564:
 /* 802C6570 002C34D0  7F A3 EB 78 */	mr r3, r29
 /* 802C6574 002C34D4  80 9D 00 10 */	lwz r4, 0x10(r29)
 /* 802C6578 002C34D8  80 1D 00 0C */	lwz r0, 0xc(r29)
-/* 802C657C 002C34DC  90 0D A6 48 */	stw r0, lbl_805A9208@sda21(r13)
-/* 802C6580 002C34E0  90 8D A6 4C */	stw r4, lbl_805A920C@sda21(r13)
+/* 802C657C 002C34DC  90 0D A6 48 */	stw r0, gpExecBuf__15CGuiTextSupport@sda21(r13)
+/* 802C6580 002C34E0  90 8D A6 4C */	stw r4, gpTextParser__15CGuiTextSupport@sda21(r13)
 /* 802C6584 002C34E4  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 802C6588 002C34E8  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 802C658C 002C34EC  83 A1 00 14 */	lwz r29, 0x14(r1)
@@ -141,8 +141,8 @@ lbl_802C6564:
 /* 802C6598 002C34F8  38 21 00 20 */	addi r1, r1, 0x20
 /* 802C659C 002C34FC  4E 80 00 20 */	blr
 
-.global sub_802c65a0
-sub_802c65a0:
+.global "__as__Q24rstl32single_ptr<18CTextExecuteBuffer>FP18CTextExecuteBuffer"
+"__as__Q24rstl32single_ptr<18CTextExecuteBuffer>FP18CTextExecuteBuffer":
 /* 802C65A0 002C3500  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 802C65A4 002C3504  7C 08 02 A6 */	mflr r0
 /* 802C65A8 002C3508  90 01 00 14 */	stw r0, 0x14(r1)

@@ -26,11 +26,11 @@ lbl_805A86D4:
 .section .sbss, "wa"
 .balign 8
 
-.global lbl_805A9208
-lbl_805A9208:
+.global gpExecBuf__15CGuiTextSupport
+gpExecBuf__15CGuiTextSupport:
 	.skip 0x4
-.global lbl_805A920C
-lbl_805A920C:
+.global gpTextParser__15CGuiTextSupport
+gpTextParser__15CGuiTextSupport:
 	.skip 0x4
 
 .section .text, "ax"
@@ -1127,7 +1127,7 @@ lbl_802C8B60:
 lbl_802C8B74:
 /* 802C8B74 002C5AD4  7F A3 EB 78 */	mr r3, r29
 /* 802C8B78 002C5AD8  48 00 07 91 */	bl CheckAndRebuildTextBuffer__15CGuiTextSupportFv
-/* 802C8B7C 002C5ADC  80 8D A6 48 */	lwz r4, lbl_805A9208@sda21(r13)
+/* 802C8B7C 002C5ADC  80 8D A6 48 */	lwz r4, gpExecBuf__15CGuiTextSupport@sda21(r13)
 /* 802C8B80 002C5AE0  38 61 00 30 */	addi r3, r1, 0x30
 /* 802C8B84 002C5AE4  48 03 97 31 */	bl GetAssets__18CTextExecuteBufferFv
 /* 802C8B88 002C5AE8  38 7D 02 BC */	addi r3, r29, 0x2bc
@@ -1168,7 +1168,7 @@ lbl_802C8BE0:
 /* 802C8C08 002C5B68  38 61 00 18 */	addi r3, r1, 0x18
 /* 802C8C0C 002C5B6C  80 BD 00 38 */	lwz r5, 0x38(r29)
 /* 802C8C10 002C5B70  48 04 B7 3D */	bl __ct__9CVector2iFii
-/* 802C8C14 002C5B74  80 8D A6 48 */	lwz r4, lbl_805A9208@sda21(r13)
+/* 802C8C14 002C5B74  80 8D A6 48 */	lwz r4, gpExecBuf__15CGuiTextSupport@sda21(r13)
 /* 802C8C18 002C5B78  7C 65 1B 78 */	mr r5, r3
 /* 802C8C1C 002C5B7C  38 61 00 40 */	addi r3, r1, 0x40
 /* 802C8C20 002C5B80  48 03 8F 11 */	bl BuildRenderBufferPages__18CTextExecuteBufferFRC9CVector2i
@@ -1180,7 +1180,7 @@ lbl_802C8BE0:
 /* 802C8C38 002C5B98  48 00 14 B9 */	bl "__dt__Q24rstl25list<17CTextRenderBuffer>Fv"
 /* 802C8C3C 002C5B9C  48 00 00 54 */	b lbl_802C8C90
 lbl_802C8C40:
-/* 802C8C40 002C5BA0  80 8D A6 48 */	lwz r4, lbl_805A9208@sda21(r13)
+/* 802C8C40 002C5BA0  80 8D A6 48 */	lwz r4, gpExecBuf__15CGuiTextSupport@sda21(r13)
 /* 802C8C44 002C5BA4  38 61 00 58 */	addi r3, r1, 0x58
 /* 802C8C48 002C5BA8  48 03 95 69 */	bl BuildRenderBuffer__18CTextExecuteBufferFv
 /* 802C8C4C 002C5BAC  38 7D 00 60 */	addi r3, r29, 0x60
@@ -1201,7 +1201,7 @@ lbl_802C8C40:
 /* 802C8C88 002C5BE8  90 7D 02 E4 */	stw r3, 0x2e4(r29)
 /* 802C8C8C 002C5BEC  90 1D 02 E8 */	stw r0, 0x2e8(r29)
 lbl_802C8C90:
-/* 802C8C90 002C5BF0  80 6D A6 48 */	lwz r3, lbl_805A9208@sda21(r13)
+/* 802C8C90 002C5BF0  80 6D A6 48 */	lwz r3, gpExecBuf__15CGuiTextSupport@sda21(r13)
 /* 802C8C94 002C5BF4  48 03 B0 55 */	bl Clear__18CTextExecuteBufferFv
 /* 802C8C98 002C5BF8  48 00 00 0C */	b lbl_802C8CA4
 lbl_802C8C9C:
@@ -1705,18 +1705,18 @@ CheckAndRebuildTextBuffer__15CGuiTextSupportFv:
 /* 802C9310 002C6270  90 01 00 B4 */	stw r0, 0xb4(r1)
 /* 802C9314 002C6274  93 E1 00 AC */	stw r31, 0xac(r1)
 /* 802C9318 002C6278  7C 7F 1B 78 */	mr r31, r3
-/* 802C931C 002C627C  80 6D A6 48 */	lwz r3, lbl_805A9208@sda21(r13)
+/* 802C931C 002C627C  80 6D A6 48 */	lwz r3, gpExecBuf__15CGuiTextSupport@sda21(r13)
 /* 802C9320 002C6280  48 03 A9 C9 */	bl Clear__18CTextExecuteBufferFv
 /* 802C9324 002C6284  88 1F 00 14 */	lbz r0, 0x14(r31)
 /* 802C9328 002C6288  38 80 00 00 */	li r4, 0
-/* 802C932C 002C628C  80 6D A6 48 */	lwz r3, lbl_805A9208@sda21(r13)
+/* 802C932C 002C628C  80 6D A6 48 */	lwz r3, gpExecBuf__15CGuiTextSupport@sda21(r13)
 /* 802C9330 002C6290  38 A0 00 00 */	li r5, 0
 /* 802C9334 002C6294  98 03 00 94 */	stb r0, 0x94(r3)
 /* 802C9338 002C6298  81 5F 00 18 */	lwz r10, 0x18(r31)
 /* 802C933C 002C629C  80 1F 00 1C */	lwz r0, 0x1c(r31)
 /* 802C9340 002C62A0  90 01 00 08 */	stw r0, 8(r1)
 /* 802C9344 002C62A4  88 1F 00 15 */	lbz r0, 0x15(r31)
-/* 802C9348 002C62A8  80 6D A6 48 */	lwz r3, lbl_805A9208@sda21(r13)
+/* 802C9348 002C62A8  80 6D A6 48 */	lwz r3, gpExecBuf__15CGuiTextSupport@sda21(r13)
 /* 802C934C 002C62AC  7C 00 00 34 */	cntlzw r0, r0
 /* 802C9350 002C62B0  80 DF 00 34 */	lwz r6, 0x34(r31)
 /* 802C9354 002C62B4  80 FF 00 38 */	lwz r7, 0x38(r31)
@@ -1732,7 +1732,7 @@ CheckAndRebuildTextBuffer__15CGuiTextSupportFv:
 /* 802C937C 002C62DC  38 80 00 00 */	li r4, 0
 /* 802C9380 002C62E0  C0 82 C3 F4 */	lfs f4, lbl_805AE114@sda21(r2)
 /* 802C9384 002C62E4  EC 60 00 F2 */	fmuls f3, f0, f3
-/* 802C9388 002C62E8  80 6D A6 48 */	lwz r3, lbl_805A9208@sda21(r13)
+/* 802C9388 002C62E8  80 6D A6 48 */	lwz r3, gpExecBuf__15CGuiTextSupport@sda21(r13)
 /* 802C938C 002C62EC  EC 40 00 B2 */	fmuls f2, f0, f2
 /* 802C9390 002C62F0  EC 20 00 72 */	fmuls f1, f0, f1
 /* 802C9394 002C62F4  EC 00 01 72 */	fmuls f0, f0, f5
@@ -1766,7 +1766,7 @@ CheckAndRebuildTextBuffer__15CGuiTextSupportFv:
 /* 802C9404 002C6364  38 80 00 01 */	li r4, 1
 /* 802C9408 002C6368  C0 82 C3 F4 */	lfs f4, lbl_805AE114@sda21(r2)
 /* 802C940C 002C636C  EC 60 00 F2 */	fmuls f3, f0, f3
-/* 802C9410 002C6370  80 6D A6 48 */	lwz r3, lbl_805A9208@sda21(r13)
+/* 802C9410 002C6370  80 6D A6 48 */	lwz r3, gpExecBuf__15CGuiTextSupport@sda21(r13)
 /* 802C9414 002C6374  EC 40 00 B2 */	fmuls f2, f0, f2
 /* 802C9418 002C6378  EC 20 00 72 */	fmuls f1, f0, f1
 /* 802C941C 002C637C  EC 00 01 72 */	fmuls f0, f0, f5
@@ -1829,13 +1829,13 @@ lbl_802C94FC:
 /* 802C94FC 002C645C  7F E4 FB 78 */	mr r4, r31
 /* 802C9500 002C6460  38 61 00 4C */	addi r3, r1, 0x4c
 /* 802C9504 002C6464  48 07 41 49 */	bl "append__Q24rstl66basic_string<w,Q24rstl14char_traits<w>,Q24rstl17rmemory_allocator>FRCQ24rstl66basic_string<w,Q24rstl14char_traits<w>,Q24rstl17rmemory_allocator>"
-/* 802C9508 002C6468  80 6D A6 4C */	lwz r3, lbl_805A920C@sda21(r13)
-/* 802C950C 002C646C  80 8D A6 48 */	lwz r4, lbl_805A9208@sda21(r13)
+/* 802C9508 002C6468  80 6D A6 4C */	lwz r3, gpTextParser__15CGuiTextSupport@sda21(r13)
+/* 802C950C 002C646C  80 8D A6 48 */	lwz r4, gpExecBuf__15CGuiTextSupport@sda21(r13)
 /* 802C9510 002C6470  80 A1 00 4C */	lwz r5, 0x4c(r1)
 /* 802C9514 002C6474  80 C1 00 54 */	lwz r6, 0x54(r1)
 /* 802C9518 002C6478  80 FF 00 20 */	lwz r7, 0x20(r31)
 /* 802C951C 002C647C  48 03 C2 31 */	bl ParseText__11CTextParserFR18CTextExecuteBufferPCwi
-/* 802C9520 002C6480  80 6D A6 48 */	lwz r3, lbl_805A9208@sda21(r13)
+/* 802C9520 002C6480  80 6D A6 48 */	lwz r3, gpExecBuf__15CGuiTextSupport@sda21(r13)
 /* 802C9524 002C6484  48 03 A6 05 */	bl EndBlock__18CTextExecuteBufferFv
 /* 802C9528 002C6488  38 61 00 4C */	addi r3, r1, 0x4c
 /* 802C952C 002C648C  48 07 3C 09 */	bl "internal_dereference__Q24rstl66basic_string<w,Q24rstl14char_traits<w>,Q24rstl17rmemory_allocator>Fv"
