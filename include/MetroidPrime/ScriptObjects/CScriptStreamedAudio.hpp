@@ -30,6 +30,10 @@ private:
   void StopStream(CStateManager& mgr);
   void StartStream(CStateManager& mgr);
   void TweakOverride(CStateManager& mgr);
+
+  void sub_8020c3f0(CStateManager& mgr);
+  void sub_8020c414(CStateManager& mgr);
+  rstl::string sub_8020be90();
 };
 
 #endif // _CSCRIPTSTREAMEDAUDIO

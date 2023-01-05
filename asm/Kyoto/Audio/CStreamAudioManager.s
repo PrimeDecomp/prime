@@ -65,8 +65,8 @@ lbl_805A9688:
 
 .section .text, "ax"
 
-.global sub_803653f8
-sub_803653f8:
+.global sub_803653f8__19CStreamAudioManagerFf
+sub_803653f8__19CStreamAudioManagerFf:
 /* 803653F8 00362358  C0 02 CD B0 */	lfs f0, lbl_805AEAD0@sda21(r2)
 /* 803653FC 0036235C  FC 00 08 00 */	fcmpu cr0, f0, f1
 /* 80365400 00362360  40 82 00 0C */	bne lbl_8036540C
@@ -81,8 +81,8 @@ lbl_80365414:
 /* 8036541C 0036237C  90 0D 9E 70 */	stw r0, lbl_805A8A30@sda21(r13)
 /* 80365420 00362380  4E 80 00 20 */	blr
 
-.global sub_80365424
-sub_80365424:
+.global sub_80365424__19CStreamAudioManagerFf
+sub_80365424__19CStreamAudioManagerFf:
 /* 80365424 00362384  C0 02 CD B0 */	lfs f0, lbl_805AEAD0@sda21(r2)
 /* 80365428 00362388  C0 4D AA C0 */	lfs f2, lbl_805A9680@sda21(r13)
 /* 8036542C 0036238C  FC 00 08 00 */	fcmpu cr0, f0, f1
@@ -439,8 +439,8 @@ lbl_803658FC:
 /* 80365904 00362864  38 21 00 10 */	addi r1, r1, 0x10
 /* 80365908 00362868  4E 80 00 20 */	blr
 
-.global sub_8036590c
-sub_8036590c:
+.global sub_8036590c__19CStreamAudioManagerFf
+sub_8036590c__19CStreamAudioManagerFf:
 /* 8036590C 0036286C  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80365910 00362870  7C 08 02 A6 */	mflr r0
 /* 80365914 00362874  C0 02 CD B0 */	lfs f0, lbl_805AEAD0@sda21(r2)
@@ -544,8 +544,8 @@ lbl_80365A54:
 /* 80365A64 003629C4  38 21 00 10 */	addi r1, r1, 0x10
 /* 80365A68 003629C8  4E 80 00 20 */	blr
 
-.global "SetCurrentAudio__19CStreamAudioManagerFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>fUc"
-"SetCurrentAudio__19CStreamAudioManagerFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>fUc":
+.global "SetCurrentAudio__19CStreamAudioManagerFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>ffUc"
+"SetCurrentAudio__19CStreamAudioManagerFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>ffUc":
 /* 80365A6C 003629CC  94 21 FF C0 */	stwu r1, -0x40(r1)
 /* 80365A70 003629D0  7C 08 02 A6 */	mflr r0
 /* 80365A74 003629D4  90 01 00 44 */	stw r0, 0x44(r1)
@@ -637,8 +637,8 @@ lbl_80365B90:
 /* 80365BB0 00362B10  38 21 00 40 */	addi r1, r1, 0x40
 /* 80365BB4 00362B14  4E 80 00 20 */	blr
 
-.global "SetDefaultAudio__19CStreamAudioManagerFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>fUc"
-"SetDefaultAudio__19CStreamAudioManagerFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>fUc":
+.global "SetDefaultAudio__19CStreamAudioManagerFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>ffUc"
+"SetDefaultAudio__19CStreamAudioManagerFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>ffUc":
 /* 80365BB8 00362B18  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80365BBC 00362B1C  7C 08 02 A6 */	mflr r0
 /* 80365BC0 00362B20  3C A0 80 5A */	lis r5, lbl_805A6B60@ha
@@ -658,7 +658,7 @@ lbl_80365B90:
 /* 80365BF8 00362B58  7F C3 F3 78 */	mr r3, r30
 /* 80365BFC 00362B5C  FC 40 F8 90 */	fmr f2, f31
 /* 80365C00 00362B60  7F E4 FB 78 */	mr r4, r31
-/* 80365C04 00362B64  4B FF FE 69 */	bl "SetCurrentAudio__19CStreamAudioManagerFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>fUc"
+/* 80365C04 00362B64  4B FF FE 69 */	bl "SetCurrentAudio__19CStreamAudioManagerFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>ffUc"
 /* 80365C08 00362B68  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80365C0C 00362B6C  CB E1 00 18 */	lfd f31, 0x18(r1)
 /* 80365C10 00362B70  CB C1 00 10 */	lfd f30, 0x10(r1)
@@ -767,8 +767,8 @@ lbl_80365D60:
 /* 80365D78 00362CD8  38 21 00 20 */	addi r1, r1, 0x20
 /* 80365D7C 00362CDC  4E 80 00 20 */	blr
 
-.global Start__19CStreamAudioManagerFiRCQ24rstl6stringib
-Start__19CStreamAudioManagerFiRCQ24rstl6stringib:
+.global "Start__19CStreamAudioManagerFiRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>ibff"
+"Start__19CStreamAudioManagerFiRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>ibff":
 /* 80365D80 00362CE0  94 21 FF 60 */	stwu r1, -0xa0(r1)
 /* 80365D84 00362CE4  7C 08 02 A6 */	mflr r0
 /* 80365D88 00362CE8  90 01 00 A4 */	stw r0, 0xa4(r1)
@@ -1113,7 +1113,7 @@ UpdateDSP__19CStreamAudioManagerFif:
 /* 80366254 003631B4  C0 5F 00 1C */	lfs f2, 0x1c(r31)
 /* 80366258 003631B8  54 05 06 3E */	clrlwi r5, r0, 0x18
 /* 8036625C 003631BC  88 DF 00 28 */	lbz r6, 0x28(r31)
-/* 80366260 003631C0  4B FF FB 21 */	bl Start__19CStreamAudioManagerFiRCQ24rstl6stringib
+/* 80366260 003631C0  4B FF FB 21 */	bl "Start__19CStreamAudioManagerFiRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>ibff"
 /* 80366264 003631C4  38 61 00 0C */	addi r3, r1, 0xc
 /* 80366268 003631C8  48 00 02 E9 */	bl __ct__20SDSPStreamCacheEntryFv
 /* 8036626C 003631CC  7F E3 FB 78 */	mr r3, r31
