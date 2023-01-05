@@ -29,13 +29,13 @@ void CScriptActorRotate::UpdatePlatformRiders(rstl::vector< SRiders >& riders,
 
   for (rstl::vector< SRiders >::iterator rider = riders.begin(); rider != riders.end(); ++rider) {
     if (CActor* act = TCastToPtr< CActor >(mgr.ObjectById(rider->x0_uid))) {
-      CTransform4f& riderXf = rider->x8_transform;
+      act->SetTransform(rider->x8_transform);
       act->SetTransform(xf * rider->x8_transform);
       act->SetTranslation(act->GetTranslation() + plat.GetTranslation());
       if (!x58_24_updateRotation) {
-        riderXf = CTransform4f(act->GetTransform().BuildMatrix3f(),
-                               act->GetTranslation() - plat.GetTranslation());
-
+        CTransform4f riderXf(act->GetTransform());
+        riderXf.SetTranslation(act->GetTranslation() - plat.GetTranslation());
+        rider->x8_transform = riderXf;
         if (TCastToConstPtr< CScriptSpiderBallWaypoint >(act)) {
           x58_25_updateSpiderBallWaypoints = true;
         }
@@ -129,15 +129,13 @@ void CScriptActorRotate::UpdateActors(bool next, CStateManager& mgr) {
     }
 
     CStateManager::TIdListResult search = mgr.GetIdListForScript(conn->x8_objId);
-    for (CStateManager::TIdList::const_iterator it = search.first; it != search.second; ++it) {
-      // TODO is this for loop real?
-      for (int i = 0; i < x48_actors.size(); ++i) {
-        if (x48_actors[i].first == it->second) {
+    if (!(search.first == search.second)) {
+      x48_actors.reserve(x48_actors.size() + rstl::distance(search.first, search.second));
+      for (CStateManager::TIdList::const_iterator it = search.first; it != search.second; ++it) {
+        if (const CActor* act = TCastToConstPtr< CActor >(mgr.ObjectById(it->second))) {
+          x48_actors.push_back(
+              rstl::pair< TUniqueId, CTransform4f >(it->second, act->GetTransform().GetRotation()));
         }
-      }
-      if (const CActor* act = TCastToConstPtr< CActor >(mgr.ObjectById(it->second))) {
-        x48_actors.push_back(
-            rstl::pair< TUniqueId, CTransform4f >(it->second, act->GetTransform().GetRotation()));
       }
     }
   }
@@ -156,10 +154,11 @@ void CScriptActorRotate::UpdateActors(bool next, CStateManager& mgr) {
 
 void CScriptActorRotate::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid,
                                          CStateManager& mgr) {
+  bool didAccept = false;
   switch (msg) {
   case kSM_Activate:
     CEntity::AcceptScriptMsg(msg, uid, mgr);
-    break;
+    didAccept = true;
 
   case kSM_Registered:
     if (!x58_27_updateOnCreation) {
@@ -167,10 +166,13 @@ void CScriptActorRotate::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid
     }
   case kSM_Action:
   case kSM_Next:
-    UpdateActors(msg == kSM_Next, mgr);
-
-    CEntity::AcceptScriptMsg(msg, uid, mgr);
+    if (GetActive()) {
+      UpdateActors(msg == kSM_Next, mgr);
+    }
     break;
+  }
+  if (!didAccept) {
+    CEntity::AcceptScriptMsg(msg, uid, mgr);
   }
 }
 
