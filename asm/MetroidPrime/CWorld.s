@@ -3457,7 +3457,7 @@ lbl_80058A1C:
 /* 80058A30 00055990  38 7F 00 84 */	addi r3, r31, 0x84
 /* 80058A34 00055994  57 24 06 3E */	clrlwi r4, r25, 0x18
 /* 80058A38 00055998  FC 40 08 90 */	fmr f2, f1
-/* 80058A3C 0005599C  48 30 D1 7D */	bl "SetDefaultAudio__19CStreamAudioManagerFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>fUc"
+/* 80058A3C 0005599C  48 30 D1 7D */	bl "SetDefaultAudio__19CStreamAudioManagerFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>ffUc"
 lbl_80058A40:
 /* 80058A40 000559A0  38 61 00 B0 */	addi r3, r1, 0xb0
 /* 80058A44 000559A4  48 2E 50 9D */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"

@@ -761,7 +761,7 @@ GetImage__11CTextParserFPCwi:
 lbl_80304D24:
 /* 80304D24 00301C84  38 61 01 C8 */	addi r3, r1, 0x1c8
 /* 80304D28 00301C88  38 80 00 2C */	li r4, 0x2c
-/* 80304D2C 00301C8C  4B F0 74 29 */	bl sub_8020c154
+/* 80304D2C 00301C8C  4B F0 74 29 */	bl "sub_8020c154__FRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>ii"
 /* 80304D30 00301C90  2C 03 FF FF */	cmpwi r3, -1
 /* 80304D34 00301C94  41 82 00 10 */	beq lbl_80304D44
 /* 80304D38 00301C98  3B 39 00 01 */	addi r25, r25, 1
@@ -1680,4 +1680,3 @@ lbl_803D6EA0:
 	.asciz "A"
 	.asciz "SA"
 	.asciz "SI"
-

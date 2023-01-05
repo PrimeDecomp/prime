@@ -2786,7 +2786,7 @@ __dt__11CFrontEndUIFv:
 /* 8001D9D8 0001A938  48 32 01 09 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 lbl_8001D9DC:
 /* 8001D9DC 0001A93C  C0 22 82 9C */	lfs f1, lbl_805A9FBC@sda21(r2)
-/* 8001D9E0 0001A940  48 34 7F 2D */	bl sub_8036590c
+/* 8001D9E0 0001A940  48 34 7F 2D */	bl sub_8036590c__19CStreamAudioManagerFf
 /* 8001D9E4 0001A944  34 1E 00 F0 */	addic. r0, r30, 0xf0
 /* 8001D9E8 0001A948  41 82 00 10 */	beq lbl_8001D9F8
 /* 8001D9EC 0001A94C  80 7E 00 F0 */	lwz r3, 0xf0(r30)

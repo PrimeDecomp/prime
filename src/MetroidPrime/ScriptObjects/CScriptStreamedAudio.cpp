@@ -1,17 +1,15 @@
 #include "MetroidPrime/ScriptObjects/CScriptStreamedAudio.hpp"
 
 #include "MetroidPrime/CGameArea.hpp"
-#include "MetroidPrime/CWorld.hpp"
 #include "MetroidPrime/CInGameTweakManager.hpp"
+#include "MetroidPrime/CWorld.hpp"
 
+#include "Kyoto/CDvdFile.hpp"
 #include "Kyoto/Audio/CStreamAudioManager.hpp"
 #include "Kyoto/rstl/StringExtras.hpp"
 
-extern "C" void nullsub_42();
-extern "C" void sub_8020c414(CScriptStreamedMusic*, CStateManager& mgr);
-extern "C" void sub_8020c3f0();
-extern "C" void sub_8020c154();
-extern "C" rstl::string sub_8020be90();
+extern "C" void nullsub_42(CScriptStreamedMusic*);
+int sub_8020c154(const rstl::string&, int, int);
 
 int CScriptStreamedMusic::IsOneShot(bool b) { return b == false; }
 
@@ -29,16 +27,14 @@ CScriptStreamedMusic::CScriptStreamedMusic(TUniqueId id, const CEntityInfo& info
 , x48_fadeIn(fadeIn)
 , x4c_fadeOut(fadeOut)
 , x50_volume(volume) {
-  nullsub_42();
+  nullsub_42(this);
 }
 
-extern "C" void nullsub_42() {}
+extern "C" void nullsub_42(CScriptStreamedMusic*) {}
 
 bool CScriptStreamedMusic::IsDSPFile(const rstl::string& fileName) {
-  if (CStringExtras::CompareCaseInsensitive(fileName, rstl::string_l("sw"))) {
-    return true;
-  }
-  return CStringExtras::IndexOfSubstring(fileName, rstl::string_l(".dsp")) != -1;
+  return !CStringExtras::CompareCaseInsensitive(fileName, rstl::string_l("sw")) ||
+         CStringExtras::IndexOfSubstring(fileName, rstl::string_l(".dsp")) != -1;
 }
 
 void CScriptStreamedMusic::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objId,
@@ -55,16 +51,30 @@ void CScriptStreamedMusic::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId o
       Stop(stateMgr);
     }
     break;
+  case kSM_Deactivate:
+    if (((x45_fileIsDsp == false) && (x44_noStopOnDeactivate == false)) ||
+        (x45_fileIsDsp != false)) {
+      Stop(stateMgr);
+    }
+    break;
+
   case kSM_Increment:
-    if (IsOneShot(x45_fileIsDsp)) {
-      CStreamAudioManager::FadeBackIn(!x46_loop, x48_fadeIn);
+    if (x45_fileIsDsp) {
+      CStreamAudioManager::FadeBackIn(IsOneShot(x46_loop), x48_fadeIn);
+    } else {
+      CStreamAudioManager::sub_803653f8(x48_fadeIn);
     }
+
     break;
+
   case kSM_Decrement:
-    if (IsOneShot(x45_fileIsDsp)) {
-      CStreamAudioManager::TemporaryFadeOut(!x46_loop, x4c_fadeOut);
+    if (x45_fileIsDsp) {
+      CStreamAudioManager::TemporaryFadeOut(IsOneShot(x46_loop), x4c_fadeOut);
+    } else {
+      CStreamAudioManager::sub_80365424(x4c_fadeOut);
     }
     break;
+
   default:
     break;
   }
@@ -77,7 +87,7 @@ void CScriptStreamedMusic::Play(CStateManager& mgr) {
   if (x45_fileIsDsp) {
     StartStream(mgr);
   } else {
-    sub_8020c414(this, mgr);
+    sub_8020c414(mgr);
   }
 }
 
@@ -85,17 +95,26 @@ void CScriptStreamedMusic::Stop(CStateManager& mgr) {
   if (x45_fileIsDsp) {
     StopStream(mgr);
   } else {
-    sub_8020c3f0();
+    sub_8020c3f0(mgr);
   }
 }
 
-extern "C" void sub_8020c414(CScriptStreamedMusic*, CStateManager& mgr) {}
+void CScriptStreamedMusic::sub_8020c414(CStateManager& mgr) {
+  uint volume = x50_volume;
+  if (x44_noStopOnDeactivate) {
+    CStreamAudioManager::SetDefaultAudio(x34_fileName, x4c_fadeOut, x48_fadeIn, volume);
+  } else {
+    CStreamAudioManager::SetCurrentAudio(x34_fileName, x4c_fadeOut, x48_fadeIn, volume);
+  }
+}
 
-extern "C" void sub_8020c3f0() {}
+void CScriptStreamedMusic::sub_8020c3f0(CStateManager& mgr) {
+  CStreamAudioManager::sub_8036590c(x4c_fadeOut);
+}
 
 void CScriptStreamedMusic::StartStream(CStateManager& mgr) {
-  CStreamAudioManager::Start(IsOneShot(x46_loop), x34_fileName, x50_volume, x47_music, x48_fadeIn,
-                             x4c_fadeOut);
+  CStreamAudioManager::Start(IsOneShot(x46_loop), x34_fileName, x50_volume & 0xff, x47_music,
+                             x48_fadeIn, x4c_fadeOut);
 }
 
 void CScriptStreamedMusic::StopStream(CStateManager& mgr) {
@@ -105,22 +124,34 @@ void CScriptStreamedMusic::StopStream(CStateManager& mgr) {
 void CScriptStreamedMusic::TweakOverride(CStateManager& mgr) {
   const CWorld* wld = mgr.GetWorld();
   const CGameArea& area = wld->GetAreaAlways(GetCurrentAreaId());
-  rstl::string twkName = CInGameTweakManager::sub_8021cb38();
+  rstl::string twkName = CInGameTweakManager::sub_8021cb38(area.GetAreaAssetId(), GetDebugName());
   if (gpTweakManager->HasTweakValue(twkName)) {
     const CTweakValue::Audio& audio = gpTweakManager->GetTweakValue(twkName)->GetAudio();
+    float volume = audio.GetVolume() * 127.f;
+
     x34_fileName = audio.GetFileName();
     x45_fileIsDsp = IsDSPFile(x34_fileName);
     x48_fadeIn = audio.GetFadeIn();
+    x50_volume = volume;
     x4c_fadeOut = audio.GetFadeOut();
-    x50_volume = audio.GetVolume() * 127.f;
+    nullsub_42(this);
     sub_8020be90();
   }
 }
 
-extern "C" void sub_8020c154() {
-  
-}
+int sub_8020c154(const rstl::string&, int, int) {}
 
-extern "C" rstl::string sub_8020be90() {
+rstl::string CScriptStreamedMusic::sub_8020be90() {
+  if (x45_fileIsDsp && sub_8020c154(x34_fileName, 0x7c, 0) == -1 && x34_fileName.size() >= 4) {
+    if (CStringExtras::CompareCaseInsensitive(
+            rstl::string_l(x34_fileName.data() + (x34_fileName.size() - 5)),
+            rstl::string_l("L.dsp")) == 0) {
 
+        rstl::string buf;
+        rstl::string file = buf + "R.dsp";
+        if (CDvdFile::FileExists(file.data())) {
+          x34_fileName = x34_fileName + '|' + file;
+        }
+    }
+  }
 }

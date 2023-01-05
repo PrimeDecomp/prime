@@ -970,7 +970,7 @@ StartStreaming__17CDSPStreamManagerFRCQ24rstl6stringcb:
 /* 80364208 00361168  54 1E 0F FE */	srwi r30, r0, 0x1f
 /* 8036420C 0036116C  38 80 00 7C */	li r4, 0x7c
 /* 80364210 00361170  38 A0 00 00 */	li r5, 0
-/* 80364214 00361174  4B EA 7F 41 */	bl sub_8020c154
+/* 80364214 00361174  4B EA 7F 41 */	bl "sub_8020c154__FRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>ii"
 /* 80364218 00361178  7C 7F 1B 78 */	mr r31, r3
 /* 8036421C 0036117C  2C 1F FF FF */	cmpwi r31, -1
 /* 80364220 00361180  40 82 00 FC */	bne lbl_8036431C
@@ -1898,4 +1898,3 @@ lbl_803D8400:
 	# ROM: 0x3D5400
 	.4byte 0
 	.4byte 0
-

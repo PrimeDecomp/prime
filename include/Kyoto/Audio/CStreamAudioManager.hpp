@@ -18,6 +18,13 @@ public:
   static void Start(int, const rstl::string&, int, bool, float, float);
   static void Stop(int, const rstl::string&);
 
+  static void sub_803653f8(float);
+  static void sub_80365424(float);
+  static void sub_8036590c(float);
+
+  static void SetDefaultAudio(const rstl::string&, float, float, unsigned char);
+  static void SetCurrentAudio(const rstl::string&, float, float, unsigned char);
+
 private:
 };
 
