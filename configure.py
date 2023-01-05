@@ -1174,105 +1174,91 @@ if __name__ == "__main__":
     # Rules
     ###
     if os.name == "nt":
-        n.comment("MWCC build")
-        n.rule(
-            name="mwcc",
-            command="tools\\mwcc_compiler\\$mwcc_version\\mwcceppc.exe $cflags -c $in -o $basedir",
-            description="MWCC $out",
-            depfile="$basefile.d",
-            deps="gcc",
-        )
-        n.newline()
-        n.comment("MWCC build with franklite")
-        n.rule(
-            name="mwcc_frank",
-            command=ALLOW_CHAIN
+        mwcc_command = "tools\\mwcc_compiler\\$mwcc_version\\mwcceppc.exe $cflags -c $in -o $basedir"
+        mwcc_frank_command = (
+            ALLOW_CHAIN
             + "tools\\mwcc_compiler\\$mwcc_version\\mwcceppc.exe $cflags -c $in -o $basedir && "
-            + "$python tools/franklite.py $out $out",
-            description="FRANK $out",
-            depfile="$basefile.d",
-            deps="gcc",
+            + "$python tools/franklite.py $out $out"
         )
-        n.newline()
+        link_elf_command = "tools\\mwcc_compiler\\$mwcc_version\\mwldeppc.exe $ldflags -o $out @$out.rsp"
+        assemble_asm_command = (
+            ALLOW_CHAIN
+            + "$devkitppc\\bin\\powerpc-eabi-as.exe $asflags -o $out $in -MD $out.d"
+            + " && $dtk elf fixup $out $out"
+        )
+
         n.comment("Link ELF file")
         n.rule(
             name="link",
-            command="tools\\mwcc_compiler\\$mwcc_version\\mwldeppc.exe $ldflags -o $out @$out.rsp",
+            command=link_elf_command,
             description="LINK $out",
             rspfile="$out.rsp",
             rspfile_content="$in",
         )
         n.newline()
-        n.comment("Assemble asm")
-        n.rule(
-            name="as",
-            command=ALLOW_CHAIN
-            + "$devkitppc\\bin\\powerpc-eabi-as.exe $asflags -o $out $in -MD $out.d"
-            + " && $dtk elf fixup $out $out",
-            description="AS $out",
-            depfile="$out.d",
-            deps="gcc",
-        )
-        n.newline()
-        n.comment("Create static library")
-        n.rule(
-            name="ar",
-            command="$dtk ar create $out @$out.rsp",
-            description="AR $out",
-            rspfile="$out.rsp",
-            rspfile_content="$in_newline",
-        )
-        n.newline()
     else:
-        n.comment("MWCC build")
-        n.rule(
-            name="mwcc",
-            command="${wine}tools/mwcc_compiler/$mwcc_version/mwcceppc.exe $cflags -c $in -o $basedir && "
-            + "$python tools/transform-dep.py $basefile.d $basefile.d",
-            description="MWCC $out",
-            depfile="$basefile.d",
-            deps="gcc",
-        )
-        n.newline()
-        n.comment("MWCC build with franklite")
-        n.rule(
-            name="mwcc_frank",
-            command="${wine}tools/mwcc_compiler/$mwcc_version/mwcceppc.exe $cflags -c $in -o $basedir && "
+        mwcc_command = "${wine}tools/mwcc_compiler/$mwcc_version/mwcceppc.exe $cflags -c $in -o $basedir && $python tools/transform-dep.py $basefile.d $basefile.d"
+        mwcc_frank_command = (
+            "${wine}tools/mwcc_compiler/$mwcc_version/mwcceppc.exe $cflags -c $in -o $basedir && "
             + "$python tools/franklite.py $out $out && "
-            + "$python tools/transform-dep.py $basefile.d $basefile.d",
-            description="FRANK $out",
-            depfile="$basefile.d",
-            deps="gcc",
+            + "$python tools/transform-dep.py $basefile.d $basefile.d"
         )
-        n.newline()
+        link_elf_command = "${wine}tools/mwcc_compiler/$mwcc_version/mwldeppc.exe $ldflags -o $out @$out.rsp"
+        assemble_asm_command = (
+            "$devkitppc/bin/powerpc-eabi-as $asflags -o $out $in -MD $out.d"
+            + " && $dtk elf fixup $out $out"
+        )
+
         n.comment("Link ELF file")
         n.rule(
             name="link",
-            command="${wine}tools/mwcc_compiler/$mwcc_version/mwldeppc.exe $ldflags -o $out @$out.rsp",
+            command=link_elf_command,
             description="LINK $out",
             rspfile="$out.rsp",
             rspfile_content="$in_newline",
         )
         n.newline()
-        n.comment("Assemble asm")
-        n.rule(
-            name="as",
-            command="$devkitppc/bin/powerpc-eabi-as $asflags -o $out $in -MD $out.d"
-            + " && $dtk elf fixup $out $out",
-            description="AS $out",
-            depfile="$out.d",
-            deps="gcc",
-        )
-        n.newline()
-        n.comment("Create static library")
-        n.rule(
-            name="ar",
-            command="$dtk ar create $out @$out.rsp",
-            description="AR $out",
-            rspfile="$out.rsp",
-            rspfile_content="$in_newline",
-        )
-        n.newline()
+    
+    n.comment("MWCC build")
+    n.rule(
+        name="mwcc",
+        command=mwcc_command,
+        description="MWCC $out",
+        depfile="$basefile.d",
+        deps="gcc",
+    )
+    n.newline()
+
+    n.comment("MWCC build with franklite")
+    n.rule(
+        name="mwcc_frank",
+        command=mwcc_frank_command,
+        description="FRANK $out",
+        depfile="$basefile.d",
+        deps="gcc",
+    )
+    n.newline()
+    
+    n.comment("Assemble asm")
+    n.rule(
+        name="as",
+        command=assemble_asm_command,
+        description="AS $out",
+        depfile="$out.d",
+        deps="gcc",
+    )
+    n.newline()
+
+    n.comment("Create static library")
+    n.rule(
+        name="ar",
+        command="$dtk ar create $out @$out.rsp",
+        description="AR $out",
+        rspfile="$out.rsp",
+        rspfile_content="$in_newline",
+    )
+    n.newline()
+
     n.comment("Host build")
     n.variable("host_cflags", "-I include/ -Wno-trigraphs")
     n.variable(
