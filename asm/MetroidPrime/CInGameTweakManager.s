@@ -1185,7 +1185,7 @@ __ct__19CInGameTweakManagerFv:
 /* 8021D12C 0021A08C  90 01 00 1C */	stw r0, 0x1c(r1)
 /* 8021D130 0021A090  90 E1 00 10 */	stw r7, 0x10(r1)
 /* 8021D134 0021A094  90 C1 00 14 */	stw r6, 0x14(r1)
-/* 8021D138 0021A098  4B FE F6 B9 */	bl sub_8020c7f0
+/* 8021D138 0021A098  4B FE F6 B9 */	bl "sub_8020c7f0__FRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 /* 8021D13C 0021A09C  7C 7E 1B 78 */	mr r30, r3
 /* 8021D140 0021A0A0  7F E3 FB 78 */	mr r3, r31
 /* 8021D144 0021A0A4  38 9E 00 01 */	addi r4, r30, 1

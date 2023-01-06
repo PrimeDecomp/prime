@@ -25,7 +25,7 @@ class basic_string {
   uint x8_size;
   uint _pad; // Alloc?
 
-  // void internal_allocate(int size)
+  void internal_allocate(int size);
   // {
   //     x4_cow = reinterpret_cast<COWData*>(new uchar[size * sizeof(_CharTp) +
   //     8]); x0_ptr = x4_cow->x8_data; x4_cow->x0_capacity = uint(size);
@@ -104,6 +104,8 @@ public:
     return *this;
   }
   basic_string operator+(const _CharTp*);
+  void append(const basic_string& other);
+  void append(int, _CharTp);
 
   int _eq_helper(const basic_string& other) const;
   bool operator==(const basic_string& other) const;
@@ -140,8 +142,18 @@ string string_l(const char* data);
 //     return string(string::literal_t(), data);
 // }
 
-string operator+(const string&, const string&);
-string operator+(const string&, char);
+string operator+(const string& a, const string& b);
+// {
+//   string result(a);
+//   result.append(b);
+//   return result;
+// }
+
+string operator+(const string& a, char c) {
+  string result(a);
+  result.append(1, c);
+  return result;
+}
 
 CHECK_SIZEOF(string, 0x10)
 } // namespace rstl
