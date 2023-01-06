@@ -135,7 +135,7 @@ sub_8020be90__20CScriptStreamedMusicFv:
 /* 8020BF74 00208ED4  90 A1 00 1C */	stw r5, 0x1c(r1)
 /* 8020BF78 00208ED8  90 C1 00 10 */	stw r6, 0x10(r1)
 /* 8020BF7C 00208EDC  90 01 00 14 */	stw r0, 0x14(r1)
-/* 8020BF80 00208EE0  48 00 08 71 */	bl sub_8020c7f0
+/* 8020BF80 00208EE0  48 00 08 71 */	bl "sub_8020c7f0__FRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 /* 8020BF84 00208EE4  7C 7E 1B 78 */	mr r30, r3
 /* 8020BF88 00208EE8  38 61 00 78 */	addi r3, r1, 0x78
 /* 8020BF8C 00208EEC  38 9E 00 01 */	addi r4, r30, 1
@@ -760,8 +760,8 @@ IsOneShot__20CScriptStreamedMusicFb:
 /* 8020C7E8 00209748  54 03 D9 7E */	srwi r3, r0, 5
 /* 8020C7EC 0020974C  4E 80 00 20 */	blr
 
-.global sub_8020c7f0
-sub_8020c7f0:
+.global "sub_8020c7f0__FRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
+"sub_8020c7f0__FRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>":
 /* 8020C7F0 00209750  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 8020C7F4 00209754  7C 08 02 A6 */	mflr r0
 /* 8020C7F8 00209758  90 01 00 24 */	stw r0, 0x24(r1)
