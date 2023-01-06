@@ -5,6 +5,7 @@
 
 class CWorldState {
 public:
+  ~CWorldState();
   void SetDesiredAreaAssetId(CAssetId id);
 
 private:

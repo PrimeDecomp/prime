@@ -2217,7 +2217,7 @@ lbl_8020AC20:
 /* 8020ACDC 00207C3C  4B FA 15 35 */	bl GetCinematicBeamResId__15CTweakPlayerResCFQ212CPlayerState7EBeamId
 /* 8020ACE0 00207C40  7C 79 1B 78 */	mr r25, r3
 /* 8020ACE4 00207C44  38 61 00 08 */	addi r3, r1, 8
-/* 8020ACE8 00207C48  4B DF E2 25 */	bl sub_80008f0c
+/* 8020ACE8 00207C48  4B DF E2 25 */	bl "ReleaseData__Q24rstl22rc_ptr<12CPlayerState>Fv"
 /* 8020ACEC 00207C4C  3C 60 43 4D */	lis r3, 0x434D444C@ha
 /* 8020ACF0 00207C50  93 21 00 40 */	stw r25, 0x40(r1)
 /* 8020ACF4 00207C54  38 03 44 4C */	addi r0, r3, 0x434D444C@l
@@ -2721,7 +2721,7 @@ sub_8020b3e4:
 /* 8020B404 00208364  80 81 00 08 */	lwz r4, 8(r1)
 /* 8020B408 00208368  38 61 00 08 */	addi r3, r1, 8
 /* 8020B40C 0020836C  83 E4 00 00 */	lwz r31, 0(r4)
-/* 8020B410 00208370  4B DF DA FD */	bl sub_80008f0c
+/* 8020B410 00208370  4B DF DA FD */	bl "ReleaseData__Q24rstl22rc_ptr<12CPlayerState>Fv"
 /* 8020B414 00208374  83 DF 00 20 */	lwz r30, 0x20(r31)
 /* 8020B418 00208378  7F E3 FB 78 */	mr r3, r31
 /* 8020B41C 0020837C  4B E8 60 A9 */	bl GetIsFusionEnabled__12CPlayerStateCFv

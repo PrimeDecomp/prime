@@ -2147,9 +2147,9 @@ lbl_80026C0C:
 /* 80026C68 00023BC8  1C 03 00 64 */	mulli r0, r3, 0x64
 /* 80026C6C 00023BCC  38 61 00 34 */	addi r3, r1, 0x34
 /* 80026C70 00023BD0  7F 00 D3 D6 */	divw r24, r0, r26
-/* 80026C74 00023BD4  4B FE 22 99 */	bl sub_80008f0c
+/* 80026C74 00023BD4  4B FE 22 99 */	bl "ReleaseData__Q24rstl22rc_ptr<12CPlayerState>Fv"
 /* 80026C78 00023BD8  38 61 00 38 */	addi r3, r1, 0x38
-/* 80026C7C 00023BDC  4B FE 22 91 */	bl sub_80008f0c
+/* 80026C7C 00023BDC  4B FE 22 91 */	bl "ReleaseData__Q24rstl22rc_ptr<12CPlayerState>Fv"
 /* 80026C80 00023BE0  38 7F 00 48 */	addi r3, r31, 0x48
 /* 80026C84 00023BE4  48 31 A1 89 */	bl GetObj__6CTokenFv
 /* 80026C88 00023BE8  80 63 00 04 */	lwz r3, 4(r3)

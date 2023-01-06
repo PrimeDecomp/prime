@@ -7297,7 +7297,7 @@ GetGravity__7CPlayerCFv:
 /* 8028838C 002852EC  4B E0 97 35 */	bl HasPowerUp__12CPlayerStateCFQ212CPlayerState9EItemType
 /* 80288390 002852F0  7C 7F 1B 78 */	mr r31, r3
 /* 80288394 002852F4  38 61 00 08 */	addi r3, r1, 8
-/* 80288398 002852F8  4B D8 0B 75 */	bl sub_80008f0c
+/* 80288398 002852F8  4B D8 0B 75 */	bl "ReleaseData__Q24rstl22rc_ptr<12CPlayerState>Fv"
 /* 8028839C 002852FC  57 E0 06 3F */	clrlwi. r0, r31, 0x18
 /* 802883A0 00285300  40 82 00 20 */	bne lbl_802883C0
 /* 802883A4 00285304  7F C3 F3 78 */	mr r3, r30
