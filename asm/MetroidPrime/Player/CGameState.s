@@ -1202,7 +1202,7 @@ lbl_801D4730:
 /* 801D480C 001D176C  7C 7C 1B 78 */	mr r28, r3
 lbl_801D4810:
 /* 801D4810 001D1770  38 7D 00 98 */	addi r3, r29, 0x98
-/* 801D4814 001D1774  4B E3 46 F9 */	bl sub_80008f0c
+/* 801D4814 001D1774  4B E3 46 F9 */	bl "ReleaseData__Q24rstl22rc_ptr<12CPlayerState>Fv"
 /* 801D4818 001D1778  3C 80 80 3D */	lis r4, lbl_803D1B88@ha
 /* 801D481C 001D177C  38 60 00 08 */	li r3, 8
 /* 801D4820 001D1780  38 84 1B 88 */	addi r4, r4, lbl_803D1B88@l
@@ -2100,7 +2100,7 @@ lbl_801D53B0:
 /* 801D53C0 001D2320  41 82 00 68 */	beq lbl_801D5428
 /* 801D53C4 001D2324  38 7E 00 AC */	addi r3, r30, 0xac
 /* 801D53C8 001D2328  38 88 00 01 */	addi r4, r8, 1
-/* 801D53CC 001D232C  4B E3 37 79 */	bl sub_80008b44
+/* 801D53CC 001D232C  4B E3 37 79 */	bl "reserve__Q24rstl63vector<Q24rstl19pair<Ui,9TEditorId>,Q24rstl17rmemory_allocator>Fi"
 /* 801D53D0 001D2330  80 1E 00 B0 */	lwz r0, 0xb0(r30)
 /* 801D53D4 001D2334  80 BE 00 B4 */	lwz r5, 0xb4(r30)
 /* 801D53D8 001D2338  7C 00 28 00 */	cmpw r0, r5
@@ -2111,7 +2111,7 @@ lbl_801D53B0:
 /* 801D53EC 001D234C  41 82 00 08 */	beq lbl_801D53F4
 /* 801D53F0 001D2350  54 A4 08 3C */	slwi r4, r5, 1
 lbl_801D53F4:
-/* 801D53F4 001D2354  4B E3 37 51 */	bl sub_80008b44
+/* 801D53F4 001D2354  4B E3 37 51 */	bl "reserve__Q24rstl63vector<Q24rstl19pair<Ui,9TEditorId>,Q24rstl17rmemory_allocator>Fi"
 lbl_801D53F8:
 /* 801D53F8 001D2358  80 1E 00 B0 */	lwz r0, 0xb0(r30)
 /* 801D53FC 001D235C  80 7E 00 B8 */	lwz r3, 0xb8(r30)

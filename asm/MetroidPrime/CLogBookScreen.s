@@ -441,7 +441,7 @@ lbl_80245EFC:
 /* 80245F28 00242E88  80 81 00 0C */	lwz r4, 0xc(r1)
 /* 80245F2C 00242E8C  38 61 00 0C */	addi r3, r1, 0xc
 /* 80245F30 00242E90  83 A4 00 00 */	lwz r29, 0(r4)
-/* 80245F34 00242E94  4B DC 2F D9 */	bl sub_80008f0c
+/* 80245F34 00242E94  4B DC 2F D9 */	bl "ReleaseData__Q24rstl22rc_ptr<12CPlayerState>Fv"
 /* 80245F38 00242E98  7F A3 EB 78 */	mr r3, r29
 /* 80245F3C 00242E9C  38 9E 00 1D */	addi r4, r30, 0x1d
 /* 80245F40 00242EA0  4B E4 BB 81 */	bl HasPowerUp__12CPlayerStateCFQ212CPlayerState9EItemType

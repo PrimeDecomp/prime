@@ -1354,7 +1354,7 @@ lbl_80003B2C:
 lbl_80003B34:
 /* 80003B34 00000A94  38 7E 00 AC */	addi r3, r30, 0xac
 /* 80003B38 00000A98  38 9F 00 AC */	addi r4, r31, 0xac
-/* 80003B3C 00000A9C  48 00 00 51 */	bl sub_80003b8c
+/* 80003B3C 00000A9C  48 00 00 51 */	bl "__as__Q24rstl63vector<Q24rstl19pair<Ui,9TEditorId>,Q24rstl17rmemory_allocator>FRCQ24rstl63vector<Q24rstl19pair<Ui,9TEditorId>,Q24rstl17rmemory_allocator>"
 /* 80003B40 00000AA0  80 1F 00 BC */	lwz r0, 0xbc(r31)
 /* 80003B44 00000AA4  7F C3 F3 78 */	mr r3, r30
 /* 80003B48 00000AA8  90 1E 00 BC */	stw r0, 0xbc(r30)
@@ -1375,8 +1375,8 @@ lbl_80003B34:
 /* 80003B84 00000AE4  38 21 00 10 */	addi r1, r1, 0x10
 /* 80003B88 00000AE8  4E 80 00 20 */	blr
 
-.global sub_80003b8c # __dt__?
-sub_80003b8c:
+.global "__as__Q24rstl63vector<Q24rstl19pair<Ui,9TEditorId>,Q24rstl17rmemory_allocator>FRCQ24rstl63vector<Q24rstl19pair<Ui,9TEditorId>,Q24rstl17rmemory_allocator>" # __dt__?
+"__as__Q24rstl63vector<Q24rstl19pair<Ui,9TEditorId>,Q24rstl17rmemory_allocator>FRCQ24rstl63vector<Q24rstl19pair<Ui,9TEditorId>,Q24rstl17rmemory_allocator>":
 /* 80003B8C 00000AEC  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80003B90 00000AF0  7C 08 02 A6 */	mflr r0
 /* 80003B94 00000AF4  90 01 00 24 */	stw r0, 0x24(r1)
@@ -1419,7 +1419,7 @@ lbl_80003C08:
 /* 80003C18 00000B78  48 00 00 54 */	b lbl_80003C6C
 lbl_80003C1C:
 /* 80003C1C 00000B7C  7F E3 FB 78 */	mr r3, r31
-/* 80003C20 00000B80  48 00 4F 25 */	bl sub_80008b44
+/* 80003C20 00000B80  48 00 4F 25 */	bl "reserve__Q24rstl63vector<Q24rstl19pair<Ui,9TEditorId>,Q24rstl17rmemory_allocator>Fi"
 /* 80003C24 00000B84  80 1E 00 04 */	lwz r0, 4(r30)
 /* 80003C28 00000B88  80 BE 00 0C */	lwz r5, 0xc(r30)
 /* 80003C2C 00000B8C  54 00 18 38 */	slwi r0, r0, 3
@@ -1536,14 +1536,14 @@ lbl_80003D84:
 /* 80003DA4 00000D04  34 1E 00 9C */	addic. r0, r30, 0x9c
 /* 80003DA8 00000D08  41 82 00 0C */	beq lbl_80003DB4
 /* 80003DAC 00000D0C  38 7E 00 9C */	addi r3, r30, 0x9c
-/* 80003DB0 00000D10  48 00 48 35 */	bl sub_800085e4
+/* 80003DB0 00000D10  48 00 48 35 */	bl "ReleaseData__Q24rstl28rc_ptr<18CWorldTransManager>Fv"
 lbl_80003DB4:
 /* 80003DB4 00000D14  34 1E 00 98 */	addic. r0, r30, 0x98
 /* 80003DB8 00000D18  41 82 00 14 */	beq lbl_80003DCC
 /* 80003DBC 00000D1C  34 1E 00 98 */	addic. r0, r30, 0x98
 /* 80003DC0 00000D20  41 82 00 0C */	beq lbl_80003DCC
 /* 80003DC4 00000D24  38 7E 00 98 */	addi r3, r30, 0x98
-/* 80003DC8 00000D28  48 00 51 45 */	bl sub_80008f0c
+/* 80003DC8 00000D28  48 00 51 45 */	bl "ReleaseData__Q24rstl22rc_ptr<12CPlayerState>Fv"
 lbl_80003DCC:
 /* 80003DCC 00000D2C  38 7E 00 88 */	addi r3, r30, 0x88
 /* 80003DD0 00000D30  38 80 FF FF */	li r4, -1
@@ -7302,8 +7302,8 @@ sub_80008584:
 /* 800085DC 0000553C  38 21 00 20 */	addi r1, r1, 0x20
 /* 800085E0 00005540  4E 80 00 20 */	blr
 
-.global sub_800085e4
-sub_800085e4:
+.global "ReleaseData__Q24rstl28rc_ptr<18CWorldTransManager>Fv"
+"ReleaseData__Q24rstl28rc_ptr<18CWorldTransManager>Fv":
 /* 800085E4 00005544  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 800085E8 00005548  7C 08 02 A6 */	mflr r0
 /* 800085EC 0000554C  90 01 00 14 */	stw r0, 0x14(r1)
@@ -7722,8 +7722,8 @@ lbl_80008B28:
 /* 80008B40 00005AA0  4E 80 00 20 */	blr
 
 # CPlayer?
-.global sub_80008b44
-sub_80008b44:
+.global "reserve__Q24rstl63vector<Q24rstl19pair<Ui,9TEditorId>,Q24rstl17rmemory_allocator>Fi"
+"reserve__Q24rstl63vector<Q24rstl19pair<Ui,9TEditorId>,Q24rstl17rmemory_allocator>Fi":
 /* 80008B44 00005AA4  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 80008B48 00005AA8  7C 08 02 A6 */	mflr r0
 /* 80008B4C 00005AAC  90 01 00 34 */	stw r0, 0x34(r1)
@@ -8007,8 +8007,8 @@ lbl_80008EF0:
 /* 80008F04 00005E64  38 21 00 30 */	addi r1, r1, 0x30
 /* 80008F08 00005E68  4E 80 00 20 */	blr
 
-.global sub_80008f0c
-sub_80008f0c:
+.global "ReleaseData__Q24rstl22rc_ptr<12CPlayerState>Fv"
+"ReleaseData__Q24rstl22rc_ptr<12CPlayerState>Fv":
 /* 80008F0C 00005E6C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80008F10 00005E70  7C 08 02 A6 */	mflr r0
 /* 80008F14 00005E74  90 01 00 14 */	stw r0, 0x14(r1)

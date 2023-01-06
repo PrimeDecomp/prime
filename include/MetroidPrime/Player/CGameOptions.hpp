@@ -18,6 +18,7 @@ class CGameOptions {
 public:
   CGameOptions();
   CGameOptions(CInputStream& in);
+  ~CGameOptions();
 
   void PutTo(CMemoryStreamOut&);
 

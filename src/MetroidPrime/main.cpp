@@ -476,26 +476,6 @@ CGameArchitectureSupport::~CGameArchitectureSupport() {
   CDSPStreamManager::Shutdown();
 }
 
-// 80003658
-void CMain::UpdateStreamedAudio() { CStreamAudioManager::Update(1.f / 60.f); }
-
-// 8000367C
-void CMain::RegisterResourceTweaks() { x70_tweaks.RegisterResourceTweaks(); }
-
-// 800036A0
-void CMain::ResetGameState() {
-  CSystemOptions persistentOptions = gpGameState->SystemOptions();
-  CGameOptions gameOptions = gpGameState->GameOptions();
-  x128_gameGlobalObjects->GameState() = nullptr;
-  gpGameState = nullptr;
-  x128_gameGlobalObjects->GameState() = new CGameState();
-  gpGameState = x128_gameGlobalObjects->GameState().get();
-  gpGameState->SystemOptions() = persistentOptions;
-  gpGameState->GameOptions() = gameOptions;
-  gpGameState->GameOptions().EnsureOptions();
-  gpGameState->PlayerState()->SetIsFusionEnabled(gpGameState->SystemOptions().GetHasFusion());
-}
-
 // 800044A4
 void CMain::StreamNewGameState(CInputStream& in, int saveIdx) {
   bool hasFusion = gpGameState->SystemOptions().GetHasFusion();
@@ -737,3 +717,23 @@ void CMain::EnsureWorldPakReady(CAssetId id) {
     }
   }
 }
+
+// 800036A0
+void CMain::ResetGameState() {
+  CSystemOptions persistentOptions = gpGameState->SystemOptions();
+  CGameOptions gameOptions = gpGameState->GameOptions();
+  x128_gameGlobalObjects->GameState() = nullptr;
+  gpGameState = nullptr;
+  x128_gameGlobalObjects->GameState() = new CGameState();
+  gpGameState = x128_gameGlobalObjects->GameState().get();
+  gpGameState->SystemOptions() = persistentOptions;
+  gpGameState->GameOptions() = gameOptions;
+  gpGameState->GameOptions().EnsureOptions();
+  gpGameState->PlayerState()->SetIsFusionEnabled(gpGameState->SystemOptions().GetHasFusion());
+}
+
+// 8000367C
+void CMain::RegisterResourceTweaks() { x70_tweaks.RegisterResourceTweaks(); }
+
+// 80003658
+void CMain::UpdateStreamedAudio() { CStreamAudioManager::Update(1.f / 60.f); }
