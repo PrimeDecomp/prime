@@ -87,6 +87,7 @@ public:
   TAreaId GetCurrentAreaId() const { return x68_curAreaId; }
   TAreaId GetAreaIdForSaveId(int saveId) const;
   const rstl::vector< CRelay >& GetRelays() const { return x2c_relays; }
+  EEnvFxType GetNeededEnvFx() const { return xc4_neededFx; }
 
   static void PropogateAreaChain(CGameArea::EOcclusionState occlusionState, CGameArea* area,
                                  CWorld* world);

@@ -16,7 +16,7 @@ SetPoint__Q220CRainSplashGenerator11SRainSplashFRC9CVector3f:
 /* 80269CA4 00266C04  48 00 00 10 */	b lbl_80269CB4
 lbl_80269CA8:
 /* 80269CA8 00266C08  7F E3 FB 78 */	mr r3, r31
-/* 80269CAC 00266C0C  48 00 05 41 */	bl SetActive__Q220CRainSplashGenerator11SSplashLine
+/* 80269CAC 00266C0C  48 00 05 41 */	bl SetActive__Q220CRainSplashGenerator11SSplashLineFv
 /* 80269CB0 00266C10  3B FF 00 18 */	addi r31, r31, 0x18
 lbl_80269CB4:
 /* 80269CB4 00266C14  80 1D 00 00 */	lwz r0, 0(r29)
@@ -39,8 +39,8 @@ lbl_80269CB4:
 /* 80269CF8 00266C58  38 21 00 20 */	addi r1, r1, 0x20
 /* 80269CFC 00266C5C  4E 80 00 20 */	blr
 
-.global IsActive__Q220CRainSplashGenerator11SRainSplashCFfR13CStateManager
-IsActive__Q220CRainSplashGenerator11SRainSplashCFfR13CStateManager:
+.global IsActive__Q220CRainSplashGenerator11SRainSplashCFv
+IsActive__Q220CRainSplashGenerator11SRainSplashCFv:
 /* 80269D00 00266C60  80 03 00 00 */	lwz r0, 0(r3)
 /* 80269D04 00266C64  38 A3 00 04 */	addi r5, r3, 4
 /* 80269D08 00266C68  38 80 00 00 */	li r4, 0
@@ -136,8 +136,8 @@ lbl_80269E10:
 /* 80269E40 00266DA0  38 21 00 20 */	addi r1, r1, 0x20
 /* 80269E44 00266DA4  4E 80 00 20 */	blr
 
-.global __ct__Q220CRainSplashGenerator11SRainSplash
-__ct__Q220CRainSplashGenerator11SRainSplash:
+.global __ct__Q220CRainSplashGenerator11SRainSplashFv
+__ct__Q220CRainSplashGenerator11SRainSplashFv:
 /* 80269E48 00266DA8  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80269E4C 00266DAC  38 A0 00 01 */	li r5, 1
 /* 80269E50 00266DB0  C0 62 BB 54 */	lfs f3, lbl_805AD874@sda21(r2)
@@ -389,8 +389,8 @@ lbl_8026A1D4:
 /* 8026A1E4 00267144  38 21 00 20 */	addi r1, r1, 0x20
 /* 8026A1E8 00267148  4E 80 00 20 */	blr
 
-.global SetActive__Q220CRainSplashGenerator11SSplashLine
-SetActive__Q220CRainSplashGenerator11SSplashLine:
+.global SetActive__Q220CRainSplashGenerator11SSplashLineFv
+SetActive__Q220CRainSplashGenerator11SSplashLineFv:
 /* 8026A1EC 0026714C  88 03 00 16 */	lbz r0, 0x16(r3)
 /* 8026A1F0 00267150  38 80 00 01 */	li r4, 1
 /* 8026A1F4 00267154  50 80 3E 30 */	rlwimi r0, r4, 7, 0x18, 0x18
@@ -649,7 +649,7 @@ lbl_8026A560:
 /* 8026A570 002674D0  7F E3 FB 78 */	mr r3, r31
 /* 8026A574 002674D4  4B FF F8 59 */	bl Update__Q220CRainSplashGenerator11SRainSplashFfR13CStateManager
 /* 8026A578 002674D8  7F E3 FB 78 */	mr r3, r31
-/* 8026A57C 002674DC  4B FF F7 85 */	bl IsActive__Q220CRainSplashGenerator11SRainSplashCFfR13CStateManager
+/* 8026A57C 002674DC  4B FF F7 85 */	bl IsActive__Q220CRainSplashGenerator11SRainSplashCFv
 /* 8026A580 002674E0  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 8026A584 002674E4  40 82 00 34 */	bne lbl_8026A5B8
 /* 8026A588 002674E8  80 7A 00 40 */	lwz r3, 0x40(r26)
@@ -841,15 +841,15 @@ lbl_8026A804:
 /* 8026A824 00267784  88 1F 00 48 */	lbz r0, 0x48(r31)
 /* 8026A828 00267788  50 A0 36 72 */	rlwimi r0, r5, 6, 0x19, 0x19
 /* 8026A82C 0026778C  98 1F 00 48 */	stb r0, 0x48(r31)
-/* 8026A830 00267790  48 00 03 89 */	bl sub_8026abb8
+/* 8026A830 00267790  48 00 03 89 */	bl "reserve__Q24rstl72vector<Q220CRainSplashGenerator11SRainSplash,Q24rstl17rmemory_allocator>Fi"
 /* 8026A834 00267794  3B C0 00 00 */	li r30, 0
 /* 8026A838 00267798  48 00 00 74 */	b lbl_8026A8AC
 lbl_8026A83C:
 /* 8026A83C 0026779C  38 61 00 08 */	addi r3, r1, 8
-/* 8026A840 002677A0  4B FF F6 09 */	bl __ct__Q220CRainSplashGenerator11SRainSplash
+/* 8026A840 002677A0  4B FF F6 09 */	bl __ct__Q220CRainSplashGenerator11SRainSplashFv
 /* 8026A844 002677A4  7F E3 FB 78 */	mr r3, r31
 /* 8026A848 002677A8  38 81 00 08 */	addi r4, r1, 8
-/* 8026A84C 002677AC  48 00 00 9D */	bl "push_back__Q24rstl45vector<Q220CRainSplashGenerator11SRainSplash>FRCQ220CRainSplashGenerator11SRainSplash"
+/* 8026A84C 002677AC  48 00 00 9D */	bl "push_back__Q24rstl72vector<Q220CRainSplashGenerator11SRainSplash,Q24rstl17rmemory_allocator>FRCQ220CRainSplashGenerator11SRainSplash"
 /* 8026A850 002677B0  80 A1 00 08 */	lwz r5, 8(r1)
 /* 8026A854 002677B4  38 60 00 00 */	li r3, 0
 /* 8026A858 002677B8  2C 05 00 00 */	cmpwi r5, 0
@@ -894,8 +894,8 @@ lbl_8026A8AC:
 /* 8026A8E0 00267840  38 21 00 B0 */	addi r1, r1, 0xb0
 /* 8026A8E4 00267844  4E 80 00 20 */	blr
 
-.global "push_back__Q24rstl45vector<Q220CRainSplashGenerator11SRainSplash>FRCQ220CRainSplashGenerator11SRainSplash"
-"push_back__Q24rstl45vector<Q220CRainSplashGenerator11SRainSplash>FRCQ220CRainSplashGenerator11SRainSplash":
+.global "push_back__Q24rstl72vector<Q220CRainSplashGenerator11SRainSplash,Q24rstl17rmemory_allocator>FRCQ220CRainSplashGenerator11SRainSplash"
+"push_back__Q24rstl72vector<Q220CRainSplashGenerator11SRainSplash,Q24rstl17rmemory_allocator>FRCQ220CRainSplashGenerator11SRainSplash":
 /* 8026A8E8 00267848  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8026A8EC 0026784C  7C 08 02 A6 */	mflr r0
 /* 8026A8F0 00267850  90 01 00 14 */	stw r0, 0x14(r1)
@@ -912,14 +912,14 @@ lbl_8026A8AC:
 /* 8026A91C 0026787C  41 82 00 08 */	beq lbl_8026A924
 /* 8026A920 00267880  54 A4 08 3C */	slwi r4, r5, 1
 lbl_8026A924:
-/* 8026A924 00267884  48 00 02 95 */	bl sub_8026abb8
+/* 8026A924 00267884  48 00 02 95 */	bl "reserve__Q24rstl72vector<Q220CRainSplashGenerator11SRainSplash,Q24rstl17rmemory_allocator>Fi"
 lbl_8026A928:
 /* 8026A928 00267888  80 1E 00 04 */	lwz r0, 4(r30)
 /* 8026A92C 0026788C  7F E4 FB 78 */	mr r4, r31
 /* 8026A930 00267890  80 7E 00 0C */	lwz r3, 0xc(r30)
 /* 8026A934 00267894  1C 00 00 74 */	mulli r0, r0, 0x74
 /* 8026A938 00267898  7C 63 02 14 */	add r3, r3, r0
-/* 8026A93C 0026789C  48 00 00 29 */	bl __ct__Q220CRainSplashGenerator11SRainSplashFRCQ220CRainSplashGenerator11SRainSplash
+/* 8026A93C 0026789C  48 00 00 29 */	bl __ct__Q220CRainSplashGenerator11SRainSplashFvFRCQ220CRainSplashGenerator11SRainSplash
 /* 8026A940 002678A0  80 7E 00 04 */	lwz r3, 4(r30)
 /* 8026A944 002678A4  38 03 00 01 */	addi r0, r3, 1
 /* 8026A948 002678A8  90 1E 00 04 */	stw r0, 4(r30)
@@ -930,8 +930,8 @@ lbl_8026A928:
 /* 8026A95C 002678BC  38 21 00 10 */	addi r1, r1, 0x10
 /* 8026A960 002678C0  4E 80 00 20 */	blr
 
-.global __ct__Q220CRainSplashGenerator11SRainSplashFRCQ220CRainSplashGenerator11SRainSplash
-__ct__Q220CRainSplashGenerator11SRainSplashFRCQ220CRainSplashGenerator11SRainSplash:
+.global __ct__Q220CRainSplashGenerator11SRainSplashFvFRCQ220CRainSplashGenerator11SRainSplash
+__ct__Q220CRainSplashGenerator11SRainSplashFvFRCQ220CRainSplashGenerator11SRainSplash:
 /* 8026A964 002678C4  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8026A968 002678C8  7C 08 02 A6 */	mflr r0
 /* 8026A96C 002678CC  28 03 00 00 */	cmplwi r3, 0
@@ -1097,8 +1097,8 @@ lbl_8026AB74:
 /* 8026ABB0 00267B10  38 21 00 80 */	addi r1, r1, 0x80
 /* 8026ABB4 00267B14  4E 80 00 20 */	blr
 
-.global sub_8026abb8
-sub_8026abb8:
+.global "reserve__Q24rstl72vector<Q220CRainSplashGenerator11SRainSplash,Q24rstl17rmemory_allocator>Fi"
+"reserve__Q24rstl72vector<Q220CRainSplashGenerator11SRainSplash,Q24rstl17rmemory_allocator>Fi":
 /* 8026ABB8 00267B18  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 8026ABBC 00267B1C  7C 08 02 A6 */	mflr r0
 /* 8026ABC0 00267B20  90 01 00 34 */	stw r0, 0x34(r1)
@@ -1134,7 +1134,7 @@ lbl_8026AC0C:
 /* 8026AC30 00267B90  90 C1 00 08 */	stw r6, 8(r1)
 /* 8026AC34 00267B94  90 01 00 10 */	stw r0, 0x10(r1)
 /* 8026AC38 00267B98  90 01 00 14 */	stw r0, 0x14(r1)
-/* 8026AC3C 00267B9C  48 00 00 BD */	bl sub_8026acf8
+/* 8026AC3C 00267B9C  48 00 00 BD */	bl "uninitialized_copy<Q24rstl164pointer_iterator<Q220CRainSplashGenerator11SRainSplash,Q24rstl72vector<Q220CRainSplashGenerator11SRainSplash,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,Q220CRainSplashGenerator11SRainSplash>__4rstlFQ24rstl164pointer_iterator<Q220CRainSplashGenerator11SRainSplash,Q24rstl72vector<Q220CRainSplashGenerator11SRainSplash,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl164pointer_iterator<Q220CRainSplashGenerator11SRainSplash,Q24rstl72vector<Q220CRainSplashGenerator11SRainSplash,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>PQ220CRainSplashGenerator11SRainSplash"
 /* 8026AC40 00267BA0  80 1E 00 04 */	lwz r0, 4(r30)
 /* 8026AC44 00267BA4  80 DE 00 0C */	lwz r6, 0xc(r30)
 /* 8026AC48 00267BA8  1C 00 00 74 */	mulli r0, r0, 0x74
@@ -1191,8 +1191,8 @@ lbl_8026ACDC:
 /* 8026ACF0 00267C50  38 21 00 30 */	addi r1, r1, 0x30
 /* 8026ACF4 00267C54  4E 80 00 20 */	blr
 
-.global sub_8026acf8
-sub_8026acf8:
+.global "uninitialized_copy<Q24rstl164pointer_iterator<Q220CRainSplashGenerator11SRainSplash,Q24rstl72vector<Q220CRainSplashGenerator11SRainSplash,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,Q220CRainSplashGenerator11SRainSplash>__4rstlFQ24rstl164pointer_iterator<Q220CRainSplashGenerator11SRainSplash,Q24rstl72vector<Q220CRainSplashGenerator11SRainSplash,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl164pointer_iterator<Q220CRainSplashGenerator11SRainSplash,Q24rstl72vector<Q220CRainSplashGenerator11SRainSplash,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>PQ220CRainSplashGenerator11SRainSplash"
+"uninitialized_copy<Q24rstl164pointer_iterator<Q220CRainSplashGenerator11SRainSplash,Q24rstl72vector<Q220CRainSplashGenerator11SRainSplash,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,Q220CRainSplashGenerator11SRainSplash>__4rstlFQ24rstl164pointer_iterator<Q220CRainSplashGenerator11SRainSplash,Q24rstl72vector<Q220CRainSplashGenerator11SRainSplash,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl164pointer_iterator<Q220CRainSplashGenerator11SRainSplash,Q24rstl72vector<Q220CRainSplashGenerator11SRainSplash,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>PQ220CRainSplashGenerator11SRainSplash":
 /* 8026ACF8 00267C58  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 8026ACFC 00267C5C  7C 08 02 A6 */	mflr r0
 /* 8026AD00 00267C60  90 01 00 24 */	stw r0, 0x24(r1)
@@ -1206,7 +1206,7 @@ sub_8026acf8:
 lbl_8026AD20:
 /* 8026AD20 00267C80  7F C3 F3 78 */	mr r3, r30
 /* 8026AD24 00267C84  7F E4 FB 78 */	mr r4, r31
-/* 8026AD28 00267C88  4B FF FC 3D */	bl __ct__Q220CRainSplashGenerator11SRainSplashFRCQ220CRainSplashGenerator11SRainSplash
+/* 8026AD28 00267C88  4B FF FC 3D */	bl __ct__Q220CRainSplashGenerator11SRainSplashFvFRCQ220CRainSplashGenerator11SRainSplash
 /* 8026AD2C 00267C8C  3B DE 00 74 */	addi r30, r30, 0x74
 /* 8026AD30 00267C90  3B FF 00 74 */	addi r31, r31, 0x74
 lbl_8026AD34:
