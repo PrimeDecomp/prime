@@ -3,7 +3,14 @@
 
 #include "types.h"
 
+#include "rstl/map.hpp"
+#include "rstl/rc_ptr.hpp"
+#include "rstl/string.hpp"
+#include "rstl/vector.hpp"
+
 #include "Kyoto/Math/CVector3f.hpp"
+
+class CAudioGroupSet;
 
 enum ETRKSampleRate {
   kTSR_Zero,
@@ -16,8 +23,13 @@ enum ETRKRepeatMode {
 };
 
 class CAudioSys {
+  static const rstl::string mpDefaultInvalidString;
+
 public:
   enum ESurroundModes { kSM_Mono, kSM_Stereo, kSM_Surround };
+  class CEmitterData {
+
+  };
 
   struct C3DEmitterParmData {
     C3DEmitterParmData(const CVector3f& pos, const CVector3f& dir, float maxDist, float distComp,
@@ -46,7 +58,9 @@ public:
     uchar x29_prio;
   };
 
-  CAudioSys(uchar, uchar, uchar, uchar, uint);
+  class CTrkData {};
+
+  CAudioSys(char, char, char, char, uint);
   ~CAudioSys();
 
   static void SysSetVolume(uchar, uint, uchar);
@@ -59,6 +73,22 @@ public:
 
   static short GetDefaultVolumeScale();
 
+  static bool mInitialized;
+  static bool mIsLIstenerActive;
+  static bool mVerbose;
+  static uchar mMaxNumEmitters;
+  static rstl::map< rstl::string, rstl::ncrc_ptr< CAudioGroupSet > >* mpGroupSetDB;
+  static rstl::map< uint, rstl::string >* mpGroupSetResNameDB;
+  static rstl::map< rstl::string, rstl::ncrc_ptr< CTrkData > >* mpDVDTrackDB;
+  static rstl::vector<CEmitterData>* mpEmitterDB;
+  static unkptr mpListener;
+
+  /* TODO: Remaining globals */
+
+  static ESurroundModes mSurroundMode;
+  static uint mMaxAramUsage;
+  static uint mCurrentAramUsage;  
+  static bool mProLogic2;
   static const uchar kMaxVolume;
 };
 

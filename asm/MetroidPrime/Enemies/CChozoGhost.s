@@ -4130,9 +4130,9 @@ __sinit_CChozoGhost_cpp:
 /* 801428FC 0013F85C  38 81 00 08 */	addi r4, r1, 8
 /* 80142900 0013F860  38 63 19 CC */	addi r3, r3, lbl_805719CC@l
 /* 80142904 0013F864  48 1F B8 5D */	bl "__ct__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>FRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
-/* 80142908 0013F868  3C 80 80 00 */	lis r4, sub_80004a9c@ha
+/* 80142908 0013F868  3C 80 80 00 */	lis r4, "__dt__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"@ha
 /* 8014290C 0013F86C  3C A0 80 47 */	lis r5, lbl_8046C748@ha
-/* 80142910 0013F870  38 84 4A 9C */	addi r4, r4, sub_80004a9c@l
+/* 80142910 0013F870  38 84 4A 9C */	addi r4, r4, "__dt__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"@l
 /* 80142914 0013F874  38 A5 C7 48 */	addi r5, r5, lbl_8046C748@l
 /* 80142918 0013F878  48 24 6D 75 */	bl __register_global_object
 /* 8014291C 0013F87C  38 61 00 08 */	addi r3, r1, 8

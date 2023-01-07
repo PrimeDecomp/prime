@@ -650,7 +650,7 @@ LIBS = [
             ["Kyoto/Input/CFinalInput", True],
             ["Kyoto/Graphics/CColor", True],
             "Kyoto/Audio/DolphinCAudioGroupSet",
-            "Kyoto/Audio/DolphinCAudioSys",
+            ["Kyoto/Audio/DolphinCAudioSys", False],
             "Kyoto/DolphinCMemoryCardSys",
             ["Kyoto/Input/DolphinIController", True],
             ["Kyoto/Input/CDolphinController", True],

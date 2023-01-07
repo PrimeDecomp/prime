@@ -21,7 +21,7 @@ typedef double f64;
 #ifndef bool8
 typedef unsigned char bool8;
 #endif
-#ifndef bool
+#ifndef __cplusplus
 typedef signed long bool;
 #define FALSE 0
 #define TRUE 1
@@ -64,6 +64,8 @@ typedef struct SND_HOOKS {
   void* (*malloc)(u32 len);
   void (*free)(void* addr);
 } SND_HOOKS;
+
+void sndSetHooks(SND_HOOKS* hooks);
 
 typedef struct SND_FVECTOR {
   f32 x;

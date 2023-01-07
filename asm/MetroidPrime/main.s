@@ -2497,8 +2497,8 @@ lbl_80004A78:
 /* 80004A94 000019F4  38 21 00 30 */	addi r1, r1, 0x30
 /* 80004A98 000019F8  4E 80 00 20 */	blr
 
-.global sub_80004a9c
-sub_80004a9c:
+.global "__dt__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
+"__dt__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv":
 /* 80004A9C 000019FC  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80004AA0 00001A00  7C 08 02 A6 */	mflr r0
 /* 80004AA4 00001A04  90 01 00 14 */	stw r0, 0x14(r1)
@@ -5852,7 +5852,7 @@ __ct__24CGameArchitectureSupportFR10COsContext:
 /* 80007164 000040C4  93 A1 00 34 */	stw r29, 0x34(r1)
 /* 80007168 000040C8  7C 9D 23 78 */	mr r29, r4
 /* 8000716C 000040CC  38 80 00 30 */	li r4, 0x30
-/* 80007170 000040D0  48 34 55 81 */	bl __ct__9CAudioSysFUcUcUcUcUi
+/* 80007170 000040D0  48 34 55 81 */	bl __ct__9CAudioSysFccccUi
 /* 80007174 000040D4  38 7E 00 10 */	addi r3, r30, 0x10
 /* 80007178 000040D8  38 00 00 00 */	li r0, 0
 /* 8000717C 000040DC  90 7E 00 08 */	stw r3, 8(r30)

@@ -1932,9 +1932,9 @@ HashInstanceName__13CStateManagerFR12CInputStream:
 /* 8004521C 0004217C  38 81 00 08 */	addi r4, r1, 8
 /* 80045220 00042180  38 63 C5 A4 */	addi r3, r3, lbl_8045C5A4@l
 /* 80045224 00042184  48 2F 8F 3D */	bl "__ct__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>FRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
-/* 80045228 00042188  3C 80 80 00 */	lis r4, sub_80004a9c@ha
+/* 80045228 00042188  3C 80 80 00 */	lis r4, "__dt__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"@ha
 /* 8004522C 0004218C  3C A0 80 46 */	lis r5, lbl_8045C598@ha
-/* 80045230 00042190  38 84 4A 9C */	addi r4, r4, sub_80004a9c@l
+/* 80045230 00042190  38 84 4A 9C */	addi r4, r4, "__dt__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"@l
 /* 80045234 00042194  38 A5 C5 98 */	addi r5, r5, lbl_8045C598@l
 /* 80045238 00042198  48 34 44 55 */	bl __register_global_object
 /* 8004523C 0004219C  38 61 00 08 */	addi r3, r1, 8

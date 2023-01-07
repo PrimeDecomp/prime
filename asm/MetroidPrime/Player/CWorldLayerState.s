@@ -509,11 +509,11 @@ lbl_80234628:
 /* 80234638 00231598  3C 60 80 47 */	lis r3, lbl_8046D34C@ha
 /* 8023463C 0023159C  38 A4 42 E0 */	addi r5, r4, lbl_803D42E0@l
 /* 80234640 002315A0  38 05 00 07 */	addi r0, r5, 7
-/* 80234644 002315A4  3C 80 80 00 */	lis r4, sub_80004a9c@ha
+/* 80234644 002315A4  3C 80 80 00 */	lis r4, "__dt__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"@ha
 /* 80234648 002315A8  38 63 D3 4C */	addi r3, r3, lbl_8046D34C@l
 /* 8023464C 002315AC  3C A0 80 47 */	lis r5, lbl_8046D340@ha
 /* 80234650 002315B0  7C 00 30 50 */	subf r0, r0, r6
-/* 80234654 002315B4  38 84 4A 9C */	addi r4, r4, sub_80004a9c@l
+/* 80234654 002315B4  38 84 4A 9C */	addi r4, r4, "__dt__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"@l
 /* 80234658 002315B8  90 03 00 08 */	stw r0, 8(r3)
 /* 8023465C 002315BC  38 A5 D3 40 */	addi r5, r5, lbl_8046D340@l
 /* 80234660 002315C0  48 15 50 2D */	bl __register_global_object
