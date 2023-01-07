@@ -88,10 +88,13 @@ public:
   void HardReset();
   bool UpdateChannel(SAdsrDelta& delta, const SAdsrData& data, float dt);
   bool Update(float dt);
-  uint GetFreeChannel() const;
+  ushort GetFreeChannel() const;
   float GetIntensity() const;
   bool OwnsSustained(short id) const;
   short CreateRumbleHandle(ushort idx);
+  ushort GetChannelId(short handle) const { return handle & 0xf; }
+  ushort GetOwnerId(short handle) const { return ((handle >> 8) & 0xFF); }
+  ERumblePriority GetPriority(uint idx) { return x10_deltas[idx].x1c_priority; }
 };
 
 #endif // _CRUMBLEVOICE

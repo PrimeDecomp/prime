@@ -590,7 +590,7 @@ lbl_80043FAC:
 /* 80043FB4 00040F14  54 00 CF FF */	rlwinm. r0, r0, 0x19, 0x1f, 0x1f
 /* 80043FB8 00040F18  41 82 00 34 */	beq lbl_80043FEC
 /* 80043FBC 00040F1C  38 80 00 00 */	li r4, 0
-/* 80043FC0 00040F20  48 32 5D 41 */	bl SetDisabled__14CRumbleManagerFb
+/* 80043FC0 00040F20  48 32 5D 41 */	bl SetDisabled__16CRumbleGeneratorFb
 /* 80043FC4 00040F24  48 00 00 28 */	b lbl_80043FEC
 lbl_80043FC8:
 /* 80043FC8 00040F28  80 7E 08 8C */	lwz r3, 0x88c(r30)
@@ -598,7 +598,7 @@ lbl_80043FC8:
 /* 80043FD0 00040F30  54 00 CF FF */	rlwinm. r0, r0, 0x19, 0x1f, 0x1f
 /* 80043FD4 00040F34  40 82 00 0C */	bne lbl_80043FE0
 /* 80043FD8 00040F38  38 80 00 01 */	li r4, 1
-/* 80043FDC 00040F3C  48 32 5D 25 */	bl SetDisabled__14CRumbleManagerFb
+/* 80043FDC 00040F3C  48 32 5D 25 */	bl SetDisabled__16CRumbleGeneratorFb
 lbl_80043FE0:
 /* 80043FE0 00040F40  80 7E 08 50 */	lwz r3, 0x850(r30)
 /* 80043FE4 00040F44  38 80 00 01 */	li r4, 1

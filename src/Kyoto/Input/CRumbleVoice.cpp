@@ -22,13 +22,12 @@ short CRumbleVoice::Activate(const SAdsrData& data, ushort idx, float gain, ERum
 }
 
 void CRumbleVoice::Deactivate(short id, bool b1) {
-  if (id == -1)
+  if (id == -1 || !OwnsSustained(id)) {
     return;
-  if (OwnsSustained(id)) {
-    return;
-  } else if (x2c_usedChannels & (1 << (id & 0xf))) {
-    x10_deltas[(id & 0xf)].x20_phase = SAdsrDelta::kP_Release;
-    return;
+  }
+
+  if (x2c_usedChannels & (1 << GetChannelId(id))) {
+    x10_deltas[GetChannelId(id)].x20_phase = SAdsrDelta::kP_Release;
   }
 }
 
@@ -130,14 +129,15 @@ bool CRumbleVoice::Update(float dt) {
   return false;
 }
 
-uint CRumbleVoice::GetFreeChannel() const {
+ushort CRumbleVoice::GetFreeChannel() const {
   for (ushort i = 0; i < 4; ++i) {
     if ((x2c_usedChannels & (1 << i)) == 0) {
-      return i;
+      return (ushort)i;
     }
   }
   return 0;
 }
+
 float CRumbleVoice::GetIntensity() const {
   float ret = x10_deltas[0].x0_curIntensity;
   if (ret < x10_deltas[1].x0_curIntensity) {
@@ -158,17 +158,20 @@ float CRumbleVoice::GetIntensity() const {
 
   return ret;
 }
+
 bool CRumbleVoice::OwnsSustained(short handle) const {
-  ushort idx = (((ushort)handle >> 8) & 0xff);
-  if (idx < 4)
-    return x20_handleIds[idx] == (idx & 0xf);
-  return false;
+  const ushort i = GetChannelId(handle);
+  const uint owner = GetOwnerId(handle);
+  return i < 4 ? x20_handleIds[i] == owner : false;
 }
 
+/* TODO: Fake matched, find real solution */
 short CRumbleVoice::CreateRumbleHandle(ushort idx) {
   ++x2e_lastId;
   if (x2e_lastId == 0)
     x2e_lastId = 1;
-  x20_handleIds[idx] = x2e_lastId;
-  return ((x2e_lastId << 8) | idx) & 0xFFFF;
+  u16 x = idx;
+  u16* h = &x20_handleIds[x];
+  *h = x2e_lastId;
+  return ((x2e_lastId << 8) | x) & 0xFFFF;
 }
