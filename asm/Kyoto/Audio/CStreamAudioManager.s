@@ -1361,7 +1361,7 @@ __ct__20SDSPStreamCacheEntryFv:
 __sinit_CStreamAudioManager_cpp:
 /* 803665CC 0036352C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803665D0 00363530  7C 08 02 A6 */	mflr r0
-/* 803665D4 00363534  3C 80 80 00 */	lis r4, sub_80004a9c@ha
+/* 803665D4 00363534  3C 80 80 00 */	lis r4, "__dt__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"@ha
 /* 803665D8 00363538  38 AD A9 18 */	addi r5, r13, "mNull__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"@sda21
 /* 803665DC 0036353C  90 01 00 14 */	stw r0, 0x14(r1)
 /* 803665E0 00363540  3C 60 80 5A */	lis r3, lbl_805A6B60@ha
@@ -1369,7 +1369,7 @@ __sinit_CStreamAudioManager_cpp:
 /* 803665E8 00363548  38 00 00 00 */	li r0, 0
 /* 803665EC 0036354C  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 803665F0 00363550  3B E6 05 50 */	addi r31, r6, lbl_80540550@l
-/* 803665F4 00363554  38 84 4A 9C */	addi r4, r4, sub_80004a9c@l
+/* 803665F4 00363554  38 84 4A 9C */	addi r4, r4, "__dt__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"@l
 /* 803665F8 00363558  94 A3 6B 60 */	stwu r5, lbl_805A6B60@l(r3)
 /* 803665FC 0036355C  38 BF 00 00 */	addi r5, r31, 0
 /* 80366600 00363560  90 03 00 04 */	stw r0, 4(r3)
@@ -1379,20 +1379,20 @@ __sinit_CStreamAudioManager_cpp:
 /* 80366610 00363570  3C 60 80 5A */	lis r3, lbl_805A6B90@ha
 /* 80366614 00363574  94 A3 6B 90 */	stwu r5, lbl_805A6B90@l(r3)
 /* 80366618 00363578  38 00 00 00 */	li r0, 0
-/* 8036661C 0036357C  3C 80 80 00 */	lis r4, sub_80004a9c@ha
+/* 8036661C 0036357C  3C 80 80 00 */	lis r4, "__dt__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"@ha
 /* 80366620 00363580  38 BF 00 0C */	addi r5, r31, 0xc
 /* 80366624 00363584  90 03 00 04 */	stw r0, 4(r3)
-/* 80366628 00363588  38 84 4A 9C */	addi r4, r4, sub_80004a9c@l
+/* 80366628 00363588  38 84 4A 9C */	addi r4, r4, "__dt__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"@l
 /* 8036662C 0036358C  90 03 00 08 */	stw r0, 8(r3)
 /* 80366630 00363590  48 02 30 5D */	bl __register_global_object
 /* 80366634 00363594  38 AD A9 18 */	addi r5, r13, "mNull__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"@sda21
 /* 80366638 00363598  3C 60 80 5A */	lis r3, lbl_805A6BA0@ha
 /* 8036663C 0036359C  94 A3 6B A0 */	stwu r5, lbl_805A6BA0@l(r3)
 /* 80366640 003635A0  38 00 00 00 */	li r0, 0
-/* 80366644 003635A4  3C 80 80 00 */	lis r4, sub_80004a9c@ha
+/* 80366644 003635A4  3C 80 80 00 */	lis r4, "__dt__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"@ha
 /* 80366648 003635A8  38 BF 00 18 */	addi r5, r31, 0x18
 /* 8036664C 003635AC  90 03 00 04 */	stw r0, 4(r3)
-/* 80366650 003635B0  38 84 4A 9C */	addi r4, r4, sub_80004a9c@l
+/* 80366650 003635B0  38 84 4A 9C */	addi r4, r4, "__dt__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"@l
 /* 80366654 003635B4  90 03 00 08 */	stw r0, 8(r3)
 /* 80366658 003635B8  48 02 30 35 */	bl __register_global_object
 /* 8036665C 003635BC  3C 60 80 36 */	lis r3, __ct__20SDSPStreamCacheEntryFv@ha

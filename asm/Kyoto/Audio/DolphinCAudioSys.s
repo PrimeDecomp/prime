@@ -2466,8 +2466,8 @@ lbl_8034C6D0:
 /* 8034C6E8 00349648  38 21 00 30 */	addi r1, r1, 0x30
 /* 8034C6EC 0034964C  4E 80 00 20 */	blr
 
-.global __ct__9CAudioSysFUcUcUcUcUi
-__ct__9CAudioSysFUcUcUcUcUi:
+.global __ct__9CAudioSysFccccUi
+__ct__9CAudioSysFccccUi:
 /* 8034C6F0 00349650  94 21 FF 60 */	stwu r1, -0xa0(r1)
 /* 8034C6F4 00349654  7C 08 02 A6 */	mflr r0
 /* 8034C6F8 00349658  39 40 00 01 */	li r10, 1
@@ -3457,9 +3457,9 @@ __sinit_DolphinCAudioSys_cpp:
 /* 8034D4A4 0034A404  38 81 00 08 */	addi r4, r1, 8
 /* 8034D4A8 0034A408  38 63 67 CC */	addi r3, r3, mpDefaultInvalidString__9CAudioSys@l
 /* 8034D4AC 0034A40C  4B FF 0C B5 */	bl "__ct__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>FRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
-/* 8034D4B0 0034A410  3C 80 80 00 */	lis r4, sub_80004a9c@ha
+/* 8034D4B0 0034A410  3C 80 80 00 */	lis r4, "__dt__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"@ha
 /* 8034D4B4 0034A414  3C A0 80 4C */	lis r5, lbl_804BFF90@ha
-/* 8034D4B8 0034A418  38 84 4A 9C */	addi r4, r4, sub_80004a9c@l
+/* 8034D4B8 0034A418  38 84 4A 9C */	addi r4, r4, "__dt__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"@l
 /* 8034D4BC 0034A41C  38 A5 FF 90 */	addi r5, r5, lbl_804BFF90@l
 /* 8034D4C0 0034A420  48 03 C1 CD */	bl __register_global_object
 /* 8034D4C4 0034A424  38 61 00 08 */	addi r3, r1, 8
