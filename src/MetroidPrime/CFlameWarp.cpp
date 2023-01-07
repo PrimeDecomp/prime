@@ -90,12 +90,12 @@ void CFlameWarp::ModifyParticles(int particleCount, int stripe, int*, CVector3f*
                                                 CMaterialList(kMT_ProjectilePassthrough)));
 
         if (result.IsValid()) {
-          const float dist = result.GetPlane().PointToPlaneDist(partPos);
+          const float dist = result.GetPlane().GetHeight(partPos);
           if (dist <= 0.f) {
             partPos -= dist * result.GetPlane().GetNormal();
             if (CVector3f::Dot(result.GetPlane().GetNormal(), partVel) < 0.f) {
               const CVector3f prevStepPos = partPos - partVel;
-              partPos += (-result.GetPlane().PointToPlaneDist(prevStepPos) /
+              partPos += (-result.GetPlane().GetHeight(prevStepPos) /
                               CVector3f::Dot(partVel, result.GetPlane().GetNormal()) -
                           1.f) *
                          partVel;
