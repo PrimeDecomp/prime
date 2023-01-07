@@ -13,7 +13,7 @@ bool RayPlaneIntersection(const CVector3f& from, const CVector3f& to, const CPla
     return false;
   }
 
-  float tmp = -plane.PointToPlaneDist(from) / CUnitVector3f::Dot(delta, planeNorm);
+  float tmp = -plane.GetHeight(from) / CUnitVector3f::Dot(delta, planeNorm);
 
   if (tmp < -0.f || tmp > 1.0001f) {
     return false;
@@ -34,8 +34,7 @@ bool RaySphereIntersection(const CSphere& sphere, const CVector3f& pos, const CV
   if (dirDot < 0.f && magSq > radSq) {
     return false;
   }
-  intersectSq -= magSq;
-  intersectSq -= radSq;
+  intersectSq = radSq - (magSq - intersectSq);
 
   if (intersectSq < 0.f) {
     return false;

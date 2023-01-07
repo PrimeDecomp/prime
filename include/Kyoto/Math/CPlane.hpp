@@ -21,9 +21,7 @@ public:
   }
   // IsFacing__6CPlaneCFRC9CVector3f
   float ClipLineSegment(const CVector3f& start, const CVector3f& end) const;
-
-  float PointToPlaneDist(const CVector3f& pos) const { return CVector3f::Dot(GetNormal(), pos) - xc_constant; }
-
+  
 private:
   CUnitVector3f x0_normal;
   float xc_constant;
