@@ -7,10 +7,13 @@
 
 #include <string.h>
 
-CDolphinController::CDolphinController() : x1c4_(0xf0000000), x1c8_invalidControllers(0), x1cc_(0) {
+CDolphinController::CDolphinController()
+: x1c4_(PAD_CHAN0_BIT | PAD_CHAN1_BIT | PAD_CHAN2_BIT | PAD_CHAN3_BIT)
+, x1c8_invalidControllers(0)
+, x1cc_(0) {
   static bool sIsInitialized = false;
   if (!sIsInitialized) {
-    PADSetSpec(5);
+    PADSetSpec(PAD_SPEC_5);
     PADInit();
     sIsInitialized = true;
   }
