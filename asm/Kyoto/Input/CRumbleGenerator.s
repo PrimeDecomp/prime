@@ -2,8 +2,8 @@
 
 .section .text, "ax"
 
-.global SetDisabled__14CRumbleManagerFb
-SetDisabled__14CRumbleManagerFb:
+.global SetDisabled__16CRumbleGeneratorFb
+SetDisabled__16CRumbleGeneratorFb:
 /* 80369D00 00366C60  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80369D04 00366C64  7C 08 02 A6 */	mflr r0
 /* 80369D08 00366C68  90 01 00 14 */	stw r0, 0x14(r1)
@@ -52,8 +52,8 @@ lbl_80369D84:
 /* 80369DA0 00366D00  2C 1C 00 04 */	cmpwi r28, 4
 /* 80369DA4 00366D04  3B DE 00 04 */	addi r30, r30, 4
 /* 80369DA8 00366D08  41 80 FF DC */	blt lbl_80369D84
-/* 80369DAC 00366D0C  3C 60 80 3E */	lis r3, lbl_803D8548@ha
-/* 80369DB0 00366D10  38 63 85 48 */	addi r3, r3, lbl_803D8548@l
+/* 80369DAC 00366D0C  3C 60 80 3E */	lis r3, kStopAll__16CRumbleGenerator@ha
+/* 80369DB0 00366D10  38 63 85 48 */	addi r3, r3, kStopAll__16CRumbleGenerator@l
 /* 80369DB4 00366D14  48 01 CD 71 */	bl PADControlAllMotors
 /* 80369DB8 00366D18  E3 E1 00 28 */	psq_l f31, 40(r1), 0, qr0
 /* 80369DBC 00366D1C  80 01 00 34 */	lwz r0, 0x34(r1)
@@ -388,8 +388,8 @@ lbl_805AEB1C:
 
 .section .rodata
 .balign 8
-.global lbl_803D8548
-lbl_803D8548:
+.global kStopAll__16CRumbleGenerator
+kStopAll__16CRumbleGenerator:
 	# ROM: 0x3D5548
 	.4byte 0x00000002
 	.4byte 0x00000002

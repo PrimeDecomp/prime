@@ -690,7 +690,7 @@ LIBS = [
             "Kyoto/Animation/CPoseAsTransformsVariableSize",
             ["Kyoto/Input/CRumbleVoice", False],
             ["Kyoto/Input/RumbleAdsr", True],
-            "Kyoto/Input/CRumbleGenerator",
+            ["Kyoto/Input/CRumbleGenerator", True],
             "Kyoto/Audio/SDSPStream",
             ["Kyoto/Audio/g721", True],
             "Kyoto/Audio/CStaticAudioPlayer",
