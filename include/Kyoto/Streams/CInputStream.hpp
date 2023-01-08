@@ -11,6 +11,11 @@ struct TType {};
 template < typename T >
 T cinput_stream_helper(const TType< T >& type, CInputStream& in);
 
+template < typename T >
+TType< T > TGetType() {
+  return TType< T >();
+}
+
 class CInputStream {
 public:
   CInputStream(int len);
@@ -56,8 +61,8 @@ private:
   uint x20_bitOffset;
 };
 
-template <typename T>
-inline T cinput_stream_helper(const TType<T>& type, CInputStream& in) {
+template < typename T >
+inline T cinput_stream_helper(const TType< T >& type, CInputStream& in) {
   return T(in);
 }
 template <>
@@ -118,13 +123,10 @@ inline rstl::vector< T, Alloc >::vector(CInputStream& in, const Alloc& allocator
 
 #include "rstl/reserved_vector.hpp"
 template < typename T, int N >
-inline rstl::reserved_vector< T, N >::reserved_vector(CInputStream& in)
-: x0_count(in.ReadInt32()) {
+inline rstl::reserved_vector< T, N >::reserved_vector(CInputStream& in) : x0_count(in.ReadInt32()) {
   for (int i = 0; i < x0_count; i++) {
     construct(&data()[i], in.Get(TType< T >()));
   }
 }
-
-
 
 #endif // _CINPUTSTREAM

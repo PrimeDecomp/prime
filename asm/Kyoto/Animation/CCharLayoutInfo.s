@@ -350,7 +350,7 @@ lbl_802F7F64:
 /* 802F8048 002F4FA8  7C 7F 1B 78 */	mr r31, r3
 /* 802F804C 002F4FAC  88 0D A7 6C */	lbz r0, lbl_805A932C@sda21(r13)
 /* 802F8050 002F4FB0  98 01 00 08 */	stb r0, 8(r1)
-/* 802F8054 002F4FB4  4B D6 14 A5 */	bl sub_800594f8
+/* 802F8054 002F4FB4  4B D6 14 A5 */	bl "cinput_stream_helper<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>__FRC82TType<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>R12CInputStream"
 /* 802F8058 002F4FB8  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802F805C 002F4FBC  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 802F8060 002F4FC0  7C 08 03 A6 */	mtlr r0

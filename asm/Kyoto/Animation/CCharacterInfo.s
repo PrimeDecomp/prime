@@ -752,7 +752,7 @@ sub_802de18c:
 /* 802DE1A4 002DB104  7C 7F 1B 78 */	mr r31, r3
 /* 802DE1A8 002DB108  88 0D A6 C4 */	lbz r0, lbl_805A9284@sda21(r13)
 /* 802DE1AC 002DB10C  98 01 00 08 */	stb r0, 8(r1)
-/* 802DE1B0 002DB110  4B D7 B3 49 */	bl sub_800594f8
+/* 802DE1B0 002DB110  4B D7 B3 49 */	bl "cinput_stream_helper<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>__FRC82TType<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>R12CInputStream"
 /* 802DE1B4 002DB114  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802DE1B8 002DB118  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 802DE1BC 002DB11C  7C 08 03 A6 */	mtlr r0

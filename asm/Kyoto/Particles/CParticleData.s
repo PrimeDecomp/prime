@@ -66,7 +66,7 @@ __ct__13CParticleDataFR12CInputStream:
 /* 803574BC 0035441C  7C 7F 1B 78 */	mr r31, r3
 /* 803574C0 00354420  88 0D AA 94 */	lbz r0, lbl_805A9654@sda21(r13)
 /* 803574C4 00354424  98 01 00 08 */	stb r0, 8(r1)
-/* 803574C8 00354428  4B D0 20 31 */	bl sub_800594f8
+/* 803574C8 00354428  4B D0 20 31 */	bl "cinput_stream_helper<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>__FRC82TType<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>R12CInputStream"
 /* 803574CC 0035442C  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 803574D0 00354430  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 803574D4 00354434  7C 08 03 A6 */	mtlr r0
