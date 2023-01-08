@@ -3,18 +3,18 @@
 .section .data
 .balign 8
 
-.global lbl_803EF670
-lbl_803EF670:
+.global "__vt__43TObjOwnerDerivedFromIObj<15CAudioGrpSetLoc>"
+"__vt__43TObjOwnerDerivedFromIObj<15CAudioGrpSetLoc>":
 	# ROM: 0x3EC670
 	.4byte 0
 	.4byte 0
-	.4byte sub_8034a1b0
+	.4byte "__dt__43TObjOwnerDerivedFromIObj<15CAudioGrpSetLoc>Fv"
 	.4byte 0
 
 .section .text, "ax"
 
-.global FAudioGroupSetLocDataFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer
-FAudioGroupSetLocDataFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer:
+.global "FAudioGroupSetLocDataFactory__FRC10SObjectTagRCQ24rstl12auto_ptr<Uc>iRC15CVParamTransfer"
+"FAudioGroupSetLocDataFactory__FRC10SObjectTagRCQ24rstl12auto_ptr<Uc>iRC15CVParamTransfer":
 /* 8034A024 00346F84  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 8034A028 00346F88  7C 08 02 A6 */	mflr r0
 /* 8034A02C 00346F8C  3C 80 80 3E */	lis r4, lbl_803D8108@ha
@@ -33,11 +33,11 @@ FAudioGroupSetLocDataFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer:
 /* 8034A060 00346FC0  41 82 00 14 */	beq lbl_8034A074
 /* 8034A064 00346FC4  7F C4 F3 78 */	mr r4, r30
 /* 8034A068 00346FC8  7F E5 FB 78 */	mr r5, r31
-/* 8034A06C 00346FCC  48 00 03 89 */	bl __ct__15CAudioGrpSetLocFR12CInputStream
+/* 8034A06C 00346FCC  48 00 03 89 */	bl "__ct__15CAudioGrpSetLocFRCQ24rstl12auto_ptr<Uc>i"
 /* 8034A070 00346FD0  7C 64 1B 78 */	mr r4, r3
 lbl_8034A074:
 /* 8034A074 00346FD4  7F A3 EB 78 */	mr r3, r29
-/* 8034A078 00346FD8  48 00 00 21 */	bl sub_8034a098
+/* 8034A078 00346FD8  48 00 00 21 */	bl "__ct<15CAudioGrpSetLoc>__16CFactoryFnReturnFP15CAudioGrpSetLoc"
 /* 8034A07C 00346FDC  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8034A080 00346FE0  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8034A084 00346FE4  83 C1 00 18 */	lwz r30, 0x18(r1)
@@ -46,8 +46,8 @@ lbl_8034A074:
 /* 8034A090 00346FF0  38 21 00 20 */	addi r1, r1, 0x20
 /* 8034A094 00346FF4  4E 80 00 20 */	blr
 
-.global sub_8034a098
-sub_8034a098:
+.global "__ct<15CAudioGrpSetLoc>__16CFactoryFnReturnFP15CAudioGrpSetLoc"
+"__ct<15CAudioGrpSetLoc>__16CFactoryFnReturnFP15CAudioGrpSetLoc":
 /* 8034A098 00346FF8  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 8034A09C 00346FFC  7C 08 02 A6 */	mflr r0
 /* 8034A0A0 00347000  90 01 00 24 */	stw r0, 0x24(r1)
@@ -61,7 +61,7 @@ sub_8034a098:
 /* 8034A0C0 00347020  90 81 00 14 */	stw r4, 0x14(r1)
 /* 8034A0C4 00347024  38 81 00 10 */	addi r4, r1, 0x10
 /* 8034A0C8 00347028  98 01 00 10 */	stb r0, 0x10(r1)
-/* 8034A0CC 0034702C  48 00 01 D9 */	bl sub_8034a2a4
+/* 8034A0CC 0034702C  48 00 01 D9 */	bl "GetIObjObjectFor__25TToken<15CAudioGrpSetLoc>FRCQ24rstl27auto_ptr<15CAudioGrpSetLoc>"
 /* 8034A0D0 00347030  80 61 00 0C */	lwz r3, 0xc(r1)
 /* 8034A0D4 00347034  38 00 00 00 */	li r0, 0
 /* 8034A0D8 00347038  98 01 00 08 */	stb r0, 8(r1)
@@ -125,8 +125,8 @@ lbl_8034A194:
 /* 8034A1A8 00347108  38 21 00 20 */	addi r1, r1, 0x20
 /* 8034A1AC 0034710C  4E 80 00 20 */	blr
 
-.global sub_8034a1b0
-sub_8034a1b0:
+.global "__dt__43TObjOwnerDerivedFromIObj<15CAudioGrpSetLoc>Fv"
+"__dt__43TObjOwnerDerivedFromIObj<15CAudioGrpSetLoc>Fv":
 /* 8034A1B0 00347110  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 8034A1B4 00347114  7C 08 02 A6 */	mflr r0
 /* 8034A1B8 00347118  90 01 00 24 */	stw r0, 0x24(r1)
@@ -136,8 +136,8 @@ sub_8034a1b0:
 /* 8034A1C8 00347128  93 A1 00 14 */	stw r29, 0x14(r1)
 /* 8034A1CC 0034712C  7C 7D 1B 79 */	or. r29, r3, r3
 /* 8034A1D0 00347130  41 82 00 B4 */	beq lbl_8034A284
-/* 8034A1D4 00347134  3C 60 80 3F */	lis r3, lbl_803EF670@ha
-/* 8034A1D8 00347138  38 03 F6 70 */	addi r0, r3, lbl_803EF670@l
+/* 8034A1D4 00347134  3C 60 80 3F */	lis r3, "__vt__43TObjOwnerDerivedFromIObj<15CAudioGrpSetLoc>"@ha
+/* 8034A1D8 00347138  38 03 F6 70 */	addi r0, r3, "__vt__43TObjOwnerDerivedFromIObj<15CAudioGrpSetLoc>"@l
 /* 8034A1DC 0034713C  90 1D 00 00 */	stw r0, 0(r29)
 /* 8034A1E0 00347140  83 FD 00 04 */	lwz r31, 4(r29)
 /* 8034A1E4 00347144  28 1F 00 00 */	cmplwi r31, 0
@@ -196,22 +196,22 @@ lbl_8034A284:
 /* 8034A29C 003471FC  38 21 00 20 */	addi r1, r1, 0x20
 /* 8034A2A0 00347200  4E 80 00 20 */	blr
 
-.global sub_8034a2a4
-sub_8034a2a4:
+.global "GetIObjObjectFor__25TToken<15CAudioGrpSetLoc>FRCQ24rstl27auto_ptr<15CAudioGrpSetLoc>"
+"GetIObjObjectFor__25TToken<15CAudioGrpSetLoc>FRCQ24rstl27auto_ptr<15CAudioGrpSetLoc>":
 /* 8034A2A4 00347204  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8034A2A8 00347208  7C 08 02 A6 */	mflr r0
 /* 8034A2AC 0034720C  90 01 00 14 */	stw r0, 0x14(r1)
 /* 8034A2B0 00347210  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 8034A2B4 00347214  7C 7F 1B 78 */	mr r31, r3
-/* 8034A2B8 00347218  48 00 00 19 */	bl sub_8034a2d0
+/* 8034A2B8 00347218  48 00 00 19 */	bl "GetNewDerivedObject__43TObjOwnerDerivedFromIObj<15CAudioGrpSetLoc>FRCQ24rstl27auto_ptr<15CAudioGrpSetLoc>"
 /* 8034A2BC 0034721C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8034A2C0 00347220  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8034A2C4 00347224  7C 08 03 A6 */	mtlr r0
 /* 8034A2C8 00347228  38 21 00 10 */	addi r1, r1, 0x10
 /* 8034A2CC 0034722C  4E 80 00 20 */	blr
 
-.global sub_8034a2d0
-sub_8034a2d0:
+.global "GetNewDerivedObject__43TObjOwnerDerivedFromIObj<15CAudioGrpSetLoc>FRCQ24rstl27auto_ptr<15CAudioGrpSetLoc>"
+"GetNewDerivedObject__43TObjOwnerDerivedFromIObj<15CAudioGrpSetLoc>FRCQ24rstl27auto_ptr<15CAudioGrpSetLoc>":
 /* 8034A2D0 00347230  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8034A2D4 00347234  7C 08 02 A6 */	mflr r0
 /* 8034A2D8 00347238  3C A0 80 3E */	lis r5, lbl_803D8108@ha
@@ -230,11 +230,11 @@ sub_8034a2d0:
 /* 8034A30C 0034726C  3C 80 80 3E */	lis r4, __vt__4IObj@ha
 /* 8034A310 00347270  3C A0 80 3E */	lis r5, __vt__31CObjOwnerDerivedFromIObjUntyped@ha
 /* 8034A314 00347274  38 04 8D 6C */	addi r0, r4, __vt__4IObj@l
-/* 8034A318 00347278  3C 80 80 3F */	lis r4, lbl_803EF670@ha
+/* 8034A318 00347278  3C 80 80 3F */	lis r4, "__vt__43TObjOwnerDerivedFromIObj<15CAudioGrpSetLoc>"@ha
 /* 8034A31C 0034727C  90 03 00 00 */	stw r0, 0(r3)
 /* 8034A320 00347280  38 C5 8D 78 */	addi r6, r5, __vt__31CObjOwnerDerivedFromIObjUntyped@l
 /* 8034A324 00347284  38 A0 00 00 */	li r5, 0
-/* 8034A328 00347288  38 04 F6 70 */	addi r0, r4, lbl_803EF670@l
+/* 8034A328 00347288  38 04 F6 70 */	addi r0, r4, "__vt__43TObjOwnerDerivedFromIObj<15CAudioGrpSetLoc>"@l
 /* 8034A32C 0034728C  90 C3 00 00 */	stw r6, 0(r3)
 /* 8034A330 00347290  98 BF 00 00 */	stb r5, 0(r31)
 /* 8034A334 00347294  80 9F 00 04 */	lwz r4, 4(r31)
@@ -293,8 +293,8 @@ lbl_8034A3D8:
 /* 8034A3EC 0034734C  38 21 00 20 */	addi r1, r1, 0x20
 /* 8034A3F0 00347350  4E 80 00 20 */	blr
 
-.global __ct__15CAudioGrpSetLocFR12CInputStream
-__ct__15CAudioGrpSetLocFR12CInputStream:
+.global "__ct__15CAudioGrpSetLocFRCQ24rstl12auto_ptr<Uc>i"
+"__ct__15CAudioGrpSetLocFRCQ24rstl12auto_ptr<Uc>i":
 /* 8034A3F4 00347354  94 21 FF 70 */	stwu r1, -0x90(r1)
 /* 8034A3F8 00347358  7C 08 02 A6 */	mflr r0
 /* 8034A3FC 0034735C  38 C0 00 00 */	li r6, 0
@@ -354,22 +354,22 @@ __ct__15CAudioGrpSetLocFR12CInputStream:
 /* 8034A4D4 00347434  38 61 00 40 */	addi r3, r1, 0x40
 /* 8034A4D8 00347438  38 80 00 00 */	li r4, 0
 /* 8034A4DC 0034743C  4B FF 4B D1 */	bl __dt__12CInputStreamFv
-/* 8034A4E0 00347440  48 00 03 35 */	bl sub_8034a814
+/* 8034A4E0 00347440  48 00 03 35 */	bl GetVerbose__9CAudioSysFv
 /* 8034A4E4 00347444  80 7A 00 04 */	lwz r3, 4(r26)
 /* 8034A4E8 00347448  7F 9E FA 14 */	add r28, r30, r31
 /* 8034A4EC 0034744C  7F A3 E0 2E */	lwzx r29, r3, r28
-/* 8034A4F0 00347450  48 00 03 25 */	bl sub_8034a814
+/* 8034A4F0 00347450  48 00 03 25 */	bl GetVerbose__9CAudioSysFv
 /* 8034A4F4 00347454  7F 7C EA 14 */	add r27, r28, r29
 /* 8034A4F8 00347458  80 7A 00 04 */	lwz r3, 4(r26)
 /* 8034A4FC 0034745C  3B 7B 00 04 */	addi r27, r27, 4
 /* 8034A500 00347460  7E E3 D8 2E */	lwzx r23, r3, r27
-/* 8034A504 00347464  48 00 03 11 */	bl sub_8034a814
+/* 8034A504 00347464  48 00 03 11 */	bl GetVerbose__9CAudioSysFv
 /* 8034A508 00347468  92 F8 00 30 */	stw r23, 0x30(r24)
 /* 8034A50C 0034746C  7F 3B BA 14 */	add r25, r27, r23
 /* 8034A510 00347470  3B 39 00 04 */	addi r25, r25, 4
 /* 8034A514 00347474  80 7A 00 04 */	lwz r3, 4(r26)
 /* 8034A518 00347478  7F 43 C8 2E */	lwzx r26, r3, r25
-/* 8034A51C 0034747C  48 00 02 F9 */	bl sub_8034a814
+/* 8034A51C 0034747C  48 00 02 F9 */	bl GetVerbose__9CAudioSysFv
 /* 8034A520 00347480  3C 60 80 3E */	lis r3, lbl_803D8108@ha
 /* 8034A524 00347484  3C 80 80 3D */	lis r4, kUnknownType__10CCallStack@ha
 /* 8034A528 00347488  38 A3 81 08 */	addi r5, r3, lbl_803D8108@l

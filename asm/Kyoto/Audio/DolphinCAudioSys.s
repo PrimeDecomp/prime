@@ -176,8 +176,8 @@ SetVolumeScale__9CAudioSysFs:
 /* 8034A80C 0034776C  B0 6D 9D DA */	sth r3, lbl_805A899A@sda21(r13)
 /* 8034A810 00347770  4E 80 00 20 */	blr
 
-.global sub_8034a814
-sub_8034a814:
+.global GetVerbose__9CAudioSysFv
+GetVerbose__9CAudioSysFv:
 /* 8034A814 00347774  88 6D A9 D2 */	lbz r3, lbl_805A9592@sda21(r13)
 /* 8034A818 00347778  4E 80 00 20 */	blr
 
