@@ -29,8 +29,8 @@ __dt__17CColorInstructionFv:
 /* 802FE850 002FB7B0  38 03 D5 B0 */	addi r0, r3, lbl_803ED5B0@l
 /* 802FE854 002FB7B4  90 1F 00 00 */	stw r0, 0(r31)
 /* 802FE858 002FB7B8  41 82 00 10 */	beq lbl_802FE868
-/* 802FE85C 002FB7BC  3C 60 80 3E */	lis r3, lbl_803D9A6C@ha
-/* 802FE860 002FB7C0  38 03 9A 6C */	addi r0, r3, lbl_803D9A6C@l
+/* 802FE85C 002FB7BC  3C 60 80 3E */	lis r3, __vt__12CInstruction@ha
+/* 802FE860 002FB7C0  38 03 9A 6C */	addi r0, r3, __vt__12CInstruction@l
 /* 802FE864 002FB7C4  90 1F 00 00 */	stw r0, 0(r31)
 lbl_802FE868:
 /* 802FE868 002FB7C8  7C 80 07 35 */	extsh. r0, r4

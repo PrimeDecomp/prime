@@ -104,8 +104,8 @@ lbl_803D9A50:
 	.4byte Draw__13CSplashScreenCFv
 	.4byte PreDraw__6CIOWinCFv
 
-.global lbl_803D9A6C
-lbl_803D9A6C:
+.global __vt__12CInstruction
+__vt__12CInstruction:
 	# ROM: 0x3D6A6C
 	.4byte 0
 	.4byte 0

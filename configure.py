@@ -541,7 +541,7 @@ LIBS = [
             "Kyoto/Text/CFontRenderState",
             "Kyoto/Text/CLineExtraSpaceInstruction",
             "Kyoto/Text/CLineInstruction",
-            "Kyoto/Text/CLineSpacingInstruction",
+            ["Kyoto/Text/CLineSpacingInstruction", True],
             "Kyoto/Text/CPopStateInstruction",
             "Kyoto/Text/CPushStateInstruction",
             ["Kyoto/Text/CRasterFont", False],

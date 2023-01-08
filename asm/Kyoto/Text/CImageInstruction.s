@@ -35,8 +35,8 @@ __dt__17CImageInstructionFv:
 /* 8035974C 003566AC  4B CC F4 B1 */	bl sub_80028bfc
 /* 80359750 003566B0  28 1E 00 00 */	cmplwi r30, 0
 /* 80359754 003566B4  41 82 00 10 */	beq lbl_80359764
-/* 80359758 003566B8  3C 60 80 3E */	lis r3, lbl_803D9A6C@ha
-/* 8035975C 003566BC  38 03 9A 6C */	addi r0, r3, lbl_803D9A6C@l
+/* 80359758 003566B8  3C 60 80 3E */	lis r3, __vt__12CInstruction@ha
+/* 8035975C 003566BC  38 03 9A 6C */	addi r0, r3, __vt__12CInstruction@l
 /* 80359760 003566C0  90 1E 00 00 */	stw r0, 0(r30)
 lbl_80359764:
 /* 80359764 003566C4  7F E0 07 35 */	extsh. r0, r31
@@ -294,4 +294,3 @@ CalculateHeight__13CFontImageDefFv:
 lbl_805AEA18:
 	# ROM: 0x3FB2B8
 	.double 4.503601774854144E15
-

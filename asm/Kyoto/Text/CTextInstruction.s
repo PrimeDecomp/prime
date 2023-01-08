@@ -29,8 +29,8 @@ __dt__16CTextInstructionFv:
 /* 80304080 00300FE0  38 03 D6 F8 */	addi r0, r3, lbl_803ED6F8@l
 /* 80304084 00300FE4  90 1F 00 00 */	stw r0, 0(r31)
 /* 80304088 00300FE8  41 82 00 10 */	beq lbl_80304098
-/* 8030408C 00300FEC  3C 60 80 3E */	lis r3, lbl_803D9A6C@ha
-/* 80304090 00300FF0  38 03 9A 6C */	addi r0, r3, lbl_803D9A6C@l
+/* 8030408C 00300FEC  3C 60 80 3E */	lis r3, __vt__12CInstruction@ha
+/* 80304090 00300FF0  38 03 9A 6C */	addi r0, r3, __vt__12CInstruction@l
 /* 80304094 00300FF4  90 1F 00 00 */	stw r0, 0(r31)
 lbl_80304098:
 /* 80304098 00300FF8  7C 80 07 35 */	extsh. r0, r4
@@ -47,9 +47,9 @@ lbl_803040A8:
 
 .global __ct__16CTextInstructionFPCwi
 __ct__16CTextInstructionFPCwi:
-/* 803040C0 00301020  3C E0 80 3E */	lis r7, lbl_803D9A6C@ha
+/* 803040C0 00301020  3C E0 80 3E */	lis r7, __vt__12CInstruction@ha
 /* 803040C4 00301024  3C C0 80 3F */	lis r6, lbl_803ED6F8@ha
-/* 803040C8 00301028  38 E7 9A 6C */	addi r7, r7, lbl_803D9A6C@l
+/* 803040C8 00301028  38 E7 9A 6C */	addi r7, r7, __vt__12CInstruction@l
 /* 803040CC 0030102C  2C 05 00 00 */	cmpwi r5, 0
 /* 803040D0 00301030  90 E3 00 00 */	stw r7, 0(r3)
 /* 803040D4 00301034  38 06 D6 F8 */	addi r0, r6, lbl_803ED6F8@l
@@ -210,4 +210,3 @@ lbl_803D6E98:
 	# ROM: 0x3D3E98
 	.asciz "??(??)"
 	.balign 4
-

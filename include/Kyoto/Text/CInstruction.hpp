@@ -13,10 +13,10 @@ class CTextRenderBuffer;
 class CInstruction {
 public:
   virtual ~CInstruction() {}
-  virtual uint GetAssetCount() const;
-  virtual void GetAssets(rstl::vector<CToken>& assetsOut) const;
-  virtual void PageInvoke(CFontRenderState& state, CTextRenderBuffer* buf) const;
   virtual void Invoke(CFontRenderState& state, CTextRenderBuffer* buf) const = 0;
+  virtual void PageInvoke(CFontRenderState& state, CTextRenderBuffer* buf) const;// {}
+  virtual void GetAssets(rstl::vector< CToken >& assetsOut) const;// {}
+  virtual uint GetAssetCount() const;// { return 0; }
 };
 
 #endif // _CINSTRUCTION

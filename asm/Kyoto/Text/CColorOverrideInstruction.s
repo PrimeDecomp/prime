@@ -41,8 +41,8 @@ __dt__25CColorOverrideInstructionFv:
 /* 802FE908 002FB868  38 03 D5 D0 */	addi r0, r3, lbl_803ED5D0@l
 /* 802FE90C 002FB86C  90 1F 00 00 */	stw r0, 0(r31)
 /* 802FE910 002FB870  41 82 00 10 */	beq lbl_802FE920
-/* 802FE914 002FB874  3C 60 80 3E */	lis r3, lbl_803D9A6C@ha
-/* 802FE918 002FB878  38 03 9A 6C */	addi r0, r3, lbl_803D9A6C@l
+/* 802FE914 002FB874  3C 60 80 3E */	lis r3, __vt__12CInstruction@ha
+/* 802FE918 002FB878  38 03 9A 6C */	addi r0, r3, __vt__12CInstruction@l
 /* 802FE91C 002FB87C  90 1F 00 00 */	stw r0, 0(r31)
 lbl_802FE920:
 /* 802FE920 002FB880  7C 80 07 35 */	extsh. r0, r4

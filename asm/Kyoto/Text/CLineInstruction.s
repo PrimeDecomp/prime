@@ -44,8 +44,8 @@ __dt__16CLineInstructionFv:
 /* 802FF8BC 002FC81C  38 03 D6 30 */	addi r0, r3, lbl_803ED630@l
 /* 802FF8C0 002FC820  90 1F 00 00 */	stw r0, 0(r31)
 /* 802FF8C4 002FC824  41 82 00 10 */	beq lbl_802FF8D4
-/* 802FF8C8 002FC828  3C 60 80 3E */	lis r3, lbl_803D9A6C@ha
-/* 802FF8CC 002FC82C  38 03 9A 6C */	addi r0, r3, lbl_803D9A6C@l
+/* 802FF8C8 002FC828  3C 60 80 3E */	lis r3, __vt__12CInstruction@ha
+/* 802FF8CC 002FC82C  38 03 9A 6C */	addi r0, r3, __vt__12CInstruction@l
 /* 802FF8D0 002FC830  90 1F 00 00 */	stw r0, 0(r31)
 lbl_802FF8D4:
 /* 802FF8D4 002FC834  7C 80 07 35 */	extsh. r0, r4

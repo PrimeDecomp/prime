@@ -29,8 +29,8 @@ __dt__20CPopStateInstructionFv:
 /* 802FFD5C 002FCCBC  38 03 D6 98 */	addi r0, r3, lbl_803ED698@l
 /* 802FFD60 002FCCC0  90 1F 00 00 */	stw r0, 0(r31)
 /* 802FFD64 002FCCC4  41 82 00 10 */	beq lbl_802FFD74
-/* 802FFD68 002FCCC8  3C 60 80 3E */	lis r3, lbl_803D9A6C@ha
-/* 802FFD6C 002FCCCC  38 03 9A 6C */	addi r0, r3, lbl_803D9A6C@l
+/* 802FFD68 002FCCC8  3C 60 80 3E */	lis r3, __vt__12CInstruction@ha
+/* 802FFD6C 002FCCCC  38 03 9A 6C */	addi r0, r3, __vt__12CInstruction@l
 /* 802FFD70 002FCCD0  90 1F 00 00 */	stw r0, 0(r31)
 lbl_802FFD74:
 /* 802FFD74 002FCCD4  7C 80 07 35 */	extsh. r0, r4
