@@ -9,13 +9,14 @@
 #include "musyx/musyx.h"
 
 bool CAudioSys::mInitialized = false;
-bool CAudioSys::mIsLIstenerActive = false;
+bool CAudioSys::mIsListenerActive = false;
 bool CAudioSys::mVerbose = false;
 uchar CAudioSys::mMaxNumEmitters = 0;
 rstl::map< rstl::string, rstl::ncrc_ptr< CAudioGroupSet > >* CAudioSys::mpGroupSetDB = nullptr;
 rstl::map< uint, rstl::string >* CAudioSys::mpGroupSetResNameDB = nullptr;
 rstl::map< rstl::string, rstl::ncrc_ptr< CAudioSys::CTrkData > >* CAudioSys::mpDVDTrackDB = nullptr;
 
+uchar CAudioSys::kEmitterMedPriority = 0x7f;
 const uchar CAudioSys::kMaxVolume = 0x7f;
 bool CAudioSys::mProLogic2 = true;
 
@@ -46,9 +47,10 @@ CAudioSys::CAudioSys(char numVoices, char numMusic, char numSfx, char maxNumEmit
   mpGroupSetDB = new rstl::map< rstl::string, rstl::ncrc_ptr< CAudioGroupSet > >();
   mpGroupSetResNameDB = new rstl::map< uint, rstl::string >();
   mpDVDTrackDB = new rstl::map< rstl::string, rstl::ncrc_ptr< CTrkData > >();
-  mpEmitterDB = new rstl::vector< CEmitterData >(maxNumEmitters);
-  mpListener = nullptr; // TODO: Add listener allocation
-  mIsLIstenerActive = false;
+  mpEmitterDB = new rstl::vector< CEmitterData >(maxNumEmitters, CEmitterData());
+  mpListener = new u8[0x90]; // TODO: Add actual listener allocation
+  mIsListenerActive = false;
+  mMaxNumEmitters = maxNumEmitters;
 
   if (OSGetSoundMode() == OS_SOUND_MODE_MONO) {
     sndOutputMode(SND_OUTPUTMODE_MONO);

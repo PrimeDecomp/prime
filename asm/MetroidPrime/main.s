@@ -4578,9 +4578,9 @@ lbl_80006248:
 /* 800064DC 0000343C  38 7F 00 5C */	addi r3, r31, 0x5c
 /* 800064E0 00003440  38 84 53 4D */	addi r4, r4, 0x534d
 /* 800064E4 00003444  48 33 29 9D */	bl AddFactory__11CFactoryMgrFUiPFRC10SObjectTagR12CInputStreamRC15CVParamTransfer_C16CFactoryFnReturn
-/* 800064E8 00003448  3C 60 80 35 */	lis r3, FAudioGroupSetLocDataFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@ha
+/* 800064E8 00003448  3C 60 80 35 */	lis r3, "FAudioGroupSetLocDataFactory__FRC10SObjectTagRCQ24rstl12auto_ptr<Uc>iRC15CVParamTransfer"@ha
 /* 800064EC 0000344C  3C 80 41 47 */	lis r4, 0x4147
-/* 800064F0 00003450  38 A3 A1 04 */	addi r5, r3, FAudioGroupSetLocDataFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@l
+/* 800064F0 00003450  38 A3 A1 04 */	addi r5, r3, "FAudioGroupSetLocDataFactory__FRC10SObjectTagRCQ24rstl12auto_ptr<Uc>iRC15CVParamTransfer"@l
 /* 800064F4 00003454  38 7F 00 5C */	addi r3, r31, 0x5c
 /* 800064F8 00003458  38 84 53 43 */	addi r4, r4, 0x5343
 /* 800064FC 0000345C  48 33 28 C5 */	bl "AddFactory__11CFactoryMgrFUiPFRC10SObjectTagRCQ24rstl12auto_ptr<Uc>iRC15CVParamTransfer_C16CFactoryFnReturn"
@@ -4925,9 +4925,9 @@ lbl_800061F8:
 /* 80006484 000033E4  38 7F 00 5C */	addi r3, r31, 0x5c
 /* 80006488 000033E8  38 84 53 4D */	addi r4, r4, 0x4146534D@l
 /* 8000648C 000033EC  48 33 29 15 */	bl AddFactory__11CFactoryMgrFUiPFRC10SObjectTagR12CInputStreamRC15CVParamTransfer_C16CFactoryFnReturn
-/* 80006490 000033F0  3C 60 80 35 */	lis r3, FAudioGroupSetLocDataFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@ha
+/* 80006490 000033F0  3C 60 80 35 */	lis r3, "FAudioGroupSetLocDataFactory__FRC10SObjectTagRCQ24rstl12auto_ptr<Uc>iRC15CVParamTransfer"@ha
 /* 80006494 000033F4  3C 80 41 47 */	lis r4, 0x41475343@ha
-/* 80006498 000033F8  38 A3 A0 24 */	addi r5, r3, FAudioGroupSetLocDataFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@l
+/* 80006498 000033F8  38 A3 A0 24 */	addi r5, r3, "FAudioGroupSetLocDataFactory__FRC10SObjectTagRCQ24rstl12auto_ptr<Uc>iRC15CVParamTransfer"@l
 /* 8000649C 000033FC  38 7F 00 5C */	addi r3, r31, 0x5c
 /* 800064A0 00003400  38 84 53 43 */	addi r4, r4, 0x41475343@l
 /* 800064A4 00003404  48 33 28 3D */	bl "AddFactory__11CFactoryMgrFUiPFRC10SObjectTagRCQ24rstl12auto_ptr<Uc>iRC15CVParamTransfer_C16CFactoryFnReturn"

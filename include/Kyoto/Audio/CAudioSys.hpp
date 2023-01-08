@@ -28,7 +28,14 @@ class CAudioSys {
 public:
   enum ESurroundModes { kSM_Mono, kSM_Stereo, kSM_Surround };
   class CEmitterData {
+  public:
+    CEmitterData() : _50(0), _51(0), _52(kEmitterMedPriority){};
 
+  private:
+    char data[0x50];
+    char _50;
+    char _51;
+    uchar _52;
   };
 
   struct C3DEmitterParmData {
@@ -72,24 +79,26 @@ public:
   static void TrkSetSampleRate(ETRKSampleRate);
 
   static short GetDefaultVolumeScale();
+  static bool GetVerbose();
 
   static bool mInitialized;
-  static bool mIsLIstenerActive;
+  static bool mIsListenerActive;
   static bool mVerbose;
   static uchar mMaxNumEmitters;
   static rstl::map< rstl::string, rstl::ncrc_ptr< CAudioGroupSet > >* mpGroupSetDB;
   static rstl::map< uint, rstl::string >* mpGroupSetResNameDB;
   static rstl::map< rstl::string, rstl::ncrc_ptr< CTrkData > >* mpDVDTrackDB;
-  static rstl::vector<CEmitterData>* mpEmitterDB;
+  static rstl::vector< CEmitterData >* mpEmitterDB;
   static unkptr mpListener;
 
   /* TODO: Remaining globals */
 
   static ESurroundModes mSurroundMode;
   static uint mMaxAramUsage;
-  static uint mCurrentAramUsage;  
+  static uint mCurrentAramUsage;
   static bool mProLogic2;
   static const uchar kMaxVolume;
+  static uchar kEmitterMedPriority;
 };
 
 #endif // _CAUDIOSYS
