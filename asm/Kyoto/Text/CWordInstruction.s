@@ -29,8 +29,8 @@ __dt__16CWordInstructionFv:
 /* 80305C04 00302B64  38 03 D8 A8 */	addi r0, r3, lbl_803ED8A8@l
 /* 80305C08 00302B68  90 1F 00 00 */	stw r0, 0(r31)
 /* 80305C0C 00302B6C  41 82 00 10 */	beq lbl_80305C1C
-/* 80305C10 00302B70  3C 60 80 3E */	lis r3, lbl_803D9A6C@ha
-/* 80305C14 00302B74  38 03 9A 6C */	addi r0, r3, lbl_803D9A6C@l
+/* 80305C10 00302B70  3C 60 80 3E */	lis r3, __vt__12CInstruction@ha
+/* 80305C14 00302B74  38 03 9A 6C */	addi r0, r3, __vt__12CInstruction@l
 /* 80305C18 00302B78  90 1F 00 00 */	stw r0, 0(r31)
 lbl_80305C1C:
 /* 80305C1C 00302B7C  7C 80 07 35 */	extsh. r0, r4

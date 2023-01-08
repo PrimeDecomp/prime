@@ -29,8 +29,8 @@ __dt__31CRemoveColorOverrideInstructionFv:
 /* 80301858 002FE7B8  38 03 D6 D8 */	addi r0, r3, lbl_803ED6D8@l
 /* 8030185C 002FE7BC  90 1F 00 00 */	stw r0, 0(r31)
 /* 80301860 002FE7C0  41 82 00 10 */	beq lbl_80301870
-/* 80301864 002FE7C4  3C 60 80 3E */	lis r3, lbl_803D9A6C@ha
-/* 80301868 002FE7C8  38 03 9A 6C */	addi r0, r3, lbl_803D9A6C@l
+/* 80301864 002FE7C4  3C 60 80 3E */	lis r3, __vt__12CInstruction@ha
+/* 80301868 002FE7C8  38 03 9A 6C */	addi r0, r3, __vt__12CInstruction@l
 /* 8030186C 002FE7CC  90 1F 00 00 */	stw r0, 0(r31)
 lbl_80301870:
 /* 80301870 002FE7D0  7C 80 07 35 */	extsh. r0, r4

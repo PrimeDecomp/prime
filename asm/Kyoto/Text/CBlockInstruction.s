@@ -43,8 +43,8 @@ __dt__17CBlockInstructionFv:
 /* 80305DF4 00302D54  38 03 D8 C8 */	addi r0, r3, lbl_803ED8C8@l
 /* 80305DF8 00302D58  90 1F 00 00 */	stw r0, 0(r31)
 /* 80305DFC 00302D5C  41 82 00 10 */	beq lbl_80305E0C
-/* 80305E00 00302D60  3C 60 80 3E */	lis r3, lbl_803D9A6C@ha
-/* 80305E04 00302D64  38 03 9A 6C */	addi r0, r3, lbl_803D9A6C@l
+/* 80305E00 00302D60  3C 60 80 3E */	lis r3, __vt__12CInstruction@ha
+/* 80305E04 00302D64  38 03 9A 6C */	addi r0, r3, __vt__12CInstruction@l
 /* 80305E08 00302D68  90 1F 00 00 */	stw r0, 0(r31)
 lbl_80305E0C:
 /* 80305E0C 00302D6C  7C 80 07 35 */	extsh. r0, r4

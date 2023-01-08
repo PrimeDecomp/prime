@@ -23,8 +23,8 @@ __dt__16CFontInstructionFv:
 lbl_802FEAC0:
 /* 802FEAC0 002FBA20  28 1E 00 00 */	cmplwi r30, 0
 /* 802FEAC4 002FBA24  41 82 00 10 */	beq lbl_802FEAD4
-/* 802FEAC8 002FBA28  3C 60 80 3E */	lis r3, lbl_803D9A6C@ha
-/* 802FEACC 002FBA2C  38 03 9A 6C */	addi r0, r3, lbl_803D9A6C@l
+/* 802FEAC8 002FBA28  3C 60 80 3E */	lis r3, __vt__12CInstruction@ha
+/* 802FEACC 002FBA2C  38 03 9A 6C */	addi r0, r3, __vt__12CInstruction@l
 /* 802FEAD0 002FBA30  90 1E 00 00 */	stw r0, 0(r30)
 lbl_802FEAD4:
 /* 802FEAD4 002FBA34  7F E0 07 35 */	extsh. r0, r31

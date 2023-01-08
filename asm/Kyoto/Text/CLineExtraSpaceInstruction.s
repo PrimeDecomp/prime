@@ -29,8 +29,8 @@ __dt__26CLineExtraSpaceInstructionFv:
 /* 802FF828 002FC788  38 03 D6 10 */	addi r0, r3, lbl_803ED610@l
 /* 802FF82C 002FC78C  90 1F 00 00 */	stw r0, 0(r31)
 /* 802FF830 002FC790  41 82 00 10 */	beq lbl_802FF840
-/* 802FF834 002FC794  3C 60 80 3E */	lis r3, lbl_803D9A6C@ha
-/* 802FF838 002FC798  38 03 9A 6C */	addi r0, r3, lbl_803D9A6C@l
+/* 802FF834 002FC794  3C 60 80 3E */	lis r3, __vt__12CInstruction@ha
+/* 802FF838 002FC798  38 03 9A 6C */	addi r0, r3, __vt__12CInstruction@l
 /* 802FF83C 002FC79C  90 1F 00 00 */	stw r0, 0(r31)
 lbl_802FF840:
 /* 802FF840 002FC7A0  7C 80 07 35 */	extsh. r0, r4

@@ -29,8 +29,8 @@ __dt__21CPushStateInstructionFv:
 /* 802FFE44 002FCDA4  38 03 D6 B8 */	addi r0, r3, lbl_803ED6B8@l
 /* 802FFE48 002FCDA8  90 1F 00 00 */	stw r0, 0(r31)
 /* 802FFE4C 002FCDAC  41 82 00 10 */	beq lbl_802FFE5C
-/* 802FFE50 002FCDB0  3C 60 80 3E */	lis r3, lbl_803D9A6C@ha
-/* 802FFE54 002FCDB4  38 03 9A 6C */	addi r0, r3, lbl_803D9A6C@l
+/* 802FFE50 002FCDB0  3C 60 80 3E */	lis r3, __vt__12CInstruction@ha
+/* 802FFE54 002FCDB4  38 03 9A 6C */	addi r0, r3, __vt__12CInstruction@l
 /* 802FFE58 002FCDB8  90 1F 00 00 */	stw r0, 0(r31)
 lbl_802FFE5C:
 /* 802FFE5C 002FCDBC  7C 80 07 35 */	extsh. r0, r4

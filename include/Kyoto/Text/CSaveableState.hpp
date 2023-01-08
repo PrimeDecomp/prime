@@ -13,6 +13,9 @@ public:
   CSaveableState();
 
   bool IsFinishedLoading();
+
+  void SetLineSpacing(float spacing) { x74_lineSpacing = spacing; }
+  
 private:
   CDrawStringOptions x0_drawStringOptions;
   rstl::optional_object< TToken< CRasterFont > > x48_font;

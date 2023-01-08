@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803ED678
-lbl_803ED678:
+.global __vt__23CLineSpacingInstruction
+__vt__23CLineSpacingInstruction:
 	# ROM: 0x3EA678
 	.4byte 0
 	.4byte 0
@@ -25,12 +25,12 @@ __dt__23CLineSpacingInstructionFv:
 /* 802FFCB8 002FCC18  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 802FFCBC 002FCC1C  7C 7F 1B 79 */	or. r31, r3, r3
 /* 802FFCC0 002FCC20  41 82 00 30 */	beq lbl_802FFCF0
-/* 802FFCC4 002FCC24  3C 60 80 3F */	lis r3, lbl_803ED678@ha
-/* 802FFCC8 002FCC28  38 03 D6 78 */	addi r0, r3, lbl_803ED678@l
+/* 802FFCC4 002FCC24  3C 60 80 3F */	lis r3, __vt__23CLineSpacingInstruction@ha
+/* 802FFCC8 002FCC28  38 03 D6 78 */	addi r0, r3, __vt__23CLineSpacingInstruction@l
 /* 802FFCCC 002FCC2C  90 1F 00 00 */	stw r0, 0(r31)
 /* 802FFCD0 002FCC30  41 82 00 10 */	beq lbl_802FFCE0
-/* 802FFCD4 002FCC34  3C 60 80 3E */	lis r3, lbl_803D9A6C@ha
-/* 802FFCD8 002FCC38  38 03 9A 6C */	addi r0, r3, lbl_803D9A6C@l
+/* 802FFCD4 002FCC34  3C 60 80 3E */	lis r3, __vt__12CInstruction@ha
+/* 802FFCD8 002FCC38  38 03 9A 6C */	addi r0, r3, __vt__12CInstruction@l
 /* 802FFCDC 002FCC3C  90 1F 00 00 */	stw r0, 0(r31)
 lbl_802FFCE0:
 /* 802FFCE0 002FCC40  7C 80 07 35 */	extsh. r0, r4
