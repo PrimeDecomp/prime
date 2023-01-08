@@ -8,6 +8,7 @@
 
 #include "rstl/string.hpp"
 
+class CInputStream;
 class CParticleData {
 public:
   enum EParentedMode {
@@ -16,8 +17,18 @@ public:
     kPM_ContinuousSystem,
   };
 
+  CParticleData(int duration, const SObjectTag& tag, const rstl::string& boneName, float scale,
+                EParentedMode mode)
+  : x0_duration(duration)
+  , x4_particle(tag)
+  , xc_boneName(boneName)
+  , x1c_scale(scale)
+  , x20_parentMode(mode) {}
+
+  CParticleData(CInputStream& in);
+
 private:
-  uint x0_duration;
+  int x0_duration;
   SObjectTag x4_particle;
   rstl::string xc_boneName;
   float x1c_scale;

@@ -4226,15 +4226,15 @@ sub_800594bc:
 /* 800594D4 00056434  7C 7F 1B 78 */	mr r31, r3
 /* 800594D8 00056438  88 0D A2 24 */	lbz r0, lbl_805A8DE4@sda21(r13)
 /* 800594DC 0005643C  98 01 00 08 */	stb r0, 8(r1)
-/* 800594E0 00056440  48 00 00 19 */	bl sub_800594f8
+/* 800594E0 00056440  48 00 00 19 */	bl "cinput_stream_helper<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>__FRC82TType<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>R12CInputStream"
 /* 800594E4 00056444  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 800594E8 00056448  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 800594EC 0005644C  7C 08 03 A6 */	mtlr r0
 /* 800594F0 00056450  38 21 00 20 */	addi r1, r1, 0x20
 /* 800594F4 00056454  4E 80 00 20 */	blr
 
-.global sub_800594f8
-sub_800594f8:
+.global "cinput_stream_helper<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>__FRC82TType<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>R12CInputStream"
+"cinput_stream_helper<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>__FRC82TType<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>R12CInputStream":
 /* 800594F8 00056458  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 800594FC 0005645C  7C 08 02 A6 */	mflr r0
 /* 80059500 00056460  7C A4 2B 78 */	mr r4, r5

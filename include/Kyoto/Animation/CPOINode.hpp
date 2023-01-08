@@ -4,7 +4,7 @@
 #include "types.h"
 
 #include "Kyoto/Animation/CCharAnimTime.hpp"
-#include "Kyoto/Animation/CParticleData.hpp"
+#include "Kyoto/Particles/CParticleData.hpp"
 
 #include "rstl/string.hpp"
 

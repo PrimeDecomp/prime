@@ -3,7 +3,7 @@
 
 #include "types.h"
 
-#include "Kyoto/Animation/CParticleData.hpp"
+#include "Kyoto/Particles/CParticleData.hpp"
 
 class CEffectComponent {
 private:

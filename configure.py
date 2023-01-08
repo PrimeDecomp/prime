@@ -665,7 +665,7 @@ LIBS = [
             ["Kyoto/Text/CStringTable", True],
             "Kyoto/Particles/CEmitterElement",
             "Kyoto/Particles/CEffectComponent",
-            "Kyoto/Particles/CParticleData",
+            ["Kyoto/Particles/CParticleData", False],
             "Kyoto/Animation/CVertexMorphEffect",
             "Kyoto/Animation/CSkinnedModelWithAvgNormals",
             ["Kyoto/CTimeProvider", True],
