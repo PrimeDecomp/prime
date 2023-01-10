@@ -1634,10 +1634,10 @@ __ct__26CLineExtraSpaceInstructionFi:
 /* 803031DC 0030013C  7C 7F 1B 79 */	or. r31, r3, r3
 /* 803031E0 00300140  41 82 00 20 */	beq lbl_80303200
 /* 803031E4 00300144  3C 80 80 3E */	lis r4, __vt__12CInstruction@ha
-/* 803031E8 00300148  3C 60 80 3F */	lis r3, lbl_803ED610@ha
+/* 803031E8 00300148  3C 60 80 3F */	lis r3, __vt__26CLineExtraSpaceInstruction@ha
 /* 803031EC 0030014C  38 04 9A 6C */	addi r0, r4, __vt__12CInstruction@l
 /* 803031F0 00300150  90 1F 00 00 */	stw r0, 0(r31)
-/* 803031F4 00300154  38 03 D6 10 */	addi r0, r3, lbl_803ED610@l
+/* 803031F4 00300154  38 03 D6 10 */	addi r0, r3, __vt__26CLineExtraSpaceInstruction@l
 /* 803031F8 00300158  90 1F 00 00 */	stw r0, 0(r31)
 /* 803031FC 0030015C  93 DF 00 04 */	stw r30, 4(r31)
 lbl_80303200:

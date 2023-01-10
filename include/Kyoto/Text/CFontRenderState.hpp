@@ -9,6 +9,7 @@ class CBlockInstruction;
 class CFontRenderState : private CSaveableState {
 public:
   void SetLineSpacing(float spacing) { CSaveableState::SetLineSpacing(spacing); }
+  void SetExtraLineSpace(int spacing) { CSaveableState::SetLineExtraSpace(spacing); }
 
 private:
   CBlockInstruction* x88_curBlock;
