@@ -15,6 +15,7 @@ public:
   bool IsFinishedLoading();
 
   void SetLineSpacing(float spacing) { x74_lineSpacing = spacing; }
+  void SetLineExtraSpace(int spacing) { x78_extraLineSpacing = spacing; }
   
 private:
   CDrawStringOptions x0_drawStringOptions;

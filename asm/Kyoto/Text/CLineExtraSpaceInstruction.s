@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803ED610
-lbl_803ED610:
+.global __vt__26CLineExtraSpaceInstruction
+__vt__26CLineExtraSpaceInstruction:
 	# ROM: 0x3EA610
 	.4byte 0
 	.4byte 0
@@ -25,8 +25,8 @@ __dt__26CLineExtraSpaceInstructionFv:
 /* 802FF818 002FC778  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 802FF81C 002FC77C  7C 7F 1B 79 */	or. r31, r3, r3
 /* 802FF820 002FC780  41 82 00 30 */	beq lbl_802FF850
-/* 802FF824 002FC784  3C 60 80 3F */	lis r3, lbl_803ED610@ha
-/* 802FF828 002FC788  38 03 D6 10 */	addi r0, r3, lbl_803ED610@l
+/* 802FF824 002FC784  3C 60 80 3F */	lis r3, __vt__26CLineExtraSpaceInstruction@ha
+/* 802FF828 002FC788  38 03 D6 10 */	addi r0, r3, __vt__26CLineExtraSpaceInstruction@l
 /* 802FF82C 002FC78C  90 1F 00 00 */	stw r0, 0(r31)
 /* 802FF830 002FC790  41 82 00 10 */	beq lbl_802FF840
 /* 802FF834 002FC794  3C 60 80 3E */	lis r3, __vt__12CInstruction@ha
