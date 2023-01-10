@@ -2650,8 +2650,8 @@ lbl_80011970:
 /* 80011978 0000E8D8  90 03 0A 10 */	stw r0, 0xa10(r3)
 /* 8001197C 0000E8DC  4E 80 00 20 */	blr
 
-.global DoPreThink__7CPlayerfRC13CStateManager
-DoPreThink__7CPlayerfRC13CStateManager:
+.global DoPreThink__7CPlayerFfRC13CStateManager
+DoPreThink__7CPlayerFfRC13CStateManager:
 /* 80011980 0000E8E0  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80011984 0000E8E4  7C 08 02 A6 */	mflr r0
 /* 80011988 0000E8E8  90 01 00 24 */	stw r0, 0x24(r1)

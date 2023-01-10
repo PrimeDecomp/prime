@@ -14,26 +14,35 @@ public:
     kI_Invalid,
     kI_Valid,
   };
+  CRayCastResult(float time, const CVector3f& point, const CPlane& plane, const CMaterialList& list)
+  : x0_time(time), x4_point(point), x10_plane(plane), x20_valid(kI_Valid), x28_material(list) {}
+  CRayCastResult(EInvalid invalid)
+  : x0_time(0)
+  , x4_point(CVector3f(0.f, 0.f, 0.f))
+  , x10_plane(CPlane(0.f, CUnitVector3f(1.f, 0.f, 0.f, CUnitVector3f::kN_Yes)))
+  , x20_valid(invalid) {}
 
-  float GetTime() const { return x0_t; }
+  float GetTime() const { return x0_time; }
+  const CVector3f& GetPoint() const { return x4_point; }
+  const CPlane& GetPlane() const { return x10_plane; }
   bool IsValid() const { return x20_valid != kI_Invalid; }
   // TODO: figure out what's going on here
   bool IsInvalid() const { return x20_valid == kI_Invalid; }
-  // GetPlane__14CRayCastResultCFv
-  const CPlane& GetPlane() const { return x10_plane; }
-  const CVector3f& GetPoint() const { return x4_point; }
-  // GetMaterial__14CRayCastResultCFv
-  // Transform__14CRayCastResultFRC12CTransform4f
+  const CMaterialList& GetMaterial() const { return x28_material; }
+  void Transform(const CTransform4f& xf);
 
-  // MakeInvalid__14CRayCastResultFv
+  static CRayCastResult MakeInvalid() {
+    return CRayCastResult(kI_Invalid);
+  }
 
 private:
-  float x0_t;
+  float x0_time;
   CVector3f x4_point;
   CPlane x10_plane;
   bool x20_valid;
   CMaterialList x28_material;
 };
+
 CHECK_SIZEOF(CRayCastResult, 0x30)
 
 #endif // _CRAYCASTRESULT

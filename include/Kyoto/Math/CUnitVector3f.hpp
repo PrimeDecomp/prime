@@ -17,7 +17,7 @@ public:
     }
   }
   CUnitVector3f(
-      const CVector3f& vec); // : CVector3f(vec.IsNonZero() ? vec.AsNormalized() : Zero()) {}
+      const CVector3f& vec);//: CVector3f(vec.IsNonZero() ? vec.AsNormalized() : Zero()) {}
   // TODO
 
   static CUnitVector3f Forward() {
