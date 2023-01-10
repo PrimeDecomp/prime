@@ -563,7 +563,7 @@ LIBS = [
             ["Kyoto/Graphics/DolphinCTexture", False],
             ["Kyoto/Math/CloseEnough", True],
             "Kyoto/Math/CMatrix3f",
-            "Kyoto/Math/CMatrix4f",
+            ["Kyoto/Math/CMatrix4f", False],
             "Kyoto/Math/CQuaternion",
             ["Kyoto/CRandom16", True],
             "Kyoto/Math/CTransform4f",
