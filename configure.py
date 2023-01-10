@@ -316,7 +316,7 @@ LIBS = [
             "MetroidPrime/Enemies/CMagdolite",
             "MetroidPrime/Enemies/CTeamAiMgr",
             "MetroidPrime/Enemies/CSnakeWeedSwarm",
-            ["MetroidPrime/Cameras/CBallCameraFailsafeState", False],
+            "MetroidPrime/Cameras/CBallCameraFailsafeState",
             "MetroidPrime/Enemies/CActorContraption",
             "MetroidPrime/ScriptObjects/CScriptSpindleCamera",
             ["MetroidPrime/ScriptObjects/CScriptMemoryRelay", True],
