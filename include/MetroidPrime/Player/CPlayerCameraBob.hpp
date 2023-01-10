@@ -29,7 +29,7 @@ public:
     kCBS_Unspecified,
   };
 
-  CPlayerCameraBob(ECameraBobType type, float bobPeriod, const CVector2f& vec);
+  CPlayerCameraBob(ECameraBobType type, const CVector2f& vec, float bobPeriod);
 
   CTransform4f GetViewWanderTransform() const;
   CVector3f GetHelmetBobTranslation() const;
@@ -95,16 +95,25 @@ public:
   static float kSlowSpeedPeriodScale;
   static float kTargetMagnitudeTrackingRate;
   static float kLandingBobSpringConstant;
+  static float lbl_805A7398;
+  static float lbl_805A739C;
   static float kLandingBobSpringConstant2;
+  static float lbl_805A73A4;
   static float kViewWanderRadius;
   static float kViewWanderSpeedMin;
   static float kViewWanderSpeedMax;
   static float kViewWanderRollVariation;
   static float kGunBobMagnitude;
   static float kHelmetBobMagnitude;
-  static const float kLandingBobDamping;
-  static const float kLandingBobDamping2;
-  static const float kCameraDamping;
+  static float kLandingBobDamping;
+  static float kLandingBobDamping2;
+  static float kCameraDamping;
+  static float lbl_805A73C0;
+  static float lbl_805A73C4;
+  static float lbl_805A73C8;
+  static float lbl_805A73CC;
+  static float lbl_805A73D0;
+  static float lbl_805A73D4;
 };
 CHECK_SIZEOF(CPlayerCameraBob, 0x108)
 

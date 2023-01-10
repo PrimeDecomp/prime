@@ -8305,7 +8305,7 @@ PreThinkObjects__13CStateManagerFf:
 /* 8004AC1C 00047B7C  FC 02 00 40 */	fcmpo cr0, f2, f0
 /* 8004AC20 00047B80  40 81 00 10 */	ble lbl_8004AC30
 /* 8004AC24 00047B84  7F 64 DB 78 */	mr r4, r27
-/* 8004AC28 00047B88  4B FC 6D 59 */	bl DoPreThink__7CPlayerfRC13CStateManager
+/* 8004AC28 00047B88  4B FC 6D 59 */	bl DoPreThink__7CPlayerFfRC13CStateManager
 /* 8004AC2C 00047B8C  48 00 01 00 */	b lbl_8004AD2C
 lbl_8004AC30:
 /* 8004AC30 00047B90  80 1B 09 04 */	lwz r0, 0x904(r27)

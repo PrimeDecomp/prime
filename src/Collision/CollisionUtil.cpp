@@ -1,5 +1,7 @@
 #include "Collision/CollisionUtil.hpp"
 
+#include "Collision/NormalTable.hpp"
+
 #include "Kyoto/Math/CMath.hpp"
 #include "Kyoto/Math/CPlane.hpp"
 #include "Kyoto/Math/CSphere.hpp"

@@ -28,7 +28,6 @@ __vt__16CCollidableAABox:
 sTableIndex__16CCollidableAABox:
 	# ROM: 0x3F6088
 	.4byte 0xFFFFFFFF
-	.4byte 0
 
 .section .bss
 .balign 8
