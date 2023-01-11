@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803ED6D8
-lbl_803ED6D8:
+.global __vt__31CRemoveColorOverrideInstruction
+__vt__31CRemoveColorOverrideInstruction:
 	# ROM: 0x3EA6D8
 	.4byte 0
 	.4byte 0
@@ -25,8 +25,8 @@ __dt__31CRemoveColorOverrideInstructionFv:
 /* 80301848 002FE7A8  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 8030184C 002FE7AC  7C 7F 1B 79 */	or. r31, r3, r3
 /* 80301850 002FE7B0  41 82 00 30 */	beq lbl_80301880
-/* 80301854 002FE7B4  3C 60 80 3F */	lis r3, lbl_803ED6D8@ha
-/* 80301858 002FE7B8  38 03 D6 D8 */	addi r0, r3, lbl_803ED6D8@l
+/* 80301854 002FE7B4  3C 60 80 3F */	lis r3, __vt__31CRemoveColorOverrideInstruction@ha
+/* 80301858 002FE7B8  38 03 D6 D8 */	addi r0, r3, __vt__31CRemoveColorOverrideInstruction@l
 /* 8030185C 002FE7BC  90 1F 00 00 */	stw r0, 0(r31)
 /* 80301860 002FE7C0  41 82 00 10 */	beq lbl_80301870
 /* 80301864 002FE7C4  3C 60 80 3E */	lis r3, __vt__12CInstruction@ha

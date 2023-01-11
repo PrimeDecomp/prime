@@ -18,6 +18,7 @@ public:
 
   void SetLineSpacing(float spacing) { x74_lineSpacing = spacing; }
   void SetLineExtraSpace(int spacing) { x78_extraLineSpacing = spacing; }
+  rstl::vector<bool>& GetOverride() { return x64_colorOverrides; }
   
 private:
   CDrawStringOptions x0_drawStringOptions;

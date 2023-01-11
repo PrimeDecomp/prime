@@ -12,10 +12,13 @@ public:
   void PushState();
   void PopState();
   void SetColor(EColorType type, const CTextColor& color);
+  void RefreshPalette();
   const TToken<CRasterFont>& GetFont() { return x0_state.GetFont(); }
   void SetLineSpacing(float spacing) { x0_state.SetLineSpacing(spacing); }
   void SetExtraLineSpace(int spacing) { x0_state.SetLineExtraSpace(spacing); }
-
+  
+  
+  rstl::vector<bool>& GetOverride() { return x0_state.GetOverride(); }
 private:
   CSaveableState x0_state;
   CBlockInstruction* x88_curBlock;
