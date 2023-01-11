@@ -552,7 +552,7 @@ LIBS = [
             ["Kyoto/Text/CTextParser", False],
             ["Kyoto/Text/CWordBreakTables", False],
             "Kyoto/Text/CWordInstruction",
-            "Kyoto/Text/CBlockInstruction",
+            ["Kyoto/Text/CBlockInstruction", True],
             ["Kyoto/Text/CFont", True],
             ["Kyoto/Graphics/CLight", True],
             "Kyoto/Graphics/CCubeModel",

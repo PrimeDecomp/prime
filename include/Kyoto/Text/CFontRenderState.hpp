@@ -1,8 +1,8 @@
 #ifndef _CFONTRENDERSTATE
 #define _CFONTRENDERSTATE
 
-#include "Kyoto/Text/CSaveableState.hpp"
 #include "Kyoto/Text/CDrawStringOptions.hpp"
+#include "Kyoto/Text/CSaveableState.hpp"
 #include "Kyoto/Text/TextCommon.hpp"
 
 class CBlockInstruction;
@@ -15,12 +15,16 @@ public:
   void SetColor(EColorType type, const CTextColor& color);
   void RefreshPalette();
   CDrawStringOptions& GetOptions() { return x0_state.GetOptions(); }
-  const TToken<CRasterFont>& GetFont() { return x0_state.GetFont(); }
+  const TToken< CRasterFont >& GetFont() { return x0_state.GetFont(); }
+  rstl::vector< CTextColor >& GetColors() { return x0_state.GetColors(); }
+  rstl::vector< bool >& GetOverride() { return x0_state.GetOverride(); }
   void SetLineSpacing(float spacing) { x0_state.SetLineSpacing(spacing); }
   void SetExtraLineSpace(int spacing) { x0_state.SetLineExtraSpace(spacing); }
-  
-  rstl::vector<CTextColor>& GetColors() { return x0_state.GetColors(); }
-  rstl::vector<bool>& GetOverride() { return x0_state.GetOverride(); }
+  void SetBlock(const CBlockInstruction* block) { x88_curBlock = const_cast<CBlockInstruction*>(block); }
+  void SetX(int x) { xd4_curX = x; }
+  int GetX() const { return xd4_curX; }
+  void SetY(int y) { xd8_curY = y; }
+  int GetY() const { return xd8_curY; }
 private:
   CSaveableState x0_state;
   CBlockInstruction* x88_curBlock;

@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803ED8C8
-lbl_803ED8C8:
+.global __vt__17CBlockInstruction
+__vt__17CBlockInstruction:
 	# ROM: 0x3EA8C8
 	.4byte 0
 	.4byte 0
@@ -39,8 +39,8 @@ __dt__17CBlockInstructionFv:
 /* 80305DE4 00302D44  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 80305DE8 00302D48  7C 7F 1B 79 */	or. r31, r3, r3
 /* 80305DEC 00302D4C  41 82 00 30 */	beq lbl_80305E1C
-/* 80305DF0 00302D50  3C 60 80 3F */	lis r3, lbl_803ED8C8@ha
-/* 80305DF4 00302D54  38 03 D8 C8 */	addi r0, r3, lbl_803ED8C8@l
+/* 80305DF0 00302D50  3C 60 80 3F */	lis r3, __vt__17CBlockInstruction@ha
+/* 80305DF4 00302D54  38 03 D8 C8 */	addi r0, r3, __vt__17CBlockInstruction@l
 /* 80305DF8 00302D58  90 1F 00 00 */	stw r0, 0(r31)
 /* 80305DFC 00302D5C  41 82 00 10 */	beq lbl_80305E0C
 /* 80305E00 00302D60  3C 60 80 3E */	lis r3, __vt__12CInstruction@ha
@@ -103,12 +103,10 @@ SetupPositionLTR__17CBlockInstructionCFR16CFontRenderState:
 /* 80305EB0 00302E10  7C 05 00 2E */	lwzx r0, r5, r0
 /* 80305EB4 00302E14  7C 09 03 A6 */	mtctr r0
 /* 80305EB8 00302E18  4E 80 04 20 */	bctr
-.global lbl_80305EBC
 lbl_80305EBC:
 /* 80305EBC 00302E1C  80 03 00 08 */	lwz r0, 8(r3)
 /* 80305EC0 00302E20  90 04 00 D8 */	stw r0, 0xd8(r4)
 /* 80305EC4 00302E24  4E 80 00 20 */	blr
-.global lbl_80305EC8
 lbl_80305EC8:
 /* 80305EC8 00302E28  80 A3 00 30 */	lwz r5, 0x30(r3)
 /* 80305ECC 00302E2C  80 03 00 10 */	lwz r0, 0x10(r3)
@@ -120,7 +118,6 @@ lbl_80305EC8:
 /* 80305EE4 00302E44  7C 06 02 14 */	add r0, r6, r0
 /* 80305EE8 00302E48  90 04 00 D8 */	stw r0, 0xd8(r4)
 /* 80305EEC 00302E4C  4E 80 00 20 */	blr
-.global lbl_80305EF0
 lbl_80305EF0:
 /* 80305EF0 00302E50  80 C3 00 34 */	lwz r6, 0x34(r3)
 /* 80305EF4 00302E54  80 A3 00 24 */	lwz r5, 0x24(r3)
@@ -134,7 +131,6 @@ lbl_80305EF0:
 /* 80305F14 00302E74  7C 06 02 14 */	add r0, r6, r0
 /* 80305F18 00302E78  90 04 00 D8 */	stw r0, 0xd8(r4)
 /* 80305F1C 00302E7C  4E 80 00 20 */	blr
-.global lbl_80305F20
 lbl_80305F20:
 /* 80305F20 00302E80  80 A3 00 08 */	lwz r5, 8(r3)
 /* 80305F24 00302E84  80 03 00 10 */	lwz r0, 0x10(r3)
@@ -143,7 +139,6 @@ lbl_80305F20:
 /* 80305F30 00302E90  7C 03 00 50 */	subf r0, r3, r0
 /* 80305F34 00302E94  90 04 00 D8 */	stw r0, 0xd8(r4)
 /* 80305F38 00302E98  4E 80 00 20 */	blr
-.global lbl_80305F3C
 lbl_80305F3C:
 /* 80305F3C 00302E9C  80 C3 00 34 */	lwz r6, 0x34(r3)
 /* 80305F40 00302EA0  80 03 00 24 */	lwz r0, 0x24(r3)
