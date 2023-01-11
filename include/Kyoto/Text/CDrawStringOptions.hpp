@@ -41,6 +41,7 @@ public:
   CDrawStringOptions();
 
   void SetTextDirection(ETextDirection dir) { x0_direction = dir; }
+  void SetPaletteEntry(int idx, uint color) { x4_colors[idx] = color; }
 private:
   ETextDirection x0_direction;
   rstl::reserved_vector<u32, 16> x4_colors;

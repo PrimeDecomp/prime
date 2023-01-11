@@ -9,15 +9,17 @@ class CBlockInstruction;
 
 class CFontRenderState {
 public:
+  uint ConvertToTextureSpace(const CTextColor& color) const;
   void PushState();
   void PopState();
   void SetColor(EColorType type, const CTextColor& color);
   void RefreshPalette();
+  CDrawStringOptions& GetOptions() { return x0_state.GetOptions(); }
   const TToken<CRasterFont>& GetFont() { return x0_state.GetFont(); }
   void SetLineSpacing(float spacing) { x0_state.SetLineSpacing(spacing); }
   void SetExtraLineSpace(int spacing) { x0_state.SetLineExtraSpace(spacing); }
   
-  
+  rstl::vector<CTextColor>& GetColors() { return x0_state.GetColors(); }
   rstl::vector<bool>& GetOverride() { return x0_state.GetOverride(); }
 private:
   CSaveableState x0_state;
