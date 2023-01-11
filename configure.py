@@ -664,7 +664,7 @@ LIBS = [
             "Kyoto/Graphics/DolphinCModel",
             ["Kyoto/Text/CStringTable", True],
             "Kyoto/Particles/CEmitterElement",
-            "Kyoto/Particles/CEffectComponent",
+            ["Kyoto/Particles/CEffectComponent", True],
             ["Kyoto/Particles/CParticleData", False],
             "Kyoto/Animation/CVertexMorphEffect",
             "Kyoto/Animation/CSkinnedModelWithAvgNormals",
