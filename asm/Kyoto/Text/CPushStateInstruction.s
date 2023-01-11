@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803ED6B8
-lbl_803ED6B8:
+.global __vt__21CPushStateInstruction
+__vt__21CPushStateInstruction:
 	# ROM: 0x3EA6B8
 	.4byte 0
 	.4byte 0
@@ -25,8 +25,8 @@ __dt__21CPushStateInstructionFv:
 /* 802FFE34 002FCD94  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 802FFE38 002FCD98  7C 7F 1B 79 */	or. r31, r3, r3
 /* 802FFE3C 002FCD9C  41 82 00 30 */	beq lbl_802FFE6C
-/* 802FFE40 002FCDA0  3C 60 80 3F */	lis r3, lbl_803ED6B8@ha
-/* 802FFE44 002FCDA4  38 03 D6 B8 */	addi r0, r3, lbl_803ED6B8@l
+/* 802FFE40 002FCDA0  3C 60 80 3F */	lis r3, __vt__21CPushStateInstruction@ha
+/* 802FFE44 002FCDA4  38 03 D6 B8 */	addi r0, r3, __vt__21CPushStateInstruction@l
 /* 802FFE48 002FCDA8  90 1F 00 00 */	stw r0, 0(r31)
 /* 802FFE4C 002FCDAC  41 82 00 10 */	beq lbl_802FFE5C
 /* 802FFE50 002FCDB0  3C 60 80 3E */	lis r3, __vt__12CInstruction@ha
@@ -65,7 +65,7 @@ Invoke__21CPushStateInstructionCFR16CFontRenderStateP17CTextRenderBuffer:
 /* 802FFEB4 002FCE14  7C 08 02 A6 */	mflr r0
 /* 802FFEB8 002FCE18  7C 83 23 78 */	mr r3, r4
 /* 802FFEBC 002FCE1C  90 01 00 14 */	stw r0, 0x14(r1)
-/* 802FFEC0 002FCE20  4B FF F1 19 */	bl sub_802fefd8
+/* 802FFEC0 002FCE20  4B FF F1 19 */	bl PushState__16CFontRenderStateFv
 /* 802FFEC4 002FCE24  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802FFEC8 002FCE28  7C 08 03 A6 */	mtlr r0
 /* 802FFECC 002FCE2C  38 21 00 10 */	addi r1, r1, 0x10

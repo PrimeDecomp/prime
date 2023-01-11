@@ -12,6 +12,8 @@ class CSaveableState {
 public:
   CSaveableState();
 
+  const TToken<CRasterFont>& GetFont() const { return *x48_font; }
+
   bool IsFinishedLoading();
 
   void SetLineSpacing(float spacing) { x74_lineSpacing = spacing; }

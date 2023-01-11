@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803ED698
-lbl_803ED698:
+.global __vt__20CPopStateInstruction
+__vt__20CPopStateInstruction:
 	# ROM: 0x3EA698
 	.4byte 0
 	.4byte 0
@@ -25,8 +25,8 @@ __dt__20CPopStateInstructionFv:
 /* 802FFD4C 002FCCAC  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 802FFD50 002FCCB0  7C 7F 1B 79 */	or. r31, r3, r3
 /* 802FFD54 002FCCB4  41 82 00 30 */	beq lbl_802FFD84
-/* 802FFD58 002FCCB8  3C 60 80 3F */	lis r3, lbl_803ED698@ha
-/* 802FFD5C 002FCCBC  38 03 D6 98 */	addi r0, r3, lbl_803ED698@l
+/* 802FFD58 002FCCB8  3C 60 80 3F */	lis r3, __vt__20CPopStateInstruction@ha
+/* 802FFD5C 002FCCBC  38 03 D6 98 */	addi r0, r3, __vt__20CPopStateInstruction@l
 /* 802FFD60 002FCCC0  90 1F 00 00 */	stw r0, 0(r31)
 /* 802FFD64 002FCCC4  41 82 00 10 */	beq lbl_802FFD74
 /* 802FFD68 002FCCC8  3C 60 80 3E */	lis r3, __vt__12CInstruction@ha

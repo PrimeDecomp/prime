@@ -16,9 +16,9 @@ lbl_805A933C:
 GetEndRank__16CWordBreakTablesFw:
 /* 803059A0 00302900  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 803059A4 00302904  7C 08 02 A6 */	mflr r0
-/* 803059A8 00302908  3C 80 80 3D */	lis r4, lbl_803D70C0@ha
+/* 803059A8 00302908  3C 80 80 3D */	lis r4, gCantEndChars@ha
 /* 803059AC 0030290C  90 01 00 24 */	stw r0, 0x24(r1)
-/* 803059B0 00302910  38 84 70 C0 */	addi r4, r4, lbl_803D70C0@l
+/* 803059B0 00302910  38 84 70 C0 */	addi r4, r4, gCantEndChars@l
 /* 803059B4 00302914  38 A1 00 08 */	addi r5, r1, 8
 /* 803059B8 00302918  38 C1 00 0C */	addi r6, r1, 0xc
 /* 803059BC 0030291C  93 E1 00 1C */	stw r31, 0x1c(r1)
@@ -61,9 +61,9 @@ lbl_80305A20:
 GetBeginRank__16CWordBreakTablesFw:
 /* 80305A34 00302994  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80305A38 00302998  7C 08 02 A6 */	mflr r0
-/* 80305A3C 0030299C  3C 80 80 3D */	lis r4, lbl_803D6EC8@ha
+/* 80305A3C 0030299C  3C 80 80 3D */	lis r4, gCantBeginChars@ha
 /* 80305A40 003029A0  90 01 00 24 */	stw r0, 0x24(r1)
-/* 80305A44 003029A4  38 84 6E C8 */	addi r4, r4, lbl_803D6EC8@l
+/* 80305A44 003029A4  38 84 6E C8 */	addi r4, r4, gCantBeginChars@l
 /* 80305A48 003029A8  38 A1 00 08 */	addi r5, r1, 8
 /* 80305A4C 003029AC  38 C1 00 0C */	addi r6, r1, 0xc
 /* 80305A50 003029B0  93 E1 00 1C */	stw r31, 0x1c(r1)
@@ -194,8 +194,8 @@ lbl_80305B40:
 
 .section .rodata
 .balign 8
-.global lbl_803D6EC8
-lbl_803D6EC8:
+.global gCantBeginChars
+gCantBeginChars:
 	# ROM: 0x3D3EC8
 	.4byte 0x00210000
 	.4byte 0x00000001
@@ -324,8 +324,8 @@ lbl_803D6EC8:
 	.4byte 0xFF1F0000
 	.4byte 0x00000001
 
-.global lbl_803D70C0
-lbl_803D70C0:
+.global gCantEndChars
+gCantEndChars:
 	# ROM: 0x3D40C0
 	.4byte 0x00230000
 	.4byte 0x00000002
@@ -505,4 +505,3 @@ lbl_803D70C0:
 	.4byte 0x00000002
 	.4byte 0xFFEF0000
 	.4byte 0x00000002
-
