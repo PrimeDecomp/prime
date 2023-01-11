@@ -1756,7 +1756,7 @@ CheckAndRebuildTextBuffer__15CGuiTextSupportFv:
 /* 802C93DC 002C633C  98 E1 00 19 */	stb r7, 0x19(r1)
 /* 802C93E0 002C6340  98 C1 00 1A */	stb r6, 0x1a(r1)
 /* 802C93E4 002C6344  98 01 00 1B */	stb r0, 0x1b(r1)
-/* 802C93E8 002C6348  48 03 A0 DD */	bl sub_803034C4
+/* 802C93E8 002C6348  48 03 A0 DD */	bl AddColor__18CTextExecuteBufferF10EColorTypeRC10CTextColor
 /* 802C93EC 002C634C  E0 BF A0 2B */	psq_l f5, 43(r31), 1, qr2
 /* 802C93F0 002C6350  E0 3F A0 2A */	psq_l f1, 42(r31), 1, qr2
 /* 802C93F4 002C6354  E0 5F A0 29 */	psq_l f2, 41(r31), 1, qr2
@@ -1790,7 +1790,7 @@ CheckAndRebuildTextBuffer__15CGuiTextSupportFv:
 /* 802C9464 002C63C4  98 E1 00 15 */	stb r7, 0x15(r1)
 /* 802C9468 002C63C8  98 C1 00 16 */	stb r6, 0x16(r1)
 /* 802C946C 002C63CC  98 01 00 17 */	stb r0, 0x17(r1)
-/* 802C9470 002C63D0  48 03 A0 55 */	bl sub_803034C4
+/* 802C9470 002C63D0  48 03 A0 55 */	bl AddColor__18CTextExecuteBufferF10EColorTypeRC10CTextColor
 /* 802C9474 002C63D4  80 9F 00 5C */	lwz r4, 0x5c(r31)
 /* 802C9478 002C63D8  38 60 00 00 */	li r3, 0
 /* 802C947C 002C63DC  38 AD A9 1A */	addi r5, r13, lbl_805A94DA@sda21
