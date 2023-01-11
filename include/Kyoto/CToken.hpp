@@ -28,6 +28,8 @@ public:
 
   bool HasLock() { return x4_lockHeld; }
 
+  const CObjectReference* GetRef() const { return x0_objRef; }
+
 private:
   CObjectReference* x0_objRef;
   bool x4_lockHeld;

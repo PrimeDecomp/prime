@@ -234,8 +234,8 @@ lbl_802FEFC0:
 /* 802FEFD0 002FBF30  38 21 00 20 */	addi r1, r1, 0x20
 /* 802FEFD4 002FBF34  4E 80 00 20 */	blr
 
-.global sub_802fefd8
-sub_802fefd8:
+.global PushState__16CFontRenderStateFv
+PushState__16CFontRenderStateFv:
 /* 802FEFD8 002FBF38  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 802FEFDC 002FBF3C  7C 08 02 A6 */	mflr r0
 /* 802FEFE0 002FBF40  7C 64 1B 78 */	mr r4, r3
@@ -851,4 +851,3 @@ lbl_803D6E60:
 	# ROM: 0x3D3E60
 	.asciz "??(??)"
 	.balign 4
-

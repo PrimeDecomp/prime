@@ -6,12 +6,16 @@
 
 class CBlockInstruction;
 
-class CFontRenderState : private CSaveableState {
+class CFontRenderState {
 public:
-  void SetLineSpacing(float spacing) { CSaveableState::SetLineSpacing(spacing); }
-  void SetExtraLineSpace(int spacing) { CSaveableState::SetLineExtraSpace(spacing); }
+  void PushState();
+  void PopState();
+  const TToken<CRasterFont>& GetFont() { return x0_state.GetFont(); }
+  void SetLineSpacing(float spacing) { x0_state.SetLineSpacing(spacing); }
+  void SetExtraLineSpace(int spacing) { x0_state.SetLineExtraSpace(spacing); }
 
 private:
+  CSaveableState x0_state;
   CBlockInstruction* x88_curBlock;
   CDrawStringOptions x8c_drawOpts;
   int xd4_curX;

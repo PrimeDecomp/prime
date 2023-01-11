@@ -1493,10 +1493,10 @@ AddPopState__18CTextExecuteBufferFv:
 /* 80302FEC 002FFF4C  7C 7F 1B 79 */	or. r31, r3, r3
 /* 80302FF0 002FFF50  41 82 00 1C */	beq lbl_8030300C
 /* 80302FF4 002FFF54  3C 80 80 3E */	lis r4, __vt__12CInstruction@ha
-/* 80302FF8 002FFF58  3C 60 80 3F */	lis r3, lbl_803ED698@ha
+/* 80302FF8 002FFF58  3C 60 80 3F */	lis r3, __vt__20CPopStateInstruction@ha
 /* 80302FFC 002FFF5C  38 04 9A 6C */	addi r0, r4, __vt__12CInstruction@l
 /* 80303000 002FFF60  90 1F 00 00 */	stw r0, 0(r31)
-/* 80303004 002FFF64  38 03 D6 98 */	addi r0, r3, lbl_803ED698@l
+/* 80303004 002FFF64  38 03 D6 98 */	addi r0, r3, __vt__20CPopStateInstruction@l
 /* 80303008 002FFF68  90 1F 00 00 */	stw r0, 0(r31)
 lbl_8030300C:
 /* 8030300C 002FFF6C  3C 80 80 3D */	lis r4, lbl_803D6E90@ha
@@ -1557,10 +1557,10 @@ AddPushState__18CTextExecuteBufferFv:
 /* 803030D4 00300034  7C 7F 1B 79 */	or. r31, r3, r3
 /* 803030D8 00300038  41 82 00 1C */	beq lbl_803030F4
 /* 803030DC 0030003C  3C 80 80 3E */	lis r4, __vt__12CInstruction@ha
-/* 803030E0 00300040  3C 60 80 3F */	lis r3, lbl_803ED6B8@ha
+/* 803030E0 00300040  3C 60 80 3F */	lis r3, __vt__21CPushStateInstruction@ha
 /* 803030E4 00300044  38 04 9A 6C */	addi r0, r4, __vt__12CInstruction@l
 /* 803030E8 00300048  90 1F 00 00 */	stw r0, 0(r31)
-/* 803030EC 0030004C  38 03 D6 B8 */	addi r0, r3, lbl_803ED6B8@l
+/* 803030EC 0030004C  38 03 D6 B8 */	addi r0, r3, __vt__21CPushStateInstruction@l
 /* 803030F0 00300050  90 1F 00 00 */	stw r0, 0(r31)
 lbl_803030F4:
 /* 803030F4 00300054  3C 80 80 3D */	lis r4, lbl_803D6E90@ha
