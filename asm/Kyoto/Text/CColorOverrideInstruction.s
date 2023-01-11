@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803ED5D0
-lbl_803ED5D0:
+.global __vt__25CColorOverrideInstruction
+__vt__25CColorOverrideInstruction:
 	# ROM: 0x3EA5D0
 	.4byte 0
 	.4byte 0
@@ -13,18 +13,6 @@ lbl_803ED5D0:
 	.4byte PageInvoke__25CColorOverrideInstructionCFR16CFontRenderStateP17CTextRenderBuffer
 	.4byte "GetAssets__12CInstructionCFRQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>"
 	.4byte GetAssetCount__12CInstructionCFv
-	.4byte 0
-
-.global lbl_803ED5F0
-lbl_803ED5F0:
-	# ROM: 0x3EA5F0
-	.4byte 0
-	.4byte 0
-	.4byte __dt__16CFontInstructionFv
-	.4byte Invoke__16CFontInstructionCFR16CFontRenderStateP17CTextRenderBuffer
-	.4byte PageInvoke__16CFontInstructionCFR16CFontRenderStateP17CTextRenderBuffer
-	.4byte "GetAssets__16CFontInstructionCFRQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>"
-	.4byte GetAssetCount__16CFontInstructionCFv
 	.4byte 0
 
 .section .text, "ax"
@@ -37,8 +25,8 @@ __dt__25CColorOverrideInstructionFv:
 /* 802FE8F8 002FB858  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 802FE8FC 002FB85C  7C 7F 1B 79 */	or. r31, r3, r3
 /* 802FE900 002FB860  41 82 00 30 */	beq lbl_802FE930
-/* 802FE904 002FB864  3C 60 80 3F */	lis r3, lbl_803ED5D0@ha
-/* 802FE908 002FB868  38 03 D5 D0 */	addi r0, r3, lbl_803ED5D0@l
+/* 802FE904 002FB864  3C 60 80 3F */	lis r3, __vt__25CColorOverrideInstruction@ha
+/* 802FE908 002FB868  38 03 D5 D0 */	addi r0, r3, __vt__25CColorOverrideInstruction@l
 /* 802FE90C 002FB86C  90 1F 00 00 */	stw r0, 0(r31)
 /* 802FE910 002FB870  41 82 00 10 */	beq lbl_802FE920
 /* 802FE914 002FB874  3C 60 80 3E */	lis r3, __vt__12CInstruction@ha

@@ -1,5 +1,20 @@
 .include "macros.inc"
 
+.section .data
+.balign 8
+
+.global lbl_803ED5F0
+lbl_803ED5F0:
+	# ROM: 0x3EA5F0
+	.4byte 0
+	.4byte 0
+	.4byte __dt__16CFontInstructionFv
+	.4byte Invoke__16CFontInstructionCFR16CFontRenderStateP17CTextRenderBuffer
+	.4byte PageInvoke__16CFontInstructionCFR16CFontRenderStateP17CTextRenderBuffer
+	.4byte "GetAssets__16CFontInstructionCFRQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>"
+	.4byte GetAssetCount__16CFontInstructionCFv
+	.4byte 0
+
 .section .text, "ax"
 
 .global __dt__16CFontInstructionFv

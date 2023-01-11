@@ -1793,10 +1793,10 @@ __ct__25CColorOverrideInstructionFv:
 /* 8030341C 0030037C  7C 7F 1B 79 */	or. r31, r3, r3
 /* 80303420 00300380  41 82 00 40 */	beq lbl_80303460
 /* 80303424 00300384  3C 80 80 3E */	lis r4, __vt__12CInstruction@ha
-/* 80303428 00300388  3C 60 80 3F */	lis r3, lbl_803ED5D0@ha
+/* 80303428 00300388  3C 60 80 3F */	lis r3, __vt__25CColorOverrideInstruction@ha
 /* 8030342C 0030038C  38 04 9A 6C */	addi r0, r4, __vt__12CInstruction@l
 /* 80303430 00300390  90 1F 00 00 */	stw r0, 0(r31)
-/* 80303434 00300394  38 03 D5 D0 */	addi r0, r3, lbl_803ED5D0@l
+/* 80303434 00300394  38 03 D5 D0 */	addi r0, r3, __vt__25CColorOverrideInstruction@l
 /* 80303438 00300398  90 1F 00 00 */	stw r0, 0(r31)
 /* 8030343C 0030039C  93 BF 00 04 */	stw r29, 4(r31)
 /* 80303440 003003A0  88 1E 00 00 */	lbz r0, 0(r30)

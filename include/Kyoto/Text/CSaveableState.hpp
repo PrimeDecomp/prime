@@ -11,14 +11,15 @@
 class CSaveableState {
 public:
   CSaveableState();
-
-  const TToken<CRasterFont>& GetFont() const { return *x48_font; }
-
   bool IsFinishedLoading();
 
+  CDrawStringOptions& GetOptions() { return x0_drawStringOptions; }
+  const TToken<CRasterFont>& GetFont() const { return *x48_font; }
+  rstl::vector<CTextColor>& GetColors() { return x54_colors; }
+  rstl::vector<bool>& GetOverride() { return x64_colorOverrides; }
   void SetLineSpacing(float spacing) { x74_lineSpacing = spacing; }
   void SetLineExtraSpace(int spacing) { x78_extraLineSpacing = spacing; }
-  rstl::vector<bool>& GetOverride() { return x64_colorOverrides; }
+
   
 private:
   CDrawStringOptions x0_drawStringOptions;

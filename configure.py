@@ -535,7 +535,7 @@ LIBS = [
             "Kyoto/Animation/CAllFormatsAnimSource",
             "Kyoto/CDvdRequest",
             ["Kyoto/Text/CColorInstruction", True],
-            "Kyoto/Text/CColorOverrideInstruction",
+            ["Kyoto/Text/CColorOverrideInstruction", True],
             ["Kyoto/Text/CDrawStringOptions", True],
             "Kyoto/Text/CFontInstruction",
             "Kyoto/Text/CFontRenderState",
