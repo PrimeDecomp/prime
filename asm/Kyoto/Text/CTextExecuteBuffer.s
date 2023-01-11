@@ -1591,8 +1591,8 @@ AddPushState__18CTextExecuteBufferFv:
 /* 80303154 003000B4  38 21 00 20 */	addi r1, r1, 0x20
 /* 80303158 003000B8  4E 80 00 20 */	blr
 
-.global sub_8030315c
-sub_8030315c:
+.global AddVerticalJustification__18CTextExecuteBufferF22EVerticalJustification
+AddVerticalJustification__18CTextExecuteBufferF22EVerticalJustification:
 /* 8030315C 003000BC  90 83 00 9C */	stw r4, 0x9c(r3)
 /* 80303160 003000C0  80 63 00 A4 */	lwz r3, 0xa4(r3)
 /* 80303164 003000C4  28 03 00 00 */	cmplwi r3, 0
@@ -1603,8 +1603,8 @@ sub_8030315c:
 /* 80303178 003000D8  90 83 00 2C */	stw r4, 0x2c(r3)
 /* 8030317C 003000DC  4E 80 00 20 */	blr
 
-.global sub_80303180
-sub_80303180:
+.global AddJustification__18CTextExecuteBufferF14EJustification
+AddJustification__18CTextExecuteBufferF14EJustification:
 /* 80303180 003000E0  90 83 00 98 */	stw r4, 0x98(r3)
 /* 80303184 003000E4  80 63 00 A4 */	lwz r3, 0xa4(r3)
 /* 80303188 003000E8  28 03 00 00 */	cmplwi r3, 0
@@ -1615,8 +1615,8 @@ sub_80303180:
 /* 8030319C 003000FC  90 83 00 28 */	stw r4, 0x28(r3)
 /* 803031A0 00300100  4E 80 00 20 */	blr
 
-.global sub_803031A4
-sub_803031A4:
+.global AddLineExtraSpace__18CTextExecuteBufferFi
+AddLineExtraSpace__18CTextExecuteBufferFi:
 /* 803031A4 00300104  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 803031A8 00300108  7C 08 02 A6 */	mflr r0
 /* 803031AC 0030010C  3C A0 80 3D */	lis r5, lbl_803D6E90@ha
@@ -1668,8 +1668,8 @@ sub_803031A4:
 /* 8030325C 003001BC  38 21 00 20 */	addi r1, r1, 0x20
 /* 80303260 003001C0  4E 80 00 20 */	blr
 
-.global sub_80303264
-sub_80303264:
+.global AddLineSpacing__18CTextExecuteBufferFf
+AddLineSpacing__18CTextExecuteBufferFf:
 /* 80303264 003001C4  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80303268 003001C8  7C 08 02 A6 */	mflr r0
 /* 8030326C 003001CC  3C 80 80 3D */	lis r4, lbl_803D6E90@ha
@@ -1720,8 +1720,8 @@ sub_80303264:
 /* 80303318 00300278  38 21 00 20 */	addi r1, r1, 0x20
 /* 8030331C 0030027C  4E 80 00 20 */	blr
 
-.global sub_80303320
-sub_80303320:
+.global AddRemoveColorOverride__18CTextExecuteBufferFi
+AddRemoveColorOverride__18CTextExecuteBufferFi:
 /* 80303320 00300280  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80303324 00300284  7C 08 02 A6 */	mflr r0
 /* 80303328 00300288  3C A0 80 3D */	lis r5, lbl_803D6E90@ha
@@ -1772,8 +1772,8 @@ sub_80303320:
 /* 803033D4 00300334  38 21 00 20 */	addi r1, r1, 0x20
 /* 803033D8 00300338  4E 80 00 20 */	blr
 
-.global sub_803033DC
-sub_803033DC:
+.global AddColorOverride__18CTextExecuteBufferFiRC10CTextColor
+AddColorOverride__18CTextExecuteBufferFiRC10CTextColor:
 /* 803033DC 0030033C  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 803033E0 00300340  7C 08 02 A6 */	mflr r0
 /* 803033E4 00300344  3C C0 80 3D */	lis r6, lbl_803D6E90@ha
@@ -1835,8 +1835,8 @@ sub_803033DC:
 /* 803034BC 0030041C  38 21 00 20 */	addi r1, r1, 0x20
 /* 803034C0 00300420  4E 80 00 20 */	blr
 
-.global sub_803034C4
-sub_803034C4:
+.global AddColor__18CTextExecuteBufferF10EColorTypeRC10CTextColor
+AddColor__18CTextExecuteBufferF10EColorTypeRC10CTextColor:
 /* 803034C4 00300424  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 803034C8 00300428  7C 08 02 A6 */	mflr r0
 /* 803034CC 0030042C  3C C0 80 3D */	lis r6, lbl_803D6E90@ha
