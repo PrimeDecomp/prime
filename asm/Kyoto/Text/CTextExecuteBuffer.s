@@ -1856,10 +1856,10 @@ __ct__17CColorInstructionFiRC6CColor:
 /* 80303504 00300464  7C 7F 1B 79 */	or. r31, r3, r3
 /* 80303508 00300468  41 82 00 40 */	beq lbl_80303548
 /* 8030350C 0030046C  3C 80 80 3E */	lis r4, __vt__12CInstruction@ha
-/* 80303510 00300470  3C 60 80 3F */	lis r3, lbl_803ED5B0@ha
+/* 80303510 00300470  3C 60 80 3F */	lis r3, __vt__17CColorInstruction@ha
 /* 80303514 00300474  38 04 9A 6C */	addi r0, r4, __vt__12CInstruction@l
 /* 80303518 00300478  90 1F 00 00 */	stw r0, 0(r31)
-/* 8030351C 0030047C  38 03 D5 B0 */	addi r0, r3, lbl_803ED5B0@l
+/* 8030351C 0030047C  38 03 D5 B0 */	addi r0, r3, __vt__17CColorInstruction@l
 /* 80303520 00300480  90 1F 00 00 */	stw r0, 0(r31)
 /* 80303524 00300484  93 BF 00 04 */	stw r29, 4(r31)
 /* 80303528 00300488  88 1E 00 00 */	lbz r0, 0(r30)
