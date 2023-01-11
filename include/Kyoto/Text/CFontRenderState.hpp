@@ -3,6 +3,7 @@
 
 #include "Kyoto/Text/CSaveableState.hpp"
 #include "Kyoto/Text/CDrawStringOptions.hpp"
+#include "Kyoto/Text/TextCommon.hpp"
 
 class CBlockInstruction;
 
@@ -10,6 +11,7 @@ class CFontRenderState {
 public:
   void PushState();
   void PopState();
+  void SetColor(EColorType type, const CTextColor& color);
   const TToken<CRasterFont>& GetFont() { return x0_state.GetFont(); }
   void SetLineSpacing(float spacing) { x0_state.SetLineSpacing(spacing); }
   void SetExtraLineSpace(int spacing) { x0_state.SetLineExtraSpace(spacing); }

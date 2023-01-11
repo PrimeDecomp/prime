@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803ED5B0
-lbl_803ED5B0:
+.global __vt__17CColorInstruction
+__vt__17CColorInstruction:
 	# ROM: 0x3EA5B0
 	.4byte 0
 	.4byte 0
@@ -25,8 +25,8 @@ __dt__17CColorInstructionFv:
 /* 802FE840 002FB7A0  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 802FE844 002FB7A4  7C 7F 1B 79 */	or. r31, r3, r3
 /* 802FE848 002FB7A8  41 82 00 30 */	beq lbl_802FE878
-/* 802FE84C 002FB7AC  3C 60 80 3F */	lis r3, lbl_803ED5B0@ha
-/* 802FE850 002FB7B0  38 03 D5 B0 */	addi r0, r3, lbl_803ED5B0@l
+/* 802FE84C 002FB7AC  3C 60 80 3F */	lis r3, __vt__17CColorInstruction@ha
+/* 802FE850 002FB7B0  38 03 D5 B0 */	addi r0, r3, __vt__17CColorInstruction@l
 /* 802FE854 002FB7B4  90 1F 00 00 */	stw r0, 0(r31)
 /* 802FE858 002FB7B8  41 82 00 10 */	beq lbl_802FE868
 /* 802FE85C 002FB7BC  3C 60 80 3E */	lis r3, __vt__12CInstruction@ha
