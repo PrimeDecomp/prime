@@ -2317,11 +2317,11 @@ BeginBlock__18CTextExecuteBufferFiiiib14ETextDirection14EJustification22EVertica
 /* 80303BB8 00300B18  7C 7A 1B 79 */	or. r26, r3, r3
 /* 80303BBC 00300B1C  41 82 00 54 */	beq .L_80303C10
 /* 80303BC0 00300B20  3C 80 80 3E */	lis r4, __vt__12CInstruction@ha
-/* 80303BC4 00300B24  3C 60 80 3F */	lis r3, lbl_803ED8C8@ha
+/* 80303BC4 00300B24  3C 60 80 3F */	lis r3, __vt__17CBlockInstruction@ha
 /* 80303BC8 00300B28  38 84 9A 6C */	addi r4, r4, __vt__12CInstruction@l
 /* 80303BCC 00300B2C  38 00 00 00 */	li r0, 0
 /* 80303BD0 00300B30  90 9A 00 00 */	stw r4, 0(r26)
-/* 80303BD4 00300B34  38 63 D8 C8 */	addi r3, r3, lbl_803ED8C8@l
+/* 80303BD4 00300B34  38 63 D8 C8 */	addi r3, r3, __vt__17CBlockInstruction@l
 /* 80303BD8 00300B38  90 7A 00 00 */	stw r3, 0(r26)
 /* 80303BDC 00300B3C  92 FA 00 04 */	stw r23, 4(r26)
 /* 80303BE0 00300B40  93 1A 00 08 */	stw r24, 8(r26)
