@@ -826,14 +826,14 @@ sub_80028bd8:
 /* 80028BDC 00025B3C  7C 08 02 A6 */	mflr r0
 /* 80028BE0 00025B40  38 80 FF FF */	li r4, -1
 /* 80028BE4 00025B44  90 01 00 14 */	stw r0, 0x14(r1)
-/* 80028BE8 00025B48  48 00 00 15 */	bl sub_80028bfc
+/* 80028BE8 00025B48  48 00 00 15 */	bl __dt__13CFontImageDefFv
 /* 80028BEC 00025B4C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80028BF0 00025B50  7C 08 03 A6 */	mtlr r0
 /* 80028BF4 00025B54  38 21 00 10 */	addi r1, r1, 0x10
 /* 80028BF8 00025B58  4E 80 00 20 */	blr
 
-.global sub_80028bfc
-sub_80028bfc:
+.global __dt__13CFontImageDefFv
+__dt__13CFontImageDefFv:
 /* 80028BFC 00025B5C  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 80028C00 00025B60  7C 08 02 A6 */	mflr r0
 /* 80028C04 00025B64  90 01 00 34 */	stw r0, 0x34(r1)

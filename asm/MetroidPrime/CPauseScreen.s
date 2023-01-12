@@ -1419,7 +1419,7 @@ InitializeFrameGlue__16CPauseScreenBaseFv:
 /* 80071B94 0006EAF4  38 A3 D2 C8 */	addi r5, r3, lbl_803CD2C8@l
 /* 80071B98 0006EAF8  38 00 00 00 */	li r0, 0
 /* 80071B9C 0006EAFC  81 65 00 00 */	lwz r11, 0(r5)
-/* 80071BA0 0006EB00  38 CD A9 1A */	addi r6, r13, lbl_805A94DA@sda21
+/* 80071BA0 0006EB00  38 CD A9 1A */	addi r6, r13, "mNull__Q24rstl66basic_string<w,Q24rstl14char_traits<w>,Q24rstl17rmemory_allocator>"@sda21
 /* 80071BA4 0006EB04  81 45 00 04 */	lwz r10, 4(r5)
 /* 80071BA8 0006EB08  38 61 01 0C */	addi r3, r1, 0x10c
 /* 80071BAC 0006EB0C  81 25 00 08 */	lwz r9, 8(r5)
@@ -2720,7 +2720,7 @@ lbl_80072E24:
 /* 80072E54 0006FDB4  81 25 00 08 */	lwz r9, 8(r5)
 /* 80072E58 0006FDB8  7D 4B 00 D0 */	neg r10, r11
 /* 80072E5C 0006FDBC  81 05 00 0C */	lwz r8, 0xc(r5)
-/* 80072E60 0006FDC0  38 CD A9 1A */	addi r6, r13, lbl_805A94DA@sda21
+/* 80072E60 0006FDC0  38 CD A9 1A */	addi r6, r13, "mNull__Q24rstl66basic_string<w,Q24rstl14char_traits<w>,Q24rstl17rmemory_allocator>"@sda21
 /* 80072E64 0006FDC4  80 E2 88 28 */	lwz r7, lbl_805AA548@sda21(r2)
 /* 80072E68 0006FDC8  7F 7B E3 78 */	or r27, r27, r28
 /* 80072E6C 0006FDCC  7D 8C D3 78 */	or r12, r12, r26

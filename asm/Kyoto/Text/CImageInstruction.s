@@ -32,7 +32,7 @@ __dt__17CImageInstructionFv:
 /* 80359740 003566A0  38 04 F7 98 */	addi r0, r4, lbl_803EF798@l
 /* 80359744 003566A4  38 80 FF FF */	li r4, -1
 /* 80359748 003566A8  90 1E 00 00 */	stw r0, 0(r30)
-/* 8035974C 003566AC  4B CC F4 B1 */	bl sub_80028bfc
+/* 8035974C 003566AC  4B CC F4 B1 */	bl __dt__13CFontImageDefFv
 /* 80359750 003566B0  28 1E 00 00 */	cmplwi r30, 0
 /* 80359754 003566B4  41 82 00 10 */	beq lbl_80359764
 /* 80359758 003566B8  3C 60 80 3E */	lis r3, __vt__12CInstruction@ha

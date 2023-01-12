@@ -127,9 +127,9 @@ lbl_8033E58C:
 /* 8033E59C 0033B4FC  90 1D 00 0C */	stw r0, 0xc(r29)
 /* 8033E5A0 0033B500  48 00 00 18 */	b lbl_8033E5B8
 lbl_8033E5A4:
-/* 8033E5A4 0033B504  3C 80 80 3D */	lis r4, lbl_803D7A50@ha
+/* 8033E5A4 0033B504  3C 80 80 3D */	lis r4, "@stringBase0"@ha
 /* 8033E5A8 0033B508  38 A0 00 00 */	li r5, 0
-/* 8033E5AC 0033B50C  38 84 7A 50 */	addi r4, r4, lbl_803D7A50@l
+/* 8033E5AC 0033B50C  38 84 7A 50 */	addi r4, r4, "@stringBase0"@l
 /* 8033E5B0 0033B510  4B FD 72 69 */	bl __nwa__FUlPCcPCc
 /* 8033E5B4 0033B514  90 7D 00 0C */	stw r3, 0xc(r29)
 lbl_8033E5B8:
@@ -242,7 +242,7 @@ lbl_8033E6E4:
 "ConvertToUNICODE__13CStringExtrasFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>":
 /* 8033E720 0033B680  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 8033E724 0033B684  7C 08 02 A6 */	mflr r0
-/* 8033E728 0033B688  38 AD A9 1A */	addi r5, r13, lbl_805A94DA@sda21
+/* 8033E728 0033B688  38 AD A9 1A */	addi r5, r13, "mNull__Q24rstl66basic_string<w,Q24rstl14char_traits<w>,Q24rstl17rmemory_allocator>"@sda21
 /* 8033E72C 0033B68C  90 01 00 34 */	stw r0, 0x34(r1)
 /* 8033E730 0033B690  38 00 00 00 */	li r0, 0
 /* 8033E734 0033B694  93 E1 00 2C */	stw r31, 0x2c(r1)
@@ -357,8 +357,8 @@ CreateFromInteger__13CStringExtrasFi:
 /* 8033E8C0 0033B820  93 A1 00 34 */	stw r29, 0x34(r1)
 /* 8033E8C4 0033B824  93 81 00 30 */	stw r28, 0x30(r1)
 /* 8033E8C8 0033B828  40 82 00 18 */	bne lbl_8033E8E0
-/* 8033E8CC 0033B82C  3C 80 80 3D */	lis r4, lbl_803D7A50@ha
-/* 8033E8D0 0033B830  38 84 7A 50 */	addi r4, r4, lbl_803D7A50@l
+/* 8033E8CC 0033B82C  3C 80 80 3D */	lis r4, "@stringBase0"@ha
+/* 8033E8D0 0033B830  38 84 7A 50 */	addi r4, r4, "@stringBase0"@l
 /* 8033E8D4 0033B834  38 84 00 0E */	addi r4, r4, 0xe
 /* 8033E8D8 0033B838  4B CC 63 E1 */	bl string_l__4rstlFPCc
 /* 8033E8DC 0033B83C  48 00 00 CC */	b lbl_8033E9A8
@@ -391,9 +391,9 @@ lbl_8033E924:
 /* 8033E93C 0033B89C  90 01 00 0C */	stw r0, 0xc(r1)
 /* 8033E940 0033B8A0  90 01 00 10 */	stw r0, 0x10(r1)
 /* 8033E944 0033B8A4  40 80 00 1C */	bge lbl_8033E960
-/* 8033E948 0033B8A8  3C 80 80 3D */	lis r4, lbl_803D7A50@ha
+/* 8033E948 0033B8A8  3C 80 80 3D */	lis r4, "@stringBase0"@ha
 /* 8033E94C 0033B8AC  38 61 00 08 */	addi r3, r1, 8
-/* 8033E950 0033B8B0  38 84 7A 50 */	addi r4, r4, lbl_803D7A50@l
+/* 8033E950 0033B8B0  38 84 7A 50 */	addi r4, r4, "@stringBase0"@l
 /* 8033E954 0033B8B4  38 A0 FF FF */	li r5, -1
 /* 8033E958 0033B8B8  38 84 00 10 */	addi r4, r4, 0x10
 /* 8033E95C 0033B8BC  4B FF F5 89 */	bl "append__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>FPCci"
@@ -575,7 +575,7 @@ lbl_8033EB8C:
 __sinit_RstlExtras_cpp:
 /* 8033EBA0 0033BB00  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8033EBA4 0033BB04  7C 08 02 A6 */	mflr r0
-/* 8033EBA8 0033BB08  3C 80 80 34 */	lis r4, __ct__Q24rstl8CRefDataFPCPvi@ha
+/* 8033EBA8 0033BB08  3C 80 80 34 */	lis r4, __dt__Q24rstl8CRefDataFv@ha
 /* 8033EBAC 0033BB0C  3C A0 01 00 */	lis r5, 0x00FFFFFF@ha
 /* 8033EBB0 0033BB10  90 01 00 14 */	stw r0, 0x14(r1)
 /* 8033EBB4 0033BB14  38 E0 00 00 */	li r7, 0
@@ -584,7 +584,7 @@ __sinit_RstlExtras_cpp:
 /* 8033EBC0 0033BB20  3C 60 80 4C */	lis r3, lbl_804BFF30@ha
 /* 8033EBC4 0033BB24  90 ED A9 28 */	stw r7, sNull__Q24rstl8CRefData@sda21(r13)
 /* 8033EBC8 0033BB28  38 A3 FF 30 */	addi r5, r3, lbl_804BFF30@l
-/* 8033EBCC 0033BB2C  38 84 EB EC */	addi r4, r4, __ct__Q24rstl8CRefDataFPCPvi@l
+/* 8033EBCC 0033BB2C  38 84 EB EC */	addi r4, r4, __dt__Q24rstl8CRefDataFv@l
 /* 8033EBD0 0033BB30  90 06 00 04 */	stw r0, 4(r6)
 /* 8033EBD4 0033BB34  38 6D A9 28 */	addi r3, r13, sNull__Q24rstl8CRefData@sda21
 /* 8033EBD8 0033BB38  48 04 AA B5 */	bl __register_global_object
@@ -593,8 +593,8 @@ __sinit_RstlExtras_cpp:
 /* 8033EBE4 0033BB44  38 21 00 10 */	addi r1, r1, 0x10
 /* 8033EBE8 0033BB48  4E 80 00 20 */	blr
 
-.global __ct__Q24rstl8CRefDataFPCPvi
-__ct__Q24rstl8CRefDataFPCPvi:
+.global __dt__Q24rstl8CRefDataFv
+__dt__Q24rstl8CRefDataFv:
 /* 8033EBEC 0033BB4C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8033EBF0 0033BB50  7C 08 02 A6 */	mflr r0
 /* 8033EBF4 0033BB54  90 01 00 14 */	stw r0, 0x14(r1)
@@ -615,13 +615,9 @@ lbl_8033EC10:
 
 .section .rodata
 .balign 8
-.global lbl_803D7A50
-lbl_803D7A50:
+"@stringBase0":
 	# ROM: 0x3D4A50
 	.asciz "??(??)"
-	.byte 0x25
-	.asciz "%.%df"
-	.byte 0x30, 0x00
-	.4byte 0x2D000000
-	.4byte 0
-
+	.asciz "%%.%df"
+	.asciz "0"
+	.asciz "-"

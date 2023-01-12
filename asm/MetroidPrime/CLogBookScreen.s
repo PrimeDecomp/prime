@@ -193,7 +193,7 @@ UpdateRightTitles__14CLogBookScreenFv:
 lbl_80245B8C:
 /* 80245B8C 00242AEC  80 9C 00 18 */	lwz r4, 0x18(r28)
 /* 80245B90 00242AF0  38 00 00 00 */	li r0, 0
-/* 80245B94 00242AF4  38 6D A9 1A */	addi r3, r13, lbl_805A94DA@sda21
+/* 80245B94 00242AF4  38 6D A9 1A */	addi r3, r13, "mNull__Q24rstl66basic_string<w,Q24rstl14char_traits<w>,Q24rstl17rmemory_allocator>"@sda21
 /* 80245B98 00242AF8  90 61 00 4C */	stw r3, 0x4c(r1)
 /* 80245B9C 00242AFC  7C 84 EA 14 */	add r4, r4, r29
 /* 80245BA0 00242B00  90 01 00 50 */	stw r0, 0x50(r1)

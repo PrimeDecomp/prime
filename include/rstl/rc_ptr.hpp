@@ -8,6 +8,7 @@ class CRefData {
 public:
   CRefData(const void* ptr) : x0_ptr(ptr), x4_refCount(1) {}
   CRefData(const void* ptr, int refCount) : x0_ptr(ptr), x4_refCount(refCount) {}
+  ~CRefData() {}
 
   void* GetPtr() const { return const_cast< void* >(x0_ptr); }
   int GetRefCount() const { return x4_refCount; }
