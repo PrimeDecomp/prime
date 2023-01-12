@@ -573,12 +573,12 @@ __ct__13CSoundPOINodeFR12CInputStream:
 /* 802EC23C 002E919C  7F 84 E3 78 */	mr r4, r28
 /* 802EC240 002E91A0  4B FF 12 A1 */	bl "reserve__Q24rstl53vector<16CParticlePOINode,Q24rstl17rmemory_allocator>Fi"
 /* 802EC244 002E91A4  3B 21 00 44 */	addi r25, r1, 0x44
-/* 802EC248 002E91A8  3C 80 80 3E */	lis r4, lbl_803D9B74@ha
+/* 802EC248 002E91A8  3C 80 80 3E */	lis r4, __vt__16CParticlePOINode@ha
 /* 802EC24C 002E91AC  3C 60 80 3E */	lis r3, __vt__8CPOINode@ha
 /* 802EC250 002E91B0  3B 41 00 14 */	addi r26, r1, 0x14
 /* 802EC254 002E91B4  3B 79 00 0C */	addi r27, r25, 0xc
 /* 802EC258 002E91B8  3B A1 00 08 */	addi r29, r1, 8
-/* 802EC25C 002E91BC  3B C4 9B 74 */	addi r30, r4, lbl_803D9B74@l
+/* 802EC25C 002E91BC  3B C4 9B 74 */	addi r30, r4, __vt__16CParticlePOINode@l
 /* 802EC260 002E91C0  3B E3 9B 8C */	addi r31, r3, __vt__8CPOINode@l
 /* 802EC264 002E91C4  3B 00 00 00 */	li r24, 0
 /* 802EC268 002E91C8  48 00 00 5C */	b lbl_802EC2C4

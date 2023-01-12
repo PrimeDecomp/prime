@@ -33,7 +33,7 @@ CopyNodeMinusStartTime__16CParticlePOINodeFRC16CParticlePOINodeRC13CCharAnimTime
 /* 802FD01C 002F9F7C  C0 3D 00 2C */	lfs f1, 0x2c(r29)
 /* 802FD020 002F9F80  81 3D 00 30 */	lwz r9, 0x30(r29)
 /* 802FD024 002F9F84  81 5D 00 34 */	lwz r10, 0x34(r29)
-/* 802FD028 002F9F88  4B D3 33 E1 */	bl sub_80030408
+/* 802FD028 002F9F88  4B D3 33 E1 */	bl "__ct__16CParticlePOINodeFQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>UsRC13CCharAnimTimeibfiiRC13CParticleData"
 /* 802FD02C 002F9F8C  38 61 00 18 */	addi r3, r1, 0x18
 /* 802FD030 002F9F90  48 04 0A B1 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 802FD034 002F9F94  80 01 00 44 */	lwz r0, 0x44(r1)
@@ -55,9 +55,9 @@ __ct__16CParticlePOINodeFR12CInputStream:
 /* 802FD068 002F9FC8  93 C1 00 08 */	stw r30, 8(r1)
 /* 802FD06C 002F9FCC  7C 7E 1B 78 */	mr r30, r3
 /* 802FD070 002F9FD0  48 00 00 ED */	bl __ct__8CPOINodeFR12CInputStream
-/* 802FD074 002F9FD4  3C 60 80 3E */	lis r3, lbl_803D9B74@ha
+/* 802FD074 002F9FD4  3C 60 80 3E */	lis r3, __vt__16CParticlePOINode@ha
 /* 802FD078 002F9FD8  7F E4 FB 78 */	mr r4, r31
-/* 802FD07C 002F9FDC  38 03 9B 74 */	addi r0, r3, lbl_803D9B74@l
+/* 802FD07C 002F9FDC  38 03 9B 74 */	addi r0, r3, __vt__16CParticlePOINode@l
 /* 802FD080 002F9FE0  38 7E 00 38 */	addi r3, r30, 0x38
 /* 802FD084 002F9FE4  90 1E 00 00 */	stw r0, 0(r30)
 /* 802FD088 002F9FE8  48 05 A3 7D */	bl __ct__13CParticleDataFR12CInputStream
