@@ -1913,10 +1913,10 @@ lbl_802F11B4:
 /* 802F1250 002EE1B0  90 1A 00 40 */	stw r0, 0x40(r26)
 /* 802F1254 002EE1B4  48 04 CB 09 */	bl "assign__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>FRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 /* 802F1258 002EE1B8  C0 01 00 84 */	lfs f0, 0x84(r1)
-/* 802F125C 002EE1BC  3C 60 80 3E */	lis r3, lbl_803D9B74@ha
+/* 802F125C 002EE1BC  3C 60 80 3E */	lis r3, __vt__16CParticlePOINode@ha
 /* 802F1260 002EE1C0  28 1B 00 00 */	cmplwi r27, 0
 /* 802F1264 002EE1C4  D0 1A 00 54 */	stfs f0, 0x54(r26)
-/* 802F1268 002EE1C8  38 03 9B 74 */	addi r0, r3, lbl_803D9B74@l
+/* 802F1268 002EE1C8  38 03 9B 74 */	addi r0, r3, __vt__16CParticlePOINode@l
 /* 802F126C 002EE1CC  80 61 00 88 */	lwz r3, 0x88(r1)
 /* 802F1270 002EE1D0  90 7A 00 58 */	stw r3, 0x58(r26)
 /* 802F1274 002EE1D4  90 01 00 30 */	stw r0, 0x30(r1)

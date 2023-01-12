@@ -1331,8 +1331,8 @@ lbl_802DBD30:
 /* 802DBD50 002D8CB0  B0 1E 00 04 */	sth r0, 4(r30)
 /* 802DBD54 002D8CB4  48 06 24 0D */	bl "__ct__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>FRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 /* 802DBD58 002D8CB8  A0 9D 00 18 */	lhz r4, 0x18(r29)
-/* 802DBD5C 002D8CBC  3C 60 80 3E */	lis r3, lbl_803D9B74@ha
-/* 802DBD60 002D8CC0  38 03 9B 74 */	addi r0, r3, lbl_803D9B74@l
+/* 802DBD5C 002D8CBC  3C 60 80 3E */	lis r3, __vt__16CParticlePOINode@ha
+/* 802DBD60 002D8CC0  38 03 9B 74 */	addi r0, r3, __vt__16CParticlePOINode@l
 /* 802DBD64 002D8CC4  38 7E 00 44 */	addi r3, r30, 0x44
 /* 802DBD68 002D8CC8  B0 9E 00 18 */	sth r4, 0x18(r30)
 /* 802DBD6C 002D8CCC  38 9D 00 44 */	addi r4, r29, 0x44
@@ -2272,7 +2272,7 @@ sub_802dca8c:
 /* 802DCAE0 002D9A40  3B 23 00 0C */	addi r25, r3, 0xc
 /* 802DCAE4 002D9A44  38 61 00 58 */	addi r3, r1, 0x58
 /* 802DCAE8 002D9A48  3C A0 80 3E */	lis r5, __vt__8CPOINode@ha
-/* 802DCAEC 002D9A4C  3C 80 80 3E */	lis r4, lbl_803D9B74@ha
+/* 802DCAEC 002D9A4C  3C 80 80 3E */	lis r4, __vt__16CParticlePOINode@ha
 /* 802DCAF0 002D9A50  D0 01 00 10 */	stfs f0, 0x10(r1)
 /* 802DCAF4 002D9A54  3B 83 00 0C */	addi r28, r3, 0xc
 /* 802DCAF8 002D9A58  38 61 00 B4 */	addi r3, r1, 0xb4
@@ -2285,7 +2285,7 @@ sub_802dca8c:
 /* 802DCB14 002D9A74  3B 61 00 84 */	addi r27, r1, 0x84
 /* 802DCB18 002D9A78  3B 43 00 0C */	addi r26, r3, 0xc
 /* 802DCB1C 002D9A7C  3B C5 9B 8C */	addi r30, r5, __vt__8CPOINode@l
-/* 802DCB20 002D9A80  3B E4 9B 74 */	addi r31, r4, lbl_803D9B74@l
+/* 802DCB20 002D9A80  3B E4 9B 74 */	addi r31, r4, __vt__16CParticlePOINode@l
 /* 802DCB24 002D9A84  3B 00 00 00 */	li r24, 0
 /* 802DCB28 002D9A88  48 00 03 14 */	b lbl_802DCE3C
 lbl_802DCB2C:
@@ -2333,8 +2333,8 @@ lbl_802DCB2C:
 /* 802DCBD0 002D9B30  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 802DCBD4 002D9B34  41 82 00 48 */	beq lbl_802DCC1C
 /* 802DCBD8 002D9B38  34 01 01 10 */	addic. r0, r1, 0x110
-/* 802DCBDC 002D9B3C  3C 60 80 3E */	lis r3, lbl_803D9B74@ha
-/* 802DCBE0 002D9B40  38 03 9B 74 */	addi r0, r3, lbl_803D9B74@l
+/* 802DCBDC 002D9B3C  3C 60 80 3E */	lis r3, __vt__16CParticlePOINode@ha
+/* 802DCBE0 002D9B40  38 03 9B 74 */	addi r0, r3, __vt__16CParticlePOINode@l
 /* 802DCBE4 002D9B44  90 01 00 D8 */	stw r0, 0xd8(r1)
 /* 802DCBE8 002D9B48  41 82 00 14 */	beq lbl_802DCBFC
 /* 802DCBEC 002D9B4C  28 19 00 00 */	cmplwi r25, 0
@@ -2370,9 +2370,9 @@ lbl_802DCC1C:
 /* 802DCC5C 002D9BBC  B0 01 00 80 */	sth r0, 0x80(r1)
 /* 802DCC60 002D9BC0  48 06 15 01 */	bl "__ct__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>FRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 /* 802DCC64 002D9BC4  A0 C1 00 38 */	lhz r6, 0x38(r1)
-/* 802DCC68 002D9BC8  3C 60 80 3E */	lis r3, lbl_803D9B74@ha
+/* 802DCC68 002D9BC8  3C 60 80 3E */	lis r3, __vt__16CParticlePOINode@ha
 /* 802DCC6C 002D9BCC  C0 21 00 3C */	lfs f1, 0x3c(r1)
-/* 802DCC70 002D9BD0  39 43 9B 74 */	addi r10, r3, lbl_803D9B74@l
+/* 802DCC70 002D9BD0  39 43 9B 74 */	addi r10, r3, __vt__16CParticlePOINode@l
 /* 802DCC74 002D9BD4  80 A1 00 40 */	lwz r5, 0x40(r1)
 /* 802DCC78 002D9BD8  7F 84 E3 78 */	mr r4, r28
 /* 802DCC7C 002D9BDC  80 01 00 44 */	lwz r0, 0x44(r1)
@@ -2398,9 +2398,9 @@ lbl_802DCC1C:
 /* 802DCCCC 002D9C2C  90 E1 00 BC */	stw r7, 0xbc(r1)
 /* 802DCCD0 002D9C30  48 06 14 91 */	bl "__ct__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>FRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 /* 802DCCD4 002D9C34  C0 01 00 74 */	lfs f0, 0x74(r1)
-/* 802DCCD8 002D9C38  3C 60 80 3E */	lis r3, lbl_803D9B74@ha
+/* 802DCCD8 002D9C38  3C 60 80 3E */	lis r3, __vt__16CParticlePOINode@ha
 /* 802DCCDC 002D9C3C  80 81 00 78 */	lwz r4, 0x78(r1)
-/* 802DCCE0 002D9C40  38 63 9B 74 */	addi r3, r3, lbl_803D9B74@l
+/* 802DCCE0 002D9C40  38 63 9B 74 */	addi r3, r3, __vt__16CParticlePOINode@l
 /* 802DCCE4 002D9C44  34 01 00 58 */	addic. r0, r1, 0x58
 /* 802DCCE8 002D9C48  D0 01 00 D0 */	stfs f0, 0xd0(r1)
 /* 802DCCEC 002D9C4C  90 81 00 D4 */	stw r4, 0xd4(r1)
@@ -2461,8 +2461,8 @@ lbl_802DCD24:
 /* 802DCDC0 002D9D20  90 0F 00 58 */	stw r0, 0x58(r15)
 lbl_802DCDC4:
 /* 802DCDC4 002D9D24  34 01 00 B4 */	addic. r0, r1, 0xb4
-/* 802DCDC8 002D9D28  3C 60 80 3E */	lis r3, lbl_803D9B74@ha
-/* 802DCDCC 002D9D2C  38 03 9B 74 */	addi r0, r3, lbl_803D9B74@l
+/* 802DCDC8 002D9D28  3C 60 80 3E */	lis r3, __vt__16CParticlePOINode@ha
+/* 802DCDCC 002D9D2C  38 03 9B 74 */	addi r0, r3, __vt__16CParticlePOINode@l
 /* 802DCDD0 002D9D30  90 01 00 7C */	stw r0, 0x7c(r1)
 /* 802DCDD4 002D9D34  41 82 00 14 */	beq lbl_802DCDE8
 /* 802DCDD8 002D9D38  28 1A 00 00 */	cmplwi r26, 0
@@ -3052,8 +3052,8 @@ lbl_802DD5F0:
 /* 802DD610 002DA570  B0 1E 00 04 */	sth r0, 4(r30)
 /* 802DD614 002DA574  48 06 0B 4D */	bl "__ct__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>FRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 /* 802DD618 002DA578  A0 9F 00 18 */	lhz r4, 0x18(r31)
-/* 802DD61C 002DA57C  3C 60 80 3E */	lis r3, lbl_803D9B74@ha
-/* 802DD620 002DA580  38 03 9B 74 */	addi r0, r3, lbl_803D9B74@l
+/* 802DD61C 002DA57C  3C 60 80 3E */	lis r3, __vt__16CParticlePOINode@ha
+/* 802DD620 002DA580  38 03 9B 74 */	addi r0, r3, __vt__16CParticlePOINode@l
 /* 802DD624 002DA584  38 7E 00 44 */	addi r3, r30, 0x44
 /* 802DD628 002DA588  B0 9E 00 18 */	sth r4, 0x18(r30)
 /* 802DD62C 002DA58C  38 9F 00 44 */	addi r4, r31, 0x44
