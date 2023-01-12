@@ -1757,9 +1757,9 @@ lbl_802F0F84:
 /* 802F100C 002EDF6C  80 01 00 68 */	lwz r0, 0x68(r1)
 /* 802F1010 002EDF70  90 1B 00 38 */	stw r0, 0x38(r27)
 /* 802F1014 002EDF74  48 04 CD 49 */	bl "assign__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>FRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
-/* 802F1018 002EDF78  3C 60 80 3E */	lis r3, lbl_803D9B98@ha
+/* 802F1018 002EDF78  3C 60 80 3E */	lis r3, __vt__13CInt32POINode@ha
 /* 802F101C 002EDF7C  28 1C 00 00 */	cmplwi r28, 0
-/* 802F1020 002EDF80  38 03 9B 98 */	addi r0, r3, lbl_803D9B98@l
+/* 802F1020 002EDF80  38 03 9B 98 */	addi r0, r3, __vt__13CInt32POINode@l
 /* 802F1024 002EDF84  90 01 00 30 */	stw r0, 0x30(r1)
 /* 802F1028 002EDF88  41 82 00 0C */	beq lbl_802F1034
 /* 802F102C 002EDF8C  7F 83 E3 78 */	mr r3, r28

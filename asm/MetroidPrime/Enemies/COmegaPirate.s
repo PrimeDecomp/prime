@@ -6000,9 +6000,9 @@ lbl_802902C0:
 /* 80290350 0028D2B0  81 8C 00 68 */	lwz r12, 0x68(r12)
 /* 80290354 0028D2B4  7D 89 03 A6 */	mtctr r12
 /* 80290358 0028D2B8  4E 80 04 21 */	bctrl
-/* 8029035C 0028D2BC  3C 80 80 3E */	lis r4, lbl_803D9B98@ha
+/* 8029035C 0028D2BC  3C 80 80 3E */	lis r4, __vt__13CInt32POINode@ha
 /* 80290360 0028D2C0  34 61 01 10 */	addic. r3, r1, 0x110
-/* 80290364 0028D2C4  38 04 9B 98 */	addi r0, r4, lbl_803D9B98@l
+/* 80290364 0028D2C4  38 04 9B 98 */	addi r0, r4, __vt__13CInt32POINode@l
 /* 80290368 0028D2C8  90 01 00 D4 */	stw r0, 0xd4(r1)
 /* 8029036C 0028D2CC  41 82 00 08 */	beq lbl_80290374
 /* 80290370 0028D2D0  48 0A D7 71 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
