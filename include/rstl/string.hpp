@@ -6,6 +6,7 @@
 #include "rstl/rmemory_allocator.hpp"
 
 class CInputStream;
+class COutputStream;
 
 namespace rstl {
 template < typename _CharTp >
@@ -112,6 +113,7 @@ public:
   bool operator<(const basic_string& other) const;
 
   const char* data() const { return x0_ptr; }
+  void PutTo(COutputStream& out) const;
 };
 
 template < typename _CharTp, typename Traits, typename Alloc >
