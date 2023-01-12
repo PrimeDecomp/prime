@@ -3,67 +3,8 @@
 .section .text, "ax"
 
 
-.global sub_8035470c
-sub_8035470c:
-/* 8035470C 0035166C  94 21 FF E0 */	stwu r1, -0x20(r1)
-/* 80354710 00351670  7C 08 02 A6 */	mflr r0
-/* 80354714 00351674  90 01 00 24 */	stw r0, 0x24(r1)
-/* 80354718 00351678  93 E1 00 1C */	stw r31, 0x1c(r1)
-/* 8035471C 0035167C  93 C1 00 18 */	stw r30, 0x18(r1)
-/* 80354720 00351680  7C BE 2B 78 */	mr r30, r5
-/* 80354724 00351684  93 A1 00 14 */	stw r29, 0x14(r1)
-/* 80354728 00351688  7C 9D 23 78 */	mr r29, r4
-/* 8035472C 0035168C  83 E3 00 00 */	lwz r31, 0(r3)
-/* 80354730 00351690  48 00 00 78 */	b lbl_803547A8
-lbl_80354734:
-/* 80354734 00351694  28 1E 00 00 */	cmplwi r30, 0
-/* 80354738 00351698  41 82 00 68 */	beq lbl_803547A0
-/* 8035473C 0035169C  80 1F 00 00 */	lwz r0, 0(r31)
-/* 80354740 003516A0  38 9E 00 04 */	addi r4, r30, 4
-/* 80354744 003516A4  38 7F 00 04 */	addi r3, r31, 4
-/* 80354748 003516A8  90 1E 00 00 */	stw r0, 0(r30)
-/* 8035474C 003516AC  80 1E 00 00 */	lwz r0, 0(r30)
-/* 80354750 003516B0  7C 09 03 A6 */	mtctr r0
-/* 80354754 003516B4  2C 00 00 00 */	cmpwi r0, 0
-/* 80354758 003516B8  40 81 00 28 */	ble lbl_80354780
-lbl_8035475C:
-/* 8035475C 003516BC  28 04 00 00 */	cmplwi r4, 0
-/* 80354760 003516C0  41 82 00 14 */	beq lbl_80354774
-/* 80354764 003516C4  88 03 00 00 */	lbz r0, 0(r3)
-/* 80354768 003516C8  98 04 00 00 */	stb r0, 0(r4)
-/* 8035476C 003516CC  C0 03 00 04 */	lfs f0, 4(r3)
-/* 80354770 003516D0  D0 04 00 04 */	stfs f0, 4(r4)
-lbl_80354774:
-/* 80354774 003516D4  38 84 00 08 */	addi r4, r4, 8
-/* 80354778 003516D8  38 63 00 08 */	addi r3, r3, 8
-/* 8035477C 003516DC  42 00 FF E0 */	bdnz lbl_8035475C
-lbl_80354780:
-/* 80354780 003516E0  80 1F 00 1C */	lwz r0, 0x1c(r31)
-/* 80354784 003516E4  38 7E 00 20 */	addi r3, r30, 0x20
-/* 80354788 003516E8  38 9F 00 20 */	addi r4, r31, 0x20
-/* 8035478C 003516EC  90 1E 00 1C */	stw r0, 0x1c(r30)
-/* 80354790 003516F0  4B FB E3 E5 */	bl __ct__12CTransform4fFRC12CTransform4f
-/* 80354794 003516F4  38 7E 00 50 */	addi r3, r30, 0x50
-/* 80354798 003516F8  38 9F 00 50 */	addi r4, r31, 0x50
-/* 8035479C 003516FC  4B FB B8 89 */	bl __ct__9CMatrix3fFRC9CMatrix3f
-lbl_803547A0:
-/* 803547A0 00351700  3B DE 00 74 */	addi r30, r30, 0x74
-/* 803547A4 00351704  3B FF 00 74 */	addi r31, r31, 0x74
-lbl_803547A8:
-/* 803547A8 00351708  80 1D 00 00 */	lwz r0, 0(r29)
-/* 803547AC 0035170C  7C 1F 00 40 */	cmplw r31, r0
-/* 803547B0 00351710  40 82 FF 84 */	bne lbl_80354734
-/* 803547B4 00351714  80 01 00 24 */	lwz r0, 0x24(r1)
-/* 803547B8 00351718  7F C3 F3 78 */	mr r3, r30
-/* 803547BC 0035171C  83 E1 00 1C */	lwz r31, 0x1c(r1)
-/* 803547C0 00351720  83 C1 00 18 */	lwz r30, 0x18(r1)
-/* 803547C4 00351724  83 A1 00 14 */	lwz r29, 0x14(r1)
-/* 803547C8 00351728  7C 08 03 A6 */	mtlr r0
-/* 803547CC 0035172C  38 21 00 20 */	addi r1, r1, 0x20
-/* 803547D0 00351730  4E 80 00 20 */	blr
-
-.global PSMTXROMultVecArrayGathered
-PSMTXROMultVecArrayGathered:
+.global PSMTXROMultS16VecArrayGathered__FPA3_fPCUsPVvUl
+PSMTXROMultS16VecArrayGathered__FPA3_fPCUsPVvUl:
 /* 803547D4 00351734  7D 6B 5A 78 */	xor r11, r11, r11
 /* 803547D8 00351738  39 6B 00 60 */	addi r11, r11, 0x60
 /* 803547DC 0035173C  94 21 FF C0 */	stwu r1, -0x40(r1)
@@ -138,8 +79,8 @@ lbl_803548D4:
 /* 803548E8 00351848  38 21 00 40 */	addi r1, r1, 0x40
 /* 803548EC 0035184C  4E 80 00 20 */	blr
 
-.global sub_803548f0
-sub_803548f0:
+.global BuildNormals__12CVirtualBoneCFPC9CVector3fP9CVector3fi
+BuildNormals__12CVirtualBoneCFPC9CVector3fP9CVector3fi:
 /* 803548F0 00351850  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 803548F4 00351854  7C 08 02 A6 */	mflr r0
 /* 803548F8 00351858  90 01 00 34 */	stw r0, 0x34(r1)
@@ -215,14 +156,14 @@ lbl_803549D8:
 /* 803549F0 00351950  D0 01 00 10 */	stfs f0, 0x10(r1)
 /* 803549F4 00351954  4B FB E8 85 */	bl __ct__12CTransform4fFRC9CMatrix3fRC9CVector3f
 /* 803549F8 00351958  38 61 00 50 */	addi r3, r1, 0x50
-/* 803549FC 0035195C  48 00 04 79 */	bl nullsub_22
+/* 803549FC 0035195C  48 00 04 79 */	bl TransformToMtx__FRC12CTransform4f
 /* 80354A00 00351960  38 81 00 20 */	addi r4, r1, 0x20
 /* 80354A04 00351964  48 02 8C CD */	bl PSMTXReorder
 /* 80354A08 00351968  7F C4 F3 78 */	mr r4, r30
 /* 80354A0C 0035196C  7F 85 E3 78 */	mr r5, r28
 /* 80354A10 00351970  7F A6 EB 78 */	mr r6, r29
 /* 80354A14 00351974  38 61 00 20 */	addi r3, r1, 0x20
-/* 80354A18 00351978  4B FF FD BD */	bl PSMTXROMultVecArrayGathered
+/* 80354A18 00351978  4B FF FD BD */	bl PSMTXROMultS16VecArrayGathered__FPA3_fPCUsPVvUl
 lbl_80354A1C:
 /* 80354A1C 0035197C  BB 61 00 8C */	lmw r27, 0x8c(r1)
 /* 80354A20 00351980  80 01 00 A4 */	lwz r0, 0xa4(r1)
@@ -264,14 +205,14 @@ lbl_80354A94:
 /* 80354A9C 003519FC  48 00 00 28 */	b lbl_80354AC4
 lbl_80354AA0:
 /* 80354AA0 00351A00  38 7B 00 20 */	addi r3, r27, 0x20
-/* 80354AA4 00351A04  48 00 03 D1 */	bl nullsub_22
+/* 80354AA4 00351A04  48 00 03 D1 */	bl TransformToMtx__FRC12CTransform4f
 /* 80354AA8 00351A08  38 81 00 14 */	addi r4, r1, 0x14
 /* 80354AAC 00351A0C  48 02 8C 25 */	bl PSMTXReorder
 /* 80354AB0 00351A10  7F C4 F3 78 */	mr r4, r30
 /* 80354AB4 00351A14  7F 85 E3 78 */	mr r5, r28
 /* 80354AB8 00351A18  7F A6 EB 78 */	mr r6, r29
 /* 80354ABC 00351A1C  38 61 00 14 */	addi r3, r1, 0x14
-/* 80354AC0 00351A20  4B FF FD 15 */	bl PSMTXROMultVecArrayGathered
+/* 80354AC0 00351A20  4B FF FD 15 */	bl PSMTXROMultS16VecArrayGathered__FPA3_fPCUsPVvUl
 lbl_80354AC4:
 /* 80354AC4 00351A24  BB 61 00 4C */	lmw r27, 0x4c(r1)
 /* 80354AC8 00351A28  80 01 00 64 */	lwz r0, 0x64(r1)
@@ -279,8 +220,8 @@ lbl_80354AC4:
 /* 80354AD0 00351A30  38 21 00 60 */	addi r1, r1, 0x60
 /* 80354AD4 00351A34  4E 80 00 20 */	blr
 
-.global sub_80354ad8
-sub_80354ad8:
+.global BuildAccumulatedTransform__12CVirtualBoneCFRC17CPoseAsTransformsPC9CVector3f
+BuildAccumulatedTransform__12CVirtualBoneCFRC17CPoseAsTransformsPC9CVector3f:
 /* 80354AD8 00351A38  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80354ADC 00351A3C  7C 08 02 A6 */	mflr r0
 /* 80354AE0 00351A40  90 01 00 14 */	stw r0, 0x14(r1)
@@ -288,7 +229,7 @@ sub_80354ad8:
 /* 80354AE8 00351A48  7C 9F 23 78 */	mr r31, r4
 /* 80354AEC 00351A4C  93 C1 00 08 */	stw r30, 8(r1)
 /* 80354AF0 00351A50  7C 7E 1B 78 */	mr r30, r3
-/* 80354AF4 00351A54  48 00 00 35 */	bl sub_80354b28
+/* 80354AF4 00351A54  48 00 00 35 */	bl BuildFinalPosMatrix__12CVirtualBoneCFRC17CPoseAsTransformsPC9CVector3f
 /* 80354AF8 00351A58  7F E3 FB 78 */	mr r3, r31
 /* 80354AFC 00351A5C  38 9E 00 04 */	addi r4, r30, 4
 /* 80354B00 00351A60  48 01 44 9D */	bl GetRotation__17CPoseAsTransformsCFRC6CSegId
@@ -302,8 +243,8 @@ sub_80354ad8:
 /* 80354B20 00351A80  38 21 00 10 */	addi r1, r1, 0x10
 /* 80354B24 00351A84  4E 80 00 20 */	blr
 
-.global sub_80354b28
-sub_80354b28:
+.global BuildFinalPosMatrix__12CVirtualBoneCFRC17CPoseAsTransformsPC9CVector3f
+BuildFinalPosMatrix__12CVirtualBoneCFRC17CPoseAsTransformsPC9CVector3f:
 /* 80354B28 00351A88  94 21 FF 40 */	stwu r1, -0xc0(r1)
 /* 80354B2C 00351A8C  7C 08 02 A6 */	mflr r0
 /* 80354B30 00351A90  90 01 00 C4 */	stw r0, 0xc4(r1)
@@ -339,7 +280,7 @@ lbl_80354B84:
 /* 80354BA0 00351B00  38 7D 00 20 */	addi r3, r29, 0x20
 /* 80354BA4 00351B04  1C 00 00 0C */	mulli r0, r0, 0xc
 /* 80354BA8 00351B08  7C BF 02 14 */	add r5, r31, r0
-/* 80354BAC 00351B0C  48 00 02 81 */	bl TransformFromMatrixData
+/* 80354BAC 00351B0C  48 00 02 81 */	bl TransformFromMatrixDelta__FP12CTransform4fPC9CMatrix3fPC9CVector3f
 /* 80354BB0 00351B10  48 00 01 A4 */	b lbl_80354D54
 lbl_80354BB4:
 /* 80354BB4 00351B14  3B 9D 00 04 */	addi r28, r29, 4
@@ -365,7 +306,7 @@ lbl_80354BB4:
 /* 80354C04 00351B64  1C 00 00 0C */	mulli r0, r0, 0xc
 /* 80354C08 00351B68  7C BF 2A 14 */	add r5, r31, r5
 /* 80354C0C 00351B6C  7C FF 02 14 */	add r7, r31, r0
-/* 80354C10 00351B70  48 00 01 71 */	bl Transform2FromMatrixData
+/* 80354C10 00351B70  48 00 01 71 */	bl Transform2FromMatrixData__FP12CTransform4fPC9CMatrix3fPC9CVector3ffPC9CMatrix3fPC9CVector3ff
 /* 80354C14 00351B74  48 00 01 40 */	b lbl_80354D54
 lbl_80354C18:
 /* 80354C18 00351B78  3B 9D 00 04 */	addi r28, r29, 4
@@ -461,8 +402,8 @@ lbl_80354D54:
 /* 80354D78 00351CD8  38 21 00 C0 */	addi r1, r1, 0xc0
 /* 80354D7C 00351CDC  4E 80 00 20 */	blr
 
-.global Transform2FromMatrixData
-Transform2FromMatrixData:
+.global Transform2FromMatrixData__FP12CTransform4fPC9CMatrix3fPC9CVector3ffPC9CMatrix3fPC9CVector3ff
+Transform2FromMatrixData__FP12CTransform4fPC9CMatrix3fPC9CVector3ffPC9CMatrix3fPC9CVector3ff:
 /* 80354D80 00351CE0  FC 80 08 90 */	fmr f4, f1
 /* 80354D84 00351CE4  E0 04 00 00 */	psq_l f0, 0(r4), 0, qr0
 /* 80354D88 00351CE8  E0 A5 00 00 */	psq_l f5, 0(r5), 0, qr0
@@ -507,8 +448,8 @@ Transform2FromMatrixData:
 /* 80354E24 00351D84  F0 A3 00 28 */	psq_st f5, 40(r3), 0, qr0
 /* 80354E28 00351D88  4E 80 00 20 */	blr
 
-.global TransformFromMatrixData
-TransformFromMatrixData:
+.global TransformFromMatrixDelta__FP12CTransform4fPC9CMatrix3fPC9CVector3f
+TransformFromMatrixDelta__FP12CTransform4fPC9CMatrix3fPC9CVector3f:
 /* 80354E2C 00351D8C  E0 05 00 00 */	psq_l f0, 0(r5), 0, qr0
 /* 80354E30 00351D90  E0 24 80 08 */	psq_l f1, 8(r4), 1, qr0
 /* 80354E34 00351D94  E0 64 80 14 */	psq_l f3, 20(r4), 1, qr0
@@ -528,8 +469,8 @@ TransformFromMatrixData:
 /* 80354E6C 00351DCC  F0 A3 00 28 */	psq_st f5, 40(r3), 0, qr0
 /* 80354E70 00351DD0  4E 80 00 20 */	blr
 
-.global nullsub_22
-nullsub_22:
+.global TransformToMtx__FRC12CTransform4f
+TransformToMtx__FRC12CTransform4f:
 /* 80354E74 00351DD4  4E 80 00 20 */	blr
 
 .global __ct__12CVirtualBoneFR12CInputStream
