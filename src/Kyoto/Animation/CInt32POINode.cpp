@@ -1,4 +1,4 @@
-#include "Kyoto/Animation/CPOINode.hpp"
+#include "Kyoto/Animation/CInt32POINode.hpp"
 #include "Kyoto/Streams/CInputStream.hpp"
 
 CInt32POINode::CInt32POINode(CInputStream& in)

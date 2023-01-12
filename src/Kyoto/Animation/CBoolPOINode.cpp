@@ -1,4 +1,4 @@
-#include "Kyoto/Animation/CPOINode.hpp"
+#include "Kyoto/Animation/CBoolPOINode.hpp"
 
 #include "Kyoto/Streams/CInputStream.hpp"
 

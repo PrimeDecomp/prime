@@ -4,8 +4,6 @@
 #include "types.h"
 
 #include "Kyoto/Animation/CCharAnimTime.hpp"
-#include "Kyoto/Particles/CParticleData.hpp"
-
 #include "rstl/string.hpp"
 
 enum EPOIType {
@@ -19,6 +17,7 @@ enum EPOIType {
   kPT_Sound = 8,
 };
 
+class CInputStream;
 class CPOINode {
 public:
   CPOINode(const rstl::string& name, ushort type, const CCharAnimTime& time, int index, bool unique,
@@ -52,73 +51,5 @@ protected:
 };
 CHECK_SIZEOF(CPOINode, 0x38)
 
-class CBoolPOINode : public CPOINode {
-public:
-  CBoolPOINode(rstl::string name, ushort type, const CCharAnimTime& time, int index, bool unique,
-               float weight, int charIdx, int flags, bool value); /*
-: CPOINode(name, type, time, index, unique, weight, charIdx, flags)
-, x38_val(value) {}
-*/
-  CBoolPOINode(CInputStream& in);
-  static CBoolPOINode CopyNodeMinusStartTime(const CBoolPOINode& node,
-                                             const CCharAnimTime& startTime);
-  bool GetValue() const { return x38_val; }
-
-private:
-  bool x38_val;
-};
-
-class CInt32POINode : public CPOINode {
-public:
-  CInt32POINode(rstl::string name, ushort type, const CCharAnimTime& time, int index, bool unique,
-                float weight, int charIdx, int flags, int value,
-                const rstl::string& locatorName); /*
-: CPOINode(name, type, time, index, unique, weight, charIdx, flags)
-, x38_val(value)
-, x3c_lctrName(locatorName) {}
-*/
-
-  explicit CInt32POINode(CInputStream& in);
-
-  static CInt32POINode CopyNodeMinusStartTime(const CInt32POINode& node,
-                                              const CCharAnimTime& startTime);
-
-  int GetValue() const { return x38_val; }
-  const rstl::string& GetLocatorName() const { return x3c_lctrName; }
-
-private:
-  int x38_val;
-  rstl::string x3c_lctrName;
-};
-
-class CParticlePOINode : public CPOINode {
-public:
-  CParticlePOINode(rstl::string name, ushort type, const CCharAnimTime& time, int index,
-                   bool unique, float weight, int charIdx, int flags, const CParticleData& data); /*
-                                                   : CPOINode(name, type, time, index, unique,
-                                                   weight, charIdx, flags) , x38_val(value)
-                                                   */
-  explicit CParticlePOINode(CInputStream& in);
-
-  const CParticleData& GetParticleData() const { return x38_data; }
-
-  static CParticlePOINode CopyNodeMinusStartTime(const CParticlePOINode& node,
-                                                 const CCharAnimTime& startTime);
-
-private:
-  CParticleData x38_data;
-};
-
-class CSoundPOINode : public CPOINode {
-public:
-  uint GetSoundId() const { return x38_sfxId; }
-  float GetFallOff() const { return x3c_falloff; }
-  float GetMaxDistance() const { return x40_maxDist; }
-
-private:
-  uint x38_sfxId;
-  float x3c_falloff;
-  float x40_maxDist;
-};
 
 #endif // _CPOINODE
