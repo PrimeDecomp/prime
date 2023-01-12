@@ -4,44 +4,10 @@
 #include "types.h"
 
 #include "Kyoto/Animation/CharacterCommon.hpp"
+#include "Kyoto/Animation/CPASAnimParm.hpp"
 
 #include "rstl/reserved_vector.hpp"
 #include "rstl/vector.hpp"
-
-class CPASAnimParm {
-public:
-  enum EParmType {
-    kPT_None = -1,
-    kPT_Int32 = 0,
-    kPT_UInt32 = 1,
-    kPT_Float = 2,
-    kPT_Bool = 3,
-    kPT_Enum = 4,
-  };
-  union UParmValue {
-    int m_int;
-    uint m_uint;
-    float m_float;
-    bool m_bool;
-  };
-  CPASAnimParm(const CPASAnimParm& other) : x0_value(other.x0_value), x4_type(other.x4_type) {}
-
-  static CPASAnimParm FromEnum(int val);
-  static CPASAnimParm FromBool(bool val);
-  static CPASAnimParm FromReal32(float val);
-  static CPASAnimParm FromUint32(uint val);
-  static CPASAnimParm FromInt32(int val);
-  static CPASAnimParm NoParameter();
-
-  int GetEnumValue() const; // { return x0_value.m_int; }
-  int GetInt32Value() const;
-  float GetReal32Value() const;
-  bool GetBoolValue() const;
-
-private:
-  UParmValue x0_value;
-  EParmType x4_type;
-};
 
 class CPASParmInfo {
 public:
