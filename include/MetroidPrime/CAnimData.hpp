@@ -3,12 +3,15 @@
 
 #include "types.h"
 
+#include "Kyoto/Animation/CBoolPOINode.hpp"
+#include "Kyoto/Animation/CCharacterInfo.hpp"
+#include "Kyoto/Animation/CInt32POINode.hpp"
+#include "Kyoto/Animation/CParticlePOINode.hpp"
+#include "Kyoto/Animation/CSoundPOINode.hpp"
 #include "MetroidPrime/ActorCommon.hpp"
 #include "MetroidPrime/CAdditiveAnimPlayback.hpp"
 #include "MetroidPrime/CAnimPlaybackParms.hpp"
-#include "Kyoto/Animation/CCharacterInfo.hpp"
 #include "MetroidPrime/CHierarchyPoseBuilder.hpp"
-#include "Kyoto/Animation/CPOINode.hpp"
 #include "MetroidPrime/CParticleDatabase.hpp"
 #include "MetroidPrime/CPoseAsTransforms.hpp"
 

@@ -1,4 +1,4 @@
-#include "Kyoto/Animation/CPOINode.hpp"
+#include "Kyoto/Animation/CParticlePOINode.hpp"
 
 CParticlePOINode::CParticlePOINode(CInputStream& in) : CPOINode(in), x38_data(in) {}
 
