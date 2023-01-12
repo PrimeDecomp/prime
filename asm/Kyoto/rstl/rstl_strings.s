@@ -10,8 +10,8 @@ lbl_ctor:
 .global "mNull__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 "mNull__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>":
 	.skip 0x2
-.global lbl_805A94DA
-lbl_805A94DA:
+.global "mNull__Q24rstl66basic_string<w,Q24rstl14char_traits<w>,Q24rstl17rmemory_allocator>"
+"mNull__Q24rstl66basic_string<w,Q24rstl14char_traits<w>,Q24rstl17rmemory_allocator>":
 	.skip 0x2
 .global lbl_805A94DC
 lbl_805A94DC:
@@ -848,7 +848,7 @@ lbl_8033D748:
 /* 8033D7E4 0033A744  A0 1F 00 00 */	lhz r0, 0(r31)
 /* 8033D7E8 0033A748  28 00 00 00 */	cmplwi r0, 0
 /* 8033D7EC 0033A74C  40 82 00 1C */	bne lbl_8033D808
-/* 8033D7F0 0033A750  38 8D A9 1A */	addi r4, r13, lbl_805A94DA@sda21
+/* 8033D7F0 0033A750  38 8D A9 1A */	addi r4, r13, "mNull__Q24rstl66basic_string<w,Q24rstl14char_traits<w>,Q24rstl17rmemory_allocator>"@sda21
 /* 8033D7F4 0033A754  38 00 00 00 */	li r0, 0
 /* 8033D7F8 0033A758  90 9E 00 00 */	stw r4, 0(r30)
 /* 8033D7FC 0033A75C  90 1E 00 08 */	stw r0, 8(r30)
@@ -1727,7 +1727,7 @@ lbl_8033E3D8:
 /* 8033E3E0 0033B340  40 82 00 14 */	bne lbl_8033E3F4
 /* 8033E3E4 0033B344  38 60 00 00 */	li r3, 0
 /* 8033E3E8 0033B348  38 00 00 01 */	li r0, 1
-/* 8033E3EC 0033B34C  B0 6D A9 1A */	sth r3, lbl_805A94DA@sda21(r13)
+/* 8033E3EC 0033B34C  B0 6D A9 1A */	sth r3, "mNull__Q24rstl66basic_string<w,Q24rstl14char_traits<w>,Q24rstl17rmemory_allocator>"@sda21(r13)
 /* 8033E3F0 0033B350  98 0D A9 21 */	stb r0, lbl_805A94E1@sda21(r13)
 lbl_8033E3F4:
 /* 8033E3F4 0033B354  88 0D A9 22 */	lbz r0, lbl_805A94E2@sda21(r13)
@@ -1754,4 +1754,3 @@ lbl_803D7A48:
 	# ROM: 0x3D4A48
 	.asciz "??(??)"
 	.balign 4
-

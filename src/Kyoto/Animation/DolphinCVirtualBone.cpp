@@ -5,7 +5,7 @@
 
 static rstl::reserved_vector< SSkinWeighting, 3 > StreamInSkinWeighting(CInputStream& in) {
   rstl::reserved_vector< SSkinWeighting, 3 > weights;
-  int weightCount = in.Get< uint >();
+  int weightCount = in.ReadInt32();
 
   if (weightCount > 3) {
     for (int i = 0; i < 3; ++i) {

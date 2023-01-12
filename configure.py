@@ -602,7 +602,7 @@ LIBS = [
             "Kyoto/CResLoader",
             ["Kyoto/rstl/rstl_map", False],
             "Kyoto/rstl/rstl_strings",
-            "Kyoto/rstl/RstlExtras",
+            ["Kyoto/rstl/RstlExtras", False],
             ["Kyoto/Streams/CInputStream", True],
             ["Kyoto/Streams/CMemoryInStream", True],
             ["Kyoto/Streams/CMemoryStreamOut", True],

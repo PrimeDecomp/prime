@@ -5233,7 +5233,7 @@ lbl_8001FCC4:
 /* 8001FCE0 0001CC40  7F C4 F3 78 */	mr r4, r30
 /* 8001FCE4 0001CC44  48 22 FA 19 */	bl GetGameData__15CSaveGameScreenFi
 /* 8001FCE8 0001CC48  80 BF 00 28 */	lwz r5, 0x28(r31)
-/* 8001FCEC 0001CC4C  38 8D A9 1A */	addi r4, r13, lbl_805A94DA@sda21
+/* 8001FCEC 0001CC4C  38 8D A9 1A */	addi r4, r13, "mNull__Q24rstl66basic_string<w,Q24rstl14char_traits<w>,Q24rstl17rmemory_allocator>"@sda21
 /* 8001FCF0 0001CC50  38 00 00 00 */	li r0, 0
 /* 8001FCF4 0001CC54  7C 7A 1B 78 */	mr r26, r3
 /* 8001FCF8 0001CC58  54 A3 18 38 */	slwi r3, r5, 3

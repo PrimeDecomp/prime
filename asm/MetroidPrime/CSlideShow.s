@@ -1446,7 +1446,7 @@ lbl_80298D00:
 lbl_80298D04:
 /* 80298D04 00295C64  90 1F 00 F0 */	stw r0, 0xf0(r31)
 /* 80298D08 00295C68  38 00 00 00 */	li r0, 0
-/* 80298D0C 00295C6C  38 8D A9 1A */	addi r4, r13, lbl_805A94DA@sda21
+/* 80298D0C 00295C6C  38 8D A9 1A */	addi r4, r13, "mNull__Q24rstl66basic_string<w,Q24rstl14char_traits<w>,Q24rstl17rmemory_allocator>"@sda21
 /* 80298D10 00295C70  38 61 01 E0 */	addi r3, r1, 0x1e0
 /* 80298D14 00295C74  90 81 01 E0 */	stw r4, 0x1e0(r1)
 /* 80298D18 00295C78  38 80 01 00 */	li r4, 0x100

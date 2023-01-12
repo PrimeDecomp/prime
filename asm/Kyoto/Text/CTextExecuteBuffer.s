@@ -2137,7 +2137,7 @@ __ct__17CImageInstructionFRC13CFontImageDef:
 /* 8030392C 0030088C  38 03 F7 98 */	addi r0, r3, lbl_803EF798@l
 /* 80303930 00300890  38 7F 00 04 */	addi r3, r31, 4
 /* 80303934 00300894  90 1F 00 00 */	stw r0, 0(r31)
-/* 80303938 00300898  4B FC 50 AD */	bl sub_802c89e4
+/* 80303938 00300898  4B FC 50 AD */	bl __ct__13CFontImageDefFRC13CFontImageDef
 /* 8030393C 0030089C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80303940 003008A0  7F E3 FB 78 */	mr r3, r31
 /* 80303944 003008A4  83 E1 00 0C */	lwz r31, 0xc(r1)

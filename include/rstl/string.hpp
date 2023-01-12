@@ -26,6 +26,7 @@ class basic_string {
   uint x8_size;
   uint _pad; // Alloc?
 
+  void internal_prepare_to_write(int len, bool);
   void internal_allocate(int size);
   // {
   //     x4_cow = reinterpret_cast<COWData*>(new uchar[size * sizeof(_CharTp) +
@@ -99,6 +100,8 @@ public:
   ~basic_string() { internal_dereference(); }
 
   size_t size() const { return x8_size; }
+  void reserve(int len) { internal_prepare_to_write(len, true); }
+
   void assign(const basic_string&);
   basic_string& operator=(const basic_string& other) {
     assign(other);
@@ -107,13 +110,15 @@ public:
   basic_string operator+(const _CharTp*);
   void append(const basic_string& other);
   void append(int, _CharTp);
+  void append(const _CharTp*, int);
 
   int _eq_helper(const basic_string& other) const;
   bool operator==(const basic_string& other) const;
   bool operator<(const basic_string& other) const;
 
-  const char* data() const { return x0_ptr; }
+  const _CharTp* data() const { return x0_ptr; }
   void PutTo(COutputStream& out) const;
+  const _CharTp at(int idx) const { return data()[idx]; }
 };
 
 template < typename _CharTp, typename Traits, typename Alloc >
