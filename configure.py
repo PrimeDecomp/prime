@@ -500,7 +500,7 @@ LIBS = [
             ["Kyoto/Animation/CPrimitive", True],
             "Kyoto/Animation/CSequenceHelper",
             ["Kyoto/Animation/CTransition", True],
-            "Kyoto/Animation/CTransitionManager",
+            ["Kyoto/Animation/CTransitionManager", True],
             "Kyoto/Animation/CTreeUtils",
             "Kyoto/Animation/IMetaAnim",
             ["Kyoto/Audio/CSfxHandle", True],
