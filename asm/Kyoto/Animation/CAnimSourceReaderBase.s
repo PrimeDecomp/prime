@@ -1594,11 +1594,11 @@ lbl_802F0D70:
 /* 802F0DA8 002EDD08  38 7C 00 08 */	addi r3, r28, 8
 /* 802F0DAC 002EDD0C  48 04 CF B1 */	bl "assign__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>FRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 /* 802F0DB0 002EDD10  A0 01 00 48 */	lhz r0, 0x48(r1)
-/* 802F0DB4 002EDD14  3C 80 80 3E */	lis r4, lbl_803D9B68@ha
+/* 802F0DB4 002EDD14  3C 80 80 3E */	lis r4, __vt__12CBoolPOINode@ha
 /* 802F0DB8 002EDD18  3C 60 80 3E */	lis r3, __vt__8CPOINode@ha
 /* 802F0DBC 002EDD1C  28 1D 00 00 */	cmplwi r29, 0
 /* 802F0DC0 002EDD20  B0 1C 00 18 */	sth r0, 0x18(r28)
-/* 802F0DC4 002EDD24  38 84 9B 68 */	addi r4, r4, lbl_803D9B68@l
+/* 802F0DC4 002EDD24  38 84 9B 68 */	addi r4, r4, __vt__12CBoolPOINode@l
 /* 802F0DC8 002EDD28  38 03 9B 8C */	addi r0, r3, __vt__8CPOINode@l
 /* 802F0DCC 002EDD2C  80 A1 00 4C */	lwz r5, 0x4c(r1)
 /* 802F0DD0 002EDD30  80 61 00 50 */	lwz r3, 0x50(r1)
