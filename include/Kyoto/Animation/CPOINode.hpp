@@ -27,11 +27,13 @@ public:
   virtual ~CPOINode() {}
 
   const rstl::string& GetString() const { return x8_name; }
-  EPOIType GetPoiType() const { return static_cast< EPOIType >(x18_type); }
+  const EPOIType GetPoiType() const { return static_cast< EPOIType >(x18_type); }
   const CCharAnimTime& GetTime() const { return x1c_time; }
-  float GetWeight() const { return x2c_weight; }
-  int GetCharacterIndex() const { return x30_charIdx; }
-  int GetFlags() const { return x34_flags; }
+  const int GetIndex() const { return x24_index; }
+  const bool GetSaveState() const { return x28_unique; }
+  const float GetWeight() const { return x2c_weight; }
+  const int GetCharacterIndex() const { return x30_charIdx; }
+  const int GetFlags() const { return x34_flags; }
 
   bool operator>(const CPOINode& other) const;
   bool operator<(const CPOINode& other) const;
@@ -64,8 +66,18 @@ private:
 
 class CInt32POINode : public CPOINode {
 public:
-  // __ct__13CInt32POINodeFQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>UsRC13CCharAnimTimeibfiiiRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>
-  // CopyNodeMinusStartTime__13CInt32POINodeFRC13CInt32POINodeRC13CCharAnimTime
+  CInt32POINode(rstl::string name, ushort type, const CCharAnimTime& time, int index, bool unique,
+                float weight, int charIdx, int flags, int value,
+                const rstl::string& locatorName); /*
+: CPOINode(name, type, time, index, unique, weight, charIdx, flags)
+, x38_val(value)
+, x3c_lctrName(locatorName) {}
+*/
+
+  explicit CInt32POINode(CInputStream& in);
+
+  static CInt32POINode CopyNodeMinusStartTime(const CInt32POINode& node,
+                                              const CCharAnimTime& startTime);
 
   int GetValue() const { return x38_val; }
   const rstl::string& GetLocatorName() const { return x3c_lctrName; }
