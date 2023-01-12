@@ -3,18 +3,13 @@
 
 #include "types.h"
 
+#include "Kyoto/Animation/CPASAnimInfo.hpp"
 #include "Kyoto/Animation/CPASAnimParm.hpp"
 #include "Kyoto/Animation/CPASParmInfo.hpp"
 #include "Kyoto/Animation/CharacterCommon.hpp"
 
 #include "rstl/reserved_vector.hpp"
 #include "rstl/vector.hpp"
-
-class CPASAnimInfo {
-private:
-  uint x0_id;
-  rstl::reserved_vector< CPASAnimParm::UParmValue, 8 > x4_parms;
-};
 
 class CPASAnimState {
 public:

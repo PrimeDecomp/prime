@@ -492,7 +492,7 @@ LIBS = [
             "Kyoto/Animation/CMetaTransPhaseTrans",
             "Kyoto/Animation/CMetaTransSnap",
             "Kyoto/Animation/CMetaTransTrans",
-            "Kyoto/Animation/CPASAnimInfo",
+            ["Kyoto/Animation/CPASAnimInfo", True],
             ["Kyoto/Animation/CPASAnimParm", True],
             "Kyoto/Animation/CPASAnimState",
             "Kyoto/Animation/CPASDatabase",
