@@ -27,6 +27,19 @@ public:
   void TestLargestFont(int monoW, int monoH, int baseline);
   void PageInvoke(CFontRenderState& state, CTextRenderBuffer* buf) const;
 
+  int GetOutputX() const { return x4_offsetX; }
+  int GetOutputY() const { return x8_offsetY; }
+  int GetOutputWidth() const { return xc_blockExtentX; }
+  int GetOutputHeight() const { return x10_blockExtentY; }
+  ETextDirection GetTextDirection() const { return x14_dir; }
+  EJustification GetJustification() const { return x18_justification; }
+  EVerticalJustification GetVerticalJustification() const { return x1c_vertJustification; }
+  int GetLargestFontWidth() const { return x20_largestMonoW; }
+  int GetLargestFontHeight() const { return x24_largestMonoH; }
+  int GetLineX() const { return x2c_lineX; }
+  int GetLineY() const { return x30_lineY; }
+  int GetLines() const { return x34_lineCount; }
+
 private:
   int x4_offsetX;
   int x8_offsetY;
