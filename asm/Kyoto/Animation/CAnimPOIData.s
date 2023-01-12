@@ -805,11 +805,11 @@ lbl_802EC4B4:
 /* 802EC568 002E94C8  7F 23 CB 78 */	mr r3, r25
 /* 802EC56C 002E94CC  7F A4 EB 78 */	mr r4, r29
 /* 802EC570 002E94D0  4B FF 0B E5 */	bl sub_802dd154
-/* 802EC574 002E94D4  3C 80 80 3E */	lis r4, lbl_803D9B68@ha
+/* 802EC574 002E94D4  3C 80 80 3E */	lis r4, __vt__12CBoolPOINode@ha
 /* 802EC578 002E94D8  3C 60 80 3E */	lis r3, __vt__8CPOINode@ha
 /* 802EC57C 002E94DC  3B 81 00 14 */	addi r28, r1, 0x14
 /* 802EC580 002E94E0  3B E1 00 08 */	addi r31, r1, 8
-/* 802EC584 002E94E4  3A E4 9B 68 */	addi r23, r4, lbl_803D9B68@l
+/* 802EC584 002E94E4  3A E4 9B 68 */	addi r23, r4, __vt__12CBoolPOINode@l
 /* 802EC588 002E94E8  3B 03 9B 8C */	addi r24, r3, __vt__8CPOINode@l
 /* 802EC58C 002E94EC  3B 60 00 00 */	li r27, 0
 /* 802EC590 002E94F0  48 00 00 F4 */	b lbl_802EC684
@@ -846,8 +846,8 @@ lbl_802EC5D4:
 /* 802EC600 002E9560  B0 1E 00 04 */	sth r0, 4(r30)
 /* 802EC604 002E9564  48 05 1B 5D */	bl "__ct__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>FRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 /* 802EC608 002E9568  A0 81 00 24 */	lhz r4, 0x24(r1)
-/* 802EC60C 002E956C  3C 60 80 3E */	lis r3, lbl_803D9B68@ha
-/* 802EC610 002E9570  38 03 9B 68 */	addi r0, r3, lbl_803D9B68@l
+/* 802EC60C 002E956C  3C 60 80 3E */	lis r3, __vt__12CBoolPOINode@ha
+/* 802EC610 002E9570  38 03 9B 68 */	addi r0, r3, __vt__12CBoolPOINode@l
 /* 802EC614 002E9574  B0 9E 00 18 */	sth r4, 0x18(r30)
 /* 802EC618 002E9578  C0 01 00 28 */	lfs f0, 0x28(r1)
 /* 802EC61C 002E957C  D0 1E 00 1C */	stfs f0, 0x1c(r30)

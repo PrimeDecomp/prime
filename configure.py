@@ -520,7 +520,7 @@ LIBS = [
             "Kyoto/Animation/CAnimTreeTimeScale",
             "Kyoto/Animation/CAnimTreeTransition",
             "Kyoto/Animation/CAnimTreeTweenBase",
-            "Kyoto/Animation/CBoolPOINode",
+            ["Kyoto/Animation/CBoolPOINode", True],
             "Kyoto/Animation/CCharAnimMemoryMetrics",
             "Kyoto/Animation/CCharLayoutInfo",
             "Kyoto/Animation/CFBStreamedAnimReader",

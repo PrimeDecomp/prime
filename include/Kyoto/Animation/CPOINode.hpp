@@ -54,10 +54,14 @@ CHECK_SIZEOF(CPOINode, 0x38)
 
 class CBoolPOINode : public CPOINode {
 public:
-  // __ct__12CBoolPOINodeFQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>UsRC13CCharAnimTimeibfiib
-  // __ct__12CBoolPOINodeFR12CInputStream
-  // CopyNodeMinusStartTime__12CBoolPOINodeFRC12CBoolPOINodeRC13CCharAnimTime
-
+  CBoolPOINode(rstl::string name, ushort type, const CCharAnimTime& time, int index,
+                             bool unique, float weight, int charIdx, int flags, bool value); /*
+: CPOINode(name, type, time, index, unique, weight, charIdx, flags)
+, x38_val(value) {}
+*/
+  CBoolPOINode(CInputStream& in);
+  static CBoolPOINode CopyNodeMinusStartTime(const CBoolPOINode& node,
+                                             const CCharAnimTime& startTime);
   bool GetValue() const { return x38_val; }
 
 private:

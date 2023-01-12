@@ -55,9 +55,9 @@ __ct__12CBoolPOINodeFR12CInputStream:
 /* 802F7B68 002F4AC8  93 C1 00 08 */	stw r30, 8(r1)
 /* 802F7B6C 002F4ACC  7C 7E 1B 78 */	mr r30, r3
 /* 802F7B70 002F4AD0  48 00 55 ED */	bl __ct__8CPOINodeFR12CInputStream
-/* 802F7B74 002F4AD4  3C 80 80 3E */	lis r4, lbl_803D9B68@ha
+/* 802F7B74 002F4AD4  3C 80 80 3E */	lis r4, __vt__12CBoolPOINode@ha
 /* 802F7B78 002F4AD8  7F E3 FB 78 */	mr r3, r31
-/* 802F7B7C 002F4ADC  38 04 9B 68 */	addi r0, r4, lbl_803D9B68@l
+/* 802F7B7C 002F4ADC  38 04 9B 68 */	addi r0, r4, __vt__12CBoolPOINode@l
 /* 802F7B80 002F4AE0  90 1E 00 00 */	stw r0, 0(r30)
 /* 802F7B84 002F4AE4  48 04 71 59 */	bl ReadBool__12CInputStreamFv
 /* 802F7B88 002F4AE8  98 7E 00 38 */	stb r3, 0x38(r30)

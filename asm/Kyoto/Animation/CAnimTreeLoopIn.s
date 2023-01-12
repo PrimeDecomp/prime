@@ -1380,8 +1380,8 @@ lbl_802D999C:
 /* 802D99BC 002D691C  B0 1D 00 04 */	sth r0, 4(r29)
 /* 802D99C0 002D6920  48 06 47 A1 */	bl "__ct__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>FRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 /* 802D99C4 002D6924  A0 9C 00 18 */	lhz r4, 0x18(r28)
-/* 802D99C8 002D6928  3C 60 80 3E */	lis r3, lbl_803D9B68@ha
-/* 802D99CC 002D692C  38 03 9B 68 */	addi r0, r3, lbl_803D9B68@l
+/* 802D99C8 002D6928  3C 60 80 3E */	lis r3, __vt__12CBoolPOINode@ha
+/* 802D99CC 002D692C  38 03 9B 68 */	addi r0, r3, __vt__12CBoolPOINode@l
 /* 802D99D0 002D6930  B0 9D 00 18 */	sth r4, 0x18(r29)
 /* 802D99D4 002D6934  C0 1C 00 1C */	lfs f0, 0x1c(r28)
 /* 802D99D8 002D6938  D0 1D 00 1C */	stfs f0, 0x1c(r29)
@@ -1686,7 +1686,7 @@ lbl_802D9D90:
 /* 802D9E00 002D6D60  3C 80 80 3E */	lis r4, __vt__8CPOINode@ha
 /* 802D9E04 002D6D64  80 01 00 0C */	lwz r0, 0xc(r1)
 /* 802D9E08 002D6D68  1F 1B 00 3C */	mulli r24, r27, 0x3c
-/* 802D9E0C 002D6D6C  3C 60 80 3E */	lis r3, lbl_803D9B68@ha
+/* 802D9E0C 002D6D6C  3C 60 80 3E */	lis r3, __vt__12CBoolPOINode@ha
 /* 802D9E10 002D6D70  D0 01 00 10 */	stfs f0, 0x10(r1)
 /* 802D9E14 002D6D74  3A 21 00 A0 */	addi r17, r1, 0xa0
 /* 802D9E18 002D6D78  90 01 00 14 */	stw r0, 0x14(r1)
@@ -1695,7 +1695,7 @@ lbl_802D9D90:
 /* 802D9E24 002D6D84  3A 61 00 28 */	addi r19, r1, 0x28
 /* 802D9E28 002D6D88  3A 41 00 64 */	addi r18, r1, 0x64
 /* 802D9E2C 002D6D8C  3A C4 9B 8C */	addi r22, r4, __vt__8CPOINode@l
-/* 802D9E30 002D6D90  3A E3 9B 68 */	addi r23, r3, lbl_803D9B68@l
+/* 802D9E30 002D6D90  3A E3 9B 68 */	addi r23, r3, __vt__12CBoolPOINode@l
 /* 802D9E34 002D6D94  48 00 02 24 */	b lbl_802DA058
 lbl_802D9E38:
 /* 802D9E38 002D6D98  80 1C 00 0C */	lwz r0, 0xc(r28)
@@ -1730,9 +1730,9 @@ lbl_802D9E38:
 /* 802D9EAC 002D6E0C  48 06 EB C1 */	bl __gt__13CCharAnimTimeCFRC13CCharAnimTime
 /* 802D9EB0 002D6E10  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 802D9EB4 002D6E14  41 82 00 30 */	beq lbl_802D9EE4
-/* 802D9EB8 002D6E18  3C 80 80 3E */	lis r4, lbl_803D9B68@ha
+/* 802D9EB8 002D6E18  3C 80 80 3E */	lis r4, __vt__12CBoolPOINode@ha
 /* 802D9EBC 002D6E1C  3C 60 80 3E */	lis r3, __vt__8CPOINode@ha
-/* 802D9EC0 002D6E20  38 04 9B 68 */	addi r0, r4, lbl_803D9B68@l
+/* 802D9EC0 002D6E20  38 04 9B 68 */	addi r0, r4, __vt__12CBoolPOINode@l
 /* 802D9EC4 002D6E24  28 11 00 00 */	cmplwi r17, 0
 /* 802D9EC8 002D6E28  90 01 00 98 */	stw r0, 0x98(r1)
 /* 802D9ECC 002D6E2C  38 03 9B 8C */	addi r0, r3, __vt__8CPOINode@l
@@ -1762,9 +1762,9 @@ lbl_802D9EE4:
 /* 802D9F28 002D6E88  7E 64 9B 78 */	mr r4, r19
 /* 802D9F2C 002D6E8C  B0 01 00 60 */	sth r0, 0x60(r1)
 /* 802D9F30 002D6E90  48 06 42 31 */	bl "__ct__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>FRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
-/* 802D9F34 002D6E94  3C 60 80 3E */	lis r3, lbl_803D9B68@ha
+/* 802D9F34 002D6E94  3C 60 80 3E */	lis r3, __vt__12CBoolPOINode@ha
 /* 802D9F38 002D6E98  A1 41 00 38 */	lhz r10, 0x38(r1)
-/* 802D9F3C 002D6E9C  38 83 9B 68 */	addi r4, r3, lbl_803D9B68@l
+/* 802D9F3C 002D6E9C  38 83 9B 68 */	addi r4, r3, __vt__12CBoolPOINode@l
 /* 802D9F40 002D6EA0  C0 21 00 3C */	lfs f1, 0x3c(r1)
 /* 802D9F44 002D6EA4  81 21 00 40 */	lwz r9, 0x40(r1)
 /* 802D9F48 002D6EA8  3C 60 80 3E */	lis r3, __vt__8CPOINode@ha
@@ -1800,12 +1800,12 @@ lbl_802D9FA8:
 /* 802D9FBC 002D6F1C  38 75 00 08 */	addi r3, r21, 8
 /* 802D9FC0 002D6F20  48 06 3D 9D */	bl "assign__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>FRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 /* 802D9FC4 002D6F24  A0 01 00 74 */	lhz r0, 0x74(r1)
-/* 802D9FC8 002D6F28  3C 80 80 3E */	lis r4, lbl_803D9B68@ha
+/* 802D9FC8 002D6F28  3C 80 80 3E */	lis r4, __vt__12CBoolPOINode@ha
 /* 802D9FCC 002D6F2C  3C 60 80 3E */	lis r3, __vt__8CPOINode@ha
 /* 802D9FD0 002D6F30  28 12 00 00 */	cmplwi r18, 0
 /* 802D9FD4 002D6F34  B0 15 00 18 */	sth r0, 0x18(r21)
 /* 802D9FD8 002D6F38  38 03 9B 8C */	addi r0, r3, __vt__8CPOINode@l
-/* 802D9FDC 002D6F3C  38 84 9B 68 */	addi r4, r4, lbl_803D9B68@l
+/* 802D9FDC 002D6F3C  38 84 9B 68 */	addi r4, r4, __vt__12CBoolPOINode@l
 /* 802D9FE0 002D6F40  3B FF 00 01 */	addi r31, r31, 1
 /* 802D9FE4 002D6F44  80 A1 00 78 */	lwz r5, 0x78(r1)
 /* 802D9FE8 002D6F48  80 61 00 7C */	lwz r3, 0x7c(r1)
