@@ -496,7 +496,7 @@ LIBS = [
             ["Kyoto/Animation/CPASAnimParm", True],
             "Kyoto/Animation/CPASAnimState",
             "Kyoto/Animation/CPASDatabase",
-            "Kyoto/Animation/CPASParmInfo",
+            ["Kyoto/Animation/CPASParmInfo", True],
             ["Kyoto/Animation/CPrimitive", True],
             "Kyoto/Animation/CSequenceHelper",
             ["Kyoto/Animation/CTransition", True],

@@ -3,28 +3,12 @@
 
 #include "types.h"
 
-#include "Kyoto/Animation/CharacterCommon.hpp"
 #include "Kyoto/Animation/CPASAnimParm.hpp"
+#include "Kyoto/Animation/CPASParmInfo.hpp"
+#include "Kyoto/Animation/CharacterCommon.hpp"
 
 #include "rstl/reserved_vector.hpp"
 #include "rstl/vector.hpp"
-
-class CPASParmInfo {
-public:
-  enum EWeightFunction {
-    kWF_ExactMatch,
-    kWF_PercentError,
-    kWF_AngularPercent,
-    kWF_NoWeight,
-  };
-
-private:
-  CPASAnimParm::EParmType x0_type;
-  EWeightFunction x4_weightFunction;
-  float x8_weight;
-  CPASAnimParm::UParmValue xc_min;
-  CPASAnimParm::UParmValue x10_max;
-};
 
 class CPASAnimInfo {
 private:
@@ -37,7 +21,7 @@ public:
   CPASAnimParm GetAnimParmData(int, unsigned int) const;
 
   pas::EAnimationState GetStateId() const { return x0_id; }
-  bool HasAnims() const { return static_cast<uint>(x14_anims.size()) != 0; }
+  bool HasAnims() const { return static_cast< uint >(x14_anims.size()) != 0; }
 
 private:
   pas::EAnimationState x0_id;
