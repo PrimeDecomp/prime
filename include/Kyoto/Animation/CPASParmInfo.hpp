@@ -16,7 +16,7 @@ public:
 
   CPASParmInfo(CInputStream& in);
 
-  CPASAnimInfo::EParmType GetParameterType() const { return x0_type; }
+  CPASAnimParm::EParmType GetParameterType() const { return x0_type; }
   EWeightFunction GetWeightFunction() const { return x4_weightFunction; }
   float GetWeight() const { return x8_weight; }
   CPASAnimParm::UParmValue GetParameterMinValue() const { return xc_min; }
