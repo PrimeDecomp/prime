@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803ED8A8
-lbl_803ED8A8:
+.global __vt__16CWordInstruction
+__vt__16CWordInstruction:
 	# ROM: 0x3EA8A8
 	.4byte 0
 	.4byte 0
@@ -25,8 +25,8 @@ __dt__16CWordInstructionFv:
 /* 80305BF4 00302B54  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 80305BF8 00302B58  7C 7F 1B 79 */	or. r31, r3, r3
 /* 80305BFC 00302B5C  41 82 00 30 */	beq lbl_80305C2C
-/* 80305C00 00302B60  3C 60 80 3F */	lis r3, lbl_803ED8A8@ha
-/* 80305C04 00302B64  38 03 D8 A8 */	addi r0, r3, lbl_803ED8A8@l
+/* 80305C00 00302B60  3C 60 80 3F */	lis r3, __vt__16CWordInstruction@ha
+/* 80305C04 00302B64  38 03 D8 A8 */	addi r0, r3, __vt__16CWordInstruction@l
 /* 80305C08 00302B68  90 1F 00 00 */	stw r0, 0(r31)
 /* 80305C0C 00302B6C  41 82 00 10 */	beq lbl_80305C1C
 /* 80305C10 00302B70  3C 60 80 3E */	lis r3, __vt__12CInstruction@ha

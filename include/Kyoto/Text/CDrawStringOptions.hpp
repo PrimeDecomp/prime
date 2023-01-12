@@ -10,6 +10,7 @@ public:
   CDrawStringOptions();
 
   void SetTextDirection(ETextDirection dir) { x0_direction = dir; }
+  ETextDirection GetTextDirection() const { return x0_direction; }
   void SetPaletteEntry(int idx, uint color) { x4_colors[idx] = color; }
 private:
   ETextDirection x0_direction;

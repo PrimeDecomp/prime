@@ -1158,10 +1158,10 @@ MoveWordLTR__18CTextExecuteBufferFv:
 /* 80302B34 002FFA94  7C 7E 1B 79 */	or. r30, r3, r3
 /* 80302B38 002FFA98  41 82 00 1C */	beq .L_80302B54
 /* 80302B3C 002FFA9C  3C 80 80 3E */	lis r4, __vt__12CInstruction@ha
-/* 80302B40 002FFAA0  3C 60 80 3F */	lis r3, lbl_803ED8A8@ha
+/* 80302B40 002FFAA0  3C 60 80 3F */	lis r3, __vt__16CWordInstruction@ha
 /* 80302B44 002FFAA4  38 04 9A 6C */	addi r0, r4, __vt__12CInstruction@l
 /* 80302B48 002FFAA8  90 1E 00 00 */	stw r0, 0(r30)
-/* 80302B4C 002FFAAC  38 03 D8 A8 */	addi r0, r3, lbl_803ED8A8@l
+/* 80302B4C 002FFAAC  38 03 D8 A8 */	addi r0, r3, __vt__16CWordInstruction@l
 /* 80302B50 002FFAB0  90 1E 00 00 */	stw r0, 0(r30)
 .L_80302B54:
 /* 80302B54 002FFAB4  3C 80 80 3D */	lis r4, lbl_803D6E90@ha
@@ -1348,10 +1348,10 @@ StartNewWord__18CTextExecuteBufferFv:
 /* 80302DE8 002FFD48  7C 7F 1B 79 */	or. r31, r3, r3
 /* 80302DEC 002FFD4C  41 82 00 1C */	beq .L_80302E08
 /* 80302DF0 002FFD50  3C 80 80 3E */	lis r4, __vt__12CInstruction@ha
-/* 80302DF4 002FFD54  3C 60 80 3F */	lis r3, lbl_803ED8A8@ha
+/* 80302DF4 002FFD54  3C 60 80 3F */	lis r3, __vt__16CWordInstruction@ha
 /* 80302DF8 002FFD58  38 04 9A 6C */	addi r0, r4, __vt__12CInstruction@l
 /* 80302DFC 002FFD5C  90 1F 00 00 */	stw r0, 0(r31)
-/* 80302E00 002FFD60  38 03 D8 A8 */	addi r0, r3, lbl_803ED8A8@l
+/* 80302E00 002FFD60  38 03 D8 A8 */	addi r0, r3, __vt__16CWordInstruction@l
 /* 80302E04 002FFD64  90 1F 00 00 */	stw r0, 0(r31)
 .L_80302E08:
 /* 80302E08 002FFD68  3C 80 80 3D */	lis r4, lbl_803D6E90@ha

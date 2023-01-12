@@ -14,7 +14,7 @@ public:
   bool IsFinishedLoading();
 
   CDrawStringOptions& GetOptions() { return x0_drawStringOptions; }
-  const TToken<CRasterFont>& GetFont() const { return *x48_font; }
+  TToken<CRasterFont>& GetFont() { return *x48_font; }
   rstl::vector<CTextColor>& GetColors() { return x54_colors; }
   rstl::vector<bool>& GetOverride() { return x64_colorOverrides; }
   void SetLineSpacing(float spacing) { x74_lineSpacing = spacing; }
