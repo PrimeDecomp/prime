@@ -54,8 +54,8 @@ CHECK_SIZEOF(CPOINode, 0x38)
 
 class CBoolPOINode : public CPOINode {
 public:
-  CBoolPOINode(rstl::string name, ushort type, const CCharAnimTime& time, int index,
-                             bool unique, float weight, int charIdx, int flags, bool value); /*
+  CBoolPOINode(rstl::string name, ushort type, const CCharAnimTime& time, int index, bool unique,
+               float weight, int charIdx, int flags, bool value); /*
 : CPOINode(name, type, time, index, unique, weight, charIdx, flags)
 , x38_val(value) {}
 */
