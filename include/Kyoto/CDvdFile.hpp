@@ -5,6 +5,7 @@
 
 #include "Kyoto/IDvdRequest.hpp"
 
+struct DVDFileInfo;
 class CDvdFile {
 public:
   CDvdFile(const char* name);
@@ -14,6 +15,9 @@ public:
   IDvdRequest* SyncRead(void* buf, uint len);
 
   static bool FileExists(const char*);
+
+  static void DVDARAMXferCallback(long, DVDFileInfo*);
+  void HandleDVDInterrupt();
 
 private:
   uchar pad[0x14];
