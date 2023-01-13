@@ -654,7 +654,7 @@ LIBS = [
             "Kyoto/DolphinCMemoryCardSys",
             ["Kyoto/Input/DolphinIController", True],
             ["Kyoto/Input/CDolphinController", True],
-            "Kyoto/DolphinCDvdFile",
+            ["Kyoto/DolphinCDvdFile", False],
             "Kyoto/Alloc/CMediumAllocPool",
             ["Kyoto/Alloc/CSmallAllocPool", True],
             ["Kyoto/Alloc/CGameAllocator", False],
@@ -752,7 +752,7 @@ LIBS = [
         "host": False,
         "objects": [
             "Dolphin/dvd/dvdlow",
-            "Dolphin/dvd/dvdfs",
+            ["Dolphin/dvd/dvdfs", True],
             ["Dolphin/dvd/dvd", False],
             "Dolphin/dvd/dvdqueue",
             "Dolphin/dvd/dvderror",
