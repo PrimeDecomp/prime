@@ -54,7 +54,9 @@
     "osbootinfo.h": "c",
     "assert.h": "c",
     "math.h": "c",
-    "gxpriv.h": "c"
+    "gxpriv.h": "c",
+    "osfastcast.h": "c",
+    "osfont.h": "c"
   },
   "files.autoSave": "onFocusChange",
   "files.insertFinalNewline": true,
