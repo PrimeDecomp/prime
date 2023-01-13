@@ -751,7 +751,7 @@ LIBS = [
         "cflags": "$cflags_base",
         "host": False,
         "objects": [
-            "Dolphin/dvd/dvdlow",
+            ["Dolphin/dvd/dvdlow", False],
             ["Dolphin/dvd/dvdfs", True],
             ["Dolphin/dvd/dvd", False],
             ["Dolphin/dvd/dvdqueue", True],
