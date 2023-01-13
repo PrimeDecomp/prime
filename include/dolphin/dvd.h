@@ -87,7 +87,7 @@ typedef struct {
 
 void DVDInit();
 BOOL DVDClose(DVDFileInfo* f);
-void DVDSetAutoFatalMessaging(BOOL);
+BOOL DVDSetAutoFatalMessaging(BOOL);
 void DVDReset();
 s32 DVDCancel(DVDCommandBlock* block);
 
