@@ -64,7 +64,7 @@ LIBS = [
             ["MetroidPrime/Tweaks/CTweakPlayerControl", True],
             "MetroidPrime/Tweaks/CTweakPlayerGun",
             "MetroidPrime/CPauseScreen",
-            "MetroidPrime/Tweaks/CTweakGui",
+            ["MetroidPrime/Tweaks/CTweakGui", False],
             ["MetroidPrime/ScriptObjects/CScriptActor", False],
             ["MetroidPrime/ScriptObjects/CScriptTrigger", False],
             ["MetroidPrime/ScriptObjects/CScriptWaypoint", True],
