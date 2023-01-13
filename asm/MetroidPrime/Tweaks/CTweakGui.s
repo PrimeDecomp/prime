@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803DA440
-lbl_803DA440:
+.global __vt__9CTweakGui
+__vt__9CTweakGui:
 	# ROM: 0x3D7440
 	.4byte 0
 	.4byte 0
@@ -127,9 +127,9 @@ __ct__9CTweakGuiFR12CInputStream:
 /* 80074360 000712C0  94 21 FF 90 */	stwu r1, -0x70(r1)
 /* 80074364 000712C4  7C 08 02 A6 */	mflr r0
 /* 80074368 000712C8  3C C0 80 3E */	lis r6, __vt__12ITweakObject@ha
-/* 8007436C 000712CC  3C A0 80 3E */	lis r5, lbl_803DA440@ha
+/* 8007436C 000712CC  3C A0 80 3E */	lis r5, __vt__9CTweakGui@ha
 /* 80074370 000712D0  90 01 00 74 */	stw r0, 0x74(r1)
-/* 80074374 000712D4  38 05 A4 40 */	addi r0, r5, lbl_803DA440@l
+/* 80074374 000712D4  38 05 A4 40 */	addi r0, r5, __vt__9CTweakGui@l
 /* 80074378 000712D8  93 E1 00 6C */	stw r31, 0x6c(r1)
 /* 8007437C 000712DC  7C 9F 23 78 */	mr r31, r4
 /* 80074380 000712E0  93 C1 00 68 */	stw r30, 0x68(r1)
@@ -808,9 +808,9 @@ __dt__9CTweakGuiFv:
 /* 80074DD0 00071D30  93 C1 00 08 */	stw r30, 8(r1)
 /* 80074DD4 00071D34  7C 7E 1B 79 */	or. r30, r3, r3
 /* 80074DD8 00071D38  41 82 01 40 */	beq lbl_80074F18
-/* 80074DDC 00071D3C  3C 60 80 3E */	lis r3, lbl_803DA440@ha
+/* 80074DDC 00071D3C  3C 60 80 3E */	lis r3, __vt__9CTweakGui@ha
 /* 80074DE0 00071D40  34 1E 03 34 */	addic. r0, r30, 0x334
-/* 80074DE4 00071D44  38 03 A4 40 */	addi r0, r3, lbl_803DA440@l
+/* 80074DE4 00071D44  38 03 A4 40 */	addi r0, r3, __vt__9CTweakGui@l
 /* 80074DE8 00071D48  90 1E 00 00 */	stw r0, 0(r30)
 /* 80074DEC 00071D4C  41 82 00 0C */	beq lbl_80074DF8
 /* 80074DF0 00071D50  38 7E 03 34 */	addi r3, r30, 0x334

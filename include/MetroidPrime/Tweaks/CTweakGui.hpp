@@ -3,15 +3,22 @@
 
 #include "MetroidPrime/Tweaks/ITweakObject.hpp"
 
+#include "Kyoto/TOneStatic.hpp"
+
 #include "Kyoto/Graphics/CColor.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
 
 #include "rstl/reserved_vector.hpp"
 #include "rstl/string.hpp"
 
-class CTweakGui : public ITweakObject {
+class CTweakGui : public ITweakObject, public TOneStatic< CTweakGui > {
 public:
-  enum EHudVisMode { kHud_Zero, kHud_One, kHud_Two, kHud_Three };
+  enum EHudVisMode {
+    kHud_Zero,
+    kHud_One,
+    kHud_Two,
+    kHud_Three,
+  };
 
   enum EHelmetVisMode {
     kHelmet_ReducedUpdate,
@@ -21,7 +28,9 @@ public:
     kHelmet_GlowHelmetDeco,
     kHelmet_HelmetOnly
   };
-  
+
+  CTweakGui(CInputStream& in);
+
   float GetMapAlphaInterpolant() const { return x8_mapAlphaInterp; }
   float GetPauseBlurFactor() const { return xc_pauseBlurFactor; }
   float GetRadarXYRadius() const { return x10_radarXYRadius; }
@@ -80,9 +89,13 @@ public:
   float GetFaceReflectionHeight() const { return x148_faceReflectionHeight; }
   float GetFaceReflectionAspect() const { return x14c_faceReflectionAspect; }
   float GetMissileWarningPulseTime() const { return x1a0_missileWarningPulseTime; }
-  float GetExplosionLightFalloffMultConstant() const { return x1a4_explosionLightFalloffMultConstant; }
+  float GetExplosionLightFalloffMultConstant() const {
+    return x1a4_explosionLightFalloffMultConstant;
+  }
   float GetExplosionLightFalloffMultLinear() const { return x1a8_explosionLightFalloffMultLinear; }
-  float GetExplosionLightFalloffMultQuadratic() const { return x1ac_explosionLightFalloffMultQuadratic; }
+  float GetExplosionLightFalloffMultQuadratic() const {
+    return x1ac_explosionLightFalloffMultQuadratic;
+  }
   float GetHudDamagePeakFactor() const { return x1b4_hudDamagePeakFactor; }
   float GetHudDamageFilterGainConstant() const { return x1b8_hudDamageFilterGainConstant; }
   float GetHudDamageFilterGainLinear() const { return x1bc_hudDamageFilterGainLinear; }
@@ -142,7 +155,6 @@ public:
   const CColor& GetCreditsTextFontColor() const { return x300_; }
   const CColor& GetCreditsTextBorderColor() const { return x304_; }
 
-  
   static float FaceReflectionDistanceDebugValueToActualValue(float v);
   static float FaceReflectionHeightDebugValueToActualValue(float v);
   static float FaceReflectionAspectDebugValueToActualValue(float v);
