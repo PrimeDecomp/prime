@@ -754,7 +754,7 @@ LIBS = [
             "Dolphin/dvd/dvdlow",
             ["Dolphin/dvd/dvdfs", True],
             ["Dolphin/dvd/dvd", False],
-            "Dolphin/dvd/dvdqueue",
+            ["Dolphin/dvd/dvdqueue", True],
             ["Dolphin/dvd/dvderror", True],
             ["Dolphin/dvd/dvdidutils", True],
             ["Dolphin/dvd/dvdfatal", True],
