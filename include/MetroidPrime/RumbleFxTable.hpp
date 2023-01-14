@@ -1,8 +1,8 @@
-#ifndef _RUMBLEFXTABLE
-#define _RUMBLEFXTABLE
+#ifndef _RumbleFxTable
+#define _RumbleFxTable
 
 #include "Kyoto/Input/CRumbleVoice.hpp"
 
-extern const SAdsrData RumbleFxTable[24];
+extern const SAdsrData skRumbleFxTable[24];
 
-#endif // _RUMBLEFXTABLE
+#endif // _RumbleFxTable

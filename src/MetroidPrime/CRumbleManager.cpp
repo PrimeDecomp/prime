@@ -15,7 +15,7 @@ CRumbleManager::~CRumbleManager() { x0_rumbleGenerator.HardStopAll(); }
 short CRumbleManager::Rumble(CStateManager& mgr, ERumbleFxId fx, float gain,
                              ERumblePriority priority) {
   if (gpGameState->GameOptions().GetIsRumbleEnabled())
-    return x0_rumbleGenerator.Rumble(RumbleFxTable[size_t(fx)], gain, priority, kIOP_Player1);
+    return x0_rumbleGenerator.Rumble(skRumbleFxTable[size_t(fx)], gain, priority, kIOP_Player1);
   return -1;
 }
 
