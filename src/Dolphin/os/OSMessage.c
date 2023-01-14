@@ -60,7 +60,6 @@ BOOL OSReceiveMessage(OSMessageQueue* mq, OSMessage* msg, s32 flags) {
   return TRUE;
 }
 
-#if 0
 BOOL OSJamMessage(OSMessageQueue* mq, OSMessage msg, s32 flags) {
   BOOL enabled;
 
@@ -85,4 +84,3 @@ BOOL OSJamMessage(OSMessageQueue* mq, OSMessage msg, s32 flags) {
   OSRestoreInterrupts(enabled);
   return TRUE;
 }
-#endif
