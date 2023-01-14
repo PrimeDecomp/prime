@@ -10,8 +10,8 @@
 	.4byte 0
 	.4byte "__dt__31TObjOwnerParam<P12IObjectStore>Fv"
 
-.global lbl_803EE3E4
-lbl_803EE3E4:
+.global __vt__12IObjectStore
+__vt__12IObjectStore:
 	# ROM: 0x3EB3E4
 	.4byte 0
 	.4byte 0

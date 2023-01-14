@@ -161,7 +161,7 @@ lbl_803000EC:
 /* 803000EC 002FD04C  7F A3 EB 78 */	mr r3, r29
 /* 803000F0 002FD050  48 00 00 29 */	bl sub_80300118
 /* 803000F4 002FD054  38 61 00 08 */	addi r3, r1, 8
-/* 803000F8 002FD058  4B D3 42 0D */	bl "ReleaseData__Q24rstl10rc_ptr<Pv>Fv"
+/* 803000F8 002FD058  4B D3 42 0D */	bl "ReleaseData__Q24rstl20rc_ptr<10IVParamObj>Fv"
 /* 803000FC 002FD05C  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80300100 002FD060  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80300104 002FD064  83 C1 00 18 */	lwz r30, 0x18(r1)

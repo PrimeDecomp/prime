@@ -97,7 +97,7 @@ GetFactory__24CCharacterFactoryBuilderFRC8CAnimRes:
 /* 80034928 00031888  38 80 FF FF */	li r4, -1
 /* 8003492C 0003188C  48 30 C5 15 */	bl __dt__6CTokenFv
 /* 80034930 00031890  38 61 00 08 */	addi r3, r1, 8
-/* 80034934 00031894  4B FF F9 D1 */	bl "ReleaseData__Q24rstl10rc_ptr<Pv>Fv"
+/* 80034934 00031894  4B FF F9 D1 */	bl "ReleaseData__Q24rstl20rc_ptr<10IVParamObj>Fv"
 /* 80034938 00031898  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8003493C 0003189C  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 80034940 000318A0  83 C1 00 28 */	lwz r30, 0x28(r1)

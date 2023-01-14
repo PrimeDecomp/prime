@@ -296,7 +296,7 @@ lbl_8033FEAC:
 /* 8033FEB4 0033CE14  34 1E 00 14 */	addic. r0, r30, 0x14
 /* 8033FEB8 0033CE18  41 82 00 0C */	beq lbl_8033FEC4
 /* 8033FEBC 0033CE1C  38 7E 00 14 */	addi r3, r30, 0x14
-/* 8033FEC0 0033CE20  4B CF 44 45 */	bl "ReleaseData__Q24rstl10rc_ptr<Pv>Fv"
+/* 8033FEC0 0033CE20  4B CF 44 45 */	bl "ReleaseData__Q24rstl20rc_ptr<10IVParamObj>Fv"
 lbl_8033FEC4:
 /* 8033FEC4 0033CE24  7F E0 07 35 */	extsh. r0, r31
 /* 8033FEC8 0033CE28  40 81 00 0C */	ble lbl_8033FED4
@@ -341,7 +341,7 @@ lbl_8033FED4:
 /* 8033FF54 0033CEB4  80 85 00 04 */	lwz r4, 4(r5)
 /* 8033FF58 0033CEB8  38 04 00 01 */	addi r0, r4, 1
 /* 8033FF5C 0033CEBC  90 05 00 04 */	stw r0, 4(r5)
-/* 8033FF60 0033CEC0  4B CF 43 A5 */	bl "ReleaseData__Q24rstl10rc_ptr<Pv>Fv"
+/* 8033FF60 0033CEC0  4B CF 43 A5 */	bl "ReleaseData__Q24rstl20rc_ptr<10IVParamObj>Fv"
 /* 8033FF64 0033CEC4  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8033FF68 0033CEC8  7F E3 FB 78 */	mr r3, r31
 /* 8033FF6C 0033CECC  83 E1 00 1C */	lwz r31, 0x1c(r1)

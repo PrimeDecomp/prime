@@ -556,7 +556,7 @@ lbl_803557C4:
 /* 803557D8 00352738  48 00 04 79 */	bl __dt__6CModelFv
 lbl_803557DC:
 /* 803557DC 0035273C  38 61 00 08 */	addi r3, r1, 8
-/* 803557E0 00352740  4B CD EB 25 */	bl "ReleaseData__Q24rstl10rc_ptr<Pv>Fv"
+/* 803557E0 00352740  4B CD EB 25 */	bl "ReleaseData__Q24rstl20rc_ptr<10IVParamObj>Fv"
 /* 803557E4 00352744  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 803557E8 00352748  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 803557EC 0035274C  83 C1 00 28 */	lwz r30, 0x28(r1)
