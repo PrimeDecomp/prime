@@ -5767,8 +5767,8 @@ lbl_8002044C:
 /* 8002045C 0001D3BC  38 21 00 20 */	addi r1, r1, 0x20
 /* 80020460 0001D3C0  4E 80 00 20 */	blr
 
-.global sub_80020464
-sub_80020464:
+.global GetIsActive__10CGuiWidgetCFv
+GetIsActive__10CGuiWidgetCFv:
 /* 80020464 0001D3C4  88 03 00 B6 */	lbz r0, 0xb6(r3)
 /* 80020468 0001D3C8  54 03 DF FE */	rlwinm r3, r0, 0x1b, 0x1f, 0x1f
 /* 8002046C 0001D3CC  4E 80 00 20 */	blr

@@ -5,7 +5,10 @@
 #include "Kyoto/Graphics/CColor.hpp"
 #include "Kyoto/SObjectTag.hpp"
 
+#include "rstl/string.hpp"
+
 class CFinalInput;
+class CGuiFrame;
 
 enum ETraversalMode {
   kTM_ChildrenAndSiblings = 0,
@@ -22,26 +25,47 @@ public:
     kGMDF_Additive = 3,
     kGMDF_AlphaAdditiveOverdraw = 4
   };
-  class CGuiWidgetParms;
+  class CGuiWidgetParms {
+  public:
+    CGuiWidgetParms(CGuiFrame*, const rstl::string&, bool, short, short, bool, bool, bool,
+                    const CColor&, CGuiWidget::EGuiModelDrawFlags, bool, bool);
+    CGuiFrame* x0_frame;
+    bool x4_useAnimController;
+    short x6_selfId;
+    short x8_parentId;
+    bool xa_defaultVisible;
+    bool xb_defaultActive;
+    bool xc_cullFaces;
+    bool xd_g;
+    bool xe_h;
+    CColor x10_color;
+    EGuiModelDrawFlags x14_drawFlags;
+  };
 
-  void Update(float dt) override;
-  void Draw(const CGuiWidgetDrawParms& drawParms) override;
-  void Initialize() override;
-
-  virtual void Reset(ETraversalMode mode);
+  CGuiWidget(const CGuiWidgetParms& parms);
+  ~CGuiWidget();
+  void Update(float dt);
+  void Draw(const CGuiWidgetDrawParms& drawParms) const;
+  void Initialize();
   virtual void ProcessUserInput(const CFinalInput& input);
-  virtual void Touch();
+  virtual void Touch() const;
   virtual bool GetIsVisible() const;
   virtual bool GetIsActive() const;
-  virtual bool GetMouseActive() const;
   virtual FourCC GetWidgetTypeID() const { return 'BWIG'; }
   virtual bool AddWorkerWidget(CGuiWidget* worker);
-  virtual bool GetIsFinishedLoadingWidgetSpecific();
-  virtual void OnVisibleChange();
-  virtual void OnActiveChange();
+  virtual bool GetIsFinishedLoadingWidgetSpecific() const;
+  virtual void OnVisible();
+  virtual void OnActivate();
 
+  void SetIsVisible(bool visible);
   void SetColor(const CColor& color);
+  const CColor& GetColor() const { return xa4_color; }
   void SetVisibility(bool visible, ETraversalMode mode);
+  void ParseBaseInfo(CGuiFrame* frame, CInputStream& in, const CGuiWidgetParms& parms);
+
+  static CGuiWidgetParms ReadWidgetHeader(CGuiFrame* frame, CInputStream& in);
+
+  CGuiFrame* GetFrame() { return xb0_frame; }
 
 private:
   short x70_selfId;

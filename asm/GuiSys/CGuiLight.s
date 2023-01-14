@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803EC848
-lbl_803EC848:
+.global __vt__9CGuiLight
+__vt__9CGuiLight:
 	# ROM: 0x3E9848
 	.4byte 0
 	.4byte 0
@@ -15,7 +15,7 @@ lbl_803EC848:
 	.4byte ProcessUserInput__10CGuiWidgetFRC11CFinalInput
 	.4byte Touch__10CGuiWidgetCFv
 	.4byte GetIsVisible__10CGuiWidgetCFv
-	.4byte sub_80020464
+	.4byte GetIsActive__10CGuiWidgetCFv
 	.4byte GetWidgetTypeID__9CGuiLightCFv
 	.4byte AddWorkerWidget__10CGuiWidgetFP10CGuiWidget
 	.4byte GetIsFinishedLoadingWidgetSpecific__10CGuiWidgetCFv
@@ -338,9 +338,9 @@ __dt__9CGuiLightFv:
 /* 802C3BCC 002C0B2C  93 C1 00 08 */	stw r30, 8(r1)
 /* 802C3BD0 002C0B30  7C 7E 1B 79 */	or. r30, r3, r3
 /* 802C3BD4 002C0B34  41 82 00 38 */	beq lbl_802C3C0C
-/* 802C3BD8 002C0B38  3C 60 80 3F */	lis r3, lbl_803EC848@ha
+/* 802C3BD8 002C0B38  3C 60 80 3F */	lis r3, __vt__9CGuiLight@ha
 /* 802C3BDC 002C0B3C  7F C4 F3 78 */	mr r4, r30
-/* 802C3BE0 002C0B40  38 03 C8 48 */	addi r0, r3, lbl_803EC848@l
+/* 802C3BE0 002C0B40  38 03 C8 48 */	addi r0, r3, __vt__9CGuiLight@l
 /* 802C3BE4 002C0B44  90 1E 00 00 */	stw r0, 0(r30)
 /* 802C3BE8 002C0B48  80 7E 00 B0 */	lwz r3, 0xb0(r30)
 /* 802C3BEC 002C0B4C  4B FF E9 2D */	bl RemoveLight__9CGuiFrameFP9CGuiLight
@@ -370,8 +370,8 @@ __ct__9CGuiLightFRCQ210CGuiWidget15CGuiWidgetParmsRC6CLight:
 /* 802C3C3C 002C0B9C  93 C1 00 08 */	stw r30, 8(r1)
 /* 802C3C40 002C0BA0  7C 7E 1B 78 */	mr r30, r3
 /* 802C3C44 002C0BA4  48 00 6F E1 */	bl __ct__10CGuiWidgetFRCQ210CGuiWidget15CGuiWidgetParms
-/* 802C3C48 002C0BA8  3C 60 80 3F */	lis r3, lbl_803EC848@ha
-/* 802C3C4C 002C0BAC  38 03 C8 48 */	addi r0, r3, lbl_803EC848@l
+/* 802C3C48 002C0BA8  3C 60 80 3F */	lis r3, __vt__9CGuiLight@ha
+/* 802C3C4C 002C0BAC  38 03 C8 48 */	addi r0, r3, __vt__9CGuiLight@l
 /* 802C3C50 002C0BB0  90 1E 00 00 */	stw r0, 0(r30)
 /* 802C3C54 002C0BB4  80 1F 00 1C */	lwz r0, 0x1c(r31)
 /* 802C3C58 002C0BB8  90 1E 00 B8 */	stw r0, 0xb8(r30)
@@ -402,8 +402,8 @@ __ct__9CGuiLightFRCQ210CGuiWidget15CGuiWidgetParmsRC6CLight:
 /* 802C3CBC 002C0C1C  38 21 00 10 */	addi r1, r1, 0x10
 /* 802C3CC0 002C0C20  4E 80 00 20 */	blr
 
-.global Create__9CGuiLightFP9CGuiFrameR12CInputStreamb
-Create__9CGuiLightFP9CGuiFrameR12CInputStreamb:
+.global Create__9CGuiLightFP9CGuiFrameR12CInputStreamP12IObjectStore
+Create__9CGuiLightFP9CGuiFrameR12CInputStreamP12IObjectStore:
 /* 802C3CC4 002C0C24  94 21 FD 90 */	stwu r1, -0x270(r1)
 /* 802C3CC8 002C0C28  7C 08 02 A6 */	mflr r0
 /* 802C3CCC 002C0C2C  90 01 02 74 */	stw r0, 0x274(r1)
@@ -415,7 +415,7 @@ Create__9CGuiLightFP9CGuiFrameR12CInputStreamb:
 /* 802C3CE4 002C0C44  7F C4 F3 78 */	mr r4, r30
 /* 802C3CE8 002C0C48  38 61 00 0C */	addi r3, r1, 0xc
 /* 802C3CEC 002C0C4C  7F E5 FB 78 */	mr r5, r31
-/* 802C3CF0 002C0C50  48 00 70 61 */	bl ReadWidgetHeader__10CGuiWidgetFP9CGuiFrameR12CInputStreamb
+/* 802C3CF0 002C0C50  48 00 70 61 */	bl ReadWidgetHeader__10CGuiWidgetFP9CGuiFrameR12CInputStream
 /* 802C3CF4 002C0C54  80 81 00 1C */	lwz r4, 0x1c(r1)
 /* 802C3CF8 002C0C58  7F E3 FB 78 */	mr r3, r31
 /* 802C3CFC 002C0C5C  83 81 00 0C */	lwz r28, 0xc(r1)

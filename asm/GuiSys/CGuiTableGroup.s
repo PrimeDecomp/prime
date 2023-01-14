@@ -15,7 +15,7 @@ lbl_803EC970:
 	.4byte ProcessUserInput__14CGuiTableGroupCFRC11CFinalInput
 	.4byte Touch__10CGuiWidgetCFv
 	.4byte GetIsVisible__10CGuiWidgetCFv
-	.4byte sub_80020464
+	.4byte GetIsActive__10CGuiWidgetCFv
 	.4byte GetWidgetTypeID__14CGuiTableGroupCFv
 	.4byte AddWorkerWidget__14CGuiTableGroupFP10CGuiWidget
 	.4byte GetIsFinishedLoadingWidgetSpecific__10CGuiWidgetCFv
@@ -1042,7 +1042,7 @@ Create__14CGuiTableGroupFP9CGuiFrameR12CInputStreamb:
 /* 802C72F8 002C4258  38 61 00 08 */	addi r3, r1, 8
 /* 802C72FC 002C425C  7F C4 F3 78 */	mr r4, r30
 /* 802C7300 002C4260  7F E5 FB 78 */	mr r5, r31
-/* 802C7304 002C4264  48 00 3A 4D */	bl ReadWidgetHeader__10CGuiWidgetFP9CGuiFrameR12CInputStreamb
+/* 802C7304 002C4264  48 00 3A 4D */	bl ReadWidgetHeader__10CGuiWidgetFP9CGuiFrameR12CInputStream
 /* 802C7308 002C4268  83 A1 00 08 */	lwz r29, 8(r1)
 /* 802C730C 002C426C  7F E3 FB 78 */	mr r3, r31
 /* 802C7310 002C4270  89 81 00 0C */	lbz r12, 0xc(r1)

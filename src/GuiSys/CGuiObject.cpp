@@ -35,20 +35,17 @@ void CGuiObject::Draw(const CGuiWidgetDrawParms& parms) const {
 }
 
 void CGuiObject::MoveInWorld(const CVector3f& offset) {
+  CVector3f pos;
   if (x64_parent != nullptr) {
-    CVector3f pos = x64_parent->RotateW2O(offset);
+    pos = x64_parent->RotateW2O(offset);
   }
   x4_localXF.AddTranslation(offset);
   RecalculateTransforms();
 }
 
-CVector3f CGuiObject::GetWorldPosition() const {
-  return x34_worldXF.GetTranslation();
-}
+CVector3f CGuiObject::GetWorldPosition() const { return x34_worldXF.GetTranslation(); }
 
-CVector3f CGuiObject::GetLocalPosition() const {
-  return x4_localXF.GetTranslation();
-}
+CVector3f CGuiObject::GetLocalPosition() const { return x4_localXF.GetTranslation(); }
 
 void CGuiObject::SetLocalPosition(const CVector3f& pos) {
   MoveInWorld(pos - x4_localXF.GetTranslation());
@@ -92,6 +89,28 @@ void CGuiObject::AddChildObject(CGuiObject* obj, bool makeWorldLocal, bool atEnd
       prev->x6c_nextSibling = obj;
     }
   } else {
-    
   }
+}
+
+const CGuiObject* CGuiObject::GetChildObject() const { return x68_child; }
+
+CGuiObject* CGuiObject::ChildObject() { return x68_child; }
+const CGuiObject* CGuiObject::GetNextSibling() const { return x6c_nextSibling; }
+CGuiObject* CGuiObject::NextSibling() { return x6c_nextSibling; }
+
+CGuiObject* CGuiObject::Parent() { return x64_parent; }
+
+void CGuiObject::RecalculateTransforms() {
+
+}
+
+void CGuiObject::SetLocalTransform(const CTransform4f& xf) {
+  x4_localXF = xf;
+  RecalculateTransforms();
+}
+
+void CGuiObject::SetO2WTransform(const CTransform4f& worldXf) {
+  const CTransform4f invXf = x64_parent->x34_worldXF.GetQuickInverse();
+  const CTransform4f localXf = invXf * worldXf;
+  SetLocalTransform(localXf);
 }

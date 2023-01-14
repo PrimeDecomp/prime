@@ -17,15 +17,16 @@ public:
   void MoveInWorld(const CVector3f& offset);
   CVector3f GetWorldPosition() const;
   CVector3f GetLocalPosition() const;
+  const CTransform4f& GetWorldTransform() const { return x34_worldXF; }
   void SetLocalPosition(const CVector3f& pos);
   void SetLocalTransform(const CTransform4f& xf);
+  void SetO2WTransform(const CTransform4f& xf);
 
   void RotateReset();
 
   CVector3f RotateO2P(const CVector3f& vec) const;
   CVector3f RotateW2O(const CVector3f& offset) const {
-    CVector3f ret = x34_worldXF.TransposeRotate(offset);
-    return ret;
+    return x34_worldXF.TransposeRotate(offset);
   }
   CVector3f RotateTranslateW2O(const CVector3f& vec) const;
   void MultiplyO2P(const CTransform4f& xf);
@@ -37,6 +38,11 @@ public:
     x64_parent = obj;
   }
   
+  CGuiObject* Parent();
+  const CGuiObject* GetChildObject() const;
+  CGuiObject* ChildObject();
+  const CGuiObject* GetNextSibling() const;
+  CGuiObject* NextSibling();
 private:
   CTransform4f x4_localXF;
   CTransform4f x34_worldXF;
