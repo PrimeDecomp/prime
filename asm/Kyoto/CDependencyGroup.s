@@ -3,12 +3,12 @@
 .section .data
 .balign 8
 
-.global lbl_803EF830
-lbl_803EF830:
+.global "__vt__44TObjOwnerDerivedFromIObj<16CDependencyGroup>"
+"__vt__44TObjOwnerDerivedFromIObj<16CDependencyGroup>":
 	# ROM: 0x3EC830
 	.4byte 0
 	.4byte 0
-	.4byte sub_8036505c
+	.4byte "__dt__44TObjOwnerDerivedFromIObj<16CDependencyGroup>Fv"
 	.4byte 0
 
 .section .text, "ax"
@@ -34,7 +34,7 @@ FDependencyGroupFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer:
 /* 80364F94 00361EF4  7C 64 1B 78 */	mr r4, r3
 lbl_80364F98:
 /* 80364F98 00361EF8  7F C3 F3 78 */	mr r3, r30
-/* 80364F9C 00361EFC  48 00 00 1D */	bl sub_80364fb8
+/* 80364F9C 00361EFC  48 00 00 1D */	bl "__ct<16CDependencyGroup>__16CFactoryFnReturnFP16CDependencyGroup"
 /* 80364FA0 00361F00  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80364FA4 00361F04  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80364FA8 00361F08  83 C1 00 08 */	lwz r30, 8(r1)
@@ -42,8 +42,8 @@ lbl_80364F98:
 /* 80364FB0 00361F10  38 21 00 10 */	addi r1, r1, 0x10
 /* 80364FB4 00361F14  4E 80 00 20 */	blr
 
-.global sub_80364fb8
-sub_80364fb8:
+.global "__ct<16CDependencyGroup>__16CFactoryFnReturnFP16CDependencyGroup"
+"__ct<16CDependencyGroup>__16CFactoryFnReturnFP16CDependencyGroup":
 /* 80364FB8 00361F18  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80364FBC 00361F1C  7C 08 02 A6 */	mflr r0
 /* 80364FC0 00361F20  90 01 00 24 */	stw r0, 0x24(r1)
@@ -56,7 +56,7 @@ sub_80364fb8:
 /* 80364FDC 00361F3C  90 81 00 14 */	stw r4, 0x14(r1)
 /* 80364FE0 00361F40  38 81 00 10 */	addi r4, r1, 0x10
 /* 80364FE4 00361F44  98 01 00 10 */	stb r0, 0x10(r1)
-/* 80364FE8 00361F48  48 00 01 55 */	bl sub_8036513c
+/* 80364FE8 00361F48  48 00 01 55 */	bl "GetIObjObjectFor__26TToken<16CDependencyGroup>FRCQ24rstl28auto_ptr<16CDependencyGroup>"
 /* 80364FEC 00361F4C  80 61 00 0C */	lwz r3, 0xc(r1)
 /* 80364FF0 00361F50  38 00 00 00 */	li r0, 0
 /* 80364FF4 00361F54  98 01 00 08 */	stb r0, 8(r1)
@@ -79,7 +79,7 @@ sub_80364fb8:
 lbl_80365038:
 /* 80365038 00361F98  38 61 00 10 */	addi r3, r1, 0x10
 /* 8036503C 00361F9C  38 80 FF FF */	li r4, -1
-/* 80365040 00361FA0  48 00 01 C5 */	bl sub_80365204
+/* 80365040 00361FA0  48 00 01 C5 */	bl "__dt__Q24rstl28auto_ptr<16CDependencyGroup>Fv"
 /* 80365044 00361FA4  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80365048 00361FA8  7F E3 FB 78 */	mr r3, r31
 /* 8036504C 00361FAC  83 E1 00 1C */	lwz r31, 0x1c(r1)
@@ -87,8 +87,8 @@ lbl_80365038:
 /* 80365054 00361FB4  38 21 00 20 */	addi r1, r1, 0x20
 /* 80365058 00361FB8  4E 80 00 20 */	blr
 
-.global sub_8036505c
-sub_8036505c:
+.global "__dt__44TObjOwnerDerivedFromIObj<16CDependencyGroup>Fv"
+"__dt__44TObjOwnerDerivedFromIObj<16CDependencyGroup>Fv":
 /* 8036505C 00361FBC  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 80365060 00361FC0  7C 08 02 A6 */	mflr r0
 /* 80365064 00361FC4  90 01 00 34 */	stw r0, 0x34(r1)
@@ -98,8 +98,8 @@ sub_8036505c:
 /* 80365074 00361FD4  93 A1 00 24 */	stw r29, 0x24(r1)
 /* 80365078 00361FD8  7C 7D 1B 79 */	or. r29, r3, r3
 /* 8036507C 00361FDC  41 82 00 A0 */	beq lbl_8036511C
-/* 80365080 00361FE0  3C 60 80 3F */	lis r3, lbl_803EF830@ha
-/* 80365084 00361FE4  38 03 F8 30 */	addi r0, r3, lbl_803EF830@l
+/* 80365080 00361FE0  3C 60 80 3F */	lis r3, "__vt__44TObjOwnerDerivedFromIObj<16CDependencyGroup>"@ha
+/* 80365084 00361FE4  38 03 F8 30 */	addi r0, r3, "__vt__44TObjOwnerDerivedFromIObj<16CDependencyGroup>"@l
 /* 80365088 00361FE8  90 1D 00 00 */	stw r0, 0(r29)
 /* 8036508C 00361FEC  83 FD 00 04 */	lwz r31, 4(r29)
 /* 80365090 00361FF0  28 1F 00 00 */	cmplwi r31, 0
@@ -152,22 +152,22 @@ lbl_8036511C:
 /* 80365134 00362094  38 21 00 30 */	addi r1, r1, 0x30
 /* 80365138 00362098  4E 80 00 20 */	blr
 
-.global sub_8036513c
-sub_8036513c:
+.global "GetIObjObjectFor__26TToken<16CDependencyGroup>FRCQ24rstl28auto_ptr<16CDependencyGroup>"
+"GetIObjObjectFor__26TToken<16CDependencyGroup>FRCQ24rstl28auto_ptr<16CDependencyGroup>":
 /* 8036513C 0036209C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80365140 003620A0  7C 08 02 A6 */	mflr r0
 /* 80365144 003620A4  90 01 00 14 */	stw r0, 0x14(r1)
 /* 80365148 003620A8  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 8036514C 003620AC  7C 7F 1B 78 */	mr r31, r3
-/* 80365150 003620B0  48 00 00 19 */	bl sub_80365168
+/* 80365150 003620B0  48 00 00 19 */	bl "GetNewDerivedObject__44TObjOwnerDerivedFromIObj<16CDependencyGroup>FRCQ24rstl28auto_ptr<16CDependencyGroup>"
 /* 80365154 003620B4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80365158 003620B8  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8036515C 003620BC  7C 08 03 A6 */	mtlr r0
 /* 80365160 003620C0  38 21 00 10 */	addi r1, r1, 0x10
 /* 80365164 003620C4  4E 80 00 20 */	blr
 
-.global sub_80365168
-sub_80365168:
+.global "GetNewDerivedObject__44TObjOwnerDerivedFromIObj<16CDependencyGroup>FRCQ24rstl28auto_ptr<16CDependencyGroup>"
+"GetNewDerivedObject__44TObjOwnerDerivedFromIObj<16CDependencyGroup>FRCQ24rstl28auto_ptr<16CDependencyGroup>":
 /* 80365168 003620C8  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8036516C 003620CC  7C 08 02 A6 */	mflr r0
 /* 80365170 003620D0  3C A0 80 3E */	lis r5, lbl_803D8408@ha
@@ -186,11 +186,11 @@ sub_80365168:
 /* 803651A4 00362104  3C 80 80 3E */	lis r4, __vt__4IObj@ha
 /* 803651A8 00362108  3C A0 80 3E */	lis r5, __vt__31CObjOwnerDerivedFromIObjUntyped@ha
 /* 803651AC 0036210C  38 04 8D 6C */	addi r0, r4, __vt__4IObj@l
-/* 803651B0 00362110  3C 80 80 3F */	lis r4, lbl_803EF830@ha
+/* 803651B0 00362110  3C 80 80 3F */	lis r4, "__vt__44TObjOwnerDerivedFromIObj<16CDependencyGroup>"@ha
 /* 803651B4 00362114  90 03 00 00 */	stw r0, 0(r3)
 /* 803651B8 00362118  38 C5 8D 78 */	addi r6, r5, __vt__31CObjOwnerDerivedFromIObjUntyped@l
 /* 803651BC 0036211C  38 A0 00 00 */	li r5, 0
-/* 803651C0 00362120  38 04 F8 30 */	addi r0, r4, lbl_803EF830@l
+/* 803651C0 00362120  38 04 F8 30 */	addi r0, r4, "__vt__44TObjOwnerDerivedFromIObj<16CDependencyGroup>"@l
 /* 803651C4 00362124  90 C3 00 00 */	stw r6, 0(r3)
 /* 803651C8 00362128  98 BF 00 00 */	stb r5, 0(r31)
 /* 803651CC 0036212C  80 9F 00 04 */	lwz r4, 4(r31)
@@ -209,8 +209,8 @@ lbl_803651D8:
 /* 803651FC 0036215C  38 21 00 10 */	addi r1, r1, 0x10
 /* 80365200 00362160  4E 80 00 20 */	blr
 
-.global sub_80365204
-sub_80365204:
+.global "__dt__Q24rstl28auto_ptr<16CDependencyGroup>Fv"
+"__dt__Q24rstl28auto_ptr<16CDependencyGroup>Fv":
 /* 80365204 00362164  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 80365208 00362168  7C 08 02 A6 */	mflr r0
 /* 8036520C 0036216C  90 01 00 34 */	stw r0, 0x34(r1)
@@ -263,8 +263,8 @@ lbl_8036529C:
 /* 803652B4 00362214  38 21 00 30 */	addi r1, r1, 0x30
 /* 803652B8 00362218  4E 80 00 20 */	blr
 
-.global sub_803652bc
-sub_803652bc:
+.global GetCountForResType__16CDependencyGroupCFUi
+GetCountForResType__16CDependencyGroupCFUi:
 /* 803652BC 0036221C  80 03 00 04 */	lwz r0, 4(r3)
 /* 803652C0 00362220  38 C0 00 00 */	li r6, 0
 /* 803652C4 00362224  80 A3 00 0C */	lwz r5, 0xc(r3)
@@ -366,4 +366,3 @@ lbl_803D8408:
 	# ROM: 0x3D5408
 	.asciz "??(??)"
 	.balign 4
-
