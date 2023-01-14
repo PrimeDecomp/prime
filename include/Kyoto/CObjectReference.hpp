@@ -10,12 +10,6 @@ class IObjectStore;
 class CObjectReference {
 public:
   CObjectReference(const rstl::auto_ptr< IObj >& obj);
-  // : x0_refCount(0)
-  // , x2_locked(false)
-  // , x2_lockCount(0)
-  // , xc_objectStore(nullptr)
-  // , x10_object(obj.release())
-  // , x14_params(CVParamTransfer::Null()) {}
   ~CObjectReference();
   CObjectReference(IObjectStore& store, const rstl::auto_ptr< IObj >& obj, const SObjectTag& tag,
                    CVParamTransfer xfer);

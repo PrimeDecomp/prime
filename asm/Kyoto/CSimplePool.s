@@ -718,12 +718,12 @@ __ct__11CSimplePoolFR8IFactory:
 /* 8034086C 0033D7CC  7C 7E 1B 79 */	or. r30, r3, r3
 /* 80340870 0033D7D0  41 82 00 2C */	beq lbl_8034089C
 /* 80340874 0033D7D4  3C 60 80 3E */	lis r3, __vt__4IObj@ha
-/* 80340878 0033D7D8  3C 80 80 3E */	lis r4, lbl_803D9C44@ha
+/* 80340878 0033D7D8  3C 80 80 3E */	lis r4, __vt__10IVParamObj@ha
 /* 8034087C 0033D7DC  38 03 8D 6C */	addi r0, r3, __vt__4IObj@l
-/* 80340880 0033D7E0  3C 60 80 3F */	lis r3, lbl_803EE3D8@ha
+/* 80340880 0033D7E0  3C 60 80 3F */	lis r3, "__vt__31TObjOwnerParam<P12IObjectStore>"@ha
 /* 80340884 0033D7E4  90 1E 00 00 */	stw r0, 0(r30)
-/* 80340888 0033D7E8  38 84 9C 44 */	addi r4, r4, lbl_803D9C44@l
-/* 8034088C 0033D7EC  38 03 E3 D8 */	addi r0, r3, lbl_803EE3D8@l
+/* 80340888 0033D7E8  38 84 9C 44 */	addi r4, r4, __vt__10IVParamObj@l
+/* 8034088C 0033D7EC  38 03 E3 D8 */	addi r0, r3, "__vt__31TObjOwnerParam<P12IObjectStore>"@l
 /* 80340890 0033D7F0  90 9E 00 00 */	stw r4, 0(r30)
 /* 80340894 0033D7F4  90 1E 00 00 */	stw r0, 0(r30)
 /* 80340898 0033D7F8  93 FE 00 04 */	stw r31, 4(r30)
