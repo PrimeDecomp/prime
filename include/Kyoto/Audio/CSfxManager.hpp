@@ -81,12 +81,12 @@ public:
   static const short kMedPriority;           // 0x7F
   static const ushort kInternalInvalidSfxId; // 0xFFFF
   static const int kAllAreas;                // 0xFFFFFFFF
-  static CSfxHandle AddEmitter(ushort id, const CVector3f& pos, const CVector3f& dir,
-                               bool useAcoustics, bool looped, short prio = kMedPriority,
-                               int areaId = kAllAreas);
-  static CSfxHandle AddEmitter(ushort id, const CVector3f& pos, const CVector3f& dir, uchar vol,
-                               bool useAcoustics, bool looped, short prio = kMedPriority,
-                               int areaId = kAllAreas);
+  static CSfxHandle AddEmitter(const ushort id, const CVector3f& pos, const CVector3f& dir,
+                               const bool useAcoustics, const bool looped, const short prio = kMedPriority,
+                               const int areaId = kAllAreas);
+  static CSfxHandle AddEmitter(const ushort id, const CVector3f& pos, const CVector3f& dir, uchar vol,
+                               const bool useAcoustics, const bool looped, const short prio = kMedPriority,
+                               const int areaId = kAllAreas);
   static CSfxHandle AddEmitter(CAudioSys::C3DEmitterParmData& parmData, bool useAcoustics,
                                short prio, bool looped, int areaId = kAllAreas);
 
