@@ -11,9 +11,8 @@
 class IFactory {
 public:
   virtual ~IFactory() {}
-  virtual CFactoryFnReturn Build(const SObjectTag&, const CVParamTransfer&, CObjectReference*) = 0;
-  virtual void BuildAsync(const SObjectTag&, const CVParamTransfer&, rstl::auto_ptr< IObj >*,
-                          CObjectReference*) = 0;
+  virtual CFactoryFnReturn Build(const SObjectTag&, const CVParamTransfer&) = 0;
+  virtual void BuildAsync(const SObjectTag&, const CVParamTransfer&, IObj**) = 0;
   virtual void CancelBuild(const SObjectTag&) = 0;
   virtual bool CanBuild(const SObjectTag&) = 0;
   virtual const SObjectTag* GetResourceIdByName(const char* name) const = 0;
@@ -24,14 +23,13 @@ class CResFactory : public IFactory {
 public:
   CResFactory();
 
-  ~CResFactory() override {}
-  CFactoryFnReturn Build(const SObjectTag&, const CVParamTransfer&, CObjectReference*) override;
-  void BuildAsync(const SObjectTag&, const CVParamTransfer&, rstl::auto_ptr< IObj >*,
-                  CObjectReference*) override;
-  void CancelBuild(const SObjectTag&) override;
-  bool CanBuild(const SObjectTag&) override;
-  const SObjectTag* GetResourceIdByName(const char* name) const override;
-  
+  ~CResFactory() {}
+  CFactoryFnReturn Build(const SObjectTag&, const CVParamTransfer&);
+  void BuildAsync(const SObjectTag&, const CVParamTransfer&, IObj**);
+  void CancelBuild(const SObjectTag&);
+  bool CanBuild(const SObjectTag&);
+  const SObjectTag* GetResourceIdByName(const char* name) const;
+
   uint ResourceSize(const SObjectTag& tag) const { return x4_resLoader.ResourceSize(tag); }
 
   void AsyncIdle(uint time);

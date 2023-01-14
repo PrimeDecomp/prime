@@ -611,7 +611,7 @@ LIBS = [
             ["Kyoto/Streams/CZipOutputStream", True],
             ["Kyoto/Streams/CZipSupport", True],
             "Kyoto/CFactoryStore",
-            "Kyoto/CObjectReference",
+            ["Kyoto/CObjectReference", True],
             "Kyoto/CSimplePool",
             ["Kyoto/CToken", True],
             ["Kyoto/IObj", True],

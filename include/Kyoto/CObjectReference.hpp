@@ -17,7 +17,7 @@ public:
   // , x10_object(obj.release())
   // , x14_params(CVParamTransfer::Null()) {}
   ~CObjectReference();
-  CObjectReference(IObjectStore* store, const rstl::auto_ptr< IObj >& obj, SObjectTag tag,
+  CObjectReference(IObjectStore& store, const rstl::auto_ptr< IObj >& obj, const SObjectTag& tag,
                    CVParamTransfer xfer);
 
   bool IsLoaded() const { return x10_object != nullptr; }
@@ -27,12 +27,15 @@ public:
   void Lock();
   void Unlock();
   IObj* GetObject();
+  void Unload();
+  void CancelLoad();
+  bool IsLoading() const;
   const SObjectTag& GetTag() const { return x4_objTag; }
 
 private:
-  short x0_refCount;
-  bool x2_locked : 1;
-  ushort x2_lockCount : 15;
+  short x0_refCount : 16;
+  short x2_lockCount : 15;
+  short x3_loading : 1;
   SObjectTag x4_objTag;
   IObjectStore* xc_objectStore;
   IObj* x10_object;

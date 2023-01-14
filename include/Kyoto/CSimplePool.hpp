@@ -10,7 +10,6 @@
 #include "Kyoto/IObjectStore.hpp"
 
 class IFactory;
-
 class CSimplePool : public IObjectStore {
 public:
   CSimplePool(IFactory& factory);
@@ -22,7 +21,7 @@ public:
   virtual CToken GetObj(const char* name, CVParamTransfer xfer);
   virtual bool HasObject(const SObjectTag& tag);
   virtual bool ObjectIsLive(const SObjectTag& tag);
-  virtual unkptr GetFactory();
+  virtual IFactory& GetFactory() { return x18_factory; }
   virtual void Flush();
   virtual void ObjectUnreferenced(const SObjectTag& tag);
 
@@ -30,7 +29,7 @@ private:
   uchar x4_;
   uchar x5_;
   rstl::hash_map< unkptr, unkptr, void, void > x8_resources;
-  unkptr x18_factory;
+  IFactory& x18_factory;
   rstl::rc_ptr< CVParamTransfer > x1c_paramXfr;
 };
 CHECK_SIZEOF(CSimplePool, 0x20)
