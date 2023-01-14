@@ -34,5 +34,11 @@ SECTIONS
 
 FORCEFILES 
 {
-    OSMessage.o /* How is this even in the binary? */
+}
+
+FORCEACTIVE
+{
+    OSInitMessageQueue
+    OSSendMessage
+    OSReceiveMessage
 }
