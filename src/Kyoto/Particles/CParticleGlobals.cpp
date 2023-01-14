@@ -1,15 +1,15 @@
 #include "Kyoto/Particles/CParticleGlobals.hpp"
 
-int CParticleGlobals::mParticleLifetime;
-float CParticleGlobals::mParticleLifetimeReal;
-int CParticleGlobals::mEmitterTime;
-float CParticleGlobals::mEmitterTimeReal;
-int CParticleGlobals::mParticleLifetimePercentage;
-float CParticleGlobals::mParticleLifetimePercentageReal;
-float CParticleGlobals::mParticleLifetimePercentageRemainder;
-CElementGen::CParticle* CParticleGlobals::mCurrentParticle;
-float* CParticleGlobals::mParticleAccessParameters;
-CParticleGlobals::SParticleSystem* CParticleGlobals::mCurrentParticleSystem;
+int CParticleGlobals::mParticleLifetime = 0.f;
+float CParticleGlobals::mParticleLifetimeReal = 0.f;
+int CParticleGlobals::mEmitterTime = 0;
+float CParticleGlobals::mEmitterTimeReal = 0.f;
+int CParticleGlobals::mParticleLifetimePercentage = 0;
+float CParticleGlobals::mParticleLifetimePercentageReal = 0.f;
+float CParticleGlobals::mParticleLifetimePercentageRemainder = 0.f;
+CElementGen::CParticle* CParticleGlobals::mCurrentParticle = nullptr;
+float* CParticleGlobals::mParticleAccessParameters = nullptr;
+CParticleGlobals::SParticleSystem* CParticleGlobals::mCurrentParticleSystem = nullptr;
 
 void CParticleGlobals::SetParticleLifetime(int lifetime) {
   mParticleLifetime = lifetime;
