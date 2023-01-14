@@ -96,7 +96,7 @@ CPlayerState::CPlayerState(CInputStream& stream)
   x8_currentBeam = EBeamId(stream.ReadBits(GetBitCount(5)));
   x20_currentSuit = EPlayerSuit(stream.ReadBits(GetBitCount(4)));
 
-  for (size_t i = 0; i < x24_powerups.capacity(); ++i) {
+  for (int i = 0; i < x24_powerups.capacity(); ++i) {
     int amount = 0;
     int capacity = 0;
 
