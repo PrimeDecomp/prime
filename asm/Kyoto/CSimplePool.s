@@ -531,7 +531,7 @@ lbl_803405DC:
 /* 803405DC 0033D53C  7F 40 07 75 */	extsb. r0, r26
 /* 803405E0 0033D540  41 82 00 0C */	beq lbl_803405EC
 /* 803405E4 0033D544  38 61 00 08 */	addi r3, r1, 8
-/* 803405E8 0033D548  4B CF 3D 1D */	bl "ReleaseData__Q24rstl10rc_ptr<Pv>Fv"
+/* 803405E8 0033D548  4B CF 3D 1D */	bl "ReleaseData__Q24rstl20rc_ptr<10IVParamObj>Fv"
 lbl_803405EC:
 /* 803405EC 0033D54C  80 BE 00 00 */	lwz r5, 0(r30)
 /* 803405F0 0033D550  38 61 00 1C */	addi r3, r1, 0x1c
@@ -644,7 +644,7 @@ lbl_80340758:
 /* 80340760 0033D6C0  34 1E 00 1C */	addic. r0, r30, 0x1c
 /* 80340764 0033D6C4  41 82 00 0C */	beq lbl_80340770
 /* 80340768 0033D6C8  38 7E 00 1C */	addi r3, r30, 0x1c
-/* 8034076C 0033D6CC  4B CF 3B 99 */	bl "ReleaseData__Q24rstl10rc_ptr<Pv>Fv"
+/* 8034076C 0033D6CC  4B CF 3B 99 */	bl "ReleaseData__Q24rstl20rc_ptr<10IVParamObj>Fv"
 lbl_80340770:
 /* 80340770 0033D6D0  34 1E 00 04 */	addic. r0, r30, 4
 /* 80340774 0033D6D4  41 82 00 34 */	beq lbl_803407A8
@@ -679,9 +679,9 @@ lbl_803407B8:
 __ct__11CSimplePoolFR8IFactory:
 /* 803407D4 0033D734  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 803407D8 0033D738  7C 08 02 A6 */	mflr r0
-/* 803407DC 0033D73C  3C A0 80 3F */	lis r5, lbl_803EE3E4@ha
+/* 803407DC 0033D73C  3C A0 80 3F */	lis r5, __vt__12IObjectStore@ha
 /* 803407E0 0033D740  90 01 00 24 */	stw r0, 0x24(r1)
-/* 803407E4 0033D744  38 05 E3 E4 */	addi r0, r5, lbl_803EE3E4@l
+/* 803407E4 0033D744  38 05 E3 E4 */	addi r0, r5, __vt__12IObjectStore@l
 /* 803407E8 0033D748  88 A1 00 08 */	lbz r5, 8(r1)
 /* 803407EC 0033D74C  93 E1 00 1C */	stw r31, 0x1c(r1)
 /* 803407F0 0033D750  7C 7F 1B 78 */	mr r31, r3
@@ -709,7 +709,7 @@ __ct__11CSimplePoolFR8IFactory:
 /* 80340848 0033D7A8  80 85 00 04 */	lwz r4, 4(r5)
 /* 8034084C 0033D7AC  38 04 00 01 */	addi r0, r4, 1
 /* 80340850 0033D7B0  90 05 00 04 */	stw r0, 4(r5)
-/* 80340854 0033D7B4  4B CF 3A B1 */	bl "ReleaseData__Q24rstl10rc_ptr<Pv>Fv"
+/* 80340854 0033D7B4  4B CF 3A B1 */	bl "ReleaseData__Q24rstl20rc_ptr<10IVParamObj>Fv"
 /* 80340858 0033D7B8  3C 80 80 3D */	lis r4, lbl_803D7A98@ha
 /* 8034085C 0033D7BC  38 60 00 08 */	li r3, 8
 /* 80340860 0033D7C0  38 84 7A 98 */	addi r4, r4, lbl_803D7A98@l
@@ -745,7 +745,7 @@ lbl_803408C4:
 /* 803408D0 0033D830  7C 00 18 40 */	cmplw r0, r3
 /* 803408D4 0033D834  41 82 00 24 */	beq lbl_803408F8
 /* 803408D8 0033D838  7C 83 23 78 */	mr r3, r4
-/* 803408DC 0033D83C  4B CF 3A 29 */	bl "ReleaseData__Q24rstl10rc_ptr<Pv>Fv"
+/* 803408DC 0033D83C  4B CF 3A 29 */	bl "ReleaseData__Q24rstl20rc_ptr<10IVParamObj>Fv"
 /* 803408E0 0033D840  80 01 00 10 */	lwz r0, 0x10(r1)
 /* 803408E4 0033D844  90 1F 00 1C */	stw r0, 0x1c(r31)
 /* 803408E8 0033D848  80 9F 00 1C */	lwz r4, 0x1c(r31)
@@ -754,7 +754,7 @@ lbl_803408C4:
 /* 803408F4 0033D854  90 04 00 04 */	stw r0, 4(r4)
 lbl_803408F8:
 /* 803408F8 0033D858  38 61 00 10 */	addi r3, r1, 0x10
-/* 803408FC 0033D85C  4B CF 3A 09 */	bl "ReleaseData__Q24rstl10rc_ptr<Pv>Fv"
+/* 803408FC 0033D85C  4B CF 3A 09 */	bl "ReleaseData__Q24rstl20rc_ptr<10IVParamObj>Fv"
 /* 80340900 0033D860  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80340904 0033D864  7F E3 FB 78 */	mr r3, r31
 /* 80340908 0033D868  83 E1 00 1C */	lwz r31, 0x1c(r1)

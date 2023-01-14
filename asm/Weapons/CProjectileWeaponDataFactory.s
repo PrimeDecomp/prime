@@ -1109,7 +1109,7 @@ lbl_802B205C:
 /* 802B2070 002AEFD0  48 00 38 31 */	bl __dt__18CWeaponDescriptionFv
 lbl_802B2074:
 /* 802B2074 002AEFD4  38 61 00 08 */	addi r3, r1, 8
-/* 802B2078 002AEFD8  4B D8 22 8D */	bl "ReleaseData__Q24rstl10rc_ptr<Pv>Fv"
+/* 802B2078 002AEFD8  4B D8 22 8D */	bl "ReleaseData__Q24rstl20rc_ptr<10IVParamObj>Fv"
 /* 802B207C 002AEFDC  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 802B2080 002AEFE0  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 802B2084 002AEFE4  7C 08 03 A6 */	mtlr r0

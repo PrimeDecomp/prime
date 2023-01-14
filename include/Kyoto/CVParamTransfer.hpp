@@ -17,6 +17,7 @@ private:
 
 class CVParamTransfer {
 public:
+  CVParamTransfer() {}
   template < typename T >
   CVParamTransfer(TObjOwnerParam< T >* obj) : x0_obj(obj) {}
   static CVParamTransfer Null();

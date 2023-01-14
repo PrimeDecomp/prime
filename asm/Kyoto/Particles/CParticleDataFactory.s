@@ -6266,7 +6266,7 @@ lbl_8032A0B8:
 /* 8032A0CC 0032702C  48 03 CD 6D */	bl __dt__15CGenDescriptionFv
 lbl_8032A0D0:
 /* 8032A0D0 00327030  38 61 00 08 */	addi r3, r1, 8
-/* 8032A0D4 00327034  4B D0 A2 31 */	bl "ReleaseData__Q24rstl10rc_ptr<Pv>Fv"
+/* 8032A0D4 00327034  4B D0 A2 31 */	bl "ReleaseData__Q24rstl20rc_ptr<10IVParamObj>Fv"
 /* 8032A0D8 00327038  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8032A0DC 0032703C  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 8032A0E0 00327040  7C 08 03 A6 */	mtlr r0

@@ -79,7 +79,7 @@ lbl_802B2230:
 /* 802B2244 002AF1A4  48 00 04 BD */	bl sub_802b2700
 lbl_802B2248:
 /* 802B2248 002AF1A8  38 61 00 08 */	addi r3, r1, 8
-/* 802B224C 002AF1AC  4B D8 20 B9 */	bl "ReleaseData__Q24rstl10rc_ptr<Pv>Fv"
+/* 802B224C 002AF1AC  4B D8 20 B9 */	bl "ReleaseData__Q24rstl20rc_ptr<10IVParamObj>Fv"
 /* 802B2250 002AF1B0  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 802B2254 002AF1B4  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 802B2258 002AF1B8  83 C1 00 28 */	lwz r30, 0x28(r1)
