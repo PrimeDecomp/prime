@@ -99,7 +99,6 @@ void CPowerBomb::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CState
   case kSM_Registered:
     mgr.AddWeaponId(GetOwnerId(), GetWeaponType());
     OrigDamageInfo().SetRadius(0.f);
-
     if (mgr.GetPlayerState()->IsPlayerAlive()) {
       CSfxManager::AddEmitter(SFXsfx0710, GetTranslation(), CVector3f::Zero(), true, false);
       mgr.InformListeners(GetTranslation(), kLNT_BombExplode);
