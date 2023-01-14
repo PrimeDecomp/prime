@@ -257,7 +257,7 @@ lbl_802FE280:
 /* 802FE294 002FB1F4  4B FF FC 89 */	bl __dt__21CAllFormatsAnimSourceFv
 lbl_802FE298:
 /* 802FE298 002FB1F8  38 61 00 08 */	addi r3, r1, 8
-/* 802FE29C 002FB1FC  4B D3 60 69 */	bl sub_80034304
+/* 802FE29C 002FB1FC  4B D3 60 69 */	bl "ReleaseData__Q24rstl10rc_ptr<Pv>Fv"
 /* 802FE2A0 002FB200  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 802FE2A4 002FB204  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 802FE2A8 002FB208  83 C1 00 28 */	lwz r30, 0x28(r1)
@@ -514,4 +514,3 @@ lbl_803D6E58:
 	# ROM: 0x3D3E58
 	.asciz "??(??)"
 	.balign 4
-

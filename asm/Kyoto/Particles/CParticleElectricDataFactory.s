@@ -660,7 +660,7 @@ lbl_8035E7DC:
 /* 8035E7F0 0035B750  48 00 7F C9 */	bl __dt__20CElectricDescriptionFv
 lbl_8035E7F4:
 /* 8035E7F4 0035B754  38 61 00 08 */	addi r3, r1, 8
-/* 8035E7F8 0035B758  4B CD 5B 0D */	bl sub_80034304
+/* 8035E7F8 0035B758  4B CD 5B 0D */	bl "ReleaseData__Q24rstl10rc_ptr<Pv>Fv"
 /* 8035E7FC 0035B75C  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8035E800 0035B760  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 8035E804 0035B764  7C 08 03 A6 */	mtlr r0
@@ -731,4 +731,3 @@ lbl_803D83E0:
 	# ROM: 0x3D53E0
 	.asciz "??(??)"
 	.balign 4
-

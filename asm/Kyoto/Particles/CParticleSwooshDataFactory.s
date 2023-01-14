@@ -549,7 +549,7 @@ lbl_80330088:
 /* 8033009C 0032CFFC  48 03 6A 5D */	bl __dt__18CSwooshDescriptionFv
 lbl_803300A0:
 /* 803300A0 0032D000  38 61 00 08 */	addi r3, r1, 8
-/* 803300A4 0032D004  4B D0 42 61 */	bl sub_80034304
+/* 803300A4 0032D004  4B D0 42 61 */	bl "ReleaseData__Q24rstl10rc_ptr<Pv>Fv"
 /* 803300A8 0032D008  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 803300AC 0032D00C  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 803300B0 0032D010  7C 08 03 A6 */	mtlr r0
@@ -620,4 +620,3 @@ lbl_803D7970:
 	# ROM: 0x3D4970
 	.asciz "??(??)"
 	.balign 4
-

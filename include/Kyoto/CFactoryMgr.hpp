@@ -18,6 +18,7 @@ public:
   template < typename T >
   CFactoryFnReturn(T* ptr) : obj(TToken< T >::GetIObjObjectFor(ptr).release()) {}
 
+  IObj* GetObjForTransfer() const { return obj.release(); }
 private:
   rstl::auto_ptr< CObjOwnerDerivedFromIObjUntyped > obj;
 };

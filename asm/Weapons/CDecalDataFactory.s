@@ -1140,7 +1140,7 @@ FDecalDataFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer:
 /* 802B4624 002B1584  7C 04 03 78 */	mr r4, r0
 /* 802B4628 002B1588  48 00 00 21 */	bl "__ct__Q24rstl29auto_ptr<17CDecalDescription>FP17CDecalDescription"
 /* 802B462C 002B158C  38 61 00 08 */	addi r3, r1, 8
-/* 802B4630 002B1590  4B D7 FC D5 */	bl sub_80034304
+/* 802B4630 002B1590  4B D7 FC D5 */	bl "ReleaseData__Q24rstl10rc_ptr<Pv>Fv"
 /* 802B4634 002B1594  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802B4638 002B1598  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 802B463C 002B159C  7C 08 03 A6 */	mtlr r0
