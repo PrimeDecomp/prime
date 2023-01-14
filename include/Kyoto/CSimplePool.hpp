@@ -12,7 +12,7 @@
 class IFactory;
 class CSimplePool : public IObjectStore {
 public:
-  CSimplePool(IFactory& factory);
+  CSimplePool(IFactory& factory) : x18_factory(factory) {}
   ~CSimplePool();
 
   virtual CToken GetObj(const SObjectTag& tag, CVParamTransfer xfer);

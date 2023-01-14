@@ -11,6 +11,7 @@
 class IFactory;
 class IObjectStore {
 public:
+  IObjectStore() {}
   virtual CToken GetObj(const SObjectTag& tag, CVParamTransfer xfer) = 0;
   virtual CToken GetObj(const SObjectTag& tag) = 0;
   virtual CToken GetObj(const char* name) = 0;
