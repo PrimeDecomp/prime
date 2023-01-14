@@ -680,7 +680,7 @@ LIBS = [
             "Kyoto/Particles/CParticleElectric",
             ["Kyoto/Graphics/DolphinCColor", True],
             "Kyoto/Audio/CDSPStreamManager",
-            "Kyoto/CDependencyGroup",
+            ["Kyoto/CDependencyGroup", True],
             "Kyoto/Audio/CStreamAudioManager",
             ["Kyoto/Animation/CHalfTransition", True],
             "Kyoto/Particles/CElectricDescription",

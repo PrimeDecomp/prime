@@ -15,6 +15,7 @@ public:
 
 class CObjOwnerDerivedFromIObjUntyped : public IObj {
 public:
+  ~CObjOwnerDerivedFromIObjUntyped() {}
   template < typename T >
   CObjOwnerDerivedFromIObjUntyped(T* obj) : m_objPtr(obj) {}
   template < typename T >
@@ -29,13 +30,17 @@ protected:
 template < typename T >
 class TObjOwnerDerivedFromIObj : public CObjOwnerDerivedFromIObjUntyped {
 public:
-  ~TObjOwnerDerivedFromIObj() override { delete Owned(); }
+  ~TObjOwnerDerivedFromIObj() {
+    if (Owned()) {
+      delete Owned();
+    }
+  }
   T* Owned() { return static_cast< T* >(m_objPtr); }
 
-  static inline rstl::auto_ptr< TObjOwnerDerivedFromIObj< T > > GetNewDerivedObject(T* obj) {
+  static rstl::auto_ptr< TObjOwnerDerivedFromIObj< T > > GetNewDerivedObject(T* obj) {
     return new TObjOwnerDerivedFromIObj< T >(obj);
   }
-  static inline rstl::auto_ptr< TObjOwnerDerivedFromIObj< T > >
+  static rstl::auto_ptr< TObjOwnerDerivedFromIObj< T > >
   GetNewDerivedObject(const rstl::auto_ptr< T >& obj) {
     return new TObjOwnerDerivedFromIObj< T >(obj);
   }

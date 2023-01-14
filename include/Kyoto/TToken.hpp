@@ -21,7 +21,7 @@ public:
   T* operator*() { return GetT(); }
   T* operator->() { return GetT(); }
 
-  static inline rstl::auto_ptr< TObjOwnerDerivedFromIObj< T > >
+  static rstl::auto_ptr< TObjOwnerDerivedFromIObj< T > >
   GetIObjObjectFor(const rstl::auto_ptr< T >& obj) {
     return TObjOwnerDerivedFromIObj< T >::GetNewDerivedObject(obj);
   }
