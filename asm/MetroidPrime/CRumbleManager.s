@@ -108,9 +108,9 @@ Rumble__14CRumbleManagerFR13CStateManager11ERumbleFxIdf15ERumblePriority:
 /* 8022E258 0022B1B8  54 00 DF FF */	rlwinm. r0, r0, 0x1b, 0x1f, 0x1f
 /* 8022E25C 0022B1BC  41 82 00 24 */	beq lbl_8022E280
 /* 8022E260 0022B1C0  1C E5 00 1C */	mulli r7, r5, 0x1c
-/* 8022E264 0022B1C4  3C 80 80 57 */	lis r4, RumbleFxTable@ha
+/* 8022E264 0022B1C4  3C 80 80 57 */	lis r4, skRumbleFxTable@ha
 /* 8022E268 0022B1C8  7C C5 33 78 */	mr r5, r6
-/* 8022E26C 0022B1CC  38 04 21 40 */	addi r0, r4, RumbleFxTable@l
+/* 8022E26C 0022B1CC  38 04 21 40 */	addi r0, r4, skRumbleFxTable@l
 /* 8022E270 0022B1D0  7C 80 3A 14 */	add r4, r0, r7
 /* 8022E274 0022B1D4  38 C0 00 00 */	li r6, 0
 /* 8022E278 0022B1D8  48 13 BC D5 */	bl Rumble__16CRumbleGeneratorFRC9SAdsrDataf15ERumblePriority7EIOPort

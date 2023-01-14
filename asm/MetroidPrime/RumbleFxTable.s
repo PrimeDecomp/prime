@@ -1,6 +1,6 @@
 .include "macros.inc"
 
-.comm RumbleFxTable, 0x2A0, 4
+.comm skRumbleFxTable, 0x2A0, 4
 
 .section .ctors, "wa"
 lbl_ctor:
@@ -23,9 +23,9 @@ __sinit_RumbleFxTable_cpp:
 /* 802269E4 00223944  C0 A2 B4 D0 */	lfs f5, lbl_805AD1F0@sda21(r2)
 /* 802269E8 00223948  C0 C2 B4 D4 */	lfs f6, lbl_805AD1F4@sda21(r2)
 /* 802269EC 0022394C  48 14 31 ED */	bl __ct__9SAdsrDataFffffffbb
-/* 802269F0 00223950  3C 60 80 57 */	lis r3, RumbleFxTable@ha
+/* 802269F0 00223950  3C 60 80 57 */	lis r3, skRumbleFxTable@ha
 /* 802269F4 00223954  C0 21 02 8C */	lfs f1, 0x28c(r1)
-/* 802269F8 00223958  38 C3 21 40 */	addi r6, r3, RumbleFxTable@l
+/* 802269F8 00223958  38 C3 21 40 */	addi r6, r3, skRumbleFxTable@l
 /* 802269FC 0022395C  C0 41 02 90 */	lfs f2, 0x290(r1)
 /* 80226A00 00223960  C0 61 02 94 */	lfs f3, 0x294(r1)
 /* 80226A04 00223964  38 61 02 70 */	addi r3, r1, 0x270
@@ -50,9 +50,9 @@ __sinit_RumbleFxTable_cpp:
 /* 80226A50 002239B0  98 06 00 18 */	stb r0, 0x18(r6)
 /* 80226A54 002239B4  48 14 31 85 */	bl __ct__9SAdsrDataFffffffbb
 /* 80226A58 002239B8  C0 42 B4 C4 */	lfs f2, lbl_805AD1E4@sda21(r2)
-/* 80226A5C 002239BC  3C 60 80 57 */	lis r3, RumbleFxTable@ha
+/* 80226A5C 002239BC  3C 60 80 57 */	lis r3, skRumbleFxTable@ha
 /* 80226A60 002239C0  C0 82 B4 EC */	lfs f4, lbl_805AD20C@sda21(r2)
-/* 80226A64 002239C4  38 C3 21 40 */	addi r6, r3, RumbleFxTable@l
+/* 80226A64 002239C4  38 C3 21 40 */	addi r6, r3, skRumbleFxTable@l
 /* 80226A68 002239C8  C0 21 02 70 */	lfs f1, 0x270(r1)
 /* 80226A6C 002239CC  FC C0 10 90 */	fmr f6, f2
 /* 80226A70 002239D0  C0 61 02 74 */	lfs f3, 0x274(r1)
@@ -75,9 +75,9 @@ __sinit_RumbleFxTable_cpp:
 /* 80226AB4 00223A14  D0 06 00 30 */	stfs f0, 0x30(r6)
 /* 80226AB8 00223A18  98 06 00 34 */	stb r0, 0x34(r6)
 /* 80226ABC 00223A1C  48 14 31 1D */	bl __ct__9SAdsrDataFffffffbb
-/* 80226AC0 00223A20  3C 60 80 57 */	lis r3, RumbleFxTable@ha
+/* 80226AC0 00223A20  3C 60 80 57 */	lis r3, skRumbleFxTable@ha
 /* 80226AC4 00223A24  C0 21 02 54 */	lfs f1, 0x254(r1)
-/* 80226AC8 00223A28  38 C3 21 40 */	addi r6, r3, RumbleFxTable@l
+/* 80226AC8 00223A28  38 C3 21 40 */	addi r6, r3, skRumbleFxTable@l
 /* 80226ACC 00223A2C  C0 41 02 58 */	lfs f2, 0x258(r1)
 /* 80226AD0 00223A30  C0 61 02 5C */	lfs f3, 0x25c(r1)
 /* 80226AD4 00223A34  38 61 02 38 */	addi r3, r1, 0x238
@@ -101,9 +101,9 @@ __sinit_RumbleFxTable_cpp:
 /* 80226B1C 00223A7C  C0 C2 B4 F8 */	lfs f6, lbl_805AD218@sda21(r2)
 /* 80226B20 00223A80  98 06 00 50 */	stb r0, 0x50(r6)
 /* 80226B24 00223A84  48 14 30 B5 */	bl __ct__9SAdsrDataFffffffbb
-/* 80226B28 00223A88  3C 60 80 57 */	lis r3, RumbleFxTable@ha
+/* 80226B28 00223A88  3C 60 80 57 */	lis r3, skRumbleFxTable@ha
 /* 80226B2C 00223A8C  C0 21 02 38 */	lfs f1, 0x238(r1)
-/* 80226B30 00223A90  38 C3 21 40 */	addi r6, r3, RumbleFxTable@l
+/* 80226B30 00223A90  38 C3 21 40 */	addi r6, r3, skRumbleFxTable@l
 /* 80226B34 00223A94  C0 41 02 3C */	lfs f2, 0x23c(r1)
 /* 80226B38 00223A98  C0 61 02 40 */	lfs f3, 0x240(r1)
 /* 80226B3C 00223A9C  38 61 02 1C */	addi r3, r1, 0x21c
@@ -127,9 +127,9 @@ __sinit_RumbleFxTable_cpp:
 /* 80226B84 00223AE4  C0 C2 B5 08 */	lfs f6, lbl_805AD228@sda21(r2)
 /* 80226B88 00223AE8  98 06 00 6C */	stb r0, 0x6c(r6)
 /* 80226B8C 00223AEC  48 14 30 4D */	bl __ct__9SAdsrDataFffffffbb
-/* 80226B90 00223AF0  3C 60 80 57 */	lis r3, RumbleFxTable@ha
+/* 80226B90 00223AF0  3C 60 80 57 */	lis r3, skRumbleFxTable@ha
 /* 80226B94 00223AF4  C0 21 02 1C */	lfs f1, 0x21c(r1)
-/* 80226B98 00223AF8  38 C3 21 40 */	addi r6, r3, RumbleFxTable@l
+/* 80226B98 00223AF8  38 C3 21 40 */	addi r6, r3, skRumbleFxTable@l
 /* 80226B9C 00223AFC  C0 41 02 20 */	lfs f2, 0x220(r1)
 /* 80226BA0 00223B00  C0 61 02 24 */	lfs f3, 0x224(r1)
 /* 80226BA4 00223B04  38 61 02 00 */	addi r3, r1, 0x200
@@ -153,9 +153,9 @@ __sinit_RumbleFxTable_cpp:
 /* 80226BEC 00223B4C  C0 C2 B5 14 */	lfs f6, lbl_805AD234@sda21(r2)
 /* 80226BF0 00223B50  98 06 00 88 */	stb r0, 0x88(r6)
 /* 80226BF4 00223B54  48 14 2F E5 */	bl __ct__9SAdsrDataFffffffbb
-/* 80226BF8 00223B58  3C 60 80 57 */	lis r3, RumbleFxTable@ha
+/* 80226BF8 00223B58  3C 60 80 57 */	lis r3, skRumbleFxTable@ha
 /* 80226BFC 00223B5C  C0 21 02 00 */	lfs f1, 0x200(r1)
-/* 80226C00 00223B60  38 C3 21 40 */	addi r6, r3, RumbleFxTable@l
+/* 80226C00 00223B60  38 C3 21 40 */	addi r6, r3, skRumbleFxTable@l
 /* 80226C04 00223B64  C0 41 02 04 */	lfs f2, 0x204(r1)
 /* 80226C08 00223B68  C0 61 02 08 */	lfs f3, 0x208(r1)
 /* 80226C0C 00223B6C  38 61 01 E4 */	addi r3, r1, 0x1e4
@@ -179,9 +179,9 @@ __sinit_RumbleFxTable_cpp:
 /* 80226C54 00223BB4  C0 C2 B5 1C */	lfs f6, lbl_805AD23C@sda21(r2)
 /* 80226C58 00223BB8  98 06 00 A4 */	stb r0, 0xa4(r6)
 /* 80226C5C 00223BBC  48 14 2F 7D */	bl __ct__9SAdsrDataFffffffbb
-/* 80226C60 00223BC0  3C 60 80 57 */	lis r3, RumbleFxTable@ha
+/* 80226C60 00223BC0  3C 60 80 57 */	lis r3, skRumbleFxTable@ha
 /* 80226C64 00223BC4  C0 21 01 E4 */	lfs f1, 0x1e4(r1)
-/* 80226C68 00223BC8  38 C3 21 40 */	addi r6, r3, RumbleFxTable@l
+/* 80226C68 00223BC8  38 C3 21 40 */	addi r6, r3, skRumbleFxTable@l
 /* 80226C6C 00223BCC  C0 41 01 E8 */	lfs f2, 0x1e8(r1)
 /* 80226C70 00223BD0  C0 61 01 EC */	lfs f3, 0x1ec(r1)
 /* 80226C74 00223BD4  38 61 01 C8 */	addi r3, r1, 0x1c8
@@ -206,9 +206,9 @@ __sinit_RumbleFxTable_cpp:
 /* 80226CC0 00223C20  98 06 00 C0 */	stb r0, 0xc0(r6)
 /* 80226CC4 00223C24  48 14 2F 15 */	bl __ct__9SAdsrDataFffffffbb
 /* 80226CC8 00223C28  C0 42 B4 C4 */	lfs f2, lbl_805AD1E4@sda21(r2)
-/* 80226CCC 00223C2C  3C 60 80 57 */	lis r3, RumbleFxTable@ha
+/* 80226CCC 00223C2C  3C 60 80 57 */	lis r3, skRumbleFxTable@ha
 /* 80226CD0 00223C30  C0 21 01 C8 */	lfs f1, 0x1c8(r1)
-/* 80226CD4 00223C34  38 C3 21 40 */	addi r6, r3, RumbleFxTable@l
+/* 80226CD4 00223C34  38 C3 21 40 */	addi r6, r3, skRumbleFxTable@l
 /* 80226CD8 00223C38  C0 61 01 CC */	lfs f3, 0x1cc(r1)
 /* 80226CDC 00223C3C  FC C0 10 90 */	fmr f6, f2
 /* 80226CE0 00223C40  C0 81 01 D0 */	lfs f4, 0x1d0(r1)
@@ -232,9 +232,9 @@ __sinit_RumbleFxTable_cpp:
 /* 80226D28 00223C88  98 06 00 DC */	stb r0, 0xdc(r6)
 /* 80226D2C 00223C8C  48 14 2E AD */	bl __ct__9SAdsrDataFffffffbb
 /* 80226D30 00223C90  C0 62 B5 34 */	lfs f3, lbl_805AD254@sda21(r2)
-/* 80226D34 00223C94  3C 60 80 57 */	lis r3, RumbleFxTable@ha
+/* 80226D34 00223C94  3C 60 80 57 */	lis r3, skRumbleFxTable@ha
 /* 80226D38 00223C98  C0 21 01 AC */	lfs f1, 0x1ac(r1)
-/* 80226D3C 00223C9C  38 C3 21 40 */	addi r6, r3, RumbleFxTable@l
+/* 80226D3C 00223C9C  38 C3 21 40 */	addi r6, r3, skRumbleFxTable@l
 /* 80226D40 00223CA0  C0 41 01 B0 */	lfs f2, 0x1b0(r1)
 /* 80226D44 00223CA4  FC 80 18 90 */	fmr f4, f3
 /* 80226D48 00223CA8  C0 A1 01 B4 */	lfs f5, 0x1b4(r1)
@@ -258,9 +258,9 @@ __sinit_RumbleFxTable_cpp:
 /* 80226D90 00223CF0  98 06 00 F8 */	stb r0, 0xf8(r6)
 /* 80226D94 00223CF4  48 14 2E 45 */	bl __ct__9SAdsrDataFffffffbb
 /* 80226D98 00223CF8  C0 A2 B5 44 */	lfs f5, lbl_805AD264@sda21(r2)
-/* 80226D9C 00223CFC  3C 60 80 57 */	lis r3, RumbleFxTable@ha
+/* 80226D9C 00223CFC  3C 60 80 57 */	lis r3, skRumbleFxTable@ha
 /* 80226DA0 00223D00  C0 21 01 90 */	lfs f1, 0x190(r1)
-/* 80226DA4 00223D04  38 C3 21 40 */	addi r6, r3, RumbleFxTable@l
+/* 80226DA4 00223D04  38 C3 21 40 */	addi r6, r3, skRumbleFxTable@l
 /* 80226DA8 00223D08  C0 41 01 94 */	lfs f2, 0x194(r1)
 /* 80226DAC 00223D0C  FC C0 28 90 */	fmr f6, f5
 /* 80226DB0 00223D10  C0 61 01 98 */	lfs f3, 0x198(r1)
@@ -284,9 +284,9 @@ __sinit_RumbleFxTable_cpp:
 /* 80226DF8 00223D58  98 06 01 14 */	stb r0, 0x114(r6)
 /* 80226DFC 00223D5C  48 14 2D DD */	bl __ct__9SAdsrDataFffffffbb
 /* 80226E00 00223D60  C0 42 B4 C4 */	lfs f2, lbl_805AD1E4@sda21(r2)
-/* 80226E04 00223D64  3C 60 80 57 */	lis r3, RumbleFxTable@ha
+/* 80226E04 00223D64  3C 60 80 57 */	lis r3, skRumbleFxTable@ha
 /* 80226E08 00223D68  C0 21 01 74 */	lfs f1, 0x174(r1)
-/* 80226E0C 00223D6C  38 C3 21 40 */	addi r6, r3, RumbleFxTable@l
+/* 80226E0C 00223D6C  38 C3 21 40 */	addi r6, r3, skRumbleFxTable@l
 /* 80226E10 00223D70  C0 61 01 78 */	lfs f3, 0x178(r1)
 /* 80226E14 00223D74  FC A0 10 90 */	fmr f5, f2
 /* 80226E18 00223D78  C0 81 01 7C */	lfs f4, 0x17c(r1)
@@ -310,9 +310,9 @@ __sinit_RumbleFxTable_cpp:
 /* 80226E60 00223DC0  98 06 01 30 */	stb r0, 0x130(r6)
 /* 80226E64 00223DC4  48 14 2D 75 */	bl __ct__9SAdsrDataFffffffbb
 /* 80226E68 00223DC8  C0 42 B4 C4 */	lfs f2, lbl_805AD1E4@sda21(r2)
-/* 80226E6C 00223DCC  3C 60 80 57 */	lis r3, RumbleFxTable@ha
+/* 80226E6C 00223DCC  3C 60 80 57 */	lis r3, skRumbleFxTable@ha
 /* 80226E70 00223DD0  C0 21 01 58 */	lfs f1, 0x158(r1)
-/* 80226E74 00223DD4  38 C3 21 40 */	addi r6, r3, RumbleFxTable@l
+/* 80226E74 00223DD4  38 C3 21 40 */	addi r6, r3, skRumbleFxTable@l
 /* 80226E78 00223DD8  C0 81 01 5C */	lfs f4, 0x15c(r1)
 /* 80226E7C 00223DDC  FC 60 10 90 */	fmr f3, f2
 /* 80226E80 00223DE0  C0 C1 01 60 */	lfs f6, 0x160(r1)
@@ -335,9 +335,9 @@ __sinit_RumbleFxTable_cpp:
 /* 80226EC4 00223E24  D0 06 01 48 */	stfs f0, 0x148(r6)
 /* 80226EC8 00223E28  98 06 01 4C */	stb r0, 0x14c(r6)
 /* 80226ECC 00223E2C  48 14 2D 0D */	bl __ct__9SAdsrDataFffffffbb
-/* 80226ED0 00223E30  3C 60 80 57 */	lis r3, RumbleFxTable@ha
+/* 80226ED0 00223E30  3C 60 80 57 */	lis r3, skRumbleFxTable@ha
 /* 80226ED4 00223E34  C0 21 01 3C */	lfs f1, 0x13c(r1)
-/* 80226ED8 00223E38  38 C3 21 40 */	addi r6, r3, RumbleFxTable@l
+/* 80226ED8 00223E38  38 C3 21 40 */	addi r6, r3, skRumbleFxTable@l
 /* 80226EDC 00223E3C  C0 41 01 40 */	lfs f2, 0x140(r1)
 /* 80226EE0 00223E40  C0 61 01 44 */	lfs f3, 0x144(r1)
 /* 80226EE4 00223E44  38 61 01 20 */	addi r3, r1, 0x120
@@ -361,9 +361,9 @@ __sinit_RumbleFxTable_cpp:
 /* 80226F2C 00223E8C  C0 C2 B4 D4 */	lfs f6, lbl_805AD1F4@sda21(r2)
 /* 80226F30 00223E90  98 06 01 68 */	stb r0, 0x168(r6)
 /* 80226F34 00223E94  48 14 2C A5 */	bl __ct__9SAdsrDataFffffffbb
-/* 80226F38 00223E98  3C 60 80 57 */	lis r3, RumbleFxTable@ha
+/* 80226F38 00223E98  3C 60 80 57 */	lis r3, skRumbleFxTable@ha
 /* 80226F3C 00223E9C  C0 21 01 20 */	lfs f1, 0x120(r1)
-/* 80226F40 00223EA0  38 C3 21 40 */	addi r6, r3, RumbleFxTable@l
+/* 80226F40 00223EA0  38 C3 21 40 */	addi r6, r3, skRumbleFxTable@l
 /* 80226F44 00223EA4  C0 41 01 24 */	lfs f2, 0x124(r1)
 /* 80226F48 00223EA8  C0 61 01 28 */	lfs f3, 0x128(r1)
 /* 80226F4C 00223EAC  38 61 01 04 */	addi r3, r1, 0x104
@@ -387,9 +387,9 @@ __sinit_RumbleFxTable_cpp:
 /* 80226F94 00223EF4  C0 C2 B5 10 */	lfs f6, lbl_805AD230@sda21(r2)
 /* 80226F98 00223EF8  98 06 01 84 */	stb r0, 0x184(r6)
 /* 80226F9C 00223EFC  48 14 2C 3D */	bl __ct__9SAdsrDataFffffffbb
-/* 80226FA0 00223F00  3C 60 80 57 */	lis r3, RumbleFxTable@ha
+/* 80226FA0 00223F00  3C 60 80 57 */	lis r3, skRumbleFxTable@ha
 /* 80226FA4 00223F04  C0 21 01 04 */	lfs f1, 0x104(r1)
-/* 80226FA8 00223F08  38 C3 21 40 */	addi r6, r3, RumbleFxTable@l
+/* 80226FA8 00223F08  38 C3 21 40 */	addi r6, r3, skRumbleFxTable@l
 /* 80226FAC 00223F0C  C0 41 01 08 */	lfs f2, 0x108(r1)
 /* 80226FB0 00223F10  C0 61 01 0C */	lfs f3, 0x10c(r1)
 /* 80226FB4 00223F14  38 61 00 E8 */	addi r3, r1, 0xe8
@@ -414,9 +414,9 @@ __sinit_RumbleFxTable_cpp:
 /* 80227000 00223F60  98 06 01 A0 */	stb r0, 0x1a0(r6)
 /* 80227004 00223F64  48 14 2B D5 */	bl __ct__9SAdsrDataFffffffbb
 /* 80227008 00223F68  C0 42 B4 C4 */	lfs f2, lbl_805AD1E4@sda21(r2)
-/* 8022700C 00223F6C  3C 60 80 57 */	lis r3, RumbleFxTable@ha
+/* 8022700C 00223F6C  3C 60 80 57 */	lis r3, skRumbleFxTable@ha
 /* 80227010 00223F70  C0 21 00 E8 */	lfs f1, 0xe8(r1)
-/* 80227014 00223F74  38 C3 21 40 */	addi r6, r3, RumbleFxTable@l
+/* 80227014 00223F74  38 C3 21 40 */	addi r6, r3, skRumbleFxTable@l
 /* 80227018 00223F78  C0 61 00 EC */	lfs f3, 0xec(r1)
 /* 8022701C 00223F7C  FC C0 10 90 */	fmr f6, f2
 /* 80227020 00223F80  C0 81 00 F0 */	lfs f4, 0xf0(r1)
@@ -440,9 +440,9 @@ __sinit_RumbleFxTable_cpp:
 /* 80227068 00223FC8  98 06 01 BC */	stb r0, 0x1bc(r6)
 /* 8022706C 00223FCC  48 14 2B 6D */	bl __ct__9SAdsrDataFffffffbb
 /* 80227070 00223FD0  C0 42 B4 C4 */	lfs f2, lbl_805AD1E4@sda21(r2)
-/* 80227074 00223FD4  3C 60 80 57 */	lis r3, RumbleFxTable@ha
+/* 80227074 00223FD4  3C 60 80 57 */	lis r3, skRumbleFxTable@ha
 /* 80227078 00223FD8  C0 21 00 CC */	lfs f1, 0xcc(r1)
-/* 8022707C 00223FDC  38 C3 21 40 */	addi r6, r3, RumbleFxTable@l
+/* 8022707C 00223FDC  38 C3 21 40 */	addi r6, r3, skRumbleFxTable@l
 /* 80227080 00223FE0  C0 61 00 D0 */	lfs f3, 0xd0(r1)
 /* 80227084 00223FE4  FC A0 10 90 */	fmr f5, f2
 /* 80227088 00223FE8  C0 81 00 D4 */	lfs f4, 0xd4(r1)
@@ -466,9 +466,9 @@ __sinit_RumbleFxTable_cpp:
 /* 802270D0 00224030  98 06 01 D8 */	stb r0, 0x1d8(r6)
 /* 802270D4 00224034  48 14 2B 05 */	bl __ct__9SAdsrDataFffffffbb
 /* 802270D8 00224038  C0 62 B5 34 */	lfs f3, lbl_805AD254@sda21(r2)
-/* 802270DC 0022403C  3C 60 80 57 */	lis r3, RumbleFxTable@ha
+/* 802270DC 0022403C  3C 60 80 57 */	lis r3, skRumbleFxTable@ha
 /* 802270E0 00224040  C0 21 00 B0 */	lfs f1, 0xb0(r1)
-/* 802270E4 00224044  38 C3 21 40 */	addi r6, r3, RumbleFxTable@l
+/* 802270E4 00224044  38 C3 21 40 */	addi r6, r3, skRumbleFxTable@l
 /* 802270E8 00224048  C0 41 00 B4 */	lfs f2, 0xb4(r1)
 /* 802270EC 0022404C  FC 80 18 90 */	fmr f4, f3
 /* 802270F0 00224050  C0 A1 00 B8 */	lfs f5, 0xb8(r1)
@@ -492,9 +492,9 @@ __sinit_RumbleFxTable_cpp:
 /* 80227138 00224098  98 06 01 F4 */	stb r0, 0x1f4(r6)
 /* 8022713C 0022409C  48 14 2A 9D */	bl __ct__9SAdsrDataFffffffbb
 /* 80227140 002240A0  C0 42 B4 C4 */	lfs f2, lbl_805AD1E4@sda21(r2)
-/* 80227144 002240A4  3C 60 80 57 */	lis r3, RumbleFxTable@ha
+/* 80227144 002240A4  3C 60 80 57 */	lis r3, skRumbleFxTable@ha
 /* 80227148 002240A8  C0 21 00 94 */	lfs f1, 0x94(r1)
-/* 8022714C 002240AC  38 C3 21 40 */	addi r6, r3, RumbleFxTable@l
+/* 8022714C 002240AC  38 C3 21 40 */	addi r6, r3, skRumbleFxTable@l
 /* 80227150 002240B0  C0 81 00 98 */	lfs f4, 0x98(r1)
 /* 80227154 002240B4  FC 60 10 90 */	fmr f3, f2
 /* 80227158 002240B8  C0 A1 00 9C */	lfs f5, 0x9c(r1)
@@ -518,9 +518,9 @@ __sinit_RumbleFxTable_cpp:
 /* 802271A0 00224100  98 06 02 10 */	stb r0, 0x210(r6)
 /* 802271A4 00224104  48 14 2A 35 */	bl __ct__9SAdsrDataFffffffbb
 /* 802271A8 00224108  C0 42 B4 C4 */	lfs f2, lbl_805AD1E4@sda21(r2)
-/* 802271AC 0022410C  3C 60 80 57 */	lis r3, RumbleFxTable@ha
+/* 802271AC 0022410C  3C 60 80 57 */	lis r3, skRumbleFxTable@ha
 /* 802271B0 00224110  C0 21 00 78 */	lfs f1, 0x78(r1)
-/* 802271B4 00224114  38 C3 21 40 */	addi r6, r3, RumbleFxTable@l
+/* 802271B4 00224114  38 C3 21 40 */	addi r6, r3, skRumbleFxTable@l
 /* 802271B8 00224118  C0 61 00 7C */	lfs f3, 0x7c(r1)
 /* 802271BC 0022411C  FC A0 10 90 */	fmr f5, f2
 /* 802271C0 00224120  C0 81 00 80 */	lfs f4, 0x80(r1)
@@ -544,9 +544,9 @@ __sinit_RumbleFxTable_cpp:
 /* 80227208 00224168  98 06 02 2C */	stb r0, 0x22c(r6)
 /* 8022720C 0022416C  48 14 29 CD */	bl __ct__9SAdsrDataFffffffbb
 /* 80227210 00224170  C0 42 B4 C4 */	lfs f2, lbl_805AD1E4@sda21(r2)
-/* 80227214 00224174  3C 60 80 57 */	lis r3, RumbleFxTable@ha
+/* 80227214 00224174  3C 60 80 57 */	lis r3, skRumbleFxTable@ha
 /* 80227218 00224178  C0 21 00 5C */	lfs f1, 0x5c(r1)
-/* 8022721C 0022417C  38 C3 21 40 */	addi r6, r3, RumbleFxTable@l
+/* 8022721C 0022417C  38 C3 21 40 */	addi r6, r3, skRumbleFxTable@l
 /* 80227220 00224180  C0 61 00 60 */	lfs f3, 0x60(r1)
 /* 80227224 00224184  FC A0 10 90 */	fmr f5, f2
 /* 80227228 00224188  C0 81 00 64 */	lfs f4, 0x64(r1)
@@ -570,9 +570,9 @@ __sinit_RumbleFxTable_cpp:
 /* 80227270 002241D0  98 06 02 48 */	stb r0, 0x248(r6)
 /* 80227274 002241D4  48 14 29 65 */	bl __ct__9SAdsrDataFffffffbb
 /* 80227278 002241D8  C0 42 B4 C4 */	lfs f2, lbl_805AD1E4@sda21(r2)
-/* 8022727C 002241DC  3C 60 80 57 */	lis r3, RumbleFxTable@ha
+/* 8022727C 002241DC  3C 60 80 57 */	lis r3, skRumbleFxTable@ha
 /* 80227280 002241E0  C0 21 00 40 */	lfs f1, 0x40(r1)
-/* 80227284 002241E4  38 C3 21 40 */	addi r6, r3, RumbleFxTable@l
+/* 80227284 002241E4  38 C3 21 40 */	addi r6, r3, skRumbleFxTable@l
 /* 80227288 002241E8  C0 81 00 44 */	lfs f4, 0x44(r1)
 /* 8022728C 002241EC  FC 60 10 90 */	fmr f3, f2
 /* 80227290 002241F0  C1 21 00 48 */	lfs f9, 0x48(r1)
@@ -596,9 +596,9 @@ __sinit_RumbleFxTable_cpp:
 /* 802272D8 00224238  98 06 02 64 */	stb r0, 0x264(r6)
 /* 802272DC 0022423C  48 14 28 FD */	bl __ct__9SAdsrDataFffffffbb
 /* 802272E0 00224240  C0 62 B4 D4 */	lfs f3, lbl_805AD1F4@sda21(r2)
-/* 802272E4 00224244  3C 60 80 57 */	lis r3, RumbleFxTable@ha
+/* 802272E4 00224244  3C 60 80 57 */	lis r3, skRumbleFxTable@ha
 /* 802272E8 00224248  C0 21 00 24 */	lfs f1, 0x24(r1)
-/* 802272EC 0022424C  38 C3 21 40 */	addi r6, r3, RumbleFxTable@l
+/* 802272EC 0022424C  38 C3 21 40 */	addi r6, r3, skRumbleFxTable@l
 /* 802272F0 00224250  C0 41 00 28 */	lfs f2, 0x28(r1)
 /* 802272F4 00224254  FC C0 18 90 */	fmr f6, f3
 /* 802272F8 00224258  C0 81 00 2C */	lfs f4, 0x2c(r1)
@@ -621,9 +621,9 @@ __sinit_RumbleFxTable_cpp:
 /* 8022733C 0022429C  D0 06 02 7C */	stfs f0, 0x27c(r6)
 /* 80227340 002242A0  98 06 02 80 */	stb r0, 0x280(r6)
 /* 80227344 002242A4  48 14 28 95 */	bl __ct__9SAdsrDataFffffffbb
-/* 80227348 002242A8  3C 60 80 57 */	lis r3, RumbleFxTable@ha
+/* 80227348 002242A8  3C 60 80 57 */	lis r3, skRumbleFxTable@ha
 /* 8022734C 002242AC  C0 A1 00 08 */	lfs f5, 8(r1)
-/* 80227350 002242B0  38 63 21 40 */	addi r3, r3, RumbleFxTable@l
+/* 80227350 002242B0  38 63 21 40 */	addi r3, r3, skRumbleFxTable@l
 /* 80227354 002242B4  C0 81 00 0C */	lfs f4, 0xc(r1)
 /* 80227358 002242B8  C0 61 00 10 */	lfs f3, 0x10(r1)
 /* 8022735C 002242BC  C0 41 00 14 */	lfs f2, 0x14(r1)

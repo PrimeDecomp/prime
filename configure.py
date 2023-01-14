@@ -304,7 +304,7 @@ LIBS = [
             "MetroidPrime/Enemies/CEyeBall",
             "MetroidPrime/CIkChain",
             ["MetroidPrime/ScriptObjects/CScriptCameraPitchVolume", True],
-            "MetroidPrime/RumbleFxTable",
+            ["MetroidPrime/RumbleFxTable", True],
             "MetroidPrime/Enemies/CElitePirate",
             ["MetroidPrime/CRumbleManager", True],
             "MetroidPrime/Enemies/CBouncyGrenade",

@@ -538,9 +538,9 @@ lbl_80241FD4:
 /* 80242058 0023EFB8  40 81 00 2C */	ble lbl_80242084
 /* 8024205C 0023EFBC  38 7F 00 40 */	addi r3, r31, 0x40
 /* 80242060 0023EFC0  48 12 7C ED */	bl HardStopAll__16CRumbleGeneratorFv
-/* 80242064 0023EFC4  3C 60 80 57 */	lis r3, RumbleFxTable@ha
+/* 80242064 0023EFC4  3C 60 80 57 */	lis r3, skRumbleFxTable@ha
 /* 80242068 0023EFC8  C0 22 B8 14 */	lfs f1, lbl_805AD534@sda21(r2)
-/* 8024206C 0023EFCC  38 83 21 40 */	addi r4, r3, RumbleFxTable@l
+/* 8024206C 0023EFCC  38 83 21 40 */	addi r4, r3, skRumbleFxTable@l
 /* 80242070 0023EFD0  38 7F 00 40 */	addi r3, r31, 0x40
 /* 80242074 0023EFD4  38 84 01 34 */	addi r4, r4, 0x134
 /* 80242078 0023EFD8  38 A0 00 01 */	li r5, 1
@@ -1612,9 +1612,9 @@ OnEnumChanged__14COptionsScreenFP14CGuiTableGroupi:
 /* 8024302C 0023FF8C  40 81 00 2C */	ble lbl_80243058
 /* 80243030 0023FF90  38 7B 01 A8 */	addi r3, r27, 0x1a8
 /* 80243034 0023FF94  48 12 6D 19 */	bl HardStopAll__16CRumbleGeneratorFv
-/* 80243038 0023FF98  3C 60 80 57 */	lis r3, RumbleFxTable@ha
+/* 80243038 0023FF98  3C 60 80 57 */	lis r3, skRumbleFxTable@ha
 /* 8024303C 0023FF9C  C0 22 B8 14 */	lfs f1, lbl_805AD534@sda21(r2)
-/* 80243040 0023FFA0  38 83 21 40 */	addi r4, r3, RumbleFxTable@l
+/* 80243040 0023FFA0  38 83 21 40 */	addi r4, r3, skRumbleFxTable@l
 /* 80243044 0023FFA4  38 7B 01 A8 */	addi r3, r27, 0x1a8
 /* 80243048 0023FFA8  38 84 01 34 */	addi r4, r4, 0x134
 /* 8024304C 0023FFAC  38 A0 00 01 */	li r5, 1
