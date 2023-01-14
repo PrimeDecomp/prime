@@ -10,10 +10,11 @@ template < typename T >
 class TObjOwnerParam : public IVParamObj {
 public:
   ~TObjOwnerParam() {}
-  T* GetData() const { return static_cast<T*>(x4_data); }
+  TObjOwnerParam(T data) : x4_data(data) {}
+  T GetData() const { return static_cast<T>(x4_data); }
 
 private:
-  T* x4_data;
+  T x4_data;
 };
 
 class CVParamTransfer {
