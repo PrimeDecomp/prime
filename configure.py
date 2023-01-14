@@ -424,7 +424,7 @@ LIBS = [
             "GuiSys/CAuiMeter",
             "GuiSys/CGuiGroup",
             "GuiSys/CGuiHeadWidget",
-            "GuiSys/CGuiLight",
+            ["GuiSys/CGuiLight", True],
             "GuiSys/CGuiModel",
             ["GuiSys/CGuiObject", False],
             "GuiSys/CGuiPane",

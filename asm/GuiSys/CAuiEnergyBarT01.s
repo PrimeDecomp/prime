@@ -15,7 +15,7 @@ lbl_803ECA50:
 	.4byte ProcessUserInput__10CGuiWidgetFRC11CFinalInput
 	.4byte Touch__10CGuiWidgetCFv
 	.4byte GetIsVisible__10CGuiWidgetCFv
-	.4byte sub_80020464
+	.4byte GetIsActive__10CGuiWidgetCFv
 	.4byte GetWidgetTypeID__16CAuiEnergyBarT01CFv
 	.4byte AddWorkerWidget__10CGuiWidgetFP10CGuiWidget
 	.4byte GetIsFinishedLoadingWidgetSpecific__10CGuiWidgetCFv
@@ -782,7 +782,7 @@ Create__16CAuiEnergyBarT01FP9CGuiFrameR12CInputStreamb:
 /* 802CBC14 002C8B74  38 61 00 08 */	addi r3, r1, 8
 /* 802CBC18 002C8B78  7F A4 EB 78 */	mr r4, r29
 /* 802CBC1C 002C8B7C  7F C5 F3 78 */	mr r5, r30
-/* 802CBC20 002C8B80  4B FF F1 31 */	bl ReadWidgetHeader__10CGuiWidgetFP9CGuiFrameR12CInputStreamb
+/* 802CBC20 002C8B80  4B FF F1 31 */	bl ReadWidgetHeader__10CGuiWidgetFP9CGuiFrameR12CInputStream
 /* 802CBC24 002C8B84  83 81 00 08 */	lwz r28, 8(r1)
 /* 802CBC28 002C8B88  7F C3 F3 78 */	mr r3, r30
 /* 802CBC2C 002C8B8C  89 81 00 0C */	lbz r12, 0xc(r1)

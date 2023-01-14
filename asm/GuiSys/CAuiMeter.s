@@ -15,7 +15,7 @@ lbl_803EC6F8:
 	.4byte ProcessUserInput__10CGuiWidgetFRC11CFinalInput
 	.4byte Touch__10CGuiWidgetCFv
 	.4byte GetIsVisible__10CGuiWidgetCFv
-	.4byte sub_80020464
+	.4byte GetIsActive__10CGuiWidgetCFv
 	.4byte GetWidgetTypeID__9CAuiMeterCFv
 	.4byte AddWorkerWidget__9CAuiMeterFP10CGuiWidget
 	.4byte GetIsFinishedLoadingWidgetSpecific__10CGuiWidgetCFv
@@ -515,4 +515,3 @@ lbl_803D6878:
 	# ROM: 0x3D3878
 	.asciz "??(??)"
 	.balign 4
-

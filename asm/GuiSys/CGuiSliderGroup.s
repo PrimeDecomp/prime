@@ -15,7 +15,7 @@ lbl_803EC930:
 	.4byte ProcessUserInput__15CGuiSliderGroupFRC11CFinalInput
 	.4byte Touch__10CGuiWidgetCFv
 	.4byte GetIsVisible__10CGuiWidgetCFv
-	.4byte sub_80020464
+	.4byte GetIsActive__10CGuiWidgetCFv
 	.4byte GetWidgetTypeID__15CGuiSliderGroupCFv
 	.4byte AddWorkerWidget__15CGuiSliderGroupFP10CGuiWidget
 	.4byte GetIsFinishedLoadingWidgetSpecific__10CGuiWidgetCFv
@@ -591,7 +591,7 @@ Create__15CGuiSliderGroupFP9CGuiFrameR12CInputStreamb:
 /* 802C62EC 002C324C  7F C4 F3 78 */	mr r4, r30
 /* 802C62F0 002C3250  38 61 00 08 */	addi r3, r1, 8
 /* 802C62F4 002C3254  93 A1 00 44 */	stw r29, 0x44(r1)
-/* 802C62F8 002C3258  48 00 4A 59 */	bl ReadWidgetHeader__10CGuiWidgetFP9CGuiFrameR12CInputStreamb
+/* 802C62F8 002C3258  48 00 4A 59 */	bl ReadWidgetHeader__10CGuiWidgetFP9CGuiFrameR12CInputStream
 /* 802C62FC 002C325C  83 A1 00 08 */	lwz r29, 8(r1)
 /* 802C6300 002C3260  7F E3 FB 78 */	mr r3, r31
 /* 802C6304 002C3264  89 81 00 0C */	lbz r12, 0xc(r1)

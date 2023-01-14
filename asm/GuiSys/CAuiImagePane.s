@@ -15,7 +15,7 @@ lbl_803ECA90:
 	.4byte ProcessUserInput__10CGuiWidgetFRC11CFinalInput
 	.4byte Touch__10CGuiWidgetCFv
 	.4byte GetIsVisible__10CGuiWidgetCFv
-	.4byte sub_80020464
+	.4byte GetIsActive__10CGuiWidgetCFv
 	.4byte GetWidgetTypeID__13CAuiImagePaneCFv
 	.4byte AddWorkerWidget__10CGuiWidgetFP10CGuiWidget
 	.4byte GetIsFinishedLoadingWidgetSpecific__13CAuiImagePaneCFv
@@ -1511,7 +1511,7 @@ Create__13CAuiImagePaneFP9CGuiFrameR12CInputStreamb:
 /* 802CD214 002CA174  38 61 00 14 */	addi r3, r1, 0x14
 /* 802CD218 002CA178  7F A4 EB 78 */	mr r4, r29
 /* 802CD21C 002CA17C  7F C5 F3 78 */	mr r5, r30
-/* 802CD220 002CA180  4B FF DB 31 */	bl ReadWidgetHeader__10CGuiWidgetFP9CGuiFrameR12CInputStreamb
+/* 802CD220 002CA180  4B FF DB 31 */	bl ReadWidgetHeader__10CGuiWidgetFP9CGuiFrameR12CInputStream
 /* 802CD224 002CA184  83 81 00 14 */	lwz r28, 0x14(r1)
 /* 802CD228 002CA188  7F C3 F3 78 */	mr r3, r30
 /* 802CD22C 002CA18C  89 81 00 18 */	lbz r12, 0x18(r1)
@@ -1724,4 +1724,3 @@ lbl_803D69E0:
 	# ROM: 0x3D39E0
 	.asciz "??(??)"
 	.balign 4
-

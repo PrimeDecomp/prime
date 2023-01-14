@@ -37,7 +37,7 @@ lbl_803EC738:
 	.4byte ProcessUserInput__10CGuiWidgetFRC11CFinalInput
 	.4byte Touch__10CGuiWidgetCFv
 	.4byte GetIsVisible__10CGuiWidgetCFv
-	.4byte sub_80020464
+	.4byte GetIsActive__10CGuiWidgetCFv
 	.4byte GetWidgetTypeID__10CGuiCameraCFv
 	.4byte AddWorkerWidget__10CGuiWidgetFP10CGuiWidget
 	.4byte GetIsFinishedLoadingWidgetSpecific__10CGuiWidgetCFv
@@ -58,7 +58,7 @@ lbl_803EC778:
 	.4byte ProcessUserInput__10CGuiWidgetFRC11CFinalInput
 	.4byte Touch__10CGuiWidgetCFv
 	.4byte GetIsVisible__10CGuiWidgetCFv
-	.4byte sub_80020464
+	.4byte GetIsActive__10CGuiWidgetCFv
 	.4byte GetWidgetTypeID__18CGuiCompoundWidgetCFv
 	.4byte AddWorkerWidget__10CGuiWidgetFP10CGuiWidget
 	.4byte GetIsFinishedLoadingWidgetSpecific__10CGuiWidgetCFv
@@ -86,7 +86,7 @@ lbl_803EC7C8:
 	.4byte ProcessUserInput__10CGuiWidgetFRC11CFinalInput
 	.4byte Touch__10CGuiWidgetCFv
 	.4byte GetIsVisible__10CGuiWidgetCFv
-	.4byte sub_80020464
+	.4byte GetIsActive__10CGuiWidgetCFv
 	.4byte GetWidgetTypeID__9CGuiGroupCFv
 	.4byte AddWorkerWidget__9CGuiGroupFP10CGuiWidget
 	.4byte GetIsFinishedLoadingWidgetSpecific__10CGuiWidgetCFv
@@ -135,7 +135,7 @@ Create__9CAuiMeterFP9CGuiFrameR12CInputStreamb:
 /* 802C1260 002BE1C0  38 61 00 08 */	addi r3, r1, 8
 /* 802C1264 002BE1C4  7F C4 F3 78 */	mr r4, r30
 /* 802C1268 002BE1C8  7F E5 FB 78 */	mr r5, r31
-/* 802C126C 002BE1CC  48 00 9A E5 */	bl ReadWidgetHeader__10CGuiWidgetFP9CGuiFrameR12CInputStreamb
+/* 802C126C 002BE1CC  48 00 9A E5 */	bl ReadWidgetHeader__10CGuiWidgetFP9CGuiFrameR12CInputStream
 /* 802C1270 002BE1D0  83 A1 00 08 */	lwz r29, 8(r1)
 /* 802C1274 002BE1D4  7F E3 FB 78 */	mr r3, r31
 /* 802C1278 002BE1D8  89 81 00 0C */	lbz r12, 0xc(r1)
@@ -549,7 +549,7 @@ Create__10CGuiCameraFP9CGuiFrameR12CInputStreamb:
 /* 802C1828 002BE788  7F C4 F3 78 */	mr r4, r30
 /* 802C182C 002BE78C  38 61 00 08 */	addi r3, r1, 8
 /* 802C1830 002BE790  7F E5 FB 78 */	mr r5, r31
-/* 802C1834 002BE794  48 00 95 1D */	bl ReadWidgetHeader__10CGuiWidgetFP9CGuiFrameR12CInputStreamb
+/* 802C1834 002BE794  48 00 95 1D */	bl ReadWidgetHeader__10CGuiWidgetFP9CGuiFrameR12CInputStream
 /* 802C1838 002BE798  83 A1 00 08 */	lwz r29, 8(r1)
 /* 802C183C 002BE79C  7F E3 FB 78 */	mr r3, r31
 /* 802C1840 002BE7A0  89 81 00 0C */	lbz r12, 0xc(r1)
@@ -943,7 +943,7 @@ lbl_802C1D90:
 /* 802C1D90 002BECF0  7C 83 23 78 */	mr r3, r4
 /* 802C1D94 002BECF4  7C A4 2B 78 */	mr r4, r5
 /* 802C1D98 002BECF8  7C C5 33 78 */	mr r5, r6
-/* 802C1D9C 002BECFC  48 00 1F 29 */	bl Create__9CGuiLightFP9CGuiFrameR12CInputStreamb
+/* 802C1D9C 002BECFC  48 00 1F 29 */	bl Create__9CGuiLightFP9CGuiFrameR12CInputStreamP12IObjectStore
 /* 802C1DA0 002BED00  48 00 00 44 */	b lbl_802C1DE4
 lbl_802C1DA4:
 /* 802C1DA4 002BED04  7C 83 23 78 */	mr r3, r4
@@ -2664,7 +2664,7 @@ Create__9CGuiGroupFP9CGuiFrameR12CInputStreamb:
 /* 802C34D8 002C0438  38 61 00 08 */	addi r3, r1, 8
 /* 802C34DC 002C043C  7F C4 F3 78 */	mr r4, r30
 /* 802C34E0 002C0440  7F E5 FB 78 */	mr r5, r31
-/* 802C34E4 002C0444  48 00 78 6D */	bl ReadWidgetHeader__10CGuiWidgetFP9CGuiFrameR12CInputStreamb
+/* 802C34E4 002C0444  48 00 78 6D */	bl ReadWidgetHeader__10CGuiWidgetFP9CGuiFrameR12CInputStream
 /* 802C34E8 002C0448  83 A1 00 08 */	lwz r29, 8(r1)
 /* 802C34EC 002C044C  7F E3 FB 78 */	mr r3, r31
 /* 802C34F0 002C0450  89 81 00 0C */	lbz r12, 0xc(r1)

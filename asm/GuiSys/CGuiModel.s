@@ -15,7 +15,7 @@ lbl_803EC888:
 	.4byte ProcessUserInput__10CGuiWidgetFRC11CFinalInput
 	.4byte Touch__9CGuiModelCFv
 	.4byte GetIsVisible__10CGuiWidgetCFv
-	.4byte sub_80020464
+	.4byte GetIsActive__10CGuiWidgetCFv
 	.4byte GetWidgetTypeID__9CGuiModelCFv
 	.4byte AddWorkerWidget__10CGuiWidgetFP10CGuiWidget
 	.4byte GetIsFinishedLoadingWidgetSpecific__9CGuiModelCFv
@@ -524,7 +524,7 @@ Create__9CGuiModelFP9CGuiFrameR12CInputStreamb:
 /* 802C464C 002C15AC  38 61 00 08 */	addi r3, r1, 8
 /* 802C4650 002C15B0  7F A4 EB 78 */	mr r4, r29
 /* 802C4654 002C15B4  7F C5 F3 78 */	mr r5, r30
-/* 802C4658 002C15B8  48 00 66 F9 */	bl ReadWidgetHeader__10CGuiWidgetFP9CGuiFrameR12CInputStreamb
+/* 802C4658 002C15B8  48 00 66 F9 */	bl ReadWidgetHeader__10CGuiWidgetFP9CGuiFrameR12CInputStream
 /* 802C465C 002C15BC  83 81 00 08 */	lwz r28, 8(r1)
 /* 802C4660 002C15C0  7F C3 F3 78 */	mr r3, r30
 /* 802C4664 002C15C4  89 81 00 0C */	lbz r12, 0xc(r1)
