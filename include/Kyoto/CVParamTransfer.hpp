@@ -9,6 +9,7 @@ class IVParamObj : public IObj {};
 template < typename T >
 class TObjOwnerParam : public IVParamObj {
 public:
+  ~TObjOwnerParam() {}
   T* GetData() const { return static_cast<T*>(x4_data); }
 
 private:
