@@ -77,7 +77,7 @@ AllocateStream__17CDSPStreamManagerFv:
 /* 803635B4 00360514  88 9F 00 73 */	lbz r4, 0x73(r31)
 /* 803635B8 00360518  38 A0 00 40 */	li r5, 0x40
 /* 803635BC 0036051C  7C C6 07 74 */	extsb r6, r6
-/* 803635C0 00360520  48 00 76 ED */	bl AllocateMono__10SDSPStreamFRC11SStreamInfocci
+/* 803635C0 00360520  48 00 76 ED */	bl AllocateMono__10CDSPStreamFRC11SStreamInfocci
 /* 803635C4 00360524  90 7F 00 7C */	stw r3, 0x7c(r31)
 lbl_803635C8:
 /* 803635C8 00360528  80 7F 00 7C */	lwz r3, 0x7c(r31)
@@ -140,7 +140,7 @@ lbl_80363600:
 /* 803636A8 00360608  88 BF 00 73 */	lbz r5, 0x73(r31)
 /* 803636AC 0036060C  38 81 00 98 */	addi r4, r1, 0x98
 /* 803636B0 00360610  7C C6 07 74 */	extsb r6, r6
-/* 803636B4 00360614  48 00 74 19 */	bl AllocateStereo__10SDSPStreamFRC11SStreamInfoRC11SStreamInfoci
+/* 803636B4 00360614  48 00 74 19 */	bl AllocateStereo__10CDSPStreamFRC11SStreamInfoRC11SStreamInfoci
 /* 803636B8 00360618  90 7F 00 7C */	stw r3, 0x7c(r31)
 lbl_803636BC:
 /* 803636BC 0036061C  80 7F 00 7C */	lwz r3, 0x7c(r31)
@@ -447,7 +447,7 @@ lbl_80363AC4:
 /* 80363ADC 00360A3C  38 60 00 01 */	li r3, 1
 /* 80363AE0 00360A40  48 00 00 20 */	b lbl_80363B00
 lbl_80363AE4:
-/* 80363AE4 00360A44  48 00 6D 65 */	bl IsStreamActive__10SDSPStreamFi
+/* 80363AE4 00360A44  48 00 6D 65 */	bl IsStreamActive__10CDSPStreamFi
 /* 80363AE8 00360A48  54 60 06 3E */	clrlwi r0, r3, 0x18
 /* 80363AEC 00360A4C  88 61 00 08 */	lbz r3, 8(r1)
 /* 80363AF0 00360A50  7C 00 00 34 */	cntlzw r0, r0
@@ -504,7 +504,7 @@ lbl_80363B8C:
 /* 80363BA4 00360B04  38 60 00 00 */	li r3, 0
 /* 80363BA8 00360B08  48 00 00 18 */	b lbl_80363BC0
 lbl_80363BAC:
-/* 80363BAC 00360B0C  48 00 6C 21 */	bl IsStreamAvailable__10SDSPStreamFi
+/* 80363BAC 00360B0C  48 00 6C 21 */	bl IsStreamAvailable__10CDSPStreamFi
 /* 80363BB0 00360B10  7C 7F 1B 78 */	mr r31, r3
 /* 80363BB4 00360B14  88 61 00 08 */	lbz r3, 8(r1)
 /* 80363BB8 00360B18  48 01 DA D1 */	bl OSRestoreInterrupts
@@ -548,7 +548,7 @@ lbl_80363C20:
 /* 80363C3C 00360B9C  28 00 FF FF */	cmplwi r0, 0xffff
 /* 80363C40 00360BA0  41 82 00 0C */	beq lbl_80363C4C
 /* 80363C44 00360BA4  7F E4 FB 78 */	mr r4, r31
-/* 80363C48 00360BA8  48 00 6C 7D */	bl UpdateVolume__10SDSPStreamFi
+/* 80363C48 00360BA8  48 00 6C 7D */	bl UpdateVolume__10CDSPStreamFi
 lbl_80363C4C:
 /* 80363C4C 00360BAC  88 61 00 08 */	lbz r3, 8(r1)
 /* 80363C50 00360BB0  48 01 DA 39 */	bl OSRestoreInterrupts
@@ -704,7 +704,7 @@ lbl_80363E34:
 /* 80363E74 00360DD4  4B FD 9C 6D */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 lbl_80363E78:
 /* 80363E78 00360DD8  80 7E 00 7C */	lwz r3, 0x7c(r30)
-/* 80363E7C 00360DDC  48 00 6B 49 */	bl Silence__10SDSPStreamFv
+/* 80363E7C 00360DDC  48 00 6B 49 */	bl Silence__10CDSPStreamFv
 /* 80363E80 00360DE0  38 61 00 40 */	addi r3, r1, 0x40
 /* 80363E84 00360DE4  38 80 00 00 */	li r4, 0
 /* 80363E88 00360DE8  48 00 0A C5 */	bl __ct__17CDSPStreamManagerFv
@@ -1240,7 +1240,7 @@ Shutdown__17CDSPStreamManagerFv:
 /* 803645DC 0036153C  93 EC FF FC */	stw r31, -4(r12)
 /* 803645E0 00361540  93 CC FF F8 */	stw r30, -8(r12)
 /* 803645E4 00361544  93 AC FF F4 */	stw r29, -0xc(r12)
-/* 803645E8 00361548  48 00 68 E9 */	bl FreeAllStreams__10SDSPStreamFi
+/* 803645E8 00361548  48 00 68 E9 */	bl FreeAllStreams__10CDSPStreamFi
 /* 803645EC 0036154C  3C 60 80 5A */	lis r3, lbl_805A6860@ha
 /* 803645F0 00361550  3B C1 00 80 */	addi r30, r1, 0x80
 /* 803645F4 00361554  3B E3 68 60 */	addi r31, r3, lbl_805A6860@l
@@ -1281,7 +1281,7 @@ Initialize__17CDSPStreamManagerFv:
 /* 8036466C 003615CC  93 EC FF FC */	stw r31, -4(r12)
 /* 80364670 003615D0  93 CC FF F8 */	stw r30, -8(r12)
 /* 80364674 003615D4  93 AC FF F4 */	stw r29, -0xc(r12)
-/* 80364678 003615D8  48 00 68 B1 */	bl Initialize__10SDSPStreamFv
+/* 80364678 003615D8  48 00 68 B1 */	bl Initialize__10CDSPStreamFv
 /* 8036467C 003615DC  3C 60 80 5A */	lis r3, lbl_805A6860@ha
 /* 80364680 003615E0  3B C1 00 80 */	addi r30, r1, 0x80
 /* 80364684 003615E4  3B E3 68 60 */	addi r31, r3, lbl_805A6860@l

@@ -691,7 +691,7 @@ LIBS = [
             ["Kyoto/Input/CRumbleVoice", False],
             ["Kyoto/Input/RumbleAdsr", True],
             ["Kyoto/Input/CRumbleGenerator", True],
-            "Kyoto/Audio/SDSPStream",
+            "Kyoto/Audio/CDSPStream",
             ["Kyoto/Audio/g721", True],
             "Kyoto/Audio/CStaticAudioPlayer",
             "Kyoto/CFrameDelayedKiller",
