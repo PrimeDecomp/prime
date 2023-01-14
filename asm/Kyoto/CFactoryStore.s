@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803EE3D8
-lbl_803EE3D8:
+.global "__vt__31TObjOwnerParam<P12IObjectStore>"
+"__vt__31TObjOwnerParam<P12IObjectStore>":
 	# ROM: 0x3EB3D8
 	.4byte 0
 	.4byte 0
@@ -36,12 +36,12 @@ lbl_803EE3E4:
 /* 8033FA54 0033C9B4  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 8033FA58 0033C9B8  7C 7F 1B 79 */	or. r31, r3, r3
 /* 8033FA5C 0033C9BC  41 82 00 40 */	beq lbl_8033FA9C
-/* 8033FA60 0033C9C0  3C 60 80 3F */	lis r3, lbl_803EE3D8@ha
-/* 8033FA64 0033C9C4  38 03 E3 D8 */	addi r0, r3, lbl_803EE3D8@l
+/* 8033FA60 0033C9C0  3C 60 80 3F */	lis r3, "__vt__31TObjOwnerParam<P12IObjectStore>"@ha
+/* 8033FA64 0033C9C4  38 03 E3 D8 */	addi r0, r3, "__vt__31TObjOwnerParam<P12IObjectStore>"@l
 /* 8033FA68 0033C9C8  90 1F 00 00 */	stw r0, 0(r31)
 /* 8033FA6C 0033C9CC  41 82 00 20 */	beq lbl_8033FA8C
-/* 8033FA70 0033C9D0  3C 60 80 3E */	lis r3, lbl_803D9C44@ha
-/* 8033FA74 0033C9D4  38 03 9C 44 */	addi r0, r3, lbl_803D9C44@l
+/* 8033FA70 0033C9D0  3C 60 80 3E */	lis r3, __vt__10IVParamObj@ha
+/* 8033FA74 0033C9D4  38 03 9C 44 */	addi r0, r3, __vt__10IVParamObj@l
 /* 8033FA78 0033C9D8  90 1F 00 00 */	stw r0, 0(r31)
 /* 8033FA7C 0033C9DC  41 82 00 10 */	beq lbl_8033FA8C
 /* 8033FA80 0033C9E0  3C 60 80 3E */	lis r3, __vt__4IObj@ha

@@ -17,7 +17,9 @@ public:
   static bool FileExists(const char*);
 
   static void DVDARAMXferCallback(long, DVDFileInfo*);
+  static void ARAMARAMXferCallback(u32 addr);
   void HandleDVDInterrupt();
+  void HandleARAMInterrupt();
 
 private:
   uchar pad[0x14];
