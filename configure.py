@@ -713,7 +713,7 @@ LIBS = [
         "host": False,
         "objects": [
             ["Dolphin/ar/ar", True],
-            "Dolphin/ar/arq",
+            ["Dolphin/ar/arq", True],
         ],
     },
     {
