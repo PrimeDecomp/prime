@@ -56,7 +56,8 @@
     "math.h": "c",
     "gxpriv.h": "c",
     "osfastcast.h": "c",
-    "osfont.h": "c"
+    "osfont.h": "c",
+    "arq.h": "c"
   },
   "files.autoSave": "onFocusChange",
   "files.insertFinalNewline": true,
