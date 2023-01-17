@@ -1,0 +1,44 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "ninja",
+      "type": "shell",
+      "command": "ninja",
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      }
+    },
+    {
+      "label": "all_source",
+      "type": "shell",
+      "command": "ninja all_source",
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "all_source_host",
+      "type": "shell",
+      "command": "ninja all_source_host",
+      "problemMatcher": {
+        "base": "$gcc"
+      },
+      "group": "build"
+    },
+    {
+      "label": "current file (host)",
+      "type": "shell",
+      "command": "ninja host/${relativeFile}",
+      "problemMatcher": {
+        "base": "$gcc"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
+}

@@ -1373,6 +1373,11 @@ if __name__ == "__main__":
                             "basefile": f"$builddir/src/{object}",
                         },
                     )
+                    n.build(
+                        outputs=f"host/{c_file}",
+                        rule="phony",
+                        inputs=f"$builddir/host/{object}.o",
+                    )
                     if add_to_all:
                         all_host_source_files.append(f"$builddir/host/{object}.o")
                 if add_to_all:
