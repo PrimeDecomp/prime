@@ -156,7 +156,7 @@ string operator+(const string& a, const string& b);
 //   return result;
 // }
 
-string operator+(const string& a, char c) {
+static inline string operator+(const string& a, char c) {
   string result(a);
   result.append(1, c);
   return result;

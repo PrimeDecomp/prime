@@ -6,7 +6,8 @@
 
 #include "Kyoto/CDvdFile.hpp"
 #include "Kyoto/Audio/CStreamAudioManager.hpp"
-#include "Kyoto/rstl/StringExtras.hpp"
+
+#include "rstl/StringExtras.hpp"
 
 extern "C" void nullsub_42(CScriptStreamedMusic*);
 int sub_8020c154(const rstl::string&, int, int);

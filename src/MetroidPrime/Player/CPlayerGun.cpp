@@ -215,8 +215,9 @@ CPlayerGun::CPlayerGun(TUniqueId playerId)
 , x538_playerId(playerId)
 , x53a_powerBomb(kInvalidUniqueId)
 , x53c_lightId(kInvalidUniqueId)
-, x550_camBob(CPlayerCameraBob::kCBT_One, CPlayerCameraBob::kCameraBobPeriod,
-              CVector2f(CPlayerCameraBob::kCameraBobExtentX, CPlayerCameraBob::kCameraBobExtentY))
+, x550_camBob(CPlayerCameraBob::kCBT_One,
+              CVector2f(CPlayerCameraBob::kCameraBobExtentX, CPlayerCameraBob::kCameraBobExtentY),
+              CPlayerCameraBob::kCameraBobPeriod)
 , x658_(1)
 , x65c_(0.f)
 , x660_(0.f)

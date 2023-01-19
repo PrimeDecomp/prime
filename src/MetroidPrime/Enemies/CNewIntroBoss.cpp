@@ -8,6 +8,8 @@
 #include "MetroidPrime/Player/CPlayer.hpp"
 #include "MetroidPrime/Weapons/CBeamProjectile.hpp"
 
+#include "Kyoto/Animation/CInt32POINode.hpp"
+
 #include "Collision/CRayCastResult.hpp"
 
 // TODO move
