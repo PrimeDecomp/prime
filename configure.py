@@ -29,7 +29,7 @@ LIBS = [
             ["MetroidPrime/CInputGenerator", False],
             ["MetroidPrime/CMainFlow", False],
             "MetroidPrime/CMFGame",
-            "MetroidPrime/CCredits",
+            ["MetroidPrime/CCredits", False],
             "MetroidPrime/CSplashScreen",
             ["MetroidPrime/CAnimData", False],
             "MetroidPrime/Factories/CCharacterFactory",

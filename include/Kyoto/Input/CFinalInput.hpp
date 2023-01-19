@@ -42,6 +42,8 @@ public:
 
   CFinalInput ScaleAnalogueSticks(float leftDiv, float rightDiv) const;
 
+  float DeltaTime() const { return x0_dt; }
+
   float ALAUp() const { return xc_anaLeftY > 0.f ? xc_anaLeftY : 0.f; }
 
   float ALADown() const { return xc_anaLeftY < 0.f ? -xc_anaLeftY : 0.f; }

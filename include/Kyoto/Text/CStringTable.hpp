@@ -14,6 +14,7 @@ class CStringTable {
 public:
   CStringTable(CInputStream& in);
   const wchar_t* GetString(int idx) const;
+  int GetStringCount() const { return x0_stringCount; }
 };
 
 extern CStringTable* gpStringTable;
