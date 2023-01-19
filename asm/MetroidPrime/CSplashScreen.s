@@ -93,8 +93,8 @@ lbl_805AA0E8:
 .section .data
 .balign 8
 
-.global lbl_803D9A50
-lbl_803D9A50:
+.global __vt__13CSplashScreen
+__vt__13CSplashScreen:
 	# ROM: 0x3D6A50
 	.4byte 0
 	.4byte 0
@@ -151,9 +151,9 @@ __dt__13CSplashScreenFv:
 /* 80028218 00025178  93 C1 00 08 */	stw r30, 8(r1)
 /* 8002821C 0002517C  7C 7E 1B 79 */	or. r30, r3, r3
 /* 80028220 00025180  41 82 00 40 */	beq lbl_80028260
-/* 80028224 00025184  3C 60 80 3E */	lis r3, lbl_803D9A50@ha
+/* 80028224 00025184  3C 60 80 3E */	lis r3, __vt__13CSplashScreen@ha
 /* 80028228 00025188  34 1E 00 28 */	addic. r0, r30, 0x28
-/* 8002822C 0002518C  38 03 9A 50 */	addi r0, r3, lbl_803D9A50@l
+/* 8002822C 0002518C  38 03 9A 50 */	addi r0, r3, __vt__13CSplashScreen@l
 /* 80028230 00025190  90 1E 00 00 */	stw r0, 0(r30)
 /* 80028234 00025194  41 82 00 10 */	beq lbl_80028244
 /* 80028238 00025198  38 7E 00 28 */	addi r3, r30, 0x28
@@ -1290,9 +1290,9 @@ __ct__13CSplashScreenFQ213CSplashScreen13ESplashScreen:
 /* 80029234 00026194  48 02 99 D9 */	bl "__ct__6CIOWinFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 /* 80029238 00026198  38 61 00 10 */	addi r3, r1, 0x10
 /* 8002923C 0002619C  48 31 48 A5 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
-/* 80029240 000261A0  3C 80 80 3E */	lis r4, lbl_803D9A50@ha
+/* 80029240 000261A0  3C 80 80 3E */	lis r4, __vt__13CSplashScreen@ha
 /* 80029244 000261A4  3C 60 80 3D */	lis r3, lbl_803CCCD0@ha
-/* 80029248 000261A8  38 04 9A 50 */	addi r0, r4, lbl_803D9A50@l
+/* 80029248 000261A8  38 04 9A 50 */	addi r0, r4, __vt__13CSplashScreen@l
 /* 8002924C 000261AC  C0 22 83 C8 */	lfs f1, lbl_805AA0E8@sda21(r2)
 /* 80029250 000261B0  90 1E 00 00 */	stw r0, 0(r30)
 /* 80029254 000261B4  38 80 00 00 */	li r4, 0
@@ -1451,6 +1451,19 @@ lbl_80029468:
 /* 80029470 000263D0  7C 08 03 A6 */	mtlr r0
 /* 80029474 000263D4  38 21 00 10 */	addi r1, r1, 0x10
 /* 80029478 000263D8  4E 80 00 20 */	blr
+
+.global PageInvoke__12CInstructionCFR16CFontRenderStateP17CTextRenderBuffer
+PageInvoke__12CInstructionCFR16CFontRenderStateP17CTextRenderBuffer:
+/* 8002947C 000263DC  4E 80 00 20 */	blr
+
+.global "GetAssets__12CInstructionCFRQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>"
+"GetAssets__12CInstructionCFRQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>":
+/* 80029480 000263E0  4E 80 00 20 */	blr
+
+.global GetAssetCount__12CInstructionCFv
+GetAssetCount__12CInstructionCFv:
+/* 80029484 000263E4  38 60 00 00 */	li r3, 0
+/* 80029488 000263E8  4E 80 00 20 */	blr
 
 .section .rodata
 .balign 8
