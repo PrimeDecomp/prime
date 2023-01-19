@@ -475,8 +475,8 @@ lbl_80025468:
 /* 80025484 000223E4  38 21 00 20 */	addi r1, r1, 0x20
 /* 80025488 000223E8  4E 80 00 20 */	blr
 
-.global sub_8002548c
-sub_8002548c:
+.global DrawVideo__8CCreditsCFv
+DrawVideo__8CCreditsCFv:
 /* 8002548C 000223EC  94 21 FF C0 */	stwu r1, -0x40(r1)
 /* 80025490 000223F0  7C 08 02 A6 */	mflr r0
 /* 80025494 000223F4  90 01 00 44 */	stw r0, 0x44(r1)
@@ -489,7 +489,7 @@ sub_8002548c:
 /* 800254B0 00022410  80 63 00 28 */	lwz r3, 0x28(r3)
 /* 800254B4 00022414  28 03 00 00 */	cmplwi r3, 0
 /* 800254B8 00022418  41 82 00 A0 */	beq lbl_80025558
-/* 800254BC 0002241C  48 00 2A 89 */	bl sub_80027f44
+/* 800254BC 0002241C  48 00 2A 89 */	bl DrawVideo__12CMoviePlayerCFv
 /* 800254C0 00022420  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 800254C4 00022424  41 82 00 94 */	beq lbl_80025558
 /* 800254C8 00022428  88 7F 00 5C */	lbz r3, 0x5c(r31)
@@ -541,8 +541,8 @@ lbl_80025558:
 /* 80025574 000224D4  38 21 00 40 */	addi r1, r1, 0x40
 /* 80025578 000224D8  4E 80 00 20 */	blr
 
-.global sub_8002557c
-sub_8002557c:
+.global DrawText__8CCreditsCFv
+DrawText__8CCreditsCFv:
 /* 8002557C 000224DC  94 21 FF 70 */	stwu r1, -0x90(r1)
 /* 80025580 000224E0  7C 08 02 A6 */	mflr r0
 /* 80025584 000224E4  90 01 00 94 */	stw r0, 0x94(r1)
@@ -658,9 +658,9 @@ Draw__8CCreditsCFv:
 /* 80025724 00022684  80 03 00 14 */	lwz r0, 0x14(r3)
 /* 80025728 00022688  2C 00 00 03 */	cmpwi r0, 3
 /* 8002572C 0002268C  40 82 00 10 */	bne lbl_8002573C
-/* 80025730 00022690  4B FF FD 5D */	bl sub_8002548c
+/* 80025730 00022690  4B FF FD 5D */	bl DrawVideo__8CCreditsCFv
 /* 80025734 00022694  7F E3 FB 78 */	mr r3, r31
-/* 80025738 00022698  4B FF FE 45 */	bl sub_8002557c
+/* 80025738 00022698  4B FF FE 45 */	bl DrawText__8CCreditsCFv
 lbl_8002573C:
 /* 8002573C 0002269C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80025740 000226A0  83 E1 00 0C */	lwz r31, 0xc(r1)
@@ -1927,7 +1927,7 @@ sub_8002692c:
 /* 80026938 00023898  80 63 00 38 */	lwz r3, 0x38(r3)
 /* 8002693C 0002389C  28 03 00 00 */	cmplwi r3, 0
 /* 80026940 000238A0  41 82 00 08 */	beq lbl_80026948
-/* 80026944 000238A4  48 00 16 01 */	bl sub_80027f44
+/* 80026944 000238A4  48 00 16 01 */	bl DrawVideo__12CMoviePlayerCFv
 lbl_80026948:
 /* 80026948 000238A8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8002694C 000238AC  7C 08 03 A6 */	mtlr r0
@@ -3474,8 +3474,8 @@ lbl_80027F30:
 /* 80027F3C 00024E9C  38 21 00 20 */	addi r1, r1, 0x20
 /* 80027F40 00024EA0  4E 80 00 20 */	blr
 
-.global sub_80027f44
-sub_80027f44:
+.global DrawVideo__12CMoviePlayerCFv
+DrawVideo__12CMoviePlayerCFv:
 /* 80027F44 00024EA4  94 21 FF 60 */	stwu r1, -0xa0(r1)
 /* 80027F48 00024EA8  7C 08 02 A6 */	mflr r0
 /* 80027F4C 00024EAC  90 01 00 A4 */	stw r0, 0xa4(r1)

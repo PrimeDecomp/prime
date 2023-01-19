@@ -154,7 +154,9 @@ public:
   const rstl::string& GetJapaneseCreditsFont() const { return x2f0_japaneseCreditsFont; }
   const CColor& GetCreditsTextFontColor() const { return x300_; }
   const CColor& GetCreditsTextBorderColor() const { return x304_; }
-
+  float GetCredits_x30c() const { return x30c_; }
+  float GetCredits_x310() const { return x310_; }
+  
   static float FaceReflectionDistanceDebugValueToActualValue(float v);
   static float FaceReflectionHeightDebugValueToActualValue(float v);
   static float FaceReflectionAspectDebugValueToActualValue(float v);
