@@ -99,6 +99,21 @@ typedef struct _IO_FILE {
   struct _IO_FILE* next_file_struct;
 } FILE;
 
+typedef struct {
+  char* CharStr;
+  size_t MaxCharCount;
+  size_t CharsWritten;
+} __OutStrCtrl;
+
+typedef struct {
+  char* NextChar;
+  int NullCharDetected;
+} __InStrCtrl;
+
+#define EOF	-1L
+
+enum __ReadProcActions { __GetChar, __UngetChar, __CheckForError };
+
 #define _IONBF 0
 #define _IOLBF 1
 #define _IOFBF 2
@@ -110,7 +125,7 @@ int vprintf(const char* format, va_list arg);
 int vsprintf(char* s, const char* format, va_list arg);
 size_t fread(const void*, size_t memb_size, size_t num_memb, FILE*);
 size_t fwrite(const void*, size_t memb_size, size_t num_memb, FILE*);
-int fseek(FILE * file, long offset, int mode);
+int fseek(FILE* file, long offset, int mode);
 size_t __fwrite(const void*, size_t, size_t, FILE*);
 
 #ifdef __cplusplus
