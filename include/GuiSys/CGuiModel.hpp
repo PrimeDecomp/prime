@@ -14,10 +14,10 @@ public:
             bool flag);
 
   const TLockedToken< CModel >& GetModel() const { return xb8_model; }
-  bool GetIsFinishedLoadingWidgetSpecific() override;
-  void Touch() override;
-  void Draw(const CGuiWidgetDrawParms& parms) override;
-  bool TestCursorHit(const CMatrix4f& vp, const CVector2f& point) const override;
+  bool GetIsFinishedLoadingWidgetSpecific() const override;
+  void Touch() const override;
+  void Draw(const CGuiWidgetDrawParms& parms) const override;
+  // bool TestCursorHit(const CMatrix4f& vp, const CVector2f& point) const override;
 
 private:
   TLockedToken< CModel > xb8_model;

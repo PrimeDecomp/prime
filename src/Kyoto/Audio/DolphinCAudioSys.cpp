@@ -22,7 +22,7 @@ bool CAudioSys::mProLogic2 = true;
 
 const rstl::string CAudioSys::mpDefaultInvalidString(rstl::string_l("NULL"));
 
-void* DoMalloc(size_t len) { return new char[len]; }
+void* DoMalloc(u32 len) { return new char[len]; }
 
 void DoFree(void* ptr) {
   if (!ptr) {
