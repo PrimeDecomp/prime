@@ -7,8 +7,8 @@ class CGuiCompoundWidget : public CGuiWidget {
 public:
   FourCC GetWidgetTypeID() const override { return -1; }
 
-  void OnVisibleChange() override;
-  void OnActiveChange() override;
+  void OnVisible() override;
+  void OnActivate() override;
   virtual CGuiWidget* GetWorkerWidget(int id) const;
 private:
 };

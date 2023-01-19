@@ -11,7 +11,7 @@ public:
   CGuiWidget* GetSelectedWidget();
   const CGuiWidget* GetSelectedWidget() const;
   bool AddWorkerWidget(CGuiWidget* worker) override;
-  void OnActiveChange() override;
+  void OnActivate() override;
 
 private:
   uint xb8_workerCount;
