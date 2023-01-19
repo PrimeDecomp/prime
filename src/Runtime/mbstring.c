@@ -1,7 +1,6 @@
 #include "errno.h"
 #include "stdio.h"
 #include "string.h"
-#include "wstring.h"
 
 #pragma ANSI_strict off
 
