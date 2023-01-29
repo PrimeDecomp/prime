@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803ED578
-lbl_803ED578:
+.global __vt__15CARAMDvdRequest
+__vt__15CARAMDvdRequest:
 	# ROM: 0x3EA578
 	.4byte 0
 	.4byte 0
@@ -14,8 +14,8 @@ lbl_803ED578:
 	.4byte PostCancelRequest__15CARAMDvdRequestFv
 	.4byte GetMediaType__15CARAMDvdRequestCFv
 
-.global lbl_803ED594
-lbl_803ED594:
+.global __vt__15CRealDvdRequest
+__vt__15CRealDvdRequest:
 	# ROM: 0x3EA594
 	.4byte 0
 	.4byte 0
@@ -24,14 +24,6 @@ lbl_803ED594:
 	.4byte IsComplete__15CRealDvdRequestFv
 	.4byte PostCancelRequest__15CRealDvdRequestFv
 	.4byte GetMediaType__15CRealDvdRequestCFv
-
-.section .sbss, "wa"
-.balign 8
-
-# TODO CDvdRequestManager
-.global mManagerInstalled__14CDvdRequestSys
-mManagerInstalled__14CDvdRequestSys:
-	.skip 0x8
 
 .section .text, "ax"
 
@@ -43,12 +35,12 @@ __dt__15CARAMDvdRequestFv:
 /* 802FE5E0 002FB540  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 802FE5E4 002FB544  7C 7F 1B 79 */	or. r31, r3, r3
 /* 802FE5E8 002FB548  41 82 00 30 */	beq lbl_802FE618
-/* 802FE5EC 002FB54C  3C 60 80 3F */	lis r3, lbl_803ED578@ha
-/* 802FE5F0 002FB550  38 03 D5 78 */	addi r0, r3, lbl_803ED578@l
+/* 802FE5EC 002FB54C  3C 60 80 3F */	lis r3, __vt__15CARAMDvdRequest@ha
+/* 802FE5F0 002FB550  38 03 D5 78 */	addi r0, r3, __vt__15CARAMDvdRequest@l
 /* 802FE5F4 002FB554  90 1F 00 00 */	stw r0, 0(r31)
 /* 802FE5F8 002FB558  41 82 00 10 */	beq lbl_802FE608
-/* 802FE5FC 002FB55C  3C 60 80 3E */	lis r3, lbl_803D9FF8@ha
-/* 802FE600 002FB560  38 03 9F F8 */	addi r0, r3, lbl_803D9FF8@l
+/* 802FE5FC 002FB55C  3C 60 80 3E */	lis r3, __vt__11CDvdRequest@ha
+/* 802FE600 002FB560  38 03 9F F8 */	addi r0, r3, __vt__11CDvdRequest@l
 /* 802FE604 002FB564  90 1F 00 00 */	stw r0, 0(r31)
 lbl_802FE608:
 /* 802FE608 002FB568  7C 80 07 35 */	extsh. r0, r4
@@ -188,8 +180,8 @@ __dt__15CRealDvdRequestFv:
 /* 802FE794 002FB6F4  93 C1 00 08 */	stw r30, 8(r1)
 /* 802FE798 002FB6F8  7C 7E 1B 79 */	or. r30, r3, r3
 /* 802FE79C 002FB6FC  41 82 00 7C */	beq lbl_802FE818
-/* 802FE7A0 002FB700  3C 80 80 3F */	lis r4, lbl_803ED594@ha
-/* 802FE7A4 002FB704  38 04 D5 94 */	addi r0, r4, lbl_803ED594@l
+/* 802FE7A0 002FB700  3C 80 80 3F */	lis r4, __vt__15CRealDvdRequest@ha
+/* 802FE7A4 002FB704  38 04 D5 94 */	addi r0, r4, __vt__15CRealDvdRequest@l
 /* 802FE7A8 002FB708  90 1E 00 00 */	stw r0, 0(r30)
 /* 802FE7AC 002FB70C  81 83 00 00 */	lwz r12, 0(r3)
 /* 802FE7B0 002FB710  81 8C 00 10 */	lwz r12, 0x10(r12)
@@ -212,8 +204,8 @@ lbl_802FE7EC:
 /* 802FE7F0 002FB750  48 07 2F 5D */	bl DVDClose
 /* 802FE7F4 002FB754  28 1E 00 00 */	cmplwi r30, 0
 /* 802FE7F8 002FB758  41 82 00 10 */	beq lbl_802FE808
-/* 802FE7FC 002FB75C  3C 60 80 3E */	lis r3, lbl_803D9FF8@ha
-/* 802FE800 002FB760  38 03 9F F8 */	addi r0, r3, lbl_803D9FF8@l
+/* 802FE7FC 002FB75C  3C 60 80 3E */	lis r3, __vt__11CDvdRequest@ha
+/* 802FE800 002FB760  38 03 9F F8 */	addi r0, r3, __vt__11CDvdRequest@l
 /* 802FE804 002FB764  90 1E 00 00 */	stw r0, 0(r30)
 lbl_802FE808:
 /* 802FE808 002FB768  7F E0 07 35 */	extsh. r0, r31

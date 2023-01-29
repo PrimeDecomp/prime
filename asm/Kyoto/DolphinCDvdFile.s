@@ -165,11 +165,11 @@ AsyncSeekRead__8CDvdFileFPvUi11ESeekOrigini:
 /* 8034FA44 0034C9A4  38 C0 00 01 */	li r6, 1
 /* 8034FA48 0034C9A8  7C 63 02 14 */	add r3, r3, r0
 /* 8034FA4C 0034C9AC  4B FF 4E 05 */	bl DMAToMRAM__12CARAMManagerFPvPvUiQ212CARAMManager12EDMAPriority
-/* 8034FA50 0034C9B0  3C A0 80 3E */	lis r5, lbl_803D9FF8@ha
-/* 8034FA54 0034C9B4  3C 80 80 3F */	lis r4, lbl_803ED578@ha
-/* 8034FA58 0034C9B8  38 05 9F F8 */	addi r0, r5, lbl_803D9FF8@l
+/* 8034FA50 0034C9B0  3C A0 80 3E */	lis r5, __vt__11CDvdRequest@ha
+/* 8034FA54 0034C9B4  3C 80 80 3F */	lis r4, __vt__15CARAMDvdRequest@ha
+/* 8034FA58 0034C9B8  38 05 9F F8 */	addi r0, r5, __vt__11CDvdRequest@l
 /* 8034FA5C 0034C9BC  90 1C 00 00 */	stw r0, 0(r28)
-/* 8034FA60 0034C9C0  38 04 D5 78 */	addi r0, r4, lbl_803ED578@l
+/* 8034FA60 0034C9C0  38 04 D5 78 */	addi r0, r4, __vt__15CARAMDvdRequest@l
 /* 8034FA64 0034C9C4  90 1C 00 00 */	stw r0, 0(r28)
 /* 8034FA68 0034C9C8  90 7C 00 04 */	stw r3, 4(r28)
 lbl_8034FA6C:
@@ -183,11 +183,11 @@ lbl_8034FA74:
 /* 8034FA84 0034C9E4  4B FC 5D E9 */	bl __nw__FUlPCcPCc
 /* 8034FA88 0034C9E8  7C 7C 1B 79 */	or. r28, r3, r3
 /* 8034FA8C 0034C9EC  41 82 00 1C */	beq lbl_8034FAA8
-/* 8034FA90 0034C9F0  3C 80 80 3E */	lis r4, lbl_803D9FF8@ha
-/* 8034FA94 0034C9F4  3C 60 80 3F */	lis r3, lbl_803ED594@ha
-/* 8034FA98 0034C9F8  38 04 9F F8 */	addi r0, r4, lbl_803D9FF8@l
+/* 8034FA90 0034C9F0  3C 80 80 3E */	lis r4, __vt__11CDvdRequest@ha
+/* 8034FA94 0034C9F4  3C 60 80 3F */	lis r3, __vt__15CRealDvdRequest@ha
+/* 8034FA98 0034C9F8  38 04 9F F8 */	addi r0, r4, __vt__11CDvdRequest@l
 /* 8034FA9C 0034C9FC  90 1C 00 00 */	stw r0, 0(r28)
-/* 8034FAA0 0034CA00  38 03 D5 94 */	addi r0, r3, lbl_803ED594@l
+/* 8034FAA0 0034CA00  38 03 D5 94 */	addi r0, r3, __vt__15CRealDvdRequest@l
 /* 8034FAA4 0034CA04  90 1C 00 00 */	stw r0, 0(r28)
 lbl_8034FAA8:
 /* 8034FAA8 0034CA08  3B 7C 00 04 */	addi r27, r28, 4

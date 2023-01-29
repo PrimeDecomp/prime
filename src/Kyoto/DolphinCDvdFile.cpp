@@ -89,17 +89,17 @@ CDvdFile::CDvdFile(const char* filename)
 
 CDvdFile::~CDvdFile() { CloseFile(); }
 
-IDvdRequest* CDvdFile::SyncRead(void* dest, uint len) { AsyncSeekRead(dest, len, kSO_Cur, 0); }
+CDvdRequest* CDvdFile::SyncRead(void* dest, uint len) { AsyncSeekRead(dest, len, kSO_Cur, 0); }
 
-IDvdRequest* CDvdFile::SyncSeekRead(void* buf, uint len, ESeekOrigin origin, int offset) {}
+CDvdRequest* CDvdFile::SyncSeekRead(void* buf, uint len, ESeekOrigin origin, int offset) {}
 
-IDvdRequest* CDvdFile::AsyncSeekRead(void* dest, uint len, ESeekOrigin origin, int offset) {
-  IDvdRequest* request;
+CDvdRequest* CDvdFile::AsyncSeekRead(void* dest, uint len, ESeekOrigin origin, int offset) {
+  CDvdRequest* request;
   StallForARAMFile();
   CalcFileOffset(offset, origin);
 
   if (x8_) {
-    
+
   } else {
     int roundedLen = (len + 31) & ~31;
     DCFlushRange(dest, roundedLen);

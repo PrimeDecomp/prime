@@ -29,8 +29,6 @@ public:
   static void Free(const void* ptr);
   static int DMAToARAM(void*, void*, uint, EDMAPriority);
   static int DMAToMRAM(void*, void*, uint, EDMAPriority);
-
-
 private:
   static uint mPreInitializeAlloc;
   static const int kInvalidAlloc;
