@@ -90,6 +90,8 @@ BOOL DVDClose(DVDFileInfo* f);
 BOOL DVDSetAutoFatalMessaging(BOOL);
 void DVDReset();
 s32 DVDCancel(DVDCommandBlock* block);
+BOOL DVDOpen(char* fileName, DVDFileInfo* fileInfo);
+BOOL DVDFastOpen(s32 entrynum, DVDFileInfo* fileInfo);
 
 BOOL DVDPrepareStreamAsync(DVDFileInfo* fInfo, u32 length, u32 offset, DVDCallback callback);
 s32 DVDPrepareStream(DVDFileInfo* fInfo, u32 length, u32 offset);
@@ -107,6 +109,8 @@ BOOL DVDGetStreamPlayAddrAsync(DVDCommandBlock* block, DVDCBCallback callback);
 s32 DVDGetStreamPlayAddr(DVDCommandBlock* block);
 
 s32 DVDGetDriveStatus();
+
+s32 DVDConvertPathToEntrynum(char* pathPtr);
 
 #ifdef __cplusplus
 }

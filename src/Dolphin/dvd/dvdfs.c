@@ -57,7 +57,7 @@ static BOOL isSame(const char* path, const char* string) {
   return FALSE;
 }
 
-s32 DVDConvertPathToEntrynum(const char* pathPtr) {
+s32 DVDConvertPathToEntrynum(char* pathPtr) {
   const char* ptr;
   char* stringPtr;
   BOOL isDir;
@@ -169,7 +169,7 @@ BOOL DVDFastOpen(s32 entrynum, DVDFileInfo* fileInfo) {
   return TRUE;
 }
 
-BOOL DVDOpen(const char* fileName, DVDFileInfo* fileInfo) {
+BOOL DVDOpen(char* fileName, DVDFileInfo* fileInfo) {
   s32 entry;
   char currentDir[128];
 
