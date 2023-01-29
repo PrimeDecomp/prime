@@ -279,7 +279,7 @@ BOOL DVDGetCurrentDir(char* path, u32 maxlen) {
   return DVDConvertEntrynumToPath((s32)currentDirectory, path, maxlen);
 }
 
-BOOL DVDChangeDir(const char* dirName) {
+BOOL DVDChangeDir(char* dirName) {
   s32 entry;
   entry = DVDConvertPathToEntrynum(dirName);
   if ((entry < 0) || (entryIsDir(entry) == FALSE)) {
@@ -440,7 +440,7 @@ s32 DVDSeekPrio(DVDFileInfo* fileInfo, s32 offset, s32 prio) {
 static void cbForSeekSync(s32 result, DVDCommandBlock* block) { OSWakeupThread(&__DVDThreadQueue); }
 
 /* This is based on the revolution SDK, these may not match in all cases */
-s32 DVDGetFileInfoStatus(const DVDFileInfo* fileInfo) {
+s32 DVDGetFileInfoStatus(DVDFileInfo* fileInfo) {
   return DVDGetCommandBlockStatus(&fileInfo->cb);
 }
 
@@ -459,7 +459,7 @@ BOOL DVDFastOpenDir(s32 entrynum, DVDDir* dir) {
 }
 
 /* This is based on the revolution SDK, these may not match in all cases */
-BOOL DVDOpenDir(const char* dirName, DVDDir* dir) {
+BOOL DVDOpenDir(char* dirName, DVDDir* dir) {
   s32 entry;
   char currentDir[128];
   entry = DVDConvertPathToEntrynum(dirName);

@@ -25,8 +25,8 @@ lbl_803D9FC0:
 	.4byte IGetDefaultAudioTrack__11CDummyWorldCFv
 	.4byte IGetAreaCount__11CDummyWorldFv
 
-.global lbl_803D9FF8
-lbl_803D9FF8:
+.global __vt__11CDvdRequest
+__vt__11CDvdRequest:
 	# ROM: 0x3D6FF8
 	.4byte 0
 	.4byte 0
