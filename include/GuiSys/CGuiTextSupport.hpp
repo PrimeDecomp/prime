@@ -1,44 +1,19 @@
 #ifndef _CGUITEXTSUPPORT
 #define _CGUITEXTSUPPORT
 
+#include "Kyoto/SObjectTag.hpp"
+
+#include "Kyoto/Text/TextCommon.hpp"
+
 #include "rstl/string.hpp"
 #include "rstl/vector.hpp"
+#include "rstl/pair.hpp"
 
 class CColor;
 class CGuiFrame;
 class CTextExecuteBuffer;
 class CTextParser;
-
-enum EJustification {
-  kJ_Left = 0,
-  kJ_Center,
-  kJ_Right,
-  kJ_Full,
-  kJ_NLeft,
-  kJ_NCenter,
-  kJ_NRight,
-  kJ_LeftMono,
-  kJ_CenterMono,
-  kJ_RightMono,
-};
-
-enum EVerticalJustification {
-  kVJ_Top = 0,
-  kVJ_Center,
-  kVJ_Bottom,
-  kVJ_Full,
-  kVJ_NTop,
-  kVJ_NCenter,
-  kVJ_NBottom,
-  kVJ_TopMono,
-  kVJ_CenterMono,
-  kVJ_RightMono,
-};
-
-enum ETextDirection {
-  kTD_Horizontal,
-  kTD_Vertical,
-};
+class CSimplePool;
 
 class CGuiTextProperties {
   friend class CGuiTextSupport;

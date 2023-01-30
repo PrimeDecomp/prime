@@ -92,7 +92,7 @@ void DVDReset();
 s32 DVDCancel(DVDCommandBlock* block);
 BOOL DVDOpen(char* fileName, DVDFileInfo* fileInfo);
 BOOL DVDFastOpen(s32 entrynum, DVDFileInfo* fileInfo);
-s32 DVDGetCommandBlockStatus(DVDCommandBlock* block);
+s32 DVDGetCommandBlockStatus(const DVDCommandBlock* block);
 BOOL DVDCancelAsync(DVDCommandBlock* block, DVDCBCallback callback);
 s32 DVDCancel(DVDCommandBlock* block);
 BOOL DVDCancelAllAsync(DVDCBCallback callback);
