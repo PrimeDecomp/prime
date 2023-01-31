@@ -34,7 +34,7 @@ void __OSResetSWInterruptHandler(__OSInterrupt interrupt, OSContext* context) {
   __PIRegs[0] = 2;
 }
 
-#if NONMATCHING
+#ifdef FULL_FRANK
 BOOL OSGetResetButtonState(void) {
   BOOL enabled;
   BOOL state;

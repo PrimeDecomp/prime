@@ -39,7 +39,7 @@ void __GBAHandler(s32 chan, u32 sr, OSContext* context) {
 
 void __GBASyncCallback(s32 chan, s32 ret) { OSWakeupThread(&__GBA[chan].thread_queue); }
 
-#if NONMATCHING
+#ifdef FULL_FRANK
 /* This actually does match, but has an epilogue swap */
 s32 __GBASync(s32 chan) {
   GBA* gba;

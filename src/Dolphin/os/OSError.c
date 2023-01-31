@@ -40,7 +40,7 @@ __declspec(weak) void OSPanic(const char* file, int line, const char* msg, ...) 
   PPCHalt();
 }
 
-#if NONMATCHING
+#ifdef FULL_FRANK
 OSErrorHandler OSSetErrorHandler(OSError error, OSErrorHandler handler) {
   OSErrorHandler oldHandler;
   BOOL enabled;

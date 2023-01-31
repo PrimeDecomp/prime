@@ -730,7 +730,7 @@ static void SamplingHandler(__OSInterrupt interrupt, OSContext* context) {
   }
 }
 
-#if NONMATCHING
+#ifdef FULL_FRANK
 PADSamplingCallback PADSetSamplingCallback(PADSamplingCallback callback) {
   PADSamplingCallback prev;
 
@@ -777,7 +777,7 @@ lbl_803875F0:
 #pragma pop
 #endif
 
-#if NONMATCHING
+#ifdef FULL_FRANK
 BOOL __PADDisableRecalibration(BOOL disable) {
   BOOL enabled;
   BOOL prev;

@@ -22,7 +22,7 @@ void __AIDHandler(s16 interrupt, OSContext* context);
 void __AICallbackStackSwitch(register AIDCallback cb);
 void __AI_SRC_INIT(void);
 
-#if NONMATCHING
+#ifdef FULL_FRANK
 AIDCallback AIRegisterDMACallback(AIDCallback callback) {
   s32 oldInts;
   AIDCallback ret;
@@ -79,7 +79,7 @@ u32 AIGetDMAStartAddr(void) {
   return (u32)((__DSPRegs[24] & 0x03ff) << 16) | (__DSPRegs[25] & 0xffe0);
 }
 
-#if NONMATCHING
+#ifdef FULL_FRANK
 AISCallback AIRegisterStreamCallback(AISCallback callback) {
   AISCallback ret;
   s32 oldInts;

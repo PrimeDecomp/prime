@@ -21,7 +21,7 @@ static void __ARHandler(__OSInterrupt interrupt, OSContext* context);
 static void __ARChecksize(void);
 static void __ARClearArea(u32 start_addr, u32 length);
 
-#if NONMATCHING
+#ifdef FULL_FRANK
 ARCallback ARRegisterDMACallback(ARCallback callback) {
   ARCallback oldCb;
   BOOL enabled;
@@ -60,7 +60,7 @@ asm ARCallback ARRegisterDMACallback(ARCallback callback) {
 #pragma pop
 /* clang-format on */
 #endif
-#if NONMATCHING
+#ifdef FULL_FRANK
 u32 ARGetDMAStatus() {
   BOOL enabled;
   u32 val;
@@ -110,7 +110,7 @@ void ARStartDMA(u32 type, u32 mainmem_addr, u32 aram_addr, u32 length) {
   OSRestoreInterrupts(enabled);
 }
 
-#if NONMATCHING
+#ifdef FULL_FRANK
 u32 ARAlloc(u32 length) {
   u32 tmp;
   BOOL enabled;
