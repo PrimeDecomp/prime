@@ -809,7 +809,7 @@ LIBS = [
             ["Dolphin/os/OSArena", True],
             ["Dolphin/os/OSAudioSystem", True],
             ["Dolphin/os/OSCache", True],
-            ["Dolphin/os/OSContext", True, True, True],
+            ["Dolphin/os/OSContext", True, {"mw_version": "1.2.5"}],
             ["Dolphin/os/OSError", True],
             "Dolphin/os/OSFatal",
             "Dolphin/os/OSFont",
@@ -926,7 +926,7 @@ LIBS = [
             "musyx/seq",
             "musyx/synth",
             ["musyx/seq_api", True],
-            ["musyx/snd_synthapi", True, False],
+            ["musyx/snd_synthapi", True, {"add_to_all": False}],
             ["musyx/stream", False],
             "musyx/synthdata",
             "musyx/synthmacros",
@@ -1376,17 +1376,19 @@ if __name__ == "__main__":
 
         for object in lib["objects"]:
             completed = None
-            add_to_all = True
-            no_frank = False
+            options = {
+                "add_to_all": True,
+                "mw_version": None,
+                "cflags": None,
+            }
             if type(object) is list:
+                if len(object) > 1:
+                    completed = object[1]
                 if len(object) > 2:
-                    add_to_all = object[2]
-                if len(object) > 3:
-                    no_frank = object[3]
-                completed = object[1]
+                    options.update(object[2])
                 object = object[0]
 
-            mw_version = lib["mw_version"]
+            mw_version = options["mw_version"] or lib["mw_version"]
             c_file = None
             if os.path.exists(src_path / f"{object}.cpp"):
                 c_file = src_path / f"{object}.cpp"
@@ -1399,19 +1401,18 @@ if __name__ == "__main__":
                 implicit = []
                 if mw_version == "1.2.5e":
                     mw_version = "1.2.5"
-                    if no_frank is False:
-                        rule = "mwcc_frank"
-                        if args.frank:
-                            implicit.append(frank)
-                        else:
-                            implicit.append(franklite)
+                    rule = "mwcc_frank"
+                    if args.frank:
+                        implicit.append(frank)
+                    else:
+                        implicit.append(franklite)
                 n.build(
                     outputs=path(build_src_path / f"{object}.o"),
                     rule=rule,
                     inputs=path(c_file),
                     variables={
                         "mw_version": mw_version,
-                        "cflags": lib["cflags"],
+                        "cflags": options["cflags"] or lib["cflags"],
                         "basedir": os.path.dirname(build_src_path / f"{object}"),
                         "basefile": path(build_src_path / f"{object}"),
                     },
@@ -1427,9 +1428,9 @@ if __name__ == "__main__":
                             "basefile": path(build_host_path / object),
                         },
                     )
-                    if add_to_all:
+                    if options["add_to_all"]:
                         host_source_inputs.append(build_host_path / f"{object}.o")
-                if add_to_all:
+                if options["add_to_all"]:
                     source_inputs.append(build_src_path / f"{object}.o")
             if os.path.exists(asm_path / f"{object}.s"):
                 n.build(
