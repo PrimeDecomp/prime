@@ -15,3 +15,5 @@ include/lmgr326b.dll
 .idea/
 versions/
 build.ninja
+.ninja_deps
+.ninja_log

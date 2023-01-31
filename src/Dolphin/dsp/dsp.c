@@ -84,7 +84,7 @@ void DSPHalt(void) {
 
 u32 DSPGetDMAStatus(void) { return __DSPRegs[5] & 0x200; }
 
-#if NONMATCHING
+#ifdef FULL_FRANK
 DSPTaskInfo* DSPAddTask(DSPTaskInfo* task) {
   u32 oldInt;
   oldInt = OSDisableInterrupts();

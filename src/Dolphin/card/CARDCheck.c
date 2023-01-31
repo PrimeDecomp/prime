@@ -67,7 +67,7 @@ static s32 VerifyID(CARDControl* card) {
   return CARD_RESULT_READY;
 }
 
-#if NONMATCHING
+#ifdef FULL_FRANK
 static s32 VerifyDir(CARDControl* card, int* outCurrent) {
   CARDDir* dir[2];
   CARDDirCheck* check[2];
@@ -279,7 +279,7 @@ lbl_803BB228:
 #pragma pop
 #endif
 
-#if NONMATCHING
+#ifdef FULL_FRANK
 static s32 VerifyFAT(CARDControl* card, int* outCurrent) {
   u16* fat[2];
   u16* fatp;

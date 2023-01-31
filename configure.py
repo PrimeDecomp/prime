@@ -1110,6 +1110,12 @@ if __name__ == "__main__":
         default=Path("build"),
         help="base build directory",
     )
+    parser.add_argument(
+        "--frank",
+        dest="frank",
+        action="store_true",
+        help="use full frank.py instead of franklite.py (non-matching)",
+    )
     args = parser.parse_args()
 
     # On Windows, we need this to use && in commands
@@ -1152,11 +1158,13 @@ if __name__ == "__main__":
     else:
         dkp_path = Path("/opt/devkitpro/devkitPPC")
 
-    cflags_base = f"-proc gekko -nodefaults -Cpp_exceptions off -RTTI off -fp hard -fp_contract on -O4,p -maxerrors 1 -enum int -inline auto -str reuse -nosyspath -MMD -DPRIME1 -DVERSION={version_num} -DNONMATCHING=0 -i include -i libc"
+    cflags_base = f"-proc gekko -nodefaults -Cpp_exceptions off -RTTI off -fp hard -fp_contract on -O4,p -maxerrors 1 -enum int -inline auto -str reuse -nosyspath -DPRIME1 -DVERSION={version_num} -DNONMATCHING=0 -i include -i libc"
     if args.debug:
         cflags_base += " -sym on -D_DEBUG"
     else:
         cflags_base += " -DNDEBUG"
+    if args.frank:
+        cflags_base += " -DFULL_FRANK"
     n.variable("cflags_base", cflags_base)
     n.variable(
         "cflags_retro",
@@ -1249,11 +1257,20 @@ if __name__ == "__main__":
     compiler_path = args.compilers / "$mw_version"
     mwcc = compiler_path / "mwcceppc.exe"
     mwld = compiler_path / "mwldeppc.exe"
+    frank = tools_path / "frank.py"
     franklite = tools_path / "franklite.py"
     gnu_as = dkp_path / "bin" / f"powerpc-eabi-as{exe}"
 
-    mwcc_cmd = f"{chain}{wine}{mwcc} $cflags -c $in -o $basedir"
-    mwcc_frank_cmd = f"{mwcc_cmd} && $python {franklite} $out $out"
+    mwcc_cmd = f"{chain}{wine}{mwcc} $cflags -MMD -c $in -o $basedir"
+    if args.frank:
+        profile_mwcc = args.compilers / "1.2.5e" / "mwcceppc.exe"
+        mwcc_frank_cmd = (
+            f"{chain}{wine}{mwcc} $cflags -MMD -c $in -o $basedir"
+            + f" && {wine}{profile_mwcc} $cflags -c $in -o $out.profile"
+            + f" && $python {frank} $out $out.profile $out"
+        )
+    else:
+        mwcc_frank_cmd = f"{mwcc_cmd} && $python {franklite} $out $out"
     mwld_cmd = f"{wine}{mwld} $ldflags -o $out @$out.rsp"
     as_cmd = (
         f"{chain}{gnu_as} $asflags -o $out $in -MD $out.d"
@@ -1379,10 +1396,15 @@ if __name__ == "__main__":
                 if completed is None:
                     print(f"Mark as incomplete: {c_file}")
                 rule = "mwcc"
+                implicit = []
                 if mw_version == "1.2.5e":
                     mw_version = "1.2.5"
                     if no_frank is False:
                         rule = "mwcc_frank"
+                        if args.frank:
+                            implicit.append(frank)
+                        else:
+                            implicit.append(franklite)
                 n.build(
                     outputs=path(build_src_path / f"{object}.o"),
                     rule=rule,
@@ -1393,6 +1415,7 @@ if __name__ == "__main__":
                         "basedir": os.path.dirname(build_src_path / f"{object}"),
                         "basefile": path(build_src_path / f"{object}"),
                     },
+                    implicit=path(implicit),
                 )
                 if lib["host"]:
                     n.build(
@@ -1540,7 +1563,7 @@ if __name__ == "__main__":
     n.build(
         outputs="build.ninja",
         rule="configure",
-        implicit=["configure.py", "tools/ninja_syntax.py"],
+        implicit=path(["configure.py", tools_path / "ninja_syntax.py"]),
     )
     n.newline()
 

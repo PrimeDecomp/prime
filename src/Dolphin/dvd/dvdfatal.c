@@ -73,7 +73,7 @@ static void ShowMessage(void) {
   OSFatal(fg, bg, message);
 }
 
-#if NONMATCHING
+#ifdef FULL_FRANK
 BOOL DVDSetAutoFatalMessaging(BOOL enable) {
   BOOL enabled;
   BOOL prev;

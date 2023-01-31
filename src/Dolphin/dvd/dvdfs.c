@@ -193,7 +193,7 @@ BOOL DVDOpen(char* fileName, DVDFileInfo* fileInfo) {
   return TRUE;
 }
 
-#if NONMATCHING
+#ifdef FULL_FRANK
 BOOL DVDClose(DVDFileInfo* fileInfo) {
   DVDCancel(&(fileInfo->cb));
   return TRUE;

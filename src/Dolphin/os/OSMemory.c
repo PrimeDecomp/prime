@@ -13,7 +13,7 @@ static OSResetFunctionInfo ResetFunctionInfo = {
     127,
 };
 
-#if NONMATCHING
+#ifdef FULL_FRANK
 static BOOL OnReset(BOOL final) {
   if (final != FALSE) {
     __MEMRegs[8] = 0xFF;

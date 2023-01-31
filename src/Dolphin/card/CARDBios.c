@@ -397,7 +397,7 @@ s32 __CARDWritePage(s32 chan, CARDCallback callback) {
   return result;
 }
 
-#if NONMATCHING
+#ifdef FULL_FRANK
 /* TODO: Needs frank fix for disconnected stack epilogue */
 s32 __CARDEraseSector(s32 chan, u32 addr, CARDCallback callback) {
   CARDControl* card;
@@ -557,7 +557,7 @@ s32 __CARDGetControlBlock(s32 chan, CARDControl** pcard) {
   return result;
 }
 
-#if NONMATCHING
+#ifdef FULL_FRANK
 /* TODO: Needs frank fix for disconnected stack epilogue */
 s32 __CARDPutControlBlock(CARDControl* card, s32 result) {
   BOOL enabled;
@@ -619,7 +619,7 @@ s32 CARDGetResultCode(s32 chan) {
   return card->result;
 }
 
-#if NONMATCHING
+#ifdef FULL_FRANK
 s32 CARDFreeBlocks(s32 chan, s32* byteNotUsed, s32* filesNotUsed) {
   CARDControl* card;
   s32 result;

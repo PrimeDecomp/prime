@@ -172,7 +172,7 @@ static void* LockSram(u32 offset) {
   return Scb.sram + offset;
 }
 
-#if NONMATCHING
+#ifdef FULL_FRANK
 OSSram* __OSLockSram() { return LockSram(0); }
 #else
 /* clang-format off */
@@ -278,7 +278,7 @@ BOOL __OSReadROM(void* buffer, s32 length, s32 offset) {
 }
 
 inline OSSram* __OSLockSramHACK() { return LockSram(0); }
-#if NONMATCHING
+#ifdef FULL_FRANK
 u32 OSGetSoundMode() {
   OSSram* sram;
   u32 mode;
@@ -352,7 +352,7 @@ void OSSetSoundMode(u32 mode) {
   __OSUnlockSram(TRUE);
 }
 
-#if NONMATCHING
+#ifdef FULL_FRANK
 u32 OSGetProgressiveMode() {
   OSSram* sram;
   u32 mode;
@@ -420,7 +420,7 @@ void OSSetProgressiveMode(u32 mode) {
   __OSUnlockSram(TRUE);
 }
 
-#if NONMATCHING
+#ifdef FULL_FRANK
 u8 OSGetLanguage() {
   OSSram* sram;
   u8 language;
@@ -471,7 +471,7 @@ lbl_8038428C:
 /* clang-format on */
 #endif
 
-#if NONMATCHING
+#ifdef FULL_FRANK
 u16 OSGetWirelessID(s32 channel) {
   OSSramEx* sram;
   u16 id;

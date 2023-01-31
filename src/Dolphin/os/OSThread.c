@@ -129,7 +129,7 @@ void OSInitThreadQueue(OSThreadQueue* queue) { queue->head = queue->tail = NULL;
 
 OSThread* OSGetCurrentThread() { return __OSCurrentThread; }
 
-#if NONMATCHING
+#ifdef FULL_FRANK
 /* Code matches, stack epilogue bug*/
 s32 OSDisableScheduler() {
   BOOL enabled;
@@ -168,7 +168,7 @@ asm s32 OSDisableScheduler() {
 #pragma pop
 #endif
 
-#if NONMATCHING
+#ifdef FULL_FRANK
 /* Code matches, stack epilogue bug*/
 s32 OSEnableScheduler() {
   BOOL enabled;
@@ -405,7 +405,7 @@ void OSCancelThread(OSThread* thread) {
   return;
 }
 
-#if NONMATCHING
+#ifdef FULL_FRANK
 /* Code matches, stack epilogue bug*/
 s32 OSResumeThread(OSThread* thread) {
   BOOL enabled;
@@ -636,7 +636,7 @@ lbl_80384F74:
 
 #endif
 
-#if NONMATCHING
+#ifdef FULL_FRANK
 /* Code matches, stack epilogue bug*/
 s32 OSSuspendThread(OSThread* thread) {
   BOOL enabled;
