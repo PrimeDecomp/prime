@@ -116,6 +116,14 @@ s32 DVDGetDriveStatus();
 
 s32 DVDConvertPathToEntrynum(char* pathPtr);
 
+BOOL DVDReadAsyncPrio(DVDFileInfo* fileInfo, void* addr, s32 length, s32 offset,
+                      DVDCallback callback, s32 prio);
+                      
+#define DVDReadAsync(fileInfo, addr, length, offset, callback)                                     \
+  DVDReadAsyncPrio((fileInfo), (addr), (length), (offset), (callback), 2)
+#define DVDSeekAsync(fileInfo, offset, callback)                                                   \
+  DVDSeekAsyncPrio((fileInfo), (offset), (callback), 2)
+
 #ifdef __cplusplus
 }
 #endif
