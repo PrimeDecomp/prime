@@ -17,14 +17,13 @@ lbl_805A89B4:
 lbl_805A89B8:
 	# ROM: 0x3F6358
 	.4byte 0x00010000
-	.4byte 0
 
 .section .sbss, "wa"
 .balign 8
 
-.global lbl_805A95D0
-lbl_805A95D0:
-	.skip 0x8
+.global sFirstARAM
+sFirstARAM:
+	.skip 0x4
 
 .section .text, "ax"
 
@@ -151,9 +150,9 @@ AsyncSeekRead__8CDvdFileFPvUi11ESeekOrigini:
 /* 8034FA0C 0034C96C  54 1B 00 34 */	rlwinm r27, r0, 0, 0, 0x1a
 /* 8034FA10 0034C970  7F 64 DB 78 */	mr r4, r27
 /* 8034FA14 0034C974  48 02 F0 9D */	bl DCFlushRange
-/* 8034FA18 0034C978  3C 80 80 3E */	lis r4, lbl_803D8230@ha
+/* 8034FA18 0034C978  3C 80 80 3E */	lis r4, "@stringBase0"@ha
 /* 8034FA1C 0034C97C  38 60 00 08 */	li r3, 8
-/* 8034FA20 0034C980  38 84 82 30 */	addi r4, r4, lbl_803D8230@l
+/* 8034FA20 0034C980  38 84 82 30 */	addi r4, r4, "@stringBase0"@l
 /* 8034FA24 0034C984  38 A0 00 00 */	li r5, 0
 /* 8034FA28 0034C988  4B FC 5E 45 */	bl __nw__FUlPCcPCc
 /* 8034FA2C 0034C98C  7C 7C 1B 79 */	or. r28, r3, r3
@@ -176,9 +175,9 @@ lbl_8034FA6C:
 /* 8034FA6C 0034C9CC  7F 9B E3 78 */	mr r27, r28
 /* 8034FA70 0034C9D0  48 00 00 70 */	b lbl_8034FAE0
 lbl_8034FA74:
-/* 8034FA74 0034C9D4  3C 80 80 3E */	lis r4, lbl_803D8230@ha
+/* 8034FA74 0034C9D4  3C 80 80 3E */	lis r4, "@stringBase0"@ha
 /* 8034FA78 0034C9D8  38 60 00 40 */	li r3, 0x40
-/* 8034FA7C 0034C9DC  38 84 82 30 */	addi r4, r4, lbl_803D8230@l
+/* 8034FA7C 0034C9DC  38 84 82 30 */	addi r4, r4, "@stringBase0"@l
 /* 8034FA80 0034C9E0  38 A0 00 00 */	li r5, 0
 /* 8034FA84 0034C9E4  4B FC 5D E9 */	bl __nw__FUlPCcPCc
 /* 8034FA88 0034C9E8  7C 7C 1B 79 */	or. r28, r3, r3
@@ -433,9 +432,9 @@ StartARAMFileLoad__8CDvdFileFv:
 /* 8034FDE4 0034CD44  93 C1 00 38 */	stw r30, 0x38(r1)
 /* 8034FDE8 0034CD48  93 A1 00 34 */	stw r29, 0x34(r1)
 /* 8034FDEC 0034CD4C  7C 7D 1B 78 */	mr r29, r3
-/* 8034FDF0 0034CD50  3C 60 80 3E */	lis r3, lbl_803D8230@ha
+/* 8034FDF0 0034CD50  3C 60 80 3E */	lis r3, "@stringBase0"@ha
 /* 8034FDF4 0034CD54  93 81 00 30 */	stw r28, 0x30(r1)
-/* 8034FDF8 0034CD58  38 A3 82 30 */	addi r5, r3, lbl_803D8230@l
+/* 8034FDF8 0034CD58  38 A3 82 30 */	addi r5, r3, "@stringBase0"@l
 /* 8034FDFC 0034CD5C  38 61 00 20 */	addi r3, r1, 0x20
 /* 8034FE00 0034CD60  83 FD 00 0C */	lwz r31, 0xc(r29)
 /* 8034FE04 0034CD64  4B F8 65 D1 */	bl __ct__10CCallStackFUiPCcPCc
@@ -469,9 +468,9 @@ lbl_8034FE58:
 /* 8034FE70 0034CDD0  80 61 00 1C */	lwz r3, 0x1c(r1)
 /* 8034FE74 0034CDD4  4B FC 5A BD */	bl Free__7CMemoryFPCv
 lbl_8034FE78:
-/* 8034FE78 0034CDD8  3C 60 80 3E */	lis r3, lbl_803D8230@ha
+/* 8034FE78 0034CDD8  3C 60 80 3E */	lis r3, "@stringBase0"@ha
 /* 8034FE7C 0034CDDC  3C 80 80 3D */	lis r4, kUnknownType__10CCallStack@ha
-/* 8034FE80 0034CDE0  38 A3 82 30 */	addi r5, r3, lbl_803D8230@l
+/* 8034FE80 0034CDE0  38 A3 82 30 */	addi r5, r3, "@stringBase0"@l
 /* 8034FE84 0034CDE4  38 C4 6A A8 */	addi r6, r4, kUnknownType__10CCallStack@l
 /* 8034FE88 0034CDE8  38 61 00 10 */	addi r3, r1, 0x10
 /* 8034FE8C 0034CDEC  38 80 FF FF */	li r4, -1
@@ -539,8 +538,8 @@ lbl_8034FF1C:
 /* 8034FF74 0034CED4  38 21 00 40 */	addi r1, r1, 0x40
 /* 8034FF78 0034CED8  4E 80 00 20 */	blr
 
-.global sub_8034ff7c
-sub_8034ff7c:
+.global IsARAMFileLoaded__8CDvdFileFv
+IsARAMFileLoaded__8CDvdFileFv:
 /* 8034FF7C 0034CEDC  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 8034FF80 0034CEE0  7C 08 02 A6 */	mflr r0
 /* 8034FF84 0034CEE4  90 01 00 24 */	stw r0, 0x24(r1)
@@ -618,7 +617,7 @@ PopARAMFileLoad__8CDvdFileFv:
 /* 80350078 0034CFD8  80 84 00 60 */	lwz r4, 0x60(r4)
 /* 8035007C 0034CFDC  98 1E 00 09 */	stb r0, 9(r30)
 /* 80350080 0034CFE0  28 04 00 00 */	cmplwi r4, 0
-/* 80350084 0034CFE4  90 8D AA 10 */	stw r4, lbl_805A95D0@sda21(r13)
+/* 80350084 0034CFE4  90 8D AA 10 */	stw r4, sFirstARAM@sda21(r13)
 /* 80350088 0034CFE8  41 82 00 0C */	beq lbl_80350094
 /* 8035008C 0034CFEC  7C 83 23 78 */	mr r3, r4
 /* 80350090 0034CFF0  4B FF FD 39 */	bl StartARAMFileLoad__8CDvdFileFv
@@ -641,11 +640,11 @@ PushARAMFileLoad__8CDvdFileFv:
 /* 803500C4 0034D024  93 C1 00 08 */	stw r30, 8(r1)
 /* 803500C8 0034D028  7C 7E 1B 78 */	mr r30, r3
 /* 803500CC 0034D02C  48 03 15 95 */	bl OSDisableInterrupts
-/* 803500D0 0034D030  80 0D AA 10 */	lwz r0, lbl_805A95D0@sda21(r13)
+/* 803500D0 0034D030  80 0D AA 10 */	lwz r0, sFirstARAM@sda21(r13)
 /* 803500D4 0034D034  7C 7F 1B 78 */	mr r31, r3
 /* 803500D8 0034D038  28 00 00 00 */	cmplwi r0, 0
 /* 803500DC 0034D03C  40 82 00 14 */	bne lbl_803500F0
-/* 803500E0 0034D040  93 CD AA 10 */	stw r30, lbl_805A95D0@sda21(r13)
+/* 803500E0 0034D040  93 CD AA 10 */	stw r30, sFirstARAM@sda21(r13)
 /* 803500E4 0034D044  7F C3 F3 78 */	mr r3, r30
 /* 803500E8 0034D048  4B FF FC E1 */	bl StartARAMFileLoad__8CDvdFileFv
 /* 803500EC 0034D04C  48 00 00 30 */	b lbl_8035011C
@@ -688,9 +687,9 @@ TryARAMFile__8CDvdFileFv:
 /* 80350160 0034D0C0  80 1B 00 04 */	lwz r0, 4(r27)
 /* 80350164 0034D0C4  7C 03 00 40 */	cmplw r3, r0
 /* 80350168 0034D0C8  41 82 00 E0 */	beq lbl_80350248
-/* 8035016C 0034D0CC  3C 80 80 3E */	lis r4, lbl_803D8230@ha
+/* 8035016C 0034D0CC  3C 80 80 3E */	lis r4, "@stringBase0"@ha
 /* 80350170 0034D0D0  38 60 00 94 */	li r3, 0x94
-/* 80350174 0034D0D4  38 84 82 30 */	addi r4, r4, lbl_803D8230@l
+/* 80350174 0034D0D4  38 84 82 30 */	addi r4, r4, "@stringBase0"@l
 /* 80350178 0034D0D8  38 A0 00 00 */	li r5, 0
 /* 8035017C 0034D0DC  4B FC 56 F1 */	bl __nw__FUlPCcPCc
 /* 80350180 0034D0E0  7C 7F 1B 79 */	or. r31, r3, r3
@@ -948,10 +947,10 @@ DVDARAMXferCallback__8CDvdFileFlP11DVDFileInfo:
 DecodeARAMFile__FPCc:
 /* 803504F0 0034D450  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803504F4 0034D454  7C 08 02 A6 */	mflr r0
-/* 803504F8 0034D458  3C 80 80 3E */	lis r4, lbl_803D8230@ha
+/* 803504F8 0034D458  3C 80 80 3E */	lis r4, "@stringBase0"@ha
 /* 803504FC 0034D45C  38 A0 00 05 */	li r5, 5
 /* 80350500 0034D460  90 01 00 14 */	stw r0, 0x14(r1)
-/* 80350504 0034D464  38 84 82 30 */	addi r4, r4, lbl_803D8230@l
+/* 80350504 0034D464  38 84 82 30 */	addi r4, r4, "@stringBase0"@l
 /* 80350508 0034D468  38 84 00 07 */	addi r4, r4, 7
 /* 8035050C 0034D46C  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 80350510 0034D470  7C 7F 1B 78 */	mr r31, r3
@@ -971,10 +970,7 @@ lbl_8035052C:
 
 .section .rodata
 .balign 8
-.global lbl_803D8230
-lbl_803D8230:
+"@stringBase0":
 	# ROM: 0x3D5230
 	.asciz "??(??)"
-	.byte 0x61
-	.asciz "ram:"
-	.balign 4
+	.asciz "aram:"
