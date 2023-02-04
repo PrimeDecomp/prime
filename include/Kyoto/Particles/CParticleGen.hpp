@@ -46,7 +46,7 @@ public:
   virtual uint Get4CharId() const = 0;
 
 private:
-  rstl::list< rstl::pair<ushort, bool> > x4_modifiersList;
+  rstl::list< CWarp* > x4_modifiersList;
 };
 
 #endif // _CPARTICLEGEN
