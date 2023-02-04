@@ -1111,10 +1111,10 @@ if __name__ == "__main__":
         help="base build directory",
     )
     parser.add_argument(
-        "--frank",
+        "--franklite",
         dest="frank",
-        action="store_true",
-        help="use full frank.py instead of franklite.py (non-matching)",
+        action="store_false",
+        help="use franklite.py instead of frank.py (non-matching)",
     )
     args = parser.parse_args()
 
