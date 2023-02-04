@@ -753,7 +753,7 @@ LIBS = [
         "objects": [
             ["Dolphin/dvd/dvdlow", False],
             ["Dolphin/dvd/dvdfs", True],
-            ["Dolphin/dvd/dvd", False],
+            ["Dolphin/dvd/dvd", True],
             ["Dolphin/dvd/dvdqueue", True],
             ["Dolphin/dvd/dvderror", True],
             ["Dolphin/dvd/dvdidutils", True],
