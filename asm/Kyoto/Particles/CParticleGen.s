@@ -1,42 +1,5 @@
 .include "macros.inc"
 
-.section .data
-.balign 8
-
-.global __vt__12CParticleGen
-__vt__12CParticleGen:
-	# ROM: 0x3EAD08
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte SetGeneratorRate__12CParticleGenFf
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte GetGeneratorRate__12CParticleGenCFv
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte AddModifier__12CParticleGenFP5CWarp
-	.4byte 0
-
 .section .text, "ax"
 
 .global AddModifier__12CParticleGenFP5CWarp

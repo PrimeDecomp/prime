@@ -585,7 +585,7 @@ LIBS = [
             ["Kyoto/Particles/CIntElement", True],
             ["Kyoto/Particles/CModVectorElement", False],
             ["Kyoto/Particles/CParticleDataFactory", False],
-            "Kyoto/Particles/CParticleGen",
+            ["Kyoto/Particles/CParticleGen", True],
             ["Kyoto/Particles/CParticleGlobals", True],
             "Kyoto/Particles/CParticleSwoosh",
             "Kyoto/Particles/CParticleSwooshDataFactory",

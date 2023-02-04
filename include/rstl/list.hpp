@@ -69,7 +69,9 @@ private:
   };
 
   node* create_node(node* prev, node* next, const T& val) {
-    node* n = new node(prev, next);
+    node* n;
+    x0_allocator.allocate(n, 1);
+    new(n) node(prev, next);
     construct(n->get_value(), val);
     return n;
   }
