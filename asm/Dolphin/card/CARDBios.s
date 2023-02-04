@@ -1340,7 +1340,7 @@ lbl_803B9020:
 /* 803B9034 003B5F94  7C 08 03 A6 */	mtlr r0
 /* 803B9038 003B5F98  4E 80 00 20 */	blr
 
-OnReset:
+.fn OnReset, local
 /* 803B903C 003B5F9C  7C 08 02 A6 */	mflr r0
 /* 803B9040 003B5FA0  2C 03 00 00 */	cmpwi r3, 0
 /* 803B9044 003B5FA4  90 01 00 04 */	stw r0, 4(r1)
@@ -1364,3 +1364,4 @@ lbl_803B907C:
 /* 803B9080 003B5FE0  38 21 00 08 */	addi r1, r1, 8
 /* 803B9084 003B5FE4  7C 08 03 A6 */	mtlr r0
 /* 803B9088 003B5FE8  4E 80 00 20 */	blr
+.endfn OnReset
