@@ -8,9 +8,6 @@
 extern "C" {
 #endif
 
-// TODO OSInerrupt.h
-typedef s16 __OSInterrupt;
-
 // Upper words of the masks, since UIMM is only 16 bits
 #define OS_CACHED_REGION_PREFIX 0x8000
 #define OS_UNCACHED_REGION_PREFIX 0xC000
@@ -140,6 +137,73 @@ void OSRegisterVersion(const char* id);
 BOOL OSDisableInterrupts(void);
 BOOL OSEnableInterrupts(void);
 BOOL OSRestoreInterrupts(BOOL level);
+
+#define OSHalt(msg) OSPanic(__FILE__, __LINE__, msg)
+
+#ifdef _DEBUG
+
+#ifndef ASSERT
+#define ASSERT(exp) (void)((exp) || (OSPanic(__FILE__, __LINE__, "Failed assertion " #exp), 0))
+#endif
+
+#ifndef ASSERTMSG
+#if defined(__STDC_VERSION__) && (199901L <= __STDC_VERSION__) || defined(__MWERKS__) ||           \
+    defined(__SN__)
+#define ASSERTMSG(exp, ...) (void)((exp) || (OSPanic(__FILE__, __LINE__, __VA_ARGS__), 0))
+#else
+#define ASSERTMSG(exp, msg) (void)((exp) || (OSPanic(__FILE__, __LINE__, (msg)), 0))
+#endif
+#endif
+
+#ifndef ASSERTMSG1
+#define ASSERTMSG1(exp, msg, param1)                                                               \
+  (void)((exp) || (OSPanic(__FILE__, __LINE__, (msg), (param1)), 0))
+#endif
+
+#ifndef ASSERTMSG2
+#define ASSERTMSG2(exp, msg, param1, param2)                                                       \
+  (void)((exp) || (OSPanic(__FILE__, __LINE__, (msg), (param1), (param2)), 0))
+#endif
+
+#ifndef ASSERTMSG3
+#define ASSERTMSG3(exp, msg, param1, param2, param3)                                               \
+  (void)((exp) || (OSPanic(__FILE__, __LINE__, (msg), (param1), (param2), (param3)), 0))
+#endif
+
+#ifndef ASSERTMSG4
+#define ASSERTMSG4(exp, msg, param1, param2, param3, param4)                                       \
+  (void)((exp) || (OSPanic(__FILE__, __LINE__, (msg), (param1), (param2), (param3), (param4)), 0))
+#endif
+
+#else // _DEBUG
+
+#ifndef ASSERT
+#define ASSERT(exp) ((void)0)
+#endif
+
+#ifndef ASSERTMSG
+#if defined(__STDC_VERSION__) && (199901L <= __STDC_VERSION__) || defined(__MWERKS__) ||           \
+    defined(__SN__)
+#define ASSERTMSG(exp, ...) ((void)0)
+#else
+#define ASSERTMSG(exp, msg) ((void)0)
+#endif
+#endif
+
+#ifndef ASSERTMSG1
+#define ASSERTMSG1(exp, msg, param1) ((void)0)
+#endif
+#ifndef ASSERTMSG2
+#define ASSERTMSG2(exp, msg, param1, param2) ((void)0)
+#endif
+#ifndef ASSERTMSG3
+#define ASSERTMSG3(exp, msg, param1, param2, param3) ((void)0)
+#endif
+#ifndef ASSERTMSG4
+#define ASSERTMSG4(exp, msg, param1, param2, param3, param4) ((void)0)
+#endif
+
+#endif // _DEBUG
 
 void OSReport(const char* msg, ...);
 void OSPanic(const char* file, int line, const char* msg, ...);

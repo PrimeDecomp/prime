@@ -39,7 +39,7 @@ typedef void (*DVDOptionalCommandChecker)(DVDCommandBlock* block, void (*cb)(u32
 typedef void (*DVDLowCallback)(u32 intType);
 
 DVDLowCallback DVDLowClearCallback();
-void DVDLowSeek(u32 offset, DVDLowCallback callback);
+BOOL DVDLowSeek(u32 offset, DVDLowCallback callback);
 
 void __DVDLowSetWAType(u32 type, u32 location);
 DVDCommandBlock* __DVDPopWaitingQueue();
