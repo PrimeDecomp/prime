@@ -73,7 +73,6 @@ static void ShowMessage(void) {
   OSFatal(fg, bg, message);
 }
 
-#ifdef FULL_FRANK
 BOOL DVDSetAutoFatalMessaging(BOOL enable) {
   BOOL enabled;
   BOOL prev;
@@ -84,49 +83,6 @@ BOOL DVDSetAutoFatalMessaging(BOOL enable) {
   OSRestoreInterrupts(enabled);
   return prev;
 }
-#else
-/* clang-format off */
-#pragma push
-#pragma optimization_level 0
-#pragma optimizewithasm off
-asm BOOL DVDSetAutoFatalMessaging(BOOL enable) {
-  nofralloc
-  mflr r0
-  stw r0, 4(r1)
-  stwu r1, -0x18(r1)
-  stw r31, 0x14(r1)
-  stw r30, 0x10(r1)
-  mr r30, r3
-  bl OSDisableInterrupts
-  lwz r0, FatalFunc
-  cmplwi r0, 0
-  beq lbl_80374DFC
-  li r31, 1
-  b lbl_80374E00
-lbl_80374DFC:
-  li r31, 0
-lbl_80374E00:
-  cmpwi r30, 0
-  beq lbl_80374E14
-  lis r4, ShowMessage@ha
-  addi r0, r4, ShowMessage@l
-  b lbl_80374E18
-lbl_80374E14:
-  li r0, 0
-lbl_80374E18:
-  stw r0, FatalFunc
-  bl OSRestoreInterrupts
-  mr r3, r31
-  lwz r0, 0x1c(r1)
-  lwz r31, 0x14(r1)
-  lwz r30, 0x10(r1)
-  addi r1, r1, 0x18
-  mtlr r0
-  blr
-}
-#pragma pop
-/* clang-format off */
-#endif 
 
 void __DVDPrintFatalMessage(void) {
   if (!FatalFunc) {

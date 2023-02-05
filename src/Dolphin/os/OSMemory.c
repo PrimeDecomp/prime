@@ -13,7 +13,6 @@ static OSResetFunctionInfo ResetFunctionInfo = {
     127,
 };
 
-#ifdef FULL_FRANK
 static BOOL OnReset(BOOL final) {
   if (final != FALSE) {
     __MEMRegs[8] = 0xFF;
@@ -21,33 +20,6 @@ static BOOL OnReset(BOOL final) {
   }
   return TRUE;
 }
-#else
-/* clang-format off */
-#pragma push
-#pragma optimization_level 0
-#pragma optimizewithasm off
-static asm BOOL OnReset(BOOL final) {
-  nofralloc
-  mflr r0
-  cmpwi r3, 0
-  stw r0, 4(r1)
-  stwu r1, -8(r1)
-  beq @1
-  lis r3, __MEMRegs+16@ha
-  li r0, 0xff
-  sth r0, __MEMRegs+16@l(r3)
-  lis r3, 0xf000
-  bl __OSMaskInterrupts
-@1
-  li r3, 1
-  lwz r0, 0xc(r1)
-  addi r1, r1, 8
-  mtlr r0
-  blr
-}
-#pragma pop
-/* clang-format on */
-#endif
 
 u32 OSGetPhysicalMemSize() { return *(u32*)(OSPhysicalToCached(0x0028)); }
 

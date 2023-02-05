@@ -39,8 +39,6 @@ void __GBAHandler(s32 chan, u32 sr, OSContext* context) {
 
 void __GBASyncCallback(s32 chan, s32 ret) { OSWakeupThread(&__GBA[chan].thread_queue); }
 
-#ifdef FULL_FRANK
-/* This actually does match, but has an epilogue swap */
 s32 __GBASync(s32 chan) {
   GBA* gba;
   s32 enabled;
@@ -57,47 +55,6 @@ s32 __GBASync(s32 chan) {
 
   return ret;
 }
-#else
-extern void OSSleepThread();
-/* clang-format off */
-#pragma push
-#pragma optimization_level 0
-#pragma optimizewithasm off
-asm s32 __GBASync(s32 chan) {
-  nofralloc 
-  mflr r0
-  lis r4, __GBA@ha
-  stw r0, 4(r1)
-  slwi r3, r3, 8
-  addi r0, r4, __GBA@l
-  stwu r1, -0x18(r1)
-  stw r31, 0x14(r1)
-  add r31, r0, r3
-  stw r30, 0x10(r1)
-  bl OSDisableInterrupts
-  mr r30, r3
-  b lbl_803CAD50
-lbl_803CAD48:
-  addi r3, r31, 0x24
-  bl OSSleepThread
-lbl_803CAD50:
-  lwz r0, 0x1c(r31)
-  cmplwi r0, 0
-  bne lbl_803CAD48
-  lwz r31, 0x20(r31)
-  mr r3, r30
-  bl OSRestoreInterrupts
-  mr r3, r31
-  lwz r0, 0x1c(r1)
-  lwz r31, 0x14(r1)
-  lwz r30, 0x10(r1)
-  addi r1, r1, 0x18
-  mtlr r0
-  blr
-}
-/* clang-format on */
-#pragma pop
-#endif
 
 void TypeAndStatusCallback(s32 chan, u32 type) {
   s32 tmp;

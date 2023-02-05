@@ -193,30 +193,10 @@ BOOL DVDOpen(char* fileName, DVDFileInfo* fileInfo) {
   return TRUE;
 }
 
-#ifdef FULL_FRANK
 BOOL DVDClose(DVDFileInfo* fileInfo) {
   DVDCancel(&(fileInfo->cb));
   return TRUE;
 }
-#else
-/* clang-format off */
-#pragma push
-#pragma optimization_level 0
-#pragma optimizewithasm off
-asm BOOL DVDClose(DVDFileInfo* fileInfo) {
-  nofralloc
-  mflr r0
-  stw r0, 4(r1)
-  stwu r1, -8(r1)
-  bl DVDCancel
-  li r3, 1
-  lwz r0, 0xc(r1)
-  addi r1, r1, 8
-  mtlr r0
-  blr
-}
-#pragma pop
-#endif
 
 static u32 myStrncpy(char* dest, char* src, u32 maxlen) {
   u32 i = maxlen;

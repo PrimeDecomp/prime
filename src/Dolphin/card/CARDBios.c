@@ -397,8 +397,6 @@ s32 __CARDWritePage(s32 chan, CARDCallback callback) {
   return result;
 }
 
-#ifdef FULL_FRANK
-/* TODO: Needs frank fix for disconnected stack epilogue */
 s32 __CARDEraseSector(s32 chan, u32 addr, CARDCallback callback) {
   CARDControl* card;
   s32 result;
@@ -428,77 +426,7 @@ s32 __CARDEraseSector(s32 chan, u32 addr, CARDCallback callback) {
   }
   return result;
 }
-#else
-/* clang-format off */
-#pragma push
-#pragma optimization_level 0
-#pragma optimizewithasm off
-asm s32 __CARDEraseSector(s32 chan, u32 addr, CARDCallback callback) {
-  nofralloc
-  mflr r0
-  stw r0, 4(r1)
-  stwu r1, -0x28(r1)
-  stw r31, 0x24(r1)
-  stw r30, 0x20(r1)
-  stw r29, 0x1c(r1)
-  addi r29, r3, 0
-  mulli r6, r29, 0x110
-  lis r3, __CARDBlock@ha
-  addi r0, r3, __CARDBlock@l
-  add r31, r0, r6
-  li r0, 0xf1
-  stb r0, 0x94(r31)
-  rlwinm r3, r4, 0xf, 0x19, 0x1f
-  rlwinm r0, r4, 0x17, 0x18, 0x1f
-  stb r3, 0x95(r31)
-  li r6, 3
-  addi r3, r29, 0
-  stb r0, 0x96(r31)
-  li r0, -1
-  li r4, 0
-  stw r6, 0xa0(r31)
-  stw r0, 0xa4(r31)
-  stw r6, 0xa8(r31)
-  bl __CARDStart
-  addi r30, r3, 0
-  cmpwi r30, -1
-  bne lbl_803B8C4C
-  li r30, 0
-  b lbl_803B8C94
-lbl_803B8C4C:
-  cmpwi r30, 0
-  blt lbl_803B8C94
-  lwz r5, 0xa0(r31)
-  addi r3, r29, 0
-  addi r4, r31, 0x94
-  li r6, 1
-  bl EXIImmEx
-  cmpwi r3, 0
-  bne lbl_803B8C80
-  li r0, 0
-  stw r0, 0xcc(r31)
-  li r30, -3
-  b lbl_803B8C84
-lbl_803B8C80:
-  li r30, 0
-lbl_803B8C84:
-  mr r3, r29
-  bl EXIDeselect
-  mr r3, r29
-  bl EXIUnlock
-lbl_803B8C94:
-  mr r3, r30
-  lwz r0, 0x2c(r1)
-  lwz r31, 0x24(r1)
-  lwz r30, 0x20(r1)
-  lwz r29, 0x1c(r1)
-  addi r1, r1, 0x28
-  mtlr r0
-  blr
-}
-/* clang-format on */
-#pragma pop
-#endif 
+
 void CARDInit(void) {
   int chan;
 
@@ -557,8 +485,6 @@ s32 __CARDGetControlBlock(s32 chan, CARDControl** pcard) {
   return result;
 }
 
-#ifdef FULL_FRANK
-/* TODO: Needs frank fix for disconnected stack epilogue */
 s32 __CARDPutControlBlock(CARDControl* card, s32 result) {
   BOOL enabled;
 
@@ -571,44 +497,6 @@ s32 __CARDPutControlBlock(CARDControl* card, s32 result) {
   OSRestoreInterrupts(enabled);
   return result;
 }
-#else
-#pragma push
-/* clang-format off */
-#pragma optimization_level 0
-#pragma optimizewithasm off
-asm s32 __CARDPutControlBlock(CARDControl* card, s32 result) {
-  nofralloc
-  mflr r0
-  stw r0, 4(r1)
-  stwu r1, -0x18(r1)
-  stw r31, 0x14(r1)
-  addi r31, r4, 0
-  stw r30, 0x10(r1)
-  addi r30, r3, 0
-  bl OSDisableInterrupts
-  lwz r0, 0(r30)
-  cmpwi r0, 0
-  beq lbl_803B8E8C
-  stw r31, 4(r30)
-  b lbl_803B8E9C
-lbl_803B8E8C:
-  lwz r0, 4(r30)
-  cmpwi r0, -1
-  bne lbl_803B8E9C
-  stw r31, 4(r30)
-lbl_803B8E9C:
-  bl OSRestoreInterrupts
-  mr r3, r31
-  lwz r0, 0x1c(r1)
-  lwz r31, 0x14(r1)
-  lwz r30, 0x10(r1)
-  addi r1, r1, 0x18
-  mtlr r0
-  blr
-}
-/* clang-format on */
-#pragma pop
-#endif
 
 s32 CARDGetResultCode(s32 chan) {
   CARDControl* card;
@@ -619,7 +507,6 @@ s32 CARDGetResultCode(s32 chan) {
   return card->result;
 }
 
-#ifdef FULL_FRANK
 s32 CARDFreeBlocks(s32 chan, s32* byteNotUsed, s32* filesNotUsed) {
   CARDControl* card;
   s32 result;
@@ -655,114 +542,6 @@ s32 CARDFreeBlocks(s32 chan, s32* byteNotUsed, s32* filesNotUsed) {
 
   return __CARDPutControlBlock(card, CARD_RESULT_READY);
 }
-#else
-/* clang-format off */
-#pragma push
-#pragma optimization_level 0
-#pragma optimizewithasm off
-asm s32 CARDFreeBlocks(s32 chan, s32* byteNotUsed, s32* filesNotUsed) {
-  nofralloc
-  mflr r0
-  stw r0, 4(r1)
-  stwu r1, -0x30(r1)
-  stw r31, 0x2c(r1)
-  addi r31, r5, 0
-  stw r30, 0x28(r1)
-  stw r29, 0x24(r1)
-  addi r29, r4, 0
-  addi r4, r1, 0x18
-  bl __CARDGetControlBlock
-  cmpwi r3, 0
-  bge lbl_803B8F20
-  b lbl_803B9020
-lbl_803B8F20:
-  lwz r3, 0x18(r1)
-  bl __CARDGetFatBlock
-  mr r30, r3
-  lwz r3, 0x18(r1)
-  bl __CARDGetDirBlock
-  cmplwi r30, 0
-  beq lbl_803B8F44
-  cmplwi r3, 0
-  bne lbl_803B8F84
-lbl_803B8F44:
-  lwz r30, 0x18(r1)
-  bl OSDisableInterrupts
-  lwz r0, 0(r30)
-  cmpwi r0, 0
-  beq lbl_803B8F64
-  li r0, -6
-  stw r0, 4(r30)
-  b lbl_803B8F78
-lbl_803B8F64:
-  lwz r0, 4(r30)
-  cmpwi r0, -1
-  bne lbl_803B8F78
-  li r0, -6
-  stw r0, 4(r30)
-lbl_803B8F78:
-  bl OSRestoreInterrupts
-  li r3, -6
-  b lbl_803B9020
-lbl_803B8F84:
-  cmplwi r29, 0
-  beq lbl_803B8FA0
-  lwz r4, 0x18(r1)
-  lhz r0, 6(r30)
-  lwz r4, 0xc(r4)
-  mullw r0, r4, r0
-  stw r0, 0(r29)
-lbl_803B8FA0:
-  cmplwi r31, 0
-  beq lbl_803B8FE4
-  li r0, 0
-  stw r0, 0(r31)
-  li r5, 0
-  b lbl_803B8FD8
-lbl_803B8FB8:
-  lbz r0, 8(r3)
-  cmplwi r0, 0xff
-  bne lbl_803B8FD0
-  lwz r4, 0(r31)
-  addi r0, r4, 1
-  stw r0, 0(r31)
-lbl_803B8FD0:
-  addi r3, r3, 0x40
-  addi r5, r5, 1
-lbl_803B8FD8:
-  clrlwi r0, r5, 0x10
-  cmplwi r0, 0x7f
-  blt lbl_803B8FB8
-lbl_803B8FE4:
-  lwz r30, 0x18(r1)
-  bl OSDisableInterrupts
-  lwz r0, 0(r30)
-  cmpwi r0, 0
-  beq lbl_803B9004
-  li r0, 0
-  stw r0, 4(r30)
-  b lbl_803B9018
-lbl_803B9004:
-  lwz r0, 4(r30)
-  cmpwi r0, -1
-  bne lbl_803B9018
-  li r0, 0
-  stw r0, 4(r30)
-lbl_803B9018:
-  bl OSRestoreInterrupts
-  li r3, 0
-lbl_803B9020:
-  lwz r0, 0x34(r1)
-  lwz r31, 0x2c(r1)
-  lwz r30, 0x28(r1)
-  lwz r29, 0x24(r1)
-  addi r1, r1, 0x30
-  mtlr r0
-  blr
-}
-/* clang-format on */
-#pragma pop
-#endif
 
 static BOOL OnReset(BOOL f) {
   if (!f) {

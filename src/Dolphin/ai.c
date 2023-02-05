@@ -22,7 +22,6 @@ void __AIDHandler(s16 interrupt, OSContext* context);
 void __AICallbackStackSwitch(register AIDCallback cb);
 void __AI_SRC_INIT(void);
 
-#ifdef FULL_FRANK
 AIDCallback AIRegisterDMACallback(AIDCallback callback) {
   s32 oldInts;
   AIDCallback ret;
@@ -33,34 +32,6 @@ AIDCallback AIRegisterDMACallback(AIDCallback callback) {
   OSRestoreInterrupts(oldInts);
   return ret;
 }
-#else
-/* clang-format off */
-#pragma push
-#pragma optimization_level 0
-#pragma optimizewithasm off
-asm AIDCallback AIRegisterDMACallback(AIDCallback callback) {
-  nofralloc
-  mflr r0
-  stw r0, 4(r1)
-  stwu r1, -0x18(r1)
-  stw r31, 0x14(r1)
-  stw r30, 0x10(r1)
-  mr r30, r3
-  lwz r31, __AID_Callback
-  bl OSDisableInterrupts
-  stw r30, __AID_Callback
-  bl OSRestoreInterrupts
-  mr r3, r31
-  lwz r0, 0x1c(r1)
-  lwz r31, 0x14(r1)
-  lwz r30, 0x10(r1)
-  addi r1, r1, 0x18
-  mtlr r0
-  blr
-}
-#pragma pop
-/* clang-format on */
-#endif
 
 void AIInitDMA(u32 addr, u32 length) {
   s32 oldInts;
@@ -79,7 +50,6 @@ u32 AIGetDMAStartAddr(void) {
   return (u32)((__DSPRegs[24] & 0x03ff) << 16) | (__DSPRegs[25] & 0xffe0);
 }
 
-#ifdef FULL_FRANK
 AISCallback AIRegisterStreamCallback(AISCallback callback) {
   AISCallback ret;
   s32 oldInts;
@@ -90,34 +60,6 @@ AISCallback AIRegisterStreamCallback(AISCallback callback) {
   OSRestoreInterrupts(oldInts);
   return ret;
 }
-#else
-/* clang-format off */
-#pragma push
-#pragma optimization_level 0
-#pragma optimizewithasm off
-asm AISCallback AIRegisterStreamCallback(AISCallback callback) {
-  nofralloc
-  mflr r0
-  stw r0, 4(r1)
-  stwu r1, -0x18(r1)
-  stw r31, 0x14(r1)
-  stw r30, 0x10(r1)
-  mr r30, r3
-  lwz r31, __AIS_Callback
-  bl OSDisableInterrupts
-  stw r30, __AIS_Callback
-  bl OSRestoreInterrupts
-  mr r3, r31
-  lwz r0, 0x1c(r1)
-  lwz r31, 0x14(r1)
-  lwz r30, 0x10(r1)
-  addi r1, r1, 0x18
-  mtlr r0
-  blr
-}
-#pragma pop
-/* clang-format on */
-#endif
 
 void AIResetStreamSampleCount(void) { __AIRegs[0] = (__AIRegs[0] & ~0x20) | 0x20; }
 
