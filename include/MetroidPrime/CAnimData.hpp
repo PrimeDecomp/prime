@@ -108,7 +108,7 @@ public:
   // RenderAuxiliary__9CAnimDataCFRC14CFrustumPlanes
   // RecalcPoseBuilder__9CAnimDataCFPC13CCharAnimTime
   float GetAnimationDuration(int animIn) const;
-  // GetAnimTimeRemaining__9CAnimDataCFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>
+  float GetAnimTimeRemaining(const rstl::string& name) const;
   // IsAnimTimeRemaining__9CAnimDataCFfRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>
   bool IsAnimTimeRemaining(float, const rstl::string&) const;
   // GetLocatorTransform__9CAnimDataCFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>PC13CCharAnimTime
@@ -163,7 +163,7 @@ public:
   // CacheInt32PoiList__9CAnimDataFRC13CCharAnimTimeiRCQ24rstl25ncrc_ptr<13CAnimTreeNode>
 
   // GetIceModel__9CAnimDataCFv
-  // GetPASDatabase__9CAnimDataCFv
+  const CPASDatabase& GetPASDatabase() const { return xc_charInfo.GetPASDatabase(); }
   // EnableLooping__9CAnimDataFb
   // GetCurrentAnimation__9CAnimDataCFv
   // GetSkinnedModel__9CAnimDataCFv

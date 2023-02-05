@@ -1493,7 +1493,7 @@ lbl_8018B030:
 /* 8018B030 00187F90  81 1E 08 4C */	lwz r8, 0x84c(r30)
 /* 8018B034 00187F94  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
 /* 8018B038 00187F98  38 83 AA 68 */	addi r4, r3, __vt__13CBodyStateCmd@l
-/* 8018B03C 00187F9C  3C 60 80 3E */	lis r3, lbl_803DA9CC@ha
+/* 8018B03C 00187F9C  3C 60 80 3E */	lis r3, __vt__22CBCProjectileAttackCmd@ha
 /* 8018B040 00187FA0  C0 48 00 60 */	lfs f2, 0x60(r8)
 /* 8018B044 00187FA4  38 E0 00 06 */	li r7, 6
 /* 8018B048 00187FA8  C0 28 00 50 */	lfs f1, 0x50(r8)
@@ -1502,7 +1502,7 @@ lbl_8018B030:
 /* 8018B054 00187FB4  38 00 00 00 */	li r0, 0
 /* 8018B058 00187FB8  3B E6 00 04 */	addi r31, r6, 4
 /* 8018B05C 00187FBC  90 81 00 0C */	stw r4, 0xc(r1)
-/* 8018B060 00187FC0  38 C3 A9 CC */	addi r6, r3, lbl_803DA9CC@l
+/* 8018B060 00187FC0  38 C3 A9 CC */	addi r6, r3, __vt__22CBCProjectileAttackCmd@l
 /* 8018B064 00187FC4  38 80 00 06 */	li r4, 6
 /* 8018B068 00187FC8  90 E1 00 10 */	stw r7, 0x10(r1)
 /* 8018B06C 00187FCC  7F E3 FB 78 */	mr r3, r31
@@ -1514,8 +1514,8 @@ lbl_8018B030:
 /* 8018B084 00187FE4  98 01 00 24 */	stb r0, 0x24(r1)
 /* 8018B088 00187FE8  4B FA 63 B1 */	bl DeliverCmd__16CBodyStateCmdMgrF13EBodyStateCmd
 /* 8018B08C 00187FEC  80 01 00 10 */	lwz r0, 0x10(r1)
-/* 8018B090 00187FF0  3C 60 80 3E */	lis r3, lbl_803DA9CC@ha
-/* 8018B094 00187FF4  38 83 A9 CC */	addi r4, r3, lbl_803DA9CC@l
+/* 8018B090 00187FF0  3C 60 80 3E */	lis r3, __vt__22CBCProjectileAttackCmd@ha
+/* 8018B094 00187FF4  38 83 A9 CC */	addi r4, r3, __vt__22CBCProjectileAttackCmd@l
 /* 8018B098 00187FF8  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
 /* 8018B09C 00187FFC  90 1F 01 2C */	stw r0, 0x12c(r31)
 /* 8018B0A0 00188000  38 03 AA 68 */	addi r0, r3, __vt__13CBodyStateCmd@l

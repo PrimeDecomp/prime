@@ -1995,9 +1995,9 @@ lbl_8020500C:
 /* 8020500C 00201F6C  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
 /* 80205010 00201F70  38 A0 00 00 */	li r5, 0
 /* 80205014 00201F74  38 03 AA 68 */	addi r0, r3, __vt__13CBodyStateCmd@l
-/* 80205018 00201F78  3C 60 80 3E */	lis r3, lbl_803DAA20@ha
+/* 80205018 00201F78  3C 60 80 3E */	lis r3, __vt__11CBCGetupCmd@ha
 /* 8020501C 00201F7C  90 01 00 18 */	stw r0, 0x18(r1)
-/* 80205020 00201F80  38 03 AA 20 */	addi r0, r3, lbl_803DAA20@l
+/* 80205020 00201F80  38 03 AA 20 */	addi r0, r3, __vt__11CBCGetupCmd@l
 /* 80205024 00201F84  3B C4 00 04 */	addi r30, r4, 4
 /* 80205028 00201F88  38 80 00 00 */	li r4, 0
 /* 8020502C 00201F8C  90 A1 00 1C */	stw r5, 0x1c(r1)
@@ -2006,8 +2006,8 @@ lbl_8020500C:
 /* 80205038 00201F98  90 A1 00 20 */	stw r5, 0x20(r1)
 /* 8020503C 00201F9C  4B F2 C3 FD */	bl DeliverCmd__16CBodyStateCmdMgrF13EBodyStateCmd
 /* 80205040 00201FA0  80 01 00 1C */	lwz r0, 0x1c(r1)
-/* 80205044 00201FA4  3C 60 80 3E */	lis r3, lbl_803DAA20@ha
-/* 80205048 00201FA8  38 83 AA 20 */	addi r4, r3, lbl_803DAA20@l
+/* 80205044 00201FA4  3C 60 80 3E */	lis r3, __vt__11CBCGetupCmd@ha
+/* 80205048 00201FA8  38 83 AA 20 */	addi r4, r3, __vt__11CBCGetupCmd@l
 /* 8020504C 00201FAC  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
 /* 80205050 00201FB0  90 1E 00 BC */	stw r0, 0xbc(r30)
 /* 80205054 00201FB4  38 03 AA 68 */	addi r0, r3, __vt__13CBodyStateCmd@l

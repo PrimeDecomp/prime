@@ -449,14 +449,14 @@ lbl_8014B6A4:
 /* 8014B6CC 0014862C  39 05 AA 68 */	addi r8, r5, __vt__13CBodyStateCmd@l
 /* 8014B6D0 00148630  C0 44 00 00 */	lfs f2, 0(r4)
 /* 8014B6D4 00148634  C0 24 00 04 */	lfs f1, 4(r4)
-/* 8014B6D8 00148638  3C C0 80 3E */	lis r6, lbl_803DA9D8@ha
+/* 8014B6D8 00148638  3C C0 80 3E */	lis r6, __vt__17CBCMeleeAttackCmd@ha
 /* 8014B6DC 0014863C  C0 04 00 08 */	lfs f0, 8(r4)
 /* 8014B6E0 00148640  38 E0 00 05 */	li r7, 5
 /* 8014B6E4 00148644  38 A0 00 01 */	li r5, 1
 /* 8014B6E8 00148648  38 00 00 00 */	li r0, 0
 /* 8014B6EC 0014864C  3B E3 00 04 */	addi r31, r3, 4
 /* 8014B6F0 00148650  91 01 00 24 */	stw r8, 0x24(r1)
-/* 8014B6F4 00148654  38 C6 A9 D8 */	addi r6, r6, lbl_803DA9D8@l
+/* 8014B6F4 00148654  38 C6 A9 D8 */	addi r6, r6, __vt__17CBCMeleeAttackCmd@l
 /* 8014B6F8 00148658  38 80 00 05 */	li r4, 5
 /* 8014B6FC 0014865C  90 E1 00 28 */	stw r7, 0x28(r1)
 /* 8014B700 00148660  7F E3 FB 78 */	mr r3, r31
@@ -468,8 +468,8 @@ lbl_8014B6A4:
 /* 8014B718 00148678  98 01 00 3C */	stb r0, 0x3c(r1)
 /* 8014B71C 0014867C  4B FE 5D 1D */	bl DeliverCmd__16CBodyStateCmdMgrF13EBodyStateCmd
 /* 8014B720 00148680  80 01 00 28 */	lwz r0, 0x28(r1)
-/* 8014B724 00148684  3C 60 80 3E */	lis r3, lbl_803DA9D8@ha
-/* 8014B728 00148688  38 E3 A9 D8 */	addi r7, r3, lbl_803DA9D8@l
+/* 8014B724 00148684  3C 60 80 3E */	lis r3, __vt__17CBCMeleeAttackCmd@ha
+/* 8014B728 00148688  38 E3 A9 D8 */	addi r7, r3, __vt__17CBCMeleeAttackCmd@l
 /* 8014B72C 0014868C  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
 /* 8014B730 00148690  90 1F 01 10 */	stw r0, 0x110(r31)
 /* 8014B734 00148694  38 A0 00 00 */	li r5, 0
@@ -792,11 +792,11 @@ lbl_8014BBA8:
 /* 8014BBC0 00148B20  48 00 00 A0 */	b lbl_8014BC60
 lbl_8014BBC4:
 /* 8014BBC4 00148B24  3C 80 80 3E */	lis r4, __vt__13CBodyStateCmd@ha
-/* 8014BBC8 00148B28  3C 60 80 3E */	lis r3, lbl_803DAA2C@ha
+/* 8014BBC8 00148B28  3C 60 80 3E */	lis r3, __vt__18CBCLoopReactionCmd@ha
 /* 8014BBCC 00148B2C  38 04 AA 68 */	addi r0, r4, __vt__13CBodyStateCmd@l
 /* 8014BBD0 00148B30  38 80 00 08 */	li r4, 8
 /* 8014BBD4 00148B34  90 01 00 10 */	stw r0, 0x10(r1)
-/* 8014BBD8 00148B38  38 A3 AA 2C */	addi r5, r3, lbl_803DAA2C@l
+/* 8014BBD8 00148B38  38 A3 AA 2C */	addi r5, r3, __vt__18CBCLoopReactionCmd@l
 /* 8014BBDC 00148B3C  38 00 00 00 */	li r0, 0
 /* 8014BBE0 00148B40  3B E6 00 04 */	addi r31, r6, 4
 /* 8014BBE4 00148B44  90 81 00 14 */	stw r4, 0x14(r1)
@@ -806,8 +806,8 @@ lbl_8014BBC4:
 /* 8014BBF4 00148B54  90 01 00 18 */	stw r0, 0x18(r1)
 /* 8014BBF8 00148B58  4B FE 58 41 */	bl DeliverCmd__16CBodyStateCmdMgrF13EBodyStateCmd
 /* 8014BBFC 00148B5C  80 01 00 14 */	lwz r0, 0x14(r1)
-/* 8014BC00 00148B60  3C 60 80 3E */	lis r3, lbl_803DAA2C@ha
-/* 8014BC04 00148B64  38 83 AA 2C */	addi r4, r3, lbl_803DAA2C@l
+/* 8014BC00 00148B60  3C 60 80 3E */	lis r3, __vt__18CBCLoopReactionCmd@ha
+/* 8014BC04 00148B64  38 83 AA 2C */	addi r4, r3, __vt__18CBCLoopReactionCmd@l
 /* 8014BC08 00148B68  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
 /* 8014BC0C 00148B6C  90 1F 01 58 */	stw r0, 0x158(r31)
 /* 8014BC10 00148B70  38 03 AA 68 */	addi r0, r3, __vt__13CBodyStateCmd@l

@@ -45,6 +45,8 @@ public:
   , x1c_deltaOrient(deltaOrient)
   , x20_objectXf(xf)
   , x24_objectScale(scale) {}
+
+  int GetAnimationId() const { return x0_animA; }
 };
 CHECK_SIZEOF(CAnimPlaybackParms, 0x28)
 

@@ -9,6 +9,7 @@
 #include "Kyoto/Math/CUnitVector3f.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
 
+#include "rstl/reserved_vector.hpp"
 
 enum ESteeringBlendMode {
   kSBM_Normal,
@@ -152,9 +153,6 @@ private:
 
 class CBCSlideCmd : public CBodyStateCmd {
 public:
-  explicit CBCSlideCmd()
-  : CBodyStateCmd(kBSC_Slide), x8_type(pas::kSlide_Invalid), xc_dir(CVector3f::Zero()) {}
-
   CBCSlideCmd(pas::ESlideType type, const CVector3f& dir)
   : CBodyStateCmd(kBSC_Slide), x8_type(type), xc_dir(dir) {}
 
@@ -396,11 +394,16 @@ private:
 
 class CBodyStateCmdMgr {
 public:
+  CBodyStateCmdMgr();
+  ~CBodyStateCmdMgr();
   void ClearLocomotionCmds();
   void DeliverCmd(const CBCLocomotionCmd& cmd);
   void DeliverCmd(EBodyStateCmd cmd);
+  void DeliverCmd2(EBodyStateCmd cmd) {
+    xb4_deliveredCmdMask |= 1 << cmd;
+  }
 
-  void DeliverCmd(const CBodyStateCmd& cmd) {}
+  void DeliverCmd(const CBodyStateCmd& cmd);
 
   void DeliverCmd(const CBCGenerateCmd& cmd) {
     DeliverCmd(kBSC_Generate);
@@ -419,14 +422,21 @@ public:
     x1f8_slide = cmd;
   }
 
-  void DeliverTargetVector(const CVector3f& t) { x18_target = t; }
+  void DeliverCmd(const CBCAdditiveReactionCmd& cmd) {
+    DeliverCmd(cmd.GetCommandId());
+    x284_additiveReaction = cmd;
+  }
 
+  void DeliverTargetVector(const CVector3f& t) { x18_target = t; }
+  void BlendSteeringCmds();
+  void SetSteeringSpeedRange(float rmin, float rmax);
+  void Reset();
   CBodyStateCmd* GetCmd(EBodyStateCmd cmd);
+  const CBodyStateCmd* GetCmd(EBodyStateCmd cmd) const;
   const CVector3f& GetMoveVector() const { return x0_move; }
   const CVector3f& GetFaceVector() const { return xc_face; }
   const CVector3f& GetTargetVector() const { return x18_target; }
   const CVector3f& GetAdditiveTargetVector() const { return x24_additiveTarget; }
-
 private:
   CVector3f x0_move;
   CVector3f xc_face;
