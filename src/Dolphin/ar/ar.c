@@ -21,7 +21,6 @@ static void __ARHandler(__OSInterrupt interrupt, OSContext* context);
 static void __ARChecksize(void);
 static void __ARClearArea(u32 start_addr, u32 length);
 
-#ifdef FULL_FRANK
 ARCallback ARRegisterDMACallback(ARCallback callback) {
   ARCallback oldCb;
   BOOL enabled;
@@ -31,36 +30,7 @@ ARCallback ARRegisterDMACallback(ARCallback callback) {
   OSRestoreInterrupts(enabled);
   return oldCb;
 }
-#else
-/* clang-format off */
-#pragma push
-#pragma optimization_level 
-#pragma optimizewithasm off
-asm ARCallback ARRegisterDMACallback(ARCallback callback) {
-  nofralloc
-  mflr r0
-  stw r0, 4(r1)
-  stwu r1, -0x18(r1)
-  stw r31, 0x14(r1)
-  stw r30, 0x10(r1)
-  mr r30, r3
-  lwz r31, __AR_Callback
-  bl OSDisableInterrupts
-  stw r30, __AR_Callback
-  bl OSRestoreInterrupts
-  mr r3, r31
-  lwz r0, 0x1c(r1)
-  lwz r31, 0x14(r1)
-  lwz r30, 0x10(r1)
-  addi r1, r1, 0x18
-  mtlr r0
-  blr
-}
 
-#pragma pop
-/* clang-format on */
-#endif
-#ifdef FULL_FRANK
 u32 ARGetDMAStatus() {
   BOOL enabled;
   u32 val;
@@ -69,32 +39,7 @@ u32 ARGetDMAStatus() {
   OSRestoreInterrupts(enabled);
   return val;
 }
-#else
-/* clang-format off */
-#pragma push
-#pragma optimization_level 
-#pragma optimizewithasm off
-asm u32 ARGetDMAStatus() {
-  nofralloc
-  mflr r0
-  stw r0, 4(r1)
-  stwu r1, -0x10(r1)
-  stw r31, 0xc(r1)
-  bl OSDisableInterrupts
-  lis r4, __DSPRegs + (5 * 2)@ha
-  lhz r0, __DSPRegs + (5 * 2)@l(r4)
-  rlwinm r31, r0, 0, 0x16, 0x16
-  bl OSRestoreInterrupts
-  mr r3, r31
-  lwz r0, 0x14(r1)
-  lwz r31, 0xc(r1)
-  addi r1, r1, 0x10
-  mtlr r0
-  blr
-}
-#pragma pop
-/* clang-format on */
-#endif
+
 void ARStartDMA(u32 type, u32 mainmem_addr, u32 aram_addr, u32 length) {
   BOOL enabled;
 
@@ -110,7 +55,6 @@ void ARStartDMA(u32 type, u32 mainmem_addr, u32 aram_addr, u32 length) {
   OSRestoreInterrupts(enabled);
 }
 
-#ifdef FULL_FRANK
 u32 ARAlloc(u32 length) {
   u32 tmp;
   BOOL enabled;
@@ -125,43 +69,6 @@ u32 ARAlloc(u32 length) {
 
   return tmp;
 }
-#else
-/* clang-format off */
-#pragma push
-#pragma optimization_level 
-#pragma optimizewithasm off
-asm u32 ARAlloc(u32 length) {
-  nofralloc
-  mflr r0
-  stw r0, 4(r1)
-  stwu r1, -0x18(r1)
-  stw r31, 0x14(r1)
-  stw r30, 0x10(r1)
-  mr r30, r3
-  bl OSDisableInterrupts
-  lwz r31, __AR_StackPointer
-  lwz r4, __AR_BlockLength
-  add r0, r31, r30
-  stw r0, __AR_StackPointer
-  stw r30, 0(r4)
-  lwz r5, __AR_BlockLength
-  lwz r4, __AR_FreeBlocks
-  addi r5, r5, 4
-  addi r0, r4, -1
-  stw r5, __AR_BlockLength
-  stw r0, __AR_FreeBlocks
-  bl OSRestoreInterrupts
-  mr r3, r31
-  lwz r0, 0x1c(r1)
-  lwz r31, 0x14(r1)
-  lwz r30, 0x10(r1)
-  addi r1, r1, 0x18
-  mtlr r0
-  blr
-}
-#pragma pop
-/* clang-format on */
-#endif
 
 #if NONMATCHING
 u32 ARFree(u32* length) {
