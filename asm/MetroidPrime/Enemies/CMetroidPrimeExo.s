@@ -6460,13 +6460,13 @@ lbl_80276264:
 /* 802762B4 00273214  38 C3 AA 68 */	addi r6, r3, __vt__13CBodyStateCmd@l
 /* 802762B8 00273218  C0 02 BC 30 */	lfs f0, lbl_805AD950@sda21(r2)
 /* 802762BC 0027321C  90 1F 0F BC */	stw r0, 0xfbc(r31)
-/* 802762C0 00273220  3C 80 80 3E */	lis r4, lbl_803E10C8@ha
+/* 802762C0 00273220  3C 80 80 3E */	lis r4, __vt__22CBCAdditiveReactionCmd@ha
 /* 802762C4 00273224  38 E0 00 1A */	li r7, 0x1a
 /* 802762C8 00273228  38 A0 00 00 */	li r5, 0
 /* 802762CC 0027322C  80 7F 04 50 */	lwz r3, 0x450(r31)
 /* 802762D0 00273230  38 00 00 01 */	li r0, 1
 /* 802762D4 00273234  90 C1 00 30 */	stw r6, 0x30(r1)
-/* 802762D8 00273238  38 C4 10 C8 */	addi r6, r4, lbl_803E10C8@l
+/* 802762D8 00273238  38 C4 10 C8 */	addi r6, r4, __vt__22CBCAdditiveReactionCmd@l
 /* 802762DC 0027323C  3B E3 00 04 */	addi r31, r3, 4
 /* 802762E0 00273240  38 80 00 1A */	li r4, 0x1a
 /* 802762E4 00273244  90 E1 00 34 */	stw r7, 0x34(r1)
@@ -6477,8 +6477,8 @@ lbl_80276264:
 /* 802762F8 00273258  98 01 00 40 */	stb r0, 0x40(r1)
 /* 802762FC 0027325C  4B EB B1 3D */	bl DeliverCmd__16CBodyStateCmdMgrF13EBodyStateCmd
 /* 80276300 00273260  80 01 00 34 */	lwz r0, 0x34(r1)
-/* 80276304 00273264  3C 60 80 3E */	lis r3, lbl_803E10C8@ha
-/* 80276308 00273268  38 83 10 C8 */	addi r4, r3, lbl_803E10C8@l
+/* 80276304 00273264  3C 60 80 3E */	lis r3, __vt__22CBCAdditiveReactionCmd@ha
+/* 80276308 00273268  38 83 10 C8 */	addi r4, r3, __vt__22CBCAdditiveReactionCmd@l
 /* 8027630C 0027326C  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
 /* 80276310 00273270  90 1F 02 88 */	stw r0, 0x288(r31)
 /* 80276314 00273274  38 03 AA 68 */	addi r0, r3, __vt__13CBodyStateCmd@l

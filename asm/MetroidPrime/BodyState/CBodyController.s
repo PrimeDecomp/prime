@@ -90,9 +90,9 @@ lbl_80139E0C:
 /* 80139E5C 00136DBC  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
 /* 80139E60 00136DC0  C0 02 9A 70 */	lfs f0, lbl_805AB790@sda21(r2)
 /* 80139E64 00136DC4  38 03 AA 68 */	addi r0, r3, __vt__13CBodyStateCmd@l
-/* 80139E68 00136DC8  3C 60 80 3E */	lis r3, lbl_803E10C8@ha
+/* 80139E68 00136DC8  3C 60 80 3E */	lis r3, __vt__22CBCAdditiveReactionCmd@ha
 /* 80139E6C 00136DCC  90 01 00 08 */	stw r0, 8(r1)
-/* 80139E70 00136DD0  38 C3 10 C8 */	addi r6, r3, lbl_803E10C8@l
+/* 80139E70 00136DD0  38 C3 10 C8 */	addi r6, r3, __vt__22CBCAdditiveReactionCmd@l
 /* 80139E74 00136DD4  38 60 00 1A */	li r3, 0x1a
 /* 80139E78 00136DD8  38 A0 00 03 */	li r5, 3
 /* 80139E7C 00136DDC  38 00 00 00 */	li r0, 0
@@ -106,8 +106,8 @@ lbl_80139E0C:
 /* 80139E9C 00136DFC  98 01 00 18 */	stb r0, 0x18(r1)
 /* 80139EA0 00136E00  4B FF 75 99 */	bl DeliverCmd__16CBodyStateCmdMgrF13EBodyStateCmd
 /* 80139EA4 00136E04  80 01 00 0C */	lwz r0, 0xc(r1)
-/* 80139EA8 00136E08  3C 60 80 3E */	lis r3, lbl_803E10C8@ha
-/* 80139EAC 00136E0C  38 83 10 C8 */	addi r4, r3, lbl_803E10C8@l
+/* 80139EA8 00136E08  3C 60 80 3E */	lis r3, __vt__22CBCAdditiveReactionCmd@ha
+/* 80139EAC 00136E0C  38 83 10 C8 */	addi r4, r3, __vt__22CBCAdditiveReactionCmd@l
 /* 80139EB0 00136E10  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
 /* 80139EB4 00136E14  90 1F 02 88 */	stw r0, 0x288(r31)
 /* 80139EB8 00136E18  38 03 AA 68 */	addi r0, r3, __vt__13CBodyStateCmd@l
@@ -179,9 +179,9 @@ SetElectrocuting__15CBodyControllerFf:
 /* 80139FA0 00136F00  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
 /* 80139FA4 00136F04  C0 02 9A 70 */	lfs f0, lbl_805AB790@sda21(r2)
 /* 80139FA8 00136F08  38 03 AA 68 */	addi r0, r3, __vt__13CBodyStateCmd@l
-/* 80139FAC 00136F0C  3C 60 80 3E */	lis r3, lbl_803E10C8@ha
+/* 80139FAC 00136F0C  3C 60 80 3E */	lis r3, __vt__22CBCAdditiveReactionCmd@ha
 /* 80139FB0 00136F10  90 01 00 08 */	stw r0, 8(r1)
-/* 80139FB4 00136F14  38 C3 10 C8 */	addi r6, r3, lbl_803E10C8@l
+/* 80139FB4 00136F14  38 C3 10 C8 */	addi r6, r3, __vt__22CBCAdditiveReactionCmd@l
 /* 80139FB8 00136F18  38 60 00 1A */	li r3, 0x1a
 /* 80139FBC 00136F1C  38 A0 00 00 */	li r5, 0
 /* 80139FC0 00136F20  38 00 00 01 */	li r0, 1
@@ -195,8 +195,8 @@ SetElectrocuting__15CBodyControllerFf:
 /* 80139FE0 00136F40  98 01 00 18 */	stb r0, 0x18(r1)
 /* 80139FE4 00136F44  4B FF 74 55 */	bl DeliverCmd__16CBodyStateCmdMgrF13EBodyStateCmd
 /* 80139FE8 00136F48  80 01 00 0C */	lwz r0, 0xc(r1)
-/* 80139FEC 00136F4C  3C 60 80 3E */	lis r3, lbl_803E10C8@ha
-/* 80139FF0 00136F50  38 83 10 C8 */	addi r4, r3, lbl_803E10C8@l
+/* 80139FEC 00136F4C  3C 60 80 3E */	lis r3, __vt__22CBCAdditiveReactionCmd@ha
+/* 80139FF0 00136F50  38 83 10 C8 */	addi r4, r3, __vt__22CBCAdditiveReactionCmd@l
 /* 80139FF4 00136F54  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
 /* 80139FF8 00136F58  90 1E 02 88 */	stw r0, 0x288(r30)
 /* 80139FFC 00136F5C  38 03 AA 68 */	addi r0, r3, __vt__13CBodyStateCmd@l

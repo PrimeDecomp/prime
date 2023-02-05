@@ -29,6 +29,7 @@ public:
     return &x0_states[index];
   }*/
 
+  int GetDefaultState() const { return x10_defaultState; }
 private:
   rstl::vector< CPASAnimState > x0_states;
   int x10_defaultState;

@@ -737,13 +737,13 @@ lbl_801F0720:
 /* 801F0730 001ED690  38 E5 AA 68 */	addi r7, r5, __vt__13CBodyStateCmd@l
 /* 801F0734 001ED694  C0 44 00 00 */	lfs f2, 0(r4)
 /* 801F0738 001ED698  C0 24 00 04 */	lfs f1, 4(r4)
-/* 801F073C 001ED69C  3C A0 80 3E */	lis r5, lbl_803DA9D8@ha
+/* 801F073C 001ED69C  3C A0 80 3E */	lis r5, __vt__17CBCMeleeAttackCmd@ha
 /* 801F0740 001ED6A0  C0 04 00 08 */	lfs f0, 8(r4)
 /* 801F0744 001ED6A4  38 C0 00 05 */	li r6, 5
 /* 801F0748 001ED6A8  38 00 00 00 */	li r0, 0
 /* 801F074C 001ED6AC  3B E3 00 04 */	addi r31, r3, 4
 /* 801F0750 001ED6B0  90 E1 00 08 */	stw r7, 8(r1)
-/* 801F0754 001ED6B4  38 A5 A9 D8 */	addi r5, r5, lbl_803DA9D8@l
+/* 801F0754 001ED6B4  38 A5 A9 D8 */	addi r5, r5, __vt__17CBCMeleeAttackCmd@l
 /* 801F0758 001ED6B8  7F E3 FB 78 */	mr r3, r31
 /* 801F075C 001ED6BC  38 80 00 05 */	li r4, 5
 /* 801F0760 001ED6C0  90 C1 00 0C */	stw r6, 0xc(r1)
@@ -755,8 +755,8 @@ lbl_801F0720:
 /* 801F0778 001ED6D8  98 01 00 20 */	stb r0, 0x20(r1)
 /* 801F077C 001ED6DC  4B F4 0C BD */	bl DeliverCmd__16CBodyStateCmdMgrF13EBodyStateCmd
 /* 801F0780 001ED6E0  80 01 00 0C */	lwz r0, 0xc(r1)
-/* 801F0784 001ED6E4  3C 60 80 3E */	lis r3, lbl_803DA9D8@ha
-/* 801F0788 001ED6E8  38 83 A9 D8 */	addi r4, r3, lbl_803DA9D8@l
+/* 801F0784 001ED6E4  3C 60 80 3E */	lis r3, __vt__17CBCMeleeAttackCmd@ha
+/* 801F0788 001ED6E8  38 83 A9 D8 */	addi r4, r3, __vt__17CBCMeleeAttackCmd@l
 /* 801F078C 001ED6EC  3C 60 80 3E */	lis r3, __vt__13CBodyStateCmd@ha
 /* 801F0790 001ED6F0  90 1F 01 10 */	stw r0, 0x110(r31)
 /* 801F0794 001ED6F4  38 03 AA 68 */	addi r0, r3, __vt__13CBodyStateCmd@l
