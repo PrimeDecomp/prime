@@ -11,10 +11,29 @@ FirstRead:
 .section .bss
 .balign 8
 
-CommandList:
-	.skip 0x68
-lbl_80540AE8:
-	.skip 0x78
+.obj CommandList, local
+	.skip 0x3c
+.endobj CommandList
+.balign 8
+.obj AlarmForWA, local
+	.skip 0x28
+.endobj AlarmForWA
+
+.obj AlarmForTimeout, local
+	.skip 0x28
+.endobj AlarmForTimeout
+
+.obj AlarmForBreak, local
+	.skip 0x28
+.endobj AlarmForBreak
+
+.obj Prev, local
+	.skip 0xc
+.endobj Prev
+
+.obj Curr, local
+	.skip 0xc
+.endobj Curr
 
 .section .sbss
 .balign 8
@@ -670,10 +689,10 @@ DVDLowSeek:
 /* 80370D08 0036DC68  3C 00 AB 00 */	lis r0, 0xab00
 /* 80370D0C 0036DC6C  90 04 00 08 */	stw r0, 8(r4)
 /* 80370D10 0036DC70  54 60 F0 BE */	srwi r0, r3, 2
-/* 80370D14 0036DC74  3C 60 80 54 */	lis r3, lbl_80540AE8@ha
+/* 80370D14 0036DC74  3C 60 80 54 */	lis r3, AlarmForTimeout@ha
 /* 80370D18 0036DC78  90 04 00 0C */	stw r0, 0xc(r4)
 /* 80370D1C 0036DC7C  38 00 00 01 */	li r0, 1
-/* 80370D20 0036DC80  3B E3 0A E8 */	addi r31, r3, lbl_80540AE8@l
+/* 80370D20 0036DC80  3B E3 0A E8 */	addi r31, r3, AlarmForTimeout@l
 /* 80370D24 0036DC84  90 04 00 1C */	stw r0, 0x1c(r4)
 /* 80370D28 0036DC88  3C 80 80 00 */	lis r4, 0x800000F8@ha
 /* 80370D2C 0036DC8C  38 7F 00 00 */	addi r3, r31, 0
@@ -726,10 +745,10 @@ DVDLowReadDiskID:
 /* 80370DD0 0036DD30  38 E4 60 00 */	addi r7, r4, 0xCC006000@l
 /* 80370DD4 0036DD34  91 0D AB A8 */	stw r8, StopAtNextInt@sda21(r13)
 /* 80370DD8 0036DD38  90 04 60 08 */	stw r0, 0x6008(r4)
-/* 80370DDC 0036DD3C  3C 80 80 54 */	lis r4, lbl_80540AE8@ha
+/* 80370DDC 0036DD3C  3C 80 80 54 */	lis r4, AlarmForTimeout@ha
 /* 80370DE0 0036DD40  38 00 00 03 */	li r0, 3
 /* 80370DE4 0036DD44  91 07 00 0C */	stw r8, 0xc(r7)
-/* 80370DE8 0036DD48  3B E4 0A E8 */	addi r31, r4, lbl_80540AE8@l
+/* 80370DE8 0036DD48  3B E4 0A E8 */	addi r31, r4, AlarmForTimeout@l
 /* 80370DEC 0036DD4C  90 C7 00 10 */	stw r6, 0x10(r7)
 /* 80370DF0 0036DD50  90 67 00 14 */	stw r3, 0x14(r7)
 /* 80370DF4 0036DD54  7F E3 FB 78 */	mr r3, r31
@@ -768,10 +787,10 @@ DVDLowStopMotor:
 /* 80370E6C 0036DDCC  3C 00 E3 00 */	lis r0, 0xe300
 /* 80370E70 0036DDD0  90 03 60 08 */	stw r0, 0x6008(r3)
 /* 80370E74 0036DDD4  38 00 00 01 */	li r0, 1
-/* 80370E78 0036DDD8  3C 60 80 54 */	lis r3, lbl_80540AE8@ha
+/* 80370E78 0036DDD8  3C 60 80 54 */	lis r3, AlarmForTimeout@ha
 /* 80370E7C 0036DDDC  90 04 00 1C */	stw r0, 0x1c(r4)
 /* 80370E80 0036DDE0  3C 80 80 00 */	lis r4, 0x800000F8@ha
-/* 80370E84 0036DDE4  3B E3 0A E8 */	addi r31, r3, lbl_80540AE8@l
+/* 80370E84 0036DDE4  3B E3 0A E8 */	addi r31, r3, AlarmForTimeout@l
 /* 80370E88 0036DDE8  80 04 00 F8 */	lwz r0, 0x800000F8@l(r4)
 /* 80370E8C 0036DDEC  38 7F 00 00 */	addi r3, r31, 0
 /* 80370E90 0036DDF0  54 00 F0 BE */	srwi r0, r0, 2
@@ -806,10 +825,10 @@ DVDLowRequestError:
 /* 80370EF8 0036DE58  3C 00 E0 00 */	lis r0, 0xe000
 /* 80370EFC 0036DE5C  90 03 60 08 */	stw r0, 0x6008(r3)
 /* 80370F00 0036DE60  38 00 00 01 */	li r0, 1
-/* 80370F04 0036DE64  3C 60 80 54 */	lis r3, lbl_80540AE8@ha
+/* 80370F04 0036DE64  3C 60 80 54 */	lis r3, AlarmForTimeout@ha
 /* 80370F08 0036DE68  90 04 00 1C */	stw r0, 0x1c(r4)
 /* 80370F0C 0036DE6C  3C 80 80 00 */	lis r4, 0x800000F8@ha
-/* 80370F10 0036DE70  3B E3 0A E8 */	addi r31, r3, lbl_80540AE8@l
+/* 80370F10 0036DE70  3B E3 0A E8 */	addi r31, r3, AlarmForTimeout@l
 /* 80370F14 0036DE74  80 04 00 F8 */	lwz r0, 0x800000F8@l(r4)
 /* 80370F18 0036DE78  38 7F 00 00 */	addi r3, r31, 0
 /* 80370F1C 0036DE7C  54 00 F0 BE */	srwi r0, r0, 2
@@ -845,10 +864,10 @@ DVDLowInquiry:
 /* 80370F88 0036DEE8  90 0D AB A8 */	stw r0, StopAtNextInt@sda21(r13)
 /* 80370F8C 0036DEEC  3C 00 12 00 */	lis r0, 0x1200
 /* 80370F90 0036DEF0  90 04 60 08 */	stw r0, 0x6008(r4)
-/* 80370F94 0036DEF4  3C 80 80 54 */	lis r4, lbl_80540AE8@ha
+/* 80370F94 0036DEF4  3C 80 80 54 */	lis r4, AlarmForTimeout@ha
 /* 80370F98 0036DEF8  38 00 00 03 */	li r0, 3
 /* 80370F9C 0036DEFC  90 C7 00 10 */	stw r6, 0x10(r7)
-/* 80370FA0 0036DF00  3B E4 0A E8 */	addi r31, r4, lbl_80540AE8@l
+/* 80370FA0 0036DF00  3B E4 0A E8 */	addi r31, r4, AlarmForTimeout@l
 /* 80370FA4 0036DF04  90 67 00 14 */	stw r3, 0x14(r7)
 /* 80370FA8 0036DF08  38 7F 00 00 */	addi r3, r31, 0
 /* 80370FAC 0036DF0C  90 C7 00 18 */	stw r6, 0x18(r7)
@@ -884,10 +903,10 @@ DVDLowAudioStream:
 /* 80371018 0036DF78  38 C6 60 00 */	addi r6, r6, 0xCC006000@l
 /* 8037101C 0036DF7C  90 0D AB A8 */	stw r0, StopAtNextInt@sda21(r13)
 /* 80371020 0036DF80  64 60 E1 00 */	oris r0, r3, 0xe100
-/* 80371024 0036DF84  3C 60 80 54 */	lis r3, lbl_80540AE8@ha
+/* 80371024 0036DF84  3C 60 80 54 */	lis r3, AlarmForTimeout@ha
 /* 80371028 0036DF88  90 06 00 08 */	stw r0, 8(r6)
 /* 8037102C 0036DF8C  54 A0 F0 BE */	srwi r0, r5, 2
-/* 80371030 0036DF90  3B E3 0A E8 */	addi r31, r3, lbl_80540AE8@l
+/* 80371030 0036DF90  3B E3 0A E8 */	addi r31, r3, AlarmForTimeout@l
 /* 80371034 0036DF94  90 06 00 0C */	stw r0, 0xc(r6)
 /* 80371038 0036DF98  38 00 00 01 */	li r0, 1
 /* 8037103C 0036DF9C  38 7F 00 00 */	addi r3, r31, 0
@@ -925,10 +944,10 @@ DVDLowRequestAudioStatus:
 /* 803710B0 0036E010  38 84 60 00 */	addi r4, r4, 0xCC006000@l
 /* 803710B4 0036E014  90 0D AB A8 */	stw r0, StopAtNextInt@sda21(r13)
 /* 803710B8 0036E018  64 60 E2 00 */	oris r0, r3, 0xe200
-/* 803710BC 0036E01C  3C 60 80 54 */	lis r3, lbl_80540AE8@ha
+/* 803710BC 0036E01C  3C 60 80 54 */	lis r3, AlarmForTimeout@ha
 /* 803710C0 0036E020  90 04 00 08 */	stw r0, 8(r4)
 /* 803710C4 0036E024  38 00 00 01 */	li r0, 1
-/* 803710C8 0036E028  3B E3 0A E8 */	addi r31, r3, lbl_80540AE8@l
+/* 803710C8 0036E028  3B E3 0A E8 */	addi r31, r3, AlarmForTimeout@l
 /* 803710CC 0036E02C  90 04 00 1C */	stw r0, 0x1c(r4)
 /* 803710D0 0036E030  3C 80 80 00 */	lis r4, 0x800000F8@ha
 /* 803710D4 0036E034  38 7F 00 00 */	addi r3, r31, 0
@@ -972,8 +991,8 @@ lbl_80371148:
 /* 8037115C 0036E0BC  38 00 00 01 */	li r0, 1
 /* 80371160 0036E0C0  3C 80 80 00 */	lis r4, 0x800000F8@ha
 /* 80371164 0036E0C4  90 03 00 1C */	stw r0, 0x1c(r3)
-/* 80371168 0036E0C8  3C 60 80 54 */	lis r3, lbl_80540AE8@ha
-/* 8037116C 0036E0CC  3B E3 0A E8 */	addi r31, r3, lbl_80540AE8@l
+/* 80371168 0036E0C8  3C 60 80 54 */	lis r3, AlarmForTimeout@ha
+/* 8037116C 0036E0CC  3B E3 0A E8 */	addi r31, r3, AlarmForTimeout@l
 /* 80371170 0036E0D0  80 04 00 F8 */	lwz r0, 0x800000F8@l(r4)
 /* 80371174 0036E0D4  38 7F 00 00 */	addi r3, r31, 0
 /* 80371178 0036E0D8  54 00 F0 BE */	srwi r0, r0, 2
