@@ -44,25 +44,25 @@ public:
       bool rainSplashes, uint maxRainSplashes, uint rainGenRate);
 
   // CEntity
-  ~CScriptPlatform();
-  void Accept(IVisitor& visitor);
-  void PreThink(float dt, CStateManager& mgr);
-  void Think(float dt, CStateManager& mgr);
-  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr);
+  ~CScriptPlatform() override;
+  void Accept(IVisitor& visitor) override;
+  void PreThink(float dt, CStateManager& mgr) override;
+  void Think(float dt, CStateManager& mgr) override;
+  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) override;
 
   // CActor
-  void PreRender(CStateManager&, const CFrustumPlanes&);
-  void Render(const CStateManager&) const;
-  CHealthInfo* HealthInfo(CStateManager&);
-  const CDamageVulnerability* GetDamageVulnerability() const;
-  rstl::optional_object< CAABox > GetTouchBounds() const;
-  CVector3f GetOrbitPosition(const CStateManager&) const;
-  CVector3f GetAimPosition(const CStateManager&, float) const;
-  CAABox GetSortingBounds(const CStateManager&) const;
+  void PreRender(CStateManager&, const CFrustumPlanes&) override;
+  void Render(const CStateManager&) const override;
+  CHealthInfo* HealthInfo(CStateManager&) override;
+  const CDamageVulnerability* GetDamageVulnerability() const override;
+  rstl::optional_object< CAABox > GetTouchBounds() const override;
+  CVector3f GetOrbitPosition(const CStateManager&) const override;
+  CVector3f GetAimPosition(const CStateManager&, float) const override;
+  CAABox GetSortingBounds(const CStateManager&) const override;
 
   // CPhysicsActor
-  const CCollisionPrimitive* GetCollisionPrimitive() const;
-  CTransform4f GetPrimitiveTransform() const;
+  const CCollisionPrimitive* GetCollisionPrimitive() const override;
+  CTransform4f GetPrimitiveTransform() const override;
 
   // CScriptPlatform
   virtual void SplashThink(const CAABox&, const CFluidPlane&, float, CStateManager&) const;

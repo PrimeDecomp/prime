@@ -14,19 +14,19 @@ class CWaveBeam : public CGunWeapon {
 public:
   CWaveBeam(CAssetId characterId, EWeaponType type, TUniqueId playerId,
             EMaterialTypes playerMaterial, const CVector3f& scale);
-  ~CWaveBeam();
+  ~CWaveBeam() override;
 
-  void PostRenderGunFx(const CStateManager& mgr, const CTransform4f& xf);
+  void PostRenderGunFx(const CStateManager& mgr, const CTransform4f& xf) override;
   void UpdateGunFx(bool shotSmoke, float dt, const CStateManager& mgr,
-                   const CTransform4f& xf);
+                   const CTransform4f& xf) override;
   void Fire(bool underwater, float dt, CPlayerState::EChargeStage chargeState,
             const CTransform4f& xf, CStateManager& mgr, TUniqueId homingTarget, float chargeFactor1,
-            float chargeFactor2);
-  void EnableSecondaryFx(ESecondaryFxType type);
-  void Update(float dt, CStateManager& mgr);
-  void Load(CStateManager& mgr, bool subtypeBasePose);
-  void Unload(CStateManager& mgr);
-  bool IsLoaded() const;
+            float chargeFactor2) override;
+  void EnableSecondaryFx(ESecondaryFxType type) override;
+  void Update(float dt, CStateManager& mgr) override;
+  void Load(CStateManager& mgr, bool subtypeBasePose) override;
+  void Unload(CStateManager& mgr) override;
+  bool IsLoaded() const override;
 
 private:
   TCachedToken< CWeaponDescription > x21c_waveBeam;

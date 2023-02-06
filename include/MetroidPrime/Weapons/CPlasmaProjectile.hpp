@@ -35,15 +35,15 @@ public:
                     TUniqueId owner, const PlayerEffectResources& res, bool growingBeam,
                     EProjectileAttrib attribs);
 
-  void Accept(IVisitor& visitor);
-  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId sender, CStateManager& mgr);
-  void ResetBeam(CStateManager& mgr, bool fullReset);
-  void UpdateFx(const CTransform4f& xf, float dt, CStateManager& mgr);
-  void Fire(const CTransform4f& xf, CStateManager& mgr, bool b);
-  void Touch(CActor& other, CStateManager& mgr);
-  bool CanRenderUnsorted(const CStateManager& mgr) const;
-  void AddToRenderer(const CFrustumPlanes& frustum, const CStateManager& mgr) const;
-  void Render(const CStateManager& mgr) const;
+  void Accept(IVisitor& visitor) override;
+  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId sender, CStateManager& mgr) override;
+  void ResetBeam(CStateManager& mgr, bool fullReset) override;
+  void UpdateFx(const CTransform4f& xf, float dt, CStateManager& mgr) override;
+  void Fire(const CTransform4f& xf, CStateManager& mgr, bool b) override;
+  void Touch(CActor& other, CStateManager& mgr) override;
+  bool CanRenderUnsorted(const CStateManager& mgr) const override;
+  void AddToRenderer(const CFrustumPlanes& frustum, const CStateManager& mgr) const override;
+  void Render(const CStateManager& mgr) const override;
   CColor GetInnerColor() const { return x490_innerColor; }
   CColor GetOuterColor() const { return x494_outerColor; }
   bool IsFiring() const { return x548_26_firing; }

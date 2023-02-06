@@ -20,13 +20,13 @@ public:
 
   // const CStateMachine* GetStateMachine() const;
   ~CAi();
-  void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&);
-  CHealthInfo* HealthInfo(CStateManager&);
-  const CDamageVulnerability* GetDamageVulnerability() const { return nullptr; }
+  void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&) override;
+  CHealthInfo* HealthInfo(CStateManager&) override;
+  const CDamageVulnerability* GetDamageVulnerability() const override { return nullptr; }
   EWeaponCollisionResponseTypes GetCollisionResponseType(const CVector3f&, const CVector3f&,
                                                          const CWeaponMode&,
-                                                         int) const;
-  void FluidFXThink(EFluidState, CScriptWater&, CStateManager&);
+                                                         int) const override;
+  void FluidFXThink(EFluidState, CScriptWater&, CStateManager&) override;
   ;
 
   virtual void Death(CStateManager& mgr, const CVector3f& direction, EScriptObjectState state) = 0;

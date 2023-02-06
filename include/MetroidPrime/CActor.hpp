@@ -56,7 +56,7 @@ public:
   CActor(TUniqueId uid, bool active, const rstl::string& name, const CEntityInfo& info,
          const CTransform4f& xf, const CModelData& mData, const CMaterialList& list,
          const CActorParameters& params, TUniqueId nextDrawNode);
-  ~CActor();
+  ~CActor() override;
 
   void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr);
   void SetActive(const bool active);

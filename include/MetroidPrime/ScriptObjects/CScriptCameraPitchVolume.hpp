@@ -13,10 +13,10 @@ public:
                            const CRelAngle&, float);
   ~CScriptCameraPitchVolume();
 
-  void Accept(IVisitor& visitor);
-  void Think(float, CStateManager&);
-  rstl::optional_object< CAABox > GetTouchBounds() const;
-  void Touch(CActor&, CStateManager&);
+  void Accept(IVisitor& visitor) override;
+  void Think(float, CStateManager&) override;
+  rstl::optional_object< CAABox > GetTouchBounds() const override;
+  void Touch(CActor&, CStateManager&) override;
   // float GetUpPitch() const { return x124_upPitch; }
   // float GetDownPitch() const { return x128_downPitch; }
   // const CVector3f& GetScale() const { return x12c_scale; }

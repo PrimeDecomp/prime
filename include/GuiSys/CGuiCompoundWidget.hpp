@@ -5,10 +5,10 @@
 
 class CGuiCompoundWidget : public CGuiWidget {
 public:
-  FourCC GetWidgetTypeID() const { return -1; }
+  FourCC GetWidgetTypeID() const override { return -1; }
 
-  void OnVisible();
-  void OnActivate();
+  void OnVisible() override;
+  void OnActivate() override;
   virtual CGuiWidget* GetWorkerWidget(int id) const;
 private:
 };

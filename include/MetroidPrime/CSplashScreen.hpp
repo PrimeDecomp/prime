@@ -15,9 +15,9 @@ public:
 
   CSplashScreen(ESplashScreen);
 
-  ~CSplashScreen();
-  EMessageReturn OnMessage(const CArchitectureMessage&, CArchitectureQueue&);
-  void Draw() const;
+  ~CSplashScreen() override;
+  EMessageReturn OnMessage(const CArchitectureMessage&, CArchitectureQueue&) override;
+  void Draw() const override;
 };
 
 #endif // _CSPLASHSCREEN

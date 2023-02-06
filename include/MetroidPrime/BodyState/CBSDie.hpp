@@ -8,11 +8,11 @@ public:
   CBSDie();
   ~CBSDie();
 
-  bool IsDead() const;
-  bool IsDying() const;
-  void Start(CBodyController& bc, CStateManager& mgr);
-  pas::EAnimationState UpdateBody(float dt, CBodyController& bc, CStateManager& mgr);
-  void Shutdown(CBodyController&);
+  bool IsDead() const override;
+  bool IsDying() const override;
+  void Start(CBodyController& bc, CStateManager& mgr) override;
+  pas::EAnimationState UpdateBody(float dt, CBodyController& bc, CStateManager& mgr) override;
+  void Shutdown(CBodyController&) override;
 
 private:
   float x4_remTime;

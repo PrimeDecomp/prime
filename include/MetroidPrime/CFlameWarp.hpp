@@ -14,7 +14,7 @@ class CColor;
 class CFlameWarp : public CWarp {
 public:
   CFlameWarp(float maxInfluenceDist, const CVector3f& warpPoint, bool collisionWarp);
-  ~CFlameWarp();
+  ~CFlameWarp() override;
 
   const rstl::reserved_vector< CVector3f, 9 >& GetCollisionPoints() const {
     return x4_collisionPoints;
@@ -26,14 +26,14 @@ public:
   const CVector3f& GetFloatingPoint() const { return x80_floatingPoint; }
   void SetMaxDistSq(float d) { x8c_maxDistSq = d; }
   void SetStateManager(CStateManager& mgr) { x9c_stateMgr = &mgr; }
-  bool UpdateWarp();
+  bool UpdateWarp() override;
   void ModifyParticles(int particleCount, int stripe, int*, CVector3f* particlePos,
                                  CVector3f* particlePrevPos, CVector3f* particleVelocity,
-                                 CColor* color, float* lineLengthOrSize, float* lineWidthOrRota);
-  void Activate(bool val) { xa0_24_activated = val; }
-  bool IsActivated();
+                                 CColor* color, float* lineLengthOrSize, float* lineWidthOrRota) override;
+  void Activate(bool val) override { xa0_24_activated = val; }
+  bool IsActivated() override;
   bool IsProcessed() const { return xa0_26_processed; }
-  FourCC Get4CharID();
+  FourCC Get4CharID() override;
   void ResetPosition(const CVector3f& pos);
   CAABox CalculateBounds() const;
 

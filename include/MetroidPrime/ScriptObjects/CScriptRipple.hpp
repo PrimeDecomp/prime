@@ -13,9 +13,9 @@ public:
   CScriptRipple(TUniqueId, const rstl::string&, const CEntityInfo&, const CVector3f&, bool, float);
   ~CScriptRipple();
 
-  void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&);
-  void Think(float, CStateManager&);
-  void Accept(IVisitor&);
+  void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&) override;
+  void Think(float, CStateManager&) override;
+  void Accept(IVisitor&) override;
 };
 
 #endif // _CSCRIPTRIPPLE

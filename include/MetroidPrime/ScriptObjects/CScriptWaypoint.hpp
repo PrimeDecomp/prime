@@ -13,13 +13,13 @@ public:
                   int behaviourOrient, int behaviourModifiers, uint animation);
 
   // CEntity
-  ~CScriptWaypoint();
-  void Accept(IVisitor& visitor);
-  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr);
+  ~CScriptWaypoint() override;
+  void Accept(IVisitor& visitor) override;
+  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) override;
 
   // CActor
-  void AddToRenderer(const CFrustumPlanes&, const CStateManager&) const;
-  void Render(const CStateManager&) const;
+  void AddToRenderer(const CFrustumPlanes&, const CStateManager&) const override;
+  void Render(const CStateManager&) const override;
 
   // CScriptWaypoint
   TUniqueId NextWaypoint(const CStateManager& mgr) const;

@@ -31,12 +31,12 @@ public:
                 float startDelay, bool active);
   ~CScriptPickup();
 
-  void Think(float, CStateManager&);
-  void Touch(CActor&, CStateManager&);
-  rstl::optional_object< CAABox > GetTouchBounds() const;
-  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr);
-  void Render(const CStateManager&) const;
-  void Accept(IVisitor& visitor);
+  void Think(float, CStateManager&) override;
+  void Touch(CActor&, CStateManager&) override;
+  rstl::optional_object< CAABox > GetTouchBounds() const override;
+  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) override;
+  void Render(const CStateManager&) const override;
+  void Accept(IVisitor& visitor) override;
 
   float GetPossibility() const;
   CPlayerState::EItemType GetItem() const;

@@ -14,10 +14,10 @@ protected:
 
 public:
   bool IsMoving() const override = 0;
-  bool CanShoot() const { return true; }
-  void Start(CBodyController& bc, CStateManager& mgr);
-  pas::EAnimationState UpdateBody(float dt, CBodyController& bc, CStateManager& mgr);
-  void Shutdown(CBodyController& bc);
+  bool CanShoot() const override { return true; }
+  void Start(CBodyController& bc, CStateManager& mgr) override;
+  pas::EAnimationState UpdateBody(float dt, CBodyController& bc, CStateManager& mgr) override;
+  void Shutdown(CBodyController& bc) override;
   virtual bool IsPitchable() const { return false; }
   virtual float GetLocomotionSpeed(pas::ELocomotionType type, pas::ELocomotionAnim anim) const = 0;
   virtual float ApplyLocomotionPhysics(float dt, CBodyController& bc);

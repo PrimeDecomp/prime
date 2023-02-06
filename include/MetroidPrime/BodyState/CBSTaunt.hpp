@@ -8,9 +8,9 @@ public:
   CBSTaunt();
   ~CBSTaunt();
 
-  void Start(CBodyController& bc, CStateManager& mgr);
-  pas::EAnimationState UpdateBody(float dt, CBodyController& bc, CStateManager& mgr);
-  void Shutdown(CBodyController&);
+  void Start(CBodyController& bc, CStateManager& mgr) override;
+  pas::EAnimationState UpdateBody(float dt, CBodyController& bc, CStateManager& mgr) override;
+  void Shutdown(CBodyController&) override;
 
   private:
   pas::EAnimationState GetBodyStateTransition(float dt, CBodyController& bc);

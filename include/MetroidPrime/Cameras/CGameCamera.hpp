@@ -17,10 +17,10 @@ public:
               TUniqueId watchedId, bool disableInput, int controllerIdx);
 
   // CEntity
-  ~CGameCamera();
-  void Accept(IVisitor& visitor);
-  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr);
-  void SetActive(const bool active);
+  ~CGameCamera() override;
+  void Accept(IVisitor& visitor) override;
+  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) override;
+  void SetActive(uchar active) override;
 
   // CGameCamera
   virtual void ProcessInput(const CFinalInput&, CStateManager& mgr) = 0;

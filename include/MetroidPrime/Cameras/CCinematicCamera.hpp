@@ -12,14 +12,14 @@ public:
                    float zfar, float aspect, uint flags);
   ~CCinematicCamera();
   // CActor
-  void Accept(IVisitor& visitor);
-  void Think(float dt, CStateManager& mgr);
-  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr);
+  void Accept(IVisitor& visitor) override;
+  void Think(float dt, CStateManager& mgr) override;
+  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) override;
 
   // CGameCamera
 
-  void ProcessInput(const CFinalInput&, CStateManager& mgr);
-  void Reset(const CTransform4f&, CStateManager& mgr);
+  void ProcessInput(const CFinalInput&, CStateManager& mgr) override;
+  void Reset(const CTransform4f&, CStateManager& mgr) override;
 
   // CCinematicCamera
   u32 GetFlags() const { return x21c_flags; }

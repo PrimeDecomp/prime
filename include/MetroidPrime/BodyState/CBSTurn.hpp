@@ -8,12 +8,12 @@
 class CBSTurn : public CBodyState {
 public:
   CBSTurn();
-  ~CBSTurn() {}
+  ~CBSTurn() override {}
 
-  bool CanShoot() const { return true; }
-  void Start(CBodyController& bc, CStateManager& mgr);
-  pas::EAnimationState UpdateBody(float dt, CBodyController& bc, CStateManager& mgr);
-  void Shutdown(CBodyController&);
+  bool CanShoot() const override { return true; }
+  void Start(CBodyController& bc, CStateManager& mgr) override;
+  pas::EAnimationState UpdateBody(float dt, CBodyController& bc, CStateManager& mgr) override;
+  void Shutdown(CBodyController&) override;
 
 protected:
   float x4_rotateSpeed;
@@ -28,8 +28,8 @@ protected:
 class CBSFlyerTurn : public CBSTurn {
 public:
   CBSFlyerTurn();
-  void Start(CBodyController& bc, CStateManager& mgr);
-  pas::EAnimationState UpdateBody(float dt, CBodyController& bc, CStateManager& mgr);
+  void Start(CBodyController& bc, CStateManager& mgr) override;
+  pas::EAnimationState UpdateBody(float dt, CBodyController& bc, CStateManager& mgr) override;
 };
 
 #endif // _CBSTURN

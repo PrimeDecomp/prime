@@ -18,8 +18,8 @@ private:
 public:
   CScriptPlayerStateChange(TUniqueId, const rstl::string&, const CEntityInfo&, bool, int, int, int, EControl,
                            EControlCommandOption);
-  void Accept(IVisitor& visit);
-  void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&);
+  void Accept(IVisitor& visit) override;
+  void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&) override;
   ~CScriptPlayerStateChange();
 
   bool Filtered() { return x44_ctrlCmdOpt == kCCO_Filtered; }

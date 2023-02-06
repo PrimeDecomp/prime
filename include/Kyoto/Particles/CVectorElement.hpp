@@ -11,9 +11,9 @@
 class CVEFastConstant : public CVectorElement {
 public:
   CVEFastConstant(float x, float y, float z);
-  ~CVEFastConstant();
-  bool GetValue(int frame, CVector3f& valOut) const;
-  bool IsFastConstant() const { return true; }
+  ~CVEFastConstant() override;
+  bool GetValue(int frame, CVector3f& valOut) const override;
+  bool IsFastConstant() const override { return true; }
 
 private:
   CVector3f x4_val;
@@ -21,51 +21,51 @@ private:
 
 class CVEParticleLocation : public CVectorElement {
 public:
-  ~CVEParticleLocation() {}
-  bool GetValue(int frame, CVector3f& valOut) const;
+  ~CVEParticleLocation() override {}
+  bool GetValue(int frame, CVector3f& valOut) const override;
 };
 
 class CVEParticleColor : public CVectorElement {
 public:
-  ~CVEParticleColor() {}
-  bool GetValue(int frame, CVector3f& valOut) const;
+  ~CVEParticleColor() override {}
+  bool GetValue(int frame, CVector3f& valOut) const override;
 };
 
 class CVEParticleVelocity : public CVectorElement {
 public:
-  ~CVEParticleVelocity() {}
-  bool GetValue(int frame, CVector3f& valOut) const;
+  ~CVEParticleVelocity() override {}
+  bool GetValue(int frame, CVector3f& valOut) const override;
 };
 
 class CVEParticleSystemOrientationFront : public CVectorElement {
 public:
-  ~CVEParticleSystemOrientationFront() {}
-  bool GetValue(int frame, CVector3f& valOut) const;
+  ~CVEParticleSystemOrientationFront() override {}
+  bool GetValue(int frame, CVector3f& valOut) const override;
 };
 
 class CVEParticleSystemOrientationUp : public CVectorElement {
 public:
-  ~CVEParticleSystemOrientationUp() {}
-  bool GetValue(int frame, CVector3f& valOut) const;
+  ~CVEParticleSystemOrientationUp() override {}
+  bool GetValue(int frame, CVector3f& valOut) const override;
 };
 
 class CVEParticleSystemOrientationRight : public CVectorElement {
 public:
-  ~CVEParticleSystemOrientationRight() {}
-  bool GetValue(int frame, CVector3f& valOut) const;
+  ~CVEParticleSystemOrientationRight() override {}
+  bool GetValue(int frame, CVector3f& valOut) const override;
 };
 
 class CVEParticleSystemTranslation : public CVectorElement {
 public:
-  ~CVEParticleSystemTranslation() {}
-  bool GetValue(int frame, CVector3f& valOut) const;
+  ~CVEParticleSystemTranslation() override {}
+  bool GetValue(int frame, CVector3f& valOut) const override;
 };
 
 class CVEConstant : public CVectorElement {
 public:
   CVEConstant(CRealElement* x, CRealElement* y, CRealElement* z);
   ~CVEConstant();
-  bool GetValue(int frame, CVector3f& valOut) const;
+  bool GetValue(int frame, CVector3f& valOut) const override;
 
 public:
   CRealElement* x4_x;
@@ -82,7 +82,7 @@ class CVECone : public CVectorElement {
 public:
   CVECone(CVectorElement* direction, CRealElement* magnitude);
   ~CVECone();
-  bool GetValue(int frame, CVector3f& valOut) const;
+  bool GetValue(int frame, CVector3f& valOut) const override;
 };
 
 class CVEAngleCone : public CVectorElement {
@@ -96,7 +96,7 @@ public:
   CVEAngleCone(CRealElement* angleXConstant, CRealElement* angleYConstant,
                CRealElement* angleXRange, CRealElement* angleYRange, CRealElement* magnitude);
   ~CVEAngleCone();
-  bool GetValue(int frame, CVector3f& valOut) const;
+  bool GetValue(int frame, CVector3f& valOut) const override;
 };
 
 #endif // _CVECTORELEMENT

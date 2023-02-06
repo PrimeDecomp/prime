@@ -94,14 +94,14 @@ public:
   };
 
   ~CGameArea();
-  const CTransform4f& IGetTM() const;
-  CAssetId IGetStringTableAssetId() const;
-  uint IGetNumAttachedAreas() const;
-  TAreaId IGetAttachedAreaId(int) const;
-  bool IIsActive() const;
-  CAssetId IGetAreaAssetId() const;
-  int IGetAreaSaveId() const;
-  rstl::pair< rstl::auto_ptr< uchar >, int > IGetScriptingMemoryAlways() const;
+  const CTransform4f& IGetTM() const override;
+  CAssetId IGetStringTableAssetId() const override;
+  uint IGetNumAttachedAreas() const override;
+  TAreaId IGetAttachedAreaId(int) const override;
+  bool IIsActive() const override;
+  CAssetId IGetAreaAssetId() const override;
+  int IGetAreaSaveId() const override;
+  rstl::pair< rstl::auto_ptr< uchar >, int > IGetScriptingMemoryAlways() const override;
 
   TAreaId GetId() const { return x4_selfIdx; }
   const CTransform4f& GetTM() const { return xc_transform; }

@@ -25,8 +25,8 @@ public:
                      float);
   ~CScriptDistanceFog();
 
-  void Accept(IVisitor& visitor);
-  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objId, CStateManager& stateMgr);
+  void Accept(IVisitor& visitor) override;
+  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objId, CStateManager& stateMgr) override;
 };
 
 #endif // _CSCRIPTDISTANCEFOG

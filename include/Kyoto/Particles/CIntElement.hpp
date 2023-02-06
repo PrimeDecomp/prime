@@ -14,8 +14,8 @@ class CIEConstant : public CIntElement {
 
 public:
   CIEConstant(int val);
-  ~CIEConstant();
-  bool GetValue(int frame, int& valOut) const;
+  ~CIEConstant() override;
+  bool GetValue(int frame, int& valOut) const override;
 };
 
 class CIEDeath : public CIntElement {
@@ -24,8 +24,8 @@ class CIEDeath : public CIntElement {
 
 public:
   CIEDeath(CIntElement* a, CIntElement* b);
-  ~CIEDeath();
-  bool GetValue(int frame, int& valOut) const;
+  ~CIEDeath() override;
+  bool GetValue(int frame, int& valOut) const override;
 };
 
 class CIEAdd : public CIntElement {
@@ -34,8 +34,8 @@ class CIEAdd : public CIntElement {
 
 public:
   CIEAdd(CIntElement* a, CIntElement* b);
-  ~CIEAdd();
-  bool GetValue(int frame, int& valOut) const;
+  ~CIEAdd() override;
+  bool GetValue(int frame, int& valOut) const override;
 };
 
 class CIEMultiply : public CIntElement {
@@ -44,8 +44,8 @@ class CIEMultiply : public CIntElement {
 
 public:
   CIEMultiply(CIntElement* a, CIntElement* b);
-  ~CIEMultiply();
-  bool GetValue(int frame, int& valOut) const;
+  ~CIEMultiply() override;
+  bool GetValue(int frame, int& valOut) const override;
 };
 
 class CIEModulo : public CIntElement {
@@ -54,8 +54,8 @@ class CIEModulo : public CIntElement {
 
 public:
   CIEModulo(CIntElement* a, CIntElement* b);
-  ~CIEModulo();
-  bool GetValue(int frame, int& valOut) const;
+  ~CIEModulo() override;
+  bool GetValue(int frame, int& valOut) const override;
 };
 
 class CIERandom : public CIntElement {
@@ -64,8 +64,8 @@ class CIERandom : public CIntElement {
 
 public:
   CIERandom(CIntElement* a, CIntElement* b);
-  ~CIERandom();
-  bool GetValue(int frame, int& valOut) const;
+  ~CIERandom() override;
+  bool GetValue(int frame, int& valOut) const override;
 };
 
 class CIESampleAndHold : public CIntElement {
@@ -77,8 +77,8 @@ class CIESampleAndHold : public CIntElement {
 
 public:
   CIESampleAndHold(CIntElement* a, CIntElement* b, CIntElement* c);
-  ~CIESampleAndHold();
-  bool GetValue(int frame, int& valOut) const;
+  ~CIESampleAndHold() override;
+  bool GetValue(int frame, int& valOut) const override;
 };
 
 class CIEImpulse : public CIntElement {
@@ -86,8 +86,8 @@ class CIEImpulse : public CIntElement {
 
 public:
   CIEImpulse(CIntElement* a);
-  ~CIEImpulse();
-  bool GetValue(int frame, int& valOut) const;
+  ~CIEImpulse() override;
+  bool GetValue(int frame, int& valOut) const override;
 };
 
 class CIETimescale : public CIntElement {
@@ -96,7 +96,7 @@ class CIETimescale : public CIntElement {
 public:
   CIETimescale(CRealElement* a);
   ~CIETimescale();
-  bool GetValue(int frame, int& valOut) const;
+  bool GetValue(int frame, int& valOut) const override;
 };
 
 class CIEInitialRandom : public CIntElement {
@@ -105,8 +105,8 @@ class CIEInitialRandom : public CIntElement {
 
 public:
   CIEInitialRandom(CIntElement* a, CIntElement* b);
-  ~CIEInitialRandom();
-  bool GetValue(int frame, int& valOut) const;
+  ~CIEInitialRandom() override;
+  bool GetValue(int frame, int& valOut) const override;
 };
 
 class CIETimeChain : public CIntElement {
@@ -116,8 +116,8 @@ class CIETimeChain : public CIntElement {
 
 public:
   CIETimeChain(CIntElement* a, CIntElement* b, CIntElement* c);
-  ~CIETimeChain();
-  bool GetValue(int frame, int& valOut) const;
+  ~CIETimeChain() override;
+  bool GetValue(int frame, int& valOut) const override;
 };
 
 class CIEClamp : public CIntElement {
@@ -127,8 +127,8 @@ class CIEClamp : public CIntElement {
 
 public:
   CIEClamp(CIntElement* a, CIntElement* b, CIntElement* c);
-  ~CIEClamp();
-  bool GetValue(int frame, int& valOut) const;
+  ~CIEClamp() override;
+  bool GetValue(int frame, int& valOut) const override;
 };
 
 class CIEPulse : public CIntElement {
@@ -139,8 +139,8 @@ class CIEPulse : public CIntElement {
 
 public:
   CIEPulse(CIntElement* a, CIntElement* b, CIntElement* c, CIntElement* d);
-  ~CIEPulse();
-  bool GetValue(int frame, int& valOut) const;
+  ~CIEPulse() override;
+  bool GetValue(int frame, int& valOut) const override;
 };
 
 class CIELifetimePercent : public CIntElement {
@@ -148,8 +148,8 @@ class CIELifetimePercent : public CIntElement {
 
 public:
   CIELifetimePercent(CIntElement* a);
-  ~CIELifetimePercent();
-  bool GetValue(int frame, int& valOut) const;
+  ~CIELifetimePercent() override;
+  bool GetValue(int frame, int& valOut) const override;
 };
 
 class CIEKeyframeEmitter : public CIntElement {
@@ -163,8 +163,8 @@ class CIEKeyframeEmitter : public CIntElement {
 
 public:
   CIEKeyframeEmitter(CInputStream& in);
-  ~CIEKeyframeEmitter();
-  bool GetValue(int frame, int& valOut) const;
+  ~CIEKeyframeEmitter() override;
+  bool GetValue(int frame, int& valOut) const override;
 };
 
 class CIESubtract : public CIntElement {
@@ -173,8 +173,8 @@ class CIESubtract : public CIntElement {
 
 public:
   CIESubtract(CIntElement* a, CIntElement* b);
-  ~CIESubtract();
-  bool GetValue(int frame, int& valOut) const;
+  ~CIESubtract() override;
+  bool GetValue(int frame, int& valOut) const override;
 };
 
 class CIERealToInt : public CIntElement {
@@ -183,26 +183,26 @@ class CIERealToInt : public CIntElement {
 
 public:
   CIERealToInt(CRealElement* a, CRealElement* b);
-  ~CIERealToInt();
-  bool GetValue(int frame, int& valOut) const;
+  ~CIERealToInt() override;
+  bool GetValue(int frame, int& valOut) const override;
 };
 
 class CIEGetCumulativeParticleCount : public CIntElement {
 public:
-  ~CIEGetCumulativeParticleCount() {}
-  bool GetValue(int frame, int& valOut) const;
+  ~CIEGetCumulativeParticleCount() override {}
+  bool GetValue(int frame, int& valOut) const override;
 };
 
 class CIEGetActiveParticleCount : public CIntElement {
 public:
-  ~CIEGetActiveParticleCount() {}
-  bool GetValue(int frame, int& valOut) const;
+  ~CIEGetActiveParticleCount() override {}
+  bool GetValue(int frame, int& valOut) const override;
 };
 
 class CIEGetEmitterTime : public CIntElement {
 public:
-  ~CIEGetEmitterTime();
-  bool GetValue(int frame, int& valOut) const;
+  ~CIEGetEmitterTime() override;
+  bool GetValue(int frame, int& valOut) const override;
 };
 
 #endif // _CINTELEMENT

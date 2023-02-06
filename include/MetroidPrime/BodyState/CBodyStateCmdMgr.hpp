@@ -156,7 +156,7 @@ public:
   CBCSlideCmd(pas::ESlideType type, const CVector3f& dir)
   : CBodyStateCmd(kBSC_Slide), x8_type(type), xc_dir(dir) {}
 
-  ~CBCSlideCmd() {}
+  ~CBCSlideCmd() override {}
 
   pas::ESlideType GetSlideType() const { return x8_type; }
   const CVector3f& GetSlideDirection() const { return xc_dir; }

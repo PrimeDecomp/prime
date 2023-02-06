@@ -12,8 +12,8 @@ class CConsoleOutputWindow : public CIOWin {
 public:
   CConsoleOutputWindow(int, float, float);
 
-  ~CConsoleOutputWindow();
-  EMessageReturn OnMessage(const CArchitectureMessage&, CArchitectureQueue&);
+  ~CConsoleOutputWindow() override;
+  EMessageReturn OnMessage(const CArchitectureMessage&, CArchitectureQueue&) override;
   void Update(float);
   void Draw() const;
 private:

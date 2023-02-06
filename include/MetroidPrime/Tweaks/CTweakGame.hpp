@@ -14,7 +14,7 @@ class CTweakGame;
 class CTweakGame : public ITweakObject, public TOneStatic< CTweakGame > {
 public:
   CTweakGame(CInputStream&);
-  ~CTweakGame();
+  ~CTweakGame() override;
 
   const rstl::string& GetWorldPrefix() { return x4_worldPrefix; }
   const rstl::string& GetDefaultRoom() const { return x14_defaultRoom; }

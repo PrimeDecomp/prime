@@ -21,13 +21,13 @@ public:
                   EProjectileAttrib attribs, bool growingBeam);
 
   // CEntity
-  ~CBeamProjectile();
-  void Accept(IVisitor& visitor);
+  ~CBeamProjectile() override;
+  void Accept(IVisitor& visitor) override;
 
   // CActor
-  rstl::optional_object<CAABox> GetTouchBounds() const;
-  void Touch(CActor&, CStateManager&);
-  void CalculateRenderBounds();
+  rstl::optional_object<CAABox> GetTouchBounds() const override;
+  void Touch(CActor&, CStateManager&) override;
+  void CalculateRenderBounds() override;
 
   // CBeamProjectile
   virtual void UpdateFx(const CTransform4f&, float, CStateManager&);

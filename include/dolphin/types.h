@@ -68,6 +68,13 @@ typedef int BOOL;
 #ifndef nullptr
 #define nullptr NULL
 #endif
+
+#if defined(__MWERKS__)
+#ifndef override
+#define override
+#endif
+#endif
+
 #endif
 
 #ifndef ATTRIBUTE_ALIGN

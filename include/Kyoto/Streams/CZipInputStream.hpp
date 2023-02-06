@@ -13,8 +13,8 @@
 class CZipInputStream : public CInputStream {
 public:
   CZipInputStream(rstl::auto_ptr< CInputStream > in);
-  ~CZipInputStream();
-  size_t Read(void* dest, size_t len);
+  ~CZipInputStream() override;
+  size_t Read(void* dest, size_t len) override;
 
 private:
   rstl::single_ptr<uchar> mCompBuf;

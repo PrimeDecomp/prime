@@ -19,9 +19,9 @@ public:
                     const rstl::reserved_vector< int, int(CPlayerState::kIT_Max) >& itemCounts,
                     bool, bool, bool);
 
-  ~CScriptSpawnPoint();
-  void Accept(IVisitor&);
-  void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&);
+  ~CScriptSpawnPoint() override;
+  void Accept(IVisitor&) override;
+  void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&) override;
 
   const CTransform4f& GetTransform() const;
   int GetPowerup(const CPlayerState::EItemType&) const;

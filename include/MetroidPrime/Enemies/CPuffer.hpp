@@ -17,13 +17,13 @@ public:
           const CDamageInfo& cloudDamage, CAssetId cloudSteam, float f2, bool b1, bool b2, bool b3,
           const CDamageInfo& explosionDamage, ushort sfxId);
 
-  ~CPuffer();
-  void Accept(IVisitor&);
-  void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&);
-  void Think(float, CStateManager&);
-  rstl::optional_object< CAABox > GetTouchBounds() const;
-  void Touch(CActor&, CStateManager&);
-  void Death(CStateManager&, const CVector3f&, EScriptObjectState);
+  ~CPuffer() override;
+  void Accept(IVisitor&) override;
+  void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&) override;
+  void Think(float, CStateManager&) override;
+  rstl::optional_object< CAABox > GetTouchBounds() const override;
+  void Touch(CActor&, CStateManager&) override;
+  void Death(CStateManager&, const CVector3f&, EScriptObjectState) override;
 
 private:
   CVector3f x568_face;
