@@ -177,8 +177,7 @@ void CGX::SetBlendMode(GXBlendMode mode, GXBlendFactor srcFac, GXBlendFactor dst
   }
 }
 
-// TODO: GXBool doesn't work, why?
-void CGX::SetZMode(uint compareEnable, GXCompare func, uint updateEnable) {
+void CGX::SetZMode(const GXBool compareEnable, GXCompare func, const GXBool updateEnable) {
   uchar flags = MaskAndShiftLeft(compareEnable, 0xFF, 0) | MaskAndShiftLeft(updateEnable, 0xFF, 1) |
                 MaskAndShiftLeft(func, 0xFF, 2);
   if (flags != sGXState.x52_zmode) {

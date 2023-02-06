@@ -3107,7 +3107,7 @@ SetDepthWriteMode__9CGraphicsFb8ERglEnumb:
 /* 8030BAA0 00308A00  54 A5 06 3E */	clrlwi r5, r5, 0x18
 /* 8030BAA4 00308A04  90 01 00 14 */	stw r0, 0x14(r1)
 /* 8030BAA8 00308A08  90 8D 9C 70 */	stw r4, mDepthFunc__9CGraphics@sda21(r13)
-/* 8030BAAC 00308A0C  4B FF CD D1 */	bl SetZMode__3CGXFUi10_GXCompareUi
+/* 8030BAAC 00308A0C  4B FF CD D1 */	bl SetZMode__3CGXFUc10_GXCompareUc
 /* 8030BAB0 00308A10  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8030BAB4 00308A14  7C 08 03 A6 */	mtlr r0
 /* 8030BAB8 00308A18  38 21 00 10 */	addi r1, r1, 0x10
@@ -3124,7 +3124,7 @@ EndScene__9CGraphicsFv:
 /* 8030BAD8 00308A38  93 E1 00 9C */	stw r31, 0x9c(r1)
 /* 8030BADC 00308A3C  93 C1 00 98 */	stw r30, 0x98(r1)
 /* 8030BAE0 00308A40  93 A1 00 94 */	stw r29, 0x94(r1)
-/* 8030BAE4 00308A44  4B FF CD 99 */	bl SetZMode__3CGXFUi10_GXCompareUi
+/* 8030BAE4 00308A44  4B FF CD 99 */	bl SetZMode__3CGXFUc10_GXCompareUc
 /* 8030BAE8 00308A48  3B AD A8 0C */	addi r29, r13, mNumBreakpointsWaiting__9CGraphics@sda21
 /* 8030BAEC 00308A4C  48 00 00 08 */	b lbl_8030BAF4
 lbl_8030BAF0:
