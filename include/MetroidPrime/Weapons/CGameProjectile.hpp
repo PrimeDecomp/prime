@@ -26,14 +26,14 @@ public:
                   ushort visorSfx, bool sendCollideMsg);
 
   // CEntity
-  ~CGameProjectile() override;
-  void Accept(IVisitor& visitor) override;
-  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) override;
+  ~CGameProjectile();
+  void Accept(IVisitor& visitor);
+  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr);
 
   // CActor
-  void Render(const CStateManager&) const override;
-  rstl::optional_object< CAABox > GetTouchBounds() const override;
-  void FluidFXThink(EFluidState, CScriptWater&, CStateManager&) override;
+  void Render(const CStateManager&) const;
+  rstl::optional_object< CAABox > GetTouchBounds() const;
+  void FluidFXThink(EFluidState, CScriptWater&, CStateManager&);
 
   // CGameProjectile
   virtual void ResolveCollisionWithActor(const CRayCastResult& res, CActor& act,

@@ -13,7 +13,7 @@ __vt__21CScriptTargetingPoint:
 	.4byte PreThink__7CEntityFfR13CStateManager
 	.4byte Think__21CScriptTargetingPointFfR13CStateManager
 	.4byte AcceptScriptMsg__21CScriptTargetingPointF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__6CActorFUc
+	.4byte SetActive__6CActorFb
 	.4byte PreRender__6CActorFR13CStateManagerRC14CFrustumPlanes
 	.4byte AddToRenderer__21CScriptTargetingPointCFRC14CFrustumPlanesRC13CStateManager
 	.4byte Render__21CScriptTargetingPointCFRC13CStateManager

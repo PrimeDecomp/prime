@@ -17,7 +17,7 @@ __vt__7CEntity:
 	.4byte PreThink__7CEntityFfR13CStateManager
 	.4byte Think__7CEntityFfR13CStateManager
 	.4byte AcceptScriptMsg__7CEntityF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__7CEntityFUc
+	.4byte SetActive__7CEntityFb
 
 .section .bss
 .balign 8
@@ -41,8 +41,8 @@ lbl_8005109C:
 /* 800510A0 0004E000  90 03 00 00 */	stw r0, 0(r3)
 /* 800510A4 0004E004  4E 80 00 20 */	blr
 
-.global SetActive__7CEntityFUc
-SetActive__7CEntityFUc:
+.global SetActive__7CEntityFb
+SetActive__7CEntityFb:
 /* 800510A8 0004E008  88 03 00 30 */	lbz r0, 0x30(r3)
 /* 800510AC 0004E00C  50 80 3E 30 */	rlwimi r0, r4, 7, 0x18, 0x18
 /* 800510B0 0004E010  98 03 00 30 */	stb r0, 0x30(r3)

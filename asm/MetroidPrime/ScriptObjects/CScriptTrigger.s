@@ -13,7 +13,7 @@ __vt__14CScriptTrigger:
 	.4byte PreThink__7CEntityFfR13CStateManager
 	.4byte Think__14CScriptTriggerFfR13CStateManager
 	.4byte AcceptScriptMsg__14CScriptTriggerF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__6CActorFUc
+	.4byte SetActive__6CActorFb
 	.4byte PreRender__6CActorFR13CStateManagerRC14CFrustumPlanes
 	.4byte AddToRenderer__6CActorCFRC14CFrustumPlanesRC13CStateManager
 	.4byte Render__6CActorCFRC13CStateManager

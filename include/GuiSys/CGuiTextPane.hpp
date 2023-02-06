@@ -19,12 +19,12 @@ public:
 
   CGuiTextSupport& TextSupport() { return xd4_textSupport; }
   const CGuiTextSupport& GetTextSupport() const { return xd4_textSupport; }
-  void Update(float dt) override;
-  bool GetIsFinishedLoadingWidgetSpecific() const override;
-  void SetDimensions(const CVector2f& dim, bool initVBO) override;
-  void ScaleDimensions(const CVector3f& scale) override;
-  void Draw(const CGuiWidgetDrawParms& parms) const override;
-  // bool TestCursorHit(const CMatrix4f& vp, const CVector2f& point) const override;
+  void Update(float dt);
+  bool GetIsFinishedLoadingWidgetSpecific() const;
+  void SetDimensions(const CVector2f& dim, bool initVBO);
+  void ScaleDimensions(const CVector3f& scale);
+  void Draw(const CGuiWidgetDrawParms& parms) const;
+  // bool TestCursorHit(const CMatrix4f& vp, const CVector2f& point) const;
 
 private:
   CGuiTextSupport xd4_textSupport;

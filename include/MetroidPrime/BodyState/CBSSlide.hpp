@@ -10,11 +10,11 @@ public:
   CBSSlide();
   ~CBSSlide();
   
-  bool ApplyHeadTracking() const override;
-  bool IsMoving() const override;
-  void Start(CBodyController& bc, CStateManager& mgr) override;
-  pas::EAnimationState UpdateBody(float dt, CBodyController& bc, CStateManager& mgr) override;
-  void Shutdown(CBodyController&) override;
+  bool ApplyHeadTracking() const;
+  bool IsMoving() const;
+  void Start(CBodyController& bc, CStateManager& mgr);
+  pas::EAnimationState UpdateBody(float dt, CBodyController& bc, CStateManager& mgr);
+  void Shutdown(CBodyController&);
 
 private:
   float x4_rotateSpeed;

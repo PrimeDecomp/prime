@@ -26,12 +26,12 @@ public:
   CCollidableOBBTreeGroup(CCollidableOBBTreeGroupContainer* container,
                           const CMaterialList& matList);
 
-  uint GetTableIndex() const override;
-  CAABox CalculateAABox(const CTransform4f&) const override;
-  CAABox CalculateLocalAABox() const override;
-  FourCC GetPrimType() const override;
-  ~CCollidableOBBTreeGroup() override {}
-  CRayCastResult CastRayInternal(const CInternalRayCastStructure&) const override;
+  uint GetTableIndex() const;
+  CAABox CalculateAABox(const CTransform4f&) const;
+  CAABox CalculateLocalAABox() const;
+  FourCC GetPrimType() const;
+  ~CCollidableOBBTreeGroup() {}
+  CRayCastResult CastRayInternal(const CInternalRayCastStructure&) const;
 
 private:
   CCollidableOBBTreeGroupContainer* x10_container;

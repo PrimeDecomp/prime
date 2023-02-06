@@ -254,7 +254,7 @@ lbl_803EAD54:
 	.4byte PreThink__16CMetroidPrimeExoFfR13CStateManager
 	.4byte Think__16CMetroidPrimeExoFfR13CStateManager
 	.4byte AcceptScriptMsg__16CMetroidPrimeExoF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__6CActorFUc
+	.4byte SetActive__6CActorFb
 	.4byte PreRender__16CMetroidPrimeExoFR13CStateManagerRC14CFrustumPlanes
 	.4byte AddToRenderer__16CMetroidPrimeExoCFRC14CFrustumPlanesRC13CStateManager
 	.4byte Render__16CMetroidPrimeExoCFRC13CStateManager
@@ -496,7 +496,7 @@ lbl_803EB0FC:
 	.4byte PreThink__7CEntityFfR13CStateManager
 	.4byte Think__7CEntityFfR13CStateManager
 	.4byte AcceptScriptMsg__6CActorF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__6CActorFUc
+	.4byte SetActive__6CActorFb
 	.4byte PreRender__6CActorFR13CStateManagerRC14CFrustumPlanes
 	.4byte AddToRenderer__6CActorCFRC14CFrustumPlanesRC13CStateManager
 	.4byte Render__13CPhysicsActorCFRC13CStateManager

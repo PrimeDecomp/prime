@@ -42,12 +42,12 @@ public:
       bool sendCollideMsg);
 
   // CEntity
-  ~CMetroidPrimeProjectile() override;
-  void Accept(IVisitor& visitor) override;
+  ~CMetroidPrimeProjectile();
+  void Accept(IVisitor& visitor);
 
   // CEnergyProjectile
   bool Explode(const CVector3f& pos, const CVector3f& normal, EWeaponCollisionResponseTypes type,
-               CStateManager& mgr, const CDamageVulnerability& dVuln, TUniqueId hitActor) override;
+               CStateManager& mgr, const CDamageVulnerability& dVuln, TUniqueId hitActor);
 };
 
 #endif // _CMETROIDPRIMEPROJECTILE

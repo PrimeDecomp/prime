@@ -14,7 +14,7 @@ class CTweakBall;
 
 class CTweakBall : public ITweakObject, public TOneStatic< CTweakBall > {
 public:
-  ~CTweakBall() override;
+  ~CTweakBall();
   CTweakBall(CInputStream&);
 
   float GetMaxBallTranslationAcceleration(int s) const { return x4_maxTranslationAcceleration[s]; }

@@ -26,8 +26,8 @@ public:
                  CScriptHUDMemo::EDisplayType, CAssetId, bool);
   ~CScriptHUDMemo();
 
-  void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&) override;
-  void Accept(IVisitor& visitor) override;
+  void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&);
+  void Accept(IVisitor& visitor);
 };
 CHECK_SIZEOF(CScriptHUDMemo, 0x54)
 

@@ -33,9 +33,9 @@ void CScriptSpawnPoint::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objI
   switch (msg) {
   case kSM_Reset:
     for (int i = 0; i < CPlayerState::kIT_Max; ++i) {
-      CPlayerState::EItemType e = CPlayerState::EItemType(i);
-      stateMgr.PlayerState()->ReInitializePowerUp(CPlayerState::EItemType(i), GetPowerup(e));
-      stateMgr.PlayerState()->ResetAndIncrPickUp(CPlayerState::EItemType(i), GetPowerup(e));
+      const CPlayerState::EItemType e = CPlayerState::EItemType(i);
+      stateMgr.PlayerState()->ReInitializePowerUp(e, GetPowerup(e));
+      stateMgr.PlayerState()->ResetAndIncrPickUp(e, GetPowerup(e));
     }
 
   case kSM_SetToZero:

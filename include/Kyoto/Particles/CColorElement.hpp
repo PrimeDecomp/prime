@@ -14,8 +14,8 @@ class CCEConstant : public CColorElement {
 
 public:
   CCEConstant(CRealElement* r, CRealElement* g, CRealElement* b, CRealElement* a);
-  ~CCEConstant() override;
-  bool GetValue(int frame, CColor& colorOut) const override;
+  ~CCEConstant();
+  bool GetValue(int frame, CColor& colorOut) const;
 };
 
 class CCEFastConstant : public CColorElement {
@@ -23,8 +23,8 @@ class CCEFastConstant : public CColorElement {
 
 public:
   CCEFastConstant(float r, float g, float b, float a);
-  ~CCEFastConstant() override;
-  bool GetValue(int frame, CColor& colorOut) const override;
+  ~CCEFastConstant();
+  bool GetValue(int frame, CColor& colorOut) const;
 };
 
 class CCEFade : public CColorElement {
@@ -34,8 +34,8 @@ class CCEFade : public CColorElement {
 
 public:
   CCEFade(CColorElement* a, CColorElement* b, CRealElement* end);
-  ~CCEFade() override;
-  bool GetValue(int frame, CColor& colorOut) const override;
+  ~CCEFade();
+  bool GetValue(int frame, CColor& colorOut) const;
 };
 
 class CCEFadeEnd : public CColorElement {
@@ -46,8 +46,8 @@ class CCEFadeEnd : public CColorElement {
 
 public:
   CCEFadeEnd(CColorElement* a, CColorElement* b, CRealElement* start, CRealElement* end);
-  ~CCEFadeEnd() override;
-  bool GetValue(int frame, CColor& colorOut) const override;
+  ~CCEFadeEnd();
+  bool GetValue(int frame, CColor& colorOut) const;
 };
 
 class CCETimeChain : public CColorElement {
@@ -57,8 +57,8 @@ class CCETimeChain : public CColorElement {
 
 public:
   CCETimeChain(CColorElement* a, CColorElement* b, CIntElement* c);
-  ~CCETimeChain() override;
-  bool GetValue(int frame, CColor& colorOut) const override;
+  ~CCETimeChain();
+  bool GetValue(int frame, CColor& colorOut) const;
 };
 
 class CCEPulse : public CColorElement {
@@ -69,8 +69,8 @@ class CCEPulse : public CColorElement {
 
 public:
   CCEPulse(CIntElement* a, CIntElement* b, CColorElement* c, CColorElement* d);
-  ~CCEPulse() override;
-  bool GetValue(int frame, CColor& colorOut) const override;
+  ~CCEPulse();
+  bool GetValue(int frame, CColor& colorOut) const;
 };
 
 class CCEKeyframeEmitter : public CColorElement {
@@ -84,14 +84,14 @@ class CCEKeyframeEmitter : public CColorElement {
 
 public:
   CCEKeyframeEmitter(CInputStream& in);
-  ~CCEKeyframeEmitter() override;
-  bool GetValue(int frame, CColor& valOut) const override;
+  ~CCEKeyframeEmitter();
+  bool GetValue(int frame, CColor& valOut) const;
 };
 
 class CCEParticleColor : public CColorElement {
 public:
-  ~CCEParticleColor() override {}
-  bool GetValue(int frame, CColor& colorOut) const override;
+  ~CCEParticleColor() {}
+  bool GetValue(int frame, CColor& colorOut) const;
 };
 
 #endif // _CCOLORELEMENT

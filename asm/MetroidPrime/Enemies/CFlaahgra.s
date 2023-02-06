@@ -21,7 +21,7 @@ lbl_803E4D08:
 	.4byte PreThink__7CEntityFfR13CStateManager
 	.4byte Think__7CEntityFfR13CStateManager
 	.4byte AcceptScriptMsg__6CActorF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__6CActorFUc
+	.4byte SetActive__6CActorFb
 	.4byte PreRender__6CActorFR13CStateManagerRC14CFrustumPlanes
 	.4byte AddToRenderer__17CFlaahgraRendererCFRC14CFrustumPlanesRC13CStateManager
 	.4byte Render__6CActorCFRC13CStateManager
@@ -129,7 +129,7 @@ lbl_803E4E88:
 	.4byte PreThink__9CFlaahgraFfR13CStateManager
 	.4byte Think__9CFlaahgraFfR13CStateManager
 	.4byte AcceptScriptMsg__9CFlaahgraF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__6CActorFUc
+	.4byte SetActive__6CActorFb
 	.4byte PreRender__10CPatternedFR13CStateManagerRC14CFrustumPlanes
 	.4byte AddToRenderer__9CFlaahgraCFRC14CFrustumPlanesRC13CStateManager
 	.4byte Render__10CPatternedCFRC13CStateManager
@@ -312,7 +312,7 @@ lbl_803E5154:
 	.4byte PreThink__7CEntityFfR13CStateManager
 	.4byte Think__17CEnergyProjectileFfR13CStateManager
 	.4byte AcceptScriptMsg__19CFlaahgraProjectileF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__6CActorFUc
+	.4byte SetActive__6CActorFb
 	.4byte PreRender__6CActorFR13CStateManagerRC14CFrustumPlanes
 	.4byte AddToRenderer__17CEnergyProjectileCFRC14CFrustumPlanesRC13CStateManager
 	.4byte Render__17CEnergyProjectileCFRC13CStateManager

@@ -9,8 +9,8 @@ class CScriptDockAreaChange : public CEntity {
 public:
   CScriptDockAreaChange(TUniqueId, const rstl::string&, const CEntityInfo&, int, bool);
 
-  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objId, CStateManager& stateMgr) override;
-  void Accept(IVisitor& visitor) override;
+  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objId, CStateManager& stateMgr);
+  void Accept(IVisitor& visitor);
 
   ~CScriptDockAreaChange();
 };

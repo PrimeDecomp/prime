@@ -15,12 +15,12 @@ public:
                     const rstl::vector<CVisorFlare::CFlareDef>& flares);
   ~CScriptVisorFlare();
 
-  void Accept(IVisitor& visitor) override;
-  void Think(float, CStateManager& stateMgr) override;
-  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objId, CStateManager& stateMgr) override;
-  void PreRender(CStateManager&, const CFrustumPlanes&) override;
-  void AddToRenderer(const CFrustumPlanes&, const CStateManager&) const override;
-  void Render(const CStateManager&) const override;
+  void Accept(IVisitor& visitor);
+  void Think(float, CStateManager& stateMgr);
+  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objId, CStateManager& stateMgr);
+  void PreRender(CStateManager&, const CFrustumPlanes&);
+  void AddToRenderer(const CFrustumPlanes&, const CStateManager&) const;
+  void Render(const CStateManager&) const;
 };
 
 #endif // _CSCRIPTVISORFLARE

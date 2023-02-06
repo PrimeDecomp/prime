@@ -130,7 +130,7 @@ lbl_803E9258:
 	.4byte PreThink__10CPatternedFfR13CStateManager
 	.4byte Think__7CRidleyR13CStateManager
 	.4byte AcceptScriptMsg__7CRidleyF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__6CActorFUc
+	.4byte SetActive__6CActorFb
 	.4byte PreRender__7CRidleyFR13CStateManagerRC14CFrustumPlanes
 	.4byte AddToRenderer__7CRidleyCFRC14CFrustumPlanesRC13CStateManager
 	.4byte Render__7CRidleyCFRC13CStateManager

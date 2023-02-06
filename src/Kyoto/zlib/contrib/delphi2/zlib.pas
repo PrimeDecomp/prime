@@ -87,10 +87,10 @@ type
     function GetCompressionRate: Single;
   public
     constructor Create(CompressionLevel: TCompressionLevel; Dest: TStream);
-    destructor Destroy; override;
-    function Read(var Buffer; Count: Longint): Longint; override;
-    function Write(const Buffer; Count: Longint): Longint; override;
-    function Seek(Offset: Longint; Origin: Word): Longint; override;
+    destructor Destroy;;
+    function Read(var Buffer; Count: Longint): Longint;;
+    function Write(const Buffer; Count: Longint): Longint;;
+    function Seek(Offset: Longint; Origin: Word): Longint;;
     property CompressionRate: Single read GetCompressionRate;
     property OnProgress;
   end;
@@ -116,10 +116,10 @@ type
   TDecompressionStream = class(TCustomZlibStream)
   public
     constructor Create(Source: TStream);
-    destructor Destroy; override;
-    function Read(var Buffer; Count: Longint): Longint; override;
-    function Write(const Buffer; Count: Longint): Longint; override;
-    function Seek(Offset: Longint; Origin: Word): Longint; override;
+    destructor Destroy;;
+    function Read(var Buffer; Count: Longint): Longint;;
+    function Write(const Buffer; Count: Longint): Longint;;
+    function Seek(Offset: Longint; Origin: Word): Longint;;
     property OnProgress;
   end;
 

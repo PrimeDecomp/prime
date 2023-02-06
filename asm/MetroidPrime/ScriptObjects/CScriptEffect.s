@@ -195,7 +195,7 @@ SetActive__13CScriptEffectFb:
 /* 8008DB78 0008AAD8  90 01 00 14 */	stw r0, 0x14(r1)
 /* 8008DB7C 0008AADC  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 8008DB80 0008AAE0  7C 7F 1B 78 */	mr r31, r3
-/* 8008DB84 0008AAE4  4B FC 5C C9 */	bl SetActive__6CActorFUc
+/* 8008DB84 0008AAE4  4B FC 5C C9 */	bl SetActive__6CActorFb
 /* 8008DB88 0008AAE8  88 1F 00 E7 */	lbz r0, 0xe7(r31)
 /* 8008DB8C 0008AAEC  38 60 00 01 */	li r3, 1
 /* 8008DB90 0008AAF0  50 60 17 7A */	rlwimi r0, r3, 2, 0x1d, 0x1d

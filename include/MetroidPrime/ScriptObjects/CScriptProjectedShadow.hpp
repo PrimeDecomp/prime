@@ -12,11 +12,11 @@ public:
   CScriptShadowProjector(TUniqueId, const rstl::string&, const CEntityInfo&, const CTransform4f&,
                          bool, const CVector3f&, bool, float, float, float, float, int);
 
-  void Accept(IVisitor& visitor) override;
-  void Think(float, CStateManager&) override;
-  void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&) override;
-  void PreRender(CStateManager&, const CFrustumPlanes&) override;
-  void AddToRenderer(const CFrustumPlanes&, const CStateManager&) const override;
+  void Accept(IVisitor& visitor);
+  void Think(float, CStateManager&);
+  void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&);
+  void PreRender(CStateManager&, const CFrustumPlanes&);
+  void AddToRenderer(const CFrustumPlanes&, const CStateManager&) const;
   void CreateProjectedShadow();
 
   uchar GetPersistent() const { return x110_24_persistent; }

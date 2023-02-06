@@ -13,7 +13,7 @@ __vt__19CHUDBillboardEffect:
 	.4byte PreThink__7CEntityFfR13CStateManager
 	.4byte Think__19CHUDBillboardEffectFfR13CStateManager
 	.4byte AcceptScriptMsg__6CActorF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__6CActorFUc
+	.4byte SetActive__6CActorFb
 	.4byte PreRender__19CHUDBillboardEffectFR13CStateManagerRC14CFrustumPlanes
 	.4byte AddToRenderer__19CHUDBillboardEffectCFRC14CFrustumPlanesRC13CStateManager
 	.4byte Render__19CHUDBillboardEffectCFRC13CStateManager

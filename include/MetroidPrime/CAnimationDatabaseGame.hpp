@@ -34,12 +34,12 @@ class CAnimationDatabaseGame : public CAnimationDatabase {
 public:
   explicit CAnimationDatabaseGame(const rstl::vector< CAnimation >& anims);
 
-  const rstl::rc_ptr< IMetaAnim >& GetMetaAnim(uint idx) const override;
-  uint GetNumMetaAnims() const override;
-  rstl::string GetMetaAnimName(uint idx) const override;
-  void GetAllUniquePrimitives(rstl::vector< CPrimitive >& primsOut) const override;
+  const rstl::rc_ptr< IMetaAnim >& GetMetaAnim(uint idx) const;
+  uint GetNumMetaAnims() const;
+  rstl::string GetMetaAnimName(uint idx) const;
+  void GetAllUniquePrimitives(rstl::vector< CPrimitive >& primsOut) const;
   void GetUniquePrimitivesFromMetaAnim(rstl::set< CPrimitive >& primsOut,
-                                       const rstl::string& name) const override;
+                                       const rstl::string& name) const;
 
 private:
   rstl::vector< rstl::rc_ptr< IMetaAnim > > x10_anims;

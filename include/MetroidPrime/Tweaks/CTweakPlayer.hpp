@@ -15,7 +15,7 @@ class CTweakPlayer;
 class CTweakPlayer : public ITweakObject, public TOneStatic< CTweakPlayer > {
 public:
   CTweakPlayer(CInputStream&);
-  ~CTweakPlayer() override;
+  ~CTweakPlayer();
 
   // TODO CPlayer::ESurfaceRestraints
   float GetMaxTranslationalAcceleration(int s) const { return x4_maxTranslationalAcceleration[s]; }

@@ -8,9 +8,9 @@ public:
   CBSGenerate();
   ~CBSGenerate();
 
-  void Start(CBodyController& bc, CStateManager& mgr) override;
-  pas::EAnimationState UpdateBody(float dt, CBodyController& bc, CStateManager& mgr) override;
-  void Shutdown(CBodyController&) override;
+  void Start(CBodyController& bc, CStateManager& mgr);
+  pas::EAnimationState UpdateBody(float dt, CBodyController& bc, CStateManager& mgr);
+  void Shutdown(CBodyController&);
 
 private:
   pas::EAnimationState GetBodyStateTransition(float dt, CBodyController& bc);

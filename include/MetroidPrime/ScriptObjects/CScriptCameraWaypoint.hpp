@@ -12,10 +12,10 @@ public:
                         const CTransform4f& xf, bool active, float hfov, uint);
   ~CScriptCameraWaypoint();
 
-  void Accept(IVisitor& visitor) override;
-  void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&) override;
-  void AddToRenderer(const CFrustumPlanes&, const CStateManager&) const override;
-  void Render(const CStateManager&) const override;
+  void Accept(IVisitor& visitor);
+  void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&);
+  void AddToRenderer(const CFrustumPlanes&, const CStateManager&) const;
+  void Render(const CStateManager&) const;
 
   TUniqueId GetRandomNextWaypointId(const CStateManager& mgr) const;
   float GetHFov() const { return xe8_hfov; }

@@ -17,7 +17,7 @@ lbl_803E1C88:
 	.4byte PreThink__10CPatternedFfR13CStateManager
 	.4byte Think__9CFireFleaFfR13CStateManager
 	.4byte AcceptScriptMsg__9CFireFleaF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__6CActorFUc
+	.4byte SetActive__6CActorFb
 	.4byte PreRender__10CPatternedFR13CStateManagerRC14CFrustumPlanes
 	.4byte AddToRenderer__10CPatternedCFRC14CFrustumPlanesRC13CStateManager
 	.4byte Render__10CPatternedCFRC13CStateManager
@@ -200,7 +200,7 @@ lbl_803E1F54:
 	.4byte PreThink__Q29CFireFlea18CDeathCameraEffectFfR13CStateManager
 	.4byte Think__Q29CFireFlea18CDeathCameraEffectFfR13CStateManager
 	.4byte AcceptScriptMsg__7CEntityF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__7CEntityFUc
+	.4byte SetActive__7CEntityFb
 	.4byte 0
 
 .section .sdata

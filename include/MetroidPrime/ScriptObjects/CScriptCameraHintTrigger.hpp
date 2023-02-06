@@ -19,10 +19,10 @@ public:
                            bool deactivateOnEnter, bool deactivateOnExit);
   ~CScriptCameraHintTrigger();
   
-  void Accept(IVisitor& visitor) override;
-  void Think(float dt, CStateManager& mgr) override;
-  void Touch(CActor& other, CStateManager& mgr) override;
-  rstl::optional_object< CAABox > GetTouchBounds() const override;
+  void Accept(IVisitor& visitor);
+  void Think(float dt, CStateManager& mgr);
+  void Touch(CActor& other, CStateManager& mgr);
+  rstl::optional_object< CAABox > GetTouchBounds() const;
 };
 
 #endif // _CSCRIPTCAMERAHINTTRIGGER

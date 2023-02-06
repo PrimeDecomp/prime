@@ -7,10 +7,10 @@ class CBSLoopAttack : public CBodyState {
 public:
   CBSLoopAttack();
 
-  bool CanShoot() const override { return true; }
-  void Start(CBodyController& bc, CStateManager& mgr) override;
-  pas::EAnimationState UpdateBody(float dt, CBodyController& bc, CStateManager& mgr) override;
-  void Shutdown(CBodyController&) override;
+  bool CanShoot() const { return true; }
+  void Start(CBodyController& bc, CStateManager& mgr);
+  pas::EAnimationState UpdateBody(float dt, CBodyController& bc, CStateManager& mgr);
+  void Shutdown(CBodyController&);
 
   pas::ELoopState GetState() const { return x4_state; }
   pas::ELoopAttackType GetAttackType() const { return x8_loopAttackType; }

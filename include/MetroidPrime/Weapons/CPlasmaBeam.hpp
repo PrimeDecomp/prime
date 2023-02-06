@@ -11,21 +11,21 @@ public:
   CPlasmaBeam(CAssetId characterId, EWeaponType type, TUniqueId playerId,
               EMaterialTypes playerMaterial, const CVector3f& scale);
   
-  ~CPlasmaBeam() override;
+  ~CPlasmaBeam();
 
   // CGunWeapon
-  void PostRenderGunFx(const CStateManager& mgr, const CTransform4f& xf) override;
+  void PostRenderGunFx(const CStateManager& mgr, const CTransform4f& xf);
   void UpdateGunFx(bool shotSmoke, float dt, const CStateManager& mgr,
-                   const CTransform4f& xf) override;
-  void Update(float dt, CStateManager& mgr) override;
+                   const CTransform4f& xf);
+  void Update(float dt, CStateManager& mgr);
   void Fire(bool underwater, float dt, CPlayerState::EChargeStage chargeState,
             const CTransform4f& xf, CStateManager& mgr, TUniqueId homingTarget, float chargeFactor1,
-            float chargeFactor2) override;
+            float chargeFactor2);
 
-  void Load(CStateManager& mgr, bool subtypeBasePose) override;
-  void Unload(CStateManager& mgr) override;
-  bool IsLoaded() const override;
-  void EnableSecondaryFx(ESecondaryFxType type) override;
+  void Load(CStateManager& mgr, bool subtypeBasePose);
+  void Unload(CStateManager& mgr);
+  bool IsLoaded() const;
+  void EnableSecondaryFx(ESecondaryFxType type);
 
   bool IsFiring(const CStateManager& mgr) const;
   void StopBeam(CStateManager& mgr, bool b1);

@@ -19,23 +19,23 @@ public:
                bool scaleAdvancementDelta, bool materialFlag54);
 
   // CEntity
-  ~CScriptActor() override;
-  void Accept(IVisitor& visitor) override;
-  void Think(float dt, CStateManager& mgr) override;
-  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) override;
+  ~CScriptActor();
+  void Accept(IVisitor& visitor);
+  void Think(float dt, CStateManager& mgr);
+  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr);
 
   // CActor
-  void PreRender(CStateManager&, const CFrustumPlanes&) override;
-  CHealthInfo* HealthInfo(CStateManager&) override;
-  const CDamageVulnerability* GetDamageVulnerability() const override;
-  rstl::optional_object< CAABox > GetTouchBounds() const override;
-  void Touch(CActor&, CStateManager&) override;
+  void PreRender(CStateManager&, const CFrustumPlanes&);
+  CHealthInfo* HealthInfo(CStateManager&);
+  const CDamageVulnerability* GetDamageVulnerability() const;
+  rstl::optional_object< CAABox > GetTouchBounds() const;
+  void Touch(CActor&, CStateManager&);
 
   // CPhysicsActor
   EWeaponCollisionResponseTypes GetCollisionResponseType(const CVector3f&, const CVector3f&,
                                                          const CWeaponMode&,
-                                                         int) const override;
-  CAABox GetSortingBounds(const CStateManager&) const override;
+                                                         int) const;
+  CAABox GetSortingBounds(const CStateManager&) const;
 
   bool IsPlayerActor() const { return x2e3_24_isPlayerActor; }
 

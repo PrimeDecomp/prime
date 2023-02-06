@@ -14,8 +14,8 @@ public:
 
   void SetLight(const CLight& light);
   CLight GetLight() const;
-  void Think(float dt, CStateManager& mgr) override;
-  void Accept(IVisitor& visitor) override;
+  void Think(float dt, CStateManager& mgr);
+  void Accept(IVisitor& visitor);
   void SetLightPriorityAndId();
 
 private:

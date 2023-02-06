@@ -13,8 +13,8 @@ public:
                       const CCameraShakeData& shakeData);
   ~CScriptCameraShaker();
 
-  void Accept(IVisitor& visitor) override;
-  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objId, CStateManager& stateMgr) override;
+  void Accept(IVisitor& visitor);
+  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objId, CStateManager& stateMgr);
 };
 
 #endif // _CSCRIPTCAMERASHAKER

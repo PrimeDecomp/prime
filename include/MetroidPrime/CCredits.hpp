@@ -19,11 +19,11 @@ class CVector3f;
 class CCredits : public CIOWin {
 public:
   CCredits();
-  ~CCredits() override;
+  ~CCredits();
 
-  EMessageReturn OnMessage(const CArchitectureMessage&, CArchitectureQueue&) override;
-  bool GetIsContinueDraw() const override;
-  void Draw() const override;
+  EMessageReturn OnMessage(const CArchitectureMessage&, CArchitectureQueue&);
+  bool GetIsContinueDraw() const;
+  void Draw() const;
 
   EMessageReturn Update(float, CArchitectureQueue& queue);
   EMessageReturn ProcessUserInput(const CFinalInput& input);

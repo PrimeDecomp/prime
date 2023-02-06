@@ -9,8 +9,8 @@ public:
                      int sendSetSize, int sendSetVariance, bool percentSize, bool active);
   ~CScriptRandomRelay();
 
-  void Accept(IVisitor& visitor) override;
-  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objId, CStateManager& stateMgr) override;
+  void Accept(IVisitor& visitor);
+  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objId, CStateManager& stateMgr);
   void SendLocalScriptMsgs(EScriptObjectState state, CStateManager& stateMgr);
 
 private:

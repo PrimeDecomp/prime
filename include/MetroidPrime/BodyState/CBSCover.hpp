@@ -6,12 +6,12 @@
 class CBSCover : public CBodyState {
 public:
   CBSCover();
-  bool IsMoving() const override { return true; }
-  bool ApplyHeadTracking() const override { return false; }
-  bool CanShoot() const override;
-  void Start(CBodyController& bc, CStateManager& mgr) override;
-  pas::EAnimationState UpdateBody(float dt, CBodyController& bc, CStateManager& mgr) override;
-  void Shutdown(CBodyController&) override;
+  bool IsMoving() const { return true; }
+  bool ApplyHeadTracking() const { return false; }
+  bool CanShoot() const;
+  void Start(CBodyController& bc, CStateManager& mgr);
+  pas::EAnimationState UpdateBody(float dt, CBodyController& bc, CStateManager& mgr);
+  void Shutdown(CBodyController&);
 
   pas::ECoverDirection GetCoverDirection() const { return x8_coverDirection; }
   bool GetNeedsExit() const { return xc_needsExit; }

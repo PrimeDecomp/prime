@@ -84,7 +84,7 @@ public:
   TCastToPtr(CEntity& p);
   operator T*() const { return ptr; }
 
-#define VISIT(cls) void Visit(cls& p) override;
+#define VISIT(cls) void Visit(cls& p);
   TCASTTO_VISITORS
 #undef VISIT
 

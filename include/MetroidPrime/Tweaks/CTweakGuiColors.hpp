@@ -13,7 +13,7 @@
 class CTweakGuiColors;
 class CTweakGuiColors : public ITweakObject, public TOneStatic< CTweakGuiColors > {
 public:
-  ~CTweakGuiColors() override;
+  ~CTweakGuiColors();
   CTweakGuiColors(CInputStream& in);
 
   const CColor& GetPauseBlurFilterColor() const { return x4_pauseBlurFilterColor; }

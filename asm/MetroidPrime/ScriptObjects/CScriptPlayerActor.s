@@ -351,7 +351,7 @@ SetActive__18CScriptPlayerActorFb:
 /* 801AA5F0 001A7550  90 01 00 14 */	stw r0, 0x14(r1)
 /* 801AA5F4 001A7554  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 801AA5F8 001A7558  7C 7F 1B 78 */	mr r31, r3
-/* 801AA5FC 001A755C  4B EA 92 51 */	bl SetActive__6CActorFUc
+/* 801AA5FC 001A755C  4B EA 92 51 */	bl SetActive__6CActorFb
 /* 801AA600 001A7560  88 1F 00 E7 */	lbz r0, 0xe7(r31)
 /* 801AA604 001A7564  38 60 00 01 */	li r3, 1
 /* 801AA608 001A7568  50 60 17 7A */	rlwimi r0, r3, 2, 0x1d, 0x1d

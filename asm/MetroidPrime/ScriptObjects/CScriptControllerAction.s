@@ -13,7 +13,7 @@ __vt__23CScriptControllerAction:
 	.4byte PreThink__7CEntityFfR13CStateManager
 	.4byte Think__23CScriptControllerActionFfR13CStateManager
 	.4byte AcceptScriptMsg__7CEntityF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__7CEntityFUc
+	.4byte SetActive__7CEntityFb
 
 .section .text, "ax"
 

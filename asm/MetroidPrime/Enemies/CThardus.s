@@ -19,7 +19,7 @@ lbl_803E5CE0:
 	.4byte PreThink__10CPatternedFfR13CStateManager
 	.4byte Think__8CThardusFfR13CStateManager
 	.4byte AcceptScriptMsg__8CThardusF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__6CActorFUc
+	.4byte SetActive__6CActorFb
 	.4byte PreRender__8CThardusFR13CStateManagerRC14CFrustumPlanes
 	.4byte AddToRenderer__10CPatternedCFRC14CFrustumPlanesRC13CStateManager
 	.4byte Render__8CThardusCFRC13CStateManager
@@ -260,7 +260,7 @@ lbl_803E6074:
 	.4byte PreThink__16CDestroyableRockFfR13CStateManager
 	.4byte Think__16CDestroyableRockFfR13CStateManager
 	.4byte AcceptScriptMsg__16CDestroyableRockF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__6CActorFUc
+	.4byte SetActive__6CActorFb
 	.4byte PreRender__16CDestroyableRockFR13CStateManagerRC14CFrustumPlanes
 	.4byte AddToRenderer__6CActorCFRC14CFrustumPlanesRC13CStateManager
 	.4byte Render__16CDestroyableRockCFRC13CStateManager

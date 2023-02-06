@@ -13,7 +13,7 @@ __vt__10CExplosion:
 	.4byte PreThink__7CEntityFfR13CStateManager
 	.4byte Think__10CExplosionFfR13CStateManager
 	.4byte AcceptScriptMsg__10CExplosionF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__6CActorFUc
+	.4byte SetActive__6CActorFb
 	.4byte PreRender__10CExplosionFR13CStateManagerRC14CFrustumPlanes
 	.4byte AddToRenderer__10CExplosionCFRC14CFrustumPlanesRC13CStateManager
 	.4byte Render__10CExplosionCFRC13CStateManager

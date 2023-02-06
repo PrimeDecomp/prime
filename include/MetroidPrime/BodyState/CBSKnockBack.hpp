@@ -8,10 +8,10 @@ public:
   CBSKnockBack();
   ~CBSKnockBack();
 
-  void Start(CBodyController& bc, CStateManager& mgr) override;
-  pas::EAnimationState UpdateBody(float dt, CBodyController& bc, CStateManager& mgr) override;
-  void Shutdown(CBodyController&) override;
-  bool IsMoving() const override;
+  void Start(CBodyController& bc, CStateManager& mgr);
+  pas::EAnimationState UpdateBody(float dt, CBodyController& bc, CStateManager& mgr);
+  void Shutdown(CBodyController&);
+  bool IsMoving() const;
 
 private:
   float x4_curTime;

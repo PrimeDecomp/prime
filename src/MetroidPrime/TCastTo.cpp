@@ -9,8 +9,8 @@
 #define STUB(cls, parent)                                                                          \
   class cls : public parent {                                                                      \
   public:                                                                                          \
-    ~cls() override;                                                                               \
-    void Accept(IVisitor& visitor) override;                                                       \
+    ~cls();                                                                               \
+    void Accept(IVisitor& visitor);                                                       \
   };
 STUB(CWeapon, CActor)
 STUB(CBomb, CWeapon)

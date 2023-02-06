@@ -11,11 +11,11 @@ public:
 
   void SetDockReference(CStateManager& mgr, int);
 
-  void Accept(IVisitor& visitor) override;
-  void Think(float, CStateManager&) override;
-  void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&) override;
-  rstl::optional_object< CAABox > GetTouchBounds() const override;
-  void Touch(CActor&, CStateManager&) override;
+  void Accept(IVisitor& visitor);
+  void Think(float, CStateManager&);
+  void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&);
+  rstl::optional_object< CAABox > GetTouchBounds() const;
+  void Touch(CActor&, CStateManager&);
   void CleanUp() {}
   CPlane GetPlane(const CStateManager&) const;
   TAreaId GetAreaId() const { return x260_area; }

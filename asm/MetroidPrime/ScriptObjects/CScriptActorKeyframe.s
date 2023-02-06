@@ -13,7 +13,7 @@ __vt__20CScriptActorKeyframe:
 	.4byte PreThink__7CEntityFfR13CStateManager
 	.4byte Think__20CScriptActorKeyframeFfR13CStateManager
 	.4byte AcceptScriptMsg__20CScriptActorKeyframeF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__7CEntityFUc
+	.4byte SetActive__7CEntityFb
 
 .global __vt__14CBCScriptedCmd
 __vt__14CBCScriptedCmd:

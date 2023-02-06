@@ -17,7 +17,7 @@ lbl_803E24E0:
 	.4byte PreThink__10CPatternedFfR13CStateManager
 	.4byte Think__16CPuddleToadGammaFfR13CStateManager
 	.4byte AcceptScriptMsg__16CPuddleToadGammaF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__6CActorFUc
+	.4byte SetActive__6CActorFb
 	.4byte PreRender__10CPatternedFR13CStateManagerRC14CFrustumPlanes
 	.4byte AddToRenderer__10CPatternedCFRC14CFrustumPlanesRC13CStateManager
 	.4byte Render__10CPatternedCFRC13CStateManager

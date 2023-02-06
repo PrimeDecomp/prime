@@ -13,7 +13,7 @@ lbl_803EBC70:
 	.4byte PreThink__10CPatternedFfR13CStateManager
 	.4byte Think__20CPhazonHealingNoduleFfR13CStateManager
 	.4byte AcceptScriptMsg__20CPhazonHealingNoduleF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__6CActorFUc
+	.4byte SetActive__6CActorFb
 	.4byte PreRender__10CPatternedFR13CStateManagerRC14CFrustumPlanes
 	.4byte AddToRenderer__10CPatternedCFRC14CFrustumPlanesRC13CStateManager
 	.4byte Render__20CPhazonHealingNoduleCFRC13CStateManager

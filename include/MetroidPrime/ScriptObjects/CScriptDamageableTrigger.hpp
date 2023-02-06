@@ -24,18 +24,18 @@ public:
                            CAssetId colorTex, ECanOrbit canOrbit, bool active,
                            const CVisorParameters& vParams);
 
-  void Accept(IVisitor& visitor) override;
-  void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&) override;
+  void Accept(IVisitor& visitor);
+  void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&);
   EWeaponCollisionResponseTypes GetCollisionResponseType(const CVector3f&, const CVector3f&,
                                                          const CWeaponMode&,
-                                                         int /*EProjectileAttrib?*/) const override;
-  void Render(const CStateManager& mgr) const override;
-  void AddToRenderer(const CFrustumPlanes& frustum, const CStateManager& mgr) const override;
-  void PreRender(CStateManager& mgr, const CFrustumPlanes& frustum) override;
-  const CDamageVulnerability* GetDamageVulnerability() const override { return &x174_dVuln; }
-  CHealthInfo* HealthInfo(CStateManager&) override { return &x16c_hInfo; }
-  void Think(float, CStateManager&) override;
-  rstl::optional_object< CAABox > GetTouchBounds() const override;
+                                                         int /*EProjectileAttrib?*/) const;
+  void Render(const CStateManager& mgr) const;
+  void AddToRenderer(const CFrustumPlanes& frustum, const CStateManager& mgr) const;
+  void PreRender(CStateManager& mgr, const CFrustumPlanes& frustum);
+  const CDamageVulnerability* GetDamageVulnerability() const { return &x174_dVuln; }
+  CHealthInfo* HealthInfo(CStateManager&) { return &x16c_hInfo; }
+  void Think(float, CStateManager&);
+  rstl::optional_object< CAABox > GetTouchBounds() const;
 
 private:
   CFrustumPlanes xe8_frustum;

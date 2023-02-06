@@ -13,7 +13,7 @@ lbl_803E88A8:
 	.4byte PreThink__10CPatternedFfR13CStateManager
 	.4byte Think__12CAtomicAlphaFfR13CStateManager
 	.4byte AcceptScriptMsg__12CAtomicAlphaF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__6CActorFUc
+	.4byte SetActive__6CActorFb
 	.4byte PreRender__10CPatternedFR13CStateManagerRC14CFrustumPlanes
 	.4byte AddToRenderer__12CAtomicAlphaCFRC14CFrustumPlanesRC13CStateManager
 	.4byte Render__12CAtomicAlphaCFRC13CStateManager

@@ -18,15 +18,15 @@ public:
         float f2, float f3, float f4);
 
   // CEntity
-  ~CFire() override;
-  void Accept(IVisitor& visitor) override;
-  void Think(float dt, CStateManager& mgr) override;
-  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) override;
+  ~CFire();
+  void Accept(IVisitor& visitor);
+  void Think(float dt, CStateManager& mgr);
+  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr);
 
   // CActor
-  void Render(const CStateManager&) const override;
-  rstl::optional_object< CAABox > GetTouchBounds() const override;
-  void Touch(CActor&, CStateManager&) override;
+  void Render(const CStateManager&) const;
+  rstl::optional_object< CAABox > GetTouchBounds() const;
+  void Touch(CActor&, CStateManager&);
 
 private:
   rstl::single_ptr< CElementGen > xe8_;

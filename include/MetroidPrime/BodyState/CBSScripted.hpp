@@ -8,10 +8,10 @@ public:
   CBSScripted();
   ~CBSScripted();
 
-  bool ApplyHeadTracking() const override;
-  void Start(CBodyController& bc, CStateManager& mgr) override;
-  pas::EAnimationState UpdateBody(float dt, CBodyController& bc, CStateManager& mgr) override;
-  void Shutdown(CBodyController&) override;
+  bool ApplyHeadTracking() const;
+  void Start(CBodyController& bc, CStateManager& mgr);
+  pas::EAnimationState UpdateBody(float dt, CBodyController& bc, CStateManager& mgr);
+  void Shutdown(CBodyController&);
 
 private:
   bool x4_24_loopAnim : 1;

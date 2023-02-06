@@ -24,7 +24,7 @@ lbl_803E3004:
 	.4byte PreThink__9CParasiteFfR13CStateManager
 	.4byte Think__9CParasiteFfR13CStateManager
 	.4byte AcceptScriptMsg__9CParasiteF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__6CActorFUc
+	.4byte SetActive__6CActorFb
 	.4byte PreRender__10CPatternedFR13CStateManagerRC14CFrustumPlanes
 	.4byte AddToRenderer__10CPatternedCFRC14CFrustumPlanesRC13CStateManager
 	.4byte Render__9CParasiteCFRC13CStateManager

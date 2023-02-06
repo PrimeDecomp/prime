@@ -18,7 +18,7 @@ public:
   virtual void PreThink(float dt, CStateManager& mgr);
   virtual void Think(float dt, CStateManager& mgr);
   virtual void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr);
-  virtual void SetActive(uchar active);
+  virtual void SetActive(const bool active);
 
   CEntity(TUniqueId id, const CEntityInfo& info, bool active, const rstl::string& name);
 
@@ -32,7 +32,7 @@ public:
   const rstl::string& GetDebugName() const { return x10_name; }
   TAreaId GetAreaId() const;
   TAreaId GetCurrentAreaId() const { return x4_areaId; }
-  uchar GetActive() const { return x30_24_active; }
+  const bool GetActive() const { return x30_24_active; }
   bool IsScriptingBlocked() const { return x30_26_scriptingBlocked; }
 
   // might be fake?
@@ -47,7 +47,7 @@ private:
   TEditorId xc_editorId;
   rstl::string x10_name;
   rstl::vector< SConnection > x20_conns;
-  uchar x30_24_active : 1;
+  bool x30_24_active : 1;
   bool x30_25_inGraveyard : 1;
   bool x30_26_scriptingBlocked : 1;
   bool x30_27_notInArea : 1;
