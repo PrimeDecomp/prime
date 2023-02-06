@@ -19,19 +19,19 @@ public:
                     ushort visorSfx, bool sendCollideMsg);
 
   // CEntity
-  ~CEnergyProjectile();
-  void Accept(IVisitor& visitor);
-  void Think(float dt, CStateManager& mgr);
-  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr);
+  ~CEnergyProjectile() override;
+  void Accept(IVisitor& visitor) override;
+  void Think(float dt, CStateManager& mgr) override;
+  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) override;
 
   // CActor
-  void AddToRenderer(const CFrustumPlanes&, const CStateManager&) const;
-  void Render(const CStateManager&) const;
-  void Touch(CActor&, CStateManager&);
+  void AddToRenderer(const CFrustumPlanes&, const CStateManager&) const override;
+  void Render(const CStateManager&) const override;
+  void Touch(CActor&, CStateManager&) override;
 
   // CGameProjectile
   void ResolveCollisionWithActor(const CRayCastResult& res, CActor& act,
-                                 CStateManager& mgr);
+                                 CStateManager& mgr) override;
 
   // CEnergyProjectile
   virtual bool Explode(const CVector3f& pos, const CVector3f& normal,

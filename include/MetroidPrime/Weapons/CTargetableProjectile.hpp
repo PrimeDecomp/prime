@@ -15,19 +15,19 @@ public:
       ushort visorSfx, bool sendCollideMsg);
 
   // CEntity
-  ~CTargetableProjectile();
-  void Accept(IVisitor&);
+  ~CTargetableProjectile() override;
+  void Accept(IVisitor&) override;
 
   // CACtor
-  CVector3f GetAimPosition(const CStateManager&, float) const;
+  CVector3f GetAimPosition(const CStateManager&, float) const override;
 
   // CGameProjectile
   void ResolveCollisionWithActor(const CRayCastResult& res, CActor& act,
-                                 CStateManager& mgr);
+                                 CStateManager& mgr) override;
 
   // CEnergyProjectile
   bool Explode(const CVector3f& pos, const CVector3f& normal, EWeaponCollisionResponseTypes type,
-               CStateManager& mgr, const CDamageVulnerability& dVuln, TUniqueId hitActor);
+               CStateManager& mgr, const CDamageVulnerability& dVuln, TUniqueId hitActor) override;
 
 private:
   TToken< CWeaponDescription > x3d8_weaponDesc;

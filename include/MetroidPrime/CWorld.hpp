@@ -64,17 +64,17 @@ enum EEnvFxType {
 class CWorld : public IWorld {
 public:
   ~CWorld();
-  CAssetId IGetWorldAssetId() const;
-  CAssetId IGetStringTableAssetId() const;
-  CAssetId IGetSaveWorldAssetId() const;
-  const CMapWorld* IGetMapWorld() const;
-  CMapWorld* IMapWorld();
-  const IGameArea* IGetAreaAlways(TAreaId id) const;
-  TAreaId IGetCurrentAreaId() const;
-  TAreaId IGetAreaId(CAssetId id) const;
-  bool ICheckWorldComplete();
-  rstl::string IGetDefaultAudioTrack() const;
-  int IGetAreaCount() const;
+  CAssetId IGetWorldAssetId() const override;
+  CAssetId IGetStringTableAssetId() const override;
+  CAssetId IGetSaveWorldAssetId() const override;
+  const CMapWorld* IGetMapWorld() const override;
+  CMapWorld* IMapWorld() override;
+  const IGameArea* IGetAreaAlways(TAreaId id) const override;
+  TAreaId IGetCurrentAreaId() const override;
+  TAreaId IGetAreaId(CAssetId id) const override;
+  bool ICheckWorldComplete() override;
+  rstl::string IGetDefaultAudioTrack() const override;
+  int IGetAreaCount() const override;
 
   void SetLoadPauseState(bool);
   void TouchSky() const;

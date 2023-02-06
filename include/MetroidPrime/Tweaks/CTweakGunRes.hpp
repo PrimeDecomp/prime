@@ -21,7 +21,7 @@ public:
     ResId* d;
   };
 
-  ~CTweakGunRes();
+  ~CTweakGunRes() override;
 
   ResId x4_gunMotion;
   ResId x8_grappleArm;

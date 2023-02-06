@@ -8,11 +8,11 @@
 class CErrorOutputWindow : public CIOWin {
 public:
   CErrorOutputWindow(bool);
-  ~CErrorOutputWindow();
+  ~CErrorOutputWindow() override;
 
-  EMessageReturn OnMessage(const CArchitectureMessage&, CArchitectureQueue&);
-  bool GetIsContinueDraw() const;
-  void Draw() const;
+  EMessageReturn OnMessage(const CArchitectureMessage&, CArchitectureQueue&) override;
+  bool GetIsContinueDraw() const override;
+  void Draw() const override;
 
   void UpdateWindow();
 

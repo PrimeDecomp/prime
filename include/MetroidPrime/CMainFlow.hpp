@@ -24,10 +24,10 @@ class CMainFlow : public CIOWin {
 public:
   CMainFlow();
 
-  ~CMainFlow();
-  EMessageReturn OnMessage(const CArchitectureMessage&, CArchitectureQueue&);
-  bool GetIsContinueDraw() const;
-  void Draw() const;
+  ~CMainFlow() override;
+  EMessageReturn OnMessage(const CArchitectureMessage&, CArchitectureQueue&) override;
+  bool GetIsContinueDraw() const override;
+  void Draw() const override;
 
   void AdvanceGameState(CArchitectureQueue& queue);
   void SetGameState(EClientFlowStates state, CArchitectureQueue& queue);

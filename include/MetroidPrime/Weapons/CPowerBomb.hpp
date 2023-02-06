@@ -14,13 +14,13 @@ public:
              TUniqueId playerId, const CTransform4f& xf, const CDamageInfo& dInfo);
   ~CPowerBomb();
 
-  void Accept(IVisitor& visitor);
-  void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&);
-  void Think(float, CStateManager&);
-  void AddToRenderer(const CFrustumPlanes&, const CStateManager&) const;
-  void Render(const CStateManager&) const;
-  rstl::optional_object<CAABox> GetTouchBounds() const;
-  void Touch(CActor&, CStateManager&);
+  void Accept(IVisitor& visitor) override;
+  void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&) override;
+  void Think(float, CStateManager&) override;
+  void AddToRenderer(const CFrustumPlanes&, const CStateManager&) const override;
+  void Render(const CStateManager&) const override;
+  rstl::optional_object<CAABox> GetTouchBounds() const override;
+  void Touch(CActor&, CStateManager&) override;
 
   float GetCurTime() const { return x15c_curTime; }
   void ApplyDynamicDamage(const CVector3f&, CStateManager&);

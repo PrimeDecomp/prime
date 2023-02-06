@@ -10,9 +10,9 @@ public:
   explicit CBSLieOnGround(const CActor& actor);
   ~CBSLieOnGround();
 
-  void Start(CBodyController& bc, CStateManager& mgr);
-  pas::EAnimationState UpdateBody(float dt, CBodyController& bc, CStateManager& mgr);
-  void Shutdown(CBodyController& bc);
+  void Start(CBodyController& bc, CStateManager& mgr) override;
+  pas::EAnimationState UpdateBody(float dt, CBodyController& bc, CStateManager& mgr) override;
+  void Shutdown(CBodyController& bc) override;
 
 private:
   uint x4_24_hasGroundHit : 1;

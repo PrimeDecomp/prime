@@ -6,9 +6,9 @@
 class CABSAim : public CAdditiveBodyState {
 public:
   CABSAim();
-  void Start(CBodyController& bc, CStateManager& mgr);
-  pas::EAnimationState UpdateBody(float dt, CBodyController& bc, CStateManager& mgr);
-  void Shutdown(CBodyController& bc);
+  void Start(CBodyController& bc, CStateManager& mgr) override;
+  pas::EAnimationState UpdateBody(float dt, CBodyController& bc, CStateManager& mgr) override;
+  void Shutdown(CBodyController& bc) override;
 
 private:
   bool x4_needsIdle;

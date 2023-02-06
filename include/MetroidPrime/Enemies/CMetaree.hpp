@@ -17,31 +17,31 @@ public:
            float f3, float f4, const CActorParameters& aParms);
 
   // CEntity
-  void Accept(IVisitor& visitor);
-  void Think(float dt, CStateManager& mgr);
-  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr);
+  void Accept(IVisitor& visitor) override;
+  void Think(float dt, CStateManager& mgr) override;
+  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) override;
 
   // CActor
-  void Touch(CActor&, CStateManager&);
+  void Touch(CActor&, CStateManager&) override;
 
   // CPhysicsActor
   void CollidedWith(const TUniqueId& id, const CCollisionInfoList& list,
-                    CStateManager& mgr);
+                    CStateManager& mgr) override;
 
   // CAi
-  void Dead(CStateManager&, EStateMsg, float);
-  void Halt(CStateManager&, EStateMsg, float);
-  void Attack(CStateManager&, EStateMsg, float);
-  void Active(CStateManager&, EStateMsg, float);
-  void InActive(CStateManager&, EStateMsg, float);
-  void Flee(CStateManager&, EStateMsg, float);
-  void Explode(CStateManager&, EStateMsg, float);
-  bool InRange(CStateManager&, float);
-  bool Delay(CStateManager&, float);
-  bool ShouldAttack(CStateManager&, float);
+  void Dead(CStateManager&, EStateMsg, float) override;
+  void Halt(CStateManager&, EStateMsg, float) override;
+  void Attack(CStateManager&, EStateMsg, float) override;
+  void Active(CStateManager&, EStateMsg, float) override;
+  void InActive(CStateManager&, EStateMsg, float) override;
+  void Flee(CStateManager&, EStateMsg, float) override;
+  void Explode(CStateManager&, EStateMsg, float) override;
+  bool InRange(CStateManager&, float) override;
+  bool Delay(CStateManager&, float) override;
+  bool ShouldAttack(CStateManager&, float) override;
 
   // CPatterned
-  void ThinkAboutMove(float);
+  void ThinkAboutMove(float) override;
 
 private:
   float x568_delay;

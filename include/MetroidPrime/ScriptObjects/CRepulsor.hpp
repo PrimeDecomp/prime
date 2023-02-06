@@ -9,8 +9,8 @@ class CRepulsor : public CActor {
 public:
   CRepulsor(TUniqueId, bool, const rstl::string&, const CEntityInfo&, const CVector3f&, float);
 
-  void Accept(IVisitor& visitor);
-  void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&);
+  void Accept(IVisitor& visitor) override;
+  void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&) override;
 
   float GetAffectRadius() const { return xe8_affectRadius; }
 };

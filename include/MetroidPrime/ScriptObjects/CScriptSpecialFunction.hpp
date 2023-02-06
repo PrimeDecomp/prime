@@ -123,13 +123,13 @@ public:
                          const CVector3f&, const CColor&, bool, const CDamageInfo&, int, int,
                          CPlayerState::EItemType, ushort, ushort, ushort);
 
-  void Accept(IVisitor& visitor);
-  void Think(float, CStateManager&);
-  void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&);
-  void PreRender(CStateManager&, const CFrustumPlanes&);
-  void AddToRenderer(const CFrustumPlanes&, const CStateManager&) const;
-  void Render(const CStateManager&) const;
-  rstl::optional_object< CAABox > GetTouchBounds() const { return x1c8_touchBounds; }
+  void Accept(IVisitor& visitor) override;
+  void Think(float, CStateManager&) override;
+  void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&) override;
+  void PreRender(CStateManager&, const CFrustumPlanes&) override;
+  void AddToRenderer(const CFrustumPlanes&, const CStateManager&) const override;
+  void Render(const CStateManager&) const override;
+  rstl::optional_object< CAABox > GetTouchBounds() const override { return x1c8_touchBounds; }
 
   void SkipCinematic(CStateManager&);
   void RingScramble(CStateManager&);

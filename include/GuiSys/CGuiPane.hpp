@@ -7,7 +7,7 @@ class CGuiPane : public CGuiWidget {
 public:
   CGuiPane(const CGuiWidgetParms& parms, const CVector2f& dim, const CVector3f& scaleCenter);
 
-  void Draw(const CGuiWidgetDrawParms& parms) const;
+  void Draw(const CGuiWidgetDrawParms& parms) const override;
   virtual void ScaleDimensions(const CVector3f& scale);
   virtual void SetDimensions(const CVector2f& dim, bool initVBO);
   virtual CVector2f GetDimensions() const;

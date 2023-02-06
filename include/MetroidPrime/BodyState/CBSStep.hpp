@@ -8,11 +8,11 @@ public:
   CBSStep();
   ~CBSStep();
 
-  void Start(CBodyController& bc, CStateManager& mgr);
-  pas::EAnimationState UpdateBody(float dt, CBodyController& bc, CStateManager& mgr);
-  void Shutdown(CBodyController&);
-  bool IsMoving() const;
-  bool CanShoot() const;
+  void Start(CBodyController& bc, CStateManager& mgr) override;
+  pas::EAnimationState UpdateBody(float dt, CBodyController& bc, CStateManager& mgr) override;
+  void Shutdown(CBodyController&) override;
+  bool IsMoving() const override;
+  bool CanShoot() const override;
 
 private:
   pas::EAnimationState GetBodyStateTransition(float dt, CBodyController& bc);

@@ -10,8 +10,8 @@ public:
                    bool active, float minScale, float maxScale);
   ~CScriptGenerator();
 
-  void Accept(IVisitor& visitor);
-  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objId, CStateManager& stateMgr);
+  void Accept(IVisitor& visitor) override;
+  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objId, CStateManager& stateMgr) override;
 
 private:
   int x34_spawnCount;

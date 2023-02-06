@@ -14,13 +14,13 @@ public:
                   bool forceShow, bool active);
   ~CScriptVisorGoo();
 
-  void Accept(IVisitor& visitor);
-  void Think(float, CStateManager& stateMgr);
-  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objId, CStateManager& stateMgr);
-  void AddToRenderer(const CFrustumPlanes&, const CStateManager&) const;
-  void Render(const CStateManager&) const;
-  rstl::optional_object< CAABox > GetTouchBounds() const;
-  void Touch(CActor&, CStateManager&);
+  void Accept(IVisitor& visitor) override;
+  void Think(float, CStateManager& stateMgr) override;
+  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objId, CStateManager& stateMgr) override;
+  void AddToRenderer(const CFrustumPlanes&, const CStateManager&) const override;
+  void Render(const CStateManager&) const override;
+  rstl::optional_object< CAABox > GetTouchBounds() const override;
+  void Touch(CActor&, CStateManager&) override;
 
 private:
   TToken< CGenDescription > xe8_particleDesc;

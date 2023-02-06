@@ -14,13 +14,13 @@ public:
                       TUniqueId uid, bool active, const rstl::string& name, float dist,
                       const CVector3f& scale0, const CColor& color, const CVector3f& scale1,
                       const CVector3f& translation);
-  ~CHUDBillboardEffect();
+  ~CHUDBillboardEffect() override;
 
-  void Accept(IVisitor& visitor);
-  void Think(float dt, CStateManager& mgr);
-  void PreRender(CStateManager& mgr, const CFrustumPlanes& frustum);
-  void AddToRenderer(const CFrustumPlanes& frustum, const CStateManager& mgr) const;
-  void Render(const CStateManager& mgr) const;
+  void Accept(IVisitor& visitor) override;
+  void Think(float dt, CStateManager& mgr) override;
+  void PreRender(CStateManager& mgr, const CFrustumPlanes& frustum) override;
+  void AddToRenderer(const CFrustumPlanes& frustum, const CStateManager& mgr) const override;
+  void Render(const CStateManager& mgr) const override;
   bool IsElementGen() const { return x104_26_isElementGen; }
   void SetRunIndefinitely(bool b) { x104_27_runIndefinitely = b; }
   CParticleGen* GetParticleGen() const { return xe8_generator.get(); }

@@ -9,9 +9,9 @@ public:
                          float, bool);
   ~CScriptPickupGenerator();
 
-  void Accept(IVisitor& visitor);
+  void Accept(IVisitor& visitor) override;
   void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId sender,
-                       CStateManager& stateMgr);
+                       CStateManager& stateMgr) override;
 
 private:
   CVector3f x34_position;

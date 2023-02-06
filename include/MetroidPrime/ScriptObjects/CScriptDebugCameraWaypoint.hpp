@@ -9,9 +9,9 @@ class CScriptDebugCameraWaypoint : public CActor {
 public:
   CScriptDebugCameraWaypoint(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
                              const CTransform4f& xf, uint value);
-  ~CScriptDebugCameraWaypoint();
+  ~CScriptDebugCameraWaypoint() override;
 
-  void Accept(IVisitor& visitor);
+  void Accept(IVisitor& visitor) override;
 
 private:
   uint xe8_value;

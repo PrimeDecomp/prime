@@ -13,11 +13,11 @@ class CUVEConstant : public CUVElement {
 
 public:
   CUVEConstant(TToken< CTexture > tex);
-  ~CUVEConstant();
-  TLockedToken< CTexture > GetValueTexture(int frame) const;
-  void GetValueUV(int frame, SUVElementSet& valOut) const;
-  bool HasConstantTexture() const { return true; }
-  bool HasConstantUV() const { return true; }
+  ~CUVEConstant() override;
+  TLockedToken< CTexture > GetValueTexture(int frame) const override;
+  void GetValueUV(int frame, SUVElementSet& valOut) const override;
+  bool HasConstantTexture() const override { return true; }
+  bool HasConstantUV() const override { return true; }
 };
 
 class CUVEAnimTexture : public CUVElement {
@@ -34,11 +34,11 @@ class CUVEAnimTexture : public CUVElement {
 public:
   CUVEAnimTexture(TToken< CTexture > tex, CIntElement* tileW, CIntElement* tileH,
                   CIntElement* strideW, CIntElement* strideH, CIntElement* cycleFrames, bool loop);
-  ~CUVEAnimTexture();
-  TLockedToken< CTexture > GetValueTexture(int frame) const;
-  void GetValueUV(int frame, SUVElementSet& valOut) const;
-  bool HasConstantTexture() const { return true; }
-  bool HasConstantUV() const { return false; }
+  ~CUVEAnimTexture() override;
+  TLockedToken< CTexture > GetValueTexture(int frame) const override;
+  void GetValueUV(int frame, SUVElementSet& valOut) const override;
+  bool HasConstantTexture() const override { return true; }
+  bool HasConstantUV() const override { return false; }
 };
 
 #endif // _CUVELEMENT

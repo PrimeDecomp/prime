@@ -15,14 +15,14 @@ public:
                         bool);
   ~CScriptTargetingPoint();
 
-  void Accept(IVisitor& visitor);
-  void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&);
+  void Accept(IVisitor& visitor) override;
+  void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&) override;
   
   bool GetLocked() const;
-  void Think(float, CStateManager&);
+  void Think(float, CStateManager&) override;
   
-  void AddToRenderer(const CFrustumPlanes&, const CStateManager&) const;
-  void Render(const CStateManager&) const;
+  void AddToRenderer(const CFrustumPlanes&, const CStateManager&) const override;
+  void Render(const CStateManager&) const override;
 
 };
 

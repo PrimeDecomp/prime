@@ -12,11 +12,11 @@ public:
   CCollidableSphere(const CSphere& sphere, const CMaterialList& material)
   : CCollisionPrimitive(material), x10_sphere(sphere) {}
 
-  uint GetTableIndex() const;
-  CAABox CalculateAABox(const CTransform4f&) const;
-  CAABox CalculateLocalAABox() const;
-  FourCC GetPrimType() const;
-  ~CCollidableSphere() {}
+  uint GetTableIndex() const override;
+  CAABox CalculateAABox(const CTransform4f&) const override;
+  CAABox CalculateLocalAABox() const override;
+  FourCC GetPrimType() const override;
+  ~CCollidableSphere() override {}
   CRayCastResult CastRayInternal(const CInternalRayCastStructure&) const;
 
 private:

@@ -68,10 +68,10 @@ public:
                 float stepUp, float stepDown);
 
   // CActor
-  ~CPhysicsActor();
-  void Render(const CStateManager&) const;
-  CVector3f GetOrbitPosition(const CStateManager& mgr) const;
-  CVector3f GetAimPosition(const CStateManager& mgr, float val) const;
+  ~CPhysicsActor() override;
+  void Render(const CStateManager&) const override;
+  CVector3f GetOrbitPosition(const CStateManager& mgr) const override;
+  CVector3f GetAimPosition(const CStateManager& mgr, float val) const override;
 
   // CPhysicsActor
   virtual const CCollisionPrimitive* GetCollisionPrimitive() const;

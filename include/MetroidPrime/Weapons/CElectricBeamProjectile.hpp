@@ -23,17 +23,17 @@ public:
                           const CDamageInfo&, TUniqueId, TAreaId, TUniqueId, EProjectileAttrib);
 
   // CEntity
-  void Accept(IVisitor&);
-  void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&);
+  void Accept(IVisitor&) override;
+  void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&) override;
 
   // CActor
-  void AddToRenderer(const CFrustumPlanes&, const CStateManager&) const;
-  void Touch(CActor&, CStateManager&);
+  void AddToRenderer(const CFrustumPlanes&, const CStateManager&) const override;
+  void Touch(CActor&, CStateManager&) override;
 
   // CBeamProjectile
-  void UpdateFx(const CTransform4f&, float, CStateManager&);
-  void ResetBeam(CStateManager&, bool);
-  void Fire(const CTransform4f&, CStateManager&, bool);
+  void UpdateFx(const CTransform4f&, float, CStateManager&) override;
+  void ResetBeam(CStateManager&, bool) override;
+  void Fire(const CTransform4f&, CStateManager&, bool) override;
 
 private:
   rstl::single_ptr< CParticleElectric > x468_electric;

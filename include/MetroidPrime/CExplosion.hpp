@@ -22,16 +22,16 @@ public:
              const CVector3f& scale, const CColor& color);
 
   // CEntity
-  ~CExplosion();
-  void Accept(IVisitor& visitor);
-  void Think(float dt, CStateManager& mgr);
-  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr);
+  ~CExplosion() override;
+  void Accept(IVisitor& visitor) override;
+  void Think(float dt, CStateManager& mgr) override;
+  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) override;
 
   // CActor
-  void PreRender(CStateManager&, const CFrustumPlanes&);
-  void AddToRenderer(const CFrustumPlanes&, const CStateManager&) const;
-  void Render(const CStateManager&) const;
-  void CalculateRenderBounds();
+  void PreRender(CStateManager&, const CFrustumPlanes&) override;
+  void AddToRenderer(const CFrustumPlanes&, const CStateManager&) const override;
+  void Render(const CStateManager&) const override;
+  void CalculateRenderBounds() override;
 
 public:
   rstl::single_ptr< CParticleGen > xe8_particleGen;

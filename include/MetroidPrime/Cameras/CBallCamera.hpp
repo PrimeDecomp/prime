@@ -99,17 +99,17 @@ public:
               float farZ, float aspect);
 
   // CEntity
-  ~CBallCamera();
-  void Accept(IVisitor& visitor);
-  void Think(float dt, CStateManager& mgr);
-  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr);
+  ~CBallCamera() override;
+  void Accept(IVisitor& visitor) override;
+  void Think(float dt, CStateManager& mgr) override;
+  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) override;
 
   // CActor
-  void Render(const CStateManager&) const;
+  void Render(const CStateManager&) const override;
 
   // CGameCamera
-  void ProcessInput(const CFinalInput&, CStateManager& mgr);
-  void Reset(const CTransform4f&, CStateManager& mgr);
+  void ProcessInput(const CFinalInput&, CStateManager& mgr) override;
+  void Reset(const CTransform4f&, CStateManager& mgr) override;
 
   // CBallCamera
   void SetupColliders(rstl::vector< CCameraCollider >& out, float xMag, float zMag, float radius,

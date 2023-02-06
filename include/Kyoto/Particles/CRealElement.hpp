@@ -12,9 +12,9 @@ class CREConstant : public CRealElement {
 
 public:
   CREConstant(float val);
-  ~CREConstant();
-  bool GetValue(int frame, float& valOut) const;
-  bool IsConstant() const { return true; }
+  ~CREConstant() override;
+  bool GetValue(int frame, float& valOut) const override;
+  bool IsConstant() const override { return true; }
 };
 
 class CRESineWave : public CRealElement {
@@ -24,8 +24,8 @@ class CRESineWave : public CRealElement {
 
 public:
   CRESineWave(CRealElement* a, CRealElement* b, CRealElement* c);
-  ~CRESineWave();
-  bool GetValue(int frame, float& valOut) const;
+  ~CRESineWave() override;
+  bool GetValue(int frame, float& valOut) const override;
 };
 
 class CRETimeScale : public CRealElement {
@@ -33,8 +33,8 @@ class CRETimeScale : public CRealElement {
 
 public:
   CRETimeScale(CRealElement* a);
-  ~CRETimeScale();
-  bool GetValue(int frame, float& valOut) const;
+  ~CRETimeScale() override;
+  bool GetValue(int frame, float& valOut) const override;
 };
 
 class CREAdd : public CRealElement {
@@ -43,8 +43,8 @@ class CREAdd : public CRealElement {
 
 public:
   CREAdd(CRealElement* a, CRealElement* b);
-  ~CREAdd();
-  bool GetValue(int frame, float& valOut) const;
+  ~CREAdd() override;
+  bool GetValue(int frame, float& valOut) const override;
 };
 
 class CREMultiply : public CRealElement {
@@ -53,8 +53,8 @@ class CREMultiply : public CRealElement {
 
 public:
   CREMultiply(CRealElement* a, CRealElement* b);
-  ~CREMultiply();
-  bool GetValue(int frame, float& valOut) const;
+  ~CREMultiply() override;
+  bool GetValue(int frame, float& valOut) const override;
 };
 
 class CREDotProduct : public CRealElement {
@@ -63,8 +63,8 @@ class CREDotProduct : public CRealElement {
 
 public:
   CREDotProduct(CVectorElement* a, CVectorElement* b);
-  ~CREDotProduct();
-  bool GetValue(int frame, float& valOut) const;
+  ~CREDotProduct() override;
+  bool GetValue(int frame, float& valOut) const override;
 };
 
 class CRERandom : public CRealElement {
@@ -73,8 +73,8 @@ class CRERandom : public CRealElement {
 
 public:
   CRERandom(CRealElement* min, CRealElement* max);
-  ~CRERandom();
-  bool GetValue(int frame, float& valOut) const;
+  ~CRERandom() override;
+  bool GetValue(int frame, float& valOut) const override;
 };
 
 class CREInitialRandom : public CRealElement {
@@ -83,9 +83,9 @@ class CREInitialRandom : public CRealElement {
 
 public:
   CREInitialRandom(CRealElement* min, CRealElement* max);
-  ~CREInitialRandom();
-  bool GetValue(int frame, float& valOut) const;
-  bool IsConstant() const { return true; }
+  ~CREInitialRandom() override;
+  bool GetValue(int frame, float& valOut) const override;
+  bool IsConstant() const override { return true; }
 };
 
 class CRETimeChain : public CRealElement {
@@ -95,8 +95,8 @@ class CRETimeChain : public CRealElement {
 
 public:
   CRETimeChain(CRealElement* a, CRealElement* b, CIntElement* c);
-  ~CRETimeChain();
-  bool GetValue(int frame, float& valOut) const;
+  ~CRETimeChain() override;
+  bool GetValue(int frame, float& valOut) const override;
 };
 
 class CREClamp : public CRealElement {
@@ -106,8 +106,8 @@ class CREClamp : public CRealElement {
 
 public:
   CREClamp(CRealElement* a, CRealElement* b, CRealElement* c);
-  ~CREClamp();
-  bool GetValue(int frame, float& valOut) const;
+  ~CREClamp() override;
+  bool GetValue(int frame, float& valOut) const override;
 };
 
 class CREPulse : public CRealElement {
@@ -118,8 +118,8 @@ class CREPulse : public CRealElement {
 
 public:
   CREPulse(CIntElement* a, CIntElement* b, CRealElement* c, CRealElement* d);
-  ~CREPulse();
-  bool GetValue(int frame, float& valOut) const;
+  ~CREPulse() override;
+  bool GetValue(int frame, float& valOut) const override;
 };
 
 class CRELifetimePercent : public CRealElement {
@@ -127,8 +127,8 @@ class CRELifetimePercent : public CRealElement {
 
 public:
   CRELifetimePercent(CRealElement* a); // : x4_percentVal(a) {}
-  ~CRELifetimePercent();
-  bool GetValue(int frame, float& valOut) const;
+  ~CRELifetimePercent() override;
+  bool GetValue(int frame, float& valOut) const override;
 };
 
 class CRELifetimeTween : public CRealElement {
@@ -137,8 +137,8 @@ class CRELifetimeTween : public CRealElement {
 
 public:
   CRELifetimeTween(CRealElement* a, CRealElement* b);
-  ~CRELifetimeTween();
-  bool GetValue(int frame, float& valOut) const;
+  ~CRELifetimeTween() override;
+  bool GetValue(int frame, float& valOut) const override;
 };
 
 class CREKeyframeEmitter : public CRealElement {
@@ -152,68 +152,68 @@ class CREKeyframeEmitter : public CRealElement {
 
 public:
   CREKeyframeEmitter(CInputStream& in);
-  ~CREKeyframeEmitter();
-  bool GetValue(int frame, float& valOut) const;
+  ~CREKeyframeEmitter() override;
+  bool GetValue(int frame, float& valOut) const override;
 };
 
 class CREParticleAccessParameter1 : public CRealElement {
 public:
-  ~CREParticleAccessParameter1() {}
-  bool GetValue(int frame, float& valOut) const;
+  ~CREParticleAccessParameter1() override {}
+  bool GetValue(int frame, float& valOut) const override;
 };
 
 class CREParticleAccessParameter2 : public CRealElement {
 public:
-  ~CREParticleAccessParameter2() {}
-  bool GetValue(int frame, float& valOut) const;
+  ~CREParticleAccessParameter2() override {}
+  bool GetValue(int frame, float& valOut) const override;
 };
 
 class CREParticleAccessParameter3 : public CRealElement {
 public:
-  ~CREParticleAccessParameter3() {}
-  bool GetValue(int frame, float& valOut) const;
+  ~CREParticleAccessParameter3() override {}
+  bool GetValue(int frame, float& valOut) const override;
 };
 
 class CREParticleAccessParameter4 : public CRealElement {
 public:
-  ~CREParticleAccessParameter4() {}
-  bool GetValue(int frame, float& valOut) const;
+  ~CREParticleAccessParameter4() override {}
+  bool GetValue(int frame, float& valOut) const override;
 };
 
 class CREParticleAccessParameter5 : public CRealElement {
 public:
-  ~CREParticleAccessParameter5() {}
-  bool GetValue(int frame, float& valOut) const;
+  ~CREParticleAccessParameter5() override {}
+  bool GetValue(int frame, float& valOut) const override;
 };
 
 class CREParticleAccessParameter6 : public CRealElement {
 public:
-  ~CREParticleAccessParameter6() {}
-  bool GetValue(int frame, float& valOut) const;
+  ~CREParticleAccessParameter6() override {}
+  bool GetValue(int frame, float& valOut) const override;
 };
 
 class CREParticleAccessParameter7 : public CRealElement {
 public:
-  ~CREParticleAccessParameter7() {}
-  bool GetValue(int frame, float& valOut) const;
+  ~CREParticleAccessParameter7() override {}
+  bool GetValue(int frame, float& valOut) const override;
 };
 
 class CREParticleAccessParameter8 : public CRealElement {
 public:
-  ~CREParticleAccessParameter8() {}
-  bool GetValue(int frame, float& valOut) const;
+  ~CREParticleAccessParameter8() override {}
+  bool GetValue(int frame, float& valOut) const override;
 };
 
 class CREParticleSizeOrLineLength : public CRealElement {
 public:
-  ~CREParticleSizeOrLineLength() {}
-  bool GetValue(int frame, float& valOut) const;
+  ~CREParticleSizeOrLineLength() override {}
+  bool GetValue(int frame, float& valOut) const override;
 };
 
 class CREParticleRotationOrLineWidth : public CRealElement {
 public:
-  ~CREParticleRotationOrLineWidth() {}
-  bool GetValue(int frame, float& valOut) const;
+  ~CREParticleRotationOrLineWidth() override {}
+  bool GetValue(int frame, float& valOut) const override;
 };
 
 class CREVectorXToReal : public CRealElement {
@@ -221,8 +221,8 @@ class CREVectorXToReal : public CRealElement {
 
 public:
   CREVectorXToReal(CVectorElement* a);
-  ~CREVectorXToReal();
-  bool GetValue(int frame, float& valOut) const;
+  ~CREVectorXToReal() override;
+  bool GetValue(int frame, float& valOut) const override;
 };
 
 class CREVectorYToReal : public CRealElement {
@@ -230,8 +230,8 @@ class CREVectorYToReal : public CRealElement {
 
 public:
   CREVectorYToReal(CVectorElement* a);
-  ~CREVectorYToReal();
-  bool GetValue(int frame, float& valOut) const;
+  ~CREVectorYToReal() override;
+  bool GetValue(int frame, float& valOut) const override;
 };
 
 class CREVectorZToReal : public CRealElement {
@@ -239,8 +239,8 @@ class CREVectorZToReal : public CRealElement {
 
 public:
   CREVectorZToReal(CVectorElement* a);
-  ~CREVectorZToReal();
-  bool GetValue(int frame, float& valOut) const;
+  ~CREVectorZToReal() override;
+  bool GetValue(int frame, float& valOut) const override;
 };
 
 class CREVectorMagnitude : public CRealElement {
@@ -248,8 +248,8 @@ class CREVectorMagnitude : public CRealElement {
 
 public:
   CREVectorMagnitude(CVectorElement* a);
-  ~CREVectorMagnitude();
-  bool GetValue(int frame, float& valOut) const;
+  ~CREVectorMagnitude() override;
+  bool GetValue(int frame, float& valOut) const override;
 };
 
 class CREInitialSwitch : public CRealElement {
@@ -258,8 +258,8 @@ class CREInitialSwitch : public CRealElement {
 
 public:
   CREInitialSwitch(CRealElement* a, CRealElement* b);
-  ~CREInitialSwitch();
-  bool GetValue(int frame, float& valOut) const;
+  ~CREInitialSwitch() override;
+  bool GetValue(int frame, float& valOut) const override;
 };
 
 class CRECompareLessThan : public CRealElement {
@@ -270,8 +270,8 @@ class CRECompareLessThan : public CRealElement {
 
 public:
   CRECompareLessThan(CRealElement* a, CRealElement* b, CRealElement* c, CRealElement* d);
-  ~CRECompareLessThan();
-  bool GetValue(int frame, float& valOut) const;
+  ~CRECompareLessThan() override;
+  bool GetValue(int frame, float& valOut) const override;
 };
 
 class CRECompareEqual : public CRealElement {
@@ -282,8 +282,8 @@ class CRECompareEqual : public CRealElement {
 
 public:
   CRECompareEqual(CRealElement* a, CRealElement* b, CRealElement* c, CRealElement* d);
-  ~CRECompareEqual();
-  bool GetValue(int frame, float& valOut) const;
+  ~CRECompareEqual() override;
+  bool GetValue(int frame, float& valOut) const override;
 };
 
 class CREConstantRange : public CRealElement {
@@ -296,8 +296,8 @@ class CREConstantRange : public CRealElement {
 public:
   CREConstantRange(CRealElement* a, CRealElement* b, CRealElement* c, CRealElement* d,
                    CRealElement* e);
-  ~CREConstantRange();
-  bool GetValue(int frame, float& valOut) const;
+  ~CREConstantRange() override;
+  bool GetValue(int frame, float& valOut) const override;
 };
 
 class CREExternalVar : public CRealElement {
@@ -305,8 +305,8 @@ class CREExternalVar : public CRealElement {
 
 public:
   CREExternalVar(CIntElement* a);
-  ~CREExternalVar();
-  bool GetValue(int frame, float& valOut) const;
+  ~CREExternalVar() override;
+  bool GetValue(int frame, float& valOut) const override;
 };
 
 class CRESubtract : public CRealElement {
@@ -315,8 +315,8 @@ class CRESubtract : public CRealElement {
 
 public:
   CRESubtract(CRealElement* a, CRealElement* b);
-  ~CRESubtract();
-  bool GetValue(int frame, float& valOut) const;
+  ~CRESubtract() override;
+  bool GetValue(int frame, float& valOut) const override;
 };
 
 class CREGetComponentRed : public CRealElement {
@@ -324,8 +324,8 @@ class CREGetComponentRed : public CRealElement {
 
 public:
   CREGetComponentRed(CColorElement* a);
-  ~CREGetComponentRed();
-  bool GetValue(int frame, float& valOut) const;
+  ~CREGetComponentRed() override;
+  bool GetValue(int frame, float& valOut) const override;
 };
 
 class CREGetComponentGreen : public CRealElement {
@@ -333,8 +333,8 @@ class CREGetComponentGreen : public CRealElement {
 
 public:
   CREGetComponentGreen(CColorElement* a);
-  ~CREGetComponentGreen();
-  bool GetValue(int frame, float& valOut) const;
+  ~CREGetComponentGreen() override;
+  bool GetValue(int frame, float& valOut) const override;
 };
 
 class CREGetComponentBlue : public CRealElement {
@@ -342,8 +342,8 @@ class CREGetComponentBlue : public CRealElement {
 
 public:
   CREGetComponentBlue(CColorElement* a);
-  ~CREGetComponentBlue();
-  bool GetValue(int frame, float& valOut) const;
+  ~CREGetComponentBlue() override;
+  bool GetValue(int frame, float& valOut) const override;
 };
 
 class CREGetComponentAlpha : public CRealElement {
@@ -351,8 +351,8 @@ class CREGetComponentAlpha : public CRealElement {
 
 public:
   CREGetComponentAlpha(CColorElement* a);
-  ~CREGetComponentAlpha();
-  bool GetValue(int frame, float& valOut) const;
+  ~CREGetComponentAlpha() override;
+  bool GetValue(int frame, float& valOut) const override;
 };
 
 class CREIntTimesReal : public CRealElement {
@@ -361,8 +361,8 @@ class CREIntTimesReal : public CRealElement {
 
 public:
   CREIntTimesReal(CIntElement* a, CRealElement* b);
-  ~CREIntTimesReal();
-  bool GetValue(int frame, float& valOut) const;
+  ~CREIntTimesReal() override;
+  bool GetValue(int frame, float& valOut) const override;
 };
 
 #endif // _CREALELEMENT

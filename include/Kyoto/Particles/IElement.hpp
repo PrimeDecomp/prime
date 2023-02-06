@@ -27,7 +27,7 @@ public:
 
 class CIntElement : public IElement {
 public:
-  ~CIntElement() {};
+  ~CIntElement() override{};
   virtual bool GetValue(int frame, int& valOut) const = 0;
 };
 

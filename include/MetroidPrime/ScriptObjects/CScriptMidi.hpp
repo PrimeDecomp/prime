@@ -9,12 +9,12 @@ class CScriptMidi : public CEntity {
 public:
   CScriptMidi(TUniqueId id, const CEntityInfo& info, const rstl::string& name, bool active,
               CAssetId csng, float, float, int);
-  ~CScriptMidi();
+  ~CScriptMidi() override;
 
   void Stop(CStateManager& mgr, float fadeTime);
   void Play(CStateManager& mgr, float fadeTime);
-  void Accept(IVisitor& visitor);
-  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objId, CStateManager& stateMgr);
+  void Accept(IVisitor& visitor) override;
+  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objId, CStateManager& stateMgr) override;
 
 private:
   TToken< CMidiManager::CMidiData > x34_song;

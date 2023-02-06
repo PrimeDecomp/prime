@@ -8,10 +8,10 @@ public:
   CBSProjectileAttack();
   ~CBSProjectileAttack();
 
-  bool CanShoot() const;
-  void Start(CBodyController& bc, CStateManager& mgr);
-  pas::EAnimationState UpdateBody(float dt, CBodyController& bc, CStateManager& mgr);
-  void Shutdown(CBodyController&);
+  bool CanShoot() const override;
+  void Start(CBodyController& bc, CStateManager& mgr) override;
+  pas::EAnimationState UpdateBody(float dt, CBodyController& bc, CStateManager& mgr) override;
+  void Shutdown(CBodyController&) override;
 
 private:
   pas::EAnimationState GetBodyStateTransition(float dt, CBodyController& bc);

@@ -18,12 +18,12 @@ public:
                      float);
   ~CScriptAiJumpPoint();
   
-  void Accept(IVisitor& visitor);
-  void Think(float, CStateManager&);
-  void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&);
-  void AddToRenderer(const CFrustumPlanes&, const CStateManager&) const;
-  void Render(const CStateManager&) const;
-  rstl::optional_object< CAABox > GetTouchBounds() const;
+  void Accept(IVisitor& visitor) override;
+  void Think(float, CStateManager&) override;
+  void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&) override;
+  void AddToRenderer(const CFrustumPlanes&, const CStateManager&) const override;
+  void Render(const CStateManager&) const override;
+  rstl::optional_object< CAABox > GetTouchBounds() const override;
   bool GetInUse(TUniqueId uid) const;
   TUniqueId GetJumpPoint() const { return x10c_currentWaypoint; }
   TUniqueId GetJumpTarget() const { return x10e_nextWaypoint; }

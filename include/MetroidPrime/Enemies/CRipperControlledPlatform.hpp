@@ -11,7 +11,7 @@ public:
       const CAABox&, bool, const rstl::optional_object< TLockedToken< CCollidableOBBTreeGroupContainer > >&);
   ~CRipperControlledPlatform();
 
-  CQuaternion Move(float, CStateManager&);
+  CQuaternion Move(float, CStateManager&) override;
 
 private:
   TUniqueId x358_owner;

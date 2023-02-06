@@ -13,16 +13,16 @@ public:
              EMaterialTypes playerMaterial, const CVector3f& scale);
   ~CPowerBeam();
 
-  void PreRenderGunFx(const CStateManager& mgr, const CTransform4f& xf);
-  void PostRenderGunFx(const CStateManager& mgr, const CTransform4f& xf);
-  void UpdateGunFx(bool shotSmoke, float dt, const CStateManager& mgr, const CTransform4f& xf);
+  void PreRenderGunFx(const CStateManager& mgr, const CTransform4f& xf) override;
+  void PostRenderGunFx(const CStateManager& mgr, const CTransform4f& xf) override;
+  void UpdateGunFx(bool shotSmoke, float dt, const CStateManager& mgr, const CTransform4f& xf) override;
   void Fire(bool underwater, float dt, CPlayerState::EChargeStage chargeState, const CTransform4f& xf, CStateManager& mgr,
-            TUniqueId homingTarget, float chargeFactor1, float chargeFactor2);
-  void EnableSecondaryFx(ESecondaryFxType type);
-  void Update(float dt, CStateManager& mgr);
-  void Load(CStateManager& mgr, bool subtypeBasePose);
-  void Unload(CStateManager& mgr);
-  bool IsLoaded() const;
+            TUniqueId homingTarget, float chargeFactor1, float chargeFactor2) override;
+  void EnableSecondaryFx(ESecondaryFxType type) override;
+  void Update(float dt, CStateManager& mgr) override;
+  void Load(CStateManager& mgr, bool subtypeBasePose) override;
+  void Unload(CStateManager& mgr) override;
+  bool IsLoaded() const override;
 
 private:
   enum ESmokeState { kSS_Inactive, kSS_Active, kSS_Done };

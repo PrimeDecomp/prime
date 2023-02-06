@@ -15,7 +15,7 @@ class CTweakPlayerControl;
 class CTweakPlayerControl : public ITweakObject {
 public:
   CTweakPlayerControl(CInputStream&);
-  ~CTweakPlayerControl();
+  ~CTweakPlayerControl() override;
 
   ControlMapper::EFunctionList GetMapping(ControlMapper::ECommands command) const;
 
