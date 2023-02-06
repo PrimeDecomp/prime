@@ -80,8 +80,9 @@ public:
   pointer_iterator() : const_pointer_iterator< T, Vec, Alloc >(nullptr) {}
   pointer_iterator(T* begin) : const_pointer_iterator< T, Vec, Alloc >(begin) {}
   void operator=(const T& other) { rstl::construct(this->current, other); }
-  T& operator*() const { return *this->current; }
-  T* operator->() const { return this->current; }
+  T& operator*() { return *this->current; }
+  // TODO map says const, but breaks CScriptMazeNode::GenerateObjects
+  T* operator->() { return this->current; }
   pointer_iterator& operator++() {
     ++this->current;
     return *this;

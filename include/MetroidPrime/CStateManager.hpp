@@ -219,7 +219,7 @@ public:
   // TODO ?
   void AddThermalColdScale2(float s) { xf28_thermColdScale2 += s; }
 
-  bool IsGeneratingObject() const { return xf94_26_generatingObject; }
+  const bool IsGeneratingObject() const { return xf94_26_generatingObject; }
   void SetIsGeneratingObject(bool gen) { xf94_26_generatingObject = gen; }
 
   void ApplyDamageToWorld(TUniqueId, const CActor&, const CVector3f&, const CDamageInfo& info,

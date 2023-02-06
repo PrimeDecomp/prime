@@ -81,11 +81,11 @@ void CMazeState::Reset(int seed) {
   }
 }
 
-SMazeCell& CMazeState::GetCell(uint col, uint row) { return x4_cells[col + row * skMazeCols]; }
-
 const SMazeCell& CMazeState::GetCell(uint col, uint row) const {
   return x4_cells[col + row * skMazeCols];
 }
+
+SMazeCell& CMazeState::GetCell(uint col, uint row) { return x4_cells[col + row * skMazeCols]; }
 
 static inline int GetRandom(CRandom16& rand, int offset) {
   int tmp = rand.Next();
@@ -256,26 +256,9 @@ CScriptMazeNode::CScriptMazeNode(TUniqueId uid, const rstl::string& name, const 
 
 void CScriptMazeNode::Accept(IVisitor& visitor) { visitor.Visit(*this); }
 
-static inline TUniqueId GenerateObject(CStateManager& mgr, const TEditorId& eid) {
-  bool wasGeneratingObject = mgr.IsGeneratingObject();
-  mgr.SetIsGeneratingObject(true);
-  TUniqueId objUid = mgr.GenerateObject(eid).second;
-  mgr.SetIsGeneratingObject(wasGeneratingObject);
-  return objUid;
-}
-
-// struct GenerateObjectGuard {
-//   GenerateObjectGuard(CStateManager& mgr) : mgr(mgr), wasGenerating(mgr.IsGeneratingObject()) {}
-//   ~GenerateObjectGuard() { mgr.SetIsGeneratingObject(wasGenerating); }
-//   CStateManager& mgr;
-//   bool wasGenerating;
-// };
-
-// TODO non-matching
-// https://decomp.me/scratch/IvHBz
 void CScriptMazeNode::GenerateObjects(CStateManager& mgr) {
-  rstl::vector< SConnection >::const_iterator conn = GetConnectionList().begin();
-  for (; conn != GetConnectionList().end(); ++conn) {
+  rstl::vector< SConnection >::iterator conn = ConnectionList().begin();
+  for (; conn != ConnectionList().end(); ++conn) {
     if (conn->x0_state != kSS_MaxReached || conn->x4_msg != kSM_Activate) {
       continue;
     }
@@ -291,12 +274,10 @@ void CScriptMazeNode::GenerateObjects(CStateManager& mgr) {
       continue;
     }
 
-    TUniqueId objUid = GenerateObject(mgr, conn->x8_objId);
-    // TUniqueId objUid = kInvalidUniqueId;
-    // bool wasGeneratingObject = mgr.IsGeneratingObject();
-    // mgr.SetIsGeneratingObject(true);
-    // TUniqueId objUid = mgr.GenerateObject(conn->x8_objId).second;
-    // mgr.SetIsGeneratingObject(wasGeneratingObject);
+    bool wasGeneratingObject = mgr.IsGeneratingObject();
+    mgr.SetIsGeneratingObject(true);
+    TUniqueId objUid = mgr.GenerateObject(conn->x8_objId).second;
+    mgr.SetIsGeneratingObject(wasGeneratingObject);
 
     if (CActor* actor = static_cast< CActor* >(mgr.ObjectById(objUid))) {
       mgr.SendScriptMsg(actor, GetUniqueId(), kSM_Activate);
@@ -379,7 +360,6 @@ void CScriptMazeNode::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, C
               continue;
             }
 
-            // TUniqueId genObj = GenerateObject(mgr, conn->x8_objId);
             bool wasGeneratingObject = mgr.IsGeneratingObject();
             mgr.SetIsGeneratingObject(true);
             TUniqueId genObj = mgr.GenerateObject(conn->x8_objId).second;
