@@ -11,33 +11,33 @@ class CParticleElectric : public CParticleGen {
 public:
   explicit CParticleElectric(TToken<CElectricDescription> desc);
 
-  ~CParticleElectric() override;
-  void Update(double) override;
-  void Render() const override;
-  void SetOrientation(const CTransform4f& orientation) override;
-  void SetTranslation(const CVector3f& translation) override;
-  void SetGlobalOrientation(const CTransform4f& orientation) override;
-  void SetGlobalTranslation(const CVector3f& translation) override;
-  void SetGlobalScale(const CVector3f& scale) override;
-  void SetLocalScale(const CVector3f& scale) override;
-  void SetParticleEmission(bool emission) override;
-  void SetModulationColor(const CColor& col) override;
+  ~CParticleElectric();
+  void Update(double);
+  void Render() const;
+  void SetOrientation(const CTransform4f& orientation);
+  void SetTranslation(const CVector3f& translation);
+  void SetGlobalOrientation(const CTransform4f& orientation);
+  void SetGlobalTranslation(const CVector3f& translation);
+  void SetGlobalScale(const CVector3f& scale);
+  void SetLocalScale(const CVector3f& scale);
+  void SetParticleEmission(bool emission);
+  void SetModulationColor(const CColor& col);
   void SetGeneratorRate(float rate) {}
-  const CTransform4f& GetOrientation() const override;
-  const CVector3f& GetTranslation() const override;
-  CTransform4f GetGlobalOrientation() const override;
-  CVector3f GetGlobalTranslation() const override;
-  CVector3f GetGlobalScale() const override;
-  bool GetParticleEmission() const override;
-  CColor GetModulationColor() const override;
-  bool IsSystemDeletable() const override;
-  rstl::optional_object<CAABox> GetBounds() const override;
-  int GetParticleCount() const override;
-  bool SystemHasLight() const override;
-  CLight GetLight() override;
-  void DestroyParticles() override;
-  void AddModifier(CWarp*) override;
-  uint Get4CharId() const override;
+  const CTransform4f& GetOrientation() const;
+  const CVector3f& GetTranslation() const;
+  CTransform4f GetGlobalOrientation() const;
+  CVector3f GetGlobalTranslation() const;
+  CVector3f GetGlobalScale() const;
+  bool GetParticleEmission() const;
+  CColor GetModulationColor() const;
+  bool IsSystemDeletable() const;
+  rstl::optional_object<CAABox> GetBounds() const;
+  int GetParticleCount() const;
+  bool SystemHasLight() const;
+  CLight GetLight();
+  void DestroyParticles();
+  void AddModifier(CWarp*);
+  uint Get4CharId() const;
 
   
   void SetOverrideIPos(const CVector3f& vec) { x178_overrideIPos = vec; }

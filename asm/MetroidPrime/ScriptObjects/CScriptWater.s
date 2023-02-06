@@ -13,7 +13,7 @@ lbl_803DFE70:
 	.4byte PreThink__7CEntityFfR13CStateManager
 	.4byte Think__12CScriptWaterFfR13CStateManager
 	.4byte AcceptScriptMsg__12CScriptWaterF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__6CActorFUc
+	.4byte SetActive__6CActorFb
 	.4byte PreRender__12CScriptWaterFR13CStateManagerRC14CFrustumPlanes
 	.4byte AddToRenderer__12CScriptWaterCFRC14CFrustumPlanesRC13CStateManager
 	.4byte Render__12CScriptWaterCFRC13CStateManager

@@ -13,7 +13,7 @@ lbl_803E4018:
 	.4byte PreThink__10CPatternedFfR13CStateManager
 	.4byte Think__13CNewIntroBossFfR13CStateManager
 	.4byte AcceptScriptMsg__13CNewIntroBossF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__6CActorFUc
+	.4byte SetActive__6CActorFb
 	.4byte PreRender__10CPatternedFR13CStateManagerRC14CFrustumPlanes
 	.4byte AddToRenderer__13CNewIntroBossCFRC14CFrustumPlanesRC13CStateManager
 	.4byte Render__10CPatternedCFRC13CStateManager

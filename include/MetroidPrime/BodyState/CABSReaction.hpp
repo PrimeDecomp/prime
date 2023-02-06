@@ -8,9 +8,9 @@ public:
   CABSReaction();
   ~CABSReaction();
 
-  void Start(CBodyController& bc, CStateManager& mgr) override;
-  pas::EAnimationState UpdateBody(float dt, CBodyController& bc, CStateManager& mgr) override;
-  void Shutdown(CBodyController& bc) override;
+  void Start(CBodyController& bc, CStateManager& mgr);
+  pas::EAnimationState UpdateBody(float dt, CBodyController& bc, CStateManager& mgr);
+  void Shutdown(CBodyController& bc);
 
   float GetWeight() const { return x4_weight; }
   bool IsActive() const { return x10_active; }

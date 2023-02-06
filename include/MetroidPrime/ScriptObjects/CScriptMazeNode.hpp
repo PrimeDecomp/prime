@@ -78,11 +78,11 @@ public:
                   const CTransform4f& xf, bool active, int col, int row, int side,
                   const CVector3f& actorPos, const CVector3f& triggerPos,
                   const CVector3f& effectPos);
-  ~CScriptMazeNode() override;
+  ~CScriptMazeNode();
 
-  void Accept(IVisitor& visitor) override;
-  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) override;
-  void Think(float dt, CStateManager& mgr) override;
+  void Accept(IVisitor& visitor);
+  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr);
+  void Think(float dt, CStateManager& mgr);
 
   static void LoadMazeSeeds();
 

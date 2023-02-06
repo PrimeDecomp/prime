@@ -9,8 +9,8 @@ class CAudioStateWin : public CIOWin {
 public:
   CAudioStateWin();
 
-  ~CAudioStateWin() override;
-  EMessageReturn OnMessage(const CArchitectureMessage&, CArchitectureQueue&) override;
+  ~CAudioStateWin();
+  EMessageReturn OnMessage(const CArchitectureMessage&, CArchitectureQueue&);
 };
 
 #endif // _CAUDIOSTATEWIN

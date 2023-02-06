@@ -13,8 +13,8 @@ class CMVEConstant : public CModVectorElement {
 
 public:
   CMVEConstant(CRealElement* a, CRealElement* b, CRealElement* c);
-  ~CMVEConstant() override;
-  bool GetValue(int frame, CVector3f& pVel, CVector3f& pPos) const override;
+  ~CMVEConstant();
+  bool GetValue(int frame, CVector3f& pVel, CVector3f& pPos) const;
 };
 
 class CMVEFastConstant : public CModVectorElement {
@@ -22,8 +22,8 @@ class CMVEFastConstant : public CModVectorElement {
 
 public:
   CMVEFastConstant(float a, float b, float c);
-  ~CMVEFastConstant() override;
-  bool GetValue(int frame, CVector3f& pVel, CVector3f& pPos) const override;
+  ~CMVEFastConstant();
+  bool GetValue(int frame, CVector3f& pVel, CVector3f& pPos) const;
 };
 
 class CMVEGravity : public CModVectorElement {
@@ -31,8 +31,8 @@ class CMVEGravity : public CModVectorElement {
 
 public:
   CMVEGravity(CVectorElement* a);
-  ~CMVEGravity() override;
-  bool GetValue(int frame, CVector3f& pVel, CVector3f& pPos) const override;
+  ~CMVEGravity();
+  bool GetValue(int frame, CVector3f& pVel, CVector3f& pPos) const;
 };
 
 class CMVEWind : public CModVectorElement {
@@ -41,8 +41,8 @@ class CMVEWind : public CModVectorElement {
 
 public:
   CMVEWind(CVectorElement* velocity, CRealElement* factor);
-  ~CMVEWind() override;
-  bool GetValue(int frame, CVector3f& pVel, CVector3f& pPos) const override;
+  ~CMVEWind();
+  bool GetValue(int frame, CVector3f& pVel, CVector3f& pPos) const;
 };
 
 class CMVEExplode : public CModVectorElement {
@@ -51,8 +51,8 @@ class CMVEExplode : public CModVectorElement {
 
 public:
   CMVEExplode(CRealElement* a, CRealElement* b);
-  ~CMVEExplode() override;
-  bool GetValue(int frame, CVector3f& pVel, CVector3f& pPos) const override;
+  ~CMVEExplode();
+  bool GetValue(int frame, CVector3f& pVel, CVector3f& pPos) const;
 };
 
 class CMVETimeChain : public CModVectorElement {
@@ -62,8 +62,8 @@ class CMVETimeChain : public CModVectorElement {
 
 public:
   CMVETimeChain(CModVectorElement* a, CModVectorElement* b, CIntElement* c);
-  ~CMVETimeChain() override;
-  bool GetValue(int frame, CVector3f& pVel, CVector3f& pPos) const override;
+  ~CMVETimeChain();
+  bool GetValue(int frame, CVector3f& pVel, CVector3f& pPos) const;
 };
 
 class CMVEPulse : public CModVectorElement {
@@ -74,8 +74,8 @@ class CMVEPulse : public CModVectorElement {
 
 public:
   CMVEPulse(CIntElement* a, CIntElement* b, CModVectorElement* c, CModVectorElement* d);
-  ~CMVEPulse() override;
-  bool GetValue(int frame, CVector3f& pVel, CVector3f& pPos) const override;
+  ~CMVEPulse();
+  bool GetValue(int frame, CVector3f& pVel, CVector3f& pPos) const;
 };
 
 class CMVEImplosion : public CModVectorElement {
@@ -87,8 +87,8 @@ class CMVEImplosion : public CModVectorElement {
 
 public:
   CMVEImplosion(CVectorElement* a, CRealElement* b, CRealElement* c, CRealElement* d, bool e);
-  ~CMVEImplosion() override;
-  bool GetValue(int frame, CVector3f& pVel, CVector3f& pPos) const override;
+  ~CMVEImplosion();
+  bool GetValue(int frame, CVector3f& pVel, CVector3f& pPos) const;
 };
 
 class CMVELinearImplosion : public CModVectorElement {
@@ -100,8 +100,8 @@ class CMVELinearImplosion : public CModVectorElement {
 
 public:
   CMVELinearImplosion(CVectorElement* a, CRealElement* b, CRealElement* c, CRealElement* d, bool e);
-  ~CMVELinearImplosion() override;
-  bool GetValue(int frame, CVector3f& pVel, CVector3f& pPos) const override;
+  ~CMVELinearImplosion();
+  bool GetValue(int frame, CVector3f& pVel, CVector3f& pPos) const;
 };
 
 class CMVEExponentialImplosion : public CModVectorElement {
@@ -114,8 +114,8 @@ class CMVEExponentialImplosion : public CModVectorElement {
 public:
   CMVEExponentialImplosion(CVectorElement* a, CRealElement* b, CRealElement* c, CRealElement* d,
                            bool e);
-  ~CMVEExponentialImplosion() override;
-  bool GetValue(int frame, CVector3f& pVel, CVector3f& pPos) const override;
+  ~CMVEExponentialImplosion();
+  bool GetValue(int frame, CVector3f& pVel, CVector3f& pPos) const;
 };
 
 class CMVESwirl : public CModVectorElement {
@@ -126,8 +126,8 @@ class CMVESwirl : public CModVectorElement {
 
 public:
   CMVESwirl(CVectorElement* a, CVectorElement* b, CRealElement* c, CRealElement* d);
-  ~CMVESwirl() override;
-  bool GetValue(int frame, CVector3f& pVel, CVector3f& pPos) const override;
+  ~CMVESwirl();
+  bool GetValue(int frame, CVector3f& pVel, CVector3f& pPos) const;
 };
 
 class CMVEBounce : public CModVectorElement {
@@ -143,8 +143,8 @@ class CMVEBounce : public CModVectorElement {
 public:
   CMVEBounce(CVectorElement* planePoint, CVectorElement* planeNormal, CRealElement* friction,
              CRealElement* restitution, bool e);
-  ~CMVEBounce() override;
-  bool GetValue(int frame, CVector3f& pVel, CVector3f& pPos) const override;
+  ~CMVEBounce();
+  bool GetValue(int frame, CVector3f& pVel, CVector3f& pPos) const;
 };
 
 class CMVESetPosition : public CModVectorElement {
@@ -152,8 +152,8 @@ class CMVESetPosition : public CModVectorElement {
 
 public:
   CMVESetPosition(CVectorElement* a);
-  ~CMVESetPosition() override;
-  bool GetValue(int frame, CVector3f& pVel, CVector3f& pPos) const override;
+  ~CMVESetPosition();
+  bool GetValue(int frame, CVector3f& pVel, CVector3f& pPos) const;
 };
 
 #endif // _CMODVECTORELEMENT

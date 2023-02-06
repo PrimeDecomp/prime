@@ -65,7 +65,7 @@ struct SWeaponInfo {
 
 class CTweakPlayerGun : public ITweakObject {
 public:
-  ~CTweakPlayerGun() override;
+  ~CTweakPlayerGun();
 
   float GetUpLookAngle() const { return x4_upLookAngle; }
   float GetDownLookAngle() const { return x8_downLookAngle; }

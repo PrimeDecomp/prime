@@ -21,7 +21,7 @@ lbl_803E5388:
 	.4byte PreThink__10CPatternedFfR13CStateManager
 	.4byte Think__12CMetroidBetaFfR13CStateManager
 	.4byte AcceptScriptMsg__12CMetroidBetaF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__6CActorFUc
+	.4byte SetActive__6CActorFb
 	.4byte PreRender__10CPatternedFR13CStateManagerRC14CFrustumPlanes
 	.4byte AddToRenderer__12CMetroidBetaCFRC14CFrustumPlanesRC13CStateManager
 	.4byte Render__12CMetroidBetaCFRC13CStateManager

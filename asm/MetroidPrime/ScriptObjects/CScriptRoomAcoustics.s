@@ -17,7 +17,7 @@ __vt__20CScriptRoomAcoustics:
 	.4byte PreThink__7CEntityFfR13CStateManager
 	.4byte Think__20CScriptRoomAcousticsFfR13CStateManager
 	.4byte AcceptScriptMsg__20CScriptRoomAcousticsF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__7CEntityFUc
+	.4byte SetActive__7CEntityFb
 
 .section .sbss, "wa"
 .balign 8

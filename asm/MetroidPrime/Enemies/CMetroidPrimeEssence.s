@@ -66,7 +66,7 @@ lbl_803EB244:
 	.4byte PreThink__10CPatternedFfR13CStateManager
 	.4byte Think__20CMetroidPrimeEssenceFfR13CStateManager
 	.4byte AcceptScriptMsg__20CMetroidPrimeEssenceF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__6CActorFUc
+	.4byte SetActive__6CActorFb
 	.4byte PreRender__20CMetroidPrimeEssenceFR13CStateManagerRC14CFrustumPlanes
 	.4byte AddToRenderer__20CMetroidPrimeEssenceCFRC14CFrustumPlanesRC13CStateManager
 	.4byte Render__20CMetroidPrimeEssenceCFRC13CStateManager

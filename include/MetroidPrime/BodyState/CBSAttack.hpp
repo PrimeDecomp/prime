@@ -11,10 +11,10 @@ class CBSAttack : public CBodyState {
 public:
   CBSAttack();
   
-  bool CanShoot() const override { return false; }
-  void Start(CBodyController& bc, CStateManager& mgr) override;
-  pas::EAnimationState UpdateBody(float dt, CBodyController& bc, CStateManager& mgr) override;
-  void Shutdown(CBodyController&) override;
+  bool CanShoot() const { return false; }
+  void Start(CBodyController& bc, CStateManager& mgr);
+  pas::EAnimationState UpdateBody(float dt, CBodyController& bc, CStateManager& mgr);
+  void Shutdown(CBodyController&);
 
 private:
   pas::EAnimationState x4_nextState; // = pas::kAS_Invalid;

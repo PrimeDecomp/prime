@@ -11,13 +11,13 @@ public:
   CScriptEMPulse(TUniqueId, const rstl::string&, const CEntityInfo&, const CTransform4f&, bool,
                  float, float, float, float, float, float, float, CAssetId);
 
-  void Accept(IVisitor&) override;
-  void Think(float, CStateManager&) override;
-  void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&) override;
-  void AddToRenderer(const CFrustumPlanes&, const CStateManager&) const override;
-  void CalculateRenderBounds() override;
-  rstl::optional_object< CAABox > GetTouchBounds() const override;
-  void Touch(CActor&, CStateManager&) override;
+  void Accept(IVisitor&);
+  void Think(float, CStateManager&);
+  void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&);
+  void AddToRenderer(const CFrustumPlanes&, const CStateManager&) const;
+  void CalculateRenderBounds();
+  rstl::optional_object< CAABox > GetTouchBounds() const;
+  void Touch(CActor&, CStateManager&);
 
 private:
   float xe8_duration;

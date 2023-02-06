@@ -13,7 +13,7 @@ __vt__16CScriptGenerator:
 	.4byte PreThink__7CEntityFfR13CStateManager
 	.4byte Think__7CEntityFfR13CStateManager
 	.4byte AcceptScriptMsg__16CScriptGeneratorF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__7CEntityFUc
+	.4byte SetActive__7CEntityFb
 
 .section .sdata2, "a"
 .balign 8

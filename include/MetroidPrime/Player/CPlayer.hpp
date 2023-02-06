@@ -143,36 +143,36 @@ public:
   };
 
   // CEntity
-  ~CPlayer() override;
-  void Accept(IVisitor& visitor) override;
-  void PreThink(float dt, CStateManager& mgr) override;
-  void Think(float dt, CStateManager& mgr) override;
-  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) override;
+  ~CPlayer();
+  void Accept(IVisitor& visitor);
+  void PreThink(float dt, CStateManager& mgr);
+  void Think(float dt, CStateManager& mgr);
+  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr);
 
   // CActor
-  void PreRender(CStateManager&, const CFrustumPlanes&) override;
-  void AddToRenderer(const CFrustumPlanes&, const CStateManager&) const override;
-  void Render(const CStateManager&) const override;
-  bool CanRenderUnsorted(const CStateManager&) const override;
-  void CalculateRenderBounds() override;
-  CHealthInfo* HealthInfo(CStateManager&) override;
-  const CDamageVulnerability* GetDamageVulnerability() const override;
+  void PreRender(CStateManager&, const CFrustumPlanes&);
+  void AddToRenderer(const CFrustumPlanes&, const CStateManager&) const;
+  void Render(const CStateManager&) const;
+  bool CanRenderUnsorted(const CStateManager&) const;
+  void CalculateRenderBounds();
+  CHealthInfo* HealthInfo(CStateManager&);
+  const CDamageVulnerability* GetDamageVulnerability() const;
   const CDamageVulnerability* GetDamageVulnerability(const CVector3f&, const CVector3f&,
-                                                     const CDamageInfo&) const override;
-  rstl::optional_object< CAABox > GetTouchBounds() const override;
-  void Touch(CActor&, CStateManager&) override;
-  CVector3f GetAimPosition(const CStateManager&, float) const override;
-  CVector3f GetHomingPosition(const CStateManager&, float) const override;
-  void FluidFXThink(EFluidState, CScriptWater&, CStateManager&) override;
+                                                     const CDamageInfo&) const;
+  rstl::optional_object< CAABox > GetTouchBounds() const;
+  void Touch(CActor&, CStateManager&);
+  CVector3f GetAimPosition(const CStateManager&, float) const;
+  CVector3f GetHomingPosition(const CStateManager&, float) const;
+  void FluidFXThink(EFluidState, CScriptWater&, CStateManager&);
 
   // CPhysicsActor
-  const CCollisionPrimitive* GetCollisionPrimitive() const override;
-  CTransform4f GetPrimitiveTransform() const override;
+  const CCollisionPrimitive* GetCollisionPrimitive() const;
+  CTransform4f GetPrimitiveTransform() const;
   void CollidedWith(const TUniqueId& id, const CCollisionInfoList& list,
-                    CStateManager& mgr) override;
-  float GetStepDownHeight() const override;
-  float GetStepUpHeight() const override;
-  float GetWeight() const override;
+                    CStateManager& mgr);
+  float GetStepDownHeight() const;
+  float GetStepUpHeight() const;
+  float GetWeight() const;
 
   // CPlayer
   virtual bool IsTransparent();

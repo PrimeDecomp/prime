@@ -11,12 +11,12 @@ public:
                     const CTransform4f& xf, bool active, uint flags, bool crouch, float horizontalAngle,
                     float verticalAngle, float coverTime);
 
-  void Accept(IVisitor& visitor) override;
-  void Think(float, CStateManager&) override;
-  void AddToRenderer(const CFrustumPlanes&, const CStateManager&) const override;
-  void Render(const CStateManager&) const override;
-  void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&) override;
-  rstl::optional_object< CAABox > GetTouchBounds() const override;
+  void Accept(IVisitor& visitor);
+  void Think(float, CStateManager&);
+  void AddToRenderer(const CFrustumPlanes&, const CStateManager&) const;
+  void Render(const CStateManager&) const;
+  void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&);
+  rstl::optional_object< CAABox > GetTouchBounds() const;
 
   bool ShouldCrouch() const;
   bool ShouldStay() const;

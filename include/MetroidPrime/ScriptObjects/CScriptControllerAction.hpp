@@ -84,8 +84,8 @@ public:
   CScriptControllerAction(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
                           bool active, ECommands command, bool b1, uint w1, bool b2);
 
-  void Accept(IVisitor& visitor) override;
-  void Think(float, CStateManager&) override;
+  void Accept(IVisitor& visitor);
+  void Think(float, CStateManager&);
 
   static ControlMapper::ECommands GetCommand(ECommands cmd);
 };

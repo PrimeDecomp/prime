@@ -12,7 +12,7 @@ lbl_803EBB48:
 	.4byte PreThink__7CEntityFfR13CStateManager
 	.4byte Think__11CPhazonPoolFfR13CStateManager
 	.4byte AcceptScriptMsg__11CPhazonPoolF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__6CActorFUc
+	.4byte SetActive__6CActorFb
 	.4byte PreRender__6CActorFR13CStateManagerRC14CFrustumPlanes
 	.4byte AddToRenderer__11CPhazonPoolCFRC14CFrustumPlanesRC13CStateManager
 	.4byte Render__11CPhazonPoolCFRC13CStateManager
@@ -901,7 +901,7 @@ lbl_80293154:
 /* 80293158 002900B8  7F C3 F3 78 */	mr r3, r30
 /* 8029315C 002900BC  90 1E 01 DC */	stw r0, 0x1dc(r30)
 /* 80293160 002900C0  38 80 00 00 */	li r4, 0
-/* 80293164 002900C4  4B DC 06 E9 */	bl SetActive__6CActorFUc
+/* 80293164 002900C4  4B DC 06 E9 */	bl SetActive__6CActorFb
 lbl_80293168:
 /* 80293168 002900C8  7F C3 F3 78 */	mr r3, r30
 /* 8029316C 002900CC  38 80 00 00 */	li r4, 0

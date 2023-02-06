@@ -16,15 +16,15 @@ public:
                   TUniqueId, const CTransform4f&, const CDamageInfo&, const CVector3f&);
 
   // CEntity
-  ~CFlaahgraPlants() override;
-  void Accept(IVisitor& visitor) override;
-  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId sender, CStateManager& mgr) override;
-  void Think(float dt, CStateManager& mgr) override;
+  ~CFlaahgraPlants();
+  void Accept(IVisitor& visitor);
+  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId sender, CStateManager& mgr);
+  void Think(float dt, CStateManager& mgr);
 
   // CActor
-  void AddToRenderer(const CFrustumPlanes& frustum, const CStateManager& mgr) const override;
-  rstl::optional_object< CAABox > GetTouchBounds() const override;
-  void Touch(CActor& actor, CStateManager& mgr) override;
+  void AddToRenderer(const CFrustumPlanes& frustum, const CStateManager& mgr) const;
+  rstl::optional_object< CAABox > GetTouchBounds() const;
+  void Touch(CActor& actor, CStateManager& mgr);
 
 private:
   rstl::auto_ptr< CElementGen > xe8_elementGen;

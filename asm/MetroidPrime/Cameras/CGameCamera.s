@@ -496,7 +496,7 @@ SetActive__11CGameCameraFb:
 /* 8005B314 00058274  90 01 00 14 */	stw r0, 0x14(r1)
 /* 8005B318 00058278  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 8005B31C 0005827C  7C 7F 1B 78 */	mr r31, r3
-/* 8005B320 00058280  4B FF 85 2D */	bl SetActive__6CActorFUc
+/* 8005B320 00058280  4B FF 85 2D */	bl SetActive__6CActorFb
 /* 8005B324 00058284  88 1F 00 E7 */	lbz r0, 0xe7(r31)
 /* 8005B328 00058288  38 60 00 00 */	li r3, 0
 /* 8005B32C 0005828C  50 60 17 7A */	rlwimi r0, r3, 2, 0x1d, 0x1d

@@ -13,7 +13,7 @@ lbl_803E8050:
 	.4byte PreThink__7CEntityFfR13CStateManager
 	.4byte Think__10CShockwaveFfR13CStateManager
 	.4byte AcceptScriptMsg__10CShockwaveF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__6CActorFUc
+	.4byte SetActive__6CActorFb
 	.4byte PreRender__6CActorFR13CStateManagerRC14CFrustumPlanes
 	.4byte AddToRenderer__10CShockwaveCFRC14CFrustumPlanesRC13CStateManager
 	.4byte Render__10CShockwaveCFRC13CStateManager

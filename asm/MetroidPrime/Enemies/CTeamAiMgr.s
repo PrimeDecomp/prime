@@ -13,7 +13,7 @@ lbl_803E8558:
 	.4byte PreThink__7CEntityFfR13CStateManager
 	.4byte Think__10CTeamAiMgrFfR13CStateManager
 	.4byte AcceptScriptMsg__10CTeamAiMgrF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__7CEntityFUc
+	.4byte SetActive__7CEntityFb
 
 .section .text, "ax"
 

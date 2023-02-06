@@ -30,26 +30,26 @@ public:
                   float mass);
 
   // CEntity
-  ~CCollisionActor() override;
-  void Accept(IVisitor& visitor) override;
-  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) override;
+  ~CCollisionActor();
+  void Accept(IVisitor& visitor);
+  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr);
 
   // CActor
-  CHealthInfo* HealthInfo(CStateManager&) override;
-  const CDamageVulnerability* GetDamageVulnerability() const override;
+  CHealthInfo* HealthInfo(CStateManager&);
+  const CDamageVulnerability* GetDamageVulnerability() const;
   const CDamageVulnerability* GetDamageVulnerability(const CVector3f&, const CVector3f&,
-                                                     const CDamageInfo&) const override;
-  rstl::optional_object< CAABox > GetTouchBounds() const override;
-  void Touch(CActor&, CStateManager&) override;
-  CVector3f GetOrbitPosition(const CStateManager&) const override;
-  CVector3f GetScanObjectIndicatorPosition(const CStateManager&) const override;
+                                                     const CDamageInfo&) const;
+  rstl::optional_object< CAABox > GetTouchBounds() const;
+  void Touch(CActor&, CStateManager&);
+  CVector3f GetOrbitPosition(const CStateManager&) const;
+  CVector3f GetScanObjectIndicatorPosition(const CStateManager&) const;
   EWeaponCollisionResponseTypes GetCollisionResponseType(const CVector3f&, const CVector3f&,
                                                          const CWeaponMode&,
-                                                         int /*EProjectileAttrib?*/) const override;
-  void OnScanStateChange(EScanState, CStateManager&) override;
+                                                         int /*EProjectileAttrib?*/) const;
+  void OnScanStateChange(EScanState, CStateManager&);
 
   // CPhysicsActor
-  CTransform4f GetPrimitiveTransform() const override;
+  CTransform4f GetPrimitiveTransform() const;
 
 private:
   EPrimitiveType x258_primitiveType;

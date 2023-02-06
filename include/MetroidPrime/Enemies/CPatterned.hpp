@@ -151,73 +151,73 @@ public:
              EBodyType body, const CActorParameters& params, EKnockBackVariant kbVariant);
 
   // CEntity
-  ~CPatterned() override;
-  void Accept(IVisitor& visitor) override;
-  void PreThink(float dt, CStateManager& mgr) override;
-  void Think(float dt, CStateManager& mgr) override;
-  void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&) override;
+  ~CPatterned();
+  void Accept(IVisitor& visitor);
+  void PreThink(float dt, CStateManager& mgr);
+  void Think(float dt, CStateManager& mgr);
+  void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&);
 
   // CActor
-  void PreRender(CStateManager&, const CFrustumPlanes&) override;
-  void AddToRenderer(const CFrustumPlanes&, const CStateManager&) const override;
-  void Render(const CStateManager&) const override;
-  bool CanRenderUnsorted(const CStateManager&) const override;
-  rstl::optional_object< CAABox > GetTouchBounds() const override;
-  void Touch(CActor&, CStateManager&) override;
-  CVector3f GetOrbitPosition(const CStateManager&) const override;
-  CVector3f GetAimPosition(const CStateManager&, float) const override;
+  void PreRender(CStateManager&, const CFrustumPlanes&);
+  void AddToRenderer(const CFrustumPlanes&, const CStateManager&) const;
+  void Render(const CStateManager&) const;
+  bool CanRenderUnsorted(const CStateManager&) const;
+  rstl::optional_object< CAABox > GetTouchBounds() const;
+  void Touch(CActor&, CStateManager&);
+  CVector3f GetOrbitPosition(const CStateManager&) const;
+  CVector3f GetAimPosition(const CStateManager&, float) const;
   EWeaponCollisionResponseTypes GetCollisionResponseType(const CVector3f&, const CVector3f&,
                                                          const CWeaponMode&,
-                                                         int /*EProjectileAttrib?*/) const override;
+                                                         int /*EProjectileAttrib?*/) const;
   void DoUserAnimEvent(CStateManager& mgr, const CInt32POINode& node, EUserEventType type,
-                       float dt) override;
+                       float dt);
 
   // CPhysicsActor
   void CollidedWith(const TUniqueId& id, const CCollisionInfoList& list,
-                    CStateManager& mgr) override;
+                    CStateManager& mgr);
 
   // CAi
-  void Death(CStateManager& mgr, const CVector3f& direction, EScriptObjectState state) override;
+  void Death(CStateManager& mgr, const CVector3f& direction, EScriptObjectState state);
   void KnockBack(const CVector3f&, CStateManager&, const CDamageInfo& info, EKnockBackType type,
-                 bool inDeferred, float magnitude) override;
-  void TakeDamage(const CVector3f& direction, float magnitude) override;
-  void Patrol(CStateManager&, EStateMsg, float) override;
-  void FollowPattern(CStateManager&, EStateMsg, float) override;
-  void Dead(CStateManager&, EStateMsg, float) override;
-  void PathFind(CStateManager&, EStateMsg, float) override;
-  void Start(CStateManager&, EStateMsg, float) override;
-  void TargetPatrol(CStateManager&, EStateMsg, float) override;
-  void TargetPlayer(CStateManager&, EStateMsg, float) override;
-  bool Leash(CStateManager&, float) override;
-  bool OffLine(CStateManager&, float) override;
-  bool Attacked(CStateManager&, float) override;
-  bool PathShagged(CStateManager&, float) override;
-  bool PathOver(CStateManager&, float) override;
-  bool PathFound(CStateManager&, float) override;
-  bool TooClose(CStateManager&, float) override;
-  bool InRange(CStateManager&, float) override;
-  bool InMaxRange(CStateManager&, float) override;
-  bool InDetectionRange(CStateManager&, float) override;
-  bool SpotPlayer(CStateManager&, float) override;
-  bool PlayerSpot(CStateManager&, float) override;
-  bool PatternOver(CStateManager&, float) override;
-  bool PatternShagged(CStateManager&, float) override;
-  bool HasAttackPattern(CStateManager&, float) override;
-  bool HasPatrolPath(CStateManager&, float) override;
-  bool HasRetreatPattern(CStateManager&, float) override;
-  bool Delay(CStateManager&, float) override;
-  bool RandomDelay(CStateManager&, float) override;
-  bool FixedDelay(CStateManager&, float) override;
-  bool Default(CStateManager&, float) override;
-  bool AnimOver(CStateManager&, float) override;
-  bool InPosition(CStateManager&, float) override;
-  bool Stuck(CStateManager&, float) override;
-  bool NoPathNodes(CStateManager&, float) override;
-  bool Landed(CStateManager&, float) override;
-  bool PatrolPathOver(CStateManager&, float) override;
-  bool CodeTrigger(CStateManager&, float) override;
-  bool Random(CStateManager&, float) override;
-  bool FixedRandom(CStateManager&, float) override;
+                 bool inDeferred, float magnitude);
+  void TakeDamage(const CVector3f& direction, float magnitude);
+  void Patrol(CStateManager&, EStateMsg, float);
+  void FollowPattern(CStateManager&, EStateMsg, float);
+  void Dead(CStateManager&, EStateMsg, float);
+  void PathFind(CStateManager&, EStateMsg, float);
+  void Start(CStateManager&, EStateMsg, float);
+  void TargetPatrol(CStateManager&, EStateMsg, float);
+  void TargetPlayer(CStateManager&, EStateMsg, float);
+  bool Leash(CStateManager&, float);
+  bool OffLine(CStateManager&, float);
+  bool Attacked(CStateManager&, float);
+  bool PathShagged(CStateManager&, float);
+  bool PathOver(CStateManager&, float);
+  bool PathFound(CStateManager&, float);
+  bool TooClose(CStateManager&, float);
+  bool InRange(CStateManager&, float);
+  bool InMaxRange(CStateManager&, float);
+  bool InDetectionRange(CStateManager&, float);
+  bool SpotPlayer(CStateManager&, float);
+  bool PlayerSpot(CStateManager&, float);
+  bool PatternOver(CStateManager&, float);
+  bool PatternShagged(CStateManager&, float);
+  bool HasAttackPattern(CStateManager&, float);
+  bool HasPatrolPath(CStateManager&, float);
+  bool HasRetreatPattern(CStateManager&, float);
+  bool Delay(CStateManager&, float);
+  bool RandomDelay(CStateManager&, float);
+  bool FixedDelay(CStateManager&, float);
+  bool Default(CStateManager&, float);
+  bool AnimOver(CStateManager&, float);
+  bool InPosition(CStateManager&, float);
+  bool Stuck(CStateManager&, float);
+  bool NoPathNodes(CStateManager&, float);
+  bool Landed(CStateManager&, float);
+  bool PatrolPathOver(CStateManager&, float);
+  bool CodeTrigger(CStateManager&, float);
+  bool Random(CStateManager&, float);
+  bool FixedRandom(CStateManager&, float);
 
   // CPatterned
   virtual void Freeze(CStateManager& mgr, const CVector3f& pos, const CUnitVector3f& dir,

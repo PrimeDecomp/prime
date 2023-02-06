@@ -70,23 +70,23 @@ public:
 
   bool Initialize(COsContext& ctx);
   void Shutdown();
-  void* Alloc(size_t size, EHint hint, EScope scope, EType type, const CCallStack& cs) override;
+  void* Alloc(size_t size, EHint hint, EScope scope, EType type, const CCallStack& cs);
   SGameMemInfo* FindFreeBlock(uint);
   SGameMemInfo* FindFreeBlockFromTopOfHeap(uint);
   uint FixupAllocPtrs(SGameMemInfo*, uint, uint, EHint, const CCallStack&);
   void UpdateAllocDebugStats(unsigned int, unsigned int, unsigned int);
-  bool Free(const void* ptr) override;
+  bool Free(const void* ptr);
   bool FreeNormalAllocation(const void* ptr);
-  void ReleaseAll() override;
+  void ReleaseAll();
   void* AllocSecondary(size_t size, EHint hint, EScope scope, EType type,
-                       const CCallStack& cs) override;
-  bool FreeSecondary(const void* ptr) override;
-  void ReleaseAllSecondary() override;
-  void SetOutOfMemoryCallback(FOutOfMemoryCb cb, const void* target) override;
-  int EnumAllocations(FEnumAllocationsCb func, const void* ptr, bool b) const override;
-  SAllocInfo GetAllocInfo(const void* ptr) const override;
-  SMetrics GetMetrics() const override;
-  void OffsetFakeStatics(int offset) override;
+                       const CCallStack& cs);
+  bool FreeSecondary(const void* ptr);
+  void ReleaseAllSecondary();
+  void SetOutOfMemoryCallback(FOutOfMemoryCb cb, const void* target);
+  int EnumAllocations(FEnumAllocationsCb func, const void* ptr, bool b) const;
+  SAllocInfo GetAllocInfo(const void* ptr) const;
+  SMetrics GetMetrics() const;
+  void OffsetFakeStatics(int offset);
 
   static uint GetFreeBinEntryForSize(uint);
   void AddFreeEntryToFreeList(SGameMemInfo*);

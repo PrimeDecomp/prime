@@ -13,8 +13,8 @@ public:
   CScriptCounter(TUniqueId, const rstl::string& name, const CEntityInfo& info, int, int, bool, bool);
   ~CScriptCounter();
 
-  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objId, CStateManager& stateMgr) override;
-  void Accept(IVisitor& visitor) override;
+  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objId, CStateManager& stateMgr);
+  void Accept(IVisitor& visitor);
 };
 
 #endif // _CSCRIPTCOUNTER

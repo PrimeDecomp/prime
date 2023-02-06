@@ -23,8 +23,8 @@ public:
                          bool fadeWhite, float charFadeIn, float charsPerSecond, float showDelay);
   ~CScriptWorldTeleporter();
 
-  void Accept(IVisitor&) override;
-  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) override;
+  void Accept(IVisitor&);
+  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr);
   void StartTransition(CStateManager&);
 
   bool GetFadeWhite() const { return x40_27_fadeWhite; }

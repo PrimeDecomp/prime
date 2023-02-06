@@ -13,7 +13,7 @@ lbl_803E51E8:
 	.4byte PreThink__7CEntityFfR13CStateManager
 	.4byte Think__10CIceImpactFfR13CStateManager
 	.4byte AcceptScriptMsg__10CIceImpactF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__6CActorFUc
+	.4byte SetActive__6CActorFb
 	.4byte PreRender__10CIceImpactFR13CStateManagerRC14CFrustumPlanes
 	.4byte AddToRenderer__10CIceImpactCFRC14CFrustumPlanesRC13CStateManager
 	.4byte Render__10CIceImpactCFRC13CStateManager

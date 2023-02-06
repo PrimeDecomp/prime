@@ -13,7 +13,7 @@ __vt__12CScriptTimer:
 	.4byte PreThink__7CEntityFfR13CStateManager
 	.4byte Think__12CScriptTimerFfR13CStateManager
 	.4byte AcceptScriptMsg__12CScriptTimerF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__7CEntityFUc
+	.4byte SetActive__7CEntityFb
 
 .section .sdata2, "a"
 .balign 8

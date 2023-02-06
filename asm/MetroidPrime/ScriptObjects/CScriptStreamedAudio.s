@@ -13,7 +13,7 @@ __vt__20CScriptStreamedMusic:
 	.4byte PreThink__7CEntityFfR13CStateManager
 	.4byte Think__7CEntityFfR13CStateManager
 	.4byte AcceptScriptMsg__20CScriptStreamedMusicF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__7CEntityFUc
+	.4byte SetActive__7CEntityFb
 
 .global lbl_803E7088
 lbl_803E7088:

@@ -20,7 +20,7 @@ lbl_803E774C:
 	.4byte PreThink__10CPatternedFfR13CStateManager
 	.4byte Think__8CEyeBallFfR13CStateManager
 	.4byte AcceptScriptMsg__8CEyeBallF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__6CActorFUc
+	.4byte SetActive__6CActorFb
 	.4byte PreRender__8CEyeBallFR13CStateManagerRC14CFrustumPlanes
 	.4byte AddToRenderer__10CPatternedCFRC14CFrustumPlanesRC13CStateManager
 	.4byte Render__8CEyeBallCFRC13CStateManager

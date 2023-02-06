@@ -13,7 +13,7 @@ __vt__18CScriptActorRotate:
 	.4byte PreThink__7CEntityFfR13CStateManager
 	.4byte Think__18CScriptActorRotateFfR13CStateManager
 	.4byte AcceptScriptMsg__18CScriptActorRotateF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__7CEntityFUc
+	.4byte SetActive__7CEntityFb
 
 
 .section .text, "ax"

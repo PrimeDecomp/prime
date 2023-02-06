@@ -17,7 +17,7 @@ lbl_803E5318:
 	.4byte PreThink__7CEntityFfR13CStateManager
 	.4byte sub_801bef28
 	.4byte sub_801bebcc
-	.4byte SetActive__6CActorFUc
+	.4byte SetActive__6CActorFb
 	.4byte PreRender__6CActorFR13CStateManagerRC14CFrustumPlanes
 	.4byte sub_801bee04
 	.4byte sub_801bedb8

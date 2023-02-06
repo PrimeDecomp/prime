@@ -26,8 +26,8 @@ public:
                               float timeOut, CAssetId txtr, bool active);
   ~CScriptCameraFilterKeyframe();
 
-  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objId, CStateManager& stateMgr) override;
-  void Accept(IVisitor& visitor) override;
+  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objId, CStateManager& stateMgr);
+  void Accept(IVisitor& visitor);
 };
 
 #endif // _CSCRIPTCAMERAFILTERKEYFRAME

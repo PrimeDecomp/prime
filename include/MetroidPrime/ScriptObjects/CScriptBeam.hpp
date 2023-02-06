@@ -18,9 +18,9 @@ public:
               const TToken< CWeaponDescription >&, const CBeamInfo&, const CDamageInfo&);
   ~CScriptBeam();
 
-  void Accept(IVisitor& visitor) override;
-  void Think(float, CStateManager&) override;
-  void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&) override;
+  void Accept(IVisitor& visitor);
+  void Think(float, CStateManager&);
+  void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&);
 };
 
 #endif // _CSCRIPTBEAM

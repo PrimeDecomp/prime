@@ -19,30 +19,30 @@ public:
                 CAssetId beamTextureId, CAssetId beamGlowTextureId);
 
   // CEntity
-  void Accept(IVisitor& visitor) override;
-  void Think(float dt, CStateManager& mgr) override;
-  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) override;
+  void Accept(IVisitor& visitor);
+  void Think(float dt, CStateManager& mgr);
+  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr);
 
   // CActor
-  void AddToRenderer(const CFrustumPlanes&, const CStateManager&) const override;
-  rstl::optional_object< CAABox > GetTouchBounds() const override;
-  void OnScanStateChange(EScanState, CStateManager&) override;
-  CAABox GetSortingBounds(const CStateManager&) const override;
+  void AddToRenderer(const CFrustumPlanes&, const CStateManager&) const;
+  rstl::optional_object< CAABox > GetTouchBounds() const;
+  void OnScanStateChange(EScanState, CStateManager&);
+  CAABox GetSortingBounds(const CStateManager&) const;
   void DoUserAnimEvent(CStateManager& mgr, const CInt32POINode& node, EUserEventType type,
-                       float dt) override;
+                       float dt);
 
   // CAi
-  void Patrol(CStateManager&, EStateMsg, float) override;
-  void Generate(CStateManager& mgr, EStateMsg msg, float arg) override;
-  void Attack(CStateManager&, EStateMsg, float) override;
-  bool InAttackPosition(CStateManager&, float) override;
-  bool AnimOver(CStateManager&, float) override;
-  bool ShouldAttack(CStateManager&, float) override;
-  bool ShouldTurn(CStateManager&, float) override;
-  bool AIStage(CStateManager&, float) override;
+  void Patrol(CStateManager&, EStateMsg, float);
+  void Generate(CStateManager& mgr, EStateMsg msg, float arg);
+  void Attack(CStateManager&, EStateMsg, float);
+  bool InAttackPosition(CStateManager&, float);
+  bool AnimOver(CStateManager&, float);
+  bool ShouldAttack(CStateManager&, float);
+  bool ShouldTurn(CStateManager&, float);
+  bool AIStage(CStateManager&, float);
 
   // CPatterned
-  CProjectileInfo* ProjectileInfo() override;
+  CProjectileInfo* ProjectileInfo();
 
   pas::ELocomotionType GetLocoForHealth(const CStateManager& mgr) const;
   pas::EGenerateType GetGenerateForHealth(const CStateManager& mgr) const;

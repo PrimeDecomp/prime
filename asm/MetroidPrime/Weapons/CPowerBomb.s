@@ -17,7 +17,7 @@ lbl_803E2808:
 	.4byte PreThink__7CEntityFfR13CStateManager
 	.4byte Think__10CPowerBombFfR13CStateManager
 	.4byte AcceptScriptMsg__10CPowerBombF20EScriptObjectMessage9TUniqueIdR13CStateManager
-	.4byte SetActive__6CActorFUc
+	.4byte SetActive__6CActorFb
 	.4byte PreRender__6CActorFR13CStateManagerRC14CFrustumPlanes
 	.4byte AddToRenderer__10CPowerBombCFRC14CFrustumPlanesRC13CStateManager
 	.4byte Render__10CPowerBombCFRC13CStateManager

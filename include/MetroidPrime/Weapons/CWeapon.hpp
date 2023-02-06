@@ -15,15 +15,15 @@ public:
           const CModelData& mData);
 
   // CEntity
-  ~CWeapon() override;
-  void Think(float dt, CStateManager& mgr) override;
+  ~CWeapon();
+  void Think(float dt, CStateManager& mgr);
 
   // CActor
-  void Render(const CStateManager&) const override;
+  void Render(const CStateManager&) const;
   EWeaponCollisionResponseTypes GetCollisionResponseType(const CVector3f&, const CVector3f&,
                                                          const CWeaponMode&,
-                                                         int /*EProjectileAttrib?*/) const override;
-  void FluidFXThink(EFluidState, CScriptWater&, CStateManager&) override;
+                                                         int /*EProjectileAttrib?*/) const;
+  void FluidFXThink(EFluidState, CScriptWater&, CStateManager&);
 
   void SetDamageFalloffSpeed(float d);
 

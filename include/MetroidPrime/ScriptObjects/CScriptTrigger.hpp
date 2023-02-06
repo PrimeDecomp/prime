@@ -60,15 +60,15 @@ public:
                  uint triggerFlags, bool active, bool deactivateOnEntered, bool deactivateOnExited);
   ~CScriptTrigger();
 
-  void Touch(CActor&, CStateManager&) override;
+  void Touch(CActor&, CStateManager&);
   CAABox GetTriggerBoundsWR() const;
-  rstl::optional_object<CAABox> GetTouchBounds() const override;
-  void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&) override;
-  void Think(float, CStateManager&) override;
+  rstl::optional_object<CAABox> GetTouchBounds() const;
+  void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&);
+  void Think(float, CStateManager&);
   void UpdateInhabitants(float, CStateManager&);
   const rstl::list<CObjectTracker>& GetInhabitants() const;
   const CScriptTrigger::CObjectTracker* FindObject(TUniqueId);
-  void Accept(IVisitor& visitor) override;
+  void Accept(IVisitor& visitor);
   virtual void InhabitantAdded(CActor&, CStateManager&);
   virtual void InhabitantIdle(CActor&, CStateManager&);
   virtual void InhabitantExited(CActor&, CStateManager&);
