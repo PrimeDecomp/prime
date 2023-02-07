@@ -53,7 +53,7 @@ LIBS = [
             ["MetroidPrime/Tweaks/CTweakParticle", True],
             "MetroidPrime/Clamp_int",
             ["MetroidPrime/CArchMsgParmControllerStatus", True],
-            ["MetroidPrime/CExplosion", False],
+            ["MetroidPrime/CExplosion", True],
             ["MetroidPrime/CEffect", True],
             "MetroidPrime/Cameras/CGameCamera",
             "MetroidPrime/CGameArea",

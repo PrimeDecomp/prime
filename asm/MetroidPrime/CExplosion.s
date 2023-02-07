@@ -873,8 +873,8 @@ lbl_8005AC20:
 /* 8005ACC8 00057C28  38 21 00 80 */	addi r1, r1, 0x80
 /* 8005ACCC 00057C2C  4E 80 00 20 */	blr
 
-.global "__dt__Q24rstl52list<Q24rstl10pair<Us,b>,Q24rstl17rmemory_allocator>Fv"
-"__dt__Q24rstl52list<Q24rstl10pair<Us,b>,Q24rstl17rmemory_allocator>Fv":
+.global "__dt__Q24rstl40list<P5CWarp,Q24rstl17rmemory_allocator>Fv"
+"__dt__Q24rstl40list<P5CWarp,Q24rstl17rmemory_allocator>Fv":
 /* 8005ACD0 00057C30  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 8005ACD4 00057C34  7C 08 02 A6 */	mflr r0
 /* 8005ACD8 00057C38  90 01 00 24 */	stw r0, 0x24(r1)
