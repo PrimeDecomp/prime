@@ -29,7 +29,9 @@
  *
  */
 
+#ifndef _MSC_VER
 #include <stdlib.h>
+#endif
 extern "C" int abs(int);
 #include <Kyoto/Audio/g721.h>
 
@@ -456,4 +458,3 @@ g721_decoder(int		i,
     
 	return (sr << 2);	/* sr was 14-bit dynamic range */
 }
-
