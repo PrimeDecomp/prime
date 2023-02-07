@@ -1,4 +1,5 @@
 #include "types.h"
+#include "dolphin/hw_regs.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -17,7 +18,6 @@ static u8 DSPInitCode[128] = {
     // clang-format on
 };
 
-volatile u16 __DSPRegs[] : 0xCC005000;
 #define __DSPWorkBuffer (void*)0x81000000
 
 void __OSInitAudioSystem(void) {

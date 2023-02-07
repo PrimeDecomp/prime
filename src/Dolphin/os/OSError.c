@@ -1,6 +1,5 @@
 #include <dolphin/PPCArch.h>
-#include <dolphin/dsp_regs.h>
-#include <dolphin/dvd_regs.h>
+#include <dolphin/hw_regs.h>
 #include <dolphin/os.h>
 #include <stdio.h>
 

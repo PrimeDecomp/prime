@@ -1,5 +1,5 @@
 #include "dolphin/dsp.h"
-#include "dolphin/dsp_regs.h"
+#include "dolphin/hw_regs.h"
 
 DSPTaskInfo* __DSP_curr_task;
 DSPTaskInfo* __DSP_first_task;

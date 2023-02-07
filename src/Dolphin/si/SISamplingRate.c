@@ -1,5 +1,7 @@
 #include "dolphin/sipriv.h"
 #include "dolphin/vi.h"
+#include "dolphin/hw_regs.h"
+
 #pragma dont_inline on
 static u32 SamplingRate;
 

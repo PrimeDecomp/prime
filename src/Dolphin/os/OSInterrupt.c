@@ -1,14 +1,8 @@
 #include <dolphin/os.h>
+#include <dolphin/hw_regs.h>
 
 static asm void ExternalInterruptHandler(register __OSException exception,
                                          register OSContext* context);
-
-// TODO: Move these to a more appropriate location
-vu32 __PIRegs[12] : 0xCC003000;
-vu32 __EXIRegs[16] : 0xCC006800;
-vu16 __MEMRegs[64] : 0xCC004000;
-vu16 __DSPRegs[32] : 0xCC005000;
-vu32 __AIRegs[8] : 0xCC006C00;
 
 extern void __RAS_OSDisableInterrupts_begin(void);
 extern void __RAS_OSDisableInterrupts_end(void);

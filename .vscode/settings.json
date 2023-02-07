@@ -58,7 +58,8 @@
     "osfastcast.h": "c",
     "osfont.h": "c",
     "arq.h": "c",
-    "string.h": "c"
+    "string.h": "c",
+    "hw_regs.h": "c"
   },
   "files.autoSave": "onFocusChange",
   "files.insertFinalNewline": true,

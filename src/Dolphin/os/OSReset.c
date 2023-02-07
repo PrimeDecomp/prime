@@ -1,6 +1,7 @@
 #include "dolphin/OSRtcPriv.h"
 #include "dolphin/os.h"
 #include "dolphin/vi.h"
+#include "dolphin/hw_regs.h"
 
 volatile u8 DAT_800030e2 : 0x800030e2;
 typedef struct Unk {

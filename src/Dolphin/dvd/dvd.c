@@ -1,6 +1,6 @@
 #include <dolphin/DVDPriv.h>
 #include <dolphin/dvd.h>
-#include <dolphin/dvd_regs.h>
+#include <dolphin/hw_regs.h>
 #include <dolphin/os.h>
 #include <dolphin/os/OSBootInfo.h>
 

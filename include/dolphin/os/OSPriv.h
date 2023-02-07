@@ -12,7 +12,7 @@ OSTime __OSGetSystemTime();
 OSTime __OSTimeToSystemTime(OSTime);
 
 #ifdef __cplusplus
-extern "C" {
+}
 #endif
 
 #endif // _DOLPHIN_OSPRIV

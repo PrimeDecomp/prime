@@ -22,11 +22,7 @@ void VISetWindowFullscreen(bool fullscreen);
 bool VIGetWindowFullscreen();
 #endif
 
-#ifdef __MWERKS__
-vu16 __VIRegs[59] : 0xCC002000;
-#else
-vu16 __VIRegs[59];
-#endif
+
 
 #ifdef __cplusplus
 }

@@ -1,6 +1,6 @@
 #include "dolphin/ar.h"
 
-#include "dolphin/dsp_regs.h"
+#include "dolphin/hw_regs.h"
 #include "dolphin/os.h"
 
 static const char* __ARVersion =
