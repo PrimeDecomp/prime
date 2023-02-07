@@ -20,7 +20,7 @@ public:
   ~CGameCamera() override;
   void Accept(IVisitor& visitor) override;
   void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) override;
-  void SetActive(uchar active) override;
+  void SetActive(const bool active) override;
 
   // CGameCamera
   virtual void ProcessInput(const CFinalInput&, CStateManager& mgr) = 0;

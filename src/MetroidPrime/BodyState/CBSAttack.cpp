@@ -13,7 +13,7 @@
 
 CBSAttack::CBSAttack()
 : x4_nextState(pas::kAS_Invalid)
-// , x8_slide(CBCSlideCmd())
+, x8_slide(pas::kSlide_Invalid, CVector3f::Zero())
 , x20_targetPos(CVector3f::Zero())
 , x2c_alignTargetPosStartTime(-1.f)
 , x30_alignTargetPosTime(-1.f)
