@@ -1,5 +1,5 @@
 #include "dolphin/ai.h"
-#include "dolphin/dsp_regs.h"
+#include "dolphin/hw_regs.h"
 #include "dolphin/os.h"
 
 const char* __AIVersion = "<< Dolphin SDK - AI\trelease build: Sep  5 2002 05:34:25 (0x2301) >>";

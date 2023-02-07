@@ -4,7 +4,6 @@
 extern DVDDiskID* DVDGetCurrentDiskID();
 
 extern OSTime __OSGetSystemTime();
-vu32 __PIRegs[12] : 0xCC003000;
 
 static BOOL FirstRead = TRUE;
 static volatile BOOL StopAtNextInt = FALSE;

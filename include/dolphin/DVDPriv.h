@@ -2,7 +2,7 @@
 #define _DOLPHIN_DVDPRIV
 
 #include <dolphin/dvd.h>
-#include <dolphin/dvd_regs.h>
+#include <dolphin/hw_regs.h>
 #include <types.h>
 
 #ifdef __cplusplus
@@ -37,10 +37,9 @@ typedef struct DVDBB2 {
 
 typedef void (*DVDOptionalCommandChecker)(DVDCommandBlock* block, void (*cb)(u32 intType));
 typedef void (*DVDLowCallback)(u32 intType);
-
+extern DVDDiskID* DVDGetCurrentDiskID();
 DVDLowCallback DVDLowClearCallback();
 BOOL DVDLowSeek(u32 offset, DVDLowCallback callback);
-
 void __DVDLowSetWAType(u32 type, u32 location);
 DVDCommandBlock* __DVDPopWaitingQueue();
 

@@ -1,8 +1,7 @@
 #include "dolphin/os.h"
+#include "dolphin/hw_regs.h"
 
 #pragma scheduling off
-
-vu32 __EXIRegs[16] : 0xCC006800;
 
 static const char* __EXIVersion =
     "<< Dolphin SDK - EXI\trelease build: Sep  5 2002 05:33:04 (0x2301) >>";
