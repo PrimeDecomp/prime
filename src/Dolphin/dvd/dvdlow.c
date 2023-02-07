@@ -54,23 +54,20 @@ static void Read(void* addr, u32 length, u32 offset, DVDLowCallback callback);
 
 static BOOL ProcessNextCommand() {
   s32 n = NextCommandNumber;
-  BOOL ret;
   ASSERT(n < 3);
 
   if (CommandList[n].cmd == 1) {
     ++NextCommandNumber;
     Read(CommandList[n].addr, CommandList[n].length, CommandList[n].offset,
          CommandList[n].callback);
-    ret = TRUE;
+    return TRUE;
   } else if (CommandList[n].cmd == 2) {
     ++NextCommandNumber;
     DVDLowSeek(CommandList[n].offset, CommandList[n].callback);
-    ret = TRUE;
-  } else {
-    ret = FALSE;
-  }
+    return TRUE;
+  } 
 
-  return ret;
+  return FALSE;
 }
 
 void __DVDInterruptHandler(__OSInterrupt interrupt, OSContext* context) {
@@ -220,13 +217,25 @@ static void Read(void* addr, u32 length, u32 offset, DVDLowCallback callback) {
   }
 }
 
+BOOL AudioBufferOn() { return DVDGetCurrentDiskID()->streaming ? TRUE : FALSE; }
+
+BOOL HitCache(DVDBuffer* cur, DVDBuffer* prev) {
+  u32 uVar1 = (prev->offset + prev->length - 1) >> 15;
+  u32 uVar2 = (cur->offset >> 15);
+  u32 iVar3 = AudioBufferOn() ? 5 : 15;
+
+  if ((uVar2 > uVar1 - 2) || (uVar2 < uVar1 + iVar3 + 3)) {
+    return TRUE;
+  }
+  return FALSE;
+}
+
 static void DoJustRead(void* addr, u32 length, u32 offset, DVDLowCallback callback) {
   CommandList[0].cmd = -1;
   NextCommandNumber = 0;
   Read(addr, length, offset, callback);
 }
 
-#pragma dont_inline on
 static void SeekTwiceBeforeRead(void* addr, u32 length, u32 offset, DVDLowCallback callback) {
   u32 newOffset = offset & ~0x7FFF;
   if (!newOffset) {
@@ -246,9 +255,26 @@ static void SeekTwiceBeforeRead(void* addr, u32 length, u32 offset, DVDLowCallba
   NextCommandNumber = 0;
   DVDLowSeek(newOffset, callback);
 }
-#pragma dont_inline reset
 
+static void WaitBeforeRead(void* addr, u32 length, u32 offset, DVDLowCallback callback,
+                           OSTime timeout) {
+  CommandList[0].cmd = 1;
+  CommandList[0].addr = addr;
+  CommandList[0].length = length;
+  CommandList[0].offset = offset;
+  CommandList[0].callback = callback;
+  CommandList[1].cmd = -1;
+  NextCommandNumber = 0;
+  OSCreateAlarm(&AlarmForWA);
+  OSSetAlarm(&AlarmForWA, timeout, AlarmHandler);
+}
+
+#ifndef NONMATCHING
+/* Code is correct, but the stack is the wrong size */
 BOOL DVDLowRead(void* addr, u32 length, u32 offset, DVDLowCallback callback) {
+  OSTime diff;
+  u32 prev;
+
   __DIRegs[6] = length;
   Curr.addr = addr;
   Curr.length = length;
@@ -260,51 +286,17 @@ BOOL DVDLowRead(void* addr, u32 length, u32 offset, DVDLowCallback callback) {
     if (FirstRead) {
       SeekTwiceBeforeRead(addr, length, offset, callback);
     } else {
-      u32 curr2 = Curr.offset >> 15;
-      u32 prev1 = (Prev.offset + Prev.length - 1) >> 15;
-      DVDDiskID* id = DVDGetCurrentDiskID();
-
-      BOOL streaming = id->streaming ? TRUE : FALSE;
-      u32 val;
-      BOOL val2;
-      if (streaming) {
-        val = 5;
+      if (!HitCache(&Curr, &Prev)) {
+        DoJustRead(addr, length, offset, callback);
       } else {
-        val = 15;
-      }
-
-      if (curr2 > prev1 - 2 || curr2 < prev1 + (val + 3)) {
-        val2 = TRUE;
-      } else {
-        val2 = FALSE;
-      }
-
-      if (!val2) {
-        CommandList[0].cmd = -1;
-        NextCommandNumber = 0;
-        Read(addr, length, offset, callback);
-      } else {
-        curr2 = Curr.offset >> 15;
-        prev1 = (Prev.offset + Prev.length - 1) >> 15;
-        if (curr2 == prev1 || curr2 + 1 == prev1) {
-          OSTime diff = __OSGetSystemTime() - LastReadFinished;
-          OSTime five_ms = (OSTime)OSMillisecondsToTicks(5);
-          if (diff < five_ms) {
-            CommandList[0].cmd = -1;
-            NextCommandNumber = 0;
-            Read(addr, length, offset, callback);
+        prev = (Prev.offset + Prev.length - 1) >> 15;
+        if (prev == Curr.offset >> 15 || prev + 1 == Curr.offset >> 15) {
+          diff = __OSGetSystemTime() - LastReadFinished;
+          if (OSMillisecondsToTicks(5) < diff) {
+            DoJustRead(addr, length, offset, callback);
           } else {
-            OSTime temp;
-            temp = diff - five_ms + OSMicrosecondsToTicks(500);
-            CommandList[0].cmd = 1;
-            CommandList[0].addr = addr;
-            CommandList[0].length = length;
-            CommandList[0].offset = offset;
-            CommandList[0].callback = callback;
-            CommandList[1].cmd = -1;
-            NextCommandNumber = 0;
-            OSCreateAlarm(&AlarmForWA);
-            OSSetAlarm(&AlarmForWA, temp, AlarmHandler);
+            WaitBeforeRead(addr, length, offset, callback,
+                           OSMillisecondsToTicks(5) - diff + OSMicrosecondsToTicks(500));
           }
         } else {
           SeekTwiceBeforeRead(addr, length, offset, callback);
@@ -314,6 +306,197 @@ BOOL DVDLowRead(void* addr, u32 length, u32 offset, DVDLowCallback callback) {
   }
   return TRUE;
 }
+#else
+/* clang-format off */
+#pragma push
+#pragma optimization_level 0
+#pragma optimizewithasm off
+asm BOOL DVDLowRead(void* addr, u32 length, u32 offset, DVDLowCallback callback) {
+  nofralloc
+  mflr r0
+  lis r7, 0xCC006000@ha
+  stw r0, 4(r1)
+  stwu r1, -0x40(r1)
+  stmw r22, 0x18(r1)
+  addi r25, r4, 0
+  addi r4, r7, 0xCC006000@l
+  lis r7, CommandList@ha
+  addi r31, r7, CommandList@l
+  addi r24, r3, 0
+  addi r26, r5, 0
+  addi r30, r31, 0xcc
+  mr r27, r6
+  stw r25, 0x18(r4)
+  stw r24, 0xc4(r31)
+  stw r25, 0xc8(r31)
+  stw r26, 0xcc(r31)
+  lwz r0, WorkAroundType
+  cmplwi r0, 0
+  bne lbl_80370AC0
+  li r0, -1
+  stw r0, 0(r31)
+  li r0, 0
+  addi r3, r24, 0
+  stw r0, NextCommandNumber
+  addi r4, r25, 0
+  addi r5, r26, 0
+  addi r6, r27, 0
+  bl Read
+  b lbl_80370CC8
+lbl_80370AC0:
+  lwz r0, WorkAroundType
+  cmplwi r0, 1
+  bne lbl_80370CC8
+  lwz r0, FirstRead
+  cmpwi r0, 0
+  beq lbl_80370AF0
+  addi r3, r24, 0
+  addi r4, r25, 0
+  addi r5, r26, 0
+  addi r6, r27, 0
+  bl SeekTwiceBeforeRead
+  b lbl_80370CC8
+lbl_80370AF0:
+  addi r29, r31, 0xbc
+  lwz r0, 0(r30)
+  addi r28, r31, 0xc0
+  lwz r3, 0xbc(r31)
+  lwz r4, 0xc0(r31)
+  srwi r23, r0, 0xf
+  addi r0, r3, -1
+  add r0, r4, r0
+  srwi r22, r0, 0xf
+  bl DVDGetCurrentDiskID
+  lbz r0, 8(r3)
+  cmplwi r0, 0
+  beq lbl_80370B2C
+  li r0, 1
+  b lbl_80370B30
+lbl_80370B2C:
+  li r0, 0
+lbl_80370B30:
+  cmpwi r0, 0
+  beq lbl_80370B40
+  li r3, 5
+  b lbl_80370B44
+lbl_80370B40:
+  li r3, 0xf
+lbl_80370B44:
+  addi r0, r22, -2
+  cmplw r23, r0
+  bgt lbl_80370B60
+  addi r0, r3, 3
+  add r0, r22, r0
+  cmplw r23, r0
+  bge lbl_80370B68
+lbl_80370B60:
+  li r0, 1
+  b lbl_80370B6C
+lbl_80370B68:
+  li r0, 0
+lbl_80370B6C:
+  cmpwi r0, 0
+  bne lbl_80370B9C
+  li r0, -1
+  stw r0, 0(r31)
+  li r0, 0
+  addi r3, r24, 0
+  stw r0, NextCommandNumber
+  addi r4, r25, 0
+  addi r5, r26, 0
+  addi r6, r27, 0
+  bl Read
+  b lbl_80370CC8
+lbl_80370B9C:
+  lwz r3, 0(r29)
+  lwz r4, 0(r28)
+  addi r3, r3, -1
+  lwz r0, 0(r30)
+  add r3, r4, r3
+  srwi r3, r3, 0xf
+  srwi r4, r0, 0xf
+  cmplw r3, r4
+  beq lbl_80370BCC
+  addi r0, r3, 1
+  cmplw r0, r4
+  bne lbl_80370CB4
+lbl_80370BCC:
+  bl __OSGetSystemTime
+  lis r5, OS_BUS_CLOCK@ha
+  lwz r8, LastReadFinished
+  lwz r0, OS_BUS_CLOCK@l(r5)
+  lis r5, 0x10624DD3@ha
+  lwz r9, LastReadFinished+4
+  li r6, 0
+  srwi r7, r0, 2
+  addi r0, r5, 0x10624DD3@l
+  mulhwu r0, r0, r7
+  srwi r0, r0, 6
+  subfc r9, r9, r4
+  subfe r8, r8, r3
+  mulli r5, r0, 5
+  xoris r4, r6, 0x8000
+  xoris r3, r8, 0x8000
+  subfc r0, r9, r5
+  subfe r3, r3, r4
+  subfe r3, r4, r4
+  neg. r3, r3
+  beq lbl_80370C44
+  li r0, -1
+  stw r0, 0(r31)
+  addi r3, r24, 0
+  addi r4, r25, 0
+  stw r6, NextCommandNumber
+  addi r5, r26, 0
+  addi r6, r27, 0
+  bl Read
+  b lbl_80370CC8
+lbl_80370C44:
+  li r0, 1
+  stw r0, 0(r31)
+  lis r3, 0x431BDE83@ha
+  addi r0, r3, 0x431BDE83@l
+  stw r24, 4(r31)
+  mulhwu r0, r0, r7
+  stw r25, 8(r31)
+  stw r26, 0xc(r31)
+  srwi r0, r0, 0xf
+  mulli r3, r0, 0x1f4
+  stw r27, 0x10(r31)
+  li r0, -1
+  stw r0, 0x14(r31)
+  subfc r5, r9, r5
+  subfe r4, r8, r6
+  srwi r0, r3, 3
+  stw r6, NextCommandNumber
+  addc r23, r5, r0
+  adde r22, r4, r6
+  addi r3, r31, 0x40
+  bl OSCreateAlarm
+  lis r3, AlarmHandler@ha
+  addi r7, r3, AlarmHandler@l
+  addi r6, r23, 0
+  addi r5, r22, 0
+  addi r3, r31, 0x40
+  bl OSSetAlarm
+  b lbl_80370CC8
+lbl_80370CB4:
+  addi r3, r24, 0
+  addi r4, r25, 0
+  addi r5, r26, 0
+  addi r6, r27, 0
+  bl SeekTwiceBeforeRead
+lbl_80370CC8:
+  lmw r22, 0x18(r1)
+  li r3, 1
+  lwz r0, 0x44(r1)
+  addi r1, r1, 0x40
+  mtlr r0
+  blr
+}
+#pragma pop
+/* clang-format on */
+#endif
 
 BOOL DVDLowSeek(u32 offset, DVDLowCallback callback) {
   ASSERTMSG(offset & 3, "DVDLowSeek(): offset must be a multiple of 4.");
