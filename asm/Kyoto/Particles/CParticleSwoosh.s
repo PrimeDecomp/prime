@@ -4884,7 +4884,7 @@ lbl_8032ED98:
 /* 8032EDA8 0032BD08  38 04 DD 08 */	addi r0, r4, __vt__12CParticleGen@l
 /* 8032EDAC 0032BD0C  38 80 FF FF */	li r4, -1
 /* 8032EDB0 0032BD10  90 1E 00 00 */	stw r0, 0(r30)
-/* 8032EDB4 0032BD14  4B D2 BF 1D */	bl "__dt__Q24rstl52list<Q24rstl10pair<Us,b>,Q24rstl17rmemory_allocator>Fv"
+/* 8032EDB4 0032BD14  4B D2 BF 1D */	bl "__dt__Q24rstl40list<P5CWarp,Q24rstl17rmemory_allocator>Fv"
 lbl_8032EDB8:
 /* 8032EDB8 0032BD18  7F E0 07 35 */	extsh. r0, r31
 /* 8032EDBC 0032BD1C  40 81 00 0C */	ble lbl_8032EDC8

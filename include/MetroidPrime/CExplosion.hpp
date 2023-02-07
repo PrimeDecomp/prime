@@ -33,6 +33,9 @@ public:
   void Render(const CStateManager&) const override;
   void CalculateRenderBounds() override;
 
+  TUniqueId GetExplosionLightId() const { return xec_explosionLight; }
+  uint GetSourceId() const { return xf0_sourceId; }
+
 public:
   rstl::single_ptr< CParticleGen > xe8_particleGen;
   TUniqueId xec_explosionLight;

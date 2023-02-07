@@ -121,7 +121,7 @@ void CExplosion::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId sender, CSt
   CActor::AcceptScriptMsg(msg, sender, mgr);
 
   if (xec_explosionLight != kInvalidUniqueId)
-    mgr.SendScriptMsgAlways(sender, xec_explosionLight, msg);
+    mgr.SendScriptMsgAlways(xec_explosionLight, sender, msg);
 }
 
 void CExplosion::CalculateRenderBounds() {
@@ -152,5 +152,3 @@ void CExplosion::Render(const CStateManager& mgr) const {
   mgr.SetupFogForArea(GetCurrentAreaId());
   CElementGen::SetSubtractBlend(false);
 }
-
-// bool CExplosion::CanRenderUnsorted(const CStateManager&) const { return false; }
