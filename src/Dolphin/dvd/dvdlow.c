@@ -1,6 +1,8 @@
 #include "dolphin/DVDPriv.h"
 #include "dolphin/os.h"
 
+extern DVDDiskID* DVDGetCurrentDiskID();
+
 extern OSTime __OSGetSystemTime();
 vu32 __PIRegs[12] : 0xCC003000;
 
@@ -13,9 +15,9 @@ static volatile OSTime LastResetEnd = 0;
 static volatile u32 ResetOccurred = FALSE;
 static volatile BOOL WaitingCoverClose = FALSE;
 static BOOL Breaking = FALSE;
-static u32 WorkAroundType = 0;
+static volatile u32 WorkAroundType = 0;
 static u32 WorkAroundSeekLocation = 0;
-static OSTime LastReadFinished = 0;
+static volatile OSTime LastReadFinished = 0;
 static OSTime LastReadIssued = 0;
 static volatile BOOL LastCommandWasRead = FALSE;
 static vu32 NextCommandNumber = 0;
@@ -247,10 +249,10 @@ static void SeekTwiceBeforeRead(void* addr, u32 length, u32 offset, DVDLowCallba
 #pragma dont_inline reset
 
 BOOL DVDLowRead(void* addr, u32 length, u32 offset, DVDLowCallback callback) {
+  __DIRegs[6] = length;
   Curr.addr = addr;
   Curr.length = length;
   Curr.offset = offset;
-  __DIRegs[6] = length;
 
   if (WorkAroundType == 0) {
     DoJustRead(addr, length, offset, callback);
@@ -258,7 +260,56 @@ BOOL DVDLowRead(void* addr, u32 length, u32 offset, DVDLowCallback callback) {
     if (FirstRead) {
       SeekTwiceBeforeRead(addr, length, offset, callback);
     } else {
+      u32 curr2 = Curr.offset >> 15;
+      u32 prev1 = (Prev.offset + Prev.length - 1) >> 15;
+      DVDDiskID* id = DVDGetCurrentDiskID();
 
+      BOOL streaming = id->streaming ? TRUE : FALSE;
+      u32 val;
+      BOOL val2;
+      if (streaming) {
+        val = 5;
+      } else {
+        val = 15;
+      }
+
+      if (curr2 > prev1 - 2 || curr2 < prev1 + (val + 3)) {
+        val2 = TRUE;
+      } else {
+        val2 = FALSE;
+      }
+
+      if (!val2) {
+        CommandList[0].cmd = -1;
+        NextCommandNumber = 0;
+        Read(addr, length, offset, callback);
+      } else {
+        curr2 = Curr.offset >> 15;
+        prev1 = (Prev.offset + Prev.length - 1) >> 15;
+        if (curr2 == prev1 || curr2 + 1 == prev1) {
+          OSTime diff = __OSGetSystemTime() - LastReadFinished;
+          OSTime five_ms = (OSTime)OSMillisecondsToTicks(5);
+          if (diff < five_ms) {
+            CommandList[0].cmd = -1;
+            NextCommandNumber = 0;
+            Read(addr, length, offset, callback);
+          } else {
+            OSTime temp;
+            temp = diff - five_ms + OSMicrosecondsToTicks(500);
+            CommandList[0].cmd = 1;
+            CommandList[0].addr = addr;
+            CommandList[0].length = length;
+            CommandList[0].offset = offset;
+            CommandList[0].callback = callback;
+            CommandList[1].cmd = -1;
+            NextCommandNumber = 0;
+            OSCreateAlarm(&AlarmForWA);
+            OSSetAlarm(&AlarmForWA, temp, AlarmHandler);
+          }
+        } else {
+          SeekTwiceBeforeRead(addr, length, offset, callback);
+        }
+      }
     }
   }
   return TRUE;
