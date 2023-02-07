@@ -6347,8 +6347,8 @@ lbl_8009AC3C:
 /* 8009AC74 00097BD4  38 21 01 50 */	addi r1, r1, 0x150
 /* 8009AC78 00097BD8  4E 80 00 20 */	blr
 
-.global ProcessMapScreenInput__11CAutoMapperRC11CFinalInputRC13CStateManager
-ProcessMapScreenInput__11CAutoMapperRC11CFinalInputRC13CStateManager:
+.global ProcessMapScreenInput__11CAutoMapperFRC11CFinalInputRC13CStateManager
+ProcessMapScreenInput__11CAutoMapperFRC11CFinalInputRC13CStateManager:
 /* 8009AC7C 00097BDC  94 21 FF 40 */	stwu r1, -0xc0(r1)
 /* 8009AC80 00097BE0  7C 08 02 A6 */	mflr r0
 /* 8009AC84 00097BE4  90 01 00 C4 */	stw r0, 0xc4(r1)
@@ -6550,7 +6550,7 @@ lbl_8009AF50:
 /* 8009AF5C 00097EBC  7F E3 FB 78 */	mr r3, r31
 /* 8009AF60 00097EC0  7F A4 EB 78 */	mr r4, r29
 /* 8009AF64 00097EC4  7F C5 F3 78 */	mr r5, r30
-/* 8009AF68 00097EC8  4B FF FD 15 */	bl ProcessMapScreenInput__11CAutoMapperRC11CFinalInputRC13CStateManager
+/* 8009AF68 00097EC8  4B FF FD 15 */	bl ProcessMapScreenInput__11CAutoMapperFRC11CFinalInputRC13CStateManager
 lbl_8009AF6C:
 /* 8009AF6C 00097ECC  38 61 01 90 */	addi r3, r1, 0x190
 /* 8009AF70 00097ED0  38 9F 00 B0 */	addi r4, r31, 0xb0
@@ -8416,7 +8416,7 @@ lbl_8009CA2C:
 /* 8009CA50 000999B0  90 1F 01 F4 */	stw r0, 0x1f4(r31)
 /* 8009CA54 000999B4  80 B9 00 00 */	lwz r5, 0(r25)
 /* 8009CA58 000999B8  80 D9 00 08 */	lwz r6, 8(r25)
-/* 8009CA5C 000999BC  48 00 11 AD */	bl __ct__Q211CAutoMapper23SAutoMapperHintLocationUifUi7TAreaId
+/* 8009CA5C 000999BC  48 00 11 AD */	bl __ct__Q211CAutoMapper23SAutoMapperHintLocationFUifUi7TAreaId
 /* 8009CA60 000999C0  82 FF 02 00 */	lwz r23, 0x200(r31)
 /* 8009CA64 000999C4  38 9E 00 0F */	addi r4, r30, 0xf
 /* 8009CA68 000999C8  38 60 00 18 */	li r3, 0x18
@@ -8492,7 +8492,7 @@ lbl_8009CB50:
 /* 8009CB60 00099AC0  7C C0 C2 14 */	add r6, r0, r24
 /* 8009CB64 00099AC4  80 A6 00 00 */	lwz r5, 0(r6)
 /* 8009CB68 00099AC8  80 C6 00 08 */	lwz r6, 8(r6)
-/* 8009CB6C 00099ACC  48 00 10 9D */	bl __ct__Q211CAutoMapper23SAutoMapperHintLocationUifUi7TAreaId
+/* 8009CB6C 00099ACC  48 00 10 9D */	bl __ct__Q211CAutoMapper23SAutoMapperHintLocationFUifUi7TAreaId
 /* 8009CB70 00099AD0  82 DF 02 00 */	lwz r22, 0x200(r31)
 /* 8009CB74 00099AD4  38 9E 00 0F */	addi r4, r30, 0xf
 /* 8009CB78 00099AD8  38 60 00 18 */	li r3, 0x18
@@ -9676,8 +9676,8 @@ lbl_8009DBC8:
 /* 8009DC00 0009AB60  38 21 01 50 */	addi r1, r1, 0x150
 /* 8009DC04 0009AB64  4E 80 00 20 */	blr
 
-.global __ct__Q211CAutoMapper23SAutoMapperHintLocationUifUi7TAreaId
-__ct__Q211CAutoMapper23SAutoMapperHintLocationUifUi7TAreaId:
+.global __ct__Q211CAutoMapper23SAutoMapperHintLocationFUifUi7TAreaId
+__ct__Q211CAutoMapper23SAutoMapperHintLocationFUifUi7TAreaId:
 /* 8009DC08 0009AB68  90 83 00 00 */	stw r4, 0(r3)
 /* 8009DC0C 0009AB6C  D0 23 00 04 */	stfs f1, 4(r3)
 /* 8009DC10 0009AB70  90 A3 00 08 */	stw r5, 8(r3)
