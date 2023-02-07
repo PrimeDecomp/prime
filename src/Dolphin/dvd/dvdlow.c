@@ -358,9 +358,9 @@ BOOL DVDLowInquiry(DVDDriveInfo* info, DVDLowCallback callback) {
   StopAtNextInt = FALSE;
   Callback = callback;
   __DIRegs[2] = 0x12000000;
-  __DIRegs[4] = 32; // sizeof(DVDDriveInfo);
+  __DIRegs[4] = sizeof(DVDDriveInfo);
   __DIRegs[5] = (u32)info;
-  __DIRegs[6] = 32; // sizeof(DVDDriveInfo);
+  __DIRegs[6] = sizeof(DVDDriveInfo);
   __DIRegs[7] = 3;
   SetTimeoutAlarm(OSSecondsToTicks(10));
   return TRUE;
