@@ -10,7 +10,7 @@ LIBS = [
         ],
     },
     {
-        "lib": "MetroidPrimeCW",
+        "lib": "MetroidPrime",
         "cflags": "$cflags_retro",
         "mw_version": "1.3.2",
         "host": True,
@@ -1179,7 +1179,11 @@ if __name__ == "__main__":
     n.variable("asflags", asflags)
     ldflags = "-fp fmadd -nodefaults -lcf ldscript.lcf"
     if args.map:
-        map_path = build_path / "MetroidPrime.MAP"
+        if args.debug:
+            map_path = build_path / "MetroidCWD.MAP"
+        else:
+            map_path = build_path / "MetroidCW.MAP"
+        
         ldflags += f" -map {map_path}"
     if args.debug:
         ldflags += " -g"
