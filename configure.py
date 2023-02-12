@@ -578,7 +578,7 @@ LIBS = [
             ["Kyoto/Alloc/CCircularBuffer", True],
             ["Kyoto/Alloc/CMemory", True],
             ["Kyoto/Alloc/IAllocator", True],
-            "Kyoto/PVS/CPVSVisOctree",
+            ["Kyoto/PVS/CPVSVisOctree", False],
             "Kyoto/PVS/CPVSVisSet",
             ["Kyoto/Particles/CColorElement", False],
             "Kyoto/Particles/CElementGen",
