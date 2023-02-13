@@ -1,27 +1,27 @@
 #include "dolphin/GBAPriv.h"
 
 void WriteProc(s32 chan) {
-  GBA* gba;
+  GBAControl* gba;
   gba = &__GBA[chan];
 
-  if (gba->result != 0) {
+  if (gba->ret != 0) {
     return;
   }
 
-  gba->status[0] = gba->dst[0] & GBA_JSTAT_MASK;
+  gba->status[0] = gba->input[0] & GBA_JSTAT_MASK;
 }
 
 s32 GBAWriteAsync(s32 chan, u8* src, u8* status, GBACallback callback) {
-  GBA* gba;
+  GBAControl* gba;
   s32 ret;
   gba = &__GBA[chan];
 
   if (gba->callback != NULL) {
     ret = GBA_BUSY;
   } else {
-    gba->command = 0x15;
-    memcpy(gba->src, src, 4);
-    gba->buffer = src;
+    gba->output[0] = 0x15;
+    memcpy(&gba->output[1], src, 4);
+    gba->ptr = src;
     gba->status = status;
     gba->callback = callback;
     ret = __GBATransfer(chan, 5, 1, WriteProc);

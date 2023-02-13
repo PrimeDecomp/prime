@@ -70,8 +70,7 @@ lbl_803F752C:
 
 .section .text, "ax"
 
-.global __F23
-__F23:
+.fn F23, local
 /* 803CAF40 003C7EA0  7C 08 02 A6 */	mflr r0
 /* 803CAF44 003C7EA4  3C 80 80 57 */	lis r4, __GBA@ha
 /* 803CAF48 003C7EA8  90 01 00 04 */	stw r0, 4(r1)
@@ -134,9 +133,9 @@ lbl_803CAFFC:
 /* 803CB010 003C7F70  38 21 00 20 */	addi r1, r1, 0x20
 /* 803CB014 003C7F74  7C 08 03 A6 */	mtlr r0
 /* 803CB018 003C7F78  4E 80 00 20 */	blr
+.endfn F23
 
-.global __F25
-__F25:
+.fn F25, local
 /* 803CB01C 003C7F7C  3C 80 80 57 */	lis r4, __GBA@ha
 /* 803CB020 003C7F80  7C 08 02 A6 */	mflr r0
 /* 803CB024 003C7F84  38 84 A1 A0 */	addi r4, r4, __GBA@l
@@ -184,9 +183,9 @@ lbl_803CB0A8:
 /* 803CB0B8 003C8018  38 21 00 08 */	addi r1, r1, 8
 /* 803CB0BC 003C801C  7C 08 03 A6 */	mtlr r0
 /* 803CB0C0 003C8020  4E 80 00 20 */	blr
+.endfn F25
 
-.global __GBAX02
-__GBAX02:
+.fn __GBAX02
 /* 803CB0C4 003C8024  7C 08 02 A6 */	mflr r0
 /* 803CB0C8 003C8028  3C A0 80 57 */	lis r5, __GBA@ha
 /* 803CB0CC 003C802C  90 01 00 04 */	stw r0, 4(r1)
@@ -222,15 +221,15 @@ __GBAX02:
 /* 803CB144 003C80A4  3C 04 80 00 */	addis r0, r4, 0x8000
 /* 803CB148 003C80A8  90 1F 00 B4 */	stw r0, 0xb4(r31)
 /* 803CB14C 003C80AC  38 00 03 80 */	li r0, 0x380
-/* 803CB150 003C80B0  3C A0 80 3D */	lis r5, __F23@ha
+/* 803CB150 003C80B0  3C A0 80 3D */	lis r5, F23@ha
 /* 803CB154 003C80B4  90 1F 00 B8 */	stw r0, 0xb8(r31)
 /* 803CB158 003C80B8  38 C0 00 00 */	li r6, 0
 /* 803CB15C 003C80BC  38 00 00 10 */	li r0, 0x10
 /* 803CB160 003C80C0  90 DF 00 BC */	stw r6, 0xbc(r31)
-/* 803CB164 003C80C4  38 A5 AF 40 */	addi r5, r5, __F23@l
-/* 803CB168 003C80C8  3C 80 80 3D */	lis r4, __F25@ha
+/* 803CB164 003C80C4  38 A5 AF 40 */	addi r5, r5, F23@l
+/* 803CB168 003C80C8  3C 80 80 3D */	lis r4, F25@ha
 /* 803CB16C 003C80CC  B0 1F 00 CC */	sth r0, 0xcc(r31)
-/* 803CB170 003C80D0  38 04 B0 1C */	addi r0, r4, __F25@l
+/* 803CB170 003C80D0  38 04 B0 1C */	addi r0, r4, F25@l
 /* 803CB174 003C80D4  38 7F 00 A8 */	addi r3, r31, 0xa8
 /* 803CB178 003C80D8  90 BF 00 D0 */	stw r5, 0xd0(r31)
 /* 803CB17C 003C80DC  90 DF 00 D4 */	stw r6, 0xd4(r31)
@@ -244,3 +243,4 @@ __GBAX02:
 /* 803CB19C 003C80FC  38 21 00 20 */	addi r1, r1, 0x20
 /* 803CB1A0 003C8100  7C 08 03 A6 */	mtlr r0
 /* 803CB1A4 003C8104  4E 80 00 20 */	blr
+.endfn __GBAX02
