@@ -42,7 +42,7 @@ typedef struct GBABootInfo {
   u32 crc;
   u32 dummyWord[7];
   u32 keyA;
-  u32 keyB;
+  s32 keyB;
   u32 initialCode;
   int realLength;
 } GBABootInfo;

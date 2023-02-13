@@ -1027,7 +1027,7 @@ LIBS = [
         "objects": [
             ["Dolphin/GBA/GBA", True],
             ["Dolphin/GBA/GBAGetProcessStatus", False],
-            "Dolphin/GBA/GBAJoyBoot",
+            ["Dolphin/GBA/GBAJoyBoot", False],
             ["Dolphin/GBA/GBARead", True],
             ["Dolphin/GBA/GBAWrite", True],
             ["Dolphin/GBA/GBAXfer", True],
