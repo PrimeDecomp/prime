@@ -5,6 +5,7 @@
 
 #include <dolphin/gba.h>
 #include <dolphin/os.h>
+#include <dolphin/dsp.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -13,43 +14,60 @@ extern "C" {
 typedef void (*GBATransferCallback)(s32 chan);
 
 typedef struct GBASecParams {
-  u8 data[0x40];
+  u8 readbuf[4];
+  s32 paletteColor;
+  s32 paletteSpeed;
+  s32 length;
+  u32* out;
+  u8 _padding0[12];
+  u32 keyA;
+  s32 keyB;
+  u8 _padding1[24];
 } GBASecParams;
 
-typedef struct GBA {
-  u8 command;
-  u8 src[4];
-  u8 dst[4];
-  u8 _09;
-  s8 _0a;
-  s8 _0b;
-  s32 _0c;
-  s32 _10;
+typedef struct GBABootInfo {
+  s32 paletteColor;
+  s32 paletteSpeed;
+  u8* programp;
+  s32 length;
   u8* status;
-  u8* buffer;
   GBACallback callback;
-  s32 result;
-  OSThreadQueue thread_queue;
-  OSTime delay;
-  GBATransferCallback _38;
-  s32 _3c;
-  s32 palette_color;
-  s32 palette_speed;
-  u8* program;
-  s32 program_length;
-  s32 jboot_status;
-  GBACallback jboot_callback;
-  char data2[0x74u - 0x58u];
-  u8* challenge_cipher;
-  char data3[0xf8 - 0x78u];
-  GBASecParams* param;
-  char data4[0x100u - 0xfcu];
-} GBA;
+  u8 readbuf[4];
+  u8 writebuf[4];
+  int i;
+  OSTick start;
+  OSTime begin;
+  int firstXfer;
+  int curOffset;
+  u32 crc;
+  u32 dummyWord[7];
+  u32 keyA;
+  u32 keyB;
+  u32 initialCode;
+  int realLength;
+} GBABootInfo;
 
-extern GBA __GBA[4];
+typedef struct GBAControl {
+  u8 output[5];
+  u8 input[5];
+  s32 outputBytes;
+  s32 inputBytes;
+  u8* status;
+  u8* ptr;
+  GBACallback callback;
+  s32 ret;
+  OSThreadQueue threadQueue;
+  OSTime delay;
+  GBATransferCallback proc;
+  GBABootInfo bootInfo;
+  DSPTaskInfo task;
+  GBASecParams* param;
+} GBAControl;
+
+extern GBAControl __GBA[4];
 extern BOOL __GBAReset;
 
-void __GBAHandler(s32 chan, u32 sr, OSContext* context);
+void __GBAHandler(s32 chan, u32 error, OSContext* context);
 void __GBASyncCallback(s32 chan, s32 ret);
 s32 __GBASync(s32 chan);
 OSTime __GBASetDelay(s32 chan, OSTime delay);

@@ -1,17 +1,17 @@
 #include "dolphin/GBAPriv.h"
 
 void ReadProc(s32 chan) {
-  GBA* gba;
+  GBAControl* gba;
   gba = &__GBA[chan];
 
-  if (gba->result == 0) {
-    memcpy(gba->buffer, &gba->dst, 4);
-    gba->status[0] = gba->_09 & GBA_JSTAT_MASK;
+  if (gba->ret == 0) {
+    memcpy(gba->ptr, gba->input, 4);
+    gba->status[0] = gba->input[4] & GBA_JSTAT_MASK;
   }
 }
 
 s32 GBAReadAsync(s32 chan, u8* dst, u8* status, GBACallback callback) {
-  GBA* gba;
+  GBAControl* gba;
   s32 ret;
 
   gba = &__GBA[chan];
@@ -19,8 +19,8 @@ s32 GBAReadAsync(s32 chan, u8* dst, u8* status, GBACallback callback) {
   if (gba->callback != NULL) {
     ret = 2;
   } else {
-    gba->command = 0x14;
-    gba->buffer = dst;
+    gba->output[0] = 0x14;
+    gba->ptr = dst;
     gba->status = status;
     gba->callback = callback;
     ret = __GBATransfer(chan, 1, 5, ReadProc);

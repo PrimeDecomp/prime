@@ -244,8 +244,9 @@ lbl_803C98C4:
 /* 803C98D0 003C6830  7C 08 03 A6 */	mtlr r0
 /* 803C98D4 003C6834  4E 80 00 20 */	blr
 
-OnReset:
+.fn OnReset, local
 /* 803C98D8 003C6838  38 00 00 01 */	li r0, 1
 /* 803C98DC 003C683C  90 0D B1 58 */	stw r0, __GBAReset@sda21(r13)
 /* 803C98E0 003C6840  38 60 00 01 */	li r3, 1
 /* 803C98E4 003C6844  4E 80 00 20 */	blr
+.endfn OnReset

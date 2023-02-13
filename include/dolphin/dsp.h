@@ -19,9 +19,7 @@ extern "C" {
 
 typedef void (*DSPCallback)(void* task);
 
-typedef struct DSPTaskInfo DSPTaskInfo;
-
-typedef struct DSPTaskInfo {
+typedef struct STRUCT_DSP_TASK {
   vu32 state;
   vu32 priority;
   vu32 flags;
@@ -41,8 +39,8 @@ typedef struct DSPTaskInfo {
   DSPCallback done_cb;
   DSPCallback req_cb;
 
-  struct DSPTaskInfo* next;
-  struct DSPTaskInfo* prev;
+  struct STRUCT_DSP_TASK* next;
+  struct STRUCT_DSP_TASK* prev;
 
   OSTime t_context;
   OSTime t_task;
