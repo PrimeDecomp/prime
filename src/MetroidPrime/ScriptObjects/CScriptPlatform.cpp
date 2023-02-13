@@ -188,7 +188,7 @@ void CScriptPlatform::DecayRiders(rstl::vector< SRiders >& riders, float dt, CSt
 }
 
 // TODO: minor regswap
-void CScriptPlatform::MoveRiders(CStateManager& mgr, float dt, bool active,
+void CScriptPlatform::MoveRiders(CStateManager& mgr, float dt, nbdbool active,
                                  rstl::vector< SRiders >& riders,
                                  rstl::vector< SRiders >& collidedRiders, const CTransform4f& oldXf,
                                  const CTransform4f& newXf, const CVector3f& dragDelta,
