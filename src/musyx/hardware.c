@@ -28,7 +28,7 @@ void snd_handle_irq() {
 
   for (i = 0; i < salNumVoices; ++i) {
     for (j = 0; j < 5; ++j) {
-      dspVoice[i].flags[j] = 0;
+      dspVoice[i].flags = 0;
     }
   }
 
@@ -94,74 +94,67 @@ void hwSetTimeOffset(u8 offset) { salTimeOffset = offset; }
 
 u8 hwGetTimeOffset() { return salTimeOffset; }
 
-u32 hwIsActive(s32 idx) { return dspVoice[idx].status != 0; }
+u32 hwIsActive(s32 idx) { return dspVoice[idx].state != 0; }
 
 void hwSetMesgCallback(SND_MESSAGE_CALLBACK callback) { salMessageCallback = callback; }
 
-void hwSetPriority(s32 idx, s32 priority) { dspVoice[idx].priority = priority; }
+void hwSetPriority(s32 idx, s32 priority) { dspVoice[idx].prio = priority; }
 
-void hwInitSamplePlayback(s32 vid, u16 sampleId, u32* param_3, u32 param_4, u32 priority,
-                          u32 param_6, u32 param_7, u32 itdMode) {
-  u8 i;
-  u32 j;
-  u32 k;
-  s32 flags;
-  s32 tmpFlags;
-  u32* tmp;
-  u32 tmp2;
-  u32 tmp3;
-  flags = 0;
+void hwInitSamplePlayback(s32 v, u16 smpID, void* newsmp, u32 set_defadsr, u32 priority,
+                          u32 callbackUserValue, u32 setSRC, u32 itdMode) {
+  unsigned char i;  // r30
+  unsigned long bf; // r29
+  DSPvoice* voice;
+  bf = 0;
   for (i = 0; i <= salTimeOffset; ++i) {
-    tmpFlags = dspVoice[vid].flags[i];
-    dspVoice[vid].flags[i] = 0;
-    flags |= tmpFlags & 0x20;
+    bf |= dspVoice[v].changed[i] & 0x20;
+    dspVoice[v].changed[i] = 0;
   }
 
-  dspVoice[vid].flags[0] = flags;
-  dspVoice[vid].priority = priority;
-  dspVoice[vid]._18 = param_6;
-  dspVoice[vid].itdFlags = 0;
-  dspVoice[vid].sampleId = sampleId;
-  tmp = &dspVoice[vid]._74;
-  for (j = 4; j > 0; --j) {
-    tmp[0] = param_3[0];
-    tmp[1] = param_3[1];
-    tmp += 2;
-    param_3 += 2;
+  dspVoice[v].changed[0] = bf;
+  dspVoice[v].prio = priority;
+  dspVoice[v].mesgCallBackUserValue = callbackUserValue;
+  dspVoice[v].flags = 0;
+  dspVoice[v].smp_id = smpID;
+  voice = &dspVoice[v];
+  ((u32*)&voice->smp_info)[0] = ((u32*)newsmp)[0];
+  ((u32*)&voice->smp_info)[1] = ((u32*)newsmp)[1];
+  ((u32*)&voice->smp_info)[2] = ((u32*)newsmp)[2];
+  ((u32*)&voice->smp_info)[3] = ((u32*)newsmp)[3];
+  ((u32*)&voice->smp_info)[4] = ((u32*)newsmp)[4];
+  ((u32*)&voice->smp_info)[5] = ((u32*)newsmp)[5];
+  ((u32*)&voice->smp_info)[6] = ((u32*)newsmp)[6];
+  ((u32*)&voice->smp_info)[7] = ((u32*)newsmp)[7];
+  
+  if (set_defadsr != 0) {
+    dspVoice[v].adsr.mode = 0;
+    dspVoice[v].adsr.data.dls.aTime = 0;
+    dspVoice[v].adsr.data.dls.dTime = 0;
+    dspVoice[v].adsr.data.dls.sLevel = 0x7FFF;
+    dspVoice[v].adsr.data.dls.rTime = 0;
   }
 
-  if (param_4 != 0) {
-    dspVoice[vid]._a4 = 0;
-    dspVoice[vid]._b8 = 0;
-    dspVoice[vid]._bc = 0;
-    dspVoice[vid]._c0 = 0x7FFF;
-    dspVoice[vid]._c4 = 0;
+  dspVoice[v].lastUpdate.pitch = 0xff;
+  dspVoice[v].lastUpdate.vol = 0xff;
+  dspVoice[v].lastUpdate.volA = 0xff;
+  dspVoice[v].lastUpdate.volB = 0xff;
+
+  if (setSRC != 0) {
+    hwSetSRCType(v, 0);
+    hwSetPolyPhaseFilter(v, 1);
   }
 
-  dspVoice[vid]._e4 = 0xff;
-  dspVoice[vid]._e5 = 0xff;
-  dspVoice[vid]._e6 = 0xff;
-  dspVoice[vid]._e7 = 0xff;
-
-  if (param_7 != 0) {
-    hwSetSRCType(vid, 0);
-    hwSetPolyPhaseFilter(vid, 1);
-  }
-
-  hwSetITDMode(vid, itdMode);
+  hwSetITDMode(v, itdMode);
 }
 
 void hwBreak(s32 vid) {
-  if (dspVoice[vid].status == 1 && salTimeOffset == 0) {
-    dspVoice[vid].breakSet = 1;
+  if (dspVoice[vid].state == 1 && salTimeOffset == 0) {
+    dspVoice[vid].startupBreak = 1;
   }
 
-  dspVoice[vid].flags[salTimeOffset] |= 0x20;
+  // dspVoice[vid].flags[salTimeOffset] |= 0x20;
 }
 
-void hwSetADSR(s32 vid, u32 *param_2, u8 param_3) {
-}
+void hwSetADSR(s32 vid, u32* param_2, u8 param_3) {}
 
-void hwOff(s32 vid) {
-  salDeactivateVoice(&dspVoice[vid]);
-}
+void hwOff(s32 vid) { salDeactivateVoice(&dspVoice[vid]); }
