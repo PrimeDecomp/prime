@@ -77,7 +77,7 @@ u32 salInitAi(SND_SOME_CALLBACK callback, u32 unk, u32* outFreq) {
     userCallback = callback;
     AIRegisterDMACallback(salCallback);
     AIInitDMA(OSCachedToPhysical((u32)salAIBufferBase) + (salAIBufferIndex * 0x280), 0x280);
-    synthInfo._4 = 0x20;
+    synthInfo.numSamples = 0x20;
     *outFreq = 32000;
     return TRUE;
   }

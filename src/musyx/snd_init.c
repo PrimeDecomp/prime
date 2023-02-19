@@ -22,21 +22,21 @@ s32 sndInit(u8 voices, u8 music, u8 sfx, u8 studios, u32 flags, u32 aramSize) {
 
   sndActive = 0;
   if (voices <= 64) {
-    synthInfo.voices = voices;
+    synthInfo.voiceNum = voices;
   } else {
-    synthInfo.voices = 64;
+    synthInfo.voiceNum = 64;
   }
   if (studios <= 8) {
-    synthInfo.studios = studios;
+    synthInfo.studioNum = studios;
   } else {
-    synthInfo.studios = 8;
+    synthInfo.studioNum = 8;
   }
   rate = 32000;
-  synthInfo.music = music;
-  synthInfo.sfx = sfx;
-  ret = hwInit(&rate, synthInfo.voices, synthInfo.studios, flags);
+  synthInfo.maxMusic = music;
+  synthInfo.maxSFX = sfx;
+  ret = hwInit(&rate, synthInfo.voiceNum, synthInfo.studioNum, flags);
   if (ret == 0) {
-    ret = DoInit(32000, aramSize, synthInfo.voices, flags);
+    ret = DoInit(32000, aramSize, synthInfo.voiceNum, flags);
   }
   return ret;
 }
@@ -50,8 +50,8 @@ void sndQuit() {
 }
 
 void sndSetMaxVoices(u8 music, u8 sfx) {
-  ASSERT_MSG(music > synthInfo.voices, "Music voices are above maximum voice number.");
-  ASSERT_MSG(sfx > synthInfo.voices, "Sfx voices are above maximum voice number.");
-  synthInfo.music = music;
-  synthInfo.sfx = sfx;
+  ASSERT_MSG(music > synthInfo.voiceNum, "Music voices are above maximum voice number.");
+  ASSERT_MSG(sfx > synthInfo.voiceNum, "Sfx voices are above maximum voice number.");
+  synthInfo.maxMusic = music;
+  synthInfo.maxSFX = sfx;
 }

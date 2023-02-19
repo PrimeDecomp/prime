@@ -6,31 +6,6 @@
 extern "C" {
 #endif
 
-typedef struct VoiceID VoiceID;
-
-struct VoiceID {
-  VoiceID* next;
-  VoiceID* prev;
-  s32 pubId;
-  s32 privId;
-};
-
-
-typedef struct SynthVoice {
-  char data1[0xf4];
-  u32 _f4;
-  VoiceID* voiceId;
-  char data2[0x18];
-  u32 _114[2];
-  u8 _11c;
-  u8 _11d;
-  u8 _11e;
-  u8 studio;
-  char data3[0x404 - 0x120];
-} SynthVoice;
-
-extern SynthVoice* synthVoice;
-
 typedef void (*SND_AUX_CALLBACK)(u8 reason, SND_AUX_INFO* info, void* user);
 
 extern SND_AUX_CALLBACK synthAuxACallback[8];

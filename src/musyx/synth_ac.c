@@ -66,5 +66,5 @@ u32 sndGetPitch(u8 arg0, u32 arg1) {
                      ? (f32)((arg1 & 0xFFFFFF) * (temp_r6 < arg0 ? toneup_tab[(arg0 - temp_r6)]
                                                                  : tonedown_tab[temp_r6 - arg0]))
                      : (f32)(arg1 & 0xFFFFFF));
-  return pitch / synthInfo.freq;
+  return pitch / synthInfo.mixFrq;
 }
