@@ -6,8 +6,6 @@
 extern "C" {
 #endif
 
-typedef void (*SND_AUX_CALLBACK)(u8 reason, SND_AUX_INFO* info, void* user);
-
 extern SND_AUX_CALLBACK synthAuxACallback[8];
 extern u8 synthAuxAMIDI[8];
 extern u8 synthAuxAMIDISet[8];

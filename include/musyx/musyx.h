@@ -107,6 +107,13 @@ void sndSilence();
 #define SND_AUX_REASON_BUFFERUPDATE 0
 #define SND_AUX_REASON_PARAMETERUPDATE 1
 
+typedef enum {
+  SND_STUDIO_TYPE_STD = 0,
+	SND_STUDIO_TYPE_RESERVED0 = 1,
+	SND_STUDIO_TYPE_RESERVED1 = 2,
+  SND_STUDIO_TYPE_RESERVED2 = 3,
+} SND_STUDIO_TYPE;
+
 typedef struct SND_AUX_INFO {
   union SND_AUX_DATA {
     struct SND_AUX_BUFFERUPDATE {
@@ -172,6 +179,8 @@ typedef struct SND_AUX_DELAY {
   u32 feedback[3]; // Feedback volume in % per channel
   u32 output[3];   // Output volume in % per channel
 } SND_AUX_DELAY;
+
+typedef void (*SND_AUX_CALLBACK)(u8 reason, SND_AUX_INFO* info, void* user);
 
 void sndAuxCallbackDelay(u8 reason, SND_AUX_INFO* info, void* user);
 bool sndAuxCallbackUpdateSettingsDelay(SND_AUX_DELAY* delay);

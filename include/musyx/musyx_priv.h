@@ -105,7 +105,7 @@ typedef struct _PBDPOP {
   unsigned short aAuxBS; // offset 0x10, size 0x2
 } _PBDPOP;
 
-struct _PBVE {
+typedef struct _PBVE {
   // total size: 0x4
   unsigned short currentVolume; // offset 0x0, size 0x2
   unsigned short currentDelta;  // offset 0x2, size 0x2
@@ -139,7 +139,7 @@ typedef struct _PBADPCM {
   unsigned short yn2;        // offset 0x26, size 0x2
 } _PDADPCM;
 
-struct _PBSRC {
+typedef struct _PBSRC {
   // total size: 0xE
   unsigned short ratioHi;            // offset 0x0, size 0x2
   unsigned short ratioLo;            // offset 0x2, size 0x2
@@ -306,7 +306,7 @@ typedef struct CTRL_DEST {
   u8 numSource;
 } CTRL_DEST;
 
-struct SND_VIRTUALSAMPLE_INFO {
+typedef struct SND_VIRTUALSAMPLE_INFO {
   // total size: 0x14
   unsigned short smpID;  // offset 0x0, size 0x2
   unsigned short instID; // offset 0x2, size 0x2
@@ -474,6 +474,95 @@ typedef struct SYNTH_VOICE {
   u16 curOutputVolume;          // offset 0x400, size 0x2
 } SYNTH_VOICE;
 #pragma pop
+
+typedef struct SAL_VOLINFO {
+  // total size: 0x24
+  float volL;     // offset 0x0, size 0x4
+  float volR;     // offset 0x4, size 0x4
+  float volS;     // offset 0x8, size 0x4
+  float volAuxAL; // offset 0xC, size 0x4
+  float volAuxAR; // offset 0x10, size 0x4
+  float volAuxAS; // offset 0x14, size 0x4
+  float volAuxBL; // offset 0x18, size 0x4
+  float volAuxBR; // offset 0x1C, size 0x4
+  float volAuxBS; // offset 0x20, size 0x4
+} SAL_VOLINFO;
+
+typedef struct _SPB {
+  // total size: 0x36
+  unsigned short dpopLHi;     // offset 0x0, size 0x2
+  unsigned short dpopLLo;     // offset 0x2, size 0x2
+  unsigned short dpopLDelta;  // offset 0x4, size 0x2
+  unsigned short dpopRHi;     // offset 0x6, size 0x2
+  unsigned short dpopRLo;     // offset 0x8, size 0x2
+  unsigned short dpopRDelta;  // offset 0xA, size 0x2
+  unsigned short dpopSHi;     // offset 0xC, size 0x2
+  unsigned short dpopSLo;     // offset 0xE, size 0x2
+  unsigned short dpopSDelta;  // offset 0x10, size 0x2
+  unsigned short dpopALHi;    // offset 0x12, size 0x2
+  unsigned short dpopALLo;    // offset 0x14, size 0x2
+  unsigned short dpopALDelta; // offset 0x16, size 0x2
+  unsigned short dpopARHi;    // offset 0x18, size 0x2
+  unsigned short dpopARLo;    // offset 0x1A, size 0x2
+  unsigned short dpopARDelta; // offset 0x1C, size 0x2
+  unsigned short dpopASHi;    // offset 0x1E, size 0x2
+  unsigned short dpopASLo;    // offset 0x20, size 0x2
+  unsigned short dpopASDelta; // offset 0x22, size 0x2
+  unsigned short dpopBLHi;    // offset 0x24, size 0x2
+  unsigned short dpopBLLo;    // offset 0x26, size 0x2
+  unsigned short dpopBLDelta; // offset 0x28, size 0x2
+  unsigned short dpopBRHi;    // offset 0x2A, size 0x2
+  unsigned short dpopBRLo;    // offset 0x2C, size 0x2
+  unsigned short dpopBRDelta; // offset 0x2E, size 0x2
+  unsigned short dpopBSHi;    // offset 0x30, size 0x2
+  unsigned short dpopBSLo;    // offset 0x32, size 0x2
+  unsigned short dpopBSDelta; // offset 0x34, size 0x2
+} _SPB;
+
+typedef struct DSPhostDPop {
+  // total size: 0x24
+  long l;  // offset 0x0, size 0x4
+  long r;  // offset 0x4, size 0x4
+  long s;  // offset 0x8, size 0x4
+  long lA; // offset 0xC, size 0x4
+  long rA; // offset 0x10, size 0x4
+  long sA; // offset 0x14, size 0x4
+  long lB; // offset 0x18, size 0x4
+  long rB; // offset 0x1C, size 0x4
+  long sB; // offset 0x20, size 0x4
+} DSPhostDPop;
+
+typedef struct DSPinput {
+  // total size: 0xC
+  unsigned char studio;          // offset 0x0, size 0x1
+  unsigned short vol;            // offset 0x2, size 0x2
+  unsigned short volA;           // offset 0x4, size 0x2
+  unsigned short volB;           // offset 0x6, size 0x2
+  struct SND_STUDIO_INPUT* desc; // offset 0x8, size 0x4
+} DSPinput;
+
+typedef struct DSPstudioinfo {
+  // total size: 0xBC
+  struct _SPB* spb;                // offset 0x0, size 0x4
+  struct DSPhostDPop hostDPopSum;  // offset 0x4, size 0x24
+  long* main[2];                   // offset 0x28, size 0x8
+  long* auxA[3];                   // offset 0x30, size 0xC
+  long* auxB[3];                   // offset 0x3C, size 0xC
+  struct DSPvoice* voiceRoot;      // offset 0x48, size 0x4
+  struct DSPvoice* alienVoiceRoot; // offset 0x4C, size 0x4
+  unsigned char state;             // offset 0x50, size 0x1
+  unsigned char isMaster;          // offset 0x51, size 0x1
+  unsigned char numInputs;         // offset 0x52, size 0x1
+  SND_STUDIO_TYPE type;            // offset 0x54, size 0x4
+  struct DSPinput in[7];           // offset 0x58, size 0x54
+  SND_AUX_CALLBACK auxAHandler;    // offset 0xAC, size 0x4
+  SND_AUX_CALLBACK auxBHandler;    // offset 0xB0, size 0x4
+  void* auxAUser;                  // offset 0xB4, size 0x4
+  void* auxBUser;                  // offset 0xB8, size 0x4
+} DSPstudioinfo;
+
+extern DSPstudioinfo dspStudio[8];
+
 extern SYNTH_VOICE* synthVoice;
 
 extern DSPvoice* dspVoice;
@@ -500,7 +589,7 @@ u8* sndBSearch(u16* key, u8* subTab, s32 mainTab, s32 len, SND_COMPARE cmp);
 void sndConvertMs(u32* time);
 void sndConvertTicks(u32* out, u32 seconds);
 u32 sndConvert2Ms(u32 time);
-void hwActivateStudio(u8 studio, u32 arg1, u32 arg2);
+void hwActivateStudio(unsigned char studio, unsigned long isMaster, SND_STUDIO_TYPE type);
 void hwDeactivateStudio(u8);
 u32 hwIsActive(s32);
 
@@ -523,7 +612,12 @@ u32 salInitAi(SND_SOME_CALLBACK, u32, u32*);
 u32 salInitDsp(u32);
 u32 salInitDspCtrl(u32, u32, u16);
 u32 salStartAi();
-
+void salActivateStudio(u8 studio, u32 isMaster, SND_STUDIO_TYPE type);
+void salDeactivateStudio(unsigned char studio);
+void salActivateVoice(DSPvoice* dsp_vptr, u8 studio);
+void salCalcVolume(u8 voltab_index, SAL_VOLINFO* vi, float vol, u32 pan, u32 span, float auxa,
+                   float auxb, u32 itd, u32 dpl2);
+void salReconnectVoice(DSPvoice* dsp_vptr, u8 studio);
 void* salMalloc(u32 len);
 void salFree(void* addr);
 
@@ -546,12 +640,24 @@ typedef struct SND_STREAM_INFO {
 void streamOutputModeChanged();
 
 /* TODO: Figure out what `unk` is */
-bool hwAddInput(u8 studio, void* unk);
-bool hwRemoveInput(u8 studio, void* unk);
+void hwSetSRCType(u32 v, u8 salSRCType);
+void hwSetITDMode(u32 v, u8 mode);
+void hwSetPolyPhaseFilter(unsigned long v, unsigned char salCoefSel);
+bool hwAddInput(u8 studio, SND_STUDIO_INPUT* in_desc);
+bool hwRemoveInput(u8 studio, SND_STUDIO_INPUT* in_desc);
+void hwChangeStudio(u32 v, u8 studio);
 void hwDisableHRTF();
 
 extern u32 dspCmdList;
 extern u16 dspCmdFirstSize;
+
+extern u8 dspScale2IndexTab[1024];
+
+u32 aramGetStreamBufferAddress(unsigned char id, unsigned long* len);
+void aramUploadData(void* mram, unsigned long aram, unsigned long len, unsigned long highPrio,
+                    void (*callback)(unsigned long), unsigned long user);
+void aramFreeStreamBuffer(u8 id);
+void * aramStoreData(void * src, unsigned long len);
 #ifdef __cplusplus
 }
 #endif
