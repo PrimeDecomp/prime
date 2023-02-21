@@ -388,8 +388,36 @@ bool hwRemoveInput(u8 studio, SND_STUDIO_INPUT* in_desc) {
 
 void hwChangeStudio(u32 v, u8 studio) { salReconnectVoice(&dspVoice[v], studio); }
 
-u32 hwGetPos(u32 v) {}
+u32 hwGetPos(u32 v) {
+  unsigned long pos; // r31
+  unsigned long off; // r30
+  if (dspVoice[v].state != 2) {
+    return 0;
+  }
 
+  switch (dspVoice[v].smp_info.compType) {
+  case 0:
+  case 1:
+  case 4:
+  case 5:
+    pos = ((dspVoice[v].currentAddr - (u32)dspVoice[v].smp_info.addr * 2) / 16) * 14;
+    off = dspVoice[v].currentAddr & 0xf;
+    if (off >= 2) {
+      pos += off - 2;
+    }
+    break;
+  case 3:
+    pos = dspVoice[v].currentAddr - (u32)dspVoice[v].smp_info.addr;
+    break;
+  case 2:
+    pos = dspVoice[v].currentAddr - ((u32)dspVoice[v].smp_info.addr / 2);
+    break;
+  }
+
+  return pos;
+}
+
+#if NONMATCHING
 void hwFlushStream(void* base, unsigned long offset, unsigned long bytes,
                    unsigned char hwStreamHandle, void (*callback)(unsigned long),
                    unsigned long user) {
@@ -401,7 +429,57 @@ void hwFlushStream(void* base, unsigned long offset, unsigned long bytes,
   aramUploadData((void*)((u32)base + (offset & ~31)), aram + (offset & ~31),
                  bytes + ((offset & 31) + 31) & ~31, 1, callback, user);
 }
-
+#else
+/* clang-format off */
+#pragma push
+#pragma optimization_level 0
+#pragma optimizewithasm off
+extern void _savegpr_25();
+extern void _restgpr_25();
+asm void hwFlushStream(void* base, unsigned long offset, unsigned long bytes,
+                   unsigned char hwStreamHandle, void (*callback)(unsigned long),
+                   unsigned long user) {
+  nofralloc
+  stwu r1, -0x30(r1)
+  mflr r0
+  stw r0, 0x34(r1)
+  addi r11, r1, 0x30
+  bl _savegpr_25
+  mr r25, r3
+  mr r29, r4
+  mr r26, r5
+  mr r27, r7
+  mr r28, r8
+  mr r3, r6
+  addi r4, r1, 8
+  bl aramGetStreamBufferAddress
+  clrlwi r0, r29, 0x1b
+  rlwinm r30, r29, 0, 0, 0x1a
+  add r26, r26, r0
+  mr r31, r3
+  addi r0, r26, 0x1f
+  add r29, r25, r30
+  rlwinm r26, r0, 0, 0, 0x1a
+  mr r3, r29
+  mr r4, r26
+  bl DCStoreRange
+  mr r3, r29
+  mr r5, r26
+  mr r7, r27
+  mr r8, r28
+  add r4, r31, r30
+  li r6, 1
+  bl aramUploadData
+  addi r11, r1, 0x30
+  bl _restgpr_25
+  lwz r0, 0x34(r1)
+  mtlr r0
+  addi r1, r1, 0x30
+  blr
+}
+#pragma pop
+/* clang-format on */
+#endif
 u32 hwInitStream(u32 len) { return aramAllocateStreamBuffer(len); }
 
 void hwExitStream(u8 id) { aramFreeStreamBuffer(id); }
@@ -418,15 +496,27 @@ void hwInitSampleMem(u32 baseAddr, u32 length) { aramInit(length); }
 
 void hwExitSampleMem() { aramExit(); }
 
-u32 convert_length(u32 len, u8 type) {}
+u32 convert_length(u32 len, u8 type) {
+  switch (type) {
+  case 0:
+  case 1:
+  case 4:
+  case 5:
+    return (((u32)((len + 0xD) / 0xe))) * 8;
+  case 2:
+    return len * 2;
+  }
+  return len;
+}
 
 void hwSaveSample(void* header, void* data) {
   u32 len;
   u8 type;
 
-  header = ((u32*)header);
-  len = ((u32*)header)[0];
-  type = ((u32*)header)[1] >> 0x18;
+  header = (void*)((u32*)header)[0];
+  header = (void*)((u32*)header)[1];
+  len = (u32)header & 0xFFFFFF;
+  type = (u32)header >> 0x18;
   *((u32*)data) = (u32)aramStoreData((void*)*((u32*)data), convert_length(len, type));
 }
 
@@ -434,7 +524,9 @@ void hwSetSaveSampleCallback(ARAMUploadCallback callback, unsigned long chunckSi
   aramSetUploadCallback(callback);
 }
 
-void hwRemoveSample(void* header, void* data) {}
+void hwRemoveSample(void* header, void* data) {
+  aramRemoveData(data, convert_length(((u32*)header)[1] & 0xFFFFFF, ((u32*)header)[1] >> 0x18));
+}
 
 void hwSyncSampleMem() { aramSyncTransferQueue(); }
 
