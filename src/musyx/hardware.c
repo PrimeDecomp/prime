@@ -1,6 +1,8 @@
 #include "musyx/musyx_priv.h"
 
-static u16 itdOffTab[128] = {
+extern void DCStoreRange(void* addr, u32 nBytes);
+
+static volatile const u16 itdOffTab[128] = {
     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  1,  1,  1,  1,  1,  1,  1,  2,  2,  2,  2,
     2,  3,  3,  3,  3,  3,  4,  4,  4,  4,  5,  5,  5,  6,  6,  6,  7,  7,  7,  8,  8,  8,
     9,  9,  9,  10, 10, 10, 11, 11, 12, 12, 12, 13, 13, 13, 14, 14, 15, 15, 15, 16, 16, 17,
@@ -110,7 +112,7 @@ void hwSetMesgCallback(SND_MESSAGE_CALLBACK callback) { salMessageCallback = cal
 void hwSetPriority(s32 idx, s32 priority) { dspVoice[idx].prio = priority; }
 
 void hwInitSamplePlayback(s32 v, u16 smpID, void* newsmp, u32 set_defadsr, u32 priority,
-                          u32 callbackUserValue, u32 setSRC, u32 itdMode) {
+                          u32 callbackUserValue, u32 setSRC, u8 itdMode) {
   unsigned char i;  // r30
   unsigned long bf; // r29
   bf = 0;
@@ -272,9 +274,11 @@ void hwSetPolyPhaseFilter(unsigned long v, unsigned char salCoefSel) {
   dsp_vptr->changed[0] |= 0x80;
 }
 
-void SetupITD(DSPvoice* dsp_vptr, u8 pan) {
-  dsp_vptr->itdShiftL = itdOffTab[pan];
-  dsp_vptr->itdShiftR = 32 - itdOffTab[pan];
+inline void SetupITD(DSPvoice* dsp_vptr, u8 pan) {
+  u16 panA = itdOffTab[pan];
+  u16 panB = itdOffTab[pan];
+  dsp_vptr->itdShiftL = panA;
+  dsp_vptr->itdShiftR = 32 - panB;
   dsp_vptr->changed[0] |= 0x200;
 }
 
@@ -327,7 +331,7 @@ void hwSetVolume(unsigned long v, unsigned char table, float vol, unsigned long 
   ir = 32767.f * vi.volAuxAR;
   is = 32767.f * vi.volAuxAS;
 
-  if (dsp_vptr->lastUpdate.volA == 0xff | dsp_vptr->volLa != il || dsp_vptr->volRa != ir ||
+  if (dsp_vptr->lastUpdate.volA == 0xff || dsp_vptr->volLa != il || dsp_vptr->volRa != ir ||
       dsp_vptr->volSa != is) {
     dsp_vptr->volLa = il;
     dsp_vptr->volRa = ir;
@@ -384,19 +388,18 @@ bool hwRemoveInput(u8 studio, SND_STUDIO_INPUT* in_desc) {
 
 void hwChangeStudio(u32 v, u8 studio) { salReconnectVoice(&dspVoice[v], studio); }
 
-u32 hwGetPos(unsigned long v) {}
+u32 hwGetPos(u32 v) {}
 
 void hwFlushStream(void* base, unsigned long offset, unsigned long bytes,
                    unsigned char hwStreamHandle, void (*callback)(unsigned long),
                    unsigned long user) {
-  unsigned long mram; // r29
   unsigned long aram; // r28
+  unsigned long mram; // r29
   unsigned long len;
   aram = aramGetStreamBufferAddress(hwStreamHandle, &len);
-  bytes += ((offset & 31) + 31) & ~31;
-  mram = (u32)base + (offset & ~31);
-  DCStoreRange((void*)mram, len);
-  aramUploadData((void*)mram, aram + (offset & ~31), bytes, 1, callback, user);
+  DCStoreRange((void*)((u32)base + (offset & ~31)), bytes + ((offset & 31) + 31) & ~31);
+  aramUploadData((void*)((u32)base + (offset & ~31)), aram + (offset & ~31),
+                 bytes + ((offset & 31) + 31) & ~31, 1, callback, user);
 }
 
 u32 hwInitStream(u32 len) { return aramAllocateStreamBuffer(len); }
@@ -415,19 +418,38 @@ void hwInitSampleMem(u32 baseAddr, u32 length) { aramInit(length); }
 
 void hwExitSampleMem() { aramExit(); }
 
-u32 convert_length(u32 len, u8 type) {
-  switch (type) {
-  case 0:
-    return ((len + 13) / 14) * 8;
-  case 2:
-    return len * 2;
-  case 3:
-    return len;
-  default:
-    return len;
-  }
-}
+u32 convert_length(u32 len, u8 type) {}
 
 void hwSaveSample(void* header, void* data) {
-  //convert_length
+  u32 len;
+  u8 type;
+
+  header = ((u32*)header);
+  len = ((u32*)header)[0];
+  type = ((u32*)header)[1] >> 0x18;
+  *((u32*)data) = (u32)aramStoreData((void*)*((u32*)data), convert_length(len, type));
 }
+
+void hwSetSaveSampleCallback(ARAMUploadCallback callback, unsigned long chunckSize) {
+  aramSetUploadCallback(callback);
+}
+
+void hwRemoveSample(void* header, void* data) {}
+
+void hwSyncSampleMem() { aramSyncTransferQueue(); }
+
+void hwFrameDone() {}
+
+void sndSetHooks(SND_HOOKS* hooks) { salHooks = *hooks; }
+
+void hwDisableHRTF() { dspHRTFOn = FALSE; }
+
+u32 hwGetVirtualSampleID(u32 v) {
+  if (dspVoice[v].state == 0) {
+    return ~0;
+  }
+
+  return dspVoice[v].virtualSampleID;
+}
+
+bool hwVoiceInStartup(u32 v) { return dspVoice[v].state == 1; }

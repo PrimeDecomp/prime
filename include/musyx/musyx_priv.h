@@ -323,23 +323,23 @@ typedef struct SND_VIRTUALSAMPLE_INFO {
 
 typedef struct VS_BUFFER {
   // total size: 0x24
-  unsigned char state;                // offset 0x0, size 0x1
-  unsigned char hwId;                 // offset 0x1, size 0x1
-  unsigned char smpType;              // offset 0x2, size 0x1
-  unsigned char voice;                // offset 0x3, size 0x1
-  unsigned long last;                 // offset 0x4, size 0x4
-  unsigned long finalGoodSamples;     // offset 0x8, size 0x4
-  unsigned long finalLast;            // offset 0xC, size 0x4
-  struct SND_VIRTUALSAMPLE_INFO info; // offset 0x10, size 0x14
+  unsigned char state;            // offset 0x0, size 0x1
+  unsigned char hwId;             // offset 0x1, size 0x1
+  unsigned char smpType;          // offset 0x2, size 0x1
+  unsigned char voice;            // offset 0x3, size 0x1
+  unsigned long last;             // offset 0x4, size 0x4
+  unsigned long finalGoodSamples; // offset 0x8, size 0x4
+  unsigned long finalLast;        // offset 0xC, size 0x4
+  SND_VIRTUALSAMPLE_INFO info;    // offset 0x10, size 0x14
 } VS_BUFFER;
 
 typedef struct _VS {
   // total size: 0x950
-  unsigned char numBuffers;          // offset 0x0, size 0x1
-  unsigned long bufferLength;        // offset 0x4, size 0x4
-  struct VS_BUFFER streamBuffer[64]; // offset 0x8, size 0x900
-  unsigned char voices[64];          // offset 0x908, size 0x40
-  unsigned short nextInstID;         // offset 0x948, size 0x2
+  unsigned char numBuffers;   // offset 0x0, size 0x1
+  unsigned long bufferLength; // offset 0x4, size 0x4
+  VS_BUFFER streamBuffer[64]; // offset 0x8, size 0x900
+  unsigned char voices[64];   // offset 0x908, size 0x40
+  unsigned short nextInstID;  // offset 0x948, size 0x2
   unsigned long (*callback)(unsigned char,
                             struct SND_VIRTUALSAMPLE_INFO*); // offset 0x94C, size 0x4
 } VS;
@@ -488,6 +488,22 @@ typedef struct SAL_VOLINFO {
   float volAuxBS; // offset 0x20, size 0x4
 } SAL_VOLINFO;
 
+typedef struct SAL_PANINFO {
+  // total size: 0x30
+  u32 pan_i;   // offset 0x0, size 0x4
+  u32 pan_im;  // offset 0x4, size 0x4
+  u32 span_i;  // offset 0x8, size 0x4
+  u32 span_im; // offset 0xC, size 0x4
+  u32 rpan_i;  // offset 0x10, size 0x4
+  u32 rpan_im; // offset 0x14, size 0x4
+  float pan_f;           // offset 0x18, size 0x4
+  float pan_fm;          // offset 0x1C, size 0x4
+  float span_f;          // offset 0x20, size 0x4
+  float span_fm;         // offset 0x24, size 0x4
+  float rpan_f;          // offset 0x28, size 0x4
+  float rpan_fm;         // offset 0x2C, size 0x4
+} SAL_PANINFO;
+
 typedef struct _SPB {
   // total size: 0x36
   unsigned short dpopLHi;     // offset 0x0, size 0x2
@@ -621,6 +637,8 @@ void salReconnectVoice(DSPvoice* dsp_vptr, u8 studio);
 void* salMalloc(u32 len);
 void salFree(void* addr);
 
+extern float dspDLSVolTab[128];
+
 /* Stream */
 typedef s32 (*SND_STREAM_UPDATE_CALLBACK)(void* buffer1, u32 len1, void* buffer2, u32 len2,
                                           void* user);
@@ -648,16 +666,20 @@ bool hwRemoveInput(u8 studio, SND_STUDIO_INPUT* in_desc);
 void hwChangeStudio(u32 v, u8 studio);
 void hwDisableHRTF();
 
+extern bool dspHRTFOn;
+
 extern u32 dspCmdList;
 extern u16 dspCmdFirstSize;
 
 extern u8 dspScale2IndexTab[1024];
 
+typedef void* (*ARAMUploadCallback)(u32, u32);
+
 u32 aramGetStreamBufferAddress(unsigned char id, unsigned long* len);
 void aramUploadData(void* mram, unsigned long aram, unsigned long len, unsigned long highPrio,
                     void (*callback)(unsigned long), unsigned long user);
 void aramFreeStreamBuffer(u8 id);
-void * aramStoreData(void * src, unsigned long len);
+void* aramStoreData(void* src, unsigned long len);
 #ifdef __cplusplus
 }
 #endif
