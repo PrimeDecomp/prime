@@ -680,6 +680,7 @@ void aramUploadData(void* mram, unsigned long aram, unsigned long len, unsigned 
                     void (*callback)(unsigned long), unsigned long user);
 void aramFreeStreamBuffer(u8 id);
 void* aramStoreData(void* src, unsigned long len);
+void aramRemoveData(void * aram, unsigned long len);
 #ifdef __cplusplus
 }
 #endif

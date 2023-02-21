@@ -943,7 +943,7 @@ LIBS = [
             ["musyx/snd_math", True],
             ["musyx/snd_midictrl", False],
             ["musyx/snd_service", True],
-            ["musyx/hardware", False],
+            ["musyx/hardware", True],
             "musyx/hw_aramdma",
             ["musyx/dsp_import", True],
             ["musyx/hw_dolphin", True],
