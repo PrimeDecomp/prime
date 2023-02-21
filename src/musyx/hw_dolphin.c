@@ -6,7 +6,7 @@
 /* Is this actually what factor 5 did? They specify 0x2000 for the dram size, but the next TU winds
  * up incorrectly aligned */
 static u8 dram_image[0x2008] ATTRIBUTE_ALIGN(32);
-static DSPTaskInfo dsp_task;
+static DSPTaskInfo dsp_task ATTRIBUTE_ALIGN(8);
 
 static volatile u32 oldState = 0;
 static volatile u16 hwIrqLevel = 0;
@@ -134,7 +134,7 @@ u32 salExitDsp() {
 void salStartDsp(u32 cmdList) {
   salDspIsDone = FALSE;
   PPCSync();
-  // "Failed assertion ((u32)cmdList & 0x1F)==0"
+  ASSERT(((u32)cmdList & 0x1F)==0);
   DSPSendMailToDSP(dspCmdFirstSize | 0xbabe0000);
 
   while (DSPCheckMailToDSP())
