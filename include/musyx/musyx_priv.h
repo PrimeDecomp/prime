@@ -490,18 +490,18 @@ typedef struct SAL_VOLINFO {
 
 typedef struct SAL_PANINFO {
   // total size: 0x30
-  u32 pan_i;   // offset 0x0, size 0x4
-  u32 pan_im;  // offset 0x4, size 0x4
-  u32 span_i;  // offset 0x8, size 0x4
-  u32 span_im; // offset 0xC, size 0x4
-  u32 rpan_i;  // offset 0x10, size 0x4
-  u32 rpan_im; // offset 0x14, size 0x4
-  float pan_f;           // offset 0x18, size 0x4
-  float pan_fm;          // offset 0x1C, size 0x4
-  float span_f;          // offset 0x20, size 0x4
-  float span_fm;         // offset 0x24, size 0x4
-  float rpan_f;          // offset 0x28, size 0x4
-  float rpan_fm;         // offset 0x2C, size 0x4
+  u32 pan_i;     // offset 0x0, size 0x4
+  u32 pan_im;    // offset 0x4, size 0x4
+  u32 span_i;    // offset 0x8, size 0x4
+  u32 span_im;   // offset 0xC, size 0x4
+  u32 rpan_i;    // offset 0x10, size 0x4
+  u32 rpan_im;   // offset 0x14, size 0x4
+  float pan_f;   // offset 0x18, size 0x4
+  float pan_fm;  // offset 0x1C, size 0x4
+  float span_f;  // offset 0x20, size 0x4
+  float span_fm; // offset 0x24, size 0x4
+  float rpan_f;  // offset 0x28, size 0x4
+  float rpan_fm; // offset 0x2C, size 0x4
 } SAL_PANINFO;
 
 typedef struct _SPB {
@@ -613,7 +613,7 @@ extern SND_HOOKS salHooks;
 extern u8 sndActive;
 extern s8 synthIdleWaitActive;
 extern SynthInfo synthInfo;
-typedef s32 (*SND_MESSAGE_CALLBACK)(s32, u32);
+typedef s32 (*SND_MESSAGE_CALLBACK)(u32, u32);
 typedef void (*SND_SOME_CALLBACK)();
 
 extern SND_MESSAGE_CALLBACK salMessageCallback;
@@ -626,8 +626,11 @@ void salInvertMatrix(SND_FMATRIX* out, const SND_FMATRIX* in);
 /* hardware */
 u32 salInitAi(SND_SOME_CALLBACK, u32, u32*);
 u32 salInitDsp(u32);
-u32 salInitDspCtrl(u32, u32, u16);
+bool salInitDspCtrl(u8 numVoices, u8 numStudios, u32 defaultStudioDPL2);
 u32 salStartAi();
+void salInitHRTFBuffer();
+void salActivateVoice(DSPvoice* dsp_vptr, u8 studio);
+void salDeactivateVoice(DSPvoice* dsp_vptr);
 void salActivateStudio(u8 studio, u32 isMaster, SND_STUDIO_TYPE type);
 void salDeactivateStudio(unsigned char studio);
 void salActivateVoice(DSPvoice* dsp_vptr, u8 studio);
@@ -637,6 +640,9 @@ void salReconnectVoice(DSPvoice* dsp_vptr, u8 studio);
 void* salMalloc(u32 len);
 void salFree(void* addr);
 
+#define SAL_MAX_STUDIONUM 8
+extern u8 salMaxStudioNum;
+extern u8 salNumVoices;
 extern float dspDLSVolTab[128];
 
 /* Stream */
@@ -666,9 +672,9 @@ bool hwRemoveInput(u8 studio, SND_STUDIO_INPUT* in_desc);
 void hwChangeStudio(u32 v, u8 studio);
 void hwDisableHRTF();
 
-extern bool dspHRTFOn;
+extern u32 dspHRTFOn;
 
-extern u32 dspCmdList;
+extern u16* dspCmdList;
 extern u16 dspCmdFirstSize;
 
 extern u8 dspScale2IndexTab[1024];
@@ -680,7 +686,7 @@ void aramUploadData(void* mram, unsigned long aram, unsigned long len, unsigned 
                     void (*callback)(unsigned long), unsigned long user);
 void aramFreeStreamBuffer(u8 id);
 void* aramStoreData(void* src, unsigned long len);
-void aramRemoveData(void * aram, unsigned long len);
+void aramRemoveData(void* aram, unsigned long len);
 #ifdef __cplusplus
 }
 #endif
