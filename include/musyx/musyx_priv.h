@@ -584,9 +584,9 @@ extern SYNTH_VOICE* synthVoice;
 extern DSPvoice* dspVoice;
 typedef s32 (*SND_COMPARE)(u16*, u8*);
 
-void dataInit(u32, s32);                                       /* extern */
-void dataInitStack();                                          /* extern */
-s32 hwInit(u32* rate, u8 numVoices, u8 numStudios, u32 flags); /* extern */
+void dataInit(u32, s32);                                        /* extern */
+void dataInitStack();                                           /* extern */
+s32 hwInit(u32* frq, u16 numVoices, u16 numStudios, u32 flags); /* extern */
 void hwEnableIrq();
 void hwDisableIrq();
 void s3dInit(s32);       /* extern */
@@ -626,7 +626,7 @@ void salInvertMatrix(SND_FMATRIX* out, const SND_FMATRIX* in);
 /* hardware */
 u32 salInitAi(SND_SOME_CALLBACK, u32, u32*);
 u32 salInitDsp(u32);
-bool salInitDspCtrl(u8 numVoices, u8 numStudios, u32 defaultStudioDPL2);
+u32 salInitDspCtrl(u8 numVoices, u8 numStudios, u32 defaultStudioDPL2);
 u32 salStartAi();
 void salInitHRTFBuffer();
 void salActivateVoice(DSPvoice* dsp_vptr, u8 studio);

@@ -29,7 +29,7 @@ s16* dspITDBuffer = NULL;
 DSPvoice* dspVoice = NULL;
 SND_MESSAGE_CALLBACK salMessageCallback = NULL;
 
-bool salInitDspCtrl(u8 numVoices, u8 numStudios, u32 defaultStudioDPL2) {
+u32 salInitDspCtrl(u8 numVoices, u8 numStudios, u32 defaultStudioDPL2) {
   u32 i;      // r31
   u32 j;      // r27
   u32 itdPtr; // r28

@@ -65,16 +65,16 @@ void snd_handle_irq() {
   hwIRQLeaveCritical();
 }
 
-s32 hwInit(u32* rate, u8 numVoices, u8 numStudios, u32 flags) {
+s32 hwInit(u32 * frq, u16 numVoices, u16 numStudios, u32 flags) {
   hwInitIrq();
   salFrame = 0;
   salAuxFrame = 0;
   salMessageCallback = NULL;
-  if (salInitAi(snd_handle_irq, flags, rate) == 0) {
+  if (salInitAi(snd_handle_irq, flags, frq) == 0) {
     // OSReport("Could not initialize AI.\n");
   } else {
     // OSReport("salInitAi() is done.\n\n");
-    if (salInitDspCtrl(numVoices, numStudios, flags & 1) == 0) {
+    if (salInitDspCtrl(numVoices, numStudios, (flags & 1) != 0) == 0) {
       // OSReport("Could not initialize DSP control logic.\n");
     } else {
       // OSReport("salInitDspCtrl() is done.\n\n");
