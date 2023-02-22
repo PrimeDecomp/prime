@@ -496,7 +496,7 @@ void hwInitSampleMem(u32 baseAddr, u32 length) { aramInit(length); }
 
 void hwExitSampleMem() { aramExit(); }
 
-u32 convert_length(u32 len, u8 type) {
+static u32 convert_length(u32 len, u8 type) {
   switch (type) {
   case 0:
   case 1:

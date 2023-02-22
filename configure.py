@@ -936,7 +936,7 @@ LIBS = [
             ["musyx/synth_vsamples", False],
             ["musyx/synth_dbtab", True],
             "musyx/s_data",
-            "musyx/hw_dspctrl",
+            ["musyx/hw_dspctrl", False],
             ["musyx/hw_volconv", False],
             ["musyx/snd3d", False],
             ["musyx/snd_init", True],

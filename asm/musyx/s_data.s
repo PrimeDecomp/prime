@@ -6,6 +6,13 @@
 sp:
 	.skip 0x8
 
+.section .bss
+.balign 8
+
+.global gs
+gs:
+	.skip 0x600
+
 .section .text, "ax"
 
 .global vsUpdateBuffer

@@ -2,9 +2,6 @@
 
 .section .bss
 .balign 8
-.global gs
-gs:
-	.skip 0x600
 .global dspStudio
 dspStudio:
 	.skip 0x5E0
@@ -62,8 +59,7 @@ salMessageCallback:
 .section .data, "wa"
 .balign 8
 
-.global dspSRCCycles
-dspSRCCycles:
+.obj dspSRCCycles, global
 	# ROM: 0x3F0FA8
 	.2byte 0x0BAE
 	.2byte 0x0BAE
@@ -74,40 +70,60 @@ dspSRCCycles:
 	.2byte 0x0E74
 	.2byte 0x0E74
 	.2byte 0x045B
-	.balign 8
+.endobj dspSRCCycles
 
 
 .section .rodata
 .balign 8
-.global lbl_803D8A68
-lbl_803D8A68:
+.obj dspMixerCycles, global
 	# ROM: 0x3D5A68
-	.4byte 0x05BE0B7C
-	.4byte 0x0B7C113A
-	.4byte 0x08B6116C
-	.4byte 0x116C1A22
-	.4byte 0x09A6134C
-	.4byte 0x134C1CF2
-	.4byte 0x0E971D2E
-	.4byte 0x1D2E2BC5
-	.4byte 0x0B7C0D3A
-	.4byte 0x0B7C0D3A
-	.4byte 0x0B7C0D3A
-	.4byte 0x0B7C0D3A
-	.4byte 0x134C1637
-	.4byte 0x134C1637
-	.4byte 0x134C1637
-	.4byte 0x134C1637
+	.2byte 0x05BE
+	.2byte 0x0B7C
+	.2byte 0x0B7C
+	.2byte 0x113A
+	.2byte 0x08B6
+	.2byte 0x116C
+	.2byte 0x116C
+	.2byte 0x1A22
+	.2byte 0x09A6
+	.2byte 0x134C
+	.2byte 0x134C
+	.2byte 0x1CF2
+	.2byte 0x0E97
+	.2byte 0x1D2E
+	.2byte 0x1D2E
+	.2byte 0x2BC5
+	.2byte 0x0B7C
+	.2byte 0x0D3A
+	.2byte 0x0B7C
+	.2byte 0x0D3A
+	.2byte 0x0B7C
+	.2byte 0x0D3A
+	.2byte 0x0B7C
+	.2byte 0x0D3A
+	.2byte 0x134C
+	.2byte 0x1637
+	.2byte 0x134C
+	.2byte 0x1637
+	.2byte 0x134C
+	.2byte 0x1637
+	.2byte 0x134C
+	.2byte 0x1637
 
-.global lbl_803D8AA8
-lbl_803D8AA8:
+.endobj dspMixerCycles
+
+.obj "pbOffsets$455", global
 	# ROM: 0x3D5AA8
-	.4byte 0x000A000C
-	.4byte 0x0018000E
-	.4byte 0x0010001A
-	.4byte 0x00120014
-	.4byte 0x00160000
-	.4byte 0
+	.2byte 0x000A
+	.2byte 0x000C
+	.2byte 0x0018
+	.2byte 0x000E
+	.2byte 0x0010
+	.2byte 0x001A
+	.2byte 0x0012
+	.2byte 0x0014
+	.2byte 0x0016
+.endobj "pbOffsets$455"
 
 
 .section .text, "ax"
@@ -2433,9 +2449,9 @@ lbl_803ACE28:
 /* 803ACE30 003A9D90  7C 1F F2 2E */	lhzx r0, r31, r30
 /* 803ACE34 003A9D94  28 00 00 00 */	cmplwi r0, 0
 /* 803ACE38 003A9D98  41 82 00 64 */	beq lbl_803ACE9C
-/* 803ACE3C 003A9D9C  3C A0 80 3E */	lis r5, lbl_803D8AA8@ha
+/* 803ACE3C 003A9D9C  3C A0 80 3E */	lis r5, "pbOffsets$455"@ha
 /* 803ACE40 003A9DA0  38 7E 00 44 */	addi r3, r30, 0x44
-/* 803ACE44 003A9DA4  39 05 8A A8 */	addi r8, r5, lbl_803D8AA8@l
+/* 803ACE44 003A9DA4  39 05 8A A8 */	addi r8, r5, "pbOffsets$455"@l
 /* 803ACE48 003A9DA8  38 A0 00 00 */	li r5, 0
 /* 803ACE4C 003A9DAC  38 00 00 01 */	li r0, 1
 /* 803ACE50 003A9DB0  38 E0 00 00 */	li r7, 0
@@ -2559,9 +2575,9 @@ lbl_803ACFF4:
 /* 803ACFF8 003A9F58  7C 83 B0 50 */	subf r4, r3, r22
 /* 803ACFFC 003A9F5C  4B FD 1B 41 */	bl DCStoreRangeNoSync
 /* 803AD000 003A9F60  A0 13 00 0C */	lhz r0, 0xc(r19)
-/* 803AD004 003A9F64  3C 60 80 3E */	lis r3, lbl_803D8A68@ha
+/* 803AD004 003A9F64  3C 60 80 3E */	lis r3, dspMixerCycles@ha
 /* 803AD008 003A9F68  A0 93 00 A6 */	lhz r4, 0xa6(r19)
-/* 803AD00C 003A9F6C  38 63 8A 68 */	addi r3, r3, lbl_803D8A68@l
+/* 803AD00C 003A9F6C  38 63 8A 68 */	addi r3, r3, dspMixerCycles@l
 /* 803AD010 003A9F70  54 00 08 3C */	slwi r0, r0, 1
 /* 803AD014 003A9F74  7C 03 02 2E */	lhzx r0, r3, r0
 /* 803AD018 003A9F78  2C 04 00 02 */	cmpwi r4, 2

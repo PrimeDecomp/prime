@@ -131,7 +131,7 @@ u32 salExitDsp() {
   return TRUE;
 }
 
-void salStartDsp(u32 cmdList) {
+void salStartDsp(u16* cmdList) {
   salDspIsDone = FALSE;
   PPCSync();
   ASSERT(((u32)cmdList & 0x1F)==0);
@@ -139,7 +139,7 @@ void salStartDsp(u32 cmdList) {
 
   while (DSPCheckMailToDSP())
     ;
-  DSPSendMailToDSP(cmdList);
+  DSPSendMailToDSP((u32)cmdList);
   while (DSPCheckMailToDSP())
     ;
 }
