@@ -607,7 +607,7 @@ void sndConvertTicks(u32* out, u32 seconds);
 u32 sndConvert2Ms(u32 time);
 void hwActivateStudio(unsigned char studio, unsigned long isMaster, SND_STUDIO_TYPE type);
 void hwDeactivateStudio(u8);
-u32 hwIsActive(s32);
+u32 hwIsActive(u32);
 
 extern SND_HOOKS salHooks;
 extern u8 sndActive;

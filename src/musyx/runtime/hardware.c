@@ -1,4 +1,7 @@
+#include "musyx/assert.h"
 #include "musyx/musyx_priv.h"
+
+extern void OSReport(const char*, ...);
 
 extern void DCStoreRange(void* addr, u32 nBytes);
 
@@ -65,29 +68,30 @@ void snd_handle_irq() {
   hwIRQLeaveCritical();
 }
 
-s32 hwInit(u32 * frq, u16 numVoices, u16 numStudios, u32 flags) {
+s32 hwInit(u32* frq, u16 numVoices, u16 numStudios, u32 flags) {
+  MUSY_DEBUG("Entering hwInit()\n\n");
   hwInitIrq();
   salFrame = 0;
   salAuxFrame = 0;
   salMessageCallback = NULL;
-  if (salInitAi(snd_handle_irq, flags, frq) == 0) {
-    // OSReport("Could not initialize AI.\n");
-  } else {
-    // OSReport("salInitAi() is done.\n\n");
-    if (salInitDspCtrl(numVoices, numStudios, (flags & 1) != 0) == 0) {
-      // OSReport("Could not initialize DSP control logic.\n");
-    } else {
-      // OSReport("salInitDspCtrl() is done.\n\n");
+  if (salInitAi(snd_handle_irq, flags, frq) != 0) {
+    MUSY_DEBUG("salInitAi() is done.\n\n");
+    if (salInitDspCtrl(numVoices, numStudios, (flags & 1) != 0) != 0) {
+      MUSY_DEBUG("salInitDspCtrl() is done.\n\n");
       if (salInitDsp(flags)) {
-        // OSReport("salInitDsp() is done.\n\n");
+        MUSY_DEBUG("salInitDsp() is done.\n\n");
         hwEnableIrq();
-        // OSReport("Starting AI DMA...\n\n");
+        MUSY_DEBUG("Starting AI DMA...\n\n");
         salStartAi();
-        // OSReport("hwInit() done.\n\n");
+        MUSY_DEBUG("hwInit() done.\n\n");
         return 0;
       }
-      // OSReport("Could not initialize DSP.\n");
+      MUSY_DEBUG("Could not initialize DSP.\n");
+    } else {
+      MUSY_DEBUG("Could not initialize DSP control logic.\n");
     }
+  } else {
+    MUSY_DEBUG("Could not initialize AI.\n");
   }
   return -1;
 }
@@ -105,7 +109,7 @@ void hwSetTimeOffset(u8 offset) { salTimeOffset = offset; }
 
 u8 hwGetTimeOffset() { return salTimeOffset; }
 
-u32 hwIsActive(s32 idx) { return dspVoice[idx].state != 0; }
+u32 hwIsActive(u32 v) { return dspVoice[v].state != 0; }
 
 void hwSetMesgCallback(SND_MESSAGE_CALLBACK callback) { salMessageCallback = callback; }
 
@@ -292,9 +296,12 @@ void hwSetITDMode(u32 v, u8 mode) {
   dspVoice[v].flags &= ~0x80000000;
 }
 
+
+#define  hwGetITDMode(dsp_vptr) (dsp_vptr->flags & 0x80000000)
+
 void hwSetVolume(unsigned long v, unsigned char table, float vol, unsigned long pan,
                  unsigned long span, float auxa, float auxb) {
-  struct SAL_VOLINFO vi;             // r1+0x24
+  SAL_VOLINFO vi;                    // r1+0x24
   unsigned short il;                 // r30
   unsigned short ir;                 // r29
   unsigned short is;                 // r28
@@ -353,8 +360,8 @@ void hwSetVolume(unsigned long v, unsigned char table, float vol, unsigned long 
     dsp_vptr->lastUpdate.volB = 0;
   }
 
-  if (dsp_vptr->flags & 0x80000000) {
-    SetupITD(dsp_vptr, pan >> 16);
+  if (hwGetITDMode(dsp_vptr)) {
+    SetupITD(dsp_vptr, (pan >> 16) & 0xFF);
   }
 }
 
@@ -538,7 +545,7 @@ void hwDisableHRTF() { dspHRTFOn = FALSE; }
 
 u32 hwGetVirtualSampleID(u32 v) {
   if (dspVoice[v].state == 0) {
-    return ~0;
+    return 0xFFFFFFFF;
   }
 
   return dspVoice[v].virtualSampleID;
