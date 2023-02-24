@@ -1020,7 +1020,7 @@ lbl_803A3308:
 /* 803A330C 003A026C  7F C3 F3 78 */	mr r3, r30
 /* 803A3310 003A0270  60 00 00 20 */	ori r0, r0, 0x20
 /* 803A3314 003A0274  90 1E 01 18 */	stw r0, 0x118(r30)
-/* 803A3318 003A0278  4B FF 77 C9 */	bl synthkeystateupdate
+/* 803A3318 003A0278  4B FF 77 C9 */	bl synthKeyStateUpdate
 lbl_803A331C:
 /* 803A331C 003A027C  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 803A3320 003A0280  83 E1 00 1C */	lwz r31, 0x1c(r1)
@@ -4331,7 +4331,7 @@ lbl_803A6150:
 /* 803A6154 003A30B4  7F E3 FB 78 */	mr r3, r31
 /* 803A6158 003A30B8  60 00 00 80 */	ori r0, r0, 0x80
 /* 803A615C 003A30BC  90 1F 01 18 */	stw r0, 0x118(r31)
-/* 803A6160 003A30C0  4B FF 49 81 */	bl synthkeystateupdate
+/* 803A6160 003A30C0  4B FF 49 81 */	bl synthKeyStateUpdate
 /* 803A6164 003A30C4  48 00 09 A0 */	b lbl_803A6B04
 .global lbl_803A6168
 lbl_803A6168:
@@ -5633,7 +5633,7 @@ lbl_803A7240:
 /* 803A724C 003A41AC  7F 84 E3 78 */	mr r4, r28
 /* 803A7250 003A41B0  54 06 0F FE */	srwi r6, r0, 0x1f
 /* 803A7254 003A41B4  7E 25 8B 78 */	mr r5, r17
-/* 803A7258 003A41B8  48 00 0B ED */	bl voiceAllocateFind
+/* 803A7258 003A41B8  48 00 0B ED */	bl voiceAllocate
 /* 803A725C 003A41BC  7C 7D 1B 78 */	mr r29, r3
 /* 803A7260 003A41C0  3C 1D 00 01 */	addis r0, r29, 1
 /* 803A7264 003A41C4  28 00 FF FF */	cmplwi r0, 0xffff

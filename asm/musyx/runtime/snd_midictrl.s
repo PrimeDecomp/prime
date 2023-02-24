@@ -380,7 +380,7 @@ lbl_803B13B4:
 /* 803B13D4 003AE334  93 63 02 14 */	stw r27, 0x214(r3)
 /* 803B13D8 003AE338  80 0D AE 78 */	lwz r0, synthVoice@sda21(r13)
 /* 803B13DC 003AE33C  7C 60 CA 14 */	add r3, r0, r25
-/* 803B13E0 003AE340  4B FE 97 01 */	bl synthkeystateupdate
+/* 803B13E0 003AE340  4B FE 97 01 */	bl synthKeyStateUpdate
 lbl_803B13E4:
 /* 803B13E4 003AE344  3B 39 04 04 */	addi r25, r25, 0x404
 /* 803B13E8 003AE348  3B 9C 00 01 */	addi r28, r28, 1
@@ -590,7 +590,7 @@ lbl_803B169C:
 /* 803B16BC 003AE61C  93 83 02 14 */	stw r28, 0x214(r3)
 /* 803B16C0 003AE620  80 0D AE 78 */	lwz r0, synthVoice@sda21(r13)
 /* 803B16C4 003AE624  7C 60 CA 14 */	add r3, r0, r25
-/* 803B16C8 003AE628  4B FE 94 19 */	bl synthkeystateupdate
+/* 803B16C8 003AE628  4B FE 94 19 */	bl synthKeyStateUpdate
 lbl_803B16CC:
 /* 803B16CC 003AE62C  3B 39 04 04 */	addi r25, r25, 0x404
 /* 803B16D0 003AE630  3B BD 00 01 */	addi r29, r29, 1

@@ -2,45 +2,68 @@
 
 .section .bss
 .balign 8
-.global vidList
-vidList:
-	.skip 0xF00
-.global synth_last_fxstarted
-synth_last_fxstarted:
+.obj vidList, local
+	.skip 0x800
+.endobj vidList
+
+.obj voicePrioSortVoices
+	.skip 0x100
+.endobj voicePrioSortVoices
+
+.obj voicePrioSortVoicesRoot
+	.skip 0x100
+.endobj voicePrioSortVoicesRoot
+
+.obj voicePrioSortRootList
+	.skip 0x400	
+.endobj voicePrioSortRootList
+
+.obj voiceList
+	.skip 0x100	
+.endobj voiceList
+
+.obj synth_last_fxstarted, local
 	.skip 0x40
-.global synth_last_started
-synth_last_started:
+.endobj synth_last_fxstarted
+
+.obj synth_last_started, local
 	.skip 0x80
-.global vs
-vs:
-	.skip 0x950
+.endobj synth_last_started
 
 .section .sbss
 .balign 8
-.global vidFree
-vidFree:
+
+.obj vidFree, local
 	.skip 0x4
-.global vidRoot
-vidRoot:
+.endobj vidFree
+
+.obj vidRoot, local
 	.skip 0x4
-.global vidCurrentId
-vidCurrentId:
+.endobj vidRoot
+
+.obj vidCurrentId, local
 	.skip 0x4
-.global voicePrioSortRootListRoot
-voicePrioSortRootListRoot:
+.endobj vidCurrentId
+
+.obj voicePrioSortRootListRoot
 	.skip 0x2
-.global voiceMusicRunning
-voiceMusicRunning:
+.endobj voicePrioSortRootListRoot
+
+.obj voiceMusicRunning
 	.skip 0x1
-.global voiceFxRunning
-voiceFxRunning:
+.endobj voiceMusicRunning
+
+.obj voiceFxRunning
 	.skip 0x1
-.global voiceListInsert
-voiceListInsert:
+.endobj voiceFxRunning
+
+.obj voiceListInsert
 	.skip 0x1
-.global voiceListRoot
-voiceListRoot:
-	.skip 0x7
+.endobj voiceListInsert
+
+.obj voiceListRoot
+	.skip 0x1
+.endobj voiceListRoot
 
 .section .text, "ax"
 
@@ -637,8 +660,8 @@ lbl_803A7E30:
 /* 803A7E3C 003A4D9C  38 21 00 10 */	addi r1, r1, 0x10
 /* 803A7E40 003A4DA0  4E 80 00 20 */	blr
 
-.global voiceAllocateFind
-voiceAllocateFind:
+.global voiceAllocate
+voiceAllocate:
 /* 803A7E44 003A4DA4  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 803A7E48 003A4DA8  7C 08 02 A6 */	mflr r0
 /* 803A7E4C 003A4DAC  90 01 00 34 */	stw r0, 0x34(r1)
@@ -1282,7 +1305,7 @@ voiceBlock:
 /* 803A8728 003A5688  93 C1 00 18 */	stw r30, 0x18(r1)
 /* 803A872C 003A568C  93 A1 00 14 */	stw r29, 0x14(r1)
 /* 803A8730 003A5690  7C 7D 1B 78 */	mr r29, r3
-/* 803A8734 003A5694  4B FF F7 11 */	bl voiceAllocateFind
+/* 803A8734 003A5694  4B FF F7 11 */	bl voiceAllocate
 /* 803A8738 003A5698  7C 7E 1B 78 */	mr r30, r3
 /* 803A873C 003A569C  3C 1E 00 01 */	addis r0, r30, 1
 /* 803A8740 003A56A0  28 00 FF FF */	cmplwi r0, 0xffff
