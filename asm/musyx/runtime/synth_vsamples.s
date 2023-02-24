@@ -1,5 +1,12 @@
 .include "macros.inc"
 
+.section .bss
+.balign 8
+
+.global vs
+vs:
+	.skip 0x950
+
 .section .text, "ax"
 
 .global vsInit

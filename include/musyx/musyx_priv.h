@@ -15,6 +15,24 @@ typedef struct SND_STUDIO_INPUT {
   unsigned char srcStudio; // offset 0x3, size 0x1
 } SND_STUDIO_INPUT;
 
+typedef struct SYNTH_VOICELIST {
+  // total size: 0x4
+  u8 prev;  // offset 0x0, size 0x1
+  u8 next;  // offset 0x1, size 0x1
+  u16 user; // offset 0x2, size 0x2
+} SYNTH_VOICELIST;
+extern SYNTH_VOICELIST voicePrioSortVoices[64];
+extern u8 voicePrioSortVoicesRoot[256];
+extern SYNTH_VOICELIST voicePrioSortVoices[64];
+
+typedef struct SYNTH_ROOTLIST {
+  // total size: 0x4
+  unsigned short next; // offset 0x0, size 0x2
+  unsigned short prev; // offset 0x2, size 0x2
+} SYNTH_ROOTLIST;
+
+extern SYNTH_ROOTLIST voicePrioSortRootList[256];
+
 typedef struct synthInfo {
   u32 mixFrq;
   u32 numSamples;
@@ -287,12 +305,42 @@ typedef struct SYNTH_QUEUE {
   u8 jobTabIndex;
 } SYNTH_QUEUE;
 
+typedef enum {
+  SYNTH_JOBTYPE_LOW = 0,
+  SYNTH_JOBTYPE_ZERO = 1,
+  SYNTH_JOBTYPE_EVENT = 2,
+} SYNTH_JOBTYPE;
+
+typedef struct {
+  // total size: 0xC
+  SYNTH_QUEUE* lowPrecision; // offset 0x0, size 0x4
+  SYNTH_QUEUE* event;        // offset 0x4, size 0x4
+  SYNTH_QUEUE* zeroOffset;   // offset 0x8, size 0x4
+} SYNTH_JOBTAB;
+
 typedef struct SYNTH_LFO {
   u32 time;
   u32 period;
   s16 value;
   s16 lastValue;
 } SYNTH_LFO;
+
+typedef struct SYNTHMasterFader {
+  // total size: 0x30
+  float volume;          // offset 0x0, size 0x4
+  float target;          // offset 0x4, size 0x4
+  float start;           // offset 0x8, size 0x4
+  float time;            // offset 0xC, size 0x4
+  float deltaTime;       // offset 0x10, size 0x4
+  float pauseVol;        // offset 0x14, size 0x4
+  float pauseTarget;     // offset 0x18, size 0x4
+  float pauseStart;      // offset 0x1C, size 0x4
+  float pauseTime;       // offset 0x20, size 0x4
+  float pauseDeltaTime;  // offset 0x24, size 0x4
+  unsigned long seqId;   // offset 0x28, size 0x4
+  unsigned char seqMode; // offset 0x2C, size 0x1
+  unsigned char type;    // offset 0x2D, size 0x1
+} SYNTHMasterFader;
 
 typedef struct CTRL_SOURCE {
   u8 midiCtrl;
@@ -377,7 +425,7 @@ typedef struct SYNTH_VOICE {
   u32 parent;
   u32 id;
   VID_LIST* vidList;
-  VID_LIST* vidListMaster;
+  VID_LIST* vidMasterList;
   u16 allocId;
   u16 macroId;
   u8 keyGroup;
@@ -473,7 +521,35 @@ typedef struct SYNTH_VOICE {
   long mesgQueue[4];            // offset 0x3F0, size 0x10
   u16 curOutputVolume;          // offset 0x400, size 0x2
 } SYNTH_VOICE;
+
+typedef struct synthITDInfo {
+  // total size: 0x2
+  unsigned char music; // offset 0x0, size 0x1
+  unsigned char sfx;   // offset 0x1, size 0x1
+} synthITDInfo;
+
 #pragma pop
+
+typedef struct LAYER {
+  // total size: 0xC
+  unsigned short id;         // offset 0x0, size 0x2
+  unsigned char keyLow;      // offset 0x2, size 0x1
+  unsigned char keyHigh;     // offset 0x3, size 0x1
+  signed char transpose;     // offset 0x4, size 0x1
+  unsigned char volume;      // offset 0x5, size 0x1
+  signed short prioOffset;   // offset 0x6, size 0x2
+  unsigned char panning;     // offset 0x8, size 0x1
+  unsigned char reserved[3]; // offset 0x9, size 0x3
+} LAYER;
+
+typedef struct KEYMAP {
+  // total size: 0x8
+  unsigned short id;         // offset 0x0, size 0x2
+  signed char transpose;     // offset 0x2, size 0x1
+  unsigned char panning;     // offset 0x3, size 0x1
+  signed short prioOffset;   // offset 0x4, size 0x2
+  unsigned char reserved[2]; // offset 0x6, size 0x2
+} KEYMAP;
 
 typedef struct SAL_VOLINFO {
   // total size: 0x24
@@ -584,8 +660,27 @@ extern SYNTH_VOICE* synthVoice;
 extern DSPvoice* dspVoice;
 typedef s32 (*SND_COMPARE)(u16*, u8*);
 
-void dataInit(u32, s32);                                        /* extern */
-void dataInitStack();                                           /* extern */
+typedef struct FX_TAB {
+  // total size: 0xA
+  unsigned short id;       // offset 0x0, size 0x2
+  unsigned short macro;    // offset 0x2, size 0x2
+  unsigned char maxVoices; // offset 0x4, size 0x1
+  unsigned char priority;  // offset 0x5, size 0x1
+  unsigned char volume;    // offset 0x6, size 0x1
+  unsigned char panning;   // offset 0x7, size 0x1
+  unsigned char key;       // offset 0x8, size 0x1
+  unsigned char vGroup;    // offset 0x9, size 0x1
+} FX_TAB;
+typedef struct FX_DATA {
+  // total size: 0xE
+  unsigned short num;       // offset 0x0, size 0x2
+  unsigned short reserverd; // offset 0x2, size 0x2
+  struct FX_TAB fx[1];      // offset 0x4, size 0xA
+} FX_DATA;
+
+void dataInit(u32, s32); /* extern */
+void dataInitStack();    /* extern */
+FX_TAB* dataGetFX(u16 fid);
 s32 hwInit(u32* frq, u16 numVoices, u16 numStudios, u32 flags); /* extern */
 void hwEnableIrq();
 void hwDisableIrq();
@@ -598,20 +693,21 @@ void hwExit();
 void dataExit();
 void s3dExit();
 void synthExit();
-u32 synthGetTicksPerSecond(u32 seconds);
+u32 synthGetTicksPerSecond(SYNTH_VOICE* svoice);
 u16 sndRand(void);
-s16 sndSin(u32 __x);
+s16 sndSin(u16 angle);
 u8* sndBSearch(u16* key, u8* subTab, s32 mainTab, s32 len, SND_COMPARE cmp);
 void sndConvertMs(u32* time);
-void sndConvertTicks(u32* out, u32 seconds);
+void sndConvertTicks(u32* out, SYNTH_VOICE* svoice);
 u32 sndConvert2Ms(u32 time);
 void hwActivateStudio(unsigned char studio, unsigned long isMaster, SND_STUDIO_TYPE type);
 void hwDeactivateStudio(u8);
 u32 hwIsActive(u32);
 
+u32 sndGetPitch(u8 key, u32 sInfo);
 extern SND_HOOKS salHooks;
 extern u8 sndActive;
-extern s8 synthIdleWaitActive;
+extern u8 synthIdleWaitActive;
 extern SynthInfo synthInfo;
 typedef s32 (*SND_MESSAGE_CALLBACK)(u32, u32);
 typedef void (*SND_SOME_CALLBACK)();
@@ -662,7 +758,7 @@ typedef struct SND_STREAM_INFO {
 } SND_STREAM_INFO;
 
 void streamOutputModeChanged();
-
+unsigned short inpGetMidiCtrl(unsigned char ctrl, unsigned char channel, unsigned char set);
 /* TODO: Figure out what `unk` is */
 void hwSetSRCType(u32 v, u8 salSRCType);
 void hwSetITDMode(u32 v, u8 mode);
@@ -687,6 +783,8 @@ void aramUploadData(void* mram, unsigned long aram, unsigned long len, unsigned 
 void aramFreeStreamBuffer(u8 id);
 void* aramStoreData(void* src, unsigned long len);
 void aramRemoveData(void* aram, unsigned long len);
+
+void macMakeInactive(SYNTH_VOICE* svoice, MAC_STATE);
 #ifdef __cplusplus
 }
 #endif

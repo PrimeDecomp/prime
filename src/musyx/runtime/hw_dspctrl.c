@@ -1,17 +1,11 @@
 #include "musyx/assert.h"
 #include "musyx/musyx_priv.h"
 
-u16 dspSRCCycles[3][3] = {
-    {2990, 2990, 1115},
-    {3300, 3300, 1115},
-    {3700, 3700, 1115},
-};
+#ifdef _DEBUG
+static u32 dbgActiveVoicesMax = 0;
+#endif
 
-static const u16 dspMixerCycles[32] = {
-    1470, 2940, 2940, 4410, 2230, 4460, 4460, 6690, 2470, 4940, 4940, 7410, 3735, 7470, 7470, 11205,
-    2940, 3386, 2940, 3386, 2940, 3386, 2940, 3386, 4940, 5687, 4940, 5687, 4940, 5687, 4940, 5687,
-};
-
+extern u8 salAuxFrame;
 DSPstudioinfo dspStudio[8];
 static u32 dspARAMZeroBuffer = 0;
 u16* dspCmdLastLoad = NULL;
@@ -36,26 +30,23 @@ u32 salInitDspCtrl(u8 numVoices, u8 numStudios, u32 defaultStudioDPL2) {
 
   salNumVoices = numVoices;
   salMaxStudioNum = numStudios;
+#line 66
   ASSERT(salMaxStudioNum <= SAL_MAX_STUDIONUM);
   dspARAMZeroBuffer = aramGetZeroBuffer();
-  dspCmdList = salMalloc(1024 * sizeof(u16));
-  if (dspCmdList != NULL) {
-    // OSReport("Allocated dspCmdList.\n\n");
-    dspSurround = salMalloc(160 * sizeof(long));
-    if (dspSurround != NULL) {
-      // OSReport("Allocated surround buffer.\n\n");
+  if ((dspCmdList = salMalloc(1024 * sizeof(u16))) != NULL) {
+    MUSY_DEBUG("Allocated dspCmdList.\n\n");
+    if ((dspSurround = salMalloc(160 * sizeof(long))) != NULL) {
+      MUSY_DEBUG("Allocated surround buffer.\n\n");
       memset(dspSurround, 0, 160 * sizeof(long));
       DCFlushRange(dspSurround, 160 * sizeof(long));
-      dspVoice = salMalloc(salNumVoices * sizeof(DSPvoice));
-      if (dspVoice != NULL) {
-        // OSReport("Allocated HW voice array.\n\n");
-        dspITDBuffer = salMalloc(salNumVoices * 64);
-        if (dspITDBuffer != NULL) {
-          // OSReport("Allocated ITD buffers for voice array.\n\n");
+      if ((dspVoice = salMalloc(salNumVoices * sizeof(DSPvoice))) != NULL) {
+        MUSY_DEBUG("Allocated HW voice array.\n\n");
+        if ((dspITDBuffer = salMalloc(salNumVoices * 64)) != NULL) {
+          MUSY_DEBUG("Allocated ITD buffers for voice array.\n\n");
           DCInvalidateRange(dspITDBuffer, salNumVoices * 64);
           itdPtr = (u32)dspITDBuffer;
           for (i = 0; i < salNumVoices; ++i) {
-            // OSReport("Initializing voice %d...\n", i);
+            MUSY_DEBUG("Initializing voice %d...\n", i);
             dspVoice[i].state = 0;
             dspVoice[i].postBreak = 0;
             dspVoice[i].startupBreak = 0;
@@ -82,20 +73,16 @@ u32 salInitDspCtrl(u8 numVoices, u8 numStudios, u32 defaultStudioDPL2) {
             }
           }
 
-          // OSReport("All voices initialized.\n\n");
+          MUSY_DEBUG("All voices initialized.\n\n");
 
           for (i = 0; i < salMaxStudioNum; ++i) {
-            // OSReport("Initializing studio %d...\n", i);
+            MUSY_DEBUG("Initializing studio %d...\n", i);
             dspStudio[i].state = 0;
-            itdPtr = (u32)salMalloc(sizeof(_SPB));
-            dspStudio[i].spb = (void*)itdPtr;
-            if ((void*)itdPtr == NULL) {
+            if ((dspStudio[i].spb = (_SPB*)salMalloc(sizeof(_SPB))) == NULL) {
               return FALSE;
             }
 
-            itdPtr = (u32)salMalloc(0x3c00);
-            dspStudio[i].main[0] = (void*)itdPtr;
-            if ((void*)itdPtr == NULL) {
+            if ((dspStudio[i].main[0] = (void*)salMalloc(0x3c00)) == NULL) {
               return FALSE;
             }
 
@@ -109,22 +96,19 @@ u32 salInitDspCtrl(u8 numVoices, u8 numStudios, u32 defaultStudioDPL2) {
             dspStudio[i].auxB[1] = dspStudio[i].auxB[0] + 0x1e0;
             dspStudio[i].auxB[2] = dspStudio[i].auxB[1] + 0x1e0;
             memset(dspStudio[i].spb, 0, sizeof(_SPB));
-            dspStudio[i].hostDPopSum.s = 0;
-            dspStudio[i].hostDPopSum.r = 0;
-            dspStudio[i].hostDPopSum.l = 0;
-            dspStudio[i].hostDPopSum.sA = 0;
-            dspStudio[i].hostDPopSum.rA = 0;
-            dspStudio[i].hostDPopSum.lA = 0;
-            dspStudio[i].hostDPopSum.sB = 0;
-            dspStudio[i].hostDPopSum.rB = 0;
-            dspStudio[i].hostDPopSum.lB = 0;
+            dspStudio[i].hostDPopSum.l = dspStudio[i].hostDPopSum.r = dspStudio[i].hostDPopSum.s =
+                0;
+            dspStudio[i].hostDPopSum.lA = dspStudio[i].hostDPopSum.rA =
+                dspStudio[i].hostDPopSum.sA = 0;
+            dspStudio[i].hostDPopSum.lB = dspStudio[i].hostDPopSum.rB =
+                dspStudio[i].hostDPopSum.sB = 0;
             DCFlushRangeNoSync(dspStudio[i].spb, sizeof(_SPB));
           }
-          // OSReport("All studios are initialized.\n\n");
-          salActivateStudio(0, 1, defaultStudioDPL2 != FALSE);
-          // OSReport("Default studio is active.\n\n");
-          dspHrtfHistoryBuffer = salMalloc(0x100);
-          if (dspHrtfHistoryBuffer == NULL) {
+          MUSY_DEBUG("All studios are initialized.\n\n");
+          salActivateStudio(
+              0, 1, defaultStudioDPL2 != FALSE ? SND_STUDIO_TYPE_RESERVED0 : SND_STUDIO_TYPE_STD);
+          MUSY_DEBUG("Default studio is active.\n\n");
+          if ((dspHrtfHistoryBuffer = salMalloc(0x100)) == NULL) {
             return FALSE;
           }
 
@@ -168,15 +152,13 @@ void salActivateStudio(u8 studio, u32 isMaster, SND_STUDIO_TYPE type) {
   memset(dspStudio[studio].main[0], 0, 0x3c00);
   DCFlushRangeNoSync(dspStudio[studio].main[0], 0x3c00);
   memset(dspStudio[studio].spb, 0, sizeof(_SPB));
-  dspStudio[studio].hostDPopSum.s = 0;
-  dspStudio[studio].hostDPopSum.r = 0;
-  dspStudio[studio].hostDPopSum.l = 0;
-  dspStudio[studio].hostDPopSum.sA = 0;
-  dspStudio[studio].hostDPopSum.rA = 0;
-  dspStudio[studio].hostDPopSum.lA = 0;
-  dspStudio[studio].hostDPopSum.sB = 0;
-  dspStudio[studio].hostDPopSum.rB = 0;
-  dspStudio[studio].hostDPopSum.lB = 0;
+  dspStudio[studio].hostDPopSum.l = dspStudio[studio].hostDPopSum.r =
+      dspStudio[studio].hostDPopSum.s = 0;
+  dspStudio[studio].hostDPopSum.lA = dspStudio[studio].hostDPopSum.rA =
+      dspStudio[studio].hostDPopSum.sA = 0;
+  dspStudio[studio].hostDPopSum.lB = dspStudio[studio].hostDPopSum.rB =
+      dspStudio[studio].hostDPopSum.sB = 0;
+
   DCFlushRangeNoSync(dspStudio[studio].spb, sizeof(_SPB));
   memset(dspStudio[studio].auxA[0], 0, 0x780);
   DCFlushRangeNoSync(dspStudio[studio].auxA[0], 0x780);
@@ -188,9 +170,19 @@ void salActivateStudio(u8 studio, u32 isMaster, SND_STUDIO_TYPE type) {
   dspStudio[studio].isMaster = isMaster;
   dspStudio[studio].numInputs = 0;
   dspStudio[studio].type = type;
-  dspStudio[studio].auxBHandler = NULL;
-  dspStudio[studio].auxAHandler = NULL;
+  dspStudio[studio].auxAHandler = dspStudio[studio].auxBHandler = NULL;
 }
+
+u16 dspSRCCycles[3][3] = {
+    {2990, 2990, 1115},
+    {3300, 3300, 1115},
+    {3700, 3700, 1115},
+};
+
+static const u16 dspMixerCycles[32] = {
+    1470, 2940, 2940, 4410, 2230, 4460, 4460, 6690, 2470, 4940, 4940, 7410, 3735, 7470, 7470, 11205,
+    2940, 3386, 2940, 3386, 2940, 3386, 2940, 3386, 4940, 5687, 4940, 5687, 4940, 5687, 4940, 5687,
+};
 
 void salDeactivateStudio(u8 studio) { dspStudio[studio].state = 0; }
 
@@ -201,9 +193,9 @@ u32 salCheckVolErrorAndResetDelta(u16* dsp_vol, u16* dsp_delta, u16* last_vol, u
 
   if (targetVol != *last_vol) {
     d = (s16)targetVol - (s16)*last_vol;
-    if (d >= 32 && d < 160) {
-      d = d >> 5;
-      if (d < 5) {
+    if ((s16)d >= 32 && (s16)d < 160) {
+      d = (s16)d >> 5;
+      if ((s16)d < 5) {
         resetFlags[d] |= resetMask;
       }
 
@@ -212,19 +204,18 @@ u32 salCheckVolErrorAndResetDelta(u16* dsp_vol, u16* dsp_delta, u16* last_vol, u
       return 1;
     }
 
-    if (-32 >= d && -160 < d) {
-      d = -d >> 5;
+    if (-32 >= (s16)d && -160 < (s16)d) {
+      d = -(s16)d >> 5;
       if (d < 5) {
         resetFlags[d] |= resetMask;
       }
       *dsp_delta = 0xFFFF;
-      *last_vol -= d * 32;
+      *last_vol -= (s16)d * 32;
       return 1;
     }
 
-    if (targetVol == 0 && d > -32) {
-      *last_vol = 0;
-      *dsp_vol = 0;
+    if (targetVol == 0 && (s16)d > -32) {
+      *dsp_vol = *last_vol = 0;
     }
   }
 
@@ -351,16 +342,13 @@ u32 salSynthSendMessage(DSPvoice* dsp_vptr, u32 mesg) {
 }
 
 void salActivateVoice(DSPvoice* dsp_vptr, u8 studio) {
-  DSPvoice* tmp;
   if (dsp_vptr->state != 0) {
     salDeactivateVoice(dsp_vptr);
     dsp_vptr->changed[0] |= 0x20;
   }
 
   dsp_vptr->postBreak = 0;
-  tmp = dspStudio[studio].voiceRoot;
-  dsp_vptr->next = tmp;
-  if (tmp != NULL) {
+  if ((dsp_vptr->next = dspStudio[studio].voiceRoot) != NULL) {
     dsp_vptr->next->prev = dsp_vptr;
   }
 
@@ -390,7 +378,6 @@ void salDeactivateVoice(DSPvoice* dsp_vptr) {
 }
 
 void salReconnectVoice(DSPvoice* dsp_vptr, u8 studio) {
-  DSPvoice* tmp;
   if (dsp_vptr->state != 0) {
     if (dsp_vptr->prev != NULL) {
       dsp_vptr->prev->next = dsp_vptr->next;
@@ -402,9 +389,7 @@ void salReconnectVoice(DSPvoice* dsp_vptr, u8 studio) {
       dsp_vptr->next->prev = dsp_vptr->prev;
     }
 
-    tmp = dspStudio[studio].voiceRoot;
-    dsp_vptr->next = tmp;
-    if (tmp != NULL) {
+    if ((dsp_vptr->next = dspStudio[studio].voiceRoot) != NULL) {
       dsp_vptr->next->prev = dsp_vptr;
     }
 
@@ -437,7 +422,7 @@ unsigned long salRemoveStudioInput(DSPstudioinfo* stp, SND_STUDIO_INPUT* desc) {
   long i; // r31
 
   i = 0;
-  while(i <= stp->numInputs) {
+  while (i < stp->numInputs) {
     if (stp->in[i].desc == desc) {
       break;
     }
@@ -451,4 +436,36 @@ unsigned long salRemoveStudioInput(DSPstudioinfo* stp, SND_STUDIO_INPUT* desc) {
 
   --stp->numInputs;
   return 1;
+}
+
+void salHandleAuxProcessing() {
+  u8 st;             // r29
+  long* work;        // r30
+  DSPstudioinfo* sp; // r31
+  SND_AUX_INFO info; // r1+0x8
+  sp = &dspStudio[0];
+  for (st = 0; st < salMaxStudioNum; ++st, ++sp) {
+
+    if (sp->state != 1) {
+      continue;
+    }
+
+    if (sp->auxAHandler != NULL) {
+      work = sp->auxA[(salAuxFrame + 2) % 3];
+      info.data.bufferUpdate.left = work;
+      info.data.bufferUpdate.right = work + 0xa0;
+      info.data.bufferUpdate.surround = work + 0x140;
+      sp->auxAHandler(0, &info, sp->auxAUser);
+      DCFlushRangeNoSync(work, 0x780);
+    }
+
+    if (sp->type == 0 && sp->auxBHandler != 0) {
+      work = sp->auxB[(salAuxFrame + 2) % 3];
+      info.data.bufferUpdate.left = work;
+      info.data.bufferUpdate.right = work + 0xa0;
+      info.data.bufferUpdate.surround = work + 0x140;
+      sp->auxBHandler(0, &info, sp->auxBUser);
+      DCFlushRangeNoSync(work, 0x780);
+    }
+  }
 }

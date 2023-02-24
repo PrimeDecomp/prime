@@ -71,7 +71,7 @@ s16 sndSintab[1024] = {
     4094, 4094, 4095, 4095, 4095, 4095, 4095, 4095, 4095, 4095, 4095, 4095, 4095, 4095, 4095, 4095,
 };
 
-#define SINTAB_ELEMENT_COUNT (sizeof(sndSintab) / sizeof(short) - 1)
+#define SINTAB_ELEMENT_COUNT (sizeof(sndSintab) / sizeof(u16) - 1)
 
 u32 last_rnd = 1;
 
@@ -80,18 +80,18 @@ u16 sndRand(void) {
   return last_rnd >> 6;
 }
 
-s16 sndSin(u32 __x) {
-  const u16 x = __x & 0xFFF;
-  if (x < 1024) {
-    return (int)sndSintab[x];
+s16 sndSin(u16 angle) {
+  angle &= 0xFFF;
+  if (angle < 1024) {
+    return (s16)sndSintab[angle];
   }
-  if (x < 2048) {
-    return (int)sndSintab[SINTAB_ELEMENT_COUNT - (x & SINTAB_ELEMENT_COUNT)];
+  if (angle < 2048) {
+    return (s16)sndSintab[SINTAB_ELEMENT_COUNT - (angle & SINTAB_ELEMENT_COUNT)];
   }
-  if (x < 3072) {
-    return (int)-sndSintab[x & SINTAB_ELEMENT_COUNT];
+  if (angle < 3072) {
+    return (s16)-sndSintab[angle & SINTAB_ELEMENT_COUNT];
   }
-  return -sndSintab[SINTAB_ELEMENT_COUNT - (x & SINTAB_ELEMENT_COUNT)];
+  return -sndSintab[SINTAB_ELEMENT_COUNT - (angle & SINTAB_ELEMENT_COUNT)];
 }
 
 u8* sndBSearch(u16* key, u8* subTab, s32 mainTab, s32 len, SND_COMPARE cmp) {
@@ -124,8 +124,8 @@ u8* sndBSearch(u16* key, u8* subTab, s32 mainTab, s32 len, SND_COMPARE cmp) {
 
 void sndConvertMs(u32* time) { *time = *time * 256; }
 
-void sndConvertTicks(u32* out, u32 seconds) {
-  *out = (((*out << 16) / synthGetTicksPerSecond(seconds)) * 1000) / 32;
+void sndConvertTicks(u32* out, SYNTH_VOICE* svoice) {
+  *out = (((*out << 16) / synthGetTicksPerSecond(svoice)) * 1000) / 32;
 }
 
 u32 sndConvert2Ms(u32 time) { return time / 256; }

@@ -110,7 +110,7 @@ inpAuxB:
 	.skip 0x480
 .global inpAuxA
 inpAuxA:
-	.skip 0x484
+	.skip 0x480
 
 .section .sbss
 .balign 8
@@ -2289,8 +2289,8 @@ synthForceLowPrecisionUpdate:
 /* 8039AAD8 00397A38  38 21 00 10 */	addi r1, r1, 0x10
 /* 8039AADC 00397A3C  4E 80 00 20 */	blr
 
-.global synthkeystateupdate
-synthkeystateupdate:
+.global synthKeyStateUpdate
+synthKeyStateUpdate:
 /* 8039AAE0 00397A40  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8039AAE4 00397A44  7C 08 02 A6 */	mflr r0
 /* 8039AAE8 00397A48  38 80 00 02 */	li r4, 2
