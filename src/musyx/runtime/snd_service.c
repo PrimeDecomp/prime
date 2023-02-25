@@ -94,19 +94,19 @@ s16 sndSin(u16 angle) {
   return -sndSintab[SINTAB_ELEMENT_COUNT - (angle & SINTAB_ELEMENT_COUNT)];
 }
 
-u8* sndBSearch(u16* key, u8* subTab, s32 mainTab, s32 len, SND_COMPARE cmp) {
+void* sndBSearch(void* key, void* base, s32 num, s32 len, SND_COMPARE cmp) {
   s32 left;
   s32 right;
   s32 mid;
   s32 found;
   u8* test;
 
-  if (mainTab != 0) {
+  if (num != 0) {
     left = 1;
-    right = mainTab;
+    right = num;
     do {
       mid = ((left + right) >> 1);
-      test = subTab + (len * (mid - 1));
+      test = (u8*)(u32)base + (len * (mid - 1));
       found = (*cmp)(key, test);
       if (found == 0) {
         return test;

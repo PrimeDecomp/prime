@@ -250,6 +250,43 @@ typedef struct SDIR_DATA {
   unsigned long extraData;     // offset 0x1C, size 0x4
 } SDIR_DATA;
 
+typedef struct SDIR_TAB {
+  // total size: 0xC
+  struct SDIR_DATA* data; // offset 0x0, size 0x4
+  void* base;             // offset 0x4, size 0x4
+  unsigned short numSmp;  // offset 0x8, size 0x2
+  unsigned short res;     // offset 0xA, size 0x2
+} SDIR_TAB;
+
+typedef struct DATA_TAB {
+  // total size: 0x8
+  void* data;              // offset 0x0, size 0x4
+  unsigned short id;       // offset 0x4, size 0x2
+  unsigned short refCount; // offset 0x6, size 0x2
+} DATA_TAB;
+
+typedef struct LAYER_TAB {
+  // total size: 0xC
+  void* data;              // offset 0x0, size 0x4
+  unsigned short id;       // offset 0x4, size 0x2
+  unsigned short num;      // offset 0x6, size 0x2
+  unsigned short refCount; // offset 0x8, size 0x2
+  unsigned short reserved; // offset 0xA, size 0x2
+} LAYER_TAB;
+
+typedef struct MAC_MAINTAB {
+  // total size: 0x4
+  unsigned short num;         // offset 0x0, size 0x2
+  unsigned short subTabIndex; // offset 0x2, size 0x2
+} MAC_MAINTAB;
+
+typedef struct MAC_SUBTAB {
+  // total size: 0x8
+  void* data;              // offset 0x0, size 0x4
+  unsigned short id;       // offset 0x4, size 0x2
+  unsigned short refCount; // offset 0x6, size 0x2
+} MAC_SUBTAB;
+
 typedef struct GSTACK {
   // total size: 0xC
   struct GROUP_DATA* gAddr;   // offset 0x0, size 0x4
@@ -732,7 +769,7 @@ extern DSPstudioinfo dspStudio[8];
 extern SYNTH_VOICE* synthVoice;
 
 extern DSPvoice* dspVoice;
-typedef s32 (*SND_COMPARE)(u16*, u8*);
+typedef s32 (*SND_COMPARE)(void*, void*);
 
 typedef struct FX_TAB {
   // total size: 0xA
@@ -752,6 +789,13 @@ typedef struct FX_DATA {
   unsigned short reserverd; // offset 0x2, size 0x2
   struct FX_TAB fx[1];      // offset 0x4, size 0xA
 } FX_DATA;
+
+typedef struct FX_GROUP {
+	// total size: 0x8
+	unsigned short gid; // offset 0x0, size 0x2
+	unsigned short fxNum; // offset 0x2, size 0x2
+	struct FX_TAB * fxTab; // offset 0x4, size 0x4
+} FX_GROUP;
 
 typedef struct PAGE {
   // total size: 0x6
@@ -778,7 +822,7 @@ typedef struct MIDISETUP {
   MIDI_CHANNEL_SETUP channel[16]; // offset 0x4, size 0x50
 } MIDISETUP;
 
-void dataInit(u32, s32); /* extern */
+void dataInit(u32, u32); /* extern */
 void dataInitStack();    /* extern */
 u32 dataInsertSDir(SDIR_DATA* sdir, void* smp_data);
 u32 dataRemoveSDir(SDIR_DATA* sdir);
@@ -821,7 +865,7 @@ void synthKillVoicesByMacroReferences(u16* ref);
 void synthExit();
 u16 sndRand(void);
 s16 sndSin(u16 angle);
-u8* sndBSearch(u16* key, u8* subTab, s32 mainTab, s32 len, SND_COMPARE cmp);
+void* sndBSearch(void* key, void* base, s32 num, s32 len, SND_COMPARE cmp);
 void sndConvertMs(u32* time);
 void sndConvertTicks(u32* out, SYNTH_VOICE* svoice);
 u32 sndConvert2Ms(u32 time);
@@ -864,7 +908,6 @@ void salFree(void* addr);
 #define SAL_MAX_STUDIONUM 8
 extern u8 salMaxStudioNum;
 extern u8 salNumVoices;
-extern float dspDLSVolTab[128];
 
 /* Stream */
 typedef s32 (*SND_STREAM_UPDATE_CALLBACK)(void* buffer1, u32 len1, void* buffer2, u32 len2,
