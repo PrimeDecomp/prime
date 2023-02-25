@@ -52,19 +52,22 @@ float tonedown_tab[128] = {
 
 s32 sndPitchUpOne(u16 note) { return note * 1.0594631f; }
 
-u32 sndGetPitch(u8 arg0, u32 arg1) {
-  f32 pitch;
-  double tmp;
-  u32 temp_r6;
-
-  if (arg1 == 0xFFFFFFFF) {
-    arg1 = 0x40005622;
+u32 sndGetPitch(u8 key, u32 sInfo) {
+  u8 okey;   // r31
+  float frq; // r63
+  if (sInfo == 0xffffffff) {
+    sInfo = 0x40005622;
   }
-  pitch = 4096.f;
-  temp_r6 = (arg1 >> 24);
-  pitch *= (f32)(arg0 != temp_r6
-                     ? (f32)((arg1 & 0xFFFFFF) * (temp_r6 < arg0 ? toneup_tab[(arg0 - temp_r6)]
-                                                                 : tonedown_tab[temp_r6 - arg0]))
-                     : (f32)(arg1 & 0xFFFFFF));
-  return pitch / synthInfo.mixFrq;
+
+  okey = sInfo >> 24;
+
+  if (key != okey) {
+    frq = (float)(sInfo & 0xFFFFFF) *
+          (okey < key ? toneup_tab[key - okey] : tonedown_tab[okey - key]);
+
+  } else {
+    frq = sInfo & 0xFFFFFF;
+  }
+
+  return (4096.f * frq) / synthInfo.mixFrq;
 }
