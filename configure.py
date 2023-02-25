@@ -919,10 +919,10 @@ LIBS = [
     },
     {
         "lib": "musyx",
-        "mw_version": "1.2.5",
-        "cflags": "-proc gecko -fp hard -nodefaults -nosyspath -i include -i libc -g -sym on -D_DEBUG=1 -enum int ",
-        #"mw_version": "1.3.2",
-        #"cflags": "$cflags_musyx",
+        #"mw_version": "1.2.5",
+        #"cflags": "-proc gecko -fp hard -nodefaults -nosyspath -i include -i libc -g -sym on -D_DEBUG=1 -enum int ",
+        "mw_version": "1.3.2",
+        "cflags": "$cflags_musyx",
         "host": False,
         "objects": [
             "musyx/runtime/seq",
