@@ -931,7 +931,7 @@ LIBS = [
             ["musyx/runtime/snd_synthapi", True, {"add_to_all": False}],
             ["musyx/runtime/stream", False],
             ["musyx/runtime/synthdata", False],
-            "musyx/runtime/synthmacros",
+            ["musyx/runtime/synthmacros", False],
             ["musyx/runtime/synthvoice", False],
             ["musyx/runtime/synth_ac", True],
             ["musyx/runtime/synth_adsr", False],

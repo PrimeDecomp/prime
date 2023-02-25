@@ -138,7 +138,7 @@ u32 hwIsActive(u32 v) { return dspVoice[v].state != 0; }
 
 void hwSetMesgCallback(SND_MESSAGE_CALLBACK callback) { salMessageCallback = callback; }
 
-void hwSetPriority(s32 idx, s32 priority) { dspVoice[idx].prio = priority; }
+void hwSetPriority(u32 idx, u32 priority) { dspVoice[idx].prio = priority; }
 
 void hwInitSamplePlayback(s32 v, u16 smpID, void* newsmp, u32 set_defadsr, u32 priority,
                           u32 callbackUserValue, u32 setSRC, u8 itdMode) {
@@ -185,28 +185,6 @@ void hwBreak(s32 vid) {
 
   dspVoice[vid].changed[salTimeOffset] |= 0x20;
 }
-
-typedef struct ADSR_INFO {
-  // total size: 0x14
-  union ai_data {
-    struct {
-      // total size: 0x14
-      long atime;            // offset 0x0, size 0x4
-      long dtime;            // offset 0x4, size 0x4
-      unsigned short slevel; // offset 0x8, size 0x2
-      unsigned short rtime;  // offset 0xA, size 0x2
-      long ascale;           // offset 0xC, size 0x4
-      long dscale;           // offset 0x10, size 0x4
-    } dls;
-    struct {
-      // total size: 0x8
-      unsigned short atime;  // offset 0x0, size 0x2
-      unsigned short dtime;  // offset 0x2, size 0x2
-      unsigned short slevel; // offset 0x4, size 0x2
-      unsigned short rtime;  // offset 0x6, size 0x2
-    } linear;
-  } data; // offset 0x0, size 0x14
-} ADSR_INFO;
 
 void hwSetADSR(u32 v, void* _adsr, u8 mode) {
   u32 sl;                              // r29
@@ -510,8 +488,7 @@ asm void hwFlushStream(void* base, unsigned long offset, unsigned long bytes,
 /* clang-format on */
 #endif
 
-void hwPrepareStreamBuffer() {
-}
+void hwPrepareStreamBuffer() {}
 u32 hwInitStream(u32 len) { return aramAllocateStreamBuffer(len); }
 
 void hwExitStream(u8 id) { aramFreeStreamBuffer(id); }
@@ -557,7 +534,7 @@ void hwSetSaveSampleCallback(ARAMUploadCallback callback, unsigned long chunckSi
 }
 
 void hwRemoveSample(void* header, void* data) {
-  u32 len;  // r31
+  u32 len; // r31
   u8 type; // r30
   type = ((u32*)header)[1] >> 0x18;
   len = convert_length(((u32*)header)[1] & 0xFFFFFF, type);
