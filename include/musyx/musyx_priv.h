@@ -494,7 +494,7 @@ typedef struct SYNTH_VOICE {
   struct SYNTH_VOICE* prevMacActive;
   struct SYNTH_VOICE* nextTimeQueueMacro;
   struct SYNTH_VOICE* prevTimeQueueMacro;
-  MAC_STATE state;
+  MAC_STATE macState;
   MSTEP* trapEventAddr[3];
   MSTEP* trapEventCurAddr[3];
   u8 trapEventAny;
@@ -771,6 +771,10 @@ extern SYNTH_VOICE* synthVoice;
 extern DSPvoice* dspVoice;
 typedef s32 (*SND_COMPARE)(void*, void*);
 
+typedef struct CHANNEL_DEFAULTS {
+  // total size: 0x1
+  unsigned char pbRange; // offset 0x0, size 0x1
+} CHANNEL_DEFAULTS;
 typedef struct FX_TAB {
   // total size: 0xA
   unsigned short id;       // offset 0x0, size 0x2
@@ -791,10 +795,10 @@ typedef struct FX_DATA {
 } FX_DATA;
 
 typedef struct FX_GROUP {
-	// total size: 0x8
-	unsigned short gid; // offset 0x0, size 0x2
-	unsigned short fxNum; // offset 0x2, size 0x2
-	struct FX_TAB * fxTab; // offset 0x4, size 0x4
+  // total size: 0x8
+  unsigned short gid;   // offset 0x0, size 0x2
+  unsigned short fxNum; // offset 0x2, size 0x2
+  struct FX_TAB* fxTab; // offset 0x4, size 0x4
 } FX_GROUP;
 
 typedef struct PAGE {
@@ -821,6 +825,28 @@ typedef struct MIDISETUP {
   u16 reserved;                   // offset 0x2, size 0x2
   MIDI_CHANNEL_SETUP channel[16]; // offset 0x4, size 0x50
 } MIDISETUP;
+
+typedef struct ADSR_INFO {
+  // total size: 0x14
+  union ai_data {
+    struct {
+      // total size: 0x14
+      long atime;            // offset 0x0, size 0x4
+      long dtime;            // offset 0x4, size 0x4
+      unsigned short slevel; // offset 0x8, size 0x2
+      unsigned short rtime;  // offset 0xA, size 0x2
+      long ascale;           // offset 0xC, size 0x4
+      long dscale;           // offset 0x10, size 0x4
+    } dls;
+    struct {
+      // total size: 0x8
+      unsigned short atime;  // offset 0x0, size 0x2
+      unsigned short dtime;  // offset 0x2, size 0x2
+      unsigned short slevel; // offset 0x4, size 0x2
+      unsigned short rtime;  // offset 0x6, size 0x2
+    } linear;
+  } data; // offset 0x0, size 0x14
+} ADSR_INFO;
 
 void dataInit(u32, u32); /* extern */
 void dataInitStack();    /* extern */
@@ -854,11 +880,15 @@ void s3dInit(s32); /* extern */
 void s3dKillEmitterByFXID(FX_TAB* fxTab, unsigned long num);
 void s3dExit();
 void synthInit(u32, u8); /* extern */
-extern u16 voicePrioSortRootListRoot;
+void synthFXCloneMidiSetup(SYNTH_VOICE* dest, SYNTH_VOICE* src);
+extern u32 synthGlobalVariable[16];
+extern s16 voicePrioSortRootListRoot;
 extern u8 voiceMusicRunning;
 extern u8 voiceFxRunning;
 extern u8 voiceListInsert;
 extern u8 voiceListRoot;
+void voiceSetPriority(struct SYNTH_VOICE* svoice, unsigned char prio);
+u32 voiceIsLastStarted(struct SYNTH_VOICE* svoice);
 
 u32 synthGetTicksPerSecond(SYNTH_VOICE* svoice);
 void synthKillVoicesByMacroReferences(u16* ref);
@@ -871,6 +901,7 @@ void sndConvertTicks(u32* out, SYNTH_VOICE* svoice);
 u32 sndConvert2Ms(u32 time);
 void hwActivateStudio(unsigned char studio, unsigned long isMaster, SND_STUDIO_TYPE type);
 void hwDeactivateStudio(u8);
+void hwSetPriority(unsigned long v, unsigned long prio);
 u32 hwIsActive(u32);
 
 u32 sndGetPitch(u8 key, u32 sInfo);
@@ -927,6 +958,8 @@ typedef struct SND_STREAM_INFO {
 
 void streamOutputModeChanged();
 unsigned short inpGetMidiCtrl(unsigned char ctrl, unsigned char channel, unsigned char set);
+void inpSetMidiLastNote(unsigned char midi, unsigned char midiSet, unsigned char key);
+u16 inpGetModulation(SYNTH_VOICE* svoice);
 /* TODO: Figure out what `unk` is */
 void hwSetSRCType(u32 v, u8 salSRCType);
 void hwSetITDMode(u32 v, u8 mode);
@@ -952,6 +985,12 @@ void aramFreeStreamBuffer(u8 id);
 void* aramStoreData(void* src, unsigned long len);
 void aramRemoveData(void* aram, unsigned long len);
 
+unsigned long macStart(unsigned short macid, unsigned char priority, unsigned char maxVoices,
+                       unsigned short allocId, unsigned char key, unsigned char vol,
+                       unsigned char panning, unsigned char midi, unsigned char midiSet,
+                       unsigned char section, unsigned short step, unsigned short trackid,
+                       unsigned char new_vid, unsigned char vGroup, unsigned char studio,
+                       unsigned long itd);
 void macMakeInactive(SYNTH_VOICE* svoice, MAC_STATE);
 
 void sndProfUpdateMisc(SND_PROFILE_INFO* info);
