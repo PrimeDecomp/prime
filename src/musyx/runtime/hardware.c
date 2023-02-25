@@ -14,6 +14,8 @@ static volatile const u16 itdOffTab[128] = {
     31, 31, 31, 31, 31, 31, 31, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32,
 };
 
+SND_PROFILE_INFO prof;
+
 u8 salFrame;
 u8 salAuxFrame;
 u8 salNumVoices;
@@ -23,49 +25,72 @@ u8 salTimeOffset;
 void hwSetTimeOffset(u8 offset);
 
 void snd_handle_irq() {
-  u8 i;
-  u8 j;
+  u8 r; // r31
+  u8 i; // r30
+  u8 v; // r29
   if (sndActive == 0) {
     return;
   }
 
   streamCorrectLoops();
   hwIRQEnterCritical();
+  // sndProfStartPCM(&prof.dspCtrl);
   salCtrlDsp(salAiGetDest());
+  // sndProfStopPMC(&prof.dspCtrl);
   hwIRQLeaveCritical();
   hwIRQEnterCritical();
+  // sndProfStartPCM(&prof.auxProcessing);
   salHandleAuxProcessing();
+  // sndProfStopPMC(&prof.auxProcessing);
   hwIRQLeaveCritical();
   hwIRQEnterCritical();
   salFrame ^= 1;
   salAuxFrame = (salAuxFrame + 1) % 3;
 
-  for (i = 0; i < salNumVoices; ++i) {
-    for (j = 0; j < 5; ++j) {
-      dspVoice[i].changed[j] = 0;
+  for (v = 0; v < salNumVoices; ++v) {
+    for (i = 0; i < 5; ++i) {
+      dspVoice[v].changed[i] = 0;
     }
   }
 
+  // sndProfStartPMC(&prof.sequencer);
+  // sndProfPausePMC(&prof.sequencer);
+  // sndProfStartPMC(&prof.synthesizer);
+  // sndProfPausePMC(&prof.synthesizer);
   hwIRQLeaveCritical();
-
-  for (i = 0; i < 5; ++i) {
+  for (r = 0; r < 5; ++r) {
     hwIRQEnterCritical();
-    hwSetTimeOffset(i);
+    hwSetTimeOffset(r);
+    // sndProfStartPMC(&prof.sequencer);
     seqHandle(256);
+    // sndProfPausePMC(&prof.sequencer);
+    // sndProfStartPMC(&prof.synthesizer);
     synthHandle(256);
+    // sndProfPausePMC(&prof.synthesizer);
     hwIRQLeaveCritical();
   }
 
+  // sndProfStopPMC(&prof.sequencer);
+  // sndProfStopPMC(&prof.synthesizer);
   hwIRQEnterCritical();
   hwSetTimeOffset(0);
+  // sndProfStartPMC(&prof.emitters);
   s3dHandle();
+  // sndProfStopPMC(&prof.emitters);
   hwIRQLeaveCritical();
   hwIRQEnterCritical();
+  // sndProfStartPMC(&prof.streaming);
   streamHandle();
+  // sndProfStopPMC(&prof.streaming);
   hwIRQLeaveCritical();
   hwIRQEnterCritical();
   vsSampleUpdates();
   hwIRQLeaveCritical();
+  // sndProfUpdateMisc(&prof);
+
+  // if (sndProfUserCallback) {
+  //   sndProfUserCallback(&prof);
+  // }
 }
 
 s32 hwInit(u32* frq, u16 numVoices, u16 numStudios, u32 flags) {
@@ -278,11 +303,9 @@ void hwSetPolyPhaseFilter(unsigned long v, unsigned char salCoefSel) {
   dsp_vptr->changed[0] |= 0x80;
 }
 
-inline void SetupITD(DSPvoice* dsp_vptr, u8 pan) {
-  u16 panA = itdOffTab[pan];
-  u16 panB = itdOffTab[pan];
-  dsp_vptr->itdShiftL = panA;
-  dsp_vptr->itdShiftR = 32 - panB;
+void SetupITD(DSPvoice* dsp_vptr, u8 pan) {
+  dsp_vptr->itdShiftL = itdOffTab[pan];
+  dsp_vptr->itdShiftR = 32 - itdOffTab[pan];
   dsp_vptr->changed[0] |= 0x200;
 }
 
@@ -296,8 +319,7 @@ void hwSetITDMode(u32 v, u8 mode) {
   dspVoice[v].flags &= ~0x80000000;
 }
 
-
-#define  hwGetITDMode(dsp_vptr) (dsp_vptr->flags & 0x80000000)
+#define hwGetITDMode(dsp_vptr) (dsp_vptr->flags & 0x80000000)
 
 void hwSetVolume(unsigned long v, unsigned char table, float vol, unsigned long pan,
                  unsigned long span, float auxa, float auxb) {
@@ -487,6 +509,9 @@ asm void hwFlushStream(void* base, unsigned long offset, unsigned long bytes,
 #pragma pop
 /* clang-format on */
 #endif
+
+void hwPrepareStreamBuffer() {
+}
 u32 hwInitStream(u32 len) { return aramAllocateStreamBuffer(len); }
 
 void hwExitStream(u8 id) { aramFreeStreamBuffer(id); }
@@ -532,7 +557,11 @@ void hwSetSaveSampleCallback(ARAMUploadCallback callback, unsigned long chunckSi
 }
 
 void hwRemoveSample(void* header, void* data) {
-  aramRemoveData(data, convert_length(((u32*)header)[1] & 0xFFFFFF, ((u32*)header)[1] >> 0x18));
+  u32 len;  // r31
+  u8 type; // r30
+  type = ((u32*)header)[1] >> 0x18;
+  len = convert_length(((u32*)header)[1] & 0xFFFFFF, type);
+  aramRemoveData(data, len);
 }
 
 void hwSyncSampleMem() { aramSyncTransferQueue(); }
@@ -541,6 +570,13 @@ void hwFrameDone() {}
 
 void sndSetHooks(SND_HOOKS* hooks) { salHooks = *hooks; }
 
+void hwEnableHRTF() {
+  if (dspHRTFOn != FALSE) {
+    return;
+  }
+  dspHRTFOn = TRUE;
+  salInitHRTFBuffer();
+}
 void hwDisableHRTF() { dspHRTFOn = FALSE; }
 
 u32 hwGetVirtualSampleID(u32 v) {

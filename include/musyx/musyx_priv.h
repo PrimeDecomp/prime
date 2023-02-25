@@ -208,6 +208,55 @@ typedef struct SAMPLE_INFO {
   u8 compType;     // offset 0x1C, size 0x1
 } SAMPLE_INFO;
 
+typedef struct GROUP_DATA {
+  // total size: 0x28
+  unsigned long nextOff;   // offset 0x0, size 0x4
+  unsigned short id;       // offset 0x4, size 0x2
+  unsigned short type;     // offset 0x6, size 0x2
+  unsigned long macroOff;  // offset 0x8, size 0x4
+  unsigned long sampleOff; // offset 0xC, size 0x4
+  unsigned long curveOff;  // offset 0x10, size 0x4
+  unsigned long keymapOff; // offset 0x14, size 0x4
+  unsigned long layerOff;  // offset 0x18, size 0x4
+  union {
+    struct fx {
+      // total size: 0x4
+      unsigned long tableOff; // offset 0x0, size 0x4
+    } fx;
+    struct song {
+      // total size: 0xC
+      unsigned long normpageOff;  // offset 0x0, size 0x4
+      unsigned long drumpageOff;  // offset 0x4, size 0x4
+      unsigned long midiSetupOff; // offset 0x8, size 0x4
+    } song;
+  } data; // offset 0x1C, size 0xC
+} GROUP_DATA;
+
+typedef struct SAMPLE_HEADER {
+  // total size: 0x10
+  unsigned long info;       // offset 0x0, size 0x4
+  unsigned long length;     // offset 0x4, size 0x4
+  unsigned long loopOffset; // offset 0x8, size 0x4
+  unsigned long loopLength; // offset 0xC, size 0x4
+} SAMPLE_HEADER;
+
+typedef struct SDIR_DATA {
+  // total size: 0x20
+  unsigned short id;           // offset 0x0, size 0x2
+  unsigned short ref_cnt;      // offset 0x2, size 0x2
+  unsigned long offset;        // offset 0x4, size 0x4
+  void* addr;                  // offset 0x8, size 0x4
+  struct SAMPLE_HEADER header; // offset 0xC, size 0x10
+  unsigned long extraData;     // offset 0x1C, size 0x4
+} SDIR_DATA;
+
+typedef struct GSTACK {
+  // total size: 0xC
+  struct GROUP_DATA* gAddr;   // offset 0x0, size 0x4
+  struct SDIR_DATA* sdirAddr; // offset 0x4, size 0x4
+  void* prjAddr;              // offset 0x8, size 0x4
+} GSTACK;
+
 typedef struct VSampleInfo {
   // total size: 0xC
   void* loopBufferAddr; // offset 0x0, size 0x4
@@ -551,6 +600,31 @@ typedef struct KEYMAP {
   unsigned char reserved[2]; // offset 0x6, size 0x2
 } KEYMAP;
 
+typedef struct MEM_DATA {
+  // total size: 0x408
+  unsigned long nextOff;   // offset 0x0, size 0x4
+  unsigned short id;       // offset 0x4, size 0x2
+  unsigned short reserved; // offset 0x6, size 0x2
+  union {
+    struct {
+      // total size: 0x10
+      unsigned long num; // offset 0x0, size 0x4
+      LAYER entry[1];    // offset 0x4, size 0xC
+    } layer;
+    KEYMAP map[128];
+    unsigned char tab[1];
+    MSTEP cmd[1][2];
+  } data; // offset 0x8, size 0x400
+} MEM_DATA;
+
+typedef struct POOL_DATA {
+  // total size: 0x10
+  u32 macroOff;  // offset 0x0, size 0x4
+  u32 curveOff;  // offset 0x4, size 0x4
+  u32 keymapOff; // offset 0x8, size 0x4
+  u32 layerOff;  // offset 0xC, size 0x4
+} POOL_DATA;
+
 typedef struct SAL_VOLINFO {
   // total size: 0x24
   float volL;     // offset 0x0, size 0x4
@@ -671,6 +745,7 @@ typedef struct FX_TAB {
   unsigned char key;       // offset 0x8, size 0x1
   unsigned char vGroup;    // offset 0x9, size 0x1
 } FX_TAB;
+
 typedef struct FX_DATA {
   // total size: 0xE
   unsigned short num;       // offset 0x0, size 0x2
@@ -678,22 +753,72 @@ typedef struct FX_DATA {
   struct FX_TAB fx[1];      // offset 0x4, size 0xA
 } FX_DATA;
 
+typedef struct PAGE {
+  // total size: 0x6
+  unsigned short macro;    // offset 0x0, size 0x2
+  unsigned char prio;      // offset 0x2, size 0x1
+  unsigned char maxVoices; // offset 0x3, size 0x1
+  unsigned char index;     // offset 0x4, size 0x1
+  unsigned char reserved;  // offset 0x5, size 0x1
+} PAGE;
+
+typedef struct MIDI_CHANNEL_SETUP {
+  // total size: 0x5
+  unsigned char program; // offset 0x0, size 0x1
+  unsigned char volume;  // offset 0x1, size 0x1
+  unsigned char panning; // offset 0x2, size 0x1
+  unsigned char reverb;  // offset 0x3, size 0x1
+  unsigned char chorus;  // offset 0x4, size 0x1
+} MIDI_CHANNEL_SETUP;
+
+typedef struct MIDISETUP {
+  // total size: 0x54
+  u16 songId;                     // offset 0x0, size 0x2
+  u16 reserved;                   // offset 0x2, size 0x2
+  MIDI_CHANNEL_SETUP channel[16]; // offset 0x4, size 0x50
+} MIDISETUP;
+
 void dataInit(u32, s32); /* extern */
 void dataInitStack();    /* extern */
+u32 dataInsertSDir(SDIR_DATA* sdir, void* smp_data);
+u32 dataRemoveSDir(SDIR_DATA* sdir);
+u32 dataInsertMacro(u16 mid, void* macroaddr);
+u32 dataRemoveMacro(u16 mid);
+u32 dataInsertCurve(u16 cid, void* curvedata);
+u32 dataRemoveCurve(u16 sid);
+u32 dataAddSampleReference(u16 sid);
+u32 dataRemoveSampleReference(u16 sid);
+u32 dataInsertKeymap(u16 cid, void* keymapdata);
+u32 dataRemoveKeymap(u16 sid);
+u32 dataInsertLayer(u16 cid, void* layerdata, u16 size);
+u32 dataRemoveLayer(u16 sid);
+u32 dataInsertFX(u16 gid, FX_TAB* fx, u16 fxNum);
 FX_TAB* dataGetFX(u16 fid);
 s32 hwInit(u32* frq, u16 numVoices, u16 numStudios, u32 flags); /* extern */
 void hwEnableIrq();
 void hwDisableIrq();
-void s3dInit(s32);       /* extern */
-void seqInit();          /* extern */
-void streamInit();       /* extern */
-void synthInit(u32, u8); /* extern */
-void vsInit();           /* extern */
+void* hwTransAddr(void* samples);
+
+void seqInit(); /* extern */
+unsigned long seqStartPlay(PAGE* norm, PAGE* drum, MIDISETUP* midiSetup, u32* song,
+                           SND_PLAYPARA* para, u8 studio, u16 sgid);
+void streamInit(); /* extern */
+void vsInit();     /* extern */
 void hwExit();
 void dataExit();
+void s3dInit(s32); /* extern */
+void s3dKillEmitterByFXID(FX_TAB* fxTab, unsigned long num);
 void s3dExit();
-void synthExit();
+void synthInit(u32, u8); /* extern */
+extern u16 voicePrioSortRootListRoot;
+extern u8 voiceMusicRunning;
+extern u8 voiceFxRunning;
+extern u8 voiceListInsert;
+extern u8 voiceListRoot;
+
 u32 synthGetTicksPerSecond(SYNTH_VOICE* svoice);
+void synthKillVoicesByMacroReferences(u16* ref);
+void synthExit();
 u16 sndRand(void);
 s16 sndSin(u16 angle);
 u8* sndBSearch(u16* key, u8* subTab, s32 mainTab, s32 len, SND_COMPARE cmp);
@@ -785,6 +910,11 @@ void* aramStoreData(void* src, unsigned long len);
 void aramRemoveData(void* aram, unsigned long len);
 
 void macMakeInactive(SYNTH_VOICE* svoice, MAC_STATE);
+
+void sndProfUpdateMisc(SND_PROFILE_INFO* info);
+void sndProfResetPMC(SND_PROFILE_DATA* info);
+void sndProfStartPMC(SND_PROFILE_DATA* info);
+
 #ifdef __cplusplus
 }
 #endif
