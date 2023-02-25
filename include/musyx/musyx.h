@@ -1,6 +1,8 @@
 #ifndef _MUSYX_MUSYX
 #define _MUSYX_MUSYX
 
+#include <math.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -61,6 +63,20 @@ typedef struct SND_SEQVOLDEF {
   u8 volGroup;
 } SND_SEQVOLDEF;
 
+typedef struct SND_PLAYPARA {
+  u32 flags;
+  u32 trackMute[2];
+  u16 speed;
+  struct {
+    u16 time;
+    u8 target;
+  } volume;
+  u8 numSeqVolDef;
+  SND_SEQVOLDEF* seqVolDef;
+  u8 numFaded;
+  u8* faded;
+} SND_PLAYPARA;
+
 typedef struct SND_HOOKS {
   void* (*malloc)(u32 len);
   void (*free)(void* addr);
@@ -109,8 +125,8 @@ void sndSilence();
 
 typedef enum {
   SND_STUDIO_TYPE_STD = 0,
-	SND_STUDIO_TYPE_RESERVED0 = 1,
-	SND_STUDIO_TYPE_RESERVED1 = 2,
+  SND_STUDIO_TYPE_RESERVED0 = 1,
+  SND_STUDIO_TYPE_RESERVED1 = 2,
   SND_STUDIO_TYPE_RESERVED2 = 3,
 } SND_STUDIO_TYPE;
 
@@ -291,6 +307,49 @@ void sndAuxCallbackChorus(u8 reason, SND_AUX_INFO* info, void* user);
 bool sndAuxCallbackPrepareChorus(SND_AUX_CHORUS* ch);
 bool sndAuxCallbackShutdownChorus(SND_AUX_CHORUS* ch);
 bool sndAuxCallbackUpdateSettingsChorus(SND_AUX_CHORUS* ch);
+
+typedef struct SND_PROFILE_DATA {
+  unsigned long loadStores;
+  unsigned long missCycles;
+  unsigned long cycles;
+  unsigned long instructions;
+  unsigned long lastLoadStores;
+  unsigned long lastMissCycles;
+  unsigned long lastCycles;
+  unsigned long lastInstructions;
+  unsigned long peekLoadStores;
+  unsigned long peekMissCycles;
+  unsigned long peekCycles;
+  unsigned long peekInstructions;
+  unsigned long _loadStores;
+  unsigned long _missCycles;
+  unsigned long _cycles;
+  unsigned long _instructions;
+  float avgLoadStores;
+  float avgMissCycles;
+  float avgCycles;
+  float avgInstructions;
+  float sumLoadStores;
+  float sumMissCycles;
+  float sumCycles;
+  float sumInstructions;
+  unsigned long cnt;
+  unsigned long paused;
+} SND_PROFILE_DATA;
+
+typedef struct SND_PROFILE_INFO {
+  SND_PROFILE_DATA dspCtrl;
+  SND_PROFILE_DATA auxProcessing;
+  SND_PROFILE_DATA sequencer;
+  SND_PROFILE_DATA synthesizer;
+  SND_PROFILE_DATA emitters;
+  SND_PROFILE_DATA streaming;
+  unsigned char numMusicVoices;
+  unsigned char numSFXVoices;
+} SND_PROFILE_INFO;
+
+typedef void (*SND_PROF_USERCALLBACK)(struct SND_PROFILE_INFO*);
+extern SND_PROF_USERCALLBACK sndProfUserCallback;
 #ifdef __cplusplus
 }
 #endif

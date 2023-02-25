@@ -920,7 +920,7 @@ LIBS = [
     {
         "lib": "musyx",
         #"mw_version": "1.2.5",
-        #"cflags": "-proc gecko -fp hard -nodefaults -nosyspath -i include -i libc -g -sym on -D_DEBUG=1 -enum int -use_lmw_stmw on",
+        #"cflags": "-proc gecko -fp hard -nodefaults -nosyspath -i include -i libc -g -sym on -D_DEBUG=1 -enum int ",
         "mw_version": "1.3.2",
         "cflags": "$cflags_musyx",
         "host": False,
@@ -937,7 +937,7 @@ LIBS = [
             "musyx/runtime/synth_adsr",
             ["musyx/runtime/synth_vsamples", False],
             ["musyx/runtime/synth_dbtab", True],
-            "musyx/runtime/s_data",
+            ["musyx/runtime/s_data", True],
             ["musyx/runtime/hw_dspctrl", False],
             ["musyx/runtime/hw_volconv", False],
             ["musyx/runtime/snd3d", False],
