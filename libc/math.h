@@ -160,7 +160,7 @@ static inline int __fpclassifyd(double x) {
 #define isinf(x) (fpclassify(x) == FP_INFINITE)
 #define isfinite(x) ((fpclassify(x) > FP_INFINITE))
 
-inline float sqrtf(float x) {
+static float sqrtf(float x) {
   const double _half = .5;
   const double _three = 3.0;
   volatile float y;
@@ -179,7 +179,7 @@ inline float sqrtf(float x) {
   return x;
 }
 
-static inline double sqrt(double x) {
+static double sqrt(double x) {
   if (x > 0.0) {
     double guess = __frsqrte(x);                    /* returns an approximation to  */
     guess = .5 * guess * (3.0 - guess * guess * x); /* now have 8 sig bits          */
