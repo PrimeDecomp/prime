@@ -856,6 +856,7 @@ u32 dataInsertMacro(u16 mid, void* macroaddr);
 u32 dataRemoveMacro(u16 mid);
 u32 dataInsertCurve(u16 cid, void* curvedata);
 u32 dataRemoveCurve(u16 sid);
+long dataGetSample(u16 sid, SAMPLE_INFO* newsmp);
 u32 dataAddSampleReference(u16 sid);
 u32 dataRemoveSampleReference(u16 sid);
 u32 dataInsertKeymap(u16 cid, void* keymapdata);
@@ -865,6 +866,8 @@ u32 dataRemoveLayer(u16 sid);
 u32 dataInsertFX(u16 gid, FX_TAB* fx, u16 fxNum);
 FX_TAB* dataGetFX(u16 fid);
 s32 hwInit(u32* frq, u16 numVoices, u16 numStudios, u32 flags); /* extern */
+void hwInitSamplePlayback(u32 v, u16 smpID, void* newsmp, u32 set_defadsr, u32 prio,
+                          u32 callbackUserValue, u32 setSRC, u8 itdMode);
 void hwEnableIrq();
 void hwDisableIrq();
 void* hwTransAddr(void* samples);
@@ -957,6 +960,11 @@ typedef struct SND_STREAM_INFO {
 } SND_STREAM_INFO;
 
 void streamOutputModeChanged();
+void inpSetExCtrl(struct SYNTH_VOICE* svoice, unsigned char ctrl, signed short v);
+CHANNEL_DEFAULTS* inpGetChannelDefaults(unsigned char midi, unsigned char midiSet);
+void inpSetMidiLastNote(u8 midi, u8 midiSet, u8 key);
+u8 inpGetMidiLastNote(u8 midi, u8 midiSet);
+unsigned short inpGetExCtrl(SYNTH_VOICE* svoice, unsigned char ctrl);
 unsigned short inpGetMidiCtrl(unsigned char ctrl, unsigned char channel, unsigned char set);
 void inpSetMidiLastNote(unsigned char midi, unsigned char midiSet, unsigned char key);
 u16 inpGetModulation(SYNTH_VOICE* svoice);

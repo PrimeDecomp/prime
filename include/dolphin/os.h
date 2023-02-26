@@ -214,6 +214,7 @@ void OSFatal(GXColor fg, GXColor bg, const char* msg);
 #endif
 
 #include <dolphin/os/OSAlarm.h>
+#include <dolphin/os/OSAlloc.h>
 #include <dolphin/os/OSArena.h>
 #include <dolphin/os/OSCache.h>
 #include <dolphin/os/OSContext.h>

@@ -140,7 +140,7 @@ void hwSetMesgCallback(SND_MESSAGE_CALLBACK callback) { salMessageCallback = cal
 
 void hwSetPriority(u32 idx, u32 priority) { dspVoice[idx].prio = priority; }
 
-void hwInitSamplePlayback(s32 v, u16 smpID, void* newsmp, u32 set_defadsr, u32 priority,
+void hwInitSamplePlayback(u32 v, u16 smpID, void* newsmp, u32 set_defadsr, u32 prio,
                           u32 callbackUserValue, u32 setSRC, u8 itdMode) {
   unsigned char i;  // r30
   unsigned long bf; // r29
@@ -151,7 +151,7 @@ void hwInitSamplePlayback(s32 v, u16 smpID, void* newsmp, u32 set_defadsr, u32 p
   }
 
   dspVoice[v].changed[0] = bf;
-  dspVoice[v].prio = priority;
+  dspVoice[v].prio = prio;
   dspVoice[v].mesgCallBackUserValue = callbackUserValue;
   dspVoice[v].flags = 0;
   dspVoice[v].smp_id = smpID;
