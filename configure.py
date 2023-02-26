@@ -960,6 +960,15 @@ LIBS = [
         ],
     },
     {
+       "lib": "txwin",
+        "mw_version": "1.2.5",
+        "cflags": "-Cpp_exceptions off -proc gecko -fp hard -nodefaults -nosyspath -i include -i libc -g -sym on -D_DEBUG=1 -enum int ",
+        "host": False,
+        "objects": [
+            ["musyx/txwin/txwin", False],
+        ],
+    },
+    {
         "lib": "dtk",
         "mw_version": "1.2.5",
         "cflags": "$cflags_base",
