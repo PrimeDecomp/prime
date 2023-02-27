@@ -1,6 +1,7 @@
 #ifndef _MUSYX_MUSYX_PRIV
 #define _MUSYX_MUSYX_PRIV
 
+#include "musyx/assert.h"
 #include "musyx/musyx.h"
 
 #ifdef __cplusplus
@@ -857,6 +858,7 @@ u32 dataRemoveMacro(u16 mid);
 u32 dataInsertCurve(u16 cid, void* curvedata);
 u32 dataRemoveCurve(u16 sid);
 long dataGetSample(u16 sid, SAMPLE_INFO* newsmp);
+void* dataGetCurve(u16 cid);
 u32 dataAddSampleReference(u16 sid);
 u32 dataRemoveSampleReference(u16 sid);
 u32 dataInsertKeymap(u16 cid, void* keymapdata);
@@ -884,14 +886,16 @@ void s3dKillEmitterByFXID(FX_TAB* fxTab, unsigned long num);
 void s3dExit();
 void synthInit(u32, u8); /* extern */
 void synthFXCloneMidiSetup(SYNTH_VOICE* dest, SYNTH_VOICE* src);
+
 extern u32 synthGlobalVariable[16];
-extern s16 voicePrioSortRootListRoot;
+extern u16 voicePrioSortRootListRoot;
 extern u8 voiceMusicRunning;
 extern u8 voiceFxRunning;
 extern u8 voiceListInsert;
 extern u8 voiceListRoot;
 void voiceSetPriority(struct SYNTH_VOICE* svoice, unsigned char prio);
 u32 voiceIsLastStarted(struct SYNTH_VOICE* svoice);
+s32 voiceKillSound(u32 voiceid);
 
 u32 synthGetTicksPerSecond(SYNTH_VOICE* svoice);
 void synthKillVoicesByMacroReferences(u16* ref);
@@ -916,6 +920,7 @@ typedef s32 (*SND_MESSAGE_CALLBACK)(u32, u32);
 typedef void (*SND_SOME_CALLBACK)();
 
 extern SND_MESSAGE_CALLBACK salMessageCallback;
+extern SND_MESSAGE_CALLBACK synthMessageCallback;
 /* Math */
 void salApplyMatrix(const SND_FMATRIX* a, const SND_FVECTOR* b, SND_FVECTOR* out);
 float salNormalizeVector(SND_FVECTOR* vec);
@@ -960,8 +965,13 @@ typedef struct SND_STREAM_INFO {
 } SND_STREAM_INFO;
 
 void streamOutputModeChanged();
-void inpSetExCtrl(struct SYNTH_VOICE* svoice, unsigned char ctrl, signed short v);
+void inpSetGlobalMIDIDirtyFlag(u8 chan, u8 midiSet, s32 flag);
+void inpAddCtrl(struct CTRL_DEST* dest, unsigned char ctrl, long scale, unsigned char comb,
+                unsigned long isVar);
+void inpSetExCtrl(SYNTH_VOICE* svoice, unsigned char ctrl, signed short v);
 CHANNEL_DEFAULTS* inpGetChannelDefaults(unsigned char midi, unsigned char midiSet);
+extern CTRL_DEST inpAuxA[8][4];
+extern CTRL_DEST inpAuxB[8][4];
 void inpSetMidiLastNote(u8 midi, u8 midiSet, u8 key);
 u8 inpGetMidiLastNote(u8 midi, u8 midiSet);
 unsigned short inpGetExCtrl(SYNTH_VOICE* svoice, unsigned char ctrl);

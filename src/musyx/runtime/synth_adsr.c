@@ -1,4 +1,4 @@
-#include "musyx/assert.h"
+
 #include "musyx/musyx_priv.h"
 #include "musyx/synth_dbtab.h"
 

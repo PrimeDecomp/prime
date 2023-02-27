@@ -12,56 +12,56 @@
 #include "musyx/musyx_priv.h"
 
 void sndAuxCallbackDelay(u8 reason, SND_AUX_INFO* info, void* user) {
-  s32 curSur;
-  s32 curLeft;
-  s32 curRight;
-  s32 i;
-  s32* leftOffset;
-  s32* surOffset;
-  s32* rightOffset;
-  s32* leftPtr;
-  s32* rightPtr;
-  s32* surPtr;
-  SND_AUX_DELAY* delay;
+  long l;                  // r30
+  long r;                  // r29
+  long s;                  // r28
+  long* lBuf;              // r27
+  long* rBuf;              // r26
+  long* sBuf;              // r25
+  unsigned long i;         // r24
+  struct SND_AUX_DELAY* c; // r31
+  long* left;              // r23
+  long* right;             // r22
+  long* sur;               // r21
+
   switch (reason) {
   case SND_AUX_REASON_BUFFERUPDATE:
-    delay = (SND_AUX_DELAY*)user;
-    leftOffset = delay->left + (delay->currentPos[0] * 160);
-    leftPtr = info->data.bufferUpdate.left;
-    rightPtr = info->data.bufferUpdate.right;
-    rightOffset = delay->right + (delay->currentPos[1] * 160);
-    surPtr = info->data.bufferUpdate.surround;
-    surOffset = delay->sur + (delay->currentPos[2] * 160);
-    for (i = 160; i > 0; --i) {
-      curLeft = *leftOffset;
-      curRight = *rightOffset;
-      curSur = *surOffset;
-      *leftOffset = *leftPtr + ((s32)(curLeft * delay->currentFeedback[0]) >> 7);
-      ++leftOffset;
-      *rightOffset = *rightPtr + ((s32)(curRight * delay->currentFeedback[1]) >> 7);
-      ++rightOffset;
-      *surOffset = *surPtr + ((s32)(curSur * delay->currentFeedback[2]) >> 7);
-      ++surOffset;
-      *leftPtr = (s32)(curLeft * delay->currentOutput[0]) >> 7;
-      ++leftPtr;
-      *rightPtr = (s32)(curRight * delay->currentOutput[1]) >> 7;
-      ++rightPtr;
-      *surPtr = (s32)(curSur * delay->currentOutput[2]) >> 7;
-      ++surPtr;
+    c = (SND_AUX_DELAY*)user;
+    left = info->data.bufferUpdate.left;
+    right = info->data.bufferUpdate.right;
+    sur = info->data.bufferUpdate.surround;
+    lBuf = c->left + (c->currentPos[0] * 160);
+    rBuf = c->right + (c->currentPos[1] * 160);
+    sBuf = c->sur + (c->currentPos[2] * 160);
+    for (i = 0; i < 160; ++i) {
+
+      l = *lBuf;
+      r = *rBuf;
+      s = *sBuf;
+
+      *lBuf++ = *left + ((s32)(l * c->currentFeedback[0]) >> 7);
+      *rBuf++ = *right + ((s32)(r * c->currentFeedback[1]) >> 7);
+      *sBuf++ = *sur + ((s32)(s * c->currentFeedback[2]) >> 7);
+
+      *left++ = (s32)(l * c->currentOutput[0]) >> 7;
+      *right++ = (s32)(r * c->currentOutput[1]) >> 7;
+      *sur++ = (s32)(s * c->currentOutput[2]) >> 7;
     }
-    delay->currentPos[0] = (delay->currentPos[0] + 1) % delay->currentSize[0];
-    delay->currentPos[1] = (delay->currentPos[1] + 1) % delay->currentSize[1];
-    delay->currentPos[2] = (delay->currentPos[2] + 1) % delay->currentSize[2];
+
+    c->currentPos[0] = (c->currentPos[0] + 1) % c->currentSize[0];
+    c->currentPos[1] = (c->currentPos[1] + 1) % c->currentSize[1];
+    c->currentPos[2] = (c->currentPos[2] + 1) % c->currentSize[2];
+    break;
   case SND_AUX_REASON_PARAMETERUPDATE:
     break;
   default:
-    // ASSERT_MSG(FALSE);
+    MUSY_ASSERT(FALSE);
     break;
   }
 }
 
 bool sndAuxCallbackUpdateSettingsDelay(SND_AUX_DELAY* delay) {
-  s32 i;
+  u32 i;
   s32* left;
   s32* right;
   s32* sur;
@@ -77,25 +77,25 @@ bool sndAuxCallbackUpdateSettingsDelay(SND_AUX_DELAY* delay) {
   delay->left = (s32*)salMalloc(delay->currentSize[0] * 160 * 4);
   delay->right = (s32*)salMalloc(delay->currentSize[1] * 160 * 4);
   delay->sur = (s32*)salMalloc(delay->currentSize[2] * 160 * 4);
+
+  /* clang-format off */
+  MUSY_ASSERT(delay->left!=NULL);
+  MUSY_ASSERT(delay->right!=NULL);
+  MUSY_ASSERT(delay->sur!=NULL);
+  /* clang-format on */
   left = delay->left;
   right = delay->right;
   sur = delay->sur;
-  // ASSERT_MSG(delay->left!=NULL);
-  // ASSERT_MSG(delay->right!=NULL);
-  // ASSERT_MSG(delay->sur!=NULL);
 
   for (i = 0; i < delay->currentSize[0] * 160; ++i) {
-    *left = 0;
-    ++left;
+    *left++ = 0;
   }
 
   for (i = 0; i < delay->currentSize[1] * 160; ++i) {
-    *right = 0;
-    ++right;
+    *right++ = 0;
   }
   for (i = 0; i < delay->currentSize[2] * 160; ++i) {
-    *sur = 0;
-    ++sur;
+    *sur++ = 0;
   }
   return TRUE;
 }

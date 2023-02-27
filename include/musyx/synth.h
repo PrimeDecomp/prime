@@ -18,7 +18,7 @@ extern void* synthAuxBUser[8];
 extern u8 synthITDDefault[16];
 extern u32 synthFlags;
 
-s32 vidGetInternalId(SND_VOICEID id);
+u32 vidGetInternalId(SND_VOICEID id);
 bool synthFXSetCtrl(SND_VOICEID vid, u8 ctrl, u8 value);
 bool synthFXSetCtrl14(SND_VOICEID vid, u8 ctrl, u16 value);
 bool synthSendKeyOff(SND_VOICEID vid);

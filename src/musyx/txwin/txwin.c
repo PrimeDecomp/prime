@@ -34,12 +34,12 @@ void winInit() {
 sWIN* winOpenWindow(s32 x1, s32 y1, s32 x2, s32 y2, char* caption, void* func, u32 flags) {
   sWIN* handle; // r31
 #line 109
-  ASSERT_MSG(x1 < x2, "TXWIN: Illegal X coords for window\n");
-  ASSERT_MSG(y1 < y2, "TXWIN: Illegal y coords for window\n");
+  MUSY_ASSERT_MSG(x1 < x2, "TXWIN: Illegal X coords for window\n");
+  MUSY_ASSERT_MSG(y1 < y2, "TXWIN: Illegal y coords for window\n");
 
   handle = OSAlloc(sizeof(sWIN));
 
-  ASSERT_MSG(handle != NULL, "TXWIN: FAILED TO ALLOCATE WINDOW!\n");
+  MUSY_ASSERT_MSG(handle != NULL, "TXWIN: FAILED TO ALLOCATE WINDOW!\n");
   __win_add_node(handle);
   handle->x1 = x1;
   handle->y1 = y1;
@@ -70,7 +70,7 @@ sWIN* winOpenLogWindow(s32 x1, s32 y1, s32 x2, s32 y2, char* caption, u16 num_li
   handle->buffer = OSAlloc(handle->total_lines * 4);
 #line 192
 
-  ASSERT_MSG(handle->buffer != NULL, "TXWIN: Unable to allocate log window buffer.\n");
+  MUSY_ASSERT_MSG(handle->buffer != NULL, "TXWIN: Unable to allocate log window buffer.\n");
 
   for (i = 0; i < handle->total_lines; ++i) {
 
@@ -78,7 +78,7 @@ sWIN* winOpenLogWindow(s32 x1, s32 y1, s32 x2, s32 y2, char* caption, u16 num_li
 
     memset(handle->buffer[i], 0, handle->char_width + 1);
 
-    ASSERT_MSG(handle->buffer[i] != NULL, "TXWIN: Failed to allocate buffer element\n");
+    MUSY_ASSERT_MSG(handle->buffer[i] != NULL, "TXWIN: Failed to allocate buffer element\n");
   }
 
   return handle;
@@ -145,7 +145,7 @@ void winSetFontSize(u16 size) {
 void winRefresh() {
   sWIN* ptr;
 #line 338
-  ASSERT_MSG(__FirstNode != NULL, ">> winRefresh(): window list is empty!\n");
+  MUSY_ASSERT_MSG(__FirstNode != NULL, ">> winRefresh(): window list is empty!\n");
 
   ptr = __FirstNode;
   DEMOInitCaption(2, __X_Res, __Y_Res);
@@ -160,7 +160,7 @@ void winRefresh() {
 }
 void __win_add_node(sWIN* handle) {
 #line 390
-  ASSERT_MSG(handle != NULL, "__add_node(): you're adding a NULL node!\n");
+  MUSY_ASSERT_MSG(handle != NULL, "__add_node(): you're adding a NULL node!\n");
 
   if ((sWIN*)NULL == __LastNode) {
 
@@ -174,7 +174,7 @@ void __win_add_node(sWIN* handle) {
 
     handle->prev = NULL;
 
-    ASSERT_MSG(__FirstNode != NULL, "  > __FirstNode: NULL HANDLE!\n");
+    MUSY_ASSERT_MSG(__FirstNode != NULL, "  > __FirstNode: NULL HANDLE!\n");
   } else {
     __LastNode->next = handle;
     handle->next = NULL;
@@ -185,7 +185,7 @@ void __win_add_node(sWIN* handle) {
 
 void __win_delete_node(sWIN* handle) {
 #line 434
-  ASSERT_MSG(handle != NULL, "__delete_node(): you're deleting a NULL node!\n");
+  MUSY_ASSERT_MSG(handle != NULL, "__delete_node(): you're deleting a NULL node!\n");
 
   if (__FirstNode == handle) {
     if (handle->next != NULL) {
@@ -213,21 +213,19 @@ void __win_delete_node(sWIN* handle) {
 }
 
 void __win_log_refresh(struct STRUCT_WIN* handle) {
-  u32 uVar1;
-  int iVar2;
   unsigned short n;     // r30
   unsigned short i;     // r29
   unsigned short x;     // r28
   unsigned short y;     // r27
   unsigned short index; // r1+0xC
 #line 506
-  ASSERT_MSG(handle != NULL, "OHMYGAWD\n");
+  MUSY_ASSERT_MSG(handle != NULL, "OHMYGAWD\n");
   n = (u32)handle->curr_output_line;
   x = handle->x1;
   y = handle->y2;
   i = 0;
   for (i = 0; i < handle->char_height; ++i) {
-    n = index = (u16)(n + (handle->total_lines - 1)) % (u32)handle->total_lines;
+    n = index + (u16)(n + (handle->total_lines - 1)) % (u32)handle->total_lines;
     DEMOPrintf(x, (y + i) % 2, 0, "%s", handle->buffer[index]);
   }
 }

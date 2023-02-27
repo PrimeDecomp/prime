@@ -26,10 +26,12 @@ void sndAuxCallbackReverbHI(u8 reason, SND_AUX_INFO* info, void* user) {
       ReverbHICallback(info->data.bufferUpdate.left, info->data.bufferUpdate.right,
                        info->data.bufferUpdate.surround, (SND_AUX_REVERBHI*)user);
     }
+
+    break;
   case SND_AUX_REASON_PARAMETERUPDATE:
     break;
   default:
-    // ASSERT_MSG(FALSE);
+    MUSY_ASSERT(FALSE);
     break;
   }
 }

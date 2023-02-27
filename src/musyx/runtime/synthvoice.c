@@ -1,4 +1,4 @@
-#include "musyx/assert.h"
+
 #include "musyx/musyx_priv.h"
 
 void voiceResetLastStarted(SYNTH_VOICE* svoice);
@@ -205,13 +205,13 @@ void voiceRemovePriority(SYNTH_VOICE* svoice) {
     return;
   }
 
-  if (vps->prev != 0xff) {
+  if (vps->prev != 0xFF) {
     voicePrioSortVoices[vps->prev].next = vps->next;
   } else {
     voicePrioSortVoicesRoot[svoice->prio] = vps->next;
   }
 
-  if (vps->next != 0xff) {
+  if (vps->next != 0xFF) {
     voicePrioSortVoices[vps->next].prev = vps->prev;
   } else if (vps->prev == 0xFF) {
     rps = &voicePrioSortRootList[svoice->prio];
@@ -231,14 +231,61 @@ void voiceRemovePriority(SYNTH_VOICE* svoice) {
   vps->user = 0;
 }
 
-#pragma dont_inline on
 void voiceSetPriority(SYNTH_VOICE* svoice, u8 prio) {
   u16 i;                // r29
   u16 li;               // r25
   SYNTH_VOICELIST* vps; // r27
   u32 v;                // r26
+  v = (u8)svoice->id;
+  vps = &voicePrioSortVoices[v];
+  if (vps->user == 1) {
+    if (svoice->prio == prio) {
+      return;
+    }
+
+    voiceRemovePriority(svoice);
+  }
+
+  vps->user = 1;
+  vps->prev = 0xff;
+  if ((vps->next = voicePrioSortVoicesRoot[prio]) != 0xFF) {
+    voicePrioSortVoices[voicePrioSortVoicesRoot[prio]].prev = v;
+  } else {
+    if (voicePrioSortRootListRoot != 0xFFFF) {
+      if (prio >= voicePrioSortRootListRoot) {
+        for (i = voicePrioSortRootListRoot; i != 0xFFFF; i = voicePrioSortRootList[i].next) {
+          if ((u16)i > prio) {
+            break;
+          }
+          li = i;
+        }
+        
+        voicePrioSortRootList[li].next = (u16)prio;
+        voicePrioSortRootList[prio].prev = li;
+        voicePrioSortRootList[prio].next = i;
+        if (i != 0xFFFF) {
+          voicePrioSortRootList[i].prev = prio;
+        }
+
+      } else {
+        voicePrioSortRootList[prio].next = voicePrioSortRootListRoot;
+        voicePrioSortRootList[prio].prev = 0xFFFF;
+        voicePrioSortRootList[voicePrioSortRootListRoot].prev = prio;
+        voicePrioSortRootListRoot = prio;
+      }
+    } else {
+      voicePrioSortRootList[prio].next = 0xFFFF;
+      voicePrioSortRootList[prio].prev = 0xFFFF;
+      voicePrioSortRootListRoot = prio;
+    }
+  }
+
+  voicePrioSortVoicesRoot[prio] = v;
+  svoice->prio = prio;
+  hwSetPriority((u8)svoice->id, (((u32)prio << 24) | ((u32)svoice->age >> 15)));
 }
 
+#pragma dont_inline on
 u32 voiceAllocate(u8 priority, u8 maxVoices, u16 allocId, u8 fxFlag) {
   long i;               // r31
   long num;             // r26
@@ -253,7 +300,7 @@ void voiceFree(SYNTH_VOICE* svoice) {
   u32 i;                // r29
   SYNTH_VOICELIST* sfv; // r30
 #line 628
-  ASSERT(svoice->id != 0xFFFFFFFF);
+  MUSY_ASSERT(svoice->id != 0xFFFFFFFF);
 #line 256
   macMakeInactive(svoice, MAC_STATE_STOPPED);
   voiceRemovePriority(svoice);
@@ -306,14 +353,16 @@ void synthInitAllocationAids() {
 }
 
 u32 voiceBlock(unsigned char prio) {
-  u32 voice = voiceAllocate(prio, 0xFF, 0xFFFF, 1);
+  u32 voice;
 
-  if (voice != 0xFFFFFFFF) {
+  if ((voice = voiceAllocate(prio, 0xFF, 0xFFFF, 1)) != 0xFFFFFFFF) {
     synthVoice[voice].block = 1;
     synthVoice[voice].fxFlag = 1;
-#ifdef PRIME1
+
+#if MUSY_VERSION >= MUSY_VERSION_CHECK(1, 5, 4)
     synthVoice[voice].allocId = 0xFFFF;
 #endif
+
     vidRemoveVoiceReferences(&synthVoice[voice]);
     synthVoice[voice].id = voice | 0xFFFFFF00;
 
@@ -360,24 +409,17 @@ void voiceKill(u32 vi) {
 }
 
 long voiceKillSound(u32 voiceid) {
-  long ret;
-  u32 next_voiceid;
-  u32 i;
-  u32 vid;
-
-  ret = -1;
-
+  s32 ret = -1;     // r29
+  u32 next_voiceid; // r28
+  u32 i;            // r30
   if (sndActive != FALSE) {
-    i = vidGetInternalId(voiceid);
-
-    while (i != 0xFFFFFFFF) {
-      vid = i & 0xFF;
-      next_voiceid = synthVoice[vid].child;
-      if (i == synthVoice[vid].id) {
-        voiceKill(vid);
+    for (i = vidGetInternalId(voiceid); i != 0xFFFFFFFF; i = next_voiceid) {
+      voiceid = (u8)i;
+      next_voiceid = synthVoice[voiceid].child;
+      if (i == synthVoice[voiceid].id) {
+        voiceKill(voiceid);
         ret = 0;
       }
-      i = next_voiceid;
     }
   }
 
