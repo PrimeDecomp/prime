@@ -1,4 +1,4 @@
-#include "musyx/assert.h"
+
 #include "musyx/musyx_priv.h"
 
 static u32 synthTicksPerSecond[9][16];

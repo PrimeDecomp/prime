@@ -1,4 +1,4 @@
-#include "musyx/assert.h"
+
 #include "musyx/musyx_priv.h"
 
 static VS vs;
@@ -160,8 +160,8 @@ unsigned long sndVirtualSampleAllocateBuffers(unsigned char numInstances,
   long i;            // r31
   unsigned long len; // r28
 #line 437
-  ASSERT_MSG(sndActive, "Sound system is not initialized.");
-  ASSERT_MSG(numInstances <= 64, "Parameter exceeded maximum number of instances allowable");
+  MUSY_ASSERT_MSG(sndActive, "Sound system is not initialized.");
+  MUSY_ASSERT_MSG(numInstances <= 64, "Parameter exceeded maximum number of instances allowable");
 #line 159
   hwDisableIrq();
   vs.numBuffers = numInstances;
@@ -193,7 +193,7 @@ unsigned long sndVirtualSampleAllocateBuffers(unsigned char numInstances,
 void sndVirtualSampleFreeBuffers() {
   u8 i; // r31
 #line 481
-  ASSERT_MSG(sndActive, "Sound system is not initialized.");
+  MUSY_ASSERT_MSG(sndActive, "Sound system is not initialized.");
 
   for (i = 0; i < vs.numBuffers; ++i) {
     aramFreeStreamBuffer(vs.streamBuffer[i].hwId);
@@ -205,7 +205,7 @@ void sndVirtualSampleFreeBuffers() {
 void sndVirtualSampleSetCallback(unsigned long (*callback)(unsigned char,
                                                            struct SND_VIRTUALSAMPLE_INFO*)) {
 #line 0x1ed
-  ASSERT_MSG(sndActive, "Sound system is not initialized.");
+  MUSY_ASSERT_MSG(sndActive, "Sound system is not initialized.");
   vs.callback = callback;
 }
 
@@ -221,7 +221,7 @@ void sndVirtualSampleARAMUpdate(unsigned short instID, void* base, unsigned long
                                 unsigned long len1, unsigned long off2, unsigned long len2) {
   u8 i;
 #line 0x203
-  ASSERT_MSG(sndActive, "Sound system is not initialized.");
+  MUSY_ASSERT_MSG(sndActive, "Sound system is not initialized.");
 
   hwDisableIrq();
 

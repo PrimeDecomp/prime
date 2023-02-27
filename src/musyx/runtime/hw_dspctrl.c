@@ -1,4 +1,4 @@
-#include "musyx/assert.h"
+
 #include "musyx/musyx_priv.h"
 
 #ifdef _DEBUG
@@ -31,7 +31,7 @@ u32 salInitDspCtrl(u8 numVoices, u8 numStudios, u32 defaultStudioDPL2) {
   salNumVoices = numVoices;
   salMaxStudioNum = numStudios;
 #line 66
-  ASSERT(salMaxStudioNum <= SAL_MAX_STUDIONUM);
+  MUSY_ASSERT(salMaxStudioNum <= SAL_MAX_STUDIONUM);
   dspARAMZeroBuffer = aramGetZeroBuffer();
   if ((dspCmdList = salMalloc(1024 * sizeof(u16))) != NULL) {
     MUSY_DEBUG("Allocated dspCmdList.\n\n");

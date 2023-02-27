@@ -1,4 +1,4 @@
-#include "musyx/assert.h"
+
 #include "musyx/musyx_priv.h"
 
 #define SYNTH_FX_MIDISET 0xFF
@@ -29,7 +29,7 @@ void inpResetGlobalMIDIDirtyFlags() {
 }
 
 bool inpResetGlobalMIDIDirtyFlag(u8 chan, u8 midiSet, s32 flag) {
-  // ASSERT(midiSet!=SYNTH_FX_MIDISET);
+  // MUSY_ASSERT(midiSet!=SYNTH_FX_MIDISET);
   bool ret = GetGlobalFlagSet(chan, midiSet, flag);
   if (ret) {
     inpGlobalMIDIDirtyFlags[midiSet][chan] &= ~flag;
@@ -38,7 +38,7 @@ bool inpResetGlobalMIDIDirtyFlag(u8 chan, u8 midiSet, s32 flag) {
 }
 
 void inpSetGlobalMIDIDirtyFlag(u8 chan, u8 midiSet, s32 flag) {
-  // ASSERT(midiSet!=SYNTH_FX_MIDISET);
+  // MUSY_ASSERT(midiSet!=SYNTH_FX_MIDISET);
   inpGlobalMIDIDirtyFlags[midiSet][chan] |= flag;
 }
 

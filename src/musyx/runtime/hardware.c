@@ -1,4 +1,4 @@
-#include "musyx/assert.h"
+
 #include "musyx/musyx_priv.h"
 
 extern void OSReport(const char*, ...);
@@ -6,15 +6,13 @@ extern void OSReport(const char*, ...);
 extern void DCStoreRange(void* addr, u32 nBytes);
 
 static volatile const u16 itdOffTab[128] = {
-    0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  1,  1,  1,  1,  1,  1,  1,  2,  2,  2,  2,
-    2,  3,  3,  3,  3,  3,  4,  4,  4,  4,  5,  5,  5,  6,  6,  6,  7,  7,  7,  8,  8,  8,
-    9,  9,  9,  10, 10, 10, 11, 11, 12, 12, 12, 13, 13, 13, 14, 14, 15, 15, 15, 16, 16, 17,
-    17, 17, 18, 18, 19, 19, 19, 20, 20, 20, 21, 21, 22, 22, 22, 23, 23, 23, 24, 24, 24, 25,
-    25, 25, 26, 26, 26, 27, 27, 27, 28, 28, 28, 28, 29, 29, 29, 29, 29, 30, 30, 30, 30, 30,
-    31, 31, 31, 31, 31, 31, 31, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32,
+    0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  1,  1,  1,  1,  1,  1,  1,  2,  2,  2,  2,  2,  3,  3,  3,  3,  3,  4,  4,  4,  4,
+    5,  5,  5,  6,  6,  6,  7,  7,  7,  8,  8,  8,  9,  9,  9,  10, 10, 10, 11, 11, 12, 12, 12, 13, 13, 13, 14, 14, 15, 15, 15, 16,
+    16, 17, 17, 17, 18, 18, 19, 19, 19, 20, 20, 20, 21, 21, 22, 22, 22, 23, 23, 23, 24, 24, 24, 25, 25, 25, 26, 26, 26, 27, 27, 27,
+    28, 28, 28, 28, 29, 29, 29, 29, 29, 30, 30, 30, 30, 30, 31, 31, 31, 31, 31, 31, 31, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32,
 };
 
-SND_PROFILE_INFO prof;
+//SND_PROFILE_INFO prof;
 
 u8 salFrame;
 u8 salAuxFrame;
@@ -24,7 +22,7 @@ SND_HOOKS salHooks;
 u8 salTimeOffset;
 void hwSetTimeOffset(u8 offset);
 
-void snd_handle_irq() {
+static void snd_handle_irq() {
   u8 r; // r31
   u8 i; // r30
   u8 v; // r29
@@ -135,13 +133,13 @@ void hwSetTimeOffset(u8 offset) { salTimeOffset = offset; }
 u8 hwGetTimeOffset() { return salTimeOffset; }
 
 u32 hwIsActive(u32 v) { return dspVoice[v].state != 0; }
+u32 hwGlobalActivity() { return 0; }
 
 void hwSetMesgCallback(SND_MESSAGE_CALLBACK callback) { salMessageCallback = callback; }
 
 void hwSetPriority(u32 idx, u32 priority) { dspVoice[idx].prio = priority; }
 
-void hwInitSamplePlayback(u32 v, u16 smpID, void* newsmp, u32 set_defadsr, u32 prio,
-                          u32 callbackUserValue, u32 setSRC, u8 itdMode) {
+void hwInitSamplePlayback(u32 v, u16 smpID, void* newsmp, u32 set_defadsr, u32 prio, u32 callbackUserValue, u32 setSRC, u8 itdMode) {
   unsigned char i;  // r30
   unsigned long bf; // r29
   bf = 0;
@@ -257,8 +255,7 @@ void hwSetPitch(unsigned long v, unsigned short speed) {
     speed = 0x3fff;
   }
 
-  if (dsp_vptr->lastUpdate.pitch != 0xff &&
-      dsp_vptr->pitch[dsp_vptr->lastUpdate.pitch] == speed * 16) {
+  if (dsp_vptr->lastUpdate.pitch != 0xff && dsp_vptr->pitch[dsp_vptr->lastUpdate.pitch] == speed * 16) {
     return;
   }
 
@@ -281,7 +278,7 @@ void hwSetPolyPhaseFilter(unsigned long v, unsigned char salCoefSel) {
   dsp_vptr->changed[0] |= 0x80;
 }
 
-void SetupITD(DSPvoice* dsp_vptr, u8 pan) {
+static void SetupITD(DSPvoice* dsp_vptr, u8 pan) {
   dsp_vptr->itdShiftL = itdOffTab[pan];
   dsp_vptr->itdShiftR = 32 - itdOffTab[pan];
   dsp_vptr->changed[0] |= 0x200;
@@ -299,8 +296,7 @@ void hwSetITDMode(u32 v, u8 mode) {
 
 #define hwGetITDMode(dsp_vptr) (dsp_vptr->flags & 0x80000000)
 
-void hwSetVolume(unsigned long v, unsigned char table, float vol, unsigned long pan,
-                 unsigned long span, float auxa, float auxb) {
+void hwSetVolume(unsigned long v, unsigned char table, float vol, unsigned long pan, unsigned long span, float auxa, float auxb) {
   SAL_VOLINFO vi;                    // r1+0x24
   unsigned short il;                 // r30
   unsigned short ir;                 // r29
@@ -325,8 +321,7 @@ void hwSetVolume(unsigned long v, unsigned char table, float vol, unsigned long 
   ir = 32767.f * vi.volR;
   is = 32767.f * vi.volS;
 
-  if (dsp_vptr->lastUpdate.vol == 0xff || dsp_vptr->volL != il || dsp_vptr->volR != ir ||
-      dsp_vptr->volS != is) {
+  if (dsp_vptr->lastUpdate.vol == 0xff || dsp_vptr->volL != il || dsp_vptr->volR != ir || dsp_vptr->volS != is) {
     dsp_vptr->volL = il;
     dsp_vptr->volR = ir;
     dsp_vptr->volS = is;
@@ -338,8 +333,7 @@ void hwSetVolume(unsigned long v, unsigned char table, float vol, unsigned long 
   ir = 32767.f * vi.volAuxAR;
   is = 32767.f * vi.volAuxAS;
 
-  if (dsp_vptr->lastUpdate.volA == 0xff || dsp_vptr->volLa != il || dsp_vptr->volRa != ir ||
-      dsp_vptr->volSa != is) {
+  if (dsp_vptr->lastUpdate.volA == 0xff || dsp_vptr->volLa != il || dsp_vptr->volRa != ir || dsp_vptr->volSa != is) {
     dsp_vptr->volLa = il;
     dsp_vptr->volRa = ir;
     dsp_vptr->volSa = is;
@@ -351,8 +345,7 @@ void hwSetVolume(unsigned long v, unsigned char table, float vol, unsigned long 
   ir = 32767.f * vi.volAuxBR;
   is = 32767.f * vi.volAuxBS;
 
-  if (dsp_vptr->lastUpdate.volB == 0xff || dsp_vptr->volLb != il || dsp_vptr->volRb != ir ||
-      dsp_vptr->volSb != is) {
+  if (dsp_vptr->lastUpdate.volB == 0xff || dsp_vptr->volLb != il || dsp_vptr->volRb != ir || dsp_vptr->volSb != is) {
     dsp_vptr->volLb = il;
     dsp_vptr->volRb = ir;
     dsp_vptr->volSb = is;
@@ -367,31 +360,24 @@ void hwSetVolume(unsigned long v, unsigned char table, float vol, unsigned long 
 
 void hwOff(s32 vid) { salDeactivateVoice(&dspVoice[vid]); }
 
-void hwSetAUXProcessingCallbacks(u8 studio, SND_AUX_CALLBACK auxA, void* userA,
-                                 SND_AUX_CALLBACK auxB, void* userB) {
+void hwSetAUXProcessingCallbacks(u8 studio, SND_AUX_CALLBACK auxA, void* userA, SND_AUX_CALLBACK auxB, void* userB) {
   dspStudio[studio].auxAHandler = auxA;
   dspStudio[studio].auxAUser = userA;
   dspStudio[studio].auxBHandler = auxB;
   dspStudio[studio].auxBUser = userB;
 }
 
-void hwActivateStudio(unsigned char studio, unsigned long isMaster, SND_STUDIO_TYPE type) {
-  salActivateStudio(studio, isMaster, type);
-}
+void hwActivateStudio(unsigned char studio, unsigned long isMaster, SND_STUDIO_TYPE type) { salActivateStudio(studio, isMaster, type); }
 
 void hwDeactivateStudio(u8 studio) { salDeactivateStudio(studio); }
 
 void hwChangeStudioMix(u8 studio, u32 isMaster) { dspStudio[studio].isMaster = isMaster; }
 
-bool hwIsStudioActive(u32 studio) { return dspStudio[studio].state == 1; }
+bool hwIsStudioActive(u8 studio) { return dspStudio[studio].state == 1; }
 
-bool hwAddInput(u8 studio, SND_STUDIO_INPUT* in_desc) {
-  return salAddStudioInput(&dspStudio[studio], in_desc);
-}
+bool hwAddInput(u8 studio, SND_STUDIO_INPUT* in_desc) { return salAddStudioInput(&dspStudio[studio], in_desc); }
 
-bool hwRemoveInput(u8 studio, SND_STUDIO_INPUT* in_desc) {
-  return salRemoveStudioInput(&dspStudio[studio], in_desc);
-}
+bool hwRemoveInput(u8 studio, SND_STUDIO_INPUT* in_desc) { return salRemoveStudioInput(&dspStudio[studio], in_desc); }
 
 void hwChangeStudio(u32 v, u8 studio) { salReconnectVoice(&dspVoice[v], studio); }
 
@@ -424,84 +410,36 @@ u32 hwGetPos(u32 v) {
   return pos;
 }
 
-#if NONMATCHING
-void hwFlushStream(void* base, unsigned long offset, unsigned long bytes,
-                   unsigned char hwStreamHandle, void (*callback)(unsigned long),
+void hwFlushStream(void* base, unsigned long offset, unsigned long bytes, unsigned char hwStreamHandle, void (*callback)(unsigned long),
                    unsigned long user) {
-  unsigned long aram; // r28
-  unsigned long mram; // r29
-  unsigned long len;
+  u32 aram; // r28
+  u32 mram; // r29
+  u32 len;
   aram = aramGetStreamBufferAddress(hwStreamHandle, &len);
-  DCStoreRange((void*)((u32)base + (offset & ~31)), bytes + ((offset & 31) + 31) & ~31);
-  aramUploadData((void*)((u32)base + (offset & ~31)), aram + (offset & ~31),
-                 bytes + ((offset & 31) + 31) & ~31, 1, callback, user);
+  bytes += (offset & 31);
+  offset &= ~31;
+  bytes = (bytes + 31) & ~31;
+  mram = (u32)base + offset;
+  DCStoreRange((void*)mram, bytes);
+  aramUploadData((void*)mram, aram + offset, bytes, 1, callback, user);
 }
-#else
-/* clang-format off */
-#pragma push
-#pragma optimization_level 0
-#pragma optimizewithasm off
-extern void _savegpr_25();
-extern void _restgpr_25();
-asm void hwFlushStream(void* base, unsigned long offset, unsigned long bytes,
-                   unsigned char hwStreamHandle, void (*callback)(unsigned long),
-                   unsigned long user) {
-  nofralloc
-  stwu r1, -0x30(r1)
-  mflr r0
-  stw r0, 0x34(r1)
-  addi r11, r1, 0x30
-  bl _savegpr_25
-  mr r25, r3
-  mr r29, r4
-  mr r26, r5
-  mr r27, r7
-  mr r28, r8
-  mr r3, r6
-  addi r4, r1, 8
-  bl aramGetStreamBufferAddress
-  clrlwi r0, r29, 0x1b
-  rlwinm r30, r29, 0, 0, 0x1a
-  add r26, r26, r0
-  mr r31, r3
-  addi r0, r26, 0x1f
-  add r29, r25, r30
-  rlwinm r26, r0, 0, 0, 0x1a
-  mr r3, r29
-  mr r4, r26
-  bl DCStoreRange
-  mr r3, r29
-  mr r5, r26
-  mr r7, r27
-  mr r8, r28
-  add r4, r31, r30
-  li r6, 1
-  bl aramUploadData
-  addi r11, r1, 0x30
-  bl _restgpr_25
-  lwz r0, 0x34(r1)
-  mtlr r0
-  addi r1, r1, 0x30
-  blr
-}
-#pragma pop
-/* clang-format on */
-#endif
 
 void hwPrepareStreamBuffer() {}
 u32 hwInitStream(u32 len) { return aramAllocateStreamBuffer(len); }
 
 void hwExitStream(u8 id) { aramFreeStreamBuffer(id); }
 
-void* hwGetStreamPlayBuffer(u8 hwStreamHandle) {
-  return (void*)aramGetStreamBufferAddress(hwStreamHandle, NULL);
-}
+void* hwGetStreamPlayBuffer(u8 hwStreamHandle) { return (void*)aramGetStreamBufferAddress(hwStreamHandle, NULL); }
 
 void* hwTransAddr(void* samples) { return samples; }
 
 u32 hwFrq2Pitch(u32 frq) { return (frq * 4096.f) / synthInfo.mixFrq; }
 
-void hwInitSampleMem(u32 baseAddr, u32 length) { aramInit(length); }
+void hwInitSampleMem(u32 baseAddr, u32 length) {
+#line 940
+  MUSY_ASSERT(baseAddr == 0x00000000);
+  aramInit(length);
+}
 
 void hwExitSampleMem() { aramExit(); }
 
@@ -519,25 +457,17 @@ static u32 convert_length(u32 len, u8 type) {
 }
 
 void hwSaveSample(void* header, void* data) {
-  u32 len;
-  u8 type;
-
-  header = (void*)((u32*)header)[0];
-  header = (void*)((u32*)header)[1];
-  len = (u32)header & 0xFFFFFF;
-  type = (u32)header >> 0x18;
-  *((u32*)data) = (u32)aramStoreData((void*)*((u32*)data), convert_length(len, type));
+  u32 len = ((u32*)*((u32*)header))[1] & 0xFFFFFF;
+  u8 type = ((u32*)*((u32*)header))[1] >> 0x18;
+  len = convert_length(len, type);
+  *((u32*)data) = (u32)aramStoreData((void*)*((u32*)data), len);
 }
 
-void hwSetSaveSampleCallback(ARAMUploadCallback callback, unsigned long chunckSize) {
-  aramSetUploadCallback(callback);
-}
+void hwSetSaveSampleCallback(ARAMUploadCallback callback, unsigned long chunckSize) { aramSetUploadCallback(callback, chunckSize); }
 
 void hwRemoveSample(void* header, void* data) {
-  u32 len; // r31
-  u8 type; // r30
-  type = ((u32*)header)[1] >> 0x18;
-  len = convert_length(((u32*)header)[1] & 0xFFFFFF, type);
+  u8 type = (((u32*)header))[1] >> 0x18;
+  u32 len = convert_length((((u32*)header))[1] & 0xFFFFFF, type);
   aramRemoveData(data, len);
 }
 

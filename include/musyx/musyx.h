@@ -1,6 +1,8 @@
 #ifndef _MUSYX_MUSYX
 #define _MUSYX_MUSYX
 
+#include "musyx/version.h"
+
 #include <math.h>
 
 #ifdef __cplusplus

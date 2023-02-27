@@ -1,4 +1,4 @@
-#include "musyx/assert.h"
+
 #include "musyx/musyx_priv.h"
 
 static GSTACK gs[128];
@@ -182,8 +182,8 @@ void sndSetSampleDataUploadCallback(void* (*callback)(unsigned long, unsigned lo
 u32 sndPushGroup(void* prj_data, u16 gid, void* samples, void* sdir, void* pool) {
   GROUP_DATA* g; // r31
 #line 0x18d
-  ASSERT_MSG(prj_data != NULL, "Project data pointer is NULL");
-  ASSERT_MSG(sdir != NULL, "Sample directory pointer is NULL");
+  MUSY_ASSERT_MSG(prj_data != NULL, "Project data pointer is NULL");
+  MUSY_ASSERT_MSG(sdir != NULL, "Sample directory pointer is NULL");
 
   if (sndActive && sp < 128) {
     g = prj_data;
@@ -232,8 +232,8 @@ unsigned long sndPopGroup() {
   void* prj;
   struct FX_DATA* fd;
 
-  ASSERT_MSG(sndActive != FALSE, "Sound system is not initialized.");
-  ASSERT_MSG(sp != 0, "Soundstack is empty.");
+  MUSY_ASSERT_MSG(sndActive != FALSE, "Sound system is not initialized.");
+  MUSY_ASSERT_MSG(sp != 0, "Soundstack is empty.");
   g = gs[--sp].gAddr;
   prj = gs[sp].prjAddr;
   sdir = gs[sp].sdirAddr;
@@ -282,7 +282,7 @@ u32 seqPlaySong(u16 sgid, u16 sid, void* arrfile, SND_PLAYPARA* para, u8 irq_cal
   MIDISETUP* midiSetup;
   u32 seqId;
   void* prj;
-  ASSERT_MSG(sndActive != FALSE, "Sound system is not initialized.");
+  MUSY_ASSERT_MSG(sndActive != FALSE, "Sound system is not initialized.");
 
   for (i = 0; i < sp; ++i) {
     if (sgid != gs[i].gAddr->id) {
