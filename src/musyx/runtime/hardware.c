@@ -1,8 +1,6 @@
 
 #include "musyx/musyx_priv.h"
 
-extern void OSReport(const char*, ...);
-
 extern void DCStoreRange(void* addr, u32 nBytes);
 
 static volatile const u16 itdOffTab[128] = {

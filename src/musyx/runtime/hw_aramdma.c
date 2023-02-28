@@ -138,9 +138,7 @@ void aramInit(unsigned long length) {
   aramWrite = aramBase + sizeof(s16) * 640;
   aramUploadCallback = NULL;
   InitStreamBuffers();
-#if _DEBUG
-  OSReport("MusyX ARAM handler initialized\n");
-#endif
+  MUSY_DEBUG("MusyX ARAM handler initialized\n");
 }
 
 void aramExit() {}
@@ -259,9 +257,7 @@ unsigned char aramAllocateStreamBuffer(unsigned long len) {
   }
 
   if (oSb == NULL) {
-#if _DEBUG
-    OSReport("No stream buffer slots available or ARAM.\n\n");
-#endif
+    MUSY_DEBUG("No stream buffer slots available or ARAM.\n\n");
     return 0xFF;
   }
 
@@ -285,7 +281,7 @@ void aramFreeStreamBuffer(unsigned char id) {
   struct STREAM_BUFFER* lastSb; // r29
   struct STREAM_BUFFER* nextSb; // r27
   unsigned long minAddr;        // r28
-  
+
   MUSY_ASSERT_MSG(id != 0xFF, "Stream buffer ID is invalid");
   fSb = &aramStreamBuffers[id];
   lastSb = NULL;
