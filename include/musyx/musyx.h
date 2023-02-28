@@ -101,7 +101,7 @@ s32 sndInit(u8 voices, u8 music, u8 sfx, u8 studios, u32 flags, u32 aramSize);
 void sndQuit(void);
 
 bool sndIsInstalled();
-bool sndIsIdle();
+u32 sndIsIdle();
 SND_PLAYBACKINFO* sndGetPlayBackInfo();
 
 void sndSetMaxVoices(u8 music, u8 sfx);

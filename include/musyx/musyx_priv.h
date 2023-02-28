@@ -877,6 +877,7 @@ void* hwTransAddr(void* samples);
 void seqInit(); /* extern */
 unsigned long seqStartPlay(PAGE* norm, PAGE* drum, MIDISETUP* midiSetup, u32* song,
                            SND_PLAYPARA* para, u8 studio, u16 sgid);
+unsigned long seqGetPrivateId(unsigned long seqId);
 void streamInit(); /* extern */
 void vsInit();     /* extern */
 void hwExit();
@@ -886,6 +887,7 @@ void s3dKillEmitterByFXID(FX_TAB* fxTab, unsigned long num);
 void s3dExit();
 void synthInit(u32, u8); /* extern */
 void synthFXCloneMidiSetup(SYNTH_VOICE* dest, SYNTH_VOICE* src);
+void synthSetMusicVolumeType(u8 vGroup, u8 type);
 
 extern u32 synthGlobalVariable[16];
 extern u16 voicePrioSortRootListRoot;
@@ -910,6 +912,9 @@ void hwActivateStudio(unsigned char studio, unsigned long isMaster, SND_STUDIO_T
 void hwDeactivateStudio(u8);
 void hwSetPriority(unsigned long v, unsigned long prio);
 u32 hwIsActive(u32);
+u32 hwGlobalActivity();
+void hwSetAUXProcessingCallbacks(unsigned char studio, SND_AUX_CALLBACK auxA, void* userA,
+                                 SND_AUX_CALLBACK auxB, void* userB);
 
 u32 sndGetPitch(u8 key, u32 sInfo);
 extern SND_HOOKS salHooks;
@@ -917,10 +922,11 @@ extern u8 sndActive;
 extern u8 synthIdleWaitActive;
 extern SynthInfo synthInfo;
 typedef s32 (*SND_MESSAGE_CALLBACK)(u32, u32);
+typedef void (*SYNTH_MESSAGE_CALLBACK)(u32, s32);
 typedef void (*SND_SOME_CALLBACK)();
 
 extern SND_MESSAGE_CALLBACK salMessageCallback;
-extern SND_MESSAGE_CALLBACK synthMessageCallback;
+extern SYNTH_MESSAGE_CALLBACK synthMessageCallback;
 /* Math */
 void salApplyMatrix(const SND_FMATRIX* a, const SND_FVECTOR* b, SND_FVECTOR* out);
 float salNormalizeVector(SND_FVECTOR* vec);

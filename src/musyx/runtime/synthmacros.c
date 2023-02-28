@@ -26,7 +26,7 @@ static void DoSetPitch(SYNTH_VOICE* svoice);
    3) 0x12340000 & 0x00FFFFFF == 0x00340000
 
   This behavior could also be matched with a simple mask
-     
+
      0x12345678 & 0x00FF0000 == 0x00340000
 
   But on PPC with CodeWarrior this just produces an improper load:
@@ -35,7 +35,7 @@ static void DoSetPitch(SYNTH_VOICE* svoice);
     lwz     r0,0(r29)
     rlwinm  r0,r0,0,8,0xf
   `
-  
+
   Instead of the expected
   `
     lwz     r3,0(r29)
@@ -896,7 +896,42 @@ static void mcmdAuxBFXSelect(SYNTH_VOICE* svoice, MSTEP* cstep) {
 
 static void mcmdPortamento(SYNTH_VOICE* svoice, MSTEP* cstep) {
   u32 time; // r1+0x10
+  svoice->portType = cstep->para[0] >> 16;
+  time = cstep->para[1] >> 16;
+  if ((u8)((cstep->para[1] >> 8) & 1)) {
+    sndConvertMs(&time);
+  } else {
+    sndConvertTicks(&time, svoice);
+  }
+
+  svoice->portDuration = time;
+
+  switch ((u8)(cstep->para[0] >> 8)) {
+  case 0:
+    if (svoice->midi != 0xFF) {
+      inpSetMidiCtrl(0x41, svoice->midi, svoice->midiSet, 0);
+    }
+
+    svoice->cFlags &= ~0x400;
+    return;
+  case 1:
+    if (svoice->midi != 0xFF) {
+      inpSetMidiCtrl(0x41, svoice->midi, svoice->midiSet, 0x7f);
+    }
+  init_port:
+    if (!(svoice->cFlags & 0x400)) {
+      synthInitPortamento(svoice);
+    }
+    svoice->cFlags |= 0x400;
+    break;
+  case 2:
+    if (svoice->midi != 0xFF && inpGetMidiCtrl(0x41, svoice->midi, svoice->midiSet) > 8064) {
+      goto init_port;
+    }
+    break;
+  }
 }
+
 s32 varGet32(SYNTH_VOICE* svoice, u32 ctrl, u8 index) {
   if (ctrl != 0) {
     return inpGetExCtrl(svoice, index);
@@ -931,7 +966,7 @@ void varSet(SYNTH_VOICE* svoice, u32 ctrl, u8 index, s16 v) { varSet32(svoice, c
 static void mcmdVarCalculation(SYNTH_VOICE* svoice, MSTEP* cstep, u8 op) {
   s16 s1 = 0; // r28
   s16 s2 = 0; // r31
-  s32 t;  // r30
+  s32 t;      // r30
 
   s1 = varGet(svoice, (cstep->para[0] >> 24), cstep->para[1]);
   if (op == 4) {
