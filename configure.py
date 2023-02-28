@@ -946,7 +946,7 @@ LIBS = [
             ["musyx/runtime/snd_midictrl", False],
             ["musyx/runtime/snd_service", True],
             ["musyx/runtime/hardware", True],
-            "musyx/runtime/hw_aramdma",
+            ["musyx/runtime/hw_aramdma", True],
             ["musyx/runtime/dsp_import", True],
             ["musyx/runtime/hw_dolphin", True],
             ["musyx/runtime/hw_memory", True],
