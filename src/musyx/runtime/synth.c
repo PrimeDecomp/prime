@@ -19,7 +19,7 @@ u8 sndActive = 0;
 static u8 synthJobTableIndex = 0;
 u64 synthRealTime;
 u8 synthIdleWaitActive;
-SND_MESSAGE_CALLBACK synthMessageCallback;
+SYNTH_MESSAGE_CALLBACK synthMessageCallback;
 SYNTH_VOICE* synthVoice;
 u32 synthFlags;
 u32 synthMasterFaderActiveFlags;

@@ -15,7 +15,7 @@ extern u8 synthAuxBMIDI[8];
 extern u8 synthAuxBMIDISet[8];
 extern void* synthAuxBUser[8];
 
-extern u8 synthITDDefault[16];
+extern synthITDInfo synthITDDefault[8];
 extern u32 synthFlags;
 
 u32 vidGetInternalId(SND_VOICEID id);

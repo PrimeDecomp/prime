@@ -1,4 +1,20 @@
+/*
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
 #include "musyx/musyx_priv.h"
 
 #ifdef _DEBUG
@@ -6,21 +22,37 @@ static u32 dbgActiveVoicesMax = 0;
 #endif
 
 extern u8 salAuxFrame;
+
 DSPstudioinfo dspStudio[8];
+
 static u32 dspARAMZeroBuffer = 0;
+
 u16* dspCmdLastLoad = NULL;
+
 u16* dspCmdLastBase = NULL;
+
 u16* dspCmdList = NULL;
+
 u16 dspCmdLastSize = 0;
+
 u16* dspCmdCurBase = NULL;
+
 u16* dspCmdMaxPtr = NULL;
+
 u16* dspCmdPtr = NULL;
+
 u16 dspCmdFirstSize = 0;
+
 u32 dspHRTFOn = FALSE;
+
 s16* dspHrtfHistoryBuffer = NULL;
+
 long* dspSurround = NULL;
+
 s16* dspITDBuffer = NULL;
+
 DSPvoice* dspVoice = NULL;
+
 SND_MESSAGE_CALLBACK salMessageCallback = NULL;
 
 u32 salInitDspCtrl(u8 numVoices, u8 numStudios, u32 defaultStudioDPL2) {
@@ -30,7 +62,7 @@ u32 salInitDspCtrl(u8 numVoices, u8 numStudios, u32 defaultStudioDPL2) {
 
   salNumVoices = numVoices;
   salMaxStudioNum = numStudios;
-#line 66
+
   MUSY_ASSERT(salMaxStudioNum <= SAL_MAX_STUDIONUM);
   dspARAMZeroBuffer = aramGetZeroBuffer();
   if ((dspCmdList = salMalloc(1024 * sizeof(u16))) != NULL) {
@@ -186,7 +218,7 @@ static const u16 dspMixerCycles[32] = {
 
 void salDeactivateStudio(u8 studio) { dspStudio[studio].state = 0; }
 
-u32 salCheckVolErrorAndResetDelta(u16* dsp_vol, u16* dsp_delta, u16* last_vol, u16 targetVol,
+static u32 salCheckVolErrorAndResetDelta(u16* dsp_vol, u16* dsp_delta, u16* last_vol, u16 targetVol,
                                   u16* resetFlags, u16 resetMask) {
   s16 d; // r31
   s16 x; // r30
@@ -194,23 +226,23 @@ u32 salCheckVolErrorAndResetDelta(u16* dsp_vol, u16* dsp_delta, u16* last_vol, u
   if (targetVol != *last_vol) {
     d = (s16)targetVol - (s16)*last_vol;
     if ((s16)d >= 32 && (s16)d < 160) {
-      d = (s16)d >> 5;
-      if ((s16)d < 5) {
-        resetFlags[d] |= resetMask;
+      x = (s16)d >> 5;
+      if ((s16)x < 5) {
+        resetFlags[x] |= resetMask;
       }
 
       *dsp_delta = 1;
-      *last_vol = *last_vol + (d * 32);
+      *last_vol += (x << 5);
       return 1;
     }
 
     if (-32 >= (s16)d && -160 < (s16)d) {
-      d = -(s16)d >> 5;
-      if (d < 5) {
-        resetFlags[d] |= resetMask;
+      x = -(s16)d >> 5;
+      if (x < 5) {
+        resetFlags[x] |= resetMask;
       }
       *dsp_delta = 0xFFFF;
-      *last_vol -= (s16)d * 32;
+      *last_vol -= x << 5;
       return 1;
     }
 
@@ -223,12 +255,12 @@ u32 salCheckVolErrorAndResetDelta(u16* dsp_vol, u16* dsp_delta, u16* last_vol, u
   return 0;
 }
 
-void sal_setup_dspvol(u16* dsp_delta, u16* last_vol, u16 vol) {
+static void sal_setup_dspvol(u16* dsp_delta, u16* last_vol, u16 vol) {
   *dsp_delta = ((s16)vol - (s16)*last_vol) / 160;
   *last_vol += (s16)*dsp_delta * 160;
 }
 
-void sal_update_hostplayinfo(DSPvoice* dsp_vptr) {
+static void sal_update_hostplayinfo(DSPvoice* dsp_vptr) {
   u32 old_lo; // r30
   u32 pitch;  // r31
 
@@ -252,12 +284,12 @@ void sal_update_hostplayinfo(DSPvoice* dsp_vptr) {
   }
 }
 
-void AddDpop(long* sum, s16 delta) {
+static void AddDpop(long* sum, s16 delta) {
   *sum += (int)delta;
   *sum = (*sum > 0x7fffff) ? 0x7fffff : (*sum < -0x7fffff ? -0x7fffff : *sum);
 }
 
-void DoDepopFade(long* dspStart, s16* dspDelta, long* hostSum) {
+static void DoDepopFade(long* dspStart, s16* dspDelta, long* hostSum) {
   if (*hostSum <= -160) {
     *dspDelta = (*hostSum <= -3200) ? 0x14 : (s16)(-*hostSum / 160);
   } else if (*hostSum >= 160) {
@@ -270,7 +302,7 @@ void DoDepopFade(long* dspStart, s16* dspDelta, long* hostSum) {
   *hostSum += *dspDelta * 160;
 }
 
-void HandleDepopVoice(DSPstudioinfo* stp, DSPvoice* dsp_vptr) {
+static void HandleDepopVoice(DSPstudioinfo* stp, DSPvoice* dsp_vptr) {
   _PB* pb; // r31
   dsp_vptr->postBreak = 0;
   dsp_vptr->pb->state = 0;
@@ -301,7 +333,7 @@ void HandleDepopVoice(DSPstudioinfo* stp, DSPvoice* dsp_vptr) {
   }
 }
 
-void SortVoices(DSPvoice** voices, long l, long r) {
+static void SortVoices(DSPvoice** voices, long l, long r) {
   long i;        // r28
   long last;     // r29
   DSPvoice* tmp; // r27
@@ -311,11 +343,11 @@ void SortVoices(DSPvoice** voices, long l, long r) {
   }
 
   tmp = voices[l];
-  last = (l + r) / 2;
-  voices[l] = voices[last];
-  voices[last] = tmp;
-  i = l + 1;
+  voices[l] = voices[(l + r) / 2];
+  voices[(l + r) / 2] = tmp;
   last = l;
+  i = l + 1;
+
   for (; i <= r; ++i) {
     if (voices[i]->prio < voices[l]->prio) {
       last += 1;
@@ -334,6 +366,7 @@ void SortVoices(DSPvoice** voices, long l, long r) {
 
 void salBuildCommandList(signed short* dest, unsigned long nsDelay) {
   static const u16 pbOffsets[9] = {10, 12, 24, 13, 16, 26, 18, 20, 22};
+  static DSPvoice * voices[64];
 }
 
 u32 salSynthSendMessage(DSPvoice* dsp_vptr, u32 mesg) {
@@ -421,21 +454,17 @@ u32 salAddStudioInput(DSPstudioinfo* stp, SND_STUDIO_INPUT* desc) {
 unsigned long salRemoveStudioInput(DSPstudioinfo* stp, SND_STUDIO_INPUT* desc) {
   long i; // r31
 
-  i = 0;
-  while (i < stp->numInputs) {
+  for (i = 0; i < stp->numInputs; ++i) {
     if (stp->in[i].desc == desc) {
-      break;
+      for (; i <= stp->numInputs - 2; ++i) {
+        stp->in[i] = stp->in[i + 1];
+      }
+      --stp->numInputs;
+      return 1;
     }
-    ++i;
   }
 
-  while (i <= stp->numInputs - 2) {
-    stp->in[i] = stp->in[i + 1];
-    ++i;
-  }
-
-  --stp->numInputs;
-  return 1;
+  return 0;
 }
 
 void salHandleAuxProcessing() {
