@@ -95,29 +95,27 @@ s16 sndSin(u16 angle) {
 }
 
 void* sndBSearch(void* key, void* base, s32 num, s32 len, SND_COMPARE cmp) {
-  s32 left;
-  s32 right;
-  s32 mid;
-  s32 found;
-  u8* test;
+  long l;    // r31
+  long r;    // r30
+  long m;    // r29
+  long c;    // r28
+  void* ptr; // r27
 
   if (num != 0) {
-    left = 1;
-    right = num;
+    l = 1;
+    r = num;
     do {
-      mid = ((left + right) >> 1);
-      test = (u8*)(u32)base + (len * (mid - 1));
-      found = (*cmp)(key, test);
-      if (found == 0) {
-        return test;
+      // This is kind of gross....
+      if ((c = cmp(key, (ptr = (void*)((u32)base + len * ((m = (l + r) >> 1) - 1))))) == 0) {
+        return ptr;
       }
 
-      if (found < 0) {
-        right = mid - 1;
+      if (c < 0) {
+        r = m - 1;
       } else {
-        left = mid + 1;
+        l = m + 1;
       }
-    } while (left <= right);
+    } while (l <= r);
   }
   return NULL;
 }
