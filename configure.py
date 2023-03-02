@@ -939,7 +939,7 @@ LIBS = [
             ["musyx/runtime/synth_dbtab", True],
             ["musyx/runtime/s_data", True],
             ["musyx/runtime/hw_dspctrl", False],
-            ["musyx/runtime/hw_volconv", False],
+            ["musyx/runtime/hw_volconv", True],
             ["musyx/runtime/snd3d", False],
             ["musyx/runtime/snd_init", True],
             ["musyx/runtime/snd_math", True],
