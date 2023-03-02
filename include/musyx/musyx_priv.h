@@ -899,6 +899,7 @@ void voiceSetPriority(struct SYNTH_VOICE* svoice, unsigned char prio);
 u32 voiceIsLastStarted(struct SYNTH_VOICE* svoice);
 s32 voiceKillSound(u32 voiceid);
 
+extern u64 synthRealTime;
 u32 synthGetTicksPerSecond(SYNTH_VOICE* svoice);
 void synthKillVoicesByMacroReferences(u16* ref);
 void synthExit();
@@ -915,6 +916,7 @@ u32 hwIsActive(u32);
 u32 hwGlobalActivity();
 void hwSetAUXProcessingCallbacks(unsigned char studio, SND_AUX_CALLBACK auxA, void* userA,
                                  SND_AUX_CALLBACK auxB, void* userB);
+s16 varGet(SYNTH_VOICE* svoice, u32 ctrl, u8 index);
 
 u32 sndGetPitch(u8 key, u32 sInfo);
 extern SND_HOOKS salHooks;
@@ -971,6 +973,7 @@ typedef struct SND_STREAM_INFO {
 } SND_STREAM_INFO;
 
 void streamOutputModeChanged();
+u8 inpTranslateExCtrl(unsigned char ctrl);
 void inpSetGlobalMIDIDirtyFlag(u8 chan, u8 midiSet, s32 flag);
 void inpAddCtrl(struct CTRL_DEST* dest, unsigned char ctrl, long scale, unsigned char comb,
                 unsigned long isVar);
