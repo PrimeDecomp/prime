@@ -2,42 +2,56 @@
 
 .section .bss
 .balign 8
-inpGlobalMIDIDirtyFlags:
+.obj inpGlobalMIDIDirtyFlags, local
 	.skip 0x200
-midi_ctrl:
+.endobj inpGlobalMIDIDirtyFlags
+
+.obj midi_ctrl, local
 	.skip 0x4300
-inpChannelDefaults:
+.endobj midi_ctrl
+
+.obj inpChannelDefaults, local
 	.skip 0x80
-fx_ctrl:
+.endobj inpChannelDefaults
+
+.obj fx_ctrl, local
 	.skip 0x2180
-inpFXChannelDefaults:
+.endobj fx_ctrl
+
+.obj inpFXChannelDefaults, local
 	.skip 0x40
-midi_lastNote:
+.endobj inpFXChannelDefaults
+
+.obj midi_lastNote, local
 	.skip 0x80
-fx_lastNote:
+.endobj midi_lastNote
+
+.obj fx_lastNote, local
 	.skip 0x40
+.endobj fx_lastNote
 
 .section .data, "wa"
 .balign 8
 
-.global lbl_803F41E8
-lbl_803F41E8:
+.obj lbl_803F41E8, local
 	# ROM: 0x3F11E8
 	.4byte 0x80000001
 	.4byte 0x80000002
 	.4byte 0x80000004
 	.4byte 0x80000008
+.endobj lbl_803F41E8
 
 
-lbl_803F41F8:
+.obj lbl_803F41F8, local
 	# ROM: 0x3F11F8
 	.4byte 0x80000010
 	.4byte 0x80000020
 	.4byte 0x80000040
 	.4byte 0x80000080
+.endobj lbl_803F41F8
 
 
-lbl_803F4208:
+.obj lbl_803F4208, local
 	# ROM: 0x3F1208
 	.4byte lbl_803B2A78
 	.4byte lbl_803B2A80
@@ -48,9 +62,9 @@ lbl_803F4208:
 	.4byte lbl_803B2AA8
 	.4byte lbl_803B2AB0
 	.4byte lbl_803B2AB8
+.endobj lbl_803F4208
 
-
-lbl_803F422C:
+.obj lbl_803F422C, local
 	# ROM: 0x3F122C
 	.4byte lbl_803B2AF8
 	.4byte lbl_803B2B00
@@ -61,9 +75,10 @@ lbl_803F422C:
 	.4byte lbl_803B2B28
 	.4byte lbl_803B2B30
 	.4byte lbl_803B2B38
+.endobj lbl_803F422C
 
 
-lbl_803F4250:
+.obj lbl_803F4250, local
     .4byte lbl_803B2C2C
     .4byte lbl_803B2C34
     .4byte lbl_803B2C3C
@@ -73,12 +88,13 @@ lbl_803F4250:
     .4byte lbl_803B2C5C
     .4byte lbl_803B2C64
     .4byte lbl_803B2C6C
-.skip 4
+.endobj lbl_803F4250
+
 
 .section .rodata
 .balign 8
-.global lbl_803D8AC0
-lbl_803D8AC0:
+
+.obj inpColdMIDIDefaults, local
 	# ROM: 0x3D5AC0
 	.4byte 0
 	.4byte 0x0000007F
@@ -112,11 +128,18 @@ lbl_803D8AC0:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.float 2.0
-	.float 2.0
+	.byte 0x40
+	.byte 0x00
+	.byte 0x00
+	.byte 0x00
+	.byte 0x40
+	.byte 0x00
+	.byte 0x00
+	.byte 0x00
 
-.global lbl_803D8B48
-lbl_803D8B48:
+.endobj inpColdMIDIDefaults
+
+.obj inpWarmMIDIDefaults, local
 	# ROM: 0x3D5B48
 	.4byte 0xFF00FFFF
 	.4byte 0xFFFFFFFF
@@ -152,8 +175,7 @@ lbl_803D8B48:
 	.4byte 0xFFFFFFFF
 	.4byte 0x40FFFFFF
 	.4byte 0xFFFF0000
-
-
+.endobj inpWarmMIDIDefaults
 
 .section .text, "ax"
 
@@ -692,17 +714,17 @@ lbl_803B17FC:
 inpResetMidiCtrl:
 /* 803B181C 003AE77C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803B1820 003AE780  7C 08 02 A6 */	mflr r0
-/* 803B1824 003AE784  3C C0 80 3E */	lis r6, lbl_803D8B48@ha
+/* 803B1824 003AE784  3C C0 80 3E */	lis r6, inpWarmMIDIDefaults@ha
 /* 803B1828 003AE788  28 05 00 00 */	cmplwi r5, 0
 /* 803B182C 003AE78C  90 01 00 14 */	stw r0, 0x14(r1)
-/* 803B1830 003AE790  38 C6 8B 48 */	addi r6, r6, lbl_803D8B48@l
+/* 803B1830 003AE790  38 C6 8B 48 */	addi r6, r6, inpWarmMIDIDefaults@l
 /* 803B1834 003AE794  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 803B1838 003AE798  7C 9F 23 78 */	mr r31, r4
 /* 803B183C 003AE79C  93 C1 00 08 */	stw r30, 8(r1)
 /* 803B1840 003AE7A0  7C 7E 1B 78 */	mr r30, r3
 /* 803B1844 003AE7A4  41 82 00 0C */	beq lbl_803B1850
-/* 803B1848 003AE7A8  3C 60 80 3E */	lis r3, lbl_803D8AC0@ha
-/* 803B184C 003AE7AC  38 C3 8A C0 */	addi r6, r3, lbl_803D8AC0@l
+/* 803B1848 003AE7A8  3C 60 80 3E */	lis r3, inpColdMIDIDefaults@ha
+/* 803B184C 003AE7AC  38 C3 8A C0 */	addi r6, r3, inpColdMIDIDefaults@l
 lbl_803B1850:
 /* 803B1850 003AE7B0  57 E4 06 3E */	clrlwi r4, r31, 0x18
 /* 803B1854 003AE7B4  28 04 00 FF */	cmplwi r4, 0xff
@@ -1783,8 +1805,8 @@ lbl_803B2654:
 /* 803B265C 003AF5BC  38 21 00 10 */	addi r1, r1, 0x10
 /* 803B2660 003AF5C0  4E 80 00 20 */	blr
 
-.global inpGetAuxB
-inpGetAuxB:
+.global inpGetAuxA
+inpGetAuxA:
 /* 803B2664 003AF5C4  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803B2668 003AF5C8  7C 08 02 A6 */	mflr r0
 /* 803B266C 003AF5CC  3C E0 80 56 */	lis r7, inpGlobalMIDIDirtyFlags@ha
@@ -1834,8 +1856,8 @@ lbl_803B2708:
 /* 803B2710 003AF670  38 21 00 10 */	addi r1, r1, 0x10
 /* 803B2714 003AF674  4E 80 00 20 */	blr
 
-.global inpGetAuxA
-inpGetAuxA:
+.global inpGetAuxB
+inpGetAuxB:
 /* 803B2718 003AF678  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803B271C 003AF67C  7C 08 02 A6 */	mflr r0
 /* 803B2720 003AF680  3C E0 80 56 */	lis r7, inpGlobalMIDIDirtyFlags@ha
