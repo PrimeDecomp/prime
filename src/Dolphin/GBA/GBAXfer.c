@@ -1,12 +1,12 @@
 #include "dolphin/GBAPriv.h"
 #include "dolphin/sipriv.h"
 
-void __GBAHandler(s32 chan, u32 error, OSContext* context) {
+static void __GBAHandler(s32 chan, u32 error, OSContext* context) {
   GBAControl* gba;
   GBATransferCallback proc;
   GBACallback callback;
   OSContext exceptionContext;
-  
+
   gba = &__GBA[chan];
   if (__GBAReset != 0) {
     return;
@@ -37,12 +37,15 @@ void __GBAHandler(s32 chan, u32 error, OSContext* context) {
   OSSetCurrentContext(context);
 }
 
-void __GBASyncCallback(s32 chan, s32 ret) { OSWakeupThread(&__GBA[chan].threadQueue); }
+void __GBASyncCallback(s32 chan, s32 ret) {
+  GBAControl* gba = &__GBA[chan];
+  OSWakeupThread(&gba->threadQueue);
+}
 
 s32 __GBASync(s32 chan) {
   GBAControl* gba;
-  s32 enabled;
   s32 ret;
+  s32 enabled;
   gba = &__GBA[chan];
 
   enabled = OSDisableInterrupts();
@@ -57,40 +60,42 @@ s32 __GBASync(s32 chan) {
 }
 
 void TypeAndStatusCallback(s32 chan, u32 type) {
-  s32 tmp;
   GBAControl* gba;
-  OSContext* context;
+  GBATransferCallback proc;
   GBACallback callback;
-  GBATransferCallback xferCallback;
-  OSContext tmpContext;
+  OSContext exceptionContext;
+  OSContext* context;
+
   gba = &__GBA[chan];
   if (__GBAReset != 0) {
     return;
   }
 
+  ASSERT(!(type & SI_ERROR_BUSY));
   if ((type & 0xFF) != 0 || (type & 0xffff0000) != 0x40000) {
     gba->ret = GBA_NOT_READY;
   } else {
-    if (SITransfer(chan, gba->output, gba->outputBytes, gba->input, gba->inputBytes, __GBAHandler, gba->delay)) {
+    if (SITransfer(chan, gba->output, gba->outputBytes, gba->input, gba->inputBytes, __GBAHandler,
+                   gba->delay)) {
       return;
     }
     gba->ret = GBA_BUSY;
   }
 
   if (gba->proc != NULL) {
-    xferCallback = gba->proc;
+    proc = gba->proc;
     gba->proc = NULL;
-    xferCallback(chan);
+    proc(chan);
   }
 
   if (gba->callback != NULL) {
     context = OSGetCurrentContext();
-    OSClearContext(&tmpContext);
-    OSSetCurrentContext(&tmpContext);
+    OSClearContext(&exceptionContext);
+    OSSetCurrentContext(&exceptionContext);
     callback = gba->callback;
     gba->callback = NULL;
     callback(chan, gba->ret);
-    OSClearContext(&tmpContext);
+    OSClearContext(&exceptionContext);
     OSSetCurrentContext(context);
     __OSReschedule();
   }

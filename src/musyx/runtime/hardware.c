@@ -423,7 +423,7 @@ void hwFlushStream(void* base, unsigned long offset, unsigned long bytes, unsign
 }
 
 void hwPrepareStreamBuffer() {}
-u32 hwInitStream(u32 len) { return aramAllocateStreamBuffer(len); }
+u8 hwInitStream(u32 len) { return aramAllocateStreamBuffer(len); }
 
 void hwExitStream(u8 id) { aramFreeStreamBuffer(id); }
 

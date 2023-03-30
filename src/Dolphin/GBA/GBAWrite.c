@@ -1,6 +1,6 @@
 #include "dolphin/GBAPriv.h"
 
-void WriteProc(s32 chan) {
+static void WriteProc(s32 chan) {
   GBAControl* gba;
   gba = &__GBA[chan];
 
@@ -12,28 +12,23 @@ void WriteProc(s32 chan) {
 }
 
 s32 GBAWriteAsync(s32 chan, u8* src, u8* status, GBACallback callback) {
-  GBAControl* gba;
-  s32 ret;
-  gba = &__GBA[chan];
+  GBAControl* gba = &__GBA[chan];
 
   if (gba->callback != NULL) {
-    ret = GBA_BUSY;
-  } else {
-    gba->output[0] = 0x15;
-    memcpy(&gba->output[1], src, 4);
-    gba->ptr = src;
-    gba->status = status;
-    gba->callback = callback;
-    ret = __GBATransfer(chan, 5, 1, WriteProc);
+    return GBA_BUSY;
   }
-
-  return ret;
+  gba->output[0] = 0x15;
+  memcpy(&gba->output[1], src, 4);
+  gba->ptr = src;
+  gba->status = status;
+  gba->callback = callback;
+  return __GBATransfer(chan, 5, 1, WriteProc);
 }
 
-
 s32 GBAWrite(s32 chan, u8* src, u8* status) {
-  s32 ret;
   s32 tmp;
+  GBAControl* gba = &__GBA[chan];
+  s32 ret;
   ret = GBAWriteAsync(chan, src, status, __GBASyncCallback);
   if (ret != GBA_READY) {
     return ret;

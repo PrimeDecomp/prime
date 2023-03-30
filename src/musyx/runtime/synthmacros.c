@@ -618,6 +618,7 @@ static void mcmdSetADSRFromCtrl(SYNTH_VOICE* svoice, MSTEP* cstep) {
   float sScale;   // r63
   ADSR_INFO adsr; // r1+0x10
 }
+
 static void mcmdSetPitchADSR(SYNTH_VOICE* svoice, MSTEP* cstep) {
   ADSR_INFO adsr;      // r1+0x10
   ADSR_INFO* adsr_ptr; // r31
@@ -625,6 +626,7 @@ static void mcmdSetPitchADSR(SYNTH_VOICE* svoice, MSTEP* cstep) {
   s32 ascale;          // r27
   s32 dscale;          // r26
 }
+
 static u32 mcmdPitchSweep(SYNTH_VOICE* svoice, MSTEP* cstep, int num) {
   s32 delta; // r31
   svoice->sweepOff[num] = 0;
@@ -692,7 +694,7 @@ static u32 TranslateVolume(u32 volume, u16 curve) {
 
       if (vhigh < 0x7f) {
         d = vlow * (ptr[vhigh + 1] - ptr[vhigh]);
-        volume = d + (ptr[vhigh] << 16);
+        volume = d + ((u8)ptr[vhigh] << 16);
       } else {
         volume = ptr[vhigh] << 16;
       }
@@ -793,6 +795,7 @@ static void mcmdRandomKey(SYNTH_VOICE* svoice, MSTEP* cstep) {
   s32 i2;    // r27
   u8 detune; // r26
 }
+
 static void mcmdSetPitchbendAfterKeyOff(SYNTH_VOICE* svoice) { svoice->cFlags |= 0x10000; }
 static void mcmdScaleReverb(SYNTH_VOICE* svoice, MSTEP* cstep) {
   svoice->revVolScale = (u8)(cstep->para[0] >> 8);
@@ -1073,6 +1076,7 @@ static void mcmdGetMessage(SYNTH_VOICE* svoice, MSTEP* cstep) {
   }
   varSet32(svoice, 0, (u8)(cstep->para[0] >> 8), mesg);
 }
+
 static void mcmdGetVID(SYNTH_VOICE* svoice, MSTEP* cstep) {
   if ((u8)(cstep->para[0] >> 0x10) == 0) {
     varSet32(svoice, 0, (u8)(cstep->para[0] >> 8), svoice->vidList->vid);

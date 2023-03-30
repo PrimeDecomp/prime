@@ -13,7 +13,7 @@ extern "C" {
 
 typedef void (*GBATransferCallback)(s32 chan);
 
-typedef struct GBASecParams {
+typedef struct GBASecParam {
   u8 readbuf[4];
   s32 paletteColor;
   s32 paletteSpeed;
@@ -23,7 +23,7 @@ typedef struct GBASecParams {
   u32 keyA;
   s32 keyB;
   u8 _padding1[24];
-} GBASecParams;
+} GBASecParam;
 
 typedef struct GBABootInfo {
   s32 paletteColor;
@@ -61,7 +61,7 @@ typedef struct GBAControl {
   GBATransferCallback proc;
   GBABootInfo bootInfo;
   DSPTaskInfo task;
-  GBASecParams* param;
+  GBASecParam* param;
 } GBAControl;
 
 extern GBAControl __GBA[4];

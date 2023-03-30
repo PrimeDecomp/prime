@@ -1,17 +1,54 @@
+/*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
 #include "dolphin/GBAPriv.h"
 
-static GBASecParams SecParams[4];
+static GBASecParam SecParams[4];
 GBAControl __GBA[4];
 BOOL __GBAReset = FALSE;
 
 static BOOL OnReset(BOOL);
 
-static OSResetFunctionInfo ResetFunctionInfo = {
-  OnReset,
-  127
-};
+static OSResetFunctionInfo ResetFunctionInfo = {OnReset, 127};
 
-void ShortCommandProc(s32 chan) {
+static void ShortCommandProc(s32 chan) {
   GBAControl* gba;
   gba = &__GBA[chan];
 
@@ -27,6 +64,19 @@ void ShortCommandProc(s32 chan) {
   gba->status[0] = gba->input[2] & GBA_JSTAT_MASK;
 }
 
+/*
+
+
+
+
+
+
+
+
+
+
+*/
+
 void GBAInit() {
   GBAControl* gba;
   s32 chan;
@@ -37,16 +87,37 @@ void GBAInit() {
     OSInitThreadQueue(&gba->threadQueue);
     gba->param = &SecParams[chan];
 
-    // ASSERTMSG((u32) gba->param % 32 == 0)
-  } 
-
+    ASSERT((u32) gba->param % 32 == 0);
+  }
   OSInitAlarm();
-  DSPInit();
-  __GBAReset = FALSE;
 
+  DSPInit();
+
+  __GBAReset = FALSE;
   OSRegisterResetFunction(&ResetFunctionInfo);
 }
 
+/*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
 s32 GBAGetStatusAsync(s32 chan, u8* status, GBACallback callback) {
   GBAControl* gba;
   gba = &__GBA[chan];
@@ -59,43 +130,89 @@ s32 GBAGetStatusAsync(s32 chan, u8* status, GBACallback callback) {
   gba->callback = callback;
   return __GBATransfer(chan, 1, 3, ShortCommandProc);
 }
+/*
 
-
+*/
 s32 GBAGetStatus(s32 chan, u8* status) {
   GBAControl* gba = &__GBA[chan];
+
+  //
   s32 ret = GBAGetStatusAsync(chan, status, __GBASyncCallback);
-  return ret != GBA_READY ? ret : __GBASync(chan);
-}
+  if (ret != GBA_READY) {
 
-
-s32 GBAResetAsync(s32 chan, u8* status, GBACallback callback) {
-  GBAControl* gba;
-  s32 ret;
-  gba = &__GBA[chan];
-  if (gba->callback != NULL) {
-    ret = GBA_BUSY;
-  } else {
-    gba->output[0] = 0xFF;
-    gba->status = status;
-    gba->callback = callback;
-    ret = __GBATransfer(chan, 1, 3, ShortCommandProc);
+    return ret;
   }
-
-  return ret;
+  return __GBASync(chan);
 }
+/*
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
+s32 GBAResetAsync(s32 chan, u8* status, GBACallback callback) {
+  GBAControl* gba = &__GBA[chan];
+  s32 ret;
+  if (gba->callback != NULL) {
+
+    return GBA_BUSY;
+  }
+  gba->output[0] = 0xFF;
+  gba->status = status;
+  gba->callback = callback;
+  return __GBATransfer(chan, 1, 3, ShortCommandProc);
+}
+/*
+*/
 s32 GBAReset(s32 chan, u8* status) {
+  GBAControl* gba = &__GBA[chan];
   s32 ret;
 
   ret = GBAResetAsync(chan, status, __GBASyncCallback);
   if (ret != GBA_READY) {
+
     return ret;
   }
-
   return __GBASync(chan);
 }
 
+/*
+
+
+
+
+
+
+
+
+
+
+
+*/
 BOOL OnReset(BOOL) {
   __GBAReset = TRUE;
   return TRUE;
