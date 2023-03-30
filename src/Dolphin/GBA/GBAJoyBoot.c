@@ -30,12 +30,36 @@ static u32 F72(u32 crc, u32 src, vu8* keyp) {
 
     src >>= 1;
   }
+
+  return crc;
 }
 
-u32 F95(u32 src, vu8* keyp) {
-  return src * ((keyp[4] << keyp[0x11]) | keyp[1] | (keyp[4] << keyp[0x18]) |
-                (keyp[3] << keyp[0x16])) -
-         (keyp[7] - keyp[6]);
+/*
+.fn F95, local
+  lbz r5, 0x4(keyp)
+  lbz r0, 0x11(keyp)
+  lbz r7, 0x1(keyp)
+  slw r6, r5, r0
+  lbz r5, 0x4(keyp)
+  lbz r0, 0x18(keyp)
+  or r6, r7, r6
+  lbz r8, 0x3(keyp)
+  slw r0, r5, r0
+  lbz r7, 0x16(keyp)
+  or r0, r6, r0
+  lbz r6, 0x6(keyp)
+  slw r5, r8, r7
+  lbz r4, 0x7(keyp)
+  or r0, r5, r0
+  mullw r0, src, r0
+  subf src, r6, r4
+  subf src, src, r0
+  blr
+.endfn F95
+*/
+static u32 F95(u32 src, vu8* keyp) {
+  src = (src * ((keyp[3] << keyp[0x16]) | ((keyp[1] | (keyp[4] << keyp[0x11])) | (keyp[4] << keyp[0x18])))) - (keyp[7] - keyp[6]);
+  return src;
 }
 
 static void F104(s32 chan, s32 ret) {
@@ -185,9 +209,12 @@ void __GBAX01(s32 chan, s32 ret) {
 }
 
 static void F31(s32 chan, s32 ret) {
-  GBAControl* gba = &__GBA[chan];
-  GBABootInfo* bootInfo = &__GBA[chan].bootInfo;
+  GBAControl* gba;
+  GBABootInfo* bootInfo;
   u32 writeWord;
+
+  gba = &__GBA[chan];
+  bootInfo = &__GBA[chan].bootInfo;
 
   if (ret == GBA_READY) {
     if (bootInfo->firstXfer != FALSE) {
@@ -253,7 +280,7 @@ static void F31(s32 chan, s32 ret) {
             bootInfo->dummyWord[(2 - (1 - bootInfo->i))] * bootInfo->dummyWord[4 - bootInfo->i];
         bootInfo->dummyWord[5 - (1 - bootInfo->i)] =
             bootInfo->dummyWord[((1 - bootInfo->i))] * bootInfo->dummyWord[1 - (1 - bootInfo->i)];
-        bootInfo->dummyWord[7 -  bootInfo->i] =
+        bootInfo->dummyWord[7 - bootInfo->i] =
             bootInfo->dummyWord[(-(1 - bootInfo->i))] * bootInfo->dummyWord[4 - bootInfo->i];
       }
 
