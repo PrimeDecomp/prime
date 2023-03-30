@@ -39,6 +39,10 @@ typedef signed long bool;
 
 #define SYNTH_MAX_VOICES 64
 
+typedef struct SND_ADPCMSTREAM_INFO {
+  s16 coefTab[8][2]; // Table of coef. pairs
+} SND_ADPCMSTREAM_INFO;
+
 typedef u32 SND_SEQID;
 typedef u32 SND_VOICEID;
 typedef u32 SND_STREAMID;
@@ -64,6 +68,13 @@ typedef struct SND_SEQVOLDEF {
   u8 track;
   u8 volGroup;
 } SND_SEQVOLDEF;
+
+#define SND_PLAYPARA_DEFAULT 0x00000000
+#define SND_PLAYPARA_TRACKMUTE 0x00000001
+#define SND_PLAYPARA_SPEED 0x00000002
+#define SND_PLAYPARA_VOLUME 0x00000004
+#define SND_PLAYPARA_SEQVOLDEF 0x00000008
+#define SND_PLAYPARA_PAUSE 0x00000010
 
 typedef struct SND_PLAYPARA {
   u32 flags;
@@ -309,6 +320,37 @@ void sndAuxCallbackChorus(u8 reason, SND_AUX_INFO* info, void* user);
 bool sndAuxCallbackPrepareChorus(SND_AUX_CHORUS* ch);
 bool sndAuxCallbackShutdownChorus(SND_AUX_CHORUS* ch);
 bool sndAuxCallbackUpdateSettingsChorus(SND_AUX_CHORUS* ch);
+
+#define SND_CROSSFADE_STOP 0       // Stop old song after fadedown
+#define SND_CROSSFADE_PAUSE 1      // Pause old song after fadedown
+#define SND_CROSSFADE_CONTINUE 2   // Continue previously paused song as new one
+#define SND_CROSSFADE_START 0      // Start new song (no continue)
+#define SND_CROSSFADE_SYNC 4       // Crossfade should start syncronized by sync-controller (104)
+#define SND_CROSSFADE_PAUSENEW 8   // Pause new song before even starting it
+#define SND_CROSSFADE_TRACKMUTE 16 // Use trackmute informtion
+#define SND_CROSSFADE_SPEED 32     // Use speed informtion
+#define SND_CROSSFADE_MUTE 64      // Old song continues playing & gets muted after fade down
+#define SND_CROSSFADE_MUTENEW 128  // Mute new song after starting it
+
+#define SND_CROSSFADE_DEFAULT 0
+
+typedef struct SND_CROSSFADE {
+  SND_SEQID seqId1;
+  u16 time1;
+
+  SND_SEQID seqId2;
+  u16 time2;
+  void* arr2;
+  SND_GROUPID gid2;
+  SND_SONGID sid2;
+  u8 vol2;
+  u8 studio2;
+
+  u32 trackMute2[2];
+  u16 speed2;
+
+  u8 flags;
+} SND_CROSSFADE;
 
 typedef struct SND_PROFILE_DATA {
   unsigned long loadStores;

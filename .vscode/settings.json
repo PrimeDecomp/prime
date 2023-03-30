@@ -59,7 +59,8 @@
     "osfont.h": "c",
     "arq.h": "c",
     "string.h": "c",
-    "hw_regs.h": "c"
+    "hw_regs.h": "c",
+    "synth.h": "c"
   },
   "files.autoSave": "onFocusChange",
   "files.insertFinalNewline": true,

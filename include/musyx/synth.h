@@ -23,7 +23,8 @@ bool synthFXSetCtrl(SND_VOICEID vid, u8 ctrl, u8 value);
 bool synthFXSetCtrl14(SND_VOICEID vid, u8 ctrl, u16 value);
 bool synthSendKeyOff(SND_VOICEID vid);
 SND_VOICEID synthFXStart(SND_FXID fid, u8 vol, u8 pan, u8 studio, u8);
-void synthVolume(u8 volume, u16 time, u8 volgroup2, s32, s32);
+void synthVolume(unsigned char volume, unsigned short time, unsigned char vGroup,
+                 unsigned char seqMode, unsigned long seqId);
 
 /* TODO: Move this where it belongs */
 void hwSetAUXProcessingCallbacks(u8 studio, SND_AUX_CALLBACK auxA, void* userA,

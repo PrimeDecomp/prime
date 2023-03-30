@@ -88,6 +88,7 @@ double ldexp(double x, int exp);
 double copysign(double x, double y);
 
 double floor(double x);
+float floorf(float x) { return floor(x); }
 
 double fabs(double x);
 double pow(double x, double y);

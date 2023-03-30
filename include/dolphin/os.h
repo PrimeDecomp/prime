@@ -29,12 +29,21 @@ u32 __OSCoreClock AT_ADDRESS(OS_BASE_CACHED | 0x00FC); // sync with OSLoMem.h
 #define OS_CORE_CLOCK __OSCoreClock
 #define OS_TIMER_CLOCK (OS_BUS_CLOCK / 4)
 
+#ifndef _DEBUG
 #define OSPhysicalToCached(paddr) ((void*)((u32)(paddr) + OS_BASE_CACHED))
 #define OSPhysicalToUncached(paddr) ((void*)((u32)(paddr) + OS_BASE_UNCACHED))
 #define OSCachedToPhysical(caddr) ((u32)((u8*)(caddr)-OS_BASE_CACHED))
 #define OSUncachedToPhysical(ucaddr) ((u32)((u8*)(ucaddr)-OS_BASE_UNCACHED))
 #define OSCachedToUncached(caddr) ((void*)((u8*)(caddr) + (OS_BASE_UNCACHED - OS_BASE_CACHED)))
 #define OSUncachedToCached(ucaddr) ((void*)((u8*)(ucaddr) - (OS_BASE_UNCACHED - OS_BASE_CACHED)))
+#else
+u32 OSPhysicalToCached(void* paddr);
+u32 OSPhysicalToUncached(void* paddr);
+u32 OSCachedToPhysical(void* caddr);
+u32 OSUncachedToPhysical(void* ucaddr);
+u32 OSCachedToUncached(void* caddr);
+u32 OSUncachedToCached(void* ucaddr);
+#endif
 
 #define OSTicksToCycles(ticks) (((ticks) * ((OS_CORE_CLOCK * 2) / OS_TIMER_CLOCK)) / 2)
 #define OSTicksToSeconds(ticks) ((ticks) / OS_TIMER_CLOCK)

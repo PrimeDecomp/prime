@@ -925,7 +925,7 @@ LIBS = [
         "cflags": "$cflags_musyx -DMUSY_VERSION_MAJOR=1 -DMUSY_VERSION_MINOR=5 -DMUSY_VERSION_PATCH=4",
         "host": False,
         "objects": [
-            "musyx/runtime/seq",
+            ["musyx/runtime/seq", False],
             ["musyx/runtime/synth", False],
             ["musyx/runtime/seq_api", True],
             ["musyx/runtime/snd_synthapi", True, {"add_to_all": False}],
@@ -1034,6 +1034,7 @@ LIBS = [
     {
         "lib": "gba",
         "mw_version": "1.2.5e",
+        #"cflags" : "-proc gecko -Cpp_exceptions off -fp hard -nodefaults -nosyspath -i include -i libc -g -sym on -D_DEBUG=1 -enum int -use_lmw_stmw on",
         "cflags": "$cflags_base",
         "host": False,
         "objects": [
@@ -1043,7 +1044,7 @@ LIBS = [
             ["Dolphin/GBA/GBARead", True],
             ["Dolphin/GBA/GBAWrite", True],
             ["Dolphin/GBA/GBAXfer", True],
-            "Dolphin/GBA/GBAKey",
+            ["Dolphin/GBA/GBAKey", True],
         ],
     },
 ]

@@ -299,9 +299,7 @@ u32 voiceAllocate(u8 priority, u8 maxVoices, u16 allocId, u8 fxFlag) {
 void voiceFree(SYNTH_VOICE* svoice) {
   u32 i;                // r29
   SYNTH_VOICELIST* sfv; // r30
-#line 628
   MUSY_ASSERT(svoice->id != 0xFFFFFFFF);
-#line 256
   macMakeInactive(svoice, MAC_STATE_STOPPED);
   voiceRemovePriority(svoice);
   svoice->addr = NULL;
@@ -413,11 +411,11 @@ long voiceKillSound(u32 voiceid) {
   u32 next_voiceid; // r28
   u32 i;            // r30
   if (sndActive != FALSE) {
-    for (i = vidGetInternalId(voiceid); i != 0xFFFFFFFF; i = next_voiceid) {
-      voiceid = (u8)i;
-      next_voiceid = synthVoice[voiceid].child;
-      if (i == synthVoice[voiceid].id) {
-        voiceKill(voiceid);
+    for (voiceid = vidGetInternalId(voiceid); voiceid != -1; voiceid = next_voiceid) {
+      i = voiceid & 0xff;
+      next_voiceid = synthVoice[i].child;
+      if (voiceid == synthVoice[i].id) {
+        voiceKill(i);
         ret = 0;
       }
     }
