@@ -25,6 +25,8 @@ public:
   GetIObjObjectFor(const rstl::auto_ptr< T >& obj) {
     return TObjOwnerDerivedFromIObj< T >::GetNewDerivedObject(obj);
   }
+
+  TToken< T > NonConstCopy() const { return *const_cast< TToken< T >* >(this); }
 };
 
 template < typename T >
@@ -49,7 +51,7 @@ public:
 
   void Unlock() {
     x8_item = nullptr;
-    TToken<T>::Unlock();
+    TToken< T >::Unlock();
   }
 
 private:
