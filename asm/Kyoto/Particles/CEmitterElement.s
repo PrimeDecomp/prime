@@ -3,32 +3,32 @@
 .section .data
 .balign 8
 
-.global lbl_803EF748
-lbl_803EF748:
+.global __vt__14CVEAngleSphere
+__vt__14CVEAngleSphere:
 	# ROM: 0x3EC748
 	.4byte 0
 	.4byte 0
 	.4byte __dt__14CVEAngleSphereFv
 	.4byte GetValue__14CVEAngleSphereCFiR9CVector3fR9CVector3f
 
-.global lbl_803EF758
-lbl_803EF758:
+.global __vt__15CEmitterElement
+__vt__15CEmitterElement:
 	# ROM: 0x3EC758
 	.4byte 0
 	.4byte 0
-	.4byte __dt__15CEmitterElement
+	.4byte __dt__15CEmitterElementFv
 	.4byte 0
 
-.global lbl_803EF768
-lbl_803EF768:
+.global __vt__9CVESphere
+__vt__9CVESphere:
 	# ROM: 0x3EC768
 	.4byte 0
 	.4byte 0
 	.4byte __dt__9CVESphereFv
 	.4byte GetValue__9CVESphereCFiR9CVector3fR9CVector3f
 
-.global lbl_803EF778
-lbl_803EF778:
+.global __vt__16CEESimpleEmitter
+__vt__16CEESimpleEmitter:
 	# ROM: 0x3EC778
 	.4byte 0
 	.4byte 0
@@ -216,8 +216,8 @@ __dt__14CVEAngleSphereFv:
 /* 80356BB4 00353B14  93 C1 00 08 */	stw r30, 8(r1)
 /* 80356BB8 00353B18  7C 7E 1B 79 */	or. r30, r3, r3
 /* 80356BBC 00353B1C  41 82 01 28 */	beq lbl_80356CE4
-/* 80356BC0 00353B20  3C 60 80 3F */	lis r3, lbl_803EF748@ha
-/* 80356BC4 00353B24  38 03 F7 48 */	addi r0, r3, lbl_803EF748@l
+/* 80356BC0 00353B20  3C 60 80 3F */	lis r3, __vt__14CVEAngleSphere@ha
+/* 80356BC4 00353B24  38 03 F7 48 */	addi r0, r3, __vt__14CVEAngleSphere@l
 /* 80356BC8 00353B28  90 1E 00 00 */	stw r0, 0(r30)
 /* 80356BCC 00353B2C  80 7E 00 04 */	lwz r3, 4(r30)
 /* 80356BD0 00353B30  28 03 00 00 */	cmplwi r3, 0
@@ -284,8 +284,8 @@ lbl_80356C8C:
 lbl_80356CAC:
 /* 80356CAC 00353C0C  28 1E 00 00 */	cmplwi r30, 0
 /* 80356CB0 00353C10  41 82 00 20 */	beq lbl_80356CD0
-/* 80356CB4 00353C14  3C 60 80 3F */	lis r3, lbl_803EF758@ha
-/* 80356CB8 00353C18  38 03 F7 58 */	addi r0, r3, lbl_803EF758@l
+/* 80356CB4 00353C14  3C 60 80 3F */	lis r3, __vt__15CEmitterElement@ha
+/* 80356CB8 00353C18  38 03 F7 58 */	addi r0, r3, __vt__15CEmitterElement@l
 /* 80356CBC 00353C1C  90 1E 00 00 */	stw r0, 0(r30)
 /* 80356CC0 00353C20  41 82 00 10 */	beq lbl_80356CD0
 /* 80356CC4 00353C24  3C 60 80 3F */	lis r3, __vt__8IElement@ha
@@ -309,14 +309,14 @@ lbl_80356CE4:
 .global __ct__14CVEAngleSphereFP14CVectorElementP12CRealElementP12CRealElementP12CRealElementP12CRealElementP12CRealElementP12CRealElement
 __ct__14CVEAngleSphereFP14CVectorElementP12CRealElementP12CRealElementP12CRealElementP12CRealElementP12CRealElementP12CRealElement:
 /* 80356D00 00353C60  94 21 FF F0 */	stwu r1, -0x10(r1)
-/* 80356D04 00353C64  3D 80 80 3F */	lis r12, lbl_803EF758@ha
-/* 80356D08 00353C68  39 8C F7 58 */	addi r12, r12, lbl_803EF758@l
-/* 80356D0C 00353C6C  3D 60 80 3F */	lis r11, lbl_803EF748@ha
+/* 80356D04 00353C64  3D 80 80 3F */	lis r12, __vt__15CEmitterElement@ha
+/* 80356D08 00353C68  39 8C F7 58 */	addi r12, r12, __vt__15CEmitterElement@l
+/* 80356D0C 00353C6C  3D 60 80 3F */	lis r11, __vt__14CVEAngleSphere@ha
 /* 80356D10 00353C70  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 80356D14 00353C74  3F E0 80 3F */	lis r31, __vt__8IElement@ha
 /* 80356D18 00353C78  38 1F C5 A8 */	addi r0, r31, __vt__8IElement@l
 /* 80356D1C 00353C7C  90 03 00 00 */	stw r0, 0(r3)
-/* 80356D20 00353C80  38 0B F7 48 */	addi r0, r11, lbl_803EF748@l
+/* 80356D20 00353C80  38 0B F7 48 */	addi r0, r11, __vt__14CVEAngleSphere@l
 /* 80356D24 00353C84  91 83 00 00 */	stw r12, 0(r3)
 /* 80356D28 00353C88  90 03 00 00 */	stw r0, 0(r3)
 /* 80356D2C 00353C8C  90 83 00 04 */	stw r4, 4(r3)
@@ -330,16 +330,16 @@ __ct__14CVEAngleSphereFP14CVectorElementP12CRealElementP12CRealElementP12CRealEl
 /* 80356D4C 00353CAC  38 21 00 10 */	addi r1, r1, 0x10
 /* 80356D50 00353CB0  4E 80 00 20 */	blr
 
-.global __dt__15CEmitterElement
-__dt__15CEmitterElement:
+.global __dt__15CEmitterElementFv
+__dt__15CEmitterElementFv:
 /* 80356D54 00353CB4  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80356D58 00353CB8  7C 08 02 A6 */	mflr r0
 /* 80356D5C 00353CBC  90 01 00 14 */	stw r0, 0x14(r1)
 /* 80356D60 00353CC0  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 80356D64 00353CC4  7C 7F 1B 79 */	or. r31, r3, r3
 /* 80356D68 00353CC8  41 82 00 34 */	beq lbl_80356D9C
-/* 80356D6C 00353CCC  3C 60 80 3F */	lis r3, lbl_803EF758@ha
-/* 80356D70 00353CD0  38 03 F7 58 */	addi r0, r3, lbl_803EF758@l
+/* 80356D6C 00353CCC  3C 60 80 3F */	lis r3, __vt__15CEmitterElement@ha
+/* 80356D70 00353CD0  38 03 F7 58 */	addi r0, r3, __vt__15CEmitterElement@l
 /* 80356D74 00353CD4  90 1F 00 00 */	stw r0, 0(r31)
 /* 80356D78 00353CD8  41 82 00 10 */	beq lbl_80356D88
 /* 80356D7C 00353CDC  3C 60 80 3F */	lis r3, __vt__8IElement@ha
@@ -553,8 +553,8 @@ __dt__9CVESphereFv:
 /* 8035708C 00353FEC  93 C1 00 08 */	stw r30, 8(r1)
 /* 80357090 00353FF0  7C 7E 1B 79 */	or. r30, r3, r3
 /* 80357094 00353FF4  41 82 00 A8 */	beq lbl_8035713C
-/* 80357098 00353FF8  3C 60 80 3F */	lis r3, lbl_803EF768@ha
-/* 8035709C 00353FFC  38 03 F7 68 */	addi r0, r3, lbl_803EF768@l
+/* 80357098 00353FF8  3C 60 80 3F */	lis r3, __vt__9CVESphere@ha
+/* 8035709C 00353FFC  38 03 F7 68 */	addi r0, r3, __vt__9CVESphere@l
 /* 803570A0 00354000  90 1E 00 00 */	stw r0, 0(r30)
 /* 803570A4 00354004  80 7E 00 04 */	lwz r3, 4(r30)
 /* 803570A8 00354008  28 03 00 00 */	cmplwi r3, 0
@@ -585,8 +585,8 @@ lbl_803570E4:
 lbl_80357104:
 /* 80357104 00354064  28 1E 00 00 */	cmplwi r30, 0
 /* 80357108 00354068  41 82 00 20 */	beq lbl_80357128
-/* 8035710C 0035406C  3C 60 80 3F */	lis r3, lbl_803EF758@ha
-/* 80357110 00354070  38 03 F7 58 */	addi r0, r3, lbl_803EF758@l
+/* 8035710C 0035406C  3C 60 80 3F */	lis r3, __vt__15CEmitterElement@ha
+/* 80357110 00354070  38 03 F7 58 */	addi r0, r3, __vt__15CEmitterElement@l
 /* 80357114 00354074  90 1E 00 00 */	stw r0, 0(r30)
 /* 80357118 00354078  41 82 00 10 */	beq lbl_80357128
 /* 8035711C 0035407C  3C 60 80 3F */	lis r3, __vt__8IElement@ha
@@ -610,12 +610,12 @@ lbl_8035713C:
 .global __ct__9CVESphereFP14CVectorElementP12CRealElementP12CRealElement
 __ct__9CVESphereFP14CVectorElementP12CRealElementP12CRealElement:
 /* 80357158 003540B8  3D 20 80 3F */	lis r9, __vt__8IElement@ha
-/* 8035715C 003540BC  3D 00 80 3F */	lis r8, lbl_803EF758@ha
+/* 8035715C 003540BC  3D 00 80 3F */	lis r8, __vt__15CEmitterElement@ha
 /* 80357160 003540C0  38 09 C5 A8 */	addi r0, r9, __vt__8IElement@l
-/* 80357164 003540C4  3C E0 80 3F */	lis r7, lbl_803EF768@ha
+/* 80357164 003540C4  3C E0 80 3F */	lis r7, __vt__9CVESphere@ha
 /* 80357168 003540C8  90 03 00 00 */	stw r0, 0(r3)
-/* 8035716C 003540CC  39 08 F7 58 */	addi r8, r8, lbl_803EF758@l
-/* 80357170 003540D0  38 07 F7 68 */	addi r0, r7, lbl_803EF768@l
+/* 8035716C 003540CC  39 08 F7 58 */	addi r8, r8, __vt__15CEmitterElement@l
+/* 80357170 003540D0  38 07 F7 68 */	addi r0, r7, __vt__9CVESphere@l
 /* 80357174 003540D4  91 03 00 00 */	stw r8, 0(r3)
 /* 80357178 003540D8  90 03 00 00 */	stw r0, 0(r3)
 /* 8035717C 003540DC  90 83 00 04 */	stw r4, 4(r3)
@@ -677,8 +677,8 @@ __dt__16CEESimpleEmitterFv:
 /* 8035723C 0035419C  93 C1 00 08 */	stw r30, 8(r1)
 /* 80357240 003541A0  7C 7E 1B 79 */	or. r30, r3, r3
 /* 80357244 003541A4  41 82 00 88 */	beq lbl_803572CC
-/* 80357248 003541A8  3C 60 80 3F */	lis r3, lbl_803EF778@ha
-/* 8035724C 003541AC  38 03 F7 78 */	addi r0, r3, lbl_803EF778@l
+/* 80357248 003541A8  3C 60 80 3F */	lis r3, __vt__16CEESimpleEmitter@ha
+/* 8035724C 003541AC  38 03 F7 78 */	addi r0, r3, __vt__16CEESimpleEmitter@l
 /* 80357250 003541B0  90 1E 00 00 */	stw r0, 0(r30)
 /* 80357254 003541B4  80 7E 00 04 */	lwz r3, 4(r30)
 /* 80357258 003541B8  28 03 00 00 */	cmplwi r3, 0
@@ -700,8 +700,8 @@ lbl_80357274:
 lbl_80357294:
 /* 80357294 003541F4  28 1E 00 00 */	cmplwi r30, 0
 /* 80357298 003541F8  41 82 00 20 */	beq lbl_803572B8
-/* 8035729C 003541FC  3C 60 80 3F */	lis r3, lbl_803EF758@ha
-/* 803572A0 00354200  38 03 F7 58 */	addi r0, r3, lbl_803EF758@l
+/* 8035729C 003541FC  3C 60 80 3F */	lis r3, __vt__15CEmitterElement@ha
+/* 803572A0 00354200  38 03 F7 58 */	addi r0, r3, __vt__15CEmitterElement@l
 /* 803572A4 00354204  90 1E 00 00 */	stw r0, 0(r30)
 /* 803572A8 00354208  41 82 00 10 */	beq lbl_803572B8
 /* 803572AC 0035420C  3C 60 80 3F */	lis r3, __vt__8IElement@ha
@@ -725,12 +725,12 @@ lbl_803572CC:
 .global __ct__16CEESimpleEmitterFP14CVectorElementP14CVectorElement
 __ct__16CEESimpleEmitterFP14CVectorElementP14CVectorElement:
 /* 803572E8 00354248  3D 00 80 3F */	lis r8, __vt__8IElement@ha
-/* 803572EC 0035424C  3C E0 80 3F */	lis r7, lbl_803EF758@ha
+/* 803572EC 0035424C  3C E0 80 3F */	lis r7, __vt__15CEmitterElement@ha
 /* 803572F0 00354250  38 08 C5 A8 */	addi r0, r8, __vt__8IElement@l
-/* 803572F4 00354254  3C C0 80 3F */	lis r6, lbl_803EF778@ha
+/* 803572F4 00354254  3C C0 80 3F */	lis r6, __vt__16CEESimpleEmitter@ha
 /* 803572F8 00354258  90 03 00 00 */	stw r0, 0(r3)
-/* 803572FC 0035425C  38 E7 F7 58 */	addi r7, r7, lbl_803EF758@l
-/* 80357300 00354260  38 06 F7 78 */	addi r0, r6, lbl_803EF778@l
+/* 803572FC 0035425C  38 E7 F7 58 */	addi r7, r7, __vt__15CEmitterElement@l
+/* 80357300 00354260  38 06 F7 78 */	addi r0, r6, __vt__16CEESimpleEmitter@l
 /* 80357304 00354264  90 E3 00 00 */	stw r7, 0(r3)
 /* 80357308 00354268  90 03 00 00 */	stw r0, 0(r3)
 /* 8035730C 0035426C  90 83 00 04 */	stw r4, 4(r3)
