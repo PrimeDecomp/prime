@@ -108,6 +108,133 @@ typedef struct SND_FMATRIX {
   f32 t[3];
 } SND_FMATRIX;
 
+typedef struct SND_PARAMETER {
+  u8 ctrl;
+  union {
+    u8 value7;
+    u16 value14;
+  } paraData;
+} SND_PARAMETER;
+
+typedef struct SND_PARAMETER_INFO {
+  u8 numPara;
+  SND_PARAMETER* paraArray;
+
+} SND_PARAMETER_INFO;
+
+typedef struct SND_STUDIO_INPUT {
+  // total size: 0x4
+  u8 vol;       // offset 0x0, size 0x1
+  u8 volA;      // offset 0x1, size 0x1
+  u8 volB;      // offset 0x2, size 0x1
+  u8 srcStudio; // offset 0x3, size 0x1
+} SND_STUDIO_INPUT;
+
+typedef struct SND_ROOM {
+  struct SND_ROOM* next;
+  struct SND_ROOM* prev;
+
+  u32 flags;
+  SND_FVECTOR pos; 
+  f32 distance;    
+
+  u8 studio;
+
+  void (*activateReverb)(u8 studio, void* para); 
+  void (*deActivateReverb)(u8 studio);           
+  void* user;                                    
+
+  u32 curMVol;
+} SND_ROOM;
+
+typedef struct SND_DOOR {
+  struct SND_DOOR* next;
+  struct SND_DOOR* prev;
+
+  SND_FVECTOR pos;
+
+  f32 open;
+  f32 dampen;
+  u8 fxVol;
+
+  u8 destStudio;
+
+  SND_ROOM* a;
+  SND_ROOM* b;
+
+  u32 flags;
+
+  s16 filterCoef[4];
+  SND_STUDIO_INPUT input;
+} SND_DOOR;
+
+#define SND_DOOR_A2B 0x00000000
+#define SND_DOOR_B2A 0x00000001
+
+#define SND_DOOR_DEFAULT SND_DOOR_A2B
+
+typedef struct SND_LISTENER {
+  struct SND_LISTENER* next;
+  struct SND_LISTENER* prev;
+  SND_ROOM* room;
+
+  u32 flags;
+  SND_FVECTOR pos;
+  f32 volPosOff;
+  SND_FVECTOR dir;
+  SND_FVECTOR heading;
+  SND_FVECTOR right;
+  SND_FVECTOR up;
+  SND_FMATRIX mat;
+  f32 surroundDisFront;
+  f32 surroundDisBack;
+  f32 soundSpeed;
+  f32 vol;
+} SND_LISTENER;
+
+#define SND_LISTENER_DEFAULT 0x00000000
+#define SND_LISTENER_DOPPLERFX 0x00000001
+
+typedef struct SND_EMITTER {
+  struct SND_EMITTER* next;
+  struct SND_EMITTER* prev;
+  SND_ROOM* room;
+
+  SND_PARAMETER_INFO* paraInfo;
+
+  u32 flags;
+  SND_FVECTOR pos;
+  SND_FVECTOR dir;
+  f32 maxDis;
+  f32 maxVol;
+  f32 minVol;
+  f32 volPush;
+  SND_VOICEID vid;
+  u32 group;
+  SND_FXID fxid;
+
+  u8 studio;
+
+  u8 maxVoices;
+
+  u16 VolLevelCnt;
+  f32 fade;
+
+} SND_EMITTER;
+
+#define SND_EMITTER_DEFAULTKEY 0xFF
+#define SND_EMITTER_DEFAULTVOL 0xFF
+
+#define SND_EMITTER_DEFAULT 0x00000000
+#define SND_EMITTER_CONTINOUS 0x00000001
+#define SND_EMITTER_CONTINUOUS 0x00000001
+#define SND_EMITTER_RESTARTABLE 0x00000002
+#define SND_EMITTER_PAUSABLE 0x00000004
+#define SND_EMITTER_DOPPLERFX 0x00000008
+#define SND_EMITTER_ITD 0x00000010
+#define SND_EMITTER_HARDSTART 0x00000020
+#define SND_EMITTER_NOSILENTSTART 0x00000040
+
 s32 sndInit(u8 voices, u8 music, u8 sfx, u8 studios, u32 flags, u32 aramSize);
 void sndQuit(void);
 
@@ -253,20 +380,6 @@ void sndAuxCallbackReverbSTD(u8 reason, SND_AUX_INFO* info, void* user);
 bool sndAuxCallbackPrepareReverbSTD(SND_AUX_REVERBSTD* rev);
 bool sndAuxCallbackShutdownReverbSTD(SND_AUX_REVERBSTD* rev);
 bool sndAuxCallbackUpdateSettingsReverbSTD(SND_AUX_REVERBSTD* rev);
-
-typedef struct SND_PARAMETER {
-  u8 ctrl;
-  union {
-    u8 value7;
-    u16 value14;
-  } paraData;
-} SND_PARAMETER;
-
-typedef struct SND_PARAMETER_INFO {
-  u8 numPara;
-  SND_PARAMETER* paraArray;
-
-} SND_PARAMETER_INFO;
 
 #define sndFXStart(fid, vol, pan) sndFXStartEx(fid, vol, pan, SND_STUDIO_DEFAULT)
 SND_VOICEID sndFXStartEx(SND_FXID fid, u8 vol, u8 pan, u8 studio);

@@ -8,14 +8,6 @@
 extern "C" {
 #endif
 
-typedef struct SND_STUDIO_INPUT {
-  // total size: 0x4
-  u8 vol;       // offset 0x0, size 0x1
-  u8 volA;      // offset 0x1, size 0x1
-  u8 volB;      // offset 0x2, size 0x1
-  u8 srcStudio; // offset 0x3, size 0x1
-} SND_STUDIO_INPUT;
-
 typedef struct SYNTH_VOICELIST {
   // total size: 0x4
   u8 prev;  // offset 0x0, size 0x1
@@ -884,7 +876,7 @@ void streamInit(); /* extern */
 void vsInit();     /* extern */
 void hwExit();
 void dataExit();
-void s3dInit(s32); /* extern */
+void s3dInit(u32); /* extern */
 void s3dKillEmitterByFXID(FX_TAB* fxTab, u32 num);
 void s3dExit();
 void synthInit(u32, u8); /* extern */
