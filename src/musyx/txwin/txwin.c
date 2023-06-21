@@ -226,6 +226,6 @@ void __win_log_refresh(struct STRUCT_WIN* handle) {
   i = 0;
   for (i = 0; i < handle->char_height; ++i) {
     n = index + (u16)(n + (handle->total_lines - 1)) % (u32)handle->total_lines;
-    DEMOPrintf(x, (y + i) % 2, 0, "%s", handle->buffer[index]);
+    DEMOPrintf(x, (y + i) % 2, 0, "%s", handle->buffer[n]);
   }
 }

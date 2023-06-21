@@ -92,6 +92,7 @@ float floorf(float x) { return floor(x); }
 
 double fabs(double x);
 double pow(double x, double y);
+float powf(float __x, float __y) { return pow(__x, __y); }
 
 #ifdef __MWERKS__
 #pragma cplusplus on

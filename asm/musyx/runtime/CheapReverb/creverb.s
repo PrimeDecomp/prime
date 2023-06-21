@@ -54,21 +54,21 @@ lbl_805AF3D8:
 	# ROM: 0x3FBC78
 	.double 4.503601774854144E15
 
-.global lbl_805AF3E0
-lbl_805AF3E0:
+.obj value0_3, local
 	# ROM: 0x3FBC80
 	.float 0.3
+.endobj value0_3
 
-.global lbl_805AF3E4
-lbl_805AF3E4:
+.obj value0_6, local
 	# ROM: 0x3FBC84
 	.float 0.6
+.endobj value0_6
 
-.global lbl_805AF3E8
-lbl_805AF3E8:
+
+.obj i2fMagic, local
 	# ROM: 0x3FBC88
 	.double 4.503601774854144E15
-
+.endobj i2fMagic
 
 
 .section .data, "wa"
@@ -383,12 +383,12 @@ HandleReverb:
 /* 803B5684 003B25E4  DA 41 00 78 */	stfd f18, 0x78(r1)
 /* 803B5688 003B25E8  DA 61 00 80 */	stfd f19, 0x80(r1)
 /* 803B568C 003B25EC  DA 81 00 88 */	stfd f20, 0x88(r1)
-/* 803B5690 003B25F0  3F E0 80 5B */	lis r31, lbl_805AF3E0@ha
-/* 803B5694 003B25F4  C0 DF F3 E0 */	lfs f6, lbl_805AF3E0@l(r31)
-/* 803B5698 003B25F8  3F E0 80 5B */	lis r31, lbl_805AF3E4@ha
-/* 803B569C 003B25FC  C1 3F F3 E4 */	lfs f9, lbl_805AF3E4@l(r31)
-/* 803B56A0 003B2600  3F E0 80 5B */	lis r31, lbl_805AF3E8@ha
-/* 803B56A4 003B2604  C8 BF F3 E8 */	lfd f5, lbl_805AF3E8@l(r31)
+/* 803B5690 003B25F0  3F E0 80 5B */	lis r31, value0_3@ha
+/* 803B5694 003B25F4  C0 DF F3 E0 */	lfs f6, value0_3@l(r31)
+/* 803B5698 003B25F8  3F E0 80 5B */	lis r31, value0_6@ha
+/* 803B569C 003B25FC  C1 3F F3 E4 */	lfs f9, value0_6@l(r31)
+/* 803B56A0 003B2600  3F E0 80 5B */	lis r31, i2fMagic@ha
+/* 803B56A4 003B2604  C8 BF F3 E8 */	lfd f5, i2fMagic@l(r31)
 /* 803B56A8 003B2608  C0 44 00 F0 */	lfs f2, 0xf0(r4)
 /* 803B56AC 003B260C  C1 64 01 1C */	lfs f11, 0x11c(r4)
 /* 803B56B0 003B2610  C1 04 01 18 */	lfs f8, 0x118(r4)

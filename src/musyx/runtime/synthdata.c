@@ -18,6 +18,41 @@ static FX_GROUP dataFXGroups[128];
 u32 dataInsertKeymap(u16 cid, void* keymapdata) {
   long i; // r31
   long j; // r29
+
+  hwDisableIrq();
+  for (i = 0; i < dataKeymapNum && dataKeymapTab[i].id < cid; ++i);
+
+  if (i < dataKeymapNum) {
+    if (cid == dataKeymapTab[i].id) {
+      dataKeymapTab[i].refCount++;
+      hwEnableIrq();
+      return 0;
+    }
+
+    if (256 < dataKeymapNum) {
+      hwEnableIrq();
+      return 0;
+    }
+
+    j = dataKeymapNum;
+    for (j = dataKeymapNum; i <= j; --j) {
+      dataKeymapTab[j].id = dataKeymapTab[j - 1].id;
+      dataKeymapTab[j].refCount = dataKeymapTab[j - 1].refCount;
+      dataKeymapTab[j].data = dataKeymapTab[j - 1].data;
+    }
+  } else if (256 < dataKeymapNum) {
+    hwEnableIrq();
+    return 0;
+  }
+
+  ++dataKeymapNum;
+
+  MUSY_ASSERT_MSG(keymapdata != NULL, "Keymap data pointer is NULL");
+  dataKeymapTab[i].id = cid;
+  dataKeymapTab[i].data = keymapdata;
+  dataKeymapTab[i].refCount = 1;
+  hwEnableIrq();
+  return 1;
 }
 
 unsigned long dataRemoveKeymap(unsigned short sid) {
