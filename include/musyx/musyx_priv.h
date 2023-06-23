@@ -884,7 +884,7 @@ void synthSetBpm(u32 pbm, u8 set, u8 section);
 void synthFXCloneMidiSetup(SYNTH_VOICE* dest, SYNTH_VOICE* src);
 void synthSetMusicVolumeType(u8 vGroup, u8 type);
 
-extern u32 synthGlobalVariable[16];
+extern long synthGlobalVariable[16];
 extern u16 voicePrioSortRootListRoot;
 extern u8 voiceMusicRunning;
 extern u8 voiceFxRunning;

@@ -951,7 +951,7 @@ LIBS = [
             ["musyx/runtime/hw_dolphin", True],
             ["musyx/runtime/hw_memory", True],
             ["musyx/runtime/CheapReverb/creverb_fx", True],
-            ["musyx/runtime/CheapReverb/creverb", False],
+            ["musyx/runtime/CheapReverb/creverb", True],
             ["musyx/runtime/StdReverb/reverb_fx", True],
             ["musyx/runtime/StdReverb/reverb", False],
             ["musyx/runtime/Delay/delay_fx", True],

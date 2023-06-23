@@ -55,4 +55,11 @@ u32 adsrStartRelease(ADSR_VARS* adsr, u32 rtime) {
 }
 
 u32 adsrRelease(ADSR_VARS* adsr) {
+  switch(adsr->mode) {
+    case 0:
+    case 1:
+    return adsrStartRelease(adsr, adsr->data.dls.rTime);
+  }
+
+  return FALSE;
 }
