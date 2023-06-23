@@ -135,14 +135,14 @@ typedef struct SND_ROOM {
   struct SND_ROOM* prev;
 
   u32 flags;
-  SND_FVECTOR pos; 
-  f32 distance;    
+  SND_FVECTOR pos;
+  f32 distance;
 
   u8 studio;
 
-  void (*activateReverb)(u8 studio, void* para); 
-  void (*deActivateReverb)(u8 studio);           
-  void* user;                                    
+  void (*activateReverb)(u8 studio, void* para);
+  void (*deActivateReverb)(u8 studio);
+  void* user;
 
   u32 curMVol;
 } SND_ROOM;
@@ -464,6 +464,16 @@ typedef struct SND_CROSSFADE {
 
   u8 flags;
 } SND_CROSSFADE;
+
+typedef struct SND_3DINFO {
+  u8 vol;
+  u8 pan;
+  u8 span;
+  u16 doppler;
+} SND_3DINFO;
+
+void sndGet3DParameters(SND_3DINFO* info, SND_FVECTOR* pos, SND_FVECTOR* dir, f32 maxDis, f32 comp,
+                        u8 maxVol, u8 minVol, SND_ROOM* room);
 
 typedef struct SND_PROFILE_DATA {
   unsigned long loadStores;
