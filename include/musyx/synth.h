@@ -22,7 +22,7 @@ u32 vidGetInternalId(SND_VOICEID id);
 bool synthFXSetCtrl(SND_VOICEID vid, u8 ctrl, u8 value);
 bool synthFXSetCtrl14(SND_VOICEID vid, u8 ctrl, u16 value);
 bool synthSendKeyOff(SND_VOICEID vid);
-SND_VOICEID synthFXStart(SND_FXID fid, u8 vol, u8 pan, u8 studio, u8);
+SND_VOICEID synthFXStart(u16 fid, u8 vol, u8 pan, u8 studio, u32 itd);
 void synthVolume(unsigned char volume, unsigned short time, unsigned char vGroup,
                  unsigned char seqMode, unsigned long seqId);
 
