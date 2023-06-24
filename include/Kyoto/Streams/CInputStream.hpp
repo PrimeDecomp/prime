@@ -44,6 +44,7 @@ public:
   // CIEKeyframeEmitter / rstl::vector(CInputStream&)
   // why?
   int ReadInt32() { return static_cast< uint >(Get(TType< int >())); }
+  u16 ReadUint16() { return Get<u16>(); }
 
   uint GetBlockOffset() const { return x4_blockOffset; }
 
@@ -71,6 +72,11 @@ inline bool cinput_stream_helper(const TType< bool >& type, CInputStream& in) {
 }
 template <>
 inline char cinput_stream_helper(const TType< char >& type, CInputStream& in) {
+  return in.ReadChar();
+}
+
+template <>
+inline unsigned char cinput_stream_helper(const TType< unsigned char >& type, CInputStream& in) {
   return in.ReadChar();
 }
 
