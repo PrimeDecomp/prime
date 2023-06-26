@@ -1,8 +1,9 @@
 #ifndef _MUSYX_MUSYX_PRIV
 #define _MUSYX_MUSYX_PRIV
 
-#include "musyx/assert.h"
 #include "musyx/musyx.h"
+#include "musyx/assert.h"
+#include "musyx/hardware.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -1015,6 +1016,8 @@ void streamOutputModeChanged();
 u8 inpTranslateExCtrl(u8 ctrl);
 void inpSetGlobalMIDIDirtyFlag(u8 chan, u8 midiSet, s32 flag);
 void inpAddCtrl(struct CTRL_DEST* dest, u8 ctrl, long scale, u8 comb, u32 isVar);
+void inpSetMidiCtrl(unsigned char ctrl, unsigned char channel, unsigned char set, unsigned char value);
+void inpSetMidiCtrl14(unsigned char ctrl, unsigned char channel, unsigned char set, u16 value);
 void inpSetExCtrl(SYNTH_VOICE* svoice, u8 ctrl, s16 v);
 CHANNEL_DEFAULTS* inpGetChannelDefaults(u8 midi, u8 midiSet);
 extern CTRL_DEST inpAuxA[8][4];
