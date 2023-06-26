@@ -383,7 +383,7 @@ LIBS = [
             "WorldFormat/CAreaOctTree",
             ["WorldFormat/CMetroidAreaCollider", False],
             ["WorldFormat/CWorldLight", False],
-            "WorldFormat/COBBTree",
+            ["WorldFormat/COBBTree", False],
             "WorldFormat/CCollidableOBBTree",
             "WorldFormat/CCollidableOBBTreeGroup",
             "WorldFormat/CPVSAreaSet",

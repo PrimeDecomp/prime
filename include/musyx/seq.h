@@ -163,13 +163,15 @@ extern u8 synthTrackVolume[64];
 extern SEQ_INSTANCE seqInstance[8];
 extern u16 seqMIDIPriority[8][16];
 
+void seqSpeed(unsigned long seqId, unsigned short speed);
+void seqVolume(unsigned char volume, unsigned short time, unsigned long seqId, unsigned char mode);
 void sndSeqStop(s32 unk);
-void sndSeqSpeed(s32 unk1, s32 unk2);
+void sndSeqSpeed(u32 seqId, u16 speed);
 void sndSeqContinue(s32 unk);
 void sndSeqMute(s32 unk1, s32 unk2, s32 unk3);
-void sndSeqVolume(s32 unk1, s32 unk2, s32 unk3, s32 unk4);
+void sndSeqVolume(unsigned char volume, unsigned short time, unsigned long seqId, unsigned char mode);
 void seqStop(unsigned long seqId);
-u16 seqGetMIDIPriority(s32 unk1, s32 unk2);
+u16 seqGetMIDIPriority(u8 set, u8 channel);
 
 #ifdef __cplusplus
 }
