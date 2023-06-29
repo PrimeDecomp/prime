@@ -134,7 +134,7 @@ u32 salExitDsp() {
 void salStartDsp(u16* cmdList) {
   salDspIsDone = FALSE;
   PPCSync();
-  MUSY_ASSERT(((u32)cmdList & 0x1F)==0);
+  MUSY_ASSERT(((u32)cmdList & 0x1F) == 0);
   DSPSendMailToDSP(dspCmdFirstSize | 0xbabe0000);
 
   while (DSPCheckMailToDSP())

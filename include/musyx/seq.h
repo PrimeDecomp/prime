@@ -9,14 +9,17 @@ extern "C" {
 
 typedef struct ARR {
   // total size: 0x58
-  unsigned long tTab;          // offset 0x0, size 0x4
-  unsigned long pTab;          // offset 0x4, size 0x4
-  unsigned long tmTab;         // offset 0x8, size 0x4
-  unsigned long mTrack;        // offset 0xC, size 0x4
-  unsigned long info;          // offset 0x10, size 0x4
-  unsigned long loopPoint[16]; // offset 0x14, size 0x40
-  unsigned long tsTab;         // offset 0x54, size 0x4
+  u32 tTab;          // offset 0x0, size 0x4
+  u32 pTab;          // offset 0x4, size 0x4
+  u32 tmTab;         // offset 0x8, size 0x4
+  u32 mTrack;        // offset 0xC, size 0x4
+  u32 info;          // offset 0x10, size 0x4
+  u32 loopPoint[16]; // offset 0x14, size 0x40
+  u32 tsTab;         // offset 0x54, size 0x4
 } ARR;
+
+#define ARR_GET(arr, offset) ((void*)(offset + (u32)arr))
+#define ARR_GET_TYPE(arr, offset, ty) ((ty)ARR_GET(arr, offset))
 
 typedef struct TENTRY {
   // total size: 0xC
@@ -117,7 +120,7 @@ typedef struct TICKS {
 
 typedef struct SEQ_SECTION {
   // total size: 0x38
-  struct MTRACK mTrack;       // offset 0x0, size 0x8
+  MTRACK mTrack;              // offset 0x0, size 0x8
   u32 bpm;                    // offset 0x8, size 0x4
   TICKS tickDelta[2];         // offset 0xC, size 0x10
   SEQ_EVENT* globalEventRoot; // offset 0x1C, size 0x4
@@ -159,21 +162,30 @@ typedef struct SEQ_INSTANCE {
   SEQ_SECTION section[16];     // offset 0x14E8, size 0x380
 } SEQ_INSTANCE;
 
+typedef struct SEQ_PATTERN {
+  // total size: 0x10
+  u32 headerLen;  // offset 0x0, size 0x4
+  u32 pitchBend;  // offset 0x4, size 0x4
+  u32 modulation; // offset 0x8, size 0x4
+  u32 noteData;   // offset 0xC, size 0x4
+} SEQ_PATTERN;
+
 extern u8 synthTrackVolume[64];
 extern SEQ_INSTANCE seqInstance[8];
 extern u16 seqMIDIPriority[8][16];
 
-void seqSpeed(unsigned long seqId, unsigned short speed);
-void seqVolume(unsigned char volume, unsigned short time, unsigned long seqId, unsigned char mode);
+void seqSpeed(u32 seqId, u16 speed);
+void seqVolume(u8 volume, u16 time, u32 seqId, u8 mode);
 void sndSeqStop(s32 unk);
 void sndSeqSpeed(u32 seqId, u16 speed);
 void sndSeqContinue(s32 unk);
 void sndSeqMute(s32 unk1, s32 unk2, s32 unk3);
-void sndSeqVolume(unsigned char volume, unsigned short time, unsigned long seqId,
-                  unsigned char mode);
-void seqStop(unsigned long seqId);
+void sndSeqVolume(u8 volume, u16 time, u32 seqId, u8 mode);
+u32 sndSeqPlayEx(u16 sgid, u16 sid, void* arrfile, SND_PLAYPARA* para, u8 studio);
+void seqStop(u32 seqId);
 u16 seqGetMIDIPriority(u8 set, u8 channel);
-void seqCrossFade(SND_CROSSFADE* ci, unsigned long* new_seqId, unsigned char irq_call);
+void seqCrossFade(SND_CROSSFADE* ci, u32* new_seqId, bool8 irq_call);
+u32 seqPlaySong(u16 sgid, u16 sid, void* arrfile, SND_PLAYPARA* para, u8 irq_call, u8 studio);
 
 #ifdef __cplusplus
 }

@@ -2,6 +2,7 @@
 #define _MUSYX_MUSYX_PRIV
 
 #include "musyx/musyx.h"
+
 #include "musyx/assert.h"
 #include "musyx/hardware.h"
 
@@ -149,7 +150,7 @@ typedef struct _PBADPCM {
   u16 pred_scale; // offset 0x22, size 0x2
   u16 yn1;        // offset 0x24, size 0x2
   u16 yn2;        // offset 0x26, size 0x2
-} _PDADPCM;
+} _PBADPCM;
 
 typedef struct _PBSRC {
   // total size: 0xE
@@ -168,26 +169,26 @@ typedef struct _PBADPCMLOOP {
 
 typedef struct _PB {
   // total size: 0xBC
-  u16 nextHi;                    // offset 0x0, size 0x2
-  u16 nextLo;                    // offset 0x2, size 0x2
-  u16 currHi;                    // offset 0x4, size 0x2
-  u16 currLo;                    // offset 0x6, size 0x2
-  u16 srcSelect;                 // offset 0x8, size 0x2
-  u16 coefSelect;                // offset 0xA, size 0x2
-  u16 mixerCtrl;                 // offset 0xC, size 0x2
-  u16 state;                     // offset 0xE, size 0x2
-  u16 loopType;                  // offset 0x10, size 0x2
-  struct _PBMIX mix;             // offset 0x12, size 0x24
-  struct _PBITD itd;             // offset 0x36, size 0xE
-  struct _PBUPDATE update;       // offset 0x44, size 0xE
-  struct _PBDPOP dpop;           // offset 0x52, size 0x12
-  struct _PBVE ve;               // offset 0x64, size 0x4
-  struct _PBFIR fir;             // offset 0x68, size 0x6
-  struct _PBADDR addr;           // offset 0x6E, size 0x10
-  struct _PBADPCM adpcm;         // offset 0x7E, size 0x28
-  struct _PBSRC src;             // offset 0xA6, size 0xE
-  struct _PBADPCMLOOP adpcmLoop; // offset 0xB4, size 0x6
-  u16 streamLoopCnt;             // offset 0xBA, size 0x2
+  u16 nextHi;             // offset 0x0, size 0x2
+  u16 nextLo;             // offset 0x2, size 0x2
+  u16 currHi;             // offset 0x4, size 0x2
+  u16 currLo;             // offset 0x6, size 0x2
+  u16 srcSelect;          // offset 0x8, size 0x2
+  u16 coefSelect;         // offset 0xA, size 0x2
+  u16 mixerCtrl;          // offset 0xC, size 0x2
+  u16 state;              // offset 0xE, size 0x2
+  u16 loopType;           // offset 0x10, size 0x2
+  _PBMIX mix;             // offset 0x12, size 0x24
+  _PBITD itd;             // offset 0x36, size 0xE
+  _PBUPDATE update;       // offset 0x44, size 0xE
+  _PBDPOP dpop;           // offset 0x52, size 0x12
+  _PBVE ve;               // offset 0x64, size 0x4
+  _PBFIR fir;             // offset 0x68, size 0x6
+  _PBADDR addr;           // offset 0x6E, size 0x10
+  _PBADPCM adpcm;         // offset 0x7E, size 0x28
+  _PBSRC src;             // offset 0xA6, size 0xE
+  _PBADPCMLOOP adpcmLoop; // offset 0xB4, size 0x6
+  u16 streamLoopCnt;      // offset 0xBA, size 0x2
 } _PB;
 
 typedef struct SAMPLE_INFO {
@@ -236,20 +237,20 @@ typedef struct SAMPLE_HEADER {
 
 typedef struct SDIR_DATA {
   // total size: 0x20
-  u16 id;                      // offset 0x0, size 0x2
-  u16 ref_cnt;                 // offset 0x2, size 0x2
-  u32 offset;                  // offset 0x4, size 0x4
-  void* addr;                  // offset 0x8, size 0x4
-  struct SAMPLE_HEADER header; // offset 0xC, size 0x10
-  u32 extraData;               // offset 0x1C, size 0x4
+  u16 id;               // offset 0x0, size 0x2
+  u16 ref_cnt;          // offset 0x2, size 0x2
+  u32 offset;           // offset 0x4, size 0x4
+  void* addr;           // offset 0x8, size 0x4
+  SAMPLE_HEADER header; // offset 0xC, size 0x10
+  u32 extraData;        // offset 0x1C, size 0x4
 } SDIR_DATA;
 
 typedef struct SDIR_TAB {
   // total size: 0xC
-  struct SDIR_DATA* data; // offset 0x0, size 0x4
-  void* base;             // offset 0x4, size 0x4
-  u16 numSmp;             // offset 0x8, size 0x2
-  u16 res;                // offset 0xA, size 0x2
+  SDIR_DATA* data; // offset 0x0, size 0x4
+  void* base;      // offset 0x4, size 0x4
+  u16 numSmp;      // offset 0x8, size 0x2
+  u16 res;         // offset 0xA, size 0x2
 } SDIR_TAB;
 
 typedef struct DATA_TAB {
@@ -283,9 +284,9 @@ typedef struct MAC_SUBTAB {
 
 typedef struct GSTACK {
   // total size: 0xC
-  struct GROUP_DATA* gAddr;   // offset 0x0, size 0x4
-  struct SDIR_DATA* sdirAddr; // offset 0x4, size 0x4
-  void* prjAddr;              // offset 0x8, size 0x4
+  GROUP_DATA* gAddr;   // offset 0x0, size 0x4
+  SDIR_DATA* sdirAddr; // offset 0x4, size 0x4
+  void* prjAddr;       // offset 0x8, size 0x4
 } GSTACK;
 
 typedef struct VSampleInfo {
@@ -296,7 +297,7 @@ typedef struct VSampleInfo {
 } VSampleInfo;
 
 typedef struct DSPvoice {
-  struct _PB* pb;
+  _PB* pb;
   void* patchData;
   void* itdBuffer;
   struct DSPvoice* next;
@@ -374,8 +375,8 @@ typedef struct MSTEP {
 } MSTEP;
 
 typedef struct CALLSTACK {
-  struct MSTEP* addr;
-  struct MSTEP* curAddr;
+  MSTEP* addr;
+  MSTEP* curAddr;
 } CALLSTACK;
 
 typedef struct SYNTH_QUEUE {
@@ -407,25 +408,25 @@ typedef struct SYNTH_LFO {
 
 typedef struct SYNTHMasterFader {
   // total size: 0x30
-  float volume;         // offset 0x0, size 0x4
-  float target;         // offset 0x4, size 0x4
-  float start;          // offset 0x8, size 0x4
-  float time;           // offset 0xC, size 0x4
-  float deltaTime;      // offset 0x10, size 0x4
-  float pauseVol;       // offset 0x14, size 0x4
-  float pauseTarget;    // offset 0x18, size 0x4
-  float pauseStart;     // offset 0x1C, size 0x4
-  float pauseTime;      // offset 0x20, size 0x4
-  float pauseDeltaTime; // offset 0x24, size 0x4
-  u32 seqId;            // offset 0x28, size 0x4
-  u8 seqMode;           // offset 0x2C, size 0x1
-  u8 type;              // offset 0x2D, size 0x1
+  f32 volume;         // offset 0x0, size 0x4
+  f32 target;         // offset 0x4, size 0x4
+  f32 start;          // offset 0x8, size 0x4
+  f32 time;           // offset 0xC, size 0x4
+  f32 deltaTime;      // offset 0x10, size 0x4
+  f32 pauseVol;       // offset 0x14, size 0x4
+  f32 pauseTarget;    // offset 0x18, size 0x4
+  f32 pauseStart;     // offset 0x1C, size 0x4
+  f32 pauseTime;      // offset 0x20, size 0x4
+  f32 pauseDeltaTime; // offset 0x24, size 0x4
+  u32 seqId;          // offset 0x28, size 0x4
+  u8 seqMode;         // offset 0x2C, size 0x1
+  u8 type;            // offset 0x2D, size 0x1
 } SYNTHMasterFader;
 
 typedef struct CTRL_SOURCE {
   u8 midiCtrl;
   u8 combine;
-  long scale;
+  s32 scale;
 } CTRL_SOURCE;
 
 typedef struct CTRL_DEST {
@@ -469,7 +470,7 @@ typedef struct _VS {
   u8 voices[64];              // offset 0x908, size 0x40
   u16 nextInstID;             // offset 0x948, size 0x2
   u32 (*callback)(u8,
-                  struct SND_VIRTUALSAMPLE_INFO*); // offset 0x94C, size 0x4
+                  SND_VIRTUALSAMPLE_INFO*); // offset 0x94C, size 0x4
 } VS;
 
 extern VS vs;
@@ -500,7 +501,7 @@ typedef struct SYNTH_VOICE {
   u64 waitTime;
   u8 timeUsedByInput;
   u16 loop;
-  long local_vars[16];
+  s32 local_vars[16];
   u32 child;
   u32 parent;
   u32 id;
@@ -532,44 +533,44 @@ typedef struct SYNTH_VOICE {
   u16 portLastCtrlState;
   u32 portDuration;
   u32 portCurPitch;
-  u32 portTime;               // offset 0x13C, size 0x4
-  u8 vibKeyRange;             // offset 0x140, size 0x1
-  u8 vibCentRange;            // offset 0x141, size 0x1
-  u32 vibPeriod;              // offset 0x144, size 0x4
-  u32 vibCurTime;             // offset 0x148, size 0x4
-  long vibCurOffset;          // offset 0x14C, size 0x4
-  s16 vibModAddScale;         // offset 0x150, size 0x2
-  u32 volume;                 // offset 0x154, size 0x4
-  u32 orgVolume;              // offset 0x158, size 0x4
-  float lastVolFaderScale;    // offset 0x15C, size 0x4
-  u32 lastPan;                // offset 0x160, size 0x4
-  u32 lastSPan;               // offset 0x164, size 0x4
-  float treCurScale;          // offset 0x168, size 0x4
-  u16 treScale;               // offset 0x16C, size 0x2
-  u16 treModAddScale;         // offset 0x16E, size 0x2
-  u32 panning[2];             // offset 0x170, size 0x8
-  long panDelta[2];           // offset 0x178, size 0x8
-  u32 panTarget[2];           // offset 0x180, size 0x8
-  u32 panTime[2];             // offset 0x188, size 0x8
-  u8 revVolScale;             // offset 0x190, size 0x1
-  u8 revVolOffset;            // offset 0x191, size 0x1
-  u8 volTable;                // offset 0x192, size 0x1
-  u8 itdMode;                 // offset 0x193, size 0x1
-  long envDelta;              // offset 0x194, size 0x4
-  u32 envTarget;              // offset 0x198, size 0x4
-  u32 envCurrent;             // offset 0x19C, size 0x4
-  u32 sweepOff[2];            // offset 0x1A0, size 0x8
-  long sweepAdd[2];           // offset 0x1A8, size 0x8
-  long sweepCnt[2];           // offset 0x1B0, size 0x8
-  u8 sweepNum[2];             // offset 0x1B8, size 0x2
-  struct SYNTH_LFO lfo[2];    // offset 0x1BC, size 0x18
-  u8 lfoUsedByInput[2];       // offset 0x1D4, size 0x2
-  u8 pbLowerKeyRange;         // offset 0x1D6, size 0x1
-  u8 pbUpperKeyRange;         // offset 0x1D7, size 0x1
-  u16 pbLast;                 // offset 0x1D8, size 0x2
-  struct ADSR_VARS pitchADSR; // offset 0x1DC, size 0x28
-  s16 pitchADSRRange;         // offset 0x204, size 0x2
-  u16 curPitch;               // offset 0x206, size 0x2
+  u32 portTime;          // offset 0x13C, size 0x4
+  u8 vibKeyRange;        // offset 0x140, size 0x1
+  u8 vibCentRange;       // offset 0x141, size 0x1
+  u32 vibPeriod;         // offset 0x144, size 0x4
+  u32 vibCurTime;        // offset 0x148, size 0x4
+  s32 vibCurOffset;      // offset 0x14C, size 0x4
+  s16 vibModAddScale;    // offset 0x150, size 0x2
+  u32 volume;            // offset 0x154, size 0x4
+  u32 orgVolume;         // offset 0x158, size 0x4
+  f32 lastVolFaderScale; // offset 0x15C, size 0x4
+  u32 lastPan;           // offset 0x160, size 0x4
+  u32 lastSPan;          // offset 0x164, size 0x4
+  f32 treCurScale;       // offset 0x168, size 0x4
+  u16 treScale;          // offset 0x16C, size 0x2
+  u16 treModAddScale;    // offset 0x16E, size 0x2
+  u32 panning[2];        // offset 0x170, size 0x8
+  s32 panDelta[2];       // offset 0x178, size 0x8
+  u32 panTarget[2];      // offset 0x180, size 0x8
+  u32 panTime[2];        // offset 0x188, size 0x8
+  u8 revVolScale;        // offset 0x190, size 0x1
+  u8 revVolOffset;       // offset 0x191, size 0x1
+  u8 volTable;           // offset 0x192, size 0x1
+  u8 itdMode;            // offset 0x193, size 0x1
+  s32 envDelta;          // offset 0x194, size 0x4
+  u32 envTarget;         // offset 0x198, size 0x4
+  u32 envCurrent;        // offset 0x19C, size 0x4
+  u32 sweepOff[2];       // offset 0x1A0, size 0x8
+  s32 sweepAdd[2];       // offset 0x1A8, size 0x8
+  s32 sweepCnt[2];       // offset 0x1B0, size 0x8
+  u8 sweepNum[2];        // offset 0x1B8, size 0x2
+  SYNTH_LFO lfo[2];      // offset 0x1BC, size 0x18
+  u8 lfoUsedByInput[2];  // offset 0x1D4, size 0x2
+  u8 pbLowerKeyRange;    // offset 0x1D6, size 0x1
+  u8 pbUpperKeyRange;    // offset 0x1D7, size 0x1
+  u16 pbLast;            // offset 0x1D8, size 0x2
+  ADSR_VARS pitchADSR;   // offset 0x1DC, size 0x28
+  s16 pitchADSRRange;    // offset 0x204, size 0x2
+  u16 curPitch;          // offset 0x206, size 0x2
   struct setup {
     u8 vol;                     // offset 0x0, size 0x1
     u8 pan;                     // offset 0x1, size 0x1
@@ -598,7 +599,7 @@ typedef struct SYNTH_VOICE {
   u8 mesgNum;                   // offset 0x3EC, size 0x1
   u8 mesgRead;                  // offset 0x3ED, size 0x1
   u8 mesgWrite;                 // offset 0x3EE, size 0x1
-  long mesgQueue[4];            // offset 0x3F0, size 0x10
+  s32 mesgQueue[4];             // offset 0x3F0, size 0x10
   u16 curOutputVolume;          // offset 0x400, size 0x2
 } SYNTH_VOICE;
 
@@ -658,31 +659,31 @@ typedef struct POOL_DATA {
 
 typedef struct SAL_VOLINFO {
   // total size: 0x24
-  float volL;     // offset 0x0, size 0x4
-  float volR;     // offset 0x4, size 0x4
-  float volS;     // offset 0x8, size 0x4
-  float volAuxAL; // offset 0xC, size 0x4
-  float volAuxAR; // offset 0x10, size 0x4
-  float volAuxAS; // offset 0x14, size 0x4
-  float volAuxBL; // offset 0x18, size 0x4
-  float volAuxBR; // offset 0x1C, size 0x4
-  float volAuxBS; // offset 0x20, size 0x4
+  f32 volL;     // offset 0x0, size 0x4
+  f32 volR;     // offset 0x4, size 0x4
+  f32 volS;     // offset 0x8, size 0x4
+  f32 volAuxAL; // offset 0xC, size 0x4
+  f32 volAuxAR; // offset 0x10, size 0x4
+  f32 volAuxAS; // offset 0x14, size 0x4
+  f32 volAuxBL; // offset 0x18, size 0x4
+  f32 volAuxBR; // offset 0x1C, size 0x4
+  f32 volAuxBS; // offset 0x20, size 0x4
 } SAL_VOLINFO;
 
 typedef struct SAL_PANINFO {
   // total size: 0x30
-  u32 pan_i;     // offset 0x0, size 0x4
-  u32 pan_im;    // offset 0x4, size 0x4
-  u32 span_i;    // offset 0x8, size 0x4
-  u32 span_im;   // offset 0xC, size 0x4
-  u32 rpan_i;    // offset 0x10, size 0x4
-  u32 rpan_im;   // offset 0x14, size 0x4
-  float pan_f;   // offset 0x18, size 0x4
-  float pan_fm;  // offset 0x1C, size 0x4
-  float span_f;  // offset 0x20, size 0x4
-  float span_fm; // offset 0x24, size 0x4
-  float rpan_f;  // offset 0x28, size 0x4
-  float rpan_fm; // offset 0x2C, size 0x4
+  u32 pan_i;   // offset 0x0, size 0x4
+  u32 pan_im;  // offset 0x4, size 0x4
+  u32 span_i;  // offset 0x8, size 0x4
+  u32 span_im; // offset 0xC, size 0x4
+  u32 rpan_i;  // offset 0x10, size 0x4
+  u32 rpan_im; // offset 0x14, size 0x4
+  f32 pan_f;   // offset 0x18, size 0x4
+  f32 pan_fm;  // offset 0x1C, size 0x4
+  f32 span_f;  // offset 0x20, size 0x4
+  f32 span_fm; // offset 0x24, size 0x4
+  f32 rpan_f;  // offset 0x28, size 0x4
+  f32 rpan_fm; // offset 0x2C, size 0x4
 } SAL_PANINFO;
 
 typedef struct _SPB {
@@ -718,44 +719,44 @@ typedef struct _SPB {
 
 typedef struct DSPhostDPop {
   // total size: 0x24
-  long l;  // offset 0x0, size 0x4
-  long r;  // offset 0x4, size 0x4
-  long s;  // offset 0x8, size 0x4
-  long lA; // offset 0xC, size 0x4
-  long rA; // offset 0x10, size 0x4
-  long sA; // offset 0x14, size 0x4
-  long lB; // offset 0x18, size 0x4
-  long rB; // offset 0x1C, size 0x4
-  long sB; // offset 0x20, size 0x4
+  s32 l;  // offset 0x0, size 0x4
+  s32 r;  // offset 0x4, size 0x4
+  s32 s;  // offset 0x8, size 0x4
+  s32 lA; // offset 0xC, size 0x4
+  s32 rA; // offset 0x10, size 0x4
+  s32 sA; // offset 0x14, size 0x4
+  s32 lB; // offset 0x18, size 0x4
+  s32 rB; // offset 0x1C, size 0x4
+  s32 sB; // offset 0x20, size 0x4
 } DSPhostDPop;
 
 typedef struct DSPinput {
   // total size: 0xC
-  u8 studio;                     // offset 0x0, size 0x1
-  u16 vol;                       // offset 0x2, size 0x2
-  u16 volA;                      // offset 0x4, size 0x2
-  u16 volB;                      // offset 0x6, size 0x2
-  struct SND_STUDIO_INPUT* desc; // offset 0x8, size 0x4
+  u8 studio;              // offset 0x0, size 0x1
+  u16 vol;                // offset 0x2, size 0x2
+  u16 volA;               // offset 0x4, size 0x2
+  u16 volB;               // offset 0x6, size 0x2
+  SND_STUDIO_INPUT* desc; // offset 0x8, size 0x4
 } DSPinput;
 
 typedef struct DSPstudioinfo {
   // total size: 0xBC
-  struct _SPB* spb;                // offset 0x0, size 0x4
-  struct DSPhostDPop hostDPopSum;  // offset 0x4, size 0x24
-  long* main[2];                   // offset 0x28, size 0x8
-  long* auxA[3];                   // offset 0x30, size 0xC
-  long* auxB[3];                   // offset 0x3C, size 0xC
-  struct DSPvoice* voiceRoot;      // offset 0x48, size 0x4
-  struct DSPvoice* alienVoiceRoot; // offset 0x4C, size 0x4
-  u8 state;                        // offset 0x50, size 0x1
-  u8 isMaster;                     // offset 0x51, size 0x1
-  u8 numInputs;                    // offset 0x52, size 0x1
-  SND_STUDIO_TYPE type;            // offset 0x54, size 0x4
-  struct DSPinput in[7];           // offset 0x58, size 0x54
-  SND_AUX_CALLBACK auxAHandler;    // offset 0xAC, size 0x4
-  SND_AUX_CALLBACK auxBHandler;    // offset 0xB0, size 0x4
-  void* auxAUser;                  // offset 0xB4, size 0x4
-  void* auxBUser;                  // offset 0xB8, size 0x4
+  _SPB* spb;                    // offset 0x0, size 0x4
+  DSPhostDPop hostDPopSum;      // offset 0x4, size 0x24
+  s32* main[2];                 // offset 0x28, size 0x8
+  s32* auxA[3];                 // offset 0x30, size 0xC
+  s32* auxB[3];                 // offset 0x3C, size 0xC
+  DSPvoice* voiceRoot;          // offset 0x48, size 0x4
+  DSPvoice* alienVoiceRoot;     // offset 0x4C, size 0x4
+  u8 state;                     // offset 0x50, size 0x1
+  u8 isMaster;                  // offset 0x51, size 0x1
+  u8 numInputs;                 // offset 0x52, size 0x1
+  SND_STUDIO_TYPE type;         // offset 0x54, size 0x4
+  DSPinput in[7];               // offset 0x58, size 0x54
+  SND_AUX_CALLBACK auxAHandler; // offset 0xAC, size 0x4
+  SND_AUX_CALLBACK auxBHandler; // offset 0xB0, size 0x4
+  void* auxAUser;               // offset 0xB4, size 0x4
+  void* auxBUser;               // offset 0xB8, size 0x4
 } DSPstudioinfo;
 
 extern DSPstudioinfo dspStudio[8];
@@ -769,6 +770,7 @@ typedef struct CHANNEL_DEFAULTS {
   // total size: 0x1
   u8 pbRange; // offset 0x0, size 0x1
 } CHANNEL_DEFAULTS;
+
 typedef struct FX_TAB {
   // total size: 0xA
   u16 id;       // offset 0x0, size 0x2
@@ -783,16 +785,16 @@ typedef struct FX_TAB {
 
 typedef struct FX_DATA {
   // total size: 0xE
-  u16 num;             // offset 0x0, size 0x2
-  u16 reserverd;       // offset 0x2, size 0x2
-  struct FX_TAB fx[1]; // offset 0x4, size 0xA
+  u16 num;       // offset 0x0, size 0x2
+  u16 reserverd; // offset 0x2, size 0x2
+  FX_TAB fx[1];  // offset 0x4, size 0xA
 } FX_DATA;
 
 typedef struct FX_GROUP {
   // total size: 0x8
-  u16 gid;              // offset 0x0, size 0x2
-  u16 fxNum;            // offset 0x2, size 0x2
-  struct FX_TAB* fxTab; // offset 0x4, size 0x4
+  u16 gid;       // offset 0x0, size 0x2
+  u16 fxNum;     // offset 0x2, size 0x2
+  FX_TAB* fxTab; // offset 0x4, size 0x4
 } FX_GROUP;
 
 typedef struct PAGE {
@@ -825,12 +827,12 @@ typedef struct ADSR_INFO {
   union ai_data {
     struct {
       // total size: 0x14
-      long atime;  // offset 0x0, size 0x4
-      long dtime;  // offset 0x4, size 0x4
-      u16 slevel;  // offset 0x8, size 0x2
-      u16 rtime;   // offset 0xA, size 0x2
-      long ascale; // offset 0xC, size 0x4
-      long dscale; // offset 0x10, size 0x4
+      s32 atime;  // offset 0x0, size 0x4
+      s32 dtime;  // offset 0x4, size 0x4
+      u16 slevel; // offset 0x8, size 0x2
+      u16 rtime;  // offset 0xA, size 0x2
+      s32 ascale; // offset 0xC, size 0x4
+      s32 dscale; // offset 0x10, size 0x4
     } dls;
     struct {
       // total size: 0x8
@@ -850,7 +852,7 @@ u32 dataInsertMacro(u16 mid, void* macroaddr);
 u32 dataRemoveMacro(u16 mid);
 u32 dataInsertCurve(u16 cid, void* curvedata);
 u32 dataRemoveCurve(u16 sid);
-long dataGetSample(u16 sid, SAMPLE_INFO* newsmp);
+s32 dataGetSample(u16 sid, SAMPLE_INFO* newsmp);
 void* dataGetCurve(u16 cid);
 u32 dataAddSampleReference(u16 sid);
 u32 dataRemoveSampleReference(u16 sid);
@@ -863,7 +865,7 @@ FX_TAB* dataGetFX(u16 fid);
 s32 hwInit(u32* frq, u16 numVoices, u16 numStudios, u32 flags); /* extern */
 void hwInitSamplePlayback(u32 v, u16 smpID, void* newsmp, u32 set_defadsr, u32 prio,
                           u32 callbackUserValue, u32 setSRC, u8 itdMode);
-void hwSetVolume(u32 v, u8 table, float vol, u32 pan, u32 span, float auxa, float auxb);
+void hwSetVolume(u32 v, u8 table, f32 vol, u32 pan, u32 span, f32 auxa, f32 auxb);
 void hwSetPitch(u32 v, u16 speed);
 void hwEnableIrq();
 void hwDisableIrq();
@@ -885,14 +887,14 @@ void synthSetBpm(u32 pbm, u8 set, u8 section);
 void synthFXCloneMidiSetup(SYNTH_VOICE* dest, SYNTH_VOICE* src);
 void synthSetMusicVolumeType(u8 vGroup, u8 type);
 
-extern long synthGlobalVariable[16];
+extern s32 synthGlobalVariable[16];
 extern u16 voicePrioSortRootListRoot;
 extern u8 voiceMusicRunning;
 extern u8 voiceFxRunning;
 extern u8 voiceListInsert;
 extern u8 voiceListRoot;
-void voiceSetPriority(struct SYNTH_VOICE* svoice, u8 prio);
-u32 voiceIsLastStarted(struct SYNTH_VOICE* svoice);
+void voiceSetPriority(SYNTH_VOICE* svoice, u8 prio);
+u32 voiceIsLastStarted(SYNTH_VOICE* svoice);
 s32 voiceKillSound(u32 voiceid);
 
 extern u64 synthRealTime;
@@ -933,7 +935,7 @@ extern SND_MESSAGE_CALLBACK salMessageCallback;
 extern SYNTH_MESSAGE_CALLBACK synthMessageCallback;
 /* Math */
 void salApplyMatrix(const SND_FMATRIX* a, const SND_FVECTOR* b, SND_FVECTOR* out);
-float salNormalizeVector(SND_FVECTOR* vec);
+f32 salNormalizeVector(SND_FVECTOR* vec);
 void salCrossProduct(SND_FVECTOR* out, const SND_FVECTOR* a, const SND_FVECTOR* b);
 void salInvertMatrix(SND_FMATRIX* out, const SND_FMATRIX* in);
 
@@ -948,8 +950,8 @@ void salDeactivateVoice(DSPvoice* dsp_vptr);
 void salActivateStudio(u8 studio, u32 isMaster, SND_STUDIO_TYPE type);
 void salDeactivateStudio(u8 studio);
 void salActivateVoice(DSPvoice* dsp_vptr, u8 studio);
-void salCalcVolume(u8 voltab_index, SAL_VOLINFO* vi, float vol, u32 pan, u32 span, float auxa,
-                   float auxb, u32 itd, u32 dpl2);
+void salCalcVolume(u8 voltab_index, SAL_VOLINFO* vi, f32 vol, u32 pan, u32 span, f32 auxa, f32 auxb,
+                   u32 itd, u32 dpl2);
 void salReconnectVoice(DSPvoice* dsp_vptr, u8 studio);
 void* salMalloc(u32 len);
 void salFree(void* addr);
@@ -1015,8 +1017,9 @@ typedef struct STREAM_INFO {
 void streamOutputModeChanged();
 u8 inpTranslateExCtrl(u8 ctrl);
 void inpSetGlobalMIDIDirtyFlag(u8 chan, u8 midiSet, s32 flag);
-void inpAddCtrl(struct CTRL_DEST* dest, u8 ctrl, long scale, u8 comb, u32 isVar);
-void inpSetMidiCtrl(unsigned char ctrl, unsigned char channel, unsigned char set, unsigned char value);
+void inpAddCtrl(CTRL_DEST* dest, u8 ctrl, s32 scale, u8 comb, u32 isVar);
+void inpSetMidiCtrl(unsigned char ctrl, unsigned char channel, unsigned char set,
+                    unsigned char value);
 void inpSetMidiCtrl14(unsigned char ctrl, unsigned char channel, unsigned char set, u16 value);
 void inpSetExCtrl(SYNTH_VOICE* svoice, u8 ctrl, s16 v);
 CHANNEL_DEFAULTS* inpGetChannelDefaults(u8 midi, u8 midiSet);
@@ -1028,6 +1031,8 @@ u16 inpGetExCtrl(SYNTH_VOICE* svoice, u8 ctrl);
 u16 inpGetMidiCtrl(u8 ctrl, u8 channel, u8 set);
 void inpSetMidiLastNote(u8 midi, u8 midiSet, u8 key);
 u16 inpGetModulation(SYNTH_VOICE* svoice);
+void inpResetMidiCtrl(u8 ch, u8 set, u32 coldReset);
+void inpResetChannelDefaults(u8 midi, u8 midiSet);
 /* TODO: Figure out what `unk` is */
 void hwSetSRCType(u32 v, u8 salSRCType);
 void hwSetITDMode(u32 v, u8 mode);

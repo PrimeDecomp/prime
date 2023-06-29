@@ -41,7 +41,7 @@ void winSetFontSize(u16 size);
 sWIN* winOpenLogWindow(s32 x1, s32 y1, s32 x2, s32 y2, char* caption, u16 num_lines, u32 flags);
 sWIN* winOpenWindow(s32 x1, s32 y1, s32 x2, s32 y2, char* caption, void* func, u32 flags);
 
-WXOpenWindow();
+// WXOpenWindow();
 
 #ifdef __cpluplus
 }

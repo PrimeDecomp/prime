@@ -434,16 +434,16 @@ bool sndAuxCallbackPrepareChorus(SND_AUX_CHORUS* ch);
 bool sndAuxCallbackShutdownChorus(SND_AUX_CHORUS* ch);
 bool sndAuxCallbackUpdateSettingsChorus(SND_AUX_CHORUS* ch);
 
-#define SND_CROSSFADE_STOP 0       // Stop old song after fadedown
-#define SND_CROSSFADE_PAUSE 1      // Pause old song after fadedown
-#define SND_CROSSFADE_CONTINUE 2   // Continue previously paused song as new one
-#define SND_CROSSFADE_START 0      // Start new song (no continue)
-#define SND_CROSSFADE_SYNC 4       // Crossfade should start syncronized by sync-controller (104)
-#define SND_CROSSFADE_PAUSENEW 8   // Pause new song before even starting it
-#define SND_CROSSFADE_TRACKMUTE 16 // Use trackmute informtion
-#define SND_CROSSFADE_SPEED 32     // Use speed informtion
-#define SND_CROSSFADE_MUTE 64      // Old song continues playing & gets muted after fade down
-#define SND_CROSSFADE_MUTENEW 128  // Mute new song after starting it
+#define SND_CROSSFADE_STOP 0x0       // Stop old song after fadedown
+#define SND_CROSSFADE_PAUSE 0x1      // Pause old song after fadedown
+#define SND_CROSSFADE_CONTINUE 0x2   // Continue previously paused song as new one
+#define SND_CROSSFADE_START 0x0      // Start new song (no continue)
+#define SND_CROSSFADE_SYNC 0x4       // Crossfade should start syncronized by sync-controller (104)
+#define SND_CROSSFADE_PAUSENEW 0x8   // Pause new song before even starting it
+#define SND_CROSSFADE_TRACKMUTE 0x10 // Use trackmute informtion
+#define SND_CROSSFADE_SPEED 0x20     // Use speed informtion
+#define SND_CROSSFADE_MUTE 0x40      // Old song continues playing & gets muted after fade down
+#define SND_CROSSFADE_MUTENEW 0x80   // Mute new song after starting it
 
 #define SND_CROSSFADE_DEFAULT 0
 
@@ -517,6 +517,33 @@ typedef struct SND_PROFILE_INFO {
 
 typedef void (*SND_PROF_USERCALLBACK)(struct SND_PROFILE_INFO*);
 extern SND_PROF_USERCALLBACK sndProfUserCallback;
+
+#define SND_MIDICTRL_MODULATION 0x01
+#define SND_MIDICTRL_VOLUME 0x07
+#define SND_MIDICTRL_PANNING 0x0A
+#define SND_MIDICTRL_PEDAL 0x40
+#define SND_MIDICTRL_PORTAMENTO 0x41
+#define SND_MIDICTRL_REVERB 0x5B
+#define SND_MIDICTRL_CHORUS 0x5D
+
+#define SND_MIDICTRL_PITCHBEND 0x80
+#define SND_MIDICTRL_SPANNING 0x83
+#define SND_MIDICTRL_DOPPLER 0x84
+
+#define SND_SEQVOL_CONTINUE 0
+#define SND_SEQVOL_STOP 1
+#define SND_SEQVOL_PAUSE 2
+#define SND_SEQVOL_MUTE 3
+#define SND_SEQVOL_MODEMASK 0xF
+
+#define SND_ID_ERROR 0xFFFFFFFF // ID is invalid
+
+#define SND_MAX_SEQINSTANCES 8
+#define SND_SEQ_ERROR_ID 0xFFFFFFFF
+#define SND_SEQ_CROSSFADE_ID 0x80000000
+
+#define SND_PAUSEVOL_NORMAL 127
+
 #ifdef __cplusplus
 }
 #endif

@@ -222,7 +222,7 @@ static void HandleKeyOffNotes() {
     n = cseq->noteKeyOff;
     while (n != NULL) {
       nn = n->next;
-      if (n->id != -1 && sndFXCheck(n->id) == -1) {
+      if (n->id != SND_ID_ERROR && sndFXCheck(n->id) == SND_ID_ERROR) {
         seqFreeKeyOffNote(n);
       }
 
@@ -238,22 +238,43 @@ static void InitPublicIds() { seq_next_id = 0; }
 static u32 GetPublicId(u32 seqId) {
   u32 pub_id;       // r30
   SEQ_INSTANCE* si; // r31
-  si = &seqInstance[seqId];
+
+  do {
+    pub_id = seq_next_id;
+    seq_next_id = pub_id + 1;
+    seq_next_id &= ~SND_SEQ_CROSSFADE_ID;
+
+    for (si = seqActiveRoot; si != NULL; si = si->next) {
+      if (si->publicId == pub_id) {
+        pub_id = SND_SEQ_ERROR_ID;
+        break;
+      }
+    }
+    for (si = seqPausedRoot; si != NULL; si = si->next) {
+      if (si->publicId == pub_id) {
+        pub_id = SND_SEQ_ERROR_ID;
+        break;
+      }
+    }
+  } while (pub_id == SND_SEQ_ERROR_ID);
+
+  seqInstance[seqId].publicId = pub_id;
+  return pub_id;
 }
 
 u32 seqGetPrivateId(u32 seqId) {
   SEQ_INSTANCE* si; // r31
   for (si = seqActiveRoot; si != NULL; si = si->next) {
-    if (si->publicId == (seqId & 0x7fffffff)) {
-      return seqId & 0x80000000 | si->index;
+    if (si->publicId == (seqId & ~SND_SEQ_CROSSFADE_ID)) {
+      return si->index | seqId & SND_SEQ_CROSSFADE_ID;
     }
   }
   for (si = seqPausedRoot; si != NULL; si = si->next) {
-    if (si->publicId == (seqId & 0x7fffffff)) {
-      return seqId & 0x80000000 | si->index;
+    if (si->publicId == (seqId & ~SND_SEQ_CROSSFADE_ID)) {
+      return si->index | seqId & SND_SEQ_CROSSFADE_ID;
     }
   }
-  return 0xffffffff;
+  return SND_ID_ERROR;
 }
 
 static void DoPrgChange(SEQ_INSTANCE* seq, u8 prg, u8 midi) {
@@ -292,6 +313,9 @@ static void BuildTransTab(u8* tab, PAGE* page) {
   }
 }
 
+static void StartPause(SEQ_INSTANCE* si);
+static void InitTrackEvents();
+
 u32 seqStartPlay(PAGE* norm, PAGE* drum, MIDISETUP* midiSetup, u32* song, SND_PLAYPARA* para,
                  u8 studio, u16 sgid) {
   ARR* arr;              // r27
@@ -303,15 +327,15 @@ u32 seqStartPlay(PAGE* norm, PAGE* drum, MIDISETUP* midiSetup, u32* song, SND_PL
   u32 bpm;               // r25
 
   if ((nseq = seqFreeRoot) == NULL) {
-    return -1;
-  };
-  if ((seqFreeRoot = seqFreeRoot->next) != NULL) {
+    return SND_ID_ERROR;
+  }
+  if ((seqFreeRoot = nseq->next) != NULL) {
     seqFreeRoot->prev = NULL;
   }
-
   if ((nseq->next = seqActiveRoot) != NULL) {
     seqActiveRoot->prev = nseq;
   }
+
   nseq->prev = NULL;
   seqActiveRoot = nseq;
   nseq->state = 1;
@@ -340,7 +364,7 @@ u32 seqStartPlay(PAGE* norm, PAGE* drum, MIDISETUP* midiSetup, u32* song, SND_PL
       nseq->section[i].speed = 256;
     }
 
-    synthVolume(127, 0, nseq->defVGroup, 0, -1);
+    synthVolume(SND_PAUSEVOL_NORMAL, 0, nseq->defVGroup, 0, SND_ID_ERROR);
   } else {
     if (para->flags & SND_PLAYPARA_TRACKMUTE) {
       nseq->trackMute[0] = para->trackMute[0];
@@ -368,17 +392,19 @@ u32 seqStartPlay(PAGE* norm, PAGE* drum, MIDISETUP* midiSetup, u32* song, SND_PL
     }
 
     if (para->flags & SND_PLAYPARA_VOLUME) {
-      synthVolume(para->volume.target, para->volume.time, nseq->defVGroup, 0, -1);
+      synthVolume(para->volume.target, para->volume.time, nseq->defVGroup, SND_SEQVOL_CONTINUE,
+                  SND_SEQ_ERROR_ID);
 
       for (i = 0; i < para->numFaded; ++i) {
-        synthVolume(para->volume.target, para->volume.time, para->faded[i], 0, -1);
+        synthVolume(para->volume.target, para->volume.time, para->faded[i], SND_SEQVOL_CONTINUE,
+                    SND_SEQ_ERROR_ID);
       }
     }
   }
 
   arr = (ARR*)song;
   if (arr->info & 0x80000000) {
-    nseq->trackSectionTab = (u8*)(arr->tsTab + (u32)arr);
+    nseq->trackSectionTab = ARR_GET(arr, arr->tsTab);
   } else {
     nseq->trackSectionTab = NULL;
   }
@@ -394,7 +420,7 @@ u32 seqStartPlay(PAGE* norm, PAGE* drum, MIDISETUP* midiSetup, u32* song, SND_PL
     synthSetBpm(bpm >> 10, seqId & 0xFF, i & 0xFF);
 
     if (arr->mTrack != NULL) {
-      nseq->section[i].mTrack.base = (MTRACK_DATA*)(arr->mTrack + (u32)arr);
+      nseq->section[i].mTrack.base = ARR_GET(arr, arr->mTrack);
       nseq->section[i].mTrack.addr = nseq->section[i].mTrack.base;
     } else {
       nseq->section[i].mTrack.base = NULL;
@@ -404,14 +430,61 @@ u32 seqStartPlay(PAGE* norm, PAGE* drum, MIDISETUP* midiSetup, u32* song, SND_PL
     nseq->section[i].loopCnt = 0;
   }
 
-  tracktab = &arr->tTab;
-
+  tracktab = ARR_GET(arr, arr->tTab);
   for (i = 0; i < 64; ++i) {
-    synthTrackVolume[i] = 127;
+    synthTrackVolume[i] = SND_PAUSEVOL_NORMAL;
     nseq->pattern[i].addr = NULL;
-    // TODO: Finish
+    if (tracktab[i] != 0) {
+      nseq->track[i].addr = nseq->track[i].base = ARR_GET(arr, tracktab[i]);
+    } else {
+      nseq->track[i].addr = nseq->track[i].base = NULL;
+    }
   }
-  return -1;
+
+  nseq->noteUsed[0] = NULL;
+  nseq->noteUsed[1] = NULL;
+  nseq->noteKeyOff = NULL;
+
+  for (i = 0; i < 16; ++i) {
+    inpResetMidiCtrl(i, seqId, 1);
+  }
+  for (i = 0; i < 16; ++i) {
+    nseq->prgState[i].macId = 0xffff;
+  }
+  for (i = 0; i < 16; ++i) {
+    inpResetChannelDefaults(i, seqId);
+  }
+  if (midiSetup != NULL) {
+    for (i = 0; i < 16; ++i) {
+      DoPrgChange(nseq, midiSetup->channel[i].program, i);
+      inpSetMidiCtrl(SND_MIDICTRL_VOLUME, i, seqId, midiSetup->channel[i].volume);
+      inpSetMidiCtrl(SND_MIDICTRL_PANNING, i, seqId, midiSetup->channel[i].panning);
+      inpSetMidiCtrl(SND_MIDICTRL_REVERB, i, seqId, midiSetup->channel[i].reverb);
+      inpSetMidiCtrl(SND_MIDICTRL_CHORUS, i, seqId, midiSetup->channel[i].chorus);
+    }
+  }
+  for (i = 0; i < 16; ++i) {
+    seqMIDIPriority[seqId][i] = 0xffff;
+  }
+  for (i = 0; i < 16; ++i) {
+    nseq->section[i].time[0].high = 0;
+    nseq->section[i].time[0].low = 0;
+    nseq->section[i].time[1].high = 0;
+    nseq->section[i].time[1].low = 0;
+    nseq->section[i].timeIndex = 0;
+  }
+  nseq->keyOffCheck = 0;
+
+  if (para != NULL && (para->flags & SND_PLAYPARA_PAUSE) != 0) {
+    StartPause(nseq);
+  }
+
+  oldCSeq = cseq;
+  cseq = nseq;
+  InitTrackEvents();
+  cseq = oldCSeq;
+  seqId = GetPublicId(seqId);
+  return seqId;
 }
 
 static void SetTickDelta(SEQ_SECTION* section, u32 deltaTime) {
@@ -446,7 +519,7 @@ static void HandleMasterTrack(u8 secIndex) {
   }
 }
 
-static void RewindMTrack(unsigned char secIndex, unsigned long deltaTime) {
+static void RewindMTrack(u8 secIndex, u32 deltaTime) {
   if (cseq->section[secIndex].mTrack.base == NULL) {
     return;
   }
@@ -479,11 +552,11 @@ void seqPause(u32 seqId) {
   SEQ_INSTANCE* si; // r31
   seqId = seqGetPrivateId(seqId);
 
-  if (seqId == -1) {
+  if (seqId == SND_SEQ_ERROR_ID) {
     return;
   }
 
-  if (!(seqId & 0x80000000)) {
+  if ((seqId & SND_SEQ_CROSSFADE_ID) == 0) {
     si = &seqInstance[seqId];
     if (si->state == 1) {
       StartPause(si);
@@ -491,22 +564,21 @@ void seqPause(u32 seqId) {
       ResetNotes(si);
     }
   } else {
-    si = &seqInstance[seqId & 0x7fffffff];
+    si = &seqInstance[seqId & ~SND_SEQ_CROSSFADE_ID];
     if (si->state != 0) {
       si->syncCrossInfo.flags |= 8;
     }
   }
 }
 
-void seqStop(unsigned long seqId) {
+void seqStop(u32 seqId) {
   SEQ_INSTANCE* si; // r31
-  ;
 
-  if ((seqId = seqGetPrivateId(seqId)) == -1) {
+  if ((seqId = seqGetPrivateId(seqId)) == SND_SEQ_ERROR_ID) {
     return;
   }
 
-  if (!(seqId & 0x80000000)) {
+  if ((seqId & SND_SEQ_CROSSFADE_ID) == 0) {
     si = &seqInstance[seqId];
     switch (si->state) {
     case 1:
@@ -539,7 +611,7 @@ void seqStop(unsigned long seqId) {
     si->prev = NULL;
     seqFreeRoot = si;
   } else {
-    si = &seqInstance[seqId & 0x7fffffff];
+    si = &seqInstance[seqId & ~SND_SEQ_CROSSFADE_ID];
     if (si->state != 0) {
       si->syncSeqIdPtr = NULL;
     }
@@ -557,7 +629,7 @@ void seqKillAllInstances() {
   }
 }
 
-void seqKillInstancesByGroupID(unsigned short sgid) {
+void seqKillInstancesByGroupID(u16 sgid) {
   SEQ_INSTANCE* si; // r31
 
   for (si = seqActiveRoot; si != NULL; si = si->next) {
@@ -572,19 +644,20 @@ void seqKillInstancesByGroupID(unsigned short sgid) {
   }
 }
 
-void seqSpeed(unsigned long seqId, unsigned short speed) {
+void seqSpeed(u32 seqId, u16 speed) {
   u32 i; // r30
 
   seqId = seqGetPrivateId(seqId);
-  MUSY_ASSERT_MSG(seqId != -1, "Sequencer ID is not valid.");
+#line 1018
+  MUSY_ASSERT_MSG(seqId != SND_SEQ_ERROR_ID, "Sequencer ID is not valid.");
 
-  if (!(seqId & 0x80000000)) {
+  if ((seqId & SND_SEQ_CROSSFADE_ID) == 0) {
     for (i = 0; i < 16; ++i) {
       seqInstance[seqId].section[i].speed = speed;
     }
   } else {
-    seqId &= 0x7FFFFFFF;
-    seqInstance[seqId].syncCrossInfo.flags |= 0x20;
+    seqId &= ~SND_SEQ_CROSSFADE_ID;
+    seqInstance[seqId].syncCrossInfo.flags |= SND_CROSSFADE_SPEED;
     seqInstance[seqId].syncCrossInfo.speed2 = speed;
   }
 }
@@ -593,9 +666,10 @@ void seqContinue(u32 seqId) {
   struct SEQ_INSTANCE* si; // r31
 
   seqId = seqGetPrivateId(seqId);
-  MUSY_ASSERT_MSG(seqId != -1, "Sequencer ID is not valid.");
+#line 1043
+  MUSY_ASSERT_MSG(seqId != SND_SEQ_ERROR_ID, "Sequencer ID is not valid.");
 
-  if (!(seqId & 0x80000000)) {
+  if ((seqId & SND_SEQ_CROSSFADE_ID) == 0) {
     si = &seqInstance[seqId];
 
     if (si->state == 2) {
@@ -618,130 +692,370 @@ void seqContinue(u32 seqId) {
       si->state = 1;
     }
   } else {
-    seqInstance[seqId & 0x7FFFFFFF].syncCrossInfo.flags &= ~0x8;
+    seqInstance[seqId & ~SND_SEQ_CROSSFADE_ID].syncCrossInfo.flags &= ~SND_CROSSFADE_PAUSENEW;
   }
 }
 
-void seqMute(unsigned long seqId, unsigned long mask1, unsigned long mask2) {
+void seqMute(u32 seqId, u32 mask1, u32 mask2) {
   seqId = seqGetPrivateId(seqId);
-  if (seqId == 0xffffffff) {
+  if (seqId == SND_SEQ_ERROR_ID) {
     return;
   }
 
-  if (!(seqId & 0x80000000)) {
+  if ((seqId & SND_SEQ_CROSSFADE_ID) == 0) {
     seqInstance[seqId].trackMute[0] = mask1;
     seqInstance[seqId].trackMute[1] = mask2;
   } else {
-    seqId &= 0x7fffffff;
-    seqInstance[seqId].syncCrossInfo.flags |= 0x10;
+    seqId &= ~SND_SEQ_CROSSFADE_ID;
+    seqInstance[seqId].syncCrossInfo.flags |= SND_CROSSFADE_TRACKMUTE;
     seqInstance[seqId].syncCrossInfo.trackMute2[0] = mask1;
     seqInstance[seqId].syncCrossInfo.trackMute2[1] = mask2;
   }
 }
 
-void seqVolume(unsigned char volume, unsigned short time, unsigned long seqId, unsigned char mode) {
-  unsigned long i;      // r29
-  unsigned long pub_id; // r27
-  // TODO
-  // pub_id = seqId;
-  seqId = seqGetPrivateId(seqId);
+void seqVolume(u8 volume, u16 time, u32 seqId, u8 mode) {
+  u32 i;      // r29
+  u32 pub_id; // r27
 
-  if (seqId == -1) {
+  pub_id = seqId;
+  seqId = seqGetPrivateId(seqId);
+  if (seqId == SND_SEQ_ERROR_ID) {
     return;
   }
 
-  if (!(seqId & 0x80000000)) {
+  if ((seqId & SND_SEQ_CROSSFADE_ID) == 0) {
     synthVolume(volume, time, seqInstance[seqId].defVGroup, mode, pub_id);
     for (i = 0; i < 64; ++i) {
       if (seqInstance[seqId].trackVolGroup[i] != seqInstance[seqId].defVGroup) {
-        synthVolume(volume, time, seqInstance[seqId].trackVolGroup[i], 0, -1);
+        synthVolume(volume, time, seqInstance[seqId].trackVolGroup[i], SND_SEQVOL_CONTINUE,
+                    SND_SEQ_ERROR_ID);
       }
     }
   } else {
-    seqId &= 0x7fffffff;
-    switch (mode & 0xf) {
-    case 0:
+    seqId &= ~SND_SEQ_CROSSFADE_ID;
+    switch (mode & SND_SEQVOL_MODEMASK) {
+    case SND_SEQVOL_CONTINUE:
       seqInstance[seqId].syncCrossInfo.vol2 = volume;
       break;
-    case 1:
+    case SND_SEQVOL_STOP:
       seqInstance[seqId].syncSeqIdPtr = NULL;
       break;
-    case 2:
-      seqInstance[seqId].syncCrossInfo.flags |= 8;
+    case SND_SEQVOL_PAUSE:
+      seqInstance[seqId].syncCrossInfo.flags |= SND_CROSSFADE_PAUSENEW;
       seqInstance[seqId].syncCrossInfo.vol2 = volume;
       break;
-    case 3:
-      seqInstance[seqId].syncCrossInfo.flags |= 0x80;
+    case SND_SEQVOL_MUTE:
+      seqInstance[seqId].syncCrossInfo.flags |= SND_CROSSFADE_MUTENEW;
       seqInstance[seqId].syncCrossInfo.vol2 = volume;
       break;
     default:
+#line 1153
       MUSY_FATAL("Illegal sequencere fade mode detected.");
       break;
     }
   }
 }
 
-// TODO: very incomplete
-void seqCrossFade(SND_CROSSFADE* ci, unsigned long* new_seqId, unsigned char irq_call) {
-  SND_PLAYPARA pp;     // r1+0x14
-  unsigned long seqId; // r29
-  unsigned short time; // r27
-  seqId = seqGetPrivateId(ci->seqId1);
+void seqCrossFade(SND_CROSSFADE* ci, u32* new_seqId, bool8 irq_call) {
+  SND_PLAYPARA pp; // r1+0x14
+  u32 seqId;       // r29
+  u16 time;        // r27
 
-  if ((ci->flags & 0x4) != 0) {
+  seqId = seqGetPrivateId(ci->seqId1);
+#line 1170
+  MUSY_ASSERT_MSG(seqId != SND_SEQ_ERROR_ID, "Sequencer ID is not valid.");
+
+  if ((ci->flags & SND_CROSSFADE_SYNC) != 0) {
     seqInstance[seqId].syncCrossInfo = *ci;
     seqInstance[seqId].syncActive = TRUE;
     seqInstance[seqId].syncSeqIdPtr = new_seqId;
-    seqInstance[seqId].syncCrossInfo.flags &= ~0x4;
-    *new_seqId = ci->seqId1 | 0x80000000;
+    seqInstance[seqId].syncCrossInfo.flags &= ~SND_CROSSFADE_SYNC;
+    *new_seqId = ci->seqId1 | SND_SEQ_CROSSFADE_ID;
     return;
   }
 
-  if ((irq_call & 0xff) != 0) {
-    time = 5;
-    if (ci->time1 > 4) {
-      time = ci->time1;
-    }
-
-    if ((ci->flags & 0x1) != 0) {
-      seqVolume(0, time, seqId, 2);
-    } else if ((ci->flags & 0x40) != 0) {
-      seqVolume(0, time, seqId, 3);
+  if (irq_call) {
+    time = ci->time1 < 5 ? 5 : ci->time1;
+    if ((ci->flags & SND_CROSSFADE_PAUSE) != 0) {
+      seqVolume(0, time, ci->seqId1, SND_SEQVOL_PAUSE);
+    } else if ((ci->flags & SND_CROSSFADE_MUTE) != 0) {
+      seqVolume(0, time, ci->seqId1, SND_SEQVOL_MUTE);
     } else {
-      seqVolume(0, time, seqId, 1);
+      seqVolume(0, time, ci->seqId1, SND_SEQVOL_STOP);
     }
+  } else {
+    if ((ci->flags & SND_CROSSFADE_PAUSE) != 0) {
+      sndSeqVolume(0, ci->time1, ci->seqId1, SND_SEQVOL_PAUSE);
+    } else if ((ci->flags & SND_CROSSFADE_MUTE) != 0) {
+      sndSeqVolume(0, ci->time1, ci->seqId1, SND_SEQVOL_MUTE);
+    } else {
+      sndSeqVolume(0, ci->time1, ci->seqId1, SND_SEQVOL_STOP);
+    }
+  }
 
-    if (new_seqId != NULL) {
-      if ((ci->flags & 0x2) != 0) {
-        seqId = seqGetPrivateId(ci->seqId2);
-        if (seqId != 0xffffffff) {
-          if ((irq_call & 0xff) != 0) {
-            seqStop(ci->seqId2);
-          } else {
-            sndSeqContinue(ci->seqId2);
-            sndSeqVolume(ci->vol2, ci->time2, ci->seqId2, 0);
-            if ((ci->flags & 0x10) != 0) {
-              sndSeqMute(ci->seqId2, ci->trackMute2[0], ci->trackMute2[1]);
-            }
-            if ((ci->flags & 0x20) != 0) {
-              sndSeqSpeed(ci->seqId2, ci->speed2);
-            }
-          }
-          *new_seqId = ci->seqId2;
-        } else {
-          *new_seqId = 0xffffffff;
+  if (new_seqId == NULL) {
+    return;
+  }
+
+  if ((ci->flags & SND_CROSSFADE_CONTINUE) != 0) {
+    if (seqGetPrivateId(ci->seqId2) != SND_SEQ_ERROR_ID) {
+      if (irq_call) {
+        seqContinue(ci->seqId2);
+        seqVolume(ci->vol2, ci->time2, ci->seqId2, SND_SEQVOL_CONTINUE);
+        if ((ci->flags & SND_CROSSFADE_TRACKMUTE) != 0) {
+          seqMute(ci->seqId2, ci->trackMute2[0], ci->trackMute2[1]);
+        }
+        if ((ci->flags & SND_CROSSFADE_SPEED) != 0) {
+          seqSpeed(ci->seqId2, ci->speed2);
+        }
+      } else {
+        sndSeqContinue(ci->seqId2);
+        sndSeqVolume(ci->vol2, ci->time2, ci->seqId2, SND_SEQVOL_CONTINUE);
+        if ((ci->flags & SND_CROSSFADE_TRACKMUTE) != 0) {
+          sndSeqMute(ci->seqId2, ci->trackMute2[0], ci->trackMute2[1]);
+        }
+        if ((ci->flags & SND_CROSSFADE_SPEED) != 0) {
+          sndSeqSpeed(ci->seqId2, ci->speed2);
         }
       }
+      *new_seqId = ci->seqId2;
+    } else {
+      *new_seqId = SND_SEQ_ERROR_ID;
+    }
+  } else {
+    pp.flags = SND_PLAYPARA_VOLUME;
+    if ((ci->flags & SND_CROSSFADE_PAUSENEW) != 0) {
+      pp.flags |= SND_PLAYPARA_PAUSE;
+    }
+    if ((ci->flags & SND_CROSSFADE_SPEED) != 0) {
+      pp.flags |= SND_PLAYPARA_SPEED;
+      pp.speed = ci->speed2;
+    }
+    if ((ci->flags & SND_CROSSFADE_TRACKMUTE) != 0) {
+      pp.flags |= SND_PLAYPARA_TRACKMUTE;
+      pp.trackMute[0] = ci->trackMute2[0];
+      pp.trackMute[1] = ci->trackMute2[1];
+    }
+    pp.volume.time = ci->time2;
+    pp.volume.target = ci->vol2;
+    pp.numFaded = 0;
+    if (irq_call != 0) {
+      if ((*new_seqId = seqPlaySong(ci->gid2, ci->sid2, ci->arr2, &pp, TRUE, ci->studio2)) !=
+              SND_SEQ_ERROR_ID &&
+          (ci->flags & SND_CROSSFADE_MUTENEW) != 0) {
+        seqMute(*new_seqId, 0, 0);
+      }
+    } else {
+      if ((*new_seqId = sndSeqPlayEx(ci->gid2, ci->sid2, ci->arr2, &pp, ci->studio2)) !=
+              SND_SEQ_ERROR_ID &&
+          (ci->flags & SND_CROSSFADE_MUTENEW) != 0) {
+        sndSeqMute(*new_seqId, 0, 0);
+      }
+    }
+  }
+}
+
+static u8* GetStreamValue(u8* stream, u16* deltaTime, s16* deltaData) {
+  u8 b1; // r31
+  u8 b2; // r29
+  s16 v; // r30
+
+  b1 = stream[0];
+  b2 = stream[1];
+  if (b1 == 0x80 && b2 == 0) {
+    return NULL;
+  }
+
+  if ((b1 & 0x80) != 0) {
+    *deltaTime = ((b1 & 0x7f) << 8) | b2;
+    stream += 2;
+  } else {
+    *deltaTime = b1;
+    stream += 1;
+  }
+
+  b1 = stream[0];
+  b2 = stream[1];
+  if ((b1 & 0x80) != 0) {
+    v = ((b1 & 0x7f) << 8) | b2;
+    v <<= 1;
+    v >>= 1;
+    *deltaData = v;
+    stream += 2;
+  } else {
+    v = b1;
+    v <<= 9;
+    v >>= 9;
+    *deltaData = v;
+    stream += 1;
+  }
+
+  return stream;
+}
+
+static void InitStream(SEQ_STREAM* stream, u32 streamDataOffset) {
+  u16 delta; // r1+0x10
+  if (streamDataOffset != 0) {
+    if ((stream->nextAddr = GetStreamValue(ARR_GET(cseq->arrbase, streamDataOffset), &delta,
+                                           &stream->nextDelta)) != NULL) {
+      stream->nextTime = delta;
+    } else {
+      stream->nextTime = 0x7fffffff;
+    }
+  } else {
+    stream->nextTime = 0x7fffffff;
+  }
+}
+
+static u16 HandleStream(SEQ_STREAM* stream) {
+  u16 delta; // r1+0xC
+  stream->value += stream->nextDelta;
+  if (stream->nextAddr != NULL) {
+    if ((stream->nextAddr = GetStreamValue(stream->nextAddr, &delta, &stream->nextDelta)) != NULL) {
+      stream->nextTime += delta;
+    } else {
+      stream->nextTime = 0x7fffffff;
+    }
+  } else {
+    stream->nextTime = 0x7fffffff;
+  }
+  return stream->value;
+}
+
+static SEQ_EVENT* GenerateNextTrackEvent(u8 trackId) {
+  TRACK* track;    // r29
+  CPAT* pattern;   // r31
+  SEQ_EVENT* ev;   // r30
+  u32 patternTime; // r28
+  u32 pitchTime;   // r27
+  u32 modTime;     // r26
+
+  track = &cseq->track[trackId];
+  pattern = &cseq->pattern[trackId];
+
+  if (track->addr != NULL) {
+    ev = &cseq->event[trackId];
+    ev->trackId = trackId;
+    ev->info.pattern.base = pattern;
+
+    if (pattern->addr == NULL) {
+    null_pattern_addr:
+      if (track->addr->pattern == 0xffff) {
+        track->addr = NULL;
+        return NULL;
+      } else if (track->addr->pattern == 0xfffe) {
+        if (cseq->trackSectionTab == NULL) {
+          if (cseq->section[0].loopDisable) {
+            track->addr = NULL;
+            return NULL;
+          }
+        } else if (cseq->section[cseq->trackSectionTab[trackId]].loopDisable) {
+          track->addr = NULL;
+          return NULL;
+        }
+
+        ev->type = 3;
+        ev->time = track->addr->time;
+        track->addr = &track->base[*((u16*)&track->addr->transpose)];
+        return ev;
+      }
+
+      ev->type = 4;
+      ev->time = track->addr->time;
+      ev->info.trackAddr = track->addr;
+      ++track->addr;
+      return ev;
     }
 
-    return;
+    pitchTime = pattern->pitchBend.nextTime;
+    modTime = pattern->modulation.nextTime;
+
+  loop:
+    patternTime = pattern->addr->time + pattern->lTime;
+    if (patternTime >= pitchTime) {
+      goto use_pitch_time;
+    }
+    if (patternTime >= modTime) {
+      goto use_mod_time;
+    }
+    if (pattern->addr->key == 0xff && pattern->addr->velocity == 0xff) {
+      pattern->addr = NULL;
+      goto null_pattern_addr;
+    }
+
+    ev->info.trackAddr = (TENTRY*)pattern->addr;
+    pattern->lTime = patternTime;
+
+    if ((pattern->addr->key & 0x80) != 0) {
+      pattern->addr = (NOTE_DATA*)((u8*)pattern->addr + 4);
+      goto use_pattern_time;
+    }
+    if ((pattern->addr->key | pattern->addr->velocity) == 0) {
+      pattern->addr = (NOTE_DATA*)((u8*)pattern->addr + 4);
+      goto loop;
+    }
+    ++pattern->addr;
+
+  use_pattern_time:
+    ev->type = 0;
+    ev->time = patternTime + pattern->baseTime;
+    goto end;
+
+  use_pitch_time:
+    if (pitchTime < modTime) {
+      ev->time = pitchTime + pattern->baseTime;
+      ev->type = 2;
+    } else {
+    use_mod_time:
+      ev->time = modTime + pattern->baseTime;
+      ev->type = 1;
+    }
+
+  end:
+    return ev;
   }
 
-  if ((ci->flags & 0x1) != 0) {
-    sndSeqVolume(0, ci->time1, seqId, 2);
-  } else if ((ci->flags & 0x40) != 0) {
-    sndSeqVolume(0, ci->time1, seqId, 3);
-  } else {
-    sndSeqVolume(0, ci->time1, seqId, 1);
+  return NULL;
+}
+
+static void InsertGlobalEvent(SEQ_SECTION* section, SEQ_EVENT* event) {
+  SEQ_EVENT* el;      // r31
+  SEQ_EVENT* last_el; // r30
+
+  last_el = NULL;
+  el = section->globalEventRoot;
+  for (; el != NULL; last_el = el, el = el->next) {
+    if (el->time > event->time) {
+      event->next = el;
+      event->prev = last_el;
+      if (last_el != NULL) {
+        last_el->next = event;
+      } else {
+        section->globalEventRoot = event;
+      }
+      el->prev = event;
+      return;
+    }
   }
+
+  event->prev = last_el;
+  if (last_el != NULL) {
+    last_el->next = event;
+  } else {
+    section->globalEventRoot = event;
+  }
+  event->next = NULL;
+}
+
+static u32 GetNextEventTime(SEQ_SECTION* section) {
+  return section->globalEventRoot == NULL ? 0 : section->globalEventRoot->time;
+}
+
+static SEQ_EVENT* GetGlobalEvent(SEQ_SECTION* section) {
+  SEQ_EVENT* ev; // r31
+  ev = section->globalEventRoot;
+  if (ev != NULL && ((section->globalEventRoot = ev->next) != NULL)) {
+    section->globalEventRoot->prev = NULL;
+  }
+  return ev;
 }
