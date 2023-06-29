@@ -27,7 +27,7 @@ typedef double f64;
 typedef unsigned char bool8;
 #endif
 #ifndef __cplusplus
-typedef signed long bool;
+typedef unsigned long bool;
 #define FALSE 0
 #define TRUE 1
 #endif
@@ -318,8 +318,8 @@ typedef struct SND_AUX_REVERBHI {
 } SND_AUX_REVERBHI;
 
 void sndAuxCallbackReverbHI(u8 reason, SND_AUX_INFO* info, void* user);
-s32 sndAuxCallbackPrepareReverbHI(SND_AUX_REVERBHI* rev);
-s32 sndAuxCallbackShutdownReverbHI(SND_AUX_REVERBHI* rev);
+bool sndAuxCallbackPrepareReverbHI(SND_AUX_REVERBHI* rev);
+bool sndAuxCallbackShutdownReverbHI(SND_AUX_REVERBHI* rev);
 
 typedef struct SND_AUX_DELAY {
   u32 currentSize[3];
