@@ -943,7 +943,9 @@ static SEQ_EVENT* GenerateNextTrackEvent(u8 trackId) {
       if (track->addr->pattern == 0xffff) {
         track->addr = NULL;
         return NULL;
-      } else if (track->addr->pattern == 0xfffe) {
+      }
+
+      if (track->addr->pattern == 0xfffe) {
         if (cseq->trackSectionTab == NULL) {
           if (cseq->section[0].loopDisable) {
             track->addr = NULL;
@@ -956,6 +958,7 @@ static SEQ_EVENT* GenerateNextTrackEvent(u8 trackId) {
 
         ev->type = 3;
         ev->time = track->addr->time;
+        // TODO what is this?
         track->addr = &track->base[*((u16*)&track->addr->transpose)];
         return ev;
       }
@@ -1005,11 +1008,12 @@ static SEQ_EVENT* GenerateNextTrackEvent(u8 trackId) {
     if (pitchTime < modTime) {
       ev->time = pitchTime + pattern->baseTime;
       ev->type = 2;
-    } else {
-    use_mod_time:
-      ev->time = modTime + pattern->baseTime;
-      ev->type = 1;
+      goto end;
     }
+
+  use_mod_time:
+    ev->time = modTime + pattern->baseTime;
+    ev->type = 1;
 
   end:
     return ev;
