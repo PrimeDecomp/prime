@@ -169,9 +169,11 @@ void sndSeqStop(s32 unk);
 void sndSeqSpeed(u32 seqId, u16 speed);
 void sndSeqContinue(s32 unk);
 void sndSeqMute(s32 unk1, s32 unk2, s32 unk3);
-void sndSeqVolume(unsigned char volume, unsigned short time, unsigned long seqId, unsigned char mode);
+void sndSeqVolume(unsigned char volume, unsigned short time, unsigned long seqId,
+                  unsigned char mode);
 void seqStop(unsigned long seqId);
 u16 seqGetMIDIPriority(u8 set, u8 channel);
+void seqCrossFade(SND_CROSSFADE* ci, unsigned long* new_seqId, unsigned char irq_call);
 
 #ifdef __cplusplus
 }
