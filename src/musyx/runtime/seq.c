@@ -243,6 +243,17 @@ static u32 GetPublicId(u32 seqId) {
 
 u32 seqGetPrivateId(u32 seqId) {
   SEQ_INSTANCE* si; // r31
+  for (si = seqActiveRoot; si != NULL; si = si->next) {
+    if (si->publicId == (seqId & 0x7fffffff)) {
+      return seqId & 0x80000000 | si->index;
+    }
+  }
+  for (si = seqPausedRoot; si != NULL; si = si->next) {
+    if (si->publicId == (seqId & 0x7fffffff)) {
+      return seqId & 0x80000000 | si->index;
+    }
+  }
+  return 0xffffffff;
 }
 
 static void DoPrgChange(SEQ_INSTANCE* seq, u8 prg, u8 midi) {
@@ -631,7 +642,8 @@ void seqMute(unsigned long seqId, unsigned long mask1, unsigned long mask2) {
 void seqVolume(unsigned char volume, unsigned short time, unsigned long seqId, unsigned char mode) {
   unsigned long i;      // r29
   unsigned long pub_id; // r27
-  pub_id = seqId;
+  // TODO
+  // pub_id = seqId;
   seqId = seqGetPrivateId(seqId);
 
   if (seqId == -1) {
@@ -666,5 +678,70 @@ void seqVolume(unsigned char volume, unsigned short time, unsigned long seqId, u
       MUSY_FATAL("Illegal sequencere fade mode detected.");
       break;
     }
+  }
+}
+
+// TODO: very incomplete
+void seqCrossFade(SND_CROSSFADE* ci, unsigned long* new_seqId, unsigned char irq_call) {
+  SND_PLAYPARA pp;     // r1+0x14
+  unsigned long seqId; // r29
+  unsigned short time; // r27
+  seqId = seqGetPrivateId(ci->seqId1);
+
+  if ((ci->flags & 0x4) != 0) {
+    seqInstance[seqId].syncCrossInfo = *ci;
+    seqInstance[seqId].syncActive = TRUE;
+    seqInstance[seqId].syncSeqIdPtr = new_seqId;
+    seqInstance[seqId].syncCrossInfo.flags &= ~0x4;
+    *new_seqId = ci->seqId1 | 0x80000000;
+    return;
+  }
+
+  if ((irq_call & 0xff) != 0) {
+    time = 5;
+    if (ci->time1 > 4) {
+      time = ci->time1;
+    }
+
+    if ((ci->flags & 0x1) != 0) {
+      seqVolume(0, time, seqId, 2);
+    } else if ((ci->flags & 0x40) != 0) {
+      seqVolume(0, time, seqId, 3);
+    } else {
+      seqVolume(0, time, seqId, 1);
+    }
+
+    if (new_seqId != NULL) {
+      if ((ci->flags & 0x2) != 0) {
+        seqId = seqGetPrivateId(ci->seqId2);
+        if (seqId != 0xffffffff) {
+          if ((irq_call & 0xff) != 0) {
+            seqStop(ci->seqId2);
+          } else {
+            sndSeqContinue(ci->seqId2);
+            sndSeqVolume(ci->vol2, ci->time2, ci->seqId2, 0);
+            if ((ci->flags & 0x10) != 0) {
+              sndSeqMute(ci->seqId2, ci->trackMute2[0], ci->trackMute2[1]);
+            }
+            if ((ci->flags & 0x20) != 0) {
+              sndSeqSpeed(ci->seqId2, ci->speed2);
+            }
+          }
+          *new_seqId = ci->seqId2;
+        } else {
+          *new_seqId = 0xffffffff;
+        }
+      }
+    }
+
+    return;
+  }
+
+  if ((ci->flags & 0x1) != 0) {
+    sndSeqVolume(0, ci->time1, seqId, 2);
+  } else if ((ci->flags & 0x40) != 0) {
+    sndSeqVolume(0, ci->time1, seqId, 3);
+  } else {
+    sndSeqVolume(0, ci->time1, seqId, 1);
   }
 }
