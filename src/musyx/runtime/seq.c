@@ -417,7 +417,7 @@ u32 seqStartPlay(PAGE* norm, PAGE* drum, MIDISETUP* midiSetup, u32* song, SND_PL
 
   for (i = 0; i < 16; ++i) {
     nseq->section[i].bpm = bpm;
-    synthSetBpm(bpm >> 10, seqId & 0xFF, i & 0xFF);
+    synthSetBpm(bpm >> 10, seqId, i);
 
     if (arr->mTrack != NULL) {
       nseq->section[i].mTrack.base = ARR_GET(arr, arr->mTrack);
@@ -1062,4 +1062,79 @@ static SEQ_EVENT* GetGlobalEvent(SEQ_SECTION* section) {
     section->globalEventRoot->prev = NULL;
   }
   return ev;
+}
+
+static SEQ_EVENT* HandleEvent(SEQ_EVENT* event, unsigned char secIndex, unsigned long* loopFlag) {
+  struct CPAT* pa;          // r26
+  struct NOTE_DATA* pe;     // r24
+  long velocity;            // r28
+  long key;                 // r30
+  unsigned char midi;       // r27
+  unsigned short macId;     // r21
+  struct NOTE* note;        // r22
+  struct TENTRY* tEntry;    // r25
+  struct CPAT* pattern;     // r29
+  unsigned long* pTab;      // r20
+  struct SEQ_PATTERN* pptr; // r23
+}
+
+static void InitTrackEvents() {
+  u32 i;         // r31
+  SEQ_EVENT* ev; // r30
+
+  if (cseq->trackSectionTab == NULL) {
+    for (i = 0; i < 0x40; i += 1) {
+      if ((ev = GenerateNextTrackEvent(i)) != NULL) {
+        InsertGlobalEvent(cseq->section, ev);
+      }
+    }
+  } else {
+    for (i = 0; i < 0x40; i += 1) {
+      if ((ev = GenerateNextTrackEvent(i)) != NULL) {
+        InsertGlobalEvent(cseq->section + cseq->trackSectionTab[i], ev);
+      }
+    }
+  }
+}
+
+static void InitTrackEventsSection(unsigned char secIndex) {
+  u32 i;         // r31
+  SEQ_EVENT* ev; // r30
+
+  if (cseq->trackSectionTab == NULL) {
+    for (i = 0; i < 64; i += 1) {
+      if ((ev = GenerateNextTrackEvent(i)) != NULL) {
+        InsertGlobalEvent(cseq->section, ev);
+      }
+    }
+  } else {
+    for (i = 0; i < 64; i += 1) {
+      if ((secIndex == cseq->trackSectionTab[i]) && (ev = GenerateNextTrackEvent(i)) != NULL) {
+        InsertGlobalEvent(cseq->section + secIndex, ev);
+      }
+    }
+  }
+}
+
+static unsigned long HandleTrackEvents(unsigned char secIndex, unsigned long deltaTime) {
+  struct SEQ_EVENT* ev;        // r29
+  unsigned long loopFlag;      // r1+0x10
+  struct SEQ_SECTION* section; // r31
+
+  return FALSE;
+}
+
+void seqHandle(unsigned long deltaTime) {
+  unsigned long x;             // r29
+  unsigned long i;             // r31
+  unsigned long j;             // r28
+  unsigned long eventsActive;  // r25
+  unsigned long notesActive;   // r24
+  struct SEQ_INSTANCE* si;     // r30
+  struct SEQ_INSTANCE* nextSi; // r27
+}
+
+void seqInit() {
+  unsigned long i; // r31
+  unsigned long j; // r29
 }
