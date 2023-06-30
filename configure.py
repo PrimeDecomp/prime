@@ -953,7 +953,7 @@ LIBS = [
             ["musyx/runtime/CheapReverb/creverb_fx", True],
             ["musyx/runtime/CheapReverb/creverb", True],
             ["musyx/runtime/StdReverb/reverb_fx", True],
-            ["musyx/runtime/StdReverb/reverb", False],
+            ["musyx/runtime/StdReverb/reverb", True],
             ["musyx/runtime/Delay/delay_fx", True],
             ["musyx/runtime/Chorus/chorus_fx", True],
             ["musyx/runtime/profile", True],
