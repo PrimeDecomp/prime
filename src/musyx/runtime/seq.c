@@ -8,7 +8,7 @@ u16 seqMIDIPriority[8][16];
 static SEQ_INSTANCE* cseq = NULL;
 static NOTE* noteFree = NULL;
 static u32 curSeqId = 0;
-static u8 curFadeOutState = 0;
+static bool8 curFadeOutState = 0;
 static u32 seq_next_id = 0;
 struct SEQ_INSTANCE* seqFreeRoot = NULL;
 struct SEQ_INSTANCE* seqActiveRoot = NULL;
@@ -488,8 +488,8 @@ u32 seqStartPlay(PAGE* norm, PAGE* drum, MIDISETUP* midiSetup, u32* song, SND_PL
 }
 
 static void SetTickDelta(SEQ_SECTION* section, u32 deltaTime) {
-  float tickDelta = (float)section->bpm * (float)deltaTime * 0.0000000244140619f;
-  tickDelta *= section->speed * 0.00390625f;
+  float tickDelta = (float)section->bpm * (float)deltaTime * (1.f / 4096.f);
+  tickDelta *= section->speed * (1.f / 256.f);
 
   section->tickDelta[section->timeIndex].low = fmodf(tickDelta * 65536.f, 65536.f);
   section->tickDelta[section->timeIndex].high = floorf(tickDelta);
@@ -497,25 +497,23 @@ static void SetTickDelta(SEQ_SECTION* section, u32 deltaTime) {
 
 static void HandleMasterTrack(u8 secIndex) {
   SEQ_SECTION* section; // r31
+
   section = &cseq->section[secIndex];
+  if (section->mTrack.base != NULL) {
+    while (section->mTrack.addr->time != -1) {
+      if (section->mTrack.addr->time > section->time[section->timeIndex].high) {
+        break;
+      }
 
-  if (section->mTrack.base == NULL) {
-    return;
-  }
+      if ((cseq->arrbase->info & 0x40000000) != 0) {
+        synthSetBpm((section->bpm = section->mTrack.addr->bpm) >> 10, curSeqId, secIndex);
+      } else {
+        synthSetBpm(section->mTrack.addr->bpm, curSeqId, secIndex);
+        section->bpm = section->mTrack.addr->bpm << 10;
+      }
 
-  while (section->mTrack.addr->time != -1) {
-    if (section->mTrack.addr->time > section->time[section->timeIndex].high) {
-      break;
+      ++section->mTrack.addr;
     }
-
-    if (cseq->arrbase->info & 0x40000000) {
-      synthSetBpm((section->bpm = section->mTrack.addr->bpm) >> 10, curSeqId, secIndex);
-    } else {
-      synthSetBpm(section->mTrack.addr->bpm, curSeqId, secIndex);
-      section->bpm = section->mTrack.addr->bpm << 10;
-    }
-
-    ++section->mTrack.addr;
   }
 }
 
@@ -1064,18 +1062,134 @@ static SEQ_EVENT* GetGlobalEvent(SEQ_SECTION* section) {
   return ev;
 }
 
-static SEQ_EVENT* HandleEvent(SEQ_EVENT* event, unsigned char secIndex, unsigned long* loopFlag) {
-  struct CPAT* pa;          // r26
-  struct NOTE_DATA* pe;     // r24
-  long velocity;            // r28
-  long key;                 // r30
-  unsigned char midi;       // r27
-  unsigned short macId;     // r21
-  struct NOTE* note;        // r22
-  struct TENTRY* tEntry;    // r25
-  struct CPAT* pattern;     // r29
-  unsigned long* pTab;      // r20
-  struct SEQ_PATTERN* pptr; // r23
+static SEQ_EVENT* HandleEvent(SEQ_EVENT* event, u8 secIndex, u32* loopFlag) {
+  CPAT* pa;          // r26
+  NOTE_DATA* pe;     // r24
+  s32 velocity;      // r28
+  s32 key;           // r30
+  u8 midi;           // r27
+  u16 macId;         // r21
+  NOTE* note;        // r22
+  TENTRY* tEntry;    // r25
+  CPAT* pattern;     // r29
+  u32* pTab;         // r20
+  SEQ_PATTERN* pptr; // r23
+
+  switch (event->type) {
+  case 4:
+    tEntry = event->info.trackAddr;
+    pattern = &cseq->pattern[event->trackId];
+    pTab = ARR_GET(cseq->arrbase, cseq->arrbase->pTab);
+    pptr = ARR_GET(cseq->arrbase, pTab[tEntry->pattern]);
+    pattern->addr = (NOTE_DATA*)&pptr->noteData;
+    pattern->lTime = 0;
+    pattern->baseTime = tEntry->time;
+    pattern->patternInfo = tEntry;
+    InitStream(&pattern->pitchBend, pptr->pitchBend);
+    pattern->pitchBend.value = 0x2000;
+    InitStream(&pattern->modulation, pptr->modulation);
+    pattern->modulation.value = 0;
+    pattern->midi = ARR_GET_TYPE(cseq->arrbase, cseq->arrbase->tmTab, u8*)[event->trackId];
+    if (tEntry->prgChange != 0xff) {
+      DoPrgChange(cseq, tEntry->prgChange, pattern->midi);
+    }
+    if (tEntry->velocity != 0xff) {
+      inpSetMidiCtrl(SND_MIDICTRL_VOLUME, pattern->midi, curSeqId, tEntry->velocity);
+    }
+    break;
+
+  case 0:
+    pe = event->info.pattern.addr;
+    pa = event->info.pattern.base;
+    key = pe->key;
+    velocity = pe->velocity;
+    midi = pa->midi;
+
+    if ((key & 0x80) != 0) {
+      switch (velocity) {
+      case 0:
+        DoPrgChange(cseq, key & 0x7f, midi);
+        break;
+      case 1:
+        inpSetMidiCtrl(0x82 /* TODO SND_MIDICTRL_? */, midi, curSeqId, key & 0x7f);
+        break;
+      default:
+        if ((velocity & 0x80) != 0x80) {
+          break;
+        }
+        switch (velocity & 0x7f) {
+        case 0x68:
+          if (cseq->syncActive) {
+            seqCrossFade(&cseq->syncCrossInfo, cseq->syncSeqIdPtr, TRUE);
+            cseq->syncActive = FALSE;
+          }
+          break;
+        case 0x69:
+          seqMIDIPriority[curSeqId][midi] = key & 0x7f;
+          break;
+        case 0x6a:
+          seqMIDIPriority[curSeqId][midi] = (key & 0x7f) + 0x80;
+          break;
+        case 0x79:
+          inpResetMidiCtrl(midi, curSeqId, FALSE);
+          break;
+        case 0x7b:
+          KeyOffNotes();
+          break;
+        default:
+          // case 0x6b:
+          inpSetMidiCtrl(velocity & 0x7f, midi, curSeqId, key & 0x7f);
+          break;
+        }
+      }
+      break;
+    }
+
+    if ((cseq->trackMute[event->trackId / 32] & (1 << (event->trackId & 0x1f))) != 0) {
+      if ((macId = cseq->prgState[midi].macId) != 0xffff) {
+        key += pa->patternInfo->transpose;
+        if (key > 0x7f) {
+          key = 0x7f;
+        } else if (key < 0) {
+          key = 0;
+        }
+
+        velocity += pa->patternInfo->velocityAdd;
+        if (velocity > 0x7f) {
+          velocity = 0x7f;
+        } else if (velocity < 0) {
+          velocity = 0;
+        }
+
+        if ((note = AllocateNote(event->time + pe->length, secIndex)) != NULL) {
+          if ((note->id = synthStartSound(
+                   macId, cseq->prgState[midi].priority, cseq->prgState[midi].maxVoices, key,
+                   velocity, 64, midi, curSeqId, secIndex, 0, event->trackId,
+                   cseq->trackVolGroup[event->trackId], curFadeOutState ? -1 : 0, cseq->defStudio,
+                   synthITDDefault[cseq->defStudio].music)) == SND_ID_ERROR) {
+            FreeNote(note);
+          }
+        }
+      }
+    }
+    break;
+
+  case 2:
+    pa = event->info.pattern.base;
+    inpSetMidiCtrl14(SND_MIDICTRL_PITCHBEND, pa->midi, curSeqId, HandleStream(&pa->pitchBend));
+    break;
+
+  case 1:
+    pa = event->info.pattern.base;
+    inpSetMidiCtrl14(SND_MIDICTRL_MODULATION, pa->midi, curSeqId, HandleStream(&pa->modulation));
+    break;
+
+  case 3:
+    *loopFlag |= 1;
+    return NULL;
+  }
+
+  return GenerateNextTrackEvent(event->trackId);
 }
 
 static void InitTrackEvents() {
@@ -1097,7 +1211,7 @@ static void InitTrackEvents() {
   }
 }
 
-static void InitTrackEventsSection(unsigned char secIndex) {
+static void InitTrackEventsSection(u8 secIndex) {
   u32 i;         // r31
   SEQ_EVENT* ev; // r30
 
@@ -1116,25 +1230,133 @@ static void InitTrackEventsSection(unsigned char secIndex) {
   }
 }
 
-static unsigned long HandleTrackEvents(unsigned char secIndex, unsigned long deltaTime) {
-  struct SEQ_EVENT* ev;        // r29
-  unsigned long loopFlag;      // r1+0x10
-  struct SEQ_SECTION* section; // r31
+static bool HandleTrackEvents(u8 secIndex, u32 deltaTime) {
+  SEQ_EVENT* ev;        // r29
+  bool loopFlag;        // r1+0x10
+  SEQ_SECTION* section; // r31
 
-  return FALSE;
+  section = &cseq->section[secIndex];
+  loopFlag = FALSE;
+
+  while (GetNextEventTime(section) <= section->time[section->timeIndex].high) {
+    if ((ev = GetGlobalEvent(section)) == NULL) {
+      if (!loopFlag) {
+        return FALSE;
+      }
+
+      loopFlag = FALSE;
+      section->timeIndex ^= 1;
+      section->time[section->timeIndex].high = cseq->arrbase->loopPoint[secIndex];
+      section->time[section->timeIndex].low = section->time[section->timeIndex ^ 1].low;
+      RewindMTrack(secIndex, deltaTime);
+      section->loopCnt += 1;
+      InitTrackEventsSection(secIndex);
+      continue;
+    }
+
+    if ((ev = HandleEvent(ev, secIndex, &loopFlag)) != NULL) {
+      InsertGlobalEvent(section, ev);
+    }
+  }
+
+  return TRUE;
 }
 
-void seqHandle(unsigned long deltaTime) {
-  unsigned long x;             // r29
-  unsigned long i;             // r31
-  unsigned long j;             // r28
-  unsigned long eventsActive;  // r25
-  unsigned long notesActive;   // r24
-  struct SEQ_INSTANCE* si;     // r30
-  struct SEQ_INSTANCE* nextSi; // r27
+void seqHandle(u32 deltaTime) {
+  u32 x;                // r29
+  u32 i;                // r31
+  u32 j;                // r28
+  u32 eventsActive;     // r25
+  u32 notesActive;      // r24
+  SEQ_INSTANCE* si;     // r30
+  SEQ_INSTANCE* nextSi; // r27
+
+  if (deltaTime == 0) {
+    return;
+  }
+
+  si = seqActiveRoot;
+  while (si != NULL) {
+    nextSi = si->next;
+    cseq = si;
+    curSeqId = si->index;
+    curFadeOutState = synthIsFadeOutActive(si->defVGroup);
+
+    if (cseq->trackSectionTab == NULL) {
+      HandleMasterTrack(0);
+      SetTickDelta(cseq->section, deltaTime);
+      eventsActive = HandleTrackEvents(0, deltaTime);
+      notesActive = HandleNotes();
+      HandleKeyOffNotes();
+
+      for (i = 0; i < 2; ++i) {
+        x = cseq->section[0].time[i].low + cseq->section[0].tickDelta[i].low;
+        cseq->section[0].time[i].low = x & 0xffff;
+        x >>= 16;
+        cseq->section[0].time[i].high += x + cseq->section[0].tickDelta[i].high;
+      }
+    } else {
+      eventsActive = 0;
+      for (i = 0; i < 16; ++i) {
+        HandleMasterTrack(i);
+        SetTickDelta(&cseq->section[i], deltaTime);
+        eventsActive |= HandleTrackEvents(i, deltaTime);
+      }
+      notesActive = HandleNotes();
+      HandleKeyOffNotes();
+
+      for (i = 0; i < 16; ++i) {
+        for (j = 0; j < 2; ++j) {
+          x = cseq->section[i].time[j].low + cseq->section[i].tickDelta[j].low;
+          cseq->section[i].time[j].low = x & 0xffff;
+          x >>= 16;
+          cseq->section[i].time[j].high += x + cseq->section[i].tickDelta[j].high;
+        }
+      }
+    }
+
+    if (eventsActive == 0 && notesActive == 0) {
+      if (si->prev != NULL) {
+        si->prev->next = nextSi;
+      } else {
+        seqActiveRoot = nextSi;
+      }
+      if (nextSi != NULL) {
+        nextSi->prev = si->prev;
+      }
+      ResetNotes(si);
+      si->state = 0;
+      si->prev = NULL;
+      if ((si->next = seqFreeRoot) != NULL) {
+        seqFreeRoot->prev = si;
+      }
+      seqFreeRoot = si;
+    }
+    si = nextSi;
+  }
 }
 
 void seqInit() {
-  unsigned long i; // r31
-  unsigned long j; // r29
+  u32 i; // r31
+  u32 j; // r29
+
+  seqActiveRoot = NULL;
+  seqPausedRoot = NULL;
+  for (i = 0; i < 8; ++i) {
+    if (i == 0) {
+      seqFreeRoot = &seqInstance[i];
+      seqInstance[i].prev = NULL;
+    } else {
+      seqInstance[i - 1].next = &seqInstance[i];
+      seqInstance[i].prev = &seqInstance[i - 1];
+    }
+    seqInstance[i].index = i;
+    seqInstance[i].state = 0;
+    for (j = 0; j < 0x10; ++j) {
+      seqMIDIPriority[i][j] = 0xffff;
+    }
+  }
+  seqInstance[i - 1].next = NULL;
+  ClearNotes();
+  InitPublicIds();
 }
