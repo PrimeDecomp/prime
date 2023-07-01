@@ -5,8 +5,8 @@
 
 /* Is this actually what factor 5 did? They specify 0x2000 for the dram size, but the next TU winds
  * up incorrectly aligned */
-static u8 dram_image[0x2008] ATTRIBUTE_ALIGN(32);
 static DSPTaskInfo dsp_task ATTRIBUTE_ALIGN(8);
+static u16 dram_image[4096 + 4] ATTRIBUTE_ALIGN(32);
 
 static volatile u32 oldState = 0;
 static volatile u16 hwIrqLevel = 0;
@@ -36,7 +36,7 @@ void callUserCallback() {
 
 void salCallback() {
   salAIBufferIndex = (salAIBufferIndex + 1) % 4;
-  AIInitDMA((((u32)salAIBufferBase - 0x80000000) + (salAIBufferIndex * DMA_BUFFER_LEN)),
+  AIInitDMA(OSCachedToPhysical(salAIBufferBase) + (salAIBufferIndex * DMA_BUFFER_LEN),
             DMA_BUFFER_LEN);
   salLastTick = OSGetTick();
   if (salDspIsDone) {
@@ -55,19 +55,12 @@ void dspResumeCallback() {
   salDspIsDone = TRUE;
   if (salLogicIsWaiting) {
     salLogicIsWaiting = FALSE;
-    if (salLogicActive == FALSE) {
-      salLogicActive = TRUE;
-      OSEnableInterrupts();
-      userCallback();
-      OSDisableInterrupts();
-      salLogicActive = FALSE;
-    }
+    callUserCallback();
   }
 }
 
 u32 salInitAi(SND_SOME_CALLBACK callback, u32 unk, u32* outFreq) {
-  salAIBufferBase = salMalloc(DMA_BUFFER_LEN * 4);
-  if (salAIBufferBase != NULL) {
+  if ((salAIBufferBase = salMalloc(DMA_BUFFER_LEN * 4)) != NULL) {
     memset(salAIBufferBase, 0, DMA_BUFFER_LEN * 4);
     DCFlushRange(salAIBufferBase, DMA_BUFFER_LEN * 4);
     salAIBufferIndex = TRUE;
@@ -76,9 +69,10 @@ u32 salInitAi(SND_SOME_CALLBACK callback, u32 unk, u32* outFreq) {
     salLogicActive = FALSE;
     userCallback = callback;
     AIRegisterDMACallback(salCallback);
-    AIInitDMA(OSCachedToPhysical((u32)salAIBufferBase) + (salAIBufferIndex * 0x280), 0x280);
+    AIInitDMA(OSCachedToPhysical(salAIBufferBase) + (salAIBufferIndex * 0x280), 0x280);
     synthInfo.numSamples = 0x20;
     *outFreq = 32000;
+    MUSY_DEBUG("MusyX AI interface initialized.\n");
     return TRUE;
   }
 
@@ -130,11 +124,12 @@ u32 salExitDsp() {
 
   return TRUE;
 }
-
 void salStartDsp(u16* cmdList) {
   salDspIsDone = FALSE;
   PPCSync();
-  MUSY_ASSERT(((u32)cmdList & 0x1F) == 0);
+  /* clang-format off */
+  MUSY_ASSERT(((u32)cmdList&0x1F) == 0);
+  /* clang-format on */
   DSPSendMailToDSP(dspCmdFirstSize | 0xbabe0000);
 
   while (DSPCheckMailToDSP())
