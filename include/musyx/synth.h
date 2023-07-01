@@ -23,8 +23,11 @@ bool synthFXSetCtrl(SND_VOICEID vid, u8 ctrl, u8 value);
 bool synthFXSetCtrl14(SND_VOICEID vid, u8 ctrl, u16 value);
 bool synthSendKeyOff(SND_VOICEID vid);
 SND_VOICEID synthFXStart(u16 fid, u8 vol, u8 pan, u8 studio, u32 itd);
-void synthVolume(unsigned char volume, unsigned short time, unsigned char vGroup,
-                 unsigned char seqMode, unsigned long seqId);
+void synthVolume(u8 volume, u16 time, u8 vGroup, u8 seqMode, u32 seqId);
+u32 synthStartSound(u16 id, u8 prio, u8 max, u8 key, u8 vol, u8 panning, u8 midi, u8 midiSet,
+                    u8 section, u16 step, u16 trackid, u8 vGroup, s16 prioOffset, u8 studio,
+                    u32 itd);
+bool synthIsFadeOutActive(u8 vGroup);
 
 /* TODO: Move this where it belongs */
 void hwSetAUXProcessingCallbacks(u8 studio, SND_AUX_CALLBACK auxA, void* userA,

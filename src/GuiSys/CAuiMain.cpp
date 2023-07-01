@@ -1,5 +1,3 @@
 #include "GuiSys/CAuiMain.hpp"
 
-void InitializeApplicationUI(CGuiSys&) {
-  
-}
+void InitializeApplicationUI(CGuiSys&) {}

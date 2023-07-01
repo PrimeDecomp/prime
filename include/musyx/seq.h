@@ -18,7 +18,7 @@ typedef struct ARR {
   u32 tsTab;         // offset 0x54, size 0x4
 } ARR;
 
-#define ARR_GET(arr, offset) ((void*)(offset + (u32)arr))
+#define ARR_GET(arr, offset) ((void*)(offset + (uintptr_t)arr))
 #define ARR_GET_TYPE(arr, offset, ty) ((ty)ARR_GET(arr, offset))
 
 typedef struct TENTRY {
@@ -102,7 +102,7 @@ typedef struct SEQ_EVENT {
 
 typedef struct MTRACK_DATA {
   // total size: 0x8
-  u32 time; // offset 0x0, size 0x4
+  volatile u32 time; // offset 0x0, size 0x4
   u32 bpm;  // offset 0x4, size 0x4
 } MTRACK_DATA;
 
@@ -114,8 +114,8 @@ typedef struct MTRACK {
 
 typedef struct TICKS {
   // total size: 0x8
-  u32 low;   // offset 0x0, size 0x4
-  long high; // offset 0x4, size 0x4
+  u32 low;  // offset 0x0, size 0x4
+  s32 high; // offset 0x4, size 0x4
 } TICKS;
 
 typedef struct SEQ_SECTION {
