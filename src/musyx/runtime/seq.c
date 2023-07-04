@@ -5,14 +5,14 @@ static NOTE seqNote[256];
 SEQ_INSTANCE seqInstance[8];
 u16 seqMIDIPriority[8][16];
 
-static SEQ_INSTANCE* cseq = NULL;
-static NOTE* noteFree = NULL;
-static u32 curSeqId = 0;
-static bool8 curFadeOutState = 0;
 static u32 seq_next_id = 0;
+static bool8 curFadeOutState = 0;
+static u32 curSeqId = 0;
+static NOTE* noteFree = NULL;
+static SEQ_INSTANCE* cseq = NULL;
 struct SEQ_INSTANCE* seqFreeRoot = NULL;
-struct SEQ_INSTANCE* seqActiveRoot = NULL;
 struct SEQ_INSTANCE* seqPausedRoot = NULL;
+struct SEQ_INSTANCE* seqActiveRoot = NULL;
 
 static void ClearNotes() {
   NOTE* ln = NULL; // r30
@@ -288,6 +288,9 @@ static void DoPrgChange(SEQ_INSTANCE* seq, u8 prg, u8 midi) {
     seq->prgState[midi].macId = seq->normtab[prg].macro;
     seq->prgState[midi].priority = seq->normtab[prg].prio;
     seq->prgState[midi].maxVoices = seq->normtab[prg].maxVoices;
+#if MUSY_VERSION >= MUSY_VERSION_CHECK(2, 0, 0)
+    seq->prgState[midi].program = prg;
+#endif
     return;
   }
 
@@ -299,6 +302,9 @@ static void DoPrgChange(SEQ_INSTANCE* seq, u8 prg, u8 midi) {
   seq->prgState[midi].macId = seq->drumtab[prg].macro;
   seq->prgState[midi].priority = seq->drumtab[prg].prio;
   seq->prgState[midi].maxVoices = seq->drumtab[prg].maxVoices;
+#if MUSY_VERSION >= MUSY_VERSION_CHECK(2, 0, 0)
+  seq->prgState[midi].program = prg;
+#endif
 }
 
 static void BuildTransTab(u8* tab, PAGE* page) {
@@ -488,7 +494,7 @@ u32 seqStartPlay(PAGE* norm, PAGE* drum, MIDISETUP* midiSetup, u32* song, SND_PL
 }
 
 static void SetTickDelta(SEQ_SECTION* section, u32 deltaTime) {
-  float tickDelta = (float)section->bpm * (float)deltaTime * (1.f / 4096.f);
+  float tickDelta = (float)section->bpm * (float)deltaTime * (1.f / (40960000.f));
   tickDelta *= section->speed * (1.f / 256.f);
 
   section->tickDelta[section->timeIndex].low = fmodf(tickDelta * 65536.f, 65536.f);
@@ -865,7 +871,11 @@ static u8* GetStreamValue(u8* stream, u16* deltaTime, s16* deltaData) {
   }
 
   if ((b1 & 0x80) != 0) {
+#if MUSY_VERSION >= MUSY_VERSION_CHECK(1, 5, 4)
+    *deltaTime = (((u16)b1 & 0x7f) << 8) | b2;
+#else
     *deltaTime = ((b1 & 0x7f) << 8) | b2;
+#endif
     stream += 2;
   } else {
     *deltaTime = b1;
@@ -875,16 +885,26 @@ static u8* GetStreamValue(u8* stream, u16* deltaTime, s16* deltaData) {
   b1 = stream[0];
   b2 = stream[1];
   if ((b1 & 0x80) != 0) {
+#if MUSY_VERSION >= MUSY_VERSION_CHECK(1, 5, 4)
+    v = (((u16)b1 & 0x7f) << 8) | b2;
+    v |= (v & 0x4000) << 1;
+#else
     v = ((b1 & 0x7f) << 8) | b2;
     v <<= 1;
     v >>= 1;
+#endif
     *deltaData = v;
     stream += 2;
   } else {
+#if MUSY_VERSION >= MUSY_VERSION_CHECK(1, 5, 4)
+    b1 |= (b1 & 0x40) << 1;
+    *deltaData = (s8)b1;
+#else
     v = b1;
     v <<= 9;
     v >>= 9;
     *deltaData = v;
+#endif
     stream += 1;
   }
 
@@ -1062,6 +1082,8 @@ static SEQ_EVENT* GetGlobalEvent(SEQ_SECTION* section) {
   return ev;
 }
 
+#define Clamp(value, min, max) ((value) > (max) ? (max) : (value) < (min) ? (min) : (value))
+
 static SEQ_EVENT* HandleEvent(SEQ_EVENT* event, u8 secIndex, u32* loopFlag) {
   CPAT* pa;          // r26
   NOTE_DATA* pe;     // r24
@@ -1137,7 +1159,6 @@ static SEQ_EVENT* HandleEvent(SEQ_EVENT* event, u8 secIndex, u32* loopFlag) {
           KeyOffNotes();
           break;
         default:
-          // case 0x6b:
           inpSetMidiCtrl(velocity & 0x7f, midi, curSeqId, key & 0x7f);
           break;
         }
@@ -1148,23 +1169,19 @@ static SEQ_EVENT* HandleEvent(SEQ_EVENT* event, u8 secIndex, u32* loopFlag) {
     if ((cseq->trackMute[event->trackId / 32] & (1 << (event->trackId & 0x1f))) != 0) {
       if ((macId = cseq->prgState[midi].macId) != 0xffff) {
         key += pa->patternInfo->transpose;
-        if (key > 0x7f) {
-          key = 0x7f;
-        } else if (key < 0) {
-          key = 0;
-        }
+        key = Clamp(key, 0, 0x7f);
 
         velocity += pa->patternInfo->velocityAdd;
-        if (velocity > 0x7f) {
-          velocity = 0x7f;
-        } else if (velocity < 0) {
-          velocity = 0;
-        }
+        velocity = Clamp(velocity, 0, 0x7f);
 
         if ((note = AllocateNote(event->time + pe->length, secIndex)) != NULL) {
           if ((note->id = synthStartSound(
-                   macId, cseq->prgState[midi].priority, cseq->prgState[midi].maxVoices, key,
-                   velocity, 64, midi, curSeqId, secIndex, 0, event->trackId,
+                   macId, cseq->prgState[midi].priority, cseq->prgState[midi].maxVoices,
+#if MUSY_VERSION >= MUSY_VERSION_CHECK(2, 0, 0)
+                   cseq->groupID | (cseq->prgState[midi].program << 16) |
+                       ((midi == 9 ? 1 : 0) << 24),
+#endif
+                   key, velocity, 64, midi, curSeqId, secIndex, 0, event->trackId,
                    cseq->trackVolGroup[event->trackId], curFadeOutState ? -1 : 0, cseq->defStudio,
                    synthITDDefault[cseq->defStudio].music)) == SND_ID_ERROR) {
             FreeNote(note);

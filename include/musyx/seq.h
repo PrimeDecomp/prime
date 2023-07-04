@@ -58,10 +58,13 @@ typedef struct NOTE_DATA {
 } NOTE_DATA;
 
 typedef struct PRG_STATE {
-  // total size: 0x4
+  // total size: 0x4 (>=2.0: 0x6)
   u16 macId;    // offset 0x0, size 0x2
   u8 priority;  // offset 0x2, size 0x1
   u8 maxVoices; // offset 0x3, size 0x1
+#if MUSY_VERSION >= MUSY_VERSION_CHECK(2, 0, 0)
+  u8 program; // offset 0x4, size 0x1
+#endif
 } PRG_STATE;
 
 typedef struct SEQ_STREAM {
@@ -103,7 +106,7 @@ typedef struct SEQ_EVENT {
 typedef struct MTRACK_DATA {
   // total size: 0x8
   volatile u32 time; // offset 0x0, size 0x4
-  u32 bpm;  // offset 0x4, size 0x4
+  u32 bpm;           // offset 0x4, size 0x4
 } MTRACK_DATA;
 
 typedef struct MTRACK {
