@@ -10,6 +10,10 @@
 extern "C" {
 #endif
 
+#define CLAMP(value, min, max) ((value) > (max) ? (max) : (value) < (min) ? (min) : (value))
+// TODO matching hack
+#define CLAMP_INV(value, min, max) ((value) < (min) ? (min) : (value) > (max) ? (max) : (value))
+
 typedef struct SYNTH_VOICELIST {
   // total size: 0x4
   u8 prev;  // offset 0x0, size 0x1
@@ -862,6 +866,9 @@ u32 dataInsertLayer(u16 cid, void* layerdata, u16 size);
 u32 dataRemoveLayer(u16 sid);
 u32 dataInsertFX(u16 gid, FX_TAB* fx, u16 fxNum);
 FX_TAB* dataGetFX(u16 fid);
+void* dataGetLayer(u16 cid, u16* n);
+void* dataGetKeymap(u16 cid);
+
 s32 hwInit(u32* frq, u16 numVoices, u16 numStudios, u32 flags); /* extern */
 void hwInitSamplePlayback(u32 v, u16 smpID, void* newsmp, u32 set_defadsr, u32 prio,
                           u32 callbackUserValue, u32 setSRC, u8 itdMode);
@@ -886,6 +893,7 @@ void synthInit(u32, u8); /* extern */
 void synthSetBpm(u32 pbm, u8 set, u8 section);
 void synthFXCloneMidiSetup(SYNTH_VOICE* dest, SYNTH_VOICE* src);
 void synthSetMusicVolumeType(u8 vGroup, u8 type);
+void synthAddJob(SYNTH_VOICE* svoice, SYNTH_JOBTYPE jobType, u32 deltaTime);
 
 extern s32 synthGlobalVariable[16];
 extern u16 voicePrioSortRootListRoot;
@@ -895,6 +903,9 @@ extern u8 voiceListInsert;
 extern u8 voiceListRoot;
 void voiceSetPriority(SYNTH_VOICE* svoice, u8 prio);
 u32 voiceIsLastStarted(SYNTH_VOICE* svoice);
+void voiceSetLastStarted(SYNTH_VOICE* svoice);
+void voiceResetLastStarted(SYNTH_VOICE* svoice);
+void voiceInitLastStarted();
 s32 voiceKillSound(u32 voiceid);
 
 extern u64 synthRealTime;
@@ -923,6 +934,7 @@ u8 hwInitStream(u32 len);
 s16 varGet(SYNTH_VOICE* svoice, u32 ctrl, u8 index);
 
 u32 sndGetPitch(u8 key, u32 sInfo);
+s32 sndPitchUpOne(u16 note);
 extern SND_HOOKS salHooks;
 extern u8 sndActive;
 extern u8 synthIdleWaitActive;
@@ -1033,6 +1045,9 @@ void inpSetMidiLastNote(u8 midi, u8 midiSet, u8 key);
 u16 inpGetModulation(SYNTH_VOICE* svoice);
 void inpResetMidiCtrl(u8 ch, u8 set, u32 coldReset);
 void inpResetChannelDefaults(u8 midi, u8 midiSet);
+u16 inpGetPitchBend(SYNTH_VOICE* svoice);
+u16 inpGetDoppler(SYNTH_VOICE* svoice);
+
 /* TODO: Figure out what `unk` is */
 void hwSetSRCType(u32 v, u8 salSRCType);
 void hwSetITDMode(u32 v, u8 mode);
@@ -1065,6 +1080,12 @@ void macMakeInactive(SYNTH_VOICE* svoice, MAC_STATE);
 void sndProfUpdateMisc(SND_PROFILE_INFO* info);
 void sndProfResetPMC(SND_PROFILE_DATA* info);
 void sndProfStartPMC(SND_PROFILE_DATA* info);
+
+void vidRemoveVoiceReferences(SYNTH_VOICE* svoice);
+u32 vidMakeNew(SYNTH_VOICE* svoice, u32 isMaster);
+u32 vidMakeRoot(SYNTH_VOICE* svoice);
+
+u32 adsrHandleLowPrecision(ADSR_VARS* adsr, u16* adsr_start, u16* adsr_delta);
 
 #ifdef __cplusplus
 }
