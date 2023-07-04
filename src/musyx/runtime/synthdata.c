@@ -202,7 +202,7 @@ void* dataGetKeymap(unsigned short cid) {
 
 long layercmp(void* p1, void* p2) { return ((LAYER_TAB*)p1)->id - ((LAYER_TAB*)p2)->id; }
 
-void* dataGetLayer(unsigned short cid, unsigned short* n) {
+void* dataGetLayer(u16 cid, u16* n) {
   static LAYER_TAB key;
   static LAYER_TAB* result;
 

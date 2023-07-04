@@ -1082,8 +1082,6 @@ static SEQ_EVENT* GetGlobalEvent(SEQ_SECTION* section) {
   return ev;
 }
 
-#define Clamp(value, min, max) ((value) > (max) ? (max) : (value) < (min) ? (min) : (value))
-
 static SEQ_EVENT* HandleEvent(SEQ_EVENT* event, u8 secIndex, u32* loopFlag) {
   CPAT* pa;          // r26
   NOTE_DATA* pe;     // r24
@@ -1169,10 +1167,10 @@ static SEQ_EVENT* HandleEvent(SEQ_EVENT* event, u8 secIndex, u32* loopFlag) {
     if ((cseq->trackMute[event->trackId / 32] & (1 << (event->trackId & 0x1f))) != 0) {
       if ((macId = cseq->prgState[midi].macId) != 0xffff) {
         key += pa->patternInfo->transpose;
-        key = Clamp(key, 0, 0x7f);
+        key = CLAMP(key, 0, 0x7f);
 
         velocity += pa->patternInfo->velocityAdd;
-        velocity = Clamp(velocity, 0, 0x7f);
+        velocity = CLAMP(velocity, 0, 0x7f);
 
         if ((note = AllocateNote(event->time + pe->length, secIndex)) != NULL) {
           if ((note->id = synthStartSound(
