@@ -384,10 +384,11 @@ typedef struct CALLSTACK {
 } CALLSTACK;
 
 typedef struct SYNTH_QUEUE {
-  struct SYNTH_QUEUE* next;
-  struct SYNTH_QUEUE* prev;
-  u8 voice;
-  u8 jobTabIndex;
+  // total size: 0xC
+  struct SYNTH_QUEUE* next; // offset 0x0, size 0x4
+  struct SYNTH_QUEUE* prev; // offset 0x4, size 0x4
+  u8 voice;                 // offset 0x8, size 0x1
+  u8 jobTabIndex;           // offset 0x9, size 0x1
 } SYNTH_QUEUE;
 
 typedef enum {
@@ -883,13 +884,17 @@ u32 seqStartPlay(PAGE* norm, PAGE* drum, MIDISETUP* midiSetup, u32* song, SND_PL
                  u8 studio, u16 sgid);
 u32 seqGetPrivateId(u32 seqId);
 void streamInit(); /* extern */
-void vsInit();     /* extern */
+
+void vsInit(); /* extern */
+u32 vsSampleStartNotify(u8 voice);
+void vsSampleEndNotify(u32 pubID);
+
 void hwExit();
 void dataExit();
 void s3dInit(u32); /* extern */
 void s3dKillEmitterByFXID(FX_TAB* fxTab, u32 num);
 void s3dExit();
-void synthInit(u32, u8); /* extern */
+void synthInit(u32 mixFrq, u32 numVoices);
 void synthSetBpm(u32 pbm, u8 set, u8 section);
 void synthFXCloneMidiSetup(SYNTH_VOICE* dest, SYNTH_VOICE* src);
 void synthSetMusicVolumeType(u8 vGroup, u8 type);
@@ -907,6 +912,7 @@ void voiceSetLastStarted(SYNTH_VOICE* svoice);
 void voiceResetLastStarted(SYNTH_VOICE* svoice);
 void voiceInitLastStarted();
 s32 voiceKillSound(u32 voiceid);
+void voiceKill(u32 vi);
 
 extern u64 synthRealTime;
 u32 synthGetTicksPerSecond(SYNTH_VOICE* svoice);
@@ -931,6 +937,8 @@ u32 hwGlobalActivity();
 void hwSetAUXProcessingCallbacks(u8 studio, SND_AUX_CALLBACK auxA, void* userA,
                                  SND_AUX_CALLBACK auxB, void* userB);
 u8 hwInitStream(u32 len);
+u8 hwGetTimeOffset();
+u32 hwGetVirtualSampleID(u32 v);
 s16 varGet(SYNTH_VOICE* svoice, u32 ctrl, u8 index);
 
 u32 sndGetPitch(u8 key, u32 sInfo);
@@ -1030,9 +1038,8 @@ void streamOutputModeChanged();
 u8 inpTranslateExCtrl(u8 ctrl);
 void inpSetGlobalMIDIDirtyFlag(u8 chan, u8 midiSet, s32 flag);
 void inpAddCtrl(CTRL_DEST* dest, u8 ctrl, s32 scale, u8 comb, u32 isVar);
-void inpSetMidiCtrl(unsigned char ctrl, unsigned char channel, unsigned char set,
-                    unsigned char value);
-void inpSetMidiCtrl14(unsigned char ctrl, unsigned char channel, unsigned char set, u16 value);
+void inpSetMidiCtrl(u8 ctrl, u8 channel, u8 set, u8 value);
+void inpSetMidiCtrl14(u8 ctrl, u8 channel, u8 set, u16 value);
 void inpSetExCtrl(SYNTH_VOICE* svoice, u8 ctrl, s16 v);
 CHANNEL_DEFAULTS* inpGetChannelDefaults(u8 midi, u8 midiSet);
 extern CTRL_DEST inpAuxA[8][4];
@@ -1047,6 +1054,18 @@ void inpResetMidiCtrl(u8 ch, u8 set, u32 coldReset);
 void inpResetChannelDefaults(u8 midi, u8 midiSet);
 u16 inpGetPitchBend(SYNTH_VOICE* svoice);
 u16 inpGetDoppler(SYNTH_VOICE* svoice);
+u16 inpGetTremolo(SYNTH_VOICE* svoice);
+u16 inpGetPanning(SYNTH_VOICE* svoice);
+u16 inpGetSurPanning(SYNTH_VOICE* svoice);
+u16 inpGetVolume(SYNTH_VOICE* svoice);
+u16 inpGetReverb(SYNTH_VOICE* svoice);
+u16 inpGetPreAuxA(SYNTH_VOICE* svoice);
+u16 inpGetPostAuxA(SYNTH_VOICE* svoice);
+u16 inpGetPreAuxB(SYNTH_VOICE* svoice);
+u16 inpGetPostAuxB(SYNTH_VOICE* svoice);
+u16 inpGetPedal(SYNTH_VOICE* svoice);
+u16 inpGetAuxA(u8 studio, u8 index, u8 midi, u8 midiSet);
+u16 inpGetAuxB(u8 studio, u8 index, u8 midi, u8 midiSet);
 
 /* TODO: Figure out what `unk` is */
 void hwSetSRCType(u32 v, u8 salSRCType);
@@ -1056,6 +1075,9 @@ bool hwAddInput(u8 studio, SND_STUDIO_INPUT* in_desc);
 bool hwRemoveInput(u8 studio, SND_STUDIO_INPUT* in_desc);
 void hwChangeStudio(u32 v, u8 studio);
 void hwDisableHRTF();
+void hwStart(u32 v, u8 studio);
+void hwKeyOff(u32 v);
+void hwFrameDone();
 
 extern u32 dspHRTFOn;
 
@@ -1075,7 +1097,11 @@ u8 aramAllocateStreamBuffer(u32 len);
 u32 macStart(u16 macid, u8 priority, u8 maxVoices, u16 allocId, u8 key, u8 vol, u8 panning, u8 midi,
              u8 midiSet, u8 section, u16 step, u16 trackid, u8 new_vid, u8 vGroup, u8 studio,
              u32 itd);
+void macHandle(u32 deltaTime);
 void macMakeInactive(SYNTH_VOICE* svoice, MAC_STATE);
+void macSetPedalState(SYNTH_VOICE* svoice, u32 state);
+void macSetExternalKeyoff(SYNTH_VOICE* svoice);
+void macSampleEndNotify(SYNTH_VOICE* sv);
 
 void sndProfUpdateMisc(SND_PROFILE_INFO* info);
 void sndProfResetPMC(SND_PROFILE_DATA* info);
@@ -1086,6 +1112,7 @@ u32 vidMakeNew(SYNTH_VOICE* svoice, u32 isMaster);
 u32 vidMakeRoot(SYNTH_VOICE* svoice);
 
 u32 adsrHandleLowPrecision(ADSR_VARS* adsr, u16* adsr_start, u16* adsr_delta);
+bool adsrRelease(ADSR_VARS* adsr);
 
 #ifdef __cplusplus
 }

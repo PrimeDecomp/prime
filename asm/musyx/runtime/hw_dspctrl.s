@@ -1118,7 +1118,7 @@ salBuildCommandList:
 /* 803ABACC 003A8A2C  7C 08 02 A6 */	mflr r0
 /* 803ABAD0 003A8A30  90 01 00 84 */	stw r0, 0x84(r1)
 /* 803ABAD4 003A8A34  39 61 00 80 */	addi r11, r1, 0x80
-/* 803ABAD8 003A8A38  4B FD DF 71 */	bl __save_gpr
+/* 803ABAD8 003A8A38  4B FD DF 71 */	bl _savegpr_14
 /* 803ABADC 003A8A3C  80 AD AF 40 */	lwz r5, dspCmdList@sda21(r13)
 /* 803ABAE0 003A8A40  38 00 00 00 */	li r0, 0
 /* 803ABAE4 003A8A44  90 0D AF 24 */	stw r0, dspCmdLastLoad@sda21(r13)
@@ -3427,7 +3427,7 @@ lbl_803ADC58:
 /* 803ADC60 003AABC0  7C 83 00 50 */	subf r4, r3, r0
 /* 803ADC64 003AABC4  4B FD 0E D9 */	bl DCStoreRangeNoSync
 /* 803ADC68 003AABC8  39 61 00 80 */	addi r11, r1, 0x80
-/* 803ADC6C 003AABCC  4B FD BE 29 */	bl __restore_gpr
+/* 803ADC6C 003AABCC  4B FD BE 29 */	bl _restgpr_14
 /* 803ADC70 003AABD0  80 01 00 84 */	lwz r0, 0x84(r1)
 /* 803ADC74 003AABD4  7C 08 03 A6 */	mtlr r0
 /* 803ADC78 003AABD8  38 21 00 80 */	addi r1, r1, 0x80

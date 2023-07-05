@@ -935,7 +935,7 @@ LIBS = [
         "host": False,
         "objects": [
             ["musyx/runtime/seq", True],
-            ["musyx/runtime/synth", False],
+            ["musyx/runtime/synth", True],
             ["musyx/runtime/seq_api", True],
             ["musyx/runtime/snd_synthapi", True, {"add_to_all": False}],
             ["musyx/runtime/stream", False],

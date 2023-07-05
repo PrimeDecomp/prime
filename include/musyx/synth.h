@@ -26,7 +26,7 @@ SND_VOICEID synthFXStart(u16 fid, u8 vol, u8 pan, u8 studio, u32 itd);
 void synthVolume(u8 volume, u16 time, u8 vGroup, u8 seqMode, u32 seqId);
 u32 synthStartSound(u16 id, u8 prio, u8 max,
 #if MUSY_VERSION >= MUSY_VERSION_CHECK(2, 0, 0)
-                    unsigned long sourceID,
+                    u32 sourceID,
 #endif
                     u8 key, u8 vol, u8 panning, u8 midi, u8 midiSet, u8 section, u16 step,
                     u16 trackid, u8 vGroup, s16 prioOffset, u8 studio, u32 itd);
