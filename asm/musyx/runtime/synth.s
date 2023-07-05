@@ -416,7 +416,7 @@ StartLayer:
 /* 80399034 00395F94  7C 08 02 A6 */	mflr r0
 /* 80399038 00395F98  90 01 00 84 */	stw r0, 0x84(r1)
 /* 8039903C 00395F9C  39 61 00 80 */	addi r11, r1, 0x80
-/* 80399040 00395FA0  4B FF 0A 09 */	bl __save_gpr
+/* 80399040 00395FA0  4B FF 0A 09 */	bl _savegpr_14
 /* 80399044 00395FA4  8A 61 00 8B */	lbz r19, 0x8b(r1)
 /* 80399048 00395FA8  7C 8F 23 78 */	mr r15, r4
 /* 8039904C 00395FAC  8A 81 00 8F */	lbz r20, 0x8f(r1)
@@ -672,7 +672,7 @@ lbl_803993C8:
 lbl_803993D4:
 /* 803993D4 00396334  7D C3 73 78 */	mr r3, r14
 /* 803993D8 00396338  39 61 00 80 */	addi r11, r1, 0x80
-/* 803993DC 0039633C  4B FF 06 B9 */	bl __restore_gpr
+/* 803993DC 0039633C  4B FF 06 B9 */	bl _restgpr_14
 /* 803993E0 00396340  80 01 00 84 */	lwz r0, 0x84(r1)
 /* 803993E4 00396344  7C 08 03 A6 */	mtlr r0
 /* 803993E8 00396348  38 21 00 80 */	addi r1, r1, 0x80
@@ -1668,7 +1668,7 @@ lbl_8039A1D4:
 /* 8039A1E4 00397144  38 21 00 30 */	addi r1, r1, 0x30
 /* 8039A1E8 00397148  4E 80 00 20 */	blr
 
-ZeroOffsetHandler:
+.fn ZeroOffsetHandler, local
 /* 8039A1EC 0039714C  94 21 FF 60 */	stwu r1, -0xa0(r1)
 /* 8039A1F0 00397150  7C 08 02 A6 */	mflr r0
 /* 8039A1F4 00397154  90 01 00 A4 */	stw r0, 0xa4(r1)
@@ -2141,6 +2141,7 @@ lbl_8039A8A8:
 /* 8039A8DC 0039783C  7C 08 03 A6 */	mtlr r0
 /* 8039A8E0 00397840  38 21 00 A0 */	addi r1, r1, 0xa0
 /* 8039A8E4 00397844  4E 80 00 20 */	blr
+.endfn ZeroOffsetHandler
 
 .global synthAddJob
 synthAddJob:
@@ -3356,8 +3357,7 @@ synthSetMusicVolumeType:
 /* 8039B98C 003988EC  98 83 00 2D */	stb r4, 0x2d(r3)
 /* 8039B990 003988F0  4E 80 00 20 */	blr
 
-
-synthHWMessageHandler:
+.fn synthHWMessageHandler, local
 /* 8039B994 003988F4  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 8039B998 003988F8  7C 08 02 A6 */	mflr r0
 /* 8039B99C 003988FC  2C 03 00 02 */	cmpwi r3, 2
@@ -3416,6 +3416,7 @@ lbl_8039BA44:
 /* 8039BA58 003989B8  7C 08 03 A6 */	mtlr r0
 /* 8039BA5C 003989BC  38 21 00 20 */	addi r1, r1, 0x20
 /* 8039BA60 003989C0  4E 80 00 20 */	blr
+.endfn synthHWMessageHandler
 
 .global synthInit
 synthInit:
@@ -3423,7 +3424,7 @@ synthInit:
 /* 8039BA68 003989C8  7C 08 02 A6 */	mflr r0
 /* 8039BA6C 003989CC  90 01 00 54 */	stw r0, 0x54(r1)
 /* 8039BA70 003989D0  39 61 00 50 */	addi r11, r1, 0x50
-/* 8039BA74 003989D4  4B FE DF D5 */	bl __save_gpr
+/* 8039BA74 003989D4  4B FE DF D5 */	bl _savegpr_14
 /* 8039BA78 003989D8  7C 8F 23 78 */	mr r15, r4
 /* 8039BA7C 003989DC  3C 80 80 55 */	lis r4, synthTicksPerSecond@ha
 /* 8039BA80 003989E0  3B E4 FE 10 */	addi r31, r4, synthTicksPerSecond@l
@@ -3768,7 +3769,7 @@ lbl_8039BFA0:
 /* 8039BFB8 00398F18  38 63 B9 94 */	addi r3, r3, synthHWMessageHandler@l
 /* 8039BFBC 00398F1C  48 01 72 01 */	bl hwSetMesgCallback
 /* 8039BFC0 00398F20  39 61 00 50 */	addi r11, r1, 0x50
-/* 8039BFC4 00398F24  4B FE DA D1 */	bl __restore_gpr
+/* 8039BFC4 00398F24  4B FE DA D1 */	bl _restgpr_14
 /* 8039BFC8 00398F28  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 8039BFCC 00398F2C  7C 08 03 A6 */	mtlr r0
 /* 8039BFD0 00398F30  38 21 00 50 */	addi r1, r1, 0x50

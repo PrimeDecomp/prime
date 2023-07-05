@@ -1,4 +1,5 @@
 
+#include "musyx/synth.h"
 #include "musyx/musyx_priv.h"
 
 static u32 synthTicksPerSecond[9][16];
@@ -91,7 +92,11 @@ static u32 do_voice_portamento(u8 key, u8 midi, u8 midiSet, u32 isMaster, u32* r
   vid = SND_ID_ERROR;
 
   for (i = 0, sv = synthVoice; i < synthInfo.voiceNum; ++i, ++sv) {
-    if (sv->id != SND_ID_ERROR && sv->midi == midi && sv->midiSet == midiSet) {
+    if (
+#if MUSY_VERSION >= MUSY_VERSION_CHECK(1, 5, 4)
+        sv->block == 0 &&
+#endif
+        sv->id != SND_ID_ERROR && sv->midi == midi && sv->midiSet == midiSet) {
       if ((sv->cFlags & 2) != 0) {
         legatoVoiceIsStarting = TRUE;
       }
@@ -137,7 +142,7 @@ static u32 do_voice_portamento(u8 key, u8 midi, u8 midiSet, u32 isMaster, u32* r
 static u32 check_portamento(u8 key, u8 midi, u8 midiSet, u32 newVID, u32* vid) {
   u32 rejected; // r1+0x14
 
-  if (inpGetMidiCtrl(65, midi, midiSet) > 8064) {
+  if (inpGetMidiCtrl(65 /* TODO SND_MIDICTRL_? */, midi, midiSet) > 8064) {
     *vid = do_voice_portamento(key & 0x7f, midi, midiSet, newVID, &rejected);
     return !rejected;
   }
@@ -177,7 +182,13 @@ static u32 StartLayer(u16 layerID, s16 prio, u8 maxVoices, u16 allocId, u8 key, 
     k = CLAMP(k, 0, 127);
 
     if ((l->id & 0xC000) == 0) {
-      if (check_portamento(k, midi, midiSet, vidFlag, &new_id)) {
+      if (check_portamento(k, midi, midiSet,
+#if MUSY_VERSION >= MUSY_VERSION_CHECK(1, 5, 4)
+                           0,
+#else
+                           vidFlag,
+#endif
+                           &new_id)) {
         if (new_id != 0xFFFFFFFF) {
           goto apply_new_id;
         } else {
@@ -231,8 +242,14 @@ static u32 StartLayer(u16 layerID, s16 prio, u8 maxVoices, u16 allocId, u8 key, 
       }
       id = new_id;
       while (synthVoice[id & 0xff].child != SND_ID_ERROR) {
+#if MUSY_VERSION >= MUSY_VERSION_CHECK(1, 5, 4)
+        synthVoice[id & 0xff].block = 1;
+#endif
         id = synthVoice[id & 0xff].child;
       }
+#if MUSY_VERSION >= MUSY_VERSION_CHECK(1, 5, 4)
+      synthVoice[id & 0xff].block = 1;
+#endif
     }
   }
 
@@ -291,30 +308,67 @@ static u32 StartKeymap(u16 keymapID, s16 prio, u8 maxVoices, u16 allocId, u8 key
   return SND_ID_ERROR;
 }
 
-u32 synthStartSound(u16 id, u8 prio, u8 max, u8 key, u8 vol, u8 panning, u8 midi, u8 midiSet,
-                    u8 section, u16 step, u16 trackid, u8 vGroup, s16 prioOffset, u8 studio,
-                    u32 itd) {
-  u32 vid; // r1+0x34
+#if MUSY_VERSION >= MUSY_VERSION_CHECK(1, 5, 4)
+static void unblockAllAllocatedVoices(u32 vid) {
+  u32 id; // r31
 
+  id = vidGetInternalId(vid);
+#line 501
+  MUSY_ASSERT_MSG(id != SND_ID_ERROR, "*** Alloc unblock: ID is illegal");
+  while (id != SND_ID_ERROR) {
+    synthVoice[id & 0xff].block = 0;
+    id = synthVoice[id & 0xff].child;
+  }
+}
+#endif
+
+u32 synthStartSound(u16 id, u8 prio, u8 max,
+#if MUSY_VERSION >= MUSY_VERSION_CHECK(2, 0, 0)
+                    u32 sourceID,
+#endif
+                    u8 key, u8 vol, u8 panning, u8 midi, u8 midiSet, u8 section, u16 step,
+                    u16 trackid, u8 vGroup, s16 prioOffset, u8 studio, u32 itd) {
   prio += prioOffset;
   prio = CLAMP(prio, 0, 0xff);
 
   switch (id & 0xC000) {
-  case 0:
+  case 0: {
+    u32 vid; // r1+0x34
     if (!check_portamento(key, midi, midiSet, 1, &vid)) {
-      return 0xffffffff;
+      return SND_ID_ERROR;
     }
-    if (vid != 0xffffffff) {
+    if (vid != SND_ID_ERROR) {
       return vid;
     }
     return macStart(id, prio, max, id, key, vol, panning, midi, midiSet, section, step, trackid, 1,
                     vGroup, studio, itd);
-  case 0x4000:
+  }
+  case 0x4000: {
+#if MUSY_VERSION >= MUSY_VERSION_CHECK(1, 5, 4)
+    u32 vid = StartKeymap(id, prio, max, id, key, vol, panning, midi, midiSet, section, step,
+                          trackid, 1, vGroup, studio, itd);
+    if (vid != SND_ID_ERROR) {
+      unblockAllAllocatedVoices(vid);
+    }
+    return vid;
+#else
     return StartKeymap(id, prio, max, id, key, vol, panning, midi, midiSet, section, step, trackid,
                        1, vGroup, studio, itd);
-  case 0x8000:
+#endif
+  }
+  case 0x8000: {
+#if MUSY_VERSION >= MUSY_VERSION_CHECK(1, 5, 4)
+    u32 vid = StartLayer(id, prio, max, id, key, vol, panning, midi, midiSet, section, step,
+                         trackid, 1, vGroup, studio, itd);
+    if (vid != SND_ID_ERROR) {
+      unblockAllAllocatedVoices(vid);
+    }
+    return vid;
+#else
     return StartLayer(id, prio, max, id, key, vol, panning, midi, midiSet, section, step, trackid,
                       1, vGroup, studio, itd);
+#endif
+  }
   default:
     return SND_ID_ERROR;
   }
@@ -423,7 +477,13 @@ static void LowPrecisionHandler(u32 i) {
   }
 
   ccents = sv->curNote * 65536 + (sv->curDetune * 65536) / 100;
-  if ((sv->cFlags & 0x10010) != 0) {
+  if ((sv->cFlags &
+#if MUSY_VERSION >= MUSY_VERSION_CHECK(1, 5, 4)
+       0x10030
+#else
+       0x10010
+#endif
+       ) != 0) {
     if (sv->midi != 0xff) {
       pbend = inpGetPitchBend(sv);
       sv->pbLast = pbend;
@@ -446,10 +506,18 @@ static void LowPrecisionHandler(u32 i) {
     Modulation = inpGetModulation(sv);
     vrange = sv->vibKeyRange * 256 + (sv->vibCentRange * 256) / 100;
     if (sv->vibModAddScale != 0) {
+#if MUSY_VERSION >= MUSY_VERSION_CHECK(1, 5, 4)
+      vrange += (sv->vibModAddScale * ((Modulation & 0x1ffff) >> 7)) >> 7;
+#else
       vrange += (sv->vibModAddScale * ((Modulation >> 7) & 0x1ff)) >> 7;
+#endif
     }
     if ((sv->cFlags & 0x4000) != 0) {
+#if MUSY_VERSION >= MUSY_VERSION_CHECK(1, 5, 4)
+      voff = (sv->vibCurOffset * ((Modulation & 0x1ffff) >> 7)) >> 7;
+#else
       voff = (sv->vibCurOffset * ((Modulation >> 7) & 0x1ff)) >> 7;
+#endif
     } else {
       voff = sv->vibCurOffset;
     }
@@ -493,22 +561,157 @@ static void ZeroOffsetHandler(u32 i) {
   SYNTH_VOICE* sv;  // r31
   u32 lowDeltaTime; // r26
   u16 Modulation;   // r25
-  f32 vol;          // r62
-  f32 auxa;         // r57
-  f32 auxb;         // r56
-  f32 f;            // r59
-  f32 voiceVol;     // r60
-  u32 volUpdate;    // r30
-  f32 lfo;          // r55
-  f32 scale;        // r63
-  f32 mscale;       // r54
+  f32 vol;          // f30
+  f32 auxa;         // f25
+  f32 auxb;         // f24
+  f32 f;            // f27
+  f32 voiceVol;     // f28
+  bool volUpdate;   // r30
+  f32 lfo;          // f23
+  f32 scale;        // f31
+  f32 mscale;       // f22
   s32 pan;          // r28
-  f32 preVol;       // r58
-  f32 postVol;      // r61
+  f32 preVol;       // f26
+  f32 postVol;      // f29
+
+  sv = &synthVoice[i];
+  if (!hwIsActive(i) && sv->addr == NULL) {
+    goto end;
+  }
+
+  lowDeltaTime = synthRealTime - sv->lastZeroCallTime;
+  sv->lastZeroCallTime = synthRealTime;
+
+  if ((sv->cFlags & 0x8000) != 0) {
+    sv->envCurrent += sv->envDelta * (lowDeltaTime >> 8);
+    if (sv->envDelta < 0) {
+      if ((s32)sv->envTarget >= (s32)sv->envCurrent) {
+        sv->envCurrent = sv->envTarget;
+        sv->cFlags &= ~0x8000;
+      }
+    } else if ((s32)sv->envTarget <= (s32)sv->envCurrent) {
+      sv->envCurrent = sv->envTarget;
+      sv->cFlags &= ~0x8000;
+    }
+    sv->volume = sv->envCurrent;
+    volUpdate = TRUE;
+  } else {
+    volUpdate = (sv->cFlags & 0x100000000000) != 0;
+  }
+
+  sv->cFlags &= ~0x100000000000;
+
+  f = synthMasterFader[sv->vGroup].pauseVol * synthMasterFader[sv->vGroup].volume *
+      synthMasterFader[sv->fxFlag ? 22 : 21].volume;
+
+  if (sv->track != 0xff) {
+    vol = f * (f32)synthTrackVolume[sv->track] * (1.f / 127.f);
+  } else {
+    vol = f;
+  }
+
+  if (vol != sv->lastVolFaderScale) {
+    sv->lastVolFaderScale = vol;
+    volUpdate = TRUE;
+  }
+
+  voiceVol = (f32)sv->volume * (1.f / (8192.f * 1016.f) /* 1.201479e-07 */);
+
+  if ((sv->treScale | sv->treModAddScale) != 0) {
+    Modulation = inpGetModulation(sv);
+    lfo = (f32)(8192 - (8192 - ((s16)inpGetTremolo(sv) - 8192) >> 1)) * (1.f / 8192.f);
+    mscale = 1.f - (f32)Modulation * (4096 - sv->treModAddScale) * 1.490207e-08f /* 1/(8192^2)? */;
+    scale = (f32)sv->treScale * mscale * (1.f / 4096.f);
+    if (sv->treCurScale < scale) {
+      if ((sv->treCurScale += 0.2f) > scale) {
+        sv->treCurScale = scale;
+      }
+    } else if (sv->treCurScale > scale) {
+      if ((sv->treCurScale -= 0.2f) < scale) {
+        sv->treCurScale = scale;
+      }
+    }
+    voiceVol *= 1.f - lfo * (1.f - sv->treCurScale);
+    volUpdate = TRUE;
+  }
+
+  if ((synthFlags & 1) == 0) {
+    if ((sv->cFlags & 0x200000000000) != 0 || (sv->midiDirtyFlags & 0x6) != 0) {
+      sv->cFlags &= ~0x200000000000;
+      pan = sv->panning[0] + (inpGetPanning(sv) - 8192) * 0x200;
+      sv->lastPan = CLAMP_INV(pan, 0, 0x7f0000);
+
+      if ((synthFlags & 2) != 0) {
+        if ((sv->lastSPan = sv->panning[1] + inpGetSurPanning(sv) * 512) > 0x7f0000) {
+          sv->lastSPan = 0x7f0000;
+        }
+      } else {
+        sv->lastSPan = 0;
+      }
+
+      volUpdate = TRUE;
+    } else if ((synthFlags & 2) == 0) {
+      sv->lastSPan = 0;
+    }
+  } else {
+    sv->lastPan = 0x400000;
+    sv->lastSPan = 0;
+    volUpdate |= (sv->cFlags & 0x200000000000) != 0;
+    sv->cFlags &= ~0x200000000000;
+  }
+
+  if (volUpdate || (sv->midiDirtyFlags & 0xf01) != 0) {
+    preVol = voiceVol;
+    postVol = voiceVol * vol * (f32)inpGetVolume(sv) * 0.00006103888f /* 1/16384? */;
+    auxa = ((f32)sv->revVolOffset * (1.f / 127.f)) +
+           ((preVol * (f32)inpGetPreAuxA(sv) * 0.00006103888f /* 1/16384? */) +
+            ((f32)sv->revVolScale *
+             (postVol * (f32)inpGetReverb(sv) * 0.00006103888f /* 1/16384? */) * (1.f / 127.f)));
+    auxb = (preVol * (f32)inpGetPreAuxB(sv) * 0.00006103888f /* 1/16384? */) +
+           (postVol * (f32)inpGetPostAuxB(sv) * 0.00006103888f /* 1/16384? */);
+    sv->curOutputVolume = (u16)(postVol * 32767.f);
+    hwSetVolume(i, sv->volTable, postVol, sv->lastPan, sv->lastSPan, auxa, auxb);
+  }
+
+  if (sv->age != 0) {
+    if ((s32)(sv->age -= sv->ageSpeed * lowDeltaTime) < 0) {
+      sv->age = 0;
+    }
+    hwSetPriority(i, sv->prio << 24 | sv->age >> 15);
+  }
+
+  synthAddJob(sv, SYNTH_JOBTYPE_ZERO, (5 - hwGetTimeOffset()) * 256);
+
+end:
+  UpdateTimeMIDICtrl(sv);
 }
 
 static void EventHandler(u32 i) {
   SYNTH_VOICE* sv; // r31
+
+  sv = &synthVoice[i];
+  if (!hwIsActive(i) && sv->addr == NULL) {
+    goto end;
+  }
+
+  macSetPedalState(sv, inpGetPedal(sv) > 0x1f80);
+
+  if ((sv->cFlags & 0x20) != 0) {
+    sv->cFlags &= ~0x20;
+    sv->cFlags |= 0x10;
+    hwStart(i, sv->studio);
+  }
+
+  if ((sv->cFlags & 0x10000000090) == 0x90) {
+    sv->cFlags &= ~0x90;
+    hwKeyOff(i);
+    if ((sv->cFlags & 0x20000000000) != 0 && adsrRelease(&sv->pitchADSR)) {
+      sv->cFlags &= ~0x20000000000;
+    }
+  }
+
+end:
+  UpdateTimeMIDICtrl(sv);
 }
 
 static void synthInitJobQueue() {
@@ -523,14 +726,68 @@ static void synthInitJobQueue() {
   synthJobTableIndex = 0;
 }
 
-#pragma dont_inline on
 void synthAddJob(SYNTH_VOICE* svoice, SYNTH_JOBTYPE jobType, u32 deltaTime) {
   SYNTH_QUEUE* newJq;   // r31
   SYNTH_QUEUE** root;   // r30
   u8 jobTabIndex;       // r29
   SYNTH_JOBTAB* jobTab; // r28
+
+  jobTabIndex = ((deltaTime / 256) + synthJobTableIndex) & 0x1f;
+  jobTab = &synthJobTable[jobTabIndex];
+
+  switch (jobType) {
+  case SYNTH_JOBTYPE_LOW:
+    newJq = &svoice->lowPrecisionJob;
+    if (newJq->jobTabIndex != 0xff) {
+      if (newJq->jobTabIndex == jobTabIndex) {
+        return;
+      }
+      if (newJq->next != NULL) {
+        newJq->next->prev = newJq->prev;
+      }
+      if (newJq->prev != NULL) {
+        newJq->prev->next = newJq->next;
+      } else {
+        synthJobTable[newJq->jobTabIndex].lowPrecision = newJq->next;
+      }
+    }
+    root = &jobTab->lowPrecision;
+    break;
+  case SYNTH_JOBTYPE_ZERO:
+    newJq = &svoice->zeroOffsetJob;
+    if (newJq->jobTabIndex != 0xff) {
+      if (newJq->jobTabIndex == jobTabIndex) {
+        return;
+      }
+      if (newJq->next != NULL) {
+        newJq->next->prev = newJq->prev;
+      }
+      if (newJq->prev != NULL) {
+        newJq->prev->next = newJq->next;
+      } else {
+        synthJobTable[newJq->jobTabIndex].zeroOffset = newJq->next;
+      }
+    }
+    root = &jobTab->zeroOffset;
+    break;
+  case SYNTH_JOBTYPE_EVENT:
+    newJq = &svoice->eventJob;
+    if (newJq->jobTabIndex != 0xff) {
+      return;
+    }
+    root = &jobTab->event;
+    break;
+  default:
+    break;
+  }
+
+  newJq->jobTabIndex = jobTabIndex;
+  if ((newJq->next = *root) != NULL) {
+    (*root)->prev = newJq;
+  }
+  newJq->prev = NULL;
+  *root = newJq;
 }
-#pragma dont_inline reset
 
 void synthStartSynthJobHandling(SYNTH_VOICE* svoice) {
   svoice->lastLowCallTime = synthRealTime;
@@ -572,7 +829,6 @@ void HandleVoices() {
 }
 
 void HandleFaderTermination(SYNTHMasterFader* smf) {
-
   switch (smf->seqMode) {
   case 1:
     seqStop(smf->seqId);
@@ -591,7 +847,65 @@ void synthHandle(u32 deltaTime) {
   u32 s;                 // r30
   SYNTHMasterFader* smf; // r31
   u32 testFlag;          // r27
-  SND_AUX_INFO info;     // r1+0x18
+
+  if (synthInfo.numSamples == 0) {
+    return;
+  }
+
+  macHandle(deltaTime);
+  HandleVoices();
+
+  if (hwGetTimeOffset() == 0) {
+    if ((synthMasterFaderActiveFlags | synthMasterFaderPauseActiveFlags) != 0) {
+      for (i = 0, smf = synthMasterFader, testFlag = 1; i < 32; testFlag <<= 1, ++i, ++smf) {
+        if ((synthMasterFaderActiveFlags & testFlag) != 0) {
+          smf->volume = smf->target - smf->time * (smf->target - smf->start);
+          if ((smf->time -= smf->deltaTime) <= 0.f) {
+            smf->volume = smf->target;
+            HandleFaderTermination(smf);
+            if ((synthMasterFaderActiveFlags &= ~testFlag) == 0 &&
+                synthMasterFaderPauseActiveFlags == 0) {
+              break;
+            }
+          }
+        }
+
+        if ((synthMasterFaderPauseActiveFlags & testFlag) != 0) {
+          smf->pauseVol = smf->pauseTarget - smf->pauseTime * (smf->pauseTarget - smf->pauseStart);
+          if ((smf->pauseTime -= smf->pauseDeltaTime) <= 0.f) {
+            smf->pauseVol = smf->pauseTarget;
+            if ((synthMasterFaderPauseActiveFlags &= ~testFlag) == 0 &&
+                synthMasterFaderActiveFlags == 0) {
+              break;
+            }
+          }
+        }
+      }
+    }
+
+    for (s = 0; s < 8; ++s) {
+      if (synthAuxAMIDI[s] != 0xff) {
+        SND_AUX_INFO info; // r1+0x18
+        for (i = 0; i < SND_AUX_NUMPARAMETERS; ++i) {
+          info.data.parameterUpdate.para[i] =
+              inpGetAuxA(s, i, synthAuxAMIDI[s], synthAuxAMIDISet[s]);
+        }
+        synthAuxACallback[s](SND_AUX_REASON_PARAMETERUPDATE, &info, synthAuxAUser[s]);
+      }
+
+      if (synthAuxBMIDI[s] != 0xff) {
+        SND_AUX_INFO info; // r1+0xC
+        for (i = 0; i < SND_AUX_NUMPARAMETERS; ++i) {
+          info.data.parameterUpdate.para[i] =
+              inpGetAuxB(s, i, synthAuxBMIDI[s], synthAuxBMIDISet[s]);
+        }
+        synthAuxBCallback[s](SND_AUX_REASON_PARAMETERUPDATE, &info, synthAuxBUser[s]);
+      }
+    }
+  }
+
+  hwFrameDone();
+  synthRealTime += deltaTime;
 }
 
 u8 synthFXGetMaxVoices(u16 fid) {
@@ -616,9 +930,437 @@ u32 synthFXStart(u16 fid, u8 vol, u8 pan, u8 studio, u32 itd) {
       pan = fx->panning;
     }
 
-    v = synthStartSound(fx->macro, fx->priority, fx->maxVoices, fx->key | 0x80, vol, pan, 0xFF,
-                        0xFF, 0, 0, 0xFF, fx->vGroup, 0, studio, itd);
+    v = synthStartSound(fx->macro, fx->priority, fx->maxVoices,
+#if MUSY_VERSION >= MUSY_VERSION_CHECK(2, 0, 0)
+                        0, // TODO
+#endif
+                        fx->key | 0x80, vol, pan, 0xFF, 0xFF, 0, 0, 0xFF, fx->vGroup, 0, studio,
+                        itd);
   }
 
   return v;
 }
+
+bool synthFXSetCtrl(u32 vid, u8 ctrl, u8 value) {
+  u32 i;   // r31
+  u32 ret; // r29
+
+  ret = FALSE;
+  vid = vidGetInternalId(vid);
+
+  while (vid != SND_ID_ERROR) {
+    i = vid & 0xff;
+    if (vid == synthVoice[i].id) {
+      if ((synthVoice[i].cFlags & 0x2) != 0) {
+        inpSetMidiCtrl(ctrl, i, synthVoice[i].setup.midiSet, value);
+      } else {
+        inpSetMidiCtrl(ctrl, i, synthVoice[i].midiSet, value);
+      }
+
+      vid = synthVoice[i].child;
+      ret = TRUE;
+    } else {
+      return ret;
+    }
+  }
+
+  return ret;
+}
+
+bool synthFXSetCtrl14(u32 vid, u8 ctrl, u16 value) {
+  u32 i;   // r31
+  u32 ret; // r29
+
+  ret = FALSE;
+  vid = vidGetInternalId(vid);
+
+  while (vid != SND_ID_ERROR) {
+    i = vid & 0xff;
+    if (vid == synthVoice[i].id) {
+      if ((synthVoice[i].cFlags & 0x2) != 0) {
+        inpSetMidiCtrl14(ctrl, i, synthVoice[i].setup.midiSet, value);
+      } else {
+        inpSetMidiCtrl14(ctrl, i, synthVoice[i].midiSet, value);
+      }
+
+      vid = synthVoice[i].child;
+      ret = TRUE;
+    } else {
+      return ret;
+    }
+  }
+
+  return ret;
+}
+
+void synthFXCloneMidiSetup(SYNTH_VOICE* dest, SYNTH_VOICE* src) {
+  inpFXCopyCtrl(SND_MIDICTRL_VOLUME, dest, src);
+  inpFXCopyCtrl(SND_MIDICTRL_PANNING, dest, src);
+  inpFXCopyCtrl(SND_MIDICTRL_REVERB, dest, src);
+  inpFXCopyCtrl(SND_MIDICTRL_PITCHBEND, dest, src);
+  inpFXCopyCtrl(SND_MIDICTRL_DOPPLER, dest, src);
+}
+
+bool synthFXVolume(u32 vid, u8 vol) {
+  u32 i;   // r31
+  u32 ret; // r29
+
+  ret = FALSE;
+  vid = vidGetInternalId(vid);
+
+  while (vid != SND_ID_ERROR) {
+    i = vid & 0xff;
+    if (vid == synthVoice[i].id) {
+      if ((synthVoice[i].cFlags & 0x2) != 0) {
+        inpSetMidiCtrl(SND_MIDICTRL_VOLUME, i, synthVoice[i].setup.midiSet, vol);
+      } else {
+        inpSetMidiCtrl(SND_MIDICTRL_VOLUME, i, synthVoice[i].midiSet, vol);
+      }
+
+      vid = synthVoice[i].child;
+      ret = TRUE;
+    } else {
+      return ret;
+    }
+  }
+
+  return ret;
+}
+
+u32 synthSendKeyOff(u32 voiceid) {
+  u32 i;   // r30
+  u32 ret; // r29
+
+  ret = FALSE;
+
+  if (sndActive != 0) {
+    voiceid = vidGetInternalId(voiceid);
+
+    while (voiceid != SND_ID_ERROR) {
+      i = voiceid & 0xff;
+
+      if (voiceid == synthVoice[i].id) {
+        macSetExternalKeyoff(&synthVoice[i]);
+        ret = TRUE;
+      }
+
+      voiceid = synthVoice[i].child;
+    }
+  }
+
+  return ret;
+}
+
+u16 synthGetVolume(u32 vid) {
+  u32 i; // r30
+
+  vid = vidGetInternalId(vid);
+  if (vid != SND_ID_ERROR) {
+    i = vid & 0xff;
+    if (vid == synthVoice[i].id && (synthVoice[i].cFlags & 0x2) == 0) {
+      return synthVoice[i].curOutputVolume;
+    }
+  }
+
+  return 0;
+}
+
+void SetupFader(SYNTHMasterFader* smf, u8 volume, u32 time, u8 seqMode, u32 seqId) {
+  smf->seqMode = seqMode;
+  smf->seqId = seqId;
+  if (time != 0) {
+    smf->start = smf->volume;
+    smf->target = (f32)volume * (1.f / 127.f);
+    smf->time = 1.f;
+    smf->deltaTime = 1280.f / (f32)time;
+  } else {
+    smf->volume = smf->target = (f32)volume * (1.f / 127.f);
+    if (smf->seqId != SND_ID_ERROR) {
+      HandleFaderTermination(smf);
+    }
+  }
+}
+
+void synthVolume(u8 volume, u16 time, u8 vGroup, u8 seqMode, u32 seqId) {
+  u32 ltime;             // r1+0x14
+  u32 i;                 // r30
+  u8 type;               // r29
+  SYNTHMasterFader* smf; // r31
+
+  if ((ltime = time) != 0) {
+    sndConvertMs(&ltime);
+  }
+
+  switch (vGroup) {
+  case SND_ALL_VOLGROUPS:
+    for (smf = synthMasterFader, i = 0; i < 32; ++i, ++smf) {
+      if (smf->type == 0 || smf->type == 1) {
+        SetupFader(smf, volume, ltime, seqMode, SND_ID_ERROR);
+        synthMasterFaderActiveFlags |= 1 << i;
+      }
+    }
+    return;
+
+  case SND_USERALL_VOLGROUPS:
+    for (smf = synthMasterFader, i = 0; i < 32; ++i, ++smf) {
+      if (smf->type == 2 || smf->type == 3) {
+        SetupFader(smf, volume, ltime, seqMode, SND_ID_ERROR);
+        synthMasterFaderActiveFlags |= 1 << i;
+      }
+    }
+    return;
+
+  case SND_USERMUSIC_VOLGROUPS:
+    type = 2;
+    goto setup_type;
+
+  case SND_USERFX_VOLGROUPS:
+    type = 3;
+    goto setup_type;
+
+  case SND_MUSIC_VOLGROUPS:
+    type = 0;
+    goto setup_type;
+
+  case SND_FX_VOLGROUPS:
+    type = 1;
+    goto setup_type;
+
+  setup_type:
+    for (smf = synthMasterFader, i = 0; i < 32; ++i, ++smf) {
+      if (smf->type == type) {
+        SetupFader(smf, volume, ltime, seqMode, SND_ID_ERROR);
+        synthMasterFaderActiveFlags |= 1 << i;
+      }
+    }
+    return;
+
+  default:
+    SetupFader(&synthMasterFader[vGroup], volume, ltime, seqMode, seqId);
+    synthMasterFaderActiveFlags |= 1 << vGroup;
+    return;
+  }
+}
+
+u32 synthIsFadeOutActive(u8 vGroup) {
+  if (synthMasterFader[vGroup].type != 4 && (synthMasterFaderActiveFlags & (1 << vGroup)) != 0 &&
+      synthMasterFader[vGroup].start > synthMasterFader[vGroup].target) {
+    return TRUE;
+  }
+  return FALSE;
+}
+
+void synthPauseVolume(u8 volume, u16 time, u8 vGroup) {
+  u32 i;                 // r30
+  u32 ltime;             // r1+0x10
+  u8 type;               // r28
+  SYNTHMasterFader* smf; // r31
+
+  if (time == 0) {
+    ++time;
+  }
+  ltime = time & 0xffff;
+  sndConvertMs(&ltime);
+
+  switch (vGroup) {
+  case SND_ALL_VOLGROUPS:
+    for (smf = synthMasterFader, i = 0; i < 32; ++i, ++smf) {
+      if (synthMasterFader[i].type == 0 || synthMasterFader[i].type == 1) {
+        smf->pauseStart = smf->pauseVol;
+        smf->pauseTarget = (f32)volume * (1.f / 127.f);
+        smf->pauseTime = 1.f;
+        smf->pauseDeltaTime = 1280.f / (f32)ltime;
+        synthMasterFaderActiveFlags |= 1 << i;
+      }
+    }
+    return;
+
+  case SND_USERALL_VOLGROUPS:
+    for (smf = synthMasterFader, i = 0; i < 32; ++i, ++smf) {
+      if (synthMasterFader[i].type == 2 || synthMasterFader[i].type == 3) {
+        smf->pauseStart = smf->pauseVol;
+        smf->pauseTarget = (f32)volume * (1.f / 127.f);
+        smf->pauseTime = 1.f;
+        smf->pauseDeltaTime = 1280.f / (f32)ltime;
+        synthMasterFaderActiveFlags |= 1 << i;
+      }
+    }
+    return;
+
+  case SND_USERMUSIC_VOLGROUPS:
+    type = 2;
+    goto setup_type;
+
+  case SND_USERFX_VOLGROUPS:
+    type = 3;
+    goto setup_type;
+
+  case SND_MUSIC_VOLGROUPS:
+    type = 0;
+    goto setup_type;
+
+  case SND_FX_VOLGROUPS:
+    type = 1;
+    goto setup_type;
+
+  setup_type:
+    for (smf = synthMasterFader, i = 0; i < 32; ++i, ++smf) {
+      if (synthMasterFader[i].type == type) {
+        smf->pauseStart = smf->pauseVol;
+        smf->pauseTarget = (f32)volume * (1.f / 127.f);
+        smf->pauseTime = 1.f;
+        smf->pauseDeltaTime = 1280.f / (f32)ltime;
+        synthMasterFaderActiveFlags |= 1 << i;
+      }
+    }
+    return;
+
+  default:
+    smf = &synthMasterFader[vGroup];
+    smf->pauseStart = smf->pauseVol;
+    smf->pauseTarget = (f32)volume * (1.f / 127.f);
+    smf->pauseTime = 1.f;
+    smf->pauseDeltaTime = 1280.f / (f32)ltime;
+    synthMasterFaderActiveFlags |= 1 << vGroup;
+    return;
+  }
+}
+
+void synthSetMusicVolumeType(u8 vGroup, u8 type) {
+  if (sndActive) {
+    synthMasterFader[vGroup].type = type;
+  }
+}
+
+u32 synthHWMessageHandler(u32 mesg, u32 voiceID) {
+  u32 ret; // r30
+
+  ret = FALSE;
+
+  switch (mesg) {
+  case 0:
+    if (synthVoice[voiceID & 0xff].block != 0) {
+      break;
+    }
+    vsSampleEndNotify(hwGetVirtualSampleID(voiceID & 0xff));
+    if (voiceID != synthVoice[voiceID & 0xff].id) {
+      break;
+    }
+    macSampleEndNotify(&synthVoice[voiceID & 0xff]);
+    break;
+
+  case 1:
+    voiceKill(voiceID & 0xff);
+    break;
+
+  case 2:
+    ret = vsSampleStartNotify(voiceID);
+    break;
+
+  case 3:
+    vsSampleEndNotify(hwGetVirtualSampleID(voiceID & 0xff));
+    break;
+
+  default:
+#line 1975
+    MUSY_ASSERT(FALSE);
+    break;
+  }
+
+  return ret;
+}
+
+void synthInit(u32 mixFrq, u32 numVoices) {
+  u32 i; // r31
+
+  synthRealTime = 0;
+  synthInfo.mixFrq = mixFrq;
+  synthSetBpm(120, 255, 0);
+  synthFlags = 0;
+  synthMessageCallback = NULL;
+
+  synthVoice = salMalloc(numVoices * sizeof(SYNTH_VOICE));
+  if (synthVoice == NULL) {
+#line 2135
+    MUSY_FATAL("Fatal: Could not allocate synthesizer voice array.");
+  }
+  memset(synthVoice, 0, numVoices * sizeof(SYNTH_VOICE));
+
+  for (i = 0; i < numVoices; ++i) {
+    synthVoice[i].id = 0xffffffff;
+    synthVoice[i].cFlags = 0;
+    synthVoice[i].age = 0;
+    synthVoice[i].prio = 0;
+    synthVoice[i].midi = 0xff;
+    synthVoice[i].volume = 0;
+    synthVoice[i].volTable = 0;
+    synthVoice[i].revVolScale = 128;
+    synthVoice[i].revVolOffset = 0;
+    synthVoice[i].panning[0] = synthVoice[i].panTarget[0] = 0x400000;
+    synthVoice[i].panning[1] = synthVoice[i].panTarget[1] = 0;
+    synthVoice[i].sweepOff[0] = 0;
+    synthVoice[i].sweepOff[1] = 0;
+    synthVoice[i].sweepNum[0] = 0;
+    synthVoice[i].sweepNum[1] = 0;
+    synthVoice[i].block = 0;
+    synthVoice[i].vGroup = 23;
+    synthVoice[i].keyGroup = 0;
+    synthVoice[i].itdMode = 1;
+    synthVoice[i].lfo[0].period = 0;
+    synthVoice[i].lfo[0].value = 0;
+    synthVoice[i].lfo[0].lastValue = 0x7fff;
+    synthVoice[i].lfo[1].period = 0;
+    synthVoice[i].lfo[1].value = 0;
+    synthVoice[i].lfo[1].lastValue = 0x7fff;
+    synthVoice[i].portTime = 25600;
+    synthVoice[i].portType = 0;
+    synthVoice[i].studio = 0;
+    synthVoice[i].lowPrecisionJob.voice = i;
+    synthVoice[i].lowPrecisionJob.jobTabIndex = 0xff;
+    synthVoice[i].zeroOffsetJob.voice = i;
+    synthVoice[i].zeroOffsetJob.jobTabIndex = 0xff;
+    synthVoice[i].eventJob.voice = i;
+    synthVoice[i].eventJob.jobTabIndex = 0xff;
+  }
+
+  for (i = 0; i < 32; ++i) {
+    synthMasterFader[i].volume = 0.f;
+    synthMasterFader[i].pauseVol = 1.f;
+    synthMasterFader[i].type = 4;
+  }
+
+  synthMasterFaderActiveFlags = 0;
+  synthMasterFaderPauseActiveFlags = 0;
+  synthMasterFader[31].type = 1;
+
+  for (i = 0; i < 8; ++i) {
+    synthMasterFader[i + 23].type = 0;
+  }
+
+  synthMasterFader[21].volume = 1.f;
+  synthMasterFader[22].volume = 1.f;
+  inpInit(0);
+
+  for (i = 0; i < 8; ++i) {
+    synthAuxACallback[i] = NULL;
+    synthAuxAMIDI[i] = 0xff;
+    synthAuxBCallback[i] = NULL;
+    synthAuxBMIDI[i] = 0xff;
+    synthITDDefault[i].sfx = 0;
+    synthITDDefault[i].music = 0;
+  }
+
+  macInit();
+  vidInit();
+  synthInitAllocationAids();
+
+  for (i = 0; i < 16; ++i) {
+    synthGlobalVariable[i] = 0;
+  }
+
+  voiceInitLastStarted();
+  synthInitJobQueue();
+  hwSetMesgCallback(synthHWMessageHandler);
+}
+
+void synthExit() { salFree(synthVoice); }

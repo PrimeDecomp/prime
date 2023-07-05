@@ -1502,7 +1502,7 @@ sndStreamAllocStereo:
 /* 8039DD28 0039AC88  7C 08 02 A6 */	mflr r0
 /* 8039DD2C 0039AC8C  90 01 00 74 */	stw r0, 0x74(r1)
 /* 8039DD30 0039AC90  39 61 00 70 */	addi r11, r1, 0x70
-/* 8039DD34 0039AC94  4B FE BD 15 */	bl __save_gpr
+/* 8039DD34 0039AC94  4B FE BD 15 */	bl _savegpr_14
 /* 8039DD38 0039AC98  55 29 06 3E */	clrlwi r9, r9, 0x18
 /* 8039DD3C 0039AC9C  8A E1 00 7B */	lbz r23, 0x7b(r1)
 /* 8039DD40 0039ACA0  38 09 FF C0 */	addi r0, r9, -64
@@ -1686,7 +1686,7 @@ lbl_8039DFC4:
 /* 8039DFC8 0039AF28  7E 23 8B 78 */	mr r3, r17
 lbl_8039DFCC:
 /* 8039DFCC 0039AF2C  39 61 00 70 */	addi r11, r1, 0x70
-/* 8039DFD0 0039AF30  4B FE BA C5 */	bl __restore_gpr
+/* 8039DFD0 0039AF30  4B FE BA C5 */	bl _restgpr_14
 /* 8039DFD4 0039AF34  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 8039DFD8 0039AF38  7C 08 03 A6 */	mtlr r0
 /* 8039DFDC 0039AF3C  38 21 00 70 */	addi r1, r1, 0x70
