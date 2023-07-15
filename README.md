@@ -67,7 +67,7 @@ Building
   ```
   git clone https://github.com/PrimeDecomp/prime.git
   ```
-- Download [GC_WII_COMPILERS.zip](https://cdn.discordapp.com/attachments/727918646525165659/917185027656286218/GC_WII_COMPILERS.zip)
+- Download [GC_WII_COMPILERS.zip](https://cdn.discordapp.com/attachments/727918646525165659/1129759991696457728/GC_WII_COMPILERS.zip)
 - Extract the _contents_ of the `GC` directory to `tools/mwcc_compiler`.
   - Resulting structure should be (for example) `tools/mwcc_compiler/1.3.2/mwcceppc.exe`
 - Configure:

@@ -699,7 +699,7 @@ LIBS = [
     },
     {
         "lib": "ai",
-        "mw_version": "1.2.5e",
+        "mw_version": "1.2.5n",
         "cflags": "$cflags_base",
         "host": False,
         "objects": [
@@ -708,7 +708,7 @@ LIBS = [
     },
     {
         "lib": "ar",
-        "mw_version": "1.2.5e",
+        "mw_version": "1.2.5n",
         "cflags": "$cflags_base",
         "host": False,
         "objects": [
@@ -736,7 +736,7 @@ LIBS = [
     },
     {
         "lib": "dsp",
-        "mw_version": "1.2.5e",
+        "mw_version": "1.2.5n",
         "cflags": "$cflags_base",
         "host": False,
         "objects": [
@@ -747,7 +747,7 @@ LIBS = [
     },
     {
         "lib": "dvd",
-        "mw_version": "1.2.5e",
+        "mw_version": "1.2.5n",
         "cflags": "$cflags_base",
         "host": False,
         "objects": [
@@ -799,7 +799,7 @@ LIBS = [
     },
     {
         "lib": "os",
-        "mw_version": "1.2.5e",
+        "mw_version": "1.2.5n",
         "cflags": "$cflags_base",
         "host": False,
         "objects": [
@@ -809,7 +809,7 @@ LIBS = [
             ["Dolphin/os/OSArena", True],
             ["Dolphin/os/OSAudioSystem", True],
             ["Dolphin/os/OSCache", True],
-            ["Dolphin/os/OSContext", True, {"mw_version": "1.2.5"}],
+            ["Dolphin/os/OSContext", True],
             ["Dolphin/os/OSError", True],
             "Dolphin/os/OSFatal",
             "Dolphin/os/OSFont",
@@ -830,7 +830,7 @@ LIBS = [
     },
     {
         "lib": "pad",
-        "mw_version": "1.2.5e",
+        "mw_version": "1.2.5n",
         "cflags": "$cflags_base",
         "host": False,
         "objects": [
@@ -969,7 +969,7 @@ LIBS = [
         ],
     },
     {
-       "lib": "txwin",
+        "lib": "txwin",
         "mw_version": "1.2.5",
         "cflags": "-Cpp_exceptions off -proc gecko -fp hard -nodefaults -nosyspath -i include -i libc -g -sym on -D_DEBUG=1 -enum int ",
         "host": False,
@@ -988,7 +988,7 @@ LIBS = [
     },
     {
         "lib": "card",
-        "mw_version": "1.2.5e",
+        "mw_version": "1.2.5n",
         "cflags": "$cflags_base",
         "host": False,
         "objects": [
@@ -1012,7 +1012,7 @@ LIBS = [
     },
     {
         "lib": "si",
-        "mw_version": "1.2.5e",
+        "mw_version": "1.2.5n",
         "cflags": "$cflags_base",
         "host": False,
         "objects": [
@@ -1042,8 +1042,8 @@ LIBS = [
     },
     {
         "lib": "gba",
-        "mw_version": "1.2.5e",
-        #"cflags" : "-proc gecko -Cpp_exceptions off -fp hard -nodefaults -nosyspath -i include -i libc -g -sym on -D_DEBUG=1 -enum int -use_lmw_stmw on",
+        "mw_version": "1.2.5n",
+        # "cflags" : "-proc gecko -Cpp_exceptions off -fp hard -nodefaults -nosyspath -i include -i libc -g -sym on -D_DEBUG=1 -enum int -use_lmw_stmw on",
         "cflags": "$cflags_base",
         "host": False,
         "objects": [
@@ -1132,12 +1132,6 @@ if __name__ == "__main__":
         default=Path("build"),
         help="base build directory",
     )
-    parser.add_argument(
-        "--franklite",
-        dest="frank",
-        action="store_false",
-        help="use franklite.py instead of frank.py (non-matching)",
-    )
     args = parser.parse_args()
 
     # On Windows, we need this to use && in commands
@@ -1155,7 +1149,7 @@ if __name__ == "__main__":
     if os.name != "nt" and "DEVKITPPC" in os.environ and not args.devkitppc:
         configure_args.extend(["--devkitppc", os.environ["DEVKITPPC"]])
     n.variable("configure_args", configure_args)
-    n.variable("python", f"\"{sys.executable}\"")
+    n.variable("python", f'"{sys.executable}"')
     n.newline()
 
     ###
@@ -1185,8 +1179,6 @@ if __name__ == "__main__":
         cflags_base += " -sym on -D_DEBUG"
     else:
         cflags_base += " -DNDEBUG"
-    if args.frank:
-        cflags_base += " -DFULL_FRANK"
     n.variable("cflags_base", cflags_base)
     n.variable(
         "cflags_retro",
@@ -1205,12 +1197,12 @@ if __name__ == "__main__":
             map_path = build_path / "MetroidCWD.MAP"
         else:
             map_path = build_path / "MetroidCW.MAP"
-        
         ldflags += f" -map {map_path}"
     if args.debug:
         ldflags += " -g"
     n.variable("ldflags", ldflags)
-    n.variable("mw_version", "1.3.2")
+    mw_link_version = "1.3.2"
+    n.variable("mw_version", mw_link_version)
     if os.name == "nt":
         exe = ".exe"
         wine = ""
@@ -1283,20 +1275,9 @@ if __name__ == "__main__":
     compiler_path = args.compilers / "$mw_version"
     mwcc = compiler_path / "mwcceppc.exe"
     mwld = compiler_path / "mwldeppc.exe"
-    frank = tools_path / "frank.py"
-    franklite = tools_path / "franklite.py"
     gnu_as = dkp_path / "bin" / f"powerpc-eabi-as{exe}"
 
     mwcc_cmd = f"{chain}{wine}{mwcc} $cflags -MMD -c $in -o $basedir"
-    if args.frank:
-        profile_mwcc = args.compilers / "1.2.5e" / "mwcceppc.exe"
-        mwcc_frank_cmd = (
-            f"{chain}{wine}{mwcc} $cflags -MMD -c $in -o $basedir"
-            + f" && {wine}{profile_mwcc} $cflags -c $in -o $out.profile"
-            + f" && $python {frank} $out $out.profile $out"
-        )
-    else:
-        mwcc_frank_cmd = f"{mwcc_cmd} && $python {franklite} $out $out"
     mwld_cmd = f"{wine}{mwld} $ldflags -o $out @$out.rsp"
     as_cmd = (
         f"{chain}{gnu_as} $asflags -o $out $in -MD $out.d"
@@ -1308,7 +1289,6 @@ if __name__ == "__main__":
         transform_dep = tools_path / "transform-dep.py"
         transform_dep_cmd = f" && $python {transform_dep} $basefile.d $basefile.d"
         mwcc_cmd += transform_dep_cmd
-        mwcc_frank_cmd += transform_dep_cmd
 
     n.comment("Link ELF file")
     n.rule(
@@ -1325,16 +1305,6 @@ if __name__ == "__main__":
         name="mwcc",
         command=mwcc_cmd,
         description="MWCC $out",
-        depfile="$basefile.d",
-        deps="gcc",
-    )
-    n.newline()
-
-    n.comment("MWCC build with franklite")
-    n.rule(
-        name="mwcc_frank",
-        command=mwcc_frank_cmd,
-        description="FRANK $out",
         depfile="$basefile.d",
         deps="gcc",
     )
@@ -1392,6 +1362,7 @@ if __name__ == "__main__":
     source_inputs = []
     host_source_inputs = []
     link_inputs = []
+    used_compiler_versions = set()
     for lib in LIBS:
         inputs = []
         if "lib" in lib:
@@ -1415,6 +1386,8 @@ if __name__ == "__main__":
                 object = object[0]
 
             mw_version = options["mw_version"] or lib["mw_version"]
+            used_compiler_versions.add(mw_version)
+
             c_file = None
             if os.path.exists(src_path / f"{object}.cpp"):
                 c_file = src_path / f"{object}.cpp"
@@ -1425,13 +1398,6 @@ if __name__ == "__main__":
                     print(f"Mark as incomplete: {c_file}")
                 rule = "mwcc"
                 implicit = []
-                if mw_version == "1.2.5e":
-                    mw_version = "1.2.5"
-                    rule = "mwcc_frank"
-                    if args.frank:
-                        implicit.append(frank)
-                    else:
-                        implicit.append(franklite)
                 n.build(
                     outputs=path(build_src_path / f"{object}.o"),
                     rule=rule,
@@ -1481,6 +1447,19 @@ if __name__ == "__main__":
         else:
             link_inputs.extend(inputs)
         n.newline()
+
+    # Check if all compiler versions exist
+    for mw_version in used_compiler_versions:
+        mw_path = args.compilers / mw_version / "mwcceppc.exe"
+        if not os.path.exists(mw_path):
+            print(f"Compiler {mw_path} does not exist")
+            exit(1)
+
+    # Check if linker exists
+    mw_path = args.compilers / mw_link_version / "mwldeppc.exe"
+    if not os.path.exists(mw_path):
+        print(f"Linker {mw_path} does not exist")
+        exit(1)
 
     ###
     # Link
