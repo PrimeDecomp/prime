@@ -56,7 +56,7 @@ LIBS = [
             ["MetroidPrime/CExplosion", True],
             ["MetroidPrime/CEffect", True],
             "MetroidPrime/Cameras/CGameCamera",
-            "MetroidPrime/CGameArea",
+            ["MetroidPrime/CGameArea", False],
             "MetroidPrime/HUD/CSamusHud",
             ["MetroidPrime/CAnimationDatabaseGame", False],
             "MetroidPrime/CTransitionDatabaseGame",

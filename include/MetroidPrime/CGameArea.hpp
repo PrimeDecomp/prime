@@ -44,7 +44,7 @@ enum EChain {
 
 class Dock;
 class CToken;
-class IDvdRequest;
+class CDvdRequest;
 class CScriptAreaAttributes;
 class CWorldLight;
 class CPVSAreaSet;
@@ -117,7 +117,15 @@ public:
   void SetAreaAttributes(const CScriptAreaAttributes* areaAttributes);
   bool TryTakingOutOfARAM();
 
+  bool StartStreamingMainArea();
+
 private:
+  void AllocNewAreaData(int, int);
+  void CullDeadAreaRequests();
+  void VerifyHeader() const;
+  int GetNumPartSizes() const;
+
+
   enum EPhase {
     kP_LoadHeader,
     kP_LoadSecSizes,
@@ -145,7 +153,7 @@ private:
   bool xf0_27_loadPaused : 1;
   bool xf0_28_validated : 1;
   EPhase xf4_phase;
-  rstl::list< rstl::rc_ptr< IDvdRequest > > xf8_loadTransactions;
+  rstl::list< rstl::rc_ptr< CDvdRequest > > xf8_loadTransactions;
 
 public:
   enum EOcclusionState { kOS_Occluded, kOS_Visible };
@@ -160,6 +168,7 @@ public:
     const u8* x10d4_firstMatPtr;
     const CScriptAreaAttributes* x10d8_areaAttributes;
     EOcclusionState x10dc_occlusionState;
+    uchar x10e0_pad[0x60];
   };
 
   CAssetId GetAreaAssetId() const { return x84_mrea; }
@@ -171,9 +180,14 @@ public:
   const CPVSAreaSet* GetAreaVisSet() const { return x12c_postConstructed->xa0_pvs; }
 
 private:
-  uchar x110_pad[0x1c];
+  rstl::vector< rstl::pair< rstl::auto_ptr<char>, int> > x110_mreaSecBufs;
+  int x120_unk;
+  int x124_secCount;
+  int x128_mreaDataOffset;
   rstl::single_ptr< CPostConstructed > x12c_postConstructed;
 };
+
+NESTED_CHECK_SIZEOF(CGameArea, CPostConstructed, 0x1140)
 
 // CHECK_SIZEOF(CGamearea::CAreaFog, 0x38)
 
