@@ -36,7 +36,7 @@ public:
 class CGameArea;
 class CRelay;
 class CSoundGroupData;
-class IDvdRequest;
+class CDvdRequest;
 class IFactory;
 
 class CRelay {
@@ -115,7 +115,7 @@ private:
   CAssetId x24_mapwId;
   CMapWorld* x28_mapWorld;
   rstl::vector< CRelay > x2c_relays;
-  rstl::rc_ptr< IDvdRequest > x3c_loadToken;
+  rstl::rc_ptr< CDvdRequest > x3c_loadToken;
   rstl::single_ptr< uchar > x40_loadBuf;
   uint x44_bufSz;
   uint x48_chainCount;

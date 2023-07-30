@@ -9,6 +9,7 @@
 #include "Kyoto/IObjectStore.hpp"
 
 class CPakFile;
+class CARAMDvdRequest;
 
 struct SResInfo {
   CAssetId x0_id;
@@ -26,6 +27,8 @@ public:
   void AsyncIdlePakLoading();
   bool AreAllPaksLoaded() const;
   CInputStream* LoadNewResourceSync(const SObjectTag& tag, char* extBuf);
+  CARAMDvdRequest* LoadResourcePartAsync(const SObjectTag& tag, int, int, void*);
+
   FourCC GetResourceTypeById(CAssetId) const;
   uint ResourceSize(const SObjectTag& tag) const;
 
