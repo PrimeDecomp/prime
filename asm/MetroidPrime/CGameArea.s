@@ -2549,7 +2549,7 @@ lbl_8005FC4C:
 /* 8005FC88 0005CBE8  7C 64 1B 78 */	mr r4, r3
 lbl_8005FC8C:
 /* 8005FC8C 0005CBEC  38 7E 01 2C */	addi r3, r30, 0x12c
-/* 8005FC90 0005CBF0  48 00 04 41 */	bl sub_800600d0
+/* 8005FC90 0005CBF0  48 00 04 41 */	bl "Set__Q24rstl42single_ptr<Q29CGameArea16CPostConstructed>FPQ29CGameArea16CPostConstructed"
 /* 8005FC94 0005CBF4  38 00 00 01 */	li r0, 1
 /* 8005FC98 0005CBF8  90 1E 00 F4 */	stw r0, 0xf4(r30)
 /* 8005FC9C 0005CBFC  48 00 04 1C */	b lbl_800600B8
@@ -2847,8 +2847,8 @@ lbl_800600BC:
 /* 800600C8 0005D028  38 21 00 70 */	addi r1, r1, 0x70
 /* 800600CC 0005D02C  4E 80 00 20 */	blr
 
-.global sub_800600d0
-sub_800600d0:
+.global "Set__Q24rstl42single_ptr<Q29CGameArea16CPostConstructed>FPQ29CGameArea16CPostConstructed"
+"Set__Q24rstl42single_ptr<Q29CGameArea16CPostConstructed>FPQ29CGameArea16CPostConstructed":
 /* 800600D0 0005D030  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 800600D4 0005D034  7C 08 02 A6 */	mflr r0
 /* 800600D8 0005D038  90 01 00 14 */	stw r0, 0x14(r1)
@@ -3552,7 +3552,7 @@ lbl_80060A38:
 lbl_80060A58:
 /* 80060A58 0005D9B8  38 7D 01 2C */	addi r3, r29, 0x12c
 /* 80060A5C 0005D9BC  38 80 00 00 */	li r4, 0
-/* 80060A60 0005D9C0  4B FF F6 71 */	bl sub_800600d0
+/* 80060A60 0005D9C0  4B FF F6 71 */	bl "Set__Q24rstl42single_ptr<Q29CGameArea16CPostConstructed>FPQ29CGameArea16CPostConstructed"
 /* 80060A64 0005D9C4  38 00 00 00 */	li r0, 0
 /* 80060A68 0005D9C8  7F A3 EB 78 */	mr r3, r29
 /* 80060A6C 0005D9CC  90 1D 00 F4 */	stw r0, 0xf4(r29)
@@ -3578,7 +3578,7 @@ lbl_80060A9C:
 /* 80060AB4 0005DA14  4B FF EC F9 */	bl RemoveStaticGeometry__9CGameAreaFv
 /* 80060AB8 0005DA18  38 7D 01 2C */	addi r3, r29, 0x12c
 /* 80060ABC 0005DA1C  38 80 00 00 */	li r4, 0
-/* 80060AC0 0005DA20  4B FF F6 11 */	bl sub_800600d0
+/* 80060AC0 0005DA20  4B FF F6 11 */	bl "Set__Q24rstl42single_ptr<Q29CGameArea16CPostConstructed>FPQ29CGameArea16CPostConstructed"
 /* 80060AC4 0005DA24  88 1D 00 F0 */	lbz r0, 0xf0(r29)
 /* 80060AC8 0005DA28  38 80 00 00 */	li r4, 0
 /* 80060ACC 0005DA2C  50 80 3E 30 */	rlwimi r0, r4, 7, 0x18, 0x18

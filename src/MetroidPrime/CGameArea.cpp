@@ -5,6 +5,9 @@
 
 #define ROUND_UP_32(val) (((val) + 31) & ~31)
 
+CGameArea::CPostConstructed::CPostConstructed() {}
+CGameArea::CPostConstructed::~CPostConstructed() {}
+
 bool CGameArea::StartStreamingMainArea() {
   if (xf0_24_postConstructed)
     return false;
@@ -13,13 +16,13 @@ bool CGameArea::StartStreamingMainArea() {
   case kP_LoadHeader: {
     x110_mreaSecBufs.reserve(3);
     AllocNewAreaData(0, 96);
-    x12c_postConstructed = new CPostConstructed();
+    x12c_postConstructed.Set(new CPostConstructed());
     xf4_phase = kP_LoadSecSizes;
     break;
   }
   case kP_LoadSecSizes: {
     CullDeadAreaRequests();
-    if (xf8_loadTransactions.size())
+    if (!xf8_loadTransactions.empty())
       break;
     VerifyHeader();
     AllocNewAreaData(x110_mreaSecBufs[0].second, ROUND_UP_32(GetNumPartSizes() * 4));
@@ -28,7 +31,7 @@ bool CGameArea::StartStreamingMainArea() {
   }
   case kP_ReserveSections: {
     CullDeadAreaRequests();
-    if (xf8_loadTransactions.size() == 0) {
+    if (xf8_loadTransactions.empty()) {
       x110_mreaSecBufs.reserve(GetNumPartSizes() + 2);
       x124_secCount = 0;
       x128_mreaDataOffset = x110_mreaSecBufs[0].second + x110_mreaSecBufs[1].second;
@@ -39,8 +42,11 @@ bool CGameArea::StartStreamingMainArea() {
   case kP_LoadDataSections: {
     CullDeadAreaRequests();
 
-    uint totalSz = 0;
-    uint secCount = GetNumPartSizes();
+    int totalSz = 0;
+    int secCount = x124_secCount;
+    int partSizes = GetNumPartSizes();
+    SObjectTag tag('MREA', x84_mrea);
+
   //   for (uint i = 0; i < secCount; ++i)
   //     totalSz += CBasics::SwapBytes(reinterpret_cast<u32*>(x110_mreaSecBufs[1].first.get())[i]);
 
@@ -57,22 +63,38 @@ bool CGameArea::StartStreamingMainArea() {
   //     curOff += size;
   //   }
 
-    SObjectTag tag('MREA', x84_mrea);
-    void* buf = CMemory::Alloc(totalSz, IAllocator::kHI_RoundUpLen);
+    int dif = partSizes - secCount;
+    int targetSecCount = secCount;
+    for (int i = secCount; i < partSizes; ++i) {
+      int size = x110_mreaSecBufs[i].second;
+      if (targetSecCount != secCount && 0x10000 < size + totalSz)
+        break;
+      totalSz += size;
+      targetSecCount += 1;
+    }
+
+    rstl::auto_ptr<char> buf = (char*) CMemory::Alloc(totalSz, IAllocator::kHI_RoundUpLen);
     xf8_loadTransactions.push_back(
-      rstl::rc_ptr< CDvdRequest >(gpResourceFactory->GetResLoader().LoadResourcePartAsync(tag, x128_mreaDataOffset, totalSz, buf))
+      rstl::rc_ptr< CDvdRequest >(gpResourceFactory->GetResLoader().LoadResourcePartAsync(tag, x128_mreaDataOffset, totalSz, buf.get()))
     );
     x128_mreaDataOffset += totalSz;
-    // x110_mreaSecBufs.push_back(buf);
+    x110_mreaSecBufs.push_back(rstl::pair< rstl::auto_ptr<char>, int>( buf, 0 ));
 
-    xf4_phase = kP_WaitForFinish;
+    for (int i = secCount + 1; i < targetSecCount; ++i) {
+      x110_mreaSecBufs.push_back(rstl::pair< rstl::auto_ptr<char>, int>( nullptr, 0 ));
+    }
+    x124_secCount = targetSecCount;
+    if (targetSecCount == partSizes) {
+      x120_unk = x128_mreaDataOffset;
+      xf4_phase = kP_WaitForFinish;
+    }
     break;
   }
   case kP_WaitForFinish: {
     CullDeadAreaRequests();
-    if (xf8_loadTransactions.size())
-      break;
-    return false;
+    if (xf8_loadTransactions.empty())
+      return false;
+    break;
   }
   default:
     break;
