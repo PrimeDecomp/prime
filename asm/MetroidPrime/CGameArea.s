@@ -29,8 +29,8 @@ lbl_803DA234:
 	.4byte IGetNumAttachedAreas__9CGameAreaCFv
 	.4byte IGetAttachedAreaId__9CGameAreaCFi
 	.4byte IIsActive__9CGameAreaCFv
-	.4byte IGetAreaAssetID__9CGameAreaCFv
-	.4byte IGetAreaId__9CGameAreaCFv
+	.4byte IGetAreaAssetId__9CGameAreaCFv
+	.4byte IGetAreaSaveId__9CGameAreaCFv
 	.4byte IGetScriptingMemoryAlways__9CGameAreaCFv
 
 .global lbl_803DA260
@@ -1237,13 +1237,13 @@ IGetScriptingMemoryAlways__9CGameAreaCFv:
 /* 8005EB20 0005BA80  38 21 00 10 */	addi r1, r1, 0x10
 /* 8005EB24 0005BA84  4E 80 00 20 */	blr
 
-.global IGetAreaId__9CGameAreaCFv
-IGetAreaId__9CGameAreaCFv:
+.global IGetAreaSaveId__9CGameAreaCFv
+IGetAreaSaveId__9CGameAreaCFv:
 /* 8005EB28 0005BA88  80 63 00 88 */	lwz r3, 0x88(r3)
 /* 8005EB2C 0005BA8C  4E 80 00 20 */	blr
 
-.global IGetAreaAssetID__9CGameAreaCFv
-IGetAreaAssetID__9CGameAreaCFv:
+.global IGetAreaAssetId__9CGameAreaCFv
+IGetAreaAssetId__9CGameAreaCFv:
 /* 8005EB30 0005BA90  80 63 00 84 */	lwz r3, 0x84(r3)
 /* 8005EB34 0005BA94  4E 80 00 20 */	blr
 
