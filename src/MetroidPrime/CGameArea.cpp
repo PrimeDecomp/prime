@@ -1,12 +1,41 @@
 #include "MetroidPrime/CGameArea.hpp"
 
-#include "Kyoto/CResFactory.hpp"
 #include "Kyoto/CDvdRequest.hpp"
+#include "Kyoto/CResFactory.hpp"
+
 
 #define ROUND_UP_32(val) (((val) + 31) & ~31)
 
+rstl::pair< rstl::auto_ptr< uchar >, int > GetScriptingMemoryAlways(const IGameArea& area) {
+  SObjectTag tag('MREA', area.IGetAreaAssetId());
+
+  rstl::auto_ptr< char > buf = new char[0x60];
+  CInputStream* resource = gpResourceFactory->GetResLoader().LoadNewResourceSync(tag, 0, 0x60, buf.get());
+  if (!resource || *(uint*)(buf.get()) != 0xdeadbeef) {
+    return rstl::pair< rstl::auto_ptr< uchar >, int >(nullptr, 0);
+  }
+}
+
 CGameArea::CPostConstructed::CPostConstructed() {}
 CGameArea::CPostConstructed::~CPostConstructed() {}
+
+const CTransform4f& CGameArea::IGetTM() const { return xc_transform; }
+
+CAssetId CGameArea::IGetStringTableAssetId() const { return x8_nameSTRG; }
+
+uint CGameArea::IGetNumAttachedAreas() const { return x8c_attachedAreaIndices.size(); }
+
+TAreaId CGameArea::IGetAttachedAreaId(int i) const { return x8c_attachedAreaIndices[i]; }
+
+bool CGameArea::IIsActive() const { return xf0_25_active; }
+
+CAssetId CGameArea::IGetAreaAssetId() const { return x84_mrea; }
+
+int CGameArea::IGetAreaSaveId() const { return x88_areaId; }
+
+rstl::pair< rstl::auto_ptr< uchar >, int > CGameArea::IGetScriptingMemoryAlways() const {
+  return GetScriptingMemoryAlways(*this);
+}
 
 bool CGameArea::StartStreamingMainArea() {
   if (xf0_24_postConstructed)
@@ -47,21 +76,23 @@ bool CGameArea::StartStreamingMainArea() {
     int partSizes = GetNumPartSizes();
     SObjectTag tag('MREA', x84_mrea);
 
-  //   for (uint i = 0; i < secCount; ++i)
-  //     totalSz += CBasics::SwapBytes(reinterpret_cast<u32*>(x110_mreaSecBufs[1].first.get())[i]);
+    //   for (uint i = 0; i < secCount; ++i)
+    //     totalSz +=
+    //     CBasics::SwapBytes(reinterpret_cast<u32*>(x110_mreaSecBufs[1].first.get())[i]);
 
-  //   AllocNewAreaData(x128_mreaDataOffset, totalSz);
+    //   AllocNewAreaData(x128_mreaDataOffset, totalSz);
 
-  //   m_resolvedBufs.reserve(secCount);
-  //   m_resolvedBufs.emplace_back(x110_mreaSecBufs[0].first.get(), x110_mreaSecBufs[0].second);
-  //   m_resolvedBufs.emplace_back(x110_mreaSecBufs[1].first.get(), x110_mreaSecBufs[1].second);
+    //   m_resolvedBufs.reserve(secCount);
+    //   m_resolvedBufs.emplace_back(x110_mreaSecBufs[0].first.get(), x110_mreaSecBufs[0].second);
+    //   m_resolvedBufs.emplace_back(x110_mreaSecBufs[1].first.get(), x110_mreaSecBufs[1].second);
 
-  //   uint curOff = 0;
-  //   for (uint i = 0; i < secCount; ++i) {
-  //     uint size = CBasics::SwapBytes(reinterpret_cast<u32*>(x110_mreaSecBufs[1].first.get())[i]);
-  //     m_resolvedBufs.emplace_back(x110_mreaSecBufs[2].first.get() + curOff, size);
-  //     curOff += size;
-  //   }
+    //   uint curOff = 0;
+    //   for (uint i = 0; i < secCount; ++i) {
+    //     uint size =
+    //     CBasics::SwapBytes(reinterpret_cast<u32*>(x110_mreaSecBufs[1].first.get())[i]);
+    //     m_resolvedBufs.emplace_back(x110_mreaSecBufs[2].first.get() + curOff, size);
+    //     curOff += size;
+    //   }
 
     int dif = partSizes - secCount;
     int targetSecCount = secCount;
@@ -73,15 +104,15 @@ bool CGameArea::StartStreamingMainArea() {
       targetSecCount += 1;
     }
 
-    rstl::auto_ptr<char> buf = (char*) CMemory::Alloc(totalSz, IAllocator::kHI_RoundUpLen);
+    rstl::auto_ptr< char > buf = (char*)CMemory::Alloc(totalSz, IAllocator::kHI_RoundUpLen);
     xf8_loadTransactions.push_back(
-      rstl::rc_ptr< CDvdRequest >(gpResourceFactory->GetResLoader().LoadResourcePartAsync(tag, x128_mreaDataOffset, totalSz, buf.get()))
-    );
+        rstl::rc_ptr< CDvdRequest >(gpResourceFactory->GetResLoader().LoadResourcePartAsync(
+            tag, x128_mreaDataOffset, totalSz, buf.get())));
     x128_mreaDataOffset += totalSz;
-    x110_mreaSecBufs.push_back(rstl::pair< rstl::auto_ptr<char>, int>( buf, 0 ));
+    x110_mreaSecBufs.push_back(rstl::pair< rstl::auto_ptr< char >, int >(buf, 0));
 
     for (int i = secCount + 1; i < targetSecCount; ++i) {
-      x110_mreaSecBufs.push_back(rstl::pair< rstl::auto_ptr<char>, int>( nullptr, 0 ));
+      x110_mreaSecBufs.push_back(rstl::pair< rstl::auto_ptr< char >, int >(nullptr, 0));
     }
     x124_secCount = targetSecCount;
     if (targetSecCount == partSizes) {

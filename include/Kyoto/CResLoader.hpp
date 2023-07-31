@@ -27,6 +27,7 @@ public:
   void AsyncIdlePakLoading();
   bool AreAllPaksLoaded() const;
   CInputStream* LoadNewResourceSync(const SObjectTag& tag, char* extBuf);
+  CInputStream* LoadNewResourceSync(const SObjectTag& tag, int, int, char* extBuf);
   CARAMDvdRequest* LoadResourcePartAsync(const SObjectTag& tag, int, int, char*);
 
   FourCC GetResourceTypeById(CAssetId) const;
