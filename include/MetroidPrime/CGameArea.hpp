@@ -122,7 +122,7 @@ public:
 private:
   void AllocNewAreaData(int, int);
   void CullDeadAreaRequests();
-  void VerifyHeader() const;
+  int VerifyHeader() const;
   int GetNumPartSizes() const;
 
 
@@ -169,6 +169,9 @@ public:
     const CScriptAreaAttributes* x10d8_areaAttributes;
     EOcclusionState x10dc_occlusionState;
     uchar x10e0_pad[0x60];
+
+    CPostConstructed();
+    ~CPostConstructed();
   };
 
   CAssetId GetAreaAssetId() const { return x84_mrea; }

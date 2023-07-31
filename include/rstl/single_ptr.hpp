@@ -30,7 +30,16 @@ public:
     x0_ptr = nullptr;
     return ptr;
   }
+
+  // This is certainly not real, but handy to force not-inline
+  single_ptr& Set(T* ptr);
 };
+
+
+template < typename T >
+single_ptr< T >& single_ptr< T >::Set(T* ptr) {
+  return *this = ptr;
+}
 
 typedef single_ptr< void > unk_singleptr;
 CHECK_SIZEOF(unk_singleptr, 0x4);
