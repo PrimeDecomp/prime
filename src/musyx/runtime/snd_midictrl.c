@@ -387,7 +387,6 @@ u8 inpGetMidiLastNote(u8 midi, u8 midiSet) {
   return fx_lastNote[midi];
 }
 
-#pragma dont_inline on
 static u16 _GetInputValue(SYNTH_VOICE* svoice, CTRL_DEST* inp, u8 midi, u8 midiSet) {
   u32 i;     // r26
   u32 value; // r29
@@ -447,8 +446,6 @@ static u16 _GetInputValue(SYNTH_VOICE* svoice, CTRL_DEST* inp, u8 midi, u8 midiS
   return value;
 }
 
-#pragma dont_inline reset
-
 static u16 GetInputValue(SYNTH_VOICE* svoice, CTRL_DEST* inp, u32 dirtyMask) {
 
   if (!(svoice->midiDirtyFlags & dirtyMask)) {
@@ -501,13 +498,12 @@ u16 inpGetTremolo(SYNTH_VOICE* svoice) {
   return GetInputValue(svoice, &svoice->inpTremolo, 0x1000);
 }
 
-u16 inpGetAuxB(u8 studio, u8 index, u8 midi, u8 midiSet) {
+u16 inpGetAuxA(u8 studio, u8 index, u8 midi, u8 midiSet) {
   static u32 dirtyMask[4] = {0x80000001, 0x80000002, 0x80000004, 0x80000008};
-
   return GetGlobalInputValue(&inpAuxA[studio][index], dirtyMask[index], midi, midiSet);
 }
 
-u16 inpGetAuxA(u8 studio, u8 index, u8 midi, u8 midiSet) {
+u16 inpGetAuxB(u8 studio, u8 index, u8 midi, u8 midiSet) {
   static u32 dirtyMask[4] = {0x80000010, 0x80000020, 0x80000040, 0x80000080};
 
   return GetGlobalInputValue(&inpAuxB[studio][index], dirtyMask[index], midi, midiSet);

@@ -921,8 +921,8 @@ LIBS = [
         "lib": "musyx",
 
         ### MusyX 1.5.3 (debug)
-        # "mw_version": "1.2.5",
-        # "cflags": "-proc gecko -fp hard -nodefaults -nosyspath -i include -i libc -g -sym on -D_DEBUG=1 -enum int -DMUSY_VERSION_MAJOR=1 -DMUSY_VERSION_MINOR=5 -DMUSY_VERSION_PATCH=3",
+        #"mw_version": "1.2.5",
+        #"cflags": "-proc gecko -fp hard -nodefaults -nosyspath -i include -i libc -g -sym on -D_DEBUG=1 -enum int -DMUSY_VERSION_MAJOR=1 -DMUSY_VERSION_MINOR=5 -DMUSY_VERSION_PATCH=3",
 
         ### MusyX 2.0.3 (debug)
         # "mw_version": "1.3.2",
