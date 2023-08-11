@@ -1063,6 +1063,7 @@ if __name__ == "__main__":
     import io
     import sys
     import argparse
+    import json
 
     from pathlib import Path
     from shutil import which
@@ -1163,8 +1164,7 @@ if __name__ == "__main__":
         version_num = args.version
     else:
         sys.exit(f'Invalid version "{args.version}"')
-    n.variable("out", args.build_dir / f"mp1.{version}")
-    build_path = Path("$out")
+    build_path = args.build_dir / f"mp1.{version}"
     if args.devkitppc:
         dkp_path = args.devkitppc
     elif os.name == "nt":
@@ -1359,6 +1359,24 @@ if __name__ == "__main__":
     build_asm_path = build_path / "asm"
     build_lib_path = build_path / "lib"
 
+    build_asm_path.mkdir(parents=True, exist_ok=True)
+    build_src_path.mkdir(parents=True, exist_ok=True)
+    objdiff_config = {
+        "custom_make": "ninja",
+        "target_dir": str(build_asm_path),
+        "base_dir": str(build_src_path),
+        "build_target": True,
+        "watch_patterns": [
+            "*.c",
+            "*.cp",
+            "*.cpp",
+            "*.h",
+            "*.hpp",
+            "*.py",
+        ],
+        "units": [],
+    }
+
     source_inputs = []
     host_source_inputs = []
     link_inputs = []
@@ -1385,6 +1403,7 @@ if __name__ == "__main__":
                     options.update(object[2])
                 object = object[0]
 
+            cflags = options["cflags"] or lib["cflags"]
             mw_version = options["mw_version"] or lib["mw_version"]
             used_compiler_versions.add(mw_version)
 
@@ -1396,19 +1415,16 @@ if __name__ == "__main__":
             if c_file is not None:
                 if completed is None:
                     print(f"Mark as incomplete: {c_file}")
-                rule = "mwcc"
-                implicit = []
                 n.build(
                     outputs=path(build_src_path / f"{object}.o"),
-                    rule=rule,
+                    rule="mwcc",
                     inputs=path(c_file),
                     variables={
                         "mw_version": mw_version,
-                        "cflags": options["cflags"] or lib["cflags"],
+                        "cflags": cflags,
                         "basedir": os.path.dirname(build_src_path / f"{object}"),
                         "basefile": path(build_src_path / f"{object}"),
                     },
-                    implicit=path(implicit),
                 )
                 if lib["host"]:
                     n.build(
@@ -1424,6 +1440,14 @@ if __name__ == "__main__":
                         host_source_inputs.append(build_host_path / f"{object}.o")
                 if options["add_to_all"]:
                     source_inputs.append(build_src_path / f"{object}.o")
+
+                objdiff_config["units"].append(
+                    {
+                        "name": object,
+                        "path": f"{object}.o",
+                        "reverse_fn_order": "deferred" in cflags,
+                    }
+                )
             if os.path.exists(asm_path / f"{object}.s"):
                 n.build(
                     outputs=path(build_asm_path / f"{object}.o"),
@@ -1586,6 +1610,15 @@ if __name__ == "__main__":
     else:
         n.default(path([dol_out]))
 
+    ###
+    # Write build.ninja
+    ###
     with open("build.ninja", "w") as f:
         f.write(out.getvalue())
     n.close()
+
+    ###
+    # Write objdiff config
+    ###
+    with open("objdiff.json", "w") as w:
+        json.dump(objdiff_config, w, indent=4)
