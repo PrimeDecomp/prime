@@ -1872,11 +1872,12 @@ lbl_803A24D0:
 /* 803A24E4 0039F444  38 21 00 10 */	addi r1, r1, 0x10
 /* 803A24E8 0039F448  4E 80 00 20 */	blr
 
-maccmp:
+.fn maccmp, local
 /* 803A24EC 0039F44C  A0 84 00 04 */	lhz r4, 4(r4)
 /* 803A24F0 0039F450  A0 03 00 04 */	lhz r0, 4(r3)
 /* 803A24F4 0039F454  7C 64 00 50 */	subf r3, r4, r0
 /* 803A24F8 0039F458  4E 80 00 20 */	blr
+.endfn maccmp
 
 .global dataGetMacro
 dataGetMacro:
@@ -1918,11 +1919,12 @@ lbl_803A2578:
 /* 803A2580 0039F4E0  38 21 00 10 */	addi r1, r1, 0x10
 /* 803A2584 0039F4E4  4E 80 00 20 */	blr
 
-smpcmp:
+.fn smpcmp, local
 /* 803A2588 0039F4E8  A0 84 00 00 */	lhz r4, 0(r4)
 /* 803A258C 0039F4EC  A0 03 00 00 */	lhz r0, 0(r3)
 /* 803A2590 0039F4F0  7C 64 00 50 */	subf r3, r4, r0
 /* 803A2594 0039F4F4  4E 80 00 20 */	blr
+.endfn smpcmp
 
 .global dataGetSample
 dataGetSample:
@@ -2006,11 +2008,12 @@ lbl_803A26A8:
 /* 803A26B8 0039F618  38 21 00 20 */	addi r1, r1, 0x20
 /* 803A26BC 0039F61C  4E 80 00 20 */	blr
 
-curvecmp:
+.fn curvecmp, local
 /* 803A26C0 0039F620  A0 84 00 04 */	lhz r4, 4(r4)
 /* 803A26C4 0039F624  A0 03 00 04 */	lhz r0, 4(r3)
 /* 803A26C8 0039F628  7C 64 00 50 */	subf r3, r4, r0
 /* 803A26CC 0039F62C  4E 80 00 20 */	blr
+.endfn curvecmp
 
 .global dataGetCurve
 dataGetCurve:
@@ -2068,11 +2071,12 @@ lbl_803A2778:
 /* 803A2780 0039F6E0  38 21 00 10 */	addi r1, r1, 0x10
 /* 803A2784 0039F6E4  4E 80 00 20 */	blr
 
-layercmp:
+.fn layercmp, local
 /* 803A2788 0039F6E8  A0 84 00 04 */	lhz r4, 4(r4)
 /* 803A278C 0039F6EC  A0 03 00 04 */	lhz r0, 4(r3)
 /* 803A2790 0039F6F0  7C 64 00 50 */	subf r3, r4, r0
 /* 803A2794 0039F6F4  4E 80 00 20 */	blr
+.endfn layercmp
 
 .global dataGetLayer
 dataGetLayer:
@@ -2110,11 +2114,12 @@ lbl_803A2800:
 /* 803A280C 0039F76C  38 21 00 10 */	addi r1, r1, 0x10
 /* 803A2810 0039F770  4E 80 00 20 */	blr
 
-fxcmp:
+.fn fxcmp, local
 /* 803A2814 0039F774  A0 84 00 00 */	lhz r4, 0(r4)
 /* 803A2818 0039F778  A0 03 00 00 */	lhz r0, 0(r3)
 /* 803A281C 0039F77C  7C 64 00 50 */	subf r3, r4, r0
 /* 803A2820 0039F780  4E 80 00 20 */	blr
+.endfn fxcmp
 
 .global dataGetFX
 dataGetFX:

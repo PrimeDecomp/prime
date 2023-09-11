@@ -231,13 +231,13 @@ void CARAMToken::MakeInvalid() {
   x10_dmaHandle = CARAMManager::GetInvalidDMAHandle();
 }
 
-void* CARAMToken::sub_803583d4() {
+void* CARAMToken::ForceSyncMRAM() {
   void* ptr = GetMRAMSafe();
   MakeInvalid();
   return ptr;
 }
 
-void CARAMToken::sub_80358388() {
+void CARAMToken::ForceSyncARAM() {
   if (x0_status >= kS_Two && x0_status <= kS_Five) {
     CARAMManager::WaitForDMACompletion(x10_dmaHandle);
     RefreshStatus();
