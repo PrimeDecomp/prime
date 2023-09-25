@@ -27,6 +27,11 @@ public:
 
   CParticleData(CInputStream& in);
 
+  int GetDuration() const { return x0_duration; }
+  const rstl::string& GetLocatorName() const { return xc_boneName; }
+  float GetScale() const { return x1c_scale; }
+  EParentedMode GetParentedMode() const { return x20_parentMode; }
+
 private:
   int x0_duration;
   SObjectTag x4_particle;
