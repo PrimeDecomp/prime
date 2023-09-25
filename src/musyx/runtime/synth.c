@@ -1232,7 +1232,7 @@ void synthSetMusicVolumeType(u8 vGroup, u8 type) {
   }
 }
 
-u32 synthHWMessageHandler(u32 mesg, u32 voiceID) {
+static u32 synthHWMessageHandler(u32 mesg, u32 voiceID) {
   u32 ret; // r30
 
   ret = FALSE;
