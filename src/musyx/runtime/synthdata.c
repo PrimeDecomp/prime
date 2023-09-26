@@ -15,32 +15,33 @@ static MAC_SUBTAB dataMacSubTabmem[2048];
 static u16 dataFXGroupNum = 0;
 static FX_GROUP dataFXGroups[128];
 
+// #line 94
 u32 dataInsertKeymap(u16 cid, void* keymapdata) {
   long i; // r31
   long j; // r29
 
   hwDisableIrq();
-  for (i = 0; i < dataKeymapNum && dataKeymapTab[i].id < cid; ++i);
+
+  for (i = 0; i < dataKeymapNum && dataKeymapTab[i].id < cid; ++i)
+    ;
 
   if (i < dataKeymapNum) {
-    if (cid == dataKeymapTab[i].id) {
+    if (cid != dataKeymapTab[i].id) {
+      if (dataKeymapNum < 256) {
+        for (j = dataKeymapNum - 1; j >= i; --j) {
+          dataKeymapTab[j + 1] = dataKeymapTab[j];
+        }
+        ++dataKeymapNum;
+      } else {
+        hwEnableIrq();
+        return 0;
+      }
+    } else {
       dataKeymapTab[i].refCount++;
       hwEnableIrq();
       return 0;
     }
-
-    if (256 < dataKeymapNum) {
-      hwEnableIrq();
-      return 0;
-    }
-
-    j = dataKeymapNum;
-    for (j = dataKeymapNum; i <= j; --j) {
-      dataKeymapTab[j].id = dataKeymapTab[j - 1].id;
-      dataKeymapTab[j].refCount = dataKeymapTab[j - 1].refCount;
-      dataKeymapTab[j].data = dataKeymapTab[j - 1].data;
-    }
-  } else if (256 < dataKeymapNum) {
+  } else if (dataKeymapNum < 256) {
     hwEnableIrq();
     return 0;
   }

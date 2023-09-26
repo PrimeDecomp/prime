@@ -1734,7 +1734,7 @@ lbl_803AFE48:
 /* 803AFE54 003ACDB4  38 21 00 10 */	addi r1, r1, 0x10
 /* 803AFE58 003ACDB8  4E 80 00 20 */	blr
 
-AddStartingEmitter:
+.fn AddStartingEmitter, local
 /* 803AFE5C 003ACDBC  88 CD AF 62 */	lbz r6, startGroupNum@sda21(r13)
 /* 803AFE60 003ACDC0  3C 80 80 56 */	lis r4, startGroup@ha
 /* 803AFE64 003ACDC4  38 A4 F9 90 */	addi r5, r4, startGroup@l
@@ -1828,8 +1828,9 @@ lbl_803AFF6C:
 /* 803AFF9C 003ACEFC  D0 84 00 10 */	stfs f4, 0x10(r4)
 /* 803AFFA0 003ACF00  D0 24 00 04 */	stfs f1, 4(r4)
 /* 803AFFA4 003ACF04  4E 80 00 20 */	blr
+.endfn AddStartingEmitter
 
-StartContinousEmitters:
+.fn StartContinousEmitters, local
 /* 803AFFA8 003ACF08  94 21 FF 80 */	stwu r1, -0x80(r1)
 /* 803AFFAC 003ACF0C  7C 08 02 A6 */	mflr r0
 /* 803AFFB0 003ACF10  90 01 00 84 */	stw r0, 0x84(r1)
@@ -2094,6 +2095,7 @@ lbl_803B031C:
 /* 803B034C 003AD2AC  7C 08 03 A6 */	mtlr r0
 /* 803B0350 003AD2B0  38 21 00 80 */	addi r1, r1, 0x80
 /* 803B0354 003AD2B4  4E 80 00 20 */	blr
+.endfn StartContinousEmitters
 
 .global s3dHandle
 s3dHandle:
