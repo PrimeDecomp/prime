@@ -1001,6 +1001,7 @@ typedef struct STREAM_INFO {
   u32 flags;
   u8 state;
   u8 type;
+  /* These were moved to near the start of the structure in later versions */
 #if MUSY_VERSION >= MUSY_VERSION_CHECK(1, 5, 4)
   u8 hwStreamHandle;
   u8 lastPSFromBuffer;
@@ -1034,7 +1035,10 @@ typedef struct STREAM_INFO {
 #endif
 } STREAM_INFO;
 
+#if MUSY_VERSION >= MUSY_VERSION_CHECK(1, 5, 4)
 void streamOutputModeChanged();
+#endif
+
 u8 inpTranslateExCtrl(u8 ctrl);
 void inpSetGlobalMIDIDirtyFlag(u8 chan, u8 midiSet, s32 flag);
 void inpAddCtrl(CTRL_DEST* dest, u8 ctrl, s32 scale, u8 comb, u32 isVar);
