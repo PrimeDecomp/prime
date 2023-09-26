@@ -34,29 +34,6 @@ static u32 F72(u32 crc, u32 src, vu8* keyp) {
   return crc;
 }
 
-/*
-.fn F95, local
-  lbz r5, 0x4(keyp)
-  lbz r0, 0x11(keyp)
-  lbz r7, 0x1(keyp)
-  slw r6, r5, r0
-  lbz r5, 0x4(keyp)
-  lbz r0, 0x18(keyp)
-  or r6, r7, r6
-  lbz r8, 0x3(keyp)
-  slw r0, r5, r0
-  lbz r7, 0x16(keyp)
-  or r0, r6, r0
-  lbz r6, 0x6(keyp)
-  slw r5, r8, r7
-  lbz r4, 0x7(keyp)
-  or r0, r5, r0
-  mullw r0, src, r0
-  subf src, r6, r4
-  subf src, src, r0
-  blr
-.endfn F95
-*/
 static u32 F95(u32 src, vu8* keyp) {
   src = (src * ((keyp[3] << keyp[0x16]) | ((keyp[1] | (keyp[4] << keyp[0x11])) | (keyp[4] << keyp[0x18])))) - (keyp[7] - keyp[6]);
   return src;
