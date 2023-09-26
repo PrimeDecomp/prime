@@ -726,7 +726,7 @@ static void synthInitJobQueue() {
   synthJobTableIndex = 0;
 }
 
-void synthAddJob(SYNTH_VOICE* svoice, SYNTH_JOBTYPE jobType, u32 deltaTime) {
+static void synthAddJob(SYNTH_VOICE* svoice, SYNTH_JOBTYPE jobType, u32 deltaTime) {
   SYNTH_QUEUE* newJq;   // r31
   SYNTH_QUEUE** root;   // r30
   u8 jobTabIndex;       // r29
@@ -803,7 +803,7 @@ void synthForceLowPrecisionUpdate(SYNTH_VOICE* svoice) {
 
 void synthKeyStateUpdate(SYNTH_VOICE* svoice) { synthAddJob(svoice, SYNTH_JOBTYPE_EVENT, 0); }
 
-void HandleJobQueue(SYNTH_QUEUE** queueRoot, void (*handler)(u32)) {
+static void HandleJobQueue(SYNTH_QUEUE** queueRoot, void (*handler)(u32)) {
   SYNTH_QUEUE* jq;     // r31
   SYNTH_QUEUE* nextJq; // r30
 
@@ -820,7 +820,7 @@ void HandleJobQueue(SYNTH_QUEUE** queueRoot, void (*handler)(u32)) {
   *queueRoot = NULL;
 }
 
-void HandleVoices() {
+static void HandleVoices() {
   SYNTH_JOBTAB* jTab = &synthJobTable[synthJobTableIndex]; // r31
   HandleJobQueue(&jTab->lowPrecision, LowPrecisionHandler);
   HandleJobQueue(&jTab->event, EventHandler);
@@ -828,7 +828,7 @@ void HandleVoices() {
   synthJobTableIndex = synthJobTableIndex + 1 & 0x1f;
 }
 
-void HandleFaderTermination(SYNTHMasterFader* smf) {
+static void HandleFaderTermination(SYNTHMasterFader* smf) {
   switch (smf->seqMode) {
   case 1:
     seqStop(smf->seqId);
@@ -1001,7 +1001,7 @@ void synthFXCloneMidiSetup(SYNTH_VOICE* dest, SYNTH_VOICE* src) {
   inpFXCopyCtrl(SND_MIDICTRL_DOPPLER, dest, src);
 }
 
-bool synthFXVolume(u32 vid, u8 vol) {
+static bool synthFXVolume(u32 vid, u8 vol) {
   u32 i;   // r31
   u32 ret; // r29
 
@@ -1065,7 +1065,7 @@ u16 synthGetVolume(u32 vid) {
   return 0;
 }
 
-void SetupFader(SYNTHMasterFader* smf, u8 volume, u32 time, u8 seqMode, u32 seqId) {
+static void SetupFader(SYNTHMasterFader* smf, u8 volume, u32 time, u8 seqMode, u32 seqId) {
   smf->seqMode = seqMode;
   smf->seqId = seqId;
   if (time != 0) {

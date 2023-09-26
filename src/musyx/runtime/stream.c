@@ -5,9 +5,9 @@
 #endif
 
 static STREAM_INFO streamInfo[64];
-u8 streamCallCnt = 0;
-u8 streamCallDelay = 0;
 u32 nextPublicID = 0;
+u8 streamCallDelay = 0;
+u8 streamCallCnt = 0;
 
 void streamInit() {
   s32 i;
@@ -27,13 +27,88 @@ void SetHWMix(const STREAM_INFO* si) {
 #endif
 
 void streamHandle() {
-  u32 i;                     // r25
-  u32 cpos;                  // r30
-  u32 len;                   // r29
-  struct SAMPLE_INFO newsmp; // r1+0x8
-  struct STREAM_INFO* si;    // r31
-  float f;                   // r63
+  u32 i;              // r25
+  u32 cpos;           // r30
+  u32 len;            // r29
+  SAMPLE_INFO newsmp; // r1+0x8
+  STREAM_INFO* si;    // r31
+  float f;            // r63
   // TODO: Match this
+
+  if (streamCallCnt != 0) {
+    --streamCallCnt;
+    return;
+  }
+  streamCallCnt = streamCallDelay;
+  si = streamInfo;
+  for (i = 0; i < synthInfo.voiceNum; ++i) {
+    switch (si->state) {
+    case 1:
+      newsmp.info = si->frq | 0x40000000;
+      newsmp.addr = hwGetStreamPlayBuffer(si->hwStreamHandle);
+      newsmp.offset = 0;
+      newsmp.length = si->size;
+      newsmp.loop = 0;
+      newsmp.loopLength = si->size;
+
+#if MUSY_VERSION <= MUSY_VERSION_CHECK(1, 5, 3)
+      si->adpcmInfo.initialPS = si->adpcmInfo.loopPS = *(u8*)si->buffer;
+      DCInvalidateRange(si->buffer, 1);
+#endif
+
+      switch (si->type) {
+      case 0:
+        newsmp.compType = 2;
+        break;
+      case 1:
+        newsmp.extraData = &si->adpcmInfo;
+        newsmp.compType = 4;
+
+#if MUSY_VERSION >= MUSY_VERSION_CHECK(1, 5, 4)
+        hwSetStreamLoopPS(si->voice, si->lastPSFromBuffer);
+        si->adpcmInfo.initialPS = si->adpcmInfo.loopPS = si->lastPSFromBuffer;
+#endif
+        break;
+      }
+
+      hwInitSamplePlayback(si->voice, -1, &newsmp, 1, -1, synthVoice[si->voice].id, 1, 1);
+      hwSetPitch(si->voice, ((float)si->frq / (float)synthInfo.mixFrq) * 4096.f);
+#if MUSY_VERSION <= MUSY_VERSION_CHECK(1, 5, 3)
+      hwSetVolume(si->voice, 0, si->vol * (1 / 127.f), (si->pan << 16), (si->span << 16),
+                  si->auxa * (1 / 127.f), si->auxb * (1 / 127.f));
+#else
+      SetHWMix(si);
+#endif
+
+      hwStart(si->voice, si->studio);
+      si->state = 2;
+      if (!(si->flags & 0x20000)) {
+        hwFlushStream(si->buffer, 0, si->bytes, si->hwStreamHandle, NULL, 0);
+      }
+      break;
+    case 2:
+      cpos = hwGetPos(si->voice);
+
+      if (si->type == 1) {
+        cpos = (cpos / 14) * 14;
+      }
+
+      if (si->last != cpos) {
+        if (si->last < cpos) {
+          switch (si->type) {
+          case 0:
+            if ((len = si->updateFunction(si->buffer + si->last, cpos - si->last, NULL, 0,
+                                          &si->user)) != 0 &&
+                si->state == 2) {
+            }
+            break;
+          }
+        }
+      }
+      break;
+    }
+    ++si;
+  }
 }
 
 void streamCorrectLoops() {}
@@ -161,6 +236,26 @@ static void SetupVolumeAndPan(STREAM_INFO* si, u8 vol, u8 pan, u8 span, u8 auxa,
 }
 #endif
 
+#if MUSY_VERSION >= MUSY_VERSION_CHECK(1, 5, 4)
+void streamOutputModeChanged() {
+  u32 i;
+
+  hwDisableIrq();
+  for (i = 0; i < synthInfo.voiceNum; ++i) {
+    if (streamInfo[i].state != 0) {
+      streamInfo[i].pan = streamInfo[i].orgPan;
+      streamInfo[i].span = streamInfo[i].orgSPan;
+      CheckOutputMode(&streamInfo[i].pan, &streamInfo[i].span);
+      if (streamInfo[i].state != 3) {
+        SetHWMix(&streamInfo[i]);
+      }
+    }
+  }
+
+  hwEnableIrq();
+}
+#endif
+
 u32 sndStreamAllocEx(u8 prio, void* buffer, u32 samples, u32 frq, u8 vol, u8 pan, u8 span, u8 auxa,
                      u8 auxb, u8 studio, u32 flags, SND_STREAM_UPDATE_CALLBACK updateFunction,
                      u32 user, SND_ADPCMSTREAM_INFO* adpcmInfo) {
@@ -253,7 +348,6 @@ u32 sndStreamAllocStereo(u8 prio, void* lBuffer, void* rBuffer, u32 samples, u32
 
   hwDisableIrq();
 
-  ;
   if ((stid[0] = sndStreamAllocEx(prio, lBuffer, samples, frq, vol, lPan, span, auxa, auxb, studio,
                                   flags, updateFunction, lUser, adpcmInfoL)) != 0xFFFFFFFF) {
     if ((stid[1] = sndStreamAllocEx(prio, rBuffer, samples, frq, vol, rPan, span, auxa, auxb,
@@ -362,7 +456,6 @@ void sndStreamMixParameterEx(u32 stid, u8 vol, u8 pan, u8 span, u8 auxa, u8 auxb
   } else {
     MUSY_DEBUG("ID is invalid.\n");
   }
-
 
   hwEnableIrq();
 }
