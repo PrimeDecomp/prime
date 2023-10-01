@@ -101,6 +101,14 @@ typedef struct _GXTlutRegion {
   u32 dummy[4];
 } GXTlutRegion;
 
+typedef struct _GXVtxAttrFmtList {
+  // total size: 0x10
+  GXAttr attr;     // offset 0x0, size 0x4
+  GXCompCnt cnt;   // offset 0x4, size 0x4
+  GXCompType type; // offset 0x8, size 0x4
+  u8 frac;         // offset 0xC, size 0x1
+} GXVtxAttrFmtList;
+
 #ifdef __cplusplus
 }
 #endif
