@@ -764,10 +764,11 @@ LIBS = [
     {
         "lib": "gx",
         "mw_version": "1.2.5",
+        #"cflags": "-proc gecko -fp hard -nodefaults -nosyspath -i include -i libc -g -sym on -D_DEBUG=1 -enum int",
         "cflags": "$cflags_base -fp_contract off",
         "host": False,
         "objects": [
-            "Dolphin/gx/GXInit",
+            ["Dolphin/gx/GXInit", False],
             "Dolphin/gx/GXFifo",
             "Dolphin/gx/GXAttr",
             "Dolphin/gx/GXMisc",
@@ -1365,7 +1366,7 @@ if __name__ == "__main__":
         "custom_make": "ninja",
         "target_dir": str(build_asm_path),
         "base_dir": str(build_src_path),
-        "build_target": True,
+        "build_target": False,
         "watch_patterns": [
             "*.c",
             "*.cp",
