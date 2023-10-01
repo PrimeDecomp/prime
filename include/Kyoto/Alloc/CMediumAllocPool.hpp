@@ -17,8 +17,8 @@ public:
   };
 
   rstl::list< SMediumAllocPuddle > x0_list;
-  /*rstl::list_node<SMediumAllocPuddle>* x18_lastNodePrev; */
-  void* x18_lastNodePrev;
+  const rstl::list< SMediumAllocPuddle >::node* x18_lastNodePrev;
+  CMediumAllocPool();
   void* Alloc(uint size);
   bool HasPuddles() const;
   void AddPuddle(uint, void*, int);
@@ -29,6 +29,8 @@ public:
   uint GetTotalEntries();
   uint GetNumBlocksAvailable();
   uint GetNumAllocs();
+
+  static CMediumAllocPool* gMediumAllocPtr;
 };
 
 #endif // _CMEDIUMALLOCPOOL

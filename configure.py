@@ -655,7 +655,7 @@ LIBS = [
             ["Kyoto/Input/DolphinIController", True],
             ["Kyoto/Input/CDolphinController", True],
             ["Kyoto/DolphinCDvdFile", False],
-            "Kyoto/Alloc/CMediumAllocPool",
+            ["Kyoto/Alloc/CMediumAllocPool", False],
             ["Kyoto/Alloc/CSmallAllocPool", True],
             ["Kyoto/Alloc/CGameAllocator", False],
             "Kyoto/Animation/DolphinCSkinnedModel",
