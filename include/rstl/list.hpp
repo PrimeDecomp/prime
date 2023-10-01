@@ -51,7 +51,6 @@ public:
     return iterator(it);
   }
 
-private:
   struct node {
     node* x0_prev;
     node* x4_next;
@@ -92,7 +91,7 @@ public:
     typedef T* value_type;
 
     const_iterator() : current(nullptr) {}
-    const_iterator(const node* begin) : current(begin) {}
+    const_iterator(node* begin) : current(begin) {}
     const_iterator& operator++() {
       this->current = this->current->x4_next;
       return *this;
@@ -109,13 +108,13 @@ public:
     bool operator==(const const_iterator& other) const { return current == other.current; }
     bool operator!=(const const_iterator& other) const { return current != other.current; }
 
-    const node* get_node() const { return current; }
+    node* get_node() const { return current; }
 
   protected:
-    const node* current;
+    node* current;
   };
 
-  class iterator : const_iterator {
+  class iterator : public const_iterator {
   public:
     typedef T* value_type;
 
@@ -140,14 +139,9 @@ public:
     T* operator->() const { return current->get_value(); }
     bool operator==(const iterator& other) const { return current == other.current; }
     bool operator!=(const iterator& other) const { return current != other.current; }
-
-    node* get_node() const { return current; }
-
-  protected:
-    node* current;
   };
 
-private:
+public:
   Alloc x0_allocator;
   node* x4_start;
   node* x8_end;
