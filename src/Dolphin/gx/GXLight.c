@@ -263,9 +263,7 @@ void GXLoadLightObjImm(GXLightObj* lt_obj, GXLightID light) {
   GX_WRITE_U8(16);
   GX_WRITE_U32(addr | (XF_LIGHT_SIZE - 1) << 16);
   PushLight(obj, (void*)GX_FIFO_ADDR);
-  __GXData->cpCRreg = 1;
+  __GXData->bpSentNot = 1;
 }
 
-void GXSetChanAmbColor(GXChannelID chan, GXColor color) {
-  
-}
+void GXSetChanAmbColor(GXChannelID chan, GXColor color) {}

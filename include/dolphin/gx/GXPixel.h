@@ -20,7 +20,7 @@ void GXSetPixelFmt(GXPixelFmt pix_fmt, GXZFmt16 z_fmt);
 void GXSetDither(GXBool dither);
 void GXSetDstAlpha(GXBool enable, u8 alpha);
 // ? GXSetFieldMask();
-// ? GXSetFieldMode();
+void GXSetFieldMode(u8 field_mode, u8 half_aspect_ratio);
 
 #ifdef __cplusplus
 }

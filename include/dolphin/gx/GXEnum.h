@@ -884,6 +884,25 @@ typedef enum _GXVCachePerf {
 
 } GXVCachePerf;
 
+typedef enum _GXFBClamp {
+  GX_CLAMP_NONE = 0,
+  GX_CLAMP_TOP = 1,
+  GX_CLAMP_BOTTOM = 2,
+} GXFBClamp;
+
+typedef enum _GXCopyMode {
+  GX_COPY_PROGRESSIVE = 0,
+  GX_COPY_INTLC_EVEN = 2,
+  GX_COPY_INTLC_ODD = 3,
+} GXCopyMode;
+
+typedef enum _GXAlphaReadMode {
+  GX_READ_00 = 0,
+  GX_READ_FF = 1,
+  GX_READ_NONE = 2,
+
+} _GXAlphaReadMode;
+
 #ifdef __cplusplus
 }
 #endif
