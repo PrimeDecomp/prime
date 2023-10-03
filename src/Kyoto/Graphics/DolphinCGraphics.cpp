@@ -200,7 +200,7 @@ struct {
 } vtxDescr;
 
 CVector3f CGraphics::kDefaultPositionVector(0.f, 0.f, 0.f);
-CVector3f CGraphics::kDefaultDirectionVector(0.f, 0.f, 0.f);
+CVector3f CGraphics::kDefaultDirectionVector(0.f, 1.f, 0.f);
 CGraphics::CProjectionState CGraphics::mProj(true, -1.f, 1.f, 1.f, -1.f, 1.f, 100.f);
 CTransform4f CGraphics::mViewMatrix = CTransform4f::Identity();
 CTransform4f CGraphics::mModelMatrix = CTransform4f::Identity();
@@ -241,7 +241,7 @@ int CGraphics::mScreenStretch;
 int CGraphics::mScreenPositionX;
 int CGraphics::mScreenPositionY;
 
-CViewport CGraphics::mViewport = {0, 0, 640, 448, 320.f, 240.f};
+CViewport CGraphics::mViewport = {0, 0, 640, 480, 320.f, 240.f};
 ELightType CGraphics::mLightTypes[8] = {
     kLT_Directional, kLT_Directional, kLT_Directional, kLT_Directional,
     kLT_Directional, kLT_Directional, kLT_Directional, kLT_Directional,
@@ -585,12 +585,14 @@ void CGraphics::SetOrtho(float left, float right, float top, float bottom, float
   FlushProjection();
 }
 
-// TODO non-matching (regswaps)
 void CGraphics::SetPerspective(float fovy, float aspect, float znear, float zfar) {
   float t = tan(CRelAngle::FromDegrees(fovy).AsRadians() / 2.f);
-  float top = znear * 2.f * t * 0.5f;
-  float right = aspect * 2.f * znear * t * 0.5f;
-  mProj = CProjectionState(true, -right, right, top, -top, znear, zfar);
+  mProj = CProjectionState(true,                               // Is Projection
+                           -(aspect * 2.f * znear * t * 0.5f), // Left
+                           (aspect * 2.f * znear * t * 0.5f),  // Right
+                           (znear * 2.f * t * 0.5f),           // Top
+                           -(znear * 2.f * t * 0.5f),          // Bottom
+                           znear, zfar);
   FlushProjection();
 }
 
@@ -805,7 +807,6 @@ static const GXVtxDescList skPosColorTexDirect[] = {
     {GX_VA_NULL, GX_DIRECT},
 };
 
-// TODO non-matching (regswaps)
 void CGraphics::Render2D(const CTexture& tex, int x, int y, int w, int h, const CColor& col) {
   Mtx44 proj;
   MTXOrtho(proj, mViewport.mHeight / 2, -mViewport.mHeight / 2, -mViewport.mWidth / 2,
