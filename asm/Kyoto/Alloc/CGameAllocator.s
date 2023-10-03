@@ -1078,7 +1078,7 @@ lbl_80351EF4:
 /* 80351F24 0034EE84  80 BF 00 78 */	lwz r5, 0x78(r31)
 /* 80351F28 0034EE88  38 80 10 00 */	li r4, 0x1000
 /* 80351F2C 0034EE8C  38 C0 00 00 */	li r6, 0
-/* 80351F30 0034EE90  4B FF EA 61 */	bl AddPuddle__16CMediumAllocPoolFUiPvi
+/* 80351F30 0034EE90  4B FF EA 61 */	bl AddPuddle__16CMediumAllocPoolFUiPvb
 /* 80351F34 0034EE94  92 FF 00 78 */	stw r23, 0x78(r31)
 lbl_80351F38:
 /* 80351F38 0034EE98  80 7F 00 74 */	lwz r3, 0x74(r31)
@@ -1109,7 +1109,7 @@ lbl_80351F38:
 /* 80351F9C 0034EEFC  7C 05 03 78 */	mr r5, r0
 /* 80351FA0 0034EF00  38 80 10 00 */	li r4, 0x1000
 /* 80351FA4 0034EF04  38 C0 00 01 */	li r6, 1
-/* 80351FA8 0034EF08  4B FF E9 E9 */	bl AddPuddle__16CMediumAllocPoolFUiPvi
+/* 80351FA8 0034EF08  4B FF E9 E9 */	bl AddPuddle__16CMediumAllocPoolFUiPvb
 /* 80351FAC 0034EF0C  80 7F 00 74 */	lwz r3, 0x74(r31)
 /* 80351FB0 0034EF10  7F 44 D3 78 */	mr r4, r26
 /* 80351FB4 0034EF14  4B FF EC 85 */	bl Alloc__16CMediumAllocPoolFUi
@@ -1599,4 +1599,3 @@ lbl_803D8248:
 	.asciz "SmallAllocClass      "
 	.asciz "MediumAllocClass      "
 	.balign 8
-

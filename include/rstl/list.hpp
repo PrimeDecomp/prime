@@ -16,7 +16,7 @@ public:
 
 private:
   struct node;
-  node* erase(node* item);
+  node* do_erase(node* item);
 
 public:
   list()
@@ -45,19 +45,21 @@ public:
   iterator erase(const iterator& start, const iterator& end) {
     node* last = end.get_node();
     node* it = start.get_node();
+    for(node* t = it; t != last; t = t->get_next()) {
+    }
+    
     while (it != last) {
-      it = erase(it);
+      it = do_erase(it);
     }
     return iterator(it);
   }
-
+  
   struct node {
     node* x0_prev;
     node* x4_next;
     uchar x8_item[sizeof(T)];
 
     node(node* prev, node* next) : x0_prev(prev), x4_next(next) {}
-    ~node() { get_value()->~T(); }
 
     node* get_prev() const { return x0_prev; }
     node* get_next() const { return x4_next; }
@@ -75,7 +77,7 @@ public:
     return n;
   }
 
-  void do_insert_before(node* n, const T& val) {
+  node* do_insert_before(node* n, const T& val) {
     node* nn = create_node(n->get_prev(), n, val);
     if (n == x4_start) {
       x4_start = nn;
@@ -83,6 +85,8 @@ public:
     nn->get_prev()->set_next(nn);
     nn->get_next()->set_prev(nn);
     ++x14_count;
+
+    return nn;
   }
 
 public:
@@ -141,7 +145,7 @@ public:
     bool operator!=(const iterator& other) const { return current != other.current; }
   };
 
-public:
+private:
   Alloc x0_allocator;
   node* x4_start;
   node* x8_end;
@@ -164,14 +168,14 @@ list< T, Alloc >::~list() {
 
 
 template < typename T, typename Alloc >
-typename list< T, Alloc >::node* list< T, Alloc >::erase(node* node) {
+typename list< T, Alloc >::node* list< T, Alloc >::do_erase(node* node) {
   typename list< T, Alloc >::node* result = node->get_next();
   if (node == x4_start) {
     x4_start = result;
   }
   node->get_prev()->set_next(node->get_next());
   node->get_next()->set_prev(node->get_prev());
-  destroy(node);
+  destroy(node->get_value());
   x0_allocator.deallocate(node);
   x14_count--;
   return result;
