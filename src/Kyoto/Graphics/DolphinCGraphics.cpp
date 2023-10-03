@@ -817,10 +817,11 @@ void CGraphics::Render2D(const CTexture& tex, int x, int y, int w, int h, const 
   MTXIdentity(mtx);
   GXLoadPosMtxImm(mtx, GX_PNMTX0);
 
-  float x1 = x - mViewport.mWidth / 2;
-  float y1 = y - mViewport.mHeight / 2;
-  float x2 = x1 + w;
-  float y2 = y1 + h;
+  float x2, y2, x1, y1;
+  x1 = x - mViewport.mWidth / 2;
+  y1 = y - mViewport.mHeight / 2;
+  x2 = x1 + w;
+  y2 = y1 + h;
 
   // Save state + setup
   CGX::SetVtxDescv(skPosColorTexDirect);
