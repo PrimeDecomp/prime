@@ -258,10 +258,9 @@ CDvdRequest* CDvdFile::AsyncSeekRead(void* dest, uint len, ESeekOrigin origin, i
         CARAMManager::DMAToMRAM(x4_ + x10_offset, dest, roundedLen, CARAMManager::kDMAPrio_One));
   } else {
     CRealDvdRequest* req = new CRealDvdRequest();
-    int roundedLen = (len + 31) & ~31;
     DVDFileInfo& info = req->FileInfo();
     DVDFastOpen(x0_fileEntry, &info);
-    DVDReadAsync(&info, dest, roundedLen, x10_offset, internalCallback);
+    DVDReadAsync(&info, dest, (len + 31) & ~31, x10_offset, internalCallback);
     request = req;
   }
 

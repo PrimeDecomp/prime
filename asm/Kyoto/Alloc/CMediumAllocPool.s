@@ -43,8 +43,8 @@ lbl_80350590:
 /* 803505A8 0034D508  98 05 FF FF */	stb r0, -1(r5)
 /* 803505AC 0034D50C  4E 80 00 20 */	blr
 
-.global GetBlockOffset__18SMediumAllocPuddleFCPvCPv
-GetBlockOffset__18SMediumAllocPuddleFCPvCPv:
+.global GetBlockOffset__18SMediumAllocPuddleFPCvPCv
+GetBlockOffset__18SMediumAllocPuddleFPCvPCv:
 /* 803505B0 0034D510  7C 03 20 50 */	subf r0, r3, r4
 /* 803505B4 0034D514  2C 00 00 01 */	cmpwi r0, 1
 /* 803505B8 0034D518  40 81 00 0C */	ble lbl_803505C4
@@ -73,8 +73,8 @@ lbl_80350604:
 /* 80350604 0034D564  54 03 04 3E */	clrlwi r3, r0, 0x10
 /* 80350608 0034D568  4E 80 00 20 */	blr
 
-.global Free__18SMediumAllocPuddleFCPv
-Free__18SMediumAllocPuddleFCPv:
+.global Free__18SMediumAllocPuddleFPCv
+Free__18SMediumAllocPuddleFPCv:
 /* 8035060C 0034D56C  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80350610 0034D570  7C 08 02 A6 */	mflr r0
 /* 80350614 0034D574  90 01 00 24 */	stw r0, 0x24(r1)
@@ -139,7 +139,7 @@ lbl_803506DC:
 /* 803506E8 0034D648  88 03 00 00 */	lbz r0, 0(r3)
 /* 803506EC 0034D64C  54 00 06 31 */	rlwinm. r0, r0, 0, 0x18, 0x18
 /* 803506F0 0034D650  40 81 00 10 */	ble lbl_80350700
-/* 803506F4 0034D654  4B FF FE BD */	bl GetBlockOffset__18SMediumAllocPuddleFCPvCPv
+/* 803506F4 0034D654  4B FF FE BD */	bl GetBlockOffset__18SMediumAllocPuddleFPCvPCv
 /* 803506F8 0034D658  7C 1D 1A 14 */	add r0, r29, r3
 /* 803506FC 0034D65C  54 1D 04 3E */	clrlwi r29, r0, 0x10
 lbl_80350700:
@@ -201,7 +201,7 @@ lbl_803507B0:
 lbl_803507B8:
 /* 803507B8 0034D718  7F 83 E3 78 */	mr r3, r28
 /* 803507BC 0034D71C  7F A4 EB 78 */	mr r4, r29
-/* 803507C0 0034D720  4B FF FD F1 */	bl GetBlockOffset__18SMediumAllocPuddleFCPvCPv
+/* 803507C0 0034D720  4B FF FD F1 */	bl GetBlockOffset__18SMediumAllocPuddleFPCvPCv
 /* 803507C4 0034D724  54 60 04 3E */	clrlwi r0, r3, 0x10
 /* 803507C8 0034D728  7C 00 D8 40 */	cmplw r0, r27
 /* 803507CC 0034D72C  41 80 00 24 */	blt lbl_803507F0
@@ -233,8 +233,8 @@ lbl_80350814:
 /* 80350820 0034D780  38 21 00 20 */	addi r1, r1, 0x20
 /* 80350824 0034D784  4E 80 00 20 */	blr
 
-.global FindFree__16CMediumAllocPoolFi
-FindFree__16CMediumAllocPoolFi:
+.global FindFree__18SMediumAllocPuddleFUi
+FindFree__18SMediumAllocPuddleFUi:
 /* 80350828 0034D788  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8035082C 0034D78C  7C 08 02 A6 */	mflr r0
 /* 80350830 0034D790  90 01 00 14 */	stw r0, 0x14(r1)
@@ -300,8 +300,8 @@ lbl_803508F0:
 /* 80350904 0034D864  38 21 00 10 */	addi r1, r1, 0x10
 /* 80350908 0034D868  4E 80 00 20 */	blr
 
-.global __ct__18SMediumAllocPuddleFUiPv
-__ct__18SMediumAllocPuddleFUiPv:
+.global __ct__18SMediumAllocPuddleFUiPvb
+__ct__18SMediumAllocPuddleFUiPvb:
 /* 8035090C 0034D86C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80350910 0034D870  7C 08 02 A6 */	mflr r0
 /* 80350914 0034D874  38 E0 00 00 */	li r7, 0
@@ -336,15 +336,15 @@ __ct__18SMediumAllocPuddleFUiPv:
 /* 80350988 0034D8E8  38 21 00 10 */	addi r1, r1, 0x10
 /* 8035098C 0034D8EC  4E 80 00 20 */	blr
 
-.global AddPuddle__16CMediumAllocPoolFUiPvi
-AddPuddle__16CMediumAllocPoolFUiPvi:
+.global AddPuddle__16CMediumAllocPoolFUiPvb
+AddPuddle__16CMediumAllocPoolFUiPvb:
 /* 80350990 0034D8F0  94 21 FF C0 */	stwu r1, -0x40(r1)
 /* 80350994 0034D8F4  7C 08 02 A6 */	mflr r0
 /* 80350998 0034D8F8  90 01 00 44 */	stw r0, 0x44(r1)
 /* 8035099C 0034D8FC  93 E1 00 3C */	stw r31, 0x3c(r1)
 /* 803509A0 0034D900  7C 7F 1B 78 */	mr r31, r3
 /* 803509A4 0034D904  38 61 00 08 */	addi r3, r1, 8
-/* 803509A8 0034D908  4B FF FF 65 */	bl __ct__18SMediumAllocPuddleFUiPv
+/* 803509A8 0034D908  4B FF FF 65 */	bl __ct__18SMediumAllocPuddleFUiPvb
 /* 803509AC 0034D90C  7F E3 FB 78 */	mr r3, r31
 /* 803509B0 0034D910  38 81 00 08 */	addi r4, r1, 8
 /* 803509B4 0034D914  48 00 00 39 */	bl "push_back__Q24rstl53list<18SMediumAllocPuddle,Q24rstl17rmemory_allocator>FRC18SMediumAllocPuddle"
@@ -509,7 +509,7 @@ lbl_80350BB0:
 /* 80350BC0 0034DB20  54 00 28 34 */	slwi r0, r0, 5
 /* 80350BC4 0034DB24  7C 05 00 40 */	cmplw r5, r0
 /* 80350BC8 0034DB28  40 80 00 48 */	bge lbl_80350C10
-/* 80350BCC 0034DB2C  4B FF FA 41 */	bl Free__18SMediumAllocPuddleFCPv
+/* 80350BCC 0034DB2C  4B FF FA 41 */	bl Free__18SMediumAllocPuddleFPCv
 /* 80350BD0 0034DB30  80 1F 00 20 */	lwz r0, 0x20(r31)
 /* 80350BD4 0034DB34  28 00 00 00 */	cmplwi r0, 0
 /* 80350BD8 0034DB38  40 82 00 30 */	bne lbl_80350C08
@@ -524,7 +524,7 @@ lbl_80350BB0:
 lbl_80350BFC:
 /* 80350BFC 0034DB5C  7F C3 F3 78 */	mr r3, r30
 /* 80350C00 0034DB60  7F E4 FB 78 */	mr r4, r31
-/* 80350C04 0034DB64  48 00 01 8D */	bl "erase__Q24rstl53list<18SMediumAllocPuddle,Q24rstl17rmemory_allocator>FRCQ34rstl53list<18SMediumAllocPuddle,Q24rstl17rmemory_allocator>8iteratorRCQ34rstl53list<18SMediumAllocPuddle,Q24rstl17rmemory_allocator>8iterator"
+/* 80350C04 0034DB64  48 00 01 8D */	bl "do_erase__Q24rstl53list<18SMediumAllocPuddle,Q24rstl17rmemory_allocator>FPQ34rstl53list<18SMediumAllocPuddle,Q24rstl17rmemory_allocator>4node"
 lbl_80350C08:
 /* 80350C08 0034DB68  38 60 00 02 */	li r3, 2
 /* 80350C0C 0034DB6C  48 00 00 14 */	b lbl_80350C20
@@ -560,7 +560,7 @@ Alloc__16CMediumAllocPoolFUi:
 /* 80350C6C 0034DBCC  54 1E D9 7E */	srwi r30, r0, 5
 lbl_80350C70:
 /* 80350C70 0034DBD0  7F C4 F3 78 */	mr r4, r30
-/* 80350C74 0034DBD4  4B FF FB B5 */	bl FindFree__16CMediumAllocPoolFi
+/* 80350C74 0034DBD4  4B FF FB B5 */	bl FindFree__18SMediumAllocPuddleFUi
 /* 80350C78 0034DBD8  28 03 00 00 */	cmplwi r3, 0
 /* 80350C7C 0034DBDC  40 82 00 44 */	bne lbl_80350CC0
 /* 80350C80 0034DBE0  83 FD 00 04 */	lwz r31, 4(r29)
@@ -571,7 +571,7 @@ lbl_80350C88:
 /* 80350C90 0034DBF0  41 82 00 20 */	beq lbl_80350CB0
 /* 80350C94 0034DBF4  7F C4 F3 78 */	mr r4, r30
 /* 80350C98 0034DBF8  38 7F 00 08 */	addi r3, r31, 8
-/* 80350C9C 0034DBFC  4B FF FB 8D */	bl FindFree__16CMediumAllocPoolFi
+/* 80350C9C 0034DBFC  4B FF FB 8D */	bl FindFree__18SMediumAllocPuddleFUi
 /* 80350CA0 0034DC00  28 03 00 00 */	cmplwi r3, 0
 /* 80350CA4 0034DC04  41 82 00 0C */	beq lbl_80350CB0
 /* 80350CA8 0034DC08  93 FD 00 18 */	stw r31, 0x18(r29)
@@ -621,7 +621,7 @@ lbl_80350D24:
 /* 80350D2C 0034DC8C  48 00 00 10 */	b lbl_80350D3C
 lbl_80350D30:
 /* 80350D30 0034DC90  7F C3 F3 78 */	mr r3, r30
-/* 80350D34 0034DC94  48 00 00 5D */	bl "erase__Q24rstl53list<18SMediumAllocPuddle,Q24rstl17rmemory_allocator>FRCQ34rstl53list<18SMediumAllocPuddle,Q24rstl17rmemory_allocator>8iteratorRCQ34rstl53list<18SMediumAllocPuddle,Q24rstl17rmemory_allocator>8iterator"
+/* 80350D34 0034DC94  48 00 00 5D */	bl "do_erase__Q24rstl53list<18SMediumAllocPuddle,Q24rstl17rmemory_allocator>FPQ34rstl53list<18SMediumAllocPuddle,Q24rstl17rmemory_allocator>4node"
 /* 80350D38 0034DC98  7C 64 1B 78 */	mr r4, r3
 lbl_80350D3C:
 /* 80350D3C 0034DC9C  7C 04 F8 40 */	cmplw r4, r31
@@ -649,8 +649,8 @@ __ct__16CMediumAllocPoolFv:
 /* 80350D88 0034DCE8  90 6D AA 18 */	stw r3, gMediumAllocPtr__16CMediumAllocPool@sda21(r13)
 /* 80350D8C 0034DCEC  4E 80 00 20 */	blr
 
-.global "erase__Q24rstl53list<18SMediumAllocPuddle,Q24rstl17rmemory_allocator>FRCQ34rstl53list<18SMediumAllocPuddle,Q24rstl17rmemory_allocator>8iteratorRCQ34rstl53list<18SMediumAllocPuddle,Q24rstl17rmemory_allocator>8iterator"
-"erase__Q24rstl53list<18SMediumAllocPuddle,Q24rstl17rmemory_allocator>FRCQ34rstl53list<18SMediumAllocPuddle,Q24rstl17rmemory_allocator>8iteratorRCQ34rstl53list<18SMediumAllocPuddle,Q24rstl17rmemory_allocator>8iterator":
+.global "do_erase__Q24rstl53list<18SMediumAllocPuddle,Q24rstl17rmemory_allocator>FPQ34rstl53list<18SMediumAllocPuddle,Q24rstl17rmemory_allocator>4node"
+"do_erase__Q24rstl53list<18SMediumAllocPuddle,Q24rstl17rmemory_allocator>FPQ34rstl53list<18SMediumAllocPuddle,Q24rstl17rmemory_allocator>4node":
 /* 80350D90 0034DCF0  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80350D94 0034DCF4  7C 08 02 A6 */	mflr r0
 /* 80350D98 0034DCF8  90 01 00 24 */	stw r0, 0x24(r1)
