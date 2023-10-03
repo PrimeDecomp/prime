@@ -88,7 +88,7 @@ SMediumAllocPuddle::SMediumAllocPuddle(const uint numBlocks, void* data, const b
 , x18_numAllocs(0)
 , x1c_numEntries(numBlocks)
 , x20_unk2(unk) {
-  SMediumAllocPuddle::InitBookKeeping(x8_bookKeeping, numBlocks & 0xFFFF);
+  SMediumAllocPuddle::InitBookKeeping(x8_bookKeeping, numBlocks);
 }
 
 SMediumAllocPuddle::~SMediumAllocPuddle() {}
@@ -119,4 +119,29 @@ bool SMediumAllocPuddle::Free(const void* ptr) {}
 
 uint SMediumAllocPuddle::GetBlockOffset(const void* ptrA, const void* ptrB) { return 0; }
 
-void SMediumAllocPuddle::InitBookKeeping(void* bookKeepingPtr, uint blockCount) {}
+void SMediumAllocPuddle::InitBookKeeping(uchar* bookKeepingPtr, ushort blockCount) {
+  if (blockCount < 4) {
+    uint tmp;
+    if (blockCount == 3) {
+      tmp = 96;
+    } else {
+      tmp = 32;
+
+      if (blockCount == 2) {
+        tmp = 64;
+      }
+    }
+
+    tmp |= 0x80;
+    bookKeepingPtr[0] = tmp & 0xFF;
+    if (blockCount > 1) {
+      bookKeepingPtr[blockCount - 1] = tmp & 0xFF;
+    }
+  } else {
+    uchar tmp = (blockCount >> 8) | 0x80;
+    bookKeepingPtr[0] = tmp & 0xFF;
+    bookKeepingPtr[1] = blockCount;
+    bookKeepingPtr[blockCount - 2] = blockCount;
+    bookKeepingPtr[blockCount - 1] = tmp & 0xFF;
+  }
+}

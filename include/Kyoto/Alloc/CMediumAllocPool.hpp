@@ -18,7 +18,7 @@ struct SMediumAllocPuddle {
   bool GetUnk2() const { return x20_unk2; }
 
   static uint GetBlockOffset(const void* ptrA, const void* ptrB);
-  static void InitBookKeeping(void* bookKeepingPtr, uint blockCount);
+  static void InitBookKeeping(uchar* bookKeepingPtr, const ushort blockCount);
 
 private:
   rstl::auto_ptr< void > x0_mainData;
