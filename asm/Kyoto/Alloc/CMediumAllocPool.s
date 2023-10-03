@@ -9,8 +9,8 @@ gMediumAllocPtr__16CMediumAllocPool:
 
 .section .text, "ax"
 
-.global InitBookKeeping__18SMediumAllocPuddleFPvUi
-InitBookKeeping__18SMediumAllocPuddleFPvUi:
+.global InitBookKeeping__18SMediumAllocPuddleFPUcUs
+InitBookKeeping__18SMediumAllocPuddleFPUcUs:
 /* 80350540 0034D4A0  54 85 04 3E */	clrlwi r5, r4, 0x10
 /* 80350544 0034D4A4  28 05 00 04 */	cmplwi r5, 4
 /* 80350548 0034D4A8  40 80 00 48 */	bge lbl_80350590
@@ -145,7 +145,7 @@ lbl_803506DC:
 lbl_80350700:
 /* 80350700 0034D660  7F C3 F3 78 */	mr r3, r30
 /* 80350704 0034D664  57 A4 04 3E */	clrlwi r4, r29, 0x10
-/* 80350708 0034D668  4B FF FE 39 */	bl InitBookKeeping__18SMediumAllocPuddleFPvUi
+/* 80350708 0034D668  4B FF FE 39 */	bl InitBookKeeping__18SMediumAllocPuddleFPUcUs
 /* 8035070C 0034D66C  57 80 06 3F */	clrlwi. r0, r28, 0x18
 /* 80350710 0034D670  41 82 00 24 */	beq lbl_80350734
 /* 80350714 0034D674  7C 1E F8 40 */	cmplw r30, r31
@@ -209,7 +209,7 @@ lbl_803507B8:
 /* 803507D4 0034D734  54 04 04 3F */	clrlwi. r4, r0, 0x10
 /* 803507D8 0034D738  41 82 00 0C */	beq lbl_803507E4
 /* 803507DC 0034D73C  7C 7C DA 14 */	add r3, r28, r27
-/* 803507E0 0034D740  4B FF FD 61 */	bl InitBookKeeping__18SMediumAllocPuddleFPvUi
+/* 803507E0 0034D740  4B FF FD 61 */	bl InitBookKeeping__18SMediumAllocPuddleFPUcUs
 lbl_803507E4:
 /* 803507E4 0034D744  93 9A 00 0C */	stw r28, 0xc(r26)
 /* 803507E8 0034D748  7F 83 E3 78 */	mr r3, r28
@@ -328,7 +328,7 @@ __ct__18SMediumAllocPuddleFUiPvb:
 /* 80350968 0034D8C8  50 C0 3E 30 */	rlwimi r0, r6, 7, 0x18, 0x18
 /* 8035096C 0034D8CC  98 1F 00 20 */	stb r0, 0x20(r31)
 /* 80350970 0034D8D0  80 7F 00 08 */	lwz r3, 8(r31)
-/* 80350974 0034D8D4  4B FF FB CD */	bl InitBookKeeping__18SMediumAllocPuddleFPvUi
+/* 80350974 0034D8D4  4B FF FB CD */	bl InitBookKeeping__18SMediumAllocPuddleFPUcUs
 /* 80350978 0034D8D8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8035097C 0034D8DC  7F E3 FB 78 */	mr r3, r31
 /* 80350980 0034D8E0  83 E1 00 0C */	lwz r31, 0xc(r1)
