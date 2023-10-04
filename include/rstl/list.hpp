@@ -12,7 +12,7 @@ class list {
 public:
   class iterator;
   class const_iterator;
-  iterator erase(const iterator& item);
+  iterator erase(const iterator& item) { return do_erase(item.get_node()); }
 
 private:
   struct node;
@@ -33,9 +33,7 @@ public:
   size_t size() const { return x14_count; }
   bool empty() const { return x14_count == 0; }
 
-  void pop_front() {
-    erase(x4_start);
-  }
+  void pop_front() { erase(x4_start); }
 
   iterator begin() { return iterator(x4_start); }
   const_iterator begin() const { return const_iterator(x4_start); }
@@ -45,15 +43,15 @@ public:
   iterator erase(const iterator& start, const iterator& end) {
     node* last = end.get_node();
     node* it = start.get_node();
-    for(node* t = it; t != last; t = t->get_next()) {
+    for (node* t = it; t != last; t = t->get_next()) {
     }
-    
+
     while (it != last) {
       it = do_erase(it);
     }
     return iterator(it);
   }
-  
+
   struct node {
     node* x0_prev;
     node* x4_next;
@@ -72,7 +70,7 @@ public:
   node* create_node(node* prev, node* next, const T& val) {
     node* n;
     x0_allocator.allocate(n, 1);
-    new(n) node(prev, next);
+    new (n) node(prev, next);
     construct(n->get_value(), val);
     return n;
   }
@@ -165,7 +163,6 @@ list< T, Alloc >::~list() {
     x0_allocator.deallocate(it);
   }
 }
-
 
 template < typename T, typename Alloc >
 typename list< T, Alloc >::node* list< T, Alloc >::do_erase(node* node) {
