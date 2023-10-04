@@ -9,15 +9,15 @@ struct SMediumAllocPuddle {
   ~SMediumAllocPuddle();
   void* FindFree(uint blockCount);
   void* FindFreeEntry(uint blockCount);
-  bool Free(const void* ptr);
+  void Free(const void* ptr);
 
-  uint GetUnkx10() const { return x10_; }
-  uint GetNumBlocks() const { return x14_numBlocks; }
-  uint GetNumAllocs() const { return x18_numAllocs; }
-  uint GetNumEntries() const { return x1c_numEntries; }
-  bool GetUnk2() const { return x20_unk2; }
-
-  static uint GetBlockOffset(const void* ptrA, const void* ptrB);
+  const uint GetUnkx10() const { return x10_; }
+  const uint GetNumBlocks() const { return x14_numBlocks; }
+  const uint GetNumAllocs() const { return x18_numAllocs; }
+  const uint GetNumEntries() const { return x1c_numEntries; }
+  const bool GetUnk2() const { return x20_unk2; }
+  const uint GetPtrOffset(const void* ptr) const { return (uchar*)ptr - x0_mainData.get(); }
+  static ushort GetBlockOffset(const void* ptrA, const void* ptrB);
   static void InitBookKeeping(uchar* bookKeepingPtr, const ushort blockCount);
 
 private:
@@ -38,7 +38,7 @@ public:
   CMediumAllocPool();
   void* Alloc(uint size);
   bool HasPuddles() const;
-  void AddPuddle(uint, void*, bool);
+  void AddPuddle(const uint, void*, const bool);
   void ClearPuddles();
 
   int Free(const void* ptr);
