@@ -8,7 +8,7 @@
 #include <string.h>
 
 CDolphinController::CDolphinController()
-: x1c4_(PAD_CHAN0_BIT | PAD_CHAN1_BIT | PAD_CHAN2_BIT | PAD_CHAN3_BIT)
+: x1c4_validControllers(PAD_CHAN0_BIT | PAD_CHAN1_BIT | PAD_CHAN2_BIT | PAD_CHAN3_BIT)
 , x1c8_invalidControllers(0)
 , x1cc_(0) {
   static bool sIsInitialized = false;

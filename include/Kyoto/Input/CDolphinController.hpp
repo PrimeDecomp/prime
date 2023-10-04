@@ -33,7 +33,7 @@ private:
   EMotorState x194_motorStates[4];
   uint x1a4_controllerTypes[4];
   uint x1b4_controllerTypePollTime[4];
-  uint x1c4_;
+  uint x1c4_validControllers;
   uint x1c8_invalidControllers;
   uint x1cc_;
 };
