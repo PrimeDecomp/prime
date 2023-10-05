@@ -5,17 +5,16 @@
 #include <rstl/list.hpp>
 
 struct SMediumAllocPuddle {
-  SMediumAllocPuddle(uint numBlocks, void* ptr, const bool unk);
+  SMediumAllocPuddle(const uint numBlocks, void* data, const bool canErase);
   ~SMediumAllocPuddle();
   void* FindFree(uint blockCount);
   void* FindFreeEntry(uint blockCount);
   void Free(const void* ptr);
 
-  const uint GetUnkx10() const { return x10_; }
   const uint GetNumBlocks() const { return x14_numBlocks; }
   const uint GetNumAllocs() const { return x18_numAllocs; }
   const uint GetNumEntries() const { return x1c_numEntries; }
-  const bool GetUnk2() const { return x20_unk2; }
+  const bool CanErase() const { return x20_canErase; }
   const uint GetPtrOffset(const void* ptr) const { return (uchar*)ptr - x0_mainData.get(); }
   static ushort GetBlockOffset(const void* ptrA, const void* ptrB);
   static void InitBookKeeping(uchar* bookKeepingPtr, const ushort blockCount);
@@ -24,11 +23,11 @@ private:
   rstl::auto_ptr< void > x0_mainData;
   uchar* x8_bookKeeping;
   uchar* xc_cachedBookKeepingAddr;
-  uint x10_;
+  uint x10_unused;
   uint x14_numBlocks;
   uint x18_numAllocs;
   uint x1c_numEntries;
-  bool x20_unk2 : 1;
+  bool x20_canErase : 1;
 };
 
 class CMediumAllocPool {

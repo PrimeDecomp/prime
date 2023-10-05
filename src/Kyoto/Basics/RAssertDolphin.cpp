@@ -6,107 +6,125 @@
 #include "dolphin/pad.h"
 #include "dolphin/vi.h"
 
-#include <stdio.h>
 #include <stdarg.h>
+#include <stdio.h>
 
-static const char* buildTime = "Build v1.088 10/29/2002 2:21:25";
+static bool CallFatal = false;
 static char rs_debugger_buffer[1024];
 static int rs_debugger_buffer_size;
-static bool DAT_805a9248;
+static const GXColor bg = {128, 0, 0, 0};
+static const GXColor fg = {255, 255, 255, 0};
+static const uchar ExitButtons[4] = {PAD_BUTTON_RIGHT, PAD_BUTTON_LEFT, PAD_BUTTON_DOWN,
+                                     PAD_BUTTON_UP};
 
-void ErrorHandler(OSError code, OSContext* context, int arg1, int arg2) {
-  uint loopExitCriteria;
+static void hack() {
+  static const char* tmp1 = "%s\0\n";
+  static const char* tmp2 = "0x%08x: 0x%08x 0x%08x";
+}
+
+void ErrorHandler(OSError code, OSContext* context, int dsisr, int dar) {
   OSContext newContext;
+  uint loopExitCriteria;
   PADStatus pads[4];
-  uint local_60;
+  uchar local_60[4];
+  u32* gpr;
+  uint i;
+  uint len;
 
-  if (code != 15 || ((arg1 & 0x10) == 0 && (arg2 < 0x1800001))) {
-    OSProtectRange(3, 0, 0, 3);
-    loopExitCriteria = 0;
-    PADControlMotor(0, 0);
-    VISetBlack(1);
-    VIFlush();
-    while (loopExitCriteria < 4) {
+  if (code == 15 && ((dsisr & 0x10) != 0 || ((uint)dar > 0x1800000))) {
+    return;
+  }
+
+  OSProtectRange(3, 0, 0, 3);
+  loopExitCriteria = 0;
+  PADControlMotor(0, 0);
+  VISetBlack(1);
+  VIFlush();
+
+#if VERSION >= 1
+  OSClearContext(&newContext);
+  OSSetCurrentContext(&newContext);
+  OSEnableInterrupts();
+#endif
+
+  while (loopExitCriteria < 4) {
+    PADRead(pads);
+
+#if VERSION >= 1
+    while (pads[1].err == PAD_ERR_NO_CONTROLLER) {
+      PADReset(PAD_CHAN1_BIT);
       PADRead(pads);
-      if (pads[1].err == 0) {
-        local_60 = 0x2010408;
-        if ((pads[1].button & 0xc10) == 0xc10) {
-          if ((pads[1].button & 0xf) != 0) {
-            if ((pads[1].button & loopExitCriteria) == 0) { // TODO: wrong logic with loopExitCriteria
-              if ((loopExitCriteria != 0) &&
-                  pads[1].button == 0) { // TODO: wrong logic with pads[1].button
-                loopExitCriteria = 0;
-              }
-            } else {
-              loopExitCriteria += 1;
-            }
+    }
+#endif
+
+    if (pads[1].err == PAD_ERR_NONE) {
+      *(uint*)local_60 = *(uint*)ExitButtons;
+      if ((pads[1].button & 0xc10) == 0xc10) {
+        if ((pads[1].button & 0xf) != 0) {
+          if ((pads[1].button & local_60[loopExitCriteria]) != 0) {
+            loopExitCriteria += 1;
+
+          } else if ((loopExitCriteria != 0) &&
+                     ((pads[1].button & local_60[loopExitCriteria - 1]) == 0)) {
+            loopExitCriteria = 0;
           }
-        } else {
-          loopExitCriteria = 0;
         }
+      } else {
+        loopExitCriteria = 0;
       }
     }
-    VISetBlack(0);
-    VIFlush();
-    OSReport("Unhandled exception %d - Production\n", code);
-    OSReport("%s\n", buildTime);
-    OSReport("------------------------- Context 0x%08x -------------------------\n", context);
+  }
+  VISetBlack(0);
+  VIFlush();
 
-    int i = 0;
-    do {
-      OSReport("r%-2d  = 0x%08x (%14d)  r%-2d  = 0x%08x (%14d)\n", i, context->gpr[i],
-               context->gpr[i], i + 0x10, context->gpr[i + 0x10], context->gpr[i + 0x10]);
-      i += 1;
-    } while (i < 0x10);
+  OSReport("Unhandled exception %d - Production\n", code);
+  OSReport("%s\n", BuildTime);
+  OSReport("------------------------- Context 0x%08x -------------------------\n", context);
 
-    OSReport("LR   = 0x%08x                   CR   = 0x%08x\n", context->lr, context->cr);
-    OSReport("SRR0 = 0x%08x                   SRR1 = 0x%08x\n", context->srr0, context->srr1);
-    OSReport("DSISR= 0x%08x                   DAR  = 0x%08x\n", arg1, arg2);
+  for (i = 0; i < 16; ++i) {
+    OSReport("r%-2d  = 0x%08x (%14d)  r%-2d  = 0x%08x (%14d)\n", i, context->gpr[i],
+             context->gpr[i], i + 0x10, context->gpr[i + 0x10], context->gpr[i + 0x10]);
+  }
 
-    if (rs_debugger_buffer_size == 0) {
-      i = sprintf(rs_debugger_buffer, "Exception %d - Production\n", code);
+  OSReport("LR   = 0x%08x                   CR   = 0x%08x\n", context->lr, context->cr);
+  OSReport("SRR0 = 0x%08x                   SRR1 = 0x%08x\n", context->srr0, context->srr1);
+  OSReport("DSISR= 0x%08x                   DAR  = 0x%08x\n", dsisr, dar);
+
+  len = rs_debugger_buffer_size;
+  if (rs_debugger_buffer_size != 0) {
+    len += sprintf(rs_debugger_buffer + rs_debugger_buffer_size, " - Production\n");
+  } else {
+    len += sprintf(rs_debugger_buffer, "Exception %d - Production\n", code);
+  }
+
+  len += sprintf(rs_debugger_buffer + len, "%s\n", BuildTime);
+  len += sprintf(rs_debugger_buffer + len, "IP: 0x%8.8x  Mem: 0x%8.8x", context->srr0, dar);
+
+  if (code == 15) {
+    len += sprintf(rs_debugger_buffer + len, " - %d", dsisr);
+  }
+
+  len += sprintf(rs_debugger_buffer + len, "\n\n");
+
+  OSReport("\nAddress:      Back Chain    LR Save\n");
+  gpr = (u32*)context->gpr[1];
+  for (i = 0; gpr != NULL && gpr != (void*)0xFFFFFFFF && i++ < 16;) {
+    if (gpr > (void*)0x80000400 && gpr < (void*)0x81800000) {
+      OSReport("0x%08x:   0x%08x    0x%08x\n", gpr, *gpr, gpr[1]);
+      len += sprintf(rs_debugger_buffer + len, "0x%08x: 0x%08x 0x%08x\n", gpr, *gpr, gpr[1]);
     } else {
-      i = sprintf(rs_debugger_buffer + rs_debugger_buffer_size, " - Production\n");
+      OSReport("0x%08x:   BAD PTR\n", gpr);
+      sprintf(rs_debugger_buffer + len, "0x%08x: BAD PTR\n", gpr);
+      break;
     }
-    int j = sprintf(rs_debugger_buffer + rs_debugger_buffer_size + i, "%s\n", buildTime);
-    int bufferIndex = rs_debugger_buffer_size + i + j;
-    bufferIndex +=
-        sprintf(rs_debugger_buffer + bufferIndex, "IP: 0x%8.8x  Mem: 0x%8.8x", context->srr0, arg2);
-    if (code == 0xf) {
-      bufferIndex += sprintf(rs_debugger_buffer + bufferIndex, " - %d", arg1);
-    }
-    bufferIndex += sprintf(rs_debugger_buffer + bufferIndex, "\n\n");
+    gpr = (u32*)*gpr;
+  }
 
-    OSReport("\nAddress:      Back Chain    LR Save\n");
-
-    uint stackPtr = context->gpr[1];
-    bool check;
-    i = 0;
-    while (true) {
-      if (((stackPtr == NULL) || (stackPtr == 0xffffffff)) || (check = 0xf < i, i += 1, check)) {
-        break;
-      }
-      if ((stackPtr < 0x80000401) || (0x817fffff < stackPtr)) {
-        OSReport("0x%08x:   BAD PTR\n", stackPtr);
-        sprintf(rs_debugger_buffer + j, "0x%08x: BAD PTR\n", stackPtr);
-        break;
-      }
-      uint* asPtr = (uint*)stackPtr;
-
-      OSReport("0x%08x:   0x%08x    0x%08x\n", stackPtr, *asPtr, asPtr[1]);
-      bufferIndex +=
-          sprintf(rs_debugger_buffer + j, "0x%08x: 0x%08x 0x%08x\n", stackPtr, *asPtr, asPtr[1]);
-      stackPtr = *asPtr;
-    }
-    OSReport("\nInstruction at 0x%x (read from SRR0) attempted to access invalid address 0x%x "
-             "(read from DAR)\n",
-             context->srr0, arg2);
-
-    if (!DAT_805a9248) {
-      GXColor fg; // = &DAT_80000000;
-      GXColor bg; // = 0xffffff00;
-      OSFatal(fg, bg, rs_debugger_buffer);
-    }
+  OSReport("\nInstruction at 0x%x (read from SRR0) attempted to access invalid address 0x%x (read "
+           "from DAR)\n",
+           context->srr0, dar);
+  if (!CallFatal) {
+    OSFatal(fg, bg, rs_debugger_buffer);
   }
 }
 
