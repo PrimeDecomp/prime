@@ -120,9 +120,9 @@ enum __ReadProcActions { __GetChar, __UngetChar, __CheckForError };
 
 int puts(const char* s);
 int printf(const char*, ...);
-int sprintf(char* s, const char* format, ...);
-int vprintf(const char* format, va_list arg);
-int vsprintf(char* s, const char* format, va_list arg);
+size_t sprintf(char* s, const char* format, ...);
+size_t vprintf(const char* format, va_list arg);
+size_t vsprintf(char* s, const char* format, va_list arg);
 size_t fread(const void*, size_t memb_size, size_t num_memb, FILE*);
 size_t fwrite(const void*, size_t memb_size, size_t num_memb, FILE*);
 int fseek(FILE* file, long offset, int mode);

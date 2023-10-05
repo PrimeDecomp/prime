@@ -20,7 +20,7 @@ void* CMediumAllocPool::Alloc(uint len) {
   void* ret;
   uint blockCount = 1;
   if (len >= 32) {
-    blockCount = (len + 31) >> 5;
+    blockCount = (len + 31) / 32;
   }
 
   ret = puddle->FindFree(blockCount);
@@ -44,13 +44,13 @@ void* CMediumAllocPool::Alloc(uint len) {
 }
 
 int CMediumAllocPool::Free(const void* ptr) {
-  rstl::list<SMediumAllocPuddle>::node* node = x0_list.begin().get_node();
+  rstl::list< SMediumAllocPuddle >::node* node = x0_list.begin().get_node();
   for (; node != x0_list.end().get_node(); node = node->get_next()) {
     SMediumAllocPuddle* puddle = node->get_value();
     if (puddle->GetPtrOffset(ptr) < puddle->GetNumEntries() * 32) {
       puddle->Free(ptr);
-      if (node->get_value()->GetNumAllocs() == 0 && node->get_value()->GetUnk2()) {
-        if (x18_lastNodePrev == node ) {
+      if (node->get_value()->GetNumAllocs() == 0 && node->get_value()->CanErase()) {
+        if (x18_lastNodePrev == node) {
           x18_lastNodePrev = x0_list.begin().get_node();
         }
 
@@ -90,22 +90,22 @@ uint CMediumAllocPool::GetNumBlocksAvailable() {
 }
 
 /* this is such a hack... */
-#pragma inline_max_size(325)
+#pragma inline_max_size(250)
 void CMediumAllocPool::AddPuddle(uint len, void* data, const bool unk) {
   x0_list.push_back(SMediumAllocPuddle(len, data, unk));
   x18_lastNodePrev = x0_list.end().get_node();
   x18_lastNodePrev = x18_lastNodePrev->get_prev();
 }
 
-SMediumAllocPuddle::SMediumAllocPuddle(const uint numBlocks, void* data, const bool unk)
+SMediumAllocPuddle::SMediumAllocPuddle(const uint numBlocks, void* data, const bool canErase)
 : x0_mainData(data)
 , x8_bookKeeping((uchar*)data + numBlocks * 32)
 , xc_cachedBookKeepingAddr(nullptr)
-, x10_(-1)
+, x10_unused(-1)
 , x14_numBlocks(numBlocks)
 , x18_numAllocs(0)
 , x1c_numEntries(numBlocks)
-, x20_unk2(unk) {
+, x20_canErase(canErase) {
   SMediumAllocPuddle::InitBookKeeping(x8_bookKeeping, numBlocks);
 }
 
@@ -131,17 +131,61 @@ void* SMediumAllocPuddle::FindFree(uint blockCount) {
   return ret;
 }
 
-void* SMediumAllocPuddle::FindFreeEntry(uint numBlocks) { return nullptr; }
+void* SMediumAllocPuddle::FindFreeEntry(uint numBlocks) {
+  if (GetNumBlocks() >= numBlocks) {
+    uchar* cachedBookPtr = xc_cachedBookKeepingAddr;
+    uchar* bookPtr = x8_bookKeeping;
+
+    if (cachedBookPtr == nullptr) {
+      cachedBookPtr = bookPtr;
+    }
+
+    uchar* ptr2 = bookPtr + GetNumEntries();
+    uchar* ptr1 = cachedBookPtr;
+    do {
+
+      if ((*ptr1 & 0x80) == 0 || ptr1 == ptr2) {
+        if (ptr1 == ptr2) {
+          ptr1 = bookPtr;
+        } else {
+          ptr1 += *ptr1;
+        }
+      } else {
+        uint offset = GetBlockOffset(ptr1, ptr2);
+
+        if (offset >= numBlocks) {
+          if ((ushort)(offset - numBlocks)) {
+            SMediumAllocPuddle::InitBookKeeping(ptr1 + numBlocks, offset - numBlocks);
+          }
+
+          xc_cachedBookKeepingAddr = ptr1;
+          return ptr1;
+        }
+
+        ptr1 += offset;
+
+        if (ptr1 == cachedBookPtr) {
+          break;
+        }
+
+        if (ptr1 == ptr2) {
+          ptr1 = bookPtr;
+        }
+      }
+    } while (ptr1 != cachedBookPtr);
+  }
+  return nullptr;
+}
 
 void SMediumAllocPuddle::Free(const void* ptr) {}
 
 ushort SMediumAllocPuddle::GetBlockOffset(const void* ptr1, const void* ptr2) {
   unsigned char tmp = (uchar*)ptr2 - (uchar*)ptr1 > 1 ? ((uchar*)ptr1)[1] : 0;
 
-  ushort x = tmp + (*(uchar*)(ptr1) & 0x7f) * 0x100;
+  ushort x = tmp + (*(uchar*)(ptr1)&0x7f) * 0x100;
   if ((x & 0x6000) == 0) {
     return x;
-  } 
+  }
   return (x & 0x6000u) == 0x6000u ? 3 : (((x & 0x6000u) != 0x4000) ? 0 : 1) + 1;
 }
 
