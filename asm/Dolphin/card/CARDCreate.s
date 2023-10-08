@@ -2,7 +2,7 @@
 
 .section .text, "ax"
 
-CreateCallbackFat:
+.fn CreateCallbackFat, local
 /* 803BD1C0 003BA120  7C 08 02 A6 */	mflr r0
 /* 803BD1C4 003BA124  90 01 00 04 */	stw r0, 4(r1)
 /* 803BD1C8 003BA128  94 21 FF D8 */	stwu r1, -0x28(r1)
@@ -81,6 +81,7 @@ lbl_803BD2DC:
 /* 803BD2E4 003BA244  38 21 00 28 */	addi r1, r1, 0x28
 /* 803BD2E8 003BA248  7C 08 03 A6 */	mtlr r0
 /* 803BD2EC 003BA24C  4E 80 00 20 */	blr
+.endfn CreateCallbackFat
 
 .global CARDCreateAsync
 CARDCreateAsync:

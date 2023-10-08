@@ -52,6 +52,7 @@ public:
     return type >= kMOT_BlueDoor && type <= kMOT_PlasmaDoorFloor2;
   }
 
+  static void ReadAutomapperTweaks(const CTweakAutoMapper&);
 private:
   EMappableObjectType x0_type;
   EVisMode x4_visibilityMode;
@@ -60,7 +61,6 @@ private:
   CTransform4f x10_transform;
   uchar x40_pad[0x10];
 
-  static void ReadAutomapperTweaks(const CTweakAutoMapper&);
   CTransform4f AdjustTransformForType();
 
   static CVector3f skDoorVerts[8];

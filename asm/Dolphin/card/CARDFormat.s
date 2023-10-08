@@ -2,7 +2,7 @@
 
 .section .text, "ax"
 
-FormatCallback:
+.fn FormatCallback, local
 /* 803BC588 003B94E8  7C 08 02 A6 */	mflr r0
 /* 803BC58C 003B94EC  90 01 00 04 */	stw r0, 4(r1)
 /* 803BC590 003B94F0  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -88,6 +88,7 @@ lbl_803BC6AC:
 /* 803BC6C0 003B9620  38 21 00 20 */	addi r1, r1, 0x20
 /* 803BC6C4 003B9624  7C 08 03 A6 */	mtlr r0
 /* 803BC6C8 003B9628  4E 80 00 20 */	blr
+.endfn FormatCallback
 
 .global __CARDFormatRegionAsync
 __CARDFormatRegionAsync:

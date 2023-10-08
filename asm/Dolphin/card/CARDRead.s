@@ -126,7 +126,7 @@ lbl_803BD6A8:
 /* 803BD6C0 003BA620  7C 08 03 A6 */	mtlr r0
 /* 803BD6C4 003BA624  4E 80 00 20 */	blr
 
-ReadCallback:
+.fn ReadCallback, local
 /* 803BD6C8 003BA628  7C 08 02 A6 */	mflr r0
 /* 803BD6CC 003BA62C  90 01 00 04 */	stw r0, 4(r1)
 /* 803BD6D0 003BA630  94 21 FF D8 */	stwu r1, -0x28(r1)
@@ -210,6 +210,7 @@ lbl_803BD7E4:
 /* 803BD7EC 003BA74C  38 21 00 28 */	addi r1, r1, 0x28
 /* 803BD7F0 003BA750  7C 08 03 A6 */	mtlr r0
 /* 803BD7F4 003BA754  4E 80 00 20 */	blr
+.endfn ReadCallback
 
 .global CARDReadAsync
 CARDReadAsync:

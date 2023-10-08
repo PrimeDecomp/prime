@@ -63,8 +63,9 @@ struct SWeaponInfo {
   explicit SWeaponInfo(CInputStream& in);
 };
 
-class CTweakPlayerGun : public ITweakObject {
+class CTweakPlayerGun : public ITweakObject, public TOneStatic<CTweakPlayerGun> {
 public:
+  CTweakPlayerGun(CInputStream& in);
   ~CTweakPlayerGun() override;
 
   float GetUpLookAngle() const { return x4_upLookAngle; }
