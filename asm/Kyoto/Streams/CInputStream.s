@@ -14,18 +14,23 @@ __vt__12CInputStream:
 .section .sbss, "wa"
 .balign 8
 
-.global lbl_805A94F0
-lbl_805A94F0:
+.obj c$101, local
+	.skip 0x1
+.endobj c$101
+	.skip 0x1
+
+.obj s$108, local
 	.skip 0x2
-.global lbl_805A94F2
-lbl_805A94F2:
-	.skip 0x2
-.global lbl_805A94F4
-lbl_805A94F4:
+.endobj s$108
+
+.obj l$112, local
 	.skip 0x4
-.global lbl_805A94F8
-lbl_805A94F8:
+.endobj l$112
+
+.obj lbl_805A94F8, local
 	.skip 0x4
+.endobj lbl_805A94F8
+
 .global lbl_805A94FC
 lbl_805A94FC:
 	.skip 0x4
@@ -68,12 +73,12 @@ ReadLongLong__12CInputStreamFv:
 ReadLong__12CInputStreamFv:
 /* 8033EC84 0033BBE4  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8033EC88 0033BBE8  7C 08 02 A6 */	mflr r0
-/* 8033EC8C 0033BBEC  38 8D A9 34 */	addi r4, r13, lbl_805A94F4@sda21
+/* 8033EC8C 0033BBEC  38 8D A9 34 */	addi r4, r13, l$112@sda21
 /* 8033EC90 0033BBF0  38 A0 00 04 */	li r5, 4
 /* 8033EC94 0033BBF4  90 01 00 14 */	stw r0, 0x14(r1)
 /* 8033EC98 0033BBF8  48 00 02 BD */	bl Get__12CInputStreamFPvUl
 /* 8033EC9C 0033BBFC  80 01 00 14 */	lwz r0, 0x14(r1)
-/* 8033ECA0 0033BC00  80 6D A9 34 */	lwz r3, lbl_805A94F4@sda21(r13)
+/* 8033ECA0 0033BC00  80 6D A9 34 */	lwz r3, l$112@sda21(r13)
 /* 8033ECA4 0033BC04  7C 08 03 A6 */	mtlr r0
 /* 8033ECA8 0033BC08  38 21 00 10 */	addi r1, r1, 0x10
 /* 8033ECAC 0033BC0C  4E 80 00 20 */	blr
@@ -82,12 +87,12 @@ ReadLong__12CInputStreamFv:
 ReadShort__12CInputStreamFv:
 /* 8033ECB0 0033BC10  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8033ECB4 0033BC14  7C 08 02 A6 */	mflr r0
-/* 8033ECB8 0033BC18  38 8D A9 32 */	addi r4, r13, lbl_805A94F2@sda21
+/* 8033ECB8 0033BC18  38 8D A9 32 */	addi r4, r13, s$108@sda21
 /* 8033ECBC 0033BC1C  38 A0 00 02 */	li r5, 2
 /* 8033ECC0 0033BC20  90 01 00 14 */	stw r0, 0x14(r1)
 /* 8033ECC4 0033BC24  48 00 02 91 */	bl Get__12CInputStreamFPvUl
 /* 8033ECC8 0033BC28  80 01 00 14 */	lwz r0, 0x14(r1)
-/* 8033ECCC 0033BC2C  A0 6D A9 32 */	lhz r3, lbl_805A94F2@sda21(r13)
+/* 8033ECCC 0033BC2C  A0 6D A9 32 */	lhz r3, s$108@sda21(r13)
 /* 8033ECD0 0033BC30  7C 08 03 A6 */	mtlr r0
 /* 8033ECD4 0033BC34  38 21 00 10 */	addi r1, r1, 0x10
 /* 8033ECD8 0033BC38  4E 80 00 20 */	blr
@@ -111,12 +116,12 @@ ReadBool__12CInputStreamFv:
 ReadChar__12CInputStreamFv:
 /* 8033ED0C 0033BC6C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8033ED10 0033BC70  7C 08 02 A6 */	mflr r0
-/* 8033ED14 0033BC74  38 8D A9 30 */	addi r4, r13, lbl_805A94F0@sda21
+/* 8033ED14 0033BC74  38 8D A9 30 */	addi r4, r13, c$101@sda21
 /* 8033ED18 0033BC78  38 A0 00 01 */	li r5, 1
 /* 8033ED1C 0033BC7C  90 01 00 14 */	stw r0, 0x14(r1)
 /* 8033ED20 0033BC80  48 00 02 35 */	bl Get__12CInputStreamFPvUl
 /* 8033ED24 0033BC84  80 01 00 14 */	lwz r0, 0x14(r1)
-/* 8033ED28 0033BC88  88 6D A9 30 */	lbz r3, lbl_805A94F0@sda21(r13)
+/* 8033ED28 0033BC88  88 6D A9 30 */	lbz r3, c$101@sda21(r13)
 /* 8033ED2C 0033BC8C  7C 08 03 A6 */	mtlr r0
 /* 8033ED30 0033BC90  38 21 00 10 */	addi r1, r1, 0x10
 /* 8033ED34 0033BC94  4E 80 00 20 */	blr
@@ -427,13 +432,13 @@ __ct__12CInputStreamFi:
 /* 8033F14C 0033C0AC  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8033F150 0033C0B0  7C 08 02 A6 */	mflr r0
 /* 8033F154 0033C0B4  3C C0 80 3F */	lis r6, __vt__12CInputStream@ha
-/* 8033F158 0033C0B8  3C A0 80 3D */	lis r5, lbl_803D7A68@ha
+/* 8033F158 0033C0B8  3C A0 80 3D */	lis r5, "@stringBase0"@ha
 /* 8033F15C 0033C0BC  90 01 00 14 */	stw r0, 0x14(r1)
 /* 8033F160 0033C0C0  38 06 E3 88 */	addi r0, r6, __vt__12CInputStream@l
 /* 8033F164 0033C0C4  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 8033F168 0033C0C8  7C 7F 1B 78 */	mr r31, r3
 /* 8033F16C 0033C0CC  7C 83 23 78 */	mr r3, r4
-/* 8033F170 0033C0D0  38 85 7A 68 */	addi r4, r5, lbl_803D7A68@l
+/* 8033F170 0033C0D0  38 85 7A 68 */	addi r4, r5, "@stringBase0"@l
 /* 8033F174 0033C0D4  90 1F 00 00 */	stw r0, 0(r31)
 /* 8033F178 0033C0D8  38 00 00 00 */	li r0, 0
 /* 8033F17C 0033C0DC  38 A0 00 00 */	li r5, 0
@@ -457,9 +462,7 @@ __ct__12CInputStreamFi:
 
 .section .rodata
 .balign 8
-.global lbl_803D7A68
-lbl_803D7A68:
+.obj "@stringBase0", local
 	# ROM: 0x3D4A68
 	.asciz "??(??)"
-	.balign 4
-
+.endobj "@stringBase0"

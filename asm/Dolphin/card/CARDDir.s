@@ -7,7 +7,7 @@ __CARDGetDirBlock:
 /* 803BA970 003B78D0  80 63 00 84 */	lwz r3, 0x84(r3)
 /* 803BA974 003B78D4  4E 80 00 20 */	blr
 
-WriteCallback:
+.fn WriteCallback, local
 /* 803BA978 003B78D8  7C 08 02 A6 */	mflr r0
 /* 803BA97C 003B78DC  90 01 00 04 */	stw r0, 4(r1)
 /* 803BA980 003B78E0  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -64,9 +64,9 @@ lbl_803BAA2C:
 /* 803BAA3C 003B799C  38 21 00 20 */	addi r1, r1, 0x20
 /* 803BAA40 003B79A0  7C 08 03 A6 */	mtlr r0
 /* 803BAA44 003B79A4  4E 80 00 20 */	blr
+.endfn WriteCallback
 
-.global EraseCallback
-EraseCallback:
+.fn EraseCallback, local
 /* 803BAA48 003B79A8  7C 08 02 A6 */	mflr r0
 /* 803BAA4C 003B79AC  90 01 00 04 */	stw r0, 4(r1)
 /* 803BAA50 003B79B0  94 21 FF D8 */	stwu r1, -0x28(r1)
@@ -120,6 +120,7 @@ lbl_803BAAF4:
 /* 803BAB04 003B7A64  38 21 00 28 */	addi r1, r1, 0x28
 /* 803BAB08 003B7A68  7C 08 03 A6 */	mtlr r0
 /* 803BAB0C 003B7A6C  4E 80 00 20 */	blr
+.endfn EraseCallback
 
 .global __CARDUpdateDir
 __CARDUpdateDir:

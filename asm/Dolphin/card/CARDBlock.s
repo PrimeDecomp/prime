@@ -7,7 +7,7 @@ __CARDGetFatBlock:
 /* 803BA56C 003B74CC  80 63 00 88 */	lwz r3, 0x88(r3)
 /* 803BA570 003B74D0  4E 80 00 20 */	blr
 
-WriteCallback:
+.fn WriteCallback, local
 /* 803BA574 003B74D4  7C 08 02 A6 */	mflr r0
 /* 803BA578 003B74D8  90 01 00 04 */	stw r0, 4(r1)
 /* 803BA57C 003B74DC  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -65,8 +65,9 @@ lbl_803BA62C:
 /* 803BA63C 003B759C  38 21 00 20 */	addi r1, r1, 0x20
 /* 803BA640 003B75A0  7C 08 03 A6 */	mtlr r0
 /* 803BA644 003B75A4  4E 80 00 20 */	blr
+.endfn WriteCallback 
 
-EraseCallback:
+.fn EraseCallback, local
 /* 803BA648 003B75A8  7C 08 02 A6 */	mflr r0
 /* 803BA64C 003B75AC  90 01 00 04 */	stw r0, 4(r1)
 /* 803BA650 003B75B0  94 21 FF D8 */	stwu r1, -0x28(r1)
@@ -120,6 +121,7 @@ lbl_803BA6F4:
 /* 803BA704 003B7664  38 21 00 28 */	addi r1, r1, 0x28
 /* 803BA708 003B7668  7C 08 03 A6 */	mtlr r0
 /* 803BA70C 003B766C  4E 80 00 20 */	blr
+.endfn EraseCallback
 
 .global __CARDAllocBlock
 __CARDAllocBlock:

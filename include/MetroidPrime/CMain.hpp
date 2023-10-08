@@ -104,7 +104,6 @@ private:
   CMemorySys x6d_memorySys;
   CDvdRequestSys x6e_dvdRequestSys;
   CTweaks x70_tweaks;
-  uchar pad[0x14];
   double xe8_;
   TReservedAverage< float, 4 > xf0_;
   TReservedAverage< float, 4 > x104_;
