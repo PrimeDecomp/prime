@@ -1,1625 +1,1270 @@
 #!/usr/bin/env python3
-LIBS = [
-    {
-        "lib": "TRK_MINNOW_DOLPHIN",
-        "mw_version": "1.2.5",
-        "cflags": "$cflags_base",
+
+###
+# Generates build files for the project.
+# This file also includes the project configuration,
+# such as compiler flags and the object matching status.
+#
+# Usage:
+#   python3 configure.py
+#   ninja
+#
+# Append --help to see available options.
+###
+
+import sys
+import argparse
+
+from pathlib import Path
+from tools.project import (
+    Object,
+    ProjectConfig,
+    calculate_progress,
+    generate_build,
+    is_windows,
+)
+
+# Game versions
+DEFAULT_VERSION = 0
+VERSIONS = [
+    "mp-v1.088",  # 0-00
+    # "mp-v1.093",	# 0-01
+    # "mp-v1.097",	# 0-30 NTSC-K
+    # "mp-v1.110",	# 0-00 PAL
+    # "mp-v1.111_j",	# 0-00 NTSC-J
+    # "mp-v1.111_u",	# 0-02 NTSC-U
+    # "mp-v3.570",	# New Play Controls
+    # "mp-v3.593",	# Trilogy NTSC
+    # "mp-v3.629",	# Trilogy PAL
+]
+
+if len(VERSIONS) > 1:
+    versions_str = ", ".join(VERSIONS[:-1]) + f" or {VERSIONS[-1]}"
+else:
+    versions_str = VERSIONS[0]
+
+parser = argparse.ArgumentParser()
+parser.add_argument(
+    "mode",
+    default="configure",
+    help="configure or progress (default: configure)",
+    nargs="?",
+)
+parser.add_argument(
+    "--version",
+    dest="version",
+    default=VERSIONS[DEFAULT_VERSION],
+    help=f"version to build ({versions_str})",
+)
+parser.add_argument(
+    "--build-dir",
+    dest="build_dir",
+    type=Path,
+    default=Path("build"),
+    help="base build directory (default: build)",
+)
+parser.add_argument(
+    "--compilers",
+    dest="compilers",
+    type=Path,
+    help="path to compilers (optional)",
+)
+parser.add_argument(
+    "--map",
+    dest="map",
+    action="store_true",
+    help="generate map file(s)",
+)
+parser.add_argument(
+    "--debug",
+    dest="debug",
+    action="store_true",
+    help="build with debug info (non-matching)",
+)
+if not is_windows():
+    parser.add_argument(
+        "--wrapper",
+        dest="wrapper",
+        type=Path,
+        help="path to wibo or wine (optional)",
+    )
+parser.add_argument(
+    "--build-dtk",
+    dest="build_dtk",
+    type=Path,
+    help="path to decomp-toolkit source (optional)",
+)
+parser.add_argument(
+    "--sjiswrap",
+    dest="sjiswrap",
+    type=Path,
+    help="path to sjiswrap.exe (optional)",
+)
+parser.add_argument(
+    "--verbose",
+    dest="verbose",
+    action="store_true",
+    help="print verbose output",
+)
+args = parser.parse_args()
+
+config = ProjectConfig()
+config.version = args.version
+if config.version not in VERSIONS:
+    sys.exit(f"Invalid version '{config.version}', expected {versions_str}")
+version_num = VERSIONS.index(config.version)
+
+# Apply arguments
+config.build_dir = args.build_dir
+config.build_dtk_path = args.build_dtk
+config.compilers_path = args.compilers
+config.debug = args.debug
+config.generate_map = args.map
+config.sjiswrap_path = args.sjiswrap
+if not is_windows():
+    config.wrapper = args.wrapper
+
+# Tool versions
+config.compilers_tag = "1"
+config.dtk_tag = "v0.5.6"
+config.sjiswrap_tag = "v1.1.1"
+config.wibo_tag = "0.6.3"
+
+# Project
+config.config_path = Path("config") / config.version / "config.yml"
+config.check_sha_path = Path("config") / config.version / "build.sha1"
+config.ldflags = [
+    "-fp hardware",
+    "-nodefaults",
+]
+
+# Base flags, common to most GC/Wii games.
+# Generally leave untouched, with overrides added below.
+cflags_base = [
+    "-proc gekko",
+    "-nodefaults",
+    "-Cpp_exceptions off",
+    "-RTTI off",
+    "-fp hard",
+    "-fp_contract on",
+    "-O4,p",
+    "-maxerrors 1",
+    "-enum int",
+    "-inline auto",
+    "-str reuse",
+    "-nosyspath",
+    "-i include",
+    "-i libc",
+    "-DPRIME1"
+    "-DVERSION={version_num}",
+    "-DNONMATCHING=0",
+]
+
+# Debug flags
+if config.debug:
+    cflags_base.extend(["-sym on", "-DDEBUG=1"])
+else:
+    cflags_base.append("-DNDEBUG=1")
+
+# Metrowerks library flags
+cflags_runtime = [
+    *cflags_base,
+    "-use_lmw_stmw on",
+    "-str reuse,pool,readonly",
+    "-gccinc",
+    "-common off",
+    "-inline deferred,auto",
+]
+
+cflags_retro = [
+    *cflags_base,
+    "-use_lmw_stmw on",
+    "-str reuse,pool,readonly",
+    "-gccinc",
+    "-inline deferred,noauto",
+    "-common on",
+]
+
+### MusyX 1.5.3 (debug)
+# "mw_version": "1.2.5",
+# "cflags": "-proc gecko -fp hard -nodefaults -nosyspath -i include -i libc -g -sym on -D_DEBUG=1 -enum int -DMUSY_VERSION_MAJOR=1 -DMUSY_VERSION_MINOR=5 -DMUSY_VERSION_PATCH=3",
+
+### MusyX 2.0.3 (debug)
+# "mw_version": "1.3.2",
+# "cflags": "-proc gecko -fp hard -nodefaults -nosyspath -i include -i libc -g -sym on -D_DEBUG=1 -enum int -DMUSY_VERSION_MAJOR=2 -DMUSY_VERSION_MINOR=0 -DMUSY_VERSION_PATCH=3",
+
+cflags_musyx = [
+    *cflags_base,
+    "-str reuse,pool,readonly",
+    "-fp_contract off",
+    "-DMUSY_VERSION_MAJOR=1",
+    "-DMUSY_VERSION_MINOR=5",
+    "-DMUSY_VERSION_PATCH=4",
+]
+
+# REL flags
+cflags_rel = [
+    *cflags_base,
+    "-sdata 0",
+    "-sdata2 0",
+]
+
+config.linker_version = "GC/1.3.2"
+
+
+# Helper function for Dolphin libraries
+def DolphinLib(lib_name, objects):
+    return {
+        "lib": lib_name + "D" if config.debug else "",
+        "mw_version": "GC/1.2.5n",
+        "cflags": cflags_base,
         "host": False,
-        "objects": [
-            ["MetroTRK/mslsupp", True],
-        ],
-    },
-    {
-        "lib": "MetroidPrime",
-        "cflags": "$cflags_retro",
-        "mw_version": "1.3.2",
+        "objects": objects,
+    }
+
+
+def RetroLib(lib_name, objects):
+    return {
+        "lib": lib_name + "CW" + "D" if config.debug else "",
+        "mw_version": "GC/1.3.2",
+        "cflags": cflags_retro,
+        "host": False,
+        "objects": objects,
+    }
+
+
+# Helper function for REL script objects
+def Rel(lib_name, objects):
+    return {
+        "lib": lib_name,
+        "mw_version": "Wii/1.3",
+        "cflags": cflags_rel,
         "host": True,
-        "objects": [
-            ["MetroidPrime/main", False],
-            "MetroidPrime/IRenderer",
-            ["MetroidPrime/Cameras/CCameraManager", False],
-            ["MetroidPrime/CControlMapper", True],
-            "MetroidPrime/Cameras/CFirstPersonCamera",
-            ["MetroidPrime/CObjectList", True],
-            "MetroidPrime/Player/CPlayer",
-            ["MetroidPrime/CAxisAngle", True],
-            ["MetroidPrime/CEulerAngles", False],
-            ["MetroidPrime/CArchMsgParmUserInput", True],
-            ["MetroidPrime/CFrontEndUI", False],
-            ["MetroidPrime/CInputGenerator", False],
-            ["MetroidPrime/CMainFlow", False],
-            "MetroidPrime/CMFGame",
-            ["MetroidPrime/CCredits", False],
-            "MetroidPrime/CSplashScreen",
-            ["MetroidPrime/CAnimData", False],
-            "MetroidPrime/Factories/CCharacterFactory",
-            "MetroidPrime/Factories/CAssetFactory",
-            ["MetroidPrime/Tweaks/CTweakPlayer", True],
-            ["MetroidPrime/Tweaks/CTweaks", False],
-            ["MetroidPrime/Tweaks/CTweakGame", True],
-            "MetroidPrime/CGameProjectile",
-            ["MetroidPrime/Player/CPlayerGun", False],
-            ["MetroidPrime/CStateManager", False],
-            ["MetroidPrime/CEntity", True],
-            ["MetroidPrime/CArchMsgParmInt32", True],
-            ["MetroidPrime/CArchMsgParmInt32Int32VoidPtr", True],
-            ["MetroidPrime/CArchMsgParmNull", True],
-            ["MetroidPrime/CArchMsgParmReal32", True],
-            ["MetroidPrime/Decode", True],
-            ["MetroidPrime/CIOWinManager", False],
-            ["MetroidPrime/CIOWin", True],
-            ["MetroidPrime/CActor", False],
-            "MetroidPrime/CWorld",
-            ["MetroidPrime/Tweaks/CTweakParticle", True],
-            "MetroidPrime/Clamp_int",
-            ["MetroidPrime/CArchMsgParmControllerStatus", True],
-            ["MetroidPrime/CExplosion", True],
-            ["MetroidPrime/CEffect", True],
-            "MetroidPrime/Cameras/CGameCamera",
-            ["MetroidPrime/CGameArea", False],
-            "MetroidPrime/HUD/CSamusHud",
-            ["MetroidPrime/CAnimationDatabaseGame", False],
-            "MetroidPrime/CTransitionDatabaseGame",
-            ["MetroidPrime/Tweaks/CTweakPlayerControl", True],
-            "MetroidPrime/Tweaks/CTweakPlayerGun",
-            "MetroidPrime/CPauseScreen",
-            ["MetroidPrime/Tweaks/CTweakGui", False],
-            ["MetroidPrime/ScriptObjects/CScriptActor", False],
-            ["MetroidPrime/ScriptObjects/CScriptTrigger", False],
-            ["MetroidPrime/ScriptObjects/CScriptWaypoint", True],
-            "MetroidPrime/Enemies/CPatterned",
-            "MetroidPrime/ScriptObjects/CScriptDoor",
-            ["MetroidPrime/Enemies/CStateMachine", False],
-            ["MetroidPrime/CMapArea", False],
-            ["MetroidPrime/Cameras/CBallCamera", False],
-            "MetroidPrime/ScriptObjects/CScriptEffect",
-            "MetroidPrime/Weapons/CBomb",
-            ["MetroidPrime/Tweaks/CTweakBall", True],
-            ["MetroidPrime/Player/CPlayerState", False],
-            ["MetroidPrime/ScriptObjects/CScriptTimer", True],
-            ["MetroidPrime/Cameras/CCinematicCamera", False],
-            "MetroidPrime/CAutoMapper",
-            ["MetroidPrime/ScriptObjects/CScriptCounter", True],
-            "MetroidPrime/CMapWorld",
-            "MetroidPrime/Enemies/CAi",
-            ["MetroidPrime/Enemies/PatternedCastTo", True],
-            ["MetroidPrime/TCastTo", True],
-            "MetroidPrime/ScriptObjects/CScriptSound",
-            ["MetroidPrime/ScriptObjects/CScriptPlatform", False],
-            ["MetroidPrime/UserNames", True],
-            ["MetroidPrime/ScriptObjects/CScriptGenerator", False],
-            ["MetroidPrime/ScriptObjects/CScriptCameraWaypoint", False],
-            ["MetroidPrime/CGameLight", True],
-            "MetroidPrime/Tweaks/CTweakTargeting",
-            ["MetroidPrime/Tweaks/CTweakAutoMapper", True],
-            ["MetroidPrime/CParticleGenInfoGeneric", True],
-            ["MetroidPrime/CParticleGenInfo", True],
-            "MetroidPrime/CParticleDatabase",
-            "MetroidPrime/Tweaks/CTweakGunRes",
-            "MetroidPrime/CTargetReticles",
-            ["MetroidPrime/CWeaponMgr", False],
-            ["MetroidPrime/ScriptObjects/CScriptPickup", True],
-            ["MetroidPrime/CDamageInfo", False],
-            ["MetroidPrime/CMemoryDrawEnum", True],
-            "MetroidPrime/ScriptObjects/CScriptDock",
-            "MetroidPrime/ScriptObjects/CScriptCameraHint",
-            ["MetroidPrime/ScriptLoader", False],
-            "MetroidPrime/CSamusDoll",
-            "MetroidPrime/Factories/CStateMachineFactory",
-            ["MetroidPrime/Weapons/CPlasmaBeam", False],
-            ["MetroidPrime/Weapons/CPowerBeam", False],
-            ["MetroidPrime/Weapons/CWaveBeam", False],
-            ["MetroidPrime/Weapons/CIceBeam", False],
-            ["MetroidPrime/CScriptMailbox", False],
-            ["MetroidPrime/ScriptObjects/CScriptRelay", True],
-            ["MetroidPrime/ScriptObjects/CScriptSpawnPoint", False],
-            ["MetroidPrime/ScriptObjects/CScriptRandomRelay", False],
-            "MetroidPrime/Enemies/CBeetle",
-            ["MetroidPrime/HUD/CHUDMemoParms", True],
-            ["MetroidPrime/ScriptObjects/CScriptHUDMemo", True],
-            ["MetroidPrime/CMappableObject", False],
-            ["MetroidPrime/Player/CPlayerCameraBob", False],
-            ["MetroidPrime/ScriptObjects/CScriptCameraFilterKeyframe", True],
-            ["MetroidPrime/ScriptObjects/CScriptCameraBlurKeyframe", True],
-            ["MetroidPrime/Cameras/CCameraFilter", False],
-            "MetroidPrime/Player/CMorphBall",
-            "MetroidPrime/ScriptObjects/CScriptDamageableTrigger",
-            "MetroidPrime/ScriptObjects/CScriptDebris",
-            ["MetroidPrime/ScriptObjects/CScriptCameraShaker", True],
-            ["MetroidPrime/ScriptObjects/CScriptActorKeyframe", False],
-            ["MetroidPrime/CConsoleOutputWindow", False],
-            "MetroidPrime/ScriptObjects/CScriptWater",
-            ["MetroidPrime/Weapons/CWeapon", False],
-            ["MetroidPrime/CDamageVulnerability", False],
-            ["MetroidPrime/CActorLights", False],
-            ["MetroidPrime/Enemies/CPatternedInfo", True],
-            ["MetroidPrime/CSimpleShadow", False],
-            ["MetroidPrime/CActorParameters", True],
-            "MetroidPrime/CInGameGuiManager",
-            "MetroidPrime/Enemies/CWarWasp",
-            ["MetroidPrime/CWorldShadow", False],
-            ["MetroidPrime/CAudioStateWin", True],
-            "MetroidPrime/Player/CPlayerVisor",
-            "MetroidPrime/CModelData",
-            "MetroidPrime/CDecalManager",
-            "MetroidPrime/ScriptObjects/CScriptSpiderBallWaypoint",
-            "MetroidPrime/Enemies/CBloodFlower",
-            ["MetroidPrime/TGameTypes", True],
-            ["MetroidPrime/CPhysicsActor", False],
-            ["MetroidPrime/CPhysicsState", True],
-            ["MetroidPrime/CRipple", False],
-            "MetroidPrime/CFluidUVMotion",
-            ["MetroidPrime/CRippleManager", False],
-            ["MetroidPrime/Player/CGrappleArm", False],
-            "MetroidPrime/Enemies/CSpacePirate",
-            ["MetroidPrime/ScriptObjects/CScriptCoverPoint", False],
-            "MetroidPrime/Cameras/CPathCamera",
-            "MetroidPrime/CFluidPlane",
-            "MetroidPrime/CFluidPlaneManager",
-            ["MetroidPrime/ScriptObjects/CScriptGrapplePoint", True],
-            ["MetroidPrime/ScriptObjects/CHUDBillboardEffect", False],
-            "MetroidPrime/Enemies/CFlickerBat",
-            ["MetroidPrime/BodyState/CBodyStateCmdMgr", False],
-            ["MetroidPrime/BodyState/CBodyStateInfo", False],
-            ["MetroidPrime/BodyState/CBSAttack", False],
-            ["MetroidPrime/BodyState/CBSDie", True],
-            ["MetroidPrime/BodyState/CBSFall", False],
-            ["MetroidPrime/BodyState/CBSGetup", True],
-            ["MetroidPrime/BodyState/CBSKnockBack", False],
-            ["MetroidPrime/BodyState/CBSLieOnGround", True],
-            "MetroidPrime/BodyState/CBSLocomotion",
-            ["MetroidPrime/BodyState/CBSStep", True],
-            ["MetroidPrime/BodyState/CBSTurn", False],
-            ["MetroidPrime/BodyState/CBodyController", False],
-            ["MetroidPrime/BodyState/CBSLoopAttack", False],
-            ["MetroidPrime/Weapons/CTargetableProjectile", False],
-            ["MetroidPrime/BodyState/CBSLoopReaction", False],
-            "MetroidPrime/CSteeringBehaviors",
-            ["MetroidPrime/BodyState/CBSGroundHit", False],
-            "MetroidPrime/Enemies/CChozoGhost",
-            "MetroidPrime/Enemies/CFireFlea",
-            ["MetroidPrime/BodyState/CBSSlide", False],
-            "MetroidPrime/BodyState/CBSHurled",
-            "MetroidPrime/BodyState/CBSJump",
-            ["MetroidPrime/BodyState/CBSGenerate", True],
-            "MetroidPrime/Enemies/CPuddleSpore",
-            ["MetroidPrime/BodyState/CBSTaunt", True],
-            "MetroidPrime/CSortedLists",
-            ["MetroidPrime/ScriptObjects/CScriptDebugCameraWaypoint", True],
-            ["MetroidPrime/ScriptObjects/CScriptSpiderBallAttractionSurface", False],
-            ["MetroidPrime/BodyState/CBSScripted", True],
-            "MetroidPrime/Enemies/CPuddleToadGamma",
-            ["MetroidPrime/ScriptObjects/CScriptDistanceFog", False],
-            ["MetroidPrime/BodyState/CBSProjectileAttack", True],
-            ["MetroidPrime/Weapons/CPowerBomb", False],
-            ["MetroidPrime/Enemies/CMetaree", False],
-            ["MetroidPrime/ScriptObjects/CScriptDockAreaChange", False],
-            ["MetroidPrime/ScriptObjects/CScriptSpecialFunction", False],
-            ["MetroidPrime/ScriptObjects/CScriptActorRotate", False],
-            ["MetroidPrime/Player/CFidget", True],
-            "MetroidPrime/Enemies/CSpankWeed",
-            "MetroidPrime/Enemies/CParasite",
-            ["MetroidPrime/Player/CSamusFaceReflection", False],
-            ["MetroidPrime/ScriptObjects/CScriptPlayerHint", True],
-            "MetroidPrime/Enemies/CRipper",
-            "MetroidPrime/Cameras/CCameraShakeData",
-            ["MetroidPrime/ScriptObjects/CScriptPickupGenerator", False],
-            ["MetroidPrime/ScriptObjects/CScriptPointOfInterest", True],
-            "MetroidPrime/Enemies/CDrone",
-            "MetroidPrime/CMapWorldInfo",
-            ["MetroidPrime/Factories/CScannableObjectInfo", False],
-            "MetroidPrime/Enemies/CMetroid",
-            "MetroidPrime/Player/CScanDisplay",
-            ["MetroidPrime/ScriptObjects/CScriptSteam", False],
-            ["MetroidPrime/ScriptObjects/CScriptRipple", False],
-            "MetroidPrime/CBoneTracking",
-            ["MetroidPrime/Player/CFaceplateDecoration", False],
-            ["MetroidPrime/BodyState/CBSCover", False],
-            ["MetroidPrime/ScriptObjects/CScriptBallTrigger", True],
-            "MetroidPrime/Weapons/CPlasmaProjectile",
-            "MetroidPrime/Player/CPlayerOrbit",
-            "MetroidPrime/CGameCollision",
-            ["MetroidPrime/CBallFilter", True],
-            ["MetroidPrime/CAABoxFilter", True],
-            "MetroidPrime/CGroundMovement",
-            ["MetroidPrime/Enemies/CNewIntroBoss", False],
-            "MetroidPrime/Weapons/CPhazonBeam",
-            ["MetroidPrime/ScriptObjects/CScriptTargetingPoint", True],
-            "MetroidPrime/BodyState/CBSWallHang",
-            ["MetroidPrime/ScriptObjects/CScriptEMPulse", False],
-            "MetroidPrime/HUD/CHudDecoInterface",
-            "MetroidPrime/Weapons/CFlameThrower",
-            ["MetroidPrime/Weapons/CBeamProjectile", False],
-            "MetroidPrime/CFluidPlaneCPU",
-            "MetroidPrime/CFluidPlaneDoor",
-            ["MetroidPrime/ScriptObjects/CScriptRoomAcoustics", True],
-            "MetroidPrime/Enemies/CIceSheegoth",
-            ["MetroidPrime/CCollisionActorManager", False],
-            "MetroidPrime/CCollisionActor",
-            "MetroidPrime/ScriptObjects/CScriptPlayerActor",
-            "MetroidPrime/Tweaks/CTweakPlayerRes",
-            ["MetroidPrime/Enemies/CBurstFire", True],
-            "MetroidPrime/Enemies/CFlaahgra",
-            "MetroidPrime/Player/CPlayerEnergyDrain",
-            ["MetroidPrime/CFlameWarp", False],
-            "MetroidPrime/Weapons/CIceImpact",
-            ["MetroidPrime/GameObjectLists", True],
-            "MetroidPrime/Weapons/CAuxWeapon",
-            ["MetroidPrime/Weapons/CGunWeapon", False],
-            ["MetroidPrime/ScriptObjects/CScriptAreaAttributes", False],
-            "MetroidPrime/Weapons/CWaveBuster",
-            ["MetroidPrime/Player/CStaticInterference", False],
-            "MetroidPrime/Enemies/CMetroidBeta",
-            "MetroidPrime/PathFinding/CPathFindSearch",
-            "MetroidPrime/PathFinding/CPathFindRegion",
-            "MetroidPrime/PathFinding/CPathFindArea",
-            ["MetroidPrime/Weapons/GunController/CGunController", False],
-            ["MetroidPrime/Weapons/GunController/CGSFreeLook", False],
-            ["MetroidPrime/Weapons/GunController/CGSComboFire", True],
-            ["MetroidPrime/HUD/CHudBallInterface", False],
-            ["MetroidPrime/Tweaks/CTweakGuiColors", False],
-            "MetroidPrime/ScriptObjects/CFishCloud",
-            ["MetroidPrime/CHealthInfo", True],
-            "MetroidPrime/Player/CGameState",
-            ["MetroidPrime/ScriptObjects/CScriptVisorFlare", False],
-            ["MetroidPrime/ScriptObjects/CScriptWorldTeleporter", False],
-            ["MetroidPrime/ScriptObjects/CScriptVisorGoo", False],
-            "MetroidPrime/Enemies/CJellyZap",
-            ["MetroidPrime/ScriptObjects/CScriptControllerAction", True],
-            ["MetroidPrime/Weapons/GunController/CGunMotion", False],
-            ["MetroidPrime/ScriptObjects/CScriptSwitch", True],
-            ["MetroidPrime/BodyState/CABSIdle", True],
-            ["MetroidPrime/BodyState/CABSFlinch", True],
-            ["MetroidPrime/BodyState/CABSAim", False],
-            ["MetroidPrime/ScriptObjects/CScriptPlayerStateChange", True],
-            "MetroidPrime/Enemies/CThardus",
-            "MetroidPrime/CActorParticles",
-            "MetroidPrime/Enemies/CWallCrawlerSwarm",
-            ["MetroidPrime/ScriptObjects/CScriptAiJumpPoint", True],
-            "MetroidPrime/CMessageScreen",
-            "MetroidPrime/Enemies/CFlaahgraTentacle",
-            ["MetroidPrime/Weapons/GunController/CGSFidget", True],
-            ["MetroidPrime/BodyState/CABSReaction", True],
-            "MetroidPrime/Weapons/CIceProjectile",
-            "MetroidPrime/Enemies/CFlyingPirate",
-            "MetroidPrime/ScriptObjects/CScriptColorModulate",
-            "MetroidPrime/CMapUniverse",
-            "MetroidPrime/Enemies/CThardusRockProjectile",
-            "MetroidPrime/CInventoryScreen",
-            ["MetroidPrime/CVisorFlare", False],
-            ["MetroidPrime/Enemies/CFlaahgraPlants", True],
-            "MetroidPrime/CWorldTransManager",
-            ["MetroidPrime/ScriptObjects/CScriptMidi", False],
-            ["MetroidPrime/ScriptObjects/CScriptStreamedAudio", False],
-            "MetroidPrime/CRagDoll",
-            ["MetroidPrime/Player/CGameOptions", False],
-            ["MetroidPrime/ScriptObjects/CRepulsor", True],
-            "MetroidPrime/CEnvFxManager",
-            "MetroidPrime/Weapons/CEnergyProjectile",
-            "MetroidPrime/ScriptObjects/CScriptGunTurret",
-            ["MetroidPrime/Weapons/CProjectileInfo", True],
-            "MetroidPrime/CInGameTweakManager",
-            "MetroidPrime/Enemies/CBabygoth",
-            "MetroidPrime/Enemies/CEyeBall",
-            "MetroidPrime/CIkChain",
-            ["MetroidPrime/ScriptObjects/CScriptCameraPitchVolume", True],
-            ["MetroidPrime/RumbleFxTable", True],
-            "MetroidPrime/Enemies/CElitePirate",
-            ["MetroidPrime/CRumbleManager", True],
-            "MetroidPrime/Enemies/CBouncyGrenade",
-            "MetroidPrime/Enemies/CGrenadeLauncher",
-            "MetroidPrime/Weapons/CShockWave",
-            ["MetroidPrime/Enemies/CRipperControlledPlatform", True],
-            "MetroidPrime/Enemies/CKnockBackController",
-            ["MetroidPrime/Player/CWorldLayerState", False],
-            "MetroidPrime/Enemies/CMagdolite",
-            "MetroidPrime/Enemies/CTeamAiMgr",
-            "MetroidPrime/Enemies/CSnakeWeedSwarm",
-            "MetroidPrime/Cameras/CBallCameraFailsafeState",
-            "MetroidPrime/Enemies/CActorContraption",
-            "MetroidPrime/ScriptObjects/CScriptSpindleCamera",
-            ["MetroidPrime/ScriptObjects/CScriptMemoryRelay", True],
-            "MetroidPrime/CPauseScreenFrame",
-            "MetroidPrime/Enemies/CAtomicAlpha",
-            "MetroidPrime/CLogBookScreen",
-            ["MetroidPrime/CGBASupport", True],
-            "MetroidPrime/Player/CWorldSaveGameInfo",
-            ["MetroidPrime/ScriptObjects/CScriptCameraHintTrigger", True],
-            ["MetroidPrime/Enemies/CAmbientAI", True],
-            ["MetroidPrime/CMemoryCardDriver", False],
-            "MetroidPrime/CSaveGameScreen",
-            "MetroidPrime/Enemies/CAtomicBeta",
-            ["MetroidPrime/Weapons/CElectricBeamProjectile", False],
-            "MetroidPrime/Enemies/CRidley",
-            ["MetroidPrime/Enemies/CPuffer", False],
-            ["MetroidPrime/ScriptObjects/CFire", False],
-            ["MetroidPrime/CPauseScreenBlur", True],
-            "MetroidPrime/Enemies/CTryclops",
-            "MetroidPrime/Weapons/CNewFlameThrower",
-            "MetroidPrime/Cameras/CInterpolationCamera",
-            "MetroidPrime/Enemies/CSeedling",
-            "MetroidPrime/Player/CGameHintInfo",
-            "MetroidPrime/Enemies/CWallWalker",
-            ["MetroidPrime/CErrorOutputWindow", False],
-            ["MetroidPrime/CRainSplashGenerator", False],
-            "MetroidPrime/Factories/CWorldSaveGameInfoFactory",
-            "MetroidPrime/CFluidPlaneRender",
-            "MetroidPrime/Enemies/CBurrower",
-            "MetroidPrime/Enemies/CMetroidPrimeExo",
-            ["MetroidPrime/ScriptObjects/CScriptBeam", True],
-            "MetroidPrime/Enemies/CMetroidPrimeEssence",
-            "MetroidPrime/Enemies/CMetroidPrimeRelay",
-            "MetroidPrime/Player/CPlayerDynamics",
-            ["MetroidPrime/ScriptObjects/CScriptMazeNode", True],
-            ["MetroidPrime/Weapons/WeaponTypes", False],
-            "MetroidPrime/Enemies/COmegaPirate",
-            "MetroidPrime/Enemies/CPhazonPool",
-            "MetroidPrime/CNESEmulator",
-            "MetroidPrime/Enemies/CPhazonHealingNodule",
-            "MetroidPrime/Player/CMorphBallShadow",
-            "MetroidPrime/Player/CPlayerInputFilter",
-            "MetroidPrime/CSlideShow",
-            ["MetroidPrime/Tweaks/CTweakSlideShow", True],
-            "MetroidPrime/CArtifactDoll",
-            ["MetroidPrime/CProjectedShadow", False],
-            ["MetroidPrime/CPreFrontEnd", True],
-            ["MetroidPrime/CGameCubeDoll", False],
-            ["MetroidPrime/ScriptObjects/CScriptProjectedShadow", False],
-            "MetroidPrime/ScriptObjects/CEnergyBall",
-            ["MetroidPrime/Enemies/CMetroidPrimeProjectile", True],
-            ["MetroidPrime/Enemies/SPositionHistory", True],
+        "objects": objects,
+    }
+
+
+Matching = True
+NonMatching = False
+
+config.warn_missing_config = True
+config.warn_missing_source = False
+config.libs = [
+    DolphinLib(
+        "TRK_MINNOW_DOLPHIN",
+        [
+            Object(Matching, "MetroTRK/mslsupp.c"),
         ],
-    },
-    {
-        "lib": "WorldFormatCW",
-        "mw_version": "1.3.2",
-        "cflags": "$cflags_retro",
-        "host": True,
-        "objects": [
-            "WorldFormat/CAreaOctTree_Tests",
-            ["WorldFormat/CCollisionSurface", True],
-            ["WorldFormat/CMetroidModelInstance", True],
-            "WorldFormat/CAreaBspTree",
-            "WorldFormat/CAreaOctTree",
-            ["WorldFormat/CMetroidAreaCollider", False],
-            ["WorldFormat/CWorldLight", False],
-            ["WorldFormat/COBBTree", False],
-            "WorldFormat/CCollidableOBBTree",
-            "WorldFormat/CCollidableOBBTreeGroup",
-            "WorldFormat/CPVSAreaSet",
-            "WorldFormat/CAreaRenderOctTree",
+    ),
+    RetroLib(
+        "MetroidPrime",
+        [
+            Object(NonMatching, "MetroidPrime/main.cpp"),
+            Object(NonMatching, "MetroidPrime/IRenderer.cpp"),
+            Object(NonMatching, "MetroidPrime/Cameras/CCameraManager.cpp"),
+            Object(Matching, "MetroidPrime/CControlMapper.cpp"),
+            Object(NonMatching, "MetroidPrime/Cameras/CFirstPersonCamera.cpp"),
+            Object(Matching, "MetroidPrime/CObjectList.cpp"),
+            Object(NonMatching, "MetroidPrime/Player/CPlayer.cpp"),
+            Object(Matching, "MetroidPrime/CAxisAngle.cpp"),
+            Object(NonMatching, "MetroidPrime/CEulerAngles.cpp"),
+            Object(Matching, "MetroidPrime/CArchMsgParmUserInput.cpp"),
+            Object(NonMatching, "MetroidPrime/CFrontEndUI.cpp"),
+            Object(NonMatching, "MetroidPrime/CInputGenerator.cpp"),
+            Object(NonMatching, "MetroidPrime/CMainFlow.cpp"),
+            Object(NonMatching, "MetroidPrime/CMFGame.cpp"),
+            Object(NonMatching, "MetroidPrime/CCredits.cpp"),
+            Object(NonMatching, "MetroidPrime/CSplashScreen.cpp"),
+            Object(NonMatching, "MetroidPrime/CAnimData.cpp"),
+            Object(NonMatching, "MetroidPrime/Factories/CCharacterFactory.cpp"),
+            Object(NonMatching, "MetroidPrime/Factories/CAssetFactory.cpp"),
+            Object(Matching, "MetroidPrime/Tweaks/CTweakPlayer.cpp"),
+            Object(NonMatching, "MetroidPrime/Tweaks/CTweaks.cpp"),
+            Object(Matching, "MetroidPrime/Tweaks/CTweakGame.cpp"),
+            Object(NonMatching, "MetroidPrime/CGameProjectile.cpp"),
+            Object(NonMatching, "MetroidPrime/Player/CPlayerGun.cpp"),
+            Object(NonMatching, "MetroidPrime/CStateManager.cpp"),
+            Object(Matching, "MetroidPrime/CEntity.cpp"),
+            Object(Matching, "MetroidPrime/CArchMsgParmInt32.cpp"),
+            Object(Matching, "MetroidPrime/CArchMsgParmInt32Int32VoidPtr.cpp"),
+            Object(Matching, "MetroidPrime/CArchMsgParmNull.cpp"),
+            Object(Matching, "MetroidPrime/CArchMsgParmReal32.cpp"),
+            Object(Matching, "MetroidPrime/Decode.cpp"),
+            Object(NonMatching, "MetroidPrime/CIOWinManager.cpp"),
+            Object(Matching, "MetroidPrime/CIOWin.cpp"),
+            Object(NonMatching, "MetroidPrime/CActor.cpp"),
+            Object(NonMatching, "MetroidPrime/CWorld.cpp"),
+            Object(Matching, "MetroidPrime/Tweaks/CTweakParticle.cpp"),
+            Object(NonMatching, "MetroidPrime/Clamp_int.cpp"),
+            Object(Matching, "MetroidPrime/CArchMsgParmControllerStatus.cpp"),
+            Object(Matching, "MetroidPrime/CExplosion.cpp"),
+            Object(Matching, "MetroidPrime/CEffect.cpp"),
+            Object(NonMatching, "MetroidPrime/Cameras/CGameCamera.cpp"),
+            Object(NonMatching, "MetroidPrime/CGameArea.cpp"),
+            Object(NonMatching, "MetroidPrime/HUD/CSamusHud.cpp"),
+            Object(NonMatching, "MetroidPrime/CAnimationDatabaseGame.cpp"),
+            Object(NonMatching, "MetroidPrime/CTransitionDatabaseGame.cpp"),
+            Object(Matching, "MetroidPrime/Tweaks/CTweakPlayerControl.cpp"),
+            Object(NonMatching, "MetroidPrime/Tweaks/CTweakPlayerGun.cpp"),
+            Object(NonMatching, "MetroidPrime/CPauseScreen.cpp"),
+            Object(NonMatching, "MetroidPrime/Tweaks/CTweakGui.cpp"),
+            Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptActor.cpp"),
+            Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptTrigger.cpp"),
+            Object(Matching, "MetroidPrime/ScriptObjects/CScriptWaypoint.cpp"),
+            Object(NonMatching, "MetroidPrime/Enemies/CPatterned.cpp"),
+            Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptDoor.cpp"),
+            Object(NonMatching, "MetroidPrime/Enemies/CStateMachine.cpp"),
+            Object(NonMatching, "MetroidPrime/CMapArea.cpp"),
+            Object(NonMatching, "MetroidPrime/Cameras/CBallCamera.cpp"),
+            Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptEffect.cpp"),
+            Object(NonMatching, "MetroidPrime/Weapons/CBomb.cpp"),
+            Object(Matching, "MetroidPrime/Tweaks/CTweakBall.cpp"),
+            Object(NonMatching, "MetroidPrime/Player/CPlayerState.cpp"),
+            Object(Matching, "MetroidPrime/ScriptObjects/CScriptTimer.cpp"),
+            Object(NonMatching, "MetroidPrime/Cameras/CCinematicCamera.cpp"),
+            Object(NonMatching, "MetroidPrime/CAutoMapper.cpp"),
+            Object(Matching, "MetroidPrime/ScriptObjects/CScriptCounter.cpp"),
+            Object(NonMatching, "MetroidPrime/CMapWorld.cpp"),
+            Object(NonMatching, "MetroidPrime/Enemies/CAi.cpp"),
+            Object(Matching, "MetroidPrime/Enemies/PatternedCastTo.cpp"),
+            Object(Matching, "MetroidPrime/TCastTo.cpp"),
+            Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptSound.cpp"),
+            Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptPlatform.cpp"),
+            Object(Matching, "MetroidPrime/UserNames.cpp"),
+            Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptGenerator.cpp"),
+            Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptCameraWaypoint.cpp"),
+            Object(Matching, "MetroidPrime/CGameLight.cpp"),
+            Object(NonMatching, "MetroidPrime/Tweaks/CTweakTargeting.cpp"),
+            Object(Matching, "MetroidPrime/Tweaks/CTweakAutoMapper.cpp"),
+            Object(Matching, "MetroidPrime/CParticleGenInfoGeneric.cpp"),
+            Object(Matching, "MetroidPrime/CParticleGenInfo.cpp"),
+            Object(NonMatching, "MetroidPrime/CParticleDatabase.cpp"),
+            Object(NonMatching, "MetroidPrime/Tweaks/CTweakGunRes.cpp"),
+            Object(NonMatching, "MetroidPrime/CTargetReticles.cpp"),
+            Object(NonMatching, "MetroidPrime/CWeaponMgr.cpp"),
+            Object(Matching, "MetroidPrime/ScriptObjects/CScriptPickup.cpp"),
+            Object(NonMatching, "MetroidPrime/CDamageInfo.cpp"),
+            Object(Matching, "MetroidPrime/CMemoryDrawEnum.cpp"),
+            Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptDock.cpp"),
+            Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptCameraHint.cpp"),
+            Object(NonMatching, "MetroidPrime/ScriptLoader.cpp"),
+            Object(NonMatching, "MetroidPrime/CSamusDoll.cpp"),
+            Object(NonMatching, "MetroidPrime/Factories/CStateMachineFactory.cpp"),
+            Object(NonMatching, "MetroidPrime/Weapons/CPlasmaBeam.cpp"),
+            Object(NonMatching, "MetroidPrime/Weapons/CPowerBeam.cpp"),
+            Object(NonMatching, "MetroidPrime/Weapons/CWaveBeam.cpp"),
+            Object(NonMatching, "MetroidPrime/Weapons/CIceBeam.cpp"),
+            Object(NonMatching, "MetroidPrime/CScriptMailbox.cpp"),
+            Object(Matching, "MetroidPrime/ScriptObjects/CScriptRelay.cpp"),
+            Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptSpawnPoint.cpp"),
+            Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptRandomRelay.cpp"),
+            Object(NonMatching, "MetroidPrime/Enemies/CBeetle.cpp"),
+            Object(Matching, "MetroidPrime/HUD/CHUDMemoParms.cpp"),
+            Object(Matching, "MetroidPrime/ScriptObjects/CScriptHUDMemo.cpp"),
+            Object(NonMatching, "MetroidPrime/CMappableObject.cpp"),
+            Object(NonMatching, "MetroidPrime/Player/CPlayerCameraBob.cpp"),
+            Object(
+                Matching, "MetroidPrime/ScriptObjects/CScriptCameraFilterKeyframe.cpp"
+            ),
+            Object(
+                Matching, "MetroidPrime/ScriptObjects/CScriptCameraBlurKeyframe.cpp"
+            ),
+            Object(NonMatching, "MetroidPrime/Cameras/CCameraFilter.cpp"),
+            Object(NonMatching, "MetroidPrime/Player/CMorphBall.cpp"),
+            Object(
+                NonMatching, "MetroidPrime/ScriptObjects/CScriptDamageableTrigger.cpp"
+            ),
+            Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptDebris.cpp"),
+            Object(Matching, "MetroidPrime/ScriptObjects/CScriptCameraShaker.cpp"),
+            Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptActorKeyframe.cpp"),
+            Object(NonMatching, "MetroidPrime/CConsoleOutputWindow.cpp"),
+            Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptWater.cpp"),
+            Object(NonMatching, "MetroidPrime/Weapons/CWeapon.cpp"),
+            Object(NonMatching, "MetroidPrime/CDamageVulnerability.cpp"),
+            Object(NonMatching, "MetroidPrime/CActorLights.cpp"),
+            Object(Matching, "MetroidPrime/Enemies/CPatternedInfo.cpp"),
+            Object(NonMatching, "MetroidPrime/CSimpleShadow.cpp"),
+            Object(Matching, "MetroidPrime/CActorParameters.cpp"),
+            Object(NonMatching, "MetroidPrime/CInGameGuiManager.cpp"),
+            Object(NonMatching, "MetroidPrime/Enemies/CWarWasp.cpp"),
+            Object(NonMatching, "MetroidPrime/CWorldShadow.cpp"),
+            Object(Matching, "MetroidPrime/CAudioStateWin.cpp"),
+            Object(NonMatching, "MetroidPrime/Player/CPlayerVisor.cpp"),
+            Object(NonMatching, "MetroidPrime/CModelData.cpp"),
+            Object(NonMatching, "MetroidPrime/CDecalManager.cpp"),
+            Object(
+                NonMatching, "MetroidPrime/ScriptObjects/CScriptSpiderBallWaypoint.cpp"
+            ),
+            Object(NonMatching, "MetroidPrime/Enemies/CBloodFlower.cpp"),
+            Object(Matching, "MetroidPrime/TGameTypes.cpp"),
+            Object(NonMatching, "MetroidPrime/CPhysicsActor.cpp"),
+            Object(Matching, "MetroidPrime/CPhysicsState.cpp"),
+            Object(NonMatching, "MetroidPrime/CRipple.cpp"),
+            Object(NonMatching, "MetroidPrime/CFluidUVMotion.cpp"),
+            Object(NonMatching, "MetroidPrime/CRippleManager.cpp"),
+            Object(NonMatching, "MetroidPrime/Player/CGrappleArm.cpp"),
+            Object(NonMatching, "MetroidPrime/Enemies/CSpacePirate.cpp"),
+            Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptCoverPoint.cpp"),
+            Object(NonMatching, "MetroidPrime/Cameras/CPathCamera.cpp"),
+            Object(NonMatching, "MetroidPrime/CFluidPlane.cpp"),
+            Object(NonMatching, "MetroidPrime/CFluidPlaneManager.cpp"),
+            Object(Matching, "MetroidPrime/ScriptObjects/CScriptGrapplePoint.cpp"),
+            Object(NonMatching, "MetroidPrime/ScriptObjects/CHUDBillboardEffect.cpp"),
+            Object(NonMatching, "MetroidPrime/Enemies/CFlickerBat.cpp"),
+            Object(NonMatching, "MetroidPrime/BodyState/CBodyStateCmdMgr.cpp"),
+            Object(NonMatching, "MetroidPrime/BodyState/CBodyStateInfo.cpp"),
+            Object(NonMatching, "MetroidPrime/BodyState/CBSAttack.cpp"),
+            Object(Matching, "MetroidPrime/BodyState/CBSDie.cpp"),
+            Object(NonMatching, "MetroidPrime/BodyState/CBSFall.cpp"),
+            Object(NonMatching, "MetroidPrime/BodyState/CBSGetup.cpp"),
+            Object(NonMatching, "MetroidPrime/BodyState/CBSKnockBack.cpp"),
+            Object(Matching, "MetroidPrime/BodyState/CBSLieOnGround.cpp"),
+            Object(NonMatching, "MetroidPrime/BodyState/CBSLocomotion.cpp"),
+            Object(Matching, "MetroidPrime/BodyState/CBSStep.cpp"),
+            Object(NonMatching, "MetroidPrime/BodyState/CBSTurn.cpp"),
+            Object(NonMatching, "MetroidPrime/BodyState/CBodyController.cpp"),
+            Object(NonMatching, "MetroidPrime/BodyState/CBSLoopAttack.cpp"),
+            Object(NonMatching, "MetroidPrime/Weapons/CTargetableProjectile.cpp"),
+            Object(NonMatching, "MetroidPrime/BodyState/CBSLoopReaction.cpp"),
+            Object(NonMatching, "MetroidPrime/CSteeringBehaviors.cpp"),
+            Object(NonMatching, "MetroidPrime/BodyState/CBSGroundHit.cpp"),
+            Object(NonMatching, "MetroidPrime/Enemies/CChozoGhost.cpp"),
+            Object(NonMatching, "MetroidPrime/Enemies/CFireFlea.cpp"),
+            Object(NonMatching, "MetroidPrime/BodyState/CBSSlide.cpp"),
+            Object(NonMatching, "MetroidPrime/BodyState/CBSHurled.cpp"),
+            Object(NonMatching, "MetroidPrime/BodyState/CBSJump.cpp"),
+            Object(Matching, "MetroidPrime/BodyState/CBSGenerate.cpp"),
+            Object(NonMatching, "MetroidPrime/Enemies/CPuddleSpore.cpp"),
+            Object(Matching, "MetroidPrime/BodyState/CBSTaunt.cpp"),
+            Object(NonMatching, "MetroidPrime/CSortedLists.cpp"),
+            Object(
+                Matching, "MetroidPrime/ScriptObjects/CScriptDebugCameraWaypoint.cpp"
+            ),
+            Object(
+                NonMatching,
+                "MetroidPrime/ScriptObjects/CScriptSpiderBallAttractionSurface.cpp",
+            ),
+            Object(Matching, "MetroidPrime/BodyState/CBSScripted.cpp"),
+            Object(NonMatching, "MetroidPrime/Enemies/CPuddleToadGamma.cpp"),
+            Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptDistanceFog.cpp"),
+            Object(Matching, "MetroidPrime/BodyState/CBSProjectileAttack.cpp"),
+            Object(NonMatching, "MetroidPrime/Weapons/CPowerBomb.cpp"),
+            Object(NonMatching, "MetroidPrime/Enemies/CMetaree.cpp"),
+            Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptDockAreaChange.cpp"),
+            Object(
+                NonMatching, "MetroidPrime/ScriptObjects/CScriptSpecialFunction.cpp"
+            ),
+            Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptActorRotate.cpp"),
+            Object(Matching, "MetroidPrime/Player/CFidget.cpp"),
+            Object(NonMatching, "MetroidPrime/Enemies/CSpankWeed.cpp"),
+            Object(NonMatching, "MetroidPrime/Enemies/CParasite.cpp"),
+            Object(NonMatching, "MetroidPrime/Player/CSamusFaceReflection.cpp"),
+            Object(Matching, "MetroidPrime/ScriptObjects/CScriptPlayerHint.cpp"),
+            Object(NonMatching, "MetroidPrime/Enemies/CRipper.cpp"),
+            Object(NonMatching, "MetroidPrime/Cameras/CCameraShakeData.cpp"),
+            Object(
+                NonMatching, "MetroidPrime/ScriptObjects/CScriptPickupGenerator.cpp"
+            ),
+            Object(Matching, "MetroidPrime/ScriptObjects/CScriptPointOfInterest.cpp"),
+            Object(NonMatching, "MetroidPrime/Enemies/CDrone.cpp"),
+            Object(NonMatching, "MetroidPrime/CMapWorldInfo.cpp"),
+            Object(NonMatching, "MetroidPrime/Factories/CScannableObjectInfo.cpp"),
+            Object(NonMatching, "MetroidPrime/Enemies/CMetroid.cpp"),
+            Object(NonMatching, "MetroidPrime/Player/CScanDisplay.cpp"),
+            Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptSteam.cpp"),
+            Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptRipple.cpp"),
+            Object(NonMatching, "MetroidPrime/CBoneTracking.cpp"),
+            Object(NonMatching, "MetroidPrime/Player/CFaceplateDecoration.cpp"),
+            Object(NonMatching, "MetroidPrime/BodyState/CBSCover.cpp"),
+            Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptBallTrigger.cpp"),
+            Object(NonMatching, "MetroidPrime/Weapons/CPlasmaProjectile.cpp"),
+            Object(NonMatching, "MetroidPrime/Player/CPlayerOrbit.cpp"),
+            Object(NonMatching, "MetroidPrime/CGameCollision.cpp"),
+            Object(Matching, "MetroidPrime/CBallFilter.cpp"),
+            Object(Matching, "MetroidPrime/CAABoxFilter.cpp"),
+            Object(NonMatching, "MetroidPrime/CGroundMovement.cpp"),
+            Object(NonMatching, "MetroidPrime/Enemies/CNewIntroBoss.cpp"),
+            Object(NonMatching, "MetroidPrime/Weapons/CPhazonBeam.cpp"),
+            Object(Matching, "MetroidPrime/ScriptObjects/CScriptTargetingPoint.cpp"),
+            Object(NonMatching, "MetroidPrime/BodyState/CBSWallHang.cpp"),
+            Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptEMPulse.cpp"),
+            Object(NonMatching, "MetroidPrime/HUD/CHudDecoInterface.cpp"),
+            Object(NonMatching, "MetroidPrime/Weapons/CFlameThrower.cpp"),
+            Object(NonMatching, "MetroidPrime/Weapons/CBeamProjectile.cpp"),
+            Object(NonMatching, "MetroidPrime/CFluidPlaneCPU.cpp"),
+            Object(NonMatching, "MetroidPrime/CFluidPlaneDoor.cpp"),
+            Object(Matching, "MetroidPrime/ScriptObjects/CScriptRoomAcoustics.cpp"),
+            Object(NonMatching, "MetroidPrime/Enemies/CIceSheegoth.cpp"),
+            Object(NonMatching, "MetroidPrime/CCollisionActorManager.cpp"),
+            Object(NonMatching, "MetroidPrime/CCollisionActor.cpp"),
+            Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptPlayerActor.cpp"),
+            Object(NonMatching, "MetroidPrime/Tweaks/CTweakPlayerRes.cpp"),
+            Object(Matching, "MetroidPrime/Enemies/CBurstFire.cpp"),
+            Object(NonMatching, "MetroidPrime/Enemies/CFlaahgra.cpp"),
+            Object(NonMatching, "MetroidPrime/Player/CPlayerEnergyDrain.cpp"),
+            Object(NonMatching, "MetroidPrime/CFlameWarp.cpp"),
+            Object(NonMatching, "MetroidPrime/Weapons/CIceImpact.cpp"),
+            Object(Matching, "MetroidPrime/GameObjectLists.cpp"),
+            Object(NonMatching, "MetroidPrime/Weapons/CAuxWeapon.cpp"),
+            Object(NonMatching, "MetroidPrime/Weapons/CGunWeapon.cpp"),
+            Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptAreaAttributes.cpp"),
+            Object(NonMatching, "MetroidPrime/Weapons/CWaveBuster.cpp"),
+            Object(NonMatching, "MetroidPrime/Player/CStaticInterference.cpp"),
+            Object(NonMatching, "MetroidPrime/Enemies/CMetroidBeta.cpp"),
+            Object(NonMatching, "MetroidPrime/PathFinding/CPathFindSearch.cpp"),
+            Object(NonMatching, "MetroidPrime/PathFinding/CPathFindRegion.cpp"),
+            Object(NonMatching, "MetroidPrime/PathFinding/CPathFindArea.cpp"),
+            Object(
+                NonMatching, "MetroidPrime/Weapons/GunController/CGunController.cpp"
+            ),
+            Object(NonMatching, "MetroidPrime/Weapons/GunController/CGSFreeLook.cpp"),
+            Object(Matching, "MetroidPrime/Weapons/GunController/CGSComboFire.cpp"),
+            Object(NonMatching, "MetroidPrime/HUD/CHudBallInterface.cpp"),
+            Object(NonMatching, "MetroidPrime/Tweaks/CTweakGuiColors.cpp"),
+            Object(NonMatching, "MetroidPrime/ScriptObjects/CFishCloud.cpp"),
+            Object(Matching, "MetroidPrime/CHealthInfo.cpp"),
+            Object(NonMatching, "MetroidPrime/Player/CGameState.cpp"),
+            Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptVisorFlare.cpp"),
+            Object(
+                NonMatching, "MetroidPrime/ScriptObjects/CScriptWorldTeleporter.cpp"
+            ),
+            Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptVisorGoo.cpp"),
+            Object(NonMatching, "MetroidPrime/Enemies/CJellyZap.cpp"),
+            Object(Matching, "MetroidPrime/ScriptObjects/CScriptControllerAction.cpp"),
+            Object(NonMatching, "MetroidPrime/Weapons/GunController/CGunMotion.cpp"),
+            Object(Matching, "MetroidPrime/ScriptObjects/CScriptSwitch.cpp"),
+            Object(Matching, "MetroidPrime/BodyState/CABSIdle.cpp"),
+            Object(Matching, "MetroidPrime/BodyState/CABSFlinch.cpp"),
+            Object(NonMatching, "MetroidPrime/BodyState/CABSAim.cpp"),
+            Object(Matching, "MetroidPrime/ScriptObjects/CScriptPlayerStateChange.cpp"),
+            Object(NonMatching, "MetroidPrime/Enemies/CThardus.cpp"),
+            Object(NonMatching, "MetroidPrime/CActorParticles.cpp"),
+            Object(NonMatching, "MetroidPrime/Enemies/CWallCrawlerSwarm.cpp"),
+            Object(Matching, "MetroidPrime/ScriptObjects/CScriptAiJumpPoint.cpp"),
+            Object(NonMatching, "MetroidPrime/CMessageScreen.cpp"),
+            Object(NonMatching, "MetroidPrime/Enemies/CFlaahgraTentacle.cpp"),
+            Object(Matching, "MetroidPrime/Weapons/GunController/CGSFidget.cpp"),
+            Object(Matching, "MetroidPrime/BodyState/CABSReaction.cpp"),
+            Object(NonMatching, "MetroidPrime/Weapons/CIceProjectile.cpp"),
+            Object(NonMatching, "MetroidPrime/Enemies/CFlyingPirate.cpp"),
+            Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptColorModulate.cpp"),
+            Object(NonMatching, "MetroidPrime/CMapUniverse.cpp"),
+            Object(NonMatching, "MetroidPrime/Enemies/CThardusRockProjectile.cpp"),
+            Object(NonMatching, "MetroidPrime/CInventoryScreen.cpp"),
+            Object(NonMatching, "MetroidPrime/CVisorFlare.cpp"),
+            Object(Matching, "MetroidPrime/Enemies/CFlaahgraPlants.cpp"),
+            Object(NonMatching, "MetroidPrime/CWorldTransManager.cpp"),
+            Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptMidi.cpp"),
+            Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptStreamedAudio.cpp"),
+            Object(NonMatching, "MetroidPrime/CRagDoll.cpp"),
+            Object(NonMatching, "MetroidPrime/Player/CGameOptions.cpp"),
+            Object(Matching, "MetroidPrime/ScriptObjects/CRepulsor.cpp"),
+            Object(NonMatching, "MetroidPrime/CEnvFxManager.cpp"),
+            Object(NonMatching, "MetroidPrime/Weapons/CEnergyProjectile.cpp"),
+            Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptGunTurret.cpp"),
+            Object(Matching, "MetroidPrime/Weapons/CProjectileInfo.cpp"),
+            Object(NonMatching, "MetroidPrime/CInGameTweakManager.cpp"),
+            Object(NonMatching, "MetroidPrime/Enemies/CBabygoth.cpp"),
+            Object(NonMatching, "MetroidPrime/Enemies/CEyeBall.cpp"),
+            Object(NonMatching, "MetroidPrime/CIkChain.cpp"),
+            Object(Matching, "MetroidPrime/ScriptObjects/CScriptCameraPitchVolume.cpp"),
+            Object(Matching, "MetroidPrime/RumbleFxTable.cpp"),
+            Object(NonMatching, "MetroidPrime/Enemies/CElitePirate.cpp"),
+            Object(Matching, "MetroidPrime/CRumbleManager.cpp"),
+            Object(NonMatching, "MetroidPrime/Enemies/CBouncyGrenade.cpp"),
+            Object(NonMatching, "MetroidPrime/Enemies/CGrenadeLauncher.cpp"),
+            Object(NonMatching, "MetroidPrime/Weapons/CShockWave.cpp"),
+            Object(Matching, "MetroidPrime/Enemies/CRipperControlledPlatform.cpp"),
+            Object(NonMatching, "MetroidPrime/Enemies/CKnockBackController.cpp"),
+            Object(NonMatching, "MetroidPrime/Player/CWorldLayerState.cpp"),
+            Object(NonMatching, "MetroidPrime/Enemies/CMagdolite.cpp"),
+            Object(NonMatching, "MetroidPrime/Enemies/CTeamAiMgr.cpp"),
+            Object(NonMatching, "MetroidPrime/Enemies/CSnakeWeedSwarm.cpp"),
+            Object(NonMatching, "MetroidPrime/Cameras/CBallCameraFailsafeState.cpp"),
+            Object(NonMatching, "MetroidPrime/Enemies/CActorContraption.cpp"),
+            Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptSpindleCamera.cpp"),
+            Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptMemoryRelay.cpp"),
+            Object(NonMatching, "MetroidPrime/CPauseScreenFrame.cpp"),
+            Object(NonMatching, "MetroidPrime/Enemies/CAtomicAlpha.cpp"),
+            Object(NonMatching, "MetroidPrime/CLogBookScreen.cpp"),
+            Object(Matching, "MetroidPrime/CGBASupport.cpp"),
+            Object(NonMatching, "MetroidPrime/Player/CWorldSaveGameInfo.cpp"),
+            Object(Matching, "MetroidPrime/ScriptObjects/CScriptCameraHintTrigger.cpp"),
+            Object(Matching, "MetroidPrime/Enemies/CAmbientAI.cpp"),
+            Object(NonMatching, "MetroidPrime/CMemoryCardDriver.cpp"),
+            Object(NonMatching, "MetroidPrime/CSaveGameScreen.cpp"),
+            Object(NonMatching, "MetroidPrime/Enemies/CAtomicBeta.cpp"),
+            Object(NonMatching, "MetroidPrime/Weapons/CElectricBeamProjectile.cpp"),
+            Object(NonMatching, "MetroidPrime/Enemies/CRidley.cpp"),
+            Object(NonMatching, "MetroidPrime/Enemies/CPuffer.cpp"),
+            Object(NonMatching, "MetroidPrime/ScriptObjects/CFire.cpp"),
+            Object(Matching, "MetroidPrime/CPauseScreenBlur.cpp"),
+            Object(NonMatching, "MetroidPrime/Enemies/CTryclops.cpp"),
+            Object(NonMatching, "MetroidPrime/Weapons/CNewFlameThrower.cpp"),
+            Object(NonMatching, "MetroidPrime/Cameras/CInterpolationCamera.cpp"),
+            Object(NonMatching, "MetroidPrime/Enemies/CSeedling.cpp"),
+            Object(NonMatching, "MetroidPrime/Player/CGameHintInfo.cpp"),
+            Object(NonMatching, "MetroidPrime/Enemies/CWallWalker.cpp"),
+            Object(NonMatching, "MetroidPrime/CErrorOutputWindow.cpp"),
+            Object(NonMatching, "MetroidPrime/CRainSplashGenerator.cpp"),
+            Object(NonMatching, "MetroidPrime/Factories/CWorldSaveGameInfoFactory.cpp"),
+            Object(NonMatching, "MetroidPrime/CFluidPlaneRender.cpp"),
+            Object(NonMatching, "MetroidPrime/Enemies/CBurrower.cpp"),
+            Object(NonMatching, "MetroidPrime/Enemies/CMetroidPrimeExo.cpp"),
+            Object(Matching, "MetroidPrime/ScriptObjects/CScriptBeam.cpp"),
+            Object(NonMatching, "MetroidPrime/Enemies/CMetroidPrimeEssence.cpp"),
+            Object(NonMatching, "MetroidPrime/Enemies/CMetroidPrimeRelay.cpp"),
+            Object(NonMatching, "MetroidPrime/Player/CPlayerDynamics.cpp"),
+            Object(Matching, "MetroidPrime/ScriptObjects/CScriptMazeNode.cpp"),
+            Object(NonMatching, "MetroidPrime/Weapons/WeaponTypes.cpp"),
+            Object(NonMatching, "MetroidPrime/Enemies/COmegaPirate.cpp"),
+            Object(NonMatching, "MetroidPrime/Enemies/CPhazonPool.cpp"),
+            Object(NonMatching, "MetroidPrime/CNESEmulator.cpp"),
+            Object(NonMatching, "MetroidPrime/Enemies/CPhazonHealingNodule.cpp"),
+            Object(NonMatching, "MetroidPrime/Player/CMorphBallShadow.cpp"),
+            Object(NonMatching, "MetroidPrime/Player/CPlayerInputFilter.cpp"),
+            Object(NonMatching, "MetroidPrime/CSlideShow.cpp"),
+            Object(Matching, "MetroidPrime/Tweaks/CTweakSlideShow.cpp"),
+            Object(NonMatching, "MetroidPrime/CArtifactDoll.cpp"),
+            Object(NonMatching, "MetroidPrime/CProjectedShadow.cpp"),
+            Object(Matching, "MetroidPrime/CPreFrontEnd.cpp"),
+            Object(NonMatching, "MetroidPrime/CGameCubeDoll.cpp"),
+            Object(
+                NonMatching, "MetroidPrime/ScriptObjects/CScriptProjectedShadow.cpp"
+            ),
+            Object(NonMatching, "MetroidPrime/ScriptObjects/CEnergyBall.cpp"),
+            Object(Matching, "MetroidPrime/Enemies/CMetroidPrimeProjectile.cpp"),
+            Object(Matching, "MetroidPrime/Enemies/SPositionHistory.cpp"),
         ],
-    },
-    {
-        "lib": "WeaponsCW",
-        "mw_version": "1.3.2",
-        "cflags": "$cflags_retro",
-        "host": True,
-        "objects": [
-            "Weapons/CProjectileWeapon",
-            "Weapons/CProjectileWeaponDataFactory",
-            "Weapons/CCollisionResponseData",
-            ["Weapons/IWeaponRenderer", True],
-            "Weapons/CDecalDataFactory",
-            ["Weapons/CDecal", False],
-            ["Weapons/CWeaponDescription", True],
-            ["Weapons/CDecalDescription", True],
+    ),
+    RetroLib(
+        "WorldFormat",
+        [
+            Object(NonMatching, "WorldFormat/CAreaOctTree_Tests.cpp"),
+            Object(Matching, "WorldFormat/CCollisionSurface.cpp"),
+            Object(Matching, "WorldFormat/CMetroidModelInstance.cpp"),
+            Object(NonMatching, "WorldFormat/CAreaBspTree.cpp"),
+            Object(NonMatching, "WorldFormat/CAreaOctTree.cpp"),
+            Object(NonMatching, "WorldFormat/CMetroidAreaCollider.cpp"),
+            Object(NonMatching, "WorldFormat/CWorldLight.cpp"),
+            Object(NonMatching, "WorldFormat/COBBTree.cpp"),
+            Object(NonMatching, "WorldFormat/CCollidableOBBTree.cpp"),
+            Object(NonMatching, "WorldFormat/CCollidableOBBTreeGroup.cpp"),
+            Object(NonMatching, "WorldFormat/CPVSAreaSet.cpp"),
+            Object(NonMatching, "WorldFormat/CAreaRenderOctTree.cpp"),
         ],
-    },
-    {
-        "lib": "MetaRenderCW",
-        "mw_version": "1.3.2",
-        "cflags": "$cflags_retro",
-        "host": True,
-        "objects": ["MetaRender/CCubeRenderer"],
-    },
-    {
-        "lib": "GuiSysCW",
-        "mw_version": "1.3.2",
-        "cflags": "$cflags_retro",
-        "host": True,
-        "objects": [
-            ["GuiSys/CAuiMain", True],
-            "GuiSys/CAuiMeter",
-            "GuiSys/CGuiGroup",
-            "GuiSys/CGuiHeadWidget",
-            ["GuiSys/CGuiLight", True],
-            "GuiSys/CGuiModel",
-            ["GuiSys/CGuiObject", False],
-            "GuiSys/CGuiPane",
-            "GuiSys/CGuiSliderGroup",
-            ["GuiSys/CGuiSys", True],
-            "GuiSys/CGuiTableGroup",
-            "GuiSys/CGuiTextPane",
-            "GuiSys/CGuiTextSupport",
-            "GuiSys/CGuiWidget",
-            "GuiSys/CGuiWidgetIdDB",
-            ["GuiSys/CGuiWidgetDrawParms", True],
-            "GuiSys/CAuiEnergyBarT01",
-            "GuiSys/CAuiImagePane",
-            ["GuiSys/CRepeatState", True],
+    ),
+    RetroLib(
+        "Weapons",
+        [
+            Object(NonMatching, "Weapons/CProjectileWeapon.cpp"),
+            Object(NonMatching, "Weapons/CProjectileWeaponDataFactory.cpp"),
+            Object(NonMatching, "Weapons/CCollisionResponseData.cpp"),
+            Object(Matching, "Weapons/IWeaponRenderer.cpp"),
+            Object(NonMatching, "Weapons/CDecalDataFactory.cpp"),
+            Object(NonMatching, "Weapons/CDecal.cpp"),
+            Object(NonMatching, "Weapons/CWeaponDescription.cpp"),
+            Object(NonMatching, "Weapons/CDecalDescription.cpp"),
         ],
-    },
-    {
-        "lib": "CollisionCW",
-        "mw_version": "1.3.2",
-        "cflags": "$cflags_retro",
-        "host": True,
-        "objects": [
-            ["Collision/CCollidableAABox", False],
-            ["Collision/CCollidableCollisionSurface", True],
-            ["Collision/CCollisionInfo", True],
-            "Collision/InternalColliders",
-            ["Collision/CCollisionPrimitive", False],
-            ["Collision/CMaterialList", True],
-            ["Collision/CollisionUtil", False],
-            "Collision/CCollidableSphere",
-            ["Collision/CMaterialFilter", True],
-            ["Collision/COBBox", False],
-            ["Collision/CMRay", True],
+    ),
+    RetroLib(
+        "MetaRender",
+        [
+            Object(NonMatching, "MetaRender/CCubeRenderer.cpp"),
         ],
-    },
-    {
-        "lib": "Kyoto_CW1",
-        "mw_version": "1.3.2",
-        "cflags": "$cflags_retro",
-        "host": True,
-        "objects": [
-            ["Kyoto/Basics/CBasics", True],
-            ["Kyoto/Basics/CStopwatch", True],
-            ["Kyoto/Basics/CBasicsDolphin", True],
-            ["Kyoto/Alloc/CCallStackDolphin", True],
-            ["Kyoto/Basics/COsContextDolphin", True],
-            ["Kyoto/Basics/CSWDataDolphin", True],
-            ["Kyoto/Basics/RAssertDolphin", True],
-            ["Kyoto/Animation/CAnimation", True],
-            ["Kyoto/Animation/CAnimationManager", False],
-            "Kyoto/Animation/CAnimationSet",
-            "Kyoto/Animation/CAnimCharacterSet",
-            "Kyoto/Animation/CAnimTreeLoopIn",
-            "Kyoto/Animation/CAnimTreeSequence",
-            "Kyoto/Animation/CCharacterInfo",
-            "Kyoto/Animation/CCharacterSet",
-            "Kyoto/Animation/CMetaAnimBlend",
-            "Kyoto/Animation/CMetaAnimFactory",
-            "Kyoto/Animation/CMetaAnimPhaseBlend",
-            "Kyoto/Animation/CMetaAnimPlay",
-            "Kyoto/Animation/CMetaAnimRandom",
-            "Kyoto/Animation/CMetaAnimSequence",
-            "Kyoto/Animation/CMetaTransFactory",
-            "Kyoto/Animation/CMetaTransMetaAnim",
-            "Kyoto/Animation/CMetaTransPhaseTrans",
-            "Kyoto/Animation/CMetaTransSnap",
-            "Kyoto/Animation/CMetaTransTrans",
-            ["Kyoto/Animation/CPASAnimInfo", True],
-            ["Kyoto/Animation/CPASAnimParm", True],
-            "Kyoto/Animation/CPASAnimState",
-            "Kyoto/Animation/CPASDatabase",
-            ["Kyoto/Animation/CPASParmInfo", True],
-            ["Kyoto/Animation/CPrimitive", True],
-            "Kyoto/Animation/CSequenceHelper",
-            ["Kyoto/Animation/CTransition", True],
-            ["Kyoto/Animation/CTransitionManager", True],
-            "Kyoto/Animation/CTreeUtils",
-            "Kyoto/Animation/IMetaAnim",
-            ["Kyoto/Audio/CSfxHandle", True],
-            "Kyoto/Audio/CSfxManager",
-            "Kyoto/Animation/CAdvancementDeltas",
-            "Kyoto/Animation/CAnimMathUtils",
-            "Kyoto/Animation/CAnimPOIData",
-            "Kyoto/Animation/CAnimSource",
-            "Kyoto/Animation/CAnimSourceReader",
-            "Kyoto/Animation/CAnimSourceReaderBase",
-            "Kyoto/Animation/CAnimTreeAnimReaderContainer",
-            "Kyoto/Animation/CAnimTreeBlend",
-            "Kyoto/Animation/CAnimTreeContinuousPhaseBlend",
-            "Kyoto/Animation/CAnimTreeDoubleChild",
-            "Kyoto/Animation/CAnimTreeNode",
-            "Kyoto/Animation/CAnimTreeSingleChild",
-            "Kyoto/Animation/CAnimTreeTimeScale",
-            "Kyoto/Animation/CAnimTreeTransition",
-            "Kyoto/Animation/CAnimTreeTweenBase",
-            ["Kyoto/Animation/CBoolPOINode", True],
-            "Kyoto/Animation/CCharAnimMemoryMetrics",
-            "Kyoto/Animation/CCharLayoutInfo",
-            "Kyoto/Animation/CFBStreamedAnimReader",
-            "Kyoto/Animation/CFBStreamedCompression",
-            "Kyoto/Animation/CHierarchyPoseBuilder",
-            ["Kyoto/Animation/CInt32POINode", True],
-            ["Kyoto/Animation/CParticlePOINode", True],
-            ["Kyoto/Animation/CPOINode", True],
-            "Kyoto/Animation/CSegStatementSet",
-            "Kyoto/Animation/CTimeScaleFunctions",
-            "Kyoto/Animation/IAnimReader",
-            "Kyoto/Animation/CAllFormatsAnimSource",
-            ["Kyoto/CDvdRequestManager", True],
-            ["Kyoto/CDvdRequest", True],
-            ["Kyoto/Text/CColorInstruction", True],
-            ["Kyoto/Text/CColorOverrideInstruction", True],
-            ["Kyoto/Text/CDrawStringOptions", True],
-            "Kyoto/Text/CFontInstruction",
-            "Kyoto/Text/CFontRenderState",
-            ["Kyoto/Text/CLineExtraSpaceInstruction", True],
-            "Kyoto/Text/CLineInstruction",
-            ["Kyoto/Text/CLineSpacingInstruction", True],
-            ["Kyoto/Text/CPopStateInstruction", True],
-            ["Kyoto/Text/CPushStateInstruction", True],
-            ["Kyoto/Text/CRasterFont", False],
-            ["Kyoto/Text/CRemoveColorOverrideInstruction", True],
-            ["Kyoto/Text/CSaveableState", True],
-            "Kyoto/Text/CTextExecuteBuffer",
-            "Kyoto/Text/CTextInstruction",
-            ["Kyoto/Text/CTextParser", False],
-            ["Kyoto/Text/CWordBreakTables", False],
-            ["Kyoto/Text/CWordInstruction", False],
-            ["Kyoto/Text/CBlockInstruction", True],
-            ["Kyoto/Text/CFont", True],
-            ["Kyoto/Graphics/CLight", True],
-            "Kyoto/Graphics/CCubeModel",
-            ["Kyoto/Graphics/CGX", True],
-            ["Kyoto/Graphics/CTevCombiners", True],
-            ["Kyoto/Graphics/DolphinCGraphics", False],
-            ["Kyoto/Graphics/DolphinCPalette", False],
-            ["Kyoto/Graphics/DolphinCTexture", False],
-            ["Kyoto/Math/CloseEnough", True],
-            "Kyoto/Math/CMatrix3f",
-            ["Kyoto/Math/CMatrix4f", False],
-            "Kyoto/Math/CQuaternion",
-            ["Kyoto/CRandom16", True],
-            "Kyoto/Math/CTransform4f",
-            ["Kyoto/Math/CUnitVector3f", True],
-            ["Kyoto/Math/CVector2f", True],
-            ["Kyoto/Math/CVector2i", True],
-            ["Kyoto/Math/CVector3d", True],
-            ["Kyoto/Math/CVector3f", False],
-            ["Kyoto/Math/CVector3i", True],
-            ["Kyoto/Math/RMathUtils", False],
-            ["Kyoto/CCrc32", True],
-            ["Kyoto/Alloc/CCircularBuffer", True],
-            ["Kyoto/Alloc/CMemory", True],
-            ["Kyoto/Alloc/IAllocator", True],
-            ["Kyoto/PVS/CPVSVisOctree", False],
-            "Kyoto/PVS/CPVSVisSet",
-            ["Kyoto/Particles/CColorElement", False],
-            "Kyoto/Particles/CElementGen",
-            ["Kyoto/Particles/CIntElement", True],
-            ["Kyoto/Particles/CModVectorElement", False],
-            ["Kyoto/Particles/CParticleDataFactory", False],
-            ["Kyoto/Particles/CParticleGen", True],
-            ["Kyoto/Particles/CParticleGlobals", True],
-            "Kyoto/Particles/CParticleSwoosh",
-            "Kyoto/Particles/CParticleSwooshDataFactory",
-            ["Kyoto/Particles/CRealElement", True],
-            "Kyoto/Particles/CSpawnSystemKeyframeData",
-            ["Kyoto/Particles/CUVElement", False],
-            ["Kyoto/Particles/CVectorElement", False],
-            ["Kyoto/Particles/CWarp", True],
-            ["Kyoto/Math/CPlane", True],
-            ["Kyoto/Math/CSphere", True],
-            ["Kyoto/Math/CAABox", False],
-            "Kyoto/CFactoryMgr",
-            "Kyoto/CResFactory",
-            "Kyoto/CResLoader",
-            ["Kyoto/rstl/rstl_map", False],
-            "Kyoto/rstl/rstl_strings",
-            ["Kyoto/rstl/RstlExtras", False],
-            ["Kyoto/Streams/CInputStream", True],
-            ["Kyoto/Streams/CMemoryInStream", True],
-            ["Kyoto/Streams/CMemoryStreamOut", True],
-            ["Kyoto/Streams/COutputStream", True],
-            ["Kyoto/Streams/CZipInputStream", True],
-            ["Kyoto/Streams/CZipOutputStream", True],
-            ["Kyoto/Streams/CZipSupport", True],
-            ["Kyoto/CFactoryStore", True],
-            ["Kyoto/CObjectReference", True],
-            "Kyoto/CSimplePool",
-            ["Kyoto/CToken", True],
-            ["Kyoto/IObj", True],
+    ),
+    RetroLib(
+        "GuiSys",
+        [
+            Object(Matching, "GuiSys/CAuiMain.cpp"),
+            Object(NonMatching, "GuiSys/CAuiMeter.cpp"),
+            Object(NonMatching, "GuiSys/CGuiGroup.cpp"),
+            Object(NonMatching, "GuiSys/CGuiHeadWidget.cpp"),
+            Object(Matching, "GuiSys/CGuiLight.cpp"),
+            Object(NonMatching, "GuiSys/CGuiModel.cpp"),
+            Object(NonMatching, "GuiSys/CGuiObject.cpp"),
+            Object(NonMatching, "GuiSys/CGuiPane.cpp"),
+            Object(NonMatching, "GuiSys/CGuiSliderGroup.cpp"),
+            Object(Matching, "GuiSys/CGuiSys.cpp"),
+            Object(NonMatching, "GuiSys/CGuiTableGroup.cpp"),
+            Object(NonMatching, "GuiSys/CGuiTextPane.cpp"),
+            Object(NonMatching, "GuiSys/CGuiTextSupport.cpp"),
+            Object(NonMatching, "GuiSys/CGuiWidget.cpp"),
+            Object(NonMatching, "GuiSys/CGuiWidgetIdDB.cpp"),
+            Object(Matching, "GuiSys/CGuiWidgetDrawParms.cpp"),
+            Object(NonMatching, "GuiSys/CAuiEnergyBarT01.cpp"),
+            Object(NonMatching, "GuiSys/CAuiImagePane.cpp"),
+            Object(Matching, "GuiSys/CRepeatState.cpp"),
         ],
-    },
+    ),
+    RetroLib(
+        "Collision",
+        [
+            Object(NonMatching, "Collision/CCollidableAABox.cpp"),
+            Object(Matching, "Collision/CCollidableCollisionSurface.cpp"),
+            Object(Matching, "Collision/CCollisionInfo.cpp"),
+            Object(NonMatching, "Collision/InternalColliders.cpp"),
+            Object(NonMatching, "Collision/CCollisionPrimitive.cpp"),
+            Object(Matching, "Collision/CMaterialList.cpp"),
+            Object(NonMatching, "Collision/CollisionUtil.cpp"),
+            Object(NonMatching, "Collision/CCollidableSphere.cpp"),
+            Object(Matching, "Collision/CMaterialFilter.cpp"),
+            Object(NonMatching, "Collision/COBBox.cpp"),
+            Object(Matching, "Collision/CMRay.cpp"),
+        ],
+    ),
+    RetroLib(
+        "Kyoto1",
+        [
+            Object(Matching, "Kyoto/Basics/CBasics.cpp"),
+            Object(Matching, "Kyoto/Basics/CStopwatch.cpp"),
+            Object(Matching, "Kyoto/Basics/CBasicsDolphin.cpp"),
+            Object(Matching, "Kyoto/Alloc/CCallStackDolphin.cpp"),
+            Object(Matching, "Kyoto/Basics/COsContextDolphin.cpp"),
+            Object(Matching, "Kyoto/Basics/CSWDataDolphin.cpp"),
+            Object(Matching, "Kyoto/Basics/RAssertDolphin.cpp"),
+            Object(Matching, "Kyoto/Animation/CAnimation.cpp"),
+            Object(NonMatching, "Kyoto/Animation/CAnimationManager.cpp"),
+            Object(NonMatching, "Kyoto/Animation/CAnimationSet.cpp"),
+            Object(NonMatching, "Kyoto/Animation/CAnimCharacterSet.cpp"),
+            Object(NonMatching, "Kyoto/Animation/CAnimTreeLoopIn.cpp"),
+            Object(NonMatching, "Kyoto/Animation/CAnimTreeSequence.cpp"),
+            Object(NonMatching, "Kyoto/Animation/CCharacterInfo.cpp"),
+            Object(NonMatching, "Kyoto/Animation/CCharacterSet.cpp"),
+            Object(NonMatching, "Kyoto/Animation/CMetaAnimBlend.cpp"),
+            Object(NonMatching, "Kyoto/Animation/CMetaAnimFactory.cpp"),
+            Object(NonMatching, "Kyoto/Animation/CMetaAnimPhaseBlend.cpp"),
+            Object(NonMatching, "Kyoto/Animation/CMetaAnimPlay.cpp"),
+            Object(NonMatching, "Kyoto/Animation/CMetaAnimRandom.cpp"),
+            Object(NonMatching, "Kyoto/Animation/CMetaAnimSequence.cpp"),
+            Object(NonMatching, "Kyoto/Animation/CMetaTransFactory.cpp"),
+            Object(NonMatching, "Kyoto/Animation/CMetaTransMetaAnim.cpp"),
+            Object(NonMatching, "Kyoto/Animation/CMetaTransPhaseTrans.cpp"),
+            Object(NonMatching, "Kyoto/Animation/CMetaTransSnap.cpp"),
+            Object(NonMatching, "Kyoto/Animation/CMetaTransTrans.cpp"),
+            Object(Matching, "Kyoto/Animation/CPASAnimInfo.cpp"),
+            Object(Matching, "Kyoto/Animation/CPASAnimParm.cpp"),
+            Object(NonMatching, "Kyoto/Animation/CPASAnimState.cpp"),
+            Object(NonMatching, "Kyoto/Animation/CPASDatabase.cpp"),
+            Object(Matching, "Kyoto/Animation/CPASParmInfo.cpp"),
+            Object(Matching, "Kyoto/Animation/CPrimitive.cpp"),
+            Object(NonMatching, "Kyoto/Animation/CSequenceHelper.cpp"),
+            Object(Matching, "Kyoto/Animation/CTransition.cpp"),
+            Object(Matching, "Kyoto/Animation/CTransitionManager.cpp"),
+            Object(NonMatching, "Kyoto/Animation/CTreeUtils.cpp"),
+            Object(NonMatching, "Kyoto/Animation/IMetaAnim.cpp"),
+            Object(Matching, "Kyoto/Audio/CSfxHandle.cpp"),
+            Object(NonMatching, "Kyoto/Audio/CSfxManager.cpp"),
+            Object(NonMatching, "Kyoto/Animation/CAdvancementDeltas.cpp"),
+            Object(NonMatching, "Kyoto/Animation/CAnimMathUtils.cpp"),
+            Object(NonMatching, "Kyoto/Animation/CAnimPOIData.cpp"),
+            Object(NonMatching, "Kyoto/Animation/CAnimSource.cpp"),
+            Object(NonMatching, "Kyoto/Animation/CAnimSourceReader.cpp"),
+            Object(NonMatching, "Kyoto/Animation/CAnimSourceReaderBase.cpp"),
+            Object(NonMatching, "Kyoto/Animation/CAnimTreeAnimReaderContainer.cpp"),
+            Object(NonMatching, "Kyoto/Animation/CAnimTreeBlend.cpp"),
+            Object(NonMatching, "Kyoto/Animation/CAnimTreeContinuousPhaseBlend.cpp"),
+            Object(NonMatching, "Kyoto/Animation/CAnimTreeDoubleChild.cpp"),
+            Object(NonMatching, "Kyoto/Animation/CAnimTreeNode.cpp"),
+            Object(NonMatching, "Kyoto/Animation/CAnimTreeSingleChild.cpp"),
+            Object(NonMatching, "Kyoto/Animation/CAnimTreeTimeScale.cpp"),
+            Object(NonMatching, "Kyoto/Animation/CAnimTreeTransition.cpp"),
+            Object(NonMatching, "Kyoto/Animation/CAnimTreeTweenBase.cpp"),
+            Object(Matching, "Kyoto/Animation/CBoolPOINode.cpp"),
+            Object(NonMatching, "Kyoto/Animation/CCharAnimMemoryMetrics.cpp"),
+            Object(NonMatching, "Kyoto/Animation/CCharLayoutInfo.cpp"),
+            Object(NonMatching, "Kyoto/Animation/CFBStreamedAnimReader.cpp"),
+            Object(NonMatching, "Kyoto/Animation/CFBStreamedCompression.cpp"),
+            Object(NonMatching, "Kyoto/Animation/CHierarchyPoseBuilder.cpp"),
+            Object(Matching, "Kyoto/Animation/CInt32POINode.cpp"),
+            Object(Matching, "Kyoto/Animation/CParticlePOINode.cpp"),
+            Object(Matching, "Kyoto/Animation/CPOINode.cpp"),
+            Object(NonMatching, "Kyoto/Animation/CSegStatementSet.cpp"),
+            Object(NonMatching, "Kyoto/Animation/CTimeScaleFunctions.cpp"),
+            Object(NonMatching, "Kyoto/Animation/IAnimReader.cpp"),
+            Object(NonMatching, "Kyoto/Animation/CAllFormatsAnimSource.cpp"),
+            Object(Matching, "Kyoto/CDvdRequestManager.cpp"),
+            Object(Matching, "Kyoto/CDvdRequest.cpp"),
+            Object(Matching, "Kyoto/Text/CColorInstruction.cpp"),
+            Object(Matching, "Kyoto/Text/CColorOverrideInstruction.cpp"),
+            Object(Matching, "Kyoto/Text/CDrawStringOptions.cpp"),
+            Object(NonMatching, "Kyoto/Text/CFontInstruction.cpp"),
+            Object(NonMatching, "Kyoto/Text/CFontRenderState.cpp"),
+            Object(Matching, "Kyoto/Text/CLineExtraSpaceInstruction.cpp"),
+            Object(NonMatching, "Kyoto/Text/CLineInstruction.cpp"),
+            Object(Matching, "Kyoto/Text/CLineSpacingInstruction.cpp"),
+            Object(Matching, "Kyoto/Text/CPopStateInstruction.cpp"),
+            Object(Matching, "Kyoto/Text/CPushStateInstruction.cpp"),
+            Object(NonMatching, "Kyoto/Text/CRasterFont.cpp"),
+            Object(Matching, "Kyoto/Text/CRemoveColorOverrideInstruction.cpp"),
+            Object(Matching, "Kyoto/Text/CSaveableState.cpp"),
+            Object(NonMatching, "Kyoto/Text/CTextExecuteBuffer.cpp"),
+            Object(NonMatching, "Kyoto/Text/CTextInstruction.cpp"),
+            Object(NonMatching, "Kyoto/Text/CTextParser.cpp"),
+            Object(NonMatching, "Kyoto/Text/CWordBreakTables.cpp"),
+            Object(NonMatching, "Kyoto/Text/CWordInstruction.cpp"),
+            Object(Matching, "Kyoto/Text/CBlockInstruction.cpp"),
+            Object(Matching, "Kyoto/Text/CFont.cpp"),
+            Object(Matching, "Kyoto/Graphics/CLight.cpp"),
+            Object(NonMatching, "Kyoto/Graphics/CCubeModel.cpp"),
+            Object(Matching, "Kyoto/Graphics/CGX.cpp"),
+            Object(Matching, "Kyoto/Graphics/CTevCombiners.cpp"),
+            Object(NonMatching, "Kyoto/Graphics/DolphinCGraphics.cpp"),
+            Object(NonMatching, "Kyoto/Graphics/DolphinCPalette.cpp"),
+            Object(NonMatching, "Kyoto/Graphics/DolphinCTexture.cpp"),
+            Object(Matching, "Kyoto/Math/CloseEnough.cpp"),
+            Object(NonMatching, "Kyoto/Math/CMatrix3f.cpp"),
+            Object(NonMatching, "Kyoto/Math/CMatrix4f.cpp"),
+            Object(NonMatching, "Kyoto/Math/CQuaternion.cpp"),
+            Object(Matching, "Kyoto/CRandom16.cpp"),
+            Object(NonMatching, "Kyoto/Math/CTransform4f.cpp"),
+            Object(Matching, "Kyoto/Math/CUnitVector3f.cpp"),
+            Object(Matching, "Kyoto/Math/CVector2f.cpp"),
+            Object(Matching, "Kyoto/Math/CVector2i.cpp"),
+            Object(Matching, "Kyoto/Math/CVector3d.cpp"),
+            Object(NonMatching, "Kyoto/Math/CVector3f.cpp"),
+            Object(Matching, "Kyoto/Math/CVector3i.cpp"),
+            Object(NonMatching, "Kyoto/Math/RMathUtils.cpp"),
+            Object(Matching, "Kyoto/CCrc32.cpp"),
+            Object(Matching, "Kyoto/Alloc/CCircularBuffer.cpp"),
+            Object(Matching, "Kyoto/Alloc/CMemory.cpp"),
+            Object(Matching, "Kyoto/Alloc/IAllocator.cpp"),
+            Object(NonMatching, "Kyoto/PVS/CPVSVisOctree.cpp"),
+            Object(NonMatching, "Kyoto/PVS/CPVSVisSet.cpp"),
+            Object(NonMatching, "Kyoto/Particles/CColorElement.cpp"),
+            Object(NonMatching, "Kyoto/Particles/CElementGen.cpp"),
+            Object(Matching, "Kyoto/Particles/CIntElement.cpp"),
+            Object(NonMatching, "Kyoto/Particles/CModVectorElement.cpp"),
+            Object(NonMatching, "Kyoto/Particles/CParticleDataFactory.cpp"),
+            Object(Matching, "Kyoto/Particles/CParticleGen.cpp"),
+            Object(Matching, "Kyoto/Particles/CParticleGlobals.cpp"),
+            Object(NonMatching, "Kyoto/Particles/CParticleSwoosh.cpp"),
+            Object(NonMatching, "Kyoto/Particles/CParticleSwooshDataFactory.cpp"),
+            Object(Matching, "Kyoto/Particles/CRealElement.cpp"),
+            Object(NonMatching, "Kyoto/Particles/CSpawnSystemKeyframeData.cpp"),
+            Object(NonMatching, "Kyoto/Particles/CUVElement.cpp"),
+            Object(NonMatching, "Kyoto/Particles/CVectorElement.cpp"),
+            Object(Matching, "Kyoto/Particles/CWarp.cpp"),
+            Object(Matching, "Kyoto/Math/CPlane.cpp"),
+            Object(Matching, "Kyoto/Math/CSphere.cpp"),
+            Object(NonMatching, "Kyoto/Math/CAABox.cpp"),
+            Object(NonMatching, "Kyoto/CFactoryMgr.cpp"),
+            Object(NonMatching, "Kyoto/CResFactory.cpp"),
+            Object(NonMatching, "Kyoto/CResLoader.cpp"),
+            Object(NonMatching, "Kyoto/rstl/rstl_map.cpp"),
+            Object(NonMatching, "Kyoto/rstl/rstl_strings.cpp"),
+            Object(NonMatching, "Kyoto/rstl/RstlExtras.cpp"),
+            Object(Matching, "Kyoto/Streams/CInputStream.cpp"),
+            Object(Matching, "Kyoto/Streams/CMemoryInStream.cpp"),
+            Object(Matching, "Kyoto/Streams/CMemoryStreamOut.cpp"),
+            Object(Matching, "Kyoto/Streams/COutputStream.cpp"),
+            Object(Matching, "Kyoto/Streams/CZipInputStream.cpp"),
+            Object(Matching, "Kyoto/Streams/CZipOutputStream.cpp"),
+            Object(Matching, "Kyoto/Streams/CZipSupport.cpp"),
+            Object(Matching, "Kyoto/CFactoryStore.cpp"),
+            Object(Matching, "Kyoto/CObjectReference.cpp"),
+            Object(NonMatching, "Kyoto/CSimplePool.cpp"),
+            Object(Matching, "Kyoto/CToken.cpp"),
+            Object(Matching, "Kyoto/IObj.cpp"),
+        ],
+    ),
+    # TODO: Merge back into Kyoto
     {
         "lib": "zlib",
-        "mw_version": "1.3.2",
-        "cflags": "$cflags_runtime",
-        "host": True,
-        "objects": [
-            ["Kyoto/zlib/adler32", True],
-            ["Kyoto/zlib/deflate", True],
-            ["Kyoto/zlib/infblock", True],
-            ["Kyoto/zlib/infcodes", True],
-            ["Kyoto/zlib/inffast", True],
-            ["Kyoto/zlib/inflate", True],
-            ["Kyoto/zlib/inftrees", True],
-            ["Kyoto/zlib/infutil", True],
-            ["Kyoto/zlib/trees", True],
-            ["Kyoto/zlib/zutil", True],
-        ],
-    },
-    {
-        "lib": "Kyoto_CW2",
-        "mw_version": "1.3.2",
-        "cflags": "$cflags_retro",
-        "host": True,
-        "objects": [
-            "Kyoto/CARAMManager",
-            "Kyoto/Math/CFrustumPlanes",
-            ["Kyoto/Graphics/CCubeMaterial", False],
-            ["Kyoto/Graphics/CCubeSurface", False],
-            ["Kyoto/Animation/CCharAnimTime", False],
-            ["Kyoto/Animation/CSegIdList", True],
-            ["Kyoto/Input/CFinalInput", True],
-            ["Kyoto/Graphics/CColor", True],
-            ["Kyoto/Audio/DolphinCAudioGroupSet", False],
-            ["Kyoto/Audio/DolphinCAudioSys", False],
-            "Kyoto/DolphinCMemoryCardSys",
-            ["Kyoto/Input/DolphinIController", True],
-            ["Kyoto/Input/CDolphinController", True],
-            ["Kyoto/DolphinCDvdFile", False],
-            ["Kyoto/Alloc/CMediumAllocPool", False],
-            ["Kyoto/Alloc/CSmallAllocPool", True],
-            ["Kyoto/Alloc/CGameAllocator", False],
-            "Kyoto/Animation/DolphinCSkinnedModel",
-            ["Kyoto/Animation/DolphinCSkinRules", False],
-            ["Kyoto/Animation/DolphinCVirtualBone", False],
-            "Kyoto/Graphics/DolphinCModel",
-            ["Kyoto/Text/CStringTable", True],
-            ["Kyoto/Particles/CEmitterElement", False],
-            ["Kyoto/Particles/CEffectComponent", True],
-            ["Kyoto/Particles/CParticleData", False],
-            "Kyoto/Animation/CVertexMorphEffect",
-            "Kyoto/Animation/CSkinnedModelWithAvgNormals",
-            ["Kyoto/CTimeProvider", True],
-            ["Kyoto/CARAMToken", True],
-            "Kyoto/Audio/CMidiManager",
-            ["Kyoto/Text/CFontImageDef", True],
-            "Kyoto/Text/CImageInstruction",
-            "Kyoto/Text/CTextRenderBuffer",
-            "Kyoto/Graphics/CCubeMoviePlayer",
-            "Kyoto/Animation/CAdditiveAnimPlayback",
-            "Kyoto/Particles/CParticleElectricDataFactory",
-            "Kyoto/Particles/CParticleElectric",
-            ["Kyoto/Graphics/DolphinCColor", True],
-            "Kyoto/Audio/CDSPStreamManager",
-            ["Kyoto/CDependencyGroup", True],
-            "Kyoto/Audio/CStreamAudioManager",
-            ["Kyoto/Animation/CHalfTransition", True],
-            "Kyoto/Particles/CElectricDescription",
-            "Kyoto/Particles/CSwooshDescription",
-            "Kyoto/Particles/CGenDescription",
-            "Kyoto/CPakFile",
-            "Kyoto/Animation/CPoseAsTransformsVariableSize",
-            ["Kyoto/Input/CRumbleVoice", False],
-            ["Kyoto/Input/RumbleAdsr", True],
-            ["Kyoto/Input/CRumbleGenerator", True],
-            "Kyoto/Audio/CDSPStream",
-            ["Kyoto/Audio/g721", True],
-            "Kyoto/Audio/CStaticAudioPlayer",
-            "Kyoto/CFrameDelayedKiller",
-        ],
-    },
-    {
-        "lib": "ai",
-        "mw_version": "1.2.5n",
-        "cflags": "$cflags_base",
+        "mw_version": "GC/1.3.2",
+        "cflags": cflags_runtime,
         "host": False,
         "objects": [
-            ["Dolphin/ai", True],
+            Object(Matching, "Kyoto/zlib/adler32.c"),
+            Object(Matching, "Kyoto/zlib/deflate.c"),
+            Object(Matching, "Kyoto/zlib/infblock.c"),
+            Object(Matching, "Kyoto/zlib/infcodes.c"),
+            Object(Matching, "Kyoto/zlib/inffast.c"),
+            Object(Matching, "Kyoto/zlib/inflate.c"),
+            Object(Matching, "Kyoto/zlib/inftrees.c"),
+            Object(Matching, "Kyoto/zlib/infutil.c"),
+            Object(Matching, "Kyoto/zlib/trees.c"),
+            Object(Matching, "Kyoto/zlib/zutil.c"),
         ],
     },
-    {
-        "lib": "ar",
-        "mw_version": "1.2.5n",
-        "cflags": "$cflags_base",
-        "host": False,
-        "objects": [
-            ["Dolphin/ar/ar", True],
-            ["Dolphin/ar/arq", True],
+    # TODO: Merge this with zlib and Kyoto1
+    RetroLib(
+        "Kyoto2",
+        [
+            Object(NonMatching, "Kyoto/CARAMManager.cpp"),
+            Object(NonMatching, "Kyoto/Math/CFrustumPlanes.cpp"),
+            Object(NonMatching, "Kyoto/Graphics/CCubeMaterial.cpp"),
+            Object(NonMatching, "Kyoto/Graphics/CCubeSurface.cpp"),
+            Object(NonMatching, "Kyoto/Animation/CCharAnimTime.cpp"),
+            Object(Matching, "Kyoto/Animation/CSegIdList.cpp"),
+            Object(Matching, "Kyoto/Input/CFinalInput.cpp"),
+            Object(Matching, "Kyoto/Graphics/CColor.cpp"),
+            Object(NonMatching, "Kyoto/Audio/DolphinCAudioGroupSet.cpp"),
+            Object(NonMatching, "Kyoto/Audio/DolphinCAudioSys.cpp"),
+            Object(NonMatching, "Kyoto/DolphinCMemoryCardSys.cpp"),
+            Object(Matching, "Kyoto/Input/DolphinIController.cpp"),
+            Object(Matching, "Kyoto/Input/CDolphinController.cpp"),
+            Object(NonMatching, "Kyoto/DolphinCDvdFile.cpp"),
+            Object(NonMatching, "Kyoto/Alloc/CMediumAllocPool.cpp"),
+            Object(Matching, "Kyoto/Alloc/CSmallAllocPool.cpp"),
+            Object(NonMatching, "Kyoto/Alloc/CGameAllocator.cpp"),
+            Object(NonMatching, "Kyoto/Animation/DolphinCSkinnedModel.cpp"),
+            Object(NonMatching, "Kyoto/Animation/DolphinCSkinRules.cpp"),
+            Object(NonMatching, "Kyoto/Animation/DolphinCVirtualBone.cpp"),
+            Object(NonMatching, "Kyoto/Graphics/DolphinCModel.cpp"),
+            Object(Matching, "Kyoto/Text/CStringTable.cpp"),
+            Object(NonMatching, "Kyoto/Particles/CEmitterElement.cpp"),
+            Object(Matching, "Kyoto/Particles/CEffectComponent.cpp"),
+            Object(NonMatching, "Kyoto/Particles/CParticleData.cpp"),
+            Object(NonMatching, "Kyoto/Animation/CVertexMorphEffect.cpp"),
+            Object(NonMatching, "Kyoto/Animation/CSkinnedModelWithAvgNormals.cpp"),
+            Object(Matching, "Kyoto/CTimeProvider.cpp"),
+            Object(Matching, "Kyoto/CARAMToken.cpp"),
+            Object(NonMatching, "Kyoto/Audio/CMidiManager.cpp"),
+            Object(Matching, "Kyoto/Text/CFontImageDef.cpp"),
+            Object(NonMatching, "Kyoto/Text/CImageInstruction.cpp"),
+            Object(NonMatching, "Kyoto/Text/CTextRenderBuffer.cpp"),
+            Object(NonMatching, "Kyoto/Graphics/CCubeMoviePlayer.cpp"),
+            Object(NonMatching, "Kyoto/Animation/CAdditiveAnimPlayback.cpp"),
+            Object(NonMatching, "Kyoto/Particles/CParticleElectricDataFactory.cpp"),
+            Object(NonMatching, "Kyoto/Particles/CParticleElectric.cpp"),
+            Object(Matching, "Kyoto/Graphics/DolphinCColor.cpp"),
+            Object(NonMatching, "Kyoto/Audio/CDSPStreamManager.cpp"),
+            Object(Matching, "Kyoto/CDependencyGroup.cpp"),
+            Object(NonMatching, "Kyoto/Audio/CStreamAudioManager.cpp"),
+            Object(Matching, "Kyoto/Animation/CHalfTransition.cpp"),
+            Object(NonMatching, "Kyoto/Particles/CElectricDescription.cpp"),
+            Object(NonMatching, "Kyoto/Particles/CSwooshDescription.cpp"),
+            Object(NonMatching, "Kyoto/Particles/CGenDescription.cpp"),
+            Object(NonMatching, "Kyoto/CPakFile.cpp"),
+            Object(NonMatching, "Kyoto/Animation/CPoseAsTransformsVariableSize.cpp"),
+            Object(NonMatching, "Kyoto/Input/CRumbleVoice.cpp"),
+            Object(Matching, "Kyoto/Input/RumbleAdsr.cpp"),
+            Object(Matching, "Kyoto/Input/CRumbleGenerator.cpp"),
+            Object(NonMatching, "Kyoto/Audio/CDSPStream.cpp"),
+            Object(Matching, "Kyoto/Audio/g721.cpp"),
+            Object(NonMatching, "Kyoto/Audio/CStaticAudioPlayer.cpp"),
+            Object(NonMatching, "Kyoto/CFrameDelayedKiller.cpp"),
         ],
-    },
-    {
-        "lib": "base",
-        "mw_version": "1.2.5",
-        "cflags": "$cflags_base",
-        "host": False,
-        "objects": [
-            ["Dolphin/PPCArch", True],
+    ),
+    DolphinLib(
+        "ai",
+        [
+            Object(Matching, "Dolphin/ai.c"),
         ],
-    },
-    {
-        "lib": "db",
-        "mw_version": "1.2.5",
-        "cflags": "$cflags_base",
-        "host": False,
-        "objects": [
-            ["Dolphin/db", True],
+    ),
+    DolphinLib(
+        "ar",
+        [
+            Object(Matching, "Dolphin/ar/ar.c"),
+            Object(Matching, "Dolphin/ar/arq.c"),
         ],
-    },
-    {
-        "lib": "dsp",
-        "mw_version": "1.2.5n",
-        "cflags": "$cflags_base",
-        "host": False,
-        "objects": [
-            ["Dolphin/dsp/dsp", True],
-            ["Dolphin/dsp/dsp_debug", True],
-            ["Dolphin/dsp/dsp_task", True],
+    ),
+    DolphinLib(
+        "base",
+        [
+            Object(Matching, "Dolphin/PPCArch.c"),
         ],
-    },
-    {
-        "lib": "dvd",
-        "mw_version": "1.2.5n",
-        "cflags": "$cflags_base",
-        "host": False,
-        "objects": [
-            ["Dolphin/dvd/dvdlow", True],
-            ["Dolphin/dvd/dvdfs", True],
-            ["Dolphin/dvd/dvd", True],
-            ["Dolphin/dvd/dvdqueue", True],
-            ["Dolphin/dvd/dvderror", True],
-            ["Dolphin/dvd/dvdidutils", True],
-            ["Dolphin/dvd/dvdfatal", True],
-            ["Dolphin/dvd/fstload", True],
+    ),
+    DolphinLib(
+        "db",
+        [
+            Object(Matching, "Dolphinn/db.c"),
         ],
-    },
-    {
-        "lib": "gx",
-        "mw_version": "1.2.5",
-        #"cflags": "-proc gecko -fp hard -nodefaults -nosyspath -i include -i libc -g -sym on -D_DEBUG=1 -enum int",
-        "cflags": "$cflags_base -fp_contract off",
-        "host": False,
-        "objects": [
-            ["Dolphin/gx/GXInit", False],
-            "Dolphin/gx/GXFifo",
-            "Dolphin/gx/GXAttr",
-            "Dolphin/gx/GXMisc",
-            "Dolphin/gx/GXGeometry",
-            "Dolphin/gx/GXFrameBuf",
-            ["Dolphin/gx/GXLight", False],
-            "Dolphin/gx/GXTexture",
-            "Dolphin/gx/GXBump",
-            "Dolphin/gx/GXTev",
-            "Dolphin/gx/GXPixel",
-            "Dolphin/gx/GXStubs",
-            "Dolphin/gx/GXDisplayList",
-            "Dolphin/gx/GXTransform",
-            "Dolphin/gx/GXPerf",
+    ),
+    DolphinLib(
+        "dsp",
+        [
+            Object(Matching, "Dolphin/dsp/dsp.c"),
+            Object(Matching, "Dolphin/dsp/dsp_debug.c"),
+            Object(Matching, "Dolphin/dsp/dsp_task.c"),
         ],
-    },
-    {
-        "lib": "mtx",
-        "mw_version": "1.2.5",
-        "cflags": "$cflags_base",
-        "host": False,
-        "objects": [
-            "Dolphin/mtx/mtx",
-            "Dolphin/mtx/mtx44vec",
-            "Dolphin/mtx/mtx44",
-            "Dolphin/mtx/vec",
-            "Dolphin/mtx/psmtx",
+    ),
+    DolphinLib(
+        "dvd",
+        [
+            Object(Matching, "Dolphin/dvd/dvdlow.c"),
+            Object(Matching, "Dolphin/dvd/dvdfs.c"),
+            Object(Matching, "Dolphin/dvd/dvd.c"),
+            Object(Matching, "Dolphin/dvd/dvdqueue.c"),
+            Object(Matching, "Dolphin/dvd/dvderror.c"),
+            Object(Matching, "Dolphin/dvd/dvdidutils.c"),
+            Object(Matching, "Dolphin/dvd/dvdfatal.c"),
+            Object(Matching, "Dolphin/dvd/fstload.c"),
         ],
-    },
-    {
-        "lib": "os",
-        "mw_version": "1.2.5n",
-        "cflags": "$cflags_base",
-        "host": False,
-        "objects": [
-            ["Dolphin/os/__start", True],
-            ["Dolphin/os/OS", True],
-            ["Dolphin/os/OSAlarm", True],
-            ["Dolphin/os/OSArena", True],
-            ["Dolphin/os/OSAudioSystem", True],
-            ["Dolphin/os/OSCache", True],
-            ["Dolphin/os/OSContext", True],
-            ["Dolphin/os/OSError", True],
-            "Dolphin/os/OSFatal",
-            "Dolphin/os/OSFont",
-            ["Dolphin/os/OSInterrupt", True],
-            ["Dolphin/os/OSLink", True],
-            ["Dolphin/os/OSMessage", True],
-            ["Dolphin/os/OSMemory", True],
-            ["Dolphin/os/OSMutex", True],
-            "Dolphin/os/OSReboot",
-            ["Dolphin/os/OSReset", True],
-            ["Dolphin/os/OSResetSW", True],
-            ["Dolphin/os/OSRtc", True],
-            ["Dolphin/os/OSSync", True],
-            ["Dolphin/os/OSThread", True],
-            ["Dolphin/os/OSTime", True],
-            ["Dolphin/os/__ppc_eabi_init", True],
+    ),
+    DolphinLib(
+        "gx",
+        [
+            Object(NonMatching, "Dolphin/gx/GXInit.c"),
+            Object(NonMatching, "Dolphin/gx/GXFifo.c"),
+            Object(NonMatching, "Dolphin/gx/GXAttr.c"),
+            Object(NonMatching, "Dolphin/gx/GXMisc.c"),
+            Object(NonMatching, "Dolphin/gx/GXGeometry.c"),
+            Object(NonMatching, "Dolphin/gx/GXFrameBuf.c"),
+            Object(NonMatching, "Dolphin/gx/GXLight.c"),
+            Object(NonMatching, "Dolphin/gx/GXTexture.c"),
+            Object(NonMatching, "Dolphin/gx/GXBump.c"),
+            Object(NonMatching, "Dolphin/gx/GXTev.c"),
+            Object(NonMatching, "Dolphin/gx/GXPixel.c"),
+            Object(NonMatching, "Dolphin/gx/GXStubs.c"),
+            Object(NonMatching, "Dolphin/gx/GXDisplayList.c"),
+            Object(NonMatching, "Dolphin/gx/GXTransform.c"),
+            Object(NonMatching, "Dolphin/gx/GXPerf.c"),
         ],
-    },
-    {
-        "lib": "pad",
-        "mw_version": "1.2.5n",
-        "cflags": "$cflags_base",
-        "host": False,
-        "objects": [
-            ["Dolphin/pad/PadClamp", True],
-            ["Dolphin/pad/pad", True],
+    ),
+    DolphinLib(
+        "mtx",
+        [
+            Object(NonMatching, "Dolphin/mtx/mtx.c"),
+            Object(NonMatching, "Dolphin/mtx/mtx44vec.c"),
+            Object(NonMatching, "Dolphin/mtx/mtx44.c"),
+            Object(NonMatching, "Dolphin/mtx/vec.c"),
+            Object(NonMatching, "Dolphin/mtx/psmtx.c"),
         ],
-    },
-    {
-        "lib": "vi",
-        "mw_version": "1.2.5",
-        "cflags": "$cflags_base",
-        "host": False,
-        "objects": ["Dolphin/vi"],
-    },
+    ),
+    DolphinLib(
+        "os",
+        [
+            Object(Matching, "Dolphin/os/__start.c"),
+            Object(Matching, "Dolphin/os/OS.c"),
+            Object(Matching, "Dolphin/os/OSAlarm.c"),
+            Object(Matching, "Dolphin/os/OSArena.c"),
+            Object(Matching, "Dolphin/os/OSAudioSystem.c"),
+            Object(Matching, "Dolphin/os/OSCache.c"),
+            Object(Matching, "Dolphin/os/OSContext.c"),
+            Object(Matching, "Dolphin/os/OSError.c"),
+            Object(NonMatching, "Dolphin/os/OSFatal.c"),
+            Object(NonMatching, "Dolphin/os/OSFont.c"),
+            Object(Matching, "Dolphin/os/OSInterrupt.c"),
+            Object(Matching, "Dolphin/os/OSLink.c"),
+            Object(Matching, "Dolphin/os/OSMessage.c"),
+            Object(Matching, "Dolphin/os/OSMemory.c"),
+            Object(Matching, "Dolphin/os/OSMutex.c"),
+            Object(NonMatching, "Dolphin/os/OSReboot.c"),
+            Object(Matching, "Dolphin/os/OSReset.c"),
+            Object(Matching, "Dolphin/os/OSResetSW.c"),
+            Object(Matching, "Dolphin/os/OSRtc.c"),
+            Object(Matching, "Dolphin/os/OSSync.c"),
+            Object(Matching, "Dolphin/os/OSThread.c"),
+            Object(Matching, "Dolphin/os/OSTime.c"),
+            Object(Matching, "Dolphin/os/__ppc_eabi_init.cpp"),
+        ],
+    ),
+    DolphinLib(
+        "pad",
+        [
+            Object(Matching, "Dolphin/pad/PadClamp.c"),
+            Object(Matching, "Dolphin/pad/pad.c"),
+        ],
+    ),
+    DolphinLib(
+        "vi",
+        [
+            Object(NonMatching, "Dolphin/vi.c"),
+        ],
+    ),
     {
         "lib": "MSL_C.PPCEABI.bare.H",
-        "mw_version": "1.3.2",
-        "cflags": "$cflags_runtime",
+        "mw_version": "GC/1.3.2",
+        "cflags": cflags_runtime,
         "host": False,
         "objects": [
-            ["Runtime/__mem", True],
-            ["Runtime/__va_arg", True],
-            ["Runtime/global_destructor_chain", True],
-            ["Runtime/CPlusLibPPC", True],
-            ["Runtime/NMWException", True],
-            ["Runtime/ptmf", True],
-            ["Runtime/runtime", True],
-            ["Runtime/__init_cpp_exceptions", True],
-            ["Runtime/Gecko_ExceptionPPC", True],
-            ["Runtime/abort_exit", True],
-            ["Runtime/alloc", False],
-            ["Runtime/ansi_files", True],
-            "Runtime/ansi_fp",
-            ["Runtime/arith", True],
-            ["Runtime/buffer_io", True],
-            ["Runtime/ctype", True],
-            ["Runtime/locale", True],
-            ["Runtime/direct_io", True],
-            ["Runtime/file_io", True],
-            ["Runtime/errno", True],
-            ["Runtime/FILE_POS", True],
-            ["Runtime/mbstring", True],
-            ["Runtime/mem", True],
-            ["Runtime/mem_funcs", True],
-            ["Runtime/misc_io", True],
-            "Runtime/printf",
-            ["Runtime/qsort", False],
-            ["Runtime/rand", True],
-            ["Runtime/sscanf", True],
-            ["Runtime/string", True],
-            ["Runtime/float", True],
-            "Runtime/strtold",
-            ["Runtime/uart_console_io", True],
-            ["Runtime/wchar_io", True],
-            ["Runtime/e_acos", True],
-            ["Runtime/e_asin", True],
-            ["Runtime/e_atan2", True],
-            ["Runtime/e_exp", False],  # CW 1.3.2 lib bug
-            ["Runtime/e_fmod", True],
-            ["Runtime/e_log", True],
-            ["Runtime/e_pow", False],  # CW 1.3.2 lib bug
-            ["Runtime/e_rem_pio2", True],
-            ["Runtime/k_cos", True],
-            ["Runtime/k_rem_pio2", True],
-            ["Runtime/k_sin", True],
-            ["Runtime/k_tan", True],
-            ["Runtime/s_atan", False],  # CW 1.3.2 lib bug
-            ["Runtime/s_copysign", True],
-            ["Runtime/s_cos", True],
-            ["Runtime/s_floor", True],
-            ["Runtime/s_frexp", True],
-            ["Runtime/s_ldexp", True],
-            ["Runtime/s_modf", True],
-            ["Runtime/s_nextafter", True],
-            ["Runtime/s_sin", True],
-            ["Runtime/s_tan", True],
-            ["Runtime/w_acos", True],
-            ["Runtime/w_asin", True],
-            ["Runtime/w_atan2", True],
-            ["Runtime/w_exp", True],
-            ["Runtime/w_fmod", True],
-            ["Runtime/w_log", True],
-            ["Runtime/w_pow", True],
-            ["Runtime/math_ppc", True],
+            Object(Matching, "Runtime/__mem.c"),
+            Object(Matching, "Runtime/__va_arg.c"),
+            Object(Matching, "Runtime/global_destructor_chain.c"),
+            Object(Matching, "Runtime/CPlusLibPPC.cpp"),
+            Object(Matching, "Runtime/NMWException.cpp"),
+            Object(Matching, "Runtime/ptmf.c"),
+            Object(Matching, "Runtime/runtime.c"),
+            Object(Matching, "Runtime/__init_cpp_exceptions.cpp"),
+            Object(Matching, "Runtime/Gecko_ExceptionPPC.cpp"),
+            Object(Matching, "Runtime/abort_exit.c"),
+            Object(NonMatching, "Runtime/alloc.c"),
+            Object(Matching, "Runtime/ansi_files.c"),
+            Object(NonMatching, "Runtime/ansi_fp.c"),
+            Object(Matching, "Runtime/arith.c"),
+            Object(Matching, "Runtime/buffer_io.c"),
+            Object(Matching, "Runtime/ctype.c"),
+            Object(Matching, "Runtime/locale.c"),
+            Object(Matching, "Runtime/direct_io.c"),
+            Object(Matching, "Runtime/file_io.c"),
+            Object(Matching, "Runtime/errno.c"),
+            Object(Matching, "Runtime/FILE_POS.c"),
+            Object(Matching, "Runtime/mbstring.c"),
+            Object(Matching, "Runtime/mem.c"),
+            Object(Matching, "Runtime/mem_funcs.c"),
+            Object(Matching, "Runtime/misc_io.c"),
+            Object(NonMatching, "Runtime/printf.c"),
+            Object(NonMatching, "Runtime/qsort.c"),
+            Object(Matching, "Runtime/rand.c"),
+            Object(Matching, "Runtime/sscanf.c"),
+            Object(Matching, "Runtime/string.c"),
+            Object(Matching, "Runtime/float.c"),
+            Object(NonMatching, "Runtime/strtold.c"),
+            Object(Matching, "Runtime/uart_console_io.c"),
+            Object(Matching, "Runtime/wchar_io.c"),
+            Object(Matching, "Runtime/e_acos.c"),
+            Object(Matching, "Runtime/e_asin.c"),
+            Object(Matching, "Runtime/e_atan2.c"),
+            Object(NonMatching, "Runtime/e_exp.c"),  # CW 1.3.2 lib bug
+            Object(Matching, "Runtime/e_fmod.c"),
+            Object(Matching, "Runtime/e_log.c"),
+            Object(NonMatching, "Runtime/e_pow.c"),  # CW 1.3.2 lib bug
+            Object(Matching, "Runtime/e_rem_pio2.c"),
+            Object(Matching, "Runtime/k_cos.c"),
+            Object(Matching, "Runtime/k_rem_pio2.c"),
+            Object(Matching, "Runtime/k_sin.c"),
+            Object(Matching, "Runtime/k_tan.c"),
+            Object(NonMatching, "Runtime/s_atan.c"),  # CW 1.3.2 lib bug
+            Object(Matching, "Runtime/s_copysign.c"),
+            Object(Matching, "Runtime/s_cos.c"),
+            Object(Matching, "Runtime/s_floor.c"),
+            Object(Matching, "Runtime/s_frexp.c"),
+            Object(Matching, "Runtime/s_ldexp.c"),
+            Object(Matching, "Runtime/s_modf.c"),
+            Object(Matching, "Runtime/s_nextafter.c"),
+            Object(Matching, "Runtime/s_sin.c"),
+            Object(Matching, "Runtime/s_tan.c"),
+            Object(Matching, "Runtime/w_acos.c"),
+            Object(Matching, "Runtime/w_asin.c"),
+            Object(Matching, "Runtime/w_atan2.c"),
+            Object(Matching, "Runtime/w_exp.c"),
+            Object(Matching, "Runtime/w_fmod.c"),
+            Object(Matching, "Runtime/w_log.c"),
+            Object(Matching, "Runtime/w_pow.c"),
+            Object(Matching, "Runtime/math_ppc.c"),
         ],
     },
     {
         "lib": "musyx",
-
-        ### MusyX 1.5.3 (debug)
-        #"mw_version": "1.2.5",
-        #"cflags": "-proc gecko -fp hard -nodefaults -nosyspath -i include -i libc -g -sym on -D_DEBUG=1 -enum int -DMUSY_VERSION_MAJOR=1 -DMUSY_VERSION_MINOR=5 -DMUSY_VERSION_PATCH=3",
-
-        ### MusyX 2.0.3 (debug)
-        # "mw_version": "1.3.2",
-        # "cflags": "-proc gecko -fp hard -nodefaults -nosyspath -i include -i libc -g -sym on -D_DEBUG=1 -enum int -DMUSY_VERSION_MAJOR=2 -DMUSY_VERSION_MINOR=0 -DMUSY_VERSION_PATCH=3",
-
-        ### MusyX 1.5.4 (release)
-        "mw_version": "1.3.2",
-        "cflags": "$cflags_musyx -DMUSY_VERSION_MAJOR=1 -DMUSY_VERSION_MINOR=5 -DMUSY_VERSION_PATCH=4",
-
+        "mw_version": "GC/1.3.2",
+        "cflags": cflags_musyx,
         "host": False,
         "objects": [
-            ["musyx/runtime/seq", True],
-            ["musyx/runtime/synth", True],
-            ["musyx/runtime/seq_api", True],
-            ["musyx/runtime/snd_synthapi", True, {"add_to_all": False}],
-            ["musyx/runtime/stream", False],
-            ["musyx/runtime/synthdata", False],
-            ["musyx/runtime/synthmacros", False],
-            ["musyx/runtime/synthvoice", False],
-            ["musyx/runtime/synth_ac", True],
-            ["musyx/runtime/synth_adsr", False],
-            ["musyx/runtime/synth_vsamples", False],
-            ["musyx/runtime/synth_dbtab", True],
-            ["musyx/runtime/s_data", True],
-            ["musyx/runtime/hw_dspctrl", False],
-            ["musyx/runtime/hw_volconv", True],
-            ["musyx/runtime/snd3d", False],
-            ["musyx/runtime/snd_init", True],
-            ["musyx/runtime/snd_math", True],
-            ["musyx/runtime/snd_midictrl", False],
-            ["musyx/runtime/snd_service", True],
-            ["musyx/runtime/hardware", True],
-            ["musyx/runtime/hw_aramdma", True],
-            ["musyx/runtime/dsp_import", True],
-            ["musyx/runtime/hw_dolphin", True],
-            ["musyx/runtime/hw_memory", True],
-            ["musyx/runtime/CheapReverb/creverb_fx", True],
-            ["musyx/runtime/CheapReverb/creverb", True],
-            ["musyx/runtime/StdReverb/reverb_fx", True],
-            ["musyx/runtime/StdReverb/reverb", True],
-            ["musyx/runtime/Delay/delay_fx", True],
-            ["musyx/runtime/Chorus/chorus_fx", True],
-            ["musyx/runtime/profile", True],
+            Object(Matching, "musyx/runtime/seq.c"),
+            Object(Matching, "musyx/runtime/synth.c"),
+            Object(Matching, "musyx/runtime/seq_api.c"),
+            Object(NonMatching, "musyx/runtime/snd_synthapi.c"),
+            Object(NonMatching, "musyx/runtime/stream.c"),
+            Object(NonMatching, "musyx/runtime/synthdata.c"),
+            Object(NonMatching, "musyx/runtime/synthmacros.c"),
+            Object(NonMatching, "musyx/runtime/synthvoice.c"),
+            Object(Matching, "musyx/runtime/synth_ac.c"),
+            Object(NonMatching, "musyx/runtime/synth_adsr.c"),
+            Object(NonMatching, "musyx/runtime/synth_vsamples.c"),
+            Object(Matching, "musyx/runtime/synth_dbtab.c"),
+            Object(Matching, "musyx/runtime/s_data.c"),
+            Object(NonMatching, "musyx/runtime/hw_dspctrl.c"),
+            Object(Matching, "musyx/runtime/hw_volconv.c"),
+            Object(NonMatching, "musyx/runtime/snd3d.c"),
+            Object(Matching, "musyx/runtime/snd_init.c"),
+            Object(Matching, "musyx/runtime/snd_math.c"),
+            Object(NonMatching, "musyx/runtime/snd_midictrl.c"),
+            Object(Matching, "musyx/runtime/snd_service.c"),
+            Object(Matching, "musyx/runtime/hardware.c"),
+            Object(Matching, "musyx/runtime/hw_aramdma.c"),
+            Object(Matching, "musyx/runtime/dsp_import.c"),
+            Object(Matching, "musyx/runtime/hw_dolphin.c"),
+            Object(Matching, "musyx/runtime/hw_memory.c"),
+            Object(Matching, "musyx/runtime/CheapReverb/creverb_fx.c"),
+            Object(Matching, "musyx/runtime/CheapReverb/creverb.c"),
+            Object(Matching, "musyx/runtime/StdReverb/reverb_fx.c"),
+            Object(Matching, "musyx/runtime/StdReverb/reverb.c"),
+            Object(Matching, "musyx/runtime/Delay/delay_fx.c"),
+            Object(Matching, "musyx/runtime/Chorus/chorus_fx.c"),
+            Object(Matching, "musyx/runtime/profile.c"),
         ],
     },
     {
         "lib": "txwin",
-        "mw_version": "1.2.5",
-        "cflags": "-Cpp_exceptions off -proc gecko -fp hard -nodefaults -nosyspath -i include -i libc -g -sym on -D_DEBUG=1 -enum int ",
+        "mw_version": "GC/1.2.5n",
+        "cflags": [
+            "-Cpp_exceptions off",
+            "-proc gecko",
+            "-fp hard",
+            "-nodefaults",
+            "-nosyspath",
+            "-i include",
+            "-i libc",
+            "-g",
+            "-sym on",
+            "-D_DEBUG=1",
+            "-enum int",
+        ],
         "host": False,
         "objects": [
-            ["musyx/txwin/txwin", False],
+            Object(NonMatching, "musyx/txwin/txwin"),
         ],
     },
-    {
-        "lib": "dtk",
-        "mw_version": "1.2.5",
-        "cflags": "$cflags_base",
-        "host": False,
-        "objects": [
-            ["Dolphin/dtk", True],
+    DolphinLib(
+        "dtk",
+        [
+            Object(Matching, "Dolphin/dtk.c"),
         ],
-    },
-    {
-        "lib": "card",
-        "mw_version": "1.2.5n",
-        "cflags": "$cflags_base",
-        "host": False,
-        "objects": [
-            ["Dolphin/card/CARDBios", True],
-            ["Dolphin/card/CARDUnlock", True],
-            ["Dolphin/card/CARDRdwr", True],
-            ["Dolphin/card/CARDBlock", True],
-            ["Dolphin/card/CARDDir", True],
-            ["Dolphin/card/CARDCheck", True],
-            ["Dolphin/card/CARDMount", True],
-            ["Dolphin/card/CARDFormat", True],
-            ["Dolphin/card/CARDOpen", True],
-            ["Dolphin/card/CARDCreate", True],
-            ["Dolphin/card/CARDRead", True],
-            ["Dolphin/card/CARDWrite", True],
-            ["Dolphin/card/CARDDelete", True],
-            ["Dolphin/card/CARDStat", True],
-            ["Dolphin/card/CARDRename", True],
-            ["Dolphin/card/CARDNet", True],
+    ),
+    DolphinLib(
+        "card",
+        [
+            Object(Matching, "Dolphin/card/CARDBios.c"),
+            Object(Matching, "Dolphin/card/CARDUnlock.c"),
+            Object(Matching, "Dolphin/card/CARDRdwr.c"),
+            Object(Matching, "Dolphin/card/CARDBlock.c"),
+            Object(Matching, "Dolphin/card/CARDDir.c"),
+            Object(Matching, "Dolphin/card/CARDCheck.c"),
+            Object(Matching, "Dolphin/card/CARDMount.c"),
+            Object(Matching, "Dolphin/card/CARDFormat.c"),
+            Object(Matching, "Dolphin/card/CARDOpen.c"),
+            Object(Matching, "Dolphin/card/CARDCreate.c"),
+            Object(Matching, "Dolphin/card/CARDRead.c"),
+            Object(Matching, "Dolphin/card/CARDWrite.c"),
+            Object(Matching, "Dolphin/card/CARDDelete.c"),
+            Object(Matching, "Dolphin/card/CARDStat.c"),
+            Object(Matching, "Dolphin/card/CARDRename.c"),
+            Object(Matching, "Dolphin/card/CARDNet.c"),
         ],
-    },
-    {
-        "lib": "si",
-        "mw_version": "1.2.5n",
-        "cflags": "$cflags_base",
-        "host": False,
-        "objects": [
-            ["Dolphin/si/SIBios", True],
-            ["Dolphin/si/SISamplingRate", True],
+    ),
+    DolphinLib(
+        "si",
+        [
+            Object(Matching, "Dolphin/si/SIBios.c"),
+            Object(Matching, "Dolphin/si/SISamplingRate.c"),
         ],
-    },
-    {
-        "lib": "exi",
-        "mw_version": "1.2.5",
-        "cflags": "$cflags_base",
-        "host": False,
-        "objects": [
-            ["Dolphin/exi/EXIBios", True],
-            ["Dolphin/exi/EXIUart", True],
+    ),
+    DolphinLib(
+        "exi",
+        [
+            Object(Matching, "Dolphin/exi/EXIBios.c"),
+            Object(Matching, "Dolphin/exi/EXIUart.c"),
         ],
-    },
-    {
-        "lib": "thp",
-        "mw_version": "1.2.5",
-        "cflags": "$cflags_base",
-        "host": False,
-        "objects": [
-            "Dolphin/thp/THPDec",
-            "Dolphin/thp/THPAudio",
+    ),
+    DolphinLib(
+        "thp",
+        [
+            Object(NonMatching, "Dolphin/thp/THPDec.c"),
+            Object(NonMatching, "Dolphin/thp/THPAudio.c"),
         ],
-    },
-    {
-        "lib": "gba",
-        "mw_version": "1.2.5n",
-        # "cflags" : "-proc gecko -Cpp_exceptions off -fp hard -nodefaults -nosyspath -i include -i libc -g -sym on -D_DEBUG=1 -enum int -use_lmw_stmw on",
-        "cflags": "$cflags_base",
-        "host": False,
-        "objects": [
-            ["Dolphin/GBA/GBA", True],
-            ["Dolphin/GBA/GBAGetProcessStatus", True],
-            ["Dolphin/GBA/GBAJoyBoot", True],
-            ["Dolphin/GBA/GBARead", True],
-            ["Dolphin/GBA/GBAWrite", True],
-            ["Dolphin/GBA/GBAXfer", True],
-            ["Dolphin/GBA/GBAKey", True],
+    ),
+    DolphinLib(
+        "gba",
+        [
+            Object(Matching, "Dolphin/GBA/GBA.c"),
+            Object(Matching, "Dolphin/GBA/GBAGetProcessStatus.c"),
+            Object(Matching, "Dolphin/GBA/GBAJoyBoot.c"),
+            Object(Matching, "Dolphin/GBA/GBARead.c"),
+            Object(Matching, "Dolphin/GBA/GBAWrite.c"),
+            Object(Matching, "Dolphin/GBA/GBAXfer.c"),
+            Object(Matching, "Dolphin/GBA/GBAKey.c"),
         ],
-    },
+    ),
 ]
 
-if __name__ == "__main__":
-    import os
-    import io
-    import sys
-    import argparse
-    import json
-
-    from pathlib import Path
-    from shutil import which
-    from tools import ninja_syntax
-
-    parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "--version",
-        dest="version",
-        default="0",
-        help="version to build (0, 1, kor)",
-    )
-    parser.add_argument(
-        "--map",
-        dest="map",
-        action="store_true",
-        help="generate map file",
-    )
-    parser.add_argument(
-        "--no-check",
-        dest="check",
-        action="store_false",
-        help="don't check hash of resulting dol",
-    )
-    parser.add_argument(
-        "--no-static-libs",
-        dest="static_libs",
-        action="store_false",
-        help="don't build and use static libs",
-    )
-    parser.add_argument(
-        "--devkitppc",
-        dest="devkitppc",
-        type=Path,
-        help="path to devkitPPC",
-    )
-    if os.name != "nt" and not "_NT-" in os.uname().sysname:
-        parser.add_argument(
-            "--wine",
-            dest="wine",
-            type=Path,
-            help="path to wine (or wibo)",
-        )
-    parser.add_argument(
-        "--build-dtk",
-        dest="build_dtk",
-        type=Path,
-        help="path to decomp-toolkit source",
-    )
-    parser.add_argument(
-        "--debug",
-        dest="debug",
-        action="store_true",
-        help="build with debug info (non-matching)",
-    )
-    parser.add_argument(
-        "--compilers",
-        dest="compilers",
-        type=Path,
-        default=Path("tools/mwcc_compiler"),
-        help="path to compilers",
-    )
-    parser.add_argument(
-        "--build-dir",
-        dest="build_dir",
-        type=Path,
-        default=Path("build"),
-        help="base build directory",
-    )
-    args = parser.parse_args()
-
-    # On Windows, we need this to use && in commands
-    chain = "cmd /c " if os.name == "nt" else ""
-
-    out = io.StringIO()
-    n = ninja_syntax.Writer(out)
-
-    n.variable("ninja_required_version", "1.3")
-    n.newline()
-
-    n.comment("The arguments passed to configure.py, for rerunning it.")
-    configure_args = sys.argv[1:]
-    # Ignore DEVKITPPC env var on Windows
-    if os.name != "nt" and "DEVKITPPC" in os.environ and not args.devkitppc:
-        configure_args.extend(["--devkitppc", os.environ["DEVKITPPC"]])
-    n.variable("configure_args", configure_args)
-    n.variable("python", f'"{sys.executable}"')
-    n.newline()
-
-    ###
-    # Variables
-    ###
-    n.comment("Variables")
-    version = args.version.lower()
-    if args.version.lower() == "kor":
-        version_num = "2"
-    elif args.version.isnumeric() and int(args.version) in [0, 1]:
-        version_num = args.version
-    else:
-        sys.exit(f'Invalid version "{args.version}"')
-    build_path = args.build_dir / f"mp1.{version}"
-    if args.devkitppc:
-        dkp_path = args.devkitppc
-    elif os.name == "nt":
-        dkp_path = Path("C:\devkitPro\devkitPPC")
-    elif "DEVKITPPC" in os.environ:
-        dkp_path = Path(os.environ["DEVKITPPC"])
-    else:
-        dkp_path = Path("/opt/devkitpro/devkitPPC")
-
-    cflags_base = f"-proc gekko -nodefaults -Cpp_exceptions off -RTTI off -fp hard -fp_contract on -O4,p -maxerrors 1 -enum int -inline auto -str reuse -nosyspath -DPRIME1 -DVERSION={version_num} -DNONMATCHING=0 -i include -i libc"
-    if args.debug:
-        cflags_base += " -sym on -D_DEBUG"
-    else:
-        cflags_base += " -DNDEBUG"
-    n.variable("cflags_base", cflags_base)
-    n.variable(
-        "cflags_retro",
-        "$cflags_base -use_lmw_stmw on -str reuse,pool,readonly -gccinc -inline deferred,noauto -common on",
-    )
-    n.variable(
-        "cflags_runtime",
-        "$cflags_base -use_lmw_stmw on -str reuse,pool,readonly -gccinc -inline deferred,auto",
-    )
-    n.variable("cflags_musyx", "$cflags_base -str reuse,pool,readonly -fp_contract off")
-    asflags = f"-mgekko -I include --defsym version={version_num} -W --strip-local-absolute -gdwarf-2"
-    n.variable("asflags", asflags)
-    ldflags = "-fp fmadd -nodefaults -lcf ldscript.lcf"
-    if args.map:
-        if args.debug:
-            map_path = build_path / "MetroidCWD.MAP"
-        else:
-            map_path = build_path / "MetroidCW.MAP"
-        ldflags += f" -map {map_path}"
-    if args.debug:
-        ldflags += " -g"
-    n.variable("ldflags", ldflags)
-    mw_link_version = "1.3.2"
-    n.variable("mw_version", mw_link_version)
-    if os.name == "nt":
-        exe = ".exe"
-        wine = ""
-    else:
-        if "_NT-" in os.uname().sysname:
-            # MSYS2
-            wine = ""
-        elif args.wine:
-            wine = f"{args.wine} "
-        elif which("wibo") is not None:
-            wine = "wibo "
-        else:
-            wine = "wine "
-        exe = ""
-    n.newline()
-
-    ###
-    # Tooling
-    ###
-    n.comment("decomp-toolkit")
-
-    tools_path = Path("tools")
-    build_tools_path = args.build_dir / "tools"
-
-    def path(input: list[Path] | Path | None) -> list[str] | None:
-        if input is None:
-            return None
-        elif isinstance(input, list):
-            return list(map(str, input))
-        else:
-            return [str(input)]
-
-    if args.build_dtk:
-        dtk = build_tools_path / "release" / f"dtk{exe}"
-        n.rule(
-            name="cargo",
-            command="cargo build --release --manifest-path $in --bin $bin --target-dir $target",
-            description="CARGO $bin",
-            depfile=path(Path("$target") / "release" / "$bin.d"),
-            deps="gcc",
-        )
-        n.build(
-            outputs=path(dtk),
-            rule="cargo",
-            inputs=path(args.build_dtk / "Cargo.toml"),
-            variables={
-                "bin": "dtk",
-                "target": build_tools_path,
-            },
-        )
-    else:
-        dtk = build_tools_path / f"dtk{exe}"
-        download_dtk = tools_path / "download_dtk.py"
-        n.rule(
-            name="download_dtk",
-            command=f"$python {download_dtk} $in $out",
-            description="DOWNLOAD $out",
-        )
-        n.build(
-            outputs=path(dtk),
-            rule="download_dtk",
-            inputs="dtk_version",
-            implicit=path([download_dtk]),
-        )
-    n.newline()
-
-    ###
-    # Rules
-    ###
-    compiler_path = args.compilers / "$mw_version"
-    mwcc = compiler_path / "mwcceppc.exe"
-    mwld = compiler_path / "mwldeppc.exe"
-    gnu_as = dkp_path / "bin" / f"powerpc-eabi-as{exe}"
-
-    mwcc_cmd = f"{chain}{wine}{mwcc} $cflags -MMD -c $in -o $basedir"
-    mwld_cmd = f"{wine}{mwld} $ldflags -o $out @$out.rsp"
-    as_cmd = (
-        f"{chain}{gnu_as} $asflags -o $out $in -MD $out.d"
-        + f" && {dtk} elf fixup $out $out"
-    )
-    ar_cmd = f"{dtk} ar create $out @$out.rsp"
-
-    if os.name != "nt":
-        transform_dep = tools_path / "transform-dep.py"
-        transform_dep_cmd = f" && $python {transform_dep} $basefile.d $basefile.d"
-        mwcc_cmd += transform_dep_cmd
-
-    n.comment("Link ELF file")
-    n.rule(
-        name="link",
-        command=mwld_cmd,
-        description="LINK $out",
-        rspfile="$out.rsp",
-        rspfile_content="$in_newline",
-    )
-    n.newline()
-
-    n.comment("MWCC build")
-    n.rule(
-        name="mwcc",
-        command=mwcc_cmd,
-        description="MWCC $out",
-        depfile="$basefile.d",
-        deps="gcc",
-    )
-    n.newline()
-
-    n.comment("Assemble asm")
-    n.rule(
-        name="as",
-        command=as_cmd,
-        description="AS $out",
-        depfile="$out.d",
-        deps="gcc",
-    )
-    n.newline()
-
-    n.comment("Create static library")
-    n.rule(
-        name="ar",
-        command=ar_cmd,
-        description="AR $out",
-        rspfile="$out.rsp",
-        rspfile_content="$in_newline",
-    )
-    n.newline()
-
-    n.comment("Host build")
-    n.variable("host_cflags", "-I include -Wno-trigraphs")
-    n.variable(
-        "host_cppflags",
-        "-std=c++98 -I include -fno-exceptions -fno-rtti -D_CRT_SECURE_NO_WARNINGS -Wno-trigraphs -Wno-c++11-extensions",
-    )
-    n.rule(
-        name="host_cc",
-        command="clang $host_cflags -c -o $out $in",
-        description="CC $out",
-    )
-    n.rule(
-        name="host_cpp",
-        command="clang++ $host_cppflags -c -o $out $in",
-        description="CXX $out",
-    )
-    n.newline()
-
-    ###
-    # Rules for source files
-    ###
-    n.comment("Source files")
-    src_path = Path("src")
-    asm_path = Path("asm")
-    build_src_path = build_path / "src"
-    build_host_path = build_path / "host"
-    build_asm_path = build_path / "asm"
-    build_lib_path = build_path / "lib"
-
-    build_asm_path.mkdir(parents=True, exist_ok=True)
-    build_src_path.mkdir(parents=True, exist_ok=True)
-    objdiff_config = {
-        "custom_make": "ninja",
-        "target_dir": str(build_asm_path),
-        "base_dir": str(build_src_path),
-        "build_target": False,
-        "watch_patterns": [
-            "*.c",
-            "*.cp",
-            "*.cpp",
-            "*.h",
-            "*.hpp",
-            "*.py",
-        ],
-        "units": [],
-    }
-
-    source_inputs = []
-    host_source_inputs = []
-    link_inputs = []
-    used_compiler_versions = set()
-    for lib in LIBS:
-        inputs = []
-        if "lib" in lib:
-            lib_name = lib["lib"]
-            n.comment(f"{lib_name}.a")
-        else:
-            n.comment("Loose files")
-
-        for object in lib["objects"]:
-            completed = None
-            options = {
-                "add_to_all": True,
-                "mw_version": None,
-                "cflags": None,
-            }
-            if type(object) is list:
-                if len(object) > 1:
-                    completed = object[1]
-                if len(object) > 2:
-                    options.update(object[2])
-                object = object[0]
-
-            cflags = options["cflags"] or lib["cflags"]
-            mw_version = options["mw_version"] or lib["mw_version"]
-            used_compiler_versions.add(mw_version)
-
-            c_file = None
-            if os.path.exists(src_path / f"{object}.cpp"):
-                c_file = src_path / f"{object}.cpp"
-            elif os.path.exists(src_path / f"{object}.c"):
-                c_file = src_path / f"{object}.c"
-            if c_file is not None:
-                if completed is None:
-                    print(f"Mark as incomplete: {c_file}")
-                n.build(
-                    outputs=path(build_src_path / f"{object}.o"),
-                    rule="mwcc",
-                    inputs=path(c_file),
-                    variables={
-                        "mw_version": mw_version,
-                        "cflags": cflags,
-                        "basedir": os.path.dirname(build_src_path / f"{object}"),
-                        "basefile": path(build_src_path / f"{object}"),
-                    },
-                )
-                if lib["host"]:
-                    n.build(
-                        outputs=path(build_host_path / f"{object}.o"),
-                        rule="host_cc" if c_file.suffix == ".c" else "host_cpp",
-                        inputs=path(c_file),
-                        variables={
-                            "basedir": os.path.dirname(build_host_path / object),
-                            "basefile": path(build_host_path / object),
-                        },
-                    )
-                    if options["add_to_all"]:
-                        host_source_inputs.append(build_host_path / f"{object}.o")
-                if options["add_to_all"]:
-                    source_inputs.append(build_src_path / f"{object}.o")
-
-                objdiff_config["units"].append(
-                    {
-                        "name": object,
-                        "path": f"{object}.o",
-                        "reverse_fn_order": "deferred" in cflags,
-                    }
-                )
-            if os.path.exists(asm_path / f"{object}.s"):
-                n.build(
-                    outputs=path(build_asm_path / f"{object}.o"),
-                    rule="as",
-                    inputs=path(asm_path / f"{object}.s"),
-                    implicit=path(dtk),
-                )
-            if completed:
-                inputs.append(build_src_path / f"{object}.o")
-            else:
-                inputs.append(build_asm_path / f"{object}.o")
-        if args.static_libs and "lib" in lib:
-            lib_name = lib["lib"]
-            n.build(
-                outputs=path(build_lib_path / f"{lib_name}.a"),
-                rule="ar",
-                inputs=path(inputs),
-                implicit=path(dtk),
-            )
-            link_inputs.append(build_lib_path / f"{lib_name}.a")
-        else:
-            link_inputs.extend(inputs)
-        n.newline()
-
-    # Check if all compiler versions exist
-    for mw_version in used_compiler_versions:
-        mw_path = args.compilers / mw_version / "mwcceppc.exe"
-        if not os.path.exists(mw_path):
-            print(f"Compiler {mw_path} does not exist")
-            exit(1)
-
-    # Check if linker exists
-    mw_path = args.compilers / mw_link_version / "mwldeppc.exe"
-    if not os.path.exists(mw_path):
-        print(f"Linker {mw_path} does not exist")
-        exit(1)
-
-    ###
-    # Link
-    ###
-    n.comment("Link")
-    if args.map:
-        n.build(
-            outputs=path(build_path / "main.elf"),
-            rule="link",
-            inputs=path(link_inputs),
-            implicit_outputs=path(map_path),
-        )
-    else:
-        n.build(
-            outputs=path(build_path / "main.elf"),
-            rule="link",
-            inputs=path(link_inputs),
-        )
-    n.newline()
-
-    ###
-    # Helper rule for building all source files
-    ###
-    n.comment("Build all source files")
-    n.build(
-        outputs="all_source",
-        rule="phony",
-        inputs=path(source_inputs),
-    )
-    n.newline()
-
-    ###
-    # Helper rule for building all source files, with a host compiler
-    ###
-    n.comment("Build all source files with a host compiler")
-    n.build(
-        outputs="all_source_host",
-        rule="phony",
-        inputs=path(host_source_inputs),
-    )
-    n.newline()
-
-    ###
-    # Generate DOL
-    ###
-    n.comment("Generate DOL")
-    n.rule(
-        name="elf2dol",
-        command=chain
-        + f"{dtk} elf2dol $in $out && "
-        + f"{dtk} metroidbuildinfo $out buildstrings/mp1.{version}.build",
-        description="DOL $out",
-    )
-    n.build(
-        outputs=path(build_path / "main.dol"),
-        rule="elf2dol",
-        inputs=path(build_path / "main.elf"),
-        implicit=path(dtk),
-    )
-    n.newline()
-
-    ###
-    # Check DOL hash
-    ###
-    if args.check:
-        n.comment("Check DOL hash")
-        n.rule(
-            name="check",
-            command=f"{dtk} shasum -c $in -o $out",
-            description="CHECK $in",
-        )
-        n.build(
-            outputs=path(build_path / "main.dol.ok"),
-            rule="check",
-            inputs=f"sha1/mp1.{version}.sha1",
-            implicit=path([build_path / "main.dol", dtk]),
-        )
-        n.newline()
-
-    ###
-    # Progress script
-    ###
-    if args.map:
-        n.comment("Check progress")
-        n.rule(
-            name="progress",
-            command="$python progress.py $in -o $out",
-            description="PROGRESS $in",
-        )
-        n.build(
-            outputs=path(build_path / "main.dol.progress"),
-            rule="progress",
-            inputs=path([build_path / "main.dol", map_path]),
-            implicit="progress.py",
-        )
-        n.newline()
-
-    ###
-    # Regenerate on change
-    ###
-    n.comment("Reconfigure on change")
-    n.rule(
-        name="configure",
-        command="$python configure.py $configure_args",
-        generator=True,
-    )
-    n.build(
-        outputs="build.ninja",
-        rule="configure",
-        implicit=path(["configure.py", tools_path / "ninja_syntax.py"]),
-    )
-    n.newline()
-
-    ###
-    # Default rule
-    ###
-    n.comment("Default rule")
-    if args.check:
-        dol_out = build_path / "main.dol.ok"
-    else:
-        dol_out = build_path / "main.dol"
-    if args.map:
-        n.default(path([dol_out, build_path / "main.dol.progress"]))
-    else:
-        n.default(path([dol_out]))
-
-    ###
-    # Write build.ninja
-    ###
-    with open("build.ninja", "w") as f:
-        f.write(out.getvalue())
-    n.close()
-
-    ###
-    # Write objdiff config
-    ###
-    with open("objdiff.json", "w") as w:
-        json.dump(objdiff_config, w, indent=4)
+if args.mode == "configure":
+    # Write build.ninja and objdiff.json
+    generate_build(config)
+elif args.mode == "progress":
+    # Print progress and write progress.json
+    config.progress_each_module = args.verbose
+    calculate_progress(config)
+else:
+    sys.exit("Unknown mode: " + args.mode)

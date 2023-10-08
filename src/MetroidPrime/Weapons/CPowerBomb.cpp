@@ -11,6 +11,7 @@
 #include "MetaRender/CCubeRenderer.hpp"
 
 CColor CPowerBomb::kFadeColor(0xffffff7f);
+const float CPowerBomb::kEndingTime = 4.25f;
 
 CPowerBomb::CPowerBomb(TToken< CGenDescription > particle, TUniqueId uid, TAreaId aid,
                        TUniqueId playerId, const CTransform4f& xf, const CDamageInfo& dInfo)

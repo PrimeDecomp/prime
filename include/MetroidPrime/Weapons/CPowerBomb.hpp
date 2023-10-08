@@ -27,6 +27,8 @@ public:
 
 private:
   static CColor kFadeColor;
+  static const float kEndingTime;
+
   bool x158_24_canStartFilter : 1;
   bool x158_25_filterEnabled : 1;
   float x15c_curTime;
