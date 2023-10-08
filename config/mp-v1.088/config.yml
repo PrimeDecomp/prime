@@ -1,0 +1,12 @@
+object: orig/mp-v1.088/sys/main.dol
+hash: 949c5ed7368aef547e0b0db1c3678f466e2afbff
+symbols: config/mp-v1.088/symbols.txt
+splits: config/mp-v1.088/splits.txt
+mw_comment_version: 8
+fill_gaps: false
+
+#modules:
+#- object: orig/mp-v1.088/files/NESemuP.rel
+  #hash: 5ad6bb727d6dd220e6aceef9143c61a86a6f2bb5
+  #symbols: config/mp-v1.088/NESemu/symbols.txt
+  #splits: config/mp-v1.088/NESemu/splits.txt

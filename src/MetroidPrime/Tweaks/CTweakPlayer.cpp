@@ -3,8 +3,6 @@
 #include "Kyoto/Math/CMath.hpp"
 #include "Kyoto/Streams/CInputStream.hpp"
 
-CTweakPlayer::~CTweakPlayer() {}
-
 CTweakPlayer::CTweakPlayer(CInputStream& in)
 : x2d8_grappleBeamSpeed(0.0)
 , x2dc_grappleBeamXWaveAmplitude(0.0)

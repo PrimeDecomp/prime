@@ -1,5 +1,7 @@
 #include <dolphin/os.h>
 
+#pragma push
+#pragma force_active on
 void OSInitMessageQueue(OSMessageQueue* mq, OSMessage* msgArray, s32 msgCount) {
   OSInitThreadQueue(&mq->queueSend);
   OSInitThreadQueue(&mq->queueReceive);
@@ -8,7 +10,6 @@ void OSInitMessageQueue(OSMessageQueue* mq, OSMessage* msgArray, s32 msgCount) {
   mq->firstIndex = 0;
   mq->usedCount = 0;
 }
-
 BOOL OSSendMessage(OSMessageQueue* mq, OSMessage msg, s32 flags) {
   BOOL enabled;
   s32 lastIndex;
@@ -59,6 +60,7 @@ BOOL OSReceiveMessage(OSMessageQueue* mq, OSMessage* msg, s32 flags) {
   OSRestoreInterrupts(enabled);
   return TRUE;
 }
+#pragma pop
 
 BOOL OSJamMessage(OSMessageQueue* mq, OSMessage msg, s32 flags) {
   BOOL enabled;

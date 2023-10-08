@@ -78,7 +78,7 @@ _MATH_INLINE float fabsf(float x) { return (float)fabs((double)x); }
 _MATH_INLINE float sinf(float x) { return (float)sin((double)x); }
 _MATH_INLINE float cosf(float x) { return (float)cos((double)x); }
 _MATH_INLINE float atan2f(float y, float x) { return (float)atan2((double)y, (double)x); }
-float fmodf(float x, float m) { return (float)fmod((double)x, (double)m); }
+_MATH_INLINE float fmodf(float x, float m) { return (float)fmod((double)x, (double)m); }
 float tanf(float x);
 double acos(double x);
 float acosf(float x);
@@ -88,11 +88,11 @@ double ldexp(double x, int exp);
 double copysign(double x, double y);
 
 double floor(double x);
-float floorf(float x) { return floor(x); }
+_MATH_INLINE float floorf(float x) { return floor(x); }
 
 double fabs(double x);
 double pow(double x, double y);
-float powf(float __x, float __y) { return pow(__x, __y); }
+_MATH_INLINE float powf(float __x, float __y) { return pow(__x, __y); }
 
 #ifdef __MWERKS__
 #pragma cplusplus on

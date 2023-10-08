@@ -7,9 +7,9 @@ void __DVDPrintFatalMessage(void);
 
 static void (*FatalFunc)(void) = NULL;
 
-const char* Japanese = "\n\n\nƒGƒ‰[‚ª”­¶‚µ‚Ü‚µ‚½B"
-                       "\n\n–{‘Ì‚Ìƒpƒ[ƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚Ä“dŒ¹‚ğOFF‚É‚µA"
-                       "\n–{‘Ì‚Ìæˆµà–¾‘‚Ìw¦‚É]‚Á‚Ä‚­‚¾‚³‚¢B";
+const char* Japanese = "\n\n\nã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ã¾ã—ãŸã€‚"
+                       "\n\næœ¬ä½“ã®ãƒ‘ãƒ¯ãƒ¼ãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ã¦é›»æºã‚’OFFã«ã—ã€"
+                       "\næœ¬ä½“ã®å–æ‰±èª¬æ˜æ›¸ã®æŒ‡ç¤ºã«å¾“ã£ã¦ãã ã•ã„ã€‚";
 
 const char* English = "\n\n\nAn error has occurred."
                       "\nTurn the power off and refer to the"
