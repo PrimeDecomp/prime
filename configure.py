@@ -970,7 +970,7 @@ config.libs = [
     DolphinLib(
         "db",
         [
-            Object(Matching, "Dolphinn/db.c"),
+            Object(Matching, "Dolphin/db.c"),
         ],
     ),
     DolphinLib(

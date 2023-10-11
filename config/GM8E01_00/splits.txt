@@ -3671,7 +3671,7 @@ Dolphin/ar/arq.c:
 Dolphin/PPCArch.c:
 	.text       start:0x8036F7D4 end:0x8036F8CC
 
-Dolphinn/db.c:
+Dolphin/db.c:
 	.text       start:0x8036F8CC end:0x8036F9B8
 	.data       start:0x803EF9B8 end:0x803EF9D0
 	.sbss       start:0x805A9740 end:0x805A9748
