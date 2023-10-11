@@ -224,9 +224,9 @@ CDvdFile::CDvdFile(const char* filename)
 
 CDvdFile::~CDvdFile() { CloseFile(); }
 
-CDvdRequest* CDvdFile::SyncRead(void* dest, uint len) { AsyncSeekRead(dest, len, kSO_Cur, 0); }
+CDvdRequest* CDvdFile::SyncRead(void* dest, uint len) { return AsyncSeekRead(dest, len, kSO_Cur, 0); }
 
-CDvdRequest* CDvdFile::SyncSeekRead(void* dest, uint len, ESeekOrigin origin, int offset) {
+void CDvdFile::SyncSeekRead(void* dest, uint len, ESeekOrigin origin, int offset) {
   StallForARAMFile();
   CalcFileOffset(offset, origin);
 

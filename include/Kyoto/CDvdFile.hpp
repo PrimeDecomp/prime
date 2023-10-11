@@ -30,7 +30,7 @@ public:
   void StartARAMFileLoad();
   void StallForARAMFile();
   CDvdRequest* SyncRead(void* buf, uint len);
-  CDvdRequest* SyncSeekRead(void* buf, uint len, ESeekOrigin, int offset);
+  void SyncSeekRead(void* buf, uint len, ESeekOrigin, int offset);
   CDvdRequest* AsyncSeekRead(void* buf, uint len, ESeekOrigin, int offset);
   void CloseFile();
   void CalcFileOffset(int offset, ESeekOrigin origin);
