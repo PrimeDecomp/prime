@@ -48,8 +48,6 @@ void CPowerBeam::PostRenderGunFx(const CStateManager& mgr, const CTransform4f& x
   CGunWeapon::PostRenderGunFx(mgr, xf);
 }
 
-static const char* kTransformName = "LBEAM";
-
 void CPowerBeam::UpdateGunFx(bool shotSmoke, float dt, const CStateManager& mgr,
                              const CTransform4f& xf) {
   switch (x240_smokeState) {
@@ -72,7 +70,7 @@ void CPowerBeam::UpdateGunFx(bool shotSmoke, float dt, const CStateManager& mgr,
     // [[fallthrough]];
   case kSS_Done:
     if (!x234_shotSmokeGen.null()) {
-      CTransform4f locator = x10_solidModelData->GetScaledLocatorTransform(rstl::string_l(kTransformName));
+      CTransform4f locator = x10_solidModelData->GetScaledLocatorTransform(rstl::string_l(CGunWeapon::skMuzzleLocator));
       x234_shotSmokeGen->SetGlobalTranslation(locator.GetTranslation());
       x234_shotSmokeGen->Update(dt);
       if (x240_smokeState == kSS_Done && x234_shotSmokeGen->GetSystemCount() == 0)
@@ -100,7 +98,7 @@ void CPowerBeam::Update(float dt, CStateManager& mgr) {
   if (CGunWeapon::IsLoaded() && !x244_25_loaded) {
     x244_25_loaded = x21c_shotSmoke.IsLoaded() && x228_power2nd1.IsLoaded();
     if (x244_25_loaded) {
-      x234_shotSmokeGen = new CElementGen (x21c_shotSmoke);
+      x234_shotSmokeGen = NEW CElementGen (x21c_shotSmoke);
       x234_shotSmokeGen->SetParticleEmission(false);
     }
   }
@@ -109,7 +107,7 @@ void CPowerBeam::Update(float dt, CStateManager& mgr) {
 void CPowerBeam::Fire(bool underwater, float dt, CPlayerState::EChargeStage chargeState, const CTransform4f& xf,
                       CStateManager& mgr, TUniqueId homingTarget, float chargeFactor1,
                       float chargeFactor2) {
-  static ushort skSoundId[] = {
+  static const ushort skSoundId[] = {
       SFXwpn_fire_power_normal,
       SFXwpn_fire_power_charged,
   };
@@ -145,7 +143,7 @@ void CPowerBeam::EnableSecondaryFx(ESecondaryFxType type) {
     x1cc_enabledSecondaryEffect = kSFT_None;
     break;
   case kSFT_Charge:
-    x238_power2ndGen = new CElementGen(x228_power2nd1);
+    x238_power2ndGen = NEW CElementGen(x228_power2nd1);
     x238_power2ndGen->SetGlobalScale(x4_scale);
     x1cc_enabledSecondaryEffect = type;
     break;
