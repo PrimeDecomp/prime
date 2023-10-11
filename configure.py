@@ -905,7 +905,7 @@ config.libs = [
             Object(NonMatching, "Kyoto/DolphinCMemoryCardSys.cpp"),
             Object(Matching, "Kyoto/Input/DolphinIController.cpp"),
             Object(Matching, "Kyoto/Input/CDolphinController.cpp"),
-            Object(NonMatching, "Kyoto/DolphinCDvdFile.cpp"),
+            Object(Matching, "Kyoto/DolphinCDvdFile.cpp"),
             Object(NonMatching, "Kyoto/Alloc/CMediumAllocPool.cpp"),
             Object(Matching, "Kyoto/Alloc/CSmallAllocPool.cpp"),
             Object(NonMatching, "Kyoto/Alloc/CGameAllocator.cpp"),

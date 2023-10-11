@@ -21,7 +21,7 @@ public:
   void PostCancelRequest();
   int GetMediaType() const;
 
-  DVDFileInfo& FileInfo() { return mFileInfo; }
+  DVDFileInfo* FileInfo() { return &mFileInfo; }
 
 private:
   DVDFileInfo mFileInfo;

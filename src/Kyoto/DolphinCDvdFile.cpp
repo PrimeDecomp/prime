@@ -60,7 +60,7 @@ void CDvdFile::DVDARAMXferCallback(s32 result, DVDFileInfo* info) {
   };
 
   DVDClose(info);
-  reinterpret_cast<Hack*>(info)->file->HandleDVDInterrupt();
+  reinterpret_cast< Hack* >(info)->file->HandleDVDInterrupt();
 }
 
 void CDvdFile::ARAMARAMXferCallback(u32 addr) {
@@ -127,7 +127,7 @@ void CDvdFile::TryARAMFile() {
   if (CARAMManager::GetInvalidAlloc() == x4_) {
     return;
   }
-  xc_ = new CDvdFileARAM();
+  xc_ = NEW CDvdFileARAM();
   CDvdFileARAM* arfile = xc_.get();
   arfile->x5c_file = this;
   arfile->x78_ = true;
@@ -254,13 +254,13 @@ CDvdRequest* CDvdFile::AsyncSeekRead(void* dest, uint len, ESeekOrigin origin, i
   if (x8_) {
     int roundedLen = (len + 31) & ~31;
     DCFlushRange(dest, roundedLen);
-    request = new CARAMDvdRequest(
+    request = NEW CARAMDvdRequest(
         CARAMManager::DMAToMRAM(x4_ + x10_offset, dest, roundedLen, CARAMManager::kDMAPrio_One));
   } else {
-    CRealDvdRequest* req = new CRealDvdRequest();
-    DVDFileInfo& info = req->FileInfo();
-    DVDFastOpen(x0_fileEntry, &info);
-    DVDReadAsync(&info, dest, (len + 31) & ~31, x10_offset, internalCallback);
+    CRealDvdRequest* req = NEW CRealDvdRequest();
+    DVDFileInfo* info = req->FileInfo();
+    DVDFastOpen(x0_fileEntry, info);
+    DVDReadAsync(info, dest, (len + 31) & ~31, x10_offset, internalCallback);
     request = req;
   }
 
