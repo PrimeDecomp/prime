@@ -28,14 +28,14 @@ from tools.project import (
 DEFAULT_VERSION = 0
 VERSIONS = [
     "GM8E01_00",  # mp-v1.088 NTSC-U
-    #"GM8E01_01",  # mp-v1.093 NTSC-U
-    #"GM8E01_30",  # mp-v1.097 NTSC-K
-    #"GM8P01_00",  # mp-v1.110 PAL
-    #"GM8J01_00",  # mp-v1.111 NTSC-J
-    #"GM8E01_02",  # mp-v1.111 NTSC-U
-    #"R3IJ01_00",  # mp-v3.570 New Play Controls
-    #"R3ME01_00",  # mp-v3.593 Trilogy NTSC
-    #"R3MP01_00",  # mp-v3.629 Trilogy PAL
+    # "GM8E01_01",  # mp-v1.093 NTSC-U
+    # "GM8E01_30",  # mp-v1.097 NTSC-K
+    # "GM8P01_00",  # mp-v1.110 PAL
+    # "GM8J01_00",  # mp-v1.111 NTSC-J
+    # "GM8E01_02",  # mp-v1.111 NTSC-U
+    # "R3IJ01_00",  # mp-v3.570 New Play Controls
+    # "R3ME01_00",  # mp-v3.593 Trilogy NTSC
+    # "R3MP01_00",  # mp-v3.629 Trilogy PAL
 ]
 
 if len(VERSIONS) > 1:
