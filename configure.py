@@ -29,7 +29,7 @@ DEFAULT_VERSION = 0
 VERSIONS = [
     "GM8E01_00",  # mp-v1.088 NTSC-U
     # "GM8E01_01",  # mp-v1.093 NTSC-U
-    # "GM8E01_30",  # mp-v1.097 NTSC-K
+    # "GM8E01_48",  # mp-v1.097 NTSC-K
     # "GM8P01_00",  # mp-v1.110 PAL
     # "GM8J01_00",  # mp-v1.111 NTSC-J
     # "GM8E01_02",  # mp-v1.111 NTSC-U
@@ -125,10 +125,10 @@ if not is_windows():
     config.wrapper = args.wrapper
 
 # Tool versions
-config.compilers_tag = "1"
-config.dtk_tag = "v0.5.6"
+config.compilers_tag = "20230715"
+config.dtk_tag = "v0.5.7"
 config.sjiswrap_tag = "v1.1.1"
-config.wibo_tag = "0.6.3"
+config.wibo_tag = "0.6.4"
 
 # Project
 config.config_path = Path("config") / config.version / "config.yml"
@@ -137,6 +137,7 @@ config.ldflags = [
     "-fp hardware",
     "-nodefaults",
 ]
+config.progress_all = False
 
 # Base flags, common to most GC/Wii games.
 # Generally leave untouched, with overrides added below.
@@ -155,7 +156,8 @@ cflags_base = [
     "-nosyspath",
     "-i include",
     "-i libc",
-    "-DPRIME1" "-DVERSION={version_num}",
+    "-DPRIME1",
+    f"-DVERSION={version_num}",
     "-DNONMATCHING=0",
 ]
 
