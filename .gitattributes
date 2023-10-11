@@ -8,3 +8,6 @@
 *.bat  text eol=crlf
 *.sh   text eol=lf
 *.sha1 text eol=lf
+
+# DTK keeps these files with LF
+config/**/*.txt  text eol=lf
