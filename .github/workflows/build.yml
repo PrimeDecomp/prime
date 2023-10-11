@@ -11,26 +11,28 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        version: [0, 1, kor]
+        version: [GM8E01_00] # GM8E01_01, GM8E01_48
     steps:
     - name: Checkout
       uses: actions/checkout@v3
     - name: Git config
       run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+    - name: Prepare
+      run: cp -R /orig .
     - name: Build
       run: |
-        python configure.py --map --version ${{matrix.version}} --compilers /compilers/GC
+        python configure.py --map --version ${{matrix.version}} --compilers /compilers
         ninja
     - name: Upload progress
-      if: github.ref == 'refs/heads/main'
+      if: github.ref == 'refs/heads/main' && matrix.version == 'GM8E01_00'
       continue-on-error: true
       env:
         PROGRESS_API_KEY: ${{secrets.PROGRESS_API_KEY}}
       run: |
-        python tools/upload-progress.py -b https://progress.deco.mp/ -p prime -v ${{matrix.version}} \
-          build/mp1.${{matrix.version}}/main.dol.progress
+        python tools/upload_progress.py -b https://progress.decomp.club/ -p prime -v ${{matrix.version}} \
+          build/${{matrix.version}}/progress.json
     - name: Upload map
       uses: actions/upload-artifact@v3
       with:
-        name: MetroidPrime-${{matrix.version}}.MAP
-        path: build/*/MetroidPrime.MAP
+        name: ${{matrix.version}}_maps
+        path: build/${{matrix.version}}/**/*.MAP

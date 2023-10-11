@@ -18,13 +18,7 @@ Visual Studio Code is recommended.
 
 [objdiff](https://github.com/encounter/objdiff) will be your primary diffing tool. You can fetch a binary from the latest GitHub Actions build, or build from source with `cargo run --release`.
 
-objdiff configuration:
-- Project dir: `prime`
-- Target build dir: `prime/build/mp1.0/asm`
-- Base build dir: `prime/build/mp1.0/src`
-- Obj: Whatever .o you're currently working on (can select from asm or src build dirs)
-- [x] Build target
-- [x] Reverse function order (deferred)
+Set the project directory to the repository root, and all settings will be loaded automatically. (Assuming you ran `python configure.py` and `objdiff.json` was generated.)
 
 objdiff will automatically rebuild and reload the object on source changes, so you can quickly iterate on functions.
 
