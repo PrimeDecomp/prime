@@ -14,8 +14,8 @@
 
 #include "rstl/math.hpp"
 
-static CCameraShakeData CameraShaker = CCameraShakeData(0.125f, 0.25f);
-static ushort kSoundId[2] = {SFXwpn_fire_plasma_normal, SFXwpn_fire_plasma_charged};
+CCameraShakeData CameraShaker = CCameraShakeData(0.125f, 0.25f);
+static const ushort kSoundId[2] = {SFXwpn_fire_plasma_normal, SFXwpn_fire_plasma_charged};
 
 CPlasmaBeam::CPlasmaBeam(CAssetId characterId, EWeaponType type, TUniqueId playerId,
                          EMaterialTypes playerMaterial, const CVector3f& scale)
