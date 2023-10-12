@@ -15,7 +15,7 @@ struct rmemory_allocator {
     if (size == 0) {
       out = nullptr;
     } else {
-      out = reinterpret_cast< T* >(new uchar[size]);
+      out = reinterpret_cast< T* >(NEW uchar[size]);
     }
   }
   // TODO: this fixes a regswap in vector::reserve
@@ -25,7 +25,7 @@ struct rmemory_allocator {
     if (size == 0) {
       return nullptr;
     } else {
-      return reinterpret_cast< T* >(new uchar[size]);
+      return reinterpret_cast< T* >(NEW uchar[size]);
     }
   }
   template < typename T >

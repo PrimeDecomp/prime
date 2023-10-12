@@ -50,7 +50,6 @@ private:
     ARQRequest mRequest;
     uint mUniqueID;
     bool mComplete;
-    
   };
 
   static bool mbInitialized;
