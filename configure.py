@@ -893,7 +893,7 @@ config.libs = [
     RetroLib(
         "Kyoto2",
         [
-            Object(NonMatching, "Kyoto/CARAMManager.cpp"),
+            Object(Matching, "Kyoto/CARAMManager.cpp"),
             Object(NonMatching, "Kyoto/Math/CFrustumPlanes.cpp"),
             Object(NonMatching, "Kyoto/Graphics/CCubeMaterial.cpp"),
             Object(NonMatching, "Kyoto/Graphics/CCubeSurface.cpp"),

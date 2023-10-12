@@ -109,7 +109,7 @@ bool CARAMManager::Free(const void* ptr) {
 
 uint CARAMManager::DMAToARAM(void* src, void* dest, uint len, EDMAPriority priority) {
   DCStoreRange(src, len);
-  SAramDMARequest* req = new SAramDMARequest();
+  SAramDMARequest* req = rs_new SAramDMARequest();
   req->mComplete = false;
   req->mUniqueID = mDMAUniqueID;
   mActiveDMAs.push_back(req);
@@ -123,7 +123,7 @@ uint CARAMManager::DMAToARAM(void* src, void* dest, uint len, EDMAPriority prior
 
 int CARAMManager::DMAToMRAM(void* src, void* dest, uint len, EDMAPriority priority) {
   DCInvalidateRange(dest, len);
-  SAramDMARequest* req = new SAramDMARequest();
+  SAramDMARequest* req = rs_new SAramDMARequest();
   req->mComplete = false;
   req->mUniqueID = mDMAUniqueID;
   mActiveDMAs.push_back(req);
