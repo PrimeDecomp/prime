@@ -53,7 +53,7 @@ void CScriptShadowProjector::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId
   case kSM_Activate:
     if (GetActive() && x104_target != kInvalidUniqueId && xfc_opacity > 0.f) {
       x108_projectedShadow =
-          new CProjectedShadow(x10c_textureSize, x10c_textureSize, GetPersistent());
+          rs_new CProjectedShadow(x10c_textureSize, x10c_textureSize, GetPersistent());
     } else {
       x108_projectedShadow = nullptr;
     }

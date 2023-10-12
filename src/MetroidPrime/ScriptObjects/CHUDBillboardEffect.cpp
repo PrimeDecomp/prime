@@ -50,11 +50,11 @@ CHUDBillboardEffect::CHUDBillboardEffect(
 
   if (particle) {
     x104_26_isElementGen = true;
-    xe8_generator = new CElementGen(*particle);
+    xe8_generator = rs_new CElementGen(*particle);
     if (static_cast< CElementGen& >(*xe8_generator).IsIndirectTextured())
       ++g_IndirectTexturedBillboardCount;
   } else {
-    xe8_generator = new CParticleElectric(TToken< CElectricDescription >(*electric));
+    xe8_generator = rs_new CParticleElectric(TToken< CElectricDescription >(*electric));
   }
   ++g_BillboardCount;
   xe8_generator->SetModulationColor(color);

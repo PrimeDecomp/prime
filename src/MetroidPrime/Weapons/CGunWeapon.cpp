@@ -111,7 +111,7 @@ const SWeaponInfo& CGunWeapon::GetWeaponInfo() const {
 void CGunWeapon::LoadMuzzleFx(float dt) {
 
   for (int i = 0; i < x16c_muzzleEffects.capacity(); ++i) {
-    CElementGen* newElement = new CElementGen(x16c_muzzleEffects[i]);
+    CElementGen* newElement = rs_new CElementGen(x16c_muzzleEffects[i]);
     newElement->SetParticleEmission(false);
     newElement->Update(dt);
     x1a4_muzzleGenerators.push_back(newElement);
@@ -130,7 +130,7 @@ void CGunWeapon::LoadGunModels(CStateManager& mgr) {
   LoadSuitArm(mgr);
   x10_solidModelData->SetSortThermal(true);
   x60_holoModelData->SetSortThermal(true);
-  x100_gunController = new CGunController(*x10_solidModelData);
+  x100_gunController = rs_new CGunController(*x10_solidModelData);
 }
 
 void CGunWeapon::LoadProjectileData(CStateManager& mgr) {
@@ -299,7 +299,7 @@ void CGunWeapon::ActivateCharge(bool enable, bool resetEffect) {
   x208_muzzleEffectIdx = !!enable;
   if (enable || resetEffect) {
     x1a4_muzzleGenerators[x208_muzzleEffectIdx] =
-        new CElementGen(x16c_muzzleEffects[x208_muzzleEffectIdx]);
+        rs_new CElementGen(x16c_muzzleEffects[x208_muzzleEffectIdx]);
   }
 }
 
@@ -406,7 +406,7 @@ void CGunWeapon::Fire(bool underwater, float dt, CPlayerState::EChargeStage char
   if (chargeState != CPlayerState::kCS_Normal)
     attribs = kPA_ArmCannon | kPA_Charged;
 
-  CEnergyProjectile* proj = new CEnergyProjectile(
+  CEnergyProjectile* proj = rs_new CEnergyProjectile(
       true, x144_weapons[chargeState], x1c0_weaponType, xf, x1c8_playerMaterial, dInfo,
       mgr.AllocateUniqueId(), kInvalidAreaId, GetPlayerId(), homingTarget,
       particleChargeAttribs | attribs, underwater, scale, rstl::optional_object_null(),
@@ -672,13 +672,13 @@ void CGunWeapon::EnableFrozenEffect(EFrozenFxType type) {
   case kFFT_Thawed:
     if (x204_frozenEffect == kFFT_Thawed)
       break;
-    x1b8_frozenGenerator = new CElementGen(x188_frozenEffects[1]);
+    x1b8_frozenGenerator = rs_new CElementGen(x188_frozenEffects[1]);
     x1b8_frozenGenerator->SetGlobalScale(x4_scale);
     break;
   case kFFT_Frozen:
     if (x204_frozenEffect == kFFT_Frozen)
       break;
-    x1b8_frozenGenerator = new CElementGen(x188_frozenEffects[0]);
+    x1b8_frozenGenerator = rs_new CElementGen(x188_frozenEffects[0]);
     x1b8_frozenGenerator->SetGlobalScale(x4_scale);
     break;
   default:

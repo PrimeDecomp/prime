@@ -22,7 +22,7 @@ private:
   float x38_initialLifetime;
   float x3c_playbackRate;
   float x40_lifetime;
-  bool x44_24_looping : 1;
+  bool x44_24_isLooped : 1;
   bool x44_25_isPassive : 1;
   bool x44_26_fadeOut : 1;
   bool x44_27_timedLoop : 1;

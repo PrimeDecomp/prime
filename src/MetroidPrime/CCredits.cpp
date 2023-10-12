@@ -57,7 +57,7 @@ CIOWin::EMessageReturn CCredits::Update(float dt, CArchitectureQueue& queue) {
     if (x30_text.empty()) {
       for (int i = 0; i < x18_creditsTable->GetStringCount(); ++i) {
         x30_text.push_back(rstl::pair< rstl::single_ptr< CGuiTextSupport >, CVector2i >(
-            new CGuiTextSupport(
+            rs_new CGuiTextSupport(
                 gpResourceFactory->GetResourceIdByName(gpTweakGui->GetCreditsFont().data())->id,
                 CGuiTextProperties(true, true, kJustification_Center, kVerticalJustification_Top),
                 gpTweakGui->GetCreditsTextFontColor(), gpTweakGui->GetCreditsTextBorderColor(),
@@ -113,14 +113,14 @@ CIOWin::EMessageReturn CCredits::Update(float dt, CArchitectureQueue& queue) {
   }
   case 1: {
     if (x28_moviePlayer.null()) {
-      x28_moviePlayer = new CMoviePlayer("Video/creditBG.thp", 0.f, true, true);
+      x28_moviePlayer = rs_new CMoviePlayer("Video/creditBG.thp", 0.f, true, true);
     }
     x14_ = 2;
     break;
   }
   case 2: {
     // if (x2c_.null()) {
-    //   x2c_ = new CStaticAudioPlayer("Audio/ending3.rsf", 0, 0x5d7c00);
+    //   x2c_ = rs_new CStaticAudioPlayer("Audio/ending3.rsf", 0, 0x5d7c00);
     // }
     // if (!x2c_->IsReady()) {
     //   return kMR_Exit;

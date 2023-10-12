@@ -17,7 +17,7 @@ public:
   void AddToRenderer(const CFrustumPlanes&, const CStateManager&) const override;
   void Render(const CStateManager&) const override;
 
-  TUniqueId GetRandomNextWaypointId(const CStateManager& mgr) const;
+  TUniqueId NextWaypoint(CStateManager& mgr);
   float GetHFov() const { return xe8_hfov; }
 };
 

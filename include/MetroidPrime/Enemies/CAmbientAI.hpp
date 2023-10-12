@@ -41,7 +41,7 @@ private:
   EAnimationState x2d0_animState;
   float x2d4_alertRange;
   float x2d8_impactRange;
-  s32 x2dc_defaultAnim;
+  s32 x2dc_currentAnim;
   s32 x2e0_alertAnim;
   s32 x2e4_impactAnim;
   bool x2e8_24_dead : 1;

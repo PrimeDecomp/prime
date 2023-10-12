@@ -19,7 +19,7 @@ void CIOWinManager::AddIOWin(rstl::ncrc_ptr< CIOWin > chIow, int pumpPrio, int d
   IOWinPQNode* prevNode = nullptr;
   for (node = x4_pumpRoot; node && node->x4_prio > pumpPrio; node = node->x8_next)
     prevNode = node;
-  IOWinPQNode* newNode = new IOWinPQNode(chIow, pumpPrio, node);
+  IOWinPQNode* newNode = rs_new IOWinPQNode(chIow, pumpPrio, node);
   if (prevNode)
     prevNode->x8_next = newNode;
   else
@@ -28,7 +28,7 @@ void CIOWinManager::AddIOWin(rstl::ncrc_ptr< CIOWin > chIow, int pumpPrio, int d
   prevNode = nullptr;
   for (node = x0_drawRoot; node && drawPrio < node->x4_prio; node = node->x8_next)
     prevNode = node;
-  newNode = new IOWinPQNode(chIow, drawPrio, node);
+  newNode = rs_new IOWinPQNode(chIow, drawPrio, node);
   if (prevNode)
     prevNode->x8_next = newNode;
   else

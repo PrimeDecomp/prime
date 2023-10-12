@@ -41,7 +41,7 @@ CPuffer::CPuffer(TUniqueId uid, const rstl::string& name, const CEntityInfo& inf
   CreateShadow(false);
   GetKnockBackCtrl().SetImpulseDurationIdx(1);
   x574_cloudEffect.Lock();
-  GetBodyCtrl()->SetRestrictedFlyerMoveSpeed(hoverSpeed);
+  BodyCtrl()->SetRestrictedFlyerMoveSpeed(hoverSpeed);
 }
 
 CPuffer::~CPuffer() {}
@@ -53,7 +53,7 @@ void CPuffer::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateMan
 
   switch (msg) {
   case kSM_Registered:
-    GetBodyCtrl()->Activate(mgr);
+    BodyCtrl()->Activate(mgr);
     SetMaterialFilter(CMaterialFilter::MakeIncludeExclude(CMaterialList(kMT_Player),
                                                           CMaterialList(kMT_NoStaticCollision)));
     break;
@@ -97,7 +97,7 @@ void CPuffer::Death(CStateManager& mgr, const CVector3f& vec, EScriptObjectState
   CAABox aabb =
       CAABox(CVector3f(-1.f, -1.f, -1.f), CVector3f(1.f, 1.f, 1.f))
           .GetTransformedAABox(GetTransform() * CTransform4f::Scale(x57c_cloudDamage.GetRadius()));
-  mgr.AddObject(new CFire(x574_cloudEffect, uid, GetCurrentAreaId(), true, GetUniqueId(),
+  mgr.AddObject(rs_new CFire(x574_cloudEffect, uid, GetCurrentAreaId(), true, GetUniqueId(),
                           GetTransform(), x57c_cloudDamage, aabb, CVector3f(1.f, 1.f, 1.f), true,
                           x5bc_cloudSteam, x598_24_, x598_26_, x598_25_, 1.f, x5b8_, 1.f, 1.f));
 }
@@ -106,22 +106,22 @@ void CPuffer::Think(float dt, CStateManager& mgr) {
   CPatterned::Think(dt, mgr);
 
   sub8025bfa4(mgr);
-  CVector3f moveVector = GetBodyCtrl()->GetCommandMgr().GetMoveVector();
+  CVector3f moveVector = BodyCtrl()->GetCommandMgr().GetMoveVector();
 
   if (x5cc_ != GetDestObj()) {
     x5cc_ = GetDestObj();
     CSfxManager::AddEmitter(x59a_, GetTranslation(), CVector3f::Zero(), true, false);
   }
 
-  GetBodyCtrl()->CommandMgr().ClearLocomotionCmds();
+  BodyCtrl()->CommandMgr().ClearLocomotionCmds();
   if (moveVector.CanBeNormalized()) {
     x5c0_move = CVector3f::Lerp(x5c0_move, moveVector, dt / 0.5f).AsNormalized();
-    GetBodyCtrl()->CommandMgr().DeliverCmd(CBCLocomotionCmd(x5c0_move, x568_face, 1.f));
+    BodyCtrl()->CommandMgr().DeliverCmd(CBCLocomotionCmd(x5c0_move, x568_face, 1.f));
   }
 }
 
 void CPuffer::sub8025bfa4(CStateManager& mgr) {
-  CVector3f moveVector = GetBodyCtrl()->GetCommandMgr().GetMoveVector();
+  CVector3f moveVector = BodyCtrl()->GetCommandMgr().GetMoveVector();
 
   if (x5d4_gasLocators.empty()) {
     for (int i = 0; i < ARRAY_SIZE(skGasLocators); ++i) {

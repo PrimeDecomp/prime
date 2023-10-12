@@ -10,7 +10,7 @@ CFire::CFire(const TToken< CGenDescription >& effect, TUniqueId uid, TAreaId are
 : CActor(uid, active, "Fire", CEntityInfo(area, NullConnectionList), xf,
          CModelData::CModelDataNull(), MakeMaterialList(), CActorParameters::None(),
          kInvalidUniqueId)
-, xe8_(new CElementGen(effect))
+, xe8_(rs_new CElementGen(effect))
 , xec_owner(owner)
 , xf0_damageInfo1(dInfo)
 , x10c_damageInfo2(dInfo)

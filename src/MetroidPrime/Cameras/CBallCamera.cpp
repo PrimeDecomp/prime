@@ -141,8 +141,8 @@ CBallCamera::CBallCamera(TUniqueId uid, TUniqueId watchedId, const CTransform4f&
 , x470_clampVelTimer(0.f)
 , x474_clampVelRange(0.f)
 , x478_shortMoveCount(0)
-, x47c_failsafeState(new SFailsafeState)
-, x480_(new SUnknown) {
+, x47c_failsafeState(rs_new SFailsafeState)
+, x480_(rs_new SUnknown) {
   SetupColliders(x264_smallColliders, 2.31f, 2.31f, 0.1f, 3, 2.f, 0.5f, -M_PIF / 2.f);
   SetupColliders(x274_mediumColliders, 4.62f, 4.62f, 0.1f, 6, 2.f, 0.5f, -M_PIF / 2.f);
   SetupColliders(x284_largeColliders, 7.f, 7.f, 0.1f, 12, 2.f, 0.5f, -M_PIF / 2.f);

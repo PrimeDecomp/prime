@@ -60,13 +60,13 @@ CBodyStateInfo::CBodyStateInfo(CActor& actor, EBodyType type)
 
   x1c_additiveStates.reserve(4);
   x1c_additiveStates.push_back(rstl::pair< int, rstl::auto_ptr< CAdditiveBodyState > >(
-      pas::kAS_AdditiveIdle, new CABSIdle()));
+      pas::kAS_AdditiveIdle, rs_new CABSIdle()));
   x1c_additiveStates.push_back(
-      rstl::pair< int, rstl::auto_ptr< CAdditiveBodyState > >(pas::kAS_AdditiveAim, new CABSAim()));
+      rstl::pair< int, rstl::auto_ptr< CAdditiveBodyState > >(pas::kAS_AdditiveAim, rs_new CABSAim()));
   x1c_additiveStates.push_back(rstl::pair< int, rstl::auto_ptr< CAdditiveBodyState > >(
-      pas::kAS_AdditiveIdle, new CABSFlinch()));
+      pas::kAS_AdditiveIdle, rs_new CABSFlinch()));
   x1c_additiveStates.push_back(rstl::pair< int, rstl::auto_ptr< CAdditiveBodyState > >(
-      pas::kAS_AdditiveReaction, new CABSReaction()));
+      pas::kAS_AdditiveReaction, rs_new CABSReaction()));
 }
 
 CBodyStateInfo::~CBodyStateInfo() {
@@ -148,47 +148,47 @@ float CBodyStateInfo::GetLocomotionSpeed(pas::ELocomotionAnim anim) const {
 CBodyState* CBodyStateInfo::SetupBiPedalBodyStates(int stateId, CActor& actor) {
   switch (stateId) {
   // case pas::kAS_Fall:
-  //   return new CBSFall();
+  //   return rs_new CBSFall();
   // case pas::kAS_Getup:
-  //   return new CBSGetup();
+  //   return rs_new CBSGetup();
   // case pas::kAS_LieOnGround:
-  //   return new CBSLieOnGround(actor);
+  //   return rs_new CBSLieOnGround(actor);
   // case pas::kAS_Step:
-  //   return new CBSStep();
+  //   return rs_new CBSStep();
   // case pas::kAS_Death:
-  //   return new CBSDie();
+  //   return rs_new CBSDie();
   // case pas::kAS_Locomotion:
-  //   return new CBSBiPedLocomotion(actor);
+  //   return rs_new CBSBiPedLocomotion(actor);
   // case pas::kAS_KnockBack:
-  //   return new CBSKnockBack();
+  //   return rs_new CBSKnockBack();
   // case pas::kAS_MeleeAttack:
-  //   return new CBSAttack();
+  //   return rs_new CBSAttack();
   // case pas::kAS_ProjectileAttack:
-  //   return new CBSProjectileAttack();
+  //   return rs_new CBSProjectileAttack();
   // case pas::kAS_LoopAttack:
-  //   return new CBSLoopAttack();
+  //   return rs_new CBSLoopAttack();
   // case pas::kAS_Turn:
-  //   return new CBSTurn();
+  //   return rs_new CBSTurn();
   // case pas::kAS_LoopReaction:
-  //   return new CBSLoopReaction();
+  //   return rs_new CBSLoopReaction();
   // case pas::kAS_GroundHit:
-  //   return new CBSGroundHit();
+  //   return rs_new CBSGroundHit();
   // case pas::kAS_Generate:
-  //   return new CBSGenerate();
+  //   return rs_new CBSGenerate();
   // case pas::kAS_Jump:
-  //   return new CBSJump();
+  //   return rs_new CBSJump();
   // case pas::kAS_Hurled:
-  //   return new CBSHurled();
+  //   return rs_new CBSHurled();
   case pas::kAS_Slide:
-    return new CBSSlide();
+    return rs_new CBSSlide();
   // case pas::kAS_Taunt:
-  //   return new CBSTaunt();
+  //   return rs_new CBSTaunt();
   // case pas::kAS_Scripted:
-  //   return new CBSScripted();
+  //   return rs_new CBSScripted();
   // case pas::kAS_Cover:
-  //   return new CBSCover();
+  //   return rs_new CBSCover();
   // case pas::kAS_WallHang:
-  //   return new CBSWallHang();
+  //   return rs_new CBSWallHang();
   default:
     return nullptr;
   }

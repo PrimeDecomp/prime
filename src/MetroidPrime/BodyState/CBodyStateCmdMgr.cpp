@@ -53,7 +53,7 @@ void CBodyStateCmdMgr::SetSteeringSpeedRange(float rmin, float rmax) {
 }
 
 void CBodyStateCmdMgr::DeliverCmd(const CBodyStateCmd& cmd) {
-  DeliverCmd2(cmd.GetCommandId());
+  DeliverCmd(cmd.GetCommandId());
   *x40_commandTable[(uint)cmd.GetCommandId()] = cmd;
 }
 

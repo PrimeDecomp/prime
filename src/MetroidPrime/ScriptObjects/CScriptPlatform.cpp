@@ -98,7 +98,7 @@ CScriptPlatform::CScriptPlatform(
     AnimationData()->SetIsAnimating(true);
   }
   if (x304_treeGroupContainer) {
-    x314_treeGroup = new CCollidableOBBTreeGroup(**x304_treeGroupContainer, GetMaterialList());
+    x314_treeGroup = rs_new CCollidableOBBTreeGroup(**x304_treeGroupContainer, GetMaterialList());
   }
 }
 

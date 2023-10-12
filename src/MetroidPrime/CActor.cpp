@@ -40,7 +40,7 @@ CActor::CActor(TUniqueId uid, bool active, const rstl::string& name, const CEnti
                const CActorParameters& params, TUniqueId nextDrawNode)
 : CEntity(uid, info, active, name)
 , x34_transform(xf)
-, x64_modelData(mData.IsNull() ? nullptr : new CModelData(mData))
+, x64_modelData(mData.IsNull() ? nullptr : rs_new CModelData(mData))
 , x68_material(MakeActorMaterialList(list, params))
 , x70_materialFilter(
       CMaterialFilter::MakeIncludeExclude(CMaterialList(SolidMaterial), CMaterialList()))
@@ -97,7 +97,7 @@ CActor::CActor(TUniqueId uid, bool active, const rstl::string& name, const CEnti
   const CAssetId scanId = params.GetScannable().GetScannableObject0();
   if (scanId != kInvalidAssetId) {
     x98_scanObjectInfo =
-        new TCachedToken< CScannableObjectInfo >(gpSimplePool->GetObj(SObjectTag('SCAN', scanId)));
+        rs_new TCachedToken< CScannableObjectInfo >(gpSimplePool->GetObj(SObjectTag('SCAN', scanId)));
     x98_scanObjectInfo->Lock();
   }
 }
@@ -205,7 +205,7 @@ void CActor::CalculateRenderBounds() {
 }
 
 void CActor::SetModelData(const CModelData& modelData) {
-  x64_modelData = modelData.IsNull() ? nullptr : new CModelData(modelData);
+  x64_modelData = modelData.IsNull() ? nullptr : rs_new CModelData(modelData);
 }
 
 // TODO nonmatching

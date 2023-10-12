@@ -84,7 +84,7 @@ CStateManager::CStateManager(const rstl::ncrc_ptr< CScriptMailbox >& mailbox,
 , x4_objectIndexArray(0)
 , x808_objectLists(rstl::auto_ptr< CObjectList >())
 
-, x86c_stateManagerContainer(new CStateManagerContainer())
+, x86c_stateManagerContainer(rs_new CStateManagerContainer())
 
 , x870_cameraManager(&x86c_stateManagerContainer->x0_cameraManager)
 , x874_sortedListManager(&x86c_stateManagerContainer->x3c0_sortedListManager)
@@ -160,14 +160,14 @@ CStateManager::CStateManager(const rstl::ncrc_ptr< CScriptMailbox >& mailbox,
 , xf94_30_fullThreat(false)
 
 {
-  x808_objectLists[0] = new CObjectList(kOL_All);
-  x808_objectLists[1] = new CActorList();
-  x808_objectLists[2] = new CPhysicsActorList();
-  x808_objectLists[3] = new CGameCameraList();
-  x808_objectLists[4] = new CGameLightList();
-  x808_objectLists[5] = new CListeningAiList();
-  x808_objectLists[6] = new CAiWaypointList();
-  x808_objectLists[7] = new CPlatformAndDoorList();
+  x808_objectLists[0] = rs_new CObjectList(kOL_All);
+  x808_objectLists[1] = rs_new CActorList();
+  x808_objectLists[2] = rs_new CPhysicsActorList();
+  x808_objectLists[3] = rs_new CGameCameraList();
+  x808_objectLists[4] = rs_new CGameLightList();
+  x808_objectLists[5] = rs_new CListeningAiList();
+  x808_objectLists[6] = rs_new CAiWaypointList();
+  x808_objectLists[7] = rs_new CPlatformAndDoorList();
 
   gpRender->SetDrawableCallback(RendererDrawCallback, this);
   CMemory::SetOutOfMemoryCallback(MemoryAllocatorAllocationFailedCallback, this);

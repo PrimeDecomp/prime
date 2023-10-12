@@ -22,7 +22,7 @@ CAmbientAI::CAmbientAI(TUniqueId uid, const rstl::string& name, const CEntityInf
 , x2d0_animState(kAS_Ready)
 , x2d4_alertRange(alertRange)
 , x2d8_impactRange(impactRange)
-, x2dc_defaultAnim(GetModelData()->GetAnimationData()->GetDefaultAnimation())
+, x2dc_currentAnim(GetModelData()->GetAnimationData()->GetCurrentAnimation())
 , x2e0_alertAnim(alertAnim)
 , x2e4_impactAnim(impactAnim)
 , x2e8_24_dead(false)
@@ -90,7 +90,7 @@ void CAmbientAI::Think(float dt, CStateManager& mgr) {
     if (!inAlertRange) {
       x2d0_animState = kAS_Ready;
       ModelData()->AnimationData()->SetAnimation(
-          CAnimPlaybackParms(x2dc_defaultAnim, -1, 1.f, true), false);
+          CAnimPlaybackParms(x2dc_currentAnim, -1, 1.f, true), false);
       ModelData()->EnableLooping(true);
       RandomizePlaybackRate(mgr);
     } else if (inImpactRange) {
@@ -104,7 +104,7 @@ void CAmbientAI::Think(float dt, CStateManager& mgr) {
     if (!x2e8_25_animating) {
       x2d0_animState = kAS_Ready;
       ModelData()->AnimationData()->SetAnimation(
-          CAnimPlaybackParms(x2dc_defaultAnim, -1, 1.f, true), false);
+          CAnimPlaybackParms(x2dc_currentAnim, -1, 1.f, true), false);
       ModelData()->EnableLooping(true);
       RandomizePlaybackRate(mgr);
     }
@@ -130,7 +130,7 @@ void CAmbientAI::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CState
     if (!GetActive())
       SetActive(true);
     x2d0_animState = kAS_Ready;
-    ModelData()->AnimationData()->SetAnimation(CAnimPlaybackParms(x2dc_defaultAnim, -1, 1.f, true),
+    ModelData()->AnimationData()->SetAnimation(CAnimPlaybackParms(x2dc_currentAnim, -1, 1.f, true),
                                                false);
     ModelData()->EnableLooping(true);
     RandomizePlaybackRate(mgr);

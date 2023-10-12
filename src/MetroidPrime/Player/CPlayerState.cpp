@@ -155,7 +155,7 @@ void CPlayerState::PutTo(COutputStream& stream) {
   stream.WriteBits(x184_scanCompletionRateSecond, GetBitCount(0x100));
 }
 
-void CPlayerState::ReInitializePowerUp(CPlayerState::EItemType type, int capacity) {
+void CPlayerState::SetPowerUp(CPlayerState::EItemType type, int capacity) {
   x24_powerups[uint(type)].x4_capacity = 0;
   InitializePowerUp(type, capacity);
 }
@@ -183,7 +183,7 @@ float CPlayerState::CalculateHealth() {
   return (kEnergyTankCapacity * x24_powerups[kIT_EnergyTanks].x0_amount) + kBaseHealthCapacity;
 }
 
-void CPlayerState::ResetAndIncrPickUp(CPlayerState::EItemType type, int amount) {
+void CPlayerState::SetPickup(CPlayerState::EItemType type, int amount) {
   x24_powerups[uint(type)].x0_amount = 0;
   IncrPickUp(type, amount);
 }

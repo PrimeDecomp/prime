@@ -24,21 +24,16 @@ public:
   static void OffsetFakeStatics(int);
 };
 
-#ifdef __MWERKS__
-void* operator new(size_t sz, const char*, const char*);
-void* operator new[](size_t sz, const char*, const char*);
-#endif
-
 // placement new
 inline void* operator new(size_t n, void* ptr) { return ptr; };
 
 #ifdef __MWERKS__
+void* operator new(size_t sz, const char*, const char*);
+void* operator new[](size_t sz, const char*, const char*);
 inline void operator delete(void* ptr) { CMemory::Free(ptr); }
 inline void operator delete[](void* ptr) { CMemory::Free(ptr); }
 #define rs_new new ("??(??)", nullptr)
 #else
-__attribute__((weak)) void operator delete(void* ptr) { CMemory::Free(ptr); }
-__attribute__((weak)) void operator delete[](void* ptr) { CMemory::Free(ptr); }
 #define rs_new new
 #endif
 

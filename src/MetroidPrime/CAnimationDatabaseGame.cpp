@@ -33,4 +33,6 @@ void CAnimationDatabaseGame::GetAllUniquePrimitives(rstl::vector< CPrimitive >& 
 }
 
 void CAnimationDatabaseGame::GetUniquePrimitivesFromMetaAnim(rstl::set< CPrimitive >& primsOut,
-                                                             const rstl::string& name) const {}
+                                                             const rstl::string& name) const {
+  // Non-matching
+}

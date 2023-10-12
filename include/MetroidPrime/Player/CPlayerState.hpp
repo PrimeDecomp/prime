@@ -134,12 +134,12 @@ public:
   int GetItemAmount(EItemType type) const;
   void DecrPickUp(EItemType type, int amount);
   void IncrPickUp(EItemType type, int amount);
-  void ResetAndIncrPickUp(EItemType type, int amount);
+  void SetPickup(EItemType type, int amount);
   static float GetEnergyTankCapacity();
   static float GetBaseHealthCapacity();
   float CalculateHealth();
   void InitializePowerUp(CPlayerState::EItemType type, int capacity);
-  void ReInitializePowerUp(CPlayerState::EItemType type, int capacity);
+  void SetPowerUp(CPlayerState::EItemType type, int capacity);
 
   void InitializeScanTimes();
 

@@ -17,7 +17,7 @@ public:
   T* operator->() { return x0_ptr; }
   const T* operator->() const { return x0_ptr; }
   single_ptr(const single_ptr& other) : x0_ptr(other.x0_ptr) { other.x0_ptr = nullptr; }
-  single_ptr& operator=(T* ptr) {
+  single_ptr& operator=(T* const ptr) {
     delete x0_ptr;
     x0_ptr = ptr;
     return *this;

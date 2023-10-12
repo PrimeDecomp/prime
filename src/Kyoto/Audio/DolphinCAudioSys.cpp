@@ -22,7 +22,7 @@ bool CAudioSys::mProLogic2 = true;
 
 const rstl::string CAudioSys::mpDefaultInvalidString(rstl::string_l("NULL"));
 
-void* DoMalloc(u32 len) { return new char[len]; }
+void* DoMalloc(u32 len) { return rs_new char[len]; }
 
 void DoFree(void* ptr) {
   if (!ptr) {
@@ -44,11 +44,11 @@ CAudioSys::CAudioSys(char numVoices, char numMusic, char numSfx, char maxNumEmit
   }
   DTKInit();
 
-  mpGroupSetDB = new rstl::map< rstl::string, rstl::ncrc_ptr< CAudioGroupSet > >();
-  mpGroupSetResNameDB = new rstl::map< uint, rstl::string >();
-  mpDVDTrackDB = new rstl::map< rstl::string, rstl::ncrc_ptr< CTrkData > >();
-  mpEmitterDB = new rstl::vector< CEmitterData >(maxNumEmitters, CEmitterData());
-  mpListener = new u8[0x90]; // TODO: Add actual listener allocation
+  mpGroupSetDB = rs_new rstl::map< rstl::string, rstl::ncrc_ptr< CAudioGroupSet > >();
+  mpGroupSetResNameDB = rs_new rstl::map< uint, rstl::string >();
+  mpDVDTrackDB = rs_new rstl::map< rstl::string, rstl::ncrc_ptr< CTrkData > >();
+  mpEmitterDB = rs_new rstl::vector< CEmitterData >(maxNumEmitters, CEmitterData());
+  mpListener = rs_new u8[0x90]; // TODO: Add actual listener allocation
   mIsListenerActive = false;
   mMaxNumEmitters = maxNumEmitters;
 

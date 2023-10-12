@@ -18,7 +18,6 @@
 #include "MetroidPrime/ScriptObjects/CScriptSpawnPoint.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptTrigger.hpp"
 
-
 #include "Kyoto/Alloc/CMemory.hpp"
 #include "Kyoto/CResFactory.hpp"
 #include "Kyoto/Math/CQuaternion.hpp"
@@ -193,8 +192,8 @@ CEntity* ScriptLoader::LoadTrigger(CStateManager& mgr, CInputStream& in, int pro
   CVector3f orientedForce =
       mgr.GetWorld()->GetAreaAlways(info.GetAreaId()).GetTM().Rotate(forceVec);
 
-  return new CScriptTrigger(mgr.AllocateUniqueId(), name, info, position, box, dInfo, orientedForce,
-                            flags, active, b2, b3);
+  return rs_new CScriptTrigger(mgr.AllocateUniqueId(), name, info, position, box, dInfo,
+                               orientedForce, flags, active, b2, b3);
 }
 
 CEntity* ScriptLoader::LoadCameraHintTrigger(CStateManager& mgr, CInputStream& in, int propCount,
@@ -211,13 +210,14 @@ CEntity* ScriptLoader::LoadCameraHintTrigger(CStateManager& mgr, CInputStream& i
   if (aHead.x10_transform.GetRotation() == CTransform4f::Identity()) {
     CAABox box(CVector3f(-(scale.GetX()), -(scale.GetY()), -(scale.GetZ())),
                CVector3f((scale.GetX()), (scale.GetY()), (scale.GetZ())));
-    return new CScriptTrigger(mgr.AllocateUniqueId(), aHead.x0_name, info,
-                              aHead.x10_transform.GetTranslation(), box, CDamageInfo(),
-                              CVector3f::Zero(), kTFL_DetectPlayer, active, deactivateOnEnter,
-                              deactivateOnExit);
+    return rs_new CScriptTrigger(mgr.AllocateUniqueId(), aHead.x0_name, info,
+                                 aHead.x10_transform.GetTranslation(), box, CDamageInfo(),
+                                 CVector3f::Zero(), kTFL_DetectPlayer, active, deactivateOnEnter,
+                                 deactivateOnExit);
   } else {
-    return new CScriptCameraHintTrigger(mgr.AllocateUniqueId(), active, aHead.x0_name, info, scale,
-                                        aHead.x10_transform, deactivateOnEnter, deactivateOnExit);
+    return rs_new CScriptCameraHintTrigger(mgr.AllocateUniqueId(), active, aHead.x0_name, info,
+                                           scale, aHead.x10_transform, deactivateOnEnter,
+                                           deactivateOnExit);
   }
 }
 
@@ -276,9 +276,9 @@ CEntity* ScriptLoader::LoadDamageableTrigger(CStateManager& mgr, CInputStream& i
       CScriptDamageableTrigger::ECanOrbit(in.Get< bool >());
   bool active = in.Get< bool >();
   CVisorParameters vParms = LoadVisorParameters(in);
-  return new CScriptDamageableTrigger(mgr.AllocateUniqueId(), name, info, position, volume, hInfo,
-                                      dVuln, triggerFlags, patternTex1, patternTex2, colorTex,
-                                      canOrbit, active, vParms);
+  return rs_new CScriptDamageableTrigger(mgr.AllocateUniqueId(), name, info, position, volume,
+                                         hInfo, dVuln, triggerFlags, patternTex1, patternTex2,
+                                         colorTex, canOrbit, active, vParms);
 }
 
 // static CFluidUVMotion LoadFluidUVMotion(CInputStream&) {}
@@ -306,10 +306,10 @@ CEntity* ScriptLoader::LoadSpawnPoint(CStateManager& mgr, CInputStream& in, int 
   if (propCount >= 35)
     morphed = in.Get< bool >();
 
-  return new CScriptSpawnPoint(mgr.AllocateUniqueId(), name, info,
-                               ConvertEditorEulerToTransform4f(rotation, position),
-                               rstl::reserved_vector< int, int(CPlayerState::kIT_Max) >(itemCounts),
-                               defaultSpawn, active, morphed);
+  return rs_new CScriptSpawnPoint(
+      mgr.AllocateUniqueId(), name, info, ConvertEditorEulerToTransform4f(rotation, position),
+      rstl::reserved_vector< int, int(CPlayerState::kIT_Max) >(itemCounts), defaultSpawn, active,
+      morphed);
 }
 
 CEntity* ScriptLoader::LoadDock(CStateManager& mgr, CInputStream& in, int propCount,
@@ -324,8 +324,8 @@ CEntity* ScriptLoader::LoadDock(CStateManager& mgr, CInputStream& in, int propCo
   int dock = in.Get< int >();
   TAreaId area = in.Get< int >();
   bool loadConnected = in.Get< bool >();
-  return new CScriptDock(mgr.AllocateUniqueId(), name, info, position, scale, dock, area, active, 0,
-                         loadConnected);
+  return rs_new CScriptDock(mgr.AllocateUniqueId(), name, info, position, scale, dock, area, active,
+                            0, loadConnected);
 }
 
 static CAABox GetCollisionBox(CStateManager& stateMgr, TAreaId id, const CVector3f& extent,
@@ -398,8 +398,8 @@ CEntity* ScriptLoader::LoadActor(CStateManager& mgr, CInputStream& in, int propC
   if (collisionExtent == CVector3f::Zero() || negativeCollisionExtent)
     aabb = data.GetBounds(head.x0_actorHead.x10_transform.GetRotation());
 
-  return new CScriptActor(mgr.AllocateUniqueId(), head.x0_actorHead.x0_name, info,
-                          head.x0_actorHead.x10_transform, data, aabb, list, mass, zMomentum, hInfo,
-                          dVuln, actParms, looping, active, shaderIdx, xrayAlpha, noThermalHotZ,
-                          castsShadow, scaleAdvancementDelta, materialFlag54);
+  return rs_new CScriptActor(mgr.AllocateUniqueId(), head.x0_actorHead.x0_name, info,
+                             head.x0_actorHead.x10_transform, data, aabb, list, mass, zMomentum,
+                             hInfo, dVuln, actParms, looping, active, shaderIdx, xrayAlpha,
+                             noThermalHotZ, castsShadow, scaleAdvancementDelta, materialFlag54);
 }

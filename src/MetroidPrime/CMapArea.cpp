@@ -78,7 +78,7 @@ CMapArea::CMapArea(CInputStream& in, uint size)
 , x2c_vertexCount(in.ReadLong())
 , x30_surfaceCount(in.ReadLong())
 , x34_size(size - 52) {
-  x44_buf = NEW u8[x34_size];
+  x44_buf = rs_new u8[x34_size];
   in.Get(x44_buf.get(), x34_size);
   PostConstruct();
 
@@ -239,5 +239,5 @@ const CVector3f& CMapArea::GetAreaPostTranslate(const IWorld& world, TAreaId aid
 CFactoryFnReturn FMapAreaFactory(const SObjectTag& objTag, CInputStream& in,
                                  const CVParamTransfer&) {
   gHackAssetId = objTag.id;
-  return CFactoryFnReturn(new CMapArea(in, gpResourceFactory->ResourceSize(objTag)));
+  return CFactoryFnReturn(rs_new CMapArea(in, gpResourceFactory->ResourceSize(objTag)));
 }

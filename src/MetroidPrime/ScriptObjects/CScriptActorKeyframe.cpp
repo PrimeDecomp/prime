@@ -17,7 +17,7 @@ CScriptActorKeyframe::CScriptActorKeyframe(TUniqueId uid, const rstl::string& na
 , x38_initialLifetime(lifetime)
 , x3c_playbackRate(totalPlayback)
 , x40_lifetime(lifetime)
-, x44_24_looping(looping)
+, x44_24_isLooped(looping)
 , x44_25_isPassive(isPassive)
 , x44_26_fadeOut((fadeOut << 5) & 0x20)
 , x44_27_timedLoop((fadeOut << 3) & 0x10)
@@ -74,28 +74,29 @@ void CScriptActorKeyframe::UpdateEntity(TUniqueId uid, CStateManager& mgr) {
     act->SetModelFlags(CModelFlags::Normal());
     if (act->HasAnimation()) {
       if (act->AnimationData()->IsAdditiveAnimation(x34_animationId)) {
-        act->AnimationData()->AddAdditiveAnimation(x34_animationId, 1.f, x44_24_looping,
+        act->AnimationData()->AddAdditiveAnimation(x34_animationId, 1.f, x44_24_isLooped,
                                                    x44_26_fadeOut);
       } else {
         act->AnimationData()->SetAnimation(CAnimPlaybackParms(x34_animationId, -1, 1.f, true),
                                            false);
-        act->ModelData()->EnableLooping(x44_24_looping);
+        act->ModelData()->EnableLooping(x44_24_isLooped);
         act->AnimationData()->MultiplyPlaybackRate(x3c_playbackRate);
       }
     }
   } else if (CPatterned* ai = TCastToPtr< CPatterned >(ent)) {
     if (ai->AnimationData()->IsAdditiveAnimation(x34_animationId)) {
-      ai->AnimationData()->AddAdditiveAnimation(x34_animationId, 1.f, x44_24_looping,
+      ai->AnimationData()->AddAdditiveAnimation(x34_animationId, 1.f, x44_24_isLooped,
                                                 x44_26_fadeOut);
     } else {
-      ai->GetBodyCtrl()->CommandMgr().DeliverCmd(
-          CBCScriptedCmd(x34_animationId, x44_24_looping, x44_27_timedLoop, x38_initialLifetime));
+      CBodyStateCmdMgr& cmdMgr = ai->BodyCtrl()->CommandMgr();
+      cmdMgr.DeliverCmd(
+          CBCScriptedCmd(x34_animationId, x44_24_isLooped, x44_27_timedLoop, x38_initialLifetime));
     }
   }
 }
 
 void CScriptActorKeyframe::Think(float dt, CStateManager& mgr) {
-  if (!x44_25_isPassive && x44_24_looping && x44_27_timedLoop && x44_28_playing &&
+  if (!x44_25_isPassive && x44_24_isLooped && x44_27_timedLoop && x44_28_playing &&
       x40_lifetime > 0.f) {
 
     x40_lifetime -= dt;
@@ -113,7 +114,7 @@ void CScriptActorKeyframe::Think(float dt, CStateManager& mgr) {
           if (act->HasAnimation()) {
             if (act->AnimationData()->IsAdditiveAnimation(x34_animationId)) {
               act->AnimationData()->DelAdditiveAnimation(x34_animationId);
-            } else if (act->AnimationData()->GetDefaultAnimation() == x34_animationId) {
+            } else if (act->AnimationData()->GetCurrentAnimation() == x34_animationId) {
               act->ModelData()->EnableLooping(false);
             }
           }
@@ -121,10 +122,9 @@ void CScriptActorKeyframe::Think(float dt, CStateManager& mgr) {
           if (ai->AnimationData()->IsAdditiveAnimation(x34_animationId)) {
             ai->AnimationData()->DelAdditiveAnimation(x34_animationId);
 
-          } else if (ai->GetBodyCtrl()->GetBodyStateInfo().GetCurrentStateId() ==
-                         pas::kAS_Scripted &&
-                     ai->AnimationData()->GetDefaultAnimation() == x34_animationId) {
-            ai->GetBodyCtrl()->CommandMgr().DeliverCmd(CBodyStateCmd(kBSC_ExitState));
+          } else if (ai->BodyCtrl()->GetBodyStateInfo().GetCurrentStateId() == pas::kAS_Scripted &&
+                     ai->AnimationData()->GetCurrentAnimation() == x34_animationId) {
+            ai->BodyCtrl()->CommandMgr().DeliverCmd(CBodyStateCmd(kBSC_ExitState));
           }
         }
       }

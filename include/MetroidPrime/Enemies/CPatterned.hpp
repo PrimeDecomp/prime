@@ -250,7 +250,7 @@ public:
   bool IsAlive() const { return x400_25_alive; }
   void SetWasHit(bool v) { x400_24_hitByPlayerProjectile = v; }
   void SetPendingDeath(bool v) { x401_30_pendingDeath = v; }
-  CBodyController* GetBodyCtrl() { return x450_bodyController.get(); }
+  CBodyController* BodyCtrl() { return x450_bodyController.get(); }
   const CBodyController* GetBodyCtrl() const { return x450_bodyController.get(); }
   CKnockBackController& GetKnockBackCtrl() { return x460_knockBackController; }
   const CKnockBackController& GetKnockBackCtrl() const { return x460_knockBackController; }

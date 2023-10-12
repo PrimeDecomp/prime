@@ -20,5 +20,5 @@ inline CFactoryFnReturn::CFactoryFnReturn(CScannableObjectInfo* ptr)
 
 CFactoryFnReturn FScannableObjectInfoFactory(const SObjectTag& tag, CInputStream& in,
                                              const CVParamTransfer& xfer) {
-  return new CScannableObjectInfo(in, in.GetBlockOffset());
+  return rs_new CScannableObjectInfo(in, in.GetBlockOffset());
 }

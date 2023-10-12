@@ -3,14 +3,14 @@
 #include "Kyoto/CDvdRequest.hpp"
 #include "Kyoto/CResFactory.hpp"
 
-
 #define ROUND_UP_32(val) (((val) + 31) & ~31)
 
 rstl::pair< rstl::auto_ptr< uchar >, int > GetScriptingMemoryAlways(const IGameArea& area) {
   SObjectTag tag('MREA', area.IGetAreaAssetId());
 
-  rstl::auto_ptr< char > buf = new char[0x60];
-  CInputStream* resource = gpResourceFactory->GetResLoader().LoadNewResourceSync(tag, 0, 0x60, buf.get());
+  rstl::auto_ptr< char > buf = rs_new char[0x60];
+  CInputStream* resource =
+      gpResourceFactory->GetResLoader().LoadNewResourceSync(tag, 0, 0x60, buf.get());
   if (!resource || *(uint*)(buf.get()) != 0xdeadbeef) {
     return rstl::pair< rstl::auto_ptr< uchar >, int >(nullptr, 0);
   }
@@ -45,7 +45,7 @@ bool CGameArea::StartStreamingMainArea() {
   case kP_LoadHeader: {
     x110_mreaSecBufs.reserve(3);
     AllocNewAreaData(0, 96);
-    x12c_postConstructed.Set(new CPostConstructed());
+    x12c_postConstructed.Set(rs_new CPostConstructed());
     xf4_phase = kP_LoadSecSizes;
     break;
   }

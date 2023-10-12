@@ -140,7 +140,7 @@ public:
 
   float GetAdditiveAnimationWeight(uint idx);
 
-  short GetDefaultAnimation() const { return x208_defaultAnim; }
+  short GetCurrentAnimation() const { return x208_currentAnim; }
   const CCharacterInfo& GetCharacterInfo() const { return xc_charInfo; }
   // GetCharLayoutInfo__9CAnimDataCFv
   // GetDeltaRotation__9CAnimDataCFv
@@ -165,7 +165,6 @@ public:
   // GetIceModel__9CAnimDataCFv
   const CPASDatabase& GetPASDatabase() const { return xc_charInfo.GetPASDatabase(); }
   // EnableLooping__9CAnimDataFb
-  // GetCurrentAnimation__9CAnimDataCFv
   // GetSkinnedModel__9CAnimDataCFv
   // GetXRayModel__9CAnimDataCFv
   // GetInfraModel__9CAnimDataCFv
@@ -203,7 +202,7 @@ private:
   rstl::rc_ptr< CTransitionManager > x1fc_transMgr;
   float x200_speedScale;
   int x204_charIdx;
-  short x208_defaultAnim;
+  short x208_currentAnim;
   short x20a_padding;
   int x20c_passedBoolCount;
   int x210_passedIntCount;

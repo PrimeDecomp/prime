@@ -18,9 +18,9 @@ CElectricBeamProjectile::CElectricBeamProjectile(const TToken< CWeaponDescriptio
 : CBeamProjectile(wDesc, rstl::string_l("ElectricBeamProjectile"), wType, xf, elec.x8_maxLength,
                   elec.xc_radius, elec.x10_travelSpeed, matTypes, dInfo, uid, areaId, owner,
                   attribs, false)
-, x468_electric(new CParticleElectric(elec.x0_electricDescription))
+, x468_electric(rs_new CParticleElectric(elec.x0_electricDescription))
 , x46c_genDescription(gpSimplePool->GetObj(SObjectTag('PART', elec.x14_particleId)))
-, x478_elementGen(new CElementGen(x46c_genDescription))
+, x478_elementGen(rs_new CElementGen(x46c_genDescription))
 , x47c_fadeSpeed(elec.x18_fadeSpeed)
 , x484_damageTimer(0.f)
 , x488_damageInterval(elec.x1c_damageInterval)

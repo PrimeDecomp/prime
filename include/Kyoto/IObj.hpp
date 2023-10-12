@@ -3,6 +3,7 @@
 
 #include "types.h"
 
+#include "Kyoto/Alloc/CMemory.hpp"
 #include "Kyoto/SObjectTag.hpp"
 #include "rstl/auto_ptr.hpp"
 

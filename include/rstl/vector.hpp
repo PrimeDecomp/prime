@@ -42,7 +42,8 @@ public:
   const_iterator begin() const { return const_iterator(xc_items); }
   iterator end() { return iterator(xc_items + x4_count); }
   const_iterator end() const { return const_iterator(xc_items + x4_count); }
-  vector() : x4_count(0), x8_capacity(0), xc_items(NULL) {}
+  vector(const Alloc& alloc = Alloc())
+  : x0_allocator(alloc), x4_count(0), x8_capacity(0), xc_items(nullptr) {}
   vector(int count) : x4_count(0), x8_capacity(0), xc_items(0) { reserve(count); }
   vector(int count, const T& v) : x4_count(count), x8_capacity(count) {
     x0_allocator.allocate(xc_items, x4_count);
@@ -127,7 +128,8 @@ void vector< T, Alloc >::reserve(int newSize) {
   if (newSize <= x8_capacity) {
     return;
   }
-  T* newData = x0_allocator.template allocate2< T >(newSize);
+  T* newData;
+  x0_allocator.allocate(newData, newSize);
   uninitialized_copy(begin(), end(), newData);
   destroy(xc_items, xc_items + x4_count);
   x0_allocator.deallocate(xc_items);

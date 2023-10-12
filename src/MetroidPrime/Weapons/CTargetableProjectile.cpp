@@ -35,7 +35,7 @@ bool CTargetableProjectile::Explode(const CVector3f& pos, const CVector3f& norma
         TUniqueId uid = mgr.AllocateUniqueId();
         CVector3f aimPosition = act->GetAimPosition(mgr, 0.f);
 
-        CEnergyProjectile* projectile = new CEnergyProjectile(
+        CEnergyProjectile* projectile = rs_new CEnergyProjectile(
             true, x3d8_weaponDesc, GetWeaponType(),
             CTransform4f::LookAt(x170_projectile.GetTranslation(), aimPosition, CVector3f::Up()),
             kMT_Player, x3e0_damage, uid, GetCurrentAreaId(), GetHitProjectileOwner(), GetOwnerId(),

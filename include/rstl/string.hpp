@@ -29,7 +29,7 @@ class basic_string {
   void internal_prepare_to_write(int len, bool);
   void internal_allocate(int size);
   // {
-  //     x4_cow = reinterpret_cast<COWData*>(new uchar[size * sizeof(_CharTp) +
+  //     x4_cow = reinterpret_cast<COWData*>(rs_new uchar[size * sizeof(_CharTp) +
   //     8]); x0_ptr = x4_cow->x8_data; x4_cow->x0_capacity = uint(size);
   //     x4_cow->x4_refCount = 1;
   // }

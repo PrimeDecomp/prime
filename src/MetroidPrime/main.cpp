@@ -209,8 +209,8 @@ void CMain::ShutdownSubsystems() {
 CGameGlobalObjects::CGameGlobalObjects(COsContext& osContext, CMemorySys& memorySys)
 : xcc_simplePool(x4_resFactory)
 , x130_graphicsSys(osContext, memorySys, GRAPHICS_FIFO_SIZE, sGraphicsFifo)
-, x134_gameState(new CGameState())
-, x150_inGameTweakManager(new CInGameTweakManager())
+, x134_gameState(rs_new CGameState())
+, x150_inGameTweakManager(rs_new CInGameTweakManager())
 , x154_defaultFont(LoadDefaultFont()) {
   gpResourceFactory = &x4_resFactory;
   gpSimplePool = &xcc_simplePool;
@@ -397,11 +397,11 @@ const uchar sDefaultFontTexture[] = {
 };
 
 CRasterFont* CGameGlobalObjects::LoadDefaultFont() {
-  CZipInputStream fontDataStream(new CMemoryInStream(sDefaultFontData, sizeof(sDefaultFontData)));
-  CRasterFont* font = new CRasterFont(fontDataStream, nullptr);
+  CZipInputStream fontDataStream(rs_new CMemoryInStream(sDefaultFontData, sizeof(sDefaultFontData)));
+  CRasterFont* font = rs_new CRasterFont(fontDataStream, nullptr);
   CZipInputStream fontTextureStream(
-      new CMemoryInStream(sDefaultFontTexture, sizeof(sDefaultFontTexture)));
-  font->SetTexture(new CTexture(fontTextureStream, CTexture::kAM_Zero, CTexture::kBK_Zero));
+      rs_new CMemoryInStream(sDefaultFontTexture, sizeof(sDefaultFontTexture)));
+  font->SetTexture(rs_new CTexture(fontTextureStream, CTexture::kAM_Zero, CTexture::kBK_Zero));
   return font;
 }
 
@@ -450,12 +450,12 @@ CGameArchitectureSupport::CGameArchitectureSupport(COsContext& osContext)
   gpMain->SetMaxSpeed(false);
   gpMain->ResetGameState();
   if (!gpTweakGame->GetSplashScreensDisabled()) {
-    x58_ioWinMgr.AddIOWin(new CSplashScreen(CSplashScreen::Nintendo), 1000, 10000);
+    x58_ioWinMgr.AddIOWin(rs_new CSplashScreen(CSplashScreen::Nintendo), 1000, 10000);
   }
-  x58_ioWinMgr.AddIOWin(new CMainFlow(), 0, 0);
-  x58_ioWinMgr.AddIOWin(new CConsoleOutputWindow(8, 5.f, 0.75f), 100, 0);
-  x58_ioWinMgr.AddIOWin(new CAudioStateWin(), 100, -1);
-  x58_ioWinMgr.AddIOWin(new CErrorOutputWindow(false), 10000, 100000);
+  x58_ioWinMgr.AddIOWin(rs_new CMainFlow(), 0, 0);
+  x58_ioWinMgr.AddIOWin(rs_new CConsoleOutputWindow(8, 5.f, 0.75f), 100, 0);
+  x58_ioWinMgr.AddIOWin(rs_new CAudioStateWin(), 100, -1);
+  x58_ioWinMgr.AddIOWin(rs_new CErrorOutputWindow(false), 10000, 100000);
   InitializeApplicationUI(x44_guiSys);
   CGuiSys::SetGlobalGuiSys(&x44_guiSys);
   gpController = x30_inputGenerator.GetController();
@@ -481,7 +481,7 @@ void CMain::StreamNewGameState(CInputStream& in, int saveIdx) {
   bool hasFusion = gpGameState->SystemOptions().GetHasFusion();
   x128_gameGlobalObjects->GameState() = nullptr;
   gpGameState = nullptr;
-  x128_gameGlobalObjects->GameState() = new CGameState(in, saveIdx);
+  x128_gameGlobalObjects->GameState() = rs_new CGameState(in, saveIdx);
   gpGameState = x128_gameGlobalObjects->GameState().get();
   gpGameState->SystemOptions().SetHasFusion(hasFusion);
   gpGameState->PlayerState()->SetIsFusionEnabled(gpGameState->SystemOptions().GetHasFusion());
@@ -499,7 +499,7 @@ void CMain::RefreshGameState() {
   gpGameState = nullptr;
   {
     CMemoryInStream stream(backupBuf.data(), backupBuf.size(), CMemoryInStream::kOS_Owned);
-    x128_gameGlobalObjects->GameState() = new CGameState(stream, saveIdx);
+    x128_gameGlobalObjects->GameState() = rs_new CGameState(stream, saveIdx);
   }
   gpGameState = x128_gameGlobalObjects->GameState().get();
   gpGameState->SystemOptions() = systemOptions;
@@ -564,7 +564,7 @@ int CMain::RsMain(int argc, const char* const* argv) {
   LCEnable();
 
   rstl::single_ptr< CGameGlobalObjects > gameGlobalObjects(
-      new CGameGlobalObjects(x0_osContext, x6d_memorySys));
+      rs_new CGameGlobalObjects(x0_osContext, x6d_memorySys));
   x128_gameGlobalObjects = gameGlobalObjects.get();
 
   for (int i = 0; i < 4; ++i) {
@@ -593,7 +593,7 @@ int CMain::RsMain(int argc, const char* const* argv) {
     FillInAssetIDs();
 
     rstl::single_ptr< CGameArchitectureSupport > archSupport(
-        new CGameArchitectureSupport(x0_osContext));
+        rs_new CGameArchitectureSupport(x0_osContext));
     x164_ = archSupport.get();
     archSupport->PreloadAudio();
 
@@ -680,7 +680,7 @@ int CMain::RsMain(int argc, const char* const* argv) {
         sub_8036ccfc();
 
         archSupport = nullptr;
-        CGameArchitectureSupport* tmp = new CGameArchitectureSupport(x0_osContext);
+        CGameArchitectureSupport* tmp = rs_new CGameArchitectureSupport(x0_osContext);
         archSupport = tmp;
         x164_ = archSupport.get();
         tmp->PreloadAudio();
@@ -724,7 +724,7 @@ void CMain::ResetGameState() {
   CGameOptions gameOptions = gpGameState->GameOptions();
   x128_gameGlobalObjects->GameState() = nullptr;
   gpGameState = nullptr;
-  x128_gameGlobalObjects->GameState() = new CGameState();
+  x128_gameGlobalObjects->GameState() = rs_new CGameState();
   gpGameState = x128_gameGlobalObjects->GameState().get();
   gpGameState->SystemOptions() = persistentOptions;
   gpGameState->GameOptions() = gameOptions;

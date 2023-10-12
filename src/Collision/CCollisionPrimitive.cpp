@@ -17,7 +17,7 @@ rstl::single_ptr< MovingComparisonFunc > CCollisionPrimitive::sTableOfMovingColl
 CCollisionPrimitive::CCollisionPrimitive(const CMaterialList& list) : x8_material(list) {}
 
 void CCollisionPrimitive::InitBeginTypes() {
-  sCollisionTypeList = new rstl::vector< Type >();
+  sCollisionTypeList = rs_new rstl::vector< Type >();
   sCollisionTypeList->reserve(3);
   sTypesAdding = true;
   InternalColliders::AddTypes();

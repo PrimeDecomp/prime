@@ -36,5 +36,5 @@ CFactoryFnReturn::CFactoryFnReturn(CAudioGrpSetLoc* ptr)
 CFactoryFnReturn FAudioGroupSetLocDataFactory(const SObjectTag& tag,
                                               const rstl::auto_ptr< uchar >& data, int length,
                                               const CVParamTransfer& xfer) {
-  return new CAudioGrpSetLoc(data, length);
+  return rs_new CAudioGrpSetLoc(data, length);
 }

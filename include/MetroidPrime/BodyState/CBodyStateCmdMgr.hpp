@@ -30,7 +30,7 @@ private:
 
 class CBCAdditiveFlinchCmd : public CBodyStateCmd {
 public:
-  CBCAdditiveFlinchCmd(float f) : CBodyStateCmd(kBSC_AdditiveFlinch), x8_weight(f) {}
+  CBCAdditiveFlinchCmd(float weight) : CBodyStateCmd(kBSC_AdditiveFlinch), x8_weight(weight) {}
 
   float GetWeight() const { return x8_weight; }
 
@@ -74,23 +74,23 @@ private:
 
 class CBCScriptedCmd : public CBodyStateCmd {
 public:
-  CBCScriptedCmd(int i, bool b1, bool b2, float f)
+  CBCScriptedCmd(int animId, bool isLooped, bool useLoopDuration, float loopDuration)
   : CBodyStateCmd(kBSC_Scripted)
-  , x8_anim(i)
-  , xc_24_loopAnim(b1)
-  , xc_25_timedLoop(b2)
-  , x10_loopDur(f) {}
+  , x8_animId(animId)
+  , xc_24_isLooped(isLooped)
+  , xc_25_useLoopDuration(useLoopDuration)
+  , x10_loopDuration(loopDuration) {}
 
-  int GetAnimId() const { return x8_anim; }
-  bool IsLooped() const { return xc_24_loopAnim; }
-  bool GetUseLoopDuration() const { return xc_25_timedLoop; }
-  float GetLoopDuration() const { return x10_loopDur; }
+  int GetAnimId() const { return x8_animId; }
+  bool IsLooped() const { return xc_24_isLooped; }
+  bool GetUseLoopDuration() const { return xc_25_useLoopDuration; }
+  float GetLoopDuration() const { return x10_loopDuration; }
 
 private:
-  int x8_anim;
-  bool xc_24_loopAnim : 1;
-  bool xc_25_timedLoop : 1;
-  float x10_loopDur;
+  int x8_animId;
+  bool xc_24_isLooped : 1;
+  bool xc_25_useLoopDuration : 1;
+  float x10_loopDuration;
 };
 
 //
@@ -399,29 +399,25 @@ public:
   void ClearLocomotionCmds();
   void DeliverCmd(const CBCLocomotionCmd& cmd);
   void DeliverCmd(EBodyStateCmd cmd);
-  void DeliverCmd2(EBodyStateCmd cmd) {
-    xb4_deliveredCmdMask |= 1 << cmd;
-  }
 
   void DeliverCmd(const CBodyStateCmd& cmd);
 
   void DeliverCmd(const CBCGenerateCmd& cmd) {
-    DeliverCmd(kBSC_Generate);
+    DeliverCmd(cmd.GetCommandId());
     x18c_generate = cmd;
   }
   void DeliverCmd(const CBCKnockDownCmd& cmd) {
-    DeliverCmd(kBSC_KnockDown);
+    DeliverCmd(cmd.GetCommandId());
     xdc_knockDown = cmd;
-  }
-  void DeliverCmd(const CBCScriptedCmd& cmd) {
-    DeliverCmd(kBSC_Scripted);
-    x21c_scripted = cmd;
   }
   void DeliverCmd(const CBCSlideCmd& cmd) {
     DeliverCmd(cmd.GetCommandId());
     x1f8_slide = cmd;
   }
-
+  void DeliverCmd(const CBCScriptedCmd& cmd) {
+    DeliverCmd(cmd.GetCommandId());
+    x21c_scripted = cmd;
+  }
   void DeliverCmd(const CBCAdditiveReactionCmd& cmd) {
     DeliverCmd(cmd.GetCommandId());
     x284_additiveReaction = cmd;
@@ -437,6 +433,7 @@ public:
   const CVector3f& GetFaceVector() const { return xc_face; }
   const CVector3f& GetTargetVector() const { return x18_target; }
   const CVector3f& GetAdditiveTargetVector() const { return x24_additiveTarget; }
+
 private:
   CVector3f x0_move;
   CVector3f xc_face;

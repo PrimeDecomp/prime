@@ -302,7 +302,7 @@ void CScriptSpecialFunction::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId
     case kSF_MissileStation: {
       if (msg == kSM_Action) {
         CPlayerState& pState = *mgr.PlayerState();
-        pState.ResetAndIncrPickUp(CPlayerState::kIT_Missiles,
+        pState.SetPickup(CPlayerState::kIT_Missiles,
                                   pState.GetItemCapacity(CPlayerState::kIT_Missiles));
       }
       break;
@@ -310,7 +310,7 @@ void CScriptSpecialFunction::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId
     case kSF_PowerBombStation: {
       if (msg == kSM_Action) {
         CPlayerState& pState = *mgr.PlayerState();
-        pState.ResetAndIncrPickUp(CPlayerState::kIT_PowerBombs,
+        pState.SetPickup(CPlayerState::kIT_PowerBombs,
                                   pState.GetItemCapacity(CPlayerState::kIT_PowerBombs));
       }
       break;
@@ -875,7 +875,7 @@ void CScriptSpecialFunction::ThinkSpinnerController(float dt, CStateManager& mgr
           }
 
           const CAnimData* animData = plat->GetAnimationData();
-          const float dur = animData->GetAnimationDuration(animData->GetDefaultAnimation()) * x138_;
+          const float dur = animData->GetAnimationDuration(animData->GetCurrentAnimation()) * x138_;
           plat->AnimationData()->SetPhase(0.f);
           plat->AnimationData()->SetPlaybackRate(1.f);
           CAdvancementDeltas deltas = plat->UpdateAnimation(dur, mgr, true);

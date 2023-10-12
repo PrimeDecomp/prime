@@ -235,24 +235,24 @@ CPlayerGun::CPlayerGun(TUniqueId playerId)
 , x730_outgoingBeam(nullptr)
 , x734_loadingBeam(nullptr)
 , x738_nextBeam(nullptr)
-, x73c_gunMotion(new CGunMotion(gpTweakGunRes->x4_gunMotion, kScaleVector))
-, x740_grappleArm(new CGrappleArm(kScaleVector))
-, x744_auxWeapon(new CAuxWeapon(playerId))
-, x748_rainSplashGenerator(new CRainSplashGenerator(kScaleVector, 20, 2, 0.f, 0.125f))
+, x73c_gunMotion(rs_new CGunMotion(gpTweakGunRes->x4_gunMotion, kScaleVector))
+, x740_grappleArm(rs_new CGrappleArm(kScaleVector))
+, x744_auxWeapon(rs_new CAuxWeapon(playerId))
+, x748_rainSplashGenerator(rs_new CRainSplashGenerator(kScaleVector, 20, 2, 0.f, 0.125f))
 , x74c_powerBeam(
-      new CPowerBeam(gpTweakGunRes->x10_powerBeam, kWT_Power, playerId, kMT_Player, kScaleVector))
+      rs_new CPowerBeam(gpTweakGunRes->x10_powerBeam, kWT_Power, playerId, kMT_Player, kScaleVector))
 , x750_iceBeam(
-      new CIceBeam(gpTweakGunRes->x14_iceBeam, kWT_Ice, playerId, kMT_Player, kScaleVector))
+      rs_new CIceBeam(gpTweakGunRes->x14_iceBeam, kWT_Ice, playerId, kMT_Player, kScaleVector))
 , x754_waveBeam(
-      new CWaveBeam(gpTweakGunRes->x18_waveBeam, kWT_Wave, playerId, kMT_Player, kScaleVector))
-, x758_plasmaBeam(new CPlasmaBeam(gpTweakGunRes->x1c_plasmaBeam, kWT_Plasma, playerId, kMT_Player,
+      rs_new CWaveBeam(gpTweakGunRes->x18_waveBeam, kWT_Wave, playerId, kMT_Player, kScaleVector))
+, x758_plasmaBeam(rs_new CPlasmaBeam(gpTweakGunRes->x1c_plasmaBeam, kWT_Plasma, playerId, kMT_Player,
                                   kScaleVector))
-, x75c_phazonBeam(new CPhazonBeam(gpTweakGunRes->x20_phazonBeam, kWT_Phazon, playerId, kMT_Player,
+, x75c_phazonBeam(rs_new CPhazonBeam(gpTweakGunRes->x20_phazonBeam, kWT_Phazon, playerId, kMT_Player,
                                   kScaleVector))
 , x760_selectableBeams(nullptr)
 , x774_holoTransitionGen(
-      new CElementGen(gpSimplePool->GetObj(SObjectTag('PART', gpTweakGunRes->x24_holoTransition))))
-, x82c_shadow(new CWorldShadow(32, 32, true))
+      rs_new CElementGen(gpSimplePool->GetObj(SObjectTag('PART', gpTweakGunRes->x24_holoTransition))))
+, x82c_shadow(rs_new CWorldShadow(32, 32, true))
 , x830_chargeRumbleHandle(-1)
 , x832_24_coolingCharge(false)
 , x832_25_chargeEffectVisible(false)
@@ -587,7 +587,7 @@ void CPlayerGun::InitMuzzleData() {
     SObjectTag tag('PART', (i < 0 || 4 < i) ? kInvalidAssetId : gpTweakGunRes->xa4_auxMuzzle[i]);
     x7c0_auxMuzzleEffects.push_back(gpSimplePool->GetObj(tag));
     // TODO: not likely correct, maybe need improvements to auto_ptr
-    x800_auxMuzzleGenerators.push_back(new CElementGen(x7c0_auxMuzzleEffects.back()));
+    x800_auxMuzzleGenerators.push_back(rs_new CElementGen(x7c0_auxMuzzleEffects.back()));
     x800_auxMuzzleGenerators.back()->SetParticleEmission(false);
   }
 }

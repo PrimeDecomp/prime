@@ -8,8 +8,8 @@
 
 CFaceplateDecoration::CFaceplateDecoration(CStateManager& stateMgr) : x0_id(kInvalidAssetId) {}
 
-void CFaceplateDecoration::Update(float dt, const CStateManager& stateMgr) {
-  CAssetId txtrId = stateMgr.GetPlayer()->GetVisorSteam().GetTextureId();
+void CFaceplateDecoration::Update(float dt, const CStateManager& mgr) {
+  CAssetId txtrId = mgr.GetPlayer()->GetVisorSteam().GetTextureId();
   if (txtrId == kInvalidAssetId && x4_tex.valid()) {
     x4_tex->Unlock();
     x0_id = txtrId;

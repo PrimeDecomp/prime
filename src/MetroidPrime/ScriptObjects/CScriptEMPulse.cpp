@@ -33,7 +33,7 @@ void CScriptEMPulse::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CS
   case kSM_Activate:
 
     x114_particleGen =
-        new CElementGen(x108_particleDesc, CElementGen::kMOT_Normal, CElementGen::kOSF_One);
+        rs_new CElementGen(x108_particleDesc, CElementGen::kMOT_Normal, CElementGen::kOSF_One);
 
     x114_particleGen->SetOrientation(GetTransform().GetRotation());
     x114_particleGen->SetGlobalTranslation(GetTranslation());

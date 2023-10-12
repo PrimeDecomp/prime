@@ -101,7 +101,7 @@ void CWaveBeam::Fire(bool underwater, float dt, CPlayerState::EChargeStage charg
     for (int i = 0; i < 3; ++i) {
       CTransform4f shotXf =
           xf * CTransform4f::RotateY(CRelAngle::FromDegrees((randAng + i) * skShotAnglePitch));
-      CEnergyProjectile* proj = new CEnergyProjectile(
+      CEnergyProjectile* proj = rs_new CEnergyProjectile(
           true, x144_weapons[chargeState], GetWeaponType(), shotXf, GetPlayerMaterial(),
           GetDamageInfo(mgr, chargeState, chargeFactor1), mgr.AllocateUniqueId(), kInvalidAreaId,
           GetPlayerId(), homingTarget, kPA_ArmCannon, underwater, CVector3f(1.f, 1.f, 1.f),
@@ -151,7 +151,7 @@ void CWaveBeam::EnableSecondaryFx(ESecondaryFxType type) {
   default:
     if (x1cc_enabledSecondaryEffect != kSFT_ToCombo) {
       CToken fx = type == kSFT_Charge ? x228_wave2nd1 : x234_wave2nd2;
-      x250_chargeElec = new CParticleElectric(fx);
+      x250_chargeElec = rs_new CParticleElectric(fx);
       x250_chargeElec->SetGlobalScale(x4_scale);
     }
     switch (type) {
@@ -167,7 +167,7 @@ void CWaveBeam::EnableSecondaryFx(ESecondaryFxType type) {
       }
       break;
     case kSFT_ToCombo:
-      x254_chargeFx = new CElementGen(x240_wave2nd3);
+      x254_chargeFx = rs_new CElementGen(x240_wave2nd3);
       x254_chargeFx->SetGlobalScale(x4_scale);
       x24c_effectTimer = 0.f;
       x258_25_effectTimerActive = true;

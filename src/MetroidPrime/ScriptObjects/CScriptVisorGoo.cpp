@@ -85,7 +85,7 @@ void CScriptVisorGoo::Think(float, CStateManager& mgr) {
             const float t = (x108_maxDist - eyeToGooDist) / (x108_maxDist - x104_minDist);
             float prob = t * x10c_nearProb + (1.0f - t) * x110_farProb;
             if (mgr.Random()->Float() * 100.f <= prob) {
-              mgr.AddObject(new CHUDBillboardEffect(
+              mgr.AddObject(rs_new CHUDBillboardEffect(
                   xfc_particleId != kInvalidAssetId
                       ? rstl::optional_object< TToken< CGenDescription > >(xe8_particleDesc)
                       : rstl::optional_object_null(),

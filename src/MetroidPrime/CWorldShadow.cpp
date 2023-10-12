@@ -16,7 +16,7 @@
 static int kUnknownValue = 1;
 
 CWorldShadow::CWorldShadow(uint w, uint h, bool rgba8)
-: x0_texture(NEW CTexture(rgba8 ? kTF_RGBA8 : kTF_RGB565, w, h, 1))
+: x0_texture(rs_new CTexture(rgba8 ? kTF_RGBA8 : kTF_RGB565, w, h, 1))
 , x4_view(CTransform4f::Identity())
 , x34_model(CTransform4f::Identity())
 , x64_objHalfExtent(1.f)

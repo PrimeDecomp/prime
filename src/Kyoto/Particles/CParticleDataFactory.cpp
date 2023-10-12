@@ -21,75 +21,75 @@ CIntElement* CParticleDataFactory::GetIntElement(CInputStream& in) {
   FourCC clsId = GetClassID(in);
   switch (clsId) {
   case SBIG('CNST'): {
-    return new CIEConstant(GetInt(in));
+    return rs_new CIEConstant(GetInt(in));
   }
   case SBIG('KEYE'):
   case SBIG('KEYP'): {
-    return new CIEKeyframeEmitter(in);
+    return rs_new CIEKeyframeEmitter(in);
   }
   case SBIG('TSCL'): {
-    return new CIETimescale(GetRealElement(in));
+    return rs_new CIETimescale(GetRealElement(in));
   }
   case SBIG('DETH'): {
     CIntElement* a = GetIntElement(in);
     CIntElement* b = GetIntElement(in);
-    return new CIEDeath(a, b);
+    return rs_new CIEDeath(a, b);
   }
   case SBIG('CHAN'): {
     CIntElement* a = GetIntElement(in);
     CIntElement* b = GetIntElement(in);
     CIntElement* c = GetIntElement(in);
-    return new CIETimeChain(a, b, c);
+    return rs_new CIETimeChain(a, b, c);
   }
   case SBIG('ADD_'): {
     CIntElement* a = GetIntElement(in);
     CIntElement* b = GetIntElement(in);
-    return new CIEAdd(a, b);
+    return rs_new CIEAdd(a, b);
   }
   case SBIG('MULT'): {
     CIntElement* a = GetIntElement(in);
     CIntElement* b = GetIntElement(in);
-    return new CIEMultiply(a, b);
+    return rs_new CIEMultiply(a, b);
   }
   case SBIG('MODU'): {
     CIntElement* a = GetIntElement(in);
     CIntElement* b = GetIntElement(in);
-    return new CIEModulo(a, b);
+    return rs_new CIEModulo(a, b);
   }
   case SBIG('RAND'): {
     CIntElement* a = GetIntElement(in);
     CIntElement* b = GetIntElement(in);
-    return new CIERandom(a, b);
+    return rs_new CIERandom(a, b);
   }
   case SBIG('IMPL'): {
-    return new CIEImpulse(GetIntElement(in));
+    return rs_new CIEImpulse(GetIntElement(in));
   }
   case SBIG('ILPT'): {
-    return new CIELifetimePercent(GetIntElement(in));
+    return rs_new CIELifetimePercent(GetIntElement(in));
   }
   case SBIG('SPAH'): {
     CIntElement* a = GetIntElement(in);
     CIntElement* b = GetIntElement(in);
     CIntElement* c = GetIntElement(in);
-    return new CIESampleAndHold(c, a, b);
+    return rs_new CIESampleAndHold(c, a, b);
   }
   case SBIG('IRND'): {
     CIntElement* a = GetIntElement(in);
     CIntElement* b = GetIntElement(in);
-    return new CIEInitialRandom(a, b);
+    return rs_new CIEInitialRandom(a, b);
   }
   case SBIG('CLMP'): {
     CIntElement* a = GetIntElement(in);
     CIntElement* b = GetIntElement(in);
     CIntElement* c = GetIntElement(in);
-    return new CIEClamp(a, b, c);
+    return rs_new CIEClamp(a, b, c);
   }
   case SBIG('PULS'): {
     CIntElement* a = GetIntElement(in);
     CIntElement* b = GetIntElement(in);
     CIntElement* c = GetIntElement(in);
     CIntElement* d = GetIntElement(in);
-    return new CIEPulse(a, b, c, d);
+    return rs_new CIEPulse(a, b, c, d);
   }
   case SBIG('NONE'): {
     return nullptr;
@@ -97,21 +97,21 @@ CIntElement* CParticleDataFactory::GetIntElement(CInputStream& in) {
   case SBIG('RTOI'): {
     CRealElement* a = GetRealElement(in);
     CRealElement* b = GetRealElement(in);
-    return new CIERealToInt(a, b);
+    return rs_new CIERealToInt(a, b);
   }
   case SBIG('SUB_'): {
     CIntElement* a = GetIntElement(in);
     CIntElement* b = GetIntElement(in);
-    return new CIESubtract(a, b);
+    return rs_new CIESubtract(a, b);
   }
   case SBIG('GTCP'): {
-    return new CIEGetCumulativeParticleCount();
+    return rs_new CIEGetCumulativeParticleCount();
   }
   case SBIG('GAPC'): {
-    return new CIEGetActiveParticleCount();
+    return rs_new CIEGetActiveParticleCount();
   }
   case SBIG('GEMT'): {
-    return new CIEGetEmitterTime();
+    return rs_new CIEGetEmitterTime();
   }
   }
   return nullptr;
@@ -139,40 +139,40 @@ CModVectorElement* CParticleDataFactory::GetModVectorElement(CInputStream& in) {
       a->GetValue(0, bf);
       a->GetValue(0, cf);
 #endif
-      CModVectorElement* result = new CMVEFastConstant(af, bf, cf);
+      CModVectorElement* result = rs_new CMVEFastConstant(af, bf, cf);
       delete a;
       delete b;
       delete c;
       return result;
     } else {
-      return new CMVEConstant(a, b, c);
+      return rs_new CMVEConstant(a, b, c);
     }
   }
   case SBIG('GRAV'): {
-    return new CMVEGravity(GetVectorElement(in));
+    return rs_new CMVEGravity(GetVectorElement(in));
   }
   case SBIG('WIND'): {
     CVectorElement* a = GetVectorElement(in);
     CRealElement* b = GetRealElement(in);
-    return new CMVEWind(a, b);
+    return rs_new CMVEWind(a, b);
   }
   case SBIG('EXPL'): {
     CRealElement* a = GetRealElement(in);
     CRealElement* b = GetRealElement(in);
-    return new CMVEExplode(a, b);
+    return rs_new CMVEExplode(a, b);
   }
   case SBIG('CHAN'): {
     CModVectorElement* a = GetModVectorElement(in);
     CModVectorElement* b = GetModVectorElement(in);
     CIntElement* c = GetIntElement(in);
-    return new CMVETimeChain(a, b, c);
+    return rs_new CMVETimeChain(a, b, c);
   }
   case SBIG('PULS'): {
     CIntElement* a = GetIntElement(in);
     CIntElement* b = GetIntElement(in);
     CModVectorElement* c = GetModVectorElement(in);
     CModVectorElement* d = GetModVectorElement(in);
-    return new CMVEPulse(a, b, c, d);
+    return rs_new CMVEPulse(a, b, c, d);
   }
   case SBIG('IMPL'): {
     CVectorElement* a = GetVectorElement(in);
@@ -180,7 +180,7 @@ CModVectorElement* CParticleDataFactory::GetModVectorElement(CInputStream& in) {
     CRealElement* c = GetRealElement(in);
     CRealElement* d = GetRealElement(in);
     bool e = GetBool(in);
-    return new CMVEImplosion(a, b, c, d, e);
+    return rs_new CMVEImplosion(a, b, c, d, e);
   }
   case SBIG('LMPL'): {
     CVectorElement* a = GetVectorElement(in);
@@ -188,7 +188,7 @@ CModVectorElement* CParticleDataFactory::GetModVectorElement(CInputStream& in) {
     CRealElement* c = GetRealElement(in);
     CRealElement* d = GetRealElement(in);
     bool e = GetBool(in);
-    return new CMVELinearImplosion(a, b, c, d, e);
+    return rs_new CMVELinearImplosion(a, b, c, d, e);
   }
   case SBIG('EMPL'): {
     CVectorElement* a = GetVectorElement(in);
@@ -196,14 +196,14 @@ CModVectorElement* CParticleDataFactory::GetModVectorElement(CInputStream& in) {
     CRealElement* c = GetRealElement(in);
     CRealElement* d = GetRealElement(in);
     bool e = GetBool(in);
-    return new CMVEExponentialImplosion(a, b, c, d, e);
+    return rs_new CMVEExponentialImplosion(a, b, c, d, e);
   }
   case SBIG('SWRL'): {
     CVectorElement* a = GetVectorElement(in);
     CVectorElement* b = GetVectorElement(in);
     CRealElement* c = GetRealElement(in);
     CRealElement* d = GetRealElement(in);
-    return new CMVESwirl(a, b, c, d);
+    return rs_new CMVESwirl(a, b, c, d);
   }
   case SBIG('BNCE'): {
     CVectorElement* a = GetVectorElement(in);
@@ -211,10 +211,10 @@ CModVectorElement* CParticleDataFactory::GetModVectorElement(CInputStream& in) {
     CRealElement* c = GetRealElement(in);
     CRealElement* d = GetRealElement(in);
     bool e = GetBool(in);
-    return new CMVEBounce(a, b, c, d, e);
+    return rs_new CMVEBounce(a, b, c, d, e);
   }
   case SBIG('SPOS'): {
-    return new CMVESetPosition(GetVectorElement(in));
+    return rs_new CMVESetPosition(GetVectorElement(in));
   }
   }
   return nullptr;

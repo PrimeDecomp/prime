@@ -76,12 +76,12 @@ void CMainFlow::SetGameState(EClientFlowStates state, CArchitectureQueue& queue)
       case CMain::kRM_WinGood:
       case CMain::kRM_WinBest:
         queue.Push(MakeMsg::CreateCreateIOWin(kAMT_IOWinManager, kFrontEndUIMsgPriority,
-                                              kFrontEndUIDrawPriority, new CCredits()));
+                                              kFrontEndUIDrawPriority, rs_new CCredits()));
         break;
       default:
         queue.Push(MakeMsg::CreateCreateIOWin(kAMT_IOWinManager, kFrontEndUIMsgPriority,
                                               kFrontEndUIDrawPriority,
-                                              new CPlayMovie(CPlayMovie::kWM_LoseGame)));
+                                              rs_new CPlayMovie(CPlayMovie::kWM_LoseGame)));
         break;
       }
       break;
@@ -94,7 +94,7 @@ void CMainFlow::SetGameState(EClientFlowStates state, CArchitectureQueue& queue)
     }
 
     queue.Push(MakeMsg::CreateCreateIOWin(kAMT_IOWinManager, kFrontEndUIMsgPriority,
-                                          kFrontEndUIDrawPriority, new CPreFrontEnd()));
+                                          kFrontEndUIDrawPriority, rs_new CPreFrontEnd()));
     break;
   }
   case kCFS_FrontEnd:
@@ -103,16 +103,16 @@ void CMainFlow::SetGameState(EClientFlowStates state, CArchitectureQueue& queue)
     }
     CIOWin* ioWin;
     if (gpMain->GetRestartMode() == CMain::kRM_StateSetter) {
-      ioWin = new CStateSetterFlow();
+      ioWin = rs_new CStateSetterFlow();
     } else {
-      ioWin = new CFrontEndUI();
+      ioWin = rs_new CFrontEndUI();
     }
     queue.Push(MakeMsg::CreateCreateIOWin(kAMT_IOWinManager, kFrontEndUIMsgPriority,
                                           kFrontEndUIDrawPriority, ioWin));
     break;
   case kCFS_Game:
     gpGameState->GameOptions().EnsureOptions();
-    CIOWin* gameFlow = new CMFGameLoader();
+    CIOWin* gameFlow = rs_new CMFGameLoader();
     gpMain->SetRestartMode(CMain::kRM_Default);
     queue.Push(MakeMsg::CreateCreateIOWin(kAMT_IOWinManager, kMFGameMsgPriority,
                                           kMFGameDrawPriority, gameFlow));

@@ -15,7 +15,7 @@
 CGameCubeDoll::CGameCubeDoll()
 : x0_model(gpSimplePool->GetObj("CMDL_GameCube"))
 , x8_lights(1, CLight::BuildDirectional(CVector3f::Forward(), CColor(0xFFFFFFFF)), rstl::rmemory_allocator())
-, x18_actorLights(new CActorLights(8, CVector3f::Zero(), 4, 4, 0.1f, false, false, false))
+, x18_actorLights(rs_new CActorLights(8, CVector3f::Zero(), 4, 4, 0.1f, false, false, false))
 , x1c_fader(0.0f)
 , x20_24_loaded(false) {
   x0_model.Lock();

@@ -26,7 +26,7 @@ void CScriptCameraWaypoint::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId 
   }
 }
 
-TUniqueId CScriptCameraWaypoint::GetRandomNextWaypointId(const CStateManager& mgr) const {
+TUniqueId CScriptCameraWaypoint::NextWaypoint(CStateManager& mgr) {
   rstl::vector< TUniqueId > candidateIds;
 
   rstl::vector< SConnection >::const_iterator conn = GetConnectionList().begin();
@@ -47,8 +47,7 @@ TUniqueId CScriptCameraWaypoint::GetRandomNextWaypointId(const CStateManager& mg
   return candidateIds[mgr.Random()->Range(0, s32(candidateIds.size() - 1))];
 }
 
-void CScriptCameraWaypoint::AddToRenderer(const CFrustumPlanes&,
-                                          const CStateManager&) const {}
+void CScriptCameraWaypoint::AddToRenderer(const CFrustumPlanes&, const CStateManager&) const {}
 
 void CScriptCameraWaypoint::Render(const CStateManager&) const {}
 

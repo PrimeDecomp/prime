@@ -70,19 +70,19 @@ void CCameraManager::CreateStandardCameras(CStateManager& mgr) {
   xf.SetTranslation(mgr.GetPlayer()->GetEyePosition());
   TUniqueId fpId = mgr.AllocateUniqueId();
 
-  x7c_fpCamera = new CFirstPersonCamera(fpId, xf, plId, gpTweakPlayer->GetOrbitCameraSpeed(),
+  x7c_fpCamera = rs_new CFirstPersonCamera(fpId, xf, plId, gpTweakPlayer->GetOrbitCameraSpeed(),
                                         DefaultFirstPersonFov(), DefaultNearPlane(),
                                         DefaultFarPlane(), DefaultAspect());
   mgr.AddObject(x7c_fpCamera);
   mgr.Player()->SetCameraState(CPlayer::kCS_FirstPerson, mgr);
   SetCurrentCameraId(fpId);
   TUniqueId ballId = mgr.AllocateUniqueId();
-  x80_ballCamera = new CBallCamera(ballId, plId, xf, DefaultThirdPersonFov(), DefaultNearPlane(),
+  x80_ballCamera = rs_new CBallCamera(ballId, plId, xf, DefaultThirdPersonFov(), DefaultNearPlane(),
                                    DefaultFarPlane(), DefaultAspect());
   mgr.AddObject(x80_ballCamera);
 
   TUniqueId interpId = mgr.AllocateUniqueId();
-  x88_interpCamera = new CInterpolationCamera(interpId, xf);
+  x88_interpCamera = rs_new CInterpolationCamera(interpId, xf);
   mgr.AddObject(x88_interpCamera);
 }
 

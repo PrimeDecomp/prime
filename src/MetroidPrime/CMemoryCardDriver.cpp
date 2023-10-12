@@ -583,7 +583,7 @@ void CMemoryCardDriver::StartFileCreate() {
 
   x194_fileIdx = 0;
   x198_fileInfo =
-      new CMemoryCardSys::CCardFileInfo(x0_cardPort, rstl::string_l(skSaveFileNames[x194_fileIdx]));
+      rs_new CMemoryCardSys::CCardFileInfo(x0_cardPort, rstl::string_l(skSaveFileNames[x194_fileIdx]));
   InitializeFileInfo();
   ECardResult result = x198_fileInfo->CreateFile();
   if (result != kCR_READY)
@@ -617,7 +617,7 @@ void CMemoryCardDriver::StartFileCreateTransactional() {
 
   x194_fileIdx = altFileIdx;
   x198_fileInfo =
-      new CMemoryCardSys::CCardFileInfo(x0_cardPort, rstl::string_l(skSaveFileNames[x194_fileIdx]));
+      rs_new CMemoryCardSys::CCardFileInfo(x0_cardPort, rstl::string_l(skSaveFileNames[x194_fileIdx]));
   InitializeFileInfo();
   ECardResult result = x198_fileInfo->CreateFile();
   if (result != kCR_READY)
@@ -708,7 +708,7 @@ void CMemoryCardDriver::ReadFinished() {
 
   for (int i = 0; i < xe4_fileSlots.capacity(); ++i) {
     if (header.x4_savePresent[i]) {
-      xe4_fileSlots[i] = new SGameFileSlot(r);
+      xe4_fileSlots[i] = rs_new SGameFileSlot(r);
     } else {
       xe4_fileSlots[i] = nullptr;
     }
@@ -727,7 +727,7 @@ void CMemoryCardDriver::BuildNewFileSlot(int saveIdx) {
 
   rstl::auto_ptr< SGameFileSlot >& slot = xe4_fileSlots[saveIdx];
   if (slot.null())
-    slot = new SGameFileSlot();
+    slot = rs_new SGameFileSlot();
 
   slot->LoadGameState(saveIdx);
 
@@ -746,7 +746,7 @@ void CMemoryCardDriver::BuildExistingFileSlot(int saveIdx) {
 
   rstl::auto_ptr< SGameFileSlot >& slot = xe4_fileSlots[saveIdx];
   if (slot.null())
-    slot = new SGameFileSlot();
+    slot = rs_new SGameFileSlot();
   else
     slot->InitializeFromGameState();
 

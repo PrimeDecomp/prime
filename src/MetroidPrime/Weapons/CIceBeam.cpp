@@ -80,7 +80,7 @@ void CIceBeam::Update(float dt, CStateManager& mgr) {
   if (!x248_24_loaded) {
     x248_24_loaded = x21c_iceSmoke.IsLoaded() && x228_ice2nd1.IsLoaded() && x234_ice2nd2.IsLoaded();
     if (x248_24_loaded) {
-      x240_smokeGen = new CElementGen(x21c_iceSmoke);
+      x240_smokeGen = rs_new CElementGen(x21c_iceSmoke);
       x240_smokeGen->SetGlobalScale(x4_scale);
       x240_smokeGen->SetParticleEmission(false);
     }
@@ -127,14 +127,14 @@ void CIceBeam::EnableSecondaryFx(ESecondaryFxType type) {
     case kSFT_ToCombo:
     case kSFT_CancelCharge:
       if (!x248_25_inEndFx) {
-        x244_chargeFx = new CElementGen(x234_ice2nd2);
+        x244_chargeFx = rs_new CElementGen(x234_ice2nd2);
         x244_chargeFx->SetGlobalScale(x4_scale);
         x248_25_inEndFx = true;
         x1cc_enabledSecondaryEffect = kSFT_CancelCharge;
       }
       break;
     case kSFT_Charge:
-      x244_chargeFx = new CElementGen(x228_ice2nd1);
+      x244_chargeFx = rs_new CElementGen(x228_ice2nd1);
       x244_chargeFx->SetGlobalScale(x4_scale);
       x1cc_enabledSecondaryEffect = type;
       x248_25_inEndFx = false;
