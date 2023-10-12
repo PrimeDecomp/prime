@@ -13,25 +13,23 @@
 #include "MetroidPrime/Tweaks/CTweakGui.hpp"
 #include "MetroidPrime/Tweaks/CTweakPlayer.hpp"
 
-
 #include "Kyoto/CResFactory.hpp"
 #include "Kyoto/Graphics/CGraphics.hpp"
 #include "Kyoto/Graphics/CModelFlags.hpp"
 #include "Kyoto/Math/CRelAngle.hpp"
 
-
-static const CTransform4f PreXf =
+static const char* const skFaceAssetIdName = "ACS_SamusFace";
+static const CTransform4f skFaceModelViewAdjust =
     CTransform4f::Scale(0.3f) * CTransform4f::Translate(CVector3f(0.f, 0.5f, 0.f));
 
-CSamusFaceReflection::CSamusFaceReflection(const CStateManager& stateMgr)
-: x0_modelData(CModelData(CAnimRes(gpResourceFactory->GetResourceIdByName("ACS_SamusFace")->id,
+CSamusFaceReflection::CSamusFaceReflection(const CStateManager& mgr)
+: x0_modelData(CModelData(CAnimRes(gpResourceFactory->GetResourceIdByName(skFaceAssetIdName)->id,
                                    CAnimRes::kDefaultCharIdx, CVector3f(1.f, 1.f, 1.f), 0, true)))
-, x4c_lights(new CActorLights(8, CVector3f::Zero(), 4, 4, 0.1f, false, false, false))
+, x4c_lights(new CActorLights(8, CVector3f::Zero(), 4, 4))
 , x50_lookRot(CQuaternion::NoRotation())
 , x60_lookDir(CVector3f::Forward())
 , x6c_(0)
 , x70_hidden(true) {
-
   CAnimPlaybackParms parms(0, -1, 1.f, true);
   x0_modelData.AnimationData()->SetAnimation(parms, false);
 }
@@ -41,17 +39,19 @@ void CSamusFaceReflection::Update(float dt, const CStateManager& mgr, CRandom16&
           TCastToConstPtr< CFirstPersonCamera >(mgr.GetCameraManager()->GetCurrentCamera(mgr))) {
     CVector3f camTrans = fpCam->GetTranslation();
     x0_modelData.AdvanceAnimationIgnoreParticles(dt, rand, true);
-    x4c_lights->SetFindShadowLight(false);
+
+    CActorLights* lights = x4c_lights.get();
+    lights->SetFindShadowLight(false);
+
     TAreaId areaId = mgr.GetPlayer()->GetCurrentAreaId();
     if (areaId == kInvalidAreaId)
       return;
 
-    CAABox aabb(
-        CVector3f(camTrans.GetX() - 0.125f, camTrans.GetY() - 0.125f, camTrans.GetZ() - 0.125f),
-        CVector3f(camTrans.GetX() + 0.125f, camTrans.GetY() + 0.125f, camTrans.GetZ() + 0.125f));
+    const CVector3f offset(0.125f, 0.125f, 0.125f);
+    CAABox aabb(camTrans - offset, camTrans + offset);
 
     const CGameArea& area = mgr.GetWorld()->GetAreaAlways(areaId);
-    x4c_lights->BuildFaceLightList(mgr, area, aabb);
+    lights->BuildFaceLightList(mgr, mgr.GetWorld()->GetAreaAlways(areaId), aabb);
 
     CMatrix3f matrix = fpCam->GetTransform().BuildMatrix3f();
     CUnitVector3f lookDir(matrix.GetColumn(kDY));
@@ -68,17 +68,12 @@ void CSamusFaceReflection::Update(float dt, const CStateManager& mgr, CRandom16&
 
     float freeLookSpeed = dt * gpTweakPlayer->GetFreeLookSpeed() * 0.5f;
 
-    if (fabsf(lookDot) >= 1.f)
-      lookDot = 1.f;
+    float lookAng = acos(CMath::Limit(lookDot, 1.f));
 
-    float lookAng = acos(lookDot);
-
-    float f = 0.0f;
-    if (lookAng > 0.0f) {
-      f = freeLookSpeed / lookAng;
-    }
-    x50_lookRot =
+    float f = lookAng > 0.0f ? freeLookSpeed / lookAng : 0.0f;
+    xfLook2 =
         CQuaternion::SlerpLocal(x50_lookRot, xfLook2, CMath::Clamp(0.0f, dt * 18.0f * f, 1.0f));
+    x50_lookRot = xfLook2;
     x60_lookDir = lookDir;
   }
 }
@@ -119,12 +114,11 @@ void CSamusFaceReflection::Draw(const CStateManager& mgr) const {
 
     CVector3f camZHeight = height * camZcol;
     CVector3f camYDist = dist * camYcol;
-    CVector3f vec1(
-        camTranslation.GetX() + camYDist.GetX() + camZHeight.GetX(),
-        camTranslation.GetY() + camYDist.GetY() + camZHeight.GetY(),
-        camTranslation.GetZ() + camYDist.GetZ() + camZHeight.GetZ());
-    ;
-    CTransform4f modelXf = CTransform4f((camRot * x50_lookRot).BuildTransform(), vec1) * PreXf;
+    CVector3f vec1(camTranslation.GetX() + camYDist.GetX() + camZHeight.GetX(),
+                   camTranslation.GetY() + camYDist.GetY() + camZHeight.GetY(),
+                   camTranslation.GetZ() + camYDist.GetZ() + camZHeight.GetZ());
+    CTransform4f modelXf =
+        CTransform4f((camRot * x50_lookRot).BuildTransform(), vec1) * skFaceModelViewAdjust;
 
     CGraphics::SetViewPointMatrix(fpCam->GetTransform());
     CGraphics::SetOrtho(aspect * -orthoWidth, aspect * orthoWidth, orthoHeight, -orthoHeight, -10.f,
@@ -141,8 +135,10 @@ void CSamusFaceReflection::Draw(const CStateManager& mgr) const {
       else
         transFactor = 0.f;
       if (transFactor > 0.f) {
-        x0_modelData.Render(mgr, modelXf, nullptr, CModelFlags::Additive(CColor::Black()).DepthCompareUpdate(true, true));
-        x0_modelData.Render(mgr, modelXf, lights, CModelFlags::Additive(transFactor).DepthCompareUpdate(true, false));
+        x0_modelData.Render(mgr, modelXf, nullptr,
+                            CModelFlags::Additive(CColor::Black()).DepthCompareUpdate(true, true));
+        x0_modelData.Render(mgr, modelXf, lights,
+                            CModelFlags::Additive(transFactor).DepthCompareUpdate(true, false));
       }
     }
   }

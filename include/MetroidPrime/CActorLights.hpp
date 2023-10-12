@@ -20,16 +20,18 @@ class CActorLights {
 public:
   static const float kDefaultPositionUpdateThreshold;
 
-  CActorLights(const uint areaUpdateFramePeriod, CVector3f lightingPositionOffset, const int maxDynamicLights,
-               const int maxAreaLights, float positionUpdateThreshold, const bool ambientChannelOverflow,
-               const bool useLightSet2, const bool disableWorldLights);
+  CActorLights(const uint areaUpdateFramePeriod, CVector3f lightingPositionOffset,
+               const int maxDynamicLights, const int maxAreaLights,
+               float positionUpdateThreshold = kDefaultPositionUpdateThreshold,
+               const bool ambientChannelOverflow = false, const bool useLightSet2 = false,
+               const bool disableWorldLights = false);
   ~CActorLights();
 
   void BuildConstantAmbientLighting();
   void BuildConstantAmbientLighting(const CColor&);
   bool BuildAreaLightList(const CStateManager& mgr, const CGameArea& area, const CAABox& bounds);
   void BuildDynamicLightList(const CStateManager& mgr, const CAABox& bounds);
-  void BuildFakeLightList(const rstl::vector<CLight>&, const CColor&);
+  void BuildFakeLightList(const rstl::vector< CLight >&, const CColor&);
   void BuildFaceLightList(const CStateManager& mgr, const CGameArea& area, const CAABox& aabb);
 
   void ActivateLights() const;

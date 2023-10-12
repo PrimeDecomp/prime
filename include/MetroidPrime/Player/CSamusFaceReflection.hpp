@@ -15,10 +15,10 @@ class CActorLights;
 class CSamusFaceReflection {
 
 public:
-  explicit CSamusFaceReflection(const CStateManager& stateMgr);
-  void PreDraw(const CStateManager& stateMgr);
-  void Draw(const CStateManager& stateMgr) const;
-  void Update(float dt, const CStateManager& stateMgr, CRandom16& rand);
+  explicit CSamusFaceReflection(const CStateManager& mgr);
+  void PreDraw(const CStateManager& mgr);
+  void Draw(const CStateManager& mgr) const;
+  void Update(float dt, const CStateManager& mgr, CRandom16& rand);
 
 private:
   CModelData x0_modelData;
@@ -28,6 +28,5 @@ private:
   int x6c_;
   bool x70_hidden;
 };
-
 
 #endif // _CSAMUSFACEREFLECTION
