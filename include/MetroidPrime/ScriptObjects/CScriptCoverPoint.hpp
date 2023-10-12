@@ -24,7 +24,7 @@ public:
   bool ShouldLandHere() const;
   void SetInUse(bool inUse);
   bool GetInUse(TUniqueId uid) const;
-  bool Blown(const CVector3f& pos) const;
+  const bool Blown(const CVector3f& pos) const;
   float GetSinSqVerticalAngle() const;
   float GetCosHorizontalAngle() const;
   pas::ECoverDirection GetAttackDirection() const;

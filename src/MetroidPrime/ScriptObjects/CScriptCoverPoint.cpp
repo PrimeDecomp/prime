@@ -2,6 +2,8 @@
 
 #include "MetroidPrime/CActorParameters.hpp"
 
+#include "Kyoto/Math/CUnitVector3f.hpp"
+
 CScriptCoverPoint::CScriptCoverPoint(TUniqueId uid, const rstl::string& name,
                                      const CEntityInfo& info, const CTransform4f& xf, bool active,
                                      uint flags, bool crouch, float horizontalAngle,
@@ -27,7 +29,8 @@ void CScriptCoverPoint::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid,
 
   switch (msg) {
   case kSM_InitializedInArea:
-    for (rstl::vector< SConnection >::const_iterator conn = GetConnectionList().begin(); conn != GetConnectionList().end(); ++conn) {
+    for (rstl::vector< SConnection >::const_iterator conn = GetConnectionList().begin();
+         conn != GetConnectionList().end(); ++conn) {
       if (conn->x0_state == kSS_Retreat) {
         xfc_retreating = mgr.GetIdForScript(conn->x8_objId);
         break;
@@ -56,7 +59,7 @@ float CScriptCoverPoint::GetSinSqVerticalAngle() const {
   return xf0_sinVerticalAngle * xf0_sinVerticalAngle;
 }
 
-bool CScriptCoverPoint::Blown(const CVector3f& point) const {
+const bool CScriptCoverPoint::Blown(const CVector3f& point) const {
   bool result = true;
 
   if (GetActive()) {
@@ -67,12 +70,9 @@ bool CScriptCoverPoint::Blown(const CVector3f& point) const {
       float magnitude = posDif.Magnitude();
       posDif *= 1.f / magnitude;
       if (magnitude > 8.0f) {
-        CVector3f normDif(posDif.DropZ());
-        normDif.Normalize();
-
-        CVector3f frontVec(GetTransform().GetForward().DropZ());
-        frontVec.Normalize();
-
+        CUnitVector3f normDif(posDif.GetX(), posDif.GetY(), 0.f, CUnitVector3f::kN_Yes);
+        CUnitVector3f frontVec(GetTransform().GetColumn(kDY).GetX(),
+                               GetTransform().GetColumn(kDY).GetY(), 0.f, CUnitVector3f::kN_Yes);
         if (CVector3f::Dot(frontVec, normDif) > GetCosHorizontalAngle() &&
             (posDif.GetZ() * posDif.GetZ()) < GetSinSqVerticalAngle())
           result = false;
@@ -83,28 +83,8 @@ bool CScriptCoverPoint::Blown(const CVector3f& point) const {
 }
 
 bool CScriptCoverPoint::GetInUse(TUniqueId uid) const {
-  // bool result = false;
-  // do {
-  //   if (!xf8_25_inUse && !(x11c_timeLeft > 0.f)) {
-  //     if (xfa_occupant == kInvalidUniqueId)
-  //       break;
-  //     if (uid == kInvalidUniqueId)
-  //       break;
-  //     if (xfa_occupant == uid)
-  //       break;
-  //   }
-  //   result = true;
-  // } while (false);
-  // return result;
-
-  bool result = false;
-  if (!xf8_25_inUse && !(x11c_timeLeft > 0.f)) {
-    if (xfa_occupant != kInvalidUniqueId && uid != kInvalidUniqueId && xfa_occupant != uid)
-      result = true;
-  } else {
-    result = true;
-  }
-  return result;
+  return xf8_25_inUse || x11c_timeLeft > 0.f ||
+         (xfa_occupant != kInvalidUniqueId && uid != kInvalidUniqueId && uid != xfa_occupant);
 }
 
 void CScriptCoverPoint::SetInUse(bool inUse) {

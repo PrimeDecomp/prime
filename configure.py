@@ -406,7 +406,7 @@ config.libs = [
             Object(NonMatching, "MetroidPrime/CRippleManager.cpp"),
             Object(NonMatching, "MetroidPrime/Player/CGrappleArm.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CSpacePirate.cpp"),
-            Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptCoverPoint.cpp"),
+            Object(Matching, "MetroidPrime/ScriptObjects/CScriptCoverPoint.cpp"),
             Object(NonMatching, "MetroidPrime/Cameras/CPathCamera.cpp"),
             Object(NonMatching, "MetroidPrime/CFluidPlane.cpp"),
             Object(NonMatching, "MetroidPrime/CFluidPlaneManager.cpp"),
