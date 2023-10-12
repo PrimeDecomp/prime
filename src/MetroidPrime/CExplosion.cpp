@@ -16,8 +16,8 @@ CExplosion::CExplosion(const TLockedToken< CGenDescription >& particle, TUniqueI
                        const CEntityInfo& info, const rstl::string& name, const CTransform4f& xf,
                        uint flags, const CVector3f& scale, const CColor& color)
 : CEffect(uid, info, active, name, xf)
-, xe8_particleGen(new CElementGen(TToken< CGenDescription >(particle), CElementGen::kMOT_Normal,
-                                  flags & 0x2 ? CElementGen::kOSF_Two : CElementGen::kOSF_One))
+, xe8_particleGen(rs_new CElementGen(TToken< CGenDescription >(particle), CElementGen::kMOT_Normal,
+                                     flags & 0x2 ? CElementGen::kOSF_Two : CElementGen::kOSF_One))
 , xec_explosionLight(kInvalidUniqueId)
 , xf0_sourceId(CToken(particle).GetTag().id)
 , xf4_24_renderThermalHot(flags & 0x4)
@@ -36,7 +36,7 @@ CExplosion::CExplosion(const TLockedToken< CElectricDescription >& electric, TUn
                        const CTransform4f& xf, uint flags, const CVector3f& scale,
                        const CColor& color)
 : CEffect(uid, info, active, name, xf)
-, xe8_particleGen(new CParticleElectric(electric))
+, xe8_particleGen(rs_new CParticleElectric(electric))
 , xec_explosionLight(kInvalidUniqueId)
 , xf0_sourceId(CToken(electric).GetTag().id)
 , xf4_24_renderThermalHot(flags & 0x4)
@@ -102,10 +102,10 @@ void CExplosion::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId sender, CSt
     if (xe8_particleGen->SystemHasLight()) {
       xec_explosionLight = mgr.AllocateUniqueId();
       uint sourceId = xf0_sourceId;
-      mgr.AddObject(new CGameLight(xec_explosionLight, GetCurrentAreaId(), GetActive(),
-                                   rstl::string_l("ExplodePLight_") + GetDebugName(),
-                                   GetTransform(), GetUniqueId(), xe8_particleGen->GetLight(),
-                                   sourceId, 1, 0.f));
+      mgr.AddObject(rs_new CGameLight(xec_explosionLight, GetCurrentAreaId(), GetActive(),
+                                      rstl::string_l("ExplodePLight_") + GetDebugName(),
+                                      GetTransform(), GetUniqueId(), xe8_particleGen->GetLight(),
+                                      sourceId, 1, 0.f));
     }
     break;
   case kSM_Deleted:

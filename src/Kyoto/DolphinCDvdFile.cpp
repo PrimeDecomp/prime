@@ -127,7 +127,7 @@ void CDvdFile::TryARAMFile() {
   if (CARAMManager::GetInvalidAlloc() == x4_) {
     return;
   }
-  xc_ = NEW CDvdFileARAM();
+  xc_ = rs_new CDvdFileARAM();
   CDvdFileARAM* arfile = xc_.get();
   arfile->x5c_file = this;
   arfile->x78_ = true;
@@ -254,10 +254,10 @@ CDvdRequest* CDvdFile::AsyncSeekRead(void* dest, uint len, ESeekOrigin origin, i
   if (x8_) {
     int roundedLen = (len + 31) & ~31;
     DCFlushRange(dest, roundedLen);
-    request = NEW CARAMDvdRequest(
+    request = rs_new CARAMDvdRequest(
         CARAMManager::DMAToMRAM(x4_ + x10_offset, dest, roundedLen, CARAMManager::kDMAPrio_One));
   } else {
-    CRealDvdRequest* req = NEW CRealDvdRequest();
+    CRealDvdRequest* req = rs_new CRealDvdRequest();
     DVDFileInfo* info = req->FileInfo();
     DVDFastOpen(x0_fileEntry, info);
     DVDReadAsync(info, dest, (len + 31) & ~31, x10_offset, internalCallback);

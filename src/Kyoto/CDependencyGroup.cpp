@@ -36,5 +36,5 @@ CFactoryFnReturn::CFactoryFnReturn(CDependencyGroup* ptr)
 
 CFactoryFnReturn FDependencyGroupFactory(const SObjectTag& tag, CInputStream& in,
                                          const CVParamTransfer& xfer) {
-  return new CDependencyGroup(in);
+  return rs_new CDependencyGroup(in);
 }

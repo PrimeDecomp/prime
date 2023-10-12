@@ -153,12 +153,11 @@ void CScriptPickup::Touch(CActor& act, CStateManager& mgr) {
 
     if (x27c_pickupParticleDesc) {
       if (mgr.GetPlayerState()->GetActiveVisor(mgr) != CPlayerState::kPV_Thermal) {
-        mgr.AddObject(new CExplosion(
+        mgr.AddObject(rs_new CExplosion(
             TLockedToken< CGenDescription >(*x27c_pickupParticleDesc), mgr.AllocateUniqueId(), true,
             CEntityInfo(GetCurrentAreaId(), CEntity::NullConnectionList, kInvalidEditorId),
             rstl::string_l("Explosion - Pickup Effect"), GetTransform(), 0,
             CVector3f(1.f, 1.f, 1.f), CColor::White()));
-
       }
     }
 
@@ -198,8 +197,7 @@ rstl::optional_object< CAABox > CScriptPickup::GetTouchBounds() const {
   return CPhysicsActor::GetBoundingBox();
 }
 
-void CScriptPickup::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid,
-                                    CStateManager& mgr) {
+void CScriptPickup::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) {
   CPhysicsActor::AcceptScriptMsg(msg, uid, mgr);
 }
 

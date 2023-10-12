@@ -32,12 +32,12 @@ bool CMetroidPrimeProjectile::Explode(const CVector3f& pos, const CVector3f& nor
             .GetTransformedAABox(GetTransform() *
                                  CTransform4f::Scale(x3d8_auxData.GetDamageInfo().GetRadius())));
 
-    CFire* fire =
-        new CFire(x3d8_auxData.x4_particle, newId, GetCurrentAreaId(), true, GetUniqueId(),
-                  GetTransform(), x3d8_auxData.GetDamageInfo(), box, CVector3f(1.f, 1.f, 1.f),
-                  x3d8_auxData.GetFlag_27(), x3d8_auxData.GetTexture(), x3d8_auxData.GetFlag_24(),
-                  x3d8_auxData.GetFlag_25(), x3d8_auxData.GetFlag_26(), 1.0,
-                  x3d8_auxData.Get_0x28(), x3d8_auxData.Get_0x2c(), x3d8_auxData.Get_0x30());
+    CFire* fire = rs_new CFire(
+        x3d8_auxData.x4_particle, newId, GetCurrentAreaId(), true, GetUniqueId(), GetTransform(),
+        x3d8_auxData.GetDamageInfo(), box, CVector3f(1.f, 1.f, 1.f), x3d8_auxData.GetFlag_27(),
+        x3d8_auxData.GetTexture(), x3d8_auxData.GetFlag_24(), x3d8_auxData.GetFlag_25(),
+        x3d8_auxData.GetFlag_26(), 1.0, x3d8_auxData.Get_0x28(), x3d8_auxData.Get_0x2c(),
+        x3d8_auxData.Get_0x30());
     if (fire) {
       mgr.AddObject(fire);
     }

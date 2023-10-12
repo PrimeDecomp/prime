@@ -3,9 +3,9 @@
 
 CZipInputStream::CZipInputStream(rstl::auto_ptr<CInputStream> in)
 : CInputStream(4096)
-, mCompBuf(new uchar[4096])
+, mCompBuf(rs_new uchar[4096])
 , mStream(in)
-, mZStream(new z_stream_s) {
+, mZStream(rs_new z_stream_s) {
   z_stream_s* zs = mZStream.get();
   zs->next_in = mCompBuf.get();
   mZStream->avail_in = 0;

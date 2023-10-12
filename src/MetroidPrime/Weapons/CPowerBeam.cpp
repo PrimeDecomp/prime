@@ -96,7 +96,7 @@ void CPowerBeam::Update(float dt, CStateManager& mgr) {
   if (CGunWeapon::IsLoaded() && !x244_25_loaded) {
     x244_25_loaded = x21c_shotSmoke.IsLoaded() && x228_power2nd1.IsLoaded();
     if (x244_25_loaded) {
-      x234_shotSmokeGen = NEW CElementGen(x21c_shotSmoke);
+      x234_shotSmokeGen = rs_new CElementGen(x21c_shotSmoke);
       x234_shotSmokeGen->SetParticleEmission(false);
     }
   }
@@ -140,7 +140,7 @@ void CPowerBeam::EnableSecondaryFx(ESecondaryFxType type) {
     x1cc_enabledSecondaryEffect = kSFT_None;
     break;
   case kSFT_Charge:
-    x238_power2ndGen = NEW CElementGen(x228_power2nd1);
+    x238_power2ndGen = rs_new CElementGen(x228_power2nd1);
     x238_power2ndGen->SetGlobalScale(x4_scale);
     x1cc_enabledSecondaryEffect = type;
     break;

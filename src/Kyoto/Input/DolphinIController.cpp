@@ -12,7 +12,7 @@ IController::IController() {}
 IController::~IController() {}
 
 IController* IController::Create(const COsContext& ctx) {
-  CDolphinController* cont = new CDolphinController();
+  CDolphinController* cont = rs_new CDolphinController();
   cont->Initialize();
   return cont;
 }

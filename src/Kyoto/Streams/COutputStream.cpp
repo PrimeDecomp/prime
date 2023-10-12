@@ -11,7 +11,7 @@
 COutputStream::COutputStream(int len)
 : mUnwrittenLen(0)
 , mBufLen(len)
-, mBufPtr(len > 64 ? new uchar[len] : &mScratch[32 - (uintptr_t)(mScratch) % 31])
+, mBufPtr(len > 64 ? rs_new uchar[len] : &mScratch[32 - (uintptr_t)(mScratch) % 31])
 , mNumWrites(0)
 , mShiftRegister(0)
 , mShiftRegisterOffset(32) {}

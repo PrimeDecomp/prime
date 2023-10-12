@@ -27,7 +27,7 @@ TUniqueId _initializeLight(const rstl::ncrc_ptr< CParticleGen >& system, CStateM
                            TAreaId areaId, int lightId) {
   if (system->SystemHasLight()) {
     TUniqueId ret = stateMgr.AllocateUniqueId();
-    stateMgr.AddObject(new CGameLight(
+    stateMgr.AddObject(rs_new CGameLight(
         ret, areaId, false, rstl::string_l("ParticleLight"),
         CTransform4f(system->GetOrientation().BuildMatrix3f(), system->GetTranslation()),
         kInvalidUniqueId, system->GetLight(), lightId, 0, 0.f));

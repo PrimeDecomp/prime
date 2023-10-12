@@ -29,8 +29,7 @@ void* operator new(size_t sz, const char*, const char*);
 void* operator new[](size_t sz, const char*, const char*);
 // TODO remove
 
-inline void* operator new(size_t sz) { return operator new(sz, "??(??)", nullptr); }
-inline void* operator new[](size_t sz) { return operator new[](sz, "??(??)", nullptr); }
+//inline void* operator new(size_t sz) { return operator new(sz, "??(??)", nullptr); }
 #else
 /*__attribute__((weak)) void* operator new(size_t sz) { return operator new(sz, "??(??)", nullptr); }
 __attribute__((weak)) void* operator new[](size_t sz) {
@@ -44,7 +43,7 @@ inline void* operator new(size_t n, void* ptr) { return ptr; };
 #ifdef __MWERKS__
 inline void operator delete(void* ptr) { CMemory::Free(ptr); }
 inline void operator delete[](void* ptr) { CMemory::Free(ptr); }
-#define NEW new ("??(??)", nullptr)
+#define rs_new new ("??(??)", nullptr)
 #else
 __attribute__((weak)) void operator delete(void* ptr) { CMemory::Free(ptr); }
 __attribute__((weak)) void operator delete[](void* ptr) { CMemory::Free(ptr); }

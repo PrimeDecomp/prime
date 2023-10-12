@@ -118,7 +118,7 @@ uint CLightParameters::GetFramesBetweenRecalculation(ELightRecalculationOptions 
 rstl::auto_ptr< CActorLights > CLightParameters::MakeActorLights() const {
   rstl::auto_ptr< CActorLights > result;
   if (x1c_makeLights) {
-    result = new CActorLights(GetFramesBetweenRecalculation(x24_lightRecalculation),
+    result = rs_new CActorLights(GetFramesBetweenRecalculation(x24_lightRecalculation),
                               x2c_lightingPositionOffset, x38_maxDynamicLights, x3c_maxAreaLights,
                               CActorLights::kDefaultPositionUpdateThreshold, x1d_ambientChannelOverflow, x28_useLightSet == 1,
                               x20_useWorldLighting == kLO_DisableWorld);

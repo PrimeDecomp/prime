@@ -7,7 +7,7 @@ static char* hack() {
 }
 
 void* CZipSupport::Alloc(void* ptr1, uint w1, uint w2) {
-  return new uchar[w1 * w2];
+  return rs_new uchar[w1 * w2];
 }
 
 void CZipSupport::Free(void* ptr1, void* ptr2) {

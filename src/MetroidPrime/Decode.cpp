@@ -9,7 +9,7 @@ CArchitectureMessage MakeMsg::CreateCreateIOWin(EArchMsgTarget target, const int
                                                 const int& pmax, CIOWin* const& iowin) {
   return CArchitectureMessage(
       target, kAM_CreateIOWin,
-      new CArchMsgParmInt32Int32VoidPtr(pmin, pmax, reinterpret_cast< const void* >(iowin)));
+      rs_new CArchMsgParmInt32Int32VoidPtr(pmin, pmax, reinterpret_cast< const void* >(iowin)));
 }
 
 const CArchMsgParmInt32Int32VoidPtr& MakeMsg::GetParmCreateIOWin(const CArchitectureMessage& msg) {
@@ -22,7 +22,7 @@ MakeMsg::GetParmChangeIOWinPriority(const CArchitectureMessage& msg) {
 }
 
 CArchitectureMessage MakeMsg::CreateTimerTick(EArchMsgTarget target, const float& val) {
-  return CArchitectureMessage(target, kAM_TimerTick, new CArchMsgParmReal32(val));
+  return CArchitectureMessage(target, kAM_TimerTick, rs_new CArchMsgParmReal32(val));
 }
 
 const CArchMsgParmReal32& MakeMsg::GetParmTimerTick(const CArchitectureMessage& msg) {
@@ -30,7 +30,7 @@ const CArchMsgParmReal32& MakeMsg::GetParmTimerTick(const CArchitectureMessage& 
 }
 
 CArchitectureMessage MakeMsg::CreateUserInput(EArchMsgTarget target, const CFinalInput& input) {
-  return CArchitectureMessage(target, kAM_UserInput, new CArchMsgParmUserInput(input));
+  return CArchitectureMessage(target, kAM_UserInput, rs_new CArchMsgParmUserInput(input));
 }
 
 const CArchMsgParmUserInput& MakeMsg::GetParmUserInput(const CArchitectureMessage& msg) {
@@ -44,15 +44,15 @@ const CArchMsgParmInt32& MakeMsg::GetParmNewGameflowState(const CArchitectureMes
 CArchitectureMessage MakeMsg::CreateControllerStatus(EArchMsgTarget target, const short& chan,
                                                      const bool& connected) {
   return CArchitectureMessage(target, kAM_ControllerStatus,
-                              new CArchMsgParmControllerStatus(chan, connected));
+                              rs_new CArchMsgParmControllerStatus(chan, connected));
 }
 
 CArchitectureMessage MakeMsg::CreateQuitGameplay(EArchMsgTarget target) {
-  return CArchitectureMessage(target, kAM_QuitGameplay, new CArchMsgParmNull());
+  return CArchitectureMessage(target, kAM_QuitGameplay, new("??(??)", nullptr) CArchMsgParmNull());
 }
 
 CArchitectureMessage MakeMsg::CreateFrameBegin(EArchMsgTarget target, const int& a) {
-  return CArchitectureMessage(target, kAM_FrameBegin, new CArchMsgParmInt32(a));
+  return CArchitectureMessage(target, kAM_FrameBegin, new("??(??)", nullptr) CArchMsgParmInt32(a));
 }
 
 const CArchMsgParmInt32& MakeMsg::GetParmFrameBegin(const CArchitectureMessage& msg) {
@@ -60,5 +60,5 @@ const CArchMsgParmInt32& MakeMsg::GetParmFrameBegin(const CArchitectureMessage& 
 }
 
 CArchitectureMessage MakeMsg::CreateFrameEnd(EArchMsgTarget target, const int& a) {
-  return CArchitectureMessage(target, kAM_FrameEnd, new CArchMsgParmInt32(a));
+  return CArchitectureMessage(target, kAM_FrameEnd, new("??(??)", nullptr) CArchMsgParmInt32(a));
 }

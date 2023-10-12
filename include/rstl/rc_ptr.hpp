@@ -2,6 +2,7 @@
 #define _RSTL_RC_PTR
 
 #include "types.h"
+#include "rstl/rmemory_allocator.hpp"
 
 namespace rstl {
 class CRefData {
@@ -25,7 +26,7 @@ template < typename T >
 class rc_ptr {
 public:
   rc_ptr() : x0_refData(&CRefData::sNull) { x0_refData->AddRef(); }
-  rc_ptr(const T* ptr) : x0_refData(new CRefData(ptr)) {}
+  rc_ptr(const T* ptr) : x0_refData(rs_new CRefData(ptr)) {}
   rc_ptr(const rc_ptr& other) : x0_refData(other.x0_refData) { x0_refData->AddRef(); }
   ~rc_ptr() { ReleaseData(); }
   T* GetPtr() const { return static_cast< T* >(x0_refData->GetPtr()); }

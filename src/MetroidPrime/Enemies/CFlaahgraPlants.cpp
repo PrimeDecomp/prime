@@ -12,7 +12,7 @@ CFlaahgraPlants::CFlaahgraPlants(const TToken< CGenDescription >& genDesc,
                                  const CVector3f& extents)
 : CActor(uid, true, "Flaahgra Plants", CEntityInfo(aId, NullConnectionList), xf,
          CModelData::CModelDataNull(), CMaterialList(kMT_Projectile), actParms, kInvalidUniqueId)
-, xe8_elementGen(new CElementGen(genDesc))
+, xe8_elementGen(rs_new CElementGen(genDesc))
 , xf0_ownerId(owner)
 , xf4_damageInfo(dInfo)
 , x12c_lastDt(0.f)
@@ -81,7 +81,7 @@ void CFlaahgraPlants::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, C
     if (x16c_colAct == kInvalidUniqueId) {
       x16c_colAct = mgr.AllocateUniqueId();
       CVector3f extent = x130_obbox.GetSize() + CVector3f(0.f, 5.f, 10.f);
-      CCollisionActor* colAct = new CCollisionActor(x16c_colAct, GetCurrentAreaId(), GetUniqueId(),
+      CCollisionActor* colAct = rs_new CCollisionActor(x16c_colAct, GetCurrentAreaId(), GetUniqueId(),
                                                     extent, CVector3f::Zero(), true, 0.001f);
       if (colAct != nullptr) {
         colAct->SetTransform(GetTransform());

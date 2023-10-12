@@ -161,7 +161,7 @@ void CPlasmaBeam::EnableSecondaryFx(ESecondaryFxType type) {
     }
 
   case kSFT_Charge:
-    x228_chargeFx = new CElementGen(x21c_plasma2nd1);
+    x228_chargeFx = rs_new CElementGen(x21c_plasma2nd1);
     x228_chargeFx->SetGlobalScale(x4_scale);
 
   default:

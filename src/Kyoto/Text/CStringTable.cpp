@@ -30,7 +30,7 @@ CStringTable::CStringTable(CInputStream& in) : x0_stringCount(0), x4_data(NULL) 
   }
 
   uint dataLen = in.Get(TType< uint >());
-  x4_data = new uchar[dataLen];
+  x4_data = rs_new uchar[dataLen];
   in.ReadBytes(x4_data.get(), dataLen);
 }
 
@@ -48,5 +48,5 @@ CFactoryFnReturn::CFactoryFnReturn(CStringTable* ptr)
 
 CFactoryFnReturn FStringTableFactory(const SObjectTag& tag, CInputStream& in,
                                      const CVParamTransfer& xfer) {
-  return new CStringTable(in);
+  return rs_new CStringTable(in);
 }

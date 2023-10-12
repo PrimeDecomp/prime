@@ -26,7 +26,7 @@ CPowerBomb::CPowerBomb(TToken< CGenDescription > particle, TUniqueId uid, TAreaI
 , x15c_curTime(0.f)
 , x160_curRadius(0.f)
 , x164_radiusIncrement(dInfo.GetRadius() / 2.5f)
-, x168_particle(new CElementGen(particle))
+, x168_particle(rs_new CElementGen(particle))
 , x16c_radius(dInfo.GetRadius()) {
   x168_particle->SetGlobalTranslation(xf.GetTranslation());
 }

@@ -38,11 +38,11 @@ public:
   T* Owned() { return static_cast< T* >(m_objPtr); }
 
   static rstl::auto_ptr< TObjOwnerDerivedFromIObj< T > > GetNewDerivedObject(T* obj) {
-    return new TObjOwnerDerivedFromIObj< T >(obj);
+    return rs_new TObjOwnerDerivedFromIObj< T >(obj);
   }
   static rstl::auto_ptr< TObjOwnerDerivedFromIObj< T > >
   GetNewDerivedObject(const rstl::auto_ptr< T >& obj) {
-    return new TObjOwnerDerivedFromIObj< T >(obj);
+    return rs_new TObjOwnerDerivedFromIObj< T >(obj);
   }
 
 private:
