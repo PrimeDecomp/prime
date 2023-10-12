@@ -23,6 +23,7 @@ public:
   void Touch(CActor&, CStateManager&) override;
 
   float GetCurTime() const { return x15c_curTime; }
+  bool IsEnding() const { return x15c_curTime > kEndingTime; }
   void ApplyDynamicDamage(const CVector3f&, CStateManager&);
 
 private:

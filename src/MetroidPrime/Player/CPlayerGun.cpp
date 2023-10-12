@@ -741,7 +741,7 @@ void CPlayerGun::UpdateWeaponFire(float dt, CPlayerState& playerState, CStateMan
       if (x53a_powerBomb != kInvalidUniqueId &&
           !mgr.CanCreateProjectile(x538_playerId, kWT_PowerBomb, 1)) {
         const CPowerBomb* pb = static_cast< const CPowerBomb* >(mgr.GetObjectById(x53a_powerBomb));
-        if (pb && pb->GetCurTime() <= 4.25f) {
+        if (pb && !pb->IsEnding()) {
           x835_28_bombReady = false;
         } else {
           x53a_powerBomb = kInvalidUniqueId;

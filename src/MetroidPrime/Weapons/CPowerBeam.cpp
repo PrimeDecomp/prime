@@ -2,11 +2,10 @@
 
 #include "MetroidPrime/SFX/Weapons.h"
 
-#include "MetaRender/CCubeRenderer.hpp"
+#include "Kyoto/Audio/CSfxHandle.hpp"
 #include "Kyoto/Graphics/CGraphics.hpp"
 #include "Kyoto/Particles/CElementGen.hpp"
-#include "Kyoto/Audio/CSfxHandle.hpp"
-
+#include "MetaRender/CCubeRenderer.hpp"
 
 CPowerBeam::CPowerBeam(CAssetId characterId, EWeaponType type, TUniqueId playerId,
                        EMaterialTypes playerMaterial, const CVector3f& scale)
@@ -16,8 +15,7 @@ CPowerBeam::CPowerBeam(CAssetId characterId, EWeaponType type, TUniqueId playerI
 , x23c_smokeTimer(0.f)
 , x240_smokeState(kSS_Inactive)
 , x244_24(false)
-, x244_25_loaded(false) {
-}
+, x244_25_loaded(false) {}
 
 CPowerBeam::~CPowerBeam() {}
 
@@ -33,7 +31,7 @@ void CPowerBeam::ReInitVariables() {
 
 void CPowerBeam::PreRenderGunFx(const CStateManager& mgr, const CTransform4f& xf) {
   CTransform4f backupView = CGraphics::GetViewMatrix();
-  
+
   CGraphics::SetViewPointMatrix(xf.GetInverse() * backupView);
   gpRender->SetModelMatrix(CTransform4f::Identity());
   if (!x234_shotSmokeGen.null() && x240_smokeState != kSS_Inactive)
@@ -70,7 +68,8 @@ void CPowerBeam::UpdateGunFx(bool shotSmoke, float dt, const CStateManager& mgr,
     // [[fallthrough]];
   case kSS_Done:
     if (!x234_shotSmokeGen.null()) {
-      CTransform4f locator = x10_solidModelData->GetScaledLocatorTransform(rstl::string_l(CGunWeapon::skMuzzleLocator));
+      CTransform4f locator = x10_solidModelData->GetScaledLocatorTransform(
+          rstl::string_l(CGunWeapon::skMuzzleLocator));
       x234_shotSmokeGen->SetGlobalTranslation(locator.GetTranslation());
       x234_shotSmokeGen->Update(dt);
       if (x240_smokeState == kSS_Done && x234_shotSmokeGen->GetSystemCount() == 0)
@@ -89,7 +88,6 @@ void CPowerBeam::UpdateGunFx(bool shotSmoke, float dt, const CStateManager& mgr,
   CGunWeapon::UpdateGunFx(shotSmoke, dt, mgr, xf);
 }
 
-
 void CPowerBeam::Update(float dt, CStateManager& mgr) {
   CGunWeapon::Update(dt, mgr);
   if (IsLoaded())
@@ -98,15 +96,15 @@ void CPowerBeam::Update(float dt, CStateManager& mgr) {
   if (CGunWeapon::IsLoaded() && !x244_25_loaded) {
     x244_25_loaded = x21c_shotSmoke.IsLoaded() && x228_power2nd1.IsLoaded();
     if (x244_25_loaded) {
-      x234_shotSmokeGen = NEW CElementGen (x21c_shotSmoke);
+      x234_shotSmokeGen = NEW CElementGen(x21c_shotSmoke);
       x234_shotSmokeGen->SetParticleEmission(false);
     }
   }
 }
 
-void CPowerBeam::Fire(bool underwater, float dt, CPlayerState::EChargeStage chargeState, const CTransform4f& xf,
-                      CStateManager& mgr, TUniqueId homingTarget, float chargeFactor1,
-                      float chargeFactor2) {
+void CPowerBeam::Fire(bool underwater, float dt, CPlayerState::EChargeStage chargeState,
+                      const CTransform4f& xf, CStateManager& mgr, TUniqueId homingTarget,
+                      float chargeFactor1, float chargeFactor2) {
   static const ushort skSoundId[] = {
       SFXwpn_fire_power_normal,
       SFXwpn_fire_power_charged,
@@ -122,7 +120,6 @@ void CPowerBeam::Load(CStateManager& mgr, bool subtypeBasePose) {
   x21c_shotSmoke.Lock();
   x228_power2nd1.Lock();
 }
-
 
 void CPowerBeam::Unload(CStateManager& mgr) {
   CGunWeapon::Unload(mgr);

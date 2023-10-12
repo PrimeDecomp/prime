@@ -16,7 +16,7 @@ const float CPowerBomb::kEndingTime = 4.25f;
 CPowerBomb::CPowerBomb(TToken< CGenDescription > particle, TUniqueId uid, TAreaId aid,
                        TUniqueId playerId, const CTransform4f& xf, const CDamageInfo& dInfo)
 : CWeapon(uid, aid, true, playerId, kWT_PowerBomb, rstl::string_l("PowerBomb"), xf,
-          CMaterialFilter::MakeIncludeExclude(CMaterialList(kMT_Solid, kMT_Immovable, kMT_Trigger),
+          CMaterialFilter::MakeIncludeExclude(CMaterialList(kMT_Trigger, kMT_Immovable, kMT_Solid),
                                               CMaterialList(kMT_Projectile, kMT_PowerBomb)),
           CMaterialList(kMT_Projectile, kMT_PowerBomb), dInfo, kPA_PowerBombs,
           CModelData::CModelDataNull())
@@ -104,8 +104,7 @@ void CPowerBomb::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CState
       CSfxManager::AddEmitter(SFXsfx0710, GetTranslation(), CVector3f::Zero(), true, false);
       mgr.InformListeners(GetTranslation(), kLNT_BombExplode);
     } else {
-      CSfxHandle handle = CSfxManager::SfxStart(SFXsfx073F, 0x7f, 0x40, false);
-      mgr.Player()->ApplySubmergedPitchBend(handle);
+      mgr.Player()->DoSfxEffects(CSfxManager::SfxStart(SFXsfx073F, 0x7f, 0x40, false));
     }
     break;
 

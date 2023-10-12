@@ -449,7 +449,7 @@ config.libs = [
             Object(NonMatching, "MetroidPrime/Enemies/CPuddleToadGamma.cpp"),
             Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptDistanceFog.cpp"),
             Object(Matching, "MetroidPrime/BodyState/CBSProjectileAttack.cpp"),
-            Object(NonMatching, "MetroidPrime/Weapons/CPowerBomb.cpp"),
+            Object(Matching, "MetroidPrime/Weapons/CPowerBomb.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CMetaree.cpp"),
             Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptDockAreaChange.cpp"),
             Object(

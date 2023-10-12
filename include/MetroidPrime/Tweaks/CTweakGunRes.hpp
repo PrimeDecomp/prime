@@ -23,7 +23,7 @@ public:
 
   CTweakGunRes(CInputStream& in);
   ~CTweakGunRes() override;
-#if 0
+
   ResId x4_gunMotion;
   ResId x8_grappleArm;
   ResId xc_rightHand;
@@ -51,8 +51,7 @@ public:
   ResId xbc_grappleHit;
   ResId xc0_grappleMuzzle;
   ResId xc4_grappleSwoosh;
-#endif
-  char cls[0xc4];
+
   const WeaponResourcePair* GetWeaponResourcePair(int beam) const; /* {
     const int b = int(beam);
     if (b < 0 || b > 4) {
