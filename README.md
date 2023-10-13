@@ -3,8 +3,8 @@ Metroid Prime [![Build Status]][actions] ![Code Progress] ![Data Progress]
 
 [Build Status]: https://github.com/PrimeDecomp/prime/actions/workflows/build.yml/badge.svg
 [actions]: https://github.com/PrimeDecomp/prime/actions/workflows/build.yml
-[Code Progress]: https://img.shields.io/endpoint?label=Code&url=https%3A%2F%2Fprogress.deco.mp%2Fdata%2Fprime%2FGM8E01_00%2Fdol%2F%3Fmode%3Dshield%26measure%3Dcode
-[Data Progress]: https://img.shields.io/endpoint?label=Data&url=https%3A%2F%2Fprogress.deco.mp%2Fdata%2Fprime%2FGM8E01_00%2Fdol%2F%3Fmode%3Dshield%26measure%3Ddata
+[Code Progress]: https://img.shields.io/endpoint?label=Code&url=https%3A%2F%2Fprogress.decomp.club%2Fdata%2Fprime%2FGM8E01_00%2Fdol%2F%3Fmode%3Dshield%26measure%3Dcode
+[Data Progress]: https://img.shields.io/endpoint?label=Data&url=https%3A%2F%2Fprogress.decomp.club%2Fdata%2Fprime%2FGM8E01_00%2Fdol%2F%3Fmode%3Dshield%26measure%3Ddata
 
 A work-in-progress decompilation of Metroid Prime.
 

@@ -137,7 +137,7 @@ config.ldflags = [
     "-fp hardware",
     "-nodefaults",
 ]
-config.progress_all = True
+config.progress_all = False
 config.build_rels = False
 
 # Base flags, common to most GC/Wii games.
