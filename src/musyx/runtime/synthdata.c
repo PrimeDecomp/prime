@@ -1,21 +1,20 @@
-
 #include "musyx/musyx_priv.h"
 
-static u16 dataSmpSDirNum = 0;
 static SDIR_TAB dataSmpSDirs[128];
-static u16 dataCurveNum = 0;
+static u16 dataSmpSDirNum;
 static DATA_TAB dataCurveTab[2048];
-static u16 dataKeymapNum = 0;
+static u16 dataCurveNum;
 static DATA_TAB dataKeymapTab[256];
-static u16 dataLayerNum = 0;
+static u16 dataKeymapNum;
 static LAYER_TAB dataLayerTab[256];
-static u16 dataMacTotal = 0;
+static u16 dataLayerNum;
 static MAC_MAINTAB dataMacMainTab[512];
 static MAC_SUBTAB dataMacSubTabmem[2048];
-static u16 dataFXGroupNum = 0;
+static u16 dataMacTotal;
 static FX_GROUP dataFXGroups[128];
+static u16 dataFXGroupNum;
 
-u32 dataInsertKeymap(u16 cid, void* keymapdata) {
+bool dataInsertKeymap(u16 cid, void* keymapdata) {
   long i; // r31
   long j; // r29
   hwDisableIrq();
@@ -32,19 +31,15 @@ u32 dataInsertKeymap(u16 cid, void* keymapdata) {
         for (j = dataKeymapNum - 1; j >= i; --j)
           dataKeymapTab[j + 1] = dataKeymapTab[j];
         ++dataKeymapNum;
-
       } else {
-
         hwEnableIrq();
         return 0;
       }
     } else {
-
       dataKeymapTab[i].refCount++;
       hwEnableIrq();
       return 0;
     }
-
   } else if (dataKeymapNum < 256) {
     ++dataKeymapNum;
   } else {
@@ -62,7 +57,7 @@ u32 dataInsertKeymap(u16 cid, void* keymapdata) {
   return 1;
 }
 
-unsigned long dataRemoveKeymap(unsigned short sid) {
+bool dataRemoveKeymap(u16 sid) {
   long i; // r31
   long j; // r30
 
@@ -70,17 +65,21 @@ unsigned long dataRemoveKeymap(unsigned short sid) {
   for (i = 0; i < dataKeymapNum && dataKeymapTab[i].id != sid; ++i)
     ;
 
-  if (i != dataKeymapNum) {
-    for (j = i + 1; j < dataKeymapNum; j++, i++) {
-      dataKeymapTab[i] = dataKeymapTab[j];
+  if (i != dataKeymapNum && --dataKeymapTab[i].refCount == 0) {
+    for (j = i + 1; j < dataKeymapNum; j++) {
+      dataKeymapTab[j - 1] = dataKeymapTab[j];
     }
+
+    --dataKeymapNum;
+    hwEnableIrq();
+    return 1;
   }
 
   hwEnableIrq();
-  return 1;
+  return 0;
 }
 
-unsigned long dataInsertLayer(unsigned short cid, void* layerdata, unsigned short size) {
+bool dataInsertLayer(u16 cid, void* layerdata, u16 size) {
   long i; // r31
   long j; // r29
 
@@ -129,12 +128,29 @@ unsigned long dataInsertLayer(unsigned short cid, void* layerdata, unsigned shor
   return 1;
 }
 
-unsigned long dataRemoveLayer(unsigned short sid) {
+bool dataRemoveLayer(u16 sid) {
   long i; // r31
   long j; // r30
+
+  hwDisableIrq();
+  for (i = 0; i < dataLayerNum && dataLayerTab[i].id != sid; ++i)
+    ;
+
+  if (i != dataLayerNum && --dataLayerTab[i].refCount == 0) {
+    for (j = i + 1; j < dataLayerNum; j++) {
+      dataLayerTab[j - 1] = dataLayerTab[j];
+    }
+
+    --dataLayerNum;
+    hwEnableIrq();
+    return 1;
+  }
+
+  hwEnableIrq();
+  return 0;
 }
 
-unsigned long dataInsertCurve(unsigned short cid, void* curvedata) {
+bool dataInsertCurve(u16 cid, void* curvedata) {
   long i; // r31
   long j; // r29
 
@@ -180,64 +196,121 @@ unsigned long dataInsertCurve(unsigned short cid, void* curvedata) {
   return 1;
 }
 
-unsigned long dataRemoveCurve(unsigned short sid) {
+bool dataRemoveCurve(u16 sid) {
   long i; // r31
   long j; // r30
+
+  hwDisableIrq();
+  for (i = 0; i < dataCurveNum && dataCurveTab[i].id != sid; ++i)
+    ;
+
+  if (i != dataCurveNum && --dataCurveTab[i].refCount == 0) {
+    for (j = i + 1; j < dataCurveNum; j++) {
+      dataCurveTab[j - 1] = dataCurveTab[j];
+    }
+
+    --dataCurveNum;
+    hwEnableIrq();
+    return 1;
+  }
+
+  hwEnableIrq();
+  return 0;
 }
 
-unsigned long dataInsertSDir(struct SDIR_DATA* sdir, void* smp_data) {
-  long i;              // r31
-  struct SDIR_DATA* s; // r25
-  unsigned short n;    // r27
-  unsigned short j;    // r29
-  unsigned short k;    // r26
+bool dataInsertSDir(SDIR_DATA* sdir, void* smp_data) {
+  s32 i;        // r31
+  SDIR_DATA* s; // r25
+  u16 n;        // r27
+  u16 j;        // r29
+  u16 k;        // r26
+  for (i = 0; i < dataSmpSDirNum && dataSmpSDirs[i].data != sdir; ++i)
+    ;
+
+  if (i == dataSmpSDirNum) {
+    if (dataSmpSDirNum < 128) {
+      n = 0;
+      for (s = sdir; s->id != 0xffff; ++s) {
+        ++n;
+      }
+
+      hwDisableIrq();
+
+      for (j = 0; j < n; ++j) {
+        for (i = 0; i < dataSmpSDirNum; ++i) {
+          for (k = 0; k < dataSmpSDirs[i].numSmp; ++k) {
+            if (sdir[j].id == dataSmpSDirs[i].data[k].id)
+              goto done_loop;
+          }
+        }
+      }
+    done_loop:
+      if (i == dataSmpSDirNum) {
+        sdir[j].ref_cnt = 0;
+      } else {
+        sdir[j].ref_cnt = 0xffff;
+      }
+
+      dataSmpSDirs[dataSmpSDirNum].data = sdir;
+      dataSmpSDirs[dataSmpSDirNum].numSmp = n;
+      dataSmpSDirs[dataSmpSDirNum].base = smp_data;
+      ++dataSmpSDirNum;
+      hwEnableIrq();
+      return 1;
+    } else {
+      return 0;
+    }
+  }
+
+  return 1;
 }
 
-unsigned long dataRemoveSDir(struct SDIR_DATA* sdir) {
+bool dataRemoveSDir(struct SDIR_DATA* sdir) {
   long i;                 // r28
   long j;                 // r30
   long index;             // r27
   struct SDIR_DATA* data; // r31
 }
 
-unsigned long dataAddSampleReference(unsigned short sid) {
-  unsigned long i;              // r29
-  struct SAMPLE_HEADER* header; // r1+0xC
-  struct SDIR_DATA* data;       // r30
-  struct SDIR_DATA* sdir;       // r31
+bool dataAddSampleReference(u16 sid) {
+  u32 i;              // r29
+  SAMPLE_HEADER* header; // r1+0xC
+  SDIR_DATA* data;       // r30
+  SDIR_DATA* sdir;       // r31
 }
 
-unsigned long dataRemoveSampleReference(unsigned short sid) {
+bool dataRemoveSampleReference(u16 sid) {
   unsigned long i;        // r30
   struct SDIR_DATA* sdir; // r31
 }
 
-unsigned long dataInsertFX(unsigned short gid, struct FX_TAB* fx, unsigned short fxNum) {
+bool dataInsertFX(u16 gid, struct FX_TAB* fx, u16 fxNum) {
   long i; // r31
+  return dataFXGroups[0].gid;
 }
 
-unsigned long dataRemoveFX(unsigned short gid) {
+bool dataRemoveFX(u16 gid) {
   long i; // r31
   long j; // r30
   return 1;
 }
 
-unsigned long dataInsertMacro(unsigned short mid, void* macroaddr) {
+bool dataInsertMacro(u16 mid, void* macroaddr) {
   long main; // r28
   long pos;  // r29
   long base; // r27
   long i;    // r31
 }
 
-unsigned long dataRemoveMacro(unsigned short mid) {
+bool dataRemoveMacro(u16 mid) {
   long main; // r29
   long base; // r28
   long i;    // r31
 }
 
-long maccmp(void* p1, void* p2) { return ((MAC_SUBTAB*)p1)->id - ((MAC_SUBTAB*)p2)->id; }
+static s32 maccmp(void* p1, void* p2) { return ((MAC_SUBTAB*)p1)->id - ((MAC_SUBTAB*)p2)->id; }
 
-struct MSTEP* dataGetMacro(unsigned short mid) {
+MSTEP* dataGetMacro(u16 mid) {
   static s32 base;
   static s32 main;
   static MAC_SUBTAB key;
@@ -257,11 +330,9 @@ struct MSTEP* dataGetMacro(unsigned short mid) {
   return NULL;
 }
 
-long smpcmp(void* p1, void* p2) { return ((SDIR_DATA*)p1)->id - ((SDIR_DATA*)p2)->id; }
+static s32 smpcmp(void* p1, void* p2) { return ((SDIR_DATA*)p1)->id - ((SDIR_DATA*)p2)->id; }
 
-long dataGetSample(unsigned short sid, SAMPLE_INFO* newsmp) {
-  static s32 base;
-  static s32 main;
+long dataGetSample(u16 sid, SAMPLE_INFO* newsmp) {
   static SDIR_DATA key;
   static SDIR_DATA* result;
   static SAMPLE_HEADER* sheader;
@@ -293,33 +364,33 @@ long dataGetSample(unsigned short sid, SAMPLE_INFO* newsmp) {
   return -1;
 }
 
-long curvecmp(void* p1, void* p2) { return ((DATA_TAB*)p1)->id - ((DATA_TAB*)p2)->id; }
+static s32 curvecmp(void* p1, void* p2) { return ((DATA_TAB*)p1)->id - ((DATA_TAB*)p2)->id; }
 
-void* dataGetCurve(unsigned short cid) {
+void* dataGetCurve(u16 cid) {
   static DATA_TAB key;
   static DATA_TAB* result;
 
   key.id = cid;
   if (result =
-          (DATA_TAB*)sndBSearcH(&key, dataCurveTab, dataCurveNum, sizeof(DATA_TAB), curvecmp)) {
+          (DATA_TAB*)sndBSearch(&key, dataCurveTab, dataCurveNum, sizeof(DATA_TAB), curvecmp)) {
     return result->data;
   }
   return NULL;
 }
 
-void* dataGetKeymap(unsigned short cid) {
+void* dataGetKeymap(u16 cid) {
   static DATA_TAB key;
   static DATA_TAB* result;
 
   key.id = cid;
   if (result =
-          (DATA_TAB*)sndBSearcH(&key, dataCurveTab, dataCurveNum, sizeof(DATA_TAB), curvecmp)) {
+          (DATA_TAB*)sndBSearch(&key, dataKeymapTab, dataKeymapNum, sizeof(DATA_TAB), curvecmp)) {
     return result->data;
   }
   return NULL;
 }
 
-long layercmp(void* p1, void* p2) { return ((LAYER_TAB*)p1)->id - ((LAYER_TAB*)p2)->id; }
+static s32 layercmp(void* p1, void* p2) { return ((LAYER_TAB*)p1)->id - ((LAYER_TAB*)p2)->id; }
 
 void* dataGetLayer(u16 cid, u16* n) {
   static LAYER_TAB key;
@@ -327,16 +398,16 @@ void* dataGetLayer(u16 cid, u16* n) {
 
   key.id = cid;
   if (result =
-          (LAYER_TAB*)sndBSearcH(&key, dataLayerTab, dataLayerNum, sizeof(LAYER_TAB), layercmp)) {
+          (LAYER_TAB*)sndBSearch(&key, dataLayerTab, dataLayerNum, sizeof(LAYER_TAB), layercmp)) {
     *n = result->num;
     return result->data;
   }
   return NULL;
 }
 
-long fxcmp(void* p1, void* p2) { return ((FX_TAB*)p1)->id - ((FX_TAB*)p2)->id; }
+static s32 fxcmp(void* p1, void* p2) { return ((FX_TAB*)p1)->id - ((FX_TAB*)p2)->id; }
 
-struct FX_TAB* dataGetFX(unsigned short fid) {
+struct FX_TAB* dataGetFX(u16 fid) {
   static FX_TAB key;
   FX_TAB* ret; // r29
   long i;      // r31

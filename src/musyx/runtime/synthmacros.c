@@ -292,7 +292,9 @@ static void mcmdUntrapEvent(SYNTH_VOICE* svoice, MSTEP* cstep) {
   svoice->trapEventAny = 0;
 }
 
+#pragma dont_inline on
 static void mcmdLoop(SYNTH_VOICE* svoice, MSTEP* cstep) {}
+#pragma dont_inline reset
 
 static void mcmdPlayMacro(SYNTH_VOICE* svoice, MSTEP* cstep) {
   s32 key;       // r29
@@ -570,6 +572,7 @@ static void mcmdSetupLFO(SYNTH_VOICE* svoice, MSTEP* cstep) {
   svoice->lfo[n].period = time;
 }
 
+#pragma dont_inline on
 static void DoSetPitch(SYNTH_VOICE* svoice) {
   u32 f;    // r28
   u32 of;   // r25
@@ -583,6 +586,7 @@ static void DoSetPitch(SYNTH_VOICE* svoice) {
       4096, 4339, 4597, 4871, 5160, 5467, 5792, 6137, 6502, 6888, 7298, 7732, 8192,
   };
 }
+#pragma dont_inline reset
 
 static void mcmdSetPitch(SYNTH_VOICE* svoice, MSTEP* cstep) {
   svoice->playFrq = (u32)(cstep->para[0] >> 8);
@@ -592,6 +596,7 @@ static void mcmdSetPitch(SYNTH_VOICE* svoice, MSTEP* cstep) {
   }
 }
 
+#pragma dont_inline on
 static void mcmdSetADSR(SYNTH_VOICE* svoice, MSTEP* cstep) {
   ADSR_INFO adsr;      // r1+0x10
   ADSR_INFO* adsr_ptr; // r31
@@ -599,6 +604,7 @@ static void mcmdSetADSR(SYNTH_VOICE* svoice, MSTEP* cstep) {
   s32 dscale;          // r28
   float sScale;        // r63
 }
+#pragma dont_inline reset
 
 static s32 midi2TimeTab[128] = {
     0,      10,     20,     30,     40,     50,     60,     70,     80,     90,     100,    110,
@@ -614,6 +620,7 @@ static s32 midi2TimeTab[128] = {
     150000, 155000, 160000, 165000, 170000, 175000, 180000, 0,
 };
 
+#pragma dont_inline on
 static void mcmdSetADSRFromCtrl(SYNTH_VOICE* svoice, MSTEP* cstep) {
   float sScale;   // r63
   ADSR_INFO adsr; // r1+0x10
@@ -626,6 +633,7 @@ static void mcmdSetPitchADSR(SYNTH_VOICE* svoice, MSTEP* cstep) {
   s32 ascale;          // r27
   s32 dscale;          // r26
 }
+#pragma dont_inline reset
 
 static u32 mcmdPitchSweep(SYNTH_VOICE* svoice, MSTEP* cstep, int num) {
   s32 delta; // r31
@@ -787,6 +795,7 @@ static void mcmdFadeIn(SYNTH_VOICE* svoice, MSTEP* cstep) {
   DoEnvelopeCalculation(svoice, cstep, 0);
 }
 
+#pragma dont_inline on
 static void mcmdRandomKey(SYNTH_VOICE* svoice, MSTEP* cstep) {
   u8 k1;     // r30
   u8 k2;     // r29
@@ -795,6 +804,7 @@ static void mcmdRandomKey(SYNTH_VOICE* svoice, MSTEP* cstep) {
   s32 i2;    // r27
   u8 detune; // r26
 }
+#pragma dont_inline reset
 
 static void mcmdSetPitchbendAfterKeyOff(SYNTH_VOICE* svoice) { svoice->cFlags |= 0x10000; }
 static void mcmdScaleReverb(SYNTH_VOICE* svoice, MSTEP* cstep) {
