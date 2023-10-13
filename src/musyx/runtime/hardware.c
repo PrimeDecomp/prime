@@ -135,7 +135,7 @@ u32 hwGlobalActivity() { return 0; }
 
 void hwSetMesgCallback(SND_MESSAGE_CALLBACK callback) { salMessageCallback = callback; }
 
-void hwSetPriority(u32 idx, u32 priority) { dspVoice[idx].prio = priority; }
+void hwSetPriority(u32 v, u32 prio) { dspVoice[v].prio = prio; }
 
 void hwInitSamplePlayback(u32 v, u16 smpID, void* newsmp, u32 set_defadsr, u32 prio, u32 callbackUserValue, u32 setSRC, u8 itdMode) {
   unsigned char i;  // r30

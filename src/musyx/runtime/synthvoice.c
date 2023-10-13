@@ -282,7 +282,7 @@ void voiceSetPriority(SYNTH_VOICE* svoice, u8 prio) {
 
   voicePrioSortVoicesRoot[prio] = v;
   svoice->prio = prio;
-  hwSetPriority((u8)svoice->id, (((u32)prio << 24) | ((u32)svoice->age >> 15)));
+  hwSetPriority(svoice->id & 0xFF, ((u32)prio << 24) | (svoice->age >> 15));
 }
 
 #pragma dont_inline on
