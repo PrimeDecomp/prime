@@ -15,40 +15,46 @@ static MAC_SUBTAB dataMacSubTabmem[2048];
 static u16 dataFXGroupNum = 0;
 static FX_GROUP dataFXGroups[128];
 
-// #line 94
 u32 dataInsertKeymap(u16 cid, void* keymapdata) {
   long i; // r31
   long j; // r29
-
   hwDisableIrq();
 
   for (i = 0; i < dataKeymapNum && dataKeymapTab[i].id < cid; ++i)
     ;
 
   if (i < dataKeymapNum) {
+
     if (cid != dataKeymapTab[i].id) {
+
       if (dataKeymapNum < 256) {
-        for (j = dataKeymapNum - 1; j >= i; --j) {
+
+        for (j = dataKeymapNum - 1; j >= i; --j)
           dataKeymapTab[j + 1] = dataKeymapTab[j];
-        }
         ++dataKeymapNum;
+
       } else {
+
         hwEnableIrq();
         return 0;
       }
     } else {
+
       dataKeymapTab[i].refCount++;
       hwEnableIrq();
       return 0;
     }
+
   } else if (dataKeymapNum < 256) {
+    ++dataKeymapNum;
+  } else {
+
     hwEnableIrq();
     return 0;
   }
 
-  ++dataKeymapNum;
-
   MUSY_ASSERT_MSG(keymapdata != NULL, "Keymap data pointer is NULL");
+
   dataKeymapTab[i].id = cid;
   dataKeymapTab[i].data = keymapdata;
   dataKeymapTab[i].refCount = 1;
@@ -59,23 +65,126 @@ u32 dataInsertKeymap(u16 cid, void* keymapdata) {
 unsigned long dataRemoveKeymap(unsigned short sid) {
   long i; // r31
   long j; // r30
+
+  hwDisableIrq();
+  for (i = 0; i < dataKeymapNum && dataKeymapTab[i].id != sid; ++i)
+    ;
+
+  if (i != dataKeymapNum) {
+    for (j = i + 1; j < dataKeymapNum; j++, i++) {
+      dataKeymapTab[i] = dataKeymapTab[j];
+    }
+  }
+
+  hwEnableIrq();
+  return 1;
 }
+
 unsigned long dataInsertLayer(unsigned short cid, void* layerdata, unsigned short size) {
   long i; // r31
   long j; // r29
+
+  hwDisableIrq();
+
+  for (i = 0; i < dataLayerNum && dataLayerTab[i].id < cid; ++i)
+    ;
+
+  if (i < dataLayerNum) {
+
+    if (cid != dataLayerTab[i].id) {
+
+      if (dataLayerNum < 256) {
+
+        for (j = dataLayerNum - 1; j >= i; --j)
+          dataLayerTab[j + 1] = dataLayerTab[j];
+        ++dataLayerNum;
+
+      } else {
+
+        hwEnableIrq();
+        return 0;
+      }
+    } else {
+
+      dataLayerTab[i].refCount++;
+      hwEnableIrq();
+      return 0;
+    }
+
+  } else if (dataLayerNum < 256) {
+    ++dataLayerNum;
+  } else {
+
+    hwEnableIrq();
+    return 0;
+  }
+
+  MUSY_ASSERT_MSG(layerdata != NULL, "Layer data pointer is NULL");
+
+  dataLayerTab[i].id = cid;
+  dataLayerTab[i].data = layerdata;
+  dataLayerTab[i].num = size;
+  dataLayerTab[i].refCount = 1;
+  hwEnableIrq();
+  return 1;
 }
+
 unsigned long dataRemoveLayer(unsigned short sid) {
   long i; // r31
   long j; // r30
 }
+
 unsigned long dataInsertCurve(unsigned short cid, void* curvedata) {
   long i; // r31
   long j; // r29
+
+  hwDisableIrq();
+
+  for (i = 0; i < dataCurveNum && dataCurveTab[i].id < cid; ++i)
+    ;
+
+  if (i < dataCurveNum) {
+
+    if (cid != dataCurveTab[i].id) {
+
+      if (dataCurveNum < 2048) {
+
+        for (j = dataCurveNum - 1; j >= i; --j)
+          dataCurveTab[j + 1] = dataCurveTab[j];
+        ++dataCurveNum;
+
+      } else {
+        hwEnableIrq();
+        return 0;
+      }
+    } else {
+      hwEnableIrq();
+      dataCurveTab[i].refCount++;
+      return 0;
+    }
+
+  } else if (dataCurveNum < 2048) {
+    ++dataCurveNum;
+  } else {
+
+    hwEnableIrq();
+    return 0;
+  }
+
+  MUSY_ASSERT_MSG(curvedata != NULL, "Curve data pointer is NULL");
+
+  dataCurveTab[i].id = cid;
+  dataCurveTab[i].data = curvedata;
+  dataCurveTab[i].refCount = 1;
+  hwEnableIrq();
+  return 1;
 }
+
 unsigned long dataRemoveCurve(unsigned short sid) {
   long i; // r31
   long j; // r30
 }
+
 unsigned long dataInsertSDir(struct SDIR_DATA* sdir, void* smp_data) {
   long i;              // r31
   struct SDIR_DATA* s; // r25
@@ -83,40 +192,49 @@ unsigned long dataInsertSDir(struct SDIR_DATA* sdir, void* smp_data) {
   unsigned short j;    // r29
   unsigned short k;    // r26
 }
+
 unsigned long dataRemoveSDir(struct SDIR_DATA* sdir) {
   long i;                 // r28
   long j;                 // r30
   long index;             // r27
   struct SDIR_DATA* data; // r31
 }
+
 unsigned long dataAddSampleReference(unsigned short sid) {
   unsigned long i;              // r29
   struct SAMPLE_HEADER* header; // r1+0xC
   struct SDIR_DATA* data;       // r30
   struct SDIR_DATA* sdir;       // r31
 }
+
 unsigned long dataRemoveSampleReference(unsigned short sid) {
   unsigned long i;        // r30
   struct SDIR_DATA* sdir; // r31
 }
+
 unsigned long dataInsertFX(unsigned short gid, struct FX_TAB* fx, unsigned short fxNum) {
   long i; // r31
 }
+
 unsigned long dataRemoveFX(unsigned short gid) {
   long i; // r31
   long j; // r30
+  return 1;
 }
+
 unsigned long dataInsertMacro(unsigned short mid, void* macroaddr) {
   long main; // r28
   long pos;  // r29
   long base; // r27
   long i;    // r31
 }
+
 unsigned long dataRemoveMacro(unsigned short mid) {
   long main; // r29
   long base; // r28
   long i;    // r31
 }
+
 long maccmp(void* p1, void* p2) { return ((MAC_SUBTAB*)p1)->id - ((MAC_SUBTAB*)p2)->id; }
 
 struct MSTEP* dataGetMacro(unsigned short mid) {

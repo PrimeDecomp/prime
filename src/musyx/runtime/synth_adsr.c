@@ -7,7 +7,7 @@
 extern float powf(float, float);
 
 static u32 adsrGetIndex(ADSR_VARS* adsr) {
-  long i = 193 - ((adsr->currentIndex + 0x8000) >> 16);
+  s32 i = 193 - ((adsr->currentIndex + 0x8000) >> 16);
   return i < 0 ? 0 : i;
 }
 
@@ -55,11 +55,28 @@ u32 adsrStartRelease(ADSR_VARS* adsr, u32 rtime) {
 }
 
 u32 adsrRelease(ADSR_VARS* adsr) {
-  switch(adsr->mode) {
-    case 0:
-    case 1:
+  switch (adsr->mode) {
+  case 0:
+  case 1:
     return adsrStartRelease(adsr, adsr->data.dls.rTime);
   }
 
   return FALSE;
+}
+
+u32 adsrHandle(ADSR_VARS* adsr, u16* adsr_start, u16* adsr_delta) {
+  s32 old_volume; // r29
+  bool VoiceDone; // r28
+  s32 vDelta;     // r27
+}
+u32 adsrHandleLowPrecision(ADSR_VARS* adsr, u16* adsr_start, u16* adsr_delta) {
+  u8 i; // r31
+
+  for (i = 0; i < 15; ++i) {
+    if (adsrHandle(adsr, adsr_start, adsr_delta)) {
+      return 1;
+    }
+  }
+
+  return 0;
 }

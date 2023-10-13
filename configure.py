@@ -187,21 +187,22 @@ cflags_retro = [
     "-common on",
 ]
 
-### MusyX 1.5.3 (debug)
-# "mw_version": "1.2.5",
-# "cflags": "-proc gecko -fp hard -nodefaults -nosyspath -i include -i libc -g -sym on -D_DEBUG=1 -enum int -DMUSY_VERSION_MAJOR=1 -DMUSY_VERSION_MINOR=5 -DMUSY_VERSION_PATCH=3",
-
-### MusyX 2.0.3 (debug)
-# "mw_version": "1.3.2",
-# "cflags": "-proc gecko -fp hard -nodefaults -nosyspath -i include -i libc -g -sym on -D_DEBUG=1 -enum int -DMUSY_VERSION_MAJOR=2 -DMUSY_VERSION_MINOR=0 -DMUSY_VERSION_PATCH=3",
-
 cflags_musyx = [
     *cflags_base,
     "-str reuse,pool,readonly",
     "-fp_contract off",
-    "-DMUSY_VERSION_MAJOR=1",
-    "-DMUSY_VERSION_MINOR=5",
-    "-DMUSY_VERSION_PATCH=4",
+]
+
+cflags_musyx_debug = [
+    "-proc gecko",
+    "-fp hard",
+    "-nodefaults",
+    "-nosyspath",
+    "-i include",
+    "-i libc",
+    "-g -sym on -D_DEBUG=1",
+    "-enum int",
+    "-D_MATH_INLINE=static",
 ]
 
 # REL flags
@@ -231,6 +232,22 @@ def RetroLib(lib_name, objects):
         "mw_version": "GC/1.3.2",
         "cflags": cflags_retro,
         "host": False,
+        "objects": objects,
+    }
+
+
+def MusyX(objects, mw_version="GC/1.3.2", debug=False, major=1, minor=5, patch=4):
+    cflags = cflags_musyx if not debug else cflags_musyx_debug
+    return {
+        "lib": "MusyX",
+        "mw_version": mw_version,
+        "host": False,
+        "cflags": [
+            *cflags,
+            f"-DMUSY_VERSION_MAJOR={major}",
+            f"-DMUSY_VERSION_MINOR={minor}",
+            f"-DMUSY_VERSION_PATCH={patch}",
+        ],
         "objects": objects,
     }
 
@@ -1138,12 +1155,13 @@ config.libs = [
             Object(Matching, "Runtime/math_ppc.c"),
         ],
     },
-    {
-        "lib": "musyx",
-        "mw_version": "GC/1.3.2",
-        "cflags": cflags_musyx,
-        "host": False,
-        "objects": [
+    MusyX(
+        # debug=True,
+        # mw_version="GC/1.2.5",
+        # major=1,
+        # minor=5,
+        # patch=3,
+        objects=[
             Object(Matching, "musyx/runtime/seq.c"),
             Object(Matching, "musyx/runtime/synth.c"),
             Object(Matching, "musyx/runtime/seq_api.c"),
@@ -1177,7 +1195,7 @@ config.libs = [
             Object(Matching, "musyx/runtime/Chorus/chorus_fx.c"),
             Object(Matching, "musyx/runtime/profile.c"),
         ],
-    },
+    ),
     {
         "lib": "txwin",
         "mw_version": "GC/1.2.5n",
