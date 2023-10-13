@@ -4,6 +4,7 @@
 #include "MetroidPrime/CStateManager.hpp"
 
 #include "Kyoto/Math/CQuaternion.hpp"
+#include "Kyoto/Particles/CParticleGen.hpp"
 #include "MetaRender/CCubeRenderer.hpp"
 
 CParticleGenInfoGeneric::CParticleGenInfoGeneric(const SObjectTag& part,
@@ -125,6 +126,8 @@ bool CParticleGenInfoGeneric::HasActiveParticles() const {
   return x84_system->GetParticleCount() > 0;
 }
 
-rstl::optional_object<CAABox> CParticleGenInfoGeneric::GetBounds() const { return x84_system->GetBounds(); }
+rstl::optional_object< CAABox > CParticleGenInfoGeneric::GetBounds() const {
+  return x84_system->GetBounds();
+}
 
 bool CParticleGenInfoGeneric::IsSystemDeletable() const { return x84_system->IsSystemDeletable(); }

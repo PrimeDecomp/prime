@@ -428,7 +428,7 @@ config.libs = [
             Object(NonMatching, "MetroidPrime/CFluidPlane.cpp"),
             Object(NonMatching, "MetroidPrime/CFluidPlaneManager.cpp"),
             Object(Matching, "MetroidPrime/ScriptObjects/CScriptGrapplePoint.cpp"),
-            Object(NonMatching, "MetroidPrime/ScriptObjects/CHUDBillboardEffect.cpp"),
+            Object(Matching, "MetroidPrime/ScriptObjects/CHUDBillboardEffect.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CFlickerBat.cpp"),
             Object(NonMatching, "MetroidPrime/BodyState/CBodyStateCmdMgr.cpp", cflags=[*cflags_retro, "-inline auto"]),
             Object(NonMatching, "MetroidPrime/BodyState/CBodyStateInfo.cpp"),

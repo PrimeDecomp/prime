@@ -4,6 +4,9 @@
 #include "types.h"
 
 #include "Kyoto/CRandom16.hpp"
+#include "Kyoto/Graphics/CColor.hpp"
+#include "Kyoto/Graphics/CLight.hpp"
+#include "Kyoto/Math/CAABox.hpp"
 #include "Kyoto/Math/CMatrix3f.hpp"
 #include "Kyoto/Math/CTransform4f.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
@@ -64,7 +67,7 @@ public:
   virtual bool GetParticleEmission() const override;
   virtual CColor GetModulationColor() const override;
   virtual bool IsSystemDeletable() const override;
-  virtual rstl::optional_object<CAABox> GetBounds() const override;
+  virtual rstl::optional_object< CAABox > GetBounds() const override;
   virtual int GetParticleCount() const override;
   virtual bool SystemHasLight() const override;
   virtual CLight GetLight() override;

@@ -3,13 +3,14 @@
 
 #include "Kyoto/Particles/CParticleGen.hpp"
 
+#include "Kyoto/Math/CVector3f.hpp"
 #include "Kyoto/TToken.hpp"
 
 class CElectricDescription;
 
 class CParticleElectric : public CParticleGen {
 public:
-  explicit CParticleElectric(TToken<CElectricDescription> desc);
+  explicit CParticleElectric(TToken< CElectricDescription > desc);
 
   ~CParticleElectric() override;
   void Update(double) override;
@@ -31,7 +32,7 @@ public:
   bool GetParticleEmission() const override;
   CColor GetModulationColor() const override;
   bool IsSystemDeletable() const override;
-  rstl::optional_object<CAABox> GetBounds() const override;
+  rstl::optional_object< CAABox > GetBounds() const override;
   int GetParticleCount() const override;
   bool SystemHasLight() const override;
   CLight GetLight() override;
@@ -39,7 +40,6 @@ public:
   void AddModifier(CWarp*) override;
   uint Get4CharId() const override;
 
-  
   void SetOverrideIPos(const CVector3f& vec) { x178_overrideIPos = vec; }
   void SetOverrideIVel(const CVector3f& vec) { x188_overrideIVel = vec; }
   void SetOverrideFPos(const CVector3f& vec) { x198_overrideFPos = vec; }
@@ -47,10 +47,10 @@ public:
 
 private:
   uchar x1c_pad[0x15c];
-  rstl::optional_object<CVector3f> x178_overrideIPos;
-  rstl::optional_object<CVector3f> x188_overrideIVel;
-  rstl::optional_object<CVector3f> x198_overrideFPos;
-  rstl::optional_object<CVector3f> x1a8_overrideFVel;
+  rstl::optional_object< CVector3f > x178_overrideIPos;
+  rstl::optional_object< CVector3f > x188_overrideIVel;
+  rstl::optional_object< CVector3f > x198_overrideFPos;
+  rstl::optional_object< CVector3f > x1a8_overrideFVel;
   uchar x1b8_pad[0x2a0];
 };
 CHECK_SIZEOF(CParticleElectric, 0x458)

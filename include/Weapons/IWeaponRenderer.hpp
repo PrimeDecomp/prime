@@ -2,7 +2,8 @@
 #define _IWEAPONRENDERER
 
 #include "Kyoto/Alloc/CMemory.hpp"
-#include "Kyoto/Particles/CParticleGen.hpp"
+
+class CParticleGen;
 
 class IWeaponRenderer {
 public:
@@ -15,11 +16,5 @@ private:
 };
 
 inline IWeaponRenderer::~IWeaponRenderer() {}
-
-class CDefaultWeaponRenderer : public IWeaponRenderer {
-public:
-  ~CDefaultWeaponRenderer() {}
-  void AddParticleGen(const CParticleGen& gen) { gen.Render(); }
-};
 
 #endif // _IWEAPONRENDERER

@@ -34,14 +34,14 @@ public:
   void CalculateRenderBounds() override;
 
   TUniqueId GetExplosionLightId() const { return xec_explosionLight; }
-  uint GetSourceId() const { return xf0_sourceId; }
+  CAssetId GetSourceId() const { return xf0_sourceId; }
 
 public:
   rstl::single_ptr< CParticleGen > xe8_particleGen;
   TUniqueId xec_explosionLight;
-  uint xf0_sourceId;
+  CAssetId xf0_sourceId;
   bool xf4_24_renderThermalHot : 1;
-  bool xf4_25_ : 1;
+  bool xf4_25_hasRenderBounds : 1;
   bool xf4_26_renderXray : 1;
   float xf8_time;
 };

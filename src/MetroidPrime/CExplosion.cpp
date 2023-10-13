@@ -21,7 +21,7 @@ CExplosion::CExplosion(const TLockedToken< CGenDescription >& particle, TUniqueI
 , xec_explosionLight(kInvalidUniqueId)
 , xf0_sourceId(CToken(particle).GetTag().id)
 , xf4_24_renderThermalHot(flags & 0x4)
-, xf4_25_(true)
+, xf4_25_hasRenderBounds(true)
 , xf4_26_renderXray(flags & 0x8)
 , xf8_time(0.0f) {
   SetThermalFlags(flags & 0x1 ? kTF_Cold : kTF_Hot);
@@ -40,9 +40,11 @@ CExplosion::CExplosion(const TLockedToken< CElectricDescription >& electric, TUn
 , xec_explosionLight(kInvalidUniqueId)
 , xf0_sourceId(CToken(electric).GetTag().id)
 , xf4_24_renderThermalHot(flags & 0x4)
-, xf4_25_(true)
+, xf4_25_hasRenderBounds(true)
 , xf4_26_renderXray(flags & 0x8)
-// , xf8_time(0.0f)
+#if NONMATCHING
+, xf8_time(0.0f)
+#endif
 {
   SetThermalFlags(flags & 0x1 ? kTF_Cold : kTF_Hot);
   xe8_particleGen->SetGlobalTranslation(xf.GetTranslation());
@@ -68,7 +70,7 @@ void CExplosion::AddToRenderer(const CFrustumPlanes& frustum, const CStateManage
 
 void CExplosion::PreRender(CStateManager& mgr, const CFrustumPlanes& frustum) {
   CActor::PreRender(mgr, frustum);
-  SetPreRenderClipped(!xf4_25_ || !frustum.BoxInFrustumPlanes(GetRenderBoundsCached()));
+  SetPreRenderClipped(!xf4_25_hasRenderBounds || !frustum.BoxInFrustumPlanes(GetRenderBoundsCached()));
 }
 
 void CExplosion::Think(float dt, CStateManager& mgr) {
@@ -128,9 +130,9 @@ void CExplosion::CalculateRenderBounds() {
   rstl::optional_object< CAABox > bounds = xe8_particleGen->GetBounds();
   if (bounds) {
     SetRenderBounds(*bounds);
-    xf4_25_ = true;
+    xf4_25_hasRenderBounds = true;
   } else {
-    xf4_25_ = false;
+    xf4_25_hasRenderBounds = false;
     CVector3f pos = GetTransform().GetTranslation();
     SetRenderBounds(CAABox(pos, pos));
   }

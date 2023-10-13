@@ -1,22 +1,20 @@
 #ifndef _CPARTICLEGEN
 #define _CPARTICLEGEN
 
-#include "Kyoto/Graphics/CColor.hpp"
-#include "Kyoto/Graphics/CLight.hpp"
-#include "Kyoto/Math/CAABox.hpp"
-#include "Kyoto/Math/CTransform4f.hpp"
-#include "Kyoto/Math/CVector3f.hpp"
-#include "Kyoto/Particles/CWarp.hpp"
-
 #include "rstl/list.hpp"
-#include "rstl/pair.hpp"
 #include "rstl/optional_object.hpp"
+#include "rstl/pair.hpp"
 
+class CAABox;
+class CColor;
+class CLight;
+class CTransform4f;
+class CVector3f;
 class CWarp;
 
 class CParticleGen {
 public:
-  virtual ~CParticleGen() {};
+  virtual ~CParticleGen() = 0;
   virtual void Update(double) = 0;
   virtual void Render() const = 0;
   virtual void SetOrientation(const CTransform4f& orientation) = 0;
@@ -37,16 +35,18 @@ public:
   virtual CColor GetModulationColor() const = 0;
   virtual float GetGeneratorRate() const { return 1.f; }
   virtual bool IsSystemDeletable() const = 0;
-  virtual rstl::optional_object<CAABox> GetBounds() const = 0;
+  virtual rstl::optional_object< CAABox > GetBounds() const = 0;
   virtual int GetParticleCount() const = 0;
   virtual bool SystemHasLight() const = 0;
   virtual CLight GetLight() = 0;
   virtual void DestroyParticles() = 0;
-  virtual void AddModifier(CWarp*) = 0;
+  virtual void AddModifier(CWarp*);
   virtual uint Get4CharId() const = 0;
 
 private:
   rstl::list< CWarp* > x4_modifiersList;
 };
+
+inline CParticleGen::~CParticleGen() {}
 
 #endif // _CPARTICLEGEN

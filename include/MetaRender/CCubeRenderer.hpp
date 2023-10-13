@@ -90,7 +90,7 @@ public:
   void SetGXRegister1Color() override;
   void SetWorldLightFadeLevel() override;
   void Something() override;
-  void PrepareDynamicLights(const rstl::vector<CLight>& lights) override;
+  void PrepareDynamicLights(const rstl::vector< CLight >& lights) override;
 
   void AllocatePhazonSuitMaskTexture();
 
