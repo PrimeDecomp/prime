@@ -630,7 +630,7 @@ config.libs = [
             Object(NonMatching, "MetroidPrime/CArtifactDoll.cpp"),
             Object(NonMatching, "MetroidPrime/CProjectedShadow.cpp"),
             Object(Matching, "MetroidPrime/CPreFrontEnd.cpp"),
-            Object(NonMatching, "MetroidPrime/CGameCubeDoll.cpp"),
+            Object(Matching, "MetroidPrime/CGameCubeDoll.cpp"),
             Object(
                 NonMatching, "MetroidPrime/ScriptObjects/CScriptProjectedShadow.cpp"
             ),

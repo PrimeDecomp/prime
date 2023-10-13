@@ -12,10 +12,11 @@
 
 #include "rstl/math.hpp"
 
+
 CGameCubeDoll::CGameCubeDoll()
 : x0_model(gpSimplePool->GetObj("CMDL_GameCube"))
 , x8_lights(1, CLight::BuildDirectional(CVector3f::Forward(), CColor(0xFFFFFFFF)), rstl::rmemory_allocator())
-, x18_actorLights(rs_new CActorLights(8, CVector3f::Zero(), 4, 4, 0.1f, false, false, false))
+, x18_actorLights(rs_new CActorLights(8, CVector3f::Zero(), 4, 4, CActorLights::kDefaultPositionUpdateThreshold, false, false, false))
 , x1c_fader(0.0f)
 , x20_24_loaded(false) {
   x0_model.Lock();
@@ -51,10 +52,13 @@ void CGameCubeDoll::Touch() {
   TToken< CModel >(x0_model)->Touch(0);
 }
 
+/* TODO: This is in CEnergyBall, need to figure out what it is and name it appropriately */
+extern float lbl_805A85E8;
+
 void CGameCubeDoll::Update(float dt) {
   if (!CheckLoadComplete())
     return;
-  x1c_fader = rstl::min_val(1.f, 2.f * dt + x1c_fader);
+  x1c_fader = rstl::min_val(lbl_805A85E8,  (dt * 2.f)  + x1c_fader);
   UpdateActorLights();
 }
 
@@ -70,8 +74,8 @@ void CGameCubeDoll::Draw(float alpha) {
   CGraphics::SetViewPointMatrix(CTransform4f::Translate(0.f, -2.f, 0.f));
   x18_actorLights->ActivateLights();
 
-  float f = CGraphics::GetSecondsMod900() * 360.f;
-  CGraphics::SetModelMatrix(CTransform4f::RotateZ(CRelAngle::FromDegrees(-(f * 0.25f))) *
+  float f = (CGraphics::GetSecondsMod900() * 360.f) * 0.25f;
+  CGraphics::SetModelMatrix(CTransform4f::RotateZ(CRelAngle::FromDegrees(-f)) *
                             CTransform4f::Scale(0.2f));
 
   TToken< CModel > model(x0_model);
