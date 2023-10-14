@@ -7,9 +7,13 @@
     "files.encoding": "utf8",
     "editor.defaultFormatter": "xaver.clang-format"
   },
-  "[python]":{
+  "[python]": {
     "editor.defaultFormatter": "ms-python.black-formatter"
   },
+  "clangd.fallbackFlags": [
+    "-I${workspaceFolder}/include",
+    "-I${workspaceFolder}/libc"
+  ],
   "editor.tabSize": 2,
   "files.associations": {
     "source_location": "cpp",

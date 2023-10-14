@@ -15,6 +15,7 @@ import json
 import os
 import platform
 import sys
+import math
 
 from pathlib import Path
 from . import ninja_syntax
@@ -875,8 +876,12 @@ def calculate_progress(config):
         def __init__(self, name):
             self.name = name
             self.code_total = 0
+            self.code_fancy_frac = 1499
+            self.code_fancy_item = "energy"
             self.code_progress = 0
             self.data_total = 0
+            self.data_fancy_frac = 250
+            self.data_fancy_item = "missiles"
             self.data_progress = 0
             self.objects_progress = 0
             self.objects_total = 0
@@ -947,6 +952,16 @@ def calculate_progress(config):
         )
         print(f"    Code: {unit.code_progress} / {unit.code_total} bytes")
         print(f"    Data: {unit.data_progress} / {unit.data_total} bytes")
+        print(
+            "\nYou have {} out of {} {} and collected {} out of {} {}.".format(
+                math.floor(code_frac * unit.code_fancy_frac),
+                unit.code_fancy_frac,
+                unit.code_fancy_item,
+                math.floor(data_frac * unit.data_fancy_frac),
+                unit.data_fancy_frac,
+                unit.data_fancy_item,
+            )
+        )
 
     if all_progress:
         print_category(all_progress)
