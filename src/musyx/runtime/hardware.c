@@ -464,8 +464,14 @@ void hwSaveSample(void* header, void* data) {
 void hwSetSaveSampleCallback(ARAMUploadCallback callback, unsigned long chunckSize) { aramSetUploadCallback(callback, chunckSize); }
 
 void hwRemoveSample(void* header, void* data) {
+#if MUSY_VERSION <= MUSY_VERSION_CHECK(1, 5, 3)
+  u32 len = (((u32*)header))[1] & 0xFFFFFF;
+  u8 type = (((u32*)header))[1] >> 0x18;
+  len = convert_length(len, type);
+#else
   u8 type = (((u32*)header))[1] >> 0x18;
   u32 len = convert_length((((u32*)header))[1] & 0xFFFFFF, type);
+#endif
   aramRemoveData(data, len);
 }
 

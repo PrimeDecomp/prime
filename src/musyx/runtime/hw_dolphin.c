@@ -15,15 +15,14 @@ static volatile OSTick salLastTick = 0;
 static volatile u32 salLogicActive = 0;
 static volatile u32 salLogicIsWaiting = 0;
 static volatile u32 salDspIsDone = 0;
-static void* salAIBufferBase = NULL;
+void* salAIBufferBase = NULL;
 static u8 salAIBufferIndex = 0;
-SND_SOME_CALLBACK userCallback = NULL;
+static SND_SOME_CALLBACK userCallback = NULL;
 
 #define DMA_BUFFER_LEN 0x280
 
 u32 salGetStartDelay();
-
-void callUserCallback() {
+static void callUserCallback() {
   if (salLogicActive) {
     return;
   }
@@ -45,6 +44,8 @@ void salCallback() {
     salLogicIsWaiting = 1;
   }
 }
+
+
 
 void dspInitCallback() {
   salDspIsDone = TRUE;
@@ -89,10 +90,13 @@ u32 salExitAi() {
 }
 
 void* salAiGetDest() {
-  return (void*)((u32)salAIBufferBase + (u8)((salAIBufferIndex + 2) % 4) * DMA_BUFFER_LEN);
+  u8 index; // r31
+  index = (salAIBufferIndex + 2) % 4;
+  return (void*)((u8*)salAIBufferBase + index * DMA_BUFFER_LEN);
 }
 
 u32 salInitDsp() {
+  u8 _[8];
   dsp_task.iram_mmem_addr = (u16*)dspSlave;
   dsp_task.iram_length = dspSlaveLength;
   dsp_task.iram_addr = 0;

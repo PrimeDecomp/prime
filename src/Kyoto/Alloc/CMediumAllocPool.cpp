@@ -177,7 +177,23 @@ void* SMediumAllocPuddle::FindFreeEntry(uint numBlocks) {
   return nullptr;
 }
 
-void SMediumAllocPuddle::Free(const void* ptr) {}
+void SMediumAllocPuddle::Free(const void* ptr) {
+  uint r28 = 0;
+  uint r29 = x8_bookKeeping[((uint)ptr - (uint)x0_mainData.get()) / 32];
+  x14_numBlocks += r29;
+  x18_numAllocs--;
+  uchar* bookKeepingStart = x8_bookKeeping;
+  uchar* block = &x8_bookKeeping[((uint)ptr - (uint)x0_mainData.get()) / 32];
+
+  if (xc_cachedBookKeepingAddr == block) {
+    r28 = 1;
+  }
+
+  if (block > bookKeepingStart) {
+    if ((block[-1] & 0x80) != 0) {
+    }
+  }
+}
 
 ushort SMediumAllocPuddle::GetBlockOffset(const void* ptr1, const void* ptr2) {
   unsigned char tmp = (uchar*)ptr2 - (uchar*)ptr1 > 1 ? ((uchar*)ptr1)[1] : 0;

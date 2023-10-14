@@ -218,6 +218,8 @@ bool dataRemoveCurve(u16 sid) {
   return 0;
 }
 
+#define SDIR(sd) ((SDIR_DATA*)((u8*)sd + 0))
+
 bool dataInsertSDir(SDIR_DATA* sdir, void* smp_data) {
   s32 i;        // r31
   SDIR_DATA* s; // r25
@@ -230,25 +232,24 @@ bool dataInsertSDir(SDIR_DATA* sdir, void* smp_data) {
   if (i == dataSmpSDirNum) {
     if (dataSmpSDirNum < 128) {
       n = 0;
-      for (s = sdir; s->id != 0xffff; ++s) {
+      for (s = SDIR(sdir); s->id != 0xffff; ++s) {
         ++n;
       }
 
       hwDisableIrq();
-
       for (j = 0; j < n; ++j) {
         for (i = 0; i < dataSmpSDirNum; ++i) {
           for (k = 0; k < dataSmpSDirs[i].numSmp; ++k) {
             if (sdir[j].id == dataSmpSDirs[i].data[k].id)
-              goto done_loop;
+              goto found_id;
           }
         }
-      }
-    done_loop:
-      if (i == dataSmpSDirNum) {
-        sdir[j].ref_cnt = 0;
-      } else {
-        sdir[j].ref_cnt = 0xffff;
+      found_id:
+        if (i != dataSmpSDirNum) {
+          sdir[j].ref_cnt = 0xffff;
+        } else {
+          sdir[j].ref_cnt = 0;
+        }
       }
 
       dataSmpSDirs[dataSmpSDirNum].data = sdir;
@@ -273,7 +274,7 @@ bool dataRemoveSDir(struct SDIR_DATA* sdir) {
 }
 
 bool dataAddSampleReference(u16 sid) {
-  u32 i;              // r29
+  u32 i;                 // r29
   SAMPLE_HEADER* header; // r1+0xC
   SDIR_DATA* data;       // r30
   SDIR_DATA* sdir;       // r31

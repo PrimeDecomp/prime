@@ -64,9 +64,9 @@ bool area_sorter::operator()(const CGameArea* a, const CGameArea* b) const {
 class CLightPredicate {
 public:
   bool operator()(const CLight& a, const CLight& b) const {
-    if (b.GetPriority() > a.GetPriority()) {
+    if (a.GetPriority() > b.GetPriority()) {
       return true;
-    } else if (b.GetPriority() == a.GetPriority()) {
+    } else if (a.GetPriority() == b.GetPriority()) {
       return a.GetIntensity() > b.GetIntensity();
     } else {
       return false;
