@@ -945,6 +945,9 @@ def calculate_progress(config):
     print("Progress:")
 
     def print_category(unit):
+        if unit is None:
+            return
+        
         code_frac = unit.code_frac()
         data_frac = unit.data_frac()
         print(
