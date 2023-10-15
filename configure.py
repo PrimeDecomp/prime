@@ -915,7 +915,7 @@ config.libs = [
             Object(Matching, "Kyoto/CARAMManager.cpp"),
             Object(NonMatching, "Kyoto/Math/CFrustumPlanes.cpp"),
             Object(NonMatching, "Kyoto/Graphics/CCubeMaterial.cpp"),
-            Object(NonMatching, "Kyoto/Graphics/CCubeSurface.cpp"),
+            Object(Matching, "Kyoto/Graphics/CCubeSurface.cpp"),
             Object(NonMatching, "Kyoto/Animation/CCharAnimTime.cpp"),
             Object(Matching, "Kyoto/Animation/CSegIdList.cpp"),
             Object(Matching, "Kyoto/Input/CFinalInput.cpp"),
