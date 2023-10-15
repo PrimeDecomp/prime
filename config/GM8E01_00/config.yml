@@ -6,8 +6,8 @@ mw_comment_version: 8
 quick_analysis: true # Faster reruns after full analysis
 fill_gaps: false # Alignments known
 
-#modules:
-#- object: orig/GM8E01_00/files/NESemuP.rel
-  #hash: 5ad6bb727d6dd220e6aceef9143c61a86a6f2bb5
-  #symbols: config/GM8E01_00/NESemu/symbols.txt
-  #splits: config/GM8E01_00/NESemu/splits.txt
+modules:
+- object: orig/GM8E01_00/files/NESemuP.rel
+  hash: 5ad6bb727d6dd220e6aceef9143c61a86a6f2bb5
+  symbols: config/GM8E01_00/NESemu/symbols.txt
+  splits: config/GM8E01_00/NESemu/splits.txt

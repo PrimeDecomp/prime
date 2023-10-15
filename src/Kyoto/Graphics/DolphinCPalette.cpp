@@ -3,16 +3,21 @@
 #include "Kyoto/Alloc/CMemorySys.hpp"
 #include "Kyoto/CFrameDelayedKiller.hpp"
 #include "Kyoto/Streams/CInputStream.hpp"
+#include "dolphin/gx/GXEnum.h"
 #include "dolphin/os/OSCache.h"
 
 uint CGraphicsPalette::sCurrentFrameCount = 0;
+
+inline GXTlutFmt ConvertFormat(EPaletteFormat fmt) {
+  return static_cast<GXTlutFmt>(fmt);
+}
 
 CGraphicsPalette::CGraphicsPalette(EPaletteFormat format, int numEntries)
 : x0_fmt(format)
 , x8_entryCount(numEntries)
 , xc_entries((ushort*)CMemory::Alloc(numEntries * sizeof(ushort), IAllocator::kHI_RoundUpLen))
 , x1c_locked(false) {
-  GXInitTlutObj(&x10_tlutObj, xc_entries.get(), (GXTlutFmt)(x0_fmt), x8_entryCount);
+  GXInitTlutObj(&x10_tlutObj, xc_entries.get(), ConvertFormat(x0_fmt), x8_entryCount);
 }
 
 CGraphicsPalette::CGraphicsPalette(CInputStream& in)
@@ -21,14 +26,14 @@ CGraphicsPalette::CGraphicsPalette(CInputStream& in)
 , xc_entries((ushort*)CMemory::Alloc(x8_entryCount * sizeof(ushort), IAllocator::kHI_RoundUpLen))
 , x1c_locked(false) {
   in.Get(reinterpret_cast< uchar* >(xc_entries.get()), x8_entryCount * sizeof(ushort));
-  GXInitTlutObj(&x10_tlutObj, xc_entries.get(), static_cast< GXTlutFmt >(x0_fmt), x8_entryCount);
+  GXInitTlutObj(&x10_tlutObj, xc_entries.get(), ConvertFormat(x0_fmt), x8_entryCount);
   DCFlushRange(xc_entries.get(), x8_entryCount * sizeof(ushort));
 }
 
 CGraphicsPalette::~CGraphicsPalette() {
   uint frameDiff = sCurrentFrameCount - x4_frameLoaded;
   if (frameDiff < 2) {
-    CFrameDelayedKiller::sub_8036cc1c(frameDiff == 0, xc_entries.release());
+    CFrameDelayedKiller::fn_8036CC1C(frameDiff == 0, xc_entries.release());
   }
 }
 
@@ -39,7 +44,7 @@ void CGraphicsPalette::Load() const {
 
 void CGraphicsPalette::UnLock() {
   DCStoreRange(xc_entries.get(), x8_entryCount * sizeof(ushort));
-  GXInitTlutObj(&x10_tlutObj, xc_entries.get(), static_cast< GXTlutFmt >(x0_fmt), x8_entryCount);
+  GXInitTlutObj(&x10_tlutObj, xc_entries.get(), ConvertFormat(x0_fmt), x8_entryCount);
   DCFlushRange(xc_entries.get(), x8_entryCount * sizeof(ushort));
   x1c_locked = false;
 }

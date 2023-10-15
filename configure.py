@@ -831,7 +831,7 @@ config.libs = [
             Object(Matching, "Kyoto/Graphics/CGX.cpp"),
             Object(Matching, "Kyoto/Graphics/CTevCombiners.cpp"),
             Object(NonMatching, "Kyoto/Graphics/DolphinCGraphics.cpp"),
-            Object(NonMatching, "Kyoto/Graphics/DolphinCPalette.cpp"),
+            Object(Matching, "Kyoto/Graphics/DolphinCPalette.cpp"),
             Object(NonMatching, "Kyoto/Graphics/DolphinCTexture.cpp"),
             Object(Matching, "Kyoto/Math/CloseEnough.cpp"),
             Object(NonMatching, "Kyoto/Math/CMatrix3f.cpp"),

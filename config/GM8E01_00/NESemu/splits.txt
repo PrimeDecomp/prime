@@ -5,3 +5,13 @@ Sections:
 	.rodata     type:rodata align:8
 	.data       type:data align:8
 	.bss        type:bss align:32
+
+RELSetup/modwrapper.c:
+	.text       start:0x00000000 end:0x000000D4
+	.data       start:0x00000000 end:0x00000030
+
+NESemu/emu.c:
+	.text       start:0x000000D4 end:0x0000A1F4
+	.rodata     start:0x00000000 end:0x00000104
+	.data       start:0x00000030 end:0x0001F104
+	.bss        start:0x00000000 end:0x00009E1C
