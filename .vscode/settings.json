@@ -12,7 +12,8 @@
   },
   "clangd.fallbackFlags": [
     "-I${workspaceFolder}/include",
-    "-I${workspaceFolder}/libc"
+    "-I${workspaceFolder}/libc",
+    "-D__MWERKS__",
   ],
   "editor.tabSize": 2,
   "files.associations": {

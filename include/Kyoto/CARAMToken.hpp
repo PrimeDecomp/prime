@@ -22,6 +22,7 @@ public:
   ~CARAMToken();
   void PostConstruct(void* ptr, uint len, int unk);
   CARAMToken& operator=(const CARAMToken& other);
+  const EStatus GetStatus() const { return x0_status; }
   bool LoadToMRAM();
   bool LoadToARAM();
   bool RefreshStatus();

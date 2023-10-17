@@ -1,6 +1,7 @@
 #ifndef _CRESFACTORY
 #define _CRESFACTORY
 
+#include "Kyoto/Streams/CInputStream.hpp"
 #include "types.h"
 
 #include "rstl/list.hpp"
@@ -36,7 +37,9 @@ public:
 
   CResLoader& GetResLoader() { return x4_resLoader; }
   FourCC GetResourceTypeById(CAssetId id) { return GetResLoader().GetResourceTypeById(id); }
-
+  CInputStream* LoadResourceFromMemorySync(const SObjectTag& tag, const void* extBuf) {
+    return x4_resLoader.LoadResourceFromMemorySync(tag, extBuf);
+  }
 private:
   CResLoader x4_resLoader;
   CFactoryMgr x5c_factoryMgr;

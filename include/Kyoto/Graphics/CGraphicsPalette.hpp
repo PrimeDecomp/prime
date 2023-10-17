@@ -23,7 +23,7 @@ public:
   CGraphicsPalette(CInputStream& in);
   ~CGraphicsPalette();
 
-  inline GXTlutFmt GetTlutFmt() const { return static_cast<GXTlutFmt>(x0_fmt); }
+  inline GXTlutFmt GetTlutFmt() const { return static_cast< GXTlutFmt >(x0_fmt); }
   ushort* GetPaletteData() { return xc_entries.get(); }
   const ushort* GetPaletteData() const { return xc_entries.get(); }
   void Load() const;
@@ -38,5 +38,9 @@ private:
   GXTlutObj x10_tlutObj;
   bool x1c_locked;
 };
+
+static inline GXTlutFmt format_to_format(EPaletteFormat fmt) {
+  return static_cast< GXTlutFmt >(fmt);
+}
 
 #endif // _CGRAPHICSPALETTE

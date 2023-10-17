@@ -109,6 +109,8 @@ bool CARAMToken::LoadToMRAM() {
     MoveToList(kS_Three);
     break;
   }
+  default:
+    break;
   }
 
   return RefreshStatus();
@@ -143,8 +145,9 @@ bool CARAMToken::LoadToARAM() {
     MoveToList(kS_Two);
     break;
   }
+  default:
+    break;
   }
-
   return RefreshStatus();
 }
 
@@ -176,6 +179,8 @@ bool CARAMToken::RefreshStatus() {
     MoveToList(kS_Zero);
     break;
   }
+  default:
+    break;
   }
 
   return true;

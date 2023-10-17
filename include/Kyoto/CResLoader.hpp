@@ -1,6 +1,7 @@
 #ifndef _CRESLOADER
 #define _CRESLOADER
 
+#include "Kyoto/SObjectTag.hpp"
 #include "types.h"
 
 #include "rstl/list.hpp"
@@ -9,7 +10,7 @@
 #include "Kyoto/IObjectStore.hpp"
 
 class CPakFile;
-class CARAMDvdRequest;
+class CDvdRequest;
 
 struct SResInfo {
   CAssetId x0_id;
@@ -27,8 +28,10 @@ public:
   void AsyncIdlePakLoading();
   bool AreAllPaksLoaded() const;
   CInputStream* LoadNewResourceSync(const SObjectTag& tag, char* extBuf);
+  CInputStream* LoadResourceFromMemorySync(const SObjectTag& tag, const void* extBuf);
   CInputStream* LoadNewResourceSync(const SObjectTag& tag, int, int, char* extBuf);
-  CARAMDvdRequest* LoadResourcePartAsync(const SObjectTag& tag, int, int, char*);
+  CDvdRequest* LoadResourcePartAsync(const SObjectTag& tag, int, int, char*);
+  CDvdRequest* LoadResourceAsync(const SObjectTag& tag, char*);
 
   FourCC GetResourceTypeById(CAssetId) const;
   uint ResourceSize(const SObjectTag& tag) const;

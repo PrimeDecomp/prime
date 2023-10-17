@@ -30,7 +30,7 @@ CWorldShadow::CWorldShadow(uint w, uint h, bool rgba8)
 
 CWorldShadow::~CWorldShadow() {
   if (x0_texture.get())
-    x0_texture->sub_8030e10c();
+    x0_texture->fn_8030E10C();
 }
 
 void CWorldShadow::BuildLightShadowTexture(const CStateManager& mgr, TAreaId aid, uint lightIdx,
@@ -151,8 +151,7 @@ void CWorldShadow::BuildLightShadowTexture(const CStateManager& mgr, TAreaId aid
         }
         GXSetTexCopyDst(x0_texture->GetWidth(), x0_texture->GetHeight(), fmt, true);
         static int unkInt = 0;
-        x0_texture->SetFlag1(true);
-        void * dest = x0_texture->GetBitMapData(0);
+        void * dest = x0_texture->Lock();
         GXCopyTex(dest, true);
         x0_texture->UnLock();
 

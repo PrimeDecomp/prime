@@ -35,7 +35,6 @@ public:
   single_ptr& Set(T* ptr);
 };
 
-
 template < typename T >
 single_ptr< T >& single_ptr< T >::Set(T* ptr) {
   return *this = ptr;

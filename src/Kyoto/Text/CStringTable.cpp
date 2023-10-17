@@ -42,10 +42,7 @@ const wchar_t* CStringTable::GetString(int idx) const {
   return reinterpret_cast< const wchar_t* >(x4_data.get() + offset);
 }
 
-template <>
-CFactoryFnReturn::CFactoryFnReturn(CStringTable* ptr)
-: obj(TToken< CStringTable >::GetIObjObjectFor(rstl::auto_ptr< CStringTable >(ptr)).release()) {}
-
+#pragma inline_max_size(250)
 CFactoryFnReturn FStringTableFactory(const SObjectTag& tag, CInputStream& in,
                                      const CVParamTransfer& xfer) {
   return rs_new CStringTable(in);

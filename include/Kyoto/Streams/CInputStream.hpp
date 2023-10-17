@@ -44,7 +44,8 @@ public:
   // CIEKeyframeEmitter / rstl::vector(CInputStream&)
   // why?
   int ReadInt32() { return static_cast< uint >(Get(TType< int >())); }
-  u16 ReadUint16() { return Get<u16>(); }
+  ushort ReadUint16() { return Get<ushort>(); }
+  short ReadInt16() { return Get<short>(); }
 
   uint GetBlockOffset() const { return x4_blockOffset; }
 

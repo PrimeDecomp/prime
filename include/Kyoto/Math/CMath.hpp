@@ -78,6 +78,7 @@ public:
   // CeilingF__5CMathFf global
   // ArcTangentR__5CMathFf global
   // Swap<f>__5CMathFRfRf weak
+  static int FloorPowerOfTwo(int v);
 };
 
 #endif // _CMATH

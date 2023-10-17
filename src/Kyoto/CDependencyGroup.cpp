@@ -29,11 +29,6 @@ int CDependencyGroup::GetCountForResType(FourCC type) const {
 
 /* this is such a hack... */
 #pragma inline_max_size(250)
-template <>
-CFactoryFnReturn::CFactoryFnReturn(CDependencyGroup* ptr)
-: obj(TToken< CDependencyGroup >::GetIObjObjectFor(rstl::auto_ptr< CDependencyGroup >(ptr))
-          .release()) {}
-
 CFactoryFnReturn FDependencyGroupFactory(const SObjectTag& tag, CInputStream& in,
                                          const CVParamTransfer& xfer) {
   return rs_new CDependencyGroup(in);
