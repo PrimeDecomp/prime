@@ -82,7 +82,7 @@ public:
   const CGameArea& GetAreaAlways(TAreaId id) const { return *x18_areas[id.Value()]; }
   CGameArea* Area(TAreaId id) { return x18_areas[id.Value()].get(); }
   const CGameArea* GetArea(TAreaId id) const { return x18_areas[id.Value()].get(); }
-  bool IsAreaValid(TAreaId id) const { return GetArea(id)->IsLoaded(); }
+  bool IsAreaValid(TAreaId id) const { return x18_areas[id.Value()]->IsLoaded(); }
   CAssetId GetWorldAssetId() const { return x8_mlvlId; }
   TAreaId GetCurrentAreaId() const { return x68_curAreaId; }
   TAreaId GetAreaIdForSaveId(int saveId) const;

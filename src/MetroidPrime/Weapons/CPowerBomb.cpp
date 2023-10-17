@@ -74,11 +74,11 @@ void CPowerBomb::Think(float dt, CStateManager& mgr) {
 
     if (x15c_curTime > 7.f) {
       if (x168_particle->IsSystemDeletable())
-        mgr.FreeScriptObject(GetUniqueId());
+        mgr.DeleteObjectRequest(GetUniqueId());
     }
 
     if (x15c_curTime > 30.f) {
-      mgr.FreeScriptObject(GetUniqueId());
+      mgr.DeleteObjectRequest(GetUniqueId());
       return;
     }
   }

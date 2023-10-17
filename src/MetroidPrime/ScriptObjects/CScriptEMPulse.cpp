@@ -52,10 +52,11 @@ void CScriptEMPulse::Think(float dt, CStateManager& mgr) {
   if (!GetActive()) {
     return;
   }
-  xf0_currentRadius += ((xec_finalRadius - xf4_initialRadius) / xe8_duration) * dt;
 
-  if (xf0_currentRadius <= xec_finalRadius) {
-    mgr.FreeScriptObject(GetUniqueId());
+  float step = (xec_finalRadius - xf4_initialRadius) / xe8_duration;
+  xf0_currentRadius = xf0_currentRadius + step * dt;
+  if (xf0_currentRadius >= xec_finalRadius) {
+    mgr.DeleteObjectRequest(GetUniqueId());
   }
 
   x114_particleGen->Update(dt);
@@ -64,9 +65,8 @@ void CScriptEMPulse::Think(float dt, CStateManager& mgr) {
 CAABox CScriptEMPulse::CalculateBoundingBox() const {
   float radius = xf0_currentRadius;
   CVector3f position(GetTranslation());
-  return CAABox(
-      CVector3f(position.GetX() - radius, position.GetY() - radius, position.GetZ() - radius),
-      CVector3f(position.GetX() + radius, position.GetY() + radius, position.GetZ() + radius));
+  return CAABox(position - CVector3f(radius, radius, radius),
+                position + CVector3f(radius, radius, radius));
 }
 
 rstl::optional_object< CAABox > CScriptEMPulse::GetTouchBounds() const {

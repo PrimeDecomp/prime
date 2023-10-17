@@ -57,10 +57,14 @@ void CScriptDistanceFog::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId obj
       }
 
       if (!close_enough(x54_thermalSpeed, 0.f)) {
-        stateMgr.World()->Area(GetCurrentAreaId())->SetThermalSpeedAndTarget(x54_thermalSpeed, x50_thermalTarget);
+        stateMgr.World()
+            ->Area(GetCurrentAreaId())
+            ->SetThermalSpeedAndTarget(x54_thermalSpeed, x50_thermalTarget);
       }
       if (!close_enough(x5c_xraySpeed, 0.f)) {
-        stateMgr.World()->Area(GetCurrentAreaId())->SetXRaySpeedAndTarget(x5c_xraySpeed, x58_xrayTarget);
+        stateMgr.World()
+            ->Area(GetCurrentAreaId())
+            ->SetXRaySpeedAndTarget(x5c_xraySpeed, x58_xrayTarget);
       }
       break;
     }

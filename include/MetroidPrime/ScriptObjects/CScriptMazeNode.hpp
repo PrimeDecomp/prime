@@ -43,7 +43,7 @@ struct SMazeCell {
   }
 };
 
-class CMazeState {
+class CSinglePathMaze {
   CRandom16 x0_rand;
   SMazeCell x4_cells[skMazeRows * skMazeCols];
   int x84_enterCol;
@@ -61,15 +61,15 @@ public:
     kS_Left = 3,
   };
 
-  CMazeState(int enterCol, int enterRow, int targetCol, int targetRow);
-  void Reset(int seed);
-  void Initialize();
-  void GenerateObstacles();
+  CSinglePathMaze(int enterCol, int enterRow, int targetCol, int targetRow);
+  void CreateMaze(int seed);
+  void SolveMaze();
+  void AddGimmicks();
 
-  SMazeCell& GetCell(uint col, uint row);
-  const SMazeCell& GetCell(uint col, uint row) const;
-  SMazeCell& GetCellInline(uint col, uint row) { return x4_cells[col + row * skMazeCols]; } // ????
-  inline SMazeCell& GetCell(uint idx) { return x4_cells[idx]; }
+  SMazeCell& MazePoint(uint col, uint row);
+  const SMazeCell& GetMazePoint(uint col, uint row) const;
+  SMazeCell& MazePointInline(uint col, uint row) { return x4_cells[col + row * skMazeCols]; } // ????
+  inline SMazeCell& MazePoint(uint idx) { return x4_cells[idx]; }
 };
 
 class CScriptMazeNode : public CActor {
@@ -111,11 +111,17 @@ private:
   bool x13c_25_hasGate : 1;
   bool x13c_26_gateActive : 1;
 
-  void GenerateObjects(CStateManager& mgr);
-  void Reset(CStateManager& mgr);
-  void SendScriptMsgs(CStateManager& mgr, EScriptObjectMessage msg);
+  void GenerateBarrier(CStateManager& mgr);
+  void DeleteBarrier(CStateManager& mgr);
+  void SendBarrierMsg(CStateManager& mgr, EScriptObjectMessage msg);
 
   static uint sMazeSeeds[300];
+
+  // hack for SendBarrierMsg
+  static inline void DeliverScriptMsg(CStateManager& mgr, CEntity* to, TUniqueId sender,
+                                   EScriptObjectMessage msg) {
+    mgr.DeliverScriptMsg(to, sender, msg);
+  }
 };
 
 #endif // _CSCRIPTMAZENODE

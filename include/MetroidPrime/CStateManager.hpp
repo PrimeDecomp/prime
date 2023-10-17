@@ -6,11 +6,12 @@
 #include "Kyoto/CObjectReference.hpp"
 #include "Kyoto/CRandom16.hpp"
 #include "Kyoto/Input/CFinalInput.hpp"
+#include "Kyoto/Math/CFrustumPlanes.hpp"
 #include "Kyoto/Math/CVector2f.hpp"
 #include "Kyoto/Math/CVector2i.hpp"
-#include "Kyoto/Math/CFrustumPlanes.hpp"
 #include "Kyoto/TOneStatic.hpp"
 #include "Kyoto/TToken.hpp"
+
 
 #include "MetroidPrime/CEntityInfo.hpp"
 #include "MetroidPrime/CObjectList.hpp"
@@ -23,14 +24,15 @@
 
 #include "rstl/auto_ptr.hpp"
 #include "rstl/list.hpp"
-#include "rstl/set.hpp"
 #include "rstl/map.hpp"
 #include "rstl/multimap.hpp"
 #include "rstl/pair.hpp"
 #include "rstl/rc_ptr.hpp"
 #include "rstl/reserved_vector.hpp"
+#include "rstl/set.hpp"
 #include "rstl/single_ptr.hpp"
 #include "rstl/string.hpp"
+
 
 class CAABox;
 class CActor;
@@ -50,7 +52,7 @@ class CWeaponMgr;
 class CWorld;
 class CWorldTransManager;
 class CEntity;
-class CMazeState;
+class CSinglePathMaze;
 class CRayCastResult;
 class CMaterialFilter;
 class CWorldLayerState;
@@ -125,11 +127,11 @@ public:
   void ResetEscapeSequenceTimer(float);
   void SendScriptMsg(TUniqueId uid, TEditorId target, EScriptObjectMessage msg,
                      EScriptObjectState state);
-  void SendScriptMsg(CEntity* ent, TUniqueId target, EScriptObjectMessage msg);
+  void DeliverScriptMsg(CEntity* ent, TUniqueId target, EScriptObjectMessage msg);
   void SendScriptMsgAlways(TUniqueId uid, TUniqueId src, EScriptObjectMessage msg);
   bool AddDrawableActor(const CActor& actor, const CVector3f& pos, const CAABox& bounds) const;
   void SetupParticleHook(const CActor& actor) const;
-  void FreeScriptObject(TUniqueId uid);
+  void DeleteObjectRequest(TUniqueId uid);
   rstl::pair< TEditorId, TUniqueId > GenerateObject(const TEditorId& eid);
   void AddObject(CEntity*);
   TUniqueId AllocateUniqueId();
@@ -164,9 +166,9 @@ public:
 
   bool CanCreateProjectile(TUniqueId, EWeaponType, int) const;
 
-  CMazeState* CurrentMaze();
-  const CMazeState* GetCurrentMaze() const;
-  void SetCurrentMaze(rstl::single_ptr< CMazeState > maze);
+  CSinglePathMaze* SinglePathMaze();
+  const CSinglePathMaze* GetSinglePathMaze() const;
+  void SetSinglePathMaze(rstl::single_ptr< CSinglePathMaze > maze);
 
   CPlayer* Player() { return x84c_player; }
   const CPlayer* GetPlayer() const { return x84c_player; }
@@ -331,7 +333,7 @@ private:
   EGameState x904_gameState;
   rstl::reserved_vector< FScriptLoader, int(kST_MAX) > x90c_loaderFuncs;
   EInitPhase xb3c_initPhase;
-  rstl::set<rstl::string> xb40_uniqueInstanceNames;
+  rstl::set< rstl::string > xb40_uniqueInstanceNames;
 
   CFinalInput xb54_finalInput;
   rstl::reserved_vector< CCameraFilterPass, kCFS_Max > xb84_camFilterPasses;
@@ -355,7 +357,7 @@ private:
   rstl::list< TUniqueId > xf3c_activeFlickerBats;
   rstl::list< TUniqueId > xf54_activeParasites;
   TUniqueId xf6c_playerActorHead;
-  rstl::single_ptr< CMazeState > xf70_currentMaze;
+  rstl::single_ptr< CSinglePathMaze > xf70_currentMaze;
   TUniqueId xf74_lastTrigger;
   TUniqueId xf76_lastRelay;
   float xf78_hudMessageTime;

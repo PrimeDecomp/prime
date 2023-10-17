@@ -8,7 +8,7 @@
 
 uint CScriptMazeNode::sMazeSeeds[300];
 
-CMazeState::CMazeState(int enterCol, int enterRow, int targetCol, int targetRow)
+CSinglePathMaze::CSinglePathMaze(int enterCol, int enterRow, int targetCol, int targetRow)
 : x0_rand(0)
 , x84_enterCol(enterCol)
 , x88_enterRow(enterRow)
@@ -16,7 +16,7 @@ CMazeState::CMazeState(int enterCol, int enterRow, int targetCol, int targetRow)
 , x90_targetRow(targetRow)
 , x94_24_initialized(false) {}
 
-void CMazeState::Reset(int seed) {
+void CSinglePathMaze::CreateMaze(int seed) {
   int numCells = NUM_MAZE_CELLS - 1;
   int cellIdx = 0;
 
@@ -29,17 +29,17 @@ void CMazeState::Reset(int seed) {
   ESide sides[4];
   while (numCells != 0) {
     int acc = 0;
-    if (cellIdx - skMazeCols > 0 && GetCell(cellIdx - skMazeCols).IsClosed()) {
+    if (cellIdx - skMazeCols > 0 && MazePoint(cellIdx - skMazeCols).IsClosed()) {
       sides[acc++] = kS_Top;
     }
     if (cellIdx < NUM_MAZE_CELLS - 2 && (cellIdx + 1) % skMazeCols != 0 &&
-        GetCell(cellIdx + 1).IsClosed()) {
+        MazePoint(cellIdx + 1).IsClosed()) {
       sides[acc++] = kS_Right;
     }
-    if (cellIdx + skMazeCols <= NUM_MAZE_CELLS - 1 && GetCell(cellIdx + skMazeCols).IsClosed()) {
+    if (cellIdx + skMazeCols <= NUM_MAZE_CELLS - 1 && MazePoint(cellIdx + skMazeCols).IsClosed()) {
       sides[acc++] = kS_Bottom;
     }
-    if (cellIdx > 0 && cellIdx % skMazeCols != 0 && GetCell(cellIdx - 1).IsClosed()) {
+    if (cellIdx > 0 && cellIdx % skMazeCols != 0 && MazePoint(cellIdx - 1).IsClosed()) {
       sides[acc++] = kS_Left;
     }
 
@@ -49,23 +49,23 @@ void CMazeState::Reset(int seed) {
       ESide side = sides[x0_rand.Next() % static_cast< uint >(acc)];
       switch (side) {
       case kS_Top:
-        GetCell(cellIdx).x0_24_openTop = true;
-        GetCell(cellIdx - skMazeCols).x0_26_openBottom = true;
+        MazePoint(cellIdx).x0_24_openTop = true;
+        MazePoint(cellIdx - skMazeCols).x0_26_openBottom = true;
         cellIdx -= skMazeCols;
         break;
       case kS_Right:
-        GetCell(cellIdx).x0_25_openRight = true;
-        GetCell(cellIdx + 1).x0_27_openLeft = true;
+        MazePoint(cellIdx).x0_25_openRight = true;
+        MazePoint(cellIdx + 1).x0_27_openLeft = true;
         cellIdx++;
         break;
       case kS_Bottom:
-        GetCell(cellIdx).x0_26_openBottom = true;
-        GetCell(cellIdx + skMazeCols).x0_24_openTop = true;
+        MazePoint(cellIdx).x0_26_openBottom = true;
+        MazePoint(cellIdx + skMazeCols).x0_24_openTop = true;
         cellIdx += skMazeCols;
         break;
       case kS_Left:
-        GetCell(cellIdx).x0_27_openLeft = true;
-        GetCell(cellIdx - 1).x0_25_openRight = true;
+        MazePoint(cellIdx).x0_27_openLeft = true;
+        MazePoint(cellIdx - 1).x0_25_openRight = true;
         cellIdx--;
         break;
       }
@@ -77,24 +77,26 @@ void CMazeState::Reset(int seed) {
       if (cellIdx > NUM_MAZE_CELLS - 1) {
         cellIdx = 0;
       }
-    } while (GetCell(cellIdx).IsClosed());
+    } while (MazePoint(cellIdx).IsClosed());
   }
 }
 
-const SMazeCell& CMazeState::GetCell(uint col, uint row) const {
+const SMazeCell& CSinglePathMaze::GetMazePoint(uint col, uint row) const {
   return x4_cells[col + row * skMazeCols];
 }
 
-SMazeCell& CMazeState::GetCell(uint col, uint row) { return x4_cells[col + row * skMazeCols]; }
+SMazeCell& CSinglePathMaze::MazePoint(uint col, uint row) {
+  return x4_cells[col + row * skMazeCols];
+}
 
 static inline int GetRandom(CRandom16& rand, int offset) {
   int tmp = rand.Next();
   return tmp - ((tmp / 5) * 5) + offset;
 }
 
-void CMazeState::GenerateObstacles() {
+void CSinglePathMaze::AddGimmicks() {
   if (!x94_24_initialized) {
-    Initialize();
+    SolveMaze();
   }
 
   int gate1Idx = GetRandom(x0_rand, 9);
@@ -114,47 +116,49 @@ void CMazeState::GenerateObstacles() {
     if (idx == gate1Idx || idx == gate2Idx || idx == gate3Idx) {
       switch (side) {
       case kS_Top:
-        GetCellInline(col, row).x0_30_gateBottom = true;
-        GetCellInline(prevCol, prevRow).x0_28_gateTop = true;
+        MazePointInline(col, row).x0_30_gateBottom = true;
+        MazePointInline(prevCol, prevRow).x0_28_gateTop = true;
         break;
       case kS_Right:
-        GetCellInline(col, row).x0_31_gateLeft = true;
-        GetCellInline(prevCol, prevRow).x0_29_gateRight = true;
+        MazePointInline(col, row).x0_31_gateLeft = true;
+        MazePointInline(prevCol, prevRow).x0_29_gateRight = true;
         break;
       case kS_Bottom:
-        GetCellInline(col, row).x0_28_gateTop = true;
-        GetCellInline(prevCol, prevRow).x0_30_gateBottom = true;
+        MazePointInline(col, row).x0_28_gateTop = true;
+        MazePointInline(prevCol, prevRow).x0_30_gateBottom = true;
         break;
       case kS_Left:
-        GetCellInline(col, row).x0_29_gateRight = true;
-        GetCellInline(prevCol, prevRow).x0_31_gateLeft = true;
+        MazePointInline(col, row).x0_29_gateRight = true;
+        MazePointInline(prevCol, prevRow).x0_31_gateLeft = true;
         break;
       }
     }
 
     int curCol = col;
     int curRow = row;
-    if (row > 0 && side != kS_Bottom && GetCellInline(col, row).x0_24_openTop &&
-        GetCellInline(col, row - 1).x1_25_onPath) {
+    if (row > 0 && side != kS_Bottom && MazePointInline(col, row).x0_24_openTop &&
+        MazePointInline(col, row - 1).x1_25_onPath) {
       side = kS_Top;
       row--;
-    } else if (row < skMazeRows - 1 && side != kS_Top && GetCellInline(col, row).x0_26_openBottom &&
-               GetCellInline(col, row + 1).x1_25_onPath) {
+    } else if (row < skMazeRows - 1 && side != kS_Top &&
+               MazePointInline(col, row).x0_26_openBottom &&
+               MazePointInline(col, row + 1).x1_25_onPath) {
       side = kS_Bottom;
       row++;
-    } else if (col > 0 && side != kS_Right && GetCellInline(col, row).x0_27_openLeft &&
-               GetCellInline(col - 1, row).x1_25_onPath) {
+    } else if (col > 0 && side != kS_Right && MazePointInline(col, row).x0_27_openLeft &&
+               MazePointInline(col - 1, row).x1_25_onPath) {
       side = kS_Left;
       col--;
-    } else if (col < skMazeCols - 1 && side != kS_Left && GetCellInline(col, row).x0_25_openRight &&
-               GetCellInline(col + 1, row).x1_25_onPath) {
+    } else if (col < skMazeCols - 1 && side != kS_Left &&
+               MazePointInline(col, row).x0_25_openRight &&
+               MazePointInline(col + 1, row).x1_25_onPath) {
       side = kS_Right;
       col++;
     } else {
       return;
     }
 
-#define GetCellInline(c, r) x4_cells[c + r * skMazeCols]
+#define MazePointInline(c, r) x4_cells[c + r * skMazeCols]
     if (idx == puddle1Idx || idx == puddle2Idx) {
       if (curCol == 0 || curRow == 0 || curCol == skMazeCols - 1 || curRow == skMazeRows - 1) {
         if (idx == puddle1Idx) {
@@ -163,28 +167,28 @@ void CMazeState::GenerateObstacles() {
           puddle2Idx++;
         }
       } else {
-        GetCellInline(curCol, curRow).x1_24_puddle = true;
+        MazePointInline(curCol, curRow).x1_24_puddle = true;
         switch (side) {
         case kS_Top:
-          GetCellInline(col, row).x0_26_openBottom = false;
-          GetCellInline(curCol, curRow).x0_24_openTop = false;
+          MazePointInline(col, row).x0_26_openBottom = false;
+          MazePointInline(curCol, curRow).x0_24_openTop = false;
           break;
         case kS_Right:
-          GetCellInline(col, row).x0_27_openLeft = false;
-          GetCellInline(curCol, curRow).x0_25_openRight = false;
+          MazePointInline(col, row).x0_27_openLeft = false;
+          MazePointInline(curCol, curRow).x0_25_openRight = false;
           break;
         case kS_Bottom:
-          GetCellInline(col, row).x0_24_openTop = false;
-          GetCellInline(curCol, curRow).x0_26_openBottom = false;
+          MazePointInline(col, row).x0_24_openTop = false;
+          MazePointInline(curCol, curRow).x0_26_openBottom = false;
           break;
         case kS_Left:
-          GetCellInline(col, row).x0_25_openRight = false;
-          GetCellInline(curCol, curRow).x0_27_openLeft = false;
+          MazePointInline(col, row).x0_25_openRight = false;
+          MazePointInline(curCol, curRow).x0_27_openLeft = false;
           break;
         }
       }
     }
-#undef GetCellInline
+#undef MazePointInline
 
     idx++;
     prevCol = curCol;
@@ -192,7 +196,7 @@ void CMazeState::GenerateObstacles() {
   }
 }
 
-void CMazeState::Initialize() {
+void CSinglePathMaze::SolveMaze() {
   int path[NUM_MAZE_CELLS];
   int pathIdx = 0;
   int targetRow = x90_targetRow;
@@ -256,7 +260,7 @@ CScriptMazeNode::CScriptMazeNode(TUniqueId uid, const rstl::string& name, const 
 
 void CScriptMazeNode::Accept(IVisitor& visitor) { visitor.Visit(*this); }
 
-void CScriptMazeNode::GenerateObjects(CStateManager& mgr) {
+void CScriptMazeNode::GenerateBarrier(CStateManager& mgr) {
   rstl::vector< SConnection >::iterator conn = ConnectionList().begin();
   for (; conn != ConnectionList().end(); ++conn) {
     if (conn->x0_state != kSS_MaxReached || conn->x4_msg != kSM_Activate) {
@@ -280,7 +284,7 @@ void CScriptMazeNode::GenerateObjects(CStateManager& mgr) {
     mgr.SetIsGeneratingObject(wasGeneratingObject);
 
     if (CActor* actor = static_cast< CActor* >(mgr.ObjectById(objUid))) {
-      mgr.SendScriptMsg(actor, GetUniqueId(), kSM_Activate);
+      mgr.DeliverScriptMsg(actor, GetUniqueId(), kSM_Activate);
       if (scriptEffect) {
         actor->SetTranslation(GetTranslation() + x120_effectPos);
         x11c_effectId = objUid;
@@ -297,45 +301,45 @@ void CScriptMazeNode::GenerateObjects(CStateManager& mgr) {
   }
 }
 
-void CScriptMazeNode::Reset(CStateManager& mgr) {
-  mgr.FreeScriptObject(x11c_effectId);
-  mgr.FreeScriptObject(xfc_actorId);
-  mgr.FreeScriptObject(x10c_triggerId);
-  mgr.FreeScriptObject(xf4_gateEffectId);
+void CScriptMazeNode::DeleteBarrier(CStateManager& mgr) {
+  mgr.DeleteObjectRequest(x11c_effectId);
+  mgr.DeleteObjectRequest(xfc_actorId);
+  mgr.DeleteObjectRequest(x10c_triggerId);
+  mgr.DeleteObjectRequest(xf4_gateEffectId);
   x11c_effectId = xfc_actorId = x10c_triggerId = xf4_gateEffectId = kInvalidUniqueId;
 }
 
-void CScriptMazeNode::SendScriptMsgs(CStateManager& mgr, EScriptObjectMessage msg) {
-  SendScriptMsg(mgr, mgr.ObjectById(x11c_effectId), GetUniqueId(), msg);
-  SendScriptMsg(mgr, mgr.ObjectById(xfc_actorId), GetUniqueId(), msg);
-  SendScriptMsg(mgr, mgr.ObjectById(x10c_triggerId), GetUniqueId(), msg);
-  SendScriptMsg(mgr, mgr.ObjectById(xf4_gateEffectId), GetUniqueId(), msg);
+void CScriptMazeNode::SendBarrierMsg(CStateManager& mgr, EScriptObjectMessage msg) {
+  DeliverScriptMsg(mgr, mgr.ObjectById(x11c_effectId), GetUniqueId(), msg);
+  DeliverScriptMsg(mgr, mgr.ObjectById(xfc_actorId), GetUniqueId(), msg);
+  DeliverScriptMsg(mgr, mgr.ObjectById(x10c_triggerId), GetUniqueId(), msg);
+  DeliverScriptMsg(mgr, mgr.ObjectById(xf4_gateEffectId), GetUniqueId(), msg);
 }
 
 void CScriptMazeNode::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) {
   if (GetActive()) {
     switch (msg) {
     case kSM_InitializedInArea: {
-      if (mgr.CurrentMaze() == nullptr) {
-        rstl::single_ptr< CMazeState > maze =
-            rs_new CMazeState(skEnterCol, skEnterRow, skTargetCol, skTargetRow);
-        maze->Reset(sMazeSeeds[mgr.Random()->Next() % 300]);
-        maze->Initialize();
-        maze->GenerateObstacles();
-        mgr.SetCurrentMaze(maze);
+      if (mgr.SinglePathMaze() == nullptr) {
+        rstl::single_ptr< CSinglePathMaze > maze =
+            rs_new CSinglePathMaze(skEnterCol, skEnterRow, skTargetCol, skTargetRow);
+        maze->CreateMaze(sMazeSeeds[mgr.Random()->Next() % 300]);
+        maze->SolveMaze();
+        maze->AddGimmicks();
+        mgr.SetSinglePathMaze(maze);
       }
       break;
     }
     case kSM_Action: {
       bool shouldGenObjs = false;
-      if (const CMazeState* maze = mgr.CurrentMaze()) {
-        const SMazeCell& cell = maze->GetCell(xe8_col, xec_row);
-        if (xf0_side == CMazeState::kS_Top && cell.x0_24_openTop) {
+      if (const CSinglePathMaze* maze = mgr.SinglePathMaze()) {
+        const SMazeCell& cell = maze->GetMazePoint(xe8_col, xec_row);
+        if (xf0_side == CSinglePathMaze::kS_Top && cell.x0_24_openTop) {
           if (cell.x0_28_gateTop) {
             shouldGenObjs = true;
             x13c_25_hasGate = true;
           }
-        } else if (xf0_side == CMazeState::kS_Right && cell.x0_25_openRight) {
+        } else if (xf0_side == CSinglePathMaze::kS_Right && cell.x0_25_openRight) {
           if (cell.x0_29_gateRight) {
             shouldGenObjs = true;
             x13c_25_hasGate = true;
@@ -344,9 +348,9 @@ void CScriptMazeNode::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, C
           shouldGenObjs = true;
         }
         if (shouldGenObjs) {
-          GenerateObjects(mgr);
+          GenerateBarrier(mgr);
         }
-        if (xf0_side == CMazeState::kS_Right && cell.x1_24_puddle) {
+        if (xf0_side == CSinglePathMaze::kS_Right && cell.x1_24_puddle) {
           x13c_24_hasPuddle = true;
         }
         if (x13c_25_hasGate) {
@@ -368,7 +372,7 @@ void CScriptMazeNode::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, C
             xf4_gateEffectId = genObj;
             if (CActor* actor = TCastToPtr< CActor >(mgr.ObjectById(genObj))) {
               actor->SetTranslation(GetTranslation() + x120_effectPos);
-              mgr.SendScriptMsg(actor, GetUniqueId(), kSM_Activate);
+              mgr.DeliverScriptMsg(actor, GetUniqueId(), kSM_Activate);
             }
             break;
           }
@@ -387,7 +391,6 @@ void CScriptMazeNode::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, C
           for (; conn != GetConnectionList().end(); ++conn) {
             if ((conn->x0_state == kSS_Closed || conn->x0_state == kSS_DeactivateState) &&
                 conn->x4_msg == kSM_Activate) {
-              // TUniqueId genObj = GenerateObject(mgr, conn->x8_objId);
               bool wasGeneratingObject = mgr.IsGeneratingObject();
               mgr.SetIsGeneratingObject(true);
               TUniqueId genObj = mgr.GenerateObject(conn->x8_objId).second;
@@ -397,7 +400,7 @@ void CScriptMazeNode::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, C
               if (CActor* actor = TCastToPtr< CActor >(mgr.ObjectById(genObj))) {
                 actor->SetTransform(GetTransform());
                 if (conn->x0_state == kSS_Closed) {
-                  mgr.SendScriptMsg(actor, GetUniqueId(), kSM_Activate);
+                  mgr.DeliverScriptMsg(actor, GetUniqueId(), kSM_Activate);
                 }
               }
             }
@@ -407,7 +410,7 @@ void CScriptMazeNode::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, C
       break;
     }
     case kSM_SetToZero: {
-      CMazeState* maze = mgr.CurrentMaze();
+      CSinglePathMaze* maze = mgr.SinglePathMaze();
       if (x13c_24_hasPuddle && maze != nullptr) {
         if (rstl::find(x12c_puddleObjectIds.begin(), x12c_puddleObjectIds.end(), uid) !=
             x12c_puddleObjectIds.end()) {
@@ -415,9 +418,9 @@ void CScriptMazeNode::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, C
           for (; it != x12c_puddleObjectIds.end(); ++it) {
             if (CEntity* ent = mgr.ObjectById(*it)) {
               if (!ent->GetActive()) {
-                mgr.SendScriptMsg(ent, GetUniqueId(), kSM_Activate);
+                mgr.DeliverScriptMsg(ent, GetUniqueId(), kSM_Activate);
               } else {
-                mgr.FreeScriptObject(ent->GetUniqueId());
+                mgr.DeleteObjectRequest(ent->GetUniqueId());
               }
             }
           }
@@ -426,38 +429,38 @@ void CScriptMazeNode::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, C
                objIdx = list.GetNextObjectIndex(objIdx)) {
             if (CScriptMazeNode* node = TCastToPtr< CScriptMazeNode >(list[objIdx])) {
               if (node->xe8_col == xe8_col - 1 && node->xec_row == xec_row &&
-                  node->xf0_side == CMazeState::kS_Right) {
-                SMazeCell& cell = maze->GetCell(xe8_col - 1, xec_row);
+                  node->xf0_side == CSinglePathMaze::kS_Right) {
+                SMazeCell& cell = maze->MazePoint(xe8_col - 1, xec_row);
                 if (!cell.x0_25_openRight) {
                   cell.x0_25_openRight = true;
-                  node->Reset(mgr);
+                  node->DeleteBarrier(mgr);
                   node->x13c_25_hasGate = false;
                 }
               }
               if (node->xe8_col == xe8_col && node->xec_row == xec_row &&
-                  node->xf0_side == CMazeState::kS_Right) {
-                SMazeCell& cell = maze->GetCell(xe8_col, xec_row);
+                  node->xf0_side == CSinglePathMaze::kS_Right) {
+                SMazeCell& cell = maze->MazePoint(xe8_col, xec_row);
                 if (!cell.x0_25_openRight) {
                   cell.x0_25_openRight = true;
-                  node->Reset(mgr);
+                  node->DeleteBarrier(mgr);
                   node->x13c_25_hasGate = false;
                 }
               }
               if (node->xe8_col == xe8_col && node->xec_row == xec_row &&
-                  node->xf0_side == CMazeState::kS_Top) {
-                SMazeCell& cell = maze->GetCell(xe8_col, xec_row);
+                  node->xf0_side == CSinglePathMaze::kS_Top) {
+                SMazeCell& cell = maze->MazePoint(xe8_col, xec_row);
                 if (!cell.x0_24_openTop) {
                   cell.x0_24_openTop = true;
-                  node->Reset(mgr);
+                  node->DeleteBarrier(mgr);
                   node->x13c_25_hasGate = false;
                 }
               }
               if (node->xe8_col == xe8_col && node->xec_row == xec_row + 1 &&
-                  node->xf0_side == CMazeState::kS_Top) {
-                SMazeCell& cell = maze->GetCell(xe8_col, xec_row + 1);
+                  node->xf0_side == CSinglePathMaze::kS_Top) {
+                SMazeCell& cell = maze->MazePoint(xe8_col, xec_row + 1);
                 if (!cell.x0_24_openTop) {
                   cell.x0_24_openTop = true;
-                  node->Reset(mgr);
+                  node->DeleteBarrier(mgr);
                   node->x13c_25_hasGate = false;
                 }
               }
@@ -468,14 +471,14 @@ void CScriptMazeNode::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, C
       break;
     }
     case kSM_Deleted: {
-      if (mgr.GetCurrentMaze()) {
-        mgr.SetCurrentMaze(nullptr);
+      if (mgr.GetSinglePathMaze()) {
+        mgr.SetSinglePathMaze(nullptr);
       }
-      Reset(mgr);
+      DeleteBarrier(mgr);
       break;
     }
     case kSM_Deactivate: {
-      Reset(mgr);
+      DeleteBarrier(mgr);
       break;
     }
     }
@@ -490,10 +493,10 @@ void CScriptMazeNode::Think(float dt, CStateManager& mgr) {
       xf8_msgTimer = 1.f;
       if (x13c_26_gateActive) {
         x13c_26_gateActive = false;
-        SendScriptMsgs(mgr, kSM_Deactivate);
+        SendBarrierMsg(mgr, kSM_Deactivate);
       } else {
         x13c_26_gateActive = true;
-        SendScriptMsgs(mgr, kSM_Activate);
+        SendBarrierMsg(mgr, kSM_Activate);
       }
     }
   }

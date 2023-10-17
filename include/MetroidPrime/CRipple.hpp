@@ -30,6 +30,8 @@ public:
   void SetTime(float t) { x4_time = t; }
   
   float GetTimeFalloff() const { return x14_timeFalloff; }
+
+  static float kDefaultScale;
 };
 
 #endif // _CRIPPLE

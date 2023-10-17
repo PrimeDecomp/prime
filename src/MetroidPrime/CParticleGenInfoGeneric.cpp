@@ -108,7 +108,7 @@ void CParticleGenInfoGeneric::DeleteLight(CStateManager& stateMgr) {
     return;
   }
 
-  stateMgr.FreeScriptObject(x88_lightId);
+  stateMgr.DeleteObjectRequest(x88_lightId);
   x88_lightId = kInvalidUniqueId;
 }
 

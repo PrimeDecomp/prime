@@ -29,7 +29,7 @@ void CScriptBeam::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objId, CSt
   } break;
 
   case kSM_Deleted:
-    mgr.FreeScriptObject(x154_projectileId);
+    mgr.DeleteObjectRequest(x154_projectileId);
     break;
 
   case kSM_Increment:

@@ -70,7 +70,7 @@ void CCollisionActorManager::Update(float dt, CStateManager& mgr,
 
 void CCollisionActorManager::Destroy(CStateManager& mgr) const {
   for (int i = 0; i < x0_jointDescriptions.size(); ++i) {
-    mgr.FreeScriptObject(x0_jointDescriptions[i].GetCollisionActorId());
+    mgr.DeleteObjectRequest(x0_jointDescriptions[i].GetCollisionActorId());
   }
 
   x13_destroyed = true;

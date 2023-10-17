@@ -69,7 +69,7 @@ void CScriptActorKeyframe::UpdateEntity(TUniqueId uid, CStateManager& mgr) {
   }
   if (act) {
     if (!act->GetActive()) {
-      mgr.SendScriptMsg(act, GetUniqueId(), kSM_Activate);
+      mgr.DeliverScriptMsg(act, GetUniqueId(), kSM_Activate);
     }
     act->SetModelFlags(CModelFlags::Normal());
     if (act->HasAnimation()) {

@@ -7,7 +7,7 @@
 
 #include "rstl/math.hpp"
 
-CAABox calculate_ball_aabox() {
+static CAABox calculate_ball_aabox() {
   const float extent = 0.33f * gpTweakPlayer->GetPlayerBallHalfExtent();
   return CAABox(CVector3f(-extent, -extent, -extent), CVector3f(extent, extent, extent));
 }

@@ -1,12 +1,15 @@
 #include "MetroidPrime/ScriptObjects/CScriptRipple.hpp"
 
 #include "MetroidPrime/CFluidPlaneCPU.hpp"
+#include "MetroidPrime/CRipple.hpp"
 #include "MetroidPrime/CStateManager.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptWater.hpp"
 
 CScriptRipple::CScriptRipple(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
                              const CVector3f& vec, bool active, float f1)
-: CEntity(uid, info, active, name), x34_magnitude(f1 >= 0.f ? f1 : 0.5f), x38_center(vec) {}
+: CEntity(uid, info, active, name)
+, x34_magnitude(f1 >= 0.f ? f1 : CRipple::kDefaultScale)
+, x38_center(vec) {}
 
 CScriptRipple::~CScriptRipple() {}
 
@@ -23,7 +26,7 @@ void CScriptRipple::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CSt
         continue;
       }
 
-      const CStateManager::TIdListResult& search = mgr.GetIdListForScript(conn->x8_objId);
+      CStateManager::TIdListResult search = mgr.GetIdListForScript(conn->x8_objId);
       if (search.first != search.second) {
         if (CScriptWater* water =
                 TCastToPtr< CScriptWater >(mgr.ObjectById(search.first->second))) {

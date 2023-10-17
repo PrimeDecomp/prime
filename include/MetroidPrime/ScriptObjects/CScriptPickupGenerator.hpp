@@ -13,16 +13,18 @@ public:
   void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId sender,
                        CStateManager& stateMgr) override;
 
+  // float GetNothingPossibility() const;
+
 private:
   CVector3f x34_position;
   float x40_frequency;
   float x44_delayTimer;
-  void ResetDelayTimer();
-  void GetGeneratorIds(CStateManager& mgr, TUniqueId sender,
-                       rstl::vector< TUniqueId >& idsOut) const;
-  float GetPickupTemplates(CStateManager& mgr,
-                           rstl::vector< rstl::pair< float, TEditorId > >& idsOut) const;
-  void GeneratePickup(CStateManager& mgr, TEditorId templateId, TUniqueId generatorId) const;
+
+  void ResetSpawnNothingCounter();
+  void GetTargets(CStateManager& mgr, TUniqueId sender, rstl::vector< TUniqueId >& idsOut) const;
+  float GetSpawnablePickups(CStateManager& mgr,
+                            rstl::vector< rstl::pair< float, TEditorId > >& idsOut) const;
+  void SpawnPickup(CStateManager& mgr, TEditorId templateId, TUniqueId generatorId) const;
 };
 
 #endif // _CSCRIPTPICKUPGENERATOR

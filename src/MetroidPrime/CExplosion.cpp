@@ -90,9 +90,9 @@ void CExplosion::Think(float dt, CStateManager& mgr) {
   xf8_time += dt;
 
   if (xf8_time > 15.f) {
-    mgr.FreeScriptObject(GetUniqueId());
+    mgr.DeleteObjectRequest(GetUniqueId());
   } else if (xe8_particleGen->IsSystemDeletable()) {
-    mgr.FreeScriptObject(GetUniqueId());
+    mgr.DeleteObjectRequest(GetUniqueId());
   }
 }
 
@@ -112,7 +112,7 @@ void CExplosion::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId sender, CSt
     break;
   case kSM_Deleted:
     if (xec_explosionLight != kInvalidUniqueId) {
-      mgr.FreeScriptObject(xec_explosionLight);
+      mgr.DeleteObjectRequest(xec_explosionLight);
       xec_explosionLight = kInvalidUniqueId;
     }
     break;

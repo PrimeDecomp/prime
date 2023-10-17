@@ -58,7 +58,8 @@ private:
   float x38_maxDensityDeltaSpeed;
   bool x3c_snowflakeTextureMipBlanked;
   TLockedToken< CTexture > x40_txtrEnvGradient;
-  rstl::reserved_vector< CEnvFxManagerGrid, 64 > x50_grids;
+  rstl::reserved_vector< CEnvFxManagerGrid, 64 > x4c_grids;
+  int xb50_; // padding?
   float xb54_baseSplashRate;
   TLockedToken< CGenDescription > xb58_envRainSplash;
   bool xb64_;
@@ -71,7 +72,6 @@ private:
   rstl::reserved_vector< CVector3f, 16 > xb84_snowZDeltas;
   TLockedToken< CTexture > xc48_underwaterFlake;
   bool xc54_;
-  int xc58_;
 };
 CHECK_SIZEOF(CEnvFxManager, 0xc58);
 

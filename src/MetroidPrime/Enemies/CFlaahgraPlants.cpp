@@ -67,7 +67,7 @@ void CFlaahgraPlants::Think(float dt, CStateManager& mgr) {
   }
 
   if (xe8_elementGen->IsSystemDeletable()) {
-    mgr.FreeScriptObject(GetUniqueId());
+    mgr.DeleteObjectRequest(GetUniqueId());
   }
 }
 
@@ -98,7 +98,7 @@ void CFlaahgraPlants::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, C
   }
   case kSM_Deleted: {
     if (x16c_colAct != kInvalidUniqueId) {
-      mgr.FreeScriptObject(x16c_colAct);
+      mgr.DeleteObjectRequest(x16c_colAct);
     }
     break;
   }

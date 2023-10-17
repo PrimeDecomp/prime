@@ -40,7 +40,7 @@ public:
 
   float GetPossibility() const;
   CPlayerState::EItemType GetItem() const;
-  void SetSpawned();
+  void SetWasGenerated();
 };
 
 #endif // _CSCRIPTPICKUP

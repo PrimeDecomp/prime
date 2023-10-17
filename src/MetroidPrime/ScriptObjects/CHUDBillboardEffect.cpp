@@ -103,12 +103,12 @@ void CHUDBillboardEffect::Think(float dt, CStateManager& mgr) {
     if (!x104_27_runIndefinitely) {
       x108_timeoutTimer += dt;
       if (x108_timeoutTimer > 30.f) {
-        mgr.FreeScriptObject(GetUniqueId());
+        mgr.DeleteObjectRequest(GetUniqueId());
         return;
       }
     }
     if (xe8_generator->IsSystemDeletable())
-      mgr.FreeScriptObject(GetUniqueId());
+      mgr.DeleteObjectRequest(GetUniqueId());
   }
 }
 

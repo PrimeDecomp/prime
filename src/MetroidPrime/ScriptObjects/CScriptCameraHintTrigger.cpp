@@ -42,7 +42,7 @@ void CScriptCameraHintTrigger::Think(float dt, CStateManager& mgr) {
     x130_27_playerWasInside = true;
     SendScriptMsgs(kSS_Entered, mgr, kSM_None);
     if (x130_24_deactivateOnEnter) {
-      mgr.SendScriptMsg(this, kInvalidUniqueId, kSM_Deactivate);
+      mgr.DeliverScriptMsg(this, kInvalidUniqueId, kSM_Deactivate);
     }
   }
 
@@ -50,7 +50,7 @@ void CScriptCameraHintTrigger::Think(float dt, CStateManager& mgr) {
     x130_27_playerWasInside = false;
     SendScriptMsgs(kSS_Exited, mgr, kSM_None);
     if (x130_25_deactivateOnExit) {
-      mgr.SendScriptMsg(this, kInvalidUniqueId, kSM_Deactivate);
+      mgr.DeliverScriptMsg(this, kInvalidUniqueId, kSM_Deactivate);
     }
   }
 

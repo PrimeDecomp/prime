@@ -42,7 +42,7 @@ void CGameLight::Think(float dt, CStateManager& mgr) {
     x144_lifeTime -= dt;
 
     if (x144_lifeTime <= 0.f)
-      mgr.FreeScriptObject(GetUniqueId());
+      mgr.DeleteObjectRequest(GetUniqueId());
   }
 }
 

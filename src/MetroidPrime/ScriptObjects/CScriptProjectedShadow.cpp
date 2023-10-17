@@ -45,7 +45,7 @@ void CScriptShadowProjector::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId
       }
     }
     if (x104_target == kInvalidUniqueId) {
-      mgr.FreeScriptObject(GetUniqueId());
+      mgr.DeleteObjectRequest(GetUniqueId());
       break;
     }
 

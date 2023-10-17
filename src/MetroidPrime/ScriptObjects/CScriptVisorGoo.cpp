@@ -101,7 +101,7 @@ void CScriptVisorGoo::Think(float, CStateManager& mgr) {
           }
         }
       }
-      mgr.FreeScriptObject(GetUniqueId());
+      mgr.DeleteObjectRequest(GetUniqueId());
     }
   }
 }

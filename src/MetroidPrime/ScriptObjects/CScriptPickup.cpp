@@ -137,7 +137,7 @@ void CScriptPickup::Think(float dt, CStateManager& mgr) {
   }
 
   if (x26c_lifeTime && x270_curTime > x26c_lifeTime) {
-    mgr.FreeScriptObject(GetUniqueId());
+    mgr.DeleteObjectRequest(GetUniqueId());
   }
 }
 
@@ -163,7 +163,7 @@ void CScriptPickup::Touch(CActor& act, CStateManager& mgr) {
 
     mgr.PlayerState()->InitializePowerUp(itemType, x260_capacity);
     mgr.PlayerState()->IncrPickUp(itemType, x25c_amount);
-    mgr.FreeScriptObject(GetUniqueId());
+    mgr.DeleteObjectRequest(GetUniqueId());
     SendScriptMsgs(kSS_Arrived, mgr, kSM_None);
 
     if (x260_capacity > 0) {
@@ -209,4 +209,4 @@ CPlayerState::EItemType CScriptPickup::GetItem() const { return x258_itemType; }
 
 float CScriptPickup::GetPossibility() const { return x264_possibility; }
 
-void CScriptPickup::SetSpawned() { x28c_24_generated = true; }
+void CScriptPickup::SetWasGenerated() { x28c_24_generated = true; }

@@ -12,7 +12,7 @@ template < typename T >
 T cinput_stream_helper(const TType< T >& type, CInputStream& in);
 
 template < typename T >
-TType< T > TGetType() {
+inline TType< T > TGetType() {
   return TType< T >();
 }
 
@@ -40,12 +40,9 @@ public:
 
   bool ReadPackedBool() { return ReadBits(1) != 0; }
 
-  // TODO: this cast to uint fixes regalloc in
-  // CIEKeyframeEmitter / rstl::vector(CInputStream&)
-  // why?
-  int ReadInt32() { return static_cast< uint >(Get(TType< int >())); }
-  ushort ReadUint16() { return Get<ushort>(); }
-  short ReadInt16() { return Get<short>(); }
+  int ReadInt32() { return Get< int >(); }
+  ushort ReadUint16() { return Get< ushort >(); }
+  short ReadInt16() { return Get< short >(); }
 
   uint GetBlockOffset() const { return x4_blockOffset; }
 
@@ -121,10 +118,10 @@ inline rstl::pair< L, R > cinput_stream_helper(const TType< rstl::pair< L, R > >
 template < typename T, typename Alloc >
 inline rstl::vector< T, Alloc >::vector(CInputStream& in, const Alloc& allocator)
 : x4_count(0), x8_capacity(0), xc_items(nullptr) {
-  int count = in.ReadInt32();
+  int count = in.Get< int >();
   reserve(count);
   for (int i = 0; i < count; i++) {
-    push_back(in.Get(TType< T >()));
+    push_back(in.Get(TGetType< T >()));
   }
 }
 

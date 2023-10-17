@@ -14,13 +14,13 @@ CScriptPickupGenerator::CScriptPickupGenerator(TUniqueId uid, const rstl::string
 , x34_position(pos)
 , x40_frequency(frequency)
 , x44_delayTimer(0.0f) {
-  ResetDelayTimer();
+  ResetSpawnNothingCounter();
 }
 
 CScriptPickupGenerator::~CScriptPickupGenerator() {}
 
-void CScriptPickupGenerator::GetGeneratorIds(CStateManager& mgr, TUniqueId sender,
-                                             rstl::vector< TUniqueId >& idsOut) const {
+void CScriptPickupGenerator::GetTargets(CStateManager& mgr, TUniqueId sender,
+                                        rstl::vector< TUniqueId >& idsOut) const {
   idsOut.reserve(rstl::max_val(1, GetConnectionList().size()));
   rstl::vector< SConnection >::const_iterator iter = GetConnectionList().begin();
   for (; iter != GetConnectionList().end(); ++iter) {
@@ -40,7 +40,7 @@ void CScriptPickupGenerator::GetGeneratorIds(CStateManager& mgr, TUniqueId sende
   }
 }
 
-float CScriptPickupGenerator::GetPickupTemplates(
+float CScriptPickupGenerator::GetSpawnablePickups(
     CStateManager& mgr, rstl::vector< rstl::pair< float, TEditorId > >& idsOut) const {
   float totalPossibility = 0.f;
   CPlayerState& pState = *mgr.PlayerState();
@@ -105,16 +105,16 @@ float CScriptPickupGenerator::GetPickupTemplates(
   return totalPossibility;
 }
 
-void CScriptPickupGenerator::GeneratePickup(CStateManager& mgr, TEditorId templateId,
-                                            TUniqueId generatorId) const {
+void CScriptPickupGenerator::SpawnPickup(CStateManager& mgr, TEditorId templateId,
+                                         TUniqueId generatorId) const {
   TUniqueId templateUnideId = mgr.GetIdForScript(templateId);
   CEntity* pickupTempl = mgr.ObjectById(templateUnideId);
   CEntity* generator = mgr.ObjectById(generatorId);
 
   if (pickupTempl && generator) {
-    const bool oldGeneratingObject = mgr.IsGeneratingObject();
+    bool oldGeneratingObject = mgr.IsGeneratingObject();
     mgr.SetIsGeneratingObject(true);
-    const TUniqueId p = mgr.GenerateObject(templateId).second;
+    TUniqueId p = mgr.GenerateObject(templateId).second;
     mgr.SetIsGeneratingObject(oldGeneratingObject);
 
     if (p == kInvalidUniqueId) {
@@ -134,14 +134,14 @@ void CScriptPickupGenerator::GeneratePickup(CStateManager& mgr, TEditorId templa
     }
 
     if (newPickup) {
-      newPickup->SetSpawned();
+      newPickup->SetWasGenerated();
     }
 
-    mgr.SendScriptMsg(newObj, GetUniqueId(), kSM_Activate);
+    mgr.DeliverScriptMsg(newObj, GetUniqueId(), kSM_Activate);
   }
 }
 
-void CScriptPickupGenerator::ResetDelayTimer() {
+void CScriptPickupGenerator::ResetSpawnNothingCounter() {
   if (x40_frequency > 0.f) {
     x44_delayTimer += 100.f / x40_frequency;
   } else {
@@ -156,12 +156,12 @@ void CScriptPickupGenerator::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId
     if (GetActive() && x40_frequency != 100.f) {
       x44_delayTimer -= 1.f;
       if (x44_delayTimer < 0.000009f) {
-        ResetDelayTimer();
+        ResetSpawnNothingCounter();
       } else {
         rstl::vector< TUniqueId > generatorIds;
-        GetGeneratorIds(stateMgr, sender, generatorIds);
+        GetTargets(stateMgr, sender, generatorIds);
         rstl::vector< rstl::pair< float, TEditorId > > pickupTemplates;
-        const float totalProb = GetPickupTemplates(stateMgr, pickupTemplates);
+        const float totalProb = GetSpawnablePickups(stateMgr, pickupTemplates);
         if (pickupTemplates.empty()) {
           break;
         } else {
@@ -180,8 +180,8 @@ void CScriptPickupGenerator::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId
             break;
           } else {
             const TEditorId templateId = pickupTemplates[count].second;
-            GeneratePickup(stateMgr, templateId,
-                           generatorIds[stateMgr.Random()->Float() * generatorIds.size() * 0.99f]);
+            SpawnPickup(stateMgr, templateId,
+                        generatorIds[stateMgr.Random()->Float() * generatorIds.size() * 0.99f]);
           }
         }
       }

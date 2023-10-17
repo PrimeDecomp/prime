@@ -79,8 +79,7 @@ public:
     if (x4_count >= x8_capacity) {
       reserve(x8_capacity != 0 ? x8_capacity * 2 : 4);
     }
-    iterator out = begin() + x4_count;
-    out = in;
+    rstl::construct(xc_items + x4_count, in);
     ++x4_count;
   }
 
