@@ -317,7 +317,7 @@ config.libs = [
             Object(NonMatching, "MetroidPrime/CActor.cpp"),
             Object(NonMatching, "MetroidPrime/CWorld.cpp"),
             Object(Matching, "MetroidPrime/Tweaks/CTweakParticle.cpp"),
-            Object(NonMatching, "MetroidPrime/Clamp_int.cpp"),
+            Object(Matching, "MetroidPrime/Clamp_int.cpp"),
             Object(Matching, "MetroidPrime/CArchMsgParmControllerStatus.cpp"),
             Object(Matching, "MetroidPrime/CExplosion.cpp"),
             Object(Matching, "MetroidPrime/CEffect.cpp"),
