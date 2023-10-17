@@ -371,7 +371,7 @@ config.libs = [
             Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptCameraHint.cpp"),
             Object(NonMatching, "MetroidPrime/ScriptLoader.cpp"),
             Object(NonMatching, "MetroidPrime/CSamusDoll.cpp"),
-            Object(NonMatching, "MetroidPrime/Factories/CStateMachineFactory.cpp"),
+            Object(Matching, "MetroidPrime/Factories/CStateMachineFactory.cpp"),
             Object(Matching, "MetroidPrime/Weapons/CPlasmaBeam.cpp"),
             Object(Matching, "MetroidPrime/Weapons/CPowerBeam.cpp"),
             Object(NonMatching, "MetroidPrime/Weapons/CWaveBeam.cpp"),

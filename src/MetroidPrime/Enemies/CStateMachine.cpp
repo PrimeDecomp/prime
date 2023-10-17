@@ -115,6 +115,10 @@ CStateMachine::CStateMachine(CInputStream& in) {
       continue;
     }
 
+    for (uint i = 0; i < x0_states[i].GetNumTriggers(); ++i) {
+      x10_triggers.push_back(CAiTrigger());
+    }
+    
     CAiTrigger* firstTrig = x10_triggers.data() + x10_triggers.size();
     x0_states[i].SetTriggers(firstTrig);
 
@@ -133,17 +137,18 @@ CStateMachine::CStateMachine(CInputStream& in) {
           }
         }
 
-        const bool isNot = name[0] == '!';
-        const CAiTriggerFunc func = CAi::GetTriggerFunc(isNot ? name + 1 : name);
+        name[nameLen] = '\0';
+
+        const CAiTriggerFunc func = CAi::GetTriggerFunc(name[0] == '!' ? name + 1 : name);
         const float arg = in.Get< float >();
+        const bool isNot = name[0] == '!';
         CAiTrigger* newTrig;
         if (k < lastTriggerIdx) {
           x10_triggers.push_back(CAiTrigger());
           newTrig = &x10_triggers.back();
         } else {
-          newTrig = &firstTrig[j];
+          newTrig = x0_states[i].GetTrig(j);
         }
-
         if (k == 0) {
           newTrig->Setup(func, isNot, arg, &x0_states[in.Get< int >()]);
         } else {
