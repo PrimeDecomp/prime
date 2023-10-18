@@ -61,6 +61,7 @@ inline float LtoF(int in) { return static_cast< float >(in); }
 #endif
 
 inline int ToInt32(float in) { return static_cast< int >(in); }
+inline unsigned short ToUint16(unsigned short in) { return static_cast< short >(in); }
 inline char ToChar(int c) { return ToUint8(c)  ; }
 } // namespace CCast
 

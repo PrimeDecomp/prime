@@ -552,7 +552,7 @@ config.libs = [
             Object(NonMatching, "MetroidPrime/Player/CGameState.cpp"),
             Object(Matching, "MetroidPrime/ScriptObjects/CScriptVisorFlare.cpp"),
             Object(Matching, "MetroidPrime/ScriptObjects/CScriptWorldTeleporter.cpp"),
-            Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptVisorGoo.cpp"),
+            Object(Matching, "MetroidPrime/ScriptObjects/CScriptVisorGoo.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CJellyZap.cpp"),
             Object(Matching, "MetroidPrime/ScriptObjects/CScriptControllerAction.cpp"),
             Object(NonMatching, "MetroidPrime/Weapons/GunController/CGunMotion.cpp"),
