@@ -16699,7 +16699,6 @@ _ctors = .ctors:0x803CB1C0; // type:label scope:global data:4byte
 _dtors = .dtors:0x803CB380; // type:label scope:global data:4byte
 __destroy_global_chain_reference = .dtors:0x803CB380; // type:object size:0x4 scope:global
 __fini_cpp_exceptions_reference = .dtors:0x803CB384; // type:object size:0x4 scope:global
-__destroy_global_chain_reference = .dtors:0x803CB388; // type:object size:0x4 scope:local
 lbl_803CB3A0 = .rodata:0x803CB3A0; // type:object size:0x650
 lbl_803CB9F0 = .rodata:0x803CB9F0; // type:object size:0x45C
 lbl_803CBE4C = .rodata:0x803CBE4C; // type:object size:0x28 data:4byte

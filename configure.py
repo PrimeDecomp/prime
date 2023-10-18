@@ -607,7 +607,7 @@ config.libs = [
             Object(NonMatching, "MetroidPrime/Cameras/CBallCameraFailsafeState.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CActorContraption.cpp"),
             Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptSpindleCamera.cpp"),
-            Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptMemoryRelay.cpp"),
+            Object(Matching, "MetroidPrime/ScriptObjects/CScriptMemoryRelay.cpp"),
             Object(NonMatching, "MetroidPrime/CPauseScreenFrame.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CAtomicAlpha.cpp"),
             Object(NonMatching, "MetroidPrime/CLogBookScreen.cpp"),
