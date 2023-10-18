@@ -29,12 +29,46 @@ float CMath::CeilingF(float x) {
   }
   return tmp + 1.f;
 }
+CVector3f CMath::GetCatmullRomSplinePoint(const CVector3f& a, const CVector3f& b,
+                                          const CVector3f& c, const CVector3f& d, float t) {
+  if (t <= 0.0f)
+    return b;
+  if (t >= 1.0f)
+    return c;
+
+  const float t2 = t * t;
+  const float t3 = t2 * t;
+
+  return (a * (-0.5f * t3 + t2 - 0.5f * t) + b * (1.5f * t3 + -2.5f * t2 + 1.0f) +
+          c * (-1.5f * t3 + 2.0f * t2 + 0.5f * t) + d * (0.5f * t3 - 0.5f * t2));
+}
+
+float CMath::GetCatmullRomSplinePoint(float a, float b, float c, float d, float t) {
+  if (t <= 0.0f)
+    return b;
+  if (t >= 1.0f)
+    return c;
+
+  const float t2 = t * t;
+  const float t3 = t2 * t;
+
+  return (a * (-0.5f * t3 + t2 - 0.5f * t) + b * (1.5f * t3 + -2.5f * t2 + 1.0f) +
+          c * (-1.5f * t3 + 2.0f * t2 + 0.5f * t) + d * (0.5f * t3 - 0.5f * t2));
+}
 
 CVector3f CMath::GetBezierPoint(const CVector3f& a, const CVector3f& b, const CVector3f& c,
-                                const CVector3f& d, float t) {
-  const float omt = 1.f - t;
-  return ((a * omt + b * t) * omt + (b * omt + c * t) * t) * omt +
-         ((b * omt + c * t) * omt + (c * omt + d * t) * t) * t;
+                                const CVector3f& d, const float t) {
+  const CVector3f ab = Lerp(a, b, t);
+  const CVector3f bc = Lerp(b, c, t);
+  const CVector3f cd = Lerp(c, d, t);
+  const CVector3f abbc = Lerp(ab, bc, t);
+  const CVector3f bccd = Lerp(bc, cd, t);
+  return Lerp(abbc, bccd, t);
+}
+
+CVector3f CMath::BaryToWorld(const CVector3f& p0, const CVector3f& p1, const CVector3f& p2,
+                             const CVector3f& bary) {
+  return bary.GetX() * p0 + bary.GetY() * p1 + bary.GetZ() * p2;
 }
 
 float CMath::FastSinR(float x) {}

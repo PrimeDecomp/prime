@@ -19,7 +19,10 @@ public:
   float GetHeight(const CVector3f& pos) const {
     return CVector3f::Dot(GetNormal(), pos) - GetConstant();
   }
-  // IsFacing__6CPlaneCFRC9CVector3f
+  bool IsFacing(const CVector3f& vec) const {
+    return CVector3f::Dot(x0_normal, vec) >= GetConstant();
+  }
+
   float ClipLineSegment(const CVector3f& start, const CVector3f& end) const;
   
 private:

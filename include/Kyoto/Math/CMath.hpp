@@ -48,8 +48,6 @@ public:
   static float SlowTangentR(float x);
   static float FastSinR(float x);
   static float FastCosR(float x);
-  static CVector3f GetBezierPoint(const CVector3f&, const CVector3f&, const CVector3f&,
-                                  const CVector3f&, float);
   static float ClampRadians(float rad) {
     float value = FastFmod(rad, M_2PIF);
     if (value < 0.f) {
@@ -66,7 +64,13 @@ public:
   static float PowF(float x, float y);
   static const float FloorF(float x);
   static float CeilingF(float x);
-  // BaryToWorld__5CMathFRC9CVector3fRC9CVector3fRC9CVector3fRC9CVector3f global
+  static CVector3f GetCatmullRomSplinePoint(const CVector3f& a, const CVector3f& b,
+                                            const CVector3f& c, const CVector3f& d, float t);
+  static float GetCatmullRomSplinePoint(float a, float b, float c, float d, float t);
+  static CVector3f GetBezierPoint(const CVector3f&, const CVector3f&, const CVector3f&,
+                                  const CVector3f&, float);
+  static CVector3f BaryToWorld(const CVector3f& p0, const CVector3f& p1, const CVector3f& p2,
+                               const CVector3f& bary);
   // GetCatmullRomSplinePoint__5CMathFRC9CVector3fRC9CVector3fRC9CVector3fRC9CVector3ff global
   // FastSqrtF__5CMathFf weak
   static double SqrtD(double x);
