@@ -280,9 +280,9 @@ bool dataRemoveSDir(struct SDIR_DATA* sdir) {
 
     hwDisableIrq();
 
-    for (data = sdir; data->id != 0xFFFF;
-         ++data) {
-             if (data->ref_cnt != 0xFFFF && data->ref_cnt != 0) break;
+    for (data = sdir; data->id != 0xFFFF; ++data) {
+      if (data->ref_cnt != 0xFFFF && data->ref_cnt != 0)
+        break;
     }
 
     if (data->id == 0xFFFF) {
@@ -290,35 +290,36 @@ bool dataRemoveSDir(struct SDIR_DATA* sdir) {
 
       for (data = sdir; data->id != 0xFFFF; ++data) {
         if (data->ref_cnt != 0xFFFF) {
-            for (i = 0; i < dataSmpSDirNum; ++i) {
-                  if (dataSmpSDirs[i].data == sdir) continue;
-              for (j = 0; j < dataSmpSDirs[i].numSmp; ++j) {
-                if (data->id == dataSmpSDirs[i].data[j].id && dataSmpSDirs[i].data[j].ref_cnt == 0xFFFF) {
-                  dataSmpSDirs[i].data[j].ref_cnt = 0;
-                  break;
-                }
-              }
-
-              if (j != dataSmpSDirs[i].numSmp) {
+          for (i = 0; i < dataSmpSDirNum; ++i) {
+            if (dataSmpSDirs[i].data == sdir)
+              continue;
+            for (j = 0; j < dataSmpSDirs[i].numSmp; ++j) {
+              if (data->id == dataSmpSDirs[i].data[j].id &&
+                  dataSmpSDirs[i].data[j].ref_cnt == 0xFFFF) {
+                dataSmpSDirs[i].data[j].ref_cnt = 0;
                 break;
               }
             }
+
+            if (j != dataSmpSDirs[i].numSmp) {
+              break;
+            }
           }
-        else {
+        } else {
         }
       }
-        data = sdir;
-          for (; data->id != 0xFFFF; ++data) {
-            data->ref_cnt = 0;
-          }
+      data = sdir;
+      for (; data->id != 0xFFFF; ++data) {
+        data->ref_cnt = 0;
+      }
 
-          for (j = index + 1; j < dataSmpSDirNum; ++j) {
-            dataSmpSDirs[j - 1] = dataSmpSDirs[j];
-          }
+      for (j = index + 1; j < dataSmpSDirNum; ++j) {
+        dataSmpSDirs[j - 1] = dataSmpSDirs[j];
+      }
 
-          --dataSmpSDirNum;
-          hwEnableIrq();
-          return TRUE;
+      --dataSmpSDirNum;
+      hwEnableIrq();
+      return TRUE;
     }
 
     hwEnableIrq();
@@ -344,7 +345,8 @@ bool dataAddSampleReference(u16 sid) {
   }
 done:
 #line 542
-  MUSY_ASSERT_MSG(sdir != NULL, "Sample ID to be inserted could not be found in any sample directory.\n");
+  MUSY_ASSERT_MSG(sdir != NULL,
+                  "Sample ID to be inserted could not be found in any sample directory.\n");
 
   if (sdir->ref_cnt == 0) {
     sdir->addr = (void*)(sdir->offset + (s32)dataSmpSDirs[i].base);
@@ -420,11 +422,11 @@ bool dataRemoveFX(u16 gid) {
 }
 
 bool dataInsertMacro(u16 mid, void* macroaddr) {
-	long main; // r28
-	long pos; // r29
-	long base; // r27
-	long i; // r31
-  
+  long main; // r28
+  long pos;  // r29
+  long base; // r27
+  long i;    // r31
+
   hwDisableIrq();
 
   main = (mid >> 6) & 0x3ff;
@@ -572,8 +574,8 @@ void* dataGetCurve(u16 cid) {
   static DATA_TAB* result;
 
   key.id = cid;
-  if (result =
-          (DATA_TAB*)sndBSearch(&key, dataCurveTab, dataCurveNum, sizeof(DATA_TAB), curvecmp)) {
+  if ((result =
+           (DATA_TAB*)sndBSearch(&key, dataCurveTab, dataCurveNum, sizeof(DATA_TAB), curvecmp))) {
     return result->data;
   }
   return NULL;
@@ -584,8 +586,8 @@ void* dataGetKeymap(u16 cid) {
   static DATA_TAB* result;
 
   key.id = cid;
-  if (result =
-          (DATA_TAB*)sndBSearch(&key, dataKeymapTab, dataKeymapNum, sizeof(DATA_TAB), curvecmp)) {
+  if ((result =
+           (DATA_TAB*)sndBSearch(&key, dataKeymapTab, dataKeymapNum, sizeof(DATA_TAB), curvecmp))) {
     return result->data;
   }
   return NULL;
@@ -598,8 +600,8 @@ void* dataGetLayer(u16 cid, u16* n) {
   static LAYER_TAB* result;
 
   key.id = cid;
-  if (result =
-          (LAYER_TAB*)sndBSearch(&key, dataLayerTab, dataLayerNum, sizeof(LAYER_TAB), layercmp)) {
+  if ((result =
+           (LAYER_TAB*)sndBSearch(&key, dataLayerTab, dataLayerNum, sizeof(LAYER_TAB), layercmp))) {
     *n = result->num;
     return result->data;
   }

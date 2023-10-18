@@ -64,7 +64,7 @@ u32 vsSampleStartNotify(unsigned char voice) {
   sb = vs.voices[voice] = vsAllocateBuffer();
   if (sb != 0xFF) {
     addr = aramGetStreamBufferAddress(vs.voices[voice], 0);
-    hwSetVirtualSampleLoopBuffer(voice, addr, vs.bufferLength);
+    hwSetVirtualSampleLoopBuffer(voice, (void*)addr, vs.bufferLength);
     vs.streamBuffer[sb].info.smpID = hwGetSampleID(voice);
     vs.streamBuffer[sb].info.instID = vsNewInstanceID();
     vs.streamBuffer[sb].smpType = hwGetSampleType(voice);
@@ -108,41 +108,49 @@ void vsUpdateBuffer(struct VS_BUFFER* sb, unsigned long cpos) {
     return;
   }
   if ((s32)sb->last < cpos) {
-    if ((s8)sb->smpType != 5) {
-      cpos = cpos;
-    } else {
+    switch (sb->smpType) {
+    case 5:
       sb->info.data.update.off1 = (sb->last / 14) * 8;
       sb->info.data.update.len1 = cpos - sb->last;
       sb->info.data.update.off2 = 0;
       sb->info.data.update.len2 = 0;
       if ((len = vs.callback(1, &sb->info)) != 0) {
         off = sb->last + len;
-        sb->last = off - (off / vs.bufferLength) * vs.bufferLength;
+        sb->last = off % vs.bufferLength;
       }
+      break;
+    default:
+      break;
     }
   } else if (cpos == 0) {
-    if ((s8)sb->smpType != 5) {
-      cpos = cpos;
-    } else {
+    switch (sb->smpType) {
+    case 5:
       sb->info.data.update.off1 = (sb->last / 14) * 8;
       sb->info.data.update.len1 = vs.bufferLength - sb->last;
       sb->info.data.update.off2 = 0;
       sb->info.data.update.len2 = 0;
       if ((len = vs.callback(1, &sb->info)) != 0) {
         off = sb->last + len;
-        sb->last = off - (off / vs.bufferLength) * vs.bufferLength;
+        sb->last = off % vs.bufferLength;
       }
+      break;
+    default:
+      break;
     }
-  } else if ((s8)sb->smpType != 5) {
-    cpos = cpos;
   } else {
-    sb->info.data.update.off1 = (sb->last / 14) * 8;
-    sb->info.data.update.len1 = vs.bufferLength - sb->last;
-    sb->info.data.update.off2 = 0;
-    sb->info.data.update.len2 = cpos;
-    if ((len = vs.callback(1, &sb->info)) != 0) {
-      off = sb->last + len;
-      sb->last = off - (off / vs.bufferLength) * vs.bufferLength;
+    switch (sb->smpType) {
+    case 5:
+      sb->info.data.update.off1 = (sb->last / 14) * 8;
+      sb->info.data.update.len1 = vs.bufferLength - sb->last;
+      sb->info.data.update.off2 = 0;
+      sb->info.data.update.len2 = cpos;
+      if ((len = vs.callback(1, &sb->info)) != 0) {
+        off = sb->last + len;
+        sb->last = off % vs.bufferLength;
+      }
+      break;
+    default:
+      break;
     }
   }
 }
@@ -163,12 +171,13 @@ void vsSampleUpdates() {
       sb = &vs.streamBuffer[vs.voices[i]];
       realCPos = hwGetPos(i);
       cpos = sb->smpType == 5 ? (realCPos / 14) * 14 : realCPos;
-      
+
       switch (sb->state) {
       case 1:
         vsUpdateBuffer(sb, cpos);
         break;
       case 2:
+      case 3:
         if (((sb->info.instID << 8) | sb->voice) == hwGetVirtualSampleID(sb->voice)) {
           vsUpdateBuffer(sb, cpos);
 
@@ -179,7 +188,7 @@ void vsSampleUpdates() {
           }
 
           sb->finalLast = realCPos;
-          nextSamples = (((synthVoice[sb->voice].curPitch * 160) + 0xFFF) >> 12);
+          nextSamples = (synthVoice[sb->voice].curPitch * 160 + 0xFFF) / 4096;
           if ((s32)nextSamples > (s32)sb->finalGoodSamples) {
             if (!hwVoiceInStartup(sb->voice)) {
 #if MUSY_VERSION >= MUSY_VERSION_CHECK(1, 5, 4)

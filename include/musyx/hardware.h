@@ -24,6 +24,11 @@ u32 hwGetVirtualSampleState(u32 voice);
 bool hwVoiceInStartup(u32 v);
 void hwBreak(s32 vid);
 u32 hwGetPos(u32 v);
+void hwInitSampleMem(u32 baseAddr, u32 length);
+void hwExitSampleMem();
+void hwSetVirtualSampleLoopBuffer(u32 voice, void* addr, u32 len);
+u16 hwGetSampleID(u32 voice);
+u8 hwGetSampleType(u32 voice);
 
 #ifdef __cplusplus
 }
