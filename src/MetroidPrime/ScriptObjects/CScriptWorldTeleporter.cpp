@@ -32,8 +32,7 @@ CScriptWorldTeleporter::CScriptWorldTeleporter(TUniqueId uid, const rstl::string
 , x7c_backgroundScale(CVector3f::Zero())
 , x88_soundId(CSfxManager::kInternalInvalidSfxId)
 , x8a_volume(0)
-, x8b_panning(0) 
-{}
+, x8b_panning(0) {}
 
 CScriptWorldTeleporter::CScriptWorldTeleporter(
     TUniqueId uid, const rstl::string& name, const CEntityInfo& info, bool active, CAssetId worldId,
@@ -145,10 +144,15 @@ void CScriptWorldTeleporter::StartTransition(CStateManager& mgr) {
 
   if (x3c_type == kTT_Elevator && x50_playerAnim.GetACSFile() != kInvalidAssetId &&
       x50_playerAnim.GetCharacter() != u32(-1)) {
-    transMgr->EnableTransition(CAnimRes(x50_playerAnim.GetACSFile(), x50_playerAnim.GetCharacter(),
-                                        x5c_playerScale, x50_playerAnim.GetInitialAnimation(),
-                                        true),
-                               x68_platformModel, x6c_platformScale, x78_backgroundModel,
+#if NONMATCHING
+    CAnimRes animRes(x50_playerAnim.GetACSFile(), x50_playerAnim.GetCharacter(), x5c_playerScale,
+                     x50_playerAnim.GetInitialAnimation(), true);
+#else
+    // Original uses reversed defaultAnim / charIdx. Bug or are our names wrong?
+    CAnimRes animRes(x50_playerAnim.GetACSFile(), x50_playerAnim.GetInitialAnimation(),
+                     x5c_playerScale, x50_playerAnim.GetCharacter(), true);
+#endif
+    transMgr->EnableTransition(animRes, x68_platformModel, x6c_platformScale, x78_backgroundModel,
                                x7c_backgroundScale, x40_24_upElevator);
     x40_25_inTransition = true;
 

@@ -20,7 +20,7 @@ public:
   // CAnimRes()
   // : x4_charIdx(-1), x14_canLoop(false), x8_scale(????), x18_defaultAnim(-1) {}
 
-  CAnimRes(CAssetId ancs, const int charIdx, const CVector3f& scale, const int defaultAnim, const bool loop)
+  CAnimRes(CAssetId ancs, int charIdx, const CVector3f& scale, int defaultAnim, bool loop)
   : x0_ancsId(ancs)
   , x4_charIdx(charIdx)
   , x8_scale(scale)

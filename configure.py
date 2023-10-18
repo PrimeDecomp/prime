@@ -433,7 +433,11 @@ config.libs = [
             Object(Matching, "MetroidPrime/ScriptObjects/CScriptGrapplePoint.cpp"),
             Object(Matching, "MetroidPrime/ScriptObjects/CHUDBillboardEffect.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CFlickerBat.cpp"),
-            Object(NonMatching, "MetroidPrime/BodyState/CBodyStateCmdMgr.cpp", cflags=[*cflags_retro, "-inline auto"]),
+            Object(
+                NonMatching,
+                "MetroidPrime/BodyState/CBodyStateCmdMgr.cpp",
+                cflags=[*cflags_retro, "-inline auto"],
+            ),
             Object(NonMatching, "MetroidPrime/BodyState/CBodyStateInfo.cpp"),
             Object(NonMatching, "MetroidPrime/BodyState/CBSAttack.cpp"),
             Object(Matching, "MetroidPrime/BodyState/CBSDie.cpp"),
@@ -547,9 +551,7 @@ config.libs = [
             Object(Matching, "MetroidPrime/CHealthInfo.cpp"),
             Object(NonMatching, "MetroidPrime/Player/CGameState.cpp"),
             Object(Matching, "MetroidPrime/ScriptObjects/CScriptVisorFlare.cpp"),
-            Object(
-                NonMatching, "MetroidPrime/ScriptObjects/CScriptWorldTeleporter.cpp"
-            ),
+            Object(Matching, "MetroidPrime/ScriptObjects/CScriptWorldTeleporter.cpp"),
             Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptVisorGoo.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CJellyZap.cpp"),
             Object(Matching, "MetroidPrime/ScriptObjects/CScriptControllerAction.cpp"),
@@ -1159,11 +1161,11 @@ config.libs = [
         ],
     },
     MusyX(
-        #debug=True,
-        #mw_version="GC/1.2.5",
-        #major=1,
-        #minor=5,
-        #patch=3,
+        # debug=True,
+        # mw_version="GC/1.2.5",
+        # major=1,
+        # minor=5,
+        # patch=3,
         objects=[
             Object(Matching, "musyx/runtime/seq.c"),
             Object(Matching, "musyx/runtime/synth.c"),
