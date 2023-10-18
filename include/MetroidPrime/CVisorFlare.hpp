@@ -1,11 +1,13 @@
 #ifndef _CVISORFLARE
 #define _CVISORFLARE
 
-#include "Kyoto/TToken.hpp"
 #include "Kyoto/Graphics/CColor.hpp"
+#include "Kyoto/TToken.hpp"
 
-#include "rstl/vector.hpp"
+
 #include "rstl/optional_object.hpp"
+#include "rstl/vector.hpp"
+
 
 class CTexture;
 class CStateManager;
@@ -19,7 +21,7 @@ public:
     kBM_Blend = 1,
   };
   class CFlareDef {
-    mutable TToken<CTexture> x0_tex;
+    mutable TToken< CTexture > x0_tex;
     float x8_pos;
     float xc_scale;
     CColor x10_color;
@@ -32,17 +34,25 @@ public:
     // , xc_scale(other.xc_scale)
     // , x10_color(other.x10_color)
     // {}
-    CFlareDef(const TToken<CTexture>& tex, float pos, float scale, uint color);
+    CFlareDef(const TToken< CTexture >& tex, float pos, float scale, uint color);
 
-    TToken<CTexture>& GetTexture() const { return x0_tex; }
+    TToken< CTexture >& GetTexture() const { return x0_tex; }
     CColor GetColor() const { return x10_color; }
     float GetPosition() const { return x8_pos; }
     float GetScale() const { return xc_scale; }
   };
 
+  CVisorFlare(EBlendMode blendMode, bool, float, float, float, uint, uint,
+              const rstl::vector< CFlareDef >& flares);
+  ~CVisorFlare() {}
+
+  void Update(float dt, const CVector3f& pos, const CActor* act, CStateManager& mgr);
+  void Render(const CVector3f& pos, const CStateManager& mgr) const;
+  static rstl::optional_object< CFlareDef > LoadFlareDef(CInputStream& in);
+
 private:
   EBlendMode x0_blendMode;
-  rstl::vector<CFlareDef> x4_flareDefs;
+  rstl::vector< CFlareDef > x4_flareDefs;
   bool x14_b1;
   float x18_f1;
   float x1c_f2;
@@ -56,14 +66,6 @@ private:
   void ResetTevSwapMode(const CStateManager& mgr) const;
   void DrawDirect(const CColor& color, float f1, float f2) const;
   void DrawStreamed(const CColor& color, float f1, float f2) const;
-
-public:
-  CVisorFlare(EBlendMode blendMode, bool, float, float, float, uint, uint, const rstl::vector<CFlareDef>& flares);
-  ~CVisorFlare() {}
-
-  void Update(float dt, const CVector3f& pos, const CActor* act, CStateManager& mgr);
-  void Render(const CVector3f& pos, const CStateManager& mgr) const;
-  static rstl::optional_object<CFlareDef> LoadFlareDef(CInputStream& in);
 };
 
 #endif // _CVISORFLARE

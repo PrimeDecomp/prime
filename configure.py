@@ -546,7 +546,7 @@ config.libs = [
             Object(NonMatching, "MetroidPrime/ScriptObjects/CFishCloud.cpp"),
             Object(Matching, "MetroidPrime/CHealthInfo.cpp"),
             Object(NonMatching, "MetroidPrime/Player/CGameState.cpp"),
-            Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptVisorFlare.cpp"),
+            Object(Matching, "MetroidPrime/ScriptObjects/CScriptVisorFlare.cpp"),
             Object(
                 NonMatching, "MetroidPrime/ScriptObjects/CScriptWorldTeleporter.cpp"
             ),

@@ -4,6 +4,9 @@
 #include "MetroidPrime/CStateManager.hpp"
 #include "MetroidPrime/Player/CPlayer.hpp"
 
+// TODO inline depth hack
+#pragma inline_max_size(200)
+
 CScriptVisorFlare::CScriptVisorFlare(TUniqueId uid, const rstl::string& name,
                                      const CEntityInfo& info, bool active, const CVector3f& pos,
                                      CVisorFlare::EBlendMode blendMode, bool b1, float f1, float f2,
