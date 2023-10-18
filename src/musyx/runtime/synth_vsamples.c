@@ -153,6 +153,58 @@ void vsSampleUpdates() {
   u32 realCPos;    // r28
   VS_BUFFER* sb;   // r31
   u32 nextSamples; // r26
+
+  if (vs.callback == NULL) {
+    return;
+  }
+
+  for (i = 0; i < 64; ++i) {
+    if (vs.voices[i] != 0xFF && hwGetVirtualSampleState(i) != 0) {
+      sb = &vs.streamBuffer[vs.voices[i]];
+      realCPos = hwGetPos(i);
+      cpos = sb->smpType == 5 ? (realCPos / 14) * 14 : realCPos;
+      
+      switch (sb->state) {
+      case 1:
+        vsUpdateBuffer(sb, cpos);
+        break;
+      case 2:
+        if (((sb->info.instID << 8) | sb->voice) == hwGetVirtualSampleID(sb->voice)) {
+          vsUpdateBuffer(sb, cpos);
+
+          if (realCPos >= sb->finalLast) {
+            sb->finalGoodSamples -= (realCPos - sb->finalLast);
+          } else {
+            sb->finalGoodSamples -= (vs.bufferLength - (sb->finalLast - realCPos));
+          }
+
+          sb->finalLast = realCPos;
+          nextSamples = (((synthVoice[sb->voice].curPitch * 160) + 0xFFF) >> 12);
+          if ((s32)nextSamples > (s32)sb->finalGoodSamples) {
+            if (!hwVoiceInStartup(sb->voice)) {
+#if MUSY_VERSION >= MUSY_VERSION_CHECK(1, 5, 4)
+              if (sb->state == 2) {
+                hwBreak(sb->voice);
+                macSampleEndNotify(&synthVoice[sb->voice]);
+              } else {
+                voiceKill(sb->voice);
+              }
+#else
+              hwBreak(sb->voice);
+#endif
+            }
+
+            sb->state = 0;
+            vs.voices[sb->voice] = 0xff;
+          }
+        } else {
+          sb->state = 0;
+          vs.voices[sb->voice] = 0xff;
+        }
+        break;
+      }
+    }
+  }
 }
 
 unsigned long sndVirtualSampleAllocateBuffers(unsigned char numInstances,
@@ -162,7 +214,7 @@ unsigned long sndVirtualSampleAllocateBuffers(unsigned char numInstances,
 #line 437
   MUSY_ASSERT_MSG(sndActive, "Sound system is not initialized.");
   MUSY_ASSERT_MSG(numInstances <= 64, "Parameter exceeded maximum number of instances allowable");
-#line 159
+
   hwDisableIrq();
   vs.numBuffers = numInstances;
   len = sndStreamAllocLength(numSamples, 1);

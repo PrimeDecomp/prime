@@ -1,3 +1,5 @@
+#include "musyx/assert.h"
+#include "musyx/hardware.h"
 #include "musyx/musyx_priv.h"
 
 static SDIR_TAB dataSmpSDirs[128];
@@ -47,7 +49,7 @@ bool dataInsertKeymap(u16 cid, void* keymapdata) {
     hwEnableIrq();
     return 0;
   }
-
+#line 0x8d
   MUSY_ASSERT_MSG(keymapdata != NULL, "Keymap data pointer is NULL");
 
   dataKeymapTab[i].id = cid;
@@ -117,7 +119,7 @@ bool dataInsertLayer(u16 cid, void* layerdata, u16 size) {
     hwEnableIrq();
     return 0;
   }
-
+#line 0xe2
   MUSY_ASSERT_MSG(layerdata != NULL, "Layer data pointer is NULL");
 
   dataLayerTab[i].id = cid;
@@ -186,7 +188,7 @@ bool dataInsertCurve(u16 cid, void* curvedata) {
     hwEnableIrq();
     return 0;
   }
-
+#line 0x13a
   MUSY_ASSERT_MSG(curvedata != NULL, "Curve data pointer is NULL");
 
   dataCurveTab[i].id = cid;
@@ -218,8 +220,6 @@ bool dataRemoveCurve(u16 sid) {
   return 0;
 }
 
-#define SDIR(sd) ((SDIR_DATA*)((u8*)sd + 0))
-
 bool dataInsertSDir(SDIR_DATA* sdir, void* smp_data) {
   s32 i;        // r31
   SDIR_DATA* s; // r25
@@ -232,7 +232,7 @@ bool dataInsertSDir(SDIR_DATA* sdir, void* smp_data) {
   if (i == dataSmpSDirNum) {
     if (dataSmpSDirNum < 128) {
       n = 0;
-      for (s = SDIR(sdir); s->id != 0xffff; ++s) {
+      for (s = sdir; s->id != 0xffff; ++s) {
         ++n;
       }
 
@@ -267,10 +267,63 @@ bool dataInsertSDir(SDIR_DATA* sdir, void* smp_data) {
 }
 
 bool dataRemoveSDir(struct SDIR_DATA* sdir) {
-  long i;                 // r28
-  long j;                 // r30
-  long index;             // r27
-  struct SDIR_DATA* data; // r31
+  long i;          // r28
+  long j;          // r30
+  long index;      // r27
+  SDIR_DATA* data; // r31
+
+  index = 0;
+  for (; index < dataSmpSDirNum && dataSmpSDirs[index].data != sdir; ++index) {
+  }
+
+  if (index != dataSmpSDirNum) {
+
+    hwDisableIrq();
+
+    for (data = sdir; data->id != 0xFFFF;
+         ++data) {
+             if (data->ref_cnt != 0xFFFF && data->ref_cnt != 0) break;
+    }
+
+    if (data->id == 0xFFFF) {
+      data = sdir;
+
+      for (data = sdir; data->id != 0xFFFF; ++data) {
+        if (data->ref_cnt != 0xFFFF) {
+            for (i = 0; i < dataSmpSDirNum; ++i) {
+                  if (dataSmpSDirs[i].data == sdir) continue;
+              for (j = 0; j < dataSmpSDirs[i].numSmp; ++j) {
+                if (data->id == dataSmpSDirs[i].data[j].id && dataSmpSDirs[i].data[j].ref_cnt == 0xFFFF) {
+                  dataSmpSDirs[i].data[j].ref_cnt = 0;
+                  break;
+                }
+              }
+
+              if (j != dataSmpSDirs[i].numSmp) {
+                break;
+              }
+            }
+          }
+        else {
+        }
+      }
+        data = sdir;
+          for (; data->id != 0xFFFF; ++data) {
+            data->ref_cnt = 0;
+          }
+
+          for (j = index + 1; j < dataSmpSDirNum; ++j) {
+            dataSmpSDirs[j - 1] = dataSmpSDirs[j];
+          }
+
+          --dataSmpSDirNum;
+          hwEnableIrq();
+          return TRUE;
+    }
+
+    hwEnableIrq();
+  }
+  return FALSE;
 }
 
 bool dataAddSampleReference(u16 sid) {
@@ -278,35 +331,182 @@ bool dataAddSampleReference(u16 sid) {
   SAMPLE_HEADER* header; // r1+0xC
   SDIR_DATA* data;       // r30
   SDIR_DATA* sdir;       // r31
+
+  data = NULL;
+  sdir = NULL;
+  for (i = 0; i < dataSmpSDirNum; ++i) {
+    for (data = dataSmpSDirs[i].data; data->id != 0xFFFF; ++data) {
+      if (data->id == sid && data->ref_cnt != 0xFFFF) {
+        sdir = data;
+        goto done;
+      }
+    }
+  }
+done:
+#line 542
+  MUSY_ASSERT_MSG(sdir != NULL, "Sample ID to be inserted could not be found in any sample directory.\n");
+
+  if (sdir->ref_cnt == 0) {
+    sdir->addr = (void*)(sdir->offset + (s32)dataSmpSDirs[i].base);
+    header = &sdir->header;
+    hwSaveSample(&header, &sdir->addr);
+  }
+
+  ++sdir->ref_cnt;
+  return TRUE;
 }
 
 bool dataRemoveSampleReference(u16 sid) {
-  unsigned long i;        // r30
-  struct SDIR_DATA* sdir; // r31
+  u32 i;           // r30
+  SDIR_DATA* sdir; // r31
+
+  for (i = 0; i < dataSmpSDirNum; ++i) {
+    for (sdir = dataSmpSDirs[i].data; sdir->id != 0xFFFF; ++sdir) {
+      if (sdir->id == sid && sdir->ref_cnt != 0xFFFF) {
+        --sdir->ref_cnt;
+
+        if (sdir->ref_cnt == 0) {
+          hwRemoveSample(&sdir->header, sdir->addr);
+        }
+
+        return TRUE;
+      }
+    }
+  }
+  return FALSE;
 }
 
 bool dataInsertFX(u16 gid, struct FX_TAB* fx, u16 fxNum) {
   long i; // r31
-  return dataFXGroups[0].gid;
+
+  for (i = 0; i < dataFXGroupNum && gid != dataFXGroups[i].gid; ++i) {
+  }
+
+  if (i == dataFXGroupNum && dataFXGroupNum < 128) {
+    hwDisableIrq();
+    dataFXGroups[dataFXGroupNum].gid = gid;
+    dataFXGroups[dataFXGroupNum].fxNum = fxNum;
+    dataFXGroups[dataFXGroupNum].fxTab = fx;
+
+    for (i = 0; i < fxNum; ++i, ++fx) {
+      fx->vGroup = 31;
+    }
+
+    dataFXGroupNum++;
+    hwEnableIrq();
+    return TRUE;
+  }
+  return FALSE;
 }
 
 bool dataRemoveFX(u16 gid) {
   long i; // r31
   long j; // r30
-  return 1;
+
+  for (i = 0; i < dataFXGroupNum && gid != dataFXGroups[i].gid; ++i) {
+  }
+
+  if (i != dataFXGroupNum) {
+    hwDisableIrq();
+    for (j = i + 1; j < dataFXGroupNum; j++) {
+      dataFXGroups[j - 1] = dataFXGroups[j];
+    }
+
+    --dataFXGroupNum;
+    hwEnableIrq();
+    return TRUE;
+  }
+  return FALSE;
 }
 
 bool dataInsertMacro(u16 mid, void* macroaddr) {
-  long main; // r28
-  long pos;  // r29
-  long base; // r27
-  long i;    // r31
+	long main; // r28
+	long pos; // r29
+	long base; // r27
+	long i; // r31
+  
+  hwDisableIrq();
+
+  main = (mid >> 6) & 0x3ff;
+
+  if (dataMacMainTab[main].num == 0) {
+    pos = base = dataMacMainTab[main].subTabIndex = dataMacTotal;
+  } else {
+    base = dataMacMainTab[main].subTabIndex;
+    for (i = 0; i < dataMacMainTab[main].num && dataMacSubTabmem[base + i].id < mid; ++i) {
+    }
+
+    if (i < dataMacMainTab[main].num) {
+      pos = base + i;
+      if (mid == dataMacSubTabmem[pos].id) {
+        dataMacSubTabmem[pos].refCount++;
+        hwEnableIrq();
+        return FALSE;
+      }
+    } else {
+      pos = base + i;
+    }
+  }
+
+  if (dataMacTotal < 2048) {
+#line 0x2c7
+    MUSY_ASSERT_MSG(macroaddr, "Macro data pointer is NULL");
+    for (i = 0; i < 512; ++i) {
+      if (dataMacMainTab[i].subTabIndex > base) {
+        dataMacMainTab[i].subTabIndex++;
+      }
+    }
+
+    i = dataMacTotal - 1;
+    for (; i >= pos; --i) {
+      dataMacSubTabmem[i + 1] = dataMacSubTabmem[i];
+    }
+
+    dataMacSubTabmem[pos].id = mid;
+    dataMacSubTabmem[pos].data = macroaddr;
+    dataMacSubTabmem[pos].refCount = 1;
+    dataMacMainTab[main].num++;
+    dataMacTotal++;
+    hwEnableIrq();
+    return TRUE;
+  }
+  hwEnableIrq();
+  return FALSE;
 }
 
 bool dataRemoveMacro(u16 mid) {
-  long main; // r29
-  long base; // r28
-  long i;    // r31
+  s32 main; // r29
+  s32 base; // r28
+  s32 i;    // r31
+
+  hwDisableIrq();
+  main = (mid >> 6) & 0x3ff;
+
+  if (dataMacMainTab[main].num != 0) {
+    base = dataMacMainTab[main].subTabIndex;
+    for (i = 0; i < dataMacMainTab[main].num && mid != dataMacSubTabmem[base + i].id; ++i) {
+    }
+
+    if (i < dataMacMainTab[main].num) {
+      if (--dataMacSubTabmem[base + i].refCount == 0) {
+        for (i = base + i + 1; i < dataMacTotal; ++i) {
+          dataMacSubTabmem[i - 1] = dataMacSubTabmem[i];
+        }
+
+        for (i = 0; i < 512; ++i) {
+          if (dataMacMainTab[i].subTabIndex > base) {
+            --dataMacMainTab[i].subTabIndex;
+          }
+        }
+
+        --dataMacMainTab[main].num;
+        --dataMacTotal;
+      }
+    }
+  }
+
+  hwEnableIrq();
+  return FALSE;
 }
 
 static s32 maccmp(void* p1, void* p2) { return ((MAC_SUBTAB*)p1)->id - ((MAC_SUBTAB*)p2)->id; }
