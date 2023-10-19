@@ -855,7 +855,7 @@ config.libs = [
             Object(Matching, "Kyoto/Alloc/IAllocator.cpp"),
             Object(NonMatching, "Kyoto/PVS/CPVSVisOctree.cpp"),
             Object(NonMatching, "Kyoto/PVS/CPVSVisSet.cpp"),
-            Object(NonMatching, "Kyoto/Particles/CColorElement.cpp"),
+            Object(Matching, "Kyoto/Particles/CColorElement.cpp"),
             Object(NonMatching, "Kyoto/Particles/CElementGen.cpp"),
             Object(Matching, "Kyoto/Particles/CIntElement.cpp"),
             Object(NonMatching, "Kyoto/Particles/CModVectorElement.cpp"),

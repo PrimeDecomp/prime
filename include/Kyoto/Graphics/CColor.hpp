@@ -16,17 +16,17 @@ class CInputStream;
 class CColor {
 public:
   CColor() { Set(255, 0, 255); }
-  CColor(uint col) { Set(col); }
+  CColor(const uint col) { Set(col); }
   CColor(CInputStream& in);
-  CColor(float r, float g, float b, float a = 1.f);
-  CColor(uchar r, uchar g, uchar b, uchar a = 255) {
+  CColor(const float r, const float g, const float b, const float a = 1.f);
+  CColor(const uchar r, const uchar g, const uchar b, const uchar a = 255) {
     mR = r;
     mG = g;
     mB = b;
     mA = a;
   }
 
-  void Set(float r, float g, float b, float a);
+  void Set(const float r, const float g, const float b, const float a);
   void Set(uchar r, uchar g, uchar b, uchar a = 255) {
     mR = r;
     mG = g;

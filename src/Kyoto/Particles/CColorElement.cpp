@@ -30,32 +30,12 @@ bool CCEConstant::GetValue(int frame, CColor& colorOut) const {
   return false;
 }
 
-static inline void SetClamp(CColor& color, float r, float g, float b, float a) {
-  float cr = CMath::Clamp(0.f, r, 1.f);
-  float cg = CMath::Clamp(0.f, g, 1.f);
-  float cb = CMath::Clamp(0.f, b, 1.f);
-  float ca = CMath::Clamp(0.f, a, 1.f);
-  color.Set(cr, cg, cb, ca);
-  // color.Set(
-  //          CMath::Clamp(0.f, r, 1.f),
-  //          CMath::Clamp(0.f, g, 1.f),
-  //          CMath::Clamp(0.f, b, 1.f),
-  //          CMath::Clamp(0.f, a, 1.f)
-  // );
-}
-
-CCEFastConstant::CCEFastConstant(float r, float g, float b, float a) {
-  SetClamp(x4_val, r, g, b, a);
-  // float cr = CMath::Clamp(0.f, r, 1.f);
-  // float cg = CMath::Clamp(0.f, g, 1.f);
-  // float cb = CMath::Clamp(0.f, b, 1.f);
-  // float ca = CMath::Clamp(0.f, a, 1.f);
-  // x4_val.Set(cr, cg, cb, ca
-  //            // CMath::Clamp(0.f, r, 1.f),
-  //            // CMath::Clamp(0.f, g, 1.f),
-  //            // CMath::Clamp(0.f, b, 1.f),
-  //            // CMath::Clamp(0.f, a, 1.f)
-  // );
+CCEFastConstant::CCEFastConstant(const float r, const float g, const float b, const float a) {
+   float cr = CMath::Clamp(0.f, r, 1.f);
+   float cg = CMath::Clamp(0.f, g, 1.f);
+   float cb = CMath::Clamp(0.f, b, 1.f);
+   float ca = CMath::Clamp(0.f, a, 1.f);
+   x4_val.Set(cr, cg, cb, ca);
 }
 
 CCEFastConstant::~CCEFastConstant() {}
