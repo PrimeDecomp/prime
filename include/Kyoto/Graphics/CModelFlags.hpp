@@ -11,6 +11,7 @@ public:
     kT_Opaque = 0,
     kT_One = 1, // ?
     kT_Two = 2, // ?
+    kT_Four = 4, // ?
     kT_Blend = 5,
     kT_Additive = 7,
   };

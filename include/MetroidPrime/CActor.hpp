@@ -6,9 +6,10 @@
 #include "Collision/CMaterialFilter.hpp"
 #include "Collision/CMaterialList.hpp"
 
+#include "MetroidPrime/ActorCommon.hpp"
 #include "MetroidPrime/CEntity.hpp"
 #include "MetroidPrime/CModelData.hpp"
-#include "MetroidPrime/ActorCommon.hpp"
+
 
 #include "Kyoto/Audio/CSfxHandle.hpp"
 #include "Kyoto/Graphics/CColor.hpp"
@@ -103,7 +104,7 @@ public:
   void DrawTouchBounds() const;
   bool IsModelOpaque(const CStateManager& mgr) const;
   void RenderInternal(const CStateManager& mgr) const;
-  void CreateShadow(bool);
+  void CreateShadowIfNeeded();
 
   const CTransform4f& GetTransform() const { return x34_transform; }
   void SetTransform(const CTransform4f& xf) {
@@ -119,6 +120,11 @@ public:
   CTransform4f GetLocatorTransform(const rstl::string& segName) const;
   CTransform4f GetScaledLocatorTransform(const rstl::string& segName) const;
   float GetYaw() const;
+  float GetPitch() const;
+  void SetActorLights(rstl::auto_ptr< CActorLights > lights);
+  void SetInFluid(bool b, TUniqueId uid);
+  CScannableObjectInfo* GetScannableObjectInfo() const;
+  void MoveScannableObjectInfoToActor(CActor* actor, CStateManager& mgr);
 
   /// ????
   bool NullModel() const { return !GetAnimationData() && !GetModelData()->HasNormalModel(); }
@@ -168,10 +174,10 @@ public:
   void SetTransformDirtySpare(bool b) { xe4_28_transformDirty = b; }
   void SetPreRenderHasMoved(bool b) { xe4_29_actorLightsDirty = b; }
   void SetPreRenderClipped(bool b) { xe4_30_outOfFrustum = b; }
-  void SetCalculateLighting(bool b) { xe4_31_calculateLighting = b; }
-  void SetDrawShadow(bool b) { xe5_24_shadowEnabled = b; }
+  void SetCalculateLighting(bool b);
+  void SetDrawShadow(bool b);
   void SetShadowDirty(bool b) { xe5_25_shadowDirty = b; }
-  void SetMuted(bool b) { xe5_26_muted = b; }
+  void SetMuted(bool b);
   void SetThermalFlags(EThermalFlags flags) { xe6_27_thermalVisorFlags = flags; }
   void SetRenderParticleDatabaseInside(bool b) { xe6_29_renderParticleDBInside = b; }
   void SetTargetable(bool b) { xe7_31_targetable = b; }
@@ -192,10 +198,10 @@ public:
   const CAABox& GetRenderBoundsCached() const { return x9c_renderBounds; }
   void SetRenderBounds(const CAABox& bounds) { x9c_renderBounds = bounds; }
 
-  // 000c0ec8 00001c 801711a8  4 GetUseInSortedLists__6CActorCFv 	CActor.o
+  bool GetUseInSortedLists() const;
   void SetUseInSortedLists(bool use);
-  // 000c0ef8 00001c 801711d8  4 GetCallTouch__6CActorCFv 	CActor.o
-  void SetCallTouch(bool);
+  bool GetCallTouch() const;
+  void SetCallTouch(bool value);
   // GetOrbitDistanceCheck__6CActorCFv
   // GetCalculateLighting__6CActorCFv
   // GetDrawShadow__6CActorCFv
@@ -203,6 +209,9 @@ public:
   // GetRenderParticleDatabaseInside__6CActorCFv
   // HasModelParticles__6CActorCFv
   void SetVolume(uchar volume);
+  void SetSoundEventPitchBend(int);
+  CSfxHandle GetSfxHandle() const;
+  bool CanDrawStatic() const;
 
 private:
   CTransform4f x34_transform;

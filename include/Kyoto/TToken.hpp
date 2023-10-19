@@ -34,10 +34,13 @@ class TCachedToken : public TToken< T > {
 public:
   TCachedToken() {}
   TCachedToken(const CToken& token) : TToken< T >(token), x8_item(nullptr) {}
+  // __ct__23TCachedToken<8CTexture>FRC23TCachedToken<8CTexture>
+  // __as__21TCachedToken<6CModel>FRC21TCachedToken<6CModel>
 
-  T* operator*() { return x8_item; }
+  // T* operator*() { return x8_item; }
+  T* GetObject() const { return x8_item; }
 
-  bool IsLoaded() {
+  bool TryCache() {
     if (x8_item != nullptr) {
       return true;
     }
@@ -48,6 +51,11 @@ public:
       return false;
     }
   }
+
+  // Lock__23TCachedToken<8CTexture>Fv
+  // GetObject__23TCachedToken<8CTexture>CFv
+  // TryCache__23TCachedToken<8CTexture>Fv
+  // GetToken__21TCachedToken<6CModel>CFv
 
   void Unlock() {
     x8_item = nullptr;

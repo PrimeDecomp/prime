@@ -118,7 +118,7 @@ public:
   CCharAnimTime GetTimeOfUserEvent(EUserEventType type, const CCharAnimTime& time) const;
   // GetAdvancementDeltas__9CAnimDataCFRC13CCharAnimTimeRC13CCharAnimTime
   // Touch__9CAnimDataCFRC13CSkinnedModeli
-  // InitializeEffects__9CAnimDataFR13CStateManagerRC9CVector3f
+  void InitializeEffects(CStateManager&, TAreaId, const CVector3f&);
   // SetPhase__9CAnimDataFf -> SetPhase__11IAnimReaderFf
   void SetPhase(float ph);
   void AddAdditiveAnimation(uint idx, float weight, bool active, bool fadeOut);

@@ -39,7 +39,7 @@ CScriptActor::CScriptActor(TUniqueId uid, const rstl::string& name, const CEntit
 , x2e3_24_isPlayerActor(false) {
   if (HasModelData()) {
     if (castsShadow) {
-      CreateShadow(true);
+      SetDrawShadow(true);
     }
 
     if (HasAnimation()) {

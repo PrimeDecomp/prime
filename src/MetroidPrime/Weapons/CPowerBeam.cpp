@@ -94,7 +94,7 @@ void CPowerBeam::Update(float dt, CStateManager& mgr) {
     return;
 
   if (CGunWeapon::IsLoaded() && !x244_25_loaded) {
-    x244_25_loaded = x21c_shotSmoke.IsLoaded() && x228_power2nd1.IsLoaded();
+    x244_25_loaded = x21c_shotSmoke.TryCache() && x228_power2nd1.TryCache();
     if (x244_25_loaded) {
       x234_shotSmokeGen = rs_new CElementGen(x21c_shotSmoke);
       x234_shotSmokeGen->SetParticleEmission(false);

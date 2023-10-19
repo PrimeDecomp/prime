@@ -11,20 +11,32 @@ class single_ptr {
 public:
   single_ptr() : x0_ptr(nullptr) {}
   single_ptr(T* ptr) : x0_ptr(ptr) {}
-  ~single_ptr() { delete x0_ptr; }
-  T* get() const { return x0_ptr; }
-  // const T* get() const { return x0_ptr; }
-  T* operator->() { return x0_ptr; }
-  const T* operator->() const { return x0_ptr; }
   single_ptr(const single_ptr& other) : x0_ptr(other.x0_ptr) { other.x0_ptr = nullptr; }
+  ~single_ptr() { delete x0_ptr; }
+
+  single_ptr& operator=(single_ptr& other) {
+    if (&other == this) {
+      return *this;
+    }
+    delete x0_ptr;
+    x0_ptr = other.x0_ptr;
+    other.x0_ptr = nullptr;
+    return *this;
+  }
+
   single_ptr& operator=(T* const ptr) {
     delete x0_ptr;
     x0_ptr = ptr;
     return *this;
   }
-  bool null() const { return x0_ptr == nullptr; }
+
+  T* get() const { return x0_ptr; }
+  // const T* get() const { return x0_ptr; }
+  T* operator->() const { return x0_ptr; }
   T& operator*() { return *x0_ptr; }
   const T& operator*() const { return *x0_ptr; }
+
+  bool null() const { return x0_ptr == nullptr; }
   T* release() {
     T* ptr = x0_ptr;
     x0_ptr = nullptr;

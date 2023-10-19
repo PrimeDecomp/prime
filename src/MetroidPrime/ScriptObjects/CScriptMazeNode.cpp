@@ -354,7 +354,7 @@ void CScriptMazeNode::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, C
           x13c_24_hasPuddle = true;
         }
         if (x13c_25_hasGate) {
-#ifndef NON_MATCHING
+#if !NONMATCHING
           // Unused
           CTransform4f xf = GetTransform();
 #endif

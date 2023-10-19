@@ -74,7 +74,7 @@ void CPlasmaBeam::Update(float dt, CStateManager& mgr) {
     return;
 
   if (CGunWeapon::IsLoaded() && !x22c_24_loaded) {
-    x22c_24_loaded = x21c_plasma2nd1.IsLoaded();
+    x22c_24_loaded = x21c_plasma2nd1.TryCache();
     if (x22c_24_loaded)
       CreateBeam(mgr);
   }

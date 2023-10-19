@@ -82,13 +82,14 @@ public:
   static const ushort kInternalInvalidSfxId; // 0xFFFF
   static const int kAllAreas;                // 0xFFFFFFFF
   static CSfxHandle AddEmitter(const ushort id, const CVector3f& pos, const CVector3f& dir,
-                               const bool useAcoustics, const bool looped, const short prio = kMedPriority,
-                               const int areaId = kAllAreas);
-  static CSfxHandle AddEmitter(const ushort id, const CVector3f& pos, const CVector3f& dir, uchar vol,
-                               const bool useAcoustics, const bool looped, const short prio = kMedPriority,
-                               const int areaId = kAllAreas);
+                               const bool useAcoustics, const bool looped,
+                               const short prio = kMedPriority, const int areaId = kAllAreas);
+  static CSfxHandle AddEmitter(const ushort id, const CVector3f& pos, const CVector3f& dir,
+                               uchar vol, const bool useAcoustics, const bool looped,
+                               const short prio = kMedPriority, const int areaId = kAllAreas);
   static CSfxHandle AddEmitter(CAudioSys::C3DEmitterParmData& parmData, bool useAcoustics,
-                               short prio, bool looped, int areaId = kAllAreas);
+                               const short prio = kMedPriority, const bool looped = false,
+                               int areaId = kAllAreas);
 
   static void AddListener(ESfxChannels channel, const CVector3f& pos, const CVector3f& dir,
                           const CVector3f& vec1, const CVector3f& vec2, float f1, float f2,

@@ -147,7 +147,7 @@ void CScriptPlatform::AddRider(rstl::vector< SRiders >& riders, TUniqueId riderI
       CVector3f rideePos = ridee->GetTranslation();
       rider.x8_transform.SetTranslation(
           ridee->GetTransform().TransposeRotate(act->GetTranslation() - rideePos));
-      mgr.SendScriptMsg(act, ridee->GetUniqueId(), kSM_AddPlatformRider);
+      mgr.DeliverScriptMsg(act, ridee->GetUniqueId(), kSM_AddPlatformRider);
     }
     riders.reserve(riders.size() + 1);
     riders.push_back(rider);
@@ -174,15 +174,14 @@ void CScriptPlatform::DecayRiders(rstl::vector< SRiders >& riders, float dt, CSt
     it->x4_decayTimer -= dt;
     if (it->x4_decayTimer <= 0.f) {
       mgr.SendScriptMsgAlways(it->x0_uid, kInvalidUniqueId, kSM_AddPlatformRider);
-#ifdef NON_MATCHING
+#if NONMATCHING
       it = riders.erase(it);
 #else
       // Oops, forgot to reassign the iterator
       riders.erase(it);
 #endif
     } else {
-      // TODO: likely it++ (post-increment) but not matching
-      it = it + 1;
+      it++;
     }
   }
 }
@@ -213,7 +212,7 @@ void CScriptPlatform::MoveRiders(CStateManager& mgr, float dt, bool active,
       act->MoveCollisionPrimitive(CVector3f::Zero());
       if (collision) {
         AddRider(collidedRiders, act->GetUniqueId(), act, mgr);
-#ifdef NON_MATCHING
+#if NONMATCHING
         it = riders.erase(it);
 #else
         // Oops, forgot to reassign the iterator (again)

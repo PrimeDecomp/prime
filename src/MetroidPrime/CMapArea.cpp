@@ -88,7 +88,7 @@ CMapArea::CMapArea(CInputStream& in, uint size)
 
 CMapArea::~CMapArea() {
   lbl_805A8EB0 -= x34_size + sizeof(*this);
-  CFrameDelayedKiller::sub_8036cc1c(true, x44_buf.release());
+  CFrameDelayedKiller::fn_8036CC1C(true, x44_buf.release());
 }
 
 void CMapArea::PostConstruct() {

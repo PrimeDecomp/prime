@@ -90,7 +90,9 @@ public:
   CAABox GetBounds(const CTransform4f& xf) const;
   CAABox GetBounds() const;
   bool IsLoaded(int shaderIdx) const;
+  bool IsDefinitelyOpaque(EWhichModel which) const;
 
+  CTransform4f GetLocatorTransform(const rstl::string& name) const;
   CTransform4f GetScaledLocatorTransform(const rstl::string& name) const;
 
   bool HasAnimation() const { return !xc_animData.null(); }

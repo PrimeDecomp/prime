@@ -24,6 +24,7 @@ public:
   void SetParticleEffectState(const rstl::string& name, bool active, CStateManager& mgr);
   void RenderSystemsToBeDrawnFirst() const;
   void RenderSystemsToBeDrawnLast() const;
+  void DeleteAllLights(CStateManager& mgr);
 
   bool AreAnySystemsDrawnWithModel() const { return xb4_25_anySystemsDrawnWithModel; }
 

@@ -154,7 +154,7 @@ void CScriptGenerator::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId sende
             mData->SetScale(rnd * mData->GetScale());
           }
 
-          stateMgr.SendScriptMsg(genObj, GetUniqueId(), kSM_Activate);
+          stateMgr.DeliverScriptMsg(genObj, GetUniqueId(), kSM_Activate);
         }
       }
 

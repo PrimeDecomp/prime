@@ -38,7 +38,7 @@ CPuffer::CPuffer(TUniqueId uid, const rstl::string& name, const CEntityInfo& inf
 , x5c0_move(CVector3f::Zero())
 , x5cc_(kInvalidUniqueId)
 , x5d0_enabledParticles(0) {
-  CreateShadow(false);
+  SetDrawShadow(false);
   GetKnockBackCtrl().SetImpulseDurationIdx(1);
   x574_cloudEffect.Lock();
   BodyCtrl()->SetRestrictedFlyerMoveSpeed(hoverSpeed);
