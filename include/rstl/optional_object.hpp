@@ -40,7 +40,7 @@ public:
   const T& data() const { return *get_ptr(); }
   T* get_ptr() { return reinterpret_cast< T* >(m_data); }
   const T* get_ptr() const { return reinterpret_cast< const T* >(m_data); }
-  bool valid() const { return m_valid; }
+  const bool valid() const { return m_valid; }
   operator bool() const { return m_valid; } // replace with valid()?
   void clear() {
     if (m_valid) {

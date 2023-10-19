@@ -57,13 +57,12 @@ float CMath::GetCatmullRomSplinePoint(float a, float b, float c, float d, float 
 }
 
 CVector3f CMath::GetBezierPoint(const CVector3f& a, const CVector3f& b, const CVector3f& c,
-                                const CVector3f& d, const float t) {
-  const CVector3f ab = Lerp(a, b, t);
-  const CVector3f bc = Lerp(b, c, t);
-  const CVector3f cd = Lerp(c, d, t);
-  const CVector3f abbc = Lerp(ab, bc, t);
-  const CVector3f bccd = Lerp(bc, cd, t);
-  return Lerp(abbc, bccd, t);
+                                const CVector3f& d, float t) {
+  CVector3f ab = CVector3f::Lerp(a, b, t);
+  CVector3f bc = CVector3f::Lerp(b, c, t);
+  CVector3f cd = CVector3f::Lerp(c, d, t);
+
+  return CVector3f::Lerp(CVector3f::Lerp(ab, bc, t), CVector3f::Lerp(bc, cd, t), t);
 }
 
 CVector3f CMath::BaryToWorld(const CVector3f& p0, const CVector3f& p1, const CVector3f& p2,

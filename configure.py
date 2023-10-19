@@ -1219,7 +1219,7 @@ config.libs = [
         ],
         "host": False,
         "objects": [
-            Object(NonMatching, "musyx/txwin/txwin"),
+            Object(NonMatching, "musyx/txwin/txwin.c"),
         ],
     },
     DolphinLib(

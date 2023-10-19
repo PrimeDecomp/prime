@@ -3,6 +3,7 @@
 #include "MetroidPrime/BodyState/CBodyController.hpp"
 #include "MetroidPrime/Player/CPlayer.hpp"
 #include "MetroidPrime/SFX/Metaree.h"
+#include "MetroidPrime/TCastTo.hpp"
 #include "MetroidPrime/Weapons/CGameProjectile.hpp"
 
 #include "Kyoto/Audio/CSfxManager.hpp"
@@ -39,7 +40,7 @@ void CMetaree::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateMa
   switch (msg) {
     break;
   case kSM_Registered:
-    GetBodyCtrl()->Activate(mgr);
+    BodyCtrl()->Activate(mgr);
     break;
   case kSM_Start:
     x5ca_25_started = true;
@@ -89,9 +90,9 @@ void CMetaree::InActive(CStateManager&, EStateMsg msg, float) {
   switch (msg) {
   case kStateMsg_Activate:
     if (!x5ca_26_deactivated) {
-      GetBodyCtrl()->SetLocomotionType(pas::kLT_Relaxed);
+      BodyCtrl()->SetLocomotionType(pas::kLT_Relaxed);
     } else {
-      GetBodyCtrl()->SetLocomotionType(pas::kLT_Crouch);
+      BodyCtrl()->SetLocomotionType(pas::kLT_Crouch);
     }
     break;
   case kStateMsg_Update:
@@ -107,11 +108,11 @@ void CMetaree::Active(CStateManager& mgr, EStateMsg msg, float) {
   case kStateMsg_Activate:
     SetWasHit(false);
     x584_lookPos = GetTranslation() - CVector3f(0.f, 0.f, x570_dropHeight);
-    GetBodyCtrl()->CommandMgr().DeliverCmd(CBCGenerateCmd(pas::kGType_Zero, x584_lookPos));
+    BodyCtrl()->CommandMgr().DeliverCmd(CBCGenerateCmd(pas::kGType_Zero, x584_lookPos));
     SetMomentumWR(CVector3f(0.f, 0.f, -GetGravityConstant() * GetMass()));
     break;
   case kStateMsg_Update:
-    GetBodyCtrl()->CommandMgr().DeliverTargetVector(
+    BodyCtrl()->CommandMgr().DeliverTargetVector(
         (mgr.GetPlayer()->GetTranslation() - GetTranslation()).AsNormalized());
     break;
   case kStateMsg_Deactivate:
@@ -126,7 +127,7 @@ void CMetaree::Halt(CStateManager& mgr, EStateMsg msg, float) {
     Stop();
     SetVelocityWR(CVector3f::Zero());
     SetMomentumWR(CVector3f::Zero());
-    GetBodyCtrl()->SetLocomotionType(pas::kLT_Lurk);
+    BodyCtrl()->SetLocomotionType(pas::kLT_Lurk);
     x584_lookPos = mgr.GetPlayer()->GetTranslation() + x574_offset;
     SetTransform(CTransform4f::LookAt(GetTranslation(), x584_lookPos));
     StateMachineState().SetDelay(x56c_haltDelay);
@@ -145,7 +146,7 @@ void CMetaree::Attack(CStateManager&, EStateMsg msg, float) {
     CVector3f dir = (x584_lookPos - GetTranslation()).AsNormalized();
     SetVelocityWR(x580_attackSpeed * dir);
     CSfxManager::AddEmitter(x5c8_attackSfx, GetTranslation(), CVector3f::Zero(), true, false);
-    GetBodyCtrl()->SetLocomotionType(pas::kLT_Combat);
+    BodyCtrl()->SetLocomotionType(pas::kLT_Combat);
     x59c_velocity = x580_attackSpeed * dir;
     break;
   }
@@ -188,19 +189,19 @@ void CMetaree::Flee(CStateManager& mgr, EStateMsg msg, float) {
     break;
   }
   case kStateMsg_Update: {
-    switch(x5a8_) {
-      case 0:
+    switch (x5a8_) {
+    case 0:
       if (GetBodyCtrl()->GetBodyStateInfo().GetCurrentStateId() == pas::kAS_LieOnGround) {
         x5a8_ = 1;
       } else {
-        GetBodyCtrl()->CommandMgr().DeliverCmd(
+        BodyCtrl()->CommandMgr().DeliverCmd(
             CBCKnockDownCmd(CVector3f(0.f, 1.f, 0.f), pas::kS_Zero));
       }
       break;
-      default:
+    default:
       break;
     }
-    
+
     break;
   }
   case kStateMsg_Deactivate:
@@ -222,9 +223,14 @@ void CMetaree::Explode(CStateManager& mgr, EStateMsg msg, float) {
 }
 
 void CMetaree::Think(float dt, CStateManager& mgr) {
-  bool target = true;
+  bool target, b;
+  target = true;
+  b = target;
   CPlayerState::EPlayerVisor visor = mgr.GetPlayerState()->GetCurrentVisor();
-  bool b = visor != CPlayerState::kPV_Thermal && visor != CPlayerState::kPV_Scan;
+  if (visor != CPlayerState::kPV_Thermal && visor != CPlayerState::kPV_Scan) {
+    b = false;
+  }
+
   if (!b && !x5ca_26_deactivated) {
     target = false;
   }

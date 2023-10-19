@@ -41,7 +41,7 @@ private:
   int x5d0_enabledParticles;
   rstl::reserved_vector< CVector3f, 14 > x5d4_gasLocators;
 
-  void sub8025bfa4(CStateManager&);
+  void UpdateJets(CStateManager&);
 };
 
 #endif // _CPUFFER

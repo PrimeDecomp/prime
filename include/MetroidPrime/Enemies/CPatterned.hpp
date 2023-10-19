@@ -162,7 +162,7 @@ public:
   void AddToRenderer(const CFrustumPlanes&, const CStateManager&) const override;
   void Render(const CStateManager&) const override;
   bool CanRenderUnsorted(const CStateManager&) const override;
-  rstl::optional_object< CAABox > GetTouchBounds() const override;
+  const rstl::optional_object< CAABox > GetTouchBounds() const override;
   void Touch(CActor&, CStateManager&) override;
   CVector3f GetOrbitPosition(const CStateManager&) const override;
   CVector3f GetAimPosition(const CStateManager&, float) const override;
@@ -247,9 +247,9 @@ public:
   CStateMachineState& StateMachineState() { return x330_stateMachineState; }
   const CStateMachineState& GetStateMachineState() const { return x330_stateMachineState; }
   ECharacter GetCharacterType() const { return x34c_characterType; }
-  bool IsAlive() const { return x400_25_alive; }
-  void SetWasHit(bool v) { x400_24_hitByPlayerProjectile = v; }
-  void SetPendingDeath(bool v) { x401_30_pendingDeath = v; }
+  const bool IsAlive() const { return x400_25_alive; }
+  void SetWasHit(const bool v) { x400_24_hitByPlayerProjectile = v; }
+  void SetPendingDeath(const bool v) { x401_30_pendingDeath = v; }
   CBodyController* BodyCtrl() { return x450_bodyController.get(); }
   const CBodyController* GetBodyCtrl() const { return x450_bodyController.get(); }
   CKnockBackController& GetKnockBackCtrl() { return x460_knockBackController; }
@@ -316,32 +316,32 @@ private:
   float x3f4_burnThinkRateTimer;
   EMoveState x3f8_moveState;
   EFlavorType x3fc_flavor;
-  uint x400_24_hitByPlayerProjectile : 1;
-  uint x400_25_alive : 1;
-  uint x400_26_ : 1;
-  uint x400_27_fadeToDeath : 1;
-  uint x400_28_pendingMassiveDeath : 1;
-  uint x400_29_pendingMassiveFrozenDeath : 1;
-  uint x400_30_patternShagged : 1;
-  uint x400_31_isFlyer : 1;
-  uint x401_24_pathOverCount : 2;
-  uint x401_26_disableMove : 1;
-  uint x401_27_phazingOut : 1;
-  uint x401_28_burning : 1;
-  uint x401_29_laggedBurnDeath : 1;
-  uint x401_30_pendingDeath : 1;
-  uint x401_31_nextPendingShock : 1;
-  uint x402_24_pendingShock : 1;
-  uint x402_25_lostMassiveFrozenHP : 1;
-  uint x402_26_dieIf80PercFrozen : 1;
-  uint x402_27_noXrayModel : 1;
-  uint x402_28_isMakingBigStrike : 1;
-  uint x402_29_drawParticles : 1;
-  uint x402_30_updateThermalFrozenState : 1;
-  uint x402_31_thawed : 1;
-  uint x403_24_keepThermalVisorState : 1;
-  uint x403_25_enableStateMachine : 1;
-  uint x403_26_stateControlledMassiveDeath : 1;
+  bool x400_24_hitByPlayerProjectile : 1;
+  bool x400_25_alive : 1;
+  bool x400_26_ : 1;
+  bool x400_27_fadeToDeath : 1;
+  bool x400_28_pendingMassiveDeath : 1;
+  bool x400_29_pendingMassiveFrozenDeath : 1;
+  bool x400_30_patternShagged : 1;
+  bool x400_31_isFlyer : 1;
+  bool x401_24_pathOverCount : 2;
+  bool x401_26_disableMove : 1;
+  bool x401_27_phazingOut : 1;
+  bool x401_28_burning : 1;
+  bool x401_29_laggedBurnDeath : 1;
+  bool x401_30_pendingDeath : 1;
+  bool x401_31_nextPendingShock : 1;
+  bool x402_24_pendingShock : 1;
+  bool x402_25_lostMassiveFrozenHP : 1;
+  bool x402_26_dieIf80PercFrozen : 1;
+  bool x402_27_noXrayModel : 1;
+  bool x402_28_isMakingBigStrike : 1;
+  bool x402_29_drawParticles : 1;
+  bool x402_30_updateThermalFrozenState : 1;
+  bool x402_31_thawed : 1;
+  bool x403_24_keepThermalVisorState : 1;
+  bool x403_25_enableStateMachine : 1;
+  bool x403_26_stateControlledMassiveDeath : 1;
   CDamageInfo x404_contactDamage;
   float x420_curDamageRemTime;
   float x424_damageWaitTime;

@@ -105,7 +105,7 @@ void CPuffer::Death(CStateManager& mgr, const CVector3f& vec, EScriptObjectState
 void CPuffer::Think(float dt, CStateManager& mgr) {
   CPatterned::Think(dt, mgr);
 
-  sub8025bfa4(mgr);
+  UpdateJets(mgr);
   CVector3f moveVector = BodyCtrl()->GetCommandMgr().GetMoveVector();
 
   if (x5cc_ != GetDestObj()) {
@@ -120,7 +120,7 @@ void CPuffer::Think(float dt, CStateManager& mgr) {
   }
 }
 
-void CPuffer::sub8025bfa4(CStateManager& mgr) {
+void CPuffer::UpdateJets(CStateManager& mgr) {
   CVector3f moveVector = BodyCtrl()->GetCommandMgr().GetMoveVector();
 
   if (x5d4_gasLocators.empty()) {
@@ -135,8 +135,9 @@ void CPuffer::sub8025bfa4(CStateManager& mgr) {
     for (int i = 0; i < ARRAY_SIZE(skGasJetLocators); ++i) {
       CVector3f tmp = GetTransform().Rotate(x5d4_gasLocators[i]);
       float ang = CMath::FastCosR(CMath::Deg2Rad(45.f));
-      bool enable = CVector3f::Dot(moveNorm, tmp) > ang;
-      bool enabledCur = bool(x5d0_enabledParticles & (1 << i));
+      float ourAng = CVector3f::Dot(moveNorm, tmp);
+      const bool enable = ourAng > ang;
+      const bool enabledCur = bool(x5d0_enabledParticles & (1 << i));
 
       if (enabledCur != enable) {
         AnimationData()->SetParticleEffectState(rstl::string_l(skGasJetLocators[i]), enable, mgr);

@@ -48,9 +48,9 @@ public:
   bool IsEqu(const CVector3f& other, float epsilon = FLT_EPSILON) const;
   static CVector3f Lerp(const CVector3f& a, const CVector3f& b, float v) {
     float inv = 1.f - v;
-    float x = inv * a.GetX() + v * b.GetX();
-    float y = inv * a.GetY() + v * b.GetY();
-    float z = inv * a.GetZ() + v * b.GetZ();
+    float x = a.mX * inv + b.mX * v;
+    float y = a.mY * inv + b.mY * v;
+    float z = a.mZ * inv + b.mZ * v;
     return CVector3f(x, y, z);
   }
   inline float MagSquared() const { return GetX() * GetX() + GetY() * GetY() + GetZ() * GetZ(); }
