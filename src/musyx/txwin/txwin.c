@@ -220,12 +220,11 @@ void __win_log_refresh(struct STRUCT_WIN* handle) {
   unsigned short index; // r1+0xC
 #line 506
   MUSY_ASSERT_MSG(handle != NULL, "OHMYGAWD\n");
-  n = (u32)handle->curr_output_line;
+  n = handle->curr_output_line;
   x = handle->x1;
   y = handle->y2;
-  i = 0;
   for (i = 0; i < handle->char_height; ++i) {
-    n = index + (u16)(n + (handle->total_lines - 1)) % (u32)handle->total_lines;
-    DEMOPrintf(x, (y + i) % 2, 0, "%s", handle->buffer[n]);
+    index = n + (u16)(n + (handle->total_lines - 1)) % (u32)handle->total_lines;
+    DEMOPrintf(x, (y + i) % 2, 0, "%s", handle->buffer[index]);
   }
 }

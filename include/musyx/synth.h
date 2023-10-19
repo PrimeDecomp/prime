@@ -19,6 +19,7 @@ extern synthITDInfo synthITDDefault[8];
 extern u32 synthFlags;
 
 u32 vidGetInternalId(SND_VOICEID id);
+void synthKeyStateUpdate(SYNTH_VOICE* svoice);
 bool synthFXSetCtrl(SND_VOICEID vid, u8 ctrl, u8 value);
 bool synthFXSetCtrl14(SND_VOICEID vid, u8 ctrl, u16 value);
 bool synthSendKeyOff(SND_VOICEID vid);
@@ -35,6 +36,11 @@ bool synthIsFadeOutActive(u8 vGroup);
 /* TODO: Move this where it belongs */
 void hwSetAUXProcessingCallbacks(u8 studio, SND_AUX_CALLBACK auxA, void* userA,
                                  SND_AUX_CALLBACK auxB, void* userB);
+
+MSTEP* dataGetMacro(u16 mid);
+
+u32 voiceAllocate(u8 priority, u8 maxVoices, u16 allocId, u8 fxFlag);
+void voiceFree(SYNTH_VOICE* svoice);
 #ifdef __cplusplus
 }
 #endif

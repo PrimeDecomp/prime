@@ -1,3 +1,4 @@
+#include "musyx/musyx.h"
 #include "musyx/musyx_priv.h"
 #include "musyx/synth.h"
 
@@ -10,7 +11,6 @@ static u32 snd_used_studios;
 static u8 snd_base_studio;
 static u8 snd_max_studios;
 static u8 s3dUseMaxVoices;
-
 
 static void UpdateRoomDistances() {
   SND_ROOM* r;      // r30
@@ -260,17 +260,17 @@ bool sndRemoveDoor(SND_DOOR* door) {
 
 static void CalcEmitter(struct SND_EMITTER* em, float* vol, float* doppler, float* xPan,
                         float* yPan, float* zPan) {
-  struct SND_LISTENER* li; // r31
-  struct SND_FVECTOR d;    // r1+0x44
-  struct SND_FVECTOR v;    // r1+0x38
-  struct SND_FVECTOR p;    // r1+0x2C
-  float relspeed;          // r60
-  float distance;          // r61
-  float new_distance;      // r59
-  float ft;                // r63
-  float vd;                // r62
-  struct SND_FVECTOR pan;  // r1+0x20
-  unsigned long n;         // r29
+  SND_LISTENER* li;   // r31
+  SND_FVECTOR d;      // r1+0x44
+  SND_FVECTOR v;      // r1+0x38
+  SND_FVECTOR p;      // r1+0x2C
+  float relspeed;     // r60
+  float distance;     // r61
+  float new_distance; // r59
+  float ft;           // r63
+  float vd;           // r62
+  SND_FVECTOR pan;    // r1+0x20
+  unsigned long n;    // r29
 }
 
 static u8 clip127(u8 v) {
@@ -289,9 +289,31 @@ static u16 clip3FFF(u32 v) {
 
 static void SetFXParameters(SND_EMITTER* em, float vol, float xPan, float yPan, float zPan,
                             float doppler) {
-  unsigned long vid;          // r30
-  unsigned char i;            // r28
-  struct SND_PARAMETER* pPtr; // r31
+  SND_VOICEID vid;     // r30
+  u8 i;                // r28
+  SND_PARAMETER* pPtr; // r31
+
+  vid = em->vid;
+  if ((em->flags & 0x100000) != 0) {
+    synthFXSetCtrl(vid, 7, clip127((em->fade * vol) * 127.f));
+  } else {
+    synthFXSetCtrl(vid, 7, clip127(vol * 127.f));
+  }
+
+  synthFXSetCtrl(vid, 10, clip127((1.f + xPan) * 64.f));
+  synthFXSetCtrl(vid, 131, clip127((1.f - zPan) * 64.f));
+  synthFXSetCtrl14(vid, 132, clip3FFF(doppler * 8192.f));
+
+  if (em->paraInfo != NULL) {
+    pPtr = em->paraInfo->paraArray;
+    for (i = 0; i < em->paraInfo->numPara; ++pPtr, ++i) {
+      if (pPtr->ctrl < 0x40 || pPtr->ctrl == 0x80 || pPtr->ctrl == 0x84) {
+        synthFXSetCtrl14(vid, pPtr->ctrl, (pPtr->paraData).value14);
+      } else {
+        synthFXSetCtrl(vid, pPtr->ctrl, (pPtr->paraData).value7);
+      }
+    }
+  }
 }
 
 static void EmitterShutdown(SND_EMITTER* em) {
@@ -859,13 +881,13 @@ void sndGet3DParameters(SND_3DINFO* info, SND_FVECTOR* pos, SND_FVECTOR* dir, f3
   em.minVol = minVol / 127.f;
   em.volPush = comp;
   em.room = room;
-  
+
   CalcEmitter(&em, &cvol, &pitch, &xPan, &yPan, &zPan);
   info->vol = clip127(cvol * 127.f);
   info->pan = clip127((xPan + 1.f) * 64.f);
   info->span = clip127((1.f - zPan) * 64.f);
   info->doppler = clip3FFF(pitch * 8192.f);
-  
+
   hwEnableIrq();
 }
 

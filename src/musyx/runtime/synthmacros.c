@@ -1,4 +1,6 @@
 #include "musyx/musyx_priv.h"
+#include "musyx/seq.h"
+#include "musyx/synth.h"
 
 static u8 DebugMacroSteps = 0;
 
@@ -292,9 +294,37 @@ static void mcmdUntrapEvent(SYNTH_VOICE* svoice, MSTEP* cstep) {
   svoice->trapEventAny = 0;
 }
 
-#pragma dont_inline on
-static void mcmdLoop(SYNTH_VOICE* svoice, MSTEP* cstep) {}
-#pragma dont_inline reset
+static void mcmdLoop(SYNTH_VOICE* svoice, MSTEP* cstep) {
+
+  if (svoice->loop == 0) {
+    if ((u8)(cstep->para[0] >> 16) & 1) {
+      svoice->loop = sndRand() % (s32)(cstep->para[1] >> 16);
+    } else {
+      svoice->loop = (cstep->para[1] >> 16);
+    }
+
+    if (svoice->loop == 0xFFFF) {
+      goto skip;
+    }
+    ++svoice->loop;
+  } else if (svoice->loop == 0xFFFF) {
+    goto skip;
+  }
+
+  if (--svoice->loop == 0) {
+    return;
+  }
+skip:
+  if (((u8)(cstep->para[0] >> 8) & 1) != 0 && (svoice->cFlags & 0x10000000008) == 0x00000000008) {
+    svoice->loop = 0;
+
+  } else if (((u8)(cstep->para[0] >> 0x18) & 1) && (svoice->cFlags & 0x20) == 0 &&
+             !hwIsActive(svoice->id & 0xFF)) {
+    svoice->loop = 0;
+  } else {
+    svoice->curAddr = svoice->addr + ((u16)cstep->para[1]);
+  }
+}
 
 static void mcmdPlayMacro(SYNTH_VOICE* svoice, MSTEP* cstep) {
   s32 key;       // r29
@@ -585,6 +615,26 @@ static void DoSetPitch(SYNTH_VOICE* svoice) {
   static u16 kf[13] = {
       4096, 4339, 4597, 4871, 5160, 5467, 5792, 6137, 6502, 6888, 7298, 7732, 8192,
   };
+
+  frq = svoice->playFrq & 0xFFFFFF;
+  ofrq = svoice->sInfo & 0xFFFFFF;
+
+  if (ofrq == frq) {
+    svoice->curNote = svoice->sInfo >> 24;
+  } else if (ofrq < frq) {
+    f = (frq << 12) / ofrq;
+    for (no = 0; no < 11 && (1 << ((no + 1) & 0x3f)) < (f >> 12); ++no) {
+    }
+
+    f /= (1 << (no & 0x3f));
+
+    for (i = 11; f <= kf[i]; i--) {
+
+    }
+
+    svoice->curNote = (svoice->sInfo >> 24) + no * 12 + i;
+    svoice->curDetune = (no - kf[i]) * 100 / (kf[i + 1] - kf[i]);
+  }
 }
 #pragma dont_inline reset
 
@@ -1494,9 +1544,9 @@ void macSampleEndNotify(SYNTH_VOICE* sv) {
   if (sv->macState != MAC_STATE_YIELDED) {
     return;
   }
-#line 3156 /* clang-format off */
+  /* clang-format off */
   MUSY_ASSERT(sv->addr!=NULL);
-           /* clang-format on */
+  /* clang-format on */
 
   if (!ExecuteTrap(sv, 1) && (sv->cFlags & 0x40000)) {
     macMakeActive(sv);
@@ -1588,9 +1638,9 @@ void macMakeActive(SYNTH_VOICE* sv) {
   if (sv->macState == MAC_STATE_RUNNABLE) {
     return;
   }
-#line 3297 /* clang-format off */
+  /* clang-format off */
   MUSY_ASSERT(sv->addr!=NULL);
-           /* clang-format on */
+  /* clang-format on */
   UnYieldMacro(sv, 0);
   if (sv->nextMacActive = macActiveMacroRoot) {
     macActiveMacroRoot->prevMacActive = sv;
@@ -1605,9 +1655,9 @@ void macMakeInactive(SYNTH_VOICE* svoice, MAC_STATE newState) {
     return;
   }
 
-#line 3333 /* clang-format off */
+  /* clang-format off */
   MUSY_ASSERT(svoice->addr!=NULL);
-           /* clang-format on */
+  /* clang-format on */
   if (svoice->macState == MAC_STATE_RUNNABLE) {
     if (svoice->prevMacActive == NULL) {
       macActiveMacroRoot = svoice->nextMacActive;
@@ -1634,6 +1684,77 @@ u32 macStart(u16 macid, u8 priority, u8 maxVoices, u16 allocId, u8 key, u8 vol, 
   MSTEP* addr;         // r28
   SYNTH_VOICE* svoice; // r31
   u16 seqPrio;         // r24
+
+  if ((addr = dataGetMacro(macid))) {
+    if (!(key & 0x80) && (seqPrio = seqGetMIDIPriority(midiSet, midi)) != 0xFFFF) {
+      priority = seqPrio;
+    }
+
+    if ((voice = voiceAllocate(priority, maxVoices, allocId, (key & 0x80) ? 1 : 0)) != -1) {
+      svoice = &synthVoice[voice];
+      vidRemoveVoiceReferences(svoice);
+      macMakeInactive(svoice, MAC_STATE_STOPPED);
+      svoice->cFlags = (svoice->cFlags & 0x10) | 2;
+
+      if (hwIsActive(voice)) {
+        svoice->cFlags |= 1;
+      }
+
+      svoice->wait = 0;
+
+      if ((key & 0x80) != 0) {
+        svoice->fxFlag = 01;
+        key &= 0x7f;
+        inpResetMidiCtrl(voice, 0xff, 1);
+        inpResetChannelDefaults(voice, 0xff);
+        svoice->setup.midi = voice;
+        svoice->setup.midiSet = 0xff;
+        svoice->setup.section = 0;
+      } else {
+        svoice->fxFlag = 0;
+        svoice->setup.midi = midi;
+        svoice->setup.midiSet = midiSet;
+        svoice->setup.section = section;
+      }
+
+      svoice->macroId = macid;
+      svoice->allocId = allocId;
+      svoice->age = 0x75300000;
+      svoice->ageSpeed = 0x400;
+      svoice->addr = addr;
+      svoice->curAddr = addr + step;
+      svoice->orgNote = key;
+      svoice->curNote = key;
+      svoice->curDetune = 0;
+      svoice->setup.vol = vol;
+      svoice->setup.pan = panning;
+      svoice->setup.track = trackid;
+      svoice->callStackEntryNum = 0;
+      svoice->callStackIndex = 0;
+      svoice->child = -1;
+      svoice->parent = -1;
+      svoice->lastVID = -1;
+      svoice->setup.vGroup = vGroup;
+      svoice->setup.studio = studio;
+      svoice->setup.itdMode = itd != 0 ? 0 : 1;
+      svoice->mesgNum = svoice->mesgRead = svoice->mesgWrite = 0;
+      svoice->id = voice | ((macid << 16) | (key << 8));
+      voiceSetPriority(svoice, priority);
+
+      if ((vid = vidMakeNew(svoice, new_vid)) != -1) {
+        macMakeActive(svoice);
+        return vid;
+      }
+
+      if (hwIsActive(voice)) {
+        hwBreak(voice);
+      }
+
+      voiceFree(svoice);
+    }
+  }
+
+  return -1;
 }
 
 void macInit() {
