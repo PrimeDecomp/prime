@@ -667,7 +667,7 @@ config.libs = [
             Object(NonMatching, "WorldFormat/CAreaOctTree_Tests.cpp"),
             Object(Matching, "WorldFormat/CCollisionSurface.cpp"),
             Object(Matching, "WorldFormat/CMetroidModelInstance.cpp"),
-            Object(NonMatching, "WorldFormat/CAreaBspTree.cpp"),
+            Object(Matching, "WorldFormat/CAreaBspTree.cpp"),
             Object(NonMatching, "WorldFormat/CAreaOctTree.cpp"),
             Object(NonMatching, "WorldFormat/CMetroidAreaCollider.cpp"),
             Object(NonMatching, "WorldFormat/CWorldLight.cpp"),
