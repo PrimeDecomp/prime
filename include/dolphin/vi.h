@@ -9,7 +9,7 @@ extern "C" {
 #endif
 
 void VIInit(void);
-void VIConfigure(GXRenderModeObj* rm);
+void VIConfigure(const GXRenderModeObj* rm);
 void VIFlush(void);
 u32 VIGetTvFormat(void);
 void VISetNextFrameBuffer(void* fb);

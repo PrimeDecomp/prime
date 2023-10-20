@@ -12,6 +12,7 @@ extern "C" {
 u32 VIGetNextField(void);
 VIRetraceCallback VISetPreRetraceCallback(VIRetraceCallback callback);
 VIRetraceCallback VISetPostRetraceCallback(VIRetraceCallback callback);
+void __VIGetCurrentPosition(s16* x, s16* y);
 u32 VIGetDTVStatus(void);
 
 #ifdef __cplusplus

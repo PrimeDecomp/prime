@@ -3,6 +3,9 @@
 
 #include "types.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
 typedef void (*AISCallback)(u32 count);
 typedef void (*AIDCallback)();
 
@@ -32,5 +35,9 @@ u8 AIGetStreamVolRight();
 void AIInit(u8* stack);
 BOOL AICheckInit();
 void AIReset();
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif // _DOLPHIN_AI
