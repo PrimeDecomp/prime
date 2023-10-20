@@ -1040,7 +1040,7 @@ config.libs = [
     DolphinLib(
         "mtx",
         [
-            Object(NonMatching, "Dolphin/mtx/mtx.c"),
+            Object(Matching, "Dolphin/mtx/mtx.c", cflags = [*cflags_base, "-fp_contract off"]),
             Object(NonMatching, "Dolphin/mtx/mtx44vec.c"),
             Object(NonMatching, "Dolphin/mtx/mtx44.c"),
             Object(NonMatching, "Dolphin/mtx/vec.c"),
