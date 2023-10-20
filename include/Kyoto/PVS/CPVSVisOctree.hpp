@@ -10,6 +10,8 @@ public:
   int IterateSearch(uchar a, const CVector3f& pos) const;
   uint GetNumChildren(uchar a) const;
 
+  static CPVSVisOctree MakePVSVisOctree(const char* data, int len);
+
 private:
   CAABox mBounds;
   uint mNumObjects;

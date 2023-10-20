@@ -38,6 +38,10 @@ public:
     const char* mInfo;
   };
 
+  class Comparison {
+
+  };
+
   CCollisionPrimitive(const CMaterialList& list);
 
   virtual uint GetTableIndex() const = 0;
@@ -52,6 +56,12 @@ public:
   static void InitBeginTypes();
   static void InitAddType(const Type& type);
   static void InitEndTypes();
+  static void InitBeginColliders();
+  static void InitAddCollider(const Comparison& comp);
+  static void InitAddCollider(ComparisonFunc comp, const char*, const char*);
+  static void InitAddBooleanCollider(BooleanComparisonFunc comp, const char*, const char*);
+  static void InitAddMovingCollider(MovingComparisonFunc comp, const char*, const char*);
+  static void InitEndColliders();
   static void Uninitialize();
 
 private:

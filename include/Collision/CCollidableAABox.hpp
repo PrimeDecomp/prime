@@ -11,10 +11,10 @@ public:
   CCollidableAABox(const CAABox& box, const CMaterialList& matList)
   : CCollisionPrimitive(matList), x10_aabb(box) {}
 
-  bool CollideMovingAABox(const CInternalCollisionStructure& collision, const CVector3f& dir,
-                          double& dOut, CCollisionInfo& infoOut);
-  bool CollideMovingSphere(const CInternalCollisionStructure& collision, const CVector3f& dir,
-                           double& dOut, CCollisionInfo& infoOut);
+  static bool CollideMovingAABox(const CInternalCollisionStructure& collision, const CVector3f& dir,
+                                 double& dOut, CCollisionInfo& infoOut);
+  static bool CollideMovingSphere(const CInternalCollisionStructure& collision,
+                                  const CVector3f& dir, double& dOut, CCollisionInfo& infoOut);
 
   uint GetTableIndex() const;
   CAABox CalculateAABox(const CTransform4f&) const;
@@ -36,5 +36,6 @@ CHECK_SIZEOF(CCollidableAABox, 0x28)
 namespace Collide {
 bool AABox_AABox_Bool(const CInternalCollisionStructure&);
 bool AABox_AABox(const CInternalCollisionStructure& collision, CCollisionInfoList& list);
+bool Sphere_AABox(const CInternalCollisionStructure& collision, CCollisionInfoList& list);
 } // namespace Collide
 #endif // _CCOLLIDABLEAABOX

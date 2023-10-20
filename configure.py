@@ -727,7 +727,7 @@ config.libs = [
             Object(NonMatching, "Collision/CCollidableAABox.cpp"),
             Object(Matching, "Collision/CCollidableCollisionSurface.cpp"),
             Object(Matching, "Collision/CCollisionInfo.cpp"),
-            Object(NonMatching, "Collision/InternalColliders.cpp"),
+            Object(Matching, "Collision/InternalColliders.cpp"),
             Object(NonMatching, "Collision/CCollisionPrimitive.cpp"),
             Object(Matching, "Collision/CMaterialList.cpp"),
             Object(NonMatching, "Collision/CollisionUtil.cpp"),

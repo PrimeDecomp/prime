@@ -45,6 +45,7 @@ public:
   short ReadInt16() { return Get< short >(); }
 
   uint GetBlockOffset() const { return x4_blockOffset; }
+  const uint GetReadPosition() const { return x18_readPosition; }
 
 private:
   bool GrabAnotherBlock();
