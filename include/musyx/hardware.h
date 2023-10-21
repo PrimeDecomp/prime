@@ -30,6 +30,10 @@ void hwSetVirtualSampleLoopBuffer(u32 voice, void* addr, u32 len);
 u16 hwGetSampleID(u32 voice);
 u8 hwGetSampleType(u32 voice);
 void hwChangeStudioMix(u8 studio, u32 isMaster);
+#if MUSY_VERSION >= MUSY_VERSION_CHECK(2, 0, 3)
+void hwSetFilter(unsigned long v, unsigned char mode, unsigned short coefA, unsigned short coefB);
+void hwLowPassFrqToCoef(unsigned long frq, unsigned short* _a0, unsigned short* _b1);
+#endif
 
 #ifdef __cplusplus
 }

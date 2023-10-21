@@ -1,5 +1,6 @@
 
 #include "musyx/synth.h"
+#include "musyx/hardware.h"
 #include "musyx/musyx_priv.h"
 
 static u32 synthTicksPerSecond[9][16];
@@ -315,7 +316,6 @@ static void unblockAllAllocatedVoices(u32 vid) {
   u32 id; // r31
 
   id = vidGetInternalId(vid);
-#line 501
   MUSY_ASSERT_MSG(id != SND_ID_ERROR, "*** Alloc unblock: ID is illegal");
   while (id != SND_ID_ERROR) {
     synthVoice[id & 0xff].block = 0;
@@ -393,7 +393,11 @@ static void UpdateTimeMIDICtrl(SYNTH_VOICE* sv) {
   }
 
   sv->timeUsedByInput = 0;
+#if MUSY_VERSION >= MUSY_VERSION_CHECK(2, 0, 3)
+  sv->midiDirtyFlags = 0x7fff;
+#else
   sv->midiDirtyFlags = 0x1fff;
+#endif
 }
 
 static void LowPrecisionHandler(u32 i) {
@@ -430,7 +434,11 @@ static void LowPrecisionHandler(u32 i) {
       sv->lfo[j].lastValue = sv->lfo[j].value;
       if (sv->lfoUsedByInput[j]) {
         sv->lfoUsedByInput[j] = 0;
+#if MUSY_VERSION >= MUSY_VERSION_CHECK(2, 0, 3)
+        sv->midiDirtyFlags |= 0x7fff;
+#else
         sv->midiDirtyFlags |= 0x1fff;
+#endif
       }
     }
   }
@@ -441,8 +449,13 @@ static void LowPrecisionHandler(u32 i) {
   }
 
   if (sv->sweepNum[0] | sv->sweepNum[1]) {
+#if MUSY_VERSION >= MUSY_VERSION_CHECK(2, 0, 3)
+    cntDelta = (lowDeltaTime << 8) >> 4;
+    addFactor = (lowDeltaTime << 4) >> 4;
+#else
     cntDelta = (lowDeltaTime & 0x00ffffff) << 4;
     addFactor = lowDeltaTime & 0x0fffffff;
+#endif
     for (j = 0; j < 2; ++j) {
       if (sv->sweepNum[j] == 0) {
         continue;
@@ -508,14 +521,18 @@ static void LowPrecisionHandler(u32 i) {
     Modulation = inpGetModulation(sv);
     vrange = sv->vibKeyRange * 256 + (sv->vibCentRange * 256) / 100;
     if (sv->vibModAddScale != 0) {
-#if MUSY_VERSION >= MUSY_VERSION_CHECK(1, 5, 4)
+#if MUSY_VERSION >= MUSY_VERSION_CHECK(2, 0, 3)
+      vrange += (sv->vibModAddScale * (Modulation >> 7)) >> 7;
+#elif MUSY_VERSION >= MUSY_VERSION_CHECK(1, 5, 4)
       vrange += (sv->vibModAddScale * ((Modulation & 0x1ffff) >> 7)) >> 7;
 #else
       vrange += (sv->vibModAddScale * ((Modulation >> 7) & 0x1ff)) >> 7;
 #endif
     }
     if ((sv->cFlags & 0x4000) != 0) {
-#if MUSY_VERSION >= MUSY_VERSION_CHECK(1, 5, 4)
+#if MUSY_VERSION >= MUSY_VERSION_CHECK(2, 0, 3)
+      voff = (sv->vibCurOffset * (Modulation >> 7)) >> 7;
+#elif MUSY_VERSION >= MUSY_VERSION_CHECK(1, 5, 4)
       voff = (sv->vibCurOffset * ((Modulation & 0x1ffff) >> 7)) >> 7;
 #else
       voff = (sv->vibCurOffset * ((Modulation >> 7) & 0x1ff)) >> 7;
@@ -575,6 +592,12 @@ static void ZeroOffsetHandler(u32 i) {
   s32 pan;          // r28
   f32 preVol;       // f26
   f32 postVol;      // f29
+#if MUSY_VERSION >= MUSY_VERSION_CHECK(2, 0, 3)
+  unsigned short para; // r22
+  unsigned short a0;   // r1+0xA
+  unsigned short b0;   // r1+0x8
+  unsigned long frq;   // r21
+#endif
 
   sv = &synthVoice[i];
   if (!hwIsActive(i) && sv->addr == NULL) {
@@ -664,17 +687,28 @@ static void ZeroOffsetHandler(u32 i) {
 
   if (volUpdate || (sv->midiDirtyFlags & 0xf01) != 0) {
     preVol = voiceVol;
-    postVol = voiceVol * vol * (f32)inpGetVolume(sv) * 0.00006103888f /* 1/16384? */;
+    postVol = voiceVol * vol * (f32)inpGetVolume(sv) * (1.f/16383.f) /* 1/16384? */;
     auxa = ((f32)sv->revVolOffset * (1.f / 127.f)) +
-           ((preVol * (f32)inpGetPreAuxA(sv) * 0.00006103888f /* 1/16384? */) +
+           ((preVol * (f32)inpGetPreAuxA(sv) * (1.f/16383.f) /* 1/16384? */) +
             ((f32)sv->revVolScale *
-             (postVol * (f32)inpGetReverb(sv) * 0.00006103888f /* 1/16384? */) * (1.f / 127.f)));
-    auxb = (preVol * (f32)inpGetPreAuxB(sv) * 0.00006103888f /* 1/16384? */) +
-           (postVol * (f32)inpGetPostAuxB(sv) * 0.00006103888f /* 1/16384? */);
+             (postVol * (f32)inpGetReverb(sv) * (1.f/16383.f) /* 1/16384? */) * (1.f / 127.f)));
+    auxb = (preVol * (f32)inpGetPreAuxB(sv) * (1.f/16383.f) /* 1/16384? */) +
+           (postVol * (f32)inpGetPostAuxB(sv) * (1.f/16383.f) /* 1/16384? */);
     sv->curOutputVolume = (u16)(postVol * 32767.f);
     hwSetVolume(i, sv->volTable, postVol, sv->lastPan, sv->lastSPan, auxa, auxb);
   }
-
+#if MUSY_VERSION >= MUSY_VERSION_CHECK(2, 0, 3)
+  if (sv->midiDirtyFlags & 0x6000) {
+    if (inpGetFilterSwitch(sv) > 0x1FFF) {
+      para = inpGetFilterParameter(sv);
+      frq = sv->lpfLowerFrqBoundary + (u32)((1.f - ((1.f/16383.f) * para)) * (sv->lpfUpperFrqBoundary - sv->lpfLowerFrqBoundary));  
+      hwLowPassFrqToCoef(frq, &a0, &b0);
+      hwSetFilter(i, 1, a0, b0);
+    } else {
+      hwSetFilter(i, 0, 0, 0);
+    }
+  }
+#endif
   if (sv->age != 0) {
     if ((s32)(sv->age -= sv->ageSpeed * lowDeltaTime) < 0) {
       sv->age = 0;
@@ -942,6 +976,26 @@ u32 synthFXStart(u16 fid, u8 vol, u8 pan, u8 studio, u32 itd) {
 
   return v;
 }
+
+#if MUSY_VERSION >= MUSY_VERSION_CHECK(2, 0, 3)
+int synthCheckFXRealloc(unsigned short fid) {
+  struct FX_TAB* fx;            // r31
+  unsigned long allocId;        // r30
+  unsigned long currentAllocId; // r1+0x8
+
+  fx = dataGetFX(fid);
+  if (fx == NULL) {
+    return 0;
+  }
+
+  allocId = fid | 0x80000000;
+
+  if (!voiceAllocatePeek(fx->priority, fx->maxVoices, allocId, TRUE, &currentAllocId)) {
+    return 0;
+  }
+  return allocId == currentAllocId;
+}
+#endif
 
 bool synthFXSetCtrl(u32 vid, u8 ctrl, u8 value) {
   u32 i;   // r31
@@ -1264,7 +1318,6 @@ static u32 synthHWMessageHandler(u32 mesg, u32 voiceID) {
     break;
 
   default:
-#line 1975
     MUSY_ASSERT(FALSE);
     break;
   }
@@ -1283,7 +1336,6 @@ void synthInit(u32 mixFrq, u32 numVoices) {
 
   synthVoice = salMalloc(numVoices * sizeof(SYNTH_VOICE));
   if (synthVoice == NULL) {
-#line 2135
     MUSY_FATAL("Fatal: Could not allocate synthesizer voice array.");
   }
   memset(synthVoice, 0, numVoices * sizeof(SYNTH_VOICE));

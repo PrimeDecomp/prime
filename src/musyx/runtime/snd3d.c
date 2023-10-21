@@ -125,7 +125,7 @@ static void CheckRoomStatus() {
         room->distance = distance;
         room->curMVol = has_listener ? 0x7f0000 : 0;
 
-        if (room->curMVol * 1.201479e-07f >= 0.5) {
+        if (room->curMVol * 1.2014794e-07f >= 0.5) {
           synthActivateStudio(room->studio, TRUE, SND_STUDIO_TYPE_STD);
         } else {
           synthActivateStudio(room->studio, FALSE, SND_STUDIO_TYPE_STD);
@@ -142,7 +142,7 @@ static void CheckRoomStatus() {
             room->flags &= ~0x80000000;
           }
 
-          if (room->curMVol * 1.201479e-07f >= 0.5) {
+          if (room->curMVol * 1.2014794e-07f >= 0.5) {
             synthActivateStudio(room->studio, TRUE, SND_STUDIO_TYPE_STD);
           } else {
             synthActivateStudio(room->studio, FALSE, SND_STUDIO_TYPE_STD);
@@ -155,7 +155,7 @@ static void CheckRoomStatus() {
             room->curMVol = 0;
             room->flags &= ~0x40000000;
           }
-          if (room->curMVol * 1.201479e-07f >= 0.5) {
+          if (room->curMVol * 1.2014794e-07f >= 0.5) {
             synthActivateStudio(room->studio, TRUE, SND_STUDIO_TYPE_STD);
           } else {
             synthActivateStudio(room->studio, FALSE, SND_STUDIO_TYPE_STD);
@@ -444,7 +444,7 @@ static u16 clip3FFF(u32 v) {
   return v;
 }
 
-static void SetFXParameters(SND_EMITTER* em, f32 vol, f32 xPan, f32 yPan, f32 zPan, f32 doppler) {
+static void SetFXParameters(SND_EMITTER* const em, f32 vol, f32 xPan, f32 yPan, f32 zPan, f32 doppler) {
   SND_VOICEID vid;     // r30
   u8 i;                // r28
   SND_PARAMETER* pPtr; // r31

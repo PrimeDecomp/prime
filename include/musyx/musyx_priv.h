@@ -513,27 +513,34 @@ typedef struct SYNTH_VOICE {
   u32 id;                                 // offset 0xF4, size 0x4
   VID_LIST* vidList;                      // offset 0xF8, size 0x4
   VID_LIST* vidMasterList;                // offset 0xFC, size 0x4
-  u16 allocId;                            // offset 0x100, size 0x2
-  u16 macroId;                            // offset 0x102, size 0x2
-  u8 keyGroup;                            // offset 0x104, size 0x1
-  u32 lastVID;                            // offset 0x108, size 0x4
-  u8 prio;                                // offset 0x10C, size 0x1
-  u16 ageSpeed;                           // offset 0x10E, size 0x2
-  u32 age;                                // offset 0x110, size 0x4
-  u64 cFlags;                             // offset 0x114, size 0x8
-  u8 block;                               // offset 0x11C, size 0x1
-  u8 fxFlag;                              // offset 0x11D, size 0x1
-  u8 vGroup;                              // offset 0x11E, size 0x1
-  u8 studio;                              // offset 0x11F, size 0x1
-  u8 track;                               // offset 0x120, size 0x1
-  u8 midi;                                // offset 0x121, size 0x1
-  u8 midiSet;                             // offset 0x122, size 0x1
-  u8 section;                             // offset 0x123, size 0x1
+#if MUSY_VERSION <= MUSY_VERSION_CHECK(2, 0, 0)
+  u16 allocId; // offset 0x100, size 0x2
+#else
+  u32 allocId;
+#endif
+  u16 macroId;  // offset 0x102, size 0x2
+  u8 keyGroup;  // offset 0x104, size 0x1
+  u32 lastVID;  // offset 0x108, size 0x4
+  u8 prio;      // offset 0x10C, size 0x1
+  u16 ageSpeed; // offset 0x10E, size 0x2
+  u32 age;      // offset 0x110, size 0x4
+  u64 cFlags;   // offset 0x114, size 0x8
+  u8 block;     // offset 0x11C, size 0x1
+  u8 fxFlag;    // offset 0x11D, size 0x1
+  u8 vGroup;    // offset 0x11E, size 0x1
+  u8 studio;    // offset 0x11F, size 0x1
+  u8 track;     // offset 0x120, size 0x1
+  u8 midi;      // offset 0x121, size 0x1
+  u8 midiSet;   // offset 0x122, size 0x1
+  u8 section;   // offset 0x123, size 0x1
 #if MUSY_VERSION <= MUSY_VERSION_CHECK(1, 5, 0)
   void* sAddr;
 #endif
-  u32 sInfo;               // offset 0x124, size 0x4
-  u32 playFrq;             // offset 0x128, size 0x4
+  u32 sInfo;   // offset 0x124, size 0x4
+  u32 playFrq; // offset 0x128, size 0x4
+#if MUSY_VERSION >= MUSY_VERSION_CHECK(2, 0, 3)
+  u16 sampleId;
+#endif
   u16 curNote;             // offset 0x12C, size 0x2
   s8 curDetune;            // offset 0x12E, size 0x1
   u8 orgNote;              // offset 0x12F, size 0x1
@@ -577,9 +584,13 @@ typedef struct SYNTH_VOICE {
   u8 pbLowerKeyRange;      // offset 0x1D6, size 0x1
   u8 pbUpperKeyRange;      // offset 0x1D7, size 0x1
   u16 pbLast;              // offset 0x1D8, size 0x2
-  ADSR_VARS pitchADSR;     // offset 0x1DC, size 0x28
-  s16 pitchADSRRange;      // offset 0x204, size 0x2
-  u16 curPitch;            // offset 0x206, size 0x2
+#if MUSY_VERSION >= MUSY_VERSION_CHECK(2, 0, 3)
+  u32 lpfLowerFrqBoundary;
+  u32 lpfUpperFrqBoundary;
+#endif
+  ADSR_VARS pitchADSR; // offset 0x1DC, size 0x28
+  s16 pitchADSRRange;  // offset 0x204, size 0x2
+  u16 curPitch;        // offset 0x206, size 0x2
   struct setup {
     // total size: 0x9
     u8 vol;                     // offset 0x0, size 0x1
@@ -606,11 +617,15 @@ typedef struct SYNTH_VOICE {
   CTRL_DEST inpPreAuxB;         // offset 0x380, size 0x24
   CTRL_DEST inpPostAuxB;        // offset 0x3A4, size 0x24
   CTRL_DEST inpTremolo;         // offset 0x3C8, size 0x24
-  u8 mesgNum;                   // offset 0x3EC, size 0x1
-  u8 mesgRead;                  // offset 0x3ED, size 0x1
-  u8 mesgWrite;                 // offset 0x3EE, size 0x1
-  s32 mesgQueue[4];             // offset 0x3F0, size 0x10
-  u16 curOutputVolume;          // offset 0x400, size 0x2
+#if MUSY_VERSION >= MUSY_VERSION_CHECK(2, 0, 3)
+  CTRL_DEST inpFilterSwitch;    // offset 0x3F8, size 0x24
+  CTRL_DEST inpFilterParameter; // offset 0x41C, size 0x24
+#endif
+  u8 mesgNum;          // offset 0x3EC, size 0x1
+  u8 mesgRead;         // offset 0x3ED, size 0x1
+  u8 mesgWrite;        // offset 0x3EE, size 0x1
+  s32 mesgQueue[4];    // offset 0x3F0, size 0x10
+  u16 curOutputVolume; // offset 0x400, size 0x2
 } SYNTH_VOICE;
 
 typedef struct synthITDInfo {
@@ -855,7 +870,11 @@ typedef struct ADSR_INFO {
 } ADSR_INFO;
 
 void dataInit(u32, u32); /* extern */
-void dataInitStack();    /* extern */
+#if MUSY_VERSION >= MUSY_VERSION_CHECK(2, 0, 3)
+void dataInitStack(unsigned long aramBase, unsigned long aramSize);
+#else
+void dataInitStack(); /* extern */
+#endif
 u32 dataInsertSDir(SDIR_DATA* sdir, void* smp_data);
 u32 dataRemoveSDir(SDIR_DATA* sdir);
 u32 dataInsertMacro(u16 mid, void* macroaddr);
@@ -1058,6 +1077,11 @@ void inpSetMidiCtrl(u8 ctrl, u8 channel, u8 set, u8 value);
 void inpSetMidiCtrl14(u8 ctrl, u8 channel, u8 set, u16 value);
 void inpSetExCtrl(SYNTH_VOICE* svoice, u8 ctrl, s16 v);
 CHANNEL_DEFAULTS* inpGetChannelDefaults(u8 midi, u8 midiSet);
+#if MUSY_VERSION >= MUSY_VERSION_CHECK(2, 0, 3)
+unsigned short inpGetFilterSwitch(struct SYNTH_VOICE* svoice);
+unsigned short inpGetFilterParameter(struct SYNTH_VOICE* svoice);
+void inpSetLPFDefaultRange(u32 lowFrq, u32 highFrq);
+#endif
 extern CTRL_DEST inpAuxA[8][4];
 extern CTRL_DEST inpAuxB[8][4];
 void inpSetMidiLastNote(u8 midi, u8 midiSet, u8 key);

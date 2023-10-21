@@ -40,6 +40,11 @@ void hwSetAUXProcessingCallbacks(u8 studio, SND_AUX_CALLBACK auxA, void* userA,
 MSTEP* dataGetMacro(u16 mid);
 
 u32 voiceAllocate(u8 priority, u8 maxVoices, u16 allocId, u8 fxFlag);
+
+#if MUSY_VERSION >= MUSY_VERSION_CHECK(2, 0, 3)
+int voiceAllocatePeek(u8 priority, u8 maxVoices, u32 allocId, u8 fxFlag, u32 * currentAllocId);
+#endif
+
 void voiceFree(SYNTH_VOICE* svoice);
 void synthActivateStudio(u8 studio, u32 isMaster, SND_STUDIO_TYPE type);
 void synthDeactivateStudio(u8 studio);
