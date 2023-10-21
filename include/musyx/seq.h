@@ -62,7 +62,7 @@ typedef struct PRG_STATE {
   u16 macId;    // offset 0x0, size 0x2
   u8 priority;  // offset 0x2, size 0x1
   u8 maxVoices; // offset 0x3, size 0x1
-#if MUSY_VERSION >= MUSY_VERSION_CHECK(2, 0, 0)
+#if MUSY_VERSION >= MUSY_VERSION_CHECK(2, 0, 1)
   u8 program; // offset 0x4, size 0x1
 #endif
 } PRG_STATE;

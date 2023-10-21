@@ -7,15 +7,15 @@
 #endif
 
 #ifndef MUSY_VERSION_MAJOR
-#define MUSY_VERSION_MAJOR 1
+#define MUSY_VERSION_MAJOR 2
 #endif
 
 #ifndef MUSY_VERSION_MINOR
-#define MUSY_VERSION_MINOR 5
+#define MUSY_VERSION_MINOR 0
 #endif
 
 #ifndef MUSY_VERSION_PATCH
-#define MUSY_VERSION_PATCH 3
+#define MUSY_VERSION_PATCH 0
 #endif
 
 

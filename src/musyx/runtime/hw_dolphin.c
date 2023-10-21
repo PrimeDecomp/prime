@@ -3,10 +3,8 @@
 #include "dolphin/dsp.h"
 #include "musyx/dsp_import.h"
 
-/* Is this actually what factor 5 did? They specify 0x2000 for the dram size, but the next TU winds
- * up incorrectly aligned */
 static DSPTaskInfo dsp_task ATTRIBUTE_ALIGN(8);
-static u16 dram_image[4096 + 4] ATTRIBUTE_ALIGN(32);
+static u16 dram_image[4096] ATTRIBUTE_ALIGN(32);
 
 static volatile u32 oldState = 0;
 static volatile u16 hwIrqLevel = 0;

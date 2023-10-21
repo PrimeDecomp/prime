@@ -251,7 +251,7 @@ unsigned long sndVirtualSampleAllocateBuffers(unsigned char numInstances,
   return 0;
 }
 
-void sndVirtualSampleFreeBuffers() {
+s32 sndVirtualSampleFreeBuffers() {
   u8 i; // r31
 #line 481
   MUSY_ASSERT_MSG(sndActive, "Sound system is not initialized.");

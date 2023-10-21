@@ -288,7 +288,7 @@ static void DoPrgChange(SEQ_INSTANCE* seq, u8 prg, u8 midi) {
     seq->prgState[midi].macId = seq->normtab[prg].macro;
     seq->prgState[midi].priority = seq->normtab[prg].prio;
     seq->prgState[midi].maxVoices = seq->normtab[prg].maxVoices;
-#if MUSY_VERSION >= MUSY_VERSION_CHECK(2, 0, 0)
+#if MUSY_VERSION >= MUSY_VERSION_CHECK(2, 0, 1)
     seq->prgState[midi].program = prg;
 #endif
     return;
@@ -302,7 +302,7 @@ static void DoPrgChange(SEQ_INSTANCE* seq, u8 prg, u8 midi) {
   seq->prgState[midi].macId = seq->drumtab[prg].macro;
   seq->prgState[midi].priority = seq->drumtab[prg].prio;
   seq->prgState[midi].maxVoices = seq->drumtab[prg].maxVoices;
-#if MUSY_VERSION >= MUSY_VERSION_CHECK(2, 0, 0)
+#if MUSY_VERSION >= MUSY_VERSION_CHECK(2, 0, 1)
   seq->prgState[midi].program = prg;
 #endif
 }
@@ -1175,7 +1175,7 @@ static SEQ_EVENT* HandleEvent(SEQ_EVENT* event, u8 secIndex, u32* loopFlag) {
         if ((note = AllocateNote(event->time + pe->length, secIndex)) != NULL) {
           if ((note->id = synthStartSound(
                    macId, cseq->prgState[midi].priority, cseq->prgState[midi].maxVoices,
-#if MUSY_VERSION >= MUSY_VERSION_CHECK(2, 0, 0)
+#if MUSY_VERSION >= MUSY_VERSION_CHECK(2, 0, 1)
                    cseq->groupID | (cseq->prgState[midi].program << 16) |
                        ((midi == 9 ? 1 : 0) << 24),
 #endif

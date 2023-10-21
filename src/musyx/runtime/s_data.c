@@ -1,5 +1,6 @@
 
 #include "musyx/musyx_priv.h"
+#include "musyx/synth.h"
 
 static GSTACK gs[128];
 static s16 sp;

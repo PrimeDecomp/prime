@@ -4302,8 +4302,11 @@ musyx/runtime/hw_aramdma.c:
 
 musyx/runtime/hw_dolphin.c:
 	.text       start:0x803B4C3C end:0x803B5134
-	.bss        start:0x805678A0 end:0x80569908
+	.bss        start:0x805678A0 end:0x80569900
 	.sbss       start:0x805A9B70 end:0x805A9B98
+
+Dolphin/dummy.c:
+	.bss        start:0x80569900 end:0x80569908
 
 musyx/runtime/hw_memory.c:
 	.text       start:0x803B5134 end:0x803B5188

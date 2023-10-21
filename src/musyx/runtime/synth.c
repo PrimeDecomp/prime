@@ -31,6 +31,8 @@ u8 synthAuxBMIDI[8];
 u8 synthAuxBMIDISet[8];
 u8 synthTrackVolume[64]; // size: 0x40
 
+static void synthAddJob(SYNTH_VOICE* svoice, SYNTH_JOBTYPE jobType, u32 deltaTime);
+
 void synthSetBpm(u32 bpm, u8 set, u8 section) {
   if (set == 0xFF) {
     set = 8;
@@ -323,7 +325,7 @@ static void unblockAllAllocatedVoices(u32 vid) {
 #endif
 
 u32 synthStartSound(u16 id, u8 prio, u8 max,
-#if MUSY_VERSION >= MUSY_VERSION_CHECK(2, 0, 0)
+#if MUSY_VERSION >= MUSY_VERSION_CHECK(2, 0, 1)
                     u32 sourceID,
 #endif
                     u8 key, u8 vol, u8 panning, u8 midi, u8 midiSet, u8 section, u16 step,
@@ -931,7 +933,7 @@ u32 synthFXStart(u16 fid, u8 vol, u8 pan, u8 studio, u32 itd) {
     }
 
     v = synthStartSound(fx->macro, fx->priority, fx->maxVoices,
-#if MUSY_VERSION >= MUSY_VERSION_CHECK(2, 0, 0)
+#if MUSY_VERSION >= MUSY_VERSION_CHECK(2, 0, 1)
                         0, // TODO
 #endif
                         fx->key | 0x80, vol, pan, 0xFF, 0xFF, 0, 0, 0xFF, fx->vGroup, 0, studio,

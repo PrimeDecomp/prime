@@ -29,6 +29,7 @@ void hwExitSampleMem();
 void hwSetVirtualSampleLoopBuffer(u32 voice, void* addr, u32 len);
 u16 hwGetSampleID(u32 voice);
 u8 hwGetSampleType(u32 voice);
+void hwChangeStudioMix(u8 studio, u32 isMaster);
 
 #ifdef __cplusplus
 }

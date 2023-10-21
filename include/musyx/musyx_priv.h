@@ -532,54 +532,54 @@ typedef struct SYNTH_VOICE {
 #if MUSY_VERSION <= MUSY_VERSION_CHECK(1, 5, 0)
   void* sAddr;
 #endif
-  u32 sInfo;                              // offset 0x124, size 0x4
-  u32 playFrq;                            // offset 0x128, size 0x4
-  u16 curNote;                            // offset 0x12C, size 0x2
-  s8 curDetune;                           // offset 0x12E, size 0x1
-  u8 orgNote;                             // offset 0x12F, size 0x1
-  u8 lastNote;                            // offset 0x130, size 0x1
-  u8 portType;                            // offset 0x131, size 0x1
-  u16 portLastCtrlState;                  // offset 0x132, size 0x2
-  u32 portDuration;                       // offset 0x134, size 0x4
-  u32 portCurPitch;                       // offset 0x138, size 0x4
-  u32 portTime;                           // offset 0x13C, size 0x4
-  u8 vibKeyRange;                         // offset 0x140, size 0x1
-  u8 vibCentRange;                        // offset 0x141, size 0x1
-  u32 vibPeriod;                          // offset 0x144, size 0x4
-  u32 vibCurTime;                         // offset 0x148, size 0x4
-  s32 vibCurOffset;                       // offset 0x14C, size 0x4
-  s16 vibModAddScale;                     // offset 0x150, size 0x2
-  u32 volume;                             // offset 0x154, size 0x4
-  u32 orgVolume;                          // offset 0x158, size 0x4
-  float lastVolFaderScale;                // offset 0x15C, size 0x4
-  u32 lastPan;                            // offset 0x160, size 0x4
-  u32 lastSPan;                           // offset 0x164, size 0x4
-  float treCurScale;                      // offset 0x168, size 0x4
-  u16 treScale;                           // offset 0x16C, size 0x2
-  u16 treModAddScale;                     // offset 0x16E, size 0x2
-  u32 panning[2];                         // offset 0x170, size 0x8
-  s32 panDelta[2];                        // offset 0x178, size 0x8
-  u32 panTarget[2];                       // offset 0x180, size 0x8
-  u32 panTime[2];                         // offset 0x188, size 0x8
-  u8 revVolScale;                         // offset 0x190, size 0x1
-  u8 revVolOffset;                        // offset 0x191, size 0x1
-  u8 volTable;                            // offset 0x192, size 0x1
-  u8 itdMode;                             // offset 0x193, size 0x1
-  s32 envDelta;                           // offset 0x194, size 0x4
-  u32 envTarget;                          // offset 0x198, size 0x4
-  u32 envCurrent;                         // offset 0x19C, size 0x4
-  u32 sweepOff[2];                        // offset 0x1A0, size 0x8
-  s32 sweepAdd[2];                        // offset 0x1A8, size 0x8
-  s32 sweepCnt[2];                        // offset 0x1B0, size 0x8
-  u8 sweepNum[2];                         // offset 0x1B8, size 0x2
-  SYNTH_LFO lfo[2];                       // offset 0x1BC, size 0x18
-  u8 lfoUsedByInput[2];                   // offset 0x1D4, size 0x2
-  u8 pbLowerKeyRange;                     // offset 0x1D6, size 0x1
-  u8 pbUpperKeyRange;                     // offset 0x1D7, size 0x1
-  u16 pbLast;                             // offset 0x1D8, size 0x2
-  ADSR_VARS pitchADSR;                    // offset 0x1DC, size 0x28
-  s16 pitchADSRRange;                     // offset 0x204, size 0x2
-  u16 curPitch;                           // offset 0x206, size 0x2
+  u32 sInfo;               // offset 0x124, size 0x4
+  u32 playFrq;             // offset 0x128, size 0x4
+  u16 curNote;             // offset 0x12C, size 0x2
+  s8 curDetune;            // offset 0x12E, size 0x1
+  u8 orgNote;              // offset 0x12F, size 0x1
+  u8 lastNote;             // offset 0x130, size 0x1
+  u8 portType;             // offset 0x131, size 0x1
+  u16 portLastCtrlState;   // offset 0x132, size 0x2
+  u32 portDuration;        // offset 0x134, size 0x4
+  u32 portCurPitch;        // offset 0x138, size 0x4
+  u32 portTime;            // offset 0x13C, size 0x4
+  u8 vibKeyRange;          // offset 0x140, size 0x1
+  u8 vibCentRange;         // offset 0x141, size 0x1
+  u32 vibPeriod;           // offset 0x144, size 0x4
+  u32 vibCurTime;          // offset 0x148, size 0x4
+  s32 vibCurOffset;        // offset 0x14C, size 0x4
+  s16 vibModAddScale;      // offset 0x150, size 0x2
+  u32 volume;              // offset 0x154, size 0x4
+  u32 orgVolume;           // offset 0x158, size 0x4
+  float lastVolFaderScale; // offset 0x15C, size 0x4
+  u32 lastPan;             // offset 0x160, size 0x4
+  u32 lastSPan;            // offset 0x164, size 0x4
+  float treCurScale;       // offset 0x168, size 0x4
+  u16 treScale;            // offset 0x16C, size 0x2
+  u16 treModAddScale;      // offset 0x16E, size 0x2
+  u32 panning[2];          // offset 0x170, size 0x8
+  s32 panDelta[2];         // offset 0x178, size 0x8
+  u32 panTarget[2];        // offset 0x180, size 0x8
+  u32 panTime[2];          // offset 0x188, size 0x8
+  u8 revVolScale;          // offset 0x190, size 0x1
+  u8 revVolOffset;         // offset 0x191, size 0x1
+  u8 volTable;             // offset 0x192, size 0x1
+  u8 itdMode;              // offset 0x193, size 0x1
+  s32 envDelta;            // offset 0x194, size 0x4
+  u32 envTarget;           // offset 0x198, size 0x4
+  u32 envCurrent;          // offset 0x19C, size 0x4
+  u32 sweepOff[2];         // offset 0x1A0, size 0x8
+  s32 sweepAdd[2];         // offset 0x1A8, size 0x8
+  s32 sweepCnt[2];         // offset 0x1B0, size 0x8
+  u8 sweepNum[2];          // offset 0x1B8, size 0x2
+  SYNTH_LFO lfo[2];        // offset 0x1BC, size 0x18
+  u8 lfoUsedByInput[2];    // offset 0x1D4, size 0x2
+  u8 pbLowerKeyRange;      // offset 0x1D6, size 0x1
+  u8 pbUpperKeyRange;      // offset 0x1D7, size 0x1
+  u16 pbLast;              // offset 0x1D8, size 0x2
+  ADSR_VARS pitchADSR;     // offset 0x1DC, size 0x28
+  s16 pitchADSRRange;      // offset 0x204, size 0x2
+  u16 curPitch;            // offset 0x206, size 0x2
   struct setup {
     // total size: 0x9
     u8 vol;                     // offset 0x0, size 0x1
@@ -903,7 +903,6 @@ void synthInit(u32 mixFrq, u32 numVoices);
 void synthSetBpm(u32 pbm, u8 set, u8 section);
 void synthFXCloneMidiSetup(SYNTH_VOICE* dest, SYNTH_VOICE* src);
 void synthSetMusicVolumeType(u8 vGroup, u8 type);
-void synthAddJob(SYNTH_VOICE* svoice, SYNTH_JOBTYPE jobType, u32 deltaTime);
 
 extern s32 synthGlobalVariable[16];
 extern u16 voicePrioSortRootListRoot;
@@ -962,6 +961,14 @@ extern SYNTH_MESSAGE_CALLBACK synthMessageCallback;
 void salApplyMatrix(const SND_FMATRIX* a, const SND_FVECTOR* b, SND_FVECTOR* out);
 f32 salNormalizeVector(SND_FVECTOR* vec);
 void salCrossProduct(SND_FVECTOR* out, const SND_FVECTOR* a, const SND_FVECTOR* b);
+
+#define SAL_CROSS_PRODUCT(out, a, b)                                                               \
+  do {                                                                                             \
+    out.x = (a.y * b.z) - (a.z * b.y);                                                             \
+    out.y = (a.z * b.x) - (a.x * b.z);                                                             \
+    out.z = (a.x * b.y) - (a.y * b.x);                                                             \
+  } while (0)
+
 void salInvertMatrix(SND_FMATRIX* out, const SND_FMATRIX* in);
 
 /* hardware */
@@ -1059,7 +1066,7 @@ u16 inpGetExCtrl(SYNTH_VOICE* svoice, u8 ctrl);
 u16 inpGetMidiCtrl(u8 ctrl, u8 channel, u8 set);
 void inpSetMidiLastNote(u8 midi, u8 midiSet, u8 key);
 u16 inpGetModulation(SYNTH_VOICE* svoice);
-void inpResetMidiCtrl(u8 ch, u8 set, u32 coldReset) ;
+void inpResetMidiCtrl(u8 ch, u8 set, u32 coldReset);
 void inpResetChannelDefaults(u8 midi, u8 midiSet);
 u16 inpGetPitchBend(SYNTH_VOICE* svoice);
 u16 inpGetDoppler(SYNTH_VOICE* svoice);
