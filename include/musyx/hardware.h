@@ -30,9 +30,12 @@ void hwSetVirtualSampleLoopBuffer(u32 voice, void* addr, u32 len);
 u16 hwGetSampleID(u32 voice);
 u8 hwGetSampleType(u32 voice);
 void hwChangeStudioMix(u8 studio, u32 isMaster);
+void hwSetStreamLoopPS(u32 voice, u8 ps);
+void hwFlushStream(void* base, u32 offset, u32 bytes, unsigned char hwStreamHandle, void (*callback)(u32),
+                   u32 user);
 #if MUSY_VERSION >= MUSY_VERSION_CHECK(2, 0, 3)
-void hwSetFilter(unsigned long v, unsigned char mode, unsigned short coefA, unsigned short coefB);
-void hwLowPassFrqToCoef(unsigned long frq, unsigned short* _a0, unsigned short* _b1);
+void hwSetFilter(u32 v, unsigned char mode, unsigned short coefA, unsigned short coefB);
+void hwLowPassFrqToCoef(u32 frq, unsigned short* _a0, unsigned short* _b1);
 #endif
 
 extern u32 aramSize;

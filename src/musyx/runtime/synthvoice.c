@@ -165,11 +165,7 @@ u32 vidMakeNew(SYNTH_VOICE* svoice, u32 isMaster) {
   svoice->vidMasterList = isMaster ? vl : NULL;
   svoice->vidList = vl;
 
-  if (isMaster != 0) {
-    return vid;
-  }
-
-  return svoice->id;
+  return isMaster ? vid : svoice->id;
 }
 
 u32 vidGetInternalId(u32 vid) {
@@ -198,7 +194,7 @@ static void voiceInitPrioSort() {
   voicePrioSortRootListRoot = 0xffff;
 }
 
-void voiceRemovePriority(SYNTH_VOICE* svoice) {
+void voiceRemovePriority(const SYNTH_VOICE* svoice) {
   SYNTH_VOICELIST* vps = &voicePrioSortVoices[svoice->id & 0xFF]; // r31
   SYNTH_ROOTLIST* rps;                                            // r30
   if (vps->user != 1) {
@@ -232,9 +228,9 @@ void voiceRemovePriority(SYNTH_VOICE* svoice) {
 }
 
 void voiceSetPriority(SYNTH_VOICE* svoice, u8 prio) {
-  u16 i;                // r29
   u16 li;               // r25
   SYNTH_VOICELIST* vps; // r27
+  u16 i;                // r29
   u32 v;                // r26
   v = (u8)svoice->id;
   vps = &voicePrioSortVoices[v];
@@ -250,34 +246,32 @@ void voiceSetPriority(SYNTH_VOICE* svoice, u8 prio) {
   vps->prev = 0xff;
   if ((vps->next = voicePrioSortVoicesRoot[prio]) != 0xFF) {
     voicePrioSortVoices[voicePrioSortVoicesRoot[prio]].prev = v;
-  } else {
-    if (voicePrioSortRootListRoot != 0xFFFF) {
-      if (prio >= voicePrioSortRootListRoot) {
-        for (i = voicePrioSortRootListRoot; i != 0xFFFF; i = voicePrioSortRootList[i].next) {
-          if ((u16)i > prio) {
-            break;
-          }
-          li = i;
+  } else if (voicePrioSortRootListRoot != 0xFFFF) {
+    if (prio >= voicePrioSortRootListRoot) {
+      for (i = voicePrioSortRootListRoot; i != 0xFFFF; i = voicePrioSortRootList[i].next) {
+        if ((u16)i > prio) {
+          break;
         }
-        
-        voicePrioSortRootList[li].next = (u16)prio;
-        voicePrioSortRootList[prio].prev = li;
-        voicePrioSortRootList[prio].next = i;
-        if (i != 0xFFFF) {
-          voicePrioSortRootList[i].prev = prio;
-        }
-
-      } else {
-        voicePrioSortRootList[prio].next = voicePrioSortRootListRoot;
-        voicePrioSortRootList[prio].prev = 0xFFFF;
-        voicePrioSortRootList[voicePrioSortRootListRoot].prev = prio;
-        voicePrioSortRootListRoot = prio;
+        li = i;
       }
+
+      voicePrioSortRootList[li].next = (u16)prio;
+      voicePrioSortRootList[prio].prev = li;
+      voicePrioSortRootList[prio].next = i;
+      if (i != 0xFFFF) {
+        voicePrioSortRootList[i].prev = prio;
+      }
+
     } else {
-      voicePrioSortRootList[prio].next = 0xFFFF;
+      voicePrioSortRootList[prio].next = voicePrioSortRootListRoot;
       voicePrioSortRootList[prio].prev = 0xFFFF;
+      voicePrioSortRootList[voicePrioSortRootListRoot].prev = prio;
       voicePrioSortRootListRoot = prio;
     }
+  } else {
+    voicePrioSortRootList[prio].next = 0xFFFF;
+    voicePrioSortRootList[prio].prev = 0xFFFF;
+    voicePrioSortRootListRoot = prio;
   }
 
   voicePrioSortVoicesRoot[prio] = v;
@@ -299,7 +293,8 @@ u32 voiceAllocate(u8 priority, u8 maxVoices, u16 allocId, u8 fxFlag) {
 void voiceFree(SYNTH_VOICE* svoice) {
   u32 i;                // r29
   SYNTH_VOICELIST* sfv; // r30
-  MUSY_ASSERT(svoice->id != 0xFFFFFFFF);
+  i = 1;
+  MUSY_ASSERT(svoice->id!=0xFFFFFFFF);
   macMakeInactive(svoice, MAC_STATE_STOPPED);
   voiceRemovePriority(svoice);
   svoice->addr = NULL;

@@ -205,7 +205,7 @@ cflags_musyx_debug = [
     "-sym on",
     "-D_DEBUG=1",
     "-enum int",
-    "-D_MATH_INLINE=static",
+    "-Cpp_exceptions off",
 ]
 
 # REL flags

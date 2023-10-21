@@ -50,9 +50,9 @@ void synthActivateStudio(u8 studio, u32 isMaster, SND_STUDIO_TYPE type);
 void synthDeactivateStudio(u8 studio);
 u8 synthFXGetMaxVoices(u16 fid);
 void synthPauseVolume(u8 volume, u16 time, u8 vGroup);
-
 bool dataRemoveFX(u16 gid);
-
+void voiceUnblock(u32 voice);
+void voiceRemovePriority(const SYNTH_VOICE* svoice);
 #ifdef __cplusplus
 }
 #endif

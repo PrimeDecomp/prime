@@ -352,7 +352,7 @@ void hwSetVolume(unsigned long v, unsigned char table, float vol, unsigned long 
   }
 
   if (hwGetITDMode(dsp_vptr)) {
-    SetupITD(dsp_vptr, (pan >> 16) & 0xFF);
+    SetupITD(dsp_vptr, (pan >> 16));
   }
 }
 
@@ -435,7 +435,7 @@ u32 hwFrq2Pitch(u32 frq) { return (frq * 4096.f) / synthInfo.mixFrq; }
 
 void hwInitSampleMem(u32 baseAddr, u32 length) {
 #line 940
-  MUSY_ASSERT(baseAddr == 0x00000000);
+  MUSY_ASSERT(baseAddr==0x00000000);
   aramInit(length);
 }
 

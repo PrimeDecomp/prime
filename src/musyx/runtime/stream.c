@@ -5,9 +5,9 @@
 #endif
 
 static STREAM_INFO streamInfo[64];
-u32 nextPublicID = 0;
-u8 streamCallDelay = 0;
-u8 streamCallCnt = 0;
+static u32 nextPublicID = 0;
+static u8 streamCallDelay = 0;
+static u8 streamCallCnt = 0;
 
 void streamInit() {
   s32 i;
@@ -64,7 +64,7 @@ void streamHandle() {
         newsmp.extraData = &si->adpcmInfo;
         newsmp.compType = 4;
 
-#if MUSY_VERSION >= MUSY_VERSION_CHECK(1, 5, 4)
+#if MUSY_VERSION >= MUSY_VERSION_CHECK(2, 0, 0)
         hwSetStreamLoopPS(si->voice, si->lastPSFromBuffer);
         si->adpcmInfo.initialPS = si->adpcmInfo.loopPS = si->lastPSFromBuffer;
 #endif
@@ -168,7 +168,6 @@ u32 sndStreamCallbackFrq(u32 msTime) {
 
 void sndStreamARAMUpdate(u32 stid, u32 off1, u32 len1, u32 off2, u32 len2) {
   u32 i; // r30
-#line 0x1eb
   MUSY_ASSERT_MSG(sndActive, "Sound system is not initialized.");
   hwDisableIrq();
   i = GetPrivateIndex(stid);
@@ -263,7 +262,6 @@ u32 sndStreamAllocEx(u8 prio, void* buffer, u32 samples, u32 frq, u8 vol, u8 pan
   u32 i;     // r31
   u32 bytes; // r25
   u32 j;     // r28
-#line 0x234
   MUSY_ASSERT_MSG(sndActive, "Sound system is not initialized.");
   hwDisableIrq();
 
@@ -375,7 +373,6 @@ u32 sndStreamAllocLength(u32 num, u32 flags) {
 void sndStreamADPCMParameter(u32 stid, SND_ADPCMSTREAM_INFO* adpcmInfo) {
   u32 j; // r31
   u32 i; // r30
-#line 0x2cb
   MUSY_ASSERT_MSG(sndActive, "Sound system is not initialized.");
   hwDisableIrq();
   i = GetPrivateIndex(stid);
@@ -396,7 +393,6 @@ void sndStreamADPCMParameter(u32 stid, SND_ADPCMSTREAM_INFO* adpcmInfo) {
 
 void sndStreamMixParameter(u32 stid, u8 vol, u8 pan, u8 span, u8 fxvol) {
   u32 i; // r31
-#line 0x2ec
   MUSY_ASSERT_MSG(sndActive, "Sound system is not initialized.");
   hwDisableIrq();
   i = GetPrivateIndex(stid);
@@ -427,7 +423,6 @@ void sndStreamMixParameter(u32 stid, u8 vol, u8 pan, u8 span, u8 fxvol) {
 
 void sndStreamMixParameterEx(u32 stid, u8 vol, u8 pan, u8 span, u8 auxa, u8 auxb) {
   u32 i; // r31
-#line 0x30f
   MUSY_ASSERT_MSG(sndActive, "Sound system is not initialized.");
   hwDisableIrq();
   i = GetPrivateIndex(stid);
@@ -466,7 +461,7 @@ void sndStreamFrq(u32 stid, u32 frq) {
 
   MUSY_ASSERT_MSG(sndActive, "Sound system is not initialized.");
   hwDisableIrq();
-  i = GetPrivateIndex(stid);
+  (i = GetPrivateIndex(stid));
   if (i != -1) {
     streamInfo[i].frq = frq;
     if (streamInfo[i].state == 2) {
@@ -486,7 +481,6 @@ void sndStreamFrq(u32 stid, u32 frq) {
 
 void sndStreamFree(u32 stid) {
   u32 i; // r31
-#line 0x357
   MUSY_ASSERT_MSG(sndActive, "Sound system is not initialized.");
   hwDisableIrq();
   i = GetPrivateIndex(stid);
@@ -508,10 +502,9 @@ void sndStreamFree(u32 stid) {
 u32 sndStreamActivate(u32 stid) {
   u32 i;   // r31
   u32 ret; // r28
-
-  ret = 0;
-#line 0x37a
   MUSY_ASSERT_MSG(sndActive, "Sound system is not initialized.");
+  i = 0;
+  ret = 0;
   hwDisableIrq();
   i = GetPrivateIndex(stid);
   if (i != -1) {
@@ -542,7 +535,6 @@ u32 sndStreamActivate(u32 stid) {
 
 void sndStreamDeactivate(u32 stid) {
   u32 i; // r31
-#line 0x3ab
   MUSY_ASSERT_MSG(sndActive, "Sound system is not initialized.");
   hwDisableIrq();
   i = GetPrivateIndex(stid);
