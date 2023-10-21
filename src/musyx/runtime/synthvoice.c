@@ -350,7 +350,7 @@ void synthInitAllocationAids() {
   voiceMusicRunning = 0;
 }
 
-u32 voiceBlock(unsigned char prio) {
+u32 voiceBlock(u8 prio) {
   u32 voice;
 
   if ((voice = voiceAllocate(prio, 0xFF, 0xFFFF, 1)) != 0xFFFFFFFF) {

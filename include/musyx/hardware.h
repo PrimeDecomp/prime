@@ -35,6 +35,8 @@ void hwSetFilter(unsigned long v, unsigned char mode, unsigned short coefA, unsi
 void hwLowPassFrqToCoef(unsigned long frq, unsigned short* _a0, unsigned short* _b1);
 #endif
 
+extern u32 aramSize;
+extern u8* aramBase;
 #ifdef __cplusplus
 }
 #endif

@@ -36,7 +36,7 @@ bool synthIsFadeOutActive(u8 vGroup);
 /* TODO: Move this where it belongs */
 void hwSetAUXProcessingCallbacks(u8 studio, SND_AUX_CALLBACK auxA, void* userA,
                                  SND_AUX_CALLBACK auxB, void* userB);
-
+u32 voiceBlock(u8 prio);
 MSTEP* dataGetMacro(u16 mid);
 
 u32 voiceAllocate(u8 priority, u8 maxVoices, u16 allocId, u8 fxFlag);
