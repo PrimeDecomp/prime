@@ -714,7 +714,7 @@ config.libs = [
             Object(NonMatching, "GuiSys/CGuiTextPane.cpp"),
             Object(NonMatching, "GuiSys/CGuiTextSupport.cpp"),
             Object(NonMatching, "GuiSys/CGuiWidget.cpp"),
-            Object(NonMatching, "GuiSys/CGuiWidgetIdDB.cpp"),
+            Object(Matching, "GuiSys/CGuiWidgetIdDB.cpp"),
             Object(Matching, "GuiSys/CGuiWidgetDrawParms.cpp"),
             Object(NonMatching, "GuiSys/CAuiEnergyBarT01.cpp"),
             Object(NonMatching, "GuiSys/CAuiImagePane.cpp"),

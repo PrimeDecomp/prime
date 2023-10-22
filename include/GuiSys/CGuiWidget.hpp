@@ -56,6 +56,7 @@ public:
   virtual bool GetIsFinishedLoadingWidgetSpecific() const;
   virtual void OnVisible();
   virtual void OnActivate();
+  short GetWorkerId() const { return xb4_workerId; }
 
   void SetIsVisible(bool visible);
   void SetColor(const CColor& color);
@@ -67,7 +68,9 @@ public:
 
   CGuiFrame* GetFrame() { return xb0_frame; }
 
+  static const short InvalidWidgetId() { return gkInvalidWidgetId; }
 private:
+  static const short gkInvalidWidgetId;
   short x70_selfId;
   short x72_parentId;
   CTransform4f x74_transform;

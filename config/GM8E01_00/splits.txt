@@ -2450,11 +2450,11 @@ GuiSys/CGuiWidget.cpp:
 	.text       start:0x802CA5DC end:0x802CAF74
 	.rodata     start:0x803D68F8 end:0x803D6948
 	.data       start:0x803ECA10 end:0x803ECA50
+	.sdata2     start:0x805AE130 end:0x805AE138
 
 GuiSys/CGuiWidgetIdDB.cpp:
 	.text       start:0x802CAF74 end:0x802CB1B0
 	.rodata     start:0x803D6948 end:0x803D69B0
-	.sdata2     start:0x805AE130 end:0x805AE138
 
 GuiSys/CGuiWidgetDrawParms.cpp:
 	.text       start:0x802CB1B0 end:0x802CB1D0

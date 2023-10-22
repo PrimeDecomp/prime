@@ -5,6 +5,7 @@
 
 class CGuiGroup : public CGuiCompoundWidget {
 public:
+  CGuiGroup(const CGuiWidgetParms& parms, int, bool);
   FourCC GetWidgetTypeID() const override { return 'GRUP'; }
 
   void SelectWorkerWidget(int workerId, bool setActive, bool setVisible);
@@ -12,7 +13,6 @@ public:
   const CGuiWidget* GetSelectedWidget() const;
   bool AddWorkerWidget(CGuiWidget* worker) override;
   void OnActivate() override;
-
 private:
   uint xb8_workerCount;
   int xbc_selectedWorker;

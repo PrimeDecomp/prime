@@ -5,6 +5,7 @@
 
 class CGuiCompoundWidget : public CGuiWidget {
 public:
+  ~CGuiCompoundWidget();
   FourCC GetWidgetTypeID() const override { return -1; }
 
   void OnVisible() override;
