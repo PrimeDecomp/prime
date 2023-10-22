@@ -4,17 +4,20 @@
 #include "Kyoto/Streams/CMemoryInStream.hpp"
 
 #include "Kyoto/CFactoryMgr.hpp"
+#include "rstl/auto_ptr.hpp"
 
 CAudioGroupSet::CAudioGroupSet(const TLockedToken< CAudioGrpSetLoc >& group)
 : x0_baseDir(group->GetBaseDirName())
 , x10_groupSetName(group->GetGroupSetName())
-, x10_groupSetTok(group) {}
+, x20_groupSetTok(group) {}
 
 CAudioGroupSet::~CAudioGroupSet() {}
 
 void CAudioGroupSet::Reload() {}
 
-void CAudioGroupSet::FreeSampleBuffer() {}
+void CAudioGroupSet::FreeSampleBuffer() {
+  x20_groupSetTok.data()->FreeSampleBuffer();
+}
 
 CAudioGrpSetLoc::CAudioGrpSetLoc(const rstl::auto_ptr< uchar >& data, int length)
 : x0_data(data.get()), x30_(0), x34_(0), x38_(0), x3c_(0), x40_(0) {
@@ -26,6 +29,11 @@ CAudioGrpSetLoc::CAudioGrpSetLoc(const rstl::auto_ptr< uchar >& data, int length
     __n = in.ReadLong();
   }
   CAudioSys::GetVerbose();
+}
+
+void CAudioGrpSetLoc::FreeSampleBuffer() {
+  x0_data = nullptr;
+  x40_ = 0;
 }
 
 template <>

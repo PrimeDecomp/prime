@@ -16,6 +16,7 @@ public:
   CAudioGrpSetLoc(const rstl::auto_ptr< uchar >& data, int length);
   const rstl::string& GetBaseDirName() const { return x10_baseDirName; }
   const rstl::string& GetGroupSetName() const { return x20_groupSetName; }
+  void FreeSampleBuffer();
   uint AramUsage() const;
   const void* GetPool() const;
   const void* GetProject() const;
@@ -45,7 +46,7 @@ public:
 private:
   rstl::string x0_baseDir;
   rstl::string x10_groupSetName;
-  rstl::optional_object< TLockedToken< CAudioGrpSetLoc > > x10_groupSetTok;
+  rstl::optional_object< TLockedToken< CAudioGrpSetLoc > > x20_groupSetTok;
 };
 
 #endif // _CAUDIOGROUPSET

@@ -1,6 +1,7 @@
 #ifndef _CPLAYER
 #define _CPLAYER
 
+#include "rstl/reserved_vector.hpp"
 #include "types.h"
 
 #include "MetroidPrime/CAnimRes.hpp"
@@ -70,6 +71,19 @@ class CPlayer : public CPhysicsActor {
     void Update(float dt);
     float GetAlpha() const { return x20_alpha; }
     bool AffectsThermal() const { return x28_affectsThermal; }
+  };
+
+  class CInputFilter {
+  public:
+    CInputFilter();
+    void AddSample(int, const CVector3f&, const CVector3f&, const CVector2f&);
+    bool Passes();
+    void Reset();
+  private:
+    rstl::reserved_vector<int, 20> x0_;
+    rstl::reserved_vector<CVector3f, 20> x54_;
+    rstl::reserved_vector<CVector3f, 20> x148_;
+    rstl::reserved_vector<CVector2f, 20> x23c_;
   };
 
 public:
