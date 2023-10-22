@@ -12,7 +12,6 @@ public:
   short FindWidgetID(const rstl::string& name) const;
 private:
   rstl::vector< rstl::string > x0_db;
-  short x14_lastPoolId;
 };
 
 #endif // _CGUIWIDGETIDDB
