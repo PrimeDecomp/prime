@@ -6,23 +6,23 @@
 #include "Kyoto/Audio/CSfxManager.hpp"
 
 struct EffectReverbHiInfo {
+  float time;       /**< [0.01, 10.0] time in seconds for reflection decay */
+  float preDelay;   /**< [0.0, 0.1] time in seconds before initial reflection heard */
+  float damping;    /**< [0.0, 1.0] damping factor influencing low-pass filter of reflections */
   float coloration; /**< [0.0, 1.0] influences filter coefficients to define surface characteristics
                        of a room */
-  float mix;        /**< [0.0, 1.0] dry/wet mix factor of reverb effect */
-  float time;       /**< [0.01, 10.0] time in seconds for reflection decay */
-  float damping;    /**< [0.0, 1.0] damping factor influencing low-pass filter of reflections */
-  float preDelay;   /**< [0.0, 0.1] time in seconds before initial reflection heard */
   float crosstalk;  /**< [0.0, 1.0] factor defining how much reflections are allowed to bleed to
                        other channels */
+  float mix;        /**< [0.0, 1.0] dry/wet mix factor of reverb effect */
 
-  EffectReverbHiInfo(float coloration, float mix, float time, float damping, float preDelay,
-                     float crosstalk)
-  : coloration(coloration)
-  , mix(mix)
-  , time(time)
-  , damping(damping)
+  EffectReverbHiInfo(float time, float preDelay, float damping, float coloration, float crosstalk,
+                     float mix)
+  : time(time)
   , preDelay(preDelay)
-  , crosstalk(crosstalk) {}
+  , damping(damping)
+  , coloration(coloration)
+  , crosstalk(crosstalk)
+  , mix(mix) {}
 };
 struct EffectChorusInfo {
   float baseDelay;
@@ -33,15 +33,15 @@ struct EffectChorusInfo {
   : baseDelay(baseDelay), variation(variation), period(period) {}
 };
 struct EffectReverbStdInfo {
+  float time;       /**< [0.01, 10.0] time in seconds for reflection decay */
+  float preDelay;   /**< [0.0, 0.1] time in seconds before initial reflection heard */
+  float damping;    /**< [0.0, 1.0] damping factor influencing low-pass filter of reflections */
   float coloration; /**< [0.0, 1.0] influences filter coefficients to define surface characteristics
                        of a room */
   float mix;        /**< [0.0, 1.0] dry/wet mix factor of reverb effect */
-  float time;       /**< [0.01, 10.0] time in seconds for reflection decay */
-  float damping;    /**< [0.0, 1.0] damping factor influencing low-pass filter of reflections */
-  float preDelay;   /**< [0.0, 0.1] time in seconds before initial reflection heard */
 
-  EffectReverbStdInfo(float coloration, float mix, float time, float damping, float preDelay)
-  : coloration(coloration), mix(mix), time(time), damping(damping), preDelay(preDelay) {}
+  EffectReverbStdInfo(float time, float preDelay, float damping, float coloration, float mix)
+  : time(time), preDelay(preDelay), damping(damping), coloration(coloration), mix(mix) {}
 };
 struct EffectDelayInfo {
   int delayL;
