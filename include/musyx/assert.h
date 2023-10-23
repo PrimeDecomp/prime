@@ -27,7 +27,7 @@ static inline void __SOME_ASSERT_DERP() { __SOME_ASSERT_DERP2() != 0; }
 
 #ifndef MUSY_ASSERT_MSG
 #ifdef _DEBUG
-#if MUSY_VERSION >= MUSY_VERSION_CHECK(2, 0, 1)
+#if MUSY_VERSION >= MUSY_VERSION_CHECK(2, 0, 0)
 #define MUSY_ASSERT_MSG(cond, msg)                                                                 \
   do {                                                                                             \
     s32 tmp = 1;                                                                                   \

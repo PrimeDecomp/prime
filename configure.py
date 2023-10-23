@@ -189,7 +189,15 @@ cflags_retro = [
 ]
 
 cflags_musyx = [
-    *cflags_base,
+    "-proc gekko",
+    "-nodefaults",
+    "-nosyspath",
+    "-i include",
+    "-i libc",
+    "-inline auto",
+    "-O4,p",
+    "-fp hard",
+    "-Cpp_exceptions off",
     "-str reuse,pool,readonly",
     "-fp_contract off",
 ]

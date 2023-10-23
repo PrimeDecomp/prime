@@ -40,8 +40,7 @@ void streamHandle() {
     return;
   }
   streamCallCnt = streamCallDelay;
-  si = streamInfo;
-  for (i = 0; i < synthInfo.voiceNum; ++i) {
+  for (si = &streamInfo[0], i = 0; i < synthInfo.voiceNum; ++i) {
     switch (si->state) {
     case 1:
       newsmp.info = si->frq | 0x40000000;
@@ -72,7 +71,7 @@ void streamHandle() {
       }
 
       hwInitSamplePlayback(si->voice, -1, &newsmp, 1, -1, synthVoice[si->voice].id, 1, 1);
-      hwSetPitch(si->voice, ((float)si->frq / (float)synthInfo.mixFrq) * 4096.f);
+      hwSetPitch(si->voice, (si->frq / (float)synthInfo.mixFrq) * 4096.f);
 #if MUSY_VERSION <= MUSY_VERSION_CHECK(1, 5, 3)
       hwSetVolume(si->voice, 0, si->vol * (1 / 127.f), (si->pan << 16), (si->span << 16),
                   si->auxa * (1 / 127.f), si->auxb * (1 / 127.f));
@@ -96,13 +95,134 @@ void streamHandle() {
       if (si->last != cpos) {
         if (si->last < cpos) {
           switch (si->type) {
-          case 0:
+          case 0: {
             if ((len = si->updateFunction(si->buffer + si->last, cpos - si->last, NULL, 0,
-                                          &si->user)) != 0 &&
+                                          si->user)) != 0 &&
                 si->state == 2) {
+              cpos = (si->last + len) % si->size;
+              if (!(si->flags & 0x20000)) {
+                if (cpos != 0) {
+                  hwFlushStream(si->buffer, si->size * 2, (cpos - si->last) * 2, si->hwStreamHandle,
+                                NULL, 0);
+                } else {
+                  hwFlushStream(si->buffer, si->size * 2, (si->size - si->last) * 2,
+                                si->hwStreamHandle, NULL, 0);
+                }
+              }
+
+              si->last = cpos;
+            }
+          } break;
+          case 1: {
+            u32 off = (si->last / 14);
+            if ((len = si->updateFunction(si->buffer + si->last * 4, cpos - si->last, NULL, 0,
+                                          si->user)) != 0 &&
+                si->state == 2) {
+              cpos = (si->last + len) % si->size;
+
+              if (!(si->flags & 0x20000)) {
+                if (cpos != 0) {
+                  hwFlushStream(si->buffer, off * 8, (si->bytes + si->last) * -8,
+                                si->hwStreamHandle, NULL, 0);
+                } else {
+                  hwFlushStream(si->buffer, off * 8, ((cpos + 13) / 14) * 8 + off * -8,
+                                si->hwStreamHandle, NULL, 0);
+                }
+              }
+              si->last = cpos;
+            }
+          } break;
+          }
+        } else if (cpos == 0) {
+          switch (si->type) {
+          case 0:
+            if ((len = si->updateFunction(si->buffer + cpos * 4, si->size - si->last, NULL, 0,
+                                          si->user)) &&
+                si->state == 2) {
+              cpos = (si->last + len) % si->size;
+              if (!(si->flags & 0x20000)) {
+                if (cpos == 0) {
+                  hwFlushStream(si->buffer, si->last * 2, si->bytes + si->last * -2,
+                                si->hwStreamHandle, NULL, 0);
+                } else {
+                  hwFlushStream(si->buffer, si->last * 2, (cpos - si->last) * 2, si->hwStreamHandle,
+                                NULL, 0);
+                }
+              }
+              si->last = cpos;
+            }
+            break;
+          case 1:
+            cpos = si->last / 14;
+            if ((len = si->updateFunction(si->buffer + cpos * 4, si->size - si->last, NULL, 0,
+                                          si->user)) &&
+                si->state == 2) {
+              u32 off = (si->last + len) % si->size;
+              if (!(si->flags & 0x20000)) {
+                if (off == 0) {
+                  hwFlushStream(si->buffer, cpos * 8, si->bytes + cpos * -8, si->hwStreamHandle,
+                                NULL, 0);
+                } else {
+                  hwFlushStream(si->buffer, si->last * 2, ((off + 13) / 14) * 8, si->hwStreamHandle,
+                                NULL, 0);
+                }
+              }
+
+              si->last = off;
             }
             break;
           }
+        } else {
+          switch (si->type) {
+          case 0:
+            if ((len = si->updateFunction(si->buffer + cpos * 4, si->size - si->last, NULL, 0,
+                                          si->user)) &&
+                si->state == 2) {
+              cpos = (si->last + len) % si->size;
+
+              if (!(si->flags & 0x20000)) {
+                if (si->size - si->last > len) {
+                  hwFlushStream(si->buffer, si->last * 2, si->bytes + si->last * -2,
+                                si->hwStreamHandle, NULL, 0);
+                  hwFlushStream(si->buffer, 0, cpos * 2, si->hwStreamHandle, NULL, 0);
+                } else if (cpos == 0) {
+                  hwFlushStream(si->buffer, si->last * 2, si->bytes + si->last * -2,
+                                si->hwStreamHandle, NULL, 0);
+                } else {
+                  hwFlushStream(si->buffer, si->last * 2, (cpos - si->last) * 2, si->hwStreamHandle,
+                                NULL, 0);
+                }
+              }
+            }
+            break;
+          case 1: {
+            u32 off = (si->last / 14) * 8;
+            if ((len = si->updateFunction(si->buffer + cpos * 4, si->size - si->last, NULL, 0,
+                                          si->user)) &&
+                si->state == 2) {
+              cpos = (si->last + len) % si->size;
+
+              if (!(si->flags & 0x20000)) {
+                if (si->size - si->last > len) {
+                  hwFlushStream(si->buffer, off, ((cpos + 13) / 14) * 8, si->hwStreamHandle, NULL,
+                                0);
+                } else if (cpos == 0) {
+                  hwFlushStream(si->buffer, off, si->bytes + off * -8, si->hwStreamHandle, NULL, 0);
+                } else {
+                  hwFlushStream(si->buffer, off, si->bytes + (si->last / 14) * -8,
+                                si->hwStreamHandle, NULL, 0);
+                  hwFlushStream(si->buffer, 0, (cpos / 14) << 3, si->hwStreamHandle, NULL, 0);
+                }
+              }
+            }
+            si->last = cpos;
+          } break;
+          }
+        }
+
+        if (si->state == 2 && !(si->flags & 0x20000) && si->type == 1) {
+          hwSetStreamLoopPS(si->voice,
+                            (si->lastPSFromBuffer = *(u32*)OSCachedToUncached(si->buffer) >> 24));
         }
       }
       break;
@@ -122,7 +242,7 @@ void streamKill(u32 voice) {
       voiceUnblock(si->voice);
     }
     si->state = 3;
-    si->updateFunction(NULL, 0, NULL, 0, (void*)si->user);
+    si->updateFunction(NULL, 0, NULL, 0, si->user);
     break;
   default:
     break;
@@ -362,6 +482,7 @@ u32 sndStreamAllocStereo(u8 prio, void* lBuffer, void* rBuffer, u32 samples, u32
   hwEnableIrq();
   return stid[0];
 }
+
 u32 sndStreamAllocLength(u32 num, u32 flags) {
   if (flags & 1) {
     return (((num + 13) / 14) * 8 + 31) & ~31;
@@ -461,7 +582,7 @@ void sndStreamFrq(u32 stid, u32 frq) {
 
   MUSY_ASSERT_MSG(sndActive, "Sound system is not initialized.");
   hwDisableIrq();
-  (i = GetPrivateIndex(stid));
+  i = GetPrivateIndex(stid);
   if (i != -1) {
     streamInfo[i].frq = frq;
     if (streamInfo[i].state == 2) {
@@ -500,11 +621,9 @@ void sndStreamFree(u32 stid) {
 }
 
 u32 sndStreamActivate(u32 stid) {
-  u32 i;   // r31
-  u32 ret; // r28
+  u32 i;        // r31
+  bool ret = 0; // r28
   MUSY_ASSERT_MSG(sndActive, "Sound system is not initialized.");
-  i = 0;
-  ret = 0;
   hwDisableIrq();
   i = GetPrivateIndex(stid);
   if (i != -1) {
