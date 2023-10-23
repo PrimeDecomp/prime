@@ -197,6 +197,7 @@ cflags_musyx = [
     "-inline auto",
     "-O4,p",
     "-fp hard",
+    "-enum int",
     "-Cpp_exceptions off",
     "-str reuse,pool,readonly",
     "-fp_contract off",
