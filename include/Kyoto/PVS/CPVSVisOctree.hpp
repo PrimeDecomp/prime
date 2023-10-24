@@ -9,6 +9,8 @@ class CPVSVisOctree {
 public:
   int IterateSearch(uchar a, const CVector3f& pos) const;
   uint GetNumChildren(uchar a) const;
+  uint GetNumObjects() const { return mNumObjects; }
+  uint GetNumLights() const { return mNumLights; }
 
   static CPVSVisOctree MakePVSVisOctree(const char* data, int len);
 

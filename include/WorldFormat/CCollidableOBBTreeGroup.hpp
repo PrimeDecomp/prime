@@ -11,14 +11,15 @@
 class COBBTree;
 
 class CCollidableOBBTreeGroupContainer {
+public:
+  CCollidableOBBTreeGroupContainer(CInputStream& in);
+  CCollidableOBBTreeGroupContainer(const CVector3f&, const CVector3f&);
+
+private:
   friend class CCollidableOBBTreeGroup;
   rstl::vector< rstl::auto_ptr< COBBTree > > x0_trees;
   rstl::vector< CAABox > x10_aabbs;
   CAABox x20_aabox;
-
-public:
-  CCollidableOBBTreeGroupContainer(CInputStream& in);
-  CCollidableOBBTreeGroupContainer(const CVector3f&, const CVector3f&);
 };
 
 class CCollidableOBBTreeGroup : public CCollisionPrimitive {
@@ -33,6 +34,8 @@ public:
   ~CCollidableOBBTreeGroup() override {}
   CRayCastResult CastRayInternal(const CInternalRayCastStructure&) const override;
 
+  static Type GetType();
+  static void SetStaticTableIndex(uint);
 private:
   CCollidableOBBTreeGroupContainer* x10_container;
 };

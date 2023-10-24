@@ -20,6 +20,12 @@ class COBBTree {
     rstl::vector<CVector3f> x60_vertices;
     SIndexData(CInputStream& in);
   };
+
+public:
+  COBBTree(CInputStream& in);
+  ~COBBTree();
+private:
+  char data[0x8c];
 };
 
 #endif // _COBBTREE

@@ -1,8 +1,8 @@
 #include "Kyoto/PVS/CPVSVisOctree.hpp"
 #include "rstl/auto_ptr.hpp"
-#include <WorldFormat/CPVSAreaSet.hpp>
-
+#include <Kyoto/PVS/CPVSVisSet.hpp>
 #include <Kyoto/Streams/CMemoryInStream.hpp>
+#include <WorldFormat/CPVSAreaSet.hpp>
 
 #pragma inline_max_size(250)
 CPVSAreaSet::CPVSAreaSet(int numFeatures, int numLights, int num2ndLights, int numActors,
@@ -12,10 +12,10 @@ CPVSAreaSet::CPVSAreaSet(int numFeatures, int numLights, int num2ndLights, int n
 , x4_(numLights)
 , x8_(num2ndLights)
 , xc_(numActors)
-, x10_(leafSize)
+, x10_leafSize(leafSize)
 , x14_(lightIndexCount)
 , x18_(w7)
-, x1c_(w8)
+, x1c_lightLeaves(w8)
 , x20_octree(CPVSVisOctree::MakePVSVisOctree(w9, 68)) {}
 
 rstl::auto_ptr< CPVSAreaSet > CPVSAreaSet::MakeAreaSet(const char* data, int len) {
@@ -35,3 +35,10 @@ rstl::auto_ptr< CPVSAreaSet > CPVSAreaSet::MakeAreaSet(const char* data, int len
 }
 
 const CPVSVisOctree& CPVSAreaSet::GetVisOctree(const uint) const { return x20_octree; }
+
+CPVSVisSet CPVSAreaSet::GetLightSet(int lightIdx) const {
+  CPVSVisSet ret;
+  ret.SetFromMemory(x20_octree.GetNumObjects(), x20_octree.GetNumLights(),
+                    x1c_lightLeaves + x10_leafSize * lightIdx);
+  return ret;
+}

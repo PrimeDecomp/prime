@@ -6,7 +6,7 @@
 class CPVSVisSet {
 public:
   static CPVSVisSet Reset(int);
-
+  void SetFromMemory(int numBits, int numLights, const char* leafPtr);
 private:
   int x0_state;
   uint x4_numBits;

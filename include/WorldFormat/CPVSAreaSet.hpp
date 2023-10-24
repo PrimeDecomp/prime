@@ -22,10 +22,10 @@ private:
   int x4_;
   int x8_;
   int xc_;
-  int x10_;
+  int x10_leafSize;
   int x14_;
   const char* x18_;
-  const char* x1c_;
+  const char* x1c_lightLeaves;
   CPVSVisOctree x20_octree;
 };
 
