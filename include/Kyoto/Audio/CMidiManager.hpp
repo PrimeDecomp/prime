@@ -23,10 +23,10 @@ public:
     void SetSongId(const short id);
 
   private:
-    u32 x0_;
-    CSfxHandle x4_;
-    short x8_;
-    bool xa_;
+    u32 x0_sysHandle;
+    CSfxHandle x4_midiHandle;
+    short x8_songId;
+    bool xa_available;
   };
   class CMidiData {
   public:

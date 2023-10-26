@@ -8,28 +8,28 @@
 
 rstl::reserved_vector< CMidiManager::CMidiWrapper, 3 > CMidiManager::mMidiWrappers;
 
-CMidiManager::CMidiWrapper::CMidiWrapper() : x0_(0), xa_(1) {}
+CMidiManager::CMidiWrapper::CMidiWrapper() : x0_sysHandle(0), xa_available(true) {}
 
-const CSfxHandle& CMidiManager::CMidiWrapper::GetManagerHandle() const { return x4_; }
+const CSfxHandle& CMidiManager::CMidiWrapper::GetManagerHandle() const { return x4_midiHandle; }
 
-const u32 CMidiManager::CMidiWrapper::GetAudioSysHandle() const { return x0_; }
+const u32 CMidiManager::CMidiWrapper::GetAudioSysHandle() const { return x0_sysHandle; }
 
-const bool CMidiManager::CMidiWrapper::IsAvailable() const { return xa_; }
+const bool CMidiManager::CMidiWrapper::IsAvailable() const { return xa_available; }
 
-const short CMidiManager::CMidiWrapper::GetSongId() const { return x8_; }
+const short CMidiManager::CMidiWrapper::GetSongId() const { return x8_songId; }
 
-void CMidiManager::CMidiWrapper::SetAvailable(const bool v) { xa_ = v; }
+void CMidiManager::CMidiWrapper::SetAvailable(const bool v) { xa_available = v; }
 
-void CMidiManager::CMidiWrapper::SetAudioSysHandle(const u32 handle) { x0_ = handle; }
+void CMidiManager::CMidiWrapper::SetAudioSysHandle(const u32 handle) { x0_sysHandle = handle; }
 
-void CMidiManager::CMidiWrapper::SetMidiHandle(const CSfxHandle& handle) { x4_ = handle; }
+void CMidiManager::CMidiWrapper::SetMidiHandle(const CSfxHandle& handle) { x4_midiHandle = handle; }
 
-void CMidiManager::CMidiWrapper::SetSongId(const short id) { x8_ = id; }
+void CMidiManager::CMidiWrapper::SetSongId(const short id) { x8_songId = id; }
 
 CSfxHandle CMidiManager::Play(const CMidiData& data, unsigned short fadeTime, bool stopExisting,
                               short volume) {
-  bool bVar2 = false;
-  u32 uVar6 = 0;
+  bool foundExisting = false;
+  u32 sysHandle = 0;
   CSfxHandle handle = LocateHandle();
   if (!handle) {
     return CSfxHandle();
@@ -44,8 +44,8 @@ CSfxHandle CMidiManager::Play(const CMidiData& data, unsigned short fadeTime, bo
       }
 
       if (data.GetSongId() == mMidiWrappers[i].GetSongId()) {
-        bVar2 = true;
-        uVar6 = mMidiWrappers[i].GetAudioSysHandle();
+        foundExisting = true;
+        sysHandle = mMidiWrappers[i].GetAudioSysHandle();
         mMidiWrappers[i].SetAvailable(true);
       } else {
         Stop(mMidiWrappers[i].GetManagerHandle(), fadeTime);
@@ -53,16 +53,16 @@ CSfxHandle CMidiManager::Play(const CMidiData& data, unsigned short fadeTime, bo
     }
   }
 
-  if (bVar2) {
-    wrapper.SetAudioSysHandle(uVar6);
+  if (foundExisting) {
+    wrapper.SetAudioSysHandle(sysHandle);
     wrapper.SetSongId(data.GetSongId());
   } else {
-    u32 tmp = CAudioSys::SeqPlayEx(data.GetGroupId(), data.GetSongId(), data.GetData(), nullptr, 0);
+    u32 sysHandle = CAudioSys::SeqPlayEx(data.GetGroupId(), data.GetSongId(), data.GetData(), nullptr, 0);
     if (fadeTime != 0) {
-      CAudioSys::SeqVolume(0, 0, tmp, 0);
+      CAudioSys::SeqVolume(0, 0, sysHandle, 0);
     }
-    CAudioSys::SeqVolume(volume, fadeTime, tmp, 0);
-    wrapper.SetAudioSysHandle(tmp);
+    CAudioSys::SeqVolume(volume, fadeTime, sysHandle, 0);
+    wrapper.SetAudioSysHandle(sysHandle);
     wrapper.SetSongId(data.GetSongId());
   }
 
