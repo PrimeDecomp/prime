@@ -953,7 +953,7 @@ config.libs = [
             Object(NonMatching, "Kyoto/Animation/CSkinnedModelWithAvgNormals.cpp"),
             Object(Matching, "Kyoto/CTimeProvider.cpp"),
             Object(Matching, "Kyoto/CARAMToken.cpp"),
-            Object(NonMatching, "Kyoto/Audio/CMidiManager.cpp"),
+            Object(Matching, "Kyoto/Audio/CMidiManager.cpp"),
             Object(Matching, "Kyoto/Text/CFontImageDef.cpp"),
             Object(NonMatching, "Kyoto/Text/CImageInstruction.cpp"),
             Object(NonMatching, "Kyoto/Text/CTextRenderBuffer.cpp"),

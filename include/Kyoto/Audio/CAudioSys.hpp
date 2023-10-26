@@ -100,6 +100,10 @@ public:
   static void S3dAddEmitter(SND_FXID fxid, const CVector3f& pos, const CVector3f& dir,
                             const bool b1, const bool b2, short, int);
 
+
+  static u32 SeqPlayEx(unsigned short, unsigned short, void*, SND_PLAYPARA*, unsigned char);
+  static void SeqStop(u32);
+  static void SeqVolume(u8, u16, u32, u8);
   static bool mInitialized;
   static bool mIsListenerActive;
   static bool mVerbose;

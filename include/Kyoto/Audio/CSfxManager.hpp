@@ -211,9 +211,12 @@ public:
   static CSfxHandle SfxStart(ushort id, short vol, short pan, bool useAcoustics,
                              short prio = kMaxPriority, bool looped = false,
                              int areaId = kAllAreas);
+  static void SfxStop(CSfxHandle handle);
+  static void SfxVolume(CSfxHandle handle, uchar volume);
   static void SfxSpan(CSfxHandle, uchar);
 
   static bool IsPlaying(const CSfxHandle& handle);
+  static void StopSound(CSfxHandle handle);
 
   static void SetChannel(ESfxChannels);
   static void KillAll(ESfxChannels);

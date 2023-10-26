@@ -1,6 +1,7 @@
 #include "Kyoto/Alloc/CMemory.hpp"
 #include "Kyoto/Audio/CAudioSys.hpp"
 #include "Kyoto/Audio/CSfxHandle.hpp"
+#include "dolphin/types.h"
 #include "musyx/musyx.h"
 #include "rstl/vector.hpp"
 #include <Kyoto/Audio/CSfxManager.hpp>
@@ -208,7 +209,7 @@ short CSfxManager::CSfxWrapper::GetAudible(const CVector3f&) { return kSA_Aud3; 
 
 const SND_VOICEID CSfxManager::CSfxWrapper::GetVoice() const { return x1c_voiceHandle; }
 
-void CSfxManager::CSfxWrapper::SetVolume(short vol) { x20_vol = vol; }
+void CSfxManager::CSfxWrapper::SetVolume(const short vol) { x20_vol = vol; }
 
 void CSfxManager::CSfxWrapper::UpdateEmitterSilent() { CAudioSys::SfxVolume(x1c_voiceHandle, 1); }
 
@@ -264,7 +265,8 @@ void CSfxManager::UpdateListener(const CVector3f& pos, const CVector3f& dir, con
 }
 
 CSfxHandle CSfxManager::AddEmitter(const SND_FXID id, const CVector3f& pos, const CVector3f& dir,
-                                   const bool useAcoustics, const bool looped, const short prio, const int areaId) {
+                                   const bool useAcoustics, const bool looped, const short prio,
+                                   const int areaId) {
   CAudioSys::C3DEmitterParmData emitterParm;
   emitterParm.x24_sfxId = id;
   emitterParm.x29_prio = prio;
@@ -274,8 +276,8 @@ CSfxHandle CSfxManager::AddEmitter(const SND_FXID id, const CVector3f& pos, cons
 }
 
 CSfxHandle CSfxManager::AddEmitter(const SND_FXID id, const CVector3f& pos, const CVector3f& dir,
-                                   const uchar vol, const bool useAcoustics, const bool looped, const short prio,
-                                   const int areaId) {
+                                   const uchar vol, const bool useAcoustics, const bool looped,
+                                   const short prio, const int areaId) {
   CAudioSys::C3DEmitterParmData emitterParm(150.f, 0.1f, 1, vol > 20 ? vol : 21);
   emitterParm.x0_pos = pos;
   emitterParm.xc_dir = dir;
@@ -286,6 +288,60 @@ CSfxHandle CSfxManager::AddEmitter(const SND_FXID id, const CVector3f& pos, cons
 CSfxHandle CSfxManager::AddEmitter(CAudioSys::C3DEmitterParmData& parmData, const bool useAcoustics,
                                    const short prio, const bool looped, const int areaId) {}
 
+void CSfxManager::UpdateEmitter(CSfxHandle handle, const CVector3f& pos, const CVector3f& dir,
+                                uchar maxVol) {}
+
+void CSfxManager::RemoveEmitter(CSfxHandle handle) { StopSound(handle); }
+
+CSfxHandle CSfxManager::SfxStart(ushort id, short vol, short pan, bool useAcoustics, short prio,
+                                 bool looped, int areaId) {}
+
+void CSfxManager::SfxStop(CSfxHandle handle) { StopSound(handle); }
+
+void CSfxManager::SfxVolume(CSfxHandle handle, uchar volume) {
+  if (handle.GetIndex() > mChannels[mCurrentChannel].x48_.size()) {
+
+  } else {
+    CSfxWrapper* wrapper = (CSfxWrapper*)mChannels[mCurrentChannel].x48_[handle.GetIndex()];
+    if (wrapper == nullptr || wrapper->GetSfxHandle() != handle) {
+      return;
+    }
+    wrapper->SetVolume(volume);
+    if (wrapper->IsPlaying()) {
+      CAudioSys::SfxVolume(wrapper->GetVoice(), volume);
+    }
+  }
+}
+
+void CSfxManager::SfxSpan(CSfxHandle handle, uchar span) {}
+
+void CSfxManager::KillAll(ESfxChannels channel) {
+  CSfxChannel& chan = mChannels[channel];
+
+  for (int i = 0; i < chan.x48_.size(); ++i) {
+    CBaseSfxWrapper* wrapper = chan.x48_[i];
+    if (wrapper != NULL && wrapper->IsPlaying()) {
+      wrapper->Stop();
+    }
+
+    if (wrapper) {
+      wrapper->Release();
+    }
+    chan.x48_[i] = nullptr;
+  }
+}
+
+ushort CSfxManager::TranslateSFXID(ushort id) {
+  if (mTranslationTable == nullptr || id >= mTranslationTable->size()) {
+    return -1;
+  }
+
+  short ret = (*mTranslationTable)[id];
+  if (ret < 0) {
+    return -1;
+  }
+  return ret;
+}
 #pragma inline_max_size(250)
 CFactoryFnReturn FAudioTranslationTableFactory(const SObjectTag& obj, CInputStream& in,
                                                const CVParamTransfer& xfer) {
