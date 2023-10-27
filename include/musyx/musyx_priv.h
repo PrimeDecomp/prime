@@ -513,7 +513,7 @@ typedef struct SYNTH_VOICE {
   u32 id;                                 // offset 0xF4, size 0x4
   VID_LIST* vidList;                      // offset 0xF8, size 0x4
   VID_LIST* vidMasterList;                // offset 0xFC, size 0x4
-#if MUSY_VERSION > MUSY_VERSION_CHECK(1, 5, 3) && MUSY_VERSION <= MUSY_VERSION_CHECK(2, 0, 0)
+#if MUSY_VERSION >= MUSY_VERSION_CHECK(1, 5, 0) && MUSY_VERSION <= MUSY_VERSION_CHECK(2, 0, 0)
   u16 allocId; // offset 0x100, size 0x2
 #else
   u32 allocId;
