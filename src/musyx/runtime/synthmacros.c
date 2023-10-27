@@ -751,7 +751,11 @@ static u32 TranslateVolume(u32 volume, u16 curve) {
 
       if (vhigh < 0x7f) {
         d = vlow * (ptr[vhigh + 1] - ptr[vhigh]);
+#if MUSY_VERSION >= MUSY_VERSION_CHECK(2, 0, 0)
+        volume = d + ((u16)ptr[vhigh] << 16);
+#else
         volume = d + (ptr[vhigh] << 16);
+#endif
       } else {
         volume = ptr[vhigh] << 16;
       }

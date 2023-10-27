@@ -52,7 +52,7 @@ u8 synthFXGetMaxVoices(u16 fid);
 void synthPauseVolume(u8 volume, u16 time, u8 vGroup);
 bool dataRemoveFX(u16 gid);
 void voiceUnblock(u32 voice);
-void voiceRemovePriority(const SYNTH_VOICE* svoice);
+void voiceRemovePriority(SYNTH_VOICE* svoice);
 #ifdef __cplusplus
 }
 #endif

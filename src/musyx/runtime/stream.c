@@ -622,7 +622,8 @@ void sndStreamFree(u32 stid) {
 
 u32 sndStreamActivate(u32 stid) {
   u32 i;        // r31
-  bool ret = 0; // r28
+  u32 ret; // r28
+  ret = 0;
   MUSY_ASSERT_MSG(sndActive, "Sound system is not initialized.");
   hwDisableIrq();
   i = GetPrivateIndex(stid);
