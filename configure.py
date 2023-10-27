@@ -1172,11 +1172,11 @@ config.libs = [
         ],
     },
     MusyX(
-        debug=True,
-        mw_version="GC/1.2.5",
-        major=1,
-        minor=5,
-        patch=3,
+        #debug=True,
+        #mw_version="GC/1.2.5",
+        #major=1,
+        #minor=5,
+        #patch=3,
         objects=[
             Object(Matching, "musyx/runtime/seq.c"),
             Object(Matching, "musyx/runtime/synth.c"),
