@@ -13,14 +13,95 @@ static u32 adsrGetIndex(ADSR_VARS* adsr) {
 
 u32 adsrConvertTimeCents(long tc) { return 1000.f * powf(2.f, 1.2715658e-08f * tc); }
 
-#pragma dont_inline on
 u32 salChangeADSRState(ADSR_VARS* adsr) {
   u32 VoiceDone; // r30
   VoiceDone = FALSE;
 
+  switch (adsr->mode) {
+  case 0:
+    switch (adsr->state) {
+    case 0: {
+      if ((adsr->cnt = adsr->data.dls.aTime)) {
+        adsr->state = 1;
+        adsr->currentVolume = 0;
+        adsr->currentDelta = 0x7fff0000 / (adsr->data).dls.aTime;
+        goto done;
+      }
+    }
+    case 1: {
+      if ((adsr->cnt = adsr->data.dls.dTime)) {
+        adsr->state = 2;
+        adsr->currentVolume = 0x7fff0000;
+        adsr->currentDelta =
+            -((0x7fff0000 - (adsr->data.dls.sLevel * 0x10000)) / adsr->data.dls.dTime);
+        goto done;
+      }
+    }
+    case 2: {
+      if (adsr->data.dls.sLevel != 0) {
+        adsr->state = 3;
+        adsr->currentVolume = adsr->data.dls.sLevel << 0x10;
+        adsr->currentDelta = 0;
+        goto done;
+      }
+    }
+    case 4: {
+      break;
+    }
+    default:
+      goto done;
+    }
+    adsr->currentVolume = 0;
+    VoiceDone = TRUE;
+    break;
+  case 1:
+    switch (adsr->state) {
+    case 0: {
+      if ((adsr->cnt = adsr->data.dls.aTime)) {
+        adsr->state = 1;
+        if (adsr->data.dls.aMode == 0) {
+          adsr->currentVolume = 0;
+          adsr->currentDelta = 0x7fff0000 / adsr->cnt;
+        } else {
+          adsr->currentVolume = adsr->currentIndex = 0;
+          adsr->currentDelta = 0xc10000 / adsr->cnt;
+        }
+        goto done;
+      }
+    }
+    case 1: {
+      adsr->cnt = adsr->data.dls.dTime * (((0xc1u - adsr->data.dls.sLevel) * 0x10000) / 0xc1) >> 16;
+      if (adsr->cnt) {
+        adsr->state = 2;
+        adsr->currentVolume = 0x7fff0000;
+        adsr->currentIndex = 0xc10000;
+        adsr->currentDelta = -(((0xc1 - (uint)(adsr->data).dls.sLevel) * 0x10000) / adsr->cnt);
+        goto done;
+      }
+    }
+    case 2: {
+      if (adsr->data.dls.sLevel) {
+        adsr->state = 3;
+        adsr->currentIndex = adsr->data.dls.sLevel << 16;
+        adsr->currentVolume = dspAttenuationTab[adsrGetIndex(adsr)] << 16;
+        adsr->currentDelta = 0;
+        goto done;
+      }
+      break;
+    }
+    case 4: {
+      break;
+    }
+    default:
+      goto done;
+    }
+    adsr->currentVolume = 0;
+    VoiceDone = TRUE;
+    break;
+  }
+done:
   return VoiceDone;
 }
-#pragma dont_inline reset
 
 u32 adsrSetup(ADSR_VARS* adsr) {
   adsr->state = 0;
