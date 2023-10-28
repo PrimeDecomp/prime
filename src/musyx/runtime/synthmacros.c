@@ -726,18 +726,18 @@ static void mcmdSetSurroundPanning(SYNTH_VOICE* svoice, MSTEP* cstep) {
 static void mcmdSetPianoPanning(SYNTH_VOICE* svoice, MSTEP* cstep) {
   s32 delta; // r31
   s32 scale; // r30
+#if MUSY_VERSION >= MUSY_VERSION_CHECK(2, 0, 0)
+  delta = (svoice->curNote - (u8)(cstep->para[0] >> 16)) << 16;
+  scale = (s8)((cstep->para[0] >> 8) & 0xFF);
+#else
   delta = (svoice->curNote << 16) - EXTRACT_3RDNYBBLE(cstep->para[0]);
-  scale = (s8)(u8)(cstep->para[0] >> 8);
+  scale = (s8)((u8)(cstep->para[0] >> 8));
+#endif
   delta = ((delta * scale) >> 7);
   delta += (u8)(cstep->para[0] >> 0x18) << 16;
-  if (delta < 0) {
-    delta = 0;
-  } else if (delta > 0x7f0000) {
-    delta = 0x7f0000;
-  }
-  svoice->panTarget[0] = delta;
-  svoice->panning[0] = delta;
+  svoice->panning[0] = svoice->panTarget[0] = delta < 0 ? 0 : delta > 0x7f0000 ? 0x7f0000 : delta;
 }
+
 static u32 TranslateVolume(u32 volume, u16 curve) {
   u8* ptr;   // r30
   u32 vlow;  // r28
@@ -1188,11 +1188,11 @@ static void mcmdSetupTremolo(SYNTH_VOICE* svoice, MSTEP* cstep) {
 }
 
 static void macHandleActive(SYNTH_VOICE* svoice) {
+  static MSTEP cstep;
   u8 i;                              // r29
   u8 lastNote;                       // r27
   u32 ex;                            // r30
   CHANNEL_DEFAULTS* channelDefaults; // r28
-  static MSTEP cstep;
 
   if (svoice->cFlags & 3) {
     if (svoice->cFlags & 1) {
