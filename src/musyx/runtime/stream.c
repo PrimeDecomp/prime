@@ -33,6 +33,7 @@ void streamHandle() {
   SAMPLE_INFO newsmp; // r1+0x8
   STREAM_INFO* si;    // r31
   float f;            // r63
+  SND_VOICEID v;
   // TODO: Match this
 
   if (streamCallCnt != 0) {
@@ -40,7 +41,8 @@ void streamHandle() {
     return;
   }
   streamCallCnt = streamCallDelay;
-  for (si = &streamInfo[0], i = 0; i < synthInfo.voiceNum; ++i) {
+  si = &streamInfo[0];
+  for (i = 0; i < synthInfo.voiceNum; ++i, ++si) {
     switch (si->state) {
     case 1:
       newsmp.info = si->frq | 0x40000000;
@@ -65,12 +67,13 @@ void streamHandle() {
 
 #if MUSY_VERSION >= MUSY_VERSION_CHECK(2, 0, 0)
         hwSetStreamLoopPS(si->voice, si->lastPSFromBuffer);
-        si->adpcmInfo.initialPS = si->adpcmInfo.loopPS = si->lastPSFromBuffer;
+        si->adpcmInfo.loopPS = si->adpcmInfo.initialPS = si->lastPSFromBuffer;
 #endif
         break;
       }
 
-      hwInitSamplePlayback(si->voice, -1, &newsmp, 1, -1, synthVoice[si->voice].id, 1, 1);
+      v = si->voice;
+      hwInitSamplePlayback(v, -1, &newsmp, 1, -1, synthVoice[v].id, 1, 1);
       hwSetPitch(si->voice, (si->frq / (float)synthInfo.mixFrq) * 4096.f);
 #if MUSY_VERSION <= MUSY_VERSION_CHECK(1, 5, 3)
       hwSetVolume(si->voice, 0, si->vol * (1 / 127.f), (si->pan << 16), (si->span << 16),
@@ -85,20 +88,20 @@ void streamHandle() {
         hwFlushStream(si->buffer, 0, si->bytes, si->hwStreamHandle, NULL, 0);
       }
       break;
-    case 2:
-      cpos = hwGetPos(si->voice);
+    case 2: {
+      u32 off = hwGetPos(si->voice);
 
       if (si->type == 1) {
-        cpos = (cpos / 14) * 14;
+        off = (off / 14) * 14;
       }
 
-      if (si->last != cpos) {
-        if (si->last < cpos) {
+      if (si->last != off) {
+        if (si->last < off) {
           switch (si->type) {
           case 0: {
-            if ((len = si->updateFunction(si->buffer + si->last, cpos - si->last, NULL, 0,
-                                          si->user)) != 0 &&
-                si->state == 2) {
+              len = si->updateFunction(si->buffer + si->last, cpos - si->last, NULL, 0,
+                                          si->user);
+            if (len != 0 && si->state == 2) {
               cpos = (si->last + len) % si->size;
               if (!(si->flags & 0x20000)) {
                 if (cpos != 0) {
@@ -122,10 +125,10 @@ void streamHandle() {
 
               if (!(si->flags & 0x20000)) {
                 if (cpos != 0) {
-                  hwFlushStream(si->buffer, off * 8, (si->bytes + si->last) * -8,
+                  hwFlushStream(si->buffer, off, ((cpos + 13) / 14) * 8 - off,
                                 si->hwStreamHandle, NULL, 0);
                 } else {
-                  hwFlushStream(si->buffer, off * 8, ((cpos + 13) / 14) * 8 + off * -8,
+                  hwFlushStream(si->buffer, off, (si->bytes) - off,
                                 si->hwStreamHandle, NULL, 0);
                 }
               }
@@ -136,13 +139,13 @@ void streamHandle() {
         } else if (cpos == 0) {
           switch (si->type) {
           case 0:
-            if ((len = si->updateFunction(si->buffer + cpos * 4, si->size - si->last, NULL, 0,
+            if ((len = si->updateFunction(si->buffer + cpos * 1, si->size - si->last, NULL, 0,
                                           si->user)) &&
                 si->state == 2) {
               cpos = (si->last + len) % si->size;
               if (!(si->flags & 0x20000)) {
                 if (cpos == 0) {
-                  hwFlushStream(si->buffer, si->last * 2, si->bytes + si->last * -2,
+                  hwFlushStream(si->buffer, si->last * 2, si->bytes - (si->last * 2),
                                 si->hwStreamHandle, NULL, 0);
                 } else {
                   hwFlushStream(si->buffer, si->last * 2, (cpos - si->last) * 2, si->hwStreamHandle,
@@ -160,7 +163,7 @@ void streamHandle() {
               u32 off = (si->last + len) % si->size;
               if (!(si->flags & 0x20000)) {
                 if (off == 0) {
-                  hwFlushStream(si->buffer, cpos * 8, si->bytes + cpos * -8, si->hwStreamHandle,
+                  hwFlushStream(si->buffer, cpos * 8, si->bytes - cpos, si->hwStreamHandle,
                                 NULL, 0);
                 } else {
                   hwFlushStream(si->buffer, si->last * 2, ((off + 13) / 14) * 8, si->hwStreamHandle,
@@ -182,36 +185,36 @@ void streamHandle() {
 
               if (!(si->flags & 0x20000)) {
                 if (si->size - si->last > len) {
-                  hwFlushStream(si->buffer, si->last * 2, si->bytes + si->last * -2,
-                                si->hwStreamHandle, NULL, 0);
-                  hwFlushStream(si->buffer, 0, cpos * 2, si->hwStreamHandle, NULL, 0);
-                } else if (cpos == 0) {
-                  hwFlushStream(si->buffer, si->last * 2, si->bytes + si->last * -2,
-                                si->hwStreamHandle, NULL, 0);
-                } else {
                   hwFlushStream(si->buffer, si->last * 2, (cpos - si->last) * 2, si->hwStreamHandle,
                                 NULL, 0);
+                } else if (cpos == 0) {
+                  hwFlushStream(si->buffer, si->last * 2, (si->bytes + si->last) * 2,
+                                si->hwStreamHandle, NULL, 0);
+                } else {
+                  hwFlushStream(si->buffer, si->last * 2, (si->bytes + si->last) * 2,
+                                si->hwStreamHandle, NULL, 0);
+                  hwFlushStream(si->buffer, 0, cpos * 2, si->hwStreamHandle, NULL, 0);
                 }
               }
             }
             break;
           case 1: {
             u32 off = (si->last / 14) * 8;
-            if ((len = si->updateFunction(si->buffer + cpos * 4, si->size - si->last, NULL, 0,
+            if ((len = si->updateFunction(si->buffer + cpos, si->size - si->last, NULL, 0,
                                           si->user)) &&
                 si->state == 2) {
               cpos = (si->last + len) % si->size;
 
               if (!(si->flags & 0x20000)) {
-                if (si->size - si->last > len) {
-                  hwFlushStream(si->buffer, off, ((cpos + 13) / 14) * 8, si->hwStreamHandle, NULL,
-                                0);
-                } else if (cpos == 0) {
-                  hwFlushStream(si->buffer, off, si->bytes + off * -8, si->hwStreamHandle, NULL, 0);
-                } else {
-                  hwFlushStream(si->buffer, off, si->bytes + (si->last / 14) * -8,
+                if (len > si->size - si->last) {
+                  hwFlushStream(si->buffer, off, si->bytes - (si->last),
                                 si->hwStreamHandle, NULL, 0);
                   hwFlushStream(si->buffer, 0, (cpos / 14) << 3, si->hwStreamHandle, NULL, 0);
+                } else if (cpos == 0) {
+                  hwFlushStream(si->buffer, off, si->bytes - off, si->hwStreamHandle, NULL, 0);
+                } else {
+                  hwFlushStream(si->buffer, off, ((cpos + 13) / 14) * 8 - off, si->hwStreamHandle, NULL,
+                                0);
                 }
               }
             }
@@ -225,9 +228,8 @@ void streamHandle() {
                             (si->lastPSFromBuffer = *(u32*)OSCachedToUncached(si->buffer) >> 24));
         }
       }
-      break;
+    }break;
     }
-    ++si;
   }
 }
 
