@@ -292,7 +292,7 @@ u16 inpGetMidiCtrl(u8 ctrl, u8 channel, u8 set) {
           return midi_ctrl[set][channel][ctrl & 0xfe] << 7 |
                  midi_ctrl[set][channel][(ctrl & 0xfe) + 1];
         } else {
-          return (u16)midi_ctrl[set][channel][ctrl] << 7;
+          return midi_ctrl[set][channel][ctrl] << 7;
         }
       }
     } else {
@@ -308,7 +308,7 @@ u16 inpGetMidiCtrl(u8 ctrl, u8 channel, u8 set) {
         } else if ((ctrl == 0x84) || (ctrl == 0x85)) {
           return fx_ctrl[channel][ctrl & 0xfe] << 7 | fx_ctrl[channel][(ctrl & 0xfe) + 1];
         } else {
-          return (u16)fx_ctrl[channel][ctrl] << 7;
+          return fx_ctrl[channel][ctrl] << 7;
         }
       }
     }
@@ -331,15 +331,14 @@ void inpResetChannelDefaults(u8 midi, u8 midiSet) {
   channelDefaults->pbRange = 2;
 }
 
-void inpAddCtrl(CTRL_DEST* dest, u8 ctrl, long scale, u8 comb, u32 isVar) {
+void inpAddCtrl(CTRL_DEST* dest, u8 ctrl, s32 scale, u8 comb, u32 isVar) {
   u8 n; // r30
   if (comb == 0) {
     dest->numSource = 0;
   }
 
   if (dest->numSource < 4) {
-    n = dest->numSource;
-    dest->numSource = n + 1;
+    n = dest->numSource++;
     if (isVar == 0) {
       ctrl = inpTranslateExCtrl(ctrl);
     } else {
