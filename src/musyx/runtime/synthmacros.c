@@ -1,11 +1,12 @@
 #include "musyx/musyx_priv.h"
 #include "musyx/seq.h"
 #include "musyx/synth.h"
+#include <string.h>
 
-static u8 DebugMacroSteps = 0;
+static u8 DebugMacroSteps;
 
-static SYNTH_VOICE* macActiveMacroRoot = NULL;
-static SYNTH_VOICE* macTimeQueueRoot = NULL;
+static SYNTH_VOICE* macActiveMacroRoot;
+static SYNTH_VOICE* macTimeQueueRoot;
 static u64 macRealTime;
 
 static void TimeQueueAdd(SYNTH_VOICE* svoice);
@@ -15,37 +16,6 @@ void macMakeActive(SYNTH_VOICE* svoice);
 void macSetExternalKeyoff(SYNTH_VOICE* svoice);
 
 static void DoSetPitch(SYNTH_VOICE* svoice);
-
-/*
-  This may look like a fakematch, however this actually makes sense if you break it down:
-   1) Shift right to clear bottom 2 nybbles;
-   2) Shift left to put the moved nybbles back to their original location
-   3) Mask off the top nybble leaving only 3rd nybble
-
-   So taking 0x1234567 as an example the logic looks something like this
-   1) 0x12345678 >> 16        == 0x00001234
-   2) 0x00001234 << 16        == 0x12340000
-   3) 0x12340000 & 0x00FFFFFF == 0x00340000
-
-  This behavior could also be matched with a simple mask
-
-     0x12345678 & 0x00FF0000 == 0x00340000
-
-  But on PPC with CodeWarrior this just produces an improper load:
-
-  `
-    lwz     r0,0(r29)
-    rlwinm  r0,r0,0,8,0xf
-  `
-
-  Instead of the expected
-  `
-    lwz     r3,0(r29)
-    rlwinm  r0,r3,0,8,0xf
-  `
-  Note the use of r3 instead of r0
-*/
-#define EXTRACT_3RDNYBBLE(v) (((v >> 16) << 16) & 0x00FFFFFF)
 
 static int SendSingleKeyOff(u32 voiceid) {
   u32 i; // r31
@@ -202,7 +172,7 @@ static void mcmdIfVelocity(SYNTH_VOICE* svoice, MSTEP* cstep) {
     return;
   }
 
-  if (addr = (MSTEP*)dataGetMacro(cstep->para[0] >> 0x10)) {
+  if ((addr = (MSTEP*)dataGetMacro(cstep->para[0] >> 0x10))) {
     svoice->addr = addr;
     svoice->curAddr = addr + (u16)cstep->para[1];
   }
@@ -220,7 +190,7 @@ static void mcmdIfModulation(SYNTH_VOICE* svoice, MSTEP* cstep) {
     return;
   }
 
-  if (addr = (MSTEP*)dataGetMacro(cstep->para[0] >> 0x10)) {
+  if ((addr = (MSTEP*)dataGetMacro(cstep->para[0] >> 0x10))) {
     svoice->addr = addr;
     svoice->curAddr = addr + (u16)(cstep->para[1]);
   }
@@ -232,7 +202,7 @@ static void mcmdIfRandom(SYNTH_VOICE* svoice, MSTEP* cstep) {
     return;
   }
 
-  if (addr = (MSTEP*)dataGetMacro(cstep->para[0] >> 0x10)) {
+  if ((addr = (MSTEP*)dataGetMacro(cstep->para[0] >> 0x10))) {
     svoice->addr = addr;
     svoice->curAddr = addr + (u16)cstep->para[1];
   }
@@ -726,16 +696,13 @@ static void mcmdSetSurroundPanning(SYNTH_VOICE* svoice, MSTEP* cstep) {
 static void mcmdSetPianoPanning(SYNTH_VOICE* svoice, MSTEP* cstep) {
   s32 delta; // r31
   s32 scale; // r30
-#if MUSY_VERSION >= MUSY_VERSION_CHECK(2, 0, 0)
-  delta = (svoice->curNote - (u8)(cstep->para[0] >> 16)) << 16;
-  scale = (s8)((cstep->para[0] >> 8) & 0xFF);
-#else
-  delta = (svoice->curNote << 16) - EXTRACT_3RDNYBBLE(cstep->para[0]);
+  delta = (svoice->curNote << 16) - ((u8)(cstep->para[0] >> 16) << 16);
   scale = (s8)((u8)(cstep->para[0] >> 8));
-#endif
   delta = ((delta * scale) >> 7);
   delta += (u8)(cstep->para[0] >> 0x18) << 16;
-  svoice->panning[0] = svoice->panTarget[0] = delta < 0 ? 0 : delta > 0x7f0000 ? 0x7f0000 : delta;
+  delta = delta < 0 ? 0 : delta > 0x7f0000 ? 0x7f0000 : delta;
+  svoice->panTarget[0] = delta;
+  svoice->panning[0] = delta;
 }
 
 static u32 TranslateVolume(u32 volume, u16 curve) {
@@ -813,7 +780,7 @@ static void DoEnvelopeCalculation(SYNTH_VOICE* svoice, MSTEP* cstep, s32 start_v
   s32 mstime; // r28
   u16 curve;  // r27
 
-  time = (cstep->para[1] >> 16);
+  time = (u16)(cstep->para[1] >> 16);
 
   if ((u8)(cstep->para[1] >> 8) & 1) {
     sndConvertMs(&time);
@@ -827,14 +794,14 @@ static void DoEnvelopeCalculation(SYNTH_VOICE* svoice, MSTEP* cstep, s32 start_v
   }
 
   tvol = (svoice->volume * (u8)(cstep->para[0] >> 8) >> 7);
-  tvol += EXTRACT_3RDNYBBLE(cstep->para[0]);
+  tvol += (u8)(cstep->para[0] >> 16) << 16;
 
   if (tvol > 0x7f0000) {
     tvol = 0x7f0000;
   }
 
   curve = (u16)(u8)(cstep->para[0] >> 0x18);
-  curve |= (((u16)(u8)cstep->para[1]) << 8) & 0xFFFF00;
+  curve |= (((u16)(u8)cstep->para[1]) << 8);
   tvol = TranslateVolume(tvol, curve);
   svoice->envTarget = tvol;
   svoice->envCurrent = start_vol;
@@ -878,7 +845,7 @@ static void SelectSource(SYNTH_VOICE* svoice, CTRL_DEST* dest, MSTEP* cstep, u64
     comb = (u8)cstep->para[1];
   }
 
-  scale = (s32)(cstep->para[0] & 0xFFFF0000) / 100;
+  scale = ((s16)(cstep->para[0] >> 16) << 16) / 100;
   if (scale < 0) {
     scale -= ((s8)(cstep->para[1] >> 0x10) << 8) / 100;
   } else {
@@ -950,7 +917,7 @@ static void mcmdAuxAFXSelect(SYNTH_VOICE* svoice, MSTEP* cstep) {
   u32 i;                                                                     // r31
   static u64 mask[4] = {0x100000000, 0x200000000, 0x400000000, 0x800000000}; // size: 0x20
   static u32 dirty[4] = {0x80000001, 0x80000002, 0x80000004, 0x80000008};    // size: 0x10
-  i = cstep->para[1] >> 0x18;
+  i = (u8)(cstep->para[1] >> 0x18);
   SelectSource(svoice, &inpAuxA[svoice->studio][i], cstep, mask[i], dirty[i]);
 }
 
@@ -958,15 +925,15 @@ static void mcmdAuxBFXSelect(SYNTH_VOICE* svoice, MSTEP* cstep) {
   u32 i;                                                                         // r31
   static u64 mask[4] = {0x1000000000, 0x2000000000, 0x4000000000, 0x8000000000}; // size: 0x20
   static u32 dirty[4] = {0x80000010, 0x80000020, 0x80000040, 0x80000080};        // size: 0x10
-  i = cstep->para[1] >> 0x18;
+  i = (u8)(cstep->para[1] >> 0x18);
   SelectSource(svoice, &inpAuxB[svoice->studio][i], cstep, mask[i], dirty[i]);
 }
 
 static void mcmdPortamento(SYNTH_VOICE* svoice, MSTEP* cstep) {
   u32 time; // r1+0x10
   svoice->portType = cstep->para[0] >> 16;
-  time = cstep->para[1] >> 16;
-  if ((u8)((cstep->para[1] >> 8) & 1)) {
+  time = (u16)(cstep->para[1] >> 16);
+  if (((u8)(cstep->para[1] >> 8) & 1)) {
     sndConvertMs(&time);
   } else {
     sndConvertTicks(&time, svoice);
@@ -1006,11 +973,7 @@ s32 varGet32(SYNTH_VOICE* svoice, u32 ctrl, u8 index) {
   }
 
   index &= 0x1f;
-  if (index < 16) {
-    return svoice->local_vars[index];
-  }
-
-  return synthGlobalVariable[index - 16];
+  return index < 16 ? svoice->local_vars[index] : synthGlobalVariable[index - 16];
 }
 
 s16 varGet(SYNTH_VOICE* svoice, u32 ctrl, u8 index) { return varGet32(svoice, ctrl, index); }
@@ -1032,11 +995,11 @@ void varSet32(SYNTH_VOICE* svoice, u32 ctrl, u8 index, s32 v) {
 void varSet(SYNTH_VOICE* svoice, u32 ctrl, u8 index, s16 v) { varSet32(svoice, ctrl, index, v); }
 
 static void mcmdVarCalculation(SYNTH_VOICE* svoice, MSTEP* cstep, u8 op) {
-  s16 s1 = 0; // r28
-  s16 s2 = 0; // r31
+  s16 s1; // r28
+  s16 s2; // r31
   s32 t;      // r30
 
-  s1 = varGet(svoice, (cstep->para[0] >> 24), cstep->para[1]);
+  s1 = varGet(svoice, (u8)(cstep->para[0] >> 24), cstep->para[1]);
   if (op == 4) {
     s2 = cstep->para[1] >> 8;
   } else {
