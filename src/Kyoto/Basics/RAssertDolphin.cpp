@@ -1,7 +1,7 @@
 
 #include "Kyoto/Basics/RAssertDolphin.hpp"
 
-#include "dolphin/ai.h"
+#include "dolphin/os/OSError.h"
 #include "dolphin/os/OSMemory.h"
 #include "dolphin/pad.h"
 #include "dolphin/vi.h"
@@ -16,6 +16,8 @@ static const GXColor bg = {128, 0, 0, 0};
 static const GXColor fg = {255, 255, 255, 0};
 static const uchar ExitButtons[4] = {PAD_BUTTON_RIGHT, PAD_BUTTON_LEFT, PAD_BUTTON_DOWN,
                                      PAD_BUTTON_UP};
+#define INITIAL_COMBO (PAD_BUTTON_X | PAD_BUTTON_Y | PAD_TRIGGER_Z)
+#define DPAD  (PAD_BUTTON_LEFT | PAD_BUTTON_RIGHT | PAD_BUTTON_UP | PAD_BUTTON_DOWN)
 
 static void hack() {
   static const char* tmp1 = "%s\0\n";
@@ -26,7 +28,7 @@ void ErrorHandler(OSError code, OSContext* context, int dsisr, int dar) {
   OSContext newContext;
   uint loopExitCriteria;
   PADStatus pads[4];
-  uchar local_60[4];
+  uchar exitButtons[4];
   u32* gpr;
   uint i;
   uint len;
@@ -42,34 +44,47 @@ void ErrorHandler(OSError code, OSContext* context, int dsisr, int dar) {
   VIFlush();
 
 #if VERSION >= 1
+  // Pivot to a new context for a clean CPU state
   OSClearContext(&newContext);
   OSSetCurrentContext(&newContext);
   OSEnableInterrupts();
 #endif
 
+  // We have an error, lets loop until the player correctly inputs the debug combo:
+  // Hold X+Y+Z Followed by pressing left, right, down, up in that order
   while (loopExitCriteria < 4) {
     PADRead(pads);
 
 #if VERSION >= 1
+    // If port 1 is unpopulated, spin until a controller is plugged in
     while (pads[1].err == PAD_ERR_NO_CONTROLLER) {
+      // Reset port 1
       PADReset(PAD_CHAN1_BIT);
+      // Get current state
       PADRead(pads);
     }
 #endif
 
     if (pads[1].err == PAD_ERR_NONE) {
-      *(uint*)local_60 = *(uint*)ExitButtons;
-      if ((pads[1].button & 0xc10) == 0xc10) {
-        if ((pads[1].button & 0xf) != 0) {
-          if ((pads[1].button & local_60[loopExitCriteria]) != 0) {
+      // Dunno why we're doing this but, it matches...
+      *(uint*)exitButtons = *(uint*)ExitButtons;
+      
+      // Check for X + Y + Z to initiate loop exit
+      if ((pads[1].button & INITIAL_COMBO) == INITIAL_COMBO) {
+        // Is the player pressing any DPAD button?
+        if ((pads[1].button & DPAD) != 0) {
+          // Ok, check combo order
+          if ((pads[1].button & exitButtons[loopExitCriteria]) != 0) {
             loopExitCriteria += 1;
 
           } else if ((loopExitCriteria != 0) &&
-                     ((pads[1].button & local_60[loopExitCriteria - 1]) == 0)) {
+                     ((pads[1].button & exitButtons[loopExitCriteria - 1]) == 0)) {
+            // If any of the buttons are unset, or were pressed in the wrong order, reset
             loopExitCriteria = 0;
           }
         }
       } else {
+        // Player let go of X+Y+Z, reset loop
         loopExitCriteria = 0;
       }
     }
@@ -129,10 +144,10 @@ void ErrorHandler(OSError code, OSContext* context, int dsisr, int dar) {
 }
 
 void SetErrorHandlers() {
-  OSSetErrorHandler(2, (OSErrorHandler)ErrorHandler);
-  OSSetErrorHandler(3, (OSErrorHandler)ErrorHandler);
-  OSSetErrorHandler(5, (OSErrorHandler)ErrorHandler);
-  OSSetErrorHandler(15, (OSErrorHandler)ErrorHandler);
+  OSSetErrorHandler(OS_ERROR_DSI, (OSErrorHandler)ErrorHandler);
+  OSSetErrorHandler(OS_ERROR_ISI, (OSErrorHandler)ErrorHandler);
+  OSSetErrorHandler(OS_ERROR_ALIGNMENT, (OSErrorHandler)ErrorHandler);
+  OSSetErrorHandler(OS_ERROR_PROTECTION, (OSErrorHandler)ErrorHandler);
 }
 
 void rs_debugger_printf(const char* format, ...) {

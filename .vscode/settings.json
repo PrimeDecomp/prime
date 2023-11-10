@@ -10,6 +10,7 @@
   "[python]": {
     "editor.defaultFormatter": "ms-python.black-formatter"
   },
+  "clangd.arguments": ["--header-insertion=never"],
   "clangd.fallbackFlags": [
     "-I${workspaceFolder}/include",
     "-I${workspaceFolder}/libc",
