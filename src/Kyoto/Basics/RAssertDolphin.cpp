@@ -51,7 +51,7 @@ void ErrorHandler(OSError code, OSContext* context, int dsisr, int dar) {
 #endif
 
   // We have an error, lets loop until the player correctly inputs the debug combo:
-  // Hold X+Y+Z Followed by pressing left, right, down, up in that order
+  // Hold X+Y+Z Followed by pressing right, left, down, up in that order
   while (loopExitCriteria < 4) {
     PADRead(pads);
 
