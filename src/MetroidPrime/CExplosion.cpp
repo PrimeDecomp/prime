@@ -19,7 +19,7 @@ CExplosion::CExplosion(const TLockedToken< CGenDescription >& particle, TUniqueI
 , xe8_particleGen(rs_new CElementGen(TToken< CGenDescription >(particle), CElementGen::kMOT_Normal,
                                      flags & 0x2 ? CElementGen::kOSF_Two : CElementGen::kOSF_One))
 , xec_explosionLight(kInvalidUniqueId)
-, xf0_sourceId(CToken(particle).GetTag().id)
+, xf0_sourceId(CToken(particle).GetTag().GetId())
 , xf4_24_renderThermalHot(flags & 0x4)
 , xf4_25_hasRenderBounds(true)
 , xf4_26_renderXray(flags & 0x8)
@@ -38,7 +38,7 @@ CExplosion::CExplosion(const TLockedToken< CElectricDescription >& electric, TUn
 : CEffect(uid, info, active, name, xf)
 , xe8_particleGen(rs_new CParticleElectric(electric))
 , xec_explosionLight(kInvalidUniqueId)
-, xf0_sourceId(CToken(electric).GetTag().id)
+, xf0_sourceId(CToken(electric).GetTag().GetId())
 , xf4_24_renderThermalHot(flags & 0x4)
 , xf4_25_hasRenderBounds(true)
 , xf4_26_renderXray(flags & 0x8)

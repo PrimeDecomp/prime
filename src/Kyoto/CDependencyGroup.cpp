@@ -19,7 +19,7 @@ int CDependencyGroup::GetCountForResType(FourCC type) const {
   int ret = 0;
   for (rstl::vector< SObjectTag >::const_iterator it = x0_objectTags.begin();
        it != x0_objectTags.end(); ++it) {
-    if (it->type == type) {
+    if (it->GetType() == type) {
       ++ret;
     }
   }

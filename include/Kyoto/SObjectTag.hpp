@@ -8,15 +8,19 @@
 typedef uint CAssetId;
 typedef uint FourCC;
 
-struct SObjectTag {
-  FourCC type;
-  CAssetId id;
-
+class SObjectTag {
+public:
   SObjectTag() {}
-  SObjectTag(FourCC type, CAssetId id) : type(type), id(id) {}
-  SObjectTag(const SObjectTag& other) : type(other.type), id(other.id) {}
+  SObjectTag(const FourCC type, const CAssetId id) : mType(type), mId(id) {}
+  SObjectTag(const SObjectTag& other) : mType(other.mType), mId(other.mId) {}
 
+  const CAssetId GetId() const { return mId; }
+  const FourCC GetType() const { return mType; }
   static const char* Type2Text(FourCC type);
+
+public:
+  FourCC mType;
+  CAssetId mId;
 };
 
 #endif // _SOBJECTTAG

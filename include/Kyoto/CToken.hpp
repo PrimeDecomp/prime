@@ -24,7 +24,7 @@ public:
   CToken& operator=(const CToken&);
   bool HasReference() const { return x0_objRef != nullptr; }
   const SObjectTag& GetTag() const { return x0_objRef->GetTag(); }
-  FourCC GetReferenceType() { return GetTag().type; }
+  FourCC GetReferenceType() { return GetTag().GetType(); }
 
   bool HasLock() { return x4_lockHeld; }
 

@@ -176,7 +176,7 @@ void CScriptPickup::Touch(CActor& act, CStateManager& mgr) {
             gpResourceFactory
                 ->GetResourceIdByName(opts.GetAllItemsCollected() ? "STRG_AllPickupsFound_2"
                                                                   : "STRG_AllPickupsFound_1")
-                ->id;
+                ->GetId();
         mgr.QueueMessage(mgr.GetHUDMessageFrameCount() + 1, id, 0.f);
         opts.SetAllItemsCollected(true);
       }
