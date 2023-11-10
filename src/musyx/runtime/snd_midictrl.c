@@ -18,6 +18,7 @@
 */
 
 #include "musyx/musyx_priv.h"
+#include <string.h>
 
 #define SYNTH_FX_MIDISET 0xFF
 
