@@ -1,6 +1,6 @@
 #include "Kyoto/Input/CDolphinController.hpp"
-#include "Kyoto/Alloc/CMemory.hpp"
-#include "Kyoto/Math/CMath.hpp"
+
+#include <Kyoto/Alloc/CMemory.hpp>
 
 #include <dolphin/gba.h>
 #include <dolphin/os/OSSerial.h>
@@ -119,6 +119,8 @@ void CDolphinController::ProcessAxis(int controller, EJoyAxis axis) {
     break;
   case kJA_RightY:
     axisValue = x4_status[controller].substickY;
+    break;
+  default:
     break;
   }
 
