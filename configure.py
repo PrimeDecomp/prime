@@ -125,10 +125,10 @@ if not is_windows():
     config.wrapper = args.wrapper
 
 # Tool versions
-config.compilers_tag = "20230715"
-config.dtk_tag = "v0.5.8"
+config.compilers_tag = "20231018"
+config.dtk_tag = "v0.6.2"
 config.sjiswrap_tag = "v1.1.1"
-config.wibo_tag = "0.6.4"
+config.wibo_tag = "0.6.9"
 
 # Project
 config.config_path = Path("config") / config.version / "config.yml"
@@ -158,6 +158,7 @@ cflags_base = [
     "-nosyspath",
     "-i include",
     "-i libc",
+    f"-i build/{config.version}/include",
     "-DPRIME1",
     f"-DVERSION={version_num}",
     "-DNONMATCHING=0",

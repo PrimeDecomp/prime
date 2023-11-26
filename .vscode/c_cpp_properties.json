@@ -3,8 +3,9 @@
         {
             "name": "Linux",
             "includePath": [
-                "${workspaceFolder}/include/**",
-                "${workspaceFolder}/libc/**"
+                "${workspaceFolder}/include",
+                "${workspaceFolder}/libc",
+                "${workspaceFolder}/build/*/include"
             ],
             "cStandard": "c99",
             "cppStandard": "c++98",

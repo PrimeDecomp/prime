@@ -6,6 +6,15 @@ mw_comment_version: 8
 quick_analysis: true # Faster reruns after full analysis
 fill_gaps: false # Alignments known
 
+# Extract embedded assets
+extract:
+- symbol: sDefaultFontData
+  binary: MetroidPrime/DefaultFontData.bin
+  header: MetroidPrime/DefaultFontData.inc
+- symbol: sDefaultFontTexture
+  binary: MetroidPrime/DefaultFontTexture.bin
+  header: MetroidPrime/DefaultFontTexture.inc
+
 modules:
 - object: orig/GM8E01_00/files/NESemuP.rel
   hash: 5ad6bb727d6dd220e6aceef9143c61a86a6f2bb5
