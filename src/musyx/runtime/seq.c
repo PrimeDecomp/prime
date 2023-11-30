@@ -1,5 +1,10 @@
 #include "musyx/seq.h"
+
+#include "musyx/assert.h"
+#include "musyx/sal.h"
 #include "musyx/synth.h"
+
+#include <stdint.h>
 
 static NOTE seqNote[256];
 SEQ_INSTANCE seqInstance[8];
@@ -10,9 +15,9 @@ static bool8 curFadeOutState = 0;
 static u32 curSeqId = 0;
 static NOTE* noteFree = NULL;
 static SEQ_INSTANCE* cseq = NULL;
-struct SEQ_INSTANCE* seqFreeRoot = NULL;
-struct SEQ_INSTANCE* seqPausedRoot = NULL;
-struct SEQ_INSTANCE* seqActiveRoot = NULL;
+SEQ_INSTANCE* seqFreeRoot = NULL;
+SEQ_INSTANCE* seqPausedRoot = NULL;
+SEQ_INSTANCE* seqActiveRoot = NULL;
 
 static void ClearNotes() {
   NOTE* ln = NULL; // r30

@@ -1,6 +1,7 @@
 #include "musyx/assert.h"
 #include "musyx/hardware.h"
-#include "musyx/musyx_priv.h"
+#include "musyx/synthdata.h"
+#include "musyx/snd.h"
 
 static SDIR_TAB dataSmpSDirs[128];
 static u16 dataSmpSDirNum;
@@ -49,7 +50,6 @@ bool dataInsertKeymap(u16 cid, void* keymapdata) {
     hwEnableIrq();
     return 0;
   }
-#line 0x8d
   MUSY_ASSERT_MSG(keymapdata != NULL, "Keymap data pointer is NULL");
 
   dataKeymapTab[i].id = cid;
@@ -119,7 +119,6 @@ bool dataInsertLayer(u16 cid, void* layerdata, u16 size) {
     hwEnableIrq();
     return 0;
   }
-#line 0xe2
   MUSY_ASSERT_MSG(layerdata != NULL, "Layer data pointer is NULL");
 
   dataLayerTab[i].id = cid;
@@ -188,7 +187,6 @@ bool dataInsertCurve(u16 cid, void* curvedata) {
     hwEnableIrq();
     return 0;
   }
-#line 0x13a
   MUSY_ASSERT_MSG(curvedata != NULL, "Curve data pointer is NULL");
 
   dataCurveTab[i].id = cid;
@@ -344,7 +342,7 @@ bool dataAddSampleReference(u16 sid) {
     }
   }
 done:
-#line 542
+
   MUSY_ASSERT_MSG(sdir != NULL,
                   "Sample ID to be inserted could not be found in any sample directory.\n");
 
@@ -451,7 +449,6 @@ bool dataInsertMacro(u16 mid, void* macroaddr) {
   }
 
   if (dataMacTotal < 2048) {
-#line 0x2c7
     MUSY_ASSERT_MSG(macroaddr, "Macro data pointer is NULL");
     for (i = 0; i < 512; ++i) {
       if (dataMacMainTab[i].subTabIndex > base) {

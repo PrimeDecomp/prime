@@ -1,6 +1,11 @@
-#include "musyx/musyx_priv.h"
+#include "musyx/assert.h"
+#include "musyx/hardware.h"
+#include "musyx/macros.h"
 #include "musyx/seq.h"
+#include "musyx/snd.h"
 #include "musyx/synth.h"
+#include "musyx/synthdata.h"
+
 #include <string.h>
 
 static u8 DebugMacroSteps;
@@ -997,7 +1002,7 @@ void varSet(SYNTH_VOICE* svoice, u32 ctrl, u8 index, s16 v) { varSet32(svoice, c
 static void mcmdVarCalculation(SYNTH_VOICE* svoice, MSTEP* cstep, u8 op) {
   s16 s1; // r28
   s16 s2; // r31
-  s32 t;      // r30
+  s32 t;  // r30
 
   s1 = varGet(svoice, (u8)(cstep->para[0] >> 24), cstep->para[1]);
   if (op == 4) {

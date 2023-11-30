@@ -10,7 +10,9 @@
    ---------------------------------------
 */
 
-#include "musyx/musyx_priv.h"
+#include "musyx/musyx.h"
+
+#include "musyx/assert.h"
 
 extern bool ReverbHICreate(_SND_REVHI_WORK* rev, f32 coloration, f32 time, f32 mix, f32 damping,
                            f32 preDelay, f32 crosstalk);

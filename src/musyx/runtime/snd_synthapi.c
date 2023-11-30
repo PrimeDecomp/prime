@@ -19,7 +19,14 @@
    ---------------------------------------
 */
 
+#include "musyx/assert.h"
+#include "musyx/hardware.h"
+#include "musyx/macros.h"
+#include "musyx/s3d.h"
+#include "musyx/seq.h"
+#include "musyx/stream.h"
 #include "musyx/synth.h"
+
 #include <stdarg.h>
 
 /*
@@ -597,7 +604,7 @@ void synthDeactivateStudio(u8 studio) {
 
 
 */
-sndDeactivateStudio(u8 studio) {
+void sndDeactivateStudio(u8 studio) {
   MUSY_ASSERT_MSG(sndActive != NULL, "Sound system is not initialized.");
   MUSY_ASSERT_MSG(studio < synthInfo.studioNum, "Illegal studio index.");
   if (studio != 0) {
@@ -616,7 +623,7 @@ sndDeactivateStudio(u8 studio) {
 
 
 */
-synthChangeStudioMasterMix(u8 studio, u32 isMaster) {
+void synthChangeStudioMasterMix(u8 studio, u32 isMaster) {
   MUSY_ASSERT_MSG(sndActive != NULL, "Sound system is not initialized.");
   hwChangeStudioMix(studio, isMaster);
 }
@@ -680,7 +687,7 @@ u32 sndRemoveStudioInput(u8 studio, SND_STUDIO_INPUT* in_desc) {
 }
 
 u8 sndDbgGetActiveVoices() {
-	u8 n; // r31
+  u8 n; // r31
   hwDisableIrq();
   n = voiceFxRunning + voiceMusicRunning;
   hwEnableIrq();

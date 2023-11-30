@@ -1,6 +1,9 @@
-#include "math.h"
-#include "musyx/musyx_priv.h"
+#include <math.h>
+#include <string.h>
 
+#include "musyx/musyx.h"
+
+#include "musyx/sal.h"
 
 static void DLsetdelay(_SND_REVHI_DELAYLINE* delayline, s32 len) {
   delayline->outPoint = delayline->inPoint - (len * sizeof(f32));
@@ -113,6 +116,7 @@ bool ReverbHIModify(struct _SND_REVHI_WORK* rv, float coloration, float time, fl
   return ReverbHICreate(rv, coloration, time, mix, damping, preDelay, crosstalk);
 }
 
+#ifdef __MWERKS__
 static const float value0_3 = 0.3f;
 static const float value0_6 = 0.6f;
 static const double i2fMagic = 4.503601774854144E15;
@@ -223,7 +227,15 @@ L_00000710:
   addi r1, r1, 0x30
   blr  
 }
+#else
+/* clang-format on */
+static void DoCrossTalk(s32* a, s32* b, f32 start, f32 end) {
+  // TODO: Reimplement in C
+}
+#endif
 
+#ifdef __MWERKS__
+/* clang-format off */
 static asm void HandleReverb(s32*, SND_AUX_REVERBHI* rev, s32) {
   nofralloc
   stwu r1, -0xc0(r1)
@@ -580,6 +592,11 @@ L_00000C6C:
   blr
 }
 /* clang-format on */
+#else
+static void HandleReverb(s32*, SND_AUX_REVERBHI* rev, s32) {
+  // TODO: Reimplement in C
+}
+#endif
 
 void ReverbHICallback(s32* left, s32* right, s32* surround, SND_AUX_REVERBHI* rev) {
   u8 i;

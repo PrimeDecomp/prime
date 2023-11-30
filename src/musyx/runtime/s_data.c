@@ -1,6 +1,10 @@
 
-#include "musyx/musyx_priv.h"
+#include "musyx/assert.h"
+#include "musyx/hardware.h"
+#include "musyx/seq.h"
 #include "musyx/synth.h"
+#include "musyx/synthdata.h"
+#include "musyx/s3d.h"
 
 static GSTACK gs[128];
 static s16 sp;
@@ -182,7 +186,6 @@ void sndSetSampleDataUploadCallback(void* (*callback)(unsigned long, unsigned lo
 
 u32 sndPushGroup(void* prj_data, u16 gid, void* samples, void* sdir, void* pool) {
   GROUP_DATA* g; // r31
-#line 0x18d
   MUSY_ASSERT_MSG(prj_data != NULL, "Project data pointer is NULL");
   MUSY_ASSERT_MSG(sdir != NULL, "Sample directory pointer is NULL");
 

@@ -1,7 +1,14 @@
 
 #include "musyx/synth.h"
+#include "musyx/assert.h"
 #include "musyx/hardware.h"
-#include "musyx/musyx_priv.h"
+#include "musyx/macros.h"
+#include "musyx/sal.h"
+#include "musyx/seq.h"
+#include "musyx/snd.h"
+#include "musyx/synthdata.h"
+
+#include <string.h>
 
 static u32 synthTicksPerSecond[9][16];
 static SYNTH_JOBTAB synthJobTable[32];
@@ -687,13 +694,13 @@ static void ZeroOffsetHandler(u32 i) {
 
   if (volUpdate || (sv->midiDirtyFlags & 0xf01) != 0) {
     preVol = voiceVol;
-    postVol = voiceVol * vol * (f32)inpGetVolume(sv) * (1.f/16383.f) /* 1/16384? */;
+    postVol = voiceVol * vol * (f32)inpGetVolume(sv) * (1.f / 16383.f) /* 1/16384? */;
     auxa = ((f32)sv->revVolOffset * (1.f / 127.f)) +
-           ((preVol * (f32)inpGetPreAuxA(sv) * (1.f/16383.f) /* 1/16384? */) +
+           ((preVol * (f32)inpGetPreAuxA(sv) * (1.f / 16383.f) /* 1/16384? */) +
             ((f32)sv->revVolScale *
-             (postVol * (f32)inpGetReverb(sv) * (1.f/16383.f) /* 1/16384? */) * (1.f / 127.f)));
-    auxb = (preVol * (f32)inpGetPreAuxB(sv) * (1.f/16383.f) /* 1/16384? */) +
-           (postVol * (f32)inpGetPostAuxB(sv) * (1.f/16383.f) /* 1/16384? */);
+             (postVol * (f32)inpGetReverb(sv) * (1.f / 16383.f) /* 1/16384? */) * (1.f / 127.f)));
+    auxb = (preVol * (f32)inpGetPreAuxB(sv) * (1.f / 16383.f) /* 1/16384? */) +
+           (postVol * (f32)inpGetPostAuxB(sv) * (1.f / 16383.f) /* 1/16384? */);
     sv->curOutputVolume = (u16)(postVol * 32767.f);
     hwSetVolume(i, sv->volTable, postVol, sv->lastPan, sv->lastSPan, auxa, auxb);
   }
@@ -701,7 +708,8 @@ static void ZeroOffsetHandler(u32 i) {
   if (sv->midiDirtyFlags & 0x6000) {
     if (inpGetFilterSwitch(sv) > 0x1FFF) {
       para = inpGetFilterParameter(sv);
-      frq = sv->lpfLowerFrqBoundary + (u32)((1.f - ((1.f/16383.f) * para)) * (sv->lpfUpperFrqBoundary - sv->lpfLowerFrqBoundary));  
+      frq = sv->lpfLowerFrqBoundary + (u32)((1.f - ((1.f / 16383.f) * para)) *
+                                            (sv->lpfUpperFrqBoundary - sv->lpfLowerFrqBoundary));
       hwLowPassFrqToCoef(frq, &a0, &b0);
       hwSetFilter(i, 1, a0, b0);
     } else {

@@ -1,11 +1,20 @@
 #ifndef _MUSYX_SEQ
 #define _MUSYX_SEQ
 
-#include "musyx/musyx_priv.h"
+#include "musyx/musyx.h"
+#include "musyx/voice.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
+typedef struct PAGE {
+  // total size: 0x6
+  u16 macro;    // offset 0x0, size 0x2
+  u8 prio;      // offset 0x2, size 0x1
+  u8 maxVoices; // offset 0x3, size 0x1
+  u8 index;     // offset 0x4, size 0x1
+  u8 reserved;  // offset 0x5, size 0x1
+} PAGE;
 
 typedef struct ARR {
   // total size: 0x58
@@ -173,10 +182,35 @@ typedef struct SEQ_PATTERN {
   u32 noteData;   // offset 0xC, size 0x4
 } SEQ_PATTERN;
 
+typedef struct CHANNEL_DEFAULTS {
+  // total size: 0x1
+  u8 pbRange; // offset 0x0, size 0x1
+} CHANNEL_DEFAULTS;
+
+typedef struct MIDI_CHANNEL_SETUP {
+  // total size: 0x5
+  u8 program; // offset 0x0, size 0x1
+  u8 volume;  // offset 0x1, size 0x1
+  u8 panning; // offset 0x2, size 0x1
+  u8 reverb;  // offset 0x3, size 0x1
+  u8 chorus;  // offset 0x4, size 0x1
+} MIDI_CHANNEL_SETUP;
+
+typedef struct MIDISETUP {
+  // total size: 0x54
+  u16 songId;                     // offset 0x0, size 0x2
+  u16 reserved;                   // offset 0x2, size 0x2
+  MIDI_CHANNEL_SETUP channel[16]; // offset 0x4, size 0x50
+} MIDISETUP;
+
 extern u8 synthTrackVolume[64];
 extern SEQ_INSTANCE seqInstance[8];
 extern u16 seqMIDIPriority[8][16];
 
+void seqInit(); /* extern */
+u32 seqStartPlay(PAGE* norm, PAGE* drum, MIDISETUP* midiSetup, u32* song, SND_PLAYPARA* para,
+                 u8 studio, u16 sgid);
+u32 seqGetPrivateId(u32 seqId);
 void seqSpeed(u32 seqId, u16 speed);
 void seqVolume(u8 volume, u16 time, u32 seqId, u8 mode);
 void sndSeqStop(s32 unk);
@@ -189,7 +223,52 @@ void seqStop(u32 seqId);
 u16 seqGetMIDIPriority(u8 set, u8 channel);
 void seqCrossFade(SND_CROSSFADE* ci, u32* new_seqId, bool8 irq_call);
 u32 seqPlaySong(u16 sgid, u16 sid, void* arrfile, SND_PLAYPARA* para, u8 irq_call, u8 studio);
+void seqPause(SND_SEQID seqId);
+void seqContinue(SND_SEQID seqId);
+void seqMute(SND_SEQID seqId, u32 mask1, u32 mask2);
+void seqKillInstancesByGroupID(SND_GROUPID sgid);
+void seqKillAllInstances();
 
+u8 inpTranslateExCtrl(u8 ctrl);
+void inpSetGlobalMIDIDirtyFlag(u8 chan, u8 midiSet, s32 flag);
+void inpAddCtrl(CTRL_DEST* dest, u8 ctrl, s32 scale, u8 comb, u32 isVar);
+void inpSetMidiCtrl(u8 ctrl, u8 channel, u8 set, u8 value);
+void inpSetMidiCtrl14(u8 ctrl, u8 channel, u8 set, u16 value);
+void inpSetExCtrl(SYNTH_VOICE* svoice, u8 ctrl, s16 v);
+CHANNEL_DEFAULTS* inpGetChannelDefaults(u8 midi, u8 midiSet);
+#if MUSY_VERSION >= MUSY_VERSION_CHECK(2, 0, 3)
+unsigned short inpGetFilterSwitch(struct SYNTH_VOICE* svoice);
+unsigned short inpGetFilterParameter(struct SYNTH_VOICE* svoice);
+void inpSetLPFDefaultRange(u32 lowFrq, u32 highFrq);
+#endif
+extern CTRL_DEST inpAuxA[8][4];
+extern CTRL_DEST inpAuxB[8][4];
+void inpSetMidiLastNote(u8 midi, u8 midiSet, u8 key);
+u8 inpGetMidiLastNote(u8 midi, u8 midiSet);
+u16 inpGetExCtrl(SYNTH_VOICE* svoice, u8 ctrl);
+u16 inpGetMidiCtrl(u8 ctrl, u8 channel, u8 set);
+void inpSetMidiLastNote(u8 midi, u8 midiSet, u8 key);
+u16 inpGetModulation(SYNTH_VOICE* svoice);
+void inpResetMidiCtrl(u8 ch, u8 set, u32 coldReset);
+void inpResetChannelDefaults(u8 midi, u8 midiSet);
+u16 inpGetPitchBend(SYNTH_VOICE* svoice);
+u16 inpGetDoppler(SYNTH_VOICE* svoice);
+u16 inpGetTremolo(SYNTH_VOICE* svoice);
+u16 inpGetPanning(SYNTH_VOICE* svoice);
+u16 inpGetSurPanning(SYNTH_VOICE* svoice);
+u16 inpGetVolume(SYNTH_VOICE* svoice);
+u16 inpGetReverb(SYNTH_VOICE* svoice);
+u16 inpGetPreAuxA(SYNTH_VOICE* svoice);
+u16 inpGetPostAuxA(SYNTH_VOICE* svoice);
+u16 inpGetPreAuxB(SYNTH_VOICE* svoice);
+u16 inpGetPostAuxB(SYNTH_VOICE* svoice);
+u16 inpGetPedal(SYNTH_VOICE* svoice);
+u16 inpGetAuxA(u8 studio, u8 index, u8 midi, u8 midiSet);
+u16 inpGetAuxB(u8 studio, u8 index, u8 midi, u8 midiSet);
+void inpInit(SYNTH_VOICE* svoice);
+void inpFXCopyCtrl(u8 ctrl, SYNTH_VOICE* dvoice, SYNTH_VOICE* svoice);
+
+s16 varGet(SYNTH_VOICE* svoice, u32 ctrl, u8 index);
 #ifdef __cplusplus
 }
 #endif

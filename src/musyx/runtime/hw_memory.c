@@ -1,4 +1,4 @@
-#include "musyx/musyx_priv.h"
+#include "musyx/hardware.h"
 
 void* salMalloc(u32 len) { return salHooks.malloc(len); }
 

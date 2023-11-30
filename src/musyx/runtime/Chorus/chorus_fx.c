@@ -1,4 +1,6 @@
-#include "musyx/musyx_priv.h"
+#include "musyx/musyx.h"
+
+#include "musyx/sal.h"
 #include "musyx/assert.h"
 
 static float rsmpTab12khz[512] = {
@@ -109,6 +111,8 @@ static float rsmpTab12khz[512] = {
 
 const double i2fMagic = 4.503601774854144E15;
 
+#ifdef __MWERKS__
+// clang-format off
 static asm void do_src1(_SND_CHORUS_SRCINFO* src) {
   nofralloc  
 
@@ -285,9 +289,15 @@ lbl_803B6E10:
   addi r1, r1, 0x40
   blr
 }
-
 /* clang-format on */
+#else
+static void do_src1(_SND_CHORUS_SRCINFO* src) {
+  // TODO: Reimplement in C
+}
+#endif
 
+#ifdef __MWERKS__
+/* clang-format off */
 static asm void do_src2(register _SND_CHORUS_SRCINFO* src) {
 #define posLoV r4
 #define posHiV r5
@@ -519,6 +529,11 @@ lbl_803B6FF4:
 #undef destPtr
 #undef smpBasePtr
 }
+#else
+static void do_src2(register _SND_CHORUS_SRCINFO* src) {
+  // TODO: Reimplement in C
+}
+#endif
 
 void sndAuxCallbackChorus(u8 reason, SND_AUX_INFO* info, void* user) {
   SND_AUX_CHORUS* c;

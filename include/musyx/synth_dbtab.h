@@ -1,7 +1,7 @@
 #ifndef _MUSYX_SYNTH_DBTAB
 #define _MUSYX_SYNTH_DBTAB
 
-#include "types.h"
+#include "musyx/musyx.h"
 
 #ifdef __cplusplus
 extern "C" {

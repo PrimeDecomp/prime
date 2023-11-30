@@ -2,6 +2,7 @@
 #define _MUSYX_MUSYX
 
 #include "musyx/version.h"
+#include "musyx/platform.h"
 
 #include <math.h>
 

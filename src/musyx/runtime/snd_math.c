@@ -1,5 +1,5 @@
-#include "math.h"
-#include "musyx/musyx_priv.h"
+#include <math.h>
+#include "musyx/musyx.h"
 
 void salApplyMatrix(const SND_FMATRIX* mat, const SND_FVECTOR* in, SND_FVECTOR* out) {
   out->x = mat->m[0][0] * in->x + mat->m[0][1] * in->y + mat->m[0][2] * in->z + mat->t[0];

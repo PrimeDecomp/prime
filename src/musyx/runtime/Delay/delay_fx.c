@@ -9,20 +9,23 @@
 
    ---------------------------------------
 */
-#include "musyx/musyx_priv.h"
+#include "musyx/musyx.h"
+
+#include "musyx/assert.h"
+#include "musyx/sal.h"
 
 void sndAuxCallbackDelay(u8 reason, SND_AUX_INFO* info, void* user) {
-  long l;                  // r30
-  long r;                  // r29
-  long s;                  // r28
-  long* lBuf;              // r27
-  long* rBuf;              // r26
-  long* sBuf;              // r25
-  unsigned long i;         // r24
-  struct SND_AUX_DELAY* c; // r31
-  long* left;              // r23
-  long* right;             // r22
-  long* sur;               // r21
+  long l;           // r30
+  long r;           // r29
+  long s;           // r28
+  long* lBuf;       // r27
+  long* rBuf;       // r26
+  long* sBuf;       // r25
+  unsigned long i;  // r24
+  SND_AUX_DELAY* c; // r31
+  long* left;       // r23
+  long* right;      // r22
+  long* sur;        // r21
 
   switch (reason) {
   case SND_AUX_REASON_BUFFERUPDATE:

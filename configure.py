@@ -202,6 +202,7 @@ cflags_musyx = [
     "-Cpp_exceptions off",
     "-str reuse,pool,readonly",
     "-fp_contract off",
+    "-DMUSY_TARGET=MUSY_TARGET_DOLPHIN"
 ]
 
 cflags_musyx_debug = [
@@ -216,6 +217,7 @@ cflags_musyx_debug = [
     "-D_DEBUG=1",
     "-enum int",
     "-Cpp_exceptions off",
+    "-DMUSY_TARGET=MUSY_TARGET_DOLPHIN"
 ]
 
 # REL flags
@@ -1199,10 +1201,10 @@ config.libs = [
             Object(Matching, "musyx/runtime/snd_math.c"),
             Object(NonMatching, "musyx/runtime/snd_midictrl.c"),
             Object(Matching, "musyx/runtime/snd_service.c"),
-            Object(Matching, "musyx/runtime/hardware.c"),
-            Object(Matching, "musyx/runtime/hw_aramdma.c"),
-            Object(Matching, "musyx/runtime/dsp_import.c"),
-            Object(Matching, "musyx/runtime/hw_dolphin.c"),
+            Object(Matching, "musyx/runtime/dolphin/hardware.c"),
+            Object(Matching, "musyx/runtime/dolphin/hw_aramdma.c"),
+            Object(Matching, "musyx/runtime/dolphin/dsp_import.c"),
+            Object(Matching, "musyx/runtime/dolphin/hw_dolphin.c"),
             Object(Matching, "musyx/runtime/hw_memory.c"),
             Object(Matching, "musyx/runtime/hw_lib_dummy.c"),
             Object(Matching, "musyx/runtime/CheapReverb/creverb_fx.c"),
@@ -1211,7 +1213,7 @@ config.libs = [
             Object(Matching, "musyx/runtime/StdReverb/reverb.c"),
             Object(Matching, "musyx/runtime/Delay/delay_fx.c"),
             Object(Matching, "musyx/runtime/Chorus/chorus_fx.c"),
-            Object(Matching, "musyx/runtime/profile.c"),
+            Object(Matching, "musyx/runtime/dolphin/profile.c"),
         ],
     ),
     {

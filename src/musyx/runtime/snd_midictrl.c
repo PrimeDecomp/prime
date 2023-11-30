@@ -17,7 +17,10 @@
 
 */
 
-#include "musyx/musyx_priv.h"
+#include "musyx/assert.h"
+#include "musyx/seq.h"
+#include "musyx/synth.h"
+
 #include <string.h>
 
 #define SYNTH_FX_MIDISET 0xFF
@@ -36,7 +39,7 @@ static CHANNEL_DEFAULTS inpChannelDefaults[8][16];
 
 static CHANNEL_DEFAULTS inpFXChannelDefaults[64];
 
-inline bool GetGlobalFlagSet(u8 chan, u8 midiSet, s32 flag) {
+static inline bool GetGlobalFlagSet(u8 chan, u8 midiSet, s32 flag) {
   return (flag & inpGlobalMIDIDirtyFlags[midiSet][chan]) != 0;
 }
 

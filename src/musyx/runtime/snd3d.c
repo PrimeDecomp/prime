@@ -1,5 +1,7 @@
 #include "musyx/musyx.h"
-#include "musyx/musyx_priv.h"
+
+#include "musyx/hardware.h"
+#include "musyx/sal.h"
 #include "musyx/synth.h"
 
 static u8 s3dCallCnt;
@@ -444,7 +446,8 @@ static u16 clip3FFF(u32 v) {
   return v;
 }
 
-static void SetFXParameters(SND_EMITTER* const em, f32 vol, f32 xPan, f32 yPan, f32 zPan, f32 doppler) {
+static void SetFXParameters(SND_EMITTER* const em, f32 vol, f32 xPan, f32 yPan, f32 zPan,
+                            f32 doppler) {
   SND_VOICEID vid;     // r30
   u8 i;                // r28
   SND_PARAMETER* pPtr; // r31

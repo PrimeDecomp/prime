@@ -1,4 +1,4 @@
-#include "musyx/musyx_priv.h"
+#include "musyx/sal.h"
 #include "musyx/synth_dbtab.h"
 
 #include <math.h>

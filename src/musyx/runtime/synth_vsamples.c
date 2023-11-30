@@ -1,7 +1,12 @@
+#include "musyx/musyx.h"
 
-#include "musyx/musyx_priv.h"
+#include "musyx/assert.h"
+#include "musyx/hardware.h"
+#include "musyx/macros.h"
+#include "musyx/snd.h"
+#include "musyx/voice.h"
 
-static VS vs;
+VS vs;
 
 void vsInit() {
   u32 i;
@@ -220,7 +225,6 @@ unsigned long sndVirtualSampleAllocateBuffers(unsigned char numInstances,
                                               unsigned long numSamples) {
   long i;            // r31
   unsigned long len; // r28
-#line 437
   MUSY_ASSERT_MSG(sndActive, "Sound system is not initialized.");
   MUSY_ASSERT_MSG(numInstances <= 64, "Parameter exceeded maximum number of instances allowable");
 
@@ -253,7 +257,6 @@ unsigned long sndVirtualSampleAllocateBuffers(unsigned char numInstances,
 
 s32 sndVirtualSampleFreeBuffers() {
   u8 i; // r31
-#line 481
   MUSY_ASSERT_MSG(sndActive, "Sound system is not initialized.");
 
   for (i = 0; i < vs.numBuffers; ++i) {
@@ -265,7 +268,6 @@ s32 sndVirtualSampleFreeBuffers() {
 
 void sndVirtualSampleSetCallback(unsigned long (*callback)(unsigned char,
                                                            struct SND_VIRTUALSAMPLE_INFO*)) {
-#line 0x1ed
   MUSY_ASSERT_MSG(sndActive, "Sound system is not initialized.");
   vs.callback = callback;
 }
@@ -281,7 +283,6 @@ void vsARAMDMACallback(unsigned long user) {
 void sndVirtualSampleARAMUpdate(unsigned short instID, void* base, unsigned long off1,
                                 unsigned long len1, unsigned long off2, unsigned long len2) {
   u8 i;
-#line 0x203
   MUSY_ASSERT_MSG(sndActive, "Sound system is not initialized.");
 
   hwDisableIrq();
@@ -309,7 +310,11 @@ void sndVirtualSampleARAMUpdate(unsigned short instID, void* base, unsigned long
     }
 
     if (vs.streamBuffer[i].smpType == 5) {
+#if MUSY_TARGET == MUSY_TARGET_DOLPHIN
       hwSetStreamLoopPS(vs.streamBuffer[i].voice, *(u32*)(OSCachedToUncached(base)) >> 24);
+#elif MUSY_TARGET == MUSY_TARGET_PC
+      hwSetStreamLoopPS(vs.streamBuffer[i].voice, *(u32*)(base) >> 24);
+#endif
     }
     break;
   }

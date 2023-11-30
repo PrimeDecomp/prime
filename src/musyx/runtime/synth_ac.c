@@ -1,6 +1,5 @@
-#include "musyx/musyx_priv.h"
+#include "musyx/synth.h"
 
-extern SynthInfo synthInfo;
 
 static float toneup_tab[128] = {
     1.0f,       1.0594635f, 1.1224623f, 1.1892071f,  1.2599211f,  1.3348398f,  1.4142141f,

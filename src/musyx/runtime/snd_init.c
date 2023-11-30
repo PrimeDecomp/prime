@@ -17,7 +17,14 @@
 
 */
 
-#include "musyx/musyx_priv.h"
+#include "musyx/assert.h"
+#include "musyx/s3d.h"
+#include "musyx/seq.h"
+#include "musyx/stream.h"
+#include "musyx/synth.h"
+#include "musyx/hardware.h"
+#include "musyx/synthdata.h"
+
 // #define _DEBUG
 
 /*
@@ -34,7 +41,8 @@ static s32 DoInit(u32 mixFrq, u32 aramSize, u32 numVoices, u32 flags)
 {
   bool ret;
 
-  MUSY_DEBUG("\nMusyX software initialization...\nBuild Date: %s %s\n\n", "Dec 17 2003", "20:32:41");
+  MUSY_DEBUG("\nMusyX software initialization...\nBuild Date: %s %s\n\n", "Dec 17 2003",
+             "20:32:41");
   ret = FALSE;
 
 #if MUSY_VERSION >= MUSY_VERSION_CHECK(2, 0, 3)

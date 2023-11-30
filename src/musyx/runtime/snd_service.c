@@ -1,4 +1,7 @@
-#include "musyx/musyx_priv.h"
+#include "musyx/musyx.h"
+
+#include "musyx/snd.h"
+#include "musyx/synth.h"
 
 #ifdef __cplusplus
 extern "C" {

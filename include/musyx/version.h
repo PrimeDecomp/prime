@@ -1,6 +1,12 @@
 #ifndef _MUSYX_VERSION
 #define _MUSYX_VERSION
 
+#define MUSY_TARGET_PC 0
+#define MUSY_TARGET_DOLPHIN 1
+
+#ifndef MUSY_TARGET
+#define MUSY_TARGET MUSY_TARGET_PC
+#endif
 
 #ifndef MUSY_VERSION_CHECK
 #define MUSY_VERSION_CHECK(major, minor, patch) ((major << 16) | (minor << 8) | (patch))

@@ -9,9 +9,11 @@
 
    ---------------------------------------
 */
-#include "musyx/musyx_priv.h"
+#include "musyx/musyx.h"
+#include "musyx/sal.h"
 #include <float.h>
 #include <math.h>
+#include <string.h>
 
 static void DLsetdelay(_SND_REVSTD_DELAYLINE* dl, s32 lag) {
   dl->outPoint = dl->inPoint - (lag * sizeof(f32));
@@ -121,6 +123,7 @@ bool ReverbSTDModify(_SND_REVSTD_WORK* rv, float coloration, float time, float m
   return ReverbSTDCreate(rv, coloration, time, mix, damping, predelay);
 }
 
+#ifdef __MWERKS__
 static const float value0_3 = 0.3f;
 static const float value0_6 = 0.6f;
 static const double i2fMagic = 4.503601774854144E15;
@@ -411,6 +414,11 @@ lbl_803B599C:
   blr
 #endif
 }
+#else
+static void HandleReverb(long* sptr, struct _SND_REVSTD_WORK* rv) {
+  // TODO: Reimplement this in C
+}
+#endif
 
 void ReverbSTDCallback(s32* left, s32* right, s32* surround, _SND_REVSTD_WORK* rv) {
   HandleReverb(left, rv);

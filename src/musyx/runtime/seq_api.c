@@ -18,6 +18,7 @@
 
 #include "musyx/hardware.h"
 #include "musyx/seq.h"
+#include  "musyx/assert.h"
 /*
 
 

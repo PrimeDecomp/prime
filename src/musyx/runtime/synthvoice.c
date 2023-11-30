@@ -1,5 +1,11 @@
 
-#include "musyx/musyx_priv.h"
+#include "musyx/musyx.h"
+
+#include "musyx/assert.h"
+#include "musyx/hardware.h"
+#include "musyx/voice.h"
+#include "musyx/stream.h"
+#include "musyx/macros.h"
 
 void voiceResetLastStarted(SYNTH_VOICE* svoice);
 

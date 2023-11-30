@@ -1,5 +1,5 @@
 
-#include "musyx/musyx_priv.h"
+#include "musyx/adsr.h"
 #include "musyx/synth_dbtab.h"
 
 #include <float.h>
@@ -75,7 +75,7 @@ u32 salChangeADSRState(ADSR_VARS* adsr) {
         adsr->state = 2;
         adsr->currentVolume = 0x7fff0000;
         adsr->currentIndex = 0xc10000;
-        adsr->currentDelta = -(((0xc1 - (uint)(adsr->data).dls.sLevel) * 0x10000) / adsr->cnt);
+        adsr->currentDelta = -(((0xc1 - (u32)(adsr->data).dls.sLevel) * 0x10000) / adsr->cnt);
         goto done;
       }
     }
