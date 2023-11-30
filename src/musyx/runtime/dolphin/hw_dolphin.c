@@ -140,8 +140,8 @@ void salStartDsp(u16* cmdList) {
     ;
 }
 
-void salCtrlDsp(u32 unk) {
-  salBuildCommandList(unk, salGetStartDelay());
+void salCtrlDsp(u16* dest) {
+  salBuildCommandList(dest, salGetStartDelay());
   salStartDsp(dspCmdList);
 }
 

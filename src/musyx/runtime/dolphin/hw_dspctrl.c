@@ -15,7 +15,10 @@
 
 
 */
-#include "musyx/musyx_priv.h"
+#include "musyx/assert.h"
+#include "musyx/dspvoice.h"
+#include "musyx/hardware.h"
+#include "musyx/sal.h"
 
 #ifdef _DEBUG
 static u32 dbgActiveVoicesMax = 0;
