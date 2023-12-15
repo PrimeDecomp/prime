@@ -3,9 +3,9 @@
 
 #include "musyx/assert.h"
 #include "musyx/hardware.h"
-#include "musyx/voice.h"
-#include "musyx/stream.h"
 #include "musyx/macros.h"
+#include "musyx/stream.h"
+#include "musyx/voice.h"
 
 void voiceResetLastStarted(SYNTH_VOICE* svoice);
 
@@ -287,16 +287,158 @@ void voiceSetPriority(SYNTH_VOICE* svoice, u8 prio) {
   hwSetPriority(svoice->id & 0xFF, ((u32)prio << 24) | (svoice->age >> 15));
 }
 
-#pragma dont_inline on
 u32 voiceAllocate(u8 priority, u8 maxVoices, u16 allocId, u8 fxFlag) {
-  long i;               // r31
-  long num;             // r26
-  long voice;           // r30
+  s32 i;                // r31
+  s32 num;              // r26
+  s32 voice;            // r30
   u16 p;                // r29
   u32 type_alloc;       // r25
   SYNTH_VOICELIST* sfv; // r27
+
+  if (!synthIdleWaitActive) {    
+      if (fxFlag) {
+        type_alloc = (voiceFxRunning >= synthInfo.maxSFX && synthInfo.voiceNum > synthInfo.maxSFX);
+    
+        if (synthInfo.maxSFX <= maxVoices) {
+            goto _skip_alloc;
+        }
+        
+        goto _do_alloc;
+      } else {
+        type_alloc = (voiceMusicRunning >= synthInfo.maxMusic && synthInfo.voiceNum > synthInfo.maxMusic);
+
+        if (synthInfo.maxMusic <= maxVoices) {
+            goto _skip_alloc;
+        }
+          
+_do_alloc:
+          num = 0;
+          voice = -1;
+
+          p = voicePrioSortRootListRoot;  
+          while (p != 0xFFFF &&  priority >= p && voice == -1) {
+            for (i = voicePrioSortVoicesRoot[p]; i != 0xff; i = voicePrioSortVoices[i].next) {
+              if (allocId != synthVoice[i].allocId) 
+                  continue;
+                ++num;
+                if(synthVoice[i].block)
+                  continue;
+                
+                if (!type_alloc || fxFlag == synthVoice[i].fxFlag) {
+                    if((synthVoice[i].cFlags & 2)) 
+                        continue;
+                    if (voice != -1) {
+                        if(synthVoice[i].age < synthVoice[voice].age)
+                            voice = i;
+                    }
+                    else 
+                        voice = i;
+                    
+                }
+            }
+
+              p = voicePrioSortRootList[p].next;
+          }
+        }
+
+      if (num < maxVoices) {
+          while (p != 0xffff && num < maxVoices) {
+              i = voicePrioSortVoicesRoot[p];
+              while (i != 0xff) {
+                    if (allocId == synthVoice[i].allocId) {
+                        num++;
+                    }
+                    
+                    i = voicePrioSortVoices[i].next;
+              }
+
+              p = voicePrioSortRootList[p].next;
+          }
+
+        if (num < maxVoices) {
+    _skip_alloc:
+            if (voiceListRoot != 0xff && type_alloc == 0) {
+                voice = voiceListRoot;
+                goto _update;
+            }
+    
+            if (priority < voicePrioSortRootListRoot) {
+                return -1;
+            }
+    
+            voice = -1;
+            p = voicePrioSortRootListRoot;
+    
+          while (p != 0xFFFF &&  priority >= p && voice == -1) {
+            for (i = voicePrioSortVoicesRoot[p]; i != 0xff; i = voicePrioSortVoices[i].next) {
+              if (synthVoice[i].block != 0) 
+                  continue;
+                
+                if (!type_alloc || fxFlag == synthVoice[i].fxFlag) {
+                    if((synthVoice[i].cFlags & 2)) 
+                        continue;
+                    if (voice != -1) {
+                        if(synthVoice[voice].age > synthVoice[i].age)
+                            voice = i;
+                    }
+                    else 
+                        voice = i;
+                }
+            }
+                p = voicePrioSortRootList[p].next;
+          }
+    
+              if (voice == -1) {
+                return 0xffffffff;
+              }
+        
+              if (synthVoice[voice].prio > priority) {
+                  goto _fail;
+              }
+        }
+      }
+
+    _update:
+      if (voice == -1) {
+          goto _fail;
+      }
+      
+      if (voiceList[voice].user == 1) {
+        sfv = voiceList + voice;
+        i = sfv->prev;
+          
+        if (i != 0xff) {
+          voiceList[i].next = sfv->next;
+        } else {
+          voiceListRoot = sfv->next;
+        }
+
+        i = sfv->next;
+        if (i != 0xff) {
+          voiceList[i].prev = sfv->prev;
+        }
+          
+        if (voice == voiceListInsert) {
+          voiceListInsert = sfv->prev;
+        }
+          
+        sfv->user = 0;
+      } else if (synthVoice[voice].fxFlag) {
+        voiceFxRunning--;
+      } else {
+        voiceMusicRunning--;
+      }
+      if (fxFlag != FALSE) {
+        ++voiceFxRunning;
+      } else {
+        ++voiceMusicRunning;
+      }
+      return voice;
+  }
+
+_fail:
+  return -1;
 }
-#pragma dont_inline reset
 
 void voiceFree(SYNTH_VOICE* svoice) {
   u32 i;                // r29
