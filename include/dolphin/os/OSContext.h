@@ -162,6 +162,7 @@ u32 OSSaveContext(OSContext* context);
 void OSClearContext(OSContext* context);
 OSContext* OSGetCurrentContext();
 void OSSetCurrentContext(OSContext* context);
+u32 OSGetStackPointer();
 
 #ifdef __cplusplus
 }

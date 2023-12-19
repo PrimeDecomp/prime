@@ -233,9 +233,17 @@ cflags_musyx_debug = [
 
 # REL flags
 cflags_rel = [
-    *cflags_base,
+    "-proc gecko",
+    "-fp hard",
+    "-nodefaults",
+    "-nosyspath",
+    "-i include",
+    "-i libc",
+    "-O0",
     "-sdata 0",
     "-sdata2 0",
+    "-str noreuse",
+    "-Cpp_exceptions off"
 ]
 
 config.linker_version = "GC/1.3.2"
@@ -283,7 +291,7 @@ def MusyX(objects, mw_version="GC/1.3.2", debug=False, major=2, minor=0, patch=0
 def Rel(lib_name, objects):
     return {
         "lib": lib_name,
-        "mw_version": "Wii/1.3",
+        "mw_version": "GC/1.3.2",
         "cflags": cflags_rel,
         "host": True,
         "objects": objects,
@@ -1292,6 +1300,15 @@ config.libs = [
             Object(Matching, "Dolphin/GBA/GBAWrite.c"),
             Object(Matching, "Dolphin/GBA/GBAXfer.c"),
             Object(Matching, "Dolphin/GBA/GBAKey.c"),
+        ],
+    ),
+    Rel(
+        "NESemuP",
+        [
+            Object(
+                Matching,
+                "NESemu/modwrapper.c",
+                ),
         ],
     ),
 ]
