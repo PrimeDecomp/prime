@@ -117,7 +117,7 @@ void vidRemoveVoiceReferences(SYNTH_VOICE* svoice) {
   }
 }
 
-unsigned long vidMakeRoot(struct SYNTH_VOICE* svoice) {
+u32 vidMakeRoot(SYNTH_VOICE* svoice) {
   svoice->vidMasterList = svoice->vidList;
   return svoice->vidList->vid;
 }
@@ -551,7 +551,7 @@ void voiceKill(u32 vi) {
   hwBreak(vi);
 }
 
-long voiceKillSound(u32 voiceid) {
+s32 voiceKillSound(u32 voiceid) {
   s32 ret = -1;     // r29
   u32 next_voiceid; // r28
   u32 i;            // r30

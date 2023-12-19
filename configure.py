@@ -187,6 +187,7 @@ cflags_retro = [
     "-gccinc",
     "-inline deferred,noauto",
     "-common on",
+    "-DMUSY_TARGET=MUSY_TARGET_DOLPHIN"
 ]
 
 cflags_musyx = [
@@ -1194,17 +1195,17 @@ config.libs = [
             Object(Matching, "musyx/runtime/synth_vsamples.c"),
             Object(Matching, "musyx/runtime/synth_dbtab.c"),
             Object(Matching, "musyx/runtime/s_data.c"),
-            Object(NonMatching, "musyx/runtime/dolphin/hw_dspctrl.c"),
+            Object(NonMatching, "musyx/runtime/hw_dspctrl.c"),
             Object(Matching, "musyx/runtime/hw_volconv.c"),
             Object(Matching, "musyx/runtime/snd3d.c"),
             Object(Matching, "musyx/runtime/snd_init.c"),
             Object(Matching, "musyx/runtime/snd_math.c"),
             Object(NonMatching, "musyx/runtime/snd_midictrl.c"),
             Object(Matching, "musyx/runtime/snd_service.c"),
-            Object(Matching, "musyx/runtime/dolphin/hardware.c"),
-            Object(Matching, "musyx/runtime/dolphin/hw_aramdma.c"),
-            Object(Matching, "musyx/runtime/dolphin/dsp_import.c"),
-            Object(Matching, "musyx/runtime/dolphin/hw_dolphin.c"),
+            Object(Matching, "musyx/runtime/hardware.c"),
+            Object(Matching, "musyx/runtime/hw_aramdma.c"),
+            Object(Matching, "musyx/runtime/dsp_import.c"),
+            Object(Matching, "musyx/runtime/hw_dolphin.c"),
             Object(Matching, "musyx/runtime/hw_memory.c"),
             Object(Matching, "musyx/runtime/hw_lib_dummy.c"),
             Object(Matching, "musyx/runtime/CheapReverb/creverb_fx.c"),

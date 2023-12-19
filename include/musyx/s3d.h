@@ -13,6 +13,7 @@ void s3dKillAllEmitter();
 void s3dInit(u32); /* extern */
 void s3dKillEmitterByFXID(FX_TAB* fxTab, u32 num);
 void s3dExit();
+void s3dHandle();
 
 #ifdef __cplusplus
 }

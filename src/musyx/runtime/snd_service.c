@@ -109,7 +109,7 @@ void* sndBSearch(void* key, void* base, s32 num, s32 len, SND_COMPARE cmp) {
     r = num;
     do {
       // This is kind of gross....
-      if ((c = cmp(key, (ptr = (void*)((u32)base + len * ((m = (l + r) >> 1) - 1))))) == 0) {
+      if ((c = cmp(key, (ptr = (void*)((size_t)base + len * ((m = (l + r) >> 1) - 1))))) == 0) {
         return ptr;
       }
 

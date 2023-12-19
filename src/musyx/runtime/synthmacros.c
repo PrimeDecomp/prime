@@ -1064,7 +1064,7 @@ static void mcmdIfVarCompare(SYNTH_VOICE* svoice, MSTEP* cstep, u8 cmp) {
     svoice->curAddr = svoice->addr + (u16)(cstep->para[1] >> 0x10);
   }
 }
-u32 macPostMessage(u32 vid, s32 mesg) {
+bool macPostMessage(u32 vid, s32 mesg) {
   SYNTH_VOICE* sv; // r31
   if ((vid = vidGetInternalId(vid)) != -1 && (sv = &synthVoice[vid & 0xFF])->mesgNum < 4) {
     ++sv->mesgNum;

@@ -56,7 +56,7 @@ extern "C" {
 #endif
 u32 adsrHandleLowPrecision(ADSR_VARS* adsr, u16* adsr_start, u16* adsr_delta);
 bool adsrRelease(ADSR_VARS* adsr);
-
+u32 adsrConvertTimeCents(s32 tc);
 #ifdef __cplusplus
 }
 #endif

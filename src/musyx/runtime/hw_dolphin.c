@@ -1,3 +1,6 @@
+#include "musyx/platform.h"
+
+#if MUSY_TARGET == MUSY_TARGET_DOLPHIN
 #include "dolphin/dsp.h"
 #include "musyx/assert.h"
 #include "musyx/dsp_import.h"
@@ -125,7 +128,7 @@ u32 salExitDsp() {
 
   return TRUE;
 }
-void salStartDsp(u16* cmdList) {
+void salStartDsp(s16* cmdList) {
   salDspIsDone = FALSE;
   PPCSync();
   /* clang-format off */
@@ -140,7 +143,7 @@ void salStartDsp(u16* cmdList) {
     ;
 }
 
-void salCtrlDsp(u16* dest) {
+void salCtrlDsp(s16* dest) {
   salBuildCommandList(dest, salGetStartDelay());
   salStartDsp(dspCmdList);
 }
@@ -169,3 +172,4 @@ void hwDisableIrq() {
 void hwIRQEnterCritical() { OSDisableInterrupts(); }
 
 void hwIRQLeaveCritical() { OSEnableInterrupts(); }
+#endif

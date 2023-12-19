@@ -1,6 +1,6 @@
+#include "musyx/synthdata.h"
 #include "musyx/assert.h"
 #include "musyx/hardware.h"
-#include "musyx/synthdata.h"
 #include "musyx/snd.h"
 
 static SDIR_TAB dataSmpSDirs[128];
@@ -347,7 +347,7 @@ done:
                   "Sample ID to be inserted could not be found in any sample directory.\n");
 
   if (sdir->ref_cnt == 0) {
-    sdir->addr = (void*)(sdir->offset + (s32)dataSmpSDirs[i].base);
+    sdir->addr = (void*)((size_t)sdir->offset + (s32)dataSmpSDirs[i].base);
     header = &sdir->header;
     hwSaveSample(&header, &sdir->addr);
   }
@@ -532,7 +532,7 @@ MSTEP* dataGetMacro(u16 mid) {
 
 static s32 smpcmp(void* p1, void* p2) { return ((SDIR_DATA*)p1)->id - ((SDIR_DATA*)p2)->id; }
 
-long dataGetSample(u16 sid, SAMPLE_INFO* newsmp) {
+s32 dataGetSample(u16 sid, SAMPLE_INFO* newsmp) {
   static SDIR_DATA key;
   static SDIR_DATA* result;
   static SAMPLE_HEADER* sheader;
@@ -554,7 +554,7 @@ long dataGetSample(u16 sid, SAMPLE_INFO* newsmp) {
         newsmp->compType = sheader->length >> 24;
 
         if (result->extraData) {
-          newsmp->extraData = (void*)((u32) & (dataSmpSDirs[i].data)->id + result->extraData);
+          newsmp->extraData = (void*)((size_t) & (dataSmpSDirs[i].data)->id + result->extraData);
         }
         return 0;
       }
@@ -605,7 +605,9 @@ void* dataGetLayer(u16 cid, u16* n) {
   return NULL;
 }
 
-static s32 fxcmp(void* p1, void* p2) { return ((FX_TAB*)p1)->id - ((FX_TAB*)p2)->id; }
+static s32 fxcmp(void* p1, void* p2) {
+  return ((FX_TAB*)p1)->id - ((FX_TAB*)p2)->id;
+}
 
 struct FX_TAB* dataGetFX(u16 fid) {
   static FX_TAB key;
@@ -640,3 +642,35 @@ void dataInit(u32 smpBase, u32 smpLength) {
 }
 
 void dataExit() { hwExitSampleMem(); }
+
+#if MUSY_TARGET == MUSY_PLATFORM_PC
+void* sndConvert32BitSDIRTo64BitSDIR(void* sdir_int) {
+  SDIR_DATA_INTER* sdir_inter = sdir_int;
+  SDIR_DATA* sdir  = NULL;
+  s32 i = 0;
+  SDIR_DATA* s;
+  SDIR_DATA_INTER* s2 = NULL;
+  u16 n = 0;
+
+  for (s2 = sdir_inter; s2->id != 0xffff; ++s2) {
+    ++n;
+  }
+
+  ++n;
+
+  sdir = malloc(n * sizeof(SDIR_DATA));
+
+  for (i = 0; i < n; ++i) {
+    sdir[i].id = sdir_inter[i].id;
+    sdir[i].ref_cnt = sdir_inter[i].ref_cnt;
+    sdir[i].offset = sdir_inter[i].offset;
+    sdir[i].addr = (void*)(size_t)sdir_inter[i].addr;
+    sdir[i].header = sdir_inter[i].header;
+    sdir[i].extraData = sdir_inter[i].extraData;
+  }
+
+  free(sdir_int);
+
+  return sdir;
+}
+#endif

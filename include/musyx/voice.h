@@ -141,21 +141,6 @@ typedef struct VSampleInfo {
   u8 inLoopBuffer;      // offset 0x8, size 0x1
 } VSampleInfo;
 
-typedef struct SND_VIRTUALSAMPLE_INFO {
-  // total size: 0x14
-  u16 smpID;  // offset 0x0, size 0x2
-  u16 instID; // offset 0x2, size 0x2
-  union vsData {
-    struct vsUpdate {
-      // total size: 0x10
-      u32 off1; // offset 0x0, size 0x4
-      u32 len1; // offset 0x4, size 0x4
-      u32 off2; // offset 0x8, size 0x4
-      u32 len2; // offset 0xC, size 0x4
-    } update;
-  } data;
-} SND_VIRTUALSAMPLE_INFO;
-
 typedef struct VS_BUFFER {
   // total size: 0x24
   u8 state;                    // offset 0x0, size 0x1
@@ -176,7 +161,7 @@ typedef struct _VS {
   u8 voices[64];              // offset 0x908, size 0x40
   u16 nextInstID;             // offset 0x948, size 0x2
   u32 (*callback)(u8,
-                  SND_VIRTUALSAMPLE_INFO*); // offset 0x94C, size 0x4
+                  const SND_VIRTUALSAMPLE_INFO*); // offset 0x94C, size 0x4
 } VS;
 
 extern VS vs;
@@ -221,6 +206,7 @@ extern u8 voiceListRoot;
 void vsInit(); /* extern */
 u32 vsSampleStartNotify(u8 voice);
 void vsSampleEndNotify(u32 pubID);
+void vsSampleUpdates();
 
 void voiceSetPriority(SYNTH_VOICE* svoice, u8 prio);
 u32 voiceIsLastStarted(SYNTH_VOICE* svoice);

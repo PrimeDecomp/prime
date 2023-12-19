@@ -15,17 +15,17 @@
 #include "musyx/sal.h"
 
 void sndAuxCallbackDelay(u8 reason, SND_AUX_INFO* info, void* user) {
-  long l;           // r30
-  long r;           // r29
-  long s;           // r28
-  long* lBuf;       // r27
-  long* rBuf;       // r26
-  long* sBuf;       // r25
-  unsigned long i;  // r24
+  s32 l;           // r30
+  s32 r;           // r29
+  s32 s;           // r28
+  s32* lBuf;       // r27
+  s32* rBuf;       // r26
+  s32* sBuf;       // r25
+  u32 i;  // r24
   SND_AUX_DELAY* c; // r31
-  long* left;       // r23
-  long* right;      // r22
-  long* sur;        // r21
+  s32* left;       // r23
+  s32* right;      // r22
+  s32* sur;        // r21
 
   switch (reason) {
   case SND_AUX_REASON_BUFFERUPDATE:

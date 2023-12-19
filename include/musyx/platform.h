@@ -19,4 +19,13 @@
 #endif
 #endif
 
+#if MUSY_TARGET == MUSY_TARGET_PC
+#ifndef MUSY_CACHED_TO_UNCACHED_ADDR
+#define MUSY_CACHED_TO_UNCACHED_ADDR(addr) addr
+#endif
+#elif MUSY_TARGET == MUSY_TARGET_DOLPHIN
+#ifndef MUSY_CACHED_TO_UNCACHED_ADDR
+#define MUSY_CACHED_TO_UNCACHED_ADDR(addr) OSCachedToUncached(addr)
+#endif
+#endif
 #endif

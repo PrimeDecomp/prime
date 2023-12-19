@@ -430,7 +430,7 @@ u32 seqStartPlay(PAGE* norm, PAGE* drum, MIDISETUP* midiSetup, u32* song, SND_PL
     nseq->section[i].bpm = bpm;
     synthSetBpm(bpm >> 10, seqId, i);
 
-    if (arr->mTrack != NULL) {
+    if (arr->mTrack != 0) {
       nseq->section[i].mTrack.base = ARR_GET(arr, arr->mTrack);
       nseq->section[i].mTrack.addr = nseq->section[i].mTrack.base;
     } else {
@@ -657,7 +657,6 @@ void seqSpeed(u32 seqId, u16 speed) {
   u32 i; // r30
 
   seqId = seqGetPrivateId(seqId);
-#line 1018
   MUSY_ASSERT_MSG(seqId != SND_SEQ_ERROR_ID, "Sequencer ID is not valid.");
 
   if ((seqId & SND_SEQ_CROSSFADE_ID) == 0) {
@@ -675,7 +674,6 @@ void seqContinue(u32 seqId) {
   struct SEQ_INSTANCE* si; // r31
 
   seqId = seqGetPrivateId(seqId);
-#line 1043
   MUSY_ASSERT_MSG(seqId != SND_SEQ_ERROR_ID, "Sequencer ID is not valid.");
 
   if ((seqId & SND_SEQ_CROSSFADE_ID) == 0) {
@@ -758,7 +756,6 @@ void seqVolume(u8 volume, u16 time, u32 seqId, u8 mode) {
       seqInstance[seqId].syncCrossInfo.vol2 = volume;
       break;
     default:
-#line 1153
       MUSY_FATAL("Illegal sequencere fade mode detected.");
       break;
     }
@@ -771,7 +768,6 @@ void seqCrossFade(SND_CROSSFADE* ci, u32* new_seqId, bool8 irq_call) {
   u16 time;        // r27
 
   seqId = seqGetPrivateId(ci->seqId1);
-#line 1170
   MUSY_ASSERT_MSG(seqId != SND_SEQ_ERROR_ID, "Sequencer ID is not valid.");
 
   if ((ci->flags & SND_CROSSFADE_SYNC) != 0) {
@@ -1087,7 +1083,7 @@ static SEQ_EVENT* GetGlobalEvent(SEQ_SECTION* section) {
   return ev;
 }
 
-static SEQ_EVENT* HandleEvent(SEQ_EVENT* event, u8 secIndex, u32* loopFlag) {
+static SEQ_EVENT* HandleEvent(SEQ_EVENT* event, u8 secIndex, bool* loopFlag) {
   CPAT* pa;          // r26
   NOTE_DATA* pe;     // r24
   s32 velocity;      // r28

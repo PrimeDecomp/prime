@@ -1,7 +1,8 @@
 #ifndef _ASSERT
 #define _ASSERT
-#include "musyx/version.h"
 #include "musyx/platform.h"
+#include "musyx/version.h"
+
 
 #if MUSY_TARGET == MUSY_TARGET_DOLPHIN
 extern void OSPanic(const char* file, int line, const char* msg, ...);
@@ -15,9 +16,21 @@ extern void OSReport(const char* msg, ...);
 #endif
 #elif MUSY_TARGET == MUSY_TARGET_PC
 #include <assert.h>
+#include <stdarg.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+static inline void panic(const char* file, int line, const char* msg, ...) {
+  va_list list;
+  va_start(list);
+  vprintf(msg, list);
+  va_end(list);
+  printf(" in \"%s\" on line %d.\n", file, line);
+  abort();
+}
 
 #ifndef MUSY_PANIC
-#define MUSY_PANIC assert
+#define MUSY_PANIC panic
 #endif
 #ifndef MUSY_REPORT
 #define MUSY_REPORT printf

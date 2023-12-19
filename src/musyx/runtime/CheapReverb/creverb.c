@@ -415,7 +415,7 @@ lbl_803B599C:
 #endif
 }
 #else
-static void HandleReverb(long* sptr, struct _SND_REVSTD_WORK* rv) {
+static void HandleReverb(s32* sptr, struct _SND_REVSTD_WORK* rv) {
   // TODO: Reimplement this in C
 }
 #endif

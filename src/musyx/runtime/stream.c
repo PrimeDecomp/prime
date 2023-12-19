@@ -2,11 +2,11 @@
 
 #include "musyx/assert.h"
 #include "musyx/hardware.h"
+#include "musyx/snd.h"
 #include "musyx/stream.h"
 #include "musyx/synth.h"
 #include "musyx/synthdata.h"
 #include "musyx/voice.h"
-#include "musyx/snd.h"
 
 #if !defined(_DEBUG) && MUSY_TARGET == MUSY_TARGET_DOLPHIN
 #include "dolphin/os.h"
@@ -129,8 +129,8 @@ void streamHandle() {
           } break;
           case 1: {
             cpos = (si->last / 14) * 8;
-            if ((len = si->updateFunction((void*)((u32)si->buffer + cpos), off - si->last, NULL, 0,
-                                          si->user)) != 0 &&
+            if ((len = si->updateFunction((void*)((size_t)si->buffer + cpos), off - si->last, NULL,
+                                          0, si->user)) != 0 &&
                 si->state == 2) {
               off = (si->last + len) % si->size;
 
@@ -167,7 +167,7 @@ void streamHandle() {
             break;
           case 1:
             cpos = ((si->last / 14) * 8);
-            if ((len = si->updateFunction((void*)((u32)si->buffer + cpos), si->size - si->last,
+            if ((len = si->updateFunction((void*)((size_t)si->buffer + cpos), si->size - si->last,
                                           NULL, 0, si->user)) &&
                 si->state == 2) {
               off = (si->last + len) % si->size;
@@ -211,7 +211,7 @@ void streamHandle() {
             break;
           case 1: {
             cpos = (si->last / 14) * 8;
-            if ((len = si->updateFunction((void*)((u32)si->buffer + cpos), si->size - si->last,
+            if ((len = si->updateFunction((void*)((size_t)si->buffer + cpos), si->size - si->last,
                                           si->buffer, off, si->user)) &&
                 si->state == 2) {
               off = (si->last + len) % si->size;
@@ -334,20 +334,16 @@ void sndStreamARAMUpdate(u32 stid, u32 off1, u32 len1, u32 off2, u32 len2) {
 
 #if MUSY_VERSION >= MUSY_VERSION_CHECK(1, 5, 4)
     if (streamInfo[i].type == 1) {
-
-#if MUSY_TARGET == MUSY_TARGET_DOLPHIN
-      streamInfo[i].lastPSFromBuffer = (*(u32*)OSCachedToUncached(streamInfo[i].buffer)) >> 24;
-#elif MUSY_TARGET == MUSY_TARGET_PC
-      streamInfo[i].lastPSFromBuffer = (*(u32*)streamInfo[i].buffer) >> 24;
-#endif
-
+      streamInfo[i].lastPSFromBuffer =
+          (*(u32*)MUSY_CACHED_TO_UNCACHED_ADDR(streamInfo[i].buffer)) >> 24;
       if (streamInfo[i].voice != -1) {
         hwSetStreamLoopPS(streamInfo[i].voice, streamInfo[i].lastPSFromBuffer);
       }
     }
 #else
     if (streamInfo[i].type == 1) {
-      hwSetStreamLoopPS(streamInfo[i].voice, *(u32*)OSCachedToUncached(streamInfo[i].buffer) >> 24);
+      hwSetStreamLoopPS(streamInfo[i].voice,
+                        *(u32*)MUSY_CACHED_TO_UNCACHED_ADDR(streamInfo[i].buffer) >> 24);
     }
 #endif
   } else {
@@ -398,9 +394,11 @@ void streamOutputModeChanged() {
 }
 #endif
 
-u32 sndStreamAllocEx(u8 prio, void* buffer, u32 samples, u32 frq, u8 vol, u8 pan, u8 span, u8 auxa,
-                     u8 auxb, u8 studio, u32 flags, SND_STREAM_UPDATE_CALLBACK updateFunction,
-                     u32 user, SND_ADPCMSTREAM_INFO* adpcmInfo) {
+SND_STREAMID sndStreamAllocEx(u8 prio, void* buffer, u32 samples, u32 frq, u8 vol, u8 pan, u8 span,
+                              u8 auxa, u8 auxb, u8 studio, u32 flags,
+                              u32 (*updateFunction)(void* buffer1, u32 len1, void* buffer2,
+                                                    u32 len2, u32 user),
+                              u32 user, SND_ADPCMSTREAM_INFO* adpcmInfo) {
   u32 stid;  // r29
   u32 i;     // r31
   u32 bytes; // r25
@@ -643,7 +641,7 @@ void sndStreamFree(u32 stid) {
   hwEnableIrq();
 }
 
-u32 sndStreamActivate(u32 stid) {
+bool sndStreamActivate(SND_STREAMID stid) {
   u32 i;   // r31
   u32 ret; // r28
   ret = 0;

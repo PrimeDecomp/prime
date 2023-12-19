@@ -60,6 +60,21 @@ typedef struct SDIR_DATA {
   u32 extraData;        // offset 0x1C, size 0x4
 } SDIR_DATA;
 
+/*! A direct copy of the above structure to allow us to load in legacy data
+ * this must be done via sndConvert32BitSDIRto64BitSDIR via client code,
+ * this is explicit on the part of the programmer.
+ * MusyX data built with the new tools will not require this step.
+ */
+typedef struct SDIR_DATA_INTER {
+  // total size: 0x20
+  u16 id;               // offset 0x0, size 0x2
+  u16 ref_cnt;          // offset 0x2, size 0x2
+  u32 offset;           // offset 0x4, size 0x4
+  u32 addr;             // offset 0x8, size 0x4
+  SAMPLE_HEADER header; // offset 0xC, size 0x10
+  u32 extraData;        // offset 0x1C, size 0x4
+} SDIR_DATA_INTER;
+
 typedef struct SDIR_TAB {
   // total size: 0xC
   SDIR_DATA* data; // offset 0x0, size 0x4
@@ -183,21 +198,21 @@ void dataInitStack(unsigned long aramBase, unsigned long aramSize);
 #else
 void dataInitStack(); /* extern */
 #endif
-u32 dataInsertSDir(SDIR_DATA* sdir, void* smp_data);
-u32 dataRemoveSDir(SDIR_DATA* sdir);
-u32 dataInsertMacro(u16 mid, void* macroaddr);
-u32 dataRemoveMacro(u16 mid);
-u32 dataInsertCurve(u16 cid, void* curvedata);
-u32 dataRemoveCurve(u16 sid);
+bool dataInsertSDir(SDIR_DATA* sdir, void* smp_data);
+bool dataRemoveSDir(SDIR_DATA* sdir);
+bool dataInsertMacro(u16 mid, void* macroaddr);
+bool dataRemoveMacro(u16 mid);
+bool dataInsertCurve(u16 cid, void* curvedata);
+bool dataRemoveCurve(u16 sid);
 s32 dataGetSample(u16 sid, SAMPLE_INFO* newsmp);
 void* dataGetCurve(u16 cid);
-u32 dataAddSampleReference(u16 sid);
-u32 dataRemoveSampleReference(u16 sid);
-u32 dataInsertKeymap(u16 cid, void* keymapdata);
-u32 dataRemoveKeymap(u16 sid);
-u32 dataInsertLayer(u16 cid, void* layerdata, u16 size);
-u32 dataRemoveLayer(u16 sid);
-u32 dataInsertFX(u16 gid, FX_TAB* fx, u16 fxNum);
+bool dataAddSampleReference(u16 sid);
+bool dataRemoveSampleReference(u16 sid);
+bool dataInsertKeymap(u16 cid, void* keymapdata);
+bool dataRemoveKeymap(u16 sid);
+bool dataInsertLayer(u16 cid, void* layerdata, u16 size);
+bool dataRemoveLayer(u16 sid);
+bool dataInsertFX(u16 gid, FX_TAB* fx, u16 fxNum);
 bool dataRemoveFX(u16 gid);
 FX_TAB* dataGetFX(u16 fid);
 void* dataGetLayer(u16 cid, u16* n);

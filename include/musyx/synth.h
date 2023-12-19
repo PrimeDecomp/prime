@@ -304,6 +304,7 @@ void synthInitPortamento(SYNTH_VOICE* svoice);
 void synthStartSynthJobHandling(SYNTH_VOICE* svoice);
 void synthForceLowPrecisionUpdate(SYNTH_VOICE* svoice);
 void synthKeyStateUpdate(SYNTH_VOICE* svoice);
+void synthHandle(u32 deltaTime);
 bool synthFXSetCtrl(SND_VOICEID vid, u8 ctrl, u8 value);
 bool synthFXSetCtrl14(SND_VOICEID vid, u8 ctrl, u16 value);
 bool synthSendKeyOff(SND_VOICEID vid);
@@ -322,8 +323,8 @@ u8 synthFXGetMaxVoices(u16 fid);
 void synthPauseVolume(u8 volume, u16 time, u8 vGroup);
 void synthKillAllVoices(bool8 musiconly);
 void synthKeyStateUpdate(SYNTH_VOICE* svoice);
-u32 synthAddStudioInput(u8 studio, SND_STUDIO_INPUT* in_desc);
-u32 synthRemoveStudioInput(u8 studio, SND_STUDIO_INPUT* in_desc);
+bool synthAddStudioInput(u8 studio, SND_STUDIO_INPUT* in_desc);
+bool synthRemoveStudioInput(u8 studio, SND_STUDIO_INPUT* in_desc);
 u32 synthGetTicksPerSecond(SYNTH_VOICE* svoice);
 
 #ifdef __cplusplus

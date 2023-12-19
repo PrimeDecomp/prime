@@ -1091,9 +1091,9 @@ static bool synthFXVolume(u32 vid, u8 vol) {
   return ret;
 }
 
-u32 synthSendKeyOff(u32 voiceid) {
+bool synthSendKeyOff(u32 voiceid) {
   u32 i;   // r30
-  u32 ret; // r29
+  bool ret; // r29
 
   ret = FALSE;
 
@@ -1206,7 +1206,7 @@ void synthVolume(u8 volume, u16 time, u8 vGroup, u8 seqMode, u32 seqId) {
   }
 }
 
-u32 synthIsFadeOutActive(u8 vGroup) {
+bool synthIsFadeOutActive(u8 vGroup) {
   if (synthMasterFader[vGroup].type != 4 && (synthMasterFaderActiveFlags & (1 << vGroup)) != 0 &&
       synthMasterFader[vGroup].start > synthMasterFader[vGroup].target) {
     return TRUE;

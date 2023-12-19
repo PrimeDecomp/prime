@@ -11,7 +11,7 @@ static u32 adsrGetIndex(ADSR_VARS* adsr) {
   return i < 0 ? 0 : i;
 }
 
-u32 adsrConvertTimeCents(long tc) { return 1000.f * powf(2.f, 1.2715658e-08f * tc); }
+u32 adsrConvertTimeCents(s32 tc) { return 1000.f * powf(2.f, 1.2715658e-08f * tc); }
 
 u32 salChangeADSRState(ADSR_VARS* adsr) {
   u32 VoiceDone; // r30
@@ -140,7 +140,7 @@ u32 adsrStartRelease(ADSR_VARS* adsr, u32 rtime) {
   return 0;
 }
 
-u32 adsrRelease(ADSR_VARS* adsr) {
+bool adsrRelease(ADSR_VARS* adsr) {
   switch (adsr->mode) {
   case 0:
   case 1:

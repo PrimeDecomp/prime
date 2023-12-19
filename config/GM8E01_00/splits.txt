@@ -4248,7 +4248,7 @@ musyx/runtime/s_data.c:
 	.bss        start:0x8055EC60 end:0x8055F260
 	.sbss       start:0x805A9AD8 end:0x805A9AE0
 
-musyx/runtime/dolphin/hw_dspctrl.c:
+musyx/runtime/hw_dspctrl.c:
 	.text       start:0x803AACFC end:0x803AE110
 	.rodata     start:0x803D8A68 end:0x803D8AC0
 	.data       start:0x803F3FA8 end:0x803F3FC0
@@ -4284,23 +4284,23 @@ musyx/runtime/snd_service.c:
 	.data       start:0x803F4278 end:0x803F4A80
 	.sdata      start:0x805A8BD0 end:0x805A8BD8
 
-musyx/runtime/dolphin/hardware.c:
+musyx/runtime/hardware.c:
 	.text       start:0x803B2F4C end:0x803B3F70
 	.rodata     start:0x803D8BD0 end:0x803D8CD0
 	.sdata      start:0x805A8BD8 end:0x805A8BE8
 	.sbss       start:0x805A9B40 end:0x805A9B50
 	.sdata2     start:0x805AF398 end:0x805AF3B0
 
-musyx/runtime/dolphin/dsp_import.c:
+musyx/runtime/dsp_import.c:
 	.data       start:0x803F4A80 end:0x803F6460
 	.sdata      start:0x805A8BE8 end:0x805A8BF0
 
-musyx/runtime/dolphin/hw_aramdma.c:
+musyx/runtime/hw_aramdma.c:
 	.text       start:0x803B3F70 end:0x803B4C3C
 	.bss        start:0x80566F90 end:0x805678A0
 	.sbss       start:0x805A9B50 end:0x805A9B70
 
-musyx/runtime/dolphin/hw_dolphin.c:
+musyx/runtime/hw_dolphin.c:
 	.text       start:0x803B4C3C end:0x803B5134
 	.bss        start:0x805678A0 end:0x80569900
 	.sbss       start:0x805A9B70 end:0x805A9B98

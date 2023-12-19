@@ -601,9 +601,9 @@ static SND_VOICEID AddEmitter(SND_EMITTER* em_buffer, SND_FVECTOR* pos, SND_FVEC
   return -1;
 }
 
-unsigned long sndAddEmitter(SND_EMITTER* em_buffer, SND_FVECTOR* pos, SND_FVECTOR* dir, f32 maxDis,
-                            f32 comp, unsigned long flags, unsigned short fxid,
-                            unsigned char maxVol, unsigned char minVol, SND_ROOM* room) {
+SND_VOICEID sndAddEmitter(SND_EMITTER* em_buffer, SND_FVECTOR* pos, SND_FVECTOR* dir, f32 maxDis,
+                          f32 comp, u32 flags, SND_FXID fxid, u8 maxVol, u8 minVol,
+                          SND_ROOM* room) {
   if (sndActive) {
     return AddEmitter(em_buffer, pos, dir, maxDis, comp, flags, fxid, fxid | 0x80000000, maxVol,
                       minVol, room, NULL, 0);
@@ -612,10 +612,9 @@ unsigned long sndAddEmitter(SND_EMITTER* em_buffer, SND_FVECTOR* pos, SND_FVECTO
   return -1;
 }
 
-unsigned long sndAddEmitterEx(struct SND_EMITTER* em_buffer, struct SND_FVECTOR* pos,
-                              struct SND_FVECTOR* dir, f32 maxDis, f32 comp, unsigned long flags,
-                              unsigned short fxid, unsigned short groupid, unsigned char maxVol,
-                              unsigned char minVol, struct SND_ROOM* room) {
+SND_VOICEID sndAddEmitterEx(SND_EMITTER* em_buffer, SND_FVECTOR* pos, SND_FVECTOR* dir, f32 maxDis,
+                            f32 comp, u32 flags, SND_FXID fxid, unsigned short groupid, u8 maxVol,
+                            u8 minVol, SND_ROOM* room) {
   if (sndActive) {
     return AddEmitter(em_buffer, pos, dir, maxDis, comp, flags, fxid, groupid, maxVol, minVol, room,
                       NULL, 0);
@@ -624,10 +623,9 @@ unsigned long sndAddEmitterEx(struct SND_EMITTER* em_buffer, struct SND_FVECTOR*
   return -1;
 }
 
-unsigned long sndAddEmitterPara(struct SND_EMITTER* em_buffer, struct SND_FVECTOR* pos,
-                                struct SND_FVECTOR* dir, f32 maxDis, f32 comp, unsigned long flags,
-                                unsigned short fxid, unsigned char maxVol, unsigned char minVol,
-                                struct SND_ROOM* room, struct SND_PARAMETER_INFO* para) {
+SND_VOICEID sndAddEmitterPara(SND_EMITTER* em_buffer, struct SND_FVECTOR* pos, SND_FVECTOR* dir,
+                              f32 maxDis, f32 comp, u32 flags, SND_FXID fxid, u8 maxVol, u8 minVol,
+                              SND_ROOM* room, struct SND_PARAMETER_INFO* para) {
   if (sndActive) {
     return AddEmitter(em_buffer, pos, dir, maxDis, comp, flags, fxid, fxid | 0x80000000, maxVol,
                       minVol, room, para, 0);
@@ -635,11 +633,9 @@ unsigned long sndAddEmitterPara(struct SND_EMITTER* em_buffer, struct SND_FVECTO
   return -1;
 }
 
-unsigned long sndAddEmitterParaEx(struct SND_EMITTER* em_buffer, struct SND_FVECTOR* pos,
-                                  struct SND_FVECTOR* dir, f32 maxDis, f32 comp,
-                                  unsigned long flags, unsigned short fxid, unsigned short groupid,
-                                  unsigned char maxVol, unsigned char minVol, struct SND_ROOM* room,
-                                  struct SND_PARAMETER_INFO* para) {
+SND_VOICEID sndAddEmitterParaEx(SND_EMITTER* em_buffer, SND_FVECTOR* pos, SND_FVECTOR* dir,
+                                f32 maxDis, f32 comp, u32 flags, SND_FXID fxid, SND_GROUPID groupid,
+                                u8 maxVol, u8 minVol, SND_ROOM* room, SND_PARAMETER_INFO* para) {
   if (sndActive) {
     return AddEmitter(em_buffer, pos, dir, maxDis, comp, flags, fxid, groupid, maxVol, minVol, room,
                       para, 0);
@@ -648,10 +644,9 @@ unsigned long sndAddEmitterParaEx(struct SND_EMITTER* em_buffer, struct SND_FVEC
   return -1;
 }
 
-unsigned long sndAddEmitter2Studio(struct SND_EMITTER* em_buffer, struct SND_FVECTOR* pos,
-                                   struct SND_FVECTOR* dir, f32 maxDis, f32 comp,
-                                   unsigned long flags, unsigned short fxid, unsigned char maxVol,
-                                   unsigned char minVol, unsigned char studio) {
+SND_VOICEID sndAddEmitter2Studio(SND_EMITTER* em_buffer, SND_FVECTOR* pos, SND_FVECTOR* dir,
+                                 f32 maxDis, f32 comp, u32 flags, SND_FXID fxid, u8 maxVol,
+                                 u8 minVol, u8 studio) {
   if (sndActive) {
     return AddEmitter(em_buffer, pos, dir, maxDis, comp, flags, fxid, fxid | 0x80000000, maxVol,
                       minVol, NULL, NULL, studio);
@@ -659,11 +654,9 @@ unsigned long sndAddEmitter2Studio(struct SND_EMITTER* em_buffer, struct SND_FVE
   return -1;
 }
 
-unsigned long sndAddEmitter2StudioEx(struct SND_EMITTER* em_buffer, struct SND_FVECTOR* pos,
-                                     struct SND_FVECTOR* dir, f32 maxDis, f32 comp,
-                                     unsigned long flags, unsigned short fxid,
-                                     unsigned short groupid, unsigned char maxVol,
-                                     unsigned char minVol, unsigned char studio) {
+SND_VOICEID sndAddEmitter2StudioEx(SND_EMITTER* em_buffer, SND_FVECTOR* pos, SND_FVECTOR* dir,
+                                   f32 maxDis, f32 comp, u32 flags, SND_FXID fxid, u16 groupid,
+                                   u8 maxVol, u8 minVol, u8 studio) {
   if (sndActive) {
     return AddEmitter(em_buffer, pos, dir, maxDis, comp, flags, fxid, groupid, maxVol, minVol, NULL,
                       NULL, studio);
@@ -671,11 +664,9 @@ unsigned long sndAddEmitter2StudioEx(struct SND_EMITTER* em_buffer, struct SND_F
   return -1;
 }
 
-unsigned long sndAddEmitter2StudioPara(struct SND_EMITTER* em_buffer, struct SND_FVECTOR* pos,
-                                       struct SND_FVECTOR* dir, f32 maxDis, f32 comp,
-                                       unsigned long flags, unsigned short fxid,
-                                       unsigned char maxVol, unsigned char minVol,
-                                       unsigned char studio, struct SND_PARAMETER_INFO* para) {
+SND_VOICEID sndAddEmitter2StudioPara(SND_EMITTER* em_buffer, SND_FVECTOR* pos, SND_FVECTOR* dir,
+                                     f32 maxDis, f32 comp, u32 flags, SND_FXID fxid, u8 maxVol,
+                                     u8 minVol, u8 studio, SND_PARAMETER_INFO* para) {
   if (sndActive) {
     return AddEmitter(em_buffer, pos, dir, maxDis, comp, flags, fxid, fxid | 0x80000000, maxVol,
                       minVol, NULL, para, studio);
@@ -683,12 +674,9 @@ unsigned long sndAddEmitter2StudioPara(struct SND_EMITTER* em_buffer, struct SND
   return -1;
 }
 
-unsigned long sndAddEmitter2StudioParaEx(struct SND_EMITTER* em_buffer, struct SND_FVECTOR* pos,
-                                         struct SND_FVECTOR* dir, f32 maxDis, f32 comp,
-                                         unsigned long flags, unsigned short fxid,
-                                         unsigned short groupid, unsigned char maxVol,
-                                         unsigned char minVol, unsigned char studio,
-                                         struct SND_PARAMETER_INFO* para) {
+SND_VOICEID sndAddEmitter2StudioParaEx(SND_EMITTER* em_buffer, SND_FVECTOR* pos, SND_FVECTOR* dir,
+                                       f32 maxDis, f32 comp, u32 flags, SND_FXID fxid, u16 groupid,
+                                       u8 maxVol, u8 minVol, u8 studio, SND_PARAMETER_INFO* para) {
   if (sndActive) {
     return AddEmitter(em_buffer, pos, dir, maxDis, comp, flags, fxid, groupid, maxVol, minVol, NULL,
                       para, studio);
@@ -696,7 +684,7 @@ unsigned long sndAddEmitter2StudioParaEx(struct SND_EMITTER* em_buffer, struct S
   return -1;
 }
 
-unsigned long sndRemoveEmitter(SND_EMITTER* em) {
+bool sndRemoveEmitter(SND_EMITTER* em) {
   if (sndActive) {
     hwDisableIrq();
     if (em->flags & 0x10000) {
@@ -711,7 +699,7 @@ unsigned long sndRemoveEmitter(SND_EMITTER* em) {
 }
 
 SND_VOICEID sndEmitterVoiceID(SND_EMITTER* em) {
-  unsigned long ret; // r31
+  SND_VOICEID ret; // r31
 
   ret = 0xffffffff;
   if (sndActive != FALSE) {
@@ -770,8 +758,8 @@ static void MakeListenerMatrix(SND_LISTENER* li) {
   salInvertMatrix(&li->mat, &mat);
 }
 
-unsigned long sndUpdateListener(SND_LISTENER* li, SND_FVECTOR* pos, SND_FVECTOR* dir,
-                                SND_FVECTOR* heading, SND_FVECTOR* up, u8 vol, SND_ROOM* room) {
+bool sndUpdateListener(SND_LISTENER* li, SND_FVECTOR* pos, SND_FVECTOR* dir, SND_FVECTOR* heading,
+                       SND_FVECTOR* up, u8 vol, SND_ROOM* room) {
   if (sndActive) {
     hwDisableIrq();
     li->pos = *pos;
@@ -800,10 +788,9 @@ unsigned long sndUpdateListener(SND_LISTENER* li, SND_FVECTOR* pos, SND_FVECTOR*
   return FALSE;
 }
 
-unsigned long sndAddListenerEx(SND_LISTENER* li, SND_FVECTOR* pos, SND_FVECTOR* dir,
-                               SND_FVECTOR* heading, SND_FVECTOR* up, f32 front_sur, f32 back_sur,
-                               f32 soundSpeed, f32 volPosOffset, unsigned long flags,
-                               unsigned char vol, SND_ROOM* room) {
+bool sndAddListenerEx(SND_LISTENER* li, SND_FVECTOR* pos, SND_FVECTOR* dir, SND_FVECTOR* heading,
+                      SND_FVECTOR* up, f32 front_sur, f32 back_sur, f32 soundSpeed,
+                      f32 volPosOffset, u32 flags, u8 vol, SND_ROOM* room) {
 
   if (sndActive) {
     hwDisableIrq();
@@ -835,15 +822,14 @@ unsigned long sndAddListenerEx(SND_LISTENER* li, SND_FVECTOR* pos, SND_FVECTOR* 
   return FALSE;
 }
 
-unsigned long sndAddListener(SND_LISTENER* li, SND_FVECTOR* pos, SND_FVECTOR* dir,
-                             SND_FVECTOR* heading, SND_FVECTOR* up, f32 front_sur, f32 back_sur,
-                             f32 soundSpeed, unsigned long flags, unsigned char vol,
-                             SND_ROOM* room) {
+bool sndAddListener(SND_LISTENER* li, SND_FVECTOR* pos, SND_FVECTOR* dir, SND_FVECTOR* heading,
+                    SND_FVECTOR* up, f32 front_sur, f32 back_sur, f32 soundSpeed, u32 flags, u8 vol,
+                    SND_ROOM* room) {
   return sndAddListenerEx(li, pos, dir, heading, up, front_sur, back_sur, soundSpeed, 0.f, flags,
                           vol, room);
 }
 
-unsigned long sndRemoveListener(SND_LISTENER* li) {
+bool sndRemoveListener(SND_LISTENER* li) {
   if (sndActive) {
 
     hwDisableIrq();

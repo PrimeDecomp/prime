@@ -2,6 +2,7 @@
 #define _MUSYX_HARDWARE
 
 #include "musyx/musyx.h"
+#include <stddef.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -14,10 +15,9 @@ extern SND_HOOKS salHooks;
 
 extern u32 dspHRTFOn;
 
-extern u16* dspCmdList;
+extern s16* dspCmdList;
 extern u16 dspCmdFirstSize;
 extern u8 dspScale2IndexTab[1024];
-
 
 u32 hwFrq2Pitch(u32 frq);
 void hwOff(s32 vid);
@@ -29,6 +29,8 @@ void hwInitSamplePlayback(u32 v, u16 smpID, void* newsmp, u32 set_defadsr, u32 p
                           u32 callbackUserValue, u32 setSRC, u8 itdMode);
 void hwSetVolume(u32 v, u8 table, float vol, u32 pan, u32 span, float auxa, float auxb);
 void hwSetPitch(u32 v, u16 speed);
+void hwInitIrq();
+void hwExitIrq();
 void hwEnableIrq();
 void hwDisableIrq();
 void* hwTransAddr(void* samples);
@@ -46,8 +48,8 @@ u16 hwGetSampleID(u32 voice);
 u8 hwGetSampleType(u32 voice);
 void hwChangeStudioMix(u8 studio, u32 isMaster);
 void hwSetStreamLoopPS(u32 voice, u8 ps);
-void hwFlushStream(void* base, u32 offset, u32 bytes, unsigned char hwStreamHandle,
-                   void (*callback)(u32), u32 user);
+void hwFlushStream(void* base, u32 offset, u32 bytes, u8 hwStreamHandle, void (*callback)(size_t),
+                   u32 user);
 void hwSetSaveSampleCallback(ARAMUploadCallback callback, unsigned long chunckSize);
 void hwSyncSampleMem();
 void hwSetAUXProcessingCallbacks(u8 studio, SND_AUX_CALLBACK auxA, void* userA,
@@ -67,7 +69,7 @@ void hwDisableHRTF();
 void hwStart(u32 v, u8 studio);
 void hwKeyOff(u32 v);
 void hwFrameDone();
-void hwActivateStudio(u8 studio, u32 isMaster, SND_STUDIO_TYPE type);
+void hwActivateStudio(u8 studio, bool isMaster, SND_STUDIO_TYPE type);
 void hwDeactivateStudio(u8);
 void hwSetPriority(u32 v, u32 prio);
 u32 hwIsActive(u32);
@@ -82,13 +84,17 @@ void hwIRQLeaveCritical();
 
 extern u32 aramSize;
 extern u8* aramBase;
-unsigned long aramGetStreamBufferAddress(unsigned char id, unsigned long* len);
-u32 aramGetStreamBufferAddress(u8 id, u32* len);
-void aramUploadData(void* mram, u32 aram, u32 len, u32 highPrio, void (*callback)(u32), u32 user);
+void aramInit(u32 length);
+void aramExit();
+size_t aramGetStreamBufferAddress(u8 id, size_t* len);
+void aramUploadData(void* mram, u32 aram, u32 len, u32 highPrio, void (*callback)(size_t), u32 user);
 void aramFreeStreamBuffer(u8 id);
 void* aramStoreData(void* src, u32 len);
 void aramRemoveData(void* aram, u32 len);
 u8 aramAllocateStreamBuffer(u32 len);
+unsigned long aramGetZeroBuffer();
+void aramSetUploadCallback(ARAMUploadCallback callback, u32 chunckSize);
+void aramSyncTransferQueue();
 
 #ifdef __cplusplus
 }
