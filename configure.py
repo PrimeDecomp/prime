@@ -267,7 +267,7 @@ def MusyX(objects, mw_version="GC/1.3.2", debug=False, major=2, minor=0, patch=0
     return {
         "lib": "musyx",
         "mw_version": mw_version,
-        "extern": "extern/musyx/src",
+        "src_dir": "extern/musyx/src",
         "host": False,
         "cflags": [
             *cflags,
