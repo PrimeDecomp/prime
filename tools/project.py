@@ -511,8 +511,13 @@ def generate_build_ninja(config, build_config):
             options = obj.options
             completed = obj.completed
 
-            if "extern" in lib.keys() and lib["extern"]:
-                unit_src_path = Path(lib["extern_source"]) / options["source"]
+            # For extern sources we need to use the specified source directory
+            if "extern" in lib.keys():
+                lib_path = Path(lib["extern"])
+                if not lib_path.exists():
+                    sys.exit(f"Specified extern path '{lib_path}' not found")
+            
+                unit_src_path = lib_path / options["source"]
             else:
                 unit_src_path = config.src_dir / options["source"]
 
@@ -832,11 +837,18 @@ def generate_objdiff_config(config, build_config):
             return
 
         lib, obj = result
-        if "extern" in lib.keys() and lib["extern"]:
-            unit_src_path = Path(lib["extern_source"]) / obj.options["source"]
+        lib_name = lib["lib"]
+
+        # For extern sources we need to use the specified source directory
+        if "extern" in lib.keys():
+            lib_path = Path(lib["extern"])
+            if not lib_path.exists():
+                sys.exit(f"Specified extern path '{lib_path}' not found")
+            
+            unit_src_path = Path(lib["extern"]) / obj.options["source"]
         else:
             unit_src_path = config.src_dir / obj.options["source"]
-        print(unit_src_path)
+
         if not unit_src_path.exists():
             objdiff_config["units"].append(unit_config)
             return

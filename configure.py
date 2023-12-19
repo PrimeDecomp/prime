@@ -240,7 +240,6 @@ def DolphinLib(lib_name, objects):
         "lib": lib_name + "D" if config.debug else "",
         "mw_version": "GC/1.2.5n",
         "cflags": cflags_base,
-        "extern": False,
         "host": False,
         "objects": objects,
     }
@@ -251,7 +250,6 @@ def RetroLib(lib_name, objects):
         "lib": lib_name + "CW" + "D" if config.debug else "",
         "mw_version": "GC/1.3.2",
         "cflags": cflags_retro,
-        "extern": False,
         "host": False,
         "objects": objects,
     }
@@ -262,8 +260,7 @@ def MusyX(objects, mw_version="GC/1.3.2", debug=False, major=2, minor=0, patch=0
     return {
         "lib": "musyx",
         "mw_version": mw_version,
-        "extern": True,
-        "extern_source": "extern/musyx/src",
+        "extern": "extern/musyx/src",
         "host": False,
         "cflags": [
             *cflags,
@@ -917,7 +914,6 @@ config.libs = [
         "lib": "zlib",
         "mw_version": "GC/1.3.2",
         "cflags": cflags_runtime,
-        "extern": False,
         "host": False,
         "objects": [
             Object(Matching, "Kyoto/zlib/adler32.c"),
@@ -1115,7 +1111,6 @@ config.libs = [
         "lib": "MSL_C.PPCEABI.bare.H",
         "mw_version": "GC/1.3.2",
         "cflags": cflags_runtime,
-        "extern": False,
         "host": False,
         "objects": [
             Object(Matching, "Runtime/__mem.c"),
@@ -1226,28 +1221,6 @@ config.libs = [
             Object(Matching, "musyx/runtime/profile.c"),
         ],
     ),
-    {
-        "lib": "txwin",
-        "mw_version": "GC/1.2.5n",
-        "cflags": [
-            "-Cpp_exceptions off",
-            "-proc gecko",
-            "-fp hard",
-            "-nodefaults",
-            "-nosyspath",
-            "-i include",
-            "-i libc",
-            "-g",
-            "-sym on",
-            "-D_DEBUG=1",
-            "-enum int",
-        ],
-        "extern": True,
-        "host": False,
-        "objects": [
-            Object(NonMatching, "musyx/txwin/txwin.c"),
-        ],
-    },
     DolphinLib(
         "Dummy",
         [
