@@ -65,6 +65,13 @@ class ProjectConfig:
             True  # Include individual modules, disable for large numbers of modules
         )
 
+        # Progress fancy printing
+        self.progress_use_fancy = False
+        self.progress_code_fancy_frac = 0
+        self.progress_code_fancy_item = ""
+        self.progress_data_fancy_frac = 0
+        self.progress_data_fancy_item = ""
+
     def validate(self):
         required_attrs = [
             "build_dir",
@@ -897,12 +904,12 @@ def calculate_progress(config):
         def __init__(self, name):
             self.name = name
             self.code_total = 0
-            self.code_fancy_frac = 1499
-            self.code_fancy_item = "energy"
+            self.code_fancy_frac = config.progress_code_fancy_frac
+            self.code_fancy_item = config.progress_code_fancy_item
             self.code_progress = 0
             self.data_total = 0
-            self.data_fancy_frac = 250
-            self.data_fancy_item = "missiles"
+            self.data_fancy_frac = config.progress_data_fancy_frac
+            self.data_fancy_item = config.progress_data_fancy_item
             self.data_progress = 0
             self.objects_progress = 0
             self.objects_total = 0
@@ -976,16 +983,17 @@ def calculate_progress(config):
         )
         print(f"    Code: {unit.code_progress} / {unit.code_total} bytes")
         print(f"    Data: {unit.data_progress} / {unit.data_total} bytes")
-        print(
-            "\nYou have {} out of {} {} and collected {} out of {} {}.".format(
-                math.floor(code_frac * unit.code_fancy_frac),
-                unit.code_fancy_frac,
-                unit.code_fancy_item,
-                math.floor(data_frac * unit.data_fancy_frac),
-                unit.data_fancy_frac,
-                unit.data_fancy_item,
+        if config.progress_use_fancy:
+            print(
+                "\nYou have {} out of {} {} and collected {} out of {} {}.".format(
+                    math.floor(code_frac * unit.code_fancy_frac),
+                    unit.code_fancy_frac,
+                    unit.code_fancy_item,
+                    math.floor(data_frac * unit.data_fancy_frac),
+                    unit.data_fancy_frac,
+                    unit.data_fancy_item,
+                )
             )
-        )
 
     if all_progress:
         print_category(all_progress)

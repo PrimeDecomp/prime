@@ -137,8 +137,15 @@ config.ldflags = [
     "-fp hardware",
     "-nodefaults",
 ]
+
 config.progress_all = False
 config.progress_modules = False
+config.progress_use_fancy = True
+config.progress_code_fancy_frac = 1499
+config.progress_code_fancy_item = "Energy"
+config.progress_data_fancy_frac = 250
+config.progress_data_fancy_item = "Missiles"
+
 config.build_rels = False
 
 # Base flags, common to most GC/Wii games.
