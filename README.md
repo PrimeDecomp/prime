@@ -63,6 +63,10 @@ Building
   ```
   git clone https://github.com/PrimeDecomp/prime.git
   ```
+- Update and Initialize submodules:
+  ```
+  git submodule update --init --recursive
+  ```
 - Using [Dolphin Emulator](https://dolphin-emu.org/), extract your game to `orig/GM8E01_00` (or the appropriate version).  
 ![](assets/dolphin-extract.png)
   - To save space, the only necessary files are the following. Any others can be deleted.
