@@ -38,7 +38,7 @@ CTweakPlayerRes* gpTweakPlayerRes = nullptr;
 CTweakSlideShow* gpTweakSlideShow = nullptr;
 
 CAssetId IDFromFactory(CResFactory& factory, const char* filename) {
-  return factory.GetResourceIdByName(filename)->id;
+  return factory.GetResourceIdByName(filename)->mId;
 }
 
 CTweaks::CTweaks() { mTweakObjects.resize(14, rstl::auto_ptr< ITweakObject >()); }

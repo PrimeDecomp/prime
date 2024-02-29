@@ -238,6 +238,6 @@ const CVector3f& CMapArea::GetAreaPostTranslate(const IWorld& world, TAreaId aid
 
 CFactoryFnReturn FMapAreaFactory(const SObjectTag& objTag, CInputStream& in,
                                  const CVParamTransfer&) {
-  gHackAssetId = objTag.id;
+  gHackAssetId = objTag.mId;
   return CFactoryFnReturn(rs_new CMapArea(in, gpResourceFactory->ResourceSize(objTag)));
 }

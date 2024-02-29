@@ -545,7 +545,7 @@ void CScriptSpecialFunction::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId
       if (msg == kSM_Increment) {
         const SObjectTag* objectTag =
             gpResourceFactory->GetResourceIdByName(xec_locatorName.data());
-        const CAssetId assetId = objectTag ? objectTag->id : kInvalidAssetId;
+        const CAssetId assetId = objectTag ? objectTag->mId : kInvalidAssetId;
 
         mgr.SetPendingOnScreenTex(assetId, CVector2i(int(x104_float3), int(x108_float4)),
                                   CVector2i(int(xfc_float1), int(x100_float2)));

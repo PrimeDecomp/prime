@@ -23,7 +23,7 @@ CAssetId get_asset_id_from_name(const char* name) {
   if (!tag) {
     return kInvalidAssetId;
   }
-  return tag->id;
+  return tag->mId;
 }
 
 void get_token_vector(CAnimData& animData, int animIdx, rstl::vector< CToken >& tokensOut,
@@ -107,8 +107,11 @@ void do_sound_event(rstl::pair< u16, CSfxHandle >& sfxHandle, int& pitch, bool d
     useFlags |= 0x8; // Doppler effect
   bool useAcoustics = (flags & 0x80) == 0;
 
-  CAudioSys::C3DEmitterParmData parms(pos, CVector3f::Up(), maxDist, falloff, useFlags, useSfxId,
-                                      maxVol, minVol, false, 0x7f);
+  // TODO ctor?
+  CAudioSys::C3DEmitterParmData parms(maxDist, falloff, useFlags, maxVol, minVol);
+  parms.x0_pos = pos;
+  parms.xc_dir = CVector3f::Up();
+  parms.x24_sfxId = useSfxId;
 
   if (mgr.Random()->Float() <= weight) {
     if ((soundId & 0x80000000) != 0) {

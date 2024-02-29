@@ -77,7 +77,7 @@ void CScriptRandomRelay::SendLocalScriptMsgs(EScriptObjectState state, CStateMan
 
     for (rstl::vector< rstl::pair< CEntity*, EScriptObjectMessage > >::iterator it = objs.begin();
          it != objs.end(); ++it) {
-      stateMgr.SendScriptMsg(it->first, GetUniqueId(), it->second);
+      stateMgr.DeliverScriptMsg(it->first, GetUniqueId(), it->second);
     }
     break;
   }

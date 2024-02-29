@@ -147,41 +147,42 @@ void CMappableObject::Draw(int curArea, const CMapWorldInfo& mwInfo, float alpha
   CAssetId iconRes = kInvalidAssetId;
   CColor iconColor = CColor(0xffffffff);
 
-  switch (x0_type) {
-  case kMOT_DownArrowYellow:
-    iconRes = gpTweakPlayerRes->x10_minesBreakFirstTopIcon;
-    iconColor = CColor(0xffff96ff);
-    break;
-  case kMOT_UpArrowYellow:
-    iconRes = gpTweakPlayerRes->x14_minesBreakFirstBottomIcon;
-    iconColor = CColor(0xffff96ff);
-    break;
-  case kMOT_DownArrowGreen:
-    iconRes = gpTweakPlayerRes->x10_minesBreakFirstTopIcon;
-    iconColor = CColor(0x64ff96ff);
-    break;
-  case kMOT_UpArrowGreen:
-    iconRes = gpTweakPlayerRes->x14_minesBreakFirstBottomIcon;
-    iconColor = CColor(0x64ff96ff);
-    break;
-  case kMOT_DownArrowRed:
-    iconRes = gpTweakPlayerRes->x10_minesBreakFirstTopIcon;
-    iconColor = CColor(0xff6496ff);
-    break;
-  case kMOT_UpArrowRed:
-    iconRes = gpTweakPlayerRes->x14_minesBreakFirstBottomIcon;
-    iconColor = CColor(0xff6496ff);
-    break;
-  case kMOT_SaveStation:
-    iconRes = gpTweakPlayerRes->x4_saveStationIcon;
-    break;
-  case kMOT_MissileStation:
-    iconRes = gpTweakPlayerRes->x8_missileStationIcon;
-    break;
-  default:
-    iconRes = gpTweakPlayerRes->xc_elevatorIcon;
-    break;
-  }
+  // TODO
+  // switch (x0_type) {
+  // case kMOT_DownArrowYellow:
+  //   iconRes = gpTweakPlayerRes->x10_minesBreakFirstTopIcon;
+  //   iconColor = CColor(0xffff96ff);
+  //   break;
+  // case kMOT_UpArrowYellow:
+  //   iconRes = gpTweakPlayerRes->x14_minesBreakFirstBottomIcon;
+  //   iconColor = CColor(0xffff96ff);
+  //   break;
+  // case kMOT_DownArrowGreen:
+  //   iconRes = gpTweakPlayerRes->x10_minesBreakFirstTopIcon;
+  //   iconColor = CColor(0x64ff96ff);
+  //   break;
+  // case kMOT_UpArrowGreen:
+  //   iconRes = gpTweakPlayerRes->x14_minesBreakFirstBottomIcon;
+  //   iconColor = CColor(0x64ff96ff);
+  //   break;
+  // case kMOT_DownArrowRed:
+  //   iconRes = gpTweakPlayerRes->x10_minesBreakFirstTopIcon;
+  //   iconColor = CColor(0xff6496ff);
+  //   break;
+  // case kMOT_UpArrowRed:
+  //   iconRes = gpTweakPlayerRes->x14_minesBreakFirstBottomIcon;
+  //   iconColor = CColor(0xff6496ff);
+  //   break;
+  // case kMOT_SaveStation:
+  //   iconRes = gpTweakPlayerRes->x4_saveStationIcon;
+  //   break;
+  // case kMOT_MissileStation:
+  //   iconRes = gpTweakPlayerRes->x8_missileStationIcon;
+  //   break;
+  // default:
+  //   iconRes = gpTweakPlayerRes->xc_elevatorIcon;
+  //   break;
+  // }
   TLockedToken< CTexture > tex = gpSimplePool->GetObj(SObjectTag('TXTR', iconRes));
   tex->Load(GX_TEXMAP0, CTexture::kCM_Repeat);
   CGraphics::SetTevOp(kTS_Stage0, CGraphics::kEnvModulate);

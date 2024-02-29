@@ -715,8 +715,11 @@ void CActor::ProcessSoundEvent(int sfxId, float weight, int flags, float fallOff
     musyxFlags |= 0x8; // Doppler FX
   }
 
-  CAudioSys::C3DEmitterParmData parms(position, CVector3f::Zero(), maxDist, fallOff, musyxFlags, id,
-                                      maxVol, minVol, false, 0x7f);
+  // TODO ctor?
+  CAudioSys::C3DEmitterParmData parms(maxDist, fallOff, musyxFlags, maxVol, minVol);
+  parms.x0_pos = position;
+  parms.xc_dir = CVector3f::Zero();
+  parms.x24_sfxId = id;
 
   bool useAcoustics = (flags & 0x80) == 0;
   bool looping = (sfxId & 0x80000000) != 0;

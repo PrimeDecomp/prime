@@ -12,7 +12,7 @@ namespace rstl {
 template < typename T, typename Vec, typename Alloc >
 class const_pointer_iterator {
 public:
-  typedef ptrdiff_t difference_type;
+  typedef long difference_type;
   typedef random_access_iterator_tag iterator_category;
   typedef T value_type;
 

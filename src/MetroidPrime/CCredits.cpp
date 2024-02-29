@@ -58,7 +58,7 @@ CIOWin::EMessageReturn CCredits::Update(float dt, CArchitectureQueue& queue) {
       for (int i = 0; i < x18_creditsTable->GetStringCount(); ++i) {
         x30_text.push_back(rstl::pair< rstl::single_ptr< CGuiTextSupport >, CVector2i >(
             rs_new CGuiTextSupport(
-                gpResourceFactory->GetResourceIdByName(gpTweakGui->GetCreditsFont().data())->id,
+                gpResourceFactory->GetResourceIdByName(gpTweakGui->GetCreditsFont().data())->mId,
                 CGuiTextProperties(true, true, kJustification_Center, kVerticalJustification_Top),
                 gpTweakGui->GetCreditsTextFontColor(), gpTweakGui->GetCreditsTextBorderColor(),
                 CColor::White(), CGraphics::GetViewport().mWidth - 64, 0, gpSimplePool,
@@ -68,7 +68,7 @@ CIOWin::EMessageReturn CCredits::Update(float dt, CArchitectureQueue& queue) {
       }
 
       //      auto tmp = std::make_pair(std::make_unique<CGuiTextSupport>(
-      //                                    gpResourceFactory->GetResourceIdByName(gpTweakGui->GetCreditsFont())->id,
+      //                                    gpResourceFactory->GetResourceIdByName(gpTweakGui->GetCreditsFont())->mId,
       //                                    CGuiTextProperties(true, true, kJ_Center,
       //                                    EVerticalJustification::Top),
       //                                    gpTweakGui->GetCreditsTextFontColor(),
