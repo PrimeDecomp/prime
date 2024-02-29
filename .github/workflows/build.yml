@@ -25,7 +25,7 @@ jobs:
     - name: Build
       run: |
         python configure.py --map --version ${{matrix.version}} --compilers /compilers
-        ninja
+        ninja all_source build/${{matrix.version}}/progress.json
     - name: Upload progress
       if: github.ref == 'refs/heads/main' && matrix.version == 'GM8E01_00'
       continue-on-error: true
