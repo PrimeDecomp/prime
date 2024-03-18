@@ -178,19 +178,43 @@ void* SMediumAllocPuddle::FindFreeEntry(uint numBlocks) {
 }
 
 void SMediumAllocPuddle::Free(const void* ptr) {
-  uint r28 = 0;
-  uint r29 = x8_bookKeeping[((uint)ptr - (uint)x0_mainData.get()) / 32];
-  x14_numBlocks += r29;
-  x18_numAllocs--;
-  uchar* bookKeepingStart = x8_bookKeeping;
-  uchar* block = &x8_bookKeeping[((uint)ptr - (uint)x0_mainData.get()) / 32];
+  uint blockOffset = ((uint)ptr - (uint)x0_mainData.get()) / 32;
+  uint blockCount = x8_bookKeeping[blockOffset];
 
-  if (xc_cachedBookKeepingAddr == block) {
-    r28 = 1;
+  x14_numBlocks += blockCount;
+  --x18_numAllocs;
+
+  uchar* bookKeepingStart = x8_bookKeeping;
+  uchar* cachedBookKeep = bookKeepingStart + blockOffset;
+  uchar* block = bookKeepingStart + blockOffset;
+  uchar* bookKeepingPtr = block;
+
+  if (block > bookKeepingStart && block[-1] & 0x80) {
+    if ((block[-1] & 0x60)) {
+      blockOffset = (((0x40 - (block[-1] & 0x60)) != 0) / 32) + 1;
+    } else if ((block[-1] & 0x60) == 0x60ul) {
+      blockOffset = 3;
+    } else {
+      blockOffset = block[-2] + (block[-1] & 0x7f) * 256;
+    }
+
+    bookKeepingPtr = block - ((ushort)blockOffset);
+    blockOffset = (ushort)(blockCount + ((ushort)blockOffset));
   }
 
-  if (block > bookKeepingStart) {
-    if ((block[-1] & 0x80) != 0) {
+  uint blockCount2 = blockOffset;
+  uchar* ptr1 = block + blockCount;
+  if (ptr1 < bookKeepingStart + x1c_numEntries && (ptr1[0] & 0x80) != 0) {
+    blockOffset = GetBlockOffset(ptr1, bookKeepingStart + GetNumEntries());
+    blockCount2 += blockOffset;
+  }
+
+  InitBookKeeping(bookKeepingPtr, blockCount2);
+  if (cachedBookKeep == block) {
+    if (bookKeepingPtr != bookKeepingStart) {
+      xc_cachedBookKeepingAddr = nullptr;
+    } else {
+      xc_cachedBookKeepingAddr = bookKeepingPtr - bookKeepingPtr[-1];
     }
   }
 }

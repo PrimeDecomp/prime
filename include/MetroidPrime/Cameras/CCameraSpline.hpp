@@ -7,14 +7,18 @@
 
 #include "Kyoto/Math/CVector3f.hpp"
 
+#include "MetroidPrime/CEntityInfo.hpp"
 #include "rstl/vector.hpp"
 
+class CStateManager;
 class CCameraSpline {
 public:
   CCameraSpline(bool closedLoop);
   virtual ~CCameraSpline();
 
   // tODO
+
+  void Initialise(TUniqueId, const rstl::vector<SConnection>&, CStateManager&);
 
 private:
   rstl::vector< CVector3f > x4_positions;
