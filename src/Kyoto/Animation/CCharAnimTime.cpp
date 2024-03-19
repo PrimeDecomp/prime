@@ -14,9 +14,55 @@ CCharAnimTime::CCharAnimTime(float time) : x0_time(time) {
   }
 }
 
-bool CCharAnimTime::operator<(const CCharAnimTime& other) const {}
+bool CCharAnimTime::operator<(const CCharAnimTime& other) const {
+  if (x4_type == kT_NonZero) {
+    if (other.x4_type == kT_NonZero) {
+      return x0_time < other.x0_time;
+    }
 
-bool CCharAnimTime::operator==(const CCharAnimTime& other) const {}
+    return other.EqualsZero() ? x0_time < 0.f : other.x0_time > 0.f;
+  }
+
+  if (EqualsZero()) {
+    if (other.EqualsZero()) {
+
+      return ZeroOrdering() < ZeroOrdering();
+      if (other.x4_type == kT_NonZero) {
+        return other.x0_time > 0.f;
+      }
+    }
+    return other.x0_time > 0.f;
+  }
+
+  if (other.x4_type == kT_Infinity) {
+    return 0.f < x0_time || other.x0_time > 0.f;
+  }
+
+  return x0_time < 0.f;
+}
+
+bool CCharAnimTime::operator==(const CCharAnimTime& other) const {
+  int iVar1;
+  int iVar3;
+  if (x4_type == kT_NonZero) {
+    if (other.x4_type == kT_NonZero) {
+      return x0_time == other.x0_time;
+    }
+    return other.EqualsZero() ? false : false;
+  }
+
+  if (EqualsZero()) {
+    if (other.EqualsZero()) {
+      return ZeroOrdering() == other.ZeroOrdering();
+    }
+    return false;
+  }
+
+  if (other.x4_type == kT_Infinity) {
+    return x0_time * other.x0_time > 0.f;
+  }
+  return false;
+}
 
 bool CCharAnimTime::operator!=(const CCharAnimTime& other) const { return !(*this == other); }
 

@@ -38,6 +38,16 @@ public:
   void PutTo(COutputStream& out) const;
   static CCharAnimTime Infinity() { return CCharAnimTime(kT_Infinity, 1.0f); }
 
+  int ZeroOrdering() const {
+    if (x4_type == kT_ZeroDecreasing) {
+      return -1;
+    }
+    if (x4_type == kT_ZeroSteady) {
+      return 0;
+    }
+    return 1;
+  }
+
 private:
   float x0_time;
   EType x4_type;
