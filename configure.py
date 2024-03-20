@@ -951,7 +951,7 @@ config.libs = [
             Object(NonMatching, "Kyoto/Math/CFrustumPlanes.cpp"),
             Object(NonMatching, "Kyoto/Graphics/CCubeMaterial.cpp"),
             Object(Matching, "Kyoto/Graphics/CCubeSurface.cpp"),
-            Object(Matching, "Kyoto/Animation/CCharAnimTime.cpp"),
+            Object(NonMatching, "Kyoto/Animation/CCharAnimTime.cpp"),
             Object(Matching, "Kyoto/Animation/CSegIdList.cpp"),
             Object(Matching, "Kyoto/Input/CFinalInput.cpp"),
             Object(Matching, "Kyoto/Graphics/CColor.cpp"),
