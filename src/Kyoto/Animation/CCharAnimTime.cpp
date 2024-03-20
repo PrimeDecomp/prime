@@ -5,8 +5,6 @@
 
 #include <rstl/math.hpp>
 
-inline const float& derp(const float& d) { return d; }
-
 CCharAnimTime::CCharAnimTime(CInputStream& in)
 : x0_time(in.Get< float >()), x4_type(EType(in.Get< int >())) {
 }
