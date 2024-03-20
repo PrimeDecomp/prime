@@ -474,7 +474,7 @@ config.libs = [
             Object(NonMatching, "MetroidPrime/BodyState/CBSAttack.cpp"),
             Object(Matching, "MetroidPrime/BodyState/CBSDie.cpp"),
             Object(NonMatching, "MetroidPrime/BodyState/CBSFall.cpp"),
-            Object(NonMatching, "MetroidPrime/BodyState/CBSGetup.cpp"),
+            Object(Matching, "MetroidPrime/BodyState/CBSGetup.cpp"),
             Object(NonMatching, "MetroidPrime/BodyState/CBSKnockBack.cpp"),
             Object(Matching, "MetroidPrime/BodyState/CBSLieOnGround.cpp"),
             Object(NonMatching, "MetroidPrime/BodyState/CBSLocomotion.cpp"),
