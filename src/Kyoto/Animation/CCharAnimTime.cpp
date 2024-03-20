@@ -91,12 +91,7 @@ CCharAnimTime CCharAnimTime::operator*(const float& other) const {
   }
 
   if (EqualsZero()) {
-    if (other > 0.f) {
-      return *this;
-    } else if (other < 0.f) {
-      return CCharAnimTime(ZeroTypeFromOrdering(-ZeroOrdering()), 0.f);
-    }
-    return ZeroFlat();
+    return ZeroSignScale(other);
   }
 
   return CCharAnimTime(x0_time * other);

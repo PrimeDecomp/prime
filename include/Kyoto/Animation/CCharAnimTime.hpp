@@ -36,10 +36,10 @@ public:
   bool GreaterThanZero() const;
   bool EqualsZero() const;
   void PutTo(COutputStream& out) const;
-  //static CCharAnimTime Infinity() { return CCharAnimTime(kT_Infinity, 1.0f); }
+  static CCharAnimTime Infinity() { return CCharAnimTime(kT_Infinity, 1.0f); }
   static CCharAnimTime ZeroFlat() { return CCharAnimTime(kT_ZeroSteady, 0.f); }
-  //static CCharAnimTime ZeroPlus() { return CCharAnimTime(kT_ZeroIncreasing, 0.f); }
-  //static CCharAnimTime ZeroMinus() { return CCharAnimTime(kT_ZeroDecreasing, 0.f); }
+  static CCharAnimTime ZeroPlus() { return CCharAnimTime(kT_ZeroIncreasing, 0.f); }
+  static CCharAnimTime ZeroMinus() { return CCharAnimTime(kT_ZeroDecreasing, 0.f); }
 
   int ZeroOrdering() const {
     if (x4_type == kT_ZeroDecreasing) {
@@ -60,6 +60,15 @@ public:
     }
 
     return kT_ZeroIncreasing;
+  }
+
+  CCharAnimTime ZeroSignScale(float other) const {
+    if (other > 0.f) {
+      return *this;
+    } else if (other < 0.f) {
+      return CCharAnimTime(ZeroTypeFromOrdering(-ZeroOrdering()), 0.f);
+    }
+    return ZeroFlat();
   }
 
 private:
