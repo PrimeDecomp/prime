@@ -1207,7 +1207,7 @@ config.libs = [
             Object(Matching, "musyx/runtime/snd_synthapi.c"),
             Object(NonMatching, "musyx/runtime/stream.c"),
             Object(Matching, "musyx/runtime/synthdata.c"),
-            Object(NonMatching, "musyx/runtime/synthmacros.c"),
+            Object(Matching, "musyx/runtime/synthmacros.c"),
             Object(Matching, "musyx/runtime/synthvoice.c"),
             Object(Matching, "musyx/runtime/synth_ac.c"),
             Object(Matching, "musyx/runtime/synth_adsr.c"),

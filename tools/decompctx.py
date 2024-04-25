@@ -20,6 +20,7 @@ src_dir = os.path.join(root_dir, "src")
 include_dirs = [
     os.path.join(root_dir, "include"),
     os.path.join(root_dir, "libc"),
+    os.path.join(root_dir, "extern/musyx/include")
 ]
 
 include_pattern = re.compile(r'^#include\s*[<"](.+?)[>"]$')
