@@ -12,10 +12,11 @@
 # Append --help to see available options.
 ###
 
-import sys
 import argparse
-
+import sys
 from pathlib import Path
+from typing import Any, Dict, List
+
 from tools.project import (
     Object,
     ProjectConfig,
@@ -38,104 +39,127 @@ VERSIONS = [
     # "R3MP01_00",  # mp-v3.629 Trilogy PAL
 ]
 
-if len(VERSIONS) > 1:
-    versions_str = ", ".join(VERSIONS[:-1]) + f" or {VERSIONS[-1]}"
-else:
-    versions_str = VERSIONS[0]
-
 parser = argparse.ArgumentParser()
 parser.add_argument(
     "mode",
+    choices=["configure", "progress"],
     default="configure",
-    help="configure or progress (default: configure)",
+    help="script mode (default: configure)",
     nargs="?",
 )
 parser.add_argument(
+    "-v",
     "--version",
-    dest="version",
+    choices=VERSIONS,
+    type=str.upper,
     default=VERSIONS[DEFAULT_VERSION],
-    help=f"version to build ({versions_str})",
+    help="version to build",
 )
 parser.add_argument(
     "--build-dir",
-    dest="build_dir",
+    metavar="DIR",
     type=Path,
     default=Path("build"),
     help="base build directory (default: build)",
 )
 parser.add_argument(
+    "--binutils",
+    metavar="BINARY",
+    type=Path,
+    help="path to binutils (optional)",
+)
+parser.add_argument(
     "--compilers",
-    dest="compilers",
+    metavar="DIR",
     type=Path,
     help="path to compilers (optional)",
 )
 parser.add_argument(
     "--map",
-    dest="map",
     action="store_true",
     help="generate map file(s)",
 )
 parser.add_argument(
+    "--no-asm",
+    action="store_true",
+    help="don't incorporate .s files from asm directory",
+)
+parser.add_argument(
     "--debug",
-    dest="debug",
     action="store_true",
     help="build with debug info (non-matching)",
 )
 if not is_windows():
     parser.add_argument(
         "--wrapper",
-        dest="wrapper",
+        metavar="BINARY",
         type=Path,
         help="path to wibo or wine (optional)",
     )
 parser.add_argument(
-    "--build-dtk",
-    dest="build_dtk",
+    "--dtk",
+    metavar="BINARY | DIR",
     type=Path,
-    help="path to decomp-toolkit source (optional)",
+    help="path to decomp-toolkit binary or source (optional)",
 )
 parser.add_argument(
     "--sjiswrap",
-    dest="sjiswrap",
+    metavar="EXE",
     type=Path,
     help="path to sjiswrap.exe (optional)",
 )
 parser.add_argument(
     "--verbose",
-    dest="verbose",
     action="store_true",
     help="print verbose output",
+)
+parser.add_argument(
+    "--non-matching",
+    dest="non_matching",
+    action="store_true",
+    help="builds equivalent (but non-matching) or modded objects",
 )
 args = parser.parse_args()
 
 config = ProjectConfig()
-config.version = args.version
-if config.version not in VERSIONS:
-    sys.exit(f"Invalid version '{config.version}', expected {versions_str}")
+config.version = str(args.version)
 version_num = VERSIONS.index(config.version)
 
 # Apply arguments
 config.build_dir = args.build_dir
-config.build_dtk_path = args.build_dtk
+config.dtk_path = args.dtk
+config.binutils_path = args.binutils
 config.compilers_path = args.compilers
 config.debug = args.debug
 config.generate_map = args.map
+config.non_matching = args.non_matching
 config.sjiswrap_path = args.sjiswrap
 if not is_windows():
     config.wrapper = args.wrapper
+if args.no_asm:
+    config.asm_dir = None
 
 # Tool versions
+config.binutils_tag = "2.42-1"
 config.compilers_tag = "20231018"
-config.dtk_tag = "v0.7.6"
+config.dtk_tag = "v0.9.2"
 config.sjiswrap_tag = "v1.1.1"
-config.wibo_tag = "0.6.9"
+config.wibo_tag = "0.6.11"
 
 # Project
 config.config_path = Path("config") / config.version / "config.yml"
 config.check_sha_path = Path("config") / config.version / "build.sha1"
+config.asflags = [
+    "-mgekko",
+    "--strip-local-absolute",
+    "-I include",
+    f"-I build/{config.version}/include",
+    f"--defsym version={version_num}",
+]
 config.ldflags = [
     "-fp hardware",
     "-nodefaults",
+    "-warn off",
 ]
 
 config.progress_all = False
@@ -151,24 +175,29 @@ config.build_rels = False
 # Base flags, common to most GC/Wii games.
 # Generally leave untouched, with overrides added below.
 cflags_base = [
-    "-proc gekko",
     "-nodefaults",
-    "-Cpp_exceptions off",
-    "-RTTI off",
-    "-fp hard",
-    "-fp_contract on",
-    "-O4,p",
-    "-maxerrors 1",
+    "-proc gekko",
+    "-align powerpc",
     "-enum int",
+    "-fp hardware",
+    "-Cpp_exceptions off",
+    # "-W all",
+    "-O4,p",
     "-inline auto",
-    "-str reuse",
+    '-pragma "cats off"',
+    '-pragma "warn_notinlined off"',
+    "-maxerrors 1",
     "-nosyspath",
+    "-RTTI off",
+    "-fp_contract on",
+    "-str reuse",
+    "-multibyte",
     "-i include",
     "-i extern/musyx/include",
     "-i libc",
     f"-i build/{config.version}/include",
-    "-DPRIME1",
     f"-DVERSION={version_num}",
+    "-DPRIME1",
     "-DNONMATCHING=0",
 ]
 
@@ -298,8 +327,9 @@ def Rel(lib_name, objects):
     }
 
 
-Matching = True
-NonMatching = False
+Matching = True                   # Object matches and should be linked
+NonMatching = False               # Object does not match and should not be linked
+Equivalent = config.non_matching  # Object should be linked when configured with --non-matching
 
 config.warn_missing_config = True
 config.warn_missing_source = False

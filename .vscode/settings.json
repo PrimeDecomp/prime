@@ -48,5 +48,6 @@
   ],
   "C/C++ Include Guard.Auto Update Path Blocklist": [
     "include/zlib"
-  ]
+  ],
+  "cmake.configureOnOpen": false
 }
