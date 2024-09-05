@@ -16,14 +16,7 @@ import argparse
 import sys
 from pathlib import Path
 from typing import Any, Dict, List
-
-from tools.project import (
-    Object,
-    ProjectConfig,
-    calculate_progress,
-    generate_build,
-    is_windows,
-)
+from tools.project import *
 
 # Game versions
 DEFAULT_VERSION = 0
@@ -80,11 +73,6 @@ parser.add_argument(
     help="generate map file(s)",
 )
 parser.add_argument(
-    "--no-asm",
-    action="store_true",
-    help="don't incorporate .s files from asm directory",
-)
-parser.add_argument(
     "--debug",
     action="store_true",
     help="build with debug info (non-matching)",
@@ -101,6 +89,12 @@ parser.add_argument(
     metavar="BINARY | DIR",
     type=Path,
     help="path to decomp-toolkit binary or source (optional)",
+)
+parser.add_argument(
+    "--objdiff",
+    metavar="BINARY | DIR",
+    type=Path,
+    help="path to objdiff-cli binary or source (optional)",
 )
 parser.add_argument(
     "--sjiswrap",
@@ -128,6 +122,7 @@ version_num = VERSIONS.index(config.version)
 # Apply arguments
 config.build_dir = args.build_dir
 config.dtk_path = args.dtk
+config.objdiff_path = args.objdiff
 config.binutils_path = args.binutils
 config.compilers_path = args.compilers
 config.debug = args.debug
@@ -136,13 +131,15 @@ config.non_matching = args.non_matching
 config.sjiswrap_path = args.sjiswrap
 if not is_windows():
     config.wrapper = args.wrapper
-if args.no_asm:
+# Don't build asm unless we're --non-matching
+if not config.non_matching:
     config.asm_dir = None
 
 # Tool versions
 config.binutils_tag = "2.42-1"
-config.compilers_tag = "20231018"
-config.dtk_tag = "v0.9.2"
+config.compilers_tag = "20240706"
+config.dtk_tag = "v0.9.5"
+config.objdiff_tag = "v2.0.0-beta.5"
 config.sjiswrap_tag = "v1.1.1"
 config.wibo_tag = "0.6.11"
 
@@ -159,7 +156,6 @@ config.asflags = [
 config.ldflags = [
     "-fp hardware",
     "-nodefaults",
-    "-warn off",
 ]
 
 config.progress_all = False
@@ -272,7 +268,7 @@ cflags_rel = [
     "-sdata 0",
     "-sdata2 0",
     "-str noreuse",
-    "-Cpp_exceptions off"
+    "-Cpp_exceptions off",
 ]
 
 config.linker_version = "GC/1.3.2"
@@ -327,9 +323,11 @@ def Rel(lib_name, objects):
     }
 
 
-Matching = True                   # Object matches and should be linked
-NonMatching = False               # Object does not match and should not be linked
-Equivalent = config.non_matching  # Object should be linked when configured with --non-matching
+Matching = True  # Object matches and should be linked
+NonMatching = False  # Object does not match and should not be linked
+Equivalent = (
+    config.non_matching
+)  # Object should be linked when configured with --non-matching
 
 config.warn_missing_config = True
 config.warn_missing_source = False
@@ -1338,17 +1336,23 @@ config.libs = [
             Object(
                 Matching,
                 "NESemu/modwrapper.c",
-                ),
+            ),
         ],
     ),
 ]
+
+# Optional extra categories for progress tracking
+config.progress_categories = [
+    # ProgressCategory("game", "Game Code"),
+    # ProgressCategory("sdk", "SDK Code"),
+]
+config.progress_each_module = args.verbose
 
 if args.mode == "configure":
     # Write build.ninja and objdiff.json
     generate_build(config)
 elif args.mode == "progress":
     # Print progress and write progress.json
-    config.progress_each_module = args.verbose
     calculate_progress(config)
 else:
     sys.exit("Unknown mode: " + args.mode)

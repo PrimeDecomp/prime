@@ -24,8 +24,8 @@ include_dirs = [
     os.path.join(root_dir, "extern/musyx/include")
 ]
 
-include_pattern = re.compile(r'^#include\s*[<"](.+?)[>"]$')
-guard_pattern = re.compile(r"^#ifndef\s+(.*)$")
+include_pattern = re.compile(r'^#\s*include\s*[<"](.+?)[>"]$')
+guard_pattern = re.compile(r"^#\s*ifndef\s+(.*)$")
 
 defines = set()
 
