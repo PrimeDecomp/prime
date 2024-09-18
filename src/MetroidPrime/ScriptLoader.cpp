@@ -4,6 +4,7 @@
 #include "MetroidPrime/CAnimRes.hpp"
 #include "MetroidPrime/CAnimationParameters.hpp"
 #include "MetroidPrime/CDamageVulnerability.hpp"
+#include "MetroidPrime/CFluidUVMotion.hpp"
 #include "MetroidPrime/CGrappleParameters.hpp"
 #include "MetroidPrime/CHealthInfo.hpp"
 #include "MetroidPrime/CModelData.hpp"
@@ -272,8 +273,9 @@ CEntity* ScriptLoader::LoadDamageableTrigger(CStateManager& mgr, CInputStream& i
   CAssetId patternTex1 = in.Get< CAssetId >();
   CAssetId patternTex2 = in.Get< CAssetId >();
   CAssetId colorTex = in.Get< CAssetId >();
-  CScriptDamageableTrigger::ECanOrbit canOrbit =
-      CScriptDamageableTrigger::ECanOrbit(in.Get< bool >());
+  CScriptDamageableTrigger::ECanOrbit canOrbit = in.Get< bool >()
+                                                     ? CScriptDamageableTrigger::kCO_Orbit
+                                                     : CScriptDamageableTrigger::kCO_NoOrbit;
   bool active = in.Get< bool >();
   CVisorParameters vParms = LoadVisorParameters(in);
   return rs_new CScriptDamageableTrigger(mgr.AllocateUniqueId(), name, info, position, volume,
@@ -281,7 +283,32 @@ CEntity* ScriptLoader::LoadDamageableTrigger(CStateManager& mgr, CInputStream& i
                                          colorTex, canOrbit, active, vParms);
 }
 
-// static CFluidUVMotion LoadFluidUVMotion(CInputStream&) {}
+static CFluidUVMotion LoadFluidUVMotion(CInputStream& in) {
+  CFluidUVMotion::EFluidMotion motion = CFluidUVMotion::EFluidMotion(in.ReadLong());
+  float a = in.ReadFloat();
+  float b = (in.ReadFloat() * M_PIF) / 180.f - M_PIF;
+  float c = in.ReadFloat();
+  float d = in.ReadFloat();
+  CFluidUVMotion::SFluidLayerMotion pattern1Layer(motion, a, b, c, d);
+
+  motion = CFluidUVMotion::EFluidMotion(in.ReadLong());
+  a = in.ReadFloat();
+  b = (in.ReadFloat() * M_PIF) / 180.f - M_PIF;
+  c = in.ReadFloat();
+  d = in.ReadFloat();
+  CFluidUVMotion::SFluidLayerMotion pattern2Layer(motion, a, b, c, d);
+
+  motion = CFluidUVMotion::EFluidMotion(in.ReadLong());
+  a = in.ReadFloat();
+  b = in.ReadFloat();
+  c = in.ReadFloat();
+  d = in.ReadFloat();
+  CFluidUVMotion::SFluidLayerMotion colorLayer(motion, a, (b * M_PIF) / 180.f - M_PIF, c, d);
+
+  a = in.ReadFloat();
+  b = in.ReadFloat();
+  return CFluidUVMotion(a, (b * M_PIF) / 180.f - M_PIF, colorLayer, pattern1Layer, pattern2Layer);
+}
 
 CEntity* ScriptLoader::LoadSpawnPoint(CStateManager& mgr, CInputStream& in, int propCount,
                                       const CEntityInfo& info) {

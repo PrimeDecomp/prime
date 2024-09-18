@@ -482,7 +482,7 @@ config.libs = [
             Object(NonMatching, "MetroidPrime/CPhysicsActor.cpp"),
             Object(Matching, "MetroidPrime/CPhysicsState.cpp"),
             Object(NonMatching, "MetroidPrime/CRipple.cpp"),
-            Object(NonMatching, "MetroidPrime/CFluidUVMotion.cpp"),
+            Object(Matching, "MetroidPrime/CFluidUVMotion.cpp"),
             Object(NonMatching, "MetroidPrime/CRippleManager.cpp"),
             Object(NonMatching, "MetroidPrime/Player/CGrappleArm.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CSpacePirate.cpp"),
