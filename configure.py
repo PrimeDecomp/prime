@@ -459,7 +459,7 @@ config.libs = [
             Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptDebris.cpp"),
             Object(Matching, "MetroidPrime/ScriptObjects/CScriptCameraShaker.cpp"),
             Object(Matching, "MetroidPrime/ScriptObjects/CScriptActorKeyframe.cpp"),
-            Object(NonMatching, "MetroidPrime/CConsoleOutputWindow.cpp"),
+            Object(Matching, "MetroidPrime/CConsoleOutputWindow.cpp"),
             Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptWater.cpp"),
             Object(NonMatching, "MetroidPrime/Weapons/CWeapon.cpp"),
             Object(NonMatching, "MetroidPrime/CDamageVulnerability.cpp"),
