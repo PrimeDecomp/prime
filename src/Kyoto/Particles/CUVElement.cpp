@@ -45,18 +45,16 @@ CUVEAnimTexture::CUVEAnimTexture(TToken< CTexture > tex, CIntElement* tileW, CIn
   const int xTiles = rstl::max_val(1, width / x18_strideW);
   const int yTiles = rstl::max_val(1, height / x1c_strideH);
 
-  int tiles = xTiles * yTiles;
-  x20_tiles = tiles;
-  x2c_uvElems.reserve(tiles);
+  x20_tiles = xTiles * yTiles;
+  x2c_uvElems.reserve(xTiles * yTiles);
 
   for (int y = yTiles - 1; y >= 0; --y) {
     for (int x = 0; x < xTiles; ++x) {
-      SUVElementSet uvs = {
-          float(x18_strideW * x) / float(width),
-          float(x1c_strideH * y) / float(height),
-          float(x18_strideW * x + x10_tileW) / float(width),
-          float(x1c_strideH * y + x14_tileH) / float(height),
-      };
+      SUVElementSet uvs;
+      uvs.xMin = float(x18_strideW * x) / float(width);
+      uvs.yMin = float(x1c_strideH * y) / float(height);
+      uvs.xMax = float(x18_strideW * x + x10_tileW) / float(width);
+      uvs.yMax = float(x1c_strideH * y + x14_tileH) / float(height);
       x2c_uvElems.push_back(uvs);
     }
   }

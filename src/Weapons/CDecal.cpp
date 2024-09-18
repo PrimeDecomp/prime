@@ -75,6 +75,10 @@ void CDecal::RenderQuad(CQuadDecal& decal, const CDecalDescription::SQuadDescr& 
   }
 
   SUVElementSet uvSet;
+  uvSet.xMin = 0.f;
+  uvSet.xMax = 1.f;
+  uvSet.yMin = 0.f;
+  uvSet.yMax = 1.f;
   if (!desc.x14_TEX.null()) {
     TLockedToken< CTexture > tex = desc.x14_TEX->GetValueTexture(x58_frameIdx);
     tex->Load(GX_TEXMAP0, CTexture::kCM_Repeat);
