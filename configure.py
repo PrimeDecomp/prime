@@ -15,8 +15,15 @@
 import argparse
 import sys
 from pathlib import Path
-from typing import Any, Dict, List
-from tools.project import *
+
+from tools.project import (
+    Object,
+    ProgressCategory,
+    ProjectConfig,
+    calculate_progress,
+    generate_build,
+    is_windows,
+)
 
 # Game versions
 DEFAULT_VERSION = 0
@@ -125,7 +132,6 @@ config.dtk_path = args.dtk
 config.objdiff_path = args.objdiff
 config.binutils_path = args.binutils
 config.compilers_path = args.compilers
-config.debug = args.debug
 config.generate_map = args.map
 config.non_matching = args.non_matching
 config.sjiswrap_path = args.sjiswrap
@@ -157,14 +163,10 @@ config.ldflags = [
     "-fp hardware",
     "-nodefaults",
 ]
-
-config.progress_all = False
-config.progress_modules = False
-config.progress_use_fancy = True
-config.progress_code_fancy_frac = 1499
-config.progress_code_fancy_item = "Energy"
-config.progress_data_fancy_frac = 250
-config.progress_data_fancy_item = "Missiles"
+if args.debug:
+    config.ldflags.append("-g")
+if args.map:
+    config.ldflags.append("-mapunused")
 
 config.build_rels = False
 
@@ -198,7 +200,7 @@ cflags_base = [
 ]
 
 # Debug flags
-if config.debug:
+if args.debug:
     cflags_base.extend(["-sym on", "-DDEBUG=1"])
 else:
     cflags_base.append("-DNDEBUG=1")
@@ -277,20 +279,22 @@ config.linker_version = "GC/1.3.2"
 # Helper function for Dolphin libraries
 def DolphinLib(lib_name, objects):
     return {
-        "lib": lib_name + "D" if config.debug else "",
+        "lib": lib_name + "D" if args.debug else "",
         "mw_version": "GC/1.2.5n",
         "cflags": cflags_base,
         "host": False,
+        "progress_category": "sdk",
         "objects": objects,
     }
 
 
-def RetroLib(lib_name, objects):
+def RetroLib(lib_name, progress_category, objects):
     return {
-        "lib": lib_name + "CW" + "D" if config.debug else "",
+        "lib": lib_name + "CW" + "D" if args.debug else "",
         "mw_version": "GC/1.3.2",
         "cflags": cflags_retro,
         "host": False,
+        "progress_category": progress_category,
         "objects": objects,
     }
 
@@ -308,6 +312,7 @@ def MusyX(objects, mw_version="GC/1.3.2", debug=False, major=2, minor=0, patch=0
             f"-DMUSY_VERSION_MINOR={minor}",
             f"-DMUSY_VERSION_PATCH={patch}",
         ],
+        "progress_category": "third_party",
         "objects": objects,
     }
 
@@ -319,6 +324,7 @@ def Rel(lib_name, objects):
         "mw_version": "GC/1.3.2",
         "cflags": cflags_rel,
         "host": True,
+        "progress_category": "third_party",
         "objects": objects,
     }
 
@@ -340,6 +346,7 @@ config.libs = [
     ),
     RetroLib(
         "MetroidPrime",
+        "game",
         [
             Object(NonMatching, "MetroidPrime/main.cpp"),
             Object(NonMatching, "MetroidPrime/IRenderer.cpp"),
@@ -723,6 +730,7 @@ config.libs = [
     ),
     RetroLib(
         "WorldFormat",
+        "core",
         [
             Object(NonMatching, "WorldFormat/CAreaOctTree_Tests.cpp"),
             Object(Matching, "WorldFormat/CCollisionSurface.cpp"),
@@ -740,6 +748,7 @@ config.libs = [
     ),
     RetroLib(
         "Weapons",
+        "core",
         [
             Object(NonMatching, "Weapons/CProjectileWeapon.cpp"),
             Object(NonMatching, "Weapons/CProjectileWeaponDataFactory.cpp"),
@@ -753,12 +762,14 @@ config.libs = [
     ),
     RetroLib(
         "MetaRender",
+        "core",
         [
             Object(NonMatching, "MetaRender/CCubeRenderer.cpp"),
         ],
     ),
     RetroLib(
         "GuiSys",
+        "core",
         [
             Object(Matching, "GuiSys/CAuiMain.cpp"),
             Object(NonMatching, "GuiSys/CAuiMeter.cpp"),
@@ -783,6 +794,7 @@ config.libs = [
     ),
     RetroLib(
         "Collision",
+        "core",
         [
             Object(NonMatching, "Collision/CCollidableAABox.cpp"),
             Object(Matching, "Collision/CCollidableCollisionSurface.cpp"),
@@ -799,6 +811,7 @@ config.libs = [
     ),
     RetroLib(
         "Kyoto1",
+        "core",
         [
             Object(Matching, "Kyoto/Basics/CBasics.cpp"),
             Object(Matching, "Kyoto/Basics/CStopwatch.cpp"),
@@ -958,6 +971,7 @@ config.libs = [
         "mw_version": "GC/1.3.2",
         "cflags": cflags_runtime,
         "host": False,
+        "progress_category": "third_party",
         "objects": [
             Object(Matching, "Kyoto/zlib/adler32.c"),
             Object(Matching, "Kyoto/zlib/deflate.c"),
@@ -974,6 +988,7 @@ config.libs = [
     # TODO: Merge this with zlib and Kyoto1
     RetroLib(
         "Kyoto2",
+        "core",
         [
             Object(Matching, "Kyoto/CARAMManager.cpp"),
             Object(NonMatching, "Kyoto/Math/CFrustumPlanes.cpp"),
@@ -1155,6 +1170,7 @@ config.libs = [
         "mw_version": "GC/1.3.2",
         "cflags": cflags_runtime,
         "host": False,
+        "progress_category": "sdk",
         "objects": [
             Object(Matching, "Runtime/__mem.c"),
             Object(Matching, "Runtime/__va_arg.c"),
@@ -1343,10 +1359,19 @@ config.libs = [
 
 # Optional extra categories for progress tracking
 config.progress_categories = [
-    # ProgressCategory("game", "Game Code"),
-    # ProgressCategory("sdk", "SDK Code"),
+    ProgressCategory("game", "Game"),
+    ProgressCategory("core", "Core Engine (Kyoto)"),
+    ProgressCategory("sdk", "SDK"),
+    ProgressCategory("third_party", "Third Party"),
 ]
+config.progress_all = False
 config.progress_each_module = args.verbose
+config.progress_modules = False
+config.progress_use_fancy = True
+config.progress_code_fancy_frac = 1499
+config.progress_code_fancy_item = "Energy"
+config.progress_data_fancy_frac = 250
+config.progress_data_fancy_item = "Missiles"
 
 if args.mode == "configure":
     # Write build.ninja and objdiff.json
