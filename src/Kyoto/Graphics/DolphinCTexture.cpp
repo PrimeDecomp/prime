@@ -440,47 +440,67 @@ const void* CTexture::GetConstBitMapData(const int mip) const {
 void* CTexture::GetBitMapData(int mip) { return const_cast< void* >(GetConstBitMapData(mip)); }
 
 void CTexture::MangleMipmap(int mip) {
-  static const uint kMangleColors[4] = {0x000000FF, 0x0000FF00, 0x00FF0000, 0x0000FFFF};
+  if (mip >= mNumMips) {
+    return;
+  }
 
-  uint color1 = *(uint*)((uchar*)kMangleColors + (((mip - 1) * 4) & 12));
-  uint color2 = color1 >> 8;
-  uint color3 = color2 & 0xf800 | (color1 >> 3) & 0x1f | (color1 >> 5) & 0x7e0;
-  
+  const uint colors[4] = {
+      0x000000FF,
+      0x0000FF00,
+      0x00FF0000,
+      0x0000FFFF,
+  };
+  const uint color = colors[(mip - 1) & 3];
+  ushort rgb565Color = ((color >> 3) & 0x001F) | // B
+                       ((color >> 5) & 0x07E0) | // G
+                       ((color >> 8) & 0xF800);  // R
+  ushort rgb555Color = ((color >> 3) & 0x001F) | // B
+                       ((color >> 6) & 0x03E0) | // G
+                       ((color >> 9) & 0x7C00);  // R
+  ushort rgb4Color = ((color >> 4) & 0x000F) |   // B
+                     ((color >> 8) & 0x00F0) |   // G
+                     ((color >> 12) & 0x0F00);   // R
+
   int width = GetWidth();
   int height = GetHeight();
-  
+
   int offset = 0;
   for (int i = 0; i < mip; i++) {
-    offset += (width * height);
+    offset += width * height;
     width /= 2;
     height /= 2;
   }
 
   switch (GetTexelFormat()) {
   case kTF_RGB565: {
-    ushort* ptr = (ushort*)mARAMToken.GetMRAMSafe();
+    ushort* ptr = static_cast< ushort* >(mARAMToken.GetMRAMSafe());
     for (int i = 0; i < width * height; ++i) {
-      ptr[i + offset] = color3;
-    }
-    break;
-  }
-  case kTF_RGB5A3: {
-    ushort* ptr = (ushort*)mARAMToken.GetMRAMSafe();
-    for (int i = 0; i < width * height; ++i) {
-      if (ptr[i + offset] & 0x8000) {
-        ptr[i + offset] = ptr[i + offset] & 0xf000 | (color1 >> 12) | 0xf00 | (color1 >> 4) & 0xf | color2 & 0xf0;
-      } else {
-        ptr[i + offset] = (color1 >> 9) | 0x7c00 | (color1 >> 6) &  0x3e0 | (color1 >> 3) & 0x1f | 0x8000;
-      }
+      ptr[i + offset] = rgb565Color;
     }
     break;
   }
   case kTF_CMPR: {
-    ushort* ptr = (ushort*)mARAMToken.GetMRAMSafe();
-    
-  }
-  default:
+    ushort* ptr = static_cast< ushort* >(mARAMToken.GetMRAMSafe()) + offset / 4;
+    for (int i = 0; i < width * height / 16; ++i, ptr += 4) {
+      ptr[0] = rgb565Color;
+      ptr[1] = rgb565Color;
+      ptr[2] = 0;
+      ptr[3] = 0;
+    }
     break;
+  }
+  case kTF_RGB5A3: {
+    ushort* ptr = static_cast< ushort* >(mARAMToken.GetMRAMSafe());
+    for (int i = 0; i < width * height; ++i) {
+      ushort& val = ptr[i + offset];
+      if (val & 0x8000) {
+        val = rgb555Color | 0x8000;
+      } else {
+        val = (val & 0xF000) | rgb4Color;
+      }
+    }
+    break;
+  }
   }
 }
 
