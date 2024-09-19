@@ -748,7 +748,7 @@ config.libs = [
             Object(NonMatching, "Weapons/CDecalDataFactory.cpp"),
             Object(NonMatching, "Weapons/CDecal.cpp"),
             Object(NonMatching, "Weapons/CWeaponDescription.cpp"),
-            Object(NonMatching, "Weapons/CDecalDescription.cpp"),
+            Object(Matching, "Weapons/CDecalDescription.cpp"),
         ],
     ),
     RetroLib(
