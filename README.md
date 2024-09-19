@@ -1,11 +1,12 @@
 Metroid Prime  
-[![Build Status]][actions] ![Code Progress] ![Data Progress] [![Discord Badge]][discord]
+[![Build Status]][actions] [![Code Progress]][progress] [![Data Progress]][progress] [![Discord Badge]][discord]
 =============
 
 [Build Status]: https://github.com/PrimeDecomp/prime/actions/workflows/build.yml/badge.svg
 [actions]: https://github.com/PrimeDecomp/prime/actions/workflows/build.yml
-[Code Progress]: https://img.shields.io/endpoint?label=Code&url=https%3A%2F%2Fprogress.decomp.club%2Fdata%2Fprime%2FGM8E01_00%2Fdol%2F%3Fmode%3Dshield%26measure%3Dcode
-[Data Progress]: https://img.shields.io/endpoint?label=Data&url=https%3A%2F%2Fprogress.decomp.club%2Fdata%2Fprime%2FGM8E01_00%2Fdol%2F%3Fmode%3Dshield%26measure%3Ddata
+[Code Progress]: https://decomp.dev/PrimeDecomp/prime.svg?mode=shield&measure=code&label=Code
+[Data Progress]: https://decomp.dev/PrimeDecomp/prime.svg?mode=shield&measure=data&label=Data
+[progress]: https://decomp.dev/PrimeDecomp/prime
 [Discord Badge]: https://img.shields.io/discord/727908905392275526?color=%237289DA&logo=discord&logoColor=%23FFFFFF
 [discord]: https://discord.gg/hKx3FJJgrV
 
