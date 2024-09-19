@@ -43,16 +43,13 @@ typedef int _INT32;
 typedef unsigned int _UINT32;
 #endif
 
-int abs(int n);
 #ifdef __MWERKS__
 #define abs(n) __abs(n)
 #define labs(n) __labs(n)
-static inline double fabs(double x) { return __fabs(x); }
+_MATH_INLINE double fabs(double x) { return __fabs(x); }
 #else
-// static inline int abs(int n) {
-//   int mask = n >> 31;
-//   return (n + mask) ^ mask;
-// }
+int abs(int n);
+long labs(long n);
 #endif
 
 extern _INT32 __float_huge[];

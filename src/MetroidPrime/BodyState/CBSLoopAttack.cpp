@@ -12,9 +12,7 @@ CBSLoopAttack::CBSLoopAttack()
 : x4_state(pas::kLS_Invalid)
 , x8_loopAttackType(pas::kLAT_Invalid)
 , xc_24_waitForAnimOver(false)
-, xc_25_advance(false)
-
-{}
+, xc_25_advance(false) {}
 
 void CBSLoopAttack::Start(CBodyController& bc, CStateManager& mgr) {
   const CBCLoopAttackCmd* cmd =

@@ -1,8 +1,9 @@
 #ifndef _DOLPHIN_TYPES
 #define _DOLPHIN_TYPES
 
-#ifdef TARGET_PC
 #include <stdint.h>
+
+#ifdef TARGET_PC
 typedef int8_t s8;
 typedef int16_t s16;
 typedef int32_t s32;

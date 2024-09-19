@@ -79,7 +79,6 @@ void CGameCubeDoll::Draw(float alpha) {
                             CTransform4f::Scale(0.2f));
 
   TToken< CModel > model(x0_model);
-  CModelFlags flags(CModelFlags::kT_Blend, alphaFader);
-  model->Draw(flags);
+  model->Draw(CModelFlags(CModelFlags::kT_Blend, alphaFader));
   CGraphics::DisableAllLights();
 }
