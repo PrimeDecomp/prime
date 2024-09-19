@@ -9,8 +9,8 @@ class CModelFlags {
 public:
   enum ETrans {
     kT_Opaque = 0,
-    kT_One = 1, // ?
-    kT_Two = 2, // ?
+    kT_One = 1,  // ?
+    kT_Two = 2,  // ?
     kT_Four = 4, // ?
     kT_Blend = 5,
     kT_Additive = 7,
@@ -30,7 +30,7 @@ public:
   , x1_matSetIdx(0)
   , x2_flags(kF_DepthCompare | kF_DepthUpdate)
   , x4_color(1.f, 1.f, 1.f, rgba) {}
-  CModelFlags(ETrans trans, CColor color)
+  CModelFlags(ETrans trans, const CColor& color)
   : x0_blendMode(trans)
   , x1_matSetIdx(0)
   , x2_flags(kF_DepthCompare | kF_DepthUpdate)
@@ -104,7 +104,9 @@ public:
   static CModelFlags AlphaBlended(float alpha) { return CModelFlags(kT_Blend, alpha); }
   static CModelFlags AlphaBlended(const CColor& color) { return CModelFlags(kT_Blend, color); }
   static CModelFlags Additive(float f) { return CModelFlags(CModelFlags::kT_Additive, f); }
-  static CModelFlags Additive(const CColor& color) { return CModelFlags(CModelFlags::kT_Additive, color); }
+  static CModelFlags Additive(const CColor& color) {
+    return CModelFlags(CModelFlags::kT_Additive, color);
+  }
   static CModelFlags AdditiveRGB(const CColor& color);
   static CModelFlags ColorModulate(const CColor& color);
 

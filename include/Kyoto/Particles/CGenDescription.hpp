@@ -16,10 +16,10 @@ class CSpawnSystemKeyframeData;
 
 class CGenDescription {
 public:
-  typedef rstl::optional_object< TCachedToken< CModel > > TParticleModel;
-  typedef rstl::optional_object< TCachedToken< CGenDescription > > TChildGeneratorDesc;
-  typedef rstl::optional_object< TCachedToken< CSwooshDescription > > TSwooshGeneratorDesc;
-  typedef TCachedToken< CElectricDescription > TElectricGeneratorDesc;
+  typedef rstl::optional_object< TLockedToken< CModel > > TParticleModel;
+  typedef rstl::optional_object< TLockedToken< CGenDescription > > TChildGeneratorDesc;
+  typedef rstl::optional_object< TLockedToken< CSwooshDescription > > TSwooshGeneratorDesc;
+  typedef TLockedToken< CElectricDescription > TElectricGeneratorDesc;
 
   CGenDescription();
   ~CGenDescription();

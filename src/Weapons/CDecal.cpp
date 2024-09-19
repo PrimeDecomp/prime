@@ -1,6 +1,8 @@
 #include "Weapons/CDecal.hpp"
 #include "Kyoto/Graphics/CGX.hpp"
 #include "Kyoto/Graphics/CGraphics.hpp"
+#include "Kyoto/Graphics/CModel.hpp"
+#include "Kyoto/Graphics/CModelFlags.hpp"
 #include "Kyoto/Graphics/CTexture.hpp"
 #include "Kyoto/Math/CRelAngle.hpp"
 #include "Kyoto/Particles/CParticleGlobals.hpp"
@@ -57,7 +59,7 @@ void CDecal::RenderQuad(CQuadDecal& decal, const CDecalDescription::SQuadDescr& 
   }
 
   CTransform4f modXf = xc_transform;
-  modXf.SetTranslation(modXf.GetTranslation() + offset);
+  modXf.AddTranslation(offset);
   CGraphics::SetModelMatrix(modXf);
   CGraphics::SetAlphaCompare(kAF_Always, 0, kAO_And, kAF_Always, 0);
 
@@ -80,8 +82,12 @@ void CDecal::RenderQuad(CQuadDecal& decal, const CDecalDescription::SQuadDescr& 
   uvSet.yMin = 0.f;
   uvSet.yMax = 1.f;
   if (!desc.x14_TEX.null()) {
-    TLockedToken< CTexture > tex = desc.x14_TEX->GetValueTexture(x58_frameIdx);
+    TToken< CTexture > tex = desc.x14_TEX->GetValueTexture(x58_frameIdx);
+    if (!tex.IsLoaded()) {
+      return;
+    }
     tex->Load(GX_TEXMAP0, CTexture::kCM_Repeat);
+    tex.GetObj(); // ?
     CGraphics::SetTevOp(kTS_Stage0, CGraphics::kEnvModulate);
     desc.x14_TEX->GetValueUV(x58_frameIdx, uvSet);
     if (redToAlpha) {
@@ -116,44 +122,43 @@ void CDecal::RenderQuad(CQuadDecal& decal, const CDecalDescription::SQuadDescr& 
   CGX::SetVtxDescv(vtxDesc);
   CGX::Begin(GX_TRIANGLESTRIP, GX_VTXFMT0, 4);
 
-  float y = 0.001f;
   if (decal.x8_rotation == 0.f) {
     // Vertex 0
-    GXPosition3f32(-size, y, size);
-    GXColor1u32(color.GetColor_u32());
-    GXTexCoord2f32(uvSet.xMin, uvSet.yMin);
-    // Vertex 1
-    GXPosition3f32(size, y, size);
-    GXColor1u32(color.GetColor_u32());
-    GXTexCoord2f32(uvSet.xMax, uvSet.yMin);
-    // Vertex 2
-    GXPosition3f32(-size, y, -size);
+    GXPosition3f32(-size, 0.001f, size);
     GXColor1u32(color.GetColor_u32());
     GXTexCoord2f32(uvSet.xMin, uvSet.yMax);
-    // Vertex 3
-    GXPosition3f32(size, y, -size);
+    // Vertex 1
+    GXPosition3f32(size, 0.001f, size);
     GXColor1u32(color.GetColor_u32());
     GXTexCoord2f32(uvSet.xMax, uvSet.yMax);
+    // Vertex 2
+    GXPosition3f32(-size, 0.001f, -size);
+    GXColor1u32(color.GetColor_u32());
+    GXTexCoord2f32(uvSet.xMin, uvSet.yMin);
+    // Vertex 3
+    GXPosition3f32(size, 0.001f, -size);
+    GXColor1u32(color.GetColor_u32());
+    GXTexCoord2f32(uvSet.xMax, uvSet.yMin);
   } else {
     CRelAngle ang = CRelAngle::FromDegrees(decal.x8_rotation);
     float sinSize = sine(ang) * size;
     float cosSize = cosine(ang) * size;
     // Vertex 0
-    GXPosition3f32(sinSize - cosSize, y, cosSize + sinSize);
-    GXColor1u32(color.GetColor_u32());
-    GXTexCoord2f32(uvSet.xMin, uvSet.yMin);
-    // Vertex 1
-    GXPosition3f32(cosSize + sinSize, y, cosSize - sinSize);
-    GXColor1u32(color.GetColor_u32());
-    GXTexCoord2f32(uvSet.xMax, uvSet.yMin);
-    // Vertex 2
-    GXPosition3f32(-(cosSize + sinSize), y, -(cosSize - sinSize));
+    GXPosition3f32(sinSize - cosSize, 0.001f, cosSize + sinSize);
     GXColor1u32(color.GetColor_u32());
     GXTexCoord2f32(uvSet.xMin, uvSet.yMax);
-    // Vertex 3
-    GXPosition3f32(-sinSize + cosSize, y, -cosSize - sinSize);
+    // Vertex 1
+    GXPosition3f32(cosSize + sinSize, 0.001f, cosSize - sinSize);
     GXColor1u32(color.GetColor_u32());
     GXTexCoord2f32(uvSet.xMax, uvSet.yMax);
+    // Vertex 2
+    GXPosition3f32(-(cosSize + sinSize), 0.001f, -(cosSize - sinSize));
+    GXColor1u32(color.GetColor_u32());
+    GXTexCoord2f32(uvSet.xMin, uvSet.yMin);
+    // Vertex 3
+    GXPosition3f32(-sinSize + cosSize, 0.001f, -cosSize - sinSize);
+    GXColor1u32(color.GetColor_u32());
+    GXTexCoord2f32(uvSet.xMax, uvSet.yMin);
   }
 
   CGX::End();
@@ -163,7 +168,73 @@ void CDecal::RenderQuad(CQuadDecal& decal, const CDecalDescription::SQuadDescr& 
   }
 }
 
-void CDecal::RenderMdl() const {}
+void CDecal::RenderMdl() const {
+  CColor color = CColor::White();
+  CVector3f offset = CVector3f::Zero();
+  CTransform4f rotXf = CTransform4f::Identity();
+  if (!x0_description->x5c_25_DMOO) {
+    rotXf = xc_transform.GetRotation();
+  }
+
+  bool dmrtIsConst = false;
+  if (CVectorElement* off = x0_description->x50_DMRT.get()) {
+    if (off->IsFastConstant()) {
+      dmrtIsConst = true;
+    }
+  }
+
+  CTransform4f dmrtXf = CTransform4f::Identity();
+  if (dmrtIsConst) {
+    x0_description->x50_DMRT->GetValue(x58_frameIdx, x60_rotation);
+    dmrtXf = CTransform4f::RotateZ(CRelAngle::FromDegrees(x60_rotation.GetZ()));
+    dmrtXf.RotateLocalY(CRelAngle::FromDegrees(x60_rotation.GetY()));
+    dmrtXf.RotateLocalX(CRelAngle::FromDegrees(x60_rotation.GetX()));
+  }
+  dmrtXf = rotXf * dmrtXf;
+
+  if (CVectorElement* off = x0_description->x4c_DMOP.get()) {
+    off->GetValue(x58_frameIdx, offset);
+  }
+
+  CTransform4f worldXf = CTransform4f::Translate(xc_transform.GetTranslation() + rotXf * offset);
+  if (dmrtIsConst) {
+    worldXf *= dmrtXf;
+  } else if (CVectorElement* dmrt = x0_description->x50_DMRT.get()) {
+    CVector3f rotation(0.f, 0.f, 0.f);
+    dmrt->GetValue(x58_frameIdx, rotation);
+    dmrtXf = CTransform4f::RotateZ(CRelAngle::FromDegrees(rotation.GetZ()));
+    dmrtXf.RotateLocalY(CRelAngle::FromDegrees(rotation.GetY()));
+    dmrtXf.RotateLocalX(CRelAngle::FromDegrees(rotation.GetX()));
+    worldXf *= rotXf * dmrtXf;
+  } else {
+    worldXf *= dmrtXf;
+  }
+
+  if (CVectorElement* dmsc = x0_description->x54_DMSC.get()) {
+    CVector3f scale(0.f, 0.f, 0.f);
+    dmsc->GetValue(x58_frameIdx, scale);
+    worldXf *= CTransform4f::Scale(scale.GetX(), scale.GetY(), scale.GetZ());
+  }
+
+  if (CColorElement* dmcl = x0_description->x58_DMCL.get()) {
+    dmcl->GetValue(x58_frameIdx, color);
+  }
+
+  CGraphics::SetModelMatrix(worldXf);
+
+  if (x0_description->x5c_24_DMAB) {
+    const CModelFlags flags = CModelFlags::Additive(color).DepthCompareUpdate(true, false);
+    (*x0_description->x38_DMDL)->Draw(flags);
+  } else if (color.GetAlpha() == 1.f) {
+    (*x0_description->x38_DMDL)->Draw(CModelFlags::Normal());
+  } else {
+    const CModelFlags flags = CModelFlags::AlphaBlended(color).DepthCompareUpdate(true, false);
+    (*x0_description->x38_DMDL)->Draw(flags);
+  }
+
+  CGraphics::SetCullMode(kCM_Front);
+  CTevCombiners::ResetStates();
+}
 
 void CDecal::Render() const {
   CGlobalRandom gr(sDecalRandom);

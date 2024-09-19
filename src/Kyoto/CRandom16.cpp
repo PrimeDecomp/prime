@@ -1,5 +1,6 @@
 #include "Kyoto/CRandom16.hpp"
 #include "Kyoto/Alloc/CMemory.hpp"
+#include "Kyoto/Basics/CCast.hpp"
 
 CRandom16* CRandom16::gRandomNumber = nullptr;
 CGlobalRandom* CGlobalRandom::gCurrentGlobalRandom = nullptr;
@@ -43,6 +44,6 @@ int CRandom16::Next() {
 }
 
 float CRandom16::Float() {
-  int next = Next();
+  float next = CCast::ToReal32(Next());
   return 1.52590222E-5f * next;
 }

@@ -25,6 +25,7 @@ public:
     mB = b;
     mA = a;
   }
+  CColor(const CColor& other) : mRgba(other.mRgba) {}
 
   void Set(const float r, const float g, const float b, const float a);
   void Set(uchar r, uchar g, uchar b, uchar a = 255) {

@@ -54,7 +54,7 @@ private:
   int x54_modelLifetime;
   int x58_frameIdx;
   int x5c_flags;
-  CVector3f x60_rotation;
+  mutable CVector3f x60_rotation;
 
   void InitQuad(CQuadDecal& quad, const CDecalDescription::SQuadDescr& desc, int flag) {
     if (!desc.x14_TEX.null()) {

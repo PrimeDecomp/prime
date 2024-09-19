@@ -5,7 +5,7 @@
 
 class CVector2i {
 public:
-  CVector2i(int, int);
+  CVector2i(int x, int y);
 
   int GetX() const { return mX; }
   int GetY() const { return mY; }

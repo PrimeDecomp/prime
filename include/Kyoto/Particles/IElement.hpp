@@ -64,8 +64,8 @@ struct SUVElementSet {
 
 class CUVElement : public IElement {
 public:
-  virtual TLockedToken< CTexture > GetValueTexture(int frame) const = 0;
   virtual void GetValueUV(int frame, SUVElementSet& valOut) const = 0;
+  virtual TLockedToken< CTexture > GetValueTexture(int frame) const = 0;
   virtual bool HasConstantTexture() const = 0;
   virtual bool HasConstantUV() const = 0;
 };

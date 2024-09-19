@@ -90,7 +90,10 @@ public:
   }
   void AddTranslationZ(float z) { posZ += z; }
 
-  CTransform4f& operator*=(const CTransform4f& other);
+  CTransform4f& operator*=(const CTransform4f& other) {
+    *this = *this * other;
+    return *this;
+  }
   CTransform4f operator*(const CTransform4f& vec) const;
   CVector3f operator*(const CVector3f& vec) const;
 

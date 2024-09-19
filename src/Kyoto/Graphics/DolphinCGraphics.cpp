@@ -1382,33 +1382,32 @@ CGraphics::ClipScreenRectFromVS(const CVector3f& p1, const CVector3f& p2, ETexel
   int maxX = abs(p1p.GetX() - p2p.GetX());
   int maxY = abs(p1p.GetY() - p2p.GetY());
 
-  int left = minX & 0xfffffffe;
+  int left = minX & ~1;
   if (left >= mViewport.mLeft + mViewport.mWidth) {
     return CClippedScreenRect();
   }
 
-  int right = minX + maxX + 2 & 0xfffffffe;
+  int right = minX + maxX + 2 & ~1;
   if (right <= mViewport.mLeft) {
     return CClippedScreenRect();
   }
-  left = rstl::max_val(left, mViewport.mLeft) & 0xfffffffe;
-  right = rstl::min_val(right, mViewport.mLeft + mViewport.mWidth) + 1 & 0xfffffffe;
+  left = rstl::max_val(left, mViewport.mLeft) & ~1;
+  right = rstl::min_val(right, mViewport.mLeft + mViewport.mWidth) + 1 & ~1;
 
-  int top = minY & 0xfffffffe;
+  int top = minY & ~1;
   if (top >= mViewport.mTop + mViewport.mHeight) {
     return CClippedScreenRect();
   }
 
-  int bottom = minY + maxY + 2 & 0xfffffffe;
+  int bottom = minY + maxY + 2 & ~1;
   if (bottom <= mViewport.mTop) {
     return CClippedScreenRect();
   }
-  top = rstl::max_val(top, mViewport.mTop) & 0xfffffffe;
-  bottom = rstl::min_val(bottom, mViewport.mTop + mViewport.mHeight) + 1 & 0xfffffffe;
+  top = rstl::max_val(top, mViewport.mTop) & ~1;
+  bottom = rstl::min_val(bottom, mViewport.mTop + mViewport.mHeight) + 1 & ~1;
 
-  // int height = bottom - top;
-  float minV = static_cast< float >(minY - top) / static_cast< float >(bottom - top);
-  float maxV = static_cast< float >(maxY + (minY - top) + 1) / static_cast< float >(bottom - top);
+  float minV = CCast::LtoF(minY - top) / CCast::LtoF(bottom - top);
+  float maxV = CCast::LtoF(maxY + (minY - top) + 1) / CCast::LtoF(bottom - top);
 
   int texAlign = 4;
   switch (fmt) {
@@ -1424,11 +1423,10 @@ CGraphics::ClipScreenRectFromVS(const CVector3f& p1, const CVector3f& p2, ETexel
     texAlign = 2;
     break;
   }
-  // int width = right - left;
-  int texWidth = texAlign + (right - left) - 1 & ~(texAlign - 1);
 
-  float minU = static_cast< float >(minX - left) / static_cast< float >(texWidth);
-  float maxU = static_cast< float >(maxX + (minX - left) + 1) / static_cast< float >(texWidth);
+  int texWidth = texAlign + (right - left) - 1 & ~(texAlign - 1);
+  float minU = CCast::LtoF(minX - left) / CCast::LtoF(texWidth);
+  float maxU = CCast::LtoF(maxX + (minX - left) + 1) / CCast::LtoF(texWidth);
   return CClippedScreenRect(left, top, right - left, bottom - top, texWidth, minU, maxU, minV,
                             maxV);
 }
