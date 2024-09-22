@@ -189,7 +189,7 @@ CIOWin::EMessageReturn CCredits::Update(float dt, CArchitectureQueue& queue) {
 
 CIOWin::EMessageReturn CCredits::ProcessUserInput(const CFinalInput& input) {
   if (input.DA()) {
-    x48_ = CMath::Clamp(0.f, x48_ - ((x50_ * input.DeltaTime())), x4c_);
+    x48_ = CMath::Clamp(0.f, x48_ - ((x50_ * input.Time())), x4c_);
   } else {
     float leftY = input.ALAUp();
     float offset = 0.f;
@@ -197,7 +197,7 @@ CIOWin::EMessageReturn CCredits::ProcessUserInput(const CFinalInput& input) {
       offset = -leftY;
       leftY = 0.f;
     }
-    x48_ = CMath::Clamp(0.f, x48_ - (leftY - offset) * 10.f * x50_ * input.DeltaTime(), x4c_);
+    x48_ = CMath::Clamp(0.f, x48_ - (leftY - offset) * 10.f * x50_ * input.Time(), x4c_);
   }
   return kMR_Exit;
 }

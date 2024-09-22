@@ -7,8 +7,11 @@
 #include "Kyoto/Math/CVector3f.hpp"
 #include "Kyoto/TToken.hpp"
 
+#include "rstl/optional_object.hpp"
+
 class CScriptWater;
 class CStateManager;
+class CTexture;
 
 extern "C" uint sub_8012f098();
 
@@ -44,7 +47,7 @@ public:
   // GetTexturePattern1__11CFluidPlaneCFv
   // HasTexturePattern1__11CFluidPlaneCFv
 
-// protected:
+protected:
   virtual void RenderStripWithRipples(const CFluidPlaneCPURender::SHFieldSample& heights,
                                       const unsigned char& flags, float curY, int startYDiv,
                                       const CFluidPlaneCPURender::SPatchInfo& info);
