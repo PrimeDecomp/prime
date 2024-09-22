@@ -4,8 +4,8 @@
 #include "types.h"
 
 #include "MetroidPrime/CGameArea.hpp"
-#include "MetroidPrime/TGameTypes.hpp"
 #include "MetroidPrime/Cameras/CCameraShakeData.hpp"
+#include "MetroidPrime/TGameTypes.hpp"
 
 #include "Kyoto/Math/CVector3f.hpp"
 
@@ -16,14 +16,17 @@
 
 class CBallCamera;
 class CCameraShakeData;
+class CFinalInput;
 class CFirstPersonCamera;
 class CGameCamera;
 class CInterpolationCamera;
+class CScriptWater;
 class CStateManager;
 
 #ifdef __MWERKS__
 #pragma cpp_extensions on
-#endif 
+#endif
+
 class CCameraManager {
   static float sFirstPersonFOV;
   static float sThirdPersonFOV;
@@ -32,6 +35,7 @@ class CCameraManager {
   static float sAspectRatio;
   static float lbl_805A6BE4;
   static float lbl_805A6BE8;
+
 public:
   CCameraManager(TUniqueId curCamera = kInvalidUniqueId);
 
@@ -40,40 +44,54 @@ public:
   void ResetCameras(CStateManager& mgr);
   void RenderCameras(const CStateManager& mgr);
   TUniqueId GetCurrentCameraId() const;
+  void SetCurrentCameraId(TUniqueId camId);
 
   CGameCamera& CurrentCamera(CStateManager& mgr);
   const CGameCamera& GetCurrentCamera(const CStateManager& mgr) const;
   const CGameCamera& GetLastCineCamera(CStateManager& mgr) const;
   TUniqueId GetLastCineCameraId() const;
-  void RemoveCinemaCamera(TUniqueId uid, CStateManager& mgr);
 
-  void SetCurrentCameraId(TUniqueId camId);
-  
+  void Update(float dt, CStateManager& mgr);
   void UpdateSfxListener(CStateManager& mgr);
   void UpdateRumble(float dt, CStateManager& mgr);
+  void UpdateFog(float dt, CStateManager& mgr);
+  void UpdateCameraHints(float dt, CStateManager& mgr);
+  float CalculateFogDensity(CStateManager& mgr, const CScriptWater* water);
+  void SetFogDensity(float fogDensityTarget, float fogDensitySpeed);
 
   CFirstPersonCamera* FirstPersonCamera() const /* map */ { return x7c_fpCamera; }
   const CFirstPersonCamera* GetFirstPersonCamera() const { return x7c_fpCamera; }
 
-  CTransform4f GetCurrentCameraTransform(const CStateManager& mgr) const;
   void SetPlayerCamera(CStateManager& mgr, TUniqueId newCamId);
-  void SetFogDensity(float fogDensityTarget, float fogDensitySpeed);
   bool IsInCinematicCamera() const;
+  void AddCinemaCamera(TUniqueId uid, CStateManager& mgr);
+  void RemoveCinemaCamera(TUniqueId uid, CStateManager& mgr);
+  void EnterCinematic(CStateManager& mgr);
+  void SkipCinematic(CStateManager& mgr);
 
-  
-  void RemoveCameraShaker(int id);
   int AddCameraShaker(const CCameraShakeData& data, bool sfx);
+  void RemoveCameraShaker(int id);
+  CTransform4f GetCurrentCameraTransform(const CStateManager& mgr) const;
+  // GetGlobalCameraTranslation__14CCameraManagerCFRC13CStateManager
+  // SetSpecialCameras__14CCameraManagerFR18CFirstPersonCameraR11CBallCamera
 
   void SetCurrentFov(float fov) { x3bc_curFov = fov; }
-  
-  int GetFluidCounter() const { return x74_fluidCounter; }
 
+  int GetFluidCounter() const { return x74_fluidCounter; }
+  TUniqueId GetFluidId() const { return x78_fluidId; }
+  // GetInsideFluid__14CCameraManagerCFv
+  // WasInsideFluid__14CCameraManagerCFv
+  // SetWasInsideFluid__14CCameraManagerFb
+  void SetInsideFluid(bool isInside, TUniqueId fluidId);
+
+  void ProcessInput(const CFinalInput& input, CStateManager& mgr);
 
   static float DefaultThirdPersonFov();
   static float DefaultFirstPersonFov();
   static float DefaultNearPlane();
   static float DefaultFarPlane();
   static float DefaultAspect();
+
 private:
   TUniqueId x0_curCameraId;
   rstl::vector< TUniqueId > x4_cineCameras;
@@ -116,5 +134,6 @@ CHECK_SIZEOF(CCameraManager, 0x3c0)
 
 #ifdef __MWERKS__
 #pragma cpp_extensions reset
-#endif 
+#endif
+
 #endif // _CCAMERAMANAGER

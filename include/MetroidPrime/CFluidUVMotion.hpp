@@ -59,5 +59,6 @@ public:
     return x0_fluidLayers;
   }
 };
+CHECK_SIZEOF(CFluidUVMotion, 0x54)
 
 #endif // _CFLUIDUVMOTION

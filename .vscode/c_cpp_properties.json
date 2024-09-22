@@ -5,6 +5,7 @@
             "includePath": [
                 "${workspaceFolder}/include",
                 "${workspaceFolder}/libc",
+                "${workspaceFolder}/extern/musyx/include",
                 "${workspaceFolder}/build/*/include"
             ],
             "cStandard": "c99",

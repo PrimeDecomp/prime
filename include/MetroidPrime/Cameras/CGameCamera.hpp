@@ -26,12 +26,20 @@ public:
   virtual void ProcessInput(const CFinalInput&, CStateManager& mgr) = 0;
   virtual void Reset(const CTransform4f&, CStateManager& mgr) = 0;
 
+  // GetPerspectiveMatrix__11CGameCameraCFv
+  // ConvertToScreenSpace__11CGameCameraCFRC9CVector3f
+  // ValidateCameraTransform__11CGameCameraFRC12CTransform4fRC12CTransform4f
+  // ShouldTryRender__11CGameCameraCFv
+
   TUniqueId GetWatchedObject() const { return xe8_watchedObject; }
   float GetFov() const { return x15c_currentFov; }
   void SetFov(float fov) { x15c_currentFov = fov; }
   float GetNearClipDistance() const { return x160_znear; }
   void SetFovInterpolation(float start, float fov, float time, float delayTime);
   void UpdatePerspective(float dt);
+  int GetControllerNumber() const { return x16c_controllerIdx; }
+  bool DisablesInput() const { return x170_25_disablesInput; }
+  float GetAspectRatio() const { return x168_aspect; }
 
 protected:
   TUniqueId xe8_watchedObject;
@@ -41,7 +49,7 @@ protected:
   float x160_znear;
   float x164_zfar;
   float x168_aspect;
-  uint x16c_controllerIdx;
+  int x16c_controllerIdx;
   mutable bool x170_24_perspDirty : 1;
   bool x170_25_disablesInput : 1;
   float x174_delayTime;

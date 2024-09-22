@@ -3,7 +3,9 @@
 
 #include "types.h"
 
+#include "MetroidPrime/CFluidPlane.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptTrigger.hpp"
+#include "MetroidPrime/TGameTypes.hpp"
 
 #include "Kyoto/Math/CFrustumPlanes.hpp"
 #include "Kyoto/TToken.hpp"
@@ -12,18 +14,65 @@
 #include "rstl/optional_object.hpp"
 #include "rstl/pair.hpp"
 #include "rstl/single_ptr.hpp"
+#include "rstl/string.hpp"
 
+class CAABox;
+class CColor;
+class CDamageInfo;
 class CFluidPlaneCPU;
+class CFluidUVMotion;
 class CGenDescription;
+class CStateManager;
+class CVector3f;
 
 class CScriptWater : public CScriptTrigger {
 public:
-  // TODO
+  CScriptWater(CStateManager&, TUniqueId, const rstl::string&, const CEntityInfo&, const CVector3f&,
+               const CAABox&, const CDamageInfo&, const CVector3f&, uint, bool, bool, uint, uint,
+               uint, uint, uint, uint, const CVector3f&, float, float, float, bool,
+               CFluidPlane::EFluidType, bool, float, const CFluidUVMotion&, float, float, float,
+               float, float, float, float, float, const CColor&, const CColor&, uint, uint, uint,
+               uint, int, int, int, float, uint, float, float, float, float, float, float, float,
+               float, const CColor&, uint, uint, bool, int, int, const uint*);
+
+  // CEntity
+  ~CScriptWater() override;
+  void Accept(IVisitor& visitor) override;
+  void Think(float dt, CStateManager& mgr) override;
+  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) override;
+
+  // CActor
+  void PreRender(CStateManager&, const CFrustumPlanes&) override;
+  void AddToRenderer(const CFrustumPlanes&, const CStateManager&) const override;
+  void Render(const CStateManager&) const override;
+  void CalculateRenderBounds() override;
+  void Touch(CActor&, CStateManager&) override;
+  EWeaponCollisionResponseTypes GetCollisionResponseType(const CVector3f&, const CVector3f&,
+                                                         const CWeaponMode&,
+                                                         int /*EProjectileAttrib?*/) const override;
+  CAABox GetSortingBounds(const CStateManager&) const override;
 
   bool CanRippleAtPoint(const CVector3f&) const;
+  // UpdateSplashInhabitants__12CScriptWaterFR13CStateManager
+  // RenderSurface__12CScriptWaterFv
 
   CFluidPlaneCPU& FluidPlane() { return *x1b4_fluidPlane; }
+  const CFluidPlaneCPU& GetFluidPlane() const { return *x1b4_fluidPlane; }
+  // GetWRSurfacePlane__12CScriptWaterCFv
   float GetSurfaceZ() const { return GetTriggerBoundsWR().GetMaxPoint().GetZ(); }
+  const CColor& GetUnderwaterFogColor() const { return x2a8_insideFogColor; }
+  // GetVisorRunoffEffect__12CScriptWaterCFv
+  // GetFluidType__12CScriptWaterCFv
+  // IsMorphing__12CScriptWaterCFv
+  // SetMorphing__12CScriptWaterFb
+  // GetFrustumPlanes__12CScriptWaterCFv
+  // GetSplashIndex__12CScriptWaterCFf
+  // GetSplashEffect__12CScriptWaterCFf
+  // GetSplashSound__12CScriptWaterCFf
+  // GetSplashEffectScale__12CScriptWaterCFf
+  // GetSplashColor__12CScriptWaterCFv
+
+  // kSplashScales__12CScriptWater
 
 private:
   CFrustumPlanes x150_frustum;

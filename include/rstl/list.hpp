@@ -14,7 +14,7 @@ public:
   class const_iterator;
   iterator erase(const iterator& item) { return do_erase(item.get_node()); }
 
-private:
+// private:
   struct node;
   node* do_erase(node* item);
 

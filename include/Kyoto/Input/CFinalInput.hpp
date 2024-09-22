@@ -42,7 +42,10 @@ public:
 
   CFinalInput ScaleAnalogueSticks(float leftDiv, float rightDiv) const;
 
-  float DeltaTime() const { return x0_dt; }
+  float Time() const { return x0_dt; }
+  void SetTime(float time) { x0_dt = time; }
+
+  int ControllerNumber() const { return x4_controllerIdx; }
 
   float ALAUp() const { return xc_anaLeftY > 0.f ? xc_anaLeftY : 0.f; }
 
@@ -182,7 +185,7 @@ public:
 
 private:
   float x0_dt;
-  uint x4_controllerIdx;
+  int x4_controllerIdx;
   float x8_anaLeftX;
   float xc_anaLeftY;
   float x10_anaRightX;

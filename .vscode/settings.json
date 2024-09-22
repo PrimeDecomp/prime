@@ -1,11 +1,11 @@
 {
   "[c]": {
     "files.encoding": "utf8",
-    "editor.defaultFormatter": "xaver.clang-format"
+    "editor.defaultFormatter": "ms-vscode.cpptools"
   },
   "[cpp]": {
     "files.encoding": "utf8",
-    "editor.defaultFormatter": "xaver.clang-format"
+    "editor.defaultFormatter": "ms-vscode.cpptools"
   },
   "[python]": {
     "editor.defaultFormatter": "ms-python.black-formatter"
@@ -14,6 +14,7 @@
   "clangd.fallbackFlags": [
     "-I${workspaceFolder}/include",
     "-I${workspaceFolder}/libc",
+    "-I${workspaceFolder}/extern/musyx/include",
     "-D__MWERKS__",
   ],
   "editor.tabSize": 2,

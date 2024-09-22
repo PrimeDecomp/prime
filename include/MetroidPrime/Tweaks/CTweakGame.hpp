@@ -35,7 +35,7 @@ public:
   float GetHardModeDamageMultiplier() const { return x60_hardmodeDamageMult; }
   float GetHardModeWeaponMultiplier() const { return x64_hardmodeWeaponMult; }
 
-private:
+// private:
   rstl::string x4_worldPrefix;
   rstl::string x14_defaultRoom;
   float x24_fov;

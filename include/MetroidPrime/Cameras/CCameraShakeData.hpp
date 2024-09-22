@@ -65,10 +65,12 @@ public:
   void SetShakerId(int id) { xbc_shakerId = id; }
   int GetShakerId() const { return xbc_shakerId; }
   void Update(float dt, CStateManager& mgr);
+  // GeneratePoint__16CCameraShakeDataFfR9CRandom16
 
   float GetDuration() const { return x0_duration; }
   float GetCurTime() const { return x4_curTime; }
-  const CVector3f& GetPoint() const; // { return xc4_sfxPos; }
+  CVector3f GetPoint() const; // { return xc4_sfxPos; }
+  bool Done() const { return x4_curTime >= x0_duration; }
 
   static CCameraShakeData skChargedShotCameraShakeData;
 
