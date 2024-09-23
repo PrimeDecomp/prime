@@ -3,6 +3,7 @@
 
 #include "types.h"
 
+#include "rstl/iterator.hpp"
 #include "rstl/pointer_iterator.hpp"
 #include "rstl/rmemory_allocator.hpp"
 
@@ -215,17 +216,17 @@ typename vector< T, Alloc >::iterator vector< T, Alloc >::erase(iterator it) {
   return erase(it, it + 1);
 }
 
+// TODO nonmatching (CCameraManager::RemoveCinemaCamera)
 template < typename T, typename Alloc >
 typename vector< T, Alloc >::iterator vector< T, Alloc >::erase(iterator first, iterator last) {
   destroy(first, last);
+
   iterator start = begin();
-  int newCount = rstl::distance(first, start);
+  int newCount = start - first;
 
   iterator moved = start + newCount;
-  for (iterator it = last; it != end(); ++it) {
+  for (iterator it = last; it != end(); ++moved, ++newCount, ++it) {
     construct(&*moved, *it);
-    ++moved;
-    ++newCount;
   }
   x4_count = newCount;
 

@@ -6,7 +6,7 @@
 #include "Kyoto/Math/CVector3f.hpp"
 
 struct SCameraShakePoint {
-  bool x0_useEnvelope;
+  uint x0_useEnvelope;
   float x4_value;
   float x8_magnitude;
   float xc_attackTime;
@@ -41,7 +41,7 @@ public:
   virtual ~CCameraShakerComponent() {}
 
 private:
-  bool x4_useModulation;
+  uint x4_useModulation;
   SCameraShakePoint x8_am;
   SCameraShakePoint x20_fm;
   float x38_value;
@@ -60,17 +60,20 @@ public:
   , x44_shakerY()
   , x80_shakerZ(true, SCameraShakePoint(false, 0.25f * duration, 0.f, 0.75f * duration, magnitude),
                 SCameraShakePoint(true, 0.f, 0.f, 0.5f * duration, 2.f)) {}
-  CCameraShakeData(const CCameraShakeData&);
 
-  void SetShakerId(int id) { xbc_shakerId = id; }
-  int GetShakerId() const { return xbc_shakerId; }
+  void SetId(int id) { xbc_shakerId = id; }
+  int GetId() const { return xbc_shakerId; }
   void Update(float dt, CStateManager& mgr);
   // GeneratePoint__16CCameraShakeDataFfR9CRandom16
+  float GetSomething() const;
+  float GetSomething2() const;
 
   float GetDuration() const { return x0_duration; }
   float GetCurTime() const { return x4_curTime; }
   CVector3f GetPoint() const; // { return xc4_sfxPos; }
   bool Done() const { return x4_curTime >= x0_duration; }
+  uint GetFlags() const { return xc0_flags; }
+  const CVector3f& GetSfxPos() const { return xc4_sfxPos; }
 
   static CCameraShakeData skChargedShotCameraShakeData;
 

@@ -206,6 +206,7 @@ public:
   static ushort TranslateSFXID(ushort);
 
   static void PitchBend(CSfxHandle handle, int pitch);
+  static void SetDuration(CSfxHandle handle, float duration);
   static ushort GetReverbAmount();
 
   static CSfxHandle SfxStart(ushort id, short vol, short pan, bool useAcoustics,

@@ -159,6 +159,9 @@ public:
   void SetLookAtOffset(CVector3f vec) { x1b4_lookAtOffset = vec; }
   void SetChaseLookAtOffset(CVector3f vec) { x410_chaseLookAtOffset = vec; }
   void SetWorldOffset(CVector3f vec); // TODO
+  EBallCameraState GetState() const { return x400_state; }
+  void SetState(EBallCameraState state);
+  void ApplyCameraHint(CStateManager& mgr);
 
 private:
   struct SFailsafeState {

@@ -213,6 +213,8 @@ public:
   void RemoveOrbitDisableSource(TUniqueId uid);
   void ResetAimTargetPrediction(TUniqueId target);
   void DoSfxEffects(CSfxHandle sfx);
+  void UnFreeze(CStateManager& mgr);
+  void UpdateCinematicState(CStateManager& mgr);
 
   CPlayerGun* PlayerGun() { return x490_gun.get(); }
   const CPlayerGun* GetPlayerGun() const { return x490_gun.get(); }

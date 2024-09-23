@@ -20,14 +20,14 @@ void CScriptCameraShaker::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId ob
       CGameArea::EOcclusionState occState =
           area.IsLoaded() ? area.GetOcclusionState() : CGameArea::kOS_Occluded;
       if (occState != CGameArea::kOS_Occluded) {
-        x34_shakeData.SetShakerId(stateMgr.CameraManager()->AddCameraShaker(x34_shakeData, false));
+        x34_shakeData.SetId(stateMgr.CameraManager()->AddCameraShaker(x34_shakeData, false));
       }
     }
     break;
   }
   case kSM_Deactivate: {
     if (GetActive())
-      stateMgr.CameraManager()->RemoveCameraShaker(x34_shakeData.GetShakerId());
+      stateMgr.CameraManager()->RemoveCameraShaker(x34_shakeData.GetId());
     break;
   }
   default:

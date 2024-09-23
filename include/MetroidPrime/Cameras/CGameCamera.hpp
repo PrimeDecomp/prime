@@ -30,6 +30,7 @@ public:
   // ConvertToScreenSpace__11CGameCameraCFRC9CVector3f
   // ValidateCameraTransform__11CGameCameraFRC12CTransform4fRC12CTransform4f
   // ShouldTryRender__11CGameCameraCFv
+  void SkipFovInterpolation();
 
   TUniqueId GetWatchedObject() const { return xe8_watchedObject; }
   float GetFov() const { return x15c_currentFov; }

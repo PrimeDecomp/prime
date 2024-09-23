@@ -7,9 +7,26 @@ class CFirstPersonCamera : public CGameCamera {
 public:
   CFirstPersonCamera(const TUniqueId& uid, const CTransform4f& xf, TUniqueId watchedObj,
                      float orbitCameraSpeed, float fov, float nearz, float farz, float aspect);
+
+  // CEntity
+  ~CFirstPersonCamera() override;
+  void Accept(IVisitor& visitor) override;
+  void PreThink(float dt, CStateManager& mgr) override;
+  void Think(float dt, CStateManager& mgr) override;
+
+  // CActor
+  void Render(const CStateManager&) const override;
+
+  // CGameCamera
+  void ProcessInput(const CFinalInput& input, CStateManager& mgr) override;
+  void Reset(const CTransform4f& xf, CStateManager& mgr) override;
+
   void SetScriptPitchId(TUniqueId uid) { x1c4_pitchId = uid; }
-  void ProcessInput(const CFinalInput& input, CStateManager& mgr);
-  void Reset(const CTransform4f& xf, CStateManager& mgr);
+  // UpdateElevation__18CFirstPersonCameraFR13CStateManager
+  // UpdateTransform__18CFirstPersonCameraFR13CStateManagerf
+  // GetGunFollowTransform__18CFirstPersonCameraCFv
+  // SetLockCamera__18CFirstPersonCameraFb
+  void SkipCinematic();
 
 private:
   float x188_orbitCameraSpeed;

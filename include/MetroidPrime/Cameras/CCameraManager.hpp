@@ -20,6 +20,7 @@ class CFinalInput;
 class CFirstPersonCamera;
 class CGameCamera;
 class CInterpolationCamera;
+class CScriptCameraHint;
 class CScriptWater;
 class CStateManager;
 
@@ -72,7 +73,15 @@ public:
   int AddCameraShaker(const CCameraShakeData& data, bool sfx);
   void RemoveCameraShaker(int id);
   CTransform4f GetCurrentCameraTransform(const CStateManager& mgr) const;
-  // GetGlobalCameraTranslation__14CCameraManagerCFRC13CStateManager
+  CVector3f GetGlobalCameraTranslation(const CStateManager& mgr) const;
+  bool IsInFirstPersonCamera() const;
+  bool IsInterpolationCameraActive() const;
+  bool ShouldBypassInterpolationCamera() const;
+  void InterpolateToBallCamera(const CTransform4f& xf, TUniqueId camId, const CVector3f& lookPos,
+                               float maxTime, float positionSpeed, float rotationSpeed,
+                               bool sinusoidal, CStateManager& mgr);
+  void SkipBallCameraCinematic(CStateManager& mgr);
+  void ApplyCameraHint(const CScriptCameraHint& hint, CStateManager& mgr);
   // SetSpecialCameras__14CCameraManagerFR18CFirstPersonCameraR11CBallCamera
 
   void SetCurrentFov(float fov) { x3bc_curFov = fov; }

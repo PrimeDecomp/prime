@@ -37,12 +37,10 @@ public:
     return *this;
   }
   const_pointer_iterator operator+(int v) const {
-    const_pointer_iterator it = *this;
-    return it += v;
+    return const_pointer_iterator(this->current + v);
   }
   const_pointer_iterator operator-(int v) const {
-    const_pointer_iterator it = *this;
-    return it -= v;
+    return const_pointer_iterator(this->current - v);
   }
   difference_type operator-(const const_pointer_iterator& other) const {
     return this->current - other.current;
@@ -77,9 +75,8 @@ public:
   typedef typename base::iterator_category iterator_category;
   typedef typename base::value_type value_type;
 
-  pointer_iterator() : const_pointer_iterator< T, Vec, Alloc >(nullptr) {}
-  pointer_iterator(T* begin) : const_pointer_iterator< T, Vec, Alloc >(begin) {}
-  void operator=(const T& other) { rstl::construct(this->current, other); }
+  pointer_iterator() : base(nullptr) {}
+  pointer_iterator(T* begin) : base(begin) {}
   T& operator*() { return *this->current; }
   // TODO map says const, but breaks CScriptMazeNode::GenerateObjects
   T* operator->() { return this->current; }
@@ -104,12 +101,10 @@ public:
     return *this;
   }
   pointer_iterator operator+(int v) const {
-    pointer_iterator it = *this;
-    return it += v;
+    return pointer_iterator(current + v);
   }
   pointer_iterator operator-(int v) const {
-    pointer_iterator it = *this;
-    return it -= v;
+    return pointer_iterator(current - v);
   }
   // HACK: non-const operator- is required to match vector::insert
   difference_type operator-(const pointer_iterator& other) { return this->current - other.current; }

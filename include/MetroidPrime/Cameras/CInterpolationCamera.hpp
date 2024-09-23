@@ -6,9 +6,15 @@
 class CInterpolationCamera : public CGameCamera {
 public:
   CInterpolationCamera(TUniqueId uid, const CTransform4f& xf);
+
   // CGameCamera
   void ProcessInput(const CFinalInput&, CStateManager& mgr) override;
   void Reset(const CTransform4f&, CStateManager& mgr) override;
+
+  void SetInterpolation(const CTransform4f& xf, CVector3f lookPos, float maxTime,
+                        float positionSpeed, float rotationSpeed, TUniqueId targetId,
+                        bool sinusoidal, CStateManager& mgr);
+
 private:
   TUniqueId x188_targetId;
   float x18c_time;
