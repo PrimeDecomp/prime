@@ -40,25 +40,25 @@ class CCameraManager {
 public:
   CCameraManager(TUniqueId curCamera = kInvalidUniqueId);
 
-  void CreateStandardCameras(CStateManager& mgr);
-  void ThinkCameras(float dt, CStateManager& mgr);
+  void CreateCameras(CStateManager& mgr);
+  void UpdateCameras(float dt, CStateManager& mgr);
   void ResetCameras(CStateManager& mgr);
-  void RenderCameras(const CStateManager& mgr);
+  void Render(const CStateManager& mgr);
   TUniqueId GetCurrentCameraId() const;
   void SetCurrentCameraId(TUniqueId camId);
 
   CGameCamera& CurrentCamera(CStateManager& mgr);
   const CGameCamera& GetCurrentCamera(const CStateManager& mgr) const;
-  const CGameCamera& GetLastCineCamera(CStateManager& mgr) const;
-  TUniqueId GetLastCineCameraId() const;
+  const CGameCamera& GetCurrentCinematicCamera(CStateManager& mgr) const;
+  TUniqueId GetCurrentCinematicCameraId() const;
 
   void Update(float dt, CStateManager& mgr);
-  void UpdateSfxListener(CStateManager& mgr);
-  void UpdateRumble(float dt, CStateManager& mgr);
-  void UpdateFog(float dt, CStateManager& mgr);
+  void UpdateAudioListener(CStateManager& mgr);
+  void UpdateScreenShake(float dt, CStateManager& mgr);
+  void UpdateFilters(float dt, CStateManager& mgr);
   void UpdateCameraHints(float dt, CStateManager& mgr);
-  float CalculateFogDensity(CStateManager& mgr, const CScriptWater* water);
-  void SetFogDensity(float fogDensityTarget, float fogDensitySpeed);
+  float GetWaterFarDistance(CStateManager& mgr, const CScriptWater* water);
+  void SetWaterFogScale(float fogDensityTarget, float fogDensitySpeed);
 
   CFirstPersonCamera* FirstPersonCamera() const /* map */ { return x7c_fpCamera; }
   const CFirstPersonCamera* GetFirstPersonCamera() const { return x7c_fpCamera; }
@@ -68,7 +68,7 @@ public:
   void AddCinemaCamera(TUniqueId uid, CStateManager& mgr);
   void RemoveCinemaCamera(TUniqueId uid, CStateManager& mgr);
   void EnterCinematic(CStateManager& mgr);
-  void SkipCinematic(CStateManager& mgr);
+  void StopCinematics(CStateManager& mgr);
 
   int AddCameraShaker(const CCameraShakeData& data, bool sfx);
   void RemoveCameraShaker(int id);
@@ -77,11 +77,15 @@ public:
   bool IsInFirstPersonCamera() const;
   bool IsInterpolationCameraActive() const;
   bool ShouldBypassInterpolationCamera() const;
-  void InterpolateToBallCamera(const CTransform4f& xf, TUniqueId camId, const CVector3f& lookPos,
+  void SetupInterpolation(const CTransform4f& xf, TUniqueId camId, CVector3f lookPos,
                                float maxTime, float positionSpeed, float rotationSpeed,
                                bool sinusoidal, CStateManager& mgr);
-  void SkipBallCameraCinematic(CStateManager& mgr);
-  void ApplyCameraHint(const CScriptCameraHint& hint, CStateManager& mgr);
+  void CinematicCut(CStateManager& mgr);
+  void UseCameraHint(const CScriptCameraHint& hint, CStateManager& mgr);
+  void NoCameraHintsLeft(CStateManager& mgr);
+  void AddCameraHint(TUniqueId uid, CStateManager& mgr);
+  void DeleteCameraHint(TUniqueId uid, CStateManager& mgr);
+  void ReallyRemoveCameraHint(TUniqueId uid, CStateManager& mgr);
   // SetSpecialCameras__14CCameraManagerFR18CFirstPersonCameraR11CBallCamera
 
   void SetCurrentFov(float fov) { x3bc_curFov = fov; }
@@ -89,17 +93,23 @@ public:
   int GetFluidCounter() const { return x74_fluidCounter; }
   TUniqueId GetFluidId() const { return x78_fluidId; }
   // GetInsideFluid__14CCameraManagerCFv
+  bool IsInsideFluid() const { return xa0_26_inWater; }
   // WasInsideFluid__14CCameraManagerCFv
   // SetWasInsideFluid__14CCameraManagerFb
   void SetInsideFluid(bool isInside, TUniqueId fluidId);
 
   void ProcessInput(const CFinalInput& input, CStateManager& mgr);
 
-  static float DefaultThirdPersonFov();
-  static float DefaultFirstPersonFov();
-  static float DefaultNearPlane();
-  static float DefaultFarPlane();
-  static float DefaultAspect();
+  void SetPathCamera(TUniqueId id, CStateManager& mgr);
+  TUniqueId GetPathCameraId() const;
+  void SetSpindleCamera(TUniqueId id, CStateManager& mgr);
+  TUniqueId GetSpindleCameraId() const;
+
+  static float GetDefaultThirdPersonVerticalFOV();
+  static float GetDefaultFirstPersonVerticalFOV();
+  static float GetDefaultFirstPersonNearClipDistance();
+  static float GetDefaultFirstPersonFarClipDistance();
+  static float GetDefaultAspectRatio();
 
 private:
   TUniqueId x0_curCameraId;

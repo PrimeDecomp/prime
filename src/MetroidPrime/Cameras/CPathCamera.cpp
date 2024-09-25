@@ -7,9 +7,10 @@ CPathCamera::CPathCamera(TUniqueId uid, const rstl::string& name, const CEntityI
                          const CTransform4f& xf, bool active, float lengthExtent, float filterMag,
                          float filterProportion, float minEaseDist, float maxEaseDist, u32 flags,
                          EInitialSplinePosition initPos)
-: CGameCamera(uid, active, name, info, xf, CCameraManager::DefaultThirdPersonFov(),
-              CCameraManager::DefaultNearPlane(), CCameraManager::DefaultFarPlane(),
-              CCameraManager::DefaultAspect(), kInvalidUniqueId, false, 0)
+: CGameCamera(uid, active, name, info, xf, CCameraManager::GetDefaultThirdPersonVerticalFOV(),
+              CCameraManager::GetDefaultFirstPersonNearClipDistance(),
+              CCameraManager::GetDefaultFirstPersonFarClipDistance(),
+              CCameraManager::GetDefaultAspectRatio(), kInvalidUniqueId, false, 0)
 , x188_spline(flags & 1)
 , x1d4_pos(0.f)
 , x1d8_time(0.f)
@@ -88,15 +89,12 @@ void CPathCamera::ProcessInput(const CFinalInput&, CStateManager& mgr) {
   // Empty
 }
 
-void CPathCamera::Accept(IVisitor& visitor) override { visitor.Visit(*this); }
+void CPathCamera::Accept(IVisitor& visitor) { visitor.Visit(*this); }
 
-void CPathCamera::Render(const CStateManager& mgr) const {
-  
-}
+void CPathCamera::Render(const CStateManager& mgr) const {}
 
 void CPathCamera::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) {
   CGameCamera::AcceptScriptMsg(msg, uid, mgr);
-
 
   if (!GetActive() || msg != kSM_InitializedInArea) {
     return;

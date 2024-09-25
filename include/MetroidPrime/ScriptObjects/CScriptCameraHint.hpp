@@ -3,7 +3,7 @@
 
 #include "MetroidPrime/CActor.hpp"
 #include "MetroidPrime/Cameras/CBallCamera.hpp"
-#include "MetroidPrime/Cameras/CCameraHint.hpp"
+#include "MetroidPrime/Cameras/CCameraOverrideInfo.hpp"
 #include "MetroidPrime/TGameTypes.hpp"
 
 #include "Kyoto/Math/CTransform4f.hpp"
@@ -17,26 +17,40 @@ public:
   CScriptCameraHint(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
                     const CTransform4f& xf, bool active, int priority,
                     CBallCamera::EBallCameraBehaviour behavior, int overrideFlags, float minDist,
-                    float maxDist, float backwardsDist, const CCameraSpring&, const CCameraSpring&,
-                    float, const CVector3f&, const CVector3f&, float);
+                    float maxDist, float backwardsDist, const CVector3f& lookAtOffset,
+                    const CVector3f& chaseLookAtOffset, const CVector3f& ballToCam, float fov,
+                    float attitudeRange, float azimuthRange, float anglePerSecond,
+                    float clampVelRange, float clampRotRange, float elevation,
+                    float interpolateTime, float clampVelTime, float controlInterpDur);
 
   // CEntity
   ~CScriptCameraHint() override;
   void Accept(IVisitor& visitor) override;
   void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) override;
 
-  // GetOverrideFlags__17CScriptCameraHintCFv
-  // GetBehaviourType__17CScriptCameraHintCFv
-  int GetPriority() const { return xe8_priority; }
+  TUniqueId GetSenderId() const;
+  void ClearSenders();
+  void AddSender(TUniqueId uid);
+  void RemoveSender(TUniqueId uid, CStateManager& mgr);
+  void CheckLegacyConnections(CStateManager& mgr);
+
+  const CCameraOverrideInfo& GetInfo() const { return mOverrideInfo; } // Not real?
+  uint GetOverrideFlags() const { return mOverrideInfo.mOverrideFlags; }
+  CBallCamera::EBallCameraBehaviour GetBehaviourType() const { return mOverrideInfo.mBehaviour; }
+  int GetPriority() const { return mPriority; }
+  TUniqueId GetDelegatedCameraId() const { return mDelegatedCameraId; }
   // OverrideCameraInfo__17CScriptCameraHintFP11CBallCamera
 
+  uint GetSenderCount() const { return mSenders.size(); }
+  bool GetInactive() const { return mInactive; }
+
 private:
-  int xe8_priority;
-  CCameraHint xec_hint;
-  rstl::reserved_vector< TUniqueId, 8 > x150_helpers;
-  TUniqueId x164_delegatedCamera;
-  bool x166_inactive;
-  CTransform4f x168_origXf;
+  int mPriority;
+  CCameraOverrideInfo mOverrideInfo;
+  rstl::reserved_vector< TUniqueId, 8 > mSenders;
+  TUniqueId mDelegatedCameraId;
+  bool mInactive;
+  CTransform4f mOrigXf;
 };
 CHECK_SIZEOF(CScriptCameraHint, 0x198)
 

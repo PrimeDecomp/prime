@@ -117,7 +117,7 @@ public:
   void TeleportColliders(rstl::vector< CCameraCollider >& colliderList, CVector3f pos);
   void TeleportCamera(const CVector3f& pos, CStateManager& mgr);
   void TeleportCamera(const CTransform4f& xf, CStateManager& mgr);
-  void ResetPosition(CStateManager& mgr);
+  void TeleportLookAtStuff(CStateManager& mgr);
   void ResetToTweaks(CStateManager& mgr);
   CVector3f FindDesiredPosition(float distance, float elevation, CVector3f dir, CStateManager& mgr,
                                 bool fullTest);
@@ -138,6 +138,7 @@ public:
                           CStateManager& mgr);
   bool DetectCollision(const CVector3f& from, const CVector3f& to, float radius, float& d,
                        CStateManager& mgr);
+  CTransform4f FindDesiredTransform(CVector3f dir, CStateManager& mgr);
 
   const CVector3f& GetLookAtPosition() const { return x1d8_lookPos; }
   float GetDistance() const { return x190_curMinDistance; }
@@ -161,7 +162,11 @@ public:
   void SetWorldOffset(CVector3f vec); // TODO
   EBallCameraState GetState() const { return x400_state; }
   void SetState(EBallCameraState state);
-  void ApplyCameraHint(CStateManager& mgr);
+  void OverrideCameraInfo(CStateManager& mgr);
+  void UpdateLookAtPosition(float dt, CStateManager& mgr);
+
+  void SetClampVelTimer(float v) { x470_clampVelTimer = v; }
+  void SetClampVelRange(float v) { x474_clampVelRange = v; }
 
 private:
   struct SFailsafeState {

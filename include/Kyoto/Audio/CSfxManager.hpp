@@ -44,7 +44,7 @@ public:
   public:
     CBaseSfxWrapper(const bool looped, const short prio, const CSfxHandle handle,
                     const bool useAcoustics, const int area);
-    virtual ~CBaseSfxWrapper(){};
+    virtual ~CBaseSfxWrapper() {};
     virtual void SetActive(bool v);
     virtual void SetPlaying(bool v);
     virtual void SetRank(short v);
@@ -188,12 +188,13 @@ public:
   static const ushort kInternalInvalidSfxId; // 0xFFFF
   static const int kAllAreas;                // 0xFFFFFFFF
   static CSfxHandle AddEmitter(const SND_FXID id, const CVector3f& pos, const CVector3f& dir,
-                               const bool useAcoustics, const bool looped,
+                               const bool useAcoustics = false, const bool looped = false,
                                const short prio = kMedPriority, const int areaId = kAllAreas);
   static CSfxHandle AddEmitter(const SND_FXID id, const CVector3f& pos, const CVector3f& dir,
-                               const uchar vol, const bool useAcoustics, const bool looped,
-                               const short prio = kMedPriority, const int areaId = kAllAreas);
-  static CSfxHandle AddEmitter(CAudioSys::C3DEmitterParmData& parmData, bool useAcoustics,
+                               const uchar vol, const bool useAcoustics = false,
+                               const bool looped = false, const short prio = kMedPriority,
+                               const int areaId = kAllAreas);
+  static CSfxHandle AddEmitter(CAudioSys::C3DEmitterParmData& parmData, bool useAcoustics = false,
                                const short prio = kMedPriority, const bool looped = false,
                                const int areaId = kAllAreas);
 
@@ -209,9 +210,9 @@ public:
   static void SetDuration(CSfxHandle handle, float duration);
   static ushort GetReverbAmount();
 
-  static CSfxHandle SfxStart(ushort id, short vol, short pan, bool useAcoustics,
-                             short prio = kMaxPriority, bool looped = false,
-                             int areaId = kAllAreas);
+  static CSfxHandle SfxStart(const ushort id, const short vol, const short pan,
+                             const bool useAcoustics = false, const short prio = kMaxPriority,
+                             const bool looped = false, const int areaId = kAllAreas);
   static void SfxStop(CSfxHandle handle);
   static void SfxVolume(CSfxHandle handle, uchar volume);
   static void SfxSpan(CSfxHandle, uchar);

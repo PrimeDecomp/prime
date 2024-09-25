@@ -169,7 +169,7 @@ void CBallCamera::TeleportCamera(const CVector3f& pos, CStateManager& mgr) {
   }
 }
 
-void CBallCamera::ResetPosition(CStateManager& mgr) {
+void CBallCamera::TeleportLookAtStuff(CStateManager& mgr) {
   CVector3f pos = mgr.GetPlayer()->GetBallPosition();
   x1d8_lookPos = pos;
   x1d8_lookPos.SetZ(x1d8_lookPos.GetZ() + x1b4_lookAtOffset.GetZ());
@@ -205,7 +205,7 @@ void CBallCamera::ResetToTweaks(CStateManager& mgr) {
   SetElevation(gpTweakBall->GetBallCameraElevation());
   x1ac_attitudeRange = M_PIF / 2.f;
   x1b0_azimuthRange = M_PIF / 2.f;
-  SetFovInterpolation(GetFov(), CCameraManager::DefaultThirdPersonFov(), 1.f, 0.f);
+  InterpolateFOV(GetFov(), CCameraManager::GetDefaultThirdPersonVerticalFOV(), 1.f, 0.f);
   x1a8_targetAnglePerSecond = gpTweakBall->GetBallCameraAnglePerSecond();
   x18d_29_noElevationInterp = false;
   x18d_30_directElevation = false;
@@ -245,7 +245,7 @@ void CBallCamera::Reset(const CTransform4f& xf, CStateManager& mgr) {
       FindDesiredPosition(GetDistance(), GetElevation(), xf.GetForward(), mgr, false);
 
   if (const CPlayer* player = TCastToConstPtr< CPlayer >(mgr.GetObjectById(GetWatchedObject()))) {
-    ResetPosition(mgr);
+    TeleportLookAtStuff(mgr);
     x310_idealLookVec = x1b4_lookAtOffset;
     x31c_predictedLookPos = GetLookAtPosition();
     CVector3f dist = GetLookAtPosition() - desiredPos;

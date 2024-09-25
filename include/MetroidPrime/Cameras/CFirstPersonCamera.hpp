@@ -26,7 +26,7 @@ public:
   // UpdateTransform__18CFirstPersonCameraFR13CStateManagerf
   // GetGunFollowTransform__18CFirstPersonCameraCFv
   // SetLockCamera__18CFirstPersonCameraFb
-  void SkipCinematic();
+  void CancelCinematicOffset();
 
 private:
   float x188_orbitCameraSpeed;

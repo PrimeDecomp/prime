@@ -580,9 +580,9 @@ void CScriptSpecialFunction::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId
     case kSF_FogFader: {
       float speed = x100_float2;
       if (msg == kSM_Increment) {
-        mgr.CameraManager()->SetFogDensity(xfc_float1, speed);
+        mgr.CameraManager()->SetWaterFogScale(xfc_float1, speed);
       } else if (msg == kSM_Decrement) {
-        mgr.CameraManager()->SetFogDensity(1.f, speed);
+        mgr.CameraManager()->SetWaterFogScale(1.f, speed);
       }
       break;
     }

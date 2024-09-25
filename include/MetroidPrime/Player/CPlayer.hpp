@@ -215,6 +215,7 @@ public:
   void DoSfxEffects(CSfxHandle sfx);
   void UnFreeze(CStateManager& mgr);
   void UpdateCinematicState(CStateManager& mgr);
+  bool IsMorphBallTransitioning() const;
 
   CPlayerGun* PlayerGun() { return x490_gun.get(); }
   const CPlayerGun* GetPlayerGun() const { return x490_gun.get(); }

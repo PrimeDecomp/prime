@@ -19,6 +19,7 @@ public:
   // typedef const_pointer_iterator< T, reserved_vector< T, N >, void > const_iterator;
   typedef T* iterator;
   typedef const T* const_iterator;
+  typedef T value_type;
 
   inline iterator begin() { return iterator(data()); }
   inline const_iterator begin() const { return const_iterator(data()); }
@@ -71,16 +72,15 @@ public:
   inline const T& back() const { return data()[x0_count - 1]; }
   inline T& operator[](int idx) { return data()[idx]; }
   inline const T& operator[](int idx) const { return data()[idx]; }
-  void erase(iterator it) {
-    if (it < begin()) {
-      return;
-    }
-    if (it < end()) {
+  iterator erase(iterator it) {
+    if (it >= begin() && it < end()) {
       for (iterator j = it; j < end() - 1; ++j) {
         *j = *(j + 1);
       }
       --x0_count;
+      return it;
     }
+    return end();
   }
 
   void resize(int count, const T& item) {
