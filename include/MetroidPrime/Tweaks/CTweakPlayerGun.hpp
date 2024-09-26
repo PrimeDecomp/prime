@@ -91,7 +91,7 @@ public:
 
   const SWeaponInfo& GetBeamInfo(int beam) const;
 
-private:
+// private:
   float x4_upLookAngle;
   float x8_downLookAngle;
   float xc_verticalSpread;

@@ -172,7 +172,7 @@ bool CMVEImplosion::GetValue(int frame, CVector3f& pVel, CVector3f& pPos) const 
     return false;
   }
 
-  CVector3f dvs = (1.f / dvm) * dv;
+  CVector3f dvs = dv / dvm;
   float b;
   x8_magScale->GetValue(frame, b);
   pVel += b * dvs;
@@ -213,7 +213,7 @@ bool CMVELinearImplosion::GetValue(int frame, CVector3f& pVel, CVector3f& pPos) 
     return false;
   }
 
-  CVector3f dvs = (1.f / dvm) * dv;
+  CVector3f dvs = dv / dvm;
   float b;
   x8_magScale->GetValue(frame, b);
   pVel = b * dvs;
@@ -254,7 +254,7 @@ bool CMVEExponentialImplosion::GetValue(int frame, CVector3f& pVel, CVector3f& p
     return false;
   }
 
-  CVector3f dvs = (1.f / dvm) * dv;
+  CVector3f dvs = dv / dvm;
   float b;
   x8_magScale->GetValue(frame, b);
   pVel += dvm * (b * dvs);
@@ -285,10 +285,10 @@ bool CMVESwirl::GetValue(int frame, CVector3f& pVel, CVector3f& pPos) const {
   xc_filterGain->GetValue(frame, c);
   x10_tangentialVelocity->GetValue(frame, d);
 
-  CVector3f cross = CVector3f::Cross(b, posToHelix);
+  // CVector3f cross = ;
   pVel = c * (
     b * CVector3f::Dot(b, pVel) + 
-    d * cross
+    d * CVector3f::Cross(b, posToHelix)
   ) + (1.f - c) * pVel;
   return false;
 }

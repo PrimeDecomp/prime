@@ -55,9 +55,15 @@ public:
   }
   inline float MagSquared() const { return GetX() * GetX() + GetY() * GetY() + GetZ() * GetZ(); }
   static CVector3f Cross(const CVector3f& lhs, const CVector3f& rhs) {
-    const float x = (lhs.GetY() * rhs.GetZ()) - (rhs.GetY() * lhs.GetZ());
-    const float y = (lhs.GetZ() * rhs.GetX()) - (rhs.GetZ() * lhs.GetX());
-    const float z = (lhs.GetX() * rhs.GetY()) - (rhs.GetX() * lhs.GetY());
+    const float lX = lhs.mX;
+    const float lY = lhs.mY;
+    const float lZ = lhs.mZ;
+    const float rX = rhs.mX;
+    const float rY = rhs.mY;
+    const float rZ = rhs.mZ;
+    float z = lX * rY - rX * lY;
+    float y = lZ * rX - rZ * lX;
+    float x = lY * rZ - rY * lZ;
     return CVector3f(x, y, z);
   }
 
@@ -92,16 +98,9 @@ public:
     mZ *= v;
     return *this;
   }
-  CVector3f& operator/=(const float v) {
-    mX /= v;
-    mY /= v;
-    mZ /= v;
-    return *this;
-  }
+  CVector3f& operator/=(const float v) { return *this *= (1.f / v); }
 
-  CVector2f ToVec2f() const {
-    return CVector2f(mX, mY);
-  }
+  CVector2f ToVec2f() const { return CVector2f(mX, mY); }
 
   static float Dot(const CVector3f& a, const CVector3f& b) {
     return (a.GetX() * b.GetX()) + (a.GetY() * b.GetY()) + (a.GetZ() * b.GetZ());
@@ -176,11 +175,13 @@ inline CVector3f operator*(const float f, const CVector3f& vec) {
 }
 
 inline CVector3f operator/(const CVector3f& vec, const float f) {
-  float x = vec.GetX() / f;
-  float y = vec.GetY() / f;
-  float z = vec.GetZ() / f;
+  float n = (1.f / f);
+  float x = vec.GetX() * n;
+  float y = vec.GetY() * n;
+  float z = vec.GetZ() * n;
   return CVector3f(x, y, z);
 }
+
 inline CVector3f operator-(const CVector3f& vec) {
   return CVector3f(-vec.GetX(), -vec.GetY(), -vec.GetZ());
 }

@@ -155,7 +155,7 @@ public:
   float GetGravityDamageReduction() const { return x304_gravityDamageReduction; }
   float GetPhazonDamageReduction() const { return x308_phazonDamageReduction; }
 
-private:
+// private:
   float x4_maxTranslationalAcceleration[8];
   float x24_maxRotationalAcceleration[8];
   float x44_translationFriction[8];

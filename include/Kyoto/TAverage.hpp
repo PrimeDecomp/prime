@@ -7,7 +7,14 @@
 #include "rstl/vector.hpp"
 
 template < typename T >
-T GetAverageValue(const T* ptr, int count); // TODO
+T GetAverageValue(const T* ptr, int count) {
+  const T* end = ptr + count;
+  T ret = *ptr++;
+  for (; ptr < end; ++ptr) {
+    ret = ret + *ptr;
+  }
+  return ret / count;
+}
 
 template < typename T >
 class TAverage : rstl::vector< T > {

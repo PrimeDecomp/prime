@@ -6,12 +6,13 @@
 #include "Kyoto/Math/CTransform4f.hpp"
 #include "Kyoto/Math/CVector2f.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
+#include "Kyoto/TOneStatic.hpp"
 
 #include "rstl/reserved_vector.hpp"
 
 class CStateManager;
 
-class CPlayerCameraBob {
+class CPlayerCameraBob : public TOneStatic< CPlayerCameraBob > {
 public:
   enum ECameraBobType {
     kCBT_Zero,
@@ -29,7 +30,37 @@ public:
     kCBS_Unspecified,
   };
 
-  CPlayerCameraBob(ECameraBobType type, const CVector2f& vec, float bobPeriod);
+  static float kCameraBobExtentX;
+  static float kCameraBobExtentY;
+  static float kCameraBobPeriod;
+  static float kOrbitBobScale;
+  static float kMaxOrbitBobScale;
+  static float kSlowSpeedPeriodScale;
+  static float kTargetMagnitudeTrackingRate;
+  static float kLandingBobSpringConstant;
+  static float lbl_805A7398;
+  static float lbl_805A739C;
+  static float kLandingBobSpringConstant2;
+  static float lbl_805A73A4;
+  static float kViewWanderRadius;
+  static float kViewWanderSpeedMin;
+  static float kViewWanderSpeedMax;
+  static float kViewWanderRollVariation;
+  static float kGunBobMagnitude;
+  static float kHelmetBobMagnitude;
+  static float kLandingBobDamping;
+  static float kLandingBobDamping2;
+  static float kCameraDamping;
+  static float lbl_805A73C0;
+  static float lbl_805A73C4;
+  static float lbl_805A73C8;
+  static float lbl_805A73CC;
+  static float lbl_805A73D0;
+  static float lbl_805A73D4;
+
+  CPlayerCameraBob(ECameraBobType type,
+                   const CVector2f& vec = CVector2f(kCameraBobExtentX, kCameraBobExtentY),
+                   float bobPeriod = kCameraBobPeriod);
 
   CTransform4f GetViewWanderTransform() const;
   CVector3f GetHelmetBobTranslation() const;
@@ -85,35 +116,6 @@ private:
   CTransform4f xd0_viewWanderXf;
   float x100_wanderMagnitude;
   float x104_targetWanderMagnitude;
-
-public:
-  static float kCameraBobExtentX;
-  static float kCameraBobExtentY;
-  static float kCameraBobPeriod;
-  static float kOrbitBobScale;
-  static float kMaxOrbitBobScale;
-  static float kSlowSpeedPeriodScale;
-  static float kTargetMagnitudeTrackingRate;
-  static float kLandingBobSpringConstant;
-  static float lbl_805A7398;
-  static float lbl_805A739C;
-  static float kLandingBobSpringConstant2;
-  static float lbl_805A73A4;
-  static float kViewWanderRadius;
-  static float kViewWanderSpeedMin;
-  static float kViewWanderSpeedMax;
-  static float kViewWanderRollVariation;
-  static float kGunBobMagnitude;
-  static float kHelmetBobMagnitude;
-  static float kLandingBobDamping;
-  static float kLandingBobDamping2;
-  static float kCameraDamping;
-  static float lbl_805A73C0;
-  static float lbl_805A73C4;
-  static float lbl_805A73C8;
-  static float lbl_805A73CC;
-  static float lbl_805A73D0;
-  static float lbl_805A73D4;
 };
 CHECK_SIZEOF(CPlayerCameraBob, 0x108)
 

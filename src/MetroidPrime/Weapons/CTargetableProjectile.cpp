@@ -43,7 +43,7 @@ bool CTargetableProjectile::Explode(const CVector3f& pos, const CVector3f& norma
             CSfxManager::kInternalInvalidSfxId, false);
         mgr.AddObject(projectile);
         projectile->AddMaterial(kMT_Orbit, mgr);
-        mgr.Player()->ResetAimTargetPrediction(uid);
+        mgr.Player()->SetAimTargetId(uid);
         mgr.Player()->SetOrbitTargetId(uid, mgr);
         SetHitProjectileOwner(kInvalidUniqueId);
       }

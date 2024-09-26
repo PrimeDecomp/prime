@@ -2,8 +2,11 @@
 #define _CGRAPPLEARM
 
 #include "types.h"
-#include "rstl/single_ptr.hpp"
+
 #include "Kyoto/Audio/CSfxHandle.hpp"
+#include "Kyoto/Math/CTransform4f.hpp"
+
+#include "rstl/single_ptr.hpp"
 
 class CVector3f;
 class CStateManager;
@@ -34,6 +37,8 @@ public:
   void EnterStruck(CStateManager&, float, bool, bool);
   void DisconnectGrappleBeam();
 
+  void SetTransform(const CTransform4f& xf) { *(CTransform4f*)(&x0_pad[0x220]) = xf; }
+
   // EArmState GetAnimState() const { return x334_animState; }
   bool GetActive() const { return x3b2_24_active; }
   bool BeamActive() const { return x3b2_25_beamActive; }
@@ -42,8 +47,8 @@ public:
   bool IsSuitLoading() const { return x3b2_29_suitLoading; }
 
 private:
-  uchar x0_pad[0x328];
-  rstl::single_ptr<CGunController> x328_gunController;
+  uchar x0_pad[0x328]; // TODO
+  rstl::single_ptr< CGunController > x328_gunController;
   CSfxHandle x32c_grappleLoopSfx;
   CSfxHandle x330_swooshSfx;
   EArmState x334_animState;

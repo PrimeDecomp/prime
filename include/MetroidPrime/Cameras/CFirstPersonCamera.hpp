@@ -24,7 +24,7 @@ public:
   void SetScriptPitchId(TUniqueId uid) { x1c4_pitchId = uid; }
   // UpdateElevation__18CFirstPersonCameraFR13CStateManager
   // UpdateTransform__18CFirstPersonCameraFR13CStateManagerf
-  // GetGunFollowTransform__18CFirstPersonCameraCFv
+  const CTransform4f& GetGunFollowTransform() const;
   // SetLockCamera__18CFirstPersonCameraFb
   void CancelCinematicOffset();
 

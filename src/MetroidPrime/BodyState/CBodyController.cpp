@@ -192,7 +192,7 @@ void CBodyController::UnFreeze() {
   x0_actor->SetVolume(127);
   CPhysicsActor* act = TCastToPtr< CPhysicsActor >(GetOwner());
   act->SetConstantForceWR(x314_backedUpForce);
-  act->SetVelocityWR(x314_backedUpForce * (1.f / act->GetMass()));
+  act->SetVelocityWR(x314_backedUpForce / act->GetMass());
 }
 
 float CBodyController::GetPercentageFrozen() const {

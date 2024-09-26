@@ -171,8 +171,9 @@ public:
   void SetFidgetAnimBits(int, bool);
   void AsyncLoadSuit(CStateManager&);
   void ReturnToRestPose();
-  void DropPowerBomb(CStateManager&) const;
+  TUniqueId DropPowerBomb(CStateManager&) const;
   void SetPhazonBeamFeedback(bool);
+  void SetAssistAimTransform(const CTransform4f& xf) { x478_assistAimXf = xf; }
 
   float GetChargeBeamFactor() const { return x834_24_charging ? x340_chargeBeamFactor : 0.f; }
 
@@ -181,6 +182,9 @@ public:
   int GetStateFlags() const { return x2f8_stateFlags; }
   void SetStateFlags(int flags) { x2f8_stateFlags = flags; }
   bool IsCharging() const { return x834_24_charging; }
+  void SetTransform(CTransform4f xf) { x3e8_xf = xf; }
+  CGrappleArm& GetGrappleArm() const { return *x740_grappleArm.get(); }
+  bool IsFidgeting() const { return x833_24_notFidgeting; }
 
 private:
   class CGunMorph {

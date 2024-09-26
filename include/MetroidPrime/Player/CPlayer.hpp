@@ -15,7 +15,6 @@
 #include "rstl/vector.hpp"
 
 class CPlayerGun;
-class CFailsafeTest;
 class CMorphBall;
 class CPlayerCameraBob;
 
@@ -45,7 +44,7 @@ enum EPlayerOrbitRequest {
   kOR_LostGrappleLineOfSight,
 };
 
-class CPlayer : public CPhysicsActor {
+class CPlayer : public CPhysicsActor, public TOneStatic< CPlayer > {
   struct CVisorSteam {
     float x0_curTargetAlpha;
     float x4_curAlphaInDur;
@@ -60,11 +59,11 @@ class CPlayer : public CPhysicsActor {
     bool x28_affectsThermal;
 
   public:
-    CVisorSteam(float targetAlpha, float alphaInDur, float alphaOutDur, CAssetId tex)
-    : x0_curTargetAlpha(targetAlpha)
-    , x4_curAlphaInDur(alphaInDur)
-    , x8_curAlphaOutDur(alphaOutDur)
-    , xc_tex(tex) {}
+    CVisorSteam(float targetAlpha, float alphaInDur, float alphaOutDur, CAssetId tex);
+    // : x0_curTargetAlpha(targetAlpha)
+    // , x4_curAlphaInDur(alphaInDur)
+    // , x8_curAlphaOutDur(alphaOutDur)
+    // , xc_tex(tex) {}
     CAssetId GetTextureId() const { return xc_tex; }
     void SetSteam(float targetAlpha, float alphaInDur, float alphaOutDur, CAssetId txtr,
                   bool affectsThermal);
@@ -79,11 +78,12 @@ class CPlayer : public CPhysicsActor {
     void AddSample(int, const CVector3f&, const CVector3f&, const CVector2f&);
     bool Passes();
     void Reset();
+
   private:
-    rstl::reserved_vector<int, 20> x0_;
-    rstl::reserved_vector<CVector3f, 20> x54_;
-    rstl::reserved_vector<CVector3f, 20> x148_;
-    rstl::reserved_vector<CVector2f, 20> x23c_;
+    rstl::reserved_vector< int, 20 > x0_;
+    rstl::reserved_vector< CVector3f, 20 > x54_;
+    rstl::reserved_vector< CVector3f, 20 > x148_;
+    rstl::reserved_vector< CVector2f, 20 > x23c_;
   };
 
 public:
@@ -156,6 +156,10 @@ public:
     kGH_Holstering,
   };
 
+  CPlayer(TUniqueId uid, const CTransform4f& xf, const CAABox& aabb, CAssetId resId,
+          const CVector3f& playerScale, float mass, float stepUp, float stepDown, float ballRadius,
+          const CMaterialList& ml);
+
   // CEntity
   ~CPlayer() override;
   void Accept(IVisitor& visitor) override;
@@ -211,11 +215,39 @@ public:
   void SetOrbitRequestForTarget(TUniqueId id, EPlayerOrbitRequest req, CStateManager& mgr);
   void AddOrbitDisableSource(CStateManager& mgr, TUniqueId addId);
   void RemoveOrbitDisableSource(TUniqueId uid);
-  void ResetAimTargetPrediction(TUniqueId target);
+  void SetAimTargetId(TUniqueId target);
   void DoSfxEffects(CSfxHandle sfx);
   void UnFreeze(CStateManager& mgr);
   void UpdateCinematicState(CStateManager& mgr);
   bool IsMorphBallTransitioning() const;
+  void InitialiseAnimation();
+  void LoadAnimationTokens();
+  void HolsterGun(CStateManager& mgr);
+  void ResetGun(CStateManager& mgr);
+  void DrawGun(CStateManager& mgr);
+  bool CheckPostGrapple() const;
+  void UpdateGunState(const CFinalInput& input, CStateManager& mgr);
+  void UpdateAimTargetPrediction(const CTransform4f& xf, CStateManager& mgr);
+  void UpdateAssistedAiming(const CTransform4f& xf, CStateManager& mgr);
+  void UpdateGunTransform(const CVector3f& gunPos, CStateManager& mgr);
+  const CTransform4f& GetFirstPersonCameraTransform(CStateManager& mgr) const;
+  void UpdateDebugCamera(CStateManager& mgr);
+  void UpdateArmAndGunTransforms(float dt, CStateManager& mgr);
+  void UpdateGrappleArmTransform(const CVector3f& offset, CStateManager& mgr, float dt);
+  void ForceGunOrientation(const CTransform4f& xf, CStateManager& mgr);
+  void Update(float dt, CStateManager& mgr);
+  void UpdateMorphBallTransition(float dt, CStateManager& mgr);
+  void ApplySubmergedPitchBend(CSfxHandle sfx);
+  void UpdateAimTarget(CStateManager& mgr);
+  void UpdateAimTargetTimer(float dt);
+  void UpdateOrbitModeTimer(float dt);
+  void UpdateOrbitPreventionTimer(float dt);
+  void UpdateGunAlpha();
+  void UpdateVisorTransition(float dt, CStateManager& mgr);
+  void UpdatePlayerSounds(float dt);
+  bool ShouldSampleFailsafe(CStateManager& mgr);
+  bool IsEnergyLow(CStateManager& mgr);
+  bool StartSamusVoiceSfx(ushort sfx, short vol, int prio);
 
   CPlayerGun* PlayerGun() { return x490_gun.get(); }
   const CPlayerGun* GetPlayerGun() const { return x490_gun.get(); }
@@ -237,10 +269,12 @@ public:
   EGrappleState GetGrappleState() const { return x3b8_grappleState; }
   bool IsInFreeLook() const { return x3dc_inFreeLook; }
   bool GetFreeLookStickState() const { return x3de_lookAnalogHeld; }
+  TUniqueId GetAimTargetId() const { return x3f4_aimTarget; }
   EPlayerCameraState GetCameraState() const { return x2f4_cameraState; }
   void SetCameraState(EPlayerCameraState state, CStateManager& mgr);
   EGunHolsterState GetGunHolsterState() const { return x498_gunHolsterState; }
   NPlayer::EPlayerMovementState GetPlayerMovementState() const { return x258_movementState; }
+  const CVector3f& GetAssistedTargetAim() const { return x480_assistedTargetAim; }
 
   void Teleport(const CTransform4f& xf, CStateManager& mgr, bool resetBallCam);
   void SetSpawnedMorphBallState(EPlayerMorphBallState state, CStateManager& mgr);
@@ -342,7 +376,7 @@ private:
   float x494_gunAlpha;
   EGunHolsterState x498_gunHolsterState;
   float x49c_gunHolsterRemTime;
-  rstl::single_ptr< CFailsafeTest > x4a0_failsafeTest;
+  rstl::single_ptr< CInputFilter > x4a0_inputFilter;
   TReservedAverage< float, 20 > x4a4_moveSpeedAvg;
   float x4f8_moveSpeed;
   float x4fc_flatMoveSpeed;
@@ -395,10 +429,7 @@ private:
   CVector3f x794_lastVelocity;
   CVisorSteam x7a0_visorSteam;
   CPlayerState::EPlayerSuit x7cc_transitionSuit;
-  rstl::auto_ptr< CAnimRes > x7d0_animRes;
-  CVector3f x7d8_beamScale;
-  bool x7e4_;
-  uint x7e8_;
+  CAnimRes x7d0_animRes;
   CPlayerState::EBeamId x7ec_beam;
   rstl::single_ptr< CModelData > x7f0_ballTransitionBeamModel;
   CTransform4f x7f4_gunWorldXf;

@@ -27,7 +27,13 @@ public:
   , x14_canLoop(loop)
   , x18_defaultAnim(defaultAnim) {}
 
-  // name?
+  CAssetId GetId() const { return x0_ancsId; }
+  // or GetBodyType__8CAnimResCFv ?
+  int GetCharacterNodeId() const { return x4_charIdx; }
+  const CVector3f& GetScale() const { return x8_scale; }
+  int GetDefaultAnim() const { return x18_defaultAnim; }
+  bool CanLoop() const { return x14_canLoop; }
+
   static const int kDefaultCharIdx;
 };
 CHECK_SIZEOF(CAnimRes, 0x1c)

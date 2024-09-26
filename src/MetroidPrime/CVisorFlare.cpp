@@ -65,7 +65,7 @@ void CVisorFlare::Update(float dt, const CVector3f& pos, const CActor* act, CSta
     CVector3f camPos = mgr.GetCameraManager()->GetCurrentCamera(mgr).GetTranslation();
     CVector3f camDiff = pos - camPos;
     float mag = camDiff.Magnitude();
-    camDiff *= (1.f / mag);
+    camDiff /= mag;
 
     CMaterialFilter nearMaterialList = CMaterialFilter::MakeInclude(CMaterialList(kMT_Occluder));
     TEntityList nearVec;

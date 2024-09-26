@@ -234,17 +234,17 @@ void CPhysicsActor::UseCollisionImpulses() {
 }
 
 void CPhysicsActor::MoveToWR(const CVector3f& trans, float d) {
-  xfc_constantForce = (trans - GetTransform().GetTranslation()) * GetMass() * (1.f / d);
+  xfc_constantForce = (trans - GetTransform().GetTranslation()) * GetMass() / d;
   ComputeDerivedQuantities();
 }
 
 void CPhysicsActor::MoveToInOneFrameWR(const CVector3f& trans, float d) {
-  x18c_moveImpulse += (trans - GetTranslation()) * GetMass() * (1.f / d);
+  x18c_moveImpulse += (trans - GetTranslation()) * GetMass() / d;
 }
 
 CVector3f CPhysicsActor::GetMoveToORImpulseWR(const CVector3f& trans, float d) const {
   CVector3f impulse = GetTransform().Rotate(trans);
-  return (GetMass() * impulse) * (1.f / d);
+  return (GetMass() * impulse) / d;
 }
 
 CVector3f CPhysicsActor::GetRotateToORAngularMomentumWR(const CQuaternion& q, float d) const {
@@ -396,6 +396,6 @@ void CPhysicsActor::SetCollisionAccuracyModifier(float modifier) {
 
 float CPhysicsActor::GetMaximumCollisionVelocity() const { return x238_maximumCollisionVelocity; }
 
-void CPhysicsActor::SetMaximumCollisionVelocity(float velocity) {
+void CPhysicsActor::SetMaxVelocityAfterCollision(float velocity) {
   x238_maximumCollisionVelocity = velocity;
 }

@@ -66,7 +66,15 @@ public:
   CModelData();
   CModelData(const CAnimRes&);
   CModelData(const CStaticRes&);
-  CModelData(const CModelData& other);
+  CModelData(const CModelData& other)
+  : x0_scale(other.x0_scale)
+  , xc_animData(other.xc_animData)
+  , x14_24_renderSorted(other.x14_24_renderSorted)
+  , x14_25_sortThermal(other.x14_25_sortThermal)
+  , x18_ambientColor(other.x18_ambientColor)
+  , x1c_normalModel(other.x1c_normalModel)
+  , x2c_xrayModel(other.x2c_xrayModel)
+  , x3c_infraModel(other.x3c_infraModel) {}
   ~CModelData();
 
   CAdvancementDeltas AdvanceAnimation(float dt, CStateManager& mgr, TAreaId aid, bool advTree);

@@ -129,13 +129,14 @@ public:
   void SetAngularImpulseWR(const CAxisAngle& angularImpulse) {
     x180_angularImpulse = angularImpulse;
   }
+  void SetLastNonCollidingState(const CMotionState& state) { x1f4_lastNonCollidingState = state; }
 
   float GetCoefficientOfRestitutionModifier() const;
   void SetCoefficientOfRestitutionModifier(float modifier);
   float GetCollisionAccuracyModifier() const;
   void SetCollisionAccuracyModifier(float modifier);
   float GetMaximumCollisionVelocity() const;
-  void SetMaximumCollisionVelocity(float velocity);
+  void SetMaxVelocityAfterCollision(float velocity);
 
   CPhysicsState GetPhysicsState() const;
   void SetPhysicsState(const CPhysicsState& state);
@@ -155,7 +156,7 @@ public:
   CVector3f GetMoveToORImpulseWR(const CVector3f& impulse, float d) const;
   CVector3f GetRotateToORAngularMomentumWR(const CQuaternion& q, float d) const;
   void RotateToWR(const CQuaternion&, float);
-  
+
   void MoveInOneFrameOR(const CVector3f& trans, float d);
   void RotateInOneFrameOR(const CQuaternion&, float);
 

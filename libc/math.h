@@ -80,7 +80,7 @@ _MATH_INLINE float fmodf(float x, float m) { return (float)fmod((double)x, (doub
 float tanf(float x);
 double asin(double x);
 double acos(double x);
-float acosf(float x);
+_MATH_INLINE float acosf(float x) { return (float)acos((double)x); }
 double log(double x);
 double exp(double x);
 

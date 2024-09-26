@@ -1097,6 +1097,6 @@ void CPlayerGun::AsyncLoadSuit(CStateManager&) {}
 
 void CPlayerGun::ReturnToRestPose() {}
 
-void CPlayerGun::DropPowerBomb(CStateManager&) const {}
+TUniqueId CPlayerGun::DropPowerBomb(CStateManager&) const {}
 
 void CPlayerGun::SetPhazonBeamFeedback(bool) {}

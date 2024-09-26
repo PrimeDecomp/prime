@@ -38,14 +38,12 @@ public:
     const char* mInfo;
   };
 
-  class Comparison {
-
-  };
+  class Comparison {};
 
   CCollisionPrimitive(const CMaterialList& list);
 
   virtual uint GetTableIndex() const = 0;
-  virtual void SetMaterial(const CMaterialList&);
+  virtual void SetMaterial(const CMaterialList& other) { x8_material = other; }
   virtual const CMaterialList& GetMaterial() const;
   virtual CAABox CalculateAABox(const CTransform4f&) const = 0;
   virtual CAABox CalculateLocalAABox() const = 0;

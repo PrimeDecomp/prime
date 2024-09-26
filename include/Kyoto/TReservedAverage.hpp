@@ -15,14 +15,28 @@ public:
   TReservedAverage(const T& value) {
     // resize(value, N); TODO
   }
-  void AddValue(const T& value) {
-    this->push_back(value);
-    for (int i = this->size() - 1; i > 0; --i) {
-      this->operator[](i) = this->operator[](i - 1);
-    }
-    this->operator[](0) = value;
-  }
+  void AddValue(const T& value);
   rstl::optional_object< T > GetAverage() const;
 };
+
+template < typename T, int N >
+/* inline */ void TReservedAverage< T, N >::AddValue(const T& value) {
+  if (this->size() < this->capacity()) {
+    this->push_back(value);
+  }
+  for (int i = this->size() - 1; i > 0; --i) {
+    this->operator[](i) = this->operator[](i - 1);
+  }
+  this->operator[](0) = value;
+}
+
+template < typename T, int N >
+rstl::optional_object< T > TReservedAverage< T, N >::GetAverage() const {
+  if (this->empty()) {
+    return rstl::optional_object_null();
+  } else {
+    return GetAverageValue(this->data(), this->size());
+  }
+}
 
 #endif // _TRESERVEDAVERAGE

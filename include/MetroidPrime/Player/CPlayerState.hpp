@@ -123,7 +123,7 @@ public:
   void UpdateVisorTransition(float dt);
   void StartTransitionToVisor(EPlayerVisor visor);
   void ResetVisor();
-  bool IsPlayerAlive() const { return x0_24_alive; }
+  bool IsAlive() const { return x0_24_alive; }
 
   bool ItemEnabled(EItemType type) const;
   void DisableItem(EItemType type);

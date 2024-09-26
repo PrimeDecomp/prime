@@ -100,11 +100,12 @@ void CPowerBomb::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CState
   case kSM_Registered:
     mgr.AddWeaponId(GetOwnerId(), GetWeaponType());
     OrigDamageInfo().SetRadius(0.f);
-    if (mgr.GetPlayerState()->IsPlayerAlive()) {
+    if (mgr.GetPlayerState()->IsAlive()) {
       CSfxManager::AddEmitter(SFXsfx0710, GetTranslation(), CVector3f::Zero(), true, false);
       mgr.InformListeners(GetTranslation(), kLNT_BombExplode);
     } else {
-      mgr.Player()->DoSfxEffects(CSfxManager::SfxStart(SFXsfx073F, 0x7f, 0x40, false));
+      mgr.Player()->DoSfxEffects(
+          CSfxManager::SfxStart(SFXsfx073F, 127, 64, false, CSfxManager::kMaxPriority));
     }
     break;
 

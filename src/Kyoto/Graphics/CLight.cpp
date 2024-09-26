@@ -159,5 +159,5 @@ CVector3f CLight::GetNormalIndependentLightingAtPoint(const CVector3f& point) co
     return floatCol;
 
   float dist = rstl::max_val((x0_pos - point).Magnitude(), gkEpsilon32);
-  return floatCol * (1.f / (dist * (x2c_distQ * dist) + (x28_distL * dist + x24_distC)));
+  return floatCol / (dist * (x2c_distQ * dist) + (x28_distL * dist + x24_distC));
 }

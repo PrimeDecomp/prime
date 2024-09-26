@@ -20,6 +20,15 @@ private:
 };
 
 class CPlayerEnergyDrain {
+public:
+  CPlayerEnergyDrain(uint numSources);
+
+  void AddEnergyDrainSource(TUniqueId id, float intensity);
+  void RemoveEnergyDrainSource(TUniqueId id);
+  float GetEnergyDrainIntensity() const;
+  float GetEnergyDrainTime() const { return x10_energyDrainTime; }
+  void ProcessEnergyDrain(const CStateManager& mgr, float dt);
+
 private:
   rstl::vector< CEnergyDrainSource > x0_sources;
   float x10_energyDrainTime;

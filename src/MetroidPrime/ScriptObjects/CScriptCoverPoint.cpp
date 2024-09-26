@@ -68,7 +68,7 @@ const bool CScriptCoverPoint::Blown(const CVector3f& point) const {
     } else {
       CVector3f posDif = point - GetTransform().GetTranslation();
       float magnitude = posDif.Magnitude();
-      posDif *= 1.f / magnitude;
+      posDif /= magnitude;
       if (magnitude > 8.0f) {
         CUnitVector3f normDif(posDif.GetX(), posDif.GetY(), 0.f, CUnitVector3f::kN_Yes);
         CUnitVector3f frontVec(GetTransform().GetColumn(kDY).GetX(),

@@ -133,7 +133,7 @@ public:
   float GetFadeInTime() const { return x5c_fadeInTime; }
   float GetFadeOutTime() const { return x60_fadeOutTime; }
 
-  static CActorParameters None();
+  static CActorParameters None() { return CActorParameters(); }
 
 private:
   CLightParameters x0_lighting;

@@ -22,6 +22,7 @@ _LITERAL_REPLACEMENTS = [
   ("zeus::", ""),
   ("u32 ", "uint "),
   ("s32 ", "int "),
+  ("u16 ", "ushort "),
   ("std::min(", "rstl::min_val("),
   ("std::max(", "rstl::max_val("),
 
