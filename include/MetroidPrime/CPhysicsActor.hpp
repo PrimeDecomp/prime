@@ -111,12 +111,15 @@ public:
   void Stop();
 
   CVector3f GetPrimitiveOffset() const;
+  uchar IsStandardCollider() const { return xf9_standardCollider; } // name and type?
+  void SetStandardCollider(uchar v) { xf9_standardCollider = v; } // name and type?
   const CVector3f& GetConstantForceWR() const { return xfc_constantForce; }
   void SetConstantForceWR(const CVector3f& force) { xfc_constantForce = force; }
   const CAxisAngle& GetAngularMomentumWR() const { return x108_angularMomentum; }
   void SetAngularMomentumWR(const CAxisAngle& angularMomentum) {
     x108_angularMomentum = angularMomentum;
   }
+  const CVector3f& GetVelocityWR() const { return x138_velocity; }
   const CVector3f& GetMomentumWR() const { return x150_momentum; }
   void SetMomentumWR(const CVector3f& momentum) { x150_momentum = momentum; }
   const CVector3f& GetForceWR() const { return x15c_force; }
@@ -174,7 +177,7 @@ private:
   float xf4_inertiaTensorRecip;
   bool xf8_24_movable : 1;
   bool xf8_25_angularEnabled : 1;
-  bool xf9_standardCollider;
+  uchar xf9_standardCollider;
   CVector3f xfc_constantForce;
   CAxisAngle x108_angularMomentum;
   CMatrix3f x114_;

@@ -13,7 +13,7 @@ class CNUQuaternion;
 class CQuaternion {
 public:
   CQuaternion(float w, float x, float y, float z) : w(w), imaginary(x, y, z) {}
-  // __ct__11CQuaternionFfRC9CVector3f
+  CQuaternion(float w, const CVector3f& imaginary) : w(w), imaginary(imaginary) {}
 
   // CQuaternion(const CQuaternion& other)
   // : w(other.w)

@@ -342,7 +342,7 @@ void CBallCamera::UpdateColliders(const CTransform4f& xf,
       }
       colliderList[idx].SetRealPosition(worldPos);
       colliderList[idx].SetPosition(localPos);
-      CVector3f scaledWorldColliderPos = centerToCollider * mag  / tolerance;
+      CVector3f scaledWorldColliderPos = centerToCollider * mag / tolerance;
       scaledWorldColliderPos *= x308_speedFactor;
       scaledWorldColliderPos += x31c_predictedLookPos;
       colliderList[idx].SetLookAtPosition(scaledWorldColliderPos);

@@ -92,7 +92,7 @@ public:
 
   int GetFluidCounter() const { return x74_fluidCounter; }
   TUniqueId GetFluidId() const { return x78_fluidId; }
-  // GetInsideFluid__14CCameraManagerCFv
+  bool GetInsideFluid() const { return x74_fluidCounter == 0; }
   bool IsInsideFluid() const { return xa0_26_inWater; }
   // WasInsideFluid__14CCameraManagerCFv
   // SetWasInsideFluid__14CCameraManagerFb

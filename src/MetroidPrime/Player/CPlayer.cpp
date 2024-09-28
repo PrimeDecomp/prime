@@ -4,6 +4,7 @@
 #include "MetroidPrime/CControlMapper.hpp"
 #include "MetroidPrime/CWorld.hpp"
 #include "MetroidPrime/Cameras/CCameraManager.hpp"
+#include "MetroidPrime/Cameras/CCinematicCamera.hpp"
 #include "MetroidPrime/Cameras/CFirstPersonCamera.hpp"
 #include "MetroidPrime/Player/CGrappleArm.hpp"
 #include "MetroidPrime/Player/CMorphBall.hpp"
@@ -11,13 +12,17 @@
 #include "MetroidPrime/Player/CPlayerGun.hpp"
 #include "MetroidPrime/SFX/LavaWorld.h"
 #include "MetroidPrime/SFX/MiscSamus.h"
+#include "MetroidPrime/ScriptObjects/CHUDBillboardEffect.hpp"
+#include "MetroidPrime/ScriptObjects/CScriptWater.hpp"
 #include "MetroidPrime/Tweaks/CTweakPlayer.hpp"
 #include "MetroidPrime/Tweaks/CTweakPlayerGun.hpp"
 #include "MetroidPrime/Tweaks/CTweakPlayerRes.hpp"
 
 #include "Kyoto/Audio/CSfxManager.hpp"
 #include "Kyoto/Audio/CStreamAudioManager.hpp"
+#include "Kyoto/CSimplePool.hpp"
 #include "Kyoto/Math/CRelAngle.hpp"
+#include "Kyoto/Math/CloseEnough.hpp"
 
 #include "Collision/CCollisionInfo.hpp"
 #include "Collision/CRayCastResult.hpp"
@@ -731,7 +736,7 @@ void CPlayer::Update(float dt, CStateManager& mgr) {
       CSfxManager::KillAll(CSfxManager::kSC_Game);
       CStreamAudioManager::StopAll();
       if (x2f8_morphBallState == kMS_Unmorphed) {
-        ApplySubmergedPitchBend(CSfxManager::SfxStart(SFXsam_death));
+        DoSfxEffects(CSfxManager::SfxStart(SFXsam_death));
       }
     }
 
@@ -742,7 +747,7 @@ void CPlayer::Update(float dt, CStateManager& mgr) {
         xa00_deathPowerBomb = x490_gun->DropPowerBomb(mgr);
       }
       if (x9f4_deathTime >= 4.f && prevDeathTime < 4.f) {
-        ApplySubmergedPitchBend(CSfxManager::SfxStart(SFXsam_death));
+        DoSfxEffects(CSfxManager::SfxStart(SFXsam_death));
       }
     }
   }
@@ -803,3 +808,329 @@ void CPlayer::Update(float dt, CStateManager& mgr) {
     xa30_samusExhaustedVoiceTimer = 4.f;
   }
 }
+
+// TODO nonmatching
+bool CPlayer::ShouldSampleFailsafe(CStateManager& mgr) const {
+  const CCinematicCamera* cineCam =
+      TCastToConstPtr< CCinematicCamera >(mgr.GetCameraManager()->GetCurrentCamera(mgr));
+  if (!mgr.GetPlayerState()->IsAlive() ||
+      (x2f4_cameraState == kCS_Spawned && cineCam && (cineCam->GetFlags() & 0x80) != 0)) {
+    return false;
+  }
+  return true;
+}
+
+void CPlayer::UpdateVisorState(const CFinalInput& input, float dt, CStateManager& mgr) {
+  x7a0_visorSteam.Update(dt);
+  if (x7a0_visorSteam.AffectsThermal()) {
+    mgr.SetThermalColdScale2(mgr.GetThermalColdScale2() + x7a0_visorSteam.GetAlpha());
+  }
+
+  CPlayerState* playerState = mgr.PlayerState();
+  const CScriptGrapplePoint* grapplePoint =
+      TCastToConstPtr< CScriptGrapplePoint >(mgr.GetObjectById(x310_orbitTargetId));
+  if (GetOrbitState() != CPlayer::kOS_Grapple && !grapplePoint &&
+      GetMorphballTransitionState() == kMS_Unmorphed && !playerState->GetIsVisorTransitioning() &&
+      x3a8_scanState == kSS_NotScanning) {
+
+    if (playerState->GetTransitioningVisor() == CPlayerState::kPV_Scan &&
+        (ControlMapper::GetDigitalInput(ControlMapper::kC_FireOrBomb, input) ||
+         ControlMapper::GetDigitalInput(ControlMapper::kC_MissileOrPowerBomb, input)) &&
+        playerState->HasPowerUp(CPlayerState::kIT_CombatVisor)) {
+      playerState->StartTransitionToVisor(CPlayerState::kPV_Combat);
+      DrawGun(mgr);
+    }
+
+    for (int i = 0; i < ARRAY_SIZE(skVisorToItemMapping); ++i) {
+      const TVisorToItemMapping& mapping = skVisorToItemMapping[i];
+
+      if (playerState->HasPowerUp(mapping.first) &&
+          ControlMapper::GetPressInput(mapping.second, input)) {
+        x9c4_24_visorChangeRequested = true;
+
+        CPlayerState::EPlayerVisor visor = static_cast< CPlayerState::EPlayerVisor >(i);
+        if (playerState->GetTransitioningVisor() != visor) {
+          playerState->StartTransitionToVisor(visor);
+          if (visor == CPlayerState::kPV_Scan) {
+            HolsterGun(mgr);
+          } else {
+            DrawGun(mgr);
+          }
+        }
+      }
+    }
+  }
+}
+
+void CPlayer::UpdateVisorTransition(float dt, CStateManager& mgr) {
+  CPlayerState* playerState = mgr.PlayerState();
+  if (playerState->GetIsVisorTransitioning()) {
+    playerState->UpdateVisorTransition(dt);
+  }
+}
+
+void CPlayer::UpdateCrosshairsState(const CFinalInput& input) {
+  x9c4_25_showCrosshairs = ControlMapper::GetDigitalInput(ControlMapper::kC_ShowCrosshairs, input);
+}
+
+void CPlayer::UpdatePlayerSounds(float dt) {
+  if (x784_damageSfxTimer > 0.f) {
+    x784_damageSfxTimer -= dt;
+    if (x784_damageSfxTimer <= 0.f) {
+      CSfxManager::SfxStop(x770_damageLoopSfx);
+      x770_damageLoopSfx.Clear();
+    }
+  }
+}
+
+int CPlayer::SfxIdFromMaterial(const CMaterialList& mat, const ushort* idList, int tableLen,
+                               ushort defId) {
+  int id = defId;
+  for (short i = 0; i < tableLen; ++i) {
+    if (mat.HasMaterial(static_cast< EMaterialTypes >(i)) && idList[i] != 0xFFFF) {
+      id = idList[i];
+    }
+  }
+  // Odd issue with return value, should be ushort
+  return ushort(id);
+}
+
+ushort CPlayer::GetMaterialSoundUnderPlayer(CStateManager& mgr, const ushort* table, int length,
+                                            ushort defId) {
+  int ret = defId;
+  static const CVector3f skDown(0.f, 0.f, -1.f);
+  static const CMaterialFilter matFilter = CMaterialFilter::MakeInclude(CMaterialList(kMT_Solid));
+
+  TUniqueId collideId = kInvalidUniqueId;
+  TEntityList nearList;
+  CAABox aabb = GetBoundingBox();
+  aabb.AccumulateBounds(GetTranslation() + skDown);
+  mgr.BuildNearList(nearList, aabb, matFilter, nullptr);
+  const CRayCastResult result =
+      mgr.RayWorldIntersection(collideId, GetTranslation(), skDown, 1.5f, matFilter, nearList);
+  if (result.IsValid()) {
+    ret = SfxIdFromMaterial(result.GetMaterial(), table, length, defId);
+  }
+  return ret;
+}
+
+void CPlayer::UpdateFootstepSounds(const CFinalInput& input, CStateManager& mgr, float dt) {
+  if (x2f8_morphBallState == kMS_Unmorphed && x258_movementState == NPlayer::kMS_OnGround &&
+      !x3dc_inFreeLook && !x3dd_lookButtonHeld) {
+    char sfxVol = 127;
+    x78c_footstepSfxTimer += dt;
+    float turn = TurnInput(input);
+    const float forward = fabsf(ForwardInput(input, turn));
+    turn = fabsf(turn);
+    float sfxDelay = 0.f;
+    if (forward > 0.05f || x304_orbitState != kOS_NoOrbit) {
+      CVector3f velocity = GetVelocityWR();
+      float mag = velocity.Magnitude();
+      float vel = rstl::min_val(mag / GetActualFirstPersonMaxVelocity(dt), 1.f);
+      if (vel > 0.05f) {
+        sfxDelay = -0.475f * vel + 0.85f;
+        if (x790_footstepSfxSel == kFS_None) {
+          x790_footstepSfxSel = kFS_Left;
+        }
+      } else {
+        x78c_footstepSfxTimer = 0.f;
+        x790_footstepSfxSel = kFS_None;
+      }
+
+      sfxVol = CCast::ToInt8((vel * 38.f + 89.f) * 1.f);
+    } else if (turn > 0.05f) {
+      if (x790_footstepSfxSel == kFS_Left) {
+        sfxDelay = -0.813f * turn + 1.f;
+      } else {
+        sfxDelay = -2.438f * turn + 3.f;
+      }
+      if (x790_footstepSfxSel == kFS_None) {
+        x790_footstepSfxSel = kFS_Left;
+        sfxDelay = x78c_footstepSfxTimer;
+      }
+      sfxVol = 96;
+    } else {
+      x78c_footstepSfxTimer = 0.f;
+      x790_footstepSfxSel = kFS_None;
+    }
+
+    if (x790_footstepSfxSel != kFS_None && x78c_footstepSfxTimer > sfxDelay) {
+      static const float earHeight = GetEyeHeight() - 0.1f;
+      if (IsInFluid() && x828_distanceUnderWater > 0.f && x828_distanceUnderWater < earHeight) {
+        if (x82c_inLava) {
+          if (x790_footstepSfxSel == kFS_Left) {
+            DoSfxEffects(CSfxManager::SfxStart(SFXlav_wlklava_00, sfxVol, 64, true));
+          } else {
+            DoSfxEffects(CSfxManager::SfxStart(SFXlav_wlklava_01, sfxVol, 64, true));
+          }
+        } else {
+          if (x790_footstepSfxSel == kFS_Left) {
+            DoSfxEffects(CSfxManager::SfxStart(SFXsam_wlkwater_00, sfxVol, 64, true));
+          } else {
+            DoSfxEffects(CSfxManager::SfxStart(SFXsam_wlkwater_01, sfxVol, 64, true));
+          }
+        }
+      } else {
+        ushort sfx;
+        if (x790_footstepSfxSel == kFS_Left) {
+          sfx = GetMaterialSoundUnderPlayer(mgr, skLeftStepSounds, ARRAY_SIZE(skLeftStepSounds),
+                                            0xffff);
+        } else {
+          sfx = GetMaterialSoundUnderPlayer(mgr, skRightStepSounds, ARRAY_SIZE(skRightStepSounds),
+                                            0xffff);
+        }
+        DoSfxEffects(CSfxManager::SfxStart(sfx, sfxVol, 64, true));
+      }
+
+      x78c_footstepSfxTimer = 0.f;
+      if (x790_footstepSfxSel == kFS_Left) {
+        x790_footstepSfxSel = kFS_Right;
+      } else {
+        x790_footstepSfxSel = kFS_Left;
+      }
+    }
+  }
+}
+
+CPlayer::CVisorSteam::CVisorSteam(float targetAlpha, float alphaInDur, float alphaOutDur,
+                                  CAssetId tex)
+: x0_curTargetAlpha(targetAlpha)
+, x4_curAlphaInDur(alphaInDur)
+, x8_curAlphaOutDur(alphaOutDur)
+, xc_tex(tex)
+, x10_nextTargetAlpha(0.f)
+, x14_nextAlphaInDur(0.f)
+, x18_nextAlphaOutDur(0.f)
+, x1c_txtr(kInvalidAssetId)
+, x20_alpha(0.f)
+, x24_delayTimer(0.f)
+, x28_affectsThermal(false) {}
+
+void CPlayer::CVisorSteam::Update(float dt) {
+  if (x1c_txtr != kInvalidAssetId) {
+    x0_curTargetAlpha = x10_nextTargetAlpha;
+    x4_curAlphaInDur = x14_nextAlphaInDur;
+    x8_curAlphaOutDur = x18_nextAlphaOutDur;
+    xc_tex = x1c_txtr;
+  } else {
+    x0_curTargetAlpha = 0.f;
+  }
+
+  x1c_txtr = kInvalidAssetId;
+  if (close_enough(x20_alpha, x0_curTargetAlpha) && close_enough(x20_alpha, 0.f)) {
+    return;
+  }
+
+  if (x20_alpha > x0_curTargetAlpha) {
+    if (x24_delayTimer <= 0.f) {
+      x20_alpha -= dt / x8_curAlphaOutDur;
+      if (x20_alpha < x0_curTargetAlpha) {
+        x20_alpha = x0_curTargetAlpha;
+      }
+    } else {
+      x24_delayTimer -= dt;
+      if (x24_delayTimer < 0.f) {
+        x24_delayTimer = 0.f;
+      }
+    }
+    return;
+  }
+
+  if (!gpSimplePool->GetObj(SObjectTag('TXTR', xc_tex)).IsLoaded()) {
+    return;
+  }
+
+  x20_alpha += dt / x4_curAlphaInDur;
+  if (x20_alpha > x0_curTargetAlpha) {
+    x20_alpha = x0_curTargetAlpha;
+  }
+
+  x24_delayTimer = 0.1f;
+}
+
+void CPlayer::CVisorSteam::SetSteam(float targetAlpha, float alphaInDur, float alphaOutDur,
+                                    CAssetId txtr, bool affectsThermal) {
+  if (x1c_txtr == kInvalidAssetId || targetAlpha > x10_nextTargetAlpha) {
+    x10_nextTargetAlpha = targetAlpha;
+    x14_nextAlphaInDur = alphaInDur;
+    x18_nextAlphaOutDur = alphaOutDur;
+    x1c_txtr = txtr;
+  }
+  x28_affectsThermal = affectsThermal;
+}
+
+void CPlayer::SetVisorSteam(float targetAlpha, float alphaInDur, float alphaOutDur, CAssetId txtr,
+                            bool affectsThermal) {
+  x7a0_visorSteam.SetSteam(targetAlpha, alphaInDur, alphaOutDur, txtr, affectsThermal);
+}
+
+const CScriptWater* CPlayer::GetVisorRunoffEffect(const CStateManager& mgr) const {
+  const CScriptWater* water = nullptr;
+  if (InFluidId() != kInvalidUniqueId) {
+    water = TCastToConstPtr< CScriptWater >(mgr.GetObjectById(InFluidId()));
+  }
+  return water;
+}
+
+void CPlayer::SetMorphBallState(EPlayerMorphBallState state, CStateManager& mgr) {
+  if (x2f8_morphBallState == kMS_Morphed && state != kMS_Morphed) {
+    x9c5_26_ = IsInsideFluid();
+  }
+
+  x2f8_morphBallState = state;
+  SetStandardCollider(state == kMS_Morphed);
+
+  switch (state) {
+  case kMS_Unmorphed:
+    if (x9c5_26_ && mgr.GetCameraManager()->GetInsideFluid()) {
+      if (const CScriptWater* water = GetVisorRunoffEffect(mgr)) {
+        if (water->GetUnmorphVisorRunoffEffect()) {
+          mgr.AddObject(rs_new CHUDBillboardEffect(
+              rstl::optional_object< TToken< CGenDescription > >(
+                  *water->GetUnmorphVisorRunoffEffect()),
+              rstl::optional_object_null(), mgr.AllocateUniqueId(), true,
+              rstl::string_l("WaterSheets"), CHUDBillboardEffect::GetNearClipDistance(mgr),
+              CHUDBillboardEffect::GetScaleForPOV(mgr), CColor(1.f, 1.f, 1.f, 1.f),
+              CVector3f(1.f, 1.f, 1.f), CVector3f(0.f, 0.f, 0.f)));
+        }
+        DoSfxEffects(CSfxManager::SfxStart(water->GetUnmorphVisorRunoffSfx()));
+      }
+    }
+    break;
+  case kMS_Morphed:
+  case kMS_Morphing:
+    x768_morphball->LoadMorphBallModel(mgr);
+    break;
+  case kMS_Unmorphing:
+    break;
+  }
+}
+
+// void CPlayer::SetSpawnedMorphBallState(EPlayerMorphBallState state, CStateManager& mgr) {
+//   x2fc_spawnedMorphBallState = state;
+//   SetCameraState(kCS_Spawned, mgr);
+//   if (x2fc_spawnedMorphBallState != x2f8_morphBallState) {
+//     CPhysicsActor::Stop();
+//     SetOrbitRequest(kOR_Respawn, mgr);
+//     switch (x2fc_spawnedMorphBallState) {
+//     case kMS_Unmorphed: {
+//       CVector3f pos;
+//       if (CanLeaveMorphBallState(mgr, pos)) {
+//         SetTranslation(GetTranslation() + pos);
+//         LeaveMorphBallState(mgr);
+//         ForceGunOrientation(GetTransform(), mgr);
+//         DrawGun(mgr);
+//       }
+//       break;
+//     }
+//     case kMS_Morphed:
+//       EnterMorphBallState(mgr);
+//       ResetBallCAmera(mgr);
+//       mgr.GetCameraManager()->ResetCameraHint(mgr);
+//       mgr.GetCameraManager()->GetBallCamera()->Reset(CreateTransformFromMovementDirection(), mgr);
+//       break;
+//     default:
+//       break;
+//     }
+//   }
+// }

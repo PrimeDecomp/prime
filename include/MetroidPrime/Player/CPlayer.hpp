@@ -59,6 +59,7 @@ class CPlayer : public CPhysicsActor, public TOneStatic< CPlayer > {
     bool x28_affectsThermal;
 
   public:
+    CVisorSteam();
     CVisorSteam(float targetAlpha, float alphaInDur, float alphaOutDur, CAssetId tex);
     // : x0_curTargetAlpha(targetAlpha)
     // , x4_curAlphaInDur(alphaInDur)
@@ -237,7 +238,6 @@ public:
   void ForceGunOrientation(const CTransform4f& xf, CStateManager& mgr);
   void Update(float dt, CStateManager& mgr);
   void UpdateMorphBallTransition(float dt, CStateManager& mgr);
-  void ApplySubmergedPitchBend(CSfxHandle sfx);
   void UpdateAimTarget(CStateManager& mgr);
   void UpdateAimTargetTimer(float dt);
   void UpdateOrbitModeTimer(float dt);
@@ -245,9 +245,21 @@ public:
   void UpdateGunAlpha();
   void UpdateVisorTransition(float dt, CStateManager& mgr);
   void UpdatePlayerSounds(float dt);
-  bool ShouldSampleFailsafe(CStateManager& mgr);
+  bool ShouldSampleFailsafe(CStateManager& mgr) const;
   bool IsEnergyLow(CStateManager& mgr);
   bool StartSamusVoiceSfx(ushort sfx, short vol, int prio);
+  void UpdateVisorState(const CFinalInput& input, float dt, CStateManager& mgr);
+  void UpdateCrosshairsState(const CFinalInput& input);
+  ushort GetMaterialSoundUnderPlayer(CStateManager& mgr, const ushort* table, int length,
+                                     ushort defId);
+  void UpdateFootstepSounds(const CFinalInput& input, CStateManager& mgr, float dt);
+  float JumpInput(const CFinalInput& input, CStateManager& mgr);
+  float TurnInput(const CFinalInput& input) const;
+  float StrafeInput(const CFinalInput& input) const;
+  float ForwardInput(const CFinalInput& input, float turnInput) const;
+  float GetActualFirstPersonMaxVelocity(float dt) const;
+  const CScriptWater* GetVisorRunoffEffect(const CStateManager& mgr) const;
+  void SetMorphBallState(EPlayerMorphBallState state, CStateManager& mgr);
 
   CPlayerGun* PlayerGun() { return x490_gun.get(); }
   const CPlayerGun* GetPlayerGun() const { return x490_gun.get(); }
@@ -276,6 +288,8 @@ public:
   NPlayer::EPlayerMovementState GetPlayerMovementState() const { return x258_movementState; }
   const CVector3f& GetAssistedTargetAim() const { return x480_assistedTargetAim; }
 
+  bool IsInsideFluid() const { return x9c4_31_inWaterMovement; }
+
   void Teleport(const CTransform4f& xf, CStateManager& mgr, bool resetBallCam);
   void SetSpawnedMorphBallState(EPlayerMorphBallState state, CStateManager& mgr);
   const CVisorSteam& GetVisorSteam() const { return x7a0_visorSteam; }
@@ -292,6 +306,9 @@ public:
   void AddToPlayerHintAddList(TUniqueId id, CStateManager& mgr);
   // void DeactivatePlayerHint(TUniqueId id, CStateManager& mgr);
   // void UpdatePlayerHints(CStateManager& mgr);
+
+  static int SfxIdFromMaterial(const CMaterialList& mat, const ushort* idList, int tableLen,
+                               ushort defId);
 
 private:
   NPlayer::EPlayerMovementState x258_movementState;

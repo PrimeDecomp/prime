@@ -156,6 +156,8 @@ public:
   const CMaterialFilter& GetMaterialFilter() const;
   void SetMaterialFilter(const CMaterialFilter& filter);
 
+  TUniqueId InFluidId() const { return xc4_fluidId; }
+
   bool GetTransformDirty() const { return xe4_27_notInSortedLists; }
   bool GetTransformDirtySpare() const { return xe4_28_transformDirty; }
   bool GetPreRenderHasMoved() const { return xe4_29_actorLightsDirty; }
@@ -164,6 +166,7 @@ public:
   bool GetDrawShadow() const { return xe5_24_shadowEnabled; }
   bool GetShadowDirty() const { return xe5_25_shadowDirty; }
   bool GetMuted() const { return xe5_26_muted; }
+  bool IsInFluid() const { return xe6_24_fluidCounter != 0; }
   EThermalFlags GetThermalFlags() const {
     return static_cast< EThermalFlags >(xe6_27_thermalVisorFlags);
   }

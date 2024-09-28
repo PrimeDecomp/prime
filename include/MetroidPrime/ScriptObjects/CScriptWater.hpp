@@ -61,7 +61,15 @@ public:
   // GetWRSurfacePlane__12CScriptWaterCFv
   float GetSurfaceZ() const { return GetTriggerBoundsWR().GetMaxPoint().GetZ(); }
   const CColor& GetUnderwaterFogColor() const { return x2a8_insideFogColor; }
-  // GetVisorRunoffEffect__12CScriptWaterCFv
+  const rstl::optional_object< TLockedToken< CGenDescription > >& GetVisorRunoffEffect() const {
+    return x23c_visorRunoffEffect;
+  }
+  ushort GetVisorRunoffSfx() const { return x260_visorRunoffSfx; }
+  const rstl::optional_object< TLockedToken< CGenDescription > >&
+  GetUnmorphVisorRunoffEffect() const {
+    return x250_unmorphVisorRunoffEffect;
+  }
+  ushort GetUnmorphVisorRunoffSfx() const { return x262_unmorphVisorRunoffSfx; }
   // GetFluidType__12CScriptWaterCFv
   // IsMorphing__12CScriptWaterCFv
   // SetMorphing__12CScriptWaterFb
