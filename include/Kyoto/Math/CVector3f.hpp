@@ -24,9 +24,9 @@ public:
   CVector3f(CInputStream& in);
   void PutTo(COutputStream& out) const;
 
-  float GetX() const { return mX; }
-  float GetY() const { return mY; }
-  float GetZ() const { return mZ; }
+  const float GetX() const { return mX; }
+  const float GetY() const { return mY; }
+  const float GetZ() const { return mZ; }
 
   void SetX(float x) { mX = x; }
   void SetY(float y) { mY = y; }
@@ -55,12 +55,12 @@ public:
   }
   inline float MagSquared() const { return GetX() * GetX() + GetY() * GetY() + GetZ() * GetZ(); }
   static CVector3f Cross(const CVector3f& lhs, const CVector3f& rhs) {
-    const float lX = lhs.mX;
-    const float lY = lhs.mY;
-    const float lZ = lhs.mZ;
-    const float rX = rhs.mX;
-    const float rY = rhs.mY;
-    const float rZ = rhs.mZ;
+    const float lX = lhs.GetX();
+    const float lY = lhs.GetY();
+    const float lZ = lhs.GetZ();
+    const float rX = rhs.GetX();
+    const float rY = rhs.GetY();
+    const float rZ = rhs.GetZ();
     float z = lX * rY - rX * lY;
     float y = lZ * rX - rZ * lX;
     float x = lY * rZ - rY * lZ;

@@ -71,7 +71,7 @@ bool CVector3f::IsNotInf() const {
   return true;
 }
 
-bool CVector3f::IsMagnitudeSafe() const { return IsNotInf() && MagSquared() >= 9.999999e-29f; }
+bool CVector3f::IsMagnitudeSafe() const { return IsNotInf() && MagSquared() >= 9.9999995e-29f; }
 
 bool CVector3f::CanBeNormalized() const {
   int x = __HI(mX);
