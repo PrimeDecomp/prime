@@ -171,21 +171,21 @@ void CScriptPickup::Touch(CActor& act, CStateManager& mgr) {
       int total = playerState->GetTotalPickupCount();
       int colRate = playerState->CalculateItemCollectionRate();
       if (colRate == total) {
-        CSystemOptions& opts = gpGameState->SystemOptions();
+        CSystemState& state = gpGameState->SystemState();
         CAssetId id =
             gpResourceFactory
-                ->GetResourceIdByName(opts.GetAllItemsCollected() ? "STRG_AllPickupsFound_2"
+                ->GetResourceIdByName(state.GetAllItemsCollected() ? "STRG_AllPickupsFound_2"
                                                                   : "STRG_AllPickupsFound_1")
                 ->GetId();
         mgr.QueueMessage(mgr.GetHUDMessageFrameCount() + 1, id, 0.f);
-        opts.SetAllItemsCollected(true);
+        state.SetAllItemsCollected(true);
       }
     }
 
     if (itemType == CPlayerState::kIT_PowerBombs) {
-      CSystemOptions& opts = gpGameState->SystemOptions();
-      if (opts.GetShowPowerBombAmmoMessage()) {
-        opts.IncrementPowerBombAmmoCount();
+      CSystemState& state = gpGameState->SystemState();
+      if (state.GetShowPowerBombAmmoMessage()) {
+        state.IncrementPowerBombAmmoCount();
         CSamusHud::DisplayHudMemo(rstl::wstring_l(gpStringTable->GetString(109)),
                                   CHUDMemoParms(5.f, true, false, false));
       }

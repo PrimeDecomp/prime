@@ -47,17 +47,16 @@ public:
 
   basic_string() : x0_ptr(&mNull), x4_cow(nullptr), x8_size(0) {}
 
-  basic_string(literal_t, const _CharTp* data);
-  // {
-  //     x0_ptr = data;
-  //     x4_cow = nullptr;
+  basic_string(literal_t, const _CharTp* data) {
+    x0_ptr = data;
+    x4_cow = nullptr;
 
-  //     const _CharTp* it = data;
-  //     while (*it)
-  //         ++it;
+    const _CharTp* it = data;
+    while (*it)
+      ++it;
 
-  //     x8_size = uint((it - data) / sizeof(_CharTp));
-  // }
+    x8_size = static_cast< uint >(it - data);
+  }
 
   basic_string(const basic_string& str);
   // {
@@ -139,10 +138,7 @@ bool basic_string< _CharTp, Traits, Alloc >::operator<(const basic_string& other
 typedef basic_string< wchar_t > wstring;
 typedef basic_string< char > string;
 
-wstring wstring_l(const wchar_t* data);
-// {
-//     return wstring(wstring::literal_t(), data);
-// }
+wstring wstring_l(const wchar_t* data) { return wstring(wstring::literal_t(), data); }
 
 string string_l(const char* data);
 // {

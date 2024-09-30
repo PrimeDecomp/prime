@@ -1,5 +1,5 @@
-#ifndef _CSYSTEMOPTIONS
-#define _CSYSTEMOPTIONS
+#ifndef _CSYSTEMSTATE
+#define _CSYSTEMSTATE
 
 #include "types.h"
 
@@ -9,11 +9,11 @@
 #include "rstl/reserved_vector.hpp"
 #include "rstl/vector.hpp"
 
-class CSystemOptions {
+class CSystemState {
 public:
-  CSystemOptions();
-  explicit CSystemOptions(CInputStream&);
-  ~CSystemOptions();
+  CSystemState();
+  explicit CSystemState(CInputStream&);
+  ~CSystemState();
   void PutTo(COutputStream&) const;
 
   void SetHasFusion(bool v);
@@ -27,6 +27,11 @@ public:
 
   bool GetAllItemsCollected() const { return xd0_29_allItemsCollected; }
   void SetAllItemsCollected(bool);
+
+  // MP1R
+  bool AreFreezeInstructionsStillEnabledFirstPerson() const;
+  bool AreFreezeInstructionsStillEnabledMorphBall() const;
+  void IncNumFreezeInstructionsPrintedFirstPerson();
 
 private:
   rstl::reserved_vector< uchar, 98 > x0_nesState;
@@ -45,4 +50,4 @@ private:
   bool xd0_29_allItemsCollected : 1;
 };
 
-#endif // _CSYSTEMOPTIONS
+#endif // _CSYSTEMSTATE

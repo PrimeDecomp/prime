@@ -6,7 +6,7 @@
 #include "MetroidPrime/Player/CGameOptions.hpp"
 #include "MetroidPrime/Player/CHintOptions.hpp"
 #include "MetroidPrime/Player/CPlayerState.hpp"
-#include "MetroidPrime/Player/CSystemOptions.hpp"
+#include "MetroidPrime/Player/CSystemState.hpp"
 #include "MetroidPrime/Player/CWorldState.hpp"
 #include "MetroidPrime/Player/CWorldTransManager.hpp"
 #include "MetroidPrime/TGameTypes.hpp"
@@ -32,10 +32,10 @@ public:
 
   CWorldState& CurrentWorldState();
 
-  void ImportPersistentOptions(const CSystemOptions&);
-  void ExportPersistentOptions(CSystemOptions&);
+  void ImportPersistentOptions(const CSystemState&);
+  void ExportPersistentOptions(CSystemState&);
 
-  CSystemOptions& SystemOptions() { return xa8_systemOptions; }
+  CSystemState& SystemState() { return xa8_systemState; }
   CGameOptions& GameOptions() { return x17c_gameOptions; }
   CHintOptions& HintOptions() { return x1f8_hintOptions; }
   uint& SaveIdx() { return x20c_saveIdx; }
@@ -68,7 +68,7 @@ private:
   rstl::rc_ptr< CPlayerState > x98_playerState;
   rstl::rc_ptr< CWorldTransManager > x9c_transManager;
   double xa0_playTime;
-  CSystemOptions xa8_systemOptions;
+  CSystemState xa8_systemState;
   CGameOptions x17c_gameOptions;
   CHintOptions x1f8_hintOptions;
   uint x20c_saveIdx;

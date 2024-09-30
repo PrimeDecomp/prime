@@ -303,7 +303,7 @@ void CScriptSpecialFunction::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId
       if (msg == kSM_Action) {
         CPlayerState& pState = *mgr.PlayerState();
         pState.SetPickup(CPlayerState::kIT_Missiles,
-                                  pState.GetItemCapacity(CPlayerState::kIT_Missiles));
+                         pState.GetItemCapacity(CPlayerState::kIT_Missiles));
       }
       break;
     }
@@ -311,7 +311,7 @@ void CScriptSpecialFunction::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId
       if (msg == kSM_Action) {
         CPlayerState& pState = *mgr.PlayerState();
         pState.SetPickup(CPlayerState::kIT_PowerBombs,
-                                  pState.GetItemCapacity(CPlayerState::kIT_PowerBombs));
+                         pState.GetItemCapacity(CPlayerState::kIT_PowerBombs));
       }
       break;
     }
@@ -436,7 +436,7 @@ void CScriptSpecialFunction::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId
         }
       } else if (msg == kSM_Decrement) {
         mgr.SetCinematicSkipObject(kInvalidUniqueId);
-        gpGameState->SystemOptions().SetCinematicState(
+        gpGameState->SystemState().SetCinematicState(
             rstl::pair< CAssetId, TEditorId >(mgr.GetWorld()->GetWorldAssetId(), GetEditorId()),
             true);
       }
@@ -607,7 +607,7 @@ void CScriptSpecialFunction::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId
 bool CScriptSpecialFunction::ShouldSkipCinematic(CStateManager& mgr) const {
   CAssetId mlvlId = mgr.GetWorld()->GetWorldAssetId();
   TEditorId cineId = GetEditorId();
-  return gpGameState->SystemOptions().GetCinematicState(
+  return gpGameState->SystemState().GetCinematicState(
       rstl::pair< CAssetId, TEditorId >(mlvlId, cineId));
 }
 

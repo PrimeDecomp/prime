@@ -19,7 +19,7 @@ public:
   template < typename T >
   static const T& Clamp(const T& min, const T& val, const T& max);
   static float SqrtF(float v);
-  static inline float Limit(float v, float h) { return fabs(v) > h ? h * Sign(v) : v; }
+  static inline float Limit(float v, float h) { if (fabs(v) > h) return h * Sign(v); return v; }
   static inline float Sign(float v) { return FastFSel(v, 1.f, -1.f); }
 #ifdef __MWERKS__
   static inline float FastFSel(register float v, register float h, register float l) {
@@ -72,7 +72,16 @@ public:
   static CVector3f BaryToWorld(const CVector3f& p0, const CVector3f& p1, const CVector3f& p2,
                                const CVector3f& bary);
   // GetCatmullRomSplinePoint__5CMathFRC9CVector3fRC9CVector3fRC9CVector3fRC9CVector3ff global
-  // FastSqrtF__5CMathFf weak
+#ifdef __MWERKS__
+  static inline float FastSqrtF(register float x) {
+    if (x == 0.f) {
+      return 0.f;
+    }
+    return x * __frsqrte(x);
+  }
+#else
+  static inline float FastSqrtF(float x) { return sqrtf(x); }
+#endif
   static double SqrtD(double x);
   // IsEpsilon__5CMathFfff global
   // FastMin__5CMathFff weak

@@ -18,7 +18,7 @@ CPowerBomb::CPowerBomb(TToken< CGenDescription > particle, TUniqueId uid, TAreaI
 : CWeapon(uid, aid, true, playerId, kWT_PowerBomb, rstl::string_l("PowerBomb"), xf,
           CMaterialFilter::MakeIncludeExclude(CMaterialList(kMT_Trigger, kMT_Immovable, kMT_Solid),
                                               CMaterialList(kMT_Projectile, kMT_PowerBomb)),
-          CMaterialList(kMT_Projectile, kMT_PowerBomb), dInfo, kPA_PowerBombs,
+          CMaterialList(kMT_Projectile, kMT_PowerBomb), dInfo, CWeapon::kPA_PowerBombs,
           CModelData::CModelDataNull())
 
 , x158_24_canStartFilter(true)
@@ -98,7 +98,7 @@ void CPowerBomb::Accept(IVisitor& visitor) { visitor.Visit(*this); }
 void CPowerBomb::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) {
   switch (msg) {
   case kSM_Registered:
-    mgr.AddWeaponId(GetOwnerId(), GetWeaponType());
+    mgr.AddWeaponId(GetOwnerId(), GetType());
     OrigDamageInfo().SetRadius(0.f);
     if (mgr.GetPlayerState()->IsAlive()) {
       CSfxManager::AddEmitter(SFXsfx0710, GetTranslation(), CVector3f::Zero(), true, false);
@@ -113,7 +113,7 @@ void CPowerBomb::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CState
     if (x15c_curTime <= 7.0f) {
       mgr.CameraFilterPass(CStateManager::kCFS_Six).DisableFilter(0.f);
     }
-    mgr.RemoveWeaponId(GetOwnerId(), GetWeaponType());
+    mgr.RemoveWeaponId(GetOwnerId(), GetType());
     break;
 
   default:

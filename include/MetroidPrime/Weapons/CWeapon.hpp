@@ -9,9 +9,31 @@
 
 class CWeapon : public CActor {
 public:
+  enum EProjectileAttrib {
+    kPA_None = 0,
+    kPA_PartialCharge = (1 << 0),
+    kPA_PlasmaProjectile = (1 << 1),
+    kPA_Charged = (1 << 2),
+    kPA_Ice = (1 << 3),
+    kPA_Wave = (1 << 4),
+    kPA_Plasma = (1 << 5),
+    kPA_Phazon = (1 << 6),
+    kPA_ComboShot = (1 << 7),
+    kPA_Bombs = (1 << 8),
+    kPA_PowerBombs = (1 << 9),
+    kPA_BigProjectile = (1 << 10),
+    kPA_ArmCannon = (1 << 11),
+    kPA_BigStrike = (1 << 12),
+    kPA_DamageFalloff = (1 << 13),
+    kPA_StaticInterference = (1 << 14),
+    kPA_PlayerUnFreeze = (1 << 15),
+    kPA_ParticleOPTS = (1 << 16),
+    kPA_KeepInCinematic = (1 << 17),
+  };
+
   CWeapon(TUniqueId uid, TAreaId areaId, bool active, TUniqueId owner, EWeaponType type,
           const rstl::string& name, const CTransform4f& xf, const CMaterialFilter& filter,
-          const CMaterialList& mList, const CDamageInfo& dInfo, EProjectileAttrib attribs,
+          const CMaterialList& mList, const CDamageInfo& dInfo, int attribs,
           const CModelData& mData);
 
   // CEntity
@@ -21,20 +43,27 @@ public:
   // CActor
   void Render(const CStateManager&) const override;
   EWeaponCollisionResponseTypes GetCollisionResponseType(const CVector3f&, const CVector3f&,
-                                                         const CWeaponMode&,
-                                                         int /*EProjectileAttrib?*/) const override;
+                                                         const CWeaponMode&, int) const override;
   void FluidFXThink(EFluidState, CScriptWater&, CStateManager&) override;
 
   void SetDamageFalloffSpeed(float d);
 
-  EProjectileAttrib GetAttribField() const { return xe8_projectileAttribs; }
+  int GetAttribField() const { return xe8_projectileAttribs; }
+  bool HasAttrib(EProjectileAttrib attrib) const {
+    return (xe8_projectileAttribs & attrib) == attrib; // maybe wrong
+  }
   TUniqueId GetOwnerId() const { return xec_ownerId; }
-  EWeaponType GetWeaponType() const { return xf0_weaponType; }
+  EWeaponType GetType() const { return xf0_weaponType; }
   CMaterialFilter GetFilter() const { return xf8_filter; }
   CDamageInfo& OrigDamageInfo() { return x110_origDamageInfo; }
+  float GetInterferenceDuration() const { return x154_interferenceDuration; }
+
+  void SetOwnerId(TUniqueId id) { xec_ownerId = id; }
+  void SetDamageInfo(const CDamageInfo& dInfo) { x12c_curDamageInfo = dInfo; }
+  void SetFilter(const CMaterialFilter& filter) { xf8_filter = filter; }
 
 protected:
-  EProjectileAttrib xe8_projectileAttribs;
+  int xe8_projectileAttribs;
   TUniqueId xec_ownerId;
   EWeaponType xf0_weaponType;
   CMaterialFilter xf8_filter;

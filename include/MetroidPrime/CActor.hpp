@@ -82,7 +82,7 @@ public:
   virtual CVector3f GetScanObjectIndicatorPosition(const CStateManager&) const;
   virtual EWeaponCollisionResponseTypes GetCollisionResponseType(const CVector3f&, const CVector3f&,
                                                                  const CWeaponMode&,
-                                                                 int /*EProjectileAttrib?*/) const;
+                                                                 int) const;
   virtual void FluidFXThink(EFluidState, CScriptWater&, CStateManager&);
   virtual void OnScanStateChange(EScanState, CStateManager&);
   virtual CAABox GetSortingBounds(const CStateManager&) const;

@@ -24,7 +24,7 @@ void CScriptBeam::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objId, CSt
         x138_damageInfo.GetWeaponMode().GetType(), xf4_beamInfo, GetTransform(), kMT_Projectile,
         x138_damageInfo, x154_projectileId, GetCurrentAreaId(), GetUniqueId(),
         CPlasmaProjectile::PlayerEffectResources(), false,
-        kPA_KeepInCinematic // TODO: wrong attrib definition?
+        CWeapon::kPA_KeepInCinematic // TODO: wrong attrib definition?
         ));
   } break;
 

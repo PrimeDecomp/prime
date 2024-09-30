@@ -28,22 +28,6 @@ enum EPlayerMovementState {
 };
 };
 
-enum EPlayerOrbitRequest {
-  kOR_StopOrbit,
-  kOR_Respawn,
-  kOR_EnterMorphBall,
-  kOR_Default,
-  kOR_Four,
-  kOR_Five,
-  kOR_InvalidateTarget,
-  kOR_BadVerticalAngle,
-  kOR_ActivateOrbitSource,
-  kOR_ProjectileCollide,
-  kOR_Freeze,
-  kOR_DamageOnGrapple,
-  kOR_LostGrappleLineOfSight,
-};
-
 class CPlayer : public CPhysicsActor, public TOneStatic< CPlayer > {
   struct CVisorSteam {
     float x0_curTargetAlpha;
@@ -156,6 +140,21 @@ public:
     kGH_Drawn,
     kGH_Holstering,
   };
+  enum EOrbitBrokenType {
+    kOB_StopOrbit,
+    kOB_Respawn,
+    kOB_EnterMorphBall,
+    kOB_Default,
+    kOB_Four,
+    kOB_Five,
+    kOB_InvalidateTarget,
+    kOB_BadVerticalAngle,
+    kOB_ActivateOrbitSource,
+    kOB_ProjectileCollide,
+    kOB_Freeze,
+    kOB_DamageOnGrapple,
+    kOB_LostGrappleLineOfSight,
+  };
 
   CPlayer(TUniqueId uid, const CTransform4f& xf, const CAABox& aabb, CAssetId resId,
           const CVector3f& playerScale, float mass, float stepUp, float stepDown, float ballRadius,
@@ -213,12 +212,16 @@ public:
   void DecrementPhazon();
   // GetMovementDirection2D__7CPlayerCFv ??
   void SetOrbitTargetId(TUniqueId id, CStateManager& mgr);
-  void SetOrbitRequestForTarget(TUniqueId id, EPlayerOrbitRequest req, CStateManager& mgr);
+  void TryToBreakOrbit(TUniqueId id, EOrbitBrokenType type, CStateManager& mgr);
+  void BreakOrbit(EOrbitBrokenType type, CStateManager& mgr);
+  void BreakGrapple(EOrbitBrokenType type, CStateManager& mgr);
   void AddOrbitDisableSource(CStateManager& mgr, TUniqueId addId);
   void RemoveOrbitDisableSource(TUniqueId uid);
   void SetAimTargetId(TUniqueId target);
   void DoSfxEffects(CSfxHandle sfx);
-  void UnFreeze(CStateManager& mgr);
+  bool GetFrozenState() const;
+  void SetFrozenState(CStateManager& stateMgr, CAssetId steamTxtr, ushort sfx, CAssetId iceTxtr);
+  void BreakFrozenState(CStateManager& mgr);
   void UpdateCinematicState(CStateManager& mgr);
   bool IsMorphBallTransitioning() const;
   void InitialiseAnimation();
@@ -260,6 +263,35 @@ public:
   float GetActualFirstPersonMaxVelocity(float dt) const;
   const CScriptWater* GetVisorRunoffEffect(const CStateManager& mgr) const;
   void SetMorphBallState(EPlayerMorphBallState state, CStateManager& mgr);
+  bool CanLeaveMorphBallState(CStateManager& mgr, CVector3f& pos) const;
+  void LeaveMorphBallState(CStateManager& mgr);
+  void EnterMorphBallState(CStateManager& mgr);
+  void ResetBallCamera(CStateManager& mgr);
+  void UpdateCameraState(CStateManager& mgr);
+  void UpdateFreeLookState(const CFinalInput& input, float dt, CStateManager& mgr);
+  void UpdateCameraTimers(float dt, const CFinalInput& input);
+  void UpdateSubmerged(const CStateManager& mgr);
+  bool CheckSubmerged();
+  void SetMoveState(NPlayer::EPlayerMovementState state, CStateManager& mgr);
+  void StartLandingControlFreeze(); // name?
+  void EndLandingControlFreeze();   // name?
+  void AdjustEyeOffset(CStateManager& mgr);
+  void SetEyeOffset(float bias);
+  float GetEyeOffset() const { return x9c8_eyeZBias; }
+  void UpdateStepUpSmoothing(float dt);
+  void UpdateEnvironmentDamageCameraShake(float dt, CStateManager& mgr);
+  void UpdatePhazonDamage(float dt, CStateManager& mgr);
+  void UpdateFreeLook(float dt);
+  void UpdatePlayerHints(CStateManager& mgr);
+  void UpdateBombJumpStuff();
+  void UpdateTransitionFilter(float dt, CStateManager& mgr);
+  void CalculatePlayerMovementDirection(float dt);
+  void UpdatePlayerControlDirection(float dt, CStateManager& mgr);
+  void UpdateFrozenState(const CFinalInput& input, CStateManager& mgr);
+  void UpdateControlLostState(float dt, CStateManager& mgr);
+  void ComputeMovement(const CFinalInput& input, CStateManager& mgr, float dt);
+  void ProcessInput(const CFinalInput& input, CStateManager& mgr);
+  void UpdateScanningState(const CFinalInput& input, CStateManager& mgr, float dt);
 
   CPlayerGun* PlayerGun() { return x490_gun.get(); }
   const CPlayerGun* GetPlayerGun() const { return x490_gun.get(); }
@@ -287,6 +319,8 @@ public:
   EGunHolsterState GetGunHolsterState() const { return x498_gunHolsterState; }
   NPlayer::EPlayerMovementState GetPlayerMovementState() const { return x258_movementState; }
   const CVector3f& GetAssistedTargetAim() const { return x480_assistedTargetAim; }
+  // CPlayer::GetFlipSpiderBallControlY() const weak
+  // CPlayer::GetFlipSpiderBallControlX() const weak
 
   bool IsInsideFluid() const { return x9c4_31_inWaterMovement; }
 
@@ -320,13 +354,13 @@ private:
   float x28c_sjTimer;
   float x290_minJumpTimeout;
   float x294_jumpCameraTimer;
-  uint x298_jumpPresses;
+  int x298_jumpPresses;
   float x29c_fallCameraTimer;
   float x2a0_;
   bool x2a4_cancelCameraPitch;
   float x2a8_timeSinceJump;
   ESurfaceRestraints x2ac_surfaceRestraint;
-  uint x2b0_outOfWaterTicks;
+  int x2b0_outOfWaterTicks;
   rstl::reserved_vector< float, 6 > x2b4_accelerationTable;
   uint x2d0_curAcceleration;
   float x2d4_accelerationChangeTimer;
@@ -338,7 +372,7 @@ private:
   float x300_fallingTime;
   EPlayerOrbitState x304_orbitState;
   EPlayerOrbitType x308_orbitType;
-  EPlayerOrbitRequest x30c_orbitRequest;
+  EOrbitBrokenType x30c_orbitBrokenType;
   TUniqueId x310_orbitTargetId;
   CVector3f x314_orbitPoint;
   CVector3f x320_orbitVector;

@@ -68,14 +68,36 @@ public:
   float GetSomething() const;
   float GetSomething2() const;
 
-  float GetDuration() const { return x0_duration; }
+  // From MP1R
+  float GetAttenuatedMagnitude() const;
+  float GetMaxAmplitude() const;
+  float GetMaxSeverity() const;
+  bool IsSingleDirection() const;
+  void ResetTime();
+  void SetAttenuation(float, CVector3f);
+  void SetTranslation(const CVector3f&);
+
+  static CCameraShakeData HardBothAxesShake(float duration, float);
+  static CCameraShakeData HardHorizShake(float duration, float);
+  static CCameraShakeData HardHorizShakeDistance(float duration, float, float, CVector3f);
+  static CCameraShakeData HardVertShake(float duration, float);
+  static CCameraShakeData HardVertShakeDistance(float duration, float, float, CVector3f);
+  static CCameraShakeData SoftBothAxesShake(float duration, float);
+  static CCameraShakeData SoftHorizShake(float duration, float);
+  static CCameraShakeData SoftHorizShakeDistance(float duration, float, float, CVector3f);
+  static CCameraShakeData SoftVertShake(float duration, float);
+  static CCameraShakeData SoftVertShakeDistance(float duration, float, float, CVector3f);
+  static CCameraShakeData VerticalOverrideShake(float duration);
+
+  float GetDuration() const { return x0_duration; } // In MP1R, returns either x0 or xec?
   float GetCurTime() const { return x4_curTime; }
   CVector3f GetPoint() const; // { return xc4_sfxPos; }
-  bool Done() const { return x4_curTime >= x0_duration; }
+  bool Done() const { return x4_curTime >= x0_duration; } // Finished in MP1R
   uint GetFlags() const { return xc0_flags; }
   const CVector3f& GetSfxPos() const { return xc4_sfxPos; }
 
-  static CCameraShakeData skChargedShotCameraShakeData;
+  static CCameraShakeData skSoftRecoil;
+  static CCameraShakeData skHardRecoil;
 
 private:
   float x0_duration;

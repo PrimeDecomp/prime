@@ -102,9 +102,9 @@ void CWaveBeam::Fire(bool underwater, float dt, CPlayerState::EChargeStage charg
       CTransform4f shotXf =
           xf * CTransform4f::RotateY(CRelAngle::FromDegrees((randAng + i) * skShotAnglePitch));
       CEnergyProjectile* proj = rs_new CEnergyProjectile(
-          true, x144_weapons[chargeState], GetWeaponType(), shotXf, GetPlayerMaterial(),
+          true, x144_weapons[chargeState], GetType(), shotXf, GetPlayerMaterial(),
           GetDamageInfo(mgr, chargeState, chargeFactor1), mgr.AllocateUniqueId(), kInvalidAreaId,
-          GetPlayerId(), homingTarget, kPA_ArmCannon, underwater, CVector3f(1.f, 1.f, 1.f),
+          GetPlayerId(), homingTarget, CWeapon::kPA_ArmCannon, underwater, CVector3f(1.f, 1.f, 1.f),
           rstl::optional_object_null(), CSfxManager::kInternalInvalidSfxId, false);
       mgr.AddObject(proj);
       proj->Think(dt, mgr);

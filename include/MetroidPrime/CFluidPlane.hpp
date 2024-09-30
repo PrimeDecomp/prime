@@ -25,7 +25,12 @@ public:
 class CFluidPlane {
 public:
   enum EFluidType {
-    // TODO
+    kFT_NormalWater,
+    kFT_PoisonWater,
+    kFT_Lava,
+    kFT_PhazonFluid,
+    kFT_Four,
+    kFT_ThickLava
   };
 
   CFluidPlane(uint, uint, uint, CFluidPlane::EFluidType, float, const CFluidUVMotion&);
@@ -36,6 +41,8 @@ public:
                          const CVector3f& velocity, const CScriptWater& water, CStateManager& mgr,
                          const CVector3f& upVec);
   // Update__11CFluidPlaneFv
+
+  float GetRippleScaleFromKineticEnergy(float baseI, float velDot);
 
   float GetAlpha() const { return x40_alpha; }
   EFluidType GetFluidType() const { return x44_fluidType; }

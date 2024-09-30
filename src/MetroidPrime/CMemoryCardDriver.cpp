@@ -582,8 +582,8 @@ void CMemoryCardDriver::StartFileCreate() {
   }
 
   x194_fileIdx = 0;
-  x198_fileInfo =
-      rs_new CMemoryCardSys::CCardFileInfo(x0_cardPort, rstl::string_l(skSaveFileNames[x194_fileIdx]));
+  x198_fileInfo = rs_new CMemoryCardSys::CCardFileInfo(
+      x0_cardPort, rstl::string_l(skSaveFileNames[x194_fileIdx]));
   InitializeFileInfo();
   ECardResult result = x198_fileInfo->CreateFile();
   if (result != kCR_READY)
@@ -616,8 +616,8 @@ void CMemoryCardDriver::StartFileCreateTransactional() {
   }
 
   x194_fileIdx = altFileIdx;
-  x198_fileInfo =
-      rs_new CMemoryCardSys::CCardFileInfo(x0_cardPort, rstl::string_l(skSaveFileNames[x194_fileIdx]));
+  x198_fileInfo = rs_new CMemoryCardSys::CCardFileInfo(
+      x0_cardPort, rstl::string_l(skSaveFileNames[x194_fileIdx]));
   InitializeFileInfo();
   ECardResult result = x198_fileInfo->CreateFile();
   if (result != kCR_READY)
@@ -661,8 +661,8 @@ void CMemoryCardDriver::InitializeFileInfo() {
 
   char nameBuffer[36];
 
-  sprintf(nameBuffer, "%02d.%02d.%02d  %02d:%02d", time.mon + 1, time.mday,
-          time.year % 100, time.hour, time.min);
+  sprintf(nameBuffer, "%02d.%02d.%02d  %02d:%02d", time.mon + 1, time.mday, time.year % 100,
+          time.hour, time.min);
 
   fileInfo.SetComment(rstl::string_l(nameConstant) + nameBuffer);
   fileInfo.LockBannerToken(x4_saveBanner, *gpSimplePool);
@@ -722,7 +722,7 @@ void CMemoryCardDriver::ReadFinished() {
 void CMemoryCardDriver::EraseFileSlot(int saveIdx) { xe4_fileSlots[saveIdx] = nullptr; }
 
 void CMemoryCardDriver::BuildNewFileSlot(int saveIdx) {
-  bool fusionBackup = gpGameState->SystemOptions().GetHasFusion();
+  bool fusionBackup = gpGameState->SystemState().GetHasFusion();
   gpGameState->SetFileIdx(saveIdx);
 
   rstl::auto_ptr< SGameFileSlot >& slot = xe4_fileSlots[saveIdx];
@@ -738,7 +738,7 @@ void CMemoryCardDriver::BuildNewFileSlot(int saveIdx) {
 
   ImportPersistentOptions();
   gpGameState->SetCardSerial(x28_cardSerial);
-  gpGameState->SystemOptions().SetHasFusion(fusionBackup);
+  gpGameState->SystemState().SetHasFusion(fusionBackup);
 }
 
 void CMemoryCardDriver::BuildExistingFileSlot(int saveIdx) {
@@ -756,18 +756,18 @@ void CMemoryCardDriver::BuildExistingFileSlot(int saveIdx) {
 
 void CMemoryCardDriver::ImportPersistentOptions() {
   CMemoryInStream r(x30_systemData.data(), x30_systemData.capacity());
-  CSystemOptions opts(r);
-  gpGameState->ImportPersistentOptions(opts);
+  CSystemState state(r);
+  gpGameState->ImportPersistentOptions(state);
 }
 
 void CMemoryCardDriver::ExportPersistentOptions() {
   u8* data = x30_systemData.data();
   CMemoryInStream r(data, x30_systemData.capacity());
-  CSystemOptions opts(r);
-  gpGameState->ExportPersistentOptions(opts);
+  CSystemState state(r);
+  gpGameState->ExportPersistentOptions(state);
 
   CMemoryStreamOut w(data, x30_systemData.capacity());
-  w.Put(opts);
+  w.Put(state);
 }
 
 SSaveHeader::SSaveHeader(int i) : x0_version(i) {}

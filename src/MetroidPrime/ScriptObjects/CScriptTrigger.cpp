@@ -65,9 +65,9 @@ void CScriptTrigger::Touch(CActor& act, CStateManager& mgr) {
                      kTFL_DetectProjectiles4 | kTFL_DetectProjectiles5 | kTFL_DetectProjectiles6 |
                      kTFL_DetectProjectiles7;
       } else if (const CWeapon* weap = TCastToConstPtr< CWeapon >(act)) {
-        if ((weap->GetAttribField() & kPA_Bombs) == kPA_Bombs) {
+        if ((weap->GetAttribField() & CWeapon::kPA_Bombs) == CWeapon::kPA_Bombs) {
           testFlags |= kTFL_DetectBombs;
-        } else if ((weap->GetAttribField() & kPA_PowerBombs) == kPA_PowerBombs) {
+        } else if ((weap->GetAttribField() & CWeapon::kPA_PowerBombs) == CWeapon::kPA_PowerBombs) {
           testFlags |= kTFL_DetectPowerBombs;
         }
       }

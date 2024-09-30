@@ -101,10 +101,11 @@ bool CMetroidAreaCollider::AABoxCollisionCheck_Internal(const CAreaOctTree::Node
   }
   case CAreaOctTree::Node::kTT_Leaf: {
     CAreaOctTree::TriListReference list = node.GetTriangleArray();
+    int size = list.GetSize();
     const CAreaOctTree& owner = node.GetOwner();
     const CMaterialFilter& filter = cache.x8_filter;
     const CPlane* planes = cache.x4_planes;
-    for (int j = 0; j < list.GetSize(); ++j) {
+    for (int j = 0; j < size; ++j) {
       ++gTrianglesProcessed;
       ushort triIdx = list.GetAt(j);
       if (sDupPrimitiveCheckCount == sDupTriangleList[triIdx]) {
@@ -119,9 +120,9 @@ bool CMetroidAreaCollider::AABoxCollisionCheck_Internal(const CAreaOctTree::Node
             CAABox aabb = CAABox::MakeMaxInvertedBox();
             if (ConvexPolyCollision(planes, &surf.GetVert(0), aabb)) {
               CPlane plane = surf.GetPlane();
-              CCollisionInfo collision(aabb, cache.xc_material, material, plane.GetNormal(),
-                                       -plane.GetNormal());
-              cache.x10_collisionList.Add(collision, false);
+              cache.x10_collisionList.Add(CCollisionInfo(aabb, cache.xc_material, material,
+                                                         plane.GetNormal(), -plane.GetNormal()),
+                                          false);
               ret = true;
             }
           }
@@ -147,12 +148,9 @@ bool CMetroidAreaCollider::AABoxCollisionCheck_Cached(const COctreeLeafCache& le
   const CUnitVector3f forward(0.f, 1.f, 0.f, CUnitVector3f::kN_No);
   const CUnitVector3f up(0.f, 0.f, 1.f, CUnitVector3f::kN_No);
   const CPlane planes[6] = {
-      CPlane(aabb.GetMinPoint(), right),
-      CPlane(aabb.GetMaxPoint(), -right),
-      CPlane(aabb.GetMinPoint(), forward),
-      CPlane(aabb.GetMaxPoint(), -forward),
-      CPlane(aabb.GetMinPoint(), up),
-      CPlane(aabb.GetMaxPoint(), -up),
+      CPlane(aabb.GetMinPoint(), right),   CPlane(aabb.GetMaxPoint(), -right),
+      CPlane(aabb.GetMinPoint(), forward), CPlane(aabb.GetMaxPoint(), -forward),
+      CPlane(aabb.GetMinPoint(), up),      CPlane(aabb.GetMaxPoint(), -up),
   };
 
   ResetInternalCounters();

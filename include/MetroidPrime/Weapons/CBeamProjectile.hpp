@@ -14,7 +14,7 @@ public:
     kDT_Actor,
     kDT_World,
   };
-  
+
   CBeamProjectile(const TToken<CWeaponDescription>& wDesc, const rstl::string& name, EWeaponType wType,
                   const CTransform4f& xf, int maxLength, float beamRadius, float travelSpeed,
                   EMaterialTypes matType, const CDamageInfo& dInfo, TUniqueId uid, TAreaId aid, TUniqueId owner,

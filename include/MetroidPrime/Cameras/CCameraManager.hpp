@@ -87,6 +87,7 @@ public:
   void DeleteCameraHint(TUniqueId uid, CStateManager& mgr);
   void ReallyRemoveCameraHint(TUniqueId uid, CStateManager& mgr);
   // SetSpecialCameras__14CCameraManagerFR18CFirstPersonCameraR11CBallCamera
+  void ResetCameraHint(CStateManager& mgr);
 
   void SetCurrentFov(float fov) { x3bc_curFov = fov; }
 
@@ -104,6 +105,9 @@ public:
   TUniqueId GetPathCameraId() const;
   void SetSpindleCamera(TUniqueId id, CStateManager& mgr);
   TUniqueId GetSpindleCameraId() const;
+
+  CBallCamera* BallCamera() const { return x80_ballCamera; }
+  const CBallCamera* GetBallCamera() const { return x80_ballCamera; }
 
   static float GetDefaultThirdPersonVerticalFOV();
   static float GetDefaultFirstPersonVerticalFOV();

@@ -30,14 +30,103 @@ public:
 
   float GetBallRadius() const;
 
-  EBallBoostState GetBallBoostState() const; // { return x1e3c_boostState; }
+  EBallBoostState GetBallBoostState() const;
   void SetBallBoostState(EBallBoostState state);
-  EBombJumpState GetBombJumpState() const; // { return x1e40_bombJumpState; }
+  EBombJumpState GetBombJumpState() const;
   void SetBombJumpState(EBombJumpState state);
   void LoadMorphBallModel(CStateManager& mgr);
   void Update(float dt, CStateManager& mgr);
   void StopSounds();
   void UpdateEffects(float dt, CStateManager& mgr);
+  void SetBallLightActive(CStateManager& mgr, const bool active);
+  // GetBallToWorld__10CMorphBallCFv global
+  // GetBallRadius__10CMorphBallCFv global
+  // TakeDamage__10CMorphBallFf global
+  // IsProjectile__10CMorphBallCFv weak
+  // LeaveMorphBallState__10CMorphBallFR13CStateManager global
+  // LeaveBoosting__10CMorphBallFv global
+  // CancelBoosting__10CMorphBallFv global
+  // InSpiderMode__10CMorphBallCFv weak
+  // SetAsProjectile__10CMorphBallFRC11CDamageInfoRC11CDamageInfo global
+  // CollidedWith__10CMorphBallFRC9TUniqueIdRC18CCollisionInfoListR13CStateManager global
+  // SwitchToMarble__10CMorphBallFv global
+  bool GetIsInHalfPipeMode() const;
+  // DampLinearAndAngularVelocities__10CMorphBallFff global
+  // IsClimbable__10CMorphBallCFRC14CCollisionInfo global
+  // FluidFXThink__10CMorphBallFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager global
+  // GetCollidableSphere__10CMorphBallCFv weak
+  // DrawCollisionPrimitive__10CMorphBallCFv global
+  // GetPrimitiveTransform__10CMorphBallCFv global
+  // TouchModel__10CMorphBallCFRC13CStateManager global
+  // Render__10CMorphBallCFRC13CStateManagerPC12CActorLights global
+  // RenderDamageEffects__10CMorphBallCFRC13CStateManagerRC12CTransform4f global
+  // RenderSpiderBallElectricalEffects__10CMorphBallCFv global
+  // RenderEnergyDrainEffects__10CMorphBallCFRC13CStateManager global
+  // RenderMorphBallTransitionFlash__10CMorphBallCFRC13CStateManager global
+  // GetModel__10CMorphBallCFv weak
+  // GetBallContactSurfaceNormal__10CMorphBallCFv weak
+  // PreRender__10CMorphBallFR13CStateManagerRC14CFrustumPlanes global
+  // IsInFrustum__10CMorphBallCFRC14CFrustumPlanes global
+  // GetBallTouchRadius__10CMorphBallCFv global
+  // Touch__10CMorphBallFR6CActorR13CStateManager global
+  void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&);
+  // DeleteLight__10CMorphBallFR13CStateManager global
+  // EnterMorphBallState__10CMorphBallFR13CStateManager
+  // GetSwooshToWorld__10CMorphBallCFv global
+  // IsMorphBallTransitionFlashValid__10CMorphBallCFv global
+  // AddSpiderBallElectricalEffect__10CMorphBallFv global
+  // UpdateSpiderBallElectricalEffects__10CMorphBallFv global
+  // UpdateMorphBallTransitionFlash__10CMorphBallFf global
+  // DisableHalfPipeStatus__10CMorphBallFv global
+  // SetIsInHalfPipeMode__10CMorphBallFb global
+  // SetIsInHalfPipeModeInAir__10CMorphBallFb global
+  // SetTouchedHalfPipeRecently__10CMorphBallFb global
+  // ResetMorphBallTransitionFlash__10CMorphBallFv global
+  // CreateSpiderBallParticles__10CMorphBallFRC9CVector3fRC9CVector3f global
+  ESpiderBallState GetSpiderBallState() const { return x187c_spiderBallState; }
+  // GetMorphBallModel__10CMorphBallFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>f global
+  // LoadAnimationTokens__10CMorphBallFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator> global
+  // IsBoosting__10CMorphBallCFv weak
+  // GetBoostChargeTimer__10CMorphBallCFv weak
+  // GetWallBumpCounter__10CMorphBallCFv weak
+  // GetBallContactMaterials__10CMorphBallCFv weak
+  void ComputeBallMovement(const CFinalInput&, CStateManager&, float);
+  // ComputeBoostBallMovement__10CMorphBallFRC11CFinalInputRC13CStateManagerf global
+  // IsMovementAllowed__10CMorphBallCFv global
+  // EnterBoosting__10CMorphBallFv global
+  // SwitchToTire__10CMorphBallFv global
+  // ComputeMarioMovement__10CMorphBallFRC11CFinalInputR13CStateManagerf global
+  // SetSpiderBallState__10CMorphBallFQ210CMorphBall16ESpiderBallState weak
+  // UpdateSpiderBall__10CMorphBallFRC11CFinalInputR13CStateManagerf global
+  // CheckForSwitchToSpiderBallSwinging__10CMorphBallCFR13CStateManager global
+  // FindClosestSpiderBallWaypoint__10CMorphBallCFR13CStateManagerRC9CVector3fR9CVector3fR9CVector3fR9CVector3fRfR9CVector3fRbR12CTransform4f global
+  // SetSpiderBallSwingingState__10CMorphBallFb global
+  // ResetSpiderBallSwingControllerMovementTimer__10CMorphBallFv global
+  // ApplySpiderBallSwingingForces__10CMorphBallFRC11CFinalInputR13CStateManagerf global
+  // GetSpiderBallControllerMovement__10CMorphBallCFRC11CFinalInputbb global
+  // UpdateSpiderBallSwingControllerMovementTimer__10CMorphBallFff global
+  // GetSpiderBallSwingControllerMovementScalar__10CMorphBallCFv global
+  // ApplySpiderBallRollForces__10CMorphBallFRC11CFinalInputR13CStateManagerf global
+  // CalculateSpiderBallAttractionSurfaceForces__10CMorphBallCFRC11CFinalInputR13CStateManagerRC12CTransform4f global
+  // ForwardInput__10CMorphBallCFRC11CFinalInput global
+  // BallTurnInput__10CMorphBallCFRC11CFinalInput global
+  // ComputeMaxSpeed__10CMorphBallCFv global
+  bool GetIsInHalfPipeModeInAir() const;
+  // GetTouchedHalfPipeRecently__10CMorphBallCFv global
+  // ComputeLiftForces__10CMorphBallFRC9CVector3fRC9CVector3fRC13CStateManager global
+  void UpdateBallDynamics(CStateManager&, float);
+  // BallCloseToCollision__10CMorphBallCFRC13CStateManagerf global
+  // UpdateHalfPipeStatus__10CMorphBallFR13CStateManagerf global
+  // CalculateSurfaceToWorld__10CMorphBallCFRC9CVector3fRC9CVector3fRC9CVector3f global
+  // UpdateMarbleDynamics__10CMorphBallFR13CStateManagerfRC9CVector3f global
+  // SpinToSpeed__10CMorphBallFfRC9CVector3ff global
+  // GetMinimumAlignmentSpeed__10CMorphBallCFv global
+  // CalculateBallContactInfo__10CMorphBallCFR9CVector3fR9CVector3f global
+  // CalculateSurfaceFriction__10CMorphBallCFv global
+  // ApplyFriction__10CMorphBallFf global
+  // ApplyGravity__10CMorphBallFR13CStateManager global
+  void Land();
+  void ResetMorphBallIceBreak();
 
 private:
   struct CSpiderBallElectricityManager {

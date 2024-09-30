@@ -9,7 +9,7 @@
 
 CWeapon::CWeapon(TUniqueId uid, TAreaId areaId, bool active, TUniqueId owner, EWeaponType type,
                  const rstl::string& name, const CTransform4f& xf, const CMaterialFilter& filter,
-                 const CMaterialList& mList, const CDamageInfo& dInfo, EProjectileAttrib attribs,
+                 const CMaterialList& mList, const CDamageInfo& dInfo, int attribs,
                  const CModelData& mData)
 : CActor(uid, active, name, CEntityInfo(areaId, CEntity::NullConnectionList), xf, mData, mList,
          CActorParameters::None().HotInThermal(true), kInvalidUniqueId)
@@ -34,14 +34,15 @@ void CWeapon::SetDamageFalloffSpeed(float speed) {
 
 void CWeapon::Think(float dt, CStateManager& mgr) {
   x148_curTime += dt;
-  if ((xe8_projectileAttribs & kPA_DamageFalloff) == kPA_DamageFalloff) {
+  if ((xe8_projectileAttribs & CWeapon::kPA_DamageFalloff) == CWeapon::kPA_DamageFalloff) {
     float max = 1.f - x148_curTime * x14c_damageFalloffSpeed;
     float scale = CMath::Max(0.f, max);
     float damage = scale * x110_origDamageInfo.GetDamage();
     float radius = scale * x110_origDamageInfo.GetRadius();
     float knockback = scale * x110_origDamageInfo.GetKnockBackPower();
     x12c_curDamageInfo =
-        CDamageInfo(x110_origDamageInfo.GetWeaponMode(), damage, (double)(scale * x110_origDamageInfo.GetDamage()), radius, knockback);
+        CDamageInfo(x110_origDamageInfo.GetWeaponMode(), damage,
+                    (double)(scale * x110_origDamageInfo.GetDamage()), radius, knockback);
   } else {
     x12c_curDamageInfo = x110_origDamageInfo;
   }
@@ -75,11 +76,11 @@ void CWeapon::FluidFXThink(EFluidState state, CScriptWater& water, CStateManager
     break;
   }
 
-  if ((xe8_projectileAttribs & kPA_ComboShot) != 0 && state != kFS_InFluid) {
+  if ((xe8_projectileAttribs & CWeapon::kPA_ComboShot) != 0 && state != kFS_InFluid) {
     mag += 0.5f;
   }
 
-  if ((xe8_projectileAttribs & kPA_Charged) != 0) {
+  if ((xe8_projectileAttribs & CWeapon::kPA_Charged) != 0) {
     mag += 0.25f;
   }
 
@@ -89,7 +90,7 @@ void CWeapon::FluidFXThink(EFluidState state, CScriptWater& water, CStateManager
 
   if (doRipple) {
     CVector3f pos(GetTranslation().GetX(), GetTranslation().GetY(), water.GetSurfaceZ());
-    if ((xe8_projectileAttribs & kPA_ComboShot) != 0) {
+    if ((xe8_projectileAttribs & CWeapon::kPA_ComboShot) != 0) {
       if (!water.CanRippleAtPoint(pos)) {
         doRipple = false;
       }

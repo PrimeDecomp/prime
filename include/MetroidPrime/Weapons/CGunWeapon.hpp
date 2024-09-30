@@ -96,7 +96,7 @@ public:
   rstl::optional_object< CModelData >& SolidModelData() { return x10_solidModelData; }
   const CModelData& GetSolidModelData() const { return x10_solidModelData.data(); }
 
-  EWeaponType GetWeaponType() const { return x1c0_weaponType; }
+  EWeaponType GetType() const { return x1c0_weaponType; }
   TUniqueId GetPlayerId() const { return x1c4_playerId; }
   EMaterialTypes GetPlayerMaterial() const { return x1c8_playerMaterial; }
 

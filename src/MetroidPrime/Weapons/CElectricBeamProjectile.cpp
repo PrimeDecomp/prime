@@ -110,7 +110,7 @@ void CElectricBeamProjectile::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueI
                                               CStateManager& mgr) {
   switch (msg) {
   case kSM_Registered:
-    mgr.AddWeaponId(GetOwnerId(), GetWeaponType());
+    mgr.AddWeaponId(GetOwnerId(), GetType());
     CauseDamage(true);
     break;
   case kSM_Deleted:

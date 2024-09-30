@@ -45,7 +45,7 @@ public:
   CVector3f GetScanObjectIndicatorPosition(const CStateManager&) const override;
   EWeaponCollisionResponseTypes GetCollisionResponseType(const CVector3f&, const CVector3f&,
                                                          const CWeaponMode&,
-                                                         int /*EProjectileAttrib?*/) const override;
+                                                         int) const override;
   void OnScanStateChange(EScanState, CStateManager&) override;
 
   // CPhysicsActor

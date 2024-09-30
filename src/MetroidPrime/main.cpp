@@ -49,7 +49,7 @@
 #include "MetroidPrime/Player/CGameOptions.hpp"
 #include "MetroidPrime/Player/CGameState.hpp"
 #include "MetroidPrime/Player/CPlayerState.hpp"
-#include "MetroidPrime/Player/CSystemOptions.hpp"
+#include "MetroidPrime/Player/CSystemState.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptMazeNode.hpp"
 #include "MetroidPrime/Tweaks/CTweakGame.hpp"
 #include "MetroidPrime/Tweaks/CTweakPlayer.hpp"
@@ -306,19 +306,19 @@ CGameArchitectureSupport::~CGameArchitectureSupport() {
 
 // 800044A4
 void CMain::StreamNewGameState(CInputStream& in, int saveIdx) {
-  bool hasFusion = gpGameState->SystemOptions().GetHasFusion();
+  bool hasFusion = gpGameState->SystemState().GetHasFusion();
   x128_gameGlobalObjects->GameState() = nullptr;
   gpGameState = nullptr;
   x128_gameGlobalObjects->GameState() = rs_new CGameState(in, saveIdx);
   gpGameState = x128_gameGlobalObjects->GameState().get();
-  gpGameState->SystemOptions().SetHasFusion(hasFusion);
-  gpGameState->PlayerState()->SetIsFusionEnabled(gpGameState->SystemOptions().GetHasFusion());
+  gpGameState->SystemState().SetHasFusion(hasFusion);
+  gpGameState->PlayerState()->SetIsFusionEnabled(gpGameState->SystemState().GetHasFusion());
   gpGameState->HintOptions().SetHintNextTime();
 }
 
 // 80004590
 void CMain::RefreshGameState() {
-  CSystemOptions systemOptions = gpGameState->SystemOptions();
+  CSystemState systemState = gpGameState->SystemState();
   uint saveIdx = gpGameState->SaveIdx();
   u64 cardSerial = gpGameState->CardSerial();
   rstl::vector< uchar > backupBuf = gpGameState->BackupBuf();
@@ -330,11 +330,11 @@ void CMain::RefreshGameState() {
     x128_gameGlobalObjects->GameState() = rs_new CGameState(stream, saveIdx);
   }
   gpGameState = x128_gameGlobalObjects->GameState().get();
-  gpGameState->SystemOptions() = systemOptions;
+  gpGameState->SystemState() = systemState;
   gpGameState->GameOptions() = gameOptions;
   gpGameState->GameOptions().EnsureOptions();
   gpGameState->CardSerial() = cardSerial;
-  gpGameState->PlayerState()->SetIsFusionEnabled(gpGameState->SystemOptions().GetHasFusion());
+  gpGameState->PlayerState()->SetIsFusionEnabled(gpGameState->SystemState().GetHasFusion());
 }
 
 // 8000487C
@@ -548,16 +548,16 @@ void CMain::EnsureWorldPakReady(CAssetId id) {
 
 // 800036A0
 void CMain::ResetGameState() {
-  CSystemOptions persistentOptions = gpGameState->SystemOptions();
+  CSystemState systemState = gpGameState->SystemState();
   CGameOptions gameOptions = gpGameState->GameOptions();
   x128_gameGlobalObjects->GameState() = nullptr;
   gpGameState = nullptr;
   x128_gameGlobalObjects->GameState() = rs_new CGameState();
   gpGameState = x128_gameGlobalObjects->GameState().get();
-  gpGameState->SystemOptions() = persistentOptions;
+  gpGameState->SystemState() = systemState;
   gpGameState->GameOptions() = gameOptions;
   gpGameState->GameOptions().EnsureOptions();
-  gpGameState->PlayerState()->SetIsFusionEnabled(gpGameState->SystemOptions().GetHasFusion());
+  gpGameState->PlayerState()->SetIsFusionEnabled(gpGameState->SystemState().GetHasFusion());
 }
 
 // 8000367C

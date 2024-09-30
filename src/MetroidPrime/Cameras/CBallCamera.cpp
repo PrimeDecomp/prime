@@ -309,7 +309,7 @@ void CBallCamera::UpdateColliders(const CTransform4f& xf,
   if (idx < colliderList.size()) {
     const CPlayer& player = *mgr.GetPlayer();
     x310_idealLookVec = CVector3f(0.f, gpTweakBall->GetBallCameraOffset().GetY(),
-                                  gpTweakPlayer->GetPlayerBallHalfExtent());
+                                  gpTweakPlayer->mPlayerBallHalfExtent);
     x310_idealLookVec.SetY(x310_idealLookVec.GetY() * x308_speedFactor);
     x31c_predictedLookPos = player.GetMovementDirection() * x310_idealLookVec.GetY();
     x31c_predictedLookPos.SetZ(x310_idealLookVec.GetZ());

@@ -192,6 +192,7 @@ public:
   const CFluidPlaneManager* GetFluidPlaneManager() const { return x87c_fluidPlaneManager; }
   CWorldTransManager* WorldTransManager() { return x8c4_worldTransManager.GetPtr(); }
   const CWorldTransManager* GetWorldTransManager() const { return x8c4_worldTransManager.GetPtr(); }
+  EGameState GetGameState() const { return x904_gameState; }
 
   CRandom16* Random() const { return x900_random; }
   uint GetUpdateFrameIndex() const { return x8d8_updateFrameIdx; }

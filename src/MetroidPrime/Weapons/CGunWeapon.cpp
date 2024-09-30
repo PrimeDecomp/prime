@@ -400,11 +400,11 @@ void CGunWeapon::Fire(bool underwater, float dt, CPlayerState::EChargeStage char
 
   uint particleChargeAttribs = 0;
   if (partialCharge)
-    particleChargeAttribs = kPA_PartialCharge;
+    particleChargeAttribs = CWeapon::kPA_PartialCharge;
 
-  uint attribs = kPA_ArmCannon;
+  uint attribs = CWeapon::kPA_ArmCannon;
   if (chargeState != CPlayerState::kCS_Normal)
-    attribs = kPA_ArmCannon | kPA_Charged;
+    attribs = CWeapon::kPA_ArmCannon | CWeapon::kPA_Charged;
 
   CEnergyProjectile* proj = rs_new CEnergyProjectile(
       true, x144_weapons[chargeState], x1c0_weaponType, xf, x1c8_playerMaterial, dInfo,
@@ -418,7 +418,7 @@ void CGunWeapon::Fire(bool underwater, float dt, CPlayerState::EChargeStage char
 
   if (chargeState != CPlayerState::kCS_Normal) {
     x218_25_enableCharge = true;
-    mgr.CameraManager()->AddCameraShaker(CCameraShakeData::skChargedShotCameraShakeData, false);
+    mgr.CameraManager()->AddCameraShaker(CCameraShakeData::skHardRecoil, false);
   }
 
   x10_solidModelData->AnimationData()->EnableLooping(false);

@@ -81,7 +81,7 @@ void CCameraManager::CreateCameras(CStateManager& mgr) {
   TUniqueId fpId = mgr.AllocateUniqueId();
 
   x7c_fpCamera = rs_new CFirstPersonCamera(
-      fpId, xf, plId, gpTweakPlayer->GetOrbitCameraSpeed(), GetDefaultFirstPersonVerticalFOV(),
+      fpId, xf, plId, gpTweakPlayer->mOrbitCameraSpeed, GetDefaultFirstPersonVerticalFOV(),
       GetDefaultFirstPersonNearClipDistance(), GetDefaultFirstPersonFarClipDistance(),
       GetDefaultAspectRatio());
   mgr.AddObject(x7c_fpCamera);
@@ -337,7 +337,7 @@ void CCameraManager::RemoveCinemaCamera(TUniqueId uid, CStateManager& mgr) {
 // TODO nonmatching: regswap
 void CCameraManager::EnterCinematic(CStateManager& mgr) {
   mgr.Player()->PlayerGun()->CancelFiring(mgr);
-  mgr.Player()->UnFreeze(mgr);
+  mgr.Player()->BreakFrozenState(mgr);
 
   CObjectList& objList = mgr.ObjectListById(kOL_All);
   int idx = objList.GetFirstObjectIndex();
@@ -345,8 +345,8 @@ void CCameraManager::EnterCinematic(CStateManager& mgr) {
     if (CExplosion* explosion = TCastToPtr< CExplosion >(objList[idx])) {
       mgr.DeleteObjectRequest(explosion->GetUniqueId());
     } else if (CWeapon* weapon = TCastToPtr< CWeapon >(objList[idx])) {
-      if (weapon->GetActive() &&
-          (weapon->GetAttribField() & kPA_KeepInCinematic) != kPA_KeepInCinematic) {
+      if (weapon->GetActive() && (weapon->GetAttribField() & CWeapon::kPA_KeepInCinematic) !=
+                                     CWeapon::kPA_KeepInCinematic) {
         CPatterned* patterned = TCastToPtr< CPatterned >(mgr.ObjectById(weapon->GetOwnerId()));
         CPlayer* player = TCastToPtr< CPlayer >(mgr.ObjectById(weapon->GetOwnerId()));
         if (patterned || player) {

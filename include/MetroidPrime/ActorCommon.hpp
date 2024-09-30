@@ -97,27 +97,6 @@ enum EWeaponCollisionResponseTypes {
   kWCR_AtomicBetaReflect,
   kWCR_AtomicAlphaReflect,
 };
-enum EProjectileAttrib {
-  kPA_None = 0,
-  kPA_PartialCharge = (1 << 0),
-  kPA_PlasmaProjectile = (1 << 1),
-  kPA_Charged = (1 << 2),
-  kPA_Ice = (1 << 3),
-  kPA_Wave = (1 << 4),
-  kPA_Plasma = (1 << 5),
-  kPA_Phazon = (1 << 6),
-  kPA_ComboShot = (1 << 7),
-  kPA_Bombs = (1 << 8),
-  kPA_PowerBombs = (1 << 9),
-  kPA_BigProjectile = (1 << 10),
-  kPA_ArmCannon = (1 << 11),
-  kPA_BigStrike = (1 << 12),
-  kPA_DamageFalloff = (1 << 13),
-  kPA_StaticInterference = (1 << 14),
-  kPA_PlayerUnFreeze = (1 << 15),
-  kPA_ParticleOPTS = (1 << 16),
-  kPA_KeepInCinematic = (1 << 17),
-};
 enum EUserEventType {
   kUE_Projectile = 0,
   kUE_EggLay = 1,

@@ -70,7 +70,7 @@ CVector3f CBurstFire::GetError(float xMag, float zMag) const {
   CVector3f result = CVector3f::Zero();
 
   if (x14_24_shouldFire && x18_curBursts) {
-    
+
     int r0 = x18_curBursts->x4_shotAngles[x4_angleIdx];
     if (x14_25_avoidAccuracy && (r0 == 4 || r0 == 12)) {
       r0 = x18_curBursts->x4_shotAngles[x4_angleIdx > 0 ? x4_angleIdx - 1 : x4_angleIdx + 1];
@@ -96,7 +96,7 @@ CVector3f CBurstFire::GetDistanceCompensatedError(float dist, float maxErrDist) 
 }
 
 float CBurstFire::GetMaxXError() const {
-  return gpTweakPlayer->GetPlayerXYHalfExtent() * 3.625f + 0.2f;
+  return gpTweakPlayer->mPlayerXYHalfExtent * 3.625f + 0.2f;
 }
 
-float CBurstFire::GetMaxZError() const { return gpTweakPlayer->GetEyeOffset(); }
+float CBurstFire::GetMaxZError() const { return gpTweakPlayer->mEyeOffset; }

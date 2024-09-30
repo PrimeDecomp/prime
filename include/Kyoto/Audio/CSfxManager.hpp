@@ -210,7 +210,7 @@ public:
   static void SetDuration(CSfxHandle handle, float duration);
   static ushort GetReverbAmount();
 
-  static CSfxHandle SfxStart(const ushort id, const short vol = 127, const short pan = 64,
+  static CSfxHandle SfxStart(ushort id, const short vol = 127, const short pan = 64,
                              const bool useAcoustics = false, const short prio = kMedPriority,
                              const bool looped = false, const int areaId = kAllAreas);
   static void SfxStop(CSfxHandle handle);
