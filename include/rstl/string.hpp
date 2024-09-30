@@ -138,7 +138,14 @@ bool basic_string< _CharTp, Traits, Alloc >::operator<(const basic_string& other
 typedef basic_string< wchar_t > wstring;
 typedef basic_string< char > string;
 
-wstring wstring_l(const wchar_t* data) { return wstring(wstring::literal_t(), data); }
+#ifdef __MWERKS__
+__declspec(weak) // TODO
+#else
+static
+#endif
+wstring wstring_l(const wchar_t* data) {
+  return wstring(wstring::literal_t(), data);
+}
 
 string string_l(const char* data);
 // {
