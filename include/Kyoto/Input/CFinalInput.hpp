@@ -91,6 +91,10 @@ public:
 
   float AStart() const { return x2d_b27_Start ? 1.f : 0.f; }
 
+  float ALeftX() const { return x8_anaLeftX; }
+
+  float ALeftY() const { return xc_anaLeftY; }
+
   bool DLAUp() const { return kInput_AnalogOnThreshhold < xc_anaLeftY ? true : false; }
 
   bool DLADown() const { return -kInput_AnalogOnThreshhold > xc_anaLeftY ? true : false; }

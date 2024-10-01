@@ -32,9 +32,14 @@ public:
                                             TUniqueId&, CCollisionInfo&, double&);
   static CRayCastResult RayStaticIntersection(const CStateManager&, const CVector3f&,
                                               const CVector3f&, float, const CMaterialFilter&);
-  static CRayCastResult RayDynamicIntersection(const CStateManager& mgr, TUniqueId& idOut, const CVector3f& pos,
-                                               const CVector3f& dir, float mag, const CMaterialFilter& filter,
+  static CRayCastResult RayDynamicIntersection(const CStateManager& mgr, TUniqueId& idOut,
+                                               const CVector3f& pos, const CVector3f& dir,
+                                               float mag, const CMaterialFilter& filter,
                                                const TEntityList& nearList);
+  static rstl::optional_object< CVector3f >
+  FindNonIntersectingVector(const CStateManager& mgr, CAreaCollisionCache& cache,
+                            CPhysicsActor& actor, const CCollisionPrimitive& prim,
+                            const TEntityList& nearList); // name?
 
   static void Move(CStateManager& mgr, CPhysicsActor& actor, float dt, const TEntityList*);
 };

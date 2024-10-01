@@ -1,13 +1,14 @@
-#include "Kyoto/Math/CVector3f.hpp"
 #include "MetroidPrime/Player/CPlayer.hpp"
-#include "dolphin/hw_regs.h"
+
+#include "Kyoto/Math/CVector3f.hpp"
+
 #include "rstl/optional_object.hpp"
 #include "rstl/reserved_vector.hpp"
 
-CPlayer::CInputFilter::CInputFilter() {}
+CPlayer::CPlayerStuckTracker::CPlayerStuckTracker() {}
 
-void CPlayer::CInputFilter::AddSample(int a, const CVector3f& b, const CVector3f& c,
-                                      const CVector2f& d) {
+void CPlayer::CPlayerStuckTracker::AddState(EPlayerState a, const CVector3f& b, const CVector3f& c,
+                                            const CVector2f& d) {
   x0_.push_back(a);
   x54_.push_back(b);
   x148_.push_back(c);
@@ -46,7 +47,7 @@ rstl::optional_object< int > _getElementBoundsCheck(const rstl::reserved_vector<
   return v[idx];
 }
 
-bool CPlayer::CInputFilter::Passes() {
+bool CPlayer::CPlayerStuckTracker::IsPlayerStuck() {
   if (x0_.size() != 14) {
     return false;
   }
@@ -56,7 +57,8 @@ bool CPlayer::CInputFilter::Passes() {
   CAABox box1(min1, max1);
   CAABox box(*_getElementBoundsCheck(x148_, 0), *_getElementBoundsCheck(x148_, 0));
 }
-void CPlayer::CInputFilter::Reset() {
+
+void CPlayer::CPlayerStuckTracker::ResetStats() {
   x0_.clear();
   x54_.clear();
   x148_.clear();

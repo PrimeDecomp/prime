@@ -713,7 +713,7 @@ config.libs = [
             Object(NonMatching, "MetroidPrime/CNESEmulator.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CPhazonHealingNodule.cpp"),
             Object(NonMatching, "MetroidPrime/Player/CMorphBallShadow.cpp"),
-            Object(NonMatching, "MetroidPrime/Player/CPlayerInputFilter.cpp"),
+            Object(NonMatching, "MetroidPrime/Player/CPlayerStuckTracker.cpp"),
             Object(NonMatching, "MetroidPrime/CSlideShow.cpp"),
             Object(Matching, "MetroidPrime/Tweaks/CTweakSlideShow.cpp"),
             Object(NonMatching, "MetroidPrime/CArtifactDoll.cpp"),

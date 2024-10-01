@@ -10,6 +10,7 @@
 #include "MetroidPrime/Player/CPlayerState.hpp"
 
 #include "Kyoto/TReservedAverage.hpp"
+#include "Kyoto/Math/CRelAngle.hpp"
 
 #include "rstl/auto_ptr.hpp"
 #include "rstl/vector.hpp"
@@ -57,15 +58,21 @@ class CPlayer : public CPhysicsActor, public TOneStatic< CPlayer > {
     bool AffectsThermal() const { return x28_affectsThermal; }
   };
 
-  class CInputFilter {
+  class CPlayerStuckTracker {
   public:
-    CInputFilter();
-    void AddSample(int, const CVector3f&, const CVector3f&, const CVector2f&);
-    bool Passes();
-    void Reset();
+    enum EPlayerState {
+      kPS_Jump,
+      kPS_StartingJump,
+      kPS_Moving,
+    };
+
+    CPlayerStuckTracker();
+    void AddState(EPlayerState, const CVector3f&, const CVector3f&, const CVector2f&);
+    bool IsPlayerStuck();
+    void ResetStats();
 
   private:
-    rstl::reserved_vector< int, 20 > x0_;
+    rstl::reserved_vector< EPlayerState, 20 > x0_;
     rstl::reserved_vector< CVector3f, 20 > x54_;
     rstl::reserved_vector< CVector3f, 20 > x148_;
     rstl::reserved_vector< CVector2f, 20 > x23c_;
@@ -263,6 +270,7 @@ public:
   float GetActualFirstPersonMaxVelocity(float dt) const;
   const CScriptWater* GetVisorRunoffEffect(const CStateManager& mgr) const;
   void SetMorphBallState(EPlayerMorphBallState state, CStateManager& mgr);
+  bool CanEnterMorphBallState(CStateManager& mgr, float dt) const;
   bool CanLeaveMorphBallState(CStateManager& mgr, CVector3f& pos) const;
   void LeaveMorphBallState(CStateManager& mgr);
   void EnterMorphBallState(CStateManager& mgr);
@@ -292,6 +300,20 @@ public:
   void ComputeMovement(const CFinalInput& input, CStateManager& mgr, float dt);
   void ProcessInput(const CFinalInput& input, CStateManager& mgr);
   void UpdateScanningState(const CFinalInput& input, CStateManager& mgr, float dt);
+  bool IsUnderBetaMetroidAttack(CStateManager& mgr) const;
+  void UpdateGrappleState(const CFinalInput& input, CStateManager& mgr);
+  void ApplyGrappleForces(const CFinalInput& input, CStateManager& mgr, float dt);
+  void ComputeFreeLook(const CFinalInput& input);
+  void UpdateOrbitInput(const CFinalInput& input, CStateManager& mgr);
+  void UpdateOrbitZone(CStateManager& mgr);
+  void UpdateMorphBallState(float dt, const CFinalInput& input, CStateManager& mgr);
+  void CalculateLeaveMorphBallDirection(const CFinalInput& input);
+  void TransitionToMorphBallState(float dt, CStateManager& mgr);
+  void TransitionFromMorphBallState(float dt, CStateManager& mgr);
+  float GetMaximumPlayerPositiveVerticalVelocity(const CStateManager& mgr) const;
+  CVector3f CalculateLeftStickEdgePosition(float strafeInput, float forwardInput) const;
+  bool AttachActorToPlayer(TUniqueId id, bool disableGun);
+  void DetachActorFromPlayer();
 
   CPlayerGun* PlayerGun() { return x490_gun.get(); }
   const CPlayerGun* GetPlayerGun() const { return x490_gun.get(); }
@@ -333,6 +355,9 @@ public:
   CVector3f GetDampedClampedVelocityWR() const;
   float GetAverageSpeed() const;
   float GetGravity() const;
+
+  float GetAttachedActorStruggle() const { return xa28_attachedActorStruggle; }
+  void SetAttachedActorStruggle(float struggle) { xa28_attachedActorStruggle = struggle; }
 
   // PlayerHint
   // bool SetAreaPlayerHint(const CScriptPlayerHint& hint, CStateManager& mgr);
@@ -427,7 +452,7 @@ private:
   float x494_gunAlpha;
   EGunHolsterState x498_gunHolsterState;
   float x49c_gunHolsterRemTime;
-  rstl::single_ptr< CInputFilter > x4a0_inputFilter;
+  rstl::single_ptr< CPlayerStuckTracker > x4a0_playerStuckTracker;
   TReservedAverage< float, 20 > x4a4_moveSpeedAvg;
   float x4f8_moveSpeed;
   float x4fc_flatMoveSpeed;

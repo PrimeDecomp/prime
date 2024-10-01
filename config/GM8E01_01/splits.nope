@@ -2147,7 +2147,7 @@ MetroidPrime/Player/CMorphBallShadow.cpp:
 	.sdata2     start:0x805ADE98 end:0x805ADEB0
 	.sbss2      start:0x805AF650 end:0x805AF658
 
-MetroidPrime/Player/CPlayerInputFilter.cpp:
+MetroidPrime/Player/CPlayerStuckTracker.cpp:
 	.text       start:0x80296ED0 end:0x80297A90
 	.sdata2     start:0x805ADEB0 end:0x805ADEC8
 

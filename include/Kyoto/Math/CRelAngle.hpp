@@ -40,13 +40,22 @@ private:
 };
 CHECK_SIZEOF(CRelAngle, 0x4)
 
-// __mi__FRC9CRelAngleRC9CRelAngle
-// __pl__FRC9CRelAngleRC9CRelAngle
-// __dv__FRC9CRelAnglef
-// static inline CRelAngle operator/(const CRelAngle& ang, float f) {
-//   return CRelAngle::FromRadians(ang.AsRadians() / f);
-// }
-static inline float sine(const CRelAngle& angle) { return sin(angle.AsRadians()); }
-static inline float cosine(const CRelAngle& angle) { return cos(angle.AsRadians()); }
+inline CRelAngle operator-(const CRelAngle& a, const CRelAngle& b) {
+  CRelAngle out(a);
+  out -= b;
+  return out;
+}
+inline CRelAngle operator+(const CRelAngle& a, const CRelAngle& b) {
+  CRelAngle out(a);
+  out += b;
+  return out;
+}
+inline CRelAngle operator/(const CRelAngle& a, float b) {
+  CRelAngle out(a);
+  out /= b;
+  return out;
+}
+inline float sine(const CRelAngle& angle) { return sin(angle.AsRadians()); }
+inline float cosine(const CRelAngle& angle) { return cos(angle.AsRadians()); }
 
 #endif // _CRELANGLE

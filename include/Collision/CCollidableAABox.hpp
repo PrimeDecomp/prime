@@ -23,6 +23,8 @@ public:
   FourCC GetPrimType() const;
   CRayCastResult CastRayInternal(const CInternalRayCastStructure&) const;
 
+  const CAABox& GetBox() const { return x10_aabb; }
+
   static void SetStaticTableIndex(uint idx);
   static CCollisionPrimitive::Type GetType();
 

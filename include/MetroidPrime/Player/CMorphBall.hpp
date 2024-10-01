@@ -127,6 +127,7 @@ public:
   // ApplyGravity__10CMorphBallFR13CStateManager global
   void Land();
   void ResetMorphBallIceBreak();
+  void StopParticleWakes();
 
 private:
   struct CSpiderBallElectricityManager {

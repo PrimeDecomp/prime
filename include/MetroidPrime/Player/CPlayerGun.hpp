@@ -186,6 +186,8 @@ public:
   CGrappleArm& GetGrappleArm() const { return *x740_grappleArm.get(); }
   bool IsFidgeting() const { return x833_24_notFidgeting; }
 
+  void SetActorAttached(bool attached) { x835_31_actorAttached = attached; } // name?
+
 private:
   class CGunMorph {
   public:

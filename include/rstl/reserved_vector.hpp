@@ -43,8 +43,9 @@ public:
     return *this;
   }
   void clear() {
+    T* ptr = data();
     for (int i = 0; i < x0_count; ++i) {
-      destroy(&data()[i]);
+      destroy(&ptr[i]);
     }
     x0_count = 0;
   }
