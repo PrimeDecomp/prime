@@ -1,21 +1,31 @@
-__pycache__/
-*.dol
-*.dump
-*.exe
-*.map
-build/
-ctx.c
-tools/elf2dol
-tools/elf2rel
-tools/metroidbuildinfo
-tools/mwcc_compiler
-*.bat
+# IDE folders
 .idea/
-versions/
-build.ninja
-.ninja_deps
-.ninja_lock
-.ninja_log
-objdiff.json
+.vs/
+.vscode/
+
+# Caches
+__pycache__
+.mypy_cache
+.cache/
+
+# Original files
 orig/*/*
 !orig/*/.gitkeep
+
+# Build files
+build/
+.ninja_*
+build.ninja
+
+# decompctx output
+ctx.*
+*.ctx
+
+# Generated configs
+objdiff.json
+compile_commands.json
+
+# Miscellaneous
+/*.txt
+*.exe
+*.dol

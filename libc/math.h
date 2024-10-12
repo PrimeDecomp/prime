@@ -164,6 +164,7 @@ static inline int __fpclassifyd(double x) {
 #define isinf(x) (fpclassify(x) == FP_INFINITE)
 #define isfinite(x) ((fpclassify(x) > FP_INFINITE))
 
+#ifdef __MWERKS__
 extern inline float sqrtf(float x) {
   static const double _half = .5;
   static const double _three = 3.0;
@@ -198,6 +199,10 @@ _MATH_INLINE double sqrt(double x) {
   }
   return INFINITY;
 }
+#else
+float sqrtf(float x);
+double sqrt(double x);
+#endif
 
 static inline float ldexpf(float x, int exp) { return (float)ldexp((double)x, exp); }
 static inline double scalbn(double x, int n) { return ldexp(x, n); }

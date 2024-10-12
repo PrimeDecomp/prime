@@ -233,7 +233,7 @@ typename vector< T, Alloc >::iterator vector< T, Alloc >::erase(iterator first, 
   return first;
 }
 
-typedef vector< void > unk_vector;
+typedef vector< int > unk_vector;
 CHECK_SIZEOF(unk_vector, 0x10)
 } // namespace rstl
 

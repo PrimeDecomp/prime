@@ -65,18 +65,25 @@ typedef int BOOL;
 #define NULL 0
 #endif
 #endif
+
 #if !defined(__cplusplus) || __cplusplus < 201103L
+// Define nullptr as NULL
 #ifndef nullptr
 #define nullptr NULL
 #endif
+#endif // !defined(__cplusplus) || __cplusplus < 201103L
 
-#if defined(__MWERKS__)
+#if defined(__cplusplus) && __cplusplus < 201103L
+#if defined(__clang__)
+// Allow override in < C++11 mode with clangd
+#pragma clang diagnostic ignored "-Wc++11-extensions"
+#else
+// Define override as nothing
 #ifndef override
 #define override
 #endif
-#endif
-
-#endif
+#endif // defined(__clang__)
+#endif // defined(__cplusplus) && __cplusplus < 201103L
 
 #ifndef ATTRIBUTE_ALIGN
 #if defined(__MWERKS__) || defined(__GNUC__)

@@ -1,27 +1,21 @@
 {
   "[c]": {
     "files.encoding": "utf8",
-    "editor.defaultFormatter": "ms-vscode.cpptools"
+    "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd"
   },
   "[cpp]": {
     "files.encoding": "utf8",
-    "editor.defaultFormatter": "ms-vscode.cpptools"
+    "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd"
   },
   "[python]": {
     "editor.defaultFormatter": "ms-python.black-formatter"
   },
-  "clangd.arguments": ["--header-insertion=never"],
-  "clangd.fallbackFlags": [
-    "-I${workspaceFolder}/include",
-    "-I${workspaceFolder}/libc",
-    "-I${workspaceFolder}/extern/musyx/include",
-    "-D__MWERKS__",
-  ],
   "editor.tabSize": 2,
   "files.associations": {
     "source_location": "cpp",
     "*.h": "c",
-    "*.inc": "c"
+    "*.inc": "c",
+    ".clangd": "yaml",
   },
   "files.autoSave": "onFocusChange",
   "files.insertFinalNewline": true,
@@ -50,5 +44,7 @@
   "C/C++ Include Guard.Auto Update Path Blocklist": [
     "include/zlib"
   ],
-  "cmake.configureOnOpen": false
+  "cmake.configureOnOpen": false,
+  // Disable C++ intellisense engine, use clangd instead
+  "C_Cpp.intelliSenseEngine": "disabled"
 }

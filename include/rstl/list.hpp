@@ -136,11 +136,11 @@ public:
       return *this;
     }
     iterator operator--(int) { return iterator(this->curent->x0_prev); }
-    T* get_pointer() const { return current->get_value(); }
-    T& operator*() const { return *current->get_value(); }
-    T* operator->() const { return current->get_value(); }
-    bool operator==(const iterator& other) const { return current == other.current; }
-    bool operator!=(const iterator& other) const { return current != other.current; }
+    T* get_pointer() const { return this->current->get_value(); }
+    T& operator*() const { return *this->current->get_value(); }
+    T* operator->() const { return this->current->get_value(); }
+    bool operator==(const iterator& other) const { return this->current == other.current; }
+    bool operator!=(const iterator& other) const { return this->current != other.current; }
   };
 
 private:

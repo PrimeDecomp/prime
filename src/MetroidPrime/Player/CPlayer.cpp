@@ -772,10 +772,11 @@ void CPlayer::Update(float dt, CStateManager& mgr) {
   switch (x2f8_morphBallState) {
   case kMS_Unmorphed:
   case kMS_Morphing:
-  case kMS_Unmorphing:
+  case kMS_Unmorphing: {
     CTransform4f gunXf = GetModelData()->GetScaledLocatorTransform(rstl::string_l(kGunLocator));
     x7f4_gunWorldXf = GetTransform() * gunXf;
     break;
+  }
   case kMS_Morphed:
     break;
   }
@@ -2005,7 +2006,8 @@ void CPlayer::UpdateFreeLook(float dt) {
   }
 
   angleVelP = x3e8_horizFreeLookAngleVel - x3e4_freeLookYawAngle;
-  dx = lookDeltaAngle * CMath::Clamp(0.f, fabsf(angleVelP / gpTweakPlayer->GetHorizontalFreeLookAngleVel()), 1.f);
+  dx = lookDeltaAngle *
+       CMath::Clamp(0.f, fabsf(angleVelP / gpTweakPlayer->GetHorizontalFreeLookAngleVel()), 1.f);
   if (0.f <= angleVelP) {
     x3e4_freeLookYawAngle += dx;
   } else {

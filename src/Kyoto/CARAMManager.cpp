@@ -23,7 +23,7 @@ bool CARAMManager::Initialize(uint chunkSize) {
   mpARAMStart = ARAlloc(chunkSize * numChunks);
   mpBookKeepingMemory = (uint*)CMemory::Alloc(numChunks * 4, IAllocator::kHI_None,
                                               IAllocator::kSC_Unk1, IAllocator::kTP_Heap,
-                                              CCallStack(-1, "??(??)"));
+                                              CCallStack(-1, "\?\?(\?\?)"));
   CMemory::OffsetFakeStatics(mNumChunks * 4);
 
   for (uint i = 0; i < numChunks; ++i) {

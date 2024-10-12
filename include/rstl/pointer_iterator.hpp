@@ -101,10 +101,10 @@ public:
     return *this;
   }
   pointer_iterator operator+(int v) const {
-    return pointer_iterator(current + v);
+    return pointer_iterator(this->current + v);
   }
   pointer_iterator operator-(int v) const {
-    return pointer_iterator(current - v);
+    return pointer_iterator(this->current - v);
   }
   // HACK: non-const operator- is required to match vector::insert
   difference_type operator-(const pointer_iterator& other) { return this->current - other.current; }

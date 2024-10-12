@@ -52,7 +52,7 @@ single_ptr< T >& single_ptr< T >::Set(T* ptr) {
   return *this = ptr;
 }
 
-typedef single_ptr< void > unk_singleptr;
+typedef single_ptr< int > unk_singleptr;
 CHECK_SIZEOF(unk_singleptr, 0x4);
 } // namespace rstl
 

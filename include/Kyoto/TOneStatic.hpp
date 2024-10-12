@@ -8,7 +8,7 @@ template < typename T >
 class TOneStatic {
 public:
   void* operator new(size_t sz, const char*, const char*);
-  void* operator new(size_t sz) { return operator new(sz, "??(??)", nullptr); }
+  void* operator new(size_t sz) { return operator new(sz, "\?\?(\?\?)", nullptr); }
   void operator delete(void* ptr);
 
 private:
