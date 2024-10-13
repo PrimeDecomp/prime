@@ -226,8 +226,8 @@ public:
   static void TurnOffChannel(ESfxChannels);
 
   static const bool IsAuxProcessingEnabled();
-  static void DisableAuxCallback();
-  static void EnableAuxCallback();
+  static void DisableAuxCallbacks();
+  static void EnableAuxCallbacks();
   static void PrepareDelayCallback(const SND_AUX_DELAY& info);
   static void PrepareReverbStdCallback(const SND_AUX_REVERBSTD& info);
   static void PrepareChorusCallback(const SND_AUX_CHORUS& info);

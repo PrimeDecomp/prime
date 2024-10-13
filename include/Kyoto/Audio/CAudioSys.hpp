@@ -84,7 +84,7 @@ public:
   static void SfxCtrl(SND_VOICEID handle, uchar ctrl, uchar val);
   static SND_VOICEID SfxCheck(SND_VOICEID handle);
   static void SfxVolume(SND_VOICEID handle, u8 vol);
-  static uint S3dAddEmitterParaEx(const C3DEmitterParmData& params, short handle,
+  static uint S3dAddEmitterParaEx(const C3DEmitterParmData& params, ushort handle,
                                   SND_PARAMETER_INFO* paraInfo);
   static void S3dUpdateEmitter(uint, const CVector3f&, const CVector3f&, uchar);
   static void S3dRemoveEmitter(uint handle);

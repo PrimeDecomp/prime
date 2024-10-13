@@ -1,6 +1,7 @@
 #include "Kyoto/Alloc/CMemory.hpp"
 #include "Kyoto/Audio/CAudioSys.hpp"
 #include "Kyoto/Audio/CSfxHandle.hpp"
+#include "Kyoto/Basics/CCast.hpp"
 #include "dolphin/types.h"
 #include "musyx/musyx.h"
 #include "rstl/vector.hpp"
@@ -180,7 +181,8 @@ void CSfxManager::CSfxWrapper::Play() {
   x1c_voiceHandle = CAudioSys::SfxStart(x18_sfxId, x20_vol, x22_pan, 0);
   if (x1c_voiceHandle != SND_ID_ERROR) {
     if (CSfxManager::IsAuxProcessingEnabled() && UseAcoustics()) {
-      CAudioSys::SfxCtrl(x1c_voiceHandle, SND_MIDICTRL_REVERB, CSfxManager::GetReverbAmount());
+      int reverb = CSfxManager::GetReverbAmount();
+      CAudioSys::SfxCtrl(x1c_voiceHandle, SND_MIDICTRL_REVERB, reverb);
     }
 
     SetPlaying(true);
@@ -223,7 +225,7 @@ void CSfxManager::Shutdown() {
   StopAndRemoveAllEmitters();
 
   if (lbl_805A8770 != -1) {
-    DisableAuxCallback();
+    DisableAuxCallbacks();
   }
 }
 
@@ -340,7 +342,7 @@ ushort CSfxManager::TranslateSFXID(ushort id) {
   if (ret < 0) {
     return -1;
   }
-  return ret;
+  return CCast::ToUint16(ret);
 }
 #pragma inline_max_size(250)
 CFactoryFnReturn FAudioTranslationTableFactory(const SObjectTag& obj, CInputStream& in,
