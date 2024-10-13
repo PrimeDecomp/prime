@@ -96,7 +96,7 @@ void CSfxManager::CSfxEmitterWrapper::Play() {
     x18_para.paraData.value7 = 0;
   }
 
-  x50_emitterHandle = CAudioSys::S3dAddEmitterParaEx(x24_emitterData, GetSfxHandle().GetIndex(),
+  x50_emitterHandle = CAudioSys::S3dAddEmitterParaEx(x24_emitterData, GetSfxHandle().GetIndex() & 0xFF,
                                                      &x1c_parameterInfo);
   if (x50_emitterHandle != SND_ID_ERROR) {
     SetPlaying(true);
