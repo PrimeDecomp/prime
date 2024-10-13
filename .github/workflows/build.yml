@@ -15,11 +15,10 @@ jobs:
         version: [GM8E01_00] # GM8E01_01, GM8E01_48
 
     steps:
-    # Checkout the repository (shallow clone)
+    # Checkout the repository
     - name: Checkout
       uses: actions/checkout@v4
       with:
-        fetch-depth: 0
         submodules: recursive
 
     # Set Git config
