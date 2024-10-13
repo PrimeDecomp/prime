@@ -1,4 +1,5 @@
-object: orig/GM8E01_01/sys/main.dol
+object_base: orig/GM8E01_01
+object: sys/main.dol
 hash: 860141f9671fc141ce8f55448643f713bc64b349
 symbols: config/GM8E01_01/symbols.txt
 splits: config/GM8E01_01/splits.txt
@@ -6,7 +7,7 @@ mw_comment_version: 8
 fill_gaps: false
 
 #modules:
-#- object: orig/GM8E01_01/files/NESemuP.rel
+#- object: files/NESemuP.rel
 #  hash: 3cf7c08ff9aad30e6122a9ce1df35fb717df3586
 #  symbols: config/GM8E01_01/NESemu/symbols.txt
 #  splits: config/GM8E01_01/NESemu/splits.txt

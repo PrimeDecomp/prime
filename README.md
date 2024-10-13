@@ -81,11 +81,10 @@ Building
   git submodule update --init --recursive
   ```
 
-- Using [Dolphin Emulator](https://dolphin-emu.org/), extract your game to `orig/GM8E01_00` (or the appropriate version).  
-![](assets/dolphin-extract.png)
-  - To save space, the only necessary files are the following. Any others can be deleted.
-    - `sys/main.dol`
-    - `files/NESemuP.rel`
+- Copy your game's disc image to `orig/GM8E01_00` (or the appropriate version).
+  - Supported formats: ISO (GCM), RVZ, WIA, WBFS, CISO, NFS, GCZ, TGC
+  - After the initial build, the disc image can be deleted to save space.
+
 - Configure:
 
   ```sh
