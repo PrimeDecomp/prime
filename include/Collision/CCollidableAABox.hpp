@@ -24,8 +24,9 @@ public:
   CRayCastResult CastRayInternal(const CInternalRayCastStructure&) const;
 
   const CAABox& GetBox() const { return x10_aabb; }
+  CAABox& Box() { return x10_aabb; }
 
-  static void SetStaticTableIndex(uint idx);
+  static void SetStaticTableIndex(uint idx) { sTableIndex = idx; }
   static CCollisionPrimitive::Type GetType();
 
 private:

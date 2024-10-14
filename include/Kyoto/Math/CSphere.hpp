@@ -10,8 +10,8 @@ class CSphere {
 public:
   CSphere(const CVector3f& pos, float radius) : x0_center(pos), xc_radius(radius) {}
 
-  CVector3f GetCenter() const { return x0_center; }
-  float GetRadius() const { return xc_radius; }
+  const CVector3f& GetCenter() const { return x0_center; }
+  const float GetRadius() const { return xc_radius; }
   CUnitVector3f GetSurfaceNormal(const CVector3f& v) const;
 
 private:

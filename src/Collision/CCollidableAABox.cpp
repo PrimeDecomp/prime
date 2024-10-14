@@ -10,8 +10,6 @@
 
 uint CCollidableAABox::sTableIndex = -1;
 
-void CCollidableAABox::SetStaticTableIndex(uint idx) { sTableIndex = idx; }
-
 CCollisionPrimitive::Type CCollidableAABox::GetType() {
   return Type(SetStaticTableIndex, "CCollidableAABox");
 }

@@ -1,6 +1,7 @@
 #ifndef _CRAYCASTRESULT
 #define _CRAYCASTRESULT
 
+#include "Kyoto/Math/CTransform4f.hpp"
 #include "types.h"
 
 #include "Kyoto/Math/CPlane.hpp"
@@ -8,6 +9,7 @@
 
 #include "Collision/CMaterialList.hpp"
 
+class CTransform4f;
 class CRayCastResult {
 public:
   enum EInvalid {
