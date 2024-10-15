@@ -239,6 +239,8 @@ public:
   static rstl::auto_ptr< CToken > mTranslationTableTok;
   static rstl::reserved_vector< CSfxEmitterWrapper, 64 > mEmitterWrapperPool;
   static rstl::reserved_vector< CSfxWrapper, 64 > mWrapperPool;
+
+  static bool IsValidHandle(CSfxHandle handle);
 };
 
 #endif // _CSFXMANAGER

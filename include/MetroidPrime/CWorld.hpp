@@ -96,6 +96,7 @@ public:
     return CGameArea::CConstChainIterator(x4c_chainHeads[size_t(chain)]);
   }
   static CGameArea::CConstChainIterator GetAliveAreasEnd();
+  void StopGlobalSound(ushort soundId);
 
 private:
   enum Phase {
