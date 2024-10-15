@@ -22,8 +22,6 @@
 #include "rstl/string.hpp"
 #include "rstl/vector.hpp"
 
-#include "math.h"
-
 enum EChargeState {
   kCS_Normal,
   kCS_Charged,
@@ -142,7 +140,7 @@ public:
   void UpdateWeaponFire(float, CPlayerState&, CStateManager&);
   void ResetIdle(CStateManager&);
   void UpdateGunIdle(bool, float, float, CStateManager&);
-  void DamageRumble(const CVector3f&, const CStateManager&);
+  void DamageRumble(const CVector3f&, float damage, const CStateManager&);
   void TakeDamage(bool, bool, CStateManager&);
   void StopChargeSound(CStateManager&);
   void CancelFiring(CStateManager&);

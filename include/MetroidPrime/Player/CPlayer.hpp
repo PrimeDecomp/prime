@@ -10,7 +10,6 @@
 #include "MetroidPrime/Player/CPlayerState.hpp"
 
 #include "Kyoto/TReservedAverage.hpp"
-#include "Kyoto/Math/CRelAngle.hpp"
 
 #include "rstl/auto_ptr.hpp"
 #include "rstl/vector.hpp"
@@ -67,6 +66,7 @@ class CPlayer : public CPhysicsActor, public TOneStatic< CPlayer > {
     };
 
     CPlayerStuckTracker();
+    ~CPlayerStuckTracker();
     void AddState(EPlayerState, const CVector3f&, const CVector3f&, const CVector2f&);
     bool IsPlayerStuck();
     void ResetStats();
@@ -168,7 +168,7 @@ public:
           const CMaterialList& ml);
 
   // CEntity
-  ~CPlayer() override;
+  // ~CPlayer() override;
   void Accept(IVisitor& visitor) override;
   void PreThink(float dt, CStateManager& mgr) override;
   void Think(float dt, CStateManager& mgr) override;
@@ -215,8 +215,8 @@ public:
   void SetHudDisable(float staticTimer, float outSpeed = skDefaultHudFadeOutSpeed,
                      float inSpeed = skDefaultHudFadeInSpeed);
 
-  void IncrementPhazon();
-  void DecrementPhazon();
+  void IncrementEnvironmentDamage(); // name?
+  void DecrementEnvironmentDamage(); // name?
   // GetMovementDirection2D__7CPlayerCFv ??
   void SetOrbitTargetId(TUniqueId id, CStateManager& mgr);
   void TryToBreakOrbit(TUniqueId id, EOrbitBrokenType type, CStateManager& mgr);
@@ -256,8 +256,8 @@ public:
   void UpdateVisorTransition(float dt, CStateManager& mgr);
   void UpdatePlayerSounds(float dt);
   bool ShouldSampleFailsafe(CStateManager& mgr) const;
-  bool IsEnergyLow(CStateManager& mgr);
-  bool StartSamusVoiceSfx(ushort sfx, short vol, int prio);
+  bool IsEnergyLow(const CStateManager& mgr) const;
+  const bool StartSamusVoiceSfx(ushort sfx, short vol, int prio);
   void UpdateVisorState(const CFinalInput& input, float dt, CStateManager& mgr);
   void UpdateCrosshairsState(const CFinalInput& input);
   ushort GetMaterialSoundUnderPlayer(CStateManager& mgr, const ushort* table, int length,
@@ -314,6 +314,34 @@ public:
   CVector3f CalculateLeftStickEdgePosition(float strafeInput, float forwardInput) const;
   bool AttachActorToPlayer(TUniqueId id, bool disableGun);
   void DetachActorFromPlayer();
+  void RenderReflectedPlayer(CStateManager& mgr);
+  bool HasTransitionBeamModel() const;
+  void RenderGun(const CStateManager& mgr, const CVector3f& pos) const;
+  bool GetCombatMode() const;
+  bool GetExplorationMode() const;
+  void SetScanningState(EPlayerScanState state, CStateManager& mgr);
+  void UpdateSlideShowUnlocking(CStateManager& mgr); // name?
+  bool ValidateScanning(const CFinalInput& input, CStateManager& mgr) const;
+  float GetTransitionAlpha(const CVector3f& camPos, float zNear) const;
+  void TakeDamage(bool significant, const CVector3f& location, float damage, EWeaponType type,
+                  CStateManager& mgr);
+  bool WasDamaged() const;
+  CVector3f GetDamageLocationWR() const;
+  float GetPrevDamageAmount() const;
+  float GetDamageAmount() const;
+  bool ObjectInScanningRange(TUniqueId id, const CStateManager& mgr);
+  void AsyncLoadSuit(CStateManager& mgr);
+  bool IsPlayerDeadEnough() const;
+  void SetControlDirectionInterpolation(float time);
+  void ResetControlDirectionInterpolation();
+  void DoThink(float dt, CStateManager& mgr);    // name?
+  void DoPreThink(float dt, CStateManager& mgr); // name?
+  void SetPlayerHitWallDuringMove();
+  void DoPostCameraStuff(float dt, CStateManager& mgr); // name?
+  float UpdateCameraBob(float dt, CStateManager& mgr);
+  void UpdateOrbitTarget(CStateManager& mgr);
+  void UpdateOrbitOrientation(CStateManager& mgr);
+  bool IsTransparent() const;
 
   CPlayerGun* PlayerGun() { return x490_gun.get(); }
   const CPlayerGun* GetPlayerGun() const { return x490_gun.get(); }
@@ -356,7 +384,7 @@ public:
   float GetAverageSpeed() const;
   float GetGravity() const;
 
-  float GetAttachedActorStruggle() const { return xa28_attachedActorStruggle; }
+  float GetAttachedActorStruggle() const;
   void SetAttachedActorStruggle(float struggle) { xa28_attachedActorStruggle = struggle; }
 
   // PlayerHint
@@ -557,7 +585,7 @@ private:
   float xa04_preThinkDt;
   CAssetId xa08_steamTextureId;
   CAssetId xa0c_iceTextureId;
-  uint xa10_envDmgCounter;
+  int xa10_envDmgCounter;
   float xa14_envDmgCameraShakeTimer;
   float xa18_phazonDamageLag;
   float xa1c_threatOverride;

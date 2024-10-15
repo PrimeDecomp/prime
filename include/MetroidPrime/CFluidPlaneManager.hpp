@@ -3,12 +3,17 @@
 
 #include "types.h"
 
+#include "MetroidPrime/CStateManager.hpp"
 #include "MetroidPrime/CRippleManager.hpp"
 #include "MetroidPrime/TGameTypes.hpp"
+
+#include "Kyoto/Math/CVector3f.hpp"
 
 #include "rstl/reserved_vector.hpp"
 
 class CScriptWater;
+class CStateManager;
+class CVector3f;
 
 class CFluidPlaneManager {
 public:
@@ -17,6 +22,9 @@ public:
 
   void CreateSplash(TUniqueId splasher, CStateManager& mgr, const CScriptWater& water,
                     const CVector3f& pos, float factor, bool sfx);
+
+  float GetLastSplashDeltaTime(TUniqueId uid) const;
+  float GetLastRippleDeltaTime(TUniqueId uid) const;
 
 private:
   class CSplashRecord {

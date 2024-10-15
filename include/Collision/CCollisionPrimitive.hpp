@@ -3,17 +3,18 @@
 
 #include "types.h"
 
+#include "Collision/CInternalCollisionStructure.hpp"
 #include "Collision/CMaterialList.hpp"
 
-#include "Kyoto/IObjectStore.hpp"
 #include "Kyoto/Math/CAABox.hpp"
 #include "Kyoto/Math/CTransform4f.hpp"
+#include "Kyoto/SObjectTag.hpp"
+
 #include "rstl/single_ptr.hpp"
 #include "rstl/vector.hpp"
 
 class CRayCastResult;
 class CCollisionInfoList;
-class CInternalCollisionStructure;
 class CInternalRayCastStructure;
 class CCollisionInfo;
 
@@ -44,7 +45,7 @@ public:
 
   virtual uint GetTableIndex() const = 0;
   virtual void SetMaterial(const CMaterialList& other) { x8_material = other; }
-  virtual const CMaterialList& GetMaterial() const;
+  virtual const CMaterialList& GetMaterial() const { return x8_material; }
   virtual CAABox CalculateAABox(const CTransform4f&) const = 0;
   virtual CAABox CalculateLocalAABox() const = 0;
   virtual FourCC GetPrimType() const = 0;
@@ -61,6 +62,15 @@ public:
   static void InitAddMovingCollider(MovingComparisonFunc comp, const char*, const char*);
   static void InitEndColliders();
   static void Uninitialize();
+
+  static bool Collide(const CInternalCollisionStructure::CPrimDesc& prim0,
+                      const CInternalCollisionStructure::CPrimDesc& prim1,
+                      CCollisionInfoList& list);
+  static bool CollideBoolean(const CInternalCollisionStructure::CPrimDesc& prim0,
+                             const CInternalCollisionStructure::CPrimDesc& prim1);
+  static bool CollideMoving(const CInternalCollisionStructure::CPrimDesc& prim0,
+                            const CInternalCollisionStructure::CPrimDesc& prim1,
+                            const CVector3f& dir, double& dOut, CCollisionInfo& infoOut);
 
 private:
   static int sNumTypes;

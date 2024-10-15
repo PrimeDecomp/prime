@@ -162,13 +162,12 @@ public:
   void AddToRenderer(const CFrustumPlanes&, const CStateManager&) const override;
   void Render(const CStateManager&) const override;
   bool CanRenderUnsorted(const CStateManager&) const override;
-  const rstl::optional_object< CAABox > GetTouchBounds() const override;
+  rstl::optional_object< CAABox > GetTouchBounds() const override;
   void Touch(CActor&, CStateManager&) override;
   CVector3f GetOrbitPosition(const CStateManager&) const override;
   CVector3f GetAimPosition(const CStateManager&, float) const override;
   EWeaponCollisionResponseTypes GetCollisionResponseType(const CVector3f&, const CVector3f&,
-                                                         const CWeaponMode&,
-                                                         int) const override;
+                                                         const CWeaponMode&, int) const override;
   void DoUserAnimEvent(CStateManager& mgr, const CInt32POINode& node, EUserEventType type,
                        float dt) override;
 

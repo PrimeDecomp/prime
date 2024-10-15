@@ -419,7 +419,7 @@ CVector3f CCameraManager::GetGlobalCameraTranslation(const CStateManager& mgr) c
 
 bool CCameraManager::IsInCinematicCamera() const { return !x4_cineCameras.empty(); }
 
-bool CCameraManager::IsInFirstPersonCamera() const {
+bool CCameraManager::IsInFPCamera() const {
   return x0_curCameraId == x7c_fpCamera->GetUniqueId();
 }
 
@@ -441,7 +441,7 @@ void CCameraManager::SetPlayerCamera(CStateManager& mgr, TUniqueId uid) {
 void CCameraManager::SetupInterpolation(const CTransform4f& xf, TUniqueId camId, CVector3f lookPos,
                                         float maxTime, float positionSpeed, float rotationSpeed,
                                         bool sinusoidal, CStateManager& mgr) {
-  if (IsInFirstPersonCamera()) {
+  if (IsInFPCamera()) {
     return;
   }
   x88_interpCamera->SetInterpolation(xf, lookPos, maxTime, positionSpeed, rotationSpeed, camId,

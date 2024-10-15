@@ -22,6 +22,9 @@ public:
   static bool DetectDynamicCollisionBoolean(const CCollisionPrimitive&, const CTransform4f&,
                                             const TEntityList&, const CStateManager&);
   static void BuildAreaCollisionCache(const CStateManager& mgr, CAreaCollisionCache& cache);
+  static bool DetectCollisionBoolean(const CStateManager& mgr, const CCollisionPrimitive& prim,
+                                     const CTransform4f& xf, const CMaterialFilter& filter,
+                                     const TEntityList& nearList);
   static bool DetectCollisionBoolean_Cached(const CStateManager& mgr, CAreaCollisionCache& cache,
                                             const CCollisionPrimitive& prim, const CTransform4f& xf,
                                             const CMaterialFilter& filter,

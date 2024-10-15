@@ -40,11 +40,12 @@ public:
   void SetHelmetAlpha(int);
   void SetHUDLag(bool);
   void SetIsHintSystemEnabled(bool);
-  void SetInvertYAxis(bool);
   void ToggleControls(bool);
   void ResetControllerAssets(int);
   void SetControls(int);
 
+  void SetInvertYAxis(bool invert);
+  bool GetInvertYAxis() const { return x68_25_invertY; }
   void SetIsRumbleEnabled(bool rumble);
   bool GetIsRumbleEnabled() const { return x68_26_rumble; }
 

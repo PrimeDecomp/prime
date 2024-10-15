@@ -514,7 +514,7 @@ void CScriptSpecialFunction::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId
     case kSF_AreaDamage: {
       if ((msg == kSM_Deleted || msg == kSM_Deactivate) && x1e4_31_inAreaDamage) {
         x1e4_31_inAreaDamage = false;
-        mgr.Player()->DecrementPhazon();
+        mgr.Player()->DecrementEnvironmentDamage();
         mgr.SetIsFullThreat(false);
       }
       break;
@@ -1037,7 +1037,7 @@ void CScriptSpecialFunction::ThinkAreaDamage(float dt, CStateManager& mgr) {
   if (x1e4_31_inAreaDamage) {
     if (!inArea || immune) {
       x1e4_31_inAreaDamage = false;
-      mgr.Player()->DecrementPhazon();
+      mgr.Player()->DecrementEnvironmentDamage();
       SendScriptMsgs(kSS_Exited, mgr, kSM_None);
       mgr.SetIsFullThreat(false);
       return;
@@ -1046,7 +1046,7 @@ void CScriptSpecialFunction::ThinkAreaDamage(float dt, CStateManager& mgr) {
     return;
   } else {
     x1e4_31_inAreaDamage = true;
-    mgr.Player()->IncrementPhazon();
+    mgr.Player()->IncrementEnvironmentDamage();
     SendScriptMsgs(kSS_Entered, mgr, kSM_None);
     mgr.SetIsFullThreat(true);
   }

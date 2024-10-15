@@ -82,7 +82,7 @@ void CScriptTrigger::Touch(CActor& act, CStateManager& mgr) {
 
             pl = mgr.Player();
             if (x148_29_didPhazonDamage) {
-              pl->DecrementPhazon();
+              pl->DecrementEnvironmentDamage();
               x148_29_didPhazonDamage = false;
             }
             if (!x100_damageInfo.HasNoDamage()) {
@@ -94,7 +94,7 @@ void CScriptTrigger::Touch(CActor& act, CStateManager& mgr) {
                 }
               }
               if (phazonHurt) {
-                pl->IncrementPhazon();
+                pl->IncrementEnvironmentDamage();
                 x148_29_didPhazonDamage = true;
               }
             }
@@ -156,7 +156,7 @@ void CScriptTrigger::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CS
 
         CPlayer* player = mgr.Player();
         if (x148_29_didPhazonDamage) {
-          player->DecrementPhazon();
+          player->DecrementEnvironmentDamage();
           x148_29_didPhazonDamage = false;
         }
 
@@ -171,7 +171,7 @@ void CScriptTrigger::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CS
 
         CPlayer* player = mgr.Player();
         if (x148_29_didPhazonDamage) {
-          player->DecrementPhazon();
+          player->DecrementEnvironmentDamage();
           x148_29_didPhazonDamage = false;
         }
 
@@ -215,7 +215,7 @@ void CScriptTrigger::UpdateInhabitants(float dt, CStateManager& mgr) {
           if (x148_28_playerTriggerProc) {
             x148_28_playerTriggerProc = false;
             if (x148_29_didPhazonDamage) {
-              mgr.Player()->DecrementPhazon();
+              mgr.Player()->DecrementEnvironmentDamage();
               x148_29_didPhazonDamage = false;
             }
 
@@ -266,7 +266,7 @@ void CScriptTrigger::UpdateInhabitants(float dt, CStateManager& mgr) {
         if (mgr.GetPlayer()->GetUniqueId() == tmpId && x148_28_playerTriggerProc) {
           x148_28_playerTriggerProc = false;
           if (x148_29_didPhazonDamage) {
-            mgr.Player()->DecrementPhazon();
+            mgr.Player()->DecrementEnvironmentDamage();
             x148_29_didPhazonDamage = false;
           }
 
@@ -282,7 +282,7 @@ void CScriptTrigger::UpdateInhabitants(float dt, CStateManager& mgr) {
       if (mgr.GetPlayer()->GetUniqueId() == tmpId && x148_28_playerTriggerProc) {
         x148_28_playerTriggerProc = false;
         if (x148_29_didPhazonDamage) {
-          mgr.Player()->DecrementPhazon();
+          mgr.Player()->DecrementEnvironmentDamage();
           x148_29_didPhazonDamage = false;
         }
 

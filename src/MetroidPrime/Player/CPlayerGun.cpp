@@ -1013,7 +1013,7 @@ void CPlayerGun::CMotionState::Update(bool firing, float dt, CTransform4f& xf, C
   }
 }
 
-void CPlayerGun::DamageRumble(const CVector3f&, const CStateManager&) {}
+void CPlayerGun::DamageRumble(const CVector3f&, float damage, const CStateManager&) {}
 
 void CPlayerGun::TakeDamage(bool bigStrike, bool notFromMetroid, CStateManager& mgr) {
   const CPlayer& player = *mgr.GetPlayer();

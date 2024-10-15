@@ -93,6 +93,24 @@ public:
     bool operator==(const CConstChainIterator& other) const { return m_area == other.m_area; }
   };
 
+  enum EOcclusionState { kOS_Occluded, kOS_Visible };
+
+  struct CPostConstructed {
+    uchar x0_pad[0xa0];
+    CPVSAreaSet* xa0_pvs;
+    uchar xa4_pad[0x1020];
+    rstl::single_ptr< CAreaFog > x10c4_areaFog;
+    rstl::optional_object< void* > x10c8_sclyBuf;
+    u32 x10d0_sclySize;
+    const u8* x10d4_firstMatPtr;
+    const CScriptAreaAttributes* x10d8_areaAttributes;
+    EOcclusionState x10dc_occlusionState;
+    uchar x10e0_pad[0x60];
+
+    CPostConstructed();
+    ~CPostConstructed();
+  };
+
   ~CGameArea();
   const CTransform4f& IGetTM() const override;
   CAssetId IGetStringTableAssetId() const override;
@@ -119,12 +137,22 @@ public:
 
   bool StartStreamingMainArea();
 
+  CAssetId GetAreaAssetId() const { return x84_mrea; }
+  const CAreaFog* GetAreaFog() const { return x12c_postConstructed->x10c4_areaFog.get(); }
+  CAreaFog* AreaFog() { return x12c_postConstructed->x10c4_areaFog.get(); }
+  EOcclusionState GetOcclusionState() const { return x12c_postConstructed->x10dc_occlusionState; }
+  const rstl::vector< CWorldLight >& GetLightsA() const;
+  const rstl::vector< CWorldLight >& GetLightsB() const;
+  const CPVSAreaSet* GetAreaVisSet() const { return x12c_postConstructed->xa0_pvs; }
+  bool IsPostConstructed() const { return xf0_24_postConstructed; }                         // name?
+  CPostConstructed* GetPostConstructed() { return x12c_postConstructed.get(); }             // name?
+  const CPostConstructed* GetPostConstructed() const { return x12c_postConstructed.get(); } // name?
+
 private:
   void AllocNewAreaData(int, int);
   void CullDeadAreaRequests();
   int VerifyHeader() const;
   int GetNumPartSizes() const;
-
 
   enum EPhase {
     kP_LoadHeader,
@@ -154,36 +182,7 @@ private:
   bool xf0_28_validated : 1;
   EPhase xf4_phase;
   rstl::list< rstl::rc_ptr< CDvdRequest > > xf8_loadTransactions;
-
-public:
-  enum EOcclusionState { kOS_Occluded, kOS_Visible };
-
-  struct CPostConstructed {
-    uchar x0_pad[0xa0];
-    CPVSAreaSet* xa0_pvs;
-    uchar xa4_pad[0x1020];
-    rstl::single_ptr< CAreaFog > x10c4_areaFog;
-    rstl::optional_object< void* > x10c8_sclyBuf;
-    u32 x10d0_sclySize;
-    const u8* x10d4_firstMatPtr;
-    const CScriptAreaAttributes* x10d8_areaAttributes;
-    EOcclusionState x10dc_occlusionState;
-    uchar x10e0_pad[0x60];
-
-    CPostConstructed();
-    ~CPostConstructed();
-  };
-
-  CAssetId GetAreaAssetId() const { return x84_mrea; }
-  const CAreaFog* GetAreaFog() const { return x12c_postConstructed->x10c4_areaFog.get(); }
-  CAreaFog* AreaFog() { return x12c_postConstructed->x10c4_areaFog.get(); }
-  EOcclusionState GetOcclusionState() const { return x12c_postConstructed->x10dc_occlusionState; }
-  const rstl::vector<CWorldLight>& GetLightsA() const;
-  const rstl::vector<CWorldLight>& GetLightsB() const;
-  const CPVSAreaSet* GetAreaVisSet() const { return x12c_postConstructed->xa0_pvs; }
-
-private:
-  rstl::vector< rstl::pair< rstl::auto_ptr<char>, int> > x110_mreaSecBufs;
+  rstl::vector< rstl::pair< rstl::auto_ptr< char >, int > > x110_mreaSecBufs;
   int x120_unk;
   int x124_secCount;
   int x128_mreaDataOffset;

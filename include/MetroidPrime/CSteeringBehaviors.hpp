@@ -19,6 +19,9 @@ public:
                                          const CVector3f& v1, const CVector3f& v2,
                                          const CVector3f& v3, const CVector3f& v4, CVector3f& v5);
 
+  static CVector3f ProjectOrbitalPosition(const CVector3f& pos, const CVector3f& vel,
+                                          const CVector3f& orbitPoint, float dt, float preThinkDt);
+
 private:
   float x0_;
 };

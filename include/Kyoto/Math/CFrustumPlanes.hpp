@@ -15,6 +15,7 @@ class CTransform4f;
 
 class CFrustumPlanes {
 public:
+  CFrustumPlanes() {}
   CFrustumPlanes(const CTransform4f&, float, float, float, bool, float);
 
   bool BoxInFrustumPlanes(const CAABox& box) const;

@@ -32,6 +32,7 @@ _LITERAL_REPLACEMENTS = [
   ("char16_t", "wchar_t"),
   ("std::min(", "rstl::min_val("),
   ("std::max(", "rstl::max_val("),
+  ("constexpr ", "const "),
 
   ("DEFINE_ENTITY", ""),
   ("visitor.Visit(this)", "visitor.Visit(*this)"),
@@ -94,11 +95,19 @@ _LITERAL_REPLACEMENTS = [
   ("EProjectileAttrib::", "kPA_"),
   ("ERumbleFxId::", "kRFX_"),
   ("ERumblePriority::", "kRP_"),
+  ("EWhichModel::", "kWM_"),
+  ("EArmState::", "kAS_"),
+  ("EGameState::", "kGS_"),
+  ("EScanState::", "kSS_"),
+  ("EWeaponType::", "kWT_"),
+  ("EFluidState::", "kFS_"),
+  ("EPhazonType::", "kPT_"),
 
   # CActor
   ("x34_transform.origin", "GetTranslation()"),
   ("x34_transform", "GetTransform()"),
   ("xc4_fluidId", "InFluidId()"),
+  ("x90_actorLights.get()", "GetActorLights()"),
 
   # CPhysicsActor
   ("x138_velocity", "GetVelocityWR()"),
@@ -132,6 +141,8 @@ _RE_REPLACEMENTS = [
   (re.compile(r"\.([xyz])\(\)"), lambda m: f".Get{m.group(1).upper()}()"),
   # lhs.dot(rhs) -> CVector3f::Dot(lhs, rhs)
   (re.compile(r"([A-z0-9]+)\.dot\(([A-z0-9]+)\)([,;])"), r"CVector3f::Dot(\1, \2)\3"),
+  # std::make_unique<T> -> rs_new T
+  (re.compile(r"std::make_unique<([A-z0-9]+)>"), r"rs_new \1"),
 ]
 
 

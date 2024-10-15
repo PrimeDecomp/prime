@@ -74,7 +74,7 @@ public:
   void RemoveCameraShaker(int id);
   CTransform4f GetCurrentCameraTransform(const CStateManager& mgr) const;
   CVector3f GetGlobalCameraTranslation(const CStateManager& mgr) const;
-  bool IsInFirstPersonCamera() const;
+  bool IsInFPCamera() const;
   bool IsInterpolationCameraActive() const;
   bool ShouldBypassInterpolationCamera() const;
   void SetupInterpolation(const CTransform4f& xf, TUniqueId camId, CVector3f lookPos,

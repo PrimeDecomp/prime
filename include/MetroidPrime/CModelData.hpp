@@ -66,15 +66,7 @@ public:
   CModelData();
   CModelData(const CAnimRes&);
   CModelData(const CStaticRes&);
-  CModelData(const CModelData& other)
-  : x0_scale(other.x0_scale)
-  , xc_animData(other.xc_animData)
-  , x14_24_renderSorted(other.x14_24_renderSorted)
-  , x14_25_sortThermal(other.x14_25_sortThermal)
-  , x18_ambientColor(other.x18_ambientColor)
-  , x1c_normalModel(other.x1c_normalModel)
-  , x2c_xrayModel(other.x2c_xrayModel)
-  , x3c_infraModel(other.x3c_infraModel) {}
+  // CModelData(const CModelData& other);
   ~CModelData();
 
   CAdvancementDeltas AdvanceAnimation(float dt, CStateManager& mgr, TAreaId aid, bool advTree);
@@ -127,9 +119,9 @@ private:
   bool x14_24_renderSorted : 1;
   bool x14_25_sortThermal : 1;
   CColor x18_ambientColor;
-  rstl::optional_object< TCachedToken< CModel > > x1c_normalModel;
-  rstl::optional_object< TCachedToken< CModel > > x2c_xrayModel;
-  rstl::optional_object< TCachedToken< CModel > > x3c_infraModel;
+  rstl::optional_object< TLockedToken< CModel > > x1c_normalModel;
+  rstl::optional_object< TLockedToken< CModel > > x2c_xrayModel;
+  rstl::optional_object< TLockedToken< CModel > > x3c_infraModel;
 };
 CHECK_SIZEOF(CModelData, 0x4c)
 

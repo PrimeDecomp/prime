@@ -49,10 +49,6 @@ void CScriptSteam::Think(float dt, CStateManager& mgr) {
   if (x148_28_playerTriggerProc && mgr.GetCameraManager()->GetFluidCounter() == 0) {
     CVector3f eyePos = mgr.GetPlayer()->GetEyePosition();
     const float mag = (GetTranslation() - eyePos).Magnitude();
-    // const float distance =
-    //     (mag >= GetMaxDist()
-    //          ? 0.f
-    //          : CMath::FastCosR((mag * 1.5707964f /* 90 deg */) * GetOOMaxDist()) * GetStrength());
     float distance;
     if (mag >= GetMaxDist()) {
       distance = 0.f;

@@ -7,6 +7,8 @@
 
 #include "rstl/vector.hpp"
 
+class CStateManager;
+
 class CEnergyDrainSource {
 public:
   CEnergyDrainSource(TUniqueId src, float intensity);
@@ -26,6 +28,7 @@ public:
   void AddEnergyDrainSource(TUniqueId id, float intensity);
   void RemoveEnergyDrainSource(TUniqueId id);
   float GetEnergyDrainIntensity() const;
+  const rstl::vector< CEnergyDrainSource >& GetEnergyDrainSources() const { return x0_sources; }
   float GetEnergyDrainTime() const { return x10_energyDrainTime; }
   void ProcessEnergyDrain(const CStateManager& mgr, float dt);
 

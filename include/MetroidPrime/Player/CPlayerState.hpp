@@ -1,6 +1,7 @@
 #ifndef _CPLAYERSTATE
 #define _CPLAYERSTATE
 
+#include "Kyoto/SObjectTag.hpp"
 #include "types.h"
 
 #include "MetroidPrime/CHealthInfo.hpp"
@@ -117,7 +118,7 @@ public:
   void UpdateStaticInterference(CStateManager& stateMgr, const float& dt);
   void IncreaseScanTime(uint time, float val);
   void SetScanTime(CAssetId res, float time);
-  float GetScanTime(CAssetId time) const;
+  float GetScanTime(CAssetId res) const;
   bool GetIsVisorTransitioning() const;
   float GetVisorTransitionFactor() const;
   void UpdateVisorTransition(float dt);
@@ -140,6 +141,9 @@ public:
   float CalculateHealth();
   void InitializePowerUp(CPlayerState::EItemType type, int capacity);
   void SetPowerUp(CPlayerState::EItemType type, int capacity);
+  static bool IsValidScan(CAssetId res);
+  void SetScanCompletionRateFirst(int rate) { x180_scanCompletionRateFirst = rate; } // name?
+  void SetScanCompletionRateSecond(int rate) { x184_scanCompletionRateSecond = rate; } // name?
 
   void InitializeScanTimes();
 
@@ -151,9 +155,10 @@ public:
   const rstl::vector< rstl::pair< CAssetId, float > >& GetScanTimes() const {
     return x170_scanTimes;
   }
+  int GetLogScans() const { return x180_scanCompletionRateFirst; }
+  int GetTotalLogScans() const { return x184_scanCompletionRateSecond; }
 
   CHealthInfo* HealthInfo() { return &xc_health; }
-
   const CHealthInfo& GetHealthInfo() const { return xc_health; }
 
 private:
@@ -191,7 +196,7 @@ private:
   EPlayerSuit x20_currentSuit;
   rstl::reserved_vector< CPowerUp, 41 > x24_powerups;
   rstl::vector< rstl::pair< CAssetId, float > > x170_scanTimes;
-  int x180_scanCompletionRateFirst;
+  int x180_scanCompletionRateFirst; // pair?
   int x184_scanCompletionRateSecond;
   CStaticInterference x188_staticIntf;
 };

@@ -17,6 +17,7 @@ public:
   }
   void AddValue(const T& value);
   rstl::optional_object< T > GetAverage() const;
+  rstl::optional_object< T > GetEntry(int idx) const;
 };
 
 template < typename T, int N >
@@ -36,6 +37,15 @@ rstl::optional_object< T > TReservedAverage< T, N >::GetAverage() const {
     return rstl::optional_object_null();
   } else {
     return GetAverageValue(this->data(), this->size());
+  }
+}
+
+template < typename T, int N >
+inline rstl::optional_object< T > TReservedAverage< T, N >::GetEntry(int idx) const {
+  if (idx >= this->size()) {
+    return rstl::optional_object_null();
+  } else {
+    return rstl::optional_object< T >(this->operator[](idx));
   }
 }
 

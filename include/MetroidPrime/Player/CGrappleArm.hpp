@@ -36,10 +36,11 @@ public:
   void ReturnToDefault(CStateManager& mgr, float dt, bool setState);
   void EnterStruck(CStateManager&, float, bool, bool);
   void DisconnectGrappleBeam();
+  void RenderGrappleBeam(const CStateManager&, const CVector3f&) const;
 
   void SetTransform(const CTransform4f& xf) { *(CTransform4f*)(&x0_pad[0x220]) = xf; }
 
-  // EArmState GetAnimState() const { return x334_animState; }
+  EArmState GetAnimState() const { return x334_animState; }
   bool GetActive() const { return x3b2_24_active; }
   bool BeamActive() const { return x3b2_25_beamActive; }
   bool IsArmMoving() const { return x3b2_27_armMoving; }

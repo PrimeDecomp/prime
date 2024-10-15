@@ -3,11 +3,9 @@
 
 #include "types.h"
 
-#include "Kyoto/CObjectReference.hpp"
 #include "Kyoto/CRandom16.hpp"
 #include "Kyoto/Input/CFinalInput.hpp"
 #include "Kyoto/Math/CFrustumPlanes.hpp"
-#include "Kyoto/Math/CVector2f.hpp"
 #include "Kyoto/Math/CVector2i.hpp"
 #include "Kyoto/TOneStatic.hpp"
 #include "Kyoto/TToken.hpp"
@@ -138,6 +136,7 @@ public:
   const rstl::string& HashInstanceName(CInputStream& in);
   bool SwapOutAllPossibleMemory();
   void UpdateObjectInLists(CEntity&);
+  rstl::pair< int, int > CalculateScanPair() const;
 
   void BuildNearList(TEntityList& nearList, const CVector3f& pos, const CVector3f& dir, float mag,
                      const CMaterialFilter&, const CActor*) const;
@@ -193,6 +192,7 @@ public:
   CWorldTransManager* WorldTransManager() { return x8c4_worldTransManager.GetPtr(); }
   const CWorldTransManager* GetWorldTransManager() const { return x8c4_worldTransManager.GetPtr(); }
   EGameState GetGameState() const { return x904_gameState; }
+  void SetGameState(EGameState state);
 
   CRandom16* Random() const { return x900_random; }
   uint GetUpdateFrameIndex() const { return x8d8_updateFrameIdx; }

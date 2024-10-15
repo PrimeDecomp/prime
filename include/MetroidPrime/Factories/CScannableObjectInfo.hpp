@@ -15,6 +15,9 @@ public:
   static const char* GetImagePaneName(uint pane);
   CScannableObjectInfo(CInputStream& in, uint version);
 
+  CAssetId GetScannableObjectId() const { return x0_scannableObjectId; }
+  float GetTotalDownloadTime() const { return x8_totalDownloadTime; }
+
 private:
   struct SBucket {
     CAssetId x0_texture;

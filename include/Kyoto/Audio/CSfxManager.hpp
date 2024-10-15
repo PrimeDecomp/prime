@@ -217,7 +217,7 @@ public:
   static void SfxVolume(CSfxHandle handle, uchar volume);
   static void SfxSpan(CSfxHandle, uchar);
 
-  static bool IsPlaying(const CSfxHandle& handle);
+  static bool IsPlaying(CSfxHandle handle);
   static void StopSound(CSfxHandle handle);
 
   static void SetChannel(ESfxChannels);

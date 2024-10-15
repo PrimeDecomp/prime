@@ -1,18 +1,34 @@
 #ifndef _CMORPHBALL
 #define _CMORPHBALL
 
+#include "Kyoto/Audio/CSfxHandle.hpp"
+#include "Kyoto/CRandom16.hpp"
+#include "Kyoto/Math/CQuaternion.hpp"
+#include "Kyoto/Math/CTransform4f.hpp"
+#include "Kyoto/Math/CVector3f.hpp"
+#include "MetroidPrime/CActor.hpp"
+#include "MetroidPrime/CEntityInfo.hpp"
+#include "MetroidPrime/TGameTypes.hpp"
+
+#include "Kyoto/Math/CFrustumPlanes.hpp"
 #include "Kyoto/TOneStatic.hpp"
 #include "Kyoto/TReservedAverage.hpp"
+#include "Kyoto/TToken.hpp"
 
 #include "Collision/CCollidableSphere.hpp"
 #include "Collision/CCollisionInfoList.hpp"
 
+class CActor;
+class CActorLights;
 class CElementGen;
+class CFinalInput;
+class CFrustumPlanes;
 class CGenDescription;
 class CModelData;
 class CMorphBallShadow;
 class CParticleSwoosh;
 class CPlayer;
+class CQuaternion;
 class CRainSplashGenerator;
 class CStateManager;
 class CSwooshDescription;
@@ -28,8 +44,6 @@ public:
   CMorphBall(CPlayer&, float);
   ~CMorphBall();
 
-  float GetBallRadius() const;
-
   EBallBoostState GetBallBoostState() const;
   void SetBallBoostState(EBallBoostState state);
   EBombJumpState GetBombJumpState() const;
@@ -39,10 +53,10 @@ public:
   void StopSounds();
   void UpdateEffects(float dt, CStateManager& mgr);
   void SetBallLightActive(CStateManager& mgr, const bool active);
-  // GetBallToWorld__10CMorphBallCFv global
-  // GetBallRadius__10CMorphBallCFv global
-  // TakeDamage__10CMorphBallFf global
-  // IsProjectile__10CMorphBallCFv weak
+  CTransform4f GetBallToWorld() const;
+  float GetBallRadius() const;
+  void TakeDamage(float damage);
+  bool IsProjectile() const { return x1954_isProjectile; }
   // LeaveMorphBallState__10CMorphBallFR13CStateManager global
   // LeaveBoosting__10CMorphBallFv global
   // CancelBoosting__10CMorphBallFv global
@@ -53,22 +67,22 @@ public:
   bool GetIsInHalfPipeMode() const;
   // DampLinearAndAngularVelocities__10CMorphBallFff global
   // IsClimbable__10CMorphBallCFRC14CCollisionInfo global
-  // FluidFXThink__10CMorphBallFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager global
+  void FluidFXThink(CActor::EFluidState state, CScriptWater& water, CStateManager& mgr);
   // GetCollidableSphere__10CMorphBallCFv weak
   // DrawCollisionPrimitive__10CMorphBallCFv global
   // GetPrimitiveTransform__10CMorphBallCFv global
-  // TouchModel__10CMorphBallCFRC13CStateManager global
-  // Render__10CMorphBallCFRC13CStateManagerPC12CActorLights global
+  void TouchModel(const CStateManager&) const;
+  void Render(const CStateManager&, const CActorLights*) const;
   // RenderDamageEffects__10CMorphBallCFRC13CStateManagerRC12CTransform4f global
   // RenderSpiderBallElectricalEffects__10CMorphBallCFv global
   // RenderEnergyDrainEffects__10CMorphBallCFRC13CStateManager global
-  // RenderMorphBallTransitionFlash__10CMorphBallCFRC13CStateManager global
-  // GetModel__10CMorphBallCFv weak
+  void RenderMorphBallTransitionFlash(const CStateManager&) const;
+  const CModelData& GetModel() const { return *x58_ballModel.get(); }
   // GetBallContactSurfaceNormal__10CMorphBallCFv weak
-  // PreRender__10CMorphBallFR13CStateManagerRC14CFrustumPlanes global
-  // IsInFrustum__10CMorphBallCFRC14CFrustumPlanes global
-  // GetBallTouchRadius__10CMorphBallCFv global
-  // Touch__10CMorphBallFR6CActorR13CStateManager global
+  void PreRender(CStateManager&, const CFrustumPlanes&);
+  bool IsInFrustum(const CFrustumPlanes&) const;
+  float GetBallTouchRadius() const;
+  void Touch(CActor& actor, CStateManager& mgr);
   void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&);
   // DeleteLight__10CMorphBallFR13CStateManager global
   // EnterMorphBallState__10CMorphBallFR13CStateManager
@@ -115,7 +129,7 @@ public:
   // GetTouchedHalfPipeRecently__10CMorphBallCFv global
   // ComputeLiftForces__10CMorphBallFRC9CVector3fRC9CVector3fRC13CStateManager global
   void UpdateBallDynamics(CStateManager&, float);
-  // BallCloseToCollision__10CMorphBallCFRC13CStateManagerf global
+  bool BallCloseToCollision(const CStateManager& mgr, float dist, const CMaterialFilter& filter) const;
   // UpdateHalfPipeStatus__10CMorphBallFR13CStateManagerf global
   // CalculateSurfaceToWorld__10CMorphBallCFRC9CVector3fRC9CVector3fRC9CVector3f global
   // UpdateMarbleDynamics__10CMorphBallFR13CStateManagerfRC9CVector3f global
@@ -128,6 +142,12 @@ public:
   void Land();
   void ResetMorphBallIceBreak();
   void StopParticleWakes();
+  void EnableBallShadow();
+  void DisableBallShadow();
+  void PreRenderBallShadow(CStateManager&);
+  void SetDisableSpiderBallTime(float time);
+
+  u32 GetMorphballModelShader() const { return x5c_ballModelShader; } // name?
 
 private:
   struct CSpiderBallElectricityManager {
