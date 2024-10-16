@@ -6,6 +6,16 @@ splits: config/GM8E01_01/splits.txt
 mw_comment_version: 8
 fill_gaps: false
 
+
+# Extract embedded assets
+extract:
+- symbol: sDefaultFontData
+  binary: MetroidPrime/DefaultFontData.bin
+  header: MetroidPrime/DefaultFontData.inc
+- symbol: sDefaultFontTexture
+  binary: MetroidPrime/DefaultFontTexture.bin
+  header: MetroidPrime/DefaultFontTexture.inc
+
 #modules:
 #- object: files/NESemuP.rel
 #  hash: 3cf7c08ff9aad30e6122a9ce1df35fb717df3586

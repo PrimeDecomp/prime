@@ -29,7 +29,7 @@ from tools.project import (
 DEFAULT_VERSION = 0
 VERSIONS = [
     "GM8E01_00",  # mp-v1.088 NTSC-U
-    # "GM8E01_01",  # mp-v1.093 NTSC-U
+    "GM8E01_01",  # mp-v1.093 NTSC-U
     # "GM8E01_48",  # mp-v1.097 NTSC-K
     # "GM8P01_00",  # mp-v1.110 PAL
     # "GM8J01_00",  # mp-v1.111 NTSC-J
