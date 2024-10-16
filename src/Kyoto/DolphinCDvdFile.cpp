@@ -4,6 +4,7 @@
 
 #include "Kyoto/CARAMManager.hpp"
 
+#include "dolphin/os/OSCache.h"
 #include "rstl/math.hpp"
 
 #include "dolphin/arq.h"
@@ -224,7 +225,9 @@ CDvdFile::CDvdFile(const char* filename)
 
 CDvdFile::~CDvdFile() { CloseFile(); }
 
-CDvdRequest* CDvdFile::SyncRead(void* dest, uint len) { return AsyncSeekRead(dest, len, kSO_Cur, 0); }
+CDvdRequest* CDvdFile::SyncRead(void* dest, uint len) {
+  return AsyncSeekRead(dest, len, kSO_Cur, 0);
+}
 
 void CDvdFile::SyncSeekRead(void* dest, uint len, ESeekOrigin origin, int offset) {
   StallForARAMFile();
@@ -282,7 +285,11 @@ bool CDvdFile::FileExists(const char* filename) {
   return DVDConvertPathToEntrynum(const_cast< char* >(DecodeARAMFile(filename))) != -1;
 }
 
-void CDvdFile::internalCallback(s32, DVDFileInfo*) {}
+void CDvdFile::internalCallback(s32 res, DVDFileInfo* info) {
+#if VERSION >= 1
+  DCInvalidateRange((void*)info->cb.addr, info->cb.length);
+#endif
+}
 
 void CDvdFile::CalcFileOffset(int offset, ESeekOrigin origin) {
   switch (origin) {
