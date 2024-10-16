@@ -1289,12 +1289,6 @@ config.libs = [
         ],
     ),
     DolphinLib(
-        "Dummy",
-        [
-            Object(Matching, "Dolphin/dummy.c"),
-        ],
-    ),
-    DolphinLib(
         "dtk",
         [
             Object(Matching, "Dolphin/dtk.c"),
