@@ -19,14 +19,11 @@ MetroTRK/mslsupp.c:
 MetroidPrime/main.cpp:
 	.text       start:0x80003658 end:0x80009148
 	.rodata     start:0x803CB3A0 end:0x803CC028
-	.data       start:0x803D8D60 end:0x803D8D90
+	.data       start:0x803D8D60 end:0x803D8EA8
 	.bss        start:0x803F7560 end:0x804578F8
 	.sdata      start:0x805A6BC0 end:0x805A6BD0
 	.sbss       start:0x805A8C20 end:0x805A8C78
 	.sdata2     start:0x805A9D20 end:0x805A9D88
-
-MetroidPrime/IRenderer.cpp:
-	.data       start:0x803D8D90 end:0x803D8EA8
 
 MetroidPrime/Cameras/CCameraManager.cpp:
 	.text       start:0x80009148 end:0x8000C788

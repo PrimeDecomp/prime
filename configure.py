@@ -357,7 +357,6 @@ config.libs = [
         "game",
         [
             Object(NonMatching, "MetroidPrime/main.cpp"),
-            Object(NonMatching, "MetroidPrime/IRenderer.cpp"),
             Object(NonMatching, "MetroidPrime/Cameras/CCameraManager.cpp"),
             Object(Matching, "MetroidPrime/CControlMapper.cpp"),
             Object(NonMatching, "MetroidPrime/Cameras/CFirstPersonCamera.cpp"),
