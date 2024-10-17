@@ -27,6 +27,7 @@ typedef unsigned long size_t;
 #define CHECK_OFFSETOF(cls, member, offset)                                                        \
   extern int cls##_check_offset##[_n_is_equal< offsetof(cls, member), offset >::value];
 #elif defined(__clang__) && defined(__powerpc__) // Enable for clangd
+#pragma clang diagnostic ignored "-Wc11-extensions" // Allow _Static_assert
 #pragma clang diagnostic ignored "-Wc++17-extensions" // Allow _Static_assert without message
 #define CHECK_SIZEOF(cls, size) _Static_assert(sizeof(cls) == size);
 #define NESTED_CHECK_SIZEOF(parent, cls, size) _Static_assert(sizeof(parent::cls) == size);

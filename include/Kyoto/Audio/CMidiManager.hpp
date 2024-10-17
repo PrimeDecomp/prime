@@ -28,6 +28,7 @@ public:
     short x8_songId;
     bool xa_available;
   };
+
   class CMidiData {
   public:
     CMidiData(CInputStream& in);
@@ -36,6 +37,7 @@ public:
     const short GetGroupId() const { return x2_groupId; }
     const int GetSetupId() const { return x4_setupId; }
     uchar* GetData() const { return x8_data.get(); }
+
   private:
     short x0_songId;
     short x2_groupId;

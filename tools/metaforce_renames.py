@@ -4,6 +4,7 @@ from pathlib import Path
 
 _LITERAL_REPLACEMENTS = [
   ("std::string_view", "const rstl::string&"),
+  ("std::string", "rstl::string"),
   ("std::vector", "rstl::vector"),
   ("std::list", "rstl::list"),
   ("std::pair", "rstl::pair"),
@@ -102,6 +103,8 @@ _LITERAL_REPLACEMENTS = [
   ("EWeaponType::", "kWT_"),
   ("EFluidState::", "kFS_"),
   ("EPhazonType::", "kPT_"),
+  ("EChain::", "kC_"),
+  ("EPhase::", "kP_"),
 
   # CActor
   ("x34_transform.origin", "GetTranslation()"),
@@ -125,6 +128,8 @@ _LITERAL_REPLACEMENTS = [
   ("std::fabs", "fabsf"),
   ("std::sqrt", "sqrtf"),
   ("clamp(", "CMath::Clamp("),
+
+  ("[[fallthrough]];", ""),
 ]
 _RE_REPLACEMENTS = [
   # SObjectTag{FOURCC('...'), ...} -> SObjectTag('...', ...)

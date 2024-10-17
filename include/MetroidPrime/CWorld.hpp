@@ -1,6 +1,7 @@
 #ifndef _CWORLD
 #define _CWORLD
 
+#include "Kyoto/SObjectTag.hpp"
 #include "types.h"
 
 #include "MetroidPrime/CGameArea.hpp"
@@ -10,16 +11,23 @@
 #include "Kyoto/IObjectStore.hpp"
 #include "Kyoto/TToken.hpp"
 
-#include "rstl/string.hpp"
 #include "rstl/reserved_vector.hpp"
+#include "rstl/string.hpp"
+#include "rstl/vector.hpp"
 
+class CAudioGroupSet;
+class CDvdRequest;
+class CGameArea;
 class CMapWorld;
 class CModel;
+class CRelay;
+class CStateManager;
 class IGameArea;
+class CResFactory;
 
 class IWorld {
 public:
-  virtual ~IWorld();
+  virtual ~IWorld() {}
   virtual CAssetId IGetWorldAssetId() const = 0;
   virtual CAssetId IGetStringTableAssetId() const = 0;
   virtual CAssetId IGetSaveWorldAssetId() const = 0;
@@ -33,18 +41,15 @@ public:
   virtual int IGetAreaCount() const = 0;
 };
 
-class CGameArea;
-class CRelay;
-class CSoundGroupData;
-class CDvdRequest;
-class IFactory;
-
-class CRelay {
+class CRelay /* name? */ {
 public:
+  explicit CRelay(CInputStream& in);
   const TEditorId& GetRelayId() const { return x0_relay; }
   const TEditorId& GetTargetId() const { return x4_target; }
   ushort GetMessage() const { return x8_msg; }
   bool GetActive() const { return xa_active; }
+
+  static rstl::vector< CRelay > ReadMemoryRelays(CInputStream& in); // name?
 
 private:
   TEditorId x0_relay;
@@ -61,8 +66,35 @@ enum EEnvFxType {
   kEFX_UnderwaterFlake,
 };
 
-class CWorld : public IWorld {
+class CWorld final : public IWorld {
 public:
+  struct CSoundGroupData {
+    int x0_groupId;
+    CAssetId x4_agscId;
+    bool x8_24_loadedIntoAram : 1;
+    bool x8_25_loaded : 1;
+    rstl::string xc_name;
+    TCachedToken< CAudioGroupSet > x1c_groupData;
+
+  public:
+    CSoundGroupData(int grpId, CAssetId agsc);
+  };
+
+  enum EAreaTravelType {
+    kATT_Zero,
+    kATT_One,
+  };
+
+  enum EChain {
+    kC_Invalid = -1,
+    kC_ToDeallocate,
+    kC_Deallocated,
+    kC_Loading,
+    kC_Alive,
+    kC_AliveJudgement,
+  };
+
+  CWorld(IObjectStore& objStore, CResFactory& resFactory, CAssetId mlvlId);
   ~CWorld();
   CAssetId IGetWorldAssetId() const override;
   CAssetId IGetStringTableAssetId() const override;
@@ -75,9 +107,18 @@ public:
   bool ICheckWorldComplete() override;
   rstl::string IGetDefaultAudioTrack() const override;
   int IGetAreaCount() const override;
+  bool CheckWorldComplete(CStateManager* mgr, TAreaId aid, CAssetId mreaId);
 
   void SetLoadPauseState(bool);
   void TouchSky() const;
+  void StopSounds();
+  void UnloadSoundGroups();
+  bool ScheduleAreaToLoad(CGameArea* area, CStateManager& mgr);
+  void MoveToChain(CGameArea* area, EChain chain);
+  void TravelToArea(TAreaId aid, CStateManager& mgr, EAreaTravelType type);
+  CMapWorld* GetMapWorld() const;
+  void LoadSoundGroups();
+  void LoadSoundGroup(uchar groupId, CAssetId agscId, CSoundGroupData& data);
 
   const CGameArea& GetAreaAlways(TAreaId id) const { return *x18_areas[id.Value()]; }
   CGameArea* Area(TAreaId id) { return x18_areas[id.Value()].get(); }
@@ -114,10 +155,10 @@ private:
   CAssetId x10_savwId;
   rstl::vector< rstl::auto_ptr< CGameArea > > x18_areas;
   CAssetId x24_mapwId;
-  CMapWorld* x28_mapWorld;
+  rstl::single_ptr< TCachedToken< CMapWorld > > x28_mapWorld;
   rstl::vector< CRelay > x2c_relays;
-  rstl::rc_ptr< CDvdRequest > x3c_loadToken;
-  rstl::single_ptr< uchar > x40_loadBuf;
+  rstl::single_ptr< CDvdRequest > x3c_loadToken;
+  rstl::single_ptr< char > x40_loadBuf;
   uint x44_bufSz;
   uint x48_chainCount;
   CGameArea* x4c_chainHeads[5];
@@ -138,5 +179,46 @@ private:
   rstl::reserved_vector< CSfxHandle, 10 > xc8_globalSfxHandles;
 };
 CHECK_SIZEOF(CWorld, 0xf4)
+
+struct SWorldLayers /* name? */ {
+  static SWorldLayers ReadWorldLayers(CInputStream& in, int version, CAssetId mlvlId);
+};
+
+class CDummyWorld : public IWorld {
+  enum Phase {
+    kP_Loading,
+    kP_LoadingMap,
+    kP_LoadingMapAreas,
+    kP_Done,
+  };
+
+  bool x4_loadMap;
+  Phase x8_phase;
+  CAssetId xc_mlvlId;
+  CAssetId x10_strgId;
+  CAssetId x14_savwId;
+  rstl::vector< rstl::auto_ptr< CDummyGameArea > > x18_areas;
+  CAssetId x28_mapWorldId;
+  rstl::single_ptr< TCachedToken< CMapWorld > > x2c_mapWorld;
+  rstl::single_ptr< CDvdRequest > x30_loadToken;
+  rstl::single_ptr< char > x34_loadBuf;
+  uint x38_bufSz;
+  TAreaId x3c_curAreaId;
+
+public:
+  CDummyWorld(CAssetId mlvlId, bool loadMap);
+  ~CDummyWorld() override;
+  CAssetId IGetWorldAssetId() const override;
+  CAssetId IGetStringTableAssetId() const override;
+  CAssetId IGetSaveWorldAssetId() const override;
+  const CMapWorld* IGetMapWorld() const override;
+  CMapWorld* IMapWorld() override;
+  const IGameArea* IGetAreaAlways(TAreaId id) const override;
+  TAreaId IGetCurrentAreaId() const override;
+  TAreaId IGetAreaId(CAssetId id) const override;
+  bool ICheckWorldComplete() override;
+  rstl::string IGetDefaultAudioTrack() const override;
+  int IGetAreaCount() const override;
+};
 
 #endif // _CWORLD

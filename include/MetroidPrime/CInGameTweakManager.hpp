@@ -1,6 +1,7 @@
 #ifndef _CINGAMETWEAKMANAGER
 #define _CINGAMETWEAKMANAGER
 
+#include "Kyoto/SObjectTag.hpp"
 #include "types.h"
 
 #include "rstl/string.hpp"
@@ -61,6 +62,7 @@ public:
   bool HasTweakValue(const rstl::string& name) const;
   const CTweakValue* GetTweakValue(const rstl::string& name) const;
   bool ReadFromMemoryCard(const rstl::string&);
+  rstl::vector< CAssetId > GetSongAssetsInWorld(CAssetId world) const;
 
   static rstl::string sub_8021cb38(CAssetId, const rstl::string&);
 

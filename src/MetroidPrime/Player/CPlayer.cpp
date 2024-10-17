@@ -1669,7 +1669,7 @@ void CPlayer::Think(float dt, CStateManager& mgr) {
   x794_lastVelocity = GetVelocityWR();
 }
 
-void CPlayer::SetFrozenState(CStateManager& stateMgr, CAssetId steamTxtr, ushort sfx,
+void CPlayer::SetFrozenState(CStateManager& stateMgr, CAssetId steamTxtr, const ushort sfx,
                              CAssetId iceTxtr) {
   if (!stateMgr.GetCameraManager()->IsInCinematicCamera() && !GetFrozenState()) {
     bool showMsg;

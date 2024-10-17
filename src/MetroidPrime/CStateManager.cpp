@@ -404,7 +404,7 @@ void CStateManager::DrawWorld() const {
   int areaCount = 0;
   const CGameArea* areaArr[10];
 
-  CGameArea::CConstChainIterator it = x850_world->GetChainHead(kC_Alive);
+  CGameArea::CConstChainIterator it = x850_world->GetChainHead(CWorld::kC_Alive);
   CGameArea::CConstChainIterator end = x850_world->GetAliveAreasEnd();
   for (; it != end; ++it) {
     if (areaCount == 10) {

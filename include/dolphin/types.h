@@ -75,12 +75,16 @@ typedef int BOOL;
 
 #if defined(__cplusplus) && __cplusplus < 201103L
 #if defined(__clang__)
-// Allow override in < C++11 mode with clangd
+// Allow override/final in < C++11 mode with clangd
 #pragma clang diagnostic ignored "-Wc++11-extensions"
 #else
 // Define override as nothing
 #ifndef override
 #define override
+#endif
+// Define final as nothing
+#ifndef final
+#define final
 #endif
 #endif // defined(__clang__)
 #endif // defined(__cplusplus) && __cplusplus < 201103L

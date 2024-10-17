@@ -1356,7 +1356,7 @@ LoadRelays__FR12CInputStreamRQ24rstl44vector<Q26SRelay,Q24rstl17rmemory_allocato
 __dt__11CDummyWorldFv = .text:0x800572D0; // type:function size:0xDC scope:global
 fn_800573AC = .text:0x800573AC; // type:function size:0xD0
 __ct__11CDummyWorldFUi = .text:0x8005747C; // type:function size:0x138 scope:global
-IGetGameAreas__6CWorldCFv = .text:0x800575B4; // type:function size:0x8 scope:global
+IGetAreaCount__6CWorldCFv = .text:0x800575B4; // type:function size:0x8 scope:global
 IGetDefaultAudioTrack__6CWorldCFv = .text:0x800575BC; // type:function size:0x24 scope:global
 ICheckWorldComplete__6CWorldFv = .text:0x800575E0; // type:function size:0x34 scope:global
 IGetCurrentAreaId__6CWorldCFv = .text:0x80057614; // type:function size:0xC scope:global

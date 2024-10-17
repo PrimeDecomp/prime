@@ -12,6 +12,7 @@
 #include "Kyoto/Math/CVector3f.hpp"
 
 class CAudioGroupSet;
+class CSimplePool;
 
 enum ETRKSampleRate {
   kTSR_Zero,
@@ -30,7 +31,7 @@ public:
   enum ESurroundModes { kSM_Mono, kSM_Stereo, kSM_Surround };
   class CEmitterData {
   public:
-    CEmitterData() : _50(0), _51(0), _52(kEmitterMedPriority){};
+    CEmitterData() : _50(0), _51(0), _52(kEmitterMedPriority) {};
 
   private:
     char data[0x50];
@@ -70,6 +71,12 @@ public:
 
   static void SysSetVolume(uchar, uint, uchar);
   static void SysSetSfxVolume(uchar, ushort, uchar, uchar);
+  static bool SysLoadGroupSet(CSimplePool*, uint);
+  static const rstl::string& SysGetGroupSetName(uint);
+  static bool SysPushGroupIntoARAM(const rstl::string& name, uchar);
+  static void SysPopGroupFromARAM();
+  static void SysUnloadGroupSet(const rstl::string& name);
+  static void SysUnloadSampleData(const rstl::string& name);
 
   static void SetDefaultVolumeScale(short);
   static void SetVolumeScale(short);
@@ -99,7 +106,6 @@ public:
 
   static void S3dAddEmitter(SND_FXID fxid, const CVector3f& pos, const CVector3f& dir,
                             const bool b1, const bool b2, short, int);
-
 
   static u32 SeqPlayEx(unsigned short, unsigned short, void*, SND_PLAYPARA*, unsigned char);
   static void SeqStop(u32);
