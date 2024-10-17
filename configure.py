@@ -343,6 +343,12 @@ Equivalent = (
     config.non_matching
 )  # Object should be linked when configured with --non-matching
 
+
+# Object is only matching for specific versions
+def MatchingFor(*versions):
+    return config.version in versions
+
+
 config.warn_missing_config = True
 config.warn_missing_source = False
 config.libs = [
@@ -1357,6 +1363,13 @@ config.libs = [
         ],
     ),
 ]
+
+# Disable missing return type warnings for incomplete objects
+for lib in config.libs:
+    for obj in lib["objects"]:
+        if not obj.completed:
+            obj.options["extra_clang_flags"].append("-Wno-return-type")
+
 
 # Optional extra categories for progress tracking
 config.progress_categories = [
