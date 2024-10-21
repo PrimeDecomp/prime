@@ -99,7 +99,7 @@ BOOL DVDCancelAllAsync(DVDCBCallback callback);
 s32 DVDCancelAll(void);
 BOOL DVDPrepareStreamAsync(DVDFileInfo* fInfo, u32 length, u32 offset, DVDCallback callback);
 s32 DVDPrepareStream(DVDFileInfo* fInfo, u32 length, u32 offset);
-
+BOOL DVDSetAutoInvalidation(BOOL autoInval);
 BOOL DVDCancelStreamAsync(DVDCommandBlock* block, DVDCBCallback callback);
 s32 DVDCancelStream(DVDCommandBlock* block);
 
