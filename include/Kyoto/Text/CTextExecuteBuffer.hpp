@@ -1,6 +1,7 @@
 #ifndef _CTEXTEXECUTEBUFFER
 #define _CTEXTEXECUTEBUFFER
 
+#include "Kyoto/Text/TextCommon.hpp"
 #include "rstl/list.hpp"
 #include "rstl/rc_ptr.hpp"
 
@@ -15,6 +16,14 @@ class CTextExecuteBuffer {
 
 public:
   CTextExecuteBuffer();
+
+  void AddFont(const TToken< CRasterFont >& font);
+  void AddLineSpacing(float spacing);
+  void AddLineExtraSpace(int space);
+  void AddJustification(EJustification just);
+  void AddVerticalJustification(EVerticalJustification just);
+  void AddPushState();
+  void AddPopState();
   
 private:
   InstList x0_instructions;

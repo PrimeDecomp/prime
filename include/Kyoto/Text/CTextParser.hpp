@@ -5,8 +5,10 @@
 #include <types.h>
 
 #include <Kyoto/Text/CTextColor.hpp>
+#include <Kyoto/TToken.hpp>
 
 class IObjectStore;
+class CRasterFont;
 class CTextExecuteBuffer;
 
 class CTextParser {
@@ -14,7 +16,7 @@ public:
   CTextParser(IObjectStore& store);
   void ParseText(CTextExecuteBuffer&, const wchar_t* str, int len);
   uint GetAssetIdFromString(const rstl::string& str);
-  uint GetFont(const wchar_t* str, int len);
+  TToken< CRasterFont > GetFont(const wchar_t* str, int len);
   uint GetImage(const wchar_t* str, int len);
   uint HandleUserTag(CTextExecuteBuffer& buffer, const wchar_t* str, int len);
   void ParseTag(CTextExecuteBuffer&, const wchar_t* str, int len);

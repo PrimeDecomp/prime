@@ -9,8 +9,8 @@ uint CARAMManager::mChunkSize = 0;
 uint CARAMManager::mNumChunks = 0;
 uint* CARAMManager::mpBookKeepingMemory;
 uint CARAMManager::mPreInitializeAlloc = 16 * 1024;
-uint CARAMManager::mDMAUniqueID;
-uint CARAMManager::mChunksAllocated;
+uint CARAMManager::mDMAUniqueID = 0;
+uint CARAMManager::mChunksAllocated = 0;
 const int CARAMManager::kInvalidAlloc = -1;
 const int CARAMManager::kInvalidHandle = -1;
 

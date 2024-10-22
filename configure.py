@@ -672,7 +672,7 @@ config.libs = [
             Object(NonMatching, "MetroidPrime/Enemies/CEyeBall.cpp"),
             Object(NonMatching, "MetroidPrime/CIkChain.cpp"),
             Object(Matching, "MetroidPrime/ScriptObjects/CScriptCameraPitchVolume.cpp"),
-            Object(Matching if config.version == "GM8E01_00" else NonMatching, "MetroidPrime/RumbleFxTable.cpp"),
+            Object(MatchingFor("GM8E01_00"), "MetroidPrime/RumbleFxTable.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CElitePirate.cpp"),
             Object(Matching, "MetroidPrime/CRumbleManager.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CBouncyGrenade.cpp"),
