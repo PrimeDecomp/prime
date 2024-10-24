@@ -12,6 +12,7 @@ class CNUQuaternion;
 
 class CQuaternion {
 public:
+  CQuaternion(CInputStream& in);
   CQuaternion(float w, float x, float y, float z) : w(w), imaginary(x, y, z) {}
   CQuaternion(float w, const CVector3f& imaginary) : w(w), imaginary(imaginary) {}
 

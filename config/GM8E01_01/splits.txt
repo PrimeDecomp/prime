@@ -22,7 +22,7 @@ MetroidPrime/main.cpp:
 	.data       start:0x803D8F40 end:0x803D9088
 	.bss        start:0x803F7740 end:0x80457AD8
 	.sdata      start:0x805A6DA0 end:0x805A6DB0
-	.sbss       start:0x805A8E00 end:0x805A8E38
+	.sbss       start:0x805A8E00 end:0x805A8E58
 	.sdata2     start:0x805A9F00 end:0x805A9F68
 
 MetroidPrime/Cameras/CCameraManager.cpp:
@@ -4298,7 +4298,7 @@ musyx/runtime/hw_aramdma.c:
 
 musyx/runtime/hw_dolphin.c:
 	.text       start:0x803B4E18 end:0x803B5310
-	.bss        start:0x80567A80 end:0x80569AE8
+	.bss        start:0x80567A80 end:0x80569AE0
 	.sbss       start:0x805A9D50 end:0x805A9D78
 
 musyx/runtime/hw_memory.c:

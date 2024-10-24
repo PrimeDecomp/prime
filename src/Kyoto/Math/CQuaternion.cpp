@@ -2,9 +2,17 @@
 
 #include "Kyoto/Math/CRelAngle.hpp"
 #include "Kyoto/Math/CUnitVector3f.hpp"
+#include "Kyoto/Streams/CInputStream.hpp"
+
+const CQuaternion CQuaternion::sNoRotation = CQuaternion(1.f, CVector3f(0.f, 0.f, 0.f));
+static const CVector3f XAxis(1.f, 0.f, 0.f);
+static const CVector3f YAxis(0.f, 1.f, 0.f);
+static const CVector3f ZAxis(0.f, 0.f, 1.f);
+
+CQuaternion::CQuaternion(CInputStream& in) : w(in.ReadFloat()), imaginary(in) {}
 
 CQuaternion CQuaternion::AxisAngle(const CUnitVector3f& axis, const CRelAngle& angle) {
-  float w = cosine(angle / 2.f);
+  double w = cos(angle.AsRadians() / 2.f);
   CVector3f vec = axis * sine(angle / 2.f);
   return CQuaternion(w, vec);
 }

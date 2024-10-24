@@ -7,6 +7,7 @@
 
 class CRelAngle {
 public:
+  CRelAngle(float rad) : x0_angle(rad) {}
   float AsDegrees() const { return x0_angle * (180.f / M_PIF); }
   float AsRadians() const { return x0_angle; }
   // ArcCosine__9CRelAngleFf weak
@@ -34,7 +35,6 @@ public:
   static CRelAngle FromRadians(float rad) { return CRelAngle(rad); }
 
 private:
-  CRelAngle(float rad) : x0_angle(rad) {}
 
   float x0_angle;
 };

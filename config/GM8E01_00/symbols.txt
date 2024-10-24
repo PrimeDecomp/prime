@@ -6574,7 +6574,7 @@ DisintegrateDraw__10CModelDataFRC13CStateManagerRC12CTransform4fRC8CTextureRC6CC
 DisintegrateDraw__10CModelDataF11EWhichModelRC12CTransform4fRC8CTextureRC6CColor = .text:0x8011615C; // type:function size:0x144 scope:global
 RenderThermal__10CModelDataCFRC12CTransform4fRC6CColorRC6CColorRC11CModelFlags = .text:0x801162A0; // type:function size:0x114 scope:global
 RenderThermal__10CModelDataCFPCfPCfRC6CColorRC6CColorRC11CModelFlags = .text:0x801163B4; // type:function size:0x50 scope:global
-ThermalDraw__10CModelDataRC6CColorRC6CColorRC11CModelFlags = .text:0x80116404; // type:function size:0x44 scope:global
+ThermalDraw__10CModelDataFRC6CColorRC6CColorRC11CModelFlags = .text:0x80116404; // type:function size:0x44 scope:global
 MultipassDrawCallback__10CModelDataFPCfPCfPC21SMultipassDrawContext = .text:0x80116448; // type:function size:0x70 scope:global
 MultiLightingDrawCallback__10CModelDataFPCfPCfPC25SMultiLightingDrawContext = .text:0x801164B8; // type:function size:0x188 scope:global
 FlatDrawCallback__10CModelDataFPCfPCfPC16SFlatDrawContext = .text:0x80116640; // type:function size:0x4C scope:global
@@ -15043,7 +15043,7 @@ __dt__Q24rstl56vector<Q24rstl12auto_ptr<Uc>,Q24rstl17rmemory_allocator>Fv = .tex
 PumpIndexLoad__12CMoviePlayerFv = .text:0x8035CA80; // type:function size:0x49C scope:global
 __ct__12CMoviePlayerFPCcfb = .text:0x8035CF1C; // type:function size:0x204 scope:global
 MyTHPYuv2RgbTextureSetup__FPvPvPvUsUs = .text:0x8035D120; // type:function size:0x174 scope:global
-MyTHPGXYuv2RgbSetup__Fb = .text:0x8035D294; // type:function size:0x51C scope:global
+MyTHPGXYuv2RgbSetup__Fbb = .text:0x8035D294; // type:function size:0x51C scope:global
 MyTHPGXRestore__Fv = .text:0x8035D7B0; // type:function size:0x84 scope:global
 reserve__Q24rstl67vector<Q212CMoviePlayer14CTHPTextureSet,Q24rstl17rmemory_allocator>Fi = .text:0x8035D834; // type:function size:0x144 scope:global
 construct<Q212CMoviePlayer14CTHPTextureSet>__4rstlFPvRCQ212CMoviePlayer14CTHPTextureSet = .text:0x8035D978; // type:function size:0x90 scope:global
