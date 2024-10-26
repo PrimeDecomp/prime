@@ -481,7 +481,7 @@ config.libs = [
             Object(Matching, "MetroidPrime/ScriptObjects/CScriptActorKeyframe.cpp"),
             Object(Matching, "MetroidPrime/CConsoleOutputWindow.cpp"),
             Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptWater.cpp"),
-            Object(NonMatching, "MetroidPrime/Weapons/CWeapon.cpp"),
+            Object(Matching, "MetroidPrime/Weapons/CWeapon.cpp"),
             Object(NonMatching, "MetroidPrime/CDamageVulnerability.cpp"),
             Object(NonMatching, "MetroidPrime/CActorLights.cpp"),
             Object(Matching, "MetroidPrime/Enemies/CPatternedInfo.cpp"),
