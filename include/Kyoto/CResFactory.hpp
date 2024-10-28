@@ -6,19 +6,9 @@
 
 #include "rstl/list.hpp"
 
+#include <Kyoto/IFactory.hpp>
 #include "Kyoto/CFactoryMgr.hpp"
 #include "Kyoto/CResLoader.hpp"
-
-class IFactory {
-public:
-  virtual ~IFactory() {}
-  virtual CFactoryFnReturn Build(const SObjectTag&, const CVParamTransfer&) = 0;
-  virtual void BuildAsync(const SObjectTag&, const CVParamTransfer&, IObj**) = 0;
-  virtual void CancelBuild(const SObjectTag&) = 0;
-  virtual bool CanBuild(const SObjectTag&) = 0;
-  virtual const SObjectTag* GetResourceIdByName(const char* name) const = 0;
-  // TODO
-};
 
 class CResFactory : public IFactory {
 public:

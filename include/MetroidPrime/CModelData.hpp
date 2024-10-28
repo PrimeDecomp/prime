@@ -44,11 +44,15 @@ private:
 CHECK_SIZEOF(CAdvancementDeltas, 0x1c)
 
 class CStaticRes {
-  CAssetId x0_cmdlId;
-  CVector3f x4_scale;
-
 public:
   CStaticRes(CAssetId id, const CVector3f& scale) : x0_cmdlId(id), x4_scale(scale) {}
+
+  const CAssetId GetId() const { return x0_cmdlId; }
+  const CVector3f GetScale() const { return x4_scale; }
+
+private:
+  CAssetId x0_cmdlId;
+  CVector3f x4_scale;
 };
 
 class CModelData {

@@ -9,6 +9,8 @@
 #include "rstl/reserved_vector.hpp"
 #include "rstl/string.hpp"
 
+#include <Kyoto/CFactoryFnReturn.hpp>
+
 class CInputStream;
 class CScannableObjectInfo {
 public:
@@ -34,5 +36,8 @@ private:
   bool x10_important;
   rstl::reserved_vector< SBucket, 4 > x14_buckets;
 };
+
+CFactoryFnReturn FScannableObjectInfoFactory(const SObjectTag& tag, CInputStream& in,
+                                             const CVParamTransfer& xfer);
 
 #endif // _CSCANNABLEOBJECTINFO

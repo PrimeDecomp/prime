@@ -28,15 +28,14 @@ class CWeaponMode {
   bool x4_26_instantKill : 1;
 
 public:
-  CWeaponMode(EWeaponType type = kWT_None, bool charged = false, bool comboed = false,
-              bool instaKill = false)
+  explicit CWeaponMode(EWeaponType type = kWT_None, const bool charged = false,
+                       const bool comboed = false, const bool instaKill = false)
   : x0_weaponType(type)
   , x4_24_charged(charged)
   , x4_25_comboed(comboed)
   , x4_26_instantKill(instaKill) {}
-  
-  CWeaponMode(int type, int flags) 
-  : x0_weaponType(EWeaponType(type)) {}
+
+  CWeaponMode(int type, int flags) : x0_weaponType(EWeaponType(type)) {}
 
   EWeaponType GetType() const { return x0_weaponType; }
 

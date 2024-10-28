@@ -1,5 +1,4 @@
 #include "MetroidPrime/Factories/CScannableObjectInfo.hpp"
-#include "Kyoto/CFactoryMgr.hpp"
 
 #include "Kyoto/Basics/CBasics.hpp"
 #include "Kyoto/Streams/CInputStream.hpp"

@@ -3,10 +3,11 @@
 
 #include "types.h"
 
-#include "rstl/single_ptr.hpp"
+#include <rstl/single_ptr.hpp>
 
-#include "Kyoto/Streams/CInputStream.hpp"
+#include <Kyoto/CFactoryFnReturn.hpp>
 
+class CInputStream;
 class CStringTable {
   int x0_stringCount;
   rstl::single_ptr< uchar > x4_data;
@@ -18,5 +19,8 @@ public:
 };
 
 extern CStringTable* gpStringTable;
+
+CFactoryFnReturn FStringTableFactory(const SObjectTag& tag, CInputStream& in,
+                                     const CVParamTransfer& xfer);
 
 #endif // _CSTRINGTABLE

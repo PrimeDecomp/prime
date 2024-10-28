@@ -1,9 +1,9 @@
 #include "Kyoto/Text/CStringTable.hpp"
 
-#include "rstl/pair.hpp"
-#include "rstl/vector.hpp"
+#include <Kyoto/Streams/CInputStream.hpp>
 
-#include "Kyoto/CFactoryMgr.hpp"
+#include <rstl/pair.hpp>
+#include <rstl/vector.hpp>
 
 static FourCC mCurrentLanguage = 'ENGL';
 static const wchar_t skInvalidString[] = L"Invalid";

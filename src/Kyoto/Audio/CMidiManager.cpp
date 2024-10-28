@@ -3,7 +3,7 @@
 
 #include "Kyoto/Audio/CAudioSys.hpp"
 
-#include <Kyoto/CFactoryMgr.hpp>
+#include <Kyoto/CFactoryFnReturn.hpp>
 #include <Kyoto/Streams/CInputStream.hpp>
 
 rstl::reserved_vector< CMidiManager::CMidiWrapper, 3 > CMidiManager::mMidiWrappers;

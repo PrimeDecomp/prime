@@ -8,6 +8,8 @@
 #include "rstl/auto_ptr.hpp"
 #include "rstl/vector.hpp"
 
+#include <Kyoto/CFactoryFnReturn.hpp>
+
 class COBBTree;
 
 class CCollidableOBBTreeGroupContainer {
@@ -39,5 +41,8 @@ public:
 private:
   CCollidableOBBTreeGroupContainer* x10_container;
 };
+
+CFactoryFnReturn FCollidableOBBTreeGroupFactory(const SObjectTag& tag, CInputStream& in,
+                                                const CVParamTransfer& xfer);
 
 #endif // _CCOLLIDABLEOBBTREEGROUP

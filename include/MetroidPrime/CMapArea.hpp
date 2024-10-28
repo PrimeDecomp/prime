@@ -3,13 +3,14 @@
 
 #include "MetroidPrime/CMappableObject.hpp"
 
-#include "Kyoto/CFactoryMgr.hpp"
+#include "Kyoto/CFactoryFnReturn.hpp"
 #include "Kyoto/Graphics/CColor.hpp"
 #include "Kyoto/Math/CAABox.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
 
 #include "rstl/single_ptr.hpp"
 #include "rstl/vector.hpp"
+
 
 class IWorld;
 class CWorld;

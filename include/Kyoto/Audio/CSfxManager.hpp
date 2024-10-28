@@ -13,7 +13,7 @@
 
 #include <musyx/musyx.h>
 
-#include <Kyoto/CFactoryMgr.hpp>
+#include <Kyoto/CFactoryFnReturn.hpp>
 
 class CVector3f;
 class CSfxManager {
@@ -242,5 +242,8 @@ public:
 
   static bool IsValidHandle(CSfxHandle handle);
 };
+
+CFactoryFnReturn FAudioTranslationTableFactory(const SObjectTag& obj, CInputStream& in,
+                                               const CVParamTransfer& xfer);
 
 #endif // _CSFXMANAGER
