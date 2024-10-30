@@ -151,9 +151,9 @@ if not config.non_matching:
 # Tool versions
 config.binutils_tag = "2.42-1"
 config.compilers_tag = "20240706"
-config.dtk_tag = "v1.1.4"
-config.objdiff_tag = "v2.3.2"
-config.sjiswrap_tag = "v1.1.1"
+config.dtk_tag = "v1.2.0"
+config.objdiff_tag = "v2.3.4"
+config.sjiswrap_tag = "v1.2.0"
 config.wibo_tag = "0.6.11"
 
 # Project
@@ -196,7 +196,6 @@ cflags_base = [
     "-RTTI off",
     "-fp_contract on",
     "-str reuse",
-    "-multibyte",
     "-i include",
     "-i extern/musyx/include",
     "-i libc",
@@ -211,6 +210,12 @@ if args.debug:
     cflags_base.extend(["-sym on", "-DDEBUG=1"])
 else:
     cflags_base.append("-DNDEBUG=1")
+
+# Dolphin flags
+cflags_dolphin = [
+    *cflags_base,
+    "-multibyte",
+]
 
 # Metrowerks library flags
 cflags_runtime = [
@@ -290,10 +295,11 @@ def DolphinLib(lib_name, objects):
     return {
         "lib": lib_name + "D" if args.debug else "",
         "mw_version": "GC/1.2.5n",
-        "cflags": cflags_base,
+        "cflags": cflags_dolphin,
         "host": False,
         "progress_category": "sdk",
         "objects": objects,
+        "shift_jis": True,
     }
 
 
@@ -305,6 +311,7 @@ def RetroLib(lib_name, progress_category, objects):
         "host": False,
         "progress_category": progress_category,
         "objects": objects,
+        "shift_jis": False,
     }
 
 
@@ -323,6 +330,7 @@ def MusyX(objects, mw_version="GC/1.3.2", debug=False, major=2, minor=0, patch=0
         ],
         "progress_category": "third_party",
         "objects": objects,
+        "shift_jis": False,
     }
 
 
@@ -335,6 +343,7 @@ def Rel(lib_name, objects):
         "host": True,
         "progress_category": "third_party",
         "objects": objects,
+        "shift_jis": False,
     }
 
 
@@ -986,6 +995,7 @@ config.libs = [
         "cflags": cflags_runtime,
         "host": False,
         "progress_category": "third_party",
+        "shift_jis": False,
         "objects": [
             Object(Matching, "Kyoto/zlib/adler32.c"),
             Object(Matching, "Kyoto/zlib/deflate.c"),
@@ -1185,6 +1195,7 @@ config.libs = [
         "cflags": cflags_runtime,
         "host": False,
         "progress_category": "sdk",
+        "shift_jis": False,
         "objects": [
             Object(Matching, "Runtime/__mem.c"),
             Object(Matching, "Runtime/__va_arg.c"),
