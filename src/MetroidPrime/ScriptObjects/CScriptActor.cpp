@@ -8,6 +8,7 @@
 #include "MetroidPrime/ScriptObjects/CScriptColorModulate.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptTrigger.hpp"
 
+#include "Kyoto/Math/CVector3f.hpp"
 #include "Kyoto/Math/CloseEnough.hpp"
 
 CScriptActor::CScriptActor(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
@@ -77,18 +78,18 @@ void CScriptActor::Think(float dt, CStateManager& mgr) {
         GetAnimationData()->IsAnimTimeRemaining(dt - FLT_EPSILON, rstl::string_l("Whole Body"));
     const bool loop = GetModelData()->GetIsLoop();
 
-    const CAdvancementDeltas deltas = CActor::UpdateAnimation(dt, mgr, true);
+    CAdvancementDeltas deltas = CActor::UpdateAnimation(dt, mgr, true);
 
     if (timeRemaining || loop) {
       x2e2_26_animating = true;
 
       if (x2e2_30_scaleAdvancementDelta) {
-        CVector3f rot = GetTransform().TransposeRotate(deltas.GetOffsetDelta());
+        CVector3f pos = GetTransform().TransposeRotate(deltas.GetOffsetDelta());
         CVector3f scale = GetModelData()->GetScale();
-        // CVector3f ret = GetTransform().Rotate(scale * rot);
-        CVector3f ret = GetTransform().Rotate(CVector3f(
-            scale.GetX() * rot.GetX(), scale.GetY() * rot.GetY(), scale.GetZ() * rot.GetZ()));
-        MoveToOR(ret, dt);
+        pos = CVector3f(scale.GetX() * pos.GetX(), scale.GetY() * pos.GetY(),
+                        scale.GetZ() * pos.GetZ());
+        pos = GetTransform().Rotate(pos);
+        MoveToOR(pos, dt);
       } else {
         MoveToOR(deltas.GetOffsetDelta(), dt);
       }

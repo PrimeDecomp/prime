@@ -420,7 +420,7 @@ config.libs = [
             Object(NonMatching, "MetroidPrime/Tweaks/CTweakPlayerGun.cpp"),
             Object(NonMatching, "MetroidPrime/CPauseScreen.cpp"),
             Object(NonMatching, "MetroidPrime/Tweaks/CTweakGui.cpp"),
-            Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptActor.cpp"),
+            Object(Matching, "MetroidPrime/ScriptObjects/CScriptActor.cpp"),
             Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptTrigger.cpp"),
             Object(Matching, "MetroidPrime/ScriptObjects/CScriptWaypoint.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CPatterned.cpp"),
