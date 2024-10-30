@@ -219,6 +219,7 @@ cflags_runtime = [
     "-str reuse,pool,readonly",
     "-gccinc",
     "-common off",
+    "-char signed",
     "-inline deferred,auto",
 ]
 
@@ -1180,7 +1181,7 @@ config.libs = [
     ),
     {
         "lib": "MSL_C.PPCEABI.bare.H",
-        "mw_version": "GC/1.3.2",
+        "mw_version": "GC/1.3",
         "cflags": cflags_runtime,
         "host": False,
         "progress_category": "sdk",
@@ -1211,7 +1212,7 @@ config.libs = [
             Object(Matching, "Runtime/mem_funcs.c"),
             Object(Matching, "Runtime/misc_io.c"),
             Object(NonMatching, "Runtime/printf.c"),
-            Object(NonMatching, "Runtime/qsort.c"),
+            Object(Matching, "Runtime/qsort.c"),
             Object(Matching, "Runtime/rand.c"),
             Object(Matching, "Runtime/sscanf.c"),
             Object(Matching, "Runtime/string.c"),
@@ -1222,16 +1223,16 @@ config.libs = [
             Object(Matching, "Runtime/e_acos.c"),
             Object(Matching, "Runtime/e_asin.c"),
             Object(Matching, "Runtime/e_atan2.c"),
-            Object(NonMatching, "Runtime/e_exp.c"),  # CW 1.3.2 lib bug
+            Object(Matching, "Runtime/e_exp.c"),  
             Object(Matching, "Runtime/e_fmod.c"),
             Object(Matching, "Runtime/e_log.c"),
-            Object(NonMatching, "Runtime/e_pow.c"),  # CW 1.3.2 lib bug
+            Object(Matching, "Runtime/e_pow.c"),  
             Object(Matching, "Runtime/e_rem_pio2.c"),
             Object(Matching, "Runtime/k_cos.c"),
             Object(Matching, "Runtime/k_rem_pio2.c"),
             Object(Matching, "Runtime/k_sin.c"),
             Object(Matching, "Runtime/k_tan.c"),
-            Object(NonMatching, "Runtime/s_atan.c"),  # CW 1.3.2 lib bug
+            Object(Matching, "Runtime/s_atan.c"), 
             Object(Matching, "Runtime/s_copysign.c"),
             Object(Matching, "Runtime/s_cos.c"),
             Object(Matching, "Runtime/s_floor.c"),

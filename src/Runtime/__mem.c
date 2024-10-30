@@ -68,7 +68,7 @@ void __fill_mem(void* dst, int val, size_t n) {
 
     cpd = ((unsigned char*)(lpd + 1)) - 1;
 
-    n &= 3;
+    n &= (unsigned char)3;
   }
 
   if (n)
