@@ -75,7 +75,7 @@ public:
   const float& operator[](EDimZ) const { return mZ; }
 
   float& operator[](int i) { return (&mX)[i]; }
-  float operator[](int i) const { return (&mX)[i]; }
+  const float operator[](int i) const { return (&mX)[i]; }
   bool IsNonZero() const { return mX != 0.f || mY != 0.f || mZ != 0.f; }
 
   CVector3f DropZ() const { return CVector3f(mX, mY, 0.f); }

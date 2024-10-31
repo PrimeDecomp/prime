@@ -1209,7 +1209,7 @@ config.libs = [
             Object(Matching, "Runtime/abort_exit.c"),
             Object(NonMatching, "Runtime/alloc.c"),
             Object(Matching, "Runtime/ansi_files.c"),
-            Object(NonMatching, "Runtime/ansi_fp.c"),
+            Object(Matching, "Runtime/ansi_fp.c"),
             Object(Matching, "Runtime/arith.c"),
             Object(Matching, "Runtime/buffer_io.c"),
             Object(Matching, "Runtime/ctype.c"),

@@ -5,6 +5,11 @@
 struct CCharacterIdentifier {
   wchar_t chr;
   uint rank;
+
+  struct Compare {
+    bool operator()(const CCharacterIdentifier& ident, wchar_t chr) { return ident.chr == chr; }
+    bool operator()(wchar_t chr, const CCharacterIdentifier& ident) { return chr == ident.chr; }
+  };
 };
 
 const CCharacterIdentifier gCantBeginChars[63] = {
@@ -21,7 +26,7 @@ const CCharacterIdentifier gCantBeginChars[63] = {
 
 const CCharacterIdentifier gCantEndChars[89] = {
     {L'#', 2},   {L'$', 2},   {L'(', 1},   {L'@', 2},   {L'B', 4},   {L'C', 4},   {L'D', 4},
-    {L'E', 4},   {L'F', 4},   {L'G', 4},   {L'J', 4},   {L'K', 4},   {L'L', 4},   {L'M', 4},
+    {L'F', 4},   {L'G', 4},   {L'H', 4},   {L'J', 4},   {L'K', 4},   {L'L', 4},   {L'M', 4},
     {L'N', 4},   {L'P', 4},   {L'Q', 4},   {L'R', 4},   {L'S', 4},   {L'T', 4},   {L'V', 4},
     {L'W', 4},   {L'X', 4},   {L'Y', 4},   {L'Z', 4},   {L'b', 4},   {L'c', 4},   {L'd', 4},
     {L'f', 4},   {L'g', 4},   {L'h', 4},   {L'j', 4},   {L'k', 4},   {L'l', 4},   {L'm', 4},
@@ -36,4 +41,6 @@ const CCharacterIdentifier gCantEndChars[89] = {
 };
 
 int CWordBreakTables::GetBeginRank(wchar_t chr) {
+  //rstl::binary_find(&gCantBeginChars[0], &gCantBeginChars[62], chr, CCharacterIdentifier::Compare());
+  return -1;
 }

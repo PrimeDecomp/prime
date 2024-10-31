@@ -56,6 +56,7 @@ extern _INT32 __float_huge[];
 extern _INT32 __float_nan[];
 extern _INT32 __double_huge[];
 extern _INT32 __extended_huge[];
+extern _INT32 __double_max[];
 
 #define HUGE_VAL (*(double*)__double_huge)
 #define INFINITY (*(float*)__float_huge)
@@ -110,6 +111,8 @@ _MATH_INLINE float powf(float __x, float __y) { return pow(__x, __y); }
 #define __ULO(x) (sizeof(x) == 8 ? *(1 + (_UINT32*)&x) : (*(_UINT32*)&x))
 #define __UHI(x) (*(_UINT32*)&x)
 #endif
+
+#define signbit(x)((int)(__HI(x)&0x80000000))
 
 #define FP_NAN 1
 #define FP_INFINITE 2
@@ -204,13 +207,15 @@ float sqrtf(float x);
 double sqrt(double x);
 #endif
 
-static inline float ldexpf(float x, int exp) { return (float)ldexp((double)x, exp); }
-static inline double scalbn(double x, int n) { return ldexp(x, n); }
-static inline float scalbnf(float x, int n) { return (float)ldexpf(x, n); }
-
 #ifdef __MWERKS__
 #pragma cplusplus reset
 #endif
+
+static inline float ldexpf(float x, int exp) { return (float)ldexp((double)x, exp); }
+double frexp(double, int *exp);
+static inline double scalbn(double x, int n) { return ldexp(x, n); }
+static inline float scalbnf(float x, int n) { return (float)ldexpf(x, n); }
+double nextafter(double, double);
 
 #ifdef __cplusplus
 }
