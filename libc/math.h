@@ -56,6 +56,10 @@ extern _INT32 __float_huge[];
 extern _INT32 __float_nan[];
 extern _INT32 __double_huge[];
 extern _INT32 __extended_huge[];
+extern _INT32 __extended_min[];
+extern _INT32 __extended_max[];
+extern _INT32 __extended_epsilon[];
+extern _INT32 __double_min[];
 extern _INT32 __double_max[];
 
 #define HUGE_VAL (*(double*)__double_huge)
@@ -216,6 +220,7 @@ double frexp(double, int *exp);
 static inline double scalbn(double x, int n) { return ldexp(x, n); }
 static inline float scalbnf(float x, int n) { return (float)ldexpf(x, n); }
 double nextafter(double, double);
+
 
 #ifdef __cplusplus
 }

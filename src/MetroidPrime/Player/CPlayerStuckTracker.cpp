@@ -56,6 +56,7 @@ bool CPlayer::CPlayerStuckTracker::IsPlayerStuck() {
   max1 = *_getElementBoundsCheck(x148_, 0);
   CAABox box1(min1, max1);
   CAABox box(*_getElementBoundsCheck(x148_, 0), *_getElementBoundsCheck(x148_, 0));
+  return true;
 }
 
 void CPlayer::CPlayerStuckTracker::ResetStats() {

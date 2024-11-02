@@ -3,8 +3,7 @@
 
 #include "types.h"
 
-#include "MetroidPrime/TGameTypes.hpp"
-
+#include "Kyoto/Animation/CSegId.hpp"
 #include "Kyoto/Math/CTransform4f.hpp"
 
 #include "rstl/reserved_vector.hpp"
@@ -12,6 +11,10 @@
 
 class CPoseAsTransforms {
 public:
+  class CElementType {
+
+  };
+  
   const CMatrix3f& GetRotation(const CSegId& id) const;
 private:
   CSegId x0_nextId;

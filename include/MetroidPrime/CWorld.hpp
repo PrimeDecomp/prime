@@ -46,7 +46,7 @@ public:
   explicit CRelay(CInputStream& in);
   const TEditorId& GetRelayId() const { return x0_relay; }
   const TEditorId& GetTargetId() const { return x4_target; }
-  ushort GetMessage() const { return x8_msg; }
+  const ushort& GetMessage() const { return x8_msg; }
   bool GetActive() const { return xa_active; }
 
   static rstl::vector< CRelay > ReadMemoryRelays(CInputStream& in); // name?

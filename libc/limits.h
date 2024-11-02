@@ -13,6 +13,8 @@
 #endif
 
 #define SHRT_MAX 0x7fff
+#define SHRT_MIN (~SHRT_MAX)
+
 #define USHRT_MAX 0xffffU
 
 #define INT_MAX 0x7fffffff
