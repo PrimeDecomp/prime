@@ -234,12 +234,12 @@ void CPhysicsActor::UseCollisionImpulses() {
 }
 
 void CPhysicsActor::MoveToWR(const CVector3f& trans, float d) {
-  xfc_constantForce = (trans - GetTransform().GetTranslation()) * GetMass() / d;
+  xfc_constantForce = (trans - GetTranslation()) * GetMass() * (1.f / d);
   ComputeDerivedQuantities();
 }
 
 void CPhysicsActor::MoveToInOneFrameWR(const CVector3f& trans, float d) {
-  x18c_moveImpulse += (trans - GetTranslation()) * GetMass() / d;
+  x18c_moveImpulse += (trans - GetTranslation()) * GetMass() * (1.f / d);
 }
 
 CVector3f CPhysicsActor::GetMoveToORImpulseWR(const CVector3f& trans, float d) const {

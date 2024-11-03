@@ -20,7 +20,6 @@ static u32 flushFlag;
 static OSThreadQueue retraceQueue;
 static VIRetraceCallback PreCB;
 static VIRetraceCallback PostCB;
-static VIPositionCallback PositionCallback;
 static u32 encoderType;
 
 static s16 displayOffsetH;
@@ -808,15 +807,6 @@ void VIConfigure(const GXRenderModeObj* obj) {
             "VIConfigure(): Tried to change mode from (%d) to (%d), which is forbidden\n",
             tvInBootrom, tvInGame);
   }
-  // if (((tvInBootrom != VI_PAL && tvInBootrom != VI_EURGB60) && (tvInGame == VI_PAL || tvInGame ==
-  // VI_EURGB60))
-  //     || ((tvInBootrom == VI_PAL || tvInBootrom == VI_EURGB60) && (tvInGame != VI_PAL && tvInGame
-  //     != VI_EURGB60))) {
-
-  // 	OSErrorLine(1908, "VIConfigure(): Tried to change mode from (%d) to (%d), which is
-  // forbidden\n", tvInBootrom, tvInGame);
-  // }
-
   if ((tvInGame == VI_NTSC) || (tvInGame == VI_MPAL)) {
     HorVer.tv = tvInBootrom;
   } else {
@@ -895,655 +885,42 @@ void VIConfigure(const GXRenderModeObj* obj) {
   setVerticalRegs(HorVer.adjDispPosY, HorVer.adjDispSizeY, tm->equ, tm->acv, tm->prbOdd,
                   tm->prbEven, tm->psbOdd, tm->psbEven, HorVer.isBlack);
   OSRestoreInterrupts(enabled);
-  /*
-  .loc_0x0:
-    mflr      r0
-    lis       r5, 0x804A
-    stw       r0, 0x4(r1)
-    lis       r4, 0x804F
-    stwu      r1, -0x78(r1)
-    stmw      r14, 0x30(r1)
-    addi      r31, r3, 0
-    addi      r15, r5, 0x72B0
-    addi      r29, r4, 0x59A8
-    bl        0x1D518
-    lwz       r4, 0x0(r31)
-    addi      r28, r29, 0x114
-    lwz       r0, 0x114(r29)
-    addi      r14, r3, 0
-    rlwinm    r4,r4,0,30,31
-    cmplw     r0, r4
-    beq-      .loc_0x50
-    li        r0, 0x1
-    stw       r0, -0x72E0(r13)
-    stw       r4, 0x0(r28)
-
-  .loc_0x50:
-    lwz       r0, 0x0(r31)
-    lis       r3, 0x8000
-    lwz       r16, 0xCC(r3)
-    rlwinm    r0,r0,30,2,31
-    cmplwi    r0, 0x4
-    mr        r17, r0
-    bne-      .loc_0xD4
-    lwz       r0, -0x72AC(r13)
-    cmplwi    r0, 0
-    bne-      .loc_0xD4
-    li        r0, 0x1
-    crclr     6, 0x6
-    stw       r0, -0x72AC(r13)
-    addi      r3, r15, 0x260
-    bl        0x1BF68
-    addi      r3, r15, 0x28C
-    crclr     6, 0x6
-    bl        0x1BF5C
-    addi      r3, r15, 0x2B8
-    crclr     6, 0x6
-    bl        0x1BF50
-    addi      r3, r15, 0x2E4
-    crclr     6, 0x6
-    bl        0x1BF44
-    addi      r3, r15, 0x310
-    crclr     6, 0x6
-    bl        0x1BF38
-    addi      r3, r15, 0x33C
-    crclr     6, 0x6
-    bl        0x1BF2C
-    addi      r3, r15, 0x260
-    crclr     6, 0x6
-    bl        0x1BF20
-
-  .loc_0xD4:
-    cmpwi     r16, 0x2
-    beq-      .loc_0x108
-    bge-      .loc_0xF0
-    cmpwi     r16, 0
-    beq-      .loc_0x108
-    bge-      .loc_0x124
-    b         .loc_0x134
-
-  .loc_0xF0:
-    cmpwi     r16, 0x6
-    beq-      .loc_0x108
-    bge-      .loc_0x134
-    cmpwi     r16, 0x5
-    bge-      .loc_0x124
-    b         .loc_0x134
-
-  .loc_0x108:
-    cmplwi    r17, 0
-    beq-      .loc_0x150
-    cmplwi    r17, 0x2
-    beq-      .loc_0x150
-    cmplwi    r17, 0x6
-    bne-      .loc_0x134
-    b         .loc_0x150
-
-  .loc_0x124:
-    cmplwi    r17, 0x1
-    beq-      .loc_0x150
-    cmplwi    r17, 0x5
-    beq-      .loc_0x150
-
-  .loc_0x134:
-    addi      r6, r16, 0
-    crclr     6, 0x6
-    addi      r7, r17, 0
-    addi      r5, r15, 0x368
-    subi      r3, r13, 0x7D94
-    li        r4, 0x774
-    bl        0x1BF24
-
-  .loc_0x150:
-    cmplwi    r17, 0
-    beq-      .loc_0x160
-    cmplwi    r17, 0x2
-    bne-      .loc_0x168
-
-  .loc_0x160:
-    stw       r16, 0x118(r29)
-    b         .loc_0x16C
-
-  .loc_0x168:
-    stw       r17, 0x118(r29)
-
-  .loc_0x16C:
-    lhz       r0, 0xA(r31)
-    sth       r0, 0xF0(r29)
-    lwz       r0, 0x0(r28)
-    cmplwi    r0, 0x1
-    bne-      .loc_0x18C
-    lhz       r0, 0xC(r31)
-    rlwinm    r0,r0,1,16,30
-    b         .loc_0x190
-
-  .loc_0x18C:
-    lhz       r0, 0xC(r31)
-
-  .loc_0x190:
-    sth       r0, 0xF2(r29)
-    addi      r23, r29, 0xF2
-    addi      r24, r29, 0xF4
-    lhz       r0, 0xE(r31)
-    addi      r27, r29, 0x102
-    addi      r25, r29, 0x110
-    sth       r0, 0xF4(r29)
-    li        r0, 0
-    addi      r16, r29, 0x10A
-    lhz       r3, 0x4(r31)
-    addi      r26, r29, 0x10C
-    addi      r15, r29, 0x106
-    sth       r3, 0x102(r29)
-    addi      r17, r29, 0x108
-    lhz       r3, 0x8(r31)
-    sth       r3, 0x104(r29)
-    lwz       r3, 0x14(r31)
-    stw       r3, 0x110(r29)
-    lhz       r3, 0x102(r29)
-    sth       r3, 0x10A(r29)
-    lhz       r3, 0x104(r29)
-    sth       r3, 0x10C(r29)
-    sth       r0, 0x106(r29)
-    sth       r0, 0x108(r29)
-    lwz       r0, 0x0(r28)
-    cmplwi    r0, 0x2
-    bne-      .loc_0x204
-    lhz       r0, 0x0(r26)
-    b         .loc_0x230
-
-  .loc_0x204:
-    cmplwi    r0, 0x3
-    bne-      .loc_0x214
-    lhz       r0, 0x0(r26)
-    b         .loc_0x230
-
-  .loc_0x214:
-    lwz       r0, 0x0(r25)
-    cmpwi     r0, 0
-    bne-      .loc_0x22C
-    lhz       r0, 0x0(r26)
-    rlwinm    r0,r0,1,16,30
-    b         .loc_0x230
-
-  .loc_0x22C:
-    lhz       r0, 0x0(r26)
-
-  .loc_0x230:
-    addi      r22, r29, 0xF6
-    sth       r0, 0xF6(r29)
-    lwz       r0, 0x0(r28)
-    cmplwi    r0, 0x3
-    bne-      .loc_0x24C
-    li        r0, 0x1
-    b         .loc_0x250
-
-  .loc_0x24C:
-    li        r0, 0
-
-  .loc_0x250:
-    addi      r18, r29, 0x134
-    stw       r0, 0x134(r29)
-    addi      r21, r29, 0x118
-    lwz       r3, 0x118(r29)
-    lwz       r0, 0x0(r28)
-    rlwinm    r3,r3,2,0,29
-    add       r3, r3, r0
-    bl        -0xE84
-    mr        r30, r3
-    stw       r30, 0x144(r29)
-    lhz       r0, 0x0(r24)
-    lha       r4, 0xF0(r29)
-    lha       r3, -0x72E4(r13)
-    subfic    r5, r0, 0x2D0
-    lhz       r0, 0x2(r30)
-    add       r3, r4, r3
-    cmpw      r3, r5
-    ble-      .loc_0x29C
-    b         .loc_0x2AC
-
-  .loc_0x29C:
-    cmpwi     r3, 0
-    bge-      .loc_0x2A8
-    li        r3, 0
-
-  .loc_0x2A8:
-    mr        r5, r3
-
-  .loc_0x2AC:
-    sth       r5, 0xF8(r29)
-    addi      r3, r29, 0xF8
-    lwz       r4, 0x0(r25)
-    cmpwi     r4, 0
-    bne-      .loc_0x2C8
-    li        r4, 0x2
-    b         .loc_0x2CC
-
-  .loc_0x2C8:
-    li        r4, 0x1
-
-  .loc_0x2CC:
-    lhz       r5, 0x0(r23)
-    lha       r6, -0x72E2(r13)
-    extsh     r7, r5
-    rlwinm    r5,r5,0,31,31
-    add       r7, r7, r6
-    cmpw      r7, r5
-    ble-      .loc_0x2EC
-    b         .loc_0x2F0
-
-  .loc_0x2EC:
-    mr        r7, r5
-
-  .loc_0x2F0:
-    sth       r7, 0xFA(r29)
-    extsh     r0, r0
-    rlwinm    r0,r0,1,0,30
-    lhz       r8, 0x0(r22)
-    sub       r0, r0, r5
-    lha       r7, 0x0(r23)
-    addi      r19, r29, 0xFA
-    extsh     r9, r8
-    add       r10, r9, r6
-    add       r10, r7, r10
-    sub.      r9, r10, r0
-    ble-      .loc_0x328
-    sub       r9, r10, r0
-    b         .loc_0x32C
-
-  .loc_0x328:
-    li        r9, 0
-
-  .loc_0x32C:
-    add       r10, r7, r6
-    sub.      r7, r10, r5
-    bge-      .loc_0x340
-    sub       r7, r10, r5
-    b         .loc_0x344
-
-  .loc_0x340:
-    li        r7, 0
-
-  .loc_0x344:
-    add       r7, r8, r7
-    sub       r7, r7, r9
-    addi      r20, r29, 0xFC
-    sth       r7, 0xFC(r29)
-    lha       r7, 0x0(r23)
-    add       r8, r7, r6
-    sub.      r7, r8, r5
-    bge-      .loc_0x36C
-    sub       r7, r8, r5
-    b         .loc_0x370
-
-  .loc_0x36C:
-    li        r7, 0
-
-  .loc_0x370:
-    divw      r8, r7, r4
-    lhz       r7, 0x0(r17)
-    sub       r7, r7, r8
-    sth       r7, 0xFE(r29)
-    lha       r7, 0x0(r22)
-    lha       r9, 0x0(r23)
-    add       r8, r7, r6
-    add       r8, r9, r8
-    sub.      r7, r8, r0
-    ble-      .loc_0x3A0
-    sub       r7, r8, r0
-    b         .loc_0x3A4
-
-  .loc_0x3A0:
-    li        r7, 0
-
-  .loc_0x3A4:
-    add       r6, r9, r6
-    sub.      r0, r6, r5
-    bge-      .loc_0x3B8
-    sub       r0, r6, r5
-    b         .loc_0x3BC
-
-  .loc_0x3B8:
-    li        r0, 0
-
-  .loc_0x3BC:
-    divw      r0, r0, r4
-    lhz       r5, 0x0(r26)
-    divw      r4, r7, r4
-    add       r0, r5, r0
-    sub       r0, r0, r4
-    sth       r0, 0x100(r29)
-    lwz       r0, -0x72E8(r13)
-    cmplwi    r0, 0
-    bne-      .loc_0x3E8
-    li        r0, 0x3
-    stw       r0, 0x0(r21)
-
-  .loc_0x3E8:
-    lhz       r5, 0x18(r30)
-    srawi     r4, r5, 0x1
-    addze     r4, r4
-    srawi     r0, r5, 0x1
-    addze     r0, r0
-    rlwinm    r0,r0,1,0,30
-    subc      r0, r5, r0
-    rlwinm.   r0,r0,0,16,31
-    rlwinm    r4,r4,0,16,31
-    beq-      .loc_0x418
-    lhz       r5, 0x1A(r30)
-    b         .loc_0x41C
-
-  .loc_0x418:
-    li        r5, 0
-
-  .loc_0x41C:
-    addi      r0, r5, 0x1
-    sth       r0, 0x32(r29)
-    addi      r0, r4, 0x1
-    ori       r0, r0, 0x1000
-    lwz       r5, -0x72D8(r13)
-    addi      r4, r29, 0x2
-    lwz       r6, -0x72D4(r13)
-    ori       r5, r5, 0x40
-    stw       r6, -0x72D4(r13)
-    stw       r5, -0x72D8(r13)
-    sth       r0, 0x30(r29)
-    lwz       r0, -0x72D8(r13)
-    lwz       r5, -0x72D4(r13)
-    ori       r0, r0, 0x80
-    stw       r5, -0x72D4(r13)
-    stw       r0, -0x72D8(r13)
-    lwz       r0, 0x0(r28)
-    lhz       r5, 0x2(r29)
-    cmplwi    r0, 0x2
-    beq-      .loc_0x474
-    cmplwi    r0, 0x3
-    bne-      .loc_0x480
-
-  .loc_0x474:
-    rlwinm    r0,r5,0,30,28
-    ori       r5, r0, 0x4
-    b         .loc_0x488
-
-  .loc_0x480:
-    rlwinm    r5,r5,0,30,28
-    rlwimi    r5,r0,2,29,29
-
-  .loc_0x488:
-    lwz       r6, 0x0(r21)
-    rlwinm    r5,r5,0,29,27
-    lwz       r7, 0x0(r18)
-    cmplwi    r6, 0x4
-    rlwinm    r0,r7,3,0,28
-    or        r5, r5, r0
-    beq-      .loc_0x4B0
-    subi      r0, r6, 0x5
-    cmplwi    r0, 0x1
-    bgt-      .loc_0x4B8
-
-  .loc_0x4B0:
-    rlwinm    r0,r5,0,24,21
-    b         .loc_0x4C4
-
-  .loc_0x4B8:
-    rlwinm    r5,r5,0,24,21
-    rlwinm    r0,r6,8,0,23
-    or        r0, r5, r0
-
-  .loc_0x4C4:
-    sth       r0, 0x0(r4)
-    lis       r0, 0x4000
-    addi      r6, r29, 0x6C
-    lwz       r4, -0x72D8(r13)
-    lwz       r5, -0x72D4(r13)
-    or        r0, r4, r0
-    stw       r5, -0x72D4(r13)
-    stw       r0, -0x72D8(r13)
-    lwz       r0, 0x0(r31)
-    lhz       r4, 0x6C(r29)
-    cmpwi     r0, 0x2
-    beq-      .loc_0x504
-    cmpwi     r0, 0x3
-    beq-      .loc_0x504
-    cmpwi     r0, 0x1A
-    bne-      .loc_0x510
-
-  .loc_0x504:
-    rlwinm    r0,r4,0,0,30
-    ori       r0, r0, 0x1
-    b         .loc_0x514
-
-  .loc_0x510:
-    rlwinm    r0,r4,0,0,30
-
-  .loc_0x514:
-    sth       r0, 0x0(r6)
-    cmpwi     r7, 0
-    lwz       r4, -0x72D8(r13)
-    lwz       r0, -0x72D4(r13)
-    ori       r0, r0, 0x200
-    stw       r0, -0x72D4(r13)
-    stw       r4, -0x72D8(r13)
-    lhz       r4, 0x0(r24)
-    lhz       r5, 0x0(r16)
-    beq-      .loc_0x544
-    rlwinm    r0,r5,1,0,30
-    b         .loc_0x548
-
-  .loc_0x544:
-    mr        r0, r5
-
-  .loc_0x548:
-    rlwinm    r8,r0,0,16,31
-    cmplw     r8, r4
-    bge-      .loc_0x5A0
-    rlwinm    r6,r8,8,0,23
-    subi      r0, r6, 0x1
-    add       r0, r4, r0
-    divwu     r0, r0, r4
-    ori       r0, r0, 0x1000
-    sth       r0, 0x4A(r29)
-    lis       r0, 0x400
-    lwz       r6, -0x72D8(r13)
-    lwz       r7, -0x72D4(r13)
-    or        r0, r7, r0
-    stw       r0, -0x72D4(r13)
-    stw       r6, -0x72D8(r13)
-    sth       r8, 0x70(r29)
-    lwz       r6, -0x72D8(r13)
-    lwz       r0, -0x72D4(r13)
-    ori       r0, r0, 0x80
-    stw       r0, -0x72D4(r13)
-    stw       r6, -0x72D8(r13)
-    b         .loc_0x5C0
-
-  .loc_0x5A0:
-    li        r0, 0x100
-    sth       r0, 0x4A(r29)
-    lis       r0, 0x400
-    lwz       r6, -0x72D8(r13)
-    lwz       r7, -0x72D4(r13)
-    or        r0, r7, r0
-    stw       r0, -0x72D4(r13)
-    stw       r6, -0x72D8(r13)
-
-  .loc_0x5C0:
-    lhz       r0, 0x0(r3)
-    subfic    r12, r4, 0x2D0
-    lhz       r6, 0x1A(r30)
-    lis       r3, 0x1000
-    lis       r8, 0x2000
-    sth       r6, 0x6(r29)
-    lis       r9, 0x400
-    lis       r7, 0x800
-    lwz       r10, -0x72D8(r13)
-    lis       r6, 0x10
-    lis       r4, 0x20
-    lwz       r11, -0x72D4(r13)
-    or        r10, r10, r3
-    lis       r3, 0x4
-    stw       r11, -0x72D4(r13)
-    stw       r10, -0x72D8(r13)
-    lbz       r10, 0x1D(r30)
-    lbz       r11, 0x1E(r30)
-    rlwimi    r11,r10,8,16,23
-    sth       r11, 0x4(r29)
-    lwz       r10, -0x72D8(r13)
-    lwz       r11, -0x72D4(r13)
-    or        r8, r10, r8
-    stw       r11, -0x72D4(r13)
-    stw       r8, -0x72D8(r13)
-    lbz       r8, 0x1F(r30)
-    lbz       r10, 0x1C(r30)
-    add       r16, r8, r0
-    lhz       r11, 0x20(r30)
-    subi      r16, r16, 0x28
-    rlwinm    r8,r16,7,16,24
-    or        r8, r10, r8
-    sth       r8, 0xA(r29)
-    add       r8, r11, r0
-    addi      r0, r8, 0x28
-    lwz       r10, -0x72D8(r13)
-    sub       r0, r0, r12
-    rlwinm    r8,r16,23,9,31
-    lwz       r11, -0x72D4(r13)
-    rlwinm    r0,r0,1,0,30
-    or        r9, r10, r9
-    stw       r11, -0x72D4(r13)
-    or        r0, r8, r0
-    stw       r9, -0x72D8(r13)
-    sth       r0, 0x8(r29)
-    lwz       r0, -0x72D8(r13)
-    lwz       r8, -0x72D4(r13)
-    or        r0, r0, r7
-    stw       r8, -0x72D4(r13)
-    stw       r0, -0x72D8(r13)
-    lhz       r0, 0x10(r30)
-    lbz       r7, 0xC(r30)
-    rlwinm    r0,r0,5,0,26
-    or        r0, r7, r0
-    sth       r0, 0x16(r29)
-    lwz       r0, -0x72D8(r13)
-    lwz       r7, -0x72D4(r13)
-    or        r0, r0, r6
-    stw       r7, -0x72D4(r13)
-    stw       r0, -0x72D8(r13)
-    lhz       r0, 0x14(r30)
-    lbz       r6, 0xE(r30)
-    rlwinm    r0,r0,5,0,26
-    or        r0, r6, r0
-    sth       r0, 0x14(r29)
-    lwz       r0, -0x72D8(r13)
-    lwz       r6, -0x72D4(r13)
-    or        r0, r0, r4
-    stw       r6, -0x72D4(r13)
-    stw       r0, -0x72D8(r13)
-    lhz       r0, 0x12(r30)
-    lbz       r4, 0xD(r30)
-    rlwinm    r0,r0,5,0,26
-    or        r0, r4, r0
-    sth       r0, 0x1A(r29)
-    lwz       r0, -0x72D8(r13)
-    lwz       r4, -0x72D4(r13)
-    or        r0, r0, r3
-    stw       r4, -0x72D4(r13)
-    stw       r0, -0x72D8(r13)
-    lhz       r0, 0x16(r30)
-    lbz       r3, 0xF(r30)
-    rlwinm    r0,r0,5,0,26
-    or        r0, r3, r0
-    sth       r0, 0x18(r29)
-    lwz       r3, -0x72D8(r13)
-    lis       r0, 0x8
-    addi      r6, r29, 0x11C
-    lwz       r4, -0x72D4(r13)
-    or        r0, r3, r0
-    stw       r4, -0x72D4(r13)
-    stw       r0, -0x72D8(r13)
-    lhz       r3, 0x0(r27)
-    lwz       r4, 0x0(r25)
-    addi      r0, r3, 0xF
-    lhz       r3, 0x0(r15)
-    srawi     r0, r0, 0x4
-    addze     r0, r0
-    cmpwi     r4, 0
-    stb       r0, 0x11C(r29)
-    bne-      .loc_0x75C
-    lbz       r4, 0x0(r6)
-    b         .loc_0x764
-
-  .loc_0x75C:
-    lbz       r0, 0x0(r6)
-    rlwinm    r4,r0,1,24,30
-
-  .loc_0x764:
-    srawi     r0, r3, 0x4
-    stb       r4, 0x11D(r29)
-    addze     r0, r0
-    rlwinm    r0,r0,4,0,27
-    subc      r0, r3, r0
-    stb       r0, 0x12C(r29)
-    addi      r0, r5, 0xF
-    lis       r3, 0x800
-    lbz       r4, 0x12C(r29)
-    add       r0, r4, r0
-    srawi     r0, r0, 0x4
-    addze     r0, r0
-    stb       r0, 0x11E(r29)
-    lbz       r0, 0x11E(r29)
-    lbz       r4, 0x11D(r29)
-    rlwimi    r4,r0,8,16,23
-    sth       r4, 0x48(r29)
-    lwz       r4, -0x72D8(r13)
-    lwz       r0, -0x72B0(r13)
-    lwz       r5, -0x72D4(r13)
-    cmplwi    r0, 0
-    or        r0, r5, r3
-    stw       r0, -0x72D4(r13)
-    stw       r4, -0x72D8(r13)
-    beq-      .loc_0x7E0
-    addi      r3, r29, 0xF0
-    addi      r4, r29, 0x124
-    addi      r5, r29, 0x128
-    addi      r6, r29, 0x13C
-    addi      r7, r29, 0x140
-    bl        -0xC50
-
-  .loc_0x7E0:
-    lwz       r0, 0x130(r29)
-    stw       r0, 0x8(r1)
-    lhz       r3, 0x0(r19)
-    lhz       r4, 0x0(r20)
-    lbz       r5, 0x0(r30)
-    lhz       r6, 0x2(r30)
-    lhz       r7, 0x4(r30)
-    lhz       r8, 0x6(r30)
-    lhz       r9, 0x8(r30)
-    lhz       r10, 0xA(r30)
-    bl        -0x9A8
-    mr        r3, r14
-    bl        0x1CD54
-    lmw       r14, 0x30(r1)
-    lwz       r0, 0x7C(r1)
-    addi      r1, r1, 0x78
-    mtlr      r0
-    blr
-  */
 }
 
-/*
- * --INFO--
- * Address:	........
- * Size:	000394
- */
-void VIConfigurePan(u16 panPosX, u16 panPosY, u16 panSizeX, u16 panSizeY) {
-  // UNUSED FUNCTION
+void VIConfigurePan(u16 xOrg, u16 yOrg, u16 width, u16 height)
+{
+    BOOL enabled;
+    VITimingInfo *tm;
+
+// #if DEBUG
+//     ASSERTMSGLINEV(0x69C, (xOrg & 1) == 0,
+//         "VIConfigurePan(): Odd number(%d) is specified to xOrg\n",
+//         xOrg);
+//     if (HorVer.FBMode == VI_XFBMODE_DF) {
+//         ASSERTMSGLINEV(0x6A1, (height & 1) == 0,
+//             "VIConfigurePan(): Odd number(%d) is specified to height when DF XFB mode\n",
+//             height);
+//     }
+// #endif
+    enabled = OSDisableInterrupts();
+    HorVer.panPosX   = xOrg;
+    HorVer.panPosY   = yOrg;
+    HorVer.panSizeX  = width;
+    HorVer.panSizeY  = height;
+    HorVer.dispSizeY = (HorVer.nonInter == 2) ? HorVer.panSizeY
+                     : (HorVer.nonInter == 3) ? HorVer.panSizeY : (HorVer.xfbMode == VI_XFBMODE_SF) ? (u16)(HorVer.panSizeY * 2)
+                     : HorVer.panSizeY;
+    tm = HorVer.timing;
+    AdjustPosition(tm->acv);
+    setScalingRegs(HorVer.panSizeX, HorVer.dispSizeX, HorVer.is3D);
+    setPicConfig(HorVer.fbSizeX, HorVer.xfbMode, HorVer.panPosX, HorVer.panSizeX, &HorVer.wordPerLine, &HorVer.std, &HorVer.wpl, &HorVer.xof);
+    if (FBSet != 0) {
+        setFbbRegs(&HorVer, &HorVer.tfbb, &HorVer.bfbb, &HorVer.rtfbb, &HorVer.rbfbb);
+    }
+    setVerticalRegs(HorVer.adjDispPosY, HorVer.dispSizeY, tm->equ, tm->acv, tm->prbOdd, tm->prbEven, tm->psbOdd, tm->psbEven, HorVer.isBlack);
+    OSRestoreInterrupts(enabled);
 }
 
-/*
- * --INFO--
- * Address:	800D1F24
- * Size:	000130
- */
 void VIFlush(void) {
   BOOL enabled;
   s32 regIndex;
@@ -1565,11 +942,6 @@ void VIFlush(void) {
   OSRestoreInterrupts(enabled);
 }
 
-/*
- * --INFO--
- * Address:	800D2054
- * Size:	00006C
- */
 void VISetNextFrameBuffer(void* fb) {
   BOOL enabled = OSDisableInterrupts();
   HorVer.bufAddr = (u32)fb;
@@ -1578,36 +950,16 @@ void VISetNextFrameBuffer(void* fb) {
   OSRestoreInterrupts(enabled);
 }
 
-/*
- * --INFO--
- * Address:	........
- * Size:	000008
- */
 void* VIGetNextFrameBuffer() {
   // UNUSED FUNCTION
 }
 
-/*
- * --INFO--
- * Address:	800D20C0
- * Size:	000008
- */
 void* VIGetCurrentFrameBuffer(void) { return (void*)CurrBufAddr; }
 
-/*
- * --INFO--
- * Address:	........
- * Size:	00006C
- */
 void VISetNextRightFrameBuffer(void* fb) {
   // UNUSED FUNCTION
 }
 
-/*
- * --INFO--
- * Address:	800D20C8
- * Size:	00007C
- */
 void VISetBlack(BOOL isBlack) {
   int interrupt;
   VITimingInfo* tm;
@@ -1620,67 +972,31 @@ void VISetBlack(BOOL isBlack) {
   OSRestoreInterrupts(interrupt);
 }
 
-/*
- * --INFO--
- * Address:	........
- * Size:	000100
- */
 void VISet3D(void) {
   // UNUSED FUNCTION
 }
 
-/*
- * --INFO--
- * Address:	800D2144
- * Size:	000008
- */
 u32 VIGetRetraceCount(void) { return retraceCount; }
 
-/*
- * --INFO--
- * Address:	800D214C
- * Size:	00003C
- */
-static void GetCurrentDisplayPosition(u32* hct, u32* vct) {
-  u32 hcount, vcount0, vcount;
-  vcount = __VIRegs[VI_VERT_COUNT] & 0x7FF;
+static u32 getCurrentHalfLine(void)
+{
+    u32 hcount;
+    u32 vcount0;
+    u32 vcount;
 
-  do {
-    vcount0 = vcount;
-    hcount = __VIRegs[VI_HORIZ_COUNT] & 0x7FF;
-    vcount = __VIRegs[VI_VERT_COUNT] & 0x7FF;
-  } while (vcount0 != vcount);
-
-  *hct = hcount;
-  *vct = vcount;
+    vcount = __VIRegs[22] & 0x7FF;
+    do {
+        vcount0 = vcount;
+        hcount = __VIRegs[23] & 0x7FF;
+        vcount = __VIRegs[22] & 0x7FF;
+    } while (vcount0 != vcount);
+    return ((vcount - 1) * 2) + ((hcount - 1) / CurrTiming->hlw);
 }
 
-/*
- * --INFO--
- * Address:	........
- * Size:	000050
- */
-static u32 getCurrentHalfLine(void) {
-  u32 hcount, vcount;
-  GetCurrentDisplayPosition(&hcount, &vcount);
-
-  return ((vcount - 1) << 1) + ((hcount - 1) / CurrTiming->hlw);
-}
-
-/*
- * --INFO--
- * Address:	800D2188
- * Size:	000068
- */
 static u32 getCurrentFieldEvenOdd() {
   return (getCurrentHalfLine() < CurrTiming->numHalfLines) ? 1 : 0;
 }
 
-/*
- * --INFO--
- * Address:	800D21F0
- * Size:	00009C
- */
 u32 VIGetNextField(void) {
   u32 nextField;
   int interrupt;
@@ -1691,11 +1007,6 @@ u32 VIGetNextField(void) {
   return nextField ^ (HorVer.adjDispPosY & 1);
 }
 
-/*
- * --INFO--
- * Address:	800D228C
- * Size:	000098
- */
 u32 VIGetCurrentLine(void) {
   u32 line;
   VITimingInfo* tm;
@@ -1713,11 +1024,6 @@ u32 VIGetCurrentLine(void) {
   return (line >> 1);
 }
 
-/*
- * --INFO--
- * Address:	800D2324
- * Size:	000068
- */
 u32 VIGetTvFormat(void) {
   u32 fmt;
   int interrupt;
@@ -1744,11 +1050,6 @@ u32 VIGetTvFormat(void) {
   return fmt;
 }
 
-/*
- * --INFO--
- * Address:	800D238C
- * Size:	00003C
- */
 u32 VIGetDTVStatus(void) {
   u32 stat;
   int interrupt;
@@ -1757,79 +1058,4 @@ u32 VIGetDTVStatus(void) {
   stat = (__VIRegs[VI_DTV_STAT] & 3);
   OSRestoreInterrupts(interrupt);
   return (stat & 1);
-}
-
-/*
- * --INFO--
- * Address:	800D23C8
- * Size:	00021C
- */
-void __VIDisplayPositionToXY(u32 hcount, u32 vcount, s16* x, s16* y) {
-  u32 halfLine = ((vcount - 1) << 1) + ((hcount - 1) / CurrTiming->hlw);
-
-  if (HorVer.nonInter == VI_INTERLACE) {
-    if (halfLine < CurrTiming->numHalfLines) {
-      if (halfLine < CurrTiming->equ * 3 + CurrTiming->prbOdd) {
-        *y = -1;
-      } else if (halfLine >= CurrTiming->numHalfLines - CurrTiming->psbOdd) {
-        *y = -1;
-      } else {
-        *y = (s16)((halfLine - CurrTiming->equ * 3 - CurrTiming->prbOdd) & ~1);
-      }
-    } else {
-      halfLine -= CurrTiming->numHalfLines;
-
-      if (halfLine < CurrTiming->equ * 3 + CurrTiming->prbEven) {
-        *y = -1;
-      } else if (halfLine >= CurrTiming->numHalfLines - CurrTiming->psbEven) {
-        *y = -1;
-      } else {
-        *y = (s16)(((halfLine - CurrTiming->equ * 3 - CurrTiming->prbEven) & ~1) + 1);
-      }
-    }
-  } else if (HorVer.nonInter == VI_NON_INTERLACE) {
-    if (halfLine >= CurrTiming->numHalfLines) {
-      halfLine -= CurrTiming->numHalfLines;
-    }
-
-    if (halfLine < CurrTiming->equ * 3 + CurrTiming->prbOdd) {
-      *y = -1;
-    } else if (halfLine >= CurrTiming->numHalfLines - CurrTiming->psbOdd) {
-      *y = -1;
-    } else {
-      *y = (s16)((halfLine - CurrTiming->equ * 3 - CurrTiming->prbOdd) & ~1);
-    }
-  } else if (HorVer.nonInter == VI_PROGRESSIVE) {
-    if (halfLine < CurrTiming->numHalfLines) {
-      if (halfLine < CurrTiming->equ * 3 + CurrTiming->prbOdd) {
-        *y = -1;
-      } else if (halfLine >= CurrTiming->numHalfLines - CurrTiming->psbOdd) {
-        *y = -1;
-      } else {
-        *y = (s16)(halfLine - CurrTiming->equ * 3 - CurrTiming->prbOdd);
-      }
-    } else {
-      halfLine -= CurrTiming->numHalfLines;
-
-      if (halfLine < CurrTiming->equ * 3 + CurrTiming->prbEven) {
-        *y = -1;
-      } else if (halfLine >= CurrTiming->numHalfLines - CurrTiming->psbEven) {
-        *y = -1;
-      } else
-        *y = (s16)((halfLine - CurrTiming->equ * 3 - CurrTiming->prbEven) & ~1);
-    }
-  }
-
-  *x = (s16)(hcount - 1);
-}
-
-/*
- * --INFO--
- * Address:	800D25E4
- * Size:	000060
- */
-void __VIGetCurrentPosition(s16* x, s16* y) {
-  u32 h, v;
-  GetCurrentDisplayPosition(&h, &v);
-  __VIDisplayPositionToXY(h, v, x, y);
 }

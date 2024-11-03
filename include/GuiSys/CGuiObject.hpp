@@ -39,6 +39,7 @@ public:
   }
   
   CGuiObject* Parent();
+  const CGuiObject* GetParent() const { return x64_parent; }
   const CGuiObject* GetChildObject() const;
   CGuiObject* ChildObject();
   const CGuiObject* GetNextSibling() const;

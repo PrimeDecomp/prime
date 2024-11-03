@@ -111,8 +111,8 @@ public:
   void Stop();
 
   CVector3f GetPrimitiveOffset() const;
-  uchar IsStandardCollider() const { return xf9_standardCollider; } // name and type?
-  void SetStandardCollider(uchar v) { xf9_standardCollider = v; } // name and type?
+  const bool IsStandardCollider() const { return xf9_standardCollider; } // name and type?
+  void SetStandardCollider(const bool v) { xf9_standardCollider = v; } // name and type?
   const CVector3f& GetConstantForceWR() const { return xfc_constantForce; }
   void SetConstantForceWR(const CVector3f& force) { xfc_constantForce = force; }
   const CAxisAngle& GetAngularMomentumWR() const { return x108_angularMomentum; }
@@ -167,6 +167,7 @@ public:
   void RotateToOR(const CQuaternion&, float);
 
   CVector3f GetTotalForceWR() const;
+  CVector3f GetConstantTotalForceWR() const { return x15c_force + x150_momentum; }
 
   static float GravityConstant() { return kGravityAccel; }
 

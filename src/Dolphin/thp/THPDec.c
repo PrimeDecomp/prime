@@ -16,7 +16,7 @@ static THPSample* Gbase ATTRIBUTE_ALIGN(32);
 static u32 Gwid ATTRIBUTE_ALIGN(32);
 static f32* Gq ATTRIBUTE_ALIGN(32);
 static u8* __THPLCWork512[3];
-static u8* __THPLCWork672[3];
+static u8* __THPLCWork640[3];
 static u32 __THPOldGQR5;
 static u32 __THPOldGQR6;
 static u8* __THPWorkArea;
@@ -1545,7 +1545,7 @@ static void __THPDecompressiMCURow640x480(void)
 			__THPHuffDecodeDCTCompV(__THPInfo, __THPMCUBuffer[5]);
 
 			comp  = &__THPInfo->components[0];
-			Gbase = __THPLCWork672[0];
+			Gbase = __THPLCWork640[0];
 			Gwid  = 640;
 			Gq    = __THPInfo->quantTabs[comp->quantizationTableSelector];
 			x_pos = (u32)(cl_num * 16);
@@ -1555,14 +1555,14 @@ static void __THPDecompressiMCURow640x480(void)
 			__THPInverseDCTY8(__THPMCUBuffer[3], x_pos + 8);
 
 			comp  = &__THPInfo->components[1];
-			Gbase = __THPLCWork672[1];
+			Gbase = __THPLCWork640[1];
 			Gwid  = 320;
 			Gq    = __THPInfo->quantTabs[comp->quantizationTableSelector];
 			x_pos /= 2;
 			__THPInverseDCTNoYPos(__THPMCUBuffer[4], x_pos);
 
 			comp  = &__THPInfo->components[2];
-			Gbase = __THPLCWork672[2];
+			Gbase = __THPLCWork640[2];
 			Gq    = __THPInfo->quantTabs[comp->quantizationTableSelector];
 			__THPInverseDCTNoYPos(__THPMCUBuffer[5], x_pos);
 
@@ -1585,9 +1585,9 @@ static void __THPDecompressiMCURow640x480(void)
 		}
 	}
 
-	LCStoreData(__THPInfo->dLC[0], __THPLCWork672[0], 0x2800);
-	LCStoreData(__THPInfo->dLC[1], __THPLCWork672[1], 0xA00);
-	LCStoreData(__THPInfo->dLC[2], __THPLCWork672[2], 0xA00);
+	LCStoreData(__THPInfo->dLC[0], __THPLCWork640[0], 0x2800);
+	LCStoreData(__THPInfo->dLC[1], __THPLCWork640[1], 0xA00);
+	LCStoreData(__THPInfo->dLC[2], __THPLCWork640[2], 0xA00);
 
 	__THPInfo->dLC[0] += 0x2800;
 	__THPInfo->dLC[1] += 0xA00;
@@ -1618,7 +1618,7 @@ static void __THPDecompressiMCURowNxN(void)
 		__THPHuffDecodeDCTCompV(__THPInfo, __THPMCUBuffer[5]);
 
 		comp  = &__THPInfo->components[0];
-		Gbase = __THPLCWork672[0];
+		Gbase = __THPLCWork640[0];
 		Gwid  = x;
 		Gq    = __THPInfo->quantTabs[comp->quantizationTableSelector];
 		x_pos = (u32)(cl_num * 16);
@@ -1628,14 +1628,14 @@ static void __THPDecompressiMCURowNxN(void)
 		__THPInverseDCTY8(__THPMCUBuffer[3], x_pos + 8);
 
 		comp  = &__THPInfo->components[1];
-		Gbase = __THPLCWork672[1];
+		Gbase = __THPLCWork640[1];
 		Gwid  = x / 2;
 		Gq    = __THPInfo->quantTabs[comp->quantizationTableSelector];
 		x_pos /= 2;
 		__THPInverseDCTNoYPos(__THPMCUBuffer[4], x_pos);
 
 		comp  = &__THPInfo->components[2];
-		Gbase = __THPLCWork672[2];
+		Gbase = __THPLCWork640[2];
 		Gq    = __THPInfo->quantTabs[comp->quantizationTableSelector];
 		__THPInverseDCTNoYPos(__THPMCUBuffer[5], x_pos);
 
@@ -1656,9 +1656,9 @@ static void __THPDecompressiMCURowNxN(void)
 		}
 	}
 
-	LCStoreData(__THPInfo->dLC[0], __THPLCWork672[0], ((4 * sizeof(u8) * 64) * (x / 16)));
-	LCStoreData(__THPInfo->dLC[1], __THPLCWork672[1], ((sizeof(u8) * 64) * (x / 16)));
-	LCStoreData(__THPInfo->dLC[2], __THPLCWork672[2], ((sizeof(u8) * 64) * (x / 16)));
+	LCStoreData(__THPInfo->dLC[0], __THPLCWork640[0], ((4 * sizeof(u8) * 64) * (x / 16)));
+	LCStoreData(__THPInfo->dLC[1], __THPLCWork640[1], ((sizeof(u8) * 64) * (x / 16)));
+	LCStoreData(__THPInfo->dLC[2], __THPLCWork640[2], ((sizeof(u8) * 64) * (x / 16)));
 	__THPInfo->dLC[0] += ((4 * sizeof(u8) * 64) * (x / 16));
 	__THPInfo->dLC[1] += ((sizeof(u8) * 64) * (x / 16));
 	__THPInfo->dLC[2] += ((sizeof(u8) * 64) * (x / 16));
@@ -2356,11 +2356,11 @@ BOOL THPInit(void)
 	base += 0x200;
 
 	base              = (u8*)(0xE000 << 16);
-	__THPLCWork672[0] = base;
+	__THPLCWork640[0] = base;
 	base += 0x2800;
-	__THPLCWork672[1] = base;
+	__THPLCWork640[1] = base;
 	base += 0xA00;
-	__THPLCWork672[2] = base;
+	__THPLCWork640[2] = base;
 	base += 0xA00;
 
 	OSInitFastCast();

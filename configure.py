@@ -1186,7 +1186,7 @@ config.libs = [
     DolphinLib(
         "vi",
         [
-            Object(NonMatching, "Dolphin/vi.c"),
+            Object(Matching, "Dolphin/vi.c"),
         ],
     ),
     {
@@ -1349,7 +1349,7 @@ config.libs = [
     DolphinLib(
         "thp",
         [
-            Object(NonMatching, "Dolphin/thp/THPDec.c"),
+            Object(Matching, "Dolphin/thp/THPDec.c"),
             Object(NonMatching, "Dolphin/thp/THPAudio.c"),
         ],
     ),
