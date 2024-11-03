@@ -1,5 +1,6 @@
 #include "MetroidPrime/CPhysicsActor.hpp"
 
+#include "Kyoto/Math/CTransform4f.hpp"
 #include "Kyoto/Math/CloseEnough.hpp"
 
 #include "rstl/math.hpp"
@@ -93,8 +94,8 @@ CPhysicsState CPhysicsActor::GetPhysicsState() const {
 
 void CPhysicsActor::SetPhysicsState(const CPhysicsState& state) {
   SetTranslation(state.GetTranslation());
-  const CQuaternion& quat = state.GetOrientationWR();
-  const CVector3f& translation = GetTranslation();
+  CQuaternion quat = state.GetOrientation();
+  CVector3f translation = GetTranslation();
   SetTransform(quat.BuildTransform4f(translation));
   SetConstantForceWR(state.GetConstantForceWR());
   SetAngularMomentumWR(state.GetAngularMomentumWR());
@@ -137,7 +138,7 @@ CMotionState CPhysicsActor::PredictAngularMotion(float dt) const {
 
 CMotionState CPhysicsActor::PredictLinearMotion(float dt) const {
   CVector3f velocity = CalculateNewVelocityWR_UsingImpulses();
-  CVector3f sum = x15c_force + x150_momentum;
+  CVector3f sum = GetConstantTotalForceWR();
 
   return CMotionState(dt * velocity, CNUQuaternion(0.0f, CVector3f::Zero()),
                       dt * sum + x168_impulse, CAxisAngle::Identity());
@@ -179,10 +180,10 @@ void CPhysicsActor::AddMotionState(const CMotionState& state) {
   CNUQuaternion q(CNUQuaternion::BuildFromMatrix3f(GetTransform().BuildMatrix3f()));
   q += state.GetOrientation();
   const CQuaternion& quat = CQuaternion::FromNUQuaternion(q);
-  
+
   CVector3f transPos = GetTransform().GetTranslation();
   SetTransform(quat.BuildTransform4f(transPos));
-  
+
   transPos += state.GetTranslation();
   SetTranslation(transPos);
 
@@ -190,7 +191,6 @@ void CPhysicsActor::AddMotionState(const CMotionState& state) {
   x108_angularMomentum += state.GetAngularMomentum();
 
   ComputeDerivedQuantities();
-
 }
 
 bool CPhysicsActor::WillMove(const CStateManager& mgr) {

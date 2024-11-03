@@ -215,6 +215,7 @@ else:
 cflags_dolphin = [
     *cflags_base,
     "-multibyte",
+    "-fp_contract off",
 ]
 
 # Metrowerks library flags
