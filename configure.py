@@ -1285,7 +1285,7 @@ config.libs = [
             Object(Matching, "musyx/runtime/synth_vsamples.c"),
             Object(Matching, "musyx/runtime/synth_dbtab.c"),
             Object(Matching, "musyx/runtime/s_data.c"),
-            Object(NonMatching, "musyx/runtime/hw_dspctrl.c"),
+            Object(Matching, "musyx/runtime/hw_dspctrl.c"),
             Object(Matching, "musyx/runtime/hw_volconv.c"),
             Object(Matching, "musyx/runtime/snd3d.c"),
             Object(Matching, "musyx/runtime/snd_init.c"),
@@ -1305,6 +1305,12 @@ config.libs = [
             Object(Matching, "musyx/runtime/Delay/delay_fx.c"),
             Object(Matching, "musyx/runtime/Chorus/chorus_fx.c"),
             Object(Matching, "musyx/runtime/profile.c"),
+        ],
+    ),
+    DolphinLib(
+        "Dummy",
+        [
+            Object(Matching, "Dolphin/dummy.c"),
         ],
     ),
     DolphinLib(
