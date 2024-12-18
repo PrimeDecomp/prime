@@ -3568,11 +3568,6 @@ Kyoto/Audio/CDSPStreamManager.cpp:
 	.bss        start:0x805A6A40 end:0x805A6D40 align:4 common
 	.sbss       start:0x805A9858 end:0x805A9860
 
-Kyoto/CDependencyGroup.cpp:
-	.text       start:0x80365130 end:0x803655D4
-	.rodata     start:0x803D85E8 end:0x803D85F0
-	.data       start:0x803EFA10 end:0x803EFA20
-
 Kyoto/Audio/CStreamAudioManager.cpp:
 	.text       start:0x803655D4 end:0x80366924
 	.ctors      start:0x803CB550 end:0x803CB554
@@ -3629,13 +3624,12 @@ Kyoto/Audio/CDSPStream.cpp:
 
 Kyoto/Audio/g721.cpp:
 	.text       start:0x8036B494 end:0x8036BE10
-	.data       start:0x803EFA20 end:0x803EFAA0
+	.data       start:0x803EFA20 end:0x803EFAC0
 
 Kyoto/Audio/CStaticAudioPlayer.cpp:
 	.text       start:0x8036BE10 end:0x8036CC40
 	.ctors      start:0x803CB554 end:0x803CB558
 	.rodata     start:0x803D8740 end:0x803D8748
-	.data       start:0x803EFAA0 end:0x803EFAC0
 	.bss        start:0x80540C00 end:0x80540C20
 	.sbss       start:0x805A9880 end:0x805A9890
 
@@ -3657,12 +3651,6 @@ Dolphin/ar/ar.c:
 	.data       start:0x803EFB08 end:0x803EFB50
 	.sdata      start:0x805A8C50 end:0x805A8C58
 	.sbss       start:0x805A98D8 end:0x805A98F8
-
-Dolphin/ar/arq.c:
-	.text       start:0x8036F60C end:0x8036F9B0
-	.data       start:0x803EFB50 end:0x803EFB98
-	.sdata      start:0x805A8C58 end:0x805A8C60
-	.sbss       start:0x805A98F8 end:0x805A9920
 
 Dolphin/PPCArch.c:
 	.text       start:0x8036F9B0 end:0x8036FAA8
@@ -4300,6 +4288,9 @@ musyx/runtime/hw_dolphin.c:
 	.text       start:0x803B4E18 end:0x803B5310
 	.bss        start:0x80567A80 end:0x80569AE0
 	.sbss       start:0x805A9D50 end:0x805A9D78
+
+Dolphin/dummy.c:
+	.bss        start:0x80569AE0 end:0x80569AE8
 
 musyx/runtime/hw_memory.c:
 	.text       start:0x803B5310 end:0x803B5364
