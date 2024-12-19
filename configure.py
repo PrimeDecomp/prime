@@ -146,6 +146,7 @@ version_num = VERSIONS.index(config.version)
 if version_num in DISABLED_VERSIONS:
     print(f"Version {VERSIONS[version_num]} is disabled using default")
     version_num = DEFAULT_VERSION
+    config.version = VERSIONS[DEFAULT_VERSION]
 
 # Apply arguments
 config.build_dir = args.build_dir
@@ -1283,9 +1284,9 @@ config.libs = [
     MusyX(
         #debug=True,
         #mw_version="GC/1.2.5n",
-        #major=1,
-        #minor=5,
-        #patch=3,
+        #major=2,
+        #minor=0,
+        #patch=2,
         objects=[
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "musyx/runtime/seq.c"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "musyx/runtime/synth.c"),
