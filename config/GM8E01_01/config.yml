@@ -4,9 +4,8 @@ hash: 860141f9671fc141ce8f55448643f713bc64b349
 symbols: config/GM8E01_01/symbols.txt
 splits: config/GM8E01_01/splits.txt
 mw_comment_version: 8
-quick_analysis: false # Faster reruns after full analysis
+quick_analysis: true # Faster reruns after full analysis
 fill_gaps: true # Alignments known
-
 
 # Extract embedded assets
 extract:
@@ -17,8 +16,8 @@ extract:
   binary: MetroidPrime/DefaultFontTexture.bin
   header: MetroidPrime/DefaultFontTexture.inc
 
-#modules:
-#- object: files/NESemuP.rel
-#  hash: 3cf7c08ff9aad30e6122a9ce1df35fb717df3586
-#  symbols: config/GM8E01_01/NESemu/symbols.txt
-#  splits: config/GM8E01_01/NESemu/splits.txt
+modules:
+- object: files/NESemuP.rel
+  hash: 3cf7c08ff9aad30e6122a9ce1df35fb717df3586
+  symbols: config/GM8E01_01/NESemu/symbols.txt
+  splits: config/GM8E01_01/NESemu/splits.txt

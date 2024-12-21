@@ -53,12 +53,12 @@ void CGameCubeDoll::Touch() {
 }
 
 /* TODO: This is in CEnergyBall, need to figure out what it is and name it appropriately */
-extern float lbl_805A85E8;
+extern float energyball_lbl_805A85E8;
 
 void CGameCubeDoll::Update(float dt) {
   if (!CheckLoadComplete())
     return;
-  x1c_fader = rstl::min_val(lbl_805A85E8,  (dt * 2.f)  + x1c_fader);
+  x1c_fader = rstl::min_val(energyball_lbl_805A85E8,  (dt * 2.f)  + x1c_fader);
   UpdateActorLights();
 }
 

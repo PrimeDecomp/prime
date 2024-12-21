@@ -422,7 +422,10 @@ static short	_fitab[16] = {0, 0, 0, 0x200, 0x200, 0x200, 0x600, 0xE00,
     0xE00, 0x600, 0x200, 0x200, 0x200, 0, 0, 0};
 
 #pragma force_active on
+/* TODO: This is a hack we need to see what's throwing off the alignment and fix it */
+#if VERSION == 0
 static char padding[32] = {0};
+#endif
 #pragma force_active reset
 /*
  * g721_decoder()
