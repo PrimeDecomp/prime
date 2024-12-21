@@ -1,0 +1,24 @@
+Sections:
+	.init       type:code align:4
+	extab       type:rodata align:32
+	extabindex  type:rodata align:32
+	.text       type:code align:32
+	.ctors      type:rodata align:32
+	.dtors      type:rodata align:8
+	.rodata     type:rodata align:32
+	.data       type:data align:4
+	.bss        type:bss align:64
+	.sdata      type:data align:16
+	.sbss       type:bss align:32
+	.sdata2     type:rodata align:4
+	.sbss2      type:bss align:32
+
+musyx/runtime/dsp_import.c:
+	.data       start:0x804B46A0 end:0x804B63E0
+	.sdata      start:0x805C22C8 end:0x805C22D0
+
+musyx/runtime/snd3d.c:
+	.text       start:0x8042D800 end:0x8042E754
+
+musyx/runtime/snd_init.c:
+	.text       start:0x8042E760 end:0x8042E894
