@@ -1326,7 +1326,7 @@ config.libs = [
     DolphinLib(
         "Dummy",
         [
-            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Dolphin/dummy.c"),
+            Object(MatchingFor("GM8E01_00"), "Dolphin/dummy.c"),
         ],
     ),
     DolphinLib(
