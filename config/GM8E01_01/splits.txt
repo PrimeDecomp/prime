@@ -3840,13 +3840,6 @@ Dolphin/os/OSResetSW.c:
 	.text       start:0x80383678 end:0x80383A04
 	.sbss       start:0x805A9AE0 end:0x805A9B00
 
-Dolphin/os/OSRtc.c:
-	.text       start:0x80383A04 end:0x803845C0
-	.bss        start:0x80541780 end:0x805417D8
-
-Dolphin/os/OSSync.c:
-	.text       start:0x803845C0 end:0x80384644
-
 Dolphin/os/OSThread.c:
 	.text       start:0x80384644 end:0x80385584
 	.bss        start:0x805417D8 end:0x805421D0
@@ -4244,6 +4237,9 @@ musyx/runtime/hw_dolphin.c:
 	.text       start:0x803B4E18 end:0x803B5310
 	.bss        start:0x80567A80 end:0x80569AE0
 	.sbss       start:0x805A9D50 end:0x805A9D78
+
+Dolphin/dummy.c:
+	.bss        start:0x80569AE0 end:0x80569AE8
 
 musyx/runtime/hw_memory.c:
 	.text       start:0x803B5310 end:0x803B5364
