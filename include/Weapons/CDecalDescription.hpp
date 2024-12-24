@@ -2,6 +2,8 @@
 #define _CDECALDESCRIPTION
 
 #include "Kyoto/Particles/CGenDescription.hpp"
+#include "Kyoto/TToken.hpp"
+#include "rstl/optional_object.hpp"
 
 class CDecalDescription {
 public:
@@ -18,10 +20,10 @@ public:
 
   CDecalDescription();
 
-// private:
+  // private:
   SQuadDescr x0_quad1;
   SQuadDescr x1c_quad2;
-  CGenDescription::TParticleModel x38_DMDL;
+  rstl::optional_object< TLockedToken< CModel > > x38_DMDL;
   rstl::single_ptr< CIntElement > x48_DLFT;
   rstl::single_ptr< CVectorElement > x4c_DMOP;
   rstl::single_ptr< CVectorElement > x50_DMRT;
