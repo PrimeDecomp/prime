@@ -58,7 +58,7 @@ CIOWin::EMessageReturn CCredits::Update(float dt, CArchitectureQueue& queue) {
       for (int i = 0; i < x18_creditsTable->GetStringCount(); ++i) {
         x30_text.push_back(rstl::pair< rstl::single_ptr< CGuiTextSupport >, CVector2i >(
             rs_new CGuiTextSupport(
-                gpResourceFactory->GetResourceIdByName(gpTweakGui->GetCreditsFont().data())->mId,
+                gpResourceFactory->GetResourceIdByName(gpTweakGui->GetCreditsFont().data())->GetId(),
                 CGuiTextProperties(true, true, kJustification_Center, kVerticalJustification_Top),
                 gpTweakGui->GetCreditsTextFontColor(), gpTweakGui->GetCreditsTextBorderColor(),
                 CColor::White(), CGraphics::GetViewport().mWidth - 64, 0, gpSimplePool,

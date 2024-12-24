@@ -23,7 +23,7 @@ static const CTransform4f skFaceModelViewAdjust =
     CTransform4f::Scale(0.3f) * CTransform4f::Translate(CVector3f(0.f, 0.5f, 0.f));
 
 CSamusFaceReflection::CSamusFaceReflection(const CStateManager& mgr)
-: x0_modelData(CModelData(CAnimRes(gpResourceFactory->GetResourceIdByName(skFaceAssetIdName)->mId,
+: x0_modelData(CModelData(CAnimRes(gpResourceFactory->GetResourceIdByName(skFaceAssetIdName)->GetId(),
                                    CAnimRes::kDefaultCharIdx, CVector3f(1.f, 1.f, 1.f), 0, true)))
 , x4c_lights(rs_new CActorLights(8, CVector3f::Zero(), 4, 4))
 , x50_lookRot(CQuaternion::NoRotation())

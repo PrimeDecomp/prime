@@ -23,7 +23,7 @@ CAssetId get_asset_id_from_name(const char* name) {
   if (!tag) {
     return kInvalidAssetId;
   }
-  return tag->mId;
+  return tag->GetId();
 }
 
 void get_token_vector(CAnimData& animData, int animIdx, rstl::vector< CToken >& tokensOut,

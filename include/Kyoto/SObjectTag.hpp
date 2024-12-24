@@ -18,7 +18,7 @@ public:
   const FourCC GetType() const { return mType; }
   static const char* Type2Text(FourCC type);
 
-public:
+private:
   FourCC mType;
   CAssetId mId;
 };
