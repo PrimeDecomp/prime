@@ -16,15 +16,12 @@
 #include "rstl/optional_object.hpp"
 #include <rstl/math.hpp>
 
-static EMaterialTypes kSolidMat = kMT_Solid;
-static EMaterialTypes kProjectileMat = kMT_Projectile;
-
 CFire::CFire(const TToken< CGenDescription >& effect, TUniqueId uid, TAreaId area, bool active,
              TUniqueId owner, const CTransform4f& xf, const CDamageInfo& dInfo, const CAABox& aabox,
              const CVector3f& vec, bool b1, CAssetId visorEffect, bool b2, bool b3, bool b4,
              float f1, float f2, float f3, float f4)
 : CActor(uid, active, "Fire", CEntityInfo(area, NullConnectionList), xf,
-         CModelData::CModelDataNull(), CMaterialList(kProjectileMat), CActorParameters::None(),
+         CModelData::CModelDataNull(), CMaterialList(kMT_Projectile), CActorParameters::None(),
          kInvalidUniqueId)
 , xe8_(rs_new CElementGen(effect))
 , xec_owner(owner)
@@ -55,7 +52,7 @@ void CFire::Touch(CActor& act, CStateManager& mgr) {
   }
 
   mgr.ApplyDamage(GetUniqueId(), act.GetUniqueId(), GetUniqueId(), x10c_damageInfo2,
-                  CMaterialFilter::MakeIncludeExclude(CMaterialList(kSolidMat), CMaterialList()),
+                  CMaterialFilter::MakeIncludeExclude(CMaterialList(SolidMaterial), CMaterialList()),
                   CVector3f::Zero());
 }
 
