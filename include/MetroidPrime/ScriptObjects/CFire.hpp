@@ -24,7 +24,7 @@ public:
   void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) override;
 
   // CActor
-  void Render(const CStateManager&) const override;
+  void AddToRenderer(const CFrustumPlanes&, const CStateManager&) const override;
   rstl::optional_object< CAABox > GetTouchBounds() const override;
   void Touch(CActor&, CStateManager&) override;
 

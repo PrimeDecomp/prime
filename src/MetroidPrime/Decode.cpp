@@ -41,7 +41,7 @@ const CArchMsgParmInt32& MakeMsg::GetParmNewGameflowState(const CArchitectureMes
   return *static_cast< const CArchMsgParmInt32* >(msg.GetParm());
 }
 
-CArchitectureMessage MakeMsg::CreateControllerStatus(EArchMsgTarget target, const short& chan,
+CArchitectureMessage MakeMsg::CreateControllerStatus(const EArchMsgTarget target, const short& chan,
                                                      const bool& connected) {
   return CArchitectureMessage(target, kAM_ControllerStatus,
                               rs_new CArchMsgParmControllerStatus(chan, connected));

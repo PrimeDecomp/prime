@@ -1,6 +1,7 @@
 #ifndef _CGAMEPROJECTILE
 #define _CGAMEPROJECTILE
 
+#include "Collision/CRayCastResult.hpp"
 #include "types.h"
 
 #include "MetroidPrime/CStateManager.hpp"
@@ -13,20 +14,25 @@
 #include "rstl/vector.hpp"
 
 class CGenDescription;
-class CProjectileTouchResult;
+class CProjectileTouchResult {
+public:
+private:
+  TUniqueId x0_id;
+  rstl::optional_object< CRayCastResult > x4_result;
+};
 
 class CGameProjectile : public CWeapon {
 public:
-  CGameProjectile(bool active, const TToken< CWeaponDescription >&, const rstl::string& name,
-                  EWeaponType wType, const CTransform4f& xf, EMaterialTypes excludeMat,
-                  const CDamageInfo& dInfo, TUniqueId uid, TAreaId aid, TUniqueId owner,
-                  TUniqueId homingTarget, uint attribs, bool underwater,
-                  const CVector3f& scale,
+  CGameProjectile(const bool active, const TToken< CWeaponDescription >&, const rstl::string& name,
+                  const EWeaponType wType, const CTransform4f& xf, const EMaterialTypes excludeMat,
+                  const CDamageInfo& dInfo, const TUniqueId uid, const TAreaId aid,
+                  const TUniqueId owner, const TUniqueId homingTarget, const uint attribs,
+                  const bool underwater, const CVector3f& scale,
                   const rstl::optional_object< TLockedToken< CGenDescription > >& visorParticle,
-                  ushort visorSfx, bool sendCollideMsg);
+                  const ushort visorSfx, bool sendCollideMsg);
 
   // CEntity
-  ~CGameProjectile() override;
+  ~CGameProjectile() override {}
   void Accept(IVisitor& visitor) override;
   void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) override;
 
@@ -39,6 +45,7 @@ public:
   virtual void ResolveCollisionWithActor(const CRayCastResult& res, CActor& act,
                                          CStateManager& mgr);
 
+  CProjectileTouchResult CanCollideWithTrigger(CActor& act, CStateManager& mgr);
   const CProjectileWeapon& GetProjectile() const { return x170_projectile; }
   const CVector3f& GetPreviousPos() const { return x298_previousPos; }
   TUniqueId GetHomingTargetId() const { return x2c0_homingTargetId; }
@@ -49,8 +56,12 @@ public:
   void DeleteProjectileLight(CStateManager&);
 
   void ApplyDamageToActors(CStateManager& mgr, const CDamageInfo& dInfo);
-  CRayCastResult RayCollisionCheckWithWorld(TUniqueId& idOut, const CVector3f& start, const CVector3f& end,
-                                            float mag, const TEntityList& nearList, CStateManager& mgr);
+  CRayCastResult RayCollisionCheckWithWorld(TUniqueId& idOut, const CVector3f& start,
+                                            const CVector3f& end, float mag,
+                                            const TEntityList& nearList, CStateManager& mgr);
+  static EProjectileAttrib GetBeamAttribType(EWeaponType wType);
+
+  CAABox GetProjectileBounds() const;
 
 protected:
   rstl::optional_object< TLockedToken< CGenDescription > > x158_visorParticle;

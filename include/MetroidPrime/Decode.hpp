@@ -25,7 +25,7 @@ const CArchMsgParmUserInput& GetParmUserInput(const CArchitectureMessage& msg);
 
 const CArchMsgParmInt32& GetParmNewGameflowState(const CArchitectureMessage& msg);
 
-CArchitectureMessage CreateControllerStatus(EArchMsgTarget target, const short& chan,
+CArchitectureMessage CreateControllerStatus(const EArchMsgTarget target, const short& chan,
                                             const bool& connected);
 CArchitectureMessage CreateQuitGameplay(EArchMsgTarget target);
 

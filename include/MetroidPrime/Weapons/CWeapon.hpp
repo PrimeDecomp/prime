@@ -31,9 +31,9 @@ public:
     kPA_KeepInCinematic = (1 << 17),
   };
 
-  CWeapon(TUniqueId uid, TAreaId areaId, bool active, TUniqueId owner, EWeaponType type,
+  CWeapon(const TUniqueId uid, const TAreaId areaId, const bool active, const TUniqueId owner, const EWeaponType type,
           const rstl::string& name, const CTransform4f& xf, const CMaterialFilter& filter,
-          const CMaterialList& mList, const CDamageInfo& dInfo, int attribs,
+          const CMaterialList& mList, const CDamageInfo& dInfo, const int attribs,
           const CModelData& mData);
 
   // CEntity

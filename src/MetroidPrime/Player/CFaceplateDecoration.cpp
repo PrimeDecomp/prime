@@ -27,7 +27,7 @@ void CFaceplateDecoration::Update(float dt, const CStateManager& mgr) {
 void CFaceplateDecoration::Draw(const CStateManager& stateMgr) const {
   if (x4_tex.valid() && x4_tex->IsLoaded()) {
     CTexture* texture = TToken< CTexture >(*x4_tex).GetT();
-    float alpha = stateMgr.GetPlayer()->GetVisorSteam().GetAlpha();
+    float alpha = stateMgr.GetPlayer()->GetVisorSteamAlpha();
     if (!close_enough(alpha, 0.f)) {
       CCameraFilterPass::DrawFilter(CCameraFilterPass::kFT_Blend,
                                     CCameraFilterPass::kFS_FullscreenQuarters,

@@ -45,7 +45,6 @@ CHECK_SIZEOF(TEditorId, 0x4)
 
 struct TUniqueId {
   ushort value;
-
   TUniqueId(ushort version, ushort id) : value(((version & 0x3F) << 10) | (id & 0x3FF)) {}
 
   ushort Value() const { return value & 0x3FF; }

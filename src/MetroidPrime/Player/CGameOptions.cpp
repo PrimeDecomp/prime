@@ -167,7 +167,7 @@ void CGameOptions::SetScreenBrightness(int value, bool apply) {
   }
 }
 
-float CGameOptions::TuneScreenBrightness() {
+const float CGameOptions::TuneScreenBrightness() {
   float f = x48_screenBrightness - 4;
   return f / 4.f * 0.375f + 1.f;
 }
@@ -223,21 +223,21 @@ void CGameOptions::SetSurroundMode(CAudioSys::ESurroundModes mode, bool apply) {
   }
 }
 
-float CGameOptions::GetHudAlpha() const { return x60_hudAlpha * 0.003921569f; }
+const float CGameOptions::GetHudAlpha() const { return x60_hudAlpha * 0.003921569f; }
 
-float CGameOptions::GetHelmetAlpha() const { return x64_helmetAlpha * 0.003921569f; }
+const float CGameOptions::GetHelmetAlpha() const { return x64_helmetAlpha * 0.003921569f; }
 
-void CGameOptions::SetHelmetAlpha(int alpha) { x64_helmetAlpha = alpha; }
+void CGameOptions::SetHelmetAlpha(const int alpha) { x64_helmetAlpha = alpha; }
 
-void CGameOptions::SetHUDLag(bool flag) { x68_24_hudLag = flag; }
+void CGameOptions::SetHUDLag(const bool flag) { x68_24_hudLag = flag; }
 
 void CGameOptions::SetIsHintSystemEnabled(bool flag) { x68_28_hintSystem = flag; }
 
-void CGameOptions::SetInvertYAxis(bool flag) { x68_25_invertY = flag; }
+void CGameOptions::SetInvertYAxis(const bool flag) { x68_25_invertY = flag; }
 
-void CGameOptions::SetIsRumbleEnabled(bool flag) { x68_26_rumble = flag; }
+void CGameOptions::SetIsRumbleEnabled(const bool flag) { x68_26_rumble = flag; }
 
-void CGameOptions::ToggleControls(bool flag) {
+void CGameOptions::ToggleControls(const bool flag) {
   x68_27_swapBeamsControls = flag;
   if (flag) {
     SetControls(1);

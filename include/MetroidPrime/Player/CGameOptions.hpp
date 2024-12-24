@@ -26,28 +26,28 @@ public:
   void ResetToDefaults();
   void EnsureOptions();
 
-  void SetScreenBrightness(int, bool);
-  float TuneScreenBrightness();
-  void SetScreenPositionX(int, bool);
-  void SetScreenPositionY(int, bool);
-  void SetScreenStretch(int, bool);
-  void SetSfxVolume(int, bool);
-  void SetMusicVolume(int, bool);
+  void SetScreenBrightness(const int, const bool);
+  const float TuneScreenBrightness();
+  void SetScreenPositionX(const int, const bool);
+  void SetScreenPositionY(const int, const bool);
+  void SetScreenStretch(const int, const bool);
+  void SetSfxVolume(const int, const bool);
+  void SetMusicVolume(const int,const  bool);
   void SetSurroundMode(CAudioSys::ESurroundModes, bool);
 
-  float GetHudAlpha() const;
-  float GetHelmetAlpha() const;
-  void SetHelmetAlpha(int);
-  void SetHUDLag(bool);
+  const float GetHudAlpha() const;
+  const float GetHelmetAlpha() const;
+  void SetHelmetAlpha(const int);
+  void SetHUDLag(const bool);
   void SetIsHintSystemEnabled(bool);
-  void ToggleControls(bool);
-  void ResetControllerAssets(int);
-  void SetControls(int);
+  void ToggleControls(const bool);
+  void ResetControllerAssets(const int);
+  void SetControls(const int);
 
-  void SetInvertYAxis(bool invert);
-  bool GetInvertYAxis() const { return x68_25_invertY; }
-  void SetIsRumbleEnabled(bool rumble);
-  bool GetIsRumbleEnabled() const { return x68_26_rumble; }
+  void SetInvertYAxis(const bool invert);
+  const bool GetInvertYAxis() const { return x68_25_invertY; }
+  void SetIsRumbleEnabled(const bool rumble);
+  const bool GetIsRumbleEnabled() const { return x68_26_rumble; }
 
 private:
   rstl::reserved_vector< uchar, 64 > x0_;

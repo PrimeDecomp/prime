@@ -53,7 +53,7 @@ class CPlayer : public CPhysicsActor, public TOneStatic< CPlayer > {
     void SetSteam(float targetAlpha, float alphaInDur, float alphaOutDur, CAssetId txtr,
                   bool affectsThermal);
     void Update(float dt);
-    float GetAlpha() const { return x20_alpha; }
+    const float GetAlpha() const { return x20_alpha; }
     bool AffectsThermal() const { return x28_affectsThermal; }
   };
 
@@ -377,6 +377,7 @@ public:
   void Teleport(const CTransform4f& xf, CStateManager& mgr, bool resetBallCam);
   void SetSpawnedMorphBallState(EPlayerMorphBallState state, CStateManager& mgr);
   const CVisorSteam& GetVisorSteam() const { return x7a0_visorSteam; }
+  const float GetVisorSteamAlpha() const { return x7a0_visorSteam.GetAlpha(); }
   void SetVisorSteam(float targetAlpha, float alphaInDur, float alphaOutDir, CAssetId txtr,
                      bool affectsThermal);
 

@@ -158,7 +158,7 @@ MetroidPrime/Tweaks/CTweakGame.cpp:
 	.text       start:0x800371E4 end:0x80037400
 	.data       start:0x803D9CD0 end:0x803D9CE0
 
-MetroidPrime/CGameProjectile.cpp:
+MetroidPrime/Weapons/CGameProjectile.cpp:
 	.text       start:0x80037400 end:0x8003A7A4
 	.rodata     start:0x803CCE20 end:0x803CCE38
 	.data       start:0x803D9CE0 end:0x803D9D50

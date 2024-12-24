@@ -35,7 +35,8 @@ public:
   };
 
   CAABox(const CVector3f& min, const CVector3f& max);
-  CAABox(float minX, float minY, float minZ, float maxX, float maxY, float maxZ)
+  CAABox(const float minX, const float minY, const float minZ, const float maxX, const float maxY,
+         const float maxZ)
   : min(minX, minY, minZ), max(maxX, maxY, maxZ) {}
   CAABox(CInputStream& in);
   // CAABox(const CAABox& other)

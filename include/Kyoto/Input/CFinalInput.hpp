@@ -16,8 +16,8 @@ class CFinalInput {
 
 public:
   CFinalInput();
-  CFinalInput(int channel, float dt, const CControllerGamepadData& data, float leftDif,
-              float rightDiv);
+  CFinalInput(const int channel, const float dt, const CControllerGamepadData& data, const float leftDiv,
+              const float rightDiv);
   CFinalInput(int channel, float dt, const COsContext& context);
   CFinalInput(const CFinalInput& other)
   : x0_dt(other.x0_dt)

@@ -20,11 +20,11 @@ class CParticleSwoosh;
 class CProjectileWeapon {
 public:
   // TODO ctor
-
+  CProjectileWeapon(const TToken<CWeaponDescription>& wDesc, const CVector3f& origin, const CTransform4f& orient, const CVector3f& scale, const int);
   virtual ~CProjectileWeapon();
   virtual void Update(float dt);
   virtual void AddToRenderer();
-  virtual void Render();
+  virtual void Render() const;
   virtual CVector3f GetTranslation() const;
   virtual CTransform4f GetTransform() const;
   
