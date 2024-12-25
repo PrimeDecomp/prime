@@ -1,4 +1,6 @@
 #include "Kyoto/Particles/CGenDescription.hpp"
+#include "Kyoto/Particles/CSpawnSystemKeyframeData.hpp"
+#include "rstl/single_ptr.hpp"
 
 
 static IElement** element_from_desc(CGenDescription* gen, int idx) {
