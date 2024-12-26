@@ -365,7 +365,7 @@ void CPlayerGun::PreRender(CStateManager& mgr, const CFrustumPlanes& frustum,
   }
 
   if (x833_28_phazonBeamActive) {
-    IWeaponRenderer::SetRenderer(IWeaponRenderer *renderer)->AllocatePhazonSuitMaskTexture();
+    gpRender->AllocatePhazonSuitMaskTexture();
   }
 }
 
