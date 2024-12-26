@@ -35,7 +35,7 @@ public:
   void PostRenderFogs() override;
   void SetModelMatrix(const CTransform4f& xf) override;
   void AddParticleGen(const CParticleGen& gen) override;
-  void AddParticleGen2() override;
+  void AddParticleGen(const CParticleGen& gen, const CVector3f&, const CAABox&) override;
   void AddPlaneObject() override;
   void AddDrawable(const void* obj, const CVector3f& pos, const CAABox& bounds, int mode,
                    IRenderer::EDrawableSorting sorting) override;

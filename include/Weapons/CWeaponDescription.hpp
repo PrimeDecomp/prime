@@ -15,11 +15,13 @@ class CCollisionResponseData;
 
 class CWeaponDescription {
 public:
-  typedef rstl::optional_object< TCachedToken< CModel > > TParticleModel;
+  typedef rstl::optional_object< TLockedToken< CModel > > TParticleModel;
   typedef rstl::optional_object< TCachedToken< CGenDescription > > TChildGeneratorDesc;
   typedef rstl::optional_object< TCachedToken< CSwooshDescription > > TSwooshGeneratorDesc;
   typedef rstl::optional_object< TCachedToken< CCollisionResponseData > > TCollisionResponseDesc;
 
+  const TCollisionResponseDesc& GetCollisionResponse() const { return x94_COLR; }
+  const TParticleModel& GetOHEF() const { return x84_OHEF; }
   CWeaponDescription();
   ~CWeaponDescription();
   CVectorElement* x0_IORN;

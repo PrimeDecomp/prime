@@ -2,6 +2,7 @@
 #define _IRENDERER
 
 #include "types.h"
+#include <dolphin/gx/GXEnum.h>
 #include "rstl/pair.hpp"
 #include "rstl/vector.hpp"
 
@@ -46,7 +47,7 @@ public:
   virtual void PostRenderFogs();
   virtual void SetModelMatrix(const CTransform4f& xf);
   virtual void AddParticleGen(const CParticleGen& gen);
-  virtual void AddParticleGen2();
+  virtual void AddParticleGen(const CParticleGen& gen, const CVector3f&, const CAABox&);
   virtual void AddPlaneObject();
   virtual void AddDrawable(const void* obj, const CVector3f& pos, const CAABox& bounds, int mode,
                            IRenderer::EDrawableSorting sorting);

@@ -36,6 +36,7 @@
 
 #include "MetaRender/CCubeRenderer.hpp"
 
+#include "Weapons/IWeaponRenderer.hpp"
 #include "math.h"
 
 static float kVerticalAngleTable[3] = {-30.f, 0.f, 30.f};
@@ -364,7 +365,7 @@ void CPlayerGun::PreRender(CStateManager& mgr, const CFrustumPlanes& frustum,
   }
 
   if (x833_28_phazonBeamActive) {
-    gpRender->AllocatePhazonSuitMaskTexture();
+    IWeaponRenderer::SetRenderer(IWeaponRenderer *renderer)->AllocatePhazonSuitMaskTexture();
   }
 }
 

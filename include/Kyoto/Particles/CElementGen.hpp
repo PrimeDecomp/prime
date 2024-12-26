@@ -77,6 +77,7 @@ public:
   int GetMaxParticles() const { return x90_MAXP; }
   int GetEmitterTime() const;
   int GetSystemCount();
+  void EndLifetime();
 
   int GetCumulativeParticleCount() const { return x260_cumulativeParticles; }
   bool IsIndirectTextured()
