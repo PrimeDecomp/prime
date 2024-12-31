@@ -1,0 +1,14 @@
+object_base: orig/GM8E01_48
+object: sys/main.dol
+hash: 52316d2a71c0d18c84f054fd6f1e58bdd7bf0ded
+symbols: config/GM8E01_48/symbols.txt
+splits: config/GM8E01_48/splits.txt
+mw_comment_version: 8
+quick_analysis: false # Faster reruns after full analysis
+fill_gaps: true # Alignments known
+
+modules:
+- object: files/NESemuP.rel
+  hash: 45f4dceb82be7ee46d73a683c96d967c04767808
+  symbols: config/GM8E01_48/NESemu/symbols.txt
+  splits: config/GM8E01_48/NESemu/splits.txt

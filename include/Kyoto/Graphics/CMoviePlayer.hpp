@@ -6,6 +6,18 @@
 
 class CMoviePlayer {
 public:
+  class CTHPTextureSet {
+    CTHPTextureSet(void* y, void* u, void* v, void* audio);
+    void* Y();
+    void* U();
+    void* V();
+    void* Audio();
+
+    uint GetAudioSamples() const;
+    void SetAudioSamples(uint);
+    uint GetAudioSamplesConsumed() const;
+    void SetAudioSamplesConsumed(uint);
+  };
   static void SetSfxVolume(uchar);
 
   CMoviePlayer(const char*, float, bool, bool);

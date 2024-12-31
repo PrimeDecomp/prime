@@ -1,16 +1,19 @@
-#include "Kyoto/Math/CFrustumPlanes.hpp"
+#include "MetroidPrime/ScriptObjects/CScriptSound.hpp"
+#include "Collision/CMaterialFilter.hpp"
 #include "MetroidPrime/CActor.hpp"
 #include "MetroidPrime/CEntityInfo.hpp"
-#include "rstl/math.hpp"
-#include <MetroidPrime/ScriptObjects/CScriptSound.hpp>
 
-#include <MetroidPrime/CActorParameters.hpp>
-#include <MetroidPrime/CStateManager.hpp>
-#include <MetroidPrime/CWorld.hpp>
+#include "MetroidPrime/CActorParameters.hpp"
+#include "MetroidPrime/CStateManager.hpp"
+#include "MetroidPrime/CWorld.hpp"
+#include "MetroidPrime/Cameras/CCameraManager.hpp"
 
-#include <MetroidPrime/TCastTo.hpp>
+#include "MetroidPrime/TCastTo.hpp"
 
+#include <Collision/CRayCastResult.hpp>
 #include <Kyoto/Audio/CSfxManager.hpp>
+#include <Kyoto/Math/CFrustumPlanes.hpp>
+#include <rstl/math.hpp>
 
 bool CScriptSound::sFirstInFrame = false;
 
@@ -175,6 +178,37 @@ void CScriptSound::StopSound(CStateManager& mgr) {
   }
 }
 
-void CScriptSound::AddToRenderer(const CFrustumPlanes& planes, CStateManager& mgr) {}
-
+void CScriptSound::AddToRenderer(const CFrustumPlanes& planes, CStateManager& mgr) const {}
 void CScriptSound::Accept(IVisitor& visitor) { visitor.Visit(*this); }
+float CScriptSound::GetOccludedVolumeAmount(const CVector3f& pos, const CStateManager& mgr) {
+  const CTransform4f camXf = mgr.GetCameraManager()->GetCurrentCameraTransform(mgr);
+  const CVector3f soundToCam = camXf.GetTranslation() - pos;
+  const float soundToCamMag = soundToCam.Magnitude();
+  const CVector3f soundToCamNorm = soundToCam * (1.f / soundToCamMag);
+  const CVector3f thirdEdge =
+      CVector3f::Up() - soundToCamNorm * CVector3f::Dot(soundToCamNorm, CVector3f::Up());
+  const CVector3f cross = CVector3f::Cross(soundToCamNorm, thirdEdge);
+  static float kInfluenceAmount = 3.f / soundToCamMag;
+  static float kInfluenceIncrement = kInfluenceAmount;
+  static CMaterialFilter kSolidFilter = CMaterialFilter::MakeIncludeExclude(
+      CMaterialList(kMT_Solid), CMaterialList(kMT_ProjectilePassthrough));
+  float influenceIncrement = kInfluenceIncrement;
+  float influenceAmount = kInfluenceAmount;
+  float f17 = -influenceAmount;
+  int totalCount = 0;
+  int invalCount = 0;
+
+  for (float i = -influenceAmount; i <= influenceAmount; i += influenceIncrement) {
+    const CVector3f angledDir = (thirdEdge * i + soundToCamNorm);
+    for (float j = -influenceAmount; j <= influenceAmount; j += influenceIncrement) {
+      ++totalCount;
+
+      if (mgr.RayStaticIntersection(pos, (cross * j + angledDir).AsNormalized(), soundToCamMag,
+                                    kSolidFilter)
+              .IsInvalid()) {
+        ++invalCount;
+      }
+    }
+  }
+  return invalCount / static_cast< float >(totalCount) * 0.42f + 0.58f;
+}

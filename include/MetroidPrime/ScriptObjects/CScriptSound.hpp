@@ -17,8 +17,8 @@ public:
   void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&) override;
   void PreThink(float dt, CStateManager& mgr) override;
   void Think(float dt, CStateManager&) override;
-  void AddToRenderer(const CFrustumPlanes& planes, CStateManager& mgr);
-  void Accept(IVisitor& visitor);
+  void AddToRenderer(const CFrustumPlanes& planes, CStateManager& mgr) const override;
+  void Accept(IVisitor& visitor) override;
 
   void PlaySound(CStateManager& mgr);
   void StopSound(CStateManager& mgr);

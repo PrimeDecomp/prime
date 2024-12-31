@@ -70,7 +70,6 @@ u32 ARAlloc(u32 length) {
   return tmp;
 }
 
-#if NONMATCHING
 u32 ARFree(u32* length) {
   BOOL old;
 
@@ -90,47 +89,6 @@ u32 ARFree(u32* length) {
 
   return __AR_StackPointer;
 }
-#else
-/* clang-format off */
-#pragma push
-#pragma optimization_level 0
-#pragma optimizewithasm off
-asm u32 ARFree(u32* length) {
-  nofralloc
-  mflr r0
-  stw r0, 4(r1)
-  stwu r1, -0x18(r1)
-  stw r31, 0x14(r1)
-  mr r31, r3
-  bl OSDisableInterrupts
-  lwz r4, __AR_BlockLength
-  cmplwi r31, 0
-  addi r0, r4, -4
-  stw r0, __AR_BlockLength
-  beq lbl_8036DAB4
-  lwz r4, __AR_BlockLength
-  lwz r0, 0(r4)
-  stw r0, 0(r31)
-lbl_8036DAB4:
-  lwz r5, __AR_BlockLength
-  lwz r4, __AR_FreeBlocks
-  lwz r6, 0(r5)
-  addi r0, r4, 1
-  lwz r5, __AR_StackPointer
-  stw r0, __AR_FreeBlocks
-  subf r0, r6, r5
-  stw r0, __AR_StackPointer
-  bl OSRestoreInterrupts
-  lwz r3, __AR_StackPointer
-  lwz r0, 0x1c(r1)
-  lwz r31, 0x14(r1)
-  addi r1, r1, 0x18
-  mtlr r0
-  blr
-}
-#pragma pop
-/* clang-format on */
-#endif
 
 BOOL ARCheckInit() { return __AR_init_flag; }
 

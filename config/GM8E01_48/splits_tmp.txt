@@ -1,0 +1,6 @@
+Dolphin/os/OSRtc.c:
+	.text       start:0x80383998 end:0x803844E8
+	.bss        start:0x80541280 end:0x805412D4
+
+Dolphin/os/OSSync.c:
+	.text       start:0x803844E8 end:0x8038456C

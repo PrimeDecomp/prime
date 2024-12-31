@@ -1,19 +1,28 @@
 #include "dolphin/mtx.h"
+#include "dolphin/os.h"
+#include <math.h>
 
 static f32 Unit01[] = {0.0f, 1.0f};
 
 extern f32 sinf(f32);
 
-void C_MTXIdentity(Mtx mtx) {
-  mtx[0][0] = 1.0f;
-  mtx[0][1] = 0.0f;
-  mtx[0][2] = 0.0f;
-  mtx[1][0] = 0.0f;
-  mtx[1][1] = 1.0f;
-  mtx[1][2] = 0.0f;
-  mtx[2][0] = 0.0f;
-  mtx[2][1] = 0.0f;
-  mtx[2][2] = 1.0f;
+void C_MTXIdentity(Mtx m) {
+#line 189
+  ASSERTMSG(m, "MtxIdentity():  NULL Mtx 'm' ");
+  m[0][0] = 1.0f;
+  m[0][1] = 0.0f;
+  m[0][2] = 0.0f;
+  m[0][3] = 0.0f;
+
+  m[1][0] = 0.0f;
+  m[1][1] = 1.0f;
+  m[1][2] = 0.0f;
+  m[1][3] = 0.0f;
+
+  m[2][0] = 0.0f;
+  m[2][1] = 0.0f;
+  m[2][2] = 1.0f;
+  m[2][3] = 0.0f;
 }
 
 #ifdef GEKKO
@@ -39,6 +48,9 @@ void PSMTXIdentity(register Mtx m) {
 
 void C_MTXCopy(const Mtx src, Mtx dst) {
 
+#line 250
+  ASSERTMSG((src != 0), "MTXCopy():  NULL MtxPtr 'src' ");
+  ASSERTMSG((dst != 0), "MTXCopy():  NULL MtxPtr 'dst' ");
   if (src == dst) {
     return;
   }
@@ -86,7 +98,11 @@ void C_MTXConcat(const Mtx a, const Mtx b, Mtx ab) {
   Mtx mTmp;
   MtxPtr m;
 
-  if ((ab == a) || (ab == b)) {
+#line 324
+  ASSERTMSG(a != 0, "MTXConcat():  NULL MtxPtr 'a'  ");
+  ASSERTMSG(b != 0, "MTXConcat():  NULL MtxPtr 'b'  ");
+  ASSERTMSG(ab != 0, "MTXConcat():  NULL MtxPtr 'ab' ");
+  if (ab == a || ab == b) {
     m = mTmp;
   }
 
@@ -216,6 +232,12 @@ asm void PSMTXConcat(const register Mtx mA, const register Mtx mB, register Mtx 
 
 void C_MTXConcatArray(const Mtx a, const Mtx* srcBase, Mtx* dstBase, u32 count) {
   u32 i;
+#line 580
+  ASSERTMSG((a != 0), "MTXConcatArray(): NULL MtxPtr 'a' ");
+  ASSERTMSG((srcBase != 0), "MTXConcatArray(): NULL MtxPtr 'srcBase' ");
+  ASSERTMSG((dstBase != 0), "MTXConcatArray(): NULL MtxPtr 'dstBase' ");
+  ASSERTMSG((count > 1), "MTXConcatArray(): count must be greater than 1.");
+
   for (i = 0; i < count; i++) {
     C_MTXConcat(a, *srcBase, *dstBase);
 
@@ -345,7 +367,9 @@ _loop:
 void C_MTXTranspose(const Mtx src, Mtx xPose) {
   Mtx mTmp;
   MtxPtr m;
-
+#line 851
+  ASSERTMSG((src != 0), "MTXTranspose():  NULL MtxPtr 'src' ");
+  ASSERTMSG((xPose != 0), "MTXTranspose():  NULL MtxPtr 'xPose' ");
   if (src == xPose) {
     m = mTmp;
   } else {
@@ -405,6 +429,10 @@ u32 C_MTXInverse(const Mtx src, Mtx inv) {
   Mtx mTmp;
   MtxPtr m;
   f32 det;
+
+#line 950
+  ASSERTMSG((src != 0), "MTXInverse():  NULL MtxPtr 'src' ");
+  ASSERTMSG((inv != 0), "MTXInverse():  NULL MtxPtr 'inv' ");
 
   if (src == inv) {
     m = mTmp;
@@ -523,6 +551,10 @@ u32 C_MTXInvXpose(const Mtx src, Mtx invX) {
   MtxPtr m;
   f32 det;
 
+#line 0x4a1
+  ASSERTMSG((src != 0), "MTXInvXpose(): NULL MtxPtr 'src' ");
+  ASSERTMSG((invX != 0), "MTXInvXpose(): NULL MtxPtr 'invX' ");
+
   if (src == invX) {
     m = mTmp;
   } else {
@@ -626,6 +658,9 @@ _regular:
 void C_MTXRotRad(Mtx m, char axis, f32 rad) {
 
   f32 sinA, cosA;
+#line 0x5a7
+  ASSERTMSG((m != 0), "MTXRotRad():  NULL MtxPtr 'm' ");
+
   sinA = sinf(rad);
   cosA = cosf(rad);
   C_MTXRotTrig(m, axis, sinA, cosA);
@@ -643,6 +678,9 @@ void PSMTXRotRad(Mtx m, char axis, f32 rad) {
 #endif
 
 void C_MTXRotTrig(Mtx m, char axis, f32 sinA, f32 cosA) {
+#line 0x5de
+  ASSERTMSG((m != 0), "MTXRotTrig():  NULL MtxPtr 'm' ");
+
   switch (axis) {
 
   case 'x':
@@ -694,6 +732,8 @@ void C_MTXRotTrig(Mtx m, char axis, f32 sinA, f32 cosA) {
     break;
 
   default:
+#line 0x5f9
+    ASSERTMSG(0, "MTXRotTrig():  invalid 'axis' value ");
     break;
   }
 }
@@ -772,6 +812,9 @@ void C_MTXRotAxisRad(Mtx m, const Vec* axis, f32 rad) {
   f32 t;
   f32 x, y, z;
   f32 xSq, ySq, zSq;
+#line 0x68d
+  ASSERTMSG((m != 0), "MTXRotAxisRad():  NULL MtxPtr 'm' ");
+  ASSERTMSG((axis != 0), "MTXRotAxisRad():  NULL VecPtr 'axis' ");
 
   s = sinf(rad);
   c = cosf(rad);
@@ -872,6 +915,8 @@ void PSMTXRotAxisRad(Mtx m, const Vec* axis, f32 rad) {
 #endif
 
 void C_MTXTrans(Mtx m, f32 xT, f32 yT, f32 zT) {
+#line 0x74a
+  ASSERTMSG((m != 0), "MTXTrans():  NULL MtxPtr 'm' ");
   m[0][0] = 1.0f;
   m[0][1] = 0.0f;
   m[0][2] = 0.0f;
@@ -909,6 +954,9 @@ void PSMTXTrans(register Mtx m, register f32 xT, register f32 yT, register f32 z
 #endif
 
 void C_MTXTransApply(const Mtx src, Mtx dst, f32 xT, f32 yT, f32 zT) {
+#line 0x78d
+  ASSERTMSG((src != 0), "MTXTransApply(): NULL MtxPtr 'src' ");
+  ASSERTMSG((dst != 0), "MTXTransApply(): NULL MtxPtr 'src' ");
   if (src != dst) {
     dst[0][0] = src[0][0];
     dst[0][1] = src[0][1];
@@ -955,6 +1003,9 @@ asm void PSMTXTransApply(const register Mtx src, register Mtx dst, register f32 
 #endif
 
 void C_MTXScale(Mtx m, f32 xS, f32 yS, f32 zS) {
+#line 0x7d8
+  ASSERTMSG((m != 0), "MTXScale():  NULL MtxPtr 'm' ");
+
   m[0][0] = xS;
   m[0][1] = 0.0f;
   m[0][2] = 0.0f;
@@ -989,6 +1040,9 @@ void PSMTXScale(register Mtx m, register f32 xS, register f32 yS, register f32 z
 #endif
 
 void C_MTXScaleApply(const Mtx src, Mtx dst, f32 xS, f32 yS, f32 zS) {
+#line 0x816
+  ASSERTMSG((src != 0), "MTXScaleApply(): NULL MtxPtr 'src' ");
+  ASSERTMSG((dst != 0), "MTXScaleApply(): NULL MtxPtr 'dst' ");
   dst[0][0] = src[0][0] * xS;
   dst[0][1] = src[0][1] * xS;
   dst[0][2] = src[0][2] * xS;
@@ -1039,6 +1093,11 @@ asm void PSMTXScaleApply(const register Mtx src, register Mtx dst, register f32 
 void C_MTXQuat(Mtx m, const Quaternion* q) {
 
   f32 s, xs, ys, zs, wx, wy, wz, xx, xy, xz, yy, yz, zz;
+#line 0x861
+  ASSERTMSG((m != 0), "MTXQuat():  NULL MtxPtr 'm' ");
+  ASSERTMSG((q != 0), "MTXQuat():  NULL QuaternionPtr 'q' ");
+  ASSERTMSG((q->x || q->y || q->z || q->w), "MTXQuat():  zero-value quaternion ");
+
   s = 2.0f / ((q->x * q->x) + (q->y * q->y) + (q->z * q->z) + (q->w * q->w));
 
   xs = q->x * s;
@@ -1191,6 +1250,11 @@ void PSMTXReflect(register Mtx m, const register Vec* p, const register Vec* n) 
 void C_MTXLookAt(Mtx m, const Point3d* camPos, const Vec* camUp, const Point3d* target) {
 
   Vec vLook, vRight, vUp;
+#line 0x986
+  ASSERTMSG((m != 0), "MTXLookAt():  NULL MtxPtr 'm' ");
+  ASSERTMSG((camPos != 0), "MTXLookAt():  NULL VecPtr 'camPos' ");
+  ASSERTMSG((camUp != 0), "MTXLookAt():  NULL VecPtr 'camUp' ");
+  ASSERTMSG((target != 0), "MTXLookAt():  NULL Point3dPtr 'target' ");
 
   vLook.x = camPos->x - target->x;
   vLook.y = camPos->y - target->y;
@@ -1219,6 +1283,10 @@ void C_MTXLookAt(Mtx m, const Point3d* camPos, const Vec* camUp, const Point3d* 
 void C_MTXLightFrustum(Mtx m, float t, float b, float l, float r, float n, float scaleS,
                        float scaleT, float transS, float transT) {
   f32 tmp;
+#line 0x9ed
+  ASSERTMSG((m != 0), "MTXLightFrustum():  NULL MtxPtr 'm' ");
+  ASSERTMSG((t != b), "MTXLightFrustum():  't' and 'b' clipping planes are equal ");
+  ASSERTMSG((l != r), "MTXLightFrustum():  'l' and 'r' clipping planes are equal ");
 
   tmp = 1.0f / (r - l);
   m[0][0] = ((2 * n) * tmp) * scaleS;
@@ -1242,7 +1310,10 @@ void C_MTXLightPerspective(Mtx m, f32 fovY, f32 aspect, float scaleS, float scal
                            float transT) {
   f32 angle;
   f32 cot;
-
+#line 0xa2d
+  ASSERTMSG((m != 0), "MTXLightPerspective():  NULL MtxPtr 'm' ");
+  ASSERTMSG(((fovY > 0.0) && (fovY < 180.0)), "MTXLightPerspective():  'fovY' out of range ");
+  ASSERTMSG((aspect != 0), "MTXLightPerspective():  'aspect' is 0 ");
   angle = fovY * 0.5f;
   angle = MTXDegToRad(angle);
 
@@ -1267,6 +1338,11 @@ void C_MTXLightPerspective(Mtx m, f32 fovY, f32 aspect, float scaleS, float scal
 void C_MTXLightOrtho(Mtx m, f32 t, f32 b, f32 l, f32 r, float scaleS, float scaleT, float transS,
                      float transT) {
   f32 tmp;
+#line 0xa71
+  ASSERTMSG((m != 0), "MTXLightOrtho():  NULL MtxPtr 'm' ");
+  ASSERTMSG((t != b), "MTXLightOrtho():  't' and 'b' clipping planes are equal ");
+  ASSERTMSG((l != r), "MTXLightOrtho():  'l' and 'r' clipping planes are equal ");
+
   tmp = 1.0f / (r - l);
   m[0][0] = (2.0f * tmp * scaleS);
   m[0][1] = 0.0f;

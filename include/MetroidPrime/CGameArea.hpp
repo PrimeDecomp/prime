@@ -138,20 +138,36 @@ public:
     void DisableFog();
   };
 
-  class CConstChainIterator {
-    const CGameArea* m_area;
+  class CChainIterator {
+  protected:
+    CGameArea* m_area;
 
   public:
-    CConstChainIterator() : m_area(nullptr) {}
-    explicit CConstChainIterator(const CGameArea* area) : m_area(area) {}
-    const CGameArea& operator*() const { return *m_area; }
-    const CGameArea* operator->() const { return m_area; }
-    CConstChainIterator& operator++() {
+    CChainIterator() : m_area(nullptr) {}
+    explicit CChainIterator(CGameArea* area) : m_area(area) {}
+    CGameArea& operator*() const { return *m_area; }
+    CGameArea* operator->() const { return m_area; }
+    CChainIterator& operator++() {
       m_area = m_area->GetNext();
       return *this;
     }
-    bool operator!=(const CConstChainIterator& other) const { return m_area != other.m_area; }
-    bool operator==(const CConstChainIterator& other) const { return m_area == other.m_area; }
+    bool operator!=(const CChainIterator& other) const { return m_area != other.m_area; }
+    bool operator==(const CChainIterator& other) const { return m_area == other.m_area; }
+  };
+
+  class CConstChainIterator : protected CChainIterator {
+  public:
+    CConstChainIterator() {}
+    explicit CConstChainIterator(const CGameArea* area)
+    : CChainIterator(const_cast< CGameArea* >(area)) {}
+    const CGameArea& operator*() const { return CChainIterator::operator*(); }
+    const CGameArea* operator->() const { return CChainIterator::operator->(); }
+    CConstChainIterator& operator++() {
+      CChainIterator::operator++();
+      return *this;
+    }
+    bool operator!=(const CConstChainIterator& other) const { return !CChainIterator::operator==(other); }
+    bool operator==(const CConstChainIterator& other) const { return CChainIterator::operator==(other); }
   };
 
   enum EOcclusionState { kOS_Occluded, kOS_Visible };

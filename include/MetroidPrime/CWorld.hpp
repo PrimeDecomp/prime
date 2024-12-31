@@ -133,6 +133,10 @@ public:
   static void PropogateAreaChain(CGameArea::EOcclusionState occlusionState, CGameArea* area,
                                  CWorld* world);
 
+  CGameArea::CChainIterator ChainHead(EChain chain) const {
+    return CGameArea::CChainIterator(x4c_chainHeads[size_t(chain)]);
+  }
+
   CGameArea::CConstChainIterator GetChainHead(EChain chain) const {
     return CGameArea::CConstChainIterator(x4c_chainHeads[size_t(chain)]);
   }
