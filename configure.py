@@ -15,6 +15,7 @@
 import argparse
 import sys
 from pathlib import Path
+from typing import List
 
 from tools.project import (
     Object,
@@ -767,6 +768,7 @@ config.libs = [
             Object(NonMatching, "MetroidPrime/ScriptObjects/CEnergyBall.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Enemies/CMetroidPrimeProjectile.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Enemies/SPositionHistory.cpp"),
+            Object(Equivalent, "dummy.c"),
         ],
     ),
     RetroLib(
@@ -1406,6 +1408,14 @@ for lib in config.libs:
         if not obj.completed:
             obj.options["extra_clang_flags"].append("-Wno-return-type")
 
+
+def link_order_callback(module_id: int, units: List[str]) -> List[str]:
+    if module_id == 0:  # DOL
+        return units + ["dummy.c"]
+    return units
+
+
+config.link_order_callback = link_order_callback
 
 # Optional extra categories for progress tracking
 config.progress_categories = [
