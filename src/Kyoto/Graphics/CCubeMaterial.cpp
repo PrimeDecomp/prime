@@ -2,6 +2,7 @@
 
 #include "Kyoto/Graphics/CGX.hpp"
 #include "Kyoto/Graphics/CGraphics.hpp"
+#include "Kyoto/Graphics/CModelFlags.hpp"
 #include "Kyoto/Math/CMath.hpp"
 
 #include <dolphin/mtx.h>
@@ -66,7 +67,7 @@ static CTransform4f sTextureProjectionTransform = CTransform4f::Identity();
 void CCubeMaterial::SetupBlendMode(uint blendFactors, const CModelFlags& flags, bool alphaTest) {
   GXBlendFactor newSrcFactor = static_cast< GXBlendFactor >(blendFactors & 0xFFFF);
   GXBlendFactor newDstFactor = static_cast< GXBlendFactor >(blendFactors >> 0x10);
-  CModelFlags::ETrans blendMode = flags.GetTrans();
+  CModelFlags::ETrans blendMode = static_cast<CModelFlags::ETrans>(flags.GetTrans());
   if (alphaTest) {
     CGX::SetAlphaCompare(GX_GEQUAL, 64, GX_AOP_OR, GX_NEVER, 0);
     newSrcFactor = GX_BL_ONE;

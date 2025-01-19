@@ -19,9 +19,9 @@ CActorParameters::CActorParameters(const CLightParameters& lightParms,
                                    const CScannableParameters& scanParms,
                                    const rstl::pair< CAssetId, CAssetId >& xrayAssets,
                                    const rstl::pair< CAssetId, CAssetId >& thermalAssets,
-                                   const CVisorParameters& visorParms, bool globalTimeProvider,
-                                   bool thermalHeat, bool renderUnsorted, bool noSortThermal,
-                                   float fadeInTime, float fadeOutTime, float thermalMag)
+                                   const CVisorParameters& visorParms, const bool globalTimeProvider,
+                                   const bool thermalHeat, const bool renderUnsorted, const bool noSortThermal,
+                                   const float fadeInTime, const float fadeOutTime, const float thermalMag)
 : x0_lighting(lightParms)
 , x40_scannable(scanParms)
 , x44_xrayAssets(xrayAssets)

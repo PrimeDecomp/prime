@@ -3,6 +3,7 @@
 #include "dolphin/os/OSBootInfo.h"
 #include "dolphin/os/OSContext.h"
 #include "dolphin/os/OSInterrupt.h"
+#include "dolphin/types.h"
 
 typedef struct ApploaderHeader {
   // total size: 0x20
@@ -24,7 +25,7 @@ struct {
   void* argsAddr;            // offset 0x18, size 0x4
 } __OSRebootParams;          // size: 0x1C, address: 0x0
 
-static ApploaderHeader Header;
+static ApploaderHeader Header ATTRIBUTE_ALIGN(32);
 
 extern void* __OSSavedRegionStart;
 extern void* __OSSavedRegionEnd;
