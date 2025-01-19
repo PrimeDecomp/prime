@@ -816,13 +816,13 @@ void CActor::SetDrawShadow(bool enabled) {
 
 // TODO nonmatching
 bool CActor::CanDrawStatic() const {
-  if (!GetActive() || !HasModelData() || static_cast< char >(xb4_drawFlags.GetTrans()) > 4)
+  if (!GetActive() || !HasModelData() || xb4_drawFlags.GetTrans() > 4) {
+      return false;
+  }
+  if (GetModelData()->IsNull() || GetModelData()->HasAnimation()) {
     return false;
-
-  if (HasModelData() && GetAnimationData() == nullptr)
-    return true;
-
-  return false;
+  }
+  return true;
 }
 
 void CActor::UpdateSfxEmitters() {

@@ -1,5 +1,6 @@
 #include "dolphin/gx.h"
 #include "dolphin/gx/GXPriv.h"
+#include <math.h>
 
 extern float cosf(float x);
 extern float sqrtf(float x);

@@ -88,7 +88,7 @@ public:
     return CModelFlags(*this, GetOtherFlags() | kF_DepthGreater);
   }
 
-  ETrans GetTrans() const { return static_cast< ETrans >(x0_blendMode); }
+  char GetTrans() const { return static_cast< ETrans >(x0_blendMode); }
   int GetShaderSet() const { return x1_matSetIdx; }
   uint GetOtherFlags() const { return x2_flags; }
   CColor GetColor() const { return x4_color; }

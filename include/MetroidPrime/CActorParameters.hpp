@@ -141,10 +141,10 @@ private:
   rstl::pair< CAssetId, CAssetId > x44_xrayAssets;
   rstl::pair< CAssetId, CAssetId > x4c_thermalAssets;
   CVisorParameters x54_visor;
-  uchar x58_24_useGlobalRenderTime : 1;
-  uchar x58_25_thermalHeat : 1;
-  uchar x58_26_forceRenderUnsorted : 1;
-  uchar x58_27_noSortThermal : 1;
+  bool x58_24_useGlobalRenderTime : 1;
+  bool x58_25_thermalHeat : 1;
+  bool x58_26_forceRenderUnsorted : 1;
+  bool x58_27_noSortThermal : 1;
   float x5c_fadeInTime;
   float x60_fadeOutTime;
   float x64_thermalMag;

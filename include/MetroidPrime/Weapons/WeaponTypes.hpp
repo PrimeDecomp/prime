@@ -22,11 +22,6 @@ enum EWeaponType {
 };
 
 class CWeaponMode {
-  EWeaponType x0_weaponType;
-  bool x4_24_charged : 1;
-  bool x4_25_comboed : 1;
-  bool x4_26_instantKill : 1;
-
 public:
   explicit CWeaponMode(EWeaponType type = kWT_None, const bool charged = false,
                        const bool comboed = false, const bool instaKill = false)
@@ -52,6 +47,12 @@ public:
   static CWeaponMode Power() { return CWeaponMode(kWT_Power); }
   static CWeaponMode Bomb() { return CWeaponMode(kWT_Bomb); }
   static CWeaponMode PowerBomb() { return CWeaponMode(kWT_PowerBomb); }
+
+private:
+  EWeaponType x0_weaponType;
+  bool x4_24_charged : 1;
+  bool x4_25_comboed : 1;
+  bool x4_26_instantKill : 1;
 };
 
 #endif // _WEAPONTYPES
