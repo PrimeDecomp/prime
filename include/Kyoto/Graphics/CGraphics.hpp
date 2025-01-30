@@ -309,7 +309,7 @@ public:
   static float GetDepthNear() { return mDepthNear; }
   static float GetDepthFar() { return mDepthFar; }
 
-  static bool IsBeginSceneClearFb();
+  static bool IsBeginSceneClearFb() { return mIsBeginSceneClearFb; }
   static void SetIsBeginSceneClearFb(bool);
   static void BeginScene();
   static void EndScene();

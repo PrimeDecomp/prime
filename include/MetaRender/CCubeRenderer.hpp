@@ -95,9 +95,14 @@ public:
   void AllocatePhazonSuitMaskTexture();
 
   uchar x8_pad[0x310];
-  bool x318_24_ : 1;
-  bool x318_25_ : 1;
-  bool x318_26_ : 1;
+  bool x318_24_reflectionDirty : 1;
+  bool x318_25_drawWireframe : 1;
+  bool x318_26_requestRGBA6 : 1;
+  bool x318_27_currentRGBA6 : 1;
+  bool x318_28_disableFog : 1;
+  bool x318_29_thermalVisor : 1;
+  bool x318_30_inAreaDraw : 1;
+  bool x318_31_persistRGBA6 : 1;
 };
 
 extern CCubeRenderer* gpRender;

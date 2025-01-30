@@ -283,7 +283,7 @@ CGameArchitectureSupport::CGameArchitectureSupport(COsContext& osContext)
   x58_ioWinMgr.AddIOWin(rs_new CMainFlow(), 0, 0);
   x58_ioWinMgr.AddIOWin(rs_new CConsoleOutputWindow(8, 5.f, 0.75f), 100, 0);
   x58_ioWinMgr.AddIOWin(rs_new CAudioStateWin(), 100, -1);
-  x58_ioWinMgr.AddIOWin(rs_new CErrorOutputWindow(false), 10000, 100000);
+  x58_ioWinMgr.AddIOWin(rs_new CErrorOutputWindow(CErrorOutputWindow::kF_Zero), 10000, 100000);
   InitializeApplicationUI(x44_guiSys);
   CGuiSys::SetGlobalGuiSys(&x44_guiSys);
   gpController = x30_inputGenerator.GetController();
