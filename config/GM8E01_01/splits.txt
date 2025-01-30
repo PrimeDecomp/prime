@@ -2475,9 +2475,6 @@ GuiSys/CRepeatState.cpp:
 	.text       start:0x802CD500 end:0x802CD574
 	.sdata2     start:0x805AE370 end:0x805AE380
 
-Dolphin/os/__start.c:
-	.init       start:0x80003100 end:0x80003354
-
 Collision/CCollidableAABox.cpp:
 	.text       start:0x802CD574 end:0x802CE140
 	.ctors      start:0x803CB4CC end:0x803CB4D0
@@ -3912,6 +3909,9 @@ Dolphin/os/OSThread.c:
 Dolphin/os/OSTime.c:
 	.text       start:0x80385584 end:0x80385A00
 	.data       start:0x803F24D0 end:0x803F2530
+
+Dolphin/os/__start.c:
+	.init       start:0x80003100 end:0x80003354
 
 Dolphin/os/__ppc_eabi_init.cpp:
 	.init       start:0x80003354 end:0x800033A8
