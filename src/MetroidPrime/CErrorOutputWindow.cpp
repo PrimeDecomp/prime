@@ -126,7 +126,7 @@ void CErrorOutputWindow::Draw() const {
   case 3:
     CGraphics::SetIsBeginSceneClearFb(false);
     if (gpRender != NULL) {
-      gpRender->x318_26_requestRGBA6 = true;
+      gpRender->SetRequestRGBA6(true);
     }
     break;
   }

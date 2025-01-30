@@ -141,6 +141,10 @@ public:
   void Something() override;
   void PrepareDynamicLights(const rstl::vector< CLight >& lights) override;
 
+  void AllocatePhazonSuitMaskTexture();
+
+  void SetRequestRGBA6(bool req) { x318_26_requestRGBA6 = req; }
+
 private:
   CResFactory& x8_factory;
   IObjectStore& xc_objStore;
@@ -187,7 +191,6 @@ private:
   bool x318_30_inAreaDraw : 1;
   bool x318_31_persistRGBA6 : 1;
 
-  void AllocatePhazonSuitMaskTexture();
   void GenerateReflectionTex();
   void GenerateFogVolumeRampTex();
   void GenerateSphereRampTex();

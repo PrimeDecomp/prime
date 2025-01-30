@@ -6,6 +6,8 @@
 class CPVSVisSet {
 public:
   CPVSVisSet(int);
+  // TODO: real? see CPVSAreaSet::GetLightSet
+  CPVSVisSet(int numBits, int numLights, const char* leafPtr);
 
   void SetFromMemory(int numBits, int numLights, const char* leafPtr);
 
