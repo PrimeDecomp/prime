@@ -6,22 +6,71 @@
 #include <dolphin/gx/GXEnum.h>
 
 #include "MetaRender/IRenderer.hpp"
-#include "Weapons/IWeaponRenderer.hpp"
 
+#include "Kyoto/CRandom16.hpp"
+#include "Kyoto/CResFactory.hpp"
 #include "Kyoto/Graphics/CColor.hpp"
+#include "Kyoto/Graphics/CGraphicsPalette.hpp"
+#include "Kyoto/Graphics/CLight.hpp"
+#include "Kyoto/Graphics/CTexture.hpp"
+#include "Kyoto/IObjectStore.hpp"
 #include "Kyoto/Math/CAABox.hpp"
+#include "Kyoto/Math/CFrustumPlanes.hpp"
 #include "Kyoto/Math/CTransform4f.hpp"
 #include "Kyoto/Math/CVector2f.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
+#include "Kyoto/PVS/CPVSVisSet.hpp"
 #include "Kyoto/TToken.hpp"
+#include "Kyoto/Text/CFont.hpp"
 
+#include "Weapons/IWeaponRenderer.hpp"
+
+#include "WorldFormat/CAreaOctTree.hpp"
+
+#include "rstl/list.hpp"
+#include "rstl/optional_object.hpp"
 #include "rstl/pair.hpp"
+#include "rstl/single_ptr.hpp"
+#include "rstl/vector.hpp"
 
-class CSkinnedModel;
+class CAreaOctTree;
+class CCubeModel;
+class CMetroidModelInstance;
 class CModel;
+class CSkinnedModel;
 
 class CCubeRenderer : public IRenderer, public IWeaponRenderer {
+private:
+  class CAreaListItem {
+    CAreaListItem(
+        const rstl::vector< CMetroidModelInstance, rstl::rmemory_allocator >* geometry,
+        const CAreaOctTree* octTree,
+        const rstl::auto_ptr< rstl::vector< TCachedToken< CTexture >, rstl::rmemory_allocator > >&
+            textures,
+        const rstl::auto_ptr<
+            rstl::vector< rstl::auto_ptr< CCubeModel >, rstl::rmemory_allocator > >& models,
+        int areaIdx);
+
+  private:
+    const rstl::vector< CMetroidModelInstance, rstl::rmemory_allocator >* x0_geometry;
+    const CAreaOctTree* x4_octTree;
+    const rstl::auto_ptr< rstl::vector< TCachedToken< CTexture >, rstl::rmemory_allocator > >
+        x8_textures;
+    const rstl::auto_ptr< rstl::vector< rstl::auto_ptr< CCubeModel >, rstl::rmemory_allocator > >
+        xc_models;
+    int x18_areaIdx;
+    rstl::vector< uint > x1c_lightOctreeWords;
+  };
+  class CFogVolumeListItem {
+    CTransform4f x0_xf;
+    CColor x30_color;
+    CAABox x34_aabb;
+    rstl::optional_object< TCachedToken< CModel > > x4c_model;
+    const CSkinnedModel* x5c_skinnedModel;
+  };
+
 public:
+  CCubeRenderer(IObjectStore&, COsContext&, CMemorySys&, CResFactory&);
   ~CCubeRenderer() override;
   // TODO types
   void AddStaticGeometry() override;
@@ -92,9 +141,43 @@ public:
   void Something() override;
   void PrepareDynamicLights(const rstl::vector< CLight >& lights) override;
 
-  void AllocatePhazonSuitMaskTexture();
-
-  uchar x8_pad[0x310];
+private:
+  CResFactory& x8_factory;
+  IObjectStore& xc_objStore;
+  CFont x10_font;
+  int x18_primVertCount;
+  rstl::list< CAreaListItem > x1c_areaListItems;
+  int x34_unk1;
+  int x38_unk2;
+  int x3c_unk3;
+  int x40_unk4;
+  CFrustumPlanes x44_frustumPlanes;
+  TDrawableCallback xa8_drawableCallback;
+  void* xac_drawableCallbackUserData;
+  CPlane xb0_viewPlane;
+  uchar xc0_pvsMode;
+  int xc4_unk5;
+  rstl::optional_object< CPVSVisSet > xc8_pvsVisSet;
+  int xe0_pvsAreaIdx;
+  CTexture xe4_blackTex;
+  rstl::single_ptr< CTexture > x14c_reflectionTex;
+  CTexture x150_reflectionTex;
+  CTexture x1b8_fogVolumeRamp;
+  CTexture x220_sphereRamp;
+  CGraphicsPalette x288_thermalPalette;
+  CRandom16 x2a8_thermalRand;
+  rstl::list< CFogVolumeListItem > x2ac_fogVolumes;
+  rstl::list< rstl::pair< CVector3f, float > > x2c4_spaceWarps;
+  int x2dc_reflectionAge;
+  CColor x2e0_primColor;
+  CVector3f x2e4_primNormal;
+  float x2f0_thermalVisorLevel;
+  CColor x2f4_thermalColor;
+  uchar x2f8_thermalColdScale;
+  CColor x2fc_tevReg1Color;
+  rstl::vector< CLight > x300_dynamicLights;
+  int x310_phazonSuitMaskCountdown;
+  rstl::single_ptr< CTexture > x314_phazonSuitMask;
   bool x318_24_reflectionDirty : 1;
   bool x318_25_drawWireframe : 1;
   bool x318_26_requestRGBA6 : 1;
@@ -103,7 +186,16 @@ public:
   bool x318_29_thermalVisor : 1;
   bool x318_30_inAreaDraw : 1;
   bool x318_31_persistRGBA6 : 1;
+
+  void AllocatePhazonSuitMaskTexture();
+  void GenerateReflectionTex();
+  void GenerateFogVolumeRampTex();
+  void GenerateSphereRampTex();
+  void LoadThermoPalette();
+
+  static CCubeRenderer* sRenderer;
 };
+CHECK_SIZEOF(CCubeRenderer, 0x31C);
 
 extern CCubeRenderer* gpRender;
 

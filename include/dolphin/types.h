@@ -99,4 +99,12 @@ typedef int BOOL;
 #endif
 #endif
 
+#if (defined(__cplusplus) && __cplusplus >= 201103L) || defined(__clang__)
+// Use C++11 auto keyword
+#define AUTO(name, val) auto name = val
+#else
+// Use __typeof__ extension
+#define AUTO(name, val) __typeof__(val) name = val
+#endif
+
 #endif // _DOLPHIN_TYPES
