@@ -22,13 +22,14 @@ class CRipple {
   uint x3c_;
 
 public:
-  CRipple(TUniqueId id, const CVector3f& center, float intensity);
-  
+  CRipple(TUniqueId id = kInvalidUniqueId, const CVector3f& center = CVector3f::Zero(),
+          float intensity = 0.f);
+
   TUniqueId GetUniqueId() const { return x0_id; }
-  
+
   float GetTime() const { return x4_time; }
   void SetTime(float t) { x4_time = t; }
-  
+
   float GetTimeFalloff() const { return x14_timeFalloff; }
 
   static float kDefaultScale;

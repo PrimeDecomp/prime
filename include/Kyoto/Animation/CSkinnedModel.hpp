@@ -15,12 +15,12 @@ class CSkinnedModel {
 public:
   virtual ~CSkinnedModel();
 
-  static void ClearPointGeneratorFunc();
-
   TLockedToken< CModel >& Model() { return x4_model; }
   const TLockedToken< CModel >& GetModel() const { return x4_model; }
 
   static void SetPointGeneratorFunc(void*, void (*)(void*, const CVector3f*, const CVector3f*, int));
+  static void ClearPointGeneratorFunc();
+  static void RemoveDummySkinnedModelRef();
 
 private:
   TLockedToken< CModel > x4_model;

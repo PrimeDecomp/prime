@@ -53,7 +53,7 @@ public:
   ~reserved_vector() { clear(); }
 
   void push_back(const T& in) {
-    construct(&data()[x0_count], in);
+    construct(data() + x0_count, in);
     ++x0_count;
   }
 
@@ -69,10 +69,12 @@ public:
   inline int capacity() const { return N; }
   inline T& front() { return data()[0]; }
   inline const T& front() const { return data()[0]; }
-  inline T& back() { return data()[x0_count - 1]; }
-  inline const T& back() const { return data()[x0_count - 1]; }
+  inline T& back() { return at(x0_count - 1); }
+  inline const T& back() const { return at(x0_count - 1); }
   inline T& operator[](int idx) { return data()[idx]; }
   inline const T& operator[](int idx) const { return data()[idx]; }
+  inline T& at(int idx) { return data()[idx]; }
+  inline const T& at(int idx) const { return data()[idx]; }
   iterator erase(iterator it) {
     if (it >= begin() && it < end()) {
       for (iterator j = it; j < end() - 1; ++j) {
@@ -84,7 +86,7 @@ public:
     return end();
   }
 
-  void resize(int count, const T& item) {
+  void resize(int count, const T& item = T()) {
     if (size() < count) {
       uninitialized_fill_n(end(), count - size(), item);
       x0_count = count;

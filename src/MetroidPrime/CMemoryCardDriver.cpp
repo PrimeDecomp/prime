@@ -671,7 +671,7 @@ void CMemoryCardDriver::InitializeFileInfo() {
   // CMemoryStreamOut w(fileInfo.BeginMemoryOut(3004));
 
   rstl::vector< u8 >& saveBuffer = fileInfo.SaveBuffer();
-  saveBuffer.resize(3004, '\x00');
+  saveBuffer.resize(3004);
   CMemoryStreamOut w(saveBuffer.data(), 3004);
 
   SSaveHeader header(0);

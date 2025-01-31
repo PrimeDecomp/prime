@@ -159,7 +159,7 @@ list< T, Alloc >::~list() {
     node* it = cur;
     node* next = cur->get_next();
     cur = next;
-    destroy(it);
+    destroy(it->get_value());
     x0_allocator.deallocate(it);
   }
 }

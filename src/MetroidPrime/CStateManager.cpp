@@ -172,7 +172,7 @@ CStateManager::CStateManager(const rstl::ncrc_ptr< CScriptMailbox >& mailbox,
   gpRender->SetDrawableCallback(RendererDrawCallback, this);
   CMemory::SetOutOfMemoryCallback(MemoryAllocatorAllocationFailedCallback, this);
 
-  x90c_loaderFuncs.resize(x90c_loaderFuncs.capacity(), nullptr);
+  x90c_loaderFuncs.resize(x90c_loaderFuncs.capacity());
   x90c_loaderFuncs[kST_Trigger] = ScriptLoader::LoadTrigger;
   x90c_loaderFuncs[kST_DamageableTrigger] = ScriptLoader::LoadDamageableTrigger;
   x90c_loaderFuncs[kST_Actor] = ScriptLoader::LoadActor;

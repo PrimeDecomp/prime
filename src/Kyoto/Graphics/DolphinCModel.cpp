@@ -67,8 +67,7 @@ CModel::CModel(const rstl::auto_ptr< uchar >& data, int length, IObjectStore& st
   x8_surfaces.reserve(surfaceCount);
 
   for (int i = 0; i < surfaceCount; ++i) {
-    x8_surfaces.push_back(
-        reinterpret_cast< CCubeSurface* >(MemoryFromPartData(&dataCur, &secSizeCur)));
+    x8_surfaces.push_back(MemoryFromPartData(&dataCur, &secSizeCur));
   }
 
   SShader& shader = x18_matSets.front();

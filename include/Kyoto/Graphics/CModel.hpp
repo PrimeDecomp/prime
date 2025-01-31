@@ -37,7 +37,7 @@ public:
 private:
   rstl::auto_ptr< uchar > x0_data;
   uint x4_dataLen;
-  rstl::vector< CCubeSurface* > x8_surfaces;
+  rstl::vector< void* > x8_surfaces;
   rstl::vector<SShader> x18_matSets;
   rstl::single_ptr<CCubeModel> x28_modelInstance;
   ushort x2c_currentMatxIdx;

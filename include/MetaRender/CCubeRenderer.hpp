@@ -11,7 +11,6 @@
 #include "Kyoto/CResFactory.hpp"
 #include "Kyoto/Graphics/CColor.hpp"
 #include "Kyoto/Graphics/CGraphicsPalette.hpp"
-#include "Kyoto/Graphics/CLight.hpp"
 #include "Kyoto/Graphics/CTexture.hpp"
 #include "Kyoto/IObjectStore.hpp"
 #include "Kyoto/Math/CAABox.hpp"
@@ -20,6 +19,7 @@
 #include "Kyoto/Math/CVector2f.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
 #include "Kyoto/PVS/CPVSVisSet.hpp"
+#include "Kyoto/TOneStatic.hpp"
 #include "Kyoto/TToken.hpp"
 #include "Kyoto/Text/CFont.hpp"
 
@@ -38,29 +38,29 @@ class CCubeModel;
 class CMetroidModelInstance;
 class CModel;
 class CSkinnedModel;
+class CCubeSurface;
+class CLight;
 
-class CCubeRenderer : public IRenderer, public IWeaponRenderer {
+class CCubeRenderer : public IRenderer, public IWeaponRenderer, public TOneStatic< CCubeRenderer > {
 private:
   class CAreaListItem {
-    CAreaListItem(
-        const rstl::vector< CMetroidModelInstance, rstl::rmemory_allocator >* geometry,
-        const CAreaOctTree* octTree,
-        const rstl::auto_ptr< rstl::vector< TCachedToken< CTexture >, rstl::rmemory_allocator > >&
-            textures,
-        const rstl::auto_ptr<
-            rstl::vector< rstl::auto_ptr< CCubeModel >, rstl::rmemory_allocator > >& models,
-        int areaIdx);
+  public:
+    CAreaListItem(const rstl::vector< CMetroidModelInstance >* geometry,
+                  const CAreaOctTree* octTree,
+                  const rstl::auto_ptr< rstl::vector< TCachedToken< CTexture > > >& textures,
+                  const rstl::auto_ptr< rstl::vector< rstl::auto_ptr< CCubeModel > > >& models,
+                  int areaIdx);
+    ~CAreaListItem() {}
 
-  private:
-    const rstl::vector< CMetroidModelInstance, rstl::rmemory_allocator >* x0_geometry;
+    // private:
+    const rstl::vector< CMetroidModelInstance >* x0_geometry;
     const CAreaOctTree* x4_octTree;
-    const rstl::auto_ptr< rstl::vector< TCachedToken< CTexture >, rstl::rmemory_allocator > >
-        x8_textures;
-    const rstl::auto_ptr< rstl::vector< rstl::auto_ptr< CCubeModel >, rstl::rmemory_allocator > >
-        xc_models;
+    const rstl::auto_ptr< rstl::vector< TCachedToken< CTexture > > > x8_textures;
+    const rstl::auto_ptr< rstl::vector< rstl::auto_ptr< CCubeModel > > > xc_models;
     int x18_areaIdx;
     rstl::vector< uint > x1c_lightOctreeWords;
   };
+
   class CFogVolumeListItem {
     CTransform4f x0_xf;
     CColor x30_color;
@@ -72,11 +72,11 @@ private:
 public:
   CCubeRenderer(IObjectStore&, COsContext&, CMemorySys&, CResFactory&);
   ~CCubeRenderer() override;
-  // TODO types
-  void AddStaticGeometry() override;
+  void AddStaticGeometry(const rstl::vector< CMetroidModelInstance >* geometry,
+                         const CAreaOctTree* octTree, int areaIdx) override;
   void EnablePVS(const CPVSVisSet& set, int areaIdx) override;
   void DisablePVS() override;
-  void RemoveStaticGeometry() override;
+  void RemoveStaticGeometry(const rstl::vector< CMetroidModelInstance >* geometry) override;
   void DrawUnsortedGeometry(int areaIdx, int mask, int targetMask) override;
   void DrawSortedGeometry(int areaIdx, int mask, int targetMask) override;
   void DrawStaticGeometry(int areaIdx, int mask, int targetMask) override;
@@ -88,10 +88,10 @@ public:
   void AddPlaneObject() override;
   void AddDrawable(const void* obj, const CVector3f& pos, const CAABox& bounds, int mode,
                    IRenderer::EDrawableSorting sorting) override;
-  void SetDrawableCallback(TDrawableCallback cb, void* ctx) override;
-  void SetWorldViewpoint() override;
-  void SetPerspective1(float, float, float, float, float) override;
-  void SetPerspective2() override;
+  void SetDrawableCallback(TDrawableCallback cb, const void* ctx) override;
+  void SetWorldViewpoint(const CTransform4f& xf) override;
+  void SetPerspective(float, float, float, float, float) override;
+  void SetPerspective(float, float, float, float) override;
   rstl::pair< CVector2f, CVector2f > SetViewportOrtho(bool centered, float znear,
                                                       float zfar) override;
   void SetClippingPlanes(const CFrustumPlanes&) override;
@@ -105,10 +105,10 @@ public:
   void SetBlendMode_InvertSrc() override;
   void SetBlendMode_Replace() override;
   void SetBlendMode_AdditiveDestColor() override;
-  void SetDebugOption() override;
+  void SetDebugOption(IRenderer::EDebugOption option, int value) override;
   void BeginScene() override;
   void EndScene() override;
-  void BeginPrimitive(GXPrimitive prim, int count) override;
+  void BeginPrimitive(IRenderer::EPrimitiveType prim, int count) override;
   void BeginLines(int nverts) override;
   void BeginLineStrip(int nverts) override;
   void BeginTriangles(int nverts) override;
@@ -121,7 +121,7 @@ public:
   void EndPrimitive() override;
   void SetAmbientColor(const CColor& color) override;
   void DrawString() override;
-  void GetFPS() override;
+  float GetFPS() override;
   void CacheReflection() override;
   void DrawSpaceWarp() override;
   void DrawThermalModel() override;
@@ -144,6 +144,7 @@ public:
   void AllocatePhazonSuitMaskTexture();
 
   void SetRequestRGBA6(bool req) { x318_26_requestRGBA6 = req; }
+  CTexture* GetRealReflection();
 
 private:
   CResFactory& x8_factory;
@@ -151,16 +152,13 @@ private:
   CFont x10_font;
   int x18_primVertCount;
   rstl::list< CAreaListItem > x1c_areaListItems;
-  int x34_unk1;
-  int x38_unk2;
-  int x3c_unk3;
-  int x40_unk4;
+  rstl::vector< CCubeSurface > x34_surfaces;
   CFrustumPlanes x44_frustumPlanes;
   TDrawableCallback xa8_drawableCallback;
-  void* xac_drawableCallbackUserData;
+  const void* xac_drawableCallbackUserData;
   CPlane xb0_viewPlane;
-  uchar xc0_pvsMode;
-  int xc4_unk5;
+  uchar xc0_pvsMode; // bool?
+  int xc4_pvsState;
   rstl::optional_object< CPVSVisSet > xc8_pvsVisSet;
   int xe0_pvsAreaIdx;
   CTexture xe4_blackTex;
@@ -195,6 +193,9 @@ private:
   void GenerateFogVolumeRampTex();
   void GenerateSphereRampTex();
   void LoadThermoPalette();
+
+  rstl::list< CCubeRenderer::CAreaListItem >::iterator
+  FindStaticGeometry(const rstl::vector< CMetroidModelInstance >* geometry);
 
   static CCubeRenderer* sRenderer;
 };

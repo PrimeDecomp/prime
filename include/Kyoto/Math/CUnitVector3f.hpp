@@ -16,8 +16,12 @@ public:
       Normalize();
     }
   }
-  CUnitVector3f(
-      const CVector3f& vec);//: CVector3f(vec.IsNonZero() ? vec.AsNormalized() : Zero()) {}
+  CUnitVector3f(const CVector3f& vec, ENormalize normalize) : CVector3f(vec) {
+    if (normalize == kN_Yes) {
+      Normalize();
+    }
+  }
+  CUnitVector3f(const CVector3f& vec); // real? see CPlane::CPlane
   // TODO
 
   static CUnitVector3f Forward() {

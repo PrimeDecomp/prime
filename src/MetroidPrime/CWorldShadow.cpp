@@ -64,17 +64,11 @@ void CWorldShadow::BuildLightShadowTexture(const CStateManager& mgr, TAreaId aid
         x68_objPos = centerPoint;
         x74_lightPos = light.GetPosition();
         CGraphics::SetViewPointMatrix(x4_view);
-        CFrustumPlanes frumtum(
-          x4_view,
-          fov * 0.01745329238474369,
-          1.0f,
-          0.1f,
-          true,
-          distance + x64_objHalfExtent
-        );
+        CFrustumPlanes frumtum(x4_view, fov * 0.01745329238474369, 1.0f, 0.1f, true,
+                               distance + x64_objHalfExtent);
         gpRender->SetClippingPlanes(frumtum);
-        gpRender->SetPerspective1(fov, x0_texture->GetWidth(), x0_texture->GetHeight(), 0.1f,
-                                  1000.f);
+        gpRender->SetPerspective(fov, x0_texture->GetWidth(), x0_texture->GetHeight(), 0.1f,
+                                 1000.f);
         float backupDepthNear = CGraphics::GetDepthNear();
         float backupDepthFar = CGraphics::GetDepthFar();
         CGraphics::SetDepthRange(0.f, 1.0f);
@@ -130,10 +124,8 @@ void CWorldShadow::BuildLightShadowTexture(const CStateManager& mgr, TAreaId aid
 
         if (motionBlur && x88_blurReset != true) {
           CGraphics::SetDepthWriteMode(false, kE_LEqual, false);
-          CGraphics::SetBlendMode(kBM_Blend, kBF_SrcAlpha,
-                                  kBF_InvSrcAlpha, kLO_Clear);
-          CGraphics::SetAlphaCompare(kAF_Always, 0, kAO_And,
-                                     kAF_Always, 0);
+          CGraphics::SetBlendMode(kBM_Blend, kBF_SrcAlpha, kBF_InvSrcAlpha, kLO_Clear);
+          CGraphics::SetAlphaCompare(kAF_Always, 0, kAO_And, kAF_Always, 0);
           CGraphics::SetTevOp(kTS_Stage0, CGraphics::kEnvModulate);
           CGraphics::SetTevOp(kTS_Stage1, CGraphics::kEnvPassthru);
           CGraphics::Render2D(*x0_texture, 0, x0_texture->GetWidth() * 2,
@@ -144,14 +136,15 @@ void CWorldShadow::BuildLightShadowTexture(const CStateManager& mgr, TAreaId aid
 
         x88_blurReset = false;
 
-        GXSetTexCopySrc(0, 448 - x0_texture->GetHeight() * 2, x0_texture->GetWidth() * 2, x0_texture->GetHeight() * 2);
+        GXSetTexCopySrc(0, 448 - x0_texture->GetHeight() * 2, x0_texture->GetWidth() * 2,
+                        x0_texture->GetHeight() * 2);
         GXTexFmt fmt = GX_TF_RGBA8;
         if (x0_texture->GetTexelFormat() == 0x7) {
           fmt = GX_TF_RGB565;
         }
         GXSetTexCopyDst(x0_texture->GetWidth(), x0_texture->GetHeight(), fmt, true);
         static int unkInt = 0;
-        void * dest = x0_texture->Lock();
+        void* dest = x0_texture->Lock();
         GXCopyTex(dest, true);
         x0_texture->UnLock();
 

@@ -67,7 +67,7 @@ public:
   }
 
   void reserve(int size);
-  void resize(int size, const T& in);
+  void resize(int size, const T& in = T());
   iterator insert(iterator it, const T& value);
 
   template < typename from_iterator >

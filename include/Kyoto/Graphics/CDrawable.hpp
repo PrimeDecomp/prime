@@ -17,7 +17,7 @@ enum EDrawableType {
 
 class CDrawable {
 public:
-  CDrawable(EDrawableType dtype, ushort extraSort, float planeDot, const CAABox& aabb, void* data)
+  CDrawable(ushort dtype, ushort extraSort, float planeDot, const CAABox& aabb, void* data)
   : x0_type(dtype), x2_extraSort(extraSort), x4_data(data), x8_aabb(aabb), x20_viewDist(planeDot) {}
   // CDrawable(const CDrawable& other)
   // : x0_type(other.x0_type)

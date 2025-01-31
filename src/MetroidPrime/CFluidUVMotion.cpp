@@ -4,7 +4,7 @@
 
 CFluidUVMotion::CFluidUVMotion(float timeToWrap, float orientation)
 : x0_fluidLayers(), x4c_ooTimeToWrap(1.f / timeToWrap), x50_orientation(orientation) {
-  x0_fluidLayers.resize(kFM_NumLayers, SFluidLayerMotion());
+  x0_fluidLayers.resize(kFM_NumLayers);
   x0_fluidLayers[0] = SFluidLayerMotion(CFluidUVMotion::kFM_Linear, 1000.f);
   x0_fluidLayers[1] = SFluidLayerMotion(CFluidUVMotion::kFM_Linear, 3.f);
   x0_fluidLayers[2] = SFluidLayerMotion(CFluidUVMotion::kFM_Linear, 5.f, CMath::Deg2Rad(45.f));
@@ -15,7 +15,7 @@ CFluidUVMotion::CFluidUVMotion(float timeToWrap, float orientation,
                                const SFluidLayerMotion& pattern1Layer,
                                const SFluidLayerMotion& pattern2Layer)
 : x0_fluidLayers(), x4c_ooTimeToWrap(1.f / timeToWrap), x50_orientation(orientation) {
-  x0_fluidLayers.resize(kFM_NumLayers, SFluidLayerMotion());
+  x0_fluidLayers.resize(kFM_NumLayers);
   x0_fluidLayers[0] = colorLayer;
   x0_fluidLayers[1] = pattern1Layer;
   x0_fluidLayers[2] = pattern2Layer;

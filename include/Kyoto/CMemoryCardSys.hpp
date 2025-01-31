@@ -72,7 +72,7 @@ public:
     rstl::vector<u8>& SaveBuffer() { return xf4_saveBuffer; }
 
     inline CMemoryStreamOut BeginMemoryOut(uint sz) {
-      xf4_saveBuffer.resize(sz, '\x00');
+      xf4_saveBuffer.resize(sz);
       return CMemoryStreamOut(xf4_saveBuffer.data(), sz);
     }
   };

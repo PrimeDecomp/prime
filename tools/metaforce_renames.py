@@ -105,6 +105,9 @@ _LITERAL_REPLACEMENTS = [
   ("EPhazonType::", "kPT_"),
   ("EChain::", "kC_"),
   ("EPhase::", "kP_"),
+  ("ERglBlendMode::", "kBM_"),
+  ("ERglBlendFactor::", "kBF_"),
+  ("ERglLogicOp::", "kLO_"),
 
   # CActor
   ("x34_transform.origin", "GetTranslation()"),

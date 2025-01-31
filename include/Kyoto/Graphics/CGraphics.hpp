@@ -221,6 +221,7 @@ public:
     bool x0_persp;
     float x4_left;
     float x8_right;
+    // TODO: I think top/bottom are flipped
     float xc_top;
     float x10_bottom;
     float x14_near;

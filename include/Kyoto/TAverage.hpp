@@ -20,7 +20,7 @@ template < typename T >
 class TAverage : rstl::vector< T > {
 public:
   TAverage() {}
-  TAverage(int capacity, const T& value);
+  TAverage(int capacity, const T& value = T());
 
   void AddValue(const T& value);
   rstl::optional_object< T > GetAverage() const {

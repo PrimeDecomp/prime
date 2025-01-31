@@ -10,14 +10,14 @@ CRippleManager::CRippleManager(int maxRipples, float alpha)
 }
 
 void CRippleManager::Init(int maxRipples) {
-  x4_ripples.resize(maxRipples, CRipple(kInvalidUniqueId, CVector3f::Zero(), 0.f));
-  for (rstl::vector< CRipple >::iterator it = x4_ripples.begin(); it != x4_ripples.end(); ++it) {
+  x4_ripples.resize(maxRipples);
+  for (AUTO(it, x4_ripples.begin()); it != x4_ripples.end(); ++it) {
     it->SetTime(9999.f);
   }
 }
 
 void CRippleManager::Update(float dt) {
-  for (rstl::vector< CRipple >::iterator it = x4_ripples.begin(); it != x4_ripples.end(); ++it) {
+  for (AUTO(it, x4_ripples.begin()); it != x4_ripples.end(); ++it) {
     it->SetTime(it->GetTime() + dt);
     if (it->GetTime() < 9999.f) {
       it->SetTime(9999.f);
@@ -28,8 +28,7 @@ void CRippleManager::Update(float dt) {
 float CRippleManager::GetLastRippleDeltaTime(TUniqueId rippler) const {
   float res = 9999.f;
 
-  for (rstl::vector< CRipple >::const_iterator it = x4_ripples.begin(); it != x4_ripples.end();
-       ++it) {
+  for (AUTO(it, x4_ripples.begin()); it != x4_ripples.end(); ++it) {
     if (rippler == it->GetUniqueId()) {
       if (res > it->GetTime()) {
         res = it->GetTime();
@@ -44,7 +43,7 @@ void CRippleManager::AddRipple(const CRipple& ripple) {
   float maxTime = 0.f;
   rstl::vector< CRipple >::iterator oldestRipple = x4_ripples.end();
 
-  for (rstl::vector< CRipple >::iterator it = x4_ripples.begin(); it != x4_ripples.end(); ++it) {
+  for (AUTO(it, x4_ripples.begin()); it != x4_ripples.end(); ++it) {
     if (it->GetTime() == 9999.0f) {
       oldestRipple = it;
       break;

@@ -20,7 +20,7 @@ enum ESteeringBlendMode {
 class CBodyStateCmd {
 public:
   CBodyStateCmd(EBodyStateCmd cmd) : x4_cmd(cmd) {}
-  virtual ~CBodyStateCmd(){};
+  virtual ~CBodyStateCmd() {};
 
   EBodyStateCmd GetCommandId() const { return x4_cmd; }
 
@@ -342,7 +342,10 @@ private:
 class CBCCoverCmd : public CBodyStateCmd {
 public:
   CBCCoverCmd(pas::ECoverDirection dir, const CVector3f& v1, const CVector3f& v2)
-  : CBodyStateCmd(kBSC_Cover), x8_dir(dir), xc_targetPos(v1), x18_alignDir(v2) {}
+  : CBodyStateCmd(kBSC_Cover)
+  , x8_dir(dir)
+  , xc_targetPos(v1)
+  , x18_alignDir(v2, CUnitVector3f::kN_No /* ? */) {}
 
   pas::ECoverDirection GetDirection() const { return x8_dir; }
   const CVector3f& GetTarget() const { return xc_targetPos; }

@@ -12,11 +12,13 @@
 
 #include "rstl/math.hpp"
 
-
 CGameCubeDoll::CGameCubeDoll()
 : x0_model(gpSimplePool->GetObj("CMDL_GameCube"))
-, x8_lights(1, CLight::BuildDirectional(CVector3f::Forward(), CColor(0xFFFFFFFF)), rstl::rmemory_allocator())
-, x18_actorLights(rs_new CActorLights(8, CVector3f::Zero(), 4, 4, CActorLights::kDefaultPositionUpdateThreshold, false, false, false))
+, x8_lights(1, CLight::BuildDirectional(CVector3f::Forward(), CColor(0xFFFFFFFF)),
+            rstl::rmemory_allocator())
+, x18_actorLights(rs_new CActorLights(8, CVector3f::Zero(), 4, 4,
+                                      CActorLights::kDefaultPositionUpdateThreshold, false, false,
+                                      false))
 , x1c_fader(0.0f)
 , x20_24_loaded(false) {
   x0_model.Lock();
@@ -58,7 +60,7 @@ extern float energyball_lbl_805A85E8;
 void CGameCubeDoll::Update(float dt) {
   if (!CheckLoadComplete())
     return;
-  x1c_fader = rstl::min_val(energyball_lbl_805A85E8,  (dt * 2.f)  + x1c_fader);
+  x1c_fader = rstl::min_val(energyball_lbl_805A85E8, (dt * 2.f) + x1c_fader);
   UpdateActorLights();
 }
 
@@ -68,8 +70,8 @@ void CGameCubeDoll::Draw(float alpha) {
 
   float alphaFader = alpha * x1c_fader;
 
-  gpRender->SetPerspective1(55.f, CGraphics::GetViewport().mWidth, CGraphics::GetViewport().mHeight,
-                            0.2f, 4096.f);
+  gpRender->SetPerspective(55.f, CGraphics::GetViewport().mWidth, CGraphics::GetViewport().mHeight,
+                           0.2f, 4096.f);
 
   CGraphics::SetViewPointMatrix(CTransform4f::Translate(0.f, -2.f, 0.f));
   x18_actorLights->ActivateLights();
