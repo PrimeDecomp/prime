@@ -7,12 +7,12 @@
 
 // TODO
 enum EDrawableType {
-  WorldSurface,
-  Particle,
-  Actor,
-  SimpleShadow,
-  Decal,
-  Invalid = 0xFFFF,
+  kDT_WorldSurface,
+  kDT_Particle,
+  kDT_Actor,
+  kDT_SimpleShadow,
+  kDT_Decal,
+  kDT_Invalid = 0xFFFF,
 };
 
 class CDrawable {

@@ -20,6 +20,7 @@ class CMetroidModelInstance;
 class CModel;
 class COsContext;
 class CParticleGen;
+class CPlane;
 class CPVSVisSet;
 class CResFactory;
 class CSkinnedModel;
@@ -70,7 +71,7 @@ public:
   virtual void SetModelMatrix(const CTransform4f& xf);
   virtual void AddParticleGen(const CParticleGen& gen);
   virtual void AddParticleGen(const CParticleGen& gen, const CVector3f&, const CAABox&);
-  virtual void AddPlaneObject();
+  virtual void AddPlaneObject(const void* obj, const CAABox& aabb, const CPlane& plane, int type);
   virtual void AddDrawable(const void* obj, const CVector3f& pos, const CAABox& bounds, int mode,
                            IRenderer::EDrawableSorting sorting);
   virtual void SetDrawableCallback(TDrawableCallback cb, const void* ctx);

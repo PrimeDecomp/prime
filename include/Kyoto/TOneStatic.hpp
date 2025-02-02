@@ -7,6 +7,10 @@
 template < typename T >
 class TOneStatic {
 public:
+#ifndef __MWERKS__
+  // For clangd
+  void* operator new(size_t sz);
+#endif
   void* operator new(size_t sz, const char*, const char*);
   void operator delete(void* ptr);
 

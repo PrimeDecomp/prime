@@ -71,7 +71,7 @@ public:
   void Load(GXTexMapID texMapId, EClampMode clampMode) const;
   bool HasPalette() const { return IsCITextureFormat(mTexelFormat); }
   const void* GetConstBitMapData(const int mip) const;
-  void* GetBitMapData(int);  
+  void* GetBitMapData(int);
   ETexelFormat GetTexelFormat() const { return mTexelFormat; }
   const short GetWidth() const { return mWidth; }
   const short GetHeight() const { return mHeight; }
@@ -96,6 +96,8 @@ public:
   void InitBitmapBuffers(const ETexelFormat fmt, const short w, const short h, const int mips);
   void InitTextureObjects();
   void UnLock();
+  CGraphicsPalette* GetPalette() { return mGraphicsPalette.get(); }
+  const CGraphicsPalette* GetPalette() const { return mGraphicsPalette.get(); }
 
   static void InvalidateTexmap(GXTexMapID id);
   static bool IsCITextureFormat(ETexelFormat fmt) {

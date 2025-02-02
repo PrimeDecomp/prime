@@ -353,7 +353,7 @@ public:
   static void SetModelMatrix(const CTransform4f& xf);
   static void SetAlphaCompare(ERglAlphaFunc comp0, uchar ref0, ERglAlphaOp op, ERglAlphaFunc comp1,
                               uchar ref1);
-  static void SetDepthWriteMode(bool test, ERglEnum comp, bool write);
+  static void SetDepthWriteMode(const bool test, ERglEnum comp, const bool write);
   static void SetBlendMode(ERglBlendMode mode, ERglBlendFactor src, ERglBlendFactor dst,
                            ERglLogicOp op);
   static void SetCullMode(ERglCullMode cullMode);

@@ -2,6 +2,7 @@
 
 #include "Kyoto/Animation/CSkinnedModel.hpp"
 #include "Kyoto/Graphics/CColor.hpp"
+#include "Kyoto/Graphics/CCubeMaterial.hpp"
 #include "Kyoto/Graphics/CCubeModel.hpp"
 #include "Kyoto/Graphics/CCubeSurface.hpp"
 #include "Kyoto/Graphics/CDrawable.hpp"
@@ -13,21 +14,27 @@
 #include "Kyoto/Graphics/CModelFlags.hpp"
 #include "Kyoto/Graphics/CTexture.hpp"
 #include "Kyoto/IObjectStore.hpp"
+#include "Kyoto/Math/CAABox.hpp"
 #include "Kyoto/Math/CFrustumPlanes.hpp"
 #include "Kyoto/Math/CPlane.hpp"
 #include "Kyoto/Math/CTransform4f.hpp"
 #include "Kyoto/Math/CUnitVector3f.hpp"
 #include "Kyoto/Math/CVector2f.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
+#include "Kyoto/Particles/CParticleGen.hpp"
+#include "Kyoto/TToken.hpp"
 #include "MetaRender/IRenderer.hpp"
 #include "Weapons/IWeaponRenderer.hpp"
 #include "WorldFormat/CMetroidModelInstance.hpp"
 #include "dolphin/gx/GXEnum.h"
 #include "dolphin/gx/GXGeometry.h"
+#include "dolphin/gx/GXStruct.h"
 #include "dolphin/gx/GXVert.h"
 #include "dolphin/types.h"
 #include "rstl/auto_ptr.hpp"
+#include "rstl/construct.hpp"
 #include "rstl/math.hpp"
+#include "rstl/optional_object.hpp"
 #include "rstl/pair.hpp"
 #include "rstl/reserved_vector.hpp"
 #include "rstl/vector.hpp"
@@ -72,7 +79,7 @@ void Shutdown() {
 }
 
 // TODO non-matching
-void Insert(const CVector3f& pos, const CAABox& aabb, ushort dtype, const void* data,
+void Insert(const CVector3f& pos, const CAABox& aabb, EDrawableType dtype, const void* data,
             const CPlane& plane, ushort extraSort) {
   if (sData->size() == sData->capacity()) {
     return;
@@ -190,11 +197,43 @@ void CCubeRenderer::GenerateFogVolumeRampTex() {
 }
 
 void CCubeRenderer::GenerateSphereRampTex() {
-  // TODO
+  const int height = 32;
+  const int width = 32;
+  const float halfRes = (height - 1) / 2.f;
+
+  uchar* data = static_cast< uchar* >(x220_sphereRamp.Lock());
+  for (int y = 0; y < height; ++y) {
+    int start = y * width;
+    for (int x = 0; x < width; ++x) {
+      // I8 block is 8x4 (WxH)
+      // Convert swizzled coords to linear
+      float fx = static_cast< float >(((y % 4) << 3) + (x & 7));
+      float fy = static_cast< float >(((y / 4) << 2) + (x >> 3));
+      fx = (fx / halfRes) - 1.f;
+      fy = (fy / halfRes) - 1.f;
+      float mag = CMath::SqrtF(fx * fx + fy * fy);
+      float value = CMath::Clamp(0.f, 1.f - (mag * mag), 1.f);
+      data[start + x] = static_cast< uchar >(value * 255.f);
+    }
+  }
+  x220_sphereRamp.UnLock();
 }
 
 void CCubeRenderer::LoadThermoPalette() {
-  // TODO
+  x288_thermalPalette.Lock();
+  TLockedToken< CTexture > token = xc_objStore.GetObj("TXTR_ThermoPalette");
+  int i = 0;
+  if (const CGraphicsPalette* pal = token->GetPalette()) {
+    while (i < 16) {
+      x288_thermalPalette.GetPaletteData()[i] = pal->GetPaletteData()[i];
+      ++i;
+    }
+  } else {
+    while (i < 16) {
+      x288_thermalPalette.GetPaletteData()[i++] = 0;
+    }
+  }
+  x288_thermalPalette.UnLock();
 }
 
 CCubeRenderer::~CCubeRenderer() {
@@ -305,7 +344,84 @@ void CCubeRenderer::EndScene() {
 }
 
 void CCubeRenderer::AddParticleGen(const CParticleGen& gen) {
-  // TODO
+  AUTO(bounds, gen.GetBounds());
+  if (bounds) {
+    CVector3f closestPoint = bounds->ClosestPointAlongVector(xb0_viewPlane.GetNormal());
+    Buckets::Insert(closestPoint, *bounds, kDT_Particle, static_cast< const void* >(&gen),
+                    xb0_viewPlane, 0);
+  }
+}
+
+void CCubeRenderer::AddParticleGen(const CParticleGen& gen, const CVector3f& pos,
+                                   const CAABox& bounds) {
+  Buckets::Insert(pos, bounds, kDT_Particle, static_cast< const void* >(&gen), xb0_viewPlane, 0);
+}
+
+void CCubeRenderer::AddPlaneObject(const void* obj, const CAABox& aabb, const CPlane& plane,
+                                   int type) {
+  static const CVector3f sOptimalPlane(0.f, 0.f, 1.f);
+
+  CVector3f closestPoint = aabb.ClosestPointAlongVector(xb0_viewPlane.GetNormal());
+  float closestDist = xb0_viewPlane.GetHeight(closestPoint);
+  CVector3f furthestPoint = aabb.FurthestPointAlongVector(xb0_viewPlane.GetNormal());
+  float furthestDist = xb0_viewPlane.GetHeight(furthestPoint);
+  if (closestDist < 0.f && furthestDist < 0.f) {
+    return;
+  }
+
+  bool zOnly;
+  if (plane.GetNormal() == sOptimalPlane) {
+    zOnly = true;
+  } else {
+    zOnly = false;
+  }
+
+  bool invertTest;
+  if (zOnly) {
+    if (CGraphics::GetViewMatrix().GetTranslation().GetZ() >= plane.GetConstant()) {
+      invertTest = true;
+    } else {
+      invertTest = false;
+    }
+  } else if (plane.GetHeight(CGraphics::GetViewMatrix().GetTranslation()) >= 0.f) {
+    invertTest = true;
+  } else {
+    invertTest = false;
+  }
+
+  Buckets::InsertPlaneObject(closestDist, furthestDist, aabb, invertTest, plane, zOnly,
+                             EDrawableType(type + 2), obj);
+}
+
+void CCubeRenderer::AddDrawable(const void* obj, const CVector3f& pos, const CAABox& aabb, int mode,
+                                IRenderer::EDrawableSorting sorting) {
+  if (sorting == IRenderer::kDS_UnsortedCallback) {
+    xa8_drawableCallback(obj, xac_drawableCallbackUserData, mode);
+  } else {
+    Buckets::Insert(pos, aabb, EDrawableType(mode + 2), obj, xb0_viewPlane, 0);
+  }
+}
+
+void CCubeRenderer::SetupRendererStates(bool depthWrite) {
+  CGraphics::DisableAllLights();
+  CGraphics::SetModelMatrix(CTransform4f::Identity());
+  CGraphics::SetAmbientColor(CColor(0));
+  CGraphics::SetDepthWriteMode(true, kE_LEqual, depthWrite);
+  CCubeMaterial::ResetCachedMaterials();
+  GXSetTevColor(GX_TEVREG1, x2fc_tevReg1Color.GetGXColor());
+}
+
+void CCubeRenderer::SetupCGraphicsStates() {
+  const GXColor sWhite = {255, 255, 255, 255};
+  CGraphics::DisableAllLights();
+  CGraphics::SetModelMatrix(CTransform4f::Identity());
+  CTevCombiners::ResetStates();
+  CGraphics::SetAmbientColor(CColor(0.4f, 0.4f, 0.4f, 1.f));
+  CGX::SetChanMatColor(CGX::Channel0, sWhite);
+  CGraphics::SetDepthWriteMode(true, kE_LEqual, true);
+  CGX::SetChanCtrl(CGX::Channel1, false, GX_SRC_REG, GX_SRC_REG, GX_LIGHT_NULL, GX_DF_NONE,
+                   GX_AF_NONE);
+  CCubeMaterial::EnsureTevsDirect();
 }
 
 namespace Renderer {

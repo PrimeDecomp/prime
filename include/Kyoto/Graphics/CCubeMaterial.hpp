@@ -10,6 +10,9 @@ extern CVector3f sPlayerPosition;
 
 class CCubeMaterial {
 public:
+  static void ResetCachedMaterials();
+  static void EnsureTevsDirect();
+
 private:
   static void SetupBlendMode(uint blendFactors, const CModelFlags& flags, bool alphaTest);
 

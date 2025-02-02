@@ -776,10 +776,9 @@ void CGraphics::EndScene() {
   CFrameDelayedKiller::fn_8036CB90();
 }
 
-void CGraphics::SetDepthWriteMode(bool test, ERglEnum comp, bool write) {
+void CGraphics::SetDepthWriteMode(const bool test, ERglEnum comp, const bool write) {
   mDepthFunc = comp;
-  CGX::SetZMode(static_cast< uchar >(test), static_cast< GXCompare >(comp),
-                static_cast< uchar >(write));
+  CGX::SetZMode(test, static_cast< GXCompare >(comp), write);
 }
 
 void CGraphics::SetCullMode(ERglCullMode cullMode) {

@@ -85,7 +85,7 @@ public:
   void SetModelMatrix(const CTransform4f& xf) override;
   void AddParticleGen(const CParticleGen& gen) override;
   void AddParticleGen(const CParticleGen& gen, const CVector3f&, const CAABox&) override;
-  void AddPlaneObject() override;
+  void AddPlaneObject(const void* obj, const CAABox& aabb, const CPlane& plane, int type) override;
   void AddDrawable(const void* obj, const CVector3f& pos, const CAABox& bounds, int mode,
                    IRenderer::EDrawableSorting sorting) override;
   void SetDrawableCallback(TDrawableCallback cb, const void* ctx) override;
@@ -142,6 +142,8 @@ public:
   void PrepareDynamicLights(const rstl::vector< CLight >& lights) override;
 
   void AllocatePhazonSuitMaskTexture();
+  void SetupRendererStates(bool depthWrite);
+  void SetupCGraphicsStates();
 
   void SetRequestRGBA6(bool req) { x318_26_requestRGBA6 = req; }
   CTexture* GetRealReflection();
