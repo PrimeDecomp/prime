@@ -5,8 +5,8 @@
 
 class CMapWorldInfo {
 public:
-  bool IsAreaVisible(TAreaId areaId) const;
-  bool IsDoorVisited(TEditorId eid) const;
+  bool IsAreaVisible(const TAreaId areaId) const;
+  bool IsDoorVisited(const TEditorId eid) const;
 };
 
 #endif // _CMAPWORLDINFO

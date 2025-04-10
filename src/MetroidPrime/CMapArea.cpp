@@ -1,5 +1,6 @@
 #include "MetroidPrime/CMapArea.hpp"
 
+#include "Kyoto/Basics/CBasics.hpp"
 #include "MetroidPrime/CMappableObject.hpp"
 #include "MetroidPrime/CWorld.hpp"
 #include "MetroidPrime/Tweaks/CTweakAutoMapper.hpp"
@@ -104,7 +105,7 @@ void CMapArea::PostConstruct() {
   }
   float* floatStart = reinterpret_cast< float* >(x3c_vertexStart);
   for (int i = 0; i < x2c_vertexCount * 3; ++i) {
-    floatStart[i] = floatStart[i]; // no-op, stripped out, possible byteswapping?
+    floatStart[i] = CBasics::SwapBytes(floatStart[i]);
   }
   for (int i = 0; i < x30_surfaceCount; ++i) {
     x40_surfaceStart[i].PostConstruct(x44_buf.get());
