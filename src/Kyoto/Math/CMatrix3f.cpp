@@ -41,32 +41,16 @@ CMatrix3f::CMatrix3f(CInputStream& in) {
   m22 = in.ReadFloat();
 }
 
-void CMatrix3f::RotateY(const CRelAngle& angle) {
+CMatrix3f CMatrix3f::RotateY(const CRelAngle& angle) {
   const float dVar1 = sin(angle.AsRadians());
   const float dVar2 = cos(angle.AsRadians());
-  m00 = dVar2;
-  m01 = 0.f;
-  m02 = dVar1;
-  m10 = 0.f;
-  m11 = 1.f;
-  m12 = 0.f;
-  m20 = -dVar1;
-  m21 = 0.f;
-  m22 = dVar2;
+  return CMatrix3f(dVar2, 0.f, dVar1, 0.f, 1.f, 0.f, -dVar1, 0.f, dVar2);
 }
 
-void CMatrix3f::RotateZ(const CRelAngle& angle) {
+CMatrix3f CMatrix3f::RotateZ(const CRelAngle& angle) {
   const float dVar1 = sin(angle.AsRadians());
   const float dVar2 = cos(angle.AsRadians());
-  m00 = dVar2;
-  m01 = -dVar1;
-  m02 = 0.f;
-  m10 = dVar1;
-  m11 = dVar2;
-  m12 = 0.f;
-  m20 = 0.f;
-  m21 = 0.f;
-  m22 = 1.f;
+  return CMatrix3f(dVar2, -dVar1, 0.f, dVar1, dVar2, 0.f, 0.f, 0.f, 1.f);
 }
 
 CMatrix3f CMatrix3f::Orthonormalized() const {

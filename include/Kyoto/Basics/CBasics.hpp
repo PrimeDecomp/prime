@@ -6,13 +6,19 @@
 namespace CBasics {
 bool Init();
 char* Stringize(const char* fmt, ...);
-inline uint SwapBytes(uint x) {
+inline const int SwapBytes(int x) {
 #if 0
   x = ((x << 24) | ((x << 8) & 0x00FF0000) | ((x >> 8) & 0x0000FF00) | (x >> 24));
 #endif
   return x;
 }
-inline float SwapBytes(float x) {
+inline const uint SwapBytes(uint x) {
+#if 0
+  x = ((x << 24) | ((x << 8) & 0x00FF0000) | ((x >> 8) & 0x0000FF00) | (x >> 24));
+#endif
+  return x;
+}
+inline const float SwapBytes(float x) {
   union {
     float f;
     uint u;

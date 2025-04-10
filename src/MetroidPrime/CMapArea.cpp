@@ -1,5 +1,6 @@
 #include "MetroidPrime/CMapArea.hpp"
 
+#include "MetroidPrime/CMappableObject.hpp"
 #include "MetroidPrime/CWorld.hpp"
 #include "MetroidPrime/Tweaks/CTweakAutoMapper.hpp"
 
@@ -8,12 +9,13 @@
 #include "Kyoto/CResFactory.hpp"
 #include "Kyoto/Graphics/CGX.hpp"
 #include "Kyoto/Graphics/CGraphics.hpp"
+#include "Kyoto/Math/CVector3f.hpp"
 #include "Kyoto/Streams/CInputStream.hpp"
-#include "Kyoto/Streams/CMemoryInStream.hpp"
 
-#include "dolphin/os.h"
-#include "limits.h"
-#include "stdint.h"
+#include <dolphin/gx/GXEnum.h>
+#include <dolphin/os.h>
+
+#include <stdint.h>
 
 static const CVector3f MinesPostTransforms[3] = {
     CVector3f(0.f, 0.f, 200.f),
@@ -72,13 +74,13 @@ CMapArea::CMapArea(CInputStream& in, uint size)
 : x0_magic(in.ReadLong())
 , x4_version(in.ReadLong())
 , x8_(in.ReadLong())
-, xc_visibilityMode(EVisMode(in.ReadLong()))
+, xc_visibilityMode(static_cast<EVisMode>(in.ReadLong()))
 , x10_box(in)
 , x28_mappableObjCount(in.ReadLong())
 , x2c_vertexCount(in.ReadLong())
-, x30_surfaceCount(in.ReadLong())
-, x34_size(size - 52) {
-  x44_buf = rs_new u8[x34_size];
+, x30_surfaceCount(in.ReadLong()) {
+  x34_size = size - 52;
+  x44_buf = rs_new uchar[x34_size];
   in.Get(x44_buf.get(), x34_size);
   PostConstruct();
 
@@ -92,16 +94,17 @@ CMapArea::~CMapArea() {
 }
 
 void CMapArea::PostConstruct() {
-  x38_moStart = (CMappableObject*)(x44_buf.get());
-  void* vertexStart = x38_moStart + x28_mappableObjCount;
-  x3c_vertexStart = (CVector3f*)(vertexStart);
-  x40_surfaceStart = (CMapAreaSurface*)((CVector3f*)(vertexStart) + x2c_vertexCount);
+  CMappableObject* moStart = x38_moStart = reinterpret_cast< CMappableObject* >(x44_buf.get());
+  CVector3f* vertexStart = x3c_vertexStart =
+      reinterpret_cast< CVector3f* >(moStart + x28_mappableObjCount);
+  x40_surfaceStart = reinterpret_cast< CMapAreaSurface* >(vertexStart + x2c_vertexCount);
 
   for (int i = 0; i < x28_mappableObjCount; ++i) {
     x38_moStart[i].PostConstruct(x44_buf.get());
   }
+  float* floatStart = reinterpret_cast< float* >(x3c_vertexStart);
   for (int i = 0; i < x2c_vertexCount * 3; ++i) {
-    // Somehow this empty loop generates a lot worse code than it should...
+    floatStart[i] = floatStart[i]; // no-op, stripped out, possible byteswapping?
   }
   for (int i = 0; i < x30_surfaceCount; ++i) {
     x40_surfaceStart[i].PostConstruct(x44_buf.get());
@@ -126,18 +129,24 @@ bool CMapArea::GetIsVisibleToAutoMapper(bool worldVis, bool areaVis) const {
 CVector3f CMapArea::GetAreaCenterPoint() const { return x10_box.GetCenterPoint(); }
 
 void CMapArea::CMapAreaSurface::PostConstruct(const void* buf) {
-  x18_surfOffset = (const int*)((const uchar*)buf + reinterpret_cast< uintptr_t >(x18_surfOffset));
-  x1c_outlineOffset =
-      (const int*)((const uchar*)buf + reinterpret_cast< uintptr_t >(x1c_outlineOffset));
+  x18_surfOffset = reinterpret_cast< const int* >(static_cast< const uchar* >(buf) +
+                                                  reinterpret_cast< uintptr_t >(x18_surfOffset));
+  x1c_outlineOffset = reinterpret_cast< const int* >(
+      static_cast< const uchar* >(buf) + reinterpret_cast< uintptr_t >(x1c_outlineOffset));
 
   int numSurfaces = *x18_surfOffset;
+  const int* surfOffset = x18_surfOffset + 1;
   for (int i = 0; i < numSurfaces; ++i) {
-    // Nothing?
+    int numVertices = *++surfOffset;
+    surfOffset++; // skip primitive type
+    surfOffset += ((numVertices + 3) & ~3) / 4;
   }
 
   int numOutlines = *x1c_outlineOffset;
+  const int* outlineOffset = x1c_outlineOffset + 1;
   for (int i = 0; i < numOutlines; ++i) {
-    // Nothing?
+    int numVertices = *outlineOffset++;
+    outlineOffset += ((numVertices + 3) & ~3) / 4;
   }
 }
 
@@ -159,10 +168,10 @@ void CMapArea::CMapAreaSurface::Draw(const CVector3f* verts, const CColor& surfC
     CGX::SetTevKColor(GX_KCOLOR0, surfColor.GetGXColor());
     const int* surface = &x18_surfOffset[1];
     for (int i = 0; i < numSurfaces; ++i) {
-      GXPrimitive primType = GXPrimitive(*surface++);
+      GXPrimitive primType = static_cast< GXPrimitive >(*surface++);
       int numVertices = *surface++;
-      const u8* data = reinterpret_cast< const u8* >(surface);
-      surface += (numVertices + 3) / 4;
+      const uchar* data = reinterpret_cast< const uchar* >(surface);
+      surface += ((numVertices + 3) & ~3) / 4;
 
       CGX::Begin(primType, GX_VTXFMT0, numVertices);
       for (int v = 0; v < numVertices; ++v) {
@@ -172,20 +181,20 @@ void CMapArea::CMapAreaSurface::Draw(const CVector3f* verts, const CColor& surfC
     }
   }
   if (hasLineAlpha) {
-    bool thickLine = 1.0f < lineWidth;
-    for (int j = 0; j < 1 + !!thickLine; ++j) {
+    bool thickLine = lineWidth > 1.f;
+    for (int j = 0; j < (thickLine ? 1 : 0) + 1; ++j) {
       const int* outline = &x1c_outlineOffset[1];
 
       if (thickLine) {
-        CGraphics::SetLineWidth(lineWidth - j, ERglTexOffset(5));
+        CGraphics::SetLineWidth(lineWidth - j, kTO_One);
       }
       CGX::SetTevKColor(GX_KCOLOR0,
                         lineColor.WithAlphaModulatedBy(thickLine ? 0.5f : 1.0f).GetGXColor());
 
       for (int i = 0; i < numOutlines; ++i) {
         int numVertices = *outline++;
-        const u8* data = reinterpret_cast< const u8* >(outline);
-        outline += (numVertices + 3) / 4;
+        const uchar* data = reinterpret_cast< const uchar* >(outline);
+        outline += ((numVertices + 3) & ~3) / 4;
 
         CGX::Begin(GX_LINESTRIP, GX_VTXFMT0, numVertices);
         for (int v = 0; v < numVertices; ++v) {
@@ -216,21 +225,20 @@ void CMapArea::CMapAreaSurface::SetupGXMaterial() {
   CGX::SetTevKAlphaSel(GX_TEVSTAGE0, GX_TEV_KASEL_K0_A);
 }
 
-CTransform4f CMapArea::GetAreaPostTransform(const CWorld& world, TAreaId aid) {
+CTransform4f CMapArea::GetAreaPostTransform(const IWorld& world, int aid) {
   if (world.IGetWorldAssetId() == 0xB1AC4D65) // Phazon Mines
   {
-    const CTransform4f& areaXf = world.IGetAreaAlways(aid)->IGetTM();
-    const CVector3f& postVec = MinesPostTransforms[MinesPostTransformIndices[aid.value]];
-    return CTransform4f::Translate(postVec) * areaXf;
+    return CTransform4f::Translate(MinesPostTransforms[MinesPostTransformIndices[aid]]) *
+           world.IGetAreaAlways(aid)->IGetTM();
   } else {
     return world.IGetAreaAlways(aid)->IGetTM();
   }
 }
 
-const CVector3f& CMapArea::GetAreaPostTranslate(const IWorld& world, TAreaId aid) {
+const CVector3f& CMapArea::GetAreaPostTranslate(const IWorld& world, int aid) {
   if (world.IGetWorldAssetId() == 0xB1AC4D65) // Phazon Mines
   {
-    return MinesPostTransforms[MinesPostTransformIndices[aid.Value()]];
+    return MinesPostTransforms[MinesPostTransformIndices[aid]];
   } else {
     return CVector3f::Zero();
   }

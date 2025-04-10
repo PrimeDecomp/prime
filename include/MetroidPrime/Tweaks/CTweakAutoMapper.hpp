@@ -16,13 +16,6 @@ public:
   ~CTweakAutoMapper();
   CTweakAutoMapper(CInputStream&);
 
-  const CColor& GetDoorColor(int idx) const { return x100_doorColors[idx]; }
-  const CColor& GetOpenDoorColor() const { return x11c_openDoorColor; }
-  const CVector3f& GetDoorCenter() const {
-    return CVector3f(xa4_doorCenterA, xa8_doorCenterB, xac_doorCenterC);
-  }
-
-private:
   bool x4_24_showOneMiniMapArea : 1;
   bool x4_25_ : 1;
   bool x4_26_scaleMoveSpeedWithCamDist : 1;

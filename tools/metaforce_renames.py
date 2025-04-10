@@ -108,6 +108,7 @@ _LITERAL_REPLACEMENTS = [
   ("ERglBlendMode::", "kBM_"),
   ("ERglBlendFactor::", "kBF_"),
   ("ERglLogicOp::", "kLO_"),
+  ("EVisMode", "kVM_"),
 
   # CActor
   ("x34_transform.origin", "GetTranslation()"),

@@ -8,6 +8,8 @@
 
 #include "rstl/pair.hpp"
 
+#include "CMapWorldInfo.hpp"
+
 class CTweakAutoMapper;
 class CMapWorldInfo;
 
@@ -45,14 +47,23 @@ public:
 
   void PostConstruct(const void*);
   rstl::pair< CColor, CColor > GetDoorColors(int idx, const CMapWorldInfo&, float alpha) const;
-  void Draw(int, const CMapWorldInfo&, float, bool) const;
+  void Draw(int curAreaId, const CMapWorldInfo& mwInfo, float alpha, bool needsVtxLoad) const;
+  void DrawDoorSurface(int curAreaId, const CMapWorldInfo& mwInfo, float alpha, int surfaceIdx,
+                       bool needsVtxLoad) const;
+  CVector3f BuildSurfaceCenterPoint(int surfaceIdx) const;
+  bool GetIsVisibleToAutoMapper(bool worldVis, const CMapWorldInfo& mwInfo) const;
+  CTransform4f AdjustTransformForType() const;
 
+  EMappableObjectType GetType() const { return x0_type; }
+  TEditorId GetObjId() const { return x8_objId; }
+  const CTransform4f& GetTransform() const { return x10_transform; }
 
   static bool IsDoorType(EMappableObjectType type) {
     return type >= kMOT_BlueDoor && type <= kMOT_PlasmaDoorFloor2;
   }
 
   static void ReadAutomapperTweaks(const CTweakAutoMapper&);
+
 private:
   EMappableObjectType x0_type;
   EVisMode x4_visibilityMode;
@@ -62,8 +73,6 @@ private:
   uchar x40_pad[0x10];
 
   CTransform4f AdjustTransformForType();
-
-  static CVector3f skDoorVerts[8];
 };
 CHECK_SIZEOF(CMappableObject, 0x50)
 

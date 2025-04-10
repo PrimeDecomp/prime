@@ -1,8 +1,11 @@
 #ifndef _CMAPWORLD
 #define _CMAPWORLD
 
-#include "Kyoto/Graphics/CColor.hpp"
 #include "MetroidPrime/CMapArea.hpp"
+
+#include "Kyoto/Graphics/CColor.hpp"
+
+#include "rstl/reserved_vector.hpp"
 
 class CStateManager;
 

@@ -11,9 +11,7 @@
 #include "rstl/single_ptr.hpp"
 #include "rstl/vector.hpp"
 
-
 class IWorld;
-class CWorld;
 
 class CMapArea {
 public:
@@ -25,13 +23,11 @@ public:
     const int* x1c_outlineOffset;
 
   public:
-    explicit CMapAreaSurface(const void* surfBuf);
-
     void PostConstruct(const void* buf);
     void Draw(const CVector3f* verts, const CColor& surfColor, const CColor& lineColor,
               float lineWidth) const;
 
-    void SetupGXMaterial();
+    static void SetupGXMaterial();
 
     const CVector3f& GetNormal() const { return x0_normal; }
     const CVector3f& GetCenterPosition() const { return xc_centroid; }
@@ -44,8 +40,8 @@ public:
   void PostConstruct();
   bool GetIsVisibleToAutoMapper(bool worldVis, bool areaVis) const;
   CVector3f GetAreaCenterPoint() const;
-  CTransform4f GetAreaPostTransform(const CWorld&, TAreaId);
-  const CVector3f& GetAreaPostTranslate(const IWorld&, TAreaId);
+  CTransform4f GetAreaPostTransform(const IWorld&, int);
+  static const CVector3f& GetAreaPostTranslate(const IWorld&, int);
 
 private:
   uint x0_magic;
@@ -60,7 +56,7 @@ private:
   CMappableObject* x38_moStart;
   CVector3f* x3c_vertexStart;
   CMapAreaSurface* x40_surfaceStart;
-  rstl::single_ptr< u8 > x44_buf;
+  rstl::single_ptr< uchar > x44_buf;
 
   static int gUsedMemory;
 };

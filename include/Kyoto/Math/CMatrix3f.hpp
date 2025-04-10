@@ -32,8 +32,8 @@ public:
    , m1(xf.GetRow(kDY))
    , m2(xf.GetRow(kDZ)) {}*/
 
-  void RotateY(const CRelAngle& angle);
-  void RotateZ(const CRelAngle& angle);
+  static CMatrix3f RotateY(const CRelAngle& angle);
+  static CMatrix3f RotateZ(const CRelAngle& angle);
   const CMatrix3f& operator=(const CMatrix3f& other);
   const CVector3f operator*(const CVector3f&) const;
   const CMatrix3f operator*(const CMatrix3f&) const;
