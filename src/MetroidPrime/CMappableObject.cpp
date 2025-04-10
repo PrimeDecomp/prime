@@ -14,21 +14,21 @@
 #include "rstl/math.hpp"
 
 struct SDrawData {
-  int x0_;
-  int x4_;
-  int x8_;
+  float x0_;
+  float x4_;
+  float x8_;
   uchar xc_idxA;
   uchar xd_idxB;
   uchar xe_idxC;
   uchar xf_idxD;
 };
 static const SDrawData sDoorData[6] = {
-    {0x00000000, 0x00000000, 0xBF800000, 6, 4, 2, 0},
-    {0x00000000, 0x00000000, 0x3F800000, 3, 1, 7, 5},
-    {0x00000000, 0xBF800000, 0x3F800000, 1, 0, 5, 4},
-    {0x00000000, 0x3F800000, 0x3F800000, 7, 6, 3, 2},
-    {0xBF800000, 0x00000000, 0x00000000, 3, 2, 1, 0},
-    {0x3F800000, 0x00000000, 0x00000000, 5, 4, 7, 6},
+    {0.f, 0.f, -1, 6, 4, 2, 0},
+    {0.f, 0.f, 1.f, 3, 1, 7, 5},
+    {0.f, -1.f, 1.f, 1, 0, 5, 4},
+    {0.f, 1.f, 1.f, 7, 6, 3, 2},
+    {-1.f, 0.f, 0.f, 3, 2, 1, 0},
+    {1.f, 0.f, 0.f, 5, 4, 7, 6},
 };
 
 CVector3f CMappableObject::skDoorVerts[8] = {

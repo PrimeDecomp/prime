@@ -100,12 +100,15 @@ enum EFontMode {
 
 class CRasterFont {
 public:
+friend class CFontInstruction;
   CRasterFont(CInputStream& in, IObjectStore* store);
   ~CRasterFont();
 
   EFontMode GetMode() const;
   void GetSize(const CDrawStringOptions&, int&, int&, const wchar_t*, int) const;
   void SetTexture(TToken< CTexture > token) { x80_texture = token; }
+  inline TToken<CTexture> GetTexture() { return *x80_texture; }
+
   bool IsFinishedLoading();
 
 private:

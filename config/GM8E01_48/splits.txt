@@ -16,6 +16,10 @@ Sections:
 MetroTRK/mslsupp.c:
 	.text       start:0x80003640 end:0x80003658
 
+Kyoto/Input/RumbleAdsr.cpp:
+	.text       start:0x80369E44 end:0x80369F6C
+	.sdata2     start:0x805AE7E0 end:0x805AE7E8
+
 Kyoto/Input/CRumbleGenerator.cpp:
 	.text       start:0x80369F6C end:0x8036A460
 	.rodata     start:0x803D8648 end:0x803D8658
@@ -43,9 +47,6 @@ Kyoto/CFrameDelayedKiller.cpp:
 	.rodata     start:0x803D8668 end:0x803D8670
 	.bss        start:0x80540720 end:0x80540760
 	.sbss       start:0x805A9390 end:0x805A9398
-
-Dolphin/os/__start.c:
-	.init       start:0x80003100 end:0x80003354
 
 Dolphin/ai.c:
 	.text       start:0x8036D1A8 end:0x8036DB10
@@ -259,6 +260,9 @@ Dolphin/os/OSThread.c:
 Dolphin/os/OSTime.c:
 	.text       start:0x803854AC end:0x80385928
 	.data       start:0x803F1FC0 end:0x803F2020
+
+Dolphin/os/__start.c:
+	.init       start:0x80003100 end:0x80003354
 
 Dolphin/os/__ppc_eabi_init.cpp:
 	.init       start:0x80003354 end:0x800033A8
@@ -773,9 +777,6 @@ Dolphin/thp/THPDec.c:
 Dolphin/thp/THPAudio.c:
 	.text       start:0x803C91CC end:0x803C96FC
 
-Runtime/__mem.c:
-	.init       start:0x800033A8 end:0x800034E0
-
 Dolphin/GBA/GBA.c:
 	.text       start:0x803C96FC end:0x803C99EC
 	.data       start:0x803F6E40 end:0x803F6E50
@@ -801,3 +802,6 @@ Dolphin/GBA/GBAXfer.c:
 Dolphin/GBA/GBAKey.c:
 	.text       start:0x803CB044 end:0x803CB2AC
 	.data       start:0x803F6E80 end:0x803F7226
+
+Runtime/__mem.c:
+	.init       start:0x800033A8 end:0x800034E0
