@@ -1,3 +1,5 @@
+#include "Kyoto/Math/CVector2f.hpp"
+#include "Kyoto/Math/CVector3f.hpp"
 #include "MetroidPrime/Cameras/CCameraFilterPass.hpp"
 
 #include "Kyoto/Graphics/CGraphics.hpp"

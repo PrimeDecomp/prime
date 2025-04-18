@@ -1,6 +1,7 @@
 #ifndef _CCUBERENDERER
 #define _CCUBERENDERER
 
+#include "Kyoto/Math/CPlane.hpp"
 #include "types.h"
 
 #include <dolphin/gx/GXEnum.h>
@@ -96,7 +97,7 @@ public:
                                                       float zfar) override;
   void SetClippingPlanes(const CFrustumPlanes&) override;
   void SetViewport(int left, int right, int width, int height) override;
-  void SetDepthReadWrite(bool read, bool update) override;
+  void SetDepthReadWrite(const bool read, const bool update) override;
   void SetBlendMode_AdditiveAlpha() override;
   void SetBlendMode_AlphaBlended() override;
   void SetBlendMode_NoColorWrite() override;
@@ -144,9 +145,11 @@ public:
   void AllocatePhazonSuitMaskTexture();
   void SetupRendererStates(bool depthWrite);
   void SetupCGraphicsStates();
+  void DrawRenderBucketsDebug();
 
   void SetRequestRGBA6(bool req) { x318_26_requestRGBA6 = req; }
   CTexture* GetRealReflection();
+  const CPlane& GetViewPlane() const { return xb0_viewPlane; }
 
 private:
   CResFactory& x8_factory;
