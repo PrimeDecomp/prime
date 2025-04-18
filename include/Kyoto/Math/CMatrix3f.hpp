@@ -11,8 +11,9 @@ class CMatrix3f {
   static const CMatrix3f sIdentity;
 
 public:
-  CMatrix3f(float _m00, float _m01, float _m02, float _m10, float _m11, float _m12, float _m20,
-            float _m21, float _m22)
+  CMatrix3f(const float _m00, const float _m01, const float _m02, const float _m10,
+            const float _m11, const float _m12, const float _m20, const float _m21,
+            const float _m22)
   : m00(_m00)
   , m01(_m01)
   , m02(_m02)

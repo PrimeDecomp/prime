@@ -10,56 +10,77 @@ typedef const float (*ConstMtxPtr)[4];
 class CInputStream;
 class CMatrix3f;
 class CRelAngle;
+class CUnitVector3f;
 
 class CTransform4f {
 public:
-  CTransform4f(const CVector3f& m0, const CVector3f& m1, const CVector3f& m2, const CVector3f& pos)
-  : m0(m0), posX(pos.GetX()), m1(m1), posY(pos.GetY()), m2(m2), posZ(pos.GetZ()) {}
-  CTransform4f(float, float, float, float, float, float, float, float, float, float, float, float);
+  CTransform4f(const CVector3f& m0, const CVector3f& m1, const CVector3f& m2, const CVector3f& pos);
+  CTransform4f(const float _m00, const float _m01, const float _m02, const float _m03,
+               const float _m10, const float _m11, const float _m12, const float _m13,
+               const float _m20, const float _m21, const float _m22, const float _m23)
+  : m00(_m00)
+  , m01(_m01)
+  , m02(_m02)
+  , m03(_m03)
+  , m10(_m10)
+  , m11(_m11)
+  , m12(_m12)
+  , m13(_m13)
+  , m20(_m20)
+  , m21(_m21)
+  , m22(_m22)
+  , m23(_m23) {}
+
   CTransform4f(CInputStream& in);
   CTransform4f(const CMatrix3f& rotation, const CVector3f& translation);
   CTransform4f(const CTransform4f& other);
   CTransform4f& operator=(const CTransform4f& other);
 
-  CVector3f GetTranslation() const { return CVector3f(posX, posY, posZ); }
-  CVector3f GetRight() const { return CVector3f(m0.GetX(), m1.GetX(), m2.GetX()); }
-  CVector3f GetForward() const { return CVector3f(m0.GetY(), m1.GetY(), m2.GetY()); }
-  CVector3f GetUp() const { return CVector3f(m0.GetZ(), m1.GetZ(), m2.GetZ()); }
+  CVector3f GetTranslation() const { return CVector3f(m03, m13, m23); }
+  CVector3f GetRight() const { return CVector3f(m00, m10, m20); }
+  const CVector3f GetForward() const { return CVector3f(m01, m11, m21); }
+  CVector3f GetUp() const { return CVector3f(m02, m12, m22); }
   ConstMtxPtr GetCStyleMatrix() const { return reinterpret_cast< ConstMtxPtr >(this); }
 
   CMatrix3f BuildMatrix3f() const;
-  float Get00() const { return m0.GetX(); }
-  float Get01() const { return m0.GetY(); }
-  float Get02() const { return m0.GetZ(); }
-  float Get03() const { return posX; }
-  float Get10() const { return m1.GetX(); }
-  float Get11() const { return m1.GetY(); }
-  float Get12() const { return m1.GetZ(); }
-  float Get13() const { return posY; }
-  float Get20() const { return m2.GetX(); }
-  float Get21() const { return m2.GetY(); }
-  float Get22() const { return m2.GetZ(); }
-  float Get23() const { return posZ; }
-  CVector3f GetColumn(EDimX dim) const { return CVector3f(m0[dim], m1[dim], m2[dim]); }
-  CVector3f GetColumn(EDimY dim) const { return CVector3f(m0[dim], m1[dim], m2[dim]); }
-  CVector3f GetColumn(EDimZ dim) const { return CVector3f(m0[dim], m1[dim], m2[dim]); }
-  // GetColumn__12CTransform4fCFi
+  const float Get00() const { return m00; }
+  const float Get01() const { return m01; }
+  const float Get02() const { return m02; }
+  const float Get03() const { return m03; }
+  const float Get10() const { return m10; }
+  const float Get11() const { return m11; }
+  const float Get12() const { return m12; }
+  const float Get13() const { return m13; }
+  const float Get20() const { return m20; }
+  const float Get21() const { return m21; }
+  const float Get22() const { return m22; }
+  const float Get23() const { return m23; }
+  const CVector3f GetColumn(EDimX dim) const { return CVector3f(m00, m10, m20); }
+  const CVector3f GetColumn(EDimY dim) const { return CVector3f(m01, m11, m21); }
+  const CVector3f GetColumn(EDimZ dim) const { return CVector3f(m02, m12, m22); }
+  void ScaleBy(const float scale);
   // GetCStyleMatrix__12CTransform4fCFv
   CTransform4f GetInverse() const;
   CTransform4f GetQuickInverse() const;
   CTransform4f GetRotation() const;
-  inline const CVector3f& GetRow(EDimX dim) const { return m0; }
-  inline const CVector3f& GetRow(EDimY dim) const { return m1; }
-  inline const CVector3f& GetRow(EDimZ dim) const { return m2; }
+  inline const CVector3f& GetRow(EDimX dim) const {
+    return *reinterpret_cast< const CVector3f* >(&m00);
+  }
+  inline const CVector3f& GetRow(EDimY dim) const {
+    return *reinterpret_cast< const CVector3f* >(&m10);
+  }
+  inline const CVector3f& GetRow(EDimZ dim) const {
+    return *reinterpret_cast< const CVector3f* >(&m20);
+  }
   inline const CVector3f& GetRow(int i) const {
-    return *(reinterpret_cast< const CVector3f* >(reinterpret_cast< const float* >(&m0) + i * 4));
+    return *(reinterpret_cast< const CVector3f* >(reinterpret_cast< const float* >(&m00) + i * 4));
   }
   // GetUp__12CTransform4fCFv
   static CTransform4f LookAt(const CVector3f& pos, const CVector3f& lookPos,
                              const CVector3f& up = CVector3f::Up());
-  // MakeRotationsBasedOnY__12CTransform4fFRC13CUnitVector3f
+  static CTransform4f MakeRotationsBasedOnY(const CUnitVector3f& yRot);
   CTransform4f MultiplyIgnoreTranslation(const CTransform4f& other) const;
-  // Orthonormalize__12CTransform4fFv
+  void Orthonormalize();
   CVector3f Rotate(const CVector3f& in) const;
   void RotateLocalX(const CRelAngle& angle);
   void RotateLocalY(const CRelAngle& angle);
@@ -70,25 +91,24 @@ public:
   static CTransform4f Scale(float);
   static CTransform4f Scale(float, float, float);
   static CTransform4f Scale(const CVector3f&);
-  // ScaleBy__12CTransform4fFf
   // SetRotation__12CTransform4fFRC12CTransform4f
   // SetRotation__12CTransform4fFRC9CMatrix3f
   CVector3f TransposeMultiply(const CVector3f& in) const {
-    return TransposeRotate(CVector3f(in.GetX() - posX, in.GetY() - posY, in.GetZ() - posZ));
+    return TransposeRotate(CVector3f(in.GetX() - m03, in.GetY() - m13, in.GetZ() - m23));
   }
   CVector3f TransposeRotate(const CVector3f& in) const;
 
   void SetTranslation(const CVector3f& vec) {
-    posX = vec.GetX();
-    posY = vec.GetY();
-    posZ = vec.GetZ();
+    m03 = vec.GetX();
+    m13 = vec.GetY();
+    m23 = vec.GetZ();
   }
   void AddTranslation(const CVector3f& vec) {
-    posX += vec.GetX();
-    posY += vec.GetY();
-    posZ += vec.GetZ();
+    m03 += vec.GetX();
+    m13 += vec.GetY();
+    m23 += vec.GetZ();
   }
-  void AddTranslationZ(float z) { posZ += z; }
+  void AddTranslationZ(float z) { m23 += z; }
 
   CTransform4f& operator*=(const CTransform4f& other) {
     *this = *this * other;
@@ -105,17 +125,23 @@ public:
   static const CTransform4f& Identity() { return sIdentity; }
 
 private:
-  CVector3f m0;
-  float posX;
-  CVector3f m1;
-  float posY;
-  CVector3f m2;
-  float posZ;
+  float m00;
+  float m01;
+  float m02;
+  float m03;
+  float m10;
+  float m11;
+  float m12;
+  float m13;
+  float m20;
+  float m21;
+  float m22;
+  float m23;
 
-  static CTransform4f sIdentity;
+  static const CTransform4f sIdentity;
 };
 
-inline bool operator==(const CTransform4f& lhs, const CTransform4f& rhs);
+bool operator==(const CTransform4f& lhs, const CTransform4f& rhs);
 
 CHECK_SIZEOF(CTransform4f, 0x30)
 

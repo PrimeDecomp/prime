@@ -446,9 +446,11 @@ rstl::optional_object< TLockedToken< CGenDescription > > CProjectileWeapon::Coll
     if (useTarget && posToTarget.CanBeNormalized()) {
       SetWorldSpaceOrientation(CTransform4f::LookAt(CVector3f::Zero(), posToTarget.AsNormalized()));
     } else {
-      CVector3f col = GetTransform().GetColumn(kDY);
-      CVector3f lookPos = (CVector3f::Dot(normal, col) * 2.f) * normal;
-      CVector3f lookPos2 = col - lookPos;
+      const CTransform4f& xf = GetTransform();
+      const CVector3f forward = xf.GetForward();
+      float mag = CVector3f::Dot(normal, forward) * 2.f;
+      CVector3f lookPos = mag * normal;
+      CVector3f lookPos2 = xf.GetForward() - lookPos;
       CTransform4f lookXf = CTransform4f::LookAt(CVector3f::Zero(), lookPos2, normal);
       SetWorldSpaceOrientation(lookXf);
     }

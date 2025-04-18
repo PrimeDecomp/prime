@@ -19,7 +19,6 @@ static volatile BOOL __AR_init_flag = FALSE;
 
 static void __ARHandler(__OSInterrupt interrupt, OSContext* context);
 static void __ARChecksize(void);
-static void __ARClearArea(u32 start_addr, u32 length);
 
 ARCallback ARRegisterDMACallback(ARCallback callback) {
   ARCallback oldCb;
