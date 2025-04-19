@@ -193,7 +193,7 @@ CAABox CAABox::GetBooleanIntersection(const CAABox& other) const {
   CVector3f maxVec = CVector3f::Zero();
 
   for (int i = 0; i < 3; ++i) {
-    if (GetMinPoint()[i] <= other.GetMinPoint()[i] && GetMaxPoint()[i] >= other.GetMaxPoint()[i]) {
+    if (min[i] <= other.min[i] && GetMaxPoint()[i] >= other.GetMaxPoint()[i]) {
       minVec[i] = other.GetMinPoint()[i];
       maxVec[i] = other.GetMaxPoint()[i];
     } else if (other.GetMinPoint()[i] <= GetMinPoint()[i] &&
@@ -250,16 +250,12 @@ float CAABox::DistanceBetween(const CAABox& a, const CAABox& b) {
   float minZ = b.GetMaxPoint().GetZ();
   float maxZ = a.GetMinPoint().GetZ();
 
-  bool xi = b.GetMinPoint().GetX() < a.GetMaxPoint().GetX() && maxX < minX;
-  bool yi = b.GetMinPoint().GetY() < a.GetMaxPoint().GetY() && maxY < minY;
-  bool zi = b.GetMinPoint().GetZ() < a.GetMaxPoint().GetZ() && maxZ < minZ;
-
   int intersects = 0;
-  if (xi)
+  if (b.GetMinPoint().GetX() <= a.GetMaxPoint().GetX() && maxX < minX)
     intersects |= 1;
-  if (yi)
+  if (b.GetMinPoint().GetY() <= a.GetMaxPoint().GetY() && maxY < minY)
     intersects |= 2;
-  if (zi)
+  if (b.GetMinPoint().GetZ() <= a.GetMaxPoint().GetZ() && maxZ < minZ)
     intersects |= 4;
 
   if (b.GetMinPoint().GetX() > a.GetMaxPoint().GetX()) {
