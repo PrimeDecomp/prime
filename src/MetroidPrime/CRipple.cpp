@@ -1,6 +1,6 @@
 #include "MetroidPrime/CRipple.hpp"
 
-#include "MetroidPrime/CFluidPlane.hpp"
+#include "MetroidPrime/CFluidPlaneManager.hpp"
 
 #include "Kyoto/CRandom16.hpp"
 #include "Kyoto/Math/CMath.hpp"
@@ -21,7 +21,7 @@ CRipple::CRipple(TUniqueId id, const CVector3f& center, float intensity)
 , x30_ooPhase(0.f)
 , x34_phase(0.f)
 , x38_lookupPhase(0.f)
-, x3c_(sub_8012f098()) {
+, x3c_(fn_8012f098()) {
   if (0.f < intensity && intensity < 1.f) {
     static CRandom16 sRippleRandom(0xABBA);
 

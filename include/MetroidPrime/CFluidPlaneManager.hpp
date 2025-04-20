@@ -30,7 +30,7 @@ class CStateManager;
 class CRipple;
 class CTexture;
 
-extern "C" uint sub_8012f098();
+uint fn_8012f098();
 
 class CFluidPlaneCPURender {
 public:
