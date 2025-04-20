@@ -374,8 +374,8 @@ public:
 
   bool IsInsideFluid() const { return x9c4_31_inWaterMovement; }
 
-  void Teleport(const CTransform4f& xf, CStateManager& mgr, bool resetBallCam);
-  void SetSpawnedMorphBallState(EPlayerMorphBallState state, CStateManager& mgr);
+  void Teleport(const CTransform4f& xf, CStateManager& mgr, const bool resetBallCam);
+  void SetSpawnedMorphBallState(const EPlayerMorphBallState state, CStateManager& mgr);
   const CVisorSteam& GetVisorSteam() const { return x7a0_visorSteam; }
   const float GetVisorSteamAlpha() const { return x7a0_visorSteam.GetAlpha(); }
   void SetVisorSteam(float targetAlpha, float alphaInDur, float alphaOutDir, CAssetId txtr,

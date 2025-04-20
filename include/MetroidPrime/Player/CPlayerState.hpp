@@ -126,19 +126,19 @@ public:
   void ResetVisor();
   bool IsAlive() const { return x0_24_alive; }
 
-  bool ItemEnabled(EItemType type) const;
-  void DisableItem(EItemType type);
-  void EnableItem(EItemType type);
-  bool HasPowerUp(EItemType type) const;
-  uint GetPowerUp(EItemType type);
-  int GetItemCapacity(EItemType type) const;
-  int GetItemAmount(EItemType type) const;
-  void DecrPickUp(EItemType type, int amount);
-  void IncrPickUp(EItemType type, int amount);
-  void SetPickup(EItemType type, int amount);
+  const bool ItemEnabled(const EItemType type) const;
+  void DisableItem(const EItemType type);
+  void EnableItem(const EItemType type);
+  const bool HasPowerUp(const EItemType type) const;
+  const uint GetPowerUp(const EItemType type);
+  const int GetItemCapacity(const EItemType type) const;
+  const int GetItemAmount(const EItemType type) const;
+  void DecrPickUp(const EItemType type, const int amount);
+  void IncrPickUp(const EItemType type, const int amount);
+  void SetPickup(const EItemType type, const int amount);
   static float GetEnergyTankCapacity();
   static float GetBaseHealthCapacity();
-  float CalculateHealth();
+  const float CalculateHealth();
   void InitializePowerUp(CPlayerState::EItemType type, int capacity);
   void SetPowerUp(CPlayerState::EItemType type, int capacity);
   static bool IsValidScan(CAssetId res);
@@ -147,7 +147,7 @@ public:
 
   void InitializeScanTimes();
 
-  static uint GetBitCount(uint);
+  static const uint GetBitCount(uint);
 
   CStaticInterference& StaticInterference() { return x188_staticIntf; }
   const CStaticInterference& GetStaticInterference() const { return x188_staticIntf; }
@@ -155,8 +155,8 @@ public:
   const rstl::vector< rstl::pair< CAssetId, float > >& GetScanTimes() const {
     return x170_scanTimes;
   }
-  int GetLogScans() const { return x180_scanCompletionRateFirst; }
-  int GetTotalLogScans() const { return x184_scanCompletionRateSecond; }
+  const int GetLogScans() const { return x180_scanCompletionRateFirst; }
+  const int GetTotalLogScans() const { return x184_scanCompletionRateSecond; }
 
   CHealthInfo* HealthInfo() { return &xc_health; }
   const CHealthInfo& GetHealthInfo() const { return xc_health; }

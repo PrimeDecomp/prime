@@ -31,6 +31,7 @@ public:
   void SetTime(float t) { x4_time = t; }
 
   float GetTimeFalloff() const { return x14_timeFalloff; }
+  const CVector3f& GetCenter() const { return x8_center; }
 
   static float kDefaultScale;
 };

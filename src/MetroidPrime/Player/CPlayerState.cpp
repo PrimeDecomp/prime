@@ -10,8 +10,8 @@
 #include "Kyoto/Streams/CInputStream.hpp"
 #include "Kyoto/Streams/COutputStream.hpp"
 
-#include "rstl/math.hpp"
 #include "rstl/algorithm.hpp"
+#include "rstl/math.hpp"
 
 #include <math.h>
 
@@ -43,7 +43,7 @@ static const float kMaxVisorTransitionFactor = 0.2f;
 
 static inline void do_nothing() {}
 
-uint CPlayerState::GetBitCount(uint val) {
+const uint CPlayerState::GetBitCount(uint val) {
   int bits = 0;
   for (; val != 0; val >>= 1) {
     bits += 1;
@@ -179,11 +179,11 @@ void CPlayerState::InitializePowerUp(CPlayerState::EItemType type, int capacity)
   }
 }
 
-float CPlayerState::CalculateHealth() {
+const float CPlayerState::CalculateHealth() {
   return (kEnergyTankCapacity * x24_powerups[kIT_EnergyTanks].x0_amount) + kBaseHealthCapacity;
 }
 
-void CPlayerState::SetPickup(CPlayerState::EItemType type, int amount) {
+void CPlayerState::SetPickup(const CPlayerState::EItemType type, const int amount) {
   x24_powerups[uint(type)].x0_amount = 0;
   IncrPickUp(type, amount);
 }
@@ -248,7 +248,7 @@ void CPlayerState::DecrPickUp(CPlayerState::EItemType type, int amount) {
   }
 }
 
-int CPlayerState::GetItemAmount(CPlayerState::EItemType type) const {
+const int CPlayerState::GetItemAmount(const CPlayerState::EItemType type) const {
   if (type < 0 || kIT_Max - 1 < type) {
     return 0;
   }
@@ -272,43 +272,45 @@ int CPlayerState::GetItemAmount(CPlayerState::EItemType type) const {
   case kIT_Spirit:
   case kIT_Newborn:
     return x24_powerups[uint(type)].x0_amount;
+  default:
+    break;
   }
 
   return 0;
 }
 
-int CPlayerState::GetItemCapacity(CPlayerState::EItemType type) const {
+const int CPlayerState::GetItemCapacity(const CPlayerState::EItemType type) const {
   if (type < 0 || kIT_Max - 1 < type) {
     return 0;
   }
   return x24_powerups[uint(type)].x4_capacity;
 }
 
-bool CPlayerState::HasPowerUp(CPlayerState::EItemType type) const {
+const bool CPlayerState::HasPowerUp(const CPlayerState::EItemType type) const {
   if (type < 0 || kIT_Max - 1 < type) {
     return false;
   }
   return x24_powerups[uint(type)].x4_capacity > 0;
 }
 
-uint CPlayerState::GetPowerUp(CPlayerState::EItemType type) {
+const uint CPlayerState::GetPowerUp(const CPlayerState::EItemType type) {
   if (type < 0 || kIT_Max - 1 < type) {
     return 0;
   }
   return x24_powerups[uint(type)].x4_capacity;
 }
 
-void CPlayerState::EnableItem(CPlayerState::EItemType type) {
+void CPlayerState::EnableItem(const CPlayerState::EItemType type) {
   if (HasPowerUp(type))
     x4_enabledItems |= (1 << uint(type));
 }
 
-void CPlayerState::DisableItem(CPlayerState::EItemType type) {
+void CPlayerState::DisableItem(const CPlayerState::EItemType type) {
   if (HasPowerUp(type))
     x4_enabledItems &= ~(1 << uint(type));
 }
 
-bool CPlayerState::ItemEnabled(CPlayerState::EItemType type) const {
+const bool CPlayerState::ItemEnabled(const CPlayerState::EItemType type) const {
   if (HasPowerUp(type))
     return (x4_enabledItems & (1 << uint(type)));
   return false;
@@ -319,7 +321,7 @@ void CPlayerState::ResetVisor() {
   x1c_visorTransitionFactor = 0.0f;
 }
 
-void CPlayerState::StartTransitionToVisor(CPlayerState::EPlayerVisor visor) {
+void CPlayerState::StartTransitionToVisor(const CPlayerState::EPlayerVisor visor) {
   if (visor == x18_transitioningVisor)
     return;
 
@@ -371,12 +373,14 @@ void CPlayerState::InitializeScanTimes() {
 }
 
 float CPlayerState::GetScanTime(CAssetId res) const {
-  rstl::vector< rstl::pair< CAssetId, float > >::const_iterator it = rstl::find_by_key(x170_scanTimes, res);
+  rstl::vector< rstl::pair< CAssetId, float > >::const_iterator it =
+      rstl::find_by_key(x170_scanTimes, res);
   return it->second;
 }
 
 void CPlayerState::SetScanTime(CAssetId res, float time) {
-  rstl::vector< rstl::pair< CAssetId, float > >::iterator it = rstl::find_by_key_nc(x170_scanTimes, res);
+  rstl::vector< rstl::pair< CAssetId, float > >::iterator it =
+      rstl::find_by_key_nc(x170_scanTimes, res);
   it->second = time;
 }
 

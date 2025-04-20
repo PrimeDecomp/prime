@@ -37,7 +37,6 @@ void CScriptSpawnPoint::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objI
       stateMgr.PlayerState()->SetPowerUp(e, GetPowerup(e));
       stateMgr.PlayerState()->SetPickup(e, GetPowerup(e));
     }
-
   case kSM_SetToZero:
     if (GetActive()) {
       CPlayer* player = stateMgr.Player();
@@ -76,6 +75,8 @@ void CScriptSpawnPoint::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objI
       }
       CEntity::SendScriptMsgs(kSS_Zero, stateMgr, kSM_None);
     }
+    default:
+      break;
   }
 }
 

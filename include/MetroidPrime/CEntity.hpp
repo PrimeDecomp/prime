@@ -22,7 +22,7 @@ public:
 
   CEntity(TUniqueId id, const CEntityInfo& info, bool active, const rstl::string& name);
 
-  void SendScriptMsgs(EScriptObjectState state, CStateManager& mgr, EScriptObjectMessage msg);
+  void SendScriptMsgs(const EScriptObjectState state, CStateManager& mgr, const EScriptObjectMessage msg);
   TUniqueId GetUniqueId() const { return x8_uid; }
   TEditorId GetEditorId() const { return xc_editorId; }
   const rstl::string& GetDebugName() const { return x10_name; }

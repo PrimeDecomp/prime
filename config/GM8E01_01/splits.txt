@@ -876,18 +876,13 @@ MetroidPrime/Cameras/CPathCamera.cpp:
 	.sbss       start:0x805A9140 end:0x805A9150
 	.sdata2     start:0x805AB7A8 end:0x805AB7C8
 
-MetroidPrime/CFluidPlane.cpp:
-	.text       start:0x8012E988 end:0x8012F11C
-	.data       start:0x803E0EC0 end:0x803E0EE0
-	.bss        start:0x8056FA94 end:0x80571BAC align:4 common
-	.sdata      start:0x805A78A8 end:0x805A78B8
-	.sdata2     start:0x805AB7C8 end:0x805AB7F0
-
 MetroidPrime/CFluidPlaneManager.cpp:
-	.text       start:0x8012F11C end:0x8012F7F0
+	.text       start:0x8012E988 end:0x8012F7F0
+	.data       start:0x803E0EC0 end:0x803E0EE0
 	.rodata     start:0x803D0218 end:0x803D0228
-	.sdata      start:0x805A78B8 end:0x805A78C0
-	.sdata2     start:0x805AB7F0 end:0x805AB830
+	.bss        start:0x8056FA94 end:0x80571BAC align:4 common
+	.sdata      start:0x805A78A8 end:0x805A78C0
+	.sdata2     start:0x805AB7C8 end:0x805AB830
 
 MetroidPrime/ScriptObjects/CScriptGrapplePoint.cpp:
 	.text       start:0x8012F7F0 end:0x8012FB54

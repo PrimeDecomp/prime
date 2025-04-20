@@ -46,7 +46,7 @@ public:
   CFluidUVMotion(float timeToWrap, float orientation);
   CFluidUVMotion(float timeToWrap, float orientation, const SFluidLayerMotion& colorLayer,
                  const SFluidLayerMotion& pattern1Layer, const SFluidLayerMotion& pattern2Layer);
-  CFluidUVMotion(const CFluidUVMotion&);
+  //CFluidUVMotion(const CFluidUVMotion&);
 
   void CalculateFluidTextureOffset(float t, float offsets[kFM_NumLayers][2]) const;
 
