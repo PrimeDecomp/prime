@@ -1,7 +1,7 @@
 #ifndef _CFLUIDPLANECPU
 #define _CFLUIDPLANECPU
 
-#include "MetroidPrime/CFluidPlane.hpp"
+#include "MetroidPrime/CFluidPlaneManager.hpp"
 
 class CFluidPlaneCPU : public CFluidPlane {
 public:

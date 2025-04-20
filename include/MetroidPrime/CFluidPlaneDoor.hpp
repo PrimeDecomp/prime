@@ -1,7 +1,7 @@
 #ifndef _CFLUIDPLANEDOOR
 #define _CFLUIDPLANEDOOR
 
-#include "MetroidPrime/CFluidPlane.hpp"
+#include "MetroidPrime/CFluidPlaneManager.hpp"
 
 class CFluidPlaneDoor : public CFluidPlane {
 private:
