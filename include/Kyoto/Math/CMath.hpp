@@ -4,9 +4,11 @@
 #include "types.h"
 
 #include "math.h"
+#include "float.h"
 
 #include <Kyoto/Math/CVector3f.hpp>
 
+#define M_PI 3.14159265358979323846
 #define M_PIF 3.14159265358979323846f
 #define M_2PIF 6.28318530718f
 

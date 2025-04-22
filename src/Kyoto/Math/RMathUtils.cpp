@@ -70,4 +70,44 @@ CVector3f CMath::BaryToWorld(const CVector3f& p0, const CVector3f& p1, const CVe
   return bary.GetX() * p0 + bary.GetY() * p1 + bary.GetZ() * p2;
 }
 
-float CMath::FastSinR(float x) {}
+float CMath::FastSinR(float x) {
+  if (fabs(x) > M_PI) {
+    x = -((float)(int)(x * (1 / M_2PIF)) * M_2PIF - x);
+    if (x > M_PIF) {
+      x -= M_2PIF;
+    } else if (x < -M_PIF) {
+      x = M_2PIF + x;
+    }
+  }
+
+  float f4 = x * x;
+  float f5 = x * 0.9998508f;
+  x *= f4;
+  f5 += -0.16621658f * x;
+  x *= f4;
+  f5 += 0.008087108f * x;
+  x *= f4;
+  f5 += -0.000152977f * x;
+  return f5;
+}
+
+float CMath::FastCosR(float x) {}
+
+float CMath::FastArcCosR(float x) {}
+
+int CMath::FloorPowerOfTwo(int v) {
+  if (v == 0) {
+    return 0;
+  }
+  uint s1 = (0xffffU - v) >> 0x1b & 0x10;
+  uint sb1 = (uint)v >> s1 & 0xffff;
+  uint s2 = (0xff - sb1) >> 0x1c & 8;
+  uint sb2 = sb1 >> s2 & 0xff;
+  uint s3 = ((0xf - sb2) >> 0x1d) & 4;
+  uint sb3 = (sb2 >> s3) & 0xf;
+  uint s4 = (3 - sb3) >> 0x1e & 2;
+  uint totalShift = s1 + s2 + s3 + s4;
+  uint finalSig = sb3 >> s4 & 3;
+  uint finalShift = (((uint)(1 - finalSig) >> 0x1f)) + totalShift;
+  return 1 << finalShift;
+}
