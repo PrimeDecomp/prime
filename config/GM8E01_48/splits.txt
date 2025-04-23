@@ -1,20 +1,78 @@
 Sections:
-	.init       type:code align:4
+	.init       type:code align:32
 	extab       type:rodata align:32
 	extabindex  type:rodata align:32
 	.text       type:code align:32
 	.ctors      type:rodata align:32
-	.dtors      type:rodata align:4
+	.dtors      type:rodata align:32
 	.rodata     type:rodata align:32
 	.data       type:data align:32
 	.bss        type:bss align:32
 	.sdata      type:data align:32
-	.sbss       type:bss align:16
-	.sdata2     type:rodata align:8
+	.sbss       type:bss align:32
+	.sdata2     type:rodata align:32
 	.sbss2      type:bss align:32
 
 MetroTRK/mslsupp.c:
 	.text       start:0x80003640 end:0x80003658
+
+Kyoto/Graphics/DolphinCColor.cpp:
+	.text       start:0x803632D8 end:0x8036374C
+	.sdata      start:0x805A8700 end:0x805A8710
+	.sdata2     start:0x805AE798 end:0x805AE7A8
+
+Kyoto/Audio/CDSPStreamManager.cpp:
+	.text       start:0x8036374C end:0x803651C0
+	.ctors      start:0x803CB46C end:0x803CB470
+	.rodata     start:0x803D8500 end:0x803D8508
+	.bss        start:0x80540200 end:0x80540230
+	.bss        start:0x805A6540 end:0x805A6840 align:4 common
+	.sbss       start:0x805A9358 end:0x805A9360
+
+Kyoto/CDependencyGroup.cpp:
+	.text       start:0x803651C0 end:0x80365664
+	.rodata     start:0x803D8508 end:0x803D8510
+	.data       start:0x803EF940 end:0x803EF940
+
+Kyoto/Audio/CStreamAudioManager.cpp:
+	.text       start:0x80365664 end:0x803669B4
+	.ctors      start:0x803CB470 end:0x803CB474
+	.rodata     start:0x803D8510 end:0x803D8518
+	.bss        start:0x80540230 end:0x80540320
+	.bss        start:0x805A6840 end:0x805A6890 align:4 common
+	.sdata      start:0x805A8710 end:0x805A8728
+	.sbss       start:0x805A9360 end:0x805A9370
+	.sdata2     start:0x805AE7A8 end:0x805AE7D0
+
+Kyoto/Animation/CHalfTransition.cpp:
+	.text       start:0x803669B4 end:0x80366A24
+
+Kyoto/Particles/CElectricDescription.cpp:
+	.text       start:0x80366A24 end:0x80366D64
+
+Kyoto/Particles/CSwooshDescription.cpp:
+	.text       start:0x80366D64 end:0x803670A4
+
+Kyoto/Particles/CGenDescription.cpp:
+	.text       start:0x803670A4 end:0x803674A8
+	.rodata     start:0x803D8518 end:0x803D85E0
+
+Kyoto/CPakFile.cpp:
+	.text       start:0x803674A8 end:0x80369110
+	.rodata     start:0x803D85E0 end:0x803D8638
+	.sdata      start:0x805A8728 end:0x805A8738
+	.sbss       start:0x805A9370 end:0x805A9380
+
+Kyoto/Animation/CPoseAsTransformsVariableSize.cpp:
+	.text       start:0x80369110 end:0x803694BC
+	.rodata     start:0x803D8638 end:0x803D8640
+	.sdata      start:0x805A8738 end:0x805A8740
+
+Kyoto/Input/CRumbleVoice.cpp:
+	.text       start:0x803694BC end:0x80369E44
+	.rodata     start:0x803D8640 end:0x803D8648
+	.sdata      start:0x805A8740 end:0x805A8748
+	.sdata2     start:0x805AE7D0 end:0x805AE7E0
 
 Kyoto/Input/RumbleAdsr.cpp:
 	.text       start:0x80369E44 end:0x80369F6C
