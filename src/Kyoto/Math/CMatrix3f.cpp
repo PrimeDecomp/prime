@@ -112,26 +112,36 @@ void CMatrix3f::AddScaledMatrix(const CMatrix3f& mat, float scale) {
   m22 = mat.m22 * scale + m22;
 }
 
-CMatrix3f::CMatrix3f(const CMatrix3f& other) {
-  m00 = other.m00;
-  m01 = other.m01;
-  m02 = other.m02;
-  m10 = other.m10;
-  m11 = other.m11;
-  m12 = other.m12;
-  m20 = other.m20;
-  m21 = other.m21;
-  m22 = other.m22;
+/* TODO: I think these are fake matches on compiler generated functions */
+CMatrix3f::CMatrix3f(register const CMatrix3f& other) {
+  register CMatrix3f &thiz = *this;
+  asm {
+    lfd f0, CMatrix3f.m00(other);
+    lfd f1, CMatrix3f.m02(other);
+    lfd f2, CMatrix3f.m11(other);
+    stfd f0, CMatrix3f.m00(thiz);
+    stfd f1, CMatrix3f.m02(thiz);
+    stfd f2, CMatrix3f.m11(thiz);
+    lfd f0, CMatrix3f.m20(other);
+    lfs f1, CMatrix3f.m22(other);
+    stfd f0, CMatrix3f.m20(thiz);
+    stfs f1, CMatrix3f.m22(thiz);
+  }
 }
 
-const CMatrix3f& CMatrix3f::operator=(const CMatrix3f& other) {
-  m00 = other.m00;
-  m01 = other.m01;
-  m02 = other.m02;
-  m10 = other.m10;
-  m11 = other.m11;
-  m12 = other.m12;
-  m20 = other.m20;
-  m21 = other.m21;
-  m22 = other.m22;
+const CMatrix3f& CMatrix3f::operator=(register const CMatrix3f& other) {
+  register CMatrix3f &thiz = *this;
+  asm {
+    lfd f0, CMatrix3f.m00(other);
+    lfd f1, CMatrix3f.m02(other);
+    lfd f2, CMatrix3f.m11(other);
+    stfd f0, CMatrix3f.m00(thiz);
+    stfd f1, CMatrix3f.m02(thiz);
+    stfd f2, CMatrix3f.m11(thiz);
+    lfd f0, CMatrix3f.m20(other);
+    lfs f1, CMatrix3f.m22(other);
+    stfd f0, CMatrix3f.m20(thiz);
+    stfs f1, CMatrix3f.m22(thiz);
+  }
+  return thiz;
 }

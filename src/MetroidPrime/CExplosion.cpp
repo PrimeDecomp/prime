@@ -14,7 +14,7 @@
 
 CExplosion::CExplosion(const TLockedToken< CGenDescription >& particle, TUniqueId uid, bool active,
                        const CEntityInfo& info, const rstl::string& name, const CTransform4f& xf,
-                       uint flags, const CVector3f& scale, const CColor& color)
+                       const uint flags, const CVector3f& scale, const CColor& color)
 : CEffect(uid, info, active, name, xf)
 , xe8_particleGen(rs_new CElementGen(TToken< CGenDescription >(particle), CElementGen::kMOT_Normal,
                                      flags & 0x2 ? CElementGen::kOSF_Two : CElementGen::kOSF_One))

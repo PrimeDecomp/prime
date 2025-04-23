@@ -921,7 +921,7 @@ config.libs = [
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Animation/CPOINode.cpp"),
             Object(NonMatching, "Kyoto/Animation/CSegStatementSet.cpp"),
             Object(NonMatching, "Kyoto/Animation/CTimeScaleFunctions.cpp"),
-            Object(NonMatching, "Kyoto/Animation/IAnimReader.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Animation/IAnimReader.cpp"),
             Object(NonMatching, "Kyoto/Animation/CAllFormatsAnimSource.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/CDvdRequestManager.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/CDvdRequest.cpp"),

@@ -1,6 +1,8 @@
 #include "Kyoto/CDependencyGroup.hpp"
 #include "Kyoto/CResFactory.hpp"
 #include "Kyoto/Streams/CInputStream.hpp"
+/* this is such a hack... */
+#pragma inline_max_size(250)
 
 CDependencyGroup::CDependencyGroup(CInputStream& in) { ReadFromStream(in); }
 
@@ -27,8 +29,7 @@ int CDependencyGroup::GetCountForResType(FourCC type) const {
   return ret;
 }
 
-/* this is such a hack... */
-#pragma inline_max_size(250)
+
 CFactoryFnReturn FDependencyGroupFactory(const SObjectTag& tag, CInputStream& in,
                                          const CVParamTransfer& xfer) {
   return rs_new CDependencyGroup(in);

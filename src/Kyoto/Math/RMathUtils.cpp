@@ -72,22 +72,27 @@ CVector3f CMath::BaryToWorld(const CVector3f& p0, const CVector3f& p1, const CVe
 
 float CMath::FastSinR(float x) {
   if (fabs(x) > M_PI) {
-    x = -((float)(int)(x * (1 / M_2PIF)) * M_2PIF - x);
+    f32 temp = x;
+    temp *= (1 / M_2PIF);
+    temp = (int)temp;
+    x -= temp * M_2PIF;
     if (x > M_PIF) {
-      x -= M_2PIF;
+      x = x - M_2PIF;
     } else if (x < -M_PIF) {
       x = M_2PIF + x;
     }
   }
 
-  float f4 = x * x;
-  float f5 = x * 0.9998508f;
+  float f4 = x;
+  f4 *= x;
+  float f5 = x;
+  f5 *= 0.9998508f;
   x *= f4;
-  f5 += -0.16621658f * x;
+  f5 += x * -0.16621658f;
   x *= f4;
-  f5 += 0.008087108f * x;
+  f5 += x * 0.008087108f;
   x *= f4;
-  f5 += -0.000152977f * x;
+  f5 += x * -0.000152977f;
   return f5;
 }
 
