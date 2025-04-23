@@ -1,9 +1,10 @@
 #include "Kyoto/Alloc/CCircularBuffer.hpp"
 
 CCircularBuffer::CCircularBuffer(void* buf, int len, CCircularBuffer::EOwnership ownership)
-: x0_owned(buf != NULL), x4_ptr(buf), x8_bufferLen(len), xc_(0), x10_nextFreeAddr(0), x14_(-1) {
-  if (ownership == kOS_NotOwned)
-    x0_owned = false;
+: x0_ptr(static_cast<char*>(buf)), x8_bufferLen(len), xc_(0), x10_nextFreeAddr(0), x14_(-1) {
+  if (ownership == kOS_NotOwned) {
+    x0_ptr.release();
+  }
 }
 
 bool CCircularBuffer::IsWrappedMemory(int offset, int len) {
@@ -18,7 +19,7 @@ void* CCircularBuffer::Alloc(int len) {
   uchar* ret;
   if ((x8_bufferLen - x10_nextFreeAddr) >= len && !IsWrappedMemory(x10_nextFreeAddr, len)) {
     int offset = x10_nextFreeAddr;
-    uchar* ptr = (uchar*)x4_ptr;
+    uchar* ptr = (uchar*)x0_ptr.get();
     x10_nextFreeAddr = offset + len;
     return ptr + offset;
   } else if (xc_ >= len && !IsWrappedMemory(0, len)) {
@@ -26,7 +27,7 @@ void* CCircularBuffer::Alloc(int len) {
     xc_ = 0;
     x10_nextFreeAddr = len;
     x14_ = r3;
-    return x4_ptr;
+    return x0_ptr.get();
   }
 
   return nullptr;
@@ -34,7 +35,7 @@ void* CCircularBuffer::Alloc(int len) {
 
 void CCircularBuffer::Free(void* ptr, int len) {
   if (x14_ > -1) {
-    if (ptr == x4_ptr) {
+    if (ptr == x0_ptr.get()) {
       x14_ = -1;
       xc_ = len;
     } else {

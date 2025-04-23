@@ -10,6 +10,7 @@
 class CModel;
 class CSkinRules;
 class CCharLayoutInfo;
+class CVector3f;
 
 class CSkinnedModel {
 public:

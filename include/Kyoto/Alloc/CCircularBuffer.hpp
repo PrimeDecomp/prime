@@ -2,6 +2,7 @@
 #define _CCIRCULARBUFFER
 
 #include <types.h>
+#include <rstl/auto_ptr.hpp>
 
 class CCircularBuffer {
 public:
@@ -12,10 +13,12 @@ public:
   void* Alloc(int len);
   void Free(void* ptr, int len);
   int GetAllocatedAmount() const;
+  void* GetOffsettedMemory(int offset) {
+    return x0_ptr.get() + offset;
+  }
 
 private:
-  uchar x0_owned;
-  void* x4_ptr;
+  rstl::auto_ptr<char> x0_ptr;
   int x8_bufferLen;
   int xc_;
   int x10_nextFreeAddr;

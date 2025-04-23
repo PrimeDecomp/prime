@@ -1,18 +1,58 @@
 #ifndef _IMETAANIM
 #define _IMETAANIM
 
-#include "rstl/rc_ptr.hpp"
-#include "rstl/set.hpp"
+#include "Kyoto/Animation/CCharAnimTime.hpp"
 
-enum EMetaAnimType { kMAT_Play, kMAT_Blend, kMAT_PhaseBlend, kMAT_Random, kMAT_Sequence };
+#include <rstl/optional_object.hpp>
+#include <rstl/rc_ptr.hpp>
+#include <rstl/set.hpp>
+#include <rstl/string.hpp>
+
+enum EMetaAnimType {
+  kMAT_Play,
+  kMAT_Blend,
+  kMAT_PhaseBlend,
+  kMAT_Random,
+  kMAT_Sequence,
+};
 
 class CAnimTreeNode;
 class CPrimitive;
 class CCharAnimTime;
 class IAnimReader;
 class CAnimSysContext;
-class CMetaAnimTreeBuildOrders;
-class CPreAdvanceIndicator;
+
+class CPreAdvanceIndicator {
+  bool mIsTime;
+  CCharAnimTime mTime;
+  rstl::string mString;
+  uint unk1;
+  uint unk2;
+  uint unk3;
+  uint unk4;
+  uint unk5;
+  uint unk6;
+  uint unk7;
+  uint unk8;
+  uint unk9;
+
+public:
+  explicit CPreAdvanceIndicator(const CCharAnimTime& time) : mIsTime(true), mTime(time) {}
+  explicit CPreAdvanceIndicator(const rstl::string& string) : mIsTime(false), mString(string) {}
+  bool IsTime() const;
+  const CCharAnimTime& GetTime() const;
+
+  bool IsString() const;
+  const rstl::string& GetString() const;
+};
+
+class CMetaAnimTreeBuildOrders {
+  rstl::optional_object< CPreAdvanceIndicator > mRecursiveAdvance;
+  rstl::optional_object< CPreAdvanceIndicator > mSingleAdvance;
+
+  static CMetaAnimTreeBuildOrders NoSpecialOrders();
+  static CMetaAnimTreeBuildOrders PreAdvanceForAll(const CPreAdvanceIndicator& ind);
+};
 
 class IMetaAnim {
 public:
