@@ -16,6 +16,46 @@ Sections:
 MetroTRK/mslsupp.c:
 	.text       start:0x80003640 end:0x80003658
 
+Kyoto/Text/CFontImageDef.cpp:
+	.text       start:0x803595D0 end:0x803598AC
+	.rodata     start:0x803D8458 end:0x803D8460
+	.sdata2     start:0x805AE6D8 end:0x805AE6F0
+
+Kyoto/Text/CImageInstruction.cpp:
+	.text       start:0x803598AC end:0x80359C80
+	.data       start:0x803EF898 end:0x803EF8B8
+	.sdata2     start:0x805AE6F0 end:0x805AE6F8
+
+Kyoto/Text/CTextRenderBuffer.cpp:
+	.text       start:0x80359C80 end:0x8035B770
+	.rodata     start:0x803D8460 end:0x803D8480
+	.sdata      start:0x805A86C0 end:0x805A86C8
+	.sdata2     start:0x805AE6F8 end:0x805AE708
+
+Kyoto/Graphics/CCubeMoviePlayer.cpp:
+	.text       start:0x8035B770 end:0x8035DD7C
+	.rodata     start:0x803D8480 end:0x803D84E0
+	.bss        start:0x8053FD00 end:0x80540200
+	.sdata      start:0x805A86C8 end:0x805A86D8
+	.sbss       start:0x805A9340 end:0x805A9358
+	.sdata2     start:0x805AE708 end:0x805AE738
+
+Kyoto/Animation/CAdditiveAnimPlayback.cpp:
+	.text       start:0x8035DD7C end:0x8035E158
+	.sdata      start:0x805A86D8 end:0x805A86F0
+	.sdata2     start:0x805AE738 end:0x805AE740
+
+Kyoto/Particles/CParticleElectricDataFactory.cpp:
+	.text       start:0x8035E158 end:0x8035EB44
+	.rodata     start:0x803D84E0 end:0x803D84E8
+
+Kyoto/Particles/CParticleElectric.cpp:
+	.text       start:0x8035EB44 end:0x803632D8
+	.rodata     start:0x803D84E8 end:0x803D8500
+	.data       start:0x803EF8B8 end:0x803EF930
+	.sdata      start:0x805A86F0 end:0x805A8700
+	.sdata2     start:0x805AE740 end:0x805AE798
+
 Kyoto/Graphics/DolphinCColor.cpp:
 	.text       start:0x803632D8 end:0x8036374C
 	.sdata      start:0x805A8700 end:0x805A8710
@@ -32,7 +72,7 @@ Kyoto/Audio/CDSPStreamManager.cpp:
 Kyoto/CDependencyGroup.cpp:
 	.text       start:0x803651C0 end:0x80365664
 	.rodata     start:0x803D8508 end:0x803D8510
-	.data       start:0x803EF940 end:0x803EF940
+	.data       start:0x803EF930 end:0x803EF940
 
 Kyoto/Audio/CStreamAudioManager.cpp:
 	.text       start:0x80365664 end:0x803669B4
