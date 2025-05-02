@@ -2,6 +2,7 @@
 #define _CSPAWNSYSTEMKEYFRAMEDATA
 
 class CSpawnSystemKeyframeData {
+public:
   ~CSpawnSystemKeyframeData();
 
 private:

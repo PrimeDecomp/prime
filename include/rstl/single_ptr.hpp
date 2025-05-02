@@ -2,6 +2,7 @@
 #define _RSTL_SINGLE_PTR
 
 #include "types.h"
+#include <rstl/rmemory_allocator.hpp>
 
 namespace rstl {
 template < typename T >
@@ -12,8 +13,9 @@ public:
   single_ptr() : x0_ptr(nullptr) {}
   single_ptr(T* ptr) : x0_ptr(ptr) {}
   single_ptr(const single_ptr& other) : x0_ptr(other.x0_ptr) { other.x0_ptr = nullptr; }
-  ~single_ptr() { delete x0_ptr; }
-
+  ~single_ptr() {
+    delete x0_ptr;
+  }
   single_ptr& operator=(single_ptr& other) {
     if (&other == this) {
       return *this;
