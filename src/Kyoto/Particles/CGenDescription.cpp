@@ -109,4 +109,6 @@ CGenDescription::~CGenDescription() {
   for (int i = 0; i < (int)(sizeof(skGenOffsets) / sizeof(size_t)); ++i) {
     delete *element_from_desc(this, skGenOffsets[i]);
   }
+  (void*)0;
+  
 }

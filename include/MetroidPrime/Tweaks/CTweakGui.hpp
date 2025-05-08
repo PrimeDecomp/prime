@@ -149,6 +149,9 @@ public:
   float GetHudLightAttMulConstant() const { return x2b8_hudLightAttMulConstant; }
   float GetHudLightAttMulLinear() const { return x2bc_hudLightAttMulLinear; }
   float GetHudLightAttMulQuadratic() const { return x2c0_hudLightAttMulQuadratic; }
+  float GetScanSpeed(uint speed) const {
+    return x2c4_scanSpeeds[speed];
+  }
   const rstl::string& GetCreditsTable() const { return x2d0_creditsTable; }
   const rstl::string& GetCreditsFont() const { return x2e0_creditsFont; }
   const rstl::string& GetJapaneseCreditsFont() const { return x2f0_japaneseCreditsFont; }
