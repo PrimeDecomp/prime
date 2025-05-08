@@ -18,58 +18,7 @@
 
 #include <stdint.h>
 
-static const CVector3f MinesPostTransforms[3] = {
-    CVector3f(0.f, 0.f, 200.f),
-    CVector3f(0.f, 0.f, 0.f),
-    CVector3f(0.f, 0.f, -200.f),
-};
 
-static const uchar MinesPostTransformIndices[42] = {
-    0, // 00 Transport to Tallon Overworld South
-    0, // 01 Quarry Access
-    0, // 02 Main Quarry
-    0, // 03 Waste Disposal
-    0, // 04 Save Station Mines A
-    0, // 05 Security Access A
-    0, // 06 Ore Processing
-    0, // 07 Mine Security Station
-    0, // 08 Research Access
-    0, // 09 Storage Depot B
-    0, // 10 Elevator Access A
-    0, // 11 Security Access B
-    0, // 12 Storage Depot A
-    0, // 13 Elite Research
-    0, // 14 Elevator A
-    1, // 15 Elite Control Access
-    1, // 16 Elite Control
-    1, // 17 Maintenance Tunnel
-    1, // 18 Ventilation Shaft
-    2, // 19 Phazon Processing Center
-    1, // 20 Omega Research
-    2, // 21 Transport Access
-    2, // 22 Processing Center Access
-    1, // 23 Map Station Mines
-    1, // 24 Dynamo Access
-    2, // 25 Transport to Magmoor Caverns South
-    2, // 26 Elite Quarters
-    1, // 27 Central Dynamo
-    2, // 28 Elite Quarters Access
-    1, // 29 Quarantine Access A
-    1, // 30 Save Station Mines B
-    2, // 31 Metroid Quarantine B
-    1, // 32 Metroid Quarantine A
-    2, // 33 Quarantine Access B
-    2, // 34 Save Station Mines C
-    1, // 35 Elevator Access B
-    2, // 36 Fungal Hall B
-    1, // 37 Elevator B
-    2, // 38 Missile Station Mines
-    2, // 39 Phazon Mining Tunnel
-    2, // 40 Fungal Hall Access
-    2, // 41 Fungal Hall A
-};
-
-static CAssetId gHackAssetId = kInvalidAssetId;
 
 CMapArea::CMapArea(CInputStream& in, uint size)
 : x0_magic(in.ReadLong())
@@ -95,10 +44,12 @@ CMapArea::~CMapArea() {
 }
 
 void CMapArea::PostConstruct() {
-  CMappableObject* moStart = x38_moStart = reinterpret_cast< CMappableObject* >(x44_buf.get());
-  CVector3f* vertexStart = x3c_vertexStart =
-      reinterpret_cast< CVector3f* >(moStart + x28_mappableObjCount);
-  x40_surfaceStart = reinterpret_cast< CMapAreaSurface* >(vertexStart + x2c_vertexCount);
+  uchar* moStart = x44_buf.get();;
+  x38_moStart = reinterpret_cast< CMappableObject* >(x44_buf.get());
+  moStart += x28_mappableObjCount * sizeof(CMappableObject);
+  x3c_vertexStart = reinterpret_cast< CVector3f* >(moStart);
+  moStart += x2c_vertexCount * sizeof(CVector3f);
+  x40_surfaceStart = reinterpret_cast< CMapAreaSurface* >(moStart);
 
   for (int i = 0; i < x28_mappableObjCount; ++i) {
     x38_moStart[i].PostConstruct(x44_buf.get());
@@ -226,6 +177,57 @@ void CMapArea::CMapAreaSurface::SetupGXMaterial() {
   CGX::SetTevKAlphaSel(GX_TEVSTAGE0, GX_TEV_KASEL_K0_A);
 }
 
+static const CVector3f MinesPostTransforms[3] = {
+  CVector3f(0.f, 0.f, 200.f),
+  CVector3f(0.f, 0.f, 0.f),
+  CVector3f(0.f, 0.f, -200.f),
+};
+
+static const uchar MinesPostTransformIndices[42] = {
+  0, // 00 Transport to Tallon Overworld South
+  0, // 01 Quarry Access
+  0, // 02 Main Quarry
+  0, // 03 Waste Disposal
+  0, // 04 Save Station Mines A
+  0, // 05 Security Access A
+  0, // 06 Ore Processing
+  0, // 07 Mine Security Station
+  0, // 08 Research Access
+  0, // 09 Storage Depot B
+  0, // 10 Elevator Access A
+  0, // 11 Security Access B
+  0, // 12 Storage Depot A
+  0, // 13 Elite Research
+  0, // 14 Elevator A
+  1, // 15 Elite Control Access
+  1, // 16 Elite Control
+  1, // 17 Maintenance Tunnel
+  1, // 18 Ventilation Shaft
+  2, // 19 Phazon Processing Center
+  1, // 20 Omega Research
+  2, // 21 Transport Access
+  2, // 22 Processing Center Access
+  1, // 23 Map Station Mines
+  1, // 24 Dynamo Access
+  2, // 25 Transport to Magmoor Caverns South
+  2, // 26 Elite Quarters
+  1, // 27 Central Dynamo
+  2, // 28 Elite Quarters Access
+  1, // 29 Quarantine Access A
+  1, // 30 Save Station Mines B
+  2, // 31 Metroid Quarantine B
+  1, // 32 Metroid Quarantine A
+  2, // 33 Quarantine Access B
+  2, // 34 Save Station Mines C
+  1, // 35 Elevator Access B
+  2, // 36 Fungal Hall B
+  1, // 37 Elevator B
+  2, // 38 Missile Station Mines
+  2, // 39 Phazon Mining Tunnel
+  2, // 40 Fungal Hall Access
+  2, // 41 Fungal Hall A
+};
+
 CTransform4f CMapArea::GetAreaPostTransform(const IWorld& world, int aid) {
   if (world.IGetWorldAssetId() == 0xB1AC4D65) // Phazon Mines
   {
@@ -244,6 +246,7 @@ const CVector3f& CMapArea::GetAreaPostTranslate(const IWorld& world, int aid) {
     return CVector3f::Zero();
   }
 }
+static CAssetId gHackAssetId = kInvalidAssetId;
 
 CFactoryFnReturn FMapAreaFactory(const SObjectTag& objTag, CInputStream& in,
                                  const CVParamTransfer&) {
