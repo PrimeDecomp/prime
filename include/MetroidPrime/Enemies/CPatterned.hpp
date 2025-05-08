@@ -246,6 +246,7 @@ public:
   CStateMachineState& StateMachineState() { return x330_stateMachineState; }
   const CStateMachineState& GetStateMachineState() const { return x330_stateMachineState; }
   ECharacter GetCharacterType() const { return x34c_characterType; }
+  EFlavorType GetFlavorType() const { return x3fc_flavor; }
   const bool IsAlive() const { return x400_25_alive; }
   void SetWasHit(const bool v) { x400_24_hitByPlayerProjectile = v; }
   void SetPendingDeath(const bool v) { x401_30_pendingDeath = v; }

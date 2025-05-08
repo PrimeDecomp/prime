@@ -595,7 +595,7 @@ config.libs = [
             Object(NonMatching, "MetroidPrime/Enemies/CParasite.cpp"),
             Object(NonMatching, "MetroidPrime/Player/CSamusFaceReflection.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/ScriptObjects/CScriptPlayerHint.cpp"),
-            Object(NonMatching, "MetroidPrime/Enemies/CRipper.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Enemies/CRipper.cpp"),
             Object(NonMatching, "MetroidPrime/Cameras/CCameraShakeData.cpp"),
             Object(
                 NonMatching, "MetroidPrime/ScriptObjects/CScriptPickupGenerator.cpp"
