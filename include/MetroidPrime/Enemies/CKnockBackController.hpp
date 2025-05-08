@@ -87,10 +87,10 @@ public:
   void sub80233d40(int i, float f1, float f2);
   void SetAutoResetImpulse(bool b);
   void SetImpulseDurationIdx(int i);
-  void SetAnimationStateRange(EKnockBackAnimationState a, EKnockBackAnimationState b) {
+  void SetAnimationStateRange(EKnockBackAnimationState a, EKnockBackAnimationState b);/* {
     x18_minAnimState = a;
     x1c_maxAnimState = b;
-  }
+  }*/
   void Update(float dt, CStateManager& mgr, CPatterned& parent);
   void KnockBack(const CVector3f& backVec, CStateManager& mgr, CPatterned& parent,
                  const CDamageInfo& info, EKnockBackType type, float magnitude);

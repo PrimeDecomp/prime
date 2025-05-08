@@ -426,8 +426,16 @@ public:
     x284_additiveReaction = cmd;
   }
 
+  void DeliverCmd(const CBCKnockBackCmd& cmd) {
+    DeliverCmd(cmd.GetCommandId());
+    xf4_knockBack = cmd;
+  }
+
   void DeliverTargetVector(const CVector3f& t) { x18_target = t; }
   void BlendSteeringCmds();
+  void SetSteeringBlendMode(ESteeringBlendMode mode) {
+    x30_steeringMode = mode;
+  }
   void SetSteeringSpeedRange(float rmin, float rmax);
   void Reset();
   CBodyStateCmd* GetCmd(EBodyStateCmd cmd);
