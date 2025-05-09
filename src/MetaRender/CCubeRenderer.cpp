@@ -528,7 +528,7 @@ void CCubeRenderer::SetViewport(int left, int bottom, int width, int height) {
   CGraphics::SetScissor(left, bottom, width, height);
 }
 
-void CCubeRenderer::SetDepthReadWrite(bool read, bool update) {
+void CCubeRenderer::SetDepthReadWrite(const bool read, const bool update) {
   CGraphics::SetDepthWriteMode(read, kE_LEqual, update);
 }
 
