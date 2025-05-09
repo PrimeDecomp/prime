@@ -59,10 +59,11 @@ void CAuiMeter::UpdateMeterWorkers() {
   int etankCap;
   int etankFill;
   int workerCount = xd4_workers.size();
-  if (xc4_noRoundUp)
+  if (xc4_noRoundUp) {
     etankCap = scale * xcc_capacity;
-  else
+  } else {
     etankCap = 0.5f + (scale * xcc_capacity);
+  }
 
   if (xc4_noRoundUp)
     etankFill = scale * xd0_value;
@@ -74,24 +75,25 @@ void CAuiMeter::UpdateMeterWorkers() {
     if (!worker)
       continue;
 
-    CGuiWidget* fullTank = worker->GetWorkerWidget(0);
-    CGuiWidget* emptyTank = worker->GetWorkerWidget(1);
+    CGuiWidget* tanks[2];
+    tanks[0] = worker->GetWorkerWidget(0);
+    tanks[1] = worker->GetWorkerWidget(1);
 
     if (i < etankFill) {
-      if (fullTank)
-        fullTank->SetIsVisible(true);
-      if (emptyTank)
-        emptyTank->SetIsVisible(false);
+      if (tanks[0])
+        tanks[0]->SetIsVisible(true);
+      if (tanks[1])
+        tanks[1]->SetIsVisible(false);
     } else if (i < etankCap) {
-      if (fullTank)
-        fullTank->SetIsVisible(false);
-      if (emptyTank)
-        emptyTank->SetIsVisible(true);
+      if (tanks[0])
+        tanks[0]->SetIsVisible(false);
+      if (tanks[1])
+        tanks[1]->SetIsVisible(true);
     } else {
-      if (fullTank)
-        fullTank->SetIsVisible(false);
-      if (emptyTank)
-        emptyTank->SetIsVisible(false);
+      if (tanks[0])
+        tanks[0]->SetIsVisible(false);
+      if (tanks[1])
+        tanks[1]->SetIsVisible(false);
     }
   }
 }

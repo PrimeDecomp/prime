@@ -44,6 +44,8 @@ public:
   CGuiObject* ChildObject();
   const CGuiObject* GetNextSibling() const;
   CGuiObject* NextSibling();
+
+
 private:
   CTransform4f x4_localXF;
   CTransform4f x34_worldXF;

@@ -44,16 +44,16 @@ public:
 
   CGuiWidget(const CGuiWidgetParms& parms);
   ~CGuiWidget();
-  void Update(float dt);
-  void Draw(const CGuiWidgetDrawParms& drawParms) const;
-  void Initialize();
+  void Update(float dt) override;
+  void Draw(const CGuiWidgetDrawParms& drawParms) const override;
+  void Initialize() override {}
   virtual void ProcessUserInput(const CFinalInput& input);
-  virtual void Touch() const;
+  virtual void Touch() const {}
   virtual bool GetIsVisible() const;
   virtual bool GetIsActive() const;
   virtual FourCC GetWidgetTypeID() const { return 'BWIG'; }
   virtual bool AddWorkerWidget(CGuiWidget* worker);
-  virtual bool GetIsFinishedLoadingWidgetSpecific() const;
+  virtual bool GetIsFinishedLoadingWidgetSpecific() const { return true; };
   virtual void OnVisible();
   virtual void OnActivate();
   short GetWorkerId() const { return xb4_workerId; }
@@ -69,6 +69,7 @@ public:
   CGuiFrame* GetFrame() { return xb0_frame; }
 
   static const short InvalidWidgetId() { return gkInvalidWidgetId; }
+
 private:
   static const short gkInvalidWidgetId;
   short x70_selfId;
