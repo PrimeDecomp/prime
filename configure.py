@@ -254,6 +254,7 @@ cflags_retro = [
     "-inline deferred,noauto",
     "-common on",
     "-i extern/musyx/include",
+    "-sym on",
     "-DMUSY_TARGET=MUSY_TARGET_DOLPHIN",
 ]
 
