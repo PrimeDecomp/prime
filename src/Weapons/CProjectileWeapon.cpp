@@ -141,13 +141,13 @@ bool CProjectileWeapon::Update(float dt) {
 
   double actualTime = xf4_curFrame * (1.0 / 60.0);
   xec_childSystemUpdateRate = 0;
-  double useDt = close_enough(dt, 1.f / 60.f) ? 1.0 / 60.0 : dt;
+  double useDt = close_enough(dt, 1.f / 60.f, 1.6666666851961054e-5f) ? (1.0 / 60.0) : dt;
   useDt *= val();
   if (useDt < 0.f) {
     useDt = 0.f;
   }
   xd0_curTime += useDt;
-  while (actualTime < xd0_curTime && !close_enough(actualTime, xd0_curTime)) {
+  while (actualTime < xd0_curTime && !close_enough(actualTime, xd0_curTime, 1.6666666666666667e-5)) {
     if (xf4_curFrame < xe8_lifetime) {
       CParticleGlobals::SetEmitterTime(xf4_curFrame);
       CParticleGlobals::SetParticleLifetime(xe8_lifetime);
@@ -160,11 +160,11 @@ bool CProjectileWeapon::Update(float dt) {
     ++xec_childSystemUpdateRate;
   }
 
-  if (close_enough(actualTime, xd0_curTime)) {
+  if (close_enough(actualTime, xd0_curTime, 1.6666666666666667e-5)) {
     xd0_curTime = actualTime;
   }
 
-  xd8_remainderTime = (float)((actualTime - xd0_curTime) / 60.0);
+  xd8_remainderTime = (float)((actualTime - xd0_curTime) / (1.f / 60.0));
 
   if (xf4_curFrame < xe8_lifetime) {
     xe0_maxTurnRate = 0.f;
@@ -242,7 +242,7 @@ void CProjectileWeapon::UpdatePSTranslationAndOrientation() {
 }
 
 void CProjectileWeapon::UpdateChildParticleSystems(float dt) {
-  double useDt = (close_enough(dt, 1.f / 60.f)) ? 1.0 / 60.0 : dt;
+  double useDt = (close_enough(dt, 1.f / 60.f,1.6666666851961054e-5f)) ? 1.0 / 60.0 : dt;
 
   if (xfc_APSMGen) {
     if (xf8_lastParticleFrame != xf4_curFrame) {
@@ -446,12 +446,10 @@ rstl::optional_object< TLockedToken< CGenDescription > > CProjectileWeapon::Coll
     if (useTarget && posToTarget.CanBeNormalized()) {
       SetWorldSpaceOrientation(CTransform4f::LookAt(CVector3f::Zero(), posToTarget.AsNormalized()));
     } else {
-      const CTransform4f& xf = GetTransform();
-      const CVector3f forward = xf.GetForward();
-      float mag = CVector3f::Dot(normal, forward) * 2.f;
-      CVector3f lookPos = mag * normal;
-      CVector3f lookPos2 = xf.GetForward() - lookPos;
-      CTransform4f lookXf = CTransform4f::LookAt(CVector3f::Zero(), lookPos2, normal);
+      CVector3f col = GetTransform().GetColumn(kDY);
+      CTransform4f lookXf = CTransform4f::LookAt(
+          CVector3f::Zero(), col - ((CVector3f::Dot(normal, *(CVector3f*)&col) * 2.f) * normal),
+          normal);
       SetWorldSpaceOrientation(lookXf);
     }
     return rstl::optional_object_null();
