@@ -219,6 +219,7 @@ void CCubeRenderer::GenerateSphereRampTex() {
   x220_sphereRamp.UnLock();
 }
 
+// TODO non-matching
 void CCubeRenderer::LoadThermoPalette() {
   x288_thermalPalette.Lock();
   TLockedToken< CTexture > token = xc_objStore.GetObj("TXTR_ThermoPalette");
@@ -307,6 +308,7 @@ void CCubeRenderer::BeginScene() {
   CGraphics::SetDepthWriteMode(true, kE_LEqual, true);
   CGraphics::SetBlendMode(kBM_Blend, kBF_SrcAlpha, kBF_InvSrcAlpha, kLO_Clear);
 #if NONMATCHING
+  // TODO: double check this
   float aspect = static_cast< float >(width) / static_cast< float >(height);
 #else
   float aspect = 1.3333334f;
@@ -346,25 +348,25 @@ void CCubeRenderer::EndScene() {
 void CCubeRenderer::AddParticleGen(const CParticleGen& gen) {
   AUTO(bounds, gen.GetBounds());
   if (bounds) {
-    CVector3f closestPoint = bounds->ClosestPointAlongVector(xb0_viewPlane.GetNormal());
+    CVector3f closestPoint = bounds->ClosestPointAlongVector(GetViewPlane().GetNormal());
     Buckets::Insert(closestPoint, *bounds, kDT_Particle, static_cast< const void* >(&gen),
-                    xb0_viewPlane, 0);
+                    GetViewPlane(), 0);
   }
 }
 
 void CCubeRenderer::AddParticleGen(const CParticleGen& gen, const CVector3f& pos,
                                    const CAABox& bounds) {
-  Buckets::Insert(pos, bounds, kDT_Particle, static_cast< const void* >(&gen), xb0_viewPlane, 0);
+  Buckets::Insert(pos, bounds, kDT_Particle, static_cast< const void* >(&gen), GetViewPlane(), 0);
 }
 
 void CCubeRenderer::AddPlaneObject(const void* obj, const CAABox& aabb, const CPlane& plane,
                                    int type) {
   static const CVector3f sOptimalPlane(0.f, 0.f, 1.f);
 
-  CVector3f closestPoint = aabb.ClosestPointAlongVector(xb0_viewPlane.GetNormal());
-  float closestDist = xb0_viewPlane.GetHeight(closestPoint);
-  CVector3f furthestPoint = aabb.FurthestPointAlongVector(xb0_viewPlane.GetNormal());
-  float furthestDist = xb0_viewPlane.GetHeight(furthestPoint);
+  CVector3f closestPoint = aabb.ClosestPointAlongVector(GetViewPlane().GetNormal());
+  float closestDist = GetViewPlane().GetHeight(closestPoint);
+  CVector3f furthestPoint = aabb.FurthestPointAlongVector(GetViewPlane().GetNormal());
+  float furthestDist = GetViewPlane().GetHeight(furthestPoint);
   if (closestDist < 0.f && furthestDist < 0.f) {
     return;
   }
@@ -398,7 +400,7 @@ void CCubeRenderer::AddDrawable(const void* obj, const CVector3f& pos, const CAA
   if (sorting == IRenderer::kDS_UnsortedCallback) {
     xa8_drawableCallback(obj, xac_drawableCallbackUserData, mode);
   } else {
-    Buckets::Insert(pos, aabb, EDrawableType(mode + 2), obj, xb0_viewPlane, 0);
+    Buckets::Insert(pos, aabb, EDrawableType(mode + 2), obj, GetViewPlane(), 0);
   }
 }
 
@@ -423,6 +425,8 @@ void CCubeRenderer::SetupCGraphicsStates() {
                    GX_AF_NONE);
   CCubeMaterial::EnsureTevsDirect();
 }
+
+void CCubeRenderer::DrawRenderBucketsDebug() {}
 
 namespace Renderer {
 IRenderer* AllocateRenderer(IObjectStore& objStore, COsContext& osContext, CMemorySys& memorySys,
@@ -498,12 +502,12 @@ void CCubeRenderer::EndPrimitive() {
 
 void CCubeRenderer::SetAmbientColor(const CColor& color) { CGraphics::SetAmbientColor(color); }
 
-void CCubeRenderer::SetPerspective(float fovy, float aspect, float znear, float zfar) {
-  CGraphics::SetPerspective(fovy, aspect, znear, zfar);
-}
-
 void CCubeRenderer::SetPerspective(float fovy, float width, float height, float znear, float zfar) {
   CGraphics::SetPerspective(fovy, width / height, znear, zfar);
+}
+
+void CCubeRenderer::SetPerspective(float fovy, float aspect, float znear, float zfar) {
+  CGraphics::SetPerspective(fovy, aspect, znear, zfar);
 }
 
 rstl::pair< CVector2f, CVector2f > CCubeRenderer::SetViewportOrtho(bool centered, float znear,

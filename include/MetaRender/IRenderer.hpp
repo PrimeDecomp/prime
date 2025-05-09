@@ -82,7 +82,7 @@ public:
                                                               float zfar);
   virtual void SetClippingPlanes(const CFrustumPlanes&);
   virtual void SetViewport(int left, int right, int width, int height);
-  virtual void SetDepthReadWrite(bool read, bool update);
+  virtual void SetDepthReadWrite(const bool read, const bool update);
   virtual void SetBlendMode_AdditiveAlpha();
   virtual void SetBlendMode_AlphaBlended();
   virtual void SetBlendMode_NoColorWrite();
