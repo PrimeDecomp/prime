@@ -1078,7 +1078,7 @@ config.libs = [
             Object(NonMatching, "Kyoto/Audio/CStreamAudioManager.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Kyoto/Animation/CHalfTransition.cpp"),
             Object(NonMatching, "Kyoto/Particles/CElectricDescription.cpp"),
-            Object(NonMatching, "Kyoto/Particles/CSwooshDescription.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Kyoto/Particles/CSwooshDescription.cpp"),
             Object(NonMatching, "Kyoto/Particles/CGenDescription.cpp"),
             Object(NonMatching, "Kyoto/CPakFile.cpp"),
             Object(NonMatching, "Kyoto/Animation/CPoseAsTransformsVariableSize.cpp"),
