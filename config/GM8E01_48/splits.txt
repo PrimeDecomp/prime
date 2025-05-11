@@ -16,6 +16,50 @@ Sections:
 MetroTRK/mslsupp.c:
 	.text       start:0x80003640 end:0x80003658
 
+Kyoto/Text/CStringTable.cpp:
+	.text       start:0x80356694 end:0x80356AA0
+	.rodata     start:0x803D8420 end:0x803D8438
+	.sdata      start:0x805A86B8 end:0x805A86C0
+
+Kyoto/Particles/CEmitterElement.cpp:
+	.text       start:0x80356AA0 end:0x803574AC
+	.data       start:0x803EF848 end:0x803EF888
+	.sdata2     start:0x805AE6A0 end:0x805AE6B8
+
+Kyoto/Particles/CEffectComponent.cpp:
+	.text       start:0x803574AC end:0x80357598
+
+Kyoto/Particles/CParticleData.cpp:
+	.text       start:0x80357598 end:0x80357674
+	.sbss       start:0x805A9330 end:0x805A9338
+
+Kyoto/Animation/CVertexMorphEffect.cpp:
+	.text       start:0x80357674 end:0x80357B38
+	.rodata     start:0x803D8438 end:0x803D8440
+	.sdata2     start:0x805AE6B8 end:0x805AE6D0
+
+Kyoto/Animation/CSkinnedModelWithAvgNormals.cpp:
+	.text       start:0x80357B38 end:0x803583F0
+	.rodata     start:0x803D8440 end:0x803D8448
+	.sdata2     start:0x805AE6D0 end:0x805AE6D8
+
+Kyoto/CTimeProvider.cpp:
+	.text       start:0x803583F0 end:0x803584C8
+	.sbss       start:0x805A9338 end:0x805A9340
+
+Kyoto/CARAMToken.cpp:
+	.text       start:0x803584C8 end:0x80358CF8
+	.rodata     start:0x803D8448 end:0x803D8450
+	.bss        start:0x805A64EC end:0x805A6508 align:4 common
+
+Kyoto/Audio/CMidiManager.cpp:
+	.text       start:0x80358CF8 end:0x803595D0
+	.ctors      start:0x803CB468 end:0x803CB46C
+	.rodata     start:0x803D8450 end:0x803D8458
+	.data       start:0x803EF888 end:0x803EF898
+	.bss        start:0x8053FCF0 end:0x8053FD00
+	.bss        start:0x805A6508 end:0x805A6540 align:4 common
+
 Kyoto/Text/CFontImageDef.cpp:
 	.text       start:0x803595D0 end:0x803598AC
 	.rodata     start:0x803D8458 end:0x803D8460
