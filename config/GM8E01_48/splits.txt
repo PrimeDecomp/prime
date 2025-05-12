@@ -16,6 +16,80 @@ Sections:
 MetroTRK/mslsupp.c:
 	.text       start:0x80003640 end:0x80003658
 
+Kyoto/zlib/adler32.c:
+	.text       start:0x80341290 end:0x80341414
+
+Kyoto/zlib/infblock.c:
+	.text       start:0x80341414 end:0x80342544
+	.rodata     start:0x803D7BB8 end:0x803D7C78
+	.data       start:0x803EE540 end:0x803EE568
+
+Kyoto/zlib/infcodes.c:
+	.text       start:0x80342544 end:0x80342F34
+	.rodata     start:0x803D7C78 end:0x803D7CB0
+	.data       start:0x803EE568 end:0x803EE590
+
+Kyoto/zlib/inffast.c:
+	.text       start:0x80342F34 end:0x803434CC
+	.rodata     start:0x803D7CB0 end:0x803D7CE8
+
+Kyoto/zlib/inflate.c:
+	.text       start:0x803434CC end:0x80343D30
+	.rodata     start:0x803D7CE8 end:0x803D7D60
+	.data       start:0x803EE590 end:0x803EE5C8
+
+Kyoto/zlib/inftrees.c:
+	.text       start:0x80343D30 end:0x8034457C
+	.rodata     start:0x803D7D60 end:0x803D8060
+	.data       start:0x803EE5C8 end:0x803EF6C8
+	.sdata      start:0x805A85F8 end:0x805A8600
+
+Kyoto/zlib/infutil.c:
+	.text       start:0x8034457C end:0x803446FC
+	.data       start:0x803EF6C8 end:0x803EF710
+
+Kyoto/zlib/zutil.c:
+	.text       start:0x803446FC end:0x80344758
+
+Kyoto/CARAMManager.cpp:
+	.text       start:0x80344758 end:0x8034513C
+	.ctors      start:0x803CB44C end:0x803CB450
+	.rodata     start:0x803D8060 end:0x803D8068
+	.bss        start:0x804BFC20 end:0x804BFC30
+	.bss        start:0x805A647C end:0x805A6494 align:4 common
+	.sdata      start:0x805A8600 end:0x805A8608
+	.sbss       start:0x805A9200 end:0x805A9220
+	.sdata2     start:0x805AE5A0 end:0x805AE5A8
+
+Kyoto/Math/CFrustumPlanes.cpp:
+	.text       start:0x8034513C end:0x803458BC
+	.sdata2     start:0x805AE5A8 end:0x805AE5B0
+
+Kyoto/Graphics/CCubeMaterial.cpp:
+	.text       start:0x803458BC end:0x80348420
+	.ctors      start:0x803CB450 end:0x803CB454
+	.rodata     start:0x803D8068 end:0x803D8218
+	.data       start:0x803EF710 end:0x803EF760
+	.bss        start:0x804BFC30 end:0x804BFC70
+	.bss        start:0x805A6494 end:0x805A64A0 align:4 common
+	.sdata      start:0x805A8608 end:0x805A8618
+	.sbss       start:0x805A9220 end:0x805A9248
+	.sdata2     start:0x805AE5B0 end:0x805AE610
+
+Kyoto/Graphics/CCubeSurface.cpp:
+	.text       start:0x80348420 end:0x803484A4
+	.ctors      start:0x803CB454 end:0x803CB458
+	.bss        start:0x805A64A0 end:0x805A64AC align:4 common
+	.sdata2     start:0x805AE610 end:0x805AE618
+
+Kyoto/Animation/CCharAnimTime.cpp:
+	.text       start:0x803484A4 end:0x80348FD4
+	.sdata      start:0x805A8618 end:0x805A8638
+	.sdata2     start:0x805AE618 end:0x805AE620
+
+Kyoto/Animation/CSegIdList.cpp:
+	.text       start:0x80348FD4 end:0x80349014
+
 Kyoto/Input/CFinalInput.cpp:
 	.text       start:0x80349014 end:0x8034A0F4
 	.data       start:0x803EF760 end:0x803EF770
@@ -99,7 +173,7 @@ Kyoto/Animation/DolphinCSkinRules.cpp:
 	.sdata      start:0x805A86A0 end:0x805A86B0
 	.sbss       start:0x805A92E8 end:0x805A9318
 
-Kyoto/Graphics/DolphinCVirtualBone.cpp:
+Kyoto/Animation/DolphinCVirtualBone.cpp:
 	.text       start:0x80354968 end:0x803552B4
 	.sdata2     start:0x805AE698 end:0x805AE6A0
 
