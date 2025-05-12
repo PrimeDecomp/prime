@@ -16,6 +16,41 @@ Sections:
 MetroTRK/mslsupp.c:
 	.text       start:0x80003640 end:0x80003658
 
+Kyoto/Input/CFinalInput.cpp:
+	.text       start:0x80349014 end:0x8034A0F4
+	.data       start:0x803EF760 end:0x803EF770
+	.sdata      start:0x805A8638 end:0x805A8678
+	.sdata2     start:0x805AE620 end:0x805AE638
+
+Kyoto/Graphics/CColor.cpp:
+	.text       start:0x8034A0F4 end:0x8034A194
+	.ctors      start:0x803CB458 end:0x803CB45C
+	.sbss       start:0x805A9248 end:0x805A9270
+
+Kyoto/Audio/DolphinCAudioGroupSet.cpp:
+	.text       start:0x8034A194 end:0x8034A914
+	.rodata     start:0x803D8218 end:0x803D8320
+	.data       start:0x803EF770 end:0x803EF780
+
+Kyoto/Audio/DolphinCAudioSys.cpp:
+	.text       start:0x8034A914 end:0x8034D64C
+	.ctors      start:0x803CB45C end:0x803CB460
+	.rodata     start:0x803D8320 end:0x803D8330
+	.bss        start:0x804BFC70 end:0x804BFC80
+	.bss        start:0x805A64AC end:0x805A64BC align:4 common
+	.sdata      start:0x805A8678 end:0x805A8688
+	.sbss       start:0x805A9270 end:0x805A92A0
+	.sdata2     start:0x805AE638 end:0x805AE648
+
+Kyoto/DolphinCMemoryCardSys.cpp:
+	.text       start:0x8034D64C end:0x8034F124
+	.ctors      start:0x803CB460 end:0x803CB464
+	.rodata     start:0x803D8330 end:0x803D8338
+	.bss        start:0x804BFC80 end:0x804BFCA0
+	.bss        start:0x805A64BC end:0x805A64EC align:4 common
+	.sdata      start:0x805A8688 end:0x805A8690
+	.sbss       start:0x805A92A0 end:0x805A92A8
+
 Kyoto/Input/DolphinIController.cpp:
 	.text       start:0x8034F124 end:0x8034F1D0
 	.rodata     start:0x803D8338 end:0x803D8340
