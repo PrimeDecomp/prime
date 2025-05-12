@@ -16,6 +16,65 @@ Sections:
 MetroTRK/mslsupp.c:
 	.text       start:0x80003640 end:0x80003658
 
+Kyoto/Input/DolphinIController.cpp:
+	.text       start:0x8034F124 end:0x8034F1D0
+	.rodata     start:0x803D8338 end:0x803D8340
+	.data       start:0x803EF780 end:0x803EF7A0
+	.sdata2     start:0x805AE648 end:0x805AE658
+
+Kyoto/Input/CDolphinController.cpp:
+	.text       start:0x8034F1D0 end:0x8034FA40
+	.data       start:0x803EF7A0 end:0x803EF7D8
+	.sbss       start:0x805A92A8 end:0x805A92B0
+	.sdata2     start:0x805AE658 end:0x805AE690
+
+Kyoto/DolphinCDvdFile.cpp:
+	.text       start:0x8034FA40 end:0x803506D4
+	.rodata     start:0x803D8340 end:0x803D8350
+	.sdata      start:0x805A8690 end:0x805A86A0
+	.sbss       start:0x805A92B0 end:0x805A92B8
+
+Kyoto/Alloc/CMediumAllocPool.cpp:
+	.text       start:0x803506D4 end:0x80350FB8
+	.rodata     start:0x803D8350 end:0x803D8358
+	.sbss       start:0x805A92B8 end:0x805A92C0
+
+Kyoto/Alloc/CSmallAllocPool.cpp:
+	.text       start:0x80350FB8 end:0x803512CC
+
+Kyoto/Alloc/CGameAllocator.cpp:
+	.text       start:0x803512CC end:0x803527FC
+	.rodata     start:0x803D8358 end:0x803D8408
+	.data       start:0x803EF7D8 end:0x803EF818
+	.sbss       start:0x805A92C0 end:0x805A92D0
+	.sdata2     start:0x805AE690 end:0x805AE698
+
+Kyoto/Animation/DolphinCSkinnedModel.cpp:
+	.text       start:0x803527FC end:0x80353A88
+	.ctors      start:0x803CB464 end:0x803CB468
+	.rodata     start:0x803D8408 end:0x803D8410
+	.data       start:0x803EF818 end:0x803EF828
+	.bss        start:0x804BFCA0 end:0x8053FCF0
+	.sbss       start:0x805A92D0 end:0x805A92E8
+
+Kyoto/Animation/DolphinCSkinRules.cpp:
+	.text       start:0x80353A88 end:0x80354968
+	.rodata     start:0x803D8410 end:0x803D8418
+	.data       start:0x803EF828 end:0x803EF838
+	.sdata      start:0x805A86A0 end:0x805A86B0
+	.sbss       start:0x805A92E8 end:0x805A9318
+
+Kyoto/Graphics/DolphinCVirtualBone.cpp:
+	.text       start:0x80354968 end:0x803552B4
+	.sdata2     start:0x805AE698 end:0x805AE6A0
+
+Kyoto/Graphics/DolphinCModel.cpp:
+	.text       start:0x803552B4 end:0x80356694
+	.rodata     start:0x803D8418 end:0x803D8420
+	.data       start:0x803EF838 end:0x803EF848
+	.sdata      start:0x805A86B0 end:0x805A86B8
+	.sbss       start:0x805A9318 end:0x805A9330
+
 Kyoto/Text/CStringTable.cpp:
 	.text       start:0x80356694 end:0x80356AA0
 	.rodata     start:0x803D8420 end:0x803D8438
