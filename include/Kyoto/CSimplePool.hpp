@@ -16,15 +16,15 @@ public:
   CSimplePool(IFactory& factory);
   ~CSimplePool();
   void DebugDumpPool() const;
-  virtual CToken GetObj(const SObjectTag& tag, const CVParamTransfer& xfer);
-  virtual CToken GetObj(const SObjectTag& tag);
-  virtual CToken GetObj(const char* name);
-  virtual CToken GetObj(const char* name, const CVParamTransfer& xfer);
-  virtual bool HasObject(const SObjectTag& tag) const;
-  virtual bool ObjectIsLive(const SObjectTag& tag) const;
-  virtual IFactory& GetFactory() const { return x18_factory; }
-  virtual void Flush();
-  virtual void ObjectUnreferenced(const SObjectTag& tag);
+  CToken GetObj(const SObjectTag& tag, const CVParamTransfer& xfer) override;
+  CToken GetObj(const SObjectTag& tag) override;
+  CToken GetObj(const char* name) override;
+  CToken GetObj(const char* name, const CVParamTransfer& xfer) override;
+  bool HasObject(const SObjectTag& tag) const override;
+  bool ObjectIsLive(const SObjectTag& tag) const override;
+  IFactory& GetFactory() const override { return x18_factory; }
+  void Flush() override;
+  void ObjectUnreferenced(const SObjectTag& tag) override;
   rstl::vector< SObjectTag > GetReferencedTags();
 
 private:
