@@ -142,7 +142,7 @@ class CMVEBounce : public CModVectorElement {
 
 public:
   CMVEBounce(CVectorElement* planePoint, CVectorElement* planeNormal, CRealElement* friction,
-             CRealElement* restitution, bool e);
+             CRealElement* restitution, const bool e);
   ~CMVEBounce() override;
   bool GetValue(int frame, CVector3f& pVel, CVector3f& pPos) const override;
 };

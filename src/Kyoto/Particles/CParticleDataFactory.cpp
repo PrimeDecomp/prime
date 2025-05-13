@@ -306,10 +306,12 @@ CVectorElement* CParticleDataFactory::GetVectorElement(CInputStream& in) { retur
 CEmitterElement* CParticleDataFactory::GetEmitterElement(CInputStream& in) { return nullptr; }
 
 CModVectorElement* CParticleDataFactory::GetModVectorElement(CInputStream& in) {
+  CModVectorElement* ret;
   FourCC clsId = GetClassID(in);
   switch (clsId) {
   case SBIG('NONE'): {
-    return nullptr;
+    ret = nullptr;
+    break;
   }
   case SBIG('CNST'): {
     CRealElement* a = GetRealElement(in);
@@ -327,40 +329,45 @@ CModVectorElement* CParticleDataFactory::GetModVectorElement(CInputStream& in) {
       a->GetValue(0, bf);
       a->GetValue(0, cf);
 #endif
-      CModVectorElement* result = rs_new CMVEFastConstant(af, bf, cf);
+      ret = rs_new CMVEFastConstant(af, bf, cf);
       delete a;
       delete b;
       delete c;
-      return result;
     } else {
-      return rs_new CMVEConstant(a, b, c);
+      ret = rs_new CMVEConstant(a, b, c);
     }
+    break;
   }
   case SBIG('GRAV'): {
-    return rs_new CMVEGravity(GetVectorElement(in));
+    ret = rs_new CMVEGravity(GetVectorElement(in));
+    break;
   }
   case SBIG('WIND'): {
     CVectorElement* a = GetVectorElement(in);
     CRealElement* b = GetRealElement(in);
-    return rs_new CMVEWind(a, b);
+    ret = rs_new CMVEWind(a, b);
+    break;
   }
   case SBIG('EXPL'): {
     CRealElement* a = GetRealElement(in);
     CRealElement* b = GetRealElement(in);
-    return rs_new CMVEExplode(a, b);
+    ret = rs_new CMVEExplode(a, b);
+    break;
   }
   case SBIG('CHAN'): {
     CModVectorElement* a = GetModVectorElement(in);
     CModVectorElement* b = GetModVectorElement(in);
     CIntElement* c = GetIntElement(in);
-    return rs_new CMVETimeChain(a, b, c);
+    ret = rs_new CMVETimeChain(a, b, c);
+    break;
   }
   case SBIG('PULS'): {
     CIntElement* a = GetIntElement(in);
     CIntElement* b = GetIntElement(in);
     CModVectorElement* c = GetModVectorElement(in);
     CModVectorElement* d = GetModVectorElement(in);
-    return rs_new CMVEPulse(a, b, c, d);
+    ret = rs_new CMVEPulse(a, b, c, d);
+    break;
   }
   case SBIG('IMPL'): {
     CVectorElement* a = GetVectorElement(in);
@@ -368,7 +375,8 @@ CModVectorElement* CParticleDataFactory::GetModVectorElement(CInputStream& in) {
     CRealElement* c = GetRealElement(in);
     CRealElement* d = GetRealElement(in);
     bool e = GetBool(in);
-    return rs_new CMVEImplosion(a, b, c, d, e);
+    ret = rs_new CMVEImplosion(a, b, c, d, e);
+    break;
   }
   case SBIG('LMPL'): {
     CVectorElement* a = GetVectorElement(in);
@@ -376,7 +384,8 @@ CModVectorElement* CParticleDataFactory::GetModVectorElement(CInputStream& in) {
     CRealElement* c = GetRealElement(in);
     CRealElement* d = GetRealElement(in);
     bool e = GetBool(in);
-    return rs_new CMVELinearImplosion(a, b, c, d, e);
+    ret = rs_new CMVELinearImplosion(a, b, c, d, e);
+    break;
   }
   case SBIG('EMPL'): {
     CVectorElement* a = GetVectorElement(in);
@@ -384,14 +393,16 @@ CModVectorElement* CParticleDataFactory::GetModVectorElement(CInputStream& in) {
     CRealElement* c = GetRealElement(in);
     CRealElement* d = GetRealElement(in);
     bool e = GetBool(in);
-    return rs_new CMVEExponentialImplosion(a, b, c, d, e);
+    ret = rs_new CMVEExponentialImplosion(a, b, c, d, e);
+    break;
   }
   case SBIG('SWRL'): {
     CVectorElement* a = GetVectorElement(in);
     CVectorElement* b = GetVectorElement(in);
     CRealElement* c = GetRealElement(in);
     CRealElement* d = GetRealElement(in);
-    return rs_new CMVESwirl(a, b, c, d);
+    ret = rs_new CMVESwirl(a, b, c, d);
+    break;
   }
   case SBIG('BNCE'): {
     CVectorElement* a = GetVectorElement(in);
@@ -399,13 +410,18 @@ CModVectorElement* CParticleDataFactory::GetModVectorElement(CInputStream& in) {
     CRealElement* c = GetRealElement(in);
     CRealElement* d = GetRealElement(in);
     bool e = GetBool(in);
-    return rs_new CMVEBounce(a, b, c, d, e);
+    ret = rs_new CMVEBounce(a, b, c, d, e);
+    break;
   }
   case SBIG('SPOS'): {
-    return rs_new CMVESetPosition(GetVectorElement(in));
+    ret = rs_new CMVESetPosition(GetVectorElement(in));
+    break;
   }
+  default:
+    return nullptr;
+    break;
   }
-  return nullptr;
+  return ret;
 }
 
 CColorElement* CParticleDataFactory::GetColorElement(CInputStream& in) { return nullptr; }
