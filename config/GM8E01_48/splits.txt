@@ -16,6 +16,38 @@ Sections:
 MetroTRK/mslsupp.c:
 	.text       start:0x80003640 end:0x80003658
 
+Kyoto/Streams/CZipInputStream.cpp:
+	.text       start:0x8033F91C end:0x8033FB5C
+	.rodata     start:0x803D7B88 end:0x803D7B98
+	.data       start:0x803EE4C8 end:0x803EE4D8
+
+Kyoto/Streams/CZipSupport.cpp:
+	.text       start:0x8033FB5C end:0x8033FBB8
+	.rodata     start:0x803D7B98 end:0x803D7BA8
+
+Kyoto/CFactoryStore.cpp:
+	.text       start:0x8033FBB8 end:0x8033FC24
+	.data       start:0x803EE4D8 end:0x803EE510
+
+Kyoto/CObjectReference.cpp:
+	.text       start:0x8033FC24 end:0x80340150
+
+Kyoto/CSimplePool.cpp:
+	.text       start:0x80340150 end:0x80340E34
+	.rodata     start:0x803D7BA8 end:0x803D7BB0
+	.data       start:0x803EE510 end:0x803EE540
+	.sdata      start:0x805A85E8 end:0x805A85F8
+	.sbss       start:0x805A91E8 end:0x805A91F0
+
+Kyoto/CToken.cpp:
+	.text       start:0x80340E34 end:0x80341174
+	.rodata     start:0x803D7BB0 end:0x803D7BB8
+
+Kyoto/IObj.cpp:
+	.text       start:0x80341174 end:0x80341290
+	.ctors      start:0x803CB448 end:0x803CB44C
+	.sbss       start:0x805A91F0 end:0x805A9200
+
 Kyoto/zlib/adler32.c:
 	.text       start:0x80341290 end:0x80341414
 
