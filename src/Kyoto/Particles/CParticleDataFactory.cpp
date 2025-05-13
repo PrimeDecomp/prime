@@ -125,6 +125,10 @@ CRealElement* CParticleDataFactory::GetRealElement(CInputStream& in) {
   case SBIG('CNST'): {
     return rs_new CREConstant(GetReal(in));
   }
+  case SBIG('NONE'): {
+    return nullptr;
+  }
+  case SBIG('KEYE'):
   case SBIG('KEYP'): {
     return rs_new CREKeyframeEmitter(in);
   }
@@ -135,7 +139,7 @@ CRealElement* CParticleDataFactory::GetRealElement(CInputStream& in) {
     CRealElement* a = GetRealElement(in);
     CRealElement* b = GetRealElement(in);
     CRealElement* c = GetRealElement(in);
-    return rs_new CRESineWave(c, a,b);
+    return rs_new CRESineWave(c, a, b);
   }
   case SBIG('ADD_'): {
     CRealElement* a = GetRealElement(in);
