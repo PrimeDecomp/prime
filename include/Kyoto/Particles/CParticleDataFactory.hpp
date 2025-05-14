@@ -1,12 +1,17 @@
 #ifndef _CPARTICLEDATAFACTORY
 #define _CPARTICLEDATAFACTORY
 
+#include "Kyoto/Particles/CGenDescription.hpp"
 #include "Kyoto/Particles/IElement.hpp"
 #include "Kyoto/SObjectTag.hpp"
 
 class CInputStream;
 
 class CParticleDataFactory {
+public:
+  static CGenDescription* GetGeneratorDesc(CInputStream& in, CSimplePool* pool, uint offset);
+  static CGenDescription* CreateGeneratorDescription(CInputStream&, rstl::vector< uint >& assets, uint offset,
+                                                     CSimplePool* pool);
   static CUVElement* GetTextureElement(CInputStream& in, CSimplePool* resPool);
   static CColorElement* GetColorElement(CInputStream& in);
   static CModVectorElement* GetModVectorElement(CInputStream& in);

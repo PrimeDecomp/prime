@@ -2,7 +2,10 @@
 #define _TEXTCOMMON
 
 enum EColorType {
-
+  kCT_Main,
+  kCT_Outline,
+  kCT_Geometry,
+  kCT_Foreground,
 };
 
 enum ETextDirection {

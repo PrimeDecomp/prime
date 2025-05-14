@@ -1,13 +1,12 @@
-#include "Kyoto/SObjectTag.hpp"
+#include "Kyoto/Text/CTextParser.hpp"
+#include "Kyoto/Math/CVector2f.hpp"
+#include "Kyoto/Text/CRasterFont.hpp"
+#include "Kyoto/Text/CTextExecuteBuffer.hpp"
 #include "Kyoto/Text/TextCommon.hpp"
-#include <Kyoto/Text/CTextParser.hpp>
-
-#include <Kyoto/Text/CRasterFont.hpp>
-#include <Kyoto/Text/CTextExecuteBuffer.hpp>
 
 CTextParser::CTextParser(IObjectStore& store) : mObjectStore(store) {}
 
-void CTextParser::ParseText(CTextExecuteBuffer& buffer, const wchar_t* str, int len) {}
+void CTextParser::ParseText(CTextExecuteBuffer& buffer, const wchar_t* str, int len, rstl::vector<rstl::pair<int, int> >& vec) {}
 
 uint CTextParser::GetAssetIdFromString(const rstl::string& str) {}
 
@@ -18,27 +17,47 @@ TToken< CRasterFont > CTextParser::GetFont(const wchar_t* str, int len) {
   return mObjectStore.GetObj(SObjectTag('FONT', id));
 }
 
-uint CTextParser::GetImage(const wchar_t* str, int len) { return -1; }
+CFontImageDef CTextParser::GetImage(const wchar_t* str, int len, rstl::vector<rstl::pair<int, int> >& vec) {
+  return CFontImageDef(TToken< CTexture >(), CVector2f(0.f, 0.f));
+}
 
 uint CTextParser::HandleUserTag(CTextExecuteBuffer& buffer, const wchar_t* string, int len) {
   return 0;
 }
 
-void CTextParser::ParseTag(CTextExecuteBuffer& buffer, const wchar_t* string, int len) {
+void CTextParser::ParseTag(CTextExecuteBuffer& buffer, const wchar_t* string, int len, rstl::vector<rstl::pair<int, int> >& vec) {
   if (BeginsWith(string, len, L"font=")) {
-    buffer.AddFont(GetFont(string + 5, len - 5));
+    TToken< CRasterFont > font = GetFont(string + 5, len - 5);
+    buffer.AddFont(font);
   } else if (BeginsWith(string, len, L"image=")) {
-
+    CFontImageDef texture = GetImage(string + 6, len - 6, vec);
+    buffer.AddImage(texture);
   } else if (BeginsWith(string, len, L"fg-color=")) {
-
+    buffer.AddColor(kCT_Foreground, ParseColor(string + 9, len - 9));
   } else if (BeginsWith(string, len, L"main-color=")) {
-
+    buffer.AddColor(kCT_Main, ParseColor(string + 11, len - 11));
   } else if (BeginsWith(string, len, L"geometry-color=")) {
-
+    buffer.AddColor(kCT_Geometry, ParseColor(string + 11, len - 11));
   } else if (BeginsWith(string, len, L"outline-color=")) {
-
+    buffer.AddColor(kCT_Outline, ParseColor(string + 14, len - 14));
   } else if (BeginsWith(string, len, L"color")) {
-
+    int idx = string[6] - L'0';
+    if (idx < 0 || idx > 9) {
+      return;
+    }
+    const wchar_t* str_remain = string + 7;
+    len -= 7;
+    if (*str_remain >= L'0' && *str_remain <= L'9') {
+      wchar_t tmp = *str_remain;
+      ++str_remain;
+      len--;
+      idx = (idx * 10) + (tmp - L'0');
+    }
+    if (Equals(str_remain + 10, len - 10, L"no")) {
+      buffer.AddRemoveColorOverride(idx);
+    } else {
+      buffer.AddColorOverride(idx, ParseColor(str_remain + 10, len - 10));
+    }
   } else if (BeginsWith(string, len, L"line-spacing=")) {
     const float v = (float)ParseInt(string + 13, len - 13, true);
     buffer.AddLineSpacing(v / 100.f);
@@ -76,9 +95,9 @@ void CTextParser::ParseTag(CTextExecuteBuffer& buffer, const wchar_t* string, in
     } else if (Equals(string + 6, len - 6, L"nbottom")) {
       buffer.AddVerticalJustification(kVerticalJustification_NBottom);
     }
-  } else if (BeginsWith(string, len, L"push")) {
+  } else if (Equals(string, len, L"push")) {
     buffer.AddPushState();
-  } else if (BeginsWith(string, len, L"pop")) {
+  } else if (Equals(string, len, L"pop")) {
     buffer.AddPopState();
   } else {
     HandleUserTag(buffer, string, len);
@@ -107,7 +126,7 @@ bool CTextParser::Equals(const wchar_t* str1, int len, const wchar_t* str2) {
   return str2[i] == L'\x0';
 }
 
-uint CTextParser::ParseInt(const wchar_t* str, int len, bool signVal) {
+int CTextParser::ParseInt(const wchar_t* str, int len, bool signVal) {
   bool neg = false;
   int procCur = 0;
   if (signVal && len > 0 && *str == L'-') {
@@ -126,7 +145,7 @@ uint CTextParser::ParseInt(const wchar_t* str, int len, bool signVal) {
   return neg ? -val : val;
 }
 
-uint CTextParser::FromHex(wchar_t ch) {
+int CTextParser::FromHex(wchar_t ch) {
   if (ch >= L'0' && ch <= L'9')
     return ch - L'0';
 
@@ -139,7 +158,7 @@ uint CTextParser::FromHex(wchar_t ch) {
   return 0;
 }
 
-uint CTextParser::GetColorValue(const wchar_t* str) {
+int CTextParser::GetColorValue(const wchar_t* str) {
   return FromHex(str[1]) + (FromHex(str[0]) << 4);
 }
 

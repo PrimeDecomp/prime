@@ -25,8 +25,6 @@ public:
   static CVParamTransfer Null();
 
   const IVParamObj& operator*() const { return *x0_obj; }
-
-private:
   rstl::rc_ptr< IVParamObj > x0_obj;
 };
 

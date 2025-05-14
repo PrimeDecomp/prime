@@ -10,6 +10,7 @@
 class CInstruction;
 class CBlockInstruction;
 class CLineInstruction;
+class CFontImageDef;
 
 class CTextExecuteBuffer {
   typedef rstl::list< rstl::ncrc_ptr< CInstruction > > InstList;
@@ -24,6 +25,10 @@ public:
   void AddVerticalJustification(EVerticalJustification just);
   void AddPushState();
   void AddPopState();
+  void AddImage(const CFontImageDef& image);
+  void AddColor(EColorType type, const CTextColor& color);
+  void AddRemoveColorOverride(int idx);
+  void AddColorOverride(int idx, const CTextColor& color);
   
 private:
   InstList x0_instructions;

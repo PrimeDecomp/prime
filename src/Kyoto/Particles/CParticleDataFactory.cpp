@@ -1,5 +1,9 @@
 #include "Kyoto/Particles/CParticleDataFactory.hpp"
 
+#include "Kyoto/CFactoryFnReturn.hpp"
+#include "Kyoto/CSimplePool.hpp"
+#include "Kyoto/CVParamTransfer.hpp"
+#include "Kyoto/Particles/CGenDescription.hpp"
 #include "Kyoto/Particles/CIntElement.hpp"
 #include "Kyoto/Particles/CModVectorElement.hpp"
 #include "Kyoto/Particles/CRealElement.hpp"
@@ -7,6 +11,26 @@
 #include "Kyoto/Streams/CInputStream.hpp"
 
 #define SBIG(v) v
+
+CFactoryFnReturn FParticleFactory(const SObjectTag& tag, CInputStream& in,
+                                  const CVParamTransfer& xfer) {
+  rstl::rc_ptr< IVParamObj > obj = xfer.x0_obj;
+  CSimplePool* pool = static_cast< TObjOwnerParam< CSimplePool* >* >(obj.GetPtr())->GetData();
+  return CParticleDataFactory::GetGeneratorDesc(in, pool, in.GetBlockOffset());
+}
+
+CGenDescription* CParticleDataFactory::GetGeneratorDesc(CInputStream& in, CSimplePool* pool,
+                                                        uint offset) {
+  rstl::vector< uint > assets;
+  assets.reserve(8);
+  return CParticleDataFactory::CreateGeneratorDescription(in, assets, offset, pool);
+}
+
+CGenDescription* CParticleDataFactory::CreateGeneratorDescription(CInputStream& in,
+                                                                  rstl::vector< uint >& assets,
+                                                                  uint, CSimplePool* pool) {
+  return nullptr;
+}
 
 FourCC CParticleDataFactory::GetClassID(CInputStream& in) { return in.ReadLong(); }
 
