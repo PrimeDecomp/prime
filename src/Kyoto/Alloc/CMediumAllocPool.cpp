@@ -180,7 +180,7 @@ void* SMediumAllocPuddle::FindFreeEntry(uint numBlocks) {
 void SMediumAllocPuddle::Free(const void* ptr) {
   uint blockOffset = ((uint)ptr - (uint)x0_mainData.get()) / 32;
   uint blockCount = x8_bookKeeping[blockOffset];
-
+  bool isCached = false;
   x14_numBlocks += blockCount;
   --x18_numAllocs;
 
@@ -188,30 +188,32 @@ void SMediumAllocPuddle::Free(const void* ptr) {
   uchar* cachedBookKeep = bookKeepingStart + blockOffset;
   uchar* block = bookKeepingStart + blockOffset;
   uchar* bookKeepingPtr = block;
+  uchar* bookKeepingEndPtr = block + GetNumEntries();
+  if (cachedBookKeep == block) {
+    isCached = true;
+  }
 
   if (block > bookKeepingStart && block[-1] & 0x80) {
-    if ((block[-1] & 0x60)) {
-      blockOffset = (((0x40 - (block[-1] & 0x60)) != 0) / 32) + 1;
+    if (!(block[-1] & 0x60)) {
+      blockOffset = (block[-2] + (block[-1] & 0x7f) * 256) & 0xFFFF;
     } else if ((block[-1] & 0x60) == 0x60ul) {
       blockOffset = 3;
     } else {
-      blockOffset = block[-2] + (block[-1] & 0x7f) * 256;
+      blockOffset = ((((0x40 - (block[-1] & 0x60)))== 0) ? 1 : 0) + 1;
     }
 
     bookKeepingPtr = block - ((ushort)blockOffset);
     blockOffset = (ushort)(blockCount + ((ushort)blockOffset));
   }
 
-  uint blockCount2 = blockOffset;
   uchar* ptr1 = block + blockCount;
-  if (ptr1 < bookKeepingStart + x1c_numEntries && (ptr1[0] & 0x80) != 0) {
-    blockOffset = GetBlockOffset(ptr1, bookKeepingStart + GetNumEntries());
-    blockCount2 += blockOffset;
+  if (ptr1 < bookKeepingEndPtr && (ptr1[0] & 0x80) > 0) {
+    blockOffset += GetBlockOffset(ptr1, bookKeepingEndPtr);
   }
 
-  InitBookKeeping(bookKeepingPtr, blockCount2);
-  if (cachedBookKeep == block) {
-    if (bookKeepingPtr != bookKeepingStart) {
+  InitBookKeeping(bookKeepingPtr, blockOffset);
+  if (isCached) {
+    if (bookKeepingPtr == bookKeepingStart) {
       xc_cachedBookKeepingAddr = nullptr;
     } else {
       xc_cachedBookKeepingAddr = bookKeepingPtr - bookKeepingPtr[-1];
@@ -222,7 +224,7 @@ void SMediumAllocPuddle::Free(const void* ptr) {
 ushort SMediumAllocPuddle::GetBlockOffset(const void* ptr1, const void* ptr2) {
   unsigned char tmp = (uchar*)ptr2 - (uchar*)ptr1 > 1 ? ((uchar*)ptr1)[1] : 0;
 
-  ushort x = tmp + (*(uchar*)(ptr1)&0x7f) * 0x100;
+  ushort x = tmp + (*(uchar*)(ptr1) & 0x7f) * 0x100;
   if ((x & 0x6000) == 0) {
     return x;
   }
