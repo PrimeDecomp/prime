@@ -69,6 +69,11 @@ public:
                             float lT, float hT, float maxT, const CVector3f& dirRecip) const;
   };
 
+  CAreaOctTree(const CAABox& bounds, Node::ETreeType treeType, uchar* buf, void* treeBuf,
+                             uint materialCount, uint* materials, uchar* vertexMaterials, uchar* edgeMaterials,
+                             uchar* triMaterials, uint edgeCount, CCollisionEdge* edges, uint triCount,
+                             ushort* triangles, uint vertexCount, CVector3f* vertices);
+  void MakeFromMemory(void* buf, uint bufLen, CAreaOctTree** treeOut, bool*);
   CCollisionSurface GetMasterListTriangle(ushort idx) const;
   // TODO
 
@@ -76,7 +81,7 @@ private:
   CAABox x0_aabb;
   Node::ETreeType x18_treeType;
   const uchar* x1c_buf;
-  const uchar* x20_treeBuf;
+  const void* x20_treeBuf;
   uint x24_matCount;
   const uint* x28_materials;
   const uchar* x2c_vertMats;
@@ -87,7 +92,7 @@ private:
   uint x40_polyCount;
   const ushort* x44_polyEdges;
   uint x48_vertCount;
-  const float* x4c_verts;
+  const CVector3f* x4c_verts;
 };
 CHECK_SIZEOF(CAreaOctTree, 0x50)
 

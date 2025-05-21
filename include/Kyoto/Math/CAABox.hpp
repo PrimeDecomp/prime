@@ -54,6 +54,9 @@ public:
   CVector3f ClosestPointAlongVector(const CVector3f& vec) const;
   CVector3f FurthestPointAlongVector(const CVector3f& vec) const;
   CVector3f GetCenterPoint() const;
+  CVector3f CenterPoint() const {
+    return (min + max) * 0.5f;
+  }
   CVector3f GetPoint(int) const;
   // Include__6CAABoxFRC9CVector3f weak
   // Include__6CAABoxFRC6CAABox weak
