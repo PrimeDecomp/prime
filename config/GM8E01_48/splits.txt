@@ -16,6 +16,32 @@ Sections:
 MetroTRK/mslsupp.c:
 	.text       start:0x80003640 end:0x80003658
 
+Kyoto/rstl/RstlExtras.cpp:
+	.text       start:0x8033E5A0 end:0x8033ED98
+	.ctors      start:0x803CB444 end:0x803CB448
+	.rodata     start:0x803D7B60 end:0x803D7B78
+	.bss        start:0x804BFC10 end:0x804BFC20
+	.sbss       start:0x805A91C8 end:0x805A91D0
+
+Kyoto/Streams/CInputStream.cpp:
+	.text       start:0x8033ED98 end:0x8033F334
+	.rodata     start:0x803D7B78 end:0x803D7B80
+	.data       start:0x803EE488 end:0x803EE498
+	.sbss       start:0x805A91D0 end:0x805A91E8
+
+Kyoto/Streams/CMemoryInStream.cpp:
+	.text       start:0x8033F334 end:0x8033F3C0
+	.data       start:0x803EE498 end:0x803EE4A8
+
+Kyoto/Streams/CMemoryStreamOut.cpp:
+	.text       start:0x8033F3C0 end:0x8033F52C
+	.data       start:0x803EE4A8 end:0x803EE4B8
+
+Kyoto/Streams/COutputStream.cpp:
+	.text       start:0x8033F52C end:0x8033F91C
+	.rodata     start:0x803D7B80 end:0x803D7B88
+	.data       start:0x803EE4B8 end:0x803EE4C8
+
 Kyoto/Streams/CZipInputStream.cpp:
 	.text       start:0x8033F91C end:0x8033FB5C
 	.rodata     start:0x803D7B88 end:0x803D7B98

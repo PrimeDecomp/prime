@@ -19,10 +19,9 @@ int CStringExtras::IndexOfSubstring(const rstl::string& left, const rstl::string
     return -1;
   }
 
-  int i;
-  int j;
   for (int i = 0; i < (leftSize - rightSize) + 1; ++i) {
-    for (int j = 0; j < rightSize; ++j) {
+    int j = 0;
+    for (; j < rightSize; ++j) {
       if (ConvertToUpperCase(right.at(i)) != ConvertToUpperCase(left.at(i + j))) {
         break;
       }
