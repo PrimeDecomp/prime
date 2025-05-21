@@ -23,6 +23,12 @@ int __flush_buffer(FILE* file, size_t* length);
 void __prep_buffer(FILE* file);
 int __flush_all();
 
+extern FILE __files[4];
+
+#define stdin  &(__files[0])
+#define stdout &(__files[1])
+#define stderr &(__files[2])
+
 #ifdef __cplusplus
 };
 #endif // ifdef __cplusplus

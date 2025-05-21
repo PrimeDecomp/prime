@@ -1250,7 +1250,7 @@ config.libs = [
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Runtime/mem.c"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Runtime/mem_funcs.c"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Runtime/misc_io.c"),
-            Object(NonMatching, "Runtime/printf.c"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Runtime/printf.c"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Runtime/qsort.c"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Runtime/rand.c"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Runtime/sscanf.c"),
