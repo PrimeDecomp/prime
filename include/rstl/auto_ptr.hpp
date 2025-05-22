@@ -40,6 +40,10 @@ public:
     return x4_item;
   }
   bool null() const { return x4_item == nullptr; }
+  void reset() {
+    x0_has = false;
+    x4_item = nullptr;
+  }
 };
 } // namespace rstl
 

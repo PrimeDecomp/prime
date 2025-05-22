@@ -18,7 +18,7 @@ public:
   void RefreshPalette();
   CDrawStringOptions& GetOptions() { return x0_state.GetOptions(); }
   TToken< CRasterFont >& GetFont() { return x0_state.GetFont(); }
-  void SetFont(const TToken<CRasterFont>& font) { x0_state.SetFont(font); }
+  void SetFont(const TToken< CRasterFont >& font) { x0_state.SetFont(font); }
   rstl::vector< CTextColor >& GetColors() { return x0_state.GetColors(); }
   rstl::vector< bool >& GetOverride() { return x0_state.GetOverride(); }
   void SetLineSpacing(float spacing) { x0_state.SetLineSpacing(spacing); }

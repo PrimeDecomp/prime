@@ -442,11 +442,12 @@ rstl::optional_object< TLockedToken< CGenDescription > > CProjectileWeapon::Coll
   x80_localOffset = x14_localToWorldXf.TransposeRotate(pos - x74_worldOffset) - x8c_projOffset;
 
   if (deflected) {
+    CVector3f col;
     CVector3f posToTarget = target - GetTranslation();
     if (useTarget && posToTarget.CanBeNormalized()) {
       SetWorldSpaceOrientation(CTransform4f::LookAt(CVector3f::Zero(), posToTarget.AsNormalized()));
     } else {
-      CVector3f col = GetTransform().GetColumn(kDY);
+       col= GetTransform().GetColumn(kDY);
       CTransform4f lookXf = CTransform4f::LookAt(
           CVector3f::Zero(), col - ((CVector3f::Dot(normal, *(CVector3f*)&col) * 2.f) * normal),
           normal);

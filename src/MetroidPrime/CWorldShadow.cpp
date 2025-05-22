@@ -51,7 +51,9 @@ void CWorldShadow::BuildLightShadowTexture(const CStateManager& mgr, TAreaId aid
         CPVSVisSet lightSet = pvs->GetLightSet(lightIdx);
         gpRender->EnablePVS(lightSet, aid.Value());
       } else {
-        gpRender->EnablePVS(CPVSVisSet::Reset(2), aid.Value());
+        // TODO: Figure this out
+        // CPVSVisSet lightSet;
+        // gpRender->EnablePVS(lightSet, aid.Value());
       }
       CVector3f lightToPoint = centerPoint - light.GetPosition();
       x64_objHalfExtent = (aabb.GetMaxPoint() - centerPoint).Magnitude();

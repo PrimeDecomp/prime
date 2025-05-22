@@ -940,7 +940,7 @@ config.libs = [
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Text/CRemoveColorOverrideInstruction.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Text/CSaveableState.cpp"),
             Object(NonMatching, "Kyoto/Text/CTextExecuteBuffer.cpp"),
-            Object(NonMatching, "Kyoto/Text/CTextInstruction.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Text/CTextInstruction.cpp"),
             Object(NonMatching, "Kyoto/Text/CTextParser.cpp"),
             Object(NonMatching, "Kyoto/Text/CWordBreakTables.cpp"),
             Object(NonMatching, "Kyoto/Text/CWordInstruction.cpp"),

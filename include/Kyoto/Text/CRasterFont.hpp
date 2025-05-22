@@ -12,6 +12,7 @@
 
 class CTexture;
 class CDrawStringOptions;
+class CTextRenderBuffer;
 class IObjectStore;
 
 class CFontInfo {
@@ -58,8 +59,7 @@ public:
   , x18_cellWidth(cellWidth)
   , x1a_cellHeight(cellHeight)
   , x1c_baseline(baseline)
-  , x1e_kernStart(kernStart)
-   {}
+  , x1e_kernStart(kernStart) {}
 
   short GetA() const { return x0_a; }
   short GetB() const { return x2_b; }
@@ -72,7 +72,7 @@ public:
   short GetCellHeight() const { return x1a_cellHeight; }
   short GetBaseline() const { return x1c_baseline; }
   short GetKernStart() const { return x1e_kernStart; }
-  //short GetLayer() const { return x20_layer; }
+  // short GetLayer() const { return x20_layer; }
 
 private:
   short x0_a;
@@ -86,7 +86,7 @@ private:
   short x1a_cellHeight;
   short x1c_baseline;
   short x1e_kernStart;
-  //short x20_layer;
+  // short x20_layer;
 };
 
 enum EFontMode {
@@ -100,16 +100,21 @@ enum EFontMode {
 
 class CRasterFont {
 public:
-friend class CFontInstruction;
+  friend class CFontInstruction;
   CRasterFont(CInputStream& in, IObjectStore* store);
   ~CRasterFont();
 
   EFontMode GetMode() const;
   void GetSize(const CDrawStringOptions&, int&, int&, const wchar_t*, int) const;
   void SetTexture(TToken< CTexture > token) { x80_texture = token; }
-  inline TToken<CTexture> GetTexture() { return *x80_texture; }
+  inline TToken< CTexture > GetTexture() { return *x80_texture; }
 
   bool IsFinishedLoading();
+  void DrawString(const CDrawStringOptions& options, int x, int y, int& xOut, int& yOut,
+                  CTextRenderBuffer* buffer, const wchar_t* str, int length) const;
+
+  int GetMonoWidth() const;
+  int GetMonoHeight() const;
 
 private:
   bool x0_initialized;

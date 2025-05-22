@@ -2,7 +2,6 @@
 #include "Kyoto/Particles/CSpawnSystemKeyframeData.hpp"
 #include "rstl/single_ptr.hpp"
 
-
 static IElement** element_from_desc(CGenDescription* gen, int idx) {
   return reinterpret_cast< IElement** >(reinterpret_cast< uchar* >(gen) + idx);
 }
@@ -104,11 +103,8 @@ CGenDescription::CGenDescription()
 , x120_ADV6(nullptr)
 , x124_ADV7(nullptr)
 , x128_ADV8(nullptr) {}
-
 CGenDescription::~CGenDescription() {
   for (int i = 0; i < (int)(sizeof(skGenOffsets) / sizeof(size_t)); ++i) {
     delete *element_from_desc(this, skGenOffsets[i]);
-  }
-  (void*)0;
-  
+  }  
 }
