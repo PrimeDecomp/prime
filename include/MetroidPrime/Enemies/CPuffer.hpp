@@ -25,6 +25,8 @@ public:
   void Touch(CActor&, CStateManager&) override;
   void Death(CStateManager&, const CVector3f&, EScriptObjectState) override;
 
+  void SetParticleEnabled(int idx, const bool enabled) {}
+
 private:
   CVector3f x568_face;
   TToken< CGenDescription > x574_cloudEffect;

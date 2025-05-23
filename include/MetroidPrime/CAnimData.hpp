@@ -52,9 +52,9 @@ public:
   const TLockedToken< CSkinnedModel >& GetModelData() const { return xd8_modelData; }
 
   void SetIsAnimating(bool v) { x220_24_animating = v; }
-  void SetParticleEffectState(const rstl::string& name, const bool active, CStateManager& mgr) {
-    x120_particleDB.SetParticleEffectState(name, active, mgr);
-  }
+  void SetParticleEffectState(const rstl::string& name, const bool active, CStateManager& mgr); /* {
+     x120_particleDB.SetParticleEffectState(name, active, mgr);
+   }*/
 
   int GetCharacterIndex() const { return x204_charIdx; }
   float GetAverageVelocity(int idx) const;

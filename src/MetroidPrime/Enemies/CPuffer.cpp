@@ -98,8 +98,8 @@ void CPuffer::Death(CStateManager& mgr, const CVector3f& vec, EScriptObjectState
       CAABox(CVector3f(-1.f, -1.f, -1.f), CVector3f(1.f, 1.f, 1.f))
           .GetTransformedAABox(GetTransform() * CTransform4f::Scale(x57c_cloudDamage.GetRadius()));
   mgr.AddObject(rs_new CFire(x574_cloudEffect, uid, GetCurrentAreaId(), true, GetUniqueId(),
-                          GetTransform(), x57c_cloudDamage, aabb, CVector3f(1.f, 1.f, 1.f), true,
-                          x5bc_cloudSteam, x598_24_, x598_26_, x598_25_, 1.f, x5b8_, 1.f, 1.f));
+                             GetTransform(), x57c_cloudDamage, aabb, CVector3f(1.f, 1.f, 1.f), true,
+                             x5bc_cloudSteam, x598_24_, x598_26_, x598_25_, 1.f, x5b8_, 1.f, 1.f));
 }
 
 void CPuffer::Think(float dt, CStateManager& mgr) {
@@ -137,16 +137,12 @@ void CPuffer::UpdateJets(CStateManager& mgr) {
       float ang = CMath::FastCosR(CMath::Deg2Rad(45.f));
       float ourAng = CVector3f::Dot(moveNorm, tmp);
       const bool enable = ourAng > ang;
-      const bool enabledCur = bool(x5d0_enabledParticles & (1 << i));
-
-      if (enabledCur != enable) {
+      if (bool(x5d0_enabledParticles & (1 << i)) != enable) {
         AnimationData()->SetParticleEffectState(rstl::string_l(skGasJetLocators[i]), enable, mgr);
       }
-      if (enable) {
-        x5d0_enabledParticles |= (1 << i);
-      } else {
-        x5d0_enabledParticles &= ~(1 << i);
-      }
+
+      x5d0_enabledParticles =
+          enable ? x5d0_enabledParticles | (1 << i) : x5d0_enabledParticles & ~(1 << i);
     }
   } else {
     for (int i = 0; i < ARRAY_SIZE(skGasJetLocators); ++i) {
