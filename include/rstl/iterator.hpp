@@ -34,7 +34,7 @@ void __advance(It& it, S count, forward_iterator_tag) {
 
 template < typename It, typename S >
 void advance(It& it, S count) {
-  return __advance(it, count, typename It::iterator_category());
+  __advance(it, count, typename It::iterator_category());
 }
 
 } // namespace rstl
