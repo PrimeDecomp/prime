@@ -3,10 +3,10 @@
 #include "MetroidPrime/CStateManager.hpp"
 
 CScriptControllerAction::CScriptControllerAction(TUniqueId uid, const rstl::string& name,
-                                                 const CEntityInfo& info, bool active,
-                                                 ECommands command,
-                                                 bool mapScreenResponse, uint w1,
-                                                 bool deactivateOnClose)
+                                                 const CEntityInfo& info, const bool active,
+                                                 const ECommands command,
+                                                 const bool mapScreenResponse, const uint w1,
+                                                 const bool deactivateOnClose)
 : CEntity(uid, info, active, name)
 , x34_command(command)
 , x38_mapScreenSubaction(w1)
@@ -51,7 +51,6 @@ void CScriptControllerAction::Think(float dt, CStateManager& stateMgr) {
   }
 }
 
-ControlMapper::ECommands
-CScriptControllerAction::GetCommand(CScriptControllerAction::ECommands c) {
+ControlMapper::ECommands CScriptControllerAction::GetCommand(CScriptControllerAction::ECommands c) {
   return (ControlMapper::ECommands)(c);
 }

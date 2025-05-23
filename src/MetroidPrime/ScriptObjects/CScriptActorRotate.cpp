@@ -12,8 +12,8 @@
 
 CScriptActorRotate::CScriptActorRotate(TUniqueId uid, const rstl::string& name,
                                        const CEntityInfo& info, const CVector3f& rotation,
-                                       float maxTime, bool updateActors, bool updateOnCreation,
-                                       bool active)
+                                       float maxTime, const bool updateActors,
+                                       const bool updateOnCreation, const bool active)
 : CEntity(uid, info, active, name)
 , x34_rotation(rotation)
 , x40_maxTime(maxTime)

@@ -1,7 +1,7 @@
 #include "MetroidPrime/ScriptObjects/CScriptSwitch.hpp"
 
 CScriptSwitch::CScriptSwitch(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
-                             bool active, bool opened, bool closeOnOpened)
+                             const bool active, const bool opened, const bool closeOnOpened)
 : CEntity(uid, info, active, name) {
   mOpened = opened;
   mCloseOnOpened = closeOnOpened;

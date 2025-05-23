@@ -11,9 +11,9 @@
 #include "Kyoto/Audio/CSfxManager.hpp"
 #include "Kyoto/CResFactory.hpp"
 
-CScriptWorldTeleporter::CScriptWorldTeleporter(TUniqueId uid, const rstl::string& name,
-                                               const CEntityInfo& info, bool active,
-                                               CAssetId worldId, CAssetId areaId)
+CScriptWorldTeleporter::CScriptWorldTeleporter(const TUniqueId uid, const rstl::string& name,
+                                               const CEntityInfo& info, const bool active,
+                                               const CAssetId worldId, const CAssetId areaId)
 : CEntity(uid, info, active, name)
 , x34_worldId(worldId)
 , x38_areaId(areaId)
@@ -35,11 +35,11 @@ CScriptWorldTeleporter::CScriptWorldTeleporter(TUniqueId uid, const rstl::string
 , x8b_panning(0) {}
 
 CScriptWorldTeleporter::CScriptWorldTeleporter(
-    TUniqueId uid, const rstl::string& name, const CEntityInfo& info, bool active, CAssetId worldId,
-    CAssetId areaId, CAssetId playerAncs, uint charIdx, uint defaultAnim,
-    const CVector3f& playerScale, CAssetId platformModel, const CVector3f& platformScale,
-    CAssetId backgroundModel, const CVector3f& backgroundScale, bool upElevator, ushort soundId,
-    uchar volume, uchar panning)
+    const TUniqueId uid, const rstl::string& name, const CEntityInfo& info, const bool active,
+    CAssetId worldId, const CAssetId areaId, CAssetId playerAncs, uint charIdx, uint defaultAnim,
+    const CVector3f& playerScale, const CAssetId platformModel, const CVector3f& platformScale,
+    const CAssetId backgroundModel, const CVector3f& backgroundScale, const bool upElevator,
+    const ushort soundId, const uchar volume, const uchar panning)
 : CEntity(uid, info, active, name)
 , x34_worldId(worldId)
 , x38_areaId(areaId)
@@ -60,12 +60,11 @@ CScriptWorldTeleporter::CScriptWorldTeleporter(
 , x8a_volume(volume)
 , x8b_panning(panning) {}
 
-CScriptWorldTeleporter::CScriptWorldTeleporter(TUniqueId uid, const rstl::string& name,
-                                               const CEntityInfo& info, bool active,
-                                               CAssetId worldId, CAssetId areaId, int soundId,
-                                               uchar volume, uchar panning, CAssetId fontId,
-                                               CAssetId stringId, bool fadeWhite, float charFadeIn,
-                                               float charsPerSecond, float showDelay)
+CScriptWorldTeleporter::CScriptWorldTeleporter(
+    const TUniqueId uid, const rstl::string& name, const CEntityInfo& info, const bool active,
+    const CAssetId worldId, const CAssetId areaId, const int soundId, const uchar volume,
+    const uchar panning, CAssetId fontId, const CAssetId stringId, const bool fadeWhite,
+    const float charFadeIn, const float charsPerSecond, const float showDelay)
 : CEntity(uid, info, active, name)
 , x34_worldId(worldId)
 , x38_areaId(areaId)

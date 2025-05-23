@@ -166,8 +166,12 @@ public:
       CChainIterator::operator++();
       return *this;
     }
-    bool operator!=(const CConstChainIterator& other) const { return !CChainIterator::operator==(other); }
-    bool operator==(const CConstChainIterator& other) const { return CChainIterator::operator==(other); }
+    bool operator!=(const CConstChainIterator& other) const {
+      return !CChainIterator::operator==(other);
+    }
+    bool operator==(const CConstChainIterator& other) const {
+      return CChainIterator::operator==(other);
+    }
   };
 
   enum EOcclusionState { kOS_Occluded, kOS_Visible };
@@ -217,7 +221,7 @@ public:
   void SetThermalSpeedAndTarget(float speed, float target);
   void SetWeaponWorldLighting(float speed, float target);
 
-  void SetAreaAttributes(const CScriptAreaAttributes* areaAttributes);
+  void SetAreaAttributes(CScriptAreaAttributes* areaAttributes);
   bool TryTakingOutOfARAM();
 
   bool StartStreamingMainArea();

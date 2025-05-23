@@ -2,9 +2,9 @@
 
 #include "MetroidPrime/CStateManager.hpp"
 
-CScriptTimer::CScriptTimer(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
-                           float startTime, float maxRandDelay, bool loop, bool autoStart,
-                           bool active)
+CScriptTimer::CScriptTimer(const TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
+                           const float startTime, const float maxRandDelay, const bool loop,
+                           const bool autoStart, const bool active)
 : CEntity(uid, info, active, name)
 , x34_time(startTime)
 , x38_startTime(startTime)
@@ -34,7 +34,7 @@ void CScriptTimer::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objId,
       StartTiming(false);
     }
     break;
-    
+
   case kSM_Reset:
     if (GetActive()) {
       Reset(stateMgr);
@@ -50,7 +50,6 @@ void CScriptTimer::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objId,
       StartTiming(false);
     }
     break;
-    
 
   case kSM_ResetAndStart:
     if (GetActive()) {

@@ -1,4 +1,6 @@
 #include "MetroidPrime/ScriptObjects/CScriptAreaAttributes.hpp"
+#include "MetroidPrime/CGameArea.hpp"
+#include "MetroidPrime/TGameTypes.hpp"
 
 CScriptAreaAttributes::CScriptAreaAttributes(TUniqueId uid, const CEntityInfo& info,
                                              bool showSkybox, EEnvFxType fxType, float envFxDensity,
@@ -31,14 +33,14 @@ void CScriptAreaAttributes::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId 
   }
 
   case kSM_Deleted: {
-    if (stateMgr.World()->IsAreaValid(GetCurrentAreaId())) {
+    if (stateMgr.World()->Area(GetCurrentAreaId())->IsLoaded()) {
       stateMgr.World()->Area(GetCurrentAreaId())->SetAreaAttributes(nullptr);
     }
     break;
   }
+  default:
+    break;
   }
 }
 
 void CScriptAreaAttributes::Accept(IVisitor& visitor) { visitor.Visit(*this); }
-
-CScriptAreaAttributes::~CScriptAreaAttributes() {}

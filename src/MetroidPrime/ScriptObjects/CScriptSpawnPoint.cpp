@@ -7,8 +7,8 @@
 
 CScriptSpawnPoint::CScriptSpawnPoint(
     TUniqueId uid, const rstl::string& name, const CEntityInfo& info, const CTransform4f& xf,
-    const rstl::reserved_vector< int, int(CPlayerState::kIT_Max) >& itemCounts, bool defaultSpawn,
-    bool active, bool morphed)
+    const rstl::reserved_vector< int, int(CPlayerState::kIT_Max) >& itemCounts,
+    const bool defaultSpawn, const bool active, const bool morphed)
 : CEntity(uid, info, active, name)
 , x34_xf(xf)
 , x64_itemCounts(itemCounts)
@@ -75,8 +75,8 @@ void CScriptSpawnPoint::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objI
       }
       CEntity::SendScriptMsgs(kSS_Zero, stateMgr, kSM_None);
     }
-    default:
-      break;
+  default:
+    break;
   }
 }
 

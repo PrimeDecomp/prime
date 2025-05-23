@@ -16,13 +16,13 @@ class CScriptAreaAttributes : public CEntity {
   EPhazonType x50_phazon;
 
 public:
-  CScriptAreaAttributes(TUniqueId uid, const CEntityInfo& info, bool showSkybox, EEnvFxType fxType, float envFxDensity,
-                        float thermalHeat, float xrayFogDistance, float worldLightingLevel, CAssetId skybox,
-                        EPhazonType phazonType);
+  CScriptAreaAttributes(TUniqueId uid, const CEntityInfo& info, bool showSkybox, EEnvFxType fxType,
+                        float envFxDensity, float thermalHeat, float xrayFogDistance,
+                        float worldLightingLevel, CAssetId skybox, EPhazonType phazonType);
 
   void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objId, CStateManager& stateMgr) override;
   void Accept(IVisitor& visitor) override;
-  ~CScriptAreaAttributes();
+  ~CScriptAreaAttributes() {}
 
   bool GetNeedsSky() const { return x34_24_showSkybox; }
   bool GetNeedsEnvFx() const { return x38_envFx != kEFX_None; }

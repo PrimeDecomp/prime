@@ -1,7 +1,7 @@
 #include "MetroidPrime/ScriptObjects/CScriptRelay.hpp"
 
 CScriptRelay::CScriptRelay(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
-                           bool active)
+                           const bool active)
 : CEntity(uid, info, active, name), x34_nextRelay(kInvalidUniqueId), x38_sendCount(0) {}
 
 void CScriptRelay::UpdateObjectRef(CStateManager& stateMgr) {
@@ -11,7 +11,7 @@ void CScriptRelay::UpdateObjectRef(CStateManager& stateMgr) {
       *tmp = x34_nextRelay;
       return;
     }
-    CScriptRelay* obj = static_cast<CScriptRelay*>(stateMgr.ObjectById(*tmp));
+    CScriptRelay* obj = static_cast< CScriptRelay* >(stateMgr.ObjectById(*tmp));
     if (obj == nullptr) {
       return;
     }

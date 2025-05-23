@@ -5,10 +5,10 @@
 #include "MetroidPrime/Player/CPlayerState.hpp"
 
 CScriptPlayerStateChange::CScriptPlayerStateChange(TUniqueId uid, const rstl::string& name,
-                                                   const CEntityInfo& info, bool active,
-                                                   int itemType, int itemCount, int itemCapacity,
-                                                   EControl control,
-                                                   EControlCommandOption controlCmdOpt)
+                                                   const CEntityInfo& info, const bool active,
+                                                   const int itemType, const int itemCount,
+                                                   const int itemCapacity, const EControl control,
+                                                   const EControlCommandOption controlCmdOpt)
 : CEntity(uid, info, active, name)
 , x34_itemType(itemType)
 , x38_itemCount(itemCount)

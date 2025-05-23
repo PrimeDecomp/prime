@@ -5,8 +5,8 @@
 #include "MetroidPrime/CStateManager.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptWater.hpp"
 
-CScriptRipple::CScriptRipple(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
-                             const CVector3f& vec, bool active, float f1)
+CScriptRipple::CScriptRipple(const TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
+                             const CVector3f& vec, const bool active, const float f1)
 : CEntity(uid, info, active, name)
 , x34_magnitude(f1 >= 0.f ? f1 : CRipple::kDefaultScale)
 , x38_center(vec) {}

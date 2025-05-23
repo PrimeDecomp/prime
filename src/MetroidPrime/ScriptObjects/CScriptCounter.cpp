@@ -1,7 +1,8 @@
 #include "MetroidPrime/ScriptObjects/CScriptCounter.hpp"
 
-CScriptCounter::CScriptCounter(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
-                               int initial, int max, bool autoReset, bool active)
+CScriptCounter::CScriptCounter(const TUniqueId uid, const rstl::string& name,
+                               const CEntityInfo& info, const int initial, const int max,
+                               const bool autoReset, const bool active)
 : CEntity(uid, info, active, name)
 , x34_initial(initial)
 , x38_current(initial)

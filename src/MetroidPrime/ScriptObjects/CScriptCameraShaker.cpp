@@ -5,9 +5,8 @@
 #include "MetroidPrime/CWorld.hpp"
 #include "MetroidPrime/Cameras/CCameraManager.hpp"
 
-
 CScriptCameraShaker::CScriptCameraShaker(TUniqueId uid, const rstl::string& name,
-                                         const CEntityInfo& info, bool active,
+                                         const CEntityInfo& info, const bool active,
                                          const CCameraShakeData& shakeData)
 : CEntity(uid, info, active, name), x34_shakeData(shakeData) {}
 

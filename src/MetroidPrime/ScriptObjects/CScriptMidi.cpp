@@ -4,8 +4,9 @@
 #include "MetroidPrime/CInGameTweakManager.hpp"
 #include "MetroidPrime/CWorld.hpp"
 
-CScriptMidi::CScriptMidi(TUniqueId id, const CEntityInfo& info, const rstl::string& name,
-                         bool active, CAssetId csng, float fadeIn, float fadeOut, int volume)
+CScriptMidi::CScriptMidi(const TUniqueId id, const CEntityInfo& info, const rstl::string& name,
+                         const bool active, const CAssetId csng, const float fadeIn,
+                         const float fadeOut, const int volume)
 : CEntity(id, info, active, name)
 , x34_song(gpSimplePool->GetObj(SObjectTag('CSNG', csng)))
 , x3c_handle()

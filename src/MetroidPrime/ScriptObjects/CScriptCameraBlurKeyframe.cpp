@@ -4,9 +4,10 @@
 
 CScriptCameraBlurKeyframe::CScriptCameraBlurKeyframe(TUniqueId uid, const rstl::string& name,
                                                      const CEntityInfo& info,
-                                                     CCameraBlurPass::EBlurType type, float amount,
-                                                     u32 unk, float timeIn, float timeOut,
-                                                     bool active)
+                                                     const CCameraBlurPass::EBlurType type,
+                                                     const float amount, const u32 unk,
+                                                     const float timeIn, const float timeOut,
+                                                     const bool active)
 : CEntity(uid, info, active, name)
 , x34_type(type)
 , x38_amount(amount)
@@ -23,7 +24,8 @@ void CScriptCameraBlurKeyframe::AcceptScriptMsg(EScriptObjectMessage msg, TUniqu
   switch (msg) {
   case kSM_Increment:
     if (GetActive()) {
-      stateMgr.CameraBlurPass(CStateManager::kCFS_Three).SetBlur(x34_type, x38_amount, x40_timeIn, false);
+      stateMgr.CameraBlurPass(CStateManager::kCFS_Three)
+          .SetBlur(x34_type, x38_amount, x40_timeIn, false);
     }
     break;
   case kSM_Decrement:

@@ -20,9 +20,10 @@ public:
   virtual void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr);
   virtual void SetActive(const bool active);
 
-  CEntity(TUniqueId id, const CEntityInfo& info, bool active, const rstl::string& name);
+  CEntity(TUniqueId id, const CEntityInfo& info, const bool active, const rstl::string& name);
 
-  void SendScriptMsgs(const EScriptObjectState state, CStateManager& mgr, const EScriptObjectMessage msg);
+  void SendScriptMsgs(const EScriptObjectState state, CStateManager& mgr,
+                      const EScriptObjectMessage msg);
   TUniqueId GetUniqueId() const { return x8_uid; }
   TEditorId GetEditorId() const { return xc_editorId; }
   const rstl::string& GetDebugName() const { return x10_name; }

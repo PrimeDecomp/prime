@@ -6,7 +6,8 @@
 
 CScriptRandomRelay::CScriptRandomRelay(TUniqueId uid, const rstl::string& name,
                                        const CEntityInfo& info, int sendSetSize,
-                                       int sendSetVariance, bool percentSize, bool active)
+                                       const int sendSetVariance, const bool percentSize,
+                                       const bool active)
 : CEntity(uid, info, active, name)
 , x34_sendSetSize(sendSetSize)
 , x38_sendSetVariance(sendSetVariance)

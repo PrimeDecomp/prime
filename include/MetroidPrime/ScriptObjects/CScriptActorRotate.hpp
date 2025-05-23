@@ -10,8 +10,8 @@ class CScriptPlatform;
 
 class CScriptActorRotate : public CEntity {
 public:
-  CScriptActorRotate(TUniqueId, const rstl::string&, const CEntityInfo&, const CVector3f&, float,
-                     bool, bool, bool);
+  CScriptActorRotate(TUniqueId, const rstl::string&, const CEntityInfo&, const CVector3f&,
+                     const float, const bool, const bool, const bool);
   ~CScriptActorRotate();
 
   void Accept(IVisitor& visitor) override;
@@ -23,9 +23,9 @@ private:
   float x40_maxTime;
   float x44_currentTime; // = 0.f;
   // rstl::map< TUniqueId, CTransform4f > x48_actors;
-  rstl::vector< rstl::pair<TUniqueId, CTransform4f> > x48_actors;
+  rstl::vector< rstl::pair< TUniqueId, CTransform4f > > x48_actors;
 
-  bool x58_24_updateRotation : 1; // = false;
+  bool x58_24_updateRotation : 1;            // = false;
   bool x58_25_updateSpiderBallWaypoints : 1; // = false;
   bool x58_26_updateActors : 1;
   bool x58_27_updateOnCreation : 1;

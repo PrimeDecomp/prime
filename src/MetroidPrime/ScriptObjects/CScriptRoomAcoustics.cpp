@@ -5,13 +5,15 @@
 static TAreaId s_ActiveAcousticsAreaId = kInvalidAreaId;
 
 CScriptRoomAcoustics::CScriptRoomAcoustics(
-    TUniqueId uid, const rstl::string& name, const CEntityInfo& info, bool active, uint volScale,
-    bool revHi, bool revHiDis, float revHiTime, float revHiPreDelay, float revHiDamping,
-    float revHiColoration, float revHiCrosstalk, float revHiMix, bool chorus, float baseDelay,
-    float variation, float period, bool revStd, bool revStdDis, float revStdTime,
-    float revStdPreDelay, float revStdDamping, float revStdColoration, float revStdMix, bool delay,
-    int delayL, int delayR, int delayS, int feedbackL, int feedbackR, int feedbackS, int outputL,
-    int outputR, int outputS)
+    TUniqueId uid, const rstl::string& name, const CEntityInfo& info, const bool active,
+    const uint volScale, const bool revHi, const bool revHiDis, const float revHiTime,
+    const float revHiPreDelay, const float revHiDamping, const float revHiColoration,
+    const float revHiCrosstalk, const float revHiMix, const bool chorus, const float baseDelay,
+    const float variation, const float period, const bool revStd, const bool revStdDis,
+    const float revStdTime, const float revStdPreDelay, const float revStdDamping,
+    const float revStdColoration, const float revStdMix, const bool delay, const int delayL,
+    const int delayR, const int delayS, const int feedbackL, const int feedbackR,
+    const int feedbackS, const int outputL, const int outputR, const int outputS)
 : CEntity(uid, info, active, name)
 , x34_volumeScale(volScale)
 , x38_revHi(revHi)
