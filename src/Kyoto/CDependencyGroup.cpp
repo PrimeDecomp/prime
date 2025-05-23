@@ -29,7 +29,6 @@ int CDependencyGroup::GetCountForResType(FourCC type) const {
   return ret;
 }
 
-
 CFactoryFnReturn FDependencyGroupFactory(const SObjectTag& tag, CInputStream& in,
                                          const CVParamTransfer& xfer) {
   return rs_new CDependencyGroup(in);

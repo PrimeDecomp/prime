@@ -419,9 +419,7 @@ CVector3f CCameraManager::GetGlobalCameraTranslation(const CStateManager& mgr) c
 
 bool CCameraManager::IsInCinematicCamera() const { return !x4_cineCameras.empty(); }
 
-bool CCameraManager::IsInFPCamera() const {
-  return x0_curCameraId == x7c_fpCamera->GetUniqueId();
-}
+bool CCameraManager::IsInFPCamera() const { return x0_curCameraId == x7c_fpCamera->GetUniqueId(); }
 
 bool CCameraManager::IsInterpolationCameraActive() const { return x88_interpCamera->GetActive(); }
 
@@ -613,9 +611,9 @@ void CCameraManager::UpdateCameraHints(float dt, CStateManager& mgr) {
   }
 
   if (inactiveHintRemoved || activeHintAdded || invalidHintRemoved) {
-    rstl::less< int > less;
-    rstl::pair_sorter_finder< rstl::pair< int, TUniqueId >, rstl::less< int > > sorter(less);
-    rstl::sort(xac_cameraHints.begin(), xac_cameraHints.end(), sorter);
+    // rstl::less< int > less;
+    // rstl::pair_sorter_finder< rstl::pair< int, TUniqueId >, rstl::less< int > > sorter(less);
+    // rstl::sort(xac_cameraHints.begin(), xac_cameraHints.end(), sorter);
     CTransform4f ballCamXf = x80_ballCamera->GetTransform();
     if ((inactiveHintRemoved || invalidHintRemoved) && xac_cameraHints.empty()) {
       NoCameraHintsLeft(mgr);

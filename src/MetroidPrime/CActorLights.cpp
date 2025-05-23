@@ -33,5 +33,5 @@ bool CActorLights::BuildAreaLightList(const CStateManager& mgr, const CGameArea&
   rstl::vector< SLightValue > valList;
   valList.reserve(lightList.size());
 
-  rstl::sort(&*valList.begin(), &*valList.end(), SLightValue::CPredicate());
+  // rstl::sort(&*valList.begin(), &*valList.end(), SLightValue::CPredicate());
 }

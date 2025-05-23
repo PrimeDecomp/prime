@@ -60,7 +60,6 @@ bool area_sorter::operator()(const CGameArea* a, const CGameArea* b) const {
 
 } // namespace
 
-
 class CLightPredicate {
 public:
   bool operator()(const CLight& a, const CLight& b) const {
@@ -73,7 +72,6 @@ public:
     }
   }
 };
-
 
 CStateManager::CStateManager(const rstl::ncrc_ptr< CScriptMailbox >& mailbox,
                              const rstl::ncrc_ptr< CMapWorldInfo >& mwInfo,
@@ -419,7 +417,8 @@ void CStateManager::DrawWorld() const {
     }
   }
 
-  rstl::sort(&areaArr[0], &areaArr[areaCount], area_sorter(CGraphics::GetViewPoint(), visAreaId));
+  // rstl::sort(&areaArr[0], &areaArr[areaCount], area_sorter(CGraphics::GetViewPoint(),
+  // visAreaId));
 }
 
 void CStateManager::BuildDynamicLightListForWorld() {

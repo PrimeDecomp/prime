@@ -14,20 +14,22 @@ class CStateMachine;
 
 class CAi : public CPhysicsActor {
 public:
-  // static void CreateFuncLookup(CAiFuncMap* funcMap);
+  static void CreateFuncLookup(CAiFuncMap* funcMap);
   static CAiStateFunc GetStateFunc(const char* func);
   static CAiTriggerFunc GetTriggerFunc(const char* func);
 
   // const CStateMachine* GetStateMachine() const;
+  CAi(TUniqueId, bool, const rstl::string&, const CEntityInfo&, const CTransform4f&,
+      const CModelData&, const CAABox&, float, const CHealthInfo&, const CDamageVulnerability&,
+      const CMaterialList&, unsigned int, const CActorParameters&, float, float);
   ~CAi();
-  void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&) override;
+  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId other, CStateManager& mgr) override;
   CHealthInfo* HealthInfo(CStateManager&) override;
-  const CDamageVulnerability* GetDamageVulnerability() const override { return nullptr; }
+  const CDamageVulnerability* GetDamageVulnerability() const override;
+
   EWeaponCollisionResponseTypes GetCollisionResponseType(const CVector3f&, const CVector3f&,
-                                                         const CWeaponMode&,
-                                                         int) const override;
+                                                         const CWeaponMode&, int) const override;
   void FluidFXThink(EFluidState, CScriptWater&, CStateManager&) override;
-  ;
 
   virtual void Death(CStateManager& mgr, const CVector3f& direction, EScriptObjectState state) = 0;
   virtual void KnockBack(const CVector3f&, CStateManager&, const CDamageInfo& info,
@@ -168,7 +170,9 @@ public:
 private:
   CHealthInfo x258_healthInfo;
   CDamageVulnerability x260_damageVulnerability;
-  TLockedToken< CStateMachine > x2c8_stateMachine;
+  TCachedToken< CStateMachine > x2c8_stateMachine;
+
+  static CAiFuncMap* mFuncMap;
 };
 
 #endif // _CAI

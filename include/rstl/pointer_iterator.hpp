@@ -84,9 +84,7 @@ public:
     ++this->current;
     return *this;
   }
-  pointer_iterator operator++(int) {
-    return *this += 1;
-  }
+  pointer_iterator operator++(int) { return *this += 1; }
   pointer_iterator& operator--() {
     --this->current;
     return *this;
@@ -100,12 +98,8 @@ public:
     this->current -= v;
     return *this;
   }
-  pointer_iterator operator+(int v) const {
-    return pointer_iterator(this->current + v);
-  }
-  pointer_iterator operator-(int v) const {
-    return pointer_iterator(this->current - v);
-  }
+  pointer_iterator operator+(int v) const { return pointer_iterator(this->current + v); }
+  pointer_iterator operator-(int v) const { return pointer_iterator(this->current - v); }
   // HACK: non-const operator- is required to match vector::insert
   difference_type operator-(const pointer_iterator& other) { return this->current - other.current; }
 };
@@ -116,7 +110,7 @@ struct const_counting_iterator {
   int count;
 
   const_counting_iterator(const T* ptr, int count) : ptr(ptr), count(count) {}
-  
+
   const_counting_iterator& operator++() {
     ++this->count;
     return *this;
@@ -124,12 +118,12 @@ struct const_counting_iterator {
 };
 
 template < typename It >
-inline typename It::difference_type __distance(It first, It last, random_access_iterator_tag) {
+typename It::difference_type __distance(It first, It last, random_access_iterator_tag) {
   return last - first;
 }
 
 template < typename It, typename S >
-inline void __advance(It& it, S count, random_access_iterator_tag) {
+void __advance(It& it, S count, random_access_iterator_tag) {
   it += count;
 }
 
@@ -137,13 +131,13 @@ template < typename T >
 struct iterator_traits {};
 
 template < typename T >
-struct iterator_traits<T*> {
+struct iterator_traits< T* > {
   typedef T value_type;
 };
 
 template < typename T, typename Vec, typename Alloc >
-struct iterator_traits< pointer_iterator<T, Vec, Alloc> > {
-  typedef typename pointer_iterator<T, Vec, Alloc>::value_type value_type;
+struct iterator_traits< pointer_iterator< T, Vec, Alloc > > {
+  typedef typename pointer_iterator< T, Vec, Alloc >::value_type value_type;
 };
 
 } // namespace rstl

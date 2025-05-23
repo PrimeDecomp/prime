@@ -20,6 +20,8 @@ public:
   CMaterialFilter(const CMaterialList& include, const CMaterialList& exclude, EFilterType type)
   : include(include), exclude(exclude), type(type) {}
 
+  const CMaterialList& GetIncludeList() const { return include; }
+  const CMaterialList& GetExcludeList() const { return exclude; }
   static CMaterialFilter MakeInclude(const CMaterialList& include) {
     return CMaterialFilter(include, CMaterialList(), kFT_Include);
   }

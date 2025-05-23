@@ -1,32 +1,31 @@
 #include "Kyoto/Particles/CGenDescription.hpp"
 #include "Kyoto/Particles/CSpawnSystemKeyframeData.hpp"
-#include "rstl/single_ptr.hpp"
 
 static IElement** element_from_desc(CGenDescription* gen, int idx) {
   return reinterpret_cast< IElement** >(reinterpret_cast< uchar* >(gen) + idx);
 }
 
 static const size_t skGenOffsets[] = {
-    offsetof(CGenDescription, x0_PSLT), offsetof(CGenDescription, x4_PSWT),
-    offsetof(CGenDescription, x8_PSTS), offsetof(CGenDescription, xc_POFS),
-    offsetof(CGenDescription, x10_SEED), offsetof(CGenDescription, x14_LENG),
-    offsetof(CGenDescription, x18_WIDT), offsetof(CGenDescription, x1c_MAXP),
-    offsetof(CGenDescription, x20_GRTE), offsetof(CGenDescription, x24_COLR),
-    offsetof(CGenDescription, x28_LTME), offsetof(CGenDescription, x2c_EMTR),
-    offsetof(CGenDescription, x34_MBSP), offsetof(CGenDescription, x38_SIZE),
-    offsetof(CGenDescription, x3c_ROTA), offsetof(CGenDescription, x40_TEXR),
-    offsetof(CGenDescription, x44_TIND), offsetof(CGenDescription, x58_PMOP),
-    offsetof(CGenDescription, x5c_PMRT), offsetof(CGenDescription, x60_PMSC),
-    offsetof(CGenDescription, x64_PMCL), offsetof(CGenDescription, x68_VEL1),
-    offsetof(CGenDescription, x6c_VEL2), offsetof(CGenDescription, x70_VEL3),
-    offsetof(CGenDescription, x74_VEL4), offsetof(CGenDescription, x88_NCSY),
-    offsetof(CGenDescription, x8c_CSSD), offsetof(CGenDescription, xa0_NDSY),
-    offsetof(CGenDescription, xb4_PISY), offsetof(CGenDescription, xb8_SISY),
-    offsetof(CGenDescription, xd0_SSSD), offsetof(CGenDescription, xd4_SSPO),
-    offsetof(CGenDescription, xe4_SESD), offsetof(CGenDescription, xe8_SEPO),
-    offsetof(CGenDescription, xec_LTYP), offsetof(CGenDescription, xf0_LCLR),
-    offsetof(CGenDescription, xf4_LINT), offsetof(CGenDescription, xf8_LOFF),
-    offsetof(CGenDescription, xfc_LDIR), offsetof(CGenDescription, x100_LFOT),
+    offsetof(CGenDescription, x0_PSLT),   offsetof(CGenDescription, x4_PSWT),
+    offsetof(CGenDescription, x8_PSTS),   offsetof(CGenDescription, xc_POFS),
+    offsetof(CGenDescription, x10_SEED),  offsetof(CGenDescription, x14_LENG),
+    offsetof(CGenDescription, x18_WIDT),  offsetof(CGenDescription, x1c_MAXP),
+    offsetof(CGenDescription, x20_GRTE),  offsetof(CGenDescription, x24_COLR),
+    offsetof(CGenDescription, x28_LTME),  offsetof(CGenDescription, x2c_EMTR),
+    offsetof(CGenDescription, x34_MBSP),  offsetof(CGenDescription, x38_SIZE),
+    offsetof(CGenDescription, x3c_ROTA),  offsetof(CGenDescription, x40_TEXR),
+    offsetof(CGenDescription, x44_TIND),  offsetof(CGenDescription, x58_PMOP),
+    offsetof(CGenDescription, x5c_PMRT),  offsetof(CGenDescription, x60_PMSC),
+    offsetof(CGenDescription, x64_PMCL),  offsetof(CGenDescription, x68_VEL1),
+    offsetof(CGenDescription, x6c_VEL2),  offsetof(CGenDescription, x70_VEL3),
+    offsetof(CGenDescription, x74_VEL4),  offsetof(CGenDescription, x88_NCSY),
+    offsetof(CGenDescription, x8c_CSSD),  offsetof(CGenDescription, xa0_NDSY),
+    offsetof(CGenDescription, xb4_PISY),  offsetof(CGenDescription, xb8_SISY),
+    offsetof(CGenDescription, xd0_SSSD),  offsetof(CGenDescription, xd4_SSPO),
+    offsetof(CGenDescription, xe4_SESD),  offsetof(CGenDescription, xe8_SEPO),
+    offsetof(CGenDescription, xec_LTYP),  offsetof(CGenDescription, xf0_LCLR),
+    offsetof(CGenDescription, xf4_LINT),  offsetof(CGenDescription, xf8_LOFF),
+    offsetof(CGenDescription, xfc_LDIR),  offsetof(CGenDescription, x100_LFOT),
     offsetof(CGenDescription, x104_LFOR), offsetof(CGenDescription, x108_LSLA),
     offsetof(CGenDescription, x10c_ADV1), offsetof(CGenDescription, x110_ADV2),
     offsetof(CGenDescription, x114_ADV3), offsetof(CGenDescription, x118_ADV4),
@@ -103,8 +102,9 @@ CGenDescription::CGenDescription()
 , x120_ADV6(nullptr)
 , x124_ADV7(nullptr)
 , x128_ADV8(nullptr) {}
+
 CGenDescription::~CGenDescription() {
   for (int i = 0; i < (int)(sizeof(skGenOffsets) / sizeof(size_t)); ++i) {
     delete *element_from_desc(this, skGenOffsets[i]);
-  }  
+  }
 }

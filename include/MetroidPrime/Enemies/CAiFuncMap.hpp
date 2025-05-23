@@ -2,6 +2,8 @@
 #define _CAIFUNCMAP
 
 #include "types.h"
+#include <rstl/pair.hpp>
+#include <rstl/vector.hpp>
 
 enum EStateMsg {
   kStateMsg_Activate = 0,
@@ -19,8 +21,12 @@ public:
   CAiFuncMap();
   ~CAiFuncMap();
 
+  CAiStateFunc GetStateFunc(const char* state) const;
+  CAiTriggerFunc GetTriggerFunc(const char* state) const;
+
 private:
-  uchar pad[0x20];
+  rstl::vector< rstl::pair< const char*, CAiStateFunc > > x0_states;
+  rstl::vector< rstl::pair< const char*, CAiTriggerFunc > > x10_triggers;
 };
 
 #endif // _CAIFUNCMAP

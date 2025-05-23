@@ -12,7 +12,7 @@ template < typename T >
 T cinput_stream_helper(const TType< T >& type, CInputStream& in);
 
 template < typename T >
-inline TType< T > TGetType() {
+inline TType< T > TGetType(const T&) {
   return TType< T >();
 }
 
@@ -35,7 +35,7 @@ public:
 
   template < typename T >
   inline T Get(const TType< T >& type = TType< T >()) {
-    return cinput_stream_helper(type, *this);
+    return cinput_stream_helper(TType< T >(), *this);
   }
 
   bool ReadPackedBool() { return ReadBits(1) != 0; }
@@ -119,10 +119,10 @@ inline rstl::pair< L, R > cinput_stream_helper(const TType< rstl::pair< L, R > >
 template < typename T, typename Alloc >
 inline rstl::vector< T, Alloc >::vector(CInputStream& in, const Alloc& allocator)
 : x4_count(0), x8_capacity(0), xc_items(nullptr) {
-  int count = in.Get< int >();
+  int count = in.Get(TGetType(0));
   reserve(count);
   for (int i = 0; i < count; i++) {
-    push_back(in.Get(TGetType< T >()));
+    push_back(in.Get(TType< T >()));
   }
 }
 

@@ -38,7 +38,8 @@ void sort(It first, It last, Cmp cmp); // TODO
 
 template < typename It, class Cmp >
 void __insertion_sort(It first, It last, Cmp cmp) {
-  for (It next = first + 1; next < last; ++next) {
+  It next = first;
+  for (++next; next < last; ++next) {
     typename iterator_traits< It >::value_type value = *next;
 
     It t1 = next - 1;
@@ -71,7 +72,7 @@ template < typename It, class Cmp >
 void sort(It first, It last, Cmp cmp) {
   int count = last - first; // use distance?
   if (count > 1) {
-    if (count <= 20) {
+    if (count > 20) {
       __insertion_sort(first, last, cmp);
     } else {
       It pivot = first + count / 2;
@@ -147,18 +148,21 @@ public:
   bool operator()(const pair< K, V >& a, const pair< K, V >& b) const;
 };
 
-template <typename T>
-inline pair_sorter_finder< typename T::value_type, less< typename select1st< typename T::value_type >::value_type > > default_pair_sorter_finder()
-{
-    less< typename select1st< typename T::value_type >::value_type > l;
-    pair_sorter_finder< typename T::value_type, less< typename select1st< typename T::value_type >::value_type > > a(l);
-    return a;
+template < typename T >
+inline pair_sorter_finder< typename T::value_type,
+                           less< typename select1st< typename T::value_type >::value_type > >
+default_pair_sorter_finder() {
+  less< typename select1st< typename T::value_type >::value_type > l;
+  pair_sorter_finder< typename T::value_type,
+                      less< typename select1st< typename T::value_type >::value_type > >
+      a(l);
+  return a;
 }
 
 template < typename K, typename V, typename Cmp >
 inline bool pair_sorter_finder< pair< K, V >, Cmp >::operator()(const K& a,
                                                                 const pair< K, V >& b) const {
-  return cmp(a, b.first);
+  return !!cmp(a, b.first);
 }
 
 template < typename K, typename V, typename Cmp >
@@ -184,6 +188,14 @@ typename T::const_iterator inline find_by_key(
   return binary_find(container.begin(), container.end(), key, default_pair_sorter_finder< T >());
 }
 
+template < typename T, class Cmp >
+typename T::const_iterator inline find_by_key(
+    const T& container, const typename select1st< typename T::value_type >::value_type& key,
+    Cmp cmp) {
+  return binary_find(container.begin(), container.end(), key,
+                     pair_sorter_finder< typename T::value_type, Cmp >(cmp));
+}
+
 template < typename T >
 typename T::iterator
 find_by_key_nc(T& container, const typename select1st< typename T::value_type >::value_type& key);
@@ -192,6 +204,11 @@ template < typename T >
 typename T::iterator inline find_by_key_nc(
     T& container, const typename select1st< typename T::value_type >::value_type& key) {
   return binary_find(container.begin(), container.end(), key, default_pair_sorter_finder< T >());
+}
+
+template < typename T, class Cmp >
+inline void sort_by_key(T& container, Cmp cmp) {
+  sort(container.begin(), container.end(), pair_sorter_finder< typename T::value_type, Cmp >(cmp));
 }
 
 } // namespace rstl

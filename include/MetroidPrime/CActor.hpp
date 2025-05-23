@@ -10,7 +10,6 @@
 #include "MetroidPrime/CEntity.hpp"
 #include "MetroidPrime/CModelData.hpp"
 
-
 #include "Kyoto/Audio/CSfxHandle.hpp"
 #include "Kyoto/Graphics/CColor.hpp"
 #include "Kyoto/Graphics/CModelFlags.hpp"
@@ -81,8 +80,7 @@ public:
   virtual CVector3f GetHomingPosition(const CStateManager&, float) const;
   virtual CVector3f GetScanObjectIndicatorPosition(const CStateManager&) const;
   virtual EWeaponCollisionResponseTypes GetCollisionResponseType(const CVector3f&, const CVector3f&,
-                                                                 const CWeaponMode&,
-                                                                 int) const;
+                                                                 const CWeaponMode&, int) const;
   virtual void FluidFXThink(EFluidState, CScriptWater&, CStateManager&);
   virtual void OnScanStateChange(EScanState, CStateManager&);
   virtual CAABox GetSortingBounds(const CStateManager&) const;
