@@ -67,27 +67,25 @@ private:
 };
 
 template < typename T >
-class TLockedToken {
+class TLockedToken : public TToken< T > {
 public:
   TLockedToken() {}
-  TLockedToken(const CToken& token) : x0_token(token), x8_item(*x0_token) {}
-  TLockedToken(const TLockedToken< T >& token) : x0_token(token), x8_item(*token) {
-    x0_token.Lock();
+  TLockedToken(T* item) : TToken< T >(item), x8_item(item) { CToken::Lock(); }
+  TLockedToken(const CToken& token) : TToken< T >(token), x8_item(TToken< T >::GetT()) {}
+  TLockedToken(const TLockedToken< T >& token) : TToken< T >(token), x8_item(*token) {
+    CToken::Lock();
   }
 
   TLockedToken& operator=(const TLockedToken< T >& token) {
-    x0_token = token;
+    TToken< T >::operator=(token);
     x8_item = *token;
     return *this;
   }
 
-  operator const TToken< T >&() const { return x0_token; }
   T* operator*() const { return x8_item; }
   T* operator->() const { return x8_item; }
-  bool IsLoaded() const { return x0_token.IsLoaded(); }
 
 private:
-  TToken< T > x0_token;
   T* x8_item;
 };
 
