@@ -1057,7 +1057,7 @@ config.libs = [
             Object(NonMatching, "Kyoto/Animation/DolphinCVirtualBone.cpp"),
             Object(NonMatching, "Kyoto/Graphics/DolphinCModel.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Kyoto/Text/CStringTable.cpp"),
-            Object(NonMatching, "Kyoto/Particles/CEmitterElement.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Kyoto/Particles/CEmitterElement.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Kyoto/Particles/CEffectComponent.cpp"),
             Object(NonMatching, "Kyoto/Particles/CParticleData.cpp"),
             Object(NonMatching, "Kyoto/Animation/CVertexMorphEffect.cpp"),

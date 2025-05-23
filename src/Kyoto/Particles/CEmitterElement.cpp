@@ -42,12 +42,13 @@ bool CVESphere::GetValue(int frame, CVector3f& pPos, CVector3f& pVel) const {
   CVector3f normVec1 = CVector3f(CRandom16::GetRandomNumber()->Range(-100, 100),
                                  CRandom16::GetRandomNumber()->Range(-100, 100),
                                  CRandom16::GetRandomNumber()->Range(-100, 100));
-  normVec1 = (normVec1.CanBeNormalized() ? (0.1f * normVec1).AsNormalized() : (0.1f * normVec1));
-  pPos = radius * normVec1 + origin;
-  CVector3f diff = (pPos - origin);
-  CVector3f normVec2 = diff.CanBeNormalized() ? diff.AsNormalized() : diff;
+  normVec1 = (normVec1.CanBeNormalized() ? (0.01f * normVec1).AsNormalized() : (0.01f * normVec1));
+  pPos = origin + (normVec1 * radius);
+
+  CVector3f offset = (pPos - origin);
+  CVector3f direction = offset.CanBeNormalized() ? offset.AsNormalized() : offset;
   xc_velocityMag->GetValue(frame, mag);
-  pVel = mag * normVec2;
+  pVel = mag * direction;
 
   return false;
 }
