@@ -42,6 +42,4 @@ void TOneStatic< T >::operator delete(void* ptr) {
   ReferenceCount()--;
 }
 
-
-
 #endif // _TONESTATIC

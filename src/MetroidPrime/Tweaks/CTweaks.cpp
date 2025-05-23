@@ -152,14 +152,12 @@ void CTweaks::RegisterResourceTweaks() {
   if (gpTweakGunRes == nullptr) {
     rstl::auto_ptr< CInputStream > stream = resFactory->GetResLoader().LoadNewResourceSync(
         SObjectTag('CTWK', IDFromFactory(*resFactory, "GunRes")), nullptr);
-    gpTweakGunRes = rs_new CTweakGunRes(*stream);
-    mTweakObjects[10] = gpTweakGunRes;
+    mTweakObjects[10] = gpTweakGunRes = rs_new CTweakGunRes(*stream);
   }
 
   if (gpTweakPlayerRes == nullptr) {
     rstl::auto_ptr< CInputStream > stream = resFactory->GetResLoader().LoadNewResourceSync(
         SObjectTag('CTWK', IDFromFactory(*resFactory, "PlayerRes")), nullptr);
-    gpTweakPlayerRes = rs_new CTweakPlayerRes(*stream);
-    mTweakObjects[11] = gpTweakPlayerRes;
+    mTweakObjects[11] = gpTweakPlayerRes = rs_new CTweakPlayerRes(*stream);
   }
 }

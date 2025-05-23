@@ -14,6 +14,7 @@ public:
 
   static rstl::auto_ptr< CPVSAreaSet > MakeAreaSet(const char* data, int len);
   CPVSVisSet GetLightSet(int) const;
+  int GetEntityIdByIndex(uint idx) const;
 
   const CPVSVisOctree& GetVisOctree(const uint) const;
 

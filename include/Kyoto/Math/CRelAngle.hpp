@@ -35,7 +35,6 @@ public:
   static CRelAngle FromRadians(float rad) { return CRelAngle(rad); }
 
 private:
-
   float x0_angle;
 };
 CHECK_SIZEOF(CRelAngle, 0x4)

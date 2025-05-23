@@ -1,6 +1,7 @@
 #include "Kyoto/Particles/CEmitterElement.hpp"
-
+#pragma sym on
 #include "Kyoto/CRandom16.hpp"
+#include "Kyoto/Math/CMath.hpp"
 #include "Kyoto/Math/CRelAngle.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
 
@@ -31,22 +32,22 @@ CVESphere::~CVESphere() {
   delete x8_sphereRadius;
   delete xc_velocityMag;
 }
-
 bool CVESphere::GetValue(int frame, CVector3f& pPos, CVector3f& pVel) const {
-  CVector3f a = CVector3f::Zero();
-  x4_sphereOrigin->GetValue(frame, a);
-  float b;
-  x8_sphereRadius->GetValue(frame, b);
+  CVector3f origin = CVector3f::Zero();
+  float radius;
+  float mag;
+  x4_sphereOrigin->GetValue(frame, origin);
+  x8_sphereRadius->GetValue(frame, radius);
 
-  CVector3f normVec1(float(CRandom16::GetRandomNumber()->Range(-100, 100)),
-                     float(CRandom16::GetRandomNumber()->Range(-100, 100)),
-                     float(CRandom16::GetRandomNumber()->Range(-100, 100)));
-  pPos =
-      b * (normVec1.CanBeNormalized() ? (normVec1 * 0.01f).AsNormalized() : normVec1 * 0.01f) + a;
-  CVector3f normVec2 = (pPos - a).CanBeNormalized() ? (pPos - a).AsNormalized() : (pPos - a);
-  float c;
-  xc_velocityMag->GetValue(frame, c);
-  pVel = c * normVec2;
+  CVector3f normVec1 = CVector3f(CRandom16::GetRandomNumber()->Range(-100, 100),
+                                 CRandom16::GetRandomNumber()->Range(-100, 100),
+                                 CRandom16::GetRandomNumber()->Range(-100, 100));
+  normVec1 = (normVec1.CanBeNormalized() ? (0.1f * normVec1).AsNormalized() : (0.1f * normVec1));
+  pPos = radius * normVec1 + origin;
+  CVector3f diff = (pPos - origin);
+  CVector3f normVec2 = diff.CanBeNormalized() ? diff.AsNormalized() : diff;
+  xc_velocityMag->GetValue(frame, mag);
+  pVel = mag * normVec2;
 
   return false;
 }
@@ -75,33 +76,35 @@ CVEAngleSphere::~CVEAngleSphere() {
 
 bool CVEAngleSphere::GetValue(int frame, CVector3f& pPos, CVector3f& pVel) const {
   CVector3f origin = CVector3f::Zero();
-  x4_sphereOrigin->GetValue(frame, origin);
   float radius;
-  x8_sphereRadius->GetValue(frame, radius);
+  float mag;
   float xBias;
-  x10_angleXBias->GetValue(frame, xBias);
-  float yBias;
-  x14_angleYBias->GetValue(frame, yBias);
   float xRange;
-  x18_angleXRange->GetValue(frame, xRange);
+  float yBias;
   float yRange;
+  x4_sphereOrigin->GetValue(frame, origin);
+  x8_sphereRadius->GetValue(frame, radius);
+
+  x10_angleXBias->GetValue(frame, xBias);
+
+  x14_angleYBias->GetValue(frame, yBias);
+
+  x18_angleXRange->GetValue(frame, xRange);
+
   x1c_angleYRange->GetValue(frame, yRange);
 
-  CRelAngle angleA =
-      CRelAngle::FromDegrees(xBias + (0.5f * xRange - xRange * CRandom16::GetRandomNumber()->Float()));
-  CRelAngle angleB =
-      CRelAngle::FromDegrees(yBias + (0.5f * yRange - yRange * CRandom16::GetRandomNumber()->Float()));
+  xBias += ((0.5f * xRange) - (CRandom16::GetRandomNumber()->Float() * xRange));
+  xBias *= (M_PIF / 180.f);
 
-  CRelAngle f29 = CMath::FastCosR(angleA.AsRadians()) * CMath::FastCosR(angleB.AsRadians());
-  CRelAngle f30 = CMath::FastSinR(angleA.AsRadians());
-  CRelAngle f31 = CMath::FastCosR(angleA.AsRadians());
-  CRelAngle f2 = -CMath::FastSinR(angleB.AsRadians());
+  yBias += ((0.5f * yRange) - (CRandom16::GetRandomNumber()->Float() * yRange));
+  yBias *= (M_PIF / 180.f);
 
-  pPos = origin+ CVector3f(radius * f2.AsRadians() * f31.AsRadians(), radius * f30.AsRadians(), radius * f29.AsRadians());
+  CVector3f vec(-CMath::FastSinR(yBias) * CMath::FastCosR(xBias), CMath::FastSinR(xBias),
+                CMath::FastCosR(xBias) * CMath::FastCosR(yBias));
+  pPos = origin + (radius * vec);
   CVector3f dir = (pPos - origin).AsNormalized();
-  float g;
-  xc_velocityMag->GetValue(frame, g);
-  pVel = g * dir;
+  xc_velocityMag->GetValue(frame, mag);
+  pVel = mag * dir;
 
   return false;
 }
