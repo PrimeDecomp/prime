@@ -4,12 +4,12 @@
 #include "MetroidPrime/CStateManager.hpp"
 
 CScriptWaypoint::CScriptWaypoint(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
-                                 const CTransform4f& xf, bool active, float speed, float pause,
-                                 int patternTranslate, int patternOrient, int patternFit,
-                                 int behaviour, int behaviourOrient, int behaviourModifiers,
-                                 uint animation)
-: CActor(uid, active, name, info, xf, CModelData::CModelDataNull(), CMaterialList(kMT_NoStepLogic), CActorParameters::None(),
-         kInvalidUniqueId)
+                                 const CTransform4f& xf, const bool active, float speed,
+                                 float pause, int patternTranslate, int patternOrient,
+                                 int patternFit, int behaviour, int behaviourOrient,
+                                 int behaviourModifiers, uint animation)
+: CActor(uid, active, name, info, xf, CModelData::CModelDataNull(), CMaterialList(kMT_NoStepLogic),
+         CActorParameters::None(), kInvalidUniqueId)
 , xe8_speed(speed)
 , xec_animation(animation)
 , xf0_pause(pause)

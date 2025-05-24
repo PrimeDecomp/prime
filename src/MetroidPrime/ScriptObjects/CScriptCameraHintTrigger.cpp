@@ -2,7 +2,7 @@
 
 #include "MetroidPrime/CActorParameters.hpp"
 
-CScriptCameraHintTrigger::CScriptCameraHintTrigger(TUniqueId uid, bool active,
+CScriptCameraHintTrigger::CScriptCameraHintTrigger(TUniqueId uid, const bool active,
                                                    const rstl::string& name,
                                                    const CEntityInfo& info, const CVector3f& scale,
                                                    const CTransform4f& xf, bool deactivateOnEnter,
@@ -12,10 +12,9 @@ CScriptCameraHintTrigger::CScriptCameraHintTrigger(TUniqueId uid, bool active,
 , xe8_obb(xf, scale)
 , x124_scale(scale)
 , x130_24_deactivateOnEnter(deactivateOnEnter)
-, x130_25_deactivateOnExit(deactivateOnExit) 
+, x130_25_deactivateOnExit(deactivateOnExit)
 , x130_26_playerInside(false)
-, x130_27_playerWasInside(false)
-{}
+, x130_27_playerWasInside(false) {}
 
 void CScriptCameraHintTrigger::Accept(IVisitor& visitor) { visitor.Visit(*this); }
 

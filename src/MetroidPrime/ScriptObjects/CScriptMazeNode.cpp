@@ -238,8 +238,8 @@ void CSinglePathMaze::SolveMaze() {
 }
 
 CScriptMazeNode::CScriptMazeNode(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
-                                 const CTransform4f& xf, bool active, int col, int row, int side,
-                                 const CVector3f& actorPos, const CVector3f& triggerPos,
+                                 const CTransform4f& xf, const bool active, int col, int row,
+                                 int side, const CVector3f& actorPos, const CVector3f& triggerPos,
                                  const CVector3f& effectPos)
 : CActor(uid, active, name, info, xf, CModelData::CModelDataNull(), CMaterialList(),
          CActorParameters::None(), kInvalidUniqueId)

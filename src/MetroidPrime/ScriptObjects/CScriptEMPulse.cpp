@@ -11,7 +11,7 @@
 #include "Kyoto/Particles/CGenDescription.hpp"
 
 CScriptEMPulse::CScriptEMPulse(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
-                               const CTransform4f& xf, bool active, float initialRadius,
+                               const CTransform4f& xf, const bool active, float initialRadius,
                                float finalRadius, float duration, float interferenceDur, float f5,
                                float interferenceMag, float f7, CAssetId partId)
 : CActor(uid, active, name, info, xf, CModelData::CModelDataNull(), CMaterialList(kMT_Projectile),

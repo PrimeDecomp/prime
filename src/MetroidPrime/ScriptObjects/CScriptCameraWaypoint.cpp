@@ -4,7 +4,7 @@
 
 CScriptCameraWaypoint::CScriptCameraWaypoint(TUniqueId uid, const rstl::string& name,
                                              const CEntityInfo& info, const CTransform4f& xf,
-                                             bool active, float hfov, uint w1)
+                                             const bool active, float hfov, uint w1)
 : CActor(uid, active, name, info, xf, CModelData::CModelDataNull(), CMaterialList(kMT_NoStepLogic),
          CActorParameters::None(), kInvalidUniqueId)
 , xe8_hfov(hfov)

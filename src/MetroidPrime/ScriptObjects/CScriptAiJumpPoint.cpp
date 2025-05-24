@@ -4,8 +4,8 @@
 #include "MetroidPrime/ScriptObjects/CScriptWaypoint.hpp"
 
 CScriptAiJumpPoint::CScriptAiJumpPoint(TUniqueId uid, const rstl::string& name,
-                                       const CEntityInfo& info, const CTransform4f& xf, bool active,
-                                       float apex)
+                                       const CEntityInfo& info, const CTransform4f& xf,
+                                       const bool active, float apex)
 : CActor(uid, active, name, info, xf, CModelData::CModelDataNull(), CMaterialList(kMT_NoStepLogic),
          CActorParameters::None(), kInvalidUniqueId)
 , xe8_apex(apex)
@@ -50,8 +50,7 @@ void CScriptAiJumpPoint::Think(float dt, CStateManager&) {
   }
 }
 
-void CScriptAiJumpPoint::AddToRenderer(const CFrustumPlanes&, const CStateManager&) const {
-}
+void CScriptAiJumpPoint::AddToRenderer(const CFrustumPlanes&, const CStateManager&) const {}
 
 void CScriptAiJumpPoint::Render(const CStateManager&) const {}
 

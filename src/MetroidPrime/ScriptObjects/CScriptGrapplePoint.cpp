@@ -4,7 +4,7 @@
 
 CScriptGrapplePoint::CScriptGrapplePoint(TUniqueId uid, const rstl::string& name,
                                          const CEntityInfo& info, const CTransform4f& xf,
-                                         bool active, const CGrappleParameters& params)
+                                         const bool active, const CGrappleParameters& params)
 : CActor(uid, active, name, info, xf, CModelData::CModelDataNull(), CMaterialList(kMT_Orbit),
          CActorParameters::None(), kInvalidUniqueId)
 , xe8_touchBounds(GetTranslation() - CVector3f(0.5f, 0.5f, 0.5f),

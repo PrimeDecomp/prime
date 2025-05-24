@@ -7,7 +7,7 @@
 
 CScriptPointOfInterest::CScriptPointOfInterest(TUniqueId uid, const rstl::string& name,
                                                const CEntityInfo& info, const CTransform4f& xf,
-                                               bool active, const CScannableParameters& parms,
+                                               const bool active, const CScannableParameters& parms,
                                                float f1)
 : CActor(uid, active, name, info, xf, CModelData::CModelDataNull(), CMaterialList(kMT_Orbit),
          CActorParameters::None().Scannable(parms), kInvalidUniqueId)

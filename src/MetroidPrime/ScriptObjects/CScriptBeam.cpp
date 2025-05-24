@@ -4,7 +4,7 @@
 #include "MetroidPrime/Weapons/CPlasmaProjectile.hpp"
 
 CScriptBeam::CScriptBeam(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
-                         const CTransform4f& xf, bool active,
+                         const CTransform4f& xf, const bool active,
                          const TToken< CWeaponDescription >& weaponDesc, const CBeamInfo& bInfo,
                          const CDamageInfo& dInfo)
 : CActor(uid, active, name, info, xf, CModelData::CModelDataNull(), CMaterialList(),

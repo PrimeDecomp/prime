@@ -14,7 +14,7 @@ CScriptVisorGoo::CScriptVisorGoo(TUniqueId uid, const rstl::string& name, const 
                                  const CTransform4f& xf, CAssetId particle, CAssetId electric,
                                  float minRange, float maxRange, float chanceMinRange,
                                  float chanceMaxRange, const CColor& color, int sfx,
-                                 bool noViewCheck, bool active)
+                                 bool noViewCheck, const bool active)
 : CActor(uid, active, name, info, xf, CModelData::CModelDataNull(), CMaterialList(),
          CActorParameters::None(), kInvalidUniqueId)
 , xe8_particleDesc(nullptr)

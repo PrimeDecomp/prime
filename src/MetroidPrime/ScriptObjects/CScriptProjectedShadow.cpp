@@ -9,7 +9,7 @@
 
 CScriptShadowProjector::CScriptShadowProjector(TUniqueId uid, const rstl::string& name,
                                                const CEntityInfo& info, const CTransform4f& xf,
-                                               bool active, const CVector3f& offset,
+                                               const bool active, const CVector3f& offset,
                                                bool persistent, float scale, float f2,
                                                float opacity, float opacityQ, int textureSize)
 : CActor(uid, active, name, info, xf, CModelData::CModelDataNull(), CMaterialList(),

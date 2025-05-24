@@ -2,8 +2,8 @@
 
 #include "MetroidPrime/CActorParameters.hpp"
 
-CEffect::CEffect(TUniqueId uid, const CEntityInfo& info, bool active, const rstl::string& name,
-                 const CTransform4f& xf)
+CEffect::CEffect(TUniqueId uid, const CEntityInfo& info, const bool active,
+                 const rstl::string& name, const CTransform4f& xf)
 : CActor(uid, active, name, info, xf, CModelData::CModelDataNull(), CMaterialList(kMT_NoStepLogic),
          CActorParameters::None(), kInvalidUniqueId) {}
 
