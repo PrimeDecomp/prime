@@ -8,8 +8,8 @@
 #include "rstl/algorithm.hpp"
 
 CScriptPlayerHint::CScriptPlayerHint(TUniqueId uid, const rstl::string& name,
-                                     const CEntityInfo& info, const CTransform4f& xf, bool active,
-                                     int priority, int overrideFlags)
+                                     const CEntityInfo& info, const CTransform4f& xf,
+                                     const bool active, int priority, int overrideFlags)
 : CActor(uid, active, name, info, xf, CModelData::CModelDataNull(), CMaterialList(kMT_NoStepLogic),
          CActorParameters::None(), kInvalidUniqueId)
 , xfc_deactivated(false)

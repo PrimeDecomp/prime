@@ -7,7 +7,7 @@
 
 const float CPhysicsActor::kGravityAccel = 9.81f * 2.5f;
 
-CPhysicsActor::CPhysicsActor(TUniqueId uid, bool active, const rstl::string& name,
+CPhysicsActor::CPhysicsActor(TUniqueId uid, const bool active, const rstl::string& name,
                              const CEntityInfo& info, const CTransform4f& xf,
                              const CModelData& mData, const CMaterialList& matList,
                              const CAABox& aabb, const SMoverData& moverData,

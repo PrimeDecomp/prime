@@ -8,7 +8,7 @@
 
 const CVector3f CScriptCameraPitchVolume::skScaleFactor(0.5f, 0.5f, 0.5f);
 
-CScriptCameraPitchVolume::CScriptCameraPitchVolume(TUniqueId uid, bool active,
+CScriptCameraPitchVolume::CScriptCameraPitchVolume(TUniqueId uid, const bool active,
                                                    const rstl::string& name,
                                                    const CEntityInfo& info, const CVector3f& scale,
                                                    const CTransform4f& xf, const CRelAngle& upPitch,

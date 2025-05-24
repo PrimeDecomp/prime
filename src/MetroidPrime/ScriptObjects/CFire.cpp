@@ -16,10 +16,10 @@
 #include "rstl/optional_object.hpp"
 #include <rstl/math.hpp>
 
-CFire::CFire(const TToken< CGenDescription >& effect, TUniqueId uid, TAreaId area, bool active,
-             TUniqueId owner, const CTransform4f& xf, const CDamageInfo& dInfo, const CAABox& aabox,
-             const CVector3f& vec, bool b1, CAssetId visorEffect, bool b2, bool b3, bool b4,
-             float f1, float f2, float f3, float f4)
+CFire::CFire(const TToken< CGenDescription >& effect, TUniqueId uid, TAreaId area,
+             const bool active, TUniqueId owner, const CTransform4f& xf, const CDamageInfo& dInfo,
+             const CAABox& aabox, const CVector3f& vec, bool b1, CAssetId visorEffect, bool b2,
+             bool b3, bool b4, float f1, float f2, float f3, float f4)
 : CActor(uid, active, "Fire", CEntityInfo(area, NullConnectionList), xf,
          CModelData::CModelDataNull(), CMaterialList(kMT_Projectile), CActorParameters::None(),
          kInvalidUniqueId)
@@ -51,9 +51,10 @@ void CFire::Touch(CActor& act, CStateManager& mgr) {
     return;
   }
 
-  mgr.ApplyDamage(GetUniqueId(), act.GetUniqueId(), GetUniqueId(), x10c_damageInfo2,
-                  CMaterialFilter::MakeIncludeExclude(CMaterialList(SolidMaterial), CMaterialList()),
-                  CVector3f::Zero());
+  mgr.ApplyDamage(
+      GetUniqueId(), act.GetUniqueId(), GetUniqueId(), x10c_damageInfo2,
+      CMaterialFilter::MakeIncludeExclude(CMaterialList(SolidMaterial), CMaterialList()),
+      CVector3f::Zero());
 }
 
 rstl::optional_object< CAABox > CFire::GetTouchBounds() const {

@@ -2,14 +2,15 @@
 
 #include "MetroidPrime/CActorParameters.hpp"
 
-CRepulsor::CRepulsor(TUniqueId uid, bool active, const rstl::string& name, const CEntityInfo& info,
-                     const CVector3f& pos, float radius)
-: CActor(uid, active, name, info, CTransform4f::Translate(pos), CModelData::CModelDataNull(), CMaterialList(kMT_NoStepLogic),
-         CActorParameters::None(), kInvalidUniqueId)
+CRepulsor::CRepulsor(TUniqueId uid, const bool active, const rstl::string& name,
+                     const CEntityInfo& info, const CVector3f& pos, float radius)
+: CActor(uid, active, name, info, CTransform4f::Translate(pos), CModelData::CModelDataNull(),
+         CMaterialList(kMT_NoStepLogic), CActorParameters::None(), kInvalidUniqueId)
 , xe8_affectRadius(radius) {}
 
 void CRepulsor::Accept(IVisitor& visitor) { visitor.Visit(*this); }
 
-void CRepulsor::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objId, CStateManager& stateMgr) {
+void CRepulsor::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objId,
+                                CStateManager& stateMgr) {
   CActor::AcceptScriptMsg(msg, objId, stateMgr);
 }

@@ -7,10 +7,10 @@
 
 #include <rstl/math.hpp>
 
-CWeapon::CWeapon(TUniqueId uid, TAreaId areaId, bool active, TUniqueId owner, EWeaponType type,
-                 const rstl::string& name, const CTransform4f& xf, const CMaterialFilter& filter,
-                 const CMaterialList& mList, const CDamageInfo& dInfo, int attribs,
-                 const CModelData& mData)
+CWeapon::CWeapon(TUniqueId uid, TAreaId areaId, const bool active, TUniqueId owner,
+                 EWeaponType type, const rstl::string& name, const CTransform4f& xf,
+                 const CMaterialFilter& filter, const CMaterialList& mList,
+                 const CDamageInfo& dInfo, int attribs, const CModelData& mData)
 : CActor(uid, active, name, CEntityInfo(areaId, CEntity::NullConnectionList), xf, mData, mList,
          CActorParameters::None().HotInThermal(true), kInvalidUniqueId)
 , xe8_projectileAttribs(attribs)

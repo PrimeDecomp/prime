@@ -4,7 +4,7 @@
 
 CScriptSpiderBallAttractionSurface::CScriptSpiderBallAttractionSurface(
     TUniqueId uid, const rstl::string& name, const CEntityInfo& info, const CTransform4f& xf,
-    const CVector3f& scale, bool active)
+    const CVector3f& scale, const bool active)
 : CActor(uid, active, name, info, xf, CModelData::CModelDataNull(), CMaterialList(kMT_NoStepLogic),
          CActorParameters::None(), kInvalidUniqueId)
 , xe8_scale(scale)

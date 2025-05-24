@@ -45,7 +45,7 @@ static int string_find(const string& haystack, const string& needle, int) {
 CScriptSpecialFunction::CScriptSpecialFunction(
     TUniqueId uid, const rstl::string& name, const CEntityInfo& info, const CTransform4f& xf,
     ESpecialFunction func, const rstl::string& lcName, float f1, float f2, float f3, float f4,
-    const CVector3f& vec, const CColor& col, bool active, const CDamageInfo& dInfo, int aId1,
+    const CVector3f& vec, const CColor& col, const bool active, const CDamageInfo& dInfo, int aId1,
     int aId2, CPlayerState::EItemType itemType, ushort sId1, ushort sId2, ushort sId3)
 : CActor(uid, active, name, info, xf, CModelData::CModelDataNull(), CMaterialList(),
          CActorParameters::None(), kInvalidUniqueId)

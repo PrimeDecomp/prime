@@ -34,7 +34,7 @@ CCameraOverrideInfo::CCameraOverrideInfo(
 
 CScriptCameraHint::CScriptCameraHint(
     TUniqueId uid, const rstl::string& name, const CEntityInfo& info, const CTransform4f& xf,
-    bool active, int priority, CBallCamera::EBallCameraBehaviour behavior, int overrideFlags,
+    const bool active, int priority, CBallCamera::EBallCameraBehaviour behavior, int overrideFlags,
     float minDist, float maxDist, float backwardsDist, const CVector3f& lookAtOffset,
     const CVector3f& chaseLookAtOffset, const CVector3f& ballToCam, float fov, float attitudeRange,
     float azimuthRange, float anglePerSecond, float clampVelRange, float clampRotRange,

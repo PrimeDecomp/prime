@@ -5,9 +5,9 @@
 #include "Kyoto/Math/CUnitVector3f.hpp"
 
 CScriptCoverPoint::CScriptCoverPoint(TUniqueId uid, const rstl::string& name,
-                                     const CEntityInfo& info, const CTransform4f& xf, bool active,
-                                     uint flags, bool crouch, float horizontalAngle,
-                                     float verticalAngle, float coverTime)
+                                     const CEntityInfo& info, const CTransform4f& xf,
+                                     const bool active, uint flags, bool crouch,
+                                     float horizontalAngle, float verticalAngle, float coverTime)
 : CActor(uid, active, name, info, xf, CModelData::CModelDataNull(), CMaterialList(kMT_NoStepLogic),
          CActorParameters::None(), kInvalidUniqueId)
 , xe8_flags(flags)

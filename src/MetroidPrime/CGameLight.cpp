@@ -2,7 +2,7 @@
 
 #include "MetroidPrime/CActorParameters.hpp"
 
-CGameLight::CGameLight(TUniqueId uid, TAreaId aid, bool active, const rstl::string& name,
+CGameLight::CGameLight(TUniqueId uid, TAreaId aid, const bool active, const rstl::string& name,
                        const CTransform4f& xf, TUniqueId parentId, const CLight& light,
                        uint sourceId, uint priority, float lifeTime)
 : CActor(uid, active, name, CEntityInfo(aid, CEntity::NullConnectionList), xf,

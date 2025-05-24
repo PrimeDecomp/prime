@@ -8,9 +8,9 @@
 #pragma inline_max_size(200)
 
 CScriptVisorFlare::CScriptVisorFlare(TUniqueId uid, const rstl::string& name,
-                                     const CEntityInfo& info, bool active, const CVector3f& pos,
-                                     CVisorFlare::EBlendMode blendMode, bool b1, float f1, float f2,
-                                     float f3, uint w1, uint w2,
+                                     const CEntityInfo& info, const bool active,
+                                     const CVector3f& pos, CVisorFlare::EBlendMode blendMode,
+                                     bool b1, float f1, float f2, float f3, uint w1, uint w2,
                                      const rstl::vector< CVisorFlare::CFlareDef >& flares)
 : CActor(uid, active, name, info, CTransform4f::Translate(pos), CModelData::CModelDataNull(),
          CMaterialList(kMT_NoStepLogic), CActorParameters::None(), kInvalidUniqueId)

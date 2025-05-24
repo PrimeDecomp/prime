@@ -18,7 +18,7 @@
 bool CScriptSound::sFirstInFrame = false;
 
 CScriptSound::CScriptSound(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
-                           const CTransform4f& xf, const ushort soundId, bool active,
+                           const CTransform4f& xf, const ushort soundId, const bool active,
                            const float maxDist, const float distComp, const float startDelay,
                            const uint minVol, const uint vol, const uint w3, const uint prio,
                            const uint pan, const uint w6, const bool looped, const bool nonEmitter,
