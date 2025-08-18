@@ -12,7 +12,7 @@ public:
     CSpawnSystemKeyframeInfo(CInputStream& in);
   };
   CSpawnSystemKeyframeData(CInputStream& in);
-  ~CSpawnSystemKeyframeData();
+  ~CSpawnSystemKeyframeData() {}
 
 private:
   int mUnknown1;

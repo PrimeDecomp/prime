@@ -7,9 +7,9 @@
 #include "Kyoto/Particles/CIntElement.hpp"
 #include "Kyoto/Particles/CModVectorElement.hpp"
 #include "Kyoto/Particles/CRealElement.hpp"
+#include "Kyoto/Particles/CSpawnSystemKeyframeData.hpp"
 #include "Kyoto/Particles/IElement.hpp"
 #include "Kyoto/Streams/CInputStream.hpp"
-
 #define SBIG(v) v
 
 CFactoryFnReturn FParticleFactory(const SObjectTag& tag, CInputStream& in,
