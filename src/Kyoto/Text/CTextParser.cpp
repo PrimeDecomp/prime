@@ -1,14 +1,61 @@
 #include "Kyoto/Text/CTextParser.hpp"
 #include "Kyoto/Math/CVector2f.hpp"
+#include "Kyoto/SObjectTag.hpp"
 #include "Kyoto/Text/CRasterFont.hpp"
 #include "Kyoto/Text/CTextExecuteBuffer.hpp"
 #include "Kyoto/Text/TextCommon.hpp"
+#include <rstl/StringExtras.hpp>
+#include <rstl/algorithm.hpp>
 
 CTextParser::CTextParser(IObjectStore& store) : mObjectStore(store) {}
 
-void CTextParser::ParseText(CTextExecuteBuffer& buffer, const wchar_t* str, int len, rstl::vector<rstl::pair<int, int> >& vec) {}
+void CTextParser::ParseText(CTextExecuteBuffer& buffer, const wchar_t* str, int len,
+                            rstl::vector< rstl::pair< CAssetId, CAssetId > >& txtrMap) {
+  int b = 0, e = 0;
+  for (b = 0, e = 0; str[e] && (len == -1 || e < len);) {
+    if (str[e] == L'&') {
+      if ((len == -1 || e + 1 < len) && str[e + 1] != L'&') {
+        if (e > b) {
+          buffer.AddString(str + b, e - b);
+        }
+        ++e;
+        b = e;
 
-uint CTextParser::GetAssetIdFromString(const rstl::string& str) {}
+        while ((len == -1 || e < len) && str[e] && str[e] != L';')
+          ++e;
+
+        ParseTag(buffer, str + b, e - b, txtrMap);
+        b = e + 1;
+      } else {
+        buffer.AddString(str + b, e + 1 - b);
+        e += 2;
+        b = e;
+      }
+    } else {
+      ++e;
+    }
+  }
+
+  if (e > b)
+    buffer.AddString(str + b, e - b);
+}
+
+const CAssetId
+CTextParser::GetAssetIdFromString(const rstl::string& inStr,
+                                  rstl::vector< rstl::pair< CAssetId, CAssetId > >* txtrMap) {
+  rstl::wstring str = CStringExtras::ConvertToUNICODE(inStr);
+  int id = (GetColorValue(str.data()) << 24) | (GetColorValue(str.data() + 2) << 16) |
+           (GetColorValue(str.data() + 4) << 8) | GetColorValue(str.data() + 6);
+  if (txtrMap) {
+    rstl::vector< rstl::pair< CAssetId, CAssetId > >::const_iterator search =
+        rstl::find_by_key(*txtrMap, id);
+    if (search != txtrMap->end()) {
+      return search->second;
+    }
+  }
+
+  return id;
+}
 
 TToken< CRasterFont > CTextParser::GetFont(const wchar_t* str, int len) {
   uint id = (GetColorValue(str) << 24) | GetColorValue(str + 2) << 16 |
@@ -17,7 +64,8 @@ TToken< CRasterFont > CTextParser::GetFont(const wchar_t* str, int len) {
   return mObjectStore.GetObj(SObjectTag('FONT', id));
 }
 
-CFontImageDef CTextParser::GetImage(const wchar_t* str, int len, rstl::vector<rstl::pair<int, int> >& vec) {
+CFontImageDef CTextParser::GetImage(const wchar_t* str, int len,
+                                    rstl::vector< rstl::pair< CAssetId, CAssetId > >& vec) {
   return CFontImageDef(TToken< CTexture >(), CVector2f(0.f, 0.f));
 }
 
@@ -25,7 +73,8 @@ uint CTextParser::HandleUserTag(CTextExecuteBuffer& buffer, const wchar_t* strin
   return 0;
 }
 
-void CTextParser::ParseTag(CTextExecuteBuffer& buffer, const wchar_t* string, int len, rstl::vector<rstl::pair<int, int> >& vec) {
+void CTextParser::ParseTag(CTextExecuteBuffer& buffer, const wchar_t* string, int len,
+                           rstl::vector< rstl::pair< CAssetId, CAssetId > >& vec) {
   if (BeginsWith(string, len, L"font=")) {
     TToken< CRasterFont > font = GetFont(string + 5, len - 5);
     buffer.AddFont(font);
@@ -158,7 +207,7 @@ int CTextParser::FromHex(wchar_t ch) {
   return 0;
 }
 
-int CTextParser::GetColorValue(const wchar_t* str) {
+const int CTextParser::GetColorValue(const wchar_t* str) {
   return FromHex(str[1]) + (FromHex(str[0]) << 4);
 }
 

@@ -562,8 +562,8 @@ void CCameraManager::UpdateCameraHints(float dt, CStateManager& mgr) {
     for (rstl::reserved_vector< TUniqueId, 64 >::iterator id = x2b0_inactiveCameraHints.begin();
          id != x2b0_inactiveCameraHints.end(); ++id) {
       TUniqueId uid = *id;
-      if (const CScriptCameraHint* hint =
-              TCastToConstPtr< CScriptCameraHint >(mgr.GetObjectById(uid))) {
+      const CScriptCameraHint* hint = TCastToConstPtr< CScriptCameraHint >(mgr.GetObjectById(uid));
+      if (hint) {
         if (hint->GetSenderCount() == 0 || hint->GetInactive()) {
           for (rstl::reserved_vector< rstl::pair< int, TUniqueId >, 64 >::iterator it =
                    xac_cameraHints.begin();
@@ -589,10 +589,10 @@ void CCameraManager::UpdateCameraHints(float dt, CStateManager& mgr) {
     for (rstl::reserved_vector< TUniqueId, 64 >::iterator id = x334_activeCameraHints.begin();
          id != x334_activeCameraHints.end(); ++id) {
       TUniqueId uid = *id;
-      if (const CScriptCameraHint* hint =
-              TCastToConstPtr< CScriptCameraHint >(mgr.GetObjectById(uid))) {
+      const CScriptCameraHint* hint = TCastToConstPtr< CScriptCameraHint >(mgr.GetObjectById(uid));
+      if (hint) {
         bool activeHintPresent = false;
-        for (rstl::reserved_vector< rstl::pair< int, TUniqueId >, 64 >::iterator it =
+        for (rstl::reserved_vector< rstl::pair< int, TUniqueId >, 64 >::const_iterator it =
                  xac_cameraHints.begin();
              it != xac_cameraHints.end(); ++it) {
           if (it->second == uid) {
@@ -611,9 +611,9 @@ void CCameraManager::UpdateCameraHints(float dt, CStateManager& mgr) {
   }
 
   if (inactiveHintRemoved || activeHintAdded || invalidHintRemoved) {
-    // rstl::less< int > less;
-    // rstl::pair_sorter_finder< rstl::pair< int, TUniqueId >, rstl::less< int > > sorter(less);
-    // rstl::sort(xac_cameraHints.begin(), xac_cameraHints.end(), sorter);
+    rstl::less< int > less;
+    rstl::pair_sorter_finder< rstl::pair< int, TUniqueId >, rstl::less< int > > sorter(less);
+    rstl::sort(xac_cameraHints.begin(), xac_cameraHints.end(), sorter);
     CTransform4f ballCamXf = x80_ballCamera->GetTransform();
     if ((inactiveHintRemoved || invalidHintRemoved) && xac_cameraHints.empty()) {
       NoCameraHintsLeft(mgr);

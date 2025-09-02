@@ -29,7 +29,8 @@ public:
   void AddColor(EColorType type, const CTextColor& color);
   void AddRemoveColorOverride(int idx);
   void AddColorOverride(int idx, const CTextColor& color);
-  
+  void AddString(const wchar_t* str, const int len);
+
 private:
   InstList x0_instructions;
   CSaveableState x18_;
@@ -42,7 +43,7 @@ private:
   int xb8_curWordY;
   int xbc_spaceDistance;
   bool xc0_imageBaseline;
-  rstl::list<CSaveableState> xc4_stateStack;
+  rstl::list< CSaveableState > xc4_stateStack;
 };
 
 #endif // _CTEXTEXECUTEBUFFER
