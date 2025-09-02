@@ -118,7 +118,7 @@ public:
   void UpdateStaticInterference(CStateManager& stateMgr, const float& dt);
   void IncreaseScanTime(uint time, float val);
   void SetScanTime(CAssetId res, float time);
-  float GetScanTime(CAssetId res) const;
+  const float GetScanTime(CAssetId res) const;
   bool GetIsVisorTransitioning() const;
   float GetVisorTransitionFactor() const;
   void UpdateVisorTransition(float dt);
@@ -142,7 +142,7 @@ public:
   void InitializePowerUp(CPlayerState::EItemType type, int capacity);
   void SetPowerUp(CPlayerState::EItemType type, int capacity);
   static bool IsValidScan(CAssetId res);
-  void SetScanCompletionRateFirst(int rate) { x180_scanCompletionRateFirst = rate; } // name?
+  void SetScanCompletionRateFirst(int rate) { x180_scanCompletionRateFirst = rate; }   // name?
   void SetScanCompletionRateSecond(int rate) { x184_scanCompletionRateSecond = rate; } // name?
 
   void InitializeScanTimes();

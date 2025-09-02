@@ -10,7 +10,6 @@
 #include "Kyoto/TOneStatic.hpp"
 #include "Kyoto/TToken.hpp"
 
-
 #include "MetroidPrime/CEntityInfo.hpp"
 #include "MetroidPrime/CObjectList.hpp"
 #include "MetroidPrime/Cameras/CCameraBlurPass.hpp"
@@ -30,7 +29,6 @@
 #include "rstl/set.hpp"
 #include "rstl/single_ptr.hpp"
 #include "rstl/string.hpp"
-
 
 class CAABox;
 class CActor;

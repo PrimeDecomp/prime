@@ -372,7 +372,7 @@ void CPlayerState::InitializeScanTimes() {
   }
 }
 
-float CPlayerState::GetScanTime(CAssetId res) const {
+const float CPlayerState::GetScanTime(CAssetId res) const {
   rstl::vector< rstl::pair< CAssetId, float > >::const_iterator it =
       rstl::find_by_key(x170_scanTimes, res);
   return it->second;
