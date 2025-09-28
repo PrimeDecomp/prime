@@ -1160,8 +1160,8 @@ config.libs = [
     {
         "lib": "mtx",
         "mw_version": "GC/1.2.5n",
-        #"cflags": ["-nodefaults","-proc gekko","-align powerpc","-fp hardware","-g","-sym on","-maxerrors 1","-nosyspath","-i include","-i libc", "-D_DEBUG=1", "-inline off", "-Cpp_exceptions off"],
-        "cflags": [*cflags_base, "-fp_contract off"],
+        "cflags": ["-nodefaults","-proc gekko","-align powerpc","-fp hardware","-g","-sym on","-maxerrors 1","-nosyspath","-i include","-i libc", "-D_DEBUG=1", "-inline off", "-Cpp_exceptions off"],
+        #"cflags": [*cflags_base, "-fp_contract off"],
         "host": False,
         "progress_category": "sdk",
         "shift_jis": True,

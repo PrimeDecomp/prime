@@ -33,9 +33,13 @@ public:
     gGuiSystem = ptr;
     spGuiSys = ptr;
   }
+
+  static CGuiSys* GetGlobalGuiSys() { return spGuiSys; }
   static CGuiWidget* CreateWidgetInGame(uint type, CInputStream& in, CGuiFrame* parent);
 
   void AddFactories(EUsageMode mode);
+
+  EUsageMode GetUsageMode() const { return x8_mode; }
 
 private:
   IFactory* x0_resFactory;
