@@ -31,21 +31,30 @@ public:
     coutput_stream_helper(t, *this);
   }
 
-  void WriteReal32(float t) { Put(t); }
+  void WriteInt8(const schar t) { Put(t); }
+  void WriteUint8(const uchar t) { Put(t); }
 
-  void WriteUint32(uint t) { Put(t); }
-  void WriteInt32(int t) { Put(t); }
+  void WriteInt16(const sshort t) { Put(t); }
+  void WriteUint16(const ushort t) { Put(t); }
 
-  void WriteLong(int t) { Put(&t, sizeof(int)); }
+  void WriteReal32(const float t) { Put(t); }
 
-  void WriteChar(u8 c) {
+  void WriteUint32(const uint t) { Put(t); }
+  void WriteInt32(const int t) { Put(t); }
+
+  void WriteShort(const short t) { Put(&t, sizeof(short)); }
+  void WriteLong(const int t) { Put(&t, sizeof(int)); }
+
+  void WriteChar(const uchar c) {
     FlushShiftRegister();
     if (mUnwrittenLen >= mBufLen) {
       DoFlush();
     }
     ++mNumWrites;
-    *(reinterpret_cast< u8* >(mBufPtr) + mUnwrittenLen++) = c;
+    *(reinterpret_cast< uchar* >(mBufPtr) + mUnwrittenLen++) = c;
   }
+
+  uint GetWrittenBytes() const { return mNumWrites; }
 
 private:
   uint mUnwrittenLen;
@@ -66,6 +75,26 @@ template <>
 inline void coutput_stream_helper(const float& t, COutputStream& out) {
   int tmp = *(int*)&t;
   out.Put(&tmp, sizeof(float));
+}
+
+template <>
+inline void coutput_stream_helper(const schar& t, COutputStream& out) {
+  out.WriteChar(t);
+}
+
+template <>
+inline void coutput_stream_helper(const uchar& t, COutputStream& out) {
+  out.WriteChar(t);
+}
+
+template <>
+inline void coutput_stream_helper(const sshort& t, COutputStream& out) {
+  out.WriteShort(t);
+}
+
+template <>
+inline void coutput_stream_helper(const ushort& t, COutputStream& out) {
+  out.WriteShort(t);
 }
 
 template <>

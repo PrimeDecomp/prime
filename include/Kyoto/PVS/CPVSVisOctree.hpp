@@ -7,6 +7,7 @@
 
 class CPVSVisOctree {
 public:
+  CPVSVisOctree(const CAABox& bounds, int numObjects, int numLights, const char* data);
   int IterateSearch(uchar a, const CVector3f& pos) const;
   uint GetNumChildren(uchar a) const;
   uint GetNumObjects() const { return mNumObjects; }
@@ -14,11 +15,17 @@ public:
 
   static CPVSVisOctree MakePVSVisOctree(const char* data, int len);
 
+  void SetTestPoint(const CPVSVisOctree& octree, const CVector3f& point);
+
+  const CAABox& GetBounds() const { return mBounds; }
+  const CAABox& GetSearchBounds() const { return mSearchBounds; }
+  void SetSearchBounds(const CAABox& bounds) { mSearchBounds = bounds; }
+
 private:
   CAABox mBounds;
   uint mNumObjects;
   uint mNumLights;
-  rstl::auto_ptr< uchar > mOctreeData;
+  rstl::auto_ptr< char > mOctreeData;
   uint _28;
   CAABox mSearchBounds;
 };

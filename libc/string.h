@@ -21,6 +21,8 @@ int strncmp(const char* s1, const char* s2, size_t n);
 char* strncat(char* dest, const char* src, size_t n);
 char* strchr(const char* str, int chr);
 
+int memcmp(const void* a, const void* b, size_t n);
+
 #ifdef __cplusplus
 }
 #endif

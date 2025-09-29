@@ -1,4 +1,6 @@
 #include "Kyoto/PVS/CPVSVisSet.hpp"
+#include "Kyoto/PVS/CPVSVisOctree.hpp"
+#include "Kyoto/Streams/CMemoryInStream.hpp"
 
 CPVSVisSet::CPVSVisSet(int numBits, int numLights, const rstl::auto_ptr< uchar >& leafPtr)
 : x0_state(kVSS_NodeFound), x4_numBits(numBits), x8_numLights(numLights), xc_ptr(leafPtr) {}
@@ -29,4 +31,36 @@ EPVSVisSetState CPVSVisSet::GetVisible(int idx) const {
     return static_cast< EPVSVisSetState >((ptr[0] & (0x3 << lightTest)) >> lightTest);
   }
   return static_cast< EPVSVisSetState >(((ptr[0] >> 7) & 1) | ((ptr[1] & 0x1) << 1));
+}
+
+CPVSVisOctree::CPVSVisOctree(const CAABox& bounds, const int numObjects, const int numLights,
+                             const char* octreeData)
+: mBounds(bounds)
+, mNumObjects(numObjects)
+, mNumLights(numLights)
+, mOctreeData(const_cast< char* >(octreeData))
+, mSearchBounds(mBounds) {
+  mOctreeData.release();
+}
+
+CPVSVisOctree CPVSVisOctree::MakePVSVisOctree(const char* data, int len) {
+  CMemoryInStream in(data, len);
+  CAABox bounds(in);
+  int numObjects = in.Get< int >();
+  int numLights = in.Get< int >();
+  in.Get< int >();
+
+  return CPVSVisOctree(bounds, numObjects, numLights, data + in.GetReadPosition());
+}
+
+void CPVSVisSet::SetTestPoint(CPVSVisOctree& octree, const CVector3f& point) {
+  if (!octree.GetSearchBounds().PointInside(point)) {
+    Reset(kVSS_OutOfBounds);
+    return;
+  }
+
+  octree.SetSearchBounds(octree.GetBounds());
+
+  while (true) {
+  }
 }

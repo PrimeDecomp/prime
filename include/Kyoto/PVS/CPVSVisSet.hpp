@@ -9,12 +9,16 @@ enum EPVSVisSetState {
   kVSS_OutOfBounds,
 };
 
+class CPVSVisOctree;
+class CVector3f;
 class CPVSVisSet {
 public:
   CPVSVisSet(int numBits, int numLights, const rstl::auto_ptr< uchar >& leafPtr);
   void Reset(EPVSVisSetState state);
 
   EPVSVisSetState GetVisible(int index) const;
+
+  void SetTestPoint(CPVSVisOctree& octree, const CVector3f& point);
 
 private:
   EPVSVisSetState x0_state;

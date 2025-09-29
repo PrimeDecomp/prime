@@ -86,7 +86,7 @@ float CMath::FastSinR(float x) {
   float f4 = x;
   f4 *= x;
   float f5 = x;
-  f5 *= 0.9998508f;
+  f5 *= 0.99980587f;
   x *= f4;
   f5 += x * -0.16621658f;
   x *= f4;
