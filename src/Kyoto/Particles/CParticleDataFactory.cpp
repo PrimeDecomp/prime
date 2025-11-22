@@ -1,6 +1,8 @@
 #include "Kyoto/Particles/CParticleDataFactory.hpp"
 
 #include "Kyoto/CFactoryFnReturn.hpp"
+#include "Kyoto/CFrameDelayedKiller.hpp"
+#include "Kyoto/CRandom16.hpp"
 #include "Kyoto/CSimplePool.hpp"
 #include "Kyoto/CVParamTransfer.hpp"
 #include "Kyoto/Particles/CGenDescription.hpp"
@@ -8,8 +10,14 @@
 #include "Kyoto/Particles/CModVectorElement.hpp"
 #include "Kyoto/Particles/CRealElement.hpp"
 #include "Kyoto/Particles/CSpawnSystemKeyframeData.hpp"
+#include "Kyoto/Particles/CSwooshDescription.hpp"
+#include "Kyoto/Particles/CVectorElement.hpp"
 #include "Kyoto/Particles/IElement.hpp"
+#include "Kyoto/SObjectTag.hpp"
 #include "Kyoto/Streams/CInputStream.hpp"
+#include "Kyoto/TToken.hpp"
+#include "dolphin/types.h"
+#include "rstl/optional_object.hpp"
 #define SBIG(v) v
 
 CFactoryFnReturn FParticleFactory(const SObjectTag& tag, CInputStream& in,
@@ -30,6 +38,276 @@ CGenDescription* CParticleDataFactory::CreateGeneratorDescription(CInputStream& 
                                                                   rstl::vector< uint >& assets,
                                                                   uint, CSimplePool* pool) {
   return nullptr;
+}
+
+bool CParticleDataFactory::CreateGPSM(CGenDescription* desc, CInputStream& in,
+                                      rstl::vector< CAssetId >& resources, CSimplePool* pool) {
+  bool done = false;
+  CRandom16 _(99);
+  CGlobalRandom __(_);
+  while (!done) {
+    FourCC clsId = GetClassID(in);
+    switch (clsId) {
+    case SBIG('PSIV'):
+      delete GetVectorElement(in);
+      break;
+    case SBIG('PSVM'):
+      delete GetModVectorElement(in);
+      break;
+    case SBIG('PSOV'):
+      delete GetVectorElement(in);
+      break;
+    case SBIG('PSTS'):
+      desc->x8_PSTS = GetRealElement(in);
+      break;
+    case SBIG('PSLT'):
+      desc->x0_PSLT = GetIntElement(in);
+      break;
+    case SBIG('PSWT'):
+      desc->x4_PSWT = GetIntElement(in);
+      break;
+    case SBIG('LIT_'):
+      desc->x30_29_LIT_ = GetBool(in);
+      break;
+    case SBIG('ORNT'):
+      desc->x30_30_ORNT = GetBool(in);
+      break;
+    case SBIG('RSOP'):
+      desc->x30_31_RSOP = GetBool(in);
+      break;
+    case SBIG('AAPH'):
+      desc->x30_26_AAPH = GetBool(in);
+      break;
+    case SBIG('ZBUF'):
+      desc->x30_27_ZBUF = GetBool(in);
+      break;
+    case SBIG('SORT'):
+      desc->x30_28_SORT = GetBool(in);
+      break;
+    case SBIG('MBLR'):
+      desc->x31_24_MBLR = GetBool(in);
+      break;
+    case SBIG('MBSP'):
+      desc->x34_MBSP = GetIntElement(in);
+      break;
+    case SBIG('MAXP'):
+      desc->x1c_MAXP = GetIntElement(in);
+      break;
+    case SBIG('GRTE'):
+      desc->x20_GRTE = GetRealElement(in);
+      break;
+    case SBIG('ILOC'):
+      delete GetVectorElement(in);
+      break;
+    case SBIG('IVEC'):
+      delete GetVectorElement(in);
+      break;
+    case SBIG('EMTR'):
+      desc->x2c_EMTR = GetEmitterElement(in);
+      break;
+    case SBIG('SIZE'):
+      desc->x38_SIZE = GetRealElement(in);
+      break;
+    case SBIG('COLR'):
+      desc->x24_COLR = GetColorElement(in);
+      break;
+    case SBIG('POFS'):
+      desc->xc_POFS = GetVectorElement(in);
+      break;
+    case SBIG('VMD1'):
+      desc->x31_28_VMD1 = GetBool(in);
+      break;
+    case SBIG('VMD2'):
+      desc->x31_29_VMD2 = GetBool(in);
+      break;
+    case SBIG('VMD3'):
+      desc->x31_30_VMD3 = GetBool(in);
+      break;
+    case SBIG('VMD4'):
+      desc->x31_31_VMD4 = GetBool(in);
+      break;
+    case SBIG('VEL1'):
+      desc->x68_VEL1 = GetModVectorElement(in);
+      break;
+    case SBIG('VEL2'):
+      desc->x6c_VEL2 = GetModVectorElement(in);
+      break;
+    case SBIG('VEL3'):
+      desc->x70_VEL3 = GetModVectorElement(in);
+      break;
+    case SBIG('VEL4'):
+      desc->x74_VEL4 = GetModVectorElement(in);
+      break;
+    case SBIG('LTME'):
+      desc->x28_LTME = GetIntElement(in);
+      break;
+    case SBIG('ROTA'):
+      desc->x3c_ROTA = GetRealElement(in);
+      break;
+    case SBIG('LENG'):
+      desc->x14_LENG = GetRealElement(in);
+      break;
+    case SBIG('WIDT'):
+      desc->x18_WIDT = GetRealElement(in);
+      break;
+    case SBIG('TEXR'):
+      desc->x40_TEXR = GetTextureElement(in, pool);
+      break;
+    case SBIG('TIND'):
+      desc->x44_TIND = GetTextureElement(in, pool);
+      break;
+    case SBIG('CIND'):
+      desc->x32_24_CIND = GetBool(in);
+      break;
+    case SBIG('PMDL'):
+      rstl::optional_object< TToken< CModel > > model(GetModel(in, pool));
+      if (model) {
+        TCachedToken< CModel > tok = *model;
+        desc->x48_PMDL = tok;
+      }
+      break;
+    case SBIG('PMOP'):
+      desc->x58_PMOP = GetVectorElement(in);
+      break;
+    case SBIG('PMRT'):
+      desc->x5c_PMRT = GetVectorElement(in);
+      break;
+    case SBIG('PMSC'):
+      desc->x60_PMSC = GetVectorElement(in);
+      break;
+    case SBIG('PMCL'):
+      desc->x64_PMCL = GetColorElement(in);
+      break;
+    case SBIG('PMAB'):
+      desc->x31_25_PMAB = GetBool(in);
+      break;
+    case SBIG('PMUS'):
+      desc->x31_26_PMUS = GetBool(in);
+      break;
+    case SBIG('PMOO'):
+      desc->x31_27_PMOO = GetBool(in);
+      break;
+    case SBIG('SEED'):
+      desc->x10_SEED = GetIntElement(in);
+      break;
+    case SBIG('ICTS'): {
+      desc->x78_ICTS = *GetChildGeneratorDesc(in, pool, resources);
+      break;
+    }
+    case SBIG('NCSY'):
+      desc->x88_NCSY = GetIntElement(in);
+      break;
+    case SBIG('CSSD'):
+      desc->x8c_CSSD = GetIntElement(in);
+      break;
+    case SBIG('IDTS'): {
+      desc->x90_IDTS = *GetChildGeneratorDesc(in, pool, resources);
+      break;
+    }
+    case SBIG('NDSY'):
+      desc->xa0_NDSY = GetIntElement(in);
+      break;
+    case SBIG('IITS'): {
+      desc->xa4_IITS = *GetChildGeneratorDesc(in, pool, resources);
+      break;
+    }
+    case SBIG('PISY'):
+      desc->xb4_PISY = GetIntElement(in);
+      break;
+    case SBIG('SISY'):
+      desc->xb8_SISY = GetIntElement(in);
+      break;
+    case SBIG('SSWH'): {
+      desc->xc0_SSWH = *GetSwooshGeneratorDesc(in, pool);
+      break;
+    }
+    case SBIG('SSSD'):
+      desc->xd0_SSSD = GetIntElement(in);
+      break;
+    case SBIG('SSPO'):
+      desc->xd4_SSPO = GetVectorElement(in);
+      break;
+    case SBIG('SELC'):
+      desc->xd8_SELC = GetElectricGeneratorDesc(in, pool);
+      break;
+    case SBIG('SESD'):
+      desc->xe4_SESD = GetIntElement(in);
+      break;
+    case SBIG('SEPO'):
+      desc->xe8_SEPO = GetVectorElement(in);
+      break;
+    case SBIG('KSSM'):
+      if (GetClassID(in) == SBIG('CNST')) {
+        desc->xbc_KSSM = rs_new CSpawnSystemKeyframeData(in);
+        desc->xbc_KSSM->LoadAllSpawnedSystemTokens(pool);
+      }
+      break;
+    case SBIG('LINE'):
+      desc->x30_24_LINE = GetBool(in);
+      break;
+    case SBIG('FXLL'):
+      desc->x30_25_FXLL = GetBool(in);
+      break;
+    case SBIG('LTYP'):
+      desc->xec_LTYP = GetIntElement(in);
+      break;
+    case SBIG('LCLR'):
+      desc->xf0_LCLR = GetColorElement(in);
+      break;
+    case SBIG('LINT'):
+      desc->xf4_LINT = GetRealElement(in);
+      break;
+    case SBIG('LOFF'):
+      desc->xf8_LOFF = GetVectorElement(in);
+      break;
+    case SBIG('LDIR'):
+      desc->xfc_LDIR = GetVectorElement(in);
+      break;
+    case SBIG('LFOT'):
+      desc->x100_LFOT = GetIntElement(in);
+      break;
+    case SBIG('LFOR'):
+      desc->x104_LFOR = GetRealElement(in);
+      break;
+    case SBIG('LSLA'):
+      desc->x108_LSLA = GetRealElement(in);
+      break;
+    case SBIG('OPTS'):
+      desc->x32_25_OPTS = GetBool(in);
+      break;
+    case SBIG('ADV1'):
+      desc->x10c_ADV1 = GetRealElement(in);
+      break;
+    case SBIG('ADV2'):
+      desc->x110_ADV2 = GetRealElement(in);
+      break;
+    case SBIG('ADV3'):
+      desc->x114_ADV3 = GetRealElement(in);
+      break;
+    case SBIG('ADV4'):
+      desc->x118_ADV4 = GetRealElement(in);
+      break;
+    case SBIG('ADV5'):
+      desc->x11c_ADV5 = GetRealElement(in);
+      break;
+    case SBIG('ADV6'):
+      desc->x120_ADV6 = GetRealElement(in);
+      break;
+    case SBIG('ADV7'):
+      desc->x124_ADV7 = GetRealElement(in);
+      break;
+    case SBIG('ADV8'):
+      desc->x128_ADV8 = GetRealElement(in);
+      break;
+    case SBIG('_END'):
+      done = true;
+      break;
+    default:
+      return false;
+    }
+  }
+
+  return true;
 }
 
 FourCC CParticleDataFactory::GetClassID(CInputStream& in) { return in.ReadLong(); }
@@ -325,7 +603,155 @@ CRealElement* CParticleDataFactory::GetRealElement(CInputStream& in) {
   return nullptr;
 }
 
-CVectorElement* CParticleDataFactory::GetVectorElement(CInputStream& in) { return nullptr; }
+CVectorElement* CParticleDataFactory::GetVectorElement(CInputStream& in) {
+  CVectorElement* ret;
+  FourCC clsId = GetClassID(in);
+  switch (clsId) {
+  case SBIG('NONE'):
+    ret = nullptr;
+    break;
+  case SBIG('CNST'): {
+    uint iVar1 = CFrameDelayedKiller::Get805A9488();
+    uint iVar2 = CFrameDelayedKiller::someInline();
+    CRealElement* x = GetRealElement(in);
+    CRealElement* y = GetRealElement(in);
+    CRealElement* z = GetRealElement(in);
+    if (x && y && z) {
+      if (x->IsConstant() && y->IsConstant() && z->IsConstant()) {
+        float xf, yf, zf;
+        x->GetValue(0, xf);
+        y->GetValue(0, yf);
+        z->GetValue(0, zf);
+
+        delete x;
+        delete y;
+        delete z;
+
+        if (iVar1 != 0 && iVar1 == CFrameDelayedKiller::Get805A9488()) {
+          CFrameDelayedKiller::fn_8036CAB8(iVar1, CFrameDelayedKiller::fn_8036CAAC(iVar1) - iVar2);
+        }
+        ret = rs_new CVEFastConstant(xf, yf, zf);
+        break;
+      }
+    }
+    ret = rs_new CVEConstant(x, y, z);
+    break;
+  }
+  case SBIG('KEYE'):
+  case SBIG('KEYP'):
+    ret = rs_new CVEKeyframeEmitter(in);
+    break;
+  case SBIG('ANGC'): {
+    CRealElement* angleXBias = GetRealElement(in);
+    CRealElement* angleYBias = GetRealElement(in);
+    CRealElement* angleXRange = GetRealElement(in);
+    CRealElement* angleYRange = GetRealElement(in);
+    CRealElement* magnitude = GetRealElement(in);
+    ret = rs_new CVEAngleCone(angleXBias, angleYBias, angleXRange, angleYRange, magnitude);
+    break;
+  }
+  case SBIG('CONE'): {
+    CVectorElement* direction = GetVectorElement(in);
+    CRealElement* baseRadius = GetRealElement(in);
+    ret = rs_new CVECone(direction, baseRadius);
+    break;
+  }
+  case SBIG('CIRC'): {
+    CVectorElement* circleOffset = GetVectorElement(in);
+    CVectorElement* circleNormal = GetVectorElement(in);
+    CRealElement* angleConstant = GetRealElement(in);
+    CRealElement* angleLinear = GetRealElement(in);
+    CRealElement* radius = GetRealElement(in);
+    ret = rs_new CVECircle(circleOffset, circleNormal, angleConstant, angleLinear, radius);
+    break;
+  }
+  case SBIG('CCLU'): {
+    CVectorElement* circleOffset = GetVectorElement(in);
+    CVectorElement* circleNormal = GetVectorElement(in);
+    CIntElement* cycleFrames = GetIntElement(in);
+    CRealElement* randomFactor = GetRealElement(in);
+
+    ret = rs_new CVECircleCluster(circleOffset, circleNormal, cycleFrames, randomFactor);
+    break;
+  }
+  case SBIG('ADD_'): {
+    CVectorElement* a = GetVectorElement(in);
+    CVectorElement* b = GetVectorElement(in);
+    ret = rs_new CVEAdd(a, b);
+    break;
+  }
+  case SBIG('MULT'): {
+    CVectorElement* a = GetVectorElement(in);
+    CVectorElement* b = GetVectorElement(in);
+    ret = rs_new CVEMultiply(a, b);
+    break;
+  }
+  case SBIG('CHAN'): {
+    CVectorElement* a = GetVectorElement(in);
+    CVectorElement* b = GetVectorElement(in);
+    CIntElement* switchFrame = GetIntElement(in);
+
+    ret = rs_new CVETimeChain(a, b, switchFrame);
+    break;
+  }
+  case SBIG('PULS'): {
+    CIntElement* durationA = GetIntElement(in);
+    CIntElement* durationB = GetIntElement(in);
+    CVectorElement* a = GetVectorElement(in);
+    CVectorElement* b = GetVectorElement(in);
+    ret = rs_new CVEPulse(durationA, durationB, a, b);
+    break;
+  }
+  case SBIG('RTOV'): {
+    CRealElement* value = GetRealElement(in);
+    ret = rs_new CVERealToVector(value);
+    break;
+  }
+  case SBIG('PLOC'): {
+    ret = rs_new CVEParticleLocation();
+    break;
+  }
+  case SBIG('PLCO'): {
+    ret = rs_new CVEParticleColor();
+    break;
+  }
+  case SBIG('PVEL'): {
+    ret = rs_new CVEParticleVelocity();
+    break;
+  }
+  case SBIG('PSOF'): {
+    ret = rs_new CVEParticleSystemOrientationFront();
+    break;
+  }
+  case SBIG('PSOU'): {
+    ret = rs_new CVEParticleSystemOrientationUp();
+    break;
+  }
+  case SBIG('PSOR'): {
+    ret = rs_new CVEParticleSystemOrientationRight();
+    break;
+  }
+  case SBIG('PSTR'): {
+    ret = rs_new CVEParticleSystemTranslation();
+    break;
+  }
+  case SBIG('SUB_'): {
+    CVectorElement* a = GetVectorElement(in);
+    CVectorElement* b = GetVectorElement(in);
+    ret = rs_new CVESubtract(a, b);
+    break;
+  }
+  case SBIG('CTVC'): {
+    CColorElement* value = GetColorElement(in);
+    ret = rs_new CVEColorToVector(value);
+    break;
+  }
+  default:
+    ret = nullptr;
+    break;
+  }
+  return ret;
+}
 
 CEmitterElement* CParticleDataFactory::GetEmitterElement(CInputStream& in) { return nullptr; }
 

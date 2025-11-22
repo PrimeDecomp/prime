@@ -5,6 +5,7 @@
 #include <rstl/vector.hpp>
 
 class CInputStream;
+class CSimplePool;
 class CSpawnSystemKeyframeData {
 public:
   class CSpawnSystemKeyframeInfo {
@@ -13,6 +14,8 @@ public:
   };
   CSpawnSystemKeyframeData(CInputStream& in);
   ~CSpawnSystemKeyframeData() {}
+
+  void LoadAllSpawnedSystemTokens(CSimplePool* pool);
 
 private:
   int mUnknown1;

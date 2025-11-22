@@ -48,8 +48,8 @@ public:
   bool x31_29_VMD2 : 1;
   bool x31_30_VMD3 : 1;
   bool x31_31_VMD4 : 1;
-  bool x32_25_OPTS : 1;
   bool x32_24_CIND : 1;
+  bool x32_25_OPTS : 1;
   IElement* x34_MBSP;
   IElement* x38_SIZE;
   IElement* x3c_ROTA;
@@ -76,7 +76,7 @@ public:
   rstl::optional_object< TCachedToken< CSwooshDescription > > xc0_SSWH;
   IElement* xd0_SSSD;
   IElement* xd4_SSPO;
-  rstl::optional_object< CToken > xd8_SELC;
+  rstl::optional_object< TToken< CElectricDescription > > xd8_SELC;
   IElement* xe4_SESD;
   IElement* xe8_SEPO;
   IElement* xec_LTYP;

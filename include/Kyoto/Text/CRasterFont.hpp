@@ -105,18 +105,35 @@ public:
   ~CRasterFont();
 
   EFontMode GetMode() const;
-  void GetSize(const CDrawStringOptions&, int&, int&, const wchar_t*, int) const;
-  void SetTexture(TToken< CTexture > token) { x80_texture = token; }
-  inline TToken< CTexture > GetTexture() { return *x80_texture; }
-
-  bool IsFinishedLoading();
-  void DrawString(const CDrawStringOptions& options, int x, int y, int& xOut, int& yOut,
-                  CTextRenderBuffer* buffer, const wchar_t* str, int length) const;
 
   int GetMonoWidth() const;
   int GetMonoHeight() const;
+  int GetCarriageAdvance();
+
+  const CGlyph* GetGlyph(wchar_t c) const;
+
+  void GetSize(const CDrawStringOptions&, int&, int&, const wchar_t*, int) const;
+  void SetTexture(TToken< CTexture > token);
+  inline TToken< CTexture > GetTexture() { return *x80_texture; }
+
+  void DrawString(const CDrawStringOptions& options, int x, int y, int& xOut, int& yOut,
+                  CTextRenderBuffer* buffer, const wchar_t* str, int length) const;
+  void DrawSpace(const CDrawStringOptions& options, int x, int y, int& xOut, int& yOut,
+                 int length) const;
+
+  void SinglePassDrawString(const CDrawStringOptions& options, int x, int y, int& xOut, int& yOut,
+                            CTextRenderBuffer* buffer, const wchar_t* str, s32 length) const;
+
+  void SetupRenderState();
+
+  int GetBaseLine() const;
+  int GetLineMargin();
+  bool IsFinishedLoading();
 
 private:
+  static int KernLookup(const rstl::vector< CKernPair >& kerning, int a, const int b);
+  const CGlyph* InternalGetGlyph(wchar_t c) const;
+
   bool x0_initialized;
   int x4_monoWidth;
   int x8_monoHeight;
