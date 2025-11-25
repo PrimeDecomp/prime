@@ -251,7 +251,7 @@ bool CREKeyframeEmitter::GetValue(int frame, float& valOut) const {
     if (xc_loop) {
       if (emitterTime >= x10_loopEnd) {
         emitterTime -= x14_loopStart;
-        emitterTime = emitterTime % (x10_loopEnd - x14_loopStart);
+        emitterTime %= x10_loopEnd - x14_loopStart;
         emitterTime += x14_loopStart;
       }
       valOut = x18_keys[emitterTime];

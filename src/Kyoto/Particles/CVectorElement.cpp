@@ -286,27 +286,27 @@ CVEKeyframeEmitter::~CVEKeyframeEmitter() {}
 bool CVEKeyframeEmitter::GetValue(int frame, CVector3f& valOut) const {
   if (!mPercent) {
     int emitterTime = CParticleGlobals::GetEmitterTime();
-    int calcKey = emitterTime;
     if (mLoop) {
       if (emitterTime >= mLoopEnd) {
-        calcKey = ((emitterTime - mLoopStart) % (mLoopEnd - mLoopStart)) + mLoopStart;
+        emitterTime -= mLoopStart;
+        emitterTime %= mLoopEnd - mLoopStart;
+        emitterTime += mLoopStart;
       }
-      valOut = mKeys[calcKey];
+      valOut = mKeys[emitterTime];
     } else {
-      if ((mLoopEnd - 1) < emitterTime) {
-        calcKey = (mLoopEnd - 1);
-      }
-      valOut = mKeys[calcKey];
+      emitterTime = rstl::min_val(emitterTime, mLoopEnd - 1);
+      valOut = mKeys[emitterTime];
     }
+    return false;
+  }
+
+  if (CParticleGlobals::GetParticleLifetimePercentage() == 100) {
+    valOut = mKeys[CParticleGlobals::GetParticleLifetimePercentage()];
   } else {
-    if (CParticleGlobals::GetParticleLifetimePercentage() == 100) {
-      valOut = mKeys[100];
-    } else {
-      CVector3f tmp1 = mKeys[CParticleGlobals::GetParticleLifetimePercentage()];
-      CVector3f tmp2 = mKeys[CParticleGlobals::GetParticleLifetimePercentage() + 1];
-      valOut = (1.f - CParticleGlobals::GetParticleLifetimePercentageRemainder()) * tmp1 +
-               CParticleGlobals::GetParticleLifetimePercentageRemainder() * tmp2;
-    }
+    valOut = (1.f - CParticleGlobals::GetParticleLifetimePercentageRemainder()) *
+                 mKeys[CParticleGlobals::GetParticleLifetimePercentage()] +
+             CParticleGlobals::GetParticleLifetimePercentageRemainder() *
+                 mKeys[CParticleGlobals::GetParticleLifetimePercentage() + 1];
   }
 
   return false;
