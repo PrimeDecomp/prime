@@ -712,7 +712,7 @@ CVectorElement* CParticleDataFactory::GetVectorElement(CInputStream& in) {
     break;
   }
   case SBIG('PLCO'): {
-    ret = rs_new CVEParticleColor();
+    ret = rs_new CVEParticlePreviousLocation();
     break;
   }
   case SBIG('PVEL'): {
