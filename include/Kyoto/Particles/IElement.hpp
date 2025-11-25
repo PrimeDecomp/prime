@@ -11,7 +11,7 @@ class CVector3f;
 
 class IElement {
 public:
-  virtual ~IElement(){};
+  virtual ~IElement() {};
 
   // -> CFrameDelayedKiller
   void* operator new(size_t sz, const char*, const char*);
@@ -27,7 +27,7 @@ public:
 
 class CIntElement : public IElement {
 public:
-  ~CIntElement() override{};
+  ~CIntElement() override {};
   virtual bool GetValue(int frame, int& valOut) const = 0;
 };
 
@@ -56,7 +56,7 @@ struct SUVElementSet {
   float xMin, yMin, xMax, yMax;
 
   // SUVElementSet() : xMin(0.f), yMin(1.f), xMax(0.f), yMax(1.f) {}
-  //SUVElementSet(float xMin, float yMin, float xMax, float yMax)
+  // SUVElementSet(float xMin, float yMin, float xMax, float yMax)
   //: xMin(xMin), yMin(yMin), xMax(xMax), yMax(yMax) {}
   // SUVElementSet(const SUVElementSet& other)
   // : xMin(other.xMin), yMin(other.yMin), xMax(other.xMax), yMax(other.yMax) {}

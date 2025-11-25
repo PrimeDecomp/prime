@@ -4,20 +4,19 @@
 #include "MetroidPrime/CInGameTweakManager.hpp"
 #include "MetroidPrime/CWorld.hpp"
 
-#include "Kyoto/CDvdFile.hpp"
 #include "Kyoto/Audio/CStreamAudioManager.hpp"
+#include "Kyoto/CDvdFile.hpp"
 
 #include "rstl/StringExtras.hpp"
 
 extern "C" void nullsub_42(CScriptStreamedMusic*);
 int sub_8020c154(const rstl::string&, int, int);
 
-extern "C" int sub_8020c844(int* a, int* b) {
-  return b[1] - a[1];
-}
+extern "C" int sub_8020c844(int* a, int* b) { return b[1] - a[1]; }
 
 rstl::string sub_8020c7f0(const rstl::string&) {
   sub_8020c844(nullptr, nullptr);
+  return rstl::string();
 }
 
 int CScriptStreamedMusic::IsOneShot(bool b) { return b == false; }
@@ -148,7 +147,7 @@ void CScriptStreamedMusic::TweakOverride(CStateManager& mgr) {
   }
 }
 
-int sub_8020c154(const rstl::string&, int, int) {}
+int sub_8020c154(const rstl::string&, int, int) { return 0; }
 
 void CScriptStreamedMusic::sub_8020be90() {
   if (x45_fileIsDsp && sub_8020c154(x34_fileName, 0x7c, 0) == -1 && x34_fileName.size() >= 4) {
@@ -156,11 +155,11 @@ void CScriptStreamedMusic::sub_8020be90() {
             rstl::string_l(x34_fileName.data() + (x34_fileName.size() - 5)),
             rstl::string_l("L.dsp")) == 0) {
 
-        sub_8020c7f0(x34_fileName);
-        rstl::string file = x34_fileName + "R.dsp";
-        if (CDvdFile::FileExists(file.data())) {
-          x34_fileName = x34_fileName + '|' + file;
-        }
+      sub_8020c7f0(x34_fileName);
+      rstl::string file = x34_fileName + "R.dsp";
+      if (CDvdFile::FileExists(file.data())) {
+        x34_fileName = x34_fileName + '|' + file;
+      }
     }
   }
 }

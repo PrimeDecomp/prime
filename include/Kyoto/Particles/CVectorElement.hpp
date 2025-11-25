@@ -26,9 +26,9 @@ public:
   bool GetValue(int frame, CVector3f& valOut) const override;
 };
 
-class CVEParticleColor : public CVectorElement {
+class CVEParticlePreviousLocation : public CVectorElement {
 public:
-  ~CVEParticleColor() override {}
+  ~CVEParticlePreviousLocation() override {}
   bool GetValue(int frame, CVector3f& valOut) const override;
 };
 
@@ -78,6 +78,7 @@ class CVECircleCluster : public CVectorElement {
 public:
   CVECircleCluster(CVectorElement* circleOffset, CVectorElement* circleNormal,
                    CIntElement* cycleFrames, CRealElement* randomFactor);
+  ~CVECircleCluster() override;
 
   bool GetValue(int frame, CVector3f& valOut) const override;
 
@@ -85,7 +86,7 @@ private:
   CVectorElement* mCircleOffset;
   CVector3f mXVec;
   CVector3f mYVec;
-  CIntElement* mCycleFrames;
+  float mRadius;
   CRealElement* mRandomFactor;
 };
 
@@ -120,6 +121,7 @@ class CVECircle : public CVectorElement {
 public:
   CVECircle(CVectorElement* circleOffset, CVectorElement* circleNormal, CRealElement* angleConstant,
             CRealElement* angleLinear, CRealElement* radius);
+  ~CVECircle() override;
 
   bool GetValue(int frame, CVector3f& valOut) const override;
 
@@ -135,22 +137,24 @@ private:
 class CVEKeyframeEmitter : public CVectorElement {
 public:
   CVEKeyframeEmitter(CInputStream& in);
+  ~CVEKeyframeEmitter() override;
 
   bool GetValue(int frame, CVector3f& valOut) const override;
 
 private:
-  uint mPercent;
-  uint mUnk1;
+  int mPercent;
+  int mUnk1;
   bool mLoop;
   bool mUnk2;
-  uint mLoopEnd;
-  uint mLoopStart;
+  int mLoopEnd;
+  int mLoopStart;
   rstl::vector< CVector3f > mKeys;
 };
 
 class CVEAdd : public CVectorElement {
 public:
   CVEAdd(CVectorElement* a, CVectorElement* b);
+  ~CVEAdd() override;
 
   bool GetValue(int frame, CVector3f& valOut) const override;
 
@@ -162,6 +166,7 @@ private:
 class CVEMultiply : public CVectorElement {
 public:
   CVEMultiply(CVectorElement* a, CVectorElement* b);
+  ~CVEMultiply() override;
 
   bool GetValue(int frame, CVector3f& valOut) const override;
 
@@ -173,6 +178,7 @@ private:
 class CVETimeChain : public CVectorElement {
 public:
   CVETimeChain(CVectorElement* a, CVectorElement* b, CIntElement* mSwitchFrame);
+  ~CVETimeChain() override;
 
   bool GetValue(int frame, CVector3f& valOut) const override;
 
@@ -185,6 +191,7 @@ private:
 class CVEPulse : public CVectorElement {
 public:
   CVEPulse(CIntElement* durationA, CIntElement* durationB, CVectorElement* a, CVectorElement* b);
+  ~CVEPulse() override;
 
   bool GetValue(int frame, CVector3f& valOut) const override;
 
@@ -197,6 +204,7 @@ private:
 class CVERealToVector : public CVectorElement {
 public:
   CVERealToVector(CRealElement* value);
+  ~CVERealToVector() override;
 
   bool GetValue(int frame, CVector3f& valOut) const override;
 
@@ -207,6 +215,7 @@ private:
 class CVESubtract : public CVectorElement {
 public:
   CVESubtract(CVectorElement* a, CVectorElement* b);
+  ~CVESubtract() override;
 
   bool GetValue(int frame, CVector3f& valOut) const override;
 
@@ -218,6 +227,7 @@ private:
 class CVEColorToVector : public CVectorElement {
 public:
   CVEColorToVector(CColorElement* value);
+  ~CVEColorToVector() override;
 
   bool GetValue(int frame, CVector3f& valOut) const override;
 

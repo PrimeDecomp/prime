@@ -1,8 +1,12 @@
 #include "Kyoto/Particles/CVectorElement.hpp"
 
 #include "Kyoto/CRandom16.hpp"
+#include "Kyoto/Graphics/CColor.hpp"
 #include "Kyoto/Math/CMath.hpp"
-
+#include "Kyoto/Math/CRelAngle.hpp"
+#include "Kyoto/Math/CVector3f.hpp"
+#include "Kyoto/Particles/CParticleGlobals.hpp"
+#include "Kyoto/Particles/IElement.hpp"
 #include "rstl/math.hpp"
 
 CVEConstant::CVEConstant(CRealElement* x, CRealElement* y, CRealElement* z)
@@ -45,7 +49,7 @@ CVECone::CVECone(CVectorElement* direction, CRealElement* magnitude)
   } else {
     xc_xVec = CVector3f::Cross(av, CVector3f(1.f, 0.f, 0.f));
   }
-  x18_yVec = CVector3f::Cross(xc_xVec, avNorm);
+  x18_yVec = CVector3f::Cross(avNorm, xc_xVec);
 }
 
 CVECone::~CVECone() {
@@ -59,15 +63,15 @@ bool CVECone::GetValue(int frame, CVector3f& valOut) const {
 
   x8_magnitude->GetValue(frame, b);
   x4_direction->GetValue(frame, dir);
-  float b2 = rstl::min_val(1.f, b);
+  b = rstl::min_val(1.f, b);
 
   float randX = 0.f, randY = 0.f;
   do {
-    randX = 2.f * b2 * CRandom16::GetRandomNumber()->Float() - 0.5f;
-    randY = 2.f * b2 * CRandom16::GetRandomNumber()->Float() - 0.5f;
+    randX = 2.f * b * (CRandom16::GetRandomNumber()->Float() - 0.5f);
+    randY = 2.f * b * (CRandom16::GetRandomNumber()->Float() - 0.5f);
   } while (randX * randX + randY * randY > 1.f);
 
-  valOut = xc_xVec * randX + x18_yVec * randY + dir;
+  valOut = dir + xc_xVec * randX + x18_yVec * randY;
   return false;
 }
 
@@ -89,5 +93,297 @@ CVEAngleCone::~CVEAngleCone() {
 }
 
 bool CVEAngleCone::GetValue(int frame, CVector3f& valOut) const {
+  float xc, xr, yc, yr;
+  x4_angleXConstant->GetValue(frame, xc);
+  x8_angleYConstant->GetValue(frame, yc);
+  xc_angleXRange->GetValue(frame, xr);
+  x10_angleYRange->GetValue(frame, yr);
+
+  xc += (xr * 0.5f - (xr * CRandom16::GetRandomNumber()->Float()));
+  xc *= M_PIF / 180.f;
+
+  yc += (yr * 0.5f - (yr * CRandom16::GetRandomNumber()->Float()));
+  yc *= M_PIF / 180.f;
+
+  CVector3f vec = CVector3f(-CMath::FastSinR(yc) * CMath::FastCosR(xc), CMath::FastSinR(xc),
+                            CMath::FastCosR(xc) * CMath::FastCosR(yc));
+  float mag = 0.f;
+  x14_magnitude->GetValue(frame, mag);
+
+  valOut = vec * mag;
+  return false;
+}
+
+CVECircle::CVECircle(CVectorElement* circleOffset, CVectorElement* circleNormal,
+                     CRealElement* angleConstant, CRealElement* angleLinear, CRealElement* radius)
+: mCircleOffset(circleOffset)
+, mXVec(CVector3f::Zero())
+, mYVec(CVector3f::Zero())
+, mAngleConstant(angleConstant)
+, mAngleLinear(angleLinear)
+, mRadius(radius) {
+  CVector3f direction = CVector3f(0.f, 0.f, 0.f);
+  circleNormal->GetValue(0, direction);
+  CVector3f normal = direction.AsNormalized();
+
+  if (normal.GetX() > 0.8f) {
+    mXVec = CVector3f::Cross(normal, CVector3f(0.f, 1.f, 0.f));
+  } else {
+    mXVec = CVector3f::Cross(normal, CVector3f(1.f, 0.f, 0.f));
+  }
+  mYVec = CVector3f::Cross(normal, mXVec);
+
+  delete circleNormal;
+}
+
+CVECircle::~CVECircle() {
+  delete mCircleOffset;
+  delete mAngleConstant;
+  delete mAngleLinear;
+  delete mRadius;
+}
+
+bool CVECircle::GetValue(int frame, CVector3f& valOut) const {}
+
+CVETimeChain::CVETimeChain(CVectorElement* a, CVectorElement* b, CIntElement* switchFrame)
+: mA(a), mB(b), mSwitchFrame(switchFrame) {}
+
+CVETimeChain::~CVETimeChain() {
+  delete mA;
+  delete mB;
+  delete mSwitchFrame;
+}
+
+bool CVETimeChain::GetValue(int frame, CVector3f& valOut) const {
+  int switchFrame;
+  mSwitchFrame->GetValue(frame, switchFrame);
+
+  if (frame < switchFrame) {
+    return mA->GetValue(frame, valOut);
+  } else {
+    return mB->GetValue(frame - switchFrame, valOut);
+  }
+}
+
+CVECircleCluster::CVECircleCluster(CVectorElement* circleOffset, CVectorElement* circleNormal,
+                                   CIntElement* cycleFrames, CRealElement* randomFactor)
+: mCircleOffset(circleOffset)
+, mXVec(CVector3f::Zero())
+, mYVec(CVector3f::Zero())
+, mRadius(0.f)
+, mRandomFactor(randomFactor) {
+  int _cycleFrames;
+  cycleFrames->GetValue(0, _cycleFrames);
+  mRadius = CRelAngle::FromRadians(360.f / _cycleFrames).AsDegrees();
+
+  CVector3f normal = CVector3f(0.f, 0.f, 0.f);
+  circleNormal->GetValue(0, normal);
+  CVector3f tmp = normal;
+  if (normal.CanBeNormalized()) {
+    normal = normal.AsNormalized();
+  } else {
+    normal = CVector3f::Up();
+  }
+
+  if (normal.GetX() > 0.8f) {
+    mXVec = CVector3f::Cross(tmp, CVector3f(0.f, 1.f, 0.f));
+  } else {
+    mXVec = CVector3f::Cross(tmp, CVector3f(1.f, 0.f, 0.f));
+  }
+
+  mYVec = CVector3f::Cross(normal, mXVec);
+
+  delete cycleFrames;
+  delete circleNormal;
+}
+
+CVECircleCluster::~CVECircleCluster() {
+  delete mCircleOffset;
+  delete mRandomFactor;
+}
+
+bool CVECircleCluster::GetValue(int frame, CVector3f& valOut) const { return false; }
+
+CVEAdd::CVEAdd(CVectorElement* a, CVectorElement* b) : mA(a), mB(b) {}
+CVEAdd::~CVEAdd() {
+  delete mA;
+  delete mB;
+}
+
+bool CVEAdd::GetValue(int frame, CVector3f& valOut) const {
+  CVector3f a = CVector3f::Zero();
+  CVector3f b = CVector3f::Zero();
+
+  mA->GetValue(frame, a);
+  mB->GetValue(frame, b);
+
+  valOut = a + b;
+  return false;
+}
+
+CVEMultiply::CVEMultiply(CVectorElement* a, CVectorElement* b) : mA(a), mB(b) {}
+CVEMultiply::~CVEMultiply() {
+  delete mA;
+  delete mB;
+}
+
+bool CVEMultiply::GetValue(int frame, CVector3f& valOut) const {
+  CVector3f a = CVector3f::Zero();
+  CVector3f b = CVector3f::Zero();
+
+  mA->GetValue(frame, a);
+  mB->GetValue(frame, b);
+
+  valOut = CVector3f::ByElementMultiply(a, b);
+  return false;
+}
+
+CVEPulse::CVEPulse(CIntElement* durationA, CIntElement* durationB, CVectorElement* a,
+                   CVectorElement* b)
+: mDurationA(durationA), mDurationB(durationB), mA(a), mB(b) {}
+
+CVEPulse::~CVEPulse() {
+  delete mDurationA;
+  delete mDurationB;
+  delete mA;
+  delete mB;
+}
+
+bool CVEPulse::GetValue(int frame, CVector3f& valOut) const {
+  int a;
+  int b;
+  mDurationA->GetValue(frame, a);
+  mDurationB->GetValue(frame, b);
+  int cv = a + b + 1;
+
+  if (cv < 0) {
+    cv = 1;
+  }
+
+  if (b >= 1) {
+    if (frame % cv > a) {
+      mB->GetValue(frame, valOut);
+    } else {
+      mA->GetValue(frame, valOut);
+    }
+  } else {
+    mA->GetValue(frame, valOut);
+  }
+  return false;
+}
+
+CVEKeyframeEmitter::CVEKeyframeEmitter(CInputStream& in)
+: mPercent(in.Get< uint >())
+, mUnk1(in.Get< uint >())
+, mLoop(in.Get< bool >())
+, mUnk2(in.Get< bool >())
+, mLoopEnd(in.Get< uint >())
+, mLoopStart(in.Get< uint >())
+, mKeys(in) {}
+
+CVEKeyframeEmitter::~CVEKeyframeEmitter() {}
+
+bool CVEKeyframeEmitter::GetValue(int frame, CVector3f& valOut) const {
+  if (!mPercent) {
+    int emitterTime = CParticleGlobals::GetEmitterTime();
+    int calcKey = emitterTime;
+    if (mLoop) {
+      if (emitterTime >= mLoopEnd) {
+        calcKey = ((emitterTime - mLoopStart) % (mLoopEnd - mLoopStart)) + mLoopStart;
+      }
+      valOut = mKeys[calcKey];
+    } else {
+      if ((mLoopEnd - 1) < emitterTime) {
+        calcKey = (mLoopEnd - 1);
+      }
+      valOut = mKeys[calcKey];
+    }
+  } else {
+    if (CParticleGlobals::GetParticleLifetimePercentage() == 100) {
+      valOut = mKeys[100];
+    } else {
+      CVector3f tmp1 = mKeys[CParticleGlobals::GetParticleLifetimePercentage()];
+      CVector3f tmp2 = mKeys[CParticleGlobals::GetParticleLifetimePercentage() + 1];
+      valOut = (1.f - CParticleGlobals::GetParticleLifetimePercentageRemainder()) * tmp1 +
+               CParticleGlobals::GetParticleLifetimePercentageRemainder() * tmp2;
+    }
+  }
+
+  return false;
+}
+
+CVERealToVector::CVERealToVector(CRealElement* value) : mValue(value) {}
+CVERealToVector::~CVERealToVector() { delete mValue; }
+
+bool CVERealToVector::GetValue(int frame, CVector3f& valOut) const {
+  float val = 0.f;
+  mValue->GetValue(frame, val);
+  valOut = CVector3f(val, val, val);
+
+  return false;
+}
+
+bool CVEParticleLocation::GetValue(int frame, CVector3f& valOut) const {
+  valOut = CParticleGlobals::GetCurrentParticle()->x4_pos;
+  return false;
+}
+
+bool CVEParticlePreviousLocation::GetValue(int frame, CVector3f& valOut) const {
+  valOut = CParticleGlobals::GetCurrentParticle()->x10_prevPos;
+  return false;
+}
+
+bool CVEParticleVelocity::GetValue(int frame, CVector3f& valOut) const {
+  valOut = CParticleGlobals::GetCurrentParticle()->x1c_vel;
+  return false;
+}
+
+bool CVEParticleSystemOrientationFront::GetValue(int frame, CVector3f& valOut) const {
+  valOut = CParticleGlobals::GetCurrentParticleSystem()->x4_system->GetOrientation().GetForward();
+  return false;
+}
+
+bool CVEParticleSystemOrientationUp::GetValue(int frame, CVector3f& valOut) const {
+  valOut = CParticleGlobals::GetCurrentParticleSystem()->x4_system->GetOrientation().GetUp();
+  return false;
+}
+
+bool CVEParticleSystemOrientationRight::GetValue(int frame, CVector3f& valOut) const {
+  valOut = CParticleGlobals::GetCurrentParticleSystem()->x4_system->GetOrientation().GetRight();
+  return false;
+}
+
+bool CVEParticleSystemTranslation::GetValue(int frame, CVector3f& valOut) const {
+  valOut = CParticleGlobals::GetCurrentParticleSystem()->x4_system->GetTranslation();
+  return false;
+}
+
+CVESubtract::CVESubtract(CVectorElement* a, CVectorElement* b) : mA(a), mB(b) {}
+CVESubtract::~CVESubtract() {
+  delete mA;
+  delete mB;
+}
+
+bool CVESubtract::GetValue(int frame, CVector3f& valOut) const {
+  CVector3f a = CVector3f::Zero();
+  CVector3f b = CVector3f::Zero();
+
+  mA->GetValue(frame, a);
+  mB->GetValue(frame, b);
+
+  valOut = a - b;
+  return false;
+}
+
+CVEColorToVector::CVEColorToVector(CColorElement* value) : mValue(value) {}
+CVEColorToVector::~CVEColorToVector() { delete mValue; }
+
+bool CVEColorToVector::GetValue(int frame, CVector3f& valOut) const {
+  CColor val = CColor::Black();
+  mValue->GetValue(frame, val);
+  valOut.SetX(val.GetRed());
+  valOut.SetY(val.GetGreen());
+  valOut.SetZ(val.GetBlue());
+
   return false;
 }
