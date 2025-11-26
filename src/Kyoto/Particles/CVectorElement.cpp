@@ -303,10 +303,9 @@ bool CVEKeyframeEmitter::GetValue(int frame, CVector3f& valOut) const {
   if (CParticleGlobals::GetParticleLifetimePercentage() == 100) {
     valOut = mKeys[CParticleGlobals::GetParticleLifetimePercentage()];
   } else {
-    valOut = (1.f - CParticleGlobals::GetParticleLifetimePercentageRemainder()) *
-                 mKeys[CParticleGlobals::GetParticleLifetimePercentage()] +
-             CParticleGlobals::GetParticleLifetimePercentageRemainder() *
-                 mKeys[CParticleGlobals::GetParticleLifetimePercentage() + 1];
+    float remainder = CParticleGlobals::GetParticleLifetimePercentageRemainder();
+    valOut = (1.f - remainder) * mKeys[CParticleGlobals::GetParticleLifetimePercentage()] +
+             remainder * mKeys[CParticleGlobals::GetParticleLifetimePercentage() + 1];
   }
 
   return false;
