@@ -100,7 +100,7 @@ CPlayerState::CPlayerState(CInputStream& stream)
     int amount = 0;
     int capacity = 0;
 
-    int maxValue = kPowerUpMax[i];
+    uint maxValue = kPowerUpMax[i];
     if (maxValue != 0) {
       uint bitCount = GetBitCount(maxValue);
       amount = stream.ReadBits(bitCount);

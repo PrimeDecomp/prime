@@ -98,38 +98,41 @@ public:
   // ResetMorphBallTransitionFlash__10CMorphBallFv global
   // CreateSpiderBallParticles__10CMorphBallFRC9CVector3fRC9CVector3f global
   ESpiderBallState GetSpiderBallState() const { return x187c_spiderBallState; }
-  // GetMorphBallModel__10CMorphBallFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>f global
-  // LoadAnimationTokens__10CMorphBallFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator> global
-  // IsBoosting__10CMorphBallCFv weak
-  // GetBoostChargeTimer__10CMorphBallCFv weak
+  static CModelData* GetMorphballModel(const rstl::string& name, const float radius);
+  // GetMorphBallModel__10CMorphBallFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>f
+  // global
+  // LoadAnimationTokens__10CMorphBallFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>
+  // global IsBoosting__10CMorphBallCFv weak GetBoostChargeTimer__10CMorphBallCFv weak
   // GetWallBumpCounter__10CMorphBallCFv weak
   // GetBallContactMaterials__10CMorphBallCFv weak
   void ComputeBallMovement(const CFinalInput&, CStateManager&, float);
-  // ComputeBoostBallMovement__10CMorphBallFRC11CFinalInputRC13CStateManagerf global
-  // IsMovementAllowed__10CMorphBallCFv global
+  void ComputeBoostBallMovement(const CFinalInput& input, const CStateManager& mgr, float dt);
+  bool IsMovementAllowed() const;
   // EnterBoosting__10CMorphBallFv global
   // SwitchToTire__10CMorphBallFv global
-  // ComputeMarioMovement__10CMorphBallFRC11CFinalInputR13CStateManagerf global
+  void ComputeMarioMovement(const CFinalInput& input, CStateManager& mgr, float dt);
   // SetSpiderBallState__10CMorphBallFQ210CMorphBall16ESpiderBallState weak
-  // UpdateSpiderBall__10CMorphBallFRC11CFinalInputR13CStateManagerf global
-  // CheckForSwitchToSpiderBallSwinging__10CMorphBallCFR13CStateManager global
-  // FindClosestSpiderBallWaypoint__10CMorphBallCFR13CStateManagerRC9CVector3fR9CVector3fR9CVector3fR9CVector3fRfR9CVector3fRbR12CTransform4f global
-  // SetSpiderBallSwingingState__10CMorphBallFb global
+  void UpdateSpiderBall(const CFinalInput& input, CStateManager& mgr, float dt);
+  bool CheckForSwitchToSpiderBallSwinging(CStateManager& mgr) const;
+  // FindClosestSpiderBallWaypoint__10CMorphBallCFR13CStateManagerRC9CVector3fR9CVector3fR9CVector3fR9CVector3fRfR9CVector3fRbR12CTransform4f
+  void SetSpiderBallSwingingState(const bool state);
+  bool IsSpiderBallSwinging() const { return x18be_spiderBallSwinging; }
   // ResetSpiderBallSwingControllerMovementTimer__10CMorphBallFv global
-  // ApplySpiderBallSwingingForces__10CMorphBallFRC11CFinalInputR13CStateManagerf global
+  void ApplySpiderBallSwingingForces(const CFinalInput& input, CStateManager& mgr, float dt);
   // GetSpiderBallControllerMovement__10CMorphBallCFRC11CFinalInputbb global
   // UpdateSpiderBallSwingControllerMovementTimer__10CMorphBallFff global
   // GetSpiderBallSwingControllerMovementScalar__10CMorphBallCFv global
-  // ApplySpiderBallRollForces__10CMorphBallFRC11CFinalInputR13CStateManagerf global
-  // CalculateSpiderBallAttractionSurfaceForces__10CMorphBallCFRC11CFinalInputR13CStateManagerRC12CTransform4f global
-  // ForwardInput__10CMorphBallCFRC11CFinalInput global
+  void ApplySpiderBallRollForces(const CFinalInput& input, CStateManager& mgr, float dt);
+  // CalculateSpiderBallAttractionSurfaceForces__10CMorphBallCFRC11CFinalInputR13CStateManagerRC12CTransform4f
+  float ForwardInput(const CFinalInput& input) const;
   // BallTurnInput__10CMorphBallCFRC11CFinalInput global
   // ComputeMaxSpeed__10CMorphBallCFv global
   bool GetIsInHalfPipeModeInAir() const;
   // GetTouchedHalfPipeRecently__10CMorphBallCFv global
   // ComputeLiftForces__10CMorphBallFRC9CVector3fRC9CVector3fRC13CStateManager global
   void UpdateBallDynamics(CStateManager&, float);
-  bool BallCloseToCollision(const CStateManager& mgr, float dist, const CMaterialFilter& filter) const;
+  bool BallCloseToCollision(const CStateManager& mgr, float dist,
+                            const CMaterialFilter& filter) const;
   // UpdateHalfPipeStatus__10CMorphBallFR13CStateManagerf global
   // CalculateSurfaceToWorld__10CMorphBallCFRC9CVector3fRC9CVector3fRC9CVector3f global
   // UpdateMarbleDynamics__10CMorphBallFR13CStateManagerfRC9CVector3f global
@@ -148,6 +151,8 @@ public:
   void SetDisableSpiderBallTime(float time);
 
   u32 GetMorphballModelShader() const { return x5c_ballModelShader; } // name?
+
+  void SetDamageTimer(const float time);
 
 private:
   struct CSpiderBallElectricityManager {

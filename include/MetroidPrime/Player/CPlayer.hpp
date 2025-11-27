@@ -362,6 +362,7 @@ public:
   TUniqueId GetScanningObjectId() const { return x3b4_scanningObject; }
   EGrappleState GetGrappleState() const { return x3b8_grappleState; }
   bool IsInFreeLook() const { return x3dc_inFreeLook; }
+  bool IsLookButtonHeld() const { return x3dd_lookButtonHeld; }
   bool GetFreeLookStickState() const { return x3de_lookAnalogHeld; }
   TUniqueId GetAimTargetId() const { return x3f4_aimTarget; }
   EPlayerCameraState GetCameraState() const { return x2f4_cameraState; }
