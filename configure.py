@@ -984,7 +984,7 @@ config.libs = [
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Particles/CRealElement.cpp"),
             Object(NonMatching, "Kyoto/Particles/CSpawnSystemKeyframeData.cpp"),
             Object(NonMatching, "Kyoto/Particles/CUVElement.cpp"),
-            Object(NonMatching, "Kyoto/Particles/CVectorElement.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Particles/CVectorElement.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Particles/CWarp.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Math/CPlane.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Math/CSphere.cpp"),

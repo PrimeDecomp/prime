@@ -3,7 +3,6 @@
 #include "Kyoto/CRandom16.hpp"
 #include "Kyoto/Graphics/CColor.hpp"
 #include "Kyoto/Math/CMath.hpp"
-#include "Kyoto/Math/CRelAngle.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
 #include "Kyoto/Particles/CParticleGlobals.hpp"
 #include "Kyoto/Particles/IElement.hpp"
@@ -143,7 +142,22 @@ CVECircle::~CVECircle() {
   delete mRadius;
 }
 
-bool CVECircle::GetValue(int frame, CVector3f& valOut) const {}
+bool CVECircle::GetValue(int frame, CVector3f& valOut) const {
+  float radius;
+  float angleLinear;
+  float angleConstant;
+  mAngleLinear->GetValue(frame, angleLinear);
+  mRadius->GetValue(frame, radius);
+  mAngleConstant->GetValue(frame, angleConstant);
+
+  float curAngle = (angleLinear * frame + angleConstant) * (M_PIF / 180.f);
+
+  CVector3f offset = CVector3f(0.f, 0.f, 0.f);
+  mCircleOffset->GetValue(frame, offset);
+
+  valOut = offset + (mXVec * radius * cosf(curAngle)) + (mYVec * radius * sinf(curAngle));
+  return false;
+}
 
 CVETimeChain::CVETimeChain(CVectorElement* a, CVectorElement* b, CIntElement* switchFrame)
 : mA(a), mB(b), mSwitchFrame(switchFrame) {}
@@ -174,7 +188,7 @@ CVECircleCluster::CVECircleCluster(CVectorElement* circleOffset, CVectorElement*
 , mRandomFactor(randomFactor) {
   int _cycleFrames;
   cycleFrames->GetValue(0, _cycleFrames);
-  mRadius = CRelAngle::FromRadians(360.f / _cycleFrames).AsDegrees();
+  mRadius = (M_PIF / 180.f) * (360.f / _cycleFrames);
 
   CVector3f normal = CVector3f(0.f, 0.f, 0.f);
   circleNormal->GetValue(0, normal);
@@ -202,7 +216,26 @@ CVECircleCluster::~CVECircleCluster() {
   delete mRandomFactor;
 }
 
-bool CVECircleCluster::GetValue(int frame, CVector3f& valOut) const { return false; }
+bool CVECircleCluster::GetValue(int frame, CVector3f& valOut) const {
+  float curAngle;
+  curAngle = mRadius;
+  curAngle *= frame;
+  CVector3f offset = CVector3f(0.f, 0.f, 0.f);
+  mCircleOffset->GetValue(frame, offset);
+
+  CVector3f tv = offset + (mXVec * cosf(curAngle)) + (mYVec * sinf(curAngle));
+
+  float dv;
+  mRandomFactor->GetValue(frame, dv);
+
+  float magnitude = dv * tv.Magnitude();
+  float x = magnitude * CRandom16::GetRandomNumber()->Float();
+  float y = magnitude * CRandom16::GetRandomNumber()->Float();
+  float z = magnitude * CRandom16::GetRandomNumber()->Float();
+  valOut = CVector3f(x + tv.GetX(), y + tv.GetY(), z + tv.GetZ());
+
+  return false;
+}
 
 CVEAdd::CVEAdd(CVectorElement* a, CVectorElement* b) : mA(a), mB(b) {}
 CVEAdd::~CVEAdd() {
