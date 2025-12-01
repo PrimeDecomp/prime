@@ -36,7 +36,16 @@ void GXSetZCompLoc(GXBool before_tex) {
   gxdata->bpSentNot = GX_FALSE;
 };
 void GXSetPixelFmt(GXPixelFmt pix_fmt, GXZFmt16 z_fmt);
-void GXSetDither(GXBool dither);
+void GXSetDither(GXBool dither) {
+  GXData* gxdata = gx;
+  u32 r6 = gxdata->cmode0; 
+
+  r6 = r6 & 0xfffffffb | (u32)dither << 2;
+  GX_WRITE_RA_REG(r6);
+
+  gxdata->cmode0 = r6;
+  gxdata->bpSentNot = GX_FALSE;
+};
 void GXSetDstAlpha(GXBool enable, u8 alpha);
 // ? GXSetFieldMask();
 void GXSetFieldMode(u8 field_mode, u8 half_aspect_ratio);
