@@ -46,6 +46,16 @@ void GXSetDither(GXBool dither) {
   gxdata->cmode0 = r6;
   gxdata->bpSentNot = GX_FALSE;
 };
-void GXSetDstAlpha(GXBool enable, u8 alpha);
+void GXSetDstAlpha(GXBool enable, u8 alpha) {
+  GXData* gxdata = gx;
+  u32 r6 = gxdata->cmode1; 
+
+  GX_BITFIELD_SET(r6, 24, 8, enable);
+  GX_BITFIELD_SET(r6, 23, 1, alpha);
+  GX_WRITE_RA_REG(r6);
+
+  gxdata->cmode1 = r6;
+  gxdata->bpSentNot = GX_FALSE;
+};
 // ? GXSetFieldMask();
 void GXSetFieldMode(u8 field_mode, u8 half_aspect_ratio);
