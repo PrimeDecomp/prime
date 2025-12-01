@@ -8,8 +8,9 @@ void GXSetBlendMode(GXBlendMode type, GXBlendFactor src_factor, GXBlendFactor ds
                     GXLogicOp op);
 void GXSetColorUpdate(GXBool update_enable) {
   GXData* gxdata = gx;
-  u32 r6 = GX_BITFIELD(gxdata->cmode0, 28, 1, update_enable);
+  u32 r6 = gxdata->cmode0; 
 
+  GX_BITFIELD_SET(r6, 28, 1, update_enable);
   GX_WRITE_RA_REG(r6);
 
   gxdata->cmode0 = r6;
@@ -17,8 +18,9 @@ void GXSetColorUpdate(GXBool update_enable) {
 };
 void GXSetAlphaUpdate(GXBool update_enable) {
   GXData* gxdata = gx;
-  u32 r6 = GX_BITFIELD(gxdata->cmode0, 27, 1, update_enable);
-
+  u32 r6 = gxdata->cmode0;
+   
+  GX_BITFIELD_SET(r6, 27, 1, update_enable);
   GX_WRITE_RA_REG(r6);
 
   gxdata->cmode0 = r6;
