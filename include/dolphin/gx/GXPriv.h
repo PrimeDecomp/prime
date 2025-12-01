@@ -291,6 +291,9 @@ void __GXInitGX();
   }
 #endif
 
+#define GX_BITFIELD(field, pos, size, value)       (__rlwimi((field), (value), 31 - (pos) - (size) + 1, (pos), (pos) + (size) - 1))
+#define GX_BITFIELD_SET(field, pos, size, value)   ((field) = GX_BITFIELD(field, pos, size, value))
+
 #define CP_STREAM_REG_INDEX_SIZE 4
 #define CP_STREAM_REG_INDEX_SHIFT 0
 #define CP_STREAM_REG_INDEX_MASK 0x0000000f
