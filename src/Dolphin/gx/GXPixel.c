@@ -19,7 +19,7 @@ void GXSetColorUpdate(GXBool update_enable) {
 void GXSetAlphaUpdate(GXBool update_enable) {
   GXData* gxdata = gx;
   u32 r6 = gxdata->cmode0;
-   
+
   GX_BITFIELD_SET(r6, 27, 1, update_enable);
   GX_WRITE_RA_REG(r6);
 
@@ -27,7 +27,14 @@ void GXSetAlphaUpdate(GXBool update_enable) {
   gxdata->bpSentNot = GX_FALSE;
 };
 void GXSetZMode(GXBool compare_enable, GXCompare func, GXBool update_enable);
-void GXSetZCompLoc(GXBool before_tex);
+void GXSetZCompLoc(GXBool before_tex) {
+  GXData* gxdata = gx;
+  gxdata->peCtrl = gxdata->peCtrl & 0xffffffbf | (u32)before_tex << 6;
+
+  GX_WRITE_RA_REG(gxdata->peCtrl);
+
+  gxdata->bpSentNot = GX_FALSE;
+};
 void GXSetPixelFmt(GXPixelFmt pix_fmt, GXZFmt16 z_fmt);
 void GXSetDither(GXBool dither);
 void GXSetDstAlpha(GXBool enable, u8 alpha);
