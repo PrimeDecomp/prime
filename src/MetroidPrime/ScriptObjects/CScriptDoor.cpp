@@ -1,5 +1,7 @@
 #include "MetroidPrime/ScriptObjects/CScriptDoor.hpp"
 
+#include "Collision/CMaterialList.hpp"
+#include "Kyoto/Math/CFrustumPlanes.hpp"
 #include "MetroidPrime/CAnimData.hpp"
 #include "MetroidPrime/CAnimPlaybackParms.hpp"
 #include "MetroidPrime/CEntity.hpp"
@@ -8,9 +10,11 @@
 #include "MetroidPrime/CMapWorldInfo.hpp"
 #include "MetroidPrime/CObjectList.hpp"
 #include "MetroidPrime/CPhysicsActor.hpp"
+#include "MetroidPrime/CStateManager.hpp"
 #include "MetroidPrime/CWorld.hpp"
 #include "MetroidPrime/Cameras/CBallCamera.hpp"
 #include "MetroidPrime/Cameras/CCameraManager.hpp"
+#include "MetroidPrime/Player/CPlayerState.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptDock.hpp"
 #include "MetroidPrime/TCastTo.hpp"
 #include "MetroidPrime/TGameTypes.hpp"
@@ -77,7 +81,7 @@ CScriptDoor::EDoorOpenCondition CScriptDoor::GetDoorOpenCondition(CStateManager&
 }
 
 void CScriptDoor::OpenDoor(TUniqueId uid, CStateManager& mgr) {
-  mgr.MapWorldInfo()->SetDoorVisited(mgr.GetEditorIdForUniqueId(uid), true);
+  mgr.MapWorldInfo()->SetDoorVisited(mgr.GetEditorIdForUniqueId(GetUniqueId()), true);
   mIsOpen = true;
   mWasOpen = true;
   mConditionsMet = false;
@@ -105,7 +109,7 @@ void CScriptDoor::OpenDoor(TUniqueId uid, CStateManager& mgr) {
         }
 
         if (const CScriptDock* dock2 =
-                TCastToConstPtr< CScriptDock >(mgr.GetObjectById(door->GetDockID()))) {
+                TCastToConstPtr< CScriptDock >(mgr.GetObjectById(door->GetConnectedDockID()))) {
           if (dock2->GetAreaId() == dock1->GetCurrentConnectedAreaId(mgr) &&
               dock2->GetCurrentConnectedAreaId(mgr) == dock1->GetAreaId()) {
             mPartner2 = door->GetUniqueId();
@@ -119,8 +123,8 @@ void CScriptDoor::OpenDoor(TUniqueId uid, CStateManager& mgr) {
 
   if (mPartner1 == kInvalidUniqueId && mPartner2 == kInvalidUniqueId) {
 
-    rstl::vector< SConnection >::const_iterator it = GetConnectionList().begin();
-    for (; it != GetConnectionList().end(); ++it) {
+    for (rstl::vector< SConnection >::const_iterator it = GetConnectionList().begin();
+         it != GetConnectionList().end(); ++it) {
       if (it->x4_msg != kSM_Open) {
         continue;
       }
@@ -246,3 +250,104 @@ void CScriptDoor::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStat
     break;
   }
 }
+
+void CScriptDoor::Think(float dt, CStateManager& mgr) {
+  if (!GetActive()) {
+    return;
+  }
+
+  if (!mIsOpen && mAnimTime < 0.5f) {
+    mAnimTime += dt;
+  }
+
+  if (mConditionsMet && GetDoorOpenCondition(mgr) == kDOC_Ready) {
+    mConditionsMet = false;
+    OpenDoor(mPrevDoor, mgr);
+  }
+
+  if (mClosing) {
+    mWasOpen = false;
+    mgr.GetCameraManager()->BallCamera()->DoorClosed(GetUniqueId());
+    mProjectilesCollide = false;
+    mClosing = false;
+    SendScriptMsgs(kSS_Closed, mgr, kSM_Decrement);
+    mAnimTime = 0.f;
+    mDoClose = false;
+  }
+
+  if (mIsOpen && !GetModelData()->IsAnimating()) {
+    RemoveMaterial(kMT_Solid, kMT_Occluder, kMT_Orbit, kMT_Scannable, mgr);
+  } else {
+    if (mWasOpen && !GetModelData()->IsAnimating()) {
+      mWasOpen = false;
+      mgr.GetCameraManager()->BallCamera()->DoorClosed(GetUniqueId());
+      mProjectilesCollide = false;
+      mConditionsMet = false;
+      SendScriptMsgs(kSS_Closed, mgr, kSM_None);
+      mAnimTime = 0.f;
+      mDoClose = false;
+    }
+
+    if (GetScannableObjectInfo()) {
+      AddMaterial(kMT_Solid, kMT_Metal, kMT_Occluder, kMT_Orbit, kMT_Scannable, mgr);
+    } else {
+      AddMaterial(kMT_Solid, kMT_Metal, kMT_Occluder, kMT_Orbit, mgr);
+    }
+  }
+
+  if (GetModelData()->IsAnimating()) {
+    float len = GetModelData()->GetAnimationDuration(static_cast< int >(mDoorState));
+    len /= mAnimLength;
+    UpdateAnimation(len * dt, mgr, true);
+  }
+  SetTargetable(mgr.GetPlayerState()->GetCurrentVisor() == CPlayerState::kPV_Scan);
+}
+
+bool CScriptDoor::IsConnectedToArea(const CStateManager& mgr, TAreaId areaId) const {
+  const CScriptDock* dockEnt = TCastToConstPtr< CScriptDock >(mgr.GetObjectById(mDockId));
+  if (dockEnt) {
+    if (dockEnt->GetAreaId() == areaId) {
+      return true;
+    }
+
+    const CWorld* world = mgr.GetWorld();
+    const CGameArea& area = world->GetAreaAlways(dockEnt->GetAreaId());
+    const CGameArea::Dock& dock = area.GetDock(dockEnt->GetDockId());
+    if (dock.GetConnectedAreaId(dockEnt->GetDockReference(mgr)) == areaId) {
+      return true;
+    }
+  }
+  return false;
+}
+
+void CScriptDoor::ForceClosed(CStateManager& mgr) {
+  if (mIsOpen) {
+    mIsOpen = false;
+    mWasOpen = false;
+
+    mgr.GetCameraManager()->BallCamera()->DoorClosing(GetUniqueId());
+    mgr.GetCameraManager()->BallCamera()->DoorClosed(GetUniqueId());
+
+    SetDoorAnimation(kDS_Close);
+    SendScriptMsgs(kSS_Closed, mgr, kSM_None);
+    mConditionsMet = false;
+    mAnimTime = 0.f;
+    mDoClose = false;
+  } else if (mConditionsMet) {
+    mConditionsMet = false;
+    mDoClose = false;
+    SendScriptMsgs(kSS_Closed, mgr, kSM_None);
+  }
+}
+
+void CScriptDoor::AddToRenderer(const CFrustumPlanes& /*frustum*/, const CStateManager& mgr) const {
+  if (GetPreRenderClipped()) {
+    return;
+  }
+
+  CPhysicsActor::Render(mgr);
+}
+
+void CScriptDoor::Render(const CStateManager& mgr) const {}
+
+void CScriptDoor::Accept(IVisitor& visitor) { visitor.Visit(*this); }

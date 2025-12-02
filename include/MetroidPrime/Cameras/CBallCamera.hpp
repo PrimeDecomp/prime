@@ -169,6 +169,7 @@ public:
   void SetClampVelRange(float v) { x474_clampVelRange = v; }
 
   void DoorClosing(TUniqueId uid);
+  void DoorClosed(TUniqueId uid);
 
 private:
   struct SFailsafeState {

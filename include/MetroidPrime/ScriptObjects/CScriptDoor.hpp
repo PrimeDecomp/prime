@@ -34,10 +34,18 @@ public:
   void OpenDoor(TUniqueId uid, CStateManager& mgr);
 
   void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId other, CStateManager& mgr) override;
+  void Think(float dt, CStateManager& mgr) override;
 
-  const TUniqueId GetDockID() const { return mDockId; }
+  const TUniqueId GetConnectedDockID() const { return mDockId; }
   bool IsOpen() const { return mIsOpen; }
   void SetDoClose(const bool close) { mDoClose = close; }
+
+  bool IsConnectedToArea(const CStateManager& mgr, TAreaId area) const;
+  void ForceClosed(CStateManager& mgr);
+
+  void AddToRenderer(const CFrustumPlanes& /*frustum*/, const CStateManager& mgr) const override;
+  void Render(const CStateManager& mgr) const override;
+  void Accept(IVisitor& visitor) override;
 
 private:
   float mAnimLength;

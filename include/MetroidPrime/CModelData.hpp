@@ -116,6 +116,9 @@ public:
   void EnableLooping(bool enable);
   static CModelData CModelDataNull();
   static EWhichModel GetRenderingModel(const CStateManager& mgr);
+  float GetAnimationDuration(int anim) const;
+
+  bool IsAnimating() const;
 
 private:
   CVector3f x0_scale;
