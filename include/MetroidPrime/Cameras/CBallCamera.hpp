@@ -168,6 +168,9 @@ public:
   void SetClampVelTimer(float v) { x470_clampVelTimer = v; }
   void SetClampVelRange(float v) { x474_clampVelRange = v; }
 
+  void DoorClosing(TUniqueId uid);
+  void DoorClosed(TUniqueId uid);
+
 private:
   struct SFailsafeState {
     CTransform4f x0_playerXf;
