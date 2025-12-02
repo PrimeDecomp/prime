@@ -32,7 +32,18 @@ void GXSetAlphaUpdate(GXBool update_enable) {
   gxdata->cmode0 = r6;
   gxdata->bpSentNot = GX_FALSE;
 };
-void GXSetZMode(GXBool compare_enable, GXCompare func, GXBool update_enable);
+void GXSetZMode(GXBool compare_enable, GXCompare func, GXBool update_enable) {
+  GXData* gxdata = gx;
+  u32 r6 = gxdata->zmode;
+
+  GX_BITFIELD_SET(r6, 31, 1, compare_enable);
+  GX_BITFIELD_SET(r6, 28, 3, func);
+  GX_BITFIELD_SET(r6, 27, 1, update_enable);
+  GX_WRITE_RA_REG(r6);
+
+  gxdata->zmode = r6;
+  gxdata->bpSentNot = GX_FALSE;
+};
 void GXSetZCompLoc(GXBool before_tex) {
   GXData* gxdata = gx;
   gxdata->peCtrl = gxdata->peCtrl & 0xffffffbf | (u32)before_tex << 6;
