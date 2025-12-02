@@ -10,8 +10,21 @@ void GXSetFogColor(GXColor color) {
   gxdata->bpSentNot = GX_FALSE;
 };
 // ? GXSetFogRangeAdj();
-void GXSetBlendMode(GXBlendMode type, GXBlendFactor src_factor, GXBlendFactor dst_factor,
-                    GXLogicOp op);
+void GXSetBlendMode(GXBlendMode type, GXBlendFactor src_factor, GXBlendFactor dst_factor, GXLogicOp op) {
+    GXData* gxdata = gx;
+    u32 reg = gxdata->cmode0;
+
+    GX_BITFIELD_SET(reg, 20, 1, (type == GX_BM_SUBTRACT));
+    GX_BITFIELD_SET(reg, 31, 1, type);
+    GX_BITFIELD_SET(reg, 30, 1, (type == GX_BM_LOGIC));
+    GX_BITFIELD_SET(reg, 16, 4, op);
+    GX_BITFIELD_SET(reg, 21, 3, src_factor);
+    GX_BITFIELD_SET(reg, 24, 3, dst_factor);
+    GX_WRITE_RA_REG(reg);
+
+    gxdata->cmode0 = reg;
+    gxdata->bpSentNot = GX_FALSE;
+};
 void GXSetColorUpdate(GXBool update_enable) {
   GXData* gxdata = gx;
   u32 r6 = gxdata->cmode0; 
