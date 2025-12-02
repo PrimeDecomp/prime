@@ -27,40 +27,40 @@ void GXSetBlendMode(GXBlendMode type, GXBlendFactor src_factor, GXBlendFactor ds
 };
 void GXSetColorUpdate(GXBool update_enable) {
   GXData* gxdata = gx;
-  u32 r6 = gxdata->cmode0; 
+  u32 reg = gxdata->cmode0; 
 
-  GX_BITFIELD_SET(r6, 28, 1, update_enable);
-  GX_WRITE_RA_REG(r6);
+  GX_BITFIELD_SET(reg, 28, 1, update_enable);
+  GX_WRITE_RA_REG(reg);
 
-  gxdata->cmode0 = r6;
+  gxdata->cmode0 = reg;
   gxdata->bpSentNot = GX_FALSE;
 };
 void GXSetAlphaUpdate(GXBool update_enable) {
   GXData* gxdata = gx;
-  u32 r6 = gxdata->cmode0;
+  u32 reg = gxdata->cmode0;
 
-  GX_BITFIELD_SET(r6, 27, 1, update_enable);
-  GX_WRITE_RA_REG(r6);
+  GX_BITFIELD_SET(reg, 27, 1, update_enable);
+  GX_WRITE_RA_REG(reg);
 
-  gxdata->cmode0 = r6;
+  gxdata->cmode0 = reg;
   gxdata->bpSentNot = GX_FALSE;
 };
 void GXSetZMode(GXBool compare_enable, GXCompare func, GXBool update_enable) {
   GXData* gxdata = gx;
-  u32 r6 = gxdata->zmode;
+  u32 reg = gxdata->zmode;
 
-  GX_BITFIELD_SET(r6, 31, 1, compare_enable);
-  GX_BITFIELD_SET(r6, 28, 3, func);
-  GX_BITFIELD_SET(r6, 27, 1, update_enable);
-  GX_WRITE_RA_REG(r6);
+  GX_BITFIELD_SET(reg, 31, 1, compare_enable);
+  GX_BITFIELD_SET(reg, 28, 3, func);
+  GX_BITFIELD_SET(reg, 27, 1, update_enable);
+  GX_WRITE_RA_REG(reg);
 
-  gxdata->zmode = r6;
+  gxdata->zmode = reg;
   gxdata->bpSentNot = GX_FALSE;
 };
 void GXSetZCompLoc(GXBool before_tex) {
   GXData* gxdata = gx;
-  gxdata->peCtrl = gxdata->peCtrl & 0xffffffbf | (u32)before_tex << 6;
 
+  SET_REG_FIELD(gxdata->peCtrl, 1, 6, before_tex);
   GX_WRITE_RA_REG(gxdata->peCtrl);
 
   gxdata->bpSentNot = GX_FALSE;
@@ -68,12 +68,12 @@ void GXSetZCompLoc(GXBool before_tex) {
 void GXSetPixelFmt(GXPixelFmt pix_fmt, GXZFmt16 z_fmt);
 void GXSetDither(GXBool dither) {
   GXData* gxdata = gx;
-  u32 r6 = gxdata->cmode0; 
+  u32 reg = gxdata->cmode0; 
 
-  r6 = r6 & 0xfffffffb | (u32)dither << 2;
-  GX_WRITE_RA_REG(r6);
+  SET_REG_FIELD(reg, 1, 2, dither);
+  GX_WRITE_RA_REG(reg);
 
-  gxdata->cmode0 = r6;
+  gxdata->cmode0 = reg;
   gxdata->bpSentNot = GX_FALSE;
 };
 void GXSetDstAlpha(GXBool enable, u8 alpha) {
