@@ -85,4 +85,12 @@ void GXSetFieldMask(GXBool odd_mask, GXBool even_mask) {
 
   gx->bpSentNot = GX_FALSE;
 };
-void GXSetFieldMode(u8 field_mode, u8 half_aspect_ratio);
+void GXSetFieldMode(u8 field_mode, u8 half_aspect_ratio) {
+  GXData* gxdata = gx;
+
+  SET_REG_FIELD(gxdata->lpSize, 1, 22, half_aspect_ratio);
+  GX_WRITE_RA_REG(gxdata->lpSize);
+  __GXFlushTextureState();
+  GX_WRITE_RA_REG(field_mode | 0x68000000);
+  __GXFlushTextureState();
+};
