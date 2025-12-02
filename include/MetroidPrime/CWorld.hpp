@@ -143,6 +143,9 @@ public:
   static CGameArea::CConstChainIterator GetAliveAreasEnd();
   void StopGlobalSound(ushort soundId);
 
+  int GetNumAreas() const { return x18_areas.size(); }
+  bool AreSkyNeedsMet() const;
+
 private:
   enum Phase {
     kP_Loading,

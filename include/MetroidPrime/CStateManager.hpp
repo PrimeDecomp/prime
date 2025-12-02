@@ -291,6 +291,7 @@ public:
   bool GetInMapScreen() const { return xf94_27_inMapScreen; }
   void SetIsFullThreat(bool v) { xf94_30_fullThreat = v; }
   uint GetInputFrameIdx() const { return x8d4_inputFrameIdx; }
+  CMapWorldInfo* MapWorldInfo() const { return x8c0_mapWorldInfo.GetPtr(); }
 
 private:
   enum EInitPhase { kIP_LoadWorld, kIP_LoadFirstArea, kIP_Done };
