@@ -76,7 +76,6 @@ void GXSetDstAlpha(GXBool enable, u8 alpha) {
 };
 void GXSetFieldMask(GXBool odd_mask, GXBool even_mask) {
   u32 reg = 0;
-  GXData* gxdata = gx;
 
   SET_REG_FIELD(reg, 1, 0, even_mask);
   SET_REG_FIELD(reg, 1, 1, odd_mask);
@@ -84,6 +83,6 @@ void GXSetFieldMask(GXBool odd_mask, GXBool even_mask) {
 
   GX_WRITE_RA_REG(reg);
 
-  gxdata->bpSentNot = GX_FALSE;
+  gx->bpSentNot = GX_FALSE;
 };
 void GXSetFieldMode(u8 field_mode, u8 half_aspect_ratio);
