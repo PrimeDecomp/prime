@@ -56,22 +56,22 @@ void GXSetDstAlpha(GXBool enable, u8 alpha) {
   GXData* gxdata = gx;
   u32 r6 = gxdata->cmode1; 
 
-  GX_BITFIELD_SET(r6, 24, 8, enable);
-  GX_BITFIELD_SET(r6, 23, 1, alpha);
+  GX_BITFIELD_SET(r6, 24, 8, alpha);
+  GX_BITFIELD_SET(r6, 23, 1, enable);
   GX_WRITE_RA_REG(r6);
 
   gxdata->cmode1 = r6;
   gxdata->bpSentNot = GX_FALSE;
 };
 void GXSetFieldMask(GXBool odd_mask, GXBool even_mask) {
-  u32 mask = 0;
+  u32 reg = 0;
   GXData* gxdata = gx;
 
-  SET_REG_FIELD(mask, 1, 0, even_mask);
-  SET_REG_FIELD(mask, 1, 1, odd_mask);
-  SET_REG_FIELD(mask, 8, 24, 0x44);
+  SET_REG_FIELD(reg, 1, 0, even_mask);
+  SET_REG_FIELD(reg, 1, 1, odd_mask);
+  SET_REG_FIELD(reg, 8, 24, 0x44);
 
-  GX_WRITE_RA_REG(mask);
+  GX_WRITE_RA_REG(reg);
 
   gxdata->bpSentNot = GX_FALSE;
 };
