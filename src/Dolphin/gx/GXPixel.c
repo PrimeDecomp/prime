@@ -2,7 +2,13 @@
 #include "dolphin/gx/GXPriv.h"
 
 void GXSetFog(GXFogType type, f32 startz, f32 endz, f32 nearz, f32 farz, GXColor color);
-void GXSetFogColor(GXColor color);
+void GXSetFogColor(GXColor color) {
+  GXData* gxdata = gx;
+
+  GX_WRITE_RA_REG(color.b | (color.g << 8) | (color.r << 16) | 0xf2000000);
+
+  gxdata->bpSentNot = GX_FALSE;
+};
 // ? GXSetFogRangeAdj();
 void GXSetBlendMode(GXBlendMode type, GXBlendFactor src_factor, GXBlendFactor dst_factor,
                     GXLogicOp op);
@@ -57,5 +63,12 @@ void GXSetDstAlpha(GXBool enable, u8 alpha) {
   gxdata->cmode1 = r6;
   gxdata->bpSentNot = GX_FALSE;
 };
-// ? GXSetFieldMask();
+void GXSetFieldMask(GXBool odd_mask, GXBool even_mask) {
+  u32 mask = even_mask & 0xfd | (u32)odd_mask << 1 | 0x44000000;
+  GXData* gxdata = gx;
+
+  GX_WRITE_RA_REG(mask);
+
+  gxdata->bpSentNot = GX_FALSE;
+};
 void GXSetFieldMode(u8 field_mode, u8 half_aspect_ratio);
