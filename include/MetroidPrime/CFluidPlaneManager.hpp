@@ -52,7 +52,7 @@ public:
     kFT_ThickLava
   };
 
-  CFluidPlane(const CAssetId texPattern1, const CAssetId texPattern2, const CAssetId texColor,
+  CFluidPlane(const CAssetId texPattern1, const CAssetId texPattern2, CAssetId texColor,
               const float alpha, const EFluidType fluidType, const float rippleIntensity,
               const CFluidUVMotion& motion);
   virtual ~CFluidPlane();
@@ -63,9 +63,9 @@ public:
                          const CVector3f& velocity, const CScriptWater& water, CStateManager& mgr,
                          const CVector3f& upVec);
   virtual void AddRipple(const CRipple& ripple, const CScriptWater& water, CStateManager& mgr);
+  virtual void Update();
   virtual void Render(const CStateManager& mgr, const CAABox&, const CFrustumPlanes&,
                       const CRippleManager&, const CVector3f&);
-  // Update__11CFluidPlaneFv
 
   float CalculateRippleIntensity(const float base) const;
   float GetRippleScaleFromKineticEnergy(float baseI, float velDot);
@@ -73,19 +73,18 @@ public:
   float GetAlpha() const { return x40_alpha; }
   EFluidType GetFluidType() const { return x44_fluidType; }
   const CFluidUVMotion& GetUVMotion() const { return x4c_uvMotion; }
-  // GetColorTexture__11CFluidPlaneCFv
-  // HasColorTexture__11CFluidPlaneCFv
-  // GetTexturePattern2__11CFluidPlaneCFv
-  // HasTexturePattern2__11CFluidPlaneCFv
-  // GetTexturePattern1__11CFluidPlaneCFv
-  // HasTexturePattern1__11CFluidPlaneCFv
-
+  const TLockedToken< CTexture >& GetTexturePattern1() const { return *x10_texPattern1; }
+  bool HasTexturePattern1() const { return x10_texPattern1; }
+  const TLockedToken< CTexture >& GetTexturePattern2() const { return *x20_texPattern2; }
+  bool HasTexturePattern2() const { return x20_texPattern2; }
+  const TLockedToken< CTexture >& GetColorTexture() const { return *x30_texColor; }
+  bool HasColorTexture() const { return x30_texColor; }
   static const float GetRippleIntensityRange() { return kRippleIntensityRange; }
 
 protected:
-  virtual void RenderStripWithRipples(const CFluidPlaneCPURender::SHFieldSample& heights,
-                                      const unsigned char& flags, float curY, int startYDiv,
-                                      const CFluidPlaneCPURender::SPatchInfo& info);
+  void RenderStripWithRipples(const CFluidPlaneCPURender::SHFieldSample& heights,
+                              const unsigned char& flags, float curY, int startYDiv,
+                              const CFluidPlaneCPURender::SPatchInfo& info);
 
   CAssetId x4_texPattern1Id;
   CAssetId x8_texPattern2Id;
@@ -111,6 +110,8 @@ public:
   CRippleManager& RippleManager() { return x0_rippleManager; }
   float GetLastSplashDeltaTime(TUniqueId uid) const;
   float GetLastRippleDeltaTime(TUniqueId uid) const;
+
+  float GetUVTime() const { return x11c_uvT; }
 
 private:
   class CSplashRecord {
