@@ -65,7 +65,36 @@ void GXSetZCompLoc(GXBool before_tex) {
 
   gxdata->bpSentNot = GX_FALSE;
 };
-void GXSetPixelFmt(GXPixelFmt pix_fmt, GXZFmt16 z_fmt);
+void GXSetPixelFmt(GXPixelFmt pix_fmt, GXZFmt16 z_fmt) {
+  GXData* gxdata = gx;
+  u32 pe = gxdata->peCtrl;
+  u8 aa;
+  static u32 p2f[8] = { 0, 1, 2, 3, 4, 4, 4, 5 };
+  //u32 fmt = ;
+
+  SET_REG_FIELD(gxdata->peCtrl, 3, 0, p2f[pix_fmt]);
+  SET_REG_FIELD(gxdata->peCtrl, 3, 3, z_fmt);
+  if (pe != gxdata->peCtrl) {
+    GX_WRITE_RA_REG(pe);
+    if (pix_fmt == GX_PF_RGB565_Z16) {
+      aa = 1;
+    } else {
+      aa = 0;
+    }
+    
+    SET_REG_FIELD(gx->genMode, 1, 9, aa);
+    gxdata->dirtyState |= 4;
+  }
+  
+  if (p2f[pix_fmt] == 4) {
+    //u32 cm = gxdata->cmode1;
+    SET_REG_FIELD(gx->cmode1, 2, 9, (pix_fmt - 4) & 0x3);
+    SET_REG_FIELD(gxdata->cmode1, 8, 24, 0x42);
+    GX_WRITE_RA_REG(gxdata->cmode1);
+  }
+
+  gx->bpSentNot = GX_FALSE;
+};
 void GXSetDither(GXBool dither) {
   GXData* gxdata = gx;
   u32 reg = gxdata->cmode0; 
