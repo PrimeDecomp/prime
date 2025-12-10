@@ -9,7 +9,7 @@ void GXSetFogColor(GXColor color) {
 
   gxdata->bpSentNot = GX_FALSE;
 };
-// ? GXSetFogRangeAdj();
+// void GXSetFogRangeAdj(GXBool enable, u16 center, GXFogAdjTable *table) 
 void GXSetBlendMode(GXBlendMode type, GXBlendFactor src_factor, GXBlendFactor dst_factor, GXLogicOp op) {
     GXData* gxdata = gx;
     u32 reg = gxdata->cmode0;
@@ -70,8 +70,7 @@ void GXSetPixelFmt(GXPixelFmt pix_fmt, GXZFmt16 z_fmt) {
   u32 pe = gxdata->peCtrl;
   u8 aa;
   static u32 p2f[8] = { 0, 1, 2, 3, 4, 4, 4, 5 };
-  //u32 fmt = ;
-
+ 
   SET_REG_FIELD(gxdata->peCtrl, 3, 0, p2f[pix_fmt]);
   SET_REG_FIELD(gxdata->peCtrl, 3, 3, z_fmt);
   if (pe != gxdata->peCtrl) {
@@ -87,7 +86,6 @@ void GXSetPixelFmt(GXPixelFmt pix_fmt, GXZFmt16 z_fmt) {
   }
   
   if (p2f[pix_fmt] == 4) {
-    //u32 cm = gxdata->cmode1;
     SET_REG_FIELD(gx->cmode1, 2, 9, (pix_fmt - 4) & 0x3);
     SET_REG_FIELD(gxdata->cmode1, 8, 24, 0x42);
     GX_WRITE_RA_REG(gxdata->cmode1);
