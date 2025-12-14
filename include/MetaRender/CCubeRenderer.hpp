@@ -1,6 +1,7 @@
 #ifndef _CCUBERENDERER
 #define _CCUBERENDERER
 
+#include "Kyoto/Graphics/CGraphics.hpp"
 #include "Kyoto/Math/CPlane.hpp"
 #include "types.h"
 
@@ -129,7 +130,8 @@ public:
   void DrawModelDisintegrate() override;
   void DrawModelFlat() override;
   void SetWireframeFlags() override;
-  void SetWorldFog() override;
+  void SetWorldFog(ERglFogMode mode, const float startz, const float endz,
+                   const CColor& color) override;
   void RenderFogVolume(const CColor&, const CAABox&, const TLockedToken< CModel >*,
                        const CSkinnedModel*) override;
   void SetThermal() override;

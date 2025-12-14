@@ -3,6 +3,7 @@
 
 #include "types.h"
 
+#include <Kyoto/Graphics/CGraphics.hpp>
 #include <dolphin/gx/GXEnum.h>
 
 #include "rstl/pair.hpp"
@@ -115,7 +116,8 @@ public:
   virtual void DrawModelDisintegrate();
   virtual void DrawModelFlat();
   virtual void SetWireframeFlags();
-  virtual void SetWorldFog();
+  virtual void SetWorldFog(ERglFogMode mode, const float startz, const float endz,
+                           const CColor& color);
   virtual void RenderFogVolume(const CColor&, const CAABox&, const TLockedToken< CModel >*,
                                const CSkinnedModel*);
   virtual void SetThermal();

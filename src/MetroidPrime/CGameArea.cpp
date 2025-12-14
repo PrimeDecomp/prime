@@ -2,6 +2,8 @@
 
 #include "Kyoto/CDvdRequest.hpp"
 #include "Kyoto/CResFactory.hpp"
+#include "Kyoto/Graphics/CGraphics.hpp"
+#include "MetaRender/CCubeRenderer.hpp"
 
 #define ROUND_UP_32(val) (((val) + 31) & ~31)
 
@@ -132,4 +134,69 @@ bool CGameArea::StartStreamingMainArea() {
   }
 
   return true;
+}
+
+CGameArea::CAreaFog::CAreaFog()
+: x0_fogMode(kRFM_None)
+, x4_rangeCur(0.f, 1024.f)
+, xc_rangeTarget(x4_rangeCur)
+, x14_rangeDelta(0.f, 0.f)
+, x1c_colorCur(0.5f, 0.5f, 0.5f)
+, x28_colorTarget(x1c_colorCur)
+, x34_colorDelta(0.f) {}
+
+void CGameArea::CAreaFog::DisableFog() { x0_fogMode = kRFM_None; }
+
+bool CGameArea::CAreaFog::IsFogDisabled() const { return x0_fogMode == kRFM_None; }
+
+void CGameArea::CAreaFog::SetFogExplicit(ERglFogMode mode, const CColor& color,
+                                         const CVector2f& range) {
+  x0_fogMode = mode;
+  x1c_colorCur = x28_colorTarget = color.ToVector3f();
+  x4_rangeCur = xc_rangeTarget = range;
+}
+
+void CGameArea::CAreaFog::FadeFog(const ERglFogMode mode, const CColor& color,
+                                  const CVector2f& vec1, const float speed, const CVector2f& vec2) {
+  if (x0_fogMode == kRFM_None) {
+    x0_fogMode = mode;
+    x1c_colorCur = x28_colorTarget = color.ToVector3f();
+    x4_rangeCur = CVector2f(vec1.GetY(), vec1.GetY());
+    xc_rangeTarget = vec1;
+  } else {
+    x0_fogMode = mode;
+    x28_colorTarget = color.ToVector3f();
+    xc_rangeTarget = vec1;
+  }
+
+  x34_colorDelta = speed;
+  x14_rangeDelta = vec2;
+}
+
+void CGameArea::CAreaFog::RollFogOut(const float rangeDelta, const float colorDelta,
+                                     const CColor& color) {
+  x14_rangeDelta = CVector2f(rangeDelta, rangeDelta * 2.f);
+  xc_rangeTarget = CVector2f(4096.f, 4096.f);
+  x34_colorDelta = colorDelta;
+  x28_colorTarget = color.ToVector3f();
+}
+
+void CGameArea::UpdateFog(const float dt) {
+  if (!x12c_postConstructed->x10c4_areaFog.null()) {
+    x12c_postConstructed->x10c4_areaFog->Update(dt);
+  }
+}
+
+void CGameArea::CAreaFog::Update(const float dt) {
+  if (x0_fogMode) {
+    return;
+  }
+
+  if (x34_colorDelta <= 0.f && x14_rangeDelta == CVector2f(0.f, 0.f)) {
+    return;
+  }
+}
+void CGameArea::CAreaFog::SetCurrent() const {
+  gpRender->SetWorldFog(x0_fogMode, x4_rangeCur.GetX(), x4_rangeCur.GetY(),
+                        CColor(x1c_colorCur.GetX(), x1c_colorCur.GetY(), x1c_colorCur.GetZ(), 1.f));
 }

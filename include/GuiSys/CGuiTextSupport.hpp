@@ -5,9 +5,9 @@
 
 #include "Kyoto/Text/TextCommon.hpp"
 
+#include "rstl/pair.hpp"
 #include "rstl/string.hpp"
 #include "rstl/vector.hpp"
-#include "rstl/pair.hpp"
 
 class CColor;
 class CGuiFrame;
@@ -46,6 +46,7 @@ public:
                   CSimplePool* store, int /*CGuiWidget::EGuiModelDrawFlags*/ drawFlags);
 
   void SetText(const rstl::string&, bool multipage = false);
+  bool SetTypeWriteEffectOptions(bool enable, float fadeTime, float rate);
   void SetOutlineColor(const CColor& col);
   void SetFontColor(const CColor& col);
   void Render() const;

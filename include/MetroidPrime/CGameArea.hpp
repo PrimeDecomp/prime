@@ -118,12 +118,8 @@ public:
     CVector2f x4_rangeCur;
     CVector2f xc_rangeTarget;
     CVector2f x14_rangeDelta;
-    CColor x1c_colorCur;
-    unkptr x20_;
-    unkptr x24_;
-    CColor x28_colorTarget;
-    unkptr x2c_;
-    unkptr x30_;
+    CVector3f x1c_colorCur;
+    CVector3f x28_colorTarget;
     float x34_colorDelta;
 
   public:
@@ -217,6 +213,7 @@ public:
   const CAABox& GetAABB() const { return x6c_aabb; }
   CGameArea* GetNext() const; // { return x130_next; }
 
+  void UpdateFog(const float dt);
   void SetXRaySpeedAndTarget(float speed, float target);
   void SetThermalSpeedAndTarget(float speed, float target);
   void SetWeaponWorldLighting(float speed, float target);

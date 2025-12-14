@@ -26,6 +26,17 @@ public:
   static float GetAngleDiff(const CVector2f& a, const CVector2f& b);
   static float Dot(const CVector2f& a, const CVector2f& b);
 
+  static const CVector2f& Zero() { return skZeroVector; }
+
+  static CVector2f Lerp(const CVector2f& a, const CVector2f& b, const float t) {
+    const float negT = 1.f - t;
+    const float aX = a.GetX();
+    const float bX = b.GetX();
+    const float aY = a.GetY();
+    const float bY = b.GetY();
+    return CVector2f(aX * negT + bX * t, aY * negT + bY * t);
+  }
+
 private:
   float mX;
   float mY;

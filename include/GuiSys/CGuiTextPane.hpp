@@ -13,9 +13,10 @@ class CGuiTextProperties;
 
 class CGuiTextPane : public CGuiPane {
 public:
-  CGuiTextPane(const CGuiWidgetParms& parms, CSimplePool* sp, const CVector2f& dim, const CVector3f& vec,
-               CAssetId fontId, const CGuiTextProperties& props, const CColor& col1, const CColor& col2,
-               int padX, int padY, CAssetId jpFontId, int jpExtentX, int jpExtentY);
+  CGuiTextPane(const CGuiWidgetParms& parms, CSimplePool* sp, const CVector2f& dim,
+               const CVector3f& vec, CAssetId fontId, const CGuiTextProperties& props,
+               const CColor& col1, const CColor& col2, int padX, int padY, CAssetId jpFontId,
+               int jpExtentX, int jpExtentY);
 
   CGuiTextSupport& TextSupport() { return xd4_textSupport; }
   const CGuiTextSupport& GetTextSupport() const { return xd4_textSupport; }

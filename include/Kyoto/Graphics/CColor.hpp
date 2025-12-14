@@ -5,6 +5,7 @@
 
 #include "Kyoto/Basics/CCast.hpp"
 #include "Kyoto/Math/CMath.hpp"
+#include "Kyoto/Math/CVector3f.hpp"
 
 #include <dolphin/gx/GXStruct.h>
 
@@ -66,6 +67,9 @@ public:
 
   // TODO check
   static GXColor ToGX(uint c) { return *reinterpret_cast< const GXColor* >(&c); }
+
+  // Fake?
+  CVector3f ToVector3f() const { return CVector3f(GetRed(), GetGreen(), GetBlue()); }
 
   static const CColor& Black();
   static const CColor& White();
