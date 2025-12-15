@@ -1,6 +1,7 @@
 #ifndef _CANIMTREENODE
 #define _CANIMTREENODE
 
+#include "Kyoto/Animation/CCharAnimMemoryMetrics.hpp"
 #include "Kyoto/Animation/IAnimReader.hpp"
 #include "rstl/pair.hpp"
 #include "rstl/reserved_vector.hpp"
@@ -11,6 +12,9 @@ class CAnimTreeNode : public IAnimReader {
 
 public:
   CAnimTreeNode(const rstl::string&);
+  ~CAnimTreeNode() override {
+    CCharAnimMemoryMetrics::SubtractFromTotalSize(x4_name.size(), CCharAnimMemoryMetrics::kASS_Two);
+  }
 
   virtual CAnimTreeEffectiveContribution VGetContributionOfHighestInfluence() const = 0;
 

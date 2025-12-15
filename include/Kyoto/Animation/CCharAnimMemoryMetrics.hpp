@@ -12,6 +12,7 @@ public:
   };
 
   static void AddToTotalSize(uint size, EAnimSubSystem subSystem);
+  static void SubtractFromTotalSize(uint size, EAnimSubSystem subSystem);
 };
 
 #endif // _CCHARANIMMEMORYMETRICS
