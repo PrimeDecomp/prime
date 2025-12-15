@@ -873,7 +873,7 @@ config.libs = [
             Object(NonMatching, "Kyoto/Animation/CCharacterInfo.cpp"),
             Object(NonMatching, "Kyoto/Animation/CCharacterSet.cpp"),
             Object(NonMatching, "Kyoto/Animation/CMetaAnimBlend.cpp"),
-            Object(NonMatching, "Kyoto/Animation/CMetaAnimFactory.cpp"),
+            Object(Matching, "Kyoto/Animation/CMetaAnimFactory.cpp"),
             Object(NonMatching, "Kyoto/Animation/CMetaAnimPhaseBlend.cpp"),
             Object(NonMatching, "Kyoto/Animation/CMetaAnimPlay.cpp"),
             Object(NonMatching, "Kyoto/Animation/CMetaAnimRandom.cpp"),
