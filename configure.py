@@ -907,7 +907,7 @@ config.libs = [
             Object(NonMatching, "Kyoto/Animation/CAnimTreeContinuousPhaseBlend.cpp"),
             Object(NonMatching, "Kyoto/Animation/CAnimTreeDoubleChild.cpp"),
             Object(NonMatching, "Kyoto/Animation/CAnimTreeNode.cpp"),
-            Object(NonMatching, "Kyoto/Animation/CAnimTreeSingleChild.cpp"),
+            Object(MatchingFor("GM8E01_00"), "Kyoto/Animation/CAnimTreeSingleChild.cpp"),
             Object(NonMatching, "Kyoto/Animation/CAnimTreeTimeScale.cpp"),
             Object(NonMatching, "Kyoto/Animation/CAnimTreeTransition.cpp"),
             Object(NonMatching, "Kyoto/Animation/CAnimTreeTweenBase.cpp"),

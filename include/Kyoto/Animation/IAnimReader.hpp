@@ -85,16 +85,16 @@ public:
   virtual CVector3f VGetOffset(const CSegId& seg) const = 0;
   virtual CQuaternion VGetRotation(const CSegId& seg) const = 0;
   virtual uint VGetBoolPOIList(const CCharAnimTime& time, CBoolPOINode* listOut, uint capacity,
-                               uint iterator, uint) const = 0;
+                               uint iterator, int) const = 0;
   virtual uint VGetInt32POIList(const CCharAnimTime& time, CInt32POINode* listOut, uint capacity,
                                 uint iterator, int) const = 0;
   virtual uint VGetParticlePOIList(const CCharAnimTime& time, CParticlePOINode* listOut,
                                    uint capacity, uint iterator, int) const = 0;
   virtual uint VGetSoundPOIList(const CCharAnimTime& time, CSoundPOINode* listOut, uint capacity,
                                 uint iterator, int) const = 0;
-  virtual bool VGetBoolPOIState(const rstl::string& name) const = 0;
-  virtual s32 VGetInt32POIState(const rstl::string& name) const = 0;
-  virtual CParticleData::EParentedMode VGetParticlePOIState(const rstl::string& name) const = 0;
+  virtual bool VGetBoolPOIState(const char* name) const = 0;
+  virtual s32 VGetInt32POIState(const char* name) const = 0;
+  virtual CParticleData::EParentedMode VGetParticlePOIState(const char* name) const = 0;
   virtual void VGetSegStatementSet(const CSegIdList& list, CSegStatementSet& setOut) const = 0;
   virtual void VGetSegStatementSet(const CSegIdList& list, CSegStatementSet& setOut,
                                    const CCharAnimTime& time) const = 0;
