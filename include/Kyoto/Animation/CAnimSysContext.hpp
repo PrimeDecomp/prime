@@ -15,6 +15,9 @@ public:
                   const rstl::ncrc_ptr< CRandom16 >& random, CSimplePool& store)
   : x0_transDb(transDb), x8_random(random), xc_store(store) {}
 
+  CRandom16* Random() { return x8_random.GetPtr(); }
+  const CRandom16* GetRandom() const { return x8_random.GetPtr(); }
+
 private:
   TToken< CTransitionDatabaseGame > x0_transDb;
   rstl::rc_ptr< CRandom16 > x8_random;

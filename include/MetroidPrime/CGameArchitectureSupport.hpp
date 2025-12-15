@@ -26,6 +26,7 @@ public:
   void PreloadAudio();
   bool UpdateTicks();
   void Update();
+  void LoadAudio();
   void UnloadAudio();
 
   inline CStopwatch& GetStopwatch1() { return x20_stopwatch1; }

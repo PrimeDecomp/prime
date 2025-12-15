@@ -56,7 +56,7 @@ class CMetaAnimTreeBuildOrders {
 
 class IMetaAnim {
 public:
-  virtual ~IMetaAnim();
+  virtual ~IMetaAnim() {}
 
   virtual rstl::rc_ptr< CAnimTreeNode >
   GetAnimationTree(const CAnimSysContext& animSys, const CMetaAnimTreeBuildOrders& orders) const;
@@ -65,6 +65,8 @@ public:
   virtual rstl::rc_ptr< CAnimTreeNode >
   VGetAnimationTree(const CAnimSysContext& animSys,
                     const CMetaAnimTreeBuildOrders& orders) const = 0;
+
+  void PutTo(COutputStream&) const;
 
   static void AdvanceAnim(IAnimReader& anim, const CCharAnimTime& dt);
   static CCharAnimTime GetTime(const CPreAdvanceIndicator& ind, const IAnimReader& anim);
