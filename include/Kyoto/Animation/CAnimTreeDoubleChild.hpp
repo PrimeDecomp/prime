@@ -19,9 +19,6 @@ public:
   };
 
 protected:
-  rstl::rc_ptr< CAnimTreeNode > x14_a;
-  rstl::rc_ptr< CAnimTreeNode > x18_b;
-
   CDoubleChildAdvancementResult AdvanceViewBothChildren(const CCharAnimTime& time, bool runLeft,
                                                         bool loopLeft);
 
@@ -56,6 +53,10 @@ public:
 
   const rstl::rc_ptr< CAnimTreeNode >& GetLeftChild() const { return x14_a; }
   const rstl::rc_ptr< CAnimTreeNode >& GetRightChild() const { return x18_b; }
+
+protected:
+  rstl::rc_ptr< CAnimTreeNode > x14_a;
+  rstl::rc_ptr< CAnimTreeNode > x18_b;
 };
 
 #endif // _CANIMTREEDOUBLECHILD

@@ -6,11 +6,6 @@
 class CAnimTreeTweenBase : public CAnimTreeDoubleChild {
   static s32 sAdvancementDepth;
 
-protected:
-  int x1c_flags;
-  u32 x20_24_b1 : 1;
-  u32 x20_25_cullSelector : 2;
-
 public:
   CAnimTreeTweenBase(bool, const rstl::ncrc_ptr< CAnimTreeNode >& a,
                      const rstl::ncrc_ptr< CAnimTreeNode >& b, int, const rstl::string& name);
@@ -38,6 +33,11 @@ public:
   static bool ShouldCullTree() { return 3 <= sAdvancementDepth; }
   static void IncAdvancementDepth() { sAdvancementDepth++; }
   static void DecAdvancementDepth() { sAdvancementDepth--; }
+
+protected:
+  int x1c_flags;
+  u32 x20_24_b1 : 1;
+  u32 x20_25_cullSelector : 2;
 };
 
 #endif // _CANIMTREETWEENBASE

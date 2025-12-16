@@ -8,8 +8,6 @@
 #include "rstl/string.hpp"
 
 class CAnimTreeNode : public IAnimReader {
-  rstl::string x4_name;
-
 public:
   CAnimTreeNode(const rstl::string&);
   ~CAnimTreeNode() override {
@@ -28,6 +26,9 @@ public:
   }
 
   bool IsCAnimTreeNode() const override { return true; }
+
+private:
+  rstl::string x4_name;
 };
 
 #endif // _CANIMTREENODE

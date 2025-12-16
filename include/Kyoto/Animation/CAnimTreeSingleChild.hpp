@@ -4,9 +4,6 @@
 #include "Kyoto/Animation/CAnimTreeNode.hpp"
 
 class CAnimTreeSingleChild : public CAnimTreeNode {
-protected:
-  rstl::rc_ptr< CAnimTreeNode > x14_child;
-
 public:
   CAnimTreeSingleChild(const rstl::ncrc_ptr< CAnimTreeNode >& node, const rstl::string& name)
   : CAnimTreeNode(name), x14_child(node) {}
@@ -37,6 +34,9 @@ public:
   uint VGetNumChildren() const override;
   void VGetWeightedReaders(
       float w, rstl::reserved_vector< rstl::pair< float, IAnimReader* >, 16 >& out) const override;
+
+protected:
+  rstl::rc_ptr< CAnimTreeNode > x14_child;
 };
 
 #endif // _CANIMTREESINGLECHILD
