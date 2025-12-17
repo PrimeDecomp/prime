@@ -12997,7 +12997,7 @@ __ct__20CAnimTreeDoubleChildFRCQ24rstl25ncrc_ptr<13CAnimTreeNode>RCQ24rstl25ncrc
 IsCAnimTreeNode__13CAnimTreeNodeCFv = .text:0x802F3CD0; // type:function size:0x8 scope:global
 Cast__FRCQ24rstl33ownership_transfer<11IAnimReader> = .text:0x802F3CD8; // type:function size:0xD8 scope:global
 __ct__13CAnimTreeNodeFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator> = .text:0x802F3DB0; // type:function size:0x4C scope:global
-VGetWeightedReaders__20CAnimTreeSingleChildFfRQ24rstl48reserved_vector<Q24rstl22pair<f,P11IAnimReader>> = .text:0x802F3DFC; // type:function size:0x34 scope:global
+VGetWeightedReaders__20CAnimTreeSingleChildCFfRQ24rstl51reserved_vector<Q24rstl22pair<f,P11IAnimReader>,16> = .text:0x802F3DFC; // type:function size:0x34 scope:global
 VGetAdvancementResults__20CAnimTreeSingleChildCFRC13CCharAnimTimeRC13CCharAnimTime = .text:0x802F3E30; // type:function size:0x40 scope:global
 VSetPhase__20CAnimTreeSingleChildFf = .text:0x802F3E70; // type:function size:0x34 scope:global
 VGetNumChildren__20CAnimTreeSingleChildCFv = .text:0x802F3EA4; // type:function size:0x38 scope:global
@@ -18729,7 +18729,7 @@ lbl_803ED248 = .data:0x803ED248; // type:object size:0x70
 lbl_803ED2B8 = .data:0x803ED2B8; // type:object size:0x80
 lbl_803ED338 = .data:0x803ED338; // type:object size:0x78
 lbl_803ED3B0 = .data:0x803ED3B0; // type:object size:0x70
-lbl_803ED420 = .data:0x803ED420; // type:object size:0x70
+__vt__20CAnimTreeSingleChild = .data:0x803ED420; // type:object size:0x70
 lbl_803ED490 = .data:0x803ED490; // type:object size:0x70
 lbl_803ED500 = .data:0x803ED500; // type:object size:0x80
 lbl_803ED580 = .data:0x803ED580; // type:object size:0x80
