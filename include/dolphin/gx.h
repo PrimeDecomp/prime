@@ -4,6 +4,7 @@
 #include <dolphin/gx/GXEnum.h>
 #include <dolphin/gx/GXStruct.h>
 
+#include <dolphin/gx/GXRegs.h>
 #include <dolphin/gx/GXBump.h>
 #include <dolphin/gx/GXCommandList.h>
 #include <dolphin/gx/GXCull.h>

@@ -291,6 +291,11 @@ void __GXInitGX();
   }
 #endif
 
+#define SET_REG_FIELD(reg, size, shift, val) \
+do { \
+    (reg) = ((u32)(reg) & ~(((1 << (size)) - 1) << (shift))) | ((u32)(val) << (shift)); \
+} while (0)
+
 #define GX_BITFIELD(field, pos, size, value)       (__rlwimi((field), (value), 31 - (pos) - (size) + 1, (pos), (pos) + (size) - 1))
 #define GX_BITFIELD_SET(field, pos, size, value)   ((field) = GX_BITFIELD(field, pos, size, value))
 
