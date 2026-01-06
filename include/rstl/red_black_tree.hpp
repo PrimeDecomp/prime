@@ -107,7 +107,7 @@ public:
   };
 
   red_black_tree() : x0_(0), x1_(0), x4_count(0) {}
-  ~red_black_tree() { clear(); }
+  ~red_black_tree() { destroy(); }
 
   iterator insert_into(node* n, const P& item);
   iterator insert(const P& item) { return insert_into(x8_header.get_root(), item); }
@@ -228,6 +228,8 @@ private:
   node* rebalance_for_erase(node* n) {
     return static_cast< node* >(rbtree_rebalance_for_erase(&x8_header, n));
   }
+
+  void destroy() { clear(); }
 };
 
 static bool kUnknownValueNewRoot = true;

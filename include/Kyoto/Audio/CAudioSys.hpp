@@ -33,10 +33,9 @@ public:
   public:
     CEmitterData() : _50(0), _51(0), _52(kEmitterMedPriority) {};
 
-  private:
-    char data[0x50];
-    char _50;
-    char _51;
+    SND_EMITTER x0_emitter;
+    bool _50;
+    bool _51;
     uchar _52;
   };
 
@@ -66,10 +65,10 @@ public:
 
   class CTrkData {};
 
-  CAudioSys(char, char, char, char, uint);
+  CAudioSys(uchar, uchar, uchar, uchar, uint);
   ~CAudioSys();
 
-  static void SysSetVolume(uchar, uint, uchar);
+  static void SysSetVolume(uchar, ushort, uchar);
   static void SysSetSfxVolume(uchar, ushort, uchar, uchar);
   static bool SysLoadGroupSet(CSimplePool*, uint);
   static const rstl::string& SysGetGroupSetName(uint);
@@ -80,7 +79,8 @@ public:
 
   static void SetDefaultVolumeScale(short);
   static void SetVolumeScale(short);
-  static void SetSurroundMode(ESurroundModes);
+  static void SetStereoMode(const bool mode);
+  static void SetSurroundMode(const ESurroundModes mode);
   static void TrkSetSampleRate(ETRKSampleRate);
 
   static short GetDefaultVolumeScale();
@@ -91,34 +91,44 @@ public:
   static void SfxCtrl(SND_VOICEID handle, uchar ctrl, uchar val);
   static SND_VOICEID SfxCheck(SND_VOICEID handle);
   static void SfxVolume(SND_VOICEID handle, u8 vol);
+  static uint S3dFindLowerPriorityHandle(uint prio);
+  static uint S3dFindUnusedHandle();
   static uint S3dAddEmitterParaEx(const C3DEmitterParmData& params, ushort handle,
                                   SND_PARAMETER_INFO* paraInfo);
-  static void S3dUpdateEmitter(uint, const CVector3f&, const CVector3f&, uchar);
-  static void S3dRemoveEmitter(uint handle);
+  static const bool S3dUpdateEmitter(const uint a, const CVector3f& b, const CVector3f& c,
+                                     const uchar d);
+  static const bool S3dRemoveEmitter(uint handle);
   static const bool S3dCheckEmitter(uint handle);
   static uint S3dEmitterVoiceID(uint handle);
 
-  static void S3dAddListener(const CVector3f& pos, const CVector3f& dir, const CVector3f& vec1,
-                             const CVector3f& vec2, const float f1, const float f2, const float f3,
-                             const uint w1, const uchar maxVolume);
-  static void S3dUpdateListener(const CVector3f& pos, const CVector3f& dir, const CVector3f& vec1,
-                                const CVector3f& vec2, const uchar maxVolume);
+  static void S3dAddListener(const CVector3f& pos, const CVector3f& dir, const CVector3f& heading,
+                             const CVector3f& up, const float frontSur, const float backSur,
+                             const float soundSpeed, const uint flags, const uchar voiume);
+  static bool S3dRemoveListener();
+  static bool S3dUpdateListener(const CVector3f& pos, const CVector3f& dir,
+                                const CVector3f& heading, const CVector3f& up, const uchar voiume);
 
   static void S3dAddEmitter(SND_FXID fxid, const CVector3f& pos, const CVector3f& dir,
                             const bool b1, const bool b2, short, int);
 
-  static u32 SeqPlayEx(unsigned short, unsigned short, void*, SND_PLAYPARA*, unsigned char);
-  static void SeqStop(u32);
+  static void S3dFlushAllEmitters();
+  static void S3dFlushUnusedEmitters();
+
+  static uint SeqPlayEx(const ushort gid, const ushort sid, void* arrfile, SND_PLAYPARA* para,
+                        const uchar studio);
+  static void SeqStop(u32 seqId);
   static void SeqVolume(u8, u16, u32, u8);
+
   static bool mInitialized;
   static bool mIsListenerActive;
   static bool mVerbose;
+  static uint mUnusedEmitterHandle;
   static uchar mMaxNumEmitters;
   static rstl::map< rstl::string, rstl::ncrc_ptr< CAudioGroupSet > >* mpGroupSetDB;
   static rstl::map< uint, rstl::string >* mpGroupSetResNameDB;
   static rstl::map< rstl::string, rstl::ncrc_ptr< CTrkData > >* mpDVDTrackDB;
   static rstl::vector< CEmitterData >* mpEmitterDB;
-  static unkptr mpListener;
+  static SND_LISTENER* mpListener;
 
   /* TODO: Remaining globals */
 
@@ -126,8 +136,10 @@ public:
   static uint mMaxAramUsage;
   static uint mCurrentAramUsage;
   static bool mProLogic2;
+  static ushort mVolumeScale;
+  static ushort mDefaultVolumeScale;
   static const uchar kMaxVolume;
-  static uchar kEmitterMedPriority;
+  static const uchar kEmitterMedPriority;
 };
 
 #endif // _CAUDIOSYS

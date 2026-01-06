@@ -46,7 +46,7 @@ public:
   vector(const Alloc& alloc = Alloc())
   : x0_allocator(alloc), x4_count(0), x8_capacity(0), xc_items(nullptr) {}
   vector(int count) : x4_count(0), x8_capacity(0), xc_items(0) { reserve(count); }
-  vector(int count, const T& v) : x4_count(count), x8_capacity(count) {
+  vector(const int count, const T& v) : x4_count(count), x8_capacity(count) {
     x0_allocator.allocate(xc_items, x4_count);
     uninitialized_fill_n(xc_items, count, v);
   }

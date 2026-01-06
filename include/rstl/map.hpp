@@ -21,6 +21,8 @@ public:
   typedef typename rep_type::iterator iterator;
   typedef typename rep_type::const_iterator const_iterator;
 
+  ~map() {}
+
   iterator insert(const value_type& item) { return inner.insert(item); }
 
   const_iterator begin() const { return inner.begin(); }
@@ -31,7 +33,7 @@ public:
 
   void erase(iterator it) { inner.erase(it); }
 
-  rep_type& get_inner() { return inner; }  // hack for CWeaponMgr inlining depth
+  rep_type& get_inner() { return inner; } // hack for CWeaponMgr inlining depth
 private:
   rep_type inner;
 };
