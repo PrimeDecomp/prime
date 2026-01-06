@@ -83,9 +83,6 @@ private:
   static rstl::single_ptr< ComparisonFunc > sTableOfCollidables;
   static rstl::single_ptr< BooleanComparisonFunc > sTableOfBooleanCollidables;
   static rstl::single_ptr< MovingComparisonFunc > sTableOfMovingCollidables;
-  static ComparisonFunc sNullCollider;
-  static BooleanComparisonFunc sNullBooleanCollider;
-  static MovingComparisonFunc sNullMovingCollider;
 
   uint x4_;
   CMaterialList x8_material;
