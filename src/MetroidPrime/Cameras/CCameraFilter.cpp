@@ -24,8 +24,8 @@ CCameraFilterPass::CCameraFilterPass()
 , x1c_nextColor(0xFFFFFFFF)
 , x20_nextTxtr(kInvalidAssetId) {}
 
-void CCameraFilterPass::SetFilter(EFilterType type, EFilterShape shape, float time,
-                                  const CColor& color, CAssetId txtr) {
+void CCameraFilterPass::SetFilter(const EFilterType type, const EFilterShape shape,
+                                  const float time, const CColor& color, const CAssetId txtr) {
   if (time == 0.f) {
     xc_duration = 0.f;
     x10_remTime = 0.f;

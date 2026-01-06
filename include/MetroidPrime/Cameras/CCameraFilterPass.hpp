@@ -40,8 +40,8 @@ public:
 
   CCameraFilterPass();
 
-  void SetFilter(EFilterType type, EFilterShape shape, float time, const CColor& color,
-                 CAssetId txtr);
+  void SetFilter(const EFilterType type, const EFilterShape shape, const float time,
+                 const CColor& color, const CAssetId txtr);
   void DisableFilter(float time);
   void Update(float dt);
 

@@ -102,7 +102,7 @@ public:
   }
   explicit CMaterialList(u64 value) : value(value) {}
 
-  void Add(EMaterialTypes material) { value |= u64(1) << material; }
+  void Add(const EMaterialTypes material) { value |= u64(1) << material; }
   void Add(const CMaterialList& material) { value |= material.value; }
   void Remove(EMaterialTypes material) { value &= ~(u64(1) << material); }
   void Remove(const CMaterialList& material) { value &= ~material.value; }

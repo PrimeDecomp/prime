@@ -242,6 +242,7 @@ public:
   void DeathDelete(CStateManager& mgr);
   CTransform4f GetLctrTransform(const rstl::string&) const;
 
+  EPatrolState GetPatrolState() const { return x2d8_patrolState; }
   TUniqueId GetDestObj() const { return x2dc_destObj; } // TODO: name?
   CStateMachineState& StateMachineState() { return x330_stateMachineState; }
   const CStateMachineState& GetStateMachineState() const { return x330_stateMachineState; }
@@ -254,6 +255,10 @@ public:
   const CBodyController* GetBodyCtrl() const { return x450_bodyController.get(); }
   CKnockBackController& GetKnockBackCtrl() { return x460_knockBackController; }
   const CKnockBackController& GetKnockBackCtrl() const { return x460_knockBackController; }
+
+  CVector3f& MoveVector() { return x310_moveVec; }
+  const CVector3f& GetMoveVector() const { return x310_moveVec; }
+  void SetMoveVector(const CVector3f& vec) { x310_moveVec = vec; }
 
   template < class T >
   static T* CastTo(const TPatternedCast< T >& ent);

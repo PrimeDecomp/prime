@@ -179,6 +179,8 @@ public:
   // CacheBoolPoiList__9CAnimDataFRCQ24rstl25ncrc_ptr<13CAnimTreeNode>RC13CCharAnimTimei
   // CacheInt32PoiList__9CAnimDataFRCQ24rstl25ncrc_ptr<13CAnimTreeNode>RC13CCharAnimTimei
 
+  void SetParticleLightIdx(int lightIdx) { x21c_particleLightIdx = lightIdx; }
+
   static void InitializeCache();
   static void FreeCache();
 

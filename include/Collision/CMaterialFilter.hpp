@@ -21,7 +21,9 @@ public:
   : include(include), exclude(exclude), type(type) {}
 
   const CMaterialList& GetIncludeList() const { return include; }
+  CMaterialList& IncludeList() { return include; }
   const CMaterialList& GetExcludeList() const { return exclude; }
+  CMaterialList& ExcludeList() { return exclude; }
   static CMaterialFilter MakeInclude(const CMaterialList& include) {
     return CMaterialFilter(include, CMaterialList(), kFT_Include);
   }

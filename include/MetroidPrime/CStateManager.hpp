@@ -10,6 +10,7 @@
 #include "Kyoto/TOneStatic.hpp"
 #include "Kyoto/TToken.hpp"
 
+#include "Collision/CMaterialFilter.hpp"
 #include "MetroidPrime/CEntityInfo.hpp"
 #include "MetroidPrime/CObjectList.hpp"
 #include "MetroidPrime/Cameras/CCameraBlurPass.hpp"
@@ -50,7 +51,6 @@ class CWorldTransManager;
 class CEntity;
 class CSinglePathMaze;
 class CRayCastResult;
-class CMaterialFilter;
 class CWorldLayerState;
 class CLight;
 class CDamageInfo;
@@ -137,7 +137,8 @@ public:
   rstl::pair< int, int > CalculateScanPair() const;
 
   void BuildNearList(TEntityList& nearList, const CVector3f& pos, const CVector3f& dir, float mag,
-                     const CMaterialFilter&, const CActor*) const;
+                     const CMaterialFilter& filter = CMaterialFilter::GetPassEverything(),
+                     const CActor* actor = nullptr) const;
   void BuildNearList(TEntityList& nearList, const CAABox&, const CMaterialFilter&,
                      const CActor*) const;
   bool RayCollideWorld(const CVector3f& start, const CVector3f& end, const TEntityList& nearList,

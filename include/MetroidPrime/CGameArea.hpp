@@ -109,7 +109,7 @@ struct CAreaRenderOctTree {
   void FindOverlappingModels(u32* out, const CAABox& testAABB) const;
 };
 CHECK_SIZEOF(CAreaRenderOctTree, 0x3c);
-
+class CPFArea;
 class CGameArea : public IGameArea {
 public:
   class CAreaFog {
@@ -183,7 +183,9 @@ public:
     rstl::vector< CWorldLight > x80_lightsB;
     rstl::vector< CLight > x90_gfxLightsB;
     CPVSAreaSet* xa0_pvs;
-    uchar xa4_pad[0x1020];
+    uchar xa4_pad[0x1018];
+    CPFArea* x10bc_pathArea;
+    unkptr x10c0_areaObjectList; // CAreaObjectList
     rstl::single_ptr< CAreaFog > x10c4_areaFog;
     rstl::optional_object< void* > x10c8_sclyBuf;
     u32 x10d0_sclySize;
