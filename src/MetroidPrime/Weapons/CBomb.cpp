@@ -1,0 +1,136 @@
+#include "MetroidPrime/Weapons/CBomb.hpp"
+#include "Collision/CRayCastResult.hpp"
+#include "MetaRender/CCubeRenderer.hpp"
+#include "MetroidPrime/CGameLight.hpp"
+#include "MetroidPrime/CModelData.hpp"
+#include "MetroidPrime/CStateManager.hpp"
+#include "MetroidPrime/Enemies/EListenNoiseType.hpp"
+#include "MetroidPrime/Player/CMorphBall.hpp"
+#include "MetroidPrime/Player/CPlayer.hpp"
+#include "MetroidPrime/SFX/Weapons.h"
+#include "MetroidPrime/TGameTypes.hpp"
+#include "MetroidPrime/Weapons/CWeapon.hpp"
+
+#include <Kyoto/Audio/CSfxManager.hpp>
+#include <Kyoto/Math/CFrustumPlanes.hpp>
+#include <Kyoto/Particles/CElementGen.hpp>
+
+CBomb::CBomb(const TToken< CGenDescription >& particle1, const TToken< CGenDescription >& particle2,
+             TUniqueId uid, TAreaId aid, TUniqueId playerId, float f1, const CTransform4f& xf,
+             const CDamageInfo& dInfo)
+: CWeapon(uid, aid, true, playerId, kWT_Bomb, rstl::string_l("Bomb"), xf,
+          CMaterialFilter::MakeIncludeExclude(
+              CMaterialList(kMT_Solid, kMT_Trigger, kMT_NonSolidDamageable),
+              CMaterialList(kMT_Projectile, kMT_Bomb)),
+          CMaterialList(kMT_Projectile, kMT_Bomb), dInfo, kPA_Bombs, CModelData::CModelDataNull())
+, mVelocity(CVector3f::Zero())
+, mAcceleration(CVector3f::Zero())
+, mPrevLocation(xf.GetTranslation())
+, mFuseTime(f1)
+, mParticle1(rs_new CElementGen(particle1))
+, mParticle2(rs_new CElementGen(particle2))
+, mLightId(kInvalidUniqueId)
+, mParticle2Ptr(TToken< CGenDescription >(particle2).GetTag().GetId())
+, mIsNotDetonated(true)
+, mBeingDragged(false)
+, mDisableFuse(false) {
+  mParticle1->SetGlobalTranslation(xf.GetTranslation());
+  mParticle2->SetGlobalTranslation(xf.GetTranslation());
+}
+
+CBomb::~CBomb() {}
+
+void CBomb::Explode(const CVector3f& pos, CStateManager& mgr) {
+  mgr.ApplyDamageToWorld(GetOwnerId(), *this, pos, x12c_curDamageInfo, GetFilter());
+  CSfxManager::AddEmitter(SFXwpn_bomb_explo, GetTranslation(), CVector3f::Zero(), true);
+  mgr.InformListeners(pos, kLNT_BombExplode);
+  mgr.RemoveWeaponId(GetOwnerId(), GetType());
+  mIsNotDetonated = false;
+}
+void CBomb::Touch(CActor& actor, CStateManager& mgr) {
+  if (!mIsNotDetonated) {
+    return;
+  }
+}
+
+void CBomb::AddToRenderer(const CFrustumPlanes& frustum, const CStateManager& mgr) const {
+  CVector3f origin = GetTranslation();
+  float ballRadius = mgr.GetPlayer()->GetMorphBall()->GetBallRadius();
+
+  CAABox aabox(origin - CVector3f(0.9f * ballRadius, 0.9f * ballRadius, 0.9f * ballRadius),
+               origin + CVector3f(0.9f * ballRadius, 0.9f * ballRadius, 0.9f * ballRadius));
+  CVector3f forward = CGraphics::GetViewMatrix().GetForward();
+  CVector3f closestPoint = aabox.ClosestPointAlongVector(forward);
+
+  if (mIsNotDetonated) {
+    if (mFuseTime > 0.5f) {
+      gpRender->AddParticleGen(*mParticle1, closestPoint, aabox);
+    } else {
+      gpRender->AddParticleGen(*mParticle2, closestPoint, aabox);
+    }
+  } else {
+    gpRender->AddParticleGen(*mParticle2, closestPoint, aabox);
+  }
+}
+
+void CBomb::fn_80090450() {}
+
+// Equivelant, https://decomp.me/scratch/cr4FM
+void CBomb::Think(float dt, CStateManager& mgr) {
+  CWeapon::Think(dt, mgr);
+  if (mIsNotDetonated) {
+    if (mFuseTime <= 0.f) {
+      Explode(GetTranslation(), mgr);
+      if (CGameLight* light = TCastToPtr< CGameLight >(mgr.ObjectById(mLightId))) {
+        light->SetActive(true);
+      }
+    }
+
+    if (mFuseTime > 0.5f) {
+      mParticle1->Update(dt);
+    } else {
+      UpdateLight(dt, mgr);
+    }
+
+    if (!mDisableFuse) {
+      mFuseTime -= dt;
+    }
+  } else {
+    UpdateLight(dt, mgr);
+
+    if (mParticle2->IsSystemDeletable()) {
+      mgr.DeleteObjectRequest(GetUniqueId());
+    }
+  }
+
+  if (mIsNotDetonated) {
+    if (mAcceleration.MagSquared() > 0.f) {
+      mVelocity += dt * mAcceleration;
+    }
+
+    if (mVelocity.MagSquared() > 0.f) {
+      mPrevLocation = GetTranslation();
+      CVector3f nextPos = (dt * mVelocity);
+      SetTranslation(nextPos + GetTranslation());
+      CVector3f diffVec = GetTranslation() - mPrevLocation;
+      float diffMag = diffVec.Magnitude();
+      if (diffMag == 0.f) {
+        Explode(GetTranslation(), mgr);
+      } else {
+        static const CMaterialFilter kSolidFilter = CMaterialFilter::MakeIncludeExclude(
+            CMaterialList(kMT_Solid),
+            CMaterialList(kMT_Character, kMT_Player, kMT_ProjectilePassthrough));
+        CVector3f direction = (1.f / diffMag) * diffVec;
+        CRayCastResult res =
+            mgr.RayStaticIntersection(mPrevLocation, direction, diffMag, kSolidFilter);
+
+        if (res.IsValid()) {
+          Explode(GetTranslation(), mgr);
+        }
+      }
+    }
+  }
+
+  mParticle1->SetGlobalTranslation(GetTranslation());
+  mParticle2->SetGlobalTranslation(GetTranslation());
+}

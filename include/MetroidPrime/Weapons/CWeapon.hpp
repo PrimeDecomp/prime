@@ -31,10 +31,10 @@ public:
     kPA_KeepInCinematic = (1 << 17),
   };
 
-  CWeapon(const TUniqueId uid, const TAreaId areaId, const bool active, const TUniqueId owner, const EWeaponType type,
-          const rstl::string& name, const CTransform4f& xf, const CMaterialFilter& filter,
-          const CMaterialList& mList, const CDamageInfo& dInfo, const int attribs,
-          const CModelData& mData);
+  CWeapon(const TUniqueId uid, const TAreaId areaId, const bool active, const TUniqueId owner,
+          const EWeaponType type, const rstl::string& name, const CTransform4f& xf,
+          const CMaterialFilter& filter, const CMaterialList& mList, const CDamageInfo& dInfo,
+          const int attribs, const CModelData& mData);
 
   // CEntity
   ~CWeapon() override;
@@ -56,6 +56,7 @@ public:
   EWeaponType GetType() const { return xf0_weaponType; }
   CMaterialFilter GetFilter() const { return xf8_filter; }
   CDamageInfo& OrigDamageInfo() { return x110_origDamageInfo; }
+  CDamageInfo& CurrentDamageInfo() { return x12c_curDamageInfo; }
   float GetInterferenceDuration() const { return x154_interferenceDuration; }
 
   void SetOwnerId(TUniqueId id) { xec_ownerId = id; }
