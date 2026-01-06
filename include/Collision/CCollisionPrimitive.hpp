@@ -40,6 +40,8 @@ public:
   };
 
   class Comparison {};
+  class BooleanComparison {};
+  class MovingComparison {};
 
   CCollisionPrimitive(const CMaterialList& list);
 
@@ -57,6 +59,8 @@ public:
   static void InitEndTypes();
   static void InitBeginColliders();
   static void InitAddCollider(const Comparison& comp);
+  static void InitAddBooleanCollider(const BooleanComparison& comp);
+  static void InitAddMovingCollider(const MovingComparison& comp);
   static void InitAddCollider(ComparisonFunc comp, const char*, const char*);
   static void InitAddBooleanCollider(BooleanComparisonFunc comp, const char*, const char*);
   static void InitAddMovingCollider(MovingComparisonFunc comp, const char*, const char*);
@@ -83,6 +87,11 @@ private:
   static rstl::single_ptr< ComparisonFunc > sTableOfCollidables;
   static rstl::single_ptr< BooleanComparisonFunc > sTableOfBooleanCollidables;
   static rstl::single_ptr< MovingComparisonFunc > sTableOfMovingCollidables;
+
+  static bool InternalCollide(const CInternalCollisionStructure&, CCollisionInfoList&);
+  static bool InternalCollideMoving(const CInternalCollisionStructure&, const CVector3f&, double&,
+                                    CCollisionInfo&);
+  static bool InternalCollideBoolean(const CInternalCollisionStructure&);
 
   uint x4_;
   CMaterialList x8_material;

@@ -1,4 +1,6 @@
 #include "Collision/CCollisionPrimitive.hpp"
+#include "Collision/CCollisionInfoList.hpp"
+#include "Collision/CInternalCollisionStructure.hpp"
 #include "Collision/InternalColliders.hpp"
 #include "Kyoto/Alloc/CMemory.hpp"
 #include <string.h>
@@ -10,7 +12,7 @@ bool CCollisionPrimitive::sTypesAdding = false;
 bool CCollisionPrimitive::sCollidersAdded = false;
 bool CCollisionPrimitive::sCollidersAdding = false;
 
-int sNullCollider;
+ComparisonFunc sNullCollider;
 BooleanComparisonFunc sNullBooleanCollider;
 MovingComparisonFunc sNullMovingCollider;
 
@@ -56,20 +58,77 @@ void CCollisionPrimitive::InitBeginColliders() {
 }
 
 void CCollisionPrimitive::InitEndColliders() {
-  int i = 0;
-  int j = 0;
+  // dumb dumb dumb
+  ComparisonFunc* funcs1 = sTableOfCollidables.get();
   for (int i = 0; i < sNumTypes; ++i) {
+    // dumb dumb dumb
+    ComparisonFunc func1 = funcs1[i * sNumTypes];
+    // dumb dumb dumb
+    ComparisonFunc* funcs2 = sTableOfCollidables.get();
     for (int j = 0; j < sNumTypes; ++j) {
+      // dumb dumb dumb
+      ComparisonFunc func2 = funcs2[j * sNumTypes];
       if (i == 0xFFFFFFFF || j == 0xFFFFFFFF) {
-        sNullCollider = (i * sNumTypes);
+        sNullCollider = nullptr;
       }
       if (j == 0xFFFFFFFF || i == 0xFFFFFFFF) {
-        sNullCollider = (i * sNumTypes);
+        sNullCollider = nullptr;
       }
+      // DUMB DUMB DUMB DUMB
+      func2 = func2;
     }
+    // DUMB DUMB DUMB DUMB
+    func1 = func1;
   }
 
   sCollidersAdding = false;
   sCollidersAdded = true;
   sInitComplete = true;
 }
+
+void CCollisionPrimitive::InitAddCollider(const Comparison& comp) {}
+void CCollisionPrimitive::InitAddBooleanCollider(const BooleanComparison& comp) {}
+void CCollisionPrimitive::InitAddMovingCollider(const MovingComparison& comp) {}
+
+bool CCollisionPrimitive::InternalCollide(const CInternalCollisionStructure&, CCollisionInfoList&) {
+}
+bool CCollisionPrimitive::InternalCollideMoving(const CInternalCollisionStructure&,
+                                                const CVector3f&, double&, CCollisionInfo&) {}
+
+bool CCollisionPrimitive::InternalCollideBoolean(const CInternalCollisionStructure&) {}
+
+void CCollisionPrimitive::Uninitialize() {
+  sInitComplete = false;
+  sCollidersAdding = false;
+  sCollidersAdded = false;
+  sTypesAdding = false;
+  sTypesAdded = false;
+  sNumTypes = 0;
+  sCollisionTypeList = nullptr;
+  sTableOfCollidables = nullptr;
+  sTableOfBooleanCollidables = nullptr;
+  sTableOfMovingCollidables = nullptr;
+}
+bool CCollisionPrimitive::CollideBoolean(const CInternalCollisionStructure::CPrimDesc& prim0,
+                                         const CInternalCollisionStructure::CPrimDesc& prim1) {
+  return InternalCollideBoolean(CInternalCollisionStructure(prim0, prim1));
+}
+
+bool CCollisionPrimitive::Collide(const CInternalCollisionStructure::CPrimDesc& prim0,
+                                  const CInternalCollisionStructure::CPrimDesc& prim1,
+                                  CCollisionInfoList& list) {
+  return InternalCollide(CInternalCollisionStructure(prim0, prim1), list);
+}
+
+bool CCollisionPrimitive::CollideMoving(const CInternalCollisionStructure::CPrimDesc& prim0,
+                                        const CInternalCollisionStructure::CPrimDesc& prim1,
+                                        const CVector3f& dir, double& dOut,
+                                        CCollisionInfo& infoOut) {
+  return InternalCollideMoving(CInternalCollisionStructure(prim0, prim1), dir, dOut, infoOut);
+}
+
+void CCollisionPrimitive::InitAddCollider(ComparisonFunc comp, const char*, const char*) {}
+void CCollisionPrimitive::InitAddBooleanCollider(BooleanComparisonFunc comp, const char*,
+                                                 const char*) {}
+void CCollisionPrimitive::InitAddMovingCollider(MovingComparisonFunc comp, const char*,
+                                                const char*) {}
