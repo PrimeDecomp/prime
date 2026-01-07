@@ -56,9 +56,7 @@ private:
 class CAiState {
 public:
   CAiState(CAiStateFunc func, const char* name)
-  : x0_func(func)
-  , x2c_numTriggers(0)
-  , x30_firstTrigger(nullptr) {
+  : x0_func(func), x2c_numTriggers(0), x30_firstTrigger(nullptr) {
     strncpy(xc_name, name, 31);
   }
 

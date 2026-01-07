@@ -3,10 +3,31 @@
 
 #include "MetroidPrime/TGameTypes.hpp"
 
-#include "Kyoto/SObjectTag.hpp"
 #include "Kyoto/Graphics/CColor.hpp"
+#include "Kyoto/SObjectTag.hpp"
 
 class CBeamInfo {
+public:
+  CBeamInfo(s32 beamAttributes, CAssetId contactFxId, CAssetId pulseFxId, CAssetId textureId,
+            CAssetId glowTextureId, s32 length, float radius, float expansionSpeed, float lifeTime,
+            float pulseSpeed, float shutdownTime, float contactFxScale, float pulseFxScale,
+            const CColor& innerColor, const CColor& outerColor, float travelSpeed)
+  : x4_beamAttributes(beamAttributes)
+  , x8_contactFxId(contactFxId)
+  , xc_pulseFxId(pulseFxId)
+  , x10_textureId(textureId)
+  , x14_glowTextureId(glowTextureId)
+  , x18_length(length)
+  , x1c_radius(radius)
+  , x20_expansionSpeed(expansionSpeed)
+  , x24_lifeTime(lifeTime)
+  , x28_pulseSpeed(pulseSpeed)
+  , x2c_shutdownTime(shutdownTime)
+  , x30_contactFxScale(contactFxScale)
+  , x34_pulseFxScale(pulseFxScale)
+  , x38_travelSpeed(travelSpeed)
+  , x3c_innerColor(innerColor)
+  , x40_outerColor(outerColor) {}
 
 private:
   uint x0_;

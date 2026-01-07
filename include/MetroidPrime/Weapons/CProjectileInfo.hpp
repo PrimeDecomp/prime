@@ -24,6 +24,8 @@ public:
                                        const CPlayer& player, bool gravity, float speed, float dt);
 
   TCachedToken< CWeaponDescription >& Token() { return x0_weaponDescription; }
+
+  const CDamageInfo& GetDamage() const { return xc_damageInfo; }
 };
 
 #endif // _CPROJECTILEINFO

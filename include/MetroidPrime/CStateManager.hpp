@@ -130,6 +130,7 @@ public:
   void DeleteObjectRequest(TUniqueId uid);
   rstl::pair< TEditorId, TUniqueId > GenerateObject(const TEditorId& eid);
   void AddObject(CEntity*);
+  void AddObject(CEntity&);
   TUniqueId AllocateUniqueId();
   const rstl::string& HashInstanceName(CInputStream& in);
   bool SwapOutAllPossibleMemory();

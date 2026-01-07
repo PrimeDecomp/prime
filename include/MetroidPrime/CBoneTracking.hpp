@@ -1,11 +1,15 @@
 #ifndef _CBONETRACKING
 #define _CBONETRACKING
 
+#include "MetroidPrime/TGameTypes.hpp"
+
 #include "Kyoto/Animation/CSegId.hpp"
 #include "Kyoto/Math/CQuaternion.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
+#include "MetroidPrime/TGameTypes.hpp"
 
 #include "rstl/optional_object.hpp"
+#include "rstl/string.hpp"
 
 enum EBoneTrackingFlags {
   kBTF_None = 0,
@@ -15,12 +19,19 @@ enum EBoneTrackingFlags {
   kBTF_ParentIk = 8,
 };
 
+class CAnimData;
+class CStateManager;
+class CTransform4f;
+class CBodyController;
+
 class CBoneTracking {
 public:
   CBoneTracking(const CAnimData& animData, const rstl::string& bone, float maxTrackingAngle,
                 float angSpeed, EBoneTrackingFlags flags);
 
   void SetActive(bool v);
+  void PreRender(const CStateManager& mgr, CAnimData& animData, const CTransform4f& xf,
+                 const CVector3f& scale, const CBodyController& controller);
 
 private:
   CQuaternion x0_rotation;
