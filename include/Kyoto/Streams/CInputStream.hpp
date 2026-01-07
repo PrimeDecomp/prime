@@ -28,7 +28,7 @@ public:
   uint ReadLong();
   ushort ReadShort();
   bool ReadBool();
-  uchar ReadChar();
+  char ReadChar();
   uint ReadBits(uint len);
   size_t ReadBytes(void* dest, size_t len);
   void Get(void* dest, unsigned long len);

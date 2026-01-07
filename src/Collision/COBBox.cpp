@@ -7,7 +7,9 @@ COBBox::COBBox(const CTransform4f& xf, const CVector3f& extents)
 
 COBBox::COBBox(CInputStream& in) : mTransform(in), mExtents(in) {}
 
-CAABox COBBox::CalculateAABox(const CTransform4f& xf) const { return CAABox(CVector3f::Zero(), CVector3f::Zero()); }
+CAABox COBBox::CalculateAABox(const CTransform4f& xf) const {
+  return CAABox(CVector3f::Zero(), CVector3f::Zero());
+}
 
 COBBox COBBox::FromAABox(const CAABox& box, const CTransform4f& xf) {
   CVector3f center = box.GetCenterPoint();

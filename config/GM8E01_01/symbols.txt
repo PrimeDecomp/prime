@@ -12272,7 +12272,7 @@ ParseBaseInfo__10CGuiWidgetFP9CGuiFrameR12CInputStreamRCQ210CGuiWidget15CGuiWidg
 __dt__10CGuiWidgetFv = .text:0x802CAC60; // type:function size:0x70 scope:global
 __ct__10CGuiWidgetFRCQ210CGuiWidget15CGuiWidgetParms = .text:0x802CACD0; // type:function size:0x12C scope:global
 ReadWidgetHeader__10CGuiWidgetFP9CGuiFrameR12CInputStream = .text:0x802CADFC; // type:function size:0x108 scope:global
-Create__10CGuiWidgetFP9CGuiFrameR12CInputStreamb = .text:0x802CAF04; // type:function size:0xD8 scope:global
+Create__10CGuiWidgetFP9CGuiFrameR12CInputStreamP11CSimplePool = .text:0x802CAF04; // type:function size:0xD8 scope:global
 __ct__Q210CGuiWidget15CGuiWidgetParmsFP9CGuiFramebssbbbRC6CColorQ210CGuiWidget18EGuiModelDrawFlagsbb = .text:0x802CAFDC; // type:function size:0x44 scope:global
 FindWidgetID__14CGuiWidgetIdDBCFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator> = .text:0x802CB020; // type:function size:0x88 scope:global
 AddWidget__14CGuiWidgetIdDBFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator> = .text:0x802CB0A8; // type:function size:0xA8 scope:global

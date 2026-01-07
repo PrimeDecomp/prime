@@ -9,7 +9,8 @@
 
 class CFinalInput;
 class CGuiFrame;
-
+class CInputStream;
+class CSimplePool;
 enum ETraversalMode {
   kTM_ChildrenAndSiblings = 0,
   kTM_Children = 1,
@@ -27,8 +28,9 @@ public:
   };
   class CGuiWidgetParms {
   public:
-    CGuiWidgetParms(CGuiFrame*, const rstl::string&, bool, short, short, bool, bool, bool,
-                    const CColor&, CGuiWidget::EGuiModelDrawFlags, bool, bool);
+    CGuiWidgetParms(CGuiFrame* frame, bool useAnimController, short selfId, short parentId,
+                    bool defaultVisible, bool defaultActive, bool cullFaces, const CColor& color,
+                    EGuiModelDrawFlags drawFlags, bool g, bool h);
     CGuiFrame* x0_frame;
     bool x4_useAnimController;
     short x6_selfId;
@@ -68,6 +70,7 @@ public:
 
   CGuiFrame* GetFrame() { return xb0_frame; }
 
+  static CGuiWidget* Create(CGuiFrame* frame, CInputStream& in, CSimplePool* sp);
   static const short InvalidWidgetId() { return gkInvalidWidgetId; }
 
 private:

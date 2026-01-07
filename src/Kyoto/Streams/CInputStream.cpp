@@ -143,13 +143,13 @@ uint CInputStream::ReadBits(uint bitCount) {
   return ret;
 }
 
-uchar CInputStream::ReadChar() {
-  static uchar c;
-  Get(&c, sizeof(uchar));
+char CInputStream::ReadChar() {
+  static char c;
+  Get(&c, sizeof(char));
   return c;
 }
 
-bool CInputStream::ReadBool() { return static_cast< bool >(ReadChar()); }
+bool CInputStream::ReadBool() { return static_cast< uchar >(ReadChar()) != 0; }
 
 ushort CInputStream::ReadShort() {
   static ushort s;

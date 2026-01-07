@@ -1,6 +1,7 @@
 #ifndef _CGUIFRAME
 #define _CGUIFRAME
 
+#include "GuiSys/CGuiWidgetIdDB.hpp"
 #include "rstl/string.hpp"
 
 class CGuiWidget;
@@ -15,9 +16,12 @@ public:
   void AddLight(CGuiLight* light);
   void RemoveLight(CGuiLight* light);
 
+  CGuiWidgetIdDB& WidgetIdDB() { return x18_db; }
+
 private:
-  char x0_pad[0x14];
+  char x0_[0x14];
   CGuiCamera* x14_camera;
+  CGuiWidgetIdDB x18_db;
 };
 
 #endif // _CGUIFRAME

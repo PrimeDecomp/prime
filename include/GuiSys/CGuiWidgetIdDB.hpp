@@ -8,8 +8,9 @@ class CGuiWidgetIdDB {
 public:
   CGuiWidgetIdDB();
   void Reserve(int);
-  int AddWidget(const rstl::string& name);
-  short FindWidgetID(const rstl::string& name) const;
+  const short AddWidget(const rstl::string& name);
+  const short FindWidgetID(const rstl::string& name) const;
+
 private:
   rstl::vector< rstl::string > x0_db;
 };
