@@ -16,6 +16,7 @@
 #include "MetroidPrime/CPoseAsTransforms.hpp"
 
 #include "Kyoto/Animation/CCharAnimTime.hpp"
+#include "Kyoto/Animation/CCharLayoutInfo.hpp"
 #include "Kyoto/Animation/CSkinnedModel.hpp"
 #include "Kyoto/TToken.hpp"
 
@@ -142,7 +143,7 @@ public:
 
   short GetCurrentAnimation() const { return x208_currentAnim; }
   const CCharacterInfo& GetCharacterInfo() const { return xc_charInfo; }
-  // GetCharLayoutInfo__9CAnimDataCFv
+  const CCharLayoutInfo* GetCharLayoutInfo() const { return *xcc_layoutData; }
   // GetDeltaRotation__9CAnimDataCFv
   // GetDeltaOffset__9CAnimDataCFv
   // IsDeltaOffsetInUse__9CAnimDataCFv

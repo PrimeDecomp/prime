@@ -6088,7 +6088,7 @@ AcceptScriptMsg__14CScriptHUDMemoF20EScriptObjectMessage9TUniqueIdR13CStateManag
 __dt__14CScriptHUDMemoFv = .text:0x800E8548; // type:function size:0x98 scope:global
 __ct__14CScriptHUDMemoF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC13CHUDMemoParmsQ214CScriptHUDMemo12EDisplayTypeUib = .text:0x800E85E0; // type:function size:0x20C scope:global
 AdjustTransformForType__15CMappableObjectCFv = .text:0x800E87EC; // type:function size:0x2D4 scope:global
-GetIsVisibleToAutoMapper__15CMappableObjectFbRC13CMapWorldInfo = .text:0x800E8AC0; // type:function size:0x100 scope:global
+GetIsVisibleToAutoMapper__15CMappableObjectCFbRC13CMapWorldInfo = .text:0x800E8AC0; // type:function size:0x100 scope:global
 BuildSurfaceCenterPoint__15CMappableObjectCFi = .text:0x800E8BC0; // type:function size:0x14C scope:global
 DrawDoorSurface__15CMappableObjectCFiRC13CMapWorldInfofib = .text:0x800E8D0C; // type:function size:0x11C scope:global
 Draw__15CMappableObjectCFiRC13CMapWorldInfofb = .text:0x800E8E28; // type:function size:0x3DC scope:global

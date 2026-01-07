@@ -260,6 +260,8 @@ public:
   const CVector3f& GetMoveVector() const { return x310_moveVec; }
   void SetMoveVector(const CVector3f& vec) { x310_moveVec = vec; }
 
+  bool ApplyBoneTracking() const;
+
   template < class T >
   static T* CastTo(const TPatternedCast< T >& ent);
 

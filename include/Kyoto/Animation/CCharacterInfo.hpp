@@ -6,6 +6,7 @@
 #include "Kyoto/Animation/CEffectComponent.hpp"
 
 #include "Kyoto/Animation/CPASDatabase.hpp"
+#include "Kyoto/Animation/CSegId.hpp"
 #include "Kyoto/IObjectStore.hpp"
 #include "Kyoto/Math/CAABox.hpp"
 
@@ -24,7 +25,9 @@ public:
   };
 
   const CPASDatabase& GetPASDatabase() const { return x30_pasDatabase; }
-  const rstl::vector< rstl::pair< rstl::string, CAABox > >& GetAnimBBoxList() const { return x88_aabbs; }
+  const rstl::vector< rstl::pair< rstl::string, CAABox > >& GetAnimBBoxList() const {
+    return x88_aabbs;
+  }
 
 private:
   ushort x0_tableCount;
