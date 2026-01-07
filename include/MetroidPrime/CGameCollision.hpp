@@ -7,16 +7,22 @@
 
 class CAreaCollisionCache;
 class CCollisionInfo;
+class CCollisionInfoList;
 class CCollisionPrimitive;
 class CMaterialFilter;
 class CStateManager;
 class CTransform4f;
 class CRayCastResult;
 class CPhysicsActor;
+class CInternalCollisionStructure;
 
 class CGameCollision {
 public:
   static void InitCollision();
+  static bool NullCollisionCollider(const CInternalCollisionStructure&, CCollisionInfoList&);
+  static bool NullBooleanCollider(const CInternalCollisionStructure&);
+  static bool NullMovingCollider(const CInternalCollisionStructure&, const CVector3f&, double&,
+                                 CCollisionInfo&);
   static bool DetectStaticCollisionBoolean(const CStateManager&, const CCollisionPrimitive&,
                                            const CTransform4f&, const CMaterialFilter&);
   static bool DetectDynamicCollisionBoolean(const CCollisionPrimitive&, const CTransform4f&,
@@ -43,8 +49,12 @@ public:
   FindNonIntersectingVector(const CStateManager& mgr, CAreaCollisionCache& cache,
                             CPhysicsActor& actor, const CCollisionPrimitive& prim,
                             const TEntityList& nearList); // name?
-
   static void Move(CStateManager& mgr, CPhysicsActor& actor, float dt, const TEntityList*);
+
+  static void ShowCollisionResults(CCollisionInfoList& list, const CColor& color);
+  static float GetCoefficientOfRestitution(const CCollisionInfo& info);
+  static bool IsFloor(const CMaterialList& material, const CVector3f& normal);
+  static bool CanBlock(const CMaterialList& material, const CVector3f& normal);
 };
 
 #endif // _CGAMECOLLISION

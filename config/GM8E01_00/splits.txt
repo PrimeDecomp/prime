@@ -2497,7 +2497,7 @@ Collision/InternalColliders.cpp:
 Collision/CCollisionPrimitive.cpp:
 	.text       start:0x802CE684 end:0x802CFC08
 	.ctors      start:0x803CB2F0 end:0x803CB2F4
-	.rodata     start:0x803D6A48 end:0x803D6A50
+	.rodata     start:0x803D6A48 end:0x803D6A4f
 	.bss        start:0x804794E0 end:0x80479510
 	.sbss       start:0x805A9210 end:0x805A9238
 

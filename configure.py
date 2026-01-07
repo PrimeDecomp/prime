@@ -844,7 +844,7 @@ config.libs = [
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Collision/CCollidableCollisionSurface.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Collision/CCollisionInfo.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Collision/InternalColliders.cpp"),
-            Object(MatchingFor("GM8E01_00"), "Collision/CCollisionPrimitive.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Collision/CCollisionPrimitive.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Collision/CMaterialList.cpp"),
             Object(NonMatching, "Collision/CollisionUtil.cpp"),
             Object(NonMatching, "Collision/CCollidableSphere.cpp"),

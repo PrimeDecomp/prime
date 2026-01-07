@@ -38,6 +38,18 @@ public:
 
   static Type GetType();
   static void SetStaticTableIndex(uint);
+
+  /* Sphere Collide */
+  static bool SphereCollide(const CInternalCollisionStructure&, CCollisionInfoList&);
+  static bool SphereCollideBoolean(const CInternalCollisionStructure&);
+  static bool CollideMovingSphere(const CInternalCollisionStructure&, const CVector3f&, double&,
+                                  CCollisionInfo&);
+  /* AABox Collide */
+  static bool AABoxCollide(const CInternalCollisionStructure&, CCollisionInfoList&);
+  static bool AABoxCollideBoolean(const CInternalCollisionStructure&);
+  static bool CollideMovingAABox(const CInternalCollisionStructure&, const CVector3f&, double&,
+                                 CCollisionInfo&);
+
 private:
   CCollidableOBBTreeGroupContainer* x10_container;
 };
