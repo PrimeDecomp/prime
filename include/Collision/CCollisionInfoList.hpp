@@ -21,6 +21,11 @@ public:
       x0_list.push_back(info.GetSwapped());
   }
   int GetCount() const { return x0_list.size(); }
+  void Swap(const int idx) {
+    for (int i = idx; i < GetCount(); ++i) {
+      x0_list[i].Swap();
+    }
+  }
 
   iterator End() { return x0_list.end(); }
   const_iterator End() const { return x0_list.end(); }

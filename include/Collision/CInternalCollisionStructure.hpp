@@ -28,8 +28,10 @@ public:
 
   const CPrimDesc& GetLeft() const { return x0_left; }
   const CPrimDesc& GetRight() const { return x38_right; }
-  CInternalCollisionStructure
-  GetSwapped() const; // TODO: Find where this is used and investigate proper behavior
+  CInternalCollisionStructure GetSwapped() const {
+    return CInternalCollisionStructure(x38_right, x0_left);
+  }
+
 private:
   CPrimDesc x0_left;
   CPrimDesc x38_right;

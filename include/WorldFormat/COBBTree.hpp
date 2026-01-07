@@ -8,6 +8,7 @@
 #include "rstl/vector.hpp"
 
 class COBBTree {
+  class CNode {};
   struct SIndexData {
     rstl::vector< uint > x0_materials;
     rstl::vector< uchar > x10_vertMaterials;
@@ -21,6 +22,7 @@ class COBBTree {
 
 public:
   COBBTree(CInputStream& in);
+  COBBTree(const SIndexData& indexData, const CNode* root);
   ~COBBTree();
 
 private:

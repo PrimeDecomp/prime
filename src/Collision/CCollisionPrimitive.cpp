@@ -1,8 +1,12 @@
 #include "Collision/CCollisionPrimitive.hpp"
+#include "Collision/CCollisionInfo.hpp"
 #include "Collision/CCollisionInfoList.hpp"
 #include "Collision/CInternalCollisionStructure.hpp"
+#include "Collision/CMaterialFilter.hpp"
 #include "Collision/InternalColliders.hpp"
+
 #include "Kyoto/Alloc/CMemory.hpp"
+#include <limits.h>
 #include <string.h>
 
 int CCollisionPrimitive::sNumTypes = 0;
@@ -12,15 +16,14 @@ bool CCollisionPrimitive::sTypesAdding = false;
 bool CCollisionPrimitive::sCollidersAdded = false;
 bool CCollisionPrimitive::sCollidersAdding = false;
 
-ComparisonFunc sNullCollider;
-BooleanComparisonFunc sNullBooleanCollider;
-MovingComparisonFunc sNullMovingCollider;
-
 rstl::single_ptr< rstl::vector< CCollisionPrimitive::Type > >
     CCollisionPrimitive::sCollisionTypeList;
 rstl::single_ptr< ComparisonFunc > CCollisionPrimitive::sTableOfCollidables;
 rstl::single_ptr< BooleanComparisonFunc > CCollisionPrimitive::sTableOfBooleanCollidables;
 rstl::single_ptr< MovingComparisonFunc > CCollisionPrimitive::sTableOfMovingCollidables;
+static ComparisonFunc sNullCollider = nullptr;
+static BooleanComparisonFunc sNullBooleanCollider = nullptr;
+static MovingComparisonFunc sNullMovingCollider = nullptr;
 
 CCollisionPrimitive::CCollisionPrimitive(const CMaterialList& list) : x8_material(list) {}
 
@@ -68,10 +71,10 @@ void CCollisionPrimitive::InitEndColliders() {
     for (int j = 0; j < sNumTypes; ++j) {
       // dumb dumb dumb
       ComparisonFunc func2 = funcs2[j * sNumTypes];
-      if (i == 0xFFFFFFFF || j == 0xFFFFFFFF) {
+      if (i == UINT_MAX || j == UINT_MAX) {
         sNullCollider = nullptr;
       }
-      if (j == 0xFFFFFFFF || i == 0xFFFFFFFF) {
+      if (j == UINT_MAX || i == UINT_MAX) {
         sNullCollider = nullptr;
       }
       // DUMB DUMB DUMB DUMB
@@ -86,16 +89,170 @@ void CCollisionPrimitive::InitEndColliders() {
   sInitComplete = true;
 }
 
-void CCollisionPrimitive::InitAddCollider(const Comparison& comp) {}
-void CCollisionPrimitive::InitAddBooleanCollider(const BooleanComparison& comp) {}
-void CCollisionPrimitive::InitAddMovingCollider(const MovingComparison& comp) {}
-
-bool CCollisionPrimitive::InternalCollide(const CInternalCollisionStructure&, CCollisionInfoList&) {
+inline ComparisonFunc* CCollisionPrimitive::ColliderFromTable(const int index1, const int index2) {
+  ComparisonFunc* func = nullptr;
+  if (index1 == UINT_MAX || index2 == UINT_MAX) {
+    func = &sNullCollider;
+    sNullCollider = nullptr;
+  } else {
+    func = &sTableOfCollidables.get()[index1 + index2 * sNumTypes];
+  }
+  return func;
 }
-bool CCollisionPrimitive::InternalCollideMoving(const CInternalCollisionStructure&,
-                                                const CVector3f&, double&, CCollisionInfo&) {}
 
-bool CCollisionPrimitive::InternalCollideBoolean(const CInternalCollisionStructure&) {}
+void CCollisionPrimitive::InitAddCollider(const Comparison& comp) {
+  const int index1 = TypeIndexFromTypeInfo(comp.GetType1());
+  const int index2 = TypeIndexFromTypeInfo(comp.GetType2());
+  const bool inRange =
+      (index1 < sNumTypes) && (index2 < sNumTypes) && (index1 >= 0) && (index2 >= 0);
+
+  if (inRange) {
+    ComparisonFunc* func = ColliderFromTable(index1, index2);
+    *func = comp.GetCollider();
+  }
+}
+
+inline BooleanComparisonFunc* CCollisionPrimitive::BooleanColliderFromTable(const int index1,
+                                                                            const int index2) {
+  BooleanComparisonFunc* func = nullptr;
+  if (index1 == UINT_MAX || index2 == UINT_MAX) {
+    func = &sNullBooleanCollider;
+    sNullBooleanCollider = nullptr;
+  } else {
+    func = &sTableOfBooleanCollidables.get()[index1 + index2 * sNumTypes];
+  }
+
+  return func;
+}
+
+void CCollisionPrimitive::InitAddBooleanCollider(const BooleanComparison& comp) {
+  const int index1 = TypeIndexFromTypeInfo(comp.GetType1());
+  const int index2 = TypeIndexFromTypeInfo(comp.GetType2());
+  const bool inRange =
+      (index1 < sNumTypes) && (index2 < sNumTypes) && (index1 >= 0) && (index2 >= 0);
+
+  if (inRange) {
+    BooleanComparisonFunc* func = BooleanColliderFromTable(index1, index2);
+    *func = comp.GetCollider();
+  }
+}
+
+inline MovingComparisonFunc* CCollisionPrimitive::MovingColliderFromTable(const int index1,
+                                                                          const int index2) {
+  MovingComparisonFunc* func = nullptr;
+  if (index1 == UINT_MAX || index2 == UINT_MAX) {
+    func = &sNullMovingCollider;
+    sNullMovingCollider = nullptr;
+  } else {
+    func = &sTableOfMovingCollidables.get()[index1 + index2 * sNumTypes];
+  }
+  return func;
+}
+void CCollisionPrimitive::InitAddMovingCollider(const MovingComparison& comp) {
+  const int index1 = TypeIndexFromTypeInfo(comp.GetType1());
+  const int index2 = TypeIndexFromTypeInfo(comp.GetType2());
+  const bool inRange =
+      (index1 < sNumTypes) && (index2 < sNumTypes) && (index1 >= 0) && (index2 >= 0);
+
+  if (inRange) {
+    MovingComparisonFunc* func = MovingColliderFromTable(index1, index2);
+    *func = comp.GetCollider();
+  }
+}
+
+bool CCollisionPrimitive::InternalCollide(const CInternalCollisionStructure& collision,
+                                          CCollisionInfoList& list) {
+  const CCollisionPrimitive& leftPrim = collision.GetLeft().GetPrim();
+  const CCollisionPrimitive& rightPrim = collision.GetRight().GetPrim();
+  const CMaterialFilter& leftFilter = collision.GetLeft().GetFilter();
+  const CMaterialFilter& rightFilter = collision.GetRight().GetFilter();
+
+  const int leftIndex = leftPrim.GetTableIndex();
+  const int rightIndex = rightPrim.GetTableIndex();
+
+  if (ComparisonFunc func = *ColliderFromTable(leftIndex, rightIndex)) {
+    if (!leftFilter.Passes(rightPrim.GetMaterial()) ||
+        !rightFilter.Passes(leftPrim.GetMaterial())) {
+      return false;
+    }
+
+    return func(collision, list);
+  }
+
+  if (ComparisonFunc func = *ColliderFromTable(rightIndex, leftIndex)) {
+    if (!leftFilter.Passes(rightPrim.GetMaterial()) ||
+        !rightFilter.Passes(leftPrim.GetMaterial())) {
+      return false;
+    }
+
+    CInternalCollisionStructure swapped = collision.GetSwapped();
+    int startListCount = list.GetCount();
+    if (func(swapped, list)) {
+      list.Swap(startListCount);
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  return false;
+}
+
+bool CCollisionPrimitive::InternalCollideMoving(const CInternalCollisionStructure& collision,
+                                                const CVector3f& dir, double& dOut,
+                                                CCollisionInfo& infoOut) {
+  const CCollisionPrimitive& leftPrim = collision.GetLeft().GetPrim();
+  const CCollisionPrimitive& rightPrim = collision.GetRight().GetPrim();
+  const CMaterialFilter& leftFilter = collision.GetLeft().GetFilter();
+  const CMaterialFilter& rightFilter = collision.GetRight().GetFilter();
+
+  const int leftIndex = leftPrim.GetTableIndex();
+  const int rightIndex = rightPrim.GetTableIndex();
+
+  MovingComparisonFunc func = *MovingColliderFromTable(leftIndex, rightIndex);
+  if (func) {
+    if (!leftFilter.Passes(rightPrim.GetMaterial()) ||
+        !rightFilter.Passes(leftPrim.GetMaterial())) {
+      return false;
+    }
+
+    return func(collision, dir, dOut, infoOut);
+  }
+
+  return false;
+}
+
+bool CCollisionPrimitive::InternalCollideBoolean(const CInternalCollisionStructure& collision) {
+  const CCollisionPrimitive& leftPrim = collision.GetLeft().GetPrim();
+  const CCollisionPrimitive& rightPrim = collision.GetRight().GetPrim();
+  const CMaterialFilter& leftFilter = collision.GetLeft().GetFilter();
+  const CMaterialFilter& rightFilter = collision.GetRight().GetFilter();
+
+  const int leftIndex = leftPrim.GetTableIndex();
+  const int rightIndex = rightPrim.GetTableIndex();
+
+  if (BooleanComparisonFunc func = *BooleanColliderFromTable(leftIndex, rightIndex)) {
+    if (!leftFilter.Passes(rightPrim.GetMaterial()) ||
+        !rightFilter.Passes(leftPrim.GetMaterial())) {
+      return false;
+    }
+
+    return func(collision);
+  }
+
+  if (BooleanComparisonFunc func = *BooleanColliderFromTable(rightIndex, leftIndex)) {
+    if (!leftFilter.Passes(rightPrim.GetMaterial()) ||
+        !rightFilter.Passes(leftPrim.GetMaterial())) {
+      return false;
+    }
+
+    CInternalCollisionStructure swapped = collision.GetSwapped();
+    return func(swapped) ? true : false;
+  }
+
+  CCollisionInfoList list;
+  return InternalCollide(collision, list);
+}
 
 void CCollisionPrimitive::Uninitialize() {
   sInitComplete = false;
@@ -127,8 +284,18 @@ bool CCollisionPrimitive::CollideMoving(const CInternalCollisionStructure::CPrim
   return InternalCollideMoving(CInternalCollisionStructure(prim0, prim1), dir, dOut, infoOut);
 }
 
-void CCollisionPrimitive::InitAddCollider(ComparisonFunc comp, const char*, const char*) {}
-void CCollisionPrimitive::InitAddBooleanCollider(BooleanComparisonFunc comp, const char*,
-                                                 const char*) {}
-void CCollisionPrimitive::InitAddMovingCollider(MovingComparisonFunc comp, const char*,
-                                                const char*) {}
+void CCollisionPrimitive::InitAddCollider(ComparisonFunc comp, const char* type1,
+                                          const char* type2) {
+  Comparison collider(comp, type1, type2);
+  InitAddCollider(collider);
+}
+void CCollisionPrimitive::InitAddBooleanCollider(BooleanComparisonFunc comp, const char* type1,
+                                                 const char* type2) {
+  BooleanComparison collider(comp, type1, type2);
+  InitAddBooleanCollider(collider);
+}
+void CCollisionPrimitive::InitAddMovingCollider(MovingComparisonFunc comp, const char* type1,
+                                                const char* type2) {
+  MovingComparison collider(comp, type1, type2);
+  InitAddMovingCollider(collider);
+}

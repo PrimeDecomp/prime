@@ -1,5 +1,5 @@
-#include <GuiSys/CGuiWidgetIdDB.hpp>
 #include <GuiSys/CGuiWidget.hpp>
+#include <GuiSys/CGuiWidgetIdDB.hpp>
 
 CGuiWidgetIdDB::CGuiWidgetIdDB() {
   x0_db.reserve(4);
@@ -9,11 +9,9 @@ CGuiWidgetIdDB::CGuiWidgetIdDB() {
   AddWidget(rstl::string_l("kGSYS_DefaultLightID"));
 }
 
-void CGuiWidgetIdDB::Reserve(int size) {
-  x0_db.reserve(size + x0_db.size());
-}
+void CGuiWidgetIdDB::Reserve(int size) { x0_db.reserve(size + x0_db.size()); }
 
-int CGuiWidgetIdDB::AddWidget(const rstl::string& name) {
+const short CGuiWidgetIdDB::AddWidget(const rstl::string& name) {
   short id = FindWidgetID(name);
   if (id == CGuiWidget::InvalidWidgetId()) {
     x0_db.push_back(name);
@@ -23,7 +21,7 @@ int CGuiWidgetIdDB::AddWidget(const rstl::string& name) {
   return id;
 }
 
-short CGuiWidgetIdDB::FindWidgetID(const rstl::string& name) const {
+const short CGuiWidgetIdDB::FindWidgetID(const rstl::string& name) const {
   for (int i = 0; i < x0_db.size(); ++i) {
     if (x0_db[i] == name) {
       return i;
@@ -33,6 +31,4 @@ short CGuiWidgetIdDB::FindWidgetID(const rstl::string& name) const {
   return CGuiWidget::InvalidWidgetId();
 }
 
-static void keep_string() {
-    static const char* derp ="not found";
-}
+static void keep_string() { static const char* derp = "not found"; }

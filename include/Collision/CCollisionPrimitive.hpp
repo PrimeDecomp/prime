@@ -12,6 +12,8 @@
 
 #include "rstl/single_ptr.hpp"
 #include "rstl/vector.hpp"
+#include <limits.h>
+#include <string.h>
 
 class CRayCastResult;
 class CCollisionInfoList;
@@ -39,9 +41,50 @@ public:
     const char* mInfo;
   };
 
-  class Comparison {};
-  class BooleanComparison {};
-  class MovingComparison {};
+  class Comparison {
+  public:
+    Comparison(ComparisonFunc collider, const char* type1, const char* type2)
+    : mCollider(collider), mType1(type1), mType2(type2) {}
+
+    ComparisonFunc GetCollider() const { return mCollider; }
+    const char* GetType1() const { return mType1; }
+    const char* GetType2() const { return mType2; }
+
+  private:
+    ComparisonFunc mCollider;
+    const char* mType1;
+    const char* mType2;
+  };
+
+  class BooleanComparison {
+  public:
+    BooleanComparison(BooleanComparisonFunc collider, const char* type1, const char* type2)
+    : mCollider(collider), mType1(type1), mType2(type2) {}
+
+    BooleanComparisonFunc GetCollider() const { return mCollider; }
+    const char* GetType1() const { return mType1; }
+    const char* GetType2() const { return mType2; }
+
+  private:
+    BooleanComparisonFunc mCollider;
+    const char* mType1;
+    const char* mType2;
+  };
+
+  class MovingComparison {
+  public:
+    MovingComparison(MovingComparisonFunc collider, const char* type1, const char* type2)
+    : mCollider(collider), mType1(type1), mType2(type2) {}
+
+    MovingComparisonFunc GetCollider() const { return mCollider; }
+    const char* GetType1() const { return mType1; }
+    const char* GetType2() const { return mType2; }
+
+  private:
+    MovingComparisonFunc mCollider;
+    const char* mType1;
+    const char* mType2;
+  };
 
   CCollisionPrimitive(const CMaterialList& list);
 
@@ -75,6 +118,22 @@ public:
   static bool CollideMoving(const CInternalCollisionStructure::CPrimDesc& prim0,
                             const CInternalCollisionStructure::CPrimDesc& prim1,
                             const CVector3f& dir, double& dOut, CCollisionInfo& infoOut);
+
+  static int TypeIndexFromTypeInfo(const char* name) {
+    rstl::vector< Type >::const_iterator iter = sCollisionTypeList->begin();
+
+    for (int i = 0; i < sCollisionTypeList->size(); ++i) {
+      if (strcmp(sCollisionTypeList->at(i).GetInfo(), name) == 0) {
+        return i;
+      }
+    }
+
+    return -1;
+  }
+
+  static ComparisonFunc* ColliderFromTable(const int index1, const int index2);
+  static BooleanComparisonFunc* BooleanColliderFromTable(const int index1, const int index2);
+  static MovingComparisonFunc* MovingColliderFromTable(const int index1, const int index2);
 
 private:
   static int sNumTypes;
