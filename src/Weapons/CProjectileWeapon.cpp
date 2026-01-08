@@ -147,7 +147,8 @@ bool CProjectileWeapon::Update(float dt) {
     useDt = 0.f;
   }
   xd0_curTime += useDt;
-  while (actualTime < xd0_curTime && !close_enough(actualTime, xd0_curTime, 1.6666666666666667e-5)) {
+  while (actualTime < xd0_curTime &&
+         !close_enough(actualTime, xd0_curTime, 1.6666666666666667e-5)) {
     if (xf4_curFrame < xe8_lifetime) {
       CParticleGlobals::SetEmitterTime(xf4_curFrame);
       CParticleGlobals::SetParticleLifetime(xe8_lifetime);
@@ -242,7 +243,7 @@ void CProjectileWeapon::UpdatePSTranslationAndOrientation() {
 }
 
 void CProjectileWeapon::UpdateChildParticleSystems(float dt) {
-  double useDt = (close_enough(dt, 1.f / 60.f,1.6666666851961054e-5f)) ? 1.0 / 60.0 : dt;
+  double useDt = (close_enough(dt, 1.f / 60.f, 1.6666666851961054e-5f)) ? 1.0 / 60.0 : dt;
 
   if (xfc_APSMGen) {
     if (xf8_lastParticleFrame != xf4_curFrame) {
@@ -442,12 +443,11 @@ rstl::optional_object< TLockedToken< CGenDescription > > CProjectileWeapon::Coll
   x80_localOffset = x14_localToWorldXf.TransposeRotate(pos - x74_worldOffset) - x8c_projOffset;
 
   if (deflected) {
-    CVector3f col;
     CVector3f posToTarget = target - GetTranslation();
     if (useTarget && posToTarget.CanBeNormalized()) {
       SetWorldSpaceOrientation(CTransform4f::LookAt(CVector3f::Zero(), posToTarget.AsNormalized()));
     } else {
-       col= GetTransform().GetColumn(kDY);
+      CVector3f col = GetTransform().GetColumn(kDY);
       CTransform4f lookXf = CTransform4f::LookAt(
           CVector3f::Zero(), col - ((CVector3f::Dot(normal, *(CVector3f*)&col) * 2.f) * normal),
           normal);

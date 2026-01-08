@@ -803,7 +803,7 @@ static const GXVtxDescList skPosColorTexDirect[] = {
     {GX_VA_POS, GX_DIRECT},
     {GX_VA_CLR0, GX_DIRECT},
     {GX_VA_TEX0, GX_DIRECT},
-    {GX_VA_NULL, GX_DIRECT},
+    {GX_VA_NULL, GX_NONE},
 };
 
 void CGraphics::Render2D(const CTexture& tex, int x, int y, int w, int h, const CColor& col) {
