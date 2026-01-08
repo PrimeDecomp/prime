@@ -13,6 +13,7 @@ public:
   CGuiWidget* FindWidget(const rstl::string& name) const;
 
   CGuiCamera* GetFrameCamera() const { return x14_camera; }
+  void SetFrameCamera(CGuiCamera* camera);
   void AddLight(CGuiLight* light);
   void RemoveLight(CGuiLight* light);
 

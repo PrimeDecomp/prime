@@ -2371,14 +2371,19 @@ GuiSys/CAuiMeter.cpp:
 	.sdata      start:0x805A86B0 end:0x805A86BC
 	.sdata2     start:0x805AE080 end:0x805AE090
 
+GuiSys/CGuiCamera.cpp:
+	.text       start:0x802C1444 end:0x802C19F0
+	.rodata     start:0x803D6880 end:0x803D6888
+	.data       start:0x803EC738 end:0x803EC778
+	.sdata2     start:0x805AE090 end:0x805AE0A0
+
 GuiSys/CGuiGroup.cpp:
-	.text       start:0x802C1444 end:0x802C35B8
+	.text       start:0x802C19F0 end:0x802C35B8
 	.ctors      start:0x803CB2E4 end:0x803CB2E8
-	.rodata     start:0x803D6880 end:0x803D68A0
-	.data       start:0x803EC738 end:0x803EC808
+	.rodata     start:0x803D6888 end:0x803D68A0
+	.data       start:0x803EC778 end:0x803EC808
 	.bss        start:0x8059FBD0 end:0x8059FD08 align:4 common
 	.sbss       start:0x805A91F8 end:0x805A9200
-	.sdata2     start:0x805AE090 end:0x805AE0A0
 
 GuiSys/CGuiHeadWidget.cpp:
 	.text       start:0x802C35B8 end:0x802C3740

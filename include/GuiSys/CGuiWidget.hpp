@@ -54,7 +54,7 @@ public:
   virtual bool GetIsVisible() const;
   virtual bool GetIsActive() const;
   virtual FourCC GetWidgetTypeID() const { return 'BWIG'; }
-  virtual bool AddWorkerWidget(CGuiWidget* worker);
+  virtual bool AddWorkerWidget(CGuiWidget* worker) { return false; }
   virtual bool GetIsFinishedLoadingWidgetSpecific() const { return true; };
   virtual void OnVisible();
   virtual void OnActivate();
