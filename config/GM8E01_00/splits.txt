@@ -2377,11 +2377,15 @@ GuiSys/CGuiCamera.cpp:
 	.data       start:0x803EC738 end:0x803EC778
 	.sdata2     start:0x805AE090 end:0x805AE0A0
 
+GuiSys/CGuiCompoundWidget.cpp:
+	.text       start:0x802C19F0 end:0x802C1BCC
+	.data       start:0x803EC778 end:0x803EC7B8
+
 GuiSys/CGuiGroup.cpp:
-	.text       start:0x802C19F0 end:0x802C35B8
+	.text       start:0x802C1BCC end:0x802C35B8
 	.ctors      start:0x803CB2E4 end:0x803CB2E8
 	.rodata     start:0x803D6888 end:0x803D68A0
-	.data       start:0x803EC778 end:0x803EC808
+	.data       start:0x803EC7B8 end:0x803EC808
 	.bss        start:0x8059FBD0 end:0x8059FD08 align:4 common
 	.sbss       start:0x805A91F8 end:0x805A9200
 

@@ -61,6 +61,7 @@ public:
   short GetWorkerId() const { return xb4_workerId; }
 
   void SetIsVisible(bool visible);
+  void SetIsActive(bool active);
   void SetColor(const CColor& color);
   const CColor& GetColor() const { return xa4_color; }
   const CColor& GetColor2() const { return xa8_color2; }
