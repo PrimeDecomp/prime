@@ -1,10 +1,23 @@
+#include "GuiSys/CAuiMeter.hpp"
 #include "GuiSys/CGuiGroup.hpp"
 #include "GuiSys/CGuiWidget.hpp"
-#include "Kyoto/Math/CMath.hpp"
-#include "rstl/math.hpp"
-#include <GuiSys/CAuiMeter.hpp>
+#include <Kyoto/Math/CMath.hpp>
+#include <Kyoto/Streams/CInputStream.hpp>
+#include <rstl/math.hpp>
 
-CAuiMeter::CAuiMeter(const CGuiWidgetParms& parms, bool noRoundUp, int maxCapacity, int workerCount)
+CGuiWidget* CAuiMeter::Create(CGuiFrame* frame, CInputStream& in, CSimplePool* sp) {
+  CGuiWidgetParms parms = ReadWidgetHeader(frame, in);
+  in.ReadBool();
+  const bool noRoundUp = in.ReadBool();
+  const int maxCapacity = in.ReadInt32();
+  const int workerCount = in.ReadInt32();
+  CGuiWidget* widget = rs_new CAuiMeter(parms, noRoundUp, maxCapacity, workerCount);
+  widget->ParseBaseInfo(frame, in, parms);
+  return widget;
+}
+
+CAuiMeter::CAuiMeter(const CGuiWidgetParms& parms, const bool noRoundUp, const int maxCapacity,
+                     const int workerCount)
 : CGuiGroup(parms, 0, false)
 , xc4_noRoundUp(noRoundUp)
 , xc8_maxCapacity(maxCapacity)
@@ -55,21 +68,12 @@ void CAuiMeter::OnVisible() {
 }
 
 void CAuiMeter::UpdateMeterWorkers() {
-  float scale = xd4_workers.size() / float(xc8_maxCapacity);
-  int etankCap;
-  int etankFill;
   int workerCount = xd4_workers.size();
-  if (xc4_noRoundUp) {
-    etankCap = scale * xcc_capacity;
-  } else {
-    etankCap = 0.5f + (scale * xcc_capacity);
-  }
-
-  if (xc4_noRoundUp)
-    etankFill = scale * xd0_value;
-  else
-    etankFill = 0.5f + scale * xd0_value;
-
+  const float scale = workerCount / float(xc8_maxCapacity);
+  int etankCap = xc4_noRoundUp ? static_cast< int >(scale * xcc_capacity)
+                               : static_cast< int >(0.5f + scale * xcc_capacity);
+  int etankFill = xc4_noRoundUp ? static_cast< int >(scale * xd0_value)
+                                : static_cast< int >(0.5f + scale * xd0_value);
   for (int i = 0; i < workerCount; ++i) {
     CGuiGroup* worker = xd4_workers[i];
     if (!worker)

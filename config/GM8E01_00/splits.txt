@@ -2365,14 +2365,14 @@ GuiSys/CAuiMain.cpp:
 	.text       start:0x802C0BF4 end:0x802C0BF8
 
 GuiSys/CAuiMeter.cpp:
-	.text       start:0x802C0BF8 end:0x802C11E8
-	.rodata     start:0x803D6878 end:0x803D6880
+	.text       start:0x802C0BF8 end:0x802C1444
+	.rodata     start:0x803D6878 end:0x803D687F
 	.data       start:0x803EC6F8 end:0x803EC738
-	.sdata      start:0x805A86B0 end:0x805A86C0
+	.sdata      start:0x805A86B0 end:0x805A86BC
 	.sdata2     start:0x805AE080 end:0x805AE090
 
 GuiSys/CGuiGroup.cpp:
-	.text       start:0x802C11E8 end:0x802C35B8
+	.text       start:0x802C1444 end:0x802C35B8
 	.ctors      start:0x803CB2E4 end:0x803CB2E8
 	.rodata     start:0x803D6880 end:0x803D68A0
 	.data       start:0x803EC738 end:0x803EC808
@@ -2497,7 +2497,7 @@ Collision/InternalColliders.cpp:
 Collision/CCollisionPrimitive.cpp:
 	.text       start:0x802CE684 end:0x802CFC08
 	.ctors      start:0x803CB2F0 end:0x803CB2F4
-	.rodata     start:0x803D6A48 end:0x803D6A4f
+	.rodata     start:0x803D6A48 end:0x803D6A4F
 	.bss        start:0x804794E0 end:0x80479510
 	.sbss       start:0x805A9210 end:0x805A9238
 

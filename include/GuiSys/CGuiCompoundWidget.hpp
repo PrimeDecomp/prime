@@ -10,7 +10,8 @@ public:
 
   void OnVisible() override;
   void OnActivate() override;
-  virtual CGuiWidget* GetWorkerWidget(int id) const;
+  virtual CGuiWidget* GetWorkerWidget(const int id);
+
 private:
 };
 

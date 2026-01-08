@@ -6,7 +6,7 @@
 
 class CAuiMeter : public CGuiGroup {
 public:
-  CAuiMeter(const CGuiWidgetParms& parms, bool b, int w1, int w2);
+  CAuiMeter(const CGuiWidgetParms& parms, const bool b, const int w1, const int w2);
   bool AddWorkerWidget(CGuiWidget* widget) override;
   CGuiWidget* GetWorkerWidget(int idx);
   void SetMaxCapacity(int cap);
@@ -16,7 +16,16 @@ public:
   void UpdateMeterWorkers();
   FourCC GetWidgetTypeID() const override { return 'METR'; }
 
+  static CGuiWidget* Create(CGuiFrame* frame, CInputStream& in, CSimplePool* sp);
+
 private:
+  int test(float scale, float value) {
+    if (xc4_noRoundUp) {
+      return scale * value;
+    }
+
+    return 0.5f + scale * value;
+  }
   bool xc4_noRoundUp;
   int xc8_maxCapacity;
   int xcc_capacity;
