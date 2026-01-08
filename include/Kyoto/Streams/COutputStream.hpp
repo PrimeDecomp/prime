@@ -73,12 +73,8 @@ inline void coutput_stream_helper(const T& t, COutputStream& out) {
 
 template <>
 inline void coutput_stream_helper(const float& t, COutputStream& out) {
-  union {
-    float v;
-    uint i;
-  } conv;
-  conv.v = t;
-  out.Put(&t, sizeof(float));
+  int i = *(int*)(&t);
+  out.Put(&i, sizeof(float));
 }
 
 template <>
