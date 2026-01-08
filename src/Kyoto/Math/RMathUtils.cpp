@@ -98,7 +98,27 @@ float CMath::FastSinR(float x) {
 
 float CMath::FastCosR(float x) {}
 
-float CMath::FastArcCosR(float x) {}
+float CMath::FastArcCosR(float f1) {
+  if (fabs(f1) > 0.925000011920929) {
+    return acosf(f1);
+  }
+  // TODO: can mess be simplified?
+  float f4 = f1 * f1;
+  float f5 = 1.5707964f;
+  float f0 = -0.9982272f;
+  float f3 = -0.20586604f;
+  f5 = (f1 * f0) + f5;
+  float f2 = 0.114254236f;
+  f1 = (f1 * f4);
+  f0 = -0.29697824f;
+  f5 = (f1 * f3) + f5;
+  f1 = (f1 * f4);
+  f5 = (f1 * f2) + f5;
+  f1 = (f1 * f4);
+  f5 = (f1 * f0) + f5;
+
+  return f5;
+}
 
 int CMath::FloorPowerOfTwo(int v) {
   if (v == 0) {
