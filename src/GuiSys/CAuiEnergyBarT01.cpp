@@ -3,13 +3,10 @@
 #include "GuiSys/CGuiWidget.hpp"
 #include "GuiSys/CGuiWidgetDrawParms.hpp"
 #include "Kyoto/Graphics/CGraphics.hpp"
-#include "Kyoto/Graphics/CTevCombiners.hpp"
 #include "Kyoto/Graphics/CTexture.hpp"
 #include "Kyoto/IObjectStore.hpp"
 #include "Kyoto/SObjectTag.hpp"
 #include "Kyoto/Streams/CInputStream.hpp"
-#include "dolphin/gx/GXEnum.h"
-#include "dolphin/types.h"
 #include "rstl/math.hpp"
 #include "rstl/pair.hpp"
 

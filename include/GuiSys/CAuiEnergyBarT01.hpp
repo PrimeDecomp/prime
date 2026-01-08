@@ -33,9 +33,6 @@ public:
 
 private:
   static rstl::pair< CVector3f, CVector3f > DownloadBarCoordFunc(float t);
-  CColor test(const CColor& col, float alpha) const {
-    return CColor::Modulate(GetColor2(), col.WithAlphaModulatedBy(alpha));
-  }
 
   CAssetId mTextureId;                                        // 0xb8
   rstl::optional_object< TCachedToken< CTexture > > mTexture; // 0xbc
