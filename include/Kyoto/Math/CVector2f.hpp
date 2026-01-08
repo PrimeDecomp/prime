@@ -1,6 +1,8 @@
 #ifndef _CVECTOR2F
 #define _CVECTOR2F
 
+#include "Kyoto/Streams/CInputStream.hpp"
+#include "Kyoto/Streams/COutputStream.hpp"
 #include "types.h"
 
 class CVector2f {
@@ -8,6 +10,7 @@ class CVector2f {
 
 public:
   CVector2f(float x, float y);
+  CVector2f(CInputStream& in) : mX(in.ReadFloat()), mY(in.ReadFloat()) {}
 
   float GetX() const { return mX; }
   float GetY() const { return mY; }
@@ -35,6 +38,11 @@ public:
     const float aY = a.GetY();
     const float bY = b.GetY();
     return CVector2f(aX * negT + bX * t, aY * negT + bY * t);
+  }
+
+  void PutTo(COutputStream& out) const {
+    out.Put(GetX());
+    out.Put(GetY());
   }
 
 private:

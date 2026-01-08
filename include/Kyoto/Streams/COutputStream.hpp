@@ -73,8 +73,12 @@ inline void coutput_stream_helper(const T& t, COutputStream& out) {
 
 template <>
 inline void coutput_stream_helper(const float& t, COutputStream& out) {
-  int tmp = *(int*)&t;
-  out.Put(&tmp, sizeof(float));
+  union {
+    float v;
+    uint i;
+  } conv;
+  conv.v = t;
+  out.Put(&t, sizeof(float));
 }
 
 template <>
@@ -111,5 +115,18 @@ template <>
 inline void coutput_stream_helper(const bool& t, COutputStream& out) {
   out.WriteChar(static_cast< u8 >(t));
 }
+
+#include "rstl/reserved_vector.hpp"
+namespace rstl {
+template < typename T, int N >
+inline void reserved_vector< T, N >::PutTo(COutputStream& out) const {
+  out.Put(size());
+  const_iterator iter = begin();
+  const_iterator iterEnd = end();
+  for (; iter != iterEnd; ++iter) {
+    out.Put(*iter);
+  }
+}
+} // namespace rstl
 
 #endif // _COUTPUTSTREAM

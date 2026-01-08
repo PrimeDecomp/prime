@@ -7,6 +7,7 @@
 #include "rstl/pointer_iterator.hpp"
 
 class CInputStream;
+class COutputStream;
 
 namespace rstl {
 template < typename T, int N >
@@ -92,6 +93,8 @@ public:
       x0_count = count;
     }
   }
+
+  void PutTo(COutputStream& out) const;
 };
 
 template < typename T, int N >

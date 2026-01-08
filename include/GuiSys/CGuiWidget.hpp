@@ -64,6 +64,7 @@ public:
   void SetColor(const CColor& color);
   const CColor& GetColor() const { return xa4_color; }
   const CColor& GetColor2() const { return xa8_color2; }
+  const EGuiModelDrawFlags GetDrawFlags() const { return xac_drawFlags; }
   void SetVisibility(bool visible, ETraversalMode mode);
   void ParseBaseInfo(CGuiFrame* frame, CInputStream& in, const CGuiWidgetParms& parms);
 
