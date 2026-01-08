@@ -63,6 +63,7 @@ public:
   void SetIsVisible(bool visible);
   void SetColor(const CColor& color);
   const CColor& GetColor() const { return xa4_color; }
+  const CColor& GetColor2() const { return xa8_color2; }
   void SetVisibility(bool visible, ETraversalMode mode);
   void ParseBaseInfo(CGuiFrame* frame, CInputStream& in, const CGuiWidgetParms& parms);
 

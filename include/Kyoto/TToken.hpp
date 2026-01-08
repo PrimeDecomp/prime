@@ -62,6 +62,8 @@ public:
     TToken< T >::Unlock();
   }
 
+  bool IsLoaded() const { return x8_item != nullptr || CToken::IsLoaded(); }
+
 private:
   T* x8_item;
 };

@@ -19,8 +19,9 @@ public:
 
   typedef rstl::pair< CVector3f, CVector3f > (*FCoordFunc)(float t);
 
-  static CAuiEnergyBarT01* Create(CGuiFrame* frame, CInputStream& in, IObjectStore* sp);
+  static CGuiWidget* Create(CGuiFrame* frame, CInputStream& in, IObjectStore* sp);
   CAuiEnergyBarT01(const CGuiWidgetParms& parms, IObjectStore* sp, CAssetId textureId);
+  ~CAuiEnergyBarT01();
 
   void SetMaxEnergy(float maxEnergy);
   void SetCurrEnergy(float energy, ESetMode mode);
@@ -32,6 +33,9 @@ public:
 
 private:
   static rstl::pair< CVector3f, CVector3f > DownloadBarCoordFunc(float t);
+  CColor test(const CColor& col, float alpha) const {
+    return CColor::Modulate(GetColor2(), col.WithAlphaModulatedBy(alpha));
+  }
 
   CAssetId mTextureId;                                        // 0xb8
   rstl::optional_object< TCachedToken< CTexture > > mTexture; // 0xbc

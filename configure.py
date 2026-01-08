@@ -831,7 +831,7 @@ config.libs = [
             Object(NonMatching, "GuiSys/CGuiWidget.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "GuiSys/CGuiWidgetIdDB.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "GuiSys/CGuiWidgetDrawParms.cpp"),
-            Object(NonMatching, "GuiSys/CAuiEnergyBarT01.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "GuiSys/CAuiEnergyBarT01.cpp"),
             Object(NonMatching, "GuiSys/CAuiImagePane.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "GuiSys/CRepeatState.cpp"),
         ],
