@@ -7,6 +7,7 @@
 class CGuiWidget;
 class CGuiCamera;
 class CGuiLight;
+class CGuiHeadWidget;
 class CGuiFrame {
 public:
   CGuiWidget* FindWidget(const char* name) const;
@@ -16,6 +17,7 @@ public:
   void SetFrameCamera(CGuiCamera* camera);
   void AddLight(CGuiLight* light);
   void RemoveLight(CGuiLight* light);
+  void SetHeadWidget(CGuiHeadWidget* widget);
 
   CGuiWidgetIdDB& WidgetIdDB() { return x18_db; }
 

@@ -819,7 +819,7 @@ config.libs = [
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "GuiSys/CAuiMeter.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "GuiSys/CGuiCamera.cpp"),
             Object(NonMatching, "GuiSys/CGuiGroup.cpp"),
-            Object(NonMatching, "GuiSys/CGuiHeadWidget.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "GuiSys/CGuiHeadWidget.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "GuiSys/CGuiLight.cpp"),
             Object(NonMatching, "GuiSys/CGuiModel.cpp"),
             Object(NonMatching, "GuiSys/CGuiObject.cpp"),
