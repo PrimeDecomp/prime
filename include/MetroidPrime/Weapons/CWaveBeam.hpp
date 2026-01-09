@@ -36,8 +36,8 @@ private:
   float x24c_effectTimer;
   rstl::single_ptr< CParticleElectric > x250_chargeElec;
   rstl::single_ptr< CElementGen > x254_chargeFx;
-  bool x258_24_loaded : 1;            
-  bool x258_25_effectTimerActive : 1; 
+  bool x258_24_loaded : 1;
+  bool x258_25_effectTimerActive : 1;
 
   void ReInitVariables();
 };

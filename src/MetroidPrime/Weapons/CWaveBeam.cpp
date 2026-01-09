@@ -14,8 +14,7 @@
 #include "Kyoto/Particles/CElementGen.hpp"
 #include "Kyoto/Particles/CParticleElectric.hpp"
 
-static float skShotAnglePitchSource = 120.f;
-static const float skShotAnglePitch = skShotAnglePitchSource;
+static const CRelAngle skShotAnglePitch(120.f);
 
 static const ushort kSoundId[2] = {
     SFXwpn_fire_wave_normal,
@@ -85,8 +84,8 @@ void CWaveBeam::Update(float dt, CStateManager& mgr) {
     return;
 
   if (CGunWeapon::IsLoaded() && !x258_24_loaded) {
-    x258_24_loaded = x228_wave2nd1.IsLoaded() && x234_wave2nd2.IsLoaded() &&
-                     x240_wave2nd3.IsLoaded() && x21c_waveBeam.IsLoaded();
+    x258_24_loaded = x228_wave2nd1.TryCache() && x234_wave2nd2.TryCache() &&
+                     x240_wave2nd3.TryCache() && x21c_waveBeam.TryCache();
   }
 }
 
@@ -99,8 +98,8 @@ void CWaveBeam::Fire(bool underwater, float dt, CPlayerState::EChargeStage charg
   } else {
     float randAng = mgr.Random()->Float() * 360.f;
     for (int i = 0; i < 3; ++i) {
-      CTransform4f shotXf =
-          xf * CTransform4f::RotateY(CRelAngle::FromDegrees((randAng + i) * skShotAnglePitch));
+      CTransform4f shotXf = xf * CTransform4f::RotateY(CRelAngle::FromDegrees(
+                                     (randAng + i) * skShotAnglePitch.AsRadians()));
       CEnergyProjectile* proj = rs_new CEnergyProjectile(
           true, x144_weapons[chargeState], GetType(), shotXf, GetPlayerMaterial(),
           GetDamageInfo(mgr, chargeState, chargeFactor1), mgr.AllocateUniqueId(), kInvalidAreaId,
@@ -150,7 +149,7 @@ void CWaveBeam::EnableSecondaryFx(ESecondaryFxType type) {
     // [[fallthrough]];
   default:
     if (x1cc_enabledSecondaryEffect != kSFT_ToCombo) {
-      CToken fx = type == kSFT_Charge ? x228_wave2nd1 : x234_wave2nd2;
+      TToken< CElectricDescription > fx = type == kSFT_Charge ? x228_wave2nd1 : x234_wave2nd2;
       x250_chargeElec = rs_new CParticleElectric(fx);
       x250_chargeElec->SetGlobalScale(x4_scale);
     }
