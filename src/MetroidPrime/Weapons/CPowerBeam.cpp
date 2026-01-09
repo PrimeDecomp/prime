@@ -106,8 +106,8 @@ void CPowerBeam::Fire(bool underwater, float dt, CPlayerState::EChargeStage char
                       const CTransform4f& xf, CStateManager& mgr, TUniqueId homingTarget,
                       float chargeFactor1, float chargeFactor2) {
   static const ushort skSoundId[] = {
-      SFXwpn_fire_power_normal,
-      SFXwpn_fire_power_charged,
+      SFXsam_a_pbmfire_00,
+      SFXsam_a_cbmfire_00,
   };
 
   CGunWeapon::Fire(underwater, dt, chargeState, xf, mgr, homingTarget, chargeFactor1,

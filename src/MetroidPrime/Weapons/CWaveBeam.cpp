@@ -14,11 +14,11 @@
 #include "Kyoto/Particles/CElementGen.hpp"
 #include "Kyoto/Particles/CParticleElectric.hpp"
 
-static const CRelAngle skShotAnglePitch(120.f);
+const CRelAngle CWaveBeam::kAngleStep(120.f);
 
 static const ushort kSoundId[2] = {
-    SFXwpn_fire_wave_normal,
-    SFXwpn_fire_wave_charged,
+    SFXsam_a_wavfire_00,
+    SFXsam_a_wavchfir_00,
 };
 
 CWaveBeam::CWaveBeam(CAssetId characterId, EWeaponType type, TUniqueId playerId,
@@ -96,10 +96,10 @@ void CWaveBeam::Fire(bool underwater, float dt, CPlayerState::EChargeStage charg
     CGunWeapon::Fire(underwater, dt, chargeState, xf, mgr, homingTarget, chargeFactor1,
                      chargeFactor2);
   } else {
-    float randAng = mgr.Random()->Float() * 360.f;
+    float randAng = mgr.Random()->Float();
     for (int i = 0; i < 3; ++i) {
       CTransform4f shotXf = xf * CTransform4f::RotateY(CRelAngle::FromDegrees(
-                                     (randAng + i) * skShotAnglePitch.AsRadians()));
+                                     kAngleStep.AsRadians() * (randAng * 360.f + i)));
       CEnergyProjectile* proj = rs_new CEnergyProjectile(
           true, x144_weapons[chargeState], GetType(), shotXf, GetPlayerMaterial(),
           GetDamageInfo(mgr, chargeState, chargeFactor1), mgr.AllocateUniqueId(), kInvalidAreaId,

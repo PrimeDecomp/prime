@@ -12,6 +12,8 @@
 #include "MetroidPrime/Weapons/CEnergyProjectile.hpp"
 #include "MetroidPrime/Weapons/GunController/CGunController.hpp"
 
+#include "MetroidPrime/SFX/Weapons.h"
+
 #include "Weapons/CWeaponDescription.hpp"
 
 #include "Kyoto/Animation/CSkinnedModel.hpp"
@@ -687,7 +689,6 @@ void CGunWeapon::EnableFrozenEffect(EFrozenFxType type) {
   x204_frozenEffect = type;
 }
 
-
 void DrawClipCube(const CAABox& aabb) {
   // Render AABB as completely transparent object, only modifying Z-buffer
   const CColor color(1.f, 1.f, 1.f, 0.f);
@@ -696,50 +697,74 @@ void DrawClipCube(const CAABox& aabb) {
 
   gpRender->BeginTriangleStrip(4);
   gpRender->PrimColor(color);
-  gpRender->PrimVertex(CVector3f(aabb.GetMaxPoint().GetX(), aabb.GetMaxPoint().GetY(), aabb.GetMinPoint().GetZ()));
-  gpRender->PrimVertex(CVector3f(aabb.GetMaxPoint().GetX(), aabb.GetMinPoint().GetY(), aabb.GetMinPoint().GetZ()));
-  gpRender->PrimVertex(CVector3f(aabb.GetMaxPoint().GetX(), aabb.GetMaxPoint().GetY(), aabb.GetMaxPoint().GetZ()));
-  gpRender->PrimVertex(CVector3f(aabb.GetMaxPoint().GetX(), aabb.GetMinPoint().GetY(), aabb.GetMaxPoint().GetZ()));
+  gpRender->PrimVertex(
+      CVector3f(aabb.GetMaxPoint().GetX(), aabb.GetMaxPoint().GetY(), aabb.GetMinPoint().GetZ()));
+  gpRender->PrimVertex(
+      CVector3f(aabb.GetMaxPoint().GetX(), aabb.GetMinPoint().GetY(), aabb.GetMinPoint().GetZ()));
+  gpRender->PrimVertex(
+      CVector3f(aabb.GetMaxPoint().GetX(), aabb.GetMaxPoint().GetY(), aabb.GetMaxPoint().GetZ()));
+  gpRender->PrimVertex(
+      CVector3f(aabb.GetMaxPoint().GetX(), aabb.GetMinPoint().GetY(), aabb.GetMaxPoint().GetZ()));
   gpRender->EndPrimitive();
 
   gpRender->BeginTriangleStrip(4);
   gpRender->PrimColor(color);
-  gpRender->PrimVertex(CVector3f(aabb.GetMinPoint().GetX(), aabb.GetMaxPoint().GetY(), aabb.GetMinPoint().GetZ()));
-  gpRender->PrimVertex(CVector3f(aabb.GetMaxPoint().GetX(), aabb.GetMaxPoint().GetY(), aabb.GetMinPoint().GetZ()));
-  gpRender->PrimVertex(CVector3f(aabb.GetMinPoint().GetX(), aabb.GetMaxPoint().GetY(), aabb.GetMaxPoint().GetZ()));
-  gpRender->PrimVertex(CVector3f(aabb.GetMaxPoint().GetX(), aabb.GetMaxPoint().GetY(), aabb.GetMaxPoint().GetZ()));
+  gpRender->PrimVertex(
+      CVector3f(aabb.GetMinPoint().GetX(), aabb.GetMaxPoint().GetY(), aabb.GetMinPoint().GetZ()));
+  gpRender->PrimVertex(
+      CVector3f(aabb.GetMaxPoint().GetX(), aabb.GetMaxPoint().GetY(), aabb.GetMinPoint().GetZ()));
+  gpRender->PrimVertex(
+      CVector3f(aabb.GetMinPoint().GetX(), aabb.GetMaxPoint().GetY(), aabb.GetMaxPoint().GetZ()));
+  gpRender->PrimVertex(
+      CVector3f(aabb.GetMaxPoint().GetX(), aabb.GetMaxPoint().GetY(), aabb.GetMaxPoint().GetZ()));
   gpRender->EndPrimitive();
 
   gpRender->BeginTriangleStrip(4);
   gpRender->PrimColor(color);
-  gpRender->PrimVertex(CVector3f(aabb.GetMinPoint().GetX(), aabb.GetMaxPoint().GetY(), aabb.GetMinPoint().GetZ()));
-  gpRender->PrimVertex(CVector3f(aabb.GetMinPoint().GetX(), aabb.GetMinPoint().GetY(), aabb.GetMinPoint().GetZ()));
-  gpRender->PrimVertex(CVector3f(aabb.GetMinPoint().GetX(), aabb.GetMaxPoint().GetY(), aabb.GetMaxPoint().GetZ()));
-  gpRender->PrimVertex(CVector3f(aabb.GetMinPoint().GetX(), aabb.GetMinPoint().GetY(), aabb.GetMaxPoint().GetZ()));
+  gpRender->PrimVertex(
+      CVector3f(aabb.GetMinPoint().GetX(), aabb.GetMaxPoint().GetY(), aabb.GetMinPoint().GetZ()));
+  gpRender->PrimVertex(
+      CVector3f(aabb.GetMinPoint().GetX(), aabb.GetMinPoint().GetY(), aabb.GetMinPoint().GetZ()));
+  gpRender->PrimVertex(
+      CVector3f(aabb.GetMinPoint().GetX(), aabb.GetMaxPoint().GetY(), aabb.GetMaxPoint().GetZ()));
+  gpRender->PrimVertex(
+      CVector3f(aabb.GetMinPoint().GetX(), aabb.GetMinPoint().GetY(), aabb.GetMaxPoint().GetZ()));
   gpRender->EndPrimitive();
 
   gpRender->BeginTriangleStrip(4);
   gpRender->PrimColor(color);
-  gpRender->PrimVertex(CVector3f(aabb.GetMinPoint().GetX(), aabb.GetMinPoint().GetY(), aabb.GetMinPoint().GetZ()));
-  gpRender->PrimVertex(CVector3f(aabb.GetMaxPoint().GetX(), aabb.GetMinPoint().GetY(), aabb.GetMinPoint().GetZ()));
-  gpRender->PrimVertex(CVector3f(aabb.GetMinPoint().GetX(), aabb.GetMinPoint().GetY(), aabb.GetMaxPoint().GetZ()));
-  gpRender->PrimVertex(CVector3f(aabb.GetMaxPoint().GetX(), aabb.GetMinPoint().GetY(), aabb.GetMaxPoint().GetZ()));
+  gpRender->PrimVertex(
+      CVector3f(aabb.GetMinPoint().GetX(), aabb.GetMinPoint().GetY(), aabb.GetMinPoint().GetZ()));
+  gpRender->PrimVertex(
+      CVector3f(aabb.GetMaxPoint().GetX(), aabb.GetMinPoint().GetY(), aabb.GetMinPoint().GetZ()));
+  gpRender->PrimVertex(
+      CVector3f(aabb.GetMinPoint().GetX(), aabb.GetMinPoint().GetY(), aabb.GetMaxPoint().GetZ()));
+  gpRender->PrimVertex(
+      CVector3f(aabb.GetMaxPoint().GetX(), aabb.GetMinPoint().GetY(), aabb.GetMaxPoint().GetZ()));
   gpRender->EndPrimitive();
 
   gpRender->BeginTriangleStrip(4);
   gpRender->PrimColor(color);
-  gpRender->PrimVertex(CVector3f(aabb.GetMinPoint().GetX(), aabb.GetMinPoint().GetY(), aabb.GetMaxPoint().GetZ()));
-  gpRender->PrimVertex(CVector3f(aabb.GetMaxPoint().GetX(), aabb.GetMinPoint().GetY(), aabb.GetMaxPoint().GetZ()));
-  gpRender->PrimVertex(CVector3f(aabb.GetMinPoint().GetX(), aabb.GetMaxPoint().GetY(), aabb.GetMaxPoint().GetZ()));
-  gpRender->PrimVertex(CVector3f(aabb.GetMaxPoint().GetX(), aabb.GetMaxPoint().GetY(), aabb.GetMaxPoint().GetZ()));
+  gpRender->PrimVertex(
+      CVector3f(aabb.GetMinPoint().GetX(), aabb.GetMinPoint().GetY(), aabb.GetMaxPoint().GetZ()));
+  gpRender->PrimVertex(
+      CVector3f(aabb.GetMaxPoint().GetX(), aabb.GetMinPoint().GetY(), aabb.GetMaxPoint().GetZ()));
+  gpRender->PrimVertex(
+      CVector3f(aabb.GetMinPoint().GetX(), aabb.GetMaxPoint().GetY(), aabb.GetMaxPoint().GetZ()));
+  gpRender->PrimVertex(
+      CVector3f(aabb.GetMaxPoint().GetX(), aabb.GetMaxPoint().GetY(), aabb.GetMaxPoint().GetZ()));
   gpRender->EndPrimitive();
 
   gpRender->BeginTriangleStrip(4);
   gpRender->PrimColor(color);
-  gpRender->PrimVertex(CVector3f(aabb.GetMinPoint().GetX(), aabb.GetMinPoint().GetY(), aabb.GetMinPoint().GetZ()));
-  gpRender->PrimVertex(CVector3f(aabb.GetMaxPoint().GetX(), aabb.GetMinPoint().GetY(), aabb.GetMinPoint().GetZ()));
-  gpRender->PrimVertex(CVector3f(aabb.GetMinPoint().GetX(), aabb.GetMaxPoint().GetY(), aabb.GetMinPoint().GetZ()));
-  gpRender->PrimVertex(CVector3f(aabb.GetMaxPoint().GetX(), aabb.GetMaxPoint().GetY(), aabb.GetMinPoint().GetZ()));
+  gpRender->PrimVertex(
+      CVector3f(aabb.GetMinPoint().GetX(), aabb.GetMinPoint().GetY(), aabb.GetMinPoint().GetZ()));
+  gpRender->PrimVertex(
+      CVector3f(aabb.GetMaxPoint().GetX(), aabb.GetMinPoint().GetY(), aabb.GetMinPoint().GetZ()));
+  gpRender->PrimVertex(
+      CVector3f(aabb.GetMinPoint().GetX(), aabb.GetMaxPoint().GetY(), aabb.GetMinPoint().GetZ()));
+  gpRender->PrimVertex(
+      CVector3f(aabb.GetMaxPoint().GetX(), aabb.GetMaxPoint().GetY(), aabb.GetMinPoint().GetZ()));
   gpRender->EndPrimitive();
 
   CGraphics::SetCullMode(kCM_Front);

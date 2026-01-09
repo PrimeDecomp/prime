@@ -13,10 +13,10 @@
 #define SFXsas_x_dooropen_03 1727
 #define SFXsas_x_dooropen_04 1728
 #define SFXsas_x_dooropen_05 1729
-#define SFXsfx06C2 1730
+#define SFXsas_x_platrise_lp_00 1730
 #define SFXsas_x_platrise_lp_01 1731
 #define SFXsas_x_thrusmov_00 1732
-#define SFXsfx06C5 1733
+#define SFXsas_x_thrusmov_01 1733
 #define SFXsas_x_thrusmov_02 1734
 #define SFXsas_x_thrusmov_03 1735
 #define SFXsas_x_hover_lp_00 1736

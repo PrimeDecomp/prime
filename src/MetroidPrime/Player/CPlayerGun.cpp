@@ -140,21 +140,21 @@ static const CModelFlags kHandHoloFlag(CModelFlags::kT_One, kArmColor);
 
 static ushort mItemEmptySound[2] = {
     CSfxManager::kInternalInvalidSfxId,
-    SFXwpn_empty_action,
+    SFXsam_a_mislemp_00,
 };
 
 static ushort mIntoBeamSound[4] = {
     CSfxManager::kInternalInvalidSfxId,
-    SFXwpn_into_beam_ice,
-    SFXwpn_into_beam_wave,
-    SFXwpn_into_beam_plasma,
+    SFXsam_b_iceswitch_00,
+    SFXsam_b_wavswitch_00,
+    SFXsam_b_plaswitch_00,
 };
 
 static ushort mFromBeamSound[4] = {
     CSfxManager::kInternalInvalidSfxId,
-    SFXwpn_from_beam_ice,
-    SFXwpn_from_beam_wave,
-    SFXwpn_from_beam_plasma,
+    SFXsam_b_iceswitch_01,
+    SFXsam_b_wavswitch_01,
+    SFXsam_b_plaswitch_01,
 };
 
 CPlayerGun::CPlayerGun(TUniqueId playerId)
@@ -240,19 +240,19 @@ CPlayerGun::CPlayerGun(TUniqueId playerId)
 , x740_grappleArm(rs_new CGrappleArm(kScaleVector))
 , x744_auxWeapon(rs_new CAuxWeapon(playerId))
 , x748_rainSplashGenerator(rs_new CRainSplashGenerator(kScaleVector, 20, 2, 0.f, 0.125f))
-, x74c_powerBeam(
-      rs_new CPowerBeam(gpTweakGunRes->x10_powerBeam, kWT_Power, playerId, kMT_Player, kScaleVector))
+, x74c_powerBeam(rs_new CPowerBeam(gpTweakGunRes->x10_powerBeam, kWT_Power, playerId, kMT_Player,
+                                   kScaleVector))
 , x750_iceBeam(
       rs_new CIceBeam(gpTweakGunRes->x14_iceBeam, kWT_Ice, playerId, kMT_Player, kScaleVector))
 , x754_waveBeam(
       rs_new CWaveBeam(gpTweakGunRes->x18_waveBeam, kWT_Wave, playerId, kMT_Player, kScaleVector))
-, x758_plasmaBeam(rs_new CPlasmaBeam(gpTweakGunRes->x1c_plasmaBeam, kWT_Plasma, playerId, kMT_Player,
-                                  kScaleVector))
-, x75c_phazonBeam(rs_new CPhazonBeam(gpTweakGunRes->x20_phazonBeam, kWT_Phazon, playerId, kMT_Player,
-                                  kScaleVector))
+, x758_plasmaBeam(rs_new CPlasmaBeam(gpTweakGunRes->x1c_plasmaBeam, kWT_Plasma, playerId,
+                                     kMT_Player, kScaleVector))
+, x75c_phazonBeam(rs_new CPhazonBeam(gpTweakGunRes->x20_phazonBeam, kWT_Phazon, playerId,
+                                     kMT_Player, kScaleVector))
 , x760_selectableBeams(nullptr)
-, x774_holoTransitionGen(
-      rs_new CElementGen(gpSimplePool->GetObj(SObjectTag('PART', gpTweakGunRes->x24_holoTransition))))
+, x774_holoTransitionGen(rs_new CElementGen(
+      gpSimplePool->GetObj(SObjectTag('PART', gpTweakGunRes->x24_holoTransition))))
 , x82c_shadow(rs_new CWorldShadow(32, 32, true))
 , x830_chargeRumbleHandle(-1)
 , x832_24_coolingCharge(false)
@@ -780,7 +780,7 @@ void CPlayerGun::UpdateWeaponFire(float dt, CPlayerState& playerState, CStateMan
         } else {
           if (!CSfxManager::IsPlaying(x2e4_invalidSfx)) {
             x2e4_invalidSfx =
-                NWeaponTypes::play_sfx(SFXwpn_invalid_action, x834_27_underwater, false, 0x4a);
+                NWeaponTypes::play_sfx(SFXsam_b_malfxn_00, x834_27_underwater, false, 0x4a);
           } else {
             x2e4_invalidSfx.Clear();
           }

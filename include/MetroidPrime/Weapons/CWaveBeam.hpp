@@ -1,6 +1,7 @@
 #ifndef _CWAVEBEAM
 #define _CWAVEBEAM
 
+#include "Kyoto/Math/CRelAngle.hpp"
 #include "types.h"
 
 #include "MetroidPrime/Weapons/CGunWeapon.hpp"
@@ -11,6 +12,8 @@ class CElectricDescription;
 class CParticleElectric;
 
 class CWaveBeam : public CGunWeapon {
+  static const CRelAngle kAngleStep;
+
 public:
   CWaveBeam(CAssetId characterId, EWeaponType type, TUniqueId playerId,
             EMaterialTypes playerMaterial, const CVector3f& scale);

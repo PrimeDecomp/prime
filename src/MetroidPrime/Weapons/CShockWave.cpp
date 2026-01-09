@@ -149,7 +149,7 @@ void CShockWave::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId sender, CSt
     }
 
     mLightId = mgr.AllocateUniqueId();
-    CAssetId partId = mShockWaveInfo.GetParticleDescId();
+    CAssetId partId = static_cast< CAssetId >(mShockWaveInfo.GetParticleDescId());
     mgr.AddObject(rs_new CGameLight(mLightId, GetCurrentAreaId(), GetActive(),
                                     rstl::string_l("ShockWaveLight_") + GetDebugName(),
                                     GetTransform(), GetUniqueId(), mElementGen->GetLight(), partId,

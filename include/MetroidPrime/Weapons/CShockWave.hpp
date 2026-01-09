@@ -24,7 +24,7 @@ public:
   , mWeaponDesc(weapon)
   , mElectrocuteSfx(sfx) {}
 
-  CAssetId GetParticleDescId() const { return mParticleDesc; }
+  const CAssetId GetParticleDescId() const { return mParticleDesc; }
   const CDamageInfo& GetDamageInfo() const { return mDamageInfo; }
   float GetInitialRadius() const { return mInitialRadius; }
   float GetWidthPercent() const { return mWidthPercent; }

@@ -42,7 +42,7 @@ CBomb::~CBomb() {}
 
 void CBomb::Explode(const CVector3f& pos, CStateManager& mgr) {
   mgr.ApplyDamageToWorld(GetOwnerId(), *this, pos, x12c_curDamageInfo, GetFilter());
-  CSfxManager::AddEmitter(SFXwpn_bomb_explo, GetTranslation(), CVector3f::Zero(), true);
+  CSfxManager::AddEmitter(SFXsam_misl_expl_01, GetTranslation(), CVector3f::Zero(), true);
   mgr.InformListeners(pos, kLNT_BombExplode);
   mgr.RemoveWeaponId(GetOwnerId(), GetType());
   mIsNotDetonated = false;

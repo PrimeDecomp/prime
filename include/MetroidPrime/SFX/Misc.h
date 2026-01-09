@@ -68,7 +68,7 @@
 #define SFXmac_x_fireup_00 1186
 #define SFXsfx04A3 1187
 #define SFXsfx04A4 1188
-#define SFXsfx04A5 1189
+#define SFXamb_x_elevator_lp_00 1189
 #define SFXsfx04A6 1190
 #define SFXsfx04A7 1191
 #define SFXsfx04A8 1192

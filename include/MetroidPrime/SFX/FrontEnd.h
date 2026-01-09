@@ -8,12 +8,12 @@
 #define GRPFrontEnd 38
 
 #define SFXfnt_transfore_00L 1090
-#define SFXfnt_advance_R 1091
+#define SFXui_x_start_00r 1091
 #define SFXsfx0444 1092
 #define SFXfnt_selection_change 1093
 #define SFXfnt_back 1094
 #define SFXfnt_enum_change 1095
-#define SFXfnt_advance_L 1096
+#define SFXui_x_start_00 1096
 #define SFXfnt_transfore_00R 1097
 #define SFXfnt_transfore_01L 1098
 #define SFXfnt_transfore_01R 1099

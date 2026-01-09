@@ -89,7 +89,7 @@ void CIceBeam::Update(float dt, CStateManager& mgr) {
 void CIceBeam::Fire(bool underwater, float dt, CPlayerState::EChargeStage chargeState,
                     const CTransform4f& xf, CStateManager& mgr, TUniqueId homingTarget,
                     float chargeFactor1, float chargeFactor2) {
-  static const ushort soundId[2] = {SFXwpn_fire_ice_normal, SFXwpn_fire_ice_charged};
+  static const ushort soundId[2] = {SFXsam_a_icefire_00, SFXsam_a_icechfir_00};
 
   CGunWeapon::Fire(underwater, dt, chargeState, xf, mgr, homingTarget, chargeFactor1,
                    chargeFactor2);

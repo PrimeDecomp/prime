@@ -63,7 +63,8 @@ void CPauseScreenBlur::Update(float dt, const CStateManager& stateMgr, bool b) {
   if (x18_blurAmt == 0.f && b) {
     x1c_camBlur.DisableBlur(0.f);
   } else {
-    x1c_camBlur.SetBlur(CCameraBlurPass::kBT_HiBlur, gpTweakGui->GetPauseBlurFactor() * GetBlurAmtInline(), 0.f, true);
+    x1c_camBlur.SetBlur(CCameraBlurPass::kBT_HiBlur,
+                        gpTweakGui->GetPauseBlurFactor() * GetBlurAmtInline(), 0.f, true);
     x50_24_blurring = true;
   }
 }
@@ -77,8 +78,8 @@ void CPauseScreenBlur::Draw(const CStateManager&) {
     const CColor& white = CColor::White();
     CCameraFilterPass::DrawFilter(
         CCameraFilterPass::kFT_Multiply, CCameraFilterPass::kFS_FullscreenQuarters,
-        CColor::Lerp(white, gpTweakGuiColors->GetPauseBlurFilterColor(), t),
-        *x4_mapLightQuarter, t);
+        CColor::Lerp(white, gpTweakGuiColors->GetPauseBlurFilterColor(), t), *x4_mapLightQuarter,
+        t);
     CCameraFilterPass::DrawFilter(CCameraFilterPass::kFT_Multiply,
                                   CCameraFilterPass::kFS_ScanLinesEven,
                                   CColor::Lerp(CColor::White(), CColor(0xc0c0c0ff), t), nullptr, t);
@@ -104,9 +105,9 @@ void CPauseScreenBlur::SetState(EState state) {
     if (state != kS_InGame) {
       CSfxManager::SetChannel(CSfxManager::kSC_PauseScreen);
       if (state == kS_HUDMessage)
-        CSfxManager::SfxStart(SFXui_into_hud_message, 0x7f, 0x40, false, CSfxManager::kMedPriority);
+        CSfxManager::SfxStart(SFXui_x_override_00, 0x7f, 0x40, false, CSfxManager::kMedPriority);
       else if (state == kS_MapScreen)
-        CSfxManager::SfxStart(SFXui_into_map_screen, 0x7f, 0x40, false, CSfxManager::kMedPriority);
+        CSfxManager::SfxStart(SFXui_x_pause_00, 0x7f, 0x40, false, CSfxManager::kMedPriority);
       x18_blurAmt = FLT_EPSILON;
     }
     break;
@@ -127,10 +128,9 @@ void CPauseScreenBlur::SetState(EState state) {
       CSfxManager::SetChannel(CSfxManager::kSC_Game);
 
       if (x10_prevState == kS_HUDMessage)
-        CSfxManager::SfxStart(SFXui_outof_hud_message, 0x7f, 0x40, false,
-                              CSfxManager::kMedPriority);
+        CSfxManager::SfxStart(SFXui_x_override_01, 0x7f, 0x40, false, CSfxManager::kMedPriority);
       else if (x10_prevState == kS_MapScreen)
-        CSfxManager::SfxStart(SFXui_outof_map_screen, 0x7f, 0x40, false, CSfxManager::kMedPriority);
+        CSfxManager::SfxStart(SFXui_x_pause_01, 0x7f, 0x40, false, CSfxManager::kMedPriority);
 
       x18_blurAmt = -1.f;
     }

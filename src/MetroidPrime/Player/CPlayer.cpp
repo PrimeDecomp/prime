@@ -90,109 +90,109 @@ static TVisorToItemMapping skVisorToItemMapping[4] = {
 
 static const ushort skPlayerLandSfxSoft[24] = {
     0xFFFF,
-    SFXsam_landstone_00,
-    SFXsam_landmetl_00,
-    SFXsam_landgrass_00,
-    SFXsam_landice_00,
+    SFXsam_b_landston_00,
+    SFXsam_b_landmetl_00,
+    SFXsam_b_landgras_00,
+    SFXsam_b_landice_00,
     0xFFFF,
-    SFXsam_landgrate_00,
-    SFXsam_landphazon_00,
-    SFXsam_landdirt_00,
+    SFXsam_b_landgrat_00,
+    SFXsam_b_landphaz_00,
+    SFXsam_b_landsand_00,
     SFXlav_landlava_00,
-    SFXsam_landlavastone_00,
-    SFXsam_landsnow_00,
-    SFXsam_landmud_00,
+    SFXsam_b_landcrus_00,
+    SFXsam_b_landsnow_00,
+    SFXsam_b_landmud_00,
     0xFFFF,
-    SFXsam_landgrass_00,
-    SFXsam_landmetl_00,
-    SFXsam_landmetl_00,
-    SFXsam_landdirt_00,
-    0xFFFF,
-    0xFFFF,
+    SFXsam_b_landgras_00,
+    SFXsam_b_landmetl_00,
+    SFXsam_b_landmetl_00,
+    SFXsam_b_landsand_00,
     0xFFFF,
     0xFFFF,
-    SFXsam_landwood_00,
+    0xFFFF,
+    0xFFFF,
+    SFXsam_b_landwood_00,
     SFXsam_b_landorg_00,
 };
 
 static const ushort skPlayerLandSfxHard[24] = {
     0xFFFF,
-    SFXsam_landstone_02,
+    SFXsam_b_landston_02,
     SFXsam_b_landmetl_02,
-    SFXsam_landgrass_02,
-    SFXsam_landice_02,
+    SFXsam_b_landgras_02,
+    SFXsam_b_landice_02,
     0xFFFF,
-    SFXsam_landgrate_02,
-    SFXsam_landphazon_02,
-    SFXsam_landdirt_02,
+    SFXsam_b_landgrat_02,
+    SFXsam_b_landphaz_02,
+    SFXsam_b_landsand_02,
     SFXlav_landlava_02,
-    SFXsam_landlavastone_02,
-    SFXsam_landsnow_02,
-    SFXsam_landmud_02,
+    SFXsam_b_landcrus_02,
+    SFXsam_b_landsnow_02,
+    SFXsam_b_landmud_02,
     0xFFFF,
-    SFXsam_landgrass_02,
+    SFXsam_b_landgras_02,
     SFXsam_b_landmetl_02,
     SFXsam_b_landmetl_02,
-    SFXsam_landdirt_02,
+    SFXsam_b_landsand_02,
     0xFFFF,
     0xFFFF,
     0xFFFF,
     0xFFFF,
-    SFXsam_landwood_02,
-    SFXsam_landorg_02,
+    SFXsam_b_landwood_02,
+    SFXsam_b_landorg_02,
 };
 
 static const ushort skLeftStepSounds[24] = {
     0xFFFF,
-    SFXsam_wlkstone_00,
-    SFXsam_wlkmetal_00,
+    SFXsam_b_wlkstone_00,
+    SFXsam_b_wlkmetal_00,
     SFXsam_b_wlkgrass_00,
-    SFXsam_wlkice_00,
+    SFXsam_b_wlkice_00,
     0xFFFF,
-    SFXsam_wlkgrate_00,
-    SFXsam_wlkphazon_00,
-    SFXsam_wlkdirt_00,
+    SFXsam_b_wlkgrate_00,
+    SFXsam_b_wlkphaz_00,
+    SFXsam_b_wlkdirt_00,
     SFXlav_wlklava_00,
-    SFXsam_wlklavastone_00,
-    SFXsam_wlksnow_00,
-    SFXsam_wlkmud_00,
+    SFXsam_b_wlkcrust_00,
+    SFXsam_b_wlksnow_00,
+    SFXsam_b_wlkmud_00,
     0xFFFF,
     SFXsam_b_wlkorg_00,
-    SFXsam_wlkmetal_00,
-    SFXsam_wlkmetal_00,
-    SFXsam_wlkdirt_00,
+    SFXsam_b_wlkmetal_00,
+    SFXsam_b_wlkmetal_00,
+    SFXsam_b_wlkdirt_00,
     0xFFFF,
     0xFFFF,
     0xFFFF,
     0xFFFF,
-    SFXsam_wlkwood_00,
+    SFXsam_b_wlkwood_00,
     SFXsam_b_wlkorg_00,
 };
 
 static const ushort skRightStepSounds[24] = {
     0xFFFF,
-    SFXsam_wlkstone_01,
-    SFXsam_wlkmetal_01,
+    SFXsam_b_wlkstone_01,
+    SFXsam_b_wlkmetal_01,
     SFXsam_b_wlkgrass_01,
-    SFXsam_wlkice_01,
+    SFXsam_b_wlkice_01,
     0xFFFF,
-    SFXsam_wlkgrate_01,
-    SFXsam_wlkphazon_01,
-    SFXsam_wlkdirt_01,
+    SFXsam_b_wlkgrate_01,
+    SFXsam_b_wlkphaz_01,
+    SFXsam_b_wlkdirt_01,
     SFXlav_wlklava_01,
-    SFXsam_wlklavastone_01,
-    SFXsam_wlksnow_01,
-    SFXsam_wlkmud_01,
+    SFXsam_b_wlkcrust_01,
+    SFXsam_b_wlksnow_01,
+    SFXsam_b_wlkmud_01,
     0xFFFF,
     SFXsam_b_wlkorg_01,
-    SFXsam_wlkmetal_01,
-    SFXsam_wlkmetal_01,
-    SFXsam_wlkdirt_01,
+    SFXsam_b_wlkmetal_01,
+    SFXsam_b_wlkmetal_01,
+    SFXsam_b_wlkdirt_01,
     0xFFFF,
     0xFFFF,
     0xFFFF,
     0xFFFF,
-    SFXsam_wlkwood_01,
+    SFXsam_b_wlkwood_01,
     SFXsam_b_wlkorg_01,
 };
 
@@ -785,7 +785,7 @@ void CPlayer::Update(float dt, CStateManager& mgr) {
       CSfxManager::KillAll(CSfxManager::kSC_Game);
       CStreamAudioManager::StopAll();
       if (x2f8_morphBallState == kMS_Unmorphed) {
-        DoSfxEffects(CSfxManager::SfxStart(SFXsam_death));
+        DoSfxEffects(CSfxManager::SfxStart(SFXsam_r_die_00));
       }
     }
 
@@ -796,7 +796,7 @@ void CPlayer::Update(float dt, CStateManager& mgr) {
         xa00_deathPowerBomb = x490_gun->DropPowerBomb(mgr);
       }
       if (x9f4_deathTime >= 4.f && prevDeathTime < 4.f) {
-        DoSfxEffects(CSfxManager::SfxStart(SFXsam_death));
+        DoSfxEffects(CSfxManager::SfxStart(SFXsam_r_die_00));
       }
     }
   }
@@ -854,7 +854,7 @@ void CPlayer::Update(float dt, CStateManager& mgr) {
   xa30_samusExhaustedVoiceTimer = IsEnergyLow(mgr) ? xa30_samusExhaustedVoiceTimer - dt : 4.f;
 
   if (!mgr.GetCameraManager()->IsInCinematicCamera() && xa30_samusExhaustedVoiceTimer <= 0.f) {
-    StartSamusVoiceSfx(SFXsam_vox_exhausted, 127, 7);
+    StartSamusVoiceSfx(SFXsam_r_neardeth_00, 127, 7);
     xa30_samusExhaustedVoiceTimer = 4.f;
   }
 }
@@ -1015,9 +1015,9 @@ void CPlayer::UpdateFootstepSounds(const CFinalInput& input, CStateManager& mgr,
           }
         } else {
           if (x790_footstepSfxSel == kFS_Left) {
-            DoSfxEffects(CSfxManager::SfxStart(SFXsam_wlkwater_00, sfxVol, 64, true));
+            DoSfxEffects(CSfxManager::SfxStart(SFXsam_b_wlkwatr_00, sfxVol, 64, true));
           } else {
-            DoSfxEffects(CSfxManager::SfxStart(SFXsam_wlkwater_01, sfxVol, 64, true));
+            DoSfxEffects(CSfxManager::SfxStart(SFXsam_b_wlkwatr_01, sfxVol, 64, true));
           }
         }
       } else {
@@ -1407,7 +1407,7 @@ void CPlayer::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId sender, CState
         } else {
           landSfx = GetMaterialSoundUnderPlayer(mgr, skPlayerLandSfxHard,
                                                 ARRAY_SIZE(skPlayerLandSfxHard), 0xffff);
-          StartSamusVoiceSfx(SFXsam_voxland_02, 127, 5);
+          StartSamusVoiceSfx(SFXsam_b_voxland_02, 127, 5);
           x55c_damageAmt = 0.f;
           x560_prevDamageAmt = 10.f;
           x564_damageLocation = GetTranslation();
@@ -1951,7 +1951,7 @@ void CPlayer::UpdateMorphBallState(float dt, const CFinalInput& input, CStateMan
       x578_morphDuration = 1.f;
       TransitionToMorphBallState(dt, mgr);
     } else {
-      DoSfxEffects(CSfxManager::SfxStart(SFXwpn_invalid_action, 127, 64, true));
+      DoSfxEffects(CSfxManager::SfxStart(SFXsam_b_malfxn_00, 127, 64, true));
     }
     break;
   case kMS_Morphing:
@@ -1964,7 +1964,7 @@ void CPlayer::UpdateMorphBallState(float dt, const CFinalInput& input, CStateMan
       x578_morphDuration = 1.f;
       TransitionFromMorphBallState(dt, mgr);
     } else {
-      DoSfxEffects(CSfxManager::SfxStart(SFXwpn_invalid_action, 127, 64, true));
+      DoSfxEffects(CSfxManager::SfxStart(SFXsam_b_malfxn_00, 127, 64, true));
     }
     break;
   }
@@ -2633,34 +2633,34 @@ void CPlayer::TakeDamage(bool significant, const CVector3f& location, float dama
     case kWT_Phazon:
     case kWT_OrangePhazon:
       damageLoopSfx = SFXphz_damage_lp;
-      damageSamusVoiceSfx = SFXsam_vox_damage_phazon;
+      damageSamusVoiceSfx = SFXsam_r_hitphaz_00;
       break;
     case kWT_PoisonWater:
-      damageLoopSfx = SFXsam_damage_poison_lp;
-      damageSamusVoiceSfx = SFXsam_vox_damage_poison;
+      damageLoopSfx = SFXsam_r_acidhit_lp_00;
+      damageSamusVoiceSfx = SFXsam_r_hitacid_00;
       break;
     case kWT_Lava:
       damageLoopSfx = SFXpds_lava_damage_lp;
     case kWT_Heat:
-      damageSamusVoiceSfx = SFXsam_vox_damage_heat;
+      damageSamusVoiceSfx = SFXsam_r_hitlava_00;
       break;
     default:
       if (x2f8_morphBallState == kMS_Unmorphed) {
         if (damage > 30.f) {
-          damageSamusVoiceSfx = SFXsam_vox_damage30;
+          damageSamusVoiceSfx = SFXsam_r_hitheavy_00;
         } else if (damage > 15.f) {
-          damageSamusVoiceSfx = SFXsam_vox_damage15;
+          damageSamusVoiceSfx = SFXsam_r_hitmed_00;
         } else {
-          damageSamusVoiceSfx = SFXsam_vox_damage;
+          damageSamusVoiceSfx = SFXsam_r_hitlight_00;
         }
-        suitDamageSfx = SFXsam_suit_damage;
+        suitDamageSfx = SFXsam_b_scrapedirt_00;
       } else {
         if (damage > 30.f) {
-          suitDamageSfx = SFXsam_ball_damage30;
+          suitDamageSfx = SFXsam_r_hitheavy_01;
         } else if (damage > 15.f) {
-          suitDamageSfx = SFXsam_ball_damage15;
+          suitDamageSfx = SFXsam_r_hitmed_01;
         } else {
-          suitDamageSfx = SFXsam_ball_damage;
+          suitDamageSfx = SFXsam_r_hitlight_01;
         }
       }
       break;
