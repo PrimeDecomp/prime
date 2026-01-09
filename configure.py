@@ -580,7 +580,7 @@ config.libs = [
                 "MetroidPrime/Weapons/CPowerBeam.cpp",
             ),
             Object(NonMatching, "MetroidPrime/Weapons/CWaveBeam.cpp"),
-            Object(NonMatching, "MetroidPrime/Weapons/CIceBeam.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Weapons/CIceBeam.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CScriptMailbox.cpp"
             ),

@@ -10,7 +10,6 @@
 #include "MetroidPrime/Weapons/WeaponCommon.hpp"
 #include "MetroidPrime/Weapons/WeaponTypes.hpp"
 
-
 #include "Kyoto/Math/CAABox.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
 #include "Kyoto/TToken.hpp"
@@ -60,6 +59,7 @@ private:
 };
 
 class CGunWeapon {
+
 public:
   CGunWeapon(CAssetId ancsId, EWeaponType type, TUniqueId playerId, EMaterialTypes playerMaterial,
              const CVector3f& scale);
@@ -124,6 +124,8 @@ public:
   CDamageInfo GetDamageInfo(CStateManager& mgr, CPlayerState::EChargeStage chargeState,
                             float chargeFactor);
   CDamageInfo GetShotDamageInfo(const SShotParam& shotParam, CStateManager& mgr) const;
+
+  static const char* GetMuzzleLocator() { return skMuzzleLocator; }
 
 protected:
   // x0 is vtable

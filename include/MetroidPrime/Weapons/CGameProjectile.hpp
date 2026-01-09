@@ -32,7 +32,7 @@ public:
                   const ushort visorSfx, bool sendCollideMsg);
 
   // CEntity
-  ~CGameProjectile() override {}
+  ~CGameProjectile() override; // Remove this when possible
   void Accept(IVisitor& visitor) override;
   void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) override;
 
