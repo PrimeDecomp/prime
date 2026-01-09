@@ -44,12 +44,13 @@ public:
   CVector3f GetOrbitPosition(const CStateManager&) const override;
   CVector3f GetScanObjectIndicatorPosition(const CStateManager&) const override;
   EWeaponCollisionResponseTypes GetCollisionResponseType(const CVector3f&, const CVector3f&,
-                                                         const CWeaponMode&,
-                                                         int) const override;
+                                                         const CWeaponMode&, int) const override;
   void OnScanStateChange(EScanState, CStateManager&) override;
 
   // CPhysicsActor
   CTransform4f GetPrimitiveTransform() const override;
+
+  TUniqueId GetOwnerId() const { return x25c_owner; }
 
 private:
   EPrimitiveType x258_primitiveType;

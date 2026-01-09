@@ -24,11 +24,11 @@ public:
 
   void SendScriptMsgs(const EScriptObjectState state, CStateManager& mgr,
                       const EScriptObjectMessage msg);
-  TUniqueId GetUniqueId() const { return x8_uid; }
-  TEditorId GetEditorId() const { return xc_editorId; }
+  const TUniqueId GetUniqueId() const { return x8_uid; }
+  const TEditorId GetEditorId() const { return xc_editorId; }
   const rstl::string& GetDebugName() const { return x10_name; }
-  TAreaId GetAreaId() const;
-  TAreaId GetCurrentAreaId() const { return x4_areaId; }
+  const TAreaId GetAreaId() const;
+  const TAreaId GetCurrentAreaId() const { return x4_areaId; }
   const bool GetActive() const { return x30_24_active; }
   bool IsScriptingBlocked() const { return x30_26_scriptingBlocked; }
 

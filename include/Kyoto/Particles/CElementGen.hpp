@@ -79,9 +79,12 @@ public:
   int GetSystemCount();
   void EndLifetime();
 
+  int GetNumActiveChildParticles() const;
+  CParticleGen* GetActiveChildParticle(int index) const;
   int GetCumulativeParticleCount() const { return x260_cumulativeParticles; }
   bool IsIndirectTextured()
       const; // { return x28_loadedGenDesc->x54_x40_TEXR && x28_loadedGenDesc->x58_x44_TIND; }
+  void SetExternalVar(int index, float val);
   float GetExternalVar(int index) const;
 
   static void Initialize();

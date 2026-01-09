@@ -12,8 +12,9 @@ CTargetableProjectile::CTargetableProjectile(
     const rstl::optional_object< TLockedToken< CGenDescription > >& visorParticle, ushort visorSfx,
     bool sendCollideMsg)
 : CEnergyProjectile(true, desc, type, xf, materials, damage, uid, aid, owner, homingTarget,
-                    attribs | CWeapon::kPA_BigProjectile | CWeapon::kPA_PartialCharge | CWeapon::kPA_PlasmaProjectile, false,
-                    CVector3f(1.f, 1.f, 1.f), visorParticle, visorSfx, sendCollideMsg)
+                    attribs | CWeapon::kPA_BigProjectile | CWeapon::kPA_PartialCharge |
+                        CWeapon::kPA_PlasmaProjectile,
+                    false, CVector3f(1.f, 1.f, 1.f), visorParticle, visorSfx, sendCollideMsg)
 , x3d8_weaponDesc(weapDesc)
 , x3e0_damage(damage2) {
   MaterialList().Add(kMT_Target);
@@ -28,8 +29,8 @@ bool CTargetableProjectile::Explode(const CVector3f& pos, const CVector3f& norma
   bool ret = CEnergyProjectile::Explode(pos, normal, type, mgr, dVuln, hitActor);
 
   if (!GetWeaponActive()) {
-    if (GetHitProjectileOwner() != kInvalidUniqueId &&
-        GetHitProjectileOwner() == mgr.GetPlayer()->GetUniqueId()) {
+    TUniqueId projOwner = GetHitProjectileOwner();
+    if (projOwner != kInvalidUniqueId && projOwner == mgr.GetPlayer()->GetUniqueId()) {
 
       if (const CActor* act = TCastToConstPtr< CActor >(mgr.GetObjectById(GetOwnerId()))) {
         TUniqueId uid = mgr.AllocateUniqueId();
@@ -38,10 +39,10 @@ bool CTargetableProjectile::Explode(const CVector3f& pos, const CVector3f& norma
         CEnergyProjectile* projectile = rs_new CEnergyProjectile(
             true, x3d8_weaponDesc, GetType(),
             CTransform4f::LookAt(x170_projectile.GetTranslation(), aimPosition, CVector3f::Up()),
-            kMT_Player, x3e0_damage, uid, GetCurrentAreaId(), GetHitProjectileOwner(), GetOwnerId(),
+            kMT_Player, x3e0_damage, uid, GetCurrentAreaId(), projOwner, GetOwnerId(),
             CWeapon::kPA_None, false, CVector3f(1.f, 1.f, 1.f), rstl::optional_object_null(),
             CSfxManager::kInternalInvalidSfxId, false);
-        mgr.AddObject(projectile);
+        mgr.AddObject(*projectile);
         projectile->AddMaterial(kMT_Orbit, mgr);
         mgr.Player()->SetAimTargetId(uid);
         mgr.Player()->SetOrbitTargetId(uid, mgr);
@@ -55,11 +56,9 @@ bool CTargetableProjectile::Explode(const CVector3f& pos, const CVector3f& norma
 
 CVector3f CTargetableProjectile::GetAimPosition(const CStateManager& mgr, float dt) const {
   static float tickRecip = 1.f / CProjectileWeapon::GetTickPeriod();
-  const CProjectileWeapon& projectile = GetProjectile();
-
   CVector3f translation = GetTranslation();
-  CVector3f velocity = tickRecip * projectile.GetVelocity();
-  CVector3f gravity = tickRecip * projectile.GetGravity();
+  CVector3f velocity = tickRecip * GetProjectile().GetVelocity();
+  CVector3f gravity = tickRecip * GetProjectile().GetGravity();
 
   return (dt * (dt * (gravity * 0.5f))) + (dt * velocity) + translation;
 

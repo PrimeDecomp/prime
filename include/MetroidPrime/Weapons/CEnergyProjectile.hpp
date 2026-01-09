@@ -35,8 +35,8 @@ public:
 
   // CEnergyProjectile
   virtual bool Explode(const CVector3f& pos, const CVector3f& normal,
-                       EWeaponCollisionResponseTypes type, CStateManager& mgr,
-                       const CDamageVulnerability& dVuln, TUniqueId hitActor);
+                       const EWeaponCollisionResponseTypes type, CStateManager& mgr,
+                       const CDamageVulnerability& dVuln, const TUniqueId hitActor);
 
   void Set3d0_26(bool v) { x3d0_26_ = v; }
 

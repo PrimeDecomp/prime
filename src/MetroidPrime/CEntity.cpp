@@ -58,4 +58,4 @@ void CEntity::Think(float dt, CStateManager& mgr) {}
 
 void CEntity::SetActive(const bool active) { x30_24_active = active; }
 
-TAreaId CEntity::GetAreaId() const { return x30_27_notInArea ? kInvalidAreaId : x4_areaId; }
+const TAreaId CEntity::GetAreaId() const { return x30_27_notInArea ? kInvalidAreaId : x4_areaId; }
