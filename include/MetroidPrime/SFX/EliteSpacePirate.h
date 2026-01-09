@@ -8,14 +8,14 @@
 #define GRPEliteSpacePirate 10
 
 #define SFXepr_a_grenade_00 269
-#define SFXsfx010E 270
-#define SFXsfx010F 271
+#define SFXepr_a_grenexpl_00 270
+#define SFXepr_a_grenbnce_00 271
 #define SFXepr_b_hitglass_00 272
 #define SFXepr_a_swoosh_00 273
 #define SFXepr_b_run_00 274
 #define SFXepr_b_run_01 275
 #define SFXepr_a_shokwave_00 276
-#define SFXsfx0115 277
+#define SFXepr_b_absorb_00 277
 #define SFXepr_a_attack_00 278
 #define SFXepr_a_attack_01 279
 #define SFXepr_b_land_00 280

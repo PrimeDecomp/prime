@@ -7,14 +7,14 @@
 
 #define GRPSpacePirate 32
 
-#define SFXsfx033F 831
+#define SFXspr_a_crabstrik_00 831
 #define SFXepr_b_swordin_00 832
 #define SFXepr_b_swordout_00 833
 #define SFXopr_c_movement_00 834
 #define SFXsfx0343 835
 #define SFXsfx0344 836
 #define SFXsfx0345 837
-#define SFXsfx0346 838
+#define SFXspr_r_elechit_00 838
 #define SFXsfx0347 839
 #define SFXspr_b_movement_00 840
 #define SFXspr_b_movement_01 841
@@ -29,11 +29,11 @@
 #define SFXsfx0352 850
 #define SFXsfx0353 851
 #define SFXsfx0354 852
-#define SFXsfx0355 853
+#define SFXspr_r_impact_00 853
 #define SFXsfx0356 854
 #define SFXspr_r_impact_02 855
 #define SFXopr_b_swordin_00 856
-#define SFXsfx0359 857
+#define SFXspr_b_goafter_00 857
 #define SFXsfx035A 858
 #define SFXsfx035B 859
 #define SFXspr_b_idle_02 860
@@ -48,9 +48,9 @@
 #define SFXspr_b_jump_00 869
 #define SFXsfx0366 870
 #define SFXsfx0367 871
-#define SFXsfx0368 872
+#define SFXspr_b_swordin_00 872
 #define SFXspr_b_voxangry_02 873
-#define SFXsfx036A 874
+#define SFXspr_b_swordout_00 874
 #define SFXsfx036B 875
 #define SFXsfx036C 876
 #define SFXsfx036D 877

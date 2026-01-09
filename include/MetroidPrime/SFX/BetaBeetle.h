@@ -7,8 +7,8 @@
 
 #define GRPBetaBeetle 2
 
-#define SFXsfx003C 60
-#define SFXsfx003D 61
+#define SFXga2_b_idle_00 60
+#define SFXga2_a_attack_01 61
 #define SFXsfx003E 62
 #define SFXsfx003F 63
 #define SFXsfx0040 64
@@ -22,10 +22,10 @@
 #define SFXsfx0048 72
 #define SFXsfx0049 73
 #define SFXsfx004A 74
-#define SFXsfx004B 75
+#define SFXga2_r_death_00 75
 #define SFXsfx004C 76
-#define SFXsfx004D 77
-#define SFXsfx004E 78
+#define SFXga2_r_detect_00 77
+#define SFXga2_r_hitlight_00 78
 #define SFXsfx004F 79
 #define SFXsfx0050 80
 #define SFXsfx0051 81

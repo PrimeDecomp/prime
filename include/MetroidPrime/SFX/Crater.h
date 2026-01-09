@@ -7,13 +7,13 @@
 
 #define GRPCrater 44
 
-#define SFXsfx0764 1892
+#define SFXcra_x_phazon_lp_00 1892
 #define SFXsfx0765 1893
 #define SFXsfx0766 1894
-#define SFXsfx0767 1895
-#define SFXsfx0768 1896
+#define SFXcra_x_cancrexp_00 1895
+#define SFXcra_x_toothexp_00 1896
 #define SFXsfx0769 1897
-#define SFXsfx076A 1898
+#define SFXend_c_phazon_lp_00 1898
 #define SFXsfx076B 1899
 #define SFXsfx076C 1900
 #define SFXsfx076D 1901
@@ -23,10 +23,10 @@
 #define SFXsfx0771 1905
 #define SFXsfx0772 1906
 #define SFXsfx0773 1907
-#define SFXsfx0774 1908
-#define SFXsfx0775 1909
-#define SFXsfx0776 1910
-#define SFXsfx0777 1911
+#define SFXcra_x_wind_lp_01l 1908
+#define SFXcra_x_wind_lp_01r 1909
+#define SFXmtb_b_rico_00 1910
+#define SFXmtb_b_rico_01 1911
 #define SFXsfx0778 1912
 #define SFXsfx0779 1913
 #define SFXsfx077A 1914

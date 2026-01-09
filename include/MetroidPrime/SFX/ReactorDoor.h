@@ -15,8 +15,8 @@
 #define SFXint_x_reacdoor_03 2370
 #define SFXint_x_reacdoor_04 2371
 #define SFXint_x_reacdoor_lp_00 2372
-#define SFXsfx0945 2373
-#define SFXsfx0946 2374
+#define SFXint_x_frtdoor_00 2373
+#define SFXint_x_frtdoor_01 2374
 #define SFXsfx0947 2375
 #define SFXsfx0948 2376
 #define SFXsfx0949 2377

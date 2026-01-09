@@ -30,8 +30,8 @@
 #define SFXsfx0A3C 2620
 #define SFXsfx0A3D 2621
 #define SFXfla_a_charge_00 2622
-#define SFXsfx0A3F 2623
-#define SFXsfx0A40 2624
+#define SFXfla_a_chargefir_lp_00 2623
+#define SFXfla_a_chargehit_00 2624
 #define SFXfla_b_idlesm_00 2625
 #define SFXfla_a_chargevox_00 2626
 #define SFXsfx0A43 2627
@@ -39,9 +39,9 @@
 #define SFXsfx0A45 2629
 #define SFXfla_a_shootvox_00 2630
 #define SFXsfx0A47 2631
-#define SFXsfx0A48 2632
+#define SFXfla_a_spitfir_lp_00 2632
 #define SFXsfx0A49 2633
-#define SFXsfx0A4A 2634
+#define SFXfla_a_spithit_00 2634
 #define SFXsfx0A4B 2635
 #define SFXfla_a_spitvox_00 2636
 #define SFXfla_a_spitvox_01 2637
@@ -61,9 +61,9 @@
 #define SFXsfx0A5B 2651
 #define SFXfla_b_dizzy_00 2652
 #define SFXsfx0A5D 2653
-#define SFXsfx0A5E 2654
+#define SFXfla_b_hitmirro_00 2654
 #define SFXfla_r_painsh_00 2655
-#define SFXsfx0A60 2656
+#define SFXfla_a_growplnt_lp_00 2656
 #define SFXfla_b_humor_00 2657
 #define SFXfla_r_painbig_00 2658
 #define SFXfla_b_dizzyout_00 2659

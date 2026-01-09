@@ -28,7 +28,7 @@
 #define SFXmtd_b_squish_01 577
 #define SFXsfx0242 578
 #define SFXmtd_b_voxangry_00 579
-#define SFXsfx0244 580
+#define SFXmtd_b_voxangry_01 580
 #define SFXsfx0245 581
 #define SFXmtd_r_impact_00 582
 #define SFXsfx0247 583

@@ -8,7 +8,7 @@
 #define GRPMetaree 20
 
 #define SFXmtr_a_scream_00 548
-#define SFXsfx0225 549
+#define SFXmtr_a_scream_01 549
 #define SFXmtr_b_spin_lp_06 550
 #define SFXmtr_b_spin_lp_07 551
 #define SFXsfx0228 552

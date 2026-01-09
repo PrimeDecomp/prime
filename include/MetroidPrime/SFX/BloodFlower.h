@@ -10,8 +10,8 @@
 #define SFXblf_a_btmspit_00 99
 #define SFXblf_a_bulb_00 100
 #define SFXsfx0065 101
-#define SFXsfx0066 102
-#define SFXsfx0067 103
+#define SFXblf_a_spithit_00 102
+#define SFXblf_a_spit_lp_00 103
 #define SFXblf_b_active_00 104
 #define SFXblf_b_active_01 105
 #define SFXsfx006A 106

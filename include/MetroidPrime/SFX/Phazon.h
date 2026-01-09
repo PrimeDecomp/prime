@@ -7,10 +7,10 @@
 
 #define GRPPhazon 66
 
-#define SFXphz_damage_lp 3114
-#define SFXsfx0C2B 3115
-#define SFXsfx0C2C 3116
-#define SFXsfx0C2D 3117
-#define SFXsfx0C2E 3118
-#define SFXsfx0C2F 3119
-#define SFXsfx0C30 3120
+#define SFXsam_r_phazhit_lp_00_looped 3114
+#define SFXsilence_31 3115
+#define SFXsilence1_37 3116
+#define SFXsilence2_41 3117
+#define SFXtemp10123123123 3118
+#define SFXmin_x_geiger_lp_00 3119
+#define SFXsilence5_38 3120

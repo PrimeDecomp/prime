@@ -39,9 +39,9 @@
 #define SFXsam_b_wlkgrate_01 1494
 #define SFXsam_b_wlkmetal_00 1495
 #define SFXsam_b_wlkmetal_01 1496
-#define SFXsam_b_wlkdirt_00 1497
+#define SFXsam_b_wlksand_00 1497
 #define SFXsam_b_mlandgrt_00 1498
-#define SFXsam_b_wlkdirt_01 1499
+#define SFXsam_b_wlksand_01 1499
 #define SFXsam_b_rollgrat_lp_00 1500
 #define SFXsam_b_rollmetl_lp_00 1501
 #define SFXsam_b_rolllston_lp 1502

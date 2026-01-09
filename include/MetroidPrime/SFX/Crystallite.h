@@ -9,7 +9,7 @@
 
 #define SFXcry_b_idle_00 199
 #define SFXsfx00C8 200
-#define SFXsfx00C9 201
+#define SFXcry_r_death_00 201
 #define SFXsfx00CA 202
 #define SFXsfx00CB 203
 #define SFXsfx00CC 204

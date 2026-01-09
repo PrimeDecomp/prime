@@ -9,7 +9,7 @@
 
 #define SFXshe_a_fireball_00 749
 #define SFXshe_b_shake_lp_00 750
-#define SFXsfx02EF 751
+#define SFXsh2_a_fireball_00 751
 #define SFXshe_a_flame_lp_00 752
 #define SFXshe_a_snap_00 753
 #define SFXshe_a_snap_01 754
@@ -52,8 +52,8 @@
 #define SFXsfx0317 791
 #define SFXsh2_b_run_00 792
 #define SFXsh2_b_run_01 793
-#define SFXsfx031A 794
-#define SFXsfx031B 795
+#define SFXsh2_a_firehit_00 794
+#define SFXshe_a_firehit_00 795
 #define SFXsfx031C 796
 #define SFXsfx031D 797
 #define SFXsfx031E 798

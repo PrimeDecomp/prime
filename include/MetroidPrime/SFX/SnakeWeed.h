@@ -7,7 +7,7 @@
 
 #define GRPSnakeWeed 30
 
-#define SFXsfx0326 806
+#define SFXsnk_b_idle_00 806
 #define SFXsnk_b_in_00 807
 #define SFXsnk_b_out_00 808
 #define SFXsfx0329 809

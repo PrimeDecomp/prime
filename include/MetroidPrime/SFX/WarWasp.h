@@ -25,7 +25,7 @@
 #define SFXwar_r_wingbuzz_01 1042
 #define SFXwar_r_wingbuzz_02 1043
 #define SFXwar_r_wingbuzz_03 1044
-#define SFXsfx0415 1045
+#define SFXwar_b_nest_lp_00 1045
 #define SFXwa2_r_wingbuzz_01 1046
 #define SFXwar_a_stab_00 1047
 #define SFXwar_b_noise_00 1048

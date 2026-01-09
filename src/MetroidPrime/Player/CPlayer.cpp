@@ -98,7 +98,7 @@ static const ushort skPlayerLandSfxSoft[24] = {
     SFXsam_b_landgrat_00,
     SFXsam_b_landphaz_00,
     SFXsam_b_landsand_00,
-    SFXlav_landlava_00,
+    SFXsam_b_landlava_00,
     SFXsam_b_landcrus_00,
     SFXsam_b_landsnow_00,
     SFXsam_b_landmud_00,
@@ -125,7 +125,7 @@ static const ushort skPlayerLandSfxHard[24] = {
     SFXsam_b_landgrat_02,
     SFXsam_b_landphaz_02,
     SFXsam_b_landsand_02,
-    SFXlav_landlava_02,
+    SFXsam_b_landlava_02,
     SFXsam_b_landcrus_02,
     SFXsam_b_landsnow_02,
     SFXsam_b_landmud_02,
@@ -151,8 +151,8 @@ static const ushort skLeftStepSounds[24] = {
     0xFFFF,
     SFXsam_b_wlkgrate_00,
     SFXsam_b_wlkphaz_00,
-    SFXsam_b_wlkdirt_00,
-    SFXlav_wlklava_00,
+    SFXsam_b_wlksand_00,
+    SFXsam_b_wlklava_00,
     SFXsam_b_wlkcrust_00,
     SFXsam_b_wlksnow_00,
     SFXsam_b_wlkmud_00,
@@ -160,7 +160,7 @@ static const ushort skLeftStepSounds[24] = {
     SFXsam_b_wlkorg_00,
     SFXsam_b_wlkmetal_00,
     SFXsam_b_wlkmetal_00,
-    SFXsam_b_wlkdirt_00,
+    SFXsam_b_wlksand_00,
     0xFFFF,
     0xFFFF,
     0xFFFF,
@@ -178,8 +178,8 @@ static const ushort skRightStepSounds[24] = {
     0xFFFF,
     SFXsam_b_wlkgrate_01,
     SFXsam_b_wlkphaz_01,
-    SFXsam_b_wlkdirt_01,
-    SFXlav_wlklava_01,
+    SFXsam_b_wlksand_01,
+    SFXsam_b_wlklava_01,
     SFXsam_b_wlkcrust_01,
     SFXsam_b_wlksnow_01,
     SFXsam_b_wlkmud_01,
@@ -187,7 +187,7 @@ static const ushort skRightStepSounds[24] = {
     SFXsam_b_wlkorg_01,
     SFXsam_b_wlkmetal_01,
     SFXsam_b_wlkmetal_01,
-    SFXsam_b_wlkdirt_01,
+    SFXsam_b_wlksand_01,
     0xFFFF,
     0xFFFF,
     0xFFFF,
@@ -1009,9 +1009,9 @@ void CPlayer::UpdateFootstepSounds(const CFinalInput& input, CStateManager& mgr,
       if (IsInFluid() && x828_distanceUnderWater > 0.f && x828_distanceUnderWater < earHeight) {
         if (x82c_inLava) {
           if (x790_footstepSfxSel == kFS_Left) {
-            DoSfxEffects(CSfxManager::SfxStart(SFXlav_wlklava_00, sfxVol, 64, true));
+            DoSfxEffects(CSfxManager::SfxStart(SFXsam_b_wlklava_00, sfxVol, 64, true));
           } else {
-            DoSfxEffects(CSfxManager::SfxStart(SFXlav_wlklava_01, sfxVol, 64, true));
+            DoSfxEffects(CSfxManager::SfxStart(SFXsam_b_wlklava_01, sfxVol, 64, true));
           }
         } else {
           if (x790_footstepSfxSel == kFS_Left) {
@@ -1726,7 +1726,7 @@ void CPlayer::BreakFrozenState(CStateManager& stateMgr) {
         rstl::string_l("FrostExplosion"), CHUDBillboardEffect::GetNearClipDistance(stateMgr),
         CHUDBillboardEffect::GetScaleForPOV(stateMgr), CColor(1.f, 1.f, 1.f, 1.f),
         CVector3f(1.f, 1.f, 1.f), CVector3f(0.f, 0.f, 0.f)));
-    DoSfxEffects(CSfxManager::SfxStart(SFXcrk_break_final));
+    DoSfxEffects(CSfxManager::SfxStart(SFXtha_b_samcrack_02));
   }
 
   x768_morphball->ResetMorphBallIceBreak();
@@ -1758,10 +1758,10 @@ void CPlayer::UpdateFrozenState(const CFinalInput& input, CStateManager& mgr) {
     if (ControlMapper::GetPressInput(ControlMapper::kC_JumpOrBoost, input)) {
       if (x754_iceBreakJumps != 0) {
         /* Subsequent Breaks */
-        DoSfxEffects(CSfxManager::SfxStart(SFXcrk_break_subsequent));
+        DoSfxEffects(CSfxManager::SfxStart(SFXtha_b_samcrack_00));
       } else {
         /* Initial Break */
-        DoSfxEffects(CSfxManager::SfxStart(SFXcrk_break_initial));
+        DoSfxEffects(CSfxManager::SfxStart(SFXtha_b_samcrack_01));
       }
       int max = gpTweakPlayer->mIceBreakJumpCount;
       if (++x754_iceBreakJumps > max) {
@@ -2632,7 +2632,7 @@ void CPlayer::TakeDamage(bool significant, const CVector3f& location, float dama
     switch (type) {
     case kWT_Phazon:
     case kWT_OrangePhazon:
-      damageLoopSfx = SFXphz_damage_lp;
+      damageLoopSfx = SFXsam_r_phazhit_lp_00_looped;
       damageSamusVoiceSfx = SFXsam_r_hitphaz_00;
       break;
     case kWT_PoisonWater:
@@ -2640,7 +2640,7 @@ void CPlayer::TakeDamage(bool significant, const CVector3f& location, float dama
       damageSamusVoiceSfx = SFXsam_r_hitacid_00;
       break;
     case kWT_Lava:
-      damageLoopSfx = SFXpds_lava_damage_lp;
+      damageLoopSfx = SFXsam_r_lavahit_lp;
     case kWT_Heat:
       damageSamusVoiceSfx = SFXsam_r_hitlava_00;
       break;

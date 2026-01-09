@@ -9,7 +9,7 @@
 
 #define SFXgrz_b_idle_00 466
 #define SFXsfx01D3 467
-#define SFXsfx01D4 468
+#define SFXgrz_r_death_00 468
 #define SFXsfx01D5 469
 #define SFXsfx01D6 470
 #define SFXsfx01D7 471

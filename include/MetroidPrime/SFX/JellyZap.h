@@ -12,7 +12,7 @@
 #define SFXjzp_b_bubbles_00 510
 #define SFXjzp_b_growl_00 511
 #define SFXsfx0200 512
-#define SFXsfx0201 513
+#define SFXjzp_r_death_00 513
 #define SFXsfx0202 514
 #define SFXsfx0203 515
 #define SFXsfx0204 516

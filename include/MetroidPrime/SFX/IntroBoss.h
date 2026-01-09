@@ -19,7 +19,7 @@
 #define SFXpaq_b_land_00 9
 #define SFXpaq_b_roar_00 10
 #define SFXpaq_b_roar_01 11
-#define SFXsfx000C 12
+#define SFXpaq_b_swoosh_00 12
 #define SFXpaq_b_walk_00 13
 #define SFXpaq_b_walk_01 14
 #define SFXpaq_r_impact_00 15
@@ -28,8 +28,8 @@
 #define SFXpaq_r_sdeath_01 18
 #define SFXpaq_b_swish_00 19
 #define SFXsfx0014 20
-#define SFXsfx0015 21
-#define SFXsfx0016 22
+#define SFXpaq_b_roar_03 21
+#define SFXpaq_b_growl_02 22
 #define SFXpaq_b_land_01 23
 #define SFXpaq_b_run_00 24
 #define SFXpaq_b_run_01 25

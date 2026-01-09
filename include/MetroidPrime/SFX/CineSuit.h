@@ -10,9 +10,9 @@
 #define SFXci2_x_energy_lp_00 3069
 #define SFXci2_x_energy_lp_01 3070
 #define SFXsfx0BFF 3071
-#define SFXsfx0C00 3072
+#define SFXci3_x_padtest_lp_00 3072
 #define SFXci2_x_jump_00 3073
-#define SFXsfx0C02 3074
+#define SFXci2_x_arpegg_lp_00 3074
 #define SFXci2_x_lights_lp_00 3075
 #define SFXci2_x_pad_lp_00 3076
 #define SFXsfx0C05 3077

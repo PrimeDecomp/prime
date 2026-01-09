@@ -7,8 +7,8 @@
 
 #define GRPGnats 15
 
-#define SFXsfx01CB 459
-#define SFXsfx01CC 460
+#define SFXamb_x_gnats_lp_00 459
+#define SFXfla_x_gnats_lp_01 460
 #define SFXsfx01CD 461
 #define SFXsfx01CE 462
 #define SFXsfx01CF 463

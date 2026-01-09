@@ -27,7 +27,7 @@ CMetaree::CMetaree(TUniqueId uid, const rstl::string& name, EFlavorType flavor,
 , x59c_velocity(CVector3f::Zero())
 , x5a8_(0)
 , x5ac_damageInfo(dInfo)
-, x5c8_attackSfx(SFXsfx0225)
+, x5c8_attackSfx(SFXmtr_a_scream_01)
 , x5ca_24_(true)
 , x5ca_25_started(false)
 , x5ca_26_deactivated(false) {}

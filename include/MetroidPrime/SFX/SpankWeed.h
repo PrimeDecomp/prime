@@ -12,7 +12,7 @@
 #define SFXspw_b_out_00 917
 #define SFXspw_b_swish_02 918
 #define SFXspw_b_swoosh_00 919
-#define SFXsfx0398 920
+#define SFXspw_b_swoosh_01 920
 #define SFXspw_r_impact_00 921
 #define SFXsfx039A 922
 #define SFXfla_a_tentatak_00 923

@@ -9,12 +9,12 @@
 
 #define SFXzom_b_idle_00 2681
 #define SFXsfx0A7A 2682
-#define SFXsfx0A7B 2683
-#define SFXsfx0A7C 2684
-#define SFXsfx0A7D 2685
+#define SFXgem_b_spikein_00 2683
+#define SFXgem_b_spikeout_00 2684
+#define SFXgem_r_impact_00 2685
 #define SFXgem_b_idle_00 2686
 #define SFXsfx0A7F 2687
-#define SFXsfx0A80 2688
+#define SFXzom_r_death_00 2688
 #define SFXsfx0A81 2689
 #define SFXsfx0A82 2690
 #define SFXsfx0A83 2691

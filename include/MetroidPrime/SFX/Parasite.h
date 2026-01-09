@@ -9,7 +9,7 @@
 
 #define SFXpar_a_voxangry_00 624
 #define SFXsfx0271 625
-#define SFXsfx0272 626
+#define SFXpar_r_scurry_00 626
 #define SFXsfx0273 627
 #define SFXsfx0274 628
 #define SFXpar_b_idle_02 629
@@ -23,8 +23,8 @@
 #define SFXsfx027D 637
 #define SFXpar_b_idlelone_02 638
 #define SFXpar_r_impact_00 639
-#define SFXsfx0280 640
-#define SFXsfx0281 641
+#define SFXpar_r_impact_01 640
+#define SFXpar_b_runlone_00 641
 #define SFXsfx0282 642
 #define SFXsfx0283 643
 #define SFXsfx0284 644

@@ -10,13 +10,13 @@
 #define SFXsfx01DE 478
 #define SFXsfx01DF 479
 #define SFXspr_b_exhale_00 480
-#define SFXsfx01E1 481
+#define SFXspr_b_exhale_01 481
 #define SFXspr_b_moan_00 482
 #define SFXsfx01E3 483
 #define SFXsfx01E4 484
-#define SFXsfx01E5 485
-#define SFXsfx01E6 486
-#define SFXsfx01E7 487
+#define SFXspr_b_gurgle_00 485
+#define SFXspr_b_gurgle_01 486
+#define SFXspr_b_gurgle_02 487
 #define SFXsfx01E8 488
 #define SFXsfx01E9 489
 #define SFXsfx01EA 490

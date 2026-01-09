@@ -27,7 +27,7 @@
 #define SFXgab_b_walkdirt_00 424
 #define SFXgab_b_walkdirt_01 425
 #define SFXgab_r_collide_00 426
-#define SFXsfx01AB 427
+#define SFXgab_r_death_00 427
 #define SFXgab_r_death_01 428
 #define SFXgab_r_detect_00 429
 #define SFXgab_r_hitlight_00 430
@@ -43,7 +43,7 @@
 #define SFXga2_b_walkdirt_02 440
 #define SFXga2_r_collide_00 441
 #define SFXga2_a_attack_00 442
-#define SFXsfx01BB 443
+#define SFXrui_x_wallexplode_01 443
 #define SFXsfx01BC 444
 #define SFXsfx01BD 445
 #define SFXsfx01BE 446

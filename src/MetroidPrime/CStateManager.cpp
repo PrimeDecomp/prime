@@ -369,6 +369,15 @@ CRayCastResult CStateManager::RayStaticIntersection(const CVector3f& pos, const 
   return CGameCollision::RayStaticIntersection(*this, pos, dir, length, filter);
 }
 
+void CStateManager::AddObject(CEntity* obj) {
+  if (!obj) {
+    return;
+  }
+  AddObject(*obj);
+}
+
+void CStateManager::AddObject(CEntity& obj) {}
+
 void CStateManager::RemoveObject(TUniqueId id) {}
 
 void CStateManager::ClearGraveyard() {}

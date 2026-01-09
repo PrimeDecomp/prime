@@ -7,7 +7,7 @@
 
 #define GRPPuddleSpore 23
 
-#define SFXsfx0288 648
+#define SFXpds_a_sporehit_00 648
 #define SFXpds_a_voxactive_00 649
 #define SFXpds_b_bubbles_00 650
 #define SFXpds_b_open_00 651
@@ -16,21 +16,21 @@
 #define SFXpds_b_voxslam_00 654
 #define SFXpds_b_water_00 655
 #define SFXpds_b_water_01 656
-#define SFXpds_lava_damage_lp 657
-#define SFXsfx0292 658
+#define SFXsam_r_lavahit_lp 657
+#define SFXpds_b_water_lp_02 658
 #define SFXpds_r_voxpain_02 659
-#define SFXsfx0294 660
-#define SFXsfx0295 661
-#define SFXsfx0296 662
-#define SFXsfx0297 663
-#define SFXsfx0298 664
-#define SFXsfx0299 665
-#define SFXsfx029A 666
-#define SFXsfx029B 667
-#define SFXsfx029C 668
-#define SFXsfx029D 669
-#define SFXsfx029E 670
-#define SFXsfx029F 671
-#define SFXsfx02A0 672
-#define SFXsfx02A1 673
-#define SFXsfx02A2 674
+#define SFXsilence_53 660
+#define SFXsilence_54 661
+#define SFXsilence_178 662
+#define SFXsilence1_16 663
+#define SFXsilence2_14 664
+#define SFXsilence_33 665
+#define SFXsilence1_68 666
+#define SFXsilence2_65 667
+#define SFXsilence3_56 668
+#define SFXsilence4_67 669
+#define SFXsilence5_55 670
+#define SFXsilence6_50 671
+#define SFXsilence7_50 672
+#define SFXsilence8_51 673
+#define SFXsilence9_73 674

@@ -10,8 +10,8 @@
 #define SFXfpr_b_walk_00 812
 #define SFXfpr_b_walk_01 813
 #define SFXspr_a_gun_00 814
-#define SFXsfx032F 815
-#define SFXsfx0330 816
+#define SFXspr_b_run_00 815
+#define SFXspr_b_run_01 816
 #define SFXspr_b_walk_00 817
 #define SFXspr_b_walk_01 818
 #define SFXspr_b_walk_02 819

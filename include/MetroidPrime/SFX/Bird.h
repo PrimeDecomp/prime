@@ -7,9 +7,9 @@
 
 #define GRPBird 3
 
-#define SFXsfx005C 92
-#define SFXsfx005D 93
-#define SFXsfx005E 94
+#define SFXamb_x_bird_00 92
+#define SFXamb_x_bird_01 93
+#define SFXamb_x_bird_02 94
 #define SFXsfx005F 95
 #define SFXsfx0060 96
 #define SFXsfx0061 97

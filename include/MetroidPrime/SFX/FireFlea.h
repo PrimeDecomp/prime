@@ -8,7 +8,7 @@
 #define GRPFireFlea 11
 
 #define SFXfif_b_idle_lp_00 323
-#define SFXsfx0144 324
+#define SFXfif_b_idle_lp_01 324
 #define SFXfif_b_light_00 325
 #define SFXfif_r_death_00 326
 #define SFXfif_r_death_01 327

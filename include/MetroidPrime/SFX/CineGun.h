@@ -10,7 +10,7 @@
 #define SFXsfx0BE5 3045
 #define SFXci3_x_clank_00 3046
 #define SFXci4_x_clank_00 3047
-#define SFXsfx0BE8 3048
+#define SFXci5_x_clank_00 3048
 #define SFXci3_c_ridiclaw_00 3049
 #define SFXsfx0BEA 3050
 #define SFXsfx0BEB 3051

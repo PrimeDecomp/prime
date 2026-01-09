@@ -8,8 +8,8 @@
 #define GRPCineVisor 61
 
 #define SFXcin_x_visor_00 3033
-#define SFXsfx0BDA 3034
-#define SFXsfx0BDB 3035
+#define SFXcin_x_energy_lp_00 3034
+#define SFXci3_x_arpegg_lp_00 3035
 #define SFXsfx0BDC 3036
 #define SFXsfx0BDD 3037
 #define SFXsfx0BDE 3038

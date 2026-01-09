@@ -7,9 +7,9 @@
 
 #define GRPCineMorphball 63
 
-#define SFXsfx0BF3 3059
-#define SFXsfx0BF4 3060
-#define SFXsfx0BF5 3061
+#define SFXci4_x_ballexp_00 3059
+#define SFXice_x_obsexpl_00 3060
+#define SFXatm_r_explode_03 3061
 #define SFXsfx0BF6 3062
 #define SFXsfx0BF7 3063
 #define SFXsfx0BF8 3064

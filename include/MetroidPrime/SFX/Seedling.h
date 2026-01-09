@@ -10,7 +10,7 @@
 #define SFXsed_a_spine_00 729
 #define SFXsed_b_idle_lp_00 730
 #define SFXsfx02DB 731
-#define SFXsfx02DC 732
+#define SFXsed_r_death_00 732
 #define SFXsed_b_alert_00 733
 #define SFXsfx02DE 734
 #define SFXsfx02DF 735
