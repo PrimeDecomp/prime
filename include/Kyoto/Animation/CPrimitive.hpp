@@ -11,7 +11,7 @@ class CPrimitive {
 public:
   CPrimitive(CInputStream& in);
   void PutTo(COutputStream& out) const;
-  CAssetId GetAnimResId() const { return x0_animId; }
+  const CAssetId GetAnimResId() const { return x0_animId; }
 
 private:
   CAssetId x0_animId;

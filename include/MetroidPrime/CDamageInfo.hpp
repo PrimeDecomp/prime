@@ -36,8 +36,8 @@ public:
   , x18_24_noImmunity(noImmunity) {}
 
   // HACK: This constructor exists to fix CWeapon::Think writing xc_radiusDamage as a double
-  CDamageInfo(const CWeaponMode& mode, float damage, float radiusDamage, float radius, float knockback,
-              bool noImmunity = false)
+  CDamageInfo(const CWeaponMode& mode, float damage, float radiusDamage, float radius,
+              float knockback, bool noImmunity = false)
   : x0_weaponMode(mode)
   , x8_damage(damage)
   , xc_radiusDamage(radiusDamage)
@@ -66,10 +66,10 @@ public:
   float GetRadiusDamage(const CDamageVulnerability& dVuln) const;
   bool NoImmunity() const { return x18_24_noImmunity; }
   void SetNoImmunity(bool b) { x18_24_noImmunity = b; }
-  void MultiplyDamage(float m) {
-    x8_damage *= m;
-    xc_radiusDamage *= m;
-    x14_knockback *= m;
+  void MultiplyDamage(const float m) {
+    x8_damage = m * x8_damage;
+    xc_radiusDamage = m * xc_radiusDamage;
+    x14_knockback = m * x14_knockback;
   }
   void MultiplyDamageAndRadius(float m) {
     x8_damage *= m;

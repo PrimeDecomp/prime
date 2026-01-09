@@ -1,13 +1,14 @@
 #include "MetroidPrime/Weapons/WeaponTypes.hpp"
+#include "Kyoto/SObjectTag.hpp"
 #include "MetroidPrime/Weapons/WeaponCommon.hpp"
 
 #include "MetroidPrime/CAnimData.hpp"
 #include "MetroidPrime/CAnimPlaybackParms.hpp"
 #include "MetroidPrime/CStateManager.hpp"
-#include "MetroidPrime/Player/CPlayerState.hpp"
 #include "MetroidPrime/Player/CGameState.hpp"
-#include "MetroidPrime/Weapons/CGunWeapon.hpp"
+#include "MetroidPrime/Player/CPlayerState.hpp"
 #include "MetroidPrime/Tweaks/CTweakPlayerGun.hpp"
+#include "MetroidPrime/Weapons/CGunWeapon.hpp"
 
 #include "Kyoto/Animation/CPrimitive.hpp"
 #include "Kyoto/Audio/CSfxManager.hpp"
@@ -77,7 +78,7 @@ void primitive_set_to_token_vector(const CAnimData& animData,
   tokensOut.reserve(primSet.size() + eventCount);
 
   for (it = primSet.begin(); it != primSet.end(); ++it) {
-    int aId = it->GetAnimResId();
+    CAssetId aId = it->GetAnimResId();
     int eId = animData.GetEventResourceIdForAnimResourceId(aId);
 
     if (eId != -1) {
@@ -156,7 +157,7 @@ void do_sound_event(rstl::pair< u16, CSfxHandle >& sfxHandle, int& pitch, bool d
   }
 }
 
-CSfxHandle play_sfx(u16 sfx, bool underwater, bool looped, short pan) {
+CSfxHandle play_sfx(const ushort sfx, const bool underwater, const bool looped, const short pan) {
   CSfxHandle hnd = CSfxManager::SfxStart(sfx, 0x7f, pan, true, CSfxManager::kMaxPriority, looped);
   CSfxManager::SfxSpan(hnd, 0);
   if (underwater)
@@ -174,20 +175,15 @@ CDamageInfo CGunWeapon::GetShotDamageInfo(const SShotParam& shotParam, CStateMan
   // float knockback = shotParam.x14_knockback;
   // bool noImmunity = shotParam.x18_24_noImmunity;
 
-  CDamageInfo result(
-  CWeaponMode(shotParam.x0_weaponType, 0),
-  shotParam.x8_damage,
-  shotParam.xc_radiusDamage,
-  shotParam.x10_radius,
-  shotParam.x14_knockback,
-  shotParam.x18_24_noImmunity);
+  CDamageInfo result(CWeaponMode(shotParam.x0_weaponType, 0), shotParam.x8_damage,
+                     shotParam.xc_radiusDamage, shotParam.x10_radius, shotParam.x14_knockback,
+                     shotParam.x18_24_noImmunity);
 
   if (gpGameState->GetHardMode()) {
     result.MultiplyDamage(gpGameState->GetHardModeWeaponMultiplier());
   }
   return result;
 }
-
 
 namespace NWeaponTypes {
 
