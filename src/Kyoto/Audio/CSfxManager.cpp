@@ -4,6 +4,7 @@
 #include "Kyoto/Basics/CCast.hpp"
 #include "dolphin/types.h"
 #include "musyx/musyx.h"
+#include "rstl/reserved_vector.hpp"
 #include "rstl/vector.hpp"
 #include "types.h"
 #include <Kyoto/Audio/CSfxManager.hpp>
@@ -69,7 +70,7 @@ void CSfxManager::CBaseSfxWrapper::SetActive(bool v) { x14_24_isActive = v; }
 
 void CSfxManager::CBaseSfxWrapper::SetPlaying(bool v) { x14_25_isPlaying = v; }
 
-void CSfxManager::CBaseSfxWrapper::SetInArea(bool v) { x14_27_inArea = v; }
+void CSfxManager::CBaseSfxWrapper::SetInArea(const bool v) { x14_27_inArea = v; }
 
 void CSfxManager::CBaseSfxWrapper::SetRank(short v) { x8_rank = v; }
 
@@ -567,6 +568,30 @@ ushort CSfxManager::TranslateSFXID(ushort id) {
     return -1;
   }
   return CCast::ToUint16(ret);
+}
+
+void CSfxManager::SetActiveAreas(const rstl::reserved_vector< int, 10 >& areas) {
+  CSfxChannel& chan = mChannels[mCurrentChannel];
+  for (short i = 0; i < chan.x48_.size(); ++i) {
+    if (chan.x48_[i] != nullptr) {
+      int area = chan.x48_[i]->GetArea();
+      if (area == kAllAreas) {
+        chan.x48_[i]->SetInArea(true);
+        continue;
+      }
+
+      bool inArea = false;
+      for (rstl::reserved_vector< int, 10 >::const_iterator areaIt = areas.begin();
+           areaIt != areas.end(); ++areaIt) {
+        if ((*areaIt) == area) {
+          inArea = true;
+        }
+      }
+
+      mDoUpdate = true;
+      chan.x48_[i]->SetInArea(inArea);
+    }
+  }
 }
 
 void CSfxManager::DisableAuxProcessing() {
