@@ -59,8 +59,8 @@ public:
     float x1c_distComp;
     uint x20_flags;
     ushort x24_sfxId;
-    char x26_maxVol;
-    char x27_minVol;
+    uchar x26_maxVol;
+    uchar x27_minVol;
     bool x28_important; // Can't be allocated over, regardless of priority
     uchar x29_prio;
   };

@@ -136,7 +136,7 @@ void CSfxManager::CSfxEmitterWrapper::Stop() {
   }
 }
 
-const CAudioSys::C3DEmitterParmData& CSfxManager::CSfxEmitterWrapper::GetEmitter() {
+CAudioSys::C3DEmitterParmData& CSfxManager::CSfxEmitterWrapper::GetEmitter() {
   return x24_emitterData;
 }
 
@@ -239,8 +239,6 @@ void CSfxManager::CSfxWrapper::UpdateEmitterSilent() { CAudioSys::SfxVolume(x1c_
 
 void CSfxManager::CSfxWrapper::UpdateEmitter() { CAudioSys::SfxVolume(x1c_voiceHandle, x20_vol); }
 
-CSfxManager::CSfxEmitterWrapper::~CSfxEmitterWrapper() {}
-
 void CSfxManager::Shutdown() {
   delete mTranslationTable;
   mTranslationTable = nullptr;
@@ -309,16 +307,61 @@ CSfxHandle CSfxManager::AddEmitter(const SND_FXID id, const CVector3f& pos, cons
   return AddEmitter(emitterParm, useAcoustics, prio, looped, areaId);
 }
 
-CSfxHandle CSfxManager::AddEmitter(CAudioSys::C3DEmitterParmData& parmData, const bool useAcoustics,
-                                   const short prio, const bool looped, const int areaId) {}
+CSfxHandle CSfxManager::AddEmitter(CAudioSys::C3DEmitterParmData& parmData, bool useAcoustics,
+                                   const short prio, const bool looped, const int areaId) {
+  if (mMuted || parmData.x24_sfxId == 0xFFFFFFFF || parmData.x24_sfxId == 0xFFFF) {
+    return CSfxHandle::NullHandle();
+  }
+
+  CAudioSys::C3DEmitterParmData cpy = parmData;
+  if (looped) {
+    cpy.x20_flags |= 6;
+  }
+  mDoUpdate = true;
+  CSfxChannel& channel = mChannels[mCurrentChannel];
+  CSfxHandle ret = LocateHandle(prio);
+  if (ret) {
+    CSfxEmitterWrapper wrapper(looped, prio, cpy, ret, useAcoustics, areaId);
+    channel.x48_[ret.GetIndex()] = AllocateCSfxEmitterWrapper(wrapper);
+  }
+
+  return ret;
+}
 
 void CSfxManager::UpdateEmitter(CSfxHandle handle, const CVector3f& pos, const CVector3f& dir,
-                                uchar maxVol) {}
+                                const uchar maxVol) {
+  CSfxChannel& chan = mChannels[mCurrentChannel];
+  if (handle.GetIndex() < 0 || handle.GetIndex() >= chan.x48_.size()) {
+    return;
+  }
+  CSfxEmitterWrapper* wrapper = static_cast< CSfxEmitterWrapper* >(chan.x48_[handle.GetIndex()]);
+  if (!wrapper || handle != wrapper->GetSfxHandle() || !wrapper->IsPlaying()) {
+    return;
+  }
+  mDoUpdate = true;
+  wrapper->GetEmitter().x0_pos = pos;
+  wrapper->GetEmitter().xc_dir = dir;
+  wrapper->GetEmitter().x26_maxVol = maxVol;
+  CAudioSys::S3dUpdateEmitter(wrapper->GetHandle(), pos, dir, maxVol);
+}
 
 void CSfxManager::RemoveEmitter(CSfxHandle handle) { StopSound(handle); }
 
-CSfxHandle CSfxManager::SfxStart(ushort id, short vol, short pan, bool useAcoustics, short prio,
-                                 bool looped, int areaId) {}
+CSfxHandle CSfxManager::SfxStart(const ushort id, const short vol, const short pan,
+                                 bool useAcoustics, const short prio, const bool looped,
+                                 const int areaId) {
+  if (mMuted || id == 0xFFFFFFFF || id == 0xFFFF) {
+    return CSfxHandle::NullHandle();
+  }
+  mDoUpdate = true;
+  CSfxChannel& chan = mChannels[mCurrentChannel];
+  CSfxHandle ret = LocateHandle(prio);
+  if (ret) {
+    CSfxWrapper wrapper(looped, prio, id, vol, pan, ret, useAcoustics, areaId);
+    chan.x48_[ret.GetIndex()] = AllocateCSfxWrapper(wrapper);
+  }
+  return ret;
+}
 
 void CSfxManager::SfxStop(CSfxHandle handle) { StopSound(handle); }
 
@@ -470,6 +513,23 @@ CSfxHandle CSfxManager::LocateHandle(const short id) {
   return CSfxHandle(chan.x48_.size() - 1);
 }
 
+void CSfxManager::PitchBend(CSfxHandle handle, int pitch) {
+  CBaseSfxWrapper* wrapper = mChannels[mCurrentChannel].x48_[handle.GetIndex()];
+  if (wrapper == nullptr || handle != wrapper->GetSfxHandle()) {
+    return;
+  }
+
+  if (!wrapper->IsPlaying()) {
+    Update(0.f);
+  }
+
+  if (wrapper->IsPlaying()) {
+    mDoUpdate = true;
+    const SND_VOICEID handle = wrapper->GetVoice();
+    CAudioSys::SfxPitchBend(handle, pitch);
+  }
+}
+
 bool CSfxManager::IsPlaying(CSfxHandle handle) {
   CSfxChannel& chan = mChannels[mCurrentChannel];
   if (handle.GetIndex() < 0 || handle.GetIndex() >= chan.x48_.size()) {
@@ -494,23 +554,6 @@ bool CSfxManager::IsHandleValid(CSfxHandle handle) {
     return false;
   }
   return true;
-}
-
-void CSfxManager::PitchBend(CSfxHandle handle, int pitch) {
-  CBaseSfxWrapper* wrapper = mChannels[mCurrentChannel].x48_[handle.GetIndex()];
-  if (wrapper == nullptr || handle != wrapper->GetSfxHandle()) {
-    return;
-  }
-
-  if (!wrapper->IsPlaying()) {
-    Update(0.f);
-  }
-
-  if (wrapper->IsPlaying()) {
-    mDoUpdate = true;
-    const SND_VOICEID handle = wrapper->GetVoice();
-    CAudioSys::SfxPitchBend(handle, pitch);
-  }
 }
 
 int CSfxManager::GetRank(CSfxManager::CBaseSfxWrapper* wrapper) {
@@ -594,6 +637,39 @@ void CSfxManager::SetActiveAreas(const rstl::reserved_vector< int, 10 >& areas) 
   }
 }
 
+CSfxManager::CSfxEmitterWrapper*
+CSfxManager::AllocateCSfxEmitterWrapper(const CSfxEmitterWrapper& wrapper) {
+  CSfxEmitterWrapper* ret = nullptr;
+  for (int i = 0; i < mEmitterWrapperPool.size(); ++i) {
+    if (mEmitterWrapperPool[i].Available()) {
+      mEmitterWrapperPool[i] = wrapper;
+      ret = &mEmitterWrapperPool[i];
+      break;
+    }
+  }
+
+  if (ret == nullptr && mEmitterWrapperPool.size() != mEmitterWrapperPool.capacity()) {
+    mEmitterWrapperPool.push_back(wrapper);
+    ret = &mEmitterWrapperPool.back();
+  }
+  return ret;
+}
+CSfxManager::CSfxWrapper* CSfxManager::AllocateCSfxWrapper(const CSfxWrapper& wrapper) {
+  CSfxWrapper* ret = nullptr;
+  for (int i = 0; i < mWrapperPool.size(); ++i) {
+    if (mWrapperPool[i].Available()) {
+      mWrapperPool[i] = wrapper;
+      ret = &mWrapperPool[i];
+      break;
+    }
+  }
+
+  if (ret == nullptr && mWrapperPool.size() != mWrapperPool.capacity()) {
+    mWrapperPool.push_back(wrapper);
+    ret = &mWrapperPool.back();
+  }
+  return ret;
+}
 void CSfxManager::DisableAuxProcessing() {
   mRequestedAuxEffect = kAE_None;
   mAuxProcessingEnabled = false;
@@ -718,5 +794,3 @@ CFactoryFnReturn FAudioTranslationTableFactory(const SObjectTag& obj, CInputStre
                                                const CVParamTransfer& xfer) {
   return rs_new rstl::vector< short >(in);
 }
-
-CSfxManager::CSfxWrapper::~CSfxWrapper() {}

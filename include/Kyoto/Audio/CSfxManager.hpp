@@ -44,7 +44,7 @@ public:
   public:
     CBaseSfxWrapper(const bool looped, const short prio, const CSfxHandle handle,
                     const bool useAcoustics, const int area);
-    virtual ~CBaseSfxWrapper() {};
+    virtual ~CBaseSfxWrapper() = 0;
     virtual void SetActive(bool v);
     virtual void SetPlaying(bool v);
     virtual void SetRank(short v);
@@ -88,10 +88,9 @@ public:
 
   class CSfxEmitterWrapper : public CBaseSfxWrapper {
   public:
-    CSfxEmitterWrapper(const bool looped, const short prio,
-                       CAudioSys::C3DEmitterParmData& emitterData, const CSfxHandle handle,
-                       const bool useAcoustics, const int area);
-    ~CSfxEmitterWrapper();
+    CSfxEmitterWrapper(const bool looped, short prio, CAudioSys::C3DEmitterParmData& emitterData,
+                       const CSfxHandle handle, const bool useAcoustics, const int area);
+    ~CSfxEmitterWrapper() {}
     bool IsPlaying() const override;
     void Play() override;
     void Stop() override;
@@ -102,7 +101,7 @@ public:
     void UpdateEmitterSilent() override;
     void UpdateEmitter() override;
     void SetReverb(const char rev) override;
-    const CAudioSys::C3DEmitterParmData& GetEmitter();
+    CAudioSys::C3DEmitterParmData& GetEmitter();
     const SND_VOICEID GetHandle() const;
 
   private:
@@ -118,7 +117,7 @@ public:
   public:
     CSfxWrapper(const bool looped, const short prio, const ushort sfxId, const short vol,
                 const short pan, const CSfxHandle handle, const bool useAcoustics, const int area);
-    ~CSfxWrapper(); // {}
+    ~CSfxWrapper() {}
 
     bool IsPlaying() const override;
     void Play() override;
@@ -228,6 +227,8 @@ public:
   static void TurnOffChannel(ESfxChannels);
   static CSfxHandle LocateHandle(const short id);
 
+  static CSfxEmitterWrapper* AllocateCSfxEmitterWrapper(const CSfxEmitterWrapper& wrapper);
+  static CSfxWrapper* AllocateCSfxWrapper(const CSfxWrapper& wrapper);
   static const bool IsAuxProcessingEnabled();
   static void ApplyReverb();
   static void DisableAuxCallbacks();
@@ -254,6 +255,8 @@ public:
   static bool IsHandleValid(CSfxHandle handle);
   static int GetRank(CBaseSfxWrapper* wrapper);
 };
+
+inline CSfxManager::CBaseSfxWrapper::~CBaseSfxWrapper() {}
 
 CFactoryFnReturn FAudioTranslationTableFactory(const SObjectTag& obj, CInputStream& in,
                                                const CVParamTransfer& xfer);
