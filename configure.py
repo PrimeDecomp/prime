@@ -1277,7 +1277,7 @@ config.libs = [
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Audio/CSfxManager.cpp"),
             Object(NonMatching, "Kyoto/Animation/CAdvancementDeltas.cpp"),
             Object(NonMatching, "Kyoto/Animation/CAnimMathUtils.cpp"),
-            Object(NonMatching, "Kyoto/Animation/CAnimPOIData.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Animation/CAnimPOIData.cpp"),
             Object(NonMatching, "Kyoto/Animation/CAnimSource.cpp"),
             Object(NonMatching, "Kyoto/Animation/CAnimSourceReader.cpp"),
             Object(NonMatching, "Kyoto/Animation/CAnimSourceReaderBase.cpp"),

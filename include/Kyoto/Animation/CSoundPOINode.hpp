@@ -14,12 +14,11 @@ public:
   , x40_maxDist(maxDist) {}
   */
 
-  CSoundPOINode(CInputStream& in);
-  /*: CPOINode(in)
+  CSoundPOINode(CInputStream& in)
+  : CPOINode(in)
   , x38_sfxId(in.ReadInt32())
   , x3c_falloff(in.ReadFloat())
   , x40_maxDist(in.ReadFloat()) {}
-  */
 
   uint GetSoundId() const { return x38_sfxId; }
   float GetFallOff() const { return x3c_falloff; }
