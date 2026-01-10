@@ -6737,7 +6737,7 @@ __as__Q24rstl29optional_object<10CModelData>FRCQ24rstl29optional_object<10CModel
 ResetAuxParams__11CGrappleArmFb = .text:0x8011DE30; // type:function size:0x7C scope:global
 EnterStruck__11CGrappleArmFR13CStateManagerfbb = .text:0x8011DEAC; // type:function size:0xC4 scope:global
 EnterIdle__11CGrappleArmFR13CStateManager = .text:0x8011DF70; // type:function size:0x30 scope:global
-ReturnToDefault__11CGrappleArmFR13CStateManagerf = .text:0x8011DFA0; // type:function size:0x30 scope:global
+ReturnToDefault__11CGrappleArmFR13CStateManagerfb = .text:0x8011DFA0; // type:function size:0x30 scope:global
 EnterComboFire__11CGrappleArmFiR13CStateManager = .text:0x8011DFD0; // type:function size:0x5C scope:global
 EnterFidget__11CGrappleArmFR13CStateManageriii = .text:0x8011E02C; // type:function size:0x50 scope:global
 EnterFreeLook__11CGrappleArmFiiR13CStateManager = .text:0x8011E07C; // type:function size:0x64 scope:global
@@ -6759,7 +6759,7 @@ PreRender__11CGrappleArmFR13CStateManagerRC14CFrustumPlanesRC9CVector3f = .text:
 TouchModel__11CGrappleArmCFRC13CStateManager = .text:0x8011F914; // type:function size:0xCC scope:global
 __dt__11CGrappleArmFv = .text:0x8011F9E0; // type:function size:0x2B0 scope:global
 fn_8011FC14 = .text:0x8011FC90; // type:function size:0x50 scope:global
-clear__Q24rstl70reserved_vector<Q24rstl42vector<6CToken,Q24rstl17rmemory_allocator>,4>Fv = .text:0x8011FCE0; // type:function size:0xA4 scope:global
+clear__Q24rstl70reserved_vector<Q24rstl42vector<6CToken,Q24rstl17rmemory_allocator>,8>Fv = .text:0x8011FCE0; // type:function size:0xA4 scope:global
 __dt__Q24rstl28single_ptr<14CGunController>Fv = .text:0x8011FD84; // type:function size:0x58 scope:global
 __ct__11CGrappleArmFRC9CVector3f = .text:0x8011FDDC; // type:function size:0x7B8 scope:global
 __dt__12CSpacePirateFv = .text:0x80120594; // type:function size:0x190 scope:global

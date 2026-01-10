@@ -1,5 +1,5 @@
-#ifndef _CPARTICLESWOOSH_HPP
-#define _CPARTICLESWOOSH_HPP
+#ifndef _CPARTICLESWOOSH
+#define _CPARTICLESWOOSH
 
 #include "Kyoto/CRandom16.hpp"
 #include "Kyoto/Graphics/CColor.hpp"
@@ -45,6 +45,8 @@ public:
   uint Get4CharId() const;
 
   void SetWarmUp() { x1d0_26_forceOneUpdate = true; }
+
+  const int GetSwooshCount() const { return x15c_swooshes.size(); }
 
 private:
   TLockedToken< CSwooshDescription > x1c_desc;
@@ -94,4 +96,4 @@ private:
   CColor x20c_moduColor;
 };
 
-#endif // _CPARTICLESWOOSH_HPP
+#endif // _CPARTICLESWOOSH

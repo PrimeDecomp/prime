@@ -221,11 +221,9 @@ template < typename T, typename Alloc >
 typename vector< T, Alloc >::iterator vector< T, Alloc >::erase(iterator first, iterator last) {
   destroy(first, last);
 
-  iterator start = begin();
-  int newCount = start - first;
+  int newCount = first - begin();
 
-  iterator moved = start + newCount;
-  for (iterator it = last; it != end(); ++moved, ++newCount, ++it) {
+  for (iterator moved = begin() + newCount, it = last; it != end(); ++moved, ++newCount, ++it) {
     construct(&*moved, *it);
   }
   x4_count = newCount;

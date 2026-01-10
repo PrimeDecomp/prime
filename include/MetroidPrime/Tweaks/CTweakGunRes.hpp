@@ -6,10 +6,11 @@
 #include "MetroidPrime/Tweaks/ITweakObject.hpp"
 
 #include "MetroidPrime/Player/CPlayerState.hpp"
+#include <Kyoto/TOneStatic.hpp>
 
 #include "Kyoto/CObjectReference.hpp"
 
-class CTweakGunRes : public ITweakObject, public TOneStatic<CTweakGunRes> {
+class CTweakGunRes : public ITweakObject, public TOneStatic< CTweakGunRes > {
 public:
   typedef CAssetId ResId;
   typedef CPlayerState::EBeamId EBeamId;
