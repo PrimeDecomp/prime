@@ -85,7 +85,7 @@ const bool CSfxManager::CBaseSfxWrapper::UseAcoustics() const { return x14_29_us
 
 const short CSfxManager::CBaseSfxWrapper::GetRank() const { return x8_rank; }
 
-const short CSfxManager::CBaseSfxWrapper::GetPriority() const { return xa_prio; }
+const int CSfxManager::CBaseSfxWrapper::GetPriority() const { return xa_prio; }
 
 const CSfxHandle CSfxManager::CBaseSfxWrapper::GetSfxHandle() const { return xc_handle; }
 
@@ -467,6 +467,81 @@ CSfxHandle CSfxManager::LocateHandle(const short id) {
 
   chan.x48_.push_back(nullptr);
   return CSfxHandle(chan.x48_.size() - 1);
+}
+
+bool CSfxManager::IsPlaying(CSfxHandle handle) {
+  CSfxChannel& chan = mChannels[mCurrentChannel];
+  if (handle.GetIndex() < 0 || handle.GetIndex() >= chan.x48_.size()) {
+    return false;
+  }
+
+  CBaseSfxWrapper* wrapper = chan.x48_[handle.GetIndex()];
+  if (wrapper == nullptr || handle != wrapper->GetSfxHandle() || !wrapper->IsPlaying()) {
+    return false;
+  }
+  return wrapper->IsPlaying();
+}
+
+bool CSfxManager::IsHandleValid(CSfxHandle handle) {
+  CSfxChannel& chan = mChannels[mCurrentChannel];
+  if (handle.GetIndex() < 0 || handle.GetIndex() >= chan.x48_.size()) {
+    return false;
+  }
+
+  CBaseSfxWrapper* wrapper = chan.x48_[handle.GetIndex()];
+  if (wrapper == nullptr || handle != wrapper->GetSfxHandle()) {
+    return false;
+  }
+  return true;
+}
+
+void CSfxManager::PitchBend(CSfxHandle handle, int pitch) {
+  CBaseSfxWrapper* wrapper = mChannels[mCurrentChannel].x48_[handle.GetIndex()];
+  if (wrapper == nullptr || handle != wrapper->GetSfxHandle()) {
+    return;
+  }
+
+  if (!wrapper->IsPlaying()) {
+    Update(0.f);
+  }
+
+  if (wrapper->IsPlaying()) {
+    mDoUpdate = true;
+    const SND_VOICEID handle = wrapper->GetVoice();
+    CAudioSys::SfxPitchBend(handle, pitch);
+  }
+}
+
+int CSfxManager::GetRank(CSfxManager::CBaseSfxWrapper* wrapper) {
+  CSfxChannel& chan = mChannels[mCurrentChannel];
+  if (!wrapper->IsInArea()) {
+    return 0;
+  }
+
+  int rank = wrapper->GetPriority() >> 2;
+
+  if (wrapper->IsPlaying()) {
+    rank += 1;
+  }
+
+  if (wrapper->IsLooped()) {
+    rank -= 2;
+  }
+
+  if (wrapper->Ready() && !wrapper->IsPlaying()) {
+    rank += 3;
+  }
+
+  if (chan.x44_) {
+    const int tmp = wrapper->GetAudible(chan.x0_listener.x0_);
+    if (tmp == 0) {
+      rank = 0;
+    } else {
+      rank += tmp * 2;
+    }
+  }
+
+  return rank;
 }
 
 bool CSfxManager::LoadTranslationTable(CSimplePool* pool, const SObjectTag* tag) {

@@ -94,6 +94,7 @@ public:
   static SND_VOICEID SfxCheck(SND_VOICEID handle);
   static void SfxVolume(SND_VOICEID handle, u8 vol);
   static void SfxSpan(SND_VOICEID handle, uchar vol);
+  static void SfxPitchBend(SND_VOICEID handle, const ushort pitch);
   static uint S3dFindLowerPriorityHandle(uint prio);
   static uint S3dFindUnusedHandle();
   static uint S3dAddEmitterParaEx(const C3DEmitterParmData& params, ushort handle,

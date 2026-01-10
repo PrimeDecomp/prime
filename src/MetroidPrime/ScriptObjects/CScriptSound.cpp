@@ -153,7 +153,7 @@ void CScriptSound::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CSta
 void CScriptSound::PlaySound(CStateManager& mgr) {
   TAreaId areaId = GetCurrentAreaId();
   if (!x11d_24_allowDuplicates && xec_sfxHandle) {
-    if (CSfxManager::IsValidHandle(xec_sfxHandle)) {
+    if (CSfxManager::IsHandleValid(xec_sfxHandle)) {
       return;
     }
   }

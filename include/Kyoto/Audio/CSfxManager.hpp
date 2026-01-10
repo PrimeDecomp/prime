@@ -55,7 +55,7 @@ public:
     virtual const bool IsInArea() const;
     virtual const bool UseAcoustics() const;
     virtual const short GetRank() const;
-    virtual const short GetPriority() const;
+    virtual const int GetPriority() const;
     virtual const int GetArea() const;
     virtual const CSfxHandle GetSfxHandle() const;
     virtual void Play() = 0;
@@ -250,7 +250,8 @@ public:
   static rstl::reserved_vector< CSfxEmitterWrapper, 64 > mEmitterWrapperPool;
   static rstl::reserved_vector< CSfxWrapper, 64 > mWrapperPool;
 
-  static bool IsValidHandle(CSfxHandle handle);
+  static bool IsHandleValid(CSfxHandle handle);
+  static int GetRank(CBaseSfxWrapper* wrapper);
 };
 
 CFactoryFnReturn FAudioTranslationTableFactory(const SObjectTag& obj, CInputStream& in,
