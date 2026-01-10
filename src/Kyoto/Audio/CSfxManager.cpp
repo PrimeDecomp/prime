@@ -573,18 +573,15 @@ void CSfxManager::Update(float dt) {
 
   CAudioSys::S3dFlushUnusedEmitters();
   if (mDoUpdate) {
-    int iVar22 = 48;
-    for (int j = 0; j < uVar21 && iVar22 != 0; ++j) {
+    for (int iVar22 = 48, j = 0; j < uVar21 && iVar22 != 0; ++j) {
       if (!chan.x48_[local_e0[j]]) {
         continue;
       }
       if (chan.x48_[local_e0[j]]->IsPlaying()) {
         iVar22--;
-      } else {
-        if (chan.x48_[local_e0[j]]->Ready() && chan.x48_[local_e0[j]]->IsInArea()) {
-          chan.x48_[local_e0[j]]->Play();
-          iVar22--;
-        }
+      } else if (chan.x48_[local_e0[j]]->Ready() && chan.x48_[local_e0[j]]->IsInArea()) {
+        chan.x48_[local_e0[j]]->Play();
+        iVar22--;
       }
     }
     mDoUpdate = false;
