@@ -47,14 +47,14 @@ public:
     virtual ~CBaseSfxWrapper() = 0;
     virtual void SetActive(bool v);
     virtual void SetPlaying(bool v);
-    virtual void SetRank(short v);
+    virtual void SetRank(const short v);
     virtual void SetInArea(bool v);
     virtual const bool IsLooped() const;
     virtual bool IsPlaying() const;
     virtual const bool IsActive() const;
     virtual const bool IsInArea() const;
     virtual const bool UseAcoustics() const;
-    virtual const short GetRank() const;
+    virtual const int GetRank() const;
     virtual const int GetPriority() const;
     virtual const int GetArea() const;
     virtual const CSfxHandle GetSfxHandle() const;

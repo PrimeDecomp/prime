@@ -4,6 +4,8 @@
 #include "Kyoto/Basics/CCast.hpp"
 #include "dolphin/types.h"
 #include "musyx/musyx.h"
+#include "rstl/algorithm.hpp"
+#include "rstl/math.hpp"
 #include "rstl/reserved_vector.hpp"
 #include "rstl/vector.hpp"
 #include "types.h"
@@ -72,7 +74,7 @@ void CSfxManager::CBaseSfxWrapper::SetPlaying(bool v) { x14_25_isPlaying = v; }
 
 void CSfxManager::CBaseSfxWrapper::SetInArea(const bool v) { x14_27_inArea = v; }
 
-void CSfxManager::CBaseSfxWrapper::SetRank(short v) { x8_rank = v; }
+void CSfxManager::CBaseSfxWrapper::SetRank(const short v) { x8_rank = v; }
 
 const bool CSfxManager::CBaseSfxWrapper::IsLooped() const { return x14_26_looped; }
 
@@ -84,7 +86,7 @@ const bool CSfxManager::CBaseSfxWrapper::IsActive() const { return x14_24_isActi
 
 const bool CSfxManager::CBaseSfxWrapper::UseAcoustics() const { return x14_29_useAcoustics; }
 
-const short CSfxManager::CBaseSfxWrapper::GetRank() const { return x8_rank; }
+const int CSfxManager::CBaseSfxWrapper::GetRank() const { return x8_rank; }
 
 const int CSfxManager::CBaseSfxWrapper::GetPriority() const { return xa_prio; }
 
@@ -513,6 +515,119 @@ CSfxHandle CSfxManager::LocateHandle(const short id) {
   return CSfxHandle(chan.x48_.size() - 1);
 }
 
+void CSfxManager::Update(float dt) {
+  short i;
+  ushort uVar21 = 0;
+  CSfxChannel& chan = mChannels[mCurrentChannel];
+  for (i = 0; i < chan.x48_.size(); ++i) {
+    if (!chan.x48_[i] || chan.x48_[i]->IsLooped()) {
+      continue;
+    }
+
+    float remTime = chan.x48_[i]->GetTimeRemaining();
+    chan.x48_[i]->SetTimeRemaining(remTime - dt);
+    if (remTime < 0.f) {
+      chan.x48_[i]->Stop();
+      mDoUpdate = true;
+    }
+  }
+  ushort local_e0[70];
+  if (mDoUpdate) {
+    for (i = 0; i < chan.x48_.size(); ++i) {
+      if (!chan.x48_[i]) {
+        continue;
+      }
+      local_e0[uVar21++] = i;
+      chan.x48_[i]->SetRank(GetRank(chan.x48_[i]));
+    }
+    for (i = 0; i < uVar21; i++) {
+      bool done = true;
+      for (int j = 0; j < (uVar21 - 1); j += 1) {
+        if (chan.x48_[local_e0[j]]->GetRank() < chan.x48_[local_e0[j + 1]]->GetRank()) {
+          done = false;
+          rstl::swap(local_e0[j], local_e0[j + 1]);
+        }
+      }
+      if (done) {
+        break;
+      }
+    }
+
+    for (i = 48; i < uVar21; ++i) {
+      CBaseSfxWrapper* wrapper = chan.x48_[local_e0[i]];
+      if (!wrapper || !wrapper->IsPlaying()) {
+        continue;
+      }
+      chan.x48_[local_e0[i]]->Stop();
+    }
+
+    for (i = 0; i < uVar21; ++i) {
+      if (chan.x48_[local_e0[i]] == nullptr) {
+        continue;
+      }
+      if (chan.x48_[local_e0[i]]->IsPlaying() && !chan.x48_[local_e0[i]]->IsInArea()) {
+        chan.x48_[local_e0[i]]->Stop();
+      }
+    }
+  }
+
+  CAudioSys::S3dFlushUnusedEmitters();
+  if (mDoUpdate) {
+    int iVar22 = 48;
+    for (int j = 0; j < uVar21 && iVar22 != 0; ++j) {
+      if (!chan.x48_[local_e0[j]]) {
+        continue;
+      }
+      if (chan.x48_[local_e0[j]]->IsPlaying()) {
+        iVar22--;
+      } else {
+        if (chan.x48_[local_e0[j]]->Ready() && chan.x48_[local_e0[j]]->IsInArea()) {
+          chan.x48_[local_e0[j]]->Play();
+          iVar22--;
+        }
+      }
+    }
+    mDoUpdate = false;
+  }
+
+  for (int i = 0; i < chan.x48_.size(); ++i) {
+    if (!chan.x48_[i] || chan.x48_[i]->IsPlaying() || chan.x48_[i]->IsLooped()) {
+      continue;
+    }
+    chan.x48_[i]->Release();
+    chan.x48_[i] = nullptr;
+    mDoUpdate = true;
+  }
+
+  if (mAuxProcessingEnabled && mReverbAmount < 1.f) {
+    mReverbAmount = rstl::min_val(1.f, mReverbAmount + (dt / (mReverbScale)));
+    ApplyReverb();
+  } else if (!mAuxProcessingEnabled && mReverbAmount > 0.f) {
+    mReverbAmount = rstl::max_val(0.f, mReverbAmount - (dt / (mReverbScale * 2.f)));
+    ApplyReverb();
+
+    if (mReverbAmount == 0.f) {
+      DisableAuxCallbacks();
+      EnableAuxCallbacks();
+    }
+  }
+
+  if (mTranslationTableTok.get() && mTranslationTableTok->HasLock() &&
+      mTranslationTableTok->IsLoaded()) {
+    if (mTranslationTable == nullptr) {
+      TToken< rstl::vector< short > > tmp(*mTranslationTableTok);
+      mTranslationTable = rs_new rstl::vector< short >(*tmp.GetT());
+      int i = 0;
+      for (rstl::vector< short >::iterator it = tmp.GetT()->begin(); it != tmp.GetT()->end();
+           ++it) {
+        if (*it > i) {
+          i = *it;
+        }
+      }
+    }
+    mTranslationTableTok = nullptr;
+  }
+}
 void CSfxManager::PitchBend(CSfxHandle handle, int pitch) {
   CBaseSfxWrapper* wrapper = mChannels[mCurrentChannel].x48_[handle.GetIndex()];
   if (wrapper == nullptr || handle != wrapper->GetSfxHandle()) {
