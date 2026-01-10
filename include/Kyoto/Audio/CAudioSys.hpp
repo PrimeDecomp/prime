@@ -42,14 +42,16 @@ public:
   struct C3DEmitterParmData {
     C3DEmitterParmData(const float maxDist = 150.f, const float distComp = 0.1f,
                        const uint flags = 1, const uchar maxVol = 127, const uchar minVol = 0)
-    : x18_maxDist(maxDist)
+    : x0_pos(0.f, 0.f, 0.f)
+    , xc_dir(0.f, 0.f, 0.f)
+    , x18_maxDist(maxDist)
     , x1c_distComp(distComp)
     , x20_flags(flags)
     , x24_sfxId(0)
     , x26_maxVol(maxVol)
     , x27_minVol(minVol)
     , x28_important(false)
-    , x29_prio(127) {}
+    , x29_prio(CAudioSys::kEmitterMedPriority) {}
 
     CVector3f x0_pos;
     CVector3f xc_dir;
@@ -88,9 +90,10 @@ public:
 
   static SND_VOICEID SfxStart(const SND_FXID, const uchar, const uchar, const uchar);
   static void SfxStop(SND_VOICEID handle);
-  static void SfxCtrl(SND_VOICEID handle, uchar ctrl, uchar val);
+  static void SfxCtrl(const SND_VOICEID handle, const uchar ctrl, const uchar val);
   static SND_VOICEID SfxCheck(SND_VOICEID handle);
   static void SfxVolume(SND_VOICEID handle, u8 vol);
+  static void SfxSpan(SND_VOICEID handle, uchar vol);
   static uint S3dFindLowerPriorityHandle(uint prio);
   static uint S3dFindUnusedHandle();
   static uint S3dAddEmitterParaEx(const C3DEmitterParmData& params, ushort handle,

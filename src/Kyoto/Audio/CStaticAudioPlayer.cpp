@@ -1,26 +1,21 @@
+#include "rstl/math.hpp"
 #include <Kyoto/Alloc/CMemory.hpp>
 #include <Kyoto/Audio/CStaticAudioPlayer.hpp>
 #include <Kyoto/CDvdFile.hpp>
 #include <Kyoto/CDvdRequest.hpp>
 
-#include <dolphin/os.h>
 #include <dolphin/ai.h>
+#include <dolphin/os.h>
 
 extern "C" bool fn_8034A7A4();
 
-extern "C" void fn_8036C8F0() {
-  bool b1 = fn_8034A7A4();
-}
+extern "C" void fn_8036C8F0() { bool b1 = fn_8034A7A4(); }
 
 CStaticAudioPlayer* sCurrentPlayer = nullptr;
 
-void CStaticAudioPlayer::RunDMACallback(FAudioCallback) {
+void CStaticAudioPlayer::RunDMACallback(FAudioCallback) {}
 
-}
-
-void CStaticAudioPlayer::CancelDMACallback(FAudioCallback) {
-  
-}
+void CStaticAudioPlayer::CancelDMACallback(FAudioCallback) {}
 
 CStaticAudioPlayer::CStaticAudioPlayer(const rstl::string& filepath, const int loopStart,
                                        const int loopEnd)
@@ -52,17 +47,14 @@ CStaticAudioPlayer::CStaticAudioPlayer(const rstl::string& filepath, const int l
   }
 }
 
-//#pragma push
+// #pragma push
 #pragma inline_max_size(200)
-CStaticAudioPlayer::~CStaticAudioPlayer() {
-  StopMixOut();
-}
-//#pragma pop
+CStaticAudioPlayer::~CStaticAudioPlayer() { StopMixOut(); }
+// #pragma pop
 
 const bool CStaticAudioPlayer::IsReady() const {
   return !x38_dvdRequests.empty() ? x38_dvdRequests.back()->IsComplete() : true;
 }
-
 
 void CStaticAudioPlayer::StartMixOut() {
   if (sCurrentPlayer == this) {
@@ -84,11 +76,7 @@ void CStaticAudioPlayer::StopMixOut() {
   }
 }
 
-
-void CStaticAudioPlayer::MixCallback() {
-  sCurrentPlayer->DoMix();
-}
-
+void CStaticAudioPlayer::MixCallback() { sCurrentPlayer->DoMix(); }
 
 void CStaticAudioPlayer::DoMix() {
   u32 aiStart = OSCachedToPhysical(AIGetDMAStartAddr());
@@ -104,4 +92,25 @@ void CStaticAudioPlayer::DoMix() {
   Decode((ushort*)buf, (ushort*)aiStart, 160);
   DCFlushRange((void*)buf, 0x280);
   OSRestoreInterrupts(cookie);
+}
+
+void CStaticAudioPlayer::Decode(const ushort* bufIn, ushort* bufOut, int numSamples) {
+  int uVar5 = x18_curSamp / 2;
+  int uVar4 = x20_loopEndSamp / 2;
+  int uVar3 = x1c_loopStartSamp / 2;
+  DecodeMonoAndMix(bufIn, bufOut, uVar5, uVar4, uVar3, xc0_volume, x58_leftState);
+  int iVar1 = x14_rsfLength / 2;
+  uVar5 += iVar1;
+  uVar4 += iVar1;
+  uVar3 += iVar1;
+  DecodeMonoAndMix(bufIn + 1, bufOut + 1, uVar5, uVar4, uVar3, xc0_volume, x8c_rightState);
+
+  while (numSamples) {
+    uVar3 = rstl::min_val(numSamples, x20_loopEndSamp - x18_curSamp);
+    x18_curSamp += uVar3;
+    numSamples -= uVar3;
+    if (x18_curSamp == x20_loopEndSamp) {
+      x18_curSamp = x1c_loopStartSamp;
+    }
+  }
 }

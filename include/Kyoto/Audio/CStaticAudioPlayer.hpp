@@ -22,7 +22,10 @@ public:
   void DoMix();
   static void RunDMACallback(FAudioCallback);
   static void CancelDMACallback(FAudioCallback);
-  void Decode(ushort* bufIn, ushort* bufOut, uint numSamples);
+  void Decode(const ushort* bufIn, ushort* bufOut, int numSamples);
+  void DecodeMonoAndMix(const ushort* bufIn, ushort* bufOut, const int curSample,
+                        const int sampleEnd, const int sampleStart, ushort vol, g72x_state& state);
+
 private:
   rstl::string x0_filepath;
   int x10_rsfRem;

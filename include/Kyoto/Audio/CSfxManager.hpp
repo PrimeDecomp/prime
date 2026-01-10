@@ -194,9 +194,9 @@ public:
                                const uchar vol, const bool useAcoustics = false,
                                const bool looped = false, const short prio = kMedPriority,
                                const int areaId = kAllAreas);
-  static CSfxHandle AddEmitter(CAudioSys::C3DEmitterParmData& parmData, bool useAcoustics = false,
-                               const short prio = kMedPriority, const bool looped = false,
-                               const int areaId = kAllAreas);
+  static CSfxHandle AddEmitter(CAudioSys::C3DEmitterParmData& parmData,
+                               const bool useAcoustics = false, const short prio = kMedPriority,
+                               const bool looped = false, const int areaId = kAllAreas);
 
   static void AddListener(ESfxChannels channel, const CVector3f& pos, const CVector3f& dir,
                           const CVector3f& vec1, const CVector3f& vec2, float f1, float f2,
@@ -204,11 +204,12 @@ public:
 
   static void Shutdown();
   static void StopAndRemoveAllEmitters();
+  static bool LoadTranslationTable(CSimplePool* pool, const SObjectTag* tag);
   static ushort TranslateSFXID(ushort);
 
   static void PitchBend(CSfxHandle handle, int pitch);
-  static void SetDuration(CSfxHandle handle, float duration);
-  static ushort GetReverbAmount();
+  static void SetDuration(const CSfxHandle& handle, float duration);
+  static const short GetReverbAmount();
 
   static CSfxHandle SfxStart(const ushort id, const short vol = 127, const short pan = 64,
                              const bool useAcoustics = false, const short prio = kMedPriority,
@@ -224,8 +225,10 @@ public:
   static void KillAll(ESfxChannels);
   static void TurnOnChannel(ESfxChannels);
   static void TurnOffChannel(ESfxChannels);
+  static CSfxHandle LocateHandle(const short id);
 
   static const bool IsAuxProcessingEnabled();
+  static void ApplyReverb();
   static void DisableAuxCallbacks();
   static void EnableAuxCallbacks();
   static void PrepareDelayCallback(const SND_AUX_DELAY& info);
@@ -235,8 +238,15 @@ public:
   static void DisableAuxProcessing();
   static CSfxChannel mChannels[4];
   static ESfxChannels mCurrentChannel;
+  static bool mDoUpdate;
+  static EAuxEffect mCurrentAuxEffect;
+  static EAuxEffect mRequestedAuxEffect;
+  static float mReverbAmount;
+  static float mReverbScale;
   static rstl::vector< short >* mTranslationTable;
+  static bool mMuted;
   static rstl::auto_ptr< CToken > mTranslationTableTok;
+  static bool mAuxProcessingEnabled;
   static rstl::reserved_vector< CSfxEmitterWrapper, 64 > mEmitterWrapperPool;
   static rstl::reserved_vector< CSfxWrapper, 64 > mWrapperPool;
 
