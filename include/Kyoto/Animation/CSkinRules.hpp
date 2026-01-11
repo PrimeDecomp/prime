@@ -9,8 +9,10 @@ public:
   CSkinRules(CInputStream& in);
   ~CSkinRules();
 
+  void BuildNormalsFrom(const CVector3f* averageNormals, CVector3f* out) const;
+
 private:
-  rstl::vector<CVirtualBone> x0_virtualBones;
+  rstl::vector< CVirtualBone > x0_virtualBones;
   uint x10_vertexCount;
   uint x14_normalCount;
 };

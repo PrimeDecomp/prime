@@ -3,26 +3,38 @@
 
 #include "types.h"
 
-#include "Kyoto/Animation/CSegId.hpp"
+#include "Kyoto/Animation/TSegIdMapVariableSize.hpp"
+#include "Kyoto/Math/CMatrix3f.hpp"
 #include "Kyoto/Math/CTransform4f.hpp"
-
-#include "rstl/reserved_vector.hpp"
-#include "rstl/single_ptr.hpp"
 
 class CPoseAsTransforms {
 public:
   class CElementType {
+  public:
+    CElementType(const CMatrix3f& rotation, const CVector3f& offset)
+    : mRotation(rotation), mOffset(offset) {}
 
+    const CMatrix3f& GetRotation() const { return mRotation; }
+    const CVector3f& GetOffset() const { return mOffset; }
+
+  private:
+    CMatrix3f mRotation;
+    CVector3f mOffset;
   };
-  
-  const CMatrix3f& GetRotation(const CSegId& id) const;
+
+  CPoseAsTransforms(uchar count);
+
+  void Insert(const CSegId& seg, const CMatrix3f& rotation, const CVector3f& offset);
+  const CElementType& GetRotation(const CSegId& id) const;
+  const CMatrix3f& GetTransformMinusOffset(const CSegId& id) const;
+  const CVector3f& GetOffset(const CSegId& id) const;
+  void Clear();
+
+  void AccumulateScaledTransform(const CSegId& seg, CMatrix3f& transform, float scale) const;
+  bool ContainsDataFor(const CSegId& seg) const;
+
 private:
-  CSegId x0_nextId;
-  CSegId x1_count;
-  // TODO TSegIdMapVariableSize<CPoseAsTransforms::CElementType>
-  rstl::reserved_vector< rstl::pair< CSegId, CSegId >, 100 > x4_links;
-  rstl::single_ptr< CTransform4f > xd0_transformArr;
-  CSegId xd4_lastInserted;
+  TSegIdMapVariableSize< CElementType > mSegIdMap;
 };
 CHECK_SIZEOF(CPoseAsTransforms, 0xd8)
 
