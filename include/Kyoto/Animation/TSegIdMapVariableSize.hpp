@@ -14,34 +14,41 @@ public:
   : mNextId(0), mCount(count), mLinks(link_node(0xFF, 0xFF)), mItems(nullptr), mLastInserted(0) {
     mItems = reinterpret_cast< T* >(rs_new uchar[count * sizeof(T)]);
   }
-  ~TSegIdMapVariableSize() { delete mItems; }
+  ~TSegIdMapVariableSize() {
+    uchar cur = mLastInserted;
+    while (cur) {
+      cur = mLinks[cur].first;
+    }
+    delete mItems;
+  }
 
   void Clear();
 
   void Insert(const CSegId& seg, const T& item);
 
-  const T& GetElementAt(const CSegId& seg) const { return mItems[(uchar)mLinks[seg.val()].second]; }
+  T& AccessElement(const uchar idx) { return mItems[idx]; }
+  const T& AccessElement(const uchar idx) const { return mItems[idx]; }
+  const T& GetElementAt(const CSegId& seg) const { return AccessElement(GetIdAfter(seg)); }
 
   bool ContainsDataFor(const CSegId& seg) const {
     return !(mLinks[seg.val()] == link_node(-1, -1));
   }
 
+  uchar GetIdAfter(const CSegId& seg) const { return mLinks[seg.val()].second; }
+
 private:
-  uchar mNextId;
-  uchar mCount;
+  char mNextId;
+  char mCount;
   rstl::reserved_vector< link_node, 100 > mLinks;
   T* mItems;
-  uchar mLastInserted;
+  char mLastInserted;
 };
-
 template < typename T >
 void TSegIdMapVariableSize< T >::Clear() {
-  uchar cur = mLastInserted;
-
-  while (cur) {
-    uchar tmp = cur;
-    cur = mLinks[cur].first;
-    mLinks[tmp] = link_node(-1, -1);
+  for (uchar cur = mLastInserted; cur != 0;) {
+    const uchar prev = cur;
+    cur = mLinks[prev].first;
+    mLinks[prev] = link_node(-1, -1);
   }
   mLastInserted = 0;
   mNextId = 0;
@@ -49,9 +56,11 @@ void TSegIdMapVariableSize< T >::Clear() {
 
 template < typename T >
 void TSegIdMapVariableSize< T >::Insert(const CSegId& seg, const T& item) {
-  new (&mItems[mNextId]) T(item);
-  mLinks[mNextId] = link_node(mLastInserted, mNextId);
-  mLastInserted = seg.val();
-  mNextId++;
+  uchar tmp = seg.val();
+  T* element = &mItems[mNextId];
+  new (element) T(item);
+  mLinks[tmp] = link_node(mLastInserted, mNextId);
+  mLastInserted = tmp;
+  ++mNextId;
 }
 #endif // _TSEGIDMAPVARIABLESIZE
