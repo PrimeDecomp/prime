@@ -98,8 +98,8 @@ void CMediumAllocPool::AddPuddle(uint len, void* data, const bool unk) {
 }
 
 SMediumAllocPuddle::SMediumAllocPuddle(const uint numBlocks, void* data, const bool canErase)
-: x0_mainData(data)
-, x8_bookKeeping((uchar*)data + numBlocks * 32)
+: x0_mainData(static_cast< uchar* >(data))
+, x8_bookKeeping(static_cast< uchar* >(data) + numBlocks * 32)
 , xc_cachedBookKeepingAddr(nullptr)
 , x10_unused(-1)
 , x14_numBlocks(numBlocks)
@@ -195,15 +195,17 @@ void SMediumAllocPuddle::Free(const void* ptr) {
 
   if (block > bookKeepingStart && block[-1] & 0x80) {
     if (!(block[-1] & 0x60)) {
-      blockOffset = (block[-2] + (block[-1] & 0x7f) * 256) & 0xFFFF;
+      blockOffset = (block[-2] + (block[-1] & 0x7f) * 256);
     } else if ((block[-1] & 0x60) == 0x60ul) {
       blockOffset = 3;
     } else {
-      blockOffset = ((((0x40 - (block[-1] & 0x60)))== 0) ? 1 : 0) + 1;
+      blockOffset = __cntlzw(0x40 - (block[-1] & 0x60));
+      blockOffset = (blockOffset >> 5);
+      blockOffset++;
     }
 
-    bookKeepingPtr = block - ((ushort)blockOffset);
-    blockOffset = (ushort)(blockCount + ((ushort)blockOffset));
+    bookKeepingPtr = block - (ushort)blockOffset;
+    blockOffset = blockCount + blockOffset;
   }
 
   uchar* ptr1 = block + blockCount;
@@ -212,12 +214,13 @@ void SMediumAllocPuddle::Free(const void* ptr) {
   }
 
   InitBookKeeping(bookKeepingPtr, blockOffset);
-  if (isCached) {
-    if (bookKeepingPtr == bookKeepingStart) {
-      xc_cachedBookKeepingAddr = nullptr;
-    } else {
-      xc_cachedBookKeepingAddr = bookKeepingPtr - bookKeepingPtr[-1];
-    }
+  if (!isCached) {
+    return;
+  }
+  if (bookKeepingPtr == bookKeepingStart) {
+    xc_cachedBookKeepingAddr = nullptr;
+  } else {
+    xc_cachedBookKeepingAddr = bookKeepingPtr - bookKeepingPtr[-1];
   }
 }
 
@@ -233,27 +236,15 @@ ushort SMediumAllocPuddle::GetBlockOffset(const void* ptr1, const void* ptr2) {
 
 void SMediumAllocPuddle::InitBookKeeping(uchar* bookKeepingPtr, ushort blockCount) {
   if (blockCount < 4) {
-    uint tmp;
-    if (blockCount == 3) {
-      tmp = 96;
-    } else {
-      tmp = 32;
-
-      if (blockCount == 2) {
-        tmp = 64;
-      }
-    }
-
-    tmp |= 0x80;
-    bookKeepingPtr[0] = tmp & 0xFF;
+    const uchar tmp = (blockCount == 3 ? 96 : blockCount == 2 ? 64 : 32) | 0x80;
+    bookKeepingPtr[0] = tmp;
     if (blockCount > 1) {
-      bookKeepingPtr[blockCount - 1] = tmp & 0xFF;
+      bookKeepingPtr[blockCount - 1] = tmp;
     }
   } else {
-    uchar tmp = (blockCount >> 8) | 0x80;
-    bookKeepingPtr[0] = tmp & 0xFF;
+    bookKeepingPtr[0] = (blockCount >> 8) | 0x80;
     bookKeepingPtr[1] = blockCount;
     bookKeepingPtr[blockCount - 2] = blockCount;
-    bookKeepingPtr[blockCount - 1] = tmp & 0xFF;
+    bookKeepingPtr[blockCount - 1] = (blockCount >> 8) | 0x80;
   }
 }

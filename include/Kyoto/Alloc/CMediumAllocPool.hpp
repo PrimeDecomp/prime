@@ -20,7 +20,7 @@ struct SMediumAllocPuddle {
   static void InitBookKeeping(uchar* bookKeepingPtr, const ushort blockCount);
 
 private:
-  rstl::auto_ptr< void > x0_mainData;
+  rstl::auto_ptr< uchar > x0_mainData;
   uchar* x8_bookKeeping;
   uchar* xc_cachedBookKeepingAddr;
   uint x10_unused;

@@ -2,6 +2,7 @@
 #include "Kyoto/Graphics/CModel.hpp"
 #include "rstl/math.hpp"
 
+#pragma inline_max_size(250)
 int StreamFloatToShort(CInputStream& in) {
   int result = in.ReadLong();
   if (result == -1) {
