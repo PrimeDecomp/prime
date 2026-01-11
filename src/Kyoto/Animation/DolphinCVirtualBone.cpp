@@ -71,5 +71,5 @@ void CVirtualBone::BuildFinalPosMatrix(const CPoseAsTransforms&, const CVector3f
 void CVirtualBone::BuildAccumulatedTransform(const CPoseAsTransforms& pose,
                                              const CVector3f* points) const {
   BuildFinalPosMatrix(pose, points);
-  x50_rotation = pose.GetRotation(x0_weights[0].x0_id);
+  // x50_rotation = pose.GetRotation(x0_weights[0].x0_id);
 }
