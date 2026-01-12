@@ -33,7 +33,7 @@ private:
 class CMediumAllocPool {
 public:
   rstl::list< SMediumAllocPuddle > x0_list;
-  rstl::list< SMediumAllocPuddle >::node* x18_lastNodePrev;
+  rstl::list< SMediumAllocPuddle >::iterator x18_lastNodePrev;
   CMediumAllocPool();
   void* Alloc(uint size);
   bool HasPuddles() const;

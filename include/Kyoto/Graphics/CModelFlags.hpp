@@ -25,18 +25,18 @@ public:
     kF_ThermalUnsortedOnly = 0x40,
   };
 
-  CModelFlags(ETrans trans, float rgba)
+  CModelFlags(const ETrans trans, const float rgba)
   : x0_blendMode(trans)
   , x1_matSetIdx(0)
   , x2_flags(kF_DepthCompare | kF_DepthUpdate)
   , x4_color(1.f, 1.f, 1.f, rgba) {}
-  CModelFlags(ETrans trans, const CColor& color)
+  CModelFlags(const ETrans trans, const CColor& color)
   : x0_blendMode(trans)
   , x1_matSetIdx(0)
   , x2_flags(kF_DepthCompare | kF_DepthUpdate)
   , x4_color(color) {}
 
-  CModelFlags(ETrans blendMode, uchar shadIdx, EFlags flags, const CColor& col)
+  CModelFlags(const ETrans blendMode, const uchar shadIdx, const EFlags flags, const CColor& col)
   : x0_blendMode(blendMode), x1_matSetIdx(shadIdx), x2_flags(flags), x4_color(col) {}
 
   CModelFlags(const CModelFlags& flags, uint otherFlags)
@@ -44,14 +44,14 @@ public:
   , x1_matSetIdx(flags.x1_matSetIdx)
   , x2_flags(otherFlags)
   , x4_color(flags.x4_color) {}
-  CModelFlags(const CModelFlags& flags, bool b /* TODO what's this? */, int shaderSet)
+  CModelFlags(const CModelFlags& flags, const bool b /* TODO what's this? */, const int shaderSet)
   : x0_blendMode(flags.x0_blendMode)
   , x1_matSetIdx(shaderSet)
   , x2_flags(flags.x2_flags)
   , x4_color(flags.x4_color) {}
 
   // ?
-  CModelFlags(const CModelFlags& flags, ETrans trans, CColor color)
+  CModelFlags(const CModelFlags& flags, const ETrans trans, const CColor color)
   : x0_blendMode(trans)
   , x1_matSetIdx(flags.x1_matSetIdx)
   , x2_flags(flags.x2_flags)
@@ -63,10 +63,10 @@ public:
   // , x2_flags(other.x2_flags)
   // , x4_color(other.x4_color) {}
   CModelFlags& operator=(const CModelFlags& other) {
-    x0_blendMode = other.x0_blendMode;
-    x1_matSetIdx = other.x1_matSetIdx;
-    x2_flags = other.x2_flags;
-    x4_color = other.x4_color;
+    x0_blendMode = other.GetBlendMode();
+    x1_matSetIdx = other.GetShaderSet();
+    x2_flags = other.GetOtherFlags();
+    x4_color = other.GetColor();
     return *this;
   }
 
@@ -74,7 +74,7 @@ public:
   CModelFlags DontLoadTextures() const {
     return CModelFlags(*this, GetOtherFlags() | kF_NoTextureLock);
   }
-  CModelFlags DepthCompareUpdate(bool compare, bool update) const {
+  CModelFlags DepthCompareUpdate(const bool compare, const bool update) const {
     uint newFlags = 0;
     if (compare) {
       newFlags |= kF_DepthCompare;
@@ -88,10 +88,11 @@ public:
     return CModelFlags(*this, GetOtherFlags() | kF_DepthGreater);
   }
 
-  char GetTrans() const { return static_cast< ETrans >(x0_blendMode); }
-  int GetShaderSet() const { return x1_matSetIdx; }
-  uint GetOtherFlags() const { return x2_flags; }
-  CColor GetColor() const { return x4_color; }
+  const uchar GetBlendMode() const { return x0_blendMode; }
+  const ETrans GetTrans() const { return static_cast< ETrans >(x0_blendMode); }
+  const int GetShaderSet() const { return x1_matSetIdx; }
+  const int GetOtherFlags() const { return x2_flags; }
+  const CColor GetColor() const { return x4_color; }
 
   bool operator==(const CModelFlags& other) const {
     // TODO: cast to char for extsb; see CScriptActor::PreRender

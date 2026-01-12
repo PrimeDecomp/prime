@@ -29,7 +29,7 @@ CGraphicsPalette::CGraphicsPalette(CInputStream& in)
 CGraphicsPalette::~CGraphicsPalette() {
   uint frameDiff = sCurrentFrameCount - x4_frameLoaded;
   if (frameDiff < 2) {
-    CFrameDelayedKiller::fn_8036CC1C(frameDiff == 0, xc_entries.release());
+    CFrameDelayedKiller::fn_8036CC1C(frameDiff > 0 ? 0 : 1, xc_entries.release());
   }
 }
 

@@ -11,7 +11,6 @@
 void __memcpy(void*, const void*, int);
 #endif
 
-
 inline void CGX::SetAlphaCompare(GXCompare comp0, uchar ref0, GXAlphaOp op, GXCompare comp1,
                                  uchar ref1) {
   uint flags = MaskAndShiftLeft(comp0, 7, 0) | MaskAndShiftLeft(ref0, 0xFF, 3) |
@@ -67,7 +66,8 @@ static CTransform4f sTextureProjectionTransform = CTransform4f::Identity();
 void CCubeMaterial::SetupBlendMode(uint blendFactors, const CModelFlags& flags, bool alphaTest) {
   GXBlendFactor newSrcFactor = static_cast< GXBlendFactor >(blendFactors & 0xFFFF);
   GXBlendFactor newDstFactor = static_cast< GXBlendFactor >(blendFactors >> 0x10);
-  CModelFlags::ETrans blendMode = static_cast<CModelFlags::ETrans>(flags.GetTrans());
+  CModelFlags::ETrans blendMode = flags.GetTrans();
+
   if (alphaTest) {
     CGX::SetAlphaCompare(GX_GEQUAL, 64, GX_AOP_OR, GX_NEVER, 0);
     newSrcFactor = GX_BL_ONE;
@@ -76,7 +76,7 @@ void CCubeMaterial::SetupBlendMode(uint blendFactors, const CModelFlags& flags, 
     CGX::SetAlphaCompare(GX_ALWAYS, 0, GX_AOP_OR, GX_ALWAYS, 0);
   }
   // TODO: how to check
-  if (blendMode > 4 && newSrcFactor == GX_BL_ONE) {
+  if (blendMode > CModelFlags::kT_Four && newSrcFactor == GX_BL_ONE) {
     newSrcFactor = GX_BL_SRCALPHA;
     if (newDstFactor == GX_BL_ZERO) {
       newDstFactor = blendMode > 6 ? GX_BL_ONE : GX_BL_INVSRCALPHA;

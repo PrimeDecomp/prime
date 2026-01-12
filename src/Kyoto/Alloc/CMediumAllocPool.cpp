@@ -2,13 +2,10 @@
 
 CMediumAllocPool* CMediumAllocPool::gMediumAllocPtr = nullptr;
 
-CMediumAllocPool::CMediumAllocPool() {
-  x18_lastNodePrev = x0_list.begin().get_node();
-  gMediumAllocPtr = this;
-}
+CMediumAllocPool::CMediumAllocPool() : x18_lastNodePrev(x0_list.begin()) { gMediumAllocPtr = this; }
 
 void CMediumAllocPool::ClearPuddles() {
-  x18_lastNodePrev = x0_list.end().get_node();
+  x18_lastNodePrev = x0_list.end();
   x0_list.clear();
   gMediumAllocPtr = nullptr;
 }
@@ -16,7 +13,7 @@ void CMediumAllocPool::ClearPuddles() {
 bool CMediumAllocPool::HasPuddles() const { return x0_list.size() != 0; }
 
 void* CMediumAllocPool::Alloc(uint len) {
-  SMediumAllocPuddle* puddle = x18_lastNodePrev->get_value();
+  SMediumAllocPuddle* puddle = &*x18_lastNodePrev;
   void* ret;
   uint blockCount = 1;
   if (len >= 32) {
@@ -28,13 +25,13 @@ void* CMediumAllocPool::Alloc(uint len) {
   if (ret == nullptr) {
     for (rstl::list< SMediumAllocPuddle >::iterator it = x0_list.begin(); it != x0_list.end();
          ++it) {
-      if (it.get_node() == x18_lastNodePrev) {
+      if (it == x18_lastNodePrev) {
         continue;
       }
 
       ret = it->FindFree(blockCount);
       if (ret != nullptr) {
-        x18_lastNodePrev = it.get_node();
+        x18_lastNodePrev = it;
         break;
       }
     }
@@ -89,12 +86,11 @@ uint CMediumAllocPool::GetNumBlocksAvailable() {
   return ret;
 }
 
-/* this is such a hack... */
 #pragma inline_max_size(250)
 void CMediumAllocPool::AddPuddle(uint len, void* data, const bool unk) {
   x0_list.push_back(SMediumAllocPuddle(len, data, unk));
-  x18_lastNodePrev = x0_list.end().get_node();
-  x18_lastNodePrev = x18_lastNodePrev->get_prev();
+  x18_lastNodePrev = x0_list.end();
+  --x18_lastNodePrev;
 }
 
 SMediumAllocPuddle::SMediumAllocPuddle(const uint numBlocks, void* data, const bool canErase)
