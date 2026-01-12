@@ -3,7 +3,8 @@
 
 #include "Kyoto/Math/CAABox.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
-#include "rstl/auto_ptr.hpp"
+#include "Kyoto/PVS/CPVSVisSet.hpp"
+#include <rstl/auto_ptr.hpp>
 
 class CPVSVisOctree {
 public:
@@ -18,16 +19,19 @@ public:
   void SetTestPoint(const CPVSVisOctree& octree, const CVector3f& point);
 
   const CAABox& GetBounds() const { return mBounds; }
-  const CAABox& GetSearchBounds() const { return mSearchBounds; }
-  void SetSearchBounds(const CAABox& bounds) { mSearchBounds = bounds; }
+  // const CAABox& GetSearchBounds() const { return mSearchBounds; }
+  // void SetSearchBounds(const CAABox& bounds) { mSearchBounds = bounds; }
+
+  CPVSVisSet GetVisSet(const CVector3f& point);
 
 private:
   CAABox mBounds;
   uint mNumObjects;
   uint mNumLights;
-  rstl::auto_ptr< char > mOctreeData;
+  rstl::auto_ptr< const char > mOctreeData;
   uint _28;
-  CAABox mSearchBounds;
+  CVector3f mMin;
+  CVector3f mMax;
 };
 
 #endif // _CPVSVISOCTREE

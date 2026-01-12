@@ -13,18 +13,21 @@ class CPVSVisOctree;
 class CVector3f;
 class CPVSVisSet {
 public:
-  CPVSVisSet(int numBits, int numLights, const rstl::auto_ptr< uchar >& leafPtr);
-  void Reset(EPVSVisSetState state);
+  CPVSVisSet(int numBits, int numLights, const rstl::auto_ptr< const char >& leafPtr);
+  CPVSVisSet(EPVSVisSetState state);
 
   EPVSVisSetState GetVisible(int index) const;
 
-  void SetTestPoint(CPVSVisOctree& octree, const CVector3f& point);
+  static inline CPVSVisSet MakeFromMemory(const int numBits, const int numLights,
+                                          const rstl::auto_ptr< const char >& leafPtr) {
+    return CPVSVisSet(numBits, numLights, leafPtr);
+  }
 
 private:
   EPVSVisSetState x0_state;
   int x4_numBits;
   int x8_numLights;
-  rstl::auto_ptr< uchar > xc_ptr;
+  rstl::auto_ptr< const char > xc_ptr;
 };
 CHECK_SIZEOF(CPVSVisSet, 0x14);
 
