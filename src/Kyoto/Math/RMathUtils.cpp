@@ -1,10 +1,10 @@
 #include "Kyoto/Math/CMath.hpp"
 
-float CMath::SqrtF(float x) { return 0.f; }
+float CMath::SqrtF(const float x) { return sqrt(x); }
 
-double CMath::SqrtD(double x) { return 0.0; }
+double CMath::SqrtD(const double x) { return sqrt(x); }
 
-float CMath::InvSqrtF(float x) { return 0.f; }
+float CMath::InvSqrtF(float x) { return 1.f / sqrt(x); }
 
 float CMath::ArcSineR(float v) { return asin(v); }
 
@@ -96,7 +96,31 @@ float CMath::FastSinR(float x) {
   return f5;
 }
 
-float CMath::FastCosR(float x) {}
+float CMath::FastCosR(float x) {
+  if (fabs(x) > M_PI) {
+    x -= M_2PIF * static_cast< int >(x * (1 / M_PIF));
+    if (x > M_PIF) {
+      x -= M_2PIF;
+    } else if (x < -M_PIF) {
+      x = M_2PIF + x;
+    }
+  }
+  
+  float f4 = x * x;
+  float f1 = 1.f;
+  float f0 = -0.49998003;
+  float f3 = 0.041620344;
+  f1 += f4 * f0;
+  float f2 = -0.0013636103;
+  float f5 = (f4 * f4);
+  f0 = 0.000020169435;
+  f1 += f5 * f3;
+  f5 *= f4;
+  f1 += f5 * f2;
+  f5 *= f4;
+  f1 += f5 * f0;  
+  return f1;
+}
 
 float CMath::FastArcCosR(float f1) {
   if (fabs(f1) > 0.925000011920929) {

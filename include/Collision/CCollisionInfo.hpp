@@ -25,17 +25,17 @@ public:
                  const CVector3f& rightNormal);
   CCollisionInfo(const CAABox& aabox, const CMaterialList& leftMat, const CMaterialList& rightMat,
                  const CVector3f& leftNormal, const CVector3f& rightNormal);
-  CCollisionInfo(const CCollisionInfo& other, ESwapMaterials swap)
-  : x0_point(other.x0_point)
-  , xc_extentX(other.xc_extentX)
-  , x18_extentY(other.x18_extentY)
-  , x24_extentZ(other.x24_extentZ)
-  , x30_valid(other.x30_valid)
-  , x31_hasExtents(other.x31_hasExtents)
-  , x38_materialLeft(other.x40_materialRight)
-  , x40_materialRight(other.x38_materialLeft)
-  , x48_normalLeft(other.x54_normalRight)
-  , x54_normalRight(other.x48_normalLeft) {}
+  // CCollisionInfo(const CCollisionInfo& other, ESwapMaterials swap)
+  // : x0_point(other.x0_point)
+  // , xc_extentX(other.xc_extentX)
+  // , x18_extentY(other.x18_extentY)
+  // , x24_extentZ(other.x24_extentZ)
+  // , x30_valid(other.x30_valid)
+  // , x31_hasExtents(other.x31_hasExtents)
+  // , x38_materialLeft(other.x40_materialRight)
+  // , x40_materialRight(other.x38_materialLeft)
+  // , x48_normalLeft(other.x54_normalRight)
+  // , x54_normalRight(other.x48_normalLeft) {}
 
   CCollisionInfo GetSwapped() const;
   bool IsValid() const { return x30_valid; }

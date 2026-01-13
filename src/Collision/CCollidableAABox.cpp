@@ -77,9 +77,9 @@ bool CCollidableAABox::CollideMovingSphere(const CInternalCollisionStructure& co
 
   if (CollisionUtil::MovingSphereAABox(rightSphere, leftAABox, -dir, tmpD, point, normal) &&
       tmpD < dOut) {
-    const CVector3f spherePoint(rightSphere.GetCenter() - rightSphere.GetRadius() * normal);
+    point = (rightSphere.GetCenter() - rightSphere.GetRadius() * normal);
     dOut = tmpD;
-    infoOut = CCollisionInfo(spherePoint, left.GetMaterial(), right.GetMaterial(), -normal);
+    infoOut = CCollisionInfo(point, left.GetMaterial(), right.GetMaterial(), -normal);
     return true;
   }
 
@@ -97,25 +97,24 @@ CRayCastResult CCollidableAABox::CastRayInternal(const CInternalRayCastStructure
   const CVector3f localRayDir = rayCastXfInv.Rotate(rayCast.GetRay().GetDirection());
 
   const float rayMaxTime = rayCast.GetMaxTime();
-  bool sign;
-  int axis;
   float tMin;
   float tMax;
-  if (CollisionUtil::BoxLineTest(x10_aabb, localRayStart, localRayDir, tMin, tMax, axis, sign) ||
+  bool sign;
+  int axis;
+  if (!CollisionUtil::BoxLineTest(x10_aabb, localRayStart, localRayDir, tMin, tMax, axis, sign) ||
       tMin < 0.f || (rayMaxTime > 0.f && tMin > rayMaxTime)) {
     return CRayCastResult::MakeInvalid();
   }
   const float signValue = sign ? 1.f : -1.f;
-  CUnitVector3f planeNormal(CVector3f::Zero(), CUnitVector3f::kN_No);
+  CVector3f planeNormal = CVector3f::Zero();
   planeNormal[axis] = signValue;
   float normalX = planeNormal.GetX();
   float normalY = planeNormal.GetY();
   float normalZ = planeNormal.GetZ();
   const float planeD = axis != 0 ? GetBox().GetMinPoint()[axis] : -GetBox().GetMaxPoint()[axis];
   const CMaterialList& list = GetMaterial();
-  const CVector3f point = localRayStart + tMin * localRayDir;
-  CPlane plane(planeD, CUnitVector3f(normalX, normalY, normalZ, CUnitVector3f::kN_No));
-  CRayCastResult result(tMin, point, plane, list);
+  CRayCastResult result(tMin, localRayStart + tMin * localRayDir,
+                        CPlane(planeD, CUnitVector3f(normalX, normalY, normalZ)), list);
   result.Transform(rayCastXf);
   return result;
 }

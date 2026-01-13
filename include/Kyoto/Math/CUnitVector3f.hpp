@@ -11,12 +11,8 @@ public:
     kN_No,
     kN_Yes,
   };
-  CUnitVector3f(float x, float y, float z, ENormalize normalize) : CVector3f(x, y, z) {
-    if (normalize == kN_Yes) {
-      Normalize();
-    }
-  }
-  CUnitVector3f(const CVector3f& vec, ENormalize normalize) : CVector3f(vec) {
+  CUnitVector3f(const float x, const float y, const float z) : CVector3f(x, y, z) {}
+  CUnitVector3f(const CVector3f& vec, const ENormalize normalize) : CVector3f(vec.GetX(), vec.GetY(), vec.GetZ()) {
     if (normalize == kN_Yes) {
       Normalize();
     }
@@ -26,13 +22,13 @@ public:
 
   static CUnitVector3f Forward() {
     return CUnitVector3f(CVector3f::Forward().GetX(), CVector3f::Forward().GetY(),
-                         CVector3f::Forward().GetZ(), kN_No);
+                         CVector3f::Forward().GetZ());
   }
 };
 CHECK_SIZEOF(CUnitVector3f, 0xc)
 
 inline CUnitVector3f operator-(const CUnitVector3f& vec) {
-  return CUnitVector3f(-vec.GetX(), -vec.GetY(), -vec.GetZ(), CUnitVector3f::kN_No);
+  return CUnitVector3f(-vec.GetX(), -vec.GetY(), -vec.GetZ());
 }
 
 #endif // _CUNITVECTOR3F
