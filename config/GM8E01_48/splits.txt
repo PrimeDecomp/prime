@@ -406,7 +406,6 @@ Kyoto/Audio/CStaticAudioPlayer.cpp:
 	.text       start:0x8036BEA0 end:0x8036CCD0
 	.ctors      start:0x803CB474 end:0x803CB478
 	.rodata     start:0x803D8660 end:0x803D8668
-	.data       start:0x803EF9C0 end:0x803EF9E0
 	.bss        start:0x80540700 end:0x80540720
 	.sbss       start:0x805A9380 end:0x805A9390
 
@@ -414,6 +413,7 @@ Kyoto/CFrameDelayedKiller.cpp:
 	.text       start:0x8036CCD0 end:0x8036D1A8
 	.ctors      start:0x803CB478 end:0x803CB47C
 	.rodata     start:0x803D8668 end:0x803D8670
+	.data       start:0x803EF9C0 end:0x803EF9E0
 	.bss        start:0x80540720 end:0x80540760
 	.sbss       start:0x805A9390 end:0x805A9398
 

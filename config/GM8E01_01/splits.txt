@@ -3636,7 +3636,6 @@ Kyoto/Audio/CStaticAudioPlayer.cpp:
 	.text       start:0x8036BE10 end:0x8036CC40
 	.ctors      start:0x803CB554 end:0x803CB558
 	.rodata     start:0x803D8740 end:0x803D8748
-	.data       start:0x803EFAA0 end:0x803EFAC0
 	.bss        start:0x80540C00 end:0x80540C20
 	.sbss       start:0x805A9880 end:0x805A9890
 
@@ -3644,6 +3643,7 @@ Kyoto/CFrameDelayedKiller.cpp:
 	.text       start:0x8036CC40 end:0x8036D118
 	.ctors      start:0x803CB558 end:0x803CB55C
 	.rodata     start:0x803D8748 end:0x803D8750
+	.data       start:0x803EFAA0 end:0x803EFAC0
 	.bss        start:0x80540C20 end:0x80540C60
 	.sbss       start:0x805A9890 end:0x805A9898
 
@@ -4307,6 +4307,10 @@ musyx/runtime/hw_dolphin.c:
 
 musyx/runtime/hw_lib_dolphin.c:
 	.sbss       start:0x805A9D78 end:0x805A9D78
+
+MetroTRK/nubinit.c:
+	.text       start:0x803B5310 end:0x803B5310
+	.bss        start:0x80569AE0 end:0x80569AE8
 
 musyx/runtime/hw_memory.c:
 	.text       start:0x803B5310 end:0x803B5364

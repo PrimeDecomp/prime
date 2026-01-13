@@ -3,6 +3,11 @@
 
 #include <rstl/list.hpp>
 
+#pragma force_active on
+/* TODO: This is a hack we need to see what's throwing off the alignment and fix it */
+static char unused[32] = {0};
+#pragma force_active reset
+
 static uint sCurList = 0;
 static rstl::list< void* > sFrameDelayedList[2];
 struct Something {

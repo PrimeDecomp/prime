@@ -309,6 +309,17 @@ cflags_rel = [
     "-Cpp_exceptions off",
 ]
 
+# MetroTRK flags
+cflags_trk = [
+    *cflags_base,
+    "-use_lmw_stmw on",
+    "-pool off",
+    "-sdata 0",
+    "-sdata2 0",
+    "-inline on,noauto",
+    "-rostr",
+]
+
 config.linker_version = "GC/1.3.2"
 
 
@@ -318,6 +329,17 @@ def DolphinLib(lib_name, objects):
         "lib": lib_name + "D" if args.debug else "",
         "mw_version": "GC/1.2.5n",
         "cflags": cflags_dolphin,
+        "host": False,
+        "progress_category": "sdk",
+        "objects": objects,
+        "shift_jis": True,
+    }
+
+def TrkLib(lib_name, objects):
+    return {
+        "lib": lib_name + "D" if args.debug else "",
+        "mw_version": "GC/1.2.5n",
+        "cflags": cflags_trk,
         "host": False,
         "progress_category": "sdk",
         "objects": objects,
@@ -391,9 +413,12 @@ def MatchingFor(*versions):
 config.warn_missing_config = True
 config.warn_missing_source = False
 config.libs = [
-    DolphinLib(
+    TrkLib(
         "TRK_MINNOW_DOLPHIN",
         [
+            Object(
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "MetroTRK/nubinit.c"
+            ),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "MetroTRK/mslsupp.c"
             ),
@@ -2449,7 +2474,7 @@ config.progress_categories = [
     ProgressCategory("sdk", "SDK"),
     ProgressCategory("third_party", "Third Party"),
 ]
-config.progress_all = False
+config.progress_all = True
 config.progress_each_module = args.verbose
 config.progress_modules = False
 config.progress_use_fancy = True

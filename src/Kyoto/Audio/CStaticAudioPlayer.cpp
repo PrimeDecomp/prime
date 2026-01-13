@@ -10,10 +10,7 @@
 extern "C" bool fn_8034A7A4();
 
 extern "C" void fn_8036C8F0() { bool b1 = fn_8034A7A4(); }
-#pragma force_active on
-/* TODO: This is a hack we need to see what's throwing off the alignment and fix it */
-static char padding[32] = {0};
-#pragma force_active reset
+
 CStaticAudioPlayer* sCurrentPlayer = nullptr;
 
 void CStaticAudioPlayer::RunDMACallback(FAudioCallback) {}
