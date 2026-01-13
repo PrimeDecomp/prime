@@ -70,9 +70,9 @@ const bool CScriptCoverPoint::Blown(const CVector3f& point) const {
       float magnitude = posDif.Magnitude();
       posDif /= magnitude;
       if (magnitude > 8.0f) {
-        CUnitVector3f normDif(posDif.GetX(), posDif.GetY(), 0.f, CUnitVector3f::kN_Yes);
-        CUnitVector3f frontVec(GetTransform().GetColumn(kDY).GetX(),
-                               GetTransform().GetColumn(kDY).GetY(), 0.f, CUnitVector3f::kN_Yes);
+        CUnitVector3f normDif(CVector3f(posDif.GetX(), posDif.GetY(), 0.f), CUnitVector3f::kN_Yes);
+        CUnitVector3f frontVec(CVector3f(GetTransform().GetColumn(kDY).GetX(),
+                               GetTransform().GetColumn(kDY).GetY(), 0.f), CUnitVector3f::kN_Yes);
         if (CVector3f::Dot(frontVec, normDif) > GetCosHorizontalAngle() &&
             (posDif.GetZ() * posDif.GetZ()) < GetSinSqVerticalAngle())
           result = false;

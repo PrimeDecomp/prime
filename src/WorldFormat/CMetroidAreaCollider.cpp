@@ -144,9 +144,9 @@ bool CMetroidAreaCollider::AABoxCollisionCheck_Cached(const COctreeLeafCache& le
                                                       const CMaterialList& matList,
                                                       CCollisionInfoList& list) {
   bool ret = false;
-  const CUnitVector3f right(1.f, 0.f, 0.f, CUnitVector3f::kN_No);
-  const CUnitVector3f forward(0.f, 1.f, 0.f, CUnitVector3f::kN_No);
-  const CUnitVector3f up(0.f, 0.f, 1.f, CUnitVector3f::kN_No);
+  const CUnitVector3f right(CVector3f(1.f, 0.f, 0.f), CUnitVector3f::kN_No);
+  const CUnitVector3f forward(CVector3f(0.f, 1.f, 0.f), CUnitVector3f::kN_No);
+  const CUnitVector3f up(CVector3f(0.f, 0.f, 1.f), CUnitVector3f::kN_No);
   const CPlane planes[6] = {
       CPlane(aabb.GetMinPoint(), right),   CPlane(aabb.GetMaxPoint(), -right),
       CPlane(aabb.GetMinPoint(), forward), CPlane(aabb.GetMaxPoint(), -forward),

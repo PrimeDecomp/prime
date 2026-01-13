@@ -105,7 +105,7 @@ float CMath::FastCosR(float x) {
       x = M_2PIF + x;
     }
   }
-  
+
   float f4 = x * x;
   float f1 = 1.f;
   float f0 = -0.49998003;
@@ -118,7 +118,7 @@ float CMath::FastCosR(float x) {
   f5 *= f4;
   f1 += f5 * f2;
   f5 *= f4;
-  f1 += f5 * f0;  
+  f1 += f5 * f0;
   return f1;
 }
 
@@ -148,15 +148,15 @@ int CMath::FloorPowerOfTwo(int v) {
   if (v == 0) {
     return 0;
   }
-  uint s1 = (0xffffU - v) >> 0x1b & 0x10;
-  uint sb1 = (uint)v >> s1 & 0xffff;
-  uint s2 = (0xff - sb1) >> 0x1c & 8;
-  uint sb2 = sb1 >> s2 & 0xff;
-  uint s3 = ((0xf - sb2) >> 0x1d) & 4;
-  uint sb3 = (sb2 >> s3) & 0xf;
-  uint s4 = (3 - sb3) >> 0x1e & 2;
-  uint totalShift = s1 + s2 + s3 + s4;
-  uint finalSig = sb3 >> s4 & 3;
-  uint finalShift = (((uint)(1 - finalSig) >> 0x1f)) + totalShift;
+  const uint s1 = (0xffffU - v) >> 0x1b & 0x10;
+  const uint sb1 = static_cast< uint >(v) >> s1 & 0xffff;
+  const uint s2 = (0xff - sb1) >> 0x1c & 8;
+  const uint sb2 = sb1 >> s2 & 0xff;
+  const uint s3 = ((0xf - sb2) >> 0x1d) & 4;
+  const uint sb3 = (sb2 >> s3) & 0xf;
+  const uint s4 = (3 - sb3) >> 0x1e & 2;
+  const uint totalShift = s1 + s2 + s3 + s4;
+  const uint finalSig = sb3 >> s4 & 3;
+  const uint finalShift = ((1 - finalSig) >> 0x1f) + totalShift;
   return 1 << finalShift;
 }

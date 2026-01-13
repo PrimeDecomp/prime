@@ -142,7 +142,7 @@ CCubeRenderer::CCubeRenderer(IObjectStore& objStore, COsContext& osContext, CMem
 #if NONMATCHING
 , xac_drawableCallbackUserData(nullptr)
 #endif
-, xb0_viewPlane(0.f, CUnitVector3f(0.f, 1.f, 0.f, CUnitVector3f::kN_Yes))
+, xb0_viewPlane(0.f, CUnitVector3f(CVector3f(0.f, 1.f, 0.f), CUnitVector3f::kN_Yes))
 , xc0_pvsMode(0)
 #if NONMATCHING
 , xc4_unk5(0)
