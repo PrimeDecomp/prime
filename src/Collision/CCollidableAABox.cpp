@@ -1,5 +1,6 @@
 #include "Collision/CCollidableAABox.hpp"
 
+#include "Collision/CCollidableSphere.hpp"
 #include "Collision/CCollisionInfoList.hpp"
 #include "Collision/CInternalCollisionStructure.hpp"
 #include "Collision/CInternalRayCastStructure.hpp"
@@ -41,38 +42,81 @@ bool AABox_AABox(const CInternalCollisionStructure& collision, CCollisionInfoLis
 
 bool CCollidableAABox::CollideMovingAABox(const CInternalCollisionStructure& collision,
                                           const CVector3f& dir, double& dOut,
-                                          CCollisionInfo& infoOut) {}
+                                          CCollisionInfo& infoOut) {
+  const CCollidableAABox& left =
+      static_cast< const CCollidableAABox& >(collision.GetLeft().GetPrim());
+  const CCollidableAABox& right =
+      static_cast< const CCollidableAABox& >(collision.GetRight().GetPrim());
+  const CAABox leftAABox = left.Transform(collision.GetLeft().GetTransform());
+  const CAABox rightAABox = right.Transform(collision.GetRight().GetTransform());
+  CVector3f point = CVector3f::Zero();
+  CVector3f normal = CVector3f::Zero();
+  double tmpD;
+  if (CollisionUtil::AABox_AABox_Moving(leftAABox, rightAABox, dir, tmpD, point, normal) &&
+      tmpD > 0 && tmpD < dOut) {
+    dOut = tmpD;
+    infoOut = CCollisionInfo(point, left.GetMaterial(), right.GetMaterial(), normal, -normal);
+    return true;
+  }
+
+  return false;
+}
 
 bool CCollidableAABox::CollideMovingSphere(const CInternalCollisionStructure& collision,
                                            const CVector3f& dir, double& dOut,
-                                           CCollisionInfo& infoOut) {}
+                                           CCollisionInfo& infoOut) {
+  const CCollidableAABox& left =
+      static_cast< const CCollidableAABox& >(collision.GetLeft().GetPrim());
+  const CCollidableSphere& right =
+      static_cast< const CCollidableSphere& >(collision.GetRight().GetPrim());
+  const CAABox leftAABox(left.CalculateAABox(collision.GetLeft().GetTransform()));
+  const CSphere rightSphere(right.Transform(collision.GetRight().GetTransform()));
+  double tmpD = dOut;
+  CVector3f point(CVector3f::Zero());
+  CVector3f normal(CVector3f::Zero());
+
+  if (CollisionUtil::MovingSphereAABox(rightSphere, leftAABox, -dir, tmpD, point, normal) &&
+      tmpD < dOut) {
+    const CVector3f spherePoint(rightSphere.GetCenter() - rightSphere.GetRadius() * normal);
+    dOut = tmpD;
+    infoOut = CCollisionInfo(spherePoint, left.GetMaterial(), right.GetMaterial(), -normal);
+    return true;
+  }
+
+  return false;
+}
 
 CRayCastResult CCollidableAABox::CastRayInternal(const CInternalRayCastStructure& rayCast) const {
   if (!rayCast.GetFilter().Passes(GetMaterial())) {
     return CRayCastResult::MakeInvalid();
   }
 
-  CTransform4f rayCastXf = rayCast.GetTransform();
-  CTransform4f rayCastXfInv = rayCastXfInv.GetQuickInverse();
-  CVector3f localRayStart = rayCastXfInv * rayCast.GetStart();
-  CVector3f localRayDir = rayCastXfInv.Rotate(rayCast.GetRay().GetDirection());
+  const CTransform4f rayCastXf = rayCast.GetTransform();
+  const CTransform4f rayCastXfInv = rayCast.GetTransform().GetQuickInverse();
+  const CVector3f localRayStart = rayCastXfInv * rayCast.GetStart();
+  const CVector3f localRayDir = rayCastXfInv.Rotate(rayCast.GetRay().GetDirection());
 
+  const float rayMaxTime = rayCast.GetMaxTime();
+  bool sign;
+  int axis;
   float tMin;
   float tMax;
-  int axis;
-  bool sign;
-  if (!CollisionUtil::BoxLineTest(x10_aabb, localRayStart, localRayDir, tMin, tMax, axis, sign) ||
-      tMin < 0.f || (rayCast.GetMaxTime() > 0.f && tMin > rayCast.GetMaxTime())) {
+  if (CollisionUtil::BoxLineTest(x10_aabb, localRayStart, localRayDir, tMin, tMax, axis, sign) ||
+      tMin < 0.f || (rayMaxTime > 0.f && tMin > rayMaxTime)) {
     return CRayCastResult::MakeInvalid();
   }
-
-  CVector3f planeNormal = CVector3f::Zero();
-  planeNormal[axis] = sign ? 1.f : -1.f;
-  float planeD = axis ? x10_aabb.GetMinPoint()[axis] : x10_aabb.GetMaxPoint()[axis];
-  CRayCastResult result(tMin, localRayStart + tMin * localRayDir, CPlane(planeD, planeNormal),
-                        GetMaterial());
-
-  result.Transform(rayCast.GetTransform());
+  const float signValue = sign ? 1.f : -1.f;
+  CUnitVector3f planeNormal(CVector3f::Zero(), CUnitVector3f::kN_No);
+  planeNormal[axis] = signValue;
+  float normalX = planeNormal.GetX();
+  float normalY = planeNormal.GetY();
+  float normalZ = planeNormal.GetZ();
+  const float planeD = axis != 0 ? GetBox().GetMinPoint()[axis] : -GetBox().GetMaxPoint()[axis];
+  const CMaterialList& list = GetMaterial();
+  const CVector3f point = localRayStart + tMin * localRayDir;
+  CPlane plane(planeD, CUnitVector3f(normalX, normalY, normalZ, CUnitVector3f::kN_No));
+  CRayCastResult result(tMin, point, plane, list);
+  result.Transform(rayCastXf);
   return result;
 }
 

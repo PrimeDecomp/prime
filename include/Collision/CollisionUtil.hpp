@@ -1,12 +1,11 @@
 #ifndef _COLLISIONUTIL
 #define _COLLISIONUTIL
 
-#include "Kyoto/Math/CVector3f.hpp"
-
 class CAABox;
 class CMaterialList;
 class CCollisionInfoList;
 class CVector3f;
+class CSphere;
 
 namespace CollisionUtil {
 
@@ -19,6 +18,11 @@ bool AABoxAABoxIntersection(const CAABox& left, const CAABox& right);
 bool AABoxAABoxIntersection(const CAABox& left, const CMaterialList& leftFilter,
                             const CAABox& right, const CMaterialList& rightFilter,
                             CCollisionInfoList& list);
+bool AABox_AABox_Moving(const CAABox& left, const CAABox& right, const CVector3f& dir, double& d,
+                        CVector3f& point, CVector3f& normal);
+
+bool MovingSphereAABox(const CSphere& sphere, const CAABox& aabb, const CVector3f& dir, double& dOut,
+                       CVector3f& point, CVector3f& normal);
 
 } // namespace CollisionUtil
 

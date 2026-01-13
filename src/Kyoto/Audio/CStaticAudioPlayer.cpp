@@ -1,11 +1,13 @@
-#include "rstl/math.hpp"
+#include "Kyoto/Audio/CAudioSys.hpp"
+#include "rstl/algorithm.hpp"
 #include <Kyoto/Alloc/CMemory.hpp>
 #include <Kyoto/Audio/CStaticAudioPlayer.hpp>
 
-#include "Kyoto/Audio/CAudioSys.hpp"
-
 #include <Kyoto/CDvdFile.hpp>
 #include <Kyoto/CDvdRequest.hpp>
+
+#include <rstl/list.hpp>
+#include <rstl/math.hpp>
 
 #include <dolphin/ai.h>
 #include <dolphin/os.h>
@@ -14,15 +16,30 @@ extern "C" bool fn_8034A7A4();
 
 extern "C" void fn_8036C8F0() { bool b1 = fn_8034A7A4(); }
 
+static rstl::reserved_vector<  FAudioCallback, 4> sDvdRequests;
 CStaticAudioPlayer* sCurrentPlayer = nullptr;
 
-void CStaticAudioPlayer::RunDMACallback(FAudioCallback) {}
+void CStaticAudioPlayer::RunDMACallback(const FAudioCallback callback) {
+  volatile const bool old = OSDisableInterrupts();
+  const rstl::reserved_vector<FAudioCallback, 4>::iterator it = rstl::find(sDvdRequests.begin(), sDvdRequests.end(), callback);
+  if (it == sDvdRequests.end()) {
+    sDvdRequests.push_back(callback);
+  }
+  
+  fn_8036C8F0();
+  OSRestoreInterrupts(old);
+}
 
-void CStaticAudioPlayer::CancelDMACallback(FAudioCallback) {
-  OSDisableInterrupts();
+void CStaticAudioPlayer::CancelDMACallback(FAudioCallback callback) {
+  volatile const bool old = OSDisableInterrupts();
+
+  const rstl::reserved_vector<FAudioCallback, 4>::iterator it = rstl::find(sDvdRequests.begin(), sDvdRequests.end(), callback);
+  if (it != sDvdRequests.end()) {
+    sDvdRequests.erase(it);
+  }
   
-  
-  OSEnableInterrupts();
+  fn_8036C8F0();
+  OSRestoreInterrupts(old);
 }
 
 CStaticAudioPlayer::CStaticAudioPlayer(const rstl::string& filepath, const int loopStart,
@@ -125,9 +142,7 @@ void CStaticAudioPlayer::Decode(const ushort* bufIn, ushort* bufOut, int numSamp
 
 void CStaticAudioPlayer::DecodeMonoAndMix(const ushort* bufIn, ushort* bufOut, const int curSample,
                                           const int sampleEnd, const int sampleStart, ushort vol,
-                                          g72x_state& state) {
-  
-}
+                                          g72x_state& state) {}
 
 void CStaticAudioPlayer::SetVolume(uchar vol) {
   if (vol > 127) {

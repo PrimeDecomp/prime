@@ -18,10 +18,10 @@ public:
   };
   CRayCastResult(float time, const CVector3f& point, const CPlane& plane, const CMaterialList& list)
   : x0_time(time), x4_point(point), x10_plane(plane), x20_valid(kI_Valid), x28_material(list) {}
-  CRayCastResult(EInvalid invalid = kI_Invalid)
+  CRayCastResult(const EInvalid invalid = kI_Invalid)
   : x0_time(0)
-  , x4_point(CVector3f(0.f, 0.f, 0.f))
-  , x10_plane(CPlane(0.f, CUnitVector3f(1.f, 0.f, 0.f, CUnitVector3f::kN_Yes)))
+  , x4_point(0.f, 0.f, 0.f)
+  , x10_plane(0.f, CUnitVector3f(1.f, 0.f, 0.f, CUnitVector3f::kN_Yes))
   , x20_valid(invalid) {}
 
   float GetTime() const { return x0_time; }
@@ -34,7 +34,7 @@ public:
   void Transform(const CTransform4f& xf);
 
   static CRayCastResult MakeInvalid() {
-    return CRayCastResult(kI_Invalid);
+    return CRayCastResult();
   }
 
 private:
