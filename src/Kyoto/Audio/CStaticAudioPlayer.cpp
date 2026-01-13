@@ -1,6 +1,9 @@
 #include "rstl/math.hpp"
 #include <Kyoto/Alloc/CMemory.hpp>
 #include <Kyoto/Audio/CStaticAudioPlayer.hpp>
+
+#include "Kyoto/Audio/CAudioSys.hpp"
+
 #include <Kyoto/CDvdFile.hpp>
 #include <Kyoto/CDvdRequest.hpp>
 
@@ -15,7 +18,12 @@ CStaticAudioPlayer* sCurrentPlayer = nullptr;
 
 void CStaticAudioPlayer::RunDMACallback(FAudioCallback) {}
 
-void CStaticAudioPlayer::CancelDMACallback(FAudioCallback) {}
+void CStaticAudioPlayer::CancelDMACallback(FAudioCallback) {
+  OSDisableInterrupts();
+  
+  
+  OSEnableInterrupts();
+}
 
 CStaticAudioPlayer::CStaticAudioPlayer(const rstl::string& filepath, const int loopStart,
                                        const int loopEnd)
@@ -113,4 +121,17 @@ void CStaticAudioPlayer::Decode(const ushort* bufIn, ushort* bufOut, int numSamp
       x18_curSamp = x1c_loopStartSamp;
     }
   }
+}
+
+void CStaticAudioPlayer::DecodeMonoAndMix(const ushort* bufIn, ushort* bufOut, const int curSample,
+                                          const int sampleEnd, const int sampleStart, ushort vol,
+                                          g72x_state& state) {
+  
+}
+
+void CStaticAudioPlayer::SetVolume(uchar vol) {
+  if (vol > 127) {
+    vol = 127;
+  }
+  xc0_volume = CAudioSys::kVolumeTable[vol];
 }

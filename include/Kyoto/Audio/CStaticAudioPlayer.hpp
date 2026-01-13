@@ -1,6 +1,8 @@
 #ifndef _CSTATICAUDIOPLAYER
 #define _CSTATICAUDIOPLAYER
 
+#include "dolphin/hw_regs.h"
+
 #include <Kyoto/Audio/g721.h>
 #include <rstl/auto_ptr.hpp>
 #include <rstl/string.hpp>
@@ -25,6 +27,7 @@ public:
   void Decode(const ushort* bufIn, ushort* bufOut, int numSamples);
   void DecodeMonoAndMix(const ushort* bufIn, ushort* bufOut, const int curSample,
                         const int sampleEnd, const int sampleStart, ushort vol, g72x_state& state);
+  void SetVolume(uchar vol);
 
 private:
   rstl::string x0_filepath;

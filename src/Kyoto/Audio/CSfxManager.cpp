@@ -13,8 +13,8 @@
 
 float CSfxManager::mReverbAmount = 1.f;
 float CSfxManager::mReverbScale = 0.1f;
-CSfxManager::EAuxEffect CSfxManager::mCurrentAuxEffect = CSfxManager::kAE_None;
-CSfxManager::EAuxEffect CSfxManager::mRequestedAuxEffect = CSfxManager::kAE_None;
+CSfxManager::EAuxEffect CSfxManager::mCurrentAuxEffect = kAE_None;
+CSfxManager::EAuxEffect CSfxManager::mRequestedAuxEffect = kAE_None;
 CSfxManager::CSfxChannel CSfxManager::mChannels[4];
 CSfxManager::ESfxChannels CSfxManager::mCurrentChannel = kSC_Default;
 bool CSfxManager::mDoUpdate = false;

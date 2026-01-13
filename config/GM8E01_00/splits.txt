@@ -3393,13 +3393,13 @@ Kyoto/Graphics/CColor.cpp:
 
 Kyoto/Audio/DolphinCAudioGroupSet.cpp:
 	.text       start:0x8034A024 end:0x8034A7A4
-	.rodata     start:0x803D8108 end:0x803D8210
+	.rodata     start:0x803D8108 end:0x803D8110
 	.data       start:0x803EF670 end:0x803EF680
 
 Kyoto/Audio/DolphinCAudioSys.cpp:
 	.text       start:0x8034A7A4 end:0x8034D4DC
 	.ctors      start:0x803CB35C end:0x803CB360
-	.rodata     start:0x803D8210 end:0x803D8220
+	.rodata     start:0x803D8110 end:0x803D8220
 	.bss        start:0x804BFF90 end:0x804BFFA0
 	.bss        start:0x805A67CC end:0x805A67DC align:4 common
 	.sdata      start:0x805A8998 end:0x805A89A8

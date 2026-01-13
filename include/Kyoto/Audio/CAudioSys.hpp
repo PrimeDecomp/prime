@@ -133,6 +133,10 @@ public:
   static rstl::map< rstl::string, rstl::ncrc_ptr< CTrkData > >* mpDVDTrackDB;
   static rstl::vector< CEmitterData >* mpEmitterDB;
   static SND_LISTENER* mpListener;
+  
+  static short GetScaledVolume(const int vol) {
+    return kVolumeTable[vol];
+  }
 
   /* TODO: Remaining globals */
 
@@ -144,6 +148,7 @@ public:
   static ushort mDefaultVolumeScale;
   static const uchar kMaxVolume;
   static const uchar kEmitterMedPriority;
+  static const ushort kVolumeTable[];
 };
 
 #endif // _CAUDIOSYS
