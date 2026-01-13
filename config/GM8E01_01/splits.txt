@@ -4305,11 +4305,16 @@ musyx/runtime/hw_dolphin.c:
 	.bss        start:0x80567A80 end:0x80569AE0
 	.sbss       start:0x805A9D50 end:0x805A9D78
 
-Dolphin/dummy.c:
-	.bss        start:0x80569AE0 end:0x80569AE8
+musyx/runtime/hw_lib_dolphin.c:
+	.sbss       start:0x805A9D78 end:0x805A9D78
 
 musyx/runtime/hw_memory.c:
 	.text       start:0x803B5310 end:0x803B5364
+
+musyx/runtime/profile.c:
+	.text       start:0x803B5364 end:0x803B5364
+	.sbss       start:0x805A9D78 end:0x805A9D78
+	.sdata2     start:0x805AF590 end:0x805AF590
 
 musyx/runtime/CheapReverb/creverb_fx.c:
 	.text       start:0x803B5364 end:0x803B5420

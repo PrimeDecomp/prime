@@ -285,6 +285,7 @@ cflags_musyx_debug = [
     "-i extern/musyx/include",
     "-i libc",
     "-g",
+    "-inline off",
     "-sym on",
     "-D_DEBUG=1",
     "-fp hard",
@@ -2125,7 +2126,7 @@ config.libs = [
         ],
     },
     MusyX(
-        # debug=True,
+        debug=False,
         # mw_version="GC/1.2.5n",
         major=2,
         minor=0,
@@ -2233,7 +2234,11 @@ config.libs = [
             ),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
-                "musyx/runtime/hw_lib_dummy.c",
+                "musyx/runtime/hw_lib_dolphin.c",
+            ),
+            Object(
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                "musyx/runtime/profile.c",
             ),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
@@ -2258,18 +2263,6 @@ config.libs = [
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
                 "musyx/runtime/Chorus/chorus_fx.c",
-            ),
-            Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
-                "musyx/runtime/profile.c",
-            ),
-        ],
-    ),
-    DolphinLib(
-        "Dummy",
-        [
-            Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Dolphin/dummy.c"
             ),
         ],
     ),

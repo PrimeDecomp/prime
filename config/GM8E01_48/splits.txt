@@ -400,12 +400,13 @@ Kyoto/Audio/CDSPStream.cpp:
 
 Kyoto/Audio/g721.cpp:
 	.text       start:0x8036B524 end:0x8036BEA0
-	.data       start:0x803EF940 end:0x803EF9E0
+	.data       start:0x803EF940 end:0x803EF9C0
 
 Kyoto/Audio/CStaticAudioPlayer.cpp:
 	.text       start:0x8036BEA0 end:0x8036CCD0
 	.ctors      start:0x803CB474 end:0x803CB478
 	.rodata     start:0x803D8660 end:0x803D8668
+	.data       start:0x803EF9C0 end:0x803EF9E0
 	.bss        start:0x80540700 end:0x80540720
 	.sbss       start:0x805A9380 end:0x805A9390
 
@@ -1020,8 +1021,13 @@ musyx/runtime/hw_dolphin.c:
 	.bss        start:0x80567580 end:0x805695E0
 	.sbss       start:0x805A9850 end:0x805A9878
 
-Dolphin/dummy.c:
-	.bss        start:0x805695E0 end:0x805695E8
+musyx/runtime/hw_lib_dolphin.c:
+	.sbss       start:0x805A9878 end:0x805A9878
+
+musyx/runtime/profile.c:
+	.text       start:0x803B5238 end:0x803B5238
+	.sbss       start:0x805A9878 end:0x805A9878
+	.sdata2     start:0x805AF080 end:0x805AF080
 
 musyx/runtime/hw_memory.c:
 	.text       start:0x803B5238 end:0x803B528C

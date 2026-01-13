@@ -72,25 +72,16 @@ const CVector3f CMatrix3f::operator*(const CVector3f& vec) const {
   return CVector3f(x, y, z);
 }
 
-const CMatrix3f CMatrix3f::operator*(const CMatrix3f& mat) const {
-  //(__return_storage_ptr__->x).x = m00 * otherm00    + m01 * otherm10    + m02 * otherm20;
-  const float _m00 = m00 * mat.m00 + m01 * mat.m10 + m02 * mat.m20;
-  //(__return_storage_ptr__->x).y = m00 * otherm01    + m01 * other.m11   + m02 * other.m21;
-  const float _m01 = m00 * mat.m01 + m01 * mat.m11 + m02 * mat.m21;
-  //(__return_storage_ptr__->x).z = m00 * otherm02    + m01 * otherm12    + m02 * otherm22;
-  const float _m02 = m00 * mat.m02 + m01 * mat.m12 + m02 * mat.m22;
-  //(__return_storage_ptr__->y).x = m10 * otherm00    + m11 * otherm10    + m12 * otherm20;
-  const float _m10 = m10 * mat.m02 + m11 * mat.m10 + m12 * mat.m20;
-  //(__return_storage_ptr__->y).y = m10 * otherm01    + m11 * otherm11    + m12 * otherm21;
-  const float _m11 = m10 * mat.m01 + m11 * mat.m11 + m12 * mat.m21;
-  //(__return_storage_ptr__->y).z = m10 * otherm02    + m11 * otherm12    + m12 * otherm22;
-  const float _m12 = m10 * mat.m02 + m11 * mat.m12 + m12 * mat.m22;
-  //(__return_storage_ptr__->z).x = m20 * otherm00    + m21 * otherm10    + m22 * otherm20;
-  const float _m20 = m20 * mat.m00 + m21 * mat.m10 + m22 * mat.m20;
-  //(__return_storage_ptr__->z).y = m20 * otherm01 + m21 * otherm11 + m22 * otherm21;
-  const float _m21 = m20 * mat.m01 + m21 * mat.m11 + m22 * mat.m21;
-  //(__return_storage_ptr__->z).z = m20 * otherm02 + m21 * otherm12    + m22 * otherm22;
-  const float _m22 = m20 * mat.m02 + m21 * mat.m12 + m22 * mat.m22;
+const CMatrix3f CMatrix3f::operator*(const CMatrix3f& other) const {
+  const float _m00 = other.m00 * m00 + other.m10 * m01 + other.m20 * m02;
+  const float _m01 = other.m01 * m00 + other.m11 * m01 + other.m21 * m02;
+  const float _m20 = other.m00 * m20 + other.m10 * m21 + other.m20 * m22;
+  const float _m21 = other.m01 * m20 + other.m11 * m21 + other.m21 * m22;
+  const float _m02 = other.m02 * m00 + other.m12 * m01 + other.m22 * m02;
+  const float _m10 = other.m00 * m10 + other.m10 * m11 + other.m20 * m12;
+  const float _m11 = other.m01 * m10 + other.m11 * m11 + other.m21 * m12;
+  const float _m12 = other.m02 * m10 + other.m12 * m11 + other.m22 * m12;
+  const float _m22 = other.m02 * m20 + other.m12 * m21 + other.m22 * m22;
 
   return CMatrix3f(_m00, _m01, _m02, _m10, _m11, _m12, _m20, _m21, _m22);
 }
@@ -114,8 +105,8 @@ void CMatrix3f::AddScaledMatrix(const CMatrix3f& mat, float scale) {
 
 /* TODO: I think these are fake matches on compiler generated functions */
 CMatrix3f::CMatrix3f(register const CMatrix3f& other) {
-  register CMatrix3f &thiz = *this;
-  asm {
+  register CMatrix3f& thiz = *this;
+  asm volatile {
     lfd f0, CMatrix3f.m00(other);
     lfd f1, CMatrix3f.m02(other);
     lfd f2, CMatrix3f.m11(other);
@@ -130,8 +121,8 @@ CMatrix3f::CMatrix3f(register const CMatrix3f& other) {
 }
 
 const CMatrix3f& CMatrix3f::operator=(register const CMatrix3f& other) {
-  register CMatrix3f &thiz = *this;
-  asm {
+  register CMatrix3f& thiz = *this;
+  asm volatile {
     lfd f0, CMatrix3f.m00(other);
     lfd f1, CMatrix3f.m02(other);
     lfd f2, CMatrix3f.m11(other);

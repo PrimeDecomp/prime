@@ -391,13 +391,13 @@ static short _witab[16] = {-12,  18,  41,  64,  112, 198, 355, 1122,
  */
 static short _fitab[16] = {0,     0,     0,     0x200, 0x200, 0x200, 0x600, 0xE00,
                            0xE00, 0x600, 0x200, 0x200, 0x200, 0,     0,     0};
-#if VERSION == 0 || VERSION == 2
-// This seems to only misbehave when alignment is on a 64byte boundary? I'm so confused
-#pragma force_active on
-/* TODO: This is a hack we need to see what's throwing off the alignment and fix it */
-static char padding[32] = {0};
-#pragma force_active reset
-#endif
+// #if VERSION == 0 || VERSION == 2
+// // This seems to only misbehave when alignment is on a 64byte boundary? I'm so confused
+// #pragma force_active on
+// /* TODO: This is a hack we need to see what's throwing off the alignment and fix it */
+// //static char padding[32] = {0};
+// #pragma force_active reset
+// #endif
 
 /*
  * g721_decoder()
