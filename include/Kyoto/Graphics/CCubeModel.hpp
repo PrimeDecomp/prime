@@ -1,6 +1,7 @@
 #ifndef _CCUBEMODEL
 #define _CCUBEMODEL
 
+#include "CCubeSurface.hpp"
 #include "Kyoto/Graphics/CCubeMaterial.hpp"
 #include "Kyoto/Math/CAABox.hpp"
 #include "Kyoto/TToken.hpp"
@@ -57,6 +58,9 @@ public:
                                    rstl::vector< TCachedToken< CTexture > >& textures,
                                    IObjectStore& store, bool cache);
 
+  const CCubeSurface& GetNormalSurfaces() const { return x38_firstUnsorted; }
+  const CCubeSurface& GetAlphaSurfaces() const { return x3c_firstSorted; }
+
   CCubeMaterial GetMaterialByIndex(const int idx) const;
   void SetStaticArraysCurrent() const;
   void SetArraysCurrent() const;
@@ -64,18 +68,24 @@ public:
   void SetUsingPackedLightmaps(const bool use) const;
   void DrawSurface(const CCubeSurface& surface, const CModelFlags& modelFlags) const;
   void DrawSurfaceWireframe(const CCubeSurface& surface) const;
+  bool TryLockTextures() const;
+  void DrawSurfaces(const CModelFlags& flags) const;
+  void DrawNormalSurfaces(const CModelFlags& flags) const;
+  void DrawAlphaSurfaces(const CModelFlags& flags) const;
+
+  rstl::vector< TCachedToken< CTexture > >& GetTextures() const { return *x1c_textures; };
 
 private:
   ModelInstance x0_instance;
   rstl::vector< TCachedToken< CTexture > >* x1c_textures;
   CAABox x20_bounds;
-  CCubeSurface* x38_firstUnsorted;
-  CCubeSurface* x3c_firstSorted;
-  uchar x40_24_loadTextures : 1;
+  CCubeSurface x38_firstUnsorted;
+  CCubeSurface x3c_firstSorted;
+  mutable bool x40_24_loadTextures : 1;
   bool x40_25_visible : 1;
   uchar x41_visorFlags;
   uint x44_idx;
-  
+
   static bool sUsingPackedLightmaps;
 };
 

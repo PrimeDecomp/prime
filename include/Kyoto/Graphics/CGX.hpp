@@ -89,10 +89,11 @@ public:
   }
   static void SetNumTexGens(uchar num);
   static void SetNumTexGens_Inline(const uchar num) {
-    if (num != sGXState.x4f_numTexGens) {
-      sGXState.x4f_numTexGens = num;
-      GXSetNumTexGens(num);
+    if (num == sGXState.x4f_numTexGens) {
+      return;
     }
+    sGXState.x4f_numTexGens = num;
+    GXSetNumTexGens(num);
   }
   static void SetNumTevStages(uchar num);
   static void SetNumIndStages(uchar num);

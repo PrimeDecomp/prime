@@ -6,6 +6,7 @@
 class CCubeModel;
 class CCubeSurface {
 public:
+  CCubeSurface(void* ptr) { x0_rawdata = static_cast< uchar* >(ptr); }
 #pragma push
 #pragma pack(1)
   struct SSurfaceData {
@@ -13,7 +14,7 @@ public:
     uint mMaterialIndex;
     uint mDisplayListSizeAndNormalHint;
     CCubeModel* mParent;
-    CCubeSurface* mNextSurface;
+    void* mNextSurface;
     uint mExtraSize;
     CVector3f mNormal;
     CAABox mBounds;
@@ -22,16 +23,22 @@ public:
 #pragma pop
 
   static const CVector3f skDefaultNormal;
-  SSurfaceData* x0_data;
+  union {
+    uchar* x0_rawdata;
+    SSurfaceData* x0_data;
+  };
 
   uint GetDisplayListSize() const { return x0_data->mDisplayListSizeAndNormalHint & 0x7fffffff; }
   const void* GetDisplayList() const {
-    return reinterpret_cast< const uchar* >(x0_data) + GetSurfaceHeaderSize();
+    return reinterpret_cast< const SSurfaceData* >(x0_rawdata + GetSurfaceHeaderSize());
   }
   uint GetSurfaceHeaderSize() const { return (sizeof(SSurfaceData) + x0_data->mExtraSize) & ~31; }
   uint GetMaterialIndex() const { return x0_data->mMaterialIndex; }
 
   CAABox GetBounds() const;
+  CCubeSurface GetNextSurface() const { return CCubeSurface(x0_data->mNextSurface); }
+
+  bool IsValid() const { return x0_rawdata != nullptr; }
 
 private:
 };

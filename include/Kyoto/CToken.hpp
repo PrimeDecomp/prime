@@ -19,14 +19,13 @@ public:
   CObjOwnerDerivedFromIObjUntyped* GetObj();
   void Lock();
   void Unlock();
+  bool IsLocked() const { return x4_lockHeld; }
   bool IsLoaded() const { return x0_objRef->IsLoaded(); }
   void RemoveRef();
   CToken& operator=(const CToken&);
   bool HasReference() const { return x0_objRef != nullptr; }
   const SObjectTag& GetTag() const { return x0_objRef->GetTag(); }
-  FourCC GetReferenceType() { return GetTag().GetType(); }
-
-  bool HasLock() { return x4_lockHeld; }
+  FourCC GetReferenceType() const { return GetTag().GetType(); }
 
   const CObjectReference* GetRef() const { return x0_objRef; }
 

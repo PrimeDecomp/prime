@@ -1,4 +1,5 @@
 #include "Kyoto/Graphics/CCubeModel.hpp"
+
 #include "Kyoto/Graphics/CCubeSurface.hpp"
 #include "Kyoto/Graphics/CGX.hpp"
 #include "Kyoto/Graphics/CGraphics.hpp"
@@ -22,23 +23,22 @@ CCubeModel::CCubeModel(rstl::vector< void* >* surfaces,
 , x20_bounds(bounds)
 , x38_firstUnsorted(nullptr)
 , x3c_firstSorted(nullptr)
-, x40_24_loadTextures(!texturesLoaded)
+, x40_24_loadTextures(static_cast< uchar >(!texturesLoaded))
 , x40_25_visible(false)
 , x41_visorFlags(visorFlags)
 , x44_idx(idx) {
   for (AUTO(it, x0_instance.Surfaces().begin()); it != x0_instance.Surfaces().end(); ++it) {
-    static_cast< CCubeSurface* >(*it)->x0_data->mParent = this;
+    static_cast< CCubeSurface::SSurfaceData* >(*it)->mParent = this;
   }
 
   for (int i = x0_instance.Surfaces().size(); i > 0; i--) {
-    const AUTO(surf, static_cast< CCubeSurface* >(x0_instance.Surfaces()[i - 1]));
-    const AUTO(material, GetMaterialByIndex(surf->x0_data->mMaterialIndex));
-    if (material.IsFlagSet(kStateFlag_DepthSorting)) {
-      surf->x0_data->mNextSurface = x3c_firstSorted;
-      x3c_firstSorted = surf;
+    CCubeSurface surf(x0_instance.Surfaces()[i - 1]);
+    if (GetMaterialByIndex(surf.GetMaterialIndex()).IsFlagSet(kStateFlag_DepthSorting)) {
+      surf.x0_data->mNextSurface = x3c_firstSorted.x0_data;
+      x3c_firstSorted.x0_rawdata = surf.x0_rawdata;
     } else {
-      surf->x0_data->mNextSurface = x38_firstUnsorted;
-      x38_firstUnsorted = surf;
+      surf.x0_data->mNextSurface = x38_firstUnsorted.x0_data;
+      x38_firstUnsorted.x0_rawdata = surf.x0_rawdata;
     }
   }
 }
@@ -164,4 +164,78 @@ void CCubeModel::DrawSurfaceWireframe(const CCubeSurface& surface) const {
   CGX::SetNumChans_Inline(0);
   CGX::SetNumTexGens_Inline(1);
   CGX::SetBlendMode_Inline(GX_BM_BLEND, GX_BL_ONE, GX_BL_ZERO, GX_LO_CLEAR);
+}
+
+bool CCubeModel::TryLockTextures() const {
+  if (!x40_24_loadTextures) {
+    bool texturesLoading = false;
+    for (int i = 0; i < GetTextures().size(); ++i) {
+      GetTextures()[i].Lock();
+      if (!GetTextures()[i].TryCache()) {
+        texturesLoading = true;
+      } else if (!GetTextures()[i].GetObject()->LoadToMRAM()) {
+        texturesLoading = true;
+      }
+    }
+
+    if (!texturesLoading) {
+      x40_24_loadTextures = true;
+    }
+  }
+
+  return !!x40_24_loadTextures;
+}
+
+struct Test {
+  CCubeSurface* surface;
+  Test(CCubeSurface* surface) : surface(surface) {};
+};
+void CCubeModel::DrawSurfaces(const CModelFlags& flags) const {
+  if (sDrawingWireframe) {
+    for (CCubeSurface surface = GetNormalSurfaces(); surface.IsValid();
+         surface = surface.GetNextSurface()) {
+      DrawSurfaceWireframe(surface);
+    }
+    for (CCubeSurface surface = GetAlphaSurfaces(); surface.IsValid();
+         surface = surface.GetNextSurface()) {
+      DrawSurfaceWireframe(surface);
+    }
+  } else if ((flags.GetOtherFlags() & CModelFlags::kF_NoTextureLock) || TryLockTextures()) {
+    for (CCubeSurface surface = GetNormalSurfaces(); surface.IsValid();
+         surface = surface.GetNextSurface()) {
+      DrawSurface(surface, flags);
+    }
+    for (CCubeSurface surface = GetAlphaSurfaces(); surface.IsValid();
+         surface = surface.GetNextSurface()) {
+      DrawSurface(surface, flags);
+    }
+  }
+}
+
+void CCubeModel::DrawNormalSurfaces(const CModelFlags& flags) const {
+  if (sDrawingWireframe) {
+    for (CCubeSurface surface = GetNormalSurfaces(); surface.IsValid();
+         surface = surface.GetNextSurface()) {
+      DrawSurfaceWireframe(surface);
+    }
+  } else if (TryLockTextures()) {
+    for (CCubeSurface surface = GetNormalSurfaces(); surface.IsValid();
+         surface = surface.GetNextSurface()) {
+      DrawSurface(surface, flags);
+    }
+  }
+}
+
+void CCubeModel::DrawAlphaSurfaces(const CModelFlags& flags) const {
+  if (sDrawingWireframe) {
+    for (CCubeSurface surface = GetAlphaSurfaces(); surface.IsValid();
+         surface = surface.GetNextSurface()) {
+      DrawSurfaceWireframe(surface);
+    }
+  } else if (TryLockTextures()) {
+    for (CCubeSurface surface = GetAlphaSurfaces(); surface.IsValid();
+         surface = surface.GetNextSurface()) {
+      DrawSurface(surface, flags);
+    }
+  }
 }

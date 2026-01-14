@@ -44,18 +44,17 @@ public:
     if (x8_item != nullptr) {
       return true;
     }
-    if (CToken::HasLock() && CToken::IsLoaded()) {
+    if (CToken::IsLocked() && CToken::IsLoaded()) {
       x8_item = TToken< T >::GetT();
       return true;
-    } else {
-      return false;
     }
+    return false;
   }
 
   // Lock__23TCachedToken<8CTexture>Fv
-  // GetObject__23TCachedToken<8CTexture>CFv
-  // TryCache__23TCachedToken<8CTexture>Fv
-  // GetToken__21TCachedToken<6CModel>CFv
+  void Lock() { TToken< T >::Lock(); }
+
+  TToken< T > GetToken() const { return TToken< T >(*this); }
 
   void Unlock() {
     x8_item = nullptr;
@@ -63,10 +62,8 @@ public:
   }
 
   bool IsLoaded() const { return x8_item != nullptr || CToken::IsLoaded(); }
-  
-  void ForceCache() {
-    x8_item = TToken< T >::GetT();
-  }
+
+  void ForceCache() { x8_item = TToken< T >::GetT(); }
 
 private:
   T* x8_item;

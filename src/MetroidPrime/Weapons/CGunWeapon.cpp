@@ -217,7 +217,7 @@ void CGunWeapon::Update(float dt, CStateManager& mgr) {
       LoadSuitArm(mgr);
     }
   } else {
-    if (x104_gunCharacter.HasLock()) {
+    if (x104_gunCharacter.IsLocked()) {
       if (x104_gunCharacter.IsLoaded()) {
         if ((x210_loadFlags & 0x1) != 0x1) {
           LoadGunModels(mgr);

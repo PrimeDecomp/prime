@@ -609,7 +609,7 @@ void CSfxManager::Update(float dt) {
     }
   }
 
-  if (mTranslationTableTok.get() && mTranslationTableTok->HasLock() &&
+  if (mTranslationTableTok.get() && mTranslationTableTok->IsLocked() &&
       mTranslationTableTok->IsLoaded()) {
     if (mTranslationTable == nullptr) {
       TToken< rstl::vector< short > > tmp(*mTranslationTableTok);
