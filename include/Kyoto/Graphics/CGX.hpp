@@ -83,9 +83,25 @@ public:
   };
 
   static void SetNumChans(uchar num);
+  static void SetNumChans_Inline(const uchar num) {
+    sGXState.x4e_numChans = num;
+    sGXState.x4c_flags.numDirty = sGXState.x4e_numChans != sGXState.x4d_prevNumChans;
+  }
   static void SetNumTexGens(uchar num);
+  static void SetNumTexGens_Inline(const uchar num) {
+    if (num != sGXState.x4f_numTexGens) {
+      sGXState.x4f_numTexGens = num;
+      GXSetNumTexGens(num);
+    }
+  }
   static void SetNumTevStages(uchar num);
   static void SetNumIndStages(uchar num);
+  static void SetNumIndStages_Inline(uchar num) {
+    if (sGXState.x51_numIndStages != num) {
+      sGXState.x51_numIndStages = num;
+      GXSetNumIndStages(num);
+    }
+  }
   static void SetChanAmbColor(EChannelId channel, const GXColor& color);
   static void SetChanMatColor(EChannelId channel, const GXColor& color);
   static void SetChanCtrl(EChannelId channel, GXBool enable, GXColorSrc ambSrc, GXColorSrc matSrc,
@@ -93,10 +109,33 @@ public:
   static void SetTevKColor(GXTevKColorID id, const GXColor& color);
   static void SetTevColorIn(GXTevStageID stageId, GXTevColorArg a, GXTevColorArg b, GXTevColorArg c,
                             GXTevColorArg d);
+  static void SetTevColorIn_Inline(const GXTevStageID stageId, const GXTevColorArg a,
+                                   const GXTevColorArg b, const GXTevColorArg c,
+                                   const GXTevColorArg d) {
+    const uint flags = MaskAndShiftLeft(a, 0x1F, 0) | MaskAndShiftLeft(b, 0x1F, 5) |
+                       MaskAndShiftLeft(c, 0x1F, 10) | MaskAndShiftLeft(d, 0x1F, 15);
+    STevState& state = sGXState.x68_tevStates[stageId];
+    if (flags != state.x0_colorInArgs) {
+      state.x0_colorInArgs = flags;
+      GXSetTevColorIn(stageId, a, b, c, d);
+    }
+  }
   static void SetTevAlphaIn(GXTevStageID stageId, GXTevAlphaArg a, GXTevAlphaArg b, GXTevAlphaArg c,
                             GXTevAlphaArg d);
   static void SetTevColorOp(GXTevStageID stageId, GXTevOp op, GXTevBias bias, GXTevScale scale,
                             GXBool clamp, GXTevRegID outReg);
+  static void SetTevColorOp_Inline(const GXTevStageID stageId, const GXTevOp op,
+                                   const GXTevBias bias, const GXTevScale scale, const GXBool clamp,
+                                   const GXTevRegID outReg) {
+    const uint flags = MaskAndShiftLeft(op, 0xF, 0) | MaskAndShiftLeft(bias, 3, 4) |
+                       MaskAndShiftLeft(scale, 3, 6) | MaskAndShiftLeft(clamp, 1, 8) |
+                       MaskAndShiftLeft(outReg, 3, 9);
+    STevState& state = sGXState.x68_tevStates[stageId];
+    if (flags != state.x8_colorOps) {
+      state.x8_colorOps = flags;
+      GXSetTevColorOp(stageId, op, bias, scale, clamp, outReg);
+    }
+  }
   static void SetTevColorOp_Compressed(GXTevStageID stageId, uint flags);
   static void SetTevAlphaOp(GXTevStageID stageId, GXTevOp op, GXTevBias bias, GXTevScale scale,
                             GXBool clamp, GXTevRegID outReg);
@@ -107,6 +146,16 @@ public:
                           GXChannelID color);
   static void SetBlendMode(GXBlendMode mode, GXBlendFactor srcFac, GXBlendFactor dstFac,
                            GXLogicOp op);
+  static void SetBlendMode_Inline(const GXBlendMode mode, const GXBlendFactor srcFac,
+                                  const GXBlendFactor dstFac, const GXLogicOp op) {
+    const uint flags = MaskAndShiftLeft(mode, 3, 0) | MaskAndShiftLeft(srcFac, 7, 2) |
+                       MaskAndShiftLeft(dstFac, 7, 5) | MaskAndShiftLeft(op, 0xF, 8);
+    if (flags != sGXState.x56_blendMode) {
+      update_fog(flags);
+      sGXState.x56_blendMode = flags;
+      GXSetBlendMode(mode, srcFac, dstFac, op);
+    }
+  }
   static void SetZMode(GXBool compareEnable, GXCompare func, GXBool updateEnable);
   static void SetAlphaCompare(GXCompare comp0, uchar ref0, GXAlphaOp op, GXCompare comp1,
                               uchar ref1);
@@ -115,9 +164,24 @@ public:
                              GXIndTexWrap wrapT, GXBool addPrev, GXBool indLod,
                              GXIndTexAlphaSel alphaSel);
   static void SetTevDirect(GXTevStageID stageId);
+  static void SetTevDirect_Inline(const GXTevStageID stageId) {
+    STevState& state = sGXState.x68_tevStates[stageId];
+    if (state.x10_indFlags != 0) {
+      state.x10_indFlags = 0;
+      GXSetTevDirect(stageId);
+    }
+  }
   static void SetTexCoordGen(GXTexCoordID dstCoord, GXTexGenType fn, GXTexGenSrc src, GXTexMtx mtx,
                              GXBool normalize, GXPTTexMtx postMtx);
   static void SetArray(GXAttr attr, const void* data, uchar stride);
+  static void SetArray_Inline(GXAttr attr, const void* data, uchar stride) {
+    uint idx = attr - GX_VA_POS;
+    if (data == nullptr || sGXState.x0_arrayPtrs[idx] == data) {
+      return;
+    }
+    sGXState.x0_arrayPtrs[idx] = data;
+    GXSetArray(attr, data, stride);
+  }
   static void SetFog(GXFogType type, float startZ, float endZ, float nearZ, float farZ,
                      const GXColor& color);
   static void SetLineWidth(uchar width, GXTexOffset offset);
@@ -131,6 +195,12 @@ public:
   static void SetStandardTevColorAlphaOp(GXTevStageID stageId);
 
   static void CallDisplayList(const void* ptr, size_t size);
+  static void CallDisplayList_Inline(const void* ptr, const size_t size) {
+    if (sGXState.x4c_chanFlags != 0) {
+      FlushState();
+    }
+    GXCallDisplayList(ptr, size);
+  }
   static void Begin(GXPrimitive prim, GXVtxFmt fmt, ushort numVtx);
   static void End();
   static void ResetGXStates();

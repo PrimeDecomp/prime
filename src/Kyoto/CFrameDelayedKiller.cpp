@@ -47,7 +47,7 @@ void CFrameDelayedKiller::fn_8036CB90() {
   }
 
   rstl::list< void* >::node* it = list.begin().get_node();
-  rstl::list< void* >::node* last = list.end().get_node();
+  const rstl::list< void* >::node* last = list.end().get_node();
   while (it != last) {
     it = list.do_erase(it);
   }

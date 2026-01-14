@@ -63,6 +63,10 @@ public:
   }
 
   bool IsLoaded() const { return x8_item != nullptr || CToken::IsLoaded(); }
+  
+  void ForceCache() {
+    x8_item = TToken< T >::GetT();
+  }
 
 private:
   T* x8_item;

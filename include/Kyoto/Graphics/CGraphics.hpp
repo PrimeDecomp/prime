@@ -381,6 +381,7 @@ public:
   static CTevCombiners::CTevPass kEnvModulateAlpha;
   static CTevCombiners::CTevPass kEnvModulateColor;
   static CTevCombiners::CTevPass kEnvModulateColorByAlpha;
+  static CRenderState sRenderState;
 
 private:
   static void UpdateVertexDataStream();
@@ -388,7 +389,6 @@ private:
   static void FlushStream();
   static void FullRender();
 
-  static CRenderState sRenderState;
   static VecPtr vtxBuffer;
   static VecPtr nrmBuffer;
   static Vec2Ptr txtBuffer0;

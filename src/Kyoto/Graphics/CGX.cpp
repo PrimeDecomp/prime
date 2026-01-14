@@ -72,8 +72,8 @@ void CGX::SetTevKColor(GXTevKColorID id, const GXColor& color) {
 
 void CGX::SetTevColorIn(GXTevStageID stageId, GXTevColorArg a, GXTevColorArg b, GXTevColorArg c,
                         GXTevColorArg d) {
-  uint flags = MaskAndShiftLeft(a, 0x1F, 0) | MaskAndShiftLeft(b, 0x1F, 5) |
-               MaskAndShiftLeft(c, 0x1F, 10) | MaskAndShiftLeft(d, 0x1F, 15);
+  const uint flags = MaskAndShiftLeft(a, 0x1F, 0) | MaskAndShiftLeft(b, 0x1F, 5) |
+                     MaskAndShiftLeft(c, 0x1F, 10) | MaskAndShiftLeft(d, 0x1F, 15);
   STevState& state = sGXState.x68_tevStates[stageId];
   if (flags != state.x0_colorInArgs) {
     state.x0_colorInArgs = flags;
@@ -94,9 +94,9 @@ void CGX::SetTevAlphaIn(GXTevStageID stageId, GXTevAlphaArg a, GXTevAlphaArg b, 
 
 void CGX::SetTevColorOp(GXTevStageID stageId, GXTevOp op, GXTevBias bias, GXTevScale scale,
                         GXBool clamp, GXTevRegID outReg) {
-  uint flags = MaskAndShiftLeft(op, 0xF, 0) | MaskAndShiftLeft(bias, 3, 4) |
-               MaskAndShiftLeft(scale, 3, 6) | MaskAndShiftLeft(clamp, 1, 8) |
-               MaskAndShiftLeft(outReg, 3, 9);
+  const uint flags = MaskAndShiftLeft(op, 0xF, 0) | MaskAndShiftLeft(bias, 3, 4) |
+                     MaskAndShiftLeft(scale, 3, 6) | MaskAndShiftLeft(clamp, 1, 8) |
+                     MaskAndShiftLeft(outReg, 3, 9);
   STevState& state = sGXState.x68_tevStates[stageId];
   if (flags != state.x8_colorOps) {
     state.x8_colorOps = flags;
@@ -400,7 +400,7 @@ void CGX::SetIndTexMtxSTPointFive(GXIndTexMtxID id, s8 scaleExp) {
       {0.5f, 0.f, 0.f},
       {0.f, 0.5f, 0.f},
   };
-  GXSetIndTexMtx(id, const_cast< float(*)[3] >(indMtx), scaleExp);
+  GXSetIndTexMtx(id, const_cast< float (*)[3] >(indMtx), scaleExp);
 }
 
 void CGX::SetVtxDescv_Compressed(uint flags) {
