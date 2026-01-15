@@ -45,17 +45,20 @@ private:
 };
 
 bool area_sorter::operator()(const CGameArea* a, const CGameArea* b) const {
-  if (a->GetId() == b->GetId()) {
+  TAreaId aId = a->GetId();
+  TAreaId bId = b->GetId();
+  if (aId == bId) {
     return false;
   }
-  if (visAreaId == a->GetId()) {
+  if (aId == visAreaId) {
     return false;
   }
-  if (visAreaId == b->GetId()) {
+  if (b->GetId() == visAreaId) {
     return true;
   }
-  return CVector3f::Dot(reference, a->GetAABB().GetCenterPoint()) >
-         CVector3f::Dot(reference, b->GetAABB().GetCenterPoint());
+  const float aDot = CVector3f::Dot(reference, a->GetAABB().GetCenterPoint());
+  const float bDot = CVector3f::Dot(reference, b->GetAABB().GetCenterPoint());
+  return aDot > bDot;
 }
 
 } // namespace

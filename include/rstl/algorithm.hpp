@@ -52,7 +52,7 @@ void __insertion_sort(It first, It last, Cmp cmp) {
 }
 
 template < typename T, class Cmp >
-void __sort3(T& a, T& b, T& c, Cmp comp) {
+void __sort3(T& a, T& b, T& c, const Cmp comp) {
   if (comp(b, a)) {
     swap(a, b);
   }
@@ -71,28 +71,29 @@ void __sort3(T& a, T& b, T& c, Cmp comp) {
 template < typename It, class Cmp >
 void sort(It first, It last, Cmp cmp) {
   int count = last - first; // use distance?
-  if (count > 1) {
-    if (count > 20) {
-      __insertion_sort(first, last, cmp);
-    } else {
-      It pivot = first + count / 2;
-      It end = last;
-      __sort3(*first, *pivot, *--end, cmp);
-      typename iterator_traits< It >::value_type value = *pivot;
-      It it = first + 1;
-      --end;
-      while (true) {
-        while (cmp(*it, value))
-          ++it;
-        while (cmp(value, *end))
-          --end;
-        if (it >= end)
-          break;
-        iter_swap(it++, end--);
-      }
-      sort(first, it, cmp);
-      sort(it, last, cmp);
+  if (count <= 1) {
+    return;
+  }
+  if (20 >= count) {
+    __insertion_sort(first, last, cmp);
+  } else {
+    It pivot = first + count / 2;
+    It end = last;
+    __sort3(*first, *pivot, *--end, cmp);
+    typename iterator_traits< It >::value_type value = *pivot;
+    It it = first + 1;
+    --end;
+    while (true) {
+      while (cmp(*it, value))
+        ++it;
+      while (cmp(value, *end))
+        --end;
+      if (it >= end)
+        break;
+      iter_swap(it++, end--);
     }
+    sort(first, it, cmp);
+    sort(it, last, cmp);
   }
 }
 
@@ -207,7 +208,7 @@ typename T::iterator inline find_by_key_nc(
 }
 
 template < typename T, class Cmp >
-inline void sort_by_key(T& container, Cmp cmp) {
+inline void sort_by_key(T& container, const Cmp& cmp) {
   sort(container.begin(), container.end(), pair_sorter_finder< typename T::value_type, Cmp >(cmp));
 }
 

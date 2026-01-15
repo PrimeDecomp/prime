@@ -19,7 +19,7 @@ public:
   AssetIdSorter() {}
 
   bool operator()(const rstl::pair< CAssetId, CAssetId >& a,
-                  const rstl::pair< CAssetId, CAssetId >& b) {
+                  const rstl::pair< CAssetId, CAssetId >& b) const {
     return a.first < b.first;
   }
 };

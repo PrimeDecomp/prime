@@ -211,7 +211,7 @@ public:
   CRingSorter(CStateManager* mgr) : mgr(mgr) {}
 
   bool operator()(const CScriptSpecialFunction::SRingController& a,
-                  const CScriptSpecialFunction::SRingController& b) {
+                  const CScriptSpecialFunction::SRingController& b) const {
     const CActor* actA = TCastToConstPtr< CActor >(mgr->GetObjectById(a.x0_id));
     const CActor* actB = TCastToConstPtr< CActor >(mgr->GetObjectById(b.x0_id));
     if (actA && actB) {

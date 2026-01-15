@@ -16,7 +16,7 @@
 
 namespace {
 struct cstr_less {
-  const bool operator()(const char* a, const char* b) const { return (strcmp(a, b) < 0); }
+  bool operator()(const char* a, const char* b) const { return (strcmp(a, b) < 0); }
 };
 
 } // namespace

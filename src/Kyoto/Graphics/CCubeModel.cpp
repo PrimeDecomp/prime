@@ -27,18 +27,22 @@ CCubeModel::CCubeModel(rstl::vector< void* >* surfaces,
 , x40_25_visible(false)
 , x41_visorFlags(visorFlags)
 , x44_idx(idx) {
-  for (AUTO(it, x0_instance.Surfaces().begin()); it != x0_instance.Surfaces().end(); ++it) {
-    static_cast< CCubeSurface::SSurfaceData* >(*it)->mParent = this;
+  rstl::vector< void* >& surf = x0_instance.Surfaces();
+  for (AUTO(it, surf.begin()); it != surf.end(); ++it) {
+    CCubeSurface::SSurfaceData* data = static_cast< CCubeSurface::SSurfaceData* >(*it);
+    data->mParent = this;
   }
 
-  for (int i = x0_instance.Surfaces().size(); i > 0; i--) {
-    CCubeSurface surf(x0_instance.Surfaces()[i - 1]);
-    if (GetMaterialByIndex(surf.GetMaterialIndex()).IsFlagSet(kStateFlag_DepthSorting)) {
-      surf.x0_data->mNextSurface = x3c_firstSorted.x0_data;
-      x3c_firstSorted.x0_rawdata = surf.x0_rawdata;
+  for (int i = surf.size(); i > 0; i--) {
+    void*& data = surf[i - 1];
+    uint materialIndex = static_cast< CCubeSurface::SSurfaceData* >(data)->mMaterialIndex;
+    if (GetMaterialByIndex(materialIndex).IsFlagSet(kStateFlag_DepthSorting)) {
+      static_cast< CCubeSurface::SSurfaceData* >(data)->mNextSurface = x3c_firstSorted.x0_rawdata;
+      x3c_firstSorted.x0_rawdata = static_cast< uchar* >(data);
     } else {
-      surf.x0_data->mNextSurface = x38_firstUnsorted.x0_data;
-      x38_firstUnsorted.x0_rawdata = surf.x0_rawdata;
+      static_cast< CCubeSurface::SSurfaceData* >(data)->mNextSurface =
+          x38_firstUnsorted.x0_rawdata;
+      x38_firstUnsorted.x0_rawdata = static_cast< uchar* >(data);
     }
   }
 }
