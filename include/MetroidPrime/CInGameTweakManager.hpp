@@ -58,6 +58,7 @@ private:
 class CInGameTweakManager {
 public:
   CInGameTweakManager();
+  ~CInGameTweakManager();
 
   bool HasTweakValue(const rstl::string& name) const;
   const CTweakValue* GetTweakValue(const rstl::string& name) const;
@@ -71,6 +72,7 @@ public:
 private:
   rstl::vector< CTweakValue > x0_values;
 };
+
 CHECK_SIZEOF(CInGameTweakManager, 0x10)
 
 extern CInGameTweakManager* gpTweakManager;

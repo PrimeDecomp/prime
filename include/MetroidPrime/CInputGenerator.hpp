@@ -1,6 +1,7 @@
 #ifndef _CINPUTGENERATOR
 #define _CINPUTGENERATOR
 
+#include "CArchitectureMessage.hpp"
 #include "types.h"
 
 #include "rstl/single_ptr.hpp"
@@ -14,6 +15,8 @@ class CArchitectureQueue;
 class CInputGenerator {
 public:
   CInputGenerator(COsContext*, float leftDiv, float rightDiv);
+  void CreateUserInputMsg(CArchitectureQueue& queue, float dt, int i,
+                          const CControllerGamepadData& cont);
   bool Update(float dt, CArchitectureQueue& queue);
   IController* GetController() const { return x4_controller.get(); }
 

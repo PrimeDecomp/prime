@@ -8,7 +8,7 @@
 class CControllerGamepadData {
 public:
   void SetDeviceIsPresent(bool present) { x0_present = present; }
-  bool DeviceIsPresent() const { return x0_present; }
+  const bool DeviceIsPresent() const { return x0_present; }
 
   const CControllerAxis& GetAxis(EJoyAxis axis) const { return x4_axes[axis]; }
   CControllerAxis& GetAxis(EJoyAxis axis) { return x4_axes[axis]; }

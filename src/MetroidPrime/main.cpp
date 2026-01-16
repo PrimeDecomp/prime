@@ -54,6 +54,7 @@
 #include "MetroidPrime/Tweaks/CTweakGame.hpp"
 #include "MetroidPrime/Tweaks/CTweakPlayer.hpp"
 
+#pragma inline_max_size(250)
 extern "C" {
 void sub_8036ccfc();
 // part of CMain but lazy
@@ -115,6 +116,23 @@ const char* s28 = "Metaforce";
 // sdata
 bool lbl_805A6BC0;
 
+class CSaveRegion {
+public:
+  CSaveRegion(CMain& main);
+private:
+  static void* mNonVolatileSettingsBuf;
+  static void* mSaveBuffer;
+};
+
+extern "C" void OSGetSavedRegion(void** start, void** end);
+extern "C" void OSSetSaveRegion(void* start, void* end);
+CSaveRegion::CSaveRegion(CMain& main) {
+  void* end;
+  OSGetSavedRegion(&mNonVolatileSettingsBuf, &end);
+  OSSetSaveRegion(nullptr, nullptr);
+  mSaveBuffer = main.OsContext().AllocFromArena(128);
+}
+
 int main(int argc, char** argv) {
   DVDSetAutoFatalMessaging(TRUE);
   SetErrorHandlers();
@@ -123,6 +141,9 @@ int main(int argc, char** argv) {
   main->~CMain();
   return 0;
 }
+
+extern "C" void* __sys_alloc(const size_t len) { return CMemory::Alloc(len); }
+extern "C" void __sys_free(const void* ptr) { CMemory::Free(ptr); }
 
 CMain::CMain()
 : x0_osContext(true, true)
@@ -225,7 +246,8 @@ CGameGlobalObjects::CGameGlobalObjects(COsContext& osContext, CMemorySys& memory
 #include "MetroidPrime/DefaultFontTexture.inc"
 
 CRasterFont* CGameGlobalObjects::LoadDefaultFont() {
-  CZipInputStream fontDataStream(rs_new CMemoryInStream(sDefaultFontData, sizeof(sDefaultFontData)));
+  CZipInputStream fontDataStream(
+      rs_new CMemoryInStream(sDefaultFontData, sizeof(sDefaultFontData)));
   CRasterFont* font = rs_new CRasterFont(fontDataStream, nullptr);
   CZipInputStream fontTextureStream(
       rs_new CMemoryInStream(sDefaultFontTexture, sizeof(sDefaultFontTexture)));

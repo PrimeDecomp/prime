@@ -5,6 +5,10 @@
 
 #include "rstl/string.hpp"
 
+static const char* tmp = "Msg[%3d] %s";
+static const char* tmp2 = "-------------------------";
+static const char* tmp3 = "Draw[%3d] %s";
+
 CIOWinManager::CIOWinManager()
 : x0_drawRoot(nullptr), x4_pumpRoot(nullptr), x8_localGatherQueue() {}
 

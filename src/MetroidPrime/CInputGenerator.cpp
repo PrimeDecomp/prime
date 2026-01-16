@@ -23,7 +23,7 @@ bool CInputGenerator::Update(float dt, CArchitectureQueue& queue) {
 
   bool firstController = false;
   if (!x4_controller.null()) {
-    int count = x4_controller->GetDeviceCount();
+    const int count = x4_controller->GetDeviceCount();
     x4_controller->Poll();
     for (int i = 0; i < count; ++i) {
       const CControllerGamepadData& cont = x4_controller->GetGamepadData(i);
@@ -31,18 +31,17 @@ bool CInputGenerator::Update(float dt, CArchitectureQueue& queue) {
         if (i == 0) {
           firstController = true;
         }
-
         {
-          CFinalInput input(i, dt, cont, xc_leftDiv, x10_rightDiv);
-          CArchitectureMessage msg = MakeMsg::CreateUserInput(kAMT_Game, input);
+          const CFinalInput input(i, dt, cont, xc_leftDiv, x10_rightDiv);
+          const CArchitectureMessage msg = MakeMsg::CreateUserInput(kAMT_Game, input);
           queue.Push(msg);
         }
-        ++availSlot;
+        availSlot++;
       }
 
-      bool connected = cont.DeviceIsPresent();
+      const bool connected = cont.DeviceIsPresent();
       if (x8_connectedControllers[i] != connected) {
-        CArchitectureMessage msg = MakeMsg::CreateControllerStatus(kAMT_Game, i, connected);
+        const CArchitectureMessage msg = MakeMsg::CreateControllerStatus(kAMT_Game, i, connected);
         queue.Push(msg);
         x8_connectedControllers[i] = connected;
       }
@@ -50,10 +49,10 @@ bool CInputGenerator::Update(float dt, CArchitectureQueue& queue) {
   }
 
   if (!firstController) {
-    CArchitectureMessage msg = MakeMsg::CreateUserInput(kAMT_Game, CFinalInput(0, dt, *x0_context));
+    const CArchitectureMessage msg = MakeMsg::CreateUserInput(kAMT_Game, CFinalInput(0, dt, *x0_context));
     queue.Push(msg);
   } else {
-    CArchitectureMessage msg =
+    const CArchitectureMessage msg =
         MakeMsg::CreateUserInput(kAMT_Game, CFinalInput(availSlot, dt, *x0_context));
     queue.Push(msg);
   }

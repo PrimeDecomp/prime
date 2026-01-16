@@ -14,7 +14,7 @@ class CResFactory : public IFactory {
 public:
   CResFactory();
 
-  ~CResFactory() {}
+  ~CResFactory();
   CFactoryFnReturn Build(const SObjectTag&, const CVParamTransfer&);
   void BuildAsync(const SObjectTag&, const CVParamTransfer&, IObj**);
   void CancelBuild(const SObjectTag&);

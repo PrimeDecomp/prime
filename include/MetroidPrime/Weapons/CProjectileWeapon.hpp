@@ -20,17 +20,18 @@ class CParticleSwoosh;
 class CProjectileWeapon {
 public:
   // TODO ctor
-  CProjectileWeapon(const TToken<CWeaponDescription>& wDesc, const CVector3f& origin, const CTransform4f& orient, const CVector3f& scale, const int);
+  CProjectileWeapon(const TToken< CWeaponDescription >& wDesc, const CVector3f& origin,
+                    const CTransform4f& orient, const CVector3f& scale, const int);
   virtual ~CProjectileWeapon();
   virtual void Update(float dt);
   virtual void AddToRenderer();
   virtual void Render() const;
   virtual CVector3f GetTranslation() const;
   virtual CTransform4f GetTransform() const;
-  
+
   const CVector3f& GetVelocity() const; // { return xb0_velocity; }
-  CVector3f GetGravity() const; // { return xbc_gravity; }
-  static float GetTickPeriod(); // { return 0.0166667f; }
+  CVector3f GetGravity() const;         // { return xbc_gravity; }
+  static float GetTickPeriod();         // { return 0.0166667f; }
 
 private:
   TLockedToken< CWeaponDescription > x4_weaponDesc;

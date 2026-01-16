@@ -13,7 +13,7 @@ T GetAverageValue(const T* ptr, int count) {
   for (; ptr < end; ++ptr) {
     ret = ret + *ptr;
   }
-  return ret / count;
+  return ret * (1.f / count);
 }
 
 template < typename T >

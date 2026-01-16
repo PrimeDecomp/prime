@@ -98,6 +98,9 @@ public:
     return x0_osContext;
   }
 
+  COsContext& OsContext() { return x0_osContext; }
+  const COsContext& GetOsContext() const { return x0_osContext; }
+
 private:
   COsContext x0_osContext;
   UnkClassArena x6c_unk;
