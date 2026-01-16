@@ -36,7 +36,9 @@ public:
   CTransform4f(const CTransform4f& other);
   CTransform4f& operator=(const CTransform4f& other);
 
-  CVector3f GetTranslation() const { return CVector3f(m03, m13, m23); }
+  CVector3f GetTranslation() const {
+    return CVector3f(m03, m13, m23);
+  }
   CVector3f GetRight() const { return CVector3f(m00, m10, m20); }
   const CVector3f GetForward() const { return CVector3f(m01, m11, m21); }
   CVector3f GetUp() const { return CVector3f(m02, m12, m22); }

@@ -113,7 +113,7 @@ public:
   static const CVector3f& Right() { return sRightVector; }
   static const CVector3f& Forward() { return sForwardVector; }
   static const CVector3f& Back() { return sBackVector; }
-
+  
 protected:
   float mX;
   float mY;
@@ -139,6 +139,7 @@ inline bool operator==(const CVector3f& lhs, const CVector3f& rhs) {
 inline bool operator!=(const CVector3f& lhs, const CVector3f& rhs) {
   return lhs.GetX() != rhs.GetX() || lhs.GetY() != rhs.GetY() || lhs.GetZ() != rhs.GetZ();
 }
+
 inline CVector3f operator-(const CVector3f& lhs, const CVector3f& rhs) {
   float x = lhs.GetX() - rhs.GetX();
   float y = lhs.GetY() - rhs.GetY();

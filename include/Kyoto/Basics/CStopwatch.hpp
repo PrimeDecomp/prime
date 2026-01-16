@@ -42,6 +42,10 @@ public:
   }
 
   static void Wait(float);
+  
+  static s64 GetGlobalMicros() {
+    return mGlobalTimer.GetElapsedMicros();
+  }
 
 private:
   static CSWData mData;

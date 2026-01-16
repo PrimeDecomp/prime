@@ -25,11 +25,13 @@ inline void destroy(It begin, It end) {
 }
 
 template < typename It, typename T >
-inline void uninitialized_copy(It begin, It end, T* out) {
+inline T* uninitialized_copy(It begin, It end, T* out) {
   It cur = begin;
   for (; cur != end; ++out, ++cur) {
     construct(out, *cur);
   }
+  
+  return out;
 }
 
 template < typename S, typename D >

@@ -22,14 +22,15 @@ public:
     other.x0_has = false;
   }
   auto_ptr& operator=(const auto_ptr& other) {
-    if (&other != this) {
-      if (x0_has) {
-        delete x4_item;
-      }
-      x0_has = other.x0_has;
-      x4_item = other.x4_item;
-      other.x0_has = false;
+    if (&other == this) {
+      return *this;
     }
+    if (x0_has) {
+      delete x4_item;
+    }
+    x0_has = other.x0_has;
+    x4_item = other.x4_item;
+    other.x0_has = false;
     return *this;
   }
   T* get() const { return x4_item; }

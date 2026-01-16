@@ -35,6 +35,7 @@ protected:
   T* xc_items;
 
 public:
+  typedef Alloc allocator_type;
   typedef pointer_iterator< T, vector< T, Alloc >, Alloc > iterator;
   typedef const_pointer_iterator< T, vector< T, Alloc >, Alloc > const_iterator;
   typedef T value_type;
@@ -83,6 +84,8 @@ public:
     rstl::construct(xc_items + x4_count, in);
     ++x4_count;
   }
+  
+  void pop_back();
 
   vector& operator=(const vector& other);
 

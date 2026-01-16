@@ -8,6 +8,7 @@ class CRealElement;
 class CUVElement;
 class CVectorElement;
 class CSwooshDescription {
+public:
   CSwooshDescription();
   ~CSwooshDescription();
 

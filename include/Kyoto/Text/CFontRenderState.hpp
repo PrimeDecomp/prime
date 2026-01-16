@@ -5,12 +5,28 @@
 #include "Kyoto/Text/CRasterFont.hpp"
 #include "Kyoto/Text/CSaveableState.hpp"
 #include "Kyoto/Text/TextCommon.hpp"
+#include <rstl/vector.hpp>
 
 class CBlockInstruction;
 class CLineInstruction;
+namespace rstl {
+template < typename T, typename Container = vector< T > >
+class stack {
+public:
+  stack(const typename Container::allocator_type& allocator = typename Container::allocator_type())
+  : container(allocator) {}
 
+  void push(const T& v) { container.push_back(v); }
+  T& top() { return container.front(); }
+  void pop() { container.pop_back(); }
+
+private:
+  Container container;
+};
+} // namespace rstl
 class CFontRenderState {
 public:
+  CFontRenderState();
   uint ConvertToTextureSpace(const CTextColor& color) const;
   void PushState();
   void PopState();

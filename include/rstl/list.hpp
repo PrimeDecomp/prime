@@ -27,6 +27,7 @@ public:
   , x14_count(0) {}
   ~list();
 
+  void push_front(const T& val) { do_insert_before(x4_start, val); }
   void push_back(const T& val) { do_insert_before(x8_end, val); }
   void clear() { erase(begin(), end()); }
 

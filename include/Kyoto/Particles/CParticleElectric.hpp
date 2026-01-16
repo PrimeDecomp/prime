@@ -13,7 +13,7 @@ public:
   explicit CParticleElectric(TToken< CElectricDescription > desc);
 
   ~CParticleElectric() override;
-  void Update(double) override;
+  bool Update(double) override;
   void Render() const override;
   void SetOrientation(const CTransform4f& orientation) override;
   void SetTranslation(const CVector3f& translation) override;

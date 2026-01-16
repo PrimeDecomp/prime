@@ -13,11 +13,43 @@
 
 class CParticleSwoosh : public CParticleGen {
 public:
-  struct SSwooshData {};
+  struct SSwooshData {
+    SSwooshData(const CVector3f& translation = CVector3f::Zero(),
+                const CVector3f& offset = CVector3f::Zero(), float irot = 0.f, float rotm = 0.f, int startFrame = 0,
+                bool active = false, const CTransform4f& orient = CTransform4f::Identity(),
+                const CVector3f& velocity = CVector3f::Zero(), float leftRadius = 0.f, float rightRadius = 0.f,
+                const CColor& color = CColor(0.f, 0.f, 0.f, 0.f))
+    : mActive(active)
+    , mLeftRad(leftRadius)
+    , mRightRad(rightRadius)
+    , mTranslation(translation)
+    , mOffset(offset)
+    , mUseOffset(offset)
+    , mInitialRot(irot)
+    , mRotm(rotm)
+    , mOrientation(orient)
+    , mColor(color)
+    , mStartFrame(startFrame)
+    , mVelocity(velocity) {}
+
+    bool mActive;
+    float mLeftRad;
+    float mRightRad;
+    CVector3f mTranslation;    // Updated by system's velocity sources or user code
+    CVector3f mOffset;         // Updated by POFS once per system update (also resets x24_useOffset)
+    CVector3f mUseOffset;      // Combination of POFS and NPOS, once per particle instance
+    float mInitialRot;         // Rotation bias once per system update
+    float mRotm;               // Rotation bias once per particle instance
+    CTransform4f mOrientation; // Updated by user code
+    int mFrame;                // Frame index of evaluated data
+    CColor mColor;             // Updated by COLR
+    int mStartFrame;
+    CVector3f mVelocity;
+  };
   CParticleSwoosh(TToken< CSwooshDescription > desc, int i);
   ~CParticleSwoosh();
 
-  void Update(double);
+  bool Update(double dt);
   void Render() const;
   void SetOrientation(const CTransform4f& orientation);
   void SetTranslation(const CVector3f& translation);
@@ -48,6 +80,8 @@ public:
 
   const int GetSwooshCount() const { return x15c_swooshes.size(); }
 
+  bool IsLargeEnough() const;
+
 private:
   TLockedToken< CSwooshDescription > x1c_desc;
   uint x28_curFrame;
@@ -57,7 +91,7 @@ private:
   CTransform4f x44_orientation;
   CTransform4f x74_invOrientation;
   CVector3f xa4_globalTranslation;
-  CTransform4f xa4_globalOrientation;
+  CTransform4f xb0_globalOrientation;
   CVector3f xe0_globalScale;
   CTransform4f xec_scaleXf;
   CTransform4f x11c_invScaleXf;
@@ -94,6 +128,8 @@ private:
   CVector3f x1fc_aabbMax;
   float x208_maxRadius;
   CColor x20c_moduColor;
+
+  static uint mSwooshAliveCount;
 };
 
 #endif // _CPARTICLESWOOSH

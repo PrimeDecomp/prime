@@ -247,11 +247,29 @@ cflags_runtime = [
 ]
 
 cflags_retro = [
-    *cflags_base,
+    "-nodefaults",
+    "-proc gekko",
+    "-align powerpc",
+    "-enum int",
+    "-fp hardware",
+    "-Cpp_exceptions off",
+    # "-W all",
+    "-O4,p",
+    "-maxerrors 1",
+    "-nosyspath",
+    "-RTTI off",
+    "-fp_contract on",
+    "-str reuse",
+    "-i include",
+    "-i libc",
+    f"-i build/{config.version}/include",
+    f"-DVERSION={version_num}",
+    "-DPRIME1",
+    "-DNONMATCHING=0",
     "-use_lmw_stmw on",
     "-str reuse,pool,readonly",
     "-gccinc",
-    "-inline deferred,noauto",
+    "-inline deferred",
     "-common on",
     "-i extern/musyx/include",
     # "-sym on",
@@ -352,6 +370,17 @@ def RetroLib(lib_name, progress_category, objects):
         "lib": lib_name + "CW" + "D" if args.debug else "",
         "mw_version": "GC/1.3.2",
         "cflags": cflags_retro,
+        "host": False,
+        "progress_category": progress_category,
+        "objects": objects,
+        "shift_jis": False,
+    }
+
+def KyotoLib(lib_name, progress_category, objects):
+    return {
+        "lib": lib_name + "CW" + "D" if args.debug else "",
+        "mw_version": "GC/1.3.2",
+        "cflags": [*cflags_retro, "-pragma \"inline_max_size(250)\""],
         "host": False,
         "progress_category": progress_category,
         "objects": objects,
@@ -1217,7 +1246,7 @@ config.libs = [
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Collision/CMRay.cpp"),
         ],
     ),
-    RetroLib(
+    KyotoLib(
         "Kyoto1",
         "core",
         [
@@ -1579,7 +1608,7 @@ config.libs = [
         ],
     },
     # TODO: Merge this with zlib and Kyoto1
-    RetroLib(
+    KyotoLib(
         "Kyoto2",
         "core",
         [
