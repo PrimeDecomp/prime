@@ -93,6 +93,6 @@ CBodyStateCmd* CBodyStateCmdMgr::GetCmd(EBodyStateCmd cmd) {
   return nullptr;
 }
 
-void CBodyStateCmdMgr::DeliverCmd(EBodyStateCmd cmd) {
+void CBodyStateCmdMgr::DeliverCmd(const EBodyStateCmd cmd) {
   xb4_deliveredCmdMask |= (1 << cmd);
 }

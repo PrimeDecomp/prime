@@ -23,7 +23,7 @@ enum EWeaponType {
 
 class CWeaponMode {
 public:
-  explicit CWeaponMode(EWeaponType type = kWT_None, const bool charged = false,
+  explicit CWeaponMode(const EWeaponType type = kWT_None, const bool charged = false,
                        const bool comboed = false, const bool instaKill = false)
   : x0_weaponType(type)
   , x4_24_charged(charged)

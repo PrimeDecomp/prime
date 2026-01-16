@@ -21,6 +21,9 @@ struct TPatternedCast {
   TPatternedCast(CEntity* ent);
 };
 
+class CPatterned;
+typedef void (CPatterned::*FTryCommandCallback)(CStateManager& mgr, int arg);
+
 class CPatterned : public CAi {
 public:
   enum ECharacter {
@@ -244,6 +247,9 @@ public:
 
   EPatrolState GetPatrolState() const { return x2d8_patrolState; }
   TUniqueId GetDestObj() const { return x2dc_destObj; } // TODO: name?
+  EAnimState GetAnimationState() const { return x32c_animState; }
+  void SetAnimationState(const EAnimState state) { x32c_animState = state; }
+  float GetStateMachineTime() const { return GetStateMachineState().GetTime(); }
   CStateMachineState& StateMachineState() { return x330_stateMachineState; }
   const CStateMachineState& GetStateMachineState() const { return x330_stateMachineState; }
   ECharacter GetCharacterType() const { return x34c_characterType; }
@@ -264,6 +270,8 @@ public:
 
   template < class T >
   static T* CastTo(const TPatternedCast< T >& ent);
+
+  void TryCommand(CStateManager& mgr, int state, FTryCommandCallback cb, int arg);
 
 private:
   EPatrolState x2d8_patrolState;

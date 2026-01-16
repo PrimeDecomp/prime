@@ -206,7 +206,6 @@ public:
   // GetOrbitDistanceCheck__6CActorCFv
   // GetCalculateLighting__6CActorCFv
   // GetDrawShadow__6CActorCFv
-  // GetRenderBoundsCached__6CActorCFv
   // GetRenderParticleDatabaseInside__6CActorCFv
   // HasModelParticles__6CActorCFv
   void SetVolume(uchar volume);

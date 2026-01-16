@@ -26,8 +26,8 @@ public:
   , x14_knockback(0.f)
   , x18_24_noImmunity(false) {}
 
-  CDamageInfo(const CWeaponMode& mode, float damage, float radius, float knockback,
-              bool noImmunity = false)
+  CDamageInfo(const CWeaponMode& mode, const float damage, const float radius, const float knockback,
+              const bool noImmunity = false)
   : x0_weaponMode(mode)
   , x8_damage(damage)
   , xc_radiusDamage(damage)
@@ -36,7 +36,7 @@ public:
   , x18_24_noImmunity(noImmunity) {}
 
   // HACK: This constructor exists to fix CWeapon::Think writing xc_radiusDamage as a double
-  CDamageInfo(const CWeaponMode& mode, float damage, float radiusDamage, float radius,
+  CDamageInfo(const CWeaponMode& mode, float damage, double radiusDamage, float radius,
               float knockback, bool noImmunity = false)
   : x0_weaponMode(mode)
   , x8_damage(damage)

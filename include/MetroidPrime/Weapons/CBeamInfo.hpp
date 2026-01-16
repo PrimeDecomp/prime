@@ -8,10 +8,12 @@
 
 class CBeamInfo {
 public:
-  CBeamInfo(s32 beamAttributes, CAssetId contactFxId, CAssetId pulseFxId, CAssetId textureId,
-            CAssetId glowTextureId, s32 length, float radius, float expansionSpeed, float lifeTime,
-            float pulseSpeed, float shutdownTime, float contactFxScale, float pulseFxScale,
-            const CColor& innerColor, const CColor& outerColor, float travelSpeed)
+  CBeamInfo(const int beamAttributes, const CAssetId contactFxId, const CAssetId pulseFxId,
+            const CAssetId textureId, const CAssetId glowTextureId, const s32 length,
+            const float radius, const float expansionSpeed, const float lifeTime,
+            const float pulseSpeed, const float shutdownTime, const float contactFxScale,
+            const float pulseFxScale, const CColor& innerColor, const CColor& outerColor,
+            const float travelSpeed)
   : x4_beamAttributes(beamAttributes)
   , x8_contactFxId(contactFxId)
   , xc_pulseFxId(pulseFxId)
@@ -28,6 +30,23 @@ public:
   , x38_travelSpeed(travelSpeed)
   , x3c_innerColor(innerColor)
   , x40_outerColor(outerColor) {}
+
+  int GetBeamAttributes() const { return x4_beamAttributes; }
+  CAssetId GetContactFXId() const { return x8_contactFxId; }
+  CAssetId GetPulseFXId() const { return xc_pulseFxId; }
+  CAssetId GetTextureId() const { return x10_textureId; }
+  CAssetId GetGlowTextureId() const { return x14_glowTextureId; }
+  int GetLength() const { return x18_length; }
+  float GetRadius() const { return x1c_radius; }
+  float GetExpansionSpeed() const { return x20_expansionSpeed; }
+  float GetLifeTime() const { return x24_lifeTime; }
+  float GetPulseSpeed() const { return x28_pulseSpeed; }
+  float GetShutdownTime() const { return x2c_shutdownTime; }
+  float GetContactFxScale() const { return x30_contactFxScale; }
+  float GetPulseFxScale() const { return x34_pulseFxScale; }
+  float GetTravelSpeed() const { return x38_travelSpeed; }
+  const CColor& GetInnerColor() const { return x3c_innerColor; }
+  const CColor& GetOuterColor() const { return x40_outerColor; }
 
 private:
   uint x0_;
@@ -54,5 +73,4 @@ private:
   CColor x3c_innerColor;
   CColor x40_outerColor;
 };
-
 #endif // _CBEAMINFO

@@ -44,11 +44,11 @@ public:
   }
 
   // This is certainly not real, but handy to force not-inline
-  single_ptr& Set(T* ptr);
+  single_ptr& reset(T* ptr);
 };
 
 template < typename T >
-single_ptr< T >& single_ptr< T >::Set(T* ptr) {
+single_ptr< T >& single_ptr< T >::reset(T* ptr) {
   return *this = ptr;
 }
 

@@ -185,7 +185,7 @@ private:
 
 class CBCKnockBackCmd : public CBodyStateCmd {
 public:
-  CBCKnockBackCmd(const CVector3f& vec, pas::ESeverity severity)
+  CBCKnockBackCmd(const CVector3f& vec, const pas::ESeverity severity)
   : CBodyStateCmd(kBSC_KnockBack), x8_dir(vec), x14_severity(severity) {}
 
   const CVector3f& GetHitDirection() const { return x8_dir; }

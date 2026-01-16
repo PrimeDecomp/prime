@@ -22,8 +22,8 @@ void CScriptBeam::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objId, CSt
     mgr.AddObject(rs_new CPlasmaProjectile(
         xe8_weaponDescription, GetDebugName() + rstl::string_l("-Projectile"),
         x138_damageInfo.GetWeaponMode().GetType(), xf4_beamInfo, GetTransform(), kMT_Projectile,
-        x138_damageInfo, x154_projectileId, GetCurrentAreaId(), GetUniqueId(),
-        CPlasmaProjectile::PlayerEffectResources(), false,
+        x138_damageInfo, x154_projectileId, GetCurrentAreaId(), GetUniqueId(), CWeaponAssetInfo(),
+        false,
         CWeapon::kPA_KeepInCinematic // TODO: wrong attrib definition?
         ));
   } break;
@@ -63,5 +63,3 @@ void CScriptBeam::Think(float dt, CStateManager& mgr) {
     x154_projectileId = kInvalidUniqueId;
   }
 }
-
-CScriptBeam::~CScriptBeam() {}

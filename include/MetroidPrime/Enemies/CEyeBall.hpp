@@ -15,7 +15,6 @@ public:
            const CAssetId beamGlowTextureId, const uint anim0, const uint anim1, const uint anim2,
            const uint anim3, const uint beamSfx, const bool attackDisabled,
            const CActorParameters& actParams);
-  ~CEyeBall() {}
 
   void Accept(IVisitor& visitor) override;
   void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId sender, CStateManager& mgr) override;
@@ -25,14 +24,30 @@ public:
   void InActive(CStateManager& mgr, EStateMsg msg, float arg) override;
   void Active(CStateManager& mgr, EStateMsg msg, float arg) override;
   void PreRender(CStateManager& mgr, const CFrustumPlanes& frustum) override;
+  void Think(float dt, CStateManager& mgr) override;
+  void Render(const CStateManager& mgr) const override;
+  void Flinch(CStateManager&, EStateMsg, float) override;
+  void Cover(CStateManager& mgr, EStateMsg msg, float arg) override;
+  bool ShouldFire(CStateManager&, float) override;
+  bool ShouldAttack(CStateManager&, float) override;
+
+  void Touch(CActor&, CStateManager&) override;
+  void Death(CStateManager& mgr, const CVector3f& direction, EScriptObjectState state) override;
+
+  // void PreRenderBoneTracking(CStateManager& mgr, const CVector3f& scale,
+  //                            const CBodyController& ctrl) {
+  //   mBoneTracking.PreRender(mgr, *AnimationData(), GetTransform(), scale, ctrl);
+  // }
 
 private:
-  static float test(float t) { return t; }
   void CreateBeam(CStateManager& mgr);
-  void FireBeam(CStateManager& mgr, const CTransform4f& xf);
   void TryFlinch(CStateManager& mgr, int arg);
-  void UpdateAnimation();
-  void ResetBeamState(CStateManager& mgr);
+  void TurnLaserOff(CStateManager& mgr);
+  void TurnLaserOn(CStateManager& mgr, const CTransform4f& xf);
+  void UpdateCycleAnimation(float dt);
+
+  float GetAttackDelay() const { return mAttackDelay; }
+  float GetAttackStartTime() const { return mAttackStartTime; }
 
   float mAttackDelay;
   float mAttackStartTime;
@@ -44,8 +59,8 @@ private:
   CAssetId mBeamTextureId;
   CAssetId mBeamGlowTextureId;
   TUniqueId mProjectileId;
-  uint mCurrentAnim;
-  uint mAnimIndices[4];
+  int mCurrentAnim;
+  int mAnimIndices[4];
   ushort mBeamSfxId;
   CSfxHandle mBeamSfx;
   bool mCanAttack : 1;
@@ -55,6 +70,7 @@ private:
   bool mFiringBeam : 1;
 
   static const char* skEyeLocator;
+#define skMaxRadianAngle CMath::Deg2Rad(45.f)
 };
 
 #endif // _CEYEBALL

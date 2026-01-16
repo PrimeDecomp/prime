@@ -1,38 +1,39 @@
 #ifndef _CPLASMAPROJECTILE
 #define _CPLASMAPROJECTILE
 
+#include "MetroidPrime/Weapons/CBeamInfo.hpp"
 #include "MetroidPrime/Weapons/CBeamProjectile.hpp"
 
 class CElectricDescription;
+
+struct CWeaponAssetInfo {
+  int count;
+  CAssetId data[8];
+
+  explicit CWeaponAssetInfo(const CAssetId a = kInvalidAssetId, const CAssetId b = kInvalidAssetId,
+                            const CAssetId c = kInvalidAssetId, const CAssetId d = kInvalidAssetId,
+                            const CAssetId e = kInvalidAssetId, const CAssetId f = kInvalidAssetId,
+                            const CAssetId g = kInvalidAssetId, const CAssetId h = kInvalidAssetId)
+  : count(8) {
+    data[0] = a;
+    data[1] = b;
+    data[2] = c;
+    data[3] = d;
+    data[4] = e;
+    data[5] = f;
+    data[6] = g;
+    data[7] = h;
+  }
+};
 
 class CPlasmaProjectile : public CBeamProjectile {
 public:
   enum EExpansionState { kES_Inactive, kES_Attack, kES_Sustain, kES_Release, kES_Done };
 
-  struct PlayerEffectResources {
-    int count;
-    CAssetId data[8];
-
-    PlayerEffectResources(CAssetId a = kInvalidAssetId, CAssetId b = kInvalidAssetId,
-                          CAssetId c = kInvalidAssetId, CAssetId d = kInvalidAssetId,
-                          CAssetId e = kInvalidAssetId, CAssetId f = kInvalidAssetId,
-                          CAssetId g = kInvalidAssetId, CAssetId h = kInvalidAssetId)
-    : count(8) {
-      data[0] = a;
-      data[1] = b;
-      data[2] = c;
-      data[3] = d;
-      data[4] = e;
-      data[5] = f;
-      data[6] = g;
-      data[7] = h;
-    }
-  };
-
   CPlasmaProjectile(const TToken< CWeaponDescription >& wDesc, const rstl::string& name,
                     EWeaponType wType, const CBeamInfo& bInfo, const CTransform4f& xf,
                     EMaterialTypes matType, const CDamageInfo& dInfo, TUniqueId uid, TAreaId aid,
-                    TUniqueId owner, const PlayerEffectResources& res, bool growingBeam,
+                    TUniqueId owner, const CWeaponAssetInfo& res, bool growingBeam,
                     EProjectileAttrib attribs);
 
   void Accept(IVisitor& visitor) override;
@@ -55,7 +56,7 @@ private:
   float x480_pulseSpeed;
   float x484_shutdownTime;
   float x488_expansionSpeed;
-  float x48c_;
+  float x48c_maxLength;
   CColor x490_innerColor;
   CColor x494_outerColor;
   CDamageInfo x498_phazonDamage;
@@ -72,10 +73,10 @@ private:
   float x4dc_playerEffectPulseTimer;
   float x4e0_playerDamageDuration;
   float x4e4_playerDamageTimer;
-  TLockedToken< CTexture > x4e8_texture;
-  TLockedToken< CTexture > x4f4_glowTexture;
-  TCachedToken< CGenDescription > x500_contactFxDesc;
-  TCachedToken< CGenDescription > x50c_pulseFxDesc;
+  TCachedToken< CTexture > x4e8_texture;
+  TCachedToken< CTexture > x4f4_glowTexture;
+  TLockedToken< CGenDescription > x500_contactFxDesc;
+  TLockedToken< CGenDescription > x50c_pulseFxDesc;
   rstl::single_ptr< CElementGen > x518_contactGen;
   rstl::single_ptr< CElementGen > x51c_pulseGen;
   rstl::single_ptr< CElementGen > x520_weaponGen;

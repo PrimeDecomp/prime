@@ -16,7 +16,6 @@ class CScriptBeam : public CActor {
 public:
   CScriptBeam(TUniqueId, const rstl::string&, const CEntityInfo&, const CTransform4f&, bool,
               const TToken< CWeaponDescription >&, const CBeamInfo&, const CDamageInfo&);
-  ~CScriptBeam();
 
   void Accept(IVisitor& visitor) override;
   void Think(float, CStateManager&) override;

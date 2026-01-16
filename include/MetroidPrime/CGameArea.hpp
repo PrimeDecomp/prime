@@ -236,11 +236,16 @@ public:
   int GetDockCount() const { return xcc_docks.size(); }
   const CAreaFog* GetAreaFog() const { return x12c_postConstructed->x10c4_areaFog.get(); }
   CAreaFog* AreaFog() { return x12c_postConstructed->x10c4_areaFog.get(); }
-  EOcclusionState GetOcclusionState() const { return x12c_postConstructed->x10dc_occlusionState; }
+  EOcclusionState GetOcclusionState() const {
+    if (!IsPostConstructed()) {
+      return kOS_Occluded;
+    }
+    return x12c_postConstructed->x10dc_occlusionState;
+  }
   const rstl::vector< CWorldLight >& GetLightsA() const;
   const rstl::vector< CWorldLight >& GetLightsB() const;
   const CPVSAreaSet* GetAreaVisSet() const { return x12c_postConstructed->xa0_pvs; }
-  bool IsPostConstructed() const { return xf0_24_postConstructed; }                         // name?
+  bool IsPostConstructed() const { return xf0_24_postConstructed; } // name?
   CPostConstructed* GetPostConstructed() { return x12c_postConstructed.get(); }             // name?
   const CPostConstructed* GetPostConstructed() const { return x12c_postConstructed.get(); } // name?
   CGameArea* GetNext() { return x130_next; }                                                // name?

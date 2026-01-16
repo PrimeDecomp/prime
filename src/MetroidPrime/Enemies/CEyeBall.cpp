@@ -1,10 +1,14 @@
 #include "MetroidPrime/Enemies/CEyeBall.hpp"
 #include "Collision/CMaterialList.hpp"
 #include "Kyoto/Animation/CharacterCommon.hpp"
+#include "Kyoto/Math/CloseEnough.hpp"
 #include "MetroidPrime/ActorCommon.hpp"
 #include "MetroidPrime/BodyState/CBodyController.hpp"
+#include "MetroidPrime/CAnimData.hpp"
 #include "MetroidPrime/CDamageVulnerability.hpp"
 #include "MetroidPrime/CEntityInfo.hpp"
+#include "MetroidPrime/CGameArea.hpp"
+#include "MetroidPrime/CWorld.hpp"
 #include "MetroidPrime/Enemies/CAiFuncMap.hpp"
 #include "MetroidPrime/Enemies/CPatterned.hpp"
 #include "MetroidPrime/Enemies/CStateMachine.hpp"
@@ -17,9 +21,7 @@
 
 #include <Kyoto/Animation/CInt32POINode.hpp>
 #include <Kyoto/Audio/CSfxManager.hpp>
-
 const char* CEyeBall::skEyeLocator = "Laser_LCTR";
-const char* wholeBody = "Whole Body";
 
 CEyeBall::CEyeBall(const TUniqueId uid, const rstl::string& name, const EFlavorType flavor,
                    const CEntityInfo& info, const CTransform4f& xf, const CModelData& mData,
@@ -34,8 +36,8 @@ CEyeBall::CEyeBall(const TUniqueId uid, const rstl::string& name, const EFlavorT
 , mAttackDelay(attackDelay)
 , mAttackStartTime(attackStartTime)
 , mTargetPosition(CVector3f::Zero())
-, mBoneTracking(*ModelData()->AnimationData(), rstl::string_l("Eye"), CMath::Deg2Rad(45.f),
-                CMath::Deg2Rad(180.f), kBTF_NoParent)
+, mBoneTracking(*AnimationData(), rstl::string_l("Eye"), skMaxRadianAngle, CMath::Deg2Rad(180.f),
+                kBTF_NoParent)
 , mProjectileInfo(wpscId, dInfo)
 , mBeamContactFxId(beamContactFxId)
 , mBeamPulseFxId(beamPulseFxId)
@@ -70,7 +72,7 @@ void CEyeBall::CreateBeam(CStateManager& mgr) {
   CEntity* proj = rs_new CPlasmaProjectile(
       mProjectileInfo.Token(), rstl::string_l("EyeBall_Beam"), kWT_AI, beamInfo,
       CTransform4f::Identity(), kMT_Character, mProjectileInfo.GetDamage(), mProjectileId,
-      GetCurrentAreaId(), GetUniqueId(), kInvalidAssetId, false, CWeapon::kPA_KeepInCinematic);
+      GetCurrentAreaId(), GetUniqueId(), CWeaponAssetInfo(), false, CWeapon::kPA_KeepInCinematic);
   mgr.AddObject(*proj);
 }
 
@@ -138,12 +140,12 @@ void CEyeBall::DoUserAnimEvent(CStateManager& mgr, const CInt32POINode& node,
     if (mCanAttack) {
       skipForward = true;
       CTransform4f xf = GetLctrTransform(node.GetLocatorName());
-      FireBeam(mgr, xf);
+      TurnLaserOn(mgr, xf);
     }
   } break;
   case kUE_DamageOff: {
     skipForward = true;
-    ResetBeamState(mgr);
+    TurnLaserOff(mgr);
   } break;
   default:
     break;
@@ -173,11 +175,10 @@ void CEyeBall::Active(CStateManager& mgr, EStateMsg msg, float arg) {
     mCanAttack = false;
   } break;
   case kStateMsg_Update: {
-    const float time = StateMachineState().GetTime();
-    if (time > mAttackStartTime) {
+    if (GetStateMachineTime() > GetAttackStartTime()) {
       mCanAttack = true;
     }
-    UpdateAnimation();
+    UpdateCycleAnimation(arg);
   } break;
   case kStateMsg_Deactivate: {
     StateMachineState().SetDelay(mAttackDelay);
@@ -196,7 +197,151 @@ void CEyeBall::Active(CStateManager& mgr, EStateMsg msg, float arg) {
 
 void CEyeBall::PreRender(CStateManager& mgr, const CFrustumPlanes& frustum) {
   CPatterned::PreRender(mgr, frustum);
+  mBoneTracking.PreRender(mgr, *AnimationData(), GetTransform(), ModelData()->GetScale(),
+                          *BodyCtrl());
+}
+
+void CEyeBall::Think(float dt, CStateManager& mgr) {
+  CPatterned::Think(dt, mgr);
+  if (!GetActive()) {
+    return;
+  }
+
+  const CPlayer* player = mgr.GetPlayer();
+  static float minAngle = CMath::FastCosR(skMaxRadianAngle);
+  const CVector3f direction = (player->GetTranslation() - GetTranslation()).AsNormalized();
+  const float angle = CVector3f::Dot(GetTransform().GetForward(), direction);
+
+  mPlayerInRange =
+      player->GetMorphballTransitionState() == CPlayer::kMS_Morphed && angle > minAngle;
+  if (mPlayerInRange) {
+    mBoneTracking.SetActive(true);
+    mTargetPosition = player->GetTranslation() - (player->GetVelocityWR() * 0.5f);
+    mBoneTracking.SetTargetPosition(mTargetPosition);
+    mBoneTracking.Update(dt);
+    AnimationData()->PreRender();
+    // PreRenderBoneTracking(mgr, ModelData()->GetScale(), *BodyCtrl());
+    mBoneTracking.PreRender(mgr, *AnimationData(), GetTransform(), ModelData()->GetScale(),
+                            *BodyCtrl());
+  } else {
+    mBoneTracking.SetActive(false);
+  }
+
+  if (GetActive()) {
+    CPlasmaProjectile* projectile =
+        static_cast< CPlasmaProjectile* >(mgr.ObjectById(mProjectileId));
+    if (projectile && projectile->GetActive()) {
+      CTransform4f locator = GetLctrTransform(rstl::string_l(skEyeLocator));
+      projectile->UpdateFx(locator, dt, mgr);
+    }
+  }
+
+  if (!mFiringBeam) {
+    return;
+  }
+  const CGameArea& area = mgr.GetWorld()->GetAreaAlways(GetCurrentAreaId());
+  if (area.GetOcclusionState() != CGameArea::kOS_Visible) {
+    TurnLaserOff(mgr);
+  }
+}
+
+void CEyeBall::TryFlinch(CStateManager& mgr, int arg) {
   CBodyController* controller = BodyCtrl();
-  CModelData* mData = ModelData();
-  mBoneTracking.PreRender(mgr, *AnimationData(), GetTransform(), mData->GetScale(), *controller);
+  controller->CommandMgr().DeliverCmd(
+      CBCKnockBackCmd(GetTransform().GetColumn(kDX), static_cast< pas::ESeverity >(arg)));
+}
+
+void CEyeBall::Render(const CStateManager& mgr) const { return CPatterned::Render(mgr); }
+
+void CEyeBall::Flinch(CStateManager& mgr, EStateMsg msg, float arg) {
+  switch (msg) {
+  case kStateMsg_Activate: {
+    SetAnimationState(kAS_Ready);
+    StateMachineState().SetDelay(mAttackDelay);
+  } break;
+  case kStateMsg_Update: {
+    TryCommand(mgr, pas::kAS_KnockBack, static_cast< FTryCommandCallback >(TryFlinch), 0);
+  } break;
+  case kStateMsg_Deactivate: {
+    SetAnimationState(kAS_NotReady);
+  } break;
+  }
+}
+void CEyeBall::Cover(CStateManager& mgr, EStateMsg msg, float arg) {
+  switch (msg) {
+  case kStateMsg_Activate: {
+    BodyCtrl()->SetLocomotionType(pas::kLT_Lurk);
+    mCanAttack = false;
+    StateMachineState().SetDelay(mAttackDelay);
+  } break;
+  case kStateMsg_Update: {
+  } break;
+  case kStateMsg_Deactivate: {
+
+  } break;
+  }
+}
+bool CEyeBall::ShouldFire(CStateManager& mgr, const float arg) { return !mAttackDisabled; }
+
+bool CEyeBall::ShouldAttack(CStateManager&, float) { return mAlert; }
+
+void CEyeBall::UpdateCycleAnimation(const float dt) {
+  if (!close_enough(
+          GetModelData()->GetAnimationData()->GetAnimTimeRemaining(rstl::string_l("Whole Body")),
+          0.f)) {
+    return;
+  }
+
+  int i = 0;
+  mCurrentAnim = (mCurrentAnim + 1) % 4;
+  for (; mAnimIndices[mCurrentAnim] == -1 && i < 4; i++) {
+    mCurrentAnim = (mCurrentAnim + 1) % 4;
+  }
+  const int animIdx = mAnimIndices[mCurrentAnim];
+  if (animIdx != -1) {
+    CBodyController* controller = BodyCtrl();
+    controller->CommandMgr().DeliverCmd(CBCScriptedCmd(animIdx, false, false, 0.f));
+  }
+}
+
+void CEyeBall::Touch(CActor&, CStateManager&) {}
+
+void CEyeBall::TurnLaserOn(CStateManager& mgr, const CTransform4f& xf) {
+  CPlasmaProjectile* proj = static_cast< CPlasmaProjectile* >(mgr.ObjectById(mProjectileId));
+  if (!proj) {
+    return;
+  }
+  if (proj->GetActive()) {
+    return;
+  }
+
+  proj->Fire(xf, mgr, false);
+  mFiringBeam = true;
+  if (mBeamSfx) {
+    return;
+  }
+  TAreaId id = GetCurrentAreaId();
+
+  CAudioSys::C3DEmitterParmData parmData(50.f, 0.1f, 0x1, 127, 20);
+  parmData.x0_pos = GetTranslation();
+  parmData.xc_dir = CVector3f::Zero();
+  parmData.x24_sfxId = mBeamSfxId;
+  mBeamSfx = CSfxManager::AddEmitter(parmData, true, CSfxManager::kMedPriority, true, id.Value());
+}
+void CEyeBall::TurnLaserOff(CStateManager& mgr) {
+
+  if (CPlasmaProjectile* proj = static_cast< CPlasmaProjectile* >(mgr.ObjectById(mProjectileId))) {
+    proj->ResetBeam(mgr, true);
+  }
+  mFiringBeam = false;
+  if (!mBeamSfx) {
+    return;
+  }
+  CSfxManager::RemoveEmitter(mBeamSfx);
+  mBeamSfx.Clear();
+}
+void CEyeBall::Death(CStateManager& mgr, const CVector3f& direction, EScriptObjectState state) {
+  const CTransform4f xf = GetTransform();
+  CPatterned::Death(mgr, direction, state);
+  SetTransform(xf);
 }

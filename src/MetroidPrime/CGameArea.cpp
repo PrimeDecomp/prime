@@ -47,7 +47,7 @@ bool CGameArea::StartStreamingMainArea() {
   case kP_LoadHeader: {
     x110_mreaSecBufs.reserve(3);
     AllocNewAreaData(0, 96);
-    x12c_postConstructed.Set(rs_new CPostConstructed());
+    x12c_postConstructed.reset(rs_new CPostConstructed());
     xf4_phase = kP_LoadSecSizes;
     break;
   }
