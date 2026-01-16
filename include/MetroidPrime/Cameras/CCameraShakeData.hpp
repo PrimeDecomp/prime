@@ -59,7 +59,7 @@ public:
   , x8_shakerX()
   , x44_shakerY()
   , x80_shakerZ(true, SCameraShakePoint(false, 0.25f * duration, 0.f, 0.75f * duration, magnitude),
-                SCameraShakePoint(true, 0.f, 0.f, 0.5f * duration, 2.f)) {}  
+                SCameraShakePoint(true, 0.f, 0.f, 0.5f * duration, 2.f)) {}
   void SetId(int id) { xbc_shakerId = id; }
   int GetId() const { return xbc_shakerId; }
   void Update(float dt, CStateManager& mgr);

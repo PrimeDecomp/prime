@@ -226,7 +226,7 @@ typename vector< T, Alloc >::iterator vector< T, Alloc >::erase(iterator first, 
 
   int newCount = first - begin();
 
-  for (iterator moved = begin() + newCount, it = last; it != end(); ++moved, ++newCount, ++it) {
+  for (iterator it = last, moved = begin() + newCount; it != end(); ++moved, ++newCount, ++it) {
     construct(&*moved, *it);
   }
   x4_count = newCount;

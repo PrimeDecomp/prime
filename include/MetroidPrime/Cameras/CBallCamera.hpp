@@ -158,6 +158,7 @@ public:
   }
   void SetElevation(float v) { x1a0_elevation = v; }
   void SetLookAtOffset(CVector3f vec) { x1b4_lookAtOffset = vec; }
+  TUniqueId GetTooCloseActorId() const { return x3dc_tooCloseActorId; }
   void SetChaseLookAtOffset(CVector3f vec) { x410_chaseLookAtOffset = vec; }
   void SetWorldOffset(CVector3f vec); // TODO
   EBallCameraState GetState() const { return x400_state; }
@@ -170,6 +171,8 @@ public:
 
   void DoorClosing(TUniqueId uid);
   void DoorClosed(TUniqueId uid);
+  
+  static bool CheckDoorProximity(const CVector3f& vec, const CStateManager& mgr);
 
 private:
   struct SFailsafeState {

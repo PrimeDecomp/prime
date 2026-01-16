@@ -1,6 +1,7 @@
 #ifndef _CCAMERASPLINE
 #define _CCAMERASPLINE
 
+#include "Kyoto/Math/CTransform4f.hpp"
 #include "types.h"
 
 #include "MetroidPrime/TGameTypes.hpp"
@@ -18,7 +19,10 @@ public:
 
   // tODO
 
-  void Initialise(TUniqueId, const rstl::vector<SConnection>&, CStateManager&);
+  void Initialise(TUniqueId, const rstl::vector< SConnection >&, CStateManager&);
+
+  CTransform4f GetInterpolatedSplinePointByLength(float length) const;
+  float FindClosestLengthOnSpline(float t, const CVector3f& point);
 
 private:
   rstl::vector< CVector3f > x4_positions;

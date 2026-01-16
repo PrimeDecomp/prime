@@ -45,7 +45,8 @@ void __insertion_sort(It first, It last, Cmp cmp) {
     It t1 = next - 1;
     It t2 = next;
     while (first < t2 && cmp(value, *t1)) {
-      *t2-- = *t1--;
+      *t2-- = *t1;
+      --t1;
     }
     *t2 = value;
   }
@@ -90,7 +91,8 @@ void sort(It first, It last, Cmp cmp) {
         --end;
       if (it >= end)
         break;
-      iter_swap(it++, end--);
+      iter_swap(it, end--);
+      ++it;
     }
     sort(first, it, cmp);
     sort(it, last, cmp);

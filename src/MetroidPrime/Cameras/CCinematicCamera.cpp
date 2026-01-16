@@ -10,9 +10,11 @@
 
 #include "rstl/algorithm.hpp"
 
-CCinematicCamera::CCinematicCamera(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
-                                   const CTransform4f& xf, bool active, float shotDuration,
-                                   float fovy, float znear, float zfar, float aspect, uint flags)
+CCinematicCamera::CCinematicCamera(const TUniqueId uid, const rstl::string& name,
+                                   const CEntityInfo& info, const CTransform4f& xf,
+                                   const bool active, const float shotDuration, const float fovy,
+                                   const float znear, const float zfar, const float aspect,
+                                   const uint flags)
 : CGameCamera(uid, active, name, info, xf, fovy, znear, zfar, aspect, kInvalidUniqueId,
               (flags & 0x20) != 0, 0)
 , x1e8_duration(shotDuration)

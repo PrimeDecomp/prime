@@ -14,7 +14,7 @@ public:
   class const_iterator;
   iterator erase(const iterator& item) { return do_erase(item.get_node()); }
 
-// private:
+  // private:
   struct node;
   node* do_erase(node* item);
 
@@ -72,7 +72,7 @@ public:
     node* n;
     x0_allocator.allocate(n, 1);
     new (n) node(prev, next);
-    construct(n->get_value(), val);
+    new(n->get_value()) T(val);
     return n;
   }
 
@@ -169,7 +169,7 @@ template < typename T, typename Alloc >
 typename list< T, Alloc >::node* list< T, Alloc >::do_erase(node* node) {
   typename list< T, Alloc >::node* result = node->get_next();
   if (node == x4_start) {
-    x4_start = result;
+    x4_start = node->get_next();
   }
   node->get_prev()->set_next(node->get_next());
   node->get_next()->set_prev(node->get_prev());

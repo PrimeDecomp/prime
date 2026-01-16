@@ -7,9 +7,10 @@
 
 class CCinematicCamera : public CGameCamera {
 public:
-  CCinematicCamera(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
-                   const CTransform4f& xf, bool active, float shotDuration, float fovy, float znear,
-                   float zfar, float aspect, uint flags);
+  CCinematicCamera(const TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
+                   const CTransform4f& xf, const bool active, const float shotDuration,
+                   const float fovy, const float znear, const float zfar, const float aspect,
+                   const uint flags);
   ~CCinematicCamera();
   // CActor
   void Accept(IVisitor& visitor) override;

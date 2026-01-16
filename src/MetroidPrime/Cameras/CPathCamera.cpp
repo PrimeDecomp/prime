@@ -1,46 +1,71 @@
 #include "MetroidPrime/Cameras/CPathCamera.hpp"
-#include "MetroidPrime/Cameras/CCameraManager.hpp"
-#include "MetroidPrime/TCastTo.hpp"
-// #include "MetroidPrime/ScriptObjects/CScriptDoor.hpp"
 
-CPathCamera::CPathCamera(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
-                         const CTransform4f& xf, bool active, float lengthExtent, float filterMag,
-                         float filterProportion, float minEaseDist, float maxEaseDist, u32 flags,
-                         EInitialSplinePosition initPos)
+#include "MetroidPrime/Cameras/CBallCamera.hpp"
+#include "MetroidPrime/Cameras/CCameraManager.hpp"
+#include "MetroidPrime/Player/CPlayer.hpp"
+#include "MetroidPrime/ScriptObjects/CScriptDoor.hpp"
+#include "MetroidPrime/Tweaks/CTweakPlayer.hpp"
+#include "rstl/math.hpp"
+
+static const CMaterialList kLineOfSightIncludeList = CMaterialList(kMT_Solid);
+static const CMaterialList kLineOfSightExcludeList = CMaterialList(kMT_ProjectilePassthrough);
+static const CMaterialFilter kLineOfSightFilter =
+    CMaterialFilter::MakeIncludeExclude(kLineOfSightIncludeList, kLineOfSightExcludeList);
+CPathCamera::CPathCamera(const TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
+                         const CTransform4f& xf, const bool active, const float lengthExtent,
+                         const float filterMag, const float filterProportion,
+                         const float minEaseDist, const float maxEaseDist, const uint flags,
+                         const EInitialSplinePosition initPos)
 : CGameCamera(uid, active, name, info, xf, CCameraManager::GetDefaultThirdPersonVerticalFOV(),
               CCameraManager::GetDefaultFirstPersonNearClipDistance(),
               CCameraManager::GetDefaultFirstPersonFarClipDistance(),
               CCameraManager::GetDefaultAspectRatio(), kInvalidUniqueId, false, 0)
-, x188_spline(flags & 1)
-, x1d4_pos(0.f)
-, x1d8_time(0.f)
-, x1dc_lengthExtent(lengthExtent)
-, x1e0_filterMag(filterMag)
-, x1e4_filterProportion(filterProportion)
-, x1e8_initPos(initPos)
-, x1ec_flags(flags)
-, x1f0_minEaseDist(minEaseDist)
-, x1f4_maxEaseDist(maxEaseDist) {}
+, mSpline(flags & 1)
+, mPos(0.f)
+, mTime(0.f)
+, mLengthExtent(lengthExtent)
+, mFilterMag(filterMag)
+, mFilterProportions(filterProportion)
+, mInitialPosition(initPos)
+, mFlags(flags)
+, mMinEaseDist(minEaseDist)
+, mMaxEaseDist(maxEaseDist) {}
 
 CPathCamera::~CPathCamera() {}
 
-void CPathCamera::Reset(const CTransform4f&, CStateManager& mgr) {}
+void CPathCamera::Reset(const CTransform4f& xf, CStateManager& mgr) {
+  CVector3f ballPos1(
+      mgr.GetPlayer()->GetTranslation().GetX(), mgr.GetPlayer()->GetTranslation().GetY(),
+      mgr.GetPlayer()->GetTranslation().GetZ() + gpTweakPlayer->GetPlayerBallHalfExtent());
+  CVector3f ballPos = ballPos1;
+
+  float closestLength = mSpline.FindClosestLengthOnSpline(0.f, ballPos);
+  float closestLengthClamped = rstl::max_val(0.f, closestLength);
+  CVector3f interpolatedPoint =
+      mSpline.GetInterpolatedSplinePointByLength(closestLength).GetTranslation();
+
+  CTransform4f ballTransform = mgr.GetCameraManager()->GetBallCamera()->GetTransform();
+}
 
 CTransform4f CPathCamera::MoveAlongSpline(float t, CStateManager& mgr) {
   return CTransform4f::Identity();
 }
 
-void CPathCamera::ClampToClosedDoor(CStateManager& mgr) {
-  /*
-  if (TCastToConstPtr<CScriptDoor> door =
-          mgr.GetObjectById(mgr.GetCameraManager()->GetBallCamera()->GetTooCloseActorId())) {
-    if (!door->IsOpen() && CBallCamera::IsBallNearDoor(GetTranslation(), mgr)) {
-      x1d4_pos = (x1d4_pos > x1d8_time) ? x1d8_time - x1dc_lengthExtent : x1d8_time +
-  x1dc_lengthExtent;
-      SetTranslation(x188_spline.GetInterpolatedSplinePointByLength(x1d4_pos).origin);
+void CPathCamera::AvoidDoorCollisions(CStateManager& mgr) {
+
+  if (const CScriptDoor* door = TCastToConstPtr< CScriptDoor >(
+          mgr.GetObjectById(mgr.GetCameraManager()->GetBallCamera()->GetTooCloseActorId()))) {
+    if (!door->IsOpen() && CBallCamera::CheckDoorProximity(GetTranslation(), mgr)) {
+      float tmp = mTime + mLengthExtent;
+      if (mPos > mTime) {
+        tmp = mTime - mLengthExtent;
+      }
+
+      mPos = tmp;
+      const CVector3f tmpVec = mSpline.GetInterpolatedSplinePointByLength(tmp).GetTranslation();
+      SetTranslation(tmpVec);
     }
   }
-  */
 }
 
 void CPathCamera::Think(float dt, CStateManager& mgr) {
@@ -51,19 +76,19 @@ void CPathCamera::Think(float dt, CStateManager& mgr) {
   if (mgr.GetCameraManager()->GetPathCameraId() != GetUniqueId())
     return;
 
-  if (x188_spline.GetSize() <= 0)
+  if (mSpline.GetSize() <= 0)
     return;
 
   zeus::CTransform xf = GetTransform();
   zeus::CVector3f ballLook = mgr.GetCameraManager()->GetBallCamera()->GetLookPos();
-  if ((x1ec_flags & 0x10)) {
+  if ((mFlags & 0x10)) {
     if (const CScriptCameraHint* hint = mgr.GetCameraManager()->GetCameraHint(mgr))
       ballLook.z() = hint->GetTranslation().z();
   }
 
-  if (!mgr.GetPlayer().GetVelocity().canBeNormalized() && (ballLook - GetTranslation()).canBeNormalized()) {
-    if (x1ec_flags & 4)
-      SetTransform(x188_spline.GetInterpolatedSplinePointByLength(x1d4_pos));
+  if (!mgr.GetPlayer().GetVelocity().CanBeNormalized() && (ballLook - GetTranslation()).CanBeNormalized()) {
+    if (mFlags & 4)
+      SetTransform(mSpline.GetInterpolatedSplinePointByLength(mPos));
     else
       SetTransform(zeus::lookAt(GetTranslation(), ballLook));
     return;
@@ -72,15 +97,15 @@ void CPathCamera::Think(float dt, CStateManager& mgr) {
   xf = MoveAlongSpline(dt, mgr);
   SetTranslation(xf.origin);
 
-  if (x1ec_flags & 0x20)
-    ClampToClosedDoor(mgr);
+  if (mFlags & 0x20)
+    AvoidDoorCollisions(mgr);
 
   CVector3f tmp = ballLook - GetTranslation();
   tmp.SetZ(0.f);
   if (tmp.CanBeNormalized())
     SetTransform(zeus::lookAt(GetTranslation(), ballLook));
 
-  if (x1ec_flags & 4)
+  if (mFlags & 4)
     SetTransform(xf);
 #endif
 }
@@ -99,5 +124,5 @@ void CPathCamera::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStat
   if (!GetActive() || msg != kSM_InitializedInArea) {
     return;
   }
-  x188_spline.Initialise(GetUniqueId(), GetConnectionList(), mgr);
+  mSpline.Initialise(GetUniqueId(), GetConnectionList(), mgr);
 }

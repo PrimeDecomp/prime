@@ -81,7 +81,7 @@ void CCameraManager::CreateCameras(CStateManager& mgr) {
   TUniqueId fpId = mgr.AllocateUniqueId();
 
   x7c_fpCamera = rs_new CFirstPersonCamera(
-      fpId, xf, plId, gpTweakPlayer->mOrbitCameraSpeed, GetDefaultFirstPersonVerticalFOV(),
+      fpId, xf, plId, gpTweakPlayer->GetOrbitCameraSpeed(), GetDefaultFirstPersonVerticalFOV(),
       GetDefaultFirstPersonNearClipDistance(), GetDefaultFirstPersonFarClipDistance(),
       GetDefaultAspectRatio());
   mgr.AddObject(x7c_fpCamera);
@@ -369,7 +369,15 @@ void CCameraManager::StopCinematics(CStateManager& mgr) {
   x7c_fpCamera->CancelCinematicOffset();
 }
 
-int CCameraManager::AddCameraShaker(const CCameraShakeData& data, bool sfx) {
+inline CSfxHandle CreateSfxHandle(uchar vol, const CCameraShakeData& data) {
+  if (data.GetFlags() & 1) {
+    CVector3f pos = data.GetSfxPos();
+    CSfxHandle tmp = CSfxManager::AddEmitter(SFXamb_x_rumble_lp_00, pos, CVector3f::Zero(), vol);
+    return tmp;
+  }
+  return CSfxManager::SfxStart(SFXamb_x_rumble_lp_00, vol, 64);
+}
+int CCameraManager::AddCameraShaker(const CCameraShakeData& data, const bool sfx) {
   CCameraShakeData shakeData = data;
   shakeData.SetId(++x2c_lastShakeId);
   x14_shakers.push_back(shakeData);
@@ -379,21 +387,14 @@ int CCameraManager::AddCameraShaker(const CCameraShakeData& data, bool sfx) {
   }
   float duration = data.GetDuration();
   if (sfx && duration > 0.f) {
-    float component1 = data.GetSomething2();
-    float component2 = data.GetSomething();
+    float component1 = data.GetSomething();
+    float component2 = data.GetSomething2();
     if (component2 > component1) {
       component1 = component2;
     }
-    float volF = CMath::Clamp(100.f, component1 * 9.f + 100.f, 127.f);
-    uchar vol = static_cast< uchar >(volF);
-    CSfxHandle sfxHandle;
-    if (data.GetFlags() & 0x1) {
-      CVector3f pos = data.GetSfxPos();
-      sfxHandle = CSfxManager::AddEmitter(SFXamb_x_rumble_lp_00, pos, CVector3f::Zero(), vol);
-    } else {
-      sfxHandle = CSfxManager::SfxStart(SFXamb_x_rumble_lp_00, vol, 64);
-    }
-    CSfxManager::SetDuration(sfxHandle, duration);
+    const CSfxHandle handle = CreateSfxHandle(
+        static_cast< uchar >(CMath::Clamp(100.f, component1 * 9.f + 100.f, 127.f)), data);
+    CSfxManager::SetDuration(handle, duration);
   }
   return x2c_lastShakeId;
 }

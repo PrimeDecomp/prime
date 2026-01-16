@@ -12,9 +12,10 @@ class CFinalInput;
 
 class CGameCamera : public CActor {
 public:
-  CGameCamera(TUniqueId uid, bool active, const rstl::string& name, const CEntityInfo& info,
-              const CTransform4f& xf, float fov, float nearZ, float farZ, float aspect,
-              TUniqueId watchedId, bool disableInput, int controllerIdx);
+  CGameCamera(const TUniqueId uid, const bool active, const rstl::string& name,
+              const CEntityInfo& info, const CTransform4f& xf, const float fov, const float nearZ,
+              const float farZ, const float aspect, const TUniqueId watchedId,
+              const bool disableInput, const int controllerIdx);
 
   // CEntity
   ~CGameCamera() override;
