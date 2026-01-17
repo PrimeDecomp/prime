@@ -81,16 +81,17 @@ void Shutdown() {
 // TODO non-matching
 void Insert(const CVector3f& pos, const CAABox& aabb, EDrawableType dtype, const void* data,
             const CPlane& plane, ushort extraSort) {
+  rstl::reserved_vector< CDrawable, 512 >* tmpData = sData;
   if (sData->size() == sData->capacity()) {
     return;
   }
   float dist = plane.GetHeight(pos);
   const CDrawable& drawable = CDrawable(dtype, extraSort, dist, aabb, const_cast< void* >(data));
-  sData->push_back(drawable);
+  tmpData->push_back(drawable);
   sMinMaxDistance.first = rstl::min_val(dist, sMinMaxDistance.first);
   sMinMaxDistance.second = rstl::max_val(dist, sMinMaxDistance.second);
 #ifdef __MWERKS__
-  __dcbt(&sData->back(), 0);
+  __dcbt(&tmpData->back(), 0);
 #endif
 }
 
@@ -223,15 +224,16 @@ void CCubeRenderer::GenerateSphereRampTex() {
 void CCubeRenderer::LoadThermoPalette() {
   x288_thermalPalette.Lock();
   TLockedToken< CTexture > token = xc_objStore.GetObj("TXTR_ThermoPalette");
+  const CGraphicsPalette* pal = token->GetPalette();
   int i = 0;
-  if (const CGraphicsPalette* pal = token->GetPalette()) {
+  if (pal != nullptr) {
     while (i < 16) {
       x288_thermalPalette.GetPaletteData()[i] = pal->GetPaletteData()[i];
       ++i;
     }
   } else {
     while (i < 16) {
-      x288_thermalPalette.GetPaletteData()[i++] = 0;
+      x288_thermalPalette.GetPaletteData()[i++] = nullptr;
     }
   }
   x288_thermalPalette.UnLock();
@@ -261,8 +263,8 @@ void CCubeRenderer::AddStaticGeometry(const rstl::vector< CMetroidModelInstance 
         const CMetroidModelInstance* it = &geometry->at(i);
         models->push_back(rs_new CCubeModel(
             const_cast< rstl::vector< void* >* >(&it->GetSurfaces()), textures.get(),
-            it->GetMaterialPointer(), it->GetVertexPointer(), it->GetColorPointer(),
-            it->GetNormalPointer(), it->GetTCPointer(), it->GetPackedTCPointer(),
+            it->GetMaterialPointer(), it->GetVertexPointer(), it->GetNormalPointer(),
+            it->GetColorPointer(), it->GetTCPointer(), it->GetPackedTCPointer(),
             it->GetBoundingBox(), it->GetFlags(), false, i));
       }
     }
@@ -290,11 +292,12 @@ void CCubeRenderer::RemoveStaticGeometry(const rstl::vector< CMetroidModelInstan
 
 void CCubeRenderer::SetModelMatrix(const CTransform4f& xf) { CGraphics::SetModelMatrix(xf); }
 
-// TODO non-matching
 void CCubeRenderer::SetWorldViewpoint(const CTransform4f& xf) {
   CGraphics::SetViewPointMatrix(xf);
-  const CUnitVector3f forward(xf.GetColumn(kDY), CUnitVector3f::kN_No);
-  xb0_viewPlane = CPlane(CVector3f::Dot(forward, xf.GetTranslation()), forward);
+  CVector3f normal = xf.GetForward();
+  xb0_viewPlane.SetFrom((normal.GetX() * xf.Get03()) + (normal.GetY() * xf.Get13()) +
+                            (normal.GetZ() * xf.Get23()),
+                        normal);
 }
 
 void CCubeRenderer::BeginScene() {
@@ -302,8 +305,7 @@ void CCubeRenderer::BeginScene() {
   int height = CGraphics::GetViewport().mHeight;
   CGraphics::SetUseVideoFilter(true);
   CGraphics::SetViewport(0, 0, width, height);
-  CGraphics::SetClearColor(CColor(static_cast< uchar >(0), static_cast< uchar >(0),
-                                  static_cast< uchar >(0), static_cast< uchar >(0)));
+  CGraphics::SetClearColor(CColor(static_cast< uchar >(0), 0, 0, 0));
   CGraphics::SetCullMode(kCM_Front);
   CGraphics::SetDepthWriteMode(true, kE_LEqual, true);
   CGraphics::SetBlendMode(kBM_Blend, kBF_SrcAlpha, kBF_InvSrcAlpha, kLO_Clear);

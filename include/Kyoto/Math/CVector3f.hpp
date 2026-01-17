@@ -162,6 +162,8 @@ inline CVector3f operator*(const CVector3f& lhs, const CVector3f& rhs) {
   return CVector3f(x, y, z);
 }
 
+
+
 inline CVector3f operator*(const CVector3f& vec, const float f) {
   float x = vec.GetX() * f;
   float y = vec.GetY() * f;

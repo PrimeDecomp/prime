@@ -140,19 +140,19 @@ void CDecal::RenderQuad(CQuadDecal& decal, const CDecalDescription::SQuadDescr& 
     GXColor1u32(color.GetColor_u32());
     GXTexCoord2f32(uvSet.xMax, uvSet.yMin);
   } else {
-    CRelAngle ang = CRelAngle::FromDegrees(decal.x8_rotation);
-    float sinSize = sine(ang) * size;
-    float cosSize = cosine(ang) * size;
+    const CRelAngle ang = CRelAngle::FromDegrees(decal.x8_rotation);
+    const float sinSize = sine(ang) * size;
+    const float cosSize = cosine(ang) * size;
     // Vertex 0
     GXPosition3f32(sinSize - cosSize, 0.001f, cosSize + sinSize);
     GXColor1u32(color.GetColor_u32());
     GXTexCoord2f32(uvSet.xMin, uvSet.yMax);
     // Vertex 1
-    GXPosition3f32(cosSize + sinSize, 0.001f, cosSize - sinSize);
+    GXPosition3f32(sinSize + cosSize, 0.001f, cosSize - sinSize);
     GXColor1u32(color.GetColor_u32());
     GXTexCoord2f32(uvSet.xMax, uvSet.yMax);
     // Vertex 2
-    GXPosition3f32(-(cosSize + sinSize), 0.001f, -(cosSize - sinSize));
+    GXPosition3f32(-(sinSize + cosSize), 0.001f, -(cosSize - sinSize));
     GXColor1u32(color.GetColor_u32());
     GXTexCoord2f32(uvSet.xMin, uvSet.yMin);
     // Vertex 3
@@ -171,7 +171,7 @@ void CDecal::RenderQuad(CQuadDecal& decal, const CDecalDescription::SQuadDescr& 
 void CDecal::RenderMdl() const {
   CColor color = CColor::White();
   CVector3f offset = CVector3f::Zero();
-  CTransform4f rotXf = CTransform4f::Identity();
+  CTransform4f rotXf(CTransform4f::Identity());
   if (!x0_description->x5c_25_DMOO) {
     rotXf = xc_transform.GetRotation();
   }

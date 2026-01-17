@@ -102,11 +102,11 @@ public:
   }
 
   static CModelFlags Normal() { return CModelFlags(kT_Opaque, 1.f); }
-  static CModelFlags AlphaBlended(float alpha) { return CModelFlags(kT_Blend, alpha); }
+  static CModelFlags AlphaBlended(const float alpha) { return CModelFlags(kT_Blend, alpha); }
   static CModelFlags AlphaBlended(const CColor& color) { return CModelFlags(kT_Blend, color); }
-  static CModelFlags Additive(float f) { return CModelFlags(CModelFlags::kT_Additive, f); }
+  static CModelFlags Additive(const float f) { return CModelFlags(kT_Additive, f); }
   static CModelFlags Additive(const CColor& color) {
-    return CModelFlags(CModelFlags::kT_Additive, color);
+    return CModelFlags(kT_Additive, color);
   }
   static CModelFlags AdditiveRGB(const CColor& color);
   static CModelFlags ColorModulate(const CColor& color);

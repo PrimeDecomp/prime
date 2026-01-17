@@ -10,7 +10,8 @@ class CPlane {
 public:
   CPlane(const CVector3f& vec, const CUnitVector3f& normal)
   : x0_normal(normal), xc_constant(CVector3f::Dot(vec, normal)) {}
-  CPlane(float constant, const CUnitVector3f& normal) : x0_normal(normal), xc_constant(constant) {}
+  CPlane(const float constant, const CUnitVector3f& normal)
+  : x0_normal(normal), xc_constant(constant) {}
   CPlane(const CVector3f&, const CVector3f&, const CVector3f&);
   // TODO
 
@@ -24,7 +25,15 @@ public:
   }
 
   float ClipLineSegment(const CVector3f& start, const CVector3f& end) const;
-  
+
+  // TODO: Fake?
+  void SetFrom(const float d, const CVector3f& vec) {
+    x0_normal.SetX(vec.GetX());
+    x0_normal.SetY(vec.GetY());
+    x0_normal.SetZ(vec.GetZ());
+    xc_constant = d;
+  }
+
 private:
   CUnitVector3f x0_normal;
   float xc_constant;
