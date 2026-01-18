@@ -6,9 +6,10 @@
 #include "Collision/CMaterialList.hpp"
 
 class CMaterialFilter {
-  static const CMaterialFilter skPassEverything;
 
 public:
+  static const CMaterialFilter skPassEverything;
+
   enum EFilterType {
     kFT_Always,
     kFT_Include,

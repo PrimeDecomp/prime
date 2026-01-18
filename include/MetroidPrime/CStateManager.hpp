@@ -138,7 +138,7 @@ public:
   rstl::pair< int, int > CalculateScanPair() const;
 
   void BuildNearList(TEntityList& nearList, const CVector3f& pos, const CVector3f& dir, float mag,
-                     const CMaterialFilter& filter = CMaterialFilter::GetPassEverything(),
+                     const CMaterialFilter& filter = CMaterialFilter::skPassEverything,
                      const CActor* actor = nullptr) const;
   void BuildNearList(TEntityList& nearList, const CAABox&, const CMaterialFilter&,
                      const CActor*) const;

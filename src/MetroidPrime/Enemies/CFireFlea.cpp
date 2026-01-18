@@ -138,12 +138,11 @@ void CFireFlea::Patrol(CStateManager& mgr, EStateMsg msg, float arg) {
   }
 }
 
-bool CFireFlea::MoveTooCloseToWater(CStateManager& mgr, const CVector3f& forward) {
+bool CFireFlea::MoveTooCloseToWater(CStateManager& mgr, const CVector3f& forward) const {
   TEntityList nearList;
   mgr.BuildNearList(nearList, GetTranslation(), forward, 2.f, CMaterialFilter::GetPassEverything());
 
-  TEntityList::const_iterator iter = nearList.begin();
-  for (; iter != nearList.end(); ++iter) {
+  for (TEntityList::const_iterator iter = nearList.begin(); iter != nearList.end(); ++iter) {
     TUniqueId uid = *iter;
     if (TCastToConstPtr< CScriptWater >(mgr.GetObjectById(uid))) {
       return true;

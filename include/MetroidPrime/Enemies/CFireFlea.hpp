@@ -40,7 +40,7 @@ public:
 
 private:
   CVector3f AdjustMovementVec(CStateManager& mgr, const CVector3f& forward);
-  bool MoveTooCloseToWater(CStateManager& mgr, const CVector3f& forward);
+  bool MoveTooCloseToWater(CStateManager& mgr, const CVector3f& forward) const;
   const bool HeardShot() const { return !(x570_nearList.size() <= 0); }
   float x568_;
   float x56c_;
