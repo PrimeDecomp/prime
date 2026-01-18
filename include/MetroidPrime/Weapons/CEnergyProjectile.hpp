@@ -39,6 +39,8 @@ public:
                        const CDamageVulnerability& dVuln, const TUniqueId hitActor);
 
   void Set3d0_26(bool v) { x3d0_26_ = v; }
+  
+  CProjectileWeapon& ProjectileWeapon() { return x170_projectile; }
 
 private:
   CSfxHandle x2e8_sfx;

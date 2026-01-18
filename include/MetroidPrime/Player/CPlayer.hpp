@@ -234,6 +234,7 @@ public:
   void InitialiseAnimation();
   void LoadAnimationTokens();
   void HolsterGun(CStateManager& mgr);
+  void ResetAimTargetPrediction(TUniqueId target);
   void ResetGun(CStateManager& mgr);
   void DrawGun(CStateManager& mgr);
   bool CheckPostGrapple() const;

@@ -247,12 +247,16 @@ public:
 
   EPatrolState GetPatrolState() const { return x2d8_patrolState; }
   TUniqueId GetDestObj() const { return x2dc_destObj; } // TODO: name?
+  float GetAverageAttackTime() const { return x304_averageAttackTime; }
+  float GetAttackTimeVariation() const { return x308_attackTimeVariation; }
   EAnimState GetAnimationState() const { return x32c_animState; }
   void SetAnimationState(const EAnimState state) { x32c_animState = state; }
   float GetStateMachineTime() const { return GetStateMachineState().GetTime(); }
   CStateMachineState& StateMachineState() { return x330_stateMachineState; }
   const CStateMachineState& GetStateMachineState() const { return x330_stateMachineState; }
   ECharacter GetCharacterType() const { return x34c_characterType; }
+  float GetPlayerLeashRadius() const { return x3c8_leashRadius; }
+  float GetPlayerLeashTime() const { return x3d0_playerLeashTime; }
   EFlavorType GetFlavorType() const { return x3fc_flavor; }
   const bool IsAlive() const { return x400_25_alive; }
   void SetWasHit(const bool v) { x400_24_hitByPlayerProjectile = v; }
@@ -271,9 +275,10 @@ public:
   template < class T >
   static T* CastTo(const TPatternedCast< T >& ent);
 
+  void TryLoopReaction(CStateManager& mgr, int arg);
   void TryCommand(CStateManager& mgr, int state, FTryCommandCallback cb, int arg);
 
-private:
+protected:
   EPatrolState x2d8_patrolState;
   TUniqueId x2dc_destObj;
   CVector3f x2e0_destPos;

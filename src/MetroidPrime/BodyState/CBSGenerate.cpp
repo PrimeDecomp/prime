@@ -26,7 +26,7 @@ void CBSGenerate::Start(CBodyController& bc, CStateManager& mgr) {
   }
 
   if (cmd->HasExitTargetPos()) {
-    CVector3f scale(bc.GetOwner().GetModelData()->GetScale());
+    const CVector3f scale = CVector3f(bc.GetOwner().GetModelData()->GetScale());
     const CAnimPlaybackParms playParms(anim, nullptr, &cmd->GetExitTargetPos(),
                                        &bc.GetOwner().GetTransform(), &scale, false);
     bc.SetCurrentAnimation(playParms, false, false);
@@ -36,8 +36,7 @@ void CBSGenerate::Start(CBodyController& bc, CStateManager& mgr) {
   }
 }
 
-pas::EAnimationState CBSGenerate::UpdateBody(float dt, CBodyController& bc,
-                                             CStateManager& mgr) {
+pas::EAnimationState CBSGenerate::UpdateBody(float dt, CBodyController& bc, CStateManager& mgr) {
   const pas::EAnimationState st = GetBodyStateTransition(dt, bc);
   if (st == pas::kAS_Invalid) {
     CBodyStateCmdMgr& commandMgr = bc.CommandMgr();

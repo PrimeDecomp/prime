@@ -104,7 +104,7 @@ CGenDescription::CGenDescription()
 , x128_ADV8(nullptr) {}
 
 CGenDescription::~CGenDescription() {
-  for (int i = 0; i < (int)(sizeof(skGenOffsets) / sizeof(size_t)); ++i) {
+  for (int i = 0; i < ARRAY_SIZE(skGenOffsets); ++i) {
     delete *element_from_desc(this, skGenOffsets[i]);
   }
 }

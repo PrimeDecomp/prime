@@ -203,7 +203,7 @@ public:
   CBCMeleeAttackCmd(pas::ESeverity severity)
   : CBodyStateCmd(kBSC_MeleeAttack)
   , x8_severity(severity)
-  , xc_targetPos(0.f, 0.f, 0.f)
+  , xc_targetPos(CVector3f::Zero())
   , x18_hasTargetPos(false) {}
 
   CBCMeleeAttackCmd(pas::ESeverity severity, const CVector3f& target)
@@ -405,37 +405,54 @@ public:
 
   void DeliverCmd(const CBodyStateCmd& cmd);
 
-  void DeliverCmd(const CBCGenerateCmd& cmd) {
-    DeliverCmd(cmd.GetCommandId());
-    x18c_generate = cmd;
-  }
   void DeliverCmd(const CBCKnockDownCmd& cmd) {
     DeliverCmd(cmd.GetCommandId());
     xdc_knockDown = cmd;
-  }
-  void DeliverCmd(const CBCSlideCmd& cmd) {
-    DeliverCmd(cmd.GetCommandId());
-    x1f8_slide = cmd;
-  }
-  void DeliverCmd(const CBCScriptedCmd& cmd) {
-    DeliverCmd(cmd.GetCommandId());
-    x21c_scripted = cmd;
-  }
-  void DeliverCmd(const CBCAdditiveReactionCmd& cmd) {
-    DeliverCmd(cmd.GetCommandId());
-    x284_additiveReaction = cmd;
   }
 
   void DeliverCmd(const CBCKnockBackCmd& cmd) {
     DeliverCmd(cmd.GetCommandId());
     xf4_knockBack = cmd;
   }
+  
+  void DeliverCmd(const CBCMeleeAttackCmd& cmd) {
+    DeliverCmd(cmd.GetCommandId());
+    x10c_meleeAttack = cmd;
+  }
+
+  void DeliverCmd(const CBCProjectileAttackCmd& cmd) {
+    DeliverCmd(cmd.GetCommandId());
+    x128_projectileAttack = cmd;
+  }
+  
+  void DeliverCmd(const CBCGenerateCmd& cmd) {
+    DeliverCmd(cmd.GetCommandId());
+    x18c_generate = cmd;
+  }
+  
+  void DeliverCmd(const CBCSlideCmd& cmd) {
+    DeliverCmd(cmd.GetCommandId());
+    x1f8_slide = cmd;
+  }
+  
+  void DeliverCmd(const CBCScriptedCmd& cmd) {
+    DeliverCmd(cmd.GetCommandId());
+    x21c_scripted = cmd;
+  }
+  
+  void DeliverCmd(const CBCAdditiveReactionCmd& cmd) {
+    DeliverCmd(cmd.GetCommandId());
+    x284_additiveReaction = cmd;
+  }
+  void DeliverCmd(const CBCAdditiveAimCmd& cmd) {
+    DeliverCmd(cmd.GetCommandId());
+    x270_additiveAim = cmd;
+  }
 
   void DeliverTargetVector(const CVector3f& t) { x18_target = t; }
+  void DeliverAdditiveTargetVector(const CVector3f& t) { x24_additiveTarget = t; }
   void BlendSteeringCmds();
-  void SetSteeringBlendMode(ESteeringBlendMode mode) {
-    x30_steeringMode = mode;
-  }
+  void SetSteeringBlendMode(ESteeringBlendMode mode) { x30_steeringMode = mode; }
   void SetSteeringSpeedRange(float rmin, float rmax);
   void Reset();
   CBodyStateCmd* GetCmd(EBodyStateCmd cmd);

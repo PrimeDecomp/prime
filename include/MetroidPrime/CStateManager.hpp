@@ -228,9 +228,9 @@ public:
 
   void ApplyDamageToWorld(TUniqueId, const CActor&, const CVector3f&, const CDamageInfo& info,
                           const CMaterialFilter&);
-  bool ApplyDamage(TUniqueId damagerId, TUniqueId damageeId, TUniqueId radiusSender,
+  bool ApplyDamage(TUniqueId damagerId, TUniqueId damageeId, const TUniqueId radiusSender,
                    const CDamageInfo& info, const CMaterialFilter& filter,
-                   const CVector3f& knockbackVec);
+                   const CVector3f& knockbackVec = CVector3f::Zero());
 
   void InformListeners(const CVector3f&, EListenNoiseType);
 

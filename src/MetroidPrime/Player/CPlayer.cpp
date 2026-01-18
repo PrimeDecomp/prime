@@ -576,7 +576,7 @@ void CPlayer::UpdateGunState(const CFinalInput& input, CStateManager& mgr) {
   }
 }
 
-void CPlayer::SetAimTargetId(TUniqueId target) {
+void CPlayer::SetAimTargetId(const TUniqueId target) {
   if (target == kInvalidUniqueId || x3f4_aimTarget != target) {
     x404_aimTargetAverage.clear();
   }

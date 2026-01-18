@@ -22,6 +22,7 @@ public:
 
   const TCollisionResponseDesc& GetCollisionResponse() const { return x94_COLR; }
   const TParticleModel& GetOHEF() const { return x84_OHEF; }
+  static float GetTickPeriod(); 
   CWeaponDescription();
   ~CWeaponDescription();
   CVectorElement* x0_IORN;

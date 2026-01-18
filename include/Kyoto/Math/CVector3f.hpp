@@ -6,6 +6,7 @@
 #include "Kyoto/Math/CVector2f.hpp"
 
 #include "float.h"
+#include "rstl/algorithm.hpp"
 
 class CInputStream;
 class COutputStream;

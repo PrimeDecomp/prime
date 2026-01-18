@@ -260,7 +260,7 @@ void CEyeBall::Flinch(CStateManager& mgr, EStateMsg msg, float arg) {
     StateMachineState().SetDelay(mAttackDelay);
   } break;
   case kStateMsg_Update: {
-    TryCommand(mgr, pas::kAS_KnockBack, static_cast< FTryCommandCallback >(TryFlinch), 0);
+    TryCommand(mgr, pas::kAS_KnockBack, static_cast< FTryCommandCallback >(&CEyeBall::TryFlinch), 0);
   } break;
   case kStateMsg_Deactivate: {
     SetAnimationState(kAS_NotReady);

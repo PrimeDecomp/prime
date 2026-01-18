@@ -7,7 +7,7 @@
 CTargetableProjectile::CTargetableProjectile(
     const TToken< CWeaponDescription >& desc, EWeaponType type, const CTransform4f& xf,
     EMaterialTypes materials, const CDamageInfo& damage, const CDamageInfo& damage2, TUniqueId uid,
-    TAreaId aid, TUniqueId owner, const TLockedToken< CWeaponDescription >& weapDesc,
+    TAreaId aid, TUniqueId owner, const TToken< CWeaponDescription >& weapDesc,
     TUniqueId homingTarget, EProjectileAttrib attribs,
     const rstl::optional_object< TLockedToken< CGenDescription > >& visorParticle, ushort visorSfx,
     bool sendCollideMsg)
