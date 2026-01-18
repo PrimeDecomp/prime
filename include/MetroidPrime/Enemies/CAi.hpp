@@ -15,10 +15,10 @@ class CStateMachine;
 class CAi : public CPhysicsActor {
 public:
   static void CreateFuncLookup(CAiFuncMap* funcMap);
-  static CAiStateFunc GetStateFunc(const char* func);
-  static CAiTriggerFunc GetTriggerFunc(const char* func);
+  static const CAiStateFunc GetStateFunc(const char* func);
+  static const CAiTriggerFunc GetTriggerFunc(const char* func);
 
-  // const CStateMachine* GetStateMachine() const;
+  CStateMachine* GetStateMachine();
   CAi(TUniqueId, bool, const rstl::string&, const CEntityInfo&, const CTransform4f&,
       const CModelData&, const CAABox&, float, const CHealthInfo&, const CDamageVulnerability&,
       const CMaterialList&, unsigned int, const CActorParameters&, float, float);

@@ -21,8 +21,8 @@ public:
   CAiFuncMap();
   ~CAiFuncMap();
 
-  CAiStateFunc GetStateFunc(const char* state) const;
-  CAiTriggerFunc GetTriggerFunc(const char* state) const;
+  const CAiStateFunc GetStateFunc(const char* state) const;
+  const CAiTriggerFunc GetTriggerFunc(const char* state) const;
 
 private:
   rstl::vector< rstl::pair< const char*, CAiStateFunc > > x0_states;
