@@ -21,9 +21,9 @@ public:
   float GetDetectionHeightRange() const { return x10_detectionHeightRange; }
   const CHealthInfo& GetHealthInfo() const { return x54_healthInfo; }
   const CDamageVulnerability& GetDamageVulnerability() const { return x5c_damageVulnerability; }
-  float GetHalfExtent() const { return xc4_halfExtent; }
-  float GetHeight() const { return xc8_height; }
-  CVector3f GetBodyOrigin() const { return xcc_bodyOrigin; }
+  const float GetHalfExtent() const { return xc4_halfExtent; }
+  const float GetHeight() const { return xc8_height; }
+  const CVector3f GetBodyOrigin() const { return xcc_bodyOrigin; }
   CAnimationParameters& GetAnimationParameters() { return xec_animParams; }
   const CAnimationParameters& GetAnimationParameters() const { return xec_animParams; }
   uint GetPathfindingIndex() const { return x10c_pathfindingIndex; }
@@ -32,7 +32,7 @@ public:
 
   static rstl::pair< bool, uint > HasCorrectParameterCount(CInputStream& in);
 
-private:
+public:
   float x0_mass;
   float x4_speed;
   float x8_turnSpeed;

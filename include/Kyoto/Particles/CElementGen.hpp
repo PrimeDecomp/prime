@@ -44,6 +44,7 @@ public:
     CColor x34_color;
   };
 
+  CElementGen();
   CElementGen(TToken< CGenDescription >, EModelOrientationType = kMOT_Normal,
               EOptionalSystemFlags = kOSF_One);
   ~CElementGen() override;
@@ -102,7 +103,7 @@ public:
   rstl::vector< CParticle > x30_particles;
   rstl::vector< uint > x40;
   rstl::vector< CMatrix3f > x50_parentMatrices;
-  rstl::vector< float[8] > x60_advValues;
+  rstl::vector< rstl::reserved_vector< float, 8 > > x60_advValues;
   int x70_internalStartFrame;
   int x74_curFrame;
   double x78_curSeconds;
@@ -111,7 +112,7 @@ public:
   bool x88_particleEmission;
   float x8c_generatorRemainder;
   int x90_MAXP;
-  ushort x94_randomSeed;
+  short x94_randomSeed;
   float x98_generatorRate;
   float x9c_externalVars[16];
   CVector3f xdc_translation;
