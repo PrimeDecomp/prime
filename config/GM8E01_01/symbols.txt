@@ -7282,7 +7282,7 @@ __ct__9CFireFleaF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24
 Accept__Q29CFireFlea18CDeathCameraEffectFR8IVisitor = .text:0x80143BB4; // type:function size:0x38 scope:global
 Think__Q29CFireFlea18CDeathCameraEffectFfR13CStateManager = .text:0x80143BEC; // type:function size:0x3C scope:global
 PreThink__Q29CFireFlea18CDeathCameraEffectFfR13CStateManager = .text:0x80143C28; // type:function size:0x20C scope:global
-__ct__Q29CFireFlea18CDeathCameraEffectF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator> = .text:0x80143E34; // type:function size:0x100 scope:global
+__ct__Q29CFireFlea18CDeathCameraEffectF9TUniqueId7TAreaIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator> = .text:0x80143E34; // type:function size:0x100 scope:global
 __dt__Q29CFireFlea18CDeathCameraEffectFv = .text:0x80143F34; // type:function size:0x60 scope:global
 __sinit_CFireFlea_cpp = .text:0x80143F94; // type:function size:0x6C scope:global
 __dt__8CBSSlideFv = .text:0x80144000; // type:function size:0x5C scope:global

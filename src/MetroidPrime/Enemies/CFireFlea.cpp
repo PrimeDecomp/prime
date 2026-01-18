@@ -140,7 +140,7 @@ void CFireFlea::Patrol(CStateManager& mgr, EStateMsg msg, float arg) {
 
 bool CFireFlea::MoveTooCloseToWater(CStateManager& mgr, const CVector3f& forward) {
   TEntityList nearList;
-  mgr.BuildNearList(nearList, GetTranslation(), forward, 2.f);
+  mgr.BuildNearList(nearList, GetTranslation(), forward, 2.f, CMaterialFilter::GetPassEverything());
 
   TEntityList::const_iterator iter = nearList.begin();
   for (; iter != nearList.end(); ++iter) {

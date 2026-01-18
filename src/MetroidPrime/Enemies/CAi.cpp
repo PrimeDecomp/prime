@@ -16,7 +16,7 @@
 
 namespace {
 struct cstr_less {
-  bool operator()(const char* a, const char* b) const { return (strcmp(a, b) < 0); }
+  bool operator()(const char* a, const char* b) const { return strcmp(a, b) < 0; }
 };
 
 } // namespace
@@ -65,7 +65,7 @@ const CAiStateFunc gkStateFuncs[] = {
     &CAi::Dizzy,         &CAi::CallForBackup, &CAi::BulbAttack,
     &CAi::PodAttack,
 };
-const int kStateCount = sizeof(gkStateNames) / sizeof(gkStateNames[0]);
+const int kStateCount = ARRAY_SIZE(gkStateFuncs);
 
 const char* gkTriggerNames[] = {
     "InAttackPosition",
@@ -212,11 +212,12 @@ const CAiTriggerFunc gkTriggerFuncs[] = {
 const int kTriggerCount = sizeof(gkTriggerNames) / sizeof(gkTriggerNames[0]);
 CAiFuncMap::CAiFuncMap() {
   x0_states.reserve(kStateCount);
-  for (int i = 0; i < x0_states.capacity(); ++i) {
+  int i;
+  for (i = 0; i < x0_states.capacity(); ++i) {
     x0_states.push_back(rstl::pair< const char*, CAiStateFunc >(gkStateNames[i], gkStateFuncs[i]));
   }
   x10_triggers.reserve(kTriggerCount);
-  for (int i = 0; i < x10_triggers.capacity(); ++i) {
+  for (i = 0; i < x10_triggers.capacity(); ++i) {
     x10_triggers.push_back(
         rstl::pair< const char*, CAiTriggerFunc >(gkTriggerNames[i], gkTriggerFuncs[i]));
   }
@@ -227,8 +228,8 @@ CAiFuncMap::CAiFuncMap() {
 
 const CAiStateFunc CAiFuncMap::GetStateFunc(const char* state) const {
   CAiStateFunc func = nullptr;
-  rstl::vector< rstl::pair< const char*, CAiStateFunc > >::const_iterator it;
-  it = rstl::find_by_key(x0_states, state, cstr_less());
+  rstl::vector< rstl::pair< const char*, CAiStateFunc > >::const_iterator it =
+      rstl::find_by_key(x0_states, state, cstr_less());
   if (it != x0_states.end()) {
     func = it->second;
   }
@@ -236,8 +237,9 @@ const CAiStateFunc CAiFuncMap::GetStateFunc(const char* state) const {
 }
 
 const CAiTriggerFunc CAiFuncMap::GetTriggerFunc(const char* trigger) const {
-  CAiTriggerFunc func = rstl::find_by_key(x10_triggers, trigger, cstr_less())->second;
-  return func;
+  rstl::vector< rstl::pair< const char*, CAiTriggerFunc > >::const_iterator it =
+      rstl::find_by_key(x10_triggers, trigger, cstr_less());
+  return it->second;
 }
 CAi::CAi(TUniqueId uid, bool active, const rstl::string& name, const CEntityInfo& entityInfo,
          const CTransform4f& transform, const CModelData& modelData, const CAABox& bounds,
