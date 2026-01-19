@@ -473,6 +473,7 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CAxisAngle.cpp"
             ),
             Object(NonMatching, "MetroidPrime/CEulerAngles.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CMatrix3f_Ext.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/CArchMsgParmUserInput.cpp",

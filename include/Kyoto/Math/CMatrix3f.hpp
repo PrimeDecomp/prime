@@ -27,7 +27,7 @@ public:
   CMatrix3f(const CMatrix3f& left, float leftScale, const CMatrix3f& right, float rightScale);
   CMatrix3f(CInputStream& in);
   CMatrix3f(const CMatrix3f&);
-  // fake but useful for CEulerAngles?
+  //  fake but useful for CEulerAngles?
   CMatrix3f(const CTransform4f& xf); /*
    : m0(xf.GetRow(kDX))
    , m1(xf.GetRow(kDY))
@@ -68,9 +68,7 @@ public:
 
   inline CVector3f GetColumn(EDimY dim) const { return CVector3f(m01, m11, m21); }
 
-  static CMatrix3f FromTransform(const CTransform4f& xf); /* {
-     return CMatrix3f(xf.GetRow(kDX), xf.GetRow(kDY), xf.GetRow(kDZ));
-   }*/
+  static CMatrix3f FromTransform(const CTransform4f& xf);
 
 private:
   // TODO maybe individual floats

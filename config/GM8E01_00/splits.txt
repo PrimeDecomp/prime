@@ -69,10 +69,13 @@ MetroidPrime/CAxisAngle.cpp:
 	.bss        start:0x8056A5E8 end:0x8056A5F4 align:4 common
 
 MetroidPrime/CEulerAngles.cpp:
-	.text       start:0x8001B5C4 end:0x8001B9E4
+	.text       start:0x8001B5C4 end:0x8001B9BC
 	.ctors      start:0x803CB1D0 end:0x803CB1D4
 	.bss        start:0x8056A5F4 end:0x8056A600 align:4 common
 	.sdata2     start:0x805A9F78 end:0x805A9FA8
+
+MetroidPrime/CMatrix3f_Ext.cpp:
+	.text       start:0x8001B9BC end:0x8001B9E4
 
 MetroidPrime/CArchMsgParmUserInput.cpp:
 	.text       start:0x8001B9E4 end:0x8001BAEC
