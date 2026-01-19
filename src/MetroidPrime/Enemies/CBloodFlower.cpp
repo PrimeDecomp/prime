@@ -9,6 +9,7 @@
 #include <Kyoto/Animation/CInt32POINode.hpp>
 #include <Kyoto/Audio/CSfxManager.hpp>
 #include <Kyoto/Particles/CElementGen.hpp>
+#include <rstl/algorithm.hpp>
 
 static const char* const kMouthLctrName = "LCTR_FLOFLOWER";
 static const char* sFireEffects[3] = {"Fire1", "Fire2", "Fire3"};
@@ -152,8 +153,9 @@ void CBloodFlower::PodAttack(CStateManager& mgr, const EStateMsg msg, const floa
     break;
   case kStateMsg_Update:
     if (TooClose(mgr, 0.f)) {
-      mgr.ApplyDamage(GetUniqueId(), mgr.GetPlayer()->GetUniqueId(), GetUniqueId(),
-                      CDamageInfo(GetPodDamage(), arg),
+      mgr.ApplyDamage(
+          GetUniqueId(), mgr.GetPlayer()->GetUniqueId(), GetUniqueId(),
+          CDamageInfo(GetPodDamage(), arg),
           CMaterialFilter::MakeIncludeExclude(CMaterialList(kMT_Solid), CMaterialList()));
     }
     break;

@@ -278,6 +278,10 @@ public:
   void TryLoopReaction(CStateManager& mgr, int arg);
   void TryCommand(CStateManager& mgr, int state, FTryCommandCallback cb, int arg);
 
+  void SetupPlayerCollision(const bool startsHidden);
+  
+  void ApproachDest(CStateManager& mgr);
+  void SetDestPos(const CVector3f& pos);
 protected:
   EPatrolState x2d8_patrolState;
   TUniqueId x2dc_destObj;

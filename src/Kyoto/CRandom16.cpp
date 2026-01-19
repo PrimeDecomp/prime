@@ -43,7 +43,7 @@ int CRandom16::Next() {
   return (mSeed >> 16) & 0xffff;
 }
 
-float CRandom16::Float() {
+const float CRandom16::Float() {
   float next = CCast::ToReal32(Next());
   return 1.52590222E-5f * next;
 }

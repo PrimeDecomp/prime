@@ -353,6 +353,7 @@ def DolphinLib(lib_name, objects):
         "shift_jis": True,
     }
 
+
 def TrkLib(lib_name, objects):
     return {
         "lib": lib_name + "D" if args.debug else "",
@@ -376,6 +377,7 @@ def RetroLib(lib_name, progress_category, objects):
         "shift_jis": False,
     }
 
+
 def KyotoLib(lib_name, progress_category, objects):
     return {
         "lib": lib_name + "CW" + "D" if args.debug else "",
@@ -389,12 +391,12 @@ def KyotoLib(lib_name, progress_category, objects):
 
 
 def MusyX(
-    objects,
-    mw_version="GC/1.3.2",
-    debug=False,
-    major=2,
-    minor=0,
-    patch=3 if version_num == 7 else 0,
+        objects,
+        mw_version="GC/1.3.2",
+        debug=False,
+        major=2,
+        minor=0,
+        patch=3 if version_num == 7 else 0,
 ):
     cflags = cflags_musyx if not debug else cflags_musyx_debug
     return {
@@ -739,7 +741,7 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/ScriptObjects/CHUDBillboardEffect.cpp",
             ),
-            Object(NonMatching, "MetroidPrime/Enemies/CFlickerBat.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Enemies/CFlickerBat.cpp"),
             Object(
                 NonMatching,
                 "MetroidPrime/BodyState/CBodyStateCmdMgr.cpp",
@@ -2485,7 +2487,7 @@ for lib in config.libs:
 
 
 def link_order_callback(
-    module_id: int, units: List[str]
+        module_id: int, units: List[str]
 ) -> Sequence[Union[str, BuildConfigUnit]]:
     # if module_id == 0:  # DOL
     #    return units + [

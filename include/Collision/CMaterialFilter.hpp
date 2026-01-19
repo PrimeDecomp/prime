@@ -29,7 +29,7 @@ public:
     return CMaterialFilter(include, CMaterialList(), kFT_Include);
   }
   static CMaterialFilter MakeExclude(const CMaterialList& exclude) {
-    return CMaterialFilter(CMaterialList(), exclude, kFT_Exclude);
+    return CMaterialFilter(CMaterialList(0x00000000FFFFFFFF), exclude, kFT_Exclude);
   }
   static CMaterialFilter MakeIncludeExclude(const CMaterialList& include,
                                             const CMaterialList& exclude) {

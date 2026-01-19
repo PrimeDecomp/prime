@@ -28,7 +28,7 @@ public:
   int Range(int min, int max);
   float Range(float min, float max);
   int Next();
-  float Float();
+  const float Float();
 
   static CRandom16* GetRandomNumber();
 

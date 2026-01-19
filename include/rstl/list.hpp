@@ -15,7 +15,9 @@ public:
   iterator erase(const iterator& item) { return do_erase(item.get_node()); }
 
   // private:
+#pragma pack(push, 1)
   struct node;
+#pragma pack(pop)
   node* do_erase(node* item);
 
 public:
@@ -87,6 +89,8 @@ public:
 
     return nn;
   }
+
+  void remove(const T& val);
 
 public:
   class const_iterator {

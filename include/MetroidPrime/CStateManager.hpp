@@ -235,6 +235,7 @@ public:
   void InformListeners(const CVector3f&, EListenNoiseType);
 
   // Fog
+  void SetupFogForArea3XRange(TAreaId area) const;
   void SetupFogForArea(TAreaId area) const;
 
   //
@@ -294,6 +295,13 @@ public:
   void SetIsFullThreat(bool v) { xf94_30_fullThreat = v; }
   uint GetInputFrameIdx() const { return x8d4_inputFrameIdx; }
   CMapWorldInfo* MapWorldInfo() const { return x8c0_mapWorldInfo.GetPtr(); }
+
+  void AddActiveFlickerBat(const TUniqueId& uid) { xf3c_activeFlickerBats.push_back(uid); }
+  void RemoveActiveFlickerBat(const TUniqueId& uid) { xf3c_activeFlickerBats.remove(uid); }
+
+  rstl::list< TUniqueId >& GetActiveFlickerBats() { return xf3c_activeFlickerBats; }
+  
+  void DrawSpaceWarp(const CVector3f& point, float strength) const;
 
 private:
   enum EInitPhase { kIP_LoadWorld, kIP_LoadFirstArea, kIP_Done };

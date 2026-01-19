@@ -43,6 +43,7 @@ public:
   void SetFallState(pas::EFallState state); // { x2f0_fallState = state; }
   pas::EFallState GetFallState() const;     // { return x2f0_fallState; }
   const CBodyStateInfo& GetBodyStateInfo() const { return x2a4_bodyStateInfo; }
+  CBodyStateInfo& BodyStateInfo() { return x2a4_bodyStateInfo; }
   pas::ELocomotionType GetLocomotionType() const { return x2ec_locomotionType; }
   int GetCurrentAnimId() const { return x2f8_curAnim; }
   void SetTurnSpeed(float speed);
