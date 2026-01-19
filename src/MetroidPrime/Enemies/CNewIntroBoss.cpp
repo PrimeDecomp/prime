@@ -1,9 +1,9 @@
 #include "MetroidPrime/Enemies/CNewIntroBoss.hpp"
 
+#include "Kyoto/Animation/CPOINode.hpp"
 #include "MetroidPrime/CCollisionActorManager.hpp"
 #include "MetroidPrime/CGameCollision.hpp"
 #include "MetroidPrime/CHealthInfo.hpp"
-#include "Kyoto/Animation/CPOINode.hpp"
 #include "MetroidPrime/CRumbleManager.hpp"
 #include "MetroidPrime/Player/CPlayer.hpp"
 #include "MetroidPrime/Weapons/CBeamProjectile.hpp"
@@ -11,6 +11,8 @@
 #include "Kyoto/Animation/CInt32POINode.hpp"
 
 #include "Collision/CRayCastResult.hpp"
+#include "MetroidPrime/BodyState/CBodyController.hpp"
+#include "MetroidPrime/CCollisionActor.hpp"
 
 // TODO move
 struct SSphereJointInfo {
@@ -192,6 +194,22 @@ rstl::optional_object< CAABox > CNewIntroBoss::GetTouchBounds() const {
   return rstl::optional_object_null();
 }
 
+void CNewIntroBoss::Think(float dt, CStateManager& mgr) {}
+
+bool CNewIntroBoss::ShouldTurn(CStateManager& mgr, float arg) {}
+
+void CNewIntroBoss::Patrol(CStateManager& mgr, EStateMsg msg, float arg) {}
+
+void CNewIntroBoss::Attack(CStateManager&, EStateMsg, float) {}
+
+bool CNewIntroBoss::ShouldAttack(CStateManager&, float) {}
+
+bool CNewIntroBoss::InAttackPosition(CStateManager&, float) {}
+
+bool CNewIntroBoss::AnimOver(CStateManager&, float) {}
+
+bool CNewIntroBoss::AIStage(CStateManager&, float) {}
+
 void CNewIntroBoss::Generate(CStateManager& mgr, EStateMsg msg, float arg) {
   /*
     if (msg == kStateMsg_Activate) {
@@ -214,4 +232,89 @@ void CNewIntroBoss::Generate(CStateManager& mgr, EStateMsg msg, float arg) {
     }
   }
   */
+}
+
+void CNewIntroBoss::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) {
+  switch (msg) {
+  case kSM_Registered: {
+    RemoveMaterial(kMT_Solid, mgr);
+    RemoveMaterial(kMT_Target, mgr);
+    RemoveMaterial(kMT_Orbit, mgr);
+    RemoveMaterial(kMT_Occluder, mgr);
+    BodyCtrl()->Activate(mgr);
+
+    if (x5d4_stage1Projectile == kInvalidUniqueId) {
+    }
+  } break;
+
+  case kSM_Deleted: {
+    DeleteBeam(mgr);
+    x5ec_collisionManager->Destroy(mgr);
+    break;
+  }
+  }
+  const bool active = GetActive();
+  CPatterned::AcceptScriptMsg(msg, uid, mgr);
+  if (active == GetActive()) {
+    return;
+  }
+  
+  if (!x5ec_collisionManager.null()) {
+    x5ec_collisionManager->SetActive(mgr, GetActive());
+  }
+  x63c_attackTime = 8.f;
+}
+
+void CNewIntroBoss::OnScanStateChange(const EScanState state, CStateManager& mgr) {
+  CActor::OnScanStateChange(state, mgr);
+
+  if (state != kSS_Done) {
+    return;
+  }
+
+  CCollisionActor* headActor = TCastToPtr< CCollisionActor >(mgr.ObjectById(x600_headActor));
+  CCollisionActor* pelvisActor = TCastToPtr< CCollisionActor >(mgr.ObjectById(x602_pelvisActor));
+
+  if (headActor) {
+    headActor->AddMaterial(kMT_Orbit, mgr);
+  }
+  if (pelvisActor) {
+    pelvisActor->RemoveMaterial(kMT_Orbit, mgr);
+  }
+}
+
+void CNewIntroBoss::AddToRenderer(const CFrustumPlanes&, const CStateManager& mgr) const {
+  EnsureRendered(mgr);
+}
+
+CAABox CNewIntroBoss::GetSortingBounds(const CStateManager&) const {
+  const CAABox bounds = GetModelData()->GetBounds();
+  const float minZ = bounds.GetMinPoint().GetZ();
+  const float maxZ = bounds.GetMaxPoint().GetZ();
+  return CAABox(-0.5f, -0.5f, minZ, 0.5f, 0.5f, maxZ).GetTransformedAABox(GetTransform());
+}
+
+void CNewIntroBoss::Accept(IVisitor& visitor) { visitor.Visit(*this); }
+
+void CNewIntroBoss::DeleteBeam(CStateManager& mgr) {
+  if (x5d4_stage1Projectile != kInvalidUniqueId) {
+    mgr.DeleteObjectRequest(x5d4_stage1Projectile);
+    x5d4_stage1Projectile = kInvalidUniqueId;
+  }
+  if (x5d6_stage2Projectile != kInvalidUniqueId) {
+    mgr.DeleteObjectRequest(x5d6_stage2Projectile);
+    x5d6_stage2Projectile = kInvalidUniqueId;
+  }
+  if (x5d8_stage3Projectile != kInvalidUniqueId) {
+    mgr.DeleteObjectRequest(x5d8_stage3Projectile);
+    x5d8_stage3Projectile = kInvalidUniqueId;
+  }
+  StopRumble(mgr);
+}
+
+void CNewIntroBoss::StopRumble(CStateManager& mgr) {
+  if (x674_rumbleVoice != -1) {
+    mgr.GetRumbleManager()->StopRumble(x674_rumbleVoice);
+    x674_rumbleVoice = -1;
+  }
 }
