@@ -8,7 +8,8 @@ class CQuaternion;
 
 class CEulerAngles : public CVector3f {
 public:
-  CEulerAngles(float roll, float pitch, float yaw) : CVector3f(roll, pitch, yaw) {}
+  CEulerAngles(const float roll, const float pitch, const float yaw)
+  : CVector3f(roll, pitch, yaw) {}
 
   static CEulerAngles FromTransform(const CTransform4f&);
   static CEulerAngles FromQuaternion(const CQuaternion&);

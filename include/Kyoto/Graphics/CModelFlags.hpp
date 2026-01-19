@@ -14,6 +14,7 @@ public:
     kT_Four = 4, // ?
     kT_Blend = 5,
     kT_Additive = 7,
+    kT_Additive2 = 8,
   };
   enum EFlags {
     kF_DepthCompare = 0x1,

@@ -174,8 +174,8 @@ public:
   const CPlayer* GetPlayer() const { return x84c_player; }
   CCameraManager* CameraManager() { return x870_cameraManager; }
   const CCameraManager* GetCameraManager() const { return x870_cameraManager; }
-  CPlayerState* PlayerState() { return x8b8_playerState.GetPtr(); }
-  const CPlayerState* GetPlayerState() const { return x8b8_playerState.GetPtr(); }
+  CPlayerState* PlayerState() { return &*x8b8_playerState; }
+  const CPlayerState* GetPlayerState() const { return &*x8b8_playerState; }
   CWorld* World() { return x850_world.get(); }
   const CWorld* GetWorld() const { return x850_world.get(); }
   CScriptMailbox* Mailbox() { return x8bc_mailbox.GetPtr(); }
