@@ -107,8 +107,10 @@ void CMetaree::Active(CStateManager& mgr, EStateMsg msg, float) {
   switch (msg) {
   case kStateMsg_Activate:
     SetWasHit(false);
-    x584_lookPos = GetTranslation() - CVector3f(0.f, 0.f, x570_dropHeight);
-    BodyCtrl()->CommandMgr().DeliverCmd(CBCGenerateCmd(pas::kGType_Zero, x584_lookPos));
+    const CVector3f translation = GetTranslation();
+    const CVector3f dropVector(0.f, 0.f, x570_dropHeight);
+    x584_lookPos = GetTranslation() - dropVector;
+    BodyCtrl()->CommandMgr().DeliverCmd(CBCGenerateCmd(pas::kGType_Zero, x584_lookPos, true));
     SetMomentumWR(CVector3f(0.f, 0.f, -GetGravityConstant() * GetMass()));
     break;
   case kStateMsg_Update:
@@ -213,7 +215,7 @@ void CMetaree::Explode(CStateManager& mgr, EStateMsg msg, float) {
   switch (msg) {
   case kStateMsg_Activate:
     mgr.ApplyDamage(GetUniqueId(), mgr.GetPlayer()->GetUniqueId(), GetUniqueId(), x5ac_damageInfo,
-                    CMaterialFilter::MakeIncludeExclude(CMaterialList(kMT_Solid), CMaterialList()),
+                    CMaterialFilter::MakeIncludeExclude(CMaterialList(SolidMaterial), CMaterialList()),
                     CVector3f::Zero());
     MassiveDeath(mgr);
     break;
@@ -223,18 +225,9 @@ void CMetaree::Explode(CStateManager& mgr, EStateMsg msg, float) {
 }
 
 void CMetaree::Think(float dt, CStateManager& mgr) {
-  bool target, b;
-  target = true;
-  b = target;
-  CPlayerState::EPlayerVisor visor = mgr.GetPlayerState()->GetCurrentVisor();
-  if (visor != CPlayerState::kPV_Thermal && visor != CPlayerState::kPV_Scan) {
-    b = false;
-  }
-
-  if (!b && !x5ca_26_deactivated) {
-    target = false;
-  }
-  SetTargetable(target);
+  SetTargetable((mgr.GetPlayerState()->GetCurrentVisor() == CPlayerState::kPV_Thermal ||
+                 mgr.GetPlayerState()->GetCurrentVisor() == CPlayerState::kPV_Scan) ||
+                x5ca_26_deactivated);
   CPatterned::Think(dt, mgr);
 }
 

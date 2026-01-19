@@ -47,8 +47,8 @@ public:
   , x18_animId(animId)
   , x1c_25_overrideAnim(animId != -1) {}
 
-  CBCGenerateCmd(pas::EGenerateType type, const CVector3f& vec, bool targetTransform = false,
-                 bool overrideAnim = false)
+  CBCGenerateCmd(const pas::EGenerateType type, const CVector3f& vec,
+                 const bool targetTransform = false, const bool overrideAnim = false)
   : CBodyStateCmd(kBSC_Generate)
   , x8_type(type)
   , xc_targetPos(vec)
@@ -414,7 +414,7 @@ public:
     DeliverCmd(cmd.GetCommandId());
     xf4_knockBack = cmd;
   }
-  
+
   void DeliverCmd(const CBCMeleeAttackCmd& cmd) {
     DeliverCmd(cmd.GetCommandId());
     x10c_meleeAttack = cmd;
@@ -424,22 +424,22 @@ public:
     DeliverCmd(cmd.GetCommandId());
     x128_projectileAttack = cmd;
   }
-  
+
   void DeliverCmd(const CBCGenerateCmd& cmd) {
     DeliverCmd(cmd.GetCommandId());
     x18c_generate = cmd;
   }
-  
+
   void DeliverCmd(const CBCSlideCmd& cmd) {
     DeliverCmd(cmd.GetCommandId());
     x1f8_slide = cmd;
   }
-  
+
   void DeliverCmd(const CBCScriptedCmd& cmd) {
     DeliverCmd(cmd.GetCommandId());
     x21c_scripted = cmd;
   }
-  
+
   void DeliverCmd(const CBCAdditiveReactionCmd& cmd) {
     DeliverCmd(cmd.GetCommandId());
     x284_additiveReaction = cmd;

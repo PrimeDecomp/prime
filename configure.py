@@ -812,7 +812,7 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/Weapons/CPowerBomb.cpp",
             ),
-            Object(NonMatching, "MetroidPrime/Enemies/CMetaree.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Enemies/CMetaree.cpp"),
             Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptDockAreaChange.cpp"),
             Object(
                 NonMatching, "MetroidPrime/ScriptObjects/CScriptSpecialFunction.cpp"
