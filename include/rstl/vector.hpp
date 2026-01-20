@@ -219,7 +219,6 @@ typename vector< T, Alloc >::iterator vector< T, Alloc >::erase(iterator it) {
   return erase(it, it + 1);
 }
 
-// TODO nonmatching (CCameraManager::RemoveCinemaCamera)
 template < typename T, typename Alloc >
 typename vector< T, Alloc >::iterator vector< T, Alloc >::erase(iterator first, iterator last) {
   destroy(first, last);
