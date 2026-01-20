@@ -7,6 +7,13 @@ class CFlameThrower;
 class CWeaponDescription;
 class CScriptContraption : public CScriptActor {
 public:
+  struct SFlameThrower {
+    TUniqueId id;
+    rstl::string name;
+    bool unk;
+    SFlameThrower();
+    SFlameThrower(TUniqueId uid, const rstl::string& name) : id(uid), name(name), unk(false) {}
+  };
   CScriptContraption(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
                      const CTransform4f& xf, const CModelData& mData, const CAABox& aabox,
                      const CMaterialList& matList, const float mass, const float zMomentum,
@@ -23,7 +30,7 @@ public:
 private:
   CFlameThrower* CreateFlameThrower(const rstl::string& name, CStateManager& mgr);
 
-  rstl::list< rstl::pair< TUniqueId, rstl::string > > x2e8_children;
+  rstl::list< SFlameThrower > x2e8_children;
   TToken< CWeaponDescription > x300_flameThrowerGenDesc;
   CAssetId x308_flameFxId;
   CDamageInfo x30c_dInfo;

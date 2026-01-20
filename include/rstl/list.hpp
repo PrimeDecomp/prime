@@ -18,7 +18,6 @@ public:
 #pragma pack(push, 1)
   struct node;
 #pragma pack(pop)
-  node* do_erase(node* item);
 
 public:
   list()
@@ -28,6 +27,7 @@ public:
   , x10_empty_next(reinterpret_cast< node* >(&xc_empty_prev))
   , x14_count(0) {}
   ~list();
+  node* do_erase(node* item);
 
   void push_front(const T& val) { do_insert_before(x4_start, val); }
   void push_back(const T& val) { do_insert_before(x8_end, val); }

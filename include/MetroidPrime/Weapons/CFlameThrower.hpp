@@ -14,6 +14,10 @@ public:
   void Reset(CStateManager& mgr, bool);
   bool GetParticlesActive() const { return x400_25_particlesActive; }
 
+  void Fire(const CTransform4f&, CStateManager& mgr, bool);
+  
+  void SetTransform(const CTransform4f& xf, CStateManager& mgr, float);
+
 private:
   char data[0x400 - 0x2e8];
   bool x400_24_active : 1;
