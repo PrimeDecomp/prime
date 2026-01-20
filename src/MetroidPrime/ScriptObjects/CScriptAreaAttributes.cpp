@@ -2,10 +2,11 @@
 #include "MetroidPrime/CGameArea.hpp"
 #include "MetroidPrime/TGameTypes.hpp"
 
-CScriptAreaAttributes::CScriptAreaAttributes(TUniqueId uid, const CEntityInfo& info,
-                                             bool showSkybox, EEnvFxType fxType, float envFxDensity,
-                                             float thermalHeat, float xrayFogDistance,
-                                             float worldLightingLevel, CAssetId skybox,
+CScriptAreaAttributes::CScriptAreaAttributes(const TUniqueId uid, const CEntityInfo& info,
+                                             const bool showSkybox, const EEnvFxType fxType,
+                                             const float envFxDensity, const float thermalHeat,
+                                             const float xrayFogDistance,
+                                             const float worldLightingLevel, const CAssetId skybox,
                                              EPhazonType phazonType)
 : CEntity(uid, info, true, rstl::string_l(""))
 , x34_24_showSkybox(showSkybox)
@@ -17,7 +18,7 @@ CScriptAreaAttributes::CScriptAreaAttributes(TUniqueId uid, const CEntityInfo& i
 , x4c_skybox(skybox)
 , x50_phazon(phazonType) {}
 
-void CScriptAreaAttributes::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objId,
+void CScriptAreaAttributes::AcceptScriptMsg(const EScriptObjectMessage msg, const TUniqueId objId,
                                             CStateManager& stateMgr) {
   CEntity::AcceptScriptMsg(msg, objId, stateMgr);
 
@@ -27,15 +28,15 @@ void CScriptAreaAttributes::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId 
 
   switch (msg) {
   case kSM_InitializedInArea: {
-    stateMgr.World()->Area(GetCurrentAreaId())->SetAreaAttributes(this);
+    stateMgr.World()->SetAreaAttributes(GetCurrentAreaId(), this);
     stateMgr.EnvFxManager()->SetFxDensity(500, x3c_envFxDensity);
     break;
   }
-
   case kSM_Deleted: {
-    if (stateMgr.World()->Area(GetCurrentAreaId())->IsLoaded()) {
-      stateMgr.World()->Area(GetCurrentAreaId())->SetAreaAttributes(nullptr);
+    if (!stateMgr.World()->Area(GetCurrentAreaId())->IsLoaded()) {
+      break;
     }
+    stateMgr.World()->SetAreaAttributes(GetCurrentAreaId(), nullptr);
     break;
   }
   default:

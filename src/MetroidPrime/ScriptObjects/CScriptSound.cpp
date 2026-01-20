@@ -178,7 +178,7 @@ void CScriptSound::StopSound(CStateManager& mgr) {
   }
 }
 
-void CScriptSound::AddToRenderer(const CFrustumPlanes& planes, CStateManager& mgr) const {}
+void CScriptSound::AddToRenderer(const CFrustumPlanes& planes, const CStateManager& mgr) const {}
 void CScriptSound::Accept(IVisitor& visitor) { visitor.Visit(*this); }
 float CScriptSound::GetOccludedVolumeAmount(const CVector3f& pos, const CStateManager& mgr) {
   const CTransform4f camXf = mgr.GetCameraManager()->GetCurrentCameraTransform(mgr);

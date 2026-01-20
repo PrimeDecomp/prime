@@ -5505,7 +5505,7 @@ AcceptScriptMsg__12CScriptSoundF20EScriptObjectMessage9TUniqueIdR13CStateManager
 Think__12CScriptSoundFfR13CStateManager = .text:0x800B0544; // type:function size:0x3BC scope:global
 __dt__12CScriptSoundFv = .text:0x800B0900; // type:function size:0x60 scope:global
 PreThink__12CScriptSoundFfR13CStateManager = .text:0x800B0960; // type:function size:0x44 scope:global
-__ct__12CScriptSoundF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fUsbfffiiiibbbbbb = .text:0x800B09A4; // type:function size:0x270 scope:global
+__ct__12CScriptSoundF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fUsbfffUiUiUiUiUiUibbbbbbbi = .text:0x800B09A4; // type:function size:0x270 scope:global
 Render__15CScriptPlatformCFRC13CStateManager = .text:0x800B0C14; // type:function size:0xC8 scope:global
 GetSortingBounds__15CScriptPlatformCFRC13CStateManager = .text:0x800B0CDC; // type:function size:0x84 scope:global
 GetAimPosition__15CScriptPlatformCFRC13CStateManagerf = .text:0x800B0D60; // type:function size:0xB8 scope:global
