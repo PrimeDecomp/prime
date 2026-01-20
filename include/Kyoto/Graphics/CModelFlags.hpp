@@ -40,7 +40,7 @@ public:
   CModelFlags(const ETrans blendMode, const uchar shadIdx, const EFlags flags, const CColor& col)
   : x0_blendMode(blendMode), x1_matSetIdx(shadIdx), x2_flags(flags), x4_color(col) {}
 
-  CModelFlags(const CModelFlags& flags, uint otherFlags)
+  CModelFlags(const CModelFlags& flags, const uint otherFlags)
   : x0_blendMode(flags.x0_blendMode)
   , x1_matSetIdx(flags.x1_matSetIdx)
   , x2_flags(otherFlags)

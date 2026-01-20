@@ -36,9 +36,10 @@ static CMaterialList MakeActorMaterialList(const CMaterialList& in,
   return ret;
 }
 
-CActor::CActor(TUniqueId uid, bool active, const rstl::string& name, const CEntityInfo& info,
-               const CTransform4f& xf, const CModelData& mData, const CMaterialList& list,
-               const CActorParameters& params, TUniqueId nextDrawNode)
+CActor::CActor(const TUniqueId uid, const bool active, const rstl::string& name,
+               const CEntityInfo& info, const CTransform4f& xf, const CModelData& mData,
+               const CMaterialList& list, const CActorParameters& params,
+               const TUniqueId nextDrawNode)
 : CEntity(uid, info, active, name)
 , x34_transform(xf)
 , x64_modelData(mData.IsNull() ? nullptr : rs_new CModelData(mData))
@@ -232,27 +233,23 @@ void CActor::PreRender(CStateManager& mgr, const CFrustumPlanes& planes) {
       }
 
       if (GetCalculateLighting()) {
-        CAABox bounds = GetModelData()->GetBounds(GetTransform());
+        const CAABox bounds = GetModelData()->GetBounds(GetTransform());
         if (mgr.GetPlayerState()->GetActiveVisor(mgr) == CPlayerState::kPV_Thermal) {
           ActorLights()->BuildConstantAmbientLighting();
         } else {
-          if (lightsDirty == true) {
-            if (GetCurrentAreaId() != kInvalidAreaId) {
-              TAreaId aid = GetCurrentAreaId();
-              if (mgr.GetWorld()->IsAreaValid(aid)) {
-                const CGameArea* area = mgr.GetWorld()->GetArea(aid);
-                if (ActorLights()->BuildAreaLightList(mgr, *area, bounds)) {
-                  xe7_28_worldLightingDirty = false;
-                }
-              }
-            }
+          if (lightsDirty == true && GetCurrentAreaId() != kInvalidAreaId &&
+              mgr.GetWorld()->IsAreaValid(GetCurrentAreaId()) &&
+              ActorLights()->BuildAreaLightList(mgr, *mgr.GetWorld()->GetArea(GetCurrentAreaId()),
+                                                bounds)) {
+            xe7_28_worldLightingDirty = false;
           }
           ActorLights()->BuildDynamicLightList(mgr, bounds);
         }
       }
 
+      CModelData* mData = ModelData();
       if (GetModelData()->HasAnimation()) {
-        AnimationData()->PreRender();
+        mData->AnimationData()->PreRender();
       }
     } else {
       if (GetPreRenderHasMoved()) {
@@ -700,81 +697,86 @@ void CActor::SetInFluid(bool in, TUniqueId uid) {
 }
 
 // TODO nonmatching
-void CActor::ProcessSoundEvent(int sfxId, float weight, int flags, float fallOff, float maxDist,
-                               uchar minVol, uchar maxVol, const CVector3f& toListener,
-                               const CVector3f& position, int aid, CStateManager& mgr,
-                               bool translateId) {
-  if (toListener.MagSquared() >= maxDist * maxDist) {
-    return;
-  }
-  ushort id = translateId ? CSfxManager::TranslateSFXID(static_cast< ushort >(sfxId))
-                          : static_cast< ushort >(sfxId);
-
-  uint musyxFlags = 0x1; // Continuous parameter update
-  if (flags & 0x8) {
-    musyxFlags |= 0x8; // Doppler FX
-  }
-
-  // TODO ctor?
-  CAudioSys::C3DEmitterParmData parms(maxDist, fallOff, musyxFlags, maxVol, minVol);
-  parms.x0_pos = position;
-  parms.xc_dir = CVector3f::Zero();
-  parms.x24_sfxId = id;
-
-  bool useAcoustics = (flags & 0x80) == 0;
-  bool looping = (sfxId & 0x80000000) != 0;
-  bool nonEmitter = (sfxId & 0x40000000) != 0;
-
-  if (mgr.Random()->Float() > weight) {
-    return;
-  }
-
-  if (looping) {
-    ushort curId = x88_sfxId;
-    if (!x8c_loopingSfxHandle) {
-      CSfxHandle handle;
-      if (nonEmitter) {
-        handle = CSfxManager::SfxStart(id, 1.f, 0.f, true, CSfxManager::kMedPriority, true, aid);
-      } else {
-        handle = CSfxManager::AddEmitter(parms, useAcoustics, CSfxManager::kMedPriority, true, aid);
-      }
-      if (handle) {
-        x88_sfxId = id;
-        x8c_loopingSfxHandle = handle;
-        if (xe6_30_enablePitchBend) {
-          CSfxManager::PitchBend(handle, xc0_pitchBend);
-        }
-      }
-    } else if (curId == id) {
-      CSfxManager::UpdateEmitter(x8c_loopingSfxHandle, parms.x0_pos, parms.xc_dir, maxVol);
-    } else if (flags & 0x4) {
-      CSfxManager::RemoveEmitter(x8c_loopingSfxHandle);
-      CSfxHandle handle =
-          CSfxManager::AddEmitter(parms, useAcoustics, CSfxManager::kMedPriority, true, aid);
-      if (handle) {
-        x88_sfxId = id;
-        x8c_loopingSfxHandle = handle;
-        if (xe6_30_enablePitchBend) {
-          CSfxManager::PitchBend(handle, xc0_pitchBend);
-        }
-      }
-    }
-  } else {
-    CSfxHandle handle;
-    if (nonEmitter) {
-      handle =
-          CSfxManager::SfxStart(id, 1.f, 0.f, useAcoustics, CSfxManager::kMedPriority, false, aid);
+void CActor::ProcessSoundEvent(const int sfxId, const float weight, const int flags,
+                               const float fallOff, const float maxDist, const uchar minVol,
+                               const uchar maxVol, const CVector3f& toListener,
+                               const CVector3f& position, const int aid, CStateManager& mgr,
+                               const bool translateId) {
+  if (toListener.MagSquared() < maxDist * maxDist) {
+    ushort id;
+    if (translateId) {
+      id = CSfxManager::TranslateSFXID(sfxId);
     } else {
-      handle = CSfxManager::AddEmitter(parms, useAcoustics, CSfxManager::kMedPriority, false, aid);
-    }
-    if ((sfxId & 0x20000000) != 0 /* continuous update */) {
-      xd8_nonLoopingSfxHandles[xe4_24_nextNonLoopingSfxHandle] = handle;
-      xe4_24_nextNonLoopingSfxHandle =
-          (xe4_24_nextNonLoopingSfxHandle + 1) % xd8_nonLoopingSfxHandles.size();
+      id = static_cast<ushort>(sfxId);
     }
 
-    if (xe6_30_enablePitchBend) {
-      CSfxManager::PitchBend(handle, xc0_pitchBend);
+    uint musyxFlags = 0x1; // Continuous parameter update
+    if (flags & 0x8) {
+      musyxFlags |= 0x8; // Doppler FX
+    }
+
+    // TODO ctor?
+    CAudioSys::C3DEmitterParmData parms(maxDist, fallOff, musyxFlags, maxVol, minVol);
+    parms.x0_pos = position;
+    parms.xc_dir = CVector3f::Zero();
+    parms.x24_sfxId = id;
+
+    bool useAcoustics = (flags & 0x80) == 0;
+    bool looping = (sfxId & 0x80000000) != 0;
+    bool nonEmitter = (sfxId & 0x40000000) != 0;
+
+    if (mgr.Random()->Float() <= weight) {
+      if (looping) {
+        ushort curId = x88_sfxId;
+        if (!x8c_loopingSfxHandle) {
+          CSfxHandle handle;
+          if (nonEmitter) {
+            handle =
+                CSfxManager::SfxStart(id, 1.f, 0.f, true, CSfxManager::kMedPriority, true, aid);
+          } else {
+            handle =
+                CSfxManager::AddEmitter(parms, useAcoustics, CSfxManager::kMedPriority, true, aid);
+          }
+          if (handle) {
+            x88_sfxId = id;
+            x8c_loopingSfxHandle = handle;
+            if (xe6_30_enablePitchBend) {
+              CSfxManager::PitchBend(handle, xc0_pitchBend);
+            }
+          }
+        } else if (curId == id) {
+          CSfxManager::UpdateEmitter(x8c_loopingSfxHandle, parms.x0_pos, parms.xc_dir, maxVol);
+        } else if (flags & 0x4) {
+          CSfxManager::RemoveEmitter(x8c_loopingSfxHandle);
+          CSfxHandle handle =
+              CSfxManager::AddEmitter(parms, useAcoustics, CSfxManager::kMedPriority, true, aid);
+          if (handle) {
+            x88_sfxId = id;
+            x8c_loopingSfxHandle = handle;
+            if (xe6_30_enablePitchBend) {
+              CSfxManager::PitchBend(handle, xc0_pitchBend);
+            }
+          }
+        }
+      } else {
+        CSfxHandle handle;
+        if (nonEmitter) {
+          handle = CSfxManager::SfxStart(id, 1.f, 0.f, useAcoustics, CSfxManager::kMedPriority,
+                                         false, aid);
+        } else {
+          handle =
+              CSfxManager::AddEmitter(parms, useAcoustics, CSfxManager::kMedPriority, false, aid);
+        }
+        if ((sfxId & 0x20000000) != 0 /* continuous update */) {
+          xd8_nonLoopingSfxHandles[xe4_24_nextNonLoopingSfxHandle] = handle;
+          xe4_24_nextNonLoopingSfxHandle =
+              (xe4_24_nextNonLoopingSfxHandle + 1) % xd8_nonLoopingSfxHandles.size();
+        }
+
+        if (xe6_30_enablePitchBend) {
+          CSfxManager::PitchBend(handle, xc0_pitchBend);
+        }
+      }
     }
   }
 }
@@ -814,10 +816,9 @@ void CActor::SetDrawShadow(bool enabled) {
   xe5_24_shadowEnabled = enabled;
 }
 
-// TODO nonmatching
 bool CActor::CanDrawStatic() const {
-  if (!GetActive() || !HasModelData() || xb4_drawFlags.GetTrans() > 4) {
-      return false;
+  if (!GetActive() || !HasModelData() || static_cast< char >(xb4_drawFlags.GetBlendMode()) > 4) {
+    return false;
   }
   if (GetModelData()->IsNull() || GetModelData()->HasAnimation()) {
     return false;

@@ -151,7 +151,6 @@ public:
   bool IsMapAreaInBFSInfoVector(const CMapAreaData* area,
                                 const rstl::vector< CMapAreaBFSInfo >& vec) const;
   void SetWhichMapAreasLoaded(const IWorld& wld, int start, int count);
-  bool IsMapAreasStreaming();
   void MoveMapAreaToList(CMapAreaData* data, EMapAreaList list);
   int GetCurrentMapAreaDepth(const IWorld& wld, TAreaId aid);
   rstl::vector< int > GetVisibleAreas(const IWorld& wld, const CMapWorldInfo& mwInfo) const;

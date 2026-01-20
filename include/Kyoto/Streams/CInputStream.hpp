@@ -34,7 +34,7 @@ public:
   void Get(void* dest, unsigned long len);
 
   template < typename T >
-  inline T Get(const TType< T >& type = TType< T >()) {
+  T Get(const TType< T >& type = TType< T >()) {
     return cinput_stream_helper(TType< T >(), *this);
   }
 

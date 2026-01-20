@@ -302,7 +302,7 @@ class CDummyGameArea final : public IGameArea {
   friend class CDummyWorld;
 
 public:
-  CDummyGameArea(CInputStream& in, int idx, int mlvlVersion);
+  CDummyGameArea(CInputStream& in, int idx, uint mlvlVersion);
   rstl::pair< rstl::auto_ptr< uchar >, int > IGetScriptingMemoryAlways() const override;
   int IGetAreaSaveId() const override;
   CAssetId IGetAreaAssetId() const override;

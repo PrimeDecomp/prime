@@ -7,6 +7,7 @@
 
 #define ROUND_UP_32(val) (((val) + 31) & ~31)
 
+
 rstl::pair< rstl::auto_ptr< uchar >, int > GetScriptingMemoryAlways(const IGameArea& area) {
   SObjectTag tag('MREA', area.IGetAreaAssetId());
 

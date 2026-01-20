@@ -123,7 +123,9 @@ public:
   const CGameArea& GetAreaAlways(const TAreaId id) const { return *x18_areas[id.Value()]; }
   CGameArea* Area(const TAreaId id) { return &*x18_areas[id.Value()]; }
   const CGameArea* GetArea(const TAreaId id) const { return &*x18_areas[id.Value()]; }
-  bool IsAreaValid(const TAreaId id) const { return x18_areas[id.Value()]->IsLoaded(); }
+  bool IsAreaValid(const TAreaId id) const {
+    return x18_areas[id.Value()]->IsLoaded();
+  }
   CAssetId GetWorldAssetId() const { return x8_mlvlId; }
   TAreaId GetCurrentAreaId() const { return x68_curAreaId; }
   TAreaId GetAreaIdForSaveId(int saveId) const;
@@ -149,6 +151,7 @@ public:
   void SetAreaAttributes(const TAreaId aid, CScriptAreaAttributes* attr) {
     Area(aid)->SetAreaAttributes(attr);
   }
+  
 
 private:
   enum Phase {

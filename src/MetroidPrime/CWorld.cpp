@@ -269,13 +269,13 @@ CDummyWorld::CDummyWorld(CAssetId mlvlId, bool loadMap)
 
 class CMemoryRelays {
 public:
-  CMemoryRelays(CInputStream& in /*, const int& unk*/);
+  CMemoryRelays(CInputStream& in, const int& unk);
 
 private:
   rstl::vector< CRelay > x0_relayList;
 };
 
-CMemoryRelays::CMemoryRelays(CInputStream& in /*, const int& unk*/) {
+CMemoryRelays::CMemoryRelays(CInputStream& in, const int&) {
   int count = in.Get< int >();
   x0_relayList.reserve(count);
   for (int i = 0; i < count; ++i) {
@@ -283,8 +283,10 @@ CMemoryRelays::CMemoryRelays(CInputStream& in /*, const int& unk*/) {
   }
 }
 
+void LoadRelays(CInputStream& in, rstl::vector< CRelay >& relays) {}
 CDummyWorld::~CDummyWorld() {}
 
+#pragma inline_max_size(250)
 // TOOD nonmatching
 bool CDummyWorld::ICheckWorldComplete() {
   switch (x8_phase) {
@@ -305,10 +307,7 @@ bool CDummyWorld::ICheckWorldComplete() {
       r.ReadLong();
     }
     if (version >= 17) {
-      // TOOD: this class takes some stack argument in r5
-      // but I can't figure out what it is
-      // int unk;
-      CMemoryRelays relays(r /*, unk*/);
+      rstl::vector< CRelay > relay(r);
     }
 
     int areaCount = r.Get< int >();
@@ -406,3 +405,5 @@ TAreaId CDummyWorld::IGetAreaId(CAssetId id) const {
   return TAreaId(-1);
 #endif
 }
+
+rstl::string CDummyWorld::IGetDefaultAudioTrack() const { return rstl::string_l(""); }
