@@ -74,8 +74,27 @@ public:
   template < typename from_iterator >
   iterator insert(iterator it, from_iterator begin, from_iterator end);
 
-  iterator erase(iterator it);
-  iterator erase(iterator first, iterator last);
+  // iterator erase(iterator it);
+  // iterator erase(iterator first, iterator last);
+  
+  iterator erase(iterator it) {
+    return erase(it, it + 1);
+  }
+  
+  iterator erase(iterator first, iterator last) {
+    destroy(first, last);
+    
+    const int tmp = first - begin();
+  
+    int newCount = tmp;
+  
+    for (iterator it = last, moved = begin() + tmp; it != end(); ++moved, ++newCount, ++it) {
+      construct(&*moved, *it);
+    }
+    x4_count = newCount;
+  
+    return first;
+  }
 
   void push_back(const T& in) {
     if (x4_count >= x8_capacity) {
@@ -214,26 +233,26 @@ vector< T, Alloc >& vector< T, Alloc >::operator=(const vector< T, Alloc >& othe
   return *this;
 }
 
-template < typename T, typename Alloc >
-typename vector< T, Alloc >::iterator vector< T, Alloc >::erase(iterator it) {
-  return erase(it, it + 1);
-}
-
-template < typename T, typename Alloc >
-typename vector< T, Alloc >::iterator vector< T, Alloc >::erase(iterator first, iterator last) {
-  destroy(first, last);
-  
-  const int tmp = first - begin();
-
-  int newCount = tmp;
-
-  for (iterator it = last, moved = begin() + tmp; it != end(); ++moved, ++newCount, ++it) {
-    construct(&*moved, *it);
-  }
-  x4_count = newCount;
-
-  return first;
-}
+// template < typename T, typename Alloc >
+// typename vector< T, Alloc >::iterator vector< T, Alloc >::erase(iterator it) {
+//   return erase(it, it + 1);
+// }
+//
+// template < typename T, typename Alloc >
+// typename vector< T, Alloc >::iterator vector< T, Alloc >::erase(iterator first, iterator last) {
+//   destroy(first, last);
+//   
+//   const int tmp = first - begin();
+//
+//   int newCount = tmp;
+//
+//   for (iterator it = last, moved = begin() + tmp; it != end(); ++moved, ++newCount, ++it) {
+//     construct(&*moved, *it);
+//   }
+//   x4_count = newCount;
+//
+//   return first;
+// }
 
 typedef vector< int > unk_vector;
 CHECK_SIZEOF(unk_vector, 0x10)

@@ -6,6 +6,7 @@
 
 #include "rstl/algorithm.hpp"
 
+#pragma inline_max_size(250)
 CScriptGenerator::CScriptGenerator(const TUniqueId uid, const rstl::string& name,
                                    const CEntityInfo& info, const int spawnCount,
                                    const bool noReuseFollowers, const CVector3f& vec1,
@@ -30,12 +31,7 @@ void CScriptGenerator::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId sende
     }
 
     rstl::vector< TUniqueId > follows;
-    int connectionsCount = GetConnectionList().size();
-    int reseveSize = 1;
-    if (connectionsCount != 0) {
-      reseveSize = connectionsCount;
-    }
-    follows.reserve(reseveSize);
+    follows.reserve(!GetConnectionList().empty() ? GetConnectionList().size() : 1);
     rstl::vector< SConnection >::const_iterator iter = GetConnectionList().begin();
     for (; iter != GetConnectionList().end(); ++iter) {
       if (iter->x0_state != kSS_Zero || iter->x4_msg != kSM_Follow) {
@@ -112,22 +108,20 @@ void CScriptGenerator::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId sende
 
       if (objId != kInvalidUniqueId) {
         CEntity* genObj = stateMgr.ObjectById(objId);
-        {
-          CActor* activateActor = TCastToPtr< CActor >(genObj);
-          const CActor* followActor = TCastToConstPtr< CActor >(follow);
-          const CWallCrawlerSwarm* wallCrawlerSwarm = TCastToConstPtr< CWallCrawlerSwarm >(follow);
+        CActor* activateActor = TCastToPtr< CActor >(genObj);
+        const CActor* followActor = TCastToConstPtr< CActor >(follow);
+        const CWallCrawlerSwarm* wallCrawlerSwarm = TCastToConstPtr< CWallCrawlerSwarm >(follow);
 
-          if (activateActor && wallCrawlerSwarm) {
-            if (!x38_25_noInheritTransform) {
-              activateActor->SetTransform(wallCrawlerSwarm->GetTransform());
-            }
-            activateActor->SetTranslation(wallCrawlerSwarm->GetLastKilledOffset() + x3c_offset);
-          } else if (activateActor && followActor) {
-            if (!x38_25_noInheritTransform) {
-              activateActor->SetTransform(followActor->GetTransform());
-            }
-            activateActor->SetTranslation(followActor->GetTranslation() + x3c_offset);
+        if (activateActor && wallCrawlerSwarm) {
+          if (!x38_25_noInheritTransform) {
+            activateActor->SetTransform(wallCrawlerSwarm->GetTransform());
           }
+          activateActor->SetTranslation(wallCrawlerSwarm->GetLastKilledOffset() + x3c_offset);
+        } else if (activateActor && followActor) {
+          if (!x38_25_noInheritTransform) {
+            activateActor->SetTransform(followActor->GetTransform());
+          }
+          activateActor->SetTranslation(followActor->GetTranslation() + x3c_offset);
         }
         if (genObj) {
           CEntity* genObj = stateMgr.ObjectById(objId);
@@ -150,10 +144,8 @@ void CScriptGenerator::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId sende
           }
 
           const float rnd = stateMgr.Random()->Range(x48_minScale, x4c_maxScale);
-          CModelData* mData = activateActor->ModelData();
-          bool valid = mData && !mData->IsNull();
-          if (valid) {
-            mData->SetScale(rnd * mData->GetScale());
+          if (activateActor->HasModelData()) {
+            activateActor->ModelData()->SetScale(rnd * activateActor->ModelData()->GetScale());
           }
 
           stateMgr.DeliverScriptMsg(genObj, GetUniqueId(), kSM_Activate);
