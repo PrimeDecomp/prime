@@ -7,6 +7,7 @@ class CVector3f;
 
 class CSteeringBehaviors {
 public:
+  CSteeringBehaviors();
   static bool ProjectLinearIntersection(const CVector3f& v0, float f1, const CVector3f& v1,
                                         const CVector3f& v2, CVector3f& v3);
   static bool ProjectLinearIntersection(const CVector3f& v0, float f1, const CVector3f& v1,

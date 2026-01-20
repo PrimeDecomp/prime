@@ -30,7 +30,7 @@ public:
               const bool noImmunity = false)
   : x0_weaponMode(mode)
   , x8_damage(damage)
-  , xc_radiusDamage(damage)
+  , xc_radiusDamage(x8_damage)
   , x10_radius(radius)
   , x14_knockback(knockback)
   , x18_24_noImmunity(noImmunity) {}
@@ -77,6 +77,8 @@ public:
     x10_radius *= m;
     x14_knockback *= m;
   }
+  
+  CDamageInfo MakeScaledForTime(const float dt) const;
 };
 
 #endif // _CDAMAGEINFO

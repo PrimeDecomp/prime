@@ -21,7 +21,7 @@ private:
   CSfxHandle x3c_handle;
   float x40_fadeInTime;
   float x44_fadeOutTime;
-  ushort x48_volume;
+  short x48_volume;
 
   void StopInternal(float fadeTime);
 };

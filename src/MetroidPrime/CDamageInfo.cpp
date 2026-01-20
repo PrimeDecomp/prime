@@ -59,3 +59,8 @@ CDamageInfo::CDamageInfo(const CDamageInfo& other, float dt)
 , x10_radius(other.x10_radius)
 , x14_knockback(other.x14_knockback)
 , x18_24_noImmunity(true) {}
+
+CDamageInfo CDamageInfo::MakeScaledForTime(const float dt) const {
+  return CDamageInfo(x0_weaponMode, x8_damage * (60.f * dt), x10_radius,
+                     x14_knockback, true);
+}

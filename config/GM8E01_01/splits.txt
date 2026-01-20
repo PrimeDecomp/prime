@@ -2220,11 +2220,17 @@ MetroidPrime/ScriptObjects/CScriptProjectedShadow.cpp:
 	.sdata2     start:0x805ADFE8 end:0x805ADFF8
 
 MetroidPrime/ScriptObjects/CEnergyBall.cpp:
-	.text       start:0x8029F3C4 end:0x802A03E4
+	.text       start:0x8029F3C4 end:0x802A00C8
 	.rodata     start:0x803D6098 end:0x803D60C8
-	.data       start:0x803EC280 end:0x803EC570
-	.sdata      start:0x805A87C8 end:0x805A87F0
-	.sdata2     start:0x805ADFF8 end:0x805AE010
+	.data       start:0x803EC280 end:0x803EC550
+	.sdata      start:0x805A87C8 end:0x805A87E8
+	.sdata2     start:0x805ADFF8 end:0x805AE008
+
+MetroidPrime/ScriptObjects/CSustainedPlayerDamage.cpp:
+	.text       start:0x802A00C8 end:0x802A03E4
+	.data       start:0x803EC550 end:0x803EC570
+	.sdata      start:0x805A87E8 end:0x805A87F0
+	.sdata2     start:0x805AE008 end:0x805AE010
 
 MetroidPrime/Enemies/CMetroidPrimeProjectile.cpp:
 	.text       start:0x802A03E4 end:0x802A089C

@@ -41,17 +41,16 @@ void CScriptMidi::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objId,
 CScriptMidi::~CScriptMidi() { StopInternal(0.f); }
 
 void CScriptMidi::Play(CStateManager& mgr, float fadeTime) {
-  short volume = x48_volume;
-
   const CWorld* wld = mgr.GetWorld();
   const CGameArea& area = wld->GetAreaAlways(GetCurrentAreaId());
-  rstl::string twkName = CInGameTweakManager::GetIdentifierForMidiEvent(
+  const rstl::string twkName = CInGameTweakManager::GetIdentifierForMidiEvent(
       wld->GetWorldAssetId(), area.GetAreaAssetId(), GetDebugName());
 
+  short volume = x48_volume;
   if (gpTweakManager->HasTweakValue(twkName)) {
     const CTweakValue::Audio& audio = gpTweakManager->GetTweakValue(twkName)->GetAudio();
-    x34_song = gpSimplePool->GetObj(SObjectTag('CSNG', audio.GetResId()));
     fadeTime = audio.GetFadeIn();
+    x34_song = gpSimplePool->GetObj(SObjectTag('CSNG', audio.GetResId()));
     volume = static_cast< short >(audio.GetVolume() * 127.f);
   }
 

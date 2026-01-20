@@ -155,7 +155,7 @@ void CBloodFlower::PodAttack(CStateManager& mgr, const EStateMsg msg, const floa
     if (TooClose(mgr, 0.f)) {
       mgr.ApplyDamage(
           GetUniqueId(), mgr.GetPlayer()->GetUniqueId(), GetUniqueId(),
-          CDamageInfo(GetPodDamage(), arg),
+          GetPodDamage().MakeScaledForTime(arg),
           CMaterialFilter::MakeIncludeExclude(CMaterialList(kMT_Solid), CMaterialList()));
     }
     break;

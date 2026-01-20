@@ -95,7 +95,7 @@ void CFire::Think(float dt, CStateManager& mgr) {
   if (GetActive()) {
     xe8_->Update(dt * x144_);
     x10c_damageInfo2 =
-        CDamageInfo(xf0_damageInfo1, (particleCount > 0.5f ? particleCount : 0.f) * dt);
+        xf0_damageInfo1.MakeScaledForTime((particleCount > 0.5f ? particleCount : 0.f) * dt);
   }
 
   bool doFree = false;
