@@ -1886,7 +1886,7 @@ MetroidPrime/Cameras/CBallCameraFailsafeState.cpp:
 	.sdata      start:0x805A8428 end:0x805A8450
 	.sdata2     start:0x805AD6A0 end:0x805AD6C8
 
-MetroidPrime/Enemies/CActorContraption.cpp:
+MetroidPrime/Enemies/CScriptContraption.cpp:
 	.text       start:0x8023F3AC end:0x8023FC7C
 	.rodata     start:0x803D4580 end:0x803D45A8
 	.data       start:0x803E87C8 end:0x803E8850

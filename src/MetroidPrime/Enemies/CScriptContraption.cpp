@@ -1,0 +1,87 @@
+#include "MetroidPrime/Enemies/CScriptContraption.hpp"
+
+#include "Kyoto/Audio/CSfxManager.hpp"
+#include "MetroidPrime/Weapons/CFlameThrower.hpp"
+#include "rstl/algorithm.hpp"
+
+CScriptContraption::CScriptContraption(TUniqueId uid, const rstl::string& name,
+                                       const CEntityInfo& info, const CTransform4f& xf,
+                                       const CModelData& mData, const CAABox& aabox,
+                                       const CMaterialList& matList, const float mass,
+                                       const float zMomentum, const CHealthInfo& hInfo,
+                                       const CDamageVulnerability& dVuln,
+                                       const CActorParameters& aParams, const CAssetId part,
+                                       const CDamageInfo& dInfo, const bool active)
+: CScriptActor(uid, name, info, xf, mData, aabox, matList, mass, zMomentum, hInfo, dVuln, aParams,
+               false, active, 0, 1.f, false, false, false, false)
+, x300_flameThrowerGenDesc(gpSimplePool->GetObj("FlameThrower"))
+, x308_flameFxId(part)
+, x30c_dInfo(dInfo) {}
+
+CFlameThrower* CScriptContraption::CreateFlameThrower(const rstl::string& name,
+                                                      CStateManager& mgr) {
+  for (rstl::list< rstl::pair< TUniqueId, rstl::string > >::const_iterator it =
+           x2e8_children.begin();
+       it != x2e8_children.end(); ++it) {
+    if (it->second == name) {
+      return static_cast< CFlameThrower* >(mgr.ObjectById(it->first));
+    }
+  }
+
+  const CFlameInfo flameInfo(6, 6, x308_flameFxId, 20, 0.5f, 1.f, 1.f);
+  const TUniqueId id = mgr.AllocateUniqueId();
+  CFlameThrower* ret =
+      rs_new CFlameThrower(x300_flameThrowerGenDesc, rstl::string_l("Contraption_Flame"),
+                           kWT_Plasma, flameInfo, CTransform4f::Identity(), kMT_CollisionActor,
+                           x30c_dInfo, id, GetCurrentAreaId(), GetUniqueId(), CWeapon::kPA_None,
+                           kInvalidAssetId, CSfxManager::kInternalInvalidSfxId, kInvalidAssetId);
+  CEntity* ent = static_cast< CEntity* >(ret);
+
+  mgr.AddObject(ent);
+  x2e8_children.push_back(rstl::pair< TUniqueId, rstl::string >(id, name));
+  return ret;
+}
+
+void CScriptContraption::Think(float dt, CStateManager& mgr) {}
+
+void CScriptContraption::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid,
+                                         CStateManager& mgr) {
+  const bool curActive = GetActive();
+  switch (msg) {
+  case kSM_Registered:
+    AddMaterial(kMT_ScanPassthrough, mgr);
+    break;
+  case kSM_Deleted: {
+    for (rstl::list< rstl::pair< TUniqueId, rstl::string > >::iterator uid = x2e8_children.begin();
+         uid != x2e8_children.end();) {
+      mgr.DeleteObjectRequest(uid->first);
+      uid = x2e8_children.erase(uid);
+    }
+  } break;
+  case kSM_SetToZero: {
+    for (rstl::list< rstl::pair< TUniqueId, rstl::string > >::iterator uid = x2e8_children.begin();
+         uid != x2e8_children.end(); ++uid) {
+      CFlameThrower* act = static_cast< CFlameThrower* >(mgr.ObjectById(uid->first));
+      if (act && act->GetParticlesActive()) {
+        act->Reset(mgr, false);
+      }
+    }
+  } break;
+  }
+
+  CScriptActor::AcceptScriptMsg(msg, uid, mgr);
+  if (curActive != GetActive() && !GetActive()) {
+    for (rstl::list< rstl::pair< TUniqueId, rstl::string > >::iterator uid = x2e8_children.begin();
+         uid != x2e8_children.end(); ++uid) {
+      CFlameThrower* act = static_cast< CFlameThrower* >(mgr.ObjectById(uid->first));
+      if (act && act->GetParticlesActive()) {
+        act->Reset(mgr, false);
+      }
+    }
+    RemoveEmitter();
+  }
+}
+
+void CScriptContraption::DoUserAnimEvent(CStateManager& mgr, const CInt32POINode& node,
+                                         EUserEventType type, float dt) {}
+void CScriptContraption::Accept(IVisitor& visitor) { visitor.Visit(*this); }
