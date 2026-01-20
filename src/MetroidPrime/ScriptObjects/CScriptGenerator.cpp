@@ -6,9 +6,11 @@
 
 #include "rstl/algorithm.hpp"
 
-CScriptGenerator::CScriptGenerator(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
-                                   int spawnCount, bool noReuseFollowers, const CVector3f& vec1,
-                                   bool noInheritXf, bool active, float minScale, float maxScale)
+CScriptGenerator::CScriptGenerator(const TUniqueId uid, const rstl::string& name,
+                                   const CEntityInfo& info, const int spawnCount,
+                                   const bool noReuseFollowers, const CVector3f& vec1,
+                                   const bool noInheritXf, const bool active, const float minScale,
+                                   const float maxScale)
 : CEntity(uid, info, active, name)
 , x34_spawnCount(spawnCount)
 , x38_24_noReuseFollowers(noReuseFollowers)
