@@ -7,9 +7,9 @@
 
 #include "rstl/math.hpp"
 
-CScriptPickupGenerator::CScriptPickupGenerator(TUniqueId uid, const rstl::string& name,
+CScriptPickupGenerator::CScriptPickupGenerator(const TUniqueId uid, const rstl::string& name,
                                                const CEntityInfo& info, const CVector3f& pos,
-                                               float frequency, bool active)
+                                               const float frequency, const bool active)
 : CEntity(uid, info, active, name)
 , x34_position(pos)
 , x40_frequency(frequency)

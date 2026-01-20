@@ -27,36 +27,39 @@
 #include "Kyoto/Particles/CElementGen.hpp"
 #include "MetaRender/CCubeRenderer.hpp"
 
-const char* skMuzzleNames[] = {
+static const char* const skMuzzleNames[] = {
     "PowerMuzzle", "PowerCharge",  "IceMuzzle",    "IceCharge",    "PowerMuzzle",
     "WaveCharge",  "PlasmaMuzzle", "PlasmaCharge", "PhazonMuzzle", "EmptyMuzzle",
 };
 
-const char* skFrozenNames[] = {
+static const char* const skFrozenNames[] = {
     "powerFrozen", "Ice2nd_2",     "iceFrozen", "Ice2nd_2",  "waveFrozen",
     "Ice2nd_2",    "plasmaFrozen", "Ice2nd_2",  "iceFrozen", "Ice2nd_2",
 };
 
-const char* skBeamXferNames[] = {
+static const char* const skBeamXferNames[] = {
     "PowerXfer", "IceXfer", "WaveXfer", "PlasmaXfer", "PhazonXfer",
 };
 
-const char* skAnimDependencyNames[] = {
+static const char* const skAnimDependencyNames[] = {
     "Power_Anim_DGRP", "Ice_Anim_DGRP", "Wave_Anim_DGRP", "Plasma_Anim_DGRP", "Phazon_Anim_DGRP",
 };
 
-const char* skDependencyNames[] = {
+static const char* const skDependencyNames[] = {
     "Power_DGRP", "Ice_DGRP", "Wave_DGRP", "Plasma_DGRP", "Phazon_DGRP",
 };
 
-const char* skSuitArmNames[] = {
+static const char* const skSuitArmNames[] = {
     "PowerArm",  "GravityArm", "VariaArm",   "PhazonArm",
     "FusionArm", "FusionArmG", "FusionArmV", "FusionArmP",
 };
 
-int skAnimTypeList[] = {
+static const int skAnimTypeList[] = {
     0, 4, 1, 2, 3, 5, 6, 7, 8, 9, 10,
 };
+
+const char* const CGunWeapon::skMuzzleLocator = "LBEAM";
+const char* const CGunWeapon::skElbowLocator = "elbow";
 
 CPlayerState::EBeamId GetWeaponIndex(EWeaponType type) {
   switch (type) {

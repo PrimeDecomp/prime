@@ -166,8 +166,8 @@ protected:
   bool x218_28_suitArmLocked : 1;
   bool x218_29_drawHologram : 1;
 
-  static const char* skMuzzleLocator;
-  static const char* skElbowLocator;
+  static const char* const skMuzzleLocator;
+  static const char* const skElbowLocator;
   static const int skShootAnim[2];
 
   void AllocResPools(CPlayerState::EBeamId beam);

@@ -1440,14 +1440,16 @@ MetroidPrime/Weapons/CAuxWeapon.cpp:
 	.rodata     start:0x803D1838 end:0x803D1930
 	.sdata2     start:0x805AC8B0 end:0x805AC8C8
 
-MetroidPrime/ScriptObjects/CScriptAreaAttributes.cpp:
+MetroidPrime/Weapons/CGunWeapon.cpp:
 	.text       start:0x801B9CC8 end:0x801BD4C4
-	.text       start:0x801BD4C4 end:0x801BD718
 	.rodata     start:0x803D1930 end:0x803D1BD0
-	.rodata     start:0x803D1BD0 end:0x803D1BD8
 	.data       start:0x803E5490 end:0x803E54D8
-	.data       start:0x803E54D8 end:0x803E54F8
 	.sdata2     start:0x805AC8C8 end:0x805AC8F8
+
+MetroidPrime/ScriptObjects/CScriptAreaAttributes.cpp:
+	.text       start:0x801BD4C4 end:0x801BD718
+	.rodata     start:0x803D1BD0 end:0x803D1BD8
+	.data       start:0x803E54D8 end:0x803E54F8
 
 MetroidPrime/Weapons/CWaveBuster.cpp:
 	.text       start:0x801BD718 end:0x801C0824
