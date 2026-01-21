@@ -15,10 +15,9 @@
 import argparse
 import sys
 from pathlib import Path
-from typing import List, Sequence, Union
+from typing import Any, Dict, List
 
 from tools.project import (
-    BuildConfigUnit,
     Object,
     ProgressCategory,
     ProjectConfig,
@@ -123,6 +122,12 @@ parser.add_argument(
     help="path to sjiswrap.exe (optional)",
 )
 parser.add_argument(
+    "--ninja",
+    metavar="BINARY",
+    type=Path,
+    help="path to ninja binary (optional)",
+)
+parser.add_argument(
     "--verbose",
     action="store_true",
     help="print verbose output",
@@ -132,6 +137,13 @@ parser.add_argument(
     dest="non_matching",
     action="store_true",
     help="builds equivalent (but non-matching) or modded objects",
+)
+parser.add_argument(
+    "--warn",
+    dest="warn",
+    type=str,
+    choices=["all", "off", "error"],
+    help="how to handle warnings",
 )
 parser.add_argument(
     "--no-progress",
@@ -159,6 +171,7 @@ config.compilers_path = args.compilers
 config.generate_map = args.map
 config.non_matching = args.non_matching
 config.sjiswrap_path = args.sjiswrap
+config.ninja_path = args.ninja
 config.progress = args.progress
 if not is_windows():
     config.wrapper = args.wrapper
@@ -168,11 +181,11 @@ if not config.non_matching:
 
 # Tool versions
 config.binutils_tag = "2.42-1"
-config.compilers_tag = "20240706"
+config.compilers_tag = "20251118"
 config.dtk_tag = "v1.4.0"
 config.objdiff_tag = "v2.7.1"
-config.sjiswrap_tag = "v1.2.0"
-config.wibo_tag = "0.6.11"
+config.sjiswrap_tag = "v1.2.2"
+config.wibo_tag = "1.0.0"
 
 # Project
 config.config_path = Path("config") / config.version / "config.yml"
@@ -189,11 +202,20 @@ config.ldflags = [
     "-nodefaults",
 ]
 if args.debug:
-    config.ldflags.append("-g")
+    config.ldflags.append("-g")  # Or -gdwarf-2 for Wii linkers
 if args.map:
     config.ldflags.append("-mapunused")
+    # config.ldflags.append("-listclosure") # For Wii linkers
 
+# Don't build RELs unless specifically needed
 config.build_rels = False
+
+# Use for any additional files that should cause a re-configure when modified
+config.reconfig_deps = []
+
+# Optional numeric ID for decomp.me preset
+# Can be overridden in libraries or objects
+config.scratch_preset_id = None
 
 # Base flags, common to most GC/Wii games.
 # Generally leave untouched, with overrides added below.
@@ -224,9 +246,18 @@ cflags_base = [
 
 # Debug flags
 if args.debug:
+    # Or -sym dwarf-2 for Wii compilers
     cflags_base.extend(["-sym on", "-DDEBUG=1"])
 else:
     cflags_base.append("-DNDEBUG=1")
+
+# Warning flags
+if args.warn == "all":
+    cflags_base.append("-W all")
+elif args.warn == "off":
+    cflags_base.append("-W off")
+elif args.warn == "error":
+    cflags_base.append("-W error")
 
 # Dolphin flags
 cflags_dolphin = [
@@ -342,16 +373,15 @@ config.linker_version = "GC/1.3.2"
 
 
 # Helper function for Dolphin libraries
-def DolphinLib(lib_name, objects):
+def DolphinLib(lib_name: str, objects: List[Object]) -> Dict[str, Any]:
     return {
-        "lib": lib_name + "D" if args.debug else "",
+        "lib": lib_name,
         "mw_version": "GC/1.2.5n",
-        "cflags": cflags_dolphin,
-        "host": False,
+        "cflags": cflags_base,
         "progress_category": "sdk",
         "objects": objects,
-        "shift_jis": True,
     }
+
 
 
 def TrkLib(lib_name, objects):
@@ -417,7 +447,7 @@ def MusyX(
 
 
 # Helper function for REL script objects
-def Rel(lib_name, objects):
+def Rel(lib_name: str, objects: List[Object]) -> Dict[str, Any]:
     return {
         "lib": lib_name,
         "mw_version": "GC/1.3.2",
@@ -429,11 +459,9 @@ def Rel(lib_name, objects):
     }
 
 
-Matching = True  # Object matches and should be linked
-NonMatching = False  # Object does not match and should not be linked
-Equivalent = (
-    config.non_matching
-)  # Object should be linked when configured with --non-matching
+Matching = True                   # Object matches and should be linked
+NonMatching = False               # Object does not match and should not be linked
+Equivalent = config.non_matching  # Object should be linked when configured with --non-matching
 
 
 # Object is only matching for specific versions
@@ -2481,34 +2509,36 @@ config.libs = [
     ),
 ]
 
-# Disable missing return type warnings for incomplete objects
-for lib in config.libs:
-    for obj in lib["objects"]:
-        if not obj.completed:
-            obj.options["extra_clang_flags"].append("-Wno-return-type")
+
+# Optional callback to adjust link order. This can be used to add, remove, or reorder objects.
+# This is called once per module, with the module ID and the current link order.
+#
+# For example, this adds "dummy.c" to the end of the DOL link order if configured with --non-matching.
+# "dummy.c" *must* be configured as a Matching (or Equivalent) object in order to be linked.
+def link_order_callback(module_id: int, objects: List[str]) -> List[str]:
+    # Don't modify the link order for matching builds
+    return objects
 
 
-def link_order_callback(
-        module_id: int, units: List[str]
-) -> Sequence[Union[str, BuildConfigUnit]]:
-    # if module_id == 0:  # DOL
-    #    return units + [
-    #        {"object": "dummy.o", "name": "dummy.c", "autogenerated": False}
-    #    ]
-    return units
+# Uncomment to enable the link order callback.
+# config.link_order_callback = link_order_callback
 
-
-config.link_order_callback = link_order_callback
 
 # Optional extra categories for progress tracking
+# Adjust as desired for your project
 config.progress_categories = [
     ProgressCategory("game", "Game"),
     ProgressCategory("core", "Core Engine (Kyoto)"),
     ProgressCategory("sdk", "SDK"),
     ProgressCategory("third_party", "Third Party"),
 ]
-config.progress_all = True
 config.progress_each_module = args.verbose
+# Optional extra arguments to `objdiff-cli report generate`
+config.progress_report_args = [
+    # Marks relocations as mismatching if the target value is different
+    # Default is "functionRelocDiffs=none", which is most lenient
+    # "--config functionRelocDiffs=data_value",
+]
 config.progress_modules = False
 config.progress_use_fancy = True
 config.progress_code_fancy_frac = 1499
@@ -2520,7 +2550,7 @@ if args.mode == "configure":
     # Write build.ninja and objdiff.json
     generate_build(config)
 elif args.mode == "progress":
-    # Print progress and write progress.json
+    # Print progress information
     calculate_progress(config)
 else:
     sys.exit("Unknown mode: " + args.mode)
