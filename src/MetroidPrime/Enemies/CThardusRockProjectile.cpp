@@ -6,7 +6,7 @@
 #include "MetroidPrime/Enemies/CThardus.hpp"
 #include "MetroidPrime/Player/CPlayer.hpp"
 
-CPatternedCollisionUtils::SSphereJointInfo CThardusRockProjectile::skJointInfoList[] = {
+const CPatternedCollisionUtils::SSphereJointInfo CThardusRockProjectile::skJointInfoList[] = {
     {"Rock_01_Collision_LCTR", 1.5f},
 };
 

@@ -77,7 +77,7 @@ private:
   bool x5dc_;
   bool x5dd_;
   
-  static CPatternedCollisionUtils::SSphereJointInfo skJointInfoList[1];
+  static const CPatternedCollisionUtils::SSphereJointInfo skJointInfoList[];
 };
 
 #endif // _CTHARDUSROCKPROJECTILE
