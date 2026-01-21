@@ -183,7 +183,7 @@ if not config.non_matching:
 config.binutils_tag = "2.42-1"
 config.compilers_tag = "20251118"
 config.dtk_tag = "v1.4.0"
-config.objdiff_tag = "v3.5.1"
+config.objdiff_tag = "v2.7.1"
 config.sjiswrap_tag = "v1.2.2"
 config.wibo_tag = "1.0.0"
 
@@ -195,7 +195,7 @@ config.asflags = [
     "--strip-local-absolute",
     "-I include",
     f"-I build/{config.version}/include",
-    f"--defsym BUILD_VERSION={version_num}",
+    f"--defsym version={version_num}",
 ]
 config.ldflags = [
     "-fp hardware",
@@ -206,6 +206,9 @@ if args.debug:
 if args.map:
     config.ldflags.append("-mapunused")
     # config.ldflags.append("-listclosure") # For Wii linkers
+
+# Don't build RELs unless specifically needed
+config.build_rels = False
 
 # Use for any additional files that should cause a re-configure when modified
 config.reconfig_deps = []
