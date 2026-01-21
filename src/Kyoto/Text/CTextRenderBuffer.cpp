@@ -109,7 +109,7 @@ void CTextRenderBuffer::AddCharacter(const CVector2i& offset, short chr, uint co
 void CTextRenderBuffer::AddImage(const CVector2i& offset, const CFontImageDef& image) {
   if (mMode == kM_BufferFill) {
     CMemoryStreamOut out(GetOutStream(), GetCurLen(), CMemoryStreamOut::kOS_NotOwned, 64);
-    int tmp = mCurBytecodeOffset;
+    const int tmp = mCurBytecodeOffset;
     mPrimOffsets.reserve(mPrimOffsets.size() + 1);
     mPrimOffsets.push_back(tmp);
     mImages.reserve(mImages.size() + 1);

@@ -37,7 +37,6 @@ class CPrimitive;
 
 class CAnimData {
 public:
-  ~CAnimData();
 
   enum EAnimDir {
     kAD_Forward,

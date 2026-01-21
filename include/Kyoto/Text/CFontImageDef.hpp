@@ -13,8 +13,6 @@ public:
   CFontImageDef(const TToken< CTexture >& texture, const CVector2f& cropFactor);
   CFontImageDef(const rstl::vector< TToken< CTexture > >& texture, float fps,
                 const CVector2f& cropFactor);
-  CFontImageDef(const CFontImageDef&);
-  ~CFontImageDef();
 
   bool IsLoaded() const;
   // inline short GetWidth() { }

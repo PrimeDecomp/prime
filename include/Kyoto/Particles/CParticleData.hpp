@@ -30,14 +30,14 @@ public:
   int GetDuration() const { return x0_duration; }
   const rstl::string& GetLocatorName() const { return xc_boneName; }
   float GetScale() const { return x1c_scale; }
-  EParentedMode GetParentedMode() const { return x20_parentMode; }
+  EParentedMode GetParentedMode() const { return static_cast<EParentedMode>(x20_parentMode); }
 
 private:
   int x0_duration;
   SObjectTag x4_particle;
   rstl::string xc_boneName;
   float x1c_scale;
-  EParentedMode x20_parentMode;
+  int x20_parentMode;
 };
 
 class CAuxiliaryParticleData {

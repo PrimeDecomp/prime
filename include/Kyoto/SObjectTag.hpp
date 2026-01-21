@@ -1,6 +1,7 @@
 #ifndef _SOBJECTTAG
 #define _SOBJECTTAG
 
+#include "Streams/CInputStream.hpp"
 #include "types.h"
 
 #define kInvalidAssetId 0xFFFFFFFFu
@@ -13,6 +14,7 @@ public:
   SObjectTag() {}
   SObjectTag(const FourCC type, const CAssetId id) : mType(type), mId(id) {}
   SObjectTag(const SObjectTag& other) : mType(other.mType), mId(other.mId) {}
+  SObjectTag(CInputStream& in) : mType(in.Get< FourCC >()), mId(in.Get< CAssetId >()) {}
 
   const CAssetId GetId() const { return mId; }
   const FourCC GetType() const { return mType; }

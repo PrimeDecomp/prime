@@ -53,7 +53,10 @@ public:
 };
 
 struct SUVElementSet {
-  float xMin, yMin, xMax, yMax;
+  float xMin;
+  float yMin;
+  float xMax;
+  float yMax;
 
   //SUVElementSet() : xMin(0.f), yMin(0.f), xMax(0.f), yMax(0.f) {}
   // SUVElementSet(float xMin, float yMin, float xMax, float yMax)
