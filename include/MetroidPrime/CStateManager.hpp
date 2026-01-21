@@ -228,8 +228,9 @@ public:
 
   void ApplyDamageToWorld(TUniqueId, const CActor&, const CVector3f&, const CDamageInfo& info,
                           const CMaterialFilter&);
-  bool ApplyDamage(TUniqueId damagerId, TUniqueId damageeId, const TUniqueId radiusSender,
-                   const CDamageInfo& info, const CMaterialFilter& filter,
+  bool ApplyDamage(const TUniqueId damagerId, const TUniqueId damageeId,
+                   const TUniqueId radiusSender, const CDamageInfo& info,
+                   const CMaterialFilter& filter,
                    const CVector3f& knockbackVec = CVector3f::Zero());
 
   void InformListeners(const CVector3f&, EListenNoiseType);
@@ -300,7 +301,7 @@ public:
   void RemoveActiveFlickerBat(const TUniqueId& uid) { xf3c_activeFlickerBats.remove(uid); }
 
   rstl::list< TUniqueId >& GetActiveFlickerBats() { return xf3c_activeFlickerBats; }
-  
+
   void DrawSpaceWarp(const CVector3f& point, float strength) const;
 
 private:

@@ -183,43 +183,43 @@ public:
   void KnockBack(const CVector3f&, CStateManager&, const CDamageInfo& info, EKnockBackType type,
                  bool inDeferred, float magnitude) override;
   void TakeDamage(const CVector3f& direction, float magnitude) override;
-  void Patrol(CStateManager&, EStateMsg, float) override;
-  void FollowPattern(CStateManager&, EStateMsg, float) override;
-  void Dead(CStateManager&, EStateMsg, float) override;
-  void PathFind(CStateManager&, EStateMsg, float) override;
-  void Start(CStateManager&, EStateMsg, float) override;
-  void TargetPatrol(CStateManager&, EStateMsg, float) override;
-  void TargetPlayer(CStateManager&, EStateMsg, float) override;
-  bool Leash(CStateManager&, float) override;
-  bool OffLine(CStateManager&, float) override;
-  bool Attacked(CStateManager&, float) override;
-  bool PathShagged(CStateManager&, float) override;
-  bool PathOver(CStateManager&, float) override;
-  bool PathFound(CStateManager&, float) override;
-  bool TooClose(CStateManager&, float) override;
-  bool InRange(CStateManager&, float) override;
-  bool InMaxRange(CStateManager&, float) override;
-  bool InDetectionRange(CStateManager&, float) override;
-  bool SpotPlayer(CStateManager&, float) override;
-  bool PlayerSpot(CStateManager&, float) override;
-  bool PatternOver(CStateManager&, float) override;
-  bool PatternShagged(CStateManager&, float) override;
-  bool HasAttackPattern(CStateManager&, float) override;
-  bool HasPatrolPath(CStateManager&, float) override;
-  bool HasRetreatPattern(CStateManager&, float) override;
-  bool Delay(CStateManager&, float) override;
-  bool RandomDelay(CStateManager&, float) override;
-  bool FixedDelay(CStateManager&, float) override;
-  bool Default(CStateManager&, float) override;
-  bool AnimOver(CStateManager&, float) override;
-  bool InPosition(CStateManager&, float) override;
-  bool Stuck(CStateManager&, float) override;
-  bool NoPathNodes(CStateManager&, float) override;
-  bool Landed(CStateManager&, float) override;
-  bool PatrolPathOver(CStateManager&, float) override;
-  bool CodeTrigger(CStateManager&, float) override;
-  bool Random(CStateManager&, float) override;
-  bool FixedRandom(CStateManager&, float) override;
+  void Patrol(CStateManager& mgr, EStateMsg msg, float arg) override;
+  void FollowPattern(CStateManager& mgr, EStateMsg msg, float arg) override;
+  void Dead(CStateManager& mgr, EStateMsg msg, float arg) override;
+  void PathFind(CStateManager& mgr, EStateMsg msg, float arg) override;
+  void Start(CStateManager& mgr, EStateMsg msg, float arg) override;
+  void TargetPatrol(CStateManager& mgr, EStateMsg msg, float arg) override;
+  void TargetPlayer(CStateManager& mgr, EStateMsg msg, float arg) override;
+  bool Leash(CStateManager& mgr, float arg) override;
+  bool OffLine(CStateManager& mgr, float arg) override;
+  bool Attacked(CStateManager& mgr, float arg) override;
+  bool PathShagged(CStateManager& mgr, float arg) override;
+  bool PathOver(CStateManager& mgr, float arg) override;
+  bool PathFound(CStateManager& mgr, float arg) override;
+  bool TooClose(CStateManager& mgr, float arg) override;
+  bool InRange(CStateManager& mgr, float arg) override;
+  bool InMaxRange(CStateManager& mgr, float arg) override;
+  bool InDetectionRange(CStateManager& mgr, float arg) override;
+  bool SpotPlayer(CStateManager& mgr, float arg) override;
+  bool PlayerSpot(CStateManager& mgr, float arg) override;
+  bool PatternOver(CStateManager& mgr, float arg) override;
+  bool PatternShagged(CStateManager& mgr, float arg) override;
+  bool HasAttackPattern(CStateManager& mgr, float arg) override;
+  bool HasPatrolPath(CStateManager& mgr, float arg) override;
+  bool HasRetreatPattern(CStateManager& mgr, float arg) override;
+  bool Delay(CStateManager& mgr, float arg) override;
+  bool RandomDelay(CStateManager& mgr, float arg) override;
+  bool FixedDelay(CStateManager& mgr, float arg) override;
+  bool Default(CStateManager& mgr, float arg) override;
+  bool AnimOver(CStateManager& mgr, float arg) override;
+  bool InPosition(CStateManager& mgr, float arg) override;
+  bool Stuck(CStateManager& mgr, float arg) override;
+  bool NoPathNodes(CStateManager& mgr, float arg) override;
+  bool Landed(CStateManager& mgr, float arg) override;
+  bool PatrolPathOver(CStateManager& mgr, float arg) override;
+  bool CodeTrigger(CStateManager& mgr, float arg) override;
+  bool Random(CStateManager& mgr, float arg) override;
+  bool FixedRandom(CStateManager& mgr, float arg) override;
 
   // CPatterned
   virtual void Freeze(CStateManager& mgr, const CVector3f& pos, const CUnitVector3f& dir,
@@ -249,6 +249,8 @@ public:
   TUniqueId GetDestObj() const { return x2dc_destObj; } // TODO: name?
   float GetAverageAttackTime() const { return x304_averageAttackTime; }
   float GetAttackTimeVariation() const { return x308_attackTimeVariation; }
+  const bool GetVerticalMovement() const { return x328_25_verticalMovement; }
+  void SetVerticalMovement(const bool v) { x328_25_verticalMovement = v; }
   EAnimState GetAnimationState() const { return x32c_animState; }
   void SetAnimationState(const EAnimState state) { x32c_animState = state; }
   float GetStateMachineTime() const { return GetStateMachineState().GetTime(); }
@@ -279,9 +281,10 @@ public:
   void TryCommand(CStateManager& mgr, int state, FTryCommandCallback cb, int arg);
 
   void SetupPlayerCollision(const bool startsHidden);
-  
+
   void ApproachDest(CStateManager& mgr);
   void SetDestPos(const CVector3f& pos);
+
 protected:
   EPatrolState x2d8_patrolState;
   TUniqueId x2dc_destObj;

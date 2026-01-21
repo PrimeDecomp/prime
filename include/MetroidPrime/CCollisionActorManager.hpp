@@ -32,9 +32,9 @@ public:
 
   uint GetNumCollisionActors() const { return x0_jointDescriptions.size(); }
   rstl::optional_object< CVector3f > GetDeviation(const CStateManager& mgr, CSegId seg);
-  const CJointCollisionDescription& GetCollisionDescFromIndex(uint i) const {
+  const CJointCollisionDescription& GetCollisionDescFromIndex(uint i) const; /*{
     return x0_jointDescriptions[i];
-  }
+  }*/
 
   static CTransform4f GetWRLocatorTransform(const CAnimData& animData, CSegId id,
                                             const CTransform4f& worldXf,

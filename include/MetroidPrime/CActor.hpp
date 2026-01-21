@@ -89,9 +89,10 @@ public:
 
   CAdvancementDeltas UpdateAnimation(float dt, CStateManager& mgr, bool advTree);
 
-  void ProcessSoundEvent(int sfxId, float weight, int flags, float fallOff, float maxDist,
-                         uchar minVol, uchar maxVol, const CVector3f& toListener,
-                         const CVector3f& position, int aid, CStateManager& mgr, bool translateId);
+  void ProcessSoundEvent(const int sfxId, const float weight, const int flags, const float fallOff,
+                         const float maxDist, const uchar minVol, const uchar maxVol,
+                         const CVector3f& toListener, const CVector3f& position, const int aid,
+                         CStateManager& mgr, const bool translateId);
 
   void UpdateSfxEmitters();
   void RemoveEmitter();
