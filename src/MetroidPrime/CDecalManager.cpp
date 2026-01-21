@@ -30,7 +30,7 @@ void CDecalManager::ShutDown() {
 }
 
 void CDecalManager::Reinitialize() {
-  if (!mbPoolInitialized) {
+  if (!mbPoolInitialized) { 
     Initialize();
   }
   

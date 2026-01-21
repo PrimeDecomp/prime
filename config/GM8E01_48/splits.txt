@@ -16,6 +16,97 @@ Sections:
 MetroTRK/mslsupp.c:
 	.text       start:0x80003640 end:0x80003658
 
+Kyoto/Particles/CParticleGen.cpp:
+	.text       start:0x8032A740 end:0x8032A7EC
+	.rodata     start:0x803D7A30 end:0x803D7A38
+
+Kyoto/Particles/CParticleGlobals.cpp:
+	.text       start:0x8032A7EC end:0x8032A918
+	.sbss       start:0x805A9170 end:0x805A9198
+	.sdata2     start:0x805AE470 end:0x805AE488
+
+Kyoto/Particles/CParticleSwoosh.cpp:
+	.text       start:0x8032A918 end:0x8032FAD4
+	.rodata     start:0x803D7A38 end:0x803D7A80
+	.data       start:0x803EDE80 end:0x803EDEF8
+	.sdata      start:0x805A85B8 end:0x805A85C0
+	.sbss       start:0x805A9198 end:0x805A91A0
+	.sdata2     start:0x805AE488 end:0x805AE510
+
+Kyoto/Particles/CParticleSwooshDataFactory.cpp:
+	.text       start:0x8032FAD4 end:0x803302F4
+	.rodata     start:0x803D7A80 end:0x803D7A88
+	.data       start:0x803EDEF8 end:0x803EDF08
+
+Kyoto/Particles/CRealElement.cpp:
+	.text       start:0x803302F4 end:0x803335D8
+	.data       start:0x803EDF08 end:0x803EE218
+	.sdata      start:0x805A85C0 end:0x805A85C8
+	.sdata2     start:0x805AE510 end:0x805AE538
+
+Kyoto/Particles/CSpawnSystemKeyframeData.cpp:
+	.text       start:0x803335D8 end:0x80334118
+	.rodata     start:0x803D7A88 end:0x803D7A90
+	.bss        start:0x804BFBF0 end:0x804BFC10
+	.sbss       start:0x805A91A0 end:0x805A91B8
+
+Kyoto/Particles/CUVElement.cpp:
+	.text       start:0x80334118 end:0x803349E8
+	.rodata     start:0x803D7A90 end:0x803D7A98
+	.data       start:0x803EE218 end:0x803EE250
+	.sdata      start:0x805A85C8 end:0x805A85D8
+	.sdata2     start:0x805AE538 end:0x805AE548
+
+Kyoto/Particles/CVectorElement.cpp:
+	.text       start:0x803349E8 end:0x80337134
+	.data       start:0x803EE250 end:0x803EE3F8
+	.sdata      start:0x805A85D8 end:0x805A85E0
+	.sdata2     start:0x805AE548 end:0x805AE578
+
+Kyoto/Particles/CWarp.cpp:
+	.text       start:0x80337134 end:0x8033717C
+	.data       start:0x803EE3F8 end:0x803EE418
+
+Kyoto/Math/CPlane.cpp:
+	.text       start:0x8033717C end:0x803372F8
+	.sdata2     start:0x805AE578 end:0x805AE580
+
+Kyoto/Math/CSphere.cpp:
+	.text       start:0x803372F8 end:0x8033734C
+
+Kyoto/Math/CAABox.cpp:
+	.text       start:0x8033734C end:0x8033873C
+	.ctors      start:0x803CB43C end:0x803CB440
+	.data       start:0x803EE418 end:0x803EE468
+	.bss        start:0x805A6434 end:0x805A647C align:4 common
+	.sdata2     start:0x805AE580 end:0x805AE598
+	.sbss2      start:0x805AF188 end:0x805AF190
+
+Kyoto/CFactoryMgr.cpp:
+	.text       start:0x8033873C end:0x80339618
+	.rodata     start:0x803D7A98 end:0x803D7B38
+	.sdata      start:0x805A85E0 end:0x805A85E8
+
+Kyoto/CResFactory.cpp:
+	.text       start:0x80339618 end:0x8033AE20
+	.rodata     start:0x803D7B38 end:0x803D7B48
+	.data       start:0x803EE468 end:0x803EE488
+	.sdata2     start:0x805AE598 end:0x805AE5A0
+
+Kyoto/CResLoader.cpp:
+	.text       start:0x8033AE20 end:0x8033C750
+	.rodata     start:0x803D7B48 end:0x803D7B58
+	.sbss2      start:0x805AF190 end:0x805AF1A8
+
+Kyoto/rstl/rstl_map.cpp:
+	.text       start:0x8033C750 end:0x8033CE3C
+
+Kyoto/rstl/rstl_strings.cpp:
+	.text       start:0x8033CE3C end:0x8033E5A0
+	.ctors      start:0x803CB440 end:0x803CB444
+	.rodata     start:0x803D7B58 end:0x803D7B60
+	.sbss       start:0x805A91B8 end:0x805A91C8
+
 Kyoto/rstl/RstlExtras.cpp:
 	.text       start:0x8033E5A0 end:0x8033ED98
 	.ctors      start:0x803CB444 end:0x803CB448
