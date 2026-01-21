@@ -41,6 +41,7 @@ public:
     uint GetNextMaskedFlags();
     void SetTopOfHeapAllocated(bool topOfHeap);
     size_t GetLength() const { return x4_len; }
+    void SetLength(size_t len) { x4_len = len; }
     SGameMemInfo* GetNextFree() const { return (SGameMemInfo*)((size_t)x18_nextFree & ~31); }
     void SetNextFree(SGameMemInfo* info) {
       void* ptr = x18_nextFree;
@@ -49,6 +50,10 @@ public:
     }
 
     bool IsAllocated() const { return ((size_t)x10_prev) & 1; }
+    void SetNotAllocated() {
+      void* ptr = x10_prev;
+      x10_prev = (SGameMemInfo*)((size_t)ptr & ~1);
+    }
 
     bool IsPostGuardIntact() const { return x1c_postGuard == 0xeaeaeaea; }
     bool IsPriorGuardIntact() const { return x0_priorGuard == 0xefefefef; }

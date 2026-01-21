@@ -1,3 +1,4 @@
+#include "stddef.h"
 #include <Kyoto/Alloc/CGameAllocator.hpp>
 
 #include <Kyoto/Alloc/CCallStack.hpp>
@@ -245,7 +246,56 @@ bool CGameAllocator::Free(const void* ptr) {
   return FreeNormalAllocation(ptr);
 }
 
-bool CGameAllocator::FreeNormalAllocation(const void*) { return true; };
+bool CGameAllocator::FreeNormalAllocation(const void* ptr) {
+  SGameMemInfo* info = GetMemInfoFromBlockPtr(ptr);
+  size_t infoLen = info->GetLength();
+  SGameMemInfo* k = info->GetNext();
+  size_t len = 0;
+  if (k) {
+    len = (size_t)k - (size_t)info - sizeof(SGameMemInfo);
+  }
+  info->SetLength(len);
+
+  SGameMemInfo* prev = info->GetPrev();
+  SGameMemInfo* next = info->GetNext();
+  size_t newLen = 0;
+
+  if (prev && !prev->IsAllocated()) {
+    RemoveFreeEntryFromFreeList(prev);
+    prev->SetNext(next);
+    if (next) {
+      next->SetPrev(prev);
+    }
+    newLen = sizeof(SGameMemInfo);
+    prev->SetLength(prev->GetLength() + sizeof(SGameMemInfo) + info->GetLength());
+  }
+
+  if (next) {
+    if (!next->IsAllocated()) {
+      if (next->GetNext()) {
+        RemoveFreeEntryFromFreeList(next);
+        info->SetNext(next->GetNext());
+        if (info->GetNext()) {
+          info->GetNext()->SetPrev(info);
+        }
+        newLen += sizeof(SGameMemInfo);
+        info->SetLength(next->GetLength() + info->GetLength() + sizeof(SGameMemInfo));
+      }
+    }
+  }
+  info->SetNotAllocated();
+  AddFreeEntryToFreeList(info);
+
+  x84_ -= 1;
+  x88_ -= infoLen;
+  x8c_ -= (len + newLen);
+  x90_heapSize2 += (len + newLen);
+  if (infoLen <= 0x39) {
+    xa8_ -= 1;
+  }
+  
+  return true;
+};
 
 void CGameAllocator::ReleaseAll() {
   if (x74_mediumPool) {
