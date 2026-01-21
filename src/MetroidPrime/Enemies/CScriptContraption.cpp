@@ -75,6 +75,8 @@ void CScriptContraption::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid
       }
     }
   } break;
+  default:
+    break;
   }
 
   CScriptActor::AcceptScriptMsg(msg, uid, mgr);

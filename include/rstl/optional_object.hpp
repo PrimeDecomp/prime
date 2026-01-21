@@ -22,12 +22,13 @@ public:
   ~optional_object() { clear(); }
 
   optional_object& operator=(const optional_object& other) {
-    if (this != &other) {
-      if (other.m_valid) {
-        assign(other.data());
-      } else {
-        clear();
-      }
+    if (this == &other) {
+      return *this;
+    }
+    if (other.m_valid) {
+      assign(other.data());
+    } else {
+      clear();
     }
     return *this;
   }
