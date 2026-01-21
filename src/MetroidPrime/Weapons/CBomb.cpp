@@ -10,6 +10,7 @@
 #include "MetroidPrime/SFX/Weapons.h"
 #include "MetroidPrime/TGameTypes.hpp"
 #include "MetroidPrime/Weapons/CWeapon.hpp"
+#include "rstl/math.hpp"
 
 #include <Kyoto/Audio/CSfxManager.hpp>
 #include <Kyoto/Math/CFrustumPlanes.hpp>
@@ -30,7 +31,7 @@ CBomb::CBomb(const TToken< CGenDescription >& particle1, const TToken< CGenDescr
 , mParticle1(rs_new CElementGen(particle1))
 , mParticle2(rs_new CElementGen(particle2))
 , mLightId(kInvalidUniqueId)
-, mParticle2Ptr(TToken< CGenDescription >(particle2).GetTag().GetId())
+, mParticle2Ptr(CToken(particle2).GetTag().GetId())
 , mIsNotDetonated(true)
 , mBeingDragged(false)
 , mDisableFuse(false) {
@@ -73,7 +74,7 @@ void CBomb::AddToRenderer(const CFrustumPlanes& frustum, const CStateManager& mg
   }
 }
 
-void CBomb::fn_80090450() {}
+void CBomb::Render(const CStateManager& mgr) const {  }
 
 // Equivelant, https://decomp.me/scratch/cr4FM
 void CBomb::Think(float dt, CStateManager& mgr) {
@@ -133,4 +134,58 @@ void CBomb::Think(float dt, CStateManager& mgr) {
 
   mParticle1->SetGlobalTranslation(GetTranslation());
   mParticle2->SetGlobalTranslation(GetTranslation());
+}
+
+void CBomb::Accept(IVisitor& visitor) { visitor.Visit(*this); }
+
+void CBomb::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId sender, CStateManager& mgr) {
+  switch (msg) {
+  case kSM_Registered: {
+    if (mParticle2->SystemHasLight()) {
+      mLightId = mgr.AllocateUniqueId();
+      const int sourceId = mParticle2Ptr;
+      mgr.AddObject(rs_new CGameLight(
+          mLightId, GetCurrentAreaId(), false, rstl::string_l("Bomb_PLight") + GetDebugName(),
+          GetTransform(), GetUniqueId(), mParticle2->GetLight(), sourceId, 1, 0.f));
+    }
+    mgr.AddWeaponId(GetOwnerId(), GetType());
+    CSfxManager::AddEmitter(SFXsam_a_bombset_00, GetTranslation(), CVector3f::Zero(), true);
+    mgr.InformListeners(GetTranslation(), kLNT_BombExplode);
+  } break;
+  case kSM_Deleted: {
+    if (mLightId != kInvalidUniqueId) {
+      mgr.DeleteObjectRequest(mLightId);
+    }
+
+    if (mIsNotDetonated) {
+      mgr.RemoveWeaponId(GetOwnerId(), GetType());
+    }
+  } break;
+  default:
+    break;
+  }
+
+  CActor::AcceptScriptMsg(msg, sender, mgr);
+}
+
+rstl::optional_object< CAABox > CBomb::GetTouchBounds() const {
+  float radius = mIsNotDetonated ? 0.2f : x12c_curDamageInfo.GetRadius();
+  return CAABox(rstl::min_val(mPrevLocation.GetX(), GetTranslation().GetX()) - radius,
+                rstl::min_val(mPrevLocation.GetY(), GetTranslation().GetY()) - radius,
+                rstl::min_val(mPrevLocation.GetZ(), GetTranslation().GetZ()) - radius,
+                rstl::max_val(mPrevLocation.GetX(), GetTranslation().GetX()) + radius,
+                rstl::max_val(mPrevLocation.GetY(), GetTranslation().GetY()) + radius,
+                rstl::max_val(mPrevLocation.GetZ(), GetTranslation().GetZ()) + radius);
+}
+
+void CBomb::UpdateLight(float dt, CStateManager& mgr) {
+  mParticle2->Update(dt);
+  if (mLightId == kInvalidUniqueId) {
+    return;
+  }
+
+  CGameLight* light = TCastToPtr< CGameLight >(mgr.ObjectById(mLightId));
+  if (light && GetActive()) {
+    light->SetLight(mParticle2->GetLight());
+  }
 }

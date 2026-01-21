@@ -17,7 +17,7 @@ public:
   void Explode(const CVector3f& pos, CStateManager& mgr);
   void Touch(CActor& actor, CStateManager& mgr) override;
   void AddToRenderer(const CFrustumPlanes& frustum, const CStateManager& mgr) const override;
-  void fn_80090450();
+  void Render(const CStateManager& mgr) const override;
   void Think(float dt, CStateManager& mgr) override;
   void Accept(IVisitor& visitor) override;
   void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId sender, CStateManager& mgr) override;
