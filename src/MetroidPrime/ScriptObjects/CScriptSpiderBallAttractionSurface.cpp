@@ -8,7 +8,7 @@ CScriptSpiderBallAttractionSurface::CScriptSpiderBallAttractionSurface(
 : CActor(uid, active, name, info, xf, CModelData::CModelDataNull(), CMaterialList(kMT_NoStepLogic),
          CActorParameters::None(), kInvalidUniqueId)
 , xe8_scale(scale)
-, xf4_aabb(CAABox(-CVector3f(scale.GetX() * 0.5f, scale.GetY() * 0.5f, scale.GetZ() * 0.5f),
+, xf4_aabb(CAABox(CVector3f(-(scale.GetX() * 0.5f), -(scale.GetY() * 0.5f), -(scale.GetZ() * 0.5f)),
                   CVector3f(scale.GetX() * 0.5f, scale.GetY() * 0.5f, scale.GetZ() * 0.5f))
                .GetTransformedAABox(xf.GetRotation())) {}
 
