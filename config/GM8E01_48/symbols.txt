@@ -19644,6 +19644,7 @@ lbl_805A6AC0 = .sdata:0x805A6AC0; // type:object size:0x4 align:4 data:float
 lbl_805A6AC4 = .sdata:0x805A6AC4; // type:object size:0x4 data:4byte
 lbl_805A6AC8 = .sdata:0x805A6AC8; // type:object size:0x4 data:4byte
 lbl_805A6ACC = .sdata:0x805A6ACC; // type:object size:0x2 data:2byte
+lbl_805A6ACE = .sdata:0x805A6ACE; // type:object size:0x2
 lbl_805A6AD0 = .sdata:0x805A6AD0; // type:object size:0x8 data:2byte
 lbl_805A6AD8 = .sdata:0x805A6AD8; // type:object size:0x8 data:2byte
 lbl_805A6AE0 = .sdata:0x805A6AE0; // type:object size:0x8
