@@ -72,12 +72,13 @@ bool CGameAllocator::Initialize(COsContext& ctx) {
   OSGetArenaLo();
   x10_last = &xc_first[-1] + x8_heapSize;
 
-  *xc_first = SGameMemInfo(nullptr, x10_last, x10_last, x8_heapSize - sizeof(SGameMemInfo) * 2, "MemHead", "MemHead");
+  *xc_first = SGameMemInfo(nullptr, x10_last, x10_last, x8_heapSize - sizeof(SGameMemInfo) * 2,
+                           "MemHead", "MemHead");
   *x10_last = SGameMemInfo(xc_first, nullptr, nullptr, 0, "MemTail", "MemTail");
   for (uint i = 0; i < 16; i++) {
     x14_bins[i] = nullptr;
   }
-  
+
   AddFreeEntryToFreeList(xc_first);
   x80_ = 0;
   x84_ = 0;
@@ -223,7 +224,53 @@ void* CGameAllocator::Alloc(size_t size, EHint hint, EScope scope, EType type,
   return ++info;
 }
 
-CGameAllocator::SGameMemInfo* CGameAllocator::FindFreeBlock(uint) { return nullptr; }
+CGameAllocator::SGameMemInfo* CGameAllocator::FindFreeBlock(uint len) {
+  CGameAllocator::SGameMemInfo* ret = nullptr;
+  uint binIndex = GetFreeBinEntryForSize(len);
+
+  CGameAllocator::SGameMemInfo* previous = NULL;
+  uint chosenBin = 0;
+  uint bestDelta = 0x10000000;
+
+  while (binIndex < 16 && !ret) {
+    CGameAllocator::SGameMemInfo* fromBin = x14_bins[binIndex];
+    CGameAllocator::SGameMemInfo* pSVar7 = NULL;
+    uint candidateDelta;
+
+    while (true) {
+      CGameAllocator::SGameMemInfo* candidate = fromBin;
+      candidateDelta = bestDelta;
+      if (candidate == NULL)
+        break;
+
+      if (!candidate->IsAllocated() && (candidate->GetLength() >= len)) {
+        candidateDelta = candidate->GetLength() - len;
+        if (candidateDelta < bestDelta && candidate->GetNext()) {
+          chosenBin = binIndex;
+          previous = pSVar7;
+          bestDelta = candidateDelta;
+          ret = candidate;
+          if (candidateDelta < 0x20) {
+            break;
+          }
+        }
+      }
+      fromBin = candidate->GetNextFree();
+      pSVar7 = candidate;
+    }
+    binIndex += 1;
+    bestDelta = candidateDelta;
+  }
+
+  if (ret) {
+    if (previous == NULL) {
+      x14_bins[chosenBin] = ret->GetNextFree();
+    } else {
+      previous->SetNextFree(ret->GetNextFree());
+    }
+  }
+  return ret;
+}
 
 CGameAllocator::SGameMemInfo* CGameAllocator::FindFreeBlockFromTopOfHeap(uint size) {
   SGameMemInfo* iter = x10_last;
