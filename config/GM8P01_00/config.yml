@@ -1,0 +1,29 @@
+object_base: orig/GM8P01_00
+object: sys/main.dol
+hash: 4d3780c77842ae7fddbdd5732b70bed100df5c65
+
+symbols: config/GM8P01_00/symbols.txt
+splits: config/GM8P01_00/splits.txt
+mw_comment_version: 8
+quick_analysis: true # Faster reruns after full analysis
+fill_gaps: true # Alignments known
+
+
+# Extract embedded assets
+#extract:
+#  - symbol: sDefaultFontData
+#    binary: MetroidPrime/DefaultFontData.bin
+#    header: MetroidPrime/DefaultFontData.inc
+#  - symbol: sDefaultFontTexture
+#    binary: MetroidPrime/DefaultFontTexture.bin
+#    header: MetroidPrime/DefaultFontTexture.inc
+
+modules:
+  #- object: files/NESPAL60emuP.rel
+  #  hash: c290bb574ed267dafe9bf10423a60124927e1515
+  #  symbols: config/GM8P01_00/NESPAL60emu/symbols.txt
+  #  splits: config/GM8P01_00/NESPAL60emu/splits.txt
+  - object: files/NESPALemuP.rel
+    hash: a2ecd07b77655ee7f9a91c60d8b172727cba3fc5
+    symbols: config/GM8P01_00/NESPALemuP/symbols.txt
+    splits: config/GM8P01_00/NESPALemuP/splits.txt

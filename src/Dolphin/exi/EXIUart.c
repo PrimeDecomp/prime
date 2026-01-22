@@ -117,6 +117,9 @@ static int QueueLength(void) {
 
 u32 WriteUARTN(const void* buf, unsigned long len) {
   u32 cmd;
+#if VERSION >= 3
+  s32 enabled;
+#endif
   int qLen;
   long xLen;
   char* ptr;
@@ -126,8 +129,14 @@ u32 WriteUARTN(const void* buf, unsigned long len) {
   if (Enabled != EXI_MAGIC)
     return 2;
 
+#if VERSION >= 3
+  enabled = OSDisableInterrupts();
+#endif
   locked = EXILock(Chan, Dev, 0);
   if (!locked) {
+#if VERSION >= 2
+    OSRestoreInterrupts(enabled);
+#endif
     return 0;
   }
 
@@ -170,5 +179,8 @@ u32 WriteUARTN(const void* buf, unsigned long len) {
   }
 
   EXIUnlock(Chan);
+#if VERSION >= 3
+  OSRestoreInterrupts(enabled);
+#endif
   return error;
 }

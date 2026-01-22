@@ -22,7 +22,11 @@ BOOL OnReset(BOOL f);
 static OSResetFunctionInfo ResetFunctionInfo = {OnReset, 127};
 
 void __CARDDefaultApiCallback(s32 chan, s32 result) {}
+void __CARDSyncCallback(s32 chan) {
+  CARDControl* card = &__CARDBlock[chan];
 
+  OSWakeupThread(&card->threadQueue);
+}
 void __CARDExtHandler(s32 chan, OSContext* context) {
   CARDControl* card;
   CARDCallback callback;
@@ -331,7 +335,7 @@ static s32 __CARDStart(s32 chan, CARDCallback txCallback, CARDCallback exiCallba
 #define AD1EX(x) ((u8)(AD1(x) | 0x80));
 #define AD2(x) ((u8)(((x) >> 9) & 0xff))
 #define AD3(x) ((u8)(((x) >> 7) & 0x03))
-#define BA(x) ((u8)((x)&0x7f))
+#define BA(x) ((u8)((x) & 0x7f))
 
 s32 __CARDReadSegment(s32 chan, CARDCallback callback) {
   CARDControl* card;
@@ -541,6 +545,58 @@ s32 CARDFreeBlocks(s32 chan, s32* byteNotUsed, s32* filesNotUsed) {
   }
 
   return __CARDPutControlBlock(card, CARD_RESULT_READY);
+}
+
+s32 CARDGetEncoding(s32 chan, u16 * encode) {
+  CARDControl * card;
+  CARDID * id;
+  s32 result;
+
+  result = __CARDGetControlBlock(chan, &card);
+  if (result < 0) {
+    return result;
+  }
+  id = card->workArea;
+  *encode = id->encode;
+  return __CARDPutControlBlock(card, 0);
+}
+
+s32 CARDGetMemSize(s32 chan, u16* size) {
+  CARDControl* card;
+  s32 result;
+
+  result = __CARDGetControlBlock(chan, &card);
+  if (result < 0) {
+    return result;
+  }
+  *size = card->size;
+  return __CARDPutControlBlock(card, 0);
+}
+
+s32 CARDGetSectorSize(s32 chan, u32* size) {
+  CARDControl* card;
+  s32 result;
+
+  result = __CARDGetControlBlock(chan, &card);
+  if (result < 0) {
+    return result;
+  }
+  *size = card->sectorSize;
+  return __CARDPutControlBlock(card, 0);
+}
+
+s32 __CARDSync(s32 chan) {
+  CARDControl* card;
+  s32 result;
+  s32 enabled;
+
+  card = &__CARDBlock[chan];
+  enabled = OSDisableInterrupts();
+  while ((result = CARDGetResultCode(chan)) == -1) {
+    OSSleepThread(&card->threadQueue);
+  }
+  OSRestoreInterrupts(enabled);
+  return result;
 }
 
 static BOOL OnReset(BOOL f) {

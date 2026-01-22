@@ -1,0 +1,86 @@
+Sections:
+	.init       type:code align:4
+	extab       type:rodata align:32
+	extabindex  type:rodata align:32
+	.text       type:code align:32
+	.ctors      type:rodata align:32
+	.dtors      type:rodata align:32
+	.rodata     type:rodata align:32
+	.data       type:data align:16
+	.bss        type:bss align:32
+	.sdata      type:data align:32
+	.sbss       type:bss align:32
+	.sdata2     type:rodata align:8
+	.sbss2      type:bss align:32
+
+Runtime/__va_arg.c:
+	.text       start:0x803735C4 end:0x8037368C
+
+Runtime/global_destructor_chain.c:
+	.text       start:0x8037368C end:0x803736EC
+	.dtors      start:0x803B5168 end:0x803B516C
+	.sbss       start:0x8046BAF0 end:0x8046BAF8
+
+Runtime/CPlusLibPPC.cpp:
+	.text       start:0x803736EC end:0x803736EC
+
+Runtime/NMWException.cpp:
+	extab       start:0x800035A0 end:0x800035C8
+	extabindex  start:0x800035E0 end:0x80003604
+	.text       start:0x803736EC end:0x80373914
+
+Runtime/ptmf.c:
+	.text       start:0x80373914 end:0x8037396C
+	.rodata     start:0x803C3A30 end:0x803C3A40
+
+Dolphin/card/CARDBios.c:
+	.text       start:0x803A1E8C end:0x803A3170
+	.data       start:0x803DEB30 end:0x803DEB88
+	.bss        start:0x8042BAF8 end:0x8042BD38
+	.sdata      start:0x8046ACE0 end:0x8046ACE8
+	.sbss       start:0x8046BD08 end:0x8046BD10
+
+Dolphin/exi/EXIUart.c:
+	.text       start:0x803AB698 end:0x803AB924
+	.sbss       start:0x8046BD30 end:0x8046BD40
+
+Dolphin/thp/THPDec.c:
+	.text       start:0x803AB924 end:0x803B2E8C
+	.rodata     start:0x803C4168 end:0x803C41F8
+	.data       start:0x803DF000 end:0x803DF040
+	.bss        start:0x8042C000 end:0x8042C140
+	.sdata      start:0x8046AD08 end:0x8046AD0C
+	.sbss       start:0x8046BD40 end:0x8046BE58
+	.sdata2     start:0x804716B0 end:0x804716CC
+
+Dolphin/thp/THPAudio.c:
+	.text       start:0x803B2E8C end:0x803B33BC
+
+Dolphin/GBA/GBA.c:
+	.text       start:0x803B33BC end:0x803B36AC
+	.data       start:0x803DF040 end:0x803DF050
+	.bss        start:0x8042C140 end:0x8042C640
+	.sbss       start:0x8046BE58 end:0x8046BE5C
+
+Dolphin/GBA/GBAGetProcessStatus.c:
+	.text       start:0x803B36AC end:0x803B3820
+
+Dolphin/GBA/GBAJoyBoot.c:
+	.text       start:0x803B3820 end:0x803B46E4
+	.data       start:0x803DF050 end:0x803DF080
+
+Dolphin/GBA/GBARead.c:
+	.text       start:0x803B46E4 end:0x803B4844
+
+Dolphin/GBA/GBAWrite.c:
+	.text       start:0x803B4844 end:0x803B49CC
+
+Dolphin/GBA/GBAXfer.c:
+	.text       start:0x803B49CC end:0x803B4D04
+
+Dolphin/GBA/GBAKey.c:
+	.text       start:0x803B4D04 end:0x803B4F6C
+	.data       start:0x803DF080 end:0x803DF426
+
+Runtime/__mem.c:
+	.init       start:0x800033A8 end:0x800034E0
