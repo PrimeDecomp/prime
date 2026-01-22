@@ -357,9 +357,10 @@ CEntity* ScriptLoader::LoadDock(CStateManager& mgr, CInputStream& in, int propCo
 
 static CAABox GetCollisionBox(CStateManager& stateMgr, TAreaId id, const CVector3f& extent,
                               const CVector3f& offset) {
-  CAABox box(-extent * 0.5f + offset, extent * 0.5f + offset);
-  const CTransform4f& rot = stateMgr.GetWorld()->GetAreaAlways(id).GetTM().GetRotation();
-  return box.GetTransformedAABox(rot);
+  const CAABox box(0.5f * -extent.GetX() + offset.GetX(), 0.5f * -extent.GetY() + offset.GetY(),
+             0.5f * -extent.GetZ() + offset.GetZ(), 0.5f * extent.GetX() + offset.GetX(),
+             0.5f * extent.GetY() + offset.GetY(), 0.5f * extent.GetZ() + offset.GetZ());
+  return box.GetTransformedAABox(stateMgr.GetWorld()->GetAreaAlways(id).GetTM().GetRotation());
 }
 
 CEntity* ScriptLoader::LoadActor(CStateManager& mgr, CInputStream& in, int propCount,

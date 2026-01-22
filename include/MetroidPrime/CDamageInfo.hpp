@@ -10,24 +10,17 @@ struct SShotParam;
 class CDamageVulnerability;
 
 class CDamageInfo {
-  CWeaponMode x0_weaponMode;
-  float x8_damage;
-  float xc_radiusDamage;
-  float x10_radius;
-  float x14_knockback;
-  bool x18_24_noImmunity : 1;
-
 public:
   CDamageInfo()
-  : x0_weaponMode()
+  : x0_weaponMode(CWeaponMode::Invalid())
   , x8_damage(0.f)
   , xc_radiusDamage(0.f)
   , x10_radius(0.f)
   , x14_knockback(0.f)
   , x18_24_noImmunity(false) {}
 
-  CDamageInfo(const CWeaponMode& mode, const float damage, const float radius, const float knockback,
-              const bool noImmunity = false)
+  CDamageInfo(const CWeaponMode& mode, const float damage, const float radius,
+              const float knockback, const bool noImmunity = false)
   : x0_weaponMode(mode)
   , x8_damage(damage)
   , xc_radiusDamage(x8_damage)
@@ -77,8 +70,16 @@ public:
     x10_radius *= m;
     x14_knockback *= m;
   }
-  
+
   CDamageInfo MakeScaledForTime(const float dt) const;
+
+private:
+  CWeaponMode x0_weaponMode;
+  float x8_damage;
+  float xc_radiusDamage;
+  float x10_radius;
+  float x14_knockback;
+  bool x18_24_noImmunity : 1;
 };
 
 #endif // _CDAMAGEINFO

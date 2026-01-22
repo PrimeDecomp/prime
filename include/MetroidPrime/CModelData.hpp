@@ -70,7 +70,6 @@ public:
   CModelData();
   CModelData(const CAnimRes&);
   CModelData(const CStaticRes&);
-  //CModelData(const CModelData& other);
   ~CModelData();
 
   CAdvancementDeltas AdvanceAnimation(float dt, CStateManager& mgr, TAreaId aid, bool advTree);

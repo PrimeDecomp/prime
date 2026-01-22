@@ -24,6 +24,7 @@
 
 #include "rstl/math.hpp"
 
+#pragma inline_max_size(250)
 static CMaterialList MakeActorMaterialList(const CMaterialList& in,
                                            const CActorParameters& params) {
   CMaterialList ret = in;

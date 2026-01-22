@@ -24,12 +24,13 @@ template < typename I1, typename I2 >
 inline void iter_swap(I1 a, I2 b) {
   swap(*a, *b);
 }
+template < class T, class Cmp >
+void __sort3(T& a, T& b, T& c, Cmp comp); // TODO
 
 template < typename It, class Cmp >
 void __insertion_sort(It first, It last, Cmp cmp);
 
-template < class T, class Cmp >
-void __sort3(T& a, T& b, T& c, Cmp comp); // TODO
+
 
 template < typename It, class Cmp >
 void sort(It first, It last, Cmp cmp); // TODO

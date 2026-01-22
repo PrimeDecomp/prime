@@ -3,7 +3,8 @@
 #include "Kyoto/Streams/CInputStream.hpp"
 #include "MetroidPrime/CDamageVulnerability.hpp"
 
-CDamageInfo::CDamageInfo(CInputStream& in) : x18_24_noImmunity(false) {
+CDamageInfo::CDamageInfo(CInputStream& in)
+: x0_weaponMode(CWeaponMode::Invalid()), x18_24_noImmunity(false) {
   in.ReadLong();
   x0_weaponMode = CWeaponMode(EWeaponType(in.ReadLong()));
   x8_damage = in.ReadFloat();
@@ -61,6 +62,5 @@ CDamageInfo::CDamageInfo(const CDamageInfo& other, float dt)
 , x18_24_noImmunity(true) {}
 
 CDamageInfo CDamageInfo::MakeScaledForTime(const float dt) const {
-  return CDamageInfo(x0_weaponMode, x8_damage * (60.f * dt), x10_radius,
-                     x14_knockback, true);
+  return CDamageInfo(x0_weaponMode, x8_damage * (60.f * dt), x10_radius, x14_knockback, true);
 }
