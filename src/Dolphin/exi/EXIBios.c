@@ -3,8 +3,13 @@
 
 #pragma scheduling off
 
+#if VERSION < 3
 static const char* __EXIVersion =
     "<< Dolphin SDK - EXI\trelease build: Sep  5 2002 05:33:04 (0x2301) >>";
+#else
+static const char* __EXIVersion =
+    "<< Dolphin SDK - EXI\trelease build: Nov 11 2002 05:21:45 (0x2301) >>";
+#endif
 
 #define MAX_DEV 3
 #define MAX_CHAN 3
@@ -44,6 +49,7 @@ typedef struct EXIControl {
 } EXIControl;
 
 static EXIControl Ecb[MAX_CHAN];
+static u32 IDSerialPort1 = 0;
 
 s32 __EXIProbeStartTime[2] : (OS_BASE_CACHED | 0x30C0);
 
@@ -194,7 +200,11 @@ BOOL EXISync(s32 chan) {
       enabled = OSDisableInterrupts();
       if (exi->state & STATE_SELECTED) {
         CompleteTransfer(chan);
-        if (__OSGetDIConfig() != 0xff || exi->immLen != 4 ||
+        if (__OSGetDIConfig() != 0xff
+#if VERSION >= 3
+          || (OSGetConsoleType() & OS_CONSOLE_MASK) == OS_CONSOLE_TDEV
+#endif
+          || exi->immLen != 4 ||
             (REG(chan, 0) & 0x00000070) != (EXI_FREQ_1M << 4) ||
             (REG(chan, 4) != EXI_USB_ADAPTER && REG(chan, 4) != EXI_IS_VIEWER &&
              REG(chan, 4) != 0x04220001) ||
@@ -511,7 +521,12 @@ static void EXTIntrruptHandler(__OSInterrupt interrupt, OSContext* context) {
 }
 
 void EXIInit(void) {
+  
+#if VERSION <= 2
   OSRegisterVersion(__EXIVersion);
+#else
+  while (((REG(0, 3) & 1) == 1) || ((REG(1, 3) & 1) == 1) || ((REG(2, 3) & 1) == 1)) {}
+#endif
 
   __OSMaskInterrupts(OS_INTERRUPTMASK_EXI_0_EXI | OS_INTERRUPTMASK_EXI_0_TC |
                      OS_INTERRUPTMASK_EXI_0_EXT | OS_INTERRUPTMASK_EXI_1_EXI |
@@ -539,6 +554,11 @@ void EXIInit(void) {
     __EXIProbe(0);
     __EXIProbe(1);
   }
+  
+#if VERSION >= 3
+  EXIGetID(0, 2, &IDSerialPort1);
+  OSRegisterVersion(__EXIVersion);
+#endif
 }
 
 BOOL EXILock(s32 chan, u32 dev, EXICallback unlockedCallback) {
@@ -614,6 +634,13 @@ s32 EXIGetID(s32 chan, u32 dev, u32* id) {
   u32 cmd;
   s32 startTime;
   BOOL enabled;
+  
+#if VERSION >= 3
+  if (chan == 0 && dev == 2 && IDSerialPort1 != 0) {
+    *id = IDSerialPort1;
+    return 1;
+  }
+#endif
 
   if (chan < 2 && dev == 0) {
     if (!__EXIProbe(chan)) {
@@ -632,6 +659,9 @@ s32 EXIGetID(s32 chan, u32 dev, u32* id) {
     startTime = __EXIProbeStartTime[chan];
   }
 
+#if VERSION >= 3
+  enabled = OSDisableInterrupts();
+#endif
   err = !EXILock(chan, dev, (chan < 2 && dev == 0) ? UnlockedHandler : NULL);
   if (!err) {
     err = !EXISelect(chan, dev, EXI_FREQ_1M);
@@ -645,6 +675,9 @@ s32 EXIGetID(s32 chan, u32 dev, u32* id) {
     }
     EXIUnlock(chan);
   }
+#if VERSION >= 3
+  OSRestoreInterrupts(enabled);
+#endif
 
   if (chan < 2 && dev == 0) {
     EXIDetach(chan);
@@ -672,6 +705,12 @@ char* EXIGetTypeString(u32 type) {
     return "Memory Card 251";
   case EXI_MEMORY_CARD_507:
     return "Memory Card 507";
+#if VERSION >= 3
+  case EXI_MEMORY_CARD_1019:
+    return "Memory Card 1019";
+  case EXI_MEMORY_CARD_2043:
+    return "Memory Card 2043";
+#endif
   case EXI_USB_ADAPTER:
     return "USB Adapter";
   case 0x80000000 | EXI_MEMORY_CARD_59:
@@ -681,10 +720,18 @@ char* EXIGetTypeString(u32 type) {
     return "Net Card";
   case EXI_ETHER_VIEWER:
     return "Artist Ether";
+#if VERSION >= 3
+  case 0x4220000:
+    return "Broadband Adapter";
+#endif
   case EXI_STREAM_HANGER:
     return "Stream Hanger";
   case EXI_IS_VIEWER:
+#if VERSION <= 2
     return "IS Viewer";
+#else
+    return "IS-DOL-VIEWER";
+#endif
   }
 }
 

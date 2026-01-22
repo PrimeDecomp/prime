@@ -40,6 +40,25 @@ Dolphin/card/CARDBios.c:
 	.sdata      start:0x8046ACE0 end:0x8046ACE8
 	.sbss       start:0x8046BD08 end:0x8046BD10
 
+Dolphin/si/SIBios.c:
+	.text       start:0x803A83C4 end:0x803A9C24
+	.data       start:0x803DED40 end:0x803DEE58
+	.bss        start:0x8042BD38 end:0x8042BF38
+	.sdata      start:0x8046ACF8 end:0x8046AD00
+	.sbss       start:0x8046BD10 end:0x8046BD20
+
+Dolphin/si/SISamplingRate.c:
+	.text       start:0x803A9C24 end:0x803A9D2C
+	.data       start:0x803DEE58 end:0x803DEEF0
+	.sbss       start:0x8046BD20 end:0x8046BD28
+
+Dolphin/exi/EXIBios.c:
+	.text       start:0x803A9D2C end:0x803AB698
+	.data       start:0x803DEEF0 end:0x803DF000
+	.bss        start:0x8042BF38 end:0x8042C000
+	.sdata      start:0x8046AD00 end:0x8046AD08
+	.sbss       start:0x8046BD28 end:0x8046BD30
+
 Dolphin/exi/EXIUart.c:
 	.text       start:0x803AB698 end:0x803AB924
 	.sbss       start:0x8046BD30 end:0x8046BD40
