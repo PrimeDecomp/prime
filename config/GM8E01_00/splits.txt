@@ -3539,13 +3539,13 @@ Kyoto/Text/CImageInstruction.cpp:
 
 Kyoto/Text/CTextRenderBuffer.cpp:
 	.text       start:0x80359AEC end:0x8035B5DC
-	.rodata     start:0x803D8350 end:0x803D83C8
+	.rodata     start:0x803D8350 end:0x803D8380
 	.sdata      start:0x805A89E0 end:0x805A89E8
 	.sdata2     start:0x805AEA20 end:0x805AEA30
 
 Kyoto/Graphics/CCubeMoviePlayer.cpp:
 	.text       start:0x8035B5DC end:0x8035DB10
-	.rodata     start:0x803D83C8 end:0x803D83E0
+	.rodata     start:0x803D8380 end:0x803D83E0
 	.bss        start:0x80540020 end:0x80540520
 	.sdata      start:0x805A89E8 end:0x805A89F8
 	.sbss       start:0x805A9660 end:0x805A9678
