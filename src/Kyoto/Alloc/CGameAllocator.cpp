@@ -288,8 +288,55 @@ CGameAllocator::SGameMemInfo* CGameAllocator::FindFreeBlockFromTopOfHeap(uint si
   return ret;
 }
 
-uint CGameAllocator::FixupAllocPtrs(SGameMemInfo*, uint, uint, EHint, const CCallStack&) {
-  return 0;
+uint CGameAllocator::FixupAllocPtrs(SGameMemInfo* info, uint len, uint roundedLen, EHint hint,
+                                    const CCallStack& cs) {
+
+  uint ret = 0;
+  if (info->GetLength() == roundedLen + sizeof(SGameMemInfo)) {
+    ret = sizeof(SGameMemInfo);
+    roundedLen += sizeof(SGameMemInfo);
+  }
+
+  if (info->GetLength() == roundedLen) {
+    info->x8_fileAndLine = cs.GetFileAndLineText();
+    info->xc_type = cs.GetTypeText();
+    
+  } else {
+    SGameMemInfo* newPtr;
+    SGameMemInfo* newInfo;
+
+    SGameMemInfo* infoNext = info->GetNext();
+    if ((hint & kHI_TopOfHeap) == kHI_None) {
+      newInfo = (SGameMemInfo*)((char*)(info + 1) + roundedLen);
+      new (newInfo) SGameMemInfo(info, infoNext, info->GetNextFree(),
+                                 info->GetLength() - roundedLen - sizeof(SGameMemInfo), "", "");
+      AddFreeEntryToFreeList(newInfo);
+      newPtr = info;
+    } else {
+      newInfo = (SGameMemInfo*)((char*)(infoNext) - (roundedLen + sizeof(SGameMemInfo)));
+      new (newInfo) SGameMemInfo(info, infoNext, nullptr,
+                                 info->GetLength(), "", "");
+      info->SetLength(info->GetLength() - (roundedLen + sizeof(SGameMemInfo)));
+      AddFreeEntryToFreeList(info);
+      newPtr = newInfo;
+    }
+    newPtr->x8_fileAndLine = cs.GetFileAndLineText();
+    newPtr->xc_type = cs.GetTypeText();
+    ret = sizeof(SGameMemInfo);
+
+    infoNext->SetPrev(newInfo);
+    infoNext = info->GetNext();
+    info->SetNext(newInfo);
+    info = newPtr;
+  }
+
+  uint uVar3 = 0;
+  if (hint & kHI_TopOfHeap) {
+    uVar3 = 2;
+  }
+  info->SetTopOfHeapAllocated(uVar3 != 0);  // maybe?
+  info->SetLength(len);
+  return ret;
 }
 
 void CGameAllocator::UpdateAllocDebugStats(uint len, uint roundedLen, uint offset) {
