@@ -1,3 +1,5 @@
+// #include "dolphin/os/OSArena.h"
+#include "dolphin/types.h"
 #include "stddef.h"
 #include <Kyoto/Alloc/CGameAllocator.hpp>
 
@@ -63,7 +65,52 @@ CGameAllocator::~CGameAllocator() {
   }
 }
 
-bool CGameAllocator::Initialize(COsContext& ctx) { return false; }
+bool CGameAllocator::Initialize(COsContext& ctx) {
+  x8_heapSize = ctx.GetBaseFreeRam();
+  xc_first = static_cast< SGameMemInfo* >(OSAllocFromArenaLo(x8_heapSize, sizeof(SGameMemInfo)));
+  xb4_physicalAddr = (void*)((int)this->xc_first - ((uint)(xc_first)&0xf0000000));
+  OSGetArenaLo();
+  x10_last = &xc_first[-1] + x8_heapSize;
+
+  *xc_first = SGameMemInfo(nullptr, x10_last, x10_last, x8_heapSize - sizeof(SGameMemInfo) * 2, "MemHead", "MemHead");
+  *x10_last = SGameMemInfo(xc_first, nullptr, nullptr, 0, "MemTail", "MemTail");
+  for (uint i = 0; i < 16; i++) {
+    x14_bins[i] = nullptr;
+  }
+  
+  AddFreeEntryToFreeList(xc_first);
+  x80_ = 0;
+  x84_ = 0;
+  x8c_ = 0;
+  x90_heapSize2 = x8_heapSize;
+  x94_ = 0;
+  x98_ = 0;
+  x9c_ = 0;
+  xa0_ = 0;
+  xa4_ = 0;
+  xa8_ = 0;
+  x4_ = 1;
+
+  x64_smallAllocMainData = Alloc(0xb0000, kHI_None, kSC_Unk1, kTP_Heap,
+                                 CCallStack(0xffffffff, "SmallAllocMainData   ", " - Ignore"));
+
+  x68_smallAllocBookKeeping = Alloc(0x16000, kHI_None, kSC_Unk1, kTP_Heap,
+                                    CCallStack(0xffffffff, "SmallAllocBookKeeping", " - Ignore"));
+
+  x60_smallAllocPool = new (Alloc(0x20, kHI_None, kSC_Unk1, kTP_Heap,
+                                  CCallStack(0xffffffff, "SmallAllocClass      ", " - Ignore")))
+      CSmallAllocPool(0x2c000, x64_smallAllocMainData, x68_smallAllocBookKeeping);
+
+  x74_mediumPool =
+      new (Alloc(0x1c, kHI_None, kSC_Unk1, kTP_Heap,
+                 CCallStack(0xffffffff, "MediumAllocClass      ", " - Ignore"))) CMediumAllocPool();
+
+  x78_ = Alloc(0x21000, kHI_None, kSC_Unk1, kTP_Heap,
+               CCallStack(0xffffffff, "MediumAllocMainData   ", " - Ignore"));
+  x84_ -= 4;
+  xbc_ = 0xc6000;
+  return false;
+}
 
 void CGameAllocator::Shutdown() {
   ReleaseAll();
@@ -293,7 +340,7 @@ bool CGameAllocator::FreeNormalAllocation(const void* ptr) {
   if (infoLen <= 0x39) {
     xa8_ -= 1;
   }
-  
+
   return true;
 };
 
