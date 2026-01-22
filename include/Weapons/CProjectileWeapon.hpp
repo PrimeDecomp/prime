@@ -58,7 +58,7 @@ class CProjectileWeapon : public IWeaponProjectile {
   const CVector3f& GetVelocity() const;
   void SetGravity(const CVector3f& gravity);
   const CVector3f& GetGravity() const;
-  static void SetGlobalSeed(uint seed);
+  static void SetGlobalSeed(const uint seed);
 
   rstl::optional_object< CAABox > GetBounds() const;
 

@@ -28,7 +28,7 @@ enum EGunAnimType {
   kGAT_ToBeam
 };
 
-CSfxHandle play_sfx(ushort sfx, bool underwater, bool looped, short pan);
+CSfxHandle play_sfx(const ushort sfx, const bool underwater, const bool looped, const short pan);
 
 void primitive_set_to_token_vector(const CAnimData& animData,
                                    const rstl::set< CPrimitive >& primSet,

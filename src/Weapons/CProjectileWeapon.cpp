@@ -522,7 +522,7 @@ void CProjectileWeapon::SetGravity(const CVector3f& gravity) { xbc_gravity = gra
 
 const CVector3f& CProjectileWeapon::GetGravity() const { return xbc_gravity; }
 
-void CProjectileWeapon::SetGlobalSeed(uint seed) { skGlobalSeed = seed; }
+void CProjectileWeapon::SetGlobalSeed(const ushort seed) { skGlobalSeed = seed; }
 
 rstl::optional_object< CAABox > CProjectileWeapon::GetBounds() const {
   CAABox ret = CAABox::MakeMaxInvertedBox();

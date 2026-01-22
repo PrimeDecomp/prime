@@ -392,9 +392,9 @@ inline float GetChargeFactor(CPlayerState::EChargeStage chargeState, float charg
   return k * kChargeScaleFactor;
 }
 
-void CGunWeapon::Fire(bool underwater, float dt, CPlayerState::EChargeStage chargeState,
-                      const CTransform4f& xf, CStateManager& mgr, TUniqueId homingTarget,
-                      float chargeFactor1, float chargeFactor2) {
+void CGunWeapon::Fire(const bool underwater, const float dt, const CPlayerState::EChargeStage chargeState,
+                      const CTransform4f& xf, CStateManager& mgr, const TUniqueId homingTarget,
+                      const float chargeFactor1, const float chargeFactor2) {
   CDamageInfo dInfo(GetDamageInfo(mgr, chargeState, chargeFactor1));
 
   CVector3f scale(GetChargeFactor(chargeState, chargeFactor2),
