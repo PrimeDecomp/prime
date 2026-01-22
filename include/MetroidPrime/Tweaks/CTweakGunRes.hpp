@@ -9,19 +9,14 @@
 #include <Kyoto/TOneStatic.hpp>
 
 #include "Kyoto/CObjectReference.hpp"
+#include "rstl/string.hpp"
 
 class CTweakGunRes : public ITweakObject, public TOneStatic< CTweakGunRes > {
 public:
   typedef CAssetId ResId;
-  typedef CPlayerState::EBeamId EBeamId;
+  typedef rstl::vector< ResId > ResIdVec;
 
-  struct WeaponResourcePair {
-    ResId a;
-    ResId b;
-    ResId c;
-    ResId* d;
-  };
-
+  void GetGrappleBeamFx(CInputStream& in);
   CTweakGunRes(CInputStream& in);
   ~CTweakGunRes() override;
 
@@ -42,10 +37,14 @@ public:
   ResId x30_powerBombExplode;
 
   /* Power, Ice, Wave, Plasma, Phazon / Beam, Ball */
-  ResId x34_weapons[2][5];
-  ResId x84_muzzle[5];
-  ResId x94_charge[5];
-  ResId xa4_auxMuzzle[5];
+  ResIdVec x34_weaponPower;
+  ResIdVec x44_weaponIce;
+  ResIdVec x54_weaponWave;
+  ResIdVec x64_weaponPlasma;
+  ResIdVec x74_weaponPhazon;
+  ResIdVec x84_muzzle;
+  ResIdVec x94_charge;
+  ResIdVec xa4_auxMuzzle;
 
   ResId xb4_grappleSegment;
   ResId xb8_grappleClaw;
@@ -53,13 +52,7 @@ public:
   ResId xc0_grappleMuzzle;
   ResId xc4_grappleSwoosh;
 
-  const WeaponResourcePair* GetWeaponResourcePair(int beam) const; /* {
-    const int b = int(beam);
-    if (b < 0 || b > 4) {
-      return x34_weapons[0];
-    }
-    return x34_weapons[b];
-  }*/
+  const ResIdVec& GetBeamResIdVec(CPlayerState::EBeamId beam) const;
 };
 
 extern CTweakGunRes* gpTweakGunRes;

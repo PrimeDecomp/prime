@@ -636,7 +636,7 @@ config.libs = [
                 "MetroidPrime/CParticleGenInfo.cpp",
             ),
             Object(NonMatching, "MetroidPrime/CParticleDatabase.cpp"),
-            Object(NonMatching, "MetroidPrime/Tweaks/CTweakGunRes.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Tweaks/CTweakGunRes.cpp"),
             Object(NonMatching, "MetroidPrime/CTargetReticles.cpp"),
             Object(NonMatching, "MetroidPrime/CWeaponMgr.cpp"),
             Object(

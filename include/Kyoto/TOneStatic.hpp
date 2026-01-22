@@ -9,9 +9,10 @@ class TOneStatic {
 public:
 #ifndef __MWERKS__
   // For clangd
-  void* operator new(size_t sz);
+  void* operator new(const size_t sz);
 #endif
-  void* operator new(size_t sz, const char*, const char*);
+  void* operator new(size_t sz, const char* const fileAndLine,
+                     const char* const type);
   void operator delete(void* ptr);
 
 private:
@@ -32,7 +33,7 @@ void* TOneStatic< T >::GetAllocSpace() {
 }
 
 template < typename T >
-void* TOneStatic< T >::operator new(size_t sz, const char*, const char*) {
+void* TOneStatic< T >::operator new(size_t sz, const char* const fileAndLine, const char* const type) {
   ReferenceCount()++;
   return GetAllocSpace();
 }

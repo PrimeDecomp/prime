@@ -1,6 +1,7 @@
 #ifndef _CTWEAKS
 #define _CTWEAKS
 
+#include "Kyoto/CResFactory.hpp"
 #include "types.h"
 
 #include "rstl/auto_ptr.hpp"
@@ -16,7 +17,6 @@ public:
 
   void RegisterResourceTweaks();
   void RegisterTweaks();
-
 private:
   rstl::reserved_vector< rstl::auto_ptr< ITweakObject >, 14 > mTweakObjects;
 };

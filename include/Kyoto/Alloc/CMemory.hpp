@@ -34,8 +34,8 @@ inline void operator delete(void* ptr) { CMemory::Free(ptr); }
 inline void operator delete[](void* ptr) { CMemory::Free(ptr); }
 #define rs_new new ("\?\?(\?\?)", nullptr)
 #else
-void operator delete(void* ptr);
-void operator delete[](void* ptr);
+// void operator delete(void* ptr);
+// void operator delete[](void* ptr);
 #define rs_new new
 #endif
 

@@ -513,12 +513,12 @@ void CGunWeapon::Unload(CStateManager& mgr) {
 bool CGunWeapon::IsLoaded() const { return x218_26_loaded; }
 
 void CGunWeapon::AllocResPools(CPlayerState::EBeamId beam) {
-  const CTweakGunRes::WeaponResourcePair* wPair = gpTweakGunRes->GetWeaponResourcePair(beam);
+  const CTweakGunRes::ResIdVec& wPair = gpTweakGunRes->GetBeamResIdVec(beam);
   const char* const* muzzleNames = &skMuzzleNames[size_t(beam) * 2];
 
   for (int i = 0; i < x16c_muzzleEffects.capacity(); ++i) {
     x16c_muzzleEffects.push_back(gpSimplePool->GetObj(muzzleNames[i]));
-    x144_weapons.push_back(gpSimplePool->GetObj(SObjectTag('WPSC', wPair->d[i])));
+    x144_weapons.push_back(gpSimplePool->GetObj(SObjectTag('WPSC', wPair[i])));
   }
 
   const char* const* frozenNames = &skFrozenNames[size_t(beam) * 2];
