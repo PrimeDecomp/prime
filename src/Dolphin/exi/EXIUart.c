@@ -134,7 +134,7 @@ u32 WriteUARTN(const void* buf, unsigned long len) {
 #endif
   locked = EXILock(Chan, Dev, 0);
   if (!locked) {
-#if VERSION >= 2
+#if VERSION >= 3
     OSRestoreInterrupts(enabled);
 #endif
     return 0;
