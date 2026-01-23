@@ -1,4 +1,5 @@
 #include "MetroidPrime/Enemies/CMetroid.hpp"
+#include "MetroidPrime/Enemies/CTeamAiMgr.hpp"
 
 #include "Kyoto/Animation/CPASAnimParmData.hpp"
 #include "Kyoto/Animation/CSegId.hpp"
@@ -107,7 +108,7 @@ CMetroid::CMetroid(const TUniqueId uid, const rstl::string& name, const EFlavorT
 , mEnergyDrainTime(0.f)
 , x7c0(0.f)
 , mAttackState(kAttackState_None)
-, mGammaType(flavor != kFT_Two ? kGF_Invalid : kGF_Normal)
+, mGammaType(flavor != kFT_Two ? CMetroidData::kGF_Invalid : CMetroidData::kGF_Normal)
 , mScale1(ModelData()->ScaleCopy())
 , mScale2(ModelData()->ScaleCopy())
 , mScale3(ModelData()->ScaleCopy())
@@ -151,3 +152,12 @@ CMetroid::CMetroid(const TUniqueId uid, const rstl::string& name, const EFlavorT
 CMetroid::~CMetroid() {}
 
 void CMetroid::Accept(IVisitor& visitor) { visitor.Visit(*this); }
+
+void CMetroid::Think(float dt, CStateManager& mgr) {
+  if (!GetActive()) {
+    return;
+  }
+  
+  //CTeamAiMgr
+  CPatterned::Think(dt, mgr);
+}

@@ -11,12 +11,14 @@ class CMetroidData {
 
 public:
   enum EGammaFlavor {
-    kGF_Invalid,
+    kGF_Invalid = -1,
+    kGF_Normal,
     kGF_Red,
     kGF_White,
     kGF_Purple,
     kGF_Yellow,
   };
+  
   CMetroidData(CInputStream& in);
   ~CMetroidData();
 
@@ -62,6 +64,7 @@ public:
   void UpdateTouchBounds();
 
   void Accept(IVisitor& visitor) override;
+  void Think(float dt, CStateManager& mgr) override;
 
 private:
   enum EAIState {
@@ -80,14 +83,7 @@ private:
   };
 
   // TODO: Reconcile this with CMetroidData::EGammaFlavor
-  enum EGammaType {
-    kGF_Invalid = -1,
-    kGF_Normal,
-    kGF_Red,
-    kGF_White,
-    kGF_Purple,
-    kGF_Orange,
-  };
+
 
   EAIState mState;
   CMetroidData mMetroidData;
@@ -102,7 +98,7 @@ private:
   float mEnergyDrainTime;
   float x7c0;
   EAttackState mAttackState;
-  EGammaType mGammaType;
+  CMetroidData::EGammaFlavor mGammaType;
   CVector3f mScale1;
   CVector3f mScale2;
   CVector3f mScale3;

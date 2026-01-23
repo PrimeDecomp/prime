@@ -831,7 +831,7 @@ config.libs = [
                 "MetroidPrime/BodyState/CBSScripted.cpp",
             ),
             Object(NonMatching, "MetroidPrime/Enemies/CPuddleToadGamma.cpp"),
-            Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptDistanceFog.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/ScriptObjects/CScriptDistanceFog.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/BodyState/CBSProjectileAttack.cpp",
