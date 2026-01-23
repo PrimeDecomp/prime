@@ -673,7 +673,10 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/ScriptObjects/CScriptRelay.cpp",
             ),
-            Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptSpawnPoint.cpp"),
+            Object(
+                MatchingFor("GM8E01_00", "GM8E01_01"),
+                "MetroidPrime/ScriptObjects/CScriptSpawnPoint.cpp"
+            ),
             Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptRandomRelay.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CBeetle.cpp"),
             Object(

@@ -33,7 +33,7 @@ void CScriptSpawnPoint::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objI
   switch (msg) {
   case kSM_Reset:
     for (int i = 0; i < CPlayerState::kIT_Max; ++i) {
-      const CPlayerState::EItemType e = CPlayerState::EItemType(i);
+      const CPlayerState::EItemType e = static_cast< CPlayerState::EItemType >(i);
       stateMgr.PlayerState()->SetPowerUp(e, GetPowerup(e));
       stateMgr.PlayerState()->SetPickup(e, GetPowerup(e));
     }
@@ -43,14 +43,11 @@ void CScriptSpawnPoint::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objI
       TAreaId thisAreaId = GetCurrentAreaId();
       TAreaId nextAreaId = stateMgr.GetNextAreaId();
 
-      if (thisAreaId != nextAreaId) {
+      if (nextAreaId != thisAreaId) {
         bool propagateAgain = false;
 
         CGameArea* area = stateMgr.World()->Area(thisAreaId);
-        CGameArea::EOcclusionState occlusionState =
-            area->IsLoaded() ? area->GetOcclusionState() : CGameArea::kOS_Occluded;
-
-        if (occlusionState == CGameArea::kOS_Occluded) {
+        if (area->GetOcclusionState() == CGameArea::kOS_Occluded) {
           while (!area->TryTakingOutOfARAM()) {
           }
           CWorld::PropogateAreaChain(CGameArea::kOS_Visible, area, stateMgr.World());
