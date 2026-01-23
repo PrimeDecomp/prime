@@ -111,6 +111,7 @@ public:
   bool GetSortThermal() const { return x14_25_sortThermal; }
   void SetSortThermal(bool b) { x14_25_sortThermal = b; }
 
+  CVector3f ScaleCopy() const { return x0_scale; }
   const CVector3f& GetScale() const { return x0_scale; }
   void SetScale(const CVector3f& scale) { x0_scale = scale; }
 

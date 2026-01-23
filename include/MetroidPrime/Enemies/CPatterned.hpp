@@ -8,6 +8,7 @@
 #include "MetroidPrime/Enemies/CPatternedInfo.hpp"
 #include "MetroidPrime/Enemies/CStateMachine.hpp"
 
+class CPASAnimParmData;
 class CBodyController;
 class CVertexMorphEffect;
 class CGenDescription;
@@ -148,10 +149,11 @@ public:
     ushort GetBehaviourModifiers() const { return x1e_behaviourModifiers; }
   };
 
-  CPatterned(ECharacter character, TUniqueId uid, const rstl::string& name, EFlavorType flavor,
-             const CEntityInfo& info, const CTransform4f& xf, const CModelData& mData,
-             const CPatternedInfo& pinfo, EMovementType movement, EColliderType collider,
-             EBodyType body, const CActorParameters& params, EKnockBackVariant kbVariant);
+  CPatterned(const ECharacter character, const TUniqueId uid, const rstl::string& name,
+             const EFlavorType flavor, const CEntityInfo& info, const CTransform4f& xf,
+             const CModelData& mData, const CPatternedInfo& pinfo, EMovementType movement,
+             const EColliderType collider, const EBodyType body, const CActorParameters& params,
+             const EKnockBackVariant kbVariant);
 
   // CEntity
   ~CPatterned() override;
@@ -284,6 +286,8 @@ public:
 
   void ApproachDest(CStateManager& mgr);
   void SetDestPos(const CVector3f& pos);
+
+  float GetAnimationDistance(const CPASAnimParmData& data) const;
 
 protected:
   EPatrolState x2d8_patrolState;

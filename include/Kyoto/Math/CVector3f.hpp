@@ -36,7 +36,6 @@ public:
     return CVector3f(lhs.GetX() * rhs.GetX(), lhs.GetY() * rhs.GetY(), lhs.GetZ() * rhs.GetZ());
   }
 
-  // ByElementMultiply__9CVector3fFRC9CVector3fRC9CVector3f
   static CVector3f Slerp(const CVector3f& a, const CVector3f& b, const CRelAngle& angle);
   CVector3f& Normalize();
   float Magnitude() const;
