@@ -53,7 +53,7 @@ void CPhazonBeam::ReInitVariables() {
   x1cc_enabledSecondaryEffect = kSFT_None;
 }
 
-bool CPhazonBeam::IsFiring(const CStateManager& mgr) const { return mFireTime < 1.f / 6.f; }
+bool CPhazonBeam::IsFiring(const CStateManager& mgr) const { return mFireTime < 0.16667f; }
 
 void CPhazonBeam::PreRenderGunFx(const CStateManager& mgr, const CTransform4f& xf) {
   if (!IsFiring(mgr)) {
@@ -128,10 +128,60 @@ void CPhazonBeam::Fire(const bool underwater, const float dt,
   }
 }
 
-void CPhazonBeam::Update(float dt, CStateManager& mgr) {}
+void CPhazonBeam::Update(const float dt, CStateManager& mgr) {
+  CGunWeapon::Update(dt, mgr);
+  mFireTime += dt;
+  const TAreaId aid = mgr.GetPlayer()->GetCurrentAreaId();
+  if (aid != kInvalidAreaId) {
+    CGameArea* area = mgr.World()->Area(aid);
+    if (mFireTime > 0.16667f) {
+      area->SetWeaponWorldLighting(4.f, 1.f);
+    } else {
+      area->SetWeaponWorldLighting(4.f, 0.9f);
+    }
+  }
 
-void CPhazonBeam::UpdateBeam(float dt, const CTransform4f& xf, const CVector3f& localBeamPos,
-                             CStateManager& mgr) {}
+  if (!IsLoaded()) {
+    if (CGunWeapon::IsLoaded() && mLoaded != true) {
+      mLoaded = mPhazon2nd1.TryCache() && mVeins.IsLoaded();
+
+      if (mLoaded) {
+        CreateBeam(mgr);
+        mVeinsData = rs_new CModelData(CStaticRes(
+            NWeaponTypes::get_asset_id_from_name(mPhazonVeinsIdx ? skPhazonVeins2 : skPhazonVeins),
+            x4_scale));
+        mVeins.Unlock();
+        mClipWipeActive = true;
+      }
+    }
+  } else if (mClipWipeActive) {
+    const float scaledDt = 0.75f * dt;
+    mClipWipeScale += scaledDt;
+    if (mClipWipeScale > 1.f) {
+      mClipWipeScale = 1.f;
+    }
+
+    if (mClipWipeScale > 0.4f) {
+      if (mClipWipeTranslate < 0.5f) {
+        mClipWipeTranslate += scaledDt;
+      } else {
+        mClipWipeActive = false;
+      }
+    }
+  } else if (mVeinsAlphaActive) {
+    const CTransform4f scaleXf =
+        x10_solidModelData->GetLocatorTransform(rstl::string_l(skScaleLocator));
+    mIndirectAlpha = scaleXf.GetTranslation().GetY();
+  }
+}
+
+void CPhazonBeam::UpdateBeam(const float dt, const CTransform4f& xf, const CVector3f& localBeamPos,
+                             CStateManager& mgr) {
+  if (!mChargeFxGen.null()) {
+    mChargeFxGen->SetParticleEmission(IsFiring(mgr));
+  }
+  UpdateMuzzleFx(dt, x4_scale, localBeamPos, IsFiring(mgr));
+}
 
 void CPhazonBeam::StopBeam(CStateManager& mgr, bool reset) {
   if (mChargeFxGen.null()) {
@@ -140,14 +190,21 @@ void CPhazonBeam::StopBeam(CStateManager& mgr, bool reset) {
 
   mChargeFxGen->SetParticleEmission(false);
 }
-void CPhazonBeam::Load(CStateManager& mgr, bool subtypeBasePose) {
+void CPhazonBeam::Load(CStateManager& mgr, const bool subtypeBasePose) {
   CGunWeapon::Load(mgr, subtypeBasePose);
   mPhazon2nd1.Lock();
   mPhazonVeinsIdx = (mgr.Random()->Next() & 2) != 0;
   mVeins = gpSimplePool->GetObj(mPhazonVeinsIdx ? skPhazonVeins2 : skPhazonVeins);
   mVeins.Lock();
 }
-void CPhazonBeam::Unload(CStateManager& mgr) {}
+
+void CPhazonBeam::Unload(CStateManager& mgr) {
+  CGunWeapon::Unload(mgr);
+  mPhazon2nd1.Unlock();
+  mVeins.Unlock();
+  ReInitVariables();
+}
+
 bool CPhazonBeam::IsLoaded() const { return CGunWeapon::IsLoaded() && mLoaded; }
 
 void CPhazonBeam::CreateBeam(CStateManager& mgr) {

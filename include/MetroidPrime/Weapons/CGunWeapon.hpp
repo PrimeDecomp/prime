@@ -89,7 +89,7 @@ public:
                     const CModelFlags& flags, const CActorLights* lights) const;
   virtual void DrawMuzzleFx(const CStateManager& mgr) const;
   virtual void Update(float dt, CStateManager& mgr);
-  virtual void Load(CStateManager& mgr, bool subtypeBasePose);
+  virtual void Load(CStateManager& mgr, const bool subtypeBasePose);
   virtual void Unload(CStateManager& mgr);
   virtual bool IsLoaded() const;
 

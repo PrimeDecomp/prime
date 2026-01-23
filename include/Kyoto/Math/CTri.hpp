@@ -16,6 +16,9 @@ public:
   const CVector3f& GetPointB() const { return x1c_b; }
   const CVector3f& GetPointC() const { return x28_c; }
 
+  // TODO: Verify, this should be right though
+  CPlane GetState() const { return CPlane(x10_a, x1c_b, x28_c); }
+
 private:
   CPlane x0_plane;
   CVector3f x10_a;

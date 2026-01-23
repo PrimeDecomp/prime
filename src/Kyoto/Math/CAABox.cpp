@@ -8,6 +8,8 @@
 
 #include "float.h"
 
+#pragma inline_max_size(300)
+
 CAABox CAABox::mskInvertedBox(FLT_MIN, FLT_MIN, FLT_MIN, FLT_MAX, FLT_MAX, FLT_MAX);
 CAABox CAABox::mskNullBox(0.f, 0.f, 0.f, 0.f, 0.f, 0.f);
 
@@ -187,7 +189,6 @@ CVector3f CAABox::ClampToBox(const CVector3f& vec) const {
       vec.GetZ() < min.GetZ() ? min.GetZ() : (vec.GetZ() > max.GetZ() ? max.GetZ() : vec.GetZ()));
 }
 
-// TODO non-matching instruction swap
 CAABox CAABox::GetBooleanIntersection(const CAABox& other) const {
   CVector3f minVec = CVector3f::Zero();
   CVector3f maxVec = CVector3f::Zero();

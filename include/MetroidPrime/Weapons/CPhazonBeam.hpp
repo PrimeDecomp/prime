@@ -30,7 +30,7 @@ public:
   void UpdateBeam(float dt, const CTransform4f& xf, const CVector3f& localBeamPos,
                   CStateManager& mgr);
   void StopBeam(CStateManager& mgr, bool reset);
-  void Load(CStateManager& mgr, bool subtypeBasePose) override;
+  void Load(CStateManager& mgr, const bool subtypeBasePose) override;
   void Unload(CStateManager& mgr) override;
   bool IsLoaded() const override;
   void CreateBeam(CStateManager& mgr);
