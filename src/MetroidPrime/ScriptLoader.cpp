@@ -70,10 +70,10 @@ struct SScaledActorHead {
 SScaledActorHead::SScaledActorHead(CInputStream& in, CStateManager& stateMgr)
 : x0_actorHead(in, stateMgr), x40_scale(in) {}
 
-static CAnimationParameters LoadAnimationParameters(CInputStream& in) {
+CAnimationParameters LoadAnimationParameters(CInputStream& in) {
   CAssetId ancs = in.Get< CAssetId >();
-  int charIdx = in.ReadLong();
-  uint defaultAnim = in.ReadLong();
+  int charIdx = in.Get<int>();
+  uint defaultAnim = in.Get<int>();
   return CAnimationParameters(ancs, charIdx, defaultAnim);
 }
 

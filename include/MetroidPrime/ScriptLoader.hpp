@@ -1,5 +1,6 @@
 #ifndef _SCRIPTLOADER
 #define _SCRIPTLOADER
+#include "CAnimationParameters.hpp"
 
 class CEntity;
 class CStateManager;
@@ -98,7 +99,7 @@ public:
   static CEntity* LoadPlayerStateChange(CStateManager&, CInputStream&, int, const CEntityInfo&);
   static CEntity* LoadThardus(CStateManager&, CInputStream&, int, const CEntityInfo&);
   static CEntity* LoadSaveStation(CStateManager&, CInputStream&, int, const CEntityInfo&);
-  
+
   static CEntity* LoadWallCrawlerSwarm(CStateManager&, CInputStream&, int, const CEntityInfo&);
   static CEntity* LoadAiJumpPoint(CStateManager&, CInputStream&, int, const CEntityInfo&);
   static CEntity* LoadFlaahgraTentacle(CStateManager&, CInputStream&, int, const CEntityInfo&);
@@ -147,5 +148,7 @@ public:
   static CEntity* LoadShadowProjector(CStateManager&, CInputStream&, int, const CEntityInfo&);
   static CEntity* LoadEnergyBall(CStateManager&, CInputStream&, int, const CEntityInfo&);
 };
+
+CAnimationParameters LoadAnimationParameters(CInputStream& in);
 
 #endif // _SCRIPTLOADER
