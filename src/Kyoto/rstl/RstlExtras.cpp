@@ -1,6 +1,7 @@
-#include "rstl/StringExtras.hpp"
-#include "rstl/rc_ptr.hpp"
 #include "Kyoto/Alloc/CMemory.hpp"
+#include "rstl/StringExtras.hpp"
+#include "rstl/math.hpp"
+#include "rstl/rc_ptr.hpp"
 
 #include "Kyoto/Basics/CCast.hpp"
 #include "Kyoto/Streams/CInputStream.hpp"
@@ -32,7 +33,30 @@ int CStringExtras::IndexOfSubstring(const rstl::string& left, const rstl::string
   }
   return -1;
 }
-int CStringExtras::CompareCaseInsensitive(const rstl::string&, const rstl::string&) {}
+
+int CStringExtras::CompareCaseInsensitive(const rstl::string& left, const rstl::string& right) {
+  int left_size = left.size();
+  int right_size = right.size();
+  int max_size = rstl::min_val(left_size, right_size);
+
+  for (int idx = 0; idx < max_size; ++idx) {
+    if (ConvertToUpperCase(left.at(idx)) < ConvertToUpperCase(right.at(idx))) {
+      return -1;
+    }
+
+    if (ConvertToUpperCase(left.at(idx)) > ConvertToUpperCase(right.at(idx))) {
+      return 1;
+    }
+  }
+  if (left_size < right_size) {
+    return -1;
+  } else if (left_size > right_size) {
+    return 1;
+  } else {
+    return 0;
+  }
+}
+
 char CStringExtras::ConvertToUpperCase(char c) {
   if (c >= CCast::ToChar('a') && c <= CCast::ToChar('z')) {
     return (c - CCast::ToChar(' ')) & 0xFF;
