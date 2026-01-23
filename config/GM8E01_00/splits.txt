@@ -2144,7 +2144,7 @@ MetroidPrime/Enemies/COmegaPirate.cpp:
 	.sdata      start:0x805A8538 end:0x805A8580
 	.sdata2     start:0x805ADB90 end:0x805ADC38
 
-MetroidPrime/Enemies/CPhazonPool.cpp:
+MetroidPrime/Enemies/CScriptPhazonPool.cpp:
 	.text       start:0x802925E0 end:0x80293B00
 	.rodata     start:0x803D5B78 end:0x803D5B80
 	.data       start:0x803EBB48 end:0x803EBC50

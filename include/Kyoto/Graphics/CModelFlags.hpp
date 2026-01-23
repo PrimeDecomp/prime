@@ -17,6 +17,7 @@ public:
     kT_Additive2 = 8,
   };
   enum EFlags {
+    kF_Nothing = 0,
     kF_DepthCompare = 0x1,
     kF_DepthUpdate = 0x2,
     kF_NoTextureLock = 0x4,
@@ -105,10 +106,16 @@ public:
   static CModelFlags Normal() { return CModelFlags(kT_Opaque, 1.f); }
   static CModelFlags AlphaBlended(const float alpha) { return CModelFlags(kT_Blend, alpha); }
   static CModelFlags AlphaBlended(const CColor& color) { return CModelFlags(kT_Blend, color); }
-  static CModelFlags Additive(const float f) { return CModelFlags(kT_Additive, f); }
-  static CModelFlags Additive(const CColor& color) {
-    return CModelFlags(kT_Additive, color);
+  static CModelFlags AlphaBlendedDepthCompareUpdate(const float alpha, const bool compare,
+                                                    const bool update) {
+    return AlphaBlended(alpha).DepthCompareUpdate(compare, update);
   }
+  static CModelFlags AlphaBlendedDepthCompareUpdate(const CColor& color, const bool compare,
+                                                    const bool update) {
+    return AlphaBlended(color).DepthCompareUpdate(compare, update);
+  }
+  static CModelFlags Additive(const float f) { return CModelFlags(kT_Additive, f); }
+  static CModelFlags Additive(const CColor& color) { return CModelFlags(kT_Additive, color); }
   static CModelFlags AdditiveRGB(const CColor& color);
   static CModelFlags ColorModulate(const CColor& color);
 

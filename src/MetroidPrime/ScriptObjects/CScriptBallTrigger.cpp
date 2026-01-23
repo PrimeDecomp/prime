@@ -12,10 +12,11 @@ static CAABox calculate_ball_aabox() {
   return CAABox(CVector3f(-extent, -extent, -extent), CVector3f(extent, extent, extent));
 }
 
-CScriptBallTrigger::CScriptBallTrigger(TUniqueId uid, const rstl::string& name,
+CScriptBallTrigger::CScriptBallTrigger(const TUniqueId uid, const rstl::string& name,
                                        const CEntityInfo& info, const CVector3f& pos,
-                                       const CVector3f& scale, bool active, float f1, float f2,
-                                       float f3, const CVector3f& vec, bool b2)
+                                       const CVector3f& scale, const bool active, const float f1,
+                                       const float f2, const float f3, const CVector3f& vec,
+                                       const bool b2)
 : CScriptTrigger(uid, name, info, pos, calculate_ball_aabox(),
                  CDamageInfo(CWeaponMode::Power(), 0.f, 0.f, 0.f), CVector3f::Zero(),
                  kTFL_DetectMorphedPlayer, active, false, false)

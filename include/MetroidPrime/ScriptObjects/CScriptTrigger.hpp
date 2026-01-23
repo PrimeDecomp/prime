@@ -55,18 +55,19 @@ public:
   bool x148_29_didPhazonDamage : 1;
 
 public:
-  CScriptTrigger(TUniqueId, const rstl::string& name, const CEntityInfo& info, const CVector3f& pos,
-                 const CAABox&, const CDamageInfo& dInfo, const CVector3f& orientedForce,
-                 uint triggerFlags, bool active, bool deactivateOnEntered, bool deactivateOnExited);
+  CScriptTrigger(const TUniqueId, const rstl::string& name, const CEntityInfo& info,
+                 const CVector3f& pos, const CAABox&, const CDamageInfo& dInfo,
+                 const CVector3f& orientedForce, const uint triggerFlags, const bool active,
+                 const bool deactivateOnEntered, const bool deactivateOnExited);
   ~CScriptTrigger();
 
   void Touch(CActor&, CStateManager&) override;
   CAABox GetTriggerBoundsWR() const;
-  rstl::optional_object<CAABox> GetTouchBounds() const override;
+  rstl::optional_object< CAABox > GetTouchBounds() const override;
   void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&) override;
   void Think(float, CStateManager&) override;
   void UpdateInhabitants(float, CStateManager&);
-  const rstl::list<CObjectTracker>& GetInhabitants() const;
+  const rstl::list< CObjectTracker >& GetInhabitants() const;
   const CScriptTrigger::CObjectTracker* FindObject(TUniqueId);
   void Accept(IVisitor& visitor) override;
   virtual void InhabitantAdded(CActor&, CStateManager&);

@@ -8,10 +8,10 @@
 #include "MetroidPrime/Player/CPlayer.hpp"
 #include "MetroidPrime/Weapons/CWeapon.hpp"
 
-CScriptTrigger::CScriptTrigger(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
+CScriptTrigger::CScriptTrigger(const TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
                                const CVector3f& pos, const CAABox& bounds, const CDamageInfo& dInfo,
-                               const CVector3f& forceField, uint triggerFlags, const bool active,
-                               bool deactivateOnEntered, bool deactivateOnExited)
+                               const CVector3f& forceField, const uint triggerFlags, const bool active,
+                               const bool deactivateOnEntered, const bool deactivateOnExited)
 : CActor(uid, active, name, info, CTransform4f::Translate(pos), CModelData::CModelDataNull(),
          CMaterialList(kMT_Trigger), CActorParameters::None(), kInvalidUniqueId)
 , x100_damageInfo(dInfo)

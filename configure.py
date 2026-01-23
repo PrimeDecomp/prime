@@ -1126,7 +1126,7 @@ config.libs = [
             ),
             Object(NonMatching, "MetroidPrime/Weapons/WeaponTypes.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/COmegaPirate.cpp"),
-            Object(NonMatching, "MetroidPrime/Enemies/CPhazonPool.cpp"),
+            Object(NonMatching, "MetroidPrime/Enemies/CScriptPhazonPool.cpp"),
             Object(NonMatching, "MetroidPrime/CNESEmulator.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CPhazonHealingNodule.cpp"),
             Object(NonMatching, "MetroidPrime/Player/CMorphBallShadow.cpp"),
