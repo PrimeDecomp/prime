@@ -115,67 +115,68 @@ void* rbtree_rebalance_for_erase(void* header_void, void* node_void) {
   _header* header = static_cast< _header* >(header_void);
   _node* node = static_cast< _node* >(node_void);
 
-  _node* next;
-  _node* result = node;
+  _node* replacement;
+  _node* successor = node;
+  _node* parent;
 
   if (node->mLeft == nullptr) {
-    next = node->mRight;
+    replacement = node->mRight;
   } else {
     _node* tmp = node->mRight;
     if (tmp == nullptr) {
-      next = tmp;
+      replacement = tmp;
     } else {
       do {
-        result = tmp;
-        tmp = result->mLeft;
-      } while (result->mLeft != nullptr);
-      next = result->mRight;
+        successor = tmp;
+        tmp = successor->mLeft;
+      } while (successor->mLeft != nullptr);
+      replacement = successor->mRight;
     }
   }
 
-  if (result != node) {
-    node->mLeft->mParent = result;
-    result->mLeft = node->mLeft;
+  if (successor != node) {
+    node->mLeft->mParent = successor;
+    successor->mLeft = node->mLeft;
 
-    _node* tmp = result;
-    if (result != node->mRight) {
-      tmp = result->mParent;
-      if (next != nullptr) {
-        next->mParent = result->mParent;
+    parent = successor;
+    if (successor != node->mRight) {
+      parent = successor->mParent;
+      if (replacement != nullptr) {
+        replacement->mParent = successor->mParent;
       }
-      result->mParent->mLeft = next;
-      result->mRight = node->mRight;
-      node->mRight->mParent = result;
+      successor->mParent->mLeft = replacement;
+      successor->mRight = node->mRight;
+      node->mRight->mParent = successor;
     }
 
     if (header->mRootNode == node) {
-      header->mRootNode = result;
+      header->mRootNode = successor;
     } else {
       if (node->mParent->mLeft == node) {
-        node->mParent->mLeft = result;
+        node->mParent->mLeft = successor;
       } else {
-        node->mParent->mRight = result;
+        node->mParent->mRight = successor;
       }
     }
 
-    result->mParent = node->mParent;
-    node_color c = result->mColor;
-    result->mColor = node->mColor;
+    successor->mParent = node->mParent;
+    node_color c = successor->mColor;
+    successor->mColor = node->mColor;
     node->mColor = c;
-    result = node;
+    successor = node;
 
   } else {
-    _node* a1 = result->mParent;
-    if (next != nullptr) {
-      next->mParent = a1;
+    parent = successor->mParent;
+    if (replacement != nullptr) {
+      replacement->mParent = parent;
     }
     if (header->mRootNode == node) {
-      header->mRootNode = next;
+      header->mRootNode = replacement;
     } else {
       if (node->mParent->mLeft == node) {
-        node->mParent->mLeft = next;
+        node->mParent->mLeft = replacement;
       } else {
-        node->mParent->mRight = next;
+        node->mParent->mRight = replacement;
       }
     }
 
@@ -183,15 +184,14 @@ void* rbtree_rebalance_for_erase(void* header_void, void* node_void) {
       if (node->mRight == nullptr) {
         header->mLeftmost = node->mParent;
       } else {
-        // prVar1 = next;
-        _node* prVar1 = next;
-        if (next == nullptr) {
+        _node* iter = replacement;
+        if (replacement == nullptr) {
           header->mLeftmost = nullptr;
         } else {
           _node* newLeftmost;
           do {
-            newLeftmost = prVar1;
-            prVar1 = newLeftmost->mLeft;
+            newLeftmost = iter;
+            iter = newLeftmost->mLeft;
           } while (newLeftmost->mLeft != nullptr);
           header->mLeftmost = newLeftmost;
         }
@@ -202,15 +202,14 @@ void* rbtree_rebalance_for_erase(void* header_void, void* node_void) {
       if (node->mLeft == nullptr) {
         header->mRightmost = node->mParent;
       } else {
-        // prVar1 = next;
-        _node* prVar1 = next;
-        if (next == nullptr) {
+        _node* iter = replacement;
+        if (replacement == nullptr) {
           header->mRightmost = nullptr;
         } else {
           _node* newRightmost;
           do {
-            newRightmost = prVar1;
-            prVar1 = newRightmost->mRight;
+            newRightmost = iter;
+            iter = newRightmost->mRight;
           } while (newRightmost->mRight != nullptr);
           header->mRightmost = newRightmost;
         }
@@ -218,12 +217,87 @@ void* rbtree_rebalance_for_erase(void* header_void, void* node_void) {
     }
   }
 
-  if (result->mColor != kNC_Black) {
+  if (successor->mColor != kNC_Black) {
+    _node* currentParent;
+    _node* siblingChild;
+    _node* sibling;
+
     while (true) {
+      currentParent = parent;
+      if (replacement == header->mRootNode || (replacement && replacement->mColor != kNC_Red)) {
+        break;
+      }
+      sibling = currentParent->mLeft;
+      if (replacement == sibling) {
+        // Replacement is left child, sibling is on the right
+        sibling = currentParent->mRight;
+        if (sibling->mColor == kNC_Black) {
+          sibling->mColor = kNC_Red;
+          currentParent->mColor = kNC_Black;
+          rbtree_rotate_left(header, currentParent);
+          sibling = currentParent->mRight;
+        }
+        siblingChild = sibling->mLeft;
+        if (((siblingChild != nullptr) && (siblingChild->mColor != kNC_Red)) ||
+            ((sibling->mRight != nullptr && (sibling->mRight->mColor != kNC_Red)))) {
+          if ((sibling->mRight == nullptr) || (sibling->mRight->mColor == kNC_Red)) {
+            if (siblingChild != nullptr) {
+              siblingChild->mColor = kNC_Red;
+            }
+            sibling->mColor = kNC_Black;
+            rbtree_rotate_right(header, sibling);
+            sibling = currentParent->mRight;
+          }
+          sibling->mColor = currentParent->mColor;
+          currentParent->mColor = kNC_Red;
+          if (sibling->mRight != nullptr) {
+            sibling->mRight->mColor = kNC_Red;
+          }
+          rbtree_rotate_left(header, currentParent);
+          break;
+        }
+        sibling->mColor = kNC_Black;
+        parent = currentParent->mParent;
+        replacement = currentParent;
+      } else {
+        // Replacement is right child, sibling is on the left
+        if (sibling->mColor == kNC_Black) {
+          sibling->mColor = kNC_Red;
+          currentParent->mColor = kNC_Black;
+          rbtree_rotate_right(header, currentParent);
+          sibling = currentParent->mLeft;
+        }
+        siblingChild = sibling->mRight;
+        if ((siblingChild && siblingChild->mColor != kNC_Red) ||
+            (sibling->mLeft && sibling->mLeft->mColor != kNC_Red)) {
+            
+          if (!sibling->mLeft || sibling->mLeft->mColor == kNC_Red) {
+            if (siblingChild) {
+              siblingChild->mColor = kNC_Red;
+            }
+            sibling->mColor = kNC_Black;
+            rbtree_rotate_left(header, sibling);
+            sibling = currentParent->mLeft;
+          }
+          sibling->mColor = currentParent->mColor;
+          currentParent->mColor = kNC_Red;
+          if (sibling->mLeft != nullptr) {
+            sibling->mLeft->mColor = kNC_Red;
+          }
+          rbtree_rotate_right(header, currentParent);
+          break;
+        }
+        sibling->mColor = kNC_Black;
+        parent = currentParent->mParent;
+        replacement = currentParent;
+      }
+    }
+    if (replacement != nullptr) {
+      replacement->mColor = kNC_Red;
     }
   }
 
-  return result;
+  return successor;
 }
 
 void* rbtree_traverse_forward(const void* header_void, void* node_void) {
