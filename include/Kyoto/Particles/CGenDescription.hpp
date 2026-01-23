@@ -96,6 +96,6 @@ public:
   IElement* x124_ADV7;
   IElement* x128_ADV8;
 };
-//CHECK_SIZEOF(CGenDescription, 0x12c)
+CHECK_SIZEOF(CGenDescription, 0x12c)
 
 #endif // _CGENDESCRIPTION
