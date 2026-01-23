@@ -20,12 +20,12 @@ public:
   ~CWaveBeam() override;
 
   void PostRenderGunFx(const CStateManager& mgr, const CTransform4f& xf) override;
-  void UpdateGunFx(bool shotSmoke, float dt, const CStateManager& mgr,
+  void UpdateGunFx(const bool shotSmoke, const float dt, const CStateManager& mgr,
                    const CTransform4f& xf) override;
-  void Fire(bool underwater, float dt, CPlayerState::EChargeStage chargeState,
-            const CTransform4f& xf, CStateManager& mgr, TUniqueId homingTarget, float chargeFactor1,
-            float chargeFactor2) override;
-  void EnableSecondaryFx(ESecondaryFxType type) override;
+  void Fire(const bool underwater, const float dt, CPlayerState::EChargeStage chargeState,
+            const CTransform4f& xf, CStateManager& mgr, const TUniqueId homingTarget,
+            const float chargeFactor1, const float chargeFactor2) override;
+  void EnableSecondaryFx(const ESecondaryFxType type) override;
   void Update(float dt, CStateManager& mgr) override;
   void Load(CStateManager& mgr, bool subtypeBasePose) override;
   void Unload(CStateManager& mgr) override;

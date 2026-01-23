@@ -44,7 +44,7 @@ void CIceBeam::PostRenderGunFx(const CStateManager& mgr, const CTransform4f& xf)
     CElementGen::SetSubtractBlend(false);
 }
 
-void CIceBeam::UpdateGunFx(bool shotSmoke, float dt, const CStateManager& mgr,
+void CIceBeam::UpdateGunFx(const bool shotSmoke, const float dt, const CStateManager& mgr,
                            const CTransform4f& xf) {
   if (x240_smokeGen.get()) {
     CTransform4f beamLoc =
@@ -54,7 +54,7 @@ void CIceBeam::UpdateGunFx(bool shotSmoke, float dt, const CStateManager& mgr,
     x240_smokeGen->Update(dt);
   }
 
-  if (x244_chargeFx.get()) {
+  if (!x244_chargeFx.null()) {
     if (x248_25_inEndFx && x244_chargeFx->IsSystemDeletable()) {
       x1cc_enabledSecondaryEffect = kSFT_None;
       x244_chargeFx = nullptr;
@@ -73,7 +73,7 @@ void CIceBeam::UpdateGunFx(bool shotSmoke, float dt, const CStateManager& mgr,
   CGunWeapon::UpdateGunFx(shotSmoke, dt, mgr, xf);
 }
 
-void CIceBeam::Update(float dt, CStateManager& mgr) {
+void CIceBeam::Update(const float dt, CStateManager& mgr) {
   CGunWeapon::Update(dt, mgr);
 
   if (!x248_24_loaded) {
@@ -86,9 +86,10 @@ void CIceBeam::Update(float dt, CStateManager& mgr) {
   }
 }
 
-void CIceBeam::Fire(bool underwater, float dt, CPlayerState::EChargeStage chargeState,
-                    const CTransform4f& xf, CStateManager& mgr, TUniqueId homingTarget,
-                    float chargeFactor1, float chargeFactor2) {
+void CIceBeam::Fire(const bool underwater, const float dt,
+                    const CPlayerState::EChargeStage chargeState, const CTransform4f& xf,
+                    CStateManager& mgr, const TUniqueId homingTarget, const float chargeFactor1,
+                    const float chargeFactor2) {
   static const ushort soundId[2] = {SFXsam_a_icefire_00, SFXsam_a_icechfir_00};
 
   CGunWeapon::Fire(underwater, dt, chargeState, xf, mgr, homingTarget, chargeFactor1,
@@ -96,7 +97,7 @@ void CIceBeam::Fire(bool underwater, float dt, CPlayerState::EChargeStage charge
   NWeaponTypes::play_sfx(soundId[size_t(chargeState)], underwater, false, 0x4a);
 }
 
-void CIceBeam::Load(CStateManager& mgr, bool subtypeBasePose) {
+void CIceBeam::Load(CStateManager& mgr, const bool subtypeBasePose) {
   CGunWeapon::Load(mgr, subtypeBasePose);
   x21c_iceSmoke.Lock();
   x228_ice2nd1.Lock();
@@ -114,7 +115,7 @@ void CIceBeam::Unload(CStateManager& mgr) {
 
 bool CIceBeam::IsLoaded() const { return CGunWeapon::IsLoaded() && x248_24_loaded; }
 
-void CIceBeam::EnableSecondaryFx(ESecondaryFxType type) {
+void CIceBeam::EnableSecondaryFx(const ESecondaryFxType type) {
   switch (type) {
   case kSFT_CancelCharge:
   case kSFT_None:
@@ -143,7 +144,7 @@ void CIceBeam::EnableSecondaryFx(ESecondaryFxType type) {
   }
 }
 
-void CIceBeam::EnableFx(bool enable) {
+void CIceBeam::EnableFx(const bool enable) {
   if (x240_smokeGen.get())
     x240_smokeGen->SetParticleEmission(enable);
 }

@@ -251,7 +251,7 @@ void CGunWeapon::PostRenderGunFx(const CStateManager& mgr, const CTransform4f& x
     x1b8_frozenGenerator->Render();
 }
 
-void CGunWeapon::UpdateGunFx(bool shotSmoke, float dt, const CStateManager& mgr,
+void CGunWeapon::UpdateGunFx(const bool shotSmoke, const float dt, const CStateManager& mgr,
                              const CTransform4f& xf) {
   if (x218_26_loaded && x204_frozenEffect != kFFT_None) {
     if (x204_frozenEffect == kFFT_Thawed) {
@@ -270,8 +270,8 @@ void CGunWeapon::UpdateGunFx(bool shotSmoke, float dt, const CStateManager& mgr,
   }
 }
 
-void CGunWeapon::UpdateMuzzleFx(float dt, const CVector3f& scale, const CVector3f& pos,
-                                bool emitting) {
+void CGunWeapon::UpdateMuzzleFx(const float dt, const CVector3f& scale, const CVector3f& pos,
+                                const bool emitting) {
   x1a4_muzzleGenerators[x208_muzzleEffectIdx]->SetGlobalTranslation(pos);
   x1a4_muzzleGenerators[x208_muzzleEffectIdx]->SetGlobalScale(scale);
   x1a4_muzzleGenerators[x208_muzzleEffectIdx]->SetParticleEmission(emitting);
@@ -477,7 +477,7 @@ void CGunWeapon::TouchHolo(const CStateManager& mgr) {
     x60_holoModelData->Touch(mgr, 0);
 }
 
-void CGunWeapon::Load(CStateManager& mgr, bool subtypeBasePose) {
+void CGunWeapon::Load(CStateManager& mgr, const bool subtypeBasePose) {
   LockTokens(mgr);
   x218_27_subtypeBasePose = subtypeBasePose;
   x204_frozenEffect = kFFT_None;

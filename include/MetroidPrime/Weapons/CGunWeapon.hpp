@@ -74,21 +74,21 @@ public:
 
   // Virtual Methods
   virtual void Reset(CStateManager& mgr);
-  virtual void PlayAnim(NWeaponTypes::EGunAnimType type, bool loop);
+  virtual void PlayAnim(const NWeaponTypes::EGunAnimType type, const bool loop);
   virtual void PreRenderGunFx(const CStateManager& mgr, const CTransform4f& xf);
   virtual void PostRenderGunFx(const CStateManager& mgr, const CTransform4f& xf);
-  virtual void UpdateGunFx(bool shotSmoke, float dt, const CStateManager& mgr,
+  virtual void UpdateGunFx(const bool shotSmoke, const float dt, const CStateManager& mgr,
                            const CTransform4f& xf);
   virtual void Fire(const bool underwater, const float dt,
                     const CPlayerState::EChargeStage chargeState, const CTransform4f& xf,
                     CStateManager& mgr, const TUniqueId homingTarget, const float chargeFactor1,
                     const float chargeFactor2);
-  virtual void EnableFx(bool enable);
-  virtual void EnableSecondaryFx(ESecondaryFxType type);
-  virtual void Draw(bool drawSuitArm, const CStateManager& mgr, const CTransform4f& xf,
+  virtual void EnableFx(const bool enable);
+  virtual void EnableSecondaryFx(const ESecondaryFxType type);
+  virtual void Draw(const bool drawSuitArm, const CStateManager& mgr, const CTransform4f& xf,
                     const CModelFlags& flags, const CActorLights* lights) const;
   virtual void DrawMuzzleFx(const CStateManager& mgr) const;
-  virtual void Update(float dt, CStateManager& mgr);
+  virtual void Update(const float dt, CStateManager& mgr);
   virtual void Load(CStateManager& mgr, const bool subtypeBasePose);
   virtual void Unload(CStateManager& mgr);
   virtual bool IsLoaded() const;
@@ -107,7 +107,7 @@ public:
   void ActivateCharge(bool enable, bool resetEffect);
   bool PlayPasAnim(SamusGun::EAnimationState state, CStateManager& mgr, float angle);
   bool IsChargeAnimOver() const;
-  void UpdateMuzzleFx(float dt, const CVector3f& scale, const CVector3f& pos, bool emitting);
+  void UpdateMuzzleFx(const float dt, const CVector3f& scale, const CVector3f& pos, const bool emitting);
   CElementGen* GetChargeMuzzleFx() const;
   void DrawHologram(const CStateManager& mgr, const CTransform4f& xf,
                     const CModelFlags& flags) const;

@@ -21,8 +21,8 @@ static const ushort kSoundId[2] = {
     SFXsam_a_wavchfir_00,
 };
 
-CWaveBeam::CWaveBeam(CAssetId characterId, EWeaponType type, TUniqueId playerId,
-                     EMaterialTypes playerMaterial, const CVector3f& scale)
+CWaveBeam::CWaveBeam(const CAssetId characterId, const EWeaponType type, const TUniqueId playerId,
+                     const EMaterialTypes playerMaterial, const CVector3f& scale)
 : CGunWeapon(characterId, type, playerId, playerMaterial, scale)
 , x21c_waveBeam(gpSimplePool->GetObj("WaveBeam"))
 , x228_wave2nd1(gpSimplePool->GetObj("Wave2nd_1"))
@@ -53,7 +53,7 @@ void CWaveBeam::PostRenderGunFx(const CStateManager& mgr, const CTransform4f& xf
   CGunWeapon::PostRenderGunFx(mgr, xf);
 }
 
-void CWaveBeam::UpdateGunFx(bool shotSmoke, float dt, const CStateManager& mgr,
+void CWaveBeam::UpdateGunFx(const bool shotSmoke, const float dt, const CStateManager& mgr,
                             const CTransform4f& xf) {
   if (x1cc_enabledSecondaryEffect != kSFT_None) {
     if (x258_25_effectTimerActive && x24c_effectTimer < 0.f) {
@@ -89,9 +89,9 @@ void CWaveBeam::Update(float dt, CStateManager& mgr) {
   }
 }
 
-void CWaveBeam::Fire(bool underwater, float dt, CPlayerState::EChargeStage chargeState,
-                     const CTransform4f& xf, CStateManager& mgr, TUniqueId homingTarget,
-                     float chargeFactor1, float chargeFactor2) {
+void CWaveBeam::Fire(const bool underwater, const float dt, const CPlayerState::EChargeStage chargeState,
+                     const CTransform4f& xf, CStateManager& mgr, const TUniqueId homingTarget,
+                     const float chargeFactor1, const float chargeFactor2) {
   if (chargeState != CPlayerState::kCS_Normal) {
     CGunWeapon::Fire(underwater, dt, chargeState, xf, mgr, homingTarget, chargeFactor1,
                      chargeFactor2);
@@ -119,7 +119,7 @@ void CWaveBeam::Fire(bool underwater, float dt, CPlayerState::EChargeStage charg
   x10_solidModelData->AnimationData()->SetAnimation(parms, false);
 }
 
-void CWaveBeam::Load(CStateManager& mgr, bool subtypeBasePose) {
+void CWaveBeam::Load(CStateManager& mgr, const bool subtypeBasePose) {
   CGunWeapon::Load(mgr, subtypeBasePose);
   x228_wave2nd1.Lock();
   x234_wave2nd2.Lock();
@@ -138,7 +138,7 @@ void CWaveBeam::Unload(CStateManager& mgr) {
 
 bool CWaveBeam::IsLoaded() const { return CGunWeapon::IsLoaded() && x258_24_loaded; }
 
-void CWaveBeam::EnableSecondaryFx(ESecondaryFxType type) {
+void CWaveBeam::EnableSecondaryFx(const ESecondaryFxType type) {
   switch (type) {
   case kSFT_None:
     x1cc_enabledSecondaryEffect = kSFT_None;

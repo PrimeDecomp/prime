@@ -18,14 +18,14 @@ public:
   bool IsFiring(const CStateManager& mgr) const;
   void PreRenderGunFx(const CStateManager& mgr, const CTransform4f& xf) override;
   void PostRenderGunFx(const CStateManager& mgr, const CTransform4f& xf) override;
-  void UpdateGunFx(bool shotSmoke, float dt, const CStateManager& mgr,
+  void UpdateGunFx(const bool shotSmoke, const float dt, const CStateManager& mgr,
                    const CTransform4f& xf) override;
   void DrawMuzzleFx(const CStateManager& mgr) const override;
   void Draw(bool drawSuitArm, const CStateManager& mgr, const CTransform4f& xf,
             const CModelFlags& flags, const CActorLights* lights) const override;
-  void Fire(bool underwater, float dt, CPlayerState::EChargeStage chargeState,
-            const CTransform4f& xf, CStateManager& mgr, TUniqueId homingTarget, float chargeFactor1,
-            float chargeFactor2) override;
+  void Fire(const bool underwater, const float dt, CPlayerState::EChargeStage chargeState,
+            const CTransform4f& xf, CStateManager& mgr, const TUniqueId homingTarget,
+            const float chargeFactor1, const float chargeFactor2) override;
   void Update(float dt, CStateManager& mgr) override;
   void UpdateBeam(float dt, const CTransform4f& xf, const CVector3f& localBeamPos,
                   CStateManager& mgr);

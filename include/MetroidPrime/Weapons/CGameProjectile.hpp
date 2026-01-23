@@ -62,8 +62,8 @@ public:
   static EProjectileAttrib GetBeamAttribType(EWeaponType wType);
 
   CAABox GetProjectileBounds() const;
-
-protected:
+  
+  protected:
   rstl::optional_object< TLockedToken< CGenDescription > > x158_visorParticle;
   ushort x168_visorSfx;
   CProjectileWeapon x170_projectile;

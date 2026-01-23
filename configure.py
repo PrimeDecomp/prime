@@ -953,7 +953,7 @@ config.libs = [
                 "MetroidPrime/Weapons/GunController/CGSComboFire.cpp",
             ),
             Object(NonMatching, "MetroidPrime/HUD/CHudBallInterface.cpp"),
-            Object(NonMatching, "MetroidPrime/Tweaks/CTweakGuiColors.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Tweaks/CTweakGuiColors.cpp"),
             Object(NonMatching, "MetroidPrime/ScriptObjects/CFishCloud.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CHealthInfo.cpp"

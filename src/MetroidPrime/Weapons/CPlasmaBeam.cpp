@@ -17,8 +17,9 @@
 CCameraShakeData CameraShaker = CCameraShakeData(0.125f, 0.25f);
 static const ushort kSoundId[2] = {SFXsam_a_plafire_00, SFXsam_a_plachfire_00};
 
-CPlasmaBeam::CPlasmaBeam(CAssetId characterId, EWeaponType type, TUniqueId playerId,
-                         EMaterialTypes playerMaterial, const CVector3f& scale)
+CPlasmaBeam::CPlasmaBeam(const CAssetId characterId, const EWeaponType type,
+                         const TUniqueId playerId, const EMaterialTypes playerMaterial,
+                         const CVector3f& scale)
 : CGunWeapon(characterId, type, playerId, playerMaterial, scale)
 , x21c_plasma2nd1(gpSimplePool->GetObj("Plasma2nd_1"))
 , x22c_24_loaded(false)
@@ -44,7 +45,7 @@ void CPlasmaBeam::PostRenderGunFx(const CStateManager& mgr, const CTransform4f& 
   CGunWeapon::PostRenderGunFx(mgr, xf);
 }
 
-void CPlasmaBeam::UpdateGunFx(bool shotSmoke, float dt, const CStateManager& mgr,
+void CPlasmaBeam::UpdateGunFx(const bool shotSmoke, const float dt, const CStateManager& mgr,
                               const CTransform4f& xf) {
   if (x228_chargeFx.get() && x1cc_enabledSecondaryEffect != kSFT_None) {
     if (x228_chargeFx->IsSystemDeletable())
@@ -56,7 +57,7 @@ void CPlasmaBeam::UpdateGunFx(bool shotSmoke, float dt, const CStateManager& mgr
   CGunWeapon::UpdateGunFx(shotSmoke, dt, mgr, xf);
 }
 
-void CPlasmaBeam::Update(float dt, CStateManager& mgr) {
+void CPlasmaBeam::Update(const float dt, CStateManager& mgr) {
   CGunWeapon::Update(dt, mgr);
   x230_fireShotDelayTimer -= dt;
   x230_fireShotDelayTimer = rstl::max_val(0.f, x230_fireShotDelayTimer);
@@ -80,9 +81,10 @@ void CPlasmaBeam::Update(float dt, CStateManager& mgr) {
   }
 }
 
-void CPlasmaBeam::Fire(bool underwater, float dt, CPlayerState::EChargeStage chargeState,
-                       const CTransform4f& xf, CStateManager& mgr, TUniqueId homingTarget,
-                       float chargeFactor1, float chargeFactor2) {
+void CPlasmaBeam::Fire(const bool underwater, const float dt,
+                       CPlayerState::EChargeStage chargeState, const CTransform4f& xf,
+                       CStateManager& mgr, TUniqueId homingTarget, const float chargeFactor1,
+                       const float chargeFactor2) {
   bool fired = false;
   if (chargeState == CPlayerState::kCS_Normal) {
     if (x230_fireShotDelayTimer < 0.01f) {
@@ -132,7 +134,7 @@ void CPlasmaBeam::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId sender, CS
   }
 }
 
-void CPlasmaBeam::Load(CStateManager& mgr, bool subtypeBasePose) {
+void CPlasmaBeam::Load(CStateManager& mgr, const bool subtypeBasePose) {
   CGunWeapon::Load(mgr, subtypeBasePose);
   x21c_plasma2nd1.Lock();
 }

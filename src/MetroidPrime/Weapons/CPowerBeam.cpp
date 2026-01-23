@@ -7,8 +7,8 @@
 #include "Kyoto/Particles/CElementGen.hpp"
 #include "MetaRender/CCubeRenderer.hpp"
 
-CPowerBeam::CPowerBeam(CAssetId characterId, EWeaponType type, TUniqueId playerId,
-                       EMaterialTypes playerMaterial, const CVector3f& scale)
+CPowerBeam::CPowerBeam(const CAssetId characterId, const EWeaponType type, const TUniqueId playerId,
+                       const EMaterialTypes playerMaterial, const CVector3f& scale)
 : CGunWeapon(characterId, type, playerId, playerMaterial, scale)
 , x21c_shotSmoke(gpSimplePool->GetObj("ShotSmoke"))
 , x228_power2nd1(gpSimplePool->GetObj("Power2nd_1"))
@@ -30,7 +30,7 @@ void CPowerBeam::ReInitVariables() {
 }
 
 void CPowerBeam::PreRenderGunFx(const CStateManager& mgr, const CTransform4f& xf) {
-  CTransform4f backupView = CGraphics::GetViewMatrix();
+  const CTransform4f backupView = CGraphics::GetViewMatrix();
 
   CGraphics::SetViewPointMatrix(xf.GetInverse() * backupView);
   gpRender->SetModelMatrix(CTransform4f::Identity());
@@ -46,7 +46,7 @@ void CPowerBeam::PostRenderGunFx(const CStateManager& mgr, const CTransform4f& x
   CGunWeapon::PostRenderGunFx(mgr, xf);
 }
 
-void CPowerBeam::UpdateGunFx(bool shotSmoke, float dt, const CStateManager& mgr,
+void CPowerBeam::UpdateGunFx(const bool shotSmoke, const float dt, const CStateManager& mgr,
                              const CTransform4f& xf) {
   switch (x240_smokeState) {
   case kSS_Inactive:
@@ -88,7 +88,7 @@ void CPowerBeam::UpdateGunFx(bool shotSmoke, float dt, const CStateManager& mgr,
   CGunWeapon::UpdateGunFx(shotSmoke, dt, mgr, xf);
 }
 
-void CPowerBeam::Update(float dt, CStateManager& mgr) {
+void CPowerBeam::Update(const float dt, CStateManager& mgr) {
   CGunWeapon::Update(dt, mgr);
   if (IsLoaded())
     return;
@@ -102,9 +102,10 @@ void CPowerBeam::Update(float dt, CStateManager& mgr) {
   }
 }
 
-void CPowerBeam::Fire(bool underwater, float dt, CPlayerState::EChargeStage chargeState,
-                      const CTransform4f& xf, CStateManager& mgr, TUniqueId homingTarget,
-                      float chargeFactor1, float chargeFactor2) {
+void CPowerBeam::Fire(const bool underwater, const float dt,
+                      const CPlayerState::EChargeStage chargeState, const CTransform4f& xf,
+                      CStateManager& mgr, const TUniqueId homingTarget, const float chargeFactor1,
+                      const float chargeFactor2) {
   static const ushort skSoundId[] = {
       SFXsam_a_pbmfire_00,
       SFXsam_a_cbmfire_00,
@@ -112,10 +113,10 @@ void CPowerBeam::Fire(bool underwater, float dt, CPlayerState::EChargeStage char
 
   CGunWeapon::Fire(underwater, dt, chargeState, xf, mgr, homingTarget, chargeFactor1,
                    chargeFactor2);
-  NWeaponTypes::play_sfx(skSoundId[size_t(chargeState)], underwater, false, 0x4a);
+  NWeaponTypes::play_sfx(skSoundId[static_cast< size_t >(chargeState)], underwater, false, 0x4a);
 }
 
-void CPowerBeam::Load(CStateManager& mgr, bool subtypeBasePose) {
+void CPowerBeam::Load(CStateManager& mgr, const bool subtypeBasePose) {
   CGunWeapon::Load(mgr, subtypeBasePose);
   x21c_shotSmoke.Lock();
   x228_power2nd1.Lock();
@@ -130,7 +131,7 @@ void CPowerBeam::Unload(CStateManager& mgr) {
 
 bool CPowerBeam::IsLoaded() const { return CGunWeapon::IsLoaded() && x244_25_loaded; }
 
-void CPowerBeam::EnableSecondaryFx(ESecondaryFxType type) {
+void CPowerBeam::EnableSecondaryFx(const ESecondaryFxType type) {
   switch (type) {
   case kSFT_None:
   case kSFT_ToCombo:

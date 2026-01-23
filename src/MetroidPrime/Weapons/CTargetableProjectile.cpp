@@ -5,12 +5,13 @@
 #include "Kyoto/Audio/CSfxManager.hpp"
 
 CTargetableProjectile::CTargetableProjectile(
-    const TToken< CWeaponDescription >& desc, EWeaponType type, const CTransform4f& xf,
-    EMaterialTypes materials, const CDamageInfo& damage, const CDamageInfo& damage2, TUniqueId uid,
-    TAreaId aid, TUniqueId owner, const TToken< CWeaponDescription >& weapDesc,
-    TUniqueId homingTarget, EProjectileAttrib attribs,
-    const rstl::optional_object< TLockedToken< CGenDescription > >& visorParticle, ushort visorSfx,
-    bool sendCollideMsg)
+    const TToken< CWeaponDescription >& desc, const EWeaponType type, const CTransform4f& xf,
+    const EMaterialTypes materials, const CDamageInfo& damage, const CDamageInfo& damage2,
+    const TUniqueId uid, const TAreaId aid, const TUniqueId owner,
+    const TToken< CWeaponDescription >& weapDesc, const TUniqueId homingTarget,
+    const EProjectileAttrib attribs,
+    const rstl::optional_object< TLockedToken< CGenDescription > >& visorParticle,
+    const ushort visorSfx, const bool sendCollideMsg)
 : CEnergyProjectile(true, desc, type, xf, materials, damage, uid, aid, owner, homingTarget,
                     attribs | CWeapon::kPA_BigProjectile | CWeapon::kPA_PartialCharge |
                         CWeapon::kPA_PlasmaProjectile,
@@ -24,12 +25,12 @@ CTargetableProjectile::CTargetableProjectile(
 void CTargetableProjectile::Accept(IVisitor& visitor) { visitor.Visit(*this); }
 
 bool CTargetableProjectile::Explode(const CVector3f& pos, const CVector3f& normal,
-                                    EWeaponCollisionResponseTypes type, CStateManager& mgr,
-                                    const CDamageVulnerability& dVuln, TUniqueId hitActor) {
+                                    const EWeaponCollisionResponseTypes type, CStateManager& mgr,
+                                    const CDamageVulnerability& dVuln, const TUniqueId hitActor) {
   bool ret = CEnergyProjectile::Explode(pos, normal, type, mgr, dVuln, hitActor);
 
   if (!GetWeaponActive()) {
-    TUniqueId projOwner = GetHitProjectileOwner();
+    const TUniqueId projOwner = GetHitProjectileOwner();
     if (projOwner != kInvalidUniqueId && projOwner == mgr.GetPlayer()->GetUniqueId()) {
 
       if (const CActor* act = TCastToConstPtr< CActor >(mgr.GetObjectById(GetOwnerId()))) {
@@ -54,7 +55,7 @@ bool CTargetableProjectile::Explode(const CVector3f& pos, const CVector3f& norma
   return ret;
 }
 
-CVector3f CTargetableProjectile::GetAimPosition(const CStateManager& mgr, float dt) const {
+CVector3f CTargetableProjectile::GetAimPosition(const CStateManager& mgr, const float dt) const {
   static float tickRecip = 1.f / CProjectileWeapon::GetTickPeriod();
   CVector3f translation = GetTranslation();
   CVector3f velocity = tickRecip * GetProjectile().GetVelocity();

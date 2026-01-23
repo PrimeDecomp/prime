@@ -8330,7 +8330,7 @@ Touch__15CBeamProjectileFR6CActorR13CStateManager = .text:0x801993CC; // type:fu
 Accept__15CBeamProjectileFR8IVisitor = .text:0x801993D0; // type:function size:0x38 scope:global
 CalculateRenderBounds__15CBeamProjectileFv = .text:0x80199408; // type:function size:0x68 scope:global
 GetTouchBounds__15CBeamProjectileCFv = .text:0x80199470; // type:function size:0x98 scope:global
-__ct__15CBeamProjectileFRC28TToken<18CWeaponDescription>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>11EWeaponTypeRC12CTransform4fiff14EMaterialTypesRC11CDamageInfo9TUniqueId7TAreaId9TUniqueId17EProjectileAttribb = .text:0x80199508; // type:function size:0x408 scope:global
+__ct__15CBeamProjectileFRC28TToken<18CWeaponDescription>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>11EWeaponTypeRC12CTransform4fiff14EMaterialTypesRC11CDamageInfo9TUniqueId7TAreaId9TUniqueIdQ27CWeapon17EProjectileAttribb = .text:0x80199508; // type:function size:0x408 scope:global
 RenderCleanup__14CFluidPlaneCPUCFv = .text:0x80199910; // type:function size:0x1D4 scope:global
 Render__14CFluidPlaneCPUCFRC13CStateManagerRC6CAABoxRC12CTransform4fRC12CTransform4fbRC14CFrustumPlanesRCQ24rstl33optional_object<14CRippleManager>9TUniqueIdPCbiiRC9CVector3f = .text:0x80199AE4; // type:function size:0x840 scope:global
 __ct__Q220CFluidPlaneCPURender10SPatchInfoFRC9CVector3fRC9CVector3fRC9CVector3fffb = .text:0x8019A324; // type:function size:0x188 scope:global
@@ -12236,7 +12236,7 @@ SetText__15CGuiTextSupportFRCQ24rstl66basic_string<w,Q24rstl14char_traits<w>,Q24
 fn_802C9930 = .text:0x802C99DC; // type:function size:0x2C scope:global
 fn_802C995C = .text:0x802C9A08; // type:function size:0x7C scope:global
 fn_802C99D8 = .text:0x802C9A84; // type:function size:0x130 scope:global
-SetText__15CGuiTextSupportFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator> = .text:0x802C9BB4; // type:function size:0x68 scope:global
+SetText__15CGuiTextSupportFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>b = .text:0x802C9BB4; // type:function size:0x68 scope:global
 _GetIsTextSupportFinishedLoading__15CGuiTextSupportCFv = .text:0x802C9C1C; // type:function size:0xF4 scope:global
 GetIsTextSupportFinishedLoading__15CGuiTextSupportCFv = .text:0x802C9D10; // type:function size:0x34 scope:global
 __dt__15CGuiTextSupportFv = .text:0x802C9D44; // type:function size:0x154 scope:global

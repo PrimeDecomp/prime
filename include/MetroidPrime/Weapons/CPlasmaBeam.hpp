@@ -3,34 +3,35 @@
 
 #include "types.h"
 
-#include "MetroidPrime/Weapons/CGunWeapon.hpp"
 #include "MetroidPrime/CEntityInfo.hpp"
+#include "MetroidPrime/Weapons/CGunWeapon.hpp"
 
 class CPlasmaBeam : public CGunWeapon {
 public:
-  CPlasmaBeam(CAssetId characterId, EWeaponType type, TUniqueId playerId,
-              EMaterialTypes playerMaterial, const CVector3f& scale);
-  
+  CPlasmaBeam(const CAssetId characterId, const EWeaponType type, const TUniqueId playerId,
+             const  EMaterialTypes playerMaterial, const CVector3f& scale);
+
   ~CPlasmaBeam() override;
 
   // CGunWeapon
   void PostRenderGunFx(const CStateManager& mgr, const CTransform4f& xf) override;
   void UpdateGunFx(bool shotSmoke, float dt, const CStateManager& mgr,
                    const CTransform4f& xf) override;
-  void Update(float dt, CStateManager& mgr) override;
-  void Fire(bool underwater, float dt, CPlayerState::EChargeStage chargeState,
-            const CTransform4f& xf, CStateManager& mgr, TUniqueId homingTarget, float chargeFactor1,
-            float chargeFactor2) override;
+  void Update(const float dt, CStateManager& mgr) override;
+  void Fire(const bool underwater, const float dt, CPlayerState::EChargeStage chargeState,
+            const CTransform4f& xf, CStateManager& mgr, TUniqueId homingTarget,
+            const float chargeFactor1, const float chargeFactor2) override;
 
   void Load(CStateManager& mgr, bool subtypeBasePose) override;
   void Unload(CStateManager& mgr) override;
   bool IsLoaded() const override;
-  void EnableSecondaryFx(ESecondaryFxType type) override;
+  void EnableSecondaryFx(const ESecondaryFxType type) override;
 
   bool IsFiring(const CStateManager& mgr) const;
-  void StopBeam(CStateManager& mgr, bool b1);
+  void StopBeam(CStateManager& mgr, const bool b1);
   void CreateBeam(CStateManager& mgr);
-  void UpdateBeam(float dt, const CTransform4f& targetXf, const CVector3f& localBeamPos, CStateManager& mgr);
+  void UpdateBeam(const float dt, const CTransform4f& targetXf, const CVector3f& localBeamPos,
+                  CStateManager& mgr);
   void DeleteBeam(CStateManager& mgr);
   void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId sender, CStateManager& mgr);
 

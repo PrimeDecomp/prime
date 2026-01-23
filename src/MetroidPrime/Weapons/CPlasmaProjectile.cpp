@@ -41,7 +41,7 @@ CPlasmaProjectile::CPlasmaProjectile(const TToken< CWeaponDescription >& wDesc,
 , x500_contactFxDesc(gpSimplePool->GetObj(SObjectTag('PART', bInfo.GetContactFXId())))
 , x50c_pulseFxDesc(gpSimplePool->GetObj(SObjectTag('PART', bInfo.GetPulseFXId())))
 , x518_contactGen(rs_new CElementGen(x500_contactFxDesc, CElementGen::kMOT_One))
-, x51c_pulseGen(rs_new CElementGen(x50c_pulseFxDesc, CElementGen::kMOT_One))
+, x51c_pulseGen(rs_new CElementGen(x50c_pulseFxDesc, CElementGen::kMOT_Normal))
 , x524_freezeSteamTxtr(res.data[0])
 , x528_freezeIceTxtr(res.data[1])
 , x52c_visorElectric(res.data[2] != kInvalidAssetId

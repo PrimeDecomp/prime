@@ -57,7 +57,7 @@ public:
   virtual void SetGlobalTranslation(const CVector3f& translation) override;
   virtual void SetGlobalScale(const CVector3f& scale) override;
   virtual void SetLocalScale(const CVector3f& scale) override;
-  virtual void SetParticleEmission(bool emission) override;
+  virtual void SetParticleEmission(const bool emission) override;
   virtual void SetModulationColor(const CColor& col) override;
   virtual void SetGeneratorRate(float rate) override {}
   virtual const CTransform4f& GetOrientation() const override;

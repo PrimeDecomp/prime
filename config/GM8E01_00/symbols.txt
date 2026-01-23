@@ -12236,7 +12236,7 @@ SetText__15CGuiTextSupportFRCQ24rstl66basic_string<w,Q24rstl14char_traits<w>,Q24
 fn_802C9930 = .text:0x802C9930; // type:function size:0x2C
 fn_802C995C = .text:0x802C995C; // type:function size:0x7C
 fn_802C99D8 = .text:0x802C99D8; // type:function size:0x130
-SetText__15CGuiTextSupportFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator> = .text:0x802C9B08; // type:function size:0x68 scope:global
+SetText__15CGuiTextSupportFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>b = .text:0x802C9B08; // type:function size:0x68 scope:global
 _GetIsTextSupportFinishedLoading__15CGuiTextSupportCFv = .text:0x802C9B70; // type:function size:0xF4 scope:global
 GetIsTextSupportFinishedLoading__15CGuiTextSupportCFv = .text:0x802C9C64; // type:function size:0x34 scope:global
 __dt__15CGuiTextSupportFv = .text:0x802C9C98; // type:function size:0x154 scope:global
@@ -17233,7 +17233,7 @@ lbl_803D08A3 = .rodata:0x803D08A3; // type:object size:0xD data:string
 lbl_803D08B0 = .rodata:0x803D08B0; // type:object size:0xD data:string
 lbl_803D08BD = .rodata:0x803D08BD; // type:object size:0x7 data:string
 lbl_803D08C4 = .rodata:0x803D08C4; // type:object size:0x34
-@stringBase0 = .rodata:0x803D08F8; // type:object size:0x42 data:string_table
+@stringBase0 = .rodata:0x803D08F8; // type:object size:0x42 scope:local data:string_table
 @stringBase0 = .rodata:0x803D0940; // type:object size:0x7 scope:local data:string_table
 lbl_803D0948 = .rodata:0x803D0948; // type:object size:0x8C
 lbl_803D09D4 = .rodata:0x803D09D4; // type:object size:0x1B data:string
