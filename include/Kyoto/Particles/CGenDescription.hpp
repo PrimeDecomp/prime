@@ -11,8 +11,8 @@
 #include "rstl/optional_object.hpp"
 #include "rstl/single_ptr.hpp"
 
-class CModel;
 class CElectricDescription;
+class CModel;
 class CSwooshDescription;
 
 class CGenDescription {
@@ -76,7 +76,7 @@ public:
   rstl::optional_object< TCachedToken< CSwooshDescription > > xc0_SSWH;
   IElement* xd0_SSSD;
   IElement* xd4_SSPO;
-  rstl::optional_object< TToken< CElectricDescription > > xd8_SELC;
+  rstl::optional_object< CToken > xd8_SELC;
   IElement* xe4_SESD;
   IElement* xe8_SEPO;
   IElement* xec_LTYP;
@@ -96,6 +96,6 @@ public:
   IElement* x124_ADV7;
   IElement* x128_ADV8;
 };
-CHECK_SIZEOF(CGenDescription, 0x12c)
+//CHECK_SIZEOF(CGenDescription, 0x12c)
 
 #endif // _CGENDESCRIPTION

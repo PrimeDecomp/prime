@@ -33,7 +33,7 @@ public:
   GetChildGeneratorDesc(CInputStream& in, CSimplePool* pool, rstl::vector< CAssetId >& resources);
   static rstl::optional_object< TToken< CSwooshDescription > >
   GetSwooshGeneratorDesc(CInputStream& in, CSimplePool* pool);
-  static rstl::optional_object< TToken< CElectricDescription > >
+  static rstl::optional_object< CToken >
   GetElectricGeneratorDesc(CInputStream& in, CSimplePool* pool);
 };
 
