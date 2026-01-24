@@ -217,13 +217,6 @@ CCollisionResponseData::GetDecalDescription(const EWeaponCollisionResponseTypes 
   return mDecalTokens.at(type);
 }
 
-EWeaponCollisionResponseTypes CCollisionResponseData::GetWorldCollisionResponseType(const int idx) {
-  if (idx >= 0 && idx < ARRAY_SIZE(skWorldMaterialTable)) {
-    return skWorldMaterialTable[idx];
-  }
-  return kWCR_Default;
-}
-
 bool CCollisionResponseData::ResponseTypeIsEnemyShielded(const EWeaponCollisionResponseTypes type) {
   if (type >= kWCR_Unknown69 && type <= kWCR_AtomicAlphaReflect) {
     return true;
@@ -250,6 +243,13 @@ bool CCollisionResponseData::ResponseTypeIsEnemySpecial(const EWeaponCollisionRe
 
 float CCollisionResponseData::GetAudibleRange() const { return mAudibleRange; }
 float CCollisionResponseData::GetAudibleFallOff() const { return mAudibleFallOff; }
+
+EWeaponCollisionResponseTypes CCollisionResponseData::GetWorldCollisionResponseType(const int idx) {
+  if (idx >= 0 && idx < ARRAY_SIZE(skWorldMaterialTable)) {
+    return skWorldMaterialTable[idx];
+  }
+  return kWCR_Default;
+}
 
 
 CFactoryFnReturn FCollisionResponseDataFactory(const SObjectTag& tag, CInputStream& in,
