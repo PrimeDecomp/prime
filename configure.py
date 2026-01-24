@@ -1748,7 +1748,10 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
                 "Kyoto/Animation/CHalfTransition.cpp",
             ),
-            Object(NonMatching, "Kyoto/Particles/CElectricDescription.cpp"),
+            Object(
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                "Kyoto/Particles/CElectricDescription.cpp"
+            ),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
                 "Kyoto/Particles/CSwooshDescription.cpp",
