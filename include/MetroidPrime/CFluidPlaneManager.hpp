@@ -30,7 +30,6 @@ class CStateManager;
 class CRipple;
 class CTexture;
 
-uint fn_8012f098();
 
 class CFluidPlaneCPURender {
 public:
@@ -112,6 +111,8 @@ public:
   float GetLastRippleDeltaTime(TUniqueId uid) const;
 
   float GetUVTime() const { return x11c_uvT; }
+  
+  static uint GetFreqTableIndex(float);
 
 private:
   class CSplashRecord {

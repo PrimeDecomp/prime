@@ -7,7 +7,9 @@
 
 #include "rstl/math.hpp"
 
-CRipple::CRipple(TUniqueId id, const CVector3f& center, float intensity)
+const float CRipple::kDefaultScale = 0.5f;
+
+CRipple::CRipple(const TUniqueId id, const CVector3f& center, const float intensity)
 : x0_id(id)
 , x4_time(0.f)
 , x8_center(center)
@@ -15,23 +17,31 @@ CRipple::CRipple(TUniqueId id, const CVector3f& center, float intensity)
 , x18_distFalloff(12.f)
 , x1c_frequency(3.f)
 , x20_amplitude(0.25f)
-, x24_lookupAmplitude(0.00098039221f)
+, x24_lookupAmplitude(0.0009803922f)
 , x28_ooTimeFalloff(0.f)
 , x2c_ooDistFalloff(0.f)
 , x30_ooPhase(0.f)
 , x34_phase(0.f)
 , x38_lookupPhase(0.f)
-, x3c_(fn_8012f098()) {
-  if (0.f < intensity && intensity < 1.f) {
+, x3c_(CFluidPlaneManager::GetFreqTableIndex(intensity)) {
+  if (intensity < 0.f || intensity > 1.f) {
+    // lmao
+  } else {
     static CRandom16 sRippleRandom(0xABBA);
+    float intensityScale = (intensity * (sRippleRandom.Float() - .5f));
+    intensityScale = .1f * (intensityScale * 2.f) + intensity;
 
-    float value1 = (intensity * (sRippleRandom.Float() - 0.5f)) * 2.f * 0.1f + intensity;
-    float tmp = 2.f * (0.0f < value1 ? (1.0f < value1 ? 1.0f : value1) : 0.0f);
+    if (intensityScale < 0.f) {
+      intensityScale = 0.f;
+    } else if (intensityScale > 1.f) {
+      intensityScale = 1.f;
+    }
 
-    x14_timeFalloff = 0.5f * tmp + 1.5f;
-    x18_distFalloff = 4.f * tmp + 8.f;
-    x1c_frequency = 2.f + tmp;
-    x20_amplitude = 0.15f * tmp + 0.1f;
+    intensityScale = intensityScale * 2.f;
+    x14_timeFalloff = (intensityScale * .5f) + 1.5f;
+    x18_distFalloff = (intensityScale * 4.f) + 8.f;
+    x1c_frequency = intensityScale + 2.f;
+    x20_amplitude = (intensityScale * .15f) + 0.099999994f;
     x24_lookupAmplitude = x20_amplitude / 255.f;
   }
 
@@ -39,5 +49,5 @@ CRipple::CRipple(TUniqueId id, const CVector3f& center, float intensity)
   x2c_ooDistFalloff = 1.f / x18_distFalloff;
   x30_ooPhase = x18_distFalloff / 2.5f;
   x34_phase = 1.f / x30_ooPhase;
-  x38_lookupPhase = 256.f * x34_phase;
+  x38_lookupPhase = x34_phase * 256.f;
 }

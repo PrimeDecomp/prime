@@ -33,7 +33,7 @@ public:
   float GetTimeFalloff() const { return x14_timeFalloff; }
   const CVector3f& GetCenter() const { return x8_center; }
 
-  static float kDefaultScale;
+  static const float kDefaultScale;
 };
 
 #endif // _CRIPPLE
