@@ -14,7 +14,7 @@ public:
   bool IsFinishedLoading();
 
   CDrawStringOptions& GetOptions() { return x0_drawStringOptions; }
-  TToken<CRasterFont>& GetFont() { return *x48_font; }
+  rstl::optional_object< TToken< CRasterFont > >& GetFont() { return x48_font; }
   void SetFont(const TToken<CRasterFont>& font) { x48_font = font; }
   rstl::vector<CTextColor>& GetColors() { return x54_colors; }
   rstl::vector<bool>& GetOverride() { return x64_colorOverrides; }
@@ -22,7 +22,7 @@ public:
   void SetLineExtraSpace(int spacing) { x78_extraLineSpacing = spacing; }
 
   
-private:
+//private:
   CDrawStringOptions x0_drawStringOptions;
   rstl::optional_object< TToken< CRasterFont > > x48_font;
   rstl::vector< CTextColor > x54_colors;

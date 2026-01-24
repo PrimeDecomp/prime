@@ -27,13 +27,14 @@ private:
 class CFontRenderState {
 public:
   CFontRenderState();
+  void RefreshColor(EColorType col);
   uint ConvertToTextureSpace(const CTextColor& color) const;
   void PushState();
   void PopState();
   void SetColor(EColorType type, const CTextColor& color);
   void RefreshPalette();
   CDrawStringOptions& GetOptions() { return x0_state.GetOptions(); }
-  TToken< CRasterFont >& GetFont() { return x0_state.GetFont(); }
+  TToken< CRasterFont >& GetFont() { return *x0_state.GetFont(); }
   void SetFont(const TToken< CRasterFont >& font) { x0_state.SetFont(font); }
   rstl::vector< CTextColor >& GetColors() { return x0_state.GetColors(); }
   rstl::vector< bool >& GetOverride() { return x0_state.GetOverride(); }
