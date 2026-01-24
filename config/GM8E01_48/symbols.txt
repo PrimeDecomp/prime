@@ -13231,10 +13231,10 @@ PageInvoke__26CLineExtraSpaceInstructionCFR16CFontRenderStateP17CTextRenderBuffe
 Invoke__26CLineExtraSpaceInstructionCFR16CFontRenderStateP17CTextRenderBuffer = .text:0x802FFA04; // type:function size:0xC
 __dt__16CLineInstructionFv = .text:0x802FFA10; // type:function size:0x5C
 GetBaseline__16CLineInstructionCFv = .text:0x802FFA6C; // type:function size:0x38
-GetHeight__16CLineInstructionFv = .text:0x802FFAA4; // type:function size:0x38
+GetHeight__16CLineInstructionCFv = .text:0x802FFAA4; // type:function size:0x38
 TestLargestImage__16CLineInstructionFiii = .text:0x802FFADC; // type:function size:0x38
 TestLargestFont__16CLineInstructionFiii = .text:0x802FFB14; // type:function size:0x38
-SetLineSpacing__16CFontRenderStateFf = .text:0x802FFB4C; // type:function size:0x244
+InvokeTTB__16CLineInstructionCFR16CFontRenderState = .text:0x802FFB4C; // type:function size:0x244
 PageInvoke__16CLineInstructionCFR16CFontRenderStateP17CTextRenderBuffer = .text:0x802FFD90; // type:function size:0x38
 Invoke__16CLineInstructionCFR16CFontRenderStateP17CTextRenderBuffer = .text:0x802FFDC8; // type:function size:0x54
 __dt__23CLineSpacingInstructionFv = .text:0x802FFE1C; // type:function size:0x5C

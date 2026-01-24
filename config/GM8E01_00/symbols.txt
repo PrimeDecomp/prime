@@ -13231,10 +13231,10 @@ PageInvoke__26CLineExtraSpaceInstructionCFR16CFontRenderStateP17CTextRenderBuffe
 Invoke__26CLineExtraSpaceInstructionCFR16CFontRenderStateP17CTextRenderBuffer = .text:0x802FF894; // type:function size:0xC scope:global
 __dt__16CLineInstructionFv = .text:0x802FF8A0; // type:function size:0x5C scope:global
 GetBaseline__16CLineInstructionCFv = .text:0x802FF8FC; // type:function size:0x38 scope:global
-GetHeight__16CLineInstructionFv = .text:0x802FF934; // type:function size:0x38 scope:global
+GetHeight__16CLineInstructionCFv = .text:0x802FF934; // type:function size:0x38 scope:global
 TestLargestImage__16CLineInstructionFiii = .text:0x802FF96C; // type:function size:0x38 scope:global
 TestLargestFont__16CLineInstructionFiii = .text:0x802FF9A4; // type:function size:0x38 scope:global
-SetLineSpacing__16CFontRenderStateFf = .text:0x802FF9DC; // type:function size:0x244 scope:global
+InvokeTTB__16CLineInstructionCFR16CFontRenderState = .text:0x802FF9DC; // type:function size:0x244 scope:global
 PageInvoke__16CLineInstructionCFR16CFontRenderStateP17CTextRenderBuffer = .text:0x802FFC20; // type:function size:0x38 scope:global
 Invoke__16CLineInstructionCFR16CFontRenderStateP17CTextRenderBuffer = .text:0x802FFC58; // type:function size:0x54 scope:global
 __dt__23CLineSpacingInstructionFv = .text:0x802FFCAC; // type:function size:0x5C scope:weak

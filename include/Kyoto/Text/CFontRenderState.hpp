@@ -38,7 +38,9 @@ public:
   void SetFont(const TToken< CRasterFont >& font) { x0_state.SetFont(font); }
   rstl::vector< CTextColor >& GetColors() { return x0_state.GetColors(); }
   rstl::vector< bool >& GetOverride() { return x0_state.GetOverride(); }
+  float GetLineSpacing() const { return x0_state.GetLineSpacing(); }
   void SetLineSpacing(float spacing) { x0_state.SetLineSpacing(spacing); }
+  int GetLineExtraSpacing() const {return x0_state.GetLineExtraSpacing(); }
   void SetExtraLineSpace(int spacing) { x0_state.SetLineExtraSpace(spacing); }
   const CBlockInstruction* GetBlock() const { return x88_curBlock; }
   void SetBlock(const CBlockInstruction* block) {
@@ -51,6 +53,8 @@ public:
   const CLineInstruction* GetLine() const { return xdc_currentLineInst; }
   bool IsFirstWordOnLine() const { return x108_lineInitialized; }
   void SetFirstWordOnLine(bool v) { x108_lineInitialized = v; }
+
+  void SetLine(const CLineInstruction* line) { xdc_currentLineInst = line; }
 
 private:
   CSaveableState x0_state;

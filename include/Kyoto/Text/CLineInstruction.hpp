@@ -2,17 +2,38 @@
 #define _CLINEINSTRUCTION
 
 #include "Kyoto/Text/CInstruction.hpp"
+#include "TextCommon.hpp"
 class CLineInstruction : public CInstruction {
 public:
+  CLineInstruction(int width, int height, int baseline, EJustification justification,
+                EVerticalJustification verticalJustification);
+  
+  int GetHeight() const;
   int GetBaseline() const;
 
-  int GetX() const { return x8_x; }
-  int GetY() const { return xc_y; }
+  void Invoke(CFontRenderState& state, CTextRenderBuffer* buf) const override;
+  void InvokeTTB(CFontRenderState& state) const;
+  void PageInvoke(CFontRenderState& state, CTextRenderBuffer* buf) const override;
+
+  void TestLargestFont(const int width, const int height, const int baseLine);
+  void TestLargestImage(const int width, const int height, const int baseline);
+
+  int GetX() const { return mCurX; }
+  int GetY() const { return mCurY; }
 
 private:
-  int x4_unk;
-  int x8_x;
-  int xc_y;
+  int mWordCount;
+  int mCurX;
+  int mCurY;
+  int mLargestFontHeight;
+  int mLargestFontWidth;
+  int mLargestFontBaseline;
+  int mLargestImageHeight;
+  int mLargestImageWidth;
+  int mLargestImageBaseline;
+  EJustification mJustification;
+  EVerticalJustification mVerticalJustification;
+  bool mImageBaseline;
 };
 
 #endif // _CLINEINSTRUCTION
