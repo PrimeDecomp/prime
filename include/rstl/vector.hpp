@@ -67,8 +67,8 @@ public:
     x0_allocator.deallocate(xc_items);
   }
 
-  void reserve(int size);
   void resize(int size, const T& in = T());
+  void reserve(int size);
   iterator insert(iterator it, const T& value);
 
   template < typename from_iterator >
@@ -76,23 +76,21 @@ public:
 
   // iterator erase(iterator it);
   // iterator erase(iterator first, iterator last);
-  
-  iterator erase(iterator it) {
-    return erase(it, it + 1);
-  }
-  
+
+  iterator erase(iterator it) { return erase(it, it + 1); }
+
   iterator erase(iterator first, iterator last) {
     destroy(first, last);
-    
+
     const int tmp = first - begin();
-  
+
     int newCount = tmp;
-  
+
     for (iterator it = last, moved = begin() + tmp; it != end(); ++moved, ++newCount, ++it) {
       construct(&*moved, *it);
     }
     x4_count = newCount;
-  
+
     return first;
   }
 
@@ -103,7 +101,7 @@ public:
     rstl::construct(xc_items + x4_count, in);
     ++x4_count;
   }
-  
+
   void pop_back();
 
   vector& operator=(const vector& other);
@@ -134,14 +132,10 @@ protected:
 
 template < typename T, typename Alloc >
 void vector< T, Alloc >::resize(int size, const T& in) {
-  if (x4_count != size) {
-    if (size > x4_count) {
-      reserve(size);
-      uninitialized_fill_n(xc_items + x4_count, size - x4_count, in);
-    } else {
-      destroy(begin() + size, end());
-    }
-    x4_count = size;
+  clear();
+  reserve(size);
+  for (int i = 0; i < size; ++i) {
+    push_back(in);
   }
 }
 
@@ -241,7 +235,7 @@ vector< T, Alloc >& vector< T, Alloc >::operator=(const vector< T, Alloc >& othe
 // template < typename T, typename Alloc >
 // typename vector< T, Alloc >::iterator vector< T, Alloc >::erase(iterator first, iterator last) {
 //   destroy(first, last);
-//   
+//
 //   const int tmp = first - begin();
 //
 //   int newCount = tmp;
