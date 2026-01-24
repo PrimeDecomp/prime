@@ -6,6 +6,7 @@ enum EColorType {
   kCT_Outline,
   kCT_Geometry,
   kCT_Foreground,
+  kCT_Background,
 };
 
 enum ETextDirection {
