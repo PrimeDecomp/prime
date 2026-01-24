@@ -21,8 +21,9 @@ enum EWeaponCollisionResponseTypes {
   kWCR_EnemyNormal,
   kWCR_EnemySpecial,
   kWCR_EnemyShielded,
+  // Enemy Normal
   kWCR_Unknown19,
-  kWCR_Unknown20,
+  kWCR_WarWaspNormal,
   kWCR_Unknown21,
   kWCR_Unknown22,
   kWCR_Unknown23,
@@ -46,6 +47,7 @@ enum EWeaponCollisionResponseTypes {
   kWCR_Unknown41,
   kWCR_AtomicBeta,
   kWCR_AtomicAlpha,
+  // Enemy Special
   kWCR_Unknown44,
   kWCR_Unknown45,
   kWCR_Unknown46,
@@ -71,6 +73,7 @@ enum EWeaponCollisionResponseTypes {
   kWCR_Unknown66,
   kWCR_Unknown67,
   kWCR_Unknown68,
+  // Enemy Shielded
   kWCR_Unknown69,
   kWCR_Unknown70,
   kWCR_Unknown71,

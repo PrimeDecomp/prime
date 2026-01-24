@@ -11809,9 +11809,9 @@ ResponseTypeIsEnemyShielded__22CCollisionResponseDataF29EWeaponCollisionResponse
 GetDecalDescription__22CCollisionResponseDataCF29EWeaponCollisionResponseTypes = .text:0x802B250C; // type:function size:0x70 scope:global
 GetSoundEffectId__22CCollisionResponseDataCF29EWeaponCollisionResponseTypes = .text:0x802B257C; // type:function size:0xF0 scope:global
 GetParticleDescription__22CCollisionResponseDataCF29EWeaponCollisionResponseTypes = .text:0x802B266C; // type:function size:0x140 scope:global
-fn_802B2700 = .text:0x802B27AC; // type:function size:0xAC scope:global
-fn_802B27AC = .text:0x802B2858; // type:function size:0xB8 scope:global
-fn_802B2864 = .text:0x802B2910; // type:function size:0xB8 scope:global
+__dt__22CCollisionResponseDataFv = .text:0x802B27AC; // type:function size:0xAC scope:global
+__dt__Q24rstl94vector<Q24rstl50optional_object<31TLockedToken<15CGenDescription>>,Q24rstl17rmemory_allocator>Fv = .text:0x802B2858; // type:function size:0xB8 scope:global
+__dt__Q24rstl96vector<Q24rstl52optional_object<33TLockedToken<17CDecalDescription>>,Q24rstl17rmemory_allocator>Fv = .text:0x802B2910; // type:function size:0xB8 scope:global
 AddParticleSystemToResponse__22CCollisionResponseDataF29EWeaponCollisionResponseTypesR12CInputStreamP11CSimplePool = .text:0x802B29C8; // type:function size:0x208 scope:global
 CheckAndAddDecalToResponse__22CCollisionResponseDataFUiR12CInputStreamP11CSimplePool = .text:0x802B2BD0; // type:function size:0x178 scope:global
 CheckAndAddSoundFXToResponse__22CCollisionResponseDataFUiR12CInputStream = .text:0x802B2D48; // type:function size:0x9C scope:global

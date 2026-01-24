@@ -1,9 +1,18 @@
 #include "Weapons/CCollisionResponseData.hpp"
 
+#include "Kyoto/CFactoryFnReturn.hpp"
 #include "Kyoto/CRandom16.hpp"
 #include "Kyoto/Particles/CParticleDataFactory.hpp"
 
 const int CCollisionResponseData::kInvalidSFX = -1;
+const EWeaponCollisionResponseTypes CCollisionResponseData::skWorldMaterialTable[] = {
+    kWCR_Default, kWCR_Unknown2, kWCR_Metal,   kWCR_Grass,   kWCR_Ice,     kWCR_Goo,
+    kWCR_Metal,   kWCR_Wood,     kWCR_Grass,   kWCR_Lava,    kWCR_Lava,    kWCR_Ice,
+    kWCR_Mud,     kWCR_Metal,    kWCR_Default, kWCR_Goo,     kWCR_Goo,     kWCR_Sand,
+    kWCR_Default, kWCR_Default,  kWCR_Default, kWCR_Metal,   kWCR_Default, kWCR_Default,
+    kWCR_Default, kWCR_Default,  kWCR_Default, kWCR_Default, kWCR_Default, kWCR_Default,
+    kWCR_Default, kWCR_Default,
+};
 
 CCollisionResponseData::CCollisionResponseData(CInputStream& in, CSimplePool* sp)
 : mAudibleRange(50.f), mAudibleFallOff(0.2f) {
@@ -43,7 +52,7 @@ CCollisionResponseData::CCollisionResponseData(CInputStream& in, CSimplePool* sp
   }
 }
 
-bool CCollisionResponseData::CheckAndAddResourcesToResponse(FourCC clsId, CInputStream& in,
+bool CCollisionResponseData::CheckAndAddResourcesToResponse(const FourCC clsId, CInputStream& in,
                                                             CSimplePool* sp) {
   if (CheckAndAddParticleSystemToResponse(clsId, in, sp)) {
     return true;
@@ -60,7 +69,8 @@ bool CCollisionResponseData::CheckAndAddResourcesToResponse(FourCC clsId, CInput
   return false;
 }
 
-bool CCollisionResponseData::CheckAndAddParticleSystemToResponse(FourCC clsId, CInputStream& in,
+bool CCollisionResponseData::CheckAndAddParticleSystemToResponse(const FourCC clsId,
+                                                                 CInputStream& in,
                                                                  CSimplePool* sp) {
   static const FourCC kWCRTIDs[] = {
       'NODP', 'DEFS', 'CRTS', 'MTLS', 'GRAS', 'ICEE', 'GOOO', 'WODS', 'WATR', '1MUD', '1LAV',
@@ -85,7 +95,7 @@ bool CCollisionResponseData::CheckAndAddParticleSystemToResponse(FourCC clsId, C
   return false;
 }
 
-bool CCollisionResponseData::CheckAndAddSoundFXToResponse(FourCC clsId, CInputStream& in) {
+bool CCollisionResponseData::CheckAndAddSoundFXToResponse(const FourCC clsId, CInputStream& in) {
   static const FourCC kCRTSFXIDs[] = {
       'NSFX', 'DSFX', 'CSFX', 'MSFX', 'GRFX', 'ICFX', 'GOFX', 'WSFX', 'WTFX', '2MUD', '2LAV',
       '2SAN', '2PRJ', 'DCFX', 'DSFX', 'DSHX', 'DEFX', 'ESFX', 'SHFX', 'BEFX', 'WWFX', 'TAFX',
@@ -111,10 +121,10 @@ bool CCollisionResponseData::CheckAndAddSoundFXToResponse(FourCC clsId, CInputSt
   return false;
 }
 
-bool CCollisionResponseData::CheckAndAddDecalToResponse(FourCC clsId, CInputStream& in,
+bool CCollisionResponseData::CheckAndAddDecalToResponse(const FourCC clsId, CInputStream& in,
                                                         CSimplePool* sp) {
   static const FourCC kCRTDecalIDs[] = {
-      'NCDL', 'DDCL', 'CODL', 'MEDL', 'GRDL', 'ICDL', 'GODL',
+      'NDCL', 'DDCL', 'CODL', 'MEDL', 'GRDL', 'ICDL', 'GODL',
       'WODL', 'WTDL', '3MUD', '3LAV', '3SAN', 'CHDL', 'ENDL',
   };
 
@@ -145,5 +155,106 @@ bool CCollisionResponseData::AddParticleSystemToResponse(EWeaponCollisionRespons
   }
   return false;
 }
+CCollisionResponseData::~CCollisionResponseData() {}
+
+rstl::optional_object< TLockedToken< CGenDescription > >
+CCollisionResponseData::GetParticleDescription(const EWeaponCollisionResponseTypes type) const {
+  int idx = type;
+  if (!mGeneratorTokens.at(idx).valid()) {
+    bool found = false;
+    if (ResponseTypeIsEnemyNormal(type)) {
+      idx = kWCR_EnemyNormal;
+      found = true;
+    } else if (ResponseTypeIsEnemySpecial(type)) {
+      idx = kWCR_EnemySpecial;
+      found = true;
+    } else if (ResponseTypeIsEnemyShielded(type)) {
+      idx = kWCR_EnemyShielded;
+      found = true;
+    }
+
+    if (found && !mGeneratorTokens.at(idx).valid()) {
+      idx = kWCR_EnemyNormal;
+    }
+
+    if (!mGeneratorTokens.at(idx).valid() && idx != kWCR_None) {
+      idx = kWCR_Default;
+    }
+  }
+
+  return mGeneratorTokens.at(idx);
+}
+
+uint CCollisionResponseData::GetSoundEffectId(EWeaponCollisionResponseTypes type) const {
+  int idx = type;
+  if (mSoundEffectIds.at(idx) == kInvalidSFX) {
+    bool found = false;
+    if (ResponseTypeIsEnemyNormal(type)) {
+      idx = kWCR_EnemyNormal;
+      found = true;
+    } else if (ResponseTypeIsEnemySpecial(type)) {
+      idx = kWCR_EnemySpecial;
+      found = true;
+    } else if (ResponseTypeIsEnemyShielded(type)) {
+      idx = kWCR_EnemyShielded;
+      found = true;
+    }
+
+    if (found && !mGeneratorTokens.at(idx).valid()) {
+      idx = kWCR_EnemyNormal;
+    }
+
+    if (!mGeneratorTokens.at(idx).valid()) {
+      idx = kWCR_Default;
+    }
+  }
+
+  return mSoundEffectIds.at(idx);
+}
+
+rstl::optional_object< TLockedToken< CDecalDescription > >
+CCollisionResponseData::GetDecalDescription(const EWeaponCollisionResponseTypes type) const {
+  return mDecalTokens.at(type);
+}
+
+EWeaponCollisionResponseTypes CCollisionResponseData::GetWorldCollisionResponseType(const int idx) {
+  if (idx >= 0 && idx < ARRAY_SIZE(skWorldMaterialTable)) {
+    return skWorldMaterialTable[idx];
+  }
+  return kWCR_Default;
+}
+
+bool CCollisionResponseData::ResponseTypeIsEnemyShielded(const EWeaponCollisionResponseTypes type) {
+  if (type >= kWCR_Unknown69 && type <= kWCR_AtomicAlphaReflect) {
+    return true;
+  }
+  
+  return false;
+}
+
+bool CCollisionResponseData::ResponseTypeIsEnemyNormal(const EWeaponCollisionResponseTypes type) {
+  if (type >= kWCR_Unknown19 && type <= kWCR_AtomicAlpha) {
+    return true;
+  }
+  
+  return false;
+}
+
+bool CCollisionResponseData::ResponseTypeIsEnemySpecial(const EWeaponCollisionResponseTypes type) {
+  if (type >= kWCR_Unknown44 && type <= kWCR_Unknown68) {
+    return true;
+  }
+  
+  return false;
+}
+
 float CCollisionResponseData::GetAudibleRange() const { return mAudibleRange; }
 float CCollisionResponseData::GetAudibleFallOff() const { return mAudibleFallOff; }
+
+
+CFactoryFnReturn FCollisionResponseDataFactory(const SObjectTag& tag, CInputStream& in,
+                                               const CVParamTransfer& xfer) {
+  rstl::rc_ptr< IVParamObj > obj = xfer.x0_obj;
+  CSimplePool* pool = static_cast< TObjOwnerParam< CSimplePool* >* >(obj.GetPtr())->GetData();
+  return rs_new CCollisionResponseData(in, pool);
+}
