@@ -2,13 +2,13 @@
 #include "Kyoto/Basics/RAssertDolphin.hpp"
 #include "Kyoto/SObjectTag.hpp"
 #include "MetroidPrime/SFX/FrontEnd.h"
+#include "MetroidPrime/DefaultWorld.hpp"
 
 struct FEMovie {
   const char* path;
   bool loop;
 };
 
-static const SObjectTag skDefaultWorld('MLVL', 0x158EFE17);
 static const FEMovie FEMovies[] = {
     {"Video/00_first_start.thp", false},
     {"Video/01_startloop.thp", true},
