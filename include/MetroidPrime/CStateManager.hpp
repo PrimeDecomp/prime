@@ -119,6 +119,7 @@ public:
                 const rstl::ncrc_ptr< CWorldLayerState >&);
   ~CStateManager();
 
+  void PreRender();
   bool RenderLast(const TUniqueId&);
   void ResetEscapeSequenceTimer(float);
   void SendScriptMsg(TUniqueId uid, TEditorId target, EScriptObjectMessage msg,
@@ -285,6 +286,9 @@ public:
   const SOnScreenTex& GetPendingScreenTex() const { return xef4_pendingScreenTex; }
   float IntegrateVisorFog(float f) const;
 
+  void TouchSky() const;
+  void TouchPlayerActor() const;
+
   void QuitGame() { xf94_25_quitGame = true; }
   bool GetWantsToQuit() const { return xf94_25_quitGame; }
   void SetCinematicSkipObject(TUniqueId id) { xf38_skipCineSpecialFunc = id; }
@@ -297,6 +301,8 @@ public:
   uint GetInputFrameIdx() const { return x8d4_inputFrameIdx; }
   CMapWorldInfo* MapWorldInfo() const { return x8c0_mapWorldInfo.GetPtr(); }
 
+  CAssetId GetPauseHUDMessage() const { return xf08_pauseHudMessage; }
+  
   void AddActiveFlickerBat(const TUniqueId& uid) { xf3c_activeFlickerBats.push_back(uid); }
   void RemoveActiveFlickerBat(const TUniqueId& uid) { xf3c_activeFlickerBats.remove(uid); }
 

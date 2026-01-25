@@ -87,6 +87,10 @@ public:
     x160_26_screenFading = v;
   }
 
+  void SetGameFlowBuilt(const bool built) { x160_25_mfGameBuilt = built; }
+  void SetScreenFading(const bool fading) { x160_26_screenFading = fading; }
+  void SetGameFrameDrawn(const bool drawn) { x161_24_gameFrameDrawn = drawn; }
+
   void SetX30(bool v) { x160_30_ = v; }
 
   static void EnsureWorldPaksReady();
