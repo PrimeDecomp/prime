@@ -10,7 +10,7 @@
 
 #pragma inline_max_size(300)
 
-CAABox CAABox::mskInvertedBox(FLT_MIN, FLT_MIN, FLT_MIN, FLT_MAX, FLT_MAX, FLT_MAX);
+CAABox CAABox::mskInvertedBox(FLT_MAX, FLT_MAX, FLT_MAX, -FLT_MAX, -FLT_MAX, -FLT_MAX);
 CAABox CAABox::mskNullBox(0.f, 0.f, 0.f, 0.f, 0.f, 0.f);
 
 CAABox::CAABox(CInputStream& in) : min(in), max(in) {}
