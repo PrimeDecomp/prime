@@ -1,6 +1,7 @@
 #ifndef _CFONTRENDERSTATE
 #define _CFONTRENDERSTATE
 
+#include "Kyoto/Text/CBlockInstruction.hpp"
 #include "Kyoto/Text/CDrawStringOptions.hpp"
 #include "Kyoto/Text/CRasterFont.hpp"
 #include "Kyoto/Text/CSaveableState.hpp"
