@@ -74,7 +74,7 @@ public:
     node* n;
     x0_allocator.allocate(n, 1);
     new (n) node(prev, next);
-    new(n->get_value()) T(val);
+    new (n->get_value()) T(val);
     return n;
   }
 

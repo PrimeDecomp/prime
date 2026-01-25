@@ -23,6 +23,9 @@ public:
   int GetLineExtraSpacing() const { return x78_extraLineSpacing; }
   void SetLineExtraSpace(int spacing) { x78_extraLineSpacing = spacing; }
 
+  EJustification GetJustification() const { return x80_just; }
+  EVerticalJustification GetVerticalJustification() const { return x84_vjust; }
+
   // private:
   CDrawStringOptions x0_drawStringOptions;
   rstl::optional_object< TToken< CRasterFont > > x48_font;

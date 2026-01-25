@@ -22,6 +22,13 @@ public:
   int GetX() const { return mCurX; }
   int GetY() const { return mCurY; }
 
+  EJustification GetJustification() const { return mJustification; }
+  void SetJustification(const EJustification justification) { mJustification = justification; }
+  EVerticalJustification GetVerticalJustification() const { return mVerticalJustification; }
+  void SetVerticalJustification(const EVerticalJustification justification) {
+    mVerticalJustification = justification;
+  }
+
 private:
   int mWordCount;
   int mCurX;
