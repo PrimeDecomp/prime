@@ -68,35 +68,26 @@ void CLineInstruction::InvokeTTB(CFontRenderState& state) const {
     val = inst.GetY();
     break;
   case kVerticalJustification_Full: {
-    int lineY = state.GetBlock()->GetLineY();
-    int height = state.GetBlock()->GetOutputHeight();
-    int lineCount = state.GetBlock()->GetLines();
-    val = (lineCount > 1 ? (lineY - height) / (lineCount - 1) : 0);
-    val = val + inst.GetY();
+    const int tmp = state.GetBlock()->GetOutputHeight() - state.GetBlock()->GetLineY();
+    val = (state.GetBlock()->GetLines() > 1 ? tmp / (state.GetBlock()->GetLines() - 1) : 0) +
+          inst.GetY();
     break;
   }
-  case kVerticalJustification_TopMono:
+  case kVerticalJustification_TopMono: {
     val = state.GetBlock()->GetLargestFontHeight();
-    break;
-  case kVerticalJustification_CenterMono:
-    val = (inst.GetY() - state.GetBlock()->GetLargestFontHeight()) / 2;
-    val += state.GetBlock()->GetLargestFontHeight();
-    break;
-  case kVerticalJustification_RightMono:
-    val = state.GetBlock()->GetLargestFontHeight() * 2;
-    val -= inst.GetY();
-    break;
+  } break;
+  case kVerticalJustification_CenterMono: {
+    val = ((inst.GetY() - state.GetBlock()->GetLargestFontHeight()) / 2) +
+          state.GetBlock()->GetLargestFontHeight();
+  } break;
+  case kVerticalJustification_RightMono: {
+    int tmp = state.GetBlock()->GetLargestFontHeight() * 2;
+    val = tmp - inst.GetY();
+  } break;
   default:
     break;
   }
-
-  if (state.GetBlock()->GetVerticalJustification() != kVerticalJustification_Full) {
-  } else {
-    val = static_cast< int >(val * state.GetLineSpacing()) + state.GetLineExtraSpacing();
-  }
-  int y = state.GetY();
-  y += val;
-  state.SetY(y);
+  state.AddY(state.GetSpacing(val));
 }
 
 void CLineInstruction::TestLargestFont(const int width, const int height, const int baseLine) {

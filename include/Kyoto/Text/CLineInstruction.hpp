@@ -2,12 +2,13 @@
 #define _CLINEINSTRUCTION
 
 #include "Kyoto/Text/CInstruction.hpp"
-#include "TextCommon.hpp"
+#include "Kyoto/Text/TextCommon.hpp"
+
 class CLineInstruction : public CInstruction {
 public:
   CLineInstruction(int width, int height, int baseline, EJustification justification,
-                EVerticalJustification verticalJustification);
-  
+                   EVerticalJustification verticalJustification);
+
   int GetHeight() const;
   int GetBaseline() const;
 
