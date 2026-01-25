@@ -1432,7 +1432,7 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "Kyoto/Text/CLineExtraSpaceInstruction.cpp",
             ),
-            Object(NonMatching, "Kyoto/Text/CLineInstruction.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Text/CLineInstruction.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "Kyoto/Text/CLineSpacingInstruction.cpp",

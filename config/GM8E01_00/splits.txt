@@ -2914,7 +2914,6 @@ Kyoto/Text/CFontInstruction.cpp:
 Kyoto/Text/CFontRenderState.cpp:
 	.text       start:0x802FECC4 end:0x802FF80C
 	.rodata     start:0x803D6E60 end:0x803D6E68
-	.sdata2     start:0x805AE458 end:0x805AE460
 
 Kyoto/Text/CLineExtraSpaceInstruction.cpp:
 	.text       start:0x802FF80C end:0x802FF8A0
@@ -2923,6 +2922,7 @@ Kyoto/Text/CLineExtraSpaceInstruction.cpp:
 Kyoto/Text/CLineInstruction.cpp:
 	.text       start:0x802FF8A0 end:0x802FFCAC
 	.data       start:0x803ED630 end:0x803ED678
+	.sdata2     start:0x805AE458 end:0x805AE460
 
 Kyoto/Text/CLineSpacingInstruction.cpp:
 	.text       start:0x802FFCAC end:0x802FFD40
@@ -2939,7 +2939,6 @@ Kyoto/Text/CPushStateInstruction.cpp:
 Kyoto/Text/CRasterFont.cpp:
 	.text       start:0x802FFED4 end:0x8030183C
 	.rodata     start:0x803D6E68 end:0x803D6E88
-	.sdata2     start:0x805AE460 end:0x805AE468
 
 Kyoto/Text/CRemoveColorOverrideInstruction.cpp:
 	.text       start:0x8030183C end:0x803018F8
