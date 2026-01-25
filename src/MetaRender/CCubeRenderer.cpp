@@ -80,7 +80,7 @@ void Shutdown() {
 
 // TODO non-matching
 void Insert(const CVector3f& pos, const CAABox& aabb, EDrawableType dtype, const void* data,
-            const CPlane& plane, ushort extraSort) {
+            const CPlane& plane, const ushort extraSort) {
   rstl::reserved_vector< CDrawable, 512 >* tmpData = sData;
   if (sData->size() == sData->capacity()) {
     return;
@@ -426,6 +426,15 @@ void CCubeRenderer::SetupCGraphicsStates() {
   CGX::SetChanCtrl(CGX::Channel1, false, GX_SRC_REG, GX_SRC_REG, GX_LIGHT_NULL, GX_DF_NONE,
                    GX_AF_NONE);
   CCubeMaterial::EnsureTevsDirect();
+}
+
+void CCubeRenderer::AddWorldSurfaces(CCubeModel& model) {
+  for (CCubeSurface it = model.GetAlphaSurfaces(); it.IsValid(); it = it.GetNextSurface()) {
+    uint blend = model.GetMaterialByIndex(it.GetMaterialIndex()).GetCompressedBlend();
+    const CAABox bounds = it.GetBounds();
+    Buckets::Insert(bounds.ClosestPointAlongVector(xb0_viewPlane.GetNormal()), bounds,
+                    kDT_WorldSurface, it.x0_data, xb0_viewPlane, blend == 0x50004 ? 1 : 0);
+  }
 }
 
 void CCubeRenderer::DrawRenderBucketsDebug() {}

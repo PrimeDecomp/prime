@@ -243,34 +243,34 @@ bool CAABox::PointInside(const CVector3f& vec) const {
          vec.GetY() <= max.GetY() && vec.GetZ() >= min.GetZ() && vec.GetZ() <= max.GetZ();
 }
 
+// Non-matching: https://decomp.me/scratch/SXsmk
 float CAABox::DistanceBetween(const CAABox& a, const CAABox& b) {
-  float minX = b.GetMaxPoint().GetX();
-  float maxX = a.GetMinPoint().GetX();
-  float minY = b.GetMaxPoint().GetY();
-  float maxY = a.GetMinPoint().GetY();
-  float minZ = b.GetMaxPoint().GetZ();
-  float maxZ = a.GetMinPoint().GetZ();
-
-  int intersects = 0;
-  if (b.GetMinPoint().GetX() <= a.GetMaxPoint().GetX() && maxX < minX)
-    intersects |= 1;
-  if (b.GetMinPoint().GetY() <= a.GetMaxPoint().GetY() && maxY < minY)
+  bool b1 = (a.GetMaxPoint().GetX() > b.GetMinPoint().GetX()) |
+            (a.GetMinPoint().GetX() < b.GetMaxPoint().GetX());
+  bool b2 = (a.GetMaxPoint().GetY() > b.GetMinPoint().GetY()) |
+            (a.GetMinPoint().GetY() < b.GetMaxPoint().GetY());
+  bool b3 = (a.GetMaxPoint().GetZ() > b.GetMinPoint().GetZ()) |
+            (a.GetMinPoint().GetZ() < b.GetMaxPoint().GetZ());
+  int intersects = b1 ? 1 : 0;
+  if (b2) {
     intersects |= 2;
-  if (b.GetMinPoint().GetZ() <= a.GetMaxPoint().GetZ() && maxZ < minZ)
+  }
+  if (b3) {
     intersects |= 4;
+  }
 
-  if (b.GetMinPoint().GetX() > a.GetMaxPoint().GetX()) {
-    minX = b.GetMinPoint().GetX();
-    maxX = a.GetMaxPoint().GetX();
-  }
-  if (b.GetMinPoint().GetY() > a.GetMaxPoint().GetY()) {
-    minX = b.GetMinPoint().GetY();
-    maxX = a.GetMaxPoint().GetY();
-  }
-  if (b.GetMinPoint().GetZ() > a.GetMaxPoint().GetZ()) {
-    minX = b.GetMinPoint().GetZ();
-    maxX = a.GetMaxPoint().GetZ();
-  }
+  const float minX = b.GetMinPoint().GetX() > a.GetMaxPoint().GetX() ? b.GetMinPoint().GetX()
+                                                                     : b.GetMaxPoint().GetX();
+  const float maxX = b.GetMinPoint().GetX() > a.GetMaxPoint().GetX() ? a.GetMaxPoint().GetX()
+                                                                     : a.GetMinPoint().GetX();
+  const float minY = b.GetMinPoint().GetY() > a.GetMaxPoint().GetY() ? b.GetMinPoint().GetY()
+                                                                     : b.GetMaxPoint().GetY();
+  const float maxY = b.GetMinPoint().GetY() > a.GetMaxPoint().GetY() ? a.GetMaxPoint().GetY()
+                                                                     : a.GetMinPoint().GetY();
+  const float minZ = b.GetMinPoint().GetZ() > a.GetMaxPoint().GetZ() ? b.GetMinPoint().GetZ()
+                                                                     : b.GetMaxPoint().GetZ();
+  const float maxZ = b.GetMinPoint().GetZ() > a.GetMaxPoint().GetZ() ? a.GetMaxPoint().GetZ()
+                                                                     : a.GetMinPoint().GetZ();
 
   switch (intersects) {
   case 0:

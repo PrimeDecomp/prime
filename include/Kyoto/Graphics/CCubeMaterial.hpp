@@ -40,6 +40,8 @@ public:
   uint GetVertexDesc() const {
     return *reinterpret_cast< const uint* >(GetData() + (GetTextureCount() * 4 + 8));
   }
+  
+  ushort GetCompressedBlend() const;
 
 private:
   static void SetupBlendMode(uint blendFactors, const CModelFlags& flags, bool alphaTest);

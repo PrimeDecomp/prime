@@ -147,6 +147,7 @@ public:
   void AllocatePhazonSuitMaskTexture();
   void SetupRendererStates(bool depthWrite);
   void SetupCGraphicsStates();
+  void AddWorldSurfaces(CCubeModel& model);
   void DrawRenderBucketsDebug();
 
   void SetRequestRGBA6(bool req) { x318_26_requestRGBA6 = req; }

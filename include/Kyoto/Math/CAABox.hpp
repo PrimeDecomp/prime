@@ -54,12 +54,9 @@ public:
   CVector3f ClosestPointAlongVector(const CVector3f& vec) const;
   CVector3f FurthestPointAlongVector(const CVector3f& vec) const;
   CVector3f GetCenterPoint() const;
-  CVector3f CenterPoint() const {
-    return (min + max) * 0.5f;
-  }
+  CVector3f CenterPoint() const { return (min + max) * 0.5f; }
   CVector3f GetPoint(int) const;
-  // Include__6CAABoxFRC9CVector3f weak
-  // Include__6CAABoxFRC6CAABox weak
+  void Include(const CVector3f& vec) { AccumulateBounds(vec); }
   void AccumulateBounds(const CVector3f&);
   bool Invalid() const;
   bool PointInside(const CVector3f& vec) const;
@@ -79,24 +76,22 @@ public:
   const CVector3f& GetMinPoint() const { return min; }
   const CVector3f& GetMaxPoint() const { return max; }
 
-  // GetPointA__6CAABoxCFv weak
-  // GetPointB__6CAABoxCFv weak
-  // GetPointC__6CAABoxCFv weak
-  // GetPointD__6CAABoxCFv weak
-  // GetPointE__6CAABoxCFv weak
-  // GetPointF__6CAABoxCFv weak
-  // GetPointG__6CAABoxCFv weak
-  // GetPointH__6CAABoxCFv weak
+  CVector3f GetPointA() const { return CVector3f(min.GetX(), min.GetY(), min.GetZ()); }
+  CVector3f GetPointB() const { return CVector3f(max.GetX(), min.GetY(), min.GetZ()); }
+  CVector3f GetPointC() const { return CVector3f(max.GetX(), min.GetY(), max.GetZ()); }
+  CVector3f GetPointD() const { return CVector3f(min.GetX(), min.GetY(), max.GetZ()); }
+  CVector3f GetPointE() const { return CVector3f(max.GetX(), max.GetY(), min.GetZ()); }
+  CVector3f GetPointF() const { return CVector3f(min.GetX(), max.GetY(), max.GetZ()); }
+  CVector3f GetPointG() const { return CVector3f(max.GetX(), max.GetY(), max.GetZ()); }
+  CVector3f GetPointH() const { return CVector3f(max.GetX(), max.GetY(), min.GetZ()); }
 
-  // GetWidth__6CAABoxCFv weak
-  // GetDepth__6CAABoxCFv weak
-  // GetHeight__6CAABoxCFv weak
-  // GetTri__6CAABoxCFii weak
-  // GetEdge__6CAABoxCFi weak
+  float GetWidth() const { return max.GetX() - min.GetX(); }
+  float GetHeight() const { return max.GetY() - min.GetY(); }
+  float GetDepth() const { return max.GetZ() - min.GetZ(); }
 
   static const CAABox& Identity() { return mskNullBox; }
   static const CAABox& MakeMaxInvertedBox() { return mskInvertedBox; }
-  // MakeNullBox__6CAABoxFv ??
+  static const CAABox& MakeNullBox() { return mskNullBox; }
   static float DistanceBetween(const CAABox& a, const CAABox& b);
 
 private:
