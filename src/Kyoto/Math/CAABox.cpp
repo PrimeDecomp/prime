@@ -245,32 +245,60 @@ bool CAABox::PointInside(const CVector3f& vec) const {
 
 // Non-matching: https://decomp.me/scratch/SXsmk
 float CAABox::DistanceBetween(const CAABox& a, const CAABox& b) {
-  bool b1 = (a.GetMaxPoint().GetX() > b.GetMinPoint().GetX()) |
-            (a.GetMinPoint().GetX() < b.GetMaxPoint().GetX());
-  bool b2 = (a.GetMaxPoint().GetY() > b.GetMinPoint().GetY()) |
-            (a.GetMinPoint().GetY() < b.GetMaxPoint().GetY());
-  bool b3 = (a.GetMaxPoint().GetZ() > b.GetMinPoint().GetZ()) |
-            (a.GetMinPoint().GetZ() < b.GetMaxPoint().GetZ());
-  int intersects = b1 ? 1 : 0;
-  if (b2) {
+  const bool axLTbx = (a.GetMaxPoint().GetX() < b.GetMinPoint().GetX());
+  const bool axGTbx = (a.GetMinPoint().GetX() > b.GetMaxPoint().GetX());
+
+  const bool ayLTby = (a.GetMaxPoint().GetY() < b.GetMinPoint().GetY());
+  const bool ayGTby = (a.GetMinPoint().GetY() > b.GetMaxPoint().GetY());
+
+  const bool azLTbz = (a.GetMaxPoint().GetZ() < b.GetMinPoint().GetZ());
+  const bool azGTbz = (a.GetMinPoint().GetZ() > b.GetMaxPoint().GetZ());
+
+  // do we care about NaNs? or no
+  int intersects = 0;
+  const bool axEQbx = !(axLTbx || axGTbx);
+  const bool ayEQby = !(ayLTby || ayGTby);
+  const bool azEQbz = !(azLTbz || azGTbz);
+
+  if (axEQbx) {
+    intersects |= 1;
+  }
+  if (ayEQby) {
     intersects |= 2;
   }
-  if (b3) {
+  if (azEQbz) {
     intersects |= 4;
   }
 
-  const float minX = b.GetMinPoint().GetX() > a.GetMaxPoint().GetX() ? b.GetMinPoint().GetX()
-                                                                     : b.GetMaxPoint().GetX();
-  const float maxX = b.GetMinPoint().GetX() > a.GetMaxPoint().GetX() ? a.GetMaxPoint().GetX()
-                                                                     : a.GetMinPoint().GetX();
-  const float minY = b.GetMinPoint().GetY() > a.GetMaxPoint().GetY() ? b.GetMinPoint().GetY()
-                                                                     : b.GetMaxPoint().GetY();
-  const float maxY = b.GetMinPoint().GetY() > a.GetMaxPoint().GetY() ? a.GetMaxPoint().GetY()
-                                                                     : a.GetMinPoint().GetY();
-  const float minZ = b.GetMinPoint().GetZ() > a.GetMaxPoint().GetZ() ? b.GetMinPoint().GetZ()
-                                                                     : b.GetMaxPoint().GetZ();
-  const float maxZ = b.GetMinPoint().GetZ() > a.GetMaxPoint().GetZ() ? a.GetMaxPoint().GetZ()
-                                                                     : a.GetMinPoint().GetZ();
+  float minX;
+  float maxX;
+  float minY;
+  float maxY;
+  float minZ;
+  float maxZ;
+  if (axLTbx) {
+    maxX = a.GetMaxPoint().GetX();
+    minX = b.GetMinPoint().GetX();
+  } else {
+    maxX = a.GetMinPoint().GetX();
+    minX = b.GetMaxPoint().GetX();
+  }
+
+  if (ayLTby) {
+    maxY = a.GetMaxPoint().GetY();
+    minY = b.GetMinPoint().GetY();
+  } else {
+    maxY = a.GetMinPoint().GetY();
+    minY = b.GetMaxPoint().GetY();
+  }
+
+  if (azLTbz) {
+    maxZ = a.GetMaxPoint().GetZ();
+    minZ = b.GetMinPoint().GetZ();
+  } else {
+    maxZ = a.GetMinPoint().GetZ();
+    minZ = b.GetMaxPoint().GetZ();
+  }
 
   switch (intersects) {
   case 0:
