@@ -243,7 +243,6 @@ bool CAABox::PointInside(const CVector3f& vec) const {
          vec.GetY() <= max.GetY() && vec.GetZ() >= min.GetZ() && vec.GetZ() <= max.GetZ();
 }
 
-// Non-matching: https://decomp.me/scratch/SXsmk
 float CAABox::DistanceBetween(const CAABox& a, const CAABox& b) {
   const bool axLTbx = (a.GetMaxPoint().GetX() < b.GetMinPoint().GetX());
   const bool axGTbx = (a.GetMinPoint().GetX() > b.GetMaxPoint().GetX());
