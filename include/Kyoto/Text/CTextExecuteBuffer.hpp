@@ -12,6 +12,23 @@ class CBlockInstruction;
 class CLineInstruction;
 class CFontImageDef;
 
+namespace rstl {
+template < typename T, typename _Container = list< T > >
+class stack {
+public:
+  typename _Container::iterator top() { return container.begin(); }
+  typename _Container::const_iterator top() const { return container.begin(); }
+
+  void pop() { return container.pop_front(); }
+
+  void push(const T& item) { container.push_front(item); }
+
+  void clear() { container.clear(); }
+
+private:
+  _Container container;
+};
+} // namespace rstl
 class CTextExecuteBuffer {
   typedef rstl::list< rstl::ncrc_ptr< CInstruction > > InstList;
 
@@ -31,6 +48,8 @@ public:
   void AddColorOverride(int idx, const CTextColor& color);
   void AddString(const wchar_t* str, const int len);
 
+  void Clear();
+
 private:
   InstList x0_instructions;
   CSaveableState x18_;
@@ -42,8 +61,8 @@ private:
   int xb4_curWordX;
   int xb8_curWordY;
   int xbc_spaceDistance;
-  bool xc0_imageBaseline;
-  rstl::list< CSaveableState > xc4_stateStack;
+  char xc0_imageBaseline;
+  rstl::stack< CSaveableState > xc4_stateStack;
 };
 
 #endif // _CTEXTEXECUTEBUFFER
