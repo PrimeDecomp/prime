@@ -29,14 +29,8 @@ public:
   ~list();
   node* do_erase(node* item);
 
-  iterator push_front(const T& val) {
-    do_insert_before(x4_start, val);
-    return begin();
-  }
-  iterator push_back(const T& val) {
-    do_insert_before(x8_end, val);
-    return end();
-  }
+  void push_front(const T& val) { do_insert_before(x4_start, val); }
+  void push_back(const T& val) { do_insert_before(x8_end, val); }
   void clear() { erase(begin(), end()); }
 
   size_t size() const { return x14_count; }
@@ -52,6 +46,8 @@ public:
   iterator erase(const iterator& start, const iterator& end) {
     node* last = end.get_node();
     node* it = start.get_node();
+    for (node* t = it; t != last; t = t->get_next()) {
+    }
 
     while (it != last) {
       it = do_erase(it);
