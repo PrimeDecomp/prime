@@ -1253,7 +1253,7 @@ config.libs = [
         "Collision",
         "core",
         [
-            Object(NonMatching, "Collision/CCollidableAABox.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Collision/CCollidableAABox.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "Collision/CCollidableCollisionSurface.cpp",
