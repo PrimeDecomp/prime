@@ -261,3 +261,12 @@ bool operator==(const CTransform4f& lhs, const CTransform4f& rhs) {
          lhs.Get20() == rhs.Get20() && lhs.Get21() == rhs.Get21() && lhs.Get22() == rhs.Get22() &&
          lhs.Get23() == rhs.Get23(); // z
 }
+
+// Non-matching https://decomp.me/scratch/EqzuJ
+CTransform4f CTransform4f::GetQuickInverse() const{  
+  return CTransform4f(Get00(), Get10(), Get20(), // 
+                      -(Get20() * Get23() - (Get00() * -Get03() - Get10() * Get13())), Get01(), Get11(), //
+                      Get21(), -(Get21() * Get23() - (Get01() * -Get03() - Get11() * Get13())),  Get02(), //
+                      Get12(), Get22(), -(Get22() * Get23() - (Get02() * -Get03() - Get12() * Get13())) //
+                      );
+}
