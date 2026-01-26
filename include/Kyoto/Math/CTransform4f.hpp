@@ -94,7 +94,8 @@ public:
   static CTransform4f Scale(float, float, float);
   static CTransform4f Scale(const CVector3f&);
   // SetRotation__12CTransform4fFRC12CTransform4f
-  // SetRotation__12CTransform4fFRC9CMatrix3f
+  void SetRotation(const CMatrix3f& rotation);
+  void SetRotation(const CTransform4f& rotation);
   CVector3f TransposeMultiply(const CVector3f& in) const {
     return TransposeRotate(CVector3f(in.GetX() - m03, in.GetY() - m13, in.GetZ() - m23));
   }
