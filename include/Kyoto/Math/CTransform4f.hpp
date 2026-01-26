@@ -58,6 +58,24 @@ public:
   const float Get22() const { return m22; }
   const float Get23() const { return m23; }
   const CVector3f GetColumn(EDimX dim) const { return CVector3f(m00, m10, m20); }
+  void SetColumn(EDimX dim, const CVector3f& col) {
+    m00 = col.GetX();
+    m10 = col.GetY();
+    m20 = col.GetZ();
+  }
+  
+  void SetColumn(EDimY dim, const CVector3f& col) {
+    m01 = col.GetX();
+    m11 = col.GetY();
+    m21 = col.GetZ();
+  }
+  
+  void SetColumn(EDimZ dim, const CVector3f& col) {
+    m02 = col.GetX();
+    m12 = col.GetY();
+    m22 = col.GetZ();
+  }
+  
   const CVector3f GetColumn(EDimY dim) const { return CVector3f(m01, m11, m21); }
   const CVector3f GetColumn(EDimZ dim) const { return CVector3f(m02, m12, m22); }
   void ScaleBy(const float scale);
@@ -126,7 +144,7 @@ public:
   static CTransform4f Translate(const CVector3f& vec);
 
   static const CTransform4f& Identity() { return sIdentity; }
-
+  
 private:
   float m00;
   float m01;

@@ -36,9 +36,12 @@ void CGuiObject::Draw(const CGuiWidgetDrawParms& parms) const {
   }
 }
 
+inline volatile CVector3f test(const CVector3f& vec) {
+  return CVector3f(vec);
+}
 void CGuiObject::MoveInWorld(const CVector3f& offset) {
   if (GetParent() != nullptr) {
-    (void)GetParent()->RotateW2O(offset);
+    GetParent()->RotateW2O(offset);
   }
   x4_localXF.AddTranslation(offset);
   RecalculateTransforms();

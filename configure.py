@@ -1216,7 +1216,7 @@ config.libs = [
             Object(NonMatching, "MetaRender/CCubeRenderer.cpp"),
         ],
     ),
-    RetroLib(
+    KyotoLib(
         "GuiSys",
         "core",
         [

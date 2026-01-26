@@ -117,7 +117,22 @@ void CTransform4f::RotateLocalZ(const CRelAngle& z) {
   m21 -= _m20;
 }
 
-void CTransform4f::Orthonormalize() {}
+void CTransform4f::Orthonormalize() {
+  const CVector3f t = CVector3f(Get00(), Get10(), Get20()); 
+  const CVector3f tmp = t.AsNormalized();
+  const CVector3f tmp2 = GetColumn(kDY);
+  const CVector3f tmp3 = CVector3f::Cross(tmp, tmp2);
+  const CVector3f local_78 = tmp3.AsNormalized();
+  m00 = tmp.GetX();
+  m10 = tmp.GetY();
+  m20 = tmp.GetZ();
+  m01 = local_78.GetY() * tmp.GetZ() - tmp.GetY() * tmp.GetZ();
+  m11 = local_78.GetZ() * tmp.GetX() - tmp.GetZ() * tmp.GetX();
+  m21 = local_78.GetX() * tmp.GetY() - tmp.GetX() * tmp.GetY();
+  m02 = local_78.GetX();
+  m12 = local_78.GetY();
+  m22 = local_78.GetZ();
+}
 
 CTransform4f::CTransform4f(CInputStream& in)
 : m00(in.ReadFloat())
@@ -302,8 +317,9 @@ void CTransform4f::SetRotation(const CTransform4f& rotation){
 
  CTransform4f::CTransform4f(register const CTransform4f& other){
 #ifdef __MWERKS__
-  register CTransform4f& thiz = *this;
-  __asm__ volatile {
+  // Hack to get around compiler error.
+  register CTransform4f* thiz = this;
+  __asm__ {
     lfd f0, CTransform4f.m00(other);
     lfd f1, CTransform4f.m02(other);
     lfd f2, CTransform4f.m10(other);
@@ -338,6 +354,8 @@ CTransform4f& CTransform4f::operator=(register const CTransform4f& other) {
     stfd f2, CTransform4f.m22(thiz);
   }
 #endif
+  
+  return *this;
 }
 
 CVector3f CTransform4f::operator*(register const CVector3f& vec) const {
@@ -443,7 +461,7 @@ CVector3f CTransform4f::Rotate(register const CVector3f& vec) const{
 #endif  
 }
 
-CVector3f CTransform4f::TransposeRotate(register const CVector3f& vec) const{
+CVector3f CTransform4f::TransposeRotate(register const CVector3f& in) const{
 #if __MWERKS__
   // Assume RVO for return value
   register const CVector3f* ret;
@@ -451,14 +469,14 @@ CVector3f CTransform4f::TransposeRotate(register const CVector3f& vec) const{
   register const CTransform4f* thiz = this;
   
   __asm__ volatile {
-    lfs f0, CVector3f.mX(vec);
-    lfs f1, CVector3f.mY(vec);
+    lfs f0, CVector3f.mX(in);
+    lfs f1, CVector3f.mY(in);
     
     ps_merge00 f3, f0, f0;
     
     psq_l f4, CTransform4f.m00(thiz), 0, 0;
     
-    lfs f2, CVector3f.mZ(vec);
+    lfs f2, CVector3f.mZ(in);
     
     ps_merge00 f1, f1, f1;
     

@@ -25,7 +25,10 @@ public:
   void RotateReset();
 
   CVector3f RotateO2P(const CVector3f& vec) const;
-  CVector3f RotateW2O(const CVector3f& offset) const { return x34_worldXF.TransposeRotate(offset); }
+  CVector3f RotateW2O(const CVector3f& vec) const {
+    CVector3f tmp = x34_worldXF.TransposeRotate(vec);
+    return tmp;
+  }
   CVector3f RotateTranslateW2O(const CVector3f& vec) const;
   void MultiplyO2P(const CTransform4f& xf);
   void RecalculateTransforms();
