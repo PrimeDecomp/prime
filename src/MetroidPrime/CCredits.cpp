@@ -8,7 +8,6 @@
 #include "GuiSys/CGuiTextSupport.hpp"
 #include "GuiSys/CGuiWidget.hpp"
 
-
 #include "Kyoto/CResFactory.hpp"
 #include "Kyoto/Graphics/CGraphics.hpp"
 #include "Kyoto/Graphics/CMoviePlayer.hpp"
@@ -16,18 +15,28 @@
 #include "Kyoto/Text/CStringTable.hpp"
 
 #include "MetaRender/CCubeRenderer.hpp"
-
 #include "rstl/math.hpp"
 
 bool CCredits::GetIsContinueDraw() const { return false; }
 
 CCredits::CCredits()
-: CIOWin("Credits")
+: CIOWin(rstl::string_l("Credits"))
+, x14_(0)
 , x18_creditsTable(gpSimplePool->GetObj(gpTweakGui->GetCreditsTable().data()))
 , x20_creditsFont(gpSimplePool->GetObj(gpTweakGui->GetJapaneseCreditsFont().data()))
-, x54_(gpTweakGui->GetCredits_x30c()) {
-  // x18_creditsTable.Lock();
-  // x20_creditsFont.Lock();
+//, x40_(x30_text.begin())
+, x48_(0.f)
+, x4c_(0.f)
+, x50_(32.f)
+, x54_(gpTweakGui->GetCredits_x30c())
+, x58_(0.f)
+, x5c_24_(false)
+, x5c_25_(false)
+, x5c_26_(false)
+, x5c_27_(true)
+, x5c_28_(false) {
+  x18_creditsTable.Lock();
+  x20_creditsFont.Lock();
 }
 
 CCredits::~CCredits() {}
@@ -48,6 +57,7 @@ CIOWin::EMessageReturn CCredits::OnMessage(const CArchitectureMessage& msg,
   return kMR_Normal;
 }
 
+#if 1
 CIOWin::EMessageReturn CCredits::Update(float dt, CArchitectureQueue& queue) {
   switch (x14_) {
   case 0: {
@@ -58,7 +68,8 @@ CIOWin::EMessageReturn CCredits::Update(float dt, CArchitectureQueue& queue) {
       for (int i = 0; i < x18_creditsTable->GetStringCount(); ++i) {
         x30_text.push_back(rstl::pair< rstl::single_ptr< CGuiTextSupport >, CVector2i >(
             rs_new CGuiTextSupport(
-                gpResourceFactory->GetResourceIdByName(gpTweakGui->GetCreditsFont().data())->GetId(),
+                gpResourceFactory->GetResourceIdByName(gpTweakGui->GetCreditsFont().data())
+                    ->GetId(),
                 CGuiTextProperties(true, true, kJustification_Center, kVerticalJustification_Top),
                 gpTweakGui->GetCreditsTextFontColor(), gpTweakGui->GetCreditsTextBorderColor(),
                 CColor::White(), CGraphics::GetViewport().mWidth - 64, 0, gpSimplePool,
@@ -249,3 +260,4 @@ void CCredits::DrawVideo() const {
                                   filterCol, nullptr, 1.f);
   }
 }
+#endif

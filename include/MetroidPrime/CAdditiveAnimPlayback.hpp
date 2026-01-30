@@ -3,15 +3,11 @@
 
 #include "types.h"
 
+#include "Kyoto/Animation/CAdditiveAnimationInfo.hpp"
+
 #include "rstl/rc_ptr.hpp"
 
 class CAnimTreeNode;
-
-class CAdditiveAnimationInfo {
-private:
-  float x0_fadeInDur;
-  float x4_fadeOutDur;
-};
 
 class CAdditiveAnimPlayback {
 public:

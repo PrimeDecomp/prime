@@ -3,8 +3,10 @@
 
 #include "MetroidPrime/CIOWin.hpp"
 
-#include "Kyoto/TToken.hpp"
 #include "Kyoto/Math/CVector2i.hpp"
+#include "Kyoto/TToken.hpp"
+#include "rstl/map.hpp"
+#include "rstl/optional_object.hpp"
 
 #include "rstl/single_ptr.hpp"
 
@@ -30,12 +32,11 @@ public:
 
 private:
   int x14_; // = 0;
-  TLockedToken< CStringTable > x18_creditsTable;
-  TLockedToken< CRasterFont > x20_creditsFont;
+  TToken< CStringTable > x18_creditsTable;
+  TToken< CRasterFont > x20_creditsFont;
   rstl::single_ptr< CMoviePlayer > x28_moviePlayer;
   rstl::single_ptr< CStaticAudioPlayer > x2c_;
-  rstl::vector< rstl::pair< rstl::single_ptr< CGuiTextSupport >, CVector2i > > x30_text;
-  int x44_textSupport; // = 0;
+  rstl::list< rstl::pair< rstl::single_ptr< CGuiTextSupport >, CVector2i > > x30_text;
   float x48_; // = 0.f;
   float x4c_; // = 0.f;
   float x50_; // = 8.f;

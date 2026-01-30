@@ -1309,7 +1309,7 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Animation/CAnimation.cpp"
             ),
             Object(NonMatching, "Kyoto/Animation/CAnimationManager.cpp"),
-            Object(NonMatching, "Kyoto/Animation/CAnimationSet.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Animation/CAnimationSet.cpp"),
             Object(NonMatching, "Kyoto/Animation/CAnimCharacterSet.cpp"),
             Object(NonMatching, "Kyoto/Animation/CAnimTreeLoopIn.cpp"),
             Object(NonMatching, "Kyoto/Animation/CAnimTreeSequence.cpp"),
@@ -1526,7 +1526,7 @@ config.libs = [
                 "Kyoto/Particles/CParticleGlobals.cpp",
             ),
             Object(NonMatching, "Kyoto/Particles/CParticleSwoosh.cpp"),
-            Object(NonMatching, "Kyoto/Particles/CParticleSwooshDataFactory.cpp"),
+            Object(Equivalent, "Kyoto/Particles/CParticleSwooshDataFactory.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
                 "Kyoto/Particles/CRealElement.cpp",

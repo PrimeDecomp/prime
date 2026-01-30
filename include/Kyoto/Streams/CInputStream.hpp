@@ -107,13 +107,8 @@ inline ushort cinput_stream_helper(const TType< ushort >& type, CInputStream& in
 // rstl
 #include "rstl/pair.hpp"
 template < typename L, typename R >
-inline rstl::pair< L, R > cinput_stream_helper(const TType< rstl::pair< L, R > >& type,
-                                               CInputStream& in) {
-  rstl::pair< L, R > result;
-  result.first = in.Get(TType< L >());
-  result.second = in.Get(TType< R >());
-  return result;
-}
+inline rstl::pair< L, R >::pair(CInputStream& in)
+: first(in.Get< L >()), second(in.Get< R >()) {}
 
 #include "rstl/vector.hpp"
 template < typename T, typename Alloc >
@@ -122,7 +117,7 @@ inline rstl::vector< T, Alloc >::vector(CInputStream& in, const Alloc& allocator
   int count = in.Get(TGetType(0));
   reserve(count);
   for (int i = 0; i < count; i++) {
-    push_back(in.Get(TType< T >()));
+    push_back(in.Get< T >());
   }
 }
 
