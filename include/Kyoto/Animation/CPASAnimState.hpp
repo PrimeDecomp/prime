@@ -13,6 +13,9 @@
 
 class CPASAnimState {
 public:
+  CPASAnimState(int id);
+  CPASAnimState(CInputStream& in);
+  
   CPASAnimParm GetAnimParmData(int, unsigned int) const;
 
   pas::EAnimationState GetStateId() const { return x0_id; }

@@ -383,41 +383,25 @@ void CMemoryCardDriver::UpdateCardProbe() {
   ProbeResults result = CMemoryCardSys::IsMemoryCardInserted(x0_cardPort);
   ECardResult error = result.x0_error;
 
-  if (error == kCR_READY && result.x8_sectorSize != 0x2000) {
-    x10_state = kS_CardProbeFailed;
-    x14_error = kE_CardNon8KSectors;
-  } else if (error != kCR_BUSY) {
-    if (error == kCR_WRONGDEVICE) {
+  if (error == kCR_READY) {
+    if (result.x8_sectorSize != 0x2000) {
       x10_state = kS_CardProbeFailed;
-      x14_error = kE_CardWrongDevice;
-    } else if (error != kCR_READY) {
-      NoCardFound();
-    } else {
-      x10_state = kS_CardProbeDone;
-      StartMountCard();
+      x14_error = kE_CardNon8KSectors;
+      return;
     }
+  } else if (error == kCR_BUSY) {
+    return;
+  } else if (error == kCR_WRONGDEVICE) {
+    x10_state = kS_CardProbeFailed;
+    x14_error = kE_CardWrongDevice;
+    return;
+  } else {
+    NoCardFound();
+    return;
   }
 
-  // switch (result.x0_error) {
-  // case kCR_READY:
-  //   if (result.x8_sectorSize != 0x2000) {
-  //     x10_state = kS_CardProbeFailed;
-  //     x14_error = kE_CardNon8KSectors;
-  //   } else {
-  //     x10_state = kS_CardProbeDone;
-  //     StartMountCard();
-  //   }
-  //   break;
-  // case kCR_BUSY:
-  //   break;
-  // case kCR_WRONGDEVICE:
-  //   x10_state = kS_CardProbeFailed;
-  //   x14_error = kE_CardWrongDevice;
-  //   break;
-  // default:
-  //   NoCardFound();
-  //   break;
-  // }
+  x10_state = kS_CardProbeDone;
+  StartMountCard();
 }
 
 void CMemoryCardDriver::StartMountCard() {

@@ -8,11 +8,14 @@
 class CPASAnimInfo {
 public:
   CPASAnimInfo(int id);
-  CPASAnimInfo(int id, const rstl::reserved_vector<CPASAnimParm::UParmValue, 8>& parms);
+  CPASAnimInfo(int id, const rstl::reserved_vector< CPASAnimParm::UParmValue, 8 >& parms);
 
   int GetAnimId() const { return x0_id; }
   CPASAnimParm GetAnimParmData(uint idx, CPASAnimParm::EParmType type) const;
   const CPASAnimParm::UParmValue& GetAnimParmValue(uint idx) const;
+
+  bool operator<(const CPASAnimInfo& rhs) const { return x0_id < rhs.x0_id; }
+
 private:
   uint x0_id;
   rstl::reserved_vector< CPASAnimParm::UParmValue, 8 > x4_parms;
