@@ -21,7 +21,8 @@ private:
   const CVector3f* x24_objectScale;
 
 public:
-  CAnimPlaybackParms(int animA, int animB, float blendWeight, bool animating)
+  CAnimPlaybackParms(const int animA, const int animB, const float blendWeight,
+                     const bool animating)
   : x0_animA(animA)
   , x4_animB(animB)
   , x8_blendWeight(blendWeight)

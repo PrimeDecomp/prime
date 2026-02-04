@@ -9,8 +9,8 @@ public:
 
   bool IsComboOver() const { return x10_24_over; }
   int GetLoopState() const { return x4_loopState; }
-  void SetLoopState(int l) { x4_loopState = l; }
-  void SetIdle(bool i) { x10_25_idle = i; }
+  void SetLoopState(const int l) { x4_loopState = l; }
+  void SetIdle(const bool i) { x10_25_idle = i; }
   int GetGunId() const { return xc_gunId; }
   bool Update(CAnimData& data, float dt, CStateManager& mgr);
   int SetAnim(CAnimData& data, int gunId, int loopState, CStateManager& mgr, float delay);

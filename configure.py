@@ -948,7 +948,7 @@ config.libs = [
             Object(NonMatching, "MetroidPrime/PathFinding/CPathFindRegion.cpp"),
             Object(NonMatching, "MetroidPrime/PathFinding/CPathFindArea.cpp"),
             Object(
-                NonMatching, "MetroidPrime/Weapons/GunController/CGunController.cpp"
+                MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Weapons/GunController/CGunController.cpp"
             ),
             Object(NonMatching, "MetroidPrime/Weapons/GunController/CGSFreeLook.cpp"),
             Object(

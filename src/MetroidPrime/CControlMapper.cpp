@@ -259,6 +259,8 @@ const char* ControlMapper::GetDescriptionForCommand(ECommands command) {
     return "Use Shield";
   case kC_ScanItem:
     return "Scan Item";
+  default:
+    break;
   }
 
   return "UNKNOWN";

@@ -51,6 +51,6 @@ void CScriptControllerAction::Think(float dt, CStateManager& stateMgr) {
   }
 }
 
-ControlMapper::ECommands CScriptControllerAction::GetCommand(CScriptControllerAction::ECommands c) {
-  return (ControlMapper::ECommands)(c);
+ControlMapper::ECommands CScriptControllerAction::GetCommand(const ECommands cmd) {
+  return static_cast< ControlMapper::ECommands >(cmd);
 }

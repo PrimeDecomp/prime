@@ -274,11 +274,16 @@ public:
   const CVector3f& GetMoveVector() const { return x310_moveVec; }
   void SetMoveVector(const CVector3f& vec) { x310_moveVec = vec; }
 
+  float GetFreezeDuration() const { return x4fc_freezeDur; }
+
+  void SetBaseDamageMag(const float mag) { x50c_baseDamageMag = mag; }
+
   bool ApplyBoneTracking() const;
 
   template < class T >
   static T* CastTo(const TPatternedCast< T >& ent);
 
+  void TryKnockBack(CStateManager& mgr, int arg);
   void TryLoopReaction(CStateManager& mgr, int arg);
   void TryCommand(CStateManager& mgr, int state, FTryCommandCallback cb, int arg);
 
@@ -288,6 +293,8 @@ public:
   void SetDestPos(const CVector3f& pos);
 
   float GetAnimationDistance(const CPASAnimParmData& data) const;
+
+  void UpdateThermalFrozenState(const bool thawed);
 
 protected:
   EPatrolState x2d8_patrolState;

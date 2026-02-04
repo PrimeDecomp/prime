@@ -33,13 +33,6 @@ void CElectricBeamProjectile::Accept(IVisitor& visitor) { visitor.Visit(*this); 
 
 void CElectricBeamProjectile::Touch(CActor&, CStateManager&) {}
 
-void CElectricBeamProjectile::AddToRenderer(const CFrustumPlanes&, const CStateManager& mgr) const {
-  if (GetActive()) {
-    gpRender->AddParticleGen(*x478_elementGen);
-    gpRender->AddParticleGen(*x468_electric);
-  }
-}
-
 void CElectricBeamProjectile::UpdateFx(const CTransform4f& xf, float dt, CStateManager& mgr) {
   if (!GetActive())
     return;
@@ -89,6 +82,19 @@ void CElectricBeamProjectile::UpdateFx(const CTransform4f& xf, float dt, CStateM
   x468_electric->Update(dt);
 }
 
+void CElectricBeamProjectile::AddToRenderer(const CFrustumPlanes&, const CStateManager& mgr) const {
+  if (GetActive()) {
+    gpRender->AddParticleGen(*x478_elementGen);
+    gpRender->AddParticleGen(*x468_electric);
+  }
+}
+
+void CElectricBeamProjectile::Fire(const CTransform4f&, CStateManager&, bool) {
+  x48c_ = true;
+  SetActive(true);
+  x480_intensity = 0.f;
+}
+
 void CElectricBeamProjectile::ResetBeam(CStateManager& mgr, bool b) {
   if (b) {
     SetActive(false);
@@ -98,12 +104,6 @@ void CElectricBeamProjectile::ResetBeam(CStateManager& mgr, bool b) {
   } else {
     x48c_ = false;
   }
-}
-
-void CElectricBeamProjectile::Fire(const CTransform4f&, CStateManager&, bool) {
-  x48c_ = true;
-  SetActive(true);
-  x480_intensity = 0.f;
 }
 
 void CElectricBeamProjectile::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid,

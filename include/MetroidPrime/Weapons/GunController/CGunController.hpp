@@ -3,9 +3,9 @@
 
 #include "types.h"
 
-#include "MetroidPrime/Weapons/GunController/CGSFreeLook.hpp"
 #include "MetroidPrime/Weapons/GunController/CGSComboFire.hpp"
 #include "MetroidPrime/Weapons/GunController/CGSFidget.hpp"
+#include "MetroidPrime/Weapons/GunController/CGSFreeLook.hpp"
 
 class CModelData;
 
@@ -27,7 +27,7 @@ class CGunController {
   CGSFreeLook x4_freeLook;
   CGSComboFire x1c_comboFire;
   CGSFidget x30_fidget;
-  char x48_pad[0x4];
+  char x4c_pad[0x4];
   EGunState x50_gunState;
   int x54_curAnimId;
   bool x58_24_animDone : 1;
@@ -35,7 +35,7 @@ class CGunController {
 
 public:
   explicit CGunController(CModelData& modelData);
-  ~CGunController(); 
+  ~CGunController();
 
   void EnterFreeLook(CStateManager&, int, int);
   void EnterComboFire(CStateManager&, int);

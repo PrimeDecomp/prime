@@ -75,7 +75,7 @@ void CPhazonBeam::PostRenderGunFx(const CStateManager& mgr, const CTransform4f& 
   CGunWeapon::PostRenderGunFx(mgr, xf);
 }
 
-void CPhazonBeam::UpdateGunFx(bool shotSmoke, float dt, const CStateManager& mgr,
+void CPhazonBeam::UpdateGunFx(const bool shotSmoke, const float dt, const CStateManager& mgr,
                               const CTransform4f& xf) {
   if (!mChargeFxGen.null()) {
     mChargeFxGen->SetGlobalOrientAndTrans(xf);

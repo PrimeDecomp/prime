@@ -52,8 +52,8 @@ public:
 
   void SetIsAnimating(bool v) { x220_24_animating = v; }
   void SetParticleEffectState(const rstl::string& name, const bool active, CStateManager& mgr) {
-     x120_particleDB.SetParticleEffectState(name, active, mgr);
-   }
+    x120_particleDB.SetParticleEffectState(name, active, mgr);
+  }
 
   int GetCharacterIndex() const { return x204_charIdx; }
   float GetAverageVelocity(int idx) const;
@@ -94,7 +94,7 @@ public:
   // AdvanceIgnoreParticles__9CAnimDataFfR9CRandom16b
   // Advance__9CAnimDataFfRC9CVector3fR13CStateManagerb
   // DoAdvance__9CAnimDataFfRbR9CRandom16b
-  void SetAnimation(const CAnimPlaybackParms& parms, bool noTrans);
+  void SetAnimation(const CAnimPlaybackParms& parms, const bool noTrans);
   void GetAnimationPrimitives(const CAnimPlaybackParms& parms,
                               rstl::set< CPrimitive >& primsOut) const;
   // PrimitiveSetToTokenVector__9CAnimDataFRCQ24rstl72set<10CPrimitive,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>RQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>b

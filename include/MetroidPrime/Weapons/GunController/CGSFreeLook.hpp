@@ -18,9 +18,9 @@ public:
   CGSFreeLook();
 
   int GetSetId() const { return x10_setId; }
-  void SetLoopState(int l) { x8_loopState = l; }
+  void SetLoopState(const int l) { x8_loopState = l; }
   int GetLoopState() const { return x8_loopState; }
-  void SetIdle(bool l) { x14_idle = l; }
+  void SetIdle(const bool l) { x14_idle = l; }
   int GetGunId() const { return xc_gunId; }
   bool Update(CAnimData& data, float dt, CStateManager& mgr);
   int SetAnim(CAnimData& data, int gunId, int setId, int loopState, CStateManager& mgr,

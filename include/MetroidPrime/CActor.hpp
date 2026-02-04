@@ -157,6 +157,8 @@ public:
 
   TUniqueId InFluidId() const { return xc4_fluidId; }
 
+  void SetDamageMag(const float d) { xd0_damageMag = d; }
+
   bool GetTransformDirty() const { return xe4_27_notInSortedLists; }
   bool GetTransformDirtySpare() const { return xe4_28_transformDirty; }
   bool GetPreRenderHasMoved() const { return xe4_29_actorLightsDirty; }
@@ -182,6 +184,7 @@ public:
   void SetMuted(bool b);
   void SetThermalFlags(EThermalFlags flags) { xe6_27_thermalVisorFlags = flags; }
   void SetRenderParticleDatabaseInside(bool b) { xe6_29_renderParticleDBInside = b; }
+  void SetDoTargetDistanceTest(const bool b) { xe7_30_doTargetDistanceTest = b; }
   void SetTargetable(bool b) { xe7_31_targetable = b; }
 
   void RemoveMaterial(EMaterialTypes, EMaterialTypes, EMaterialTypes, EMaterialTypes,
