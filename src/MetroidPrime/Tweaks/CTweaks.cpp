@@ -19,9 +19,7 @@
 #include <MetroidPrime/Tweaks/CTweaks.hpp>
 // clang-format on
 
-#include "Kyoto/CResFactory.hpp"
-
-#include <Kyoto/CresFactory.hpp>
+#include <Kyoto/CResFactory.hpp>
 
 CTweakPlayer* gpTweakPlayer = nullptr;
 CTweakBall* gpTweakBall = nullptr;
