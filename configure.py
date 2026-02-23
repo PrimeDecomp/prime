@@ -388,7 +388,6 @@ def TrkLib(lib_name, objects):
         "lib": lib_name + "D" if args.debug else "",
         "mw_version": "GC/1.2.5n",
         "cflags": cflags_trk,
-        "host": False,
         "progress_category": "sdk",
         "objects": objects,
         "shift_jis": True,
@@ -400,7 +399,6 @@ def RetroLib(lib_name, progress_category, objects):
         "lib": lib_name + "CW" + "D" if args.debug else "",
         "mw_version": "GC/1.3.2",
         "cflags": cflags_retro,
-        "host": False,
         "progress_category": progress_category,
         "objects": objects,
         "shift_jis": False,
@@ -432,7 +430,6 @@ def MusyX(
         "lib": "musyx",
         "mw_version": mw_version,
         "src_dir": "extern/musyx/src",
-        "host": False,
         "cflags": [
             *cflags,
             f"-DMUSY_VERSION_MAJOR={major}",
@@ -451,7 +448,6 @@ def Rel(lib_name: str, objects: List[Object]) -> Dict[str, Any]:
         "lib": lib_name,
         "mw_version": "GC/1.3.2",
         "cflags": cflags_rel,
-        "host": True,
         "progress_category": "third_party",
         "objects": objects,
         "shift_jis": False,
@@ -1597,7 +1593,6 @@ config.libs = [
         "lib": "zlib",
         "mw_version": "GC/1.3.2",
         "cflags": cflags_runtime,
-        "host": False,
         "progress_category": "third_party",
         "shift_jis": False,
         "objects": [
@@ -1885,7 +1880,6 @@ config.libs = [
         "mw_version": "GC/1.2.5n",
         # "cflags": ["-nodefaults","-proc gekko","-align powerpc","-fp hardware","-g","-sym on","-maxerrors 1","-nosyspath","-i include","-i libc", "-D_DEBUG=1", "-inline off", "-Cpp_exceptions off"],
         "cflags": [*cflags_base, "-fp_contract off"],
-        "host": False,
         "progress_category": "sdk",
         "shift_jis": True,
         "objects": [
@@ -2007,7 +2001,6 @@ config.libs = [
         "lib": "MSL_C.PPCEABI.bare.H",
         "mw_version": "GC/1.3",
         "cflags": cflags_runtime,
-        "host": False,
         "progress_category": "sdk",
         "shift_jis": False,
         "objects": [
