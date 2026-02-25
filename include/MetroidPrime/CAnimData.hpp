@@ -42,6 +42,8 @@ public:
     kAD_Backward,
   };
 
+  ~CAnimData();
+
   void PreRender();
   void EnableLooping(bool v) {
     x220_25_loop = v;

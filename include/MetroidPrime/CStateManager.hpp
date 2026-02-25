@@ -33,6 +33,7 @@
 
 class CAABox;
 class CActor;
+class CPlane;
 class CActorModelParticles;
 class CCameraManager;
 class CEnvFxManager;
@@ -127,6 +128,8 @@ public:
   void DeliverScriptMsg(CEntity* ent, TUniqueId target, EScriptObjectMessage msg);
   void SendScriptMsgAlways(TUniqueId uid, TUniqueId src, EScriptObjectMessage msg);
   bool AddDrawableActor(const CActor& actor, const CVector3f& pos, const CAABox& bounds) const;
+  void AddDrawableActorPlane(const CActor& actor, const CPlane& plane,
+                             const CAABox& bounds) const;
   void SetupParticleHook(const CActor& actor) const;
   void DeleteObjectRequest(TUniqueId uid);
   rstl::pair< TEditorId, TUniqueId > GenerateObject(const TEditorId& eid);

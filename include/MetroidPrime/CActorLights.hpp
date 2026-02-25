@@ -46,6 +46,17 @@ public:
   void SetFindShadowLight(bool v) { x298_27_findShadowLight = v; }
   void SetShadowDynamicRangeThreshold(float t) { x2d0_shadowDynamicRangeThreshold = t; }
 
+  void SetMaxAreaLights(int n) {
+    x2b8_maxAreaLights = n;
+    x298_26_hasAreaLights = x2b8_maxAreaLights > 0;
+  }
+  void SetInArea(bool v) { x298_28_inArea = v; }
+  void SetMaxDynamicLights(int n) { x2bc_maxDynamicLights = n; }
+  void SetAmbienceGenerated(bool v) { x298_29_ambienceGenerated = v; }
+  void SetFindNearestDynamicLights(bool v) { x29a_findNearestDynamicLights = v; }
+  bool GetIsDirty() const { return x298_24_dirty; }
+  int GetMaxAreaLights() const { return x2b8_maxAreaLights; }
+
 private:
   rstl::reserved_vector< CLight, 4 > x0_areaLights;
   rstl::reserved_vector< CLight, 4 > x144_dynamicLights;

@@ -21,7 +21,7 @@ enum ERglFogMode {
 
   kRFM_PerspLin = GX_FOG_PERSP_LIN,
   kRFM_PerspExp = GX_FOG_PERSP_EXP,
-  kRFM_PerspExp2 = GX_FOG_ORTHO_EXP2,
+  kRFM_PerspExp2 = GX_FOG_PERSP_EXP2,
   kRFM_PerspRevExp = GX_FOG_PERSP_REVEXP,
   kRFM_PerspRevExp2 = GX_FOG_PERSP_REVEXP2,
 

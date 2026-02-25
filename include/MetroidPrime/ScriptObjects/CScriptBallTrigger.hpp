@@ -6,7 +6,7 @@
 class CScriptBallTrigger : public CScriptTrigger {
 public:
   CScriptBallTrigger(TUniqueId, const rstl::string&, const CEntityInfo&, const CVector3f&,
-                     const CVector3f&, bool, float, float, float, const CVector3f&, bool);
+                     const CVector3f&, bool, float, float, float, CVector3f, bool);
   ~CScriptBallTrigger();
 
   void Accept(IVisitor&) override;

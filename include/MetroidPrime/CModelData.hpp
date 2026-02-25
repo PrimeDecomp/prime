@@ -4,6 +4,7 @@
 #include "types.h"
 
 #include "MetroidPrime/TGameTypes.hpp"
+#include "MetroidPrime/CAnimData.hpp"
 
 #include "Kyoto/Animation/IAnimReader.hpp"
 #include "Kyoto/Graphics/CColor.hpp"
@@ -18,7 +19,6 @@
 
 class CAABox;
 class CActorLights;
-class CAnimData;
 class CAnimRes;
 class CFrustumPlanes;
 class CModel;
@@ -70,7 +70,7 @@ public:
   CModelData();
   CModelData(const CAnimRes&);
   CModelData(const CStaticRes&);
-  //CModelData(const CModelData&);
+  CModelData(const CModelData&);
   ~CModelData();
 
   CAdvancementDeltas AdvanceAnimation(float dt, CStateManager& mgr, TAreaId aid, bool advTree);

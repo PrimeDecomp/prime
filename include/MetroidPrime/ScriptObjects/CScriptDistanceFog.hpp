@@ -3,6 +3,8 @@
 
 #include "MetroidPrime/CEntity.hpp"
 
+#include "Kyoto/Math/CVector2f.hpp"
+
 #include "MetroidPrime/CAreaFog.hpp"
 #include "MetroidPrime/CGameArea.hpp"
 
@@ -21,8 +23,8 @@ class CScriptDistanceFog : public CEntity {
 
 public:
   CScriptDistanceFog(TUniqueId, const rstl::string&, const CEntityInfo&, ERglFogMode, const CColor&,
-                     const CVector2f&, float, const CVector2f&, bool, bool, float, float, float,
-                     float);
+                     const CVector2f&, float, CVector2f, const bool, const bool, float, float,
+                     float, float);
   ~CScriptDistanceFog();
 
   void Accept(IVisitor& visitor) override;

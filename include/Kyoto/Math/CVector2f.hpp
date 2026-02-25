@@ -10,7 +10,7 @@ class CVector2f {
 
 public:
   CVector2f(float x, float y);
-  CVector2f(CInputStream& in) : mX(in.ReadFloat()), mY(in.ReadFloat()) {}
+  CVector2f(CInputStream& in) : mX(in.Get< float >()), mY(in.Get< float >()) {}
 
   float GetX() const { return mX; }
   float GetY() const { return mY; }

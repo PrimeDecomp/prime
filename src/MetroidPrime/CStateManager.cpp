@@ -265,7 +265,7 @@ CStateManager::CStateManager(const rstl::ncrc_ptr< CScriptMailbox >& mailbox,
   x90c_loaderFuncs[kST_ColorModulate] = ScriptLoader::LoadColorModulate;
   x90c_loaderFuncs[kST_ThardusRockProjectile] = ScriptLoader::LoadThardusRockProjectile;
   x90c_loaderFuncs[kST_Midi] = ScriptLoader::LoadMidi;
-  x90c_loaderFuncs[kST_StreamedAudio] = ScriptLoader::LoadStreamedAudio; // Or music?
+  x90c_loaderFuncs[kST_StreamedAudio] = ScriptLoader::LoadStreamedMusic;
   x90c_loaderFuncs[kST_WorldTeleporterToo] = ScriptLoader::LoadWorldTeleporter;
   x90c_loaderFuncs[kST_Repulsor] = ScriptLoader::LoadRepulsor;
   x90c_loaderFuncs[kST_GunTurret] = ScriptLoader::LoadGunTurret;
@@ -273,8 +273,7 @@ CStateManager::CStateManager(const rstl::ncrc_ptr< CScriptMailbox >& mailbox,
   x90c_loaderFuncs[kST_Babygoth] = ScriptLoader::LoadBabygoth;
   x90c_loaderFuncs[kST_Eyeball] = ScriptLoader::LoadEyeball;
   x90c_loaderFuncs[kST_RadialDamage] = ScriptLoader::LoadRadialDamage;
-  x90c_loaderFuncs[kST_CameraPitchVolume] =
-      ScriptLoader::LoadCameraPitchVolume; // LoadScriptCameraPitchVolume
+  x90c_loaderFuncs[kST_CameraPitchVolume] = ScriptLoader::LoadScriptCameraPitchVolume;
   x90c_loaderFuncs[kST_ElitePirate] = ScriptLoader::LoadElitePirate;
   x90c_loaderFuncs[kST_MetroidBeta] = ScriptLoader::LoadMetroidBeta;
   x90c_loaderFuncs[kST_EnvFxDensityController] = ScriptLoader::LoadEnvFxDensityController;

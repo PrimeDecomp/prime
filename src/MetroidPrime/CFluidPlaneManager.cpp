@@ -14,6 +14,7 @@
 #include "rstl/math.hpp"
 
 const float CFluidPlane::kRippleIntensityRange = 1.f;
+const bool sRenderFog = true;
 
 uint fn_8012F098() {
   return 0;
@@ -109,3 +110,8 @@ void CFluidPlane::AddRipple(const CRipple& ripple, const CScriptWater& water, CS
 
 void CFluidPlane::Render(const CStateManager& mgr, const CAABox&, const CFrustumPlanes&,
                          const CRippleManager&, const CVector3f&) {}
+
+// void CFluidPlane::Render(const CStateManager&, float, const CAABox&, const CTransform4f&,
+//                          const CTransform4f&, bool, const CFrustumPlanes&,
+//                          const rstl::optional_object< CRippleManager >&, TUniqueId,
+//                          const bool*, int, int, const CVector3f&) const {}

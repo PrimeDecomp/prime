@@ -28,7 +28,7 @@ public:
                 const CTransform4f& xf, const CModelData& mData, const CActorParameters& aParams,
                 const CAABox& aabb, CPlayerState::EItemType itemType, int amount, int capacity,
                 CAssetId pickupEffect, float possibility, float lifeTime, float fadeInTime,
-                float startDelay, bool active);
+                float startDelay, const bool active);
   ~CScriptPickup();
 
   void Think(float, CStateManager&) override;

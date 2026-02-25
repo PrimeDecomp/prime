@@ -29,11 +29,12 @@ class CScriptWater : public CScriptTrigger {
 public:
   CScriptWater(CStateManager&, TUniqueId, const rstl::string&, const CEntityInfo&, const CVector3f&,
                const CAABox&, const CDamageInfo&, const CVector3f&, uint, bool, bool, uint, uint,
-               uint, uint, uint, uint, const CVector3f&, float, float, float, bool,
+               uint, uint, uint, uint, uint, const CVector3f&, float, float, float, bool,
                CFluidPlane::EFluidType, bool, float, const CFluidUVMotion&, float, float, float,
                float, float, float, float, float, const CColor&, const CColor&, uint, uint, uint,
-               uint, int, int, int, float, uint, float, float, float, float, float, float, float,
-               float, const CColor&, uint, uint, bool, int, int, const uint*);
+               uint, uint, int, int, int, int, int, float, uint, float, float, float, float,
+               float, float, float, float, const CColor&, uint, float, float, float, uint, uint,
+               bool, int, int, const uint*);
 
   // CEntity
   ~CScriptWater() override;
@@ -53,11 +54,20 @@ public:
   CAABox GetSortingBounds(const CStateManager&) const override;
 
   bool CanRippleAtPoint(const CVector3f&) const;
-  // UpdateSplashInhabitants__12CScriptWaterFR13CStateManager
+  void UpdateSplashInhabitants(CStateManager&);
+  void SetupGrid(bool recomputeClipping);
+  void SetupGridClipping(CStateManager&, int computeVerts);
+  int GetPatchRenderFlags(int x, int y) const;
+  void SetMorphing(const bool m);
+  const CScriptWater* GetNextConnectedWater(const CStateManager&) const;
   // RenderSurface__12CScriptWaterFv
 
-  CFluidPlaneCPU& FluidPlane() { return *x1b4_fluidPlane; }
-  const CFluidPlaneCPU& GetFluidPlane() const { return *x1b4_fluidPlane; }
+  CFluidPlaneCPU& FluidPlane() {
+    return reinterpret_cast< CFluidPlaneCPU& >(*x1b4_fluidPlane);
+  }
+  const CFluidPlaneCPU& GetFluidPlane() const {
+    return reinterpret_cast< const CFluidPlaneCPU& >(*x1b4_fluidPlane);
+  }
   // GetWRSurfacePlane__12CScriptWaterCFv
   float GetSurfaceZ() const { return GetTriggerBoundsWR().GetMaxPoint().GetZ(); }
   const CColor& GetUnderwaterFogColor() const { return x2a8_insideFogColor; }
@@ -71,20 +81,19 @@ public:
   }
   ushort GetUnmorphVisorRunoffSfx() const { return x262_unmorphVisorRunoffSfx; }
   // GetFluidType__12CScriptWaterCFv
-  // IsMorphing__12CScriptWaterCFv
-  // SetMorphing__12CScriptWaterFb
+  bool IsMorphing() const { return x2e8_26_morphing; }
   // GetFrustumPlanes__12CScriptWaterCFv
-  // GetSplashIndex__12CScriptWaterCFf
-  // GetSplashEffect__12CScriptWaterCFf
-  // GetSplashSound__12CScriptWaterCFf
-  // GetSplashEffectScale__12CScriptWaterCFf
+  int GetSplashIndex(float scale) const;
+  const rstl::optional_object< TLockedToken< CGenDescription > >& GetSplashEffect(float scale) const;
+  int GetSplashSound(float scale) const;
+  float GetSplashEffectScale(float scale) const;
   // GetSplashColor__12CScriptWaterCFv
 
-  // kSplashScales__12CScriptWater
+  static const float kSplashScales[6];
 
 private:
   CFrustumPlanes x150_frustum;
-  rstl::single_ptr< CFluidPlaneCPU > x1b4_fluidPlane;
+  rstl::single_ptr< CFluidPlane > x1b4_fluidPlane;
   CVector3f x1b8_positionMorphed;
   CVector3f x1c4_extentMorphed;
   float x1d0_morphInTime;
@@ -126,10 +135,10 @@ private:
   int x2cc_gridCellCount;
   int x2d0_patchDimX;
   int x2d4_patchDimY;
-  rstl::single_ptr< bool[] > x2d8_tileIntersects;
-  rstl::single_ptr< bool[] > x2dc_vertIntersects;
+  rstl::single_ptr< bool > x2d8_tileIntersects;
+  rstl::single_ptr< bool > x2dc_vertIntersects;
   // 0: all clear, 1: all intersect, 2: partial intersect
-  rstl::single_ptr< uchar[] > x2e0_patchIntersects;
+  rstl::single_ptr< char > x2e0_patchIntersects;
   int x2e4_computedGridCellCount;
   bool x2e8_24_b4 : 1;
   bool x2e8_25_morphIn : 1;

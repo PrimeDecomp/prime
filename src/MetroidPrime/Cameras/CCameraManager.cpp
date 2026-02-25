@@ -1,5 +1,6 @@
 #include "MetroidPrime/Cameras/CCameraManager.hpp"
 
+#include "Kyoto/Math/CVector3f.hpp"
 #include "MetroidPrime/CExplosion.hpp"
 #include "MetroidPrime/CFluidPlaneCPU.hpp"
 #include "MetroidPrime/CRumbleManager.hpp"
@@ -501,9 +502,12 @@ void CCameraManager::UseCameraHint(const CScriptCameraHint& hint, CStateManager&
   if ((hint.GetOverrideFlags() & 0x20) == 0 &&
       (hint.GetBehaviourType() != CBallCamera::kBCB_Default ||
        (oldHint && (!oldHint || oldHint->GetBehaviourType() != CBallCamera::kBCB_Default)))) {
-    SetupInterpolation(camXf, x80_ballCamera->GetUniqueId(), x80_ballCamera->GetLookAtPosition(),
-                       hint.GetInfo().GetInterpolateTime(), hint.GetInfo().GetClampVelRange(),
-                       hint.GetInfo().GetClampRotRange(), hint.GetInfo().Flagx400(), mgr);
+    const CVector3f& lookAtPos = x80_ballCamera->GetLookAtPosition();
+    float interpTime = hint.GetInfo().GetInterpolateTime();
+    float positionSpeed = hint.GetInfo().GetClampVelRange();
+    float rotationSpeed = hint.GetInfo().GetClampRotRange();
+    SetupInterpolation(camXf, x80_ballCamera->GetUniqueId(), lookAtPos, interpTime, positionSpeed,
+                       rotationSpeed, hint.GetInfo().Flagx400(), mgr);
   }
 }
 

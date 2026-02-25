@@ -18,9 +18,14 @@ public:
                  const CVector3f& velocity, const CScriptWater& water, CStateManager& mgr,
                  const CVector3f& upVec) override {}
   void AddRipple(const CRipple& ripple, const CScriptWater& water, CStateManager& mgr) override {}
-  void Update() override;
-  void Render(const CStateManager& mgr, const CAABox&, const CFrustumPlanes&, const CRippleManager&,
-              const CVector3f&) override;
+  void Render(const CStateManager& mgr, float alpha, const CAABox& aabb,
+              const CTransform4f& xf, const CTransform4f& areaXf, bool noNormals,
+              const CFrustumPlanes& frustum,
+              const rstl::optional_object< CRippleManager >& rippleManager,
+              TUniqueId waterId, const bool* gridFlags, int gridDimX, int gridDimY,
+              const CVector3f& areaCenter) const override;
+
+  void Update();
 
   void RenderCleanup() const;
 

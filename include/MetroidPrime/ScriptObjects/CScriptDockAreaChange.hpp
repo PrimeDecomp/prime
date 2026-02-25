@@ -7,7 +7,7 @@ class CScriptDockAreaChange : public CEntity {
   int x34_dockReference;
 
 public:
-  CScriptDockAreaChange(TUniqueId, const rstl::string&, const CEntityInfo&, int, bool);
+  CScriptDockAreaChange(TUniqueId, const rstl::string&, const CEntityInfo&, int, const bool);
 
   void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objId, CStateManager& stateMgr) override;
   void Accept(IVisitor& visitor) override;

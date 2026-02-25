@@ -107,14 +107,15 @@ public:
   static CEntity* LoadColorModulate(CStateManager&, CInputStream&, int, const CEntityInfo&);
   static CEntity* LoadThardusRockProjectile(CStateManager&, CInputStream&, int, const CEntityInfo&);
   static CEntity* LoadMidi(CStateManager&, CInputStream&, int, const CEntityInfo&);
-  static CEntity* LoadStreamedAudio(CStateManager&, CInputStream&, int, const CEntityInfo&);
+  static CEntity* LoadStreamedMusic(CStateManager&, CInputStream&, int, const CEntityInfo&);
   static CEntity* LoadRepulsor(CStateManager&, CInputStream&, int, const CEntityInfo&);
   static CEntity* LoadGunTurret(CStateManager&, CInputStream&, int, const CEntityInfo&);
   static CEntity* LoadFogVolume(CStateManager&, CInputStream&, int, const CEntityInfo&);
   static CEntity* LoadBabygoth(CStateManager&, CInputStream&, int, const CEntityInfo&);
   static CEntity* LoadEyeball(CStateManager&, CInputStream&, int, const CEntityInfo&);
   static CEntity* LoadRadialDamage(CStateManager&, CInputStream&, int, const CEntityInfo&);
-  static CEntity* LoadCameraPitchVolume(CStateManager&, CInputStream&, int, const CEntityInfo&);
+  static CEntity* LoadScriptCameraPitchVolume(CStateManager&, CInputStream&, int,
+                                                const CEntityInfo&);
   static CEntity* LoadEnvFxDensityController(CStateManager&, CInputStream&, int,
                                              const CEntityInfo&);
   static CEntity* LoadMagdolite(CStateManager&, CInputStream&, int, const CEntityInfo&);

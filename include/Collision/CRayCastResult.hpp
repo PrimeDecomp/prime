@@ -28,6 +28,7 @@ public:
   const CVector3f& GetPoint() const { return x4_point; }
   const CPlane& GetPlane() const { return x10_plane; }
   bool IsValid() const { return x20_valid != kI_Invalid; }
+  bool GetValid() const { return x20_valid; }
   // TODO: figure out what's going on here
   bool IsInvalid() const { return x20_valid == kI_Invalid; }
   const CMaterialList& GetMaterial() const { return x28_material; }

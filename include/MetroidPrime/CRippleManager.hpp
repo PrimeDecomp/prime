@@ -15,6 +15,8 @@ private:
 
 public:
   CRippleManager(int maxRipples, float alpha);
+  CRippleManager(const CRippleManager& other);
+  ~CRippleManager();
   
   void Init(int maxRipples);
   void Update(float dt);

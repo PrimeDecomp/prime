@@ -10,8 +10,8 @@
 CScriptDistanceFog::CScriptDistanceFog(TUniqueId uid, const rstl::string& name,
                                        const CEntityInfo& info, ERglFogMode mode,
                                        const CColor& color, const CVector2f& range,
-                                       float colorDelta, const CVector2f& rangeDelta, bool expl,
-                                       bool active, float thermalTarget, float thermalSpeed,
+                                       float colorDelta, CVector2f rangeDelta, const bool expl,
+                                       const bool active, float thermalTarget, float thermalSpeed,
                                        float xrayTarget, float xraySpeed)
 : CEntity(uid, info, active, name)
 , x34_mode(mode)

@@ -66,7 +66,22 @@ public:
   float Get21() const { return m21; }
   float Get22() const { return m22; }
 
+  inline CVector3f GetColumn(EDimX dim) const { return CVector3f(m00, m10, m20); }
   inline CVector3f GetColumn(EDimY dim) const { return CVector3f(m01, m11, m21); }
+  inline CVector3f GetColumn(EDimZ dim) const { return CVector3f(m02, m12, m22); }
+
+  inline CVector3f GetColumn(int idx) const {
+    switch (idx) {
+    case 0:
+      return CVector3f(m00, m10, m20);
+    case 1:
+      return CVector3f(m01, m11, m21);
+    case 2:
+      return CVector3f(m02, m12, m22);
+    default:
+      return CVector3f::Zero();
+    }
+  }
 
   static CMatrix3f FromTransform(const CTransform4f& xf);
 

@@ -29,6 +29,8 @@ class CScriptWater;
 class CStateManager;
 class CRipple;
 class CTexture;
+class CTransform4f;
+class CRippleManager;
 
 
 class CFluidPlaneCPURender {
@@ -62,9 +64,16 @@ public:
                          const CVector3f& velocity, const CScriptWater& water, CStateManager& mgr,
                          const CVector3f& upVec);
   virtual void AddRipple(const CRipple& ripple, const CScriptWater& water, CStateManager& mgr);
-  virtual void Update();
   virtual void Render(const CStateManager& mgr, const CAABox&, const CFrustumPlanes&,
                       const CRippleManager&, const CVector3f&);
+  virtual void Render(const CStateManager& mgr, float alpha, const CAABox& aabb,
+                      const CTransform4f& xf, const CTransform4f& areaXf, bool noNormals,
+                      const CFrustumPlanes& frustum,
+                      const rstl::optional_object< CRippleManager >& rippleManager,
+                      TUniqueId waterId, const bool* gridFlags, int gridDimX, int gridDimY,
+                      const CVector3f& areaCenter) const {}
+
+  void Update();
 
   float CalculateRippleIntensity(const float base) const;
   float GetRippleScaleFromKineticEnergy(float baseI, float velDot);
@@ -98,6 +107,8 @@ protected:
 };
 CHECK_SIZEOF(CFluidPlane, 0xA0);
 
+extern const bool sRenderFog;
+
 class CFluidPlaneManager {
 public:
   CFluidPlaneManager();
@@ -107,6 +118,7 @@ public:
                     const CVector3f& pos, float factor, bool sfx);
 
   CRippleManager& RippleManager() { return x0_rippleManager; }
+  const CRippleManager& GetRippleManager() const { return x0_rippleManager; }
   float GetLastSplashDeltaTime(TUniqueId uid) const;
   float GetLastRippleDeltaTime(TUniqueId uid) const;
 

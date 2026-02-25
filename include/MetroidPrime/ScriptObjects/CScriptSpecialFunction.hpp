@@ -120,8 +120,8 @@ private:
 public:
   CScriptSpecialFunction(TUniqueId, const rstl::string&, const CEntityInfo&, const CTransform4f&,
                          ESpecialFunction, const rstl::string&, float, float, float, float,
-                         const CVector3f&, const CColor&, bool, const CDamageInfo&, int, int,
-                         CPlayerState::EItemType, ushort, ushort, ushort);
+                         const CVector3f&, const CColor&, const bool, const CDamageInfo&, int, int,
+                         CPlayerState::EItemType, const ushort, const ushort, const ushort);
 
   void Accept(IVisitor& visitor) override;
   void Think(float, CStateManager&) override;

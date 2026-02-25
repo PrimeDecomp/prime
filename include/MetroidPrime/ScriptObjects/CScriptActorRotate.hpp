@@ -11,7 +11,7 @@ class CScriptPlatform;
 class CScriptActorRotate : public CEntity {
 public:
   CScriptActorRotate(TUniqueId, const rstl::string&, const CEntityInfo&, const CVector3f&,
-                     const float, const bool, const bool, const bool);
+                     float, bool, bool, bool);
   ~CScriptActorRotate();
 
   void Accept(IVisitor& visitor) override;

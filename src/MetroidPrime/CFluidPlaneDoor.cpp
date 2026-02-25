@@ -65,7 +65,11 @@ void CFluidPlaneDoor::RenderSetup(const CStateManager& mgr, float alpha, const C
   CGX::SetTexCoordGen(GX_TEXCOORD0, GX_TG_MTX2x4, GX_TG_POS, GX_TEXMTX5, false, GX_PTIDENTITY);
 }
 
-void CFluidPlaneDoor::Render(const CStateManager& mgr, const CAABox&, const CFrustumPlanes&,
-                             const CRippleManager&, const CVector3f&) {}
+void CFluidPlaneDoor::Render(const CStateManager& mgr, float alpha, const CAABox& aabb,
+                             const CTransform4f& xf, const CTransform4f& areaXf, bool noNormals,
+                             const CFrustumPlanes& frustum,
+                             const rstl::optional_object< CRippleManager >& rippleManager,
+                             TUniqueId waterId, const bool* gridFlags, int gridDimX, int gridDimY,
+                             const CVector3f& areaCenter) const {}
 
 void CFluidPlaneDoor::RenderCleanup() const {}

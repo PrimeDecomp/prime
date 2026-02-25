@@ -34,13 +34,13 @@ public:
   };
 
   CLightParameters();
-  CLightParameters(bool castShadow, float shadowScale,
+  CLightParameters(const bool castShadow, float shadowScale,
                    CLightParameters::EShadowTessellation shadowTess, float shadowAlpha,
-                   float maxShadowHeight, const CColor& ambientColor, bool makeLights,
+                   float maxShadowHeight, const CColor& ambientColor, const bool makeLights,
                    CLightParameters::EWorldLightingOptions useWorldLighting,
                    CLightParameters::ELightRecalculationOptions lightRecalcOpts,
                    const CVector3f& lightingPositionOffset, int maxDynamicLights, int maxAreaLights,
-                   bool ambChannelOverflow, int useLightSet);
+                   const bool ambChannelOverflow, int useLightSet);
   virtual ~CLightParameters();
 
   const CColor& GetAmbientColor() const { return x18_ambientColor; }
@@ -50,7 +50,7 @@ public:
   int GetMaxDynamicLights() const { return x38_maxDynamicLights; }
   int GetMaxAreaLights() const { return x3c_maxAreaLights; }
 
-  static CLightParameters None();
+  static CLightParameters None() { return CLightParameters(); }
 
   static uint GetFramesBetweenRecalculation(ELightRecalculationOptions opts);
   rstl::auto_ptr< CActorLights > MakeActorLights() const;
