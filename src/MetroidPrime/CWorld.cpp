@@ -246,8 +246,8 @@ rstl::string CWorld::IGetDefaultAudioTrack() const { return x84_defAudioTrack; }
 
 int CWorld::IGetAreaCount() const { return x18_areas.size(); }
 
-CDummyWorld::CDummyWorld(CAssetId mlvlId, bool loadMap)
-: x4_loadMap(loadMap)
+CDummyWorld::CDummyWorld(CAssetId mlvlId)
+: x4_loadMap(true)
 , x8_phase(kP_Loading)
 , xc_mlvlId(mlvlId)
 #if NONMATCHING

@@ -153,6 +153,8 @@ public:
   void SetRequestRGBA6(bool req) { x318_26_requestRGBA6 = req; }
   CTexture* GetRealReflection();
   const CPlane& GetViewPlane() const { return xb0_viewPlane; }
+  const CTexture& GetZeroTexture() const { return xe4_blackTex; }
+  static CCubeRenderer* That() { return sRenderer; }
 
 private:
   CResFactory& x8_factory;

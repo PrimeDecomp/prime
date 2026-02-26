@@ -102,6 +102,7 @@ public:
   void reserve(int len) { internal_prepare_to_write(len, true); }
 
   void assign(const basic_string&);
+  void assign(const _CharTp*, int);
   basic_string& operator=(const basic_string& other) {
     assign(other);
     return *this;

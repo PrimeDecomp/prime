@@ -388,6 +388,7 @@ public:
   float GetGravity() const;
 
   float GetAttachedActorStruggle() const;
+  float GetGunAlpha() const { return x494_gunAlpha; }
   void SetAttachedActorStruggle(float struggle) { xa28_attachedActorStruggle = struggle; }
 
   // PlayerHint

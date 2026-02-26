@@ -8,8 +8,11 @@ class CGuiWidget;
 class CGuiCamera;
 class CGuiLight;
 class CGuiHeadWidget;
+class CGuiWidgetDrawParms;
 class CGuiFrame {
 public:
+  void Update(float dt);
+  void Draw(const CGuiWidgetDrawParms& parms) const;
   CGuiWidget* FindWidget(const char* name) const;
   CGuiWidget* FindWidget(const rstl::string& name) const;
 

@@ -9,6 +9,8 @@ class CFluidPlaneCPU : public CFluidPlane {
 public:
   class CTurbulence {
   public:
+    static int kTableSize;
+
     CTurbulence(float speed, float distance, float freqMax, float freqMin, float phaseMax,
                 float phaseMin, float amplitudeMax, float amplitudeMin);
     ~CTurbulence();
@@ -47,7 +49,7 @@ public:
                  float turbAmplitudeMax, float turbAmplitudeMin, float specularMin,
                  float specularMax, float reflectionBlend, float reflectionSize,
                  float rippleIntensity);
-  ~CFluidPlaneCPU();
+  ~CFluidPlaneCPU() {}
 
   void Render(const CStateManager& mgr, float alpha, const CAABox& aabb, const CTransform4f& xf,
               const CTransform4f& areaXf, bool noNormals, const CFrustumPlanes& frustum,

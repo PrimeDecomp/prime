@@ -55,12 +55,21 @@ inline ushort FtoUS(register float in) {
   return *ptr;
 }
 
+inline float StoF(register const short& in) {
+  register float r;
+  asm {
+    psq_l r, 0(in), 1, OS_FASTCAST_S16
+  }
+  return r;
+}
+
 #else
 inline uchar ToUint8(float in) { return static_cast< uchar >(in); }
 inline char ToInt8(float in) { return static_cast< char >(in); }
 inline float ToReal32(uchar in) { return static_cast< float >(in); }
 inline short FtoS(float in) { return static_cast< short >(in); }
 inline ushort FtoUS(float in) { return static_cast< ushort >(in); }
+inline float StoF(const short& in) { return static_cast< float >(in); }
 #endif
 
 inline uchar ToUint8(int c) { return static_cast< uchar >(c); }

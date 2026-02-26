@@ -277,6 +277,7 @@ public:
   static void EnableLight(ERglLight light);
   static void LoadLight(ERglLight light, const CLight& info);
   static void SetLightState(uchar lights);
+  static uchar GetLightMask() { return mLightActive; }
   static void SetViewMatrix();
   static void SetScissor(int left, int bottom, int width, int height);
   static void SetLineWidth(float w, ERglTexOffset offs);

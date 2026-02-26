@@ -10,7 +10,7 @@ class CObjectReference;
 
 class CToken {
 public:
-  CToken() {}
+  CToken() : x0_objRef(NULL), x4_lockHeld_init(0) {}
   CToken(CObjectReference* ref);
   CToken(IObj* obj); // : x0_objRef(new CObjectReference(obj)), x4_lockHeld(false) {}
   CToken(const CToken& other);
@@ -31,7 +31,10 @@ public:
 
 private:
   CObjectReference* x0_objRef;
-  bool x4_lockHeld;
+  union {
+    bool x4_lockHeld;
+    int x4_lockHeld_init;
+  };
 };
 
 #endif // _CTOKEN

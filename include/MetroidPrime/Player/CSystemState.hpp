@@ -22,6 +22,9 @@ public:
   bool GetCinematicState(rstl::pair< CAssetId, TEditorId > cineId) const;
   void SetCinematicState(rstl::pair< CAssetId, TEditorId > cineId, bool state);
 
+  int GetAutoMapperKeyState() const { return xbc_autoMapperKeyState; }
+  void SetAutoMapperKeyState(int state) { xbc_autoMapperKeyState = state; }
+
   bool GetShowPowerBombAmmoMessage() const;
   void IncrementPowerBombAmmoCount();
 

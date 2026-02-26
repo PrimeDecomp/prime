@@ -220,7 +220,7 @@ class CDummyWorld : public IWorld {
   TAreaId x3c_curAreaId;
 
 public:
-  CDummyWorld(CAssetId mlvlId, bool loadMap);
+  CDummyWorld(CAssetId mlvlId);
   ~CDummyWorld() override;
   CAssetId IGetWorldAssetId() const override;
   CAssetId IGetStringTableAssetId() const override;

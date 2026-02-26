@@ -192,7 +192,9 @@ public:
     const u8* x10d4_firstMatPtr;
     const CScriptAreaAttributes* x10d8_areaAttributes;
     EOcclusionState x10dc_occlusionState;
-    uchar x10e0_pad[0x60];
+    uchar x10e0_pad[0x48];
+    float x1128_worldLightingLevel;
+    uchar x112c_pad[0x14];
 
     CPostConstructed();
     ~CPostConstructed();

@@ -60,6 +60,7 @@ public:
   virtual void OnActivate();
   short GetWorkerId() const { return xb4_workerId; }
 
+  void SetDepthTest(bool depthTest) { xb6_31_depthTest = depthTest; }
   void SetIsVisible(bool visible);
   void SetIsActive(bool active);
   void SetColor(const CColor& color);
@@ -71,6 +72,7 @@ public:
 
   static CGuiWidgetParms ReadWidgetHeader(CGuiFrame* frame, CInputStream& in);
 
+  const CTransform4f& GetTransform() const { return x74_transform; }
   CGuiFrame* GetFrame() { return xb0_frame; }
 
   static CGuiWidget* Create(CGuiFrame* frame, CInputStream& in, CSimplePool* sp);

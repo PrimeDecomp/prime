@@ -19,6 +19,7 @@ public:
   CVector3f GetLocalPosition() const;
   const CTransform4f& GetWorldTransform() const { return x34_worldXF; }
   void SetLocalPosition(const CVector3f& pos);
+  CTransform4f& LocalTransform() { return x4_localXF; }
   void SetLocalTransform(const CTransform4f& xf);
   void SetO2WTransform(const CTransform4f& xf);
 

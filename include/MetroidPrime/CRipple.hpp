@@ -31,6 +31,12 @@ public:
   void SetTime(float t) { x4_time = t; }
 
   float GetTimeFalloff() const { return x14_timeFalloff; }
+  float GetDistFalloff() const { return x18_distFalloff; }
+  float GetFrequency() const { return x1c_frequency; }
+  float GetLookupAmplitude() const { return x24_lookupAmplitude; }
+  float GetOoTimeFalloff() const { return x28_ooTimeFalloff; }
+  float GetOoDistFalloff() const { return x2c_ooDistFalloff; }
+  float GetLookupPhase() const { return x38_lookupPhase; }
   const CVector3f& GetCenter() const { return x8_center; }
 
   static const float kDefaultScale;
