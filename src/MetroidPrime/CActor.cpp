@@ -22,6 +22,7 @@
 #include "Kyoto/Math/CFrustumPlanes.hpp"
 #include "Kyoto/Math/CMath.hpp"
 
+#include "MetroidPrime/TGameTypes.hpp"
 #include "rstl/math.hpp"
 
 #pragma inline_max_size(250)
@@ -592,7 +593,7 @@ void CActor::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateMana
       RemoveMaterial(kMT_Scannable, mgr);
     }
     if (HasAnimation()) {
-      AnimationData()->InitializeEffects(mgr, GetAreaId(), GetModelData()->GetScale());
+      AnimationData()->InitializeEffects(mgr, GetAreaId(), GetModelData()->ScaleCopy());
     }
     break;
   }
@@ -704,12 +705,8 @@ void CActor::ProcessSoundEvent(const int sfxId, const float weight, const int fl
                                const CVector3f& position, const int aid, CStateManager& mgr,
                                const bool translateId) {
   if (toListener.MagSquared() < maxDist * maxDist) {
-    ushort id;
-    if (translateId) {
-      id = CSfxManager::TranslateSFXID(sfxId);
-    } else {
-      id = static_cast<ushort>(sfxId);
-    }
+    const TSfxId id =
+        translateId ? CSfxManager::TranslateSFXID(sfxId) : static_cast< TSfxId >(sfxId);
 
     uint musyxFlags = 0x1; // Continuous parameter update
     if (flags & 0x8) {
@@ -728,7 +725,7 @@ void CActor::ProcessSoundEvent(const int sfxId, const float weight, const int fl
 
     if (mgr.Random()->Float() <= weight) {
       if (looping) {
-        ushort curId = x88_sfxId;
+        const TSfxId curId = x88_sfxId;
         if (!x8c_loopingSfxHandle) {
           CSfxHandle handle;
           if (nonEmitter) {

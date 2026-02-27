@@ -458,6 +458,7 @@ public:
   CBodyStateCmd* GetCmd(EBodyStateCmd cmd);
   const CBodyStateCmd* GetCmd(EBodyStateCmd cmd) const;
   const CVector3f& GetMoveVector() const { return x0_move; }
+   CVector3f& MoveVector() { return x0_move; }
   const CVector3f& GetFaceVector() const { return xc_face; }
   const CVector3f& GetTargetVector() const { return x18_target; }
   const CVector3f& GetAdditiveTargetVector() const { return x24_additiveTarget; }

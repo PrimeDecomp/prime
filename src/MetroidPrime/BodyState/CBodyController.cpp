@@ -139,7 +139,7 @@ void CBodyController::SetDeltaRotation(const CQuaternion& q) { x2dc_rot = x2dc_r
 
 void CBodyController::FaceDirection(const CVector3f& v0, float dt) {}
 
-void CBodyController::FaceDirection3D(const CVector3f& v0, float dt) {}
+void CBodyController::FaceDirection3D(const CVector3f& v0, const CVector3f& v1, float dt) {}
 
 const CPASDatabase& CBodyController::GetPASDatabase() const {
   return GetOwner().GetModelData()->GetAnimationData()->GetPASDatabase();

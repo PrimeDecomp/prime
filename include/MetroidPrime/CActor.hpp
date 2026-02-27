@@ -106,6 +106,9 @@ public:
   void CreateShadowIfNeeded();
 
   const CTransform4f& GetTransform() const { return x34_transform; }
+  CVector3f TransformWorldToLocalRotation(const CVector3f& v) const {
+    return x34_transform.TransposeRotate(v);
+  }
   void SetTransform(const CTransform4f& xf) {
     x34_transform = xf;
     SetTransformDirty(true);

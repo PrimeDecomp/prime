@@ -33,7 +33,6 @@ public:
 
   void erase(iterator it) { inner.erase(it); }
 
-  rep_type& get_inner() { return inner; } // hack for CWeaponMgr inlining depth
 private:
   rep_type inner;
 };

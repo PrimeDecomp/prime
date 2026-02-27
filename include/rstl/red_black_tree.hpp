@@ -208,15 +208,16 @@ private:
     return n;
   }
 
-  void free_node_and_sub_nodes(node* n) {
-    if (node* left = n->get_left()) {
-      free_node_and_sub_nodes(left);
-    }
-    if (node* right = n->get_right()) {
-      free_node_and_sub_nodes(right);
-    }
-    free_node(n);
-  }
+  void free_node_and_sub_nodes(node* n);
+  // void free_node_and_sub_nodes(node* n) {
+  //   if (node* left = n->get_left()) {
+  //     free_node_and_sub_nodes(left);
+  //   }
+  //   if (node* right = n->get_right()) {
+  //     free_node_and_sub_nodes(right);
+  //   }
+  //   free_node(n);
+  // }
 
   void free_node(node* n) {
     n->~node();
@@ -279,6 +280,17 @@ red_black_tree< T, P, U, S, Cmp, Alloc >::insert_into(node* n, const P& item) {
     rebalance(newNode);
     return iterator(newNode, &x8_header, kUnknownValueNewItem);
   }
+}
+
+template < typename T, typename P, int U, typename S, typename Cmp, typename Alloc >
+void red_black_tree< T, P, U, S, Cmp, Alloc >::free_node_and_sub_nodes(node* n) {
+  if (node* left = n->get_left()) {
+    free_node_and_sub_nodes(left);
+  }
+  if (node* right = n->get_right()) {
+    free_node_and_sub_nodes(right);
+  }
+  free_node(n);
 }
 
 }; // namespace rstl

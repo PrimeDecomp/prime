@@ -252,6 +252,7 @@ public:
   float GetAverageAttackTime() const { return x304_averageAttackTime; }
   float GetAttackTimeVariation() const { return x308_attackTimeVariation; }
   const bool GetVerticalMovement() const { return x328_25_verticalMovement; }
+  const bool IsInCollision() const { return x328_26_solidCollision; }
   void SetVerticalMovement(const bool v) { x328_25_verticalMovement = v; }
   EAnimState GetAnimationState() const { return x32c_animState; }
   void SetAnimationState(const EAnimState state) { x32c_animState = state; }

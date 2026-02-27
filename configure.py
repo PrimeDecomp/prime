@@ -994,7 +994,7 @@ config.libs = [
                 "MetroidPrime/ScriptObjects/CScriptPlayerStateChange.cpp",
             ),
             Object(NonMatching, "MetroidPrime/Enemies/CThardus.cpp"),
-            Object(NonMatching, "MetroidPrime/CActorParticles.cpp"),
+            Object(NonMatching, "MetroidPrime/CActorModelParticles.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CWallCrawlerSwarm.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),

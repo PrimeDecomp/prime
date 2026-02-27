@@ -69,11 +69,16 @@ public:
     return (a.GetW() * b.GetW()) + (a.GetX() * b.GetX()) + (a.GetY() * b.GetY()) + (a.GetZ() * b.GetZ());
   }
 
+  // TODO: fake
   float GetW() const { return w; }
   float GetX() const { return imaginary.GetX(); }
   float GetY() const { return imaginary.GetY(); }
   float GetZ() const { return imaginary.GetZ(); }
   const CVector3f& GetImaginary() const { return imaginary; }
+
+  // Real
+  float GetScalar() const { return w; }
+  const CVector3f& GetVector() const { return imaginary; }
 
 private:
   float w;

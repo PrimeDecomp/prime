@@ -1994,10 +1994,8 @@ CVector3f CPlayer::CalculateLeftStickEdgePosition(float strafeInput, float forwa
   float f1 = CMath::ArcTangentR(fabsf(forwardInput) / fabsf(strafeInput));
   float f4 = CMath::Limit(f1 / (M_PIF / 4.f), 1.f);
   return CVector3f(f31, 0.f, 0.f) +
-         CVector3f(f4, f4, f4) * (CVector3f(f30, f29, 0.f) - CVector3f(f31, 0.f, 0.f));
-  // or:
-  // CVector3f d = CVector3f(f30, f29, 0.f) - CVector3f(f31, 0.f, 0.f);
-  // return CVector3f(f31, 0.f, 0.f) + CVector3f(f4 * d.GetX(), f4 * d.GetY(), f4 * d.GetZ());
+         CVector3f::ByElementMultiply(CVector3f(f4, f4, f4),
+                                      CVector3f(f30, f29, 0.f) - CVector3f(f31, 0.f, 0.f));
 }
 
 bool CPlayer::AttachActorToPlayer(TUniqueId id, bool disableGun) {
@@ -2740,7 +2738,8 @@ void CPlayer::FluidFXThink(EFluidState state, CScriptWater& water, CStateManager
     if (mgr.GetFluidPlaneManager()->GetLastSplashDeltaTime(GetUniqueId()) >= 0.2f) {
       CVector3f posOffset = x50c_moveDir;
       if (posOffset.CanBeNormalized()) {
-        posOffset = posOffset.AsNormalized() * CVector3f(1.2f, 1.2f, 0.f);
+        posOffset =
+            CVector3f::ByElementMultiply(posOffset.AsNormalized(), CVector3f(1.2f, 1.2f, 0.f));
       }
       switch (state) {
       case kFS_EnteredFluid: {

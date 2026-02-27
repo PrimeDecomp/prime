@@ -3,7 +3,7 @@
 
 #include "MetroidPrime/CIOWin.hpp"
 
-class CFrontEndUI : public CIOWin { 
+class CFrontEndUI : public CIOWin {
 public:
   struct SFusionBonusFrame {
     struct SGBALinkFrame {
@@ -23,7 +23,6 @@ public:
     };
   };
   CFrontEndUI();
-
 
   EMessageReturn OnMessage(const CArchitectureMessage& message, CArchitectureQueue& queue);
 

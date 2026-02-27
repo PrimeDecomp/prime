@@ -3,7 +3,7 @@
 
 CMarkerGrid::CMarkerGrid(const CAABox& bounds)
 : mBounds(bounds)
-, mGridUnits(CVector3f(0.0625f, 0.0625f, 0.0625f) * (mBounds.GetMaxPoint() - mBounds.GetMinPoint()))
+, mGridUnits((mBounds.GetMaxPoint() - mBounds.GetMinPoint()) * 0.0625f)
 , mGridState(0) {}
 
 uint CMarkerGrid::GetValue(const uint x, const uint y, const uint z) const {
