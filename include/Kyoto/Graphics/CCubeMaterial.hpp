@@ -38,10 +38,12 @@ public:
                   const CCubeModel& mode) const;
   uint GetTextureCount() const { return *reinterpret_cast< const u32* >(GetData() + 4); }
   uint GetVertexDesc() const {
-    return *reinterpret_cast< const uint* >(GetData() + (GetTextureCount() * 4 + 8));
+    return reinterpret_cast< const uint* >(x0_data)[GetTextureCount() + 2];
   }
-  
-  ushort GetCompressedBlend() const;
+
+  uint GetCompressedBlend() const;
+
+  static const CVector3f& GetViewingReflection() { return sViewingFrom; }
 
 private:
   static void SetupBlendMode(uint blendFactors, const CModelFlags& flags, bool alphaTest);

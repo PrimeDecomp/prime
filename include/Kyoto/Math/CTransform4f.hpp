@@ -3,7 +3,7 @@
 
 #include "types.h"
 
-#include "Kyoto/Math/CVector3f.hpp"
+#include "Kyoto/Math/CUnitVector3f.hpp"
 
 typedef const float (*ConstMtxPtr)[4];
 

@@ -50,7 +50,7 @@ void CGameLight::Accept(IVisitor& visitor) { visitor.Visit(*this); }
 
 void CGameLight::SetLightPriorityAndId() {
   xec_light.SetPriority(x140_priority);
-  xec_light.SetLightId(x13c_lightId);
+  xec_light.SetId(x13c_lightId);
 }
 
 CGameLight::~CGameLight() {}

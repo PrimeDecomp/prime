@@ -1,6 +1,7 @@
 #ifndef _CGRAPHICS
 #define _CGRAPHICS
 
+#include "dolphin/gx/GXStruct.h"
 #include "types.h"
 
 #include "Kyoto/CTimeProvider.hpp"
@@ -180,6 +181,8 @@ typedef struct {
 } Vec2, *Vec2Ptr;
 
 class CGraphics {
+  friend class CCubeRenderer;
+
 public:
   class CRenderState {
   public:

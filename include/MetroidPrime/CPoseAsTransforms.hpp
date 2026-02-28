@@ -8,8 +8,17 @@
 #include "rstl/reserved_vector.hpp"
 #include "rstl/single_ptr.hpp"
 
+class CMatrix3f;
+class CSegId;
+
 class CPoseAsTransforms {
 public:
+  explicit CPoseAsTransforms(uchar count);
+  ~CPoseAsTransforms();
+
+  const CMatrix3f& GetTransformMinusOffset(const CSegId&) const;
+  const CVector3f& GetOffset(const CSegId&) const;
+
 private:
   CSegId x0_nextId;
   CSegId x1_count;

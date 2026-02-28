@@ -6,7 +6,7 @@ const CCharAnimTime& CPreAdvanceIndicator::GetTime() const { return mTime; }
 
 bool CPreAdvanceIndicator::IsString() const { return !IsTime(); }
 
-const rstl::string& CPreAdvanceIndicator::GetString() const { return mString; }
+const char* const& CPreAdvanceIndicator::GetString() const { return mString; }
 
 CMetaAnimTreeBuildOrders CMetaAnimTreeBuildOrders::NoSpecialOrders() {
   return CMetaAnimTreeBuildOrders();

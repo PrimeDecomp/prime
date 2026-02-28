@@ -173,7 +173,7 @@ CAdvancementDeltas CActor::UpdateAnimation(float dt, CStateManager& mgr, bool ad
         int charIdx = particleNode->GetCharacterIndex();
         if (charIdx != -1 && GetAnimationData()->GetCharacterIndex() != charIdx)
           continue;
-        AnimationData()->SetParticleEffectState(particleNode->GetString(), true, mgr);
+        AnimationData()->GetParticleDB().SetParticleEffectState(particleNode->GetString(), true, mgr);
       }
     }
   }

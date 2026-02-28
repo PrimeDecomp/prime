@@ -42,6 +42,7 @@ public:
 
   static void Initialize();
   void SetFxDensity(int, float);
+  void AreaLoaded();
   void SetSplashRate(float f) { xb54_baseSplashRate = f; }
   bool IsSplashActive() const { return x24_enableSplash; }
   float GetRainMagnitude() const { return x30_fxDensity; }

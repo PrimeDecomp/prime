@@ -153,6 +153,7 @@ public:
   void AddMotionState(const CMotionState& state);
   bool GetMovable() const { return xf8_24_movable; }
   void SetMovable(bool v) { xf8_24_movable = v; }
+  void SetAngularEnabled(bool v) { xf8_25_angularEnabled = v; }
 
   void MoveToWR(const CVector3f&, float);
   void MoveToInOneFrameWR(const CVector3f&, float);

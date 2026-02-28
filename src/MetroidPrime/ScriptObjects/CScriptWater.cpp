@@ -31,6 +31,7 @@
 #include "rstl/math.hpp"
 
 #include "MetroidPrime/TCastTo.hpp"
+#include "rstl/optional_object.hpp"
 
 static float kMaxRayLength = 120.f;
 static int kMaxTilesPerPatch = 7;

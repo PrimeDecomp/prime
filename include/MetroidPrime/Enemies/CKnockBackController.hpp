@@ -80,10 +80,7 @@ public:
 
   explicit CKnockBackController(EKnockBackVariant variant);
   void SetKnockBackVariant(EKnockBackVariant v) { x0_variant = v; }
-  void DeferKnockBack(EWeaponType tp) {
-    x14_deferWeaponType = tp;
-    x68_deferRemTime = 0.05f;
-  }
+  void DeferKnockBack(EWeaponType tp);
   void sub80233d40(int i, float f1, float f2);
   void SetAutoResetImpulse(bool b);
   void SetImpulseDurationIdx(int i);

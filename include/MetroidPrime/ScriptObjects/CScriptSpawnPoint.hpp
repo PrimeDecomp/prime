@@ -23,6 +23,7 @@ public:
   void Accept(IVisitor&) override;
   void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&) override;
 
+  bool FirstSpawn() const { return x10c_24_firstSpawn; }
   const CTransform4f& GetTransform() const;
   int GetPowerup(const CPlayerState::EItemType&) const;
 };

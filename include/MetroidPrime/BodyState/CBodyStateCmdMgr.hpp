@@ -311,7 +311,7 @@ public:
   : CBodyStateCmd(kBSC_Jump)
   , x8_type(type)
   , xc_waypoint1(wp1)
-  , x18_waypoint2(0.f, 0.f, 0.f)
+  , x18_waypoint2(CVector3f::Zero())
   , x24_24_wallJump(false)
   , x24_25_startInJumpLoop(startInLoop) {}
 
@@ -405,6 +405,16 @@ public:
 
   void DeliverCmd(const CBodyStateCmd& cmd);
 
+  void DeliverCmd(const CBCGetupCmd& cmd) {
+    DeliverCmd(cmd.GetCommandId());
+    xb8_getup = cmd;
+  }
+
+  void DeliverCmd(const CBCStepCmd& cmd) {
+    DeliverCmd(cmd.GetCommandId());
+    xc4_step = cmd;
+  }
+
   void DeliverCmd(const CBCKnockDownCmd& cmd) {
     DeliverCmd(cmd.GetCommandId());
     xdc_knockDown = cmd;
@@ -425,14 +435,34 @@ public:
     x128_projectileAttack = cmd;
   }
 
+  void DeliverCmd(const CBCLoopReactionCmd& cmd) {
+    DeliverCmd(cmd.GetCommandId());
+    x154_loopReaction = cmd;
+  }
+
   void DeliverCmd(const CBCGenerateCmd& cmd) {
     DeliverCmd(cmd.GetCommandId());
     x18c_generate = cmd;
   }
 
+  void DeliverCmd(const CBCHurledCmd& cmd) {
+    DeliverCmd(cmd.GetCommandId());
+    x1ac_hurled = cmd;
+  }
+
+  void DeliverCmd(const CBCJumpCmd& cmd) {
+    DeliverCmd(cmd.GetCommandId());
+    x1d0_jump = cmd;
+  }
+
   void DeliverCmd(const CBCSlideCmd& cmd) {
     DeliverCmd(cmd.GetCommandId());
     x1f8_slide = cmd;
+  }
+
+  void DeliverCmd(const CBCTauntCmd& cmd) {
+    DeliverCmd(cmd.GetCommandId());
+    x210_taunt = cmd;
   }
 
   void DeliverCmd(const CBCScriptedCmd& cmd) {

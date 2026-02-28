@@ -8,6 +8,8 @@
 
 enum EHintState { kHS_Zero, kHS_Waiting, kHS_Displaying, kHS_Delayed };
 
+class CStateManager;
+
 class CHintOptions {
 public:
   struct SHintState {
@@ -19,6 +21,7 @@ public:
   };
 
   void SetHintNextTime();
+  void Update(float dt, const CStateManager& mgr);
 
   void DelayHint(const rstl::string& name);
   void ActivateImmediateHintTimer(const rstl::string& name);

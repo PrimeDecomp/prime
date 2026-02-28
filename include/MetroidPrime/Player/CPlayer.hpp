@@ -370,6 +370,8 @@ public:
   void SetCameraState(EPlayerCameraState state, CStateManager& mgr);
   EGunHolsterState GetGunHolsterState() const { return x498_gunHolsterState; }
   NPlayer::EPlayerMovementState GetPlayerMovementState() const { return x258_movementState; }
+  float GetTimeSinceJump() const { return x2a8_timeSinceJump; }
+  void SetTimeSinceJump(float v) { x2a8_timeSinceJump = v; }
   const CVector3f& GetAssistedTargetAim() const { return x480_assistedTargetAim; }
   // CPlayer::GetFlipSpiderBallControlY() const weak
   // CPlayer::GetFlipSpiderBallControlX() const weak

@@ -17,6 +17,10 @@ public:
   TToken(T* obj) : CToken(TObjOwnerDerivedFromIObj< T >::GetNewDerivedObject(obj).release()) {}
   TToken(const rstl::auto_ptr< T >& obj) : CToken(GetIObjObjectFor(obj).release()) {}
 
+  // TToken& operator=(const TToken& other) {
+    
+  // }
+
   T* GetT() { return reinterpret_cast< T* >(CToken::GetObj()->GetContents()); }
   T* operator*() { return GetT(); }
   T* operator->() { return GetT(); }
@@ -79,11 +83,11 @@ public:
     CToken::Lock();
   }
 
-  TLockedToken& operator=(const TLockedToken< T >& token) {
-    TToken< T >::operator=(token);
-    x8_item = *token;
-    return *this;
-  }
+  // TLockedToken& operator=(const TLockedToken< T >& token) {
+  //   TToken< T >::operator=(token);
+  //   x8_item = *token;
+  //   return *this;
+  // }
 
   T* operator*() const { return x8_item; }
   T* operator->() const { return x8_item; }

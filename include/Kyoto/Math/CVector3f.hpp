@@ -10,6 +10,7 @@
 class CInputStream;
 class COutputStream;
 class CRelAngle;
+class CUnitVector3f;
 
 enum EDimX { kDX };
 enum EDimY { kDY };
@@ -106,12 +107,12 @@ public:
   }
 
   static const CVector3f& Zero() { return sZeroVector; }
-  static const CVector3f& Up() { return sUpVector; }
-  static const CVector3f& Down() { return sDownVector; }
-  static const CVector3f& Left() { return sLeftVector; }
-  static const CVector3f& Right() { return sRightVector; }
-  static const CVector3f& Forward() { return sForwardVector; }
-  static const CVector3f& Back() { return sBackVector; }
+  static const CUnitVector3f& Up();
+  static const CUnitVector3f& Down();
+  static const CUnitVector3f& Left();
+  static const CUnitVector3f& Right();
+  static const CUnitVector3f& Forward();
+  static const CUnitVector3f& Back();
   
 protected:
   float mX;
@@ -119,12 +120,12 @@ protected:
   float mZ;
 
   static CVector3f sZeroVector;
-  static CVector3f sUpVector;
-  static CVector3f sDownVector;
-  static CVector3f sLeftVector;
-  static CVector3f sRightVector;
-  static CVector3f sForwardVector;
-  static CVector3f sBackVector;
+  static CUnitVector3f sUpVector;
+  static CUnitVector3f sDownVector;
+  static CUnitVector3f sLeftVector;
+  static CUnitVector3f sRightVector;
+  static CUnitVector3f sForwardVector;
+  static CUnitVector3f sBackVector;
 };
 CHECK_SIZEOF(CVector3f, 0xc)
 

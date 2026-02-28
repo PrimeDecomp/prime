@@ -47,6 +47,10 @@ public:
                                                const CVector3f& pos, const CVector3f& dir,
                                                float mag, const CMaterialFilter& filter,
                                                const TEntityList& nearList);
+  static CRayCastResult RayWorldIntersection(const CStateManager& mgr, TUniqueId& idOut,
+                                             const CVector3f& pos, const CVector3f& dir,
+                                             float mag, const CMaterialFilter& filter,
+                                             const TEntityList& nearList);
   static rstl::optional_object< CVector3f >
   FindNonIntersectingVector(const CStateManager& mgr, CAreaCollisionCache& cache,
                             CPhysicsActor& actor, const CCollisionPrimitive& prim,

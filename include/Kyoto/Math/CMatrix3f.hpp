@@ -43,6 +43,7 @@ public:
 
   CMatrix3f Orthonormalized() const;
   float Determinant() const;
+  CMatrix3f Inverse() const;
   void AddScaledMatrix(const CMatrix3f& mat, float scale);
 
   // TODO: names/check

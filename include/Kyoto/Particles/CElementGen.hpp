@@ -95,6 +95,7 @@ public:
   void SetLeaveLightsEnabledForModelRender(bool b) { x26d_26_modelsUseLights = b; }
 
   static void SetSubtractBlend(bool subtract) { sSubtractBlend = subtract; }
+  static void SetMoveRedToAlphaBuffer(const bool move) { sMoveRedToAlphaBuffer = move; }
 
 public:
   TLockedToken< CGenDescription > x1c_genDesc;
@@ -174,6 +175,7 @@ public:
   CColor x338_moduColor;
 
   static bool sSubtractBlend;
+  static bool sMoveRedToAlphaBuffer;
 };
 CHECK_SIZEOF(CElementGen, 0x340)
 

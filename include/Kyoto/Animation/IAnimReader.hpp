@@ -9,6 +9,7 @@
 
 #include "rstl/auto_ptr.hpp"
 #include "rstl/optional_object.hpp"
+#include "rstl/ownership_transfer.hpp"
 #include "rstl/string.hpp"
 
 struct SAdvancementDeltas {
@@ -99,7 +100,8 @@ public:
   virtual void VGetSegStatementSet(const CSegIdList& list, CSegStatementSet& setOut,
                                    const CCharAnimTime& time) const = 0;
   virtual rstl::auto_ptr< IAnimReader > VClone() const = 0;
-  virtual rstl::optional_object< rstl::auto_ptr< IAnimReader > > VSimplified();
+  virtual rstl::optional_object< rstl::ownership_transfer< IAnimReader > > VSimplified();
+  rstl::optional_object< rstl::ownership_transfer< IAnimReader > > Simplified();
   virtual void VSetPhase(float) = 0;
   virtual SAdvancementResults VGetAdvancementResults(const CCharAnimTime& aTime,
                                                      const CCharAnimTime& bTime) const;

@@ -29,6 +29,7 @@ public:
   void Deactivate(short, bool);
   void Update(float);
   void HardStopAll();
+  bool GetDisabled() const { return xf0_24_disabled; }
   void SetDisabled(const bool disabled);
 };
 

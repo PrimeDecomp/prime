@@ -22,8 +22,8 @@ typedef union {
   f64 f64;
 } PPCWGPipe;
 
-#ifdef __MWERKS__
-/*volatile*/ PPCWGPipe GXWGFifo : GXFIFO_ADDR;
+#if defined(__MWERKS__) || defined(__SN__)
+/*volatile*/ PPCWGPipe GXWGFifo AT_ADDRESS(GXFIFO_ADDR);
 #else
 #define GXWGFifo (*(volatile PPCWGPipe*)GXFIFO_ADDR)
 #endif

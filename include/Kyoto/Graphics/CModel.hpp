@@ -1,11 +1,12 @@
 #ifndef _CMODEL
 #define _CMODEL
 
-#include "Kyoto/Graphics/CCubeModel.hpp"
-#include "rstl/single_ptr.hpp"
+#include <Kyoto/Graphics/CCubeModel.hpp>
 #include <Kyoto/Graphics/CTexture.hpp>
 #include <Kyoto/TToken.hpp>
+
 #include <rstl/auto_ptr.hpp>
+#include <rstl/single_ptr.hpp>
 #include <rstl/vector.hpp>
 
 class CModelFlags;
@@ -30,16 +31,23 @@ public:
   void Touch(int) const;
   void Draw(const CModelFlags&) const;
   bool IsLoaded(int matIdx) const;
+  const float* GetPositions() const;
+  const float* GetNormals() const;
+  void UpdateLastFrame() const;
 
+  const CCubeModel* GetCubeModel() const { return x28_modelInstance.get(); }
+
+  static void FrameDone();
   static void AddToTotal(uint amt) { sTotalMemory += amt; }
   static void RemoveFromTotal(uint amt) { sTotalMemory -= amt; }
+  static uint GetTotalMemory() { return sTotalMemory; }
 
 private:
   rstl::auto_ptr< uchar > x0_data;
   uint x4_dataLen;
   rstl::vector< void* > x8_surfaces;
-  rstl::vector<SShader> x18_matSets;
-  rstl::single_ptr<CCubeModel> x28_modelInstance;
+  rstl::vector< SShader > x18_matSets;
+  rstl::single_ptr< CCubeModel > x28_modelInstance;
   ushort x2c_currentMatxIdx;
   ushort x2e_lastMaterialFrame;
   CModel* x30_prev;

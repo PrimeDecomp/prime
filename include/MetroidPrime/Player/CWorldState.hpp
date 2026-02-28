@@ -14,6 +14,7 @@ class CWorldState {
 public:
   ~CWorldState();
   void SetDesiredAreaAssetId(CAssetId id);
+  rstl::rc_ptr< CMapWorldInfo >& MapWorldInfo();
   rstl::rc_ptr< CMapWorldInfo > GetMapWorldInfo() const;
 
 private:

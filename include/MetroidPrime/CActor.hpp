@@ -170,6 +170,7 @@ public:
   bool GetDrawShadow() const { return xe5_24_shadowEnabled; }
   bool GetShadowDirty() const { return xe5_25_shadowDirty; }
   bool GetMuted() const { return xe5_26_muted; }
+  bool GetPointGeneratorParticles() const { return xe5_31_pointGeneratorParticles; }
   bool IsInFluid() const { return xe6_24_fluidCounter != 0; }
   EThermalFlags GetThermalFlags() const {
     return static_cast< EThermalFlags >(xe6_27_thermalVisorFlags);
@@ -205,6 +206,7 @@ public:
 
   const CAABox& GetRenderBoundsCached() const { return x9c_renderBounds; }
   void SetRenderBounds(const CAABox& bounds) { x9c_renderBounds = bounds; }
+  void SetAddedToken(unsigned int token) const { const_cast< CActor* >(this)->xcc_addedToken = token; }
 
   bool GetUseInSortedLists() const;
   void SetUseInSortedLists(bool use);

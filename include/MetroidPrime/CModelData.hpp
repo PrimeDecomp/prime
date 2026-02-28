@@ -24,6 +24,7 @@ class CFrustumPlanes;
 class CModel;
 class CModelFlags;
 class CStateManager;
+class CTexture;
 class CSkinnedModel;
 class CRandom16;
 
@@ -123,6 +124,8 @@ public:
   float GetAnimationDuration(int anim) const;
 
   bool IsAnimating() const;
+  bool HasModel(EWhichModel which) const;
+  void DisintegrateDraw(const CStateManager&, const CTransform4f&, const CTexture&, const CColor&, float) const;
 
 private:
   CVector3f x0_scale;

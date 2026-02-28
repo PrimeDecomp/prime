@@ -15,9 +15,19 @@
 #include "rstl/optional_object.hpp"
 
 class CCharLayoutInfo;
+class CPoseAsTransforms;
+class CTransform4f;
 
 template < typename T >
 class TSegIdMap {
+public:
+  T& operator[](const CSegId& id) {
+    return xd0_nodes[x8_indirectionMap[id.val() * 2 + 1].val()];
+  }
+  const T& operator[](const CSegId& id) const {
+    return xd0_nodes[x8_indirectionMap[id.val() * 2 + 1].val()];
+  }
+
 private:
   CSegId x0_boneCount;
   CSegId x1_capacity;
@@ -31,6 +41,9 @@ CHECK_SIZEOF(unk_TSegIdMap, 0xd8)
 
 class CLayoutDescription {
 public:
+  CLayoutDescription(const TLockedToken< CCharLayoutInfo >&);
+  ~CLayoutDescription();
+
   class CScaledLayoutDescription {
   private:
     TCachedToken< CCharLayoutInfo > x0_layoutToken;
@@ -46,13 +59,30 @@ CHECK_SIZEOF(CLayoutDescription, 0x30)
 
 class CHierarchyPoseBuilder {
 public:
+  CHierarchyPoseBuilder(const CLayoutDescription&);
+  ~CHierarchyPoseBuilder();
+
+  void BuildNoScale(CPoseAsTransforms&);
+  void BuildTransform(const CSegId&, CTransform4f&) const;
+
   class CTreeNode {
+  public:
+    void SetRotation(const CQuaternion& rot) { x4_rotation = rot; }
+    void SetOffset(const CVector3f& off) { x14_offset = off; }
+
   private:
     CSegId x0_child;
     CSegId x1_sibling;
     CQuaternion x4_rotation;
     CVector3f x14_offset;
   };
+
+  void Insert(const CSegId& id, const CQuaternion& rot) {
+    x38_treeMap[id].SetRotation(rot);
+  }
+  void Insert(const CSegId& id, const CVector3f& off) {
+    x38_treeMap[id].SetOffset(off);
+  }
 
 private:
   CLayoutDescription x0_layoutDesc;

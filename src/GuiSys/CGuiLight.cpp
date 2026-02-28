@@ -13,7 +13,7 @@ CGuiLight* CGuiLight::Create(CGuiFrame* parent, CInputStream& in, IObjectStore* 
   float angC = in.ReadFloat();
   float angL = in.ReadFloat();
   float angQ = in.ReadFloat();
-  uint lightId = in.ReadInt32();
+  int lightId = in.ReadInt32();
 
   CGuiLight* ret = nullptr;
 
@@ -23,7 +23,7 @@ CGuiLight* CGuiLight::Create(CGuiFrame* parent, CInputStream& in, IObjectStore* 
     CLight lt = CLight::BuildSpot(CVector3f::Zero(), CVector3f::Zero(), color, cutoff);
     lt.SetAttenuation(distC, distL, distQ);
     lt.SetAngleAttenuation(angC, angL, angQ);
-    lt.SetLightId(lightId);
+    lt.SetId(lightId);
 
     ret = rs_new CGuiLight(parms, lt);
     break;
@@ -31,13 +31,13 @@ CGuiLight* CGuiLight::Create(CGuiFrame* parent, CInputStream& in, IObjectStore* 
   case kLT_Point: {
     CLight lt = CLight::BuildPoint(CVector3f::Zero(), color);
     lt.SetAttenuation(distC, distL, distQ);
-    lt.SetLightId(lightId);
+    lt.SetId(lightId);
     ret = rs_new CGuiLight(parms, lt);
     break;
   }
   case kLT_Directional: {
     CLight lt = CLight::BuildDirectional(CVector3f::Zero(), color);
-    lt.SetLightId(lightId);
+    lt.SetId(lightId);
     ret = rs_new CGuiLight(parms, lt);
     break;
   }
@@ -99,7 +99,7 @@ CLight CGuiLight::BuildLight() const {
 
   ret.SetAttenuation(xc0_distC, xc4_distL, xc8_distQ);
   ret.SetAngleAttenuation(xcc_angleC, xd0_angleL, xd4_angleQ);
-  ret.SetLightId(xd8_lightId);
+  ret.SetId(xd8_lightId);
   return ret;
 }
 

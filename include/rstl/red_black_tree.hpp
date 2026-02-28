@@ -131,8 +131,8 @@ public:
   }
 
   const_iterator find(const T& key) const {
-    node* n = x8_header.get_root();
     node* needle = nullptr;
+    node* n = x8_header.get_root();
     while (n != nullptr) {
       if (!x2_cmp(x3_selector(*n->get_value()), key)) {
         needle = n;
@@ -152,8 +152,8 @@ public:
   }
 
   iterator find(const T& key) {
-    node* n = x8_header.get_root();
     node* needle = nullptr;
+    node* n = x8_header.get_root();
     while (n != nullptr) {
       if (!x2_cmp(x3_selector(*n->get_value()), key)) {
         needle = n;
@@ -170,6 +170,31 @@ public:
       needle = nullptr;
     }
     return iterator(needle, &x8_header, false);
+  }
+
+  pair< iterator, iterator > equal_range(const T& key) {
+    node* ub = nullptr;
+    node* n1 = x8_header.get_root();
+    while (n1 != nullptr) {
+      if (x2_cmp(key, x3_selector(*n1->get_value()))) {
+        ub = n1;
+        n1 = n1->get_left();
+      } else {
+        n1 = n1->get_right();
+      }
+    }
+    node* lb = nullptr;
+    node* n2 = x8_header.get_root();
+    while (n2 != nullptr) {
+      if (x2_cmp(x3_selector(*n2->get_value()), key)) {
+        n2 = n2->get_right();
+      } else {
+        lb = n2;
+        n2 = n2->get_left();
+      }
+    }
+    return pair< iterator, iterator >(iterator(lb, &x8_header, false),
+                                      iterator(ub, &x8_header, false));
   }
 
   iterator erase(iterator it) {

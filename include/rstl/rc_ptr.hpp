@@ -29,6 +29,14 @@ public:
   rc_ptr(const T* ptr) : x0_refData(rs_new CRefData(ptr)) {}
   rc_ptr(const rc_ptr& other) : x0_refData(other.x0_refData) { x0_refData->AddRef(); }
   ~rc_ptr() { ReleaseData(); }
+  rc_ptr& operator=(const rc_ptr& other) {
+    if (x0_refData != other.x0_refData) {
+      ReleaseData();
+      x0_refData = other.x0_refData;
+      x0_refData->AddRef();
+    }
+    return *this;
+  }
   T* GetPtr() const { return static_cast< T* >(x0_refData->GetPtr()); }
   void ReleaseData();
   T* operator->() const { return GetPtr(); }
@@ -53,6 +61,10 @@ public:
   ncrc_ptr() {}
   ncrc_ptr(T* ptr) : rc_ptr< T >(ptr) {}
   ncrc_ptr(const rc_ptr< T >& other) : rc_ptr< T >(other) {}
+  ncrc_ptr& operator=(const rc_ptr< T >& other) {
+    rc_ptr< T >::operator=(other);
+    return *this;
+  }
 };
 
 template < typename T >

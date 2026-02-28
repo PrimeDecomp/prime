@@ -5,6 +5,7 @@
 
 #include "Kyoto/CRandom16.hpp"
 #include "Kyoto/Input/CFinalInput.hpp"
+#include "Kyoto/Math/CAABox.hpp"
 #include "Kyoto/Math/CFrustumPlanes.hpp"
 #include "Kyoto/Math/CVector2i.hpp"
 #include "Kyoto/TOneStatic.hpp"
@@ -24,6 +25,7 @@
 #include "rstl/list.hpp"
 #include "rstl/map.hpp"
 #include "rstl/multimap.hpp"
+#include "rstl/optional_object.hpp"
 #include "rstl/pair.hpp"
 #include "rstl/rc_ptr.hpp"
 #include "rstl/reserved_vector.hpp"
@@ -34,6 +36,8 @@
 class CAABox;
 class CActor;
 class CPlane;
+class CGameArea;
+class CPVSVisSet;
 class CActorModelParticles;
 class CCameraManager;
 class CEnvFxManager;
@@ -55,6 +59,8 @@ class CRayCastResult;
 class CWorldLayerState;
 class CLight;
 class CDamageInfo;
+class CDamageVulnerability;
+class CMRay;
 class CTexture;
 class CViewport;
 
@@ -100,6 +106,11 @@ public:
   typedef rstl::map< TEditorId, TUniqueId > TIdList;
   typedef rstl::pair< TIdList::const_iterator, TIdList::const_iterator > TIdListResult;
 
+  class EScriptPersistence : public rstl::vector< TEditorId > {
+  public:
+    EScriptPersistence() : rstl::vector< TEditorId >() {}
+  };
+
   enum EGameState { kGS_Running, kGS_SoftPaused, kGS_Paused };
 
   enum ECameraFilterStage {
@@ -123,21 +134,39 @@ public:
   void PreRender();
   bool RenderLast(const TUniqueId&);
   void ResetEscapeSequenceTimer(float);
+  float GetEscapeSequenceTimer() const;
   void SendScriptMsg(TUniqueId uid, TEditorId target, EScriptObjectMessage msg,
                      EScriptObjectState state);
   void DeliverScriptMsg(CEntity* ent, TUniqueId target, EScriptObjectMessage msg);
   void SendScriptMsgAlways(TUniqueId uid, TUniqueId src, EScriptObjectMessage msg);
+  void RecursiveDrawTree(TUniqueId) const;
+  void FreeScriptObjects(TAreaId);
+  void LoadScriptObjects(TAreaId, CInputStream&, EScriptPersistence);
+  rstl::pair< TEditorId, TUniqueId >
+  LoadScriptObject(TAreaId, EScriptObjectType, unsigned int, CInputStream&);
   bool AddDrawableActor(const CActor& actor, const CVector3f& pos, const CAABox& bounds) const;
   void AddDrawableActorPlane(const CActor& actor, const CPlane& plane,
                              const CAABox& bounds) const;
   void SetupParticleHook(const CActor& actor) const;
   void DeleteObjectRequest(TUniqueId uid);
   rstl::pair< TEditorId, TUniqueId > GenerateObject(const TEditorId& eid);
+  void InitScriptObjects(const rstl::vector< TEditorId >& ids);
   void AddObject(CEntity*);
   void AddObject(CEntity&);
+  bool HasWorld() const;
   TUniqueId AllocateUniqueId();
   const rstl::string& HashInstanceName(CInputStream& in);
   bool SwapOutAllPossibleMemory();
+  void FrameBegin(unsigned int);
+  void InitializeState(unsigned int, TAreaId, unsigned int);
+  void SwapOutTexturesToARAM(int, unsigned int);
+  void UpdateGameState();
+  void PostUpdatePlayer(float);
+  void Update(float);
+  void ProcessInput(const CFinalInput&);
+  void ProcessPlayerInput();
+  void UpdateAreaSounds();
+  void FrameEnd();
   void UpdateObjectInLists(CEntity&);
   rstl::pair< int, int > CalculateScanPair() const;
 
@@ -146,6 +175,8 @@ public:
                      const CActor* actor = nullptr) const;
   void BuildNearList(TEntityList& nearList, const CAABox&, const CMaterialFilter&,
                      const CActor*) const;
+  bool RayCollideWorld(const CVector3f& start, const CVector3f& end,
+                       const CMaterialFilter& filter, const CActor* damagee);
   bool RayCollideWorld(const CVector3f& start, const CVector3f& end, const TEntityList& nearList,
                        const CMaterialFilter& filter, const CActor* damagee) const;
 
@@ -159,6 +190,9 @@ public:
 
   CEntity* ObjectById(TUniqueId uid);
   const CEntity* GetObjectById(TUniqueId uid) const;
+  void AreaUnloaded(TAreaId);
+  void PrepareAreaUnload(TAreaId);
+  void AreaLoaded(TAreaId);
   TEditorId GetEditorIdForUniqueId(TUniqueId) const;
   TUniqueId GetIdForScript(TEditorId eid) const;
   TIdListResult GetIdListForScript(TEditorId) const;
@@ -175,7 +209,11 @@ public:
   void SetSinglePathMaze(rstl::single_ptr< CSinglePathMaze > maze);
 
   CPlayer* Player() { return x84c_player; }
+#ifdef CSTATEMANAGER_OUT_OF_LINE_GETPLAYER
+  const CPlayer* GetPlayer() const;
+#else
   const CPlayer* GetPlayer() const { return x84c_player; }
+#endif
   CCameraManager* CameraManager() { return x870_cameraManager; }
   const CCameraManager* GetCameraManager() const { return x870_cameraManager; }
   CPlayerState* PlayerState() { return &*x8b8_playerState; }
@@ -232,7 +270,8 @@ public:
 
   void ApplyDamageToWorld(TUniqueId, const CActor&, const CVector3f&, const CDamageInfo& info,
                           const CMaterialFilter&);
-  bool ApplyDamage(const TUniqueId damagerId, const TUniqueId damageeId,
+  bool ApplyLocalDamage(const CVector3f&, const CVector3f&, CActor&, float, const CWeaponMode&);
+  void ApplyDamage(const TUniqueId damagerId, const TUniqueId damageeId,
                    const TUniqueId radiusSender, const CDamageInfo& info,
                    const CMaterialFilter& filter,
                    const CVector3f& knockbackVec = CVector3f::Zero());
@@ -242,6 +281,8 @@ public:
   // Fog
   void SetupFogForArea3XRange(TAreaId area) const;
   void SetupFogForArea(TAreaId area) const;
+  void SetupFogForArea(const CGameArea&) const;
+  bool SetupFogForDraw() const;
 
   //
   void ShowPausedHUDMemo(CAssetId strg, float time);
@@ -249,14 +290,23 @@ public:
   int GetHUDMessageFrameCount() const { return xf80_hudMessageFrameCount; }
 
   // Weapon
+  int GetWeaponIdCount(TUniqueId, EWeaponType);
   void RemoveWeaponId(TUniqueId, EWeaponType);
   void AddWeaponId(TUniqueId, EWeaponType);
 
   // Draw
   CFrustumPlanes SetupViewForDraw(const CViewport&) const;
+  bool GetVisSetForArea(TAreaId, TAreaId, CPVSVisSet&) const;
+  void ResetViewAfterDraw(const CViewport&, const CTransform4f&) const;
   void DrawWorld() const;
+  void RenderCamerasAndAreaLights() const;
+  void DrawE3DeathEffect() const;
+  void DrawAdditionalFilters() const;
+  void GetCharacterRenderMaskAndTarget(bool, int&, int&);
+  void DrawDebugStuff() const;
 
   // State transitions
+  bool CanShowMapScreen();
   void DeferStateTransition(EStateManagerTransition t);
   void EnterMapScreen() { DeferStateTransition(kSMT_MapScreen); }
   void EnterPauseScreen() { DeferStateTransition(kSMT_PauseGame); }
@@ -280,7 +330,10 @@ public:
   TUniqueId* GetLastRelayIdPtr() { return &xf76_lastRelay; }
   TUniqueId GetLastRelayId() const { return xf76_lastRelay; }
 
-  void SetEnergyBarActorInfo(TUniqueId bossId, float maxEnergy, uint stringIdx);
+  void SetBossParams(TUniqueId bossId, float maxEnergy, uint stringIdx);
+  void SetEnergyBarActorInfo(TUniqueId bossId, float maxEnergy, uint stringIdx) {
+    SetBossParams(bossId, maxEnergy, stringIdx);
+  }
   void SetPendingOnScreenTex(CAssetId texId, const CVector2i& origin, const CVector2i& extent); /* {
      xef4_pendingScreenTex.x0_id = texId;
      xef4_pendingScreenTex.x4_origin = origin;
@@ -294,6 +347,7 @@ public:
 
   void QuitGame() { xf94_25_quitGame = true; }
   bool GetWantsToQuit() const { return xf94_25_quitGame; }
+  bool SpecialSkipCinematic();
   void SetCinematicSkipObject(TUniqueId id) { xf38_skipCineSpecialFunc = id; }
   void SetCinematicPause(bool pause) { xf94_29_cinematicPause = pause; }
   void SetInSaveUI(bool b) { xf94_28_inSaveUI = b; }
@@ -311,6 +365,9 @@ public:
 
   rstl::list< TUniqueId >& GetActiveFlickerBats() { return xf3c_activeFlickerBats; }
 
+  static void ReflectionDrawer(void*, const CVector3f&);
+  void CacheReflection();
+  void DrawReflection(const CVector3f& point);
   void DrawSpaceWarp(const CVector3f& point, float strength) const;
 
 private:
@@ -396,6 +453,32 @@ private:
   bool xf94_29_cinematicPause : 1;
   bool xf94_30_fullThreat : 1;
 
+  void UpdateThermalVisor();
+  void UpdateHintState(float dt);
+  void MovePlatforms(float dt);
+  void MoveDoors(float dt);
+  void CrossTouchActors(float dt);
+  void Think(float dt);
+  void PreThinkObjects(float dt);
+  void UpdateRoomAcoustics(TAreaId areaId);
+  void UpdateSortedLists();
+  void KnockBackPlayer(CPlayer&, const CVector3f&, float, float);
+  void ApplyKnockBack(CActor&, const CDamageInfo&, const CDamageVulnerability&, const CVector3f&,
+                      float);
+  void ProcessRadiusDamage(const CActor&, CActor&, TUniqueId, const CDamageInfo&,
+                           const CMaterialFilter&);
+  void ApplyRadiusDamage(const CActor&, const CVector3f&, CActor&, const CDamageInfo&);
+  bool MultiRayCollideWorld(const CMRay&, const CMaterialFilter&);
+  void TestBombHittingWater(const CActor&, const CVector3f&, CActor&);
+  rstl::optional_object< CAABox > CalculateObjectBounds(const CActor&);
+  bool RayCollideWorldInternal(const CVector3f& start, const CVector3f& end,
+                               const CMaterialFilter& filter, const TEntityList& nearList,
+                               const CActor* damagee) const;
+  void UpdateActorInSortedLists(CActor& actor);
+  void UpdateEscapeSequenceTimer(float dt);
+  void CreateStandardGameObjects();
+  rstl::pair< const SScriptObjectStream*, TEditorId > GetBuildForScript(TEditorId eid) const;
+  void MurderScriptInstanceNames();
   void ClearGraveyard();
   static void RendererDrawCallback(const void*, const void*, int);
   static const bool MemoryAllocatorAllocationFailedCallback(const void*, unsigned int);

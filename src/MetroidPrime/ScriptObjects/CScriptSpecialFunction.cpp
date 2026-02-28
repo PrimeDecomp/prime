@@ -34,6 +34,7 @@
 #include "rstl/math.hpp"
 
 #include "math.h"
+#include "rstl/optional_object.hpp"
 
 namespace rstl {
 static int string_find(const string& haystack, const string& needle, int) {

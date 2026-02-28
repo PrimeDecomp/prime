@@ -49,7 +49,7 @@ void CWorldShadow::BuildLightShadowTexture(const CStateManager& mgr, TAreaId aid
       const CPVSAreaSet* pvs = area.GetAreaVisSet();
       if (pvs && kUnknownValue == 1) {
         CPVSVisSet lightSet = pvs->GetLightSet(lightIdx);
-        gpRender->EnablePVS(lightSet, aid.Value());
+        gpRender->EnablePVS(&lightSet, aid.Value());
       } else {
         // TODO: Figure this out
         // CPVSVisSet lightSet;

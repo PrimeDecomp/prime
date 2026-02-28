@@ -7,14 +7,21 @@
 #include "MetroidPrime/Enemies/CAi.hpp"
 #include "MetroidPrime/Enemies/CPatternedInfo.hpp"
 #include "MetroidPrime/Enemies/CStateMachine.hpp"
+#include "MetroidPrime/Weapons/CWeapon.hpp"
+#include "MetroidPrime/BodyState/CBodyController.hpp"
+
+#include "rstl/rc_ptr.hpp"
 
 class CPASAnimParmData;
-class CBodyController;
 class CVertexMorphEffect;
 class CGenDescription;
 class CElectricDescription;
 class CPathFindSearch;
 class CProjectileInfo;
+class CModelFlags;
+class CEnergyProjectile;
+class CSegId;
+class CScriptCoverPoint;
 
 template < typename T >
 struct TPatternedCast {
@@ -156,7 +163,7 @@ public:
              const EKnockBackVariant kbVariant);
 
   // CEntity
-  ~CPatterned() override;
+  ~CPatterned() override {}
   void Accept(IVisitor& visitor) override;
   void PreThink(float dt, CStateManager& mgr) override;
   void Think(float dt, CStateManager& mgr) override;
@@ -239,12 +246,16 @@ public:
   virtual float GetGravityConstant() const { return CPhysicsActor::GravityConstant(); }
   virtual CProjectileInfo* ProjectileInfo() { return nullptr; }
   virtual void PhazeOut(CStateManager&);
-  virtual const rstl::optional_object< TLockedToken< CGenDescription > >&
+  virtual const rstl::optional_object< TCachedToken< CGenDescription > >&
   GetDeathExplosionParticle() const {
     return x520_deathExplosionParticle;
   }
 
+  void GenerateIceDeathExplosion(CStateManager& mgr);
+  void GenerateDeathExplosion(CStateManager& mgr);
   void DeathDelete(CStateManager& mgr);
+  float CalcDyingThinkRate();
+  CTransform4f GetLctrTransform(const CSegId&) const;
   CTransform4f GetLctrTransform(const rstl::string&) const;
 
   EPatrolState GetPatrolState() const { return x2d8_patrolState; }
@@ -279,13 +290,27 @@ public:
 
   void SetBaseDamageMag(const float mag) { x50c_baseDamageMag = mag; }
 
-  bool ApplyBoneTracking() const;
+  u8 ApplyBoneTracking() const;
+  CVector3f GetGunEyePos() const;
 
   template < class T >
   static T* CastTo(const TPatternedCast< T >& ent);
 
   void TryKnockBack(CStateManager& mgr, int arg);
+  void TryKnockBack_Front(CStateManager& mgr, int arg);
   void TryLoopReaction(CStateManager& mgr, int arg);
+  void TryTurn(CStateManager& mgr, int arg);
+  void TryGetUp(CStateManager& mgr, int arg);
+  void TryTaunt(CStateManager& mgr, int arg);
+  void TryJump(CStateManager& mgr, int arg);
+  void TryBreakDodge(CStateManager& mgr, int arg);
+  void TryStep(CStateManager& mgr, int arg);
+  void TryDodge(CStateManager& mgr, int arg);
+  void TryMeleeAttack_TargetPos(CStateManager& mgr, int arg);
+  void TryMeleeAttack(CStateManager& mgr, int arg);
+  void TryGenerate(CStateManager& mgr, int arg);
+  void TryGenerateDeactivate(CStateManager& mgr, int arg);
+  void TryProjectileAttack(CStateManager& mgr, int arg);
   void TryCommand(CStateManager& mgr, int state, FTryCommandCallback cb, int arg);
 
   void SetupPlayerCollision(const bool startsHidden);
@@ -293,9 +318,25 @@ public:
   void ApproachDest(CStateManager& mgr);
   void SetDestPos(const CVector3f& pos);
 
+  CScriptCoverPoint* GetCoverPoint(CStateManager& mgr, TUniqueId id) const;
+  void ReleaseCoverPoint(CStateManager& mgr, TUniqueId& id);
+  void SetCoverPoint(CScriptCoverPoint* cp, TUniqueId& id);
+
   float GetAnimationDistance(const CPASAnimParmData& data) const;
+  void BuildBodyController(EBodyType bodyType);
+  CEnergyProjectile* LaunchProjectile(
+      const CTransform4f&, CStateManager&, int, CWeapon::EProjectileAttrib, bool,
+      const rstl::optional_object< TLockedToken< CGenDescription > >&, ushort, bool,
+      const CVector3f&);
+  void RenderIceModelWithFlags(const CModelFlags&) const;
 
   void UpdateThermalFrozenState(const bool thawed);
+  void MakeThermalColdAndHot();
+
+  static bool AreStateStringsEqual(const char*, const char*);
+  static int CompareStateString(const char*, const char*, int);
+  void UpdateDamageColor(float dt);
+  void UpdateAlphaDelta(float dt, CStateManager& mgr);
 
 protected:
   EPatrolState x2d8_patrolState;
@@ -355,32 +396,32 @@ protected:
   float x3f4_burnThinkRateTimer;
   EMoveState x3f8_moveState;
   EFlavorType x3fc_flavor;
-  bool x400_24_hitByPlayerProjectile : 1;
-  bool x400_25_alive : 1;
-  bool x400_26_ : 1;
-  bool x400_27_fadeToDeath : 1;
-  bool x400_28_pendingMassiveDeath : 1;
-  bool x400_29_pendingMassiveFrozenDeath : 1;
-  bool x400_30_patternShagged : 1;
-  bool x400_31_isFlyer : 1;
-  bool x401_24_pathOverCount : 2;
-  bool x401_26_disableMove : 1;
-  bool x401_27_phazingOut : 1;
-  bool x401_28_burning : 1;
-  bool x401_29_laggedBurnDeath : 1;
-  bool x401_30_pendingDeath : 1;
-  bool x401_31_nextPendingShock : 1;
-  bool x402_24_pendingShock : 1;
-  bool x402_25_lostMassiveFrozenHP : 1;
-  bool x402_26_dieIf80PercFrozen : 1;
-  bool x402_27_noXrayModel : 1;
-  bool x402_28_isMakingBigStrike : 1;
-  bool x402_29_drawParticles : 1;
-  bool x402_30_updateThermalFrozenState : 1;
-  bool x402_31_thawed : 1;
-  bool x403_24_keepThermalVisorState : 1;
-  bool x403_25_enableStateMachine : 1;
-  bool x403_26_stateControlledMassiveDeath : 1;
+  uint x400_24_hitByPlayerProjectile : 1;
+  uint x400_25_alive : 1;
+  uint x400_26_ : 1;
+  uint x400_27_fadeToDeath : 1;
+  uint x400_28_pendingMassiveDeath : 1;
+  uint x400_29_pendingMassiveFrozenDeath : 1;
+  uint x400_30_patternShagged : 1;
+  uint x400_31_isFlyer : 1;
+  uint x401_24_pathOverCount : 2;
+  uint x401_26_disableMove : 1;
+  uint x401_27_phazingOut : 1;
+  uint x401_28_burning : 1;
+  uint x401_29_laggedBurnDeath : 1;
+  uint x401_30_pendingDeath : 1;
+  uint x401_31_nextPendingShock : 1;
+  uint x402_24_pendingShock : 1;
+  uint x402_25_lostMassiveFrozenHP : 1;
+  uint x402_26_dieIf80PercFrozen : 1;
+  uint x402_27_noXrayModel : 1;
+  uint x402_28_isMakingBigStrike : 1;
+  uint x402_29_drawParticles : 1;
+  uint x402_30_updateThermalFrozenState : 1;
+  uint x402_31_thawed : 1;
+  uint x403_24_keepThermalVisorState : 1;
+  uint x403_25_enableStateMachine : 1;
+  uint x403_26_stateControlledMassiveDeath : 1;
   CDamageInfo x404_contactDamage;
   float x420_curDamageRemTime;
   float x424_damageWaitTime;
@@ -403,12 +444,12 @@ protected:
   float x504_damageDur;
   EColliderType x508_colliderType;
   float x50c_baseDamageMag;
-  rstl::single_ptr< CVertexMorphEffect > x510_vertexMorph;
+  rstl::ncrc_ptr< CVertexMorphEffect > x510_vertexMorph;
   CVector3f x514_deathExplosionOffset;
-  rstl::optional_object< TLockedToken< CGenDescription > > x520_deathExplosionParticle;
-  rstl::optional_object< TLockedToken< CElectricDescription > > x530_deathExplosionElectric;
+  rstl::optional_object< TCachedToken< CGenDescription > > x520_deathExplosionParticle;
+  rstl::optional_object< TCachedToken< CElectricDescription > > x530_deathExplosionElectric;
   CVector3f x540_iceDeathExplosionOffset;
-  rstl::optional_object< TLockedToken< CGenDescription > > x54c_iceDeathExplosionParticle;
+  rstl::optional_object< TCachedToken< CGenDescription > > x54c_iceDeathExplosionParticle;
   CVector3f x55c_moveScale;
 };
 CHECK_SIZEOF(CPatterned, 0x568)

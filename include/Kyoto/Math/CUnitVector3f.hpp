@@ -17,7 +17,7 @@ public:
       Normalize();
     }
   }
-  CUnitVector3f(const CVector3f& vec); // real? see CPlane::CPlane
+  CUnitVector3f(const CVector3f& vec);
   // TODO
 
   static CUnitVector3f Forward() {
@@ -30,5 +30,12 @@ CHECK_SIZEOF(CUnitVector3f, 0xc)
 inline CUnitVector3f operator-(const CUnitVector3f& vec) {
   return CUnitVector3f(-vec.GetX(), -vec.GetY(), -vec.GetZ());
 }
+
+inline const CUnitVector3f& CVector3f::Up() { return sUpVector; }
+inline const CUnitVector3f& CVector3f::Down() { return sDownVector; }
+inline const CUnitVector3f& CVector3f::Left() { return sLeftVector; }
+inline const CUnitVector3f& CVector3f::Right() { return sRightVector; }
+inline const CUnitVector3f& CVector3f::Forward() { return sForwardVector; }
+inline const CUnitVector3f& CVector3f::Back() { return sBackVector; }
 
 #endif // _CUNITVECTOR3F

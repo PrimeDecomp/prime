@@ -21,6 +21,7 @@ public:
       x0_list.push_back(info.GetSwapped());
   }
   int GetCount() const { return x0_list.size(); }
+  const CCollisionInfo& operator[](int idx) const { return x0_list[idx]; }
   void Swap(const int idx) {
     for (int i = idx; i < GetCount(); ++i) {
       x0_list[i].Swap();

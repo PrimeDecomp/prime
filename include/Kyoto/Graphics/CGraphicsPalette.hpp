@@ -33,8 +33,10 @@ public:
   }
   void UnLock();
 
-private:
+public:
   static uint sCurrentFrameCount;
+
+private:
   EPaletteFormat x0_fmt;
   mutable uint x4_frameLoaded;
   uint x8_entryCount;

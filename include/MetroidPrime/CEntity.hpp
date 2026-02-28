@@ -39,6 +39,8 @@ public:
   static rstl::vector< SConnection > NullConnectionList;
 
 private:
+  friend class CStateManager;
+
   TAreaId x4_areaId;
   TUniqueId x8_uid;
   TEditorId xc_editorId;
