@@ -141,6 +141,7 @@ public:
   CTransform4f FindDesiredTransform(CVector3f dir, CStateManager& mgr);
 
   const CVector3f& GetLookAtPosition() const { return x1d8_lookPos; }
+  const CVector3f& GetLookPosAhead() const { return x1c0_lookPosAhead; }
   float GetDistance() const { return x190_curMinDistance; }
   float GetElevation() const { return x1a0_elevation; }
 

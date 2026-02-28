@@ -43,15 +43,6 @@
 #include "rstl/StringExtras.hpp"
 #include "rstl/rc_ptr.hpp"
 
-inline float normalize_angle(float angle) {
-  float rcpTwoPi = 1.f / (2.f * M_PIF);
-  float twoPi = 2.f * M_PIF;
-  float ret = angle - static_cast< int >(angle * rcpTwoPi) * twoPi;
-  if (ret < 0.f)
-    ret += twoPi;
-  return ret;
-}
-
 static const char* const skFRME_MapScreen = "FRME_MapScreen";
 
 static inline const rstl::vector< CGameHintInfo::CGameHint >& GetGameHints() {
@@ -858,26 +849,26 @@ void CAutoMapper::ProcessMapRotateInput(const CFinalInput& input, const CStateMa
     float minCamRotateX = gpTweakAutoMapper->x14_minCamRotateX;
     float maxCamRotateX = gpTweakAutoMapper->x18_maxCamRotateX;
     CEulerAngles eulers = CEulerAngles::FromQuaternion(xa8_renderState0.x8_camOrientation);
-    CRelAngle angX(normalize_angle(eulers.GetX()));
-    CRelAngle angZ(normalize_angle(eulers.GetZ()));
+    CRelAngle angX(CMath::ClampRadians(eulers.GetX()));
+    CRelAngle angZ(CMath::ClampRadians(eulers.GetZ()));
 
     float dt = deltaFrames * gpTweakAutoMapper->x74_rotateDegPerFrame;
 
     angZ -= CRelAngle::FromDegrees(dt * dirs2);
-    angZ = CRelAngle(normalize_angle(angZ.AsRadians()));
+    angZ = CRelAngle(CMath::ClampRadians(angZ.AsRadians()));
     angZ += CRelAngle::FromDegrees(dt * dirs3);
-    angZ = CRelAngle(normalize_angle(angZ.AsRadians()));
+    angZ = CRelAngle(CMath::ClampRadians(angZ.AsRadians()));
 
     angX -= CRelAngle::FromDegrees(dt * dirs0);
-    angX = CRelAngle(normalize_angle(angX.AsRadians()));
+    angX = CRelAngle(CMath::ClampRadians(angX.AsRadians()));
     angX += CRelAngle::FromDegrees(dt * dirs1);
-    angX = CRelAngle(normalize_angle(angX.AsRadians()));
+    angX = CRelAngle(CMath::ClampRadians(angX.AsRadians()));
 
     float angXDeg = angX.AsDegrees();
     if (angXDeg > 180.f)
       angXDeg -= 360.f;
     float clampedX = CMath::Clamp(minCamRotateX, angXDeg, maxCamRotateX);
-    angX = CRelAngle(normalize_angle(CRelAngle::FromDegrees(clampedX).AsRadians()));
+    angX = CRelAngle(CMath::ClampRadians(CRelAngle::FromDegrees(clampedX).AsRadians()));
 
     CQuaternion q = CQuaternion::ZRotation(angZ) * CQuaternion::XRotation(angX) *
                     CQuaternion::YRotation(CRelAngle(0.f));
@@ -1210,7 +1201,7 @@ void CAutoMapper::Draw(const CStateManager& mgr, const CTransform4f& xf, float a
 
       CEulerAngles eulers =
           CEulerAngles::FromTransform(mgr.GetCameraManager()->GetCurrentCameraTransform(mgr));
-      CRelAngle angle = CRelAngle(normalize_angle(eulers.GetZ()));
+      CRelAngle angle = CRelAngle(CMath::ClampRadians(eulers.GetZ()));
 
       CVector3f playerPos = CMapArea::GetAreaPostTranslate(*x24_world, mgr.GetNextAreaId().value) +
                             mgr.GetPlayer()->GetTranslation();
@@ -1858,9 +1849,8 @@ CQuaternion CAutoMapper::GetMiniMapCameraOrientation(const CStateManager& stateM
   float miniCamXAngle = gpTweakAutoMapper->x2c_miniCamXAngle;
   const CGameCamera& cam = stateMgr.GetCameraManager()->GetCurrentCamera(stateMgr);
   CEulerAngles angles = CEulerAngles::FromQuaternion(CQuaternion::FromMatrix(cam.GetTransform()));
-  CRelAngle yawAngle(normalize_angle(angles.GetZ()));
-  CRelAngle xAngle = CRelAngle::FromDegrees(miniCamXAngle);
-  return CQuaternion::ZRotation(yawAngle) * CQuaternion::XRotation(xAngle);
+  return CQuaternion::ZRotation(CMath::ClampRadians(angles.GetZ())) *
+         CQuaternion::XRotation(CRelAngle::FromDegrees(miniCamXAngle));
 }
 
 CVector3f CAutoMapper::GetAreaPointOfInterest(const CStateManager& mgr, int aid) const {

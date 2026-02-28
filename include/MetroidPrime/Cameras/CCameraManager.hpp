@@ -82,6 +82,7 @@ public:
                                bool sinusoidal, CStateManager& mgr);
   void CinematicCut(CStateManager& mgr);
   void UseCameraHint(const CScriptCameraHint& hint, CStateManager& mgr);
+  const CScriptCameraHint* GetCameraHint(CStateManager& mgr) const;
   void NoCameraHintsLeft(CStateManager& mgr);
   void AddCameraHint(TUniqueId uid, CStateManager& mgr);
   void DeleteCameraHint(TUniqueId uid, CStateManager& mgr);

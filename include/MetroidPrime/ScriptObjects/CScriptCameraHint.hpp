@@ -39,6 +39,7 @@ public:
   CBallCamera::EBallCameraBehaviour GetBehaviourType() const { return mOverrideInfo.mBehaviour; }
   int GetPriority() const { return mPriority; }
   TUniqueId GetDelegatedCameraId() const { return mDelegatedCameraId; }
+  const CTransform4f& GetOriginalTransform() const { return mOrigXf; }
   // OverrideCameraInfo__17CScriptCameraHintFP11CBallCamera
 
   uint GetSenderCount() const { return mSenders.size(); }
