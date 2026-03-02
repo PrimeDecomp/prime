@@ -73,17 +73,14 @@ const CVector3f CMatrix3f::operator*(const CVector3f& vec) const {
 }
 
 const CMatrix3f CMatrix3f::operator*(const CMatrix3f& other) const {
-  const float _m00 = other.m00 * m00 + other.m10 * m01 + other.m20 * m02;
-  const float _m01 = other.m01 * m00 + other.m11 * m01 + other.m21 * m02;
-  const float _m20 = other.m00 * m20 + other.m10 * m21 + other.m20 * m22;
-  const float _m21 = other.m01 * m20 + other.m11 * m21 + other.m21 * m22;
-  const float _m02 = other.m02 * m00 + other.m12 * m01 + other.m22 * m02;
-  const float _m10 = other.m00 * m10 + other.m10 * m11 + other.m20 * m12;
-  const float _m11 = other.m01 * m10 + other.m11 * m11 + other.m21 * m12;
-  const float _m12 = other.m02 * m10 + other.m12 * m11 + other.m22 * m12;
-  const float _m22 = other.m02 * m20 + other.m12 * m21 + other.m22 * m22;
-
-  return CMatrix3f(_m00, _m01, _m02, _m10, _m11, _m12, _m20, _m21, _m22);
+  const float b00 = other.m00, b01 = other.m01, b02 = other.m02;
+  const float b10 = other.m10, b11 = other.m11, b12 = other.m12;
+  const float b20 = other.m20, b21 = other.m21, b22 = other.m22;
+  return CMatrix3f(m00 * b00 + m01 * b10 + m02 * b20, m00 * b01 + m01 * b11 + m02 * b21,
+                   m00 * b02 + m01 * b12 + m02 * b22, m10 * b00 + m11 * b10 + m12 * b20,
+                   m10 * b01 + m11 * b11 + m12 * b21, m10 * b02 + m11 * b12 + m12 * b22,
+                   m20 * b00 + m21 * b10 + m22 * b20, m20 * b01 + m21 * b11 + m22 * b21,
+                   m20 * b02 + m21 * b12 + m22 * b22);
 }
 
 float CMatrix3f::Determinant() const {
