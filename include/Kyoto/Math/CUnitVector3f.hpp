@@ -11,19 +11,15 @@ public:
     kN_No,
     kN_Yes,
   };
+
   CUnitVector3f(const float x, const float y, const float z) : CVector3f(x, y, z) {}
-  CUnitVector3f(const CVector3f& vec, const ENormalize normalize) : CVector3f(vec.GetX(), vec.GetY(), vec.GetZ()) {
+  CUnitVector3f(const CVector3f& vec, const ENormalize normalize) : CVector3f(vec) {
     if (normalize == kN_Yes) {
       Normalize();
     }
   }
   CUnitVector3f(const CVector3f& vec);
-  // TODO
-
-  static CUnitVector3f Forward() {
-    return CUnitVector3f(CVector3f::Forward().GetX(), CVector3f::Forward().GetY(),
-                         CVector3f::Forward().GetZ());
-  }
+  CUnitVector3f(const CUnitVector3f& vec) : CVector3f(vec) {}
 };
 CHECK_SIZEOF(CUnitVector3f, 0xc)
 

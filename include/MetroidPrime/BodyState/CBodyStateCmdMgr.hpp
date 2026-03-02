@@ -345,16 +345,16 @@ public:
   : CBodyStateCmd(kBSC_Cover)
   , x8_dir(dir)
   , xc_targetPos(v1)
-  , x18_alignDir(v2, CUnitVector3f::kN_No /* ? */) {}
+  , x18_alignDir(v2) {}
 
   pas::ECoverDirection GetDirection() const { return x8_dir; }
   const CVector3f& GetTarget() const { return xc_targetPos; }
-  CUnitVector3f GetAlignDirection() const { return x18_alignDir; }
+  const CVector3f& GetAlignDirection() const { return x18_alignDir; }
 
 private:
   pas::ECoverDirection x8_dir;
   CVector3f xc_targetPos;
-  CUnitVector3f x18_alignDir;
+  CVector3f x18_alignDir;
 };
 
 //

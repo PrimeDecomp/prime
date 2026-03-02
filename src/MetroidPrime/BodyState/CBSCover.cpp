@@ -1,5 +1,6 @@
 #include "MetroidPrime/BodyState/CBSCover.hpp"
 
+#include "Kyoto/Math/CVector3f.hpp"
 #include "MetroidPrime/BodyState/CBodyController.hpp"
 #include "MetroidPrime/CActor.hpp"
 #include "MetroidPrime/CAnimPlaybackParms.hpp"
@@ -21,14 +22,14 @@ void CBSCover::Start(CBodyController& bc, CStateManager& mgr) {
   x4_state = pas::kCS_IntoCover;
   const CPASAnimParmData parms(pas::kAS_Cover, CPASAnimParm::FromEnum(x4_state),
                                CPASAnimParm::FromEnum(GetCoverDirection()));
-  
+
   const rstl::pair< float, int > best =
       bc.GetPASDatabase().FindBestAnimation(parms, *mgr.Random(), -1);
 
   CVector3f scale = bc.GetOwner().GetModelData()->GetScale();
-  CRelAngle lookAtMaxAngle = CRelAngle::FromRadians(M_2PIF);
-  const CUnitVector3f& lookAtDest = cmd->GetAlignDirection();
-  const CQuaternion orientDelta = CQuaternion::LookAt(CUnitVector3f::Forward(), lookAtDest, lookAtMaxAngle);
+  CRelAngle angle = CRelAngle::FromRadians(M_2PIF);
+  const CQuaternion orientDelta = CQuaternion::LookAt(
+      CVector3f::Forward(), CUnitVector3f(cmd->GetAlignDirection(), CUnitVector3f::kN_No), angle);
 
   const CAnimPlaybackParms playParms(best.second, &orientDelta, &cmd->GetTarget(),
                                      &bc.GetOwner().GetTransform(), &scale, false);

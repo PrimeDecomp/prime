@@ -33,8 +33,10 @@ public:
   // ScalarVector__11CQuaternionFfRC9CVector3f
   // Slerp__11CQuaternionFRC11CQuaternionRC11CQuaternionf
   // ShortestRotationArc__11CQuaternionFRC9CVector3fRC9CVector3f
-  // LookAt__11CQuaternionFRC13CUnitVector3fRC13CUnitVector3fRC9CRelAngle
-  static CQuaternion LookAt(const CUnitVector3f&, const CUnitVector3f&, const CRelAngle&);
+
+  // TODO: map says const CUnitVector3f&, but this matches better in CBSCover/CSamusFaceReflection
+  static CQuaternion LookAt(CUnitVector3f, CUnitVector3f, const CRelAngle&);
+
   // normalize_angle__Ff
   // IsValidQuaternion__11CQuaternionCFf
   static CQuaternion Slerp(const CQuaternion& a, const CQuaternion& b, float t);
@@ -66,7 +68,8 @@ public:
   static const CQuaternion& NoRotation() { return sNoRotation; }
 
   static float Dot(const CQuaternion& a, const CQuaternion& b) {
-    return (a.GetW() * b.GetW()) + (a.GetX() * b.GetX()) + (a.GetY() * b.GetY()) + (a.GetZ() * b.GetZ());
+    return (a.GetW() * b.GetW()) + (a.GetX() * b.GetX()) + (a.GetY() * b.GetY()) +
+           (a.GetZ() * b.GetZ());
   }
 
   // TODO: fake
