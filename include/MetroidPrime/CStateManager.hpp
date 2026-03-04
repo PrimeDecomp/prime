@@ -476,7 +476,6 @@ private:
   bool RayCollideWorldInternal(const CVector3f& start, const CVector3f& end,
                                const CMaterialFilter& filter, const TEntityList& nearList,
                                const CActor* damagee) const;
-  void UpdateActorInSortedLists(CActor& actor);
   void UpdateEscapeSequenceTimer(float dt);
   void CreateStandardGameObjects();
   rstl::pair< const SScriptObjectStream*, TEditorId > GetBuildForScript(TEditorId eid) const;
