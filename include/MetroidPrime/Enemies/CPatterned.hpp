@@ -3,12 +3,12 @@
 
 #include "types.h"
 
+#include "MetroidPrime/BodyState/CBodyController.hpp"
 #include "MetroidPrime/CSteeringBehaviors.hpp"
 #include "MetroidPrime/Enemies/CAi.hpp"
 #include "MetroidPrime/Enemies/CPatternedInfo.hpp"
 #include "MetroidPrime/Enemies/CStateMachine.hpp"
 #include "MetroidPrime/Weapons/CWeapon.hpp"
-#include "MetroidPrime/BodyState/CBodyController.hpp"
 
 #include "rstl/rc_ptr.hpp"
 
@@ -231,8 +231,7 @@ public:
   bool FixedRandom(CStateManager& mgr, float arg) override;
 
   // CPatterned
-  virtual void Freeze(CStateManager& mgr, const CVector3f& pos, const CUnitVector3f& dir,
-                      float frozenDur);
+  virtual void Freeze(CStateManager& mgr, const CVector3f& pos, CUnitVector3f dir, float frozenDur);
   virtual bool KnockbackWhenFrozen() const { return true; }
   virtual void MassiveDeath(CStateManager& mgr);
   virtual void MassiveFrozenDeath(CStateManager& mgr);
@@ -324,10 +323,10 @@ public:
 
   float GetAnimationDistance(const CPASAnimParmData& data) const;
   void BuildBodyController(EBodyType bodyType);
-  CEnergyProjectile* LaunchProjectile(
-      const CTransform4f&, CStateManager&, int, CWeapon::EProjectileAttrib, bool,
-      const rstl::optional_object< TLockedToken< CGenDescription > >&, ushort, bool,
-      const CVector3f&);
+  CEnergyProjectile*
+  LaunchProjectile(const CTransform4f&, CStateManager&, int, CWeapon::EProjectileAttrib, bool,
+                   const rstl::optional_object< TLockedToken< CGenDescription > >&, ushort, bool,
+                   const CVector3f&);
   void RenderIceModelWithFlags(const CModelFlags&) const;
 
   void UpdateThermalFrozenState(const bool thawed);

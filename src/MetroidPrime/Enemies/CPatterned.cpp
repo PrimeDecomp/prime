@@ -10,8 +10,11 @@
 #include "Kyoto/Animation/CVertexMorphEffect.hpp"
 #include "Kyoto/Audio/CSfxManager.hpp"
 #include "Kyoto/CSimplePool.hpp"
+#include "Kyoto/Graphics/CModelFlags.hpp"
 #include "Kyoto/Math/CMath.hpp"
 #include "Kyoto/Math/CRelAngle.hpp"
+#include "Kyoto/Math/CUnitVector3f.hpp"
+#include "Kyoto/Math/CVector3f.hpp"
 #include "Kyoto/Math/CloseEnough.hpp"
 #include "Kyoto/SObjectTag.hpp"
 #include "MetroidPrime/BodyState/CBodyController.hpp"
@@ -33,23 +36,21 @@
 #include "MetroidPrime/Weapons/CEnergyProjectile.hpp"
 #include "MetroidPrime/Weapons/CGameProjectile.hpp"
 #include "MetroidPrime/Weapons/CProjectileInfo.hpp"
+#include "dolphin/gx/GXStruct.h"
 #include "dolphin/types.h"
+
+#pragma inline_max_size(250)
 
 static CColor skDefaultDamageColor = CColor(0.5f, 0.f, 0.f, 1.f);
 static CColor skFrozenDamageColor = CColor(0.5f, 0.5f, 0.f, 1.f);
 
-static CMaterialList skPatternedFlyerMaterialList =
-    CMaterialList(kMT_Character, kMT_Solid, kMT_Orbit, kMT_Target);
-static CMaterialList skPatternedGroundMaterialList =
-    CMaterialList(kMT_Character, kMT_Solid, kMT_Orbit, kMT_GroundCollider, kMT_Target);
+static CColor skDisintegrateColor(static_cast< u8 >(0xff), 0xff, 0xc0, 0xff);
 
-static int skCharacterMat = kMT_Character;
+static CMaterialList gkPatternedFlyerMaterialList(kMT_Character, kMT_Solid, kMT_Orbit, kMT_Target);
+static CMaterialList gkPatternedGroundMaterialList(kMT_Character, kMT_Solid, kMT_Orbit,
+                                                   kMT_GroundCollider, kMT_Target);
 
-extern "C" void fn_80077E1C(rstl::optional_object< CVertexMorphEffect >* self,
-                            const CVertexMorphEffect* morph);
-extern "C" void fn_80077C8C(rstl::optional_object< CVertexMorphEffect >* self, short flags);
-
-extern "C" uchar lbl_805A8E18[];
+static EMaterialTypes skCharacterMat = kMT_Character;
 
 class CMetroid;
 
@@ -65,7 +66,7 @@ CPatterned::CPatterned(const ECharacter character, const TUniqueId uid, const rs
              pinfo.xc4_halfExtent + pinfo.xcc_bodyOrigin.GetY(),
              pinfo.xcc_bodyOrigin.GetZ() + pinfo.xc8_height),
       pinfo.x0_mass, pinfo.x54_healthInfo, pinfo.x5c_damageVulnerability,
-      movement == kMT_Flyer ? skPatternedFlyerMaterialList : skPatternedGroundMaterialList,
+      movement == kMT_Flyer ? gkPatternedFlyerMaterialList : gkPatternedGroundMaterialList,
       pinfo.xfc_stateMachineId, params, pinfo.xd8_stepUpHeight, 0.8f)
 , x2d8_patrolState(kPS_Invalid)
 , x2dc_destObj(kInvalidUniqueId)
@@ -199,9 +200,13 @@ CPatterned::CPatterned(const ECharacter character, const TUniqueId uid, const rs
   }
 
   SetRenderParticleDatabaseInside(false);
-  const CModelData* modelData = GetModelData();
-  if (modelData && !modelData->IsNull()) {
-    x402_27_noXrayModel = !modelData->HasModel(CModelData::kWM_XRay);
+
+  bool buildBodyController = false;
+  if (ModelData() && ModelData()->IsNotNull()) {
+    buildBodyController = true;
+  }
+  if (buildBodyController) {
+    x402_27_noXrayModel = !ModelData()->HasModel(CModelData::kWM_XRay);
     BuildBodyController(body);
   }
 }
@@ -229,36 +234,21 @@ void CPatterned::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CState
     if (x508_colliderType != kCT_One) {
       CMaterialList include = GetMaterialFilter().GetIncludeList();
       CMaterialList exclude = GetMaterialFilter().GetExcludeList();
-      CMaterialList charMat(static_cast< EMaterialTypes >(skCharacterMat));
+      CMaterialList charMat(skCharacterMat);
       include.Remove(charMat);
       exclude.Add(charMat);
       SetMaterialFilter(CMaterialFilter::MakeIncludeExclude(include, exclude));
     }
 
-    CModelData* modelData = ModelData();
-    bool hasAnimData = false;
-    if (modelData != 0) {
-      if (modelData->GetAnimationData() != 0) {
-        hasAnimData = true;
-      }
-    }
+    bool hasAnimData = ModelData() && ModelData()->HasAnimation();
+    if (hasAnimData && ModelData()->GetAnimationData()->GetIceModel().valid()) {
+      const CAABox& baseBox = GetBaseBoundingBox();
+      CVector3f extent = baseBox.GetMaxPoint() - baseBox.GetMinPoint();
+      const float diagExtent = 0.5f * extent.Magnitude();
 
-    if (hasAnimData) {
-      const CAnimData* animData = modelData->GetAnimationData();
-      const rstl::optional_object< TLockedToken< CSkinnedModelWithAvgNormals > >& iceModel =
-          animData->GetIceModel();
-
-      if (iceModel.valid()) {
-        const CAABox& baseBox = GetBaseBoundingBox();
-        CVector3f extent = baseBox.GetMaxPoint() - baseBox.GetMinPoint();
-        const float diagExtent = 0.5f * extent.Magnitude();
-
-        rstl::ncrc_ptr< CVertexMorphEffect > morph(rs_new CVertexMorphEffect(
-            CUnitVector3f(CVector3f(1.f, 0.f, 0.f), CUnitVector3f::kN_Yes),
-            CVector3f(0.f, 0.f, 0.f), 0.f, diagExtent, *mgr.Random()));
-
-        x510_vertexMorph = morph;
-      }
+      x510_vertexMorph = rstl::ncrc_ptr< CVertexMorphEffect >(
+          rs_new CVertexMorphEffect(CUnitVector3f(CVector3f(1.f, 0.f, 0.f), CUnitVector3f::kN_Yes),
+                                    CVector3f(0.f, 0.f, 0.f), 0.f, diagExtent, *mgr.Random()));
     }
 
     SetAngularEnabled(true);
@@ -637,7 +627,7 @@ void CPatterned::MassiveFrozenDeath(CStateManager& mgr) {
 void CPatterned::KnockBack(const CVector3f& backVec, CStateManager& mgr, const CDamageInfo& info,
                            EKnockBackType type, bool, float magnitude) {
   CHealthInfo* health = HealthInfo(mgr);
-  if (!x401_27_phazingOut && !x401_28_burning && health != 0) {
+  if (!x401_27_phazingOut && !x401_28_burning && health != nullptr) {
     x460_knockBackController.KnockBack(backVec, mgr, *this, info, type, magnitude);
 
     if (x450_bodyController->IsFrozen() &&
@@ -646,10 +636,13 @@ void CPatterned::KnockBack(const CVector3f& backVec, CStateManager& mgr, const C
     }
 
     switch (x460_knockBackController.GetActiveParms().x4_animFollowup) {
-    case kKBAFU_Freeze:
-      Freeze(mgr, CVector3f::Zero(), CUnitVector3f(GetTransform().TransposeRotate(backVec)),
-             x460_knockBackController.GetActiveParms().x8_followupDuration);
+    case kKBAFU_Freeze: {
+      CVector3f pos(0.f, 0.f, 0.f);
+      CUnitVector3f dir = GetTransform().TransposeRotate(backVec);
+      float dur = x460_knockBackController.GetActiveParms().x8_followupDuration;
+      Freeze(mgr, pos, dir, dur);
       break;
+    }
     case kKBAFU_PhazeOut:
       PhazeOut(mgr);
       break;
@@ -661,7 +654,7 @@ void CPatterned::KnockBack(const CVector3f& backVec, CStateManager& mgr, const C
       break;
     case kKBAFU_LaggedBurnDeath:
       x401_29_laggedBurnDeath = true;
-    case kKBAFU_BurnDeath:
+    case kKBAFU_BurnDeath: {
       Burn(x460_knockBackController.GetActiveParms().x8_followupDuration, -1.f);
       Death(mgr, CVector3f::Zero(), kSS_DeathRattle);
       x400_28_pendingMassiveDeath = x400_29_pendingMassiveFrozenDeath = false;
@@ -669,13 +662,15 @@ void CPatterned::KnockBack(const CVector3f& backVec, CStateManager& mgr, const C
       x3f4_burnThinkRateTimer = 1.5f;
       x402_29_drawParticles = false;
       x450_bodyController->DouseFlames();
-      mgr.ActorModelParticles()->StopThermalHotParticles(*this);
-      mgr.ActorModelParticles()->StartBurnDeath(*this);
+      CActorModelParticles* particles = mgr.ActorModelParticles();
+      particles->StopThermalHotParticles(*this);
+      particles->StartBurnDeath(*this);
       if (!x401_29_laggedBurnDeath) {
-        mgr.ActorModelParticles()->EnsureFirePopLoaded(*this);
-        mgr.ActorModelParticles()->EnsureIceBreakLoaded(*this);
+        particles->EnsureFirePopLoaded(*this);
+        particles->EnsureIceBreakLoaded(*this);
       }
       break;
+    }
     case kKBAFU_Death:
       Death(mgr, CVector3f::Zero(), kSS_DeathRattle);
       break;
@@ -1180,7 +1175,7 @@ void CPatterned::Shock(CStateManager&, float duration, float damage) {
   }
 }
 
-void CPatterned::Freeze(CStateManager& mgr, const CVector3f& pos, const CUnitVector3f& dir,
+void CPatterned::Freeze(CStateManager& mgr, const CVector3f& pos, CUnitVector3f dir,
                         float frozenDur) {
   if (x402_25_lostMassiveFrozenHP) {
     x402_26_dieIf80PercFrozen = true;
@@ -1202,17 +1197,13 @@ void CPatterned::Freeze(CStateManager& mgr, const CVector3f& pos, const CUnitVec
 
   if (playSfx) {
     const CVector3f& posOut = GetTranslation();
-    bool metroid = false;
-    if (x460_knockBackController.GetVariant() != kKBV_Small) {
-      if (CPatterned::CastTo< CMetroid >(TPatternedCast< CMetroid >(
-              const_cast< CEntity* >(mgr.GetObjectById(GetUniqueId())))) != NULL) {
-        metroid = true;
-      }
-    }
-
-    SND_FXID sfx = metroid ? (SND_FXID)0x701 : (SND_FXID)0x708;
-    CSfxManager::AddEmitter(sfx, posOut, CVector3f::Zero(), true, false, CSfxManager::kMedPriority,
-                            CSfxManager::kAllAreas);
+    CSfxManager::AddEmitter(
+        x460_knockBackController.GetVariant() != kKBV_Small &&
+                CPatterned::CastTo< CMetroid >(TPatternedCast< CMetroid >(
+                    const_cast< CEntity* >(mgr.GetObjectById(GetUniqueId())))) != nullptr
+            ? (SND_FXID)0x701
+            : (SND_FXID)0x708,
+        posOut, CVector3f::Zero(), true, false, CSfxManager::kMedPriority, CSfxManager::kAllAreas);
   }
 }
 
@@ -1279,16 +1270,18 @@ CVector3f CPatterned::GetAimPosition(const CStateManager&, float dt) const {
     const CVector3f scaledOrigin = CVector3f::ByElementMultiply(scale, locatorXf.GetTranslation());
 
     if (GetTouchBounds()) {
-      return offset + GetTouchBounds()->ClampToBox(GetTransform() * scaledOrigin);
+      offset += GetTouchBounds()->ClampToBox(GetTransform() * scaledOrigin);
+    } else {
+      const CAABox& baseBox = GetBaseBoundingBox();
+      const CAABox primBox(baseBox.GetMinPoint() + GetPrimitiveOffset(),
+                           baseBox.GetMaxPoint() + GetPrimitiveOffset());
+      offset += GetTransform() * primBox.ClampToBox(scaledOrigin);
     }
-
-    const CAABox& baseBox = GetBaseBoundingBox();
-    const CAABox primBox(baseBox.GetMinPoint() + GetPrimitiveOffset(),
-                         baseBox.GetMaxPoint() + GetPrimitiveOffset());
-    return offset + GetTransform() * primBox.ClampToBox(scaledOrigin);
+  } else {
+    offset += GetBoundingBox().GetCenterPoint();
   }
 
-  return offset + GetBoundingBox().GetCenterPoint();
+  return offset;
 }
 
 CVector3f CPatterned::GetOrbitPosition(const CStateManager& mgr) const {
@@ -1306,37 +1299,32 @@ void CPatterned::PreRender(CStateManager& mgr, const CFrustumPlanes& frustum) {
   CColor color = x42c_color;
   uchar alpha = GetModelAlphau8(mgr);
   if (x402_27_noXrayModel && mgr.GetPlayerState()->GetActiveVisor(mgr) == CPlayerState::kPV_XRay) {
-    alpha = 0x4c;
+    alpha = 76;
   }
 
-  if (alpha < 0xff) {
+  if (alpha < 255) {
     if (color.GetRedu8() == 0 && color.GetGreenu8() == 0 && color.GetBlueu8() == 0) {
       color = CColor::White();
     }
 
     if (x401_29_laggedBurnDeath) {
-      uchar stripedAlpha = 0xff;
-      if (alpha > 0x7f) {
-        stripedAlpha = alpha * 2;
-      }
-      SetModelFlags(CModelFlags(static_cast< CModelFlags::ETrans >(3), 0,
-                                static_cast< CModelFlags::EFlags >(3),
-                                CColor(lbl_805A8E18[0], lbl_805A8E18[1], lbl_805A8E18[2],
-                                       static_cast< uchar >((stripedAlpha * stripedAlpha) >> 8))));
-    } else if (x401_28_burning) {
+      // TODO: maybe this is CModelFlags::ColorModulate?
+      uchar stripedAlpha = alpha > 127 ? (alpha - 128) * 2 : 255;
       SetModelFlags(
-          CModelFlags::AlphaBlended(CColor(static_cast< uchar >(0), static_cast< uchar >(0),
-                                           static_cast< uchar >(0), static_cast< uchar >(0xff))));
+          CModelFlags(CModelFlags::kT_Three,
+                      CColor(skDisintegrateColor.GetRedu8(), skDisintegrateColor.GetGreenu8(),
+                             skDisintegrateColor.GetBlueu8(), (stripedAlpha * stripedAlpha) >> 8)));
+    } else if (x401_28_burning) {
+      SetModelFlags(CModelFlags::AlphaBlended(CColor(static_cast< uchar >(0), 0, 0, 255)));
     } else {
       SetModelFlags(CModelFlags::AlphaBlended(
           CColor(color.GetRedu8(), color.GetGreenu8(), color.GetBlueu8(), alpha)));
     }
-  } else if (color.GetRedu8() == 0 && color.GetGreenu8() == 0 && color.GetBlueu8() == 0) {
-    SetModelFlags(CModelFlags::Normal());
+  } else if (color.GetRedu8() != 0 || color.GetGreenu8() != 0 || color.GetBlueu8() != 0) {
+    SetModelFlags(CModelFlags(
+        CModelFlags::kT_Two, CColor(color.GetRedu8(), color.GetGreenu8(), color.GetBlueu8(), 255)));
   } else {
-    SetModelFlags(
-        CModelFlags(CModelFlags::kT_Two, 0, static_cast< CModelFlags::EFlags >(3),
-                    CColor(color.GetRedu8(), color.GetGreenu8(), color.GetBlueu8(), 0xff)));
+    SetModelFlags(CModelFlags::Normal());
   }
 
   CActor::PreRender(mgr, frustum);
@@ -1373,9 +1361,9 @@ void CPatterned::Render(const CStateManager& mgr) const {
           mgr.SetupParticleHook(*this);
         }
 
-        const CColor* disintegrateColor = 0;
+        const CColor* disintegrateColor = nullptr;
         if (x401_29_laggedBurnDeath) {
-          disintegrateColor = reinterpret_cast< const CColor* >(lbl_805A8E18);
+          disintegrateColor = &skDisintegrateColor;
         } else if (mgr.GetThermalDrawFlag() == kTD_Hot) {
           disintegrateColor = &CColor::White();
         } else {
@@ -1419,13 +1407,7 @@ void CPatterned::RenderIceModelWithFlags(const CModelFlags& flags) const {
   if (iceModel.valid()) {
     const float* avgNormals = (**iceModel)->GetAvgNormals();
     const CSkinnedModelWithAvgNormals* model = **iceModel;
-    uchar morphBuf[sizeof(rstl::optional_object< CVertexMorphEffect >)] ATTRIBUTE_ALIGN(4);
-    fn_80077E1C(reinterpret_cast< rstl::optional_object< CVertexMorphEffect >* >(morphBuf),
-                &*x510_vertexMorph);
-    animData->Render(model->GetSkinnedModel(), useFlags,
-                     *reinterpret_cast< rstl::optional_object< CVertexMorphEffect >* >(morphBuf),
-                     avgNormals);
-    fn_80077C8C(reinterpret_cast< rstl::optional_object< CVertexMorphEffect >* >(morphBuf), -1);
+    animData->Render(model->GetSkinnedModel(), useFlags, *x510_vertexMorph, avgNormals);
   }
 }
 

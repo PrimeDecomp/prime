@@ -19,7 +19,6 @@ public:
     }
   }
   CUnitVector3f(const CVector3f& vec);
-  CUnitVector3f(const CUnitVector3f& vec) : CVector3f(vec) {}
 };
 CHECK_SIZEOF(CUnitVector3f, 0xc)
 

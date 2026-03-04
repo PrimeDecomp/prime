@@ -105,6 +105,8 @@ public:
 
   bool HasAnimation() const { return !xc_animData.null(); }
   bool IsNull() const { return xc_animData.null() && !x1c_normalModel; }
+  // TODO: maybe fake, but fixes CPatterned ctor codegen
+  bool IsNotNull() const { return !xc_animData.null() || x1c_normalModel; }
 
   void SetXRayModel(const rstl::pair< CAssetId, CAssetId >& assets);
   void SetInfraModel(const rstl::pair< CAssetId, CAssetId >& assets);

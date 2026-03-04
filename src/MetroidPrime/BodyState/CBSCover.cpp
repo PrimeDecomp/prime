@@ -27,9 +27,10 @@ void CBSCover::Start(CBodyController& bc, CStateManager& mgr) {
       bc.GetPASDatabase().FindBestAnimation(parms, *mgr.Random(), -1);
 
   CVector3f scale = bc.GetOwner().GetModelData()->GetScale();
-  CRelAngle angle = CRelAngle::FromRadians(M_2PIF);
+  CRelAngle lookAtMaxAngle = CRelAngle::FromRadians(M_2PIF);
   const CQuaternion orientDelta = CQuaternion::LookAt(
-      CVector3f::Forward(), CUnitVector3f(cmd->GetAlignDirection(), CUnitVector3f::kN_No), angle);
+      CVector3f::Forward(), CUnitVector3f(cmd->GetAlignDirection(), CUnitVector3f::kN_No),
+      lookAtMaxAngle);
 
   const CAnimPlaybackParms playParms(best.second, &orientDelta, &cmd->GetTarget(),
                                      &bc.GetOwner().GetTransform(), &scale, false);
