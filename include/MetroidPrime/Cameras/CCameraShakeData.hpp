@@ -91,13 +91,15 @@ public:
 
   float GetDuration() const { return x0_duration; } // In MP1R, returns either x0 or xec?
   float GetCurTime() const { return x4_curTime; }
-  CVector3f GetPoint() const; // { return xc4_sfxPos; }
+  CVector3f GetPoint() const;                             // { return xc4_sfxPos; }
   bool Done() const { return x4_curTime >= x0_duration; } // Finished in MP1R
   uint GetFlags() const { return xc0_flags; }
   const CVector3f& GetSfxPos() const { return xc4_sfxPos; }
 
   static CCameraShakeData skSoftRecoil;
   static CCameraShakeData skHardRecoil;
+
+  static CCameraShakeData BuildProjectileCameraShake(const float duration, const float magnitude);
 
 private:
   float x0_duration;

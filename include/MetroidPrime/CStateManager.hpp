@@ -369,6 +369,8 @@ public:
   void CacheReflection();
   void DrawReflection(const CVector3f& point);
   void DrawSpaceWarp(const CVector3f& point, float strength) const;
+  
+  void UpdateActorInSortedLists(CActor& actor);
 
 private:
   enum EInitPhase { kIP_LoadWorld, kIP_LoadFirstArea, kIP_Done };

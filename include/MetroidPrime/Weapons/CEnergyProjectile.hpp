@@ -41,6 +41,10 @@ public:
   void Set3d0_26(bool v) { x3d0_26_ = v; }
   
   CProjectileWeapon& ProjectileWeapon() { return x170_projectile; }
+  
+  void StopProjectile(CStateManager& mgr);
+  
+  void SetCameraShake(const CCameraShakeData& data);
 
 private:
   CSfxHandle x2e8_sfx;
@@ -52,6 +56,8 @@ private:
   bool x3d0_26_ : 1;
   bool x3d0_27_camShakeDirty : 1;
   float x3d4_curTime;
+  
+  static const CMaterialList kCheckMaterial;
 };
 CHECK_SIZEOF(CEnergyProjectile, 0x3d8);
 

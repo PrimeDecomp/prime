@@ -203,6 +203,7 @@ public:
   void AddMaterial(EMaterialTypes, EMaterialTypes, CStateManager&);
   void AddMaterial(EMaterialTypes, CStateManager&);
   void AddMaterial(const CMaterialList& l) { x68_material.Add(l); }
+  void SetMaterial(const CMaterialList& l) { x68_material = l; }
 
   const CAABox& GetRenderBoundsCached() const { return x9c_renderBounds; }
   void SetRenderBounds(const CAABox& bounds) { x9c_renderBounds = bounds; }
