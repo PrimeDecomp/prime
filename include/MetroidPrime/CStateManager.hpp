@@ -312,6 +312,8 @@ public:
   rstl::list< TUniqueId >& GetActiveFlickerBats() { return xf3c_activeFlickerBats; }
 
   void DrawSpaceWarp(const CVector3f& point, float strength) const;
+  
+  void UpdateActorInSortedLists(CActor& actor);
 
 private:
   enum EInitPhase { kIP_LoadWorld, kIP_LoadFirstArea, kIP_Done };

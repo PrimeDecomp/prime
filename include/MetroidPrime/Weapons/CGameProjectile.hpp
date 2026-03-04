@@ -47,6 +47,7 @@ public:
 
   CProjectileTouchResult CanCollideWithTrigger(CActor& act, CStateManager& mgr);
   const CProjectileWeapon& GetProjectile() const { return x170_projectile; }
+  CProjectileWeapon& Projectile() { return x170_projectile; }
   const CVector3f& GetPreviousPos() const { return x298_previousPos; }
   TUniqueId GetHomingTargetId() const { return x2c0_homingTargetId; }
   TUniqueId GetHitProjectileOwner() const { return x2c4_hitProjectileOwner; }
@@ -62,8 +63,8 @@ public:
   static EProjectileAttrib GetBeamAttribType(EWeaponType wType);
 
   CAABox GetProjectileBounds() const;
-  
-  protected:
+
+protected:
   rstl::optional_object< TLockedToken< CGenDescription > > x158_visorParticle;
   ushort x168_visorSfx;
   CProjectileWeapon x170_projectile;

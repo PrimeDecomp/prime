@@ -33,4 +33,6 @@ public:
   bool x5c_25_DMOO : 1;
 };
 
+CHECK_SIZEOF(CDecalDescription, 0x60);
+
 #endif // _CDECALDESCRIPTION

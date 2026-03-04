@@ -24,7 +24,7 @@ public:
                     const CTransform4f& orient, const CVector3f& scale, const int);
   virtual ~CProjectileWeapon();
   virtual void Update(float dt);
-  virtual void AddToRenderer();
+  virtual void AddToRenderer() const;
   virtual void Render() const;
   virtual CVector3f GetTranslation() const;
   virtual CTransform4f GetTransform() const;
@@ -35,6 +35,8 @@ public:
   static float GetTickPeriod(); // { return 0.0166667f; }
 
   static void SetGlobalSeed(uint seed);
+  
+  rstl::optional_object<CAABox> GetBounds() const;
 
 private:
   TLockedToken< CWeaponDescription > x4_weaponDesc;

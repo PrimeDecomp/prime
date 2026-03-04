@@ -25,9 +25,9 @@ CCollisionResponseData::CCollisionResponseData(CInputStream& in, CSimplePool* sp
     return;
   }
 
-  CRandom16 _(99);
+  CRandom16 _;
   CGlobalRandom __(_);
-  // bool done = false;
+
   while (!done) {
     const FourCC clsId = CParticleDataFactory::GetClassID(in);
     if (CheckAndAddResourcesToResponse(clsId, in, sp)) {
