@@ -24,8 +24,6 @@ float CStreamAudioManager::mCurrentVolume = 0.f;
 float CStreamAudioManager::mVolumeIncrement = 0.f;
 float CStreamAudioManager::mVolumeIncrement2 = 0.f;
 
-static void PlayTrack(const rstl::string& fileName);
-
 SDSPStreamCacheEntry::SDSPStreamCacheEntry()
 : x0_fileName(rstl::string_l(""))
 , x10_playState(0)
