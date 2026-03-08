@@ -37,8 +37,10 @@ CDSPStreamManager::CDSPStreamManager(const rstl::string& fileName, int handle, c
 }
 
 CDSPStreamManager::CDSPStreamManager()
-: x60_fileName(rstl::string_l("")), x70_24_unclaimed(true), x70_25_headerReadCancelled(false),
-  x70_26_headerReadState(0) {
+: x60_fileName(rstl::string_l(""))
+, x70_24_unclaimed(true)
+, x70_25_headerReadCancelled(false)
+, x70_26_headerReadState(0) {
   x71_companionRight = -1;
   x72_companionLeft = -1;
   x73_volume = 0;
@@ -72,28 +74,6 @@ void CDSPStreamManager::WaitForReadCompletion() {
   }
   OSRestoreInterrupts(ints);
 }
-
-// CDSPStreamManager& CDSPStreamManager::operator=(const CDSPStreamManager& other) {
-//   if (this != NULL) {
-//     x60_fileName.~string();
-//   }
-
-//   if (this != NULL) {
-//     x0_header = other.x0_header;
-//     new (&x60_fileName) rstl::string(other.x60_fileName);
-//     *reinterpret_cast< uchar* >(reinterpret_cast< char* >(this) + 0x70) =
-//         *reinterpret_cast< const uchar* >(reinterpret_cast< const char* >(&other) + 0x70);
-//     x71_companionRight = other.x71_companionRight;
-//     x72_companionLeft = other.x72_companionLeft;
-//     x73_volume = other.x73_volume;
-//     x74_oneshot = other.x74_oneshot;
-//     x78_handleId = other.x78_handleId;
-//     x7c_streamId = other.x7c_streamId;
-//     x80_dvdFile = other.x80_dvdFile;
-//   }
-
-//   return *this;
-// }
 
 void CDSPStreamManager::Initialize() {
   CDSPStream::Initialize();
@@ -176,47 +156,22 @@ int CDSPStreamManager::StartStreaming(const rstl::string& fileName, char volume,
 }
 
 int CDSPStreamManager::FindUnclaimedStreamIdx() {
-  if (g_Streams[0].x70_24_unclaimed) {
-    return 0;
-  }
-  CDSPStreamManager* s = &g_Streams[1];
-  if (s->x70_24_unclaimed) {
-    return 1;
-  }
-  if (s[1].x70_24_unclaimed) {
-    return 2;
-  }
-  if (s[2].x70_24_unclaimed) {
-    return 3;
+  for (int i = 0; i < 4; ++i) {
+    if (g_Streams[i].x70_24_unclaimed) {
+      return i;
+    }
   }
   return -1;
 }
 
 bool CDSPStreamManager::FindUnclaimedStereoPair(int& left, int& right) {
   const int idx = FindUnclaimedStreamIdx();
-  CDSPStreamManager* s = g_Streams;
-  if (s->x70_24_unclaimed && idx != 0) {
-    left = idx;
-    right = 0;
-    return true;
-  }
-  s++;
-  if (s->x70_24_unclaimed && idx != 1) {
-    left = idx;
-    right = 1;
-    return true;
-  }
-  s++;
-  if (s->x70_24_unclaimed && idx != 2) {
-    left = idx;
-    right = 2;
-    return true;
-  }
-  s++;
-  if (s->x70_24_unclaimed && idx != 3) {
-    left = idx;
-    right = 3;
-    return true;
+  for (int i = 0; i < 4; ++i) {
+    if (g_Streams[i].x70_24_unclaimed && idx != i) {
+      left = idx;
+      right = i;
+      return true;
+    }
   }
   return false;
 }
@@ -224,33 +179,18 @@ bool CDSPStreamManager::FindUnclaimedStereoPair(int& left, int& right) {
 int CDSPStreamManager::GetFreeHandleId() {
   const bool ints = OSDisableInterrupts();
   for (;;) {
+    int handle = ++sHandleCounter;
     bool good = true;
-    int handle = sHandleCounter + 1;
     if (handle == -1) {
       good = false;
     } else {
-      if (!g_Streams[0].x70_24_unclaimed) {
-        if (handle == g_Streams[0].x78_handleId) {
+      for (int i = 0; i < 4; ++i) {
+        if (!g_Streams[i].x70_24_unclaimed && handle == g_Streams[i].x78_handleId) {
           good = false;
-        }
-      }
-      if (!g_Streams[1].x70_24_unclaimed) {
-        if (handle == g_Streams[1].x78_handleId) {
-          good = false;
-        }
-      }
-      if (!g_Streams[2].x70_24_unclaimed) {
-        if (handle == g_Streams[2].x78_handleId) {
-          good = false;
-        }
-      }
-      if (!g_Streams[3].x70_24_unclaimed) {
-        if (handle == g_Streams[3].x78_handleId) {
-          good = false;
+          break;
         }
       }
     }
-    sHandleCounter = handle;
     if (good) {
       OSRestoreInterrupts(ints);
       return handle;
@@ -259,21 +199,10 @@ int CDSPStreamManager::GetFreeHandleId() {
 }
 
 int CDSPStreamManager::FindClaimedStreamIdx(int handle) {
-  CDSPStreamManager* s = g_Streams;
-  if (!s->x70_24_unclaimed && handle == s->x78_handleId) {
-    return 0;
-  }
-  s = reinterpret_cast< CDSPStreamManager* >(reinterpret_cast< char* >(s) + 0xc0);
-  if (!s->x70_24_unclaimed && handle == s->x78_handleId) {
-    return 1;
-  }
-  s = reinterpret_cast< CDSPStreamManager* >(reinterpret_cast< char* >(s) + 0xc0);
-  if (!s->x70_24_unclaimed && handle == s->x78_handleId) {
-    return 2;
-  }
-  s = reinterpret_cast< CDSPStreamManager* >(reinterpret_cast< char* >(s) + 0xc0);
-  if (!s->x70_24_unclaimed && handle == s->x78_handleId) {
-    return 3;
+  for (int i = 0; i < 4; ++i) {
+    if (!g_Streams[i].x70_24_unclaimed && handle == g_Streams[i].x78_handleId) {
+      return i;
+    }
   }
   return -1;
 }
@@ -443,7 +372,8 @@ void CDSPStreamManager::HeaderReadComplete(s32 result, DVDFileInfo* fileInfo) {
         const int compOff = companion;
         const uchar compState = g_Streams[compOff].x70_26_headerReadState;
         if (g_Streams[compOff].x70_24_unclaimed || compState == 0 ||
-            (idx != g_Streams[compOff].x71_companionRight && idx != g_Streams[compOff].x72_companionLeft)) {
+            (idx != g_Streams[compOff].x71_companionRight &&
+             idx != g_Streams[compOff].x72_companionLeft)) {
           *stream = CDSPStreamManager();
           OSRestoreInterrupts(ints);
           return;
@@ -468,19 +398,21 @@ void CDSPStreamManager::HeaderReadComplete(s32 result, DVDFileInfo* fileInfo) {
 
 void CDSPStreamManager::AllocateStream(int idx) {
   CDSPStreamManager& stream = g_Streams[idx];
-  SDSPStreamInfo info(stream);
+  SDSPStreamInfo info = SDSPStreamInfo(stream);
   if (stream.x71_companionRight == -1) {
     if (!stream.x70_25_headerReadCancelled) {
-      stream.x7c_streamId = CDSPStream::AllocateMono(info, stream.x73_volume, '@', stream.x74_oneshot);
+      stream.x7c_streamId =
+          CDSPStream::AllocateMono(info, stream.x73_volume, '@', stream.x74_oneshot);
     }
     if (stream.x7c_streamId == -1) {
       stream = CDSPStreamManager();
     }
   } else {
     CDSPStreamManager& rstream = g_Streams[stream.x71_companionRight];
-    SDSPStreamInfo rinfo(rstream);
+    SDSPStreamInfo rinfo = SDSPStreamInfo(rstream);
     if (!stream.x70_25_headerReadCancelled) {
-      stream.x7c_streamId = CDSPStream::AllocateStereo(info, rinfo, stream.x73_volume, stream.x74_oneshot);
+      stream.x7c_streamId =
+          CDSPStream::AllocateStereo(info, rinfo, stream.x73_volume, stream.x74_oneshot);
     }
     if (stream.x7c_streamId == -1) {
       stream = CDSPStreamManager();
