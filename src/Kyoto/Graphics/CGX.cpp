@@ -6,9 +6,16 @@
 
 CGX::SGXState CGX::sGXState;
 
+#if NONMATCHING
+// Doesn't need to be so big
+static GXVtxDescList sVtxDescList[12];
+#else
+static GXVtxDescList sVtxDescList[30];
+#endif
+
 #define CGX_INLINE
 
-#include "Kyoto/Graphics/CGX_Impl.hpp"
+#include "Kyoto/Graphics/CGX_Impl.hpp" // IWYU pragma: keep
 
 CGX::SGXState::SGXState()
 : x48_descList(0)

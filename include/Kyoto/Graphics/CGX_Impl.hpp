@@ -10,13 +10,6 @@
 #define CGX_INLINE inline
 #endif
 
-#if NONMATCHING
-// Doesn't need to be so big
-static GXVtxDescList sVtxDescList[12];
-#else
-static GXVtxDescList sVtxDescList[30];
-#endif
-
 CGX_INLINE void CGX::SetNumChans(uchar num) {
   sGXState.x4e_numChans = num;
   sGXState.x4c_flags.numDirty = sGXState.x4e_numChans != sGXState.x4d_prevNumChans;
