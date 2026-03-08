@@ -9,6 +9,7 @@
 #include "Kyoto/Alloc/CMemory.hpp"
 #include "Kyoto/Basics/CCast.hpp"
 
+#include "Kyoto/Math/CloseEnough.hpp"
 #include "rstl/math.hpp"
 
 #include "MetroidPrime/CRipple.hpp"
@@ -578,15 +579,15 @@ void CFluidPlaneCPU::RenderSetup(const CStateManager& mgr, float alpha, const CT
   if (HasBumpMap() && sRenderBumpMaps) {
     hasBumpMap = true;
   }
-  uchar hasLightmap = HasLightMap();
+  bool hasLightmap = HasLightMap();
   int envMapType;
   if (mgr.GetCameraManager()->GetFluidCounter() != 0) {
     envMapType = 0;
   } else {
-    uchar hasEnv = HasEnvMap();
+    bool hasEnv = HasEnvMap();
     envMapType = sFluidEnvMapType & ((-hasEnv | hasEnv) >> 31);
   }
-  uchar hasEnvBumpMap = HasEnvBumpMap();
+  bool hasEnvBumpMap = HasEnvBumpMap();
 
   InitializeSineWave();
 
@@ -598,8 +599,7 @@ void CFluidPlaneCPU::RenderSetup(const CStateManager& mgr, float alpha, const CT
   if (hasBumpMap) {
     CColor bumpLightColor(0.5f, 0.5f, 0.5f, 1.f);
     CLight bumpLight = CLight::BuildDirectional(GetBumpLightDir().AsNormalized(), bumpLightColor);
-    CLight light(bumpLight);
-    CGraphics::LoadLight(kLight3, light);
+    CGraphics::LoadLight(kLight3, bumpLight);
     CGX::SetNumChans(2);
     CGX::SetChanCtrl(CGX::Channel1, true, GX_SRC_REG, GX_SRC_REG, GX_LIGHT3, GX_DF_CLAMP,
                      GX_AF_SPOT);
@@ -612,12 +612,8 @@ void CFluidPlaneCPU::RenderSetup(const CStateManager& mgr, float alpha, const CT
   } else {
     CGX::SetNumChans(2);
     CGX::SetChanCtrl(CGX::Channel1, true, GX_SRC_REG, GX_SRC_REG,
-                     (GXLightID)CGraphics::GetLightMask(), GX_DF_CLAMP, GX_AF_SPOT);
-    const GXColor* matColor = &ambColor;
-    if (CGraphics::GetLightMask() != 0) {
-      matColor = &white;
-    }
-    CGX::SetChanMatColor(CGX::Channel1, *matColor);
+                     static_cast< GXLightID >(CGraphics::GetLightMask()), GX_DF_CLAMP, GX_AF_SPOT);
+    CGX::SetChanMatColor(CGX::Channel1, CGraphics::GetLightMask() != 0 ? white : ambColor);
     if (hasLightmap) {
       CGX::SetChanAmbColor(CGX::Channel1, ambColor);
     }
@@ -814,7 +810,7 @@ void CFluidPlaneCPU::RenderSetup(const CStateManager& mgr, float alpha, const CT
 
     const CScriptWater* nextWater = water->GetNextConnectedWater(mgr);
 
-    if (fabs(water->GetMorphFactor() - 0.f) < FLT_EPSILON || nextWater == NULL ||
+    if (close_enough(water->GetMorphFactor(), 0.f) || nextWater == NULL ||
         !nextWater->GetFluidPlane().HasLightMap()) {
       texMapIds[6] = nextTexMap;
       GetLightMap()->Load((GXTexMapID)nextTexMap, CTexture::kCM_Repeat);
@@ -824,7 +820,17 @@ void CFluidPlaneCPU::RenderSetup(const CStateManager& mgr, float alpha, const CT
                           GX_PTIDENTITY);
       nextCoord += 1;
     } else if (nextWater != NULL && nextWater->GetFluidPlane().HasLightMap()) {
-      if (fabs(water->GetMorphFactor() - 1.f) >= FLT_EPSILON) {
+      if (close_enough(water->GetMorphFactor(), 1.f)) {
+        texMapIds[6] = nextTexMap;
+        nextWater->GetFluidPlane().GetLightMap()->Load((GXTexMapID)nextTexMap,
+                                                       CTexture::kCM_Repeat);
+        const_cast< CFluidPlaneCPU& >(nextWater->GetFluidPlane())
+            .CalculateLightmapMtx(areaXf, xf, aabb, texMtx);
+        texCoordIds[6] = nextCoord;
+        CGX::SetTexCoordGen((GXTexCoordID)nextCoord, GX_TG_MTX2x4, GX_TG_POS, (GXTexMtx)texMtx,
+                            false, GX_PTIDENTITY);
+        nextCoord += 1;
+      } else {
         texMapIds[6] = nextTexMap;
         GetLightMap()->Load((GXTexMapID)nextTexMap, CTexture::kCM_Repeat);
         const_cast< CFluidPlaneCPU* >(this)->CalculateLightmapMtx(areaXf, xf, aabb, texMtx);
@@ -848,16 +854,6 @@ void CFluidPlaneCPU::RenderSetup(const CStateManager& mgr, float alpha, const CT
         CColor kColor3(morphVal, morphVal, morphVal, 1.f);
         CGX::SetTevKColor(GX_KCOLOR3, kColor3.GetGXColor());
         hasDoubleLightmap = true;
-      } else {
-        texMapIds[6] = nextTexMap;
-        nextWater->GetFluidPlane().GetLightMap()->Load((GXTexMapID)nextTexMap,
-                                                       CTexture::kCM_Repeat);
-        const_cast< CFluidPlaneCPU& >(nextWater->GetFluidPlane())
-            .CalculateLightmapMtx(areaXf, xf, aabb, texMtx);
-        texCoordIds[6] = nextCoord;
-        CGX::SetTexCoordGen((GXTexCoordID)nextCoord, GX_TG_MTX2x4, GX_TG_POS, (GXTexMtx)texMtx,
-                            false, GX_PTIDENTITY);
-        nextCoord += 1;
       }
     }
     float lightmapVal = lightmapAlpha * darkLevel;
@@ -897,37 +893,6 @@ void CFluidPlaneCPU::RenderSetup(const CStateManager& mgr, float alpha, const CT
   int nextStage = 0;
 
   switch (fluidType) {
-  case kFT_Lava: {
-    CGX::SetTevOrder(GX_TEVSTAGE0, (GXTexCoordID)texCoordIds[0], (GXTexMapID)texMapIds[0],
-                     GX_COLOR0A0);
-    CGX::SetTevColorIn(GX_TEVSTAGE0, GX_CC_ZERO, GX_CC_TEXC, GX_CC_KONST, GX_CC_RASC);
-    CGX::SetTevColorOp(GX_TEVSTAGE0, GX_TEV_ADD, GX_TB_ZERO, GX_CS_SCALE_1, true, GX_TEVPREV);
-    CGX::SetTevKColorSel(GX_TEVSTAGE0, GX_TEV_KCSEL_K0);
-    CGX::SetTevOrder(GX_TEVSTAGE1, (GXTexCoordID)texCoordIds[1], (GXTexMapID)texMapIds[1],
-                     GX_COLOR0A0);
-    CGX::SetTevColorIn(GX_TEVSTAGE1, GX_CC_ZERO, GX_CC_TEXC, GX_CC_CPREV, GX_CC_RASC);
-    CGX::SetTevColorOp(GX_TEVSTAGE1, GX_TEV_ADD, GX_TB_ZERO, GX_CS_SCALE_1, true, GX_TEVPREV);
-    CGX::SetTevOrder(GX_TEVSTAGE2, (GXTexCoordID)texCoordIds[2], (GXTexMapID)texMapIds[2],
-                     GX_COLOR_NULL);
-    CGX::SetTevColorIn(GX_TEVSTAGE2, GX_CC_ZERO, GX_CC_TEXC, GX_CC_ONE, GX_CC_CPREV);
-    CGX::SetTevColorOp(GX_TEVSTAGE2, GX_TEV_ADD, GX_TB_ZERO, GX_CS_SCALE_1, true, GX_TEVPREV);
-    nextStage = 3;
-    if (hasBumpMap) {
-      CGX::SetTevOrder(GX_TEVSTAGE3, (GXTexCoordID)texCoordIds[3], (GXTexMapID)texMapIds[3],
-                       GX_COLOR_NULL);
-      CGX::SetTevColorIn(GX_TEVSTAGE3, GX_CC_ZERO, GX_CC_TEXC, GX_CC_ONE, GX_CC_HALF);
-      CGX::SetTevColorOp(GX_TEVSTAGE3, GX_TEV_ADD, GX_TB_ZERO, GX_CS_SCALE_1, false, GX_TEVREG0);
-      CGX::SetTevOrder(GX_TEVSTAGE4, (GXTexCoordID)(texCoordIds[3] + 1), (GXTexMapID)texMapIds[3],
-                       GX_COLOR_NULL);
-      CGX::SetTevColorIn(GX_TEVSTAGE4, GX_CC_ZERO, GX_CC_TEXC, GX_CC_ONE, GX_CC_C0);
-      CGX::SetTevColorOp(GX_TEVSTAGE4, GX_TEV_SUB, GX_TB_ZERO, GX_CS_SCALE_1, true, GX_TEVREG0);
-      CGX::SetTevOrder(GX_TEVSTAGE5, GX_TEXCOORD_NULL, GX_TEXMAP_NULL, GX_COLOR_NULL);
-      CGX::SetTevColorIn(GX_TEVSTAGE5, GX_CC_ZERO, GX_CC_CPREV, GX_CC_C0, GX_CC_ZERO);
-      CGX::SetTevColorOp(GX_TEVSTAGE5, GX_TEV_ADD, GX_TB_ZERO, GX_CS_SCALE_2, true, GX_TEVPREV);
-      nextStage = 6;
-    }
-    break;
-  }
   case kFT_NormalWater:
   case kFT_PhazonFluid:
   case kFT_Four: {
@@ -1054,6 +1019,37 @@ void CFluidPlaneCPU::RenderSetup(const CStateManager& mgr, float alpha, const CT
                           GX_ITM_0, GX_ITW_OFF, GX_ITW_OFF, false, false, GX_ITBA_OFF);
     }
     nextStage += 3;
+    break;
+  }
+  case kFT_Lava: {
+    CGX::SetTevOrder(GX_TEVSTAGE0, (GXTexCoordID)texCoordIds[0], (GXTexMapID)texMapIds[0],
+                     GX_COLOR0A0);
+    CGX::SetTevColorIn(GX_TEVSTAGE0, GX_CC_ZERO, GX_CC_TEXC, GX_CC_KONST, GX_CC_RASC);
+    CGX::SetTevColorOp(GX_TEVSTAGE0, GX_TEV_ADD, GX_TB_ZERO, GX_CS_SCALE_1, true, GX_TEVPREV);
+    CGX::SetTevKColorSel(GX_TEVSTAGE0, GX_TEV_KCSEL_K0);
+    CGX::SetTevOrder(GX_TEVSTAGE1, (GXTexCoordID)texCoordIds[1], (GXTexMapID)texMapIds[1],
+                     GX_COLOR0A0);
+    CGX::SetTevColorIn(GX_TEVSTAGE1, GX_CC_ZERO, GX_CC_TEXC, GX_CC_CPREV, GX_CC_RASC);
+    CGX::SetTevColorOp(GX_TEVSTAGE1, GX_TEV_ADD, GX_TB_ZERO, GX_CS_SCALE_1, true, GX_TEVPREV);
+    CGX::SetTevOrder(GX_TEVSTAGE2, (GXTexCoordID)texCoordIds[2], (GXTexMapID)texMapIds[2],
+                     GX_COLOR_NULL);
+    CGX::SetTevColorIn(GX_TEVSTAGE2, GX_CC_ZERO, GX_CC_TEXC, GX_CC_ONE, GX_CC_CPREV);
+    CGX::SetTevColorOp(GX_TEVSTAGE2, GX_TEV_ADD, GX_TB_ZERO, GX_CS_SCALE_1, true, GX_TEVPREV);
+    nextStage = 3;
+    if (hasBumpMap) {
+      CGX::SetTevOrder(GX_TEVSTAGE3, (GXTexCoordID)texCoordIds[3], (GXTexMapID)texMapIds[3],
+                       GX_COLOR_NULL);
+      CGX::SetTevColorIn(GX_TEVSTAGE3, GX_CC_ZERO, GX_CC_TEXC, GX_CC_ONE, GX_CC_HALF);
+      CGX::SetTevColorOp(GX_TEVSTAGE3, GX_TEV_ADD, GX_TB_ZERO, GX_CS_SCALE_1, false, GX_TEVREG0);
+      CGX::SetTevOrder(GX_TEVSTAGE4, (GXTexCoordID)(texCoordIds[3] + 1), (GXTexMapID)texMapIds[3],
+                       GX_COLOR_NULL);
+      CGX::SetTevColorIn(GX_TEVSTAGE4, GX_CC_ZERO, GX_CC_TEXC, GX_CC_ONE, GX_CC_C0);
+      CGX::SetTevColorOp(GX_TEVSTAGE4, GX_TEV_SUB, GX_TB_ZERO, GX_CS_SCALE_1, true, GX_TEVREG0);
+      CGX::SetTevOrder(GX_TEVSTAGE5, GX_TEXCOORD_NULL, GX_TEXMAP_NULL, GX_COLOR_NULL);
+      CGX::SetTevColorIn(GX_TEVSTAGE5, GX_CC_ZERO, GX_CC_CPREV, GX_CC_C0, GX_CC_ZERO);
+      CGX::SetTevColorOp(GX_TEVSTAGE5, GX_TEV_ADD, GX_TB_ZERO, GX_CS_SCALE_2, true, GX_TEVPREV);
+      nextStage = 6;
+    }
     break;
   }
   case kFT_ThickLava: {

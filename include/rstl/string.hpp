@@ -114,6 +114,7 @@ public:
 
   int _eq_helper(const basic_string& other) const;
   bool operator==(const basic_string& other) const;
+  bool operator!=(const basic_string& other) const;
   bool operator<(const basic_string& other) const;
 
   const _CharTp* data() const { return x0_ptr; }
@@ -124,6 +125,11 @@ public:
 template < typename _CharTp, typename Traits, typename Alloc >
 bool basic_string< _CharTp, Traits, Alloc >::operator==(const basic_string& other) const {
   return _eq_helper(other) == 0;
+}
+
+template < typename _CharTp, typename Traits, typename Alloc >
+bool basic_string< _CharTp, Traits, Alloc >::operator!=(const basic_string& other) const {
+  return _eq_helper(other) != 0;
 }
 
 template < typename _CharTp, typename Traits, typename Alloc >
@@ -163,6 +169,12 @@ string operator+(const string& a, const string& b);
 static inline string operator+(const string& a, char c) {
   string result(a);
   result.append(1, c);
+  return result;
+}
+
+static inline string operator+(const string& a, const char* c) {
+  string result(a);
+  result.append(c, -1);
   return result;
 }
 

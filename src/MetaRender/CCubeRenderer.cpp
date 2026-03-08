@@ -2581,7 +2581,7 @@ void CCubeRenderer::CopyTex(int div, bool half, void* dest, GXTexFmt fmt, bool c
   CGraphics::SetClearColor(clearColor);
 
   GXSetColorUpdate(false);
-  if (dest == 0) {
+  if (dest == nullptr) {
     dest = CGraphics::mpSpareBuffer;
   }
   GXCopyTex(dest, clear);
@@ -2994,9 +2994,7 @@ void CCubeRenderer::AllocatePhazonSuitMaskTexture() {
   x310_phazonSuitMaskCountdown = 2;
 }
 
-void CCubeRenderer::DrawXRayOutline(const CModel& model, const float*, const float*) {
-  const CAABox& bounds = reinterpret_cast< const CAABox& >(model);
-
+void CCubeRenderer::DrawXRayOutline(const CAABox& bounds, const float*, const float*) {
   for (AUTO(it, x1c_areaListItems.begin()); it != x1c_areaListItems.end(); ++it) {
     const CAreaRenderOctTree* octTree = it->x4_octTree;
     if (octTree == 0) {

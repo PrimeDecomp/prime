@@ -157,10 +157,13 @@ public:
   CAABox GetAreaModelBounds(int areaIdx, int modelIdx) override;
   void PrepareDynamicLights(const rstl::vector< CLight >& lights) override;
 
-  void DrawXRayOutline(const CModel&, const float*, const float*);
+  void DrawXRayOutline(const CAABox&, const float*, const float*);
   void FindOverlappingWorldModels(rstl::vector< uint >&, const CAABox&);
   int DrawOverlappingWorldModelIDs(int, rstl::vector< uint >&, const CAABox&, int, int);
   void DrawOverlappingWorldModelShadows(int, rstl::vector< uint >&, const CAABox&, int, int);
+
+  bool GetThermal() const { return x318_29_thermalVisor; }
+  bool GetInAreaDraw() const { return x318_30_inAreaDraw; }
 
   void AllocatePhazonSuitMaskTexture();
   void DrawPhazonSuitIndirectEffect(const CColor&,
@@ -191,6 +194,8 @@ public:
   static void* GetRenderToTexBuffer(int);
 
   void SetRequestRGBA6(bool req) { x318_26_requestRGBA6 = req; }
+  bool GetReflectionFlag() const { return x318_24_reflectionDirty; }
+  void SetReflectionFlag() { x318_24_reflectionDirty = true; }
   CTexture* GetRealReflection();
   const CPlane& GetViewPlane() const { return xb0_viewPlane; }
   const CTexture& GetZeroTexture() const { return xe4_blackTex; }

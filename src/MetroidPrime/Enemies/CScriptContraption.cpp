@@ -104,12 +104,11 @@ void CScriptContraption::DoUserAnimEvent(CStateManager& mgr, const CInt32POINode
   case kUE_DamageOff:
     for (rstl::list< SFlameThrower >::iterator uid = x2e8_children.begin();
          uid != x2e8_children.end(); ++uid) {
-      if (!(uid->name == node.GetLocatorName())) {
-        continue;
-      }
-      CFlameThrower* act = static_cast< CFlameThrower* >(mgr.ObjectById(uid->id));
-      if (act && act->GetParticlesActive()) {
-        act->Reset(mgr, false);
+      if (uid->name == node.GetLocatorName()) {
+        CFlameThrower* act = static_cast< CFlameThrower* >(mgr.ObjectById(uid->id));
+        if (act && act->GetParticlesActive()) {
+          act->Reset(mgr, false);
+        }
       }
     }
     break;

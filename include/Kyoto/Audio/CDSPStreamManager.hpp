@@ -54,5 +54,6 @@ private:
   DVDFileInfo x80_dvdFile;
   uchar xbc_pad[4];
 };
+CHECK_SIZEOF(CDSPStreamManager, 0xC0);
 
 #endif // _CDSPSTREAMMANAGER

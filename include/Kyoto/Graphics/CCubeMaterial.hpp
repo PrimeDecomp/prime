@@ -28,6 +28,7 @@ class CCubeMaterial {
 public:
   explicit CCubeMaterial(const void* data) : x0_data(data) {}
   static void ResetCachedMaterials();
+  static void EnsureViewDepStateCached(const CCubeSurface* surface);
   static void EnsureTevsDirect();
   static void KillCachedViewDepState();
 
@@ -36,6 +37,7 @@ public:
   bool IsFlagSet(const EStateFlags flag) const { return (GetFlags() & flag) != 0; }
   void SetCurrent(const CModelFlags& flags, const CCubeSurface& surface,
                   const CCubeModel& mode) const;
+  void SetCurrentBlack() const;
   uint GetTextureCount() const { return *reinterpret_cast< const u32* >(GetData() + 4); }
   uint GetVertexDesc() const {
     return reinterpret_cast< const uint* >(x0_data)[GetTextureCount() + 2];
@@ -47,6 +49,9 @@ public:
 
 private:
   static void SetupBlendMode(uint blendFactors, const CModelFlags& flags, bool alphaTest);
+  static uint HandleReflection(bool usesTevReg2, GXTexMapID indTexSlot, int indMtxScaleExp,
+                               uint finalTevCount, uint texCount, uint tcgCount,
+                               uint finalKColorCount, uint& finalCCFlags, uint& finalACFlags);
 
   static CVector3f sViewingFrom;
   const void* x0_data;

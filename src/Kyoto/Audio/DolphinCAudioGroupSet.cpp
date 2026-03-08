@@ -16,7 +16,8 @@ CAudioGroupSet::~CAudioGroupSet() {}
 void CAudioGroupSet::Reload() {}
 
 void CAudioGroupSet::FreeSampleBuffer() { x20_groupSetTok.data()->FreeSampleBuffer(); }
-CAudioGrpSetLoc::CAudioGrpSetLoc(const rstl::auto_ptr< uchar >& data, const int length)
+
+CAudioGrpSetLoc::CAudioGrpSetLoc(const rstl::auto_ptr< uchar >& data, int length)
 : x0_data(data.release()), x30_aramSize(0), x34_(0), x38_(0), x3c_(0), x40_(0) {
   uint readPosition;
   const uint poolSize = ReadHeader(data.get(), length, readPosition);

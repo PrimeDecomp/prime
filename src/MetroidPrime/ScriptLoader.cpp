@@ -48,7 +48,7 @@
 #include "MetroidPrime/ScriptObjects/CScriptSpecialFunction.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptSpiderBallAttractionSurface.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptSteam.hpp"
-#include "MetroidPrime/ScriptObjects/CScriptStreamedAudio.hpp"
+#include "MetroidPrime/ScriptObjects/CScriptStreamedMusic.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptSwitch.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptTargetingPoint.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptTimer.hpp"

@@ -6,7 +6,7 @@
 
 class CStringExtras {
 public:
-  static int IndexOfSubstring(const rstl::string&, const rstl::string&);
+  static int FindCaseInsensitive(const rstl::string&, const rstl::string&);
   static int CompareCaseInsensitive(const rstl::string&, const rstl::string&);
   static char ConvertToUpperCase(char c);
   static rstl::string CreateFromInteger(int v);

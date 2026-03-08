@@ -25,9 +25,10 @@ public:
   static void RunDMACallback(FAudioCallback);
   static void CancelDMACallback(FAudioCallback);
   void Decode(const ushort* bufIn, ushort* bufOut, int numSamples);
-  void DecodeMonoAndMix(const ushort* bufIn, ushort* bufOut, const int curSample,
-                        const int sampleEnd, const int sampleStart, ushort vol, g72x_state& state);
-  void SetVolume(uchar vol);
+  void DecodeMonoAndMix(ushort* bufIn, ushort* bufOut, int numSamples,
+                        int curSample, int sampleEnd, int sampleStart,
+                        int vol, g72x_state& state);
+  void SetVolume(char vol);
 
 private:
   rstl::string x0_filepath;

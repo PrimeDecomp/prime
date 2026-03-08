@@ -4,12 +4,15 @@
 #include "musyx/musyx.h"
 #include "types.h"
 
+#include "dolphin/dtk.h"
+
 #include "rstl/map.hpp"
 #include "rstl/rc_ptr.hpp"
 #include "rstl/string.hpp"
 #include "rstl/vector.hpp"
 
 #include "Kyoto/Math/CVector3f.hpp"
+#include "Kyoto/TToken.hpp"
 
 class CAudioGroupSet;
 class CSimplePool;
@@ -20,8 +23,15 @@ enum ETRKSampleRate {
   // TODO
 };
 
+enum ETRKPlayState {
+  kTPS_Stopped,
+  kTPS_Playing,
+};
+
 enum ETRKRepeatMode {
-  // TODO
+  kTRM_NoRepeat,
+  kTRM_RepeatOne,
+  kTRM_RepeatAll,
 };
 
 class CAudioSys {
@@ -65,7 +75,19 @@ public:
     uchar x29_prio;
   };
 
-  class CTrkData {};
+  class CTrkData {
+  public:
+    CTrkData(const rstl::string& name) : x50_inUse(true), x54_name(name) {}
+
+    bool GetIsTrackInUse() const { return x50_inUse; }
+    void SetIsTrackInUse(bool v) { x50_inUse = v; }
+    DTKTrack* GetTrack() { return &x0_track; }
+    char* GetFileName() { return const_cast< char* >(x54_name.data()); }
+
+    DTKTrack x0_track;
+    bool x50_inUse;
+    rstl::string x54_name;
+  };
 
   CAudioSys(uchar, uchar, uchar, uchar, uint);
   ~CAudioSys();
@@ -73,22 +95,38 @@ public:
   static void SysSetVolume(uchar, ushort, uchar);
   static void SysSetSfxVolume(uchar, ushort, uchar, uchar);
   static bool SysLoadGroupSet(CSimplePool*, uint);
+  static bool SysLoadGroupSet(TLockedToken< CAudioGroupSet >, rstl::string, uint);
   static const rstl::string& SysGetGroupSetName(uint);
   static bool SysPushGroupIntoARAM(const rstl::string& name, uchar);
   static void SysPopGroupFromARAM();
   static void SysUnloadGroupSet(const rstl::string& name);
-  static void SysUnloadSampleData(const rstl::string& name);
+  static bool SysUnloadSampleData(const rstl::string& name);
+  static bool SysIsGroupSetLoaded(const rstl::string& name);
+  static rstl::ncrc_ptr< CAudioGroupSet > FindGroupSet(const rstl::string& name);
+  static rstl::ncrc_ptr< CTrkData > FindTrack(const rstl::string& name);
 
   static void SetDefaultVolumeScale(short);
   static void SetVolumeScale(short);
+  static void SetVerbose(bool verbose) { mVerbose = verbose; }
+  static void EnableProLogic2(bool enabled) { mProLogic2 = enabled; }
+  static void TrkFlushTracks();
+  static void TrkSetState(ETRKPlayState);
+  static ETRKPlayState TrkGetState();
+  static void TrkSetVolume(uchar, uchar);
+  static void TrkSetRepeatMode(ETRKRepeatMode);
+  static void TrkNextTrack();
+  static int TrkQueueTrack(const rstl::string&, void (*)(unsigned long), uint);
+
   static void SetStereoMode(const bool mode);
   static void SetSurroundMode(const ESurroundModes mode);
+  static ESurroundModes GetSurroundMode() { return mSurroundMode; }
   static void TrkSetSampleRate(ETRKSampleRate);
 
   static short GetDefaultVolumeScale();
   static bool GetVerbose();
 
-  static SND_VOICEID SfxStart(const SND_FXID, const uchar, const uchar, const uchar);
+  static SND_VOICEID SfxStart(const SND_FXID, const uchar vol, const uchar pan,
+                             const uchar prio);
   static void SfxStop(SND_VOICEID handle);
   static void SfxCtrl(const SND_VOICEID handle, const uchar ctrl, const uchar val);
   static SND_VOICEID SfxCheck(SND_VOICEID handle);
@@ -144,8 +182,8 @@ public:
   static uint mMaxAramUsage;
   static uint mCurrentAramUsage;
   static bool mProLogic2;
-  static ushort mVolumeScale;
-  static ushort mDefaultVolumeScale;
+  static short mVolumeScale;
+  static short mDefaultVolumeScale;
   static const uchar kMaxVolume;
   static const uchar kEmitterMedPriority;
   static const ushort kVolumeTable[];

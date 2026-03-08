@@ -1712,7 +1712,7 @@ MetroidPrime/ScriptObjects/CScriptMidi.cpp:
 	.data       start:0x803E7048 end:0x803E7068
 	.sdata2     start:0x805ACEC8 end:0x805ACED8
 
-MetroidPrime/ScriptObjects/CScriptStreamedAudio.cpp:
+MetroidPrime/ScriptObjects/CScriptStreamedMusic.cpp:
 	.text       start:0x8020BE1C end:0x8020C854
 	.rodata     start:0x803D2778 end:0x803D2790
 	.data       start:0x803E7068 end:0x803E70D0

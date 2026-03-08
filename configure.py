@@ -1023,7 +1023,7 @@ config.libs = [
             ),
             Object(NonMatching, "MetroidPrime/CWorldTransManager.cpp"),
             Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptMidi.cpp"),
-            Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptStreamedAudio.cpp"),
+            Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptStreamedMusic.cpp"),
             Object(NonMatching, "MetroidPrime/CRagDoll.cpp"),
             Object(NonMatching, "MetroidPrime/Player/CGameOptions.cpp"),
             Object(

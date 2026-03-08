@@ -11,6 +11,7 @@ class IObjectStore;
 class CTexture;
 class CTransform4f;
 class CCubeSurface;
+class CStopwatch;
 
 enum ESurfaceSelection {
   kSS_Unsorted,
@@ -60,6 +61,7 @@ public:
   static void SetModelWireframe(bool v);
   static void DisableShadowMaps();
   static void EnableShadowMaps(const CTexture*, const CTransform4f&, unsigned char, unsigned char);
+  static void SetNewPlayerPositionAndTime(const CVector3f&, const CStopwatch&);
   static void SetDrawingOccluders(bool);
   static void MakeTexturesFromMats(const void* data,
                                    rstl::vector< TCachedToken< CTexture > >& textures,
@@ -78,6 +80,7 @@ public:
   void SetArraysCurrent() const;
   void SetSkinningArraysCurrent(const float* positions, const float* normals) const;
   void SetUsingPackedLightmaps(const bool use) const;
+  static bool IsUsingPackedLightmaps() { return sUsingPackedLightmaps; }
   void DrawFlat(const float* positions, const float* normals, ESurfaceSelection which) const;
   void DrawSurface(const CCubeSurface& surface, const CModelFlags& modelFlags) const;
   void DrawSurfaceWireframe(const CCubeSurface& surface) const;

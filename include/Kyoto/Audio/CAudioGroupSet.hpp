@@ -51,6 +51,7 @@ public:
   void Reload();
   void FreeSampleBuffer();
   void FreeAllBuffers();
+  const rstl::string& GetName() const { return x10_groupSetName; }
 
 private:
   rstl::string x0_baseDir;
