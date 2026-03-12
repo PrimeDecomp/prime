@@ -1270,17 +1270,20 @@ MetroidPrime/Player/CPlayerOrbit.cpp:
 	.sdata2     start:0x805ABF50 end:0x805ABFC8
 
 MetroidPrime/CGameCollision.cpp:
-	.text       start:0x8017FB84 end:0x80185828
+	.text       start:0x8017FB84 end:0x8018543C
 	.rodata     start:0x803D0690 end:0x803D06D0
-	.data       start:0x803E3F80 end:0x803E4018
+	.data       start:0x803E3F80 end:0x803E3FF8
 	.sdata      start:0x805A7A40 end:0x805A7A68
-	.sdata2     start:0x805ABFC8 end:0x805AC028
+	.sdata2     start:0x805ABFC8 end:0x805AC018
 
 MetroidPrime/CBallFilter.cpp:
-	.text       start:0x80185828 end:0x80185850
+	.text       start:0x8018543C end:0x80185850
+	.data       start:0x803E3FF8 end:0x803E4008
+	.sdata2     start:0x805AC018 end:0x805AC028
 
 MetroidPrime/CAABoxFilter.cpp:
 	.text       start:0x80185850 end:0x80185A10
+	.data       start:0x803E4008 end:0x803E4018
 	.sdata2     start:0x805AC028 end:0x805AC030
 
 MetroidPrime/CGroundMovement.cpp:

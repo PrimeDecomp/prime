@@ -175,7 +175,7 @@ public:
   enum EOcclusionState { kOS_Occluded, kOS_Visible };
 
   struct CPostConstructed {
-    rstl::optional_object< CAreaOctTree* > x0_collision;
+    rstl::auto_ptr< CAreaOctTree > x0_collision;
     int x8_; // TODO
     rstl::optional_object< CAreaRenderOctTree > xc_octTree;
     rstl::vector< CMetroidModelInstance > x4c_insts;
@@ -260,6 +260,7 @@ public:
   bool IsPostConstructed() const { return xf0_24_postConstructed; }                         // name?
   CPostConstructed* GetPostConstructed() { return x12c_postConstructed.get(); }             // name?
   const CPostConstructed* GetPostConstructed() const { return x12c_postConstructed.get(); } // name?
+  const CAreaOctTree& GetOctTree() const { return *GetPostConstructed()->x0_collision; }
   CGameArea* GetNext() { return x130_next; }                                                // name?
   CGameArea* GetPrev() { return x134_prev; }                                                // name?
   int GetCurChain() const { return x138_curChain; }                                         // name?

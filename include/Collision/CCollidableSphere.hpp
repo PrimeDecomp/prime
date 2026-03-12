@@ -22,6 +22,7 @@ public:
   CAABox CalculateLocalAABox() const override;
   FourCC GetPrimType() const override;
   CSphere Transform(const CTransform4f& xf) const;
+  const CSphere& GetSphere() const { return x10_sphere; }
   ~CCollidableSphere() override {}
   CRayCastResult CastRayInternal(const CInternalRayCastStructure& internalRayCast) const override;
 

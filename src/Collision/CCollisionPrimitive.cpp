@@ -2,7 +2,9 @@
 #include "Collision/CCollisionInfo.hpp"
 #include "Collision/CCollisionInfoList.hpp"
 #include "Collision/CInternalCollisionStructure.hpp"
+#include "Collision/CInternalRayCastStructure.hpp"
 #include "Collision/CMaterialFilter.hpp"
+#include "Collision/CRayCastResult.hpp"
 #include "Collision/InternalColliders.hpp"
 
 #include "Kyoto/Alloc/CMemory.hpp"
@@ -26,6 +28,7 @@ static BooleanComparisonFunc sNullBooleanCollider = nullptr;
 static MovingComparisonFunc sNullMovingCollider = nullptr;
 
 CCollisionPrimitive::CCollisionPrimitive(const CMaterialList& list) : x8_material(list) {}
+
 
 void CCollisionPrimitive::InitBeginTypes() {
   sCollisionTypeList = rs_new rstl::vector< Type >();

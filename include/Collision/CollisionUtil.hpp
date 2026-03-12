@@ -11,6 +11,8 @@ class CMRay;
 namespace CollisionUtil {
 
 void AddAverageToFront(const CCollisionInfoList& in, CCollisionInfoList& out);
+void FilterOutBackfaces(const CVector3f& relVel, const CCollisionInfoList& in,
+                        CCollisionInfoList& out);
 bool TriBoxOverlap(const CVector3f& boxcenter, const CVector3f& boxhalfsize,
                    const CVector3f& trivert0, const CVector3f& trivert1, const CVector3f& trivert2);
 bool BoxLineTest(const CAABox&, const CVector3f&, const CVector3f&, float&, float&, int&, bool&);
@@ -26,6 +28,10 @@ float AABoxSphereIntersectionRadius(const CAABox&, const CSphere&);
 
 bool MovingSphereAABox(const CSphere& sphere, const CAABox& aabb, const CVector3f& dir,
                        double& dOut, CVector3f& point, CVector3f& normal);
+
+// Global function defined in either CBallFilter or an unknown TU, name unknown.
+// Called by CNewFlameThrower.
+void AccumulateCollisionInfo(const CCollisionInfoList& in, CCollisionInfoList& out);
 
 } // namespace CollisionUtil
 

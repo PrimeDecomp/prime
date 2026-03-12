@@ -42,6 +42,18 @@ public:
   , xc_orientation(orientation)
   , x1c_velocity(velocity)
   , x28_angularMomentum(angularMomentum) {}
+  CMotionState(const CMotionState& other)
+  : x0_translation(other.x0_translation)
+  , xc_orientation(other.xc_orientation)
+  , x1c_velocity(other.x1c_velocity)
+  , x28_angularMomentum(other.x28_angularMomentum) {}
+  // CMotionState& operator=(const CMotionState& other) {
+  //   x0_translation = other.x0_translation;
+  //   xc_orientation = other.xc_orientation;
+  //   x1c_velocity = other.x1c_velocity;
+  //   x28_angularMomentum = other.x28_angularMomentum;
+  //   return *this;
+  // }
 
   const CVector3f& GetTranslation() const { return x0_translation; }
   const CNUQuaternion& GetOrientation() const { return xc_orientation; }
@@ -132,7 +144,12 @@ public:
   void SetAngularImpulseWR(const CAxisAngle& angularImpulse) {
     x180_angularImpulse = angularImpulse;
   }
+  CMotionState GetLastNonCollidingState() const { return x1f4_lastNonCollidingState; }
   void SetLastNonCollidingState(const CMotionState& state) { x1f4_lastNonCollidingState = state; }
+  uint GetNumTicksStuck() const { return x24c_numTicksStuck; }
+  void SetNumTicksStuck(uint v) { x24c_numTicksStuck = v; }
+  uint GetNumTicksPartialUpdate() const { return x250_numTicksPartialUpdate; }
+  void SetNumTicksPartialUpdate(uint v) { x250_numTicksPartialUpdate = v; }
 
   float GetCoefficientOfRestitutionModifier() const;
   void SetCoefficientOfRestitutionModifier(float modifier);
@@ -153,6 +170,8 @@ public:
   void AddMotionState(const CMotionState& state);
   bool GetMovable() const { return xf8_24_movable; }
   void SetMovable(bool v) { xf8_24_movable = v; }
+  bool GetApplyRotationWhenInCollision() const { return xf8_25_angularEnabled; }
+  void SetApplyRotationWhenInCollision(bool v) { xf8_25_angularEnabled = v; }
   void SetAngularEnabled(bool v) { xf8_25_angularEnabled = v; }
 
   void MoveToWR(const CVector3f&, float);
