@@ -27,9 +27,9 @@ public:
   virtual void ProcessInput(const CFinalInput&, CStateManager& mgr) = 0;
   virtual void Reset(const CTransform4f&, CStateManager& mgr) = 0;
 
-  // GetPerspectiveMatrix__11CGameCameraCFv
-  // ConvertToScreenSpace__11CGameCameraCFRC9CVector3f
-  // ValidateCameraTransform__11CGameCameraFRC12CTransform4fRC12CTransform4f
+  const CMatrix4f& GetPerspectiveMatrix() const;
+  CVector3f ConvertToScreenSpace(const CVector3f& vec) const;
+  CTransform4f ValidateCameraTransform(const CTransform4f& newXf, const CTransform4f& oldXf);
   // ShouldTryRender__11CGameCameraCFv
   void SkipFovInterpolation();
 

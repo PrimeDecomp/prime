@@ -35,7 +35,7 @@ public:
   // ShortestRotationArc__11CQuaternionFRC9CVector3fRC9CVector3f
 
   // TODO: map says const CUnitVector3f&, but this matches better in CBSCover/CSamusFaceReflection
-  static CQuaternion LookAt(CUnitVector3f, CUnitVector3f, const CRelAngle&);
+  static CQuaternion LookAt(const CUnitVector3f&, const CUnitVector3f&, const CRelAngle&);
 
   // normalize_angle__Ff
   // IsValidQuaternion__11CQuaternionCFf

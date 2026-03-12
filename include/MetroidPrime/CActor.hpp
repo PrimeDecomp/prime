@@ -223,6 +223,9 @@ public:
   CSfxHandle GetSfxHandle() const;
   bool CanDrawStatic() const;
 
+protected:
+  void SetDrawEnabled(bool v) { xe7_29_drawEnabled = v; }
+
 private:
   CTransform4f x34_transform;
   rstl::single_ptr< CModelData > x64_modelData;
