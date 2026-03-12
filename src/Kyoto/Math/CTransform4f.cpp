@@ -1,4 +1,5 @@
 #include "Kyoto/Math/CTransform4f.hpp"
+#include "Kyoto/Math/CMath.hpp"
 #include "Kyoto/Math/CMatrix3f.hpp"
 #include "Kyoto/Math/CRelAngle.hpp"
 #include "Kyoto/Streams/CInputStream.hpp"
@@ -9,9 +10,63 @@ const CTransform4f CTransform4f::sIdentity(1.f, 0.f, 0.f, 0.f, //
 );
 
 CTransform4f CTransform4f::LookAt(const CVector3f& pos, const CVector3f& lookPos,
-                                  const CVector3f& up) {}
+                                  const CVector3f& up) {
+  CVector3f vLook = lookPos - pos;
+  float mag = vLook.Magnitude();
+  if (mag <= FLT_EPSILON) {
+    vLook = CVector3f(0.f, 1.f, 0.f);
+  } else {
+    const float invMag = 1.f / mag;
+    vLook *= invMag;
+  }
 
-CTransform4f CTransform4f::MakeRotationsBasedOnY(const CUnitVector3f& yRot) {}
+  float clampedLookDot = CMath::Limit(CVector3f::Dot(up, vLook), 1.f);
+
+  CVector3f vUp = up - vLook * clampedLookDot;
+  if (vUp.Magnitude() <= FLT_EPSILON) {
+    vUp = CVector3f(0.f, 0.f, 1.f) - vLook * vLook.GetZ();
+    if (vUp.Magnitude() <= FLT_EPSILON) {
+      vUp = CVector3f(0.f, 1.f, 0.f) - vLook * vLook.GetY();
+    }
+  }
+
+  mag = vUp.Magnitude();
+  const float invMag = 1.f / mag;
+  vUp *= invMag;
+
+  return CTransform4f(
+      vLook.GetY() * vUp.GetZ() - vUp.GetY() * vLook.GetZ(), vLook.GetX(), vUp.GetX(), pos.GetX(),
+      vLook.GetZ() * vUp.GetX() - vUp.GetZ() * vLook.GetX(), vLook.GetY(), vUp.GetY(), pos.GetY(),
+      vLook.GetX() * vUp.GetY() - vUp.GetX() * vLook.GetY(), vLook.GetZ(), vUp.GetZ(), pos.GetZ());
+}
+
+CTransform4f CTransform4f::MakeRotationsBasedOnY(const CUnitVector3f& yRot) {
+  uint i;
+  if (yRot.GetY() < yRot.GetX()) {
+    if (yRot.GetZ() < yRot.GetY()) {
+      i = 2;
+    } else {
+      i = 1;
+    }
+  } else if (yRot.GetZ() < yRot.GetX()) {
+    i = 2;
+  } else {
+    i = 1;
+  }
+
+  CVector3f v(0.f, 0.f, 0.f);
+  v[i] = 1.f;
+
+  CVector3f crossVec(yRot.GetY() * v.GetZ() - v.GetY() * yRot.GetZ(),
+                     yRot.GetZ() * v.GetX() - v.GetZ() * yRot.GetX(),
+                     yRot.GetX() * v.GetY() - v.GetX() * yRot.GetY());
+  CUnitVector3f xRot(crossVec);
+
+  CVector3f zRot(yRot.GetY() * xRot.GetZ() - xRot.GetY() * yRot.GetZ(),
+                 yRot.GetZ() * xRot.GetX() - xRot.GetZ() * yRot.GetX(),
+                 yRot.GetX() * xRot.GetY() - xRot.GetX() * yRot.GetY());
+  return CTransform4f(xRot, yRot, zRot, CVector3f::Zero());
+}
 
 CTransform4f CTransform4f::RotateX(const CRelAngle& x) {
   const float sinAngle = sin(x.AsRadians());
@@ -118,20 +173,24 @@ void CTransform4f::RotateLocalZ(const CRelAngle& z) {
 }
 
 void CTransform4f::Orthonormalize() {
-  const CVector3f t = CVector3f(Get00(), Get10(), Get20()); 
-  const CVector3f tmp = t.AsNormalized();
-  const CVector3f tmp2 = GetColumn(kDY);
-  const CVector3f tmp3 = CVector3f::Cross(tmp, tmp2);
-  const CVector3f local_78 = tmp3.AsNormalized();
-  m00 = tmp.GetX();
-  m10 = tmp.GetY();
-  m20 = tmp.GetZ();
-  m01 = local_78.GetY() * tmp.GetZ() - tmp.GetY() * tmp.GetZ();
-  m11 = local_78.GetZ() * tmp.GetX() - tmp.GetZ() * tmp.GetX();
-  m21 = local_78.GetX() * tmp.GetY() - tmp.GetX() * tmp.GetY();
-  m02 = local_78.GetX();
-  m12 = local_78.GetY();
-  m22 = local_78.GetZ();
+  const CVector3f xNorm = GetRight().AsNormalized();
+  const CVector3f& yCol = GetForward();
+  CVector3f zCross(xNorm.GetY() * yCol.GetZ() - yCol.GetY() * xNorm.GetZ(),
+                   xNorm.GetZ() * yCol.GetX() - yCol.GetZ() * xNorm.GetX(),
+                   xNorm.GetX() * yCol.GetY() - yCol.GetX() * xNorm.GetY());
+  const CVector3f zNorm = zCross.AsNormalized();
+  CVector3f yNew(zNorm.GetY() * xNorm.GetZ() - xNorm.GetY() * zNorm.GetZ(),
+                 zNorm.GetZ() * xNorm.GetX() - xNorm.GetZ() * zNorm.GetX(),
+                 zNorm.GetX() * xNorm.GetY() - xNorm.GetX() * zNorm.GetY());
+  m00 = xNorm.GetX();
+  m10 = xNorm.GetY();
+  m20 = xNorm.GetZ();
+  m01 = yNew.GetX();
+  m11 = yNew.GetY();
+  m21 = yNew.GetZ();
+  m02 = zNorm.GetX();
+  m12 = zNorm.GetY();
+  m22 = zNorm.GetZ();
 }
 
 CTransform4f::CTransform4f(CInputStream& in)
@@ -203,18 +262,21 @@ CMatrix3f CTransform4f::BuildMatrix3f() const {
 }
 
 CTransform4f CTransform4f::MultiplyIgnoreTranslation(const CTransform4f& other) const {
-  return CTransform4f(Get00() * other.Get00() + Get01() * other.Get10() + Get02() * other.Get20(),
-                      Get00() * other.Get01() + Get01() * other.Get11() + Get02() * other.Get21(),
-                      Get00() * other.Get02() + Get01() * other.Get12() + Get02() * other.Get22(),
-                      Get03() + other.Get03(),
-                      Get10() * other.Get00() + Get11() * other.Get10() + Get12() * other.Get20(),
-                      Get10() * other.Get01() + Get11() * other.Get11() + Get12() * other.Get21(),
-                      Get10() * other.Get02() + Get11() * other.Get12() + Get12() * other.Get22(),
-                      Get13() + other.Get13(),
-                      Get20() * other.Get00() + Get21() * other.Get10() + Get22() * other.Get20(),
-                      Get20() * other.Get01() + Get21() * other.Get11() + Get22() * other.Get21(),
-                      Get20() * other.Get02() + Get21() * other.Get12() + Get22() * other.Get22(),
-                      Get23() + other.Get23());
+  const float b00 = other.m00, b01 = other.m01, b02 = other.m02;
+  const float b10 = other.m10, b11 = other.m11, b12 = other.m12;
+  const float b20 = other.m20, b21 = other.m21, b22 = other.m22;
+  return CTransform4f(m00 * b00 + m01 * b10 + m02 * b20,
+                      m00 * b01 + m01 * b11 + m02 * b21,
+                      m00 * b02 + m01 * b12 + m02 * b22,
+                      other.m03 + m03,
+                      m10 * b00 + m11 * b10 + m12 * b20,
+                      m10 * b01 + m11 * b11 + m12 * b21,
+                      m10 * b02 + m11 * b12 + m12 * b22,
+                      other.m13 + m13,
+                      m20 * b00 + m21 * b10 + m22 * b20,
+                      m20 * b01 + m21 * b11 + m22 * b21,
+                      m20 * b02 + m21 * b12 + m22 * b22,
+                      other.m23 + m23);
 }
 
 void CTransform4f::ScaleBy(float scale) {
@@ -592,5 +654,62 @@ CTransform4f CTransform4f::operator*(register const CTransform4f& xf) const {
     psq_st f10, CTransform4f.m22(ret), 0, 0;
     // implicit return via RVO
   }
+#endif
+}
+
+CTransform4f CTransform4f::GetInverse() const {
+#ifdef __MWERKS__
+  register CTransform4f* ret;
+#endif
+
+  float fVar1 = m22;
+  float fVar2 = m12;
+  float fVar11 = m03 * fVar1;
+  float fVar3 = m21;
+  float fVar6 = m03 * fVar2;
+  float fVar4 = m11;
+  float fVar8 = m02 * m23;
+  float fVar9 = m02 * m13;
+  float fVar7 = fVar2 * m23;
+  float fVar10 = m13 * fVar1;
+  fVar1 = 1.f / (m02 * (m10 * fVar3 - fVar4 * m20) +
+                 m00 * (fVar4 * fVar1 - fVar2 * fVar3) +
+                 m01 * (fVar2 * m20 - m10 * fVar1));
+
+#ifdef __MWERKS__
+  ret->m03 =
+      fVar1 * (fVar3 * (-fVar9 + fVar6) + m01 * (-fVar7 + fVar10) + fVar4 * (fVar8 - fVar11));
+  ret->m13 =
+      fVar1 * (m20 * (fVar9 - fVar6) + m00 * (fVar7 - fVar10) + m10 * (-fVar8 + fVar11));
+  ret->m23 = fVar1 * (m20 * (-m01 * m13 + m03 * m11) +
+                      m00 * (-m11 * m23 + m13 * m21) +
+                      m10 * (m01 * m23 - m03 * m21));
+  ret->m00 = fVar1 * (m11 * m22 - m12 * m21);
+  ret->m01 = fVar1 * (m02 * m21 - m01 * m22);
+  ret->m02 = fVar1 * (m01 * m12 - m02 * m11);
+  ret->m10 = fVar1 * (m12 * m20 - m10 * m22);
+  ret->m11 = fVar1 * (m00 * m22 - m02 * m20);
+  ret->m12 = fVar1 * (m02 * m10 - m00 * m12);
+  ret->m20 = fVar1 * (m10 * m21 - m11 * m20);
+  ret->m21 = fVar1 * (m01 * m20 - m00 * m21);
+  ret->m22 = fVar1 * (m00 * m11 - m01 * m10);
+#else
+  const float o00 = fVar1 * (m11 * m22 - m12 * m21);
+  const float o01 = fVar1 * (m02 * m21 - m01 * m22);
+  const float o02 = fVar1 * (m01 * m12 - m02 * m11);
+  const float o03 = fVar1 * (fVar3 * (-fVar9 + fVar6) + m01 * (-fVar7 + fVar10) + fVar4 * (fVar8 - fVar11));
+  const float o10 = fVar1 * (m12 * m20 - m10 * m22);
+  const float o11 = fVar1 * (m00 * m22 - m02 * m20);
+  const float o12 = fVar1 * (m02 * m10 - m00 * m12);
+  const float o13 = fVar1 * (m20 * (fVar9 - fVar6) + m00 * (fVar7 - fVar10) + m10 * (-fVar8 + fVar11));
+  const float o20 = fVar1 * (m10 * m21 - m11 * m20);
+  const float o21 = fVar1 * (m01 * m20 - m00 * m21);
+  const float o22 = fVar1 * (m00 * m11 - m01 * m10);
+  const float o23 = fVar1 * (m20 * (-m01 * m13 + m03 * m11) + m00 * (-m11 * m23 + m13 * m21) + m10 * (m01 * m23 - m03 * m21));
+  return CTransform4f(
+    o00, o01, o02, o03,
+    o10, o11, o12, o13,
+    o20, o21, o22, o23
+  );
 #endif
 }
