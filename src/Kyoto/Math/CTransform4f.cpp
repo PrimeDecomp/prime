@@ -510,3 +510,87 @@ CVector3f CTransform4f::TransposeRotate(register const CVector3f& in) const{
   return *ret;
 #endif  
 }
+
+CTransform4f CTransform4f::operator*(register const CTransform4f& xf) const {
+#if __MWERKS__
+  // Assume RVO for return value
+  register const CTransform4f* ret;
+  // Hack to get around compiler error.
+  register const CTransform4f* thiz = this;
+  __asm__ volatile {
+    psq_l f0, CTransform4f.m00(thiz), 0, 0;
+    psq_l f7, CTransform4f.m02(xf), 0, 0;
+    
+    ps_merge11 f1, f0, f0;
+    
+    psq_l f4, CTransform4f.m00(xf), 0, 0;
+    
+    ps_merge00 f0, f0, f0;
+    
+    lfs f3, 0.f;
+    
+    psq_l f2, CTransform4f.m02(thiz), 0, 0;
+    psq_l f8, CTransform4f.m12(xf), 0, 0;
+    
+    ps_mul f10, f0, f7;
+    
+    psq_l f5, CTransform4f.m10(xf), 0, 0;
+    
+    ps_mul f0, f0, f4;
+    
+    psq_l f9, CTransform4f.m22(xf), 0, 0;
+    
+    ps_merge01 f3, f3, f2;
+    
+    psq_l f6, CTransform4f.m20(xf), 0, 0;
+    
+    ps_merge00 f2, f2, f2;
+    
+    ps_madd f10, f1, f8, f10;
+    ps_madd f0, f1, f5, f0;
+    ps_madd f10, f2, f9, f10;
+    ps_madd f0, f2, f6, f0;
+    ps_add f10, f3, f10;
+    
+    psq_st f0, CTransform4f.m00(ret), 0, 0;
+    psq_st f10, CTransform4f.m02(ret), 0, 0;
+    
+    psq_l f0, CTransform4f.m10(thiz), 0, 0;
+    psq_l f2, CTransform4f.m12(thiz), 0, 0;
+    
+    ps_merge11 f1, f0, f0;
+    ps_merge00 f0, f0, f0;
+    ps_merge01 f3, f3, f2;
+    ps_merge00 f2, f2, f2;
+    ps_mul f10, f0, f7;
+    ps_mul f0, f0, f4;
+    ps_madd f10, f1, f8, f10;
+    ps_madd f0, f1, f5, f0;
+    ps_madd f10, f2, f9, f10;
+    ps_madd f0, f2, f6, f0;
+    ps_add f10, f3, f10;
+    
+    psq_st f0, CTransform4f.m10(ret), 0, 0;
+    psq_st f10, CTransform4f.m12(ret), 0, 0;
+    
+    psq_l f0, CTransform4f.m20(thiz), 0, 0;
+    psq_l f2, CTransform4f.m22(thiz), 0, 0;
+    
+    ps_merge11 f1, f0, f0;
+    ps_merge00 f0, f0, f0;
+    ps_merge01 f3, f3, f2;
+    ps_merge00 f2, f2, f2;
+    ps_mul f10, f0, f7;
+    ps_mul f0, f0, f4;
+    ps_madd f10, f1, f8, f10;
+    ps_madd f0, f1, f5, f0;
+    ps_madd f10, f2, f9, f10;
+    ps_madd f0, f2, f6, f0;
+    ps_add f10, f3, f10;
+    
+    psq_st f0, CTransform4f.m20(ret), 0, 0;
+    psq_st f10, CTransform4f.m22(ret), 0, 0;
+    // implicit return via RVO
+  }
+#endif
+}
