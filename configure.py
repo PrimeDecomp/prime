@@ -1479,7 +1479,7 @@ config.libs = [
             ),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Math/CloseEnough.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Math/CMatrix3f.cpp"),
-            Object(Equivalent, "Kyoto/Math/CMatrix4f.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Math/CMatrix4f.cpp"),
             Object(NonMatching, "Kyoto/Math/CQuaternion.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/CRandom16.cpp"),
             Object(NonMatching, "Kyoto/Math/CTransform4f.cpp"),
