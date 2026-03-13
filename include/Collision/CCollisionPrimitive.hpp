@@ -4,6 +4,7 @@
 #include "types.h"
 
 #include "Collision/CInternalCollisionStructure.hpp"
+#include "Collision/CInternalRayCastStructure.hpp"
 #include "Collision/CMaterialList.hpp"
 
 #include "Kyoto/Math/CAABox.hpp"
@@ -15,7 +16,7 @@
 #include <limits.h>
 #include <string.h>
 
-class CRayCastResult;
+#include "Collision/CRayCastResult.hpp"
 class CCollisionInfoList;
 class CInternalRayCastStructure;
 class CCollisionInfo;
@@ -96,6 +97,10 @@ public:
   virtual FourCC GetPrimType() const = 0;
   virtual ~CCollisionPrimitive();
   virtual CRayCastResult CastRayInternal(const CInternalRayCastStructure&) const = 0;
+  CRayCastResult CastRay(const CVector3f& pos, const CVector3f& dir, float length,
+                         const CMaterialFilter& filter, const CTransform4f& xf) const {
+    return CastRayInternal(CInternalRayCastStructure(pos, dir, length, xf, filter));
+  }
 
   static void InitBeginTypes();
   static void InitAddType(const Type& type);

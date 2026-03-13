@@ -10,7 +10,7 @@
 class CLineSeg : public CLine {
 public:
   CLineSeg(const CVector3f& start, const CVector3f& end)
-  : CLine(start, (end - start).AsNormalized()), x18_end(end) {}
+  : CLine(start, CUnitVector3f((end - start).AsNormalized())), x18_end(end) {}
 
   const CVector3f& GetEndPoint() const { return x18_end; }
 

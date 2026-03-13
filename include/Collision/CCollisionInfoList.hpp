@@ -13,14 +13,20 @@ public:
   typedef rstl::reserved_vector< CCollisionInfo, 32 >::const_iterator const_iterator;
 
   void Add(const CCollisionInfo& info, bool swap) {
-    if (x0_list.size() == 32)
+    if (x0_list.size() == 32) {
       return;
-    if (!swap)
+    }
+    if (!swap) {
       x0_list.push_back(info);
-    else
-      x0_list.push_back(info.GetSwapped());
+    } else {
+      x0_list.push_back(info.GetSwapped(CCollisionInfo::kSM_Swap));
+    }
   }
+  void Clear() { x0_list.clear(); }
   int GetCount() const { return x0_list.size(); }
+  rstl::reserved_vector< CCollisionInfo, 32 >& GetList() { return x0_list; }
+  const rstl::reserved_vector< CCollisionInfo, 32 >& GetList() const { return x0_list; }
+  CCollisionInfo& operator[](int idx) { return x0_list[idx]; }
   const CCollisionInfo& operator[](int idx) const { return x0_list[idx]; }
   void Swap(const int idx) {
     for (int i = idx; i < GetCount(); ++i) {
@@ -32,6 +38,8 @@ public:
   const_iterator End() const { return x0_list.end(); }
   iterator Begin() { return x0_list.begin(); }
   const_iterator Begin() const { return x0_list.begin(); }
+
+  CCollisionInfoList& operator=(const CCollisionInfoList& other);
 };
 
 #endif // _CCOLLISIONINFOLIST
