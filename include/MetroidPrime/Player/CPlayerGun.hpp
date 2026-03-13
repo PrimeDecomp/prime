@@ -179,6 +179,9 @@ public:
 
   int GetStateFlags() const { return x2f8_stateFlags; }
   void SetStateFlags(int flags) { x2f8_stateFlags = flags; }
+  bool IsWeaponStateSet(int state) const { return (x2f8_stateFlags & state) == state; }
+  void EnableWeaponState(int state) { x2f8_stateFlags |= state; }
+  void DisableWeaponState(int state) { x2f8_stateFlags &= ~state; }
   bool IsCharging() const { return x834_24_charging; }
   void SetTransform(CTransform4f xf) { x3e8_xf = xf; }
   CGrappleArm& GetGrappleArm() const { return *x740_grappleArm.get(); }
@@ -285,7 +288,7 @@ private:
   uint x2f4_fireButtonStates;
   // 0x1: beam mode, 0x2: missile mode, 0x4: missile ready, 0x8: morphing, 0x10: combo fire
   int x2f8_stateFlags;
-  uint x2fc_fidgetAnimBits;
+  int x2fc_fidgetAnimBits;
   uint x300_remainingMissiles;
   uint x304_;
   uint x308_bombCount;
@@ -296,7 +299,7 @@ private:
   EMissileMode x31c_missileMode;
   CPlayerState::EBeamId x320_currentAuxBeam;
   EIdleState x324_idleState;
-  float x328_animSfxPitch;
+  int x328_animSfxPitch;
   EChargePhase x32c_chargePhase;
   EChargeState x330_chargeState;
   uint x334_;

@@ -360,6 +360,9 @@ public:
   TUniqueId GetOrbitTargetId() const { return x310_orbitTargetId; }
   const CVector3f& GetOrbitPoint() const { return x314_orbitPoint; }
   TUniqueId GetOrbitNextTargetId() const { return x33c_orbitNextTargetId; }
+  TUniqueId GetAttachedActor() const { return x26c_attachedActor; }
+  bool GetControlsFrozen() const { return x760_controlsFrozen; }
+  float GetDistanceUnderWater() const { return x828_distanceUnderWater; }
   TUniqueId GetScanningObjectId() const { return x3b4_scanningObject; }
   EGrappleState GetGrappleState() const { return x3b8_grappleState; }
   bool IsInFreeLook() const { return x3dc_inFreeLook; }
@@ -367,6 +370,7 @@ public:
   bool GetFreeLookStickState() const { return x3de_lookAnalogHeld; }
   TUniqueId GetAimTargetId() const { return x3f4_aimTarget; }
   EPlayerCameraState GetCameraState() const { return x2f4_cameraState; }
+  TUniqueId GetRidingPlatformId() const { return x82e_ridingPlatform; }
   void SetCameraState(EPlayerCameraState state, CStateManager& mgr);
   EGunHolsterState GetGunHolsterState() const { return x498_gunHolsterState; }
   NPlayer::EPlayerMovementState GetPlayerMovementState() const { return x258_movementState; }
@@ -390,6 +394,7 @@ public:
   float GetGravity() const;
 
   float GetAttachedActorStruggle() const;
+  const CPlayerEnergyDrain& GetPlayerEnergyDrain() const { return x274_energyDrain; }
   float GetGunAlpha() const { return x494_gunAlpha; }
   void SetAttachedActorStruggle(float struggle) { xa28_attachedActorStruggle = struggle; }
 

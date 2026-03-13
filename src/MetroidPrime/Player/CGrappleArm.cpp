@@ -141,3 +141,20 @@ void CGrappleArm::EnterStruck(CStateManager& mgr, float angle, bool bigStrike, b
 
   x328_gunController->EnterStruck(mgr, angle, bigStrike, notInFreeLook);
 }
+
+void CGrappleArm::TouchModel(const CStateManager& mgr) const {
+  if (!x3b2_24_active || x3b2_29_suitLoading) {
+    return;
+  }
+
+  x0_grappleArmModel->Touch(mgr, 0);
+  if (x50_grappleArmSkeletonModel) {
+    x50_grappleArmSkeletonModel->Touch(mgr, 0);
+  }
+
+  if (mgr.GetPlayerState()->HasPowerUp(CPlayerState::kIT_GrappleBeam)) {
+    xa0_grappleGearModel.Touch(mgr, 0);
+    xec_grapNoz1Model.Touch(mgr, 0);
+    x138_grapNoz2Model.Touch(mgr, 0);
+  }
+}

@@ -167,18 +167,8 @@ CSfxHandle play_sfx(const ushort sfx, const bool underwater, const bool looped, 
 
 } // namespace NWeaponTypes
 
-CDamageInfo CGunWeapon::GetShotDamageInfo(const SShotParam& shotParam, CStateManager& mgr) const {
-  // CWeaponMode mode(shotParam.x0_weaponType, 0);
-  // float damage = shotParam.x8_damage;
-  // float radiusDamage = shotParam.xc_radiusDamage;
-  // float radius = shotParam.x10_radius;
-  // float knockback = shotParam.x14_knockback;
-  // bool noImmunity = shotParam.x18_24_noImmunity;
-
-  CDamageInfo result(CWeaponMode(shotParam.x0_weaponType, 0), shotParam.x8_damage,
-                     shotParam.xc_radiusDamage, shotParam.x10_radius, shotParam.x14_knockback,
-                     shotParam.x18_24_noImmunity);
-
+CDamageInfo CGunWeapon::GetShotDamageInfo(const CDamageInfo& shotParam, CStateManager& mgr) const {
+  CDamageInfo result = shotParam;
   if (gpGameState->GetHardMode()) {
     result.MultiplyDamage(gpGameState->GetHardModeWeaponMultiplier());
   }

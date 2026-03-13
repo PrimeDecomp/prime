@@ -11,6 +11,8 @@ class CSfxHandle;
 class CAnimData;
 class CStateManager;
 class CPrimitive;
+class CVector3f;
+struct TAreaId;
 
 namespace NWeaponTypes {
 
@@ -29,6 +31,10 @@ enum EGunAnimType {
 };
 
 CSfxHandle play_sfx(const ushort sfx, const bool underwater, const bool looped, const short pan);
+void do_sound_event(rstl::pair< u16, CSfxHandle >& sfxHandle, int& pitch, bool doPitchBend,
+                    uint soundId, float weight, uint flags, float falloff, float maxDist,
+                    uchar minVol, uchar maxVol, const CVector3f& posToCam, const CVector3f& pos,
+                    TAreaId aid, CStateManager& mgr);
 
 void primitive_set_to_token_vector(const CAnimData& animData,
                                    const rstl::set< CPrimitive >& primSet,

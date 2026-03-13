@@ -74,6 +74,7 @@ public:
   bool IsRider(TUniqueId id) const;
   bool IsSlave(TUniqueId id) const;
   void BuildSlaveList(CStateManager& mgr);
+  void AddSlave(TUniqueId id, CStateManager& mgr);
 
   rstl::vector< SRiders >& GetStaticSlaves() { return x328_slavesStatic; }
   rstl::vector< SRiders >& GetDynamicSlaves() { return x338_slavesDynamic; }
