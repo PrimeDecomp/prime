@@ -17,6 +17,9 @@ public:
   double GetY() const { return mY; }
   double GetZ() const { return mZ; }
 
+  double& operator[](int i) { return (&mX)[i]; }
+  const double operator[](int i) const { return (&mX)[i]; }
+
   static double Dot(const CVector3d& a, const CVector3d& b);
   static CVector3d Cross(const CVector3d& a, const CVector3d& b);
 
@@ -26,6 +29,8 @@ private:
   double mZ;
 };
 
-CVector3d operator+(const CVector3d& other);
+CVector3d operator+(const CVector3d& lhs, const CVector3d& rhs);
+CVector3d operator-(const CVector3d& lhs, const CVector3d& rhs);
+CVector3d operator*(double lhs, const CVector3d& rhs);
 
 #endif // _CVECTOR3D

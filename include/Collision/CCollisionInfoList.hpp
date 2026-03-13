@@ -38,6 +38,8 @@ public:
   const_iterator End() const { return x0_list.end(); }
   iterator Begin() { return x0_list.begin(); }
   const_iterator Begin() const { return x0_list.begin(); }
+
+  CCollisionInfoList& operator=(const CCollisionInfoList& other);
 };
 
 #endif // _CCOLLISIONINFOLIST
