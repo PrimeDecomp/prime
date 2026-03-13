@@ -6,8 +6,10 @@
 #include <types.h>
 class CPFArea;
 class CPFOpenList {};
+class CBeetle;
 
 class CPathFindSearch {
+  friend class CBeetle;
 public:
   enum EResult {
     kR_Success,

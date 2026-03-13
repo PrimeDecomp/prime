@@ -49,7 +49,9 @@ public:
   int GetCurrentAnimId() const { return x2f8_curAnim; }
   void SetTurnSpeed(float speed);
   bool IsAnimationOver() const { return x300_24_animationOver; }
+  bool GetIsActive() const { return x300_25_active; }
   bool ShouldPlayDeathAnims() const { return x300_28_playDeathAnims; }
+  pas::EAnimationState GetCurrentStateId() const { return x2a4_bodyStateInfo.GetCurrentStateId(); }
   float GetRestrictedFlyerMoveSpeed() const { return x330_restrictedFlyerMoveSpeed; }
   void SetRestrictedFlyerMoveSpeed(float speed) { x330_restrictedFlyerMoveSpeed = speed; }
 

@@ -19,6 +19,8 @@
 #include "Kyoto/Graphics/CModelFlags.hpp"
 #include "Kyoto/Math/CRelAngle.hpp"
 
+#pragma inline_max_size(250)
+
 static const char* const skFaceAssetIdName = "ACS_SamusFace";
 static const CTransform4f skFaceModelViewAdjust =
     CTransform4f::Scale(0.3f) * CTransform4f::Translate(CVector3f(0.f, 0.5f, 0.f));

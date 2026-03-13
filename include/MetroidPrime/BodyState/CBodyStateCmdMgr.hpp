@@ -43,8 +43,9 @@ public:
   CBCGenerateCmd(pas::EGenerateType type, int animId)
   : CBodyStateCmd(kBSC_Generate)
   , x8_type(type)
-  , xc_targetPos(0.f, 0.f, 0.f)
+  , xc_targetPos(CVector3f::Zero())
   , x18_animId(animId)
+  , x1c_24_targetTransform(false)
   , x1c_25_overrideAnim(animId != -1) {}
 
   CBCGenerateCmd(const pas::EGenerateType type, const CVector3f& vec,

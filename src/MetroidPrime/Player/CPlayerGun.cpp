@@ -39,6 +39,8 @@
 #include "Weapons/IWeaponRenderer.hpp"
 #include "math.h"
 
+#pragma inline_max_size(250)
+
 static float kVerticalAngleTable[3] = {-30.f, 0.f, 30.f};
 static float kHorizontalAngleTable[3] = {30.f, 30.f, 30.f};
 static float kVerticalVarianceTable[3] = {30.f, 30.f, 30.f};

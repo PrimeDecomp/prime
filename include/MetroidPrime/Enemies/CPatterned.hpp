@@ -304,6 +304,7 @@ public:
   void TryJump(CStateManager& mgr, int arg);
   void TryBreakDodge(CStateManager& mgr, int arg);
   void TryStep(CStateManager& mgr, int arg);
+  int GetStepDirection(const CVector3f& dir);
   void TryDodge(CStateManager& mgr, int arg);
   void TryMeleeAttack_TargetPos(CStateManager& mgr, int arg);
   void TryMeleeAttack(CStateManager& mgr, int arg);
