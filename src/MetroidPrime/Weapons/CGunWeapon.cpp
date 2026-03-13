@@ -3,6 +3,7 @@
 #include "MetroidPrime/CAnimData.hpp"
 #include "MetroidPrime/CAnimPlaybackParms.hpp"
 #include "MetroidPrime/CAnimRes.hpp"
+#include "MetroidPrime/CDamageInfo.hpp"
 #include "MetroidPrime/CRainSplashGenerator.hpp"
 #include "MetroidPrime/CStateManager.hpp"
 #include "MetroidPrime/Cameras/CCameraManager.hpp"
@@ -447,7 +448,8 @@ CDamageInfo CGunWeapon::GetDamageInfo(CStateManager& mgr, CPlayerState::EChargeS
   if (chargeState == CPlayerState::kCS_Normal) {
     return GetShotDamageInfo(wInfo.x4_normal, mgr);
   } else {
-    SShotParam param(chargeFactor, wInfo.x20_charged);
+    CDamageInfo param = wInfo.x20_charged;
+    param.MultiplyDamageAndRadius(chargeFactor);
     return GetShotDamageInfo(param, mgr);
   }
 }

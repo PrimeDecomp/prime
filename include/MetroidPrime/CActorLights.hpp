@@ -39,6 +39,7 @@ public:
 
   bool GetNeedsRelight() const { return x298_24_dirty == TRUE; }
   bool HasShadowLight() const { return x29c_shadowLightArrIdx != -1; }
+  int GetAreaLightIndexForShadowLight() const { return x29c_shadowLightArrIdx; }
   int GetShadowLightIndex() const { return x2a0_shadowLightIdx; }
 
   void SetAmbientColor(const CColor& color);

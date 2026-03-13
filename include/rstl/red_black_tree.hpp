@@ -107,6 +107,10 @@ public:
   };
 
   red_black_tree() : x0_(0), x1_(0), x4_count(0) {}
+  red_black_tree(const S& selector, const Cmp& cmp, const Alloc&)
+  : x0_(*reinterpret_cast< const uchar* >(&cmp))
+  , x1_(*reinterpret_cast< const uchar* >(&selector))
+  , x4_count(0) {}
   ~red_black_tree() { destroy(); }
 
   iterator insert_into(node* n, const P& item);

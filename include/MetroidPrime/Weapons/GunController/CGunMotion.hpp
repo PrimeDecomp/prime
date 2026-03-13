@@ -48,6 +48,8 @@ public:
 
   CModelData& GetModelData() { return x0_modelData; }
   const CModelData& GetModelData() const { return x0_modelData; }
+  CGunController& GunController() { return x4c_gunController; }
+  const CGunController& GunController() const { return x4c_gunController; }
   bool IsAnimPlaying() const { return xb8_24_animPlaying; }
 
 private:

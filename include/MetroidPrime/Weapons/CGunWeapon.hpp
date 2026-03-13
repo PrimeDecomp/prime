@@ -30,7 +30,6 @@ class CTransform4f;
 class CModelFlags;
 class CActorLights;
 class SWeaponInfo;
-class SShotParam;
 
 enum EFrozenFxType {
   kFFT_None,
@@ -59,6 +58,7 @@ private:
 };
 
 class CGunWeapon {
+  friend class CPlayerGun;
 
 public:
   CGunWeapon(CAssetId ancsId, EWeaponType type, TUniqueId playerId, EMaterialTypes playerMaterial,
@@ -74,7 +74,7 @@ public:
 
   // Virtual Methods
   virtual void Reset(CStateManager& mgr);
-  virtual void PlayAnim(const NWeaponTypes::EGunAnimType type, const bool loop);
+  virtual void PlayAnim(const NWeaponTypes::EGunAnimType type, bool loop);
   virtual void PreRenderGunFx(const CStateManager& mgr, const CTransform4f& xf);
   virtual void PostRenderGunFx(const CStateManager& mgr, const CTransform4f& xf);
   virtual void UpdateGunFx(const bool shotSmoke, const float dt, const CStateManager& mgr,
@@ -124,7 +124,7 @@ public:
 
   CDamageInfo GetDamageInfo(CStateManager& mgr, CPlayerState::EChargeStage chargeState,
                             float chargeFactor);
-  CDamageInfo GetShotDamageInfo(const SShotParam& shotParam, CStateManager& mgr) const;
+  CDamageInfo GetShotDamageInfo(const CDamageInfo& shotParam, CStateManager& mgr) const;
 
   static const char* GetMuzzleLocator() { return skMuzzleLocator; }
 

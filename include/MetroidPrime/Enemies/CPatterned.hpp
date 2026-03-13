@@ -118,6 +118,9 @@ public:
     kPT_RelativePlayer,
     kPT_Absolute,
   };
+
+  bool IsMakingBigStrike() const { return x402_28_isMakingBigStrike; }
+  float GetDamageDuration() const { return x504_damageDur; }
   enum EPatternOrient {
     kPO_StartToPlayer,
     kPO_StartToPlayerStart,
