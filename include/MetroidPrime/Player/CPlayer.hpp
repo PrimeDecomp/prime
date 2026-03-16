@@ -29,6 +29,8 @@ enum EPlayerMovementState {
 };
 
 class CPlayer : public CPhysicsActor, public TOneStatic< CPlayer > {
+  friend class CMorphBall;
+
   struct CVisorSteam {
     float x0_curTargetAlpha;
     float x4_curAlphaInDur;
@@ -203,6 +205,7 @@ public:
   virtual bool IsTransparent();
 
   CVector3f GetBallPosition() const;
+  float GetBallMaxVelocity() const;
   CVector3f GetEyePosition() const;
   float GetEyeHeight() const;
   CTransform4f CreateTransformFromMovementDirection() const;
@@ -280,7 +283,7 @@ public:
   void UpdateFreeLookState(const CFinalInput& input, float dt, CStateManager& mgr);
   void UpdateCameraTimers(float dt, const CFinalInput& input);
   void UpdateSubmerged(const CStateManager& mgr);
-  bool CheckSubmerged();
+  bool CheckSubmerged() const;
   void SetMoveState(NPlayer::EPlayerMovementState state, CStateManager& mgr);
   void StartLandingControlFreeze(); // name?
   void EndLandingControlFreeze();   // name?

@@ -39,9 +39,13 @@ public:
 
   bool GetNeedsRelight() const { return x298_24_dirty == TRUE; }
   bool HasShadowLight() const { return x29c_shadowLightArrIdx != -1; }
+  const TAreaId GetAreaLightIndexForShadowLight() const { return x29c_shadowLightArrIdx; }
+  uint GetShadowLightArrIndex() const { return x29c_shadowLightArrIdx; }
   int GetShadowLightIndex() const { return x2a0_shadowLightIdx; }
+  const CVector3f& GetAmbientColor() const { return x288_ambientColor; }
 
   void SetAmbientColor(const CColor& color);
+  void SetNeedsRelight(bool v) { x298_24_dirty = v; }
   void SetCastShadows(bool v) { x298_25_castShadows = v; }
   void SetFindShadowLight(bool v) { x298_27_findShadowLight = v; }
   void SetShadowDynamicRangeThreshold(float t) { x2d0_shadowDynamicRangeThreshold = t; }
