@@ -62,7 +62,7 @@ public:
   void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&);
 
   void SetTransform(const CTransform4f& xf) { x220_xf = xf; }
-  const CTransform4f& GetTransform() const { return x220_xf; }
+  CTransform4f GetTransform() const { return x220_xf; }
   CTransform4f& AuxTransform() { return x2e0_auxXf; }
   CGunController* GunController() { return x328_gunController.get(); }
   const CGunController* GetGunController() const { return x328_gunController.get(); }

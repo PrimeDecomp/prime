@@ -48,6 +48,8 @@ public:
 
   const SWeaponInfo& GetBeamInfo(int beam) const;
 
+  const CDamageInfo& GetBombInfo() const { return x70_bomb; }
+
 // private:
   float x4_upLookAngle;
   float x8_downLookAngle;

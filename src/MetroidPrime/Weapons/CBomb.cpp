@@ -16,7 +16,7 @@
 #include <Kyoto/Math/CFrustumPlanes.hpp>
 #include <Kyoto/Particles/CElementGen.hpp>
 
-CBomb::CBomb(const TToken< CGenDescription >& particle1, const TToken< CGenDescription >& particle2,
+CBomb::CBomb(TToken< CGenDescription > particle1, TToken< CGenDescription > particle2,
              TUniqueId uid, TAreaId aid, TUniqueId playerId, float f1, const CTransform4f& xf,
              const CDamageInfo& dInfo)
 : CWeapon(uid, aid, true, playerId, kWT_Bomb, rstl::string_l("Bomb"), xf,
@@ -74,7 +74,7 @@ void CBomb::AddToRenderer(const CFrustumPlanes& frustum, const CStateManager& mg
   }
 }
 
-void CBomb::Render(const CStateManager& mgr) const {  }
+void CBomb::Render(const CStateManager& mgr) const {}
 
 // Equivelant, https://decomp.me/scratch/cr4FM
 void CBomb::Think(float dt, CStateManager& mgr) {
