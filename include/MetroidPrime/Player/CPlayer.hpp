@@ -9,6 +9,7 @@
 #include "MetroidPrime/Player/CPlayerEnergyDrain.hpp"
 #include "MetroidPrime/Player/CPlayerState.hpp"
 
+#include "Kyoto/Math/CMath.hpp"
 #include "Kyoto/TReservedAverage.hpp"
 
 #include "rstl/auto_ptr.hpp"
@@ -208,6 +209,8 @@ public:
   CTransform4f CreateTransformFromMovementDirection() const;
   EPlayerOrbitState GetOrbitState() const { return x304_orbitState; }
   const CVector3f& GetMovementDirection() const { return x50c_moveDir; }
+  float GetMoveSpeed() const { return x4f8_moveSpeed; }
+  const CVector3f& GetLeaveMorphDirection() const { return x518_leaveMorphDir; }
   EPlayerMorphBallState GetMorphballTransitionState() const { return x2f8_morphBallState; }
 
   static float skDefaultHudFadeOutSpeed;
@@ -231,6 +234,12 @@ public:
   void BreakFrozenState(CStateManager& mgr);
   void UpdateCinematicState(CStateManager& mgr);
   bool IsMorphBallTransitioning() const;
+  float GetMorphBallTransitionFactor() const {
+    if (x578_morphDuration == 0.f) {
+      return 0.f;
+    }
+    return CMath::Clamp(-1.f, x574_morphTime / x578_morphDuration, 1.f);
+  }
   void InitialiseAnimation();
   void LoadAnimationTokens();
   void HolsterGun(CStateManager& mgr);
@@ -269,6 +278,7 @@ public:
   float StrafeInput(const CFinalInput& input) const;
   float ForwardInput(const CFinalInput& input, float turnInput) const;
   float GetActualFirstPersonMaxVelocity(float dt) const;
+  float GetActualBallMaxVelocity(float dt) const;
   const CScriptWater* GetVisorRunoffEffect(const CStateManager& mgr) const;
   void SetMorphBallState(EPlayerMorphBallState state, CStateManager& mgr);
   bool CanEnterMorphBallState(CStateManager& mgr, float dt) const;
@@ -372,6 +382,7 @@ public:
   NPlayer::EPlayerMovementState GetPlayerMovementState() const { return x258_movementState; }
   float GetTimeSinceJump() const { return x2a8_timeSinceJump; }
   void SetTimeSinceJump(float v) { x2a8_timeSinceJump = v; }
+  int GetBombJumpCounter() const { return x9d0_bombJumpCount; }
   const CVector3f& GetAssistedTargetAim() const { return x480_assistedTargetAim; }
   // CPlayer::GetFlipSpiderBallControlY() const weak
   // CPlayer::GetFlipSpiderBallControlX() const weak

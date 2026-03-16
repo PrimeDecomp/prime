@@ -33,6 +33,7 @@ public:
   float ClampLength(const CVector3f& pos, bool collide, const CMaterialFilter& filter,
                     const CStateManager& mgr) const;
   float CalculateSplineLength();
+  void UpdateSplineLength() { x44_length = CalculateSplineLength(); }
   float ValidateLength(float t) const;
   CVector3f GetInterpolatedSplinePointByTime(float time, float range) const;
   CTransform4f GetInterpolatedSplinePointByLength(float length) const;

@@ -10,21 +10,26 @@
 class CInputStream;
 
 namespace rstl {
-// template < typename T, typename Alloc >
-// struct allocator_auto_ptr {
-//   allocator_auto_ptr(T* ptr, Alloc* alloc) : ptr(ptr) {}
-//   ~allocator_auto_ptr() {
-//     if (ptr != nullptr) {
-//       Alloc::deallocate(ptr);
-//       ptr = nullptr;
-//     }
-//   }
+template < typename T, typename Alloc >
+struct allocator_auto_ptr {
+  allocator_auto_ptr(T* ptr, Alloc* alloc) : x0_ptr(ptr), x4_alloc(alloc) {}
+  ~allocator_auto_ptr() {
+    if (x0_ptr != nullptr) {
+      x4_alloc->deallocate(x0_ptr);
+      x0_ptr = nullptr;
+    }
+  }
 
-//   T* release() { T* v = ptr; ptr = nullptr; return v; }
+  T* release() const {
+    T* ret = x0_ptr;
+    const_cast< allocator_auto_ptr* >(this)->x0_ptr = nullptr;
+    return ret;
+  }
 
-// private:
-//   T* ptr;
-// };
+private:
+  T* x0_ptr;
+  Alloc* x4_alloc;
+};
 
 template < typename T, typename Alloc = rmemory_allocator >
 class vector {
@@ -144,6 +149,7 @@ void vector< T, Alloc >::reserve(int newSize) {
   if (newSize <= x8_capacity) {
     return;
   }
+
   T* newData;
   x0_allocator.allocate(newData, newSize);
   uninitialized_copy(begin(), end(), newData);
