@@ -67,13 +67,6 @@
 
 #pragma inline_max_size(250)
 
-struct SAuxWeaponLoadedAccess {
-  uchar x0_pad[0x80];
-  bool x80_24_isLoaded : 1;
-};
-
-extern const uint lbl_805AB120;
-
 static const char* const kGunLocator = "GBSE_SDK";
 
 static float kVerticalAngleTable[3] = {-30.f, 0.f, 30.f};
@@ -467,8 +460,7 @@ void CPlayerGun::PreRender(CStateManager& mgr, const CFrustumPlanes& frustum,
       x0_lights.BuildAreaLightList(mgr, mgr.GetWorld()->GetAreaAlways(mgr.GetNextAreaId()), aabb);
     }
     x0_lights.BuildDynamicLightList(mgr, aabb);
-    if (static_cast< uint >(*reinterpret_cast< const int* >(
-            reinterpret_cast< const char* >(&x0_lights) + 0x29c)) != lbl_805AB120) {
+    if (x0_lights.HasShadowLight()) {
       if (x72c_currentBeam->IsLoaded()) {
         x82c_shadow->BuildLightShadowTexture(mgr, mgr.GetNextAreaId(),
                                              x0_lights.GetShadowLightIndex(), aabb, true, false);
@@ -805,7 +797,7 @@ void CPlayerGun::Update(float grappleSwingT, float cameraBobT, float dt, CStateM
     x744_auxWeapon->Load(x314_nextBeam, mgr);
     x734_loadingBeam->Update(advDt, mgr);
   }
-  if (!reinterpret_cast< const SAuxWeaponLoadedAccess* >(x744_auxWeapon.get())->x80_24_isLoaded) {
+  if (!x744_auxWeapon->IsLoaded()) {
     x744_auxWeapon->Load(x310_currentBeam, mgr);
   }
 
@@ -2683,9 +2675,7 @@ void CPlayerGun::SetGunLightActive(bool active, CStateManager& mgr) {
 
 void CPlayerGun::LoadHandAnimTokens() {
   CAnimData& animData = *x6e0_rightHandModel.AnimationData();
-  rstl::less< CPrimitive > cmp;
-  rstl::rmemory_allocator alloc;
-  rstl::set< CPrimitive > prims(cmp, alloc);
+  rstl::set< CPrimitive > prims;
   for (int i = 0; i < 3; ++i) {
     CAnimPlaybackParms parms(i, -1, 1.f, true);
     animData.GetAnimationPrimitives(parms, prims);
@@ -2749,9 +2739,7 @@ void CPlayerGun::ProcessGunMorph(float dt, CStateManager& mgr) {
       if (!isUnmorphed) {
         x734_loadingBeam->Touch(mgr);
       }
-      if (x734_loadingBeam->IsLoaded() &&
-          reinterpret_cast< const SAuxWeaponLoadedAccess* >(x744_auxWeapon.get())
-              ->x80_24_isLoaded) {
+      if (x734_loadingBeam->IsLoaded() && x744_auxWeapon->IsLoaded()) {
         x730_outgoingBeam = x734_loadingBeam != x72c_currentBeam ? x72c_currentBeam : NULL;
         x734_loadingBeam = NULL;
         x310_currentBeam = x314_nextBeam;
@@ -2918,8 +2906,7 @@ void CPlayerGun::ReturnToRestPose() {
 }
 
 TUniqueId CPlayerGun::DropPowerBomb(CStateManager& mgr) const {
-  const CDamageInfo dInfo = *reinterpret_cast< const float* >(
-                                reinterpret_cast< const uchar* >(mgr.GetPlayer()) + 0x9f4) <= 0.f
+  const CDamageInfo dInfo = mgr.GetPlayer()->GetDeathTime() <= 0.f
                                 ? gpTweakPlayerGun->x8c_powerBomb
                                 : CDamageInfo(CWeaponMode::PowerBomb(), 0.f, 0.f, 0.f);
   const float ballHalfExtent = gpTweakPlayer->GetPlayerBallHalfExtent();

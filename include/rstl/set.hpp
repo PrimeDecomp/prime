@@ -19,9 +19,6 @@ public:
   typedef typename rep_type::iterator iterator;
   typedef typename rep_type::const_iterator const_iterator;
 
-  set() {}
-  set(const Cmp& cmp, const Alloc& alloc = Alloc()) : inner(identity< T >(), cmp, alloc) {}
-
   iterator insert(const value_type& item) { return inner.insert(item); }
 
   const_iterator begin() const { return inner.begin(); }

@@ -29,6 +29,8 @@ public:
   void RenderMuzzleFx() const;
   void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&);
 
+  bool IsLoaded() const { return x80_24_isLoaded; }
+
 private:
   TCachedToken< CWeaponDescription > x0_missile;
   TCachedToken< CGenDescription > xc_flameMuzzle;

@@ -33,7 +33,7 @@ public:
   void UpdateBeam(const float dt, const CTransform4f& targetXf, const CVector3f& localBeamPos,
                   CStateManager& mgr);
   void DeleteBeam(CStateManager& mgr);
-  void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&);
+  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId sender, CStateManager& mgr);
 
 private:
   TCachedToken< CGenDescription > x21c_plasma2nd1;

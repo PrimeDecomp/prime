@@ -364,7 +364,7 @@ public:
   const CVector3f& GetOrbitPoint() const { return x314_orbitPoint; }
   TUniqueId GetOrbitNextTargetId() const { return x33c_orbitNextTargetId; }
   TUniqueId GetAttachedActor() const { return x26c_attachedActor; }
-  bool GetControlsFrozen() const { return x760_controlsFrozen; }
+  bool GetControlsFrozen() const { return x760_controlsFrozen; } // name?
   float GetDistanceUnderWater() const { return x828_distanceUnderWater; }
   TUniqueId GetScanningObjectId() const { return x3b4_scanningObject; }
   EGrappleState GetGrappleState() const { return x3b8_grappleState; }
@@ -382,6 +382,7 @@ public:
   const CVector3f& GetAssistedTargetAim() const { return x480_assistedTargetAim; }
   // CPlayer::GetFlipSpiderBallControlY() const weak
   // CPlayer::GetFlipSpiderBallControlX() const weak
+  float GetDeathTime() const { return x9f4_deathTime; } // name?
 
   bool IsInsideFluid() const { return x9c4_31_inWaterMovement; }
 

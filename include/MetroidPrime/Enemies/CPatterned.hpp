@@ -118,9 +118,6 @@ public:
     kPT_RelativePlayer,
     kPT_Absolute,
   };
-
-  bool IsMakingBigStrike() const { return x402_28_isMakingBigStrike; }
-  float GetDamageDuration() const { return x504_damageDur; }
   enum EPatternOrient {
     kPO_StartToPlayer,
     kPO_StartToPlayerStart,
@@ -339,6 +336,10 @@ public:
   static int CompareStateString(const char*, const char*, int);
   void UpdateDamageColor(float dt);
   void UpdateAlphaDelta(float dt, CStateManager& mgr);
+
+  // TODO: names?
+  bool IsMakingBigStrike() const { return x402_28_isMakingBigStrike; }
+  float GetDamageDuration() const { return x504_damageDur; }
 
 protected:
   EPatrolState x2d8_patrolState;
