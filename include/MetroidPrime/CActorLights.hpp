@@ -38,11 +38,14 @@ public:
   uint GetActiveLightCount() const;
 
   bool GetNeedsRelight() const { return x298_24_dirty == TRUE; }
-  bool HasShadowLight() const { return x29c_shadowLightArrIdx != -1; }
-  int GetAreaLightIndexForShadowLight() const { return x29c_shadowLightArrIdx; }
+  bool HasShadowLight() const { return x29c_shadowLightArrIdx != kInvalidShadowLightIndex; }
+  const TAreaId GetAreaLightIndexForShadowLight() const { return x29c_shadowLightArrIdx; }
+  uint GetShadowLightArrIndex() const { return x29c_shadowLightArrIdx; }
   int GetShadowLightIndex() const { return x2a0_shadowLightIdx; }
+  const CVector3f& GetAmbientColor() const { return x288_ambientColor; }
 
   void SetAmbientColor(const CColor& color);
+  void SetNeedsRelight(bool v) { x298_24_dirty = v; }
   void SetCastShadows(bool v) { x298_25_castShadows = v; }
   void SetFindShadowLight(bool v) { x298_27_findShadowLight = v; }
   void SetShadowDynamicRangeThreshold(float t) { x2d0_shadowDynamicRangeThreshold = t; }
@@ -75,7 +78,7 @@ private:
   bool x299_25_useBrightLightLag : 1;
   bool x299_26_ambientOnly : 1;
   bool x29a_findNearestDynamicLights;
-  int x29c_shadowLightArrIdx;
+  uint x29c_shadowLightArrIdx;
   int x2a0_shadowLightIdx;
   uint x2a4_lastUpdateFrame;
   uint x2a8_areaUpdateFramePeriod;
@@ -88,6 +91,8 @@ private:
   float x2d4_worldLightingLevel;
   int x2d8_brightLightIdx;
   uint x2dc_brightLightLag;
+
+  static int kInvalidShadowLightIndex;
 };
 CHECK_SIZEOF(CActorLights, 0x2e0)
 

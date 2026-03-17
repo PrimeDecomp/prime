@@ -111,6 +111,8 @@ struct const_counting_iterator {
 
   const_counting_iterator(const T* ptr, int count) : ptr(ptr), count(count) {}
 
+  const T& operator*() const { return *ptr; }
+
   const_counting_iterator& operator++() {
     ++this->count;
     return *this;

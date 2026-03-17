@@ -30,7 +30,7 @@ public:
   CVector3f GetGlobalTranslation() const override;
   CVector3f GetGlobalScale() const override;
   bool GetParticleEmission() const override;
-  CColor GetModulationColor() const override;
+  const CColor& GetModulationColor() const override;
   bool IsSystemDeletable() const override;
   rstl::optional_object< CAABox > GetBounds() const override;
   int GetParticleCount() const override;

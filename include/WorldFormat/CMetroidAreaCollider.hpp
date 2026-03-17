@@ -11,6 +11,7 @@
 
 #include "Kyoto/Math/CAABox.hpp"
 #include "Kyoto/Math/CPlane.hpp"
+#include "Kyoto/Math/CSphere.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
 
 #include "rstl/reserved_vector.hpp"
@@ -63,9 +64,47 @@ public:
   };
 
   static bool ConvexPolyCollision(const CPlane* planes, const CVector3f* verts, CAABox& aabb);
+  static void BuildOctreeLeafCache(const CAreaOctTree::Node& node, const CAABox& aabb,
+                                   COctreeLeafCache& leafCache);
+  static bool AABoxCollisionCheckBoolean(const CAreaOctTree& octTree, const CAABox& aabb,
+                                         const CMaterialFilter& filter);
+  static bool SphereCollisionCheckBoolean(const CAreaOctTree& octTree, const CAABox& aabb,
+                                          const CSphere& sphere,
+                                          const CMaterialFilter& filter);
+  static bool AABoxCollisionCheckBoolean_Cached(const COctreeLeafCache& leafCache,
+                                                const CAABox& aabb,
+                                                const CMaterialFilter& filter);
+  static bool SphereCollisionCheckBoolean_Cached(const COctreeLeafCache& leafCache,
+                                                 const CAABox& aabb,
+                                                 const CSphere& sphere,
+                                                 const CMaterialFilter& filter);
+  static bool AABoxCollisionCheck(const CAreaOctTree& octTree, const CAABox& aabb,
+                                  const CMaterialFilter& filter,
+                                  const CMaterialList& matList, CCollisionInfoList& list);
+  static bool SphereCollisionCheck(const CAreaOctTree& octTree, const CAABox& aabb,
+                                   const CSphere& sphere, const CMaterialList& matList,
+                                   const CMaterialFilter& filter, CCollisionInfoList& list);
   static bool AABoxCollisionCheck_Cached(const COctreeLeafCache& leafCache, const CAABox& aabb,
                                          const CMaterialFilter& filter,
                                          const CMaterialList& matList, CCollisionInfoList& list);
+  static bool SphereCollisionCheck_Cached(const COctreeLeafCache& leafCache, const CAABox& aabb,
+                                          const CSphere& sphere,
+                                          const CMaterialList& matList,
+                                          const CMaterialFilter& filter,
+                                          CCollisionInfoList& list);
+  static bool MovingAABoxCollisionCheck_Cached(const COctreeLeafCache& leafCache,
+                                               const CAABox& aabb,
+                                               const CMaterialFilter& filter,
+                                               const CMaterialList& matList, CVector3f dir,
+                                               float d, CCollisionInfo& infoOut,
+                                               double& dOut);
+  static bool MovingSphereCollisionCheck_Cached(const COctreeLeafCache& leafCache,
+                                                const CAABox& aabb,
+                                                const CSphere& sphere,
+                                                const CMaterialFilter& filter,
+                                                const CMaterialList& matList, CVector3f dir,
+                                                float d, CCollisionInfo& infoOut,
+                                                double& dOut);
 
 private:
   static ushort sDupPrimitiveCheckCount;
@@ -82,7 +121,7 @@ public:
 
   void ClearCache();
   const CAABox& GetCacheBounds() const { return x0_aabb; }
-  void SetCacheBounds(const CAABox& aabb) { x0_aabb = aabb; }
+  void SetCacheBounds(const CAABox& aabb);
   void AddOctreeLeafCache(const CMetroidAreaCollider::COctreeLeafCache& leafCache);
   uint GetNumCaches() const { return x18_leafCaches.size(); }
   const CMetroidAreaCollider::COctreeLeafCache& GetOctreeLeafCache(int idx) {

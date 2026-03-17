@@ -45,7 +45,7 @@ CCollisionInfo::CCollisionInfo(const CAABox& aabox, const CMaterialList& rightMa
 , x48_normalLeft(leftNormal)
 , x54_normalRight(rightNormal) {}
 
-CCollisionInfo CCollisionInfo::GetSwapped() const { return CCollisionInfo(*this, kSM_Swap); }
+CCollisionInfo CCollisionInfo::GetSwapped(ESwapMaterials swap) const { return CCollisionInfo(*this, swap); }
 
 CCollisionInfo::CCollisionInfo(EInvalid invalid)
 : x0_point(0.f, 0.f, 0.f)

@@ -66,7 +66,7 @@ public:
   virtual CVector3f GetGlobalTranslation() const override;
   virtual CVector3f GetGlobalScale() const override;
   virtual bool GetParticleEmission() const override;
-  virtual CColor GetModulationColor() const override;
+  virtual const CColor& GetModulationColor() const override;
   virtual bool IsSystemDeletable() const override;
   virtual rstl::optional_object< CAABox > GetBounds() const override;
   virtual int GetParticleCount() const override;
@@ -79,6 +79,7 @@ public:
   int GetEmitterTime() const;
   int GetSystemCount();
   void EndLifetime();
+  void ForceParticleCreation(int amount);
 
   int GetNumActiveChildParticles() const;
   CParticleGen* GetActiveChildParticle(int index) const;

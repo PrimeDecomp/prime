@@ -5,8 +5,8 @@
 
 class CMetroidBeta : public CPatterned {
 public:
-  void RenderHitGunEffect() const;
   void RenderHitBallEffect() const;
+  void RenderHitGunEffect() const;
 };
 
 #endif // _CMETROIDBETA

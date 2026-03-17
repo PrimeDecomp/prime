@@ -22,7 +22,9 @@ inline void swap(T& a, T& b) {
 
 template < typename I1, typename I2 >
 inline void iter_swap(I1 a, I2 b) {
-  swap(*a, *b);
+  typename iterator_traits< I1 >::value_type tmp = *a;
+  *a = *b;
+  *b = tmp;
 }
 template < class T, class Cmp >
 void __sort3(T& a, T& b, T& c, Cmp comp); // TODO
@@ -72,32 +74,40 @@ void __sort3(T& a, T& b, T& c, const Cmp comp) {
 
 template < typename It, class Cmp >
 void sort(It first, It last, Cmp cmp) {
-  int count = last - first; // use distance?
+  const int count = last - first;
   if (count <= 1) {
     return;
   }
-  if (20 >= count) {
+  if (count <= 20) {
     __insertion_sort(first, last, cmp);
-  } else {
-    It pivot = first + count / 2;
-    It end = last;
-    __sort3(*first, *pivot, *--end, cmp);
-    typename iterator_traits< It >::value_type value = *pivot;
-    It it = first + 1;
-    --end;
-    while (true) {
-      while (cmp(*it, value))
-        ++it;
-      while (cmp(value, *end))
-        --end;
-      if (it >= end)
-        break;
-      iter_swap(it, end--);
+    return;
+  }
+
+  It mid = first + count / 2;
+  It end = last - 1;
+  __sort3(*first, *mid, *end, cmp);
+
+  typename iterator_traits< It >::value_type pivot = *mid;
+  It it = first + 1;
+  --end;
+
+  while (true) {
+    while (cmp(*it, pivot)) {
       ++it;
     }
-    sort(first, it, cmp);
-    sort(it, last, cmp);
+    while (cmp(pivot, *end)) {
+      --end;
+    }
+    if (it >= end) {
+      break;
+    }
+    iter_swap(it, end);
+    ++it;
+    --end;
   }
+
+  sort(first, it, cmp);
+  sort(it, last, cmp);
 }
 
 template < typename It, typename T, typename Cmp >
@@ -119,6 +129,47 @@ It lower_bound(It start, It end, const T& value, Cmp cmp) {
   return start;
 }
 
+template < typename Vec >
+typename Vec::const_iterator lower_bound_const(typename Vec::const_iterator start,
+                                               typename Vec::const_iterator end,
+                                               const typename Vec::value_type& value) {
+  int dist = distance(start, end);
+  typename Vec::const_iterator it = start;
+  while (dist > 0) {
+    int halfDist = dist / 2;
+    it = start;
+    advance(it, halfDist);
+    if (*it < value) {
+      start = it;
+      ++start;
+      dist = (dist - halfDist) - 1;
+    } else {
+      dist = halfDist;
+    }
+  }
+  return start;
+}
+
+template < typename Vec >
+typename Vec::iterator lower_bound(typename Vec::iterator start, typename Vec::iterator end,
+                                   const typename Vec::value_type& value) {
+  int dist = distance(start, end);
+  typename Vec::iterator it = start;
+  while (dist > 0) {
+    int halfDist = dist / 2;
+    it = start;
+    advance(it, halfDist);
+    if (*it < value) {
+      start = it;
+      ++start;
+      dist = (dist - halfDist) - 1;
+    } else {
+      dist = halfDist;
+    }
+  }
+  return start;
+}
+
 template < typename It, typename T, typename Cmp >
 inline It binary_find(It start, It end, const T& value, Cmp cmp) {
   It lower = lower_bound(start, end, value, cmp);
@@ -126,6 +177,23 @@ inline It binary_find(It start, It end, const T& value, Cmp cmp) {
   if (lower != end && !cmp(value, *lower)) {
     found = true;
   }
+  return found ? lower : end;
+}
+
+template < typename Vec >
+inline typename Vec::const_iterator binary_find_const(typename Vec::const_iterator start,
+                                                      typename Vec::const_iterator end,
+                                                      const typename Vec::value_type& value) {
+  typename Vec::const_iterator lower = lower_bound_const< Vec >(start, end, value);
+  bool found = (lower != end && !(value < *lower));
+  return found ? lower : end;
+}
+
+template < typename Vec >
+inline typename Vec::iterator binary_find(typename Vec::iterator start, typename Vec::iterator end,
+                                          const typename Vec::value_type& value) {
+  typename Vec::iterator lower = lower_bound< Vec >(start, end, value);
+  bool found = (lower != end && !(value < *lower));
   return found ? lower : end;
 }
 

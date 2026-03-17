@@ -19,7 +19,6 @@ public:
   explicit CAxisAngle(const CVector3f& vec);
   explicit CAxisAngle(const CUnitVector3f& vec, float);
   CAxisAngle(float x, float y, float z) : mVector(x, y, z) {}
-  void FromVector(const CVector3f& angle);
 
   static const CAxisAngle& Identity();
   float GetAngle() const;
@@ -27,6 +26,8 @@ public:
 
   const CAxisAngle& operator*=(const float& rhs);
   const CAxisAngle& operator+=(const CAxisAngle& rhs);
+
+  static CAxisAngle FromVector(const CVector3f& angle);
 
 private:
   CVector3f mVector;
