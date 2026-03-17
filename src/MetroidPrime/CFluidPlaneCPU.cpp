@@ -38,6 +38,8 @@
 
 #include <math.h>
 
+#pragma inline_max_size(250)
+
 extern "C" float* InitializeSineWave();
 extern const bool sRenderBumpMaps;
 extern const int sFluidEnvMapType;

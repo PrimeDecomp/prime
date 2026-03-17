@@ -1491,7 +1491,7 @@ config.libs = [
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Math/CVector3d.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Math/CVector3f.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Math/CVector3i.cpp"),
-            Object(NonMatching, "Kyoto/Math/RMathUtils.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Math/RMathUtils.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/CCrc32.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Alloc/CCircularBuffer.cpp"

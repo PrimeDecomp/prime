@@ -7,6 +7,7 @@ class CCollisionInfoList;
 class CVector3f;
 class CSphere;
 class CMRay;
+class CPlane;
 
 namespace CollisionUtil {
 
@@ -23,7 +24,7 @@ bool TriSphereOverlap(const CSphere&, const CVector3f&, const CVector3f&, const 
 bool TriSphereIntersection(const CSphere&, const CVector3f&, const CVector3f&, const CVector3f&,
                            CVector3f&, CVector3f&);
 double TriPointSqrDist(const CVector3f&, const CVector3f&, const CVector3f&, const CVector3f&,
-                      float*, float*);
+                       float*, float*);
 
 bool AABoxAABoxIntersection(const CAABox& left, const CAABox& right);
 bool AABoxAABoxIntersection(const CAABox& left, const CMaterialList& leftFilter,
@@ -32,10 +33,10 @@ bool AABoxAABoxIntersection(const CAABox& left, const CMaterialList& leftFilter,
 bool AABoxSphereIntersection(const CAABox&, const CSphere&);
 float AABoxSphereIntersectionRadius(const CAABox&, const CSphere&);
 bool RayTriangleIntersection(const CVector3f&, const CVector3f&, const CVector3f*, float&);
-bool RayTriangleIntersection_Double(const CVector3f&, const CVector3f&, const CVector3f*,
-                                    double&);
+bool RayTriangleIntersection_Double(const CVector3f&, const CVector3f&, const CVector3f*, double&);
 int RayAABoxIntersection(const CMRay& ray, const CAABox& box, float& tMin, float& tMax);
-int RayAABoxIntersection_Double(const CMRay& ray, const CAABox& box, CVector3f& dir, double& penetration);
+int RayAABoxIntersection_Double(const CMRay& ray, const CAABox& box, CVector3f& dir,
+                                double& penetration);
 int RayAABoxIntersection(const CMRay& ray, const CAABox& box, CVector3f& dir, float& penetration);
 bool AABox_AABox_Moving(const CAABox& left, const CAABox& right, const CVector3f& dir, double& d,
                         CVector3f& point, CVector3f& normal);
@@ -47,6 +48,8 @@ bool RaySphereIntersection_Double(const CSphere& sphere, const CVector3f& pos, c
                                   double& T);
 bool RaySphereIntersection(const CSphere& sphere, const CVector3f& pos, const CVector3f& dir,
                            float mag, float& T, CVector3f& point);
+bool RayPlaneIntersection(const CVector3f& from, const CVector3f& to, const CPlane& plane,
+                          CVector3f& point);
 
 // Global function defined in either CBallFilter or an unknown TU, name unknown.
 // Called by CNewFlameThrower.

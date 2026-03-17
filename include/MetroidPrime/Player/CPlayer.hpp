@@ -606,4 +606,13 @@ private:
 };
 CHECK_SIZEOF(CPlayer, 0xa38)
 
+extern const bool gkAutoAim;
+extern const bool gkAutoAimAtOrbitedObject;
+extern const bool gkFreeLookPreventsOrbitMovement;
+extern const float gkSpiderBallControllerActivationPercentage;
+extern const bool gkWorldOnlyReflection;
+extern const bool gkUseNewPlayerMovement;
+extern const float gkFirstPersonDeathTime;
+extern const float gkBallDeathTime;
+
 #endif // _CPLAYER

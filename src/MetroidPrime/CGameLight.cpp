@@ -2,6 +2,8 @@
 
 #include "MetroidPrime/CActorParameters.hpp"
 
+#pragma inline_max_size(250)
+
 CGameLight::CGameLight(TUniqueId uid, TAreaId aid, const bool active, const rstl::string& name,
                        const CTransform4f& xf, TUniqueId parentId, const CLight& light,
                        uint sourceId, uint priority, float lifeTime)
@@ -13,7 +15,6 @@ CGameLight::CGameLight(TUniqueId uid, TAreaId aid, const bool active, const rstl
 , x13c_lightId(sourceId)
 , x140_priority(priority)
 , x144_lifeTime(lifeTime) {
-  // Needs to not inline CLight copy constructor
   xec_light.GetRadius();
   xec_light.GetIntensity();
   SetLightPriorityAndId();

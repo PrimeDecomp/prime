@@ -75,6 +75,15 @@
 #include "rstl/math.hpp"
 #include "rstl/vector.hpp"
 
+const bool gkAutoAim = false;
+const bool gkAutoAimAtOrbitedObject = false;
+const bool gkFreeLookPreventsOrbitMovement = true;
+const float gkSpiderBallControllerActivationPercentage = 0.5f;
+const bool gkWorldOnlyReflection = false;
+const bool gkUseNewPlayerMovement = true;
+const float gkFirstPersonDeathTime = 2.5f;
+const float gkBallDeathTime = 6.f;
+
 static CVector3f testRayStart(0.f, 0.f, 0.f);
 static CVector3f testRayNormal(0.f, 0.f, 1.f);
 static CRayCastResult testRayResult;

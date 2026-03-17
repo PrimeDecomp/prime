@@ -291,7 +291,7 @@ private:
   float x1e04_touchHalfPipeRecentCooldown;
   CVector3f x1e08_prevHalfPipeNormal;
   CVector3f x1e14_halfPipeNormal;
-  uint x1e20_ballAnimIdx;
+  int x1e20_ballAnimIdx;
   CSfxHandle x1e24_boostSfxHandle;
   CSfxHandle x1e28_wallHitSfxHandle;
   CSfxHandle x1e2c_rollSfxHandle;
