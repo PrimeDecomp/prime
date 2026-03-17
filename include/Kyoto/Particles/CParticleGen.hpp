@@ -32,7 +32,7 @@ public:
   virtual CVector3f GetGlobalTranslation() const = 0;
   virtual CVector3f GetGlobalScale() const = 0;
   virtual bool GetParticleEmission() const = 0;
-  virtual CColor GetModulationColor() const = 0;
+  virtual const CColor& GetModulationColor() const = 0;
   virtual float GetGeneratorRate() const { return 1.f; }
   virtual bool IsSystemDeletable() const = 0;
   virtual rstl::optional_object< CAABox > GetBounds() const = 0;

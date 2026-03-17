@@ -132,7 +132,7 @@ private:
   TToken< CGenDescription > x30_firePop;
   TToken< CGenDescription > x38_icePop;
   TToken< CElectricDescription > x40_electric;
-  TToken< CTexture > x48_ashy;
+  CToken x48_ashy;
   rstl::reserved_vector< Dependency, 6 > x50_dgrps;
   bool xe4_loadingDeps;
   bool xe5_justLoadedDeps;

@@ -39,6 +39,7 @@ class CPlane;
 class CGameArea;
 class CPVSVisSet;
 class CActorModelParticles;
+class CCollisionResponseData;
 class CCameraManager;
 class CEnvFxManager;
 class CFluidPlaneManager;
@@ -303,6 +304,9 @@ public:
   void DrawE3DeathEffect() const;
   void DrawAdditionalFilters() const;
   void GetCharacterRenderMaskAndTarget(bool, int&, int&);
+  void DoCollisionResponse(const CCollisionResponseData& colRespData,
+                           const CRayCastResult& rayCast, TUniqueId uid,
+                           const CWeaponMode& weaponMode, bool w1, bool b1);
   void DrawDebugStuff() const;
 
   // State transitions
@@ -334,11 +338,7 @@ public:
   void SetEnergyBarActorInfo(TUniqueId bossId, float maxEnergy, uint stringIdx) {
     SetBossParams(bossId, maxEnergy, stringIdx);
   }
-  void SetPendingOnScreenTex(CAssetId texId, const CVector2i& origin, const CVector2i& extent); /* {
-     xef4_pendingScreenTex.x0_id = texId;
-     xef4_pendingScreenTex.x4_origin = origin;
-     xef4_pendingScreenTex.xc_extent = extent;
-   }*/
+  void SetPendingOnScreenTex(CAssetId texId, const CVector2i& origin, const CVector2i& extent);
   const SOnScreenTex& GetPendingScreenTex() const { return xef4_pendingScreenTex; }
   float IntegrateVisorFog(float f) const;
 

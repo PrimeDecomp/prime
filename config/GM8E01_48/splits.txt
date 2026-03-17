@@ -1100,7 +1100,7 @@ musyx/runtime/hardware.c:
 
 musyx/runtime/dsp_import.c:
 	.data       start:0x803F4760 end:0x803F6140
-	.sdata      start:0x805A88C0 end:0x805A88C4
+	.sdata      start:0x805A88C0 end:0x805A88C8
 
 musyx/runtime/hw_aramdma.c:
 	.text       start:0x803B4074 end:0x803B4D40
@@ -1162,7 +1162,7 @@ Dolphin/card/CARDBios.c:
 Dolphin/card/CARDUnlock.c:
 	.text       start:0x803B9190 end:0x803BA3F0
 	.data       start:0x803F69E0 end:0x803F6B40
-	.sdata      start:0x805A88D0 end:0x805A88D4
+	.sdata      start:0x805A88D0 end:0x805A88D8
 
 Dolphin/card/CARDRdwr.c:
 	.text       start:0x803BA3F0 end:0x803BA670
@@ -1206,7 +1206,7 @@ Dolphin/card/CARDRename.c:
 
 Dolphin/card/CARDNet.c:
 	.text       start:0x803BE6EC end:0x803BE7B0
-	.sdata      start:0x805A88D8 end:0x805A88DC
+	.sdata      start:0x805A88D8 end:0x805A88E0
 
 Dolphin/si/SIBios.c:
 	.text       start:0x803BE7B0 end:0x803C0010
@@ -1222,7 +1222,7 @@ Dolphin/si/SISamplingRate.c:
 
 Dolphin/exi/EXIBios.c:
 	.text       start:0x803C0118 end:0x803C19F4
-	.data       start:0x803F6D30 end:0x803F6DFC
+	.data       start:0x803F6D30 end:0x803F6E00
 	.bss        start:0x80569B78 end:0x80569C38
 	.sdata      start:0x805A88E8 end:0x805A88EC
 

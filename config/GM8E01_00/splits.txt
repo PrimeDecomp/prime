@@ -162,14 +162,14 @@ MetroidPrime/Tweaks/CTweakGame.cpp:
 	.data       start:0x803D9CD0 end:0x803D9CE0
 
 MetroidPrime/Weapons/CGameProjectile.cpp:
-	.text       start:0x80037400 end:0x8003A7A4
+	.text       start:0x80037400 end:0x8003A820
 	.rodata     start:0x803CCE20 end:0x803CCE38
 	.data       start:0x803D9CE0 end:0x803D9D50
 	.sdata      start:0x805A6DB8 end:0x805A6DE0
 	.sdata2     start:0x805AA120 end:0x805AA168
 
 MetroidPrime/Player/CPlayerGun.cpp:
-	.text       start:0x8003A7A4 end:0x80043DE0
+	.text       start:0x8003A820 end:0x80043DE0
 	.ctors      start:0x803CB1E0 end:0x803CB1E4
 	.rodata     start:0x803CCE38 end:0x803CCEE0
 	.data       start:0x803D9D50 end:0x803D9E30
@@ -1270,17 +1270,20 @@ MetroidPrime/Player/CPlayerOrbit.cpp:
 	.sdata2     start:0x805ABF50 end:0x805ABFC8
 
 MetroidPrime/CGameCollision.cpp:
-	.text       start:0x8017FB84 end:0x80185828
+	.text       start:0x8017FB84 end:0x8018543C
 	.rodata     start:0x803D0690 end:0x803D06D0
-	.data       start:0x803E3F80 end:0x803E4018
+	.data       start:0x803E3F80 end:0x803E3FF8
 	.sdata      start:0x805A7A40 end:0x805A7A68
-	.sdata2     start:0x805ABFC8 end:0x805AC028
+	.sdata2     start:0x805ABFC8 end:0x805AC018
 
 MetroidPrime/CBallFilter.cpp:
-	.text       start:0x80185828 end:0x80185850
+	.text       start:0x8018543C end:0x80185850
+	.data       start:0x803E3FF8 end:0x803E4008
+	.sdata2     start:0x805AC018 end:0x805AC028
 
 MetroidPrime/CAABoxFilter.cpp:
 	.text       start:0x80185850 end:0x80185A10
+	.data       start:0x803E4008 end:0x803E4018
 	.sdata2     start:0x805AC028 end:0x805AC030
 
 MetroidPrime/CGroundMovement.cpp:

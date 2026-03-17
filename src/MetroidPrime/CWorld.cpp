@@ -19,6 +19,10 @@
 #include "MetroidPrime/TGameTypes.hpp"
 #include "rstl/vector.hpp"
 
+static CGameArea::CConstChainIterator sAliveAreasEnd;
+
+CGameArea::CConstChainIterator CWorld::GetAliveAreasEnd() { return sAliveAreasEnd; }
+
 CWorld::CWorld(IObjectStore& objStore, CResFactory& resFactory, CAssetId mlvlId)
 : x4_phase(kP_Loading)
 , x8_mlvlId(mlvlId)

@@ -20,6 +20,8 @@ public:
     CPlane x0_plane;
     rstl::optional_object< CCollisionSurface > x10_surface;
     float x3c_t;
+
+    SRayResult() : x0_plane(0.f, CUnitVector3f(1.f, 0.f, 0.f)), x3c_t(0.f) {}
   };
 
   class TriListReference {
@@ -75,6 +77,10 @@ public:
                              ushort* triangles, uint vertexCount, CVector3f* vertices);
   void MakeFromMemory(void* buf, uint bufLen, CAreaOctTree** treeOut, bool*);
   CCollisionSurface GetMasterListTriangle(ushort idx) const;
+  Node GetRootNode() const { return Node(x20_treeBuf, x0_aabb, *this, x18_treeType); }
+  const void* GetTreeMemory() const { return x20_treeBuf; }
+  const CAABox& GetBoundingBox() const { return x0_aabb; }
+  Node::ETreeType GetTreeType() const { return x18_treeType; }
   // TODO
 
 private:

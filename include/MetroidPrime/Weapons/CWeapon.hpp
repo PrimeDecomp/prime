@@ -55,9 +55,12 @@ public:
   TUniqueId GetOwnerId() const { return xec_ownerId; }
   EWeaponType GetType() const { return xf0_weaponType; }
   CMaterialFilter GetFilter() const { return xf8_filter; }
+
+  // TODO: names?
   CDamageInfo& OrigDamageInfo() { return x110_origDamageInfo; }
   CDamageInfo& CurrentDamageInfo() { return x12c_curDamageInfo; }
   const CDamageInfo& GetCurrentDamageInfo() const { return x12c_curDamageInfo; }
+  float GetDamageDuration() const { return x150_damageDuration; }
   float GetInterferenceDuration() const { return x154_interferenceDuration; }
 
   void SetOwnerId(TUniqueId id) { xec_ownerId = id; }
