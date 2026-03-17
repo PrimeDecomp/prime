@@ -97,6 +97,7 @@ public:
   }
   CAABox GetBounds(const CTransform4f& xf) const;
   CAABox GetBounds() const;
+  bool IsInFrustum(const CTransform4f& xf, const CFrustumPlanes& planes) const;
   bool IsLoaded(int shaderIdx) const;
   bool IsDefinitelyOpaque(EWhichModel which) const;
 

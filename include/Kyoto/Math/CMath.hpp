@@ -3,8 +3,8 @@
 
 #include "types.h"
 
-#include "math.h"
 #include "float.h"
+#include "math.h"
 
 #include <Kyoto/Math/CVector3f.hpp>
 
@@ -21,7 +21,11 @@ public:
   template < typename T >
   static const T& Clamp(const T& min, const T& val, const T& max);
   static float SqrtF(float v);
-  static inline float Limit(float v, float h) { if (fabs(v) > h) return h * Sign(v); return v; }
+  static inline float Limit(float v, float h) {
+    if (fabs(v) > h)
+      return h * Sign(v);
+    return v;
+  }
   static inline float Sign(float v) { return FastFSel(v, 1.f, -1.f); }
 #ifdef __MWERKS__
   static inline float FastFSel(register float v, register float h, register float l) {
@@ -37,7 +41,16 @@ public:
   static inline float AbsF(float v) { return fabs(v); }
   static inline double AbsD(double v) { return fabs(v); }
   static inline int AbsI(int v) { return abs(v); }
-  // WrapPi__5CMathFf weak
+  static inline float WrapPi(float rad) {
+    float value = FastFmod(rad, M_2PIF);
+    if (value > M_PIF) {
+      return value - M_2PIF;
+    } else if (value < -M_PIF) {
+      return value + M_2PIF;
+    } else {
+      return value;
+    }
+  }
   // WrapTwoPi__5CMathFf weak
   template < typename T >
   static const T& Min(const T& a, const T& b);

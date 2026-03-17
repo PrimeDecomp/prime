@@ -1,11 +1,18 @@
 #include "MetroidPrime/CAxisAngle.hpp"
 
+#ifdef __MWERKS__
+// This helps with CAxisAngle::FromVector. Marking the constructor inline causes
+// it to not be emitted in the object file, but auto-inlining works.
+#pragma auto_inline on
+#endif
+
 const CAxisAngle CAxisAngle::sIdentity;
 
 CAxisAngle::CAxisAngle(const CVector3f& vec) : mVector(vec) {}
+
 CAxisAngle::CAxisAngle(const CUnitVector3f& vec, float angle) : mVector(vec * angle) {}
 
-void CAxisAngle::FromVector(const CVector3f& axis) { mVector = axis; }
+CAxisAngle CAxisAngle::FromVector(const CVector3f& axis) { return CAxisAngle(axis); }
 
 const CAxisAngle& CAxisAngle::Identity() { return sIdentity; }
 
@@ -24,18 +31,13 @@ const CAxisAngle& CAxisAngle::operator+=(const CAxisAngle& rhs) {
 }
 
 CAxisAngle operator*(const CAxisAngle& lhs, const float& rhs) {
-  CAxisAngle angle;
-  angle.mVector = lhs.mVector * rhs;
-  return angle;
+  return CAxisAngle(lhs.mVector * rhs);
 }
+
 CAxisAngle operator*(const float& lhs, const CAxisAngle& rhs) {
-  CAxisAngle angle;
-  angle.mVector = lhs * rhs.mVector;
-  return angle;
+  return CAxisAngle(lhs * rhs.mVector);
 }
 
 CAxisAngle operator+(const CAxisAngle& lhs, const CAxisAngle& rhs) {
-  CAxisAngle angle = lhs;
-  angle.mVector = lhs.mVector + rhs.mVector;
-  return angle;
+  return CAxisAngle(lhs.mVector + rhs.mVector);
 }

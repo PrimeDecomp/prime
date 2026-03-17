@@ -4,36 +4,36 @@
 #include "MetroidPrime/CStateManager.hpp"
 #undef CSTATEMANAGER_OUT_OF_LINE_GETPLAYER
 
-#include "MetroidPrime/CControlMapper.hpp"
 #include "MetroidPrime/CActor.hpp"
-#include "MetroidPrime/CPhysicsActor.hpp"
+#include "MetroidPrime/CControlMapper.hpp"
+#include "MetroidPrime/CDamageVulnerability.hpp"
 #include "MetroidPrime/CDecalManager.hpp"
 #include "MetroidPrime/CEnvFxManager.hpp"
+#include "MetroidPrime/CExplosion.hpp"
 #include "MetroidPrime/CFluidPlaneCPU.hpp"
 #include "MetroidPrime/CGameCollision.hpp"
-#include "MetroidPrime/Cameras/CBallCamera.hpp"
-#include "MetroidPrime/Cameras/CCinematicCamera.hpp"
+#include "MetroidPrime/CGameHintInfo.hpp"
 #include "MetroidPrime/CGameLight.hpp"
 #include "MetroidPrime/CMapWorld.hpp"
 #include "MetroidPrime/CMapWorldInfo.hpp"
-#include "MetroidPrime/CGameHintInfo.hpp"
-#include "MetroidPrime/CDamageVulnerability.hpp"
-#include "MetroidPrime/Enemies/CPatterned.hpp"
-#include "MetroidPrime/Enemies/CWallCrawlerSwarm.hpp"
 #include "MetroidPrime/CMemoryCard.hpp"
+#include "MetroidPrime/CPhysicsActor.hpp"
 #include "MetroidPrime/CRipple.hpp"
 #include "MetroidPrime/CRumbleManager.hpp"
 #include "MetroidPrime/CScriptMailbox.hpp"
 #include "MetroidPrime/CStateManagerContainer.hpp"
 #include "MetroidPrime/CWorld.hpp"
+#include "MetroidPrime/Cameras/CBallCamera.hpp"
+#include "MetroidPrime/Cameras/CCinematicCamera.hpp"
+#include "MetroidPrime/Enemies/CPatterned.hpp"
+#include "MetroidPrime/Enemies/CWallCrawlerSwarm.hpp"
 #include "MetroidPrime/GameObjectLists.hpp"
 #include "MetroidPrime/HUD/CSamusHud.hpp"
+#include "MetroidPrime/Player/CGameState.hpp"
 #include "MetroidPrime/Player/CPlayer.hpp"
 #include "MetroidPrime/Player/CPlayerState.hpp"
-#include "MetroidPrime/Player/CGameState.hpp"
 #include "MetroidPrime/Player/CWorldLayerState.hpp"
 #include "MetroidPrime/Player/CWorldTransManager.hpp"
-#include "MetroidPrime/Tweaks/CTweakGui.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptDock.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptDoor.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptEffect.hpp"
@@ -43,10 +43,12 @@
 #include "MetroidPrime/ScriptObjects/CScriptSpecialFunction.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptWater.hpp"
 #include "MetroidPrime/TCastTo.hpp"
+#include "MetroidPrime/Tweaks/CTweakGui.hpp"
 #include "MetroidPrime/Tweaks/CTweakPlayer.hpp"
 #include "MetroidPrime/Tweaks/CTweakPlayerRes.hpp"
-#include "MetroidPrime/Weapons/CWeapon.hpp"
 #include "MetroidPrime/Weapons/CProjectileWeapon.hpp"
+#include "MetroidPrime/Weapons/CWeapon.hpp"
+#include "Weapons/CCollisionResponseData.hpp"
 
 #include "Collision/CCollidableSphere.hpp"
 #include "Collision/CCollisionPrimitive.hpp"
@@ -58,7 +60,6 @@
 #include "Kyoto/CARAMToken.hpp"
 #include "Kyoto/CSimplePool.hpp"
 #include "Kyoto/CTimeProvider.hpp"
-#include "Kyoto/Streams/CMemoryInStream.hpp"
 #include "Kyoto/Graphics/CGraphicsPalette.hpp"
 #include "Kyoto/Graphics/CLight.hpp"
 #include "Kyoto/Graphics/CModel.hpp"
@@ -67,6 +68,7 @@
 #include "Kyoto/Math/CQuaternion.hpp"
 #include "Kyoto/Math/CRelAngle.hpp"
 #include "Kyoto/Math/CUnitVector3f.hpp"
+#include "Kyoto/Streams/CMemoryInStream.hpp"
 #include "MetaRender/CCubeRenderer.hpp"
 #include "Weapons/CDecal.hpp"
 #include "WorldFormat/CPVSAreaSet.hpp"
@@ -121,10 +123,11 @@ static char init = 0;
 
 extern "C" void TouchModels__18CScriptPlayerActorFRC13CStateManager(void*, const CStateManager&);
 extern "C" void ConvertToScreenSpace__11CGameCameraCFRC9CVector3f(CVector3f*, const CGameCamera*,
-                                                                    const CVector3f*);
+                                                                  const CVector3f*);
 extern "C" void DrawReflection__13CStateManagerFRC9CVector3f(CStateManager*, const CVector3f&);
-extern "C" void SetNewPlayerPositionAndTime__10CCubeModelFRC9CVector3fRC10CStopwatch(
-    const CVector3f&, const CStopwatch&);
+extern "C" void
+SetNewPlayerPositionAndTime__10CCubeModelFRC9CVector3fRC10CStopwatch(const CVector3f&,
+                                                                     const CStopwatch&);
 extern "C" CGameArea::CChainIterator AliveAreasEnd__6CWorldFv();
 extern "C" void ResetParticleCounts__13CScriptEffectFv();
 extern "C" void Update__15CCameraBlurPassFf(CCameraBlurPass*, float);
@@ -132,10 +135,12 @@ extern "C" void Update__13CDecalManagerFfR13CStateManager(float, CStateManager*)
 extern "C" void Update__6CWorldFf(CWorld*, float);
 extern "C" void PreRender__6CWorldFv(CWorld*);
 extern "C" void Update__13CEnvFxManagerFfR13CStateManager(float, CEnvFxManager*, CStateManager*);
-extern "C" void AsyncLoadResources__13CEnvFXManagerFR13CStateManager(CEnvFxManager*, CStateManager*);
+extern "C" void AsyncLoadResources__13CEnvFXManagerFR13CStateManager(CEnvFxManager*,
+                                                                     CStateManager*);
 extern "C" void DismissDisplayedHint__12CHintOptionsFv(CHintOptions*);
 extern "C" void CrossTouchActors__13CStateManagerFf(CStateManager*);
-extern "C" void TravelToArea__6CWorldFRC7TAreaIdR13CStateManagerb(CWorld*, const TAreaId&, CStateManager*, bool);
+extern "C" void TravelToArea__6CWorldFRC7TAreaIdR13CStateManagerb(CWorld*, const TAreaId&,
+                                                                  CStateManager*, bool);
 extern "C" void SetTotalPlayTime__10CGameStateFd(CGameState*, double);
 extern "C" void SetDeferPowerupInit__10CGameStateFb(CGameState*, bool);
 extern "C" void SetAreaId__11CWorldStateF7TAreaId(CWorldState*, TAreaId);
@@ -145,21 +150,22 @@ extern "C" ushort lbl_805A8A10;
 extern "C" s64 lbl_805A8D98;
 extern "C" uint lbl_805A8D9C;
 extern "C" CGameArea* lbl_805A8DDC;
-extern "C" uchar lbl_805A9E08;
-extern "C" float lbl_805A9E10;
 extern "C" float lbl_805AA2D4;
 extern "C" void fn_80046DE8(const CStateManager*, const CGameArea*);
 extern "C" void fn_8004B504(CStateManager*);
 extern "C" float GetHardModeDamageMultiplier__10CGameStateCFv(const CGameState*);
 extern "C" void IncrementFrozenBallCount__12CSystemStateFv(CSystemState*);
 extern "C" float BombJump__7CPlayerFRC9CVector3fR13CStateManager(CPlayer*, const CVector3f*,
-                                                                    CStateManager*);
+                                                                 CStateManager*);
 extern "C" void ApplyRadiusDamage__17CWallCrawlerSwarmF9CVector3ffR13CStateManager(
     CWallCrawlerSwarm*, const CVector3f*, const CDamageInfo*, CStateManager*);
-extern "C" void ApplyRadiusDamage__15CSnakeWeedSwarmF9CVector3ffR13CStateManager(
-    CSnakeWeedSwarm*, const CVector3f*, const CDamageInfo*, CStateManager*);
+extern "C" void ApplyRadiusDamage__15CSnakeWeedSwarmF9CVector3ffR13CStateManager(CSnakeWeedSwarm*,
+                                                                                 const CVector3f*,
+                                                                                 const CDamageInfo*,
+                                                                                 CStateManager*);
 
-extern bool TestRayDamage(const CStateManager&, const CVector3f&, const CActor&, const TEntityList&);
+extern bool TestRayDamage(const CStateManager&, const CVector3f&, const CActor&,
+                          const TEntityList&);
 
 struct SScriptLayerBuffer {
   const void* x0_buf;
@@ -180,93 +186,6 @@ public:
     }
   }
 };
-
-void CStateManager::BuildNearList(TEntityList& nearList, const CAABox& aabb,
-                                  const CMaterialFilter& filter, const CActor* actor) const {
-  x874_sortedListManager->BuildNearList(nearList, aabb, filter, actor);
-}
-
-void CStateManager::BuildColliderList(TEntityList& out, const CActor& actor,
-                                      const CAABox& aabb) const {
-  x874_sortedListManager->BuildNearList(out, actor, aabb);
-}
-
-void CStateManager::BuildNearList(TEntityList& nearList, const CVector3f& pos,
-                                  const CVector3f& dir, float mag,
-                                  const CMaterialFilter& filter, const CActor* actor) const {
-  x874_sortedListManager->BuildNearList(nearList, pos, dir, mag, filter, actor);
-}
-
-void CStateManager::UpdateActorInSortedLists(CActor& actor) {
-  x874_sortedListManager->Insert(&actor, actor.GetSortingBounds(*this));
-}
-
-void CStateManager::UpdateSortedLists() {
-  if (x850_world.get() == nullptr) {
-    return;
-  }
-
-  CObjectList* actorList = x808_objectLists[kOL_Actor].get();
-  for (int i = actorList->GetFirstObjectIndex(); i != -1; i = actorList->GetNextObjectIndex(i)) {
-    CActor* actor = static_cast< CActor* >((*actorList)[i]);
-    if (actor != nullptr) {
-      UpdateActorInSortedLists(*actor);
-    }
-  }
-}
-
-rstl::optional_object< CAABox > CStateManager::CalculateObjectBounds(const CActor& actor) {
-  const CPhysicsActor* physAct = TCastToConstPtr< CPhysicsActor >(actor);
-  rstl::optional_object< CAABox > touchBounds = actor.GetTouchBounds();
-
-  if (touchBounds) {
-    CAABox aabb = CAABox::MakeMaxInvertedBox();
-    aabb.AccumulateBounds(touchBounds->GetMinPoint());
-    aabb.AccumulateBounds(touchBounds->GetMaxPoint());
-
-    if (physAct != nullptr) {
-      CAABox physAabb = physAct->GetBoundingBox();
-      aabb.AccumulateBounds(physAabb.GetMinPoint());
-      aabb.AccumulateBounds(physAabb.GetMaxPoint());
-    }
-
-    return aabb;
-  }
-
-  if (physAct != nullptr) {
-    return physAct->GetBoundingBox();
-  }
-
-  return rstl::optional_object_null();
-}
-
-void CStateManager::AreaLoaded(TAreaId aid) {
-  x8bc_mailbox->SendMsgs(aid, *this);
-  x880_envFxManager->AreaLoaded();
-}
-
-void CStateManager::PrepareAreaUnload(TAreaId aid) {
-  CObjectList* allList = x808_objectLists[0].get();
-  for (int i = allList->GetFirstObjectIndex(); i != -1; i = allList->GetNextObjectIndex(i)) {
-    if (CScriptDoor* door = TCastToPtr< CScriptDoor >((*allList)[i])) {
-      if (door->IsConnectedToArea(*this, aid)) {
-        door->ForceClosed(*this);
-      }
-    }
-  }
-
-  FreeScriptObjects(aid);
-}
-
-void CStateManager::AreaUnloaded(TAreaId) {}
-
-const CEntity* CStateManager::GetObjectById(TUniqueId uid) const {
-  return GetObjectListById(kOL_All).GetObjectById(uid);
-}
-
-CEntity* CStateManager::ObjectById(TUniqueId uid) {
-  return x808_objectLists[0]->GetObjectById(uid);
-}
 
 CStateManager::CStateManager(const rstl::ncrc_ptr< CScriptMailbox >& mailbox,
                              const rstl::ncrc_ptr< CMapWorldInfo >& mwInfo,
@@ -559,6 +478,30 @@ TUniqueId CStateManager::AllocateUniqueId() {
   return TUniqueId(x4_objectIndexArray[ourIndex], ourIndex);
 }
 
+void CStateManager::UpdateObjectInLists(CEntity& ent) {
+  rstl::auto_ptr< CObjectList >* listBegin = x808_objectLists.data();
+  for (rstl::auto_ptr< CObjectList >* listIt = listBegin;
+       listIt != listBegin + x808_objectLists.size(); ++listIt) {
+    if (static_cast< const CObjectList* >(listIt->get())->GetValidObjectById(ent.GetUniqueId()) !=
+            nullptr &&
+        !listIt->get()->IsQualified(ent)) {
+      listIt->get()->RemoveObject(ent.GetUniqueId());
+    }
+
+    if (static_cast< const CObjectList* >(listIt->get())->GetValidObjectById(ent.GetUniqueId()) ==
+        nullptr) {
+      listIt->get()->AddObject(ent);
+    }
+  }
+}
+
+CRayCastResult CStateManager::RayWorldIntersection(TUniqueId& idOut, const CVector3f& pos,
+                                                   const CVector3f& dir, float length,
+                                                   const CMaterialFilter& filter,
+                                                   const TEntityList& list) const {
+  return CGameCollision::RayWorldIntersection(*this, idOut, pos, dir, length, filter, list);
+}
+
 CRayCastResult CStateManager::RayStaticIntersection(const CVector3f& pos, const CVector3f& dir,
                                                     float length,
                                                     const CMaterialFilter& filter) const {
@@ -587,7 +530,8 @@ void CStateManager::AddObject(CEntity* obj) {
 
 void CStateManager::AddObject(CEntity& obj) {
   if (obj.GetEditorId() != kInvalidEditorId) {
-    x890_scriptIdMap.insert(rstl::pair< TEditorId, TUniqueId >(obj.GetEditorId(), obj.GetUniqueId()));
+    x890_scriptIdMap.insert(
+        rstl::pair< TEditorId, TUniqueId >(obj.GetEditorId(), obj.GetUniqueId()));
   }
 
   rstl::reserved_vector< rstl::auto_ptr< CObjectList >, 8 >::iterator listIt =
@@ -623,6 +567,194 @@ void CStateManager::AddObject(CEntity& obj) {
     if (area->IsValidated()) {
       DeliverScriptMsg(&obj, kInvalidUniqueId, kSM_InitializedInArea);
     }
+  }
+}
+
+rstl::optional_object< CAABox > CStateManager::CalculateObjectBounds(const CActor& actor) {
+  const CPhysicsActor* physAct = TCastToConstPtr< CPhysicsActor >(actor);
+  rstl::optional_object< CAABox > touchBounds = actor.GetTouchBounds();
+
+  if (touchBounds) {
+    CAABox aabb = CAABox::MakeMaxInvertedBox();
+    aabb.AccumulateBounds(touchBounds->GetMinPoint());
+    aabb.AccumulateBounds(touchBounds->GetMaxPoint());
+
+    if (physAct != nullptr) {
+      CAABox physAabb = physAct->GetBoundingBox();
+      aabb.AccumulateBounds(physAabb.GetMinPoint());
+      aabb.AccumulateBounds(physAabb.GetMaxPoint());
+    }
+
+    return aabb;
+  }
+
+  if (physAct != nullptr) {
+    return physAct->GetBoundingBox();
+  }
+
+  return rstl::optional_object_null();
+}
+
+void CStateManager::UpdateSortedLists() {
+  if (x850_world.get() == nullptr) {
+    return;
+  }
+
+  CObjectList* actorList = x808_objectLists[kOL_Actor].get();
+  for (int i = actorList->GetFirstObjectIndex(); i != -1; i = actorList->GetNextObjectIndex(i)) {
+    CActor* actor = static_cast< CActor* >((*actorList)[i]);
+    if (actor != nullptr) {
+      UpdateActorInSortedLists(*actor);
+    }
+  }
+}
+
+void CStateManager::UpdateActorInSortedLists(CActor& actor) {
+  x874_sortedListManager->Insert(&actor, actor.GetSortingBounds(*this));
+}
+
+void CStateManager::BuildNearList(TEntityList& nearList, const CAABox& aabb,
+                                  const CMaterialFilter& filter, const CActor* actor) const {
+  x874_sortedListManager->BuildNearList(nearList, aabb, filter, actor);
+}
+
+void CStateManager::BuildColliderList(TEntityList& out, const CActor& actor,
+                                      const CAABox& aabb) const {
+  x874_sortedListManager->BuildNearList(out, actor, aabb);
+}
+
+void CStateManager::BuildNearList(TEntityList& nearList, const CVector3f& pos, const CVector3f& dir,
+                                  float mag, const CMaterialFilter& filter,
+                                  const CActor* actor) const {
+  x874_sortedListManager->BuildNearList(nearList, pos, dir, mag, filter, actor);
+}
+
+void CStateManager::AreaLoaded(TAreaId aid) {
+  x8bc_mailbox->SendMsgs(aid, *this);
+  x880_envFxManager->AreaLoaded();
+}
+
+void CStateManager::PrepareAreaUnload(TAreaId aid) {
+  CObjectList* allList = x808_objectLists[0].get();
+  for (int i = allList->GetFirstObjectIndex(); i != -1; i = allList->GetNextObjectIndex(i)) {
+    if (CScriptDoor* door = TCastToPtr< CScriptDoor >((*allList)[i])) {
+      if (door->IsConnectedToArea(*this, aid)) {
+        door->ForceClosed(*this);
+      }
+    }
+  }
+
+  FreeScriptObjects(aid);
+}
+
+void CStateManager::AreaUnloaded(TAreaId) {}
+
+const CEntity* CStateManager::GetObjectById(TUniqueId uid) const {
+  return GetObjectListById(kOL_All).GetObjectById(uid);
+}
+
+CEntity* CStateManager::ObjectById(TUniqueId uid) {
+  return x808_objectLists[0]->GetObjectById(uid);
+}
+
+void CStateManager::DeleteObjectRequest(TUniqueId uid) {
+  CEntity* ent = ObjectById(uid);
+  if (ent == nullptr) {
+    return;
+  }
+  if ((*reinterpret_cast< const uchar* >(reinterpret_cast< const uchar* >(ent) + 0x30) >> 6) & 1) {
+    return;
+  }
+
+  ent->x30_25_inGraveyard = true;
+
+  if (x854_graveyard.size() == 0) {
+    rstl::reserved_vector< TUniqueId, 32 > newVec;
+    x854_graveyard.push_back(newVec);
+  } else {
+    rstl::list< rstl::reserved_vector< TUniqueId, 32 > >::iterator backIt = x854_graveyard.end();
+    --backIt;
+    if (backIt->size() == backIt->capacity()) {
+      rstl::reserved_vector< TUniqueId, 32 > newVec;
+      x854_graveyard.push_back(newVec);
+    }
+  }
+
+  rstl::list< rstl::reserved_vector< TUniqueId, 32 > >::iterator backIt = x854_graveyard.end();
+  --backIt;
+  backIt->push_back(uid);
+
+  ent->AcceptScriptMsg(kSM_Deleted, kInvalidUniqueId, *this);
+  ent->x30_26_scriptingBlocked = true;
+
+  if (CActor* actor = TCastToPtr< CActor >(ent)) {
+    x874_sortedListManager->Remove(actor);
+    actor->SetUseInSortedLists(false);
+  }
+}
+
+void CStateManager::ClearGraveyard() {
+  rstl::list< rstl::reserved_vector< TUniqueId, 32 > >::iterator gyIt = x854_graveyard.begin();
+  for (; gyIt != x854_graveyard.end(); ++gyIt) {
+    rstl::reserved_vector< TUniqueId, 32 >& vec = *gyIt;
+    rstl::reserved_vector< TUniqueId, 32 >::iterator idIt = vec.begin();
+    for (; idIt != vec.end(); ++idIt) {
+      TUniqueId id = *idIt;
+      CEntity* ent = x808_objectLists[0]->GetValidObjectById(id);
+      RemoveObject(id);
+      if (ent != nullptr) {
+        delete ent;
+      }
+    }
+  }
+
+  {
+    rstl::list< rstl::reserved_vector< TUniqueId, 32 > >::iterator clearIt = x854_graveyard.begin();
+    while (clearIt != x854_graveyard.end()) {
+      clearIt = x854_graveyard.erase(clearIt);
+    }
+  }
+}
+
+void CStateManager::SetCurrentAreaId(TAreaId aid) {
+  if (x8cc_nextAreaId != aid) {
+    x8d0_prevAreaId = x8cc_nextAreaId;
+    UpdateRoomAcoustics(aid);
+    x8cc_nextAreaId = aid;
+  }
+
+  const TAreaId& currentArea = aid;
+  if (currentArea != kInvalidAreaId) {
+    if (!x8c0_mapWorldInfo->IsAreaVisited(currentArea)) {
+      x8c0_mapWorldInfo->SetAreaVisited(currentArea, true);
+      CMapWorldInfo* mapWorldInfo = x8c0_mapWorldInfo.GetPtr();
+      CWorld* world = x850_world.get();
+      CMapWorld* mapWorld = world->GetMapWorld();
+      mapWorld->RecalculateWorldSphere(*mapWorldInfo, *world);
+    }
+  }
+}
+
+void CStateManager::UpdateRoomAcoustics(TAreaId aid) {
+  rstl::reserved_vector< CScriptRoomAcoustics*, 10 > areaAcoustics;
+  CObjectList* allList = x808_objectLists[kOL_All].get();
+
+  for (int i = allList->GetFirstObjectIndex(); i != -1 && areaAcoustics.size() < 10;
+       i = allList->GetNextObjectIndex(i)) {
+    CEntity* ent = (*allList)[i];
+    if (CScriptRoomAcoustics* acoustics = TCastToPtr< CScriptRoomAcoustics >(ent)) {
+      if (acoustics->GetCurrentAreaId() == aid && acoustics->GetActive()) {
+        areaAcoustics.push_back(acoustics);
+      }
+    }
+  }
+
+  if (areaAcoustics.size() > 0) {
+    const int acousticsIdx = static_cast< int >(
+        0.99f * (x900_random->Float() * static_cast< float >(areaAcoustics.size())));
+    areaAcoustics[acousticsIdx]->EnableAuxCallbacks();
+  } else {
+    CScriptRoomAcoustics::DisableAuxCallbacks();
   }
 }
 
@@ -662,702 +794,6 @@ void CStateManager::RemoveObject(TUniqueId id) {
   }
 }
 
-void CStateManager::ClearGraveyard() {
-  rstl::list< rstl::reserved_vector< TUniqueId, 32 > >::iterator gyIt = x854_graveyard.begin();
-  for (; gyIt != x854_graveyard.end(); ++gyIt) {
-    rstl::reserved_vector< TUniqueId, 32 >& vec = *gyIt;
-    rstl::reserved_vector< TUniqueId, 32 >::iterator idIt = vec.begin();
-    for (; idIt != vec.end(); ++idIt) {
-      TUniqueId id = *idIt;
-      CEntity* ent = x808_objectLists[0]->GetValidObjectById(id);
-      RemoveObject(id);
-      if (ent != nullptr) {
-        delete ent;
-      }
-    }
-  }
-
-  {
-    rstl::list< rstl::reserved_vector< TUniqueId, 32 > >::iterator clearIt =
-        x854_graveyard.begin();
-    while (clearIt != x854_graveyard.end()) {
-      clearIt = x854_graveyard.erase(clearIt);
-    }
-  }
-}
-
-void CStateManager::DeleteObjectRequest(TUniqueId uid) {
-  CEntity* ent = ObjectById(uid);
-  if (ent == nullptr) {
-    return;
-  }
-  if ((*reinterpret_cast< const uchar* >(reinterpret_cast< const uchar* >(ent) + 0x30) >> 6) & 1) {
-    return;
-  }
-
-  ent->x30_25_inGraveyard = true;
-
-  if (x854_graveyard.size() == 0) {
-    rstl::reserved_vector< TUniqueId, 32 > newVec;
-    x854_graveyard.push_back(newVec);
-  } else {
-    rstl::list< rstl::reserved_vector< TUniqueId, 32 > >::iterator backIt = x854_graveyard.end();
-    --backIt;
-    if (backIt->size() == backIt->capacity()) {
-      rstl::reserved_vector< TUniqueId, 32 > newVec;
-      x854_graveyard.push_back(newVec);
-    }
-  }
-
-  rstl::list< rstl::reserved_vector< TUniqueId, 32 > >::iterator backIt = x854_graveyard.end();
-  --backIt;
-  backIt->push_back(uid);
-
-  ent->AcceptScriptMsg(kSM_Deleted, kInvalidUniqueId, *this);
-  ent->x30_26_scriptingBlocked = true;
-
-  if (CActor* actor = TCastToPtr< CActor >(ent)) {
-    x874_sortedListManager->Remove(actor);
-    actor->SetUseInSortedLists(false);
-  }
-}
-
-void CStateManager::KnockBackPlayer(CPlayer& player, const CVector3f& dir, float power,
-                                    float resistance) {
-  if (player.GetMaterialList().HasMaterial(kMT_Immovable)) {
-    return;
-  }
-
-  float usePower;
-  if (player.GetMorphballTransitionState() == CPlayer::kMS_Morphed) {
-    usePower = power * 500.f;
-  } else {
-    usePower = power * 1000.f;
-    if (player.GetSurfaceRestraint() != CPlayer::kSR_Normal &&
-        player.GetOrbitState() == CPlayer::kOS_NoOrbit) {
-      usePower /= 7.f;
-    }
-  }
-
-  float minVel = 70.f;
-  if (player.GetMorphballTransitionState() == CPlayer::kMS_Morphed) {
-    minVel = 35.f;
-  }
-
-  const float playerVel = player.GetVelocityWR().Magnitude();
-  const float maxVel = minVel < playerVel ? playerVel : minVel;
-  const CVector3f invVel = -player.GetVelocityWR();
-
-  usePower *= (1.f - (0.5f * CVector3f::GetAngleDiff(dir, invVel)) / M_PIF);
-
-  player.ApplyImpulseWR(dir * usePower, CAxisAngle::Identity());
-  player.UseCollisionImpulses();
-  *reinterpret_cast< float* >(reinterpret_cast< uchar* >(&player) + 0x2d4) = 0.25f;
-
-  const CVector3f velocity = player.GetVelocityWR();
-  const float velocityMag = velocity.Magnitude();
-  if (maxVel < velocityMag) {
-    const float invMag = 1.f / velocityMag;
-    const CVector3f norm(invMag * velocity.GetX(), invMag * velocity.GetY(), invMag * velocity.GetZ());
-    player.SetVelocityWR(CVector3f(maxVel * norm.GetX(), maxVel * norm.GetY(), maxVel * norm.GetZ()));
-  }
-}
-
-void CStateManager::ApplyKnockBack(CActor& actor, const CDamageInfo& info,
-                                   const CDamageVulnerability& vuln, const CVector3f& dir,
-                                   float dampen) {
-  if (vuln.GetVulnerability(info.GetWeaponMode(), 0) == kVN_Deflect) {
-    return;
-  }
-
-  CHealthInfo* hInfo = actor.HealthInfo(*this);
-  if (hInfo == nullptr) {
-    return;
-  }
-
-  const float resistance =
-      *reinterpret_cast< const float* >(reinterpret_cast< const uchar* >(hInfo) + 0x4);
-  const float dampedPower = (1.f - dampen) * info.GetKnockBackPower();
-
-  CPlayer* player = TCastToPtr< CPlayer >(actor);
-  CPatterned* patterned = TCastToPtr< CPatterned >(actor);
-
-  if (player != nullptr) {
-    KnockBackPlayer(*player, dir, dampedPower, resistance);
-    return;
-  }
-
-  if (patterned == nullptr && hInfo->GetHP() <= 0.f) {
-    if (dampedPower > resistance) {
-      CPhysicsActor* physActor = TCastToPtr< CPhysicsActor >(actor);
-      if (physActor != nullptr) {
-        const CVector3f impulse =
-            dir * (1.5f * ((dampedPower - resistance) * physActor->GetMass()));
-        if (!physActor->GetMaterialList().HasMaterial(kMT_Immovable) &&
-            physActor->GetMaterialList().HasMaterial(kMT_Solid)) {
-          physActor->ApplyImpulseWR(impulse, CAxisAngle::Identity());
-        }
-      }
-    }
-  }
-
-  if (patterned != nullptr) {
-    patterned->KnockBack(dir, *this, info, dampen == 0.f ? kKBT_Direct : kKBT_Radius, false,
-                         dampedPower);
-  }
-}
-
-void CStateManager::ApplyDamageToWorld(TUniqueId damagerId, const CActor& actor,
-                                      const CVector3f& pos, const CDamageInfo& info,
-                                      const CMaterialFilter& filter) {
-  const CVector3f extent(info.GetRadius(), info.GetRadius(), info.GetRadius());
-  const CAABox aabb(pos - extent, pos + extent);
-
-  bool bomb = false;
-  const CWeapon* weapon = TCastToConstPtr< CWeapon >(actor);
-  if (weapon != nullptr) {
-    bomb = (weapon->GetAttribField() & (CWeapon::kPA_Bombs | CWeapon::kPA_PowerBombs)) != 0;
-  }
-
-  TEntityList nearList;
-  BuildNearList(nearList, aabb, filter, &actor);
-
-  for (TEntityList::iterator it = nearList.begin(); it != nearList.end(); ++it) {
-    CEntity* ent = ObjectById(*it);
-    CActor* act = TCastToPtr< CActor >(ent);
-    CPlayer* player = TCastToPtr< CPlayer >(ent);
-    CWallCrawlerSwarm* wallSwarm = TCastToPtr< CWallCrawlerSwarm >(ent);
-    CSnakeWeedSwarm* snakeSwarm = TCastToPtr< CSnakeWeedSwarm >(ent);
-
-    if (bomb && player != nullptr) {
-      if (player->GetFrozenState()) {
-        IncrementFrozenBallCount__12CSystemStateFv(&gpGameState->SystemState());
-        CSamusHud::DisplayHudMemo(rstl::wstring_l(L""), CHUDMemoParms(0.f, true, true, true));
-        player->BreakFrozenState(*this);
-      } else if (weapon != nullptr && (weapon->GetAttribField() & CWeapon::kPA_Bombs) != 0) {
-        BombJump__7CPlayerFRC9CVector3fR13CStateManager(player, &pos, this);
-      }
-    } else if (act != nullptr && act->GetUniqueId() != damagerId) {
-      TestBombHittingWater(actor, pos, *act);
-      if (TestRayDamage(*this, pos, *act, nearList)) {
-        ApplyRadiusDamage(actor, pos, *act, info);
-      }
-    }
-
-    if (wallSwarm != nullptr) {
-      ApplyRadiusDamage__17CWallCrawlerSwarmF9CVector3ffR13CStateManager(wallSwarm, &pos, &info,
-                                                                          this);
-    }
-
-    if (snakeSwarm != nullptr) {
-      ApplyRadiusDamage__15CSnakeWeedSwarmF9CVector3ffR13CStateManager(snakeSwarm, &pos, &info,
-                                                                        this);
-    }
-  }
-}
-
-void CStateManager::ProcessRadiusDamage(const CActor& damager, CActor& damagee,
-                                        TUniqueId radiusSender, const CDamageInfo& info,
-                                        const CMaterialFilter& filter) {
-  const float radius = info.GetRadius();
-  const CVector3f pos = damager.GetTranslation();
-  const CVector3f maxPos(pos.GetX() + radius, pos.GetY() + radius, pos.GetZ() + radius);
-  const CVector3f minPos(pos.GetX() - radius, pos.GetY() - radius, pos.GetZ() - radius);
-  const CAABox aabb(minPos, maxPos);
-  CMaterialFilter localFilter = filter;
-
-  TEntityList nearList;
-  BuildNearList(nearList, aabb, localFilter, nullptr);
-
-  const TUniqueId damagerId = damager.GetUniqueId();
-  const TUniqueId damageeId = damagee.GetUniqueId();
-
-  for (TEntityList::iterator it = nearList.begin(); it != nearList.end(); ++it) {
-    CActor* actor = static_cast< CActor* >(ObjectById(*it));
-    if (actor != nullptr) {
-      const TUniqueId actorId = actor->GetUniqueId();
-      if (damagerId != actorId && radiusSender != actorId && damageeId != actorId) {
-        TestBombHittingWater(damager, pos, *actor);
-        if (TestRayDamage(*this, pos, *actor, nearList)) {
-          ApplyRadiusDamage(damager, pos, *actor, info);
-        }
-      }
-    }
-  }
-}
-
-void CStateManager::ApplyRadiusDamage(const CActor& damager, const CVector3f& pos, CActor& damagee,
-                                      const CDamageInfo& info) {
-  CVector3f delta = damagee.GetTranslation() - pos;
-  if (info.GetRadius() * info.GetRadius() <= delta.MagSquared()) {
-    if (!damagee.GetTouchBounds()) {
-      return;
-    }
-
-    if (!CCollidableSphere::Sphere_AABox_Bool(CSphere(pos, info.GetRadius()),
-                                               *damagee.GetTouchBounds())) {
-      return;
-    }
-  }
-
-  float rad = info.GetRadius();
-  if (rad > gkEpsilon) {
-    rad = delta.Magnitude() / rad;
-  } else {
-    rad = 0.f;
-  }
-
-  if (rad > 0.f) {
-    delta.Normalize();
-  }
-
-  bool alive = false;
-  CHealthInfo* hInfo = damagee.HealthInfo(*this);
-  if (hInfo != nullptr && hInfo->GetHP() > 0.f) {
-    alive = true;
-  }
-
-  const CDamageVulnerability* vuln =
-      rad > 0.f ? damagee.GetDamageVulnerability(pos, delta, info) : damagee.GetDamageVulnerability();
-
-  if (vuln->WeaponHurts(info.GetWeaponMode(), 1)) {
-    const float localDamage = info.GetRadiusDamage(*vuln);
-    if (localDamage > 0.f) {
-      ApplyLocalDamage(pos, delta, damagee, localDamage, info.GetWeaponMode());
-    }
-
-    damagee.SendScriptMsgs(kSS_Damage, *this, kSM_None);
-    DeliverScriptMsg(&damagee, damager.GetUniqueId(), kSM_Damage);
-  } else {
-    damagee.SendScriptMsgs(kSS_InvulnDamage, *this, kSM_None);
-    DeliverScriptMsg(&damagee, damager.GetUniqueId(), kSM_InvulnDamage);
-  }
-
-  if (alive && info.GetKnockBackPower() > 0.f) {
-    CVector3f knockbackDir(damagee.GetTranslation().GetX() - damager.GetTranslation().GetX(),
-                           damagee.GetTranslation().GetY() - damager.GetTranslation().GetY(),
-                           0.0001f);
-    ApplyKnockBack(damagee, info, *vuln, knockbackDir.AsNormalized(), rad);
-  }
-}
-
-bool CStateManager::MultiRayCollideWorld(const CMRay& ray, const CMaterialFilter& filter) {
-  const CVector3f& start = *reinterpret_cast< const CVector3f* >(
-      reinterpret_cast< const uchar* >(&ray) + 0x0);
-  const CVector3f& dir =
-      *reinterpret_cast< const CVector3f* >(reinterpret_cast< const uchar* >(&ray) + 0x2c);
-  const float length =
-      *reinterpret_cast< const float* >(reinterpret_cast< const uchar* >(&ray) + 0x24);
-
-  CVector3f crossed(-dir.GetZ() * dir.GetZ() - dir.GetY() * dir.GetX(),
-                    dir.GetX() * dir.GetX() - dir.GetZ() * dir.GetY(),
-                    dir.GetY() * dir.GetY() - dir.GetX() * -dir.GetZ());
-  CVector3f crossedNorm = crossed.AsNormalized();
-
-  const CVector3f crossed2(
-      (dir.GetY() * crossedNorm.GetZ() - crossedNorm.GetY() * dir.GetZ()) * 0.35355338f,
-      (dir.GetZ() * crossedNorm.GetX() - crossedNorm.GetZ() * dir.GetX()) * 0.35355338f,
-      (dir.GetX() * crossedNorm.GetY() - crossedNorm.GetX() * dir.GetY()) * 0.35355338f);
-  const CVector3f rms = crossedNorm * 0.35355338f;
-
-  for (uint i = 0; i < 4; ++i) {
-    const CVector3f useCrossed = (i & 2) != 0 ? -crossed2 : crossed2;
-    const CVector3f useRms = (i & 1) != 0 ? rms : -rms;
-    const CVector3f useStart = start + useRms + useCrossed;
-    if (CGameCollision::RayStaticIntersectionBool(*this, useStart, dir, length, filter)) {
-      return true;
-    }
-  }
-
-  return false;
-}
-
-void CStateManager::TestBombHittingWater(const CActor& damager, const CVector3f& pos,
-                                         CActor& damagee) {
-  CWeapon* weapon = TCastToPtr< CWeapon >(const_cast< CActor& >(damager));
-  if (weapon == nullptr) {
-    return;
-  }
-
-  const int attribField = weapon->GetAttribField();
-  if ((attribField & (CWeapon::kPA_Bombs | CWeapon::kPA_PowerBombs)) == 0) {
-    return;
-  }
-
-  const bool powerBomb = (attribField & CWeapon::kPA_PowerBombs) != 0;
-  CScriptWater* water = TCastToPtr< CScriptWater >(damagee);
-  if (water == nullptr) {
-    return;
-  }
-
-  CAABox triggerBounds = water->GetTriggerBoundsWR();
-  CVector3f hitPos(pos.GetX(), pos.GetY(), triggerBounds.GetMaxPoint().GetZ());
-
-  CVector3f up(0.f, 0.f, 1.f);
-  up.Normalize();
-
-  CAABox triggerBounds2 = water->GetTriggerBoundsWR();
-  const int idx = powerBomb;
-  const float depth = -(CVector3f::Dot(up, pos) - triggerBounds2.GetMaxPoint().GetZ());
-
-  if (depth <= skBombUnderwaterRanges[idx] && depth > 0.f) {
-    const float rippleFactor = 1.f - depth / skBombUnderwaterRanges[idx];
-    if (x87c_fluidPlaneManager->GetLastRippleDeltaTime(damager.GetUniqueId()) >= 0.15f) {
-      const float bombMag = skBombUnderwaterMags[idx];
-      const float sinVal = CMath::FastSinR(2.f * M_PIF * rippleFactor * 0.25f);
-      water->FluidPlane().AddRipple(0.6f * bombMag + 0.4f * bombMag * sinVal,
-                                    damager.GetUniqueId(), hitPos, *water, *this);
-    }
-
-    if (!powerBomb) {
-      x87c_fluidPlaneManager->CreateSplash(damager.GetUniqueId(), *this, *water, hitPos,
-                                           rippleFactor, true);
-    }
-  } else if (depth > -skBombAboveWaterRanges[idx] && depth < 0.f) {
-    const float depthAbove = -depth;
-    CVector3f down(0.f, 0.f, -1.f);
-    const CRayCastResult result =
-        RayStaticIntersection(pos, down, depthAbove, CMaterialFilter::GetPassEverything());
-
-    if (!result.GetValid() && x87c_fluidPlaneManager->GetLastRippleDeltaTime(damager.GetUniqueId()) >= 0.15f) {
-      const float bombMag = skBombAboveWaterMags[idx];
-      const float sinVal =
-          CMath::FastSinR(2.f * M_PIF * (depthAbove / skBombAboveWaterRanges[idx]) * 0.25f);
-      water->FluidPlane().AddRipple(0.6f * bombMag + 0.4f * bombMag * sinVal,
-                                    damager.GetUniqueId(), hitPos, *water, *this);
-    }
-  }
-}
-
-bool CStateManager::ApplyLocalDamage(const CVector3f& pos, const CVector3f& dir, CActor& damagee,
-                                     float damage, const CWeaponMode& weaponMode) {
-  CHealthInfo* hInfo = damagee.HealthInfo(*this);
-  if (hInfo == nullptr || damage < 0.f) {
-    return false;
-  }
-
-  const float oldHp = hInfo->GetHP();
-  if (oldHp <= 0.f) {
-    return true;
-  }
-
-  float useDamage = damage;
-  CPlayer* player = TCastToPtr< CPlayer >(damagee);
-  CAi* ai = TCastToPtr< CAi >(damagee);
-
-  if (player != nullptr) {
-    if (x870_cameraManager->IsInCinematicCamera() ||
-        (weaponMode.GetType() == kWT_Phazon && x8b8_playerState->HasPowerUp(CPlayerState::kIT_PhazonSuit))) {
-      return false;
-    }
-
-    if (gpGameState->GetHardMode()) {
-      useDamage *= GetHardModeDamageMultiplier__10CGameStateCFv(gpGameState);
-    }
-
-    float damageReduction = 0.f;
-    if (x8b8_playerState->HasPowerUp(CPlayerState::kIT_VariaSuit)) {
-      damageReduction = gpTweakPlayer->GetVariaDamageReduction();
-    }
-
-    if (x8b8_playerState->HasPowerUp(CPlayerState::kIT_GravitySuit)) {
-      const float gravityReduction = gpTweakPlayer->GetGravityDamageReduction();
-      damageReduction = CMath::Max<float>(damageReduction, gravityReduction);
-    }
-
-    if (x8b8_playerState->HasPowerUp(CPlayerState::kIT_PhazonSuit)) {
-      const float phazonReduction = gpTweakPlayer->GetPhazonDamageReduction();
-      damageReduction = CMath::Max<float>(damageReduction, phazonReduction);
-    }
-
-    useDamage = -(damageReduction * useDamage - useDamage);
-  }
-
-  const float newHp = oldHp - useDamage;
-  const bool significant = fabs(newHp - oldHp) >= 0.00001f;
-  hInfo->SetHP(newHp);
-
-  if (player != nullptr) {
-    player->TakeDamage(significant, pos, useDamage, weaponMode.GetType(), *this);
-    if (newHp <= 0.f) {
-      struct SPlayerStateFlags {
-        bool x0_24_alive : 1;
-      };
-      reinterpret_cast< SPlayerStateFlags* >(x8b8_playerState.GetPtr())->x0_24_alive = false;
-    }
-  } else if (ai != nullptr) {
-    if (significant) {
-      ai->TakeDamage(dir, useDamage);
-    }
-
-    if (newHp <= 0.f) {
-      ai->Death(*this, dir, kSS_DeathRattle);
-    }
-  }
-
-  return significant;
-}
-
-void CStateManager::ApplyDamage(const TUniqueId damagerId, const TUniqueId damageeId,
-                                const TUniqueId radiusSender, const CDamageInfo& info,
-                                const CMaterialFilter& filter, const CVector3f& knockbackVec) {
-  CEntity* damagerEnt = const_cast< CEntity* >(GetObjectById(damagerId));
-  CEntity* damageeEnt = ObjectById(damageeId);
-  CActor* damager = TCastToPtr< CActor >(damagerEnt);
-  CActor* damagee = TCastToPtr< CActor >(damageeEnt);
-  CPlayer* player = TCastToPtr< CPlayer >(damageeEnt);
-
-  if (damagee != nullptr) {
-    CHealthInfo* hInfo = damagee->HealthInfo(*this);
-    if (hInfo != nullptr) {
-      CVector3f position = CVector3f::Zero();
-      CVector3f direction = CVector3f::Right();
-      const bool alive = hInfo->GetHP() > 0.f;
-
-      if (damager != nullptr) {
-        position = damager->GetTranslation();
-        direction = damager->GetTransform().GetForward();
-      }
-
-      const bool useWeaponDir = damager != nullptr || player != nullptr;
-      const CDamageVulnerability* dVuln =
-          useWeaponDir ? damagee->GetDamageVulnerability(position, direction, info)
-                       : damagee->GetDamageVulnerability();
-
-      if (info.GetWeaponMode().GetType() == kWT_None || dVuln->WeaponHurts(info.GetWeaponMode(), 0)) {
-        const float localDamage = info.GetDamage(*dVuln);
-        if (localDamage > 0.f) {
-          ApplyLocalDamage(position, direction, *damagee, localDamage, info.GetWeaponMode());
-        }
-
-        damagee->SendScriptMsgs(kSS_Damage, *this, kSM_None);
-        DeliverScriptMsg(damagee, damagerId, kSM_Damage);
-      } else {
-        damagee->SendScriptMsgs(kSS_InvulnDamage, *this, kSM_None);
-        DeliverScriptMsg(damagee, damagerId, kSM_InvulnDamage);
-      }
-
-      if (alive && damager != nullptr && info.GetKnockBackPower() > 0.f) {
-        CVector3f defaultDir = damagee->GetTranslation() - damager->GetTranslation();
-        const CVector3f& useDir = knockbackVec.IsNonZero() ? knockbackVec : defaultDir;
-        CVector3f knockDir(useDir.GetX(), useDir.GetY(), 0.0001f);
-        ApplyKnockBack(*damagee, info, *dVuln, knockDir.AsNormalized(), 0.f);
-      }
-    }
-
-    if (damager != nullptr && info.GetRadius() > 0.f) {
-      ProcessRadiusDamage(*damager, *damagee, radiusSender, info, filter);
-    }
-
-    CWallCrawlerSwarm* swarm = TCastToPtr< CWallCrawlerSwarm >(damageeEnt);
-    if (swarm != nullptr && damager != nullptr) {
-      const CVector3f damagerPos = damager->GetTranslation();
-      ApplyRadiusDamage__17CWallCrawlerSwarmF9CVector3ffR13CStateManager(
-          swarm, &damagerPos, &info, this);
-    }
-  }
-}
-
-void CStateManager::UpdateAreaSounds() {
-  rstl::reserved_vector< int, 10 > areaIds;
-  areaIds.clear();
-  for (CGameArea::CConstChainIterator areaIt = x850_world->GetChainHead(CWorld::kC_Alive);
-       areaIt != CWorld::GetAliveAreasEnd(); ++areaIt) {
-    CGameArea::EOcclusionState occState;
-    if (areaIt->IsPostConstructed()) {
-      occState = areaIt->GetPostConstructed()->x10dc_occlusionState;
-    } else {
-      occState = CGameArea::kOS_Occluded;
-    }
-
-    if (occState == CGameArea::kOS_Visible) {
-      areaIds.push_back(areaIt->GetId().Value());
-    }
-  }
-
-  CSfxManager::SetActiveAreas(areaIds);
-}
-
-void CStateManager::FrameEnd() {
-  CModel::FrameDone();
-  gpSimplePool->Flush();
-}
-
-void CStateManager::ProcessPlayerInput() {
-  if (x84c_player != nullptr) {
-    x84c_player->ProcessInput(xb54_finalInput, *this);
-  }
-}
-
-void CStateManager::ProcessInput(const CFinalInput& input) {
-  static CFinalInput skDefaultInput;
-
-  if (input.ControllerNumber() == 0) {
-    const CGameCamera& cam = x870_cameraManager->GetCurrentCamera(*this);
-    bool disableInput = cam.DisablesInput();
-
-    const uchar playerFlags =
-        *reinterpret_cast< const uchar* >(reinterpret_cast< const uchar* >(x84c_player) + 0x9c6);
-    if ((playerFlags >> 2) & 1) {
-      disableInput = true;
-    }
-
-    if (disableInput) {
-      xb54_finalInput = skDefaultInput;
-      xb54_finalInput.SetTime(input.Time());
-    } else {
-      xb54_finalInput = input;
-    }
-  }
-
-  x870_cameraManager->ProcessInput(input, *this);
-}
-
-void CStateManager::Update(float dt) {
-  lbl_805A88B8 = static_cast< ushort >(x8d8_updateFrameIdx);
-  lbl_805A8A10 = static_cast< ushort >(x8d8_updateFrameIdx);
-  CDecal::SetGlobalSeed(static_cast< ushort >(x8d8_updateFrameIdx));
-  CProjectileWeapon::SetGlobalSeed(x8d8_updateFrameIdx);
-
-  xf14_curTimeMod900 += dt;
-  if (xf14_curTimeMod900 > 900.f) {
-    xf14_curTimeMod900 -= 900.f;
-  }
-
-  xf08_pauseHudMessage = kInvalidAssetId;
-
-  ResetParticleCounts__13CScriptEffectFv();
-  UpdateThermalVisor();
-  fn_8004B504(this);
-  UpdateGameState();
-
-  const float deathTime =
-      *reinterpret_cast< const float* >(reinterpret_cast< const uchar* >(x84c_player) + 0x9f4);
-  const bool isDead = deathTime > 0.f;
-
-  if (x904_gameState == kGS_Running) {
-    if (TCastToPtr< CCinematicCamera >(
-            const_cast< CGameCamera& >(x870_cameraManager->GetCurrentCamera(*this))) == nullptr) {
-      SetTotalPlayTime__10CGameStateFd(
-          gpGameState,
-          dt + *reinterpret_cast< const double* >(reinterpret_cast< const uchar* >(gpGameState) + 0xa0));
-      UpdateHintState(dt);
-    }
-
-    CCameraFilterPass* filt = xb84_camFilterPasses.data();
-    CCameraBlurPass* blur = xd14_camBlurPasses.data();
-    for (int i = 0; i < kCFS_Max; ++i) {
-      filt->Update(dt);
-      Update__15CCameraBlurPassFf(blur, dt);
-      ++filt;
-      ++blur;
-    }
-  }
-
-  if (x904_gameState != kGS_Paused) {
-    PreThinkObjects(dt);
-    x87c_fluidPlaneManager->Update(dt);
-  }
-
-  if (x904_gameState == kGS_Running) {
-    if (!isDead) {
-      Update__13CDecalManagerFfR13CStateManager(dt, this);
-    }
-
-    UpdateSortedLists();
-
-    if (!isDead) {
-      MovePlatforms(dt);
-      MoveDoors(dt);
-    }
-
-    ProcessPlayerInput();
-
-    if (x904_gameState != kGS_SoftPaused) {
-      CGameCollision::Move(*this, *x84c_player, dt, nullptr);
-    }
-
-    UpdateSortedLists();
-
-    if (!isDead) {
-      CrossTouchActors__13CStateManagerFf(this);
-    }
-  } else {
-    ProcessPlayerInput();
-  }
-
-  if (!isDead && x904_gameState == kGS_Running) {
-    x884_actorModelParticles->Update(dt, *this);
-  }
-
-  if (x904_gameState == kGS_Running || x904_gameState == kGS_SoftPaused) {
-    Think(dt);
-  }
-
-  if (x904_gameState != kGS_SoftPaused) {
-    x870_cameraManager->Update(dt, *this);
-  }
-
-  while (xf76_lastRelay != kInvalidUniqueId) {
-    CEntity* ent = ObjectById(xf76_lastRelay);
-    if (ent == nullptr) {
-      xf76_lastRelay = kInvalidUniqueId;
-      break;
-    }
-
-    ent->Think(dt, *this);
-  }
-
-  if (x904_gameState != kGS_Paused) {
-    PostUpdatePlayer(dt);
-  }
-
-  if (xf84_ == xf80_hudMessageFrameCount) {
-    ShowPausedHUDMemo(xf88_, xf8c_);
-    --xf84_;
-    xf88_ = kInvalidAssetId;
-  }
-
-  if (!isDead && x904_gameState == kGS_Running && !x870_cameraManager->IsInCinematicCamera()) {
-    UpdateEscapeSequenceTimer(dt);
-  }
-
-  Update__6CWorldFf(x850_world.get(), dt);
-  x88c_rumbleManager->Update(dt);
-
-  if (!isDead) {
-    Update__13CEnvFxManagerFfR13CStateManager(dt, x880_envFxManager, this);
-  }
-
-  UpdateAreaSounds();
-
-  xf94_24_readyToRender = true;
-
-  if (xf94_27_inMapScreen) {
-    CHintOptions& hintOptions = gpGameState->HintOptions();
-    CHintOptions::SHintState* hint =
-        const_cast< CHintOptions::SHintState* >(hintOptions.GetCurrentDisplayedHint());
-    if (hint != nullptr && hint->CanContinue()) {
-      DismissDisplayedHint__12CHintOptionsFv(&hintOptions);
-    }
-    xf94_27_inMapScreen = false;
-  }
-
-  SetAreaId__11CWorldStateF7TAreaId(&gpGameState->CurrentWorldState(), x8cc_nextAreaId);
-
-  TravelToArea__6CWorldFRC7TAreaIdR13CStateManagerb(x850_world.get(), x8cc_nextAreaId, this,
-                                                     false);
-
-  ClearGraveyard();
-  ++x8d8_updateFrameIdx;
-}
-
-void CStateManager::PostUpdatePlayer(float dt) { x84c_player->DoPostCameraStuff(dt, *this); }
-
-void CStateManager::UpdateGameState() {}
-
-void CStateManager::SwapOutTexturesToARAM(int, unsigned int) {}
-
 void CStateManager::CreateStandardGameObjects() {
   const float xyHalfExtent = gpTweakPlayer->GetPlayerXYHalfExtent();
   const float stepUp = gpTweakPlayer->GetStepUpHeight();
@@ -1378,10 +814,9 @@ void CStateManager::CreateStandardGameObjects() {
   CMatrix3f mtx = quat.BuildTransform();
   CTransform4f xf = CTransform4f(mtx.GetColumn(kDX), mtx.GetColumn(kDY), mtx.GetColumn(kDZ), pos);
 
-  x84c_player =
-      rs_new CPlayer(uid, xf, playerBounds, gpTweakPlayerRes->xc4_ballTransitionsANCS,
-                     CVector3f(1.65f, 1.65f, 1.65f), 200.f, stepUp, stepDown, ballRadius,
-                     CMaterialList(kMT_Player, kMT_Solid, kMT_GroundCollider));
+  x84c_player = rs_new CPlayer(uid, xf, playerBounds, gpTweakPlayerRes->xc4_ballTransitionsANCS,
+                               CVector3f(1.65f, 1.65f, 1.65f), 200.f, stepUp, stepDown, ballRadius,
+                               CMaterialList(kMT_Player, kMT_Solid, kMT_GroundCollider));
   AddObject(*x84c_player);
   x870_cameraManager->CreateCameras(*this);
 }
@@ -1487,6 +922,8 @@ void CStateManager::FrameBegin(unsigned int frame) {
   SwapOutTexturesToARAM(2, 0x180000);
 }
 
+void CStateManager::SwapOutTexturesToARAM(int, unsigned int) {}
+
 const bool CStateManager::MemoryAllocatorAllocationFailedCallback(const void* obj, unsigned int) {
   return static_cast< CStateManager* >(const_cast< void* >(obj))->SwapOutAllPossibleMemory();
 }
@@ -1498,1189 +935,7 @@ bool CStateManager::SwapOutAllPossibleMemory() {
   return true;
 }
 
-void CStateManager::RendererDrawCallback(const void*, const void*, int) {}
-
-void CStateManager::InformListeners(const CVector3f& pos, EListenNoiseType type) {
-  CObjectList* list = x808_objectLists[kOL_ListeningAi].get();
-  for (int i = list->GetFirstObjectIndex(); i != -1; i = list->GetNextObjectIndex(i)) {
-    CPatterned* patterned = TCastToPtr< CPatterned >((*list)[i]);
-    if (patterned != nullptr) {
-      if (patterned->GetActive()) {
-        const TAreaId areaId2 = patterned->x4_areaId;
-        const TAreaId areaId = areaId2;
-        CGameArea* area = x850_world->Area(areaId);
-        CGameArea::EOcclusionState occState;
-        if (area->IsPostConstructed()) {
-          occState = area->GetPostConstructed()->x10dc_occlusionState;
-        } else {
-          occState = CGameArea::kOS_Occluded;
-        }
-
-        if (occState != CGameArea::kOS_Occluded) {
-          patterned->Listen(pos, type);
-        }
-      }
-    }
-  }
-}
-
-rstl::pair< TEditorId, TUniqueId > CStateManager::GenerateObject(const TEditorId& eid) {
-  const rstl::pair< const SScriptObjectStream*, TEditorId > build = GetBuildForScript(eid);
-  TAreaId aid = TAreaId(build.second.AreaNum());
-  if (build.first != nullptr) {
-    CGameArea* area = x850_world->Area(aid);
-    if (area->IsPostConstructed()) {
-      int layer = static_cast< int >(build.second.value >> 26);
-      SScriptLayerBuffer layerBuf;
-      GetLayerScriptBuffer__9CGameAreaFi(&layerBuf, area, &layer);
-
-      CMemoryInStream stream(static_cast< const uchar* >(layerBuf.x0_buf) + build.first->x4_position,
-                             build.first->x8_length);
-      return LoadScriptObject(aid, build.first->x0_type, build.first->x8_length, stream);
-    }
-  }
-
-  return rstl::pair< TEditorId, TUniqueId >(kInvalidEditorId, kInvalidUniqueId);
-}
-
-void CStateManager::InitScriptObjects(const rstl::vector< TEditorId >& ids) {
-  for (int i = 0; i < static_cast< int >(ids.size()); ++i) {
-    if (ids[i] != kInvalidEditorId) {
-      TEditorId id = ids[i];
-      TUniqueId uid = GetIdForScript(id);
-      SendScriptMsgAlways(uid, kInvalidUniqueId, kSM_InitializedInArea);
-    }
-  }
-
-  MurderScriptInstanceNames();
-}
-
-CStateManager::TIdListResult CStateManager::GetIdListForScript(TEditorId eid) const {
-  rstl::multimap< TEditorId, TUniqueId >::const_iterator firstIt = x890_scriptIdMap.find(eid);
-  rstl::multimap< TEditorId, TUniqueId >::const_iterator lastIt = firstIt;
-
-  if (firstIt != x890_scriptIdMap.end()) {
-    for (; lastIt != x890_scriptIdMap.end() && lastIt->first == eid; ++lastIt) {
-    }
-  }
-
-  const TIdList::const_iterator first =
-      *reinterpret_cast< const TIdList::const_iterator* >(&firstIt);
-  const TIdList::const_iterator last = *reinterpret_cast< const TIdList::const_iterator* >(&lastIt);
-  return TIdListResult(first, last);
-}
-
-TUniqueId CStateManager::GetIdForScript(TEditorId eid) const {
-  rstl::multimap< TEditorId, TUniqueId >::const_iterator it = x890_scriptIdMap.find(eid);
-  if (it != x890_scriptIdMap.end()) {
-    return it->second;
-  }
-  return kInvalidUniqueId;
-}
-
-TEditorId CStateManager::GetEditorIdForUniqueId(TUniqueId uid) const {
-  const CEntity* ent = GetObjectById(uid);
-  if (ent != nullptr) {
-    return ent->GetEditorId();
-  }
-  return kInvalidEditorId;
-}
-
-rstl::pair< const SScriptObjectStream*, TEditorId >
-CStateManager::GetBuildForScript(TEditorId eid) const {
-  rstl::map< TEditorId, SScriptObjectStream >::const_iterator it =
-      x8a4_loadedScriptObjects.find(eid);
-  if (it != x8a4_loadedScriptObjects.end()) {
-    return rstl::pair< const SScriptObjectStream*, TEditorId >(&it->second, it->first);
-  }
-
-  return rstl::pair< const SScriptObjectStream*, TEditorId >(0, kInvalidEditorId);
-}
-
-void CStateManager::LoadScriptObjects(TAreaId aid, CInputStream& in, EScriptPersistence persist) {
-  in.ReadChar();
-
-  int count = in.ReadLong();
-  persist.reserve(count + persist.size());
-  while (count != 0) {
-    const char type = in.ReadChar();
-    const uint length = in.ReadLong();
-    const uint readPos = in.GetReadPosition();
-
-    const rstl::pair< TEditorId, TUniqueId > loaded =
-        LoadScriptObject(aid, static_cast< EScriptObjectType >(type), length, in);
-    const TEditorId eid = loaded.first;
-    if (eid != kInvalidEditorId) {
-      const rstl::pair< const SScriptObjectStream*, TEditorId > build = GetBuildForScript(eid);
-      if (build.first == NULL) {
-        SScriptObjectStream stream;
-        stream.x0_type = static_cast< EScriptObjectType >(type);
-        stream.x4_position = readPos;
-        stream.x8_length = length;
-        x8a4_loadedScriptObjects.insert(rstl::pair< TEditorId, SScriptObjectStream >(eid, stream));
-        persist.push_back(eid);
-      }
-    }
-
-    --count;
-  }
-}
-
-rstl::pair< TEditorId, TUniqueId >
-CStateManager::LoadScriptObject(TAreaId aid, EScriptObjectType type, unsigned int length,
-                                CInputStream& in) {
-  bool failed = false;
-  const TEditorId eid = in.ReadLong();
-
-  rstl::vector< SConnection > conns;
-  const uint connCount = in.ReadLong();
-  conns.reserve(connCount);
-
-  uint bytesLeft = length - 8;
-  for (uint i = 0; i < connCount; ++i) {
-    const EScriptObjectState state = static_cast< EScriptObjectState >(in.ReadLong());
-    const EScriptObjectMessage msg = static_cast< EScriptObjectMessage >(in.ReadLong());
-    const TEditorId target = in.ReadLong();
-    bytesLeft -= 12;
-    conns.push_back(SConnection(state, msg, target));
-  }
-
-  const uint propCount = in.ReadLong();
-  bytesLeft -= 4;
-  const uint readPos = in.GetReadPosition();
-
-  CEntity* ent = NULL;
-  FScriptLoader loader = NULL;
-  if (type <= kST_EnergyBall && type >= kST_Actor) {
-    loader = x90c_loaderFuncs[type];
-  }
-
-  if (loader == NULL) {
-    failed = true;
-  } else {
-    CEntityInfo info(aid, conns, eid);
-    ent = loader(*this, in, propCount, info);
-  }
-
-  if (ent == NULL) {
-    failed = true;
-  } else {
-    AddObject(*ent);
-  }
-
-  uint leftOver = bytesLeft - (in.GetReadPosition() - readPos);
-  while (leftOver != 0) {
-    in.ReadChar();
-    --leftOver;
-  }
-
-  if (failed || ent == NULL) {
-    return rstl::pair< TEditorId, TUniqueId >(kInvalidEditorId, kInvalidUniqueId);
-  }
-  return rstl::pair< TEditorId, TUniqueId >(eid, ent->GetUniqueId());
-}
-
-void CStateManager::FreeScriptObjects(TAreaId aid) {
-  rstl::multimap< TEditorId, TUniqueId >::iterator scriptIt = x890_scriptIdMap.get_inner().begin();
-  while (scriptIt != x890_scriptIdMap.get_inner().end()) {
-    rstl::multimap< TEditorId, TUniqueId >::iterator cur = scriptIt;
-    ++scriptIt;
-
-    if (cur->first.AreaNum() == aid.Value()) {
-      DeleteObjectRequest(cur->second);
-    }
-  }
-
-  typedef rstl::red_black_tree<
-      TEditorId, rstl::pair< TEditorId, SScriptObjectStream >, 0,
-      rstl::select1st< rstl::pair< TEditorId, SScriptObjectStream > >, rstl::less< TEditorId >,
-      rstl::rmemory_allocator > TLoadedScriptObjMapInner;
-
-  TLoadedScriptObjMapInner& loadedScriptObjects =
-      *reinterpret_cast< TLoadedScriptObjMapInner* >(&x8a4_loadedScriptObjects);
-
-  TLoadedScriptObjMapInner::iterator loadedIt = loadedScriptObjects.begin();
-  while (loadedIt != loadedScriptObjects.end()) {
-    TLoadedScriptObjMapInner::iterator cur = loadedIt;
-    ++loadedIt;
-
-    if (cur->first.AreaNum() == aid.Value()) {
-      loadedScriptObjects.erase(cur);
-    }
-  }
-
-  CGameArea* area = x850_world->Area(aid);
-  if (area->IsPostConstructed()) {
-    CObjectList* areaObjList =
-        static_cast< CObjectList* >(area->GetPostConstructed()->x10c0_areaObjectList);
-
-    for (int i = areaObjList->GetFirstObjectIndex(); i != -1; i = areaObjList->GetNextObjectIndex(i)) {
-      CEntity* ent = (*areaObjList)[i];
-      if (ent != nullptr && !ent->x30_27_notInArea) {
-        DeleteObjectRequest(ent->GetUniqueId());
-      }
-    }
-  }
-}
-
-void CStateManager::SendScriptMsg(TUniqueId uid, TEditorId target, EScriptObjectMessage msg,
-                                  EScriptObjectState) {
-  GetObjectById(uid);
-
-  TIdListResult search = GetIdListForScript(target);
-  if (search.first == search.second) {
-    return;
-  }
-
-  TIdList::const_iterator it = search.first;
-  for (; it != search.second; ++it) {
-    DeliverScriptMsg(x808_objectLists[0]->GetObjectById(it->second), uid, msg);
-  }
-}
-
-void CStateManager::RecursiveDrawTree(TUniqueId uid) const {
-  CActor* actor = TCastToPtr< CActor >(const_cast< CEntity* >(GetObjectById(uid)));
-  if (actor != NULL &&
-      x8dc_objectDrawToken !=
-          *reinterpret_cast< int* >(reinterpret_cast< uchar* >(actor) + 0xc8)) {
-    const TUniqueId nextNode =
-        *reinterpret_cast< TUniqueId* >(reinterpret_cast< uchar* >(actor) + 0xc6);
-    if (nextNode != kInvalidUniqueId) {
-      RecursiveDrawTree(nextNode);
-    }
-    if (x8dc_objectDrawToken ==
-        *reinterpret_cast< int* >(reinterpret_cast< uchar* >(actor) + 0xcc)) {
-      actor->Render(*this);
-    }
-    *reinterpret_cast< int* >(reinterpret_cast< uchar* >(actor) + 0xc8) = x8dc_objectDrawToken;
-  }
-}
-
-bool CStateManager::GetVisSetForArea(TAreaId areaA, TAreaId areaB, CPVSVisSet& setOut) const {
-  if (areaB == kInvalidAreaId) {
-    return false;
-  }
-
-  const CTransform4f& viewXf = CGraphics::GetViewMatrix();
-  const CVector3f viewPoint(viewXf.Get03(), viewXf.Get13(), viewXf.Get23());
-  CVector3f closestDockPoint = viewPoint;
-
-  bool hasClosestDock = false;
-  if (areaA == areaB) {
-    hasClosestDock = true;
-  } else {
-    const CGameArea* area = x850_world->GetArea(areaB);
-    if (area->IsPostConstructed()) {
-      for (int i = 0; i < area->GetDockCount(); ++i) {
-        const IGameArea::Dock& dock = area->GetDock(i);
-        const int connCount = dock.GetDockRefs().size();
-        for (int conn = 0; conn < connCount; ++conn) {
-          if (dock.GetConnectedAreaId(conn) != areaA) {
-            continue;
-          }
-
-          const rstl::reserved_vector< CVector3f, 4 >& verts = dock.GetPlaneVertices();
-          const CVector3f dockCenter(
-              0.25f * (verts[0].GetX() + verts[1].GetX() + verts[2].GetX() + verts[3].GetX()),
-              0.25f * (verts[0].GetY() + verts[1].GetY() + verts[2].GetY() + verts[3].GetY()),
-              0.25f * (verts[0].GetZ() + verts[1].GetZ() + verts[2].GetZ() + verts[3].GetZ()));
-
-          if (hasClosestDock) {
-            const CVector3f oldDelta = closestDockPoint - viewPoint;
-            const CVector3f newDelta = dockCenter - viewPoint;
-            if (newDelta.MagSquared() >= oldDelta.MagSquared()) {
-              continue;
-            }
-          }
-
-          closestDockPoint = dockCenter;
-          hasClosestDock = true;
-        }
-      }
-    }
-  }
-
-  int setState = 0;
-  if (hasClosestDock) {
-    setState = 1;
-
-    const CGameArea* area = x850_world->GetArea(areaA);
-    const CPVSAreaSet* areaSet = area->GetPostConstructed()->xa0_pvs;
-    if (areaSet != nullptr) {
-      setState = 2;
-
-      const uint worldAreaArg =
-          *reinterpret_cast< const uint* >(reinterpret_cast< const uchar* >(x850_world.get()) + 0x20);
-      CPVSVisOctree& visOctree =
-          *const_cast< CPVSVisOctree* >(&areaSet->GetVisOctree(worldAreaArg));
-
-      const CTransform4f& invAreaXf = *reinterpret_cast< const CTransform4f* >(
-          reinterpret_cast< const uchar* >(area) + 0x3c);
-      const CVector3f localPoint = invAreaXf * closestDockPoint;
-
-      CPVSVisSet visSet = visOctree.GetVisSet(localPoint);
-      if (*reinterpret_cast< const int* >(reinterpret_cast< const uchar* >(&visSet)) ==
-          kVSS_NodeFound) {
-        setOut = visSet;
-        setState = 3;
-      }
-    }
-  }
-
-  return setState == 3;
-}
-
-extern "C" CGameArea::CChainIterator AliveAreasEnd__6CWorldFv() {
-  return CGameArea::CChainIterator(lbl_805A8DDC);
-}
-
-void CStateManager::PreRender() {
-  CStateManager* mgr = this;
-  if (!mgr->xf94_24_readyToRender) {
-    return;
-  }
-
-  CStopwatch timer;
-
-  mgr->x86c_stateManagerContainer->xf370_.clear();
-  mgr->x86c_stateManagerContainer->xf39c_renderLast.clear();
-  mgr->xf7c_projectedShadow = nullptr;
-
-  PreRender__6CWorldFv(mgr->x850_world.get());
-  mgr->BuildDynamicLightListForWorld();
-
-  const CGameCamera& curCam = mgr->x870_cameraManager->GetCurrentCamera(*mgr);
-  const CTransform4f curCamXf = mgr->x870_cameraManager->GetCurrentCameraTransform(*mgr);
-  CFrustumPlanes frustum(curCamXf, 0.017453292f * curCam.GetFov(), curCam.GetAspectRatio(),
-                         curCam.GetNearClipDistance(), false, 100.f);
-
-  for (CGameArea::CChainIterator areaIt = mgr->x850_world->ChainHead(CWorld::kC_Alive);
-       areaIt != AliveAreasEnd__6CWorldFv(); ++areaIt) {
-    CGameArea::EOcclusionState occState;
-    if (areaIt->IsPostConstructed()) {
-      occState = areaIt->GetPostConstructed()->x10dc_occlusionState;
-    } else {
-      occState = CGameArea::kOS_Occluded;
-    }
-
-    if (occState == CGameArea::kOS_Visible) {
-      CObjectList* areaObjList =
-          static_cast< CObjectList* >(areaIt->GetPostConstructed()->x10c0_areaObjectList);
-      for (int i = areaObjList->GetFirstObjectIndex(); i != -1;
-           i = areaObjList->GetNextObjectIndex(i)) {
-        CActor* actor = TCastToPtr< CActor >((*areaObjList)[i]);
-        if (actor != nullptr &&
-            ((*reinterpret_cast< const uchar* >(reinterpret_cast< const uchar* >(actor) + 0xe7) >>
-              2) &
-             1) != 0) {
-          actor->CalculateRenderBounds();
-          actor->PreRender(*mgr, frustum);
-        }
-      }
-    }
-  }
-
-  if (lbl_805A9E08 == 0) {
-    mgr->CacheReflection();
-  }
-
-  gpRender->PrepareDynamicLights(mgr->x8e0_dynamicLights);
-  lbl_805A8D98 = timer.GetElapsedMicros();
-}
-
-CFrustumPlanes CStateManager::SetupViewForDraw(const CViewport& viewport) const {
-  const CGameCamera& cam = x870_cameraManager->GetCurrentCamera(*this);
-  const CTransform4f camXf = x870_cameraManager->GetCurrentCameraTransform(*this);
-  gpRender->SetWorldViewpoint(camXf);
-
-  const CVector3f playerPos = x84c_player->GetTranslation();
-  SetNewPlayerPositionAndTime__10CCubeModelFRC9CVector3fRC10CStopwatch(
-      playerPos, CStopwatch::GetGlobalTimerObj());
-
-  const float scaledWidth = xf2c_viewportScaleX * static_cast< float >(viewport.mWidth);
-  const float scaledHeight = xf30_viewportScaleY * static_cast< float >(viewport.mHeight);
-  const int width = static_cast< int >(scaledWidth);
-  const int halfHeight = static_cast< int >(scaledHeight) / 2;
-
-  const int left = viewport.mLeft + (viewport.mWidth - width) / 2;
-  const int top = viewport.mTop + (viewport.mHeight - halfHeight * 2) / 2;
-
-  const float fov =
-      2.f * CMath::ArcTangentR(CMath::SlowTangentR(0.5f * ((1.f / 360.f) * (2.f * M_PIF) *
-                                                            cam.GetFov())) *
-                               xf30_viewportScaleY);
-
-  gpRender->SetViewport(left, top, width, halfHeight * 2);
-  CGraphics::SetDepthRange(0.125f, 1.f);
-
-  const float zFar = *reinterpret_cast< const float* >(reinterpret_cast< const uchar* >(&cam) + 0x164);
-  gpRender->SetPerspective(360.f * ((1.f / (2.f * M_PIF)) * fov), scaledWidth, scaledHeight,
-                           cam.GetNearClipDistance(), zFar);
-
-  CFrustumPlanes frustum(camXf, fov, (xf2c_viewportScaleX * cam.GetAspectRatio()) / xf30_viewportScaleY,
-                         cam.GetNearClipDistance(), false, 100.f);
-  gpRender->SetClippingPlanes(frustum);
-  gpRender->PrimColor(CColor::White());
-  gpRender->SetModelMatrix(CTransform4f::Identity());
-
-  x87c_fluidPlaneManager->StartFrame(false);
-  gpRender->SetDebugOption(IRenderer::kDO_PVSState, 1);
-
-  return frustum;
-}
-
-bool CStateManager::SetupFogForDraw() const {
-  switch (x8b8_playerState->GetActiveVisor(*this)) {
-  case CPlayerState::kPV_Thermal:
-    gpRender->SetWorldFog(kRFM_None, 0.f, 1.f, CColor::Black());
-    return true;
-  case CPlayerState::kPV_XRay:
-  default:
-    return false;
-  case CPlayerState::kPV_Combat:
-  case CPlayerState::kPV_Scan: {
-    const CGameArea::CAreaFog* fog = reinterpret_cast< const CGameArea::CAreaFog* >(
-        reinterpret_cast< const uchar* >(x870_cameraManager) + 0x3c);
-    if (fog->IsFogDisabled()) {
-      return false;
-    }
-    fog->SetCurrent();
-    return true;
-  }
-  }
-}
-
-void CStateManager::SetupFogForArea(const CGameArea& area) const {
-  if (SetupFogForDraw()) {
-    return;
-  }
-
-  if (x8b8_playerState->GetActiveVisor(*this) == CPlayerState::kPV_XRay) {
-    const float fogDist = GetXRayFogDistance__9CGameAreaFv(const_cast< CGameArea* >(&area));
-    const CTweakGui* tweak = gpTweakGui;
-    const float fogFarZ = tweak->GetXRayFogFarZ();
-    const float nearZ = tweak->GetXRayFogNearZ();
-    const float farZ = nearZ * (1.f - fogDist) + fogFarZ * fogDist;
-    gpRender->SetWorldFog(static_cast< ERglFogMode >(tweak->GetXRayFogMode()), nearZ, farZ,
-                          tweak->GetXRayFogColor());
-  } else {
-    area.GetPostConstructed()->x10c4_areaFog->SetCurrent();
-  }
-}
-
-void CStateManager::SetupFogForArea(TAreaId area) const {
-  TAreaId areaValue;
-  const TAreaId* areaId = &area;
-  int nextArea;
-  if (area == kInvalidAreaId) {
-    nextArea = x8cc_nextAreaId.Value();
-    areaId = reinterpret_cast< const TAreaId* >(&nextArea);
-  }
-
-  areaValue = *areaId;
-  const CGameArea* areaObj = x850_world->GetArea(areaValue);
-  if (areaObj->IsPostConstructed()) {
-    SetupFogForArea(*areaObj);
-  }
-}
-
-void CStateManager::SetupFogForArea3XRange(TAreaId area) const {
-  TAreaId areaValue;
-  const TAreaId* areaId = &area;
-  int nextArea;
-  if (area == kInvalidAreaId) {
-    nextArea = x8cc_nextAreaId.Value();
-    areaId = reinterpret_cast< const TAreaId* >(&nextArea);
-  }
-
-  areaValue = *areaId;
-  const CGameArea* areaObj = x850_world->GetArea(areaValue);
-  if (areaObj->IsPostConstructed()) {
-    fn_80046DE8(this, areaObj);
-  }
-}
-
-void CStateManager::DrawWorld() const {
-
-  const CTimeProvider timeProvider(xf14_curTimeMod900);
-  const CViewport backupViewport = CGraphics::GetViewport();
-
-  /* Area camera is in (not necessarily player) */
-  const TAreaId visAreaId = GetVisAreaId();
-
-  x850_world->TouchSky();
-
-  const CFrustumPlanes frustum = SetupViewForDraw(CGraphics::GetViewport());
-  const CTransform4f backupViewMatrix = CGraphics::GetViewMatrix();
-
-  int areaCount = 0;
-  const CGameArea* areaArr[10];
-
-  CGameArea::CConstChainIterator it = x850_world->GetChainHead(CWorld::kC_Alive);
-  CGameArea::CConstChainIterator end = x850_world->GetAliveAreasEnd();
-  for (; it != end; ++it) {
-    if (areaCount == 10) {
-      break;
-    }
-    CGameArea::EOcclusionState occState = CGameArea::kOS_Occluded;
-    if (it->IsLoaded()) {
-      occState = it->GetOcclusionState();
-    }
-    if (occState == CGameArea::kOS_Visible) {
-      areaArr[areaCount++] = &*it;
-    }
-  }
-
-  // rstl::sort(&areaArr[0], &areaArr[areaCount], area_sorter(CGraphics::GetViewPoint(),
-  // visAreaId));
-}
-
-void CStateManager::ResetViewAfterDraw(const CViewport& backupViewport,
-                                       const CTransform4f& backupViewMatrix) const {
-  gpRender->SetViewport(backupViewport.mLeft, backupViewport.mTop, backupViewport.mWidth,
-                        backupViewport.mHeight);
-
-  const CGameCamera& cam = x870_cameraManager->GetCurrentCamera(*this);
-  CFrustumPlanes frustum(backupViewMatrix, 0.017453292f * cam.GetFov(), cam.GetAspectRatio(),
-                         cam.GetNearClipDistance(), false, 100.f);
-  gpRender->SetClippingPlanes(frustum);
-
-  const CViewport& viewport = CGraphics::GetViewport();
-  const float zFar = *reinterpret_cast< const float* >(reinterpret_cast< const uchar* >(&cam) + 0x164);
-  gpRender->SetPerspective(cam.GetFov(), static_cast< float >(viewport.mWidth),
-                           static_cast< float >(viewport.mHeight), cam.GetNearClipDistance(), zFar);
-}
-
-void CStateManager::DrawAdditionalFilters() const {
-  if (xf0c_escapeTimer < 1.f && xf0c_escapeTimer > 0.f && !x870_cameraManager->IsInCinematicCamera()) {
-    const float alpha = 1.f - xf0c_escapeTimer;
-    const CColor color = CColor::White().WithAlphaOf(alpha);
-    CCameraFilterPass::DrawFilter(CCameraFilterPass::kFT_Add, CCameraFilterPass::kFS_Fullscreen,
-                                  color, 0, 1.f);
-  }
-}
-
-void CStateManager::DrawE3DeathEffect() const {
-  const CPlayer* player = x84c_player;
-  const float deathTime =
-      *reinterpret_cast< const float* >(reinterpret_cast< const uchar* >(player) + 0x9f4);
-  float blurFactor;
-  float whiteFactor;
-
-  if (deathTime > 0.f) {
-    if (player->GetMorphballTransitionState() != CPlayer::kMS_Unmorphed) {
-      blurFactor = (deathTime - 1.f) / (lbl_805A9E10 - 1.f);
-      const float blurAmt = CMath::Clamp(0.f, blurFactor, 1.f);
-      if (blurAmt > 0.f) {
-        CCameraBlurPass blur;
-        blur.SetBlur(CCameraBlurPass::kBT_HiBlur, 7.f * blurAmt, 0.f, false);
-        blur.Draw();
-      }
-    }
-
-    whiteFactor = 1.f - deathTime / (lbl_805AA2D4 * lbl_805A9E10);
-    const float whiteAmt = CMath::Clamp(0.f, whiteFactor, 1.f);
-    const CColor color = CColor::White().WithAlphaOf(whiteAmt);
-    CCameraFilterPass::DrawFilter(CCameraFilterPass::kFT_Add, CCameraFilterPass::kFS_Fullscreen,
-                                  color, 0, 1.f);
-  }
-}
-
-void CStateManager::RenderCamerasAndAreaLights() const {
-  x870_cameraManager->Render(*this);
-  for (int i = 0; i < kCFS_Max; ++i) {
-    xb84_camFilterPasses[i].Draw();
-  }
-}
-
-void CStateManager::DrawDebugStuff() const {}
-
-void CStateManager::BuildDynamicLightListForWorld() {
-  if (x8b8_playerState->GetActiveVisor(*this) == CPlayerState::kPV_Thermal) {
-    x8e0_dynamicLights = rstl::vector< CLight >();
-    return;
-  }
-
-  const CObjectList& list = GetObjectListById(kOL_GameLight);
-  int listSize = list.size();
-  if (listSize == 0) {
-    return;
-  }
-
-  if (x8e0_dynamicLights.capacity() != listSize) {
-    x8e0_dynamicLights = rstl::vector< CLight >();
-    x8e0_dynamicLights.reserve(listSize);
-  } else {
-    x8e0_dynamicLights.clear();
-  }
-
-  for (int idx = list.GetFirstObjectIndex(); idx != -1; idx = list.GetNextObjectIndex(idx)) {
-    const CGameLight* light = static_cast< const CGameLight* >(list[idx]);
-    if (light && light->GetActive()) {
-      const CLight& l = light->GetLight();
-      if (l.GetIntensity() > FLT_EPSILON && l.GetRadius() > FLT_EPSILON) {
-        // TODO: This shouldn't be inlined, but currently is.
-        x8e0_dynamicLights.push_back(l);
-      }
-    }
-  }
-  rstl::sort(x8e0_dynamicLights.begin(), x8e0_dynamicLights.end(), CLightPredicate());
-}
-
-bool CStateManager::CanCreateProjectile(TUniqueId uid, EWeaponType type, int maxAllowed) const {
-  return x878_weaponMgr->GetNumActive(uid, type) < maxAllowed;
-}
-
-void CStateManager::ReflectionDrawer(void* ctx, const CVector3f& point) {
-  DrawReflection__13CStateManagerFRC9CVector3f(static_cast< CStateManager* >(ctx), point);
-}
-
-void CStateManager::CacheReflection() {
-  typedef void (*TCacheReflectionFn)(IRenderer*, void (*)(void*, const CVector3f&), void*, bool);
-  TCacheReflectionFn cacheReflection = *reinterpret_cast< TCacheReflectionFn* >(
-      reinterpret_cast< uchar* >(*reinterpret_cast< void** >(gpRender)) + 0xc8);
-  cacheReflection(gpRender, ReflectionDrawer, this, !lbl_805A9E08);
-}
-
-void CStateManager::DrawReflection(const CVector3f& point) {
-  CPlayer* player = x84c_player;
-  CAABox playerBounds = player->GetBoundingBox();
-  CVector3f playerPos = playerBounds.GetCenterPoint();
-
-  const CVector3f viewPos =
-      playerPos -
-      3.5f * CVector3f(playerPos.GetX() - point.GetX(), playerPos.GetY() - point.GetY(),
-                       playerPos.GetZ() - playerPos.GetZ())
-                 .AsNormalized();
-
-  CTransform4f reflectionXf = CTransform4f::LookAt(viewPos, playerPos, CVector3f(0.f, 0.f, -1.f));
-  const CTransform4f backupView = CGraphics::GetViewMatrix();
-  CGraphics::SetViewPointMatrix(reflectionXf);
-
-  const CGameCamera& curCam = x870_cameraManager->GetCurrentCamera(*this);
-  const CGraphics::CProjectionState backupProj = CGraphics::GetProjectionState();
-
-  const CViewport& viewport = CGraphics::GetViewport();
-  const float zFar =
-      *reinterpret_cast< const float* >(reinterpret_cast< const uchar* >(&curCam) + 0x164);
-  gpRender->SetPerspective(curCam.GetFov(), static_cast< float >(viewport.mWidth),
-                           static_cast< float >(viewport.mHeight), curCam.GetNearClipDistance(), zFar);
-
-  player->RenderReflectedPlayer(*this);
-
-  CGraphics::SetViewPointMatrix(backupView);
-  CGraphics::SetProjectionState(backupProj);
-}
-
-void CStateManager::DrawSpaceWarp(const CVector3f& point, float strength) const {
-  switch (x8b8_playerState->GetActiveVisor(*this)) {
-  case CPlayerState::kPV_XRay:
-  case CPlayerState::kPV_Thermal:
-    return;
-  default:
-    break;
-  }
-
-  const CGameCamera& curCam = x870_cameraManager->GetCurrentCamera(*this);
-  CVector3f screenPoint;
-  ConvertToScreenSpace__11CGameCameraCFRC9CVector3f(&screenPoint, &curCam, &point);
-  gpRender->DrawSpaceWarp(screenPoint, strength);
-}
-
-void CStateManager::TouchSky() const { x850_world->TouchSky(); }
-
-void CStateManager::TouchPlayerActor() const {
-  if (xf6c_playerActorHead != kInvalidUniqueId) {
-    const CEntity* ent = GetObjectById(xf6c_playerActorHead);
-    if (ent != nullptr) {
-      TouchModels__18CScriptPlayerActorFRC13CStateManager(const_cast< CEntity* >(ent), *this);
-    }
-  }
-}
-
-void CStateManager::SetActorAreaId(CActor& actor, TAreaId aid) {
-  const int oldArea = actor.x4_areaId.value;
-  if (oldArea != aid.value) {
-    CWorld* world = x850_world.get();
-
-    if (oldArea != kInvalidAreaId.value) {
-      TAreaId oldAid = actor.x4_areaId;
-      TAreaId oldAid2 = actor.x4_areaId;
-      CGameArea* oldAreaObj = world->Area(oldAid);
-      if (oldAreaObj->IsPostConstructed()) {
-        static_cast< CObjectList* >(oldAreaObj->GetPostConstructed()->x10c0_areaObjectList)
-            ->RemoveObject(actor.GetUniqueId());
-      }
-    }
-
-    actor.x4_areaId = aid;
-
-    if (aid != kInvalidAreaId) {
-      TAreaId newAid = aid;
-      CGameArea* newAreaObj = world->Area(newAid);
-      if (newAreaObj->IsPostConstructed()) {
-        TUniqueId uid = actor.GetUniqueId();
-        CObjectList* areaObjList =
-            static_cast< CObjectList* >(newAreaObj->GetPostConstructed()->x10c0_areaObjectList);
-        if (static_cast< const CObjectList* >(areaObjList)->GetValidObjectById(uid) == nullptr) {
-          areaObjList->AddObject(actor);
-        }
-      }
-    }
-  }
-}
-
-void CStateManager::AddWeaponId(TUniqueId uid, EWeaponType type) {
-  x878_weaponMgr->IncrCount(uid, type);
-}
-
-void CStateManager::RemoveWeaponId(TUniqueId uid, EWeaponType type) {
-  x878_weaponMgr->DecrCount(uid, type);
-}
-
-int CStateManager::GetWeaponIdCount(TUniqueId uid, EWeaponType type) {
-  return x878_weaponMgr->GetNumActive(uid, type);
-}
-
-TAreaId CStateManager::GetVisAreaId() const {
-  const CGameCamera& curCam = x870_cameraManager->GetCurrentCamera(*this);
-  const CBallCamera* ballCam = x870_cameraManager->GetBallCamera();
-  const TAreaId curArea = x850_world->GetCurrentAreaId();
-  if (&curCam != ballCam) {
-    return curArea;
-  }
-
-  const CVector3f camTranslation = ballCam->GetTranslation();
-  const CVector3f playerTranslation = x84c_player->GetTranslation();
-  CAABox camAABB(camTranslation, camTranslation);
-  camAABB.AccumulateBounds(playerTranslation);
-
-  TEntityList nearList;
-  const CMaterialFilter filter = CMaterialFilter::MakeInclude(CMaterialList(kMT_AIBlock));
-  BuildNearList(nearList, camAABB, filter, nullptr);
-  for (const TUniqueId* uid = nearList.begin(); uid != nearList.end(); ++uid) {
-    const CScriptDock* dock = TCastToConstPtr< CScriptDock >(GetObjectById(*uid));
-    if (dock != nullptr && dock->GetAreaId() == curArea && dock->HasPointCrossedDock(*this, camTranslation)) {
-      return dock->GetCurrentConnectedAreaId(*this);
-    }
-  }
-
-  return curArea;
-}
-
-const rstl::string& CStateManager::HashInstanceName(CInputStream& in) {
-  rstl::string instanceName(in);
-  rstl::set< rstl::string >::iterator it = xb40_uniqueInstanceNames.find(instanceName);
-  if (it == xb40_uniqueInstanceNames.end()) {
-    it = xb40_uniqueInstanceNames.insert(instanceName);
-  }
-
-  return **it;
-}
-
-void CStateManager::MurderScriptInstanceNames() {
-  bool done = false;
-
-  while (!done) {
-    done = true;
-
-    rstl::set< rstl::string >::iterator it = xb40_uniqueInstanceNames.begin();
-    rstl::set< rstl::string >::iterator end = xb40_uniqueInstanceNames.end();
-    for (; it != end; ++it) {
-      const rstl::string* str = *it;
-      const void* cow =
-          *reinterpret_cast< const void* const* >(reinterpret_cast< const uchar* >(str) + 0x4);
-      int refCount = -1;
-      if (cow != nullptr) {
-        refCount = *reinterpret_cast< const int* >(reinterpret_cast< const uchar* >(cow) + 0x4);
-      }
-
-      if (refCount == 1) {
-        xb40_uniqueInstanceNames.erase(it);
-        done = false;
-        break;
-      }
-    }
-  }
-}
-
-void CStateManager::SetupParticleHook(const CActor& actor) const {
-  x884_actorModelParticles->SetupHook(actor.GetUniqueId());
-}
-
-void CStateManager::ResetEscapeSequenceTimer(float time) {
-  xf0c_escapeTimer = time;
-  xf10_escapeTotalTime = time;
-}
-
-float CStateManager::GetEscapeSequenceTimer() const { return xf0c_escapeTimer; }
-
-void CStateManager::UpdateEscapeSequenceTimer(float dt) {
-  const float totalTime = xf10_escapeTotalTime;
-  if (xf0c_escapeTimer > 0.f) {
-    xf0c_escapeTimer = rstl::max_val(gkEpsilon, xf0c_escapeTimer - dt);
-    if (xf0c_escapeTimer <= FLT_EPSILON) {
-      struct SPlayerStateFlags {
-        bool x0_24_alive : 1;
-      };
-      reinterpret_cast< SPlayerStateFlags* >(x8b8_playerState.GetPtr())->x0_24_alive = false;
-    }
-
-    if (!init) {
-      init = true;
-      nextShake = 0.f;
-    }
-
-    nextShake -= dt;
-    if (nextShake < 0.f) {
-      const float factor = 1.f - xf0c_escapeTimer / totalTime;
-      const float factorSq = factor * factor;
-      {
-        const CCameraShakeData shakeData(1.f, 0.2f * factorSq * x900_random->Range(0.5f, 1.f));
-        x870_cameraManager->AddCameraShaker(shakeData, true);
-      }
-      x88c_rumbleManager->Rumble(*this, static_cast< ERumbleFxId >(0xb), 0.75f, kRP_One);
-      nextShake = -12.f * factorSq + 15.f;
-    }
-  }
-}
-
-void CStateManager::UpdateHintState(float dt) {
-  CHintOptions& hintOpts = gpGameState->HintOptions();
-  hintOpts.Update(dt, *this);
-
-  int nextHintIdx = -1;
-  int hintPeriods = -1;
-  const SHintState* curHint = hintOpts.GetCurrentDisplayedHint();
-  if (curHint != NULL) {
-    const CGameHintInfo::CGameHint& nextHint = GetGameHints()[hintOpts.GetNextHintIdx()];
-    const rstl::vector< CGameHintInfo::SHintLocation >& locations = nextHint.GetLocations();
-    for (int i = 0; i < static_cast< int >(locations.size()); ++i) {
-      const CGameHintInfo::SHintLocation& location = locations[i];
-      const TAreaId areaId = location.x8_areaId;
-      const CAssetId mlvlId = location.x0_mlvlId;
-      CWorldState& worldState = gpGameState->StateForWorld(mlvlId);
-      rstl::rc_ptr< CMapWorldInfo > mapWorldInfo = worldState.MapWorldInfo();
-      mapWorldInfo->SetIsMapped(areaId, true);
-    }
-
-    if (curHint->x4_time < nextHint.GetTextTime()) {
-      nextHintIdx = hintOpts.GetNextHintIdx();
-      hintPeriods = static_cast< int >(curHint->x4_time / 3.f);
-    }
-  }
-
-  if (nextHintIdx != xeec_hintIdx || hintPeriods != static_cast< int >(xef0_hintPeriods)) {
-    if (nextHintIdx == -1) {
-      const rstl::wstring& empty = rstl::wstring_l(L"");
-      CHUDMemoParms memoInfo(0.f, true, true, true);
-      CSamusHud::DisplayHudMemo(empty, memoInfo);
-    } else {
-      const CGameHintInfo::CGameHint* hint = &GetGameHints()[nextHintIdx];
-      SHudMemoInfo memoInfo(0.f, true, false, true);
-      CSamusHud::DeferHintMemo(hint->GetStringId(), hintPeriods, memoInfo);
-    }
-
-    xeec_hintIdx = nextHintIdx;
-    xef0_hintPeriods = hintPeriods;
-  }
-}
-
-bool CStateManager::SpecialSkipCinematic() {
-  bool hadRandom = false;
-  TUniqueId id = xf38_skipCineSpecialFunc;
-  if (id == kInvalidUniqueId) {
-    return false;
-  }
-
-  TUniqueId copyId(id);
-  CScriptSpecialFunction* special = static_cast< CScriptSpecialFunction* >(ObjectById(copyId));
-  if (special == nullptr || !special->ShouldSkipCinematic(*this)) {
-    return false;
-  }
-
-  hadRandom = x900_random != nullptr;
-  x900_random = &x8fc_random;
-  x870_cameraManager->StopCinematics(*this);
-  special->SkipCinematic(*this);
-  x900_random = hadRandom ? &x8fc_random : nullptr;
-  return true;
-}
-
-bool CStateManager::AddDrawableActor(const CActor& actor, const CVector3f& pos,
-                                     const CAABox& bounds) const {
-  const_cast< CActor& >(actor).SetAddedToken(x8dc_objectDrawToken + 1);
-  gpRender->AddDrawable(&actor, pos, bounds, 0, IRenderer::kDS_SortedCallback);
-}
-
-void CStateManager::AddDrawableActorPlane(const CActor& actor, const CPlane& plane,
-                                          const CAABox& bounds) const {
-  const_cast< CActor& >(actor).SetAddedToken(x8dc_objectDrawToken + 1);
-  gpRender->AddPlaneObject(&actor, bounds, plane, 0);
-}
-
-bool CStateManager::RenderLast(const TUniqueId& uid) {
-  CStateManagerContainer* container = x86c_stateManagerContainer.get();
-  CStateManagerContainer* bucket = container;
-  int count = *reinterpret_cast< int* >(reinterpret_cast< uchar* >(bucket) + 0xf39c);
-  if (count == 20) {
-    return false;
-  }
-
-  TUniqueId* id = reinterpret_cast< TUniqueId* >(reinterpret_cast< uchar* >(bucket) + 0xf3a0) + count;
-  if (id != nullptr) {
-    *id = uid;
-  }
-
-  int* curCount = reinterpret_cast< int* >(reinterpret_cast< uchar* >(container) + 0xf39c);
-  *curCount = *curCount + 1;
-  return true;
-}
-
-void CStateManager::DeferStateTransition(EStateManagerTransition t) {
-  if (t == kSMT_InGame) {
-    if (xf90_deferredTransition != kSMT_InGame) {
-      x850_world->SetLoadPauseState(false);
-      xf90_deferredTransition = kSMT_InGame;
-    }
-  } else if (xf90_deferredTransition == kSMT_InGame) {
-    x850_world->SetLoadPauseState(true);
-    xf90_deferredTransition = t;
-  }
-}
-
-void CStateManager::ShowPausedHUDMemo(CAssetId strg, float time) {
-  xf78_hudMessageTime = time;
-  xf08_pauseHudMessage = strg;
-  DeferStateTransition(kSMT_MessageScreen);
-}
-
-bool CStateManager::CanShowMapScreen() {
-  const SHintState* curHint = gpGameState->HintOptions().GetCurrentDisplayedHint();
-  if (curHint != nullptr && !const_cast< SHintState* >(curHint)->CanContinue()) {
-    return false;
-  }
-  return true;
-}
-
-void CStateManager::UpdateThermalVisor() {
-  xf28_thermColdScale2 = 0.f;
-  xf24_thermColdScale1 = 0.f;
-
-  if (x8b8_playerState->GetActiveVisor(*this) == CPlayerState::kPV_Thermal &&
-      x8cc_nextAreaId != kInvalidAreaId) {
-    CGameArea* curArea = x850_world->Area(x8cc_nextAreaId);
-    CGameArea* bestArea = nullptr;
-    float bestDistSq = FLT_MAX;
-
-    const float playerX = x84c_player->GetTransform().Get03();
-    const float playerY = x84c_player->GetTransform().Get13();
-
-    for (int i = 0; i < curArea->GetDockCount(); ++i) {
-      const IGameArea::Dock& dock = curArea->GetDock(i);
-      const rstl::reserved_vector< CVector3f, 4 >& verts = dock.GetPlaneVertices();
-
-      const float dockCenterY =
-          0.25f * (verts[0].GetY() + verts[1].GetY() + verts[2].GetY() + verts[3].GetY());
-      const float dockCenterX =
-          0.25f * (verts[0].GetX() + verts[1].GetX() + verts[2].GetX() + verts[3].GetX());
-
-      const float deltaY = playerY - dockCenterY;
-      const float deltaX = playerX - dockCenterX;
-      const float distSq = deltaX * deltaX + deltaY * deltaY;
-
-      if (distSq < bestDistSq) {
-        const TAreaId connectedAreaId = dock.GetConnectedAreaId(0);
-        if (connectedAreaId != kInvalidAreaId) {
-          CGameArea* connectedArea = x850_world->Area(connectedAreaId);
-          if (connectedArea->IsPostConstructed() &&
-              connectedArea->GetPostConstructed()->x10dc_occlusionState == CGameArea::kOS_Visible) {
-            bestArea = connectedArea;
-            bestDistSq = distSq;
-          }
-        }
-      }
-    }
-
-    const float areaThermal = curArea->GetPostConstructed()->x111c_thermalCurrent;
-    if (bestArea == nullptr) {
-      xf24_thermColdScale1 = areaThermal;
-    } else {
-      const float dist = CMath::FastSqrtF(bestDistSq);
-      const float blendDist = dist - 2.f;
-      if (blendDist >= 8.f) {
-        xf24_thermColdScale1 = areaThermal;
-      } else {
-        float blend = 0.5f;
-        if (blendDist > 0.f) {
-          blend = 0.5f * 0.125f * blendDist + 0.5f;
-        }
-        xf24_thermColdScale1 =
-            blend * areaThermal + (1.f - blend) * bestArea->GetPostConstructed()->x111c_thermalCurrent;
-      }
-    }
-  }
-}
-
-void CStateManager::GetCharacterRenderMaskAndTarget(bool thawed, int& mask, int& target) {
-  mask = 0;
-  target = 0;
-
-  switch (x8b8_playerState->GetActiveVisor(*this)) {
-  case CPlayerState::kPV_Combat:
-  case CPlayerState::kPV_Scan:
-    mask = 0x1000;
-    break;
-  case CPlayerState::kPV_XRay:
-    mask = 0x800;
-    break;
-  case CPlayerState::kPV_Thermal:
-    if (thawed) {
-      mask = 0x600;
-      target = xf34_thermalFlag == kTD_Hot ? 0 : 0x200;
-    } else {
-      mask = 0x500;
-      target = xf34_thermalFlag == kTD_Cold ? 0 : 0x100;
-    }
-    break;
-  default:
-    break;
-  }
-}
-
-const CSinglePathMaze* CStateManager::GetSinglePathMaze() const { return xf70_currentMaze.get(); }
-
-CSinglePathMaze* CStateManager::SinglePathMaze() { return xf70_currentMaze.get(); }
-
-void CStateManager::SetSinglePathMaze(rstl::single_ptr< CSinglePathMaze > maze) {
-  xf70_currentMaze = maze;
-}
-
-void CStateManager::SetGameState(EGameState state) {
-  if (x904_gameState != state) {
-    if (x904_gameState == kGS_SoftPaused) {
-      x850_world->SetLoadPauseState(false);
-    }
-
-    if (state != kGS_SoftPaused) {
-      if (state < kGS_SoftPaused) {
-        if (state < kGS_Running) {
-        } else {
-          CRumbleGenerator* rumbleGen = reinterpret_cast< CRumbleGenerator* >(x88c_rumbleManager);
-          if (rumbleGen->GetDisabled()) {
-            rumbleGen->SetDisabled(false);
-          }
-        }
-      }
-    } else {
-      CRumbleGenerator* rumbleGen = reinterpret_cast< CRumbleGenerator* >(x88c_rumbleManager);
-      if (!rumbleGen->GetDisabled()) {
-        rumbleGen->SetDisabled(true);
-      }
-      x850_world->SetLoadPauseState(true);
-    }
-
-    x904_gameState = state;
-  }
-}
-
-void CStateManager::SendScriptMsgAlways(TUniqueId uid, TUniqueId src, EScriptObjectMessage msg) {
-  CEntity* ent = ObjectById(uid);
-  if (ent != nullptr) {
-    ent->AcceptScriptMsg(msg, src, *this);
-  }
-}
-
-void CStateManager::DeliverScriptMsg(CEntity* ent, TUniqueId target, EScriptObjectMessage msg) {
-  if (ent != nullptr && !ent->IsScriptingBlocked()) {
-    ent->AcceptScriptMsg(msg, target, *this);
-  }
-}
-
-void CStateManager::QueueMessage(int frameCount, CAssetId msg, float f1) {
-  xf84_ = frameCount;
-  xf88_ = msg;
-  xf8c_ = f1;
-}
-
-const CPlayer* CStateManager::GetPlayer() const { return x84c_player; }
-
-void CStateManager::SetBossParams(TUniqueId bossId, float maxEnergy, uint stringIdx) {
-  xf18_bossId = bossId;
-  xf1c_totalBossEnergy = maxEnergy;
-  xf20_bossStringIdx = stringIdx;
-}
-
-float CStateManager::IntegrateVisorFog(float f) const {
-  if (x8b8_playerState->GetActiveVisor(*this) == CPlayerState::kPV_Scan) {
-    return f * (1.f - x8b8_playerState->GetVisorTransitionFactor());
-  }
-  return f;
-}
-
-CRayCastResult CStateManager::RayWorldIntersection(TUniqueId& idOut, const CVector3f& pos,
-                                                   const CVector3f& dir, float length,
-                                                   const CMaterialFilter& filter,
-                                                   const TEntityList& list) const {
-  return CGameCollision::RayWorldIntersection(*this, idOut, pos, dir, length, filter, list);
-}
-
-void CStateManager::UpdateObjectInLists(CEntity& ent) {
-  rstl::auto_ptr< CObjectList >* listBegin = x808_objectLists.data();
-  for (rstl::auto_ptr< CObjectList >* listIt = listBegin;
-       listIt != listBegin + x808_objectLists.size(); ++listIt) {
-    if (static_cast< const CObjectList* >(listIt->get())->GetValidObjectById(ent.GetUniqueId()) != nullptr &&
-        !listIt->get()->IsQualified(ent)) {
-      listIt->get()->RemoveObject(ent.GetUniqueId());
-    }
-
-    if (static_cast< const CObjectList* >(listIt->get())->GetValidObjectById(ent.GetUniqueId()) == nullptr) {
-      listIt->get()->AddObject(ent);
-    }
-  }
-}
-
-void CStateManager::SetCurrentAreaId(TAreaId aid) {
-  if (x8cc_nextAreaId != aid) {
-    x8d0_prevAreaId = x8cc_nextAreaId;
-    UpdateRoomAcoustics(aid);
-    x8cc_nextAreaId = aid;
-  }
-
-  const TAreaId& currentArea = aid;
-  if (currentArea != kInvalidAreaId) {
-    if (!x8c0_mapWorldInfo->IsAreaVisited(currentArea)) {
-      x8c0_mapWorldInfo->SetAreaVisited(currentArea, true);
-      CMapWorldInfo* mapWorldInfo = x8c0_mapWorldInfo.GetPtr();
-      CWorld* world = x850_world.get();
-      CMapWorld* mapWorld = world->GetMapWorld();
-      mapWorld->RecalculateWorldSphere(*mapWorldInfo, *world);
-    }
-  }
-}
-
-void CStateManager::UpdateRoomAcoustics(TAreaId aid) {
-  rstl::reserved_vector< CScriptRoomAcoustics*, 10 > areaAcoustics;
-  CObjectList* allList = x808_objectLists[kOL_All].get();
-
-  for (int i = allList->GetFirstObjectIndex(); i != -1 && areaAcoustics.size() < 10;
-       i = allList->GetNextObjectIndex(i)) {
-    CEntity* ent = (*allList)[i];
-    if (CScriptRoomAcoustics* acoustics = TCastToPtr< CScriptRoomAcoustics >(ent)) {
-      if (acoustics->GetCurrentAreaId() == aid && acoustics->GetActive()) {
-        areaAcoustics.push_back(acoustics);
-      }
-    }
-  }
-
-  if (areaAcoustics.size() > 0) {
-    const int acousticsIdx =
-        static_cast< int >(0.99f * (x900_random->Float() * static_cast< float >(areaAcoustics.size())));
-    areaAcoustics[acousticsIdx]->EnableAuxCallbacks();
-  } else {
-    CScriptRoomAcoustics::DisableAuxCallbacks();
-  }
-}
+void CStateManager::UpdateGameState() {}
 
 void CStateManager::MovePlatforms(float dt) {
   CObjectList* platformAndDoorList = x808_objectLists[kOL_PlatformAndDoor].get();
@@ -2856,4 +1111,1819 @@ void CStateManager::PreThinkObjects(float dt) {
       }
     }
   }
+}
+
+void CStateManager::PostUpdatePlayer(float dt) { x84c_player->DoPostCameraStuff(dt, *this); }
+
+void CStateManager::Update(float dt) {
+  lbl_805A88B8 = static_cast< ushort >(x8d8_updateFrameIdx);
+  lbl_805A8A10 = static_cast< ushort >(x8d8_updateFrameIdx);
+  CDecal::SetGlobalSeed(static_cast< ushort >(x8d8_updateFrameIdx));
+  CProjectileWeapon::SetGlobalSeed(x8d8_updateFrameIdx);
+
+  xf14_curTimeMod900 += dt;
+  if (xf14_curTimeMod900 > 900.f) {
+    xf14_curTimeMod900 -= 900.f;
+  }
+
+  xf08_pauseHudMessage = kInvalidAssetId;
+
+  ResetParticleCounts__13CScriptEffectFv();
+  UpdateThermalVisor();
+  fn_8004B504(this);
+  UpdateGameState();
+
+  const float deathTime =
+      *reinterpret_cast< const float* >(reinterpret_cast< const uchar* >(x84c_player) + 0x9f4);
+  const bool isDead = deathTime > 0.f;
+
+  if (x904_gameState == kGS_Running) {
+    if (TCastToPtr< CCinematicCamera >(
+            const_cast< CGameCamera& >(x870_cameraManager->GetCurrentCamera(*this))) == nullptr) {
+      SetTotalPlayTime__10CGameStateFd(
+          gpGameState, dt + *reinterpret_cast< const double* >(
+                                reinterpret_cast< const uchar* >(gpGameState) + 0xa0));
+      UpdateHintState(dt);
+    }
+
+    CCameraFilterPass* filt = xb84_camFilterPasses.data();
+    CCameraBlurPass* blur = xd14_camBlurPasses.data();
+    for (int i = 0; i < kCFS_Max; ++i) {
+      filt->Update(dt);
+      Update__15CCameraBlurPassFf(blur, dt);
+      ++filt;
+      ++blur;
+    }
+  }
+
+  if (x904_gameState != kGS_Paused) {
+    PreThinkObjects(dt);
+    x87c_fluidPlaneManager->Update(dt);
+  }
+
+  if (x904_gameState == kGS_Running) {
+    if (!isDead) {
+      Update__13CDecalManagerFfR13CStateManager(dt, this);
+    }
+
+    UpdateSortedLists();
+
+    if (!isDead) {
+      MovePlatforms(dt);
+      MoveDoors(dt);
+    }
+
+    ProcessPlayerInput();
+
+    if (x904_gameState != kGS_SoftPaused) {
+      CGameCollision::Move(*this, *x84c_player, dt, nullptr);
+    }
+
+    UpdateSortedLists();
+
+    if (!isDead) {
+      CrossTouchActors__13CStateManagerFf(this);
+    }
+  } else {
+    ProcessPlayerInput();
+  }
+
+  if (!isDead && x904_gameState == kGS_Running) {
+    x884_actorModelParticles->Update(dt, *this);
+  }
+
+  if (x904_gameState == kGS_Running || x904_gameState == kGS_SoftPaused) {
+    Think(dt);
+  }
+
+  if (x904_gameState != kGS_SoftPaused) {
+    x870_cameraManager->Update(dt, *this);
+  }
+
+  while (xf76_lastRelay != kInvalidUniqueId) {
+    CEntity* ent = ObjectById(xf76_lastRelay);
+    if (ent == nullptr) {
+      xf76_lastRelay = kInvalidUniqueId;
+      break;
+    }
+
+    ent->Think(dt, *this);
+  }
+
+  if (x904_gameState != kGS_Paused) {
+    PostUpdatePlayer(dt);
+  }
+
+  if (xf84_ == xf80_hudMessageFrameCount) {
+    ShowPausedHUDMemo(xf88_, xf8c_);
+    --xf84_;
+    xf88_ = kInvalidAssetId;
+  }
+
+  if (!isDead && x904_gameState == kGS_Running && !x870_cameraManager->IsInCinematicCamera()) {
+    UpdateEscapeSequenceTimer(dt);
+  }
+
+  Update__6CWorldFf(x850_world.get(), dt);
+  x88c_rumbleManager->Update(dt);
+
+  if (!isDead) {
+    Update__13CEnvFxManagerFfR13CStateManager(dt, x880_envFxManager, this);
+  }
+
+  UpdateAreaSounds();
+
+  xf94_24_readyToRender = true;
+
+  if (xf94_27_inMapScreen) {
+    CHintOptions& hintOptions = gpGameState->HintOptions();
+    CHintOptions::SHintState* hint =
+        const_cast< CHintOptions::SHintState* >(hintOptions.GetCurrentDisplayedHint());
+    if (hint != nullptr && hint->CanContinue()) {
+      DismissDisplayedHint__12CHintOptionsFv(&hintOptions);
+    }
+    xf94_27_inMapScreen = false;
+  }
+
+  SetAreaId__11CWorldStateF7TAreaId(&gpGameState->CurrentWorldState(), x8cc_nextAreaId);
+
+  TravelToArea__6CWorldFRC7TAreaIdR13CStateManagerb(x850_world.get(), x8cc_nextAreaId, this, false);
+
+  ClearGraveyard();
+  ++x8d8_updateFrameIdx;
+}
+
+void CStateManager::ProcessInput(const CFinalInput& input) {
+  static CFinalInput skDefaultInput;
+
+  if (input.ControllerNumber() == 0) {
+    const CGameCamera& cam = x870_cameraManager->GetCurrentCamera(*this);
+    bool disableInput = cam.DisablesInput();
+
+    const uchar playerFlags =
+        *reinterpret_cast< const uchar* >(reinterpret_cast< const uchar* >(x84c_player) + 0x9c6);
+    if ((playerFlags >> 2) & 1) {
+      disableInput = true;
+    }
+
+    if (disableInput) {
+      xb54_finalInput = skDefaultInput;
+      xb54_finalInput.SetTime(input.Time());
+    } else {
+      xb54_finalInput = input;
+    }
+  }
+
+  x870_cameraManager->ProcessInput(input, *this);
+}
+
+void CStateManager::ProcessPlayerInput() {
+  if (x84c_player != nullptr) {
+    x84c_player->ProcessInput(xb54_finalInput, *this);
+  }
+}
+
+void CStateManager::FrameEnd() {
+  CModel::FrameDone();
+  gpSimplePool->Flush();
+}
+
+void CStateManager::UpdateAreaSounds() {
+  rstl::reserved_vector< int, 10 > areaIds;
+  areaIds.clear();
+  for (CGameArea::CConstChainIterator areaIt = x850_world->GetChainHead(CWorld::kC_Alive);
+       areaIt != CWorld::GetAliveAreasEnd(); ++areaIt) {
+    CGameArea::EOcclusionState occState;
+    if (areaIt->IsPostConstructed()) {
+      occState = areaIt->GetPostConstructed()->x10dc_occlusionState;
+    } else {
+      occState = CGameArea::kOS_Occluded;
+    }
+
+    if (occState == CGameArea::kOS_Visible) {
+      areaIds.push_back(areaIt->GetId().Value());
+    }
+  }
+
+  CSfxManager::SetActiveAreas(areaIds);
+}
+
+void CStateManager::ApplyDamage(const TUniqueId damagerId, const TUniqueId damageeId,
+                                const TUniqueId radiusSender, const CDamageInfo& info,
+                                const CMaterialFilter& filter, const CVector3f& knockbackVec) {
+  CEntity* damagerEnt = const_cast< CEntity* >(GetObjectById(damagerId));
+  CEntity* damageeEnt = ObjectById(damageeId);
+  CActor* damager = TCastToPtr< CActor >(damagerEnt);
+  CActor* damagee = TCastToPtr< CActor >(damageeEnt);
+  CPlayer* player = TCastToPtr< CPlayer >(damageeEnt);
+
+  if (damagee != nullptr) {
+    CHealthInfo* hInfo = damagee->HealthInfo(*this);
+    if (hInfo != nullptr) {
+      CVector3f position = CVector3f::Zero();
+      CVector3f direction = CVector3f::Right();
+      const bool alive = hInfo->GetHP() > 0.f;
+
+      if (damager != nullptr) {
+        position = damager->GetTranslation();
+        direction = damager->GetTransform().GetForward();
+      }
+
+      const bool useWeaponDir = damager != nullptr || player != nullptr;
+      const CDamageVulnerability* dVuln =
+          useWeaponDir ? damagee->GetDamageVulnerability(position, direction, info)
+                       : damagee->GetDamageVulnerability();
+
+      if (info.GetWeaponMode().GetType() == kWT_None ||
+          dVuln->WeaponHurts(info.GetWeaponMode(), 0)) {
+        const float localDamage = info.GetDamage(*dVuln);
+        if (localDamage > 0.f) {
+          ApplyLocalDamage(position, direction, *damagee, localDamage, info.GetWeaponMode());
+        }
+
+        damagee->SendScriptMsgs(kSS_Damage, *this, kSM_None);
+        DeliverScriptMsg(damagee, damagerId, kSM_Damage);
+      } else {
+        damagee->SendScriptMsgs(kSS_InvulnDamage, *this, kSM_None);
+        DeliverScriptMsg(damagee, damagerId, kSM_InvulnDamage);
+      }
+
+      if (alive && damager != nullptr && info.GetKnockBackPower() > 0.f) {
+        CVector3f defaultDir = damagee->GetTranslation() - damager->GetTranslation();
+        const CVector3f& useDir = knockbackVec.IsNonZero() ? knockbackVec : defaultDir;
+        CVector3f knockDir(useDir.GetX(), useDir.GetY(), 0.0001f);
+        ApplyKnockBack(*damagee, info, *dVuln, knockDir.AsNormalized(), 0.f);
+      }
+    }
+
+    if (damager != nullptr && info.GetRadius() > 0.f) {
+      ProcessRadiusDamage(*damager, *damagee, radiusSender, info, filter);
+    }
+
+    CWallCrawlerSwarm* swarm = TCastToPtr< CWallCrawlerSwarm >(damageeEnt);
+    if (swarm != nullptr && damager != nullptr) {
+      const CVector3f damagerPos = damager->GetTranslation();
+      ApplyRadiusDamage__17CWallCrawlerSwarmF9CVector3ffR13CStateManager(swarm, &damagerPos, &info,
+                                                                         this);
+    }
+  }
+}
+
+bool CStateManager::ApplyLocalDamage(const CVector3f& pos, const CVector3f& dir, CActor& damagee,
+                                     float damage, const CWeaponMode& weaponMode) {
+  CHealthInfo* hInfo = damagee.HealthInfo(*this);
+  if (hInfo == nullptr || damage < 0.f) {
+    return false;
+  }
+
+  const float oldHp = hInfo->GetHP();
+  if (oldHp <= 0.f) {
+    return true;
+  }
+
+  float useDamage = damage;
+  CPlayer* player = TCastToPtr< CPlayer >(damagee);
+  CAi* ai = TCastToPtr< CAi >(damagee);
+
+  if (player != nullptr) {
+    if (x870_cameraManager->IsInCinematicCamera() ||
+        (weaponMode.GetType() == kWT_Phazon &&
+         x8b8_playerState->HasPowerUp(CPlayerState::kIT_PhazonSuit))) {
+      return false;
+    }
+
+    if (gpGameState->GetHardMode()) {
+      useDamage *= GetHardModeDamageMultiplier__10CGameStateCFv(gpGameState);
+    }
+
+    float damageReduction = 0.f;
+    if (x8b8_playerState->HasPowerUp(CPlayerState::kIT_VariaSuit)) {
+      damageReduction = gpTweakPlayer->GetVariaDamageReduction();
+    }
+
+    if (x8b8_playerState->HasPowerUp(CPlayerState::kIT_GravitySuit)) {
+      const float gravityReduction = gpTweakPlayer->GetGravityDamageReduction();
+      damageReduction = CMath::Max< float >(damageReduction, gravityReduction);
+    }
+
+    if (x8b8_playerState->HasPowerUp(CPlayerState::kIT_PhazonSuit)) {
+      const float phazonReduction = gpTweakPlayer->GetPhazonDamageReduction();
+      damageReduction = CMath::Max< float >(damageReduction, phazonReduction);
+    }
+
+    useDamage = -(damageReduction * useDamage - useDamage);
+  }
+
+  const float newHp = oldHp - useDamage;
+  const bool significant = fabs(newHp - oldHp) >= 0.00001f;
+  hInfo->SetHP(newHp);
+
+  if (player != nullptr) {
+    player->TakeDamage(significant, pos, useDamage, weaponMode.GetType(), *this);
+    if (newHp <= 0.f) {
+      struct SPlayerStateFlags {
+        bool x0_24_alive : 1;
+      };
+      reinterpret_cast< SPlayerStateFlags* >(x8b8_playerState.GetPtr())->x0_24_alive = false;
+    }
+  } else if (ai != nullptr) {
+    if (significant) {
+      ai->TakeDamage(dir, useDamage);
+    }
+
+    if (newHp <= 0.f) {
+      ai->Death(*this, dir, kSS_DeathRattle);
+    }
+  }
+
+  return significant;
+}
+
+void CStateManager::TestBombHittingWater(const CActor& damager, const CVector3f& pos,
+                                         CActor& damagee) {
+  CWeapon* weapon = TCastToPtr< CWeapon >(const_cast< CActor& >(damager));
+  if (weapon == nullptr) {
+    return;
+  }
+
+  const int attribField = weapon->GetAttribField();
+  if ((attribField & (CWeapon::kPA_Bombs | CWeapon::kPA_PowerBombs)) == 0) {
+    return;
+  }
+
+  const bool powerBomb = (attribField & CWeapon::kPA_PowerBombs) != 0;
+  CScriptWater* water = TCastToPtr< CScriptWater >(damagee);
+  if (water == nullptr) {
+    return;
+  }
+
+  CAABox triggerBounds = water->GetTriggerBoundsWR();
+  CVector3f hitPos(pos.GetX(), pos.GetY(), triggerBounds.GetMaxPoint().GetZ());
+
+  CVector3f up(0.f, 0.f, 1.f);
+  up.Normalize();
+
+  CAABox triggerBounds2 = water->GetTriggerBoundsWR();
+  const int idx = powerBomb;
+  const float depth = -(CVector3f::Dot(up, pos) - triggerBounds2.GetMaxPoint().GetZ());
+
+  if (depth <= skBombUnderwaterRanges[idx] && depth > 0.f) {
+    const float rippleFactor = 1.f - depth / skBombUnderwaterRanges[idx];
+    if (x87c_fluidPlaneManager->GetLastRippleDeltaTime(damager.GetUniqueId()) >= 0.15f) {
+      const float bombMag = skBombUnderwaterMags[idx];
+      const float sinVal = CMath::FastSinR(2.f * M_PIF * rippleFactor * 0.25f);
+      water->FluidPlane().AddRipple(0.6f * bombMag + 0.4f * bombMag * sinVal, damager.GetUniqueId(),
+                                    hitPos, *water, *this);
+    }
+
+    if (!powerBomb) {
+      x87c_fluidPlaneManager->CreateSplash(damager.GetUniqueId(), *this, *water, hitPos,
+                                           rippleFactor, true);
+    }
+  } else if (depth > -skBombAboveWaterRanges[idx] && depth < 0.f) {
+    const float depthAbove = -depth;
+    CVector3f down(0.f, 0.f, -1.f);
+    const CRayCastResult result =
+        RayStaticIntersection(pos, down, depthAbove, CMaterialFilter::GetPassEverything());
+
+    if (!result.GetValid() &&
+        x87c_fluidPlaneManager->GetLastRippleDeltaTime(damager.GetUniqueId()) >= 0.15f) {
+      const float bombMag = skBombAboveWaterMags[idx];
+      const float sinVal =
+          CMath::FastSinR(2.f * M_PIF * (depthAbove / skBombAboveWaterRanges[idx]) * 0.25f);
+      water->FluidPlane().AddRipple(0.6f * bombMag + 0.4f * bombMag * sinVal, damager.GetUniqueId(),
+                                    hitPos, *water, *this);
+    }
+  }
+}
+
+bool CStateManager::MultiRayCollideWorld(const CMRay& ray, const CMaterialFilter& filter) {
+  const CVector3f& start =
+      *reinterpret_cast< const CVector3f* >(reinterpret_cast< const uchar* >(&ray) + 0x0);
+  const CVector3f& dir =
+      *reinterpret_cast< const CVector3f* >(reinterpret_cast< const uchar* >(&ray) + 0x2c);
+  const float length =
+      *reinterpret_cast< const float* >(reinterpret_cast< const uchar* >(&ray) + 0x24);
+
+  CVector3f crossed(-dir.GetZ() * dir.GetZ() - dir.GetY() * dir.GetX(),
+                    dir.GetX() * dir.GetX() - dir.GetZ() * dir.GetY(),
+                    dir.GetY() * dir.GetY() - dir.GetX() * -dir.GetZ());
+  CVector3f crossedNorm = crossed.AsNormalized();
+
+  const CVector3f crossed2(
+      (dir.GetY() * crossedNorm.GetZ() - crossedNorm.GetY() * dir.GetZ()) * 0.35355338f,
+      (dir.GetZ() * crossedNorm.GetX() - crossedNorm.GetZ() * dir.GetX()) * 0.35355338f,
+      (dir.GetX() * crossedNorm.GetY() - crossedNorm.GetX() * dir.GetY()) * 0.35355338f);
+  const CVector3f rms = crossedNorm * 0.35355338f;
+
+  for (uint i = 0; i < 4; ++i) {
+    const CVector3f useCrossed = (i & 2) != 0 ? -crossed2 : crossed2;
+    const CVector3f useRms = (i & 1) != 0 ? rms : -rms;
+    const CVector3f useStart = start + useRms + useCrossed;
+    if (CGameCollision::RayStaticIntersectionBool(*this, useStart, dir, length, filter)) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+void CStateManager::ApplyRadiusDamage(const CActor& damager, const CVector3f& pos, CActor& damagee,
+                                      const CDamageInfo& info) {
+  CVector3f delta = damagee.GetTranslation() - pos;
+  if (info.GetRadius() * info.GetRadius() <= delta.MagSquared()) {
+    if (!damagee.GetTouchBounds()) {
+      return;
+    }
+
+    if (!CCollidableSphere::Sphere_AABox_Bool(CSphere(pos, info.GetRadius()),
+                                              *damagee.GetTouchBounds())) {
+      return;
+    }
+  }
+
+  float rad = info.GetRadius();
+  if (rad > gkEpsilon) {
+    rad = delta.Magnitude() / rad;
+  } else {
+    rad = 0.f;
+  }
+
+  if (rad > 0.f) {
+    delta.Normalize();
+  }
+
+  bool alive = false;
+  CHealthInfo* hInfo = damagee.HealthInfo(*this);
+  if (hInfo != nullptr && hInfo->GetHP() > 0.f) {
+    alive = true;
+  }
+
+  const CDamageVulnerability* vuln = rad > 0.f ? damagee.GetDamageVulnerability(pos, delta, info)
+                                               : damagee.GetDamageVulnerability();
+
+  if (vuln->WeaponHurts(info.GetWeaponMode(), 1)) {
+    const float localDamage = info.GetRadiusDamage(*vuln);
+    if (localDamage > 0.f) {
+      ApplyLocalDamage(pos, delta, damagee, localDamage, info.GetWeaponMode());
+    }
+
+    damagee.SendScriptMsgs(kSS_Damage, *this, kSM_None);
+    DeliverScriptMsg(&damagee, damager.GetUniqueId(), kSM_Damage);
+  } else {
+    damagee.SendScriptMsgs(kSS_InvulnDamage, *this, kSM_None);
+    DeliverScriptMsg(&damagee, damager.GetUniqueId(), kSM_InvulnDamage);
+  }
+
+  if (alive && info.GetKnockBackPower() > 0.f) {
+    CVector3f knockbackDir(damagee.GetTranslation().GetX() - damager.GetTranslation().GetX(),
+                           damagee.GetTranslation().GetY() - damager.GetTranslation().GetY(),
+                           0.0001f);
+    ApplyKnockBack(damagee, info, *vuln, knockbackDir.AsNormalized(), rad);
+  }
+}
+
+void CStateManager::ProcessRadiusDamage(const CActor& damager, CActor& damagee,
+                                        TUniqueId radiusSender, const CDamageInfo& info,
+                                        const CMaterialFilter& filter) {
+  const float radius = info.GetRadius();
+  const CVector3f pos = damager.GetTranslation();
+  const CVector3f maxPos(pos.GetX() + radius, pos.GetY() + radius, pos.GetZ() + radius);
+  const CVector3f minPos(pos.GetX() - radius, pos.GetY() - radius, pos.GetZ() - radius);
+  const CAABox aabb(minPos, maxPos);
+  CMaterialFilter localFilter = filter;
+
+  TEntityList nearList;
+  BuildNearList(nearList, aabb, localFilter, nullptr);
+
+  const TUniqueId damagerId = damager.GetUniqueId();
+  const TUniqueId damageeId = damagee.GetUniqueId();
+
+  for (TEntityList::iterator it = nearList.begin(); it != nearList.end(); ++it) {
+    CActor* actor = static_cast< CActor* >(ObjectById(*it));
+    if (actor != nullptr) {
+      const TUniqueId actorId = actor->GetUniqueId();
+      if (damagerId != actorId && radiusSender != actorId && damageeId != actorId) {
+        TestBombHittingWater(damager, pos, *actor);
+        if (TestRayDamage(*this, pos, *actor, nearList)) {
+          ApplyRadiusDamage(damager, pos, *actor, info);
+        }
+      }
+    }
+  }
+}
+
+void CStateManager::ApplyDamageToWorld(TUniqueId damagerId, const CActor& actor,
+                                       const CVector3f& pos, const CDamageInfo& info,
+                                       const CMaterialFilter& filter) {
+  const CVector3f extent(info.GetRadius(), info.GetRadius(), info.GetRadius());
+  const CAABox aabb(pos - extent, pos + extent);
+
+  bool bomb = false;
+  const CWeapon* weapon = TCastToConstPtr< CWeapon >(actor);
+  if (weapon != nullptr) {
+    bomb = (weapon->GetAttribField() & (CWeapon::kPA_Bombs | CWeapon::kPA_PowerBombs)) != 0;
+  }
+
+  TEntityList nearList;
+  BuildNearList(nearList, aabb, filter, &actor);
+
+  for (TEntityList::iterator it = nearList.begin(); it != nearList.end(); ++it) {
+    CEntity* ent = ObjectById(*it);
+    CActor* act = TCastToPtr< CActor >(ent);
+    CPlayer* player = TCastToPtr< CPlayer >(ent);
+    CWallCrawlerSwarm* wallSwarm = TCastToPtr< CWallCrawlerSwarm >(ent);
+    CSnakeWeedSwarm* snakeSwarm = TCastToPtr< CSnakeWeedSwarm >(ent);
+
+    if (bomb && player != nullptr) {
+      if (player->GetFrozenState()) {
+        IncrementFrozenBallCount__12CSystemStateFv(&gpGameState->SystemState());
+        CSamusHud::DisplayHudMemo(rstl::wstring_l(L""), CHUDMemoParms(0.f, true, true, true));
+        player->BreakFrozenState(*this);
+      } else if (weapon != nullptr && (weapon->GetAttribField() & CWeapon::kPA_Bombs) != 0) {
+        BombJump__7CPlayerFRC9CVector3fR13CStateManager(player, &pos, this);
+      }
+    } else if (act != nullptr && act->GetUniqueId() != damagerId) {
+      TestBombHittingWater(actor, pos, *act);
+      if (TestRayDamage(*this, pos, *act, nearList)) {
+        ApplyRadiusDamage(actor, pos, *act, info);
+      }
+    }
+
+    if (wallSwarm != nullptr) {
+      ApplyRadiusDamage__17CWallCrawlerSwarmF9CVector3ffR13CStateManager(wallSwarm, &pos, &info,
+                                                                         this);
+    }
+
+    if (snakeSwarm != nullptr) {
+      ApplyRadiusDamage__15CSnakeWeedSwarmF9CVector3ffR13CStateManager(snakeSwarm, &pos, &info,
+                                                                       this);
+    }
+  }
+}
+
+void CStateManager::ApplyKnockBack(CActor& actor, const CDamageInfo& info,
+                                   const CDamageVulnerability& vuln, const CVector3f& dir,
+                                   float dampen) {
+  if (vuln.GetVulnerability(info.GetWeaponMode(), 0) == kVN_Deflect) {
+    return;
+  }
+
+  CHealthInfo* hInfo = actor.HealthInfo(*this);
+  if (hInfo == nullptr) {
+    return;
+  }
+
+  const float resistance =
+      *reinterpret_cast< const float* >(reinterpret_cast< const uchar* >(hInfo) + 0x4);
+  const float dampedPower = (1.f - dampen) * info.GetKnockBackPower();
+
+  CPlayer* player = TCastToPtr< CPlayer >(actor);
+  CPatterned* patterned = TCastToPtr< CPatterned >(actor);
+
+  if (player != nullptr) {
+    KnockBackPlayer(*player, dir, dampedPower, resistance);
+    return;
+  }
+
+  if (patterned == nullptr && hInfo->GetHP() <= 0.f) {
+    if (dampedPower > resistance) {
+      CPhysicsActor* physActor = TCastToPtr< CPhysicsActor >(actor);
+      if (physActor != nullptr) {
+        const CVector3f impulse =
+            dir * (1.5f * ((dampedPower - resistance) * physActor->GetMass()));
+        if (!physActor->GetMaterialList().HasMaterial(kMT_Immovable) &&
+            physActor->GetMaterialList().HasMaterial(kMT_Solid)) {
+          physActor->ApplyImpulseWR(impulse, CAxisAngle::Identity());
+        }
+      }
+    }
+  }
+
+  if (patterned != nullptr) {
+    patterned->KnockBack(dir, *this, info, dampen == 0.f ? kKBT_Direct : kKBT_Radius, false,
+                         dampedPower);
+  }
+}
+
+void CStateManager::KnockBackPlayer(CPlayer& player, const CVector3f& dir, float power,
+                                    float resistance) {
+  if (player.GetMaterialList().HasMaterial(kMT_Immovable)) {
+    return;
+  }
+
+  float usePower;
+  if (player.GetMorphballTransitionState() == CPlayer::kMS_Morphed) {
+    usePower = power * 500.f;
+  } else {
+    usePower = power * 1000.f;
+    if (player.GetSurfaceRestraint() != CPlayer::kSR_Normal &&
+        player.GetOrbitState() == CPlayer::kOS_NoOrbit) {
+      usePower /= 7.f;
+    }
+  }
+
+  float minVel = 70.f;
+  if (player.GetMorphballTransitionState() == CPlayer::kMS_Morphed) {
+    minVel = 35.f;
+  }
+
+  const float playerVel = player.GetVelocityWR().Magnitude();
+  const float maxVel = minVel < playerVel ? playerVel : minVel;
+  const CVector3f invVel = -player.GetVelocityWR();
+
+  usePower *= (1.f - (0.5f * CVector3f::GetAngleDiff(dir, invVel)) / M_PIF);
+
+  player.ApplyImpulseWR(dir * usePower, CAxisAngle::Identity());
+  player.UseCollisionImpulses();
+  *reinterpret_cast< float* >(reinterpret_cast< uchar* >(&player) + 0x2d4) = 0.25f;
+
+  const CVector3f velocity = player.GetVelocityWR();
+  const float velocityMag = velocity.Magnitude();
+  if (maxVel < velocityMag) {
+    const float invMag = 1.f / velocityMag;
+    const CVector3f norm(invMag * velocity.GetX(), invMag * velocity.GetY(),
+                         invMag * velocity.GetZ());
+    player.SetVelocityWR(
+        CVector3f(maxVel * norm.GetX(), maxVel * norm.GetY(), maxVel * norm.GetZ()));
+  }
+}
+
+void CStateManager::InformListeners(const CVector3f& pos, EListenNoiseType type) {
+  CObjectList* list = x808_objectLists[kOL_ListeningAi].get();
+  for (int i = list->GetFirstObjectIndex(); i != -1; i = list->GetNextObjectIndex(i)) {
+    CPatterned* patterned = TCastToPtr< CPatterned >((*list)[i]);
+    if (patterned != nullptr) {
+      if (patterned->GetActive()) {
+        const TAreaId areaId2 = patterned->x4_areaId;
+        const TAreaId areaId = areaId2;
+        CGameArea* area = x850_world->Area(areaId);
+        CGameArea::EOcclusionState occState;
+        if (area->IsPostConstructed()) {
+          occState = area->GetPostConstructed()->x10dc_occlusionState;
+        } else {
+          occState = CGameArea::kOS_Occluded;
+        }
+
+        if (occState != CGameArea::kOS_Occluded) {
+          patterned->Listen(pos, type);
+        }
+      }
+    }
+  }
+}
+
+rstl::pair< TEditorId, TUniqueId > CStateManager::LoadScriptObject(TAreaId aid,
+                                                                   EScriptObjectType type,
+                                                                   unsigned int length,
+                                                                   CInputStream& in) {
+  bool failed = false;
+  const TEditorId eid = in.ReadLong();
+
+  rstl::vector< SConnection > conns;
+  const uint connCount = in.ReadLong();
+  conns.reserve(connCount);
+
+  uint bytesLeft = length - 8;
+  for (uint i = 0; i < connCount; ++i) {
+    const EScriptObjectState state = static_cast< EScriptObjectState >(in.ReadLong());
+    const EScriptObjectMessage msg = static_cast< EScriptObjectMessage >(in.ReadLong());
+    const TEditorId target = in.ReadLong();
+    bytesLeft -= 12;
+    conns.push_back(SConnection(state, msg, target));
+  }
+
+  const uint propCount = in.ReadLong();
+  bytesLeft -= 4;
+  const uint readPos = in.GetReadPosition();
+
+  CEntity* ent = NULL;
+  FScriptLoader loader = NULL;
+  if (type <= kST_EnergyBall && type >= kST_Actor) {
+    loader = x90c_loaderFuncs[type];
+  }
+
+  if (loader == NULL) {
+    failed = true;
+  } else {
+    CEntityInfo info(aid, conns, eid);
+    ent = loader(*this, in, propCount, info);
+  }
+
+  if (ent == NULL) {
+    failed = true;
+  } else {
+    AddObject(*ent);
+  }
+
+  uint leftOver = bytesLeft - (in.GetReadPosition() - readPos);
+  while (leftOver != 0) {
+    in.ReadChar();
+    --leftOver;
+  }
+
+  if (failed || ent == NULL) {
+    return rstl::pair< TEditorId, TUniqueId >(kInvalidEditorId, kInvalidUniqueId);
+  }
+  return rstl::pair< TEditorId, TUniqueId >(eid, ent->GetUniqueId());
+}
+
+rstl::pair< TEditorId, TUniqueId > CStateManager::GenerateObject(const TEditorId& eid) {
+  const rstl::pair< const SScriptObjectStream*, TEditorId > build = GetBuildForScript(eid);
+  TAreaId aid = TAreaId(build.second.AreaNum());
+  if (build.first != nullptr) {
+    CGameArea* area = x850_world->Area(aid);
+    if (area->IsPostConstructed()) {
+      int layer = static_cast< int >(build.second.value >> 26);
+      SScriptLayerBuffer layerBuf;
+      GetLayerScriptBuffer__9CGameAreaFi(&layerBuf, area, &layer);
+
+      CMemoryInStream stream(static_cast< const uchar* >(layerBuf.x0_buf) +
+                                 build.first->x4_position,
+                             build.first->x8_length);
+      return LoadScriptObject(aid, build.first->x0_type, build.first->x8_length, stream);
+    }
+  }
+
+  return rstl::pair< TEditorId, TUniqueId >(kInvalidEditorId, kInvalidUniqueId);
+}
+
+void CStateManager::LoadScriptObjects(TAreaId aid, CInputStream& in, EScriptPersistence persist) {
+  in.ReadChar();
+
+  int count = in.ReadLong();
+  persist.reserve(count + persist.size());
+  while (count != 0) {
+    const char type = in.ReadChar();
+    const uint length = in.ReadLong();
+    const uint readPos = in.GetReadPosition();
+
+    const rstl::pair< TEditorId, TUniqueId > loaded =
+        LoadScriptObject(aid, static_cast< EScriptObjectType >(type), length, in);
+    const TEditorId eid = loaded.first;
+    if (eid != kInvalidEditorId) {
+      const rstl::pair< const SScriptObjectStream*, TEditorId > build = GetBuildForScript(eid);
+      if (build.first == NULL) {
+        SScriptObjectStream stream;
+        stream.x0_type = static_cast< EScriptObjectType >(type);
+        stream.x4_position = readPos;
+        stream.x8_length = length;
+        x8a4_loadedScriptObjects.insert(rstl::pair< TEditorId, SScriptObjectStream >(eid, stream));
+        persist.push_back(eid);
+      }
+    }
+
+    --count;
+  }
+}
+
+void CStateManager::InitScriptObjects(const rstl::vector< TEditorId >& ids) {
+  for (int i = 0; i < static_cast< int >(ids.size()); ++i) {
+    if (ids[i] != kInvalidEditorId) {
+      TEditorId id = ids[i];
+      TUniqueId uid = GetIdForScript(id);
+      SendScriptMsgAlways(uid, kInvalidUniqueId, kSM_InitializedInArea);
+    }
+  }
+
+  MurderScriptInstanceNames();
+}
+
+CStateManager::TIdListResult CStateManager::GetIdListForScript(TEditorId eid) const {
+  rstl::multimap< TEditorId, TUniqueId >::const_iterator firstIt = x890_scriptIdMap.find(eid);
+  rstl::multimap< TEditorId, TUniqueId >::const_iterator lastIt = firstIt;
+
+  if (firstIt != x890_scriptIdMap.end()) {
+    for (; lastIt != x890_scriptIdMap.end() && lastIt->first == eid; ++lastIt) {
+    }
+  }
+
+  const TIdList::const_iterator first =
+      *reinterpret_cast< const TIdList::const_iterator* >(&firstIt);
+  const TIdList::const_iterator last = *reinterpret_cast< const TIdList::const_iterator* >(&lastIt);
+  return TIdListResult(first, last);
+}
+
+TUniqueId CStateManager::GetIdForScript(TEditorId eid) const {
+  rstl::multimap< TEditorId, TUniqueId >::const_iterator it = x890_scriptIdMap.find(eid);
+  if (it != x890_scriptIdMap.end()) {
+    return it->second;
+  }
+  return kInvalidUniqueId;
+}
+
+TEditorId CStateManager::GetEditorIdForUniqueId(TUniqueId uid) const {
+  const CEntity* ent = GetObjectById(uid);
+  if (ent != nullptr) {
+    return ent->GetEditorId();
+  }
+  return kInvalidEditorId;
+}
+
+rstl::pair< const SScriptObjectStream*, TEditorId >
+CStateManager::GetBuildForScript(TEditorId eid) const {
+  rstl::map< TEditorId, SScriptObjectStream >::const_iterator it =
+      x8a4_loadedScriptObjects.find(eid);
+  if (it != x8a4_loadedScriptObjects.end()) {
+    return rstl::pair< const SScriptObjectStream*, TEditorId >(&it->second, it->first);
+  }
+
+  return rstl::pair< const SScriptObjectStream*, TEditorId >(0, kInvalidEditorId);
+}
+
+void CStateManager::FreeScriptObjects(TAreaId aid) {
+  rstl::multimap< TEditorId, TUniqueId >::iterator scriptIt = x890_scriptIdMap.get_inner().begin();
+  while (scriptIt != x890_scriptIdMap.get_inner().end()) {
+    rstl::multimap< TEditorId, TUniqueId >::iterator cur = scriptIt;
+    ++scriptIt;
+
+    if (cur->first.AreaNum() == aid.Value()) {
+      DeleteObjectRequest(cur->second);
+    }
+  }
+
+  typedef rstl::red_black_tree< TEditorId, rstl::pair< TEditorId, SScriptObjectStream >, 0,
+                                rstl::select1st< rstl::pair< TEditorId, SScriptObjectStream > >,
+                                rstl::less< TEditorId >, rstl::rmemory_allocator >
+      TLoadedScriptObjMapInner;
+
+  TLoadedScriptObjMapInner& loadedScriptObjects =
+      *reinterpret_cast< TLoadedScriptObjMapInner* >(&x8a4_loadedScriptObjects);
+
+  TLoadedScriptObjMapInner::iterator loadedIt = loadedScriptObjects.begin();
+  while (loadedIt != loadedScriptObjects.end()) {
+    TLoadedScriptObjMapInner::iterator cur = loadedIt;
+    ++loadedIt;
+
+    if (cur->first.AreaNum() == aid.Value()) {
+      loadedScriptObjects.erase(cur);
+    }
+  }
+
+  CGameArea* area = x850_world->Area(aid);
+  if (area->IsPostConstructed()) {
+    CObjectList* areaObjList =
+        static_cast< CObjectList* >(area->GetPostConstructed()->x10c0_areaObjectList);
+
+    for (int i = areaObjList->GetFirstObjectIndex(); i != -1;
+         i = areaObjList->GetNextObjectIndex(i)) {
+      CEntity* ent = (*areaObjList)[i];
+      if (ent != nullptr && !ent->x30_27_notInArea) {
+        DeleteObjectRequest(ent->GetUniqueId());
+      }
+    }
+  }
+}
+
+void CStateManager::SendScriptMsg(TUniqueId uid, TEditorId target, EScriptObjectMessage msg,
+                                  EScriptObjectState) {
+  GetObjectById(uid);
+
+  TIdListResult search = GetIdListForScript(target);
+  if (search.first == search.second) {
+    return;
+  }
+
+  TIdList::const_iterator it = search.first;
+  for (; it != search.second; ++it) {
+    DeliverScriptMsg(x808_objectLists[0]->GetObjectById(it->second), uid, msg);
+  }
+}
+
+void CStateManager::RecursiveDrawTree(TUniqueId uid) const {
+  CActor* actor = TCastToPtr< CActor >(const_cast< CEntity* >(GetObjectById(uid)));
+  if (actor != NULL &&
+      x8dc_objectDrawToken != *reinterpret_cast< int* >(reinterpret_cast< uchar* >(actor) + 0xc8)) {
+    const TUniqueId nextNode =
+        *reinterpret_cast< TUniqueId* >(reinterpret_cast< uchar* >(actor) + 0xc6);
+    if (nextNode != kInvalidUniqueId) {
+      RecursiveDrawTree(nextNode);
+    }
+    if (x8dc_objectDrawToken ==
+        *reinterpret_cast< int* >(reinterpret_cast< uchar* >(actor) + 0xcc)) {
+      actor->Render(*this);
+    }
+    *reinterpret_cast< int* >(reinterpret_cast< uchar* >(actor) + 0xc8) = x8dc_objectDrawToken;
+  }
+}
+
+void CStateManager::RendererDrawCallback(const void*, const void*, int) {}
+
+bool CStateManager::GetVisSetForArea(TAreaId areaA, TAreaId areaB, CPVSVisSet& setOut) const {
+  if (areaB == kInvalidAreaId) {
+    return false;
+  }
+
+  const CTransform4f& viewXf = CGraphics::GetViewMatrix();
+  const CVector3f viewPoint(viewXf.Get03(), viewXf.Get13(), viewXf.Get23());
+  CVector3f closestDockPoint = viewPoint;
+
+  bool hasClosestDock = false;
+  if (areaA == areaB) {
+    hasClosestDock = true;
+  } else {
+    const CGameArea* area = x850_world->GetArea(areaB);
+    if (area->IsPostConstructed()) {
+      for (int i = 0; i < area->GetDockCount(); ++i) {
+        const IGameArea::Dock& dock = area->GetDock(i);
+        const int connCount = dock.GetDockRefs().size();
+        for (int conn = 0; conn < connCount; ++conn) {
+          if (dock.GetConnectedAreaId(conn) != areaA) {
+            continue;
+          }
+
+          const rstl::reserved_vector< CVector3f, 4 >& verts = dock.GetPlaneVertices();
+          const CVector3f dockCenter(
+              0.25f * (verts[0].GetX() + verts[1].GetX() + verts[2].GetX() + verts[3].GetX()),
+              0.25f * (verts[0].GetY() + verts[1].GetY() + verts[2].GetY() + verts[3].GetY()),
+              0.25f * (verts[0].GetZ() + verts[1].GetZ() + verts[2].GetZ() + verts[3].GetZ()));
+
+          if (hasClosestDock) {
+            const CVector3f oldDelta = closestDockPoint - viewPoint;
+            const CVector3f newDelta = dockCenter - viewPoint;
+            if (newDelta.MagSquared() >= oldDelta.MagSquared()) {
+              continue;
+            }
+          }
+
+          closestDockPoint = dockCenter;
+          hasClosestDock = true;
+        }
+      }
+    }
+  }
+
+  int setState = 0;
+  if (hasClosestDock) {
+    setState = 1;
+
+    const CGameArea* area = x850_world->GetArea(areaA);
+    const CPVSAreaSet* areaSet = area->GetPostConstructed()->xa0_pvs;
+    if (areaSet != nullptr) {
+      setState = 2;
+
+      const uint worldAreaArg = *reinterpret_cast< const uint* >(
+          reinterpret_cast< const uchar* >(x850_world.get()) + 0x20);
+      CPVSVisOctree& visOctree =
+          *const_cast< CPVSVisOctree* >(&areaSet->GetVisOctree(worldAreaArg));
+
+      const CTransform4f& invAreaXf =
+          *reinterpret_cast< const CTransform4f* >(reinterpret_cast< const uchar* >(area) + 0x3c);
+      const CVector3f localPoint = invAreaXf * closestDockPoint;
+
+      CPVSVisSet visSet = visOctree.GetVisSet(localPoint);
+      if (*reinterpret_cast< const int* >(reinterpret_cast< const uchar* >(&visSet)) ==
+          kVSS_NodeFound) {
+        setOut = visSet;
+        setState = 3;
+      }
+    }
+  }
+
+  return setState == 3;
+}
+
+extern "C" CGameArea::CChainIterator AliveAreasEnd__6CWorldFv() {
+  return CGameArea::CChainIterator(lbl_805A8DDC);
+}
+
+void CStateManager::PreRender() {
+  CStateManager* mgr = this;
+  if (!mgr->xf94_24_readyToRender) {
+    return;
+  }
+
+  CStopwatch timer;
+
+  mgr->x86c_stateManagerContainer->xf370_.clear();
+  mgr->x86c_stateManagerContainer->xf39c_renderLast.clear();
+  mgr->xf7c_projectedShadow = nullptr;
+
+  PreRender__6CWorldFv(mgr->x850_world.get());
+  mgr->BuildDynamicLightListForWorld();
+
+  const CGameCamera& curCam = mgr->x870_cameraManager->GetCurrentCamera(*mgr);
+  const CTransform4f curCamXf = mgr->x870_cameraManager->GetCurrentCameraTransform(*mgr);
+  CFrustumPlanes frustum(curCamXf, 0.017453292f * curCam.GetFov(), curCam.GetAspectRatio(),
+                         curCam.GetNearClipDistance(), false, 100.f);
+
+  for (CGameArea::CChainIterator areaIt = mgr->x850_world->ChainHead(CWorld::kC_Alive);
+       areaIt != AliveAreasEnd__6CWorldFv(); ++areaIt) {
+    CGameArea::EOcclusionState occState;
+    if (areaIt->IsPostConstructed()) {
+      occState = areaIt->GetPostConstructed()->x10dc_occlusionState;
+    } else {
+      occState = CGameArea::kOS_Occluded;
+    }
+
+    if (occState == CGameArea::kOS_Visible) {
+      CObjectList* areaObjList =
+          static_cast< CObjectList* >(areaIt->GetPostConstructed()->x10c0_areaObjectList);
+      for (int i = areaObjList->GetFirstObjectIndex(); i != -1;
+           i = areaObjList->GetNextObjectIndex(i)) {
+        CActor* actor = TCastToPtr< CActor >((*areaObjList)[i]);
+        if (actor != nullptr &&
+            ((*reinterpret_cast< const uchar* >(reinterpret_cast< const uchar* >(actor) + 0xe7) >>
+              2) &
+             1) != 0) {
+          actor->CalculateRenderBounds();
+          actor->PreRender(*mgr, frustum);
+        }
+      }
+    }
+  }
+
+  if (!gkWorldOnlyReflection) {
+    mgr->CacheReflection();
+  }
+
+  gpRender->PrepareDynamicLights(mgr->x8e0_dynamicLights);
+  lbl_805A8D98 = timer.GetElapsedMicros();
+}
+
+CFrustumPlanes CStateManager::SetupViewForDraw(const CViewport& viewport) const {
+  const CGameCamera& cam = x870_cameraManager->GetCurrentCamera(*this);
+  const CTransform4f camXf = x870_cameraManager->GetCurrentCameraTransform(*this);
+  gpRender->SetWorldViewpoint(camXf);
+
+  const CVector3f playerPos = x84c_player->GetTranslation();
+  SetNewPlayerPositionAndTime__10CCubeModelFRC9CVector3fRC10CStopwatch(
+      playerPos, CStopwatch::GetGlobalTimerObj());
+
+  const float scaledWidth = xf2c_viewportScaleX * static_cast< float >(viewport.mWidth);
+  const float scaledHeight = xf30_viewportScaleY * static_cast< float >(viewport.mHeight);
+  const int width = static_cast< int >(scaledWidth);
+  const int halfHeight = static_cast< int >(scaledHeight) / 2;
+
+  const int left = viewport.mLeft + (viewport.mWidth - width) / 2;
+  const int top = viewport.mTop + (viewport.mHeight - halfHeight * 2) / 2;
+
+  const float fov =
+      2.f * CMath::ArcTangentR(
+                CMath::SlowTangentR(0.5f * ((1.f / 360.f) * (2.f * M_PIF) * cam.GetFov())) *
+                xf30_viewportScaleY);
+
+  gpRender->SetViewport(left, top, width, halfHeight * 2);
+  CGraphics::SetDepthRange(0.125f, 1.f);
+
+  const float zFar =
+      *reinterpret_cast< const float* >(reinterpret_cast< const uchar* >(&cam) + 0x164);
+  gpRender->SetPerspective(360.f * ((1.f / (2.f * M_PIF)) * fov), scaledWidth, scaledHeight,
+                           cam.GetNearClipDistance(), zFar);
+
+  CFrustumPlanes frustum(camXf, fov,
+                         (xf2c_viewportScaleX * cam.GetAspectRatio()) / xf30_viewportScaleY,
+                         cam.GetNearClipDistance(), false, 100.f);
+  gpRender->SetClippingPlanes(frustum);
+  gpRender->PrimColor(CColor::White());
+  gpRender->SetModelMatrix(CTransform4f::Identity());
+
+  x87c_fluidPlaneManager->StartFrame(false);
+  gpRender->SetDebugOption(IRenderer::kDO_PVSState, 1);
+
+  return frustum;
+}
+
+bool CStateManager::SetupFogForDraw() const {
+  switch (x8b8_playerState->GetActiveVisor(*this)) {
+  case CPlayerState::kPV_Thermal:
+    gpRender->SetWorldFog(kRFM_None, 0.f, 1.f, CColor::Black());
+    return true;
+  case CPlayerState::kPV_XRay:
+  default:
+    return false;
+  case CPlayerState::kPV_Combat:
+  case CPlayerState::kPV_Scan: {
+    const CGameArea::CAreaFog* fog = reinterpret_cast< const CGameArea::CAreaFog* >(
+        reinterpret_cast< const uchar* >(x870_cameraManager) + 0x3c);
+    if (fog->IsFogDisabled()) {
+      return false;
+    }
+    fog->SetCurrent();
+    return true;
+  }
+  }
+}
+
+void CStateManager::SetupFogForArea(const CGameArea& area) const {
+  if (SetupFogForDraw()) {
+    return;
+  }
+
+  if (x8b8_playerState->GetActiveVisor(*this) == CPlayerState::kPV_XRay) {
+    const float fogDist = GetXRayFogDistance__9CGameAreaFv(const_cast< CGameArea* >(&area));
+    const CTweakGui* tweak = gpTweakGui;
+    const float fogFarZ = tweak->GetXRayFogFarZ();
+    const float nearZ = tweak->GetXRayFogNearZ();
+    const float farZ = nearZ * (1.f - fogDist) + fogFarZ * fogDist;
+    gpRender->SetWorldFog(static_cast< ERglFogMode >(tweak->GetXRayFogMode()), nearZ, farZ,
+                          tweak->GetXRayFogColor());
+  } else {
+    area.GetPostConstructed()->x10c4_areaFog->SetCurrent();
+  }
+}
+
+void CStateManager::SetupFogForArea(TAreaId area) const {
+  TAreaId areaValue;
+  const TAreaId* areaId = &area;
+  int nextArea;
+  if (area == kInvalidAreaId) {
+    nextArea = x8cc_nextAreaId.Value();
+    areaId = reinterpret_cast< const TAreaId* >(&nextArea);
+  }
+
+  areaValue = *areaId;
+  const CGameArea* areaObj = x850_world->GetArea(areaValue);
+  if (areaObj->IsPostConstructed()) {
+    SetupFogForArea(*areaObj);
+  }
+}
+
+void CStateManager::SetupFogForArea3XRange(TAreaId area) const {
+  TAreaId areaValue;
+  const TAreaId* areaId = &area;
+  int nextArea;
+  if (area == kInvalidAreaId) {
+    nextArea = x8cc_nextAreaId.Value();
+    areaId = reinterpret_cast< const TAreaId* >(&nextArea);
+  }
+
+  areaValue = *areaId;
+  const CGameArea* areaObj = x850_world->GetArea(areaValue);
+  if (areaObj->IsPostConstructed()) {
+    fn_80046DE8(this, areaObj);
+  }
+}
+
+void CStateManager::DrawWorld() const {
+
+  const CTimeProvider timeProvider(xf14_curTimeMod900);
+  const CViewport backupViewport = CGraphics::GetViewport();
+
+  /* Area camera is in (not necessarily player) */
+  const TAreaId visAreaId = GetVisAreaId();
+
+  x850_world->TouchSky();
+
+  const CFrustumPlanes frustum = SetupViewForDraw(CGraphics::GetViewport());
+  const CTransform4f backupViewMatrix = CGraphics::GetViewMatrix();
+
+  int areaCount = 0;
+  const CGameArea* areaArr[10];
+
+  CGameArea::CConstChainIterator it = x850_world->GetChainHead(CWorld::kC_Alive);
+  CGameArea::CConstChainIterator end = x850_world->GetAliveAreasEnd();
+  for (; it != end; ++it) {
+    if (areaCount == 10) {
+      break;
+    }
+    CGameArea::EOcclusionState occState = CGameArea::kOS_Occluded;
+    if (it->IsLoaded()) {
+      occState = it->GetOcclusionState();
+    }
+    if (occState == CGameArea::kOS_Visible) {
+      areaArr[areaCount++] = &*it;
+    }
+  }
+
+  // rstl::sort(&areaArr[0], &areaArr[areaCount], area_sorter(CGraphics::GetViewPoint(),
+  // visAreaId));
+}
+
+void CStateManager::ResetViewAfterDraw(const CViewport& backupViewport,
+                                       const CTransform4f& backupViewMatrix) const {
+  gpRender->SetViewport(backupViewport.mLeft, backupViewport.mTop, backupViewport.mWidth,
+                        backupViewport.mHeight);
+
+  const CGameCamera& cam = x870_cameraManager->GetCurrentCamera(*this);
+  CFrustumPlanes frustum(backupViewMatrix, 0.017453292f * cam.GetFov(), cam.GetAspectRatio(),
+                         cam.GetNearClipDistance(), false, 100.f);
+  gpRender->SetClippingPlanes(frustum);
+
+  const CViewport& viewport = CGraphics::GetViewport();
+  const float zFar =
+      *reinterpret_cast< const float* >(reinterpret_cast< const uchar* >(&cam) + 0x164);
+  gpRender->SetPerspective(cam.GetFov(), static_cast< float >(viewport.mWidth),
+                           static_cast< float >(viewport.mHeight), cam.GetNearClipDistance(), zFar);
+}
+
+void CStateManager::DrawAdditionalFilters() const {
+  if (xf0c_escapeTimer < 1.f && xf0c_escapeTimer > 0.f &&
+      !x870_cameraManager->IsInCinematicCamera()) {
+    const float alpha = 1.f - xf0c_escapeTimer;
+    const CColor color = CColor::White().WithAlphaOf(alpha);
+    CCameraFilterPass::DrawFilter(CCameraFilterPass::kFT_Add, CCameraFilterPass::kFS_Fullscreen,
+                                  color, 0, 1.f);
+  }
+}
+
+void CStateManager::DrawE3DeathEffect() const {
+  const CPlayer* player = x84c_player;
+  const float deathTime =
+      *reinterpret_cast< const float* >(reinterpret_cast< const uchar* >(player) + 0x9f4);
+  float blurFactor;
+  float whiteFactor;
+
+  if (deathTime > 0.f) {
+    if (player->GetMorphballTransitionState() != CPlayer::kMS_Unmorphed) {
+      blurFactor = (deathTime - 1.f) / (gkBallDeathTime - 1.f);
+      const float blurAmt = CMath::Clamp(0.f, blurFactor, 1.f);
+      if (blurAmt > 0.f) {
+        CCameraBlurPass blur;
+        blur.SetBlur(CCameraBlurPass::kBT_HiBlur, 7.f * blurAmt, 0.f, false);
+        blur.Draw();
+      }
+    }
+
+    whiteFactor = 1.f - deathTime / (lbl_805AA2D4 * gkBallDeathTime);
+    const float whiteAmt = CMath::Clamp(0.f, whiteFactor, 1.f);
+    const CColor color = CColor::White().WithAlphaOf(whiteAmt);
+    CCameraFilterPass::DrawFilter(CCameraFilterPass::kFT_Add, CCameraFilterPass::kFS_Fullscreen,
+                                  color, 0, 1.f);
+  }
+}
+
+void CStateManager::RenderCamerasAndAreaLights() const {
+  x870_cameraManager->Render(*this);
+  for (int i = 0; i < kCFS_Max; ++i) {
+    xb84_camFilterPasses[i].Draw();
+  }
+}
+
+void CStateManager::DrawDebugStuff() const {}
+
+void CStateManager::BuildDynamicLightListForWorld() {
+  if (x8b8_playerState->GetActiveVisor(*this) == CPlayerState::kPV_Thermal) {
+    x8e0_dynamicLights = rstl::vector< CLight >();
+    return;
+  }
+
+  const CObjectList& list = GetObjectListById(kOL_GameLight);
+  int listSize = list.size();
+  if (listSize == 0) {
+    return;
+  }
+
+  if (x8e0_dynamicLights.capacity() != listSize) {
+    x8e0_dynamicLights = rstl::vector< CLight >();
+    x8e0_dynamicLights.reserve(listSize);
+  } else {
+    x8e0_dynamicLights.clear();
+  }
+
+  for (int idx = list.GetFirstObjectIndex(); idx != -1; idx = list.GetNextObjectIndex(idx)) {
+    const CGameLight* light = static_cast< const CGameLight* >(list[idx]);
+    if (light && light->GetActive()) {
+      const CLight& l = light->GetLight();
+      if (l.GetIntensity() > FLT_EPSILON && l.GetRadius() > FLT_EPSILON) {
+        // TODO: This shouldn't be inlined, but currently is.
+        x8e0_dynamicLights.push_back(l);
+      }
+    }
+  }
+  rstl::sort(x8e0_dynamicLights.begin(), x8e0_dynamicLights.end(), CLightPredicate());
+}
+
+bool CStateManager::CanCreateProjectile(TUniqueId uid, EWeaponType type, int maxAllowed) const {
+  return x878_weaponMgr->GetNumActive(uid, type) < maxAllowed;
+}
+
+void CStateManager::ReflectionDrawer(void* ctx, const CVector3f& point) {
+  CStateManager* mgr = reinterpret_cast< CStateManager* >(ctx);
+  mgr->DrawReflection(point);
+}
+
+void CStateManager::CacheReflection() {
+  gpRender->CacheReflection(ReflectionDrawer, this, !gkWorldOnlyReflection);
+}
+
+void CStateManager::DrawReflection(const CVector3f& point) {
+  CPlayer* player = x84c_player;
+  CAABox playerBounds = player->GetBoundingBox();
+  CVector3f playerPos = playerBounds.GetCenterPoint();
+
+  const CVector3f viewPos =
+      playerPos - 3.5f * CVector3f(playerPos.GetX() - point.GetX(), playerPos.GetY() - point.GetY(),
+                                   playerPos.GetZ() - playerPos.GetZ())
+                             .AsNormalized();
+
+  CTransform4f reflectionXf = CTransform4f::LookAt(viewPos, playerPos, CVector3f(0.f, 0.f, -1.f));
+  const CTransform4f backupView = CGraphics::GetViewMatrix();
+  CGraphics::SetViewPointMatrix(reflectionXf);
+
+  const CGameCamera& curCam = x870_cameraManager->GetCurrentCamera(*this);
+  const CGraphics::CProjectionState backupProj = CGraphics::GetProjectionState();
+
+  const CViewport& viewport = CGraphics::GetViewport();
+  const float zFar =
+      *reinterpret_cast< const float* >(reinterpret_cast< const uchar* >(&curCam) + 0x164);
+  gpRender->SetPerspective(curCam.GetFov(), static_cast< float >(viewport.mWidth),
+                           static_cast< float >(viewport.mHeight), curCam.GetNearClipDistance(),
+                           zFar);
+
+  player->RenderReflectedPlayer(*this);
+
+  CGraphics::SetViewPointMatrix(backupView);
+  CGraphics::SetProjectionState(backupProj);
+}
+
+void CStateManager::DrawSpaceWarp(const CVector3f& point, float strength) const {
+  switch (x8b8_playerState->GetActiveVisor(*this)) {
+  case CPlayerState::kPV_XRay:
+  case CPlayerState::kPV_Thermal:
+    return;
+  default:
+    break;
+  }
+
+  const CGameCamera& curCam = x870_cameraManager->GetCurrentCamera(*this);
+  CVector3f screenPoint;
+  ConvertToScreenSpace__11CGameCameraCFRC9CVector3f(&screenPoint, &curCam, &point);
+  gpRender->DrawSpaceWarp(screenPoint, strength);
+}
+
+void CStateManager::TouchSky() const { x850_world->TouchSky(); }
+
+void CStateManager::TouchPlayerActor() const {
+  if (xf6c_playerActorHead != kInvalidUniqueId) {
+    const CEntity* ent = GetObjectById(xf6c_playerActorHead);
+    if (ent != nullptr) {
+      TouchModels__18CScriptPlayerActorFRC13CStateManager(const_cast< CEntity* >(ent), *this);
+    }
+  }
+}
+
+void CStateManager::SetActorAreaId(CActor& actor, TAreaId aid) {
+  const int oldArea = actor.x4_areaId.value;
+  if (oldArea != aid.value) {
+    CWorld* world = x850_world.get();
+
+    if (oldArea != kInvalidAreaId.value) {
+      TAreaId oldAid = actor.x4_areaId;
+      TAreaId oldAid2 = actor.x4_areaId;
+      CGameArea* oldAreaObj = world->Area(oldAid);
+      if (oldAreaObj->IsPostConstructed()) {
+        static_cast< CObjectList* >(oldAreaObj->GetPostConstructed()->x10c0_areaObjectList)
+            ->RemoveObject(actor.GetUniqueId());
+      }
+    }
+
+    actor.x4_areaId = aid;
+
+    if (aid != kInvalidAreaId) {
+      TAreaId newAid = aid;
+      CGameArea* newAreaObj = world->Area(newAid);
+      if (newAreaObj->IsPostConstructed()) {
+        TUniqueId uid = actor.GetUniqueId();
+        CObjectList* areaObjList =
+            static_cast< CObjectList* >(newAreaObj->GetPostConstructed()->x10c0_areaObjectList);
+        if (static_cast< const CObjectList* >(areaObjList)->GetValidObjectById(uid) == nullptr) {
+          areaObjList->AddObject(actor);
+        }
+      }
+    }
+  }
+}
+
+const rstl::string& CStateManager::HashInstanceName(CInputStream& in) {
+  static rstl::string empty = rstl::string_l("");
+  uchar n = 0;
+  do {
+    n = in.ReadChar();
+  } while (n != '\0');
+  return empty;
+}
+
+void CStateManager::MurderScriptInstanceNames() {
+  bool done = false;
+
+  while (!done) {
+    done = true;
+
+    rstl::set< rstl::string >::iterator it = xb40_uniqueInstanceNames.begin();
+    rstl::set< rstl::string >::iterator end = xb40_uniqueInstanceNames.end();
+    for (; it != end; ++it) {
+      const rstl::string* str = *it;
+      const void* cow =
+          *reinterpret_cast< const void* const* >(reinterpret_cast< const uchar* >(str) + 0x4);
+      int refCount = -1;
+      if (cow != nullptr) {
+        refCount = *reinterpret_cast< const int* >(reinterpret_cast< const uchar* >(cow) + 0x4);
+      }
+
+      if (refCount == 1) {
+        xb40_uniqueInstanceNames.erase(it);
+        done = false;
+        break;
+      }
+    }
+  }
+}
+
+void CStateManager::SetupParticleHook(const CActor& actor) const {
+  x884_actorModelParticles->SetupHook(actor.GetUniqueId());
+}
+
+void CStateManager::ResetEscapeSequenceTimer(float time) {
+  xf0c_escapeTimer = time;
+  xf10_escapeTotalTime = time;
+}
+
+float CStateManager::GetEscapeSequenceTimer() const { return xf0c_escapeTimer; }
+
+void CStateManager::UpdateEscapeSequenceTimer(float dt) {
+  const float totalTime = xf10_escapeTotalTime;
+  if (xf0c_escapeTimer > 0.f) {
+    xf0c_escapeTimer = rstl::max_val(gkEpsilon, xf0c_escapeTimer - dt);
+    if (xf0c_escapeTimer <= FLT_EPSILON) {
+      struct SPlayerStateFlags {
+        bool x0_24_alive : 1;
+      };
+      reinterpret_cast< SPlayerStateFlags* >(x8b8_playerState.GetPtr())->x0_24_alive = false;
+    }
+
+    if (!init) {
+      init = true;
+      nextShake = 0.f;
+    }
+
+    nextShake -= dt;
+    if (nextShake < 0.f) {
+      const float factor = 1.f - xf0c_escapeTimer / totalTime;
+      const float factorSq = factor * factor;
+      {
+        const CCameraShakeData shakeData(1.f, 0.2f * factorSq * x900_random->Range(0.5f, 1.f));
+        x870_cameraManager->AddCameraShaker(shakeData, true);
+      }
+      x88c_rumbleManager->Rumble(*this, static_cast< ERumbleFxId >(0xb), 0.75f, kRP_One);
+      nextShake = -12.f * factorSq + 15.f;
+    }
+  }
+}
+
+void CStateManager::UpdateHintState(float dt) {
+  CHintOptions& hintOpts = gpGameState->HintOptions();
+  hintOpts.Update(dt, *this);
+
+  int nextHintIdx = -1;
+  int hintPeriods = -1;
+  const SHintState* curHint = hintOpts.GetCurrentDisplayedHint();
+  if (curHint != NULL) {
+    const CGameHintInfo::CGameHint& nextHint = GetGameHints()[hintOpts.GetNextHintIdx()];
+    const rstl::vector< CGameHintInfo::SHintLocation >& locations = nextHint.GetLocations();
+    for (int i = 0; i < static_cast< int >(locations.size()); ++i) {
+      const CGameHintInfo::SHintLocation& location = locations[i];
+      const TAreaId areaId = location.x8_areaId;
+      const CAssetId mlvlId = location.x0_mlvlId;
+      CWorldState& worldState = gpGameState->StateForWorld(mlvlId);
+      rstl::rc_ptr< CMapWorldInfo > mapWorldInfo = worldState.MapWorldInfo();
+      mapWorldInfo->SetIsMapped(areaId, true);
+    }
+
+    if (curHint->x4_time < nextHint.GetTextTime()) {
+      nextHintIdx = hintOpts.GetNextHintIdx();
+      hintPeriods = static_cast< int >(curHint->x4_time / 3.f);
+    }
+  }
+
+  if (nextHintIdx != xeec_hintIdx || hintPeriods != static_cast< int >(xef0_hintPeriods)) {
+    if (nextHintIdx == -1) {
+      const rstl::wstring& empty = rstl::wstring_l(L"");
+      CHUDMemoParms memoInfo(0.f, true, true, true);
+      CSamusHud::DisplayHudMemo(empty, memoInfo);
+    } else {
+      const CGameHintInfo::CGameHint* hint = &GetGameHints()[nextHintIdx];
+      SHudMemoInfo memoInfo(0.f, true, false, true);
+      CSamusHud::DeferHintMemo(hint->GetStringId(), hintPeriods, memoInfo);
+    }
+
+    xeec_hintIdx = nextHintIdx;
+    xef0_hintPeriods = hintPeriods;
+  }
+}
+
+void CStateManager::AddWeaponId(TUniqueId uid, EWeaponType type) {
+  x878_weaponMgr->IncrCount(uid, type);
+}
+
+void CStateManager::RemoveWeaponId(TUniqueId uid, EWeaponType type) {
+  x878_weaponMgr->DecrCount(uid, type);
+}
+
+int CStateManager::GetWeaponIdCount(TUniqueId uid, EWeaponType type) {
+  return x878_weaponMgr->GetNumActive(uid, type);
+}
+
+TAreaId CStateManager::GetVisAreaId() const {
+  const CGameCamera& curCam = x870_cameraManager->GetCurrentCamera(*this);
+  const CBallCamera* ballCam = x870_cameraManager->GetBallCamera();
+  const TAreaId curArea = x850_world->GetCurrentAreaId();
+  if (&curCam != ballCam) {
+    return curArea;
+  }
+
+  const CVector3f camTranslation = ballCam->GetTranslation();
+  const CVector3f playerTranslation = x84c_player->GetTranslation();
+  CAABox camAABB(camTranslation, camTranslation);
+  camAABB.AccumulateBounds(playerTranslation);
+
+  TEntityList nearList;
+  const CMaterialFilter filter = CMaterialFilter::MakeInclude(CMaterialList(kMT_AIBlock));
+  BuildNearList(nearList, camAABB, filter, nullptr);
+  for (const TUniqueId* uid = nearList.begin(); uid != nearList.end(); ++uid) {
+    const CScriptDock* dock = TCastToConstPtr< CScriptDock >(GetObjectById(*uid));
+    if (dock != nullptr && dock->GetAreaId() == curArea &&
+        dock->HasPointCrossedDock(*this, camTranslation)) {
+      return dock->GetCurrentConnectedAreaId(*this);
+    }
+  }
+
+  return curArea;
+}
+
+bool CStateManager::SpecialSkipCinematic() {
+  bool hadRandom = false;
+  TUniqueId id = xf38_skipCineSpecialFunc;
+  if (id == kInvalidUniqueId) {
+    return false;
+  }
+
+  TUniqueId copyId(id);
+  CScriptSpecialFunction* special = static_cast< CScriptSpecialFunction* >(ObjectById(copyId));
+  if (special == nullptr || !special->ShouldSkipCinematic(*this)) {
+    return false;
+  }
+
+  hadRandom = x900_random != nullptr;
+  x900_random = &x8fc_random;
+  x870_cameraManager->StopCinematics(*this);
+  special->SkipCinematic(*this);
+  x900_random = hadRandom ? &x8fc_random : nullptr;
+  return true;
+}
+
+bool CStateManager::AddDrawableActor(const CActor& actor, const CVector3f& pos,
+                                     const CAABox& bounds) const {
+  const_cast< CActor& >(actor).SetAddedToken(x8dc_objectDrawToken + 1);
+  gpRender->AddDrawable(&actor, pos, bounds, 0, IRenderer::kDS_SortedCallback);
+}
+
+void CStateManager::AddDrawableActorPlane(const CActor& actor, const CPlane& plane,
+                                          const CAABox& bounds) const {
+  const_cast< CActor& >(actor).SetAddedToken(x8dc_objectDrawToken + 1);
+  gpRender->AddPlaneObject(&actor, bounds, plane, 0);
+}
+
+bool CStateManager::RenderLast(const TUniqueId& uid) {
+  CStateManagerContainer* container = x86c_stateManagerContainer.get();
+  CStateManagerContainer* bucket = container;
+  int count = *reinterpret_cast< int* >(reinterpret_cast< uchar* >(bucket) + 0xf39c);
+  if (count == 20) {
+    return false;
+  }
+
+  TUniqueId* id =
+      reinterpret_cast< TUniqueId* >(reinterpret_cast< uchar* >(bucket) + 0xf3a0) + count;
+  if (id != nullptr) {
+    *id = uid;
+  }
+
+  int* curCount = reinterpret_cast< int* >(reinterpret_cast< uchar* >(container) + 0xf39c);
+  *curCount = *curCount + 1;
+  return true;
+}
+
+void CStateManager::DeferStateTransition(EStateManagerTransition t) {
+  if (t == kSMT_InGame) {
+    if (xf90_deferredTransition != kSMT_InGame) {
+      x850_world->SetLoadPauseState(false);
+      xf90_deferredTransition = kSMT_InGame;
+    }
+  } else if (xf90_deferredTransition == kSMT_InGame) {
+    x850_world->SetLoadPauseState(true);
+    xf90_deferredTransition = t;
+  }
+}
+
+void CStateManager::ShowPausedHUDMemo(CAssetId strg, float time) {
+  xf78_hudMessageTime = time;
+  xf08_pauseHudMessage = strg;
+  DeferStateTransition(kSMT_MessageScreen);
+}
+
+bool CStateManager::CanShowMapScreen() {
+  const SHintState* curHint = gpGameState->HintOptions().GetCurrentDisplayedHint();
+  if (curHint != nullptr && !const_cast< SHintState* >(curHint)->CanContinue()) {
+    return false;
+  }
+  return true;
+}
+
+void CStateManager::UpdateThermalVisor() {
+  xf28_thermColdScale2 = 0.f;
+  xf24_thermColdScale1 = 0.f;
+
+  if (x8b8_playerState->GetActiveVisor(*this) == CPlayerState::kPV_Thermal &&
+      x8cc_nextAreaId != kInvalidAreaId) {
+    CGameArea* curArea = x850_world->Area(x8cc_nextAreaId);
+    CGameArea* bestArea = nullptr;
+    float bestDistSq = FLT_MAX;
+
+    const float playerX = x84c_player->GetTransform().Get03();
+    const float playerY = x84c_player->GetTransform().Get13();
+
+    for (int i = 0; i < curArea->GetDockCount(); ++i) {
+      const IGameArea::Dock& dock = curArea->GetDock(i);
+      const rstl::reserved_vector< CVector3f, 4 >& verts = dock.GetPlaneVertices();
+
+      const float dockCenterY =
+          0.25f * (verts[0].GetY() + verts[1].GetY() + verts[2].GetY() + verts[3].GetY());
+      const float dockCenterX =
+          0.25f * (verts[0].GetX() + verts[1].GetX() + verts[2].GetX() + verts[3].GetX());
+
+      const float deltaY = playerY - dockCenterY;
+      const float deltaX = playerX - dockCenterX;
+      const float distSq = deltaX * deltaX + deltaY * deltaY;
+
+      if (distSq < bestDistSq) {
+        const TAreaId connectedAreaId = dock.GetConnectedAreaId(0);
+        if (connectedAreaId != kInvalidAreaId) {
+          CGameArea* connectedArea = x850_world->Area(connectedAreaId);
+          if (connectedArea->IsPostConstructed() &&
+              connectedArea->GetPostConstructed()->x10dc_occlusionState == CGameArea::kOS_Visible) {
+            bestArea = connectedArea;
+            bestDistSq = distSq;
+          }
+        }
+      }
+    }
+
+    const float areaThermal = curArea->GetPostConstructed()->x111c_thermalCurrent;
+    if (bestArea == nullptr) {
+      xf24_thermColdScale1 = areaThermal;
+    } else {
+      const float dist = CMath::FastSqrtF(bestDistSq);
+      const float blendDist = dist - 2.f;
+      if (blendDist >= 8.f) {
+        xf24_thermColdScale1 = areaThermal;
+      } else {
+        float blend = 0.5f;
+        if (blendDist > 0.f) {
+          blend = 0.5f * 0.125f * blendDist + 0.5f;
+        }
+        xf24_thermColdScale1 = blend * areaThermal +
+                               (1.f - blend) * bestArea->GetPostConstructed()->x111c_thermalCurrent;
+      }
+    }
+  }
+}
+
+void CStateManager::GetCharacterRenderMaskAndTarget(bool thawed, int& mask, int& target) {
+  mask = 0;
+  target = 0;
+
+  switch (x8b8_playerState->GetActiveVisor(*this)) {
+  case CPlayerState::kPV_Combat:
+  case CPlayerState::kPV_Scan:
+    mask = 0x1000;
+    break;
+  case CPlayerState::kPV_XRay:
+    mask = 0x800;
+    break;
+  case CPlayerState::kPV_Thermal:
+    if (thawed) {
+      mask = 0x600;
+      target = xf34_thermalFlag == kTD_Hot ? 0 : 0x200;
+    } else {
+      mask = 0x500;
+      target = xf34_thermalFlag == kTD_Cold ? 0 : 0x100;
+    }
+    break;
+  default:
+    break;
+  }
+}
+
+void CStateManager::DoCollisionResponse(const CCollisionResponseData& colRespData,
+                                        const CRayCastResult& rayCast, TUniqueId uid,
+                                        const CWeaponMode& weaponMode, bool w1, bool b1) {
+  if (!rayCast.IsValid()) {
+    return;
+  }
+
+  CTransform4f xf = CTransform4f::LookAt(CVector3f::Zero(), rayCast.GetPlane().GetNormal());
+  xf.SetTranslation(rayCast.GetPoint());
+
+  EWeaponCollisionResponseTypes type = kWCR_Default;
+  if (uid == kInvalidUniqueId) {
+    type = CCollisionResponseData::GetWorldCollisionResponseType(
+        CMaterialList::BitPosition(rayCast.GetMaterial().GetValue() & 0x00e3fffe));
+  } else if (const CActor* actor = TCastToConstPtr< CActor >(GetObjectById(uid))) {
+    type = actor->GetCollisionResponseType(rayCast.GetPoint(), rayCast.GetPlane().GetNormal(),
+                                           weaponMode, 0);
+  }
+
+  rstl::optional_object< TLockedToken< CGenDescription > > particleDesc =
+      colRespData.GetParticleDescription(type);
+
+  if (particleDesc.valid()) {
+    CExplosion* explosion = rs_new CExplosion(
+        *particleDesc, AllocateUniqueId(), true,
+        CEntityInfo(kInvalidAreaId, CEntity::NullConnectionList, kInvalidEditorId),
+        rstl::string_l("Proj col resp"), xf, (b1 ? 0u : 1u) | (w1 ? 2u : 0u),
+        CVector3f(1.f, 1.f, 1.f), CColor::White());
+    AddObject(explosion);
+  }
+
+  int soundId = colRespData.GetSoundEffectId(type);
+  if (soundId >= 0) {
+    float range = colRespData.GetAudibleRange();
+    float fallOff = colRespData.GetAudibleFallOff();
+    CAudioSys::C3DEmitterParmData parmData(range, fallOff, 1, CAudioSys::kMaxVolume, 0x14);
+    parmData.x0_pos = rayCast.GetPoint();
+    parmData.x24_sfxId = CSfxManager::TranslateSFXID(static_cast< ushort >(soundId));
+    CSfxManager::AddEmitter(parmData, true, CSfxManager::kMedPriority, false,
+                            CSfxManager::kAllAreas);
+  }
+}
+
+const CSinglePathMaze* CStateManager::GetSinglePathMaze() const { return xf70_currentMaze.get(); }
+
+CSinglePathMaze* CStateManager::SinglePathMaze() { return xf70_currentMaze.get(); }
+
+void CStateManager::SetSinglePathMaze(rstl::single_ptr< CSinglePathMaze > maze) {
+  xf70_currentMaze = maze;
+}
+
+void CStateManager::SetPendingOnScreenTex(CAssetId texId, const CVector2i& origin,
+                                          const CVector2i& extent) {
+  xef4_pendingScreenTex.x0_id = texId;
+  xef4_pendingScreenTex.x4_origin = origin;
+  xef4_pendingScreenTex.xc_extent = extent;
+}
+
+void CStateManager::SetGameState(EGameState state) {
+  if (x904_gameState == state) {
+    return;
+  }
+
+  if (x904_gameState == kGS_SoftPaused) {
+    x850_world->SetLoadPauseState(false);
+  }
+
+  switch (state) {
+  case kGS_Running: {
+    CRumbleGenerator* rumbleGen = reinterpret_cast< CRumbleGenerator* >(x88c_rumbleManager);
+    if (rumbleGen->GetDisabled()) {
+      rumbleGen->SetDisabled(false);
+    }
+    break;
+  }
+  case kGS_SoftPaused: {
+    CRumbleGenerator* rumbleGen = reinterpret_cast< CRumbleGenerator* >(x88c_rumbleManager);
+    if (!rumbleGen->GetDisabled()) {
+      rumbleGen->SetDisabled(true);
+    }
+    x850_world->SetLoadPauseState(true);
+    break;
+  }
+  default:
+    break;
+  }
+
+  x904_gameState = state;
+}
+
+void CStateManager::SetBossParams(TUniqueId bossId, float maxEnergy, uint stringIdx) {
+  xf18_bossId = bossId;
+  xf1c_totalBossEnergy = maxEnergy;
+  xf20_bossStringIdx = stringIdx;
+}
+
+const CPlayer* CStateManager::GetPlayer() const { return x84c_player; }
+
+void CStateManager::QueueMessage(int frameCount, CAssetId msg, float f1) {
+  xf84_ = frameCount;
+  xf88_ = msg;
+  xf8c_ = f1;
+}
+
+void CStateManager::DeliverScriptMsg(CEntity* ent, TUniqueId target, EScriptObjectMessage msg) {
+  if (ent != nullptr && !ent->IsScriptingBlocked()) {
+    ent->AcceptScriptMsg(msg, target, *this);
+  }
+}
+
+void CStateManager::SendScriptMsgAlways(TUniqueId uid, TUniqueId src, EScriptObjectMessage msg) {
+  CEntity* ent = ObjectById(uid);
+  if (ent != nullptr) {
+    ent->AcceptScriptMsg(msg, src, *this);
+  }
+}
+
+float CStateManager::IntegrateVisorFog(float f) const {
+  if (x8b8_playerState->GetActiveVisor(*this) == CPlayerState::kPV_Scan) {
+    return f * (1.f - x8b8_playerState->GetVisorTransitionFactor());
+  }
+  return f;
 }

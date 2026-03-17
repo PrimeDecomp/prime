@@ -227,7 +227,7 @@ vector< T, Alloc >& vector< T, Alloc >::operator=(const vector< T, Alloc >& othe
     xc_items = nullptr;
   } else {
     reserve(other.size());
-    uninitialized_copy(other.data(), other.data() + other.size(), data());
+    uninitialized_copy(other.xc_items, other.xc_items + other.x4_count, data());
     x4_count = other.x4_count;
   }
   return *this;

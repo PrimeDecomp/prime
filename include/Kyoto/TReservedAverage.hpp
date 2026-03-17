@@ -12,9 +12,7 @@ template < typename T, int N >
 class TReservedAverage : public rstl::reserved_vector< T, N > {
 public:
   TReservedAverage() {}
-  TReservedAverage(const T& value) {
-    // resize(value, N); TODO
-  }
+  TReservedAverage(const T& value) { this->resize(N, value); }
   void AddValue(const T& value);
   rstl::optional_object< T > GetAverage() const;
   rstl::optional_object< T > GetEntry(int idx) const;

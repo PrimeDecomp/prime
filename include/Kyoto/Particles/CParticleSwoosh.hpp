@@ -66,7 +66,7 @@ public:
   CVector3f GetGlobalTranslation() const;
   CVector3f GetGlobalScale() const;
   bool GetParticleEmission() const;
-  CColor GetModulationColor() const;
+  const CColor& GetModulationColor() const;
   bool IsSystemDeletable() const;
   rstl::optional_object< CAABox > GetBounds() const;
   int GetParticleCount() const;

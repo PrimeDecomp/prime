@@ -13,6 +13,7 @@
 #include "MetroidPrime/CGroundMovement.hpp"
 #include "MetroidPrime/CPhysicsActor.hpp"
 #include "MetroidPrime/CWorld.hpp"
+#include "MetroidPrime/Player/CPlayer.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptPlatform.hpp"
 #include "MetroidPrime/TCastTo.hpp"
 #include "MetroidPrime/UserNames.hpp"
@@ -29,7 +30,6 @@
 #pragma inline_max_size(250)
 
 extern CGameArea::CConstChainIterator sAliveAreasEnd;
-extern const uchar lbl_805A9E09;
 static int gDebugPrintCount;
 
 void CGameCollision::InitCollision() {
@@ -812,7 +812,7 @@ void CGameCollision::MovePlayer(CStateManager& mgr, CPhysicsActor& actor, float 
     CBallFilter filter(actor);
     MoveAndCollide(mgr, actor, dt, filter, colliderList);
   } else if (actor.GetMaterialList().HasMaterial(kMT_GroundCollider)) {
-    if (lbl_805A9E09) {
+    if (gkUseNewPlayerMovement) {
       CGroundMovement::MoveGroundCollider_New(mgr, actor, dt, colliderList);
     } else {
       CGroundMovement::MoveGroundCollider(mgr, actor, dt, colliderList);

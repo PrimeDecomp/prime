@@ -182,10 +182,10 @@ if not config.non_matching:
 # Tool versions
 config.binutils_tag = "2.42-1"
 config.compilers_tag = "20251118"
-config.dtk_tag = "v1.8.0"
-config.objdiff_tag = "v3.0.1"
+config.dtk_tag = "v1.8.3"
+config.objdiff_tag = "v3.7.0"
 config.sjiswrap_tag = "v1.2.2"
-config.wibo_tag = "1.0.0"
+config.wibo_tag = "1.0.3"
 
 # Project
 config.config_path = Path("config") / config.version / "config.yml"
@@ -1491,7 +1491,7 @@ config.libs = [
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Math/CVector3d.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Math/CVector3f.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Math/CVector3i.cpp"),
-            Object(NonMatching, "Kyoto/Math/RMathUtils.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Math/RMathUtils.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/CCrc32.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Alloc/CCircularBuffer.cpp"
