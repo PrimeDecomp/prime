@@ -3,67 +3,24 @@
 
 #include "types.h"
 
+#include "MetroidPrime/CDamageInfo.hpp"
 #include "MetroidPrime/Tweaks/ITweakObject.hpp"
 
 #include "Kyoto/Math/CVector3f.hpp"
+#include "Kyoto/TOneStatic.hpp"
 
 #include "rstl/reserved_vector.hpp"
 
-struct SShotParam {
-  uint x0_weaponType;
-  bool x4_24_charged : 1;
-  bool x4_25_combo : 1;
-  bool x4_26_instaKill : 1;
-  float x8_damage;
-  float xc_radiusDamage;
-  float x10_radius;
-  float x14_knockback;
-  bool x18_24_noImmunity : 1;
-
-  SShotParam()
-  : x0_weaponType(-1)
-  , x4_24_charged(false)
-  , x4_25_combo(false)
-  , x4_26_instaKill(false)
-  , x8_damage(0.f)
-  , xc_radiusDamage(0.f)
-  , x10_radius(0.f)
-  , x14_knockback(0.f)
-  , x18_24_noImmunity(false) {}
-
-  SShotParam(float chargeFactor, const SShotParam& other) {
-    x14_knockback = chargeFactor * other.x14_knockback;
-    x0_weaponType = other.x0_weaponType;
-    x10_radius = chargeFactor * other.x10_radius;
-    x8_damage = chargeFactor * other.x8_damage;
-    x18_24_noImmunity = false;
-    *(reinterpret_cast<int*>(this) + 1) = *(reinterpret_cast<const int*>(&other) + 1);
-    xc_radiusDamage = chargeFactor * other.xc_radiusDamage;
-  }
-
-  explicit SShotParam(CInputStream& in);
-};
-
-struct SComboShotParam : SShotParam {
-  SComboShotParam() { x4_25_combo = true; }
-  explicit SComboShotParam(CInputStream& in) : SShotParam(in) { x4_25_combo = true; }
-};
-
-struct SChargedShotParam : SShotParam {
-  SChargedShotParam() { x4_24_charged = true; }
-  explicit SChargedShotParam(CInputStream& in) : SShotParam(in) { x4_24_charged = true; }
-};
-
 struct SWeaponInfo {
   float x0_coolDown;
-  SShotParam x4_normal;
-  SChargedShotParam x20_charged;
+  CDamageInfo x4_normal;
+  CDamageInfo x20_charged;
 
   SWeaponInfo() : x0_coolDown(0.1f) {}
   explicit SWeaponInfo(CInputStream& in);
 };
 
-class CTweakPlayerGun : public ITweakObject, public TOneStatic<CTweakPlayerGun> {
+class CTweakPlayerGun : public ITweakObject, public TOneStatic< CTweakPlayerGun > {
 public:
   CTweakPlayerGun(CInputStream& in);
   ~CTweakPlayerGun() override;
@@ -91,6 +48,8 @@ public:
 
   const SWeaponInfo& GetBeamInfo(int beam) const;
 
+  const CDamageInfo& GetBombInfo() const { return x70_bomb; }
+
 // private:
   float x4_upLookAngle;
   float x8_downLookAngle;
@@ -113,12 +72,11 @@ public:
   CVector3f x4c_gunPosition;
   CVector3f x58_;
   CVector3f x64_grapplingArmPosition;
-  SShotParam x70_bomb;
-  SShotParam x8c_powerBomb;
-  SShotParam x1d4_missile;
+  CDamageInfo x70_bomb;
+  CDamageInfo x8c_powerBomb;
+  CDamageInfo x1d4_missile;
   SWeaponInfo xa8_beams[5];
-  rstl::reserved_vector< SShotParam, 5 >
-      x1f0_combos; // Originally rstl::reserved_vector<SShotParam,5>
+  rstl::reserved_vector< CDamageInfo, 5 > x1f0_combos;
   rstl::reserved_vector< float, 5 > x280_ricochetData;
 };
 

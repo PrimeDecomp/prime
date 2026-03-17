@@ -6,6 +6,7 @@
 #include "Kyoto/Animation/CAnimCharacterSet.hpp"
 #include "Kyoto/Audio/CSfxHandle.hpp"
 #include "Kyoto/Math/CTransform4f.hpp"
+#include "MetroidPrime/CEntityInfo.hpp"
 #include "MetroidPrime/CModelData.hpp"
 #include "MetroidPrime/Player/CPlayerState.hpp"
 
@@ -23,6 +24,8 @@ class CSwooshDescription;
 class CElementGen;
 class CParticleSwoosh;
 class CRainSplashGenerator;
+class CModelFlags;
+class CActorLights;
 
 class CGrappleArm {
 public:
@@ -44,15 +47,25 @@ public:
   ~CGrappleArm();
 
   void PreRender(CStateManager& mgr, const CFrustumPlanes& frustum, const CVector3f& camPos);
+  void Update(float swingT, float dt, CStateManager& mgr);
   void EnterFidget(CStateManager& mgr, int a, int b, int c);
+  void EnterFreeLook(int gunId, int setId, CStateManager& mgr);
   void EnterComboFire(int a, CStateManager& mgr);
   void ReturnToDefault(CStateManager& mgr, float dt, bool setState);
   void EnterIdle(CStateManager& mgr);
   void EnterStruck(CStateManager&, float, bool, bool);
   void DisconnectGrappleBeam();
   void RenderGrappleBeam(const CStateManager&, const CVector3f&) const;
+  void AsyncLoadSuit(CStateManager& mgr);
+  void TouchModel(const CStateManager&) const;
+  void Render(const CStateManager&, const CVector3f&, const CModelFlags&, const CActorLights*) const;
+  void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&);
 
   void SetTransform(const CTransform4f& xf) { x220_xf = xf; }
+  CTransform4f GetTransform() const { return x220_xf; }
+  CTransform4f& AuxTransform() { return x2e0_auxXf; }
+  CGunController* GunController() { return x328_gunController.get(); }
+  const CGunController* GetGunController() const { return x328_gunController.get(); }
 
   EArmState GetAnimState() const { return x334_animState; }
   void SetAnimState(const EArmState state) { x334_animState = state; }

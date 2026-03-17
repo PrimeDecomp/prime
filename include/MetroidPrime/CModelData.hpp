@@ -101,6 +101,9 @@ public:
   bool IsLoaded(int shaderIdx) const;
   bool IsDefinitelyOpaque(EWhichModel which) const;
 
+  CTransform4f GetLocatorTransformDynamic(const rstl::string& name, const CCharAnimTime* time) const;
+  CTransform4f GetScaledLocatorTransformDynamic(const rstl::string& name,
+                                                const CCharAnimTime* time) const;
   CTransform4f GetLocatorTransform(const rstl::string& name) const;
   CTransform4f GetScaledLocatorTransform(const rstl::string& name) const;
 

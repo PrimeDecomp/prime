@@ -13,24 +13,6 @@ CDamageInfo::CDamageInfo(CInputStream& in)
   x14_knockback = in.ReadFloat();
 }
 
-// CDamageInfo::CDamageInfo(const SShotParam& other)
-// : x0_weaponMode(CWeaponMode(EWeaponType(other.x0_weaponType), other.x4_24_charged,
-// other.x4_25_combo, other.x4_26_instaKill)) , x8_damage(other.x8_damage) ,
-// xc_radiusDamage(other.xc_radiusDamage) , x10_radius(other.x10_radius) ,
-// x14_knockback(other.x14_knockback) , x18_24_noImmunity(other.x18_24_noImmunity) {}
-
-// CDamageInfo& CDamageInfo::operator=(const SShotParam& other) {
-//   x0_weaponMode =
-//       CWeaponMode(EWeaponType(other.x0_weaponType), other.x4_24_charged, other.x4_25_combo,
-//       other.x4_26_instaKill);
-//   x8_damage = other.x8_damage;
-//   xc_radiusDamage = other.xc_radiusDamage;
-//   x10_radius = other.x10_radius;
-//   x14_knockback = other.x14_knockback;
-//   x18_24_noImmunity = other.x18_24_noImmunity;
-//   return *this;
-// }
-
 float CDamageInfo::GetDamage(const CDamageVulnerability& dVuln) const {
   EVulnerability vuln = dVuln.GetVulnerability(x0_weaponMode, false);
   if (vuln == kVN_Deflect)
