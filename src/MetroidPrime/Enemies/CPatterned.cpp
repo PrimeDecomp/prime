@@ -41,6 +41,9 @@
 
 #pragma inline_max_size(250)
 
+const float CPatterned::skDamageHitTime = 0.33f;
+const float CPatterned::skActorApproachDistance = 3.f;
+
 static CColor skDefaultDamageColor = CColor(0.5f, 0.f, 0.f, 1.f);
 static CColor skFrozenDamageColor = CColor(0.5f, 0.5f, 0.f, 1.f);
 

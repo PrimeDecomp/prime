@@ -342,6 +342,9 @@ public:
   bool IsMakingBigStrike() const { return x402_28_isMakingBigStrike; }
   float GetDamageDuration() const { return x504_damageDur; }
 
+  static const float skDamageHitTime;
+  static const float skActorApproachDistance;
+
 protected:
   EPatrolState x2d8_patrolState;
   TUniqueId x2dc_destObj;

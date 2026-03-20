@@ -185,7 +185,7 @@ void CBeetle::Generate(CStateManager& mgr, EStateMsg msg, float dt) {
           CVector3f total = CVector3f::Zero();
           const float sepFactor = 5.f * dt / x5a8_animTimeRem;
 
-          for (TUniqueId* it = nearList.begin(); it != nearList.begin() + nearList.size(); ++it) {
+          for (AUTO(it, nearList.begin()); it != nearList.end(); ++it) {
             if (CActor* act = static_cast< CActor* >(mgr.ObjectById(*it))) {
               CVector3f separation =
                   x45c_steeringBehaviors.Separation(*this, act->GetTranslation(), 5.f);
@@ -423,10 +423,8 @@ bool CBeetle::InRange(CStateManager& mgr, float arg) {
     }
   }
 
-  const float dY = target.GetY() - GetTransform().Get13();
-  const float dX = target.GetX() - GetTransform().Get03();
-  const float dZ = target.GetZ() - GetTransform().Get23();
-  return dZ * dZ + dX * dX + dY * dY < 100.f;
+  const CVector3f delta = target - GetTranslation();
+  return delta.MagSquared() < 100.f;
 }
 
 bool CBeetle::InAttackPosition(CStateManager& mgr, float arg) {
@@ -585,20 +583,14 @@ void CBeetle::Shuffle(CStateManager& mgr, EStateMsg msg, float dt) {
     break;
   case kStateMsg_Update: {
     const CVector3f playerPos = mgr.GetPlayer()->GetTranslation();
-    const float attackRange = x2fc_minAttackRange + x300_maxAttackRange;
-    const float midRange = attackRange * 0.5f;
+    const float midRange = (x2fc_minAttackRange + x300_maxAttackRange) * 0.5f;
     const CVector3f playerToThis = GetTranslation() - playerPos;
     const CVector3f& playerLimit = playerToThis.CanBeNormalized()
                                        ? playerPos + midRange * playerToThis.AsNormalized()
                                        : playerPos + midRange * GetTransform().GetForward();
 
-    const float dX = GetTransform().Get03() - playerLimit.GetX();
-    const float dY = GetTransform().Get13() - playerLimit.GetY();
-    const float dZ = GetTransform().Get23() - playerLimit.GetZ();
-    float distSq = dX * dX + dY * dY;
-    distSq += dZ * dZ;
-
-    if (distSq > 4.f) {
+    const CVector3f dist = GetTranslation() - playerLimit;
+    if (dist.MagSquared() > 4.f) {
       const int stepDir = GetStepDirection(-playerToThis);
       switch (stepDir) {
       case pas::kSD_Forward:
@@ -642,13 +634,8 @@ bool CBeetle::HitSomething(CStateManager& mgr, float arg) { return x838_24_hitSo
 bool CBeetle::Stuck(CStateManager& mgr, float arg) { return x820_posDeviationCounter > 30; }
 
 bool CBeetle::ShouldTurn(CStateManager& mgr, float arg) {
-  const CPlayer* player = mgr.GetPlayer();
-  const CVector3f& delta = player->GetTranslation() - GetTranslation();
-  CVector2f delta2f = delta.ToVec2f();
-
-  const CVector3f& forward = GetTransform().GetForward();
-  CVector2f forward2f = forward.ToVec2f();
-
+  CVector2f delta2f = (mgr.GetPlayer()->GetTranslation() - GetTranslation()).ToVec2f();
+  CVector2f forward2f = GetTransform().GetForward().ToVec2f();
   return CVector2f::GetAngleDiff(forward2f, delta2f) > 0.5235988f;
 }
 
@@ -694,10 +681,8 @@ bool CBeetle::ShouldTaunt(CStateManager& mgr, float arg) {
   if (const CTeamAiRole* role = CTeamAiMgr::GetTeamAiRole(mgr, x570_aiMgr, GetUniqueId())) {
     if (role->GetTeamAiRole() == CTeamAiRole::kTAR_Unknown ||
         role->GetTeamAiRole() == CTeamAiRole::kTAR_Unassigned) {
-      const float dX = role->GetTeamPosition().GetX() - GetTransform().Get03();
-      const float dY = role->GetTeamPosition().GetY() - GetTransform().Get13();
-      const float dZ = role->GetTeamPosition().GetZ() - GetTransform().Get23();
-      return dX * dX + dY * dY + dZ * dZ < 100.f;
+      const CVector3f delta = role->GetTeamPosition() - GetTranslation();
+      return delta.MagSquared() < 100.f;
     }
   }
 
@@ -717,16 +702,7 @@ void CBeetle::Skid(CStateManager&, EStateMsg msg, float) {
   switch (msg) {
   case kStateMsg_Activate:
     if (IsOnGround() && x838_26_canSkid) {
-      const float slideX = GetTransform().Get01();
-      const float slideY = GetTransform().Get11();
-      const float slideZ = GetTransform().Get21();
-
-      CVector3f slideDir;
-      slideDir.SetX(slideX);
-      slideDir.SetY(slideY);
-      slideDir.SetZ(slideZ);
-      const CVector3f& slideDirRef = CVector3f(slideDir);
-      x450_bodyController->CommandMgr().DeliverCmd(CBCSlideCmd(pas::kSlide_Zero, slideDirRef));
+      x450_bodyController->CommandMgr().DeliverCmd(CBCSlideCmd(pas::kSlide_Zero, GetTranslation()));
       x568_stateProg = 2;
     }
     break;
@@ -783,8 +759,8 @@ void CBeetle::PathFind(CStateManager& mgr, EStateMsg msg, float dt) {
 
     const CVector3f delta = dest - GetTranslation();
     CVector3f move;
-    if (!PathShagged(mgr, 0.f) && static_cast< int >(x5fc_pathFindSearch.xc8_curWaypoint) <
-                                      x5fc_pathFindSearch.x4_waypoints.size() - 1) {
+    if (!PathShagged(mgr, 0.f) &&
+        x5fc_pathFindSearch.xc8_curWaypoint < x5fc_pathFindSearch.x4_waypoints.size() - 1) {
       CPatterned::PathFind(mgr, msg, dt);
       move = x450_bodyController->CommandMgr().GetMoveVector();
     } else {
@@ -911,31 +887,12 @@ void CBeetle::DoUserAnimEvent(CStateManager& mgr, const CInt32POINode& node, EUs
     break;
 
   case kUE_DamageOn: {
-    const CVector3f& scale = ModelData()->GetScale();
-    const float scaleX = scale.GetX();
-    const float scaleY = scale.GetY();
-    const float scaleZ = scale.GetZ();
-    float biteZ;
-    float biteY;
-    float biteX;
-    {
-      const rstl::string& biteLctr = rstl::string_l(kBiteLctrName);
-      const CTransform4f biteXf(GetLocatorTransform(biteLctr));
-      biteZ = biteXf.Get23();
-      biteY = biteXf.Get13();
-      biteX = biteXf.Get03();
-    }
+    CVector3f scale = ModelData()->GetScale();
+    CVector3f bite = GetLocatorTransform(rstl::string_l(kBiteLctrName)).GetTranslation();
 
-    const CVector3f biteOffset(scaleX * biteX, scaleY * biteY, scaleZ * biteZ);
-    const CVector3f bitePos = GetTransform() * biteOffset;
-    const float yExtent = scaleY * 2.f;
-    const float xExtent = scaleX * 2.f;
-    const float zExtent = scaleZ * 0.5f;
-    const CVector3f maxs(bitePos.GetX() + xExtent, bitePos.GetY() + yExtent,
-                         bitePos.GetZ() + zExtent);
-    const CVector3f mins(bitePos.GetX() - xExtent, bitePos.GetY() - yExtent,
-                         bitePos.GetZ() - zExtent);
-    const CAABox biteBox(mins, maxs);
+    const CVector3f bitePos = GetTransform() * CVector3f::ByElementMultiply(scale, bite);
+    const CVector3f extent = CVector3f::ByElementMultiply(scale, CVector3f(2.f, 2.f, 0.5f));
+    const CAABox biteBox(bitePos - extent, bitePos + extent);
     if (biteBox.DoBoundsOverlap(mgr.GetPlayer()->GetBoundingBox())) {
       CMaterialFilter filter =
           CMaterialFilter::MakeIncludeExclude(CMaterialList(kMT_Solid), CMaterialList());
@@ -983,11 +940,8 @@ void CBeetle::Think(float dt, CStateManager& mgr) {
     x814_attackDelayTimer -= dt;
   }
 
-  const CVector3f& predictPosDelta = x824_predictPos - GetTranslation();
-  const CVector2f& predictPosDelta2f = predictPosDelta.ToVec2f();
-  CVector2f predictPosDelta2fCopy(predictPosDelta2f);
-
-  if (CVector2f::Dot(predictPosDelta2fCopy, predictPosDelta2fCopy) > 0.1f * dt) {
+  CVector2f predictPos = (x824_predictPos - GetTranslation()).ToVec2f();
+  if (CVector2f::Dot(predictPos, predictPos) > 0.1f * dt) {
     ++x820_posDeviationCounter;
   } else {
     x820_posDeviationCounter = 0;
@@ -1066,17 +1020,10 @@ const CDamageVulnerability* CBeetle::GetDamageVulnerability(const CVector3f& pos
       return &x7ac_tailVuln;
     }
 
-    CVector3f center = GetBoundingBox().GetCenterPoint();
-    const CVector3f& centerToPosition = position - center;
-    CUnitVector3f centerToPositionDir(centerToPosition);
-
-    float forwardDotDirection = GetTransform().Get11() * direction.GetY();
-    forwardDotDirection += GetTransform().Get01() * direction.GetX();
-    forwardDotDirection += GetTransform().Get21() * direction.GetZ();
-
-    float forwardDotCenterPos = GetTransform().Get11() * centerToPositionDir.GetY();
-    forwardDotCenterPos += GetTransform().Get01() * centerToPositionDir.GetX();
-    forwardDotCenterPos += GetTransform().Get21() * centerToPositionDir.GetZ();
+    CUnitVector3f centerToPositionDir(position - GetBoundingBox().GetCenterPoint());
+    const CVector3f forward = GetTransform().GetForward();
+    float forwardDotDirection = CVector3f::Dot(forward, direction);
+    float forwardDotCenterPos = CVector3f::Dot(forward, centerToPositionDir);
 
     if (forwardDotDirection > 0.f && forwardDotCenterPos < -0.5f) {
       return &x7ac_tailVuln;
@@ -1114,18 +1061,10 @@ EWeaponCollisionResponseTypes CBeetle::GetCollisionResponseType(const CVector3f&
   } else if (x838_25_burrowing) {
     ret = kWCR_Unknown69;
   } else if (x3fc_flavor == kFT_One) {
-    CVector3f center;
-    center = GetBoundingBox().GetCenterPoint();
-    const CVector3f& centerToPosition = position - center;
-    CUnitVector3f centerToPositionDir(centerToPosition);
-
-    const CVector3f& forward = GetTransform().GetForward();
-    const float forwardDotDirection = forward.GetY() * direction.GetY() +
-                                      forward.GetX() * direction.GetX() +
-                                      forward.GetZ() * direction.GetZ();
-    const float forwardDotCenterPos = forward.GetY() * centerToPositionDir.GetY() +
-                                      forward.GetX() * centerToPositionDir.GetX() +
-                                      forward.GetZ() * centerToPositionDir.GetZ();
+    CUnitVector3f centerToPositionDir(position - GetBoundingBox().GetCenterPoint());
+    const CVector3f forward = GetTransform().GetForward();
+    float forwardDotDirection = CVector3f::Dot(GetTransform().GetForward(), direction);
+    float forwardDotCenterPos = CVector3f::Dot(forward, centerToPositionDir);
 
     if (forwardDotDirection > 0.f && forwardDotCenterPos < -0.5f) {
       ret = kWCR_Unknown44;
@@ -1138,7 +1077,7 @@ EWeaponCollisionResponseTypes CBeetle::GetCollisionResponseType(const CVector3f&
 }
 
 void CBeetle::TakeDamage(const CVector3f& direction, float magnitude) {
-  x428_damageCooldownTimer = 0.33f;
+  x428_damageCooldownTimer = CPatterned::skDamageHitTime;
 }
 
 CVector3f CBeetle::GetAimPosition(const CStateManager& mgr, float dt) const {
@@ -1270,21 +1209,18 @@ void CBeetle::SetupRetreatPoints(CStateManager& mgr) {
 s32 CBeetle::FindFurthestRetreatPoint(CStateManager& mgr) {
   s32 ret = -1;
   if (x6e0_retreatPoints.size() > 0) {
-    CVector2f playerPosCopy = mgr.GetPlayer()->GetTranslation().ToVec2f();
-    CVector2f playerPos(playerPosCopy);
+    CVector2f playerPos = mgr.GetPlayer()->GetTranslation().ToVec2f();
 
     ret = mgr.Random()->Range(0, x6e0_retreatPoints.size() - 1);
 
     CVector2f retreatPos(x6e0_retreatPoints[ret].GetX(), x6e0_retreatPoints[ret].GetY());
     CVector2f maxDelta = playerPos - retreatPos;
-    CVector2f maxDeltaCopy(maxDelta);
-    float maxDist = maxDeltaCopy.MagSquared();
+    float maxDist = maxDelta.MagSquared();
     if (maxDist < 100.f) {
       for (int i = 0; i < x6e0_retreatPoints.size(); ++i) {
         CVector2f pointPos(x6e0_retreatPoints[i].GetX(), x6e0_retreatPoints[i].GetY());
         CVector2f delta = playerPos - pointPos;
-        CVector2f deltaCopy(delta);
-        const float dist = deltaCopy.MagSquared();
+        const float dist = delta.MagSquared();
         if (dist > maxDist) {
           maxDist = dist;
           ret = i;
