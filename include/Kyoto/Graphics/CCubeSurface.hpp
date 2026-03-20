@@ -7,8 +7,7 @@ class CCubeModel;
 class CCubeSurface {
 public:
   CCubeSurface(void* ptr) { x0_rawdata = static_cast< uchar* >(ptr); }
-#pragma push
-#pragma pack(1)
+#pragma pack(push, 1)
   struct SSurfaceData {
     CVector3f mCenter;
     uint mMaterialIndex;
@@ -20,7 +19,7 @@ public:
     CAABox mBounds;
     uchar pad[7];
   };
-#pragma pop
+#pragma pack(pop)
 
   static const CVector3f skDefaultNormal;
   union {

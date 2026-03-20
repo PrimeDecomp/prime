@@ -16,8 +16,9 @@ CScriptActor::CScriptActor(TUniqueId uid, const rstl::string& name, const CEntit
                            const CMaterialList& matList, float mass, float zMomentum,
                            const CHealthInfo& hInfo, const CDamageVulnerability& dVuln,
                            const CActorParameters& actParms, bool looping, bool active,
-                           uint shaderIdx, float xrayAlpha, bool noThermalHotZ, bool castsShadow,
-                           bool scaleAdvancementDelta, bool materialFlag54)
+                           uint shaderIdx, float xrayAlpha, const bool noThermalHotZ,
+                           const bool castsShadow, const bool scaleAdvancementDelta,
+                           const bool materialFlag54)
 : CPhysicsActor(uid, active, name, info, xf, mData, matList, aabb, SMoverData(mass), actParms, 0.3f,
                 0.1f)
 , x258_initialHealth(hInfo)

@@ -57,8 +57,8 @@ public:
 public:
   CScriptTrigger(const TUniqueId, const rstl::string& name, const CEntityInfo& info,
                  const CVector3f& pos, const CAABox&, const CDamageInfo& dInfo,
-                 const CVector3f& orientedForce, const uint triggerFlags, const bool active,
-                 const bool deactivateOnEntered, const bool deactivateOnExited);
+                 const CVector3f& orientedForce, const uint triggerFlags, bool active,
+                 bool deactivateOnEntered, const bool deactivateOnExited);
   ~CScriptTrigger();
 
   void Touch(CActor&, CStateManager&) override;

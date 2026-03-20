@@ -75,6 +75,8 @@
 #include "rstl/math.hpp"
 #include "rstl/vector.hpp"
 
+#pragma inline_max_size(250)
+
 const bool gkAutoAim = false;
 const bool gkAutoAimAtOrbitedObject = false;
 const bool gkFreeLookPreventsOrbitMovement = true;

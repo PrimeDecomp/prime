@@ -15,8 +15,9 @@ public:
                const CTransform4f& xf, const CModelData& mData, const CAABox& aabb,
                const CMaterialList& matList, float mass, float zMomentum, const CHealthInfo& hInfo,
                const CDamageVulnerability& dVuln, const CActorParameters& actParms, bool looping,
-               bool active, uint shaderIdx, float xrayAlpha, bool noThermalHotZ, bool castsShadow,
-               bool scaleAdvancementDelta, bool materialFlag54);
+               bool active, uint shaderIdx, float xrayAlpha, const bool noThermalHotZ,
+               const bool castsShadow, const bool scaleAdvancementDelta,
+               const bool materialFlag54);
 
   // CEntity
   ~CScriptActor() override;

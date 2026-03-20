@@ -7,7 +7,7 @@ class CScriptDock : public CPhysicsActor {
 public:
   CScriptDock(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
               const CVector3f& position, const CVector3f& extent, int dock, TAreaId area,
-              bool active, int dockReferenceCount, bool loadConnected);
+              bool active, int dockReferenceCount, const bool loadConnected);
   ~CScriptDock();
 
   void SetDockReference(CStateManager& mgr, int);

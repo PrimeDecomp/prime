@@ -8,7 +8,7 @@
 class CScriptWaypoint : public CActor {
 public:
   CScriptWaypoint(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
-                  const CTransform4f& xf, bool active, float speed, float pause,
+                  const CTransform4f& xf, const bool active, float speed, float pause,
                   int patternTranslate, int patternOrient, int patternFit, int behaviour,
                   int behaviourOrient, int behaviourModifiers, uint animation);
 

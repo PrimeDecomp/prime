@@ -51,11 +51,11 @@ private:
   rstl::auto_ptr< float[] > x30_normalWorkspace;
   bool x38_owned;
   bool x39_disableWorkspaces;
-  uchar x3a_pad[6];
 };
 
 class CSkinnedModelWithAvgNormals {
   CSkinnedModel x0_skinnedModel;
+  uchar x3c_pad[4];
   const float* x40_avgNormals;
 
 public:

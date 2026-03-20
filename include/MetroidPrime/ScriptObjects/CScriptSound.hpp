@@ -6,12 +6,12 @@
 class CScriptSound : public CActor {
 public:
   CScriptSound(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
-               const CTransform4f& xf, const ushort soundId, bool active, const float maxDist,
-               const float distComp, const float startDelay, const uint minVol, const uint vol,
-               const uint w3, const uint prio, const uint pan, const uint w6, const bool looped,
-               const bool nonEmitter, const bool autoStart, const bool occlusionTest,
-               const bool acoustics, const bool worldSfx, const bool allowDuplicates,
-               const int pitch);
+               const CTransform4f& xf, ushort soundId, bool active, float maxDist,
+               float distComp, float startDelay, uint minVol, uint vol,
+               uint w3, uint prio, uint pan, uint w6, bool looped,
+               bool nonEmitter, bool autoStart, bool occlusionTest,
+               bool acoustics, bool worldSfx, bool allowDuplicates,
+               int pitch);
   ~CScriptSound();
 
   void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&) override;
