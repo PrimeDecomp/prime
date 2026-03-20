@@ -81,24 +81,26 @@ extern void GXEnd(void);
 
 #else
 
+// TODO: should these params be const? It helps CFluidPlaneCPURender
+
 #define FUNC_1PARAM(name, T)                                                                       \
-  static inline void name##1##T(T x) { GXWGFifo.T = x; }
+  static inline void name##1##T(const T x) { GXWGFifo.T = x; }
 
 #define FUNC_2PARAM(name, T)                                                                       \
-  static inline void name##2##T(T x, T y) {                                                        \
+  static inline void name##2##T(const T x, const T y) {                                            \
     GXWGFifo.T = x;                                                                                \
     GXWGFifo.T = y;                                                                                \
   }
 
 #define FUNC_3PARAM(name, T)                                                                       \
-  static inline void name##3##T(T x, T y, T z) {                                                   \
+  static inline void name##3##T(const T x, const T y, const T z) {                                 \
     GXWGFifo.T = x;                                                                                \
     GXWGFifo.T = y;                                                                                \
     GXWGFifo.T = z;                                                                                \
   }
 
 #define FUNC_4PARAM(name, T)                                                                       \
-  static inline void name##4##T(T x, T y, T z, T w) {                                              \
+  static inline void name##4##T(const T x, const T y, const T z, const T w) {                      \
     GXWGFifo.T = x;                                                                                \
     GXWGFifo.T = y;                                                                                \
     GXWGFifo.T = z;                                                                                \
@@ -106,10 +108,10 @@ extern void GXEnd(void);
   }
 
 #define FUNC_INDEX8(name)                                                                          \
-  static inline void name##1x8(u8 x) { GXWGFifo.u8 = x; }
+  static inline void name##1x8(const u8 x) { GXWGFifo.u8 = x; }
 
 #define FUNC_INDEX16(name)                                                                         \
-  static inline void name##1x16(u16 x) { GXWGFifo.u16 = x; }
+  static inline void name##1x16(const u16 x) { GXWGFifo.u16 = x; }
 
 // GXCmd
 FUNC_1PARAM(GXCmd, u8)
