@@ -78,6 +78,7 @@ class CTeamAiMgr : public CEntity {
 public:
   class CUnknown {
   public:
+    static const int kNumProperties;
     CUnknown(CInputStream& in, int propCount);
 
   private:

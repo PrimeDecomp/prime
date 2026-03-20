@@ -9,7 +9,7 @@ class CScriptCameraWaypoint : public CActor {
 
 public:
   CScriptCameraWaypoint(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
-                        const CTransform4f& xf, bool active, float hfov, uint);
+                        const CTransform4f& xf, const bool active, float hfov, uint);
   ~CScriptCameraWaypoint();
 
   void Accept(IVisitor& visitor) override;

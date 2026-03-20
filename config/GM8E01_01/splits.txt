@@ -2092,7 +2092,7 @@ MetroidPrime/Enemies/CBurrower.cpp:
 	.bss        start:0x80572874 end:0x805728DC align:4 common
 	.sdata2     start:0x805ADAB8 end:0x805ADAD0
 
-MetroidPrime/Enemies/CMetroidPrimeExo.cpp:
+MetroidPrime/Enemies/CMetroidPrime.cpp:
 	.text       start:0x80271328 end:0x8027C648
 	.ctors      start:0x803CB4A0 end:0x803CB4A4
 	.rodata     start:0x803D5608 end:0x803D5A48
@@ -2107,7 +2107,7 @@ MetroidPrime/ScriptObjects/CScriptBeam.cpp:
 	.rodata     start:0x803D5A48 end:0x803D5A60
 	.data       start:0x803EB360 end:0x803EB3D0
 
-MetroidPrime/Enemies/CMetroidPrimeEssence.cpp:
+MetroidPrime/Enemies/CMetroidPrimeStage2.cpp:
 	.text       start:0x8027CBB4 end:0x802804DC
 	.ctors      start:0x803CB4A4 end:0x803CB4A8
 	.rodata     start:0x803D5A60 end:0x803D5AB8
@@ -2237,7 +2237,7 @@ MetroidPrime/ScriptObjects/CSustainedPlayerDamage.cpp:
 	.sdata      start:0x805A87E8 end:0x805A87F0
 	.sdata2     start:0x805AE008 end:0x805AE010
 
-MetroidPrime/Enemies/CMetroidPrimeProjectile.cpp:
+MetroidPrime/Enemies/CPoisonProjectile.cpp:
 	.text       start:0x802A03E4 end:0x802A089C
 	.rodata     start:0x803D60C8 end:0x803D60D0
 	.data       start:0x803EC570 end:0x803EC5E8

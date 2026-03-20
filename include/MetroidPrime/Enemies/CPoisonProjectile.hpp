@@ -1,9 +1,9 @@
-#ifndef _CMETROIDPRIMEPROJECTILE
-#define _CMETROIDPRIMEPROJECTILE
+#ifndef _CPOISONPROJECTILE
+#define _CPOISONPROJECTILE
 
 #include "MetroidPrime/Weapons/CEnergyProjectile.hpp"
 
-struct SPrimeProjectileInfo {
+struct CPoisonInfo {
   uint x0_propertyCount;
   TToken< CGenDescription > x4_particle;
   CDamageInfo xc_dInfo;
@@ -15,7 +15,8 @@ struct SPrimeProjectileInfo {
   bool x38_25_ : 1;
   bool x38_26_ : 1;
   bool x38_27_ : 1;
-  explicit SPrimeProjectileInfo(CInputStream& in);
+
+  explicit CPoisonInfo(CInputStream& in);
 
   const CDamageInfo& GetDamageInfo() const { return xc_dInfo; }
   float Get_0x28() const { return x28_; }
@@ -27,22 +28,21 @@ struct SPrimeProjectileInfo {
   const bool GetFlag_26() const { return x38_26_; }
   const bool GetFlag_27() const { return x38_27_; }
 };
-CHECK_SIZEOF(SPrimeProjectileInfo, 60);
+CHECK_SIZEOF(CPoisonInfo, 0x3C);
 
-class CMetroidPrimeProjectile : public CEnergyProjectile {
-  SPrimeProjectileInfo x3d8_auxData;
+class CPoisonProjectile : public CEnergyProjectile {
+  CPoisonInfo x3d8_auxData;
 
 public:
-  CMetroidPrimeProjectile(
-      bool active, const TToken< CWeaponDescription >& desc, EWeaponType type,
-      const CTransform4f& xf, EMaterialTypes materials, const CDamageInfo& damage, TUniqueId uid,
-      TAreaId aid, TUniqueId owner, const SPrimeProjectileInfo& auxData, TUniqueId homingTarget,
-      uint attribs, const CVector3f& scale,
-      const rstl::optional_object< TLockedToken< CGenDescription > >& visorParticle, ushort visorSfx,
-      bool sendCollideMsg);
+  CPoisonProjectile(bool active, const TToken< CWeaponDescription >& desc, EWeaponType type,
+                    const CTransform4f& xf, EMaterialTypes materials, const CDamageInfo& damage,
+                    TUniqueId uid, TAreaId aid, TUniqueId owner, const CPoisonInfo& auxData,
+                    TUniqueId homingTarget, uint attribs, const CVector3f& scale,
+                    const rstl::optional_object< TLockedToken< CGenDescription > >& visorParticle,
+                    ushort visorSfx, bool sendCollideMsg);
 
   // CEntity
-  ~CMetroidPrimeProjectile() override;
+  ~CPoisonProjectile() override;
   void Accept(IVisitor& visitor) override;
 
   // CEnergyProjectile
@@ -50,4 +50,4 @@ public:
                CStateManager& mgr, const CDamageVulnerability& dVuln, TUniqueId hitActor) override;
 };
 
-#endif // _CMETROIDPRIMEPROJECTILE
+#endif // _CPOISONPROJECTILE

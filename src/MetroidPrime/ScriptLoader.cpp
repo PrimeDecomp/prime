@@ -14,47 +14,125 @@
 #include "MetroidPrime/CModelData.hpp"
 #include "MetroidPrime/CStateManager.hpp"
 #include "MetroidPrime/CWorld.hpp"
+#include "MetroidPrime/Enemies/CAmbientAI.hpp"
+#include "MetroidPrime/Enemies/CAtomicAlpha.hpp"
+#include "MetroidPrime/Enemies/CAtomicBeta.hpp"
+#include "MetroidPrime/Enemies/CBabygoth.hpp"
+#include "MetroidPrime/Enemies/CBeetle.hpp"
+#include "MetroidPrime/Enemies/CBloodFlower.hpp"
+#include "MetroidPrime/Enemies/CBurrower.hpp"
+#include "MetroidPrime/Enemies/CChozoGhost.hpp"
+#include "MetroidPrime/Enemies/CDrone.hpp"
+#include "MetroidPrime/Enemies/CElitePirate.hpp"
+#include "MetroidPrime/Enemies/CEnergyBall.hpp"
+#include "MetroidPrime/Enemies/CEyeBall.hpp"
+#include "MetroidPrime/Enemies/CFireFlea.hpp"
+#include "MetroidPrime/Enemies/CFlaahgra.hpp"
+#include "MetroidPrime/Enemies/CFlaahgraTentacle.hpp"
+#include "MetroidPrime/Enemies/CFlickerBat.hpp"
+#include "MetroidPrime/Enemies/CFlyingPirate.hpp"
+#include "MetroidPrime/Enemies/CIceSheegoth.hpp"
+#include "MetroidPrime/Enemies/CJellyZap.hpp"
+#include "MetroidPrime/Enemies/CMagdolite.hpp"
+#include "MetroidPrime/Enemies/CMetaree.hpp"
+#include "MetroidPrime/Enemies/CMetroid.hpp"
+#include "MetroidPrime/Enemies/CMetroidBeta.hpp"
+#include "MetroidPrime/Enemies/CMetroidPrime.hpp"
+#include "MetroidPrime/Enemies/CMetroidPrimeRelay.hpp"
+#include "MetroidPrime/Enemies/CMetroidPrimeStage2.hpp"
+#include "MetroidPrime/Enemies/CNewIntroBoss.hpp"
+#include "MetroidPrime/Enemies/COmegaPirate.hpp"
+#include "MetroidPrime/Enemies/CParasite.hpp"
+#include "MetroidPrime/Enemies/CPhazonHealingNodule.hpp"
+#include "MetroidPrime/Enemies/CPuddleSpore.hpp"
+#include "MetroidPrime/Enemies/CPuddleToadGamma.hpp"
+#include "MetroidPrime/Enemies/CPuffer.hpp"
+#include "MetroidPrime/Enemies/CRidley.hpp"
+#include "MetroidPrime/Enemies/CRipper.hpp"
+#include "MetroidPrime/Enemies/CScriptContraption.hpp"
+#include "MetroidPrime/Enemies/CScriptPhazonPool.hpp"
+#include "MetroidPrime/Enemies/CSeedling.hpp"
+#include "MetroidPrime/Enemies/CSpacePirate.hpp"
+#include "MetroidPrime/Enemies/CSpankWeed.hpp"
+#include "MetroidPrime/Enemies/CTeamAiMgr.hpp"
+#include "MetroidPrime/Enemies/CThardus.hpp"
+#include "MetroidPrime/Enemies/CThardusRockProjectile.hpp"
+#include "MetroidPrime/Enemies/CTryclops.hpp"
+#include "MetroidPrime/Enemies/CWallCrawlerSwarm.hpp"
+#include "MetroidPrime/Enemies/CWarWasp.hpp"
 #include "MetroidPrime/Player/CPlayerState.hpp"
 
+#include "MetroidPrime/ScriptObjects/CFishCloud.hpp"
+#include "MetroidPrime/ScriptObjects/CFishCloudModifier.hpp"
 #include "MetroidPrime/ScriptObjects/CRepulsor.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptActor.hpp"
+#include "MetroidPrime/ScriptObjects/CScriptActorKeyframe.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptActorRotate.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptAiJumpPoint.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptAreaAttributes.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptBallTrigger.hpp"
+#include "MetroidPrime/ScriptObjects/CScriptBeam.hpp"
+#include "MetroidPrime/ScriptObjects/CScriptCameraBlurKeyframe.hpp"
+#include "MetroidPrime/ScriptObjects/CScriptCameraFilterKeyframe.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptCameraHint.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptCameraHintTrigger.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptCameraPitchVolume.hpp"
+#include "MetroidPrime/ScriptObjects/CScriptCameraShaker.hpp"
+#include "MetroidPrime/ScriptObjects/CScriptCameraWaypoint.hpp"
+#include "MetroidPrime/ScriptObjects/CScriptColorModulate.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptControllerAction.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptCounter.hpp"
+#include "MetroidPrime/ScriptObjects/CScriptCoverPoint.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptDamageableTrigger.hpp"
+#include "MetroidPrime/ScriptObjects/CScriptDebris.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptDebugCameraWaypoint.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptDistanceFog.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptDock.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptDockAreaChange.hpp"
+#include "MetroidPrime/ScriptObjects/CScriptDoor.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptEMPulse.hpp"
+#include "MetroidPrime/ScriptObjects/CScriptEffect.hpp"
+#include "MetroidPrime/ScriptObjects/CScriptGenerator.hpp"
+#include "MetroidPrime/ScriptObjects/CScriptGrapplePoint.hpp"
+#include "MetroidPrime/ScriptObjects/CScriptGunTurret.hpp"
+#include "MetroidPrime/ScriptObjects/CScriptHUDMemo.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptMazeNode.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptMemoryRelay.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptMidi.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptPickup.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptPickupGenerator.hpp"
+#include "MetroidPrime/ScriptObjects/CScriptPlatform.hpp"
+#include "MetroidPrime/ScriptObjects/CScriptPlayerActor.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptPlayerHint.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptPlayerStateChange.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptPointOfInterest.hpp"
+#include "MetroidPrime/ScriptObjects/CScriptProjectedShadow.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptRandomRelay.hpp"
+#include "MetroidPrime/ScriptObjects/CScriptRelay.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptRipple.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptRoomAcoustics.hpp"
+#include "MetroidPrime/ScriptObjects/CScriptSound.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptSpawnPoint.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptSpecialFunction.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptSpiderBallAttractionSurface.hpp"
+#include "MetroidPrime/ScriptObjects/CScriptSpiderBallWaypoint.hpp"
+#include "MetroidPrime/ScriptObjects/CScriptSpindleCamera.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptSteam.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptStreamedMusic.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptSwitch.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptTargetingPoint.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptTimer.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptTrigger.hpp"
+#include "MetroidPrime/ScriptObjects/CScriptVisorFlare.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptVisorGoo.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptWater.hpp"
+#include "MetroidPrime/ScriptObjects/CScriptWaypoint.hpp"
+#include "MetroidPrime/ScriptObjects/CScriptWorldTeleporter.hpp"
+#include "MetroidPrime/ScriptObjects/CSnakeWeedSwarm.hpp"
+
+#include "MetroidPrime/Cameras/CCameraManager.hpp"
+#include "MetroidPrime/Cameras/CCinematicCamera.hpp"
+#include "MetroidPrime/Cameras/CPathCamera.hpp"
 
 #include "MetroidPrime/CFluidPlaneManager.hpp"
 
@@ -66,11 +144,13 @@
 #include "Kyoto/Math/CVector2f.hpp"
 #include "Kyoto/Streams/CInputStream.hpp"
 
+#pragma inline_max_size(242)
+
 static CAABox GetCollisionBox(CStateManager& stateMgr, TAreaId id, const CVector3f& extent,
                               const CVector3f& offset) {
-  const CAABox box(0.5f * -extent.GetX() + offset.GetX(), 0.5f * -extent.GetY() + offset.GetY(),
-                   0.5f * -extent.GetZ() + offset.GetZ(), 0.5f * extent.GetX() + offset.GetX(),
-                   0.5f * extent.GetY() + offset.GetY(), 0.5f * extent.GetZ() + offset.GetZ());
+  const CAABox box(-extent.GetX() / 2.f + offset.GetX(), -extent.GetY() / 2.f + offset.GetY(),
+                   -extent.GetZ() / 2.f + offset.GetZ(), extent.GetX() / 2.f + offset.GetX(),
+                   extent.GetY() / 2.f + offset.GetY(), extent.GetZ() / 2.f + offset.GetZ());
   return box.GetTransformedAABox(stateMgr.GetWorld()->GetAreaAlways(id).GetTM().GetRotation());
 }
 
@@ -80,7 +160,11 @@ static CTransform4f ConvertEditorEulerToTransform4f(const CVector3f& orientation
                      CQuaternion::YRotation(CRelAngle::FromDegrees(orientation.GetY())) *
                      CQuaternion::XRotation(CRelAngle::FromDegrees(orientation.GetX()));
   CMatrix3f mat = quat.BuildTransform();
-  return CTransform4f(mat.GetColumn(kDX), mat.GetColumn(kDY), mat.GetColumn(kDZ), position);
+  const CVector3f& r0 = mat.GetRow(kDX);
+  const CVector3f& r1 = mat.GetRow(kDY);
+  const CVector3f& r2 = mat.GetRow(kDZ);
+  return CTransform4f(CVector3f(r0[kDX], r1[kDX], r2[kDX]), CVector3f(r0[kDY], r1[kDY], r2[kDY]),
+                      CVector3f(r0[kDZ], r1[kDZ], r2[kDZ]), position);
 }
 
 static CTransform4f LoadEditorTransform(CInputStream& in) {
@@ -132,28 +216,28 @@ static CLightParameters LoadLightParameters(CInputStream& in) {
 
   bool castShadow = in.Get< bool >();
   float shadowScale = in.Get< float >();
-  CLightParameters::EShadowTessellation shadowTessInt =
-      CLightParameters::EShadowTessellation(in.ReadLong());
+  int shadowTess = in.Get< int >();
   float shadowAlpha = in.Get< float >();
   float maxShadowHeight = in.Get< float >();
 
   CColor noLightsAmbient(in);
 
   bool makeLights = in.Get< bool >();
-  CLightParameters::EWorldLightingOptions lightOpts =
-      CLightParameters::EWorldLightingOptions(in.Get< int >());
-  CLightParameters::ELightRecalculationOptions recalcOpts =
-      CLightParameters::ELightRecalculationOptions(in.Get< int >());
+  int lightOpts = in.Get< int >();
+  int recalcOpts = in.Get< int >();
 
   CVector3f actorPosBias(in);
 
   int maxDynamicLights = propCount >= 12 ? in.Get< int >() : -1;
   int maxAreaLights = propCount >= 12 ? in.Get< int >() : -1;
-  bool ambientChannelOverflow = propCount >= 13 ? in.Get< bool >() : false;
+  bool ambientChannelOverflow = propCount >= 13 ? in.ReadBool() : false;
   int layerIdx = propCount >= 14 ? in.Get< int >() : 0;
 
-  return CLightParameters(castShadow, shadowScale, shadowTessInt, shadowAlpha, maxShadowHeight,
-                          noLightsAmbient, makeLights, lightOpts, recalcOpts, actorPosBias,
+  return CLightParameters(castShadow, shadowScale,
+                          CLightParameters::EShadowTessellation(shadowTess), shadowAlpha,
+                          maxShadowHeight, noLightsAmbient, makeLights,
+                          CLightParameters::EWorldLightingOptions(lightOpts),
+                          CLightParameters::ELightRecalculationOptions(recalcOpts), actorPosBias,
                           maxDynamicLights, maxAreaLights, ambientChannelOverflow, layerIdx);
 }
 
@@ -276,10 +360,12 @@ CEntity* ScriptLoader::LoadTrigger(CStateManager& mgr, CInputStream& in, int pro
   ETriggerFlags flags = ETriggerFlags(in.ReadLong());
   bool active = in.Get< bool >();
   bool b2 = in.Get< bool >();
-  bool b3 = in.Get< bool >();
+  const bool b3 = in.Get< bool >();
 
-  CAABox box(CVector3f(-(extent.GetX()), -(extent.GetY() * 0.5f), -(extent.GetZ() * 0.5f)),
-             CVector3f((extent.GetX() * 0.5f), (extent.GetY() * 0.5f), (extent.GetZ() * 0.5f)));
+  float halfX = extent.GetX() * 0.5f;
+  float halfY = extent.GetY() * 0.5f;
+  float halfZ = extent.GetZ() * 0.5f;
+  CAABox box(CVector3f(-halfX, -halfY, -halfZ), CVector3f(halfX, halfY, halfZ));
 
   CVector3f orientedForce =
       mgr.GetWorld()->GetAreaAlways(info.GetAreaId()).GetTM().Rotate(forceVec);
@@ -295,8 +381,8 @@ CEntity* ScriptLoader::LoadCameraHintTrigger(CStateManager& mgr, CInputStream& i
 
   SActorHead aHead(in, mgr);
   CVector3f scale = CVector3f(in) * 0.5f;
-  bool active = in.ReadBool();
-  bool deactivateOnEnter = in.ReadBool();
+  bool active = in.Get< bool >();
+  bool deactivateOnEnter = in.Get< bool >();
   bool deactivateOnExit = in.ReadBool();
 
   if (aHead.x10_transform.GetRotation() == CTransform4f::Identity()) {
@@ -315,18 +401,37 @@ CEntity* ScriptLoader::LoadCameraHintTrigger(CStateManager& mgr, CInputStream& i
 
 static int ClassifyVector(const CVector3f& dir) {
   CVector3f absDir(fabsf(dir.GetX()), fabsf(dir.GetY()), fabsf(dir.GetZ()));
-  int max = (absDir.GetX() > absDir.GetY() ? 0 : 1);
-  max = (absDir[max] > absDir.GetZ() ? max : 2);
+  int indices[3] = {0, 1, 2};
 
-  bool positive = (absDir[max] == dir[max]);
-  if (max == 0)
-    return (positive ? 0x08 : 0x04);
-  else if (max == 1)
-    return (positive ? 0x01 : 0x02);
-  else if (max == 2)
-    return (positive ? 0x10 : 0x20);
+  if (absDir[indices[0]] < absDir[indices[1]]) {
+    int tmp = indices[0];
+    indices[0] = indices[1];
+    indices[1] = tmp;
+  }
+  if (absDir[indices[1]] < absDir[indices[2]]) {
+    int tmp = indices[1];
+    indices[1] = indices[2];
+    indices[2] = tmp;
+  }
+  if (absDir[indices[0]] < absDir[indices[1]]) {
+    int tmp = indices[0];
+    indices[0] = indices[1];
+    indices[1] = tmp;
+  }
 
-  return 0;
+  int max = indices[0];
+  bool negative = (absDir[max] != dir[max]);
+
+  switch (max) {
+  case 0:
+    return negative ? 4 : 8;
+  case 1:
+    return (negative != 0) + 1;
+  case 2:
+    return negative ? 0x20 : 0x10;
+  default:
+    return 0;
+  }
 }
 
 static int TransformDamageableTriggerFlags(CStateManager& mgr, TAreaId aId, uint flags) {
@@ -587,7 +692,7 @@ CEntity* ScriptLoader::LoadDock(CStateManager& mgr, CInputStream& in, int propCo
   CVector3f position(in);
   CVector3f scale(in);
   int dock = in.Get< int >();
-  TAreaId area = in.Get< int >();
+  int area = in.Get< int >();
   bool loadConnected = in.Get< bool >();
   return rs_new CScriptDock(mgr.AllocateUniqueId(), name, info, position, scale, dock, area, active,
                             0, loadConnected);
@@ -678,7 +783,7 @@ CEntity* ScriptLoader::LoadPointOfInterest(CStateManager& mgr, CInputStream& in,
 
 CEntity* ScriptLoader::LoadActor(CStateManager& mgr, CInputStream& in, int propCount,
                                  const CEntityInfo& info) {
-  if (propCount != 24)
+  if (propCount < 24)
     return nullptr;
 
   SScaledActorHead head(in, mgr);
@@ -702,16 +807,19 @@ CEntity* ScriptLoader::LoadActor(CStateManager& mgr, CInputStream& in, int propC
   bool solid = in.Get< bool >();
   bool cameraPassthrough = in.Get< bool >();
   bool active = in.Get< bool >();
-  int shaderIdx = in.Get< int >();
-  float xrayAlpha = in.Get< float >();
+  uint shaderIdx = in.Get< uint >();
+  float xrayAlpha = in.ReadFloat();
   bool noThermalHotZ = in.Get< bool >();
   bool castsShadow = in.Get< bool >();
   bool scaleAdvancementDelta = in.Get< bool >();
   bool materialFlag54 = in.Get< bool >();
 
+  FourCC staticType = gpResourceFactory->GetResourceTypeById(staticId);
   FourCC animType = gpResourceFactory->GetResourceTypeById(aParms.GetACSFile());
-  if (gpResourceFactory->GetResourceTypeById(staticId) == 0 && animType == 0)
+  if (staticType == 0 && animType == 0)
     return nullptr;
+
+  const CTransform4f& xf = head.x0_actorHead.x10_transform;
 
   CAABox aabb = GetCollisionBox(mgr, info.GetAreaId(), collisionExtent, centroid);
 
@@ -725,24 +833,31 @@ CEntity* ScriptLoader::LoadActor(CStateManager& mgr, CInputStream& in, int propC
   if (cameraPassthrough) // Bool 4
     list.Add(kMT_CameraPassthrough);
 
-  bool negativeCollisionExtent =
-      collisionExtent.GetX() < 0.f || collisionExtent.GetY() < 0.f || collisionExtent.GetZ() < 0.f;
+  bool negativeCollisionExtent;
+  if (collisionExtent.GetX() < 0.f)
+    negativeCollisionExtent = true;
+  else if (collisionExtent.GetY() < 0.f)
+    negativeCollisionExtent = true;
+  else if (collisionExtent.GetZ() < 0.f)
+    negativeCollisionExtent = true;
+  else
+    negativeCollisionExtent = false;
 
   CModelData data(CModelData::CModelDataNull());
   if (animType == 'ANCS') {
     data = CModelData(CAnimRes(aParms.GetACSFile(), aParms.GetCharacter(), head.x40_scale,
-                               aParms.GetInitialAnimation(), false));
+                               aParms.GetInitialAnimation(), true));
   } else {
     data = CModelData(CStaticRes(staticId, head.x40_scale));
   }
 
   if (collisionExtent == CVector3f::Zero() || negativeCollisionExtent)
-    aabb = data.GetBounds(head.x0_actorHead.x10_transform.GetRotation());
+    aabb = data.GetBounds(xf.GetRotation());
 
-  return rs_new CScriptActor(mgr.AllocateUniqueId(), head.x0_actorHead.x0_name, info,
-                             head.x0_actorHead.x10_transform, data, aabb, list, mass, zMomentum,
-                             hInfo, dVuln, actParms, looping, active, shaderIdx, xrayAlpha,
-                             noThermalHotZ, castsShadow, scaleAdvancementDelta, materialFlag54);
+  return rs_new CScriptActor(mgr.AllocateUniqueId(), head.x0_actorHead.x0_name, info, xf, data,
+                             aabb, list, mass, zMomentum, hInfo, dVuln, actParms, looping, active,
+                             shaderIdx, xrayAlpha, noThermalHotZ, castsShadow,
+                             scaleAdvancementDelta, materialFlag54);
 }
 
 CEntity* ScriptLoader::LoadPickup(CStateManager& mgr, CInputStream& in, int propCount,
@@ -805,16 +920,199 @@ CEntity* ScriptLoader::LoadEnemy(CStateManager& mgr, CInputStream& in, int propC
   return nullptr;
 }
 
-CEntity* ScriptLoader::LoadRepulsor(CStateManager& mgr, CInputStream& in, int propCount,
-                                    const CEntityInfo& info) {
-  if (propCount != 4)
+CEntity* ScriptLoader::LoadBeetle(CStateManager& mgr, CInputStream& in, int propCount,
+                                  const CEntityInfo& info) {
+  if (propCount != 16)
     return nullptr;
 
   rstl::string name = mgr.HashInstanceName(in);
-  CVector3f center(in);
+  CPatterned::EFlavorType flavor = CPatterned::EFlavorType(in.Get< int >());
+  CTransform4f xf = LoadEditorTransform(in);
+  CVector3f scale(in);
+
+  rstl::pair< bool, uint > pcount = CPatternedInfo::HasCorrectParameterCount(in, "Beetle");
+  if (!pcount.first)
+    return nullptr;
+
+  CPatternedInfo pInfo(in, pcount.second);
+  CActorParameters actParms = LoadActorParameters(in);
+  CDamageInfo touchDamage(in);
+  CVector3f tailAimReference = in.Get< CVector3f >();
+  float unused = in.ReadFloat();
+  CDamageVulnerability tailVuln(in);
+  CDamageVulnerability platingVuln(in);
+  CAssetId tailModel = in.Get< CAssetId >();
+  CBeetle::EEntranceType entranceType = CBeetle::EEntranceType(in.ReadLong());
+  float initialAttackDelay = in.ReadFloat();
+  float retreatTime = in.ReadFloat();
+
+  FourCC animType =
+      gpResourceFactory->GetResourceTypeById(pInfo.GetAnimationParameters().GetACSFile());
+  if (animType != 'ANCS')
+    return nullptr;
+
+  rstl::optional_object< CStaticRes > tailRes;
+  if (flavor == CPatterned::kFT_One) {
+    if (gpResourceFactory->GetResourceTypeById(tailModel) == 0)
+      return nullptr;
+    tailRes = CStaticRes(tailModel, scale);
+  }
+
+  return rs_new CBeetle(
+      mgr.AllocateUniqueId(), name, info, xf,
+      CModelData(CAnimRes(pInfo.GetAnimationParameters().GetACSFile(),
+                          pInfo.GetAnimationParameters().GetCharacter(), scale,
+                          pInfo.GetAnimationParameters().GetInitialAnimation(), true)),
+      pInfo, flavor, entranceType, touchDamage, platingVuln, tailAimReference, initialAttackDelay,
+      retreatTime, unused, tailVuln, actParms, tailRes);
+}
+
+CEntity* ScriptLoader::LoadWarWasp(CStateManager& mgr, CInputStream& in, int propCount,
+                                   const CEntityInfo& info) {
+  if (propCount != 13)
+    return nullptr;
+
+  rstl::string name = mgr.HashInstanceName(in);
+  CPatterned::EFlavorType flavor = CPatterned::EFlavorType(in.Get< int >());
+  CTransform4f xf = LoadEditorTransformPivotOnly(in);
+  CVector3f scale(in);
+
+  rstl::pair< bool, uint > pcount = CPatternedInfo::HasCorrectParameterCount(in, "Warwasp");
+  if (!pcount.first)
+    return nullptr;
+
+  CPatternedInfo pInfo(in, pcount.second);
+  CActorParameters actParms = LoadActorParameters(in);
+  bool collider = in.ReadBool();
+  CDamageInfo damageInfo(in);
+  CAssetId projectileWeapon = in.ReadLong();
+  CDamageInfo projectileDamage(in);
+  CAssetId projectileVisorParticle = in.ReadLong();
+  uint projectileVisorSfx = in.ReadLong();
+
+  FourCC animType =
+      gpResourceFactory->GetResourceTypeById(pInfo.GetAnimationParameters().GetACSFile());
+  if (animType != 'ANCS')
+    return nullptr;
+
+  return rs_new CWarWasp(
+      mgr.AllocateUniqueId(), name, info, xf,
+      CModelData(CAnimRes(pInfo.GetAnimationParameters().GetACSFile(),
+                          pInfo.GetAnimationParameters().GetCharacter(), scale,
+                          pInfo.GetAnimationParameters().GetInitialAnimation(), true)),
+      pInfo, flavor, collider ? CPatterned::kCT_One : CPatterned::kCT_Zero, damageInfo, actParms,
+      projectileWeapon, projectileDamage, projectileVisorParticle, projectileVisorSfx);
+}
+
+CEntity* ScriptLoader::LoadWaypoint(CStateManager& mgr, CInputStream& in, int propCount,
+                                    const CEntityInfo& info) {
+  if (propCount != 13)
+    return nullptr;
+
+  SActorHead aHead(in, mgr);
   bool active = in.Get< bool >();
-  float radius = in.Get< float >();
-  return rs_new CRepulsor(mgr.AllocateUniqueId(), active, name, info, center, radius);
+  float speed = in.ReadFloat();
+  float pause = in.ReadFloat();
+  int patternTranslate = in.Get< int >();
+  int patternOrient = in.Get< int >();
+  int patternFit = in.Get< int >();
+  int behaviour = in.Get< int >();
+  int behaviourOrient = in.Get< int >();
+  int behaviourModifiers = in.Get< int >();
+  uint animation = in.Get< int >();
+
+  return rs_new CScriptWaypoint(mgr.AllocateUniqueId(), aHead.x0_name, info, aHead.x10_transform,
+                                active, speed, pause, patternTranslate, patternOrient, patternFit,
+                                behaviour, behaviourOrient, behaviourModifiers, animation);
+}
+
+CEntity* ScriptLoader::LoadDoor(CStateManager& mgr, CInputStream& in, int propCount,
+                                const CEntityInfo& info) {
+  bool valid = false;
+  if (propCount >= 13 && propCount <= 14)
+    valid = true;
+  if (!valid)
+    return nullptr;
+
+  SScaledActorHead head(in, mgr);
+  CAnimationParameters aParms = LoadAnimationParameters(in);
+  CActorParameters actParms = LoadActorParameters(in);
+  CVector3f orbitPos(in);
+  CVector3f collisionExtent(in);
+  CVector3f offset(in);
+  bool active = in.ReadBool();
+  bool open = in.ReadBool();
+  bool projectilesCollide = in.ReadBool();
+  float animationLength = in.ReadFloat();
+  const CTransform4f& xf = head.x0_actorHead.x10_transform;
+
+  CAABox aabb = GetCollisionBox(mgr, info.GetAreaId(), collisionExtent, offset);
+
+  if (gpResourceFactory->GetResourceTypeById(aParms.GetACSFile()) == 0)
+    return nullptr;
+
+  CModelData mData(
+      CAnimRes(aParms.GetACSFile(), CAnimRes::kDefaultCharIdx, head.x40_scale, 0, false));
+
+  if (collisionExtent == CVector3f::Zero())
+    aabb = mData.GetBounds(xf.GetRotation());
+
+  bool isMorphballDoor = false;
+  if (propCount == 13) {
+    if (mData.GetAnimationData()->GetSelfId() == 0x1f9da858)
+      isMorphballDoor = true;
+  }
+  if (propCount == 14)
+    isMorphballDoor = in.ReadBool();
+
+  return rs_new CScriptDoor(mgr.AllocateUniqueId(), head.x0_actorHead.x0_name, info, xf, mData,
+                            actParms, orbitPos, aabb, active, open, projectilesCollide,
+                            animationLength, isMorphballDoor);
+}
+
+CEntity* ScriptLoader::LoadEffect(CStateManager& mgr, CInputStream& in, int propCount,
+                                  const CEntityInfo& info) {
+  if (propCount != 24)
+    return nullptr;
+
+  SScaledActorHead head(in, mgr);
+  CAssetId partId = in.Get< CAssetId >();
+  CAssetId elscId = in.Get< CAssetId >();
+  bool hotInThermal = in.ReadBool();
+  bool noTimerUnlessAreaOccluded = in.ReadBool();
+  bool rebuildSystemsOnActivate = in.ReadBool();
+  bool active = in.ReadBool();
+
+  if (partId == kInvalidAssetId && elscId == kInvalidAssetId)
+    return nullptr;
+
+  FourCC partType = gpResourceFactory->GetResourceTypeById(partId);
+  FourCC elscType = gpResourceFactory->GetResourceTypeById(elscId);
+  if (partType == 0 && elscType == 0)
+    return nullptr;
+
+  bool useRateInverseCamDist = in.ReadBool();
+  float rateInverseCamDist = in.ReadFloat();
+  float rateInverseCamDistRate = in.ReadFloat();
+  float duration = in.ReadFloat();
+  float durationResetWhileVisible = in.ReadFloat();
+  bool useRateCamDistRange = in.ReadBool();
+  float rateCamDistRangeMin = in.ReadFloat();
+  float rateCamDistRangeMax = in.ReadFloat();
+  float rateCamDistRangeFarRate = in.ReadFloat();
+  bool combatVisorVisible = in.ReadBool();
+  bool thermalVisorVisible = in.ReadBool();
+  bool xrayVisorVisible = in.ReadBool();
+  bool dieWhenSystemsDone = in.ReadBool();
+  CLightParameters lParms = LoadLightParameters(in);
+
+  return rs_new CScriptEffect(
+      mgr.AllocateUniqueId(), head.x0_actorHead.x0_name, info, head.x0_actorHead.x10_transform,
+      head.x40_scale, partId, elscId, hotInThermal, noTimerUnlessAreaOccluded,
+      rebuildSystemsOnActivate, active, useRateInverseCamDist, rateInverseCamDist,
+      rateInverseCamDistRate, duration, durationResetWhileVisible, useRateCamDistRange,
+      rateCamDistRangeMin, rateCamDistRangeMax, rateCamDistRangeFarRate, combatVisorVisible,
+      thermalVisorVisible, xrayVisorVisible, lParms, dieWhenSystemsDone);
 }
 
 CEntity* ScriptLoader::LoadTimer(CStateManager& mgr, CInputStream& in, int propCount,
@@ -843,6 +1141,222 @@ CEntity* ScriptLoader::LoadCounter(CStateManager& mgr, CInputStream& in, int pro
   bool autoReset = in.Get< bool >();
   bool active = in.Get< bool >();
   return rs_new CScriptCounter(mgr.AllocateUniqueId(), name, info, initial, max, autoReset, active);
+}
+
+CEntity* ScriptLoader::LoadGenerator(CStateManager& mgr, CInputStream& in, int propCount,
+                                     const CEntityInfo& info) {
+  if (propCount != 8)
+    return nullptr;
+
+  rstl::string name = mgr.HashInstanceName(in);
+  int spawnCount = in.Get< int >();
+  bool noReuseFollowers = in.ReadBool();
+  bool noInheritXf = in.ReadBool();
+  CVector3f offset(in);
+  bool active = in.Get< bool >();
+  float minScale = in.ReadFloat();
+  float maxScale = in.ReadFloat();
+  return rs_new CScriptGenerator(mgr.AllocateUniqueId(), name, info, spawnCount, noReuseFollowers,
+                                 offset, noInheritXf, active, minScale, maxScale);
+}
+
+CEntity* ScriptLoader::LoadSound(CStateManager& mgr, CInputStream& in, int propCount,
+                                 const CEntityInfo& info) {
+  if (propCount != 20)
+    return nullptr;
+
+  SActorHead head(in, mgr);
+  int soundId = in.Get< int >();
+  bool active = in.Get< bool >();
+  float maxDist = in.ReadFloat();
+  float distComp = in.ReadFloat();
+  float startDelay = in.ReadFloat();
+  uint minVol = in.Get< uint >();
+  uint vol = in.Get< uint >();
+  uint prio = in.Get< uint >();
+  uint pan = in.Get< uint >();
+  bool looped = in.Get< bool >();
+  bool nonEmitter = in.Get< bool >();
+  bool autoStart = in.Get< bool >();
+  bool occlusionTest = in.Get< bool >();
+  bool acoustics = in.Get< bool >();
+  bool worldSfx = in.Get< bool >();
+  bool allowDuplicates = in.Get< bool >();
+  int pitch = in.Get< int >();
+
+  if (soundId < 0)
+    return nullptr;
+
+  return rs_new CScriptSound(mgr.AllocateUniqueId(), head.x0_name, info, head.x10_transform,
+                             static_cast< ushort >(soundId), active, maxDist, distComp, startDelay,
+                             minVol, vol, 0, prio, pan, 0, looped, nonEmitter, autoStart,
+                             occlusionTest, acoustics, worldSfx, allowDuplicates, pitch);
+}
+
+CEntity* ScriptLoader::LoadPlatform(CStateManager& mgr, CInputStream& in, int propCount,
+                                    const CEntityInfo& info) {
+  if (propCount != 19)
+    return nullptr;
+
+  SScaledActorHead head(in, mgr);
+  CVector3f extent(in);
+  CVector3f centroid(in);
+  CAssetId staticId = in.ReadLong();
+  CAnimationParameters aParms = LoadAnimationParameters(in);
+  CActorParameters actParms = LoadActorParameters(in);
+  float speed = in.ReadFloat();
+  bool active = in.ReadBool();
+  CAssetId dclnId = in.ReadLong();
+  CHealthInfo hInfo(in);
+  CDamageVulnerability dVuln(in);
+  bool detectCollision = in.ReadBool();
+  float xrayAlpha = in.ReadFloat();
+  bool rainSplashes = in.ReadBool();
+  uint maxRainSplashes = in.ReadLong();
+  uint rainGenRate = in.ReadLong();
+
+  FourCC staticType = gpResourceFactory->GetResourceTypeById(staticId);
+  FourCC animType = gpResourceFactory->GetResourceTypeById(aParms.GetACSFile());
+  if (staticType == 0 && animType == 0)
+    return nullptr;
+
+  const CTransform4f& xf = head.x0_actorHead.x10_transform;
+  CAABox aabb = GetCollisionBox(mgr, info.GetAreaId(), extent, centroid);
+
+  FourCC dclnType = gpResourceFactory->GetResourceTypeById(dclnId);
+  rstl::optional_object< TLockedToken< CCollidableOBBTreeGroupContainer > > dclnToken;
+  if (dclnType != 0) {
+    dclnToken = TLockedToken< CCollidableOBBTreeGroupContainer >(
+        gpSimplePool->GetObj(SObjectTag('DCLN', dclnId)));
+  }
+
+  CModelData data(CModelData::CModelDataNull());
+  if (animType == 'ANCS') {
+    data = CModelData(CAnimRes(aParms.GetACSFile(), CAnimRes::kDefaultCharIdx, head.x40_scale,
+                               aParms.GetInitialAnimation(), true));
+  } else {
+    data = CModelData(CStaticRes(staticId, head.x40_scale));
+  }
+
+  if (extent == CVector3f::Zero())
+    aabb = data.GetBounds(xf.GetRotation());
+
+  return rs_new CScriptPlatform(mgr.AllocateUniqueId(), head.x0_actorHead.x0_name, info, xf, data,
+                                actParms, aabb, speed, detectCollision, xrayAlpha, active, hInfo,
+                                dVuln, dclnToken, rainSplashes, maxRainSplashes, rainGenRate);
+}
+
+CEntity* ScriptLoader::LoadCameraWaypoint(CStateManager& mgr, CInputStream& in, int propCount,
+                                          const CEntityInfo& info) {
+  if (propCount != 6)
+    return nullptr;
+
+  SActorHead aHead(in, mgr);
+  bool active = in.Get< bool >();
+  float hfov = in.ReadFloat();
+  uint w1 = in.Get< uint >();
+  return rs_new CScriptCameraWaypoint(mgr.AllocateUniqueId(), aHead.x0_name, info,
+                                      aHead.x10_transform, active, hfov, w1);
+}
+
+CEntity* ScriptLoader::LoadCamera(CStateManager& mgr, CInputStream& in, int propCount,
+                                  const CEntityInfo& info) {
+  bool valid = false;
+  if (propCount >= 14 && propCount <= 15)
+    valid = true;
+  if (!valid)
+    return nullptr;
+
+  SActorHead aHead(in, mgr);
+  bool active = in.Get< bool >();
+  float shotDuration = in.ReadFloat();
+  bool lookAtPlayer = in.Get< bool >();
+  bool outOfPlayerEye = in.Get< bool >();
+  bool intoPlayerEye = in.Get< bool >();
+  bool drawPlayer = in.Get< bool >();
+  bool disableInput = in.Get< bool >();
+  bool b7 = in.Get< bool >();
+  bool finishCineSkip = in.Get< bool >();
+  float fov = in.ReadFloat();
+  bool checkFailsafe = in.Get< bool >();
+  bool disableOutOfInto;
+  if (propCount > 14)
+    disableOutOfInto = in.Get< bool >();
+  else
+    disableOutOfInto = false;
+  float nearPlane = CCameraManager::GetDefaultFirstPersonNearClipDistance();
+  float farPlane = CCameraManager::GetDefaultFirstPersonFarClipDistance();
+  float aspect = CCameraManager::GetDefaultAspectRatio();
+  uint flags = (lookAtPlayer ? 1u : 0u) | (outOfPlayerEye ? 2u : 0u) | (intoPlayerEye ? 4u : 0u) |
+               (b7 ? 8u : 0u) | (finishCineSkip ? 0x10u : 0u) | (disableInput ? 0x20u : 0u) |
+               (drawPlayer ? 0x40u : 0u) | (checkFailsafe ? 0x80u : 0u) |
+               (disableOutOfInto ? 0x200u : 0u);
+  return rs_new CCinematicCamera(mgr.AllocateUniqueId(), aHead.x0_name, info, aHead.x10_transform,
+                                 active, shotDuration, fov / aspect, nearPlane, farPlane, aspect,
+                                 flags);
+}
+
+CEntity* ScriptLoader::LoadPathCamera(CStateManager& mgr, CInputStream& in, int propCount,
+                                      const CEntityInfo& info) {
+  if (propCount > 15)
+    return nullptr;
+
+  SActorHead aHead(in, mgr);
+  bool active = in.Get< bool >();
+  uint flags = LoadParameterFlags(in);
+  float lengthExtent = in.ReadFloat();
+  float filterMag = in.ReadFloat();
+  float filterProportion = in.ReadFloat();
+  CPathCamera::EInitialSplinePosition initPos = CPathCamera::EInitialSplinePosition(in.ReadLong());
+  float minEaseDist = in.ReadFloat();
+  float maxEaseDist = in.ReadFloat();
+  return rs_new CPathCamera(mgr.AllocateUniqueId(), aHead.x0_name, info, aHead.x10_transform,
+                            active, lengthExtent, filterMag, filterProportion, minEaseDist,
+                            maxEaseDist, flags, initPos);
+}
+
+CEntity* ScriptLoader::LoadSpindleCamera(CStateManager& mgr, CInputStream& in, int propCount,
+                                         const CEntityInfo& info) {
+  if (propCount != 24)
+    return nullptr;
+
+  SActorHead aHead(in, mgr);
+  bool active = in.Get< bool >();
+  uint flags = LoadParameterFlags(in);
+  float hintToCamDistMin = in.ReadFloat();
+  float hintToCamDistMax = in.ReadFloat();
+  float hintToCamVOffMin = in.ReadFloat();
+  float hintToCamVOffMax = in.ReadFloat();
+
+  SSpindleSegment seg1 = LoadSpindleSegment(in);
+  seg1.FixupAngles();
+  SSpindleSegment seg2 = LoadSpindleSegment(in);
+  SSpindleSegment seg3 = LoadSpindleSegment(in);
+  SSpindleSegment seg4 = LoadSpindleSegment(in);
+  SSpindleSegment seg5 = LoadSpindleSegment(in);
+  seg5.FixupAngles();
+  SSpindleSegment seg6 = LoadSpindleSegment(in);
+  seg6.FixupAngles();
+  SSpindleSegment seg7 = LoadSpindleSegment(in);
+  seg7.FixupAngles();
+  SSpindleSegment seg8 = LoadSpindleSegment(in);
+  seg8.FixupAngles();
+  SSpindleSegment seg9 = LoadSpindleSegment(in);
+  SSpindleSegment seg10 = LoadSpindleSegment(in);
+  SSpindleSegment seg11 = LoadSpindleSegment(in);
+  seg11.FixupAngles();
+  SSpindleSegment seg12 = LoadSpindleSegment(in);
+  seg12.FixupAngles();
+  SSpindleSegment seg13 = LoadSpindleSegment(in);
+  seg13.FixupAngles();
+  SSpindleSegment seg14 = LoadSpindleSegment(in);
+  SSpindleSegment seg15 = LoadSpindleSegment(in);
+  seg15.FixupAngles();
+
+  return rs_new CScriptSpindleCamera(
+      mgr.AllocateUniqueId(), aHead.x0_name, info, aHead.x10_transform, active, flags,
+      hintToCamDistMin, hintToCamDistMax, hintToCamVOffMin, hintToCamVOffMax, seg1, seg2, seg3,
+      seg4, seg5, seg6, seg7, seg8, seg9, seg10, seg11, seg12, seg13, seg14, seg15);
 }
 
 CEntity* ScriptLoader::LoadRelay(CStateManager& mgr, CInputStream& in, int propCount,
@@ -876,45 +1390,254 @@ CEntity* ScriptLoader::LoadRandomRelay(CStateManager& mgr, CInputStream& in, int
                                    percentSize, active);
 }
 
-CEntity* ScriptLoader::LoadSwitch(CStateManager& mgr, CInputStream& in, int propCount,
-                                  const CEntityInfo& info) {
-  if (propCount != 4)
+CEntity* ScriptLoader::LoadFaultyRelay(CStateManager& mgr, CInputStream& in, int propCount,
+                                       const CEntityInfo& info) {
+  bool valid = propCount >= 2 && propCount <= 3;
+  if (!valid)
     return nullptr;
 
   rstl::string name = mgr.HashInstanceName(in);
-  bool active = in.Get< bool >();
-  bool b2 = in.Get< bool >();
-  bool b3 = in.Get< bool >();
-  return rs_new CScriptSwitch(mgr.AllocateUniqueId(), name, info, active, b2, b3);
+  if (propCount >= 3)
+    in.ReadLong();
+  bool active = in.ReadBool();
+  return rs_new CScriptRelay(mgr.AllocateUniqueId(), name, info, active);
 }
 
-CEntity* ScriptLoader::LoadPlayerStateChange(CStateManager& mgr, CInputStream& in, int propCount,
-                                             const CEntityInfo& info) {
+CEntity* ScriptLoader::LoadHUDMemo(CStateManager& mgr, CInputStream& in, int propCount,
+                                   const CEntityInfo& info) {
+  bool isPropCount5 = false;
+  if (propCount == 5)
+    isPropCount5 = true;
+  else if (propCount != 6)
+    return nullptr;
+
+  rstl::string name = mgr.HashInstanceName(in);
+  CHUDMemoParms hParms(in);
+  CScriptHUDMemo::EDisplayType displayType;
+  if (isPropCount5)
+    displayType = CScriptHUDMemo::kDT_MessageBox;
+  else
+    displayType = CScriptHUDMemo::EDisplayType(in.ReadLong());
+  CAssetId message = in.Get< CAssetId >();
+  bool active = in.Get< bool >();
+  return rs_new CScriptHUDMemo(mgr.AllocateUniqueId(), name, info, hParms, displayType, message,
+                               active);
+}
+
+CEntity* ScriptLoader::LoadCameraFilterKeyframe(CStateManager& mgr, CInputStream& in, int propCount,
+                                                const CEntityInfo& info) {
+  if (propCount != 10)
+    return nullptr;
+
+  rstl::string name = mgr.HashInstanceName(in);
+  bool active = in.ReadBool();
+  int ftype = in.Get< int >();
+  int shape = in.Get< int >();
+  int filterIdx = in.Get< int >();
+  int unk = in.Get< int >();
+  CColor color(in);
+  float timeIn = in.ReadFloat();
+  float timeOut = in.ReadFloat();
+  CAssetId txtr = in.ReadLong();
+  return rs_new CScriptCameraFilterKeyframe(
+      mgr.AllocateUniqueId(), name, info, CCameraFilterPass::EFilterType(ftype),
+      CCameraFilterPass::EFilterShape(shape), CStateManager::ECameraFilterStage(filterIdx), unk,
+      color.GetRed(), color.GetGreen(), color.GetBlue(), color.GetAlpha(), timeIn, timeOut, txtr,
+      active);
+}
+
+CEntity* ScriptLoader::LoadCameraBlurKeyframe(CStateManager& mgr, CInputStream& in, int propCount,
+                                              const CEntityInfo& info) {
   if (propCount != 7)
     return nullptr;
 
   rstl::string name = mgr.HashInstanceName(in);
   bool active = in.Get< bool >();
-  int itemType = in.Get< int >();
-  int itemCount = in.Get< int >();
-  int itemCapacity = in.Get< int >();
-  int ctrl = in.Get< int >();
-  int ctrlCmdOpt = in.Get< int >();
-  return rs_new CScriptPlayerStateChange(
-      mgr.AllocateUniqueId(), name, info, active, itemType, itemCount, itemCapacity,
-      CScriptPlayerStateChange::EControl(ctrl),
-      CScriptPlayerStateChange::EControlCommandOption(ctrlCmdOpt));
+  int type = in.Get< int >();
+  float amount = in.ReadFloat();
+  int unk = in.Get< int >();
+  float timeIn = in.ReadFloat();
+  float timeOut = in.ReadFloat();
+  return rs_new CScriptCameraBlurKeyframe(mgr.AllocateUniqueId(), name, info,
+                                          CCameraBlurPass::EBlurType(type), amount, unk, timeIn,
+                                          timeOut, active);
 }
 
-CEntity* ScriptLoader::LoadDockAreaChange(CStateManager& mgr, CInputStream& in, int propCount,
+CEntity* ScriptLoader::LoadDebrisExtended(CStateManager& mgr, CInputStream& in, int propCount,
                                           const CEntityInfo& info) {
-  if (propCount != 3)
+  if (propCount != 0x27)
+    return nullptr;
+
+  SScaledActorHead head(in, mgr);
+
+  float linConeAngle = in.ReadFloat();
+  float linMinMag = in.ReadFloat();
+  float linMaxMag = in.ReadFloat();
+  float angMinMag = in.ReadFloat();
+  float angMaxMag = in.ReadFloat();
+  float minDuration = in.ReadFloat();
+  float maxDuration = in.ReadFloat();
+  float colorInT = in.ReadFloat();
+  float colorOutT = in.ReadFloat();
+  CColor color(in);
+  CColor endsColor(in);
+  float scaleOutStartT = in.ReadFloat();
+  CVector3f endScale(in);
+  float restitution = in.ReadFloat();
+  float zImpulse = in.ReadFloat();
+  CVector3f localOffset(in);
+
+  CAssetId model = in.Get< CAssetId >();
+  CActorParameters aParams = LoadActorParameters(in);
+
+  CAssetId particle0 = in.Get< CAssetId >();
+  CVector3f particle1Scale(in);
+  bool particle1GlobalTranslation = in.Get< bool >();
+  bool deferDeleteTillParticle1Done = in.Get< bool >();
+  CScriptDebris::EOrientationType particleOr0 = CScriptDebris::EOrientationType(in.Get< int >());
+  CAssetId particle1 = in.Get< CAssetId >();
+  CVector3f particle2Scale(in);
+  bool particle2GlobalTranslation = in.Get< bool >();
+  bool deferDeleteTillParticle2Done = in.Get< bool >();
+  CScriptDebris::EOrientationType particleOr1 = CScriptDebris::EOrientationType(in.Get< int >());
+  CAssetId particle2 = in.Get< CAssetId >();
+  CVector3f particle3Scale(in);
+  CScriptDebris::EOrientationType particleOr2 = CScriptDebris::EOrientationType(in.Get< int >());
+  bool randomAngImpulse = in.Get< bool >();
+  bool dieOnProjectile = in.Get< bool >();
+  bool noBounce = in.Get< bool >();
+  bool active = in.Get< bool >();
+
+  uint resType = gpResourceFactory->GetResourceTypeById(model);
+
+  return rs_new CScriptDebris(
+      mgr.AllocateUniqueId(), head.x0_actorHead.x0_name, info, head.x0_actorHead.x10_transform,
+      resType != 0 ? CModelData(CStaticRes(model, head.x40_scale)) : CModelData::CModelDataNull(),
+      aParams, linConeAngle, linMinMag, linMaxMag, angMinMag, angMaxMag, minDuration, maxDuration,
+      colorInT, colorOutT, color, endsColor, scaleOutStartT, head.x40_scale, endScale, restitution,
+      zImpulse, localOffset, particle0, particle1Scale, particle1GlobalTranslation,
+      deferDeleteTillParticle1Done, particleOr0, particle1, particle2Scale,
+      particle2GlobalTranslation, deferDeleteTillParticle2Done, particleOr1, particle2,
+      particle2Scale, particleOr2, randomAngImpulse, dieOnProjectile, noBounce, active);
+}
+
+CEntity* ScriptLoader::LoadDebris(CStateManager& mgr, CInputStream& in, int propCount,
+                                  const CEntityInfo& info) {
+  if (propCount != 0x12)
+    return nullptr;
+
+  SScaledActorHead head(in, mgr);
+
+  float zImpulse = in.ReadFloat();
+  CVector3f velocity(in);
+  CColor endsColor(in);
+  float duration = in.ReadFloat();
+  float restitution = in.ReadFloat();
+  float scaleOutStartT = in.ReadFloat();
+  CScriptDebris::EScaleType scaleType = CScriptDebris::EScaleType(in.Get< int >());
+  bool dieOnProjectile = in.Get< bool >();
+  CAssetId model = in.Get< CAssetId >();
+  CActorParameters aParams = LoadActorParameters(in);
+  CAssetId particleId = in.Get< CAssetId >();
+  CVector3f particleScale(in);
+  bool randomAngImpulse = in.Get< bool >();
+  bool noBounce = in.Get< bool >();
+
+  if (gpResourceFactory->GetResourceTypeById(model) == 0)
+    return nullptr;
+
+  return rs_new CScriptDebris(
+      mgr.AllocateUniqueId(), head.x0_actorHead.x0_name, info, head.x0_actorHead.x10_transform,
+      CModelData(CStaticRes(model, head.x40_scale)), aParams, particleId, particleScale, zImpulse,
+      velocity, endsColor, duration, restitution, scaleOutStartT, scaleType, randomAngImpulse,
+      dieOnProjectile, noBounce);
+}
+
+CEntity* ScriptLoader::LoadCameraShaker(CStateManager& mgr, CInputStream& in, int propCount,
+                                        const CEntityInfo& info) {
+  if (propCount != 9)
     return nullptr;
 
   rstl::string name = mgr.HashInstanceName(in);
-  int dock = in.Get< int >();
+  CCameraShakeData shakeData = LoadCameraShakeData(in);
   bool active = in.Get< bool >();
-  return rs_new CScriptDockAreaChange(mgr.AllocateUniqueId(), name, info, dock, active);
+  return rs_new CScriptCameraShaker(mgr.AllocateUniqueId(), name, info, active, shakeData);
+}
+
+CEntity* ScriptLoader::LoadNewCameraShaker(CStateManager& mgr, CInputStream& in, int propCount,
+                                           const CEntityInfo& info) {
+  if (propCount != 8)
+    return nullptr;
+
+  rstl::string name = mgr.HashInstanceName(in);
+  CVector3f sfxPos(in);
+  bool active = in.Get< bool >();
+  int flags = LoadParameterFlags(in);
+  float duration = in.ReadFloat();
+  float sfxDist = in.ReadFloat();
+  CCameraShakerComponent shakerX = LoadNewCameraShakerComponent(in);
+  CCameraShakerComponent shakerY = LoadNewCameraShakerComponent(in);
+  CCameraShakerComponent shakerZ = LoadNewCameraShakerComponent(in);
+
+  CCameraShakeData shakeData(duration, sfxDist, flags, sfxPos, shakerX, shakerY, shakerZ);
+
+  return rs_new CScriptCameraShaker(mgr.AllocateUniqueId(), name, info, active, shakeData);
+}
+
+CEntity* ScriptLoader::LoadActorKeyframe(CStateManager& mgr, CInputStream& in, int propCount,
+                                         const CEntityInfo& info) {
+  if (propCount != 7)
+    return nullptr;
+
+  rstl::string name = mgr.HashInstanceName(in);
+  int animId = in.Get< int >();
+  bool looping = in.Get< bool >();
+  float lifetime = in.ReadFloat();
+  bool active = in.Get< bool >();
+  int fadeOut = in.Get< int >();
+  float totalPlayback = in.ReadFloat();
+
+  if (animId == -1) {
+    rstl::string msg =
+        rstl::string_l("ERROR: Actor/Ai keyframe \'") + name +
+        rstl::string_l("\' not loaded because it has no valid animation selected.\n");
+    return nullptr;
+  }
+
+  return rs_new CScriptActorKeyframe(mgr.AllocateUniqueId(), name, info, animId, looping, lifetime,
+                                     false, fadeOut, active, totalPlayback);
+}
+
+CEntity* ScriptLoader::LoadAIKeyframe(CStateManager& mgr, CInputStream& in, int propCount,
+                                      const CEntityInfo& info) {
+  CScriptActorKeyframe* kf =
+      static_cast< CScriptActorKeyframe* >(LoadActorKeyframe(mgr, in, propCount, info));
+  if (kf != nullptr)
+    kf->SetIsPassive(true);
+  return kf;
+}
+
+CEntity* ScriptLoader::LoadColorModulate(CStateManager& mgr, CInputStream& in, int propCount,
+                                         const CEntityInfo& info) {
+  if (propCount != 12)
+    return nullptr;
+
+  rstl::string name = mgr.HashInstanceName(in);
+  CColor colorA(in);
+  CColor colorB(in);
+  int blendMode = in.Get< int >();
+  float timeA2B = in.ReadFloat();
+  float timeB2A = in.ReadFloat();
+  bool doReverse = in.ReadBool();
+  bool resetTargetWhenDone = in.Get< bool >();
+  bool depthCompare = in.Get< bool >();
+  bool depthUpdate = in.Get< bool >();
+  bool depthBackwards = in.Get< bool >();
+  bool active = in.Get< bool >();
+  return rs_new CScriptColorModulate(mgr.AllocateUniqueId(), name, info, colorA, colorB,
+                                     CScriptColorModulate::EBlendMode(blendMode), timeA2B, timeB2A,
+                                     doReverse, resetTargetWhenDone, depthCompare, depthUpdate,
+                                     depthBackwards, active);
 }
 
 CEntity* ScriptLoader::LoadActorRotate(CStateManager& mgr, CInputStream& in, int propCount,
@@ -932,27 +1655,143 @@ CEntity* ScriptLoader::LoadActorRotate(CStateManager& mgr, CInputStream& in, int
                                    updateActors, updateOnCreation, active);
 }
 
-CEntity* ScriptLoader::LoadTargetingPoint(CStateManager& mgr, CInputStream& in, int propCount,
-                                          const CEntityInfo& info) {
-  if (propCount != 4)
+CEntity* ScriptLoader::LoadSpecialFunction(CStateManager& mgr, CInputStream& in, int propCount,
+                                           const CEntityInfo& info) {
+  if (propCount != 15)
+    return nullptr;
+
+  SActorHead head(in, mgr);
+  CScriptSpecialFunction::ESpecialFunction specialFunction =
+      CScriptSpecialFunction::ESpecialFunction(in.ReadLong());
+  rstl::string str(in);
+  float f1 = in.ReadFloat();
+  float f2 = in.ReadFloat();
+  float f3 = in.ReadFloat();
+  int w2 = in.ReadLong();
+  int w3 = in.ReadLong();
+  CPlayerState::EItemType w4 = CPlayerState::EItemType(in.ReadLong());
+  const bool active = in.ReadBool();
+  float f4 = in.ReadFloat();
+  int w5 = in.ReadLong() & 0xFFFF;
+  int w6 = in.ReadLong() & 0xFFFF;
+  int w7 = in.ReadLong() & 0xFFFF;
+
+  if (specialFunction == CScriptSpecialFunction::kSF_FogVolume)
+    return nullptr;
+  if (specialFunction == CScriptSpecialFunction::kSF_RadialDamage)
+    return nullptr;
+
+  return rs_new CScriptSpecialFunction(
+      mgr.AllocateUniqueId(), head.x0_name, info, head.x10_transform, specialFunction, str, f1, f2,
+      f3, f4, CVector3f::Zero(), CColor::Black(), active, CDamageInfo(), w2, w3, w4, w5, w6, w7);
+}
+
+CEntity* ScriptLoader::LoadFogVolume(CStateManager& mgr, CInputStream& in, int propCount,
+                                     const CEntityInfo& info) {
+  if (propCount != 7)
+    return nullptr;
+
+  rstl::string name = mgr.HashInstanceName(in);
+  CVector3f center(in);
+  CVector3f volume(in);
+  float flickerSpeed = in.ReadFloat();
+  float f2 = in.ReadFloat();
+  CColor fogColor(in);
+  bool active = in.ReadBool();
+
+  volume[kDX] = CMath::AbsF(volume[kDX]) * 0.5f;
+  volume[kDY] = CMath::AbsF(volume[kDY]) * 0.5f;
+  volume[kDZ] = CMath::AbsF(volume[kDZ]) * 0.5f;
+
+  return rs_new CScriptSpecialFunction(
+      mgr.AllocateUniqueId(), name, info,
+      ConvertEditorEulerToTransform4f(CVector3f::Zero(), center),
+      CScriptSpecialFunction::kSF_FogVolume, rstl::string_l(""), flickerSpeed, f2, 0.f, 0.f, volume,
+      fogColor, active, CDamageInfo(), -1, -1, CPlayerState::kIT_Invalid,
+      CSfxManager::kInternalInvalidSfxId, CSfxManager::kInternalInvalidSfxId,
+      CSfxManager::kInternalInvalidSfxId);
+}
+
+CEntity* ScriptLoader::LoadMapStation(CStateManager& mgr, CInputStream& in, int propCount,
+                                      const CEntityInfo& info) {
+  return nullptr;
+}
+
+CEntity* ScriptLoader::LoadSpacePirate(CStateManager& mgr, CInputStream& in, int propCount,
+                                       const CEntityInfo& info) {
+  if (propCount < static_cast< int >(CSpacePirate::GetNumProperties()))
+    return nullptr;
+
+  SScaledActorHead head(in, mgr);
+
+  rstl::pair< bool, uint > pcount = CPatternedInfo::HasCorrectParameterCount(in, "Space Pirate");
+  if (!pcount.first)
+    return nullptr;
+
+  CPatternedInfo pInfo(in, pcount.second);
+  CActorParameters actParms = LoadActorParameters(in);
+
+  if (gpResourceFactory->GetResourceTypeById(pInfo.GetAnimationParameters().GetACSFile()) !=
+      'ANCS') {
+    return nullptr;
+  }
+
+  if (static_cast< int >(pInfo.GetAnimationParameters().GetCharacter()) == 0) {
+    rstl::string msg = rstl::string_l("Space pirate <") + head.x0_actorHead.x0_name +
+                       rstl::string_l("> has AnimationInformation property with invalid character "
+                                      "selected.\n");
+    pInfo.GetAnimationParameters().SetCharacter(2);
+  }
+
+  return rs_new CSpacePirate(
+      mgr.AllocateUniqueId(), head.x0_actorHead.x0_name, info, head.x0_actorHead.x10_transform,
+      CModelData(CAnimRes(pInfo.GetAnimationParameters().GetACSFile(),
+                          pInfo.GetAnimationParameters().GetCharacter(), head.x40_scale,
+                          pInfo.GetAnimationParameters().GetInitialAnimation(), true)),
+      actParms, pInfo, in, propCount);
+}
+
+CEntity* ScriptLoader::LoadFlyingPirate(CStateManager& mgr, CInputStream& in, int propCount,
+                                        const CEntityInfo& info) {
+  if (propCount < static_cast< int >(CFlyingPirate::GetNumProperties()))
+    return nullptr;
+
+  SScaledActorHead head(in, mgr);
+
+  rstl::pair< bool, uint > pcount = CPatternedInfo::HasCorrectParameterCount(in, "FlyingPirate");
+  if (!pcount.first)
+    return nullptr;
+
+  CPatternedInfo pInfo(in, pcount.second);
+  CActorParameters actParms = LoadActorParameters(in);
+
+  if (gpResourceFactory->GetResourceTypeById(pInfo.GetAnimationParameters().GetACSFile()) !=
+      'ANCS') {
+    return nullptr;
+  }
+
+  return rs_new CFlyingPirate(
+      mgr.AllocateUniqueId(), head.x0_actorHead.x0_name, info, head.x0_actorHead.x10_transform,
+      CModelData(CAnimRes(pInfo.GetAnimationParameters().GetACSFile(),
+                          pInfo.GetAnimationParameters().GetCharacter(), head.x40_scale,
+                          pInfo.GetAnimationParameters().GetInitialAnimation(), true)),
+      actParms, pInfo, in, propCount);
+}
+
+CEntity* ScriptLoader::LoadCoverPoint(CStateManager& mgr, CInputStream& in, int propCount,
+                                      const CEntityInfo& info) {
+  if (propCount != 9)
     return nullptr;
 
   SActorHead aHead(in, mgr);
   bool active = in.Get< bool >();
-  return rs_new CScriptTargetingPoint(mgr.AllocateUniqueId(), aHead.x0_name, info,
-                                      aHead.x10_transform, active);
-}
-
-CEntity* ScriptLoader::LoadPickupGenerator(CStateManager& mgr, CInputStream& in, int propCount,
-                                           const CEntityInfo& info) {
-  if (propCount != 4)
-    return nullptr;
-
-  rstl::string name = mgr.HashInstanceName(in);
-  CVector3f pos(in);
-  bool active = in.Get< bool >();
-  float frequency = in.Get< float >();
-  return rs_new CScriptPickupGenerator(mgr.AllocateUniqueId(), name, info, pos, frequency, active);
+  uint flags = in.Get< uint >();
+  bool crouch = in.Get< bool >();
+  float horizontalAngle = in.ReadFloat();
+  float verticalAngle = in.ReadFloat();
+  float coverTime = in.ReadFloat();
+  return rs_new CScriptCoverPoint(mgr.AllocateUniqueId(), aHead.x0_name, info, aHead.x10_transform,
+                                  active, flags, crouch, horizontalAngle, verticalAngle, coverTime);
 }
 
 CEntity* ScriptLoader::LoadAiJumpPoint(CStateManager& mgr, CInputStream& in, int propCount,
@@ -967,15 +1806,204 @@ CEntity* ScriptLoader::LoadAiJumpPoint(CStateManager& mgr, CInputStream& in, int
                                    active, apex);
 }
 
-CEntity* ScriptLoader::LoadDebugCameraWaypoint(CStateManager& mgr, CInputStream& in, int propCount,
-                                               const CEntityInfo& info) {
-  if (propCount != 4)
+CEntity* ScriptLoader::LoadSpiderBallWaypoint(CStateManager& mgr, CInputStream& in, int propCount,
+                                              const CEntityInfo& info) {
+  if (propCount != 5)
     return nullptr;
 
   SActorHead aHead(in, mgr);
+  bool active = in.ReadBool();
   uint w1 = in.Get< uint >();
-  return rs_new CScriptDebugCameraWaypoint(mgr.AllocateUniqueId(), aHead.x0_name, info,
-                                           aHead.x10_transform, w1);
+  return rs_new CScriptSpiderBallWaypoint(mgr.AllocateUniqueId(), aHead.x0_name, info,
+                                          aHead.x10_transform, active, w1);
+}
+
+CEntity* ScriptLoader::LoadBloodFlower(CStateManager& mgr, CInputStream& in, int propCount,
+                                       const CEntityInfo& info) {
+  if (propCount != 18)
+    return nullptr;
+
+  SScaledActorHead head(in, mgr);
+
+  rstl::pair< bool, uint > pcount = CPatternedInfo::HasCorrectParameterCount(in, "Blood Flower");
+  if (!pcount.first)
+    return nullptr;
+
+  CPatternedInfo pInfo(in, pcount.second);
+  CActorParameters actParms = LoadActorParameters(in);
+  CAssetId partId1 = in.Get< CAssetId >();
+  CAssetId wpsc1 = in.Get< CAssetId >();
+  CAssetId wpsc2 = in.Get< CAssetId >();
+  CDamageInfo dInfo1(in);
+  CDamageInfo dInfo2(in);
+  CDamageInfo dInfo3(in);
+  CAssetId partId2 = in.Get< CAssetId >();
+  CAssetId partId3 = in.Get< CAssetId >();
+  CAssetId partId4 = in.Get< CAssetId >();
+  float f1 = in.ReadFloat();
+  CAssetId partId5 = in.Get< CAssetId >();
+  uint soundId = in.ReadLong();
+
+  FourCC animType =
+      gpResourceFactory->GetResourceTypeById(pInfo.GetAnimationParameters().GetACSFile());
+  if (animType != 'ANCS')
+    return nullptr;
+
+  return rs_new CBloodFlower(
+      mgr.AllocateUniqueId(), head.x0_actorHead.x0_name, info, head.x0_actorHead.x10_transform,
+      CModelData(CAnimRes(pInfo.GetAnimationParameters().GetACSFile(),
+                          pInfo.GetAnimationParameters().GetCharacter(), head.x40_scale,
+                          pInfo.GetAnimationParameters().GetInitialAnimation(), true)),
+      pInfo, partId1, wpsc1, actParms, wpsc2, dInfo1, dInfo2, dInfo3, partId2, partId3, partId4, f1,
+      partId5, soundId);
+}
+
+CEntity* ScriptLoader::LoadGrapplePoint(CStateManager& mgr, CInputStream& in, int propCount,
+                                        const CEntityInfo& info) {
+  if (propCount != 5)
+    return nullptr;
+
+  rstl::string name = mgr.HashInstanceName(in);
+  CVector3f position(in);
+  CVector3f orientation(in);
+  bool active = in.Get< bool >();
+  CGrappleParameters params = LoadGrappleParameters(in);
+  if (params.GetLockSwingTurn()) {
+    orientation.SetX(0.f);
+    orientation.SetY(0.f);
+  }
+  return rs_new CScriptGrapplePoint(mgr.AllocateUniqueId(), name, info,
+                                    ConvertEditorEulerToTransform4f(orientation, position), active,
+                                    params);
+}
+
+CEntity* ScriptLoader::LoadFlickerBat(CStateManager& mgr, CInputStream& in, int propCount,
+                                      const CEntityInfo& info) {
+  if (propCount != 10)
+    return nullptr;
+
+  rstl::string name = mgr.HashInstanceName(in);
+  int flavor = in.Get< int >();
+  CTransform4f xf = LoadEditorTransform(in);
+  CVector3f scale(in);
+
+  rstl::pair< bool, uint > pcount = CPatternedInfo::HasCorrectParameterCount(in, "FlickerBat");
+  if (!pcount.first)
+    return nullptr;
+
+  CPatternedInfo pInfo(in, pcount.second);
+  CActorParameters actParms = LoadActorParameters(in);
+  bool collider = in.ReadBool();
+  bool excludePlayer = in.ReadBool();
+  bool enableLineOfSight = in.ReadBool();
+
+  FourCC animType =
+      gpResourceFactory->GetResourceTypeById(pInfo.GetAnimationParameters().GetACSFile());
+  if (animType != 'ANCS')
+    return nullptr;
+
+  return rs_new CFlickerBat(
+      mgr.AllocateUniqueId(), name, CPatterned::EFlavorType(flavor), info, xf,
+      CModelData(CAnimRes(pInfo.GetAnimationParameters().GetACSFile(),
+                          pInfo.GetAnimationParameters().GetCharacter(), scale,
+                          pInfo.GetAnimationParameters().GetInitialAnimation(), true)),
+      pInfo, collider ? CPatterned::kCT_One : CPatterned::kCT_Zero, excludePlayer, actParms,
+      enableLineOfSight);
+}
+
+CEntity* ScriptLoader::LoadChozoGhost(CStateManager& mgr, CInputStream& in, int propCount,
+                                      const CEntityInfo& info) {
+  if (propCount != 31)
+    return nullptr;
+
+  SScaledActorHead head(in, mgr);
+
+  rstl::pair< bool, uint > pcount = CPatternedInfo::HasCorrectParameterCount(in, "Chozo Ghost");
+  if (!pcount.first)
+    return nullptr;
+
+  CPatternedInfo pInfo(in, pcount.second);
+  CActorParameters actParms = LoadActorParameters(in);
+  float hearingRadius = in.ReadFloat();
+  float fadeOutDelay = in.ReadFloat();
+  float attackDelay = in.ReadFloat();
+  float freezeTime = in.ReadFloat();
+  CAssetId wpsc1 = in.ReadLong();
+  CDamageInfo dInfo1(in);
+  CAssetId wpsc2 = in.ReadLong();
+  CDamageInfo dInfo2(in);
+  CChozoGhost::CBehaveChance behaveChance1(in);
+  CChozoGhost::CBehaveChance behaveChance2(in);
+  CChozoGhost::CBehaveChance behaveChance3(in);
+  ushort soundImpact = CSfxManager::TranslateSFXID(in.ReadLong());
+  float f5 = in.ReadFloat();
+  ushort sfxFadeIn = CSfxManager::TranslateSFXID(in.ReadLong());
+  ushort sfxFadeOut = CSfxManager::TranslateSFXID(in.ReadLong());
+  uint w1 = in.ReadLong();
+  float f6 = in.ReadFloat();
+  uint w2 = in.ReadLong();
+  float hurlRecoverTime = in.ReadFloat();
+  CAssetId projectileVisor = in.ReadLong();
+  ushort soundProjectileVisor = CSfxManager::TranslateSFXID(in.ReadLong());
+  float f8 = in.ReadFloat();
+  float f9 = in.ReadFloat();
+  uint nearChance = in.ReadLong();
+  uint midChance = in.ReadLong();
+
+  FourCC animType =
+      gpResourceFactory->GetResourceTypeById(pInfo.GetAnimationParameters().GetACSFile());
+  if (animType != 'ANCS')
+    return nullptr;
+
+  return rs_new CChozoGhost(
+      mgr.AllocateUniqueId(), head.x0_actorHead.x0_name, info, head.x0_actorHead.x10_transform,
+      CModelData(CAnimRes(pInfo.GetAnimationParameters().GetACSFile(), CAnimRes::kDefaultCharIdx,
+                          head.x40_scale, pInfo.GetAnimationParameters().GetInitialAnimation(),
+                          true)),
+      actParms, pInfo, hearingRadius, fadeOutDelay, attackDelay, freezeTime, wpsc1, dInfo1, wpsc2,
+      dInfo2, behaveChance3, behaveChance2, behaveChance1, soundImpact, f5, sfxFadeIn, sfxFadeOut,
+      w1, f6, w2, hurlRecoverTime, projectileVisor, soundProjectileVisor, f8, f9, nearChance,
+      midChance);
+}
+
+CEntity* ScriptLoader::LoadPuddleSpore(CStateManager& mgr, CInputStream& in, int propCount,
+                                       const CEntityInfo& info) {
+  if (propCount != 16)
+    return nullptr;
+
+  rstl::string name = mgr.HashInstanceName(in);
+  CPatterned::EFlavorType flavor = CPatterned::EFlavorType(in.ReadLong());
+  CTransform4f xf = LoadEditorTransform(in);
+  CVector3f scale(in);
+
+  rstl::pair< bool, uint > pcount = CPatternedInfo::HasCorrectParameterCount(in, "Puddle Spore");
+  if (!pcount.first)
+    return nullptr;
+
+  CPatternedInfo pInfo(in, pcount.second);
+  CActorParameters actParms = LoadActorParameters(in);
+  bool b1 = in.ReadBool();
+  CAssetId glowFx = in.ReadLong();
+  float f1 = in.ReadFloat();
+  float f2 = in.ReadFloat();
+  float f3 = in.ReadFloat();
+  float f4 = in.ReadFloat();
+  float f5 = in.ReadFloat();
+  CAssetId weapon = in.ReadLong();
+  CDamageInfo dInfo(in);
+
+  FourCC animType =
+      gpResourceFactory->GetResourceTypeById(pInfo.GetAnimationParameters().GetACSFile());
+  if (animType != 'ANCS')
+    return nullptr;
+
+  return rs_new CPuddleSpore(
+      mgr.AllocateUniqueId(), name, flavor, info, xf,
+      CModelData(CAnimRes(pInfo.GetAnimationParameters().GetACSFile(),
+                          pInfo.GetAnimationParameters().GetCharacter(), scale,
+                          pInfo.GetAnimationParameters().GetInitialAnimation(), true)),
+      pInfo, b1 ? CPatterned::kCT_One : CPatterned::kCT_Zero, glowFx, f1, f2, f3, f4, f5, actParms,
+      weapon, dInfo);
 }
 
 CEntity* ScriptLoader::LoadSpiderBallAttractionSurface(CStateManager& mgr, CInputStream& in,
@@ -990,27 +2018,110 @@ CEntity* ScriptLoader::LoadSpiderBallAttractionSurface(CStateManager& mgr, CInpu
       aHead.x40_scale, active);
 }
 
-CEntity* ScriptLoader::LoadAreaAttributes(CStateManager& mgr, CInputStream& in, int propCount,
-                                          const CEntityInfo& info) {
+CEntity* ScriptLoader::LoadDebugCameraWaypoint(CStateManager& mgr, CInputStream& in, int propCount,
+                                               const CEntityInfo& info) {
+  if (propCount != 4)
+    return nullptr;
+
+  SActorHead aHead(in, mgr);
+  uint w1 = in.Get< uint >();
+  return rs_new CScriptDebugCameraWaypoint(mgr.AllocateUniqueId(), aHead.x0_name, info,
+                                           aHead.x10_transform, w1);
+}
+
+CEntity* ScriptLoader::LoadPuddleToadGamma(CStateManager& mgr, CInputStream& in, int propCount,
+                                           const CEntityInfo& info) {
+  if (propCount != 17)
+    return nullptr;
+
+  rstl::string name = mgr.HashInstanceName(in);
+  CPatterned::EFlavorType flavor = CPatterned::EFlavorType(in.ReadLong());
+  CTransform4f xf = LoadEditorTransform(in);
+  CVector3f scale(in);
+
+  rstl::pair< bool, uint > pcount =
+      CPatternedInfo::HasCorrectParameterCount(in, "Gamma Puddle Toad");
+  if (!pcount.first)
+    return nullptr;
+
+  CPatternedInfo pInfo(in, pcount.second);
+  CActorParameters actParms = LoadActorParameters(in);
+  float suckForceMultiplier = in.ReadFloat();
+  float suckAngle = in.ReadFloat();
+  float playerSuckRange = in.ReadFloat();
+  CVector3f localShootDir(in);
+  float playerShootSpeed = in.ReadFloat();
+  float shouldAttackWaitTime = in.ReadFloat();
+  float spotPlayerWaitTime = in.ReadFloat();
+  CDamageInfo playerShootDamage(in);
+  CDamageInfo dInfo2(in);
+  uint dcln = in.ReadLong();
+
+  return rs_new CPuddleToadGamma(
+      mgr.AllocateUniqueId(), name, flavor, info, xf,
+      CModelData(CAnimRes(pInfo.GetAnimationParameters().GetACSFile(),
+                          pInfo.GetAnimationParameters().GetCharacter(), scale,
+                          pInfo.GetAnimationParameters().GetInitialAnimation(), true)),
+      pInfo, actParms, suckForceMultiplier, suckAngle, playerSuckRange, localShootDir,
+      playerShootSpeed, shouldAttackWaitTime, spotPlayerWaitTime, playerShootDamage, dInfo2, dcln);
+}
+
+CEntity* ScriptLoader::LoadFireFlea(CStateManager& mgr, CInputStream& in, int propCount,
+                                    const CEntityInfo& info) {
   if (propCount != 9)
     return nullptr;
 
-  int load = in.ReadLong();
-  if (load != 1)
+  SScaledActorHead head(in, mgr);
+
+  rstl::pair< bool, uint > pcount = CPatternedInfo::HasCorrectParameterCount(in, "FireFlea");
+  if (!pcount.first)
     return nullptr;
 
-  bool showSkybox = in.ReadBool();
-  EEnvFxType fxType = EEnvFxType(in.ReadLong());
-  float envFxDensity = in.ReadFloat();
-  float thermalHeat = in.ReadFloat();
-  float xrayFogDistance = in.ReadFloat();
-  float worldLightingLevel = in.ReadFloat();
-  CAssetId skybox = in.Get< CAssetId >();
-  EPhazonType phazonType = EPhazonType(in.ReadLong());
+  CPatternedInfo pInfo(in, pcount.second);
+  CActorParameters actParms = LoadActorParameters(in);
+  in.ReadBool();
+  in.ReadBool();
+  float f1 = in.ReadFloat();
 
-  return rs_new CScriptAreaAttributes(mgr.AllocateUniqueId(), info, showSkybox, fxType,
-                                      envFxDensity, thermalHeat, xrayFogDistance,
-                                      worldLightingLevel, skybox, phazonType);
+  if (pInfo.GetAnimationParameters().GetACSFile() == kInvalidAssetId)
+    return nullptr;
+
+  return rs_new CFireFlea(
+      mgr.AllocateUniqueId(), head.x0_actorHead.x0_name, info, head.x0_actorHead.x10_transform,
+      CModelData(CAnimRes(pInfo.GetAnimationParameters().GetACSFile(),
+                          pInfo.GetAnimationParameters().GetCharacter(), head.x40_scale,
+                          pInfo.GetAnimationParameters().GetInitialAnimation(), true)),
+      actParms, pInfo, f1);
+}
+
+CEntity* ScriptLoader::LoadSpankWeed(CStateManager& mgr, CInputStream& in, int propCount,
+                                     const CEntityInfo& info) {
+  if (propCount != 11)
+    return nullptr;
+
+  SScaledActorHead head(in, mgr);
+
+  rstl::pair< bool, uint > pcount = CPatternedInfo::HasCorrectParameterCount(in, "SpankWeed");
+  if (!pcount.first)
+    return nullptr;
+
+  CPatternedInfo pInfo(in, pcount.second);
+  CActorParameters actParms = LoadActorParameters(in);
+  in.ReadBool();
+  float maxDetectionRange = in.ReadFloat();
+  float maxHearingRange = in.ReadFloat();
+  float maxSightRange = in.ReadFloat();
+  float hideTime = in.ReadFloat();
+
+  if (pInfo.GetAnimationParameters().GetACSFile() == kInvalidAssetId)
+    return nullptr;
+
+  return rs_new CSpankWeed(
+      mgr.AllocateUniqueId(), head.x0_actorHead.x0_name, info, head.x0_actorHead.x10_transform,
+      CModelData(CAnimRes(pInfo.GetAnimationParameters().GetACSFile(),
+                          pInfo.GetAnimationParameters().GetCharacter(), head.x40_scale,
+                          pInfo.GetAnimationParameters().GetInitialAnimation(), true)),
+      actParms, pInfo, maxDetectionRange, maxHearingRange, maxSightRange, hideTime);
 }
 
 CEntity* ScriptLoader::LoadDistanceFog(CStateManager& mgr, CInputStream& in, int propCount,
@@ -1055,204 +2166,326 @@ CEntity* ScriptLoader::LoadDistanceFog(CStateManager& mgr, CInputStream& in, int
                                    colorDelta, rangeDelta, expl, active, 0.f, 0.f, 0.f, 0.f);
 }
 
-CEntity* ScriptLoader::LoadMazeNode(CStateManager& mgr, CInputStream& in, int propCount,
-                                    const CEntityInfo& info) {
-  if (propCount != 10)
+CEntity* ScriptLoader::LoadAreaAttributes(CStateManager& mgr, CInputStream& in, int propCount,
+                                          const CEntityInfo& info) {
+  if (propCount != 9)
     return nullptr;
 
-  SActorHead aHead(in, mgr);
-  bool active = in.Get< bool >();
-  int col = in.Get< int >();
-  int row = in.Get< int >();
-  int side = in.Get< int >();
-  CVector3f actorPos(in);
-  CVector3f triggerPos(in);
-  CVector3f effectPos(in);
+  int load = in.ReadLong();
+  if (load != 1)
+    return nullptr;
 
-  return rs_new CScriptMazeNode(mgr.AllocateUniqueId(), aHead.x0_name, info, aHead.x10_transform,
-                                active, col, row, side, actorPos, triggerPos, effectPos);
+  bool showSkybox = in.ReadBool();
+  EEnvFxType fxType = EEnvFxType(in.ReadLong());
+  float envFxDensity = in.ReadFloat();
+  float thermalHeat = in.ReadFloat();
+  float xrayFogDistance = in.ReadFloat();
+  float worldLightingLevel = in.ReadFloat();
+  CAssetId skybox = in.Get< CAssetId >();
+  EPhazonType phazonType = EPhazonType(in.Get< int >());
+
+  return rs_new CScriptAreaAttributes(mgr.AllocateUniqueId(), info, showSkybox, fxType,
+                                      envFxDensity, thermalHeat, xrayFogDistance,
+                                      worldLightingLevel, skybox, phazonType);
 }
 
-CEntity* ScriptLoader::LoadWorldLightFader(CStateManager& mgr, CInputStream& in, int propCount,
+CEntity* ScriptLoader::LoadDockAreaChange(CStateManager& mgr, CInputStream& in, int propCount,
+                                          const CEntityInfo& info) {
+  if (propCount != 3)
+    return nullptr;
+
+  rstl::string name = mgr.HashInstanceName(in);
+  int dock = in.Get< int >();
+  bool active = in.Get< bool >();
+  return rs_new CScriptDockAreaChange(mgr.AllocateUniqueId(), name, info, dock, active);
+}
+
+CEntity* ScriptLoader::LoadMetaree(CStateManager& mgr, CInputStream& in, int propCount,
+                                   const CEntityInfo& info) {
+  if (propCount != 12)
+    return nullptr;
+
+  rstl::string name = mgr.HashInstanceName(in);
+  CTransform4f xf = LoadEditorTransform(in);
+  CVector3f scale(in);
+
+  rstl::pair< bool, uint > pcount = CPatternedInfo::HasCorrectParameterCount(in, "Metaree");
+  if (!pcount.first)
+    return nullptr;
+
+  CPatternedInfo pInfo(in, pcount.second);
+  CActorParameters aParms = LoadActorParameters(in);
+  CDamageInfo dInfo(in);
+  float f1 = in.ReadFloat();
+  CVector3f vec(in);
+  float f2 = in.ReadFloat();
+  float f3 = in.ReadFloat();
+
+  FourCC animType =
+      gpResourceFactory->GetResourceTypeById(pInfo.GetAnimationParameters().GetACSFile());
+  if (animType != 'ANCS')
+    return nullptr;
+
+  float f4 = in.ReadFloat();
+
+  return rs_new CMetaree(
+      mgr.AllocateUniqueId(), name, CPatterned::kFT_Zero, info, xf,
+      CModelData(CAnimRes(pInfo.GetAnimationParameters().GetACSFile(),
+                          pInfo.GetAnimationParameters().GetCharacter(), scale,
+                          pInfo.GetAnimationParameters().GetInitialAnimation(), true)),
+      pInfo, dInfo, f1, vec, f2, kBT_Invalid, f3, f4, aParms);
+}
+
+CEntity* ScriptLoader::LoadNewIntroBoss(CStateManager& mgr, CInputStream& in, int propCount,
+                                        const CEntityInfo& info) {
+  if (propCount != 13)
+    return nullptr;
+
+  SScaledActorHead head(in, mgr);
+
+  rstl::pair< bool, uint > pcount = CPatternedInfo::HasCorrectParameterCount(in, "NewIntroBoss");
+  if (!pcount.first)
+    return nullptr;
+
+  CPatternedInfo pInfo(in, pcount.second);
+  CActorParameters actParms = LoadActorParameters(in);
+  float minTurnAngle = in.ReadFloat();
+  CAssetId projectile = in.ReadLong();
+  CDamageInfo dInfo(in);
+  CAssetId beamContactFxId = in.ReadLong();
+  CAssetId beamPulseFxId = in.ReadLong();
+  CAssetId beamTextureId = in.ReadLong();
+  CAssetId beamGlowTextureId = in.ReadLong();
+
+  if (pInfo.GetAnimationParameters().GetACSFile() == kInvalidAssetId)
+    return nullptr;
+
+  return rs_new CNewIntroBoss(
+      mgr.AllocateUniqueId(), head.x0_actorHead.x0_name, info, head.x0_actorHead.x10_transform,
+      CModelData(CAnimRes(pInfo.GetAnimationParameters().GetACSFile(),
+                          pInfo.GetAnimationParameters().GetCharacter(), head.x40_scale,
+                          pInfo.GetAnimationParameters().GetInitialAnimation(), true)),
+      pInfo, actParms, minTurnAngle, projectile, dInfo, beamContactFxId, beamPulseFxId,
+      beamTextureId, beamGlowTextureId);
+}
+
+CEntity* ScriptLoader::LoadFlaahgra(CStateManager& mgr, CInputStream& in, int propCount,
+                                    const CEntityInfo& info) {
+  if (propCount < CFlaahgraData::GetNumProperties())
+    return nullptr;
+
+  SScaledActorHead head(in, mgr);
+
+  rstl::pair< bool, uint > pcount = CPatternedInfo::HasCorrectParameterCount(in, "Flaahgra");
+  if (!pcount.first)
+    return nullptr;
+
+  CPatternedInfo pInfo(in, pcount.second);
+  CActorParameters actParms = LoadActorParameters(in);
+  CFlaahgraData flaahgraData(in, propCount);
+
+  CAnimRes animRes(pInfo.GetAnimationParameters().GetACSFile(),
+                   pInfo.GetAnimationParameters().GetCharacter(), head.x40_scale,
+                   pInfo.GetAnimationParameters().GetInitialAnimation(), true);
+
+  if (pInfo.GetAnimationParameters().GetACSFile() == kInvalidAssetId) {
+    animRes = CAnimRes(flaahgraData.GetAnimationParameters().GetACSFile(),
+                       flaahgraData.GetAnimationParameters().GetCharacter(), head.x40_scale,
+                       flaahgraData.GetAnimationParameters().GetInitialAnimation(), true);
+  }
+
+  if (animRes.GetId() == kInvalidAssetId)
+    return nullptr;
+
+  return rs_new CFlaahgra(mgr.AllocateUniqueId(), head.x0_actorHead.x0_name, info,
+                          head.x0_actorHead.x10_transform, animRes, pInfo, actParms, flaahgraData);
+}
+
+CEntity* ScriptLoader::LoadParasite(CStateManager& mgr, CInputStream& in, int propCount,
+                                    const CEntityInfo& info) {
+  if (propCount != 25)
+    return nullptr;
+
+  rstl::string name = mgr.HashInstanceName(in);
+  CPatterned::EFlavorType flavor = CPatterned::EFlavorType(in.ReadLong());
+  CTransform4f xf = LoadEditorTransform(in);
+  CVector3f scale(in);
+
+  rstl::pair< bool, uint > pcount = CPatternedInfo::HasCorrectParameterCount(in, "Parasite");
+  if (!pcount.first)
+    return nullptr;
+
+  CPatternedInfo pInfo(in, pcount.second);
+  CActorParameters actParms = LoadActorParameters(in);
+
+  float maxTelegraphReactDist = in.ReadFloat();
+  float advanceWpRadius = in.ReadFloat();
+  float f3 = in.ReadFloat();
+  float alignAngVel = in.ReadFloat();
+  float f5 = in.ReadFloat();
+  float stuckTimeThreshold = in.ReadFloat();
+  float collisionCloseMargin = in.ReadFloat();
+  float parasiteSearchRadius = in.ReadFloat();
+  float parasiteSeparationDist = in.ReadFloat();
+  float parasiteSeparationWeight = in.ReadFloat();
+  float parasiteAlignmentWeight = in.ReadFloat();
+  float parasiteCohesionWeight = in.ReadFloat();
+  float destinationSeekWeight = in.ReadFloat();
+  float forwardMoveWeight = in.ReadFloat();
+  float playerSeparationDist = in.ReadFloat();
+  float playerSeparationWeight = in.ReadFloat();
+  float playerObstructionMinDist = in.ReadFloat();
+  bool disableMove = in.ReadBool();
+
+  if (gpResourceFactory->GetResourceTypeById(pInfo.GetAnimationParameters().GetACSFile()) !=
+      'ANCS') {
+    return nullptr;
+  }
+
+  return rs_new CParasite(
+      mgr.AllocateUniqueId(), name, flavor, info, xf,
+      CModelData(CAnimRes(pInfo.GetAnimationParameters().GetACSFile(),
+                          pInfo.GetAnimationParameters().GetCharacter(), scale,
+                          pInfo.GetAnimationParameters().GetInitialAnimation(), true)),
+      pInfo, kBT_WallWalker, maxTelegraphReactDist, advanceWpRadius, f3, alignAngVel, f5,
+      stuckTimeThreshold, collisionCloseMargin, parasiteSearchRadius, parasiteSeparationDist,
+      parasiteSeparationWeight, parasiteAlignmentWeight, parasiteCohesionWeight,
+      destinationSeekWeight, forwardMoveWeight, playerSeparationDist, playerSeparationWeight,
+      playerObstructionMinDist, 0.f, disableMove, CWallWalker::kWT_Parasite,
+      CDamageVulnerability::NormalVulnerabilty(), CDamageInfo(CWeaponMode::Power(), 0.f, 0.f, 0.f),
+      CSfxManager::kInternalInvalidSfxId, CSfxManager::kInternalInvalidSfxId,
+      CSfxManager::kInternalInvalidSfxId, kInvalidAssetId, kInvalidAssetId, 0.f, actParms);
+}
+
+CEntity* ScriptLoader::LoadRipper(CStateManager& mgr, CInputStream& in, int propCount,
+                                  const CEntityInfo& info) {
+  if (propCount != static_cast< int >(CRipper::GetNumProperties()))
+    return nullptr;
+
+  rstl::string name = mgr.HashInstanceName(in);
+  CPatterned::EFlavorType type = CPatterned::EFlavorType(in.Get< int >());
+  CTransform4f xf = LoadEditorTransform(in);
+  CVector3f scale(in);
+
+  rstl::pair< bool, uint > pcount = CPatternedInfo::HasCorrectParameterCount(in, "Ripper");
+  if (!pcount.first)
+    return nullptr;
+
+  CPatternedInfo pInfo(in, pcount.second);
+  CActorParameters actParms = LoadActorParameters(in);
+
+  if (pInfo.GetAnimationParameters().GetACSFile() == kInvalidAssetId)
+    return nullptr;
+
+  CGrappleParameters grappleParms = LoadGrappleParameters(in);
+
+  return rs_new CRipper(
+      mgr.AllocateUniqueId(), name, type, info, xf,
+      CModelData(CAnimRes(pInfo.GetAnimationParameters().GetACSFile(),
+                          pInfo.GetAnimationParameters().GetCharacter(), scale,
+                          pInfo.GetAnimationParameters().GetInitialAnimation(), true)),
+      pInfo, actParms, grappleParms);
+}
+
+CEntity* ScriptLoader::LoadPickupGenerator(CStateManager& mgr, CInputStream& in, int propCount,
                                            const CEntityInfo& info) {
   if (propCount != 4)
     return nullptr;
 
   rstl::string name = mgr.HashInstanceName(in);
+  CVector3f pos(in);
   bool active = in.Get< bool >();
-  float f1 = in.Get< float >();
-  float f2 = in.Get< float >();
-
-  return rs_new CScriptDistanceFog(mgr.AllocateUniqueId(), name, info, kRFM_None, CColor::Black(),
-                                   CVector2f(0.f, 0.f), 0.f, CVector2f(0.f, 0.f), false, active,
-                                   0.f, 0.f, f1, f2);
+  float frequency = in.Get< float >();
+  return rs_new CScriptPickupGenerator(mgr.AllocateUniqueId(), name, info, pos, frequency, active);
 }
 
-CEntity* ScriptLoader::LoadThermalHeatFader(CStateManager& mgr, CInputStream& in, int propCount,
-                                            const CEntityInfo& info) {
-  if (propCount != 4)
+CEntity* ScriptLoader::LoadMetroid(CStateManager& mgr, CInputStream& in, int propCount,
+                                   const CEntityInfo& info) {
+  if (propCount < static_cast< int >(CMetroidData::GetNumProperties()))
     return nullptr;
 
   rstl::string name = mgr.HashInstanceName(in);
-  bool active = in.Get< bool >();
-  float fadedLevel = in.Get< float >();
-  float initialLevel = in.Get< float >();
+  CPatterned::EFlavorType flavor = CPatterned::EFlavorType(in.Get< int >());
+  CTransform4f xf = LoadEditorTransform(in);
+  CVector3f scale(in);
 
-  return rs_new CScriptDistanceFog(mgr.AllocateUniqueId(), name, info, kRFM_None, CColor::Black(),
-                                   CVector2f(0.f, 0.f), 0.f, CVector2f(0.f, 0.f), false, active,
-                                   fadedLevel, initialLevel, 0.f, 0.f);
+  rstl::pair< bool, uint > pcount = CPatternedInfo::HasCorrectParameterCount(in, "Metroid");
+  if (!pcount.first)
+    return nullptr;
+
+  CPatternedInfo pInfo(in, pcount.second);
+  CActorParameters actParms = LoadActorParameters(in);
+  CMetroidData metData(in);
+
+  if (pInfo.GetAnimationParameters().GetACSFile() == kInvalidAssetId)
+    return nullptr;
+
+  if (flavor == CPatterned::kFT_One)
+    return nullptr;
+
+  return rs_new CMetroid(
+      mgr.AllocateUniqueId(), name, flavor, info, xf,
+      CModelData(CAnimRes(pInfo.GetAnimationParameters().GetACSFile(),
+                          pInfo.GetAnimationParameters().GetCharacter(), scale,
+                          pInfo.GetAnimationParameters().GetInitialAnimation(), true)),
+      pInfo, actParms, metData, kInvalidUniqueId);
 }
 
-CEntity* ScriptLoader::LoadRumbleEffect(CStateManager& mgr, CInputStream& in, int propCount,
-                                        const CEntityInfo& info) {
-  if (propCount != 6)
+CEntity* ScriptLoader::LoadMetroidBeta(CStateManager& mgr, CInputStream& in, int propCount,
+                                       const CEntityInfo& info) {
+  if (propCount < CMetroidBetaData::GetNumProperties())
     return nullptr;
 
   rstl::string name = mgr.HashInstanceName(in);
-  CVector3f position(in);
-  bool active = in.Get< bool >();
-  float f1 = in.Get< float >();
-  int w1 = in.Get< int >();
-  uint pFlags = LoadParameterFlags(in);
+  CTransform4f xf = LoadEditorTransform(in);
+  CVector3f scale(in);
 
-  return rs_new CScriptSpecialFunction(
-      mgr.AllocateUniqueId(), name, info,
-      ConvertEditorEulerToTransform4f(CVector3f::Zero(), position),
-      CScriptSpecialFunction::kSF_RumbleEffect, rstl::string_l(""), f1, float(w1), pFlags, 0.f,
-      CVector3f::Zero(), CColor::Black(), active, CDamageInfo(), -1, -1, CPlayerState::kIT_Invalid,
-      CSfxManager::kInternalInvalidSfxId, CSfxManager::kInternalInvalidSfxId,
-      CSfxManager::kInternalInvalidSfxId);
-}
-
-CEntity* ScriptLoader::LoadEnvFxDensityController(CStateManager& mgr, CInputStream& in,
-                                                  int propCount, const CEntityInfo& info) {
-  if (propCount != 4)
+  rstl::pair< bool, uint > pcount = CPatternedInfo::HasCorrectParameterCount(in, "Metroid");
+  if (!pcount.first)
     return nullptr;
 
-  rstl::string name = mgr.HashInstanceName(in);
-  bool active = in.Get< bool >();
-  float density = in.Get< float >();
-  int maxDensityDeltaSpeed = in.Get< int >();
+  CPatternedInfo pInfo(in, pcount.second);
+  CActorParameters actParms = LoadActorParameters(in);
+  CMetroidBetaData metData(in, propCount);
 
-  return rs_new CScriptSpecialFunction(
-      mgr.AllocateUniqueId(), name, info, CTransform4f::Identity(),
-      CScriptSpecialFunction::kSF_EnvFxDensityController, rstl::string_l(""), density,
-      float(maxDensityDeltaSpeed), 0.f, 0.f, CVector3f::Zero(), CColor::Black(), active,
-      CDamageInfo(), -1, -1, CPlayerState::kIT_Invalid, CSfxManager::kInternalInvalidSfxId,
-      CSfxManager::kInternalInvalidSfxId, CSfxManager::kInternalInvalidSfxId);
-}
-
-CEntity* ScriptLoader::LoadScriptCameraPitchVolume(CStateManager& mgr, CInputStream& in,
-                                                   int propCount, const CEntityInfo& info) {
-  if (propCount != 8)
+  if (pInfo.GetAnimationParameters().GetACSFile() == kInvalidAssetId)
     return nullptr;
 
-  SScaledActorHead aHead(in, mgr);
-  bool active = in.Get< bool >();
-  float upPitch = in.Get< float >();
-  float downPitch = in.Get< float >();
-  float scale = in.Get< float >();
-
-  return rs_new CScriptCameraPitchVolume(mgr.AllocateUniqueId(), active, aHead.x0_actorHead.x0_name,
-                                         info, aHead.x40_scale, aHead.x0_actorHead.x10_transform,
-                                         CRelAngle::FromDegrees(upPitch),
-                                         CRelAngle::FromDegrees(downPitch), scale);
+  return rs_new CMetroidBeta(
+      mgr.AllocateUniqueId(), name, info, xf,
+      CModelData(CAnimRes(pInfo.GetAnimationParameters().GetACSFile(),
+                          pInfo.GetAnimationParameters().GetCharacter(), scale,
+                          pInfo.GetAnimationParameters().GetInitialAnimation(), true)),
+      pInfo, actParms, metData);
 }
 
-CEntity* ScriptLoader::LoadRadialDamage(CStateManager& mgr, CInputStream& in, int propCount,
-                                        const CEntityInfo& info) {
-  if (propCount != 5)
-    return nullptr;
-
-  rstl::string name = mgr.HashInstanceName(in);
-  CVector3f center(in);
-  bool active = in.Get< bool >();
-  CDamageInfo dInfo = in.Get< CDamageInfo >();
-  float radius = in.Get< float >();
-
-  return rs_new CScriptSpecialFunction(
-      mgr.AllocateUniqueId(), name, info,
-      ConvertEditorEulerToTransform4f(CVector3f::Zero(), center),
-      CScriptSpecialFunction::kSF_RadialDamage, rstl::string_l(""), radius, 0.f, 0.f, 0.f,
-      CVector3f::Zero(), CColor::Black(), active, dInfo, -1, -1, CPlayerState::kIT_Invalid,
-      CSfxManager::kInternalInvalidSfxId, CSfxManager::kInternalInvalidSfxId,
-      CSfxManager::kInternalInvalidSfxId);
-}
-
-CEntity* ScriptLoader::LoadStreamedMusic(CStateManager& mgr, CInputStream& in, int propCount,
-                                         const CEntityInfo& info) {
+CEntity* ScriptLoader::LoadBallTrigger(CStateManager& mgr, CInputStream& in, int propCount,
+                                       const CEntityInfo& info) {
   if (propCount != 9)
     return nullptr;
 
-  rstl::string name = mgr.HashInstanceName(in);
-  bool active = in.Get< bool >();
-  rstl::string fileName(in);
-  bool noStopOnDeactivate = in.Get< bool >();
-  float fadeIn = in.Get< float >();
-  float fadeOut = in.Get< float >();
-  uint volume = in.Get< uint >();
-  bool loop = in.Get< uint >() == 0;
-  bool music = in.Get< bool >();
-
-  return rs_new CScriptStreamedMusic(mgr.AllocateUniqueId(), info, name, active, fileName,
-                                     noStopOnDeactivate, fadeIn, fadeOut, volume, loop, music);
-}
-
-CEntity* ScriptLoader::LoadMidi(CStateManager& mgr, CInputStream& in, int propCount,
-                                const CEntityInfo& info) {
-  if (propCount != 6)
-    return nullptr;
-
-  rstl::string name = mgr.HashInstanceName(in);
-  bool active = in.Get< bool >();
-  uint csng = in.Get< uint >();
-  float fadeIn = in.Get< float >();
-  float fadeOut = in.Get< float >();
-  uint vol = in.Get< uint >();
-  return rs_new CScriptMidi(mgr.AllocateUniqueId(), info, name, active, csng, fadeIn, fadeOut, vol);
-}
-
-CEntity* ScriptLoader::LoadVisorGoo(CStateManager& mgr, CInputStream& in, int propCount,
-                                    const CEntityInfo& info) {
-  if (propCount != 11)
-    return nullptr;
-
-  rstl::string name = mgr.HashInstanceName(in);
-  CTransform4f xf = CTransform4f::Translate(CVector3f(in));
-  CAssetId particle = in.Get< CAssetId >();
-  CAssetId electric = in.Get< CAssetId >();
-  float minDist = in.Get< float >();
-  float maxDist = in.Get< float >();
-  float nearProb = in.Get< float >();
-  float farProb = in.Get< float >();
-  CColor color(in);
-  int sfx = in.Get< int >();
-  bool forceShow = in.Get< bool >();
-
-  if (particle == kInvalidAssetId && electric == kInvalidAssetId)
-    return nullptr;
-  return rs_new CScriptVisorGoo(mgr.AllocateUniqueId(), name, info, xf, particle, electric, minDist,
-                                maxDist, nearProb, farProb, color, sfx, forceShow, false);
-}
-
-CEntity* ScriptLoader::LoadSaveStation(CStateManager& mgr, CInputStream& in, int propCount,
-                                       const CEntityInfo& info) {
-  return nullptr;
-}
-
-CEntity* ScriptLoader::LoadControllerAction(CStateManager& mgr, CInputStream& in, int propCount,
-                                            const CEntityInfo& info) {
-  if (!(propCount >= 4 && propCount <= 6 ? true : false))
-    return nullptr;
-
-  rstl::string name = mgr.HashInstanceName(in);
-  bool active = in.Get< bool >();
-  CScriptControllerAction::ECommands w1 = CScriptControllerAction::ECommands(in.ReadLong());
-  bool b1 = propCount >= 6 ? in.Get< bool >() : false;
-  uint w2 = propCount >= 6 ? in.Get< uint >() : 0;
+  rstl::string name(in);
+  CVector3f pos(in);
+  CVector3f scale(in);
+  bool b1 = in.Get< bool >();
+  float f1 = in.Get< float >();
+  float f2 = in.Get< float >();
+  float f3 = in.Get< float >();
+  CVector3f vec = in.Get< CVector3f >();
   bool b2 = in.Get< bool >();
+  return rs_new CScriptBallTrigger(mgr.AllocateUniqueId(), name, info, pos, scale, b1, f1, f2, f3,
+                                   vec, b2);
+}
 
-  return rs_new CScriptControllerAction(mgr.AllocateUniqueId(), name, info, active, w1, b1, w2, b2);
+CEntity* ScriptLoader::LoadTargetingPoint(CStateManager& mgr, CInputStream& in, int propCount,
+                                          const CEntityInfo& info) {
+  if (propCount != 4)
+    return nullptr;
+
+  SActorHead aHead(in, mgr);
+  bool active = in.Get< bool >();
+  return rs_new CScriptTargetingPoint(mgr.AllocateUniqueId(), aHead.x0_name, info,
+                                      aHead.x10_transform, active);
 }
 
 CEntity* ScriptLoader::LoadEMPulse(CStateManager& mgr, CInputStream& in, int propCount,
@@ -1275,22 +2508,89 @@ CEntity* ScriptLoader::LoadEMPulse(CStateManager& mgr, CInputStream& in, int pro
                                active, f1, f2, f3, f4, f5, f6, f7, particleId);
 }
 
-CEntity* ScriptLoader::LoadBallTrigger(CStateManager& mgr, CInputStream& in, int propCount,
+CEntity* ScriptLoader::LoadIceSheegoth(CStateManager& mgr, CInputStream& in, int propCount,
                                        const CEntityInfo& info) {
-  if (propCount != 9)
+  if (propCount < CIceSheegothData::GetNumProperties())
     return nullptr;
 
-  rstl::string name(in);
-  CVector3f pos(in);
-  CVector3f scale(in);
-  bool b1 = in.Get< bool >();
-  float f1 = in.Get< float >();
-  float f2 = in.Get< float >();
-  float f3 = in.Get< float >();
-  CVector3f vec = in.Get< CVector3f >();
-  bool b2 = in.Get< bool >();
-  return rs_new CScriptBallTrigger(mgr.AllocateUniqueId(), name, info, pos, scale, b1, f1, f2, f3,
-                                   vec, b2);
+  SScaledActorHead head(in, mgr);
+
+  rstl::pair< bool, uint > pcount = CPatternedInfo::HasCorrectParameterCount(in, "Ice Sheegoth");
+  if (!pcount.first)
+    return nullptr;
+
+  CPatternedInfo pInfo(in, pcount.second);
+  CActorParameters actParms = LoadActorParameters(in);
+  CIceSheegothData sheegothData(in, propCount);
+
+  if (pInfo.GetAnimationParameters().GetACSFile() == kInvalidAssetId)
+    return nullptr;
+
+  return rs_new CIceSheegoth(
+      mgr.AllocateUniqueId(), head.x0_actorHead.x0_name, info, head.x0_actorHead.x10_transform,
+      CModelData(CAnimRes(pInfo.GetAnimationParameters().GetACSFile(),
+                          pInfo.GetAnimationParameters().GetCharacter(), head.x40_scale,
+                          pInfo.GetAnimationParameters().GetInitialAnimation(), true)),
+      pInfo, actParms, sheegothData);
+}
+
+CEntity* ScriptLoader::LoadPlayerActor(CStateManager& mgr, CInputStream& in, int propCount,
+                                       const CEntityInfo& info) {
+  if (propCount != 19)
+    return nullptr;
+
+  SScaledActorHead head(in, mgr);
+  CVector3f extents(in);
+  CVector3f offset(in);
+  float mass = in.ReadFloat();
+  float zMomentum = in.ReadFloat();
+  CHealthInfo hInfo(in);
+  CDamageVulnerability dVuln(in);
+  in.ReadLong();
+  CAnimationParameters aParms = LoadAnimationParameters(in);
+  CActorParameters actParms = LoadActorParameters(in);
+  bool loop = in.Get< bool >();
+  bool snow = in.Get< bool >();
+  bool solid = in.Get< bool >();
+  bool active = in.Get< bool >();
+  uint flags = LoadParameterFlags(in);
+  CPlayerState::EBeamId beam = CPlayerState::EBeamId(in.ReadLong() - 1);
+
+  FourCC animType = gpResourceFactory->GetResourceTypeById(aParms.GetACSFile());
+  if (animType == 0)
+    return nullptr;
+
+  CAABox aabb = GetCollisionBox(mgr, info.GetAreaId(), extents, offset);
+
+  CMaterialList list;
+  if (snow)
+    list.Add(kMT_Snow);
+  if (solid)
+    list.Add(kMT_Solid);
+
+  bool hasNegativeExtent;
+  if (extents.GetX() < 0.f)
+    hasNegativeExtent = true;
+  else if (extents.GetY() < 0.f)
+    hasNegativeExtent = true;
+  else if (extents.GetZ() < 0.f)
+    hasNegativeExtent = true;
+  else
+    hasNegativeExtent = false;
+
+  if (animType == 'ANCS') {
+    CAnimRes animRes(aParms.GetACSFile(), 4, head.x40_scale, aParms.GetInitialAnimation(), loop);
+
+    if (extents == CVector3f::Zero() || hasNegativeExtent)
+      aabb = CAABox(CVector3f(-0.5f, -0.5f, -0.5f), CVector3f(0.5f, 0.5f, 0.5f));
+
+    return rs_new CScriptPlayerActor(mgr.AllocateUniqueId(), head.x0_actorHead.x0_name, info,
+                                     head.x0_actorHead.x10_transform, animRes,
+                                     CModelData::CModelDataNull(), aabb, true, list, mass,
+                                     zMomentum, hInfo, dVuln, actParms, loop, active, flags, beam);
+  }
+
+  return nullptr;
 }
 
 CEntity* ScriptLoader::LoadRoomAcoustics(CStateManager& mgr, CInputStream& in, int propCount,
@@ -1337,4 +2637,1750 @@ CEntity* ScriptLoader::LoadRoomAcoustics(CStateManager& mgr, CInputStream& in, i
       variation, period, revStd, revStdDis, revStdColoration, revStdMix, revStdTime, revStdDamping,
       revStdPreDelay, delay, delayL, delayR, delayS, feedbackL, feedbackR, feedbackS, outputL,
       outputR, outputS);
+}
+
+CEntity* ScriptLoader::LoadFishCloud(CStateManager& mgr, CInputStream& in, int propCount,
+                                     const CEntityInfo& info) {
+  if (propCount != 36)
+    return nullptr;
+
+  SScaledActorHead head(in, mgr);
+  bool active = in.Get< bool >();
+  CAssetId model = in.Get< CAssetId >();
+  CAssetId ancsFile = in.Get< CAssetId >();
+  int charIdx = in.Get< int >();
+  int defaultAnim = in.Get< int >();
+  int numBoids = static_cast< int >(in.ReadFloat());
+  float speed = in.ReadFloat();
+  float separationRadius = in.ReadFloat();
+  float cohesionMagnitude = in.ReadFloat();
+  float alignmentWeight = in.ReadFloat();
+  float separationMagnitude = in.ReadFloat();
+  float weaponRepelMagnitude = in.ReadFloat();
+  float playerRepelMagnitude = in.ReadFloat();
+  float containmentMagnitude = in.ReadFloat();
+  float scatterVel = in.ReadFloat();
+  float maxScatterAngle = in.ReadFloat();
+  float weaponRepelDampingSpeed = in.ReadFloat();
+  float playerRepelDampingSpeed = in.ReadFloat();
+  float containmentRadius = in.ReadFloat();
+  int updateShift = in.ReadLong();
+
+  if (gpResourceFactory->GetResourceTypeById(model) == 0) {
+    return nullptr;
+  }
+
+  CColor color(in);
+  bool killable = in.ReadBool();
+  float weaponKillRadius = in.ReadFloat();
+  CAssetId part1 = in.ReadLong();
+  int partCount1 = in.ReadLong();
+  CAssetId part2 = in.ReadLong();
+  int partCount2 = in.ReadLong();
+  CAssetId part3 = in.ReadLong();
+  int partCount3 = in.ReadLong();
+  CAssetId part4 = in.ReadLong();
+  int partCount4 = in.ReadLong();
+  int deathSfx = in.ReadLong();
+  bool repelFromThreats = in.ReadBool();
+  bool hotInThermal = in.ReadBool();
+
+  return rs_new CFishCloud(
+      mgr.AllocateUniqueId(), active, head.x0_actorHead.x0_name, info, head.x40_scale,
+      head.x0_actorHead.x10_transform, CModelData(CStaticRes(model, CVector3f(1.f, 1.f, 1.f))),
+      CAnimRes(ancsFile, charIdx, CVector3f(1.f, 1.f, 1.f), defaultAnim, true), numBoids, speed,
+      separationRadius, cohesionMagnitude, alignmentWeight, separationMagnitude,
+      weaponRepelMagnitude, playerRepelMagnitude, containmentMagnitude, scatterVel, maxScatterAngle,
+      weaponRepelDampingSpeed, playerRepelDampingSpeed, containmentRadius, updateShift, color,
+      killable, weaponKillRadius, part1, partCount1, part2, partCount2, part3, partCount3, part4,
+      partCount4, deathSfx, repelFromThreats, hotInThermal);
+}
+
+CEntity* ScriptLoader::LoadFishCloudModifier(CStateManager& mgr, CInputStream& in, int propCount,
+                                             const CEntityInfo& info) {
+  if (!(propCount >= 6 && propCount <= 7 ? true : false))
+    return nullptr;
+
+  rstl::string name = mgr.HashInstanceName(in);
+  CVector3f pos(in);
+  bool active = in.Get< bool >();
+  bool isRepulsor = in.Get< bool >();
+  bool swirl = propCount > 6 ? in.Get< bool >() : false;
+  float radius = in.ReadFloat();
+  float priority = in.ReadFloat();
+
+  return rs_new CFishCloudModifier(mgr.AllocateUniqueId(), active, name, info, pos, isRepulsor,
+                                   swirl, radius, priority);
+}
+
+static rstl::optional_object< CVisorFlare::CFlareDef > LoadFlareDef(CInputStream& in) {
+  int propCount = in.ReadLong();
+  if (propCount == 4) {
+    CAssetId texId = in.ReadLong();
+    float pos = in.ReadFloat();
+    float scale = in.ReadFloat();
+    CColor color(in);
+    if (texId != kInvalidAssetId) {
+      TToken< CTexture > tex = gpSimplePool->GetObj(SObjectTag('TXTR', texId));
+      tex.Lock();
+      return CVisorFlare::CFlareDef(tex, pos, scale, color.GetColor_u32());
+    }
+  }
+  return rstl::optional_object_null();
+}
+
+CEntity* ScriptLoader::LoadDrone(CStateManager& mgr, CInputStream& in, int propCount,
+                                 const CEntityInfo& info) {
+  if (propCount != 45)
+    return nullptr;
+
+  rstl::string name = mgr.HashInstanceName(in);
+  CPatterned::EFlavorType flavor = CPatterned::EFlavorType(in.ReadLong());
+  CTransform4f xf = LoadEditorTransform(in);
+  CVector3f scale(in);
+  float f1 = in.ReadFloat();
+
+  rstl::pair< bool, uint > pcount = CPatternedInfo::HasCorrectParameterCount(in, "Drone");
+  if (!pcount.first)
+    return nullptr;
+
+  CPatternedInfo pInfo(in, pcount.second);
+  CActorParameters actParms = LoadActorParameters(in);
+  CDamageInfo dInfo1(in);
+  in.ReadLong();
+  CDamageInfo dInfo2(in);
+  CAssetId aId1 = in.ReadLong();
+  in.ReadLong();
+  CAssetId aId2 = in.ReadLong();
+
+  rstl::optional_object< CVisorFlare::CFlareDef > def1 = LoadFlareDef(in);
+  rstl::optional_object< CVisorFlare::CFlareDef > def2 = LoadFlareDef(in);
+  rstl::optional_object< CVisorFlare::CFlareDef > def3 = LoadFlareDef(in);
+  rstl::optional_object< CVisorFlare::CFlareDef > def4 = LoadFlareDef(in);
+  rstl::optional_object< CVisorFlare::CFlareDef > def5 = LoadFlareDef(in);
+
+  rstl::vector< CVisorFlare::CFlareDef > flares;
+  flares.reserve(5);
+  if (def1)
+    flares.push_back(*def1);
+  if (def2)
+    flares.push_back(*def2);
+  if (def3)
+    flares.push_back(*def3);
+  if (def4)
+    flares.push_back(*def4);
+  if (def5)
+    flares.push_back(*def5);
+
+  if (gpResourceFactory->GetResourceTypeById(pInfo.GetAnimationParameters().GetACSFile()) != 'ANCS')
+    return nullptr;
+
+  float f2 = in.ReadFloat();
+  float f3 = in.ReadFloat();
+  float f4 = in.ReadFloat();
+  float f5 = in.ReadFloat();
+  float f6 = in.ReadFloat();
+  float f7 = in.ReadFloat();
+  float f8 = in.ReadFloat();
+  float f9 = in.ReadFloat();
+  float f10 = in.ReadFloat();
+  float f11 = in.ReadFloat();
+  float f12 = in.ReadFloat();
+  float f13 = in.ReadFloat();
+  float f14 = in.ReadFloat();
+  float f15 = in.ReadFloat();
+  float f16 = in.ReadFloat();
+  float f17 = in.ReadFloat();
+  float f18 = in.ReadFloat();
+  float f19 = in.ReadFloat();
+  float f20 = in.ReadFloat();
+  CAssetId crscId = in.ReadLong();
+  float f21 = in.ReadFloat();
+  float f22 = in.ReadFloat();
+  float f24 = in.ReadFloat();
+  float f23 = in.ReadFloat();
+  int soundId = in.ReadLong();
+  bool b1 = in.ReadBool();
+
+  return rs_new CDrone(
+      mgr.AllocateUniqueId(), name, flavor, info, xf, f1,
+      CModelData(CAnimRes(pInfo.GetAnimationParameters().GetACSFile(),
+                          pInfo.GetAnimationParameters().GetCharacter(), scale,
+                          pInfo.GetAnimationParameters().GetInitialAnimation(), true)),
+      pInfo, actParms, CPatterned::kMT_Flyer, CPatterned::kCT_One, kBT_Pitchable, dInfo1, aId1,
+      dInfo2, aId2, flares, f2, f3, f4, f5, f6, f7, f8, f9, f10, f11, f12, f13, f14, f15, f16, f17,
+      f18, f19, f20, crscId, f21, f22, f23, f24, soundId, b1);
+}
+
+CEntity* ScriptLoader::LoadVisorFlare(CStateManager& mgr, CInputStream& in, int propCount,
+                                      const CEntityInfo& info) {
+  if (propCount != 14)
+    return nullptr;
+
+  rstl::string name = mgr.HashInstanceName(in);
+  CVector3f pos(in);
+  bool active = in.Get< bool >();
+  CVisorFlare::EBlendMode blendMode = CVisorFlare::EBlendMode(in.ReadLong());
+  bool b1 = in.Get< bool >();
+  float f1 = in.ReadFloat();
+  float f2 = in.ReadFloat();
+  float f3 = in.ReadFloat();
+  uint w1 = in.ReadLong();
+
+  rstl::optional_object< CVisorFlare::CFlareDef > def1 = LoadFlareDef(in);
+  rstl::optional_object< CVisorFlare::CFlareDef > def2 = LoadFlareDef(in);
+  rstl::optional_object< CVisorFlare::CFlareDef > def3 = LoadFlareDef(in);
+  rstl::optional_object< CVisorFlare::CFlareDef > def4 = LoadFlareDef(in);
+  rstl::optional_object< CVisorFlare::CFlareDef > def5 = LoadFlareDef(in);
+
+  rstl::vector< CVisorFlare::CFlareDef > flares;
+  flares.reserve(5);
+  if (def1)
+    flares.push_back(*def1);
+  if (def2)
+    flares.push_back(*def2);
+  if (def3)
+    flares.push_back(*def3);
+  if (def4)
+    flares.push_back(*def4);
+  if (def5)
+    flares.push_back(*def5);
+
+  return rs_new CScriptVisorFlare(mgr.AllocateUniqueId(), name, info, active, pos, blendMode, b1,
+                                  f1, f2, f3, 2, w1, flares);
+}
+
+CEntity* ScriptLoader::LoadWorldTeleporter(CStateManager& mgr, CInputStream& in, int propCount,
+                                           const CEntityInfo& info) {
+  if (!(propCount >= 4 && propCount <= 21 ? true : false))
+    return nullptr;
+
+  rstl::string name = mgr.HashInstanceName(in);
+  bool active = in.Get< bool >();
+  CAssetId worldId = in.Get< CAssetId >();
+  CAssetId areaId = in.Get< CAssetId >();
+
+  if (propCount == 4)
+    return rs_new CScriptWorldTeleporter(mgr.AllocateUniqueId(), name, info, active, worldId,
+                                         areaId);
+
+  CAnimationParameters animParms = LoadAnimationParameters(in);
+  CVector3f playerScale(in);
+  CAssetId platformModel = in.Get< CAssetId >();
+  CVector3f platformScale(in);
+  CAssetId backgroundModel = in.Get< CAssetId >();
+  CVector3f backgroundScale(in);
+  bool upElevator = in.ReadBool();
+
+  ushort elevatorSound =
+      propCount >= 12 ? static_cast< ushort >(in.ReadLong()) : CSfxManager::kInternalInvalidSfxId;
+  uchar volume = propCount >= 13 ? static_cast< uchar >(in.ReadLong()) : uchar(127);
+  uchar panning = propCount >= 14 ? static_cast< uchar >(in.ReadLong()) : uchar(64);
+  bool showText = propCount >= 15 ? in.ReadBool() : false;
+  CAssetId fontId = propCount >= 16 ? static_cast< CAssetId >(in.ReadLong()) : kInvalidAssetId;
+  CAssetId stringId = propCount >= 17 ? static_cast< CAssetId >(in.ReadLong()) : kInvalidAssetId;
+  bool fadeWhite = propCount >= 18 ? in.ReadBool() : false;
+
+  float charFadeInTime;
+  if (propCount >= 19) {
+    charFadeInTime = in.Get< float >();
+  } else {
+    charFadeInTime = 0.1f;
+  }
+
+  float charsPerSecond;
+  if (propCount >= 20) {
+    charsPerSecond = in.Get< float >();
+  } else {
+    charsPerSecond = 16.f;
+  }
+
+  float showDelay;
+  if (propCount >= 21) {
+    showDelay = in.Get< float >();
+  } else {
+    showDelay = 0.f;
+  }
+
+  if (showText)
+    return rs_new CScriptWorldTeleporter(mgr.AllocateUniqueId(), name, info, active, worldId,
+                                         areaId, elevatorSound, volume, panning, fontId, stringId,
+                                         fadeWhite, charFadeInTime, charsPerSecond, showDelay);
+
+  return rs_new CScriptWorldTeleporter(
+      mgr.AllocateUniqueId(), name, info, active, worldId, areaId, animParms.GetACSFile(),
+      animParms.GetInitialAnimation(), animParms.GetCharacter(), playerScale, platformModel,
+      platformScale, backgroundModel, backgroundScale, upElevator, elevatorSound, volume, panning);
+}
+
+CEntity* ScriptLoader::LoadControllerAction(CStateManager& mgr, CInputStream& in, int propCount,
+                                            const CEntityInfo& info) {
+  if (!(propCount >= 4 && propCount <= 6 ? true : false))
+    return nullptr;
+
+  rstl::string name = mgr.HashInstanceName(in);
+  bool active = in.Get< bool >();
+  int w1 = in.Get< int >();
+  bool b1 = propCount >= 6 ? in.Get< bool >() : false;
+  uint w2 = propCount >= 6 ? in.Get< uint >() : 0;
+  bool b2 = in.Get< bool >();
+
+  return rs_new CScriptControllerAction(mgr.AllocateUniqueId(), name, info, active,
+                                        static_cast< CScriptControllerAction::ECommands >(w1), b1,
+                                        w2, b2);
+}
+
+CEntity* ScriptLoader::LoadSwitch(CStateManager& mgr, CInputStream& in, int propCount,
+                                  const CEntityInfo& info) {
+  if (propCount != 4)
+    return nullptr;
+
+  rstl::string name = mgr.HashInstanceName(in);
+  bool active = in.Get< bool >();
+  bool b2 = in.Get< bool >();
+  bool b3 = in.Get< bool >();
+  return rs_new CScriptSwitch(mgr.AllocateUniqueId(), name, info, active, b2, b3);
+}
+
+CEntity* ScriptLoader::LoadPlayerStateChange(CStateManager& mgr, CInputStream& in, int propCount,
+                                             const CEntityInfo& info) {
+  if (propCount != 7)
+    return nullptr;
+
+  rstl::string name = mgr.HashInstanceName(in);
+  bool active = in.Get< bool >();
+  int itemType = in.Get< int >();
+  int itemCount = in.Get< int >();
+  int itemCapacity = in.Get< int >();
+  int ctrl = in.Get< int >();
+  int ctrlCmdOpt = in.Get< int >();
+  return rs_new CScriptPlayerStateChange(
+      mgr.AllocateUniqueId(), name, info, active, itemType, itemCount, itemCapacity,
+      CScriptPlayerStateChange::EControl(ctrl),
+      CScriptPlayerStateChange::EControlCommandOption(ctrlCmdOpt));
+}
+
+CEntity* ScriptLoader::LoadSaveStation(CStateManager& mgr, CInputStream& in, int propCount,
+                                       const CEntityInfo& info) {
+  return nullptr;
+}
+
+CEntity* ScriptLoader::LoadVisorGoo(CStateManager& mgr, CInputStream& in, int propCount,
+                                    const CEntityInfo& info) {
+  if (propCount != 11)
+    return nullptr;
+
+  rstl::string name = mgr.HashInstanceName(in);
+  CTransform4f xf = CTransform4f::Translate(CVector3f(in));
+  CAssetId particle = in.Get< CAssetId >();
+  CAssetId electric = in.Get< CAssetId >();
+  float minDist = in.Get< float >();
+  float maxDist = in.Get< float >();
+  float nearProb = in.Get< float >();
+  float farProb = in.Get< float >();
+  CColor color(in);
+  int sfx = in.Get< int >();
+  bool forceShow = in.Get< bool >();
+
+  if (particle == kInvalidAssetId && electric == kInvalidAssetId)
+    return nullptr;
+  return rs_new CScriptVisorGoo(mgr.AllocateUniqueId(), name, info, xf, particle, electric, minDist,
+                                maxDist, nearProb, farProb, color, sfx, forceShow, false);
+}
+
+CEntity* ScriptLoader::LoadJellyZap(CStateManager& mgr, CInputStream& in, int propCount,
+                                    const CEntityInfo& info) {
+  if (propCount != 20)
+    return nullptr;
+
+  SScaledActorHead head(in, mgr);
+
+  rstl::pair< bool, uint > pcount = CPatternedInfo::HasCorrectParameterCount(in, "JellyZap");
+  if (!pcount.first)
+    return nullptr;
+
+  CPatternedInfo pInfo(in, pcount.second);
+  CActorParameters actParms = LoadActorParameters(in);
+  CDamageInfo dInfo(in);
+  float attackRadius = in.ReadFloat();
+  float f2 = in.ReadFloat();
+  float f3 = in.ReadFloat();
+  float f4 = in.ReadFloat();
+  float attackDelay = in.ReadFloat();
+  float f6 = in.ReadFloat();
+  float f7 = in.ReadFloat();
+  float f8 = in.ReadFloat();
+  float priority = in.ReadFloat();
+  float repulseRadius = in.ReadFloat();
+  float attractRadius = in.ReadFloat();
+  float f12 = in.ReadFloat();
+  bool b1 = in.ReadBool();
+
+  FourCC animType =
+      gpResourceFactory->GetResourceTypeById(pInfo.GetAnimationParameters().GetACSFile());
+  if (animType != 'ANCS')
+    return nullptr;
+
+  return rs_new CJellyZap(
+      mgr.AllocateUniqueId(), head.x0_actorHead.x0_name, info, head.x0_actorHead.x10_transform,
+      CModelData(CAnimRes(pInfo.GetAnimationParameters().GetACSFile(),
+                          pInfo.GetAnimationParameters().GetCharacter(), head.x40_scale,
+                          pInfo.GetAnimationParameters().GetInitialAnimation(), true)),
+      dInfo, b1, attackRadius, f2, f3, f4, attackDelay, f6, f7, f8, priority, repulseRadius,
+      attractRadius, f12, pInfo, actParms);
+}
+
+CEntity* ScriptLoader::LoadThardus(CStateManager& mgr, CInputStream& in, int propCount,
+                                   const CEntityInfo& info) {
+  if (propCount < 0x2b)
+    return nullptr;
+
+  SScaledActorHead head(in, mgr);
+
+  rstl::pair< bool, uint > pcount = CPatternedInfo::HasCorrectParameterCount(in, "Thardus");
+  if (!pcount.first)
+    return nullptr;
+
+  CPatternedInfo pInfo(in, pcount.second);
+  CActorParameters actParms = LoadActorParameters(in);
+
+  in.ReadBool();
+  in.ReadBool();
+
+  if (pInfo.GetAnimationParameters().GetACSFile() == kInvalidAssetId)
+    return nullptr;
+
+  CAssetId phazonModel1 = in.ReadLong();
+  CAssetId phazonModel2 = in.ReadLong();
+  CAssetId phazonModel3 = in.ReadLong();
+  CAssetId phazonModel4 = in.ReadLong();
+  CAssetId phazonModel5 = in.ReadLong();
+  CAssetId phazonModel6 = in.ReadLong();
+  CAssetId phazonModel7 = in.ReadLong();
+  CAssetId rockModel1 = in.ReadLong();
+  CAssetId rockModel2 = in.ReadLong();
+  CAssetId rockModel3 = in.ReadLong();
+  CAssetId rockModel4 = in.ReadLong();
+  CAssetId rockModel5 = in.ReadLong();
+  CAssetId rockModel6 = in.ReadLong();
+  CAssetId rockModel7 = in.ReadLong();
+
+  CAssetId particle1 = in.ReadLong();
+  CAssetId particle2 = in.ReadLong();
+  CAssetId particle3 = in.ReadLong();
+  CAssetId stateMachine = in.ReadLong();
+  CAssetId particle4 = in.ReadLong();
+  CAssetId particle5 = in.ReadLong();
+  CAssetId particle6 = in.ReadLong();
+  CAssetId particle7 = in.ReadLong();
+  CAssetId particle8 = in.ReadLong();
+  CAssetId particle9 = in.ReadLong();
+
+  float f1 = in.ReadFloat();
+  float f2 = in.ReadFloat();
+  float f3 = in.ReadFloat();
+  float f4 = in.ReadFloat();
+  float f5 = in.ReadFloat();
+  float f6 = in.ReadFloat();
+
+  CAssetId texture = in.ReadLong();
+  uint sfxID1 = in.ReadLong();
+  CAssetId particle10 = (propCount > 0x2b) ? CAssetId(in.ReadLong()) : kInvalidAssetId;
+  uint sfxID2 = in.ReadLong();
+  uint sfxID3 = in.ReadLong();
+  uint sfxID4 = in.ReadLong();
+
+  rstl::vector< CModelData > phazonModels;
+  rstl::vector< CModelData > rockModels;
+  rockModels.reserve(7);
+  phazonModels.reserve(7);
+
+  rockModels.push_back(CModelData(CStaticRes(rockModel1, CVector3f(1.f, 1.f, 1.f))));
+  rockModels.push_back(CModelData(CStaticRes(rockModel2, CVector3f(1.f, 1.f, 1.f))));
+  rockModels.push_back(CModelData(CStaticRes(rockModel3, CVector3f(1.f, 1.f, 1.f))));
+  rockModels.push_back(CModelData(CStaticRes(rockModel4, CVector3f(1.f, 1.f, 1.f))));
+  rockModels.push_back(CModelData(CStaticRes(rockModel5, CVector3f(1.f, 1.f, 1.f))));
+  rockModels.push_back(CModelData(CStaticRes(rockModel6, CVector3f(1.f, 1.f, 1.f))));
+  rockModels.push_back(CModelData(CStaticRes(rockModel7, CVector3f(1.f, 1.f, 1.f))));
+
+  phazonModels.push_back(CModelData(CStaticRes(phazonModel1, CVector3f(1.f, 1.f, 1.f))));
+  phazonModels.push_back(CModelData(CStaticRes(phazonModel2, CVector3f(1.f, 1.f, 1.f))));
+  phazonModels.push_back(CModelData(CStaticRes(phazonModel3, CVector3f(1.f, 1.f, 1.f))));
+  phazonModels.push_back(CModelData(CStaticRes(phazonModel4, CVector3f(1.f, 1.f, 1.f))));
+  phazonModels.push_back(CModelData(CStaticRes(phazonModel5, CVector3f(1.f, 1.f, 1.f))));
+  phazonModels.push_back(CModelData(CStaticRes(phazonModel6, CVector3f(1.f, 1.f, 1.f))));
+  phazonModels.push_back(CModelData(CStaticRes(phazonModel7, CVector3f(1.f, 1.f, 1.f))));
+
+  return rs_new CThardus(
+      mgr.AllocateUniqueId(), head.x0_actorHead.x0_name, info, head.x0_actorHead.x10_transform,
+      CModelData(CAnimRes(pInfo.GetAnimationParameters().GetACSFile(), CAnimRes::kDefaultCharIdx,
+                          head.x40_scale, pInfo.GetAnimationParameters().GetInitialAnimation(),
+                          true)),
+      actParms, pInfo, phazonModels, rockModels, particle1, particle2, particle3, f1, f2, f3, f4,
+      f5, f6, stateMachine, particle4, particle5, particle6, particle7, particle8, particle9,
+      texture, sfxID1, particle10, sfxID2, sfxID3, sfxID4);
+}
+
+CEntity* ScriptLoader::LoadWallCrawlerSwarm(CStateManager& mgr, CInputStream& in, int propCount,
+                                            const CEntityInfo& info) {
+  if (propCount != 0x27)
+    return nullptr;
+
+  SScaledActorHead head(in, mgr);
+  bool active = in.ReadBool();
+  CActorParameters actParms = LoadActorParameters(in);
+  uint flavor = in.Get< int >();
+  uint actor = in.ReadLong();
+  uint charIdx = in.ReadLong();
+  uint defaultAnim = in.ReadLong();
+  uint launchAnim = in.ReadLong();
+  uint attractAnim = in.ReadLong();
+  uint part1 = in.ReadLong();
+  uint part2 = in.ReadLong();
+  uint part3 = in.ReadLong();
+  uint part4 = in.ReadLong();
+  CDamageInfo crabDamage(in);
+  float crabDamageCooldown = in.ReadFloat();
+  CDamageInfo scarabExplodeDamage(in);
+  float boidRadius = in.ReadFloat();
+  float touchRadius = in.ReadFloat();
+  float playerTouchRadius = in.ReadFloat();
+  float animPlaybackSpeed = in.ReadFloat();
+  int numBoids = in.ReadLong();
+  int maxCreatedBoids = in.ReadLong();
+  float separationRadius = in.ReadFloat();
+  float cohesionMagnitude = in.ReadFloat();
+  float alignmentWeight = in.ReadFloat();
+  float separationMagnitude = in.ReadFloat();
+  float moveToWaypointWeight = in.ReadFloat();
+  float attractionMagnitude = in.ReadFloat();
+  float attractionRadius = in.ReadFloat();
+  float boidGenRate = in.ReadFloat();
+  int maxLaunches = in.ReadLong();
+  float scarabBoxMargin = in.ReadFloat();
+  float scarabScatterXYVelocity = in.ReadFloat();
+  float scarabTimeToExplode = in.ReadFloat();
+  CHealthInfo hInfo(in);
+  CDamageVulnerability dVuln(in);
+  int launchSfx = in.ReadLong();
+  int scatterSfx = in.ReadLong();
+
+  return rs_new CWallCrawlerSwarm(
+      mgr.AllocateUniqueId(), active, head.x0_actorHead.x0_name, info, head.x40_scale,
+      head.x0_actorHead.x10_transform, flavor,
+      CAnimRes(actor, charIdx, CVector3f(1.5f, 1.5f, 1.5f), defaultAnim, true), launchAnim,
+      attractAnim, part1, part2, part3, part4, crabDamage, scarabExplodeDamage, crabDamageCooldown,
+      boidRadius, touchRadius, playerTouchRadius, numBoids, maxCreatedBoids, animPlaybackSpeed,
+      separationRadius, cohesionMagnitude, alignmentWeight, separationMagnitude,
+      moveToWaypointWeight, attractionMagnitude, attractionRadius, boidGenRate, maxLaunches,
+      scarabBoxMargin, scarabScatterXYVelocity, scarabTimeToExplode, hInfo, dVuln, launchSfx,
+      scatterSfx, actParms);
+}
+
+CEntity* ScriptLoader::LoadFlaahgraTentacle(CStateManager& mgr, CInputStream& in, int propCount,
+                                            const CEntityInfo& info) {
+  if (propCount != 6)
+    return nullptr;
+
+  SScaledActorHead head(in, mgr);
+
+  rstl::pair< bool, uint > pcount =
+      CPatternedInfo::HasCorrectParameterCount(in, "Flaahgra Tenticle");
+  if (!pcount.first)
+    return nullptr;
+
+  CPatternedInfo pInfo(in, pcount.second);
+  CActorParameters actParms = LoadActorParameters(in);
+
+  if (pInfo.GetAnimationParameters().GetACSFile() == kInvalidAssetId)
+    return nullptr;
+
+  return rs_new CFlaahgraTentacle(
+      mgr.AllocateUniqueId(), head.x0_actorHead.x0_name, info, head.x0_actorHead.x10_transform,
+      CModelData(CAnimRes(pInfo.GetAnimationParameters().GetACSFile(),
+                          pInfo.GetAnimationParameters().GetCharacter(), head.x40_scale,
+                          pInfo.GetAnimationParameters().GetInitialAnimation(), true)),
+      pInfo, actParms);
+}
+
+CEntity* ScriptLoader::LoadThardusRockProjectile(CStateManager& mgr, CInputStream& in,
+                                                 int propCount, const CEntityInfo& info) {
+  if (propCount != 11)
+    return nullptr;
+
+  SScaledActorHead head(in, mgr);
+
+  rstl::pair< bool, uint > pcount =
+      CPatternedInfo::HasCorrectParameterCount(in, "Thardus Rock Projectile");
+  if (!pcount.first)
+    return nullptr;
+
+  CPatternedInfo pInfo(in, pcount.second);
+  CActorParameters actParms = LoadActorParameters(in);
+
+  in.ReadBool();
+  in.ReadBool();
+  float f1 = in.ReadFloat();
+  CAssetId modelId = in.ReadLong();
+  CAssetId stateMachine = in.ReadLong();
+
+  if (pInfo.GetAnimationParameters().GetACSFile() == kInvalidAssetId)
+    return nullptr;
+
+  rstl::vector< CModelData > mDataVec;
+  mDataVec.reserve(3);
+  mDataVec.push_back(CModelData(CStaticRes(modelId, CVector3f(1.f, 1.f, 1.f))));
+
+  return rs_new CThardusRockProjectile(
+      mgr.AllocateUniqueId(), head.x0_actorHead.x0_name, info, head.x0_actorHead.x10_transform,
+      CModelData(CAnimRes(pInfo.GetAnimationParameters().GetACSFile(), CAnimRes::kDefaultCharIdx,
+                          head.x40_scale, pInfo.GetAnimationParameters().GetInitialAnimation(),
+                          true)),
+      actParms, pInfo, mDataVec, stateMachine, f1);
+}
+
+CEntity* ScriptLoader::LoadMidi(CStateManager& mgr, CInputStream& in, int propCount,
+                                const CEntityInfo& info) {
+  if (propCount != 6)
+    return nullptr;
+
+  rstl::string name = mgr.HashInstanceName(in);
+  bool active = in.Get< bool >();
+  uint csng = in.Get< uint >();
+  float fadeIn = in.Get< float >();
+  float fadeOut = in.Get< float >();
+  uint vol = in.Get< uint >();
+  return rs_new CScriptMidi(mgr.AllocateUniqueId(), info, name, active, csng, fadeIn, fadeOut, vol);
+}
+
+CEntity* ScriptLoader::LoadStreamedMusic(CStateManager& mgr, CInputStream& in, int propCount,
+                                         const CEntityInfo& info) {
+  if (propCount != 9)
+    return nullptr;
+
+  rstl::string name = mgr.HashInstanceName(in);
+  bool active = in.Get< bool >();
+  rstl::string fileName(in);
+  bool noStopOnDeactivate = in.Get< bool >();
+  float fadeIn = in.Get< float >();
+  float fadeOut = in.Get< float >();
+  uint volume = in.Get< uint >();
+  bool loop = in.Get< uint >() == 0;
+  bool music = in.Get< bool >();
+
+  return rs_new CScriptStreamedMusic(mgr.AllocateUniqueId(), info, name, active, fileName,
+                                     noStopOnDeactivate, fadeIn, fadeOut, volume, loop, music);
+}
+
+CEntity* ScriptLoader::LoadRepulsor(CStateManager& mgr, CInputStream& in, int propCount,
+                                    const CEntityInfo& info) {
+  if (propCount != 4)
+    return nullptr;
+
+  rstl::string name = mgr.HashInstanceName(in);
+  CVector3f center(in);
+  bool active = in.Get< bool >();
+  float radius = in.Get< float >();
+  return rs_new CRepulsor(mgr.AllocateUniqueId(), active, name, info, center, radius);
+}
+
+CEntity* ScriptLoader::LoadGunTurret(CStateManager& mgr, CInputStream& in, int propCount,
+                                     const CEntityInfo& info) {
+  if (propCount < CScriptGunTurretData::GetMinProperties())
+    return nullptr;
+
+  rstl::string name = mgr.HashInstanceName(in);
+  int comp = in.ReadLong();
+  CTransform4f xf = LoadEditorTransform(in);
+  CVector3f scale(in);
+  CVector3f collisionExtent(in);
+  CVector3f collisionOffset(in);
+  CAnimationParameters aParms = LoadAnimationParameters(in);
+  CActorParameters actParms = LoadActorParameters(in);
+  CHealthInfo hInfo(in);
+  CDamageVulnerability dVuln(in);
+  CScriptGunTurretData turretData(in, propCount);
+
+  FourCC animType = gpResourceFactory->GetResourceTypeById(aParms.GetACSFile());
+  if (animType == 0 || animType != 'ANCS')
+    return nullptr;
+
+  CModelData mData(CAnimRes(aParms.GetACSFile(), aParms.GetCharacter(), scale,
+                            aParms.GetInitialAnimation(), true));
+  const CTransform4f& orientedXf = xf;
+  CAABox aabb = GetCollisionBox(mgr, info.GetAreaId(), collisionExtent, collisionOffset);
+
+  bool negativeExtent;
+  if (collisionExtent.GetX() < 0.f)
+    negativeExtent = true;
+  else if (collisionExtent.GetY() < 0.f)
+    negativeExtent = true;
+  else if (collisionExtent.GetZ() < 0.f)
+    negativeExtent = true;
+  else
+    negativeExtent = false;
+
+  if (collisionExtent == CVector3f::Zero() || negativeExtent)
+    aabb = mData.GetBounds(orientedXf.GetRotation());
+
+  return rs_new CScriptGunTurret(mgr.AllocateUniqueId(), name,
+                                 CScriptGunTurret::ETurretComponent(comp), info, orientedXf, mData,
+                                 aabb, hInfo, dVuln, actParms, turretData);
+}
+
+CEntity* ScriptLoader::LoadBabygoth(CStateManager& mgr, CInputStream& in, int propCount,
+                                    const CEntityInfo& info) {
+  if (propCount < CBabygothData::GetNumProperties())
+    return nullptr;
+
+  SScaledActorHead head(in, mgr);
+
+  rstl::pair< bool, uint > pcount = CPatternedInfo::HasCorrectParameterCount(in, "Babygoth");
+  if (!pcount.first)
+    return nullptr;
+
+  CPatternedInfo pInfo(in, pcount.second);
+  CActorParameters actParms = LoadActorParameters(in);
+  CBabygothData babyData(in, propCount);
+
+  if (pInfo.GetAnimationParameters().GetACSFile() == kInvalidAssetId)
+    return nullptr;
+
+  return rs_new CBabygoth(
+      mgr.AllocateUniqueId(), head.x0_actorHead.x0_name, info, head.x0_actorHead.x10_transform,
+      CModelData(CAnimRes(pInfo.GetAnimationParameters().GetACSFile(),
+                          pInfo.GetAnimationParameters().GetCharacter(), head.x40_scale,
+                          pInfo.GetAnimationParameters().GetInitialAnimation(), true)),
+      pInfo, actParms, babyData);
+}
+
+CEntity* ScriptLoader::LoadEyeBall(CStateManager& mgr, CInputStream& in, int propCount,
+                                   const CEntityInfo& info) {
+  if (propCount != 21)
+    return nullptr;
+
+  rstl::string name = mgr.HashInstanceName(in);
+  int flavor = in.Get< int >();
+  CTransform4f xf = LoadEditorTransform(in);
+  CVector3f scale(in);
+
+  rstl::pair< bool, uint > pcount = CPatternedInfo::HasCorrectParameterCount(in, "Eyeball");
+  if (!pcount.first)
+    return nullptr;
+
+  CPatternedInfo pInfo(in, pcount.second);
+  CActorParameters actParms = LoadActorParameters(in);
+  float attackDelay = in.ReadFloat();
+  float attackStartTime = in.ReadFloat();
+  CAssetId wpscId = in.ReadLong();
+  CDamageInfo dInfo(in);
+  CAssetId beamContactFxId = in.ReadLong();
+  CAssetId beamPulseFxId = in.ReadLong();
+  CAssetId beamTextureId = in.ReadLong();
+  CAssetId beamGlowTextureId = in.ReadLong();
+  uint anim0 = in.ReadLong();
+  uint anim1 = in.ReadLong();
+  uint anim2 = in.ReadLong();
+  uint anim3 = in.ReadLong();
+  uint beamSfx = in.ReadLong();
+
+  FourCC animType =
+      gpResourceFactory->GetResourceTypeById(pInfo.GetAnimationParameters().GetACSFile());
+  if (animType != 'ANCS')
+    return nullptr;
+
+  bool attackDisabled = in.ReadBool();
+
+  return rs_new CEyeBall(
+      mgr.AllocateUniqueId(), name, CPatterned::EFlavorType(flavor), info, xf,
+      CModelData(CAnimRes(pInfo.GetAnimationParameters().GetACSFile(),
+                          pInfo.GetAnimationParameters().GetCharacter(), scale,
+                          pInfo.GetAnimationParameters().GetInitialAnimation(), true)),
+      pInfo, attackDelay, attackStartTime, wpscId, dInfo, beamContactFxId, beamPulseFxId,
+      beamTextureId, beamGlowTextureId, anim0, anim1, anim2, anim3, beamSfx, attackDisabled,
+      actParms);
+}
+
+CEntity* ScriptLoader::LoadRadialDamage(CStateManager& mgr, CInputStream& in, int propCount,
+                                        const CEntityInfo& info) {
+  if (propCount != 5)
+    return nullptr;
+
+  rstl::string name = mgr.HashInstanceName(in);
+  CVector3f center(in);
+  bool active = in.Get< bool >();
+  CDamageInfo dInfo = in.Get< CDamageInfo >();
+  float radius = in.Get< float >();
+
+  return rs_new CScriptSpecialFunction(
+      mgr.AllocateUniqueId(), name, info,
+      ConvertEditorEulerToTransform4f(CVector3f::Zero(), center),
+      CScriptSpecialFunction::kSF_RadialDamage, rstl::string_l(""), radius, 0.f, 0.f, 0.f,
+      CVector3f::Zero(), CColor::Black(), active, dInfo, -1, -1, CPlayerState::kIT_Invalid,
+      CSfxManager::kInternalInvalidSfxId, CSfxManager::kInternalInvalidSfxId,
+      CSfxManager::kInternalInvalidSfxId);
+}
+
+CEntity* ScriptLoader::LoadScriptCameraPitchVolume(CStateManager& mgr, CInputStream& in,
+                                                   int propCount, const CEntityInfo& info) {
+  if (propCount != 8)
+    return nullptr;
+
+  SScaledActorHead aHead(in, mgr);
+  bool active = in.Get< bool >();
+  float upPitch = in.Get< float >();
+  float downPitch = in.Get< float >();
+  float scale = in.Get< float >();
+
+  return rs_new CScriptCameraPitchVolume(mgr.AllocateUniqueId(), active, aHead.x0_actorHead.x0_name,
+                                         info, aHead.x40_scale, aHead.x0_actorHead.x10_transform,
+                                         CRelAngle::FromDegrees(upPitch),
+                                         CRelAngle::FromDegrees(downPitch), scale);
+}
+
+CEntity* ScriptLoader::LoadElitePirate(CStateManager& mgr, CInputStream& in, int propCount,
+                                       const CEntityInfo& info) {
+  if (propCount < CElitePirateData::GetMinProperties())
+    return nullptr;
+
+  SScaledActorHead head(in, mgr);
+
+  rstl::pair< bool, uint > pcount = CPatternedInfo::HasCorrectParameterCount(in, "Elite Pirate");
+  if (!pcount.first)
+    return nullptr;
+
+  CPatternedInfo pInfo(in, pcount.second);
+  CActorParameters actParms = LoadActorParameters(in);
+  CElitePirateData epData(in, propCount);
+
+  if (pInfo.GetAnimationParameters().GetACSFile() == kInvalidAssetId)
+    return nullptr;
+
+  return rs_new CElitePirate(
+      mgr.AllocateUniqueId(), head.x0_actorHead.x0_name, info, head.x0_actorHead.x10_transform,
+      CModelData(CAnimRes(pInfo.GetAnimationParameters().GetACSFile(),
+                          pInfo.GetAnimationParameters().GetCharacter(), head.x40_scale,
+                          pInfo.GetAnimationParameters().GetInitialAnimation(), true)),
+      pInfo, actParms, epData);
+}
+
+CEntity* ScriptLoader::LoadEnvFxDensityController(CStateManager& mgr, CInputStream& in,
+                                                  int propCount, const CEntityInfo& info) {
+  if (propCount != 4)
+    return nullptr;
+
+  rstl::string name = mgr.HashInstanceName(in);
+  const bool active = in.Get< bool >();
+  float density = in.Get< float >();
+  int maxDensityDeltaSpeed = in.Get< int >();
+
+  return rs_new CScriptSpecialFunction(
+      mgr.AllocateUniqueId(), name, info, CTransform4f::Identity(),
+      CScriptSpecialFunction::kSF_EnvFxDensityController, rstl::string_l(""), density,
+      float(maxDensityDeltaSpeed), 0.f, 0.f, CVector3f::Zero(), CColor::Black(), active,
+      CDamageInfo(), -1, -1, CPlayerState::kIT_Invalid, CSfxManager::kInternalInvalidSfxId,
+      CSfxManager::kInternalInvalidSfxId, CSfxManager::kInternalInvalidSfxId);
+}
+
+CFlameInfo::CFlameInfo(CInputStream& in)
+: x0_propertyCount(in.ReadLong())
+, x4_attributes(in.ReadLong())
+, x8_flameFxId(in.ReadLong())
+, xc_length(in.ReadLong())
+, x10_(in.ReadFloat())
+, x18_(in.ReadFloat())
+, x1c_(in.ReadFloat()) {}
+
+CEntity* ScriptLoader::LoadMagdolite(CStateManager& mgr, CInputStream& in, int propCount,
+                                     const CEntityInfo& info) {
+  if (propCount != 22)
+    return nullptr;
+
+  SScaledActorHead head(in, mgr);
+
+  rstl::pair< bool, uint > pcount = CPatternedInfo::HasCorrectParameterCount(in, "Magdolite");
+  if (!pcount.first)
+    return nullptr;
+
+  CPatternedInfo pInfo(in, pcount.second);
+  CActorParameters actParms = LoadActorParameters(in);
+
+  if (pInfo.GetAnimationParameters().GetACSFile() == kInvalidAssetId)
+    return nullptr;
+
+  float headTrackAngle = in.ReadFloat();
+  float losAngle = in.ReadFloat();
+  CDamageInfo flameThrowerDamage(in);
+  CDamageInfo headContactDamage(in);
+  CDamageVulnerability headVuln(in);
+  CDamageVulnerability bodyVuln(in);
+  CAssetId headlessModel = in.ReadLong();
+  CAssetId headlessSkin = in.ReadLong();
+  float initialDelay = in.ReadFloat();
+  float minDelay = in.ReadFloat();
+  float maxDelay = in.ReadFloat();
+  float minHp = in.ReadFloat();
+  CFlameInfo flameInfo(in);
+  float f7 = in.ReadFloat();
+  float f8 = in.ReadFloat();
+  float f9 = in.ReadFloat();
+
+  return rs_new CMagdolite(
+      mgr.AllocateUniqueId(), head.x0_actorHead.x0_name, info, head.x0_actorHead.x10_transform,
+      CModelData(CAnimRes(pInfo.GetAnimationParameters().GetACSFile(),
+                          pInfo.GetAnimationParameters().GetCharacter(), head.x40_scale,
+                          pInfo.GetAnimationParameters().GetInitialAnimation(), true)),
+      pInfo, actParms, headTrackAngle, losAngle, flameThrowerDamage, headContactDamage, headVuln,
+      bodyVuln, headlessModel, headlessSkin, minHp, initialDelay, minDelay, maxDelay, flameInfo, f7,
+      f8, f9);
+}
+
+CEntity* ScriptLoader::LoadTeamAiMgr(CStateManager& mgr, CInputStream& in, int propCount,
+                                     const CEntityInfo& info) {
+  if (propCount < CTeamAiMgr::CUnknown::kNumProperties)
+    return nullptr;
+
+  rstl::string name = mgr.HashInstanceName(in);
+  CTeamAiMgr::CUnknown data(in, propCount);
+
+  return rs_new CTeamAiMgr(mgr.AllocateUniqueId(), name, info, data);
+}
+
+CEntity* ScriptLoader::LoadSnakeWeedSwarm(CStateManager& mgr, CInputStream& in, int propCount,
+                                          const CEntityInfo& info) {
+  bool valid = false;
+  if (propCount >= 25 && propCount <= 29)
+    valid = true;
+  if (!valid)
+    return nullptr;
+
+  rstl::string name(mgr.HashInstanceName(in));
+  CVector3f pos(in);
+  CVector3f scale(in);
+  bool active = in.Get< bool >();
+  CAssetId ancsId = in.ReadLong();
+  int charIdx = in.ReadLong();
+  int defaultAnim = in.ReadLong();
+  CActorParameters actParms = LoadActorParameters(in);
+  float f1 = in.ReadFloat();
+  float f2 = in.ReadFloat();
+  float f3 = in.ReadFloat();
+  float f4 = in.ReadFloat();
+  float f5 = in.ReadFloat();
+  float f6 = in.ReadFloat();
+  float f7 = in.ReadFloat();
+  float f8 = in.ReadFloat();
+  float f9 = in.ReadFloat();
+  float f10 = in.ReadFloat();
+  float f11 = in.ReadFloat();
+  float f12 = in.ReadFloat();
+  float f13 = in.ReadFloat();
+  float f14 = in.ReadFloat();
+  CDamageInfo dInfo(in);
+  float f15 = in.ReadFloat();
+  uint sfxId1 = in.ReadLong();
+  uint sfxId2 = in.ReadLong();
+  uint sfxId3 = in.ReadLong();
+  uint w4 = propCount >= 29 ? in.ReadLong() : kInvalidAssetId;
+  uint w5 = propCount >= 29 ? in.ReadLong() : 0;
+  uint w6 = propCount >= 29 ? in.ReadLong() : kInvalidAssetId;
+  float f16 = propCount >= 29 ? in.ReadFloat() : 0.f;
+
+  return rs_new CSnakeWeedSwarm(
+      mgr.AllocateUniqueId(), active, name, info, pos, scale,
+      CAnimRes(ancsId, charIdx, CVector3f(1.f, 1.f, 1.f), defaultAnim, true), actParms, f1, f2, f3,
+      f4, f5, f6, f7, f8, f9, f10, f11, f12, f13, f14, dInfo, f15, sfxId1, sfxId2, sfxId3, w4, w5,
+      w6, f16);
+}
+
+CEntity* ScriptLoader::LoadActorContraption(CStateManager& mgr, CInputStream& in, int propCount,
+                                            const CEntityInfo& info) {
+  if (propCount != 15)
+    return nullptr;
+
+  SScaledActorHead head(in, mgr);
+  CVector3f collisionExtent(in);
+  CVector3f centroid(in);
+
+  float mass = in.ReadFloat();
+  float zMomentum = in.ReadFloat();
+
+  CHealthInfo hInfo(in);
+
+  CDamageVulnerability dVuln(in);
+
+  CAnimationParameters aParms = LoadAnimationParameters(in);
+
+  CActorParameters actParms = LoadActorParameters(in);
+
+  CAssetId flameFxId = in.ReadLong();
+  CDamageInfo dInfo(in);
+  bool active = in.ReadBool();
+
+  if (gpResourceFactory->GetResourceTypeById(aParms.GetACSFile()) == 0)
+    return nullptr;
+
+  const CTransform4f& xf = head.x0_actorHead.x10_transform;
+
+  CAABox aabb = GetCollisionBox(mgr, info.GetAreaId(), collisionExtent, centroid);
+
+  CMaterialList list(kMT_Immovable, kMT_Solid);
+
+  bool negativeExtent;
+  if (collisionExtent.GetX() < 0.f)
+    negativeExtent = true;
+  else if (collisionExtent.GetY() < 0.f)
+    negativeExtent = true;
+  else if (collisionExtent.GetZ() < 0.f)
+    negativeExtent = true;
+  else
+    negativeExtent = false;
+
+  CModelData data(CAnimRes(aParms.GetACSFile(), aParms.GetCharacter(), head.x40_scale,
+                           aParms.GetInitialAnimation(), true));
+
+  if (collisionExtent == CVector3f::Zero() || negativeExtent)
+    aabb = data.GetBounds(xf.GetRotation());
+
+  return rs_new CScriptContraption(mgr.AllocateUniqueId(), head.x0_actorHead.x0_name, info, xf,
+                                   data, aabb, list, mass, zMomentum, hInfo, dVuln, actParms,
+                                   flameFxId, dInfo, active);
+}
+
+CEntity* ScriptLoader::LoadOcculus(CStateManager& mgr, CInputStream& in, int propCount,
+                                   const CEntityInfo& info) {
+  if (propCount != 15)
+    return nullptr;
+
+  SScaledActorHead head(in, mgr);
+
+  rstl::pair< bool, uint > pcount = CPatternedInfo::HasCorrectParameterCount(in, "Oculus");
+  if (!pcount.first)
+    return nullptr;
+
+  CPatternedInfo pInfo(in, pcount.second);
+  CActorParameters actParms = LoadActorParameters(in);
+
+  if (pInfo.GetAnimationParameters().GetACSFile() == kInvalidAssetId)
+    return nullptr;
+
+  float advanceWpRadius = in.ReadFloat();
+  float f2 = in.ReadFloat();
+  float alignAngVel = in.ReadFloat();
+  float f4 = in.ReadFloat();
+  float playerObstructionMinDist = in.ReadFloat();
+  float haltDelay = in.ReadFloat();
+  CDamageVulnerability dVuln(in);
+  float forwardMoveWeight = in.ReadFloat();
+  CDamageInfo dInfo(in);
+
+  return rs_new CParasite(
+      mgr.AllocateUniqueId(), head.x0_actorHead.x0_name, CPatterned::kFT_Zero, info,
+      head.x0_actorHead.x10_transform,
+      CModelData(CAnimRes(pInfo.GetAnimationParameters().GetACSFile(),
+                          pInfo.GetAnimationParameters().GetCharacter(), head.x40_scale,
+                          pInfo.GetAnimationParameters().GetInitialAnimation(), true)),
+      pInfo, kBT_WallWalker, 0.f, advanceWpRadius, f2, alignAngVel, f4, 0.2f, 0.4f, 0.f, 0.f, 0.f,
+      0.f, 0.f, 1.f, forwardMoveWeight, 0.f, 0.f, playerObstructionMinDist, haltDelay, false,
+      CWallWalker::kWT_Oculus, dVuln, dInfo, CSfxManager::kInternalInvalidSfxId,
+      CSfxManager::kInternalInvalidSfxId, CSfxManager::kInternalInvalidSfxId, kInvalidAssetId,
+      kInvalidAssetId, 0.f, actParms);
+}
+
+CEntity* ScriptLoader::LoadGeemer(CStateManager& mgr, CInputStream& in, int propCount,
+                                  const CEntityInfo& info) {
+  if (propCount != 16)
+    return nullptr;
+
+  SScaledActorHead head(in, mgr);
+
+  rstl::pair< bool, uint > pcount = CPatternedInfo::HasCorrectParameterCount(in, "Geemer");
+  if (!pcount.first)
+    return nullptr;
+
+  CPatternedInfo pInfo(in, pcount.second);
+  CActorParameters actParms = LoadActorParameters(in);
+
+  if (pInfo.GetAnimationParameters().GetACSFile() == kInvalidAssetId)
+    return nullptr;
+
+  float advanceWpRadius = in.ReadFloat();
+  float f2 = in.ReadFloat();
+  float alignAngVel = in.ReadFloat();
+  float f4 = in.ReadFloat();
+  float playerObstructionMinDist = in.ReadFloat();
+  float haltDelay = in.ReadFloat();
+  float forwardMoveWeight = in.ReadFloat();
+  ushort haltSfx = in.ReadLong();
+  ushort getUpSfx = in.ReadLong();
+  ushort crouchSfx = in.ReadLong();
+
+  return rs_new CParasite(
+      mgr.AllocateUniqueId(), head.x0_actorHead.x0_name, CPatterned::kFT_Zero, info,
+      head.x0_actorHead.x10_transform,
+      CModelData(CAnimRes(pInfo.GetAnimationParameters().GetACSFile(),
+                          pInfo.GetAnimationParameters().GetCharacter(), head.x40_scale,
+                          pInfo.GetAnimationParameters().GetInitialAnimation(), true)),
+      pInfo, kBT_WallWalker, 0.f, advanceWpRadius, f2, alignAngVel, f4, 0.2f, 0.4f, 0.f, 0.f, 0.f,
+      0.f, 0.f, 1.f, forwardMoveWeight, 0.f, 0.f, playerObstructionMinDist, haltDelay, false,
+      CWallWalker::kWT_Geemer, CDamageVulnerability::NormalVulnerabilty(),
+      CDamageInfo(CWeaponMode::Power(), 0.f, 0.f, 0.f), haltSfx, getUpSfx, crouchSfx,
+      kInvalidAssetId, kInvalidAssetId, 0.f, actParms);
+}
+
+CEntity* ScriptLoader::LoadAtomicAlpha(CStateManager& mgr, CInputStream& in, int propCount,
+                                       const CEntityInfo& info) {
+  if (propCount != 14)
+    return nullptr;
+
+  SScaledActorHead head(in, mgr);
+
+  rstl::pair< bool, uint > pcount = CPatternedInfo::HasCorrectParameterCount(in, "Atomic Alpha");
+  if (!pcount.first)
+    return nullptr;
+
+  CPatternedInfo pInfo(in, pcount.second);
+
+  if (pInfo.GetAnimationParameters().GetACSFile() == kInvalidAssetId)
+    return nullptr;
+
+  CActorParameters actParms = LoadActorParameters(in);
+  CAssetId bombWeapon = in.ReadLong();
+  CAssetId bombModel = in.ReadLong();
+  CDamageInfo bombDamage(in);
+  float bombDropDelay = in.ReadFloat();
+  float f2 = in.ReadFloat();
+  float f3 = in.ReadFloat();
+  bool invisible = in.ReadBool();
+  bool b2 = in.ReadBool();
+
+  return rs_new CAtomicAlpha(
+      mgr.AllocateUniqueId(), head.x0_actorHead.x0_name, info, head.x0_actorHead.x10_transform,
+      CModelData(CAnimRes(pInfo.GetAnimationParameters().GetACSFile(),
+                          pInfo.GetAnimationParameters().GetCharacter(), head.x40_scale,
+                          pInfo.GetAnimationParameters().GetInitialAnimation(), true)),
+      actParms, pInfo, bombWeapon, bombDamage, bombDropDelay, f2, f3, bombModel, invisible, b2);
+}
+
+CEntity* ScriptLoader::LoadRumbleEffect(CStateManager& mgr, CInputStream& in, int propCount,
+                                        const CEntityInfo& info) {
+  if (propCount != 6)
+    return nullptr;
+
+  rstl::string name = mgr.HashInstanceName(in);
+  CVector3f position(in);
+  bool active = in.Get< bool >();
+  float f1 = in.Get< float >();
+  int w1 = in.Get< int >();
+  uint pFlags = LoadParameterFlags(in);
+
+  return rs_new CScriptSpecialFunction(
+      mgr.AllocateUniqueId(), name, info,
+      ConvertEditorEulerToTransform4f(CVector3f::Zero(), position),
+      CScriptSpecialFunction::kSF_RumbleEffect, rstl::string_l(""), f1, float(w1), pFlags, 0.f,
+      CVector3f::Zero(), CColor::Black(), active, CDamageInfo(), -1, -1, CPlayerState::kIT_Invalid,
+      CSfxManager::kInternalInvalidSfxId, CSfxManager::kInternalInvalidSfxId,
+      CSfxManager::kInternalInvalidSfxId);
+}
+
+CEntity* ScriptLoader::LoadAmbientAI(CStateManager& mgr, CInputStream& in, int propCount,
+                                     const CEntityInfo& info) {
+  if (propCount != 16)
+    return nullptr;
+
+  SScaledActorHead head(in, mgr);
+  CVector3f collisionExtent(in);
+  CVector3f collisionOffset(in);
+  float mass = in.ReadFloat();
+  CHealthInfo hInfo(in);
+  CDamageVulnerability dVuln(in);
+  CAnimationParameters animParms = LoadAnimationParameters(in);
+  CActorParameters actParms = LoadActorParameters(in);
+  float alertRange = in.ReadFloat();
+  float impactRange = in.ReadFloat();
+  int alertAnim = in.ReadLong();
+  int impactAnim = in.ReadLong();
+  bool active = in.ReadBool();
+
+  if (gpResourceFactory->GetResourceTypeById(animParms.GetACSFile()) == 0)
+    return nullptr;
+
+  const CTransform4f& xf = head.x0_actorHead.x10_transform;
+  CAABox aabox = GetCollisionBox(mgr, info.GetAreaId(), collisionExtent, collisionOffset);
+  CMaterialList matList(kMT_Immovable, kMT_NonSolidDamageable);
+  bool negativeExtent;
+  if (collisionExtent.GetX() < 0.f)
+    negativeExtent = true;
+  else if (collisionExtent.GetY() < 0.f)
+    negativeExtent = true;
+  else if (collisionExtent.GetZ() < 0.f)
+    negativeExtent = true;
+  else
+    negativeExtent = false;
+
+  CModelData mData(CAnimRes(animParms.GetACSFile(), animParms.GetCharacter(), head.x40_scale,
+                            animParms.GetInitialAnimation(), true));
+
+  if (collisionExtent == CVector3f::Zero() || negativeExtent)
+    aabox = mData.GetBounds(xf.GetRotation());
+
+  return rs_new CAmbientAI(mgr.AllocateUniqueId(), head.x0_actorHead.x0_name, info, xf, mData,
+                           aabox, matList, mass, hInfo, dVuln, actParms, alertRange, impactRange,
+                           alertAnim, impactAnim, active);
+}
+
+CEntity* ScriptLoader::LoadAtomicBeta(CStateManager& mgr, CInputStream& in, int propCount,
+                                      const CEntityInfo& info) {
+  if (propCount != 21)
+    return nullptr;
+
+  SScaledActorHead head(in, mgr);
+
+  rstl::pair< bool, uint > pcount = CPatternedInfo::HasCorrectParameterCount(in, "Atomic Beta");
+  if (!pcount.first)
+    return nullptr;
+
+  CPatternedInfo pInfo(in, pcount.second);
+
+  if (pInfo.GetAnimationParameters().GetACSFile() == kInvalidAssetId)
+    return nullptr;
+
+  CActorParameters actParms = LoadActorParameters(in);
+  CAssetId electricId = in.ReadLong();
+  CAssetId weaponId = in.ReadLong();
+  CDamageInfo dInfo(in);
+  CAssetId particleId = in.ReadLong();
+  float f1 = in.ReadFloat();
+  float f2 = in.ReadFloat();
+  float f3 = in.ReadFloat();
+  CDamageVulnerability dVuln(in);
+  float f4 = in.ReadFloat();
+  float f5 = in.ReadFloat();
+  float f6 = in.ReadFloat();
+  int sId1 = in.ReadLong() & 0xFFFF;
+  int sId2 = in.ReadLong() & 0xFFFF;
+  int sId3 = in.ReadLong() & 0xFFFF;
+  float f7 = in.ReadFloat();
+
+  return rs_new CAtomicBeta(
+      mgr.AllocateUniqueId(), head.x0_actorHead.x0_name, info, head.x0_actorHead.x10_transform,
+      CModelData(CAnimRes(pInfo.GetAnimationParameters().GetACSFile(),
+                          pInfo.GetAnimationParameters().GetCharacter(), head.x40_scale,
+                          pInfo.GetAnimationParameters().GetInitialAnimation(), true)),
+      actParms, pInfo, electricId, weaponId, dInfo, particleId, f1, f2, f7, dVuln, f3, f4, f5, sId1,
+      sId2, sId3, f6);
+}
+
+CEntity* ScriptLoader::LoadIceZoomer(CStateManager& mgr, CInputStream& in, int propCount,
+                                     const CEntityInfo& info) {
+  if (propCount != 16)
+    return nullptr;
+
+  SScaledActorHead head(in, mgr);
+
+  rstl::pair< bool, uint > pcount = CPatternedInfo::HasCorrectParameterCount(in, "IceZoomer");
+  if (!pcount.first)
+    return nullptr;
+
+  CPatternedInfo pInfo(in, pcount.second);
+  CActorParameters actParms = LoadActorParameters(in);
+
+  if (pInfo.GetAnimationParameters().GetACSFile() == kInvalidAssetId)
+    return nullptr;
+
+  float advanceWpRadius = in.ReadFloat();
+  float f2 = in.ReadFloat();
+  float alignAngVel = in.ReadFloat();
+  float f4 = in.ReadFloat();
+  float playerObstructionMinDist = in.ReadFloat();
+  float forwardMoveWeight = in.ReadFloat();
+  CAssetId modelRes = in.ReadLong();
+  CAssetId skinRes = in.ReadLong();
+  CDamageVulnerability dVuln(in);
+  float iceZoomerJointHP = in.ReadFloat();
+
+  return rs_new CParasite(
+      mgr.AllocateUniqueId(), head.x0_actorHead.x0_name, CPatterned::kFT_Zero, info,
+      head.x0_actorHead.x10_transform,
+      CModelData(CAnimRes(pInfo.GetAnimationParameters().GetACSFile(),
+                          pInfo.GetAnimationParameters().GetCharacter(), head.x40_scale,
+                          pInfo.GetAnimationParameters().GetInitialAnimation(), true)),
+      pInfo, kBT_WallWalker, 0.f, advanceWpRadius, f2, alignAngVel, f4, 0.2f, 0.4f, 0.f, 0.f, 0.f,
+      0.f, 0.f, 1.f, forwardMoveWeight, 0.f, 0.f, playerObstructionMinDist, 0.f, false,
+      CWallWalker::kWT_IceZoomer, dVuln, CDamageInfo(CWeaponMode::Power(), 0.f, 0.f, 0.f),
+      CSfxManager::kInternalInvalidSfxId, CSfxManager::kInternalInvalidSfxId,
+      CSfxManager::kInternalInvalidSfxId, modelRes, skinRes, iceZoomerJointHP, actParms);
+}
+
+CEntity* ScriptLoader::LoadRidley(CStateManager& mgr, CInputStream& in, int propCount,
+                                  const CEntityInfo& info) {
+  if (propCount < CRidley::GetNumProperties())
+    return nullptr;
+
+  SScaledActorHead head(in, mgr);
+
+  rstl::pair< bool, uint > pcount = CPatternedInfo::HasCorrectParameterCount(in, "Ridley");
+  if (!pcount.first)
+    return nullptr;
+
+  CPatternedInfo pInfo(in, pcount.second);
+  CActorParameters actParms = LoadActorParameters(in);
+
+  if (pInfo.GetAnimationParameters().GetACSFile() == kInvalidAssetId)
+    return nullptr;
+
+  return rs_new CRidley(
+      mgr.AllocateUniqueId(), head.x0_actorHead.x0_name, info, head.x0_actorHead.x10_transform,
+      CModelData(CAnimRes(pInfo.GetAnimationParameters().GetACSFile(),
+                          pInfo.GetAnimationParameters().GetCharacter(), head.x40_scale,
+                          pInfo.GetAnimationParameters().GetInitialAnimation(), true)),
+      pInfo, actParms, in, propCount);
+}
+
+CEntity* ScriptLoader::LoadPuffer(CStateManager& mgr, CInputStream& in, int propCount,
+                                  const CEntityInfo& info) {
+  if (propCount != 16)
+    return nullptr;
+
+  SScaledActorHead head(in, mgr);
+
+  rstl::pair< bool, uint > pcount = CPatternedInfo::HasCorrectParameterCount(in, "Puffer");
+  if (!pcount.first)
+    return nullptr;
+
+  CPatternedInfo pInfo(in, pcount.second);
+
+  if (pInfo.GetAnimationParameters().GetACSFile() == kInvalidAssetId)
+    return nullptr;
+
+  CActorParameters actParms = LoadActorParameters(in);
+  float hoverSpeed = in.ReadFloat();
+  CAssetId cloudEffect = in.ReadLong();
+  CDamageInfo cloudDamage(in);
+  CAssetId cloudSteam = in.ReadLong();
+  float f2 = in.ReadFloat();
+  bool b1 = in.ReadBool();
+  bool b2 = in.ReadBool();
+  bool b3 = in.ReadBool();
+  CDamageInfo explosionDamage(in);
+  ushort sfxId = in.ReadLong();
+
+  return rs_new CPuffer(
+      mgr.AllocateUniqueId(), head.x0_actorHead.x0_name, info, head.x0_actorHead.x10_transform,
+      CModelData(CAnimRes(pInfo.GetAnimationParameters().GetACSFile(),
+                          pInfo.GetAnimationParameters().GetCharacter(), head.x40_scale,
+                          pInfo.GetAnimationParameters().GetInitialAnimation(), true)),
+      actParms, pInfo, hoverSpeed, cloudEffect, cloudDamage, cloudSteam, f2, b1, b2, b3,
+      explosionDamage, sfxId);
+}
+
+CEntity* ScriptLoader::LoadTryclops(CStateManager& mgr, CInputStream& in, int propCount,
+                                    const CEntityInfo& info) {
+  if (propCount != 10)
+    return nullptr;
+
+  SScaledActorHead head(in, mgr);
+
+  rstl::pair< bool, uint > pcount = CPatternedInfo::HasCorrectParameterCount(in, "Tryclops");
+  if (!pcount.first)
+    return nullptr;
+
+  CPatternedInfo pInfo(in, pcount.second);
+
+  if (pInfo.GetAnimationParameters().GetACSFile() == kInvalidAssetId)
+    return nullptr;
+
+  CActorParameters actParms = LoadActorParameters(in);
+  float f1 = in.ReadFloat();
+  float f2 = in.ReadFloat();
+  float f3 = in.ReadFloat();
+  float f4 = in.ReadFloat();
+
+  return rs_new CTryclops(
+      mgr.AllocateUniqueId(), head.x0_actorHead.x0_name, info, head.x0_actorHead.x10_transform,
+      CModelData(CAnimRes(pInfo.GetAnimationParameters().GetACSFile(),
+                          pInfo.GetAnimationParameters().GetCharacter(), head.x40_scale,
+                          pInfo.GetAnimationParameters().GetInitialAnimation(), true)),
+      pInfo, actParms, f1, f2, f3, f4);
+}
+
+CEntity* ScriptLoader::LoadSeedling(CStateManager& mgr, CInputStream& in, int propCount,
+                                    const CEntityInfo& info) {
+  if (propCount != 14)
+    return nullptr;
+
+  SScaledActorHead head(in, mgr);
+
+  rstl::pair< bool, uint > pcount = CPatternedInfo::HasCorrectParameterCount(in, "Seedling");
+  if (!pcount.first)
+    return nullptr;
+
+  CPatternedInfo pInfo(in, pcount.second);
+
+  if (pInfo.GetAnimationParameters().GetACSFile() == kInvalidAssetId)
+    return nullptr;
+
+  CActorParameters actParms = LoadActorParameters(in);
+  CAssetId needleId = in.ReadLong();
+  CAssetId weaponId = in.ReadLong();
+  CDamageInfo dInfo1 = CDamageInfo(in);
+  CDamageInfo dInfo2 = CDamageInfo(in);
+  float f1 = in.ReadFloat();
+  float f2 = in.ReadFloat();
+  float f3 = in.ReadFloat();
+  float f4 = in.ReadFloat();
+
+  return rs_new CSeedling(
+      mgr.AllocateUniqueId(), head.x0_actorHead.x0_name, info, head.x0_actorHead.x10_transform,
+      CModelData(CAnimRes(pInfo.GetAnimationParameters().GetACSFile(),
+                          pInfo.GetAnimationParameters().GetCharacter(), head.x40_scale,
+                          pInfo.GetAnimationParameters().GetInitialAnimation(), true)),
+      pInfo, actParms, needleId, weaponId, dInfo1, dInfo2, f1, f2, f3, f4);
+}
+
+CEntity* ScriptLoader::LoadThermalHeatFader(CStateManager& mgr, CInputStream& in, int propCount,
+                                            const CEntityInfo& info) {
+  if (propCount != 4)
+    return nullptr;
+
+  rstl::string name = mgr.HashInstanceName(in);
+  bool active = in.Get< bool >();
+  float fadedLevel = in.Get< float >();
+  float initialLevel = in.Get< float >();
+
+  return rs_new CScriptDistanceFog(mgr.AllocateUniqueId(), name, info, kRFM_None, CColor::Black(),
+                                   CVector2f(0.f, 0.f), 0.f, CVector2f(0.f, 0.f), false, active,
+                                   fadedLevel, initialLevel, 0.f, 0.f);
+}
+
+CEntity* ScriptLoader::LoadBurrower(CStateManager& mgr, CInputStream& in, int propCount,
+                                    const CEntityInfo& info) {
+  if (propCount != 13)
+    return nullptr;
+
+  SScaledActorHead head(in, mgr);
+
+  rstl::pair< bool, uint > pcount = CPatternedInfo::HasCorrectParameterCount(in, "Burrower");
+  if (!pcount.first)
+    return nullptr;
+
+  CPatternedInfo pInfo(in, pcount.second);
+
+  if (pInfo.GetAnimationParameters().GetACSFile() == kInvalidAssetId)
+    return nullptr;
+
+  CActorParameters actParms = LoadActorParameters(in);
+  CAssetId jumpParticle = in.ReadLong();
+  CAssetId trailParticle = in.ReadLong();
+  CAssetId projectile = in.ReadLong();
+  CDamageInfo dInfo = CDamageInfo(in);
+  CAssetId visorParticle = in.ReadLong();
+  uint visorSfx = in.ReadLong();
+  CAssetId deathExplosionParticle = in.ReadLong();
+
+  return rs_new CBurrower(
+      mgr.AllocateUniqueId(), head.x0_actorHead.x0_name, info, head.x0_actorHead.x10_transform,
+      CModelData(CAnimRes(pInfo.GetAnimationParameters().GetACSFile(),
+                          pInfo.GetAnimationParameters().GetCharacter(), head.x40_scale,
+                          pInfo.GetAnimationParameters().GetInitialAnimation(), true)),
+      pInfo, actParms, jumpParticle, trailParticle, projectile, dInfo, visorParticle, visorSfx,
+      deathExplosionParticle);
+}
+
+CEntity* ScriptLoader::LoadMetroidPrimeRelay(CStateManager& mgr, CInputStream& in, int propCount,
+                                             const CEntityInfo& info) {
+  if (propCount != 22)
+    return nullptr;
+
+  int version = in.ReadLong();
+  if (version != 3)
+    return nullptr;
+
+  SScaledActorHead aHead(in, mgr);
+  bool active = in.Get< bool >();
+  float f1 = in.ReadFloat();
+  float f2 = in.ReadFloat();
+  float f3 = in.ReadFloat();
+  int w1 = in.ReadLong();
+  bool b1 = in.ReadBool();
+  int w2 = in.ReadLong();
+  CHealthInfo hInfo1(in);
+  CHealthInfo hInfo2(in);
+  int w3 = in.ReadLong();
+
+  CMetroidPrime::CMetroidPrimeAttackWeights roomParm1(in);
+  CMetroidPrime::CMetroidPrimeAttackWeights roomParm2(in);
+  CMetroidPrime::CMetroidPrimeAttackWeights roomParm3(in);
+  CMetroidPrime::CMetroidPrimeAttackWeights roomParm4(in);
+
+  rstl::reserved_vector< CMetroidPrime::CMetroidPrimeAttackWeights, 4 > roomParms;
+  roomParms.push_back(roomParm1);
+  roomParms.push_back(roomParm2);
+  roomParms.push_back(roomParm3);
+  roomParms.push_back(roomParm4);
+
+  int w4 = in.ReadLong();
+  int w5 = in.ReadLong();
+
+  CMetroidPrimeData parms(in);
+
+  if (parms.GetPatternedInfo().GetAnimationParameters().GetACSFile() == kInvalidAssetId)
+    return nullptr;
+
+  return rs_new CMetroidPrimeRelay(mgr.AllocateUniqueId(), aHead.x0_actorHead.x0_name, info, active,
+                                   aHead.x0_actorHead.x10_transform, aHead.x40_scale, parms, f1, f2,
+                                   f3, w1, b1, w2, hInfo1, hInfo2, w3, w4, w5, roomParms);
+}
+
+CBeamInfo::CBeamInfo(CInputStream& in)
+: x0_(in.ReadLong())
+, x4_beamAttributes(in.ReadLong())
+, x8_contactFxId(in.ReadLong())
+, xc_pulseFxId(in.ReadLong())
+, x10_textureId(in.ReadLong())
+, x14_glowTextureId(in.ReadLong())
+, x18_length(static_cast< int >(in.ReadFloat()))
+, x1c_radius(in.ReadFloat())
+, x20_expansionSpeed(in.ReadFloat())
+, x24_lifeTime(in.ReadFloat())
+, x28_pulseSpeed(in.ReadFloat())
+, x2c_shutdownTime(in.ReadFloat())
+, x30_contactFxScale(in.ReadFloat())
+, x34_pulseFxScale(in.ReadFloat())
+, x38_travelSpeed(in.ReadFloat())
+, x3c_innerColor(in)
+, x40_outerColor(in) {}
+
+CEntity* ScriptLoader::LoadScriptBeam(CStateManager& mgr, CInputStream& in, int propCount,
+                                      const CEntityInfo& info) {
+  if (propCount != 7)
+    return nullptr;
+
+  SActorHead aHead(in, mgr);
+  bool active = in.Get< bool >();
+  uint weaponDescId = in.ReadLong();
+
+  if (gpResourceFactory->GetResourceTypeById(weaponDescId) == 0)
+    return nullptr;
+
+  CBeamInfo beamInfo(in);
+  CDamageInfo dInfo(in);
+
+  return rs_new CScriptBeam(mgr.AllocateUniqueId(), aHead.x0_name, info, aHead.x10_transform,
+                            active, gpSimplePool->GetObj(SObjectTag('WPSC', weaponDescId)),
+                            beamInfo, dInfo);
+}
+
+CEntity* ScriptLoader::LoadWorldLightFader(CStateManager& mgr, CInputStream& in, int propCount,
+                                           const CEntityInfo& info) {
+  if (propCount != 4)
+    return nullptr;
+
+  rstl::string name = mgr.HashInstanceName(in);
+  bool active = in.Get< bool >();
+  float f1 = in.Get< float >();
+  float f2 = in.Get< float >();
+
+  return rs_new CScriptDistanceFog(mgr.AllocateUniqueId(), name, info, kRFM_None, CColor::Black(),
+                                   CVector2f(0.f, 0.f), 0.f, CVector2f(0.f, 0.f), false, active,
+                                   0.f, 0.f, f1, f2);
+}
+
+CEntity* ScriptLoader::LoadMetroidPrimeStage2(CStateManager& mgr, CInputStream& in, int propCount,
+                                              const CEntityInfo& info) {
+  if (propCount != 11)
+    return nullptr;
+
+  SScaledActorHead head(in, mgr);
+
+  rstl::pair< bool, uint > pcount = CPatternedInfo::HasCorrectParameterCount(in, "Burrower");
+  if (!pcount.first)
+    return nullptr;
+
+  CPatternedInfo pInfo(in, pcount.second);
+
+  if (pInfo.GetAnimationParameters().GetACSFile() == kInvalidAssetId)
+    return nullptr;
+
+  CActorParameters actParms = LoadActorParameters(in);
+  CAssetId particle1 = in.ReadLong();
+  CDamageInfo dInfo = CDamageInfo(in);
+  CAssetId electric = in.ReadLong();
+  uint sfxId = in.ReadLong();
+  CAssetId particle2 = in.ReadLong();
+
+  return rs_new CMetroidPrimeStage2(
+      mgr.AllocateUniqueId(), head.x0_actorHead.x0_name, info, head.x0_actorHead.x10_transform,
+      CModelData(CAnimRes(pInfo.GetAnimationParameters().GetACSFile(),
+                          pInfo.GetAnimationParameters().GetCharacter(), head.x40_scale,
+                          pInfo.GetAnimationParameters().GetInitialAnimation(), true)),
+      pInfo, actParms, particle1, dInfo, electric, sfxId, particle2);
+}
+
+CEntity* ScriptLoader::LoadMazeNode(CStateManager& mgr, CInputStream& in, int propCount,
+                                    const CEntityInfo& info) {
+  if (propCount != 10)
+    return nullptr;
+
+  SActorHead aHead(in, mgr);
+  bool active = in.Get< bool >();
+  int col = in.Get< int >();
+  int row = in.Get< int >();
+  int side = in.Get< int >();
+  CVector3f actorPos(in);
+  CVector3f triggerPos(in);
+  CVector3f effectPos(in);
+
+  return rs_new CScriptMazeNode(mgr.AllocateUniqueId(), aHead.x0_name, info, aHead.x10_transform,
+                                active, col, row, side, actorPos, triggerPos, effectPos);
+}
+
+CEntity* ScriptLoader::LoadOmegaPirate(CStateManager& mgr, CInputStream& in, int propCount,
+                                       const CEntityInfo& info) {
+  if (propCount < CElitePirateData::GetMinProperties() + 1)
+    return nullptr;
+
+  SScaledActorHead head(in, mgr);
+
+  rstl::pair< bool, uint > pcount = CPatternedInfo::HasCorrectParameterCount(in, "Omega Pirate");
+  if (!pcount.first)
+    return nullptr;
+
+  CPatternedInfo pInfo(in, pcount.second);
+  CActorParameters actParms = LoadActorParameters(in);
+  CElitePirateData epData(in, propCount);
+
+  if (pInfo.GetAnimationParameters().GetACSFile() == kInvalidAssetId)
+    return nullptr;
+
+  int skeletonModelId = in.ReadLong();
+  int skinRulesId = in.ReadLong();
+  int layoutInfoId = in.ReadLong();
+
+  return rs_new COmegaPirate(
+      mgr.AllocateUniqueId(), head.x0_actorHead.x0_name, info, head.x0_actorHead.x10_transform,
+      CModelData(CAnimRes(pInfo.GetAnimationParameters().GetACSFile(),
+                          pInfo.GetAnimationParameters().GetCharacter(), head.x40_scale,
+                          pInfo.GetAnimationParameters().GetInitialAnimation(), true)),
+      pInfo, actParms, epData, skeletonModelId, skinRulesId, layoutInfoId);
+}
+
+CEntity* ScriptLoader::LoadPhazonPool(CStateManager& mgr, CInputStream& in, int propCount,
+                                      const CEntityInfo& info) {
+  if (propCount != 18)
+    return nullptr;
+
+  SScaledActorHead head(in, mgr);
+  bool active = in.Get< bool >();
+  CAssetId w1 = in.ReadLong();
+  CAssetId w2 = in.ReadLong();
+  CAssetId w3 = in.ReadLong();
+  CAssetId w4 = in.ReadLong();
+  uint p11 = in.ReadLong();
+  CDamageInfo dInfo = CDamageInfo(in);
+  CVector3f orientedForce = CVector3f(in);
+  ETriggerFlags triggerFlags = ETriggerFlags(in.ReadLong());
+  float f1 = in.ReadFloat();
+  float f2 = in.ReadFloat();
+  float f3 = in.ReadFloat();
+  bool b2 = in.ReadBool();
+  float f4 = in.ReadFloat();
+  const CVector3f& scale = head.x40_scale;
+
+  return rs_new CScriptPhazonPool(
+      mgr.AllocateUniqueId(), head.x0_actorHead.x0_name, info,
+      CTransform4f::Translate(head.x0_actorHead.x10_transform.GetTranslation()), scale, active, w1,
+      w2, w3, w4, p11, dInfo, orientedForce, triggerFlags, b2, f1, f2, f3, f4);
+}
+
+CEntity* ScriptLoader::LoadPhazonHealingNodule(CStateManager& mgr, CInputStream& in, int propCount,
+                                               const CEntityInfo& info) {
+  if (propCount != 9)
+    return nullptr;
+
+  SScaledActorHead head(in, mgr);
+
+  rstl::pair< bool, uint > pcount =
+      CPatternedInfo::HasCorrectParameterCount(in, "PhazonHealingNodule");
+  if (!pcount.first)
+    return nullptr;
+
+  CPatternedInfo pInfo(in, pcount.second);
+  CActorParameters actParms = LoadActorParameters(in);
+
+  in.ReadBool();
+  CAssetId particleDescId = in.ReadLong();
+  rstl::string actorLctr(in);
+
+  if (pInfo.GetAnimationParameters().GetACSFile() == kInvalidAssetId)
+    return nullptr;
+
+  return rs_new CPhazonHealingNodule(
+      mgr.AllocateUniqueId(), head.x0_actorHead.x0_name, info, head.x0_actorHead.x10_transform,
+      CModelData(CAnimRes(pInfo.GetAnimationParameters().GetACSFile(),
+                          pInfo.GetAnimationParameters().GetCharacter(), head.x40_scale,
+                          pInfo.GetAnimationParameters().GetInitialAnimation(), true)),
+      actParms, pInfo, particleDescId, actorLctr);
+}
+
+CEntity* ScriptLoader::LoadShadowProjector(CStateManager& mgr, CInputStream& in, int propCount,
+                                           const CEntityInfo& info) {
+  if (propCount != 10)
+    return nullptr;
+
+  rstl::string name = mgr.HashInstanceName(in);
+  CVector3f position(in);
+  bool active = in.ReadBool();
+  float scale = in.ReadFloat();
+  CVector3f offset(in);
+  float zOffsetAdjust = in.ReadFloat();
+  float opacity = in.ReadFloat();
+  float opacityRecip = in.ReadFloat();
+  bool persistent = in.ReadBool();
+  int textureSize = in.ReadLong();
+
+  return rs_new CScriptShadowProjector(
+      mgr.AllocateUniqueId(), name, info, CTransform4f::Translate(position), active, offset,
+      persistent, scale, zOffsetAdjust, opacity, opacityRecip, textureSize);
+}
+
+CEntity* ScriptLoader::LoadEnergyBall(CStateManager& mgr, CInputStream& in, int propCount,
+                                      const CEntityInfo& info) {
+  if (propCount < 16)
+    return nullptr;
+
+  SScaledActorHead head(in, mgr);
+
+  rstl::pair< bool, uint > pcount = CPatternedInfo::HasCorrectParameterCount(in, "Atomic Alpha");
+  if (!pcount.first)
+    return nullptr;
+
+  CPatternedInfo pInfo(in, pcount.second);
+
+  if (pInfo.GetAnimationParameters().GetACSFile() == kInvalidAssetId)
+    return nullptr;
+
+  CActorParameters actParms = LoadActorParameters(in);
+  int w1 = in.Get< int >();
+  float f1 = in.Get< float >();
+  CDamageInfo dInfo1(in);
+  float f2 = in.Get< float >();
+  uint a1 = in.Get< int >();
+  ushort sfxId1 = CSfxManager::TranslateSFXID(in.Get< int >());
+  uint a2 = in.Get< int >();
+  uint a3 = in.Get< int >();
+  ushort sfxId2 = CSfxManager::TranslateSFXID(in.Get< int >());
+  float f3 = in.Get< float >();
+  float f4 = in.Get< float >();
+  uint a4 = in.Get< int >();
+
+  CDamageInfo dInfo2 = propCount >= 19 ? CDamageInfo(in) : CDamageInfo();
+  float f5 = propCount >= 20 ? in.Get< float >() : 3.0f;
+
+  return rs_new CEnergyBall(
+      mgr.AllocateUniqueId(), head.x0_actorHead.x0_name, info, head.x0_actorHead.x10_transform,
+      CModelData(CAnimRes(pInfo.GetAnimationParameters().GetACSFile(),
+                          pInfo.GetAnimationParameters().GetCharacter(), head.x40_scale,
+                          pInfo.GetAnimationParameters().GetInitialAnimation(), true)),
+      actParms, pInfo, w1, f1, dInfo1, f2, a1, sfxId1, a2, a3, sfxId2, f3, f4, a4, dInfo2, f5);
 }

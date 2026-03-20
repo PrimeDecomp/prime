@@ -9,6 +9,8 @@
 
 #pragma inline_max_size(250)
 
+const int CTeamAiMgr::CUnknown::kNumProperties = 8;
+
 struct TeamAiRoleSorter {
   CVector3f x0_pos;
   int xc_type;
@@ -71,8 +73,8 @@ TUniqueId CTeamAiMgr::GetTeamAiMgr(const CAi& ai, const CStateManager& mgr) {
   rstl::vector< SConnection >::const_iterator conn = ai.GetConnectionList().begin();
   for (; conn != ai.GetConnectionList().end(); ++conn) {
     if (conn->x0_state == kSS_Active && conn->x4_msg == kSM_Play) {
-      if (const CTeamAiMgr* teamMgr =
-              TCastToConstPtr< CTeamAiMgr >(mgr.GetObjectById(mgr.GetIdForScript(conn->x8_objId)))) {
+      if (const CTeamAiMgr* teamMgr = TCastToConstPtr< CTeamAiMgr >(
+              mgr.GetObjectById(mgr.GetIdForScript(conn->x8_objId)))) {
         return teamMgr->GetUniqueId();
       }
     }
@@ -187,9 +189,8 @@ void CTeamAiMgr::RemoveTeamAiRole(TUniqueId id) {
   }
 
   CTeamAiRole searchRole(id);
-  rstl::vector< CTeamAiRole >::iterator search =
-      rstl::binary_find< rstl::vector< CTeamAiRole > >(x58_roles.begin(), x58_roles.end(),
-                                                       searchRole);
+  rstl::vector< CTeamAiRole >::iterator search = rstl::binary_find< rstl::vector< CTeamAiRole > >(
+      x58_roles.begin(), x58_roles.end(), searchRole);
   x58_roles.erase(search);
 
   UpdateTeamCaptain();
@@ -229,9 +230,8 @@ const CTeamAiRole* CTeamAiMgr::GetTeamAiRole(TUniqueId id) const {
 
 void CTeamAiMgr::ClearTeamAiRole(TUniqueId id) {
   CTeamAiRole searchRole(id);
-  rstl::vector< CTeamAiRole >::iterator search =
-      rstl::binary_find< rstl::vector< CTeamAiRole > >(x58_roles.begin(), x58_roles.end(),
-                                                       searchRole);
+  rstl::vector< CTeamAiRole >::iterator search = rstl::binary_find< rstl::vector< CTeamAiRole > >(
+      x58_roles.begin(), x58_roles.end(), searchRole);
   if (search != x58_roles.end()) {
     search->SetTeamAiRole(CTeamAiRole::kTAR_Initial);
   }
@@ -280,9 +280,8 @@ bool CTeamAiMgr::CanAcceptMeleeAttacker(TUniqueId id) const {
 bool CTeamAiMgr::AddMeleeAttacker(TUniqueId id) {
   if (x90_timeSinceMelee >= x34_data.x1c_meleeTimeInterval &&
       x68_meleeAttackers.size() < x34_data.x10_maxMeleeAttackerCount && HasTeamAiRole(id)) {
-    rstl::vector< TUniqueId >::iterator search =
-        rstl::binary_find< rstl::vector< TUniqueId > >(x68_meleeAttackers.begin(),
-                                                       x68_meleeAttackers.end(), id);
+    rstl::vector< TUniqueId >::iterator search = rstl::binary_find< rstl::vector< TUniqueId > >(
+        x68_meleeAttackers.begin(), x68_meleeAttackers.end(), id);
     if (search == x68_meleeAttackers.end()) {
       x68_meleeAttackers.reserve(x68_meleeAttackers.size() + 1);
       rstl::vector< TUniqueId >::iterator insertPos =
@@ -297,9 +296,8 @@ bool CTeamAiMgr::AddMeleeAttacker(TUniqueId id) {
 }
 
 void CTeamAiMgr::RemoveMeleeAttacker(TUniqueId id) {
-  rstl::vector< TUniqueId >::iterator search =
-      rstl::binary_find< rstl::vector< TUniqueId > >(x68_meleeAttackers.begin(),
-                                                     x68_meleeAttackers.end(), id);
+  rstl::vector< TUniqueId >::iterator search = rstl::binary_find< rstl::vector< TUniqueId > >(
+      x68_meleeAttackers.begin(), x68_meleeAttackers.end(), id);
   if (search != x68_meleeAttackers.end()) {
     x68_meleeAttackers.erase(search);
   }
@@ -330,9 +328,8 @@ bool CTeamAiMgr::AddProjectileAttacker(TUniqueId id) {
   if (x94_timeSinceProjectile >= x34_data.x20_projectileTimeInterval &&
       x78_projectileAttackers.size() < x34_data.x14_maxProjectileAttackerCount &&
       HasTeamAiRole(id)) {
-    rstl::vector< TUniqueId >::iterator search =
-        rstl::binary_find< rstl::vector< TUniqueId > >(x78_projectileAttackers.begin(),
-                                                       x78_projectileAttackers.end(), id);
+    rstl::vector< TUniqueId >::iterator search = rstl::binary_find< rstl::vector< TUniqueId > >(
+        x78_projectileAttackers.begin(), x78_projectileAttackers.end(), id);
     if (search == x78_projectileAttackers.end()) {
       x78_projectileAttackers.reserve(x78_projectileAttackers.size() + 1);
       rstl::vector< TUniqueId >::iterator insertPos =
@@ -347,9 +344,8 @@ bool CTeamAiMgr::AddProjectileAttacker(TUniqueId id) {
 }
 
 void CTeamAiMgr::RemoveProjectileAttacker(TUniqueId id) {
-  rstl::vector< TUniqueId >::iterator search =
-      rstl::binary_find< rstl::vector< TUniqueId > >(x78_projectileAttackers.begin(),
-                                                     x78_projectileAttackers.end(), id);
+  rstl::vector< TUniqueId >::iterator search = rstl::binary_find< rstl::vector< TUniqueId > >(
+      x78_projectileAttackers.begin(), x78_projectileAttackers.end(), id);
   if (search != x78_projectileAttackers.end()) {
     x78_projectileAttackers.erase(search);
   }
@@ -418,7 +414,8 @@ void CTeamAiMgr::AssignRoles(CTeamAiRole::ETeamAiRole role, int count) {
   }
 
   uint roleIndex = 0;
-  for (rstl::vector< CTeamAiRole >::iterator cur = x58_roles.begin(); cur != x58_roles.end(); ++cur) {
+  for (rstl::vector< CTeamAiRole >::iterator cur = x58_roles.begin(); cur != x58_roles.end();
+       ++cur) {
     if (cur->x10_curRole == CTeamAiRole::kTAR_Initial) {
       bool matches = role == cur->x4_roleA || role == cur->x8_roleB || role == cur->xc_roleC;
       if (matches) {

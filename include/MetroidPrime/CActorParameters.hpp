@@ -113,7 +113,6 @@ public:
                    const CVisorParameters& visorParms, bool globalTimeProvider, bool thermalHeat,
                    bool renderUnsorted, bool noSortThermal, float fadeInTime, float fadeOutTime,
                    float thermalMag);
-  CActorParameters(const CActorParameters&);
   ~CActorParameters() {}
 
   CActorParameters Scannable(const CScannableParameters& sParms) const;

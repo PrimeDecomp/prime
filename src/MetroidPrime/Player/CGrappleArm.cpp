@@ -12,9 +12,13 @@
 #include "MetroidPrime/Tweaks/CTweakPlayer.hpp"
 #include "MetroidPrime/Weapons/GunController/CGunController.hpp"
 #include "MetroidPrime/Weapons/WeaponCommon.hpp"
+
+#pragma inline_max_size(250)
+
 static const char* kGrappleGear = "GrappleGear";
 static const char* kGrapNoz1 = "GrapNoz1";
 static const char* kGrapNoz2 = "GrapNoz2";
+
 float CGrappleArm::kPhaseDelta = 0.875f;
 float CGrappleArm::kAmplitudeX = 0.25f;
 float CGrappleArm::kAmplitudeZ = 0.125f;

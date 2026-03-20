@@ -7,6 +7,8 @@
 
 #include "rstl/reserved_vector.hpp"
 
+
+
 class CInputStream;
 
 enum ESpindleInput {
@@ -20,6 +22,8 @@ enum ESpindleInput {
   kSI_HintDeltaVOff,
 };
 
+struct SSpindleSegment;
+
 struct SSpindleProperty {
   uint x0_flags;
   ESpindleInput x4_input;
@@ -29,13 +33,8 @@ struct SSpindleProperty {
   float x14_highIn;
 
   SSpindleProperty() {}
-  SSpindleProperty(const SSpindleProperty& other)
-  : x0_flags(other.x0_flags)
-  , x4_input(other.x4_input)
-  , x8_lowOut(other.x8_lowOut)
-  , xc_highOut(other.xc_highOut)
-  , x10_lowIn(other.x10_lowIn)
-  , x14_highIn(other.x14_highIn) {}
+
+  SSpindleProperty(const SSpindleSegment& other);
 
   float GetValue(float inVar) const;
 };
@@ -57,12 +56,18 @@ struct SSpindleSegment {
 };
 CHECK_SIZEOF(SSpindleSegment, 0x18)
 
+struct SWordBlock6 { uint w[6]; };
+inline SSpindleProperty::SSpindleProperty(const SSpindleSegment& other) {
+  *reinterpret_cast< SWordBlock6* >(this) =
+      *reinterpret_cast< const SWordBlock6* >(&other);
+}
+
 SSpindleSegment LoadSpindleSegment(CInputStream& in);
 
 class CScriptSpindleCamera : public CGameCamera {
 public:
   CScriptSpindleCamera(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
-                       const CTransform4f& xf, const bool active, int flags,
+                       const CTransform4f& xf, bool active, int flags,
                        float hintToCamDistMin,
                        float hintToCamDistMax, float hintToCamVOffMin, float hintToCamVOffMax,
                        const SSpindleProperty& targetHintToCamDeltaAngleVel,

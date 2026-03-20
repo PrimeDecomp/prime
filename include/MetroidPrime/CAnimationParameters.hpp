@@ -19,6 +19,8 @@ public:
   CAssetId GetACSFile() const { return x0_ancs; }
   uint GetCharacter() const { return x4_charIdx; }
   uint GetInitialAnimation() const { return x8_defaultAnim; }
+
+  void SetCharacter(uint charIdx) { x4_charIdx = charIdx; }
 };
 
 

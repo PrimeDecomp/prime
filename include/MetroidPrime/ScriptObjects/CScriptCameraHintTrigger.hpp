@@ -16,7 +16,7 @@ class CScriptCameraHintTrigger : public CActor {
 public:
   CScriptCameraHintTrigger(TUniqueId uid, bool active, const rstl::string& name,
                            const CEntityInfo& info, const CVector3f& scale, const CTransform4f& xf,
-                           bool deactivateOnEnter, bool deactivateOnExit);
+                           bool deactivateOnEnter, const bool deactivateOnExit);
   ~CScriptCameraHintTrigger();
   
   void Accept(IVisitor& visitor) override;

@@ -14,11 +14,6 @@
 #include "MetroidPrime/BodyState/CBodyController.hpp"
 #include "MetroidPrime/CCollisionActor.hpp"
 
-// TODO move
-struct SSphereJointInfo {
-  const char* name;
-  float radius;
-};
 struct SOBBJointInfo {
   const char* from;
   const char* to;
