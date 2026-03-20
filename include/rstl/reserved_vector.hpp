@@ -36,13 +36,15 @@ public:
   reserved_vector(CInputStream& in);
 
   reserved_vector& operator=(const reserved_vector& other) {
-    if (this != &other) {
-      clear();
-      uninitialized_copy(other.data(), other.data() + other.size(), data());
-      x0_count = other.x0_count;
+    if (this == &other) {
+      return *this;
     }
+    clear();
+    uninitialized_copy(other.data(), other.data() + other.size(), data());
+    x0_count = other.x0_count;
     return *this;
   }
+
   void clear() {
     T* ptr = data();
     for (int i = 0; i < x0_count; ++i) {

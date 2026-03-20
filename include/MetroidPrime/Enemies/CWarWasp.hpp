@@ -16,12 +16,11 @@
 
 class CWarWasp : public CPatterned {
 public:
-  CWarWasp(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
-           const CTransform4f& xf, const CModelData& mData, const CPatternedInfo& pInfo,
-           CPatterned::EFlavorType flavor, CPatterned::EColliderType collider,
-           const CDamageInfo& dInfo, const CActorParameters& actParms,
-           CAssetId projectileWeapon, const CDamageInfo& projectileDamage,
-           CAssetId projectileVisorParticle, uint projectileVisorSfx);
+  CWarWasp(TUniqueId uid, const rstl::string& name, const CEntityInfo& info, const CTransform4f& xf,
+           const CModelData& mData, const CPatternedInfo& pInfo, CPatterned::EFlavorType flavor,
+           CPatterned::EColliderType collider, const CDamageInfo& dInfo,
+           const CActorParameters& actParms, CAssetId projectileWeapon,
+           CDamageInfo projectileDamage, CAssetId projectileVisorParticle, uint projectileVisorSfx);
 
   // CEntity
   ~CWarWasp() override;
@@ -31,15 +30,16 @@ public:
 
   // CActor
   rstl::optional_object< CAABox > GetTouchBounds() const override;
-  void DoUserAnimEvent(CStateManager& mgr, const CInt32POINode& node,
-                       EUserEventType type) override;
+  void DoUserAnimEvent(CStateManager& mgr, const CInt32POINode& node, EUserEventType type,
+                       float dt) override;
   const CCollisionPrimitive* GetCollisionPrimitive() const override { return &x570_cSphere; }
 
   // CAi
-  void Death(const CVector3f& dir, CStateManager& mgr) override;
+  void Death(CStateManager& mgr, const CVector3f& direction, EScriptObjectState state) override;
   bool IsListening() const override { return true; }
   bool Listen(const CVector3f& pos, EListenNoiseType type) override;
-  CVector3f GetOrigin() const override;
+  CVector3f GetOrigin(const CStateManager& mgr, const CTeamAiRole& role,
+                      const CVector3f& aimPos) const override;
 
   // CAi - state actions
   void Patrol(CStateManager& mgr, EStateMsg msg, float arg) override;

@@ -32,8 +32,8 @@ static const CMaterialFilter sMaterialFilter = CMaterialFilter::MakeIncludeExclu
     CMaterialList(kMT_Solid),
     CMaterialList(kMT_ProjectilePassthrough, kMT_Player, kMT_Character, kMT_CameraPassthrough));
 
-SSpindleSegment::SSpindleSegment(ESpindleInput input, uint flags, float lowOut, float highOut,
-                                 float lowIn, float highIn)
+CSpindleCameraInterpolant::CSpindleCameraInterpolant(ESpindleInput input, uint flags, float lowOut,
+                                                     float highOut, float lowIn, float highIn)
 : x0_flags(flags)
 , x4_input(input)
 , x8_lowOut(lowOut)
@@ -41,7 +41,7 @@ SSpindleSegment::SSpindleSegment(ESpindleInput input, uint flags, float lowOut, 
 , x10_lowIn(lowIn)
 , x14_highIn(highIn) {}
 
-SSpindleSegment LoadSpindleSegment(CInputStream& in) {
+CSpindleCameraInterpolant LoadSpindleSegment(CInputStream& in) {
   ESpindleInput input = static_cast< ESpindleInput >(in.ReadLong());
   uint flags = LoadParameterFlags(in);
   float lowOut = in.ReadFloat();
@@ -60,15 +60,15 @@ SSpindleSegment LoadSpindleSegment(CInputStream& in) {
     break;
   }
 
-  return SSpindleSegment(input, flags, lowOut, highOut, lowIn, highIn);
+  return CSpindleCameraInterpolant(input, flags, lowOut, highOut, lowIn, highIn);
 }
 
-void SSpindleSegment::FixupAngles() {
+void CSpindleCameraInterpolant::FixupAngles() {
   x8_lowOut *= 0.017453292f;
   xc_highOut *= 0.017453292f;
 }
 
-float SSpindleProperty::GetValue(float inVar) const {
+float CSpindleCameraInterpolant::GetValue(float inVar) const {
   float ret;
   if (x4_input == kSI_Constant) {
     ret = x8_lowOut;
@@ -102,16 +102,17 @@ CScriptSpindleCamera::CScriptSpindleCamera(
     TUniqueId uid, const rstl::string& name, const CEntityInfo& info, const CTransform4f& xf,
     const bool active, int flags, float hintToCamDistMin, float hintToCamDistMax,
     float hintToCamVOffMin, float hintToCamVOffMax,
-    const SSpindleProperty& targetHintToCamDeltaAngleVel,
-    const SSpindleProperty& deltaAngleScaleWithCamDist, const SSpindleProperty& hintToCamDist,
-    const SSpindleProperty& distOffsetFromBallDist, const SSpindleProperty& hintBallToCamAzimuth,
-    const SSpindleProperty& unused, const SSpindleProperty& maxHintBallToCamAzimuth,
-    const SSpindleProperty& camLookRelAzimuth, const SSpindleProperty& lookPosZOffset,
-    const SSpindleProperty& camPosZOffset, const SSpindleProperty& clampedAzimuthFromHintDir,
-    const SSpindleProperty& dampingAzimuthSpeed,
-    const SSpindleProperty& targetHintToCamDeltaAngleVelRange,
-    const SSpindleProperty& deleteHintBallDist,
-    const SSpindleProperty& recoverClampedAzimuthFromHintDir)
+    CSpindleCameraInterpolant targetHintToCamDeltaAngleVel,
+    CSpindleCameraInterpolant deltaAngleScaleWithCamDist, CSpindleCameraInterpolant hintToCamDist,
+    CSpindleCameraInterpolant distOffsetFromBallDist,
+    CSpindleCameraInterpolant hintBallToCamAzimuth, CSpindleCameraInterpolant unused,
+    CSpindleCameraInterpolant maxHintBallToCamAzimuth, CSpindleCameraInterpolant camLookRelAzimuth,
+    CSpindleCameraInterpolant lookPosZOffset, CSpindleCameraInterpolant camPosZOffset,
+    CSpindleCameraInterpolant clampedAzimuthFromHintDir,
+    CSpindleCameraInterpolant dampingAzimuthSpeed,
+    CSpindleCameraInterpolant targetHintToCamDeltaAngleVelRange,
+    CSpindleCameraInterpolant deleteHintBallDist,
+    CSpindleCameraInterpolant recoverClampedAzimuthFromHintDir)
 : CGameCamera(uid, active, name, info, xf, CCameraManager::GetDefaultThirdPersonVerticalFOV(),
               CCameraManager::GetDefaultFirstPersonNearClipDistance(),
               CCameraManager::GetDefaultFirstPersonFarClipDistance(),
@@ -155,7 +156,7 @@ void CScriptSpindleCamera::Reset(const CTransform4f&, CStateManager& mgr) {
   x33c_24_inResetThink = false;
 }
 
-float CScriptSpindleCamera::GetInVar(const SSpindleProperty& seg) const {
+float CScriptSpindleCamera::GetInVar(const CSpindleCameraInterpolant& seg) const {
   return x18c_inVars[static_cast< int >(seg.x4_input)];
 }
 
@@ -230,7 +231,7 @@ void CScriptSpindleCamera::Think(float dt, CStateManager& mgr) {
   if ((x188_flags & 0x2000) != 0 &&
       hintToBallDist > x2f8_deleteHintBallDist.GetValue(GetInVar(x2f8_deleteHintBallDist))) {
     if (hint->GetDelegatedCameraId() == GetUniqueId()) {
-      mgr.CameraManager()->DeleteCameraHint(hint->GetUniqueId(), mgr);
+      mgr.CameraManager()->ReallyRemoveCameraHint(hint->GetUniqueId(), mgr);
     }
   } else {
     if ((x188_flags & 0x800) == 0) {

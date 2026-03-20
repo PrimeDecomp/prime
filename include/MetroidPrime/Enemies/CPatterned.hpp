@@ -57,7 +57,7 @@ public:
     kC_Metroid = 19,
     kC_MetroidBeta = 20,
     kC_MetroidPrimeExo = 21,
-    kC_MetroidPrimeEssence = 22,
+    kC_MetroidPrimeStage2 = 22,
     kC_NewIntroBoss = 23,
     kC_Parasite = 24,
     kC_PuddleSpore = 27,
@@ -337,6 +337,10 @@ public:
   static int CompareStateString(const char*, const char*, int);
   void UpdateDamageColor(float dt);
   void UpdateAlphaDelta(float dt, CStateManager& mgr);
+
+  // TODO: names?
+  bool IsMakingBigStrike() const { return x402_28_isMakingBigStrike; }
+  float GetDamageDuration() const { return x504_damageDur; }
 
 protected:
   EPatrolState x2d8_patrolState;

@@ -139,7 +139,7 @@ public:
   static CEntity* LoadBurrower(CStateManager&, CInputStream&, int, const CEntityInfo&);
   static CEntity* LoadScriptBeam(CStateManager&, CInputStream&, int, const CEntityInfo&);
   static CEntity* LoadWorldLightFader(CStateManager&, CInputStream&, int, const CEntityInfo&);
-  static CEntity* LoadMetroidPrimeEssence(CStateManager&, CInputStream&, int, const CEntityInfo&);
+  static CEntity* LoadMetroidPrimeStage2(CStateManager&, CInputStream&, int, const CEntityInfo&);
   static CEntity* LoadMetroidPrimeRelay(CStateManager&, CInputStream&, int, const CEntityInfo&);
   static CEntity* LoadMazeNode(CStateManager&, CInputStream&, int, const CEntityInfo&);
   static CEntity* LoadOmegaPirate(CStateManager&, CInputStream&, int, const CEntityInfo&);

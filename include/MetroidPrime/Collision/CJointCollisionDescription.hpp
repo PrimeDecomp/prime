@@ -8,6 +8,18 @@
 
 #include "rstl/string.hpp"
 
+struct SJointInfo {
+  const char* from;
+  const char* to;
+  float radius;
+  float separation;
+};
+
+struct SSphereJointInfo {
+  const char* name;
+  float radius;
+};
+
 class CJointCollisionDescription {
 public:
   enum ECollisionType {

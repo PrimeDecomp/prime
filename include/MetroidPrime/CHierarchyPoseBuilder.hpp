@@ -36,7 +36,7 @@ private:
   T* xd0_nodes;
   CSegId xd4_curPrevBone;
 };
-typedef TSegIdMap< void > unk_TSegIdMap;
+typedef TSegIdMap< uchar > unk_TSegIdMap;
 CHECK_SIZEOF(unk_TSegIdMap, 0xd8)
 
 class CLayoutDescription {

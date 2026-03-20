@@ -114,6 +114,15 @@ public:
   static const CUnitVector3f& Forward();
   static const CUnitVector3f& Back();
   
+  friend CVector3f operator-(const CVector3f& lhs, const CVector3f& rhs);
+  friend CVector3f operator+(const CVector3f& lhs, const CVector3f& rhs);
+  friend CVector3f operator*(const CVector3f& vec, const float f);
+  friend CVector3f operator*(const float f, const CVector3f& vec);
+  friend CVector3f operator/(const CVector3f& vec, const float f);
+  friend CVector3f operator-(const CVector3f& vec);
+  friend bool operator==(const CVector3f& lhs, const CVector3f& rhs);
+  friend bool operator!=(const CVector3f& lhs, const CVector3f& rhs);
+
 protected:
   float mX;
   float mY;
@@ -134,23 +143,23 @@ CHECK_SIZEOF(CVector3f, 0xc)
 // close_enough__FRC9CVector3fRC9CVector3ff in CloseEnough.cpp
 
 inline bool operator==(const CVector3f& lhs, const CVector3f& rhs) {
-  return lhs.GetX() == rhs.GetX() && lhs.GetY() == rhs.GetY() && lhs.GetZ() == rhs.GetZ();
+  return lhs.mX == rhs.mX && lhs.mY == rhs.mY && lhs.mZ == rhs.mZ;
 }
 inline bool operator!=(const CVector3f& lhs, const CVector3f& rhs) {
   return lhs.GetX() != rhs.GetX() || lhs.GetY() != rhs.GetY() || lhs.GetZ() != rhs.GetZ();
 }
 
 inline CVector3f operator-(const CVector3f& lhs, const CVector3f& rhs) {
-  float x = lhs.GetX() - rhs.GetX();
-  float y = lhs.GetY() - rhs.GetY();
-  float z = lhs.GetZ() - rhs.GetZ();
+  float x = lhs.mX - rhs.mX;
+  float y = lhs.mY - rhs.mY;
+  float z = lhs.mZ - rhs.mZ;
   return CVector3f(x, y, z);
 }
 
 inline CVector3f operator+(const CVector3f& lhs, const CVector3f& rhs) {
-  float x = lhs.GetX() + rhs.GetX();
-  float y = lhs.GetY() + rhs.GetY();
-  float z = lhs.GetZ() + rhs.GetZ();
+  float x = lhs.mX + rhs.mX;
+  float y = lhs.mY + rhs.mY;
+  float z = lhs.mZ + rhs.mZ;
   return CVector3f(x, y, z);
 }
 

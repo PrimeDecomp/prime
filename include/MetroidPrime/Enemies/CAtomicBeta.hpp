@@ -38,7 +38,7 @@ public:
                                                          const CWeaponMode&, int) const override;
 
   // CAi
-  const CDamageVulnerability* GetDamageVulnerability() override;
+  CDamageVulnerability* GetDamageVulnerability() override;
 
 private:
   void CreateBeams(CStateManager& mgr);

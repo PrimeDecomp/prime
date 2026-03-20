@@ -1818,7 +1818,7 @@ void CCubeRenderer::ReallyRenderFogVolume(const CColor& color, const CAABox& aab
     --drawLeft;
   }
 
-  const GXBool oldVideoFilter = CGraphics::GetUseVideoFilter();
+  bool oldVideoFilter = CGraphics::GetUseVideoFilter();
   CGraphics::SetUseVideoFilter(false);
 
   float fogTexMtx[2][4] = {

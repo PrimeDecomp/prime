@@ -3,6 +3,8 @@
 #include "Kyoto/Streams/CInputStream.hpp"
 #include <rstl/math.hpp>
 
+#pragma inline_max_size(250)
+
 const CVector3f CWorldLight::kDefaultPosition = CVector3f(0.f, 0.f, 0.f);
 const CVector3f CWorldLight::kDefaultDirection = CVector3f(0.f, 1.f, 0.f);
 

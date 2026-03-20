@@ -8,6 +8,8 @@
 #include <types.h>
 
 class CPhazonBeam : public CGunWeapon {
+  friend class CPlayerGun;
+
 public:
   CPhazonBeam(CAssetId characterId, EWeaponType type, TUniqueId playerId,
               EMaterialTypes playerMaterial, const CVector3f& scale);
@@ -34,7 +36,7 @@ public:
   void Unload(CStateManager& mgr) override;
   bool IsLoaded() const override;
   void CreateBeam(CStateManager& mgr);
-  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId sender, CStateManager& mgr);
+  void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&);
 
 private:
   TToken< CModel > mVeins;

@@ -32,10 +32,11 @@ public:
   // __amu__11CQuaternionFRC11CQuaternion
   // ScalarVector__11CQuaternionFfRC9CVector3f
   // Slerp__11CQuaternionFRC11CQuaternionRC11CQuaternionf
-  // ShortestRotationArc__11CQuaternionFRC9CVector3fRC9CVector3f
+  static CQuaternion ShortestRotationArc(const CVector3f&, const CVector3f&);
 
   // TODO: map says const CUnitVector3f&, but this matches better in CBSCover/CSamusFaceReflection
-  static CQuaternion LookAt(CUnitVector3f, CUnitVector3f, const CRelAngle&);
+  static CQuaternion LookAt(const CUnitVector3f&, const CUnitVector3f&, const CRelAngle&);
+  static CQuaternion ClampedRotateTo(const CUnitVector3f&, const CUnitVector3f&, const CRelAngle&);
 
   // normalize_angle__Ff
   // IsValidQuaternion__11CQuaternionCFf

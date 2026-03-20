@@ -15,6 +15,8 @@
 #include "Kyoto/Math/CloseEnough.hpp"
 #include "rstl/math.hpp"
 
+#pragma inline_max_size(250)
+
 namespace CollisionUtil {
 
 /*======================== X-tests ========================*/

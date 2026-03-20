@@ -49,7 +49,7 @@ CPatternedInfo::CPatternedInfo(CInputStream& in, uint pcount)
 
 {}
 
-rstl::pair< bool, uint > CPatternedInfo::HasCorrectParameterCount(CInputStream& in) {
+rstl::pair< bool, uint > CPatternedInfo::HasCorrectParameterCount(CInputStream& in, const char* name) {
   u32 pcount = in.ReadLong();
   return rstl::pair< bool, uint >((pcount >= 35 && pcount <= 38), pcount);
 }

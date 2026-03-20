@@ -162,14 +162,14 @@ MetroidPrime/Tweaks/CTweakGame.cpp:
 	.data       start:0x803D9CD0 end:0x803D9CE0
 
 MetroidPrime/Weapons/CGameProjectile.cpp:
-	.text       start:0x80037400 end:0x8003A7A4
+	.text       start:0x80037400 end:0x8003A820
 	.rodata     start:0x803CCE20 end:0x803CCE38
 	.data       start:0x803D9CE0 end:0x803D9D50
 	.sdata      start:0x805A6DB8 end:0x805A6DE0
 	.sdata2     start:0x805AA120 end:0x805AA168
 
 MetroidPrime/Player/CPlayerGun.cpp:
-	.text       start:0x8003A7A4 end:0x80043DE0
+	.text       start:0x8003A820 end:0x80043DE0
 	.ctors      start:0x803CB1E0 end:0x803CB1E4
 	.rodata     start:0x803CCE38 end:0x803CCEE0
 	.data       start:0x803D9D50 end:0x803D9E30
@@ -2093,7 +2093,7 @@ MetroidPrime/Enemies/CBurrower.cpp:
 	.bss        start:0x80572694 end:0x805726FC align:4 common
 	.sdata2     start:0x805AD8D8 end:0x805AD8F0
 
-MetroidPrime/Enemies/CMetroidPrimeExo.cpp:
+MetroidPrime/Enemies/CMetroidPrime.cpp:
 	.text       start:0x802712AC end:0x8027C5CC
 	.ctors      start:0x803CB2C0 end:0x803CB2C4
 	.rodata     start:0x803D5428 end:0x803D5868
@@ -2108,7 +2108,7 @@ MetroidPrime/ScriptObjects/CScriptBeam.cpp:
 	.rodata     start:0x803D5868 end:0x803D5880
 	.data       start:0x803EB180 end:0x803EB1F0
 
-MetroidPrime/Enemies/CMetroidPrimeEssence.cpp:
+MetroidPrime/Enemies/CMetroidPrimeStage2.cpp:
 	.text       start:0x8027CB38 end:0x80280460
 	.ctors      start:0x803CB2C4 end:0x803CB2C8
 	.rodata     start:0x803D5880 end:0x803D58D8
@@ -2238,7 +2238,7 @@ MetroidPrime/ScriptObjects/CSustainedPlayerDamage.cpp:
 	.sdata      start:0x805A8608 end:0x805A8610
 	.sdata2     start:0x805ADE28 end:0x805ADE30
 
-MetroidPrime/Enemies/CMetroidPrimeProjectile.cpp:
+MetroidPrime/Enemies/CPoisonProjectile.cpp:
 	.text       start:0x802A0338 end:0x802A07F0
 	.rodata     start:0x803D5EE8 end:0x803D5EF0
 	.data       start:0x803EC390 end:0x803EC408

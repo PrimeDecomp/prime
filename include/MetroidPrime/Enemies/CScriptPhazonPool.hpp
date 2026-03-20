@@ -1,22 +1,37 @@
-#ifndef _CPHAZONPOOL
-#define _CPHAZONPOOL
-#include "Kyoto/Math/CRelAngle.hpp"
+#ifndef _CSCRIPTPHAZONPOOL
+#define _CSCRIPTPHAZONPOOL
+
 #include "MetroidPrime/ScriptObjects/CScriptTrigger.hpp"
 
+#include "Kyoto/Graphics/CModel.hpp"
+#include "Kyoto/Math/CRelAngle.hpp"
+
+#include "rstl/list.hpp"
+#include "rstl/pair.hpp"
+#include "rstl/single_ptr.hpp"
+
 class CElementGen;
+
 class CScriptPhazonPool : public CScriptTrigger {
 public:
-  CScriptPhazonPool(const TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
-                    const CTransform4f& xf, const CVector3f& scale, const bool active,
-                    const CAssetId& w1, const CAssetId& w2, const CAssetId& w3, const CAssetId& w4,
-                    const uint p11, const CDamageInfo& dInfo, const CVector3f& orientedForce,
-                    const ETriggerFlags triggerFlags, const bool p15, const float p16,
-                    const float p17, const float p18, const float p19);
-  ~CScriptPhazonPool();
+  CScriptPhazonPool(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
+                    const CTransform4f& xf, const CVector3f& scale, bool active, const CAssetId& w1,
+                    const CAssetId& w2, const CAssetId& w3, const CAssetId& w4, uint p11,
+                    const CDamageInfo& dInfo, const CVector3f& orientedForce,
+                    ETriggerFlags triggerFlags, bool p15, float p16, float p17, float p18,
+                    float p19);
+  ~CScriptPhazonPool() override;
 
-  void Render(const CStateManager&) const override;
+  // CEntity
+  void Accept(IVisitor& visitor) override;
+  void Think(float dt, CStateManager& mgr) override;
+  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) override;
 
-  CModelFlags GetModelFlags() const { return CModelFlags::AlphaBlended(x1a4); }
+  // CActor
+  void AddToRenderer(const CFrustumPlanes& frustum, const CStateManager& mgr) const override;
+  void Render(const CStateManager& mgr) const override;
+  rstl::optional_object< CAABox > GetTouchBounds() const override;
+  void Touch(CActor& actor, CStateManager& mgr) override;
 
 private:
   rstl::list< rstl::pair< TUniqueId, bool > > mInhabitants;
@@ -45,5 +60,13 @@ private:
   uint x1dc;
   bool x1e0_24 : 1;
   bool x1e0_25 : 1;
+
+  void UpdateInhabitants(CStateManager& mgr);
+  void UpdateParticleGens(CStateManager& mgr);
+  void RemoveInhabitants(CStateManager& mgr);
+  void SetEmitParticles(bool val);
 };
-#endif
+// NOTE: operator_new allocates 0x1E8 bytes. CScriptTrigger base may have
+// undiscovered members at 0x14C-0x14F causing a 4-byte size discrepancy.
+
+#endif // _CSCRIPTPHAZONPOOL

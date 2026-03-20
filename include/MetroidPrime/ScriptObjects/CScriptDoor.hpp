@@ -20,8 +20,8 @@ public:
   CScriptDoor(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
               const CTransform4f& xf, const CModelData& modelData,
               const CActorParameters& actorParameters, const CVector3f& orbitPosition,
-              const CAABox& bounds, bool active, bool open, bool projectilesCollide,
-              float animationLength, bool ballDoor);
+              const CAABox& bounds, const bool active, const bool open,
+              const bool projectilesCollide, float animationLength, const bool ballDoor);
 
   void SetDoorAnimation(EDoorState state);
 
@@ -38,6 +38,7 @@ public:
 
   const TUniqueId GetConnectedDockID() const { return mDockId; }
   bool IsOpen() const { return mIsOpen; }
+  bool IsBallDoor() const { return mBallDoor; }
   void SetDoClose(const bool close) { mDoClose = close; }
 
   bool IsConnectedToArea(const CStateManager& mgr, TAreaId area) const;

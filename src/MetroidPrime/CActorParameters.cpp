@@ -2,6 +2,8 @@
 
 #include "MetroidPrime/CActorLights.hpp"
 
+#pragma inline_max_size(250)
+
 CActorParameters::CActorParameters()
 : x0_lighting(CLightParameters::None())
 , x40_scannable(kInvalidAssetId)
@@ -19,9 +21,11 @@ CActorParameters::CActorParameters(const CLightParameters& lightParms,
                                    const CScannableParameters& scanParms,
                                    const rstl::pair< CAssetId, CAssetId >& xrayAssets,
                                    const rstl::pair< CAssetId, CAssetId >& thermalAssets,
-                                   const CVisorParameters& visorParms, const bool globalTimeProvider,
-                                   const bool thermalHeat, const bool renderUnsorted, const bool noSortThermal,
-                                   const float fadeInTime, const float fadeOutTime, const float thermalMag)
+                                   const CVisorParameters& visorParms,
+                                   const bool globalTimeProvider, const bool thermalHeat,
+                                   const bool renderUnsorted, const bool noSortThermal,
+                                   const float fadeInTime, const float fadeOutTime,
+                                   const float thermalMag)
 : x0_lighting(lightParms)
 , x40_scannable(scanParms)
 , x44_xrayAssets(xrayAssets)
@@ -118,10 +122,10 @@ uint CLightParameters::GetFramesBetweenRecalculation(ELightRecalculationOptions 
 rstl::auto_ptr< CActorLights > CLightParameters::MakeActorLights() const {
   rstl::auto_ptr< CActorLights > result;
   if (x1c_makeLights) {
-    result = rs_new CActorLights(GetFramesBetweenRecalculation(x24_lightRecalculation),
-                              x2c_lightingPositionOffset, x38_maxDynamicLights, x3c_maxAreaLights,
-                              CActorLights::kDefaultPositionUpdateThreshold, x1d_ambientChannelOverflow, x28_useLightSet == 1,
-                              x20_useWorldLighting == kLO_DisableWorld);
+    result = rs_new CActorLights(
+        GetFramesBetweenRecalculation(x24_lightRecalculation), x2c_lightingPositionOffset,
+        x38_maxDynamicLights, x3c_maxAreaLights, CActorLights::kDefaultPositionUpdateThreshold,
+        x1d_ambientChannelOverflow, x28_useLightSet == 1, x20_useWorldLighting == kLO_DisableWorld);
     if (x20_useWorldLighting == kLO_NoShadowCast) {
       result->SetCastShadows(false);
     }

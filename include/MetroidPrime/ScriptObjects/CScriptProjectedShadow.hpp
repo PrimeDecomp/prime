@@ -33,5 +33,6 @@ private:
   uchar x110_24_persistent : 1;
   bool x110_25_shadowInvalidated : 1;
 };
+CHECK_SIZEOF(CScriptShadowProjector, 0x118)
 
 #endif // _CSCRIPTPROJECTEDSHADOW

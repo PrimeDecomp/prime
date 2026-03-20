@@ -207,7 +207,9 @@ public:
 
   const CAABox& GetRenderBoundsCached() const { return x9c_renderBounds; }
   void SetRenderBounds(const CAABox& bounds) { x9c_renderBounds = bounds; }
-  void SetAddedToken(unsigned int token) const { const_cast< CActor* >(this)->xcc_addedToken = token; }
+  void SetAddedToken(unsigned int token) const {
+    const_cast< CActor* >(this)->xcc_addedToken = token;
+  }
 
   bool GetUseInSortedLists() const;
   void SetUseInSortedLists(bool use);
@@ -222,6 +224,9 @@ public:
   void SetSoundEventPitchBend(int);
   CSfxHandle GetSfxHandle() const;
   bool CanDrawStatic() const;
+
+protected:
+  void SetDrawEnabled(bool v) { xe7_29_drawEnabled = v; }
 
 private:
   CTransform4f x34_transform;

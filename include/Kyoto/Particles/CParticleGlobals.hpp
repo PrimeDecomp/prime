@@ -11,6 +11,15 @@ public:
   struct SParticleSystem {
     FourCC x0_type;
     CElementGen* x4_system;
+    SParticleSystem* x8_prev;
+
+    SParticleSystem(FourCC type, CElementGen* system)
+    : x0_type(type)
+    , x4_system(system)
+    , x8_prev(mCurrentParticleSystem) {
+      mCurrentParticleSystem = this;
+    }
+    ~SParticleSystem() { mCurrentParticleSystem = x8_prev; }
   };
 
   static void SetEmitterTime(int time);
@@ -29,8 +38,9 @@ public:
   static CElementGen::CParticle* GetCurrentParticle() { return mCurrentParticle; }
   static float* GetParticleAccessParameters() { return mParticleAccessParameters; }
   static SParticleSystem* GetCurrentParticleSystem() { return mCurrentParticleSystem; }
+  static void SetCurrentParticleSystem(SParticleSystem* system) { mCurrentParticleSystem = system; }
 
-private:
+public:
   static int mParticleLifetime;
   static float mParticleLifetimeReal;
   static int mEmitterTime;

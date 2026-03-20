@@ -57,25 +57,25 @@ public:
   float GetBallRadius() const;
   void TakeDamage(float damage);
   bool IsProjectile() const { return x1954_isProjectile; }
-  // LeaveMorphBallState__10CMorphBallFR13CStateManager global
-  // LeaveBoosting__10CMorphBallFv global
-  // CancelBoosting__10CMorphBallFv global
+  void LeaveMorphBallState(CStateManager& mgr);
+  void LeaveBoosting();
+  void CancelBoosting();
   // InSpiderMode__10CMorphBallCFv weak
-  // SetAsProjectile__10CMorphBallFRC11CDamageInfoRC11CDamageInfo global
-  // CollidedWith__10CMorphBallFRC9TUniqueIdRC18CCollisionInfoListR13CStateManager global
-  // SwitchToMarble__10CMorphBallFv global
+  void SetAsProjectile();
+  void CollidedWith(const TUniqueId&, const CCollisionInfoList&, CStateManager&);
+  void SwitchToMarble();
   bool GetIsInHalfPipeMode() const;
-  // DampLinearAndAngularVelocities__10CMorphBallFff global
-  // IsClimbable__10CMorphBallCFRC14CCollisionInfo global
+  void DampLinearAndAngularVelocities(float linDamp, float angDamp);
+  bool IsClimbable(const CCollisionInfo&) const;
   void FluidFXThink(CActor::EFluidState state, CScriptWater& water, CStateManager& mgr);
   // GetCollidableSphere__10CMorphBallCFv weak
   // DrawCollisionPrimitive__10CMorphBallCFv global
   // GetPrimitiveTransform__10CMorphBallCFv global
   void TouchModel(const CStateManager&) const;
   void Render(const CStateManager&, const CActorLights*) const;
-  // RenderDamageEffects__10CMorphBallCFRC13CStateManagerRC12CTransform4f global
-  // RenderSpiderBallElectricalEffects__10CMorphBallCFv global
-  // RenderEnergyDrainEffects__10CMorphBallCFRC13CStateManager global
+  void RenderDamageEffects(const CStateManager&, const CTransform4f&) const;
+  void RenderSpiderBallElectricalEffects() const;
+  void RenderEnergyDrainEffects(const CStateManager&) const;
   void RenderMorphBallTransitionFlash(const CStateManager&) const;
   const CModelData& GetModel() const { return *x58_ballModel.get(); }
   // GetBallContactSurfaceNormal__10CMorphBallCFv weak
@@ -84,67 +84,82 @@ public:
   float GetBallTouchRadius() const;
   void Touch(CActor& actor, CStateManager& mgr);
   void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&);
-  // DeleteLight__10CMorphBallFR13CStateManager global
-  // EnterMorphBallState__10CMorphBallFR13CStateManager
-  // GetSwooshToWorld__10CMorphBallCFv global
-  // IsMorphBallTransitionFlashValid__10CMorphBallCFv global
-  // AddSpiderBallElectricalEffect__10CMorphBallFv global
-  // UpdateSpiderBallElectricalEffects__10CMorphBallFv global
-  // UpdateMorphBallTransitionFlash__10CMorphBallFf global
-  // DisableHalfPipeStatus__10CMorphBallFv global
-  // SetIsInHalfPipeMode__10CMorphBallFb global
-  // SetIsInHalfPipeModeInAir__10CMorphBallFb global
-  // SetTouchedHalfPipeRecently__10CMorphBallFb global
-  // ResetMorphBallTransitionFlash__10CMorphBallFv global
-  // CreateSpiderBallParticles__10CMorphBallFRC9CVector3fRC9CVector3f global
+  void DeleteLight(CStateManager& mgr);
+  void EnterMorphBallState(CStateManager& mgr);
+  CTransform4f GetSwooshToWorld() const;
+  bool IsMorphBallTransitionFlashValid() const;
+  void AddSpiderBallElectricalEffect();
+  void UpdateSpiderBallElectricalEffects();
+  void UpdateMorphBallTransitionFlash(float);
+  void DisableHalfPipeStatus();
+  void SetIsInHalfPipeMode(bool);
+  void SetIsInHalfPipeModeInAir(bool);
+  void SetTouchedHalfPipeRecently(bool);
+  void ResetMorphBallTransitionFlash();
+  void CreateSpiderBallParticles(const CVector3f& ballPos, const CVector3f& trackPoint);
   ESpiderBallState GetSpiderBallState() const { return x187c_spiderBallState; }
-  static CModelData* GetMorphballModel(const rstl::string& name, const float radius);
+  static CModelData* GetMorphBallModel(const rstl::string& name, const float radius);
   // GetMorphBallModel__10CMorphBallFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>f
   // global
-  // LoadAnimationTokens__10CMorphBallFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>
-  // global IsBoosting__10CMorphBallCFv weak GetBoostChargeTimer__10CMorphBallCFv weak
+  bool IsBoosting() const { return x1de4_24_inBoost; }
+  float GetBoostChargeTimer() const { return x1de8_boostChargeTime; }
   // GetWallBumpCounter__10CMorphBallCFv weak
   // GetBallContactMaterials__10CMorphBallCFv weak
   void ComputeBallMovement(const CFinalInput&, CStateManager&, float);
   void ComputeBoostBallMovement(const CFinalInput& input, const CStateManager& mgr, float dt);
   bool IsMovementAllowed() const;
-  // EnterBoosting__10CMorphBallFv global
-  // SwitchToTire__10CMorphBallFv global
+  void EnterBoosting(CStateManager& mgr);
+  void SwitchToTire();
   void ComputeMarioMovement(const CFinalInput& input, CStateManager& mgr, float dt);
   // SetSpiderBallState__10CMorphBallFQ210CMorphBall16ESpiderBallState weak
   void UpdateSpiderBall(const CFinalInput& input, CStateManager& mgr, float dt);
   bool CheckForSwitchToSpiderBallSwinging(CStateManager& mgr) const;
-  // FindClosestSpiderBallWaypoint__10CMorphBallCFR13CStateManagerRC9CVector3fR9CVector3fR9CVector3fR9CVector3fRfR9CVector3fRbR12CTransform4f
+  bool FindClosestSpiderBallWaypoint(CStateManager& mgr, const CVector3f& ballCenter,
+                                     CVector3f& trackPoint, CVector3f& spiderInterpBetweenPoints,
+                                     CVector3f& spiderBetweenPoints, float& distance,
+                                     CVector3f& playerToSpiderNormal, bool& isSpiderSurface,
+                                     CTransform4f& spiderSurfaceTransform) const;
   void SetSpiderBallSwingingState(const bool state);
   bool IsSpiderBallSwinging() const { return x18be_spiderBallSwinging; }
-  // ResetSpiderBallSwingControllerMovementTimer__10CMorphBallFv global
+  void ResetSpiderBallSwingControllerMovementTimer();
   void ApplySpiderBallSwingingForces(const CFinalInput& input, CStateManager& mgr, float dt);
-  // GetSpiderBallControllerMovement__10CMorphBallCFRC11CFinalInputbb global
-  // UpdateSpiderBallSwingControllerMovementTimer__10CMorphBallFff global
-  // GetSpiderBallSwingControllerMovementScalar__10CMorphBallCFv global
+  float GetSpiderBallControllerMovement(const CFinalInput& input) const;
+  void UpdateSpiderBallSwingControllerMovementTimer(float movement, float dt);
+  float GetSpiderBallSwingControllerMovementScalar() const;
   void ApplySpiderBallRollForces(const CFinalInput& input, CStateManager& mgr, float dt);
-  // CalculateSpiderBallAttractionSurfaceForces__10CMorphBallCFRC11CFinalInputR13CStateManagerRC12CTransform4f
+  void ResetSpiderBallForces();
+  static CVector3f TransformSpiderBallForcesXZ(CVector2f& forces, CStateManager& mgr);
+  static CVector3f TransformSpiderBallForcesXY(CVector2f& forces, CStateManager& mgr);
+  CVector2f CalculateSpiderBallAttractionSurfaceForces(const CFinalInput& input) const;
   float ForwardInput(const CFinalInput& input) const;
-  // BallTurnInput__10CMorphBallCFRC11CFinalInput global
-  // ComputeMaxSpeed__10CMorphBallCFv global
+  float BallTurnInput(const CFinalInput& input) const;
+  float ComputeMaxSpeed() const;
   bool GetIsInHalfPipeModeInAir() const;
-  // GetTouchedHalfPipeRecently__10CMorphBallCFv global
-  // ComputeLiftForces__10CMorphBallFRC9CVector3fRC9CVector3fRC13CStateManager global
+  bool GetTouchedHalfPipeRecently() const;
+  void ComputeLiftForces(const CVector3f&, const CVector3f&, const CStateManager&);
   void UpdateBallDynamics(CStateManager&, float);
   bool BallCloseToCollision(const CStateManager& mgr, float dist,
                             const CMaterialFilter& filter) const;
-  // UpdateHalfPipeStatus__10CMorphBallFR13CStateManagerf global
-  // CalculateSurfaceToWorld__10CMorphBallCFRC9CVector3fRC9CVector3fRC9CVector3f global
-  // UpdateMarbleDynamics__10CMorphBallFR13CStateManagerfRC9CVector3f global
-  // SpinToSpeed__10CMorphBallFfRC9CVector3ff global
-  // GetMinimumAlignmentSpeed__10CMorphBallCFv global
-  // CalculateBallContactInfo__10CMorphBallCFR9CVector3fR9CVector3f global
-  // CalculateSurfaceFriction__10CMorphBallCFv global
-  // ApplyFriction__10CMorphBallFf global
-  // ApplyGravity__10CMorphBallFR13CStateManager global
+  void UpdateHalfPipeStatus(CStateManager&, float);
+  CTransform4f CalculateSurfaceToWorld(const CVector3f& trackNormal, const CVector3f& trackPoint,
+                                       const CVector3f& ballDir) const;
+  bool UpdateMarbleDynamics(CStateManager&, float, const CVector3f&);
+  void SpinToSpeed(float, const CVector3f&, float);
+  float GetMinimumAlignmentSpeed() const;
+  bool CalculateBallContactInfo(CVector3f& normal, CVector3f& point) const;
+  float CalculateSurfaceFriction() const;
+  void ApplyFriction(float);
+  void ApplyGravity(CStateManager&);
   void Land();
   void ResetMorphBallIceBreak();
+  void UpdateIceBreakEffect(float);
+  void RenderIceBreakEffect(const CStateManager&) const;
   void StopParticleWakes();
+  void StartLandingSfx();
+  void DrawBallShadow(CStateManager&);
+  void RenderToShadowTex(CStateManager&);
+  void CreateBallShadow();
+  void DeleteBallShadow();
   void EnableBallShadow();
   void DisableBallShadow();
   void PreRenderBallShadow(CStateManager&);
@@ -160,8 +175,14 @@ private:
     uint x4_lifetime;
     uint x8_curFrame;
     CSpiderBallElectricityManager(uint effectIdx, uint lifetime)
-    : x0_effectIdx(effectIdx), x4_lifetime(lifetime) {}
+    : x0_effectIdx(effectIdx), x4_lifetime(lifetime), x8_curFrame(0) {}
   };
+
+  void InitializeWakeEffects();
+  void LoadAnimationTokens(const rstl::string& name);
+  void SelectMorphBallSounds(const CMaterialList&);
+  void UpdateMorphBallSound(float dt);
+  static void PointGenerator(void*, const CVector3f*, const CVector3f*, int);
 
   CPlayer& x0_player;
   int x4_loadedModelId;
@@ -181,7 +202,7 @@ private:
   uint x6c_lowPolyBallModelShader;
   rstl::single_ptr< CModelData > x70_frozenBallModel;
   CCollisionInfoList x74_collisionInfos;
-  char xc78_[0x187c - 0xc78];
+  CCollisionInfoList xc78_collisionInfos;
   ESpiderBallState x187c_spiderBallState;
   CVector3f x1880_playerToSpiderNormal;
   float x188c_spiderPullMovement;
@@ -231,7 +252,7 @@ private:
   rstl::single_ptr< CElementGen > x19d8_boostBallGlowGen;
   rstl::single_ptr< CElementGen > x19dc_morphBallTransitionFlashGen;
   rstl::single_ptr< CElementGen > x19e0_effect_morphBallIceBreakGen;
-  rstl::reserved_vector< rstl::pair< rstl::single_ptr< CParticleSwoosh >, bool >, 48 >
+  rstl::reserved_vector< rstl::pair< rstl::auto_ptr< CParticleSwoosh >, bool >, 32 >
       x19e4_spiderElectricGens;
   rstl::list< CSpiderBallElectricityManager > x1b68_activeSpiderElectricList;
   CRandom16 x1b80_rand;
@@ -271,7 +292,7 @@ private:
   float x1e04_touchHalfPipeRecentCooldown;
   CVector3f x1e08_prevHalfPipeNormal;
   CVector3f x1e14_halfPipeNormal;
-  uint x1e20_ballAnimIdx;
+  int x1e20_ballAnimIdx;
   CSfxHandle x1e24_boostSfxHandle;
   CSfxHandle x1e28_wallHitSfxHandle;
   CSfxHandle x1e2c_rollSfxHandle;

@@ -14,7 +14,7 @@ public:
   };
 
   CPathCamera(const TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
-              const CTransform4f& xf, const bool active, const float lengthExtent, const float filterMag,
+              const CTransform4f& xf, bool active, const float lengthExtent, const float filterMag,
               const float filterProportion, const float minEaseDist, const float maxEaseDist, const uint flags,
               const EInitialSplinePosition initPos);
   ~CPathCamera() override;

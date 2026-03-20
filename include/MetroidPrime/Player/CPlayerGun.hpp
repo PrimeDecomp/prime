@@ -173,14 +173,46 @@ public:
   void SetPhazonBeamFeedback(bool);
   void SetAssistAimTransform(const CTransform4f& xf) { x478_assistAimXf = xf; }
 
+  CTransform4f GetTransform() const { return x3e8_xf; }
   float GetChargeBeamFactor() const { return x834_24_charging ? x340_chargeBeamFactor : 0.f; }
+  EChargeState GetChargeState() const { return x330_chargeState; }
+  CPlayerState::EBeamId GetPrimaryWeaponId() const { return x310_currentBeam; }
+  CPlayerState::EBeamId GetPrimaryDestWeaponId() const { return x314_nextBeam; }
+  uint GetSecondaryItemId() const { return x318_comboAmmoIdx; }
+  int GetBombsPending() const { return x308_bombCount; }
+  uint GetFiring() const { return x2ec_lastFireButtonStates; }
+  float GetHoloTransitionFactor() const { return x678_morph.GetTransitionFactor(); }
+  TUniqueId GetPowerBombId() const { return x53a_powerBomb; }
 
   static float GetTractorBeamFactor() { return kTractorBeamFactor; }
+  static const CVector3f& GetGunScale() { return kScaleVector; }
 
   int GetStateFlags() const { return x2f8_stateFlags; }
   void SetStateFlags(int flags) { x2f8_stateFlags = flags; }
+  bool IsWeaponStateSet(int state) const { return (x2f8_stateFlags & state) == state; }
+  void EnableWeaponState(int state) { x2f8_stateFlags |= state; }
+  void DisableWeaponState(int state) { x2f8_stateFlags &= ~state; }
+  void ResetToBeam() {
+    if (!IsWeaponStateSet(0x8)) {
+      EnableWeaponState(0x1);
+      DisableWeaponState(0x16);
+    }
+    x318_comboAmmoIdx = 0;
+    x31c_missileMode = kMM_Inactive;
+  }
+  void ResetToMissile() {
+    DisableWeaponState(0x1);
+    EnableWeaponState(0x6);
+    x318_comboAmmoIdx = 1;
+    x31c_missileMode = kMM_Active;
+  }
+  bool CanCycleShoot() const {
+    return x32c_chargePhase == kCP_NotCharging && int(x318_comboAmmoIdx) != 1;
+  }
   bool IsCharging() const { return x834_24_charging; }
   void SetTransform(CTransform4f xf) { x3e8_xf = xf; }
+  CTransform4f GetGunMotionTransform() const { return x4a8_gunWorldXf; }
+  CGrappleArm& GrappleArm() { return *x740_grappleArm.get(); }
   CGrappleArm& GetGrappleArm() const { return *x740_grappleArm.get(); }
   bool IsFidgeting() const { return x833_24_notFidgeting; }
 
@@ -285,10 +317,10 @@ private:
   uint x2f4_fireButtonStates;
   // 0x1: beam mode, 0x2: missile mode, 0x4: missile ready, 0x8: morphing, 0x10: combo fire
   int x2f8_stateFlags;
-  uint x2fc_fidgetAnimBits;
+  int x2fc_fidgetAnimBits;
   uint x300_remainingMissiles;
   uint x304_;
-  uint x308_bombCount;
+  int x308_bombCount;
   uint x30c_rapidFireShots;
   CPlayerState::EBeamId x310_currentBeam;
   CPlayerState::EBeamId x314_nextBeam;
@@ -296,7 +328,7 @@ private:
   EMissileMode x31c_missileMode;
   CPlayerState::EBeamId x320_currentAuxBeam;
   EIdleState x324_idleState;
-  float x328_animSfxPitch;
+  int x328_animSfxPitch;
   EChargePhase x32c_chargePhase;
   EChargeState x330_chargeState;
   uint x334_;

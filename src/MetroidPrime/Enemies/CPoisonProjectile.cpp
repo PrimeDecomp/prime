@@ -1,14 +1,14 @@
-#include "MetroidPrime/Enemies/CMetroidPrimeProjectile.hpp"
+#include "MetroidPrime/Enemies/CPoisonProjectile.hpp"
 
 #include "MetroidPrime/ScriptObjects/CFire.hpp"
 
 #include "Kyoto/Math/CAABox.hpp"
 #include "Kyoto/Streams/CInputStream.hpp"
 
-CMetroidPrimeProjectile::CMetroidPrimeProjectile(
+CPoisonProjectile::CPoisonProjectile(
     bool active, const TToken< CWeaponDescription >& desc, EWeaponType type, const CTransform4f& xf,
     EMaterialTypes materials, const CDamageInfo& damage, TUniqueId uid, TAreaId aid,
-    TUniqueId owner, const SPrimeProjectileInfo& auxData, TUniqueId homingTarget, uint attribs,
+    TUniqueId owner, const CPoisonInfo& auxData, TUniqueId homingTarget, uint attribs,
     const CVector3f& scale,
     const rstl::optional_object< TLockedToken< CGenDescription > >& visorParticle, ushort visorSfx,
     bool sendCollideMsg)
@@ -16,12 +16,12 @@ CMetroidPrimeProjectile::CMetroidPrimeProjectile(
                     attribs, false, scale, visorParticle, visorSfx, sendCollideMsg)
 , x3d8_auxData(auxData) {}
 
-void CMetroidPrimeProjectile::Accept(IVisitor& visitor) { visitor.Visit(*this); }
+void CPoisonProjectile::Accept(IVisitor& visitor) { visitor.Visit(*this); }
 
 // CEnergyProjectile
-bool CMetroidPrimeProjectile::Explode(const CVector3f& pos, const CVector3f& normal,
-                                      EWeaponCollisionResponseTypes type, CStateManager& mgr,
-                                      const CDamageVulnerability& dVuln, TUniqueId hitActor) {
+bool CPoisonProjectile::Explode(const CVector3f& pos, const CVector3f& normal,
+                                EWeaponCollisionResponseTypes type, CStateManager& mgr,
+                                const CDamageVulnerability& dVuln, TUniqueId hitActor) {
 
   bool result = CEnergyProjectile::Explode(pos, normal, type, mgr, dVuln, hitActor);
   if (!x2e4_24_active) {
@@ -45,7 +45,7 @@ bool CMetroidPrimeProjectile::Explode(const CVector3f& pos, const CVector3f& nor
   return result;
 }
 
-SPrimeProjectileInfo::SPrimeProjectileInfo(CInputStream& in)
+CPoisonInfo::CPoisonInfo(CInputStream& in)
 : x0_propertyCount(in.ReadLong())
 , x4_particle(gpSimplePool->GetObj(SObjectTag('PART', in.ReadLong())))
 , xc_dInfo(in)
@@ -58,4 +58,4 @@ SPrimeProjectileInfo::SPrimeProjectileInfo(CInputStream& in)
 , x38_26_(in.ReadBool())
 , x38_27_(in.ReadBool()) {}
 
-CMetroidPrimeProjectile::~CMetroidPrimeProjectile() {}
+CPoisonProjectile::~CPoisonProjectile() {}

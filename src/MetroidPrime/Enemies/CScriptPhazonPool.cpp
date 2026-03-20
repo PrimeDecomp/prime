@@ -6,10 +6,10 @@
 
 CScriptPhazonPool::CScriptPhazonPool(
     const TUniqueId uid, const rstl::string& name, const CEntityInfo& info, const CTransform4f& xf,
-    const CVector3f& scale, const bool active, const CAssetId& w1, const CAssetId& w2,
-    const CAssetId& w3, const CAssetId& w4, const uint p11, const CDamageInfo& dInfo,
-    const CVector3f& orientedForce, const ETriggerFlags triggerFlags, const bool p15,
-    const float p16, const float p17, const float p18, const float p19)
+    const CVector3f& scale, bool active, const CAssetId& w1, const CAssetId& w2, const CAssetId& w3,
+    const CAssetId& w4, const uint p11, const CDamageInfo& dInfo, const CVector3f& orientedForce,
+    const ETriggerFlags triggerFlags, const bool p15, const float p16, const float p17,
+    const float p18, const float p19)
 : CScriptTrigger(uid, name, info, xf.GetTranslation(), CAABox::Identity(), dInfo, orientedForce,
                  triggerFlags, active, false, false)
 , mModelData1(rs_new CModelData(CStaticRes(w2, CVector3f(1.f, 1.f, 1.f))))

@@ -9,6 +9,7 @@
 #include "MetroidPrime/Player/CPlayerEnergyDrain.hpp"
 #include "MetroidPrime/Player/CPlayerState.hpp"
 
+#include "Kyoto/Math/CMath.hpp"
 #include "Kyoto/TReservedAverage.hpp"
 
 #include "rstl/auto_ptr.hpp"
@@ -29,6 +30,8 @@ enum EPlayerMovementState {
 };
 
 class CPlayer : public CPhysicsActor, public TOneStatic< CPlayer > {
+  friend class CMorphBall;
+
   struct CVisorSteam {
     float x0_curTargetAlpha;
     float x4_curAlphaInDur;
@@ -203,11 +206,14 @@ public:
   virtual bool IsTransparent();
 
   CVector3f GetBallPosition() const;
+  float GetBallMaxVelocity() const;
   CVector3f GetEyePosition() const;
   float GetEyeHeight() const;
   CTransform4f CreateTransformFromMovementDirection() const;
   EPlayerOrbitState GetOrbitState() const { return x304_orbitState; }
   const CVector3f& GetMovementDirection() const { return x50c_moveDir; }
+  float GetMoveSpeed() const { return x4f8_moveSpeed; }
+  const CVector3f& GetLeaveMorphDirection() const { return x518_leaveMorphDir; }
   EPlayerMorphBallState GetMorphballTransitionState() const { return x2f8_morphBallState; }
 
   static float skDefaultHudFadeOutSpeed;
@@ -231,6 +237,12 @@ public:
   void BreakFrozenState(CStateManager& mgr);
   void UpdateCinematicState(CStateManager& mgr);
   bool IsMorphBallTransitioning() const;
+  float GetMorphBallTransitionFactor() const {
+    if (x578_morphDuration == 0.f) {
+      return 0.f;
+    }
+    return CMath::Clamp(-1.f, x574_morphTime / x578_morphDuration, 1.f);
+  }
   void InitialiseAnimation();
   void LoadAnimationTokens();
   void HolsterGun(CStateManager& mgr);
@@ -269,6 +281,7 @@ public:
   float StrafeInput(const CFinalInput& input) const;
   float ForwardInput(const CFinalInput& input, float turnInput) const;
   float GetActualFirstPersonMaxVelocity(float dt) const;
+  float GetActualBallMaxVelocity(float dt) const;
   const CScriptWater* GetVisorRunoffEffect(const CStateManager& mgr) const;
   void SetMorphBallState(EPlayerMorphBallState state, CStateManager& mgr);
   bool CanEnterMorphBallState(CStateManager& mgr, float dt) const;
@@ -280,7 +293,7 @@ public:
   void UpdateFreeLookState(const CFinalInput& input, float dt, CStateManager& mgr);
   void UpdateCameraTimers(float dt, const CFinalInput& input);
   void UpdateSubmerged(const CStateManager& mgr);
-  bool CheckSubmerged();
+  bool CheckSubmerged() const;
   void SetMoveState(NPlayer::EPlayerMovementState state, CStateManager& mgr);
   void StartLandingControlFreeze(); // name?
   void EndLandingControlFreeze();   // name?
@@ -360,6 +373,9 @@ public:
   TUniqueId GetOrbitTargetId() const { return x310_orbitTargetId; }
   const CVector3f& GetOrbitPoint() const { return x314_orbitPoint; }
   TUniqueId GetOrbitNextTargetId() const { return x33c_orbitNextTargetId; }
+  TUniqueId GetAttachedActor() const { return x26c_attachedActor; }
+  bool GetControlsFrozen() const { return x760_controlsFrozen; } // name?
+  float GetDistanceUnderWater() const { return x828_distanceUnderWater; }
   TUniqueId GetScanningObjectId() const { return x3b4_scanningObject; }
   EGrappleState GetGrappleState() const { return x3b8_grappleState; }
   bool IsInFreeLook() const { return x3dc_inFreeLook; }
@@ -367,14 +383,17 @@ public:
   bool GetFreeLookStickState() const { return x3de_lookAnalogHeld; }
   TUniqueId GetAimTargetId() const { return x3f4_aimTarget; }
   EPlayerCameraState GetCameraState() const { return x2f4_cameraState; }
+  TUniqueId GetRidingPlatformId() const { return x82e_ridingPlatform; }
   void SetCameraState(EPlayerCameraState state, CStateManager& mgr);
   EGunHolsterState GetGunHolsterState() const { return x498_gunHolsterState; }
   NPlayer::EPlayerMovementState GetPlayerMovementState() const { return x258_movementState; }
   float GetTimeSinceJump() const { return x2a8_timeSinceJump; }
   void SetTimeSinceJump(float v) { x2a8_timeSinceJump = v; }
+  int GetBombJumpCounter() const { return x9d0_bombJumpCount; }
   const CVector3f& GetAssistedTargetAim() const { return x480_assistedTargetAim; }
   // CPlayer::GetFlipSpiderBallControlY() const weak
   // CPlayer::GetFlipSpiderBallControlX() const weak
+  float GetDeathTime() const { return x9f4_deathTime; } // name?
 
   bool IsInsideFluid() const { return x9c4_31_inWaterMovement; }
 
@@ -390,6 +409,7 @@ public:
   float GetGravity() const;
 
   float GetAttachedActorStruggle() const;
+  const CPlayerEnergyDrain& GetPlayerEnergyDrain() const { return x274_energyDrain; }
   float GetGunAlpha() const { return x494_gunAlpha; }
   void SetAttachedActorStruggle(float struggle) { xa28_attachedActorStruggle = struggle; }
 
@@ -602,5 +622,14 @@ private:
   float xa30_samusExhaustedVoiceTimer;
 };
 CHECK_SIZEOF(CPlayer, 0xa38)
+
+extern const bool gkAutoAim;
+extern const bool gkAutoAimAtOrbitedObject;
+extern const bool gkFreeLookPreventsOrbitMovement;
+extern const float gkSpiderBallControllerActivationPercentage;
+extern const bool gkWorldOnlyReflection;
+extern const bool gkUseNewPlayerMovement;
+extern const float gkFirstPersonDeathTime;
+extern const float gkBallDeathTime;
 
 #endif // _CPLAYER

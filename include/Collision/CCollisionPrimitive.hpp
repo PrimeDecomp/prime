@@ -88,6 +88,7 @@ public:
   };
 
   CCollisionPrimitive(const CMaterialList& list);
+  CCollisionPrimitive(const CCollisionPrimitive& other) : x8_material(other.x8_material) {}
 
   virtual uint GetTableIndex() const = 0;
   virtual void SetMaterial(const CMaterialList& other) { x8_material = other; }

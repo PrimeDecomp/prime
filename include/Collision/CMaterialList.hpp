@@ -121,6 +121,9 @@ public:
     return (other.value & value) ? true : false;
   }
 
+  // TODO: fake?
+  u64 GetValue() const { return value; }
+
 private:
   u64 value;
 

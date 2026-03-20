@@ -77,8 +77,12 @@ enum EAttackType {
 class CTeamAiMgr : public CEntity {
 public:
   class CUnknown {
+    friend class CTeamAiMgr;
+
   public:
     CUnknown(CInputStream& in, int propCount);
+
+    static int GetNumProperties() { return kNumProperties; }
 
   private:
     uint x0_aiCount;
@@ -91,7 +95,7 @@ public:
     float x1c_meleeTimeInterval;
     float x20_projectileTimeInterval;
 
-    friend class CTeamAiMgr;
+    static const int kNumProperties;
   };
 
   CTeamAiMgr(TUniqueId uid, const rstl::string& name, const CEntityInfo& info, const CUnknown& data);

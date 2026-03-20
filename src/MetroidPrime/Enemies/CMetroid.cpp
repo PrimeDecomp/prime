@@ -4,6 +4,8 @@
 #include "Kyoto/Animation/CPASAnimParmData.hpp"
 #include "Kyoto/Animation/CSegId.hpp"
 
+#pragma inline_max_size(250)
+
 const uint CMetroidData::skNumProperties = 20;
 
 const CDamageVulnerability
@@ -98,7 +100,8 @@ CMetroid::CMetroid(const TUniqueId uid, const rstl::string& name, const EFlavorT
 , mState(kAiState_Invalid)
 , mMetroidData(metroidData)
 , mTeamAiManagerId(kInvalidUniqueId)
-, mCollisionPrimitive(CSphere(CVector3f::Zero(), GetModelData()->ScaleCopy().GetY() * 0.9f), GetMaterialList())
+, mCollisionPrimitive(CSphere(CVector3f::Zero(), GetModelData()->ScaleCopy().GetY() * 0.9f),
+                      GetMaterialList())
 , mPathFindSearch(nullptr, 1 | 2, pInfo.GetPathfindingIndex(), 1.f, 1.f)
 , x7a4(CVector3f::Zero())
 , mAttackTarget(kInvalidUniqueId)
@@ -157,7 +160,7 @@ void CMetroid::Think(float dt, CStateManager& mgr) {
   if (!GetActive()) {
     return;
   }
-  
-  //CTeamAiMgr
+
+  // CTeamAiMgr
   CPatterned::Think(dt, mgr);
 }
