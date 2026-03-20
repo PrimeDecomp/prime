@@ -2,11 +2,13 @@
 
 #include "Collision/CMaterialFilter.hpp"
 #include "Collision/CRayCastResult.hpp"
+
 #include "Kyoto/Graphics/CGraphics.hpp"
 #include "Kyoto/Math/CMath.hpp"
 #include "Kyoto/Math/CQuaternion.hpp"
 #include "Kyoto/Math/CRelAngle.hpp"
 #include "Kyoto/Math/CloseEnough.hpp"
+
 #include "MetroidPrime/CActorParameters.hpp"
 #include "MetroidPrime/CStateManager.hpp"
 #include "MetroidPrime/Cameras/CBallCamera.hpp"
@@ -14,9 +16,10 @@
 #include "MetroidPrime/ScriptObjects/CScriptCameraWaypoint.hpp"
 #include "MetroidPrime/TCastTo.hpp"
 #include "MetroidPrime/TGameTypes.hpp"
-#include "float.h"
+
 #include "rstl/algorithm.hpp"
-#include "rstl/math.hpp"
+
+#include "float.h"
 
 CGameCamera::CGameCamera(const TUniqueId uid, const bool active, const rstl::string& name,
                          const CEntityInfo& info, const CTransform4f& xf, const float fov,

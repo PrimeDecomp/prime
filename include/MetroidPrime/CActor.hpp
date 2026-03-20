@@ -207,7 +207,9 @@ public:
 
   const CAABox& GetRenderBoundsCached() const { return x9c_renderBounds; }
   void SetRenderBounds(const CAABox& bounds) { x9c_renderBounds = bounds; }
-  void SetAddedToken(unsigned int token) const { const_cast< CActor* >(this)->xcc_addedToken = token; }
+  void SetAddedToken(unsigned int token) const {
+    const_cast< CActor* >(this)->xcc_addedToken = token;
+  }
 
   bool GetUseInSortedLists() const;
   void SetUseInSortedLists(bool use);
