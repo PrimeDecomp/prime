@@ -36,13 +36,6 @@ public:
   , x14_canLoop(other.x14_canLoop)
   , x18_defaultAnim(other.x18_defaultAnim) {}
 
-  CAnimRes(CAnimationParameters parms, const CVector3f& scale, bool loop)
-  : x0_ancsId(parms.GetACSFile())
-  , x4_charIdx(parms.GetCharacter())
-  , x8_scale(scale)
-  , x14_canLoop(loop)
-  , x18_defaultAnim(parms.GetInitialAnimation()) {}
-
   CAssetId GetId() const { return x0_ancsId; }
   // or GetBodyType__8CAnimResCFv ?
   int GetCharacterNodeId() const { return x4_charIdx; }
