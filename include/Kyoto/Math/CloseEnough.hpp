@@ -12,7 +12,7 @@ struct Real32 {
   static inline float Epsilon() { return 1.e-5f; }
 };
 struct Double {
-  static inline double Epsilon() { return 1.e-5; } // TODO check
+  static inline double Epsilon() { return 1.0 / 60000.0; }
 };
 static inline float vector3_epsilon() { return 1.e-4f; }
 static inline float vector2_epsilon() { return 1.e-4f; }

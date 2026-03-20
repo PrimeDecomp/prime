@@ -55,10 +55,9 @@ public:
     return false;
   }
 
-  // Lock__23TCachedToken<8CTexture>Fv
   void Lock() { TToken< T >::Lock(); }
 
-  TToken< T > GetToken() const { return TToken< T >(*this); }
+  const CToken& GetToken() const { return *this; }
 
   void Unlock() {
     x8_item = nullptr;

@@ -1,6 +1,9 @@
 #ifndef _CSPAWNSYSTEMKEYFRAMEDATA
 #define _CSPAWNSYSTEMKEYFRAMEDATA
 
+#include "Kyoto/CToken.hpp"
+
+#include <rstl/optional_object.hpp>
 #include <rstl/pair.hpp>
 #include <rstl/vector.hpp>
 
@@ -11,11 +14,22 @@ public:
   class CSpawnSystemKeyframeInfo {
   public:
     CSpawnSystemKeyframeInfo(CInputStream& in);
+    void LoadToken(CSimplePool* pool);
+    rstl::optional_object< CToken > GetToken() const { return x10_token; }
+
+  private:
+    uint x0_id;
+    uint x4;
+    uint x8;
+    uint xc;
+    rstl::optional_object< CToken > x10_token;
   };
+
   CSpawnSystemKeyframeData(CInputStream& in);
   ~CSpawnSystemKeyframeData() {}
 
   void LoadAllSpawnedSystemTokens(CSimplePool* pool);
+  rstl::vector< CSpawnSystemKeyframeInfo >& GetSpawnedSystemsAtFrame(uint frame);
 
 private:
   int mUnknown1;

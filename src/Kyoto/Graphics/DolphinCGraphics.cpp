@@ -9,6 +9,7 @@
 #include "Kyoto/Graphics/CTexture.hpp"
 #include "Kyoto/Math/CRelAngle.hpp"
 
+#include "dolphin/types.h"
 #include "rstl/math.hpp"
 
 #include "dolphin/vi.h"
@@ -255,7 +256,7 @@ float CGraphics::mDepthFar = 1.f;
 u32 CGraphics::mClearDepthValue = GX_MAX_Z24;
 bool CGraphics::mIsGXModelMatrixIdentity = true;
 bool CGraphics::mFirstFrame = true;
-GXBool CGraphics::mUseVideoFilter = GX_ENABLE;
+bool CGraphics::mUseVideoFilter = true;
 float CGraphics::mBrightness = 1.f;
 
 const GXTexMapID CGraphics::kSpareBufferTexMapID = GX_TEXMAP7;
@@ -1443,13 +1444,13 @@ float CGraphics::GetFPS() {
   return value;
 }
 
-void CGraphics::SetUseVideoFilter(bool b) {
+void CGraphics::SetUseVideoFilter(const bool b) {
   mUseVideoFilter = b;
   GXSetCopyFilter(mRenderModeObj.aa, mRenderModeObj.sample_pattern, b ? GX_ENABLE : GX_DISABLE,
                   mRenderModeObj.vfilter);
 }
 
-GXBool CGraphics::GetUseVideoFilter() { return mUseVideoFilter; }
+bool CGraphics::GetUseVideoFilter() { return mUseVideoFilter; }
 
 int CGraphics::GetFrameCounter() { return mFrameCounter; }
 

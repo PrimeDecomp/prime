@@ -16,7 +16,7 @@ class CParticleGen {
 public:
   virtual ~CParticleGen() = 0;
   virtual bool Update(double) = 0;
-  virtual void Render() const = 0;
+  virtual void Render() = 0;
   virtual void SetOrientation(const CTransform4f& orientation) = 0;
   virtual void SetTranslation(const CVector3f& translation) = 0;
   virtual void SetGlobalOrientation(const CTransform4f& orientation) = 0;
@@ -28,9 +28,9 @@ public:
   virtual void SetGeneratorRate(float rate) {}
   virtual const CTransform4f& GetOrientation() const = 0;
   virtual const CVector3f& GetTranslation() const = 0;
-  virtual CTransform4f GetGlobalOrientation() const = 0;
-  virtual CVector3f GetGlobalTranslation() const = 0;
-  virtual CVector3f GetGlobalScale() const = 0;
+  virtual const CTransform4f& GetGlobalOrientation() const = 0;
+  virtual const CVector3f& GetGlobalTranslation() const = 0;
+  virtual const CVector3f& GetGlobalScale() const = 0;
   virtual bool GetParticleEmission() const = 0;
   virtual const CColor& GetModulationColor() const = 0;
   virtual float GetGeneratorRate() const { return 1.f; }
@@ -38,12 +38,12 @@ public:
   virtual rstl::optional_object< CAABox > GetBounds() const = 0;
   virtual int GetParticleCount() const = 0;
   virtual bool SystemHasLight() const = 0;
-  virtual CLight GetLight() = 0;
+  virtual CLight GetLight() const = 0;
   virtual void DestroyParticles() = 0;
   virtual void AddModifier(CWarp*);
   virtual uint Get4CharId() const = 0;
 
-private:
+protected:
   rstl::list< CWarp* > x4_modifiersList;
 };
 
