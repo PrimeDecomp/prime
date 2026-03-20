@@ -231,7 +231,7 @@ void CScriptSpindleCamera::Think(float dt, CStateManager& mgr) {
   if ((x188_flags & 0x2000) != 0 &&
       hintToBallDist > x2f8_deleteHintBallDist.GetValue(GetInVar(x2f8_deleteHintBallDist))) {
     if (hint->GetDelegatedCameraId() == GetUniqueId()) {
-      mgr.CameraManager()->DeleteCameraHint(hint->GetUniqueId(), mgr);
+      mgr.CameraManager()->ReallyRemoveCameraHint(hint->GetUniqueId(), mgr);
     }
   } else {
     if ((x188_flags & 0x800) == 0) {

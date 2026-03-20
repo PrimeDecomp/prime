@@ -7,6 +7,8 @@
 
 #include "rstl/algorithm.hpp"
 
+#pragma inline_max_size(250)
+
 CCameraOverrideInfo::CCameraOverrideInfo(
     uint overrideFlags, CBallCamera::EBallCameraBehaviour behaviour, float minDist, float maxDist,
     float backwardsDist, const CVector3f& lookAtOffset, const CVector3f& chaseLookAtOffset,
@@ -128,10 +130,11 @@ void CScriptCameraHint::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid,
                                         CStateManager& mgr) {
   switch (msg) {
   case kSM_Deleted:
-  case kSM_Deactivate:
+  case kSM_Deactivate: {
     CCameraManager* cameraManager = mgr.CameraManager();
     cameraManager->ReallyRemoveCameraHint(GetUniqueId(), mgr);
     break;
+  }
   case kSM_InitializedInArea:
     CheckLegacyConnections(mgr);
     break;
@@ -161,7 +164,7 @@ void CScriptCameraHint::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid,
   case kSM_Follow:
     if (!GetActive()) {
       SetActive(true);
-      if (CActor* act = TCastToPtr< CActor >(mgr.ObjectById(uid))) {
+      if (const CActor* act = TCastToConstPtr< CActor >(mgr.GetObjectById(uid))) {
         CVector3f followerToThisFlat = mOrigXf.GetTranslation() - act->GetTranslation();
         followerToThisFlat.SetZ(0.f);
         if (followerToThisFlat.CanBeNormalized()) {

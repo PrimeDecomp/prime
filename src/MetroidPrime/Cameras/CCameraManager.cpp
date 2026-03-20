@@ -464,7 +464,7 @@ void CCameraManager::CinematicCut(CStateManager& mgr) {
 // TODO: nonmatching
 void CCameraManager::UseCameraHint(const CScriptCameraHint& hint, CStateManager& mgr) {
   if (x80_ballCamera->GetState() == CBallCamera::kBCS_ToBall) {
-    x80_ballCamera->SetState(CBallCamera::kBCS_Default);
+    x80_ballCamera->SetState(CBallCamera::kBCS_Default, mgr);
     mgr.Player()->SetCameraState(CPlayer::kCS_Ball, mgr);
   }
 

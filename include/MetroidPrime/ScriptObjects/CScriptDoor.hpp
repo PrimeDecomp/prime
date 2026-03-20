@@ -38,6 +38,7 @@ public:
 
   const TUniqueId GetConnectedDockID() const { return mDockId; }
   bool IsOpen() const { return mIsOpen; }
+  bool IsBallDoor() const { return mBallDoor; }
   void SetDoClose(const bool close) { mDoClose = close; }
 
   bool IsConnectedToArea(const CStateManager& mgr, TAreaId area) const;

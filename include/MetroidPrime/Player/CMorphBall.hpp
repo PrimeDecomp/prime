@@ -101,7 +101,8 @@ public:
   static CModelData* GetMorphBallModel(const rstl::string& name, const float radius);
   // GetMorphBallModel__10CMorphBallFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>f
   // global
-  // global IsBoosting__10CMorphBallCFv weak GetBoostChargeTimer__10CMorphBallCFv weak
+  bool IsBoosting() const { return x1de4_24_inBoost; }
+  float GetBoostChargeTimer() const { return x1de8_boostChargeTime; }
   // GetWallBumpCounter__10CMorphBallCFv weak
   // GetBallContactMaterials__10CMorphBallCFv weak
   void ComputeBallMovement(const CFinalInput&, CStateManager&, float);

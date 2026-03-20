@@ -9,12 +9,13 @@ class CCameraOverrideInfo {
   friend class CScriptCameraHint;
 
 public:
-  CCameraOverrideInfo(uint overrideFlags, CBallCamera::EBallCameraBehaviour behaviour, float minDist,
-              float maxDist, float backwardsDist, const CVector3f& lookAtOffset,
-              const CVector3f& chaseLookAtOffset, const CVector3f& ballToCam, float fov,
-              float attitudeRange, float azimuthRange, float anglePerSecond, float clampVelRange,
-              float clampRotRange, float elevation, float interpolateTime, float clampVelTime,
-              float controlInterpDur);
+  CCameraOverrideInfo(uint overrideFlags, CBallCamera::EBallCameraBehaviour behaviour,
+                      float minDist, float maxDist, float backwardsDist,
+                      const CVector3f& lookAtOffset, const CVector3f& chaseLookAtOffset,
+                      const CVector3f& ballToCam, float fov, float attitudeRange,
+                      float azimuthRange, float anglePerSecond, float clampVelRange,
+                      float clampRotRange, float elevation, float interpolateTime,
+                      float clampVelTime, float controlInterpDur);
   virtual ~CCameraOverrideInfo() {}
 
   uint GetOverrideFlags() const { return mOverrideFlags; }
