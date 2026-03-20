@@ -50,7 +50,7 @@ public:
   ~CParticleSwoosh();
 
   bool Update(double dt);
-  void Render() const;
+  void Render();
   void SetOrientation(const CTransform4f& orientation);
   void SetTranslation(const CVector3f& translation);
   void SetGlobalOrientation(const CTransform4f& orientation);
@@ -62,16 +62,16 @@ public:
   void SetGeneratorRate(float rate) {}
   const CTransform4f& GetOrientation() const;
   const CVector3f& GetTranslation() const;
-  CTransform4f GetGlobalOrientation() const;
-  CVector3f GetGlobalTranslation() const;
-  CVector3f GetGlobalScale() const;
+  const CTransform4f& GetGlobalOrientation() const;
+  const CVector3f& GetGlobalTranslation() const;
+  const CVector3f& GetGlobalScale() const;
   bool GetParticleEmission() const;
   const CColor& GetModulationColor() const;
   bool IsSystemDeletable() const;
   rstl::optional_object< CAABox > GetBounds() const;
   int GetParticleCount() const;
   bool SystemHasLight() const;
-  CLight GetLight();
+  CLight GetLight() const override;
   void DestroyParticles();
   void AddModifier(CWarp*);
   uint Get4CharId() const;

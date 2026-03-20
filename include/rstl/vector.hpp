@@ -28,7 +28,7 @@ namespace rstl {
 
 template < typename T, typename Alloc = rmemory_allocator >
 class vector {
-protected:
+public:
   Alloc x0_allocator;
   int x4_count;
   int x8_capacity;
@@ -88,7 +88,7 @@ public:
     ++x4_count;
   }
 
-  void pop_back();
+  void pop_back() { --x4_count; }
 
   vector& operator=(const vector& other);
 

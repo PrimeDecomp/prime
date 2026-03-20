@@ -81,60 +81,106 @@ extern void GXEnd(void);
 
 #else
 
-static inline void GXPosition2f32(const f32 x, const f32 y) {
-  GXWGFifo.f32 = x;
-  GXWGFifo.f32 = y;
-}
+// TODO: should these params be const? It helps CFluidPlaneCPURender
 
-static inline void GXPosition3s16(const s16 x, const s16 y, const s16 z) {
-  GXWGFifo.s16 = x;
-  GXWGFifo.s16 = y;
-  GXWGFifo.s16 = z;
-}
+#define FUNC_1PARAM(name, T)                                                                       \
+  static inline void name##1##T(const T x) { GXWGFifo.T = x; }
 
-static inline void GXPosition3f32(const f32 x, const f32 y, const f32 z) {
-  GXWGFifo.f32 = x;
-  GXWGFifo.f32 = y;
-  GXWGFifo.f32 = z;
-}
+#define FUNC_2PARAM(name, T)                                                                       \
+  static inline void name##2##T(const T x, const T y) {                                            \
+    GXWGFifo.T = x;                                                                                \
+    GXWGFifo.T = y;                                                                                \
+  }
 
-static inline void GXNormal3f32(const f32 x, const f32 y, const f32 z) {
-  GXWGFifo.f32 = x;
-  GXWGFifo.f32 = y;
-  GXWGFifo.f32 = z;
-}
+#define FUNC_3PARAM(name, T)                                                                       \
+  static inline void name##3##T(const T x, const T y, const T z) {                                 \
+    GXWGFifo.T = x;                                                                                \
+    GXWGFifo.T = y;                                                                                \
+    GXWGFifo.T = z;                                                                                \
+  }
 
-static inline void GXNormal3s8(const s8 x, const s8 y, const s8 z) {
-  GXWGFifo.s8 = x;
-  GXWGFifo.s8 = y;
-  GXWGFifo.s8 = z;
-}
+#define FUNC_4PARAM(name, T)                                                                       \
+  static inline void name##4##T(const T x, const T y, const T z, const T w) {                      \
+    GXWGFifo.T = x;                                                                                \
+    GXWGFifo.T = y;                                                                                \
+    GXWGFifo.T = z;                                                                                \
+    GXWGFifo.T = w;                                                                                \
+  }
 
-static inline void GXColor1u32(const u32 v) {
-  GXWGFifo.u32 = v;
-}
+#define FUNC_INDEX8(name)                                                                          \
+  static inline void name##1x8(const u8 x) { GXWGFifo.u8 = x; }
 
-static inline void GXColor4u8(const u8 r, const u8 g, const u8 b, const u8 a) {
-  GXWGFifo.u8 = r;
-  GXWGFifo.u8 = g;
-  GXWGFifo.u8 = b;
-  GXWGFifo.u8 = a;
-}
+#define FUNC_INDEX16(name)                                                                         \
+  static inline void name##1x16(const u16 x) { GXWGFifo.u16 = x; }
 
-static inline void GXTexCoord2s16(const s16 u, const s16 v) {
-  GXWGFifo.s16 = u;
-  GXWGFifo.s16 = v;
-}
+// GXCmd
+FUNC_1PARAM(GXCmd, u8)
+FUNC_1PARAM(GXCmd, u16)
+FUNC_1PARAM(GXCmd, u32)
 
-static inline void GXTexCoord2f32(const f32 u, const f32 v) {
-  GXWGFifo.f32 = u;
-  GXWGFifo.f32 = v;
-}
+// GXParam
+FUNC_1PARAM(GXParam, u8)
+FUNC_1PARAM(GXParam, u16)
+FUNC_1PARAM(GXParam, u32)
+FUNC_1PARAM(GXParam, s8)
+FUNC_1PARAM(GXParam, s16)
+FUNC_1PARAM(GXParam, s32)
+FUNC_1PARAM(GXParam, f32)
+FUNC_3PARAM(GXParam, f32)
+FUNC_4PARAM(GXParam, f32)
 
+// GXPosition
+FUNC_3PARAM(GXPosition, f32)
+FUNC_3PARAM(GXPosition, u8)
+FUNC_3PARAM(GXPosition, s8)
+FUNC_3PARAM(GXPosition, u16)
+FUNC_3PARAM(GXPosition, s16)
+FUNC_2PARAM(GXPosition, f32)
+FUNC_2PARAM(GXPosition, u8)
+FUNC_2PARAM(GXPosition, s8)
+FUNC_2PARAM(GXPosition, u16)
+FUNC_2PARAM(GXPosition, s16)
+FUNC_INDEX16(GXPosition)
+FUNC_INDEX8(GXPosition)
 
-static inline void GXPosition1x8(u8 index) {
-  GXWGFifo.u8 = index;
-}
+// GXNormal
+FUNC_3PARAM(GXNormal, f32)
+FUNC_3PARAM(GXNormal, s16)
+FUNC_3PARAM(GXNormal, s8)
+FUNC_INDEX16(GXNormal)
+FUNC_INDEX8(GXNormal)
+
+// GXColor
+FUNC_4PARAM(GXColor, u8)
+FUNC_1PARAM(GXColor, u32)
+FUNC_3PARAM(GXColor, u8)
+FUNC_1PARAM(GXColor, u16)
+FUNC_INDEX16(GXColor)
+FUNC_INDEX8(GXColor)
+
+// GXTexCoord
+FUNC_2PARAM(GXTexCoord, f32)
+FUNC_2PARAM(GXTexCoord, s16)
+FUNC_2PARAM(GXTexCoord, u16)
+FUNC_2PARAM(GXTexCoord, s8)
+FUNC_2PARAM(GXTexCoord, u8)
+FUNC_1PARAM(GXTexCoord, f32)
+FUNC_1PARAM(GXTexCoord, s16)
+FUNC_1PARAM(GXTexCoord, u16)
+FUNC_1PARAM(GXTexCoord, s8)
+FUNC_1PARAM(GXTexCoord, u8)
+FUNC_INDEX16(GXTexCoord)
+FUNC_INDEX8(GXTexCoord)
+
+// GXMatrixIndex
+FUNC_1PARAM(GXMatrixIndex, u8)
+
+#undef FUNC_1PARAM
+#undef FUNC_2PARAM
+#undef FUNC_3PARAM
+#undef FUNC_4PARAM
+#undef FUNC_INDEX8
+#undef FUNC_INDEX16
 
 static inline void GXEnd(void) {}
 

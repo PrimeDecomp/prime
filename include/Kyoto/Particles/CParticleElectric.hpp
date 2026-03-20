@@ -14,7 +14,7 @@ public:
 
   ~CParticleElectric() override;
   bool Update(double) override;
-  void Render() const override;
+  void Render() override;
   void SetOrientation(const CTransform4f& orientation) override;
   void SetTranslation(const CVector3f& translation) override;
   void SetGlobalOrientation(const CTransform4f& orientation) override;
@@ -26,16 +26,16 @@ public:
   void SetGeneratorRate(float rate) {}
   const CTransform4f& GetOrientation() const override;
   const CVector3f& GetTranslation() const override;
-  CTransform4f GetGlobalOrientation() const override;
-  CVector3f GetGlobalTranslation() const override;
-  CVector3f GetGlobalScale() const override;
+  const CTransform4f& GetGlobalOrientation() const override;
+  const CVector3f& GetGlobalTranslation() const override;
+  const CVector3f& GetGlobalScale() const override;
   bool GetParticleEmission() const override;
   const CColor& GetModulationColor() const override;
   bool IsSystemDeletable() const override;
   rstl::optional_object< CAABox > GetBounds() const override;
   int GetParticleCount() const override;
   bool SystemHasLight() const override;
-  CLight GetLight() override;
+  CLight GetLight() const override;
   void DestroyParticles() override;
   void AddModifier(CWarp*) override;
   uint Get4CharId() const override;

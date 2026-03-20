@@ -363,13 +363,16 @@ public:
   static void SetCullMode(ERglCullMode cullMode);
   static void SetTevStates(uchar);
 
-  static void SetUseVideoFilter(bool b);
-  static GXBool GetUseVideoFilter();
+  static void SetUseVideoFilter(const bool b);
+  static bool GetUseVideoFilter();
   static int GetFrameCounter();
   static void SetProgressiveMode(bool b);
   static bool GetProgressiveMode();
   static bool CanSetProgressiveMode();
   static bool GetProgressiveDefault();
+
+  static void* GetDolphinSpareBuffer() { return mpSpareBuffer; }
+  static int GetSpareBufferSize() { return mSpareBufferSize; }
 
   // Screen Position
   static void GetScreenPosition(int* stretch, int* xOffset, int* yOffset);
@@ -386,6 +389,8 @@ public:
   static CTevCombiners::CTevPass kEnvModulateColor;
   static CTevCombiners::CTevPass kEnvModulateColorByAlpha;
   static CRenderState sRenderState;
+
+  static const GXTexMapID kSpareBufferTexMapID;
 
 private:
   static void UpdateVertexDataStream();
@@ -459,11 +464,8 @@ private:
   static u32 mClearDepthValue; // = GX_MAX_Z24
   static bool mIsGXModelMatrixIdentity;
   static bool mFirstFrame;
-  static GXBool mUseVideoFilter;
+  static bool mUseVideoFilter;
   static float mBrightness;
-
-  // .sdata2
-  static const GXTexMapID kSpareBufferTexMapID;
 };
 
 #endif // _CGRAPHICS
