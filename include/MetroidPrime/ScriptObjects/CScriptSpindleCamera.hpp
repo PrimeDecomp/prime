@@ -7,8 +7,6 @@
 
 #include "rstl/reserved_vector.hpp"
 
-
-
 class CInputStream;
 
 enum ESpindleInput {
@@ -22,9 +20,7 @@ enum ESpindleInput {
   kSI_HintDeltaVOff,
 };
 
-struct SSpindleSegment;
-
-struct SSpindleProperty {
+struct CSpindleCameraInterpolant {
   uint x0_flags;
   ESpindleInput x4_input;
   float x8_lowOut;
@@ -32,59 +28,34 @@ struct SSpindleProperty {
   float x10_lowIn;
   float x14_highIn;
 
-  SSpindleProperty() {}
-
-  SSpindleProperty(const SSpindleSegment& other);
-
-  float GetValue(float inVar) const;
-};
-CHECK_SIZEOF(SSpindleProperty, 0x18)
-
-struct SSpindleSegment {
-  uint x0_flags;
-  ESpindleInput x4_input;
-  float x8_lowOut;
-  float xc_highOut;
-  float x10_lowIn;
-  float x14_highIn;
-
-  SSpindleSegment() {}
-  SSpindleSegment(ESpindleInput input, uint flags, float lowOut, float highOut, float lowIn,
-                  float highIn);
+  CSpindleCameraInterpolant() {}
+  CSpindleCameraInterpolant(ESpindleInput input, uint flags, float lowOut, float highOut,
+                            float lowIn, float highIn);
 
   void FixupAngles();
+  float GetValue(float inVar) const;
 };
-CHECK_SIZEOF(SSpindleSegment, 0x18)
+CHECK_SIZEOF(CSpindleCameraInterpolant, 0x18)
 
-struct SWordBlock6 { uint w[6]; };
-inline SSpindleProperty::SSpindleProperty(const SSpindleSegment& other) {
-  *reinterpret_cast< SWordBlock6* >(this) =
-      *reinterpret_cast< const SWordBlock6* >(&other);
-}
-
-SSpindleSegment LoadSpindleSegment(CInputStream& in);
+CSpindleCameraInterpolant LoadSpindleSegment(CInputStream& in);
 
 class CScriptSpindleCamera : public CGameCamera {
 public:
-  CScriptSpindleCamera(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
-                       const CTransform4f& xf, bool active, int flags,
-                       float hintToCamDistMin,
-                       float hintToCamDistMax, float hintToCamVOffMin, float hintToCamVOffMax,
-                       const SSpindleProperty& targetHintToCamDeltaAngleVel,
-                       const SSpindleProperty& deltaAngleScaleWithCamDist,
-                       const SSpindleProperty& hintToCamDist,
-                       const SSpindleProperty& distOffsetFromBallDist,
-                       const SSpindleProperty& hintBallToCamAzimuth,
-                       const SSpindleProperty& unused,
-                       const SSpindleProperty& maxHintBallToCamAzimuth,
-                       const SSpindleProperty& camLookRelAzimuth,
-                       const SSpindleProperty& lookPosZOffset,
-                       const SSpindleProperty& camPosZOffset,
-                       const SSpindleProperty& clampedAzimuthFromHintDir,
-                       const SSpindleProperty& dampingAzimuthSpeed,
-                       const SSpindleProperty& targetHintToCamDeltaAngleVelRange,
-                       const SSpindleProperty& deleteHintBallDist,
-                       const SSpindleProperty& recoverClampedAzimuthFromHintDir);
+  CScriptSpindleCamera(
+      TUniqueId uid, const rstl::string& name, const CEntityInfo& info, const CTransform4f& xf,
+      bool active, int flags, float hintToCamDistMin, float hintToCamDistMax,
+      float hintToCamVOffMin, float hintToCamVOffMax,
+      CSpindleCameraInterpolant targetHintToCamDeltaAngleVel,
+      CSpindleCameraInterpolant deltaAngleScaleWithCamDist, CSpindleCameraInterpolant hintToCamDist,
+      CSpindleCameraInterpolant distOffsetFromBallDist,
+      CSpindleCameraInterpolant hintBallToCamAzimuth, CSpindleCameraInterpolant unused,
+      CSpindleCameraInterpolant maxHintBallToCamAzimuth,
+      CSpindleCameraInterpolant camLookRelAzimuth, CSpindleCameraInterpolant lookPosZOffset,
+      CSpindleCameraInterpolant camPosZOffset, CSpindleCameraInterpolant clampedAzimuthFromHintDir,
+      CSpindleCameraInterpolant dampingAzimuthSpeed,
+      CSpindleCameraInterpolant targetHintToCamDeltaAngleVelRange,
+      CSpindleCameraInterpolant deleteHintBallDist,
+      CSpindleCameraInterpolant recoverClampedAzimuthFromHintDir);
 
   // CEntity
   ~CScriptSpindleCamera() override;
@@ -100,7 +71,7 @@ public:
   void Reset(const CTransform4f& xf, CStateManager& mgr) override;
 
 private:
-  float GetInVar(const SSpindleProperty& seg) const;
+  float GetInVar(const CSpindleCameraInterpolant& seg) const;
 
   uint x188_flags;
   rstl::reserved_vector< float, 8 > x18c_inVars;
@@ -108,21 +79,21 @@ private:
   float x1b4_hintToCamDistMax;
   float x1b8_hintToCamVOffMin;
   float x1bc_hintToCamVOffMax;
-  SSpindleProperty x1c0_targetHintToCamDeltaAngleVel;
-  SSpindleProperty x1d8_deltaAngleScaleWithCamDist;
-  SSpindleProperty x1f0_hintToCamDist;
-  SSpindleProperty x208_distOffsetFromBallDist;
-  SSpindleProperty x220_hintBallToCamAzimuth;
-  SSpindleProperty x238_unused;
-  SSpindleProperty x250_maxHintBallToCamAzimuth;
-  SSpindleProperty x268_camLookRelAzimuth;
-  SSpindleProperty x280_lookPosZOffset;
-  SSpindleProperty x298_camPosZOffset;
-  SSpindleProperty x2b0_clampedAzimuthFromHintDir;
-  SSpindleProperty x2c8_dampingAzimuthSpeed;
-  SSpindleProperty x2e0_targetHintToCamDeltaAngleVelRange;
-  SSpindleProperty x2f8_deleteHintBallDist;
-  SSpindleProperty x310_recoverClampedAzimuthFromHintDir;
+  CSpindleCameraInterpolant x1c0_targetHintToCamDeltaAngleVel;
+  CSpindleCameraInterpolant x1d8_deltaAngleScaleWithCamDist;
+  CSpindleCameraInterpolant x1f0_hintToCamDist;
+  CSpindleCameraInterpolant x208_distOffsetFromBallDist;
+  CSpindleCameraInterpolant x220_hintBallToCamAzimuth;
+  CSpindleCameraInterpolant x238_unused;
+  CSpindleCameraInterpolant x250_maxHintBallToCamAzimuth;
+  CSpindleCameraInterpolant x268_camLookRelAzimuth;
+  CSpindleCameraInterpolant x280_lookPosZOffset;
+  CSpindleCameraInterpolant x298_camPosZOffset;
+  CSpindleCameraInterpolant x2b0_clampedAzimuthFromHintDir;
+  CSpindleCameraInterpolant x2c8_dampingAzimuthSpeed;
+  CSpindleCameraInterpolant x2e0_targetHintToCamDeltaAngleVelRange;
+  CSpindleCameraInterpolant x2f8_deleteHintBallDist;
+  CSpindleCameraInterpolant x310_recoverClampedAzimuthFromHintDir;
   float x328_maxAzimuthInterpTimer;
   bool x32c_24_outsideClampedAzimuth : 1;
   CVector3f x330_lookDir;

@@ -1328,29 +1328,29 @@ CEntity* ScriptLoader::LoadSpindleCamera(CStateManager& mgr, CInputStream& in, i
   float hintToCamVOffMin = in.ReadFloat();
   float hintToCamVOffMax = in.ReadFloat();
 
-  SSpindleSegment seg1 = LoadSpindleSegment(in);
+  CSpindleCameraInterpolant seg1 = LoadSpindleSegment(in);
   seg1.FixupAngles();
-  SSpindleSegment seg2 = LoadSpindleSegment(in);
-  SSpindleSegment seg3 = LoadSpindleSegment(in);
-  SSpindleSegment seg4 = LoadSpindleSegment(in);
-  SSpindleSegment seg5 = LoadSpindleSegment(in);
+  CSpindleCameraInterpolant seg2 = LoadSpindleSegment(in);
+  CSpindleCameraInterpolant seg3 = LoadSpindleSegment(in);
+  CSpindleCameraInterpolant seg4 = LoadSpindleSegment(in);
+  CSpindleCameraInterpolant seg5 = LoadSpindleSegment(in);
   seg5.FixupAngles();
-  SSpindleSegment seg6 = LoadSpindleSegment(in);
+  CSpindleCameraInterpolant seg6 = LoadSpindleSegment(in);
   seg6.FixupAngles();
-  SSpindleSegment seg7 = LoadSpindleSegment(in);
+  CSpindleCameraInterpolant seg7 = LoadSpindleSegment(in);
   seg7.FixupAngles();
-  SSpindleSegment seg8 = LoadSpindleSegment(in);
+  CSpindleCameraInterpolant seg8 = LoadSpindleSegment(in);
   seg8.FixupAngles();
-  SSpindleSegment seg9 = LoadSpindleSegment(in);
-  SSpindleSegment seg10 = LoadSpindleSegment(in);
-  SSpindleSegment seg11 = LoadSpindleSegment(in);
+  CSpindleCameraInterpolant seg9 = LoadSpindleSegment(in);
+  CSpindleCameraInterpolant seg10 = LoadSpindleSegment(in);
+  CSpindleCameraInterpolant seg11 = LoadSpindleSegment(in);
   seg11.FixupAngles();
-  SSpindleSegment seg12 = LoadSpindleSegment(in);
+  CSpindleCameraInterpolant seg12 = LoadSpindleSegment(in);
   seg12.FixupAngles();
-  SSpindleSegment seg13 = LoadSpindleSegment(in);
+  CSpindleCameraInterpolant seg13 = LoadSpindleSegment(in);
   seg13.FixupAngles();
-  SSpindleSegment seg14 = LoadSpindleSegment(in);
-  SSpindleSegment seg15 = LoadSpindleSegment(in);
+  CSpindleCameraInterpolant seg14 = LoadSpindleSegment(in);
+  CSpindleCameraInterpolant seg15 = LoadSpindleSegment(in);
   seg15.FixupAngles();
 
   return rs_new CScriptSpindleCamera(
@@ -3537,7 +3537,7 @@ CEntity* ScriptLoader::LoadMagdolite(CStateManager& mgr, CInputStream& in, int p
 
 CEntity* ScriptLoader::LoadTeamAiMgr(CStateManager& mgr, CInputStream& in, int propCount,
                                      const CEntityInfo& info) {
-  if (propCount < CTeamAiMgr::CUnknown::kNumProperties)
+  if (propCount < CTeamAiMgr::CUnknown::GetNumProperties())
     return nullptr;
 
   rstl::string name = mgr.HashInstanceName(in);
