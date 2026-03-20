@@ -3,8 +3,8 @@
 
 #include "types.h"
 
-#include "MetroidPrime/TGameTypes.hpp"
 #include "MetroidPrime/CAnimData.hpp"
+#include "MetroidPrime/TGameTypes.hpp"
 
 #include "Kyoto/Animation/IAnimReader.hpp"
 #include "Kyoto/Graphics/CColor.hpp"
@@ -71,7 +71,6 @@ public:
   CModelData();
   CModelData(const CAnimRes&);
   CModelData(const CStaticRes&);
-  CModelData(const CModelData&);
   ~CModelData();
 
   CAdvancementDeltas AdvanceAnimation(float dt, CStateManager& mgr, TAreaId aid, bool advTree);
@@ -101,7 +100,8 @@ public:
   bool IsLoaded(int shaderIdx) const;
   bool IsDefinitelyOpaque(EWhichModel which) const;
 
-  CTransform4f GetLocatorTransformDynamic(const rstl::string& name, const CCharAnimTime* time) const;
+  CTransform4f GetLocatorTransformDynamic(const rstl::string& name,
+                                          const CCharAnimTime* time) const;
   CTransform4f GetScaledLocatorTransformDynamic(const rstl::string& name,
                                                 const CCharAnimTime* time) const;
   CTransform4f GetLocatorTransform(const rstl::string& name) const;
@@ -131,7 +131,8 @@ public:
 
   bool IsAnimating() const;
   bool HasModel(EWhichModel which) const;
-  void DisintegrateDraw(const CStateManager&, const CTransform4f&, const CTexture&, const CColor&, float) const;
+  void DisintegrateDraw(const CStateManager&, const CTransform4f&, const CTexture&, const CColor&,
+                        float) const;
 
 private:
   CVector3f x0_scale;

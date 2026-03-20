@@ -30,7 +30,7 @@ public:
   bool GetActive() const { return xf8_active; }
   void SetActive(bool active) { xf8_active = active; }
 
-  static rstl::pair< bool, uint > HasCorrectParameterCount(CInputStream& in);
+  static rstl::pair< bool, uint > HasCorrectParameterCount(CInputStream& in, const char* name);
 
 public:
   float x0_mass;

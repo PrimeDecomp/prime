@@ -416,7 +416,7 @@ CStateManager::CStateManager(const rstl::ncrc_ptr< CScriptMailbox >& mailbox,
   x90c_loaderFuncs[0x1f] = NULL;
   x90c_loaderFuncs[0x23] = NULL;
   x90c_loaderFuncs[kST_WorldLightFader] = ScriptLoader::LoadWorldLightFader;
-  x90c_loaderFuncs[kST_MetroidPrimeStage2] = ScriptLoader::LoadMetroidPrimeEssence;
+  x90c_loaderFuncs[kST_MetroidPrimeStage2] = ScriptLoader::LoadMetroidPrimeStage2;
   x90c_loaderFuncs[kST_MazeNode] = ScriptLoader::LoadMazeNode;
   x90c_loaderFuncs[kST_OmegaPirate] = ScriptLoader::LoadOmegaPirate;
   x90c_loaderFuncs[kST_PhazonPool] = ScriptLoader::LoadPhazonPool;

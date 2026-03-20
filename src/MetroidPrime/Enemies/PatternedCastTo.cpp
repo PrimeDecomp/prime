@@ -6,7 +6,7 @@
 #include "MetroidPrime/Enemies/CJellyZap.hpp"
 #include "MetroidPrime/Enemies/CMetroid.hpp"
 #include "MetroidPrime/Enemies/CMetroidBeta.hpp"
-#include "MetroidPrime/Enemies/CMetroidPrimeExo.hpp"
+#include "MetroidPrime/Enemies/CMetroidPrime.hpp"
 #include "MetroidPrime/Enemies/CParasite.hpp"
 #include "MetroidPrime/Enemies/CPuddleToad.hpp"
 #include "MetroidPrime/Enemies/CSpacePirate.hpp"
@@ -69,10 +69,11 @@ CMetroidBeta* CPatterned::CastTo< CMetroidBeta >(const TPatternedCast< CMetroidB
 }
 
 template <>
-TPatternedCast< CMetroidPrimeExo >::TPatternedCast(CEntity* ent) : ent(ent) {}
+TPatternedCast< CMetroidPrime >::TPatternedCast(CEntity* ent) : ent(ent) {}
 template <>
-CMetroidPrimeExo* CPatterned::CastTo< CMetroidPrimeExo >(const TPatternedCast< CMetroidPrimeExo >& ent) {
-  return static_cast< CMetroidPrimeExo* >(CastPatternedCharacter(CPatterned::kC_MetroidPrimeExo, ent.ent));
+CMetroidPrime* CPatterned::CastTo< CMetroidPrime >(const TPatternedCast< CMetroidPrime >& ent) {
+  return static_cast< CMetroidPrime* >(
+      CastPatternedCharacter(CPatterned::kC_MetroidPrimeExo, ent.ent));
 }
 
 template <>
@@ -99,8 +100,10 @@ CSpacePirate* CPatterned::CastTo< CSpacePirate >(const TPatternedCast< CSpacePir
 template <>
 TPatternedCast< CThardusRockProjectile >::TPatternedCast(CEntity* ent) : ent(ent) {}
 template <>
-CThardusRockProjectile* CPatterned::CastTo< CThardusRockProjectile >(const TPatternedCast< CThardusRockProjectile >& ent) {
-  return static_cast< CThardusRockProjectile* >(CastPatternedCharacter(CPatterned::kC_ThardusRockProjectile, ent.ent));
+CThardusRockProjectile*
+CPatterned::CastTo< CThardusRockProjectile >(const TPatternedCast< CThardusRockProjectile >& ent) {
+  return static_cast< CThardusRockProjectile* >(
+      CastPatternedCharacter(CPatterned::kC_ThardusRockProjectile, ent.ent));
 }
 
 template <>

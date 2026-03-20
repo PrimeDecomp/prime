@@ -14,7 +14,7 @@ static CAABox calculate_ball_aabox() {
 
 CScriptBallTrigger::CScriptBallTrigger(const TUniqueId uid, const rstl::string& name,
                                        const CEntityInfo& info, const CVector3f& pos,
-                                       const CVector3f& scale, const bool active, const float f1,
+                                       const CVector3f& scale, bool active, const float f1,
                                        const float f2, const float f3, CVector3f vec,
                                        const bool b2)
 : CScriptTrigger(uid, name, info, pos, calculate_ball_aabox(),

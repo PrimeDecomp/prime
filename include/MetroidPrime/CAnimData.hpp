@@ -66,6 +66,7 @@ public:
   void SetIsAnimating(bool v) { x220_24_animating = v; }
   void SetParticleEffectState(const rstl::string& name, bool active, CStateManager& mgr);
 
+  CAssetId GetSelfId() const { return x1d8_selfId; }
   int GetCharacterIndex() const { return x204_charIdx; }
   float GetAverageVelocity(int idx) const;
 

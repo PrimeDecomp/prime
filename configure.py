@@ -1111,12 +1111,12 @@ config.libs = [
             Object(NonMatching, "MetroidPrime/Factories/CWorldSaveGameInfoFactory.cpp"),
             Object(NonMatching, "MetroidPrime/CFluidPlaneRender.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CBurrower.cpp"),
-            Object(NonMatching, "MetroidPrime/Enemies/CMetroidPrimeExo.cpp"),
+            Object(NonMatching, "MetroidPrime/Enemies/CMetroidPrime.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/ScriptObjects/CScriptBeam.cpp",
             ),
-            Object(NonMatching, "MetroidPrime/Enemies/CMetroidPrimeEssence.cpp"),
+            Object(NonMatching, "MetroidPrime/Enemies/CMetroidPrimeStage2.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CMetroidPrimeRelay.cpp"),
             Object(NonMatching, "MetroidPrime/Player/CPlayerDynamics.cpp"),
             Object(
@@ -1150,7 +1150,7 @@ config.libs = [
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/ScriptObjects/CSustainedPlayerDamage.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
-                "MetroidPrime/Enemies/CMetroidPrimeProjectile.cpp",
+                "MetroidPrime/Enemies/CPoisonProjectile.cpp",
             ),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),

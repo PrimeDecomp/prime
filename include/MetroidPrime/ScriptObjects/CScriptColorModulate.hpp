@@ -22,11 +22,10 @@ public:
     kFS_BtoA,
   };
 
-  CScriptColorModulate(const TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
-                       const CColor& colorA, const CColor& colorB, const EBlendMode blendMode,
-                       const float timeA2B, const float timeB2A, const bool doReverse,
-                       const bool resetTargetWhenDone, const bool depthCompare,
-                       const bool depthUpdate, const bool depthBackwards, const bool active);
+  CScriptColorModulate(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
+                       const CColor& colorA, const CColor& colorB, EBlendMode blendMode,
+                       float timeA2B, float timeB2A, bool doReverse, bool resetTargetWhenDone,
+                       bool depthCompare, bool depthUpdate, bool depthBackwards, bool active);
 
   static TUniqueId FadeOutHelper(CStateManager& mgr, const TUniqueId obj, const float fadetime);
   static TUniqueId FadeInHelper(CStateManager& mgr, const TUniqueId obj, const float fadetime);

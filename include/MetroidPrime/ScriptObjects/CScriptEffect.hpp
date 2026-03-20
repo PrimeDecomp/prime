@@ -10,17 +10,16 @@ class CGenDescription;
 class CElementGen;
 class CScriptEffect : public CActor {
 public:
-  CScriptEffect(const TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
-                const CTransform4f& xf, const CVector3f& scale, const CAssetId partId,
-                const CAssetId elscId, const bool hotInThermal,
-                const bool noTimerUnlessAreaOccluded, bool rebuildSystemsOnActivate,
-                const bool active, const bool useRateInverseCamDist, float rateInverseCamDist,
-                const float rateInverseCamDistRate, const float duration,
-                const float durationResetWhileVisible, const bool useRateCamDistRange,
-                const float rateCamDistRangeMin, const float rateCamDistRangeMax,
-                const float rateCamDistRangeFarRate, const bool combatVisorVisible,
-                const bool thermalVisorVisible, const bool xrayVisorVisible,
-                const CLightParameters& lParms, const bool dieWhenSystemsDone);
+  void Accept(IVisitor& visitor) override;
+
+  CScriptEffect(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
+                const CTransform4f& xf, const CVector3f& scale, CAssetId partId, CAssetId elscId,
+                bool hotInThermal, bool noTimerUnlessAreaOccluded, bool rebuildSystemsOnActivate,
+                bool active, bool useRateInverseCamDist, float rateInverseCamDist,
+                float rateInverseCamDistRate, float duration, float durationResetWhileVisible,
+                bool useRateCamDistRange, float rateCamDistRangeMin, float rateCamDistRangeMax,
+                float rateCamDistRangeFarRate, bool combatVisorVisible, bool thermalVisorVisible,
+                bool xrayVisorVisible, const CLightParameters& lParms, bool dieWhenSystemsDone);
 
 private:
   TLockedToken< CElectricDescription > xe8_electricToken;

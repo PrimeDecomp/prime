@@ -3,47 +3,10 @@
 
 #include "Collision/CCollidableSphere.hpp"
 #include "MetroidPrime/CActorParameters.hpp"
+#include "MetroidPrime/Enemies/CMetroidData.hpp"
 #include "MetroidPrime/Enemies/CPatterned.hpp"
 #include "MetroidPrime/PathFinding/CPathFindSearch.hpp"
 
-class CMetroidData {
-  static const uint skNumProperties;
-
-public:
-  enum EGammaFlavor {
-    kGF_Invalid = -1,
-    kGF_Normal,
-    kGF_Red,
-    kGF_White,
-    kGF_Purple,
-    kGF_Yellow,
-  };
-  
-  CMetroidData(CInputStream& in);
-  ~CMetroidData();
-
-  static uint GetNumProperties() { return skNumProperties; }
-
-  uint GetNumValidGammaModels() const;
-
-  const rstl::optional_object< CAnimationParameters >&
-  GetSpawnedGammaAnimParms(const EGammaFlavor flavor) const;
-
-private:
-  CDamageVulnerability mFrozenVulnerability;
-  CDamageVulnerability mEnergyDrainVulnerability;
-  float mEnergyDrainPerSecond;
-  float mMaxEnergyDrainAllowed;
-  float mTelegraphAttackTime;
-  float mStage2GrowthScale;
-  float mStage2GrowthEnergy;
-  float mExplosionGrowthEnergy;
-  rstl::optional_object< CAnimationParameters > mRedAnimation;
-  rstl::optional_object< CAnimationParameters > mWhiteAnimation;
-  rstl::optional_object< CAnimationParameters > mPurpleAnimation;
-  rstl::optional_object< CAnimationParameters > mYellowAnimation;
-  bool mStartsInWall : 1;
-};
 class CMetroid : public CPatterned {
   static const CDamageVulnerability skGammaRedDamageVulnerability;
   static const CDamageVulnerability skGammaWhiteDamageVulnerability;

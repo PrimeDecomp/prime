@@ -13,7 +13,7 @@ CWarWasp::CWarWasp(TUniqueId uid, const rstl::string& name, const CEntityInfo& i
                    const CTransform4f& xf, const CModelData& mData, const CPatternedInfo& pInfo,
                    CPatterned::EFlavorType flavor, CPatterned::EColliderType collider,
                    const CDamageInfo& dInfo, const CActorParameters& actParms,
-                   CAssetId projectileWeapon, const CDamageInfo& projectileDamage,
+                   CAssetId projectileWeapon, CDamageInfo projectileDamage,
                    CAssetId projectileVisorParticle, uint projectileVisorSfx)
 : CPatterned(kC_WarWasp, uid, name, flavor, info, xf, mData, pInfo, kMT_Flyer, collider,
              kBT_Flyer, actParms, kKBV_Small)
