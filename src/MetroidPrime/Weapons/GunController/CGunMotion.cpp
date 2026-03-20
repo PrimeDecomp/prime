@@ -9,12 +9,15 @@
 #include "Kyoto/Animation/CPASDatabase.hpp"
 #include "Kyoto/Graphics/CModelFlags.hpp"
 
+#pragma inline_max_size(250)
+
 CGunMotion::CGunMotion(CAssetId ancsId, const CVector3f& scale)
 : x0_modelData(CAnimRes(ancsId, 0, scale, 0, false))
 , x4c_gunController(x0_modelData)
 , xb8_24_animPlaying(false) {
   LoadAnimations();
 }
+
 CGunMotion::~CGunMotion() {}
 
 bool CGunMotion::PlayPasAnim(SamusGun::EAnimationState state, CStateManager& mgr, float angle,

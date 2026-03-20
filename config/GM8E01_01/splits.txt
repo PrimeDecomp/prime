@@ -624,13 +624,14 @@ MetroidPrime/ScriptObjects/CScriptSpawnPoint.cpp:
 
 MetroidPrime/ScriptObjects/CScriptRandomRelay.cpp:
 	.text       start:0x800E2800 end:0x800E2F58
-	.rodata     start:0x803CE7A8 end:0x803CE7D0
+	.rodata     start:0x803CE7A8 end:0x803CE7B0
 	.data       start:0x803DFA50 end:0x803DFA70
 	.sdata      start:0x805A7510 end:0x805A7518
 	.sdata2     start:0x805AAEA8 end:0x805AAEC0
 
 MetroidPrime/Enemies/CBeetle.cpp:
 	.text       start:0x800E2F58 end:0x800E834C
+	.rodata     start:0x803CE7B0 end:0x803CE7D0
 	.data       start:0x803DFA70 end:0x803DFDD0
 	.sdata      start:0x805A7518 end:0x805A7540
 	.sbss       start:0x805A90A0 end:0x805A90B0

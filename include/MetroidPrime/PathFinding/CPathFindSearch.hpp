@@ -6,8 +6,10 @@
 #include <types.h>
 class CPFArea;
 class CPFOpenList {};
+class CBeetle;
 
 class CPathFindSearch {
+  friend class CBeetle;
 public:
   enum EResult {
     kR_Success,
@@ -33,7 +35,7 @@ private:
   CPFArea* x0_area;
 
   rstl::reserved_vector< CVector3f, 16 > x4_waypoints;
-  u32 xc8_curWaypoint;
+  int xc8_curWaypoint;
   EResult xcc_result;
   float xd0_chHeight;
   float xd4_chRadius;

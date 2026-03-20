@@ -275,7 +275,7 @@ CPlayer::CPlayer(TUniqueId uid, const CTransform4f& xf, const CAABox& aabb, CAss
 , x398_dashSpeedMultiplier(1.5f)
 , x39c_noStrafeDashBlend(false)
 , x3a0_dashDuration(0.5f)
-, x3a4_strafeDashBlendDuration(0.449f)
+, x3a4_strafeDashBlendDuration(0.45f)
 , x3a8_scanState(kSS_NotScanning)
 , x3ac_scanningTime(0.f)
 , x3b0_curScanTime(0.f)
@@ -428,13 +428,9 @@ CPlayer::CPlayer(TUniqueId uid, const CTransform4f& xf, const CAABox& aabb, CAss
 , xa30_samusExhaustedVoiceTimer(4.f) {
   CModelData ballTransitionBeamModelData(
       CStaticRes(gpTweakPlayerRes->GetBallTransitionBeamResId(x7ec_beam), playerScale));
-  CModelData* ptr;
-  if (ballTransitionBeamModelData.IsNull()) {
-    ptr = nullptr;
-  } else {
-    ptr = rs_new CModelData(ballTransitionBeamModelData);
-  }
-  x7f0_ballTransitionBeamModel = ptr;
+  x7f0_ballTransitionBeamModel = ballTransitionBeamModelData.IsNull()
+                                     ? nullptr
+                                     : rs_new CModelData(ballTransitionBeamModelData);
   x730_transitionModels.reserve(3);
   x768_morphball = rs_new CMorphBall(*this, ballRadius);
   SetInertiaTensorScalar(GetMass());

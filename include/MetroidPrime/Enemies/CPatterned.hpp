@@ -304,6 +304,7 @@ public:
   void TryJump(CStateManager& mgr, int arg);
   void TryBreakDodge(CStateManager& mgr, int arg);
   void TryStep(CStateManager& mgr, int arg);
+  int GetStepDirection(const CVector3f& dir);
   void TryDodge(CStateManager& mgr, int arg);
   void TryMeleeAttack_TargetPos(CStateManager& mgr, int arg);
   void TryMeleeAttack(CStateManager& mgr, int arg);
@@ -340,6 +341,9 @@ public:
   // TODO: names?
   bool IsMakingBigStrike() const { return x402_28_isMakingBigStrike; }
   float GetDamageDuration() const { return x504_damageDur; }
+
+  static const float skDamageHitTime;
+  static const float skActorApproachDistance;
 
 protected:
   EPatrolState x2d8_patrolState;

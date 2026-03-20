@@ -19,12 +19,12 @@ public:
     kET_UseOrientation = 1,
   };
 
-  CBeetle(TUniqueId uid, const rstl::string& name, const CEntityInfo& info, const CTransform4f& xf,
-          const CModelData& mData, const CPatternedInfo& pInfo, CPatterned::EFlavorType flavor,
-          CBeetle::EEntranceType entranceType, const CDamageInfo& touchDamage,
-          const CDamageVulnerability& platingVuln, const CVector3f& tailAimReference,
-          float initialAttackDelay, float retreatTime, float f3,
-          const CDamageVulnerability& tailVuln, const CActorParameters& actorParams,
+  CBeetle(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
+          const CTransform4f& xf, const CModelData& mData, const CPatternedInfo& pInfo,
+          CPatterned::EFlavorType flavor, CBeetle::EEntranceType entranceType,
+          const CDamageInfo& touchDamage, const CDamageVulnerability& platingVuln,
+          const CVector3f& tailAimReference, float initialAttackDelay, float retreatTime,
+          float f3, const CDamageVulnerability& tailVuln, const CActorParameters& actorParams,
           const rstl::optional_object< CStaticRes >& tailModel);
 
   // CEntity
