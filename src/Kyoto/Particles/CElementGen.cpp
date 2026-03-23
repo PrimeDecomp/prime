@@ -2401,19 +2401,19 @@ void CElementGen::RenderModels() {
       if (x28_loadedGenDesc->x31_26_PMUS) {
         if (moveRedToAlphaBuffer) {
           CGX::Begin(GX_QUADS, GX_VTXFMT0, 4);
-          RSPosition3f32(0.5f, 0.f, 0.5f);
+          GXPosition3f32(0.5f, 0.f, 0.5f);
           u32 c = col.GetColor_u32();
-          RSColor1u32(c);
-          RSTexCoord2f32(uvs.xMax, uvs.yMax);
-          RSPosition3f32(-0.5f, 0.f, 0.5f);
-          RSColor1u32(c);
-          RSTexCoord2f32(uvs.xMin, uvs.yMax);
-          RSPosition3f32(-0.5f, 0.f, -0.5f);
-          RSColor1u32(c);
-          RSTexCoord2f32(uvs.xMin, uvs.yMin);
-          RSPosition3f32(0.5f, 0.f, -0.5f);
-          RSColor1u32(c);
-          RSTexCoord2f32(uvs.xMax, uvs.yMin);
+          GXColor1u32(c);
+          GXTexCoord2f32(uvs.xMax, uvs.yMax);
+          GXPosition3f32(-0.5f, 0.f, 0.5f);
+          GXColor1u32(c);
+          GXTexCoord2f32(uvs.xMin, uvs.yMax);
+          GXPosition3f32(-0.5f, 0.f, -0.5f);
+          GXColor1u32(c);
+          GXTexCoord2f32(uvs.xMin, uvs.yMin);
+          GXPosition3f32(0.5f, 0.f, -0.5f);
+          GXColor1u32(c);
+          GXTexCoord2f32(uvs.xMax, uvs.yMin);
           CGX::End();
         } else {
           CGraphics::StreamBegin(kP_Quads);
