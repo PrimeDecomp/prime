@@ -7,7 +7,11 @@
 #include "Kyoto/Graphics/CGX.hpp"
 #include "Kyoto/Graphics/CGraphics.hpp"
 
+#include "dolphin/gx/GXVert.h"
+
 #include "rstl/math.hpp"
+
+#pragma inline_max_size(250)
 
 GXVtxDescList vtxDescv[] = {
     {GX_VA_POS, GX_DIRECT},
@@ -56,11 +60,10 @@ CRainSplashGenerator::CRainSplashGenerator(const CVector3f& scale, int maxSplash
 , x40_queueSize(0)
 , x44_genRate(rstl::min_val(maxSplashes, genRate)) {
   x0_rainSplashes.reserve(maxSplashes);
-  for (int i = 0; i < maxSplashes; ++i)
+  for (int i = 0; i < maxSplashes; ++i) {
     x0_rainSplashes.push_back(SRainSplash());
+  }
 }
-
-// CRainSplashGenerator::SSplashLine::SSplashLine() {}
 
 void CRainSplashGenerator::AddPoint(const CVector3f& pos) {
   if (x38_queueTail >= x0_rainSplashes.size())
@@ -70,7 +73,8 @@ void CRainSplashGenerator::AddPoint(const CVector3f& pos) {
   x38_queueTail += 1;
 }
 
-void CRainSplashGenerator::GeneratePoints(const CVector3f* vertices, const CVector3f* normals, int count) {
+void CRainSplashGenerator::GeneratePoints(const CVector3f* vertices, const CVector3f* normals,
+                                          int count) {
   if (!x48_25_raining)
     return;
 
@@ -201,19 +205,16 @@ void CRainSplashGenerator::SSplashLine::Draw(float alpha, float dt, const CVecto
     if (vt < 0.0f) {
       vt = 0.0f;
     }
-    int vertCount = int((x0_t - vt) / delta + 1.f);
+    int vertCount = static_cast< int >((x0_t - vt) / delta + 1.f);
 
     CGX::SetLineWidth(x14_ * 6, GX_TO_ZERO);
     CGX::Begin(GX_LINESTRIP, GX_VTXFMT0, vertCount);
 
-    int i = 0;
-    while (i < vertCount) {
+    for (int i = 0; i < vertCount; ++i) {
       GXPosition3f32(vt * x4_xEnd + pos.GetX(), vt * x8_yEnd + pos.GetY(),
                      -4.f * vt * (vt - 1.f) * x10_zParabolaHeight + pos.GetZ());
-      uint a = vt * alpha;
+      GXColor1u32(static_cast< uint >(vt * alpha) | 0xffffff00);
       vt += delta;
-      i++;
-      GXColor1u32(a | 0xffffff00);
     }
     CGX::End();
   }
@@ -223,30 +224,28 @@ CRainSplashGenerator::SRainSplash::SRainSplash()
 : x0_lines(SSplashLine()), x64_pos(CVector3f::Zero()), x70_(0.0f) {}
 
 void CRainSplashGenerator::SRainSplash::Update(float dt, CStateManager& mgr) {
-  for (rstl::reserved_vector< SSplashLine, 4 >::iterator it = x0_lines.begin();
-       it != x0_lines.end(); +it)
+  for (AUTO(it, x0_lines.begin()); it != x0_lines.end(); ++it) {
     it->Update(dt, mgr);
+  }
 }
 
 void CRainSplashGenerator::SRainSplash::Draw(float alpha, float dt, const CVector3f& pos) const {
-  for (rstl::reserved_vector< SSplashLine, 4 >::const_iterator it = x0_lines.begin();
-       it != x0_lines.end(); +it) {
+  for (AUTO(it, x0_lines.begin()); it != x0_lines.end(); ++it) {
     it->Draw(alpha, dt, pos);
   }
 }
 
 bool CRainSplashGenerator::SRainSplash::IsActive() const {
   bool ret = false;
-  for (rstl::reserved_vector< SSplashLine, 4 >::const_iterator it = x0_lines.begin();
-       it != x0_lines.end(); +it) {
+  for (AUTO(it, x0_lines.begin()); it != x0_lines.end(); ++it) {
     ret |= it->x16_active;
   }
   return ret;
 }
 
 void CRainSplashGenerator::SRainSplash::SetPoint(const CVector3f& pos) {
-  for (rstl::reserved_vector< SSplashLine, 4 >::iterator it = x0_lines.begin();
-       it != x0_lines.end(); +it)
+  for (AUTO(it, x0_lines.begin()); it != x0_lines.end(); ++it) {
     it->SetActive();
+  }
   x64_pos = pos;
 }

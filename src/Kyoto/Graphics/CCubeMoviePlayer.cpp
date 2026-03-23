@@ -1,6 +1,11 @@
-#include <Kyoto/Graphics/CGX.hpp>
 #include <Kyoto/Graphics/CMoviePlayer.hpp>
+
+#include <Kyoto/Graphics/CGX.hpp>
 #include <Kyoto/Graphics/CTexture.hpp>
+
+#include "dolphin/gx/GXGeometry.h"
+#include "dolphin/gx/GXTev.h"
+#include "dolphin/gx/GXTexture.h"
 
 const char skInterlacePattern[32] = {
     0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
@@ -19,9 +24,9 @@ static void MyTHPGXRestore() {
 
 static void MyTHPGXYuv2RgbSetup(bool r29, bool r30) {
   GXVtxDescList attr[3] = {
-    {GX_VA_POS, GX_DIRECT},
-    {GX_VA_TEX0, GX_DIRECT},
-    {GX_VA_NULL, GX_NONE},
+      {GX_VA_POS, GX_DIRECT},
+      {GX_VA_TEX0, GX_DIRECT},
+      {GX_VA_NULL, GX_NONE},
   };
   CGX::SetZMode(TRUE, GX_ALWAYS, FALSE);
   CGX::SetBlendMode(GX_BM_NONE, GX_BL_ONE, GX_BL_ZERO, GX_LO_CLEAR);
@@ -111,6 +116,4 @@ static void MyTHPYuv2RgbTextureSetup(void* y, void* u, void* v, ushort width, us
 }
 
 CMoviePlayer::CMoviePlayer(const char* filepath, float fps, bool a, bool b)
-: x0_movieFile(filepath) {
-  
-}
+: x0_movieFile(filepath) {}

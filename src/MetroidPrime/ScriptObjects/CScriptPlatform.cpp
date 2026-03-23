@@ -12,6 +12,9 @@
 
 #include "rstl/algorithm.hpp"
 
+#include "dolphin/gx/GXVert.h"
+#include "dolphin/gx/GXCommandList.h"
+
 #ifndef TARGET_PC
 struct GXData {
   ushort cpSRreg;

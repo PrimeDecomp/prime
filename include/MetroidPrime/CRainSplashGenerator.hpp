@@ -45,8 +45,6 @@ class CRainSplashGenerator {
     float x70_;
 
     SRainSplash();
-    SRainSplash(const SRainSplash&);
-    void operator=(const SRainSplash&);
 
     void Update(float dt, CStateManager& mgr);
     bool IsActive() const;
