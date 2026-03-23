@@ -1,13 +1,12 @@
 #ifndef _CGRAPHICSPALETTE
 #define _CGRAPHICSPALETTE
 
-#include "dolphin/gx/GXEnum.h"
-#include "dolphin/gx/GXStruct.h"
 #include "types.h"
 
-#include "dolphin/gx.h"
-
 #include <rstl/single_ptr.hpp>
+
+#include "dolphin/gx/GXEnum.h"
+#include "dolphin/gx/GXStruct.h"
 
 enum EPaletteFormat {
   kPF_IA8 = GX_TL_IA8,

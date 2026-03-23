@@ -1,13 +1,13 @@
 #ifndef _CTEXTURE
 #define _CTEXTURE
 
-#include "dolphin/gx/GXEnum.h"
 #include "types.h"
 
 #include "Kyoto/CARAMToken.hpp"
 #include "rstl/single_ptr.hpp"
 
-#include <dolphin/gx.h>
+#include "dolphin/gx/GXEnum.h"
+#include "dolphin/gx/GXStruct.h"
 
 class CResFactory;
 class CDvdRequest;

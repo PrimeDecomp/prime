@@ -32,7 +32,6 @@
 
 #include "dolphin/gx/GXGeometry.h"
 #include "dolphin/gx/GXTev.h"
-#include "dolphin/gx/GXVert.h"
 
 #pragma inline_max_size(250)
 #pragma inline_max_total_size(20000) // for RenderParticles vector inlining
@@ -43,8 +42,13 @@
 extern "C" float frsqrte(float);
 #endif
 
-#define GXPositionVector3f(vec) GXPosition3f32(vec[0], vec[1], vec[2])
-#define GXTexCoord2s8(s, t) GXTexCoord1s16((s << 8) | t)
+// NOTE: This is a hack, trying to figure out what causes the wack GX codegen in
+// CElementGen::RenderParticles. The `const CVector3f&` binding seems to help.
+#define RSPositionVector3f(in)                                                                     \
+  {                                                                                                \
+    const CVector3f& vec = (in);                                                                   \
+    RSPosition3f32(vec[0], vec[1], vec[2]);                                                        \
+  }
 
 bool CElementGen::sMoveRedToAlphaBuffer;
 bool CElementGen::sSubtractBlend;
@@ -998,24 +1002,24 @@ void CElementGen::RenderBasicParticlesNoRotTS(const CTransform4f& xf) {
     float y = viewPos.GetY();
     float z = viewPos.GetZ() + halfSize;
 
-    GXPosition3f32(x, y, z);
-    GXColor1u32(color);
-    GXTexCoord2s8(2, 2);
+    RSPosition3f32(x, y, z);
+    RSColor1u32(color);
+    RSTexCoord2s8(2, 2);
 
     x -= particle.x2c_lineLengthOrSize;
-    GXPosition3f32(x, y, z);
-    GXColor1u32(color);
-    GXTexCoord2s8(0, 2);
+    RSPosition3f32(x, y, z);
+    RSColor1u32(color);
+    RSTexCoord2s8(0, 2);
 
     z -= particle.x2c_lineLengthOrSize;
-    GXPosition3f32(x, y, z);
-    GXColor1u32(color);
-    GXTexCoord2s8(0, 0);
+    RSPosition3f32(x, y, z);
+    RSColor1u32(color);
+    RSTexCoord2s8(0, 0);
 
     x += particle.x2c_lineLengthOrSize;
-    GXPosition3f32(x, y, z);
-    GXColor1u32(color);
-    GXTexCoord2s8(2, 0);
+    RSPosition3f32(x, y, z);
+    RSColor1u32(color);
+    RSTexCoord2s8(2, 0);
   }
 }
 
@@ -1035,21 +1039,21 @@ void CElementGen::RenderBasicParticlesRotTS(const CTransform4f& xf) {
     float y = viewPos.GetY();
     float z = viewPos.GetZ();
 
-    GXPosition3f32(x + sinPlusCos, y, z - sinMinusCos);
-    GXColor1u32(color);
-    GXTexCoord2s8(2, 2);
+    RSPosition3f32(x + sinPlusCos, y, z - sinMinusCos);
+    RSColor1u32(color);
+    RSTexCoord2s8(2, 2);
 
-    GXPosition3f32(x + sinMinusCos, y, z + sinPlusCos);
-    GXColor1u32(color);
-    GXTexCoord2s8(0, 2);
+    RSPosition3f32(x + sinMinusCos, y, z + sinPlusCos);
+    RSColor1u32(color);
+    RSTexCoord2s8(0, 2);
 
-    GXPosition3f32(x - sinPlusCos, y, z + sinMinusCos);
-    GXColor1u32(color);
-    GXTexCoord2s8(0, 0);
+    RSPosition3f32(x - sinPlusCos, y, z + sinMinusCos);
+    RSColor1u32(color);
+    RSTexCoord2s8(0, 0);
 
-    GXPosition3f32(x - sinMinusCos, y, z - sinPlusCos);
-    GXColor1u32(color);
-    GXTexCoord2s8(2, 0);
+    RSPosition3f32(x - sinMinusCos, y, z - sinPlusCos);
+    RSColor1u32(color);
+    RSTexCoord2s8(2, 0);
   }
 }
 
@@ -1064,24 +1068,24 @@ void CElementGen::RenderBasicParticlesNoRotNoTS(const CTransform4f& xf) {
     float y = viewPos.GetY();
     float z = viewPos.GetZ() + halfSize;
 
-    GXPosition3f32(x, y, z);
-    GXColor1u32(color);
-    GXTexCoord2s8(2, 2);
+    RSPosition3f32(x, y, z);
+    RSColor1u32(color);
+    RSTexCoord2s8(2, 2);
 
     x -= particle.x2c_lineLengthOrSize;
-    GXPosition3f32(x, y, z);
-    GXColor1u32(color);
-    GXTexCoord2s8(0, 2);
+    RSPosition3f32(x, y, z);
+    RSColor1u32(color);
+    RSTexCoord2s8(0, 2);
 
     z -= particle.x2c_lineLengthOrSize;
-    GXPosition3f32(x, y, z);
-    GXColor1u32(color);
-    GXTexCoord2s8(0, 0);
+    RSPosition3f32(x, y, z);
+    RSColor1u32(color);
+    RSTexCoord2s8(0, 0);
 
     x += particle.x2c_lineLengthOrSize;
-    GXPosition3f32(x, y, z);
-    GXColor1u32(color);
-    GXTexCoord2s8(2, 0);
+    RSPosition3f32(x, y, z);
+    RSColor1u32(color);
+    RSTexCoord2s8(2, 0);
   }
 }
 
@@ -1101,21 +1105,21 @@ void CElementGen::RenderBasicParticlesRotNoTS(const CTransform4f& xf) {
     float y = viewPos.GetY();
     float z = viewPos.GetZ();
 
-    GXPosition3f32(x + sinPlusCos, y, z - sinMinusCos);
-    GXColor1u32(color);
-    GXTexCoord2s8(2, 2);
+    RSPosition3f32(x + sinPlusCos, y, z - sinMinusCos);
+    RSColor1u32(color);
+    RSTexCoord2s8(2, 2);
 
-    GXPosition3f32(x + sinMinusCos, y, z + sinPlusCos);
-    GXColor1u32(color);
-    GXTexCoord2s8(0, 2);
+    RSPosition3f32(x + sinMinusCos, y, z + sinPlusCos);
+    RSColor1u32(color);
+    RSTexCoord2s8(0, 2);
 
-    GXPosition3f32(x - sinPlusCos, y, z + sinMinusCos);
-    GXColor1u32(color);
-    GXTexCoord2s8(0, 0);
+    RSPosition3f32(x - sinPlusCos, y, z + sinMinusCos);
+    RSColor1u32(color);
+    RSTexCoord2s8(0, 0);
 
-    GXPosition3f32(x - sinMinusCos, y, z - sinPlusCos);
-    GXColor1u32(color);
-    GXTexCoord2s8(2, 0);
+    RSPosition3f32(x - sinMinusCos, y, z - sinPlusCos);
+    RSColor1u32(color);
+    RSTexCoord2s8(2, 0);
   }
 }
 
@@ -1315,10 +1319,6 @@ void CElementGen::RenderParticles() {
             systemCameraCopy *
             ((particle.x4_pos - particle.x10_prevPos) * x80_timeDeltaScale + particle.x10_prevPos);
 
-        float vpX = viewPoint.GetX();
-        float vpY = viewPoint.GetY();
-        float vpZ = viewPoint.GetZ();
-
         uint color = particle.x34_color.GetColor_u32();
 
         if (!constUVs) {
@@ -1328,27 +1328,28 @@ void CElementGen::RenderParticles() {
           x28_loadedGenDesc->x40_TEXR->GetValueUV(partFrame, uvs);
 
           if (noRota) {
-            float x = (particle.x2c_lineLengthOrSize * 0.5f) + vpX;
-            float z = (particle.x2c_lineLengthOrSize * 0.5f) + vpZ;
+            float x = (particle.x2c_lineLengthOrSize * 0.5f) + viewPoint.GetX();
+            float y = viewPoint.GetY();
+            float z = (particle.x2c_lineLengthOrSize * 0.5f) + viewPoint.GetZ();
 
-            GXPosition3f32(x, vpY, z);
-            GXColor1u32(color);
-            GXTexCoord2f32(uvs.xMax, uvs.yMax);
+            RSPosition3f32(x, y, z);
+            RSColor1u32(color);
+            RSTexCoord2f32(uvs.xMax, uvs.yMax);
 
             x -= particle.x2c_lineLengthOrSize;
-            GXPosition3f32(x, vpY, z);
-            GXColor1u32(color);
-            GXTexCoord2f32(uvs.xMin, uvs.yMax);
+            RSPosition3f32(x, y, z);
+            RSColor1u32(color);
+            RSTexCoord2f32(uvs.xMin, uvs.yMax);
 
             z -= particle.x2c_lineLengthOrSize;
-            GXPosition3f32(x, vpY, z);
-            GXColor1u32(color);
-            GXTexCoord2f32(uvs.xMin, uvs.yMin);
+            RSPosition3f32(x, y, z);
+            RSColor1u32(color);
+            RSTexCoord2f32(uvs.xMin, uvs.yMin);
 
             x += particle.x2c_lineLengthOrSize;
-            GXPosition3f32(x, vpY, z);
-            GXColor1u32(color);
-            GXTexCoord2f32(uvs.xMax, uvs.yMin);
+            RSPosition3f32(x, y, z);
+            RSColor1u32(color);
+            RSTexCoord2f32(uvs.xMax, uvs.yMin);
           } else {
             float halfSize = 0.5f * particle.x2c_lineLengthOrSize;
             float theta = particle.x30_lineWidthOrRota * (M_PIF / 180.f);
@@ -1359,46 +1360,50 @@ void CElementGen::RenderParticles() {
             float cosMinusSin = cosT - sinT;
             float sinMinusCos = sinT - cosT;
             float negSinPlusCos = -sinT + cosT;
-            float negCos = -cosT;
 
-            GXPosition3f32(sinPlusCos + vpX, vpY, cosMinusSin + vpZ);
-            GXColor1u32(color);
-            GXTexCoord2f32(uvs.xMax, uvs.yMax);
+            float vpX = viewPoint.GetX();
+            float vpY = viewPoint.GetY();
+            float vpZ = viewPoint.GetZ();
 
-            GXPosition3f32(sinMinusCos + vpX, vpY, sinPlusCos + vpZ);
-            GXColor1u32(color);
-            GXTexCoord2f32(uvs.xMin, uvs.yMax);
+            RSPosition3f32(sinPlusCos + vpX, vpY, cosMinusSin + vpZ);
+            RSColor1u32(color);
+            RSTexCoord2f32(uvs.xMax, uvs.yMax);
 
-            GXPosition3f32(vpX - sinPlusCos, vpY, vpZ - cosMinusSin);
-            GXColor1u32(color);
-            GXTexCoord2f32(uvs.xMin, uvs.yMin);
+            RSPosition3f32(sinMinusCos + vpX, vpY, sinPlusCos + vpZ);
+            RSColor1u32(color);
+            RSTexCoord2f32(uvs.xMin, uvs.yMax);
 
-            GXPosition3f32(negSinPlusCos + vpX, vpY, (negCos - sinT) + vpZ);
-            GXColor1u32(color);
-            GXTexCoord2f32(uvs.xMax, uvs.yMin);
+            RSPosition3f32(vpX - sinPlusCos, vpY, vpZ - cosMinusSin);
+            RSColor1u32(color);
+            RSTexCoord2f32(uvs.xMin, uvs.yMin);
+
+            RSPosition3f32(negSinPlusCos + vpX, vpY, (-cosT - sinT) + vpZ);
+            RSColor1u32(color);
+            RSTexCoord2f32(uvs.xMax, uvs.yMin);
           }
         } else if (noRota) {
-          float x = (particle.x2c_lineLengthOrSize * 0.5f) + vpX;
-          float z = (particle.x2c_lineLengthOrSize * 0.5f) + vpZ;
+          float x = (particle.x2c_lineLengthOrSize * 0.5f) + viewPoint.GetX();
+          float y = viewPoint.GetY();
+          float z = (particle.x2c_lineLengthOrSize * 0.5f) + viewPoint.GetZ();
 
-          GXPosition3f32(x, vpY, z);
-          GXColor1u32(color);
-          GXTexCoord2s8(2, 2);
+          RSPosition3f32(x, y, z);
+          RSColor1u32(color);
+          RSTexCoord2s8(2, 2);
 
           x -= particle.x2c_lineLengthOrSize;
-          GXPosition3f32(x, vpY, z);
-          GXColor1u32(color);
-          GXTexCoord2s8(0, 2);
+          RSPosition3f32(x, y, z);
+          RSColor1u32(color);
+          RSTexCoord2s8(0, 2);
 
           z -= particle.x2c_lineLengthOrSize;
-          GXPosition3f32(x, vpY, z);
-          GXColor1u32(color);
-          GXTexCoord2s8(0, 0);
+          RSPosition3f32(x, y, z);
+          RSColor1u32(color);
+          RSTexCoord2s8(0, 0);
 
           x += particle.x2c_lineLengthOrSize;
-          GXPosition3f32(x, vpY, z);
-          GXColor1u32(color);
-          GXTexCoord2s8(2, 0);
+          RSPosition3f32(x, y, z);
+          RSColor1u32(color);
+          RSTexCoord2s8(2, 0);
         } else {
           float halfSize = 0.5f * particle.x2c_lineLengthOrSize;
           float theta = particle.x30_lineWidthOrRota * (M_PIF / 180.f);
@@ -1408,21 +1413,25 @@ void CElementGen::RenderParticles() {
           float sinPlusCos = sinT + cosT;
           float sinMinusCos = sinT - cosT;
 
-          GXPosition3f32(vpX + sinPlusCos, vpY, vpZ - sinMinusCos);
-          GXColor1u32(color);
-          GXTexCoord2s8(2, 2);
+          float vpX = viewPoint.GetX();
+          float vpY = viewPoint.GetY();
+          float vpZ = viewPoint.GetZ();
 
-          GXPosition3f32(vpX + sinMinusCos, vpY, vpZ + sinPlusCos);
-          GXColor1u32(color);
-          GXTexCoord2s8(0, 2);
+          RSPosition3f32(vpX + sinPlusCos, vpY, vpZ - sinMinusCos);
+          RSColor1u32(color);
+          RSTexCoord2s8(2, 2);
 
-          GXPosition3f32(vpX - sinPlusCos, vpY, vpZ + sinMinusCos);
-          GXColor1u32(color);
-          GXTexCoord2s8(0, 0);
+          RSPosition3f32(vpX + sinMinusCos, vpY, vpZ + sinPlusCos);
+          RSColor1u32(color);
+          RSTexCoord2s8(0, 2);
 
-          GXPosition3f32(vpX - sinMinusCos, vpY, vpZ - sinPlusCos);
-          GXColor1u32(color);
-          GXTexCoord2s8(2, 0);
+          RSPosition3f32(vpX - sinPlusCos, vpY, vpZ + sinMinusCos);
+          RSColor1u32(color);
+          RSTexCoord2s8(0, 0);
+
+          RSPosition3f32(vpX - sinMinusCos, vpY, vpZ - sinPlusCos);
+          RSColor1u32(color);
+          RSTexCoord2s8(2, 0);
         }
 
         sortIt++;
@@ -1448,12 +1457,8 @@ void CElementGen::RenderParticles() {
         if (velMagSq > canBeNormEps) {
           dir = particle->x1c_vel * frsqrte(velMagSq);
         } else {
-          CVector3f dv = particle->x4_pos - particle->x10_prevPos;
-          float dMagSq = dv[1] * dv[1];
-          float dvx = dv[0] * dv[0];
-          float dvz = dv[2] * dv[2];
-          dMagSq += dvx;
-          dMagSq += dvz;
+          const CVector3f& dv = particle->x4_pos - particle->x10_prevPos;
+          float dMagSq = dv.MagSquared();
           if (dMagSq > canBeNormEps) {
             dir = dv * frsqrte(dMagSq);
           } else {
@@ -1465,22 +1470,20 @@ void CElementGen::RenderParticles() {
 
         CVector3f right;
         if (x28_loadedGenDesc->x30_31_RSOP) {
-          CVector3f cr = CVector3f::Cross(dir, fwd);
-          float crMagSq = cr.MagSquared();
+          right = CVector3f::Cross(dir, fwd);
+          float crMagSq = right.MagSquared();
 
           if (crMagSq > canBeNormEps) {
             float invMag = frsqrte(crMagSq);
-            right = cr * (particle->x2c_lineLengthOrSize * rota * invMag);
+            right *= particle->x2c_lineLengthOrSize * rota * invMag;
           } else {
             CVector3f camDelta = origin - particle->x4_pos;
-            CVector3f camDeltaNorm = camDelta.AsNormalized();
-
-            CVector3f cr2 = CVector3f::Cross(dir, camDeltaNorm);
-            float cr2MagSq = cr2.MagSquared();
+            right = CVector3f::Cross(dir, camDelta.AsNormalized());
+            float cr2MagSq = right.MagSquared();
 
             if (cr2MagSq > canBeNormEps) {
               float invMag = frsqrte(cr2MagSq);
-              right = cr2 * (particle->x2c_lineLengthOrSize * rota * invMag);
+              right *= particle->x2c_lineLengthOrSize * rota * invMag;
             }
           }
         } else {
@@ -1494,46 +1497,44 @@ void CElementGen::RenderParticles() {
           x28_loadedGenDesc->x40_TEXR->GetValueUV(partFrame, uvs);
 
           CVector3f p = pos + right * 0.5f + fore * 0.5f;
+          RSPositionVector3f(p);
+          RSColor1u32(color);
+          RSTexCoord2f32(uvs.xMax, uvs.yMax);
 
-          GXPositionVector3f(p);
-          GXColor1u32(color);
-          GXTexCoord2f32(uvs.xMax, uvs.yMax);
+          p -= fore;
+          RSPositionVector3f(p);
+          RSColor1u32(color);
+          RSTexCoord2f32(uvs.xMin, uvs.yMax);
 
-          p = p - fore;
-          GXPositionVector3f(p);
-          GXColor1u32(color);
-          GXTexCoord2f32(uvs.xMin, uvs.yMax);
+          p -= right;
+          RSPositionVector3f(p);
+          RSColor1u32(color);
+          RSTexCoord2f32(uvs.xMin, uvs.yMin);
 
-          p = p - right;
-          GXPositionVector3f(p);
-          GXColor1u32(color);
-          GXTexCoord2f32(uvs.xMin, uvs.yMin);
-
-          p = p + fore;
-          GXPositionVector3f(p);
-          GXColor1u32(color);
-          GXTexCoord2f32(uvs.xMax, uvs.yMin);
+          p += fore;
+          RSPositionVector3f(p);
+          RSColor1u32(color);
+          RSTexCoord2f32(uvs.xMax, uvs.yMin);
         } else {
           CVector3f p = pos + right * 0.5f + fore * 0.5f;
+          RSPositionVector3f(p);
+          RSColor1u32(color);
+          RSTexCoord2s8(2, 2);
 
-          GXPositionVector3f(p);
-          GXColor1u32(color);
-          GXTexCoord2s8(2, 2);
+          p -= fore;
+          RSPositionVector3f(p);
+          RSColor1u32(color);
+          RSTexCoord2s8(0, 2);
 
-          p = p - fore;
-          GXPositionVector3f(p);
-          GXColor1u32(color);
-          GXTexCoord2s8(0, 2);
+          p -= right;
+          RSPositionVector3f(p);
+          RSColor1u32(color);
+          RSTexCoord2s8(0, 0);
 
-          p = p - right;
-          GXPositionVector3f(p);
-          GXColor1u32(color);
-          GXTexCoord2s8(0, 0);
-
-          p = p + fore;
-          GXPositionVector3f(p);
-          GXColor1u32(color);
-          GXTexCoord2s8(2, 0);
+          p += fore;
+          RSPositionVector3f(p);
+          RSColor1u32(color);
+          RSTexCoord2s8(2, 0);
         }
 
         sortIt++;
@@ -1567,24 +1568,24 @@ void CElementGen::RenderParticles() {
             float y = viewPoint.GetY();
             float z = (0.5f * particle->x2c_lineLengthOrSize) + viewPoint.GetZ();
 
-            GXPosition3f32(x, y, z);
-            GXColor1u32(color);
-            GXTexCoord2f32(uvs.xMax, uvs.yMax);
+            RSPosition3f32(x, y, z);
+            RSColor1u32(color);
+            RSTexCoord2f32(uvs.xMax, uvs.yMax);
 
             x -= particle->x2c_lineLengthOrSize;
-            GXPosition3f32(x, y, z);
-            GXColor1u32(color);
-            GXTexCoord2f32(uvs.xMin, uvs.yMax);
+            RSPosition3f32(x, y, z);
+            RSColor1u32(color);
+            RSTexCoord2f32(uvs.xMin, uvs.yMax);
 
             z -= particle->x2c_lineLengthOrSize;
-            GXPosition3f32(x, y, z);
-            GXColor1u32(color);
-            GXTexCoord2f32(uvs.xMin, uvs.yMin);
+            RSPosition3f32(x, y, z);
+            RSColor1u32(color);
+            RSTexCoord2f32(uvs.xMin, uvs.yMin);
 
             x += particle->x2c_lineLengthOrSize;
-            GXPosition3f32(x, y, z);
-            GXColor1u32(color);
-            GXTexCoord2f32(uvs.xMax, uvs.yMin);
+            RSPosition3f32(x, y, z);
+            RSColor1u32(color);
+            RSTexCoord2f32(uvs.xMax, uvs.yMin);
           }
         } else {
           for (int j = 0; j < mbspVal; ++j) {
@@ -1605,21 +1606,21 @@ void CElementGen::RenderParticles() {
             float vpY = viewPoint.GetY();
             float vpZ = viewPoint.GetZ();
 
-            GXPosition3f32(sinPlusCos + vpX, vpY, cosMinusSin + vpZ);
-            GXColor1u32(color);
-            GXTexCoord2f32(uvs.xMax, uvs.yMax);
+            RSPosition3f32(sinPlusCos + vpX, vpY, cosMinusSin + vpZ);
+            RSColor1u32(color);
+            RSTexCoord2f32(uvs.xMax, uvs.yMax);
 
-            GXPosition3f32(sinMinusCos + vpX, vpY, sinPlusCos + vpZ);
-            GXColor1u32(color);
-            GXTexCoord2f32(uvs.xMin, uvs.yMax);
+            RSPosition3f32(sinMinusCos + vpX, vpY, sinPlusCos + vpZ);
+            RSColor1u32(color);
+            RSTexCoord2f32(uvs.xMin, uvs.yMax);
 
-            GXPosition3f32(vpX - sinPlusCos, vpY, vpZ - cosMinusSin);
-            GXColor1u32(color);
-            GXTexCoord2f32(uvs.xMin, uvs.yMin);
+            RSPosition3f32(vpX - sinPlusCos, vpY, vpZ - cosMinusSin);
+            RSColor1u32(color);
+            RSTexCoord2f32(uvs.xMin, uvs.yMin);
 
-            GXPosition3f32(negSinPlusCos + vpX, vpY, (-cosT - sinT) + vpZ);
-            GXColor1u32(color);
-            GXTexCoord2f32(uvs.xMax, uvs.yMin);
+            RSPosition3f32(negSinPlusCos + vpX, vpY, (-cosT - sinT) + vpZ);
+            RSColor1u32(color);
+            RSTexCoord2f32(uvs.xMax, uvs.yMin);
           }
         }
       } else if (noRota) {
@@ -1630,24 +1631,24 @@ void CElementGen::RenderParticles() {
           float y = viewPoint.GetY();
           float z = (0.5f * particle->x2c_lineLengthOrSize) + viewPoint.GetZ();
 
-          GXPosition3f32(x, y, z);
-          GXColor1u32(color);
-          GXTexCoord2s8(2, 2);
+          RSPosition3f32(x, y, z);
+          RSColor1u32(color);
+          RSTexCoord2s8(2, 2);
 
           x -= particle->x2c_lineLengthOrSize;
-          GXPosition3f32(x, y, z);
-          GXColor1u32(color);
-          GXTexCoord2s8(0, 2);
+          RSPosition3f32(x, y, z);
+          RSColor1u32(color);
+          RSTexCoord2s8(0, 2);
 
           z -= particle->x2c_lineLengthOrSize;
-          GXPosition3f32(x, y, z);
-          GXColor1u32(color);
-          GXTexCoord2s8(0, 0);
+          RSPosition3f32(x, y, z);
+          RSColor1u32(color);
+          RSTexCoord2s8(0, 0);
 
           x += particle->x2c_lineLengthOrSize;
-          GXPosition3f32(x, y, z);
-          GXColor1u32(color);
-          GXTexCoord2s8(2, 0);
+          RSPosition3f32(x, y, z);
+          RSColor1u32(color);
+          RSTexCoord2s8(2, 0);
         }
       } else {
         for (int j = 0; j < mbspVal; ++j) {
@@ -1665,21 +1666,21 @@ void CElementGen::RenderParticles() {
           float vpY = viewPoint.GetY();
           float vpZ = viewPoint.GetZ();
 
-          GXPosition3f32(vpX + sinPlusCos, vpY, vpZ - sinMinusCos);
-          GXColor1u32(color);
-          GXTexCoord2s8(2, 2);
+          RSPosition3f32(vpX + sinPlusCos, vpY, vpZ - sinMinusCos);
+          RSColor1u32(color);
+          RSTexCoord2s8(2, 2);
 
-          GXPosition3f32(vpX + sinMinusCos, vpY, vpZ + sinPlusCos);
-          GXColor1u32(color);
-          GXTexCoord2s8(0, 2);
+          RSPosition3f32(vpX + sinMinusCos, vpY, vpZ + sinPlusCos);
+          RSColor1u32(color);
+          RSTexCoord2s8(0, 2);
 
-          GXPosition3f32(vpX - sinPlusCos, vpY, vpZ + sinMinusCos);
-          GXColor1u32(color);
-          GXTexCoord2s8(0, 0);
+          RSPosition3f32(vpX - sinPlusCos, vpY, vpZ + sinMinusCos);
+          RSColor1u32(color);
+          RSTexCoord2s8(0, 0);
 
-          GXPosition3f32(vpX - sinMinusCos, vpY, vpZ - sinPlusCos);
-          GXColor1u32(color);
-          GXTexCoord2s8(2, 0);
+          RSPosition3f32(vpX - sinMinusCos, vpY, vpZ - sinPlusCos);
+          RSColor1u32(color);
+          RSTexCoord2s8(2, 0);
         }
       }
     }
@@ -1761,11 +1762,15 @@ void CElementGen::RenderParticlesFlameThrower(CElementGen* const* gens, int coun
       if (particle.x0_endFrame == -1)
         continue;
 
-      sortItems[i].x4_viewPoint = systemCameraCopy * particle.x4_pos; // ?
-      sortItems[i] = CTexturedParticleListItem(
-          i, j,
+      // ?
+      sortItems[activeCount].x4_viewPoint = systemCameraCopy * particle.x4_pos;
+
+      // TODO: this should be the constructor
+      sortItems[activeCount].x4_viewPoint =
           systemCameraCopy *
-              ((particle.x4_pos - particle.x10_prevPos) * timeDelta + particle.x10_prevPos));
+          ((particle.x4_pos - particle.x10_prevPos) * timeDelta + particle.x10_prevPos);
+      sortItems[activeCount].x0_texMapIdx = i;
+      sortItems[activeCount].x2_partIdx = j;
       activeCount++;
     }
   }
@@ -1773,16 +1778,17 @@ void CElementGen::RenderParticlesFlameThrower(CElementGen* const* gens, int coun
   rstl::sort(sortItems, sortItems + activeCount, CTexturedParticleListItemViewPointComp());
 
   ushort lastMap = 0xFFFF;
+  CElementGen* gen = nullptr;
   int emitterTime = 0;
   CGenDescription* genDesc = nullptr;
-  int renderIdx = 0;
 
-  CTexturedParticleListItem* readPtr = sortItems;
   for (int i = 0; i < activeCount; ++i) {
-    short map = readPtr->x0_texMapIdx;
+    CTexturedParticleListItem* readPtr = &sortItems[i];
+    ushort map = readPtr->x0_texMapIdx;
 
     if (lastMap != map) {
-      emitterTime = gens[map]->GetEmitterTime();
+      gen = gens[map];
+      emitterTime = gen->GetEmitterTime();
       genDesc = gens[map]->x28_loadedGenDesc;
 
       if (!moveRedToAlpha) {
@@ -1799,7 +1805,7 @@ void CElementGen::RenderParticlesFlameThrower(CElementGen* const* gens, int coun
       lastMap = map;
     }
 
-    CParticle& particle = gens[map]->x30_particles[readPtr->x2_partIdx];
+    CParticle& particle = gen->x30_particles[readPtr->x2_partIdx];
 
     int elapsed = emitterTime - particle.x28_startFrame - 1;
     CParticleGlobals::SetParticleLifetime(particle.x0_endFrame - particle.x28_startFrame);
@@ -1842,8 +1848,6 @@ void CElementGen::RenderParticlesFlameThrower(CElementGen* const* gens, int coun
     GXTexCoord2f32(uvs.xMax, uvs.yMin);
 
     CGX::End();
-    readPtr++;
-    renderIdx++;
   }
 
   if (moveRedToAlpha) {
@@ -2008,8 +2012,8 @@ void CElementGen::RenderParticlesIndirectTexture() {
     }
 
     float size = particle->x2c_lineLengthOrSize * 0.5f;
-    CVector3f p1(vpX - size, vpY, vpZ - size);
     CVector3f p2(vpX + size, vpY, vpZ + size);
+    CVector3f p1(vpX - size, vpY, vpZ - size);
 
     CGraphics::CClippedScreenRect clipRect = CGraphics::ClipScreenRectFromMS(p1, p2, kTF_RGB565);
 
@@ -2044,29 +2048,29 @@ void CElementGen::RenderParticlesIndirectTexture() {
         uint color = particle->x34_color.GetColor_u32();
         CGX::Begin(GX_QUADS, GX_VTXFMT0, 4);
 
-        GXPosition3f32(vpX + size, vpY, vpZ + size);
-        GXColor1u32(color);
-        GXTexCoord2f32(uvs.xMax, uvs.yMax);
-        GXTexCoord2f32(maxU, minV);
-        GXTexCoord2f32(uvsInd.xMax, uvsInd.yMax);
+        RSPosition3f32(vpX + size, vpY, vpZ + size);
+        RSColor1u32(color);
+        RSTexCoord2f32(uvs.xMax, uvs.yMax);
+        RSTexCoord2f32(maxU, minV);
+        RSTexCoord2f32(uvsInd.xMax, uvsInd.yMax);
 
-        GXPosition3f32(vpX - size, vpY, vpZ + size);
-        GXColor1u32(color);
-        GXTexCoord2f32(uvs.xMin, uvs.yMax);
-        GXTexCoord2f32(minU, minV);
-        GXTexCoord2f32(uvsInd.xMin, uvsInd.yMax);
+        RSPosition3f32(vpX - size, vpY, vpZ + size);
+        RSColor1u32(color);
+        RSTexCoord2f32(uvs.xMin, uvs.yMax);
+        RSTexCoord2f32(minU, minV);
+        RSTexCoord2f32(uvsInd.xMin, uvsInd.yMax);
 
-        GXPosition3f32(vpX - size, vpY, vpZ - size);
-        GXColor1u32(color);
-        GXTexCoord2f32(uvs.xMin, uvs.yMin);
-        GXTexCoord2f32(minU, maxV);
-        GXTexCoord2f32(uvsInd.xMin, uvsInd.yMin);
+        RSPosition3f32(vpX - size, vpY, vpZ - size);
+        RSColor1u32(color);
+        RSTexCoord2f32(uvs.xMin, uvs.yMin);
+        RSTexCoord2f32(minU, maxV);
+        RSTexCoord2f32(uvsInd.xMin, uvsInd.yMin);
 
-        GXPosition3f32(vpX + size, vpY, vpZ - size);
-        GXColor1u32(color);
-        GXTexCoord2f32(uvs.xMax, uvs.yMin);
-        GXTexCoord2f32(maxU, maxV);
-        GXTexCoord2f32(uvsInd.xMax, uvsInd.yMin);
+        RSPosition3f32(vpX + size, vpY, vpZ - size);
+        RSColor1u32(color);
+        RSTexCoord2f32(uvs.xMax, uvs.yMin);
+        RSTexCoord2f32(maxU, maxV);
+        RSTexCoord2f32(uvsInd.xMax, uvsInd.yMin);
 
         CGX::End();
       }
@@ -2195,12 +2199,12 @@ void CElementGen::RenderLines() {
 
     if (widtConst) {
       uint color = particle.x34_color.GetColor_u32();
-      GXPositionVector3f(p1);
-      GXColor1u32(color);
-      GXTexCoord2f32(uvs.xMin, uvs.yMin);
-      GXPositionVector3f(p2);
-      GXColor1u32(color);
-      GXTexCoord2f32(uvs.xMax, uvs.yMax);
+      RSPosition3f32(p1[0], p1[1], p1[2]);
+      RSColor1u32(color);
+      RSTexCoord2f32(uvs.xMin, uvs.yMin);
+      RSPosition3f32(p2[0], p2[1], p2[2]);
+      RSColor1u32(color);
+      RSTexCoord2f32(uvs.xMax, uvs.yMax);
     } else {
       float lineWidth = particle.x30_lineWidthOrRota;
       if (lineWidth < 0.f) {
@@ -2211,12 +2215,12 @@ void CElementGen::RenderLines() {
       CGX::SetLineWidth(CCast::ToUint8(6.f * lineWidth), GX_TO_ZERO);
       CGX::Begin(GX_LINES, GX_VTXFMT0, 2);
       uint color = particle.x34_color.GetColor_u32();
-      GXPositionVector3f(p1);
-      GXColor1u32(color);
-      GXTexCoord2f32(uvs.xMin, uvs.yMin);
-      GXPositionVector3f(p2);
-      GXColor1u32(color);
-      GXTexCoord2f32(uvs.xMax, uvs.yMax);
+      RSPosition3f32(p1[0], p1[1], p1[2]);
+      RSColor1u32(color);
+      RSTexCoord2f32(uvs.xMin, uvs.yMin);
+      RSPosition3f32(p2[0], p2[1], p2[2]);
+      RSColor1u32(color);
+      RSTexCoord2f32(uvs.xMax, uvs.yMax);
       CGX::End();
     }
   }
@@ -2397,18 +2401,19 @@ void CElementGen::RenderModels() {
       if (x28_loadedGenDesc->x31_26_PMUS) {
         if (moveRedToAlphaBuffer) {
           CGX::Begin(GX_QUADS, GX_VTXFMT0, 4);
-          GXPosition3f32(0.5f, 0.f, 0.5f);
-          GXColor1u32(col.GetColor_u32());
-          GXTexCoord2f32(uvs.xMax, uvs.yMax);
-          GXPosition3f32(-0.5f, 0.f, 0.5f);
-          GXColor1u32(col.GetColor_u32());
-          GXTexCoord2f32(uvs.xMin, uvs.yMax);
-          GXPosition3f32(-0.5f, 0.f, -0.5f);
-          GXColor1u32(col.GetColor_u32());
-          GXTexCoord2f32(uvs.xMin, uvs.yMin);
-          GXPosition3f32(0.5f, 0.f, -0.5f);
-          GXColor1u32(col.GetColor_u32());
-          GXTexCoord2f32(uvs.xMax, uvs.yMin);
+          RSPosition3f32(0.5f, 0.f, 0.5f);
+          u32 c = col.GetColor_u32();
+          RSColor1u32(c);
+          RSTexCoord2f32(uvs.xMax, uvs.yMax);
+          RSPosition3f32(-0.5f, 0.f, 0.5f);
+          RSColor1u32(c);
+          RSTexCoord2f32(uvs.xMin, uvs.yMax);
+          RSPosition3f32(-0.5f, 0.f, -0.5f);
+          RSColor1u32(c);
+          RSTexCoord2f32(uvs.xMin, uvs.yMin);
+          RSPosition3f32(0.5f, 0.f, -0.5f);
+          RSColor1u32(c);
+          RSTexCoord2f32(uvs.xMax, uvs.yMin);
           CGX::End();
         } else {
           CGraphics::StreamBegin(kP_Quads);

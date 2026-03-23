@@ -6,7 +6,11 @@
 #include <limits.h>
 #include <stddef.h>
 
-#include <dolphin/gx.h>
+#include <dolphin/gx/GXBump.h>
+#include <dolphin/gx/GXEnum.h>
+#include <dolphin/gx/GXPixel.h>
+#include <dolphin/gx/GXStruct.h>
+#include <dolphin/gx/GXTransform.h>
 #include <dolphin/mtx.h>
 
 class CGX {
@@ -189,5 +193,38 @@ private:
 
   static SGXState sGXState;
 };
+
+// Direct FIFO write macros
+#ifndef GXFIFO_ADDR
+#define GXFIFO_ADDR 0xCC008000
+#endif
+
+#define RSWrite(T, n) (*(T*)GXFIFO_ADDR) = n
+#define RSPosition1x8(n) RSWrite(u8, n)
+#define RSPosition3s16(x, y, z)                                                                    \
+  {                                                                                                \
+    RSWrite(s16, x);                                                                               \
+    RSWrite(s16, y);                                                                               \
+    RSWrite(s16, z);                                                                               \
+  }
+#define RSPosition3f32(x, y, z)                                                                    \
+  {                                                                                                \
+    RSWrite(f32, x);                                                                               \
+    RSWrite(f32, y);                                                                               \
+    RSWrite(f32, z);                                                                               \
+  }
+#define RSColor1u32(clr) RSWrite(u32, clr)
+#define RSTexCoord1s16(s) RSWrite(s16, s)
+#define RSTexCoord2u8(s, t)                                                                        \
+  {                                                                                                \
+    RSWrite(u8, s);                                                                                \
+    RSWrite(u8, t);                                                                                \
+  }
+#define RSTexCoord2f32(s, t)                                                                       \
+  {                                                                                                \
+    RSWrite(f32, s);                                                                               \
+    RSWrite(f32, t);                                                                               \
+  }
+#define RSTexCoord2s8(s, t) RSWrite(s16, (s << 8) | t)
 
 #endif // _CGX

@@ -22,6 +22,9 @@
 #include "MetroidPrime/Player/CPlayer.hpp"
 #include "MetroidPrime/SFX/PhazonGun.h"
 #include "MetroidPrime/SFX/Weapons.h"
+#include "MetroidPrime/ScriptObjects/CScriptPlatform.hpp"
+#include "MetroidPrime/ScriptObjects/CScriptWater.hpp"
+#include "MetroidPrime/TCastTo.hpp"
 #include "MetroidPrime/TGameTypes.hpp"
 #include "MetroidPrime/Tweaks/CTweakGunRes.hpp"
 #include "MetroidPrime/Tweaks/CTweakPlayer.hpp"
@@ -38,10 +41,7 @@
 #include "MetroidPrime/Weapons/GunController/CGunMotion.hpp"
 #include "MetroidPrime/Weapons/WeaponTypes.hpp"
 
-#include "MetroidPrime/ScriptObjects/CScriptPlatform.hpp"
-#include "MetroidPrime/ScriptObjects/CScriptWater.hpp"
-#include "MetroidPrime/TCastTo.hpp"
-
+#include "Kyoto/Animation/CPrimitive.hpp"
 #include "Kyoto/Audio/CSfxManager.hpp"
 #include "Kyoto/Graphics/CGX.hpp"
 #include "Kyoto/Graphics/CModelFlags.hpp"
@@ -60,8 +60,10 @@
 
 #include "Weapons/IWeaponRenderer.hpp"
 
-#include "Kyoto/Animation/CPrimitive.hpp"
 #include "rstl/set.hpp"
+
+#include "dolphin/gx/GXFrameBuffer.h"
+#include "dolphin/gx/GXManage.h"
 
 #include "math.h"
 
@@ -527,14 +529,14 @@ static void DrawScreenTex(float z) {
   CGX::SetChanCtrl(CGX::Channel0, false, GX_SRC_REG, GX_SRC_REG, GX_LIGHT_NULL, GX_DF_NONE,
                    GX_AF_NONE);
   CGX::Begin(GX_TRIANGLESTRIP, GX_VTXFMT0, 4);
-  GXPosition3f32(320.f, z, 0.f);
-  GXTexCoord2f32(0.f, 1.f);
-  GXPosition3f32(640.f, z, 0.f);
-  GXTexCoord2f32(1.f, 1.f);
-  GXPosition3f32(320.f, z, 224.f);
-  GXTexCoord2f32(0.f, 0.f);
-  GXPosition3f32(640.f, z, 224.f);
-  GXTexCoord2f32(1.f, 0.f);
+  RSPosition3f32(320.f, z, 0.f);
+  RSTexCoord2f32(0.f, 1.f);
+  RSPosition3f32(640.f, z, 0.f);
+  RSTexCoord2f32(1.f, 1.f);
+  RSPosition3f32(320.f, z, 224.f);
+  RSTexCoord2f32(0.f, 0.f);
+  RSPosition3f32(640.f, z, 224.f);
+  RSTexCoord2f32(1.f, 0.f);
   CGX::End();
 
   CGraphics::SetDepthWriteMode(true, kE_LEqual, true);

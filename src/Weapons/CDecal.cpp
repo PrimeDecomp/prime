@@ -1,4 +1,5 @@
 #include "Weapons/CDecal.hpp"
+
 #include "Kyoto/Graphics/CGX.hpp"
 #include "Kyoto/Graphics/CGraphics.hpp"
 #include "Kyoto/Graphics/CModel.hpp"
@@ -6,6 +7,9 @@
 #include "Kyoto/Graphics/CTexture.hpp"
 #include "Kyoto/Math/CRelAngle.hpp"
 #include "Kyoto/Particles/CParticleGlobals.hpp"
+
+#include "dolphin/gx/GXTev.h"
+#include "dolphin/gx/GXVert.h"
 
 CRandom16 CDecal::sDecalRandom(99);
 bool CDecal::sMoveRedToAlphaBuffer = false;

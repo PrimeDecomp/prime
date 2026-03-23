@@ -1,40 +1,37 @@
 #include "MetroidPrime/CFluidPlaneCPU.hpp"
 
-#include "Kyoto/CResFactory.hpp"
-#include "Kyoto/CSimplePool.hpp"
-#include "Kyoto/Math/CAABox.hpp"
-#include "Kyoto/Math/CMath.hpp"
-#include "Kyoto/Math/CTransform4f.hpp"
-
 #include "Kyoto/Alloc/CMemory.hpp"
 #include "Kyoto/Basics/CCast.hpp"
-
-#include "Kyoto/Math/CloseEnough.hpp"
-#include "rstl/math.hpp"
-
-#include "MetroidPrime/CRipple.hpp"
-
-#include "rstl/reserved_vector.hpp"
-
-#include "dolphin/os/OSCache.h"
-
+#include "Kyoto/CResFactory.hpp"
+#include "Kyoto/CSimplePool.hpp"
 #include "Kyoto/Graphics/CGX.hpp"
 #include "Kyoto/Graphics/CGraphics.hpp"
 #include "Kyoto/Graphics/CLight.hpp"
 #include "Kyoto/Graphics/CTexture.hpp"
+#include "Kyoto/Math/CAABox.hpp"
+#include "Kyoto/Math/CMath.hpp"
+#include "Kyoto/Math/CTransform4f.hpp"
+#include "Kyoto/Math/CloseEnough.hpp"
 
-#include "MetaRender/CCubeRenderer.hpp"
 #include "MetroidPrime/CGameArea.hpp"
+#include "MetroidPrime/CRipple.hpp"
 #include "MetroidPrime/CWorld.hpp"
 #include "MetroidPrime/Cameras/CCameraManager.hpp"
 #include "MetroidPrime/Cameras/CGameCamera.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptWater.hpp"
 #include "MetroidPrime/Tweaks/CTweakGame.hpp"
 
+#include "rstl/math.hpp"
+#include "rstl/reserved_vector.hpp"
+
+#include "MetaRender/CCubeRenderer.hpp"
+
 #include "dolphin/gx/GXBump.h"
 #include "dolphin/gx/GXCull.h"
+#include "dolphin/gx/GXGeometry.h"
 #include "dolphin/gx/GXTransform.h"
 #include "dolphin/mtx.h"
+#include "dolphin/os/OSCache.h"
 
 #include <math.h>
 

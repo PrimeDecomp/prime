@@ -1,7 +1,6 @@
 #ifndef _CGRAPHICS
 #define _CGRAPHICS
 
-#include "dolphin/gx/GXStruct.h"
 #include "types.h"
 
 #include "Kyoto/CTimeProvider.hpp"
@@ -14,8 +13,10 @@
 #include "Kyoto/Math/CVector2i.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
 
-#include "dolphin/gx.h"
-#include "dolphin/mtx.h"
+#include "dolphin/gx/GXFifo.h"
+#include "dolphin/gx/GXStruct.h"
+#include "dolphin/gx/GXTexture.h"
+#include "dolphin/mtx/GeoTypes.h"
 
 enum ERglFogMode {
   kRFM_None = GX_FOG_NONE,
