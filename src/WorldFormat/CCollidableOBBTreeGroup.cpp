@@ -23,7 +23,7 @@ CCollidableOBBTreeGroupContainer::CCollidableOBBTreeGroupContainer(CInputStream&
   x10_aabbs.reserve(x0_trees.size());
   rstl::vector< rstl::auto_ptr< COBBTree > >::iterator it = x0_trees.begin();
   for (; it != x0_trees.end(); ++it) {
-    CCollidableOBBTree tree(*it->get(), CMaterialList());
+    CCollidableOBBTree tree(it->get(), CMaterialList());
     CAABox box = tree.CalculateLocalAABox();
     x10_aabbs.push_back(box);
     x20_aabox.AccumulateBounds(box.GetMinPoint());
