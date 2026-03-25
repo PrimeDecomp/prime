@@ -17,8 +17,8 @@ public:
   double GetY() const { return mY; }
   double GetZ() const { return mZ; }
 
-  double& operator[](int i) { return (&mX)[i]; }
-  const double operator[](int i) const { return (&mX)[i]; }
+  double& operator[](int i) { return reinterpret_cast<double*>(this)[i]; }
+  const double& operator[](int i) const { return reinterpret_cast<const double*>(this)[i]; }
 
   static double Dot(const CVector3d& a, const CVector3d& b);
   static CVector3d Cross(const CVector3d& a, const CVector3d& b);
