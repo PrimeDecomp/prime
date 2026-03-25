@@ -4,10 +4,9 @@
 #include "Kyoto/Math/CVector3f.hpp"
 
 class CGuiWidgetDrawParms {
-private:
+public:
   static CGuiWidgetDrawParms sDefaultDrawParms;
 
-public:
   CGuiWidgetDrawParms(float alpha) : mAlpha(alpha), mCameraOffset(0.f, 0.f, 0.f) {}
   CGuiWidgetDrawParms(float alpha, const CVector3f& offset) : mAlpha(alpha), mCameraOffset(offset) {}
   float GetAlpha() const { return mAlpha; }

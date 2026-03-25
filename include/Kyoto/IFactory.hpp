@@ -2,6 +2,7 @@
 #define _IFACTORY
 
 #include <Kyoto/CFactoryFnReturn.hpp>
+#include <Kyoto/SObjectTag.hpp>
 
 class SObjectTag;
 class CVParamTransfer;

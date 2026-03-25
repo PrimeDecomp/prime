@@ -3,6 +3,7 @@
 
 #include "Kyoto/SObjectTag.hpp"
 
+#include "Kyoto/Math/CVector2i.hpp"
 #include "Kyoto/Text/TextCommon.hpp"
 
 #include "rstl/pair.hpp"
@@ -21,12 +22,7 @@ class CGuiTextProperties {
 public:
   CGuiTextProperties(bool wordWrap, bool horizontal, EJustification justification,
                      EVerticalJustification vertJustification,
-                     const rstl::vector< rstl::pair< CAssetId, CAssetId > >* txtrMap = nullptr)
-  : x0_wordWrap(wordWrap)
-  , x1_horizontal(horizontal)
-  , x4_justification(justification)
-  , x8_vertJustification(vertJustification)
-  , xc_txtrMap(txtrMap) {}
+                     const rstl::vector< rstl::pair< CAssetId, CAssetId > >* txtrMap = nullptr);
 
 private:
   bool x0_wordWrap;
@@ -43,7 +39,8 @@ class CGuiTextSupport {
 public:
   CGuiTextSupport(CAssetId fontId, const CGuiTextProperties& props, const CColor& fontCol,
                   const CColor& outlineCol, const CColor& geomCol, int extX, int extY,
-                  CSimplePool* store, int /*CGuiWidget::EGuiModelDrawFlags*/ drawFlags);
+                  CSimplePool* store);
+  ~CGuiTextSupport();
 
   void SetText(const rstl::wstring&, bool clearRenderBuffer = false);
   void SetText(const rstl::string&, bool multipage = false);
@@ -51,9 +48,21 @@ public:
   void ClearRenderBuffer();
   void SetImageBaseline(bool baseline);
   bool SetTypeWriteEffectOptions(bool enable, float fadeTime, float rate);
+  void SetGeometryColor(const CColor& col);
   void SetOutlineColor(const CColor& col);
   void SetFontColor(const CColor& col);
-  void Render() const;
+  void Render();
+  const rstl::pair< CVector2i, CVector2i >& GetBounds();
+  bool GetIsTextSupportFinishedLoading() const;
+
+  void SetExtentX(int extent) {
+    x34_extentX = extent;
+    ClearRenderBuffer();
+  }
+  void SetExtentY(int extent) {
+    x38_extentY = extent;
+    ClearRenderBuffer();
+  }
 
   static void Initialize(CTextExecuteBuffer* buf, CTextParser* parser) {
     gpExecBuf = buf;
@@ -61,7 +70,10 @@ public:
   }
 
 private:
-  char x0_pad[0x30c];
+  char x0_pad[0x34];
+  int x34_extentX;
+  int x38_extentY;
+  char x3c_pad[0x30c - 0x3c];
 };
 
 #endif // _CGUITEXTSUPPORT

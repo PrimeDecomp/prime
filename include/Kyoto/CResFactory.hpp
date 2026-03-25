@@ -14,12 +14,12 @@ class CResFactory : public IFactory {
 public:
   CResFactory();
 
-  ~CResFactory();
-  CFactoryFnReturn Build(const SObjectTag&, const CVParamTransfer&);
-  void BuildAsync(const SObjectTag&, const CVParamTransfer&, IObj**);
-  void CancelBuild(const SObjectTag&);
-  bool CanBuild(const SObjectTag&);
-  const SObjectTag* GetResourceIdByName(const char* name) const;
+  ~CResFactory() override;
+  CFactoryFnReturn Build(const SObjectTag&, const CVParamTransfer&) override;
+  void BuildAsync(const SObjectTag&, const CVParamTransfer&, IObj**) override;
+  void CancelBuild(const SObjectTag&) override;
+  bool CanBuild(const SObjectTag&) override;
+  const SObjectTag* GetResourceIdByName(const char* name) const override;
 
   uint ResourceSize(const SObjectTag& tag) const { return x4_resLoader.ResourceSize(tag); }
 
