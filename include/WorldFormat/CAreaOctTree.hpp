@@ -10,7 +10,8 @@
 
 #include "rstl/optional_object.hpp"
 
-class CCollisionEdge;
+#include "WorldFormat/CCollisionEdge.hpp"
+
 class CLine;
 class CMaterialFilter;
 
@@ -27,8 +28,8 @@ public:
   class TriListReference {
   public:
     explicit TriListReference(const ushort* ptr) : m_ptr(ptr) {}
-    ushort GetAt(int idx) const { return m_ptr[idx + 1]; }
-    ushort GetSize() const { return m_ptr[0]; }
+    ushort GetAt(int idx) const { return m_ptr[idx + 13]; }
+    ushort GetSize() const { return m_ptr[12]; }
 
   private:
     const ushort* m_ptr;
@@ -81,7 +82,14 @@ public:
   const void* GetTreeMemory() const { return x20_treeBuf; }
   const CAABox& GetBoundingBox() const { return x0_aabb; }
   Node::ETreeType GetTreeType() const { return x18_treeType; }
-  // TODO
+
+  const CVector3f& GetVert(int idx) const { return x4c_verts[idx]; }
+  const CCollisionEdge& GetEdge(int idx) const { return x3c_edges[idx]; }
+  uint GetVertMaterial(int idx) const { return x28_materials[x2c_vertMats[idx]]; }
+  uint GetEdgeMaterial(int idx) const { return x28_materials[x30_edgeMats[idx]]; }
+  uint GetTriangleMaterial(int idx) const { return x28_materials[x34_polyMats[idx]]; }
+  void GetTriangleVertexIndices(ushort idx, ushort indicesOut[3]) const;
+  const ushort* GetTriangleEdgeIndices(ushort idx) const;
 
 private:
   CAABox x0_aabb;

@@ -10,8 +10,10 @@
 #include "Collision/CMaterialList.hpp"
 
 #include "Kyoto/Math/CAABox.hpp"
+#include "Kyoto/Math/CLineSeg.hpp"
 #include "Kyoto/Math/CPlane.hpp"
 #include "Kyoto/Math/CSphere.hpp"
+#include "Kyoto/Math/CVector3d.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
 
 #include "rstl/reserved_vector.hpp"
@@ -21,14 +23,7 @@ public:
   friend class CMetroidAreaCollider;
 
   CAABoxAreaCache(const CAABox& aabb, const CPlane* pl, const CMaterialFilter& filter,
-                  const CMaterialList& material, CCollisionInfoList& collisionList)
-  : x0_aabb(aabb)
-  , x4_planes(pl)
-  , x8_filter(filter)
-  , xc_material(material)
-  , x10_collisionList(collisionList)
-  , x14_center(aabb.GetCenterPoint())
-  , x20_halfExtent(aabb.GetHalfExtent()) {}
+                  const CMaterialList& material, CCollisionInfoList& collisionList);
 
 private:
   const CAABox& x0_aabb;
@@ -40,8 +35,76 @@ private:
   CVector3f x20_halfExtent;
 };
 
+class CBooleanAABoxAreaCache {
+public:
+  friend class CMetroidAreaCollider;
+
+  CBooleanAABoxAreaCache(const CAABox& aabb, const CMaterialFilter& filter);
+
+private:
+  const CAABox& x0_aabb;
+  const CMaterialFilter& x4_filter;
+  CVector3f x8_center;
+  CVector3f x14_halfExtent;
+};
+
+class CSphereAreaCache {
+public:
+  friend class CMetroidAreaCollider;
+
+  CSphereAreaCache(const CAABox& aabb, const CSphere& sphere, const CMaterialFilter& filter,
+                   const CMaterialList& material, CCollisionInfoList& collisionList)
+  : x0_aabb(aabb)
+  , x4_sphere(sphere)
+  , x8_filter(filter)
+  , xc_material(material)
+  , x10_collisionList(collisionList) {}
+
+private:
+  const CAABox& x0_aabb;
+  const CSphere& x4_sphere;
+  const CMaterialFilter& x8_filter;
+  const CMaterialList& xc_material;
+  CCollisionInfoList& x10_collisionList;
+};
+
+class CBooleanSphereAreaCache {
+public:
+  friend class CMetroidAreaCollider;
+
+  CBooleanSphereAreaCache(const CAABox& aabb, const CSphere& sphere, const CMaterialFilter& filter)
+  : x0_aabb(aabb), x4_sphere(sphere), x8_filter(filter) {}
+
+private:
+  const CAABox& x0_aabb;
+  const CSphere& x4_sphere;
+  const CMaterialFilter& x8_filter;
+};
+
 class CMetroidAreaCollider {
 public:
+  struct SBoxEdge {
+    CLineSeg x0_seg;
+    CVector3d x28_start;
+    CVector3d x40_end;
+    CVector3d x58_delta;
+    CVector3d x70_coDir;
+    double x88_dirCoDirDot;
+    SBoxEdge(const CAABox& aabb, int idx, const CVector3f& dir);
+  };
+
+  class CMovingAABoxComponents {
+  public:
+    CMovingAABoxComponents(const CAABox& aabb, const CVector3f& dir);
+
+  private:
+    friend class CMetroidAreaCollider;
+    friend class CCollidableOBBTree;
+    rstl::reserved_vector< SBoxEdge, 12 > x0_edges;
+    rstl::reserved_vector< uint, 8 > x6c4_vertIdxs;
+    CAABox x6e8_aabb;
+  };
+
   class COctreeLeafCache {
   public:
     COctreeLeafCache(const CAreaOctTree& octTree);
@@ -58,6 +121,7 @@ public:
     }
 
   private:
+    friend class CMetroidAreaCollider;
     const CAreaOctTree& x0_octTree;
     rstl::reserved_vector< CAreaOctTree::Node, 64 > x4_nodeCache;
     bool x908_24_overflow : 1;
@@ -106,6 +170,9 @@ public:
                                                 float d, CCollisionInfo& infoOut,
                                                 double& dOut);
 
+  static ushort GetPrimitiveCheckCount() { return sDupPrimitiveCheckCount; }
+  static ushort* GetTriangleList() { return sDupTriangleList; }
+
 private:
   static ushort sDupPrimitiveCheckCount;
   static ushort sDupVertexList[0x2800];
@@ -113,6 +180,19 @@ private:
   static ushort sDupTriangleList[0x4000];
   static void ResetInternalCounters();
   static bool AABoxCollisionCheck_Internal(const CAreaOctTree::Node&, CAABoxAreaCache&);
+  static bool AABoxCollisionCheckBoolean_Internal(const CAreaOctTree::Node&,
+                                                  const CBooleanAABoxAreaCache&);
+  static bool SphereCollisionCheck_Internal(const CAreaOctTree::Node&, CSphereAreaCache&);
+  static bool SphereCollisionCheckBoolean_Internal(const CAreaOctTree::Node&,
+                                                   const CBooleanSphereAreaCache&);
+  static bool MovingAABoxCollisionCheck_BoxVertexTri(const CCollisionSurface&, const CAABox&,
+                                                     const rstl::reserved_vector< uint, 8 >&,
+                                                     CVector3f, double&, CVector3f&, CVector3f&);
+  static bool MovingAABoxCollisionCheck_TriVertexBox(const CVector3f&, const CAABox&,
+                                                     CVector3f, double&, CVector3f&, CVector3f&);
+  static bool MovingAABoxCollisionCheck_Edge(const CVector3f&, const CVector3f&,
+                                             const rstl::reserved_vector< SBoxEdge, 12 >&,
+                                             CVector3f, double&, CVector3f&, CVector3f&);
 };
 
 class CAreaCollisionCache {
