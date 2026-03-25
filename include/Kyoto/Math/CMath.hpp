@@ -18,6 +18,10 @@ public:
     int v = static_cast< int >(x * (1.f / y));
     return x - v * y;
   }
+  static inline float FastFmod(float x, float y, float invY) {
+    int v = static_cast< int >(x * invY);
+    return x - v * y;
+  }
   template < typename T >
   static const T& Clamp(const T& min, const T& val, const T& max);
   static float SqrtF(float v);

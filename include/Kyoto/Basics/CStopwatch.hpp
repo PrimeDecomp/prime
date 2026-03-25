@@ -51,8 +51,10 @@ public:
     return mGlobalTimer.GetElapsedMicros();
   }
 
-private:
+public:
   static CSWData mData;
+
+private:
   static CStopwatch mGlobalTimer;
 
   s64 x0_startTime;

@@ -136,7 +136,10 @@ private:
   bool x1d0_30_VLS2 : 1;
   bool x1d0_31_constantTex : 1;
   bool x1d1_24_constantUv : 1;
-  SUVElementSet x1d4_uvs;
+  float x1d4_uvXMin;
+  float x1d8_uvYMin;
+  float x1dc_uvXMax;
+  float x1e0_uvYMax;
   CTexture* x1e4_tex;
   float x1e8_uvSpan;
   int x1ec_TSPN;
@@ -144,6 +147,24 @@ private:
   CVector3f x1fc_aabbMax;
   float x208_maxRadius;
   CColor x20c_moduColor;
+
+  void UpdateTranslationAndOrientation();
+  void UpdateSwooshTranslation(const CVector3f& translation);
+  void UpdateBounds(const CVector3f& pos);
+  void UpdateMaxRadius(float r);
+  int WrapIndex(int i);
+  float GetLeftRadius(int i);
+  float GetRightRadius(int i);
+  CVector3f GetSplinePoint(const CVector3f& p0, const CVector3f& p1, const CVector3f& p2,
+                           const CVector3f& p3, float t) const;
+
+  void Render2SidedNoSplineNoGaps();
+  void Render2SidedNoSplineGaps();
+  void Render2SidedSpline();
+  void Render3SidedSolidNoSplineNoGaps();
+  void Render3SidedSolidSpline();
+  void RenderNSidedNoSpline();
+  void RenderNSidedSpline();
 
   static uint mSwooshAliveCount;
 };

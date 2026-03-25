@@ -57,12 +57,6 @@ struct SUVElementSet {
   float yMin;
   float xMax;
   float yMax;
-
-  // SUVElementSet() : xMin(0.f), yMin(0.f), xMax(1.f), yMax(1.f) {}
-  // SUVElementSet(float xMin, float yMin, float xMax, float yMax)
-  //: xMin(xMin), yMin(yMin), xMax(xMax), yMax(yMax) {}
-  // SUVElementSet(const SUVElementSet& other)
-  // : xMin(other.xMin), yMin(other.yMin), xMax(other.xMax), yMax(other.yMax) {}
 };
 
 class CUVElement : public IElement {
