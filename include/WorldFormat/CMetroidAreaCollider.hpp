@@ -171,9 +171,12 @@ public:
                                                 double& dOut);
 
   static ushort GetPrimitiveCheckCount() { return sDupPrimitiveCheckCount; }
+  static ushort& DupVertexListValue(uint idx) { return sDupVertexList[idx]; }
+  static ushort& DupEdgeListValue(uint idx) { return sDupEdgeList[idx]; }
   static ushort* GetTriangleList() { return sDupTriangleList; }
 
 private:
+  friend class CCollidableOBBTree;
   static ushort sDupPrimitiveCheckCount;
   static ushort sDupVertexList[0x2800];
   static ushort sDupEdgeList[0x6000];
