@@ -23,7 +23,7 @@ from typing import Any, Dict, List, Optional
 script_dir = os.path.dirname(os.path.realpath(__file__))
 root_dir = os.path.abspath(os.path.join(script_dir, ".."))
 
-OBJDIFF_CLI = os.environ.get("OBJDIFF_CLI", "objdiff-cli")
+OBJDIFF_CLI = os.environ.get("OBJDIFF_CLI", "build/tools/objdiff-cli")
 OBJDIFF_JSON = os.path.join(root_dir, "objdiff.json")
 
 

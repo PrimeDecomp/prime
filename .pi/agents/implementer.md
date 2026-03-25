@@ -1,7 +1,7 @@
 ---
 name: implementer
 description: Decompile an individual function and iterate
-model: openai/gpt-5.3-codex
+model: anthropic-vertex/claude-opus-4-6@default
 thinking: high
 ---
 

@@ -22,7 +22,7 @@ from typing import Any, Dict, List, Optional, Tuple
 script_dir = os.path.dirname(os.path.realpath(__file__))
 root_dir = os.path.abspath(os.path.join(script_dir, ".."))
 
-OBJDIFF_CLI = os.environ.get("OBJDIFF_CLI", "objdiff-cli")
+OBJDIFF_CLI = os.environ.get("OBJDIFF_CLI", "build/tools/objdiff-cli")
 OBJDIFF_JSON = os.path.join(root_dir, "objdiff.json")
 DTK = os.path.join(root_dir, "build", "tools", "dtk")
 MAP_FILE = os.path.join(root_dir, "orig", "MetaforceCWD.MAP")
@@ -241,14 +241,7 @@ def main():
     source_path = meta.get("source_path", "")
 
     # === Source File ===
-    if not args.no_source and source_path:
-        full_path = os.path.join(root_dir, source_path)
-        if os.path.exists(full_path):
-            with open(full_path) as f:
-                source = f.read()
-            print_section(f"Source: {source_path}", source)
-        else:
-            print(f"\nSource file not found: {full_path}", file=sys.stderr)
+    print(f"\nSource file: {source_path}")
 
     # === objdiff Status ===
     diff_data = run_objdiff(args.unit)
@@ -361,12 +354,6 @@ def main():
                     if map_info:
                         print_section(f"Debug Map: {m_name}", map_info)
                         break
-
-        # TU entries
-        tu_name = tu_name_from_unit(unit)
-        tu_entries = dtk_map_entries(tu_name)
-        if tu_entries:
-            print_section(f"TU Map Entries: {tu_name}", tu_entries)
 
 
 if __name__ == "__main__":

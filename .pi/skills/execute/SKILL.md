@@ -14,9 +14,8 @@ original retail binary.
 This skill coordinates several agent types:
 
 1. **reverse-engineer** — Update Ghidra with accurate data types for the class
-2. **scaffolder** — Create header/source if the class is not yet in the project
-3. **implementer** — Match each function one at a time until the TU is complete.
-4. **refiner** — Use on non-matching functions to improve the match. This uses a slower, but more thorough model that can fix issues the implementer can't.
+2. **scaffolder** — Create header/source files and create function skeletons for matching
+3. **implementer** — Match an individual function, or iterate on a nonmatching function
 
 All non-read-only work is done **sequentially** — never spawn multiple writing agents at
 the same time, as they will interfere with each other.
@@ -65,7 +64,10 @@ nonmatching, and matching functions.
 
 ```sh
 build/tools/dtk map entries orig/MetaforceCWD.MAP 'ClassName.o'
+# or for library objects:
+build/tools/dtk map entries orig/MetaforceCWD.MAP 'Kyoto_CWD.a CStreamAudioManager.cpp'
 ```
+(grep the map for the class name to find the right TU name)
 
 This reveals which inline functions are used in the TU — helpful for understanding what
 helper functions, copy constructors, operators, etc. the compiler inlines. If the TU has
@@ -91,16 +93,12 @@ of another unscaffolded class), spawn `reverse-engineer` and `scaffolder` agents
 classes too. Correct types and complete headers for adjacent classes prevent cascading
 mismatches and false diffs.
 
-## Phase 3: Scaffold (if needed)
+## Phase 3: Scaffold
 
-If the class header and source file do not yet exist in the project, spawn a `scaffolder`
-agent to create them. The scaffolder will:
+Spawn a `scaffolder` agent to begin work. This agent will:
 - Create the header with accurate class layout
-- Create the source file with constructor, destructor, and Accept method
-- Iterate on the constructor/destructor until they match
-
-If the class already exists but the constructor/destructor don't match, spawn an
-`implementer` agent for those functions first.
+- Create the source file with function skeletons for all member functions
+- Decompile and iterate on the constructor/destructor until they match
 
 Wait for this agent to complete before proceeding.
 
@@ -137,9 +135,12 @@ Functions marked `(Function,Weak)` are compiler-generated weak symbols.
 ### 4c. Determine function order
 
 For `-inline deferred` translation units (most game code), functions appear in **reverse
-order** in `.text` compared to the source file. Start from the **bottom** of the
-`decomp-diff.py` output and work **upward**, so that agents implement functions top-down
-in the source file.
+order** in `.text` compared to the source file. 
+
+Use `python scripts/function-order.py Path/To/TU.cpp` to get the source file function order.
+This script reads `splits.txt` and `symbols.txt`, reverses the order to match `-inline deferred`,
+demangles each symbol, and outputs the list of functions in the order they appear in the binary.
+Start from the top of this list and work downwards.
 
 ### 4d. Implement each function sequentially
 
@@ -149,9 +150,16 @@ For each missing or nonmatching function, spawn an `implementer` agent. Provide:
 - Any context from previous iterations (e.g. patterns discovered, field types clarified)
 - Accumulated matching tips from previous agents (see below)
 
+Large functions often require multiple iterations to match. A good rule of thumb is to
+run the `implementer` agent for a function twice, then move on to the next function, then
+circle back to the stubborn one with fresh context.
+
 **Important considerations:**
 
-- **One at a time.** Never spawn multiple implementer agents concurrently.
+- **One at a time.** Never spawn multiple implementer agents concurrently. Have each
+  agent focus on **one** function: this ensures that their attention is focused and yields
+  better results. (Exception: you may batch very small functions together, e.g. trivial
+  getters/setters that are just a few instructions.)
 - **Balance new vs fixing.** Don't get stuck on one stubborn function — sometimes
   implementing the next function reveals patterns that make the previous one click.
   But don't leave too many functions nonmatching, as agents may copy incorrect patterns.
@@ -177,10 +185,13 @@ After each agent completes, evaluate its reported tips:
 
 ### 4f. Regression checking
 
-Remind agents in their prompts:
-> After modifying any shared headers, run `ninja changes` to check for regressions.
-> Empty changeset = no regressions. If regressions appear, revert the shared change
-> and use a local workaround instead.
+After agents return, run `ninja changes` to check for regressions.
+Empty changeset = no regressions. If regressions appear, revert the shared change
+and use a local workaround instead.
+
+If misreported regressions appear (e.g. a symbol was renamed), you may re-run
+`ninja baseline` to update the baseline with the new symbol names. Do NOT re-run baseline
+to hide actual regressions.
 
 ### 4g. Periodic reassessment
 
@@ -236,10 +247,17 @@ ASM: build/GM8E01_00/asm/[PathToClass].s
 Implement the function [ClassName]::[FunctionName]
 
 **Standard agent instructions:**
-- Use `build/tools/dtk map entries orig/MetaforceCWD.MAP '[ClassName].o'` for inline context.
+- Use `build/tools/dtk map entries orig/MetaforceCWD.MAP '[map TU name]'` for inline context.
 - After modifying shared headers, run `ninja changes` to check for regressions (empty = good).
 - Report any new general assembly patterns or matching tips you discover.
 
 **Matching tips from this session:**
 [accumulated tips here]
 ```
+
+## Note: Context limits
+
+Spawned subagents have a limited context window. If the subagent tool reports "context too long",
+that does **not** mean that the agent failed — it means the agent **ran successfully** but iterated enough
+times to exceed its context window before it reported back. In other words, it worked a little _too_ hard.
+In this case, check on the agent's work in the tree, and send in another agent to continue iterating on the function.

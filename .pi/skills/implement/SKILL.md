@@ -18,25 +18,42 @@ python scripts/decomp-context.py -u main/Path/To/TU -f FunctionName
 ```
 
 This provides in one shot:
-- Current source code (if any exists)
+- Current source path (if any)
 - objdiff status and instruction-level diff
 - Ghidra decompilation of the original
-- Demo map references (inlined functions, TU membership)
+- Demo map known references (for the specific symbol)
 
-### 1b. Existing source and header
+### 1b. Demo map TU entries
+
+The demo map predates retail and can be incomplete or outdated,
+but if the translation unit exists in the demo map, `dtk map entries`
+can provide invaluable insight into the inlined functions used within
+the translation unit. Matching inlined usages are often the key to resolving
+register allocation and stack frame differences.
+
+(This is separate from the `decomp-context.py` output because the output may
+be large and is worthwhile to fetch independently.)
+
+```sh
+build/tools/dtk map entries orig/MetaforceCWD.MAP 'TU.o'
+# or for library objects:
+build/tools/dtk map entries orig/MetaforceCWD.MAP 'Library_CWD.a TU.cpp'
+```
+
+### 1c. Existing source and header
 
 - Read the header (`include/.../*.hpp`) for class layout, member types, field offsets
 - Read the source (`src/.../*.cpp`) for existing implementations and includes
 - Check parent class headers for inherited members/methods used in the function
 
-### 1c. Metaforce reference
+### 1d. Metaforce reference
 
 - Find the equivalent function in `~/workspace/dev/metaforce/`
 - Use as structural reference — Metaforce is ~90% accurate but uses C++11+, different names,
   and sometimes wrong types (see `docs/metaforce.md` for conversion rules)
 - **Never copy directly** — always verify against the assembly
 
-### 1d. Assembly reference
+### 1e. Assembly reference
 
 If decomp-context.py doesn't provide enough detail, check the generated assembly:
 ```sh
@@ -44,7 +61,7 @@ If decomp-context.py doesn't provide enough detail, check the generated assembly
 cat build/GM8E01_00/asm/main/Path/To/TU.s
 ```
 
-### 1e. Related functions
+### 1f. Related functions
 
 If the function calls helpers or accesses types you're unfamiliar with, check their
 declarations and any existing implementations for usage patterns.
@@ -116,6 +133,10 @@ issues, stack frame differences, and symbol naming.
 
 Repeat the build-diff cycle until the diff shows 100% match with no `~` lines.
 Every mismatched instruction is a signal — don't settle for "close enough."
+
+**BE PERSISTENT.** Keep iterating until the function matches or you've exhausted all concrete ideas.
+Do NOT stop early to ask "should I continue?" — always continue trying.
+You have full effort budget — use all of it.
 
 ## Phase 5: Report
 

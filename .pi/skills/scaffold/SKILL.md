@@ -24,11 +24,15 @@ Collect data from **all** of these sources in parallel where possible:
 
 ### 1c. Ghidra decompilation
 - Decompile the constructor: `ghidra decompile <address> -o compact`
-- Check `operator_new` size in the ScriptLoader to confirm class size
-- Decompile the ScriptLoader function (e.g. `LoadClassName`) to verify constructor signature
+- If the class is an actor:
+   - Check `operator_new` size in the ScriptLoader to confirm class size
+   - Decompile the ScriptLoader function (e.g. `LoadClassName`) to verify constructor signature
+- Otherwise, attempt to find where it is constructed to confirm constructor signature and class size
 
 ### 1d. Demo map
 - `build/tools/dtk map entries orig/MetaforceCWD.MAP 'ClassName.o'`
+   - or for library objects: `build/tools/dtk map entries orig/MetaforceCWD.MAP 'Kyoto_CWD.a ClassName.cpp'`
+   - grep the map for the class name to find the right TU name
 - `build/tools/dtk map symbol orig/MetaforceCWD.MAP 'mangled_name'`
 - Not all classes appear in the demo map (it predates retail)
 
@@ -67,16 +71,32 @@ Follow project conventions (see AGENTS.md "Code Conventions"):
 
 ## Phase 4: Create Source File
 
-Start with the **constructor**, **destructor** (if it exists in the TU; sometimes a weak function and emitted elsewhere), and **Accept** method:
+Use `python scripts/function-order.py Path/To/TU.cpp` to get the source file function order.
+This script reads `splits.txt` and `symbols.txt`, reverses the order to match `-inline deferred`,
+demangles each symbol, and outputs the list of functions in the order they appear in the binary.
+
+**Ignore weak functions** that are generated within the TU (template specializations, un-inlined functions).
+These are compiler-generated and will be emitted automatically once the class methods that use them are implemented.
+Focus solely on the class member functions that were originally declared in the source file.
+
+Create skeletons for all member functions in the correct order. These can be empty bodies (`{}`) or
+return default values, but must be present for `decomp-diff.py` to recognize them.
+
+## Phase 5: Implement Constructor and Destructor
+
+Implement the **constructor**, **destructor** (if it exists in the TU; sometimes a weak function and emitted elsewhere), and **Accept** method (if it exists):
 
 - Constructor: full initializer list matching the assembly field-by-field
 - Destructor: normally empty (`ClassName::~ClassName() {}`) unless the class manages resources
+  - If the destructor spawns at the _very end_ of the TU (according to `function-order.py`), this means
+    it's a weak function that's _not_ explicitly declared in the source file: it will be emitted by the
+    compiler when the vtable is emitted.
 - Accept: `void ClassName::Accept(IVisitor& visitor) { visitor.Visit(*this); }`
 - Include `"MetroidPrime/TCastTo.hpp"` for Accept
 
 Convert Metaforce patterns to C++98. See `docs/metaforce.md`.
 
-## Phase 5: Build, Diff, and Fix Symbols
+## Phase 6: Build, Diff, and Fix Symbols
 
 1. **Build**: `ninja`
 2. **Extract symbols**: For any new functions, extract correct mangled names:
@@ -86,6 +106,7 @@ Convert Metaforce patterns to C++98. See `docs/metaforce.md`.
 3. **Rename symbols in `symbols.txt`**:
    - Truncated constructors (`__ct__NClass` missing `F...` params) → full mangled name
    - `fn_XXXXXXXX` → proper mangled name (identify from vtable slot)
+   - Any other functions that mismatch due to types 
    - `lbl_XXXXXXXX` for vtable → `__vt__NClassName` with `scope:global`
    - `lbl_XXXXXXXX` for string data → `@stringBase0` with `scope:local data:string_table`
 4. **Rebuild and diff**:
@@ -100,7 +121,7 @@ Convert Metaforce patterns to C++98. See `docs/metaforce.md`.
    - `assign` vs copy-constructor → use constructors that initialize members directly
    - By-value vs by-reference returns → `ScaleCopy()` vs `GetScale()` for extra stack copies
 
-## Phase 6: Report
+## Phase 7: Report
 
 Summarize:
 - Match status of implemented functions

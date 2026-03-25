@@ -1,7 +1,7 @@
 ---
 name: scaffolder
 description: Create a class definition and decompile the constructor and destructor
-model: openai/gpt-5.3-codex
+model: anthropic-vertex/claude-opus-4-6@default
 thinking: high
 ---
 

@@ -1,7 +1,7 @@
 ---
 name: reverse-engineer
 description: Gather context and update the Ghidra project with proper data types for a class and its members
-model: openai/gpt-5.3-codex
+model: anthropic-vertex/claude-opus-4-6@default
 thinking: high
 ---
 

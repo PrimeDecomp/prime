@@ -23,7 +23,7 @@ from typing import Any, Dict, List, Optional, Tuple
 script_dir = os.path.dirname(os.path.realpath(__file__))
 root_dir = os.path.abspath(os.path.join(script_dir, ".."))
 
-OBJDIFF_CLI = os.environ.get("OBJDIFF_CLI", "/home/lstreet/.cargo/bin/objdiff-cli")
+OBJDIFF_CLI = os.environ.get("OBJDIFF_CLI", "build/tools/objdiff-cli")
 
 
 def run_objdiff(unit: str) -> Dict[str, Any]:

@@ -9,7 +9,7 @@ original retail binary using the CodeWarrior GC 1.3.2 compiler.
 ```sh
 python configure.py    # generate build.ninja + objdiff.json (run after config changes)
 ninja all_source       # build all objects
-ninja                  # build all objects, hash check and progress report
+ninja                  # build all objects, link, hash check and progress report (more noisy)
 ninja baseline         # generates baseline report for regression checking
 ninja changes          # check for regressions after code changes (empty = no regressions)
 ```
@@ -85,6 +85,8 @@ Query the demo build debug map:
 ```sh
 build/tools/dtk map symbol orig/MetaforceCWD.MAP 'AcceptScriptMsg__7CEntityF20EScriptObjectMessage9TUniqueIdR13CStateManager'
 build/tools/dtk map entries orig/MetaforceCWD.MAP 'CEntity.o'
+# or for library objects:
+build/tools/dtk map entries orig/MetaforceCWD.MAP 'Kyoto_CWD.a CStreamAudioManager.cpp'
 ```
 
 `map symbol` requires an **exact** mangled symbol name. To fuzzy-search for symbols in
@@ -137,6 +139,7 @@ This is a **C++98** codebase compiled with CodeWarrior. Key rules:
 - Spaces inside angle brackets: `rstl::vector< SConnection >` (required by MWCC)
 - Use `rstl::` types instead of `std::` (see `docs/metaforce.md` for full mapping)
 - Enum values use prefix: `enum EFoo { kF_Value1, kF_Value2 }` (not `enum class`)
+- Use `nullptr` and `override` (we have defines for these)
 - Use `rs_new` instead of `new` for game allocations
 - Use C++ casts (`static_cast< T >(expr)`) instead of C-style casts
 - Use `rstl::string_l("literal")` for string literal construction
@@ -149,6 +152,9 @@ This is a **C++98** codebase compiled with CodeWarrior. Key rules:
 - `Accept` visitor: `visitor.Visit(*this)` (dereference, not pointer)
 - Function order in TU is typically bottom-up due to `-inline deferred`
   (exception: Dolphin SDK files are top-down)
+- **Never** use compiler `#pragma`s to force a match.
+  - Sole exception: `#pragma inline_max_size(250)` works well to fix inlining issues for many TUs.
+    The value of 250 exactly is what works well across the project. Do not change it.
 
 ## Matching Philosophy
 
@@ -271,11 +277,9 @@ this to verify constructor signatures by counting float register loads (lfs into
 before a `bl __ct` call.
 
 ### Function parameters are evaluated right-to-left
-
 This can make it easy to spot expressions inlined in constructor or function call arguments.
 
 ### Use CVector3f (and other math class) operators
-
 Instead of:
 ```cpp
 const float mass = actor->GetMass();
@@ -316,6 +320,78 @@ if (cmdMgr.GetTargetVector().IsNonZero()) {
 
 Check math headers for available operators.
 Don't add new operators unless indicated by the demo map.
+
+### Write standard `for` loops with indexed access
+When iterating a container, prefer standard `for` loops with `operator[]` over manual
+pointer-walking `while` loops. MWCC automatically optimizes indexed access (`container[i]`)
+into separate pointer variables internally, producing the same codegen as hand-written
+pointer arithmetic — but with correct register allocation and loop structure:
+```cpp
+// Correct — MWCC optimizes this into pointer iteration automatically:
+for (int i = 0; i < list.GetCount(); ++i) {
+  CCollisionInfo& info = list[i];
+  // ...
+}
+
+// Wrong — manual pointer walking often mismatches:
+int i = 0;
+CCollisionInfo* info = list.Begin();
+while (i < list.GetCount()) {
+  // ...
+  ++info;
+  ++i;
+}
+```
+
+### MWCC hoists indexed access into pointer walks — write natural code
+MWCC's optimizer converts `v[i]` in a counted loop into an internal pointer that increments
+each iteration — identical codegen to hand-written `*ptr; ++ptr`. This means you should
+**always prefer natural indexed access over `reinterpret_cast` pointer hacks**:
+```cpp
+// Correct — natural indexed access, MWCC hoists to pointer walk:
+const CVector3f& min = aabb.GetMinPoint();
+const CVector3f& max = aabb.GetMaxPoint();
+const CVector3f& center = sphere.GetCenter();
+for (int i = 0; i < 3; ++i) {
+  if (center[i] < min[i]) { ... }
+  else if (center[i] > max[i]) { ... }
+}
+
+// Wrong — manual pointer walking is what the compiler generates internally:
+const float* minPt = reinterpret_cast< const float* >(&aabb);
+const float* maxPt = reinterpret_cast< const float* >(&aabb.GetMaxPoint());
+const float* spherePt = reinterpret_cast< const float* >(&sphere);
+for (int i = 0; i < 3; ++i) {
+  if (*spherePt < *minPt) { ... }
+  ++minPt; ++maxPt; ++spherePt;
+}
+```
+Key behaviors of MWCC's hoisting:
+- **Repeated `v[i]` generates only one load** — the compiler CSEs multiple reads of the
+  same indexed element within an iteration.
+- **Computed index expressions like `i * 2` and `i * 2 + 1`** are optimized into separate
+  incrementing counters, so `comps |= 1 << (i * 2)` compiles identically to manual
+  `shiftLo += 2` tracking.
+- **`const CVector3f&` refs work with `operator[]`** — bind a const-ref to `GetMinPoint()`
+  etc. and index it.
+- Hoisting only works in **counted `for` loops** (`for (int i = 0; i < N; ++i)`). Manual
+  `while` loops or unusual iteration patterns may not trigger the optimization.
+
+### Avoid Ghidra-isms in source code
+Ghidra's decompiler output often contains patterns that are clearly compiler-generated,
+not original source. Never paste these directly — always reverse them back to natural C++:
+- **Byte-offset pointer arithmetic** like
+  `reinterpret_cast< const CVector3f* >(reinterpret_cast< const char* >(table) + offs)`
+  where `offs += 0x18` — this is array indexing. If the element size is 12 bytes (CVector3f),
+  then `offs = 0xc` is index 1, `offs += 0x18` increments by 2 elements. Write `table[idx]`.
+- **Bit-manipulation flag packing** like
+  `((uint)(uchar)((a <= b) << 1) << 0x1c) >> 0x1d` — this is Ghidra's rendering of
+  `mfcr/rlwinm/rlwimi` sequences that pack comparison results into bitfields. Rewrite as
+  natural boolean expressions or flag accumulation.
+- **Pre-declared variables at function top** — Ghidra lists all locals at the start. Move
+  definitions to the point of first use for more natural code. MWCC handles this fine.
+- **`in_fN` / `dVarN` / `fVarN` variable names** — these are Ghidra artifacts. Use
+  meaningful names (`startX`, `deltaY`, `radius`, etc.).
 
 ### Permutation tips for register allocation and stack layout
 When the instruction sequence matches but register assignments or stack slot ordering is
@@ -384,6 +460,31 @@ same "kind" (all `const CVector3f&`) may be needed to get the right layout. Mixi
 `const CVector3f&` (for raws) with regular `CVector3f` (for translated) produces a
 grouped layout instead of interleaved.
 
+### Named temporaries prevent `fmadds` fusion
+MWCC fuses `dist += d * d` into a single `fmadds` instruction. When the original has
+separate `fmuls` + `fadds`, introduce a named temporary to prevent fusion:
+```cpp
+// Generates fmadds (fused multiply-add):
+dist += d * d;
+
+// Generates separate fmuls + fadds:
+float dsq = d * d;
+dist += dsq;
+```
+
+### `!(a >= b)` vs `a < b` generate different compare sequences
+MWCC generates different instruction sequences for logically equivalent float comparisons:
+- `a < b` → `fcmpo; bge` (branch if NOT less-than)
+- `!(a >= b)` → `fcmpo; cror eq,gt,eq; bne` (combine CR bits, branch if NOT set)
+
+Check the diff for `cror` instructions. If the original has `cror eq,gt,eq` followed by
+`bne`, use the negated form `!(a >= b)`. Similarly `!(a <= b)` generates `cror eq,lt,eq`.
+
+### `-0.f` vs `0.f` are distinct constants
+These have different bit patterns (`0x80000000` vs `0x00000000`) and generate separate
+sdata2 entries. If the original loads from a different sdata2 offset for a zero comparison
+vs a zero assignment, one may be `-0.f`. Check the data section labels to determine which.
+
 ### Assembly patterns
 
 - `fmuls fX, fX, fY` or sometimes `fmuls fX, fY, fX` => `v *= fY`
@@ -395,3 +496,205 @@ grouped layout instead of interleaved.
 - `static int kFoo = N` (non-const) places value in `.sdata` (`lwz` from sdata).
   `static const int kFoo = N` gets constant-folded to an immediate (`li`). Match the
   original by checking whether the value is loaded from sdata or used as an immediate.
+
+### Division-by-power-of-two trick for fmuls operand order
+When `x * 0.5f` generates `fmuls` with the wrong operand order (e.g. `fmuls f1, f0, f1`
+instead of `fmuls f1, f1, f0`), use `x / 2.f` instead. MWCC converts division by a
+power-of-2 constant into multiplication, but assigns operands differently than a direct
+multiply by 0.5f. Similarly, `0.25f / x` vs `(1.f / x) * 0.25f` can produce different
+operand orderings.
+
+### Non-const local prevents constant folding
+`double val = 0.0;` (non-const) prevents MWCC from folding `expr - val` into just `expr`,
+while `const double val = 0.0;` gets folded away. Useful when the original assembly has
+explicit arithmetic with a zero constant (e.g. `fsub f1, f4, f2` where f2 is loaded 0.0).
+
+### `close_enough()` preserves `fsubs` with zero
+When the original assembly has `fsubs fX, fY, fZ` where one operand is 0.0 (subtracting
+zero that isn't optimized away), use `close_enough(x, 0.f)` instead of
+`CMath::AbsF(x - 0.f)`. The compiler folds literal `x - 0.f` during parsing, but
+`close_enough`'s deferred inline preserves the subtraction in the function body.
+
+### `frsp` after math calls: use `sinf`/`cosf`/`acosf`/`atan2f` etc.
+When the original has `bl acos` (or `sin`, `cos`, etc.) followed by `frsp` (float round
+to single precision), use the `f`-suffixed variant (`acosf`, `sinf`, `cosf`, `atan2f`,
+etc.). In `libc/math.h` these are inline wrappers that call the double-precision version
+and cast to float — e.g. `acosf(x)` expands to `(float)acos((double)x)` — so they
+generate `bl acos` + `frsp` automatically.
+
+### CVector3f constructor evaluation order
+`CVector3f(x, y, z)` evaluates arguments **right-to-left** (z first, then y, then x) due
+to MWCC's calling convention. However, the `CVector3f` **copy constructor** loads members
+in declaration order (x first, then y, then z). This means:
+- `CVector3f(a.GetX(), a.GetY(), a.GetZ())` loads z, y, x
+- `CVector3f(a)` (copy) loads x, y, z
+Choose the form that matches the original's load ordering.
+
+### `CMath::Limit` for `fabs/fsel/fmuls` float clamping
+When the original has a `fabs` + `fcmpo` + `fsel` + `fmuls` pattern for clamping a float
+to `[-h, h]`, use `CMath::Limit(val, h)`. This inline expands to
+`if (fabs(v) > h) return h * Sign(v); return v;` which generates the exact `fsel`+`fmuls`
+sequence. Direct approaches like `val = Sign(val)` or `val = 1.f * FastFSel(...)` lose
+the `fmuls` through constant folding, producing `fmr` instead.
+
+### `CMath::Clamp` vs nested `rstl::min_val`/`max_val`
+For clamping a value to a range, `CMath::Clamp(lo, val, hi)` often matches where nested
+`rstl::min_val(hi, rstl::max_val(lo, val))` does not. The nested form inlines two separate
+compare-and-select sequences, while `Clamp` generates a single call with different register
+usage and stack behavior.
+
+### Pre-load matrix elements into named locals for matrix multiply
+For matrix multiplication functions, extracting the operand matrix elements into named
+`const float` locals before the computation gives the compiler better visibility into data
+reuse across rows, leading to correct register allocation:
+```cpp
+const float b00 = other.m00, b01 = other.m01, b02 = other.m02;
+// ... then use b00, b01, etc. in the multiply expressions
+```
+Without named intermediates, MWCC may schedule loads differently (e.g. loading a
+translation element before a rotation element) causing cascading register mismatches.
+
+### Named float intermediates vs direct member access affect callee-saved FPR usage
+Caching a member in a named float local (e.g. `float foo = m02;`) extends its live
+range across all uses of `foo`, potentially forcing it into a callee-saved FPR (f14-f31)
+and increasing the stack frame. If the original uses a volatile FPR (f0-f13), the member
+may be accessed directly from `this` each time instead of cached. Compare stack frame
+sizes: if yours is larger (e.g. 0x40 vs 0x30), count callee-saved FPR saves — each extra
+one adds 0x10 to the frame (8 bytes stfd + 8 bytes psq_st). Remove named intermediates
+that extend live ranges unnecessarily.
+
+### Branch layout: `if` orientation matters
+MWCC preserves the source-level branch orientation. `if (!expr) return A; return B;` and
+`if (expr) return B; return A;` are **not** interchangeable — they produce different branch
+instructions (`beq` vs `bne`) and swap the fall-through vs taken paths. When the diff shows
+the correct instructions but wrong branch direction, flip the `if` condition and swap the
+bodies. (Ghidra decompilation often flips branch directions compared to the original)
+
+### `cmplwi` vs `cmpwi` indicates signedness
+`cmplwi rN, 0` (unsigned compare) followed by `beq` indicates the variable is compared
+as unsigned. `cmpwi rN, 0` (signed compare) indicates signed.
+
+### `.{Get,Set}{X,Y,Z}` vs `[kD{X,Y,Z}]` for CVector3f component access
+This can affect register allocation due to the `float&` return value. Try both forms:
+`target.SetX(GetTranslation().GetX());` and `target[kDZ] = GetTranslation()[kDZ];`
+
+### `rstl::max_val` / `rstl::min_val` with literals
+`rstl::max_val` and `rstl::min_val` take parameters by `const T&`. When called with
+a float literal like `rstl::max_val(0.f, value)`, the compiler must make the literal
+addressable, placing it in `.sdata`. If you see a non-const `static float` in `.sdata`
+used only for comparison/selection with a local variable, it's likely an inlined
+`rstl::max_val` or `rstl::min_val` call:
+```cpp
+// Decompiler output with static float and pointer indirection:
+static float lbl_XXXXXXXX = 0.f;
+float* ptr;
+if (lbl_XXXXXXXX < val) { ptr = &val; } else { ptr = &lbl_XXXXXXXX; }
+result = *ptr;
+// Original source:
+result = rstl::max_val(0.f, val);
+```
+
+### CTransform4f column access
+`CTransform4f` columns can be accessed via `.Get{Right,Forward,Up}()` or `[kD{X,Y,Z}]`.
+For translation (fourth column), `.GetTranslation()` is available. It is **rare**
+that the original devs wrote direct component access (`Get00`, `Get01`, etc.), so if
+you find yourself writing those, try switching to named getters or `operator[]`.
+
+### Simplify vector math expressions
+The original devs used math functions extensively. Attempt to simplify expressions
+using available operators and functions. For example:
+```cpp
+// Verbose form, component-wise without operators:
+const float normalY = info->GetNormalLeft().GetY();
+const float normalX = info->GetNormalLeft().GetX();
+const float normalZ = info->GetNormalLeft().GetZ();
+float dot = normalY * mNormal.GetY();
+dot += normalX * mNormal.GetX();
+dot += normalZ * mNormal.GetZ();
+if (dot < 0.99f) {
+  mPrevNormal = mNormal;
+  mNormal.SetX(normalX);
+  mNormal.SetY(normalY);
+  mNormal.SetZ(normalZ);
+}
+// Compact, humanized form:
+const CVector3f normal = info->GetNormalLeft(); 
+if (CVector3f::Dot(normal, mNormal) < 0.99f) {
+  mPrevNormal = mNormal;
+  mNormal = normal;
+}
+```
+Or:
+```cpp
+// Verbose form without operators:
+const CVector3f max(aabb.GetMaxPoint().GetX() + 0.1f,
+                    aabb.GetMaxPoint().GetY() + 0.1f,
+                    aabb.GetMaxPoint().GetZ() + zOffset);
+const CVector3f min(aabb.GetMinPoint().GetX() - 0.1f,
+                    aabb.GetMinPoint().GetY() - 0.1f,
+                    aabb.GetMinPoint().GetZ() - zOffset);
+const CAABox bounds(min, max);
+// Compact, humanized form:
+const CVector3f offset(0.1f, 0.1f, zOffset);
+const CAABox bounds(aabb.GetMinPoint() + offset,
+                    aabb.GetMaxPoint() + offset);
+```
+Or:
+```cpp
+// Verbose form without operators:
+const CVector3f max(aabb.GetMaxPoint().GetX() + 0.1f,
+                    aabb.GetMaxPoint().GetY() + 0.1f,
+                    aabb.GetMaxPoint().GetZ() + zOffset);
+const CVector3f min(aabb.GetMinPoint().GetX() - 0.1f,
+                    aabb.GetMinPoint().GetY() - 0.1f,
+                    aabb.GetMinPoint().GetZ() - zOffset);
+const CAABox bounds(min, max);
+// Compact, humanized form:
+const CVector3f offset(0.1f, 0.1f, zOffset);
+const CAABox bounds(aabb.GetMinPoint() - offset,
+                    aabb.GetMaxPoint() + offset);
+```
+Or:
+```cpp
+// Verbose translation offset:
+const CVector3f pos(xf.Get03() + 0.f, xf.Get13() + 0.f, xf.Get23() + zLift);
+// Compact form:
+const CVector3f pos = xf.GetTranslation() + CVector3f(0.f, 0.f, zLift);
+```
+Or:
+```cpp
+// Verbose velocity prediction:
+const float velX = GetVelocityWR().GetX();
+const float velY = GetVelocityWR().GetY();
+const float xMove = dt * velX;
+const float velZ = GetVelocityWR().GetZ();
+const float yMove = dt * velY;
+const float xPred = GetTransform().Get03() + xMove;
+const float zMove = dt * velZ;
+pos.SetX(xPred);
+...
+// Compact form:
+pos = GetTranslation() + dt * GetVelocityWR();
+```
+Or:
+```cpp
+// Verbose distance squared:
+float dX = a.GetX() - b.GetX();
+float dY = a.GetY() - b.GetY();
+float dZ = a.GetZ() - b.GetZ();
+float distSq = dX * dX + dY * dY + dZ * dZ;
+// Compact form:
+const CVector3f& delta = a - b;
+float distSq = delta.MagSquared();
+```
+Not only does this look more natural, using `CVector3f`, operators
+and helpers are often key to getting the correct register allocation.
+Remember: game devs are lazy — they wouldn't write a dot product by hand
+if they had a `Dot` function available.
+
+_Try different forms_ if the expressions won't work immediately — the
+compiler does aggressive scheduling and register allocation, so small
+changes can have big effects on the generated code. Try not to fall back
+to copying literal Ghidra output — this is not only ugly, but it will also
+very likely not match, as it represents the optimized assembly, not the
+original source.
