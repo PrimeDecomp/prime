@@ -3,6 +3,7 @@
 #include "MetroidPrime/CAnimData.hpp"
 #include "MetroidPrime/CAnimPlaybackParms.hpp"
 #include "MetroidPrime/CAnimRes.hpp"
+#include "MetroidPrime/CDamageInfo.hpp"
 #include "MetroidPrime/CRainSplashGenerator.hpp"
 #include "MetroidPrime/CStateManager.hpp"
 #include "MetroidPrime/Cameras/CCameraManager.hpp"
@@ -26,6 +27,8 @@
 #include "Kyoto/Math/CloseEnough.hpp"
 #include "Kyoto/Particles/CElementGen.hpp"
 #include "MetaRender/CCubeRenderer.hpp"
+
+#pragma inline_max_size(250)
 
 static const char* const skMuzzleNames[] = {
     "PowerMuzzle", "PowerCharge",  "IceMuzzle",    "IceCharge",    "PowerMuzzle",
@@ -447,7 +450,8 @@ CDamageInfo CGunWeapon::GetDamageInfo(CStateManager& mgr, CPlayerState::EChargeS
   if (chargeState == CPlayerState::kCS_Normal) {
     return GetShotDamageInfo(wInfo.x4_normal, mgr);
   } else {
-    SShotParam param(chargeFactor, wInfo.x20_charged);
+    CDamageInfo param = wInfo.x20_charged;
+    param.MultiplyDamageAndRadius(chargeFactor);
     return GetShotDamageInfo(param, mgr);
   }
 }

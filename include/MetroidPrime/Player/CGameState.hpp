@@ -30,6 +30,7 @@ public:
   CAssetId CurrentWorldAssetId() const;
   void WriteBackupBuf();
 
+  CWorldState& StateForWorld(CAssetId mlvlId);
   CWorldState& CurrentWorldState();
 
   void ImportPersistentOptions(const CSystemState&);

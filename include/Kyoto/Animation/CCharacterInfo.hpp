@@ -24,9 +24,16 @@ public:
     rstl::vector< CAssetId > x30_elsc;
   };
 
+  const rstl::string& GetCharacterName() const { return x4_name; }
   const CPASDatabase& GetPASDatabase() const { return x30_pasDatabase; }
+  const CParticleResData& GetParticleResData() const { return x44_partRes; }
+  const rstl::vector< int >& GetAnimationIndexList() const { return xb0_animIdxs; }
   const rstl::vector< rstl::pair< rstl::string, CAABox > >& GetAnimBBoxList() const {
     return x88_aabbs;
+  }
+  const rstl::vector< rstl::pair< rstl::string, rstl::vector< CEffectComponent > > >&
+  GetEffectList() const {
+    return x98_effects;
   }
 
 private:

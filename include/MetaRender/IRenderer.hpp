@@ -12,19 +12,21 @@
 #include "Kyoto/TToken.hpp"
 
 class CAABox;
-class CAreaOctTree;
+class CAreaRenderOctTree;
 class CColor;
 class CFrustumPlanes;
 class CLight;
 class CMemorySys;
 class CMetroidModelInstance;
 class CModel;
+class CModelFlags;
 class COsContext;
 class CParticleGen;
 class CPlane;
 class CPVSVisSet;
 class CResFactory;
 class CSkinnedModel;
+class CTexture;
 class CTransform4f;
 class CVector2f;
 class CVector3f;
@@ -60,14 +62,14 @@ public:
   // TODO vtable
 
   virtual void AddStaticGeometry(const rstl::vector< CMetroidModelInstance >* geometry,
-                                 const CAreaOctTree* octTree, int areaIdx);
-  virtual void EnablePVS(const CPVSVisSet& set, int areaIdx);
+                                 const CAreaRenderOctTree* octTree, int areaIdx);
+  virtual void EnablePVS(const CPVSVisSet* set, int areaIdx);
   virtual void DisablePVS();
   virtual void RemoveStaticGeometry(const rstl::vector< CMetroidModelInstance >* geometry);
-  virtual void DrawUnsortedGeometry(int areaIdx, int mask, int targetMask);
-  virtual void DrawSortedGeometry(int areaIdx, int mask, int targetMask);
-  virtual void DrawStaticGeometry(int areaIdx, int mask, int targetMask);
-  virtual void DrawAreaGeometry(int areaIdx, int mask, int targetMask);
+  virtual void DrawUnsortedGeometry(int areaIdx, uint mask, uint targetMask);
+  virtual void DrawSortedGeometry(int areaIdx, uint mask, uint targetMask);
+  virtual void DrawStaticGeometry(int areaIdx, uint mask, uint targetMask);
+  virtual void DrawAreaGeometry(int areaIdx, uint mask, uint targetMask);
   virtual void PostRenderFogs();
   virtual void SetModelMatrix(const CTransform4f& xf);
   virtual void AddParticleGen(const CParticleGen& gen);
@@ -108,26 +110,27 @@ public:
   virtual void PrimColor(const CColor& color);
   virtual void EndPrimitive();
   virtual void SetAmbientColor(const CColor& color);
-  virtual void DrawString();
+  virtual void DrawString(const char*, int, int);
   virtual float GetFPS();
-  virtual void CacheReflection();
-  virtual void DrawSpaceWarp();
-  virtual void DrawThermalModel();
-  virtual void DrawModelDisintegrate();
-  virtual void DrawModelFlat();
-  virtual void SetWireframeFlags();
-  virtual void SetWorldFog(ERglFogMode mode, const float startz, const float endz,
-                           const CColor& color);
+  virtual void CacheReflection(void (*)(void*, const CVector3f&), void*, bool);
+  virtual void DrawSpaceWarp(const CVector3f&, float);
+  virtual void DrawThermalModel(const CModel&, const CColor&, const CColor&, const float*,
+                                const float*, const CModelFlags&);
+  virtual void DrawModelDisintegrate(const CModel&, const CTexture&, const CColor&, const float*,
+                                     const float*, float);
+  virtual void DrawModelFlat(const CModel&, const CModelFlags&, bool, const float*, const float*);
+  virtual void SetWireframeFlags(int);
+  virtual void SetWorldFog(ERglFogMode mode, float startz, float endz, const CColor& color);
   virtual void RenderFogVolume(const CColor&, const CAABox&, const TLockedToken< CModel >*,
                                const CSkinnedModel*);
-  virtual void SetThermal();
-  virtual void SetThermalColdScale();
+  virtual void SetThermal(bool, float, const CColor&);
+  virtual void SetThermalColdScale(float);
   virtual void DoThermalBlendCold();
   virtual void DoThermalBlendHot();
-  virtual void GetStaticWorldDataSize();
-  virtual void SetGXRegister1Color();
-  virtual void SetWorldLightFadeLevel();
-  virtual void Something();
+  virtual int GetStaticWorldDataSize();
+  virtual void SetGXRegister1Color(const CColor&);
+  virtual void SetWorldLightFadeLevel(float);
+  virtual CAABox GetAreaModelBounds(int areaIdx, int modelIdx) = 0;
   virtual void PrepareDynamicLights(const rstl::vector< CLight >& lights);
 };
 

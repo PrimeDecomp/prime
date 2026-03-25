@@ -31,6 +31,7 @@
 #include "rstl/math.hpp"
 
 #include "MetroidPrime/TCastTo.hpp"
+#include "rstl/optional_object.hpp"
 
 static float kMaxRayLength = 120.f;
 static int kMaxTilesPerPatch = 7;
@@ -186,8 +187,7 @@ int CScriptWater::GetSplashSound(float scale) const {
 }
 
 float CScriptWater::GetSplashEffectScale(float scale) const {
-  float eps = Real32::Epsilon();
-  if (fabs(scale - 1.f) < eps) {
+  if (close_enough(scale, 1.f)) {
     return kSplashScales[5];
   }
   int idx = GetSplashIndex(scale);

@@ -17,12 +17,13 @@ public:
   CScriptSpawnPoint(TUniqueId, const rstl::string& name, const CEntityInfo& info,
                     const CTransform4f& xf,
                     const rstl::reserved_vector< int, int(CPlayerState::kIT_Max) >& itemCounts,
-                    bool, bool, bool);
+                    bool, bool, const bool);
 
   ~CScriptSpawnPoint() override;
   void Accept(IVisitor&) override;
   void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&) override;
 
+  bool FirstSpawn() const { return x10c_24_firstSpawn; }
   const CTransform4f& GetTransform() const;
   int GetPowerup(const CPlayerState::EItemType&) const;
 };

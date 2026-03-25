@@ -99,25 +99,11 @@ public:
 
   public:
     CMapWorldDrawParms(float alphaSurfVisited, float alphaOlVisited, float alphaSurfUnvisited,
-                       float alphaOlUnvisited, float alpha, float outlineWidthScale,
+                       float alphaOlUnvisited, float alpha,
                        const CStateManager& mgr, const CTransform4f& modelXf,
                        const CTransform4f& viewXf, const IWorld& wld, const CMapWorldInfo& mwInfo,
-                       float playerFlash, float hintFlash, float objectScale, bool sortDoorSurfs)
-    : x0_alphaSurfVisited(alphaSurfVisited)
-    , x4_alphaOlVisited(alphaOlVisited)
-    , x8_alphaSurfUnvisited(alphaSurfUnvisited)
-    , xc_alphaOlUnvisited(alphaOlUnvisited)
-    , x10_alpha(alpha)
-    , x14_outlineWidthScale(outlineWidthScale)
-    , x18_mgr(mgr)
-    , x1c_modelXf(modelXf)
-    , x20_viewXf(viewXf)
-    , x24_wld(wld)
-    , x28_mwInfo(mwInfo)
-    , x2c_playerFlashIntensity(playerFlash)
-    , x30_hintFlashIntensity(hintFlash)
-    , x34_objectScale(objectScale)
-    , x38_sortDoorSurfs(sortDoorSurfs) {}
+                       float outlineWidthScale, bool sortDoorSurfs,
+                       float playerFlash, float hintFlash, float objectScale);
     const IWorld& GetWorld() const { return x24_wld; }
     float GetOutlineWidthScale() const { return x14_outlineWidthScale; }
     const CTransform4f& GetPlaneProjectionTransform() const { return x1c_modelXf; }
@@ -152,16 +138,16 @@ public:
                                 const rstl::vector< CMapAreaBFSInfo >& vec) const;
   void SetWhichMapAreasLoaded(const IWorld& wld, int start, int count);
   void MoveMapAreaToList(CMapAreaData* data, EMapAreaList list);
-  int GetCurrentMapAreaDepth(const IWorld& wld, TAreaId aid);
+  int GetCurrentMapAreaDepth(const IWorld& wld, int aid) const;
   rstl::vector< int > GetVisibleAreas(const IWorld& wld, const CMapWorldInfo& mwInfo) const;
   void Draw(const CMapWorldDrawParms& parms, int curArea, int otherArea, float depth1, float depth2,
-            bool inMapScreen);
+            bool inMapScreen) const;
   void DoBFS(const IWorld& wld, int startArea, int areaCount, float surfDepth, float outlineDepth,
              bool checkLoad, rstl::vector< CMapAreaBFSInfo >& bfsInfos);
   bool IsMapAreaValid(const IWorld& wld, int areaIdx, bool checkLoad) const;
   void DrawAreas(const CMapWorldDrawParms& parms, int selArea,
                  const rstl::vector< CMapAreaBFSInfo >& bfsInfos, bool inMapScreen);
-  void RecalculateWorldSphere(const CMapWorldInfo& mwInfo, const IWorld& wld);
+  void RecalculateWorldSphere(const CMapWorldInfo& mwInfo, const IWorld& wld) const;
   CVector3f ConstrainToWorldVolume(const CVector3f& point, const CVector3f& lookVec) const;
   void ClearTraversedFlags();
   void SetWhichMapAreasLoaded(const IWorld& wld, int start, int count, bool load);

@@ -5,7 +5,7 @@
 class CDefaultWeaponRenderer : public IWeaponRenderer {
 public:
   ~CDefaultWeaponRenderer() {}
-  void AddParticleGen(const CParticleGen& gen) { gen.Render(); }
+  void AddParticleGen(const CParticleGen& gen) { const_cast< CParticleGen& >(gen).Render(); }
 };
 
 static CDefaultWeaponRenderer sDefaultRenderer;

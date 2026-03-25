@@ -3,8 +3,8 @@
 
 #include "types.h"
 
-#include "MetroidPrime/TGameTypes.hpp"
 #include "MetroidPrime/CAnimData.hpp"
+#include "MetroidPrime/TGameTypes.hpp"
 
 #include "Kyoto/Animation/IAnimReader.hpp"
 #include "Kyoto/Graphics/CColor.hpp"
@@ -24,6 +24,7 @@ class CFrustumPlanes;
 class CModel;
 class CModelFlags;
 class CStateManager;
+class CTexture;
 class CSkinnedModel;
 class CRandom16;
 
@@ -70,7 +71,6 @@ public:
   CModelData();
   CModelData(const CAnimRes&);
   CModelData(const CStaticRes&);
-  CModelData(const CModelData&);
   ~CModelData();
 
   CAdvancementDeltas AdvanceAnimation(float dt, CStateManager& mgr, TAreaId aid, bool advTree);
@@ -96,14 +96,21 @@ public:
   }
   CAABox GetBounds(const CTransform4f& xf) const;
   CAABox GetBounds() const;
+  bool IsInFrustum(const CTransform4f& xf, const CFrustumPlanes& planes) const;
   bool IsLoaded(int shaderIdx) const;
   bool IsDefinitelyOpaque(EWhichModel which) const;
 
+  CTransform4f GetLocatorTransformDynamic(const rstl::string& name,
+                                          const CCharAnimTime* time) const;
+  CTransform4f GetScaledLocatorTransformDynamic(const rstl::string& name,
+                                                const CCharAnimTime* time) const;
   CTransform4f GetLocatorTransform(const rstl::string& name) const;
   CTransform4f GetScaledLocatorTransform(const rstl::string& name) const;
 
   bool HasAnimation() const { return !xc_animData.null(); }
   bool IsNull() const { return xc_animData.null() && !x1c_normalModel; }
+  // TODO: maybe fake, but fixes CPatterned ctor codegen
+  bool IsNotNull() const { return !xc_animData.null() || x1c_normalModel; }
 
   void SetXRayModel(const rstl::pair< CAssetId, CAssetId >& assets);
   void SetInfraModel(const rstl::pair< CAssetId, CAssetId >& assets);
@@ -123,6 +130,9 @@ public:
   float GetAnimationDuration(int anim) const;
 
   bool IsAnimating() const;
+  bool HasModel(EWhichModel which) const;
+  void DisintegrateDraw(const CStateManager&, const CTransform4f&, const CTexture&, const CColor&,
+                        float) const;
 
 private:
   CVector3f x0_scale;

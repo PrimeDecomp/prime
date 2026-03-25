@@ -1,7 +1,9 @@
-#ifndef _CSCRIPTSTREAMEDAUDIO
-#define _CSCRIPTSTREAMEDAUDIO
+#ifndef _CSCRIPTSTREAMEDMUSIC
+#define _CSCRIPTSTREAMEDMUSIC
 
 #include "MetroidPrime/CEntity.hpp"
+
+#include "Kyoto/Audio/CStreamAudioManager.hpp"
 
 class CScriptStreamedMusic : public CEntity {
 public:
@@ -25,8 +27,8 @@ private:
   float x4c_fadeOut;
   uint x50_volume;
 
-  static bool IsDSPFile(const rstl::string& fileName);
-  static int IsOneShot(bool);
+  static bool IsAudioTrackNameSoftware(const rstl::string& fileName);
+  static CStreamAudioManager::ESoftwareChannel IsOneShot(bool);
   void StopStream(CStateManager& mgr);
   void StartStream(CStateManager& mgr);
   void TweakOverride(CStateManager& mgr);
@@ -36,4 +38,4 @@ private:
   void sub_8020be90();
 };
 
-#endif // _CSCRIPTSTREAMEDAUDIO
+#endif // _CSCRIPTSTREAMEDMUSIC

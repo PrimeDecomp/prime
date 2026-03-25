@@ -23,7 +23,7 @@ public:
   float xcc_angleC;
   float xd0_angleL;
   float xd4_angleQ;
-  u32 xd8_lightId;
+  int xd8_lightId;
   CColor xdc_ambColor;
 };
 

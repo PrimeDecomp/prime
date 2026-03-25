@@ -37,6 +37,7 @@ public:
   };
 
   static void SetGlobalSeed(ushort seed);
+  static void SetMoveRedToAlphaBuffer(const bool move) { sMoveRedToAlphaBuffer = move; }
   CDecal(const TToken< CDecalDescription >& desc, const CTransform4f& xf);
 
   void RenderQuad(CQuadDecal& quad, const CDecalDescription::SQuadDescr& quadDesc) const;

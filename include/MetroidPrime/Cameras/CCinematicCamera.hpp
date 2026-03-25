@@ -8,7 +8,7 @@
 class CCinematicCamera : public CGameCamera {
 public:
   CCinematicCamera(const TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
-                   const CTransform4f& xf, const bool active, const float shotDuration,
+                   const CTransform4f& xf, bool active, const float shotDuration,
                    const float fovy, const float znear, const float zfar, const float aspect,
                    const uint flags);
   ~CCinematicCamera();

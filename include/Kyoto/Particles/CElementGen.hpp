@@ -42,6 +42,15 @@ public:
     float x2c_lineLengthOrSize;
     float x30_lineWidthOrRota;
     CColor x34_color;
+
+    CParticle()
+    : x4_pos(CVector3f::Zero())
+    , x10_prevPos(CVector3f::Zero())
+    , x1c_vel(CVector3f::Zero())
+    , x34_color(static_cast< u8 >(0xFF), 0x00, 0xFF, 0xFF) {}
+  };
+  struct CAdvancedValues {
+    float values[8];
   };
 
   CElementGen();
@@ -50,7 +59,7 @@ public:
   ~CElementGen() override;
 
   virtual bool Update(double) override;
-  virtual void Render() const override;
+  virtual void Render() override;
   virtual void SetOrientation(const CTransform4f& orientation) override;
   virtual void SetTranslation(const CVector3f& translation) override;
   virtual void SetGlobalOrientation(const CTransform4f& orientation) override;
@@ -59,19 +68,20 @@ public:
   virtual void SetLocalScale(const CVector3f& scale) override;
   virtual void SetParticleEmission(const bool emission) override;
   virtual void SetModulationColor(const CColor& col) override;
-  virtual void SetGeneratorRate(float rate) override {}
+  virtual void SetGeneratorRate(float rate) override;
   virtual const CTransform4f& GetOrientation() const override;
   virtual const CVector3f& GetTranslation() const override;
-  virtual CTransform4f GetGlobalOrientation() const override;
-  virtual CVector3f GetGlobalTranslation() const override;
-  virtual CVector3f GetGlobalScale() const override;
+  virtual const CTransform4f& GetGlobalOrientation() const override;
+  virtual const CVector3f& GetGlobalTranslation() const override;
+  virtual const CVector3f& GetGlobalScale() const override;
+  virtual float GetGeneratorRate() const override;
   virtual bool GetParticleEmission() const override;
-  virtual CColor GetModulationColor() const override;
+  virtual const CColor& GetModulationColor() const override;
   virtual bool IsSystemDeletable() const override;
   virtual rstl::optional_object< CAABox > GetBounds() const override;
   virtual int GetParticleCount() const override;
   virtual bool SystemHasLight() const override;
-  virtual CLight GetLight() override;
+  virtual CLight GetLight() const override;
   virtual void DestroyParticles() override;
   virtual void AddModifier(CWarp*) override;
   virtual uint Get4CharId() const override;
@@ -79,6 +89,30 @@ public:
   int GetEmitterTime() const;
   int GetSystemCount();
   void EndLifetime();
+  void ForceParticleCreation(int amount);
+
+  bool InternalUpdate(double dt);
+  void UpdateLightParameters();
+  void UpdateAdvanceAccessParameters(int, int);
+  bool UpdateVelocitySource(int, int, CParticle&);
+  void UpdateExistingParticles();
+  void CreateNewParticles(int);
+  void UpdatePSTranslationAndOrientation();
+  CElementGen* ConstructChildParticleSystem(TToken< CGenDescription >) const;
+  void UpdateChildParticleSystems(double);
+  void RenderModels();
+  void RenderLines();
+  void RenderParticlesIndirectTexture();
+  static void RenderParticlesFlameThrower(CElementGen* const* gens, int count);
+  void RenderParticles();
+  void RenderBasicParticlesRotNoTS(const CTransform4f&);
+  void RenderBasicParticlesNoRotNoTS(const CTransform4f&);
+  void RenderBasicParticlesRotTS(const CTransform4f&);
+  void RenderBasicParticlesNoRotTS(const CTransform4f&);
+  int GetParticleCountAll() const;
+  int GetParticleCountAllInternal() const;
+  void AccumulateBounds(const CVector3f&, float);
+  void BuildParticleSystemBounds();
 
   int GetNumActiveChildParticles() const;
   CParticleGen* GetActiveChildParticle(int index) const;
@@ -95,15 +129,16 @@ public:
   void SetLeaveLightsEnabledForModelRender(bool b) { x26d_26_modelsUseLights = b; }
 
   static void SetSubtractBlend(bool subtract) { sSubtractBlend = subtract; }
+  static void SetMoveRedToAlphaBuffer(const bool move) { sMoveRedToAlphaBuffer = move; }
 
-public:
+private:
   TLockedToken< CGenDescription > x1c_genDesc;
   CGenDescription* x28_loadedGenDesc;
   EModelOrientationType x2c_orientType;
   rstl::vector< CParticle > x30_particles;
-  rstl::vector< uint > x40;
+  rstl::vector< CVector3f > x40;
   rstl::vector< CMatrix3f > x50_parentMatrices;
-  rstl::vector< rstl::reserved_vector< float, 8 > > x60_advValues;
+  rstl::vector< CAdvancedValues > x60_advValues;
   int x70_internalStartFrame;
   int x74_curFrame;
   double x78_curSeconds;
@@ -145,11 +180,12 @@ public:
   bool x26d_27_enableOPTS : 1;
   bool x26d_28_enableADV : 1;
   int x270_MBSP;
-  GXLightID x274_backupLightActive;
+  uchar x274_backupLightActive;
+  uchar x275_pad[3];
   bool x278_hasVMD[4];
   CRandom16 x27c_randState;
   CModVectorElement* x280_VELSources[4];
-  rstl::vector< rstl::auto_ptr< CParticleGen > > x290_activePartChildren;
+  rstl::vector< CParticleGen* > x290_activePartChildren;
   int x2a0_CSSD;
   int x2a4_SISY;
   int x2a8_PISY;
@@ -173,7 +209,10 @@ public:
   float x334_LSLA;
   CColor x338_moduColor;
 
+  static int mParticleAliveCount;
+  static int mParticleSystemAliveCount;
   static bool sSubtractBlend;
+  static bool sMoveRedToAlphaBuffer;
 };
 CHECK_SIZEOF(CElementGen, 0x340)
 

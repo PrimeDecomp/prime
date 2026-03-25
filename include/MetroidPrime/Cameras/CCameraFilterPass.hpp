@@ -44,6 +44,7 @@ public:
                  const CColor& color, const CAssetId txtr);
   void DisableFilter(float time);
   void Update(float dt);
+  void Draw() const;
 
   static void DrawWideScreen(const CColor& color, const CTexture* tex, float v);
   static void DrawFilter(EFilterType type, EFilterShape shape, const CColor& color,

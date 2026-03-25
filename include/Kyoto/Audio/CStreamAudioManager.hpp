@@ -5,28 +5,80 @@
 
 #include "rstl/string.hpp"
 
+struct SDSPStreamCacheEntry {
+  rstl::string x0_fileName;
+  int x10_playState;
+  int x14_volume;
+  float x18_fadeIn;
+  float x1c_fadeOut;
+  int x20_handle;
+  float x24_fadeFactor;
+  bool x28_music;
+
+  SDSPStreamCacheEntry();
+  SDSPStreamCacheEntry(int playState, const rstl::string& fileName, int volume, float fadeIn,
+                       float fadeOut, int handle, bool music);
+};
+
+class CStreamedAudioManager {
+public:
+  static bool AreStringsNotEqual(const char* lhs, const char* rhs);
+};
+
 class CStreamAudioManager {
 public:
+  enum ESoftwareChannel {
+    kSC_OneShot = 0,
+    kSC_Default = 1,
+  };
+
   static void Update(float dt);
   static void StopAll();
   static void StopOneShot();
-  static void SetMusicVolume(uint);
-  static void SetSfxVolume(uint);
+  static void SetMusicVolume(uint vol);
+  static void SetSfxVolume(uint vol);
+  static void SetMusicUnmute(bool unmute);
 
-  static void FadeBackIn(int, float);
-  static void TemporaryFadeOut(int, float);
+  static void FadeInSoftwareAudio(ESoftwareChannel chan, float fadeTime);
+  static void FadeOutSoftwareAudio(ESoftwareChannel chan, float fadeTime);
 
-  static void Start(int, const rstl::string&, int, bool, float, float);
-  static void Stop(int, const rstl::string&);
+  static void PlaySoftwareAudio(ESoftwareChannel chan, const rstl::string& fileName, int volume,
+                                bool music, float fadeIn, float fadeOut);
+  static void StopSoftwareAudio(ESoftwareChannel chan, const rstl::string& fileName);
 
-  static void sub_803653f8(float);
-  static void sub_80365424(float);
-  static void sub_8036590c(float);
+  static void SetDefaultAudio(const rstl::string& fileName, float fadeIn, float fadeOut,
+                              unsigned char volume);
+  static void SetCurrentAudio(const rstl::string& fileName, float fadeIn, float fadeOut,
+                              unsigned char volume);
 
-  static void SetDefaultAudio(const rstl::string&, float, float, unsigned char);
-  static void SetCurrentAudio(const rstl::string&, float, float, unsigned char);
+  static void fn_803653F8(float fadeTime);
+  static void fn_80365424(float fadeTime);
+  static void fn_8036590C(float fadeTime);
 
 private:
+  static void HandleMusicUnmute();
+  static void StopAudio();
+  static void StopAllStreams();
+  static void InternalSetVolume(float vol);
+  static void UpdateSoftwareChannels(float dt);
+  static void UpdateSoftwareChannel(ESoftwareChannel chan, float dt);
+  static void StopStreaming(int idx);
+  static int GetTargetDSPVolume(int fileVol, bool music);
+  static void PlayTrack(const rstl::string& fileName);
+
+  static rstl::string mDefaultAudioFile;
+  static rstl::string mCurrentAudioFile;
+  static rstl::string mNewAudioFile;
+
+  static int mCurrentState;
+  static float mCurrentVolume;
+  static float mTargetVolume;
+  static int mGlobalVolume;
+  static int mForegroundVolume;
+  static bool mEnable;
+  static bool mForegroundEnable;
+  static float mVolumeIncrement;
+  static float mVolumeIncrement2;
 };
 
 #endif // _CSTREAMAUDIOMANAGER

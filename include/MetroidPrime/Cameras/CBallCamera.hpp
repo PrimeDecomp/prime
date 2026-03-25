@@ -35,6 +35,16 @@ public:
   , x38_spring(spring)
   , x4c_occlusionCount(0)
   , x50_scale(scale) {}
+  CCameraCollider(const CCameraCollider& other)
+  : x4_radius(other.x4_radius)
+  , x8_lastLocalPos(other.x8_lastLocalPos)
+  , x14_localPos(other.x14_localPos)
+  , x20_scaledWorldPos(other.x20_scaledWorldPos)
+  , x2c_lastWorldPos(other.x2c_lastWorldPos)
+  , x38_spring(other.x38_spring)
+  , x4c_occlusionCount(other.x4c_occlusionCount)
+  , x50_scale(other.x50_scale) {}
+
   virtual ~CCameraCollider() {}
 
   float GetRadius() const { return x4_radius; }
@@ -136,11 +146,20 @@ public:
                               CStateManager& mgr);
   CVector3f AvoidGeometry(const CTransform4f& xf, const TEntityList& nearList, float dt,
                           CStateManager& mgr);
-  bool DetectCollision(const CVector3f& from, const CVector3f& to, float radius, float& d,
+  static bool DetectCollision(const CVector3f& from, const CVector3f& to, float radius, float& d,
+                              CStateManager& mgr);
+  bool ConstrainElevationAndDistance(float& elevation, float& distance, float dt,
+                                     CStateManager& mgr);
+  void UpdateTransform(const CVector3f& lookDir, const CVector3f& pos, float dt,
                        CStateManager& mgr);
+  CVector3f ConstrainYawAngle(const CPlayer& player, float distance, float yawSpeed, float dt,
+                              CStateManager& mgr) const;
   CTransform4f FindDesiredTransform(CVector3f dir, CStateManager& mgr);
+  CTransform4f UpdateCameraPositions(float dt, const CTransform4f& oldXf,
+                                     const CTransform4f& newXf);
 
   const CVector3f& GetLookAtPosition() const { return x1d8_lookPos; }
+  const CVector3f& GetLookPosAhead() const { return x1c0_lookPosAhead; }
   float GetDistance() const { return x190_curMinDistance; }
   float GetElevation() const { return x1a0_elevation; }
 
@@ -162,16 +181,39 @@ public:
   void SetChaseLookAtOffset(CVector3f vec) { x410_chaseLookAtOffset = vec; }
   void SetWorldOffset(CVector3f vec); // TODO
   EBallCameraState GetState() const { return x400_state; }
-  void SetState(EBallCameraState state);
+  void SetState(EBallCameraState state, CStateManager& mgr);
   void OverrideCameraInfo(CStateManager& mgr);
+  void UpdateUsingColliders(float dt, CStateManager& mgr);
+  void UpdateUsingFreeLook(float dt, CStateManager& mgr);
+  void UpdateUsingTransitions(float dt, CStateManager& mgr);
+  void UpdateTransitionFromBallCamera(CStateManager& mgr);
+  void UpdateUsingPathCameras(float dt, CStateManager& mgr);
+  void UpdateUsingSpindleCameras(float dt, CStateManager& mgr);
+  void UpdateUsingFixedCameras(float dt, CStateManager& mgr);
   void UpdateLookAtPosition(float dt, CStateManager& mgr);
+  CVector3f GetFixedLookTarget(const CVector3f& hintToLookDir, CStateManager& mgr) const;
+  void CheckFailSafe(float dt, CStateManager& mgr);
+  bool CheckFailsafeFromMorphBallState(CStateManager& mgr) const;
+  void ActivateFailSafe(float dt, CStateManager& mgr);
+  CVector3f ClampElevationToWater(const CVector3f& pos, CStateManager& mgr) const;
+  CVector3f MoveCollisionActor(const CVector3f& pos, float dt, CStateManager& mgr);
+  CVector3f TweenVelocity(const CVector3f& curVel, const CVector3f& newVel, float rate, float dt);
+  void UpdateObjectTooCloseId(CStateManager& mgr);
+  void UpdateAnglePerSecond(float dt);
+  CVector3f ComputeVelocity(const CVector3f& curVel, const CVector3f& posDelta) const;
+  bool SplineIntersectTest(CMaterialList& intersectMat, CStateManager& mgr) const;
+  void ResetSpline(CStateManager& mgr);
+  void BuildSpline(CStateManager& mgr);
+  bool ShouldResetSpline(CStateManager& mgr) const;
+  CVector3f InterpolateCameraElevation(const CVector3f& camPos, float dt) const;
+  void UpdatePlayerMovement(float dt, CStateManager& mgr);
 
   void SetClampVelTimer(float v) { x470_clampVelTimer = v; }
   void SetClampVelRange(float v) { x474_clampVelRange = v; }
 
   void DoorClosing(TUniqueId uid);
   void DoorClosed(TUniqueId uid);
-  
+
   static bool CheckDoorProximity(const CVector3f& vec, const CStateManager& mgr);
 
 private:
@@ -268,8 +310,8 @@ private:
   CCameraSpline x37c_camSpline;
   CMaterialList x3c8_collisionExcludeList;
   bool x3d0_24_camBehindFloorOrWall : 1;
-  float x3d4_elevInterpTimer;
-  float x3d8_elevInterpStart;
+  mutable float x3d4_elevInterpTimer;
+  mutable float x3d8_elevInterpStart;
   TUniqueId x3dc_tooCloseActorId;
   float x3e0_tooCloseActorDist;
   bool x3e4_pendingFailsafe;
@@ -295,7 +337,7 @@ private:
   TUniqueId x46c_collisionActorId;
   float x470_clampVelTimer;
   float x474_clampVelRange;
-  uint x478_shortMoveCount;
+  int x478_shortMoveCount;
   rstl::single_ptr< SFailsafeState > x47c_failsafeState;
   rstl::single_ptr< SUnknown > x480_;
 };

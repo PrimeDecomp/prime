@@ -106,6 +106,9 @@ public:
   void CreateShadowIfNeeded();
 
   const CTransform4f& GetTransform() const { return x34_transform; }
+  CVector3f TransformWorldToLocalRotation(const CVector3f& v) const {
+    return x34_transform.TransposeRotate(v);
+  }
   void SetTransform(const CTransform4f& xf) {
     x34_transform = xf;
     SetTransformDirty(true);
@@ -167,6 +170,7 @@ public:
   bool GetDrawShadow() const { return xe5_24_shadowEnabled; }
   bool GetShadowDirty() const { return xe5_25_shadowDirty; }
   bool GetMuted() const { return xe5_26_muted; }
+  bool GetPointGeneratorParticles() const { return xe5_31_pointGeneratorParticles; }
   bool IsInFluid() const { return xe6_24_fluidCounter != 0; }
   EThermalFlags GetThermalFlags() const {
     return static_cast< EThermalFlags >(xe6_27_thermalVisorFlags);
@@ -199,9 +203,13 @@ public:
   void AddMaterial(EMaterialTypes, EMaterialTypes, CStateManager&);
   void AddMaterial(EMaterialTypes, CStateManager&);
   void AddMaterial(const CMaterialList& l) { x68_material.Add(l); }
+  void SetMaterial(const CMaterialList& l) { x68_material = l; }
 
   const CAABox& GetRenderBoundsCached() const { return x9c_renderBounds; }
   void SetRenderBounds(const CAABox& bounds) { x9c_renderBounds = bounds; }
+  void SetAddedToken(unsigned int token) const {
+    const_cast< CActor* >(this)->xcc_addedToken = token;
+  }
 
   bool GetUseInSortedLists() const;
   void SetUseInSortedLists(bool use);
@@ -216,6 +224,9 @@ public:
   void SetSoundEventPitchBend(int);
   CSfxHandle GetSfxHandle() const;
   bool CanDrawStatic() const;
+
+protected:
+  void SetDrawEnabled(bool v) { xe7_29_drawEnabled = v; }
 
 private:
   CTransform4f x34_transform;

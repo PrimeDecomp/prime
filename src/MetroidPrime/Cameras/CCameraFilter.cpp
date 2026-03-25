@@ -155,7 +155,7 @@ void CCameraFilterPass::DrawFullScreenTexturedQuadQuarters(const CColor& color, 
   CGraphics::SetTevOp(kTS_Stage1, CGraphics::kEnvPassthru);
   gpRender->SetDepthReadWrite(false, false);
   if (tex != nullptr) {
-    tex->Load(GX_TEXMAP0, CTexture::kCM_Repeat);
+    tex->Load(GX_TEXMAP0, CTexture::kCM_Clamp);
   }
   CGraphics::SetCullMode(kCM_None);
   for (int i = 0; i < 4; ++i) {

@@ -6,6 +6,14 @@
 #include "Kyoto/Particles/CParticleData.hpp"
 
 class CEffectComponent {
+public:
+  const rstl::string& GetComponentName() const { return x0_name; }
+  const SObjectTag& GetParticleTag() const { return x10_tag; }
+  const rstl::string& GetSegmentName() const { return x18_boneName; }
+  float GetScale() const { return x28_scale; }
+  CParticleData::EParentedMode GetParentedMode() const { return x2c_parentedMode; }
+  uint GetFlags() const { return x30_flags; }
+
 private:
   rstl::string x0_name;
   SObjectTag x10_tag;

@@ -2,6 +2,7 @@
 
 #include "Kyoto/Graphics/CCubeSurface.hpp"
 #include "Kyoto/Graphics/CGX.hpp"
+#include "Kyoto/Graphics/CGX_Impl.hpp" // IWYU pragma: keep
 #include "Kyoto/Graphics/CGraphics.hpp"
 
 static bool sDrawingOccluders = false;
@@ -40,8 +41,7 @@ CCubeModel::CCubeModel(rstl::vector< void* >* surfaces,
       static_cast< CCubeSurface::SSurfaceData* >(data)->mNextSurface = x3c_firstSorted.x0_rawdata;
       x3c_firstSorted.x0_rawdata = static_cast< uchar* >(data);
     } else {
-      static_cast< CCubeSurface::SSurfaceData* >(data)->mNextSurface =
-          x38_firstUnsorted.x0_rawdata;
+      static_cast< CCubeSurface::SSurfaceData* >(data)->mNextSurface = x38_firstUnsorted.x0_rawdata;
       x38_firstUnsorted.x0_rawdata = static_cast< uchar* >(data);
     }
   }
@@ -65,7 +65,7 @@ void CCubeModel::MakeTexturesFromMats(const void* data,
 }
 
 void CCubeModel::SetStaticArraysCurrent() const {
-  CGX::SetArray_Inline(GX_VA_CLR0, x0_instance.GetColorPointer(), sizeof(CColor));
+  CGX::SetArray(GX_VA_CLR0, x0_instance.GetColorPointer(), sizeof(CColor));
   const void* packed = x0_instance.GetPackedTCPointer();
   const void* unpacked = x0_instance.GetTCPointer();
   if (!packed) {
@@ -73,14 +73,14 @@ void CCubeModel::SetStaticArraysCurrent() const {
   }
 
   if (sUsingPackedLightmaps) {
-    CGX::SetArray_Inline(GX_VA_TEX0, packed, sizeof(ushort) * 2);
+    CGX::SetArray(GX_VA_TEX0, packed, sizeof(ushort) * 2);
   } else {
-    CGX::SetArray_Inline(GX_VA_TEX0, unpacked, sizeof(CVector2f));
+    CGX::SetArray(GX_VA_TEX0, unpacked, sizeof(CVector2f));
   }
 
   if (unpacked) {
     for (int i = 1; i <= GX_VA_TEX7 - GX_VA_TEX0; ++i) {
-      CGX::SetArray_Inline(static_cast< GXAttr >(i + GX_VA_TEX0), unpacked, sizeof(CVector2f));
+      CGX::SetArray(static_cast< GXAttr >(i + GX_VA_TEX0), unpacked, sizeof(CVector2f));
     }
   }
 
@@ -88,9 +88,9 @@ void CCubeModel::SetStaticArraysCurrent() const {
 }
 
 void CCubeModel::SetArraysCurrent() const {
-  CGX::SetArray_Inline(GX_VA_POS, x0_instance.GetVertexPointer(), sizeof(CVector3f));
+  CGX::SetArray(GX_VA_POS, x0_instance.GetVertexPointer(), sizeof(CVector3f));
   const int stride = (x41_visorFlags & 1) ? sizeof(short) * 3 : sizeof(CVector3f);
-  CGX::SetArray_Inline(GX_VA_NRM, x0_instance.GetNormalPointer(), stride);
+  CGX::SetArray(GX_VA_NRM, x0_instance.GetNormalPointer(), stride);
   SetStaticArraysCurrent();
 }
 
@@ -103,9 +103,9 @@ void CCubeModel::SetSkinningArraysCurrent(const float* positions, const float* n
 void CCubeModel::SetUsingPackedLightmaps(const bool use) const {
   sUsingPackedLightmaps = use;
   if (sUsingPackedLightmaps) {
-    CGX::SetArray_Inline(GX_VA_TEX0, x0_instance.GetPackedTCPointer(), sizeof(ushort) * 2);
+    CGX::SetArray(GX_VA_TEX0, x0_instance.GetPackedTCPointer(), sizeof(ushort) * 2);
   } else {
-    CGX::SetArray_Inline(GX_VA_TEX0, x0_instance.GetTCPointer(), sizeof(CVector2f));
+    CGX::SetArray(GX_VA_TEX0, x0_instance.GetTCPointer(), sizeof(CVector2f));
   }
 }
 
@@ -134,7 +134,7 @@ void CCubeModel::DrawSurface(const CCubeSurface& surface, const CModelFlags& mod
   }
 
   material.SetCurrent(modelFlags, surface, *this);
-  CGX::CallDisplayList_Inline(surface.GetDisplayList(), surface.GetDisplayListSize());
+  CGX::CallDisplayList(surface.GetDisplayList(), surface.GetDisplayListSize());
 }
 
 void CCubeModel::DrawSurfaceWireframe(const CCubeSurface& surface) const {
@@ -160,14 +160,13 @@ void CCubeModel::DrawSurfaceWireframe(const CCubeSurface& surface) const {
       {GX_VA_NULL, GX_NONE},
   };
   CGX::SetVtxDescv(sDesc);
-  CGX::SetTevDirect_Inline(GX_TEVSTAGE0);
-  CGX::SetNumIndStages_Inline(0);
-  CGX::SetTevColorIn_Inline(GX_TEVSTAGE0, GX_CC_ZERO, GX_CC_ZERO, GX_CC_ZERO, GX_CC_ONE);
-  CGX::SetTevColorOp_Inline(GX_TEVSTAGE0, GX_TEV_ADD, GX_TB_ZERO, GX_CS_SCALE_1, GX_TRUE,
-                            GX_TEVPREV);
-  CGX::SetNumChans_Inline(0);
-  CGX::SetNumTexGens_Inline(1);
-  CGX::SetBlendMode_Inline(GX_BM_BLEND, GX_BL_ONE, GX_BL_ZERO, GX_LO_CLEAR);
+  CGX::SetTevDirect(GX_TEVSTAGE0);
+  CGX::SetNumIndStages(0);
+  CGX::SetTevColorIn(GX_TEVSTAGE0, GX_CC_ZERO, GX_CC_ZERO, GX_CC_ZERO, GX_CC_ONE);
+  CGX::SetTevColorOp(GX_TEVSTAGE0, GX_TEV_ADD, GX_TB_ZERO, GX_CS_SCALE_1, GX_TRUE, GX_TEVPREV);
+  CGX::SetNumChans(0);
+  CGX::SetNumTexGens(1);
+  CGX::SetBlendMode(GX_BM_BLEND, GX_BL_ONE, GX_BL_ZERO, GX_LO_CLEAR);
 }
 
 bool CCubeModel::TryLockTextures() const {

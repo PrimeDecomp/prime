@@ -12,6 +12,9 @@
 
 #include "rstl/algorithm.hpp"
 
+#include "dolphin/gx/GXVert.h"
+#include "dolphin/gx/GXCommandList.h"
+
 #ifndef TARGET_PC
 struct GXData {
   ushort cpSRreg;
@@ -300,5 +303,21 @@ void CScriptPlatform::BuildSlaveList(CStateManager& mgr) {
         ++current;
       }
     }
+  }
+}
+
+void CScriptPlatform::AddSlave(TUniqueId id, CStateManager& mgr) {
+  rstl::vector< SRiders >::iterator it = x338_slavesDynamic.begin();
+  rstl::vector< SRiders >::iterator end = x338_slavesDynamic.end();
+  for (; it != end; ++it) {
+    if (it->x0_uid == id) {
+      return;
+    }
+  }
+
+  if (CActor* act = TCastToPtr< CActor >(mgr.ObjectById(id))) {
+    act->AddMaterial(kMT_PlatformSlave, mgr);
+    CTransform4f xf = GetTransform().GetInverse() * act->GetTransform();
+    x338_slavesDynamic.push_back(SRiders(id, 0.166667f, xf));
   }
 }

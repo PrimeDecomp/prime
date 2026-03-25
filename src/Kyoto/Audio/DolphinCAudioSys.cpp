@@ -1,5 +1,6 @@
 #include "Kyoto/Audio/CAudioSys.hpp"
 
+#include "Kyoto/Audio/CAudioGroupSet.hpp"
 #include "Kyoto/Alloc/CMemory.hpp"
 
 #include "dolphin/ai.h"
@@ -145,16 +146,22 @@ const ushort CAudioSys::kVolumeTable[] = {
 bool CAudioSys::mInitialized = false;
 bool CAudioSys::mIsListenerActive = false;
 bool CAudioSys::mVerbose = false;
+uint CAudioSys::mUnusedEmitterHandle = 0;
 uchar CAudioSys::mMaxNumEmitters = 0;
 rstl::map< rstl::string, rstl::ncrc_ptr< CAudioGroupSet > >* CAudioSys::mpGroupSetDB = nullptr;
 rstl::map< uint, rstl::string >* CAudioSys::mpGroupSetResNameDB = nullptr;
 rstl::map< rstl::string, rstl::ncrc_ptr< CAudioSys::CTrkData > >* CAudioSys::mpDVDTrackDB = nullptr;
+rstl::vector< CAudioSys::CEmitterData >* CAudioSys::mpEmitterDB = nullptr;
+SND_LISTENER* CAudioSys::mpListener = nullptr;
+CAudioSys::ESurroundModes CAudioSys::mSurroundMode = CAudioSys::kSM_Mono;
+uint CAudioSys::mMaxAramUsage = 0;
+uint CAudioSys::mCurrentAramUsage = 0;
 
 const uchar CAudioSys::kEmitterMedPriority = 0x7f;
 const uchar CAudioSys::kMaxVolume = 0x7f;
 bool CAudioSys::mProLogic2 = true;
-ushort CAudioSys::mVolumeScale = 0x7f;
-ushort CAudioSys::mDefaultVolumeScale = 0x7f;
+short CAudioSys::mVolumeScale = 0x7f;
+short CAudioSys::mDefaultVolumeScale = 0x7f;
 
 const rstl::string CAudioSys::mpDefaultInvalidString(rstl::string_l("NULL"));
 
@@ -203,17 +210,11 @@ CAudioSys::~CAudioSys() {
   S3dFlushAllEmitters();
   S3dRemoveListener();
   sndQuit();
-  if (mpGroupSetDB) {
-    delete mpGroupSetDB;
-  }
+  delete mpGroupSetDB;
   mpGroupSetDB = nullptr;
-  if (mpGroupSetResNameDB) {
-    delete mpGroupSetResNameDB;
-  }
+  delete mpGroupSetResNameDB;
   mpGroupSetResNameDB = nullptr;
-  if (mpDVDTrackDB) {
-    delete mpDVDTrackDB;
-  }
+  delete mpDVDTrackDB;
   mpDVDTrackDB = nullptr;
 
   delete mpEmitterDB;
@@ -230,6 +231,162 @@ void CAudioSys::SysSetVolume(const uchar volume, const ushort time, const uchar 
 void CAudioSys::SysSetSfxVolume(const uchar volume, const ushort time, const uchar music,
                                 const uchar fx) {
   sndMasterVolume(volume, time, music, fx);
+}
+
+bool CAudioSys::SysLoadGroupSet(CSimplePool* pool, const uint id) {
+  if (SysIsGroupSetLoaded(SysGetGroupSetName(id))) {
+    return true;
+  }
+
+  TLockedToken< CAudioGroupSet > group(pool->GetObj(SObjectTag('AGSC', id)));
+  return SysLoadGroupSet(group, group->GetName(), id);
+}
+
+bool CAudioSys::SysLoadGroupSet(TLockedToken< CAudioGroupSet > group, rstl::string name,
+                                const uint id) {
+  if (FindGroupSet(name)) {
+    return true;
+  }
+
+  mpGroupSetDB->insert(rstl::pair< rstl::string, rstl::ncrc_ptr< CAudioGroupSet > >(
+      name, rstl::ncrc_ptr< CAudioGroupSet >(group.GetT())));
+  mpGroupSetResNameDB->insert(rstl::pair< uint, rstl::string >(id, name));
+  return false;
+}
+
+bool CAudioSys::SysIsGroupSetLoaded(const rstl::string& name) { return FindGroupSet(name); }
+
+bool CAudioSys::SysUnloadSampleData(const rstl::string& name) {
+  rstl::ncrc_ptr< CAudioGroupSet > groupSet = FindGroupSet(name);
+  CAudioGroupSet* ptr = groupSet.GetPtr();
+  if (ptr) {
+    ptr->FreeSampleBuffer();
+    return true;
+  }
+  return false;
+}
+
+void CAudioSys::SysUnloadGroupSet(const rstl::string& name) {
+  rstl::map< rstl::string, rstl::ncrc_ptr< CAudioGroupSet > >::iterator it = mpGroupSetDB->find(name);
+  if (it == mpGroupSetDB->end()) {
+    return;
+  }
+
+  mpGroupSetDB->erase(it);
+}
+
+bool CAudioSys::SysPushGroupIntoARAM(const rstl::string& name, const uchar groupId) {
+  rstl::ncrc_ptr< CAudioGroupSet > groupSet = FindGroupSet(name);
+  if (!groupSet) {
+    return false;
+  }
+
+  ++mCurrentAramUsage;
+  return sndPushGroup(nullptr, groupId, nullptr, nullptr, nullptr);
+}
+
+void CAudioSys::SysPopGroupFromARAM() {
+  sndPopGroup();
+}
+
+const rstl::string& CAudioSys::SysGetGroupSetName(const uint id) {
+  rstl::map< uint, rstl::string >::const_iterator it = mpGroupSetResNameDB->find(id);
+  rstl::map< uint, rstl::string >::const_iterator end = mpGroupSetResNameDB->end();
+  if (it != end) {
+    return it->second;
+  }
+  return mpDefaultInvalidString;
+}
+
+rstl::ncrc_ptr< CAudioGroupSet > CAudioSys::FindGroupSet(const rstl::string& name) {
+  rstl::map< rstl::string, rstl::ncrc_ptr< CAudioGroupSet > >::const_iterator it(
+      mpGroupSetDB->find(name));
+  rstl::map< rstl::string, rstl::ncrc_ptr< CAudioGroupSet > >::const_iterator end(
+      mpGroupSetDB->end());
+  if (it != end) {
+    return it->second;
+  }
+  return rstl::ncrc_ptr< CAudioGroupSet >();
+}
+
+SND_VOICEID CAudioSys::SfxStart(const SND_FXID sfxId, const uchar vol, const uchar pan,
+                                const uchar prio) {
+  const uchar scaledVol = (mVolumeScale * (vol > 0x7f ? 0x7f : vol)) / 0x7f;
+  return sndFXStartEx(sfxId, scaledVol, pan, prio);
+}
+
+void CAudioSys::SfxStop(const SND_VOICEID handle) { sndFXKeyOff(handle); }
+
+SND_VOICEID CAudioSys::SfxCheck(SND_VOICEID handle) { return sndFXCheck(handle); }
+
+void CAudioSys::SfxSpan(SND_VOICEID handle, const uchar span) { sndFXSurroundPanning(handle, span); }
+
+void CAudioSys::SfxVolume(SND_VOICEID handle, const u8 vol) { sndFXVolume(handle, vol); }
+
+void CAudioSys::SfxPitchBend(SND_VOICEID handle, const ushort pitch) {
+  sndFXPitchBend(handle, pitch);
+}
+
+void CAudioSys::SfxCtrl(const SND_VOICEID handle, uchar ctrl, uchar val) { sndFXCtrl(handle, ctrl, val); }
+
+int CAudioSys::TrkQueueTrack(const rstl::string& name, void (*callback)(unsigned long),
+                             const uint eventMask) {
+  while (TrkGetState() == 3) {}
+
+  rstl::ncrc_ptr< CTrkData > trk = FindTrack(name);
+  if (!trk.GetPtr()) {
+    CTrkData* data = rs_new CTrkData(name);
+    rstl::ncrc_ptr< CTrkData > newTrk(data);
+    mpDVDTrackDB->insert(rstl::pair< rstl::string, rstl::ncrc_ptr< CTrkData > >(
+        name, newTrk));
+    return DTKQueueTrack(newTrk->GetFileName(), newTrk->GetTrack(), eventMask, callback);
+  }
+
+  if (!trk->GetIsTrackInUse()) {
+    trk->SetIsTrackInUse(true);
+    return DTKQueueTrack(trk->GetFileName(), trk->GetTrack(), eventMask, callback);
+  }
+  return 5000;
+}
+
+static void track_flusher_callback() {}
+
+static void sub_8034CA34(rstl::map< rstl::string, rstl::ncrc_ptr< CAudioSys::CTrkData > >* db) {
+  for (rstl::map< rstl::string, rstl::ncrc_ptr< CAudioSys::CTrkData > >::const_iterator it =
+           db->begin();
+       it != db->end(); ++it) {
+    it->second->SetIsTrackInUse(false);
+  }
+  db->clear();
+}
+
+void CAudioSys::TrkFlushTracks() {
+  if (mpDVDTrackDB->size() > 0) {
+    DTKFlushTracks(nullptr);
+    sub_8034CA34(mpDVDTrackDB);
+  }
+}
+
+void CAudioSys::TrkSetSampleRate(const ETRKSampleRate rate) { DTKSetSampleRate(rate); }
+
+void CAudioSys::TrkSetRepeatMode(const ETRKRepeatMode mode) { DTKSetRepeatMode(mode); }
+
+void CAudioSys::TrkSetState(const ETRKPlayState state) { DTKSetState(state); }
+
+ETRKPlayState CAudioSys::TrkGetState() { return ETRKPlayState(DTKGetState()); }
+
+void CAudioSys::TrkSetVolume(const uchar left, const uchar right) { DTKSetVolume(left, right); }
+
+void CAudioSys::TrkNextTrack() { DTKNextTrack(); }
+
+rstl::ncrc_ptr< CAudioSys::CTrkData > CAudioSys::FindTrack(const rstl::string& name) {
+  rstl::map< rstl::string, rstl::ncrc_ptr< CTrkData > >::const_iterator it(
+      mpDVDTrackDB->find(name));
+  rstl::map< rstl::string, rstl::ncrc_ptr< CTrkData > >::const_iterator end(mpDVDTrackDB->end());
+  if (it != end) {
+    return it->second;
+  }
+  return rstl::ncrc_ptr< CTrkData >();
 }
 
 void CAudioSys::S3dAddListener(const CVector3f& pos, const CVector3f& dir, const CVector3f& heading,
@@ -304,6 +461,8 @@ uint CAudioSys::S3dAddEmitterParaEx(const C3DEmitterParmData& params, ushort gro
     }
   }
 
+  CEmitterData& data = (*mpEmitterDB)[handle];
+
   SND_FVECTOR _pos;
   _pos.x = params.x0_pos.GetX();
   _pos.y = params.x0_pos.GetY();
@@ -313,9 +472,11 @@ uint CAudioSys::S3dAddEmitterParaEx(const C3DEmitterParmData& params, ushort gro
   _dir.y = params.xc_dir.GetY();
   _dir.z = params.xc_dir.GetZ();
 
-  CEmitterData& data = (*mpEmitterDB)[handle];
+  const uchar scaledMaxVol = (mVolumeScale * (params.x26_maxVol > 0x7f ? 0x7f : params.x26_maxVol)) / 0x7f;
+  const char maxVol = scaledMaxVol;
+  const uchar minVol = (mVolumeScale * (params.x27_minVol > 0x7f ? 0x7f : params.x27_minVol)) / 0x7f;
   sndAddEmitterParaEx(&data.x0_emitter, &_pos, &_dir, params.x18_maxDist, params.x1c_distComp,
-                      params.x20_flags, params.x24_sfxId, groupId, 0, 0, nullptr, paraInfo);
+                      params.x20_flags, params.x24_sfxId, groupId, maxVol, minVol, nullptr, paraInfo);
   data._50 = true;
   data._51 = params.x28_important;
   data._52 = params.x29_prio;
@@ -478,3 +639,11 @@ void CAudioSys::SetSurroundMode(const ESurroundModes mode) {
 
   mSurroundMode = mode;
 }
+
+bool CAudioSys::GetVerbose() { return mVerbose; }
+
+void CAudioSys::SetVolumeScale(const short scale) { mVolumeScale = scale; }
+
+void CAudioSys::SetDefaultVolumeScale(const short scale) { mDefaultVolumeScale = scale; }
+
+short CAudioSys::GetDefaultVolumeScale() { return mDefaultVolumeScale; }

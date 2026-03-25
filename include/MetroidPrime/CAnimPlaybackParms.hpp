@@ -48,6 +48,18 @@ public:
   , x24_objectScale(scale) {}
 
   int GetAnimationId() const { return x0_animA; }
+  int GetSecondAnimationId() const { return x4_animB; }
+  float GetBlendFactor() const { return x8_blendWeight; }
+  bool GetIsPlayAnimation() const { return xc_animating; }
+  const CVector3f* GetTargetPos() const { return x14_targetPos; }
+  bool GetIsUseLocator() const { return x18_useLocator; }
+  const CQuaternion* GetDeltaOrient() const { return x1c_deltaOrient; }
+  const CTransform4f* GetObjectXform() const { return x20_objectXf; }
+  const CVector3f* GetObjectScale() const { return x24_objectScale; }
+
+  void SetAnimationId(int id) { x0_animA = id; }
+  void SetSecondAnimationId(int id) { x4_animB = id; }
+  void SetBlendFactor(float f) { x8_blendWeight = f; }
 };
 CHECK_SIZEOF(CAnimPlaybackParms, 0x28)
 

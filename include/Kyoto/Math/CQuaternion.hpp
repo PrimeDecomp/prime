@@ -32,14 +32,18 @@ public:
   // __amu__11CQuaternionFRC11CQuaternion
   // ScalarVector__11CQuaternionFfRC9CVector3f
   // Slerp__11CQuaternionFRC11CQuaternionRC11CQuaternionf
-  // ShortestRotationArc__11CQuaternionFRC9CVector3fRC9CVector3f
-  // LookAt__11CQuaternionFRC13CUnitVector3fRC13CUnitVector3fRC9CRelAngle
+  static CQuaternion ShortestRotationArc(const CVector3f&, const CVector3f&);
+
+  // TODO: map says const CUnitVector3f&, but this matches better in CBSCover/CSamusFaceReflection
   static CQuaternion LookAt(const CUnitVector3f&, const CUnitVector3f&, const CRelAngle&);
+  static CQuaternion ClampedRotateTo(const CUnitVector3f&, const CUnitVector3f&, const CRelAngle&);
+
   // normalize_angle__Ff
   // IsValidQuaternion__11CQuaternionCFf
+  static CQuaternion Slerp(const CQuaternion& a, const CQuaternion& b, float t);
   static CQuaternion SlerpLocal(const CQuaternion& from, const CQuaternion& to, float t);
   // AngleFrom__11CQuaternionCFRC11CQuaternion
-  // BuildEquivalent__11CQuaternionCFv
+  CQuaternion BuildEquivalent() const;
   // BuildNormalized__11CQuaternionCFv
   static CQuaternion AxisAngle(const CUnitVector3f&, const CRelAngle&);
   CVector3f Transform(const CVector3f&) const;
@@ -65,14 +69,20 @@ public:
   static const CQuaternion& NoRotation() { return sNoRotation; }
 
   static float Dot(const CQuaternion& a, const CQuaternion& b) {
-    return (a.GetW() * b.GetW()) + (a.GetX() * b.GetX()) + (a.GetY() * b.GetY()) + (a.GetZ() * b.GetZ());
+    return (a.GetW() * b.GetW()) + (a.GetX() * b.GetX()) + (a.GetY() * b.GetY()) +
+           (a.GetZ() * b.GetZ());
   }
 
+  // TODO: fake
   float GetW() const { return w; }
   float GetX() const { return imaginary.GetX(); }
   float GetY() const { return imaginary.GetY(); }
   float GetZ() const { return imaginary.GetZ(); }
   const CVector3f& GetImaginary() const { return imaginary; }
+
+  // Real
+  float GetScalar() const { return w; }
+  const CVector3f& GetVector() const { return imaginary; }
 
 private:
   float w;

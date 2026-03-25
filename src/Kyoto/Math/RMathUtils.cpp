@@ -1,5 +1,7 @@
 #include "Kyoto/Math/CMath.hpp"
 
+#include "Kyoto/Math/CVector3f.hpp"
+
 float CMath::SqrtF(const float x) { return sqrt(x); }
 
 double CMath::SqrtD(const double x) { return sqrt(x); }
@@ -29,6 +31,7 @@ float CMath::CeilingF(float x) {
   }
   return tmp + 1.f;
 }
+
 CVector3f CMath::GetCatmullRomSplinePoint(const CVector3f& a, const CVector3f& b,
                                           const CVector3f& c, const CVector3f& d, float t) {
   if (t <= 0.0f)
@@ -36,11 +39,10 @@ CVector3f CMath::GetCatmullRomSplinePoint(const CVector3f& a, const CVector3f& b
   if (t >= 1.0f)
     return c;
 
-  const float t2 = t * t;
-  const float t3 = t2 * t;
-
-  return (a * (-0.5f * t3 + t2 - 0.5f * t) + b * (1.5f * t3 + -2.5f * t2 + 1.0f) +
-          c * (-1.5f * t3 + 2.0f * t2 + 0.5f * t) + d * (0.5f * t3 - 0.5f * t2));
+  return (a * (-0.5f * t * t * t + t * t - 0.5f * t) +
+          b * (1.5f * t * t * t + -2.5f * t * t + 1.0f) +
+          c * (-1.5f * t * t * t + 2.0f * t * t + 0.5f * t) +
+          d * (0.5f * t * t * t - 0.5f * t * t));
 }
 
 float CMath::GetCatmullRomSplinePoint(float a, float b, float c, float d, float t) {
@@ -49,11 +51,10 @@ float CMath::GetCatmullRomSplinePoint(float a, float b, float c, float d, float 
   if (t >= 1.0f)
     return c;
 
-  const float t2 = t * t;
-  const float t3 = t2 * t;
-
-  return (a * (-0.5f * t3 + t2 - 0.5f * t) + b * (1.5f * t3 + -2.5f * t2 + 1.0f) +
-          c * (-1.5f * t3 + 2.0f * t2 + 0.5f * t) + d * (0.5f * t3 - 0.5f * t2));
+  return (a * (-0.5f * t * t * t + t * t - 0.5f * t) +
+          b * (1.5f * t * t * t + -2.5f * t * t + 1.0f) +
+          c * (-1.5f * t * t * t + 2.0f * t * t + 0.5f * t) +
+          d * (0.5f * t * t * t - 0.5f * t * t));
 }
 
 CVector3f CMath::GetBezierPoint(const CVector3f& a, const CVector3f& b, const CVector3f& c,
@@ -70,78 +71,72 @@ CVector3f CMath::BaryToWorld(const CVector3f& p0, const CVector3f& p1, const CVe
   return bary.GetX() * p0 + bary.GetY() * p1 + bary.GetZ() * p2;
 }
 
+static const uint skSinX1 = 0x3f7ff347; // 0.99980587f
+static const uint skSinX2 = 0xbe2a34ae; // -0.16621658f
+static const uint skSinX3 = 0x3c047fca; // 0.008087108f
+static const uint skSinX4 = 0xb9206873; // -0.000152977f
+
 float CMath::FastSinR(float x) {
-  if (fabs(x) > M_PI) {
-    f32 temp = x;
-    temp *= (1 / M_2PIF);
-    temp = (int)temp;
-    x -= temp * M_2PIF;
-    if (x > M_PIF) {
-      x = x - M_2PIF;
-    } else if (x < -M_PIF) {
-      x = M_2PIF + x;
-    }
+  if (fabs(x) > M_PIF) {
+    x = WrapPi(x);
   }
 
-  float f4 = x;
-  f4 *= x;
-  float f5 = x;
-  f5 *= 0.99980587f;
-  x *= f4;
-  f5 += x * -0.16621658f;
-  x *= f4;
-  f5 += x * 0.008087108f;
-  x *= f4;
-  f5 += x * -0.000152977f;
-  return f5;
+  float x2 = x * x;
+  float acc = x;
+  acc *= reinterpret_cast< const float& >(skSinX1);
+  x *= x2;
+  acc += x * reinterpret_cast< const float& >(skSinX2);
+  x *= x2;
+  acc += x * reinterpret_cast< const float& >(skSinX3);
+  x *= x2;
+  acc += x * reinterpret_cast< const float& >(skSinX4);
+  return acc;
 }
+
+static const uint skCosX1 = 0x3f800000; // 1.0f
+static const uint skCosX2 = 0xbefffd62; // -0.49998003f
+static const uint skCosX3 = 0x3d2a7a18; // 0.041620344f
+static const uint skCosX4 = 0xbab2bb2b; // -0.0013636103f
+static const uint skCosX5 = 0x37a93188; // 0.000020169435f
 
 float CMath::FastCosR(float x) {
-  if (fabs(x) > M_PI) {
-    x -= M_2PIF * static_cast< int >(x * (1 / M_PIF));
-    if (x > M_PIF) {
-      x -= M_2PIF;
-    } else if (x < -M_PIF) {
-      x = M_2PIF + x;
-    }
+  if (fabs(x) > M_PIF) {
+    x = WrapPi(x);
   }
 
-  float f4 = x * x;
-  float f1 = 1.f;
-  float f0 = -0.49998003;
-  float f3 = 0.041620344;
-  f1 += f4 * f0;
-  float f2 = -0.0013636103;
-  float f5 = (f4 * f4);
-  f0 = 0.000020169435;
-  f1 += f5 * f3;
-  f5 *= f4;
-  f1 += f5 * f2;
-  f5 *= f4;
-  f1 += f5 * f0;
-  return f1;
+  float x2 = x * x;
+  float acc = reinterpret_cast< const float& >(skCosX1);
+  acc += x2 * reinterpret_cast< const float& >(skCosX2);
+  float xn = x2 * x2;
+  acc += xn * reinterpret_cast< const float& >(skCosX3);
+  xn *= x2;
+  acc += xn * reinterpret_cast< const float& >(skCosX4);
+  xn *= x2;
+  acc += xn * reinterpret_cast< const float& >(skCosX5);
+  return acc;
 }
 
-float CMath::FastArcCosR(float f1) {
-  if (fabs(f1) > 0.925000011920929) {
-    return acosf(f1);
-  }
-  // TODO: can mess be simplified?
-  float f4 = f1 * f1;
-  float f5 = 1.5707964f;
-  float f0 = -0.9982272f;
-  float f3 = -0.20586604f;
-  f5 = (f1 * f0) + f5;
-  float f2 = 0.114254236f;
-  f1 = (f1 * f4);
-  f0 = -0.29697824f;
-  f5 = (f1 * f3) + f5;
-  f1 = (f1 * f4);
-  f5 = (f1 * f2) + f5;
-  f1 = (f1 * f4);
-  f5 = (f1 * f0) + f5;
+static const uint skArcCosX1 = 0x3fc90fdb; // 1.5707964f (pi/2)
+static const uint skArcCosX2 = 0xbf7f8bd1; // -0.9982272f
+static const uint skArcCosX3 = 0xbe52ce8c; // -0.20586604f
+static const uint skArcCosX4 = 0x3de9fe20; // 0.114254236f
+static const uint skArcCosX5 = 0xbe980d88; // -0.29697824f
 
-  return f5;
+float CMath::FastArcCosR(float x) {
+  if (fabs(x) > 0.925f) {
+    return acosf(x);
+  }
+
+  float x2 = x * x;
+  float acc = reinterpret_cast< const float& >(skArcCosX1);
+  acc += x * reinterpret_cast< const float& >(skArcCosX2);
+  float xn = x * x2;
+  acc += xn * reinterpret_cast< const float& >(skArcCosX3);
+  xn *= x2;
+  acc += xn * reinterpret_cast< const float& >(skArcCosX4);
+  xn *= x2;
+  acc += xn * reinterpret_cast< const float& >(skArcCosX5);
+  return acc;
 }
 
 int CMath::FloorPowerOfTwo(int v) {

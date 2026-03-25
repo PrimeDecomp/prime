@@ -40,6 +40,7 @@ struct TEditorId {
 
   bool operator==(const TEditorId& other) const { return Value() == other.Value(); }
   bool operator!=(const TEditorId& other) const { return Value() != other.Value(); }
+  bool operator<(const TEditorId& other) const { return Value() < other.Value(); }
 };
 CHECK_SIZEOF(TEditorId, 0x4)
 
@@ -47,7 +48,7 @@ struct TUniqueId {
   ushort value;
   TUniqueId() {}
   TUniqueId(const ushort version, const ushort id)
-  : value(((version & 0x3F) << 10) | (id & 0x3FF)) {}
+  : value(id | (version << 10)) {}
 
   ushort Value() const { return value & 0x3FF; }
   ushort Version() const { return (value >> 10) & 0x3F; }

@@ -13,7 +13,7 @@ public:
            const CAssetId wpscId, const CDamageInfo& dInfo, const CAssetId beamContactFxId,
            const CAssetId beamPulseFxId, const CAssetId beamTextureId,
            const CAssetId beamGlowTextureId, const uint anim0, const uint anim1, const uint anim2,
-           const uint anim3, const uint beamSfx, const bool attackDisabled,
+           const uint anim3, const uint beamSfx, bool attackDisabled,
            const CActorParameters& actParams);
 
   void Accept(IVisitor& visitor) override;

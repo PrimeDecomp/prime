@@ -43,6 +43,7 @@ public:
 
   CMatrix3f Orthonormalized() const;
   float Determinant() const;
+  CMatrix3f Inverse() const;
   void AddScaledMatrix(const CMatrix3f& mat, float scale);
 
   // TODO: names/check
@@ -86,7 +87,6 @@ public:
   static CMatrix3f FromTransform(const CTransform4f& xf);
 
 private:
-  // TODO maybe individual floats
   float m00;
   float m01;
   float m02;
@@ -96,9 +96,6 @@ private:
   float m20;
   float m21;
   float m22;
-  // CVector3f m0;
-  // CVector3f m1;
-  // CVector3f m2;
 };
 CHECK_SIZEOF(CMatrix3f, 0x24);
 

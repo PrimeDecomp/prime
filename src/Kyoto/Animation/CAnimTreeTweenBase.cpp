@@ -52,9 +52,9 @@ float CAnimTreeTweenBase::VGetRightChildWeight() const { return GetBlendingWeigh
 
 float CAnimTreeTweenBase::GetBlendingWeight() const { return VGetBlendingWeight(); }
 
-rstl::optional_object< rstl::auto_ptr< IAnimReader > > CAnimTreeTweenBase::VSimplified() {}
+rstl::optional_object< rstl::ownership_transfer< IAnimReader > > CAnimTreeTweenBase::VSimplified() {}
 
-rstl::optional_object< rstl::auto_ptr< IAnimReader > > CAnimTreeTweenBase::VReverseSimplified() {
+rstl::optional_object< rstl::ownership_transfer< IAnimReader > > CAnimTreeTweenBase::VReverseSimplified() {
   return CAnimTreeTweenBase::VSimplified();
 }
 

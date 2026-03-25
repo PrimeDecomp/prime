@@ -3,13 +3,17 @@
 
 #include "MetroidPrime/ICollisionFilter.hpp"
 
+class CActor;
 class CCollisionInfoList;
 
 class CAABoxFilter : public ICollisionFilter {
 public:
-  explicit CAABoxFilter(CActor& actor) : ICollisionFilter(actor) {}
+  explicit CAABoxFilter(const CActor& actor) : x4_actor(actor) {}
   static void FilterBoxFloorCollisions(const CCollisionInfoList& in, CCollisionInfoList& out);
   void Filter(const CCollisionInfoList& in, CCollisionInfoList& out) const;
+
+private:
+  const CActor& x4_actor;
 };
 
 #endif // _CAABOXFILTER

@@ -19,6 +19,7 @@ public:
   CVector3f GetLocalPosition() const;
   const CTransform4f& GetWorldTransform() const { return x34_worldXF; }
   void SetLocalPosition(const CVector3f& pos);
+  CTransform4f& LocalTransform() { return x4_localXF; }
   void SetLocalTransform(const CTransform4f& xf);
   void SetO2WTransform(const CTransform4f& xf);
 
@@ -26,8 +27,7 @@ public:
 
   CVector3f RotateO2P(const CVector3f& vec) const;
   CVector3f RotateW2O(const CVector3f& vec) const {
-    CVector3f tmp = x34_worldXF.TransposeRotate(vec);
-    return tmp;
+    return x34_worldXF.TransposeRotate(vec);
   }
   CVector3f RotateTranslateW2O(const CVector3f& vec) const;
   void MultiplyO2P(const CTransform4f& xf);

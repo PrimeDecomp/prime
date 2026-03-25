@@ -40,6 +40,7 @@ public:
   void PostConstruct();
   bool GetIsVisibleToAutoMapper(bool worldVis, bool areaVis) const;
   CVector3f GetAreaCenterPoint() const;
+  const CAABox& GetBoundingBox() const { return x10_box; }
   CTransform4f GetAreaPostTransform(const IWorld&, int);
   static const CVector3f& GetAreaPostTranslate(const IWorld&, int);
 

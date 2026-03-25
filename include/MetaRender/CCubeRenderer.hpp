@@ -3,6 +3,7 @@
 
 #include "Kyoto/Graphics/CGraphics.hpp"
 #include "Kyoto/Math/CPlane.hpp"
+#include "MetroidPrime/CGameArea.hpp"
 #include "types.h"
 
 #include <dolphin/gx/GXEnum.h>
@@ -27,62 +28,72 @@
 
 #include "Weapons/IWeaponRenderer.hpp"
 
-#include "WorldFormat/CAreaOctTree.hpp"
-
 #include "rstl/list.hpp"
 #include "rstl/optional_object.hpp"
 #include "rstl/pair.hpp"
 #include "rstl/single_ptr.hpp"
 #include "rstl/vector.hpp"
 
-class CAreaOctTree;
 class CCubeModel;
 class CMetroidModelInstance;
 class CModel;
 class CSkinnedModel;
 class CCubeSurface;
 class CLight;
+class CModelFlags;
 
 class CCubeRenderer : public IRenderer, public IWeaponRenderer, public TOneStatic< CCubeRenderer > {
 private:
   class CAreaListItem {
   public:
     CAreaListItem(const rstl::vector< CMetroidModelInstance >* geometry,
-                  const CAreaOctTree* octTree,
+                  const CAreaRenderOctTree* octTree,
                   const rstl::auto_ptr< rstl::vector< TCachedToken< CTexture > > >& textures,
                   const rstl::auto_ptr< rstl::vector< rstl::auto_ptr< CCubeModel > > >& models,
                   int areaIdx);
-    ~CAreaListItem() {}
+
+    const rstl::vector< CMetroidModelInstance >* GetModelVector() const { return x0_geometry; }
+    const rstl::auto_ptr< rstl::vector< TCachedToken< CTexture > > >& GetTextures() const {
+      return x8_textures;
+    }
+    const rstl::auto_ptr< rstl::vector< rstl::auto_ptr< CCubeModel > > >& GetModelList() const {
+      return xc_models;
+    }
+    int GetAreaId() const { return x18_areaIdx; }
 
     // private:
     const rstl::vector< CMetroidModelInstance >* x0_geometry;
-    const CAreaOctTree* x4_octTree;
+    const CAreaRenderOctTree* x4_octTree;
     const rstl::auto_ptr< rstl::vector< TCachedToken< CTexture > > > x8_textures;
     const rstl::auto_ptr< rstl::vector< rstl::auto_ptr< CCubeModel > > > xc_models;
     int x18_areaIdx;
     rstl::vector< uint > x1c_lightOctreeWords;
   };
 
+public:
   class CFogVolumeListItem {
+  public:
+    CFogVolumeListItem(const CTransform4f&, CColor, const CAABox&, const TLockedToken< CModel >*,
+                       const CSkinnedModel*);
+
     CTransform4f x0_xf;
     CColor x30_color;
     CAABox x34_aabb;
-    rstl::optional_object< TCachedToken< CModel > > x4c_model;
+    rstl::optional_object< TLockedToken< CModel > > x4c_model;
     const CSkinnedModel* x5c_skinnedModel;
   };
 
-public:
   CCubeRenderer(IObjectStore&, COsContext&, CMemorySys&, CResFactory&);
   ~CCubeRenderer() override;
   void AddStaticGeometry(const rstl::vector< CMetroidModelInstance >* geometry,
-                         const CAreaOctTree* octTree, int areaIdx) override;
-  void EnablePVS(const CPVSVisSet& set, int areaIdx) override;
+                         const CAreaRenderOctTree* octTree, int areaIdx) override;
+  void EnablePVS(const CPVSVisSet* set, int areaIdx) override;
   void DisablePVS() override;
   void RemoveStaticGeometry(const rstl::vector< CMetroidModelInstance >* geometry) override;
-  void DrawUnsortedGeometry(int areaIdx, int mask, int targetMask) override;
-  void DrawSortedGeometry(int areaIdx, int mask, int targetMask) override;
-  void DrawStaticGeometry(int areaIdx, int mask, int targetMask) override;
-  void DrawAreaGeometry(int areaIdx, int mask, int targetMask) override;
+  void DrawUnsortedGeometry(int areaIdx, uint mask, uint targetMask) override;
+  void DrawSortedGeometry(int areaIdx, uint mask, uint targetMask) override;
+  void DrawStaticGeometry(int areaIdx, uint mask, uint targetMask) override;
+  void DrawAreaGeometry(int areaIdx, uint mask, uint targetMask) override;
   void PostRenderFogs() override;
   void SetModelMatrix(const CTransform4f& xf) override;
   void AddParticleGen(const CParticleGen& gen) override;
@@ -122,37 +133,73 @@ public:
   void PrimColor(const CColor& color) override;
   void EndPrimitive() override;
   void SetAmbientColor(const CColor& color) override;
-  void DrawString() override;
+  void DrawString(const char*, int, int) override;
   float GetFPS() override;
-  void CacheReflection() override;
-  void DrawSpaceWarp() override;
-  void DrawThermalModel() override;
-  void DrawModelDisintegrate() override;
-  void DrawModelFlat() override;
-  void SetWireframeFlags() override;
-  void SetWorldFog(ERglFogMode mode, const float startz, const float endz,
-                   const CColor& color) override;
-  void RenderFogVolume(const CColor&, const CAABox&, const TLockedToken< CModel >*,
+  void CacheReflection(void (*)(void*, const CVector3f&), void*, bool) override;
+  void DrawSpaceWarp(const CVector3f&, float) override;
+  void DrawThermalModel(const CModel&, const CColor&, const CColor&, const float*, const float*,
+                        const CModelFlags&) override;
+  void DrawModelDisintegrate(const CModel&, const CTexture&, const CColor&, const float*,
+                             const float*, float) override;
+  void DrawModelFlat(const CModel&, const CModelFlags&, bool, const float*, const float*) override;
+  void SetWireframeFlags(int) override;
+  void SetWorldFog(ERglFogMode mode, float startz, float endz, const CColor& color) override;
+  void RenderFogVolume(const CColor&, const CAABox&,
+                       const TLockedToken< CModel >*,
                        const CSkinnedModel*) override;
-  void SetThermal() override;
-  void SetThermalColdScale() override;
+  void SetThermal(bool, float, const CColor&) override;
+  void SetThermalColdScale(float) override;
   void DoThermalBlendCold() override;
   void DoThermalBlendHot() override;
-  void GetStaticWorldDataSize() override;
-  void SetGXRegister1Color() override;
-  void SetWorldLightFadeLevel() override;
-  void Something() override;
+  int GetStaticWorldDataSize() override;
+  void SetGXRegister1Color(const CColor&) override;
+  void SetWorldLightFadeLevel(float) override;
+  CAABox GetAreaModelBounds(int areaIdx, int modelIdx) override;
   void PrepareDynamicLights(const rstl::vector< CLight >& lights) override;
 
+  void DrawXRayOutline(const CAABox&, const float*, const float*);
+  void FindOverlappingWorldModels(rstl::vector< uint >&, const CAABox&);
+  int DrawOverlappingWorldModelIDs(int, rstl::vector< uint >&, const CAABox&, int, int);
+  void DrawOverlappingWorldModelShadows(int, rstl::vector< uint >&, const CAABox&, int, int);
+
+  bool GetThermal() const { return x318_29_thermalVisor; }
+  bool GetInAreaDraw() const { return x318_30_inAreaDraw; }
+
   void AllocatePhazonSuitMaskTexture();
+  void DrawPhazonSuitIndirectEffect(const CColor&,
+                                    const rstl::optional_object< TLockedToken< CTexture > >&,
+                                    const CColor&, float, float, float, float);
+  void ReallyDrawPhazonSuitIndirectEffect(const CColor&, const CTexture&, const CTexture&,
+                                          const CColor&, float, float, float);
+  void ReallyDrawPhazonSuitEffect(const CColor&, const CTexture&);
+  void DoPhazonSuitIndirectAlphaBlur(float, float);
+  void CopyTex(int, bool, void*, GXTexFmt, bool);
+  void DoThermalModelDraw(const CCubeModel&, const CColor&, const CColor&, const float*,
+                          const float*, const CModelFlags&);
   void SetupRendererStates(bool depthWrite);
   void SetupCGraphicsStates();
   void AddWorldSurfaces(CCubeModel& model);
+  void HandleUnsortedModel(const CAreaListItem*, CCubeModel&);
+  void HandleUnsortedModelWireframe(const CAreaListItem*, CCubeModel&);
+  void ActivateLightsForModel(const CAreaListItem*, const CCubeModel&);
+  void RenderBucketItems(const CAreaListItem*);
   void DrawRenderBucketsDebug();
+  static void DrawFogFan(const CVector3f*, int);
+  static void DrawFogFans(const CPlane*, int, const CVector3f*, int, int, int);
+  static void DrawFogSlices(const CPlane*, int, int, const CVector3f&, float);
+  static void RenderFogVolumeModel(const CAABox&, const CModel*, const CTransform4f&, CTransform4f,
+                                   const CSkinnedModel*);
+  void ReallyRenderFogVolume(const CColor&, const CAABox&, const CModel*, const CSkinnedModel*);
+  void _DrawSpaceWarp(const CVector3f&, float);
+  static void* GetRenderToTexBuffer(int);
 
   void SetRequestRGBA6(bool req) { x318_26_requestRGBA6 = req; }
+  bool GetReflectionFlag() const { return x318_24_reflectionDirty; }
+  void SetReflectionFlag() { x318_24_reflectionDirty = true; }
   CTexture* GetRealReflection();
   const CPlane& GetViewPlane() const { return xb0_viewPlane; }
+  const CTexture& GetZeroTexture() const { return xe4_blackTex; }
+  static CCubeRenderer* That() { return sRenderer; }
 
 private:
   CResFactory& x8_factory;

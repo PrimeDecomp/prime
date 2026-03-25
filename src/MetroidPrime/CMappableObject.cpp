@@ -1,10 +1,10 @@
 #include "MetroidPrime/CMappableObject.hpp"
 
-#include "Kyoto/Basics/CBasics.hpp"
 #include "MetroidPrime/CMapWorldInfo.hpp"
 #include "MetroidPrime/Tweaks/CTweakAutoMapper.hpp"
 #include "MetroidPrime/Tweaks/CTweakPlayerRes.hpp"
 
+#include "Kyoto/Basics/CBasics.hpp"
 #include "Kyoto/CSimplePool.hpp"
 #include "Kyoto/Graphics/CColor.hpp"
 #include "Kyoto/Graphics/CGX.hpp"
@@ -130,19 +130,19 @@ void CMappableObject::Draw(int curArea, const CMapWorldInfo& mwInfo, float alpha
       }
       CGX::SetTevKColor(GX_KCOLOR0, colors.first.GetGXColor());
       CGX::Begin(GX_TRIANGLESTRIP, GX_VTXFMT0, 4);
-      GXPosition1x8(sDrawData[i].xc_idxA);
-      GXPosition1x8(sDrawData[i].xd_idxB);
-      GXPosition1x8(sDrawData[i].xe_idxC);
-      GXPosition1x8(sDrawData[i].xf_idxD);
+      RSPosition1x8(sDrawData[i].xc_idxA);
+      RSPosition1x8(sDrawData[i].xd_idxB);
+      RSPosition1x8(sDrawData[i].xe_idxC);
+      RSPosition1x8(sDrawData[i].xf_idxD);
       CGX::End();
 
       CGX::SetTevKColor(GX_KCOLOR0, colors.second.GetGXColor());
       CGX::Begin(GX_LINESTRIP, GX_VTXFMT0, 5);
-      GXPosition1x8(sDrawData[i].xc_idxA);
-      GXPosition1x8(sDrawData[i].xd_idxB);
-      GXPosition1x8(sDrawData[i].xf_idxD);
-      GXPosition1x8(sDrawData[i].xe_idxC);
-      GXPosition1x8(sDrawData[i].xc_idxA);
+      RSPosition1x8(sDrawData[i].xc_idxA);
+      RSPosition1x8(sDrawData[i].xd_idxB);
+      RSPosition1x8(sDrawData[i].xf_idxD);
+      RSPosition1x8(sDrawData[i].xe_idxC);
+      RSPosition1x8(sDrawData[i].xc_idxA);
       CGX::End();
     }
     return;
@@ -212,19 +212,19 @@ void CMappableObject::DrawDoorSurface(int curAreaId, const CMapWorldInfo& mwInfo
 
   CGX::SetTevKColor(GX_KCOLOR0, colors.first.GetGXColor());
   CGX::Begin(GX_TRIANGLESTRIP, GX_VTXFMT0, 4);
-  GXPosition1x8(drawData.xc_idxA);
-  GXPosition1x8(drawData.xd_idxB);
-  GXPosition1x8(drawData.xe_idxC);
-  GXPosition1x8(drawData.xf_idxD);
+  RSPosition1x8(drawData.xc_idxA);
+  RSPosition1x8(drawData.xd_idxB);
+  RSPosition1x8(drawData.xe_idxC);
+  RSPosition1x8(drawData.xf_idxD);
   CGX::End();
 
   CGX::SetTevKColor(GX_KCOLOR0, colors.second.GetGXColor());
   CGX::Begin(GX_LINESTRIP, GX_VTXFMT0, 5);
-  GXPosition1x8(drawData.xc_idxA);
-  GXPosition1x8(drawData.xd_idxB);
-  GXPosition1x8(drawData.xf_idxD);
-  GXPosition1x8(drawData.xe_idxC);
-  GXPosition1x8(drawData.xc_idxA);
+  RSPosition1x8(drawData.xc_idxA);
+  RSPosition1x8(drawData.xd_idxB);
+  RSPosition1x8(drawData.xf_idxD);
+  RSPosition1x8(drawData.xe_idxC);
+  RSPosition1x8(drawData.xc_idxA);
   CGX::End();
 }
 

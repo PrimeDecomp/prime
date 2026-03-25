@@ -27,13 +27,14 @@ public:
 
   const_iterator begin() const { return inner.begin(); }
   const_iterator end() const { return inner.end(); }
+  uint size() const { return inner.size(); }
 
   iterator find(const K& key) { return inner.find(key); }
   const_iterator find(const K& key) const { return inner.find(key); }
 
   void erase(iterator it) { inner.erase(it); }
+  void clear() { inner.clear(); }
 
-  rep_type& get_inner() { return inner; } // hack for CWeaponMgr inlining depth
 private:
   rep_type inner;
 };

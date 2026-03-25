@@ -6,6 +6,7 @@
 
 class CMetaAnimTreeBuildOrders;
 class CAnimTreeContext;
+class IMetaAnim;
 class CAnimationManager {
 public:
   CAnimationManager(const TToken< CAnimationDatabase >& animDB, const CAnimSysContext& sysCtx)
@@ -13,6 +14,7 @@ public:
 
   rstl::rc_ptr< CAnimTreeNode > GetAnimationTree(uint a,
                                                  const CMetaAnimTreeBuildOrders& orders) const;
+  rstl::rc_ptr< IMetaAnim > GetMetaAnimation(uint a) const;
 
 private:
   TToken< CAnimationDatabase > x0_animDB;

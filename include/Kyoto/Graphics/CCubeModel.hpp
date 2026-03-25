@@ -11,6 +11,13 @@ class IObjectStore;
 class CTexture;
 class CTransform4f;
 class CCubeSurface;
+class CStopwatch;
+
+enum ESurfaceSelection {
+  kSS_Unsorted,
+  kSS_Sorted,
+  kSS_All,
+};
 
 class CCubeModel {
 public:
@@ -51,21 +58,30 @@ public:
              const void* colors, const void* uvs, const void* compressedUvs, const CAABox& bounds,
              uchar visorFlags, bool texturesLoaded, uint idx);
   static void SetRenderModelBlack(bool v);
+  static void SetModelWireframe(bool v);
   static void DisableShadowMaps();
   static void EnableShadowMaps(const CTexture*, const CTransform4f&, unsigned char, unsigned char);
+  static void SetNewPlayerPositionAndTime(const CVector3f&, const CStopwatch&);
   static void SetDrawingOccluders(bool);
   static void MakeTexturesFromMats(const void* data,
                                    rstl::vector< TCachedToken< CTexture > >& textures,
                                    IObjectStore& store, bool cache);
 
+  const CAABox& GetBoundingBox() const { return x20_bounds; }
   const CCubeSurface& GetNormalSurfaces() const { return x38_firstUnsorted; }
   const CCubeSurface& GetAlphaSurfaces() const { return x3c_firstSorted; }
+  bool GetShouldDrawWorldFlag() const { return x40_25_visible; }
+  void SetShouldDrawWorldFlag(bool shouldDraw) { x40_25_visible = shouldDraw; }
+  uchar GetModelFlags() const { return x41_visorFlags; }
+  int GetModelIndex() const { return x44_idx; } // TODO: name
 
   CCubeMaterial GetMaterialByIndex(const int idx) const;
   void SetStaticArraysCurrent() const;
   void SetArraysCurrent() const;
   void SetSkinningArraysCurrent(const float* positions, const float* normals) const;
   void SetUsingPackedLightmaps(const bool use) const;
+  static bool IsUsingPackedLightmaps() { return sUsingPackedLightmaps; }
+  void DrawFlat(const float* positions, const float* normals, ESurfaceSelection which) const;
   void DrawSurface(const CCubeSurface& surface, const CModelFlags& modelFlags) const;
   void DrawSurfaceWireframe(const CCubeSurface& surface) const;
   bool TryLockTextures() const;
@@ -84,7 +100,7 @@ private:
   mutable bool x40_24_loadTextures : 1;
   bool x40_25_visible : 1;
   uchar x41_visorFlags;
-  uint x44_idx;
+  int x44_idx;
 
   static bool sUsingPackedLightmaps;
 };

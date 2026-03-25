@@ -5,7 +5,8 @@
 
 
 class CCharacterFactory : IObjFactory {
-
+public:
+  int GetEventResourceIdForAnimResourceId(int id) const;
 };
 
 #endif // _CCHARACTERFACTORY

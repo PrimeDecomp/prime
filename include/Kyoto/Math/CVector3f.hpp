@@ -10,6 +10,7 @@
 class CInputStream;
 class COutputStream;
 class CRelAngle;
+class CUnitVector3f;
 
 enum EDimX { kDX };
 enum EDimY { kDY };
@@ -106,25 +107,34 @@ public:
   }
 
   static const CVector3f& Zero() { return sZeroVector; }
-  static const CVector3f& Up() { return sUpVector; }
-  static const CVector3f& Down() { return sDownVector; }
-  static const CVector3f& Left() { return sLeftVector; }
-  static const CVector3f& Right() { return sRightVector; }
-  static const CVector3f& Forward() { return sForwardVector; }
-  static const CVector3f& Back() { return sBackVector; }
+  static const CUnitVector3f& Up();
+  static const CUnitVector3f& Down();
+  static const CUnitVector3f& Left();
+  static const CUnitVector3f& Right();
+  static const CUnitVector3f& Forward();
+  static const CUnitVector3f& Back();
   
+  friend CVector3f operator-(const CVector3f& lhs, const CVector3f& rhs);
+  friend CVector3f operator+(const CVector3f& lhs, const CVector3f& rhs);
+  friend CVector3f operator*(const CVector3f& vec, const float f);
+  friend CVector3f operator*(const float f, const CVector3f& vec);
+  friend CVector3f operator/(const CVector3f& vec, const float f);
+  friend CVector3f operator-(const CVector3f& vec);
+  friend bool operator==(const CVector3f& lhs, const CVector3f& rhs);
+  friend bool operator!=(const CVector3f& lhs, const CVector3f& rhs);
+
 protected:
   float mX;
   float mY;
   float mZ;
 
   static CVector3f sZeroVector;
-  static CVector3f sUpVector;
-  static CVector3f sDownVector;
-  static CVector3f sLeftVector;
-  static CVector3f sRightVector;
-  static CVector3f sForwardVector;
-  static CVector3f sBackVector;
+  static CUnitVector3f sUpVector;
+  static CUnitVector3f sDownVector;
+  static CUnitVector3f sLeftVector;
+  static CUnitVector3f sRightVector;
+  static CUnitVector3f sForwardVector;
+  static CUnitVector3f sBackVector;
 };
 CHECK_SIZEOF(CVector3f, 0xc)
 
@@ -133,35 +143,33 @@ CHECK_SIZEOF(CVector3f, 0xc)
 // close_enough__FRC9CVector3fRC9CVector3ff in CloseEnough.cpp
 
 inline bool operator==(const CVector3f& lhs, const CVector3f& rhs) {
-  return lhs.GetX() == rhs.GetX() && lhs.GetY() == rhs.GetY() && lhs.GetZ() == rhs.GetZ();
+  return lhs.mX == rhs.mX && lhs.mY == rhs.mY && lhs.mZ == rhs.mZ;
 }
 inline bool operator!=(const CVector3f& lhs, const CVector3f& rhs) {
   return lhs.GetX() != rhs.GetX() || lhs.GetY() != rhs.GetY() || lhs.GetZ() != rhs.GetZ();
 }
 
 inline CVector3f operator-(const CVector3f& lhs, const CVector3f& rhs) {
-  float x = lhs.GetX() - rhs.GetX();
-  float y = lhs.GetY() - rhs.GetY();
-  float z = lhs.GetZ() - rhs.GetZ();
+  float x = lhs.mX - rhs.mX;
+  float y = lhs.mY - rhs.mY;
+  float z = lhs.mZ - rhs.mZ;
   return CVector3f(x, y, z);
 }
 
 inline CVector3f operator+(const CVector3f& lhs, const CVector3f& rhs) {
-  float x = lhs.GetX() + rhs.GetX();
-  float y = lhs.GetY() + rhs.GetY();
-  float z = lhs.GetZ() + rhs.GetZ();
+  float x = lhs.mX + rhs.mX;
+  float y = lhs.mY + rhs.mY;
+  float z = lhs.mZ + rhs.mZ;
   return CVector3f(x, y, z);
 }
 
-// TODO real?
-inline CVector3f operator*(const CVector3f& lhs, const CVector3f& rhs) {
-  float x = lhs.GetX() * rhs.GetX();
-  float y = lhs.GetY() * rhs.GetY();
-  float z = lhs.GetZ() * rhs.GetZ();
-  return CVector3f(x, y, z);
-}
-
-
+// Doesn't show up in map; use CVector3f::ByElementMultiply instead
+// inline CVector3f operator*(const CVector3f& lhs, const CVector3f& rhs) {
+//   float x = lhs.GetX() * rhs.GetX();
+//   float y = lhs.GetY() * rhs.GetY();
+//   float z = lhs.GetZ() * rhs.GetZ();
+//   return CVector3f(x, y, z);
+// }
 
 inline CVector3f operator*(const CVector3f& vec, const float f) {
   float x = vec.GetX() * f;

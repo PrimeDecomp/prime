@@ -26,7 +26,7 @@ public:
   void SetDeltaRotation(const CQuaternion& q);
   void SetCurrentAnimation(const CAnimPlaybackParms& parms, bool loop, bool noTrans);
   void FaceDirection(const CVector3f& v0, float dt);
-  void FaceDirection3D(const CVector3f& v0, float dt);
+  void FaceDirection3D(const CVector3f& v0, const CVector3f& v1, float dt);
   void EnableAnimation(bool enable);
   void PlayBestAnimation(const CPASAnimParmData& parms, CRandom16& r);
   void LoopBestAnimation(const CPASAnimParmData& parms, CRandom16& r);
@@ -45,10 +45,13 @@ public:
   const CBodyStateInfo& GetBodyStateInfo() const { return x2a4_bodyStateInfo; }
   CBodyStateInfo& BodyStateInfo() { return x2a4_bodyStateInfo; }
   pas::ELocomotionType GetLocomotionType() const { return x2ec_locomotionType; }
+  EBodyType GetBodyType() const { return x2f4_bodyType; }
   int GetCurrentAnimId() const { return x2f8_curAnim; }
   void SetTurnSpeed(float speed);
   bool IsAnimationOver() const { return x300_24_animationOver; }
+  bool GetIsActive() const { return x300_25_active; }
   bool ShouldPlayDeathAnims() const { return x300_28_playDeathAnims; }
+  pas::EAnimationState GetCurrentStateId() const { return x2a4_bodyStateInfo.GetCurrentStateId(); }
   float GetRestrictedFlyerMoveSpeed() const { return x330_restrictedFlyerMoveSpeed; }
   void SetRestrictedFlyerMoveSpeed(float speed) { x330_restrictedFlyerMoveSpeed = speed; }
 

@@ -6,7 +6,6 @@
 #include "MetroidPrime/TGameTypes.hpp"
 #include "MetroidPrime/Weapons/WeaponTypes.hpp"
 
-struct SShotParam;
 class CDamageVulnerability;
 
 class CDamageInfo {
@@ -40,9 +39,6 @@ public:
 
   CDamageInfo(CInputStream& in);
   CDamageInfo(const CDamageInfo&, float);
-  CDamageInfo(const SShotParam& other);
-
-  CDamageInfo& operator=(const SShotParam& other);
 
   const CWeaponMode& GetWeaponMode() const { return x0_weaponMode; }
   void SetWeaponMode(const CWeaponMode& mode) { x0_weaponMode = mode; }

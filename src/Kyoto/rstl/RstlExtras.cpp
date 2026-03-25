@@ -10,7 +10,7 @@ namespace rstl {
 CRefData CRefData::sNull(nullptr, 0x1000000 - 1);
 }
 
-int CStringExtras::IndexOfSubstring(const rstl::string& left, const rstl::string& right) {
+int CStringExtras::FindCaseInsensitive(const rstl::string& left, const rstl::string& right) {
   int rightSize = right.size();
   if (rightSize == 0) {
     return 0;

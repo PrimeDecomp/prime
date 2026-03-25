@@ -105,8 +105,10 @@ struct CAreaRenderOctTree {
 
   explicit CAreaRenderOctTree(const u8* buf);
 
-  void FindOverlappingModels(rstl::vector< u32 >& out, const CAABox& testAABB) const;
-  void FindOverlappingModels(u32* out, const CAABox& testAABB) const;
+  void FindOverlappingModels(rstl::vector< uint >& out, const CAABox& testAABB) const;
+  void FindOverlappingModels(uint* out, const CAABox& testAABB) const;
+
+  static bool TestBit(const uint* words, int bitIdx);
 };
 CHECK_SIZEOF(CAreaRenderOctTree, 0x3c);
 class CPFArea;
@@ -147,7 +149,7 @@ public:
       m_area = m_area->GetNext();
       return *this;
     }
-    bool operator!=(const CChainIterator& other) const { return m_area != other.m_area; }
+    bool operator!=(const CChainIterator& other) const { return other.m_area != m_area; }
     bool operator==(const CChainIterator& other) const { return m_area == other.m_area; }
   };
 
@@ -173,7 +175,7 @@ public:
   enum EOcclusionState { kOS_Occluded, kOS_Visible };
 
   struct CPostConstructed {
-    rstl::optional_object< CAreaOctTree* > x0_collision;
+    rstl::auto_ptr< CAreaOctTree > x0_collision;
     int x8_; // TODO
     rstl::optional_object< CAreaRenderOctTree > xc_octTree;
     rstl::vector< CMetroidModelInstance > x4c_insts;
@@ -192,7 +194,12 @@ public:
     const u8* x10d4_firstMatPtr;
     const CScriptAreaAttributes* x10d8_areaAttributes;
     EOcclusionState x10dc_occlusionState;
-    uchar x10e0_pad[0x60];
+    uchar x10e0_pad[0x3c];
+    float x111c_thermalCurrent;
+    float x1120_thermalSpeed;
+    float x1124_thermalTarget;
+    float x1128_worldLightingLevel;
+    uchar x112c_pad[0x14];
 
     CPostConstructed();
     ~CPostConstructed();
@@ -212,6 +219,7 @@ public:
   const CTransform4f& GetTM() const { return xc_transform; }
   bool IsLoaded() const { return xf0_24_postConstructed; }
   bool IsActive() const { return xf0_25_active; }
+  bool IsValidated() const { return xf0_28_validated; }
   const CAABox& GetAABB() const { return x6c_aabb; }
   CGameArea* GetNext() const; // { return x130_next; }
 
@@ -242,12 +250,17 @@ public:
     }
     return x12c_postConstructed->x10dc_occlusionState;
   }
-  const rstl::vector< CWorldLight >& GetLightsA() const { return x12c_postConstructed->x60_lightsA; }
-  const rstl::vector< CWorldLight >& GetLightsB() const { return x12c_postConstructed->x80_lightsB; }
+  const rstl::vector< CWorldLight >& GetLightsA() const {
+    return x12c_postConstructed->x60_lightsA;
+  }
+  const rstl::vector< CWorldLight >& GetLightsB() const {
+    return x12c_postConstructed->x80_lightsB;
+  }
   const CPVSAreaSet* GetAreaVisSet() const { return x12c_postConstructed->xa0_pvs; }
-  bool IsPostConstructed() const { return xf0_24_postConstructed; } // name?
+  bool IsPostConstructed() const { return xf0_24_postConstructed; }                         // name?
   CPostConstructed* GetPostConstructed() { return x12c_postConstructed.get(); }             // name?
   const CPostConstructed* GetPostConstructed() const { return x12c_postConstructed.get(); } // name?
+  const CAreaOctTree& GetOctTree() const { return *GetPostConstructed()->x0_collision; }
   CGameArea* GetNext() { return x130_next; }                                                // name?
   CGameArea* GetPrev() { return x134_prev; }                                                // name?
   int GetCurChain() const { return x138_curChain; }                                         // name?

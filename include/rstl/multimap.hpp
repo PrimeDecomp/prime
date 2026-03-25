@@ -28,6 +28,8 @@ public:
   iterator find(const K& key) { return inner.find(key); }
   const_iterator find(const K& key) const { return inner.find(key); }
 
+  rstl::pair< iterator, iterator > equal_range(const K& key) { return inner.equal_range(key); }
+
   void erase(iterator it) { inner.erase(it); }
 
   rep_type& get_inner() { return inner; }  // hack for CWeaponMgr inlining depth

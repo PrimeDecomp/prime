@@ -4,6 +4,7 @@
 #include "Kyoto/SObjectTag.hpp"
 #include "types.h"
 
+#include "MetroidPrime/CEnvFxManager.hpp"
 #include "MetroidPrime/CGameArea.hpp"
 #include "MetroidPrime/TGameTypes.hpp"
 
@@ -56,14 +57,6 @@ private:
   TEditorId x4_target;
   ushort x8_msg;
   bool xa_active;
-};
-
-// TODO move?
-enum EEnvFxType {
-  kEFX_None,
-  kEFX_Snow,
-  kEFX_Rain,
-  kEFX_UnderwaterFlake,
 };
 
 class CWorld final : public IWorld {
@@ -220,7 +213,7 @@ class CDummyWorld : public IWorld {
   TAreaId x3c_curAreaId;
 
 public:
-  CDummyWorld(CAssetId mlvlId, bool loadMap);
+  CDummyWorld(CAssetId mlvlId);
   ~CDummyWorld() override;
   CAssetId IGetWorldAssetId() const override;
   CAssetId IGetStringTableAssetId() const override;

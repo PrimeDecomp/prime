@@ -6,6 +6,7 @@
 #include "MetroidPrime/CControlMapper.hpp"
 
 class CScriptControllerAction : public CEntity {
+public:
   enum ECommands {
     kC_Forward,
     kC_Backward,
@@ -74,13 +75,6 @@ class CScriptControllerAction : public CEntity {
     kC_MAX
   };
 
-  ECommands x34_command;
-  uint x38_mapScreenSubaction;
-  uchar x3c_24_mapScreenResponse : 1;
-  bool x3c_25_deactivateOnClose : 1;
-  bool x3c_26_pressed : 1;
-
-public:
   CScriptControllerAction(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
                           bool active, ECommands command, bool b1, uint w1, bool b2);
 
@@ -88,6 +82,13 @@ public:
   void Think(float, CStateManager&) override;
 
   static ControlMapper::ECommands GetCommand(ECommands cmd);
+
+private:
+  ECommands x34_command;
+  uint x38_mapScreenSubaction;
+  uchar x3c_24_mapScreenResponse : 1;
+  bool x3c_25_deactivateOnClose : 1;
+  bool x3c_26_pressed : 1;
 };
 
 #endif // _CSCRIPTCONTROLLERACTION

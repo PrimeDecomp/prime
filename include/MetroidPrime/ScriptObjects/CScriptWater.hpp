@@ -58,6 +58,8 @@ public:
   void SetupGrid(bool recomputeClipping);
   void SetupGridClipping(CStateManager&, int computeVerts);
   int GetPatchRenderFlags(int x, int y) const;
+  int GetPatchDimensionX() const { return x2d0_patchDimX; }
+  int GetPatchDimensionY() const { return x2d4_patchDimY; }
   void SetMorphing(const bool m);
   const CScriptWater* GetNextConnectedWater(const CStateManager&) const;
   // RenderSurface__12CScriptWaterFv
@@ -82,12 +84,13 @@ public:
   ushort GetUnmorphVisorRunoffSfx() const { return x262_unmorphVisorRunoffSfx; }
   // GetFluidType__12CScriptWaterCFv
   bool IsMorphing() const { return x2e8_26_morphing; }
+  float GetMorphFactor() const { return x1f8_morphFactor; }
   // GetFrustumPlanes__12CScriptWaterCFv
   int GetSplashIndex(float scale) const;
   const rstl::optional_object< TLockedToken< CGenDescription > >& GetSplashEffect(float scale) const;
   int GetSplashSound(float scale) const;
   float GetSplashEffectScale(float scale) const;
-  // GetSplashColor__12CScriptWaterCFv
+  const CColor& GetSplashColor() const { return x2a4_splashColor; }
 
   static const float kSplashScales[6];
 

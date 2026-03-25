@@ -9,8 +9,8 @@ class CElementGen;
 class CGenDescription;
 class CBomb : public CWeapon {
 public:
-  CBomb(const TToken< CGenDescription >& particle1, const TToken< CGenDescription >& particle2,
-        TUniqueId uid, TAreaId aid, TUniqueId playerId, float f1, const CTransform4f& xf,
+  CBomb(TToken< CGenDescription > particle1, TToken< CGenDescription > particle2, TUniqueId uid,
+        TAreaId aid, TUniqueId playerId, float f1, const CTransform4f& xf,
         const CDamageInfo& dInfo);
   ~CBomb();
 

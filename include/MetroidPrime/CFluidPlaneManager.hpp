@@ -35,13 +35,77 @@ class CRippleManager;
 
 class CFluidPlaneCPURender {
 public:
-  struct SPatchInfo {};
-  struct SRippleInfo {};
-  struct SHFieldSample {};
+  enum ENormalMode {
+    kNM_None,
+    kNM_NoNormals,
+    kNM_Normals,
+    kNM_NBT
+  };
+
+  struct SHFieldSample {
+    float height;
+    signed char nx;
+    signed char ny;
+    signed char nz;
+    unsigned char wavecapIntensity;
+  };
+
+  struct SPatchInfo {
+    char x0_xSubdivs;
+    char x1_ySubdivs;
+    float x4_localMinX;
+    float x8_localMinY;
+    float xc_globalMinX;
+    float x10_globalMinY;
+    float x14_tileSize;
+    float x18_rippleResolution;
+    float x1c_tileHypRadius;
+    float x20_ooTileSize;
+    float x24_ooRippleResolution;
+    short x28_tileX;
+    short x2a_gridDimX;
+    short x2c_gridDimY;
+    short x2e_tileY;
+    const bool* x30_gridFlags;
+    uchar x34_redShift;
+    uchar x35_greenShift;
+    uchar x36_blueShift;
+    uchar x37_normalMode;
+    float x38_wavecapIntensityScale;
+
+    SPatchInfo(const CVector3f& localMin, const CVector3f& localMax, const CVector3f& pos,
+               float rippleResolution, float tileSize, float wavecapIntensityScale,
+               int numSubdivisionsInHField, int normalMode, int redShift, int greenShift,
+               uchar blueShift, int tileX, int gridDimX, int gridDimY, int tileY,
+               const bool* gridFlags);
+  };
+
+  struct SRippleInfo {
+    const CRipple* x0_ripple;
+    int x4_fromX;
+    int x8_toX;
+    int xc_fromY;
+    int x10_toY;
+    int x14_gfromX;
+    int x18_gtoX;
+    int x1c_gfromY;
+    int x20_gtoY;
+
+    SRippleInfo(const CRipple& ripple, int fromX, int toX, int fromY, int toY)
+    : x0_ripple(&ripple)
+    , x14_gfromX(fromX)
+    , x18_gtoX(toX)
+    , x1c_gfromY(fromY)
+    , x20_gtoY(toY) {}
+  };
+
+  static int numTilesInHField;
+  static int numSubdivisionsInTile;
+  static int numSubdivisionsInHField;
 };
 
 class CFluidPlane {
-  static const float kRippleIntensityRange;
+  static float kRippleIntensityRange;
 
 public:
   enum EFluidType {
@@ -111,8 +175,35 @@ extern const bool sRenderFog;
 
 class CFluidPlaneManager {
 public:
+  class CFluidProfile {
+  public:
+    void Clear();
+
+  private:
+    float x0_;
+    float x4_;
+    float x8_;
+    float xc_;
+    float x10_;
+  };
+
+  class CSplashRecord {
+  public:
+    CSplashRecord(float time, TUniqueId id) : x0_time(time), x4_id(id) {}
+    void SetTime(float t) { x0_time = t; }
+    float GetTime() const { return x0_time; }
+    TUniqueId GetUniqueId() const { return x4_id; }
+
+  private:
+    float x0_time;
+    TUniqueId x4_id;
+  };
+
   CFluidPlaneManager();
-  // TODO
+
+  void Update(float dt);
+  void StartFrame(bool b) const;
+  void EndFrame() const;
 
   void CreateSplash(TUniqueId splasher, CStateManager& mgr, const CScriptWater& water,
                     const CVector3f& pos, float factor, bool sfx);
@@ -122,21 +213,25 @@ public:
   float GetLastSplashDeltaTime(TUniqueId uid) const;
   float GetLastRippleDeltaTime(TUniqueId uid) const;
 
+  rstl::reserved_vector< CSplashRecord, 32 >& SplashRecords() { return x18_splashes; }
+  const rstl::reserved_vector< CSplashRecord, 32 >& GetSplashRecords() const {
+    return x18_splashes;
+  }
+  float GetTime() const { return x11c_uvT; }
+  void SetTime(float t) { x11c_uvT = t; }
+
   float GetUVTime() const { return x11c_uvT; }
-  
+
   static uint GetFreqTableIndex(float);
+  static void SetupRippleMap();
+  static CFluidProfile sProfile;
 
 private:
-  class CSplashRecord {
-    float x0_time;
-    TUniqueId x4_id;
-  };
-
   CRippleManager x0_rippleManager;
   rstl::reserved_vector< CSplashRecord, 32 > x18_splashes;
   float x11c_uvT;
-  bool x120_;
-  bool x121_;
+  mutable bool x120_;
+  mutable bool x121_;
 };
 CHECK_SIZEOF(CFluidPlaneManager, 0x124);
 

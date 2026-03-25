@@ -3,15 +3,19 @@
 #include "MetroidPrime/CGameArea.hpp"
 #include "MetroidPrime/CStateManager.hpp"
 #include "MetroidPrime/CWorld.hpp"
-#include "WorldFormat/CPVSAreaSet.hpp"
-#include "WorldFormat/CWorldLight.hpp"
 
 #include "Kyoto/Alloc/CMemory.hpp"
 #include "Kyoto/Graphics/CCubeModel.hpp"
 #include "Kyoto/Graphics/CTexture.hpp"
 #include "Kyoto/Math/CMath.hpp"
 #include "Kyoto/PVS/CPVSVisSet.hpp"
+
 #include "MetaRender/CCubeRenderer.hpp"
+
+#include "WorldFormat/CPVSAreaSet.hpp"
+#include "WorldFormat/CWorldLight.hpp"
+
+#include "dolphin/gx/GXFrameBuffer.h"
 
 static int kUnknownValue = 1;
 
@@ -24,9 +28,7 @@ CWorldShadow::CWorldShadow(uint w, uint h, bool rgba8)
 , x74_lightPos(CVector3f::Zero())
 , x80_aid(kInvalidAreaId)
 , x84_lightIdx(-1)
-, x88_blurReset(true)
-
-{}
+, x88_blurReset(true) {}
 
 CWorldShadow::~CWorldShadow() {
   if (x0_texture.get())
@@ -49,7 +51,7 @@ void CWorldShadow::BuildLightShadowTexture(const CStateManager& mgr, TAreaId aid
       const CPVSAreaSet* pvs = area.GetAreaVisSet();
       if (pvs && kUnknownValue == 1) {
         CPVSVisSet lightSet = pvs->GetLightSet(lightIdx);
-        gpRender->EnablePVS(lightSet, aid.Value());
+        gpRender->EnablePVS(&lightSet, aid.Value());
       } else {
         // TODO: Figure this out
         // CPVSVisSet lightSet;

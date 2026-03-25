@@ -45,7 +45,11 @@ public:
                   const CColor& outlineCol, const CColor& geomCol, int extX, int extY,
                   CSimplePool* store, int /*CGuiWidget::EGuiModelDrawFlags*/ drawFlags);
 
+  void SetText(const rstl::wstring&, bool clearRenderBuffer = false);
   void SetText(const rstl::string&, bool multipage = false);
+  void SetWordWrap(bool wordWrap);
+  void ClearRenderBuffer();
+  void SetImageBaseline(bool baseline);
   bool SetTypeWriteEffectOptions(bool enable, float fadeTime, float rate);
   void SetOutlineColor(const CColor& col);
   void SetFontColor(const CColor& col);

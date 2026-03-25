@@ -28,12 +28,19 @@ class CAnimSysContext;
 class CAnimTreeNode;
 class CCharacterFactory;
 class CCharLayoutInfo;
+class CRandom16;
+class CSegIdList;
+class CSegStatementSet;
 class CSkinnedModel;
 class CSkinnedModelWithAvgNormals;
 class CTransitionManager;
 class CVertexMorphEffect;
 class CModelFlags;
 class CPrimitive;
+class CFrustumPlanes;
+
+struct SAdvancementDeltas;
+struct SAdvancementResults;
 
 class CAnimData {
 public:
@@ -42,6 +49,10 @@ public:
     kAD_Backward,
   };
 
+  CAnimData(uint, const CCharacterInfo&, int, int, bool, const TLockedToken< CCharLayoutInfo >&,
+            const TToken< CSkinnedModel >&, const rstl::optional_object< TLockedToken< CSkinnedModelWithAvgNormals > >&,
+            const rstl::ncrc_ptr< CAnimSysContext >&, const rstl::rc_ptr< CAnimationManager >&,
+            const rstl::rc_ptr< CTransitionManager >&, const TLockedToken< CCharacterFactory >&);
   ~CAnimData();
 
   void PreRender();
@@ -53,10 +64,9 @@ public:
   const TLockedToken< CSkinnedModel >& GetModelData() const { return xd8_modelData; }
 
   void SetIsAnimating(bool v) { x220_24_animating = v; }
-  void SetParticleEffectState(const rstl::string& name, const bool active, CStateManager& mgr) {
-    x120_particleDB.SetParticleEffectState(name, active, mgr);
-  }
+  void SetParticleEffectState(const rstl::string& name, bool active, CStateManager& mgr);
 
+  CAssetId GetSelfId() const { return x1d8_selfId; }
   int GetCharacterIndex() const { return x204_charIdx; }
   float GetAverageVelocity(int idx) const;
 
@@ -81,46 +91,50 @@ public:
   // SetIsAnimating__9CAnimDataFb
   // SetAnimDir__9CAnimDataFQ29CAnimData8EAnimDir
   CAABox GetBoundingBox() const;
-  // GetBoundingBox__9CAnimDataCFRC12CTransform4f
-  // GetLocatorSegId__9CAnimDataCFRCQ24rstl66basic_string
-  // ResetPOILists__9CAnimDataFv
+  CAABox GetBoundingBox(const CTransform4f& xf) const;
+  CSegId GetLocatorSegId(const rstl::string& name) const;
+  void ResetPOILists();
   // GetAverageVelocity__9CAnimDataCFi
-  // AdvanceParticles__9CAnimDataFRC12CTransform4ffRC9CVector3fR13CStateManager
-  // PoseSkinnedModel__9CAnimDataCFRC13CSkinnedModelRC17CPoseAsTransformsRCQ24rstl37optional_object<18CVertexMorphEffect>PCf
-  // DrawSkinnedModel__9CAnimDataCFRC13CSkinnedModelRC11CModelFlags
+  void AdvanceParticles(const CTransform4f&, float, const CVector3f&, CStateManager&);
+  void PoseSkinnedModel(const CSkinnedModel&, const CPoseAsTransforms&,
+                        const rstl::optional_object< CVertexMorphEffect >&, const float*) const;
+  void DrawSkinnedModel(const CSkinnedModel&, const CModelFlags&) const;
   // InitializeCache__9CAnimDataFv
   // FreeCache__9CAnimDataFv
-  // SetInfraModel__9CAnimDataFRC21TLockedToken<6CModel>RC26TLockedToken<10CSkinRules>
-  // SetXRayModel__9CAnimDataFRC21TLockedToken<6CModel>RC26TLockedToken<10CSkinRules>
-  // AdvanceAnim__9CAnimDataFR13CCharAnimTimeR9CVector3fR11CQuaternion
-  // AdvanceIgnoreParticles__9CAnimDataFfR9CRandom16b
-  // Advance__9CAnimDataFfRC9CVector3fR13CStateManagerb
-  // DoAdvance__9CAnimDataFfRbR9CRandom16b
+  void SetInfraModel(const TLockedToken< CModel >&, const TLockedToken< CSkinRules >&);
+  void SetXRayModel(const TLockedToken< CModel >&, const TLockedToken< CSkinRules >&);
+  void SubstituteModelData(const TCachedToken< CSkinnedModel >&);
+  void AdvanceAnim(CCharAnimTime&, CVector3f&, CQuaternion&);
+  SAdvancementDeltas Advance(float, const CVector3f&, CStateManager&, TAreaId, bool);
+  SAdvancementDeltas AdvanceIgnoreParticles(float, CRandom16&, bool);
+  SAdvancementDeltas DoAdvance(float, bool&, CRandom16&, bool);
   void SetAnimation(const CAnimPlaybackParms& parms, const bool noTrans);
   void GetAnimationPrimitives(const CAnimPlaybackParms& parms,
                               rstl::set< CPrimitive >& primsOut) const;
-  // PrimitiveSetToTokenVector__9CAnimDataFRCQ24rstl72set<10CPrimitive,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>RQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>b
-  // BuildPose__9CAnimDataFv
+  static void PrimitiveSetToTokenVector(const rstl::set< CPrimitive >&,
+                                        rstl::vector< CToken >&, bool);
+  void BuildPose();
   // PreRender__9CAnimDataFv
-  // SetupRender__9CAnimDataCFRC13CSkinnedModelRCQ24rstl37optional_object<18CVertexMorphEffect>PCf
+  void SetupRender(const CSkinnedModel&, const rstl::optional_object< CVertexMorphEffect >&,
+                   const float*) const;
   // Render__9CAnimDataCFRC13CSkinnedModelRC11CModelFlagsRCQ24rstl37optional_object<18CVertexMorphEffect>PCf
   void Render(const CSkinnedModel&, const CModelFlags&,
               const rstl::optional_object< CVertexMorphEffect >&, const float*) const;
-  // RenderAuxiliary__9CAnimDataCFRC14CFrustumPlanes
-  // RecalcPoseBuilder__9CAnimDataCFPC13CCharAnimTime
+  void RenderAuxiliary(const CFrustumPlanes&) const;
+  void RecalcPoseBuilder(const CCharAnimTime*) const;
   float GetAnimationDuration(int animIn) const;
   float GetAnimTimeRemaining(const rstl::string& name) const;
   // IsAnimTimeRemaining__9CAnimDataCFfRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>
   bool IsAnimTimeRemaining(float, const rstl::string&) const;
-  // GetLocatorTransform__9CAnimDataCFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>PC13CCharAnimTime
-  // GetLocatorTransform__9CAnimDataCF6CSegIdPC13CCharAnimTime
-  // CalcPlaybackAlignmentParms__9CAnimDataFRC18CAnimPlaybackParmsRCQ24rstl25ncrc_ptr<13CAnimTreeNode>
-  // SetRandomPlaybackRate__9CAnimDataFR9CRandom16
+  CTransform4f GetLocatorTransform(const rstl::string&, const CCharAnimTime*) const;
+  CTransform4f GetLocatorTransform(CSegId, const CCharAnimTime*) const;
+  void CalcPlaybackAlignmentParms(const CAnimPlaybackParms&, const rstl::ncrc_ptr< CAnimTreeNode >&);
+  void SetRandomPlaybackRate(CRandom16& random);
   void SetPlaybackRate(float set);
   void MultiplyPlaybackRate(float scale);
   CCharAnimTime GetTimeOfUserEvent(EUserEventType type, const CCharAnimTime& time) const;
   // GetAdvancementDeltas__9CAnimDataCFRC13CCharAnimTimeRC13CCharAnimTime
-  // Touch__9CAnimDataCFRC13CSkinnedModeli
+  void Touch(const CSkinnedModel&, int) const;
   void InitializeEffects(CStateManager&, TAreaId, const CVector3f&);
   // SetPhase__9CAnimDataFf -> SetPhase__11IAnimReaderFf
   void SetPhase(float ph);
@@ -128,15 +142,18 @@ public:
   void DelAdditiveAnimation(uint idx);
   bool IsAdditiveAnimation(uint idx) const;
   const rstl::rc_ptr< CAnimTreeNode >& GetAdditiveAnimationTree(uint idx) const;
+  const rstl::ncrc_ptr< CAnimTreeNode >& GetRootAnimationTree() const;
   // GetAnimationTree__9CAnimDataCFv
   // AnimationTree__9CAnimDataFv
   // IsAdditiveAnimation__9CAnimDataCFUi
   bool IsAdditiveAnimationAdded(uint idx) const;
-  // UpdateAdditiveAnims__9CAnimDataFf
-  // AdvanceAdditiveAnims__9CAnimDataFf
-  // AddAdditiveSegData__9CAnimDataCFRC10CSegIdListR16CSegStatementSet
+  SAdvancementDeltas UpdateAdditiveAnims(float);
+  SAdvancementDeltas AdvanceAdditiveAnims(float);
+  static SAdvancementResults AdvanceAdditiveAnim(rstl::rc_ptr< CAnimTreeNode >&,
+                                                 const CCharAnimTime&);
+  void AddAdditiveSegData(const CSegIdList&, CSegStatementSet&) const;
   int GetEventResourceIdForAnimResourceId(int id) const;
-  // GetAnimationManager__9CAnimDataFv
+  rstl::rc_ptr< CAnimationManager > GetAnimationManager();
   // SetPoseValid__9CAnimDataFb
 
   float GetAdditiveAnimationWeight(uint idx);
@@ -157,13 +174,13 @@ public:
   // GetIsLoop__9CAnimDataCFv
   // IsAnimating__9CAnimDataCFv
   // SetPoseBuilderValid__9CAnimDataFb
-  // GetAnimationManager__9CAnimDataCFv
+  rstl::rc_ptr< CAnimationManager > GetAnimationManager() const;
   // GetPoseValid__9CAnimDataCFv
   // GetPoseBuilderValid__9CAnimDataCFv
-  // GetAnimSysContext__9CAnimDataCFv
+  rstl::ncrc_ptr< CAnimSysContext > GetAnimSysContext() const;
   // CacheInt32PoiList__9CAnimDataFRC13CCharAnimTimeiRCQ24rstl25ncrc_ptr<13CAnimTreeNode>
 
-  // GetIceModel__9CAnimDataCFv
+  const rstl::optional_object< TLockedToken< CSkinnedModelWithAvgNormals > >& GetIceModel() const { return xe4_iceModelData; }
   const CPASDatabase& GetPASDatabase() const { return xc_charInfo.GetPASDatabase(); }
   // EnableLooping__9CAnimDataFb
   // GetSkinnedModel__9CAnimDataCFv
@@ -193,7 +210,7 @@ private:
   rstl::optional_object< TLockedToken< CSkinnedModelWithAvgNormals > > xe4_iceModelData;
   rstl::rc_ptr< CSkinnedModel > xf4_xrayModel;
   rstl::rc_ptr< CSkinnedModel > xf8_infraModel;
-  rstl::rc_ptr< CAnimSysContext > xfc_animCtx;
+  rstl::ncrc_ptr< CAnimSysContext > xfc_animCtx;
   rstl::rc_ptr< CAnimationManager > x100_animMgr;
   EAnimDir x104_animDir;
   CAABox x108_aabb;
@@ -201,7 +218,7 @@ private:
   CAssetId x1d8_selfId;
   CVector3f x1dc_alignPos;
   CQuaternion x1e8_alignRot;
-  rstl::rc_ptr< CAnimTreeNode > x1f8_animRoot;
+  rstl::ncrc_ptr< CAnimTreeNode > x1f8_animRoot;
   rstl::rc_ptr< CTransitionManager > x1fc_transMgr;
   float x200_speedScale;
   int x204_charIdx;
@@ -223,7 +240,7 @@ private:
   CPoseAsTransforms x224_pose;
   CHierarchyPoseBuilder x2fc_poseBuilder;
   CAnimPlaybackParms x40c_playbackParms;
-  rstl::reserved_vector< rstl::pair< int, CAdditiveAnimPlayback >, 8 > x434_additiveAnims;
+  rstl::reserved_vector< rstl::pair< uint, CAdditiveAnimPlayback >, 8 > x434_additiveAnims;
 
   static rstl::reserved_vector< CBoolPOINode, 8 > mBoolPOINodes;
   static rstl::reserved_vector< CInt32POINode, 16 > mInt32POINodes;

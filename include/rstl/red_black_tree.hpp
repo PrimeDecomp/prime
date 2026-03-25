@@ -131,8 +131,8 @@ public:
   }
 
   const_iterator find(const T& key) const {
-    node* n = x8_header.get_root();
     node* needle = nullptr;
+    node* n = x8_header.get_root();
     while (n != nullptr) {
       if (!x2_cmp(x3_selector(*n->get_value()), key)) {
         needle = n;
@@ -152,8 +152,8 @@ public:
   }
 
   iterator find(const T& key) {
-    node* n = x8_header.get_root();
     node* needle = nullptr;
+    node* n = x8_header.get_root();
     while (n != nullptr) {
       if (!x2_cmp(x3_selector(*n->get_value()), key)) {
         needle = n;
@@ -170,6 +170,31 @@ public:
       needle = nullptr;
     }
     return iterator(needle, &x8_header, false);
+  }
+
+  pair< iterator, iterator > equal_range(const T& key) {
+    node* ub = nullptr;
+    node* n1 = x8_header.get_root();
+    while (n1 != nullptr) {
+      if (x2_cmp(key, x3_selector(*n1->get_value()))) {
+        ub = n1;
+        n1 = n1->get_left();
+      } else {
+        n1 = n1->get_right();
+      }
+    }
+    node* lb = nullptr;
+    node* n2 = x8_header.get_root();
+    while (n2 != nullptr) {
+      if (x2_cmp(x3_selector(*n2->get_value()), key)) {
+        n2 = n2->get_right();
+      } else {
+        lb = n2;
+        n2 = n2->get_left();
+      }
+    }
+    return pair< iterator, iterator >(iterator(lb, &x8_header, false),
+                                      iterator(ub, &x8_header, false));
   }
 
   iterator erase(iterator it) {
@@ -208,15 +233,16 @@ private:
     return n;
   }
 
-  void free_node_and_sub_nodes(node* n) {
-    if (node* left = n->get_left()) {
-      free_node_and_sub_nodes(left);
-    }
-    if (node* right = n->get_right()) {
-      free_node_and_sub_nodes(right);
-    }
-    free_node(n);
-  }
+  void free_node_and_sub_nodes(node* n);
+  // void free_node_and_sub_nodes(node* n) {
+  //   if (node* left = n->get_left()) {
+  //     free_node_and_sub_nodes(left);
+  //   }
+  //   if (node* right = n->get_right()) {
+  //     free_node_and_sub_nodes(right);
+  //   }
+  //   free_node(n);
+  // }
 
   void free_node(node* n) {
     n->~node();
@@ -279,6 +305,17 @@ red_black_tree< T, P, U, S, Cmp, Alloc >::insert_into(node* n, const P& item) {
     rebalance(newNode);
     return iterator(newNode, &x8_header, kUnknownValueNewItem);
   }
+}
+
+template < typename T, typename P, int U, typename S, typename Cmp, typename Alloc >
+void red_black_tree< T, P, U, S, Cmp, Alloc >::free_node_and_sub_nodes(node* n) {
+  if (node* left = n->get_left()) {
+    free_node_and_sub_nodes(left);
+  }
+  if (node* right = n->get_right()) {
+    free_node_and_sub_nodes(right);
+  }
+  free_node(n);
 }
 
 }; // namespace rstl

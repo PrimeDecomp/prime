@@ -13,8 +13,10 @@
 #include "Kyoto/Math/CVector2i.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
 
-#include "dolphin/gx.h"
-#include "dolphin/mtx.h"
+#include "dolphin/gx/GXFifo.h"
+#include "dolphin/gx/GXStruct.h"
+#include "dolphin/gx/GXTexture.h"
+#include "dolphin/mtx/GeoTypes.h"
 
 enum ERglFogMode {
   kRFM_None = GX_FOG_NONE,
@@ -180,6 +182,8 @@ typedef struct {
 } Vec2, *Vec2Ptr;
 
 class CGraphics {
+  friend class CCubeRenderer;
+
 public:
   class CRenderState {
   public:
@@ -277,6 +281,7 @@ public:
   static void EnableLight(ERglLight light);
   static void LoadLight(ERglLight light, const CLight& info);
   static void SetLightState(uchar lights);
+  static uchar GetLightMask() { return mLightActive; }
   static void SetViewMatrix();
   static void SetScissor(int left, int bottom, int width, int height);
   static void SetLineWidth(float w, ERglTexOffset offs);
@@ -359,13 +364,16 @@ public:
   static void SetCullMode(ERglCullMode cullMode);
   static void SetTevStates(uchar);
 
-  static void SetUseVideoFilter(bool b);
-  static GXBool GetUseVideoFilter();
+  static void SetUseVideoFilter(const bool b);
+  static bool GetUseVideoFilter();
   static int GetFrameCounter();
   static void SetProgressiveMode(bool b);
   static bool GetProgressiveMode();
   static bool CanSetProgressiveMode();
   static bool GetProgressiveDefault();
+
+  static void* GetDolphinSpareBuffer() { return mpSpareBuffer; }
+  static int GetSpareBufferSize() { return mSpareBufferSize; }
 
   // Screen Position
   static void GetScreenPosition(int* stretch, int* xOffset, int* yOffset);
@@ -382,6 +390,8 @@ public:
   static CTevCombiners::CTevPass kEnvModulateColor;
   static CTevCombiners::CTevPass kEnvModulateColorByAlpha;
   static CRenderState sRenderState;
+
+  static const GXTexMapID kSpareBufferTexMapID;
 
 private:
   static void UpdateVertexDataStream();
@@ -455,11 +465,8 @@ private:
   static u32 mClearDepthValue; // = GX_MAX_Z24
   static bool mIsGXModelMatrixIdentity;
   static bool mFirstFrame;
-  static GXBool mUseVideoFilter;
+  static bool mUseVideoFilter;
   static float mBrightness;
-
-  // .sdata2
-  static const GXTexMapID kSpareBufferTexMapID;
 };
 
 #endif // _CGRAPHICS

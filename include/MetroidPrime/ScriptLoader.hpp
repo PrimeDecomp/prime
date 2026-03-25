@@ -33,9 +33,9 @@ public:
   static CEntity* LoadCameraHint(CStateManager&, CInputStream&, int, const CEntityInfo&);
   static CEntity* LoadPickup(CStateManager&, CInputStream&, int, const CEntityInfo&);
   static CEntity* LoadJumpPoint(CStateManager&, CInputStream&, int, const CEntityInfo&);
-  static CEntity* LoadMemoryRelay(CStateManager&, CInputStream&, int, const CEntityInfo&);
-  static CEntity* LoadRandomRelay(CStateManager&, CInputStream&, int, const CEntityInfo&);
   static CEntity* LoadRelay(CStateManager&, CInputStream&, int, const CEntityInfo&);
+  static CEntity* LoadRandomRelay(CStateManager&, CInputStream&, int, const CEntityInfo&);
+  static CEntity* LoadFaultyRelay(CStateManager&, CInputStream&, int, const CEntityInfo&);
   static CEntity* LoadBeetle(CStateManager&, CInputStream&, int, const CEntityInfo&);
   static CEntity* LoadHUDMemo(CStateManager&, CInputStream&, int, const CEntityInfo&);
   static CEntity* LoadCameraFilterKeyframe(CStateManager&, CInputStream&, int, const CEntityInfo&);
@@ -112,17 +112,17 @@ public:
   static CEntity* LoadGunTurret(CStateManager&, CInputStream&, int, const CEntityInfo&);
   static CEntity* LoadFogVolume(CStateManager&, CInputStream&, int, const CEntityInfo&);
   static CEntity* LoadBabygoth(CStateManager&, CInputStream&, int, const CEntityInfo&);
-  static CEntity* LoadEyeball(CStateManager&, CInputStream&, int, const CEntityInfo&);
+  static CEntity* LoadEyeBall(CStateManager&, CInputStream&, int, const CEntityInfo&);
   static CEntity* LoadRadialDamage(CStateManager&, CInputStream&, int, const CEntityInfo&);
   static CEntity* LoadScriptCameraPitchVolume(CStateManager&, CInputStream&, int,
                                                 const CEntityInfo&);
   static CEntity* LoadEnvFxDensityController(CStateManager&, CInputStream&, int,
                                              const CEntityInfo&);
   static CEntity* LoadMagdolite(CStateManager&, CInputStream&, int, const CEntityInfo&);
-  static CEntity* LoadTeamAIMgr(CStateManager&, CInputStream&, int, const CEntityInfo&);
+  static CEntity* LoadTeamAiMgr(CStateManager&, CInputStream&, int, const CEntityInfo&);
   static CEntity* LoadSnakeWeedSwarm(CStateManager&, CInputStream&, int, const CEntityInfo&);
   static CEntity* LoadActorContraption(CStateManager&, CInputStream&, int, const CEntityInfo&);
-  static CEntity* LoadOculus(CStateManager&, CInputStream&, int, const CEntityInfo&);
+  static CEntity* LoadOcculus(CStateManager&, CInputStream&, int, const CEntityInfo&);
   static CEntity* LoadGeemer(CStateManager&, CInputStream&, int, const CEntityInfo&);
   static CEntity* LoadSpindleCamera(CStateManager&, CInputStream&, int, const CEntityInfo&);
   static CEntity* LoadAtomicAlpha(CStateManager&, CInputStream&, int, const CEntityInfo&);
@@ -137,10 +137,10 @@ public:
   static CEntity* LoadSeedling(CStateManager&, CInputStream&, int, const CEntityInfo&);
   static CEntity* LoadThermalHeatFader(CStateManager&, CInputStream&, int, const CEntityInfo&);
   static CEntity* LoadBurrower(CStateManager&, CInputStream&, int, const CEntityInfo&);
-  static CEntity* LoadBeam(CStateManager&, CInputStream&, int, const CEntityInfo&);
+  static CEntity* LoadScriptBeam(CStateManager&, CInputStream&, int, const CEntityInfo&);
   static CEntity* LoadWorldLightFader(CStateManager&, CInputStream&, int, const CEntityInfo&);
-  static CEntity* LoadMetroidPrimeEssence(CStateManager&, CInputStream&, int, const CEntityInfo&);
-  static CEntity* LoadMetroidPrimeStage1(CStateManager&, CInputStream&, int, const CEntityInfo&);
+  static CEntity* LoadMetroidPrimeStage2(CStateManager&, CInputStream&, int, const CEntityInfo&);
+  static CEntity* LoadMetroidPrimeRelay(CStateManager&, CInputStream&, int, const CEntityInfo&);
   static CEntity* LoadMazeNode(CStateManager&, CInputStream&, int, const CEntityInfo&);
   static CEntity* LoadOmegaPirate(CStateManager&, CInputStream&, int, const CEntityInfo&);
   static CEntity* LoadPhazonPool(CStateManager&, CInputStream&, int, const CEntityInfo&);

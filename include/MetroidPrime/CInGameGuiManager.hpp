@@ -1,6 +1,10 @@
 #ifndef _CINGUIGUIMANAGER
 #define _CINGUIGUIMANAGER
 
+#include "types.h"
+
+class CStateManager;
+
 enum EInGameGuiState {
   kIGGS_Zero,
   kIGGS_InGame,

@@ -4,7 +4,7 @@
 
 IAnimReader::~IAnimReader() {}
 
-rstl::optional_object< rstl::auto_ptr< IAnimReader > > IAnimReader::VSimplified() {
+rstl::optional_object< rstl::ownership_transfer< IAnimReader > > IAnimReader::VSimplified() {
   return rstl::optional_object_null();
 }
 

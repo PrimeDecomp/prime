@@ -25,33 +25,28 @@ class CAnimSysContext;
 class CPreAdvanceIndicator {
   bool mIsTime;
   CCharAnimTime mTime;
-  rstl::string mString;
-  uint unk1;
-  uint unk2;
-  uint unk3;
-  uint unk4;
-  uint unk5;
-  uint unk6;
-  uint unk7;
-  uint unk8;
-  uint unk9;
+  const char* mString;
+  uint x10_[11];
+  ushort x3c_;
 
 public:
-  explicit CPreAdvanceIndicator(const CCharAnimTime& time) : mIsTime(true), mTime(time) {}
-  explicit CPreAdvanceIndicator(const rstl::string& string) : mIsTime(false), mString(string) {}
+  explicit CPreAdvanceIndicator(const CCharAnimTime& time) : mIsTime(true), mTime(time), mString(0) {}
+  explicit CPreAdvanceIndicator(const char* string) : mIsTime(false), mString(string) {}
   bool IsTime() const;
   const CCharAnimTime& GetTime() const;
 
   bool IsString() const;
-  const rstl::string& GetString() const;
+  const char* const& GetString() const;
 };
 
 class CMetaAnimTreeBuildOrders {
-  rstl::optional_object< CPreAdvanceIndicator > mRecursiveAdvance;
-  rstl::optional_object< CPreAdvanceIndicator > mSingleAdvance;
-
+public:
   static CMetaAnimTreeBuildOrders NoSpecialOrders();
   static CMetaAnimTreeBuildOrders PreAdvanceForAll(const CPreAdvanceIndicator& ind);
+
+private:
+  rstl::optional_object< CPreAdvanceIndicator > mRecursiveAdvance;
+  rstl::optional_object< CPreAdvanceIndicator > mSingleAdvance;
 };
 
 class IMetaAnim {

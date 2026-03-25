@@ -11,24 +11,26 @@ public:
     kN_No,
     kN_Yes,
   };
+
   CUnitVector3f(const float x, const float y, const float z) : CVector3f(x, y, z) {}
-  CUnitVector3f(const CVector3f& vec, const ENormalize normalize) : CVector3f(vec.GetX(), vec.GetY(), vec.GetZ()) {
+  CUnitVector3f(const CVector3f& vec, const ENormalize normalize) : CVector3f(vec) {
     if (normalize == kN_Yes) {
       Normalize();
     }
   }
-  CUnitVector3f(const CVector3f& vec); // real? see CPlane::CPlane
-  // TODO
-
-  static CUnitVector3f Forward() {
-    return CUnitVector3f(CVector3f::Forward().GetX(), CVector3f::Forward().GetY(),
-                         CVector3f::Forward().GetZ());
-  }
+  CUnitVector3f(const CVector3f& vec);
 };
 CHECK_SIZEOF(CUnitVector3f, 0xc)
 
 inline CUnitVector3f operator-(const CUnitVector3f& vec) {
   return CUnitVector3f(-vec.GetX(), -vec.GetY(), -vec.GetZ());
 }
+
+inline const CUnitVector3f& CVector3f::Up() { return sUpVector; }
+inline const CUnitVector3f& CVector3f::Down() { return sDownVector; }
+inline const CUnitVector3f& CVector3f::Left() { return sLeftVector; }
+inline const CUnitVector3f& CVector3f::Right() { return sRightVector; }
+inline const CUnitVector3f& CVector3f::Forward() { return sForwardVector; }
+inline const CUnitVector3f& CVector3f::Back() { return sBackVector; }
 
 #endif // _CUNITVECTOR3F

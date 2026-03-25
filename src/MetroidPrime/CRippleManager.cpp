@@ -14,8 +14,6 @@ CRippleManager::CRippleManager(const CRippleManager& other)
 , x4_ripples(other.x4_ripples)
 , x14_alpha(other.x14_alpha) {}
 
-CRippleManager::~CRippleManager() {}
-
 void CRippleManager::Init(int maxRipples) {
   x4_ripples.resize(maxRipples);
   for (AUTO(it, x4_ripples.begin()); it != x4_ripples.end(); ++it) {

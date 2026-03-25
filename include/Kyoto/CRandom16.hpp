@@ -30,6 +30,7 @@ public:
   int Next();
   const float Float();
 
+  uint GetSeed() const { return mSeed; }
   static CRandom16* GetRandomNumber();
 
 private:

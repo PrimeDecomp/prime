@@ -20,13 +20,20 @@ public:
   int& operator[](int idx) { return *(&mX + idx); }
   const int& operator[](int idx) const { return *(&mX + idx); }
 
+  static CVector2i Lerp(const CVector2i& a, const CVector2i& b, float v) {
+    float inv = 1.f - v;
+    int x = static_cast< int >(a.GetX() * inv + b.GetX() * v);
+    int y = static_cast< int >(a.GetY() * inv + b.GetY() * v);
+    return CVector2i(x, y);
+  }
+
 private:
   int mX;
   int mY;
 };
 
 CVector2i operator+(const CVector2i& lhs, const CVector2i& rhs);
-CVector2i operator+(const CVector2i& lhs, const CVector2i& rhs);
+CVector2i operator-(const CVector2i& lhs, const CVector2i& rhs);
 bool operator==(const CVector2i& lhs, const CVector2i& rhs);
 CVector2i operator*(const CVector2i& lhs, int rhs);
 CVector2i operator/(const CVector2i& lhs, int rhs);

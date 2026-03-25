@@ -16,8 +16,7 @@ public:
                    const CPASAnimParm& parm5 = CPASAnimParm::NoParameter(),
                    const CPASAnimParm& parm6 = CPASAnimParm::NoParameter(),
                    const CPASAnimParm& parm7 = CPASAnimParm::NoParameter(),
-                   const CPASAnimParm& parm8 = CPASAnimParm::NoParameter());
-  /*
+                   const CPASAnimParm& parm8 = CPASAnimParm::NoParameter())
   : x0_stateId(stateId) {
     x4_parms.push_back(parm1);
     x4_parms.push_back(parm2);
@@ -28,7 +27,6 @@ public:
     x4_parms.push_back(parm7);
     x4_parms.push_back(parm8);
   }
-  */
   ~CPASAnimParmData() {}
 
   pas::EAnimationState GetStateId() const { return x0_stateId; }

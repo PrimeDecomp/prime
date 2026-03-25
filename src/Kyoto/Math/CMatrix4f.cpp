@@ -37,11 +37,16 @@ CVector3f CMatrix4f::MultiplyOneOverW(const CVector3f& vec) const {
   const float vecX = vec.GetX();
   const float vecY = vec.GetY();
   const float vecZ = vec.GetZ();
-  const float w = 1.f / ((vecX * m30) + (vecY * m31) + (vecZ * m32) + m33);
-  const float x = (vecX * m00) + (vecY * m01) + (vecZ * m02) + m03;
-  const float y = (vecX * m10) + (vecY * m11) + (vecZ * m12) + m13;
-  const float z = (vecX * m20) + (vecY * m21) + (vecZ * m22) + m23;
-  return CVector3f(x * w, y * w, z * w);
+  const float w = (vecX * m30) + (vecY * m31) + (vecZ * m32) + m33;
+  float x = (vecX * m00) + (vecY * m01) + (vecZ * m02) + m03;
+  float y = (vecX * m10) + (vecY * m11) + (vecZ * m12) + m13;
+  float z = (vecX * m20) + (vecY * m21) + (vecZ * m22) + m23;
+  
+  x *= (1.f / w);
+  y *= (1.f / w);
+  z *= (1.f / w);
+  
+  return CVector3f(x , y, z);
 }
 
 float CMatrix4f::MultiplyGetW(const CVector3f& vec) const {

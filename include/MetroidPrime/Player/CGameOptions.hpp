@@ -48,6 +48,7 @@ public:
   const bool GetInvertYAxis() const { return x68_25_invertY; }
   void SetIsRumbleEnabled(const bool rumble);
   const bool GetIsRumbleEnabled() const { return x68_26_rumble; }
+  bool GetIsHintSystemEnabled() const { return x68_28_hintSystem; }
 
 private:
   rstl::reserved_vector< uchar, 64 > x0_;

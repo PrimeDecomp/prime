@@ -33,7 +33,7 @@ public:
   void push_back(const T& val) { do_insert_before(x8_end, val); }
   void clear() { erase(begin(), end()); }
 
-  size_t size() const { return x14_count; }
+  int size() const { return x14_count; }
   bool empty() const { return x14_count == 0; }
 
   void pop_front() { erase(x4_start); }
@@ -91,6 +91,26 @@ public:
   }
 
   void remove(const T& val);
+
+  // TODO non-matching
+  template < typename Cmp >
+  void sort(Cmp cmp) {
+    iterator it = begin();
+    while (it != end()) {
+      iterator next = it++;
+      iterator min = it;
+      for (; next != end(); ++next) {
+        if (cmp(*min, *next)) {
+          min = next;
+        }
+      }
+      next = it++;
+      exchange(it.get_node(), min.get_node());
+      it = next;
+    }
+  }
+
+  void exchange(node* nodeA, node* nodeB);
 
 public:
   class const_iterator {
@@ -181,6 +201,44 @@ typename list< T, Alloc >::node* list< T, Alloc >::do_erase(node* node) {
   x0_allocator.deallocate(node);
   x14_count--;
   return result;
+}
+
+template < typename T, typename Alloc >
+void list< T, Alloc >::exchange(node* nodeA, node* nodeB) {
+  if (nodeA == nodeB) {
+    return;
+  }
+
+  if (nodeA == this->x4_start) {
+    this->x4_start = nodeB;
+  } else if (nodeB == this->x4_start) {
+    this->x4_start = nodeA;
+  }
+
+  node* nodeANext = nodeA->x4_next;
+  node* nodeAPrev = nodeA->x0_prev;
+  node* nodeBNext = nodeB->x4_next;
+  node* nodeBPrev = nodeB->x0_prev;
+
+  if (nodeBNext != nodeA) {
+    nodeBNext->x0_prev = nodeA;
+    nodeA->x4_next = nodeBNext;
+    nodeAPrev->x4_next = nodeB;
+    nodeB->x0_prev = nodeAPrev;
+  } else {
+    nodeA->x4_next = nodeB;
+    nodeB->x0_prev = nodeA;
+  }
+
+  if (nodeBPrev != nodeA) {
+    nodeBPrev->x4_next = nodeA;
+    nodeA->x0_prev = nodeBPrev;
+    nodeANext->x0_prev = nodeB;
+    nodeB->x4_next = nodeANext;
+  } else {
+    nodeB->x4_next = nodeA;
+    nodeA->x0_prev = nodeB;
+  }
 }
 
 } // namespace rstl

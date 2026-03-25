@@ -1,11 +1,10 @@
 #ifndef _CRIPPLEMANAGER
 #define _CRIPPLEMANAGER
 
+#include "MetroidPrime/CRipple.hpp"
 #include "MetroidPrime/TGameTypes.hpp"
 
 #include "rstl/vector.hpp"
-
-class CRipple;
 
 class CRippleManager {
 private:
@@ -16,8 +15,8 @@ private:
 public:
   CRippleManager(int maxRipples, float alpha);
   CRippleManager(const CRippleManager& other);
-  ~CRippleManager();
-  
+  ~CRippleManager() {}
+
   void Init(int maxRipples);
   void Update(float dt);
   float GetLastRippleDeltaTime(TUniqueId rippler) const;
@@ -26,9 +25,9 @@ public:
   void SetMaxTimeFalloff(float time) { x0_maxTimeFalloff = time; }
   float GetMaxTimeFalloff() const { return x0_maxTimeFalloff; }
 
-  rstl::vector<CRipple>& Ripples() { return x4_ripples; }
-  const rstl::vector<CRipple>& GetRipples() const { return x4_ripples; }
-  
+  rstl::vector< CRipple >& Ripples() { return x4_ripples; }
+  const rstl::vector< CRipple >& GetRipples() const { return x4_ripples; }
+
   void SetAlpha(float a) { x14_alpha = a; }
   float GetAlpha() const { return x14_alpha; }
 };

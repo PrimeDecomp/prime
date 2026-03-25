@@ -8,6 +8,7 @@
 
 class CBeamInfo {
 public:
+  CBeamInfo(CInputStream& in);
   CBeamInfo(const int beamAttributes, const CAssetId contactFxId, const CAssetId pulseFxId,
             const CAssetId textureId, const CAssetId glowTextureId, const s32 length,
             const float radius, const float expansionSpeed, const float lifeTime,

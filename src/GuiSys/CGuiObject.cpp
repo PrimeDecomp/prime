@@ -36,9 +36,6 @@ void CGuiObject::Draw(const CGuiWidgetDrawParms& parms) const {
   }
 }
 
-inline volatile CVector3f test(const CVector3f& vec) {
-  return CVector3f(vec);
-}
 void CGuiObject::MoveInWorld(const CVector3f& offset) {
   if (GetParent() != nullptr) {
     GetParent()->RotateW2O(offset);

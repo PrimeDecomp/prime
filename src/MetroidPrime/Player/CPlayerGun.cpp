@@ -1,18 +1,37 @@
 #include "MetroidPrime/Player/CPlayerGun.hpp"
 
+#include "Kyoto/Math/CTransform4f.hpp"
+#include "Kyoto/Math/CVector3f.hpp"
 #include "MetroidPrime/CAnimData.hpp"
 #include "MetroidPrime/CAnimRes.hpp"
+#include "MetroidPrime/CControlMapper.hpp"
+#include "MetroidPrime/CFluidPlaneCPU.hpp"
+#include "MetroidPrime/CGameLight.hpp"
 #include "MetroidPrime/CRainSplashGenerator.hpp"
+#include "MetroidPrime/CRumbleManager.hpp"
 #include "MetroidPrime/CStateManager.hpp"
 #include "MetroidPrime/CWorld.hpp"
 #include "MetroidPrime/CWorldShadow.hpp"
 #include "MetroidPrime/Cameras/CCameraManager.hpp"
+#include "MetroidPrime/Cameras/CGameCamera.hpp"
+#include "MetroidPrime/Enemies/CMetroid.hpp"
+#include "MetroidPrime/Enemies/CMetroidBeta.hpp"
+#include "MetroidPrime/Enemies/CPatterned.hpp"
+#include "MetroidPrime/HUD/CSamusHud.hpp"
 #include "MetroidPrime/Player/CGrappleArm.hpp"
 #include "MetroidPrime/Player/CPlayer.hpp"
+#include "MetroidPrime/SFX/PhazonGun.h"
 #include "MetroidPrime/SFX/Weapons.h"
+#include "MetroidPrime/ScriptObjects/CScriptPlatform.hpp"
+#include "MetroidPrime/ScriptObjects/CScriptWater.hpp"
+#include "MetroidPrime/TCastTo.hpp"
+#include "MetroidPrime/TGameTypes.hpp"
 #include "MetroidPrime/Tweaks/CTweakGunRes.hpp"
+#include "MetroidPrime/Tweaks/CTweakPlayer.hpp"
 #include "MetroidPrime/Tweaks/CTweakPlayerGun.hpp"
 #include "MetroidPrime/Weapons/CAuxWeapon.hpp"
+#include "MetroidPrime/Weapons/CBomb.hpp"
+#include "MetroidPrime/Weapons/CEnergyProjectile.hpp"
 #include "MetroidPrime/Weapons/CIceBeam.hpp"
 #include "MetroidPrime/Weapons/CPhazonBeam.hpp"
 #include "MetroidPrime/Weapons/CPlasmaBeam.hpp"
@@ -22,7 +41,9 @@
 #include "MetroidPrime/Weapons/GunController/CGunMotion.hpp"
 #include "MetroidPrime/Weapons/WeaponTypes.hpp"
 
+#include "Kyoto/Animation/CPrimitive.hpp"
 #include "Kyoto/Audio/CSfxManager.hpp"
+#include "Kyoto/Graphics/CGX.hpp"
 #include "Kyoto/Graphics/CModelFlags.hpp"
 #include "Kyoto/Math/CAbsAngle.hpp"
 #include "Kyoto/Math/CMath.hpp"
@@ -30,6 +51,7 @@
 #include "Kyoto/Particles/CElementGen.hpp"
 #include "Kyoto/Particles/CGenDescription.hpp"
 #include "Kyoto/SObjectTag.hpp"
+#include "Kyoto/Text/CStringTable.hpp"
 
 #include "Collision/CMaterialFilter.hpp"
 #include "Collision/CMaterialList.hpp"
@@ -37,7 +59,17 @@
 #include "MetaRender/CCubeRenderer.hpp"
 
 #include "Weapons/IWeaponRenderer.hpp"
+
+#include "rstl/set.hpp"
+
+#include "dolphin/gx/GXFrameBuffer.h"
+#include "dolphin/gx/GXManage.h"
+
 #include "math.h"
+
+#pragma inline_max_size(250)
+
+static const char* const kGunLocator = "GBSE_SDK";
 
 static float kVerticalAngleTable[3] = {-30.f, 0.f, 30.f};
 static float kHorizontalAngleTable[3] = {30.f, 30.f, 30.f};
@@ -70,19 +102,19 @@ static const CPlayerState::EItemType mBeamComboArr[4] = {
     CPlayerState::kIT_Flamethrower,
 };
 
-// static ControlMapper::ECommands mBeamCtrlCmd[4] = {
-//     ControlMapper::kC_PowerBeam,
-//     ControlMapper::kC_IceBeam,
-//     ControlMapper::kC_WaveBeam,
-//     ControlMapper::kC_PlasmaBeam,
-// };
+static const ControlMapper::ECommands mBeamCtrlCmd[4] = {
+    ControlMapper::kC_PowerBeam,
+    ControlMapper::kC_IceBeam,
+    ControlMapper::kC_WaveBeam,
+    ControlMapper::kC_PlasmaBeam,
+};
 
-// constexpr std::array<ushort, 4> skFromMissileSound{
-//     SFXwpn_from_missile_power,
-//     SFXwpn_from_missile_ice,
-//     SFXwpn_from_missile_wave,
-//     SFXwpn_from_missile_plasma,
-// };
+static const ushort mFromMissileSound[4] = {
+    SFXsam_b_misswitch_00,
+    SFXsam_b_misswitch_10,
+    SFXsam_b_misswitch_20,
+    SFXsam_b_misswitch_30,
+};
 
 // constexpr std::array<ushort, 4> mFromBeamSound{
 //     SFXsfx0000,
@@ -91,12 +123,12 @@ static const CPlayerState::EItemType mBeamComboArr[4] = {
 //     SFXwpn_from_beam_plasma,
 // };
 
-// constexpr std::array<ushort, 4> skToMissileSound{
-//     SFXwpn_to_missile_power,
-//     SFXwpn_to_missile_ice,
-//     SFXwpn_to_missile_wave,
-//     SFXwpn_to_missile_plasma,
-// };
+static const ushort mToMissileSound[4] = {
+    SFXsam_b_misswitch_01,
+    SFXsam_b_misswitch_11,
+    SFXsam_b_misswitch_21,
+    SFXsam_b_misswitch_31,
+};
 
 // constexpr std::array<ushort, 4> mIntoBeamSound{
 //     SFXsfx0000,
@@ -116,27 +148,32 @@ static const float kChargeSpeed = 1.f / CPlayerState::GetMissileComboChargeFacto
 static const float kChargeStart = 0.025f / CPlayerState::GetMissileComboChargeFactor();
 static const float kChargeFxStart = 1.f / CPlayerState::GetMissileComboChargeFactor();
 
-// constexpr std::array<ushort, 4> skBeamChargeUpSound{
-//     SFXwpn_chargeup_power,
-//     SFXwpn_chargeup_ice,
-//     SFXwpn_chargeup_wave,
-//     SFXwpn_chargeup_plasma,
-// };
+static ushort sBeamChargeUpSound[4] = {
+    SFXsam_a_cbmcharge_lp_00,
+    SFXsam_a_icecharge_lp_00,
+    SFXsam_a_wavcharge_lp_00,
+    SFXsam_a_placharge_lp_00,
+};
 
 static const CPlayerState::EItemType skItemArr[2] = {
     CPlayerState::kIT_Invalid,
     CPlayerState::kIT_Missiles,
 };
 
+static const CPlayerState::EBeamId mCurrentBeamId[5] = {
+    CPlayerState::kBI_Power,  CPlayerState::kBI_Ice,   CPlayerState::kBI_Wave,
+    CPlayerState::kBI_Plasma, CPlayerState::kBI_Power,
+};
+
 static const CModelFlags kThermalFlags[4] = {
     CModelFlags::Normal(),
-    CModelFlags::AlphaBlended(CColor(u8(255), u8(255), u8(255), u8(128))),
+    CModelFlags::AlphaBlended(CColor(u8(0), u8(0), u8(0), u8(128))),
     CModelFlags::Normal(),
     CModelFlags::Normal(),
 };
 
-static const CModelFlags kHandThermalFlag(CModelFlags::kT_Additive, CColor::White());
-static const CModelFlags kHandHoloFlag(CModelFlags::kT_One, kArmColor);
+static const CModelFlags kHandThermalFlag = CModelFlags(CModelFlags::kT_Additive, CColor::White());
+static const CModelFlags kHandHoloFlag = CModelFlags(CModelFlags::kT_One, kArmColor);
 
 static ushort mItemEmptySound[2] = {
     CSfxManager::kInternalInvalidSfxId,
@@ -157,8 +194,91 @@ static ushort mFromBeamSound[4] = {
     SFXsam_b_plaswitch_01,
 };
 
+static const float kDepthFar = 1.f;
+static const float kDepthWorld = 1.f / 8.f;
+static const float kDepthGun = 1.f / 32.f;
+
+static void DrawClipCube(const CAABox& aabb) {
+  const CColor color(1.f, 1.f, 1.f, 0.f);
+  gpRender->SetBlendMode_AlphaBlended();
+  CGraphics::SetCullMode(kCM_None);
+
+  gpRender->BeginTriangleStrip(4);
+  gpRender->PrimColor(color);
+  gpRender->PrimVertex(
+      CVector3f(aabb.GetMaxPoint().GetX(), aabb.GetMaxPoint().GetY(), aabb.GetMinPoint().GetZ()));
+  gpRender->PrimVertex(
+      CVector3f(aabb.GetMaxPoint().GetX(), aabb.GetMinPoint().GetY(), aabb.GetMinPoint().GetZ()));
+  gpRender->PrimVertex(
+      CVector3f(aabb.GetMaxPoint().GetX(), aabb.GetMaxPoint().GetY(), aabb.GetMaxPoint().GetZ()));
+  gpRender->PrimVertex(
+      CVector3f(aabb.GetMaxPoint().GetX(), aabb.GetMinPoint().GetY(), aabb.GetMaxPoint().GetZ()));
+  gpRender->EndPrimitive();
+
+  gpRender->BeginTriangleStrip(4);
+  gpRender->PrimColor(color);
+  gpRender->PrimVertex(
+      CVector3f(aabb.GetMinPoint().GetX(), aabb.GetMaxPoint().GetY(), aabb.GetMinPoint().GetZ()));
+  gpRender->PrimVertex(
+      CVector3f(aabb.GetMaxPoint().GetX(), aabb.GetMaxPoint().GetY(), aabb.GetMinPoint().GetZ()));
+  gpRender->PrimVertex(
+      CVector3f(aabb.GetMinPoint().GetX(), aabb.GetMaxPoint().GetY(), aabb.GetMaxPoint().GetZ()));
+  gpRender->PrimVertex(
+      CVector3f(aabb.GetMaxPoint().GetX(), aabb.GetMaxPoint().GetY(), aabb.GetMaxPoint().GetZ()));
+  gpRender->EndPrimitive();
+
+  gpRender->BeginTriangleStrip(4);
+  gpRender->PrimColor(color);
+  gpRender->PrimVertex(
+      CVector3f(aabb.GetMinPoint().GetX(), aabb.GetMaxPoint().GetY(), aabb.GetMinPoint().GetZ()));
+  gpRender->PrimVertex(
+      CVector3f(aabb.GetMinPoint().GetX(), aabb.GetMinPoint().GetY(), aabb.GetMinPoint().GetZ()));
+  gpRender->PrimVertex(
+      CVector3f(aabb.GetMaxPoint().GetX(), aabb.GetMaxPoint().GetY(), aabb.GetMinPoint().GetZ()));
+  gpRender->PrimVertex(
+      CVector3f(aabb.GetMaxPoint().GetX(), aabb.GetMinPoint().GetY(), aabb.GetMinPoint().GetZ()));
+  gpRender->EndPrimitive();
+
+  gpRender->BeginTriangleStrip(4);
+  gpRender->PrimColor(color);
+  gpRender->PrimVertex(
+      CVector3f(aabb.GetMinPoint().GetX(), aabb.GetMaxPoint().GetY(), aabb.GetMaxPoint().GetZ()));
+  gpRender->PrimVertex(
+      CVector3f(aabb.GetMaxPoint().GetX(), aabb.GetMaxPoint().GetY(), aabb.GetMaxPoint().GetZ()));
+  gpRender->PrimVertex(
+      CVector3f(aabb.GetMinPoint().GetX(), aabb.GetMinPoint().GetY(), aabb.GetMaxPoint().GetZ()));
+  gpRender->PrimVertex(
+      CVector3f(aabb.GetMaxPoint().GetX(), aabb.GetMinPoint().GetY(), aabb.GetMaxPoint().GetZ()));
+  gpRender->EndPrimitive();
+
+  gpRender->BeginTriangleStrip(4);
+  gpRender->PrimColor(color);
+  gpRender->PrimVertex(
+      CVector3f(aabb.GetMinPoint().GetX(), aabb.GetMinPoint().GetY(), aabb.GetMaxPoint().GetZ()));
+  gpRender->PrimVertex(
+      CVector3f(aabb.GetMinPoint().GetX(), aabb.GetMinPoint().GetY(), aabb.GetMinPoint().GetZ()));
+  gpRender->PrimVertex(
+      CVector3f(aabb.GetMinPoint().GetX(), aabb.GetMaxPoint().GetY(), aabb.GetMaxPoint().GetZ()));
+  gpRender->PrimVertex(
+      CVector3f(aabb.GetMinPoint().GetX(), aabb.GetMaxPoint().GetY(), aabb.GetMinPoint().GetZ()));
+  gpRender->EndPrimitive();
+
+  gpRender->BeginTriangleStrip(4);
+  gpRender->PrimColor(color);
+  gpRender->PrimVertex(
+      CVector3f(aabb.GetMaxPoint().GetX(), aabb.GetMinPoint().GetY(), aabb.GetMaxPoint().GetZ()));
+  gpRender->PrimVertex(
+      CVector3f(aabb.GetMaxPoint().GetX(), aabb.GetMaxPoint().GetY(), aabb.GetMaxPoint().GetZ()));
+  gpRender->PrimVertex(
+      CVector3f(aabb.GetMaxPoint().GetX(), aabb.GetMinPoint().GetY(), aabb.GetMinPoint().GetZ()));
+  gpRender->PrimVertex(
+      CVector3f(aabb.GetMaxPoint().GetX(), aabb.GetMaxPoint().GetY(), aabb.GetMinPoint().GetZ()));
+  gpRender->EndPrimitive();
+}
+
 CPlayerGun::CPlayerGun(TUniqueId playerId)
-: x0_lights(8, CVector3f::Zero(), 4, 4, false, false, false, 0.1)
+: x0_lights(8, CVector3f::Zero(), 4, 4, CActorLights::kDefaultPositionUpdateThreshold, false, false,
+            false)
 , x2ec_lastFireButtonStates(0)
 , x2f0_pressedFireButtonStates(0)
 , x2f4_fireButtonStates(0)
@@ -171,10 +291,10 @@ CPlayerGun::CPlayerGun(TUniqueId playerId)
 , x310_currentBeam(CPlayerState::kBI_Power)
 , x314_nextBeam(CPlayerState::kBI_Power)
 , x318_comboAmmoIdx(0)
-, x31c_missileMode(kMM_Inactive)
-, x320_currentAuxBeam(CPlayerState::kBI_Power)
+, x31c_missileMode(EMissileMode(x318_comboAmmoIdx))
+, x320_currentAuxBeam(x310_currentBeam)
 , x324_idleState(kIS_Four)
-, x328_animSfxPitch(0.f)
+, x328_animSfxPitch(0x2000)
 , x32c_chargePhase(kCP_NotCharging)
 , x330_chargeState(kCS_Normal)
 , x334_(0)
@@ -334,7 +454,8 @@ void CPlayerGun::PreRender(CStateManager& mgr, const CFrustumPlanes& frustum,
     break;
   }
   case CPlayerState::kPV_Combat: {
-    CAABox aabb = x72c_currentBeam->GetBounds(CTransform4f::Translate(camPos) * x4a8_gunWorldXf);
+    CTransform4f offsetXf = CTransform4f::Translate(camPos) * GetGunMotionTransform();
+    CAABox aabb = x72c_currentBeam->GetBounds(offsetXf);
     if (mgr.GetNextAreaId() != kInvalidAreaId) {
       x0_lights.SetFindShadowLight(true);
       x0_lights.SetShadowDynamicRangeThreshold(0.25f);
@@ -369,24 +490,602 @@ void CPlayerGun::PreRender(CStateManager& mgr, const CFrustumPlanes& frustum,
   }
 }
 
-void CPlayerGun::TouchModel(const CStateManager&) const {}
-
-CVector3f CPlayerGun::ConvertToScreenSpace(const CVector3f& pos, const CGameCamera&) const {
-  return pos;
+static void CopyScreenTex() {
+  GXSetTexCopySrc(0x140, 0xe0, 0x140, 0xe0);
+  GXSetTexCopyDst(0x140, 0xe0, GX_TF_RGBA8, false);
+  GXCopyTex(CGraphics::mpSpareBuffer, false);
+  GXPixModeSync();
 }
 
-void CPlayerGun::DrawArm(const CStateManager&, const CVector3f&, const CModelFlags&) const {}
+static void DrawScreenTex(float z) {
+  const CTransform4f backupViewMtx(CGraphics::GetViewMatrix());
+  const CGraphics::CProjectionState backupProjectionState(CGraphics::GetProjectionState());
+  const int vpLeft = CGraphics::mViewport.mLeft;
+  const int vpTop = CGraphics::mViewport.mTop;
+  const int vpRight = vpLeft + CGraphics::mViewport.mWidth;
+  const int vpBottom = vpTop + CGraphics::mViewport.mHeight;
+  const float bottom = static_cast< float >(vpBottom);
+  const float top = static_cast< float >(vpTop);
+  const float right = static_cast< float >(vpRight);
+  CGraphics::SetOrtho(static_cast< float >(vpLeft), right, bottom, top, -1.f, 1.f);
+  CGraphics::SetViewPointMatrix(CTransform4f::Identity());
+  gpRender->SetModelMatrix(CTransform4f::Identity());
+  gpRender->SetBlendMode_AlphaBlended();
+  CGraphics::SetDepthWriteMode(true, kE_GEqual, true);
 
-void CPlayerGun::Render(const CStateManager&, const CVector3f&, const CModelFlags&) const {}
+  CGraphics::LoadDolphinSpareTexture(0x140, 0xe0, GX_TF_RGBA8, NULL,
+                                     CGraphics::kSpareBufferTexMapID);
 
-void CPlayerGun::GetLctrWithShake(CTransform4f& xfOut, const CModelData&, const rstl::string&, bool,
-                                  bool) {}
+  const GXVtxDescList vtxDesc[3] = {
+      {GX_VA_POS, GX_DIRECT},
+      {GX_VA_TEX0, GX_DIRECT},
+      {GX_VA_NULL, GX_NONE},
+  };
+  CGX::SetVtxDescv(vtxDesc);
+  CGX::SetNumChans(0);
+  CGX::SetNumTexGens(1);
+  CGX::SetNumTevStages(1);
+  CGX::SetTevOrder(GX_TEVSTAGE0, GX_TEXCOORD0, CGraphics::kSpareBufferTexMapID, GX_COLOR_NULL);
+  CGX::SetChanCtrl(CGX::Channel0, false, GX_SRC_REG, GX_SRC_REG, GX_LIGHT_NULL, GX_DF_NONE,
+                   GX_AF_NONE);
+  CGX::Begin(GX_TRIANGLESTRIP, GX_VTXFMT0, 4);
+  RSPosition3f32(320.f, z, 0.f);
+  RSTexCoord2f32(0.f, 1.f);
+  RSPosition3f32(640.f, z, 0.f);
+  RSTexCoord2f32(1.f, 1.f);
+  RSPosition3f32(320.f, z, 224.f);
+  RSTexCoord2f32(0.f, 0.f);
+  RSPosition3f32(640.f, z, 224.f);
+  RSTexCoord2f32(1.f, 0.f);
+  CGX::End();
 
-void CPlayerGun::PlayAnim(NWeaponTypes::EGunAnimType type, bool) {}
+  CGraphics::SetDepthWriteMode(true, kE_LEqual, true);
+  CGraphics::SetViewPointMatrix(backupViewMtx);
+  CGraphics::SetProjectionState(backupProjectionState);
+}
 
-void CPlayerGun::Update(float, float, float, CStateManager&) {}
+void CPlayerGun::TouchModel(const CStateManager& mgr) const {
+  if (mgr.GetPlayer()->GetMorphballTransitionState() != CPlayer::kMS_Morphed) {
+    x73c_gunMotion->GetModelData().Touch(mgr, 0);
 
-void CPlayerGun::ProcessInput(const CFinalInput&, CStateManager&) {}
+    switch (x33c_phazonBeamState) {
+    case kPBS_Entering:
+      if (x75c_phazonBeam.get()) {
+        x75c_phazonBeam->Touch(mgr);
+      }
+      break;
+    case kPBS_Exiting:
+      if (x738_nextBeam != nullptr) {
+        x738_nextBeam->Touch(mgr);
+      }
+      break;
+    default:
+      if (!x833_28_phazonBeamActive) {
+        x72c_currentBeam->Touch(mgr);
+      } else {
+        x75c_phazonBeam->Touch(mgr);
+      }
+      break;
+    }
+
+    x72c_currentBeam->TouchHolo(mgr);
+    x740_grappleArm->TouchModel(mgr);
+    x6e0_rightHandModel.Touch(mgr, 0);
+  }
+
+  if (x734_loadingBeam != nullptr) {
+    x734_loadingBeam->Touch(mgr);
+    x734_loadingBeam->TouchHolo(mgr);
+  }
+}
+
+CVector3f CPlayerGun::ConvertToScreenSpace(const CVector3f& pos, const CGameCamera& cam) const {
+  CVector3f viewPos = cam.GetTransform().TransposeRotate(
+      CVector3f(pos.GetX() - cam.GetTransform().Get03(), pos.GetY() - cam.GetTransform().Get13(),
+                pos.GetZ() - cam.GetTransform().Get23()));
+  CVector3f screenPos(viewPos);
+
+  if (screenPos.IsNonZero()) {
+    return CGraphics::GetPerspectiveProjectionMatrix().MultiplyOneOverW(screenPos);
+  }
+
+  return CVector3f(-1.f, -1.f, 1.f);
+}
+
+void CPlayerGun::DrawArm(const CStateManager& mgr, const CVector3f& pos,
+                         const CModelFlags& flags) const {
+  if (!x740_grappleArm->GetActive()) {
+    return;
+  }
+  if (x740_grappleArm->GetAnimState() == CGrappleArm::kAS_Done) {
+    return;
+  }
+
+  const float dot = CVector3f::Dot(x740_grappleArm->GetTransform().GetForward(),
+                                   mgr.GetPlayer()->GetTransform().GetForward());
+  if (mgr.GetPlayer()->GetGrappleState() != CPlayer::kGS_None || dot > 0.1f) {
+    x740_grappleArm->Render(
+        mgr, pos, x740_grappleArm->IsArmMoving() ? flags : CModelFlags::Normal(), &x0_lights);
+  }
+}
+
+void CPlayerGun::Render(const CStateManager& mgr, const CVector3f& pos,
+                        const CModelFlags& flags) const {
+  const CGraphics::CProjectionState projState = CGraphics::GetProjectionState();
+  const CPlayerState::EPlayerVisor visor = mgr.GetPlayerState()->GetCurrentVisor();
+  const bool thermalVisor = visor == CPlayerState::kPV_Thermal;
+  const CModelFlags* beamFlags = &flags;
+  CModelFlags beamFlagCopy(flags);
+  if (thermalVisor) {
+    beamFlags = &kThermalFlags[x310_currentBeam];
+  } else if (x835_26_phazonBeamMorphing) {
+    beamFlagCopy = CModelFlags(CModelFlags::kT_One, 0, CModelFlags::EFlags(3),
+                               CColor(CColor::Lerp(0xffffffff, 0xff000000, x39c_phazonMorphT)));
+    beamFlags = &beamFlagCopy;
+  }
+
+  const CGameCamera& cam = mgr.GetCameraManager()->GetCurrentCamera(mgr);
+  CGraphics::SetDepthRange(kDepthGun, kDepthWorld);
+  CTransform4f offsetWorldXf(CTransform4f::Translate(pos) * GetGunMotionTransform());
+  CTransform4f elbowOffsetXf(offsetWorldXf * x508_elbowLocalXf);
+  if (x32c_chargePhase != kCP_NotCharging && !IsWeaponStateSet(0x10)) {
+    offsetWorldXf.AddTranslation(CVector3f(x34c_shakeX, 0.f, x350_shakeZ));
+  }
+
+  CTransform4f oldViewMtx(CGraphics::GetViewMatrix());
+  CGraphics::SetViewPointMatrix(offsetWorldXf.GetInverse() * oldViewMtx);
+  gpRender->SetModelMatrix(CTransform4f::Identity());
+  if (x32c_chargePhase >= kCP_FxGrown && x32c_chargePhase < kCP_ComboXfer) {
+    x800_auxMuzzleGenerators[x320_currentAuxBeam]->Render();
+  }
+
+  if (x832_25_chargeEffectVisible &&
+      (x38c_muzzleEffectVisTimer > 0.f || x32c_chargePhase > kCP_AnimAndSfx)) {
+    x72c_currentBeam->DrawMuzzleFx(mgr);
+  }
+
+  const CGunMorph::EGunState gunState = x678_morph.GetGunState();
+  if (gunState == CGunMorph::kGS_InWipe || gunState == CGunMorph::kGS_OutWipe) {
+    x774_holoTransitionGen->Render();
+  }
+
+  CGraphics::SetViewPointMatrix(oldViewMtx);
+  if (IsWeaponStateSet(0x10)) {
+    x744_auxWeapon->RenderMuzzleFx();
+  }
+  x72c_currentBeam->PreRenderGunFx(mgr, offsetWorldXf);
+  const bool drawSuitArm = !x740_grappleArm->IsGrappling() &&
+                           mgr.GetPlayer()->GetGunHolsterState() == CPlayer::kGH_Drawn;
+  x73c_gunMotion->Draw(mgr, offsetWorldXf);
+
+  switch (gunState) {
+  case CGunMorph::kGS_OutWipeDone:
+    if (x0_lights.GetAreaLightIndexForShadowLight() != -1) {
+      x82c_shadow->EnableModelProjectedShadow(offsetWorldXf, x0_lights.GetShadowLightIndex(),
+                                              2.15f);
+    }
+    if (visor == CPlayerState::kPV_XRay) {
+      CTransform4f handXf(elbowOffsetXf * CTransform4f::Translate(0.f, -0.2f, 0.02f));
+      x6e0_rightHandModel.Render(mgr, handXf, &x0_lights,
+                                 thermalVisor ? kHandThermalFlag : kHandHoloFlag);
+    }
+    DrawArm(mgr, pos, flags);
+    x72c_currentBeam->Draw(drawSuitArm, mgr, offsetWorldXf, *beamFlags, &x0_lights);
+    x82c_shadow->DisableModelProjectedShadow();
+    break;
+  case CGunMorph::kGS_InWipeDone:
+  case CGunMorph::kGS_InWipe:
+  case CGunMorph::kGS_OutWipe:
+    if (gunState != CGunMorph::kGS_InWipeDone) {
+      CTransform4f morphXf(elbowOffsetXf *
+                           CTransform4f::Translate(0.f, x678_morph.GetYLerp(), 0.f));
+      CopyScreenTex();
+      {
+        CTransform4f handXf(elbowOffsetXf * CTransform4f::Translate(0.f, -0.2f, 0.02f));
+        x6e0_rightHandModel.Render(mgr, handXf, &x0_lights,
+                                   thermalVisor ? kHandThermalFlag : kHandHoloFlag);
+      }
+      x72c_currentBeam->DrawHologram(mgr, offsetWorldXf,
+                                     CModelFlags(CModelFlags::kT_Opaque, 0, CModelFlags::EFlags(3),
+                                                 CColor(1.f, 1.f, 1.f, 1.f)));
+      DrawScreenTex(ConvertToScreenSpace(morphXf.GetTranslation(), cam).GetZ());
+      if (x0_lights.GetAreaLightIndexForShadowLight() != -1) {
+        x82c_shadow->EnableModelProjectedShadow(offsetWorldXf, x0_lights.GetShadowLightIndex(),
+                                                2.15f);
+      }
+      gpRender->SetModelMatrix(morphXf);
+      DrawClipCube(x6c8_hologramClipCube);
+      x72c_currentBeam->Draw(drawSuitArm, mgr, offsetWorldXf, *beamFlags, &x0_lights);
+      x82c_shadow->DisableModelProjectedShadow();
+    } else {
+      CTransform4f handXf(elbowOffsetXf * CTransform4f::Translate(0.f, -0.2f, 0.02f));
+      x6e0_rightHandModel.Render(mgr, handXf, &x0_lights,
+                                 thermalVisor ? kHandThermalFlag : kHandHoloFlag);
+      x72c_currentBeam->DrawHologram(mgr, offsetWorldXf,
+                                     CModelFlags(CModelFlags::kT_Opaque, 0, CModelFlags::EFlags(3),
+                                                 CColor(1.f, 1.f, 1.f, 1.f)));
+      if (x0_lights.GetAreaLightIndexForShadowLight() != -1) {
+        x82c_shadow->EnableModelProjectedShadow(offsetWorldXf, x0_lights.GetShadowLightIndex(),
+                                                2.15f);
+      }
+      DrawArm(mgr, pos, flags);
+      x82c_shadow->DisableModelProjectedShadow();
+    }
+    break;
+  }
+
+  CTransform4f oldViewMtx2(CGraphics::GetViewMatrix());
+  CGraphics::SetViewPointMatrix(offsetWorldXf.GetInverse() * oldViewMtx2);
+  gpRender->SetModelMatrix(CTransform4f::Identity());
+  x72c_currentBeam->PostRenderGunFx(mgr, offsetWorldXf);
+  if (x832_26_comboFiring && x77c_comboXferGen.get()) {
+    x77c_comboXferGen->Render();
+  }
+  CGraphics::SetViewPointMatrix(oldViewMtx2);
+
+  RenderEnergyDrainEffects(mgr);
+
+  CGraphics::SetDepthRange(kDepthWorld, kDepthFar);
+  CGraphics::SetProjectionState(projState);
+}
+
+void CPlayerGun::GetLctrWithShake(CTransform4f& xfOut, const CModelData& modelData,
+                                  const rstl::string& locatorName, bool shake, bool dynamic) {
+  xfOut = dynamic ? modelData.GetScaledLocatorTransformDynamic(locatorName, NULL)
+                  : modelData.GetScaledLocatorTransform(locatorName);
+
+  if (x834_24_charging && shake) {
+    xfOut.AddTranslation(CVector3f(x34c_shakeX, 0.f, x350_shakeZ));
+  }
+}
+
+void CPlayerGun::PlayAnim(NWeaponTypes::EGunAnimType type, bool loop) {
+  if (x338_nextState != kNS_ChangeWeapon)
+    x72c_currentBeam->PlayAnim(type, loop);
+
+  ushort sfx = CSfxManager::kInternalInvalidSfxId;
+  switch (type) {
+  case NWeaponTypes::kGAT_FromMissile:
+    DisableWeaponState(0x4);
+    sfx = mFromMissileSound[x310_currentBeam];
+    break;
+  case NWeaponTypes::kGAT_MissileReload:
+    sfx = SFXsam_a_mislload_00;
+    break;
+  case NWeaponTypes::kGAT_FromBeam:
+    sfx = mFromBeamSound[x310_currentBeam];
+    break;
+  case NWeaponTypes::kGAT_ToMissile:
+    DisableWeaponState(0x1);
+    sfx = mToMissileSound[x310_currentBeam];
+    break;
+  default:
+    break;
+  }
+
+  if (sfx != CSfxManager::kInternalInvalidSfxId)
+    NWeaponTypes::play_sfx(sfx, x834_27_underwater, false, 0x4a);
+}
+
+static bool just_thawed(bool frozen, bool playerFrozen) { return frozen && !playerFrozen; }
+static bool just_froze(bool frozen, bool playerFrozen) { return !frozen && playerFrozen; }
+
+void CPlayerGun::Update(float grappleSwingT, float cameraBobT, float dt, CStateManager& mgr) {
+  CPlayer& player = *mgr.Player();
+  CPlayerState& playerState = *mgr.PlayerState();
+  const bool isUnmorphed = player.GetMorphballTransitionState() == CPlayer::kMS_Unmorphed;
+
+  bool justFroze = false;
+  if (isUnmorphed) {
+    justFroze = just_froze(x834_29_frozen, player.GetFrozenState());
+  }
+
+  bool justThawed = false;
+  if (isUnmorphed) {
+    justThawed = just_thawed(x834_29_frozen, player.GetFrozenState());
+  }
+
+  x834_29_frozen = isUnmorphed && player.GetFrozenState();
+  float advDt = dt;
+  if (x834_29_frozen) {
+    advDt = 0.f;
+  }
+
+  const bool inMorph = x678_morph.GetGunState() != CGunMorph::kGS_OutWipeDone;
+  if (mgr.GetPlayerState()->GetCurrentVisor() == CPlayerState::kPV_XRay || inMorph) {
+    x6e0_rightHandModel.AdvanceAnimation(advDt, mgr, kInvalidAreaId, true);
+  }
+  if (inMorph && x734_loadingBeam != NULL && x734_loadingBeam != x72c_currentBeam) {
+    x744_auxWeapon->Load(x314_nextBeam, mgr);
+    x734_loadingBeam->Update(advDt, mgr);
+  }
+  if (!x744_auxWeapon->IsLoaded()) {
+    x744_auxWeapon->Load(x310_currentBeam, mgr);
+  }
+
+  if (justFroze) {
+    x72c_currentBeam->EnableSecondaryFx(CGunWeapon::kSFT_None);
+    x72c_currentBeam->EnableFrozenEffect(kFFT_Frozen);
+  } else if (justThawed) {
+    x72c_currentBeam->EnableFrozenEffect(kFFT_Thawed);
+  }
+
+  if (justFroze || justThawed) {
+    x2f4_fireButtonStates = 0;
+    x2ec_lastFireButtonStates = 0;
+    CancelFiring(mgr);
+  }
+
+  x72c_currentBeam->Update(advDt, mgr);
+  x73c_gunMotion->Update(advDt * x370_gunMotionSpeedMult, mgr);
+  x740_grappleArm->Update(grappleSwingT, advDt, mgr);
+
+  if (x338_nextState != kNS_StatusQuo) {
+    if (x678_morph.GetGunState() == CGunMorph::kGS_InWipeDone) {
+      if (x338_nextState == kNS_ChangeWeapon) {
+        ChangeWeapon(playerState, mgr);
+        x338_nextState = kNS_StatusQuo;
+      }
+    } else if (!x72c_currentBeam->GetSolidModelData().GetAnimationData()->IsAnimTimeRemaining(
+                   0.001f, rstl::string_l("Whole Body")) ||
+               x832_30_requestReturnToDefault) {
+      bool statusQuo = true;
+      switch (x338_nextState) {
+      case kNS_EnterMissile:
+        ResetToMissile();
+        break;
+      case kNS_ExitMissile:
+        ResetToBeam();
+        x390_cooldown = x72c_currentBeam->GetWeaponInfo().x0_coolDown;
+        break;
+      case kNS_MissileReload:
+        PlayAnim(NWeaponTypes::kGAT_MissileReload, false);
+        x338_nextState = kNS_MissileShotDone;
+        statusQuo = false;
+        break;
+      case kNS_MissileShotDone:
+        EnableWeaponState(0x4);
+        break;
+      case kNS_ChangeWeapon:
+        ChangeWeapon(playerState, mgr);
+        break;
+      case kNS_SetupBeam:
+        x390_cooldown = x72c_currentBeam->GetWeaponInfo().x0_coolDown;
+        DisableWeaponState(0x8);
+        ResetToBeam();
+        break;
+      case kNS_EnterPhazonBeam:
+        if (x75c_phazonBeam->IsLoaded()) {
+          break;
+        }
+        x72c_currentBeam->x218_29_drawHologram = true;
+        x75c_phazonBeam->Load(mgr, false);
+        x33c_phazonBeamState = kPBS_Entering;
+        break;
+      case kNS_ExitPhazonBeam:
+        if (x738_nextBeam->IsLoaded()) {
+          break;
+        }
+        x72c_currentBeam->x218_29_drawHologram = true;
+        x738_nextBeam->Load(mgr, false);
+        x33c_phazonBeamState = kPBS_Exiting;
+        break;
+      default:
+        break;
+      }
+
+      if (statusQuo) {
+        x338_nextState = kNS_StatusQuo;
+      }
+    }
+  }
+
+  if (x37c_rapidFireShotsDecayTimer < 0.2f) {
+    x37c_rapidFireShotsDecayTimer += advDt;
+  } else {
+    x37c_rapidFireShotsDecayTimer = 0.f;
+    if (x30c_rapidFireShots > 0) {
+      x30c_rapidFireShots -= 1;
+    }
+  }
+
+  if (x32c_chargePhase != kCP_NotCharging && !player.GetFrozenState()) {
+    x34c_shakeX = chargeShakeTbl[mgr.Random()->Next() % 3] * x340_chargeBeamFactor;
+    x350_shakeZ = chargeShakeTbl[mgr.Random()->Next() % 3] * x340_chargeBeamFactor;
+  }
+
+  if (!x72c_currentBeam->IsLoaded()) {
+    return;
+  }
+
+  GetLctrWithShake(x4d8_gunLocalXf, x73c_gunMotion->GetModelData(), rstl::string_l(kGunLocator),
+                   true, true);
+  GetLctrWithShake(x418_beamLocalXf, x72c_currentBeam->GetSolidModelData(),
+                   rstl::string_l(CGunWeapon::skMuzzleLocator), false, true);
+  GetLctrWithShake(x508_elbowLocalXf, x72c_currentBeam->GetSolidModelData(),
+                   rstl::string_l("elbow"), false, false);
+  x4a8_gunWorldXf = x3e8_xf * x4d8_gunLocalXf * x550_camBob.GetCameraBobTransformation();
+
+  if (x740_grappleArm->GetActive() && !x740_grappleArm->IsGrappling()) {
+    UpdateLeftArmTransform(*x72c_currentBeam->SolidModelData(), mgr);
+  }
+
+  x6a0_motionState.Update(x2f0_pressedFireButtonStates != 0 && x832_28_readyForShot &&
+                              x32c_chargePhase < kCP_AnimAndSfx && !player.IsInFreeLook(),
+                          advDt, x4a8_gunWorldXf, mgr);
+
+  x72c_currentBeam->SolidModelData()->AdvanceParticles(GetGunMotionTransform(), advDt, mgr);
+  x72c_currentBeam->UpdateGunFx(x380_shotSmokeTimer > 2.f && x378_shotSmokeStartTimer > 0.15f, dt,
+                                mgr, x508_elbowLocalXf);
+
+  CTransform4f beamWorldXf = GetGunMotionTransform() * x418_beamLocalXf;
+
+  if (player.GetMorphballTransitionState() == CPlayer::kMS_Unmorphed &&
+      !mgr.GetCameraManager()->IsInCinematicCamera()) {
+    TEntityList nearList;
+    const CAABox aabb = x72c_currentBeam->GetBounds().GetTransformedAABox(GetGunMotionTransform());
+    mgr.BuildNearList(nearList, aabb, sAimFilter, &player);
+    TUniqueId bestId = kInvalidUniqueId;
+    const CVector3f dir = GetGunMotionTransform().GetForward().AsNormalized();
+    const CVector3f pos = GetGunMotionTransform().GetTranslation() + dir * -0.5f;
+    const CRayCastResult result =
+        mgr.RayWorldIntersection(bestId, pos, dir, 3.5f, sAimFilter, nearList);
+    x833_29_pointBlankWorldSurface = result.IsValid();
+    if (result.IsValid()) {
+      x448_elbowWorldXf = GetGunMotionTransform() * x508_elbowLocalXf;
+      x448_elbowWorldXf.AddTranslation(dir * -0.5f);
+      beamWorldXf.SetTranslation(result.GetPoint());
+    }
+  } else {
+    x833_29_pointBlankWorldSurface = false;
+  }
+
+  CTransform4f beamTargetXf = x833_29_pointBlankWorldSurface ? x448_elbowWorldXf : beamWorldXf;
+
+  const CVector3f camTrans = mgr.GetCameraManager()->GetGlobalCameraTranslation(mgr);
+  beamWorldXf.AddTranslation(camTrans);
+  beamTargetXf.AddTranslation(camTrans);
+
+  if (x832_25_chargeEffectVisible) {
+    const bool emitting = x833_30_canShowAuxMuzzleEffect ? x344_comboXferTimer < 1.f : false;
+    const CVector3f scale(
+        (emitting && x832_26_comboFiring) ? (1.f - x344_comboXferTimer) * 2.f : 2.f,
+        (emitting && x832_26_comboFiring) ? (1.f - x344_comboXferTimer) * 2.f : 2.f,
+        (emitting && x832_26_comboFiring) ? (1.f - x344_comboXferTimer) * 2.f : 2.f);
+    x72c_currentBeam->UpdateMuzzleFx(advDt, scale, x418_beamLocalXf.GetTranslation(), emitting);
+    CElementGen& gen = *x800_auxMuzzleGenerators[x320_currentAuxBeam];
+    gen.SetGlobalOrientAndTrans(x418_beamLocalXf);
+    gen.SetGlobalScale(scale);
+    gen.SetParticleEmission(emitting);
+    gen.Update(advDt);
+  }
+
+  if (x748_rainSplashGenerator.get()) {
+    x748_rainSplashGenerator->Update(advDt, mgr);
+  }
+
+  UpdateGunLight(beamWorldXf, mgr);
+  ProcessGunMorph(advDt, mgr);
+  if (x835_26_phazonBeamMorphing) {
+    ProcessPhazonGunMorph(advDt, mgr);
+  }
+
+  if (x832_26_comboFiring && x77c_comboXferGen.get()) {
+    x77c_comboXferGen->SetGlobalTranslation(x418_beamLocalXf.GetTranslation());
+    x77c_comboXferGen->SetGlobalOrientation(x418_beamLocalXf.GetRotation());
+    x77c_comboXferGen->Update(advDt);
+    x344_comboXferTimer += advDt * 4.f;
+  }
+
+  if (x35c_bombTime > 0.f) {
+    x35c_bombTime -= advDt;
+    if (x35c_bombTime <= 0.f) {
+      x308_bombCount = 3;
+    }
+  }
+
+  if (playerState.ItemEnabled(CPlayerState::kIT_ChargeBeam) &&
+      x32c_chargePhase != kCP_NotCharging) {
+    UpdateChargeState(advDt, mgr);
+  } else {
+    x340_chargeBeamFactor -= advDt;
+    if (x340_chargeBeamFactor < 0.f) {
+      x340_chargeBeamFactor = 0.f;
+    }
+  }
+
+  UpdateAuxWeapons(advDt, beamTargetXf, mgr);
+  DoUserAnimEvents(advDt, mgr);
+
+  if (player.GetOrbitState() == CPlayer::kOS_OrbitObject && GetTargetId(mgr) != kInvalidUniqueId) {
+    if (!x832_29_lockedOn && !x832_26_comboFiring && !IsWeaponStateSet(0x10)) {
+      x832_29_lockedOn = true;
+      x6a0_motionState.SetState(CMotionState::kMS_LockOn);
+      ReturnArmAndGunToDefault(mgr, true);
+    }
+  } else {
+    CancelLockOn();
+  }
+
+  UpdateWeaponFire(advDt, playerState, mgr);
+  UpdateGunIdle(x364_gunStrikeCoolTimer > 0.f, cameraBobT, advDt, mgr);
+
+  if ((x2ec_lastFireButtonStates & 0x1) == 0x1) {
+    x378_shotSmokeStartTimer = 0.f;
+  } else if (x378_shotSmokeStartTimer < 2.f) {
+    x378_shotSmokeStartTimer += advDt;
+    if (x378_shotSmokeStartTimer > 1.f) {
+      x30c_rapidFireShots = 0;
+      x380_shotSmokeTimer = 0.f;
+    }
+  }
+
+  if (x38c_muzzleEffectVisTimer > 0.f) {
+    x38c_muzzleEffectVisTimer -= advDt;
+  }
+
+  if (x30c_rapidFireShots > 5 && x380_shotSmokeTimer < 2.f) {
+    x380_shotSmokeTimer += advDt;
+  }
+
+  if (x384_gunStrikeDelayTimer > 0.f) {
+    x384_gunStrikeDelayTimer -= advDt;
+  }
+
+  if (x364_gunStrikeCoolTimer > 0.f) {
+    x2f4_fireButtonStates = 0;
+    x364_gunStrikeCoolTimer -= advDt;
+  }
+
+  if (isUnmorphed && IsWeaponStateSet(0x4)) {
+    x3a0_missileExitTimer -= advDt;
+    if (x3a0_missileExitTimer < 0.f) {
+      x3a0_missileExitTimer = 0.f;
+      ExitMissile();
+    }
+  }
+}
+
+void CPlayerGun::ProcessInput(const CFinalInput& input, CStateManager& mgr) {
+  const CPlayer* player = mgr.GetPlayer();
+  const CPlayerState* cPlayerState = mgr.GetPlayerState();
+  CPlayerState* playerState = const_cast< CPlayerState* >(cPlayerState);
+  bool damageNotMorphed = false;
+  if (x834_30_inBigStrike && player->GetMorphballTransitionState() != CPlayer::kMS_Morphed) {
+    damageNotMorphed = true;
+  }
+
+  if (x832_24_coolingCharge || damageNotMorphed || IsWeaponStateSet(0x8)) {
+    return;
+  }
+
+  if (cPlayerState->HasPowerUp(CPlayerState::kIT_ChargeBeam)) {
+    if (!cPlayerState->ItemEnabled(CPlayerState::kIT_ChargeBeam)) {
+      playerState->EnableItem(CPlayerState::kIT_ChargeBeam);
+    }
+  } else if (cPlayerState->ItemEnabled(CPlayerState::kIT_ChargeBeam)) {
+    playerState->DisableItem(CPlayerState::kIT_ChargeBeam);
+    ResetCharge(mgr, false);
+  }
+
+  switch (player->GetMorphballTransitionState()) {
+  case CPlayer::kMS_Morphing:
+  case CPlayer::kMS_Unmorphing:
+    x2f4_fireButtonStates = 0;
+    break;
+  case CPlayer::kMS_Unmorphed:
+    if (!IsWeaponStateSet(0x10)) {
+      HandleWeaponChange(input, mgr);
+    }
+    // fallthrough
+  case CPlayer::kMS_Morphed:
+    x2f4_fireButtonStates =
+        ControlMapper::GetDigitalInput(ControlMapper::kC_FireOrBomb, input) ? 1 : 0;
+    x2f4_fireButtonStates |=
+        ControlMapper::GetDigitalInput(ControlMapper::kC_MissileOrPowerBomb, input) ? 2 : 0;
+    break;
+  }
+}
 
 void CPlayerGun::ProcessChargeState(int releasedStates, int pressedStates, CStateManager& mgr,
                                     float dt) {
@@ -454,8 +1153,8 @@ void CPlayerGun::ProcessNormalState(int releasedStates, int pressedStates, CStat
 }
 
 bool CPlayerGun::ExitMissile() {
-  if ((x2f8_stateFlags & 0x1) != 0x1) {
-    if ((x2f8_stateFlags & 0x10) != 0x10 && x338_nextState != kNS_ExitMissile) {
+  if (!IsWeaponStateSet(0x1)) {
+    if (!IsWeaponStateSet(0x10) && x338_nextState != kNS_ExitMissile) {
       x338_nextState = kNS_ExitMissile;
       PlayAnim(NWeaponTypes::kGAT_FromMissile, false);
     }
@@ -464,17 +1163,298 @@ bool CPlayerGun::ExitMissile() {
   return true;
 }
 
-void CPlayerGun::UpdateNormalShotCycle(float, CStateManager&) {}
+void CPlayerGun::UpdateNormalShotCycle(float dt, CStateManager& mgr) {
+  if (ExitMissile()) {
+    if (!mgr.GetCameraManager()->IsInCinematicCamera()) {
+      bool showChargeFx = false;
+      if (x833_28_phazonBeamActive) {
+        showChargeFx = true;
+      } else if (x310_currentBeam == CPlayerState::kBI_Plasma) {
+        showChargeFx = true;
+      }
 
-void CPlayerGun::FireSecondary(float, CStateManager&) {}
+      bool chargeEffectVisible = false;
+      if (showChargeFx && x32c_chargePhase == kCP_NotCharging) {
+        chargeEffectVisible = true;
+      }
+      x832_25_chargeEffectVisible = chargeEffectVisible;
+      x30c_rapidFireShots += 1;
 
-void CPlayerGun::DropBomb(CPlayerGun::EBWeapon, CStateManager&) {}
+      const uint targetHoming =
+          x72c_currentBeam->GetVelocityInfo().GetTargetHoming(int(x330_chargeState));
 
-void CPlayerGun::ActivateCombo(CStateManager&) {}
+      CTransform4f xf(x833_29_pointBlankWorldSurface ? x448_elbowWorldXf
+                                                     : GetGunMotionTransform() * x418_beamLocalXf);
+      if (!x833_29_pointBlankWorldSurface && x364_gunStrikeCoolTimer <= 0.f) {
+        const CVector3f fwd = xf.GetForward();
+        xf = x478_assistAimXf;
+        xf.SetTranslation(fwd);
+      }
 
-void CPlayerGun::EnableChargeFx(CPlayerState::EChargeStage, CStateManager&) {}
+      xf.AddTranslation(mgr.GetCameraManager()->GetGlobalCameraTranslation(mgr));
+      x38c_muzzleEffectVisTimer = 0.0625f;
 
-void CPlayerGun::UpdateChargeState(float, CStateManager&) {}
+      TUniqueId homingTarget = targetHoming ? GetTargetId(mgr) : kInvalidUniqueId;
+      x72c_currentBeam->Fire(x834_27_underwater, dt, CPlayerState::EChargeStage(x330_chargeState),
+                             xf, mgr, homingTarget, x340_chargeBeamFactor, x340_chargeBeamFactor);
+
+      mgr.InformListeners(GetGunMotionTransform().GetTranslation(), kLNT_PlayerFire);
+    }
+  }
+}
+
+void CPlayerGun::FireSecondary(float dt, CStateManager& mgr) {
+  if (mgr.GetCameraManager()->IsInCinematicCamera()) {
+    return;
+  }
+
+  CPlayerState* playerState = mgr.PlayerState();
+  if (x835_25_inPhazonBeam || int(x318_comboAmmoIdx) == 0 ||
+      playerState->HasPowerUp(skItemArr[x318_comboAmmoIdx]) != true || !IsWeaponStateSet(0x4)) {
+    NWeaponTypes::play_sfx(SFXsam_b_malfxn_00, x834_27_underwater, false, 0x4a);
+    return;
+  }
+
+  bool fired = false;
+  if (int(x318_comboAmmoIdx) == 1) {
+    x300_remainingMissiles = playerState->GetItemAmount(CPlayerState::kIT_Missiles);
+    if (mgr.GetWeaponIdCount(x538_playerId, kWT_Missile) < 3 && int(x300_remainingMissiles) != 0) {
+      playerState->DecrPickUp(CPlayerState::kIT_Missiles,
+                              x832_26_comboFiring ? playerState->GetMissileCostForAltAttack() : 1);
+      fired = true;
+    }
+
+    if (int(x300_remainingMissiles) > 5) {
+      x300_remainingMissiles = 5;
+    } else {
+      x300_remainingMissiles -= 1;
+    }
+  }
+
+  if (fired) {
+    TUniqueId targetId = GetTargetId(mgr);
+    if (x832_26_comboFiring && targetId == kInvalidUniqueId &&
+        x310_currentBeam == CPlayerState::kBI_Wave) {
+      targetId = mgr.GetPlayer()->GetAimTargetId();
+    }
+
+    CTransform4f beamXf = x4a8_gunWorldXf * x418_beamLocalXf;
+    const CTransform4f& shotXf = x833_29_pointBlankWorldSurface ? x448_elbowWorldXf : beamXf;
+    CTransform4f xf(shotXf);
+    if (!x833_29_pointBlankWorldSurface && x364_gunStrikeCoolTimer <= 0.f) {
+      const float z = xf.Get23();
+      const float y = xf.Get13();
+      const float x = xf.Get03();
+      xf = x478_assistAimXf;
+      xf.SetTranslation(CVector3f(x, y, z));
+    }
+
+    xf.AddTranslation(mgr.GetCameraManager()->GetGlobalCameraTranslation(mgr));
+    x744_auxWeapon->Fire(dt, x834_27_underwater, CPlayerState::EBeamId(x310_currentBeam),
+                         CPlayerState::EChargeStage(x330_chargeState), xf, mgr,
+                         x72c_currentBeam->GetType(), targetId);
+
+    mgr.InformListeners(GetGunMotionTransform().GetTranslation(), kLNT_PlayerFire);
+
+    x3a0_missileExitTimer = 7.f;
+    if (x832_26_comboFiring != true) {
+      PlayAnim(NWeaponTypes::kGAT_MissileShoot, false);
+      x338_nextState = int(x300_remainingMissiles) > 0 ? kNS_MissileReload : kNS_MissileShotDone;
+      DisableWeaponState(0x4);
+    }
+  } else {
+    ushort sfx = mItemEmptySound[x318_comboAmmoIdx];
+    NWeaponTypes::play_sfx(sfx, x834_27_underwater, false, 0x4a);
+  }
+}
+
+void CPlayerGun::DropBomb(CPlayerGun::EBWeapon weapon, CStateManager& mgr) {
+  const float ballHalfExtent = gpTweakPlayer->GetPlayerBallHalfExtent();
+
+  switch (weapon) {
+  case kBW_Bomb: {
+    if (x32c_chargePhase != kCP_NotCharging) {
+      x32c_chargePhase = kCP_ChargeDone;
+      break;
+    }
+
+    if (x308_bombCount <= 0) {
+      break;
+    }
+
+    CBomb* bomb = rs_new CBomb(x784_bombEffects[weapon][0], x784_bombEffects[weapon][1],
+                               mgr.AllocateUniqueId(), mgr.GetPlayer()->GetCurrentAreaId(),
+                               x538_playerId, x354_bombFuseTime,
+                               CTransform4f::Translate(mgr.GetPlayer()->GetTranslation() +
+                                                       CVector3f(0.f, 0.f, ballHalfExtent)),
+                               gpTweakPlayerGun->GetBombInfo());
+    mgr.AddObject(*bomb);
+
+    if (x308_bombCount == 3) {
+      x35c_bombTime = x358_bombDropDelayTime;
+    }
+
+    --x308_bombCount;
+
+    if (CEntity* ent = mgr.ObjectById(mgr.GetPlayer()->GetRidingPlatformId())) {
+      if (CScriptPlatform* plat = TCastToPtr< CScriptPlatform >(ent)) {
+        plat->AddSlave(bomb->GetUniqueId(), mgr);
+      }
+    }
+    break;
+  }
+  case kBW_PowerBomb:
+    mgr.PlayerState()->DecrPickUp(CPlayerState::kIT_PowerBombs, 1);
+    x53a_powerBomb = DropPowerBomb(mgr);
+    break;
+  default:
+    break;
+  }
+}
+
+void CPlayerGun::ActivateCombo(CStateManager& mgr) {
+  if (x832_26_comboFiring == true) {
+    return;
+  }
+
+  CPlayerState& playerState = *mgr.PlayerState();
+  const int altCost = playerState.GetMissileCostForAltAttack();
+  if (playerState.GetItemAmount(skItemArr[x318_comboAmmoIdx]) >= altCost) {
+    bool canFire = true;
+    if (x310_currentBeam == CPlayerState::kBI_Plasma) {
+      canFire = !x834_27_underwater;
+    }
+
+    if (canFire) {
+      x832_26_comboFiring = true;
+
+      TCachedToken< CGenDescription >& cachedXferEffect = x72c_currentBeam->x160_xferEffect;
+      if (cachedXferEffect.TryCache()) {
+        x77c_comboXferGen = rs_new CElementGen(cachedXferEffect);
+        x77c_comboXferGen->SetGlobalScale(kScaleVector);
+      }
+
+      x72c_currentBeam->x218_25_enableCharge = true;
+      StopChargeSound(mgr);
+      NWeaponTypes::play_sfx(SFXsam_a_combochg_00, x834_27_underwater, false, 0x4a);
+      x32c_chargePhase = kCP_ComboXfer;
+    }
+  } else {
+    NWeaponTypes::play_sfx(SFXsam_b_malfxn_00, x834_27_underwater, false, 0x4a);
+  }
+}
+
+void CPlayerGun::EnableChargeFx(CPlayerState::EChargeStage, CStateManager& mgr) {
+  x72c_currentBeam->ActivateCharge(true, false);
+  SetGunLightActive(true, mgr);
+  x72c_currentBeam->EnableSecondaryFx(CGunWeapon::kSFT_Charge);
+  StopContinuousBeam(mgr, false);
+
+  switch (x310_currentBeam) {
+  case CPlayerState::kBI_Power:
+  case CPlayerState::kBI_Plasma:
+    x832_25_chargeEffectVisible = true;
+    break;
+  default:
+    break;
+  }
+
+  EnableWeaponState(0x7);
+  x318_comboAmmoIdx = 1;
+  x338_nextState = kNS_StatusQuo;
+  x833_30_canShowAuxMuzzleEffect = true;
+
+  x800_auxMuzzleGenerators[x320_currentAuxBeam] =
+      rs_new CElementGen(x7c0_auxMuzzleEffects[x320_currentAuxBeam]);
+  x800_auxMuzzleGenerators[x320_currentAuxBeam]->SetParticleEmission(true);
+}
+
+void CPlayerGun::UpdateChargeState(float dt, CStateManager& mgr) {
+  switch (x32c_chargePhase) {
+  case kCP_ChargeRequested:
+    x340_chargeBeamFactor = 0.f;
+    x330_chargeState = kCS_Normal;
+    x832_27_chargeAnimStarted = false;
+    x834_24_charging = true;
+    x32c_chargePhase = kCP_AnimAndSfx;
+    break;
+  case kCP_AnimAndSfx:
+    if (x832_27_chargeAnimStarted == false) {
+      if (x340_chargeBeamFactor > kChargeStart && x832_25_chargeEffectVisible) {
+        x832_25_chargeEffectVisible = false;
+      }
+      if (x340_chargeBeamFactor > kTractorBeamFactor) {
+        PlayAnim(NWeaponTypes::kGAT_ChargeUp, false);
+        if (!x2e0_chargeSfx) {
+          x2e0_chargeSfx = NWeaponTypes::play_sfx(sBeamChargeUpSound[x310_currentBeam],
+                                                  x834_27_underwater, true, 0x4a);
+        }
+        if (x830_chargeRumbleHandle == -1) {
+          x830_chargeRumbleHandle =
+              mgr.GetRumbleManager()->Rumble(mgr, kRFX_PlayerGunCharge, 1.f, kRP_Three);
+        }
+        x832_27_chargeAnimStarted = true;
+      }
+    } else if (x340_chargeBeamFactor >= kChargeFxStart && !IsWeaponStateSet(0x8)) {
+      x832_25_chargeEffectVisible = true;
+      x832_27_chargeAnimStarted = false;
+      x32c_chargePhase = kCP_FxGrowing;
+      x330_chargeState = kCS_Charged;
+      EnableChargeFx(CPlayerState::kCS_Charged, mgr);
+      PlayAnim(NWeaponTypes::kGAT_ChargeLoop, true);
+    }
+    break;
+  case kCP_FxGrowing:
+    if (x340_chargeBeamFactor >= 1.f) {
+      x32c_chargePhase = kCP_FxGrown;
+    }
+    break;
+  case kCP_ComboXfer:
+    if (x344_comboXferTimer >= 1.f) {
+      x32c_chargePhase = kCP_ComboXferDone;
+      x832_25_chargeEffectVisible = false;
+    }
+    break;
+  case kCP_ComboXferDone:
+    x32c_chargePhase = kCP_ComboFire;
+    x348_chargeCooldownTimer = 0.f;
+    break;
+  case kCP_ComboFire:
+    x740_grappleArm->EnterComboFire(int(x310_currentBeam), mgr);
+    x73c_gunMotion->PlayPasAnim(SamusGun::kAS_ComboFire, mgr, 0.f, false);
+    x72c_currentBeam->PlayPasAnim(SamusGun::kAS_ComboFire, mgr, 0.f);
+    x833_31_inFreeLook = false;
+    x32c_chargePhase = kCP_ComboFireDone;
+    break;
+  case kCP_ChargeCooldown:
+    if (!IsWeaponStateSet(0x10)) {
+      x348_chargeCooldownTimer += dt;
+      if (x348_chargeCooldownTimer >= 0.3f && x72c_currentBeam->IsChargeAnimOver()) {
+        x32c_chargePhase = kCP_ChargeDone;
+      }
+    } else {
+      x832_24_coolingCharge = false;
+    }
+    break;
+  case kCP_ChargeDone:
+    ResetCharge(mgr, false);
+    Reset(mgr, false);
+    break;
+  default:
+    break;
+  }
+
+  if (x2e0_chargeSfx) {
+    CSfxManager::PitchBend(x2e0_chargeSfx, x834_27_underwater ? 0 : 0x2000);
+  }
+
+  if (x32c_chargePhase > kCP_NotCharging && x32c_chargePhase < kCP_FxGrown) {
+    x340_chargeBeamFactor += kChargeSpeed * dt;
+    if (x340_chargeBeamFactor > 1.f) {
+      x340_chargeBeamFactor = 1.f;
+    }
+  }
+}
 
 void CPlayerGun::Reset(CStateManager& mgr, bool b1) {
   x72c_currentBeam->Reset(mgr);
@@ -483,17 +1463,12 @@ void CPlayerGun::Reset(CStateManager& mgr, bool b1) {
   x833_26_ = false;
   x348_chargeCooldownTimer = 0.f;
   SetGunLightActive(false, mgr);
-  if ((x2f8_stateFlags & 0x10) != 0x10) {
-    if (!b1 && (x2f8_stateFlags & 0x2) != 0x2) {
-      if ((x2f8_stateFlags & 0x8) != 0x8) {
-        x2f8_stateFlags |= 0x1;
-        x2f8_stateFlags &= ~0x16;
-      }
-      x318_comboAmmoIdx = 0;
-      x31c_missileMode = kMM_Inactive;
+  if (!IsWeaponStateSet(0x10)) {
+    if (!b1 && !IsWeaponStateSet(0x2)) {
+      ResetToBeam();
     }
   } else {
-    x2f8_stateFlags &= ~0x7;
+    DisableWeaponState(0x7);
   }
 }
 
@@ -501,20 +1476,15 @@ void CPlayerGun::ResetCharge(CStateManager& mgr, bool resetBeam) {
   if (x32c_chargePhase != kCP_NotCharging)
     StopChargeSound(mgr);
 
-  if ((x2f8_stateFlags & 0x8) != 0x8 && (x2f8_stateFlags & 0x10) != 0x10) {
+  if (!IsWeaponStateSet(0x8) && !IsWeaponStateSet(0x10)) {
     bool doResetBeam =
         mgr.GetPlayer()->GetMorphballTransitionState() == CPlayer::kMS_Morphed || resetBeam;
     if (x832_27_chargeAnimStarted || doResetBeam)
       PlayAnim(NWeaponTypes::kGAT_BasePosition, false);
     if (doResetBeam)
       x72c_currentBeam->EnableSecondaryFx(CGunWeapon::kSFT_None);
-    if ((x2f8_stateFlags & 0x2) != 0x2 || x330_chargeState != kCS_Normal) {
-      if ((x2f8_stateFlags & 0x8) != 0x8) {
-        x2f8_stateFlags |= 0x1;
-        x2f8_stateFlags &= ~0x16;
-      }
-      x318_comboAmmoIdx = 0;
-      x31c_missileMode = kMM_Inactive;
+    if (!IsWeaponStateSet(0x2) || x330_chargeState != kCS_Normal) {
+      ResetToBeam();
     }
   }
 
@@ -528,6 +1498,7 @@ void CPlayerGun::ResetCharge(CStateManager& mgr, bool resetBeam) {
 }
 
 #define SFXwpn_morph_out_wipe 1774
+#define SFXwpn_morph_in_wipe_done 1775
 
 void CPlayerGun::ResetBeamParams(CStateManager& mgr, const CPlayerState& playerState,
                                  bool playSelectionSfx) {
@@ -547,17 +1518,153 @@ void CPlayerGun::ResetBeamParams(CStateManager& mgr, const CPlayerState& playerS
   x833_30_canShowAuxMuzzleEffect = true;
 }
 
-void CPlayerGun::ChangeWeapon(const CPlayerState&, CStateManager&) {}
+void CPlayerGun::ChangeWeapon(const CPlayerState& playerState, CStateManager& mgr) {
+  if (x730_outgoingBeam != nullptr && x730_outgoingBeam != x72c_currentBeam)
+    x730_outgoingBeam->Unload(mgr);
 
-void CPlayerGun::StartPhazonBeamTransition(bool, CStateManager&, CPlayerState&) {}
+  x734_loadingBeam = x760_selectableBeams[x314_nextBeam];
+  if (x734_loadingBeam != nullptr && x734_loadingBeam != x72c_currentBeam) {
+    x734_loadingBeam->Load(mgr, false);
+    x744_auxWeapon->Load(x314_nextBeam, mgr);
+  }
 
-void CPlayerGun::HandleWeaponChange(const CFinalInput&, CStateManager&) {}
+  x72c_currentBeam->EnableFx(false);
+  x834_28_requestImmediateRecharge = x32c_chargePhase != kCP_NotCharging;
+  ResetBeamParams(mgr, playerState, true);
+  x678_morph.StartWipe(CGunMorph::kD_In);
+}
 
-void CPlayerGun::HandleBeamChange(const CFinalInput&, CStateManager&) {}
+void CPlayerGun::StartPhazonBeamTransition(bool active, CStateManager& mgr,
+                                           CPlayerState& playerState) {
+  if (x833_28_phazonBeamActive == active) {
+    return;
+  }
 
-void CPlayerGun::SetPhazonBeamMorph(bool) {}
+  x760_selectableBeams[x310_currentBeam]->Unload(mgr);
+  x760_selectableBeams[x310_currentBeam] = active ? x75c_phazonBeam.get() : x738_nextBeam;
+  ResetBeamParams(mgr, playerState, false);
+  x72c_currentBeam = x760_selectableBeams[x310_currentBeam];
+  x833_28_phazonBeamActive = active;
+  SetPhazonBeamFeedback(active);
+  x72c_currentBeam->x1bc_rainSplashGenerator = x748_rainSplashGenerator.get();
+  x72c_currentBeam->EnableFx(true);
+  x72c_currentBeam->x218_29_drawHologram = false;
+  PlayAnim(NWeaponTypes::kGAT_ToBeam, false);
+  if (x833_31_inFreeLook) {
+    EnterFreeLook(mgr);
+  } else if (x832_30_requestReturnToDefault) {
+    ReturnArmAndGunToDefault(mgr, false);
+  }
+  x832_30_requestReturnToDefault = false;
+}
 
-void CPlayerGun::HandlePhazonBeamChange(CStateManager&) {}
+void CPlayerGun::HandleWeaponChange(const CFinalInput& input, CStateManager& mgr) {
+  x833_25_ = false;
+  if (ControlMapper::GetPressInput(ControlMapper::kC_Morph, input)) {
+    StopContinuousBeam(mgr, true);
+  }
+  if (!IsWeaponStateSet(0x8)) {
+    if (!x835_25_inPhazonBeam) {
+      HandleBeamChange(input, mgr);
+    } else {
+      HandlePhazonBeamChange(mgr);
+    }
+  }
+}
+
+void CPlayerGun::HandleBeamChange(const CFinalInput& input, CStateManager& mgr) {
+  const CPlayerState& playerState = *mgr.GetPlayerState();
+  float maxInput = 0.f;
+  int beam = -1;
+
+  for (int i = 0; i < 4; ++i) {
+    if (playerState.HasPowerUp(mBeamArr[i])) {
+      const float inputVal = ControlMapper::GetAnalogInput(mBeamCtrlCmd[i], input);
+      if (inputVal > 0.05f && inputVal > maxInput) {
+        maxInput = inputVal;
+        beam = i;
+      }
+    }
+  }
+
+  if (beam > -1) {
+    x833_25_ = true;
+    if (x310_currentBeam != beam && playerState.HasPowerUp(mBeamArr[beam])) {
+      x314_nextBeam = static_cast< CPlayerState::EBeamId >(beam);
+
+      uint stateFlags = 0;
+      if (IsWeaponStateSet(0x10)) {
+        stateFlags = 0x10;
+      }
+      SetStateFlags(0);
+      EnableWeaponState(stateFlags | 0x8);
+      PlayAnim(NWeaponTypes::kGAT_FromBeam, false);
+
+      if (x833_31_inFreeLook || x744_auxWeapon->IsComboFxActive(mgr) || x832_26_comboFiring) {
+        x832_30_requestReturnToDefault = true;
+        x740_grappleArm->EnterIdle(mgr);
+      }
+
+      x72c_currentBeam->EnableSecondaryFx(CGunWeapon::kSFT_None);
+      x338_nextState = kNS_ChangeWeapon;
+      x2e4_invalidSfx.Clear();
+    } else if (playerState.HasPowerUp(mBeamArr[beam])) {
+      if (ExitMissile()) {
+        if (!CSfxManager::IsPlaying(x2e4_invalidSfx)) {
+          x2e4_invalidSfx =
+              NWeaponTypes::play_sfx(SFXsam_a_mislemp_00, x834_27_underwater, false, 0x4a);
+        }
+      } else {
+        x2e4_invalidSfx.Clear();
+      }
+    }
+  }
+}
+
+void CPlayerGun::SetPhazonBeamMorph(bool intoPhazonBeam) {
+  x39c_phazonMorphT = intoPhazonBeam ? 0.f : 1.f;
+  const bool into = intoPhazonBeam;
+  const int morphing = true;
+  x835_27_intoPhazonBeam = into;
+  x835_26_phazonBeamMorphing = morphing;
+}
+
+void CPlayerGun::HandlePhazonBeamChange(CStateManager& mgr) {
+  bool inMorph = false;
+  switch (x33c_phazonBeamState) {
+  case kPBS_Inactive:
+    SetPhazonBeamMorph(true);
+    x338_nextState = kNS_EnterPhazonBeam;
+    inMorph = true;
+    break;
+  case kPBS_Active:
+    if (!x835_24_canFirePhazon) {
+      SetPhazonBeamMorph(true);
+      x338_nextState = kNS_ExitPhazonBeam;
+      inMorph = true;
+      CPhazonBeam* beam = x75c_phazonBeam.get();
+      if (beam) {
+        beam->mClipWipeActive = false;
+        beam->mVeinsAlphaActive = true;
+      }
+    }
+    break;
+  default:
+    break;
+  }
+
+  if (inMorph) {
+    ResetBeamParams(mgr, *mgr.GetPlayerState(), true);
+    SetStateFlags(0);
+    EnableWeaponState(0x8);
+    PlayAnim(NWeaponTypes::kGAT_FromBeam, false);
+    if (x833_31_inFreeLook) {
+      x832_30_requestReturnToDefault = true;
+      x740_grappleArm->EnterIdle(mgr);
+    }
+    CancelCharge(mgr, false);
+  }
+}
 
 void CPlayerGun::InitBeamData() {
   x760_selectableBeams[0] = x74c_powerBeam.get();
@@ -584,12 +1691,26 @@ void CPlayerGun::InitBombData() {
 }
 
 void CPlayerGun::InitMuzzleData() {
-  for (int i = 0; i < 5; ++i) {
-    SObjectTag tag('PART', (i < 0 || 4 < i) ? kInvalidAssetId : gpTweakGunRes->xa4_auxMuzzle[i]);
-    x7c0_auxMuzzleEffects.push_back(gpSimplePool->GetObj(tag));
-    // TODO: not likely correct, maybe need improvements to auto_ptr
-    x800_auxMuzzleGenerators.push_back(rs_new CElementGen(x7c0_auxMuzzleEffects.back()));
-    x800_auxMuzzleGenerators.back()->SetParticleEmission(false);
+  CPlayerGun* gun = this;
+  TLockedToken< CGenDescription >* muzzleEffects = gun->x7c0_auxMuzzleEffects.data();
+  rstl::auto_ptr< CElementGen >* muzzleGenerators = gun->x800_auxMuzzleGenerators.data();
+  TLockedToken< CGenDescription >* muzzleEffect = muzzleEffects;
+  int i = 0;
+  int j = 0;
+
+  for (; i < 5; ++i, j += 4) {
+    CAssetId muzzleId = kInvalidAssetId;
+    if (i >= 0 && i <= 4) {
+      muzzleId = gpTweakGunRes->xa4_auxMuzzle[i];
+    }
+
+    SObjectTag tag('PART', muzzleId);
+    gun->x7c0_auxMuzzleEffects.push_back(gpSimplePool->GetObj(tag));
+
+    CElementGen* gen = rs_new CElementGen(*muzzleEffect);
+    gen->SetParticleEmission(false);
+    gun->x800_auxMuzzleGenerators.push_back(gen);
+    ++muzzleEffect;
   }
 }
 
@@ -607,9 +1728,10 @@ TUniqueId CPlayerGun::GetTargetId(CStateManager& mgr) {
     ret = mgr.GetPlayer()->GetOrbitNextTargetId();
 
   if (ret != kInvalidUniqueId) {
-    const CActor* act = TCastToConstPtr< CActor >(mgr.GetObjectById(ret));
+    CActor* act = TCastToPtr< CActor >(const_cast< CEntity* >(mgr.GetObjectById(ret)));
     if (act != nullptr) {
-      if (!act->GetMaterialList().HasMaterial(kMT_Target)) {
+      const uchar hasTarget = act->GetMaterialList().HasMaterial(kMT_Target) ? 1 : 0;
+      if (hasTarget != 1) {
         ret = kInvalidUniqueId;
       }
     }
@@ -620,7 +1742,7 @@ TUniqueId CPlayerGun::GetTargetId(CStateManager& mgr) {
 
 CPlayerGun::CGunMorph::CGunMorph(float gunTransformTime, float holoHoldTime)
 : x0_yLerp(0.f)
-, x4_gunTransformTime(CMath::Sign(gunTransformTime))
+, x4_gunTransformTime(CMath::FastFSel(-gunTransformTime, 1.f, gunTransformTime))
 , x8_remTime(0.f)
 , xc_speed(0.1f)
 , x10_holoHoldTime(fabs(holoHoldTime))
@@ -670,10 +1792,10 @@ CPlayerGun::CGunMorph::EMorphEvent CPlayerGun::CGunMorph::Update(float inY, floa
       float omt = x8_remTime * xc_speed;
       float t = 1.f - omt;
       if (x1c_dir == kD_In) {
-        x0_yLerp = omt * outY + t * inY;
+        x0_yLerp = inY * t + outY * omt;
         x18_transitionFactor = omt;
       } else {
-        x0_yLerp = omt * inY + t * outY;
+        x0_yLerp = outY * t + inY * omt;
         x18_transitionFactor = t;
       }
 
@@ -700,25 +1822,29 @@ CPlayerGun::CGunMorph::EMorphEvent CPlayerGun::CGunMorph::Update(float inY, floa
 
 void CPlayerGun::UpdateWeaponFire(float dt, CPlayerState& playerState, CStateManager& mgr) {
   uint oldFiring = x2ec_lastFireButtonStates;
-  x2ec_lastFireButtonStates = x2f4_fireButtonStates;
-  uint pressedStates = x2f4_fireButtonStates & (oldFiring ^ x2f4_fireButtonStates);
+  uint fireButtonStates = x2f4_fireButtonStates;
+  x2ec_lastFireButtonStates = fireButtonStates;
+  uint pressedStates = fireButtonStates & (oldFiring ^ fireButtonStates);
   x2f0_pressedFireButtonStates = pressedStates;
-  uint releasedStates = oldFiring & (oldFiring ^ x2f4_fireButtonStates);
+  uint releasedStates = oldFiring & (oldFiring ^ fireButtonStates);
+  CPlayer& player = *mgr.Player();
+  int morphState = player.GetMorphballTransitionState();
+  bool chargeRequested = x32c_chargePhase != kCP_NotCharging;
+
   x832_28_readyForShot = false;
 
-  CPlayer& player = *mgr.Player();
   if (!x832_24_coolingCharge && !x834_30_inBigStrike) {
     float coolDown = x72c_currentBeam->GetWeaponInfo().x0_coolDown;
     if ((pressedStates & 0x1) == 0) {
       if (x390_cooldown >= coolDown) {
         x390_cooldown = coolDown;
-        if (player.GetMorphballTransitionState() == CPlayer::kMS_Unmorphed &&
+        if (morphState == CPlayer::kMS_Unmorphed &&
             playerState.ItemEnabled(CPlayerState::kIT_ChargeBeam) &&
             player.GetGunHolsterState() == CPlayer::kGH_Drawn &&
             player.GetGrappleState() == CPlayer::kGS_None &&
-            playerState.GetTransitioningVisor() != CPlayerState::kPV_Scan &&
-            playerState.GetCurrentVisor() != CPlayerState::kPV_Scan &&
-            (x2ec_lastFireButtonStates & 0x1) != 0 && x32c_chargePhase == kCP_NotCharging) {
+            mgr.GetPlayerState()->GetTransitioningVisor() != CPlayerState::kPV_Scan &&
+            mgr.GetPlayerState()->GetCurrentVisor() != CPlayerState::kPV_Scan &&
+            (x2ec_lastFireButtonStates & 0x1) != 0 && !chargeRequested) {
           x832_28_readyForShot = true;
           pressedStates |= 0x1;
           x390_cooldown = 0.f;
@@ -734,7 +1860,7 @@ void CPlayerGun::UpdateWeaponFire(float dt, CPlayerState& playerState, CStateMan
   if (x834_28_requestImmediateRecharge)
     x834_28_requestImmediateRecharge = (x2ec_lastFireButtonStates & 0x1) != 0;
 
-  if (player.GetMorphballTransitionState() == CPlayer::kMS_Morphed) {
+  if (morphState == CPlayer::kMS_Morphed) {
     x835_28_bombReady = false;
     x835_29_powerBombReady = false;
     if (!x835_31_actorAttached) {
@@ -742,39 +1868,47 @@ void CPlayerGun::UpdateWeaponFire(float dt, CPlayerState& playerState, CStateMan
       if (x53a_powerBomb != kInvalidUniqueId &&
           !mgr.CanCreateProjectile(x538_playerId, kWT_PowerBomb, 1)) {
         const CPowerBomb* pb = static_cast< const CPowerBomb* >(mgr.GetObjectById(x53a_powerBomb));
-        if (pb && !pb->IsEnding()) {
+        if (pb != NULL && pb->GetCurTime() <= CPowerBomb::kEndingTime) {
           x835_28_bombReady = false;
         } else {
           x53a_powerBomb = kInvalidUniqueId;
         }
       }
-      if (((pressedStates & 0x1) != 0 || x32c_chargePhase != kCP_NotCharging) &&
+      if (((pressedStates & 0x1) != 0 || chargeRequested) &&
           playerState.HasPowerUp(CPlayerState::kIT_MorphBallBombs)) {
         if (x835_28_bombReady)
           DropBomb(kBW_Bomb, mgr);
-      } else if (playerState.HasPowerUp(CPlayerState::kIT_PowerBombs) &&
-                 playerState.GetItemAmount(CPlayerState::kIT_PowerBombs) > 0) {
-        x835_29_powerBombReady = mgr.CanCreateProjectile(x538_playerId, kWT_PowerBomb, 1) &&
-                                 mgr.CanCreateProjectile(x538_playerId, kWT_Bomb, 1);
+      } else {
+        bool hasPowerBombs = false;
+        bool canCreatePowerBomb = false;
+        bool powerBombReady = false;
+        if (playerState.HasPowerUp(CPlayerState::kIT_PowerBombs)) {
+          if (playerState.GetItemAmount(CPlayerState::kIT_PowerBombs) > 0) {
+            hasPowerBombs = true;
+          }
+        }
+        if (hasPowerBombs) {
+          canCreatePowerBomb = mgr.CanCreateProjectile(x538_playerId, kWT_PowerBomb, 1);
+        }
+        if (canCreatePowerBomb) {
+          powerBombReady = mgr.CanCreateProjectile(x538_playerId, kWT_Bomb, 1);
+        }
+        x835_29_powerBombReady = powerBombReady;
         if ((pressedStates & 0x2) != 0 && x835_29_powerBombReady)
           DropBomb(kBW_PowerBomb, mgr);
       }
     }
-  } else if ((x2f8_stateFlags & 0x8) != 0x8 &&
-             player.GetMorphballTransitionState() == CPlayer::kMS_Unmorphed) {
-    if ((pressedStates & 0x2) != 0 && x318_comboAmmoIdx == 0 && (x2f8_stateFlags & 0x2) != 0x2 &&
+  } else if (!IsWeaponStateSet(0x8) && morphState == CPlayer::kMS_Unmorphed) {
+    if ((pressedStates & 0x2) != 0 && x318_comboAmmoIdx == 0 && !IsWeaponStateSet(0x2) &&
         x32c_chargePhase == kCP_NotCharging) {
-      uint missileCount = playerState.GetItemAmount(CPlayerState::kIT_Missiles);
+      int missileCount = playerState.GetItemAmount(CPlayerState::kIT_Missiles);
       if (x338_nextState != kNS_EnterMissile && x338_nextState != kNS_ExitMissile) {
         if (playerState.HasPowerUp(CPlayerState::kIT_Missiles) && missileCount > 0) {
           x300_remainingMissiles = missileCount;
-          if (x300_remainingMissiles > 5)
+          if (static_cast< int >(x300_remainingMissiles) > 5)
             x300_remainingMissiles = 5;
           if (!x835_25_inPhazonBeam) {
-            x2f8_stateFlags &= ~0x1;
-            x2f8_stateFlags |= 0x6;
-            x318_comboAmmoIdx = 1;
-            x31c_missileMode = kMM_Active;
+            ResetToMissile();
           }
           FireSecondary(dt, mgr);
         } else {
@@ -788,13 +1922,16 @@ void CPlayerGun::UpdateWeaponFire(float dt, CPlayerState& playerState, CStateMan
       }
     } else {
       if (x3a4_fidget.GetState() == CFidget::kS_NoFidget) {
-        if ((x2f8_stateFlags & 0x10) == 0x10 && x744_auxWeapon->IsComboFxActive(mgr)) {
-          if (x2ec_lastFireButtonStates == 0 ||
-              (x310_currentBeam == CPlayerState::kBI_Wave && x833_29_pointBlankWorldSurface)) {
-            StopContinuousBeam(mgr, (x2f8_stateFlags & 0x8) == 0x8);
+        if (IsWeaponStateSet(0x10) && x744_auxWeapon->IsComboFxActive(mgr)) {
+          bool stopCombo = false;
+          if (x310_currentBeam == CPlayerState::kBI_Wave && x833_29_pointBlankWorldSurface) {
+            stopCombo = true;
+          }
+          if (x2ec_lastFireButtonStates == 0 || stopCombo) {
+            StopContinuousBeam(mgr, IsWeaponStateSet(0x8));
           }
         } else {
-          if (mgr.GetPlayerState()->ItemEnabled(CPlayerState::kIT_ChargeBeam) &&
+          if (playerState.ItemEnabled(CPlayerState::kIT_ChargeBeam) &&
               x33c_phazonBeamState == kPBS_Inactive)
             ProcessChargeState(releasedStates, pressedStates, mgr, dt);
           else
@@ -825,10 +1962,11 @@ void CPlayerGun::ResetIdle(CStateManager& mgr) {
 
 void CPlayerGun::UpdateGunIdle(bool inStrikeCooldown, float camBobT, float dt, CStateManager& mgr) {
   CPlayer& player = *mgr.Player();
+
   if (player.IsInFreeLook() && !x832_29_lockedOn && !x740_grappleArm->IsGrappling() &&
       x3a4_fidget.GetState() != CFidget::kS_HolsterBeam &&
       player.GetGunHolsterState() == CPlayer::kGH_Drawn && !x834_30_inBigStrike) {
-    if ((x2f8_stateFlags & 0x8) != 0x8) {
+    if (!IsWeaponStateSet(0x8)) {
       if (!x833_31_inFreeLook && !x834_26_animPlaying) {
         if (x388_enterFreeLookDelayTimer < 0.25f)
           x388_enterFreeLookDelayTimer += dt;
@@ -844,7 +1982,7 @@ void CPlayerGun::UpdateGunIdle(bool inStrikeCooldown, float camBobT, float dt, C
     }
   } else {
     if (x833_31_inFreeLook) {
-      if ((x2f8_stateFlags & 0x10) != 0x10) {
+      if (!IsWeaponStateSet(0x10)) {
         x73c_gunMotion->ReturnToDefault(mgr, x834_30_inBigStrike);
         x740_grappleArm->ReturnToDefault(mgr, 0.f, false);
       }
@@ -856,7 +1994,7 @@ void CPlayerGun::UpdateGunIdle(bool inStrikeCooldown, float camBobT, float dt, C
           !(player.GetSurfaceRestraint() != CPlayer::kSR_Water &&
             mgr.GetPlayerState()->GetCurrentVisor() != CPlayerState::kPV_Scan &&
             (x2f4_fireButtonStates & 0x3) == 0 && x32c_chargePhase == kCP_NotCharging &&
-            !x832_29_lockedOn && (x2f8_stateFlags & 0x8) != 0x8 && x364_gunStrikeCoolTimer <= 0.f &&
+            !x832_29_lockedOn && !IsWeaponStateSet(0x8) && x364_gunStrikeCoolTimer <= 0.f &&
             player.GetPlayerMovementState() == NPlayer::kMS_OnGround && !player.IsInFreeLook() &&
             !player.GetFreeLookStickState() && player.GetOrbitState() == CPlayer::kOS_NoOrbit &&
             fabs(player.GetAngularVelocityOR().GetAngle()) <= 0.1f && camBobT <= 0.01f &&
@@ -866,7 +2004,10 @@ void CPlayerGun::UpdateGunIdle(bool inStrikeCooldown, float camBobT, float dt, C
             !x835_25_inPhazonBeam);
       if (x833_24_notFidgeting) {
         if (!x834_30_inBigStrike) {
-          bool doWander = camBobT > 0.01f && (x2f4_fireButtonStates & 0x3) == 0;
+          bool doWander = false;
+          if (camBobT > 0.01f && (x2f4_fireButtonStates & 0x3) == 0) {
+            doWander = true;
+          }
           if (doWander) {
             x370_gunMotionSpeedMult = 1.f;
             x374_ = 0.f;
@@ -877,7 +2018,7 @@ void CPlayerGun::UpdateGunIdle(bool inStrikeCooldown, float camBobT, float dt, C
               x550_camBob.SetState(CPlayerCameraBob::kCBS_Walk, mgr);
             }
             x368_idleWanderDelayTimer -= dt;
-            x360_ -= dt;
+            x360_ += dt;
           }
           if (!doWander || x834_26_animPlaying)
             ResetIdle(mgr);
@@ -916,19 +2057,24 @@ void CPlayerGun::UpdateGunIdle(bool inStrikeCooldown, float camBobT, float dt, C
             EnterFidget(mgr);
           break;
         case CFidget::kS_StillMinorFidget:
-        case CFidget::kS_StillMajorFidget:
+        case CFidget::kS_StillMajorFidget: {
           x550_camBob.SetState(CPlayerCameraBob::kCBS_Walk, mgr);
           x833_24_notFidgeting = false;
-          x834_26_animPlaying =
-              x834_25_gunMotionFidgeting
-                  ? x73c_gunMotion->IsAnimPlaying()
-                  : x72c_currentBeam->GetSolidModelData().GetAnimationData()->IsAnimTimeRemaining(
-                        0.001f, rstl::string_l("Whole Body"));
+          bool animPlaying;
+          if (x834_25_gunMotionFidgeting) {
+            animPlaying = x73c_gunMotion->IsAnimPlaying();
+          } else {
+            animPlaying =
+                x72c_currentBeam->GetSolidModelData().GetAnimationData()->IsAnimTimeRemaining(
+                    0.001f, rstl::string_l("Whole Body"));
+          }
+          x834_26_animPlaying = animPlaying;
           if (!x834_26_animPlaying) {
             x3a4_fidget.ResetMinor();
             ReturnToRestPose();
           }
           break;
+        }
         default:
           break;
         }
@@ -1014,14 +2160,17 @@ void CPlayerGun::CMotionState::Update(bool firing, float dt, CTransform4f& xf, C
   }
 }
 
-void CPlayerGun::DamageRumble(const CVector3f&, float damage, const CStateManager&) {}
+void CPlayerGun::DamageRumble(const CVector3f& location, float damage, const CStateManager&) {
+  x398_damageAmt = damage;
+  x3dc_damageLocation = location;
+}
 
 void CPlayerGun::TakeDamage(bool bigStrike, bool notFromMetroid, CStateManager& mgr) {
   const CPlayer& player = *mgr.GetPlayer();
   bool hasStrikeAngle = false;
   float angle = 0.f;
-  if (x398_damageAmt >= 10.f && !bigStrike && (x2f8_stateFlags & 0x10) != 0x10 &&
-      !x832_26_comboFiring && x384_gunStrikeDelayTimer <= 0.f) {
+  if (x398_damageAmt >= 10.f && !bigStrike && !IsWeaponStateSet(0x10) && !x832_26_comboFiring &&
+      x384_gunStrikeDelayTimer <= 0.f) {
     x384_gunStrikeDelayTimer = 20.f;
     x364_gunStrikeCoolTimer = 0.75f;
     if (x678_morph.GetGunState() == CGunMorph::kGS_OutWipeDone) {
@@ -1044,60 +2193,749 @@ void CPlayerGun::TakeDamage(bool bigStrike, bool notFromMetroid, CStateManager& 
   x3dc_damageLocation = CVector3f::Zero();
 }
 
-void CPlayerGun::StopChargeSound(CStateManager&) {}
+void CPlayerGun::StopChargeSound(CStateManager& mgr) {
+  if (x2e0_chargeSfx) {
+    CSfxManager::SfxStop(x2e0_chargeSfx);
+    x2e0_chargeSfx.Clear();
+  }
+  if (x830_chargeRumbleHandle != -1) {
+    mgr.GetRumbleManager()->StopRumble(x830_chargeRumbleHandle);
+    x830_chargeRumbleHandle = -1;
+  }
+}
 
-void CPlayerGun::CancelFiring(CStateManager&) {}
+void CPlayerGun::CancelFiring(CStateManager& mgr) {
+  if (x32c_chargePhase == kCP_ComboFireDone)
+    ReturnArmAndGunToDefault(mgr, true);
 
-void CPlayerGun::AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&) {}
+  if (IsWeaponStateSet(0x10)) {
+    StopContinuousBeam(mgr, true);
+    ResetToBeam();
+  }
 
-void CPlayerGun::StopContinuousBeam(CStateManager&, bool) {}
+  if (x32c_chargePhase != kCP_NotCharging) {
+    x72c_currentBeam->ActivateCharge(false, false);
+    SetGunLightActive(false, mgr);
+    ResetCharge(mgr, true);
+  }
 
-void CPlayerGun::RenderEnergyDrainEffects(const CStateManager&) const {}
+  Reset(mgr, IsWeaponStateSet(0x2));
+}
 
-void CPlayerGun::DoUserAnimEvents(float, CStateManager&) {}
+void CPlayerGun::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId sender, CStateManager& mgr) {
+  CPlayer* player = mgr.Player();
+  CPlayerState* playerState = mgr.PlayerState();
+  const bool isUnmorphed = player->GetMorphballTransitionState() == CPlayer::kMS_Unmorphed;
 
-void CPlayerGun::DoUserAnimEvent(float, CStateManager&, const CInt32POINode&, EUserEventType) {}
+  switch (msg) {
+  case kSM_Registered: {
+    CreateGunLight(mgr);
+    const CPlayerState::EBeamId beam = mCurrentBeamId[playerState->GetCurrentBeam()];
+    x320_currentAuxBeam = beam;
+    x314_nextBeam = beam;
+    x310_currentBeam = beam;
+    x72c_currentBeam = x760_selectableBeams[x310_currentBeam];
+    x738_nextBeam = x72c_currentBeam;
+    x72c_currentBeam->Load(mgr, true);
+    x72c_currentBeam->x1bc_rainSplashGenerator = x748_rainSplashGenerator.get();
+    x744_auxWeapon->Load(x310_currentBeam, mgr);
+    x6e0_rightHandModel.AnimationData()->SetAnimation(
+        CAnimPlaybackParms(mHandAnimId[x310_currentBeam], -1, 1.f, true), false);
+    break;
+  }
+  case kSM_Deleted:
+    DeleteGunLight(mgr);
+    break;
+  case kSM_UpdateSplashInhabitant:
+    if (playerState->HasPowerUp(CPlayerState::kIT_PhazonSuit) && isUnmorphed) {
+      if (const CScriptWater* water =
+              TCastToPtr< CScriptWater >(const_cast< CEntity* >(mgr.GetObjectById(sender)))) {
+        if (water->GetFluidPlane().GetFluidType() == CFluidPlane::kFT_PhazonFluid) {
+          x835_24_canFirePhazon = true;
+          x835_25_inPhazonBeam = true;
+        }
+      }
+    }
 
-void CPlayerGun::CancelCharge(CStateManager&, bool) {}
+    if (player->GetDistanceUnderWater() > player->GetEyeHeight()) {
+      x834_27_underwater = true;
+      if (x744_auxWeapon->IsComboFxActive(mgr) && x310_currentBeam != CPlayerState::kBI_Wave) {
+        StopContinuousBeam(mgr, false);
+      }
+    } else {
+      x834_27_underwater = false;
+    }
+    break;
+  case kSM_RemoveSplashInhabitant:
+    x834_27_underwater = false;
+    x835_24_canFirePhazon = false;
+    break;
+  case kSM_AddPhazonPoolInhabitant:
+    x835_30_inPhazonPool = true;
+    if (playerState->HasPowerUp(CPlayerState::kIT_PhazonSuit) && isUnmorphed) {
+      x835_24_canFirePhazon = true;
+    }
+    break;
+  case kSM_UpdatePhazonPoolInhabitant:
+    x835_30_inPhazonPool = true;
+    if (playerState->HasPowerUp(CPlayerState::kIT_PhazonSuit) && isUnmorphed) {
+      x835_24_canFirePhazon = true;
+      x835_25_inPhazonBeam = true;
+      if (x833_28_phazonBeamActive &&
+          static_cast< CPhazonBeam* >(x72c_currentBeam)->IsFiring(mgr)) {
+        if (CEntity* ent = TCastToPtr< CEntity >(mgr.ObjectById(sender))) {
+          mgr.DeliverScriptMsg(ent, x538_playerId, kSM_Decrement);
+        }
+      }
+    }
+    break;
+  case kSM_RemovePhazonPoolInhabitant:
+    x835_30_inPhazonPool = false;
+    x835_24_canFirePhazon = false;
+    break;
+  case kSM_Damage: {
+    bool bigStrike = false;
+    bool metroidAttached = false;
 
-void CPlayerGun::EnterFreeLook(CStateManager&) {}
+    if (const CEnergyProjectile* proj =
+            TCastToPtr< CEnergyProjectile >(const_cast< CEntity* >(mgr.GetObjectById(sender)))) {
+      if ((proj->GetAttribField() & CWeapon::kPA_BigStrike) == CWeapon::kPA_BigStrike) {
+        x394_damageTimer = proj->GetDamageDuration();
+        bigStrike = true;
+      }
+    } else if (const CPatterned* ai =
+                   TCastToPtr< CPatterned >(const_cast< CEntity* >(mgr.GetObjectById(sender)))) {
+      if (ai->IsMakingBigStrike()) {
+        x394_damageTimer = ai->GetDamageDuration();
+        bigStrike = true;
+        const TUniqueId& attachedActor = player->GetAttachedActor();
+        if (attachedActor != kInvalidUniqueId) {
+          const TPatternedCast< CMetroid > metroid(
+              const_cast< CEntity* >(mgr.GetObjectById(attachedActor)));
+          metroidAttached = CPatterned::CastTo< CMetroid >(metroid) != NULL;
+        }
+      }
+    }
 
-void CPlayerGun::EnterFidget(CStateManager&) {}
+    if (!x834_30_inBigStrike) {
+      if (bigStrike) {
+        x834_31_gunMotionInFidgetBasePosition = false;
+        CancelFiring(mgr);
+      }
+      TakeDamage(bigStrike, !metroidAttached, mgr);
+      x834_30_inBigStrike = bigStrike;
+    }
+    break;
+  }
+  case kSM_OnFloor:
+    if (player->GetControlsFrozen() && !x834_30_inBigStrike) {
+      x2f4_fireButtonStates = 0;
+      x2ec_lastFireButtonStates = 0;
+      CancelFiring(mgr);
+      TakeDamage(true, false, mgr);
+      x394_damageTimer = 0.75f;
+      x834_30_inBigStrike = true;
+    }
+    break;
+  default:
+    break;
+  }
 
-void CPlayerGun::UpdateLeftArmTransform(const CModelData&, const CStateManager&) {}
+  x740_grappleArm->AcceptScriptMsg(msg, sender, mgr);
+  x758_plasmaBeam->AcceptScriptMsg(msg, sender, mgr);
+  x75c_phazonBeam->AcceptScriptMsg(msg, sender, mgr);
+  x744_auxWeapon->AcceptScriptMsg(msg, sender, mgr);
+}
 
-void CPlayerGun::ReturnArmAndGunToDefault(CStateManager&, bool) {}
+void CPlayerGun::StopContinuousBeam(CStateManager& mgr, bool stopSfx) {
+  if (IsWeaponStateSet(0x10)) {
+    ReturnArmAndGunToDefault(mgr, false);
+    x744_auxWeapon->StopComboFx(mgr, stopSfx);
 
-void CPlayerGun::UpdateAuxWeapons(float, const CTransform4f&, CStateManager&) {}
+    bool doFx = true;
+    if (x310_currentBeam != CPlayerState::kBI_Ice) {
+      if (x310_currentBeam < CPlayerState::kBI_Ice) {
+        if (x310_currentBeam < CPlayerState::kBI_Power) {
+          return;
+        }
+      } else if (x310_currentBeam >= CPlayerState::kBI_Phazon) {
+        return;
+      }
 
-void CPlayerGun::CancelLockOn() {}
+      if (x310_currentBeam == CPlayerState::kBI_Power && !x833_28_phazonBeamActive) {
+        doFx = false;
+      }
+      if (doFx) {
+        x72c_currentBeam->EnableSecondaryFx(stopSfx ? CGunWeapon::kSFT_None
+                                                    : CGunWeapon::kSFT_CancelCharge);
+      }
+    }
+  } else if (x833_28_phazonBeamActive) {
+    CPhazonBeam* beam = static_cast< CPhazonBeam* >(x72c_currentBeam);
+    if (beam->IsFiring(mgr)) {
+      beam->StopBeam(mgr, stopSfx);
+    }
+  } else if (x310_currentBeam == CPlayerState::kBI_Plasma) {
+    CPlasmaBeam* beam = static_cast< CPlasmaBeam* >(x72c_currentBeam);
+    if (beam->IsFiring(mgr)) {
+      beam->StopBeam(mgr, static_cast< const bool >(stopSfx));
+    }
+  }
+}
 
-void CPlayerGun::CreateGunLight(CStateManager&) {}
+void CPlayerGun::RenderEnergyDrainEffects(const CStateManager& mgr) const {
+  const CEnergyDrainSource* it;
+  const CPlayer* const player = TCastToConstPtr< CPlayer >(mgr.GetObjectById(x538_playerId));
+  if (player != nullptr) {
+    it = player->GetPlayerEnergyDrain().GetEnergyDrainSources().data();
+    while (it != player->GetPlayerEnergyDrain().GetEnergyDrainSources().data() +
+                     player->GetPlayerEnergyDrain().GetEnergyDrainSources().size()) {
+      CMetroidBeta* metroid = CPatterned::CastTo(TPatternedCast< CMetroidBeta >(
+          const_cast< CEntity* >(mgr.GetObjectById(it->GetEnergyDrainSourceId()))));
+      if (metroid != nullptr) {
+        metroid->RenderHitGunEffect();
+        return;
+      }
+      ++it;
+    }
+  }
+}
 
-void CPlayerGun::DeleteGunLight(CStateManager&) {}
+void CPlayerGun::DoUserAnimEvents(float dt, CStateManager& mgr) {
+  TAreaId aid = mgr.GetPlayer()->GetCurrentAreaId();
+  const CAnimData& animData = *x72c_currentBeam->GetSolidModelData().GetAnimationData();
+  const CGameCamera& camera = mgr.GetCameraManager()->GetCurrentCamera(mgr);
+  const CVector3f origin = x3e8_xf.GetTranslation();
+  const CVector3f posToCam = camera.GetTranslation() - origin;
 
-void CPlayerGun::UpdateGunLight(const CTransform4f&, CStateManager&) {}
+  int soundNodeCount = 0;
+  const CSoundPOINode* soundNode = animData.GetSoundPOIList(soundNodeCount);
+  if (soundNodeCount > 0) {
+    for (int i = 0; i < soundNodeCount; ++i, ++soundNode) {
+      const int charIdx = soundNode->GetCharacterIndex();
+      if (soundNode->GetPoiType() != kPT_Sound)
+        continue;
+      if (charIdx != -1 && charIdx != animData.GetCharacterIndex())
+        continue;
+      NWeaponTypes::do_sound_event(x670_animSfx, x328_animSfxPitch, false, soundNode->GetSoundId(),
+                                   soundNode->GetWeight(), soundNode->GetFlags(),
+                                   soundNode->GetFallOff(), soundNode->GetMaxDistance(), 0x14, 0x7f,
+                                   posToCam, origin, aid, mgr);
+    }
+  }
 
-void CPlayerGun::SetGunLightActive(bool, CStateManager&) {}
+  int intNodeCount = 0;
+  const CInt32POINode* intNode = animData.GetInt32POIList(intNodeCount);
+  if (intNodeCount > 0) {
+    for (int i = 0; i < intNodeCount; ++i, ++intNode) {
+      const int charIdx = intNode->GetCharacterIndex();
+      switch (intNode->GetPoiType()) {
+      case kPT_UserEvent:
+        DoUserAnimEvent(dt, mgr, *intNode, static_cast< EUserEventType >(intNode->GetValue()));
+        break;
+      case kPT_SoundInt32:
+        if (charIdx != -1 && charIdx != animData.GetCharacterIndex())
+          break;
+        NWeaponTypes::do_sound_event(x670_animSfx, x328_animSfxPitch, false, intNode->GetValue(),
+                                     intNode->GetWeight(), intNode->GetFlags(), 0.1f, 150.f, 0x14,
+                                     0x7f, posToCam, origin, aid, mgr);
+        break;
+      default:
+        break;
+      }
+    }
+  }
+}
 
-void CPlayerGun::LoadHandAnimTokens() {}
+void CPlayerGun::DoUserAnimEvent(float dt, CStateManager& mgr, const CInt32POINode&,
+                                 EUserEventType type) {
+  switch (type) {
+  case kUE_Projectile: {
+    if (x32c_chargePhase != kCP_ComboFireDone) {
+      return;
+    }
 
-void CPlayerGun::ProcessPhazonGunMorph(float, CStateManager&) {}
+    uchar fireSecondary = 0;
+    if (x310_currentBeam != CPlayerState::kBI_Wave &&
+        x310_currentBeam != CPlayerState::kBI_Plasma) {
+      fireSecondary = 1;
+    }
 
-void CPlayerGun::ProcessGunMorph(float, CStateManager&) {}
+    bool doFireSecondary = fireSecondary ? true : (x2ec_lastFireButtonStates & 0x1);
+    if (doFireSecondary) {
+      FireSecondary(dt, mgr);
+    }
+    if (!IsWeaponStateSet(0x10)) {
+      EnableWeaponState(0x10);
+    }
+    CancelCharge(mgr, true);
+    if (doFireSecondary) {
+      x72c_currentBeam->EnableSecondaryFx(CGunWeapon::kSFT_ToCombo);
+    }
+    break;
+  }
+  case kUE_Delete:
+  case kUE_DamageOn:
+  default:
+    break;
+  }
+}
 
-void CPlayerGun::AsyncLoadFidget(CStateManager&) {}
+void CPlayerGun::CancelCharge(CStateManager& mgr, bool withEffect) {
+  if (withEffect) {
+    x32c_chargePhase = kCP_ChargeCooldown;
+    x72c_currentBeam->EnableSecondaryFx(CGunWeapon::kSFT_CancelCharge);
+  } else {
+    x72c_currentBeam->EnableSecondaryFx(CGunWeapon::kSFT_None);
+  }
 
-void CPlayerGun::UnLoadFidget() {}
+  x834_24_charging = false;
+  x348_chargeCooldownTimer = 0.f;
+  x72c_currentBeam->ActivateCharge(false, false);
+  SetGunLightActive(false, mgr);
+}
 
-bool CPlayerGun::IsFidgetLoaded() { return false; }
+void CPlayerGun::EnterFreeLook(CStateManager& mgr) {
+  if (!x832_30_requestReturnToDefault)
+    x73c_gunMotion->PlayPasAnim(SamusGun::kAS_FreeLook, mgr, 0.f, false);
 
-void CPlayerGun::SetFidgetAnimBits(int, bool) {}
+  const int setId = x73c_gunMotion->GetFreeLookSetId();
+  x740_grappleArm->EnterFreeLook(x835_25_inPhazonBeam ? 1 : x310_currentBeam, setId, mgr);
+}
 
-void CPlayerGun::AsyncLoadSuit(CStateManager&) {}
+void CPlayerGun::EnterFidget(CStateManager& mgr) {
+  SamusGun::EFidgetType type = x3a4_fidget.GetType();
+  int animSet = x3a4_fidget.GetAnimSet();
 
-void CPlayerGun::ReturnToRestPose() {}
+  if ((x2fc_fidgetAnimBits & 0x1) == 0x1) {
+    x73c_gunMotion->EnterFidget(mgr, type, animSet);
+    x834_25_gunMotionFidgeting = true;
+  } else {
+    x834_25_gunMotionFidgeting = false;
+  }
 
-TUniqueId CPlayerGun::DropPowerBomb(CStateManager&) const {}
+  if ((x2fc_fidgetAnimBits & 0x2) == 0x2) {
+    x72c_currentBeam->EnterFidget(mgr, type, animSet);
+  }
 
-void CPlayerGun::SetPhazonBeamFeedback(bool) {}
+  if ((x2fc_fidgetAnimBits & 0x4) == 0x4) {
+    x740_grappleArm->EnterFidget(mgr, type, type != SamusGun::kFT_Minor ? x310_currentBeam : 0,
+                                 animSet);
+  }
+
+  UnLoadFidget();
+  x3a4_fidget.DoneLoading();
+}
+
+void CPlayerGun::UpdateLeftArmTransform(const CModelData& modelData, const CStateManager&) {
+  CVector3f elbowOffset(-0.9f, -0.4f, 0.4f);
+  CTransform4f& auxXf = x740_grappleArm->AuxTransform();
+
+  if (x834_26_animPlaying) {
+    auxXf = CTransform4f::Identity();
+  } else {
+    GetLctrWithShake(auxXf, modelData, rstl::string_l("elbow"), true, false);
+  }
+
+  const CVector3f elbowPos = auxXf * elbowOffset;
+  auxXf.SetTranslation(elbowPos);
+  x740_grappleArm->SetTransform(x3e8_xf);
+}
+
+void CPlayerGun::ReturnArmAndGunToDefault(CStateManager& mgr, bool returnToDefault) {
+  if (returnToDefault || !x833_31_inFreeLook) {
+    x73c_gunMotion->ReturnToDefault(mgr, false);
+    x740_grappleArm->ReturnToDefault(mgr, 0.f, false);
+  }
+  if (!x834_25_gunMotionFidgeting)
+    x72c_currentBeam->ReturnToDefault(mgr);
+  x834_25_gunMotionFidgeting = false;
+}
+
+void CPlayerGun::UpdateAuxWeapons(float dt, const CTransform4f& targetXf, CStateManager& mgr) {
+  bool done = false;
+  {
+    CVector3f beamPos(x418_beamLocalXf.Get03(), x418_beamLocalXf.Get13(), x418_beamLocalXf.Get23());
+    CVector3f firePoint(GetGunMotionTransform() * beamPos);
+    CVector3f camPos(mgr.GetCameraManager()->GetGlobalCameraTranslation(mgr));
+    CVector3f firePos(firePoint.GetX() + camPos.GetX(), firePoint.GetY() + camPos.GetY(),
+                      firePoint.GetZ() + camPos.GetZ());
+    done = x744_auxWeapon->UpdateComboFx(dt, kScaleVector, firePos, targetXf, mgr);
+  }
+  if (IsWeaponStateSet(0x10)) {
+    if (x310_currentBeam == CPlayerState::kBI_Wave &&
+        x744_auxWeapon->HasTarget(mgr) == kInvalidUniqueId) {
+      TUniqueId targetId = GetTargetId(mgr);
+      if (targetId == kInvalidUniqueId) {
+        targetId = mgr.GetPlayer()->GetAimTargetId();
+      }
+      x744_auxWeapon->SetNewTarget(targetId, mgr);
+    }
+    if (done == true) {
+      return;
+    }
+
+    bool comboDone =
+        x310_currentBeam == CPlayerState::kBI_Wave || x310_currentBeam == CPlayerState::kBI_Plasma;
+    if (comboDone != true) {
+      if (x72c_currentBeam->ComboFireOver()) {
+        comboDone = true;
+      }
+    }
+
+    x72c_currentBeam->EnableSecondaryFx(CGunWeapon::kSFT_CancelCharge);
+    if (comboDone) {
+      x32c_chargePhase = kCP_ChargeDone;
+      ReturnArmAndGunToDefault(mgr, false);
+      ResetToBeam();
+    }
+  } else {
+    if (x833_28_phazonBeamActive) {
+      CPhazonBeam* phazonBeam = static_cast< CPhazonBeam* >(x72c_currentBeam);
+      CVector3f phazonBeamPos = x418_beamLocalXf.GetTranslation();
+      phazonBeam->UpdateBeam(dt, targetXf, phazonBeamPos, mgr);
+    } else if (x310_currentBeam == CPlayerState::kBI_Plasma) {
+      CPlasmaBeam* plasmaBeam = static_cast< CPlasmaBeam* >(x72c_currentBeam);
+      CVector3f plasmaBeamPos = x418_beamLocalXf.GetTranslation();
+      plasmaBeam->UpdateBeam(dt, targetXf, plasmaBeamPos, mgr);
+    }
+  }
+}
+
+void CPlayerGun::CancelLockOn() {
+  if (x832_29_lockedOn) {
+    x832_29_lockedOn = false;
+    x6a0_motionState.SetState(CMotionState::kMS_CancelLockOn);
+    if (x32c_chargePhase == kCP_NotCharging && int(x318_comboAmmoIdx) != 1) {
+      PlayAnim(NWeaponTypes::kGAT_BasePosition, false);
+    }
+  }
+}
+
+void CPlayerGun::CreateGunLight(CStateManager& mgr) {
+  if (x53c_lightId != kInvalidUniqueId) {
+    return;
+  }
+
+  x53c_lightId = mgr.AllocateUniqueId();
+  CAssetId lightId = x53c_lightId;
+  mgr.AddObject(rs_new CGameLight(
+      x53c_lightId, kInvalidAreaId, false, rstl::string_l("GunLite"), x3e8_xf, x538_playerId,
+      CLight::BuildDirectional(CVector3f::Forward(), CColor::Black()), lightId & 0x3ff, 0, 0.f));
+}
+
+void CPlayerGun::DeleteGunLight(CStateManager& mgr) {
+  if (x53c_lightId == kInvalidUniqueId) {
+    return;
+  }
+
+  mgr.DeleteObjectRequest(x53c_lightId);
+  x53c_lightId = kInvalidUniqueId;
+}
+
+void CPlayerGun::UpdateGunLight(const CTransform4f& xf, CStateManager& mgr) {
+  if (x53c_lightId == kInvalidUniqueId) {
+    return;
+  }
+  if (x32c_chargePhase == kCP_NotCharging) {
+    return;
+  }
+
+  if (CGameLight* light = TCastToPtr< CGameLight >(mgr.ObjectById(x53c_lightId))) {
+    if (light->GetActive()) {
+      CElementGen* chargeFx = x72c_currentBeam->GetChargeMuzzleFx();
+      light->SetTransform(xf);
+      light->SetTranslation(xf.GetTranslation());
+      if (chargeFx != NULL && chargeFx->SystemHasLight()) {
+        CLight genLight = chargeFx->GetLight();
+        genLight.SetColor(
+            CColor::Lerp(0, genLight.GetColor().GetColor_u32(), x340_chargeBeamFactor));
+        light->SetLight(genLight);
+      }
+    }
+  }
+}
+
+void CPlayerGun::SetGunLightActive(bool active, CStateManager& mgr) {
+  if (x53c_lightId == kInvalidUniqueId) {
+    return;
+  }
+
+  if (CGameLight* light = TCastToPtr< CGameLight >(mgr.ObjectById(x53c_lightId))) {
+    light->SetActive(active);
+    if (active) {
+      if (CElementGen* chargeFx = x72c_currentBeam->GetChargeMuzzleFx()) {
+        if (chargeFx->SystemHasLight()) {
+          CLight genLight = chargeFx->GetLight();
+          genLight.SetColor(CColor::Black());
+          light->SetLight(genLight);
+        }
+      }
+    }
+  }
+}
+
+void CPlayerGun::LoadHandAnimTokens() {
+  CAnimData& animData = *x6e0_rightHandModel.AnimationData();
+  rstl::set< CPrimitive > prims;
+  for (int i = 0; i < 3; ++i) {
+    CAnimPlaybackParms parms(i, -1, 1.f, true);
+    animData.GetAnimationPrimitives(parms, prims);
+  }
+  CAnimData::PrimitiveSetToTokenVector(prims, x540_handAnimTokens, true);
+}
+
+void CPlayerGun::ProcessPhazonGunMorph(float dt, CStateManager& mgr) {
+  if (x835_26_phazonBeamMorphing) {
+    if (x835_27_intoPhazonBeam) {
+      x39c_phazonMorphT += 15.f * dt;
+      if (x39c_phazonMorphT > 1.f) {
+        x39c_phazonMorphT = 1.f;
+      }
+    } else {
+      x39c_phazonMorphT -= 2.f * dt;
+      if (x39c_phazonMorphT < 0.f) {
+        x835_26_phazonBeamMorphing = false;
+        x39c_phazonMorphT = 0.f;
+      }
+    }
+  }
+
+  switch (x33c_phazonBeamState) {
+  case kPBS_Entering:
+    if (x75c_phazonBeam.get() != NULL) {
+      x75c_phazonBeam->Update(dt, mgr);
+      if (x75c_phazonBeam->IsLoaded()) {
+        StartPhazonBeamTransition(true, mgr, *mgr.PlayerState());
+        SetPhazonBeamMorph(false);
+        x33c_phazonBeamState = kPBS_Active;
+        x338_nextState = kNS_SetupBeam;
+      }
+    }
+    break;
+  case kPBS_Exiting:
+    if (x738_nextBeam != NULL) {
+      x738_nextBeam->Update(dt, mgr);
+      if (x738_nextBeam->IsLoaded()) {
+        x835_25_inPhazonBeam = false;
+        StartPhazonBeamTransition(false, mgr, *mgr.PlayerState());
+        SetPhazonBeamMorph(false);
+        x33c_phazonBeamState = kPBS_Inactive;
+        x338_nextState = kNS_SetupBeam;
+      }
+    }
+    break;
+  default:
+    break;
+  }
+}
+
+void CPlayerGun::ProcessGunMorph(float dt, CStateManager& mgr) {
+  const CGunMorph::EGunState gunState = x678_morph.GetGunState();
+  const bool isUnmorphed = mgr.GetPlayer()->GetMorphballTransitionState() == CPlayer::kMS_Unmorphed;
+  CPlayerState* playerState = mgr.PlayerState();
+
+  switch (gunState) {
+  case CGunMorph::kGS_InWipeDone:
+    if (x310_currentBeam != x314_nextBeam && x734_loadingBeam != NULL) {
+      if (!isUnmorphed) {
+        x734_loadingBeam->Touch(mgr);
+      }
+      if (x734_loadingBeam->IsLoaded() && x744_auxWeapon->IsLoaded()) {
+        x730_outgoingBeam = x734_loadingBeam != x72c_currentBeam ? x72c_currentBeam : NULL;
+        x734_loadingBeam = NULL;
+        x310_currentBeam = x314_nextBeam;
+        x320_currentAuxBeam = x314_nextBeam;
+        x833_30_canShowAuxMuzzleEffect = true;
+        x72c_currentBeam = x760_selectableBeams[x314_nextBeam];
+        x738_nextBeam = x72c_currentBeam;
+        x678_morph.SetWeaponChanged();
+        playerState->SetCurrentBeam(x314_nextBeam);
+      }
+    }
+    break;
+  case CGunMorph::kGS_InWipe:
+  case CGunMorph::kGS_OutWipe:
+    x774_holoTransitionGen->SetGlobalScale(kScaleVector);
+    x774_holoTransitionGen->SetGlobalTranslation(CVector3f(0.f, x678_morph.GetYLerp(), 0.f));
+    x774_holoTransitionGen->Update(dt);
+    break;
+  default:
+    break;
+  }
+
+  switch (x678_morph.Update(0.2f, 1.292392f, dt)) {
+  case CGunMorph::kME_InWipeDone:
+    CSfxManager::SfxStart(SFXwpn_morph_in_wipe_done, 0x7f, 0x40, true, CSfxManager::kMaxPriority,
+                          false, CSfxManager::kAllAreas);
+    break;
+  case CGunMorph::kME_OutWipeDone:
+    if (x730_outgoingBeam != NULL) {
+      if (x730_outgoingBeam != x72c_currentBeam) {
+        x730_outgoingBeam->Unload(mgr);
+        x730_outgoingBeam = NULL;
+      }
+    }
+    if (isUnmorphed) {
+      const ushort* const intoBeamSounds = mIntoBeamSound;
+      const short pan = 0x4a;
+      NWeaponTypes::play_sfx(intoBeamSounds[x310_currentBeam], x834_27_underwater, false, pan);
+    }
+    x72c_currentBeam->x1bc_rainSplashGenerator = x748_rainSplashGenerator.get();
+    x72c_currentBeam->EnableFx(true);
+    PlayAnim(NWeaponTypes::kGAT_ToBeam, false);
+    if (x833_31_inFreeLook) {
+      EnterFreeLook(mgr);
+    } else if (x832_30_requestReturnToDefault) {
+      ReturnArmAndGunToDefault(mgr, false);
+    }
+    if (x834_28_requestImmediateRecharge || (x2ec_lastFireButtonStates & 0x1) != 0) {
+      if (playerState->GetCurrentVisor() != CPlayerState::kPV_Scan) {
+        x32c_chargePhase = kCP_ChargeRequested;
+      }
+      x834_28_requestImmediateRecharge = false;
+    }
+    x832_30_requestReturnToDefault = false;
+    x338_nextState = kNS_SetupBeam;
+    break;
+  default:
+    break;
+  }
+}
+
+void CPlayerGun::AsyncLoadFidget(CStateManager& mgr) {
+  SamusGun::EFidgetType type = x3a4_fidget.GetType();
+  int animSet = x3a4_fidget.GetAnimSet();
+  SamusGun::EFidgetType beamType = type;
+  bool beamOnly = x3a4_fidget.GetState() == CFidget::kS_HolsterBeam;
+
+  SetFidgetAnimBits(animSet, beamOnly);
+
+  if ((x2fc_fidgetAnimBits & 0x1) == 0x1) {
+    x73c_gunMotion->GunController().LoadFidgetAnimAsync(mgr, type, x310_currentBeam, animSet);
+  }
+
+  if ((x2fc_fidgetAnimBits & 0x2) == 0x2) {
+    x72c_currentBeam->AsyncLoadFidget(mgr, beamOnly ? SamusGun::kFT_Minor : beamType, animSet);
+    x832_31_inRestPose = false;
+  }
+
+  if ((x2fc_fidgetAnimBits & 0x4) == 0x4) {
+    if (CGunController* gc = x740_grappleArm->GunController()) {
+      gc->LoadFidgetAnimAsync(mgr, type, type != SamusGun::kFT_Minor ? x310_currentBeam : 0,
+                              animSet);
+    }
+  }
+}
+
+void CPlayerGun::UnLoadFidget() {
+  if ((x2fc_fidgetAnimBits & 0x1) == 0x1)
+    x73c_gunMotion->GunController().UnLoadFidget();
+  if ((x2fc_fidgetAnimBits & 0x2) == 0x2)
+    x72c_currentBeam->UnLoadFidget();
+  if ((x2fc_fidgetAnimBits & 0x4) == 0x4)
+    if (CGunController* gc = x740_grappleArm->GunController())
+      gc->UnLoadFidget();
+  x2fc_fidgetAnimBits = 0;
+}
+
+bool CPlayerGun::IsFidgetLoaded() {
+  uint loadFlags = 0;
+  if ((x2fc_fidgetAnimBits & 0x1) == 0x1 && x73c_gunMotion->GunController().IsFidgetLoaded()) {
+    loadFlags |= 0x1;
+  }
+  if ((x2fc_fidgetAnimBits & 0x2) == 0x2 && x72c_currentBeam->IsFidgetLoaded()) {
+    loadFlags |= 0x2;
+  }
+  if ((x2fc_fidgetAnimBits & 0x4) == 0x4) {
+    if (CGunController* gc = x740_grappleArm->GunController()) {
+      if (gc->IsFidgetLoaded()) {
+        loadFlags |= 0x4;
+      }
+    }
+  }
+  return loadFlags == x2fc_fidgetAnimBits;
+}
+
+void CPlayerGun::SetFidgetAnimBits(int animSet, bool beamOnly) {
+  x2fc_fidgetAnimBits = 0;
+  if (beamOnly) {
+    x2fc_fidgetAnimBits = 2;
+    return;
+  }
+
+  switch (x3a4_fidget.GetType()) {
+  case SamusGun::kFT_Minor:
+    x2fc_fidgetAnimBits = 1;
+    if (animSet <= 0) {
+      return;
+    }
+    if (animSet >= 2) {
+      return;
+    }
+    x2fc_fidgetAnimBits |= 4;
+    return;
+  case SamusGun::kFT_Major:
+    if (animSet >= 6 || animSet < 4) {
+      x2fc_fidgetAnimBits = 2;
+    } else {
+      x2fc_fidgetAnimBits = 1;
+    }
+    x2fc_fidgetAnimBits |= 4;
+    return;
+  default:
+    return;
+  }
+}
+
+void CPlayerGun::AsyncLoadSuit(CStateManager& mgr) {
+  x72c_currentBeam->AsyncLoadSuitArm(mgr);
+  x740_grappleArm->AsyncLoadSuit(mgr);
+}
+
+void CPlayerGun::ReturnToRestPose() {
+  if (x832_31_inRestPose == true) {
+    return;
+  }
+
+  if (IsWeaponStateSet(0x1)) {
+    PlayAnim(NWeaponTypes::kGAT_BasePosition, false);
+  } else if (IsWeaponStateSet(0x4)) {
+    PlayAnim(NWeaponTypes::kGAT_ToMissile, false);
+  }
+
+  x832_31_inRestPose = true;
+}
+
+TUniqueId CPlayerGun::DropPowerBomb(CStateManager& mgr) const {
+  const CDamageInfo dInfo = mgr.GetPlayer()->GetDeathTime() <= 0.f
+                                ? gpTweakPlayerGun->x8c_powerBomb
+                                : CDamageInfo(CWeaponMode::PowerBomb(), 0.f, 0.f, 0.f);
+  const float ballHalfExtent = gpTweakPlayer->GetPlayerBallHalfExtent();
+
+  TUniqueId uid = mgr.AllocateUniqueId();
+  float zero = 0.f;
+  CPowerBomb* pBomb =
+      rs_new CPowerBomb(x784_bombEffects[1][0], uid, kInvalidAreaId, x538_playerId,
+                        CTransform4f::Translate(mgr.GetPlayer()->GetTranslation() +
+                                                CVector3f(zero, zero, ballHalfExtent)),
+                        dInfo);
+  mgr.AddObject(*pBomb);
+  return uid;
+}
+
+void CPlayerGun::SetPhazonBeamFeedback(bool active) {
+  const bool fadeOut = !active;
+  CSamusHud::DisplayHudMemo(rstl::wstring_l(gpStringTable->GetString(21)),
+                            CHUDMemoParms(5.f, true, fadeOut, false));
+
+  if (CSfxManager::IsPlaying(x2e8_phazonBeamSfx)) {
+    CSfxManager::SfxStop(x2e8_phazonBeamSfx);
+  }
+
+  x2e8_phazonBeamSfx.Clear();
+  if (active) {
+    x2e8_phazonBeamSfx =
+        NWeaponTypes::play_sfx(SFXsam_a_phazup_lp_00, x834_27_underwater, false, 0x4a);
+  }
+}

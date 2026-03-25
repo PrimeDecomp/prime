@@ -4,9 +4,14 @@
 #define SCHAR_MAX 0x7f
 #define UCHAR_MAX 0xffU
 
-#if defined(__MWERKS__) && __option(unsigned_char)
+#if defined(__MWERKS__)
+#if __option(unsigned_char)
 #define CHAR_MIN 0U
 #define CHAR_MAX UCHAR_MAX
+#else
+#define CHAR_MIN SCHAR_MIN
+#define CHAR_MAX SCHAR_MAX
+#endif
 #else
 #define CHAR_MIN SCHAR_MIN
 #define CHAR_MAX SCHAR_MAX

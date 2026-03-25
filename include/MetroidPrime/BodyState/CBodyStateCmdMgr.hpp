@@ -43,8 +43,9 @@ public:
   CBCGenerateCmd(pas::EGenerateType type, int animId)
   : CBodyStateCmd(kBSC_Generate)
   , x8_type(type)
-  , xc_targetPos(0.f, 0.f, 0.f)
+  , xc_targetPos(CVector3f::Zero())
   , x18_animId(animId)
+  , x1c_24_targetTransform(false)
   , x1c_25_overrideAnim(animId != -1) {}
 
   CBCGenerateCmd(const pas::EGenerateType type, const CVector3f& vec,
@@ -311,7 +312,7 @@ public:
   : CBodyStateCmd(kBSC_Jump)
   , x8_type(type)
   , xc_waypoint1(wp1)
-  , x18_waypoint2(0.f, 0.f, 0.f)
+  , x18_waypoint2(CVector3f::Zero())
   , x24_24_wallJump(false)
   , x24_25_startInJumpLoop(startInLoop) {}
 
@@ -345,16 +346,16 @@ public:
   : CBodyStateCmd(kBSC_Cover)
   , x8_dir(dir)
   , xc_targetPos(v1)
-  , x18_alignDir(v2, CUnitVector3f::kN_No /* ? */) {}
+  , x18_alignDir(v2) {}
 
   pas::ECoverDirection GetDirection() const { return x8_dir; }
   const CVector3f& GetTarget() const { return xc_targetPos; }
-  CUnitVector3f GetAlignDirection() const { return x18_alignDir; }
+  const CVector3f& GetAlignDirection() const { return x18_alignDir; }
 
 private:
   pas::ECoverDirection x8_dir;
   CVector3f xc_targetPos;
-  CUnitVector3f x18_alignDir;
+  CVector3f x18_alignDir;
 };
 
 //
@@ -405,6 +406,16 @@ public:
 
   void DeliverCmd(const CBodyStateCmd& cmd);
 
+  void DeliverCmd(const CBCGetupCmd& cmd) {
+    DeliverCmd(cmd.GetCommandId());
+    xb8_getup = cmd;
+  }
+
+  void DeliverCmd(const CBCStepCmd& cmd) {
+    DeliverCmd(cmd.GetCommandId());
+    xc4_step = cmd;
+  }
+
   void DeliverCmd(const CBCKnockDownCmd& cmd) {
     DeliverCmd(cmd.GetCommandId());
     xdc_knockDown = cmd;
@@ -425,14 +436,34 @@ public:
     x128_projectileAttack = cmd;
   }
 
+  void DeliverCmd(const CBCLoopReactionCmd& cmd) {
+    DeliverCmd(cmd.GetCommandId());
+    x154_loopReaction = cmd;
+  }
+
   void DeliverCmd(const CBCGenerateCmd& cmd) {
     DeliverCmd(cmd.GetCommandId());
     x18c_generate = cmd;
   }
 
+  void DeliverCmd(const CBCHurledCmd& cmd) {
+    DeliverCmd(cmd.GetCommandId());
+    x1ac_hurled = cmd;
+  }
+
+  void DeliverCmd(const CBCJumpCmd& cmd) {
+    DeliverCmd(cmd.GetCommandId());
+    x1d0_jump = cmd;
+  }
+
   void DeliverCmd(const CBCSlideCmd& cmd) {
     DeliverCmd(cmd.GetCommandId());
     x1f8_slide = cmd;
+  }
+
+  void DeliverCmd(const CBCTauntCmd& cmd) {
+    DeliverCmd(cmd.GetCommandId());
+    x210_taunt = cmd;
   }
 
   void DeliverCmd(const CBCScriptedCmd& cmd) {
@@ -458,6 +489,7 @@ public:
   CBodyStateCmd* GetCmd(EBodyStateCmd cmd);
   const CBodyStateCmd* GetCmd(EBodyStateCmd cmd) const;
   const CVector3f& GetMoveVector() const { return x0_move; }
+   CVector3f& MoveVector() { return x0_move; }
   const CVector3f& GetFaceVector() const { return xc_face; }
   const CVector3f& GetTargetVector() const { return x18_target; }
   const CVector3f& GetAdditiveTargetVector() const { return x24_additiveTarget; }

@@ -182,10 +182,10 @@ if not config.non_matching:
 # Tool versions
 config.binutils_tag = "2.42-1"
 config.compilers_tag = "20251118"
-config.dtk_tag = "v1.8.0"
-config.objdiff_tag = "v3.0.1"
+config.dtk_tag = "v1.8.3"
+config.objdiff_tag = "v3.7.0"
 config.sjiswrap_tag = "v1.2.2"
-config.wibo_tag = "1.0.0"
+config.wibo_tag = "1.0.3"
 
 # Project
 config.config_path = Path("config") / config.version / "config.yml"
@@ -994,7 +994,7 @@ config.libs = [
                 "MetroidPrime/ScriptObjects/CScriptPlayerStateChange.cpp",
             ),
             Object(NonMatching, "MetroidPrime/Enemies/CThardus.cpp"),
-            Object(NonMatching, "MetroidPrime/CActorParticles.cpp"),
+            Object(NonMatching, "MetroidPrime/CActorModelParticles.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CWallCrawlerSwarm.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
@@ -1023,7 +1023,7 @@ config.libs = [
             ),
             Object(NonMatching, "MetroidPrime/CWorldTransManager.cpp"),
             Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptMidi.cpp"),
-            Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptStreamedAudio.cpp"),
+            Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptStreamedMusic.cpp"),
             Object(NonMatching, "MetroidPrime/CRagDoll.cpp"),
             Object(NonMatching, "MetroidPrime/Player/CGameOptions.cpp"),
             Object(
@@ -1111,12 +1111,12 @@ config.libs = [
             Object(NonMatching, "MetroidPrime/Factories/CWorldSaveGameInfoFactory.cpp"),
             Object(NonMatching, "MetroidPrime/CFluidPlaneRender.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CBurrower.cpp"),
-            Object(NonMatching, "MetroidPrime/Enemies/CMetroidPrimeExo.cpp"),
+            Object(NonMatching, "MetroidPrime/Enemies/CMetroidPrime.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/ScriptObjects/CScriptBeam.cpp",
             ),
-            Object(NonMatching, "MetroidPrime/Enemies/CMetroidPrimeEssence.cpp"),
+            Object(NonMatching, "MetroidPrime/Enemies/CMetroidPrimeStage2.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CMetroidPrimeRelay.cpp"),
             Object(NonMatching, "MetroidPrime/Player/CPlayerDynamics.cpp"),
             Object(
@@ -1150,7 +1150,7 @@ config.libs = [
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/ScriptObjects/CSustainedPlayerDamage.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
-                "MetroidPrime/Enemies/CMetroidPrimeProjectile.cpp",
+                "MetroidPrime/Enemies/CPoisonProjectile.cpp",
             ),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
@@ -1478,8 +1478,8 @@ config.libs = [
                 "Kyoto/Graphics/DolphinCTexture.cpp",
             ),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Math/CloseEnough.cpp"),
-            Object(NonMatching, "Kyoto/Math/CMatrix3f.cpp"),
-            Object(Equivalent, "Kyoto/Math/CMatrix4f.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Math/CMatrix3f.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Math/CMatrix4f.cpp"),
             Object(NonMatching, "Kyoto/Math/CQuaternion.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/CRandom16.cpp"),
             Object(NonMatching, "Kyoto/Math/CTransform4f.cpp"),
@@ -1491,7 +1491,7 @@ config.libs = [
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Math/CVector3d.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Math/CVector3f.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Math/CVector3i.cpp"),
-            Object(NonMatching, "Kyoto/Math/RMathUtils.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Math/RMathUtils.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/CCrc32.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Alloc/CCircularBuffer.cpp"

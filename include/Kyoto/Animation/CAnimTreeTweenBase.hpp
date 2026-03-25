@@ -26,8 +26,8 @@ public:
   CVector3f VGetOffset(const CSegId& seg) const override;
   CQuaternion VGetRotation(const CSegId& seg) const override;
 
-  rstl::optional_object< rstl::auto_ptr< IAnimReader > > VSimplified() override;
-  virtual rstl::optional_object< rstl::auto_ptr< IAnimReader > > VReverseSimplified();
+  rstl::optional_object< rstl::ownership_transfer< IAnimReader > > VSimplified() override;
+  virtual rstl::optional_object< rstl::ownership_transfer< IAnimReader > > VReverseSimplified();
   virtual float VGetBlendingWeight() const = 0;
 
   static bool ShouldCullTree() { return 3 <= sAdvancementDepth; }

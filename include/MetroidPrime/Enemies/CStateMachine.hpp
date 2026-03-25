@@ -101,6 +101,7 @@ public:
   const rstl::vector< CAiState >& GetStateVector() const { return x0_machine->GetStateVector(); }
   void Setup(const CStateMachine* machine);
   const char* GetName() const;
+  CAiState* GetActorState() const { return x4_state; }
   void SetDelay(float delay) { x10_delay = delay; }
   float GetTime() const { return x8_time; }
   float GetRandom() const { return xc_random; }

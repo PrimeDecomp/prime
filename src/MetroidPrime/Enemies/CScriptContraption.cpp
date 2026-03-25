@@ -5,14 +5,11 @@
 #include "MetroidPrime/Weapons/CFlameThrower.hpp"
 #include "rstl/algorithm.hpp"
 
-CScriptContraption::CScriptContraption(TUniqueId uid, const rstl::string& name,
-                                       const CEntityInfo& info, const CTransform4f& xf,
-                                       const CModelData& mData, const CAABox& aabox,
-                                       const CMaterialList& matList, const float mass,
-                                       const float zMomentum, const CHealthInfo& hInfo,
-                                       const CDamageVulnerability& dVuln,
-                                       const CActorParameters& aParams, const CAssetId part,
-                                       const CDamageInfo& dInfo, const bool active)
+CScriptContraption::CScriptContraption(
+    TUniqueId uid, const rstl::string& name, const CEntityInfo& info, const CTransform4f& xf,
+    const CModelData& mData, const CAABox& aabox, const CMaterialList& matList, const float mass,
+    const float zMomentum, const CHealthInfo& hInfo, const CDamageVulnerability& dVuln,
+    const CActorParameters& aParams, const CAssetId part, CDamageInfo dInfo, const bool active)
 : CScriptActor(uid, name, info, xf, mData, aabox, matList, mass, zMomentum, hInfo, dVuln, aParams,
                false, active, 0, 1.f, false, false, false, false)
 , x300_flameThrowerGenDesc(gpSimplePool->GetObj("FlameThrower"))
@@ -104,12 +101,11 @@ void CScriptContraption::DoUserAnimEvent(CStateManager& mgr, const CInt32POINode
   case kUE_DamageOff:
     for (rstl::list< SFlameThrower >::iterator uid = x2e8_children.begin();
          uid != x2e8_children.end(); ++uid) {
-      if (!(uid->name == node.GetLocatorName())) {
-        continue;
-      }
-      CFlameThrower* act = static_cast< CFlameThrower* >(mgr.ObjectById(uid->id));
-      if (act && act->GetParticlesActive()) {
-        act->Reset(mgr, false);
+      if (uid->name == node.GetLocatorName()) {
+        CFlameThrower* act = static_cast< CFlameThrower* >(mgr.ObjectById(uid->id));
+        if (act && act->GetParticlesActive()) {
+          act->Reset(mgr, false);
+        }
       }
     }
     break;

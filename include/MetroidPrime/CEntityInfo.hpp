@@ -40,7 +40,7 @@ enum EScriptObjectType {
   kST_ActorKeyframe = 0x1D,
   kST_Water = 0x20,
   kST_Warwasp = 0x21,
-  kST_MapStation = 0x21,
+  kST_MapStation = 0x22,
   kST_SpacePirate = 0x24,
   kST_FlyingPirate = 0x25,
   kST_ElitePirate = 0x26,

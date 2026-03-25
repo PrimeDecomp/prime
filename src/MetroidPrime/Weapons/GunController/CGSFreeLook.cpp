@@ -34,20 +34,21 @@ bool CGSFreeLook::Update(CAnimData& data, float dt, CStateManager& mgr) {
   return false;
 }
 
-int CGSFreeLook::SetAnim(CAnimData& data, int gunId, int setId, int loopState, CStateManager& mgr,
-                         float delay) {
+int CGSFreeLook::SetAnim(CAnimData& data, const int gunId, const int setId, const int loopState,
+                         CStateManager& mgr, const float delay) {
   int useLoopState = 1;
-  if (!x14_idle)
+  if (!x14_idle) {
     useLoopState = loopState;
+  }
   x14_idle = false;
 
   const CPASDatabase& pas = data.GetCharacterInfo().GetPASDatabase();
-  rstl::pair< float, int > anim = pas.FindBestAnimation(
+  const rstl::pair< float, int > anim = pas.FindBestAnimation(
       CPASAnimParmData(pas::kAS_Step, CPASAnimParm::FromInt32(gunId),
                        CPASAnimParm::FromInt32(setId), CPASAnimParm::FromEnum(useLoopState)),
       *mgr.Random(), -1);
 
-  CPASAnimParm animParm = pas.GetAnimState(pas::kAS_Step)->GetAnimParmData(anim.second, 1);
+  const CPASAnimParm animParm = pas.GetAnimState(pas::kAS_Step)->GetAnimParmData(anim.second, 1);
   xc_gunId = gunId;
   x10_setId = animParm.GetInt32Value();
   x8_loopState = useLoopState;
@@ -56,8 +57,7 @@ int CGSFreeLook::SetAnim(CAnimData& data, int gunId, int setId, int loopState, C
     x4_cueAnimId = anim.second;
   } else {
     data.EnableLooping(loopState == 1);
-    CAnimPlaybackParms aparms(anim.second, -1, 1.f, true);
-    data.SetAnimation(aparms, false);
+    data.SetAnimation(CAnimPlaybackParms(anim.second, -1, 1.f, true), false);
   }
   return anim.second;
 }

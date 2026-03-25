@@ -138,7 +138,8 @@ void CPuffer::UpdateJets(CStateManager& mgr) {
       const bool enable = CVector3f::Dot(moveNorm, tmp) > ang;
       const bool wasEnabled = !!(x5d0_enabledParticles & (1 << i));
       if (wasEnabled != enable) {
-        AnimationData()->SetParticleEffectState(rstl::string_l(skGasJetLocators[i]), enable, mgr);
+        AnimationData()->GetParticleDB().SetParticleEffectState(rstl::string_l(skGasJetLocators[i]),
+                                                                 enable, mgr);
       }
 
       x5d0_enabledParticles =
@@ -147,7 +148,8 @@ void CPuffer::UpdateJets(CStateManager& mgr) {
   } else {
     for (int i = 0; i < ARRAY_SIZE(skGasJetLocators); ++i) {
       if ((x5d0_enabledParticles & (1 << i)) != 0) {
-        AnimationData()->SetParticleEffectState(rstl::string_l(skGasJetLocators[i]), false, mgr);
+        AnimationData()->GetParticleDB().SetParticleEffectState(rstl::string_l(skGasJetLocators[i]),
+                                                                 false, mgr);
       }
     }
     x5d0_enabledParticles = 0;

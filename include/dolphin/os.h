@@ -16,11 +16,6 @@ extern "C" {
 #define OS_BASE_CACHED (OS_CACHED_REGION_PREFIX << 16)
 #define OS_BASE_UNCACHED (OS_UNCACHED_REGION_PREFIX << 16)
 
-#ifdef __MWERKS__
-#define AT_ADDRESS(xyz) : (xyz)
-#else
-#define AT_ADDRESS
-#endif
 typedef s64 OSTime;
 typedef u32 OSTick;
 u32 __OSBusClock AT_ADDRESS(OS_BASE_CACHED | 0x00F8);  // sync with OSLoMem.h
