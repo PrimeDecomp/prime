@@ -38,6 +38,9 @@ public:
 
   void pop_front() { erase(x4_start); }
 
+  T& back() { return *x8_end->get_prev()->get_value(); }
+  const T& back() const { return *x8_end->get_prev()->get_value(); }
+
   iterator begin() { return iterator(x4_start); }
   const_iterator begin() const { return const_iterator(x4_start); }
   iterator end() { return iterator(x8_end); }

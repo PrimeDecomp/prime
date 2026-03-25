@@ -4,8 +4,8 @@
 #include <types.h>
 
 class CCallStack {
-  static const char kUnknownType[];
 public:
+  static const char kUnknownType[];
   CCallStack(uint lineNum, const char* lineStr, const char* type = kUnknownType);
 
   const char* GetFileAndLineText() const;

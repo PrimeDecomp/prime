@@ -16,7 +16,7 @@
 class CInputStream;
 class CColor {
 public:
-  CColor() { Set(255, 0, 255); }
+  CColor() {}
   CColor(const uint col) { Set(col); }
   CColor(CInputStream& in);
   CColor(const float r, const float g, const float b, const float a = 1.f);

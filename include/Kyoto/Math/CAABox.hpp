@@ -34,6 +34,7 @@ public:
     kF_ZMin,
   };
 
+  CAABox() {}
   CAABox(const CVector3f& min, const CVector3f& max);
   CAABox(const float minX, const float minY, const float minZ, const float maxX, const float maxY,
          const float maxZ)
@@ -57,6 +58,10 @@ public:
   CVector3f CenterPoint() const { return (min + max) * 0.5f; }
   CVector3f GetPoint(int) const;
   void Include(const CVector3f& vec) { AccumulateBounds(vec); }
+  void Include(const CAABox& other) {
+    AccumulateBounds(other.min);
+    AccumulateBounds(other.max);
+  }
   void AccumulateBounds(const CVector3f&);
   bool Invalid() const;
   bool PointInside(const CVector3f& vec) const;

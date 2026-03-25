@@ -4,10 +4,14 @@
 #include "Kyoto/CRandom16.hpp"
 #include "Kyoto/Graphics/CColor.hpp"
 #include "Kyoto/Math/CTransform4f.hpp"
+#include "Kyoto/Math/CVector3f.hpp"
 #include "Kyoto/Particles/CParticleGen.hpp"
 #include "Kyoto/Particles/IElement.hpp"
 #include "Kyoto/TToken.hpp"
 #include "MetroidPrime/CParticleDatabase.hpp"
+
+#include "rstl/aligned_allocator.hpp"
+#include "rstl/vector.hpp"
 
 #include "dolphin/gx/GXEnum.h"
 
@@ -77,6 +81,18 @@ public:
   uint Get4CharId() const;
 
   void SetWarmUp() { x1d0_26_forceOneUpdate = true; }
+
+  void ForceUpdate(const rstl::vector< CVector3f, rstl::aligned_allocator >& offsets) {
+    int curIdx = static_cast< int >(x158_curParticle);
+    for (int i = 0; i < static_cast< int >(x15c_swooshes.size()); ++i) {
+      curIdx = (curIdx + 1) % static_cast< int >(x15c_swooshes.size());
+      const CVector3f& off = offsets[i];
+      float* dst = reinterpret_cast< float* >(&x15c_swooshes[curIdx]);
+      dst[3] = off.GetX();
+      dst[4] = off.GetY();
+      dst[5] = off.GetZ();
+    }
+  }
 
   const int GetSwooshCount() const { return x15c_swooshes.size(); }
 

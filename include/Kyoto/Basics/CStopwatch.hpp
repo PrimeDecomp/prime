@@ -43,6 +43,10 @@ public:
 
   static void Wait(float);
   
+  static float GetGlobalTime() {
+    return mGlobalTimer.GetElapsedTime();
+  }
+
   static s64 GetGlobalMicros() {
     return mGlobalTimer.GetElapsedMicros();
   }
