@@ -78,13 +78,7 @@ public:
     return CModelFlags(*this, GetOtherFlags() | kF_NoTextureLock);
   }
   CModelFlags DepthCompareUpdate(const bool compare, const bool update) const {
-    uint newFlags = 0;
-    if (compare) {
-      newFlags |= kF_DepthCompare;
-    }
-    if (update) {
-      newFlags |= kF_DepthUpdate;
-    }
+    uint newFlags = static_cast< uint >(compare) | (static_cast< uint >(update) << 1);
     return CModelFlags(*this, (x2_flags & ~(kF_DepthCompare | kF_DepthUpdate)) | newFlags);
   }
   CModelFlags DepthBackwards() const {
