@@ -338,6 +338,9 @@ public:
   void SetEnergyBarActorInfo(TUniqueId bossId, float maxEnergy, uint stringIdx) {
     SetBossParams(bossId, maxEnergy, stringIdx);
   }
+  TUniqueId GetEnergyBarActorId() const { return xf18_bossId; }
+  float GetEnergyBarActorMaxEnergy() const { return xf1c_totalBossEnergy; }
+  uint GetBossStringIdx() const { return xf20_bossStringIdx; }
   void SetPendingOnScreenTex(CAssetId texId, const CVector2i& origin, const CVector2i& extent);
   const SOnScreenTex& GetPendingScreenTex() const { return xef4_pendingScreenTex; }
   float IntegrateVisorFog(float f) const;

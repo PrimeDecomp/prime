@@ -35,3 +35,14 @@ bool CActorLights::BuildAreaLightList(const CStateManager& mgr, const CGameArea&
 
   // rstl::sort(&*valList.begin(), &*valList.end(), SLightValue::CPredicate());
 }
+
+const CLight& CActorLights::GetLight(uint idx) const {
+  if (x298_26_hasAreaLights) {
+    uint areaCount = x0_areaLights.size();
+    if (idx < areaCount) {
+      return x0_areaLights[idx];
+    }
+    return x144_dynamicLights[idx - areaCount];
+  }
+  return x144_dynamicLights[idx];
+}

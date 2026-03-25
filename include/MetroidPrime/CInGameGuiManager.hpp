@@ -3,6 +3,8 @@
 
 #include "types.h"
 
+#include "Kyoto/CObjectReference.hpp"
+
 class CStateManager;
 
 enum EInGameGuiState {

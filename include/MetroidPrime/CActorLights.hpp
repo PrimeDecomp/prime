@@ -36,6 +36,8 @@ public:
 
   void ActivateLights() const;
   uint GetActiveLightCount() const;
+  uint GetActiveAreaLightCount() const { return x0_areaLights.size(); }
+  const CLight& GetLight(uint idx) const;
 
   bool GetNeedsRelight() const { return x298_24_dirty == TRUE; }
   bool HasShadowLight() const { return x29c_shadowLightArrIdx != kInvalidShadowLightIndex; }

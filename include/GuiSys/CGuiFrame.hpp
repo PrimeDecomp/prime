@@ -11,8 +11,10 @@ class CGuiHeadWidget;
 class CGuiWidgetDrawParms;
 class CGuiFrame {
 public:
+  void Touch() const;
   void Update(float dt);
   void Draw(const CGuiWidgetDrawParms& parms) const;
+  bool GetIsFinishedLoading() const;
   CGuiWidget* FindWidget(const char* name) const;
   CGuiWidget* FindWidget(const rstl::string& name) const;
 

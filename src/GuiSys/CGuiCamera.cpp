@@ -36,7 +36,7 @@ CGuiWidget* CGuiCamera::Create(CGuiFrame* frame, CInputStream& in, CSimplePool* 
 CGuiCamera::CGuiCamera(const CGuiWidgetParms& parms, float fov, float aspect, float znear,
                        float zfar)
 : CGuiWidget(parms) {
-  mCameraParms.perspective.type = kProjection_Perspective;
+  mProjectionType = kProjection_Perspective;
   CVector3f(1.f, 0.f, 0.f).Normalize();
   mCameraParms.perspective.fov = fov;
   mCameraParms.perspective.aspect = aspect;
@@ -46,7 +46,7 @@ CGuiCamera::CGuiCamera(const CGuiWidgetParms& parms, float fov, float aspect, fl
 CGuiCamera::CGuiCamera(const CGuiWidgetParms& parms, float left, float right, float top,
                        float bottom, float znear, float zfar)
 : CGuiWidget(parms) {
-  mCameraParms.orthographic.type = kProjection_Orthographic;
+  mProjectionType = kProjection_Orthographic;
   mCameraParms.orthographic.left = left;
   mCameraParms.orthographic.right = right;
   mCameraParms.orthographic.top = top;
@@ -56,7 +56,7 @@ CGuiCamera::CGuiCamera(const CGuiWidgetParms& parms, float left, float right, fl
 }
 
 void CGuiCamera::Draw(const CGuiWidgetDrawParms& parms) const {
-  if (mCameraParms.orthographic.type == kProjection_Perspective) {
+  if (mProjectionType == kProjection_Perspective) {
     CGraphics::SetPerspective(mCameraParms.perspective.fov, mCameraParms.perspective.aspect,
                               mCameraParms.perspective.znear, mCameraParms.perspective.zfar);
   } else {

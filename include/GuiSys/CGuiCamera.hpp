@@ -13,14 +13,12 @@ public:
 
   union UCameraParms {
     struct {
-      EProjection type;
       float fov;
       float aspect;
       float znear;
       float zfar;
     } perspective;
     struct {
-      EProjection type;
       float left;
       float right;
       float top;
@@ -44,6 +42,7 @@ public:
   CVector3f ConvertToScreenSpace(const CVector3f& point) const;
 
 public:
+  EProjection mProjectionType;
   UCameraParms mCameraParms;
 };
 

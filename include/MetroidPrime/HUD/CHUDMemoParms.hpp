@@ -16,7 +16,6 @@ public:
   bool IsFadeOutOnly() const { return mFadeOutOnly; }
   bool IsHintMemo() const { return mHintMemo; }
 
-private:
   float mDispTime;
   bool mClearMemoWindow;
   bool mFadeOutOnly;
@@ -27,6 +26,11 @@ class SHudMemoInfo {
 public:
   SHudMemoInfo(float dispTime, bool clear, bool fadeOut, bool hint)
   : mDispTime(dispTime), mClearMemoWindow(clear), mFadeOutOnly(fadeOut), mHintMemo(hint) {}
+
+  float GetDisplayTime() const { return mDispTime; }
+  bool IsClearMemoWindow() const { return mClearMemoWindow; }
+  bool IsFadeOutOnly() const { return mFadeOutOnly; }
+  bool IsHintMemo() const { return mHintMemo; }
 
 private:
   float mDispTime;

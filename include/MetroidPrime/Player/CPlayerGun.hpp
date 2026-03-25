@@ -175,11 +175,14 @@ public:
 
   CTransform4f GetTransform() const { return x3e8_xf; }
   float GetChargeBeamFactor() const { return x834_24_charging ? x340_chargeBeamFactor : 0.f; }
+  EMissileMode GetMissileMode() const { return x31c_missileMode; }
   EChargeState GetChargeState() const { return x330_chargeState; }
   CPlayerState::EBeamId GetPrimaryWeaponId() const { return x310_currentBeam; }
   CPlayerState::EBeamId GetPrimaryDestWeaponId() const { return x314_nextBeam; }
   uint GetSecondaryItemId() const { return x318_comboAmmoIdx; }
   int GetBombsPending() const { return x308_bombCount; }
+  bool IsBombReady() const { return x835_28_bombReady; }
+  bool IsPowerBombReady() const { return x835_29_powerBombReady; }
   uint GetFiring() const { return x2ec_lastFireButtonStates; }
   float GetHoloTransitionFactor() const { return x678_morph.GetTransitionFactor(); }
   TUniqueId GetPowerBombId() const { return x53a_powerBomb; }
