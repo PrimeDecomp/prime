@@ -37,6 +37,7 @@ public:
   float GetFov() const { return x15c_currentFov; }
   void SetFov(float fov) { x15c_currentFov = fov; }
   float GetNearClipDistance() const { return x160_znear; }
+  float GetFarClipDistance() const { return x164_zfar; }
   void InterpolateFOV(float start, float fov, float time, float delayTime);
   void UpdatePerspective(float dt);
   int GetControllerNumber() const { return x16c_controllerIdx; }

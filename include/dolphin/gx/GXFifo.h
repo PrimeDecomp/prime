@@ -29,6 +29,8 @@ void GXInitFifoLimits(GXFifoObj* fifo, u32 hiWaterMark, u32 loWaterMark);
 GXBreakPtCallback GXSetBreakPtCallback(GXBreakPtCallback cb);
 void GXEnableBreakPt(void* breakPt);
 void GXDisableBreakPt(void);
+volatile void* GXRedirectWriteGatherPipe(void* buf);
+void GXRestoreWriteGatherPipe(void);
 
 #ifdef __cplusplus
 }

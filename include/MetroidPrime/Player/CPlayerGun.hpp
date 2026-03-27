@@ -181,6 +181,7 @@ public:
   uint GetSecondaryItemId() const { return x318_comboAmmoIdx; }
   int GetBombsPending() const { return x308_bombCount; }
   uint GetFiring() const { return x2ec_lastFireButtonStates; }
+  EMissileMode GetMissileMode() const { return x31c_missileMode; }
   float GetHoloTransitionFactor() const { return x678_morph.GetTransitionFactor(); }
   TUniqueId GetPowerBombId() const { return x53a_powerBomb; }
 

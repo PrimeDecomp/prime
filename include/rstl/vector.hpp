@@ -3,6 +3,7 @@
 
 #include "types.h"
 
+#include "rstl/allocator_auto_ptr.hpp"
 #include "rstl/iterator.hpp"
 #include "rstl/pointer_iterator.hpp"
 #include "rstl/rmemory_allocator.hpp"
@@ -10,26 +11,6 @@
 class CInputStream;
 
 namespace rstl {
-template < typename T, typename Alloc >
-struct allocator_auto_ptr {
-  allocator_auto_ptr(T* ptr, Alloc* alloc) : x0_ptr(ptr), x4_alloc(alloc) {}
-  ~allocator_auto_ptr() {
-    if (x0_ptr != nullptr) {
-      x4_alloc->deallocate(x0_ptr);
-      x0_ptr = nullptr;
-    }
-  }
-
-  T* release() const {
-    T* ret = x0_ptr;
-    const_cast< allocator_auto_ptr* >(this)->x0_ptr = nullptr;
-    return ret;
-  }
-
-private:
-  T* x0_ptr;
-  Alloc* x4_alloc;
-};
 
 template < typename T, typename Alloc = rmemory_allocator >
 class vector {

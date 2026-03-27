@@ -84,6 +84,10 @@ public:
     }
   }
 
+  static inline CMatrix3f Scale(float s) {
+    return CMatrix3f(s, 0.f, 0.f, 0.f, s, 0.f, 0.f, 0.f, s);
+  }
+
   static CMatrix3f FromTransform(const CTransform4f& xf);
 
 private:

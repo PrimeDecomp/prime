@@ -185,6 +185,4 @@ private:
   static uint sNumEnabledPasses;
 };
 
-extern CTevCombiners::CTevPass CTevPass_805a5ebc;
-
 #endif // _CTEVCOMBINERS
