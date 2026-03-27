@@ -73,6 +73,11 @@ public:
     CGuiTextPane* x0_panes[2];
 
     SGuiTextPair();
+    SGuiTextPair& operator=(const SGuiTextPair& other) {
+      x0_panes[0] = other.x0_panes[0];
+      x0_panes[1] = other.x0_panes[1];
+      return *this;
+    }
     void SetPairText(const rstl::wstring& str);
     void SetPairText(const wchar_t* str);
   };
@@ -80,7 +85,7 @@ public:
   struct SFileSelectOption {
     CGuiWidget* x0_base;
     rstl::reserved_vector< SGuiTextPair, 4 > x4_textpanes;
-    uint x28_curField;
+    int x28_curField;
     float x2c_chRate;
 
     static float ComputeRandom();
@@ -151,7 +156,7 @@ public:
     void DoPopupCancel(const CGuiTableGroup* caller);
 
     static SFileSelectOption FindFileSelectOption(CGuiFrame* frame, int idx);
-    static void StartTextAnimating(CGuiTextPane* text, rstl::wstring str);
+    static void StartTextAnimating(CGuiTextPane* text, rstl::wstring str, float chRate);
   };
 
   struct SFusionBonusFrame {
@@ -287,7 +292,7 @@ public:
     SNesEmulatorFrame();
     ~SNesEmulatorFrame();
     void SetMode(EMode mode);
-    bool Update(float dt, CSaveGameScreen& saveUi);
+    int Update(float dt, CSaveGameScreen& saveUi);
     void ProcessUserInput(const CFinalInput& input, const CSaveGameScreen* sui);
     void Draw(const CSaveGameScreen& saveUi);
   };
@@ -309,13 +314,17 @@ private:
   bool PumpMovieLoad();
   void UpdateMovies(float dt);
   void ProcessUserInput(const CFinalInput& input, CArchitectureQueue& queue);
+  bool IsInScreenNotTransitioning(EScreen screen) const {
+    return x50_curScreen == screen && x54_nextScreen == screen;
+  }
+  bool GetHasAttractMovies() const { return xc0_attractCount > 0; }
   bool CanShowSaveUI();
   void StartStateTransition(EScreen screen);
   void CompleteStateTransition();
-  void StartAttractMovie(int idx);
+  void StartAttractMovie();
   void StopAttractMovie();
   void SetCurrentMovie(EMenuMovie movie);
-  const char* GetNextAttractMovieFileName(int idx);
+  const char* GetNextAttractMovieFileName();
   static const char* GetAttractMovieFileName(int idx);
   void SetFadeBlackTimer(float seconds);
   void SetFadeBlackWithMovie();

@@ -242,14 +242,16 @@ bool CAudioSys::SysLoadGroupSet(CSimplePool* pool, const uint id) {
   return SysLoadGroupSet(group, group->GetName(), id);
 }
 
-bool CAudioSys::SysLoadGroupSet(TLockedToken< CAudioGroupSet > group, rstl::string name,
+bool CAudioSys::SysLoadGroupSet(const CToken& group, const rstl::string& name,
                                 const uint id) {
   if (FindGroupSet(name)) {
     return true;
   }
 
+  CToken tok(group);
+  CAudioGroupSet* grpSet = reinterpret_cast< CAudioGroupSet* >(tok.GetObj()->GetContents());
   mpGroupSetDB->insert(rstl::pair< rstl::string, rstl::ncrc_ptr< CAudioGroupSet > >(
-      name, rstl::ncrc_ptr< CAudioGroupSet >(group.GetT())));
+      name, rstl::ncrc_ptr< CAudioGroupSet >(grpSet)));
   mpGroupSetResNameDB->insert(rstl::pair< uint, rstl::string >(id, name));
   return false;
 }

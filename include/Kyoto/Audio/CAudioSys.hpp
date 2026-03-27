@@ -95,7 +95,7 @@ public:
   static void SysSetVolume(uchar, ushort, uchar);
   static void SysSetSfxVolume(uchar, ushort, uchar, uchar);
   static bool SysLoadGroupSet(CSimplePool*, uint);
-  static bool SysLoadGroupSet(TLockedToken< CAudioGroupSet >, rstl::string, uint);
+  static bool SysLoadGroupSet(const CToken&, const rstl::string&, uint);
   static const rstl::string& SysGetGroupSetName(uint);
   static bool SysPushGroupIntoARAM(const rstl::string& name, uchar);
   static void SysPopGroupFromARAM();

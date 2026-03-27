@@ -21,12 +21,14 @@ public:
   bool CanBuild(const SObjectTag&) override;
   const SObjectTag* GetResourceIdByName(const char* name) const override;
 
+  FourCC GetResourceTypeById(CAssetId id) { return GetResLoader().GetResourceTypeById(id); }
+
   uint ResourceSize(const SObjectTag& tag) const { return x4_resLoader.ResourceSize(tag); }
 
   void AsyncIdle(uint time);
 
   CResLoader& GetResLoader() { return x4_resLoader; }
-  FourCC GetResourceTypeById(CAssetId id) { return GetResLoader().GetResourceTypeById(id); }
+
   CInputStream* LoadResourceFromMemorySync(const SObjectTag& tag, const void* extBuf) {
     return x4_resLoader.LoadResourceFromMemorySync(tag, extBuf);
   }

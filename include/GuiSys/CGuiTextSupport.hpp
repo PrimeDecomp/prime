@@ -64,6 +64,13 @@ public:
     ClearRenderBuffer();
   }
 
+  float GetNumCharsTotal() const;
+  float GetNumCharactersPrinted() const;
+  float GetTotalAnimationTime() const;
+  bool IsAnimationDone() const { return x3c_curTime >= GetTotalAnimationTime(); }
+  float GetCurTime() const { return x3c_curTime; }
+  void SetCurTime(float t) { x3c_curTime = t; }
+
   static void Initialize(CTextExecuteBuffer* buf, CTextParser* parser) {
     gpExecBuf = buf;
     gpTextParser = parser;
@@ -73,7 +80,8 @@ private:
   char x0_pad[0x34];
   int x34_extentX;
   int x38_extentY;
-  char x3c_pad[0x30c - 0x3c];
+  float x3c_curTime;
+  char x40_pad[0x30c - 0x40];
 };
 
 #endif // _CGUITEXTSUPPORT

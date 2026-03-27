@@ -340,6 +340,12 @@ public:
   static void VideoPostCallback(u32 retraceCount);
 
   static const CViewport& GetViewport() { return mViewport; }
+  static void GetViewport(int& left, int& top, int& width, int& height) {
+    left = mViewport.mLeft;
+    top = mViewport.mTop;
+    width = mViewport.mWidth;
+    height = mViewport.mHeight;
+  }
   static const CVector3f& GetViewPoint() { return mViewPoint; }
   static const CTransform4f& GetViewMatrix() { return mViewMatrix; }
   static const CTransform4f& GetModelMatrix() { return mModelMatrix; }
