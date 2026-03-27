@@ -4,6 +4,7 @@
 #include "GuiSys/CGuiWidgetIdDB.hpp"
 #include "rstl/string.hpp"
 
+class CFinalInput;
 class CGuiWidget;
 class CGuiCamera;
 class CGuiLight;
@@ -13,8 +14,10 @@ class CGuiFrame {
 public:
   void Update(float dt);
   void Draw(const CGuiWidgetDrawParms& parms) const;
+  void ProcessUserInput(const CFinalInput& input);
   CGuiWidget* FindWidget(const char* name) const;
   CGuiWidget* FindWidget(const rstl::string& name) const;
+  bool GetIsFinishedLoading() const;
 
   CGuiCamera* GetFrameCamera() const { return x14_camera; }
   void SetFrameCamera(CGuiCamera* camera);
