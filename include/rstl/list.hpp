@@ -12,7 +12,6 @@ class list {
 public:
   class iterator;
   class const_iterator;
-  iterator erase(const iterator& item) { return do_erase(item.get_node()); }
 
   // private:
 #pragma pack(push, 1)
@@ -73,6 +72,7 @@ public:
   iterator end() { return iterator(x8_end); }
   const_iterator end() const { return const_iterator(x8_end); }
 
+  iterator erase(const iterator& item) { return do_erase(item.get_node()); }
   iterator erase(const iterator& start, const iterator& end) {
     node* last = end.get_node();
     node* it = start.get_node();
@@ -134,6 +134,8 @@ public:
     }
   }
 
+  // TODO: demo map shows this delegates to clear(),
+  // but this matches better in CSkinnedModelWithAvgNormals
   void destroy() {
     node* end = x8_end;
     node* it = x4_start;
