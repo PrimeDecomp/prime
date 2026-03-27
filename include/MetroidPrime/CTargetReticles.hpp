@@ -86,7 +86,7 @@ public:
   void Draw(const CStateManager& mgr, bool hideLockon) const;
   void DrawGrappleGroup(const CMatrix3f& rot, const CStateManager& mgr, bool hideLockon) const;
   void DrawGrapplePoint(const CScriptGrapplePoint& point, float t, const CStateManager& mgr,
-                        const CMatrix3f& rot, bool zEqual);
+                        const CMatrix3f& rot, bool zEqual) const;
   void DrawCurrLockOnGroup(const CMatrix3f& rot, const CStateManager& mgr) const;
   void DrawNextLockOnGroup(const CMatrix3f& rot, const CStateManager& mgr) const;
   void DrawOrbitZoneGroup(const CMatrix3f& rot, const CStateManager& mgr) const;
@@ -110,7 +110,7 @@ private:
   CQuaternion x10_laggingOrientation;
   EReticleState x20_prevState;
   EReticleState x24_nextState;
-  uint x28_noDrawTicks;
+  mutable int x28_noDrawTicks;
   float x2c_overshootOffsetHalf;
   float x30_premultOvershootOffset;
   TCachedToken< CModel > x34_crosshairs;
