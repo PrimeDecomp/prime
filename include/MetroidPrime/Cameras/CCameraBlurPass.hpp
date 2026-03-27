@@ -5,6 +5,8 @@
 
 #include "MetroidPrime/TGameTypes.hpp"
 
+#include "dolphin/gx/GXEnum.h"
+
 #include "Kyoto/Graphics/CColor.hpp"
 #include "Kyoto/TToken.hpp"
 
@@ -23,14 +25,19 @@ public:
   };
   CCameraBlurPass();
 
+  void Update(float dt);
   void SetBlur(EBlurType type, float amount, float duration, bool usePersistentFb);
   void DisableBlur(float duration);
   void Draw() const;
 
   static void DrawWideScreen(const CColor& color, const CTexture* tex, float v);
-  
+
   EBlurType GetCurrType() const { return x10_curType; }
   bool GetNoPersistentCopy() const { return x2d_noPersistentCopy; }
+
+  void GetFbCopy(_GXTexFmt fmt, uchar* buf) const;
+  void FreePersistentFbTexture();
+  void AllocatePersistentFbTexture();
 
 private:
   rstl::optional_object< TCachedToken< CTexture > > x0_paletteTex;
@@ -42,8 +49,8 @@ private:
   float x24_totalTime;
   float x28_remainingTime;
   bool x2c_usePersistent;
-  bool x2d_noPersistentCopy;
-  uint x30_persistentBuf;
+  mutable bool x2d_noPersistentCopy;
+  void* x30_persistentBuf;
 };
 CHECK_SIZEOF(CCameraBlurPass, 0x34)
 
