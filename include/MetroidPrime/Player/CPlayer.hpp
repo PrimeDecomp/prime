@@ -370,9 +370,11 @@ public:
     return x2b0_outOfWaterTicks == 2 ? GetCurrentSurfaceRestraint() : kSR_Water;
   }
 
+  EOrbitBrokenType GetOrbitBrokenType() const { return x30c_orbitBrokenType; }
   TUniqueId GetOrbitTargetId() const { return x310_orbitTargetId; }
   const CVector3f& GetOrbitPoint() const { return x314_orbitPoint; }
   TUniqueId GetOrbitNextTargetId() const { return x33c_orbitNextTargetId; }
+  CVector3f GetHUDOrbitTargetPosition() const;
   TUniqueId GetAttachedActor() const { return x26c_attachedActor; }
   bool GetControlsFrozen() const { return x760_controlsFrozen; } // name?
   float GetDistanceUnderWater() const { return x828_distanceUnderWater; }
@@ -395,6 +397,7 @@ public:
   // CPlayer::GetFlipSpiderBallControlX() const weak
   float GetDeathTime() const { return x9f4_deathTime; } // name?
 
+  bool IsCrosshairsOpen() const { return x9c4_25_showCrosshairs; }
   bool IsInsideFluid() const { return x9c4_31_inWaterMovement; }
 
   void Teleport(const CTransform4f& xf, CStateManager& mgr, const bool resetBallCam);

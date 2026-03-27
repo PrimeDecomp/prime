@@ -42,7 +42,7 @@ public:
   // IsValidQuaternion__11CQuaternionCFf
   static CQuaternion Slerp(const CQuaternion& a, const CQuaternion& b, float t);
   static CQuaternion SlerpLocal(const CQuaternion& from, const CQuaternion& to, float t);
-  // AngleFrom__11CQuaternionCFRC11CQuaternion
+  CRelAngle AngleFrom(const CQuaternion& other) const;
   CQuaternion BuildEquivalent() const;
   // BuildNormalized__11CQuaternionCFv
   static CQuaternion AxisAngle(const CUnitVector3f&, const CRelAngle&);
