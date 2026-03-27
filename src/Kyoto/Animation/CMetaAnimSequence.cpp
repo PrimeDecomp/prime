@@ -6,7 +6,7 @@
 CMetaAnimSequence::CMetaAnimSequence(CInputStream& in)
 : x4_sequence(CMetaAnimSequence::CreateSequence(in)) {}
 
-rstl::rc_ptr< CAnimTreeNode >
+rstl::ncrc_ptr< CAnimTreeNode >
 CMetaAnimSequence::VGetAnimationTree(const CAnimSysContext&,
                                      const CMetaAnimTreeBuildOrders&) const {}
 

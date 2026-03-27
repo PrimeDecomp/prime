@@ -53,11 +53,11 @@ class IMetaAnim {
 public:
   virtual ~IMetaAnim() {}
 
-  virtual rstl::rc_ptr< CAnimTreeNode >
+  virtual rstl::ncrc_ptr< CAnimTreeNode >
   GetAnimationTree(const CAnimSysContext& animSys, const CMetaAnimTreeBuildOrders& orders) const;
   virtual void GetUniquePrimitives(rstl::set< CPrimitive >& primsOut) const = 0;
   virtual EMetaAnimType GetType() const = 0;
-  virtual rstl::rc_ptr< CAnimTreeNode >
+  virtual rstl::ncrc_ptr< CAnimTreeNode >
   VGetAnimationTree(const CAnimSysContext& animSys,
                     const CMetaAnimTreeBuildOrders& orders) const = 0;
 

@@ -1,7 +1,7 @@
 #include "Kyoto/Animation/CMetaAnimPlay.hpp"
 #include "Kyoto/Streams/COutputStream.hpp"
 
-rstl::rc_ptr< CAnimTreeNode >
+rstl::ncrc_ptr< CAnimTreeNode >
 CMetaAnimPlay::VGetAnimationTree(const CAnimSysContext& animSys,
                                  const CMetaAnimTreeBuildOrders& orders) const {}
 
