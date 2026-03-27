@@ -86,7 +86,6 @@ uint CMediumAllocPool::GetNumBlocksAvailable() {
   return ret;
 }
 
-#pragma inline_max_size(250)
 void CMediumAllocPool::AddPuddle(uint len, void* data, const bool unk) {
   x0_list.push_back(SMediumAllocPuddle(len, data, unk));
   x18_lastNodePrev = x0_list.end();

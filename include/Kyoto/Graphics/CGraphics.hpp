@@ -1,7 +1,6 @@
 #ifndef _CGRAPHICS
 #define _CGRAPHICS
 
-#include "dolphin/gx/GXStruct.h"
 #include "types.h"
 
 #include "Kyoto/CTimeProvider.hpp"
@@ -14,8 +13,10 @@
 #include "Kyoto/Math/CVector2i.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
 
-#include "dolphin/gx.h"
-#include "dolphin/mtx.h"
+#include "dolphin/gx/GXFifo.h"
+#include "dolphin/gx/GXStruct.h"
+#include "dolphin/gx/GXTexture.h"
+#include "dolphin/mtx/GeoTypes.h"
 
 enum ERglFogMode {
   kRFM_None = GX_FOG_NONE,
@@ -339,6 +340,12 @@ public:
   static void VideoPostCallback(u32 retraceCount);
 
   static const CViewport& GetViewport() { return mViewport; }
+  static void GetViewport(int& left, int& bottom, int& width, int& height) {
+    left = mViewport.mLeft;
+    bottom = mViewport.mTop;
+    width = mViewport.mWidth;
+    height = mViewport.mHeight;
+  }
   static const CVector3f& GetViewPoint() { return mViewPoint; }
   static const CTransform4f& GetViewMatrix() { return mViewMatrix; }
   static const CTransform4f& GetModelMatrix() { return mModelMatrix; }

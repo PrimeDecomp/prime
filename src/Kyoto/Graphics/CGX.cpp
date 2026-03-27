@@ -1,6 +1,9 @@
 #include "Kyoto/Graphics/CGX.hpp"
+
 #include "Kyoto/Alloc/CMemory.hpp"
 #include "Kyoto/Graphics/CTexture.hpp"
+
+#include "dolphin/gx/GXTexture.h"
 
 #include <limits.h>
 

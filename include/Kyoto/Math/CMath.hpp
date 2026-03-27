@@ -70,7 +70,7 @@ public:
     }
     return value;
   }
-  // ModF__5CMathFff weak
+  static float ModF(float x, float y) { return static_cast< float >(fmod(x, y)); }
   static float Deg2Rad(float deg) { return Deg2Rev(deg) * M_2PIF; }
   static float Deg2Rev(float deg) { return deg * (1.f / 360.f); }
   static float ArcSineR(float v);

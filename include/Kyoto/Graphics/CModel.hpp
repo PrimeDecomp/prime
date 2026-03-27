@@ -30,6 +30,7 @@ public:
   CModel(const rstl::auto_ptr< uchar >& data, int length, IObjectStore& store);
   void Touch(int) const;
   void Draw(const CModelFlags&) const;
+  void Draw(const float* positions, const float* normals, const CModelFlags& flags) const;
   bool IsLoaded(int matIdx) const;
   const float* GetPositions() const;
   const float* GetNormals() const;

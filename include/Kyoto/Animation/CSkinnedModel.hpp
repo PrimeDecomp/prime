@@ -3,6 +3,7 @@
 
 #include "types.h"
 
+#include "Kyoto/Animation/CSkinRules.hpp"
 #include "Kyoto/TToken.hpp"
 
 #include "rstl/auto_ptr.hpp"
@@ -10,11 +11,12 @@
 
 class CModel;
 class CModelFlags;
-class CSkinRules;
 class CCharLayoutInfo;
 class CPoseAsTransforms;
 class CVector3f;
 class CVertexMorphEffect;
+
+typedef void (*TDrawFunc)(const float*, const float*, const void*);
 
 class CSkinnedModel {
 public:
@@ -33,34 +35,49 @@ public:
   const TLockedToken< CCharLayoutInfo >& GetLayoutInfo() const { return x1c_layoutInfo; }
 
   void CalculateDefault();
-  int GetNumPoints() const;
+  int GetNumPoints() const { return x10_skinRules->GetNumPoints(); }
   const CVector3f* GetPositions() const;
   void Calculate(const CPoseAsTransforms&, const rstl::optional_object< CVertexMorphEffect >&,
                  const float*, float*);
   void Draw(const CModelFlags&) const;
+  void Draw(const float* positions, const float* normals, const CModelFlags& flags) const;
+  void DoDrawCallback(TDrawFunc func, void* data);
+  void PostDrawFunc() const;
+
+  float* AllocateNewWorkspace(float** vertOut);
 
   static void SetPointGeneratorFunc(void*, void (*)(void*, const CVector3f*, const CVector3f*, int));
   static void ClearPointGeneratorFunc();
+  static void AddDummySkinnedModelRef();
   static void RemoveDummySkinnedModelRef();
+
+  void Construct();
+  void AllocateStorage();
+  static void TickAllocations();
+  static void* EnsureAllocation(int size);
+
+  typedef void (*TPointGenFunc)(void*, const CVector3f*, const CVector3f*, int);
+  static TPointGenFunc sPointGen;
+  static void* sPointGenData;
 
 private:
   TLockedToken< CModel > x4_model;
   TLockedToken< CSkinRules > x10_skinRules;
   TLockedToken< CCharLayoutInfo > x1c_layoutInfo;
-  rstl::auto_ptr< float[] > x28_vertWorkspace;
-  rstl::auto_ptr< float[] > x30_normalWorkspace;
+  mutable rstl::auto_ptr< float > x28_vertWorkspace;
+  mutable rstl::auto_ptr< float > x30_normalWorkspace;
   bool x38_owned;
   bool x39_disableWorkspaces;
 };
 
 class CSkinnedModelWithAvgNormals {
   CSkinnedModel x0_skinnedModel;
-  uchar x3c_pad[4];
-  const float* x40_avgNormals;
+  rstl::auto_ptr< float > x3c_avgNormals;
 
 public:
+  CSkinnedModelWithAvgNormals(const CSkinnedModel& model);
   const CSkinnedModel& GetSkinnedModel() const { return x0_skinnedModel; }
-  const float* GetAvgNormals() const { return x40_avgNormals; }
+  float* GetAvgNormals() const { return x3c_avgNormals.get(); }
 };
 
 #endif // _CSKINNEDMODEL

@@ -3,7 +3,9 @@
 #include "Kyoto/Alloc/CMemorySys.hpp"
 #include "Kyoto/CFrameDelayedKiller.hpp"
 #include "Kyoto/Streams/CInputStream.hpp"
+
 #include "dolphin/gx/GXEnum.h"
+#include "dolphin/gx/GXTexture.h"
 #include "dolphin/os/OSCache.h"
 
 uint CGraphicsPalette::sCurrentFrameCount = 0;
