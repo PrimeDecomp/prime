@@ -16,7 +16,7 @@ public:
   EMetaAnimType GetType() const override { return kMAT_PhaseBlend; }
 
   void GetUniquePrimitives(rstl::set< CPrimitive >& primsOut) const override;
-  rstl::rc_ptr< CAnimTreeNode >
+  rstl::ncrc_ptr< CAnimTreeNode >
   VGetAnimationTree(const CAnimSysContext& animSys,
                     const CMetaAnimTreeBuildOrders& orders) const override;
 

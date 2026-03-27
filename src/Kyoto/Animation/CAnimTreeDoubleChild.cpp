@@ -98,7 +98,7 @@ void CAnimTreeDoubleChild::VSetPhase(float phase) {
 SAdvancementResults CAnimTreeDoubleChild::VGetAdvancementResults(const CCharAnimTime& a,
                                                                  const CCharAnimTime& b) const {}
 
-rstl::rc_ptr< IAnimReader > CAnimTreeDoubleChild::VGetBestUnblendedChild() const {}
+rstl::rc_ptr< CAnimTreeNode > CAnimTreeDoubleChild::VGetBestUnblendedChild() const {}
 
 void CAnimTreeDoubleChild::VGetWeightedReaders(
     float w, rstl::reserved_vector< rstl::pair< float, IAnimReader* >, 16 >& out) const {

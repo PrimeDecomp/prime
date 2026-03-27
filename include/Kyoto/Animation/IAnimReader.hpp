@@ -17,6 +17,8 @@ struct SAdvancementDeltas {
   CQuaternion xc_rotDelta;
 
   SAdvancementDeltas() : x0_posDelta(CVector3f::Zero()), xc_rotDelta(CQuaternion::NoRotation()) {}
+  SAdvancementDeltas(const CVector3f& pos, const CQuaternion& rot)
+  : x0_posDelta(pos), xc_rotDelta(rot) {}
   static SAdvancementDeltas Interpolate(const SAdvancementDeltas& a, const SAdvancementDeltas& b,
                                         float oldWeight, float newWeight);
   static SAdvancementDeltas Blend(const SAdvancementDeltas& a, const SAdvancementDeltas& b,
@@ -28,6 +30,8 @@ struct SAdvancementResults {
   SAdvancementDeltas x8_deltas;
   SAdvancementResults() {}
   SAdvancementResults(const CCharAnimTime& time) : x0_remTime(time) {}
+  SAdvancementResults(const CCharAnimTime& time, const SAdvancementDeltas& deltas)
+  : x0_remTime(time), x8_deltas(deltas) {}
 };
 
 class CSteadyStateAnimInfo {
@@ -39,7 +43,7 @@ public:
   CSteadyStateAnimInfo(bool looping, const CCharAnimTime& duration, const CVector3f& offset)
   : x0_duration(duration), x8_offset(offset), x14_looping(looping) {}
 
-  const CCharAnimTime& GetDuration() const { return x0_duration; }
+  CCharAnimTime GetDuration() const { return x0_duration; }
   const CVector3f& GetOffset() const { return x8_offset; }
   bool IsLooping() const { return x14_looping; }
 };
@@ -99,7 +103,8 @@ public:
   virtual void VGetSegStatementSet(const CSegIdList& list, CSegStatementSet& setOut) const = 0;
   virtual void VGetSegStatementSet(const CSegIdList& list, CSegStatementSet& setOut,
                                    const CCharAnimTime& time) const = 0;
-  virtual rstl::auto_ptr< IAnimReader > VClone() const = 0;
+  virtual rstl::ownership_transfer< IAnimReader > VClone() const = 0;
+  rstl::ownership_transfer< IAnimReader > Clone() const { return VClone(); }
   virtual rstl::optional_object< rstl::ownership_transfer< IAnimReader > > VSimplified();
   rstl::optional_object< rstl::ownership_transfer< IAnimReader > > Simplified();
   virtual void VSetPhase(float) = 0;

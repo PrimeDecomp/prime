@@ -5,6 +5,7 @@
 
 #include "Kyoto/Animation/CCharAnimTime.hpp"
 #include "rstl/string.hpp"
+#include "rstl/vector.hpp"
 
 enum EPOIType {
   kPT_Loop = 0,
@@ -51,5 +52,30 @@ protected:
 };
 CHECK_SIZEOF(CPOINode, 0x38)
 
+template < class T >
+uint _getPOIList(const CCharAnimTime& time, T* listOut, uint capacity, uint iterator, int additive,
+                 rstl::vector< T > stream, const CCharAnimTime& curTime) {
+  CCharAnimTime curTimeCopy(curTime);
+  uint count = stream.size();
+  CCharAnimTime tmpTime = curTime + time;
+  uint ret = 0;
+  uint it = iterator;
+  while (it < count) {
+    T node(stream[it]);
+    if (node.GetTime() > tmpTime)
+      break;
+    if (node.GetTime() >= curTimeCopy) {
+      T adjustedNode = T::CopyNodeMinusStartTime(node, curTimeCopy);
+      uint idx = iterator + ret;
+      if (idx < capacity) {
+        ++ret;
+        T& dest = listOut[idx];
+        dest = adjustedNode;
+      }
+    }
+    ++it;
+  }
+  return ret;
+}
 
 #endif // _CPOINODE

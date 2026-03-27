@@ -9,7 +9,7 @@ CMetaAnimBlend::CMetaAnimBlend(CInputStream& in)
 , xc_blend(in.ReadFloat())
 , x10_(in.ReadBool()) {}
 
-rstl::rc_ptr< CAnimTreeNode >
+rstl::ncrc_ptr< CAnimTreeNode >
 CMetaAnimBlend::VGetAnimationTree(const CAnimSysContext& animSys,
                                   const CMetaAnimTreeBuildOrders& orders) const {}
 
