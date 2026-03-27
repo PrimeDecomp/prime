@@ -13,6 +13,8 @@
 
 #include "rstl/math.hpp"
 
+#include "dolphin/gx/GXFrameBuffer.h"
+#include "dolphin/gx/GXManage.h"
 #include "dolphin/gx/GXTransform.h"
 #include "dolphin/gx/GXVert.h"
 
