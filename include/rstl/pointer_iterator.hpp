@@ -55,13 +55,6 @@ public:
   bool operator<=(const const_pointer_iterator& other) { return current <= other.current; }
   bool operator>=(const const_pointer_iterator& other) { return current >= other.current; }
 
-  // friend const_pointer_iterator operator+(const const_pointer_iterator& x, int v) {
-  //   return const_pointer_iterator(x.current + v);
-  // }
-  // friend const_pointer_iterator operator-(const const_pointer_iterator& x, int v) {
-  //   return const_pointer_iterator(x.current - v);
-  // }
-
 protected:
   T* current;
 };
