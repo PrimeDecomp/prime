@@ -12,6 +12,7 @@
 #include "MetaRender/CCubeRenderer.hpp"
 
 #include "rstl/math.hpp"
+#include "rstl/optional_object.hpp"
 
 #include "dolphin/gx/GXFrameBuffer.h"
 #include "dolphin/gx/GXManage.h"
@@ -19,7 +20,6 @@
 #include "dolphin/gx/GXVert.h"
 
 #include "math.h"
-#include "rstl/optional_object.hpp"
 #include "stdlib.h"
 #include "string.h"
 
