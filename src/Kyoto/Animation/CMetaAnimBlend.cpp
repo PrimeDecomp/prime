@@ -1,4 +1,5 @@
 #include "Kyoto/Animation/CMetaAnimBlend.hpp"
+#include "Kyoto/Animation/CAnimTreeBlend.hpp"
 #include "Kyoto/Animation/CMetaAnimFactory.hpp"
 #include "Kyoto/Streams/CInputStream.hpp"
 #include "Kyoto/Streams/COutputStream.hpp"
@@ -11,7 +12,26 @@ CMetaAnimBlend::CMetaAnimBlend(CInputStream& in)
 
 rstl::rc_ptr< CAnimTreeNode >
 CMetaAnimBlend::VGetAnimationTree(const CAnimSysContext& animSys,
-                                  const CMetaAnimTreeBuildOrders& orders) const {}
+                                  const CMetaAnimTreeBuildOrders& orders) const {
+  CMetaAnimTreeBuildOrders ordersA = CMetaAnimTreeBuildOrders::NoSpecialOrders();
+  CMetaAnimTreeBuildOrders ordersB = CMetaAnimTreeBuildOrders::NoSpecialOrders();
+
+  if (orders.mRecursiveAdvance) {
+    ordersA = CMetaAnimTreeBuildOrders::PreAdvanceForAll(*orders.mRecursiveAdvance);
+  }
+
+  if (orders.mSingleAdvance) {
+    ordersB = CMetaAnimTreeBuildOrders::PreAdvanceForAll(*orders.mSingleAdvance);
+  }
+
+  rstl::rc_ptr< CAnimTreeNode > treeA = x4_animA->GetAnimationTree(animSys, ordersA);
+  rstl::rc_ptr< CAnimTreeNode > treeB = x8_animB->GetAnimationTree(animSys, ordersB);
+
+  CAnimTreeBlend* blend = new CAnimTreeBlend(x10_, treeA, treeB, 0, rstl::string_l("??(??)")
+  );
+  blend->SetBlendingWeight(xc_blend);
+  return rstl::rc_ptr< CAnimTreeNode >(blend);
+}
 
 void CMetaAnimBlend::GetUniquePrimitives(rstl::set< CPrimitive >& primsOut) const {
   x4_animA->GetUniquePrimitives(primsOut);
