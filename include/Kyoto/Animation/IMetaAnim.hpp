@@ -43,7 +43,8 @@ class CMetaAnimTreeBuildOrders {
 public:
   static CMetaAnimTreeBuildOrders NoSpecialOrders();
   static CMetaAnimTreeBuildOrders PreAdvanceForAll(const CPreAdvanceIndicator& ind);
-
+  const rstl::optional_object< CPreAdvanceIndicator > GetRecursiveAdvance() const { return mRecursiveAdvance; }
+  const rstl::optional_object< CPreAdvanceIndicator > GetSingleAdvance() const { return mSingleAdvance; }
 private:
   rstl::optional_object< CPreAdvanceIndicator > mRecursiveAdvance;
   rstl::optional_object< CPreAdvanceIndicator > mSingleAdvance;

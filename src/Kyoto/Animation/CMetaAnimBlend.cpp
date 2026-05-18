@@ -1,3 +1,4 @@
+#include "Kyoto/Animation/CAnimTreeBlend.hpp"
 #include "Kyoto/Animation/CMetaAnimBlend.hpp"
 #include "Kyoto/Animation/CMetaAnimFactory.hpp"
 #include "Kyoto/Streams/CInputStream.hpp"
