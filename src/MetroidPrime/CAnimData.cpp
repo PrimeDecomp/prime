@@ -960,9 +960,8 @@ const rstl::ncrc_ptr< CAnimTreeNode >& CAnimData::GetRootAnimationTree() const {
 
 const rstl::rc_ptr< CAnimTreeNode >& CAnimData::GetAdditiveAnimationTree(uint idx) const {
   const uint animIdx = xc_charInfo.GetAnimationIndexList()[idx];
-  const rstl::pair< uint, CAdditiveAnimPlayback >* end =
-      x434_additiveAnims.data() + x434_additiveAnims.size();
-  const rstl::pair< uint, CAdditiveAnimPlayback >* search = x434_additiveAnims.data();
+  const rstl::pair< uint, CAdditiveAnimPlayback >* end = x434_additiveAnims.end();
+  const rstl::pair< uint, CAdditiveAnimPlayback >* search = x434_additiveAnims.begin();
 
   while (search != end) {
     if (animIdx == search->first) {
@@ -976,9 +975,8 @@ const rstl::rc_ptr< CAnimTreeNode >& CAnimData::GetAdditiveAnimationTree(uint id
 
 bool CAnimData::IsAdditiveAnimationAdded(uint idx) const {
   const uint animIdx = xc_charInfo.GetAnimationIndexList()[idx];
-  const rstl::pair< uint, CAdditiveAnimPlayback >* end =
-      x434_additiveAnims.data() + x434_additiveAnims.size();
-  const rstl::pair< uint, CAdditiveAnimPlayback >* search = x434_additiveAnims.data();
+  const rstl::pair< uint, CAdditiveAnimPlayback >* end = x434_additiveAnims.end();
+  const rstl::pair< uint, CAdditiveAnimPlayback >* search = x434_additiveAnims.begin();
 
   while (search != end) {
     if (animIdx == search->first) {
@@ -992,9 +990,8 @@ bool CAnimData::IsAdditiveAnimationAdded(uint idx) const {
 
 float CAnimData::GetAdditiveAnimationWeight(uint idx) {
   const uint animIdx = xc_charInfo.GetAnimationIndexList()[idx];
-  rstl::pair< uint, CAdditiveAnimPlayback >* end =
-      x434_additiveAnims.data() + x434_additiveAnims.size();
-  rstl::pair< uint, CAdditiveAnimPlayback >* search = x434_additiveAnims.data();
+  rstl::pair< uint, CAdditiveAnimPlayback >* end = x434_additiveAnims.end();
+  rstl::pair< uint, CAdditiveAnimPlayback >* search = x434_additiveAnims.begin();
 
   while (search != end) {
     if (animIdx == search->first) {
@@ -1008,9 +1005,8 @@ float CAnimData::GetAdditiveAnimationWeight(uint idx) {
 
 void CAnimData::DelAdditiveAnimation(uint idx) {
   const uint animIdx = xc_charInfo.GetAnimationIndexList()[idx];
-  rstl::pair< uint, CAdditiveAnimPlayback >* end =
-      x434_additiveAnims.data() + x434_additiveAnims.size();
-  rstl::pair< uint, CAdditiveAnimPlayback >* search = x434_additiveAnims.data();
+  rstl::pair< uint, CAdditiveAnimPlayback >* end = x434_additiveAnims.end();
+  rstl::pair< uint, CAdditiveAnimPlayback >* search = x434_additiveAnims.begin();
 
   while (search != end) {
     if (animIdx == search->first) {
@@ -1031,9 +1027,8 @@ void CAnimData::DelAdditiveAnimation(uint idx) {
 
 void CAnimData::AddAdditiveAnimation(uint idx, float weight, bool active, bool fadeOut) {
   const uint animIdx = xc_charInfo.GetAnimationIndexList()[idx];
-  rstl::pair< uint, CAdditiveAnimPlayback >* end =
-      x434_additiveAnims.data() + x434_additiveAnims.size();
-  rstl::pair< uint, CAdditiveAnimPlayback >* search = x434_additiveAnims.data();
+  rstl::pair< uint, CAdditiveAnimPlayback >* end = x434_additiveAnims.end();
+  rstl::pair< uint, CAdditiveAnimPlayback >* search = x434_additiveAnims.begin();
 
   while (search != end) {
     if (animIdx == search->first) {
