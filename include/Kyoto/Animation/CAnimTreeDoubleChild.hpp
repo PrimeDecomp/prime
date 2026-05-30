@@ -44,7 +44,7 @@ public:
   uint Depth() const override;
   CAnimTreeEffectiveContribution VGetContributionOfHighestInfluence() const override;
   uint VGetNumChildren() const override;
-  rstl::rc_ptr< IAnimReader > VGetBestUnblendedChild() const override;
+  rstl::rc_ptr< CAnimTreeNode > VGetBestUnblendedChild() const override;
   void VGetWeightedReaders(
       float w, rstl::reserved_vector< rstl::pair< float, IAnimReader* >, 16 >& out) const override;
 

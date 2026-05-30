@@ -4,12 +4,10 @@
 
 CAnimTreeNode::CAnimTreeNode(const rstl::string& name) : x4_name(name) {}
 
-/*
-rstl::rc_ptr< CAnimTreeNode > Cast(const rstl::ownership_transfer< IAnimReader >& ptr) {
+rstl::ncrc_ptr< CAnimTreeNode > Cast(const rstl::ownership_transfer< IAnimReader >& ptr) {
   if (ptr->IsCAnimTreeNode()) {
     return static_cast< CAnimTreeNode* >(ptr.get());
   }
 
-  return rstl::rc_ptr< CAnimTreeNode >();
+  return rstl::ncrc_ptr< CAnimTreeNode >();
 }
-*/
