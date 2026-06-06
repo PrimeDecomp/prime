@@ -72,8 +72,7 @@ CIOWin::EMessageReturn CCredits::Update(float dt, CArchitectureQueue& queue) {
                     ->GetId(),
                 CGuiTextProperties(true, true, kJustification_Center, kVerticalJustification_Top),
                 gpTweakGui->GetCreditsTextFontColor(), gpTweakGui->GetCreditsTextBorderColor(),
-                CColor::White(), CGraphics::GetViewport().mWidth - 64, 0, gpSimplePool,
-                CGuiWidget::kGMDF_Alpha),
+                CColor::White(), CGraphics::GetViewport().mWidth - 64, 0, gpSimplePool),
             CVector2i(0, 0)));
         // x30_text.back().first->SetText(x18_creditsTable->GetString(i));
       }

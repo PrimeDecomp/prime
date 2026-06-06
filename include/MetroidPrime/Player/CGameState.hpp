@@ -47,6 +47,7 @@ public:
   void SetCardSerial(u64 serial) { x210_cardSerial = serial; }
   u64 GetCardSerial() const { return x210_cardSerial; }
   bool GetHardMode() const { return x228_24_hardMode; }
+  void SetHardMode(bool v);
   float GetHardModeWeaponMultiplier() const;
   rstl::rc_ptr< CWorldTransManager >& WorldTransitionManager(); // { return x9c_transManager.GetPtr(); }
 

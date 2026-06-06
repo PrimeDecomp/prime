@@ -223,7 +223,7 @@ void CStaticAudioPlayer::DecodeMonoAndMix(ushort* bufIn, ushort* bufOut, int num
   }
 }
 
-void CStaticAudioPlayer::SetVolume(char vol) {
+void CStaticAudioPlayer::SetVolume(uchar vol) {
   if (static_cast< uchar >(vol) > 127) {
     vol = 127;
   }

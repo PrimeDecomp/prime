@@ -34,6 +34,7 @@ public:
 
   static void Update(float dt);
   static void StopAll();
+  static void FadeBackIn(float time);
   static void StopOneShot();
   static void SetMusicVolume(uint vol);
   static void SetSfxVolume(uint vol);
@@ -53,7 +54,7 @@ public:
 
   static void fn_803653F8(float fadeTime);
   static void fn_80365424(float fadeTime);
-  static void fn_8036590C(float fadeTime);
+  // static void fn_8036590C(float fadeTime); // renamed to FadeBackIn
 
 private:
   static void HandleMusicUnmute();

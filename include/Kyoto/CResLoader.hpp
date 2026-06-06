@@ -34,6 +34,7 @@ public:
   CDvdRequest* LoadResourceAsync(const SObjectTag& tag, char*);
 
   FourCC GetResourceTypeById(CAssetId) const;
+  bool ResourceExists(const SObjectTag& tag) const;
   uint ResourceSize(const SObjectTag& tag) const;
 
 private:
