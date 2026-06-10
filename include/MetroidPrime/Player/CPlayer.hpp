@@ -69,7 +69,7 @@ class CPlayer : public CPhysicsActor, public TOneStatic< CPlayer > {
     };
 
     CPlayerStuckTracker();
-    ~CPlayerStuckTracker();
+    //~CPlayerStuckTracker();
     void AddState(EPlayerState, const CVector3f&, const CVector3f&, const CVector2f&);
     bool IsPlayerStuck();
     void ResetStats();

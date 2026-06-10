@@ -2833,11 +2833,11 @@ Kyoto/Animation/CBoolPOINode.cpp:
 	.text       start:0x802F7AB4 end:0x802F7BA8
 
 Kyoto/Animation/CCharAnimMemoryMetrics.cpp:
-	.text       start:0x802F7BA8 end:0x802F7C64
+	.text       start:0x802F7BA8 end:0x802F7BC8
 	.sbss       start:0x805A9318 end:0x805A9320
 
 Kyoto/Animation/CCharLayoutInfo.cpp:
-	.text       start:0x802F7C64 end:0x802F8D4C
+	.text       start:0x802F7BC8 end:0x802F8D4C
 	.rodata     start:0x803D6E28 end:0x803D6E30
 	.data       start:0x803ED420 end:0x803ED430
 	.sdata      start:0x805A87D0 end:0x805A87D8

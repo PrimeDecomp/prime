@@ -3106,4 +3106,4 @@ bool CPlayer::IsEnergyLow(const CStateManager& mgr) const {
 bool CPlayer::IsTransparent() const { return x588_alpha < 1.f; }
 
 // TODO nonmatching & should be implicit
-CPlayer::CPlayerStuckTracker::~CPlayerStuckTracker() {}
+//CPlayer::CPlayerStuckTracker::~CPlayerStuckTracker() {}
