@@ -12,6 +12,9 @@ public:
 
   const uchar val() const { return x0_id; }
 
+  bool operator==(const CSegId& other) const { return x0_id == other.x0_id; }
+  bool operator!=(const CSegId& other) const { return x0_id != other.x0_id; }
+
 private:
   uchar x0_id;
 };
