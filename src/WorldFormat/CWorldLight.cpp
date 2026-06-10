@@ -9,7 +9,7 @@ const CVector3f CWorldLight::kDefaultPosition = CVector3f(0.f, 0.f, 0.f);
 const CVector3f CWorldLight::kDefaultDirection = CVector3f(0.f, 1.f, 0.f);
 
 CWorldLight::CWorldLight(CInputStream& in)
-: x0_type((EWorldLightType)in.Get< uint >())
+: x0_type(static_cast< EWorldLightType >(in.Get< uint >()))
 , x4_color(in)
 , x10_position(in)
 , x1c_direction(in)
@@ -18,7 +18,7 @@ CWorldLight::CWorldLight(CInputStream& in)
 , x30_(in.Get< float >())
 , x34_castShadows(in.Get< bool >())
 , x38_(in.Get< float >())
-, x3c_falloff((EFalloffType)in.Get< uint >())
+, x3c_falloff(static_cast< EFalloffType >(in.Get< uint >()))
 , x40_(in.Get< float >()) {}
 
 CLight CWorldLight::GetAsCGraphicsLight() const {

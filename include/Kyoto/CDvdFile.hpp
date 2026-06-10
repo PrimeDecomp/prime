@@ -44,10 +44,10 @@ public:
 
 private:
   int x0_fileEntry;
-  uchar* x4_;
-  bool x8_;
-  bool x9_;
-  rstl::single_ptr< CDvdFileARAM > xc_;
+  uchar* x4_aramBuffer;
+  bool x8_aramAllocated;
+  bool x9_aramPopped;
+  rstl::single_ptr< CDvdFileARAM > xc_aramFile;
   int x10_offset;
   int x14_size;
   rstl::string x18_filename;
