@@ -11,18 +11,6 @@
 #include "rstl/vector.hpp"
 
 class COBBTree {
-  struct SIndexData {
-    rstl::vector< uint > x0_materials;
-    rstl::vector< uchar > x10_vertMaterials;
-    rstl::vector< uchar > x20_edgeMaterials;
-    rstl::vector< uchar > x30_surfaceMaterials;
-    rstl::vector< CCollisionEdge > x40_edges;
-    rstl::vector< ushort > x50_surfaceIndices;
-    rstl::vector< CVector3f > x60_vertices;
-    SIndexData();
-    SIndexData(CInputStream& in);
-  };
-
 public:
   class CSimpleAllocator {
   public:
@@ -50,7 +38,7 @@ public:
   private:
     rstl::vector< ushort > x0_surface;
   };
-
+  
   class CNode {
   public:
     CNode(const CTransform4f& xf, const CVector3f& point, const CNode* left, const CNode* right,
@@ -80,6 +68,19 @@ public:
 
     static CSimpleAllocator* spAllocator;
   };
+  
+  struct SIndexData {
+    rstl::vector< uint > x0_materials;
+    rstl::vector< uchar > x10_vertMaterials;
+    rstl::vector< uchar > x20_edgeMaterials;
+    rstl::vector< uchar > x30_surfaceMaterials;
+    rstl::vector< CCollisionEdge > x40_edges;
+    rstl::vector< ushort > x50_surfaceIndices;
+    rstl::vector< CVector3f > x60_vertices;
+    SIndexData() {}
+    SIndexData(CInputStream& in);
+  };
+
   COBBTree(CInputStream& in);
   COBBTree(const SIndexData& indexData, const CNode* root);
   ~COBBTree();
