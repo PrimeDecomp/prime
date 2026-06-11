@@ -4,6 +4,8 @@
 
 #pragma inline_max_size(250)
 
+COBBTree::CSimpleAllocator* COBBTree::CNode::spAllocator = nullptr;
+
 COBBTree::SIndexData::SIndexData(CInputStream& in)
 : x0_materials(in)
 , x10_vertMaterials(in)
@@ -13,4 +15,149 @@ COBBTree::SIndexData::SIndexData(CInputStream& in)
 , x50_surfaceIndices(in)
 , x60_vertices(in) {}
 
-COBBTree::COBBTree(const SIndexData& indexData, const CNode* root);
+COBBTree::COBBTree(const SIndexData& indexData, const CNode* root)
+: x8_memoryUsage(root->GetMemoryUsage())
+, xc_allocator(0)
+, x18_indexData(indexData)
+, x88_root(root) {
+  CNode::SetAllocator(nullptr);
+}
+
+uint verify_deaf_babe(CInputStream& in) { return in.Get< uint >(); }
+uint verify_version(CInputStream& in) { return in.Get< uint >(); }
+
+COBBTree::COBBTree(CInputStream& in)
+: x0_(verify_deaf_babe(in))
+, x4_(verify_version(in))
+, x8_memoryUsage(in.Get< uint >())
+, xc_allocator(x8_memoryUsage)
+, x18_indexData(in)
+, x88_root(nullptr) {
+  CNode::SetAllocator(&xc_allocator);
+
+  x88_root = rs_new CNode(in);
+}
+
+COBBTree::~COBBTree() {
+  if (xc_allocator.GetPoolMemSize() != 0) {
+    CNode::SetAllocator(&xc_allocator);
+  } else {
+    CNode::SetAllocator(nullptr);
+  }
+  delete x88_root;
+}
+
+CAABox COBBTree::CalculateLocalAABox() const {
+  if (x88_root != nullptr) {
+    return x88_root->GetOBB().CalculateAABox(CTransform4f::Identity());
+  }
+
+  return CAABox(0.f, 0.f, 0.f, 0.f, 0.f, 0.f);
+}
+
+COBBTree::SIndexData::SIndexData() {}
+
+COBBTree::CNode::CNode(const CTransform4f& xf, const CVector3f& point, const CNode* left,
+                       const CNode* right, const CLeafData* leaf)
+: x0_obb(xf, point)
+, x3c_isLeaf(leaf != nullptr)
+, x40_left(left)
+, x44_right(right)
+, x48_leaf(leaf) {}
+
+COBBTree::CNode::CNode(CInputStream& in)
+: x0_obb(in)
+, x3c_isLeaf(in.Get< bool >())
+, x40_left(x3c_isLeaf ? nullptr : rs_new CNode(in))
+, x44_right(x3c_isLeaf ? nullptr : rs_new CNode(in))
+, x48_leaf(x3c_isLeaf ? rs_new CLeafData(in) : nullptr) {}
+
+COBBTree::CNode::~CNode() {
+  delete x40_left;
+  delete x44_right;
+  delete x48_leaf;
+}
+
+uint COBBTree::CNode::GetMemoryUsage() const {
+  uint ret = sizeof(CNode);
+  if (x3c_isLeaf) {
+    ret += x48_leaf->GetMemoryUsage();
+  } else {
+    ret += x40_left->GetMemoryUsage();
+    ret += x44_right->GetMemoryUsage();
+  }
+
+  if (ret & 3) {
+    ret += (4 - (ret & 3));
+  }
+
+  return ret;
+}
+
+void COBBTree::CNode::SetAllocator(CSimpleAllocator* allocator) { spAllocator = allocator; }
+void* COBBTree::CNode::operator new(size_t size, const char* file, int line) {
+  if (spAllocator == nullptr) {
+    return rs_new char[size];
+  }
+  return spAllocator->Alloc(size);
+}
+
+void COBBTree::CNode::operator delete(void* ptr, size_t size) {
+  if (spAllocator == nullptr && ptr != nullptr) {
+    delete[] ptr;
+  }
+}
+
+void COBBTree::GetTriangleVertexIndices(const ushort index, ushort out[2]) const {
+  const int surfIdx = (index * 3);
+  const CCollisionEdge& e0 = x18_indexData.x40_edges[x18_indexData.x50_surfaceIndices[surfIdx]];
+  const CCollisionEdge& e1 = x18_indexData.x40_edges[x18_indexData.x50_surfaceIndices[surfIdx + 1]];
+
+  out[2] = (e1.GetVertIndex1() != e0.GetVertIndex1() && e1.GetVertIndex1() != e0.GetVertIndex2())
+               ? e1.GetVertIndex1()
+               : e1.GetVertIndex2();
+
+  const uint material = x18_indexData.x0_materials[x18_indexData.x30_surfaceMaterials[index]];
+  if ((material & 0x2000000) != 0) {
+    out[0] = e0.GetVertIndex2();
+    out[1] = e0.GetVertIndex1();
+  } else {
+    out[0] = e0.GetVertIndex1();
+    out[1] = e0.GetVertIndex2();
+  }
+}
+
+const ushort* COBBTree::GetTriangleEdgeIndices(const ushort index) const {
+  return &x18_indexData.x50_surfaceIndices[index * 3];
+}
+COBBTree::CLeafData::CLeafData(const rstl::vector< ushort >& surface) : x0_surface(surface) {}
+COBBTree::CLeafData::CLeafData(CInputStream& in) : x0_surface(in) {}
+
+uint COBBTree::CLeafData::GetMemoryUsage() const {
+  uint ret = sizeof(CLeafData) + x0_surface.size() * sizeof(ushort);
+
+  if (ret & 3) {
+    ret += (4 - (ret & 3));
+  }
+
+  return ret;
+}
+
+COBBTree::CSimpleAllocator::CSimpleAllocator(uint size)
+: mPool(rs_new char[size]), mPoolSize(size), mPoolOffset(0) {}
+
+COBBTree::CSimpleAllocator::~CSimpleAllocator() {
+  if (mPool) {
+    delete[] mPool;
+  }
+}
+
+void* COBBTree::CSimpleAllocator::Alloc(const size_t size) {
+  void* ret = mPool + mPoolOffset;
+  mPoolOffset += size;
+  if (mPoolOffset & 3) {
+    mPoolOffset += (4 - (mPoolOffset & 3));
+  }
+
+  return ret;
+}
