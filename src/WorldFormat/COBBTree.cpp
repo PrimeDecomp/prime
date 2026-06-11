@@ -1,6 +1,7 @@
 #include "WorldFormat/COBBTree.hpp"
 
 #include "Kyoto/Streams/CInputStream.hpp"
+#include <rstl/algorithm.hpp>
 
 #pragma inline_max_size(250)
 
@@ -108,6 +109,64 @@ void COBBTree::CNode::operator delete(void* ptr, size_t size) {
   }
 }
 
+rstl::auto_ptr< COBBTree > COBBTree::BuildOrientedBoundingBoxTree(const CVector3f& extent,
+                                                                  const CVector3f& center) {
+  CAABox aabb(extent * -0.5f + center, extent * 0.5f + center);
+  SIndexData indexData;
+  indexData.x0_materials.reserve(3);
+  indexData.x0_materials.push_back(0x40180000);
+  indexData.x0_materials.push_back(0x42180000);
+  indexData.x0_materials.push_back(0x41180000);
+  indexData.x10_vertMaterials = rstl::vector< uchar >(8, 0);
+  static const uchar kEdgeMaterials[] = {
+      2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 2, 0, 0, 2, 0, 0, 2, 2,
+  };
+  indexData.x20_edgeMaterials.reserve(ARRAY_SIZE(kEdgeMaterials));
+  for (size_t i = 0; i < ARRAY_SIZE(kEdgeMaterials); ++i) {
+    indexData.x20_edgeMaterials.push_back(kEdgeMaterials[i]);
+  }
+
+  static const uchar kTriangleMaterials[] = {
+      0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1,
+  };
+  indexData.x30_surfaceMaterials.reserve(ARRAY_SIZE(kTriangleMaterials));
+  for (size_t i = 0; i < ARRAY_SIZE(kTriangleMaterials); ++i) {
+    indexData.x30_surfaceMaterials.push_back(kTriangleMaterials[i]);
+  }
+
+  static const ushort kEdges[] = {
+      4, 1, 1, 5, 5, 4, 4, 0, 0, 1, 7, 2, 2, 6, 6, 7, 7, 3,
+      3, 2, 6, 0, 4, 6, 2, 0, 5, 3, 7, 5, 1, 3, 6, 5, 0, 3,
+  };
+  indexData.x40_edges.reserve(ARRAY_SIZE(kEdges));
+
+  for (int i = 0; i < ARRAY_SIZE(kEdges); i += 2) {
+    indexData.x40_edges.push_back(CCollisionEdge(kEdges[i], kEdges[i + 1]));
+  }
+
+  static const ushort kTriangleEdgeMaterials[] = {
+      0,  1, 2,  0,  3, 4,  5,  6,  7, 5,  8,  9, 10, 3,  11, 10, 6,  12,
+      13, 8, 14, 13, 1, 15, 16, 14, 7, 16, 11, 2, 17, 15, 4,  17, 12, 9,
+  };
+
+  indexData.x50_surfaceIndices.reserve(ARRAY_SIZE(kTriangleEdgeMaterials));
+  for (int i = 0; i < ARRAY_SIZE(kTriangleEdgeMaterials); i++) {
+    indexData.x50_surfaceIndices.push_back(kTriangleEdgeMaterials[i]);
+  }
+
+  indexData.x60_vertices.reserve(8);
+  for (int i = 0; i < 8; ++i) {
+    indexData.x60_vertices.push_back(aabb.GetPoint(i));
+  }
+  CNode::SetAllocator(nullptr);
+
+  rstl::vector< ushort > surface;
+  surface.reserve(12);
+  for (int i = 0; i < 12; ++i) {
+    surface.push_back(i);
+  }
+
+}
 void COBBTree::GetTriangleVertexIndices(const ushort index, ushort out[2]) const {
   const int surfIdx = (index * 3);
   const CCollisionEdge& e0 = x18_indexData.x40_edges[x18_indexData.x50_surfaceIndices[surfIdx]];

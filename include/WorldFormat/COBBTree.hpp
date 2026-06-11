@@ -5,6 +5,7 @@
 #include "Kyoto/Math/CVector3f.hpp"
 
 #include "WorldFormat/CCollisionEdge.hpp"
+#include "rstl/auto_ptr.hpp"
 #include "rstl/single_ptr.hpp"
 
 #include "rstl/vector.hpp"
@@ -83,6 +84,9 @@ public:
   COBBTree(const SIndexData& indexData, const CNode* root);
   ~COBBTree();
 
+  
+  static rstl::auto_ptr< COBBTree > BuildOrientedBoundingBoxTree(const CVector3f& extent, const CVector3f& center);
+  
   CAABox CalculateLocalAABox() const;
 
   void GetTriangleVertexIndices(const ushort index, ushort out[2]) const;

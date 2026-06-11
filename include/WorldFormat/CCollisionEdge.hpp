@@ -7,6 +7,7 @@
 
 class CCollisionEdge {
 public:
+  CCollisionEdge(const ushort x0, const ushort x1) : x0_index1(x0), x2_index2(x1) {}
   CCollisionEdge(CInputStream& in) {
     x0_index1 = in.Get< u16 >();
     x2_index2 = in.Get< u16 >();
