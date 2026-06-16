@@ -6,7 +6,8 @@
 class CStateSetterFlow : public CIOWin {
 public:
   CStateSetterFlow();
-  EMessageReturn OnMessage(const CArchitectureMessage& message, CArchitectureQueue& queue);
+  ~CStateSetterFlow();
+  EMessageReturn OnMessage(const CArchitectureMessage& message, CArchitectureQueue& queue) override;
 };
 
 #endif // _CSTATESETTERFLOW

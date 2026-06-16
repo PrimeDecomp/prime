@@ -160,6 +160,7 @@ string string_l(const char* data);
 // }
 
 string operator+(const string& a, const string& b);
+wstring operator+(const wstring& a, const wstring& b);
 // {
 //   string result(a);
 //   result.append(b);
