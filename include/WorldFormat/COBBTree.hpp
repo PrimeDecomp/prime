@@ -38,7 +38,7 @@ public:
   private:
     rstl::vector< ushort > x0_surface;
   };
-  
+
   class CNode {
   public:
     CNode(const CTransform4f& xf, const CVector3f& point, const CNode* left, const CNode* right,
@@ -53,7 +53,8 @@ public:
     const CNode* GetLeftNode() const { return x40_left; }
     const CNode* GetRightNode() const { return x44_right; }
     bool WasHit() const { return x4c_hit; }
-    void SetHit(bool hit) { x4c_hit = hit; }
+    void SetHit(const bool hit) const { x4c_hit = hit; }
+    const CLeafData* GetLeafData() const { return x48_leaf; }
 
     static void* operator new(size_t size, const char* file, int line);
     static void operator delete(void* ptr, size_t size);
@@ -64,11 +65,11 @@ public:
     const CNode* x40_left;
     const CNode* x44_right;
     const CLeafData* x48_leaf;
-    bool x4c_hit;
+    mutable bool x4c_hit;
 
     static CSimpleAllocator* spAllocator;
   };
-  
+
   struct SIndexData {
     rstl::vector< uint > x0_materials;
     rstl::vector< uchar > x10_vertMaterials;
@@ -85,9 +86,9 @@ public:
   COBBTree(const SIndexData& indexData, const CNode* root);
   ~COBBTree();
 
-  
-  static rstl::auto_ptr< COBBTree > BuildOrientedBoundingBoxTree(const CVector3f& extent, const CVector3f& center);
-  
+  static rstl::auto_ptr< COBBTree > BuildOrientedBoundingBoxTree(const CVector3f& extent,
+                                                                 const CVector3f& center);
+
   CAABox CalculateLocalAABox() const;
 
   void GetTriangleVertexIndices(const ushort index, ushort out[2]) const;
