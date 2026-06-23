@@ -4,6 +4,7 @@
 #include "GuiSys/CGuiWidgetIdDB.hpp"
 #include "rstl/string.hpp"
 
+class CGuiSys;
 class CGuiWidget;
 class CGuiCamera;
 class CGuiLight;
@@ -24,8 +25,13 @@ public:
 
   CGuiWidgetIdDB& WidgetIdDB() { return x18_db; }
 
+  CGuiSys& GetGuiSys() const { return x8_guiSys; }
+
 private:
-  char x0_[0x14];
+  uint x0_id;
+  uint x4_;
+  CGuiSys& x8_guiSys;
+  char x0_[0xC];
   CGuiCamera* x14_camera;
   CGuiWidgetIdDB x18_db;
 };
