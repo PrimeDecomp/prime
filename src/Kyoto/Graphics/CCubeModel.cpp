@@ -242,3 +242,90 @@ void CCubeModel::DrawAlphaSurfaces(const CModelFlags& flags) const {
     }
   }
 }
+
+void CCubeModel::DrawFlat(const float* positions, const float* normals,
+                          ESurfaceSelection which) const {
+  if (positions != nullptr) {
+    SetSkinningArraysCurrent(positions, normals);
+  } else {
+    SetArraysCurrent();
+  }
+
+  if (which != kSS_Sorted) {
+    for (CCubeSurface surface = x38_firstUnsorted; surface.IsValid();
+         surface = surface.GetNextSurface()) {
+      CCubeMaterial material = GetMaterialByIndex(surface.GetMaterialIndex());
+      CGX::SetVtxDescv_Compressed(material.GetVertexDesc());
+      CGX::CallDisplayList(surface.GetDisplayList(), surface.GetDisplayListSize());
+    }
+  }
+
+  if (which != kSS_Unsorted) {
+    for (CCubeSurface surface = x3c_firstSorted; surface.IsValid();
+         surface = surface.GetNextSurface()) {
+      CCubeMaterial material = GetMaterialByIndex(surface.GetMaterialIndex());
+      CGX::SetVtxDescv_Compressed(material.GetVertexDesc());
+      CGX::CallDisplayList(surface.GetDisplayList(), surface.GetDisplayListSize());
+    }
+  }
+}
+
+void CCubeModel::Draw(const CModelFlags& flags) const {
+  CCubeMaterial::KillCachedViewDepState();
+  SetArraysCurrent();
+  DrawSurfaces(flags);
+}
+
+void CCubeModel::Draw(const float* positions, const float* normals,
+                      const CModelFlags& flags) const {
+  CCubeMaterial::KillCachedViewDepState();
+  SetSkinningArraysCurrent(positions, normals);
+  DrawSurfaces(flags);
+}
+
+void CCubeModel::DrawNormal(const CModelFlags& flags) const {
+  CCubeMaterial::KillCachedViewDepState();
+  SetArraysCurrent();
+  DrawNormalSurfaces(flags);
+}
+
+void CCubeModel::DrawAlpha(const CModelFlags& flags) const {
+  CCubeMaterial::KillCachedViewDepState();
+  SetArraysCurrent();
+  DrawAlphaSurfaces(flags);
+}
+
+void CCubeModel::SetDrawingOccluders(const bool drawOccluders) {
+  sDrawingOccluders = drawOccluders;
+}
+
+void CCubeModel::SetModelWireframe(const bool drawWireframe) { sDrawingWireframe = drawWireframe; }
+
+void CCubeModel::UnlockTextures() const {
+  for (AUTO(texture, x1c_textures->begin()); texture != x1c_textures->end(); ++texture) {
+    texture->Unlock();
+  }
+
+  x40_24_loadTextures = false;
+}
+
+void CCubeModel::RemapMaterialData(const void* data,
+                                   rstl::vector< TCachedToken< CTexture > >* texture) {
+
+  x0_instance.SetMaterialPointer(data);
+  x1c_textures = texture;
+  x40_24_loadTextures = false;
+}
+
+void CCubeModel::DrawNormal(const float* positions, const float* normals, ESurfaceSelection which) const {
+  CGX::SetNumIndStages(0);
+  CGX::SetNumTevStages(1);
+  CGX::SetNumTexGens(1);
+  CGX::SetZMode(true, GX_LEQUAL, true);
+  CGX::SetTevOrder(GX_TEVSTAGE0, GX_TEXCOORD_NULL, GX_TEXMAP_NULL, GX_COLOR_NULL);
+  CGX::SetTevColorIn(GX_TEVSTAGE0, GX_CC_ZERO, GX_CC_ZERO, GX_CC_ZERO, GX_CC_ZERO);
+  CGX::SetTevAlphaIn(GX_TEVSTAGE0, GX_CA_ZERO, GX_CA_ZERO, GX_CA_ZERO, GX_CA_ZERO);
+  CGX::SetStandardTevColorAlphaOp(GX_TEVSTAGE0);
+  CGX::SetBlendMode(GX_BM_BLEND, GX_BL_ZERO, GX_BL_ONE, GX_LO_CLEAR);
+  DrawFlat(positions, normals, which);
+}
