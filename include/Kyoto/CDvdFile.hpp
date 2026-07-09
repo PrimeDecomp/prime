@@ -36,6 +36,8 @@ public:
   void CalcFileOffset(int offset, ESeekOrigin origin);
   void UpdateFilePos(int pos);
   const int GetFileSize() const { return x14_size; }
+  const rstl::string& GetFilename() const { return x18_filename; }
+  bool IsARAMFile() const { return x8_; }
 
   static bool FileExists(const char*);
   static void DVDARAMXferCallback(long, DVDFileInfo*);
