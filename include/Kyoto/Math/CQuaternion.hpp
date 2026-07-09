@@ -29,6 +29,10 @@ public:
   // }
 
   CQuaternion operator*(const CQuaternion&) const;
+  CQuaternion& operator*=(const CQuaternion& other) {
+    *this = *this * other;
+    return *this;
+  }
   // __amu__11CQuaternionFRC11CQuaternion
   // ScalarVector__11CQuaternionFfRC9CVector3f
   // Slerp__11CQuaternionFRC11CQuaternionRC11CQuaternionf

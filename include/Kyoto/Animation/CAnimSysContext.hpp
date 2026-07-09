@@ -20,7 +20,7 @@ public:
 
 private:
   TToken< CTransitionDatabaseGame > x0_transDb;
-  rstl::rc_ptr< CRandom16 > x8_random;
+  rstl::ncrc_ptr< CRandom16 > x8_random;
   CSimplePool& xc_store;
 };
 
