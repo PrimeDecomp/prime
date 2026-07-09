@@ -67,11 +67,12 @@ typedef struct GBAControl {
 extern GBAControl __GBA[4];
 extern BOOL __GBAReset;
 
-void __GBAHandler(s32 chan, u32 error, OSContext* context);
 void __GBASyncCallback(s32 chan, s32 ret);
 s32 __GBASync(s32 chan);
 OSTime __GBASetDelay(s32 chan, OSTime delay);
 s32 __GBATransfer(s32 chan, s32 w1, s32 w2, GBATransferCallback callback);
+void __GBAX01(s32 chan, s32 ret);
+void __GBAX02(s32 chan, u8* readBuf);
 
 #ifdef __cplusplus
 }

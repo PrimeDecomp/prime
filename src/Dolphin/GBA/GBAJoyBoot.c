@@ -35,7 +35,9 @@ static u32 F72(u32 crc, u32 src, vu8* keyp) {
 }
 
 static u32 F95(u32 src, vu8* keyp) {
-  src = (src * ((keyp[3] << keyp[0x16]) | ((keyp[1] | (keyp[4] << keyp[0x11])) | (keyp[4] << keyp[0x18])))) - (keyp[7] - keyp[6]);
+  src = (src * ((keyp[3] << keyp[0x16]) |
+                ((keyp[1] | (keyp[4] << keyp[0x11])) | (keyp[4] << keyp[0x18])))) -
+        (keyp[7] - keyp[6]);
   return src;
 }
 
