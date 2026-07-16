@@ -4,13 +4,13 @@
 #include "Kyoto/CSimplePool.hpp"
 #include "Kyoto/CVParamTransfer.hpp"
 #include "Kyoto/Graphics/CColor.hpp"
+#include "Kyoto/Graphics/CGX.hpp"
 #include "Kyoto/Graphics/CGraphicsPalette.hpp"
 #include "Kyoto/Streams/CInputStream.hpp"
 #include "Kyoto/Text/CDrawStringOptions.hpp"
 #include "Kyoto/Text/CTextRenderBuffer.hpp"
-
-#include "Kyoto/Graphics/CGX.hpp"
 #include "Kyoto/Text/TextCommon.hpp"
+
 #include "rstl/algorithm.hpp"
 #include "rstl/string.hpp"
 #include "rstl/vector.hpp"

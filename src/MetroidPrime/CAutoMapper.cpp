@@ -1025,7 +1025,8 @@ void CAutoMapper::ProcessMapPanInput(const CFinalInput& input, const CStateManag
                                   CUnitVector3f(camDir.GetX(), camDir.GetY(), camDir.GetZ()), mgr);
       const CTransform4f& hex = x8_mapu.GetObject()
                                     ->GetMapWorldData(result.x0_worldIdx)
-                                    .GetMapAreaData(result.x4_areaIdx);
+                                    .GetMapAreaData(result.x4_areaIdx)
+                                    .GetTransform();
       CVector3f areaToHex = hex.GetTranslation() - xa8_renderState0.x20_areaPoint;
       if (areaToHex.Magnitude() < speed) {
         xa8_renderState0.x20_areaPoint = hex.GetTranslation();
@@ -1176,7 +1177,8 @@ void CAutoMapper::Draw(const CStateManager& mgr, const CTransform4f& xf, float a
     float minMag = FLT_MAX;
     int hexIdx = -1;
     for (int i = 0; i < static_cast< int >(mwData.GetNumMapAreaDatas()); ++i) {
-      CVector3f diff = universeAreaXf.GetTranslation() - mwData.GetMapAreaData(i).GetTranslation();
+      CVector3f diff = universeAreaXf.GetTranslation() -
+                       mwData.GetMapAreaData(i).GetTransform().GetTranslation();
       float mag = diff.Magnitude();
       if (mag < minMag) {
         hexIdx = i;
@@ -1907,7 +1909,7 @@ CAutoMapper::FindClosestVisibleWorld(const CVector3f& point, const CUnitVector3f
     if (!worldState.GetMapWorldInfo().GetPtr()->IsAnythingSet())
       continue;
     for (int i = 0; i < static_cast< int >(mwData.GetNumMapAreaDatas()); ++i) {
-      const CTransform4f& hexXf = mwData.GetMapAreaData(i);
+      const CTransform4f& hexXf = mwData.GetMapAreaData(i).GetTransform();
       CVector3f mwOrigin = hexXf.GetTranslation();
       CVector3f pointToArea = mwOrigin - point;
       CVector3f projPoint;
