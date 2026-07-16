@@ -2,7 +2,7 @@
 
 #include "Kyoto/CVParamTransfer.hpp"
 
-#pragma inline_max_size(240)
+#pragma inline_max_size(250)
 
 CMapUniverse::CMapObjectSortInfo::CMapObjectSortInfo(float zDistance, int worldIndex, int areaIndex,
                                                      int objectIndex, CColor surfaceColor,
@@ -51,7 +51,7 @@ CMapUniverse::CMapWorldData::CMapWorldData(CInputStream& in, uint version)
 : x0_label(in)
 , x10_worldAssetId(in.Get< CAssetId >())
 , x14_transform(in)
-, x44_hexagonXfs(in)
+, x44_areaDatas(in)
 , x54_surfColorSelected(version != 0 ? CColor(in) : CColor(0))
 , x58_outlineColorSelected(static_cast< uchar >(255), 0, 255)
 , x5c_surfColorUnselected(static_cast< uchar >(255), 0, 255)
@@ -65,12 +65,22 @@ CMapUniverse::CMapWorldData::CMapWorldData(CInputStream& in, uint version)
   x5c_surfColorUnselected = CColor::Lerp(CColor::Black(), x54_surfColorSelected, 0.5f);
   x60_outlineColorUnselected = CColor::Lerp(CColor::White(), x5c_surfColorUnselected, 0.5f);
 
-  for (int i = 0; i < x44_hexagonXfs.size(); ++i) {
-    x64_centerPoint += x44_hexagonXfs[i].GetTransform().GetTranslation();
+  for (int i = 0; i < x44_areaDatas.size(); ++i) {
+    x64_centerPoint += x44_areaDatas[i].GetTransform().GetTranslation();
   }
-  x64_centerPoint *= 1.f / static_cast< float >(x44_hexagonXfs.size());
+  x64_centerPoint *= 1.f / static_cast< float >(x44_areaDatas.size());
 }
 
+const CMapUniverse::CMapWorldData& CMapUniverse::GetMapWorldDataByWorldId(CAssetId id) {
+  for (int i = 0; i < GetNumMapWorldDatas(); i++) {
+    const CMapWorldData& wd = GetMapWorldData(i);
+    if (wd.GetWorldAssetId() == id) {
+      return wd;
+    }
+  }
+
+  return x10_worldDatas[0];
+}
 CFactoryFnReturn FMapUniverseFactory(const SObjectTag& tag, CInputStream& in,
                                      const CVParamTransfer& xfer) {
   in.Get< uint >();

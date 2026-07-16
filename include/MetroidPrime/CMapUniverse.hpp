@@ -85,8 +85,8 @@ public:
     const CVector3f& GetWorldCenterPoint() const { return x64_centerPoint; }
     const rstl::string& GetWorldLabel() const { return x0_label; }
     const CTransform4f& GetWorldTransform() const { return x14_transform; }
-    const CMapAreaData& GetMapAreaData(int idx) const { return x44_hexagonXfs[idx]; }
-    uint GetNumMapAreaDatas() const { return x44_hexagonXfs.size(); }
+    const CMapAreaData& GetMapAreaData(int idx) const { return x44_areaDatas[idx]; }
+    uint GetNumMapAreaDatas() const { return x44_areaDatas.size(); }
     const CColor& GetOutlineColorUnselected() const { return x60_outlineColorUnselected; }
     const CColor& GetOutlineColorSelected() const { return x58_outlineColorSelected; }
     const CColor& GetSurfaceColorUnselected() const { return x5c_surfColorUnselected; }
@@ -96,7 +96,7 @@ public:
     rstl::string x0_label;
     CAssetId x10_worldAssetId;
     CTransform4f x14_transform;
-    rstl::vector< CMapAreaData > x44_hexagonXfs;
+    rstl::vector< CMapAreaData > x44_areaDatas;
     CColor x54_surfColorSelected;
     CColor x58_outlineColorSelected;
     CColor x5c_surfColorUnselected;
@@ -111,7 +111,7 @@ public:
             float depth2) const;
   const CMapWorldData& GetMapWorldData(int idx) const { return x10_worldDatas[idx]; }
   const CMapWorldData& GetMapWorldDataByWorldId(CAssetId id);
-  uint GetNumMapWorldDatas() const { return x10_worldDatas.size(); }
+  int GetNumMapWorldDatas() const { return x10_worldDatas.size(); }
   float GetMapUniverseRadius() const { return x2c_universeRadius; }
   const CVector3f& GetMapUniverseCenterPoint() const { return x20_universeCenter; }
 
