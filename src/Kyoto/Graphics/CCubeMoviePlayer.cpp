@@ -1,3 +1,5 @@
+#include "Kyoto/Math/CVector3f.hpp"
+
 #include <Kyoto/Graphics/CMoviePlayer.hpp>
 
 #include <Kyoto/Graphics/CGX.hpp>
@@ -6,7 +8,10 @@
 #include "dolphin/gx/GXGeometry.h"
 #include "dolphin/gx/GXTev.h"
 #include "dolphin/gx/GXTexture.h"
+#include "dolphin/thp/THPPlayer.h"
 
+#pragma inline_max_size(200)
+static uint sNumReferences = 0;
 const char skInterlacePattern[32] = {
     0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
     0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
@@ -115,5 +120,36 @@ static void MyTHPYuv2RgbTextureSetup(void* y, void* u, void* v, ushort width, us
   CTexture::InvalidateTexmap(GX_TEXMAP2);
 }
 
-CMoviePlayer::CMoviePlayer(const char* filepath, float fps, bool a, bool b)
-: x0_movieFile(filepath) {}
+CMoviePlayer::CMoviePlayer(const char* path, const float fps, const bool loop,
+                           const bool deinterlace)
+: x0_dvdFile(path)
+, xe0_playMode(kPM_Playing)
+, xe4_totalSeconds(0.f)
+, xe8_(0.f)
+, xec_fps(fps) {
+
+  static bool sbThpInitialized = false;
+  if (!sbThpInitialized) {
+    sbThpInitialized = true;
+    THPInit();
+  }
+  ++sNumReferences;
+  VerifyCallbackStatus();
+  xa0_request = x0_dvdFile.SyncRead(xa4_requestBuffer.get(), 64);
+}
+
+CMoviePlayer::~CMoviePlayer() {
+  --sNumReferences;
+  VerifyCallbackStatus();
+}
+
+void CMoviePlayer::DecodeFromRead(const void* ptr) {}
+void CMoviePlayer::Update(float dt) {}
+bool CMoviePlayer::DrawFrame(const CVector3f&, const CVector3f&, const CVector3f&,
+                             const CVector3f&) {}
+void CMoviePlayer::SetPlayMode(const EPlayMode mode) { xe0_playMode = mode; }
+
+float CMoviePlayer::GetTotalSeconds() const { return xe4_totalSeconds; }
+float CMoviePlayer::GetPlayedSeconds() const { return xe8_ + xdc_; }
+
+void CMoviePlayer::VerifyCallbackStatus() {}

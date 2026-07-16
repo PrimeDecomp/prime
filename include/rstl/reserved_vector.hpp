@@ -29,7 +29,9 @@ public:
 
   reserved_vector() : x0_count(0) {}
   explicit reserved_vector(const T& value) : x0_count(N) { uninitialized_fill_n(data(), N, value); }
-  explicit reserved_vector(int count, const T& value);
+  explicit reserved_vector(int count, const T& value) : x0_count(count) {
+    uninitialized_fill_n(data(), count, value);
+  };
   reserved_vector(const reserved_vector& other) : x0_count(other.x0_count) {
     uninitialized_copy_n(other.data(), x0_count, data());
   }
@@ -99,10 +101,10 @@ public:
   void PutTo(COutputStream& out) const;
 };
 
-template < typename T, int N >
-reserved_vector< T, N >::reserved_vector(int count, const T& value) : x0_count(count) {
-  uninitialized_fill_n(data(), count, value);
-}
+// template < typename T, int N >
+// reserved_vector< T, N >::reserved_vector(int count, const T& value) : x0_count(count) {
+//   uninitialized_fill_n(data(), count, value);
+// }
 
 } // namespace rstl
 

@@ -1081,7 +1081,7 @@ void CAnimData::RecalcPoseBuilder(const CCharAnimTime* time) const {
 
   AddAdditiveSegData(*segIdList, statementSet);
 
-  CSegId seg;
+  CSegId seg = CSegId::Invalid();
   int i = 0;
   const int segCount = segIdList->x0_segList.size();
   while (i < segCount) {

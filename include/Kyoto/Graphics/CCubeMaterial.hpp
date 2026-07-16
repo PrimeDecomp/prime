@@ -40,7 +40,12 @@ public:
   void SetCurrentBlack() const;
   uint GetTextureCount() const { return *reinterpret_cast< const u32* >(GetData() + 4); }
   uint GetVertexDesc() const {
-    return reinterpret_cast< const uint* >(x0_data)[GetTextureCount() + 2];
+    return *reinterpret_cast< const uint* >(GetData() + (GetTextureCount() * sizeof(uint) + sizeof(uint) * 2));
+  }
+  
+  // TODO: Figure out wtf is going on here
+  uint GetVertexDescLwzx() const {
+    return static_cast< const uint* >(x0_data)[GetTextureCount() + 2];
   }
 
   uint GetCompressedBlend() const;

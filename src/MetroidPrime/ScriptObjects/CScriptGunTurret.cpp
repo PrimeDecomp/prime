@@ -178,6 +178,7 @@ CScriptGunTurret::CScriptGunTurret(TUniqueId uid, const rstl::string& name, ETur
 , x4f4_extensionRange(0.f)
 , x4f8_extensionT(0.f)
 , x4fc_extensionOffset(xf.GetTranslation())
+, x508_gunSDKSeg(CSegId::Invalid())
 , x510_timeSinceLastTargetSfx(0.f)
 , x514_lastFrontVector(xf.GetForward())
 , x520_state(kTS_Invalid)

@@ -14,6 +14,11 @@ typedef struct THPVideoInfo {
 	u32 mVideoType; // _08
 } THPVideoInfo;
 
+typedef struct THPVideoInfoOld {
+  u32 mXSize;     // _00
+  u32 mYSize;     // _04
+} THPVideoInfoOld;
+
 // Size 0x10
 typedef struct THPAudioInfo {
 	u32 mSndChannels;   // _00
@@ -21,6 +26,13 @@ typedef struct THPAudioInfo {
 	u32 mSndNumSamples; // _08
 	u32 mSndNumTracks;  // _0C
 } THPAudioInfo;
+
+// Size 0xC
+typedef struct THPAudioInfoOld {
+  u32 mSndChannels;   // _00
+  u32 mSndFrequency;  // _04
+  u32 mSndNumSamples; // _08
+} THPAudioInfoOld;
 
 // Size 0x14
 typedef struct THPFrameCompInfo {

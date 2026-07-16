@@ -4,6 +4,7 @@
 #include "Kyoto/Graphics/CGX.hpp"
 #include "Kyoto/Graphics/CGX_Impl.hpp" // IWYU pragma: keep
 #include "Kyoto/Graphics/CGraphics.hpp"
+#include "dolphin/gx/GXVert.h"
 
 static bool sDrawingOccluders = false;
 static bool sDrawingWireframe = false;
@@ -142,7 +143,7 @@ void CCubeModel::DrawSurfaceWireframe(const CCubeSurface& surface) const {
 
   static uint sLastDesc = 0;
   static uint sAttrCount = 0;
-  const uint vertexAttributes = material.GetVertexDesc();
+  uint vertexAttributes = material.GetVertexDesc();
 
   if (vertexAttributes != sLastDesc) {
     sAttrCount = 0;
@@ -154,7 +155,7 @@ void CCubeModel::DrawSurfaceWireframe(const CCubeSurface& surface) const {
   }
 
   uint attrCount = sAttrCount;
-  uint attrCountTimes2 = sAttrCount * 2;
+  uint attrCountTimes2 = attrCount * 2;
   static const GXVtxDescList sDesc[] = {
       {GX_VA_POS, GX_INDEX16},
       {GX_VA_NULL, GX_NONE},
@@ -167,6 +168,73 @@ void CCubeModel::DrawSurfaceWireframe(const CCubeSurface& surface) const {
   CGX::SetNumChans(0);
   CGX::SetNumTexGens(1);
   CGX::SetBlendMode(GX_BM_BLEND, GX_BL_ONE, GX_BL_ZERO, GX_LO_CLEAR);
+
+  const ushort* dispList = static_cast< const ushort* >(surface.GetDisplayList());
+
+  for (int i = 0;
+       i < surface.GetDisplayListSize() && *reinterpret_cast< const uchar* >(dispList) & 0xf8;
+       ++i) {
+    const ushort* indices = dispList + 3;
+    const GXPrimitive pType = static_cast< GXPrimitive >(dispList[i] & 0xf8);
+    const ushort elementCount = *reinterpret_cast< ushort* >(pType + 1);
+    if (elementCount < 3) {
+      break;
+    }
+
+    CGX::Begin(GX_LINESTRIP, GX_VTXFMT0, 4);
+    i += 3 + elementCount * attrCountTimes2;
+    GXPosition1x16(indices[i]);
+    GXPosition1x16(indices[i + 1]);
+    GXPosition1x16(indices[i + 2]);
+    dispList = indices + i * 3;
+    GXPosition1x16(indices[i]);
+    CGX::End();
+    switch (pType) {
+    case GX_TRIANGLESTRIP: {
+      uint uVar5 = 1;
+      for (int j = 0; j < elementCount - 3;) {
+        CGX::Begin(GX_LINESTRIP, GX_VTXFMT0, 3);
+        uint iVar2 = uVar5 + 1;
+        uint uVar3 = uVar5 ^ 1;
+        uVar5 ^= 1;
+        j++;
+        indices = dispList - attrCountTimes2 * (uVar3 + 1);
+        GXPosition1x16(indices[iVar2]);
+        GXPosition1x16(indices[iVar2 + 1]);
+        GXPosition1x16(indices[0]);
+        CGX::End();
+      }
+      break;
+    }
+    case GX_TRIANGLES: {
+      for (int j = 0; j < elementCount - 3;) {
+        CGX::Begin(GX_LINESTRIP, GX_VTXFMT0, 4);
+        j += 3;
+        GXPosition1x16(dispList[0]);
+        GXPosition1x16(dispList[attrCount * 2]);
+        GXPosition1x16(dispList[attrCount * 3]);
+        dispList += attrCountTimes2;
+        CGX::End();
+      }
+      break;
+    }
+    case GX_TRIANGLEFAN: {
+      indices = dispList + attrCount * -3;
+
+      for (int j = 0; j < elementCount - 3;) {
+        CGX::Begin(GX_LINESTRIP, GX_VTXFMT0, 3);
+        j += 3;
+        GXPosition1x16(dispList[-attrCount]);
+        GXPosition1x16(dispList[0]);
+        dispList += attrCount;
+        GXPosition1x16(indices[0]);
+      }
+      break;
+    }
+    default:
+      break;
+    }
+  }
 }
 
 bool CCubeModel::TryLockTextures() const {
@@ -189,10 +257,6 @@ bool CCubeModel::TryLockTextures() const {
   return !!x40_24_loadTextures;
 }
 
-struct Test {
-  CCubeSurface* surface;
-  Test(CCubeSurface* surface) : surface(surface) {};
-};
 void CCubeModel::DrawSurfaces(const CModelFlags& flags) const {
   if (sDrawingWireframe) {
     for (CCubeSurface surface = GetNormalSurfaces(); surface.IsValid();
@@ -255,7 +319,7 @@ void CCubeModel::DrawFlat(const float* positions, const float* normals,
     for (CCubeSurface surface = x38_firstUnsorted; surface.IsValid();
          surface = surface.GetNextSurface()) {
       CCubeMaterial material = GetMaterialByIndex(surface.GetMaterialIndex());
-      CGX::SetVtxDescv_Compressed(material.GetVertexDesc());
+      CGX::SetVtxDescv_Compressed(material.GetVertexDescLwzx());
       CGX::CallDisplayList(surface.GetDisplayList(), surface.GetDisplayListSize());
     }
   }
@@ -264,7 +328,7 @@ void CCubeModel::DrawFlat(const float* positions, const float* normals,
     for (CCubeSurface surface = x3c_firstSorted; surface.IsValid();
          surface = surface.GetNextSurface()) {
       CCubeMaterial material = GetMaterialByIndex(surface.GetMaterialIndex());
-      CGX::SetVtxDescv_Compressed(material.GetVertexDesc());
+      CGX::SetVtxDescv_Compressed(material.GetVertexDescLwzx());
       CGX::CallDisplayList(surface.GetDisplayList(), surface.GetDisplayListSize());
     }
   }
@@ -317,7 +381,8 @@ void CCubeModel::RemapMaterialData(const void* data,
   x40_24_loadTextures = false;
 }
 
-void CCubeModel::DrawNormal(const float* positions, const float* normals, ESurfaceSelection which) const {
+void CCubeModel::DrawNormal(const float* positions, const float* normals,
+                            ESurfaceSelection which) const {
   CGX::SetNumIndStages(0);
   CGX::SetNumTevStages(1);
   CGX::SetNumTexGens(1);
