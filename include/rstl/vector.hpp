@@ -9,6 +9,7 @@
 #include "rstl/rmemory_allocator.hpp"
 
 class CInputStream;
+class COutputStream;
 
 namespace rstl {
 
@@ -96,6 +97,8 @@ public:
   const T& back() const { return at(x4_count - 1); }
   T& operator[](int idx) { return xc_items[idx]; }
   const T& operator[](int idx) const { return xc_items[idx]; }
+
+  void PutTo(COutputStream& out) const;
 
 protected:
   template < typename In >

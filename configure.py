@@ -1072,7 +1072,7 @@ config.libs = [
                 "MetroidPrime/ScriptObjects/CScriptMemoryRelay.cpp",
             ),
             Object(NonMatching, "MetroidPrime/CPauseScreenFrame.cpp"),
-            Object(NonMatching, "MetroidPrime/Enemies/CAtomicAlpha.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Enemies/CAtomicAlpha.cpp"),
             Object(NonMatching, "MetroidPrime/CLogBookScreen.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CGBASupport.cpp"

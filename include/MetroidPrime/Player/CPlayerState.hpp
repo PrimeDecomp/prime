@@ -114,6 +114,9 @@ public:
   EPlayerVisor GetCurrentVisor() const { return x14_currentVisor; }
   EPlayerVisor GetTransitioningVisor() const { return x18_transitioningVisor; }
   EPlayerVisor GetActiveVisor(const CStateManager& mgr) const;
+  const bool IsXRayActive(const CStateManager& mgr) const {
+    return GetActiveVisor(mgr) == kPV_XRay;
+  }
 
   void UpdateStaticInterference(CStateManager& stateMgr, const float& dt);
   void IncreaseScanTime(uint time, float val);
