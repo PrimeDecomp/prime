@@ -1088,7 +1088,7 @@ config.libs = [
             ),
             Object(NonMatching, "MetroidPrime/CMemoryCardDriver.cpp"),
             Object(NonMatching, "MetroidPrime/CSaveGameScreen.cpp"),
-            Object(NonMatching, "MetroidPrime/Enemies/CAtomicBeta.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Enemies/CAtomicBeta.cpp"),
             Object(NonMatching, "MetroidPrime/Weapons/CElectricBeamProjectile.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CRidley.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CPuffer.cpp"),

@@ -20,10 +20,10 @@ public:
   CAtomicBeta(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
               const CTransform4f& xf, CModelData mData, const CActorParameters& actParms,
               const CPatternedInfo& pInfo, CAssetId electricId, CAssetId weaponId,
-              const CDamageInfo& dInfo, CAssetId particleId, float beamFadeSpeed,
-              float beamRadius, float beamDamageInterval,
-              const CDamageVulnerability& frozenDVuln, float moveSpeed, float minSpeed,
-              float maxSpeed, ushort sId1, ushort sId2, ushort sId3, float speedStep);
+              const CDamageInfo& dInfo, CAssetId particleId, float beamFadeSpeed, float beamRadius,
+              float beamDamageInterval, const CDamageVulnerability& frozenDVuln, float moveSpeed,
+              float minSpeed, float maxSpeed, ushort sId1, ushort sId2, ushort sId3,
+              float speedStep);
 
   // CEntity
   ~CAtomicBeta() override;
@@ -38,16 +38,17 @@ public:
                                                          const CWeaponMode&, int) const override;
 
   // CAi
-  CDamageVulnerability* GetDamageVulnerability() override;
+  void Death(CStateManager& mgr, const CVector3f& direction, EScriptObjectState state) override;
 
 private:
   void CreateBeams(CStateManager& mgr);
   void UpdateBeams(CStateManager& mgr, bool fire);
-  void FreeBeams(CStateManager& mgr);
-  void UpdateOrCreateEmitter(CSfxHandle& handle, ushort sfxId, const CVector3f& pos, float vol);
-  void DestroyEmitter(CSfxHandle& handle);
+  void DestroyBeams(CStateManager& mgr);
+  void PlayLoopedSound(CSfxHandle& handle, const ushort sfxId, const CVector3f pos,
+                       const uchar vol) const;
+  void StopLoopedSound(CSfxHandle& handle) const;
 
-  static bool IsPlayerBeamChargedEnough(const CStateManager& mgr);
+  static bool IsCharging(const CStateManager& mgr);
 
   rstl::reserved_vector< TUniqueId, 3 > x568_projectileIds;
   bool x574_beamFired;
@@ -73,6 +74,8 @@ private:
   CSfxHandle x64c_sfxHandle1;
   CSfxHandle x650_sfxHandle2;
   CSfxHandle x654_sfxHandle3;
+
+  static const char* skBombLocators[];
 };
 CHECK_SIZEOF(CAtomicBeta, 0x658)
 
