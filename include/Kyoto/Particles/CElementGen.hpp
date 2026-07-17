@@ -16,6 +16,7 @@
 class CGenDescription;
 class CModVectorElement;
 
+#pragma cpp_extensions on
 class CElementGen : public CParticleGen {
 public:
   enum EModelOrientationType {
@@ -181,8 +182,13 @@ private:
   bool x26d_28_enableADV : 1;
   int x270_MBSP;
   uchar x274_backupLightActive;
-  uchar x275_pad[3];
-  bool x278_hasVMD[4];
+  // uchar x275_pad[3];
+  union {
+    struct {
+      bool x278_hasVMD[4];
+    };
+    uint x278_vmdStates;
+  };
   CRandom16 x27c_randState;
   CModVectorElement* x280_VELSources[4];
   rstl::vector< CParticleGen* > x290_activePartChildren;
@@ -215,5 +221,7 @@ private:
   static bool sMoveRedToAlphaBuffer;
 };
 CHECK_SIZEOF(CElementGen, 0x340)
+
+#pragma cpp_extensions reset
 
 #endif // _CELEMENTGEN

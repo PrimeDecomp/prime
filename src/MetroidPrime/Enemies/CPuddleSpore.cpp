@@ -2,6 +2,7 @@
 
 #include "Kyoto/Particles/CElementGen.hpp"
 
+#pragma inline_max_size(240)
 int CPuddleSpore::kEyeCount = 16;
 const char* CPuddleSpore::kEyeLocators[] = {
   "Glow_1_LCTR",

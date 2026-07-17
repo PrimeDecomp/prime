@@ -7359,10 +7359,10 @@ __ct__12CPuddleSporeF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>
 push_back__Q24rstl48vector<11CElementGen,Q24rstl17rmemory_allocator>FRC11CElementGen = .text:0x801486E0; // type:function size:0x7C scope:global
 construct<11CElementGen>__4rstlFPvRC11CElementGen = .text:0x8014875C; // type:function size:0x28 scope:global
 __ct__11CElementGenFRC11CElementGen = .text:0x80148784; // type:function size:0x678 scope:global
-fn_80148D80 = .text:0x80148DFC; // type:function size:0xB0 scope:global
+__ct__Q24rstl60vector<Q211CElementGen9CParticle,Q24rstl17rmemory_allocator>FRCQ24rstl60vector<Q211CElementGen9CParticle,Q24rstl17rmemory_allocator> = .text:0x80148DFC; // type:function size:0xB0 scope:global
 fn_80148E30 = .text:0x80148EAC; // type:function size:0x98 scope:global
 fn_80148EC8 = .text:0x80148F44; // type:function size:0x44 scope:global
-fn_80148F0C = .text:0x80148F88; // type:function size:0x98 scope:global
+__ct__Q24rstl40list<P5CWarp,Q24rstl17rmemory_allocator>FRCQ24rstl40list<P5CWarp,Q24rstl17rmemory_allocator> = .text:0x80148F88; // type:function size:0x98 scope:global
 fn_80148FA4 = .text:0x80149020; // type:function size:0xB4 scope:global
 fn_80149058 = .text:0x801490D4; // type:function size:0x8C scope:global
 reserve__Q24rstl48vector<11CElementGen,Q24rstl17rmemory_allocator>Fi = .text:0x80149160; // type:function size:0xE8 scope:global

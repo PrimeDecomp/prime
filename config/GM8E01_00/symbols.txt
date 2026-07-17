@@ -7359,10 +7359,10 @@ __ct__12CPuddleSporeF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>
 push_back__Q24rstl48vector<11CElementGen,Q24rstl17rmemory_allocator>FRC11CElementGen = .text:0x80148664; // type:function size:0x7C
 construct<11CElementGen>__4rstlFPvRC11CElementGen = .text:0x801486E0; // type:function size:0x28 scope:local
 __ct__11CElementGenFRC11CElementGen = .text:0x80148708; // type:function size:0x678
-fn_80148D80 = .text:0x80148D80; // type:function size:0xB0
-fn_80148E30 = .text:0x80148E30; // type:function size:0x98
-fn_80148EC8 = .text:0x80148EC8; // type:function size:0x44
-fn_80148F0C = .text:0x80148F0C; // type:function size:0x98
+__ct__Q24rstl60vector<Q211CElementGen9CParticle,Q24rstl17rmemory_allocator>FRCQ24rstl60vector<Q211CElementGen9CParticle,Q24rstl17rmemory_allocator> = .text:0x80148D80; // type:function size:0xB0
+uninitialized_copy_n<PQ211CElementGen9CParticle,PQ211CElementGen9CParticle>__4rstlFPQ211CElementGen9CParticleiPQ211CElementGen9CParticle = .text:0x80148E30; // type:function size:0x98
+__ct__12CParticleGenFRC12CParticleGen = .text:0x80148EC8; // type:function size:0x44
+__ct__Q24rstl40list<P5CWarp,Q24rstl17rmemory_allocator>FRCQ24rstl40list<P5CWarp,Q24rstl17rmemory_allocator> = .text:0x80148F0C; // type:function size:0x98
 fn_80148FA4 = .text:0x80148FA4; // type:function size:0xB4
 fn_80149058 = .text:0x80149058; // type:function size:0x8C
 reserve__Q24rstl48vector<11CElementGen,Q24rstl17rmemory_allocator>Fi = .text:0x801490E4; // type:function size:0xE8

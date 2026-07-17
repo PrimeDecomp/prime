@@ -1,6 +1,7 @@
 #include "MetroidPrime/Enemies/CPuffer.hpp"
 
 #include "Kyoto/Audio/CSfxManager.hpp"
+#include "Kyoto/Math/CAbsAngle.hpp"
 #include "MetroidPrime/BodyState/CBodyController.hpp"
 #include "MetroidPrime/CAnimData.hpp"
 #include "MetroidPrime/Player/CPlayer.hpp"
@@ -133,23 +134,19 @@ void CPuffer::UpdateJets(CStateManager& mgr) {
   if (moveVector.CanBeNormalized()) {
     CVector3f moveNorm = -moveVector.AsNormalized();
     for (int i = 0; i < ARRAY_SIZE(skGasJetLocators); ++i) {
-      const CVector3f tmp = GetTransform().Rotate(x5d4_gasLocators[i]);
-      const float ang = CMath::FastCosR(CMath::Deg2Rad(45.f));
-      const bool enable = CVector3f::Dot(moveNorm, tmp) > ang;
-      const bool wasEnabled = !!(x5d0_enabledParticles & (1 << i));
-      if (wasEnabled != enable) {
-        AnimationData()->GetParticleDB().SetParticleEffectState(rstl::string_l(skGasJetLocators[i]),
-                                                                 enable, mgr);
+      CVector3f tmp = GetTransform().Rotate(x5d4_gasLocators[i]);
+      float ang = CMath::FastCosR(CAbsAngle::FromDegrees(45.f).AsRadians());
+      bool enable = CVector3f::Dot(moveNorm, tmp) > ang;
+      if (IsParticleEnabled(i) != enable) {
+        AnimationData()->SetParticleEffectState(rstl::string_l(skGasJetLocators[i]), enable, mgr);
       }
 
-      x5d0_enabledParticles =
-          enable ? x5d0_enabledParticles | (1 << i) : x5d0_enabledParticles & ~(1 << i);
+      SetParticleEnabled(i, enable);
     }
   } else {
     for (int i = 0; i < ARRAY_SIZE(skGasJetLocators); ++i) {
-      if ((x5d0_enabledParticles & (1 << i)) != 0) {
-        AnimationData()->GetParticleDB().SetParticleEffectState(rstl::string_l(skGasJetLocators[i]),
-                                                                 false, mgr);
+      if (IsParticleEnabled(i)) {
+        AnimationData()->SetParticleEffectState(rstl::string_l(skGasJetLocators[i]), false, mgr);
       }
     }
     x5d0_enabledParticles = 0;

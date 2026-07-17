@@ -7,7 +7,6 @@ class CParticleElectric;
 class CElectricDescription;
 
 struct SElectricBeamInfo {
-  SElectricBeamInfo() {}
   SElectricBeamInfo(const TToken< CElectricDescription >& tok, float maxLength, float radius,
                     float travelSpeed, CAssetId particle, float fadeSpeed, float damageInterval)
   : x0_electricDescription(tok)

@@ -253,7 +253,7 @@ CAnimData::CAnimData(
   }
 }
 
-void CAnimData::SetParticleEffectState(const rstl::string& name, bool active, CStateManager& mgr) {
+void CAnimData::SetParticleEffectState(const rstl::string& name, const bool active, CStateManager& mgr) {
   rstl::vector< rstl::pair< rstl::string, rstl::vector< CEffectComponent > > > effects =
       xc_charInfo.GetEffectList();
 

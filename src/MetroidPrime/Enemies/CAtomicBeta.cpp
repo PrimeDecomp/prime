@@ -82,8 +82,8 @@ void CAtomicBeta::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStat
 }
 
 void CAtomicBeta::CreateBeams(CStateManager& mgr) {
-  SElectricBeamInfo beamInfo(x600_electricWeapon, 50.f, x634_beamRadius, 10.f, x62c_beamParticle,
-                             x630_beamFadeSpeed, x638_beamDamageInterval);
+  const SElectricBeamInfo beamInfo(x600_electricWeapon, 50.f, x634_beamRadius, 10.f,
+                                   x62c_beamParticle, x630_beamFadeSpeed, x638_beamDamageInterval);
 
   for (int i = 0; i < ARRAY_SIZE(skBombLocators); ++i) {
     TUniqueId beamId = mgr.AllocateUniqueId();
