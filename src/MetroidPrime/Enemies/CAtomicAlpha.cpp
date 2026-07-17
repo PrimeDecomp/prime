@@ -182,7 +182,7 @@ void CAtomicAlpha::DoUserAnimEvent(CStateManager& mgr, const CInt32POINode& node
 bool CAtomicAlpha::AggressionCheck(CStateManager& mgr, float arg) {
   const CPlayerGun* gun = mgr.GetPlayer()->GetPlayerGun();
   if (x568_26_applyBeamAttraction) {
-    const float factor = gun->GetChargeBeamFactor();
+    const float factor = gun->GetChargePercentage();
     if (factor > 0.1f) {
       return true;
     }
@@ -210,6 +210,6 @@ EWeaponCollisionResponseTypes CAtomicAlpha::GetCollisionResponseType(const CVect
                                                                      const CVector3f&,
                                                                      const CWeaponMode& wMode,
                                                                      int attrib) const {
-  return GetDamageVulnerability()->WeaponHits(wMode, 0) ? kWCR_AtomicAlpha
-                                                        : kWCR_AtomicAlphaReflect;
+  return GetDamageVulnerability()->WeaponHits(wMode, false) ? kWCR_AtomicAlpha
+                                                            : kWCR_AtomicAlphaReflect;
 }

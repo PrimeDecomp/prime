@@ -63,7 +63,7 @@ void CPlasmaBeam::Update(const float dt, CStateManager& mgr) {
   x230_fireShotDelayTimer = rstl::max_val(0.f, x230_fireShotDelayTimer);
   x238_lightingResetDelayTimer -= dt;
 
-  if (mgr.GetPlayer()->GetPlayerGun()->GetChargeBeamFactor() > 0.5f) {
+  if (mgr.GetPlayer()->GetPlayerGun()->GetChargePercentage() > 0.5f) {
     SetWorldLighting(mgr, mgr.GetPlayer()->GetCurrentAreaId(), 0.2f, 0.8f);
   } else {
     if (x238_lightingResetDelayTimer < 0.f && x22c_25_worldLighingDim) {

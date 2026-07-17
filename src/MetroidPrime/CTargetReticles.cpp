@@ -302,7 +302,7 @@ void CCompoundTargetReticle::Update(float dt, const CStateManager& mgr) {
   }
 
   // 5. Charge gauge / fully charged
-  bool fullyCharged = mgr.GetPlayer()->GetPlayerGun()->GetChargeBeamFactor() >= 1.f;
+  bool fullyCharged = mgr.GetPlayer()->GetPlayerGun()->GetChargePercentage() >= 1.f;
   if (fullyCharged != x21a_fullyCharged) {
     x21a_fullyCharged = fullyCharged;
   }
@@ -911,7 +911,7 @@ void CCompoundTargetReticle::DrawCurrLockOnGroup(const CMatrix3f& rot,
           const CPlayerGun* gun = mgr.GetPlayer()->GetPlayerGun();
           int numTicks =
               static_cast< int >(static_cast< float >(gpTweakTargeting->x120_chargeTickCount) *
-                                 gun->GetChargeBeamFactor());
+                                 gun->GetChargePercentage());
           for (int i = 0; i < numTicks; ++i) {
             CColor tickColor = gaugeColor.WithAlphaModulatedBy(lockBreakAlpha * visorFactor);
             CColor tickAdded = CColor::Add(lockBreakColor, tickColor);

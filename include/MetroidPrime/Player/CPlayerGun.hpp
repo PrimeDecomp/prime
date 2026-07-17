@@ -174,7 +174,7 @@ public:
   void SetAssistAimTransform(const CTransform4f& xf) { x478_assistAimXf = xf; }
 
   CTransform4f GetTransform() const { return x3e8_xf; }
-  float GetChargeBeamFactor() const { return x834_24_charging ? x340_chargeBeamFactor : 0.f; }
+  float GetChargePercentage() const { return x834_24_charging ? x340_chargeBeamFactor : 0.f; }
   EChargeState GetChargeState() const { return x330_chargeState; }
   CPlayerState::EBeamId GetPrimaryWeaponId() const { return x310_currentBeam; }
   CPlayerState::EBeamId GetPrimaryDestWeaponId() const { return x314_nextBeam; }
