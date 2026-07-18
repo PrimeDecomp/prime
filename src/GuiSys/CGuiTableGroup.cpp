@@ -65,21 +65,43 @@ void CGuiTableGroup::SetMenuCancelCallback(const TFunctor1< CGuiTableGroup* cons
   xec_doMenuCancel = func;
 }
 
-int CGuiTableGroup::DoAdvance() {
-  if (!xd4_doMenuAdvance) {
-    xd4_doMenuAdvance(this);
+bool CGuiTableGroup::DoIncrement() {
+  int userSelect = xc4_userSelection;
+  if (PreIncrement()) {
+    if (x104_doMenuSelChange) {
+      x104_doMenuSelChange(this, userSelect);
+    }
+    return true;
   }
-  return 1;
+  return false;
 }
 
-int CGuiTableGroup::DoCancel() {
-  if (!xec_doMenuCancel) {
+bool CGuiTableGroup::DoAdvance() {
+  if (HasMenuAdvanceCallback()) {
+    xd4_doMenuAdvance(this);
+  }
+  return true;
+}
+
+bool CGuiTableGroup::DoCancel() {
+  if (xec_doMenuCancel) {
     xec_doMenuCancel(this);
   }
-  return 1;
+  return true;
+}
+
+bool CGuiTableGroup::DoDecrement() {
+  int userSelect = xc4_userSelection;
+  if (PreDecrement()) {
+    if (x104_doMenuSelChange) {
+      x104_doMenuSelChange(this, userSelect);
+    }
+    return true;
+  }
+  return false;
 }
 
 void CGuiTableGroup::SetMenuSelectionChangeCallback(
-    const TFunctor3< CGuiTableGroup* const, const int, const int >& func) {
+    const TFunctor2< CGuiTableGroup* const, const int >& func) {
   x104_doMenuSelChange = func;
 }

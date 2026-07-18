@@ -26,13 +26,18 @@ public:
   void SetMenuAdvanceCallback(const TFunctor1< CGuiTableGroup* const >& func);
   void SetMenuCancelCallback(const TFunctor1< CGuiTableGroup* const >& func);
   void SetMenuSelectionChangeCallback(
-      const TFunctor3< CGuiTableGroup* const, const int, const int >& func);
+      const TFunctor2< CGuiTableGroup* const, const int >& func);
+  
+  bool HasMenuAdvanceCallback() const { return xd4_doMenuAdvance; }
 
 private:
-  int DoAdvance();
-  int DoCancel();
-  void DoDecrement();
-  void DoIncrement();
+  bool DoAdvance();
+  bool DoCancel();
+  bool DoDecrement();
+  bool DoIncrement();
+  
+  bool PreDecrement();
+  bool PreIncrement();
 
   CRepeatState xb8_decRepeat;
   CRepeatState xbc_incRepeat;
@@ -44,7 +49,7 @@ private:
   bool xd1_vertical;
   TFunctor1< CGuiTableGroup* const > xd4_doMenuAdvance;
   TFunctor1< CGuiTableGroup* const > xec_doMenuCancel;
-  TFunctor3< CGuiTableGroup* const, const int, const int > x104_doMenuSelChange;
+  TFunctor2< CGuiTableGroup* const, const int > x104_doMenuSelChange;
 };
 
 #endif // _CGUITABLEGROUP
