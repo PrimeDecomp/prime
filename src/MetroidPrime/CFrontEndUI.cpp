@@ -1,8 +1,11 @@
 #include "MetroidPrime/CFrontEndUI.hpp"
+
+#include "GuiSys/CGuiTableGroup.hpp"
 #include "Kyoto/Basics/RAssertDolphin.hpp"
 #include "Kyoto/SObjectTag.hpp"
-#include "MetroidPrime/SFX/FrontEnd.h"
 #include "MetroidPrime/DefaultWorld.hpp"
+#include "MetroidPrime/SFX/FrontEnd.h"
+#include <Kyoto/TFunctor.hpp>
 
 struct FEMovie {
   const char* path;
@@ -73,3 +76,31 @@ static const CFrontEndUI::SFusionBonusFrame::SGBALinkFrame::EUIType PrevLinkUI[1
     CFrontEndUI::SFusionBonusFrame::SGBALinkFrame::kUIT_Empty,
     CFrontEndUI::SFusionBonusFrame::SGBALinkFrame::kUIT_Empty,
 };
+
+void CFrontEndUI::SFusionBonusFrame::FinishedLoading() {
+
+  TFunctor1< CGuiTableGroup* const > advanceFunctor =
+      TFunctor1FromMethod< SFusionBonusFrame, CGuiTableGroup* const >::Make(
+          *this, &SFusionBonusFrame::OnMenuAdvance);
+  test->SetMenuAdvanceCallback(advanceFunctor);
+
+  TFunctor2< CGuiTableGroup* const, const int > selectionFunctor =
+      TFunctor2FromMethod< SFusionBonusFrame, CGuiTableGroup* const, const int >::Make(
+          *this, &SFusionBonusFrame::OnMenuSelectionChanged);
+  test->SetMenuSelectionChangeCallback(selectionFunctor);
+
+  TFunctor1< CGuiTableGroup* const > cancelFunctor =
+      TFunctor1FromMethod< SFusionBonusFrame, CGuiTableGroup* const >::Make(
+          *this, &SFusionBonusFrame::OnMenuCancel);
+  test->SetMenuCancelCallback(cancelFunctor);
+
+  TFunctor2< CGuiTableGroup* const, const int > selectionFunctor2 =
+      TFunctor2FromMethod< SFusionBonusFrame, CGuiTableGroup* const, const int >::Make(
+          *this, &SFusionBonusFrame::OnMenuSelectionChanged);
+  test->SetMenuSelectionChangeCallback(selectionFunctor2);
+
+  TFunctor2< CGuiTableGroup* const, const int > selectionFunctor3 =
+      TFunctor2FromMethod< SFusionBonusFrame, CGuiTableGroup* const, const int >::Make(
+          *this, &SFusionBonusFrame::OnMenuSelectionChanged);
+  test->SetMenuSelectionChangeCallback(selectionFunctor3);
+}
