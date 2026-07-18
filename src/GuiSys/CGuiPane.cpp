@@ -5,7 +5,6 @@
 #include <Kyoto/Graphics/CGraphics.hpp>
 #include <Kyoto/Streams/COutputStream.hpp>
 
-const CVector3f CGuiPane::skDefaultNormal(0.f, -1.f, 0.f);
 CGuiWidget* CGuiPane::Create(CGuiFrame* frame, CInputStream& in, CSimplePool* sp) {
   CGuiWidgetParms parms = ReadWidgetHeader(frame, in);
   float width = in.ReadFloat();
@@ -31,15 +30,15 @@ CGuiPane::CGuiPane(const CGuiWidgetParms& parms, const float width, const float 
 : CGuiWidget(parms)
 , xb8_width(width)
 , xbc_height(height)
-, xc0_(0)
-, xc4_(4)
+, xc0_panePoints(0)
+, xc4_panePointCount(4)
 , xc8_scaleCenter(scaleCenter) {
   InitializeBuffers();
 }
 
 CGuiPane::~CGuiPane() {
-  if (xc0_ && xc0_) {
-    delete xc0_;
+  if (xc0_panePoints && xc0_panePoints) {
+    delete xc0_panePoints;
   }
 }
 
@@ -48,40 +47,41 @@ void CGuiPane::Draw(const CGuiWidgetDrawParms& parms) const {
   if (GetIsVisible()) {
     CGraphics::SetTevOp(kTS_Stage0, CGraphics::kEnvPassthru);
     CColor color = GetColor2().WithAlphaModulatedBy(parms.GetAlpha());
-    CGraphics::DrawPrimitive(kP_TriangleStrip, xc0_, CVector3f(0.f, -1.f, 0.f), color, xc4_);
+    CGraphics::DrawPrimitive(kP_TriangleStrip, xc0_panePoints, CVector3f(0.f, -1.f, 0.f), color, xc4_panePointCount);
   }
   CGuiWidget::Draw(parms);
 }
 
 void CGuiPane::ScaleDimensions(const CVector3f& scale) {
   InitializeBuffers();
-  const CVector3f& center = xc8_scaleCenter;
-  for (int i = 0; i < xc4_ * 3; i++) {
-    xc0_[i] = (xc0_[i] - center[i % 3]) * scale[i % 3];
-    xc0_[i] = (xc0_[i] + center[i % 3]);
+  const CVector3f& center = ScaleCenter();
+  for (int i = 0; i < xc4_panePointCount * 3; ++i) {
+    int idx = i % 3;
+    xc0_panePoints[i] = (xc0_panePoints[i] - center[idx]) * scale[idx]; // this might be an inline?
+    xc0_panePoints[i] += center[i % 3];
   }
 }
 
 void CGuiPane::InitializeBuffers() {
-  if (xc0_ == nullptr) {
-    xc0_ = rs_new float[xc4_ * 3];
+  if (xc0_panePoints == nullptr) {
+    xc0_panePoints = rs_new float[xc4_panePointCount * 3];
   }
 
-  xc0_[0] = -GetWidth() * 0.5f;
-  xc0_[1] = 0.f;
-  xc0_[2] = GetHeight() * 0.5f;
+  xc0_panePoints[0] = -GetWidth() / 2.f;
+  xc0_panePoints[1] = 0.f;
+  xc0_panePoints[2] = GetHeight() / 2.f;
 
-  xc0_[3] = -GetWidth() * 0.5f;
-  xc0_[4] = 0.f;
-  xc0_[5] = -GetHeight() * 0.5f;
+  xc0_panePoints[3] = -GetWidth() / 2.f;
+  xc0_panePoints[4] = 0.f;
+  xc0_panePoints[5] = -GetHeight() / 2.f;
 
-  xc0_[6] = GetWidth() * 0.5f;
-  xc0_[7] = 0.f;
-  xc0_[8] = GetHeight() * 0.5f;
+  xc0_panePoints[6] = GetWidth() / 2.f;
+  xc0_panePoints[7] = 0.f;
+  xc0_panePoints[8] = GetHeight() / 2.f;
 
-  xc0_[9] = GetWidth() * 0.5f;
-  xc0_[10] = 0.f;
-  xc0_[11] = -GetHeight() * 0.5f;
+  xc0_panePoints[9] = GetWidth() / 2.f;
+  xc0_panePoints[10] = 0.f;
+  xc0_panePoints[11] = -GetHeight() / 2.f;
 }
 
 void CGuiPane::SetDimensions(const CVector2f& dim, const bool init) {
