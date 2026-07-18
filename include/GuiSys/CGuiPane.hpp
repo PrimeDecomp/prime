@@ -3,6 +3,7 @@
 
 #include "GuiSys/CGuiWidget.hpp"
 #include "rstl/reserved_vector.hpp"
+#include "Kyoto/TFunctor.hpp"
 
 class CGuiPane : public CGuiWidget {
 public:
