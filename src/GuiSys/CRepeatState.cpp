@@ -2,7 +2,7 @@
 
 CGuiTableGroup::CRepeatState::CRepeatState() : x0_timer(0.f) {}
 
-uchar CGuiTableGroup::CRepeatState::Update(float dt, bool state) {
+const bool CGuiTableGroup::CRepeatState::Update(float dt, bool state) {
   bool ret = false;
   if (x0_timer == 0.f) {
     if (state) {

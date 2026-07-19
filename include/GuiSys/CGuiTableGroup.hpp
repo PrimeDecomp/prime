@@ -11,7 +11,7 @@ public:
   class CRepeatState {
   public:
     CRepeatState();
-    bool Update(float dt, bool state);
+    const bool Update(const float dt, const bool state);
 
   private:
     float x0_timer;
@@ -25,9 +25,8 @@ public:
 
   void SetMenuAdvanceCallback(const TFunctor1< CGuiTableGroup* const >& func);
   void SetMenuCancelCallback(const TFunctor1< CGuiTableGroup* const >& func);
-  void SetMenuSelectionChangeCallback(
-      const TFunctor2< CGuiTableGroup* const, const int >& func);
-  
+  void SetMenuSelectionChangeCallback(const TFunctor2< CGuiTableGroup* const, const int >& func);
+
   bool HasMenuAdvanceCallback() const { return xd4_doMenuAdvance; }
 
 private:
@@ -35,7 +34,7 @@ private:
   bool DoCancel();
   bool DoDecrement();
   bool DoIncrement();
-  
+
   bool PreDecrement();
   bool PreIncrement();
 
