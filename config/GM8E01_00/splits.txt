@@ -4480,5 +4480,5 @@ dolphin/GBA/GBAKey.c:
 	.text       start:0x803CAF40 end:0x803CB1A8
 	.data       start:0x803F71A0 end:0x803F7546
 
-Runtime/__mem.c:
+runtime/__mem.c:
 	.init       start:0x800033A8 end:0x800034E0
