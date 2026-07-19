@@ -33,37 +33,37 @@ Runtime/ptmf.c:
 	.text       start:0x80373914 end:0x8037396C
 	.rodata     start:0x803C3A30 end:0x803C3A40
 
-Dolphin/card/CARDBios.c:
+dolphin/card/CARDBios.c:
 	.text       start:0x803A1E8C end:0x803A3170
 	.data       start:0x803DEB30 end:0x803DEB88
 	.bss        start:0x8042BAF8 end:0x8042BD38
 	.sdata      start:0x8046ACE0 end:0x8046ACE8
 	.sbss       start:0x8046BD08 end:0x8046BD10
 
-Dolphin/si/SIBios.c:
+dolphin/si/SIBios.c:
 	.text       start:0x803A83C4 end:0x803A9C24
 	.data       start:0x803DED40 end:0x803DEE58
 	.bss        start:0x8042BD38 end:0x8042BF38
 	.sdata      start:0x8046ACF8 end:0x8046AD00
 	.sbss       start:0x8046BD10 end:0x8046BD20
 
-Dolphin/si/SISamplingRate.c:
+dolphin/si/SISamplingRate.c:
 	.text       start:0x803A9C24 end:0x803A9D2C
 	.data       start:0x803DEE58 end:0x803DEEF0
 	.sbss       start:0x8046BD20 end:0x8046BD28
 
-Dolphin/exi/EXIBios.c:
+dolphin/exi/EXIBios.c:
 	.text       start:0x803A9D2C end:0x803AB698
 	.data       start:0x803DEEF0 end:0x803DF000
 	.bss        start:0x8042BF38 end:0x8042C000
 	.sdata      start:0x8046AD00 end:0x8046AD08
 	.sbss       start:0x8046BD28 end:0x8046BD30
 
-Dolphin/exi/EXIUart.c:
+dolphin/exi/EXIUart.c:
 	.text       start:0x803AB698 end:0x803AB924
 	.sbss       start:0x8046BD30 end:0x8046BD40
 
-Dolphin/thp/THPDec.c:
+dolphin/thp/THPDec.c:
 	.text       start:0x803AB924 end:0x803B2E8C
 	.rodata     start:0x803C4168 end:0x803C41F8
 	.data       start:0x803DF000 end:0x803DF040
@@ -72,32 +72,32 @@ Dolphin/thp/THPDec.c:
 	.sbss       start:0x8046BD40 end:0x8046BE58
 	.sdata2     start:0x804716B0 end:0x804716CC
 
-Dolphin/thp/THPAudio.c:
+dolphin/thp/THPAudio.c:
 	.text       start:0x803B2E8C end:0x803B33BC
 
-Dolphin/GBA/GBA.c:
+dolphin/GBA/GBA.c:
 	.text       start:0x803B33BC end:0x803B36AC
 	.data       start:0x803DF040 end:0x803DF050
 	.bss        start:0x8042C140 end:0x8042C640
 	.sbss       start:0x8046BE58 end:0x8046BE5C
 
-Dolphin/GBA/GBAGetProcessStatus.c:
+dolphin/GBA/GBAGetProcessStatus.c:
 	.text       start:0x803B36AC end:0x803B3820
 
-Dolphin/GBA/GBAJoyBoot.c:
+dolphin/GBA/GBAJoyBoot.c:
 	.text       start:0x803B3820 end:0x803B46E4
 	.data       start:0x803DF050 end:0x803DF080
 
-Dolphin/GBA/GBARead.c:
+dolphin/GBA/GBARead.c:
 	.text       start:0x803B46E4 end:0x803B4844
 
-Dolphin/GBA/GBAWrite.c:
+dolphin/GBA/GBAWrite.c:
 	.text       start:0x803B4844 end:0x803B49CC
 
-Dolphin/GBA/GBAXfer.c:
+dolphin/GBA/GBAXfer.c:
 	.text       start:0x803B49CC end:0x803B4D04
 
-Dolphin/GBA/GBAKey.c:
+dolphin/GBA/GBAKey.c:
 	.text       start:0x803B4D04 end:0x803B4F6C
 	.data       start:0x803DF080 end:0x803DF426
 
