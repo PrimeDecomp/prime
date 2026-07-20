@@ -3,22 +3,51 @@
 
 #include "types.h"
 
+#include "Kyoto/CDvdFile.hpp"
+#include "Kyoto/SObjectTag.hpp"
+
 #include "rstl/auto_ptr.hpp"
 #include "rstl/string.hpp"
 
-#include "Kyoto/CDvdFile.hpp"
-#include "Kyoto/CResLoader.hpp"
-#include "Kyoto/IObjectStore.hpp"
-
 class CDvdRequest;
 
-class CPakFile : CDvdFile {
+class CPakFile : public CDvdFile {
 public:
+  struct SResInfo {
+    FourCC GetType() const;
+    uint GetSize() const;
+    bool IsCompressed() const;
+    uint GetOffset() const;
+
+    CAssetId x0_id;
+    bool x4_compressed : 1;
+    int x4_typeIdx; // CFactoryMgr::ETypeTable
+    uint x5_offsetDiv32 : 27;
+    uint x7_sizeDiv32 : 27;
+  };
+  CPakFile(const rstl::string& path, const bool a, const bool b);
+  ~CPakFile();
   bool IsWorldPak() const { return x28_26_worldPak; }
   void EnsureWorldPakReady();
   void sub_8036742c();
 
   rstl::vector< rstl::pair< rstl::string, SObjectTag > >& NameList() { return x54_nameList; }
+
+  void AsyncIdle();
+
+  bool IsCompletelyLoaded() const { return x2c_asyncLoadPhase == 3; }
+  bool IsARAMPak() const { return x28_25_aramFile; }
+  bool IsStashedInARAM() const { return x28_27_stashedInARAM; }
+
+  SResInfo* GetResInfo(CAssetId asset) const;
+  SResInfo* GetResInfoForLoadPreferForward(const CAssetId asset) const;
+  SResInfo* GetResInfoForLoadDirectionless(const CAssetId asset) const;
+  CAssetId* GetResIdByName(const char* name) const;
+  rstl::vector< CAssetId >* GetDepList() const;
+
+  const rstl::vector< rstl::pair< rstl::string, SObjectTag > >& GetStringToObjectList() const {
+    return x54_nameList;
+  }
 
 private:
   bool x28_24_buildDepList : 1;

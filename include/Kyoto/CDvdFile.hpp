@@ -11,7 +11,6 @@
 
 enum ESeekOrigin { kSO_Set, kSO_Cur, kSO_End };
 
-
 class CDvdFile;
 struct CDvdFileARAM;
 struct DVDFileInfo;
@@ -41,6 +40,7 @@ public:
   static void DVDARAMXferCallback(long, DVDFileInfo*);
   static void ARAMARAMXferCallback(u32 addr);
   static void internalCallback(s32, DVDFileInfo*);
+  const rstl::string& GetFilename() const { return x18_filename; }
 
 private:
   int x0_fileEntry;

@@ -2,7 +2,9 @@
 #include "Kyoto/IFactory.hpp"
 
 CSimplePool::CSimplePool(IFactory& factory)
-: x18_factory(factory), x1c_paramXfr(CVParamTransfer::Null()) {}
+: x18_factory(factory), x1c_paramXfr(CVParamTransfer::Null()) {
+  x1c_paramXfr = CVParamTransfer(rs_new TObjOwnerParam< IObjectStore* >(this));
+}
 
 CSimplePool::~CSimplePool() {
   Flush();
