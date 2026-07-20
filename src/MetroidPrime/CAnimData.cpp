@@ -410,15 +410,11 @@ int CAnimData::GetEventResourceIdForAnimResourceId(int id) const {
 }
 
 void CAnimData::AddAdditiveSegData(const CSegIdList& list, CSegStatementSet& setOut) const {
-  float zero = 0.f;
-  float close = 0.00001f;
-
   const uint count = x434_additiveAnims.size();
   uint i = 0;
   while (i < count) {
     const CAdditiveAnimPlayback& playback = x434_additiveAnims[i].second;
-    if (fabsf(playback.xc_targetWeight - zero) < close) {
-    } else {
+    if (!close_enough(playback.xc_targetWeight, 0.f)) {
       playback.AddToSegStatementSet(list, **xcc_layoutData, setOut);
     }
     ++i;
@@ -448,9 +444,6 @@ fn_80029C18(rstl::reserved_vector< rstl::pair< uint, CAdditiveAnimPlayback >, 8 
 }
 
 SAdvancementDeltas CAnimData::UpdateAdditiveAnims(float dt) {
-  float zero = 0.f;
-  float close = 0.00001f;
-
   rstl::pair< uint, CAdditiveAnimPlayback >* it = x434_additiveAnims.begin();
   rstl::pair< uint, CAdditiveAnimPlayback >* const begin = x434_additiveAnims.begin();
 
@@ -459,7 +452,7 @@ SAdvancementDeltas CAnimData::UpdateAdditiveAnims(float dt) {
     playback.Update(dt);
 
     const CCharAnimTime remTime = playback.x8_anim->VGetTimeRemaining();
-    if (fabsf(remTime.GetSeconds() - zero) < close && playback.x20_needsFadeOut != 0) {
+    if (close_enough(remTime.GetSeconds(), 0.f) && playback.x20_needsFadeOut != 0) {
       playback.FadeOut();
     }
 
@@ -487,9 +480,7 @@ SAdvancementDeltas CAnimData::AdvanceAdditiveAnims(float dt) {
     CCharAnimTime time(dt);
 
     if (playback.x14_active != 0) {
-      float zero = 0.f;
-      float close = 0.00001f;
-      while (time.GreaterThanZero() && fabsf(time.GetSeconds() - zero) >= close) {
+      while (time.GreaterThanZero() && !close_enough(time.GetSeconds(), 0.f)) {
         x210_passedIntCount +=
             anim->GetInt32POIList(time, mInt32POINodes.data(), 16, x210_passedIntCount, 0);
         x20c_passedBoolCount +=
@@ -511,12 +502,9 @@ SAdvancementDeltas CAnimData::AdvanceAdditiveAnims(float dt) {
         time = advResult.x0_remTime;
       }
     } else {
-      float zero = 0.f;
-      float close = 0.00001f;
       CCharAnimTime remTime = anim->VGetTimeRemaining();
 
-      while (fabsf(remTime.GetSeconds() - zero) >= close &&
-             fabsf(time.GetSeconds() - zero) >= close) {
+      while (!close_enough(remTime.GetSeconds(), 0.f) && !close_enough(time.GetSeconds(), 0.f)) {
         x210_passedIntCount +=
             anim->GetInt32POIList(time, mInt32POINodes.data(), 16, x210_passedIntCount, 0);
         x20c_passedBoolCount +=
@@ -1292,7 +1280,6 @@ SAdvancementDeltas CAnimData::DoAdvance(float dt, bool& suspendParticles, CRando
 
   const float scaledDt = dt * x200_speedScale;
   const float zero = 0.f;
-  const float close = 0.00001f;
 
   ResetPOILists();
 
@@ -1325,7 +1312,7 @@ SAdvancementDeltas CAnimData::DoAdvance(float dt, bool& suspendParticles, CRando
     CCharAnimTime time(scaledDt);
 
     if (x220_25_loop) {
-      while (time.GreaterThanZero() && fabsf(time.GetSeconds() - zero) >= close) {
+      while (time.GreaterThanZero() && !close_enough(time.GetSeconds(), 0.f)) {
         x210_passedIntCount +=
             x1f8_animRoot->GetInt32POIList(time, mInt32POINodes.data(), 16, x210_passedIntCount, 0);
         x20c_passedBoolCount +=
@@ -1340,8 +1327,7 @@ SAdvancementDeltas CAnimData::DoAdvance(float dt, bool& suspendParticles, CRando
     } else {
       CCharAnimTime remTime = x1f8_animRoot->VGetTimeRemaining();
 
-      while (fabsf(remTime.GetSeconds() - zero) >= close &&
-             fabsf(time.GetSeconds() - zero) >= close) {
+      while (!close_enough(remTime.GetSeconds(), 0.f) && !close_enough(time.GetSeconds(), 0.f)) {
         x210_passedIntCount +=
             x1f8_animRoot->GetInt32POIList(time, mInt32POINodes.data(), 16, x210_passedIntCount, 0);
         x20c_passedBoolCount +=
@@ -1357,7 +1343,7 @@ SAdvancementDeltas CAnimData::DoAdvance(float dt, bool& suspendParticles, CRando
         time = CCharAnimTime(
             rstl::max_val(zero, rstl::min_val(remTime.GetSeconds(), time.GetSeconds())));
 
-        if (fabsf(remTime.GetSeconds() - zero) < close) {
+        if (close_enough(remTime.GetSeconds(), 0.f)) {
           x220_24_animating = false;
           x1dc_alignPos = CVector3f::Zero();
           x220_28_ = false;
