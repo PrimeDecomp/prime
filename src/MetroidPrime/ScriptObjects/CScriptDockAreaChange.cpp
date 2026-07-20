@@ -3,8 +3,8 @@
 #include "MetroidPrime/CStateManager.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptDock.hpp"
 
-CScriptDockAreaChange::CScriptDockAreaChange(TUniqueId uid, const rstl::string& name,
-                                             const CEntityInfo& info, int w1, bool active)
+CScriptDockAreaChange::CScriptDockAreaChange(const TUniqueId uid, const rstl::string& name,
+                                             const CEntityInfo& info, const int w1, const bool active)
 : CEntity(uid, info, active, name), x34_dockReference(w1) {}
 
 void CScriptDockAreaChange::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objId,
@@ -19,9 +19,8 @@ void CScriptDockAreaChange::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId 
           continue;
         }
 
-        const CStateManager::TIdListResult& search = stateMgr.GetIdListForScript(it->x8_objId);
+        CStateManager::TIdListResult search = stateMgr.GetIdListForScript(it->x8_objId);
         CStateManager::TIdList::const_iterator searchItem = search.first;
-
         for (; searchItem != search.second; ++searchItem) {
           if (CScriptDock* dock =
                   TCastToPtr< CScriptDock >(stateMgr.ObjectById(searchItem->second))) {

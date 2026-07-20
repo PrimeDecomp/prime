@@ -78,11 +78,10 @@ public:
     const P* operator->() const { return mNode->get_value(); }
     const P* operator*() const { return mNode->get_value(); }
     bool operator==(const const_iterator& other) const {
-      return mNode == other.mNode && mHeader == other.mHeader;
+      return !(mNode != other.mNode || mHeader != other.mHeader);
     }
     bool operator!=(const const_iterator& other) const {
-      // return !(*this == other);
-      return mNode != other.mNode || mHeader != other.mHeader;
+      return (mNode != other.mNode || mHeader != other.mHeader);
     }
 
     const_iterator& operator++() {

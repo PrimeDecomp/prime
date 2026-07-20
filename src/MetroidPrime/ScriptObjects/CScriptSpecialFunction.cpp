@@ -761,128 +761,121 @@ void CScriptSpecialFunction::ThinkSpinnerController(float dt, CStateManager& mgr
     }
 
     const CStateManager::TIdListResult& it = mgr.GetIdListForScript(conn->x8_objId);
-    if (it.first != it.second) {
-      if (CScriptPlatform* plat = TCastToPtr< CScriptPlatform >(mgr.ObjectById(it.first->second))) {
-        if (plat->HasAnimation()) {
-          plat->SetControlledAnimation(true);
-          if (!x1e4_24_spinnerInitializedXf) {
-            x13c_spinnerInitialXf = plat->GetTransform();
-            x1e4_24_spinnerInitializedXf = true;
-          }
+    if (it.first == it.second) {
+      return;
+    }
+    
+    if (CScriptPlatform* plat = TCastToPtr< CScriptPlatform >(mgr.ObjectById(it.first->second))) {
+      if (plat->HasAnimation()) {
+        plat->SetControlledAnimation(true);
+        if (!x1e4_24_spinnerInitializedXf) {
+          x13c_spinnerInitialXf = plat->GetTransform();
+          x1e4_24_spinnerInitializedXf = true;
+        }
 
-          float f28 = x138_;
-          const float f29 = pointOneByDt * x100_float2;
+        float f28 = x138_;
+        const float f29 = pointOneByDt * x100_float2;
 
-          if (mode == kSCM_Zero) {
-            if (x1e4_25_spinnerCanMove) {
-              bool isMorphed =
-                  mgr.GetPlayer()->GetMorphballTransitionState() == CPlayer::kMS_Morphed;
-              const CVector3f angVel = mgr.GetPlayer()->GetAngularVelocityOR().GetVector();
-              float mag;
-              if (angVel.CanBeNormalized()) {
-                mag = angVel.Magnitude();
-              } else {
-                mag = 0.f;
-              }
-
-              const float spinImpulse = (isMorphed ? 0.025f * mag : 0.f);
-              if (spinImpulse > x180_) {
-                SendScriptMsgs(kSS_Play, mgr, kSM_None);
-              }
-
-              x180_ = spinImpulse;
-              x138_ += 0.01f * spinImpulse * xfc_float1;
-
-              if (!noBackward) {
-                x138_ -= f29;
-              }
-            } else if (!noBackward) {
-              x138_ = f28 - twoByDt;
+        if (mode == kSCM_Zero) {
+          if (x1e4_25_spinnerCanMove) {
+            bool isMorphed = mgr.GetPlayer()->GetMorphballTransitionState() == CPlayer::kMS_Morphed;
+            const CVector3f angVel = mgr.GetPlayer()->GetAngularVelocityOR().GetVector();
+            float mag = angVel.CanBeNormalized() ? mag = angVel.Magnitude() : 0.f;
+            const float spinImpulse = (isMorphed ? 0.025f * mag : 0.f);
+            if (spinImpulse > x180_) {
+              SendScriptMsgs(kSS_Play, mgr, kSM_None);
             }
-          } else if (mode == kSCM_One) {
-            x138_ = (0.01f * x16c_) * xfc_float1 + f28;
+
+            x180_ = spinImpulse;
+            x138_ += 0.01f * spinImpulse * xfc_float1;
 
             if (!noBackward) {
               x138_ -= f29;
+            }
+          } else if (!noBackward) {
+            x138_ = f28 - twoByDt;
+          }
+        } else if (mode == kSCM_One) {
+          x138_ = (0.01f * x16c_) * xfc_float1 + f28;
 
-              if (CMath::AbsF(x16c_) < dt) {
-                x16c_ = 0.f;
-              } else {
-                float multi = CMath::Sign(x16c_);
-                x16c_ = -(dt * multi - x16c_);
-              }
+          if (!noBackward) {
+            x138_ -= f29;
+
+            if (CMath::AbsF(x16c_) < dt) {
+              x16c_ = 0.f;
+            } else {
+              float multi = CMath::Sign(x16c_);
+              x16c_ = -(dt * multi - x16c_);
             }
           }
-
-          if (allowWrap) {
-            x138_ = fmod(x138_, 1.f);
-            if (x138_ < 0.f) {
-              x138_ += 1.f;
-            }
-          } else {
-            x138_ = rstl::min_val(1.f, rstl::max_val(0.f, x138_));
-          }
-
-          bool noSfxPlayed = true;
-          f28 = x138_ - f28; // always 0?
-          if (close_enough(x138_, 1.f)) {
-            if (!x1e4_27_sfx3Played) {
-              if (x174_sfx3 != CSfxManager::kInternalInvalidSfxId) {
-                CSfxManager::AddEmitter(x174_sfx3, GetTranslation(), CVector3f::Zero(), true,
-                                        false);
-              }
-
-              x1e4_27_sfx3Played = true;
-            }
-
-            SendScriptMsgs(kSS_MaxReached, mgr, kSM_None);
-            noSfxPlayed = false;
-          } else {
-            x1e4_27_sfx3Played = false;
-          }
-
-          if (close_enough(x138_, 0.f)) {
-            if (!x1e4_26_sfx2Played) {
-              if (x172_sfx2 != CSfxManager::kInternalInvalidSfxId) {
-                CSfxManager::AddEmitter(x172_sfx2, GetTranslation(), CVector3f::Zero(), true,
-                                        false);
-              }
-
-              x1e4_26_sfx2Played = true;
-            }
-
-            SendScriptMsgs(kSS_Zero, mgr, kSM_None);
-            noSfxPlayed = false;
-          } else {
-            x1e4_26_sfx2Played = false;
-          }
-
-          rstl::optional_object< float > unused = x184_.GetAverage();
-
-          if (noSfxPlayed) {
-            if (x170_sfx1 != CSfxManager::kInternalInvalidSfxId) {
-              bool b = f28 >= 0.f;
-              if (noSfxPlayed) {
-                x184_.AddValue(b ? uchar(100) : uchar(0x7F));
-              } else {
-                x184_.AddValue(0.f);
-              }
-              const rstl::optional_object< float >& volume = x184_.GetAverage();
-              float pitch = b ? x108_float4 : 1.f;
-              AddOrUpdateEmitter(pitch, x178_sfxHandle, x170_sfx1, GetTranslation(), volume.data());
-            }
-          } else {
-            DeleteEmitter(x178_sfxHandle);
-          }
-
-          const CAnimData* animData = plat->GetAnimationData();
-          const float dur = animData->GetAnimationDuration(animData->GetCurrentAnimation()) * x138_;
-          plat->AnimationData()->SetPhase(0.f);
-          plat->AnimationData()->SetPlaybackRate(1.f);
-          CAdvancementDeltas deltas = plat->UpdateAnimation(dur, mgr, true);
-          plat->SetTransform(x13c_spinnerInitialXf * deltas.GetOrientationDelta().BuildTransform4f(
-                                                         deltas.GetOffsetDelta()));
         }
+
+        if (allowWrap) {
+          x138_ = fmod(x138_, 1.f);
+          if (x138_ < 0.f) {
+            x138_ += 1.f;
+          }
+        } else {
+          x138_ = rstl::min_val(1.f, rstl::max_val(0.f, x138_));
+        }
+
+        bool noSfxPlayed = true;
+        f28 = x138_ - f28; // always 0?
+        if (close_enough(x138_, 1.f)) {
+          if (!x1e4_27_sfx3Played) {
+            if (x174_sfx3 != CSfxManager::kInternalInvalidSfxId) {
+              CSfxManager::AddEmitter(x174_sfx3, GetTranslation(), CVector3f::Zero(), true, false);
+            }
+
+            x1e4_27_sfx3Played = true;
+          }
+
+          SendScriptMsgs(kSS_MaxReached, mgr, kSM_None);
+          noSfxPlayed = false;
+        } else {
+          x1e4_27_sfx3Played = false;
+        }
+
+        if (close_enough(x138_, 0.f)) {
+          if (!x1e4_26_sfx2Played) {
+            if (x172_sfx2 != CSfxManager::kInternalInvalidSfxId) {
+              CSfxManager::AddEmitter(x172_sfx2, GetTranslation(), CVector3f::Zero(), true, false);
+            }
+
+            x1e4_26_sfx2Played = true;
+          }
+
+          SendScriptMsgs(kSS_Zero, mgr, kSM_None);
+          noSfxPlayed = false;
+        } else {
+          x1e4_26_sfx2Played = false;
+        }
+
+        rstl::optional_object< float > unused = x184_.GetAverage();
+
+        if (noSfxPlayed) {
+          if (x170_sfx1 != CSfxManager::kInternalInvalidSfxId) {
+            bool b = f28 >= 0.f;
+            if (noSfxPlayed) {
+              x184_.AddValue(b ? uchar(100) : uchar(0x7F));
+            } else {
+              x184_.AddValue(0.f);
+            }
+            const rstl::optional_object< float >& volume = x184_.GetAverage();
+            float pitch = b ? x108_float4 : 1.f;
+            AddOrUpdateEmitter(pitch, x178_sfxHandle, x170_sfx1, GetTranslation(), volume.data());
+          }
+        } else {
+          DeleteEmitter(x178_sfxHandle);
+        }
+
+        const CAnimData* animData = plat->GetAnimationData();
+        const float dur = animData->GetAnimationDuration(animData->GetCurrentAnimation()) * x138_;
+        plat->AnimationData()->SetPhase(0.f);
+        plat->AnimationData()->SetPlaybackRate(1.f);
+        CAdvancementDeltas deltas = plat->UpdateAnimation(dur, mgr, true);
+        plat->SetTransform(x13c_spinnerInitialXf *
+                           deltas.GetOrientationDelta().BuildTransform4f(deltas.GetOffsetDelta()));
       }
     }
   }
@@ -1102,8 +1095,9 @@ void CScriptSpecialFunction::ThinkPlayerInArea(float dt, CStateManager& mgr) {
   }
 }
 
-void CScriptSpecialFunction::AddOrUpdateEmitter(float pitch, CSfxHandle& handle, ushort id,
-                                                CVector3f pos, uchar vol) {
+void CScriptSpecialFunction::AddOrUpdateEmitter(const float pitch, CSfxHandle& handle,
+                                                const ushort id, const CVector3f pos,
+                                                const uchar vol) {
   if (!handle) {
     handle = CSfxManager::AddEmitter(id, pos, CVector3f::Zero(), vol, true, true);
   } else {

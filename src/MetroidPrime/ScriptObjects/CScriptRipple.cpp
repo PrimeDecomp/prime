@@ -13,7 +13,7 @@ CScriptRipple::CScriptRipple(const TUniqueId uid, const rstl::string& name, cons
 
 CScriptRipple::~CScriptRipple() {}
 
-void CScriptRipple::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) {
+void CScriptRipple::AcceptScriptMsg(const EScriptObjectMessage msg, const TUniqueId uid, CStateManager& mgr) {
   switch (msg) {
   case (kSM_Play): {
     if (!GetActive()) {
