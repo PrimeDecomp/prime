@@ -119,6 +119,7 @@ bool lbl_805A6BC0;
 class CSaveRegion {
 public:
   CSaveRegion(CMain& main);
+
 private:
   static void* mNonVolatileSettingsBuf;
   static void* mSaveBuffer;
@@ -363,9 +364,9 @@ void CMain::RefreshGameState() {
 void CMain::EnsureWorldPaksReady(void) {
   CResLoader& resLoader = gpResourceFactory->GetResLoader();
   for (int i = 0; i < resLoader.GetPakCount(); ++i) {
-    CPakFile& file = resLoader.GetPakFile(i);
-    if (file.IsWorldPak()) {
-      file.EnsureWorldPakReady();
+    CPakFile* file = resLoader.GetPakFile(i);
+    if (file->IsWorldPak()) {
+      file->EnsureWorldPakReady();
     }
   }
 }
@@ -549,9 +550,9 @@ void CMain::EnsureWorldPakReady(CAssetId id) {
   CResLoader& resLoader = gpResourceFactory->GetResLoader();
   for (int i = 0; i < resLoader.GetPakCount(); ++i) {
     bool notInNameList = true;
-    CPakFile& pakFile = resLoader.GetPakFile(i);
-    if (pakFile.IsWorldPak()) {
-      rstl::vector< rstl::pair< rstl::string, SObjectTag > > nameList = pakFile.NameList();
+    CPakFile* pakFile = resLoader.GetPakFile(i);
+    if (pakFile->IsWorldPak()) {
+      rstl::vector< rstl::pair< rstl::string, SObjectTag > > nameList = pakFile->NameList();
       rstl::vector< rstl::pair< rstl::string, SObjectTag > >::iterator cur = nameList.begin();
       while (cur != nameList.end()) {
         if (cur->second.GetId() == id) {
@@ -560,9 +561,9 @@ void CMain::EnsureWorldPakReady(CAssetId id) {
         ++cur;
       }
       if (notInNameList) {
-        pakFile.sub_8036742c();
+        pakFile->sub_8036742c();
       } else {
-        pakFile.EnsureWorldPakReady();
+        pakFile->EnsureWorldPakReady();
       }
     }
   }

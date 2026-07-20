@@ -13,7 +13,7 @@ rstl::pair< rstl::auto_ptr< uchar >, int > GetScriptingMemoryAlways(const IGameA
 
   rstl::auto_ptr< char > buf = rs_new char[0x60];
   CInputStream* resource =
-      gpResourceFactory->GetResLoader().LoadNewResourceSync(tag, 0, 0x60, buf.get());
+      gpResourceFactory->GetResLoader().LoadNewResourcePartSync(tag, 0, 0x60, buf.get());
   if (!resource || *(uint*)(buf.get()) != 0xdeadbeef) {
     return rstl::pair< rstl::auto_ptr< uchar >, int >(nullptr, 0);
   }
