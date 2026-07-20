@@ -25,6 +25,7 @@ public:
   typedef Alloc allocator_type;
   typedef pointer_iterator< T, vector< T, Alloc >, Alloc > iterator;
   typedef const_pointer_iterator< T, vector< T, Alloc >, Alloc > const_iterator;
+  typedef int size_type;
   typedef T value_type;
 
   iterator begin() { return iterator(xc_items); }

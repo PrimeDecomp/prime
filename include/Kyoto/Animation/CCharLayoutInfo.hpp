@@ -3,13 +3,18 @@
 
 #include "Kyoto/Animation/CSegId.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
-#include "MetroidPrime/CHierarchyPoseBuilder.hpp"
+#include "Kyoto/Animation/CSegIdList.hpp"
+#include "Kyoto/Animation/TSegIdMap.hpp"
 
+
+#include <rstl/map.hpp>
 #include <rstl/string.hpp>
+#include <rstl/auto_ptr.hpp>
 
 class CCharLayoutNode {
 public:
   CCharLayoutNode(CInputStream& in);
+  ~CCharLayoutNode() {}
   CSegId GetParent() const { return mParent; }
   CVector3f GetReferenceStanceOffset() const { return mReferenceStanceOffset; }
   uint GetNumConnectedParts() const { return mConnectedParts.size(); }
@@ -28,7 +33,9 @@ public:
   void GetBodyPartSegIds() const;
 
 private:
-  TSegIdMap< CCharLayoutNode > mNodes;
+  rstl::auto_ptr< TSegIdMap< CCharLayoutNode > > mNodes;
+  CSegIdList mSegIdList;
+  rstl::map< rstl::string, CSegId > mNameMap;
 };
 
 #endif // _CCHARLAYOUTINFO

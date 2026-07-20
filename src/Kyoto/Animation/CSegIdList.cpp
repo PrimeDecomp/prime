@@ -7,6 +7,6 @@
 #pragma inline_max_size(200)
 
 CSegIdList::CSegIdList(CInputStream& in)
-: x0_segList(in) {
-  CCharAnimMemoryMetrics::AddToTotalSize(x0_segList.capacity(), CCharAnimMemoryMetrics::kASS_Two);  
+: mSegIds(in) {
+  CCharAnimMemoryMetrics::AddToTotalSize(mSegIds.capacity(), CCharAnimMemoryMetrics::kASS_Two);  
 }

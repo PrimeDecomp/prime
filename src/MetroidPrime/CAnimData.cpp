@@ -1083,9 +1083,9 @@ void CAnimData::RecalcPoseBuilder(const CCharAnimTime* time) const {
 
   CSegId seg = CSegId::Invalid();
   int i = 0;
-  const int segCount = segIdList->x0_segList.size();
+  const int segCount = segIdList->size();
   while (i < segCount) {
-    seg = segIdList->x0_segList[i];
+    seg = (*segIdList)[i];
     if (seg.val() != 3) {
       const_cast< CHierarchyPoseBuilder& >(x2fc_poseBuilder)
           .Insert(seg, statementSet[seg].mRotation);

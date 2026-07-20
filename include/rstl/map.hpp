@@ -20,7 +20,9 @@ private:
 public:
   typedef typename rep_type::iterator iterator;
   typedef typename rep_type::const_iterator const_iterator;
-
+  
+  map() {};
+  map(CInputStream& in, const Cmp& cmp = Cmp(), const Alloc& alloc = Alloc());
   ~map() {}
 
   iterator insert(const value_type& item) { return inner.insert(item); }
