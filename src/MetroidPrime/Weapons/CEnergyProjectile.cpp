@@ -18,7 +18,7 @@ const CMaterialList CEnergyProjectile::kCheckMaterial(
 CEnergyProjectile::CEnergyProjectile(
     const bool active, const TToken< CWeaponDescription >& desc, const EWeaponType type,
     const CTransform4f& xf, const EMaterialTypes excludeMat, const CDamageInfo& damage,
-    const TUniqueId uid, TAreaId aid, const TUniqueId owner, const TUniqueId homingTarget,
+    const TUniqueId uid, const TAreaId aid, const TUniqueId owner, const TUniqueId homingTarget,
     const uint attribs, const bool underwater, const CVector3f& scale,
     const rstl::optional_object< TLockedToken< CGenDescription > >& visorParticle,
     const ushort visorSfx, const bool sendCollideMsg)

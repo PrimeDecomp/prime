@@ -34,12 +34,13 @@ class CPoisonProjectile : public CEnergyProjectile {
   CPoisonInfo x3d8_auxData;
 
 public:
-  CPoisonProjectile(bool active, const TToken< CWeaponDescription >& desc, EWeaponType type,
-                    const CTransform4f& xf, EMaterialTypes materials, const CDamageInfo& damage,
-                    TUniqueId uid, TAreaId aid, TUniqueId owner, const CPoisonInfo& auxData,
-                    TUniqueId homingTarget, uint attribs, const CVector3f& scale,
+  CPoisonProjectile(const bool active, const TToken< CWeaponDescription >& desc,
+                    const EWeaponType type, const CTransform4f& xf, const EMaterialTypes materials,
+                    const CDamageInfo& damage, const TUniqueId uid, const TAreaId aid,
+                    const TUniqueId owner, const CPoisonInfo& auxData, const TUniqueId homingTarget,
+                    const uint attribs, const CVector3f& scale,
                     const rstl::optional_object< TLockedToken< CGenDescription > >& visorParticle,
-                    ushort visorSfx, bool sendCollideMsg);
+                    const ushort visorSfx, const bool sendCollideMsg);
 
   // CEntity
   ~CPoisonProjectile() override;

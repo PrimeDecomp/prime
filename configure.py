@@ -903,7 +903,7 @@ config.libs = [
             ),
             Object(NonMatching, "MetroidPrime/CGroundMovement.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CNewIntroBoss.cpp"),
-            Object(NonMatching, "MetroidPrime/Weapons/CPhazonBeam.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Weapons/CPhazonBeam.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/ScriptObjects/CScriptTargetingPoint.cpp",

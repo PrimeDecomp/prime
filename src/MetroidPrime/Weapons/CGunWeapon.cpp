@@ -311,7 +311,7 @@ void CGunWeapon::ActivateCharge(bool enable, bool resetEffect) {
   }
 }
 
-void CGunWeapon::Draw(bool drawSuitArm, const CStateManager& mgr, const CTransform4f& xf,
+void CGunWeapon::Draw(const bool drawSuitArm, const CStateManager& mgr, const CTransform4f& xf,
                       const CModelFlags& flags, const CActorLights* lights) const {
   if (!x218_26_loaded)
     return;

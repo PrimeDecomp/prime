@@ -215,8 +215,8 @@ bool CIOWinManager::OnIOWinMessage(const CArchitectureMessage& msg) {
   }
   case kAM_CreateIOWin: {
     const CArchMsgParmInt32Int32VoidPtr& parm = MakeMsg::GetParmCreateIOWin(msg);
-    int pumpPrio = parm.GetInt1();
     int drawPrio = parm.GetInt2();
+    int pumpPrio = parm.GetInt1();
     rstl::rc_ptr< CIOWin > ptr(static_cast< CIOWin* >(const_cast< void* >(parm.GetPtr())));
     AddIOWin(ptr, pumpPrio, drawPrio);
     break;

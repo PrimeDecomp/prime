@@ -2560,7 +2560,7 @@ void* CCubeRenderer::GetRenderToTexBuffer(int idx) {
          (static_cast< uint >(idx * CGraphics::mSpareBufferSize) >> 4);
 }
 
-void CCubeRenderer::CopyTex(int div, bool half, void* dest, GXTexFmt fmt, bool clear) {
+void CCubeRenderer::CopyTex(const int div, const bool half, void* dest, const GXTexFmt fmt, const bool clear) {
   const CViewport& vp = CGraphics::mViewport;
   uint width = vp.mWidth;
   uint height = vp.mHeight;

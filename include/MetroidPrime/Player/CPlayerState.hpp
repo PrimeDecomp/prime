@@ -117,6 +117,10 @@ public:
   const bool IsXRayActive(const CStateManager& mgr) const {
     return GetActiveVisor(mgr) == kPV_XRay;
   }
+  const bool IsStandardVisor(const CStateManager& mgr) const {
+    EPlayerVisor activeVisor = GetActiveVisor(mgr);
+    return (activeVisor == kPV_Combat || activeVisor == kPV_Scan);
+  }
 
   void UpdateStaticInterference(CStateManager& stateMgr, const float& dt);
   void IncreaseScanTime(uint time, float val);
