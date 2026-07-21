@@ -19,24 +19,30 @@ CIOWinManager::IOWinPQNode::IOWinPQNode(rstl::ncrc_ptr< CIOWin > iowin, int prio
 : x0_iowin(iowin), x4_prio(prio), x8_next(next) {}
 
 void CIOWinManager::AddIOWin(rstl::ncrc_ptr< CIOWin > chIow, int pumpPrio, int drawPrio) {
-  IOWinPQNode* node;
   IOWinPQNode* prevNode = nullptr;
-  for (node = x4_pumpRoot; node && node->x4_prio > pumpPrio; node = node->x8_next)
+  IOWinPQNode* node;
+  for (node = x4_pumpRoot; node != nullptr && node->x4_prio > pumpPrio; node = node->x8_next) {
     prevNode = node;
+  }
   IOWinPQNode* newNode = rs_new IOWinPQNode(chIow, pumpPrio, node);
-  if (prevNode)
-    prevNode->x8_next = newNode;
-  else
+  if (!prevNode) {
     x4_pumpRoot = newNode;
-
-  prevNode = nullptr;
-  for (node = x0_drawRoot; node && drawPrio < node->x4_prio; node = node->x8_next)
-    prevNode = node;
-  newNode = rs_new IOWinPQNode(chIow, drawPrio, node);
-  if (prevNode)
+  } else {
     prevNode->x8_next = newNode;
-  else
-    x0_drawRoot = newNode;
+  }
+
+  IOWinPQNode* prevDrawNode = nullptr;
+  IOWinPQNode* drawNode;
+  for (drawNode = x0_drawRoot; drawNode != nullptr && drawNode->x4_prio > drawPrio;
+       drawNode = drawNode->x8_next) {
+    prevDrawNode = drawNode;
+  }
+  IOWinPQNode* newDrawNode = rs_new IOWinPQNode(chIow, drawPrio, drawNode);
+  if (!prevDrawNode) {
+    x0_drawRoot = newDrawNode;
+  } else {
+    prevDrawNode->x8_next = newDrawNode;
+  }
 }
 
 void CIOWinManager::RemoveIOWin(rstl::ncrc_ptr< CIOWin > chIow) {
@@ -130,7 +136,7 @@ void CIOWinManager::ChangeIOWinPriority(rstl::ncrc_ptr< CIOWin > toChange, int p
 }
 
 rstl::ncrc_ptr< CIOWin > CIOWinManager::FindIOWin(const char* name) {
-  const rstl::string& nameStr = reinterpret_cast<const rstl::string&>(*name);
+  const rstl::string& nameStr = reinterpret_cast< const rstl::string& >(*name);
 
   for (IOWinPQNode* node = x4_pumpRoot; node; node = node->x8_next) {
     if (node->GetIOWin()->GetName() == nameStr) {
@@ -235,6 +241,4 @@ bool CIOWinManager::OnIOWinMessage(const CArchitectureMessage& msg) {
   return false;
 }
 
-rstl::ncrc_ptr<CIOWin> CIOWinManager::IOWinPQNode::GetIOWin() const {
-  return x0_iowin;
-}
+rstl::ncrc_ptr< CIOWin > CIOWinManager::IOWinPQNode::GetIOWin() const { return x0_iowin; }

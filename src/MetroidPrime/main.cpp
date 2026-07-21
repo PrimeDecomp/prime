@@ -23,6 +23,8 @@
 #include "Kyoto/CARAMManager.hpp"
 #include "Kyoto/CARAMToken.hpp"
 #include "Kyoto/CFrameDelayedKiller.hpp"
+#include "Kyoto/Input/IController.hpp"
+
 #include "Kyoto/CMemoryCardSys.hpp"
 #include "Kyoto/CPakFile.hpp"
 #include "Kyoto/CResFactory.hpp"
@@ -68,7 +70,7 @@ CCharacterFactoryBuilder* gpCharacterFactoryBuilder;
 CGuiSys* gGuiSystem;
 CStringTable* gpStringTable;
 CMain* gpMain;
-unkptr gpController;
+IController* gpController;
 CGameState* gpGameState;
 CMemoryCard* gpMemoryCard;
 CInGameTweakManager* gpTweakManager;
@@ -301,7 +303,7 @@ CGameArchitectureSupport::CGameArchitectureSupport(COsContext& osContext)
   gpMain->SetMaxSpeed(false);
   gpMain->ResetGameState();
   if (!gpTweakGame->GetSplashScreensDisabled()) {
-    x58_ioWinMgr.AddIOWin(rs_new CSplashScreen(CSplashScreen::Nintendo), 1000, 10000);
+    x58_ioWinMgr.AddIOWin(rs_new CSplashScreen(CSplashScreen::kSplashScreen_Nintendo), 1000, 10000);
   }
   x58_ioWinMgr.AddIOWin(rs_new CMainFlow(), 0, 0);
   x58_ioWinMgr.AddIOWin(rs_new CConsoleOutputWindow(8, 5.f, 0.75f), 100, 0);

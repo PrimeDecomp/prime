@@ -144,8 +144,7 @@ public:
   void DrawModelFlat(const CModel&, const CModelFlags&, bool, const float*, const float*) override;
   void SetWireframeFlags(int) override;
   void SetWorldFog(ERglFogMode mode, float startz, float endz, const CColor& color) override;
-  void RenderFogVolume(const CColor&, const CAABox&,
-                       const TLockedToken< CModel >*,
+  void RenderFogVolume(const CColor&, const CAABox&, const TLockedToken< CModel >*,
                        const CSkinnedModel*) override;
   void SetThermal(bool, float, const CColor&) override;
   void SetThermalColdScale(float) override;
@@ -173,7 +172,7 @@ public:
                                           const CColor&, float, float, float);
   void ReallyDrawPhazonSuitEffect(const CColor&, const CTexture&);
   void DoPhazonSuitIndirectAlphaBlur(float, float);
-  void CopyTex(int, bool, void*, GXTexFmt, bool);
+  void CopyTex(const int, const bool, void*, const GXTexFmt, const bool);
   void DoThermalModelDraw(const CCubeModel&, const CColor&, const CColor&, const float*,
                           const float*, const CModelFlags&);
   void SetupRendererStates(bool depthWrite);
