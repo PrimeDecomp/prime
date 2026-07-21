@@ -55,7 +55,7 @@ CHECK_SIZEOF(CGameGlobalObjects, 0x15c)
 class IController;
 // TODO move to related headers
 extern IController* gpController;
-extern unkptr gpDefaultFont;
+extern const TToken< CRasterFont >* gpDefaultFont;
 extern bool lbl_805A6BC0; // TODO: Find out what this is and rename appropriately
 
 #endif // _CGAMEGLOBALOBJECTS

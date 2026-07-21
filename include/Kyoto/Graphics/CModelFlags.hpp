@@ -9,10 +9,10 @@ class CModelFlags {
 public:
   enum ETrans {
     kT_Opaque = 0,
-    kT_One = 1,  // ?
-    kT_Two = 2,  // ?
+    kT_One = 1,   // ?
+    kT_Two = 2,   // ?
     kT_Three = 3, // ?
-    kT_Four = 4, // ?
+    kT_Four = 4,  // ?
     kT_Blend = 5,
     kT_Additive = 7,
     kT_Additive2 = 8,
@@ -111,6 +111,10 @@ public:
   }
   static CModelFlags Additive(const float f) { return CModelFlags(kT_Additive, f); }
   static CModelFlags Additive(const CColor& color) { return CModelFlags(kT_Additive, color); }
+  static CModelFlags AdditiveDepthCompareUpdate(const CColor& color, const bool compare,
+                                                const bool update) {
+    return Additive(color).DepthCompareUpdate(compare, update);
+  }
   static CModelFlags AdditiveRGB(const CColor& color);
   static CModelFlags ColorModulate(const CColor& color);
 

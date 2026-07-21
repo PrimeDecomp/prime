@@ -74,7 +74,7 @@ IController* gpController;
 CGameState* gpGameState;
 CMemoryCard* gpMemoryCard;
 CInGameTweakManager* gpTweakManager;
-unkptr gpDefaultFont;
+const TToken< CRasterFont >* gpDefaultFont;
 unkptr lbl_805A8C50;
 unkptr lbl_805A8C54;
 bool COsContext::mProgressiveMode;
