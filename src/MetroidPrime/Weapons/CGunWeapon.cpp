@@ -395,9 +395,10 @@ inline float GetChargeFactor(CPlayerState::EChargeStage chargeState, float charg
   return k * kChargeScaleFactor;
 }
 
-void CGunWeapon::Fire(const bool underwater, const float dt, const CPlayerState::EChargeStage chargeState,
-                      const CTransform4f& xf, CStateManager& mgr, const TUniqueId homingTarget,
-                      const float chargeFactor1, const float chargeFactor2) {
+void CGunWeapon::Fire(const bool underwater, const float dt,
+                      const CPlayerState::EChargeStage chargeState, const CTransform4f& xf,
+                      CStateManager& mgr, const TUniqueId homingTarget, const float chargeFactor1,
+                      const float chargeFactor2) {
   CDamageInfo dInfo(GetDamageInfo(mgr, chargeState, chargeFactor1));
 
   CVector3f scale(GetChargeFactor(chargeState, chargeFactor2),
@@ -448,12 +449,13 @@ CDamageInfo CGunWeapon::GetDamageInfo(CStateManager& mgr, CPlayerState::EChargeS
                                       float chargeFactor) {
   const SWeaponInfo& wInfo = GetWeaponInfo();
   if (chargeState == CPlayerState::kCS_Normal) {
-    return GetShotDamageInfo(wInfo.x4_normal, mgr);
-  } else {
-    CDamageInfo param = wInfo.x20_charged;
-    param.MultiplyDamageAndRadius(chargeFactor);
-    return GetShotDamageInfo(param, mgr);
+    return NWeaponTypes::get_shot_damage(wInfo.x4_normal, mgr);
   }
+  CDamageInfo param(wInfo.x20_charged.GetWeaponMode(), wInfo.x20_charged.GetDamage() * chargeFactor,
+                    wInfo.x20_charged.GetRadius() * chargeFactor,
+                    wInfo.x20_charged.GetKnockBackPower() * chargeFactor);
+  param.SetRadiusDamage(wInfo.x20_charged.GetRadiusDamage() * chargeFactor);
+  return NWeaponTypes::get_shot_damage(param, mgr);
 }
 
 CAABox CGunWeapon::GetBounds() const {

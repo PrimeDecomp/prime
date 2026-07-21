@@ -107,7 +107,8 @@ public:
   void ActivateCharge(bool enable, bool resetEffect);
   bool PlayPasAnim(SamusGun::EAnimationState state, CStateManager& mgr, float angle);
   bool IsChargeAnimOver() const;
-  void UpdateMuzzleFx(const float dt, const CVector3f& scale, const CVector3f& pos, const bool emitting);
+  void UpdateMuzzleFx(const float dt, const CVector3f& scale, const CVector3f& pos,
+                      const bool emitting);
   CElementGen* GetChargeMuzzleFx() const;
   void DrawHologram(const CStateManager& mgr, const CTransform4f& xf,
                     const CModelFlags& flags) const;
@@ -124,8 +125,6 @@ public:
 
   CDamageInfo GetDamageInfo(CStateManager& mgr, CPlayerState::EChargeStage chargeState,
                             float chargeFactor);
-  CDamageInfo GetShotDamageInfo(const CDamageInfo& shotParam, CStateManager& mgr) const;
-
   static const char* GetMuzzleLocator() { return skMuzzleLocator; }
 
 protected:

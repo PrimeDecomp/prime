@@ -1,6 +1,8 @@
 #ifndef _WEAPONCOMMON
 #define _WEAPONCOMMON
 
+#include "MetroidPrime/CDamageInfo.hpp"
+
 #include "Kyoto/SObjectTag.hpp"
 
 #include "rstl/set.hpp"
@@ -47,7 +49,7 @@ CAssetId get_asset_id_from_name(const char* name);
 void lock_tokens(rstl::vector< CToken >&);
 void unlock_tokens(rstl::vector< CToken >&);
 int get_current_suit(const CStateManager& mgr);
-
+CDamageInfo get_shot_damage(const CDamageInfo& shotParam, CStateManager& mgr);
 } // namespace NWeaponTypes
 
 #endif // _WEAPONCOMMON
