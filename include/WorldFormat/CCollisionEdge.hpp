@@ -7,16 +7,18 @@
 
 class CCollisionEdge {
 public:
-  CCollisionEdge(CInputStream& in){
-    x0_index1 = in.Get<u16>();
-    x2_index2 = in.Get<u16>();
+  CCollisionEdge(const ushort x0, const ushort x1) : x0_index1(x0), x2_index2(x1) {}
+  CCollisionEdge(CInputStream& in) {
+    x0_index1 = in.Get< u16 >();
+    x2_index2 = in.Get< u16 >();
   }
 
-  u16 GetVertIndex1() const { return x0_index1; }
-  u16 GetVertIndex2() const { return x2_index2; }
+  const ushort GetVertIndex1() const { return x0_index1; }
+  const ushort GetVertIndex2() const { return x2_index2; }
+
 private:
-  u16 x0_index1;
-  u16 x2_index2;
+  ushort x0_index1;
+  ushort x2_index2;
 };
 
 #endif // _CCOLLISIONEDGE
