@@ -752,7 +752,7 @@ config.libs = [
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CPhysicsState.cpp"
             ),
-            Object(NonMatching, "MetroidPrime/CRipple.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CRipple.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CFluidUVMotion.cpp"
             ),
