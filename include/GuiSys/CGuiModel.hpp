@@ -23,6 +23,9 @@ public:
 
   static CGuiModel* Create(CGuiFrame* frame, CInputStream& in, CSimplePool* sp);
 
+  rstl::vector< CAssetId > GetModelAssets() const;
+  FourCC GetWidgetTypeID() const;
+
 private:
   mutable rstl::optional_object< TCachedToken< CModel > > xb8_model;
   CAssetId xc8_modelId;

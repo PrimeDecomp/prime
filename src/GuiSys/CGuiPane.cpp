@@ -46,7 +46,7 @@ void CGuiPane::Draw(const CGuiWidgetDrawParms& parms) const {
   CGraphics::SetModelMatrix(GetWorldTransform() * CTransform4f::Translate(xc8_scaleCenter));
   if (GetIsVisible()) {
     CGraphics::SetTevOp(kTS_Stage0, CGraphics::kEnvPassthru);
-    CColor color = GetColor2().WithAlphaModulatedBy(parms.GetAlpha());
+    CColor color = GetModifiedColor().WithAlphaModulatedBy(parms.GetAlpha());
     CGraphics::DrawPrimitive(kP_TriangleStrip, xc0_panePoints, CVector3f(0.f, -1.f, 0.f), color, xc4_panePointCount);
   }
   CGuiWidget::Draw(parms);

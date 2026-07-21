@@ -27,6 +27,9 @@ public:
 
   CGuiSys& GetGuiSys() const { return x8_guiSys; }
 
+  void EnableLights(uint mask) const;
+  void DisableLights() const;
+
 private:
   uint x0_id;
   uint x4_;

@@ -138,7 +138,7 @@ void CAuiEnergyBarT01::Draw(const CGuiWidgetDrawParms& parms) const {
 
   const float dVar9 = mMaxEnergy > 0.f ? mFilledEnergy / mMaxEnergy : 0.f;
   const float dVar8 = mMaxEnergy > 0.f ? mShadowEnergy / mMaxEnergy : 0.f;
-  const CColor& color = GetColor2();
+  const CColor& color = GetModifiedColor();
   CColor filledColor = CColor::Modulate(color, mFilledColor.WithAlphaModulatedBy(parms.GetAlpha()));
   CColor shadowColor = CColor::Modulate(color, mShadowColor.WithAlphaModulatedBy(parms.GetAlpha()));
   CColor emptyColor = CColor::Modulate(color, mEmptyColor.WithAlphaModulatedBy(parms.GetAlpha()));
