@@ -2573,20 +2573,11 @@ void CElementGen::SetGeneratorRate(float rate) {
     }
   }
 }
+float CElementGen::GetGeneratorRate() const { return x98_generatorRate; }
 
-const CTransform4f& CElementGen::GetOrientation() const { return x1d8_orientation; }
 
-const CVector3f& CElementGen::GetTranslation() const { return xdc_translation; }
 
-const CTransform4f& CElementGen::GetGlobalOrientation() const { return x22c_globalOrientation; }
-
-const CVector3f& CElementGen::GetGlobalTranslation() const { return xe8_globalTranslation; }
-
-const CVector3f& CElementGen::GetGlobalScale() const { return x100_globalScale; }
-
-bool CElementGen::GetParticleEmission() const { return x88_particleEmission; }
-
-int CElementGen::GetParticleCount() const { return x25c_activeParticleCount; }
+uint CElementGen::Get4CharId() const { return 'PART'; }
 
 int CElementGen::GetNumActiveChildParticles() const { return x290_activePartChildren.size(); }
 
@@ -2602,8 +2593,8 @@ bool CElementGen::IsIndirectTextured() const {
   return x28_loadedGenDesc->x40_TEXR != nullptr && x28_loadedGenDesc->x44_TIND != nullptr;
 }
 
-uint CElementGen::Get4CharId() const { return 'PART'; }
+bool CElementGen::GetParticleEmission() const { return x88_particleEmission; }
 
-float CElementGen::GetGeneratorRate() const { return x98_generatorRate; }
+const CTransform4f& CElementGen::GetGlobalOrientation() const { return x22c_globalOrientation; }
 
-void CElementGen::AddModifier(CWarp*) {}
+const CVector3f& CElementGen::GetGlobalTranslation() const { return xe8_globalTranslation; }

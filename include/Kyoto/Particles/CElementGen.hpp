@@ -87,21 +87,21 @@ public:
   virtual void SetParticleEmission(const bool emission) override;
   virtual void SetModulationColor(const CColor& col) override;
   virtual void SetGeneratorRate(float rate) override;
-  virtual const CTransform4f& GetOrientation() const override;
-  virtual const CVector3f& GetTranslation() const override;
+  virtual const CTransform4f& GetOrientation() const override { return x1d8_orientation; }
+  virtual const CVector3f& GetTranslation() const override { return xdc_translation; }
   virtual const CTransform4f& GetGlobalOrientation() const override;
   virtual const CVector3f& GetGlobalTranslation() const override;
-  virtual const CVector3f& GetGlobalScale() const override;
+  virtual const CVector3f& GetGlobalScale() const override { return x100_globalScale; }
   virtual float GetGeneratorRate() const override;
   virtual bool GetParticleEmission() const override;
   virtual const CColor& GetModulationColor() const override;
   virtual bool IsSystemDeletable() const override;
   virtual rstl::optional_object< CAABox > GetBounds() const override;
-  virtual int GetParticleCount() const override;
+  virtual int GetParticleCount() const override { return x25c_activeParticleCount; }
   virtual bool SystemHasLight() const override;
   virtual CLight GetLight() const override;
   virtual void DestroyParticles() override;
-  virtual void AddModifier(CWarp*) override;
+  virtual void AddModifier(CWarp*) override {}
   virtual uint Get4CharId() const override;
   int GetMaxParticles() const { return x90_MAXP; }
   int GetEmitterTime() const;
