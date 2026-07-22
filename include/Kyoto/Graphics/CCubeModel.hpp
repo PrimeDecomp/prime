@@ -70,6 +70,9 @@ public:
                                    rstl::vector< TCachedToken< CTexture > >& textures,
                                    IObjectStore& store, bool cache);
 
+  const void* GetPositions() const { return x0_instance.GetVertexPointer(); }
+  const void* GetNormals() const { return x0_instance.GetNormalPointer(); }
+
   const CAABox& GetBoundingBox() const { return x20_bounds; }
   const CCubeSurface& GetNormalSurfaces() const { return x38_firstUnsorted; }
   const CCubeSurface& GetAlphaSurfaces() const { return x3c_firstSorted; }
