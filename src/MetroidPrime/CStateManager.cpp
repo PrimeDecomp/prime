@@ -1116,7 +1116,7 @@ void CStateManager::PreThinkObjects(float dt) {
 void CStateManager::PostUpdatePlayer(float dt) { x84c_player->DoPostCameraStuff(dt, *this); }
 
 void CStateManager::Update(float dt) {
-  lbl_805A88B8 = static_cast< ushort >(x8d8_updateFrameIdx);
+  CElementGen::SetGlobalSeed( static_cast< ushort >(x8d8_updateFrameIdx));
   lbl_805A8A10 = static_cast< ushort >(x8d8_updateFrameIdx);
   CDecal::SetGlobalSeed(static_cast< ushort >(x8d8_updateFrameIdx));
   CProjectileWeapon::SetGlobalSeed(x8d8_updateFrameIdx);

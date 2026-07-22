@@ -56,35 +56,22 @@ bool CElementGen::sSubtractBlend;
 int CElementGen::mParticleAliveCount;
 int CElementGen::mParticleSystemAliveCount;
 
-static ushort g_GlobalSeed = 99;
+double CElementGen::kKickTime = 1 / 60.0;
+ushort CElementGen::sSeed = 99;
 static bool sStaticListInitialized;
 
-struct CParticleListItem {
-  ushort x0_partIdx;
-  CVector3f x4_viewPoint;
-
-  explicit CParticleListItem(short partIdx, const CVector3f& viewPoint)
-  : x0_partIdx(partIdx), x4_viewPoint(viewPoint) {}
-};
-
 struct CParticleListItemViewPointComp {
-  bool operator()(const CParticleListItem& a, const CParticleListItem& b) const {
+  bool operator()(const CElementGen::CParticleListItem& a,
+                  const CElementGen::CParticleListItem& b) const {
     return a.x4_viewPoint.GetY() > b.x4_viewPoint.GetY() ? true : false;
   }
 };
 
 // name?
-struct CTexturedParticleListItem {
-  ushort x0_texMapIdx;
-  ushort x2_partIdx;
-  CVector3f x4_viewPoint;
-
-  explicit CTexturedParticleListItem(short texMapIdx, short partIdx, const CVector3f& viewPoint)
-  : x0_texMapIdx(texMapIdx), x2_partIdx(partIdx), x4_viewPoint(viewPoint) {}
-};
 
 struct CTexturedParticleListItemViewPointComp {
-  bool operator()(const CTexturedParticleListItem& a, const CTexturedParticleListItem& b) const {
+  bool operator()(const CElementGen::CTexturedParticleListItem& a,
+                  const CElementGen::CTexturedParticleListItem& b) const {
     return a.x4_viewPoint.GetY() > b.x4_viewPoint.GetY() ? true : false;
   }
 };
@@ -108,7 +95,7 @@ CElementGen::CElementGen(TToken< CGenDescription > gen, EModelOrientationType or
 , x88_particleEmission(true)
 , x8c_generatorRemainder(0.f)
 , x90_MAXP(0)
-, x94_randomSeed(g_GlobalSeed)
+, x94_randomSeed(sSeed)
 , x98_generatorRate(1.f)
 , xdc_translation(CVector3f::Zero())
 , xe8_globalTranslation(CVector3f::Zero())
@@ -422,22 +409,20 @@ bool CElementGen::Update(double dt) {
   if (x28_loadedGenDesc->x4_PSWT && !x26d_25_warmedUp) {
     int pswt = 0;
     x28_loadedGenDesc->x4_PSWT->GetValue(x74_curFrame, pswt);
-    InternalUpdate((1.0 / 60.0) * pswt);
+    InternalUpdate(kKickTime * pswt);
     x26d_25_warmedUp = true;
   }
 
   return InternalUpdate(dt);
 }
 
-static double kFrameTime = 1.0 / 60.0;
-
 bool CElementGen::InternalUpdate(double dt) {
   CStopwatch sw;
   CGlobalRandom gr(x27c_randState);
 
   int frameUpdateCount = 0;
-  double t = x74_curFrame * kFrameTime;
-  double dt1 = close_enough(dt, kFrameTime) ? kFrameTime : dt;
+  double t = x74_curFrame * kKickTime;
+  double dt1 = close_enough(dt, kKickTime) ? kKickTime : dt;
 
   CParticleGlobals::SetEmitterTime(x74_curFrame);
 
@@ -492,10 +477,10 @@ bool CElementGen::InternalUpdate(double dt) {
       UpdateLightParameters();
     }
 
-    UpdateChildParticleSystems(kFrameTime);
+    UpdateChildParticleSystems(kKickTime);
 
     ++frameUpdateCount;
-    t += kFrameTime;
+    t += kKickTime;
     ++x74_curFrame;
   }
 
@@ -503,8 +488,8 @@ bool CElementGen::InternalUpdate(double dt) {
     x78_curSeconds = t;
     x80_timeDeltaScale = 1.0f;
   } else {
-    UpdateChildParticleSystems(dt1 - (double)frameUpdateCount * kFrameTime);
-    x80_timeDeltaScale = 1.0f - static_cast< float >((t - x78_curSeconds) / kFrameTime);
+    UpdateChildParticleSystems(dt1 - (double)frameUpdateCount * kKickTime);
+    x80_timeDeltaScale = 1.0f - static_cast< float >((t - x78_curSeconds) / kKickTime);
   }
 
   BuildParticleSystemBounds();
@@ -842,7 +827,7 @@ void CElementGen::UpdateChildParticleSystems(double dt) {
   // KSSM - spawn system keyframe data
   if (x28_loadedGenDesc->xbc_KSSM.get() != nullptr && x84_prevFrame != x74_curFrame &&
       x74_curFrame < x268_PSLT) {
-    ushort backupSeed = g_GlobalSeed;
+    ushort backupSeed = sSeed;
     rstl::vector< CSpawnSystemKeyframeData::CSpawnSystemKeyframeInfo >& spawns =
         x28_loadedGenDesc->xbc_KSSM->GetSpawnedSystemsAtFrame(x74_curFrame);
     x290_activePartChildren.reserve(spawns.size() + x290_activePartChildren.size());
@@ -853,10 +838,10 @@ void CElementGen::UpdateChildParticleSystems(double dt) {
       if (x26d_27_enableOPTS && kssmOPTS) {
         continue;
       }
-      g_GlobalSeed = incSeed;
+      sSeed = incSeed;
       x290_activePartChildren.push_back(ConstructChildParticleSystem(kssmToken));
     }
-    g_GlobalSeed = backupSeed;
+    sSeed = backupSeed;
   }
 
   // IDTS - child particle systems spawned at death

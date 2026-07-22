@@ -19,6 +19,23 @@ class CModVectorElement;
 #pragma cpp_extensions on
 class CElementGen : public CParticleGen {
 public:
+  struct CParticleListItem {
+    ushort x0_partIdx;
+    CVector3f x4_viewPoint;
+
+    explicit CParticleListItem(short partIdx, const CVector3f& viewPoint)
+    : x0_partIdx(partIdx), x4_viewPoint(viewPoint) {}
+  };
+
+  struct CTexturedParticleListItem {
+    ushort x0_texMapIdx;
+    ushort x2_partIdx;
+    CVector3f x4_viewPoint;
+
+    explicit CTexturedParticleListItem(short texMapIdx, short partIdx, const CVector3f& viewPoint)
+    : x0_texMapIdx(texMapIdx), x2_partIdx(partIdx), x4_viewPoint(viewPoint) {}
+  };
+
   enum EModelOrientationType {
     kMOT_Normal,
     kMOT_One,
@@ -132,6 +149,8 @@ public:
   static void SetSubtractBlend(bool subtract) { sSubtractBlend = subtract; }
   static void SetMoveRedToAlphaBuffer(const bool move) { sMoveRedToAlphaBuffer = move; }
 
+  static void SetGlobalSeed(const ushort seed) { sSeed = seed; }
+
 private:
   TLockedToken< CGenDescription > x1c_genDesc;
   CGenDescription* x28_loadedGenDesc;
@@ -215,6 +234,8 @@ private:
   float x334_LSLA;
   CColor x338_moduColor;
 
+  static double kKickTime;
+  static ushort sSeed;
   static int mParticleAliveCount;
   static int mParticleSystemAliveCount;
   static bool sSubtractBlend;
