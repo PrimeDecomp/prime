@@ -14,17 +14,17 @@
 
 #pragma inline_max_size(200)
 
+static CStaticAudioPlayer* sCurrentPlayer = nullptr;
 static rstl::reserved_vector< FAudioCallback, 4 > sAICallbacks;
-static bool sDMACallbackInstalled;
-static FAudioCallback sOldDMACallback;
-CStaticAudioPlayer* sCurrentPlayer = nullptr;
+static bool sDMACallbackInstalled ATTRIBUTE_ALIGN(8) = false;
+static FAudioCallback sOldDMACallback = nullptr;
 
 void CStaticAudioPlayer::InstallAICallback() {
   bool old = CAudioSys::IsAICallbackEnabled();
   CAudioSys::EnableAICallback(true);
 
   if (!sDMACallbackInstalled && sAICallbacks.size() != 0) {
-    sOldDMACallback = AIRegisterDMACallback(CStaticAudioPlayer::AICallback);
+    sOldDMACallback = AIRegisterDMACallback(AICallback);
     sDMACallbackInstalled = true;
   } else if (sDMACallbackInstalled && sAICallbacks.size() == 0) {
     AIRegisterDMACallback(sOldDMACallback);
