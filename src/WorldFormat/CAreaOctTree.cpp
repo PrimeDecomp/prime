@@ -3,6 +3,10 @@
 #include "Kyoto/Math/CAABox.hpp"
 #include "Kyoto/Streams/CMemoryInStream.hpp"
 
+const ushort* CAreaOctTree::GetTriangleEdgeIndices(ushort idx) const {
+  return &x44_polyEdges[idx * 3];
+}
+
 static CAABox BoxFromIndex(int index, const CVector3f& a, const CVector3f& b, const CVector3f& c) {
   switch (index) {
   case 0:
