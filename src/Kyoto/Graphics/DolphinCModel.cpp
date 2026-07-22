@@ -110,9 +110,13 @@ CFactoryFnReturn FModelFactory(const SObjectTag& tag, const rstl::auto_ptr< ucha
   return rs_new CModel(ptr, len, *pool);
 }
 
-const void* CModel::GetPositions() const { return x28_modelInstance->GetPositions(); }
+const float* CModel::GetPositions() const {
+  return static_cast< const float* >(x28_modelInstance->GetPositions());
+}
 
-const void* CModel::GetNormals() const { return x28_modelInstance->GetNormals(); }
+const float* CModel::GetNormals() const {
+  return static_cast< const float* >(x28_modelInstance->GetNormals());
+}
 
 void CModel::Touch(int shader) const {
   MoveToThisFrameList();
@@ -204,4 +208,4 @@ void CModel::DisableTextureTimeout() { sIsTextureTimeoutEnabled = false; }
 
 void CModel::EnableTextureTimeout() { sIsTextureTimeoutEnabled = true; }
 
-void CModel::UpdateLastFrame() { x38_lastFrame = CGraphics::GetFrameCounter(); }
+void CModel::UpdateLastFrame() const { x38_lastFrame = CGraphics::GetFrameCounter(); }

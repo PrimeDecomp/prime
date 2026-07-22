@@ -35,9 +35,9 @@ public:
   void Draw(const CModelFlags&) const;
   void Draw(const float* positions, const float* normals, const CModelFlags& flags) const;
   bool IsLoaded(int matIdx) const;
-  const void* GetPositions() const;
-  const void* GetNormals() const;
-  void UpdateLastFrame();
+  const float* GetPositions() const;
+  const float* GetNormals() const;
+  void UpdateLastFrame() const;
 
   const CCubeModel* GetCubeModel() const { return x28_modelInstance.get(); }
 
@@ -70,7 +70,7 @@ private:
   ushort x2e_lastMaterialFrame;
   mutable CModel* x30_prev;
   mutable CModel* x34_next;
-  uint x38_lastFrame;
+  mutable uint x38_lastFrame;
 };
 
 CFactoryFnReturn FModelFactory(const SObjectTag& tag, const rstl::auto_ptr< uchar >& ptr, int len,
