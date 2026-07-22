@@ -14,47 +14,44 @@
 
 #pragma inline_max_size(200)
 
-extern "C" bool fn_8034A7A4();
-extern "C" void fn_8034A7AC(bool);
-
-static rstl::reserved_vector< FAudioCallback, 4 > sDvdRequests;
+static rstl::reserved_vector< FAudioCallback, 4 > sAICallbacks;
 static bool sDMACallbackInstalled;
 static FAudioCallback sOldDMACallback;
 CStaticAudioPlayer* sCurrentPlayer = nullptr;
 
-extern "C" void fn_8036C87C() {
-  sOldDMACallback();
+void CStaticAudioPlayer::InstallAICallback() {
+  bool old = CAudioSys::IsAICallbackEnabled();
+  CAudioSys::EnableAICallback(true);
 
-  for (int i = 0; i < sDvdRequests.size(); ++i) {
-    sDvdRequests[i]();
-  }
-}
-
-extern "C" void fn_8036C8F0() {
-  bool old = fn_8034A7A4();
-  fn_8034A7AC(true);
-
-  if (!sDMACallbackInstalled && sDvdRequests.size() != 0) {
-    sOldDMACallback = AIRegisterDMACallback(fn_8036C87C);
+  if (!sDMACallbackInstalled && sAICallbacks.size() != 0) {
+    sOldDMACallback = AIRegisterDMACallback(CStaticAudioPlayer::AICallback);
     sDMACallbackInstalled = true;
-  } else if (sDMACallbackInstalled && sDvdRequests.size() == 0) {
+  } else if (sDMACallbackInstalled && sAICallbacks.size() == 0) {
     AIRegisterDMACallback(sOldDMACallback);
     sOldDMACallback = 0;
     sDMACallbackInstalled = false;
   }
 
-  fn_8034A7AC(old);
+  CAudioSys::EnableAICallback(old);
+}
+
+void CStaticAudioPlayer::AICallback() {
+  sOldDMACallback();
+
+  for (int i = 0; i < sAICallbacks.size(); ++i) {
+    sAICallbacks[i]();
+  }
 }
 
 void CStaticAudioPlayer::RunDMACallback(const FAudioCallback callback) {
   volatile const bool old = OSDisableInterrupts();
   const rstl::reserved_vector< FAudioCallback, 4 >::iterator it =
-      rstl::find(sDvdRequests.begin(), sDvdRequests.end(), callback);
-  if (it == sDvdRequests.end()) {
-    sDvdRequests.push_back(callback);
+      rstl::find(sAICallbacks.begin(), sAICallbacks.end(), callback);
+  if (it == sAICallbacks.end()) {
+    sAICallbacks.push_back(callback);
   }
 
-  fn_8036C8F0();
+  InstallAICallback();
   OSRestoreInterrupts(old);
 }
 
@@ -62,12 +59,12 @@ void CStaticAudioPlayer::CancelDMACallback(FAudioCallback callback) {
   volatile const bool old = OSDisableInterrupts();
 
   const rstl::reserved_vector< FAudioCallback, 4 >::iterator it =
-      rstl::find(sDvdRequests.begin(), sDvdRequests.end(), callback);
-  if (it != sDvdRequests.end()) {
-    sDvdRequests.erase(it);
+      rstl::find(sAICallbacks.begin(), sAICallbacks.end(), callback);
+  if (it != sAICallbacks.end()) {
+    sAICallbacks.erase(it);
   }
 
-  fn_8036C8F0();
+  InstallAICallback();
   OSRestoreInterrupts(old);
 }
 

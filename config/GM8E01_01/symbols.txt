@@ -15305,8 +15305,8 @@ __ct__18CStaticAudioPlayerFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24
 reserve__Q24rstl67vector<Q24rstl23auto_ptr<11CDvdRequest>,Q24rstl17rmemory_allocator>Fi = .text:0x8036C7C0; // type:function size:0x120 scope:global
 CancelDMACallback__18CStaticAudioPlayerFPFv_v = .text:0x8036C8E0; // type:function size:0xD8 scope:global
 RunDMACallback__18CStaticAudioPlayerFPFv_v = .text:0x8036C9B8; // type:function size:0xA0 scope:global
-fn_8036C87C = .text:0x8036CA58; // type:function size:0x74 scope:global
-fn_8036C8F0 = .text:0x8036CACC; // type:function size:0xA4 scope:global
+AICallback__18CStaticAudioPlayerFv = .text:0x8036CA58; // type:function size:0x74 scope:global
+InstallAICallback__18CStaticAudioPlayerFv = .text:0x8036CACC; // type:function size:0xA4 scope:global
 __sinit_CStaticAudioPlayer_cpp = .text:0x8036CB70; // type:function size:0x3C scope:global
 fn_8036C9D0 = .text:0x8036CBAC; // type:function size:0x94 scope:global
 __dl__8IElementFPvUl = .text:0x8036CC40; // type:function size:0x20 scope:global
