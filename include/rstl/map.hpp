@@ -15,12 +15,13 @@ public:
 
 private:
   // TODO: some things use a 0, others use a 1
-  typedef red_black_tree< K, value_type, 0, select1st< value_type >, Cmp, Alloc > rep_type;
+  typedef red_black_tree< K, value_type, IS_PRIME_TYPE(V), select1st< value_type >, Cmp, Alloc >
+      rep_type;
 
 public:
   typedef typename rep_type::iterator iterator;
   typedef typename rep_type::const_iterator const_iterator;
-  
+
   map() {};
   map(CInputStream& in, const Cmp& cmp = Cmp(), const Alloc& alloc = Alloc());
   ~map() {}

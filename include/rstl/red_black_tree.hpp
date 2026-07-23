@@ -19,7 +19,26 @@ void rbtree_rebalance(void*, void*);
 void* rbtree_traverse_forward(const void*, void*);
 void* rbtree_rebalance_for_erase(void* header_void, void* node_void);
 
-template < typename T, typename P, int U, typename S = select1st< P >, typename Cmp = less< T >,
+template < bool, unsigned int N, unsigned int D >
+struct is_prime {
+  enum { value = (N % D == 0) ? 0 : is_prime< (D * D < N), N, D + 1 >::value };
+};
+
+template < unsigned int N, unsigned int D >
+struct is_prime< false, N, D > {
+  enum { value = 1 };
+};
+
+template < unsigned int N >
+struct is_prime_v {
+  enum { value = (N <= 1) ? 0 : (N == 2 || N == 3) ? 1 : is_prime< (2 * 2 < N), N, 2 >::value };
+};
+
+#define IS_PRIME(N) (is_prime_v< (N) >::value)
+
+#define IS_PRIME_TYPE(Type) (is_prime_v< sizeof(Type) >::value)
+
+template < typename T, typename P, int Prime, typename S = select1st< P >, typename Cmp = less< T >,
            typename Alloc = rmemory_allocator >
 class red_black_tree {
 private:
