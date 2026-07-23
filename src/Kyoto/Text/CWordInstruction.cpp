@@ -49,8 +49,8 @@ void CWordInstruction::InvokeLTR(CFontRenderState& state) const {
     break;
   }
 
+  int y = state.GetLine()->GetY() - state.GetFont()->GetCarriageAdvance();
   int x = state.GetX();
-  int y = state.GetY() - state.GetFont()->GetCarriageAdvance();
-  state.GetFont()->DrawSpace(state.GetOptions(), x, y + state.GetLine()->GetY(), x, height, width);
+  state.GetFont()->DrawSpace(state.GetOptions(), x, y + state.GetY(), x, height, width);
   state.SetX(x);
 }

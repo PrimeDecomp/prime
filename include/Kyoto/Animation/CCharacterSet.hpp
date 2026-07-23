@@ -10,10 +10,10 @@ class CInputStream;
 class CCharacterSet {
 public:
   CCharacterSet(CInputStream& in);
-  ~CCharacterSet() {}
+  //~CCharacterSet();
 
 private:
-  uint mUnk;
-  rstl::map< int, CCharacterInfo > mCharacters;
+  ushort mTableCount;
+  rstl::vector< rstl::pair< int, CCharacterInfo > > mCharacters;
 };
 #endif // _CCHARACTERSET
