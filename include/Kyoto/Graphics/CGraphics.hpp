@@ -274,6 +274,9 @@ public:
 
   static bool Startup(const COsContext& osContext, uint fifoSize, void* fifoBase);
   static GXTexRegion* TexRegionCallback(const GXTexObj* obj, GXTexMapID id);
+#if VERSION >= 4
+  static void InitGraphicsFifo(GXFifoObj* obj, void* base, uint fifoSize);
+#endif
   static void InitGraphicsVariables();
   static void Shutdown();
   static void InitGraphicsDefaults();
@@ -438,6 +441,9 @@ private:
   static GXTexRegionCallback mGXDefaultTexRegionCallback;
   static void* mpFifo;
   static GXFifoObj* mpFifoObj;
+#if VERSION >= 4
+  static uint mFifoSize;
+#endif
   static uint mRenderTimings;
   static float mSecondsMod900;
   static CTimeProvider* mpExternalTimeProvider;

@@ -90,13 +90,6 @@ void CFontRenderState::PopState() {
   RefreshPalette();
 }
 
-#ifdef __MWERKS__
-#pragma cpp_extensions reset
-#endif
 uint CFontRenderState::ConvertToTextureSpace(const CTextColor& color) const {
   return CTextColor(color).GetRGBA();
 }
-
-#ifdef __MWERKS__
-#pragma cpp_extensions reset
-#endif

@@ -44,7 +44,7 @@ DISABLED_VERSIONS = [
     # 1,
     # 2,
     # 3,
-    4,
+    # 4,
     5,
     6,
     7,
@@ -479,7 +479,7 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "MetroTRK/nubinit.c"
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "MetroTRK/mslsupp.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8J01_00", "GM8E01_48"), "MetroTRK/mslsupp.c"
             ),
         ],
     ),
@@ -490,7 +490,7 @@ config.libs = [
             Object(NonMatching, "MetroidPrime/main.cpp"),
             Object(NonMatching, "MetroidPrime/Cameras/CCameraManager.cpp"),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CControlMapper.cpp"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8J01_00"), "MetroidPrime/CControlMapper.cpp"
             ),
             Object(NonMatching, "MetroidPrime/Cameras/CFirstPersonCamera.cpp"),
             Object(
@@ -1653,7 +1653,7 @@ config.libs = [
             Object(NonMatching, "Kyoto/Math/CFrustumPlanes.cpp"),
             Object(NonMatching, "Kyoto/Graphics/CCubeMaterial.cpp"),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8J01_00", "GM8E01_48"),
                 "Kyoto/Graphics/CCubeSurface.cpp",
             ),
             Object(
@@ -1908,7 +1908,7 @@ config.libs = [
         "os",
         [
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8J01_00", "GM8E01_48"),
                 "dolphin/os/__start.c",
             ),
             Object(

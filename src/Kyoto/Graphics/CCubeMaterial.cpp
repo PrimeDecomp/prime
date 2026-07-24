@@ -19,7 +19,7 @@ void __memcpy(void*, const void*, int);
 
 #include "Kyoto/Math/CTransform4f.hpp"
 
-CVector3f sPlayerPosition = CVector3f::Zero();
+static CVector3f sPlayerPosition = CVector3f::Zero();
 CVector3f CCubeMaterial::sViewingFrom = CVector3f::Zero();
 static uint sLastMaterialUnique = static_cast< uint >(~0);
 static int sMaterialCachedState = 0;

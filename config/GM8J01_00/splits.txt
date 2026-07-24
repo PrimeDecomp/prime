@@ -1,0 +1,239 @@
+Sections:
+	.init       type:code align:32
+	extab       type:rodata align:32
+	extabindex  type:rodata align:32
+	.text       type:code align:32
+	.ctors      type:rodata align:32
+	.dtors      type:rodata align:32
+	.rodata     type:rodata align:32
+	.data       type:data align:32
+	.bss        type:bss align:32
+	.sdata      type:data align:32
+	.sbss       type:bss align:32
+	.sdata2     type:rodata align:32
+	.sbss2      type:bss align:32
+
+MetroTRK/mslsupp.c:
+	.text       start:0x80003640 end:0x80003658
+
+MetroidPrime/main.cpp:
+	.text       start:0x80003658 end:0x80009218
+	.rodata     start:0x803B6F00 end:0x803B8118
+	.bss        start:0x803E03E0 end:0x80440780
+
+MetroidPrime/Cameras/CCameraManager.cpp:
+	.text       start:0x80009218 end:0x8000CFF0
+	.rodata     start:0x803B8118 end:0x803B8120
+
+MetroidPrime/CControlMapper.cpp:
+	.text       start:0x8000CFF0 end:0x8000E94C
+	.ctors      start:0x803B6D04 end:0x803B6D08
+	.rodata     start:0x803B8120 end:0x803B8510
+	.data       start:0x803C52F8 end:0x803C5AA0
+	.bss        start:0x80440780 end:0x80440790
+	.bss        start:0x80553600 end:0x80553648 align:4 common
+	.sdata      start:0x8058FC50 end:0x8058FC58
+	.sdata2     start:0x80592EA8 end:0x80592EB0
+
+MetroidPrime/CAxisAngle.cpp:
+	.bss        start:0x80553648 end:0x80553654 align:4 common
+
+MetroidPrime/CEulerAngles.cpp:
+	.bss        start:0x80553654 end:0x80553660 align:4 common
+
+MetroidPrime/CAnimData.cpp:
+	.bss        start:0x80553660 end:0x80556464 align:4 common
+
+MetroidPrime/Player/CPlayerGun.cpp:
+	.bss        start:0x80556464 end:0x80556470 align:4 common
+
+MetroidPrime/CEntity.cpp:
+	.bss        start:0x80556470 end:0x80556480 align:4 common
+
+MetroidPrime/Weapons/CPlasmaBeam.cpp:
+	.bss        start:0x80556480 end:0x80556554 align:4 common
+
+MetroidPrime/Player/CMorphBall.cpp:
+	.bss        start:0x80556554 end:0x805565D8 align:4 common
+
+MetroidPrime/CDamageVulnerability.cpp:
+	.bss        start:0x805565D8 end:0x805568B0 align:4 common
+
+MetroidPrime/CDecalManager.cpp:
+	.bss        start:0x805568B0 end:0x805588BC align:4 common
+
+MetroidPrime/Enemies/CSpacePirate.cpp:
+	.bss        start:0x805588BC end:0x80558914 align:4 common
+
+MetroidPrime/CFluidPlaneManager.cpp:
+	.bss        start:0x80558914 end:0x8055AA2C align:4 common
+
+MetroidPrime/Enemies/CChozoGhost.cpp:
+	.bss        start:0x8055AA2C end:0x8055AA48 align:4 common
+
+MetroidPrime/Cameras/CCameraShakeData.cpp:
+	.bss        start:0x8055AA48 end:0x8055ACC4 align:4 common
+
+MetroidPrime/Enemies/CMetroid.cpp:
+	.bss        start:0x8055ACC4 end:0x8055B06C align:4 common
+
+MetroidPrime/Weapons/CFlameThrower.cpp:
+	.bss        start:0x8055B06C end:0x8055B078 align:4 common
+
+MetroidPrime/Enemies/CIceSheegoth.cpp:
+	.bss        start:0x8055B078 end:0x8055B084 align:4 common
+
+MetroidPrime/Enemies/CFlaahgra.cpp:
+	.bss        start:0x8055B084 end:0x8055B0A8 align:4 common
+
+MetroidPrime/Enemies/CMetroidBeta.cpp:
+	.bss        start:0x8055B0A8 end:0x8055B0CC align:4 common
+
+MetroidPrime/Enemies/CThardus.cpp:
+	.bss        start:0x8055B0CC end:0x8055B0D8 align:4 common
+
+MetroidPrime/Enemies/CFlyingPirate.cpp:
+	.bss        start:0x8055B0D8 end:0x8055B188 align:4 common
+
+MetroidPrime/Enemies/CBabygoth.cpp:
+	.bss        start:0x8055B188 end:0x8055B194 align:4 common
+
+MetroidPrime/ScriptObjects/CScriptCameraPitchVolume.cpp:
+	.bss        start:0x8055B194 end:0x8055B1A0 align:4 common
+
+MetroidPrime/RumbleFxTable.cpp:
+	.bss        start:0x8055B1A0 end:0x8055B440 align:4 common
+
+MetroidPrime/Enemies/CElitePirate.cpp:
+	.bss        start:0x8055B440 end:0x8055B464 align:4 common
+
+MetroidPrime/Enemies/CRidley.cpp:
+	.bss        start:0x8055B464 end:0x8055B674 align:4 common
+
+MetroidPrime/Enemies/CTryclops.cpp:
+	.bss        start:0x8055B674 end:0x8055B6F4 align:4 common
+
+MetroidPrime/Enemies/CBurrower.cpp:
+	.bss        start:0x8055B6F4 end:0x8055B75C align:4 common
+
+MetroidPrime/ScriptObjects/CScriptMazeNode.cpp:
+	.bss        start:0x8055B75C end:0x8055BC0C align:4 common
+
+WorldFormat/CMetroidAreaCollider.cpp:
+	.bss        start:0x8055BC0C end:0x80588C0C align:4 common
+
+WorldFormat/CWorldLight.cpp:
+	.bss        start:0x80588C0C end:0x80588C30 align:4 common
+
+GuiSys/CGuiGroup.cpp:
+	.bss        start:0x80588C30 end:0x80588D68 align:4 common
+
+GuiSys/CGuiWidgetDrawParms.cpp:
+	.bss        start:0x80588D68 end:0x80588D78 align:4 common
+
+Collision/CMaterialFilter.cpp:
+	.bss        start:0x80588D78 end:0x80588D90 align:4 common
+
+Kyoto/Basics/CStopwatch.cpp:
+	.bss        start:0x80588D90 end:0x80588DA8 align:4 common
+
+Kyoto/Audio/CSfxManager.cpp:
+	.bss        start:0x80588DA8 end:0x8058E428 align:4 common
+
+Kyoto/Graphics/CLight.cpp:
+	.bss        start:0x8058E428 end:0x8058E44C align:4 common
+
+Kyoto/Graphics/CGX.cpp:
+	.bss        start:0x8058E44C end:0x8058E6AC align:4 common
+
+Kyoto/Graphics/CTevCombiners.cpp:
+	.bss        start:0x8058E6AC end:0x8058E6F8 align:4 common
+
+Kyoto/Graphics/DolphinCGraphics.cpp:
+	.text       start:0x802F3FB4 end:0x802F8AD4
+	.ctors      start:0x803B6E58 end:0x803B6E5C
+	.rodata     start:0x803C3810 end:0x803C3830
+	.data       start:0x803D6728 end:0x803D67AC
+	.bss        start:0x80462D20 end:0x804A8D70
+	.bss        start:0x8058E6F8 end:0x8058F65C align:4 common
+	.sdata      start:0x805918C0 end:0x805918E4
+	.sbss       start:0x80592428 end:0x805924EC
+	.sdata2     start:0x80597820 end:0x80597870
+
+Kyoto/Math/CMatrix3f.cpp:
+	.bss        start:0x8058F65C end:0x8058F680 align:4 common
+
+Kyoto/Math/CMatrix4f.cpp:
+	.bss        start:0x8058F680 end:0x8058F6C0 align:4 common
+
+Kyoto/Math/CQuaternion.cpp:
+	.bss        start:0x8058F6C0 end:0x8058F6D0 align:4 common
+
+Kyoto/Math/CTransform4f.cpp:
+	.bss        start:0x8058F6D0 end:0x8058F700 align:4 common
+
+Kyoto/Math/CVector3f.cpp:
+	.bss        start:0x8058F700 end:0x8058F79C align:4 common
+
+Kyoto/Particles/CParticleDataFactory.cpp:
+	.bss        start:0x8058F79C end:0x8058F7B4 align:4 common
+
+Kyoto/Math/CAABox.cpp:
+	.text       start:0x80321AB0 end:0x80322ADC
+	.ctors      start:0x803B6E80 end:0x803B6E84
+	.data       start:0x803D7130 end:0x803D7180
+	.bss        start:0x8058F7B4 end:0x8058F7FC align:4 common
+	.sdata2     start:0x80597BC0 end:0x80597BD8
+	.sbss2      start:0x80598818 end:0x80598820
+
+Kyoto/CARAMManager.cpp:
+	.text       start:0x8032EC60 end:0x8032F674
+	.ctors      start:0x803B6E90 end:0x803B6E94
+	.rodata     start:0x803C4368 end:0x803C4370
+	.bss        start:0x804A8FA0 end:0x804A8FB0
+	.bss        start:0x8058F7FC end:0x8058F814 align:4 common
+	.sdata      start:0x805919C0 end:0x805919C4
+	.sbss       start:0x805925F8 end:0x80592618
+	.sdata2     start:0x80597BD8 end:0x80597BE8
+
+Kyoto/Math/CFrustumPlanes.cpp:
+	.text       start:0x8032F674 end:0x8032FDF0
+	.sdata2     start:0x80597BE8 end:0x80597BF0
+
+Kyoto/Graphics/CCubeMaterial.cpp:
+	.text       start:0x8032FDF0 end:0x80332490
+	.ctors      start:0x803B6E94 end:0x803B6E98
+	.rodata     start:0x803C4370 end:0x803C44F0
+	.data       start:0x803D8428 end:0x803D8478
+	.bss        start:0x804A8FB0 end:0x804A8FF0
+	.bss        start:0x8058F814 end:0x8058F820 align:4 common
+	.sdata      start:0x805919C8 end:0x805919D8
+	.sbss       start:0x80592618 end:0x80592640
+	.sdata2     start:0x80597BF0 end:0x80597C50
+
+Kyoto/Graphics/CCubeSurface.cpp:
+	.text       start:0x80332490 end:0x80332514
+	.ctors      start:0x803B6E98 end:0x803B6E9C
+	.bss        start:0x8058F820 end:0x8058F82C align:4 common
+	.sdata2     start:0x80597C50 end:0x80597C58
+
+Kyoto/Audio/DolphinCAudioSys.cpp:
+	.bss        start:0x8058F82C end:0x8058F83C align:4 common
+
+Kyoto/DolphinCMemoryCardSys.cpp:
+	.bss        start:0x8058F83C end:0x8058F86C align:4 common
+
+Kyoto/CARAMToken.cpp:
+	.bss        start:0x8058F86C end:0x8058F888 align:4 common
+
+Kyoto/Audio/CMidiManager.cpp:
+	.bss        start:0x8058F888 end:0x8058F8C0 align:4 common
+
+Kyoto/Audio/CDSPStreamManager.cpp:
+	.bss        start:0x8058F8C0 end:0x8058FBC0 align:4 common
+
+Kyoto/Audio/CStreamAudioManager.cpp:
+	.bss        start:0x8058FBC0 end:0x8058FC10 align:4 common
+
+dolphin/os/__start.c:
+	.init       start:0x80003100 end:0x80003354

@@ -16,6 +16,9 @@
 
 #include <string.h>
 
+#if VERSION == 4 // JP
+#pragma inline_max_size(100)
+#endif
 bool CGraphicsSys::mGraphicsInitialized;
 static CStopwatch sFPSTimer;
 static uchar sSpareFrameBuffer[640 * 448] ATTRIBUTE_ALIGN(32);
@@ -235,6 +238,9 @@ int CGraphics::mSpareBufferTexCacheSize;
 GXTexRegionCallback CGraphics::mGXDefaultTexRegionCallback;
 void* CGraphics::mpFifo;
 GXFifoObj* CGraphics::mpFifoObj;
+#if VERSION >= 4
+uint CGraphics::mFifoSize = 0;
+#endif
 uint CGraphics::mRenderTimings;
 float CGraphics::mSecondsMod900;
 CTimeProvider* CGraphics::mpExternalTimeProvider;
@@ -260,10 +266,25 @@ bool CGraphics::mUseVideoFilter = true;
 float CGraphics::mBrightness = 1.f;
 
 const GXTexMapID CGraphics::kSpareBufferTexMapID = GX_TEXMAP7;
+#if VERSION >= 4
+void CGraphics::InitGraphicsFifo(GXFifoObj* obj, void* fifo, uint fifoSize) {
+  GXFifoObj fifoObj;
+  GXInitFifoBase(&fifoObj, fifo, fifoSize);
+  GXSetCPUFifo(&fifoObj);
+  GXSetGPFifo(&fifoObj);
+  GXInitFifoLimits(obj, fifoSize - 0x4000, fifoSize - 0x10000);
+  GXSetCPUFifo(obj);
+  GXSetGPFifo(obj);
+}
+#endif
 
 bool CGraphics::Startup(const COsContext& osContext, uint fifoSize, void* fifoBase) {
   mpFifo = fifoBase;
   mpFifoObj = GXInit(fifoBase, fifoSize);
+#if VERSION >= 4
+  mFifoSize = fifoSize;
+  InitGraphicsFifo(mpFifoObj, mpFifo, fifoSize);
+#else
   GXFifoObj fifoObj;
   GXInitFifoBase(&fifoObj, mpFifo, fifoSize);
   GXSetCPUFifo(&fifoObj);
@@ -273,6 +294,8 @@ bool CGraphics::Startup(const COsContext& osContext, uint fifoSize, void* fifoBa
   GXSetGPFifo(mpFifoObj);
   GXSetMisc(GX_MT_XF_FLUSH, 8);
   GXSetDither(GX_FALSE);
+#endif
+
   CGX::ResetGXStates();
   InitGraphicsVariables();
   ConfigureFrameBuffer(osContext);
@@ -1220,10 +1243,9 @@ void CGraphics::SetDepthRange(float near, float far) {
                 mDepthNear, mDepthFar);
 }
 
-static inline GXTevStageID get_texture_unit(ERglTevStage stage) {
-#if NONMATCHING
-  // one instruction, no branches
-  return static_cast< GXTevStageID >(stage & (GX_MAX_TEVSTAGE - 1));
+static inline GXTevStageID get_texture_unit(const ERglTevStage stage) {
+#if VERSION >= 4
+  return static_cast< GXTevStageID >(stage);
 #else
   if (stage == kTS_Stage0) {
     return GX_TEVSTAGE0;
