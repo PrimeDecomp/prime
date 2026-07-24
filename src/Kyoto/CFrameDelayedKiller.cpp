@@ -56,4 +56,6 @@ Something::Something() : unk1(256), unk2(0), unk3(0) {}
 
 bool Something::fn_8036CB50(uint x) { return unk1 > unk2 + (x + 3) / 4; }
 
-bool Something::fn_8036CB28(uint x) {}
+bool Something::fn_8036CB28(uint x) {
+  return false;
+}

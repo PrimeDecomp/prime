@@ -30,7 +30,8 @@ class CPreAdvanceIndicator {
   ushort x3c_;
 
 public:
-  explicit CPreAdvanceIndicator(const CCharAnimTime& time) : mIsTime(true), mTime(time), mString(0) {}
+  explicit CPreAdvanceIndicator(const CCharAnimTime& time)
+  : mIsTime(true), mTime(time), mString(0) {}
   explicit CPreAdvanceIndicator(const char* string) : mIsTime(false), mString(string) {}
   bool IsTime() const;
   const CCharAnimTime& GetTime() const;
@@ -53,11 +54,11 @@ class IMetaAnim {
 public:
   virtual ~IMetaAnim() {}
 
-  virtual rstl::rc_ptr< CAnimTreeNode >
+  virtual rstl::ncrc_ptr< CAnimTreeNode >
   GetAnimationTree(const CAnimSysContext& animSys, const CMetaAnimTreeBuildOrders& orders) const;
   virtual void GetUniquePrimitives(rstl::set< CPrimitive >& primsOut) const = 0;
   virtual EMetaAnimType GetType() const = 0;
-  virtual rstl::rc_ptr< CAnimTreeNode >
+  virtual rstl::ncrc_ptr< CAnimTreeNode >
   VGetAnimationTree(const CAnimSysContext& animSys,
                     const CMetaAnimTreeBuildOrders& orders) const = 0;
 

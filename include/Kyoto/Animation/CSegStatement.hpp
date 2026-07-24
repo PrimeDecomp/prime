@@ -9,6 +9,11 @@ struct CSegStatement {
 public:
   void SetStatus(uint status) { mStatus = status; }
 
+  void Set(const CVector3f& offset) {
+    mOffset = offset;
+    mStatus = 1;
+  }
+
 public:
   CQuaternion mRotation;
   CVector3f mOffset;

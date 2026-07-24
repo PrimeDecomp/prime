@@ -146,7 +146,9 @@ CMoviePlayer::~CMoviePlayer() {
 void CMoviePlayer::DecodeFromRead(const void* ptr) {}
 void CMoviePlayer::Update(float dt) {}
 bool CMoviePlayer::DrawFrame(const CVector3f&, const CVector3f&, const CVector3f&,
-                             const CVector3f&) {}
+                             const CVector3f&) {
+  return false;
+}
 void CMoviePlayer::SetPlayMode(const EPlayMode mode) { xe0_playMode = mode; }
 
 float CMoviePlayer::GetTotalSeconds() const { return xe4_totalSeconds; }

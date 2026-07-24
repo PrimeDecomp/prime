@@ -17,6 +17,8 @@ rstl::pair< rstl::auto_ptr< uchar >, int > GetScriptingMemoryAlways(const IGameA
   if (!resource || *(uint*)(buf.get()) != 0xdeadbeef) {
     return rstl::pair< rstl::auto_ptr< uchar >, int >(nullptr, 0);
   }
+  
+  return rstl::pair< rstl::auto_ptr< uchar >, int >();
 }
 
 CGameArea::CPostConstructed::CPostConstructed() {}

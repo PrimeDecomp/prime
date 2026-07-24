@@ -60,7 +60,7 @@ public:
   iterator insert(iterator it, const T& value);
 
   template < typename from_iterator >
-  iterator insert(iterator it, from_iterator begin, from_iterator end);
+  void insert(iterator it, from_iterator begin, from_iterator end);
 
   // iterator erase(iterator it);
   // iterator erase(iterator first, iterator last);
@@ -135,13 +135,12 @@ typename vector< T, Alloc >::iterator vector< T, Alloc >::insert(iterator it, co
   typename iterator::difference_type diff = it.operator->() - xc_items;
   const_counting_iterator< T > in(&value, 0);
   insert_into(it, 1, in);
-  return iterator(xc_items + diff);
+  return iterator(xc_items) + diff;
 }
 
 template < typename T, typename Alloc >
 template < typename from_iterator >
-typename vector< T, Alloc >::iterator vector< T, Alloc >::insert(iterator it, from_iterator begin,
-                                                                 from_iterator end) {
+void vector< T, Alloc >::insert(iterator it, from_iterator begin, from_iterator end) {
   insert_into(it, rstl::distance(begin, end), begin);
 }
 

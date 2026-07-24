@@ -4,45 +4,45 @@
 
 #include "Kyoto/Alloc/CMemory.hpp"
 
-#include <string.h>
 #include <stdint.h>
+#include <string.h> 
 
-
-COutputStream::COutputStream(int len)
+COutputStream::COutputStream(const int len)
 : mUnwrittenLen(0)
 , mBufLen(len)
-, mBufPtr(len > 64 ? rs_new uchar[len] : &mScratch[32 - (uintptr_t)(mScratch) % 31])
+, mBufPtr(len > 64 ? rs_new uchar[len]
+                   : &mScratch[32 - reinterpret_cast< uintptr_t >(mScratch) % 31])
 , mNumWrites(0)
 , mShiftRegister(0)
-, mShiftRegisterOffset(32) {}
+, mShiftRegisterOffset(32), mScratch() {}
 
 COutputStream::~COutputStream() {
   if (mBufLen > 64) {
-    delete mBufPtr;
+    delete[] static_cast<const uchar*>(mBufPtr);
   }
 }
 
-void COutputStream::DoPut(const void* ptr, size_t len) {
-  uint offset;
-  uchar* offsetPtr;
+void COutputStream::DoPut(const void* ptr, const size_t len) {
+  uint offset = 0;
+  const uchar* offsetPtr = nullptr;
   uint tempLen = len;
   if (tempLen != 0) {
     mNumWrites += tempLen;
     if (tempLen + mUnwrittenLen <= mBufLen) {
-      memcpy((uchar*)mBufPtr + mUnwrittenLen, ptr, tempLen);
+      memcpy(static_cast< uchar* >(mBufPtr) + mUnwrittenLen, ptr, tempLen);
       mUnwrittenLen += tempLen;
       return;
     }
 
-    offsetPtr = (uchar*)ptr + tempLen;
+    offsetPtr = static_cast< const uchar* >(ptr) + tempLen;
     while (tempLen != 0) {
-      uint count = mBufLen - mUnwrittenLen;
+      const uint count = mBufLen - mUnwrittenLen;
       offset = count;
       if (tempLen < count) {
         offset = tempLen;
       }
       if (offset != 0) {
-        memcpy((uchar*)mBufPtr + mUnwrittenLen, (offsetPtr - tempLen), offset);
+        memcpy(static_cast< uchar* >(mBufPtr) + mUnwrittenLen, offsetPtr - tempLen, offset);
 
         tempLen -= offset;
         mUnwrittenLen += offset;
@@ -67,28 +67,28 @@ void COutputStream::DoFlush() {
 
 void COutputStream::FlushShiftRegister() {
   if (mShiftRegisterOffset < 32) {
-    DoPut((void*)&mShiftRegister, min_containing_bytes(32 - mShiftRegisterOffset));
+    DoPut(&mShiftRegister, min_containing_bytes(32 - mShiftRegisterOffset));
     mShiftRegister = 0;
     mShiftRegisterOffset = 32;
   }
 }
 
-void COutputStream::WriteBits(uint value, uint bitCount) {
+void COutputStream::WriteBits(const uint val, const uint bitCount) {
 
-  uint registerOffset = mShiftRegisterOffset;
+  const uint registerOffset = mShiftRegisterOffset;
   if (registerOffset >= bitCount) {
-    int off = registerOffset - bitCount;
-    mShiftRegister |= ((value & (bitCount != 32 ? (1 << bitCount) - 1 : 0xffffffff)) << off);
+    const uint off = registerOffset - bitCount;
+    mShiftRegister |= (val & (bitCount != 32 ? (1 << bitCount) - 1 : 0xffffffff)) << off;
     mShiftRegisterOffset -= bitCount;
   } else {
-    uint shiftAmt = bitCount - registerOffset;
-    uint shiftA = value >> shiftAmt;
+    const uint shiftAmt = bitCount - registerOffset;
+    const uint shiftA = val >> shiftAmt;
 
-    mShiftRegister |= (shiftA & (registerOffset != 0x20 ? (1 << registerOffset) - 1 : 0xffffffff));
+    mShiftRegister |= shiftA & (registerOffset != 0x20 ? (1 << registerOffset) - 1 : 0xffffffff);
     mShiftRegisterOffset = 0;
     FlushShiftRegister();
-    int shift = (32 - shiftAmt);
-    mShiftRegister = (value & (shiftAmt != 32 ? (1 << shiftAmt) - 1 : 0xffffffff)) << shift;
+    const uint shift = 32 - shiftAmt;
+    mShiftRegister = (val & (shiftAmt != 32 ? (1 << shiftAmt) - 1 : 0xffffffff)) << shift;
     mShiftRegisterOffset -= shiftAmt;
   }
 }

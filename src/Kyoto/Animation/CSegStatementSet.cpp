@@ -8,15 +8,17 @@ int sFreeSegments = 31;
 inline void* AllocateSegment() {
   LCQueueWait(0);
   if (sFreeSegments) {
-    for (int i = 0; i < 5; ++i) {
+    for (uint i = 0; i < 5; ++i) {
       if ((sFreeSegments & (1 << i)) != 0) {
         sFreeSegments ^= (1 << i);
-        return (i * 0xc80) + static_cast< uchar* >(LCGetBase());
+        char* base = static_cast< char* >(LCGetBase());
+        base = (i * 0xc80) + base;
+        return base;
       }
     }
-  } else {
-    return CMemory::Alloc(0xc80);
   }
+
+  return CMemory::Alloc(0xc80);
 }
 inline void FreeSegment(CSegStatement* seg) {}
 } // namespace

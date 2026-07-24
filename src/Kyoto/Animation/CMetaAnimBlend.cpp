@@ -9,7 +9,7 @@ CMetaAnimBlend::CMetaAnimBlend(CInputStream& in)
 , xc_blend(in.ReadFloat())
 , x10_(in.ReadBool()) {}
 
-rstl::rc_ptr< CAnimTreeNode >
+rstl::ncrc_ptr< CAnimTreeNode >
 CMetaAnimBlend::VGetAnimationTree(const CAnimSysContext& animSys,
                                   const CMetaAnimTreeBuildOrders& orders) const {}
 
@@ -22,5 +22,5 @@ void CMetaAnimBlend::WriteAnimData(COutputStream& out) const {
   x4_animA->PutTo(out);
   x8_animB->PutTo(out);
   out.WriteReal32(xc_blend);
-  out.WriteChar(bool(x10_));
+  out.WriteBool(x10_);
 }

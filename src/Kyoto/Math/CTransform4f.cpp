@@ -575,9 +575,9 @@ CVector3f CTransform4f::TransposeRotate(register const CVector3f& in) const{
 
 CTransform4f CTransform4f::operator*(register const CTransform4f& xf) const {
 #if __MWERKS__
+  register CTransform4f* ret;
   // Assume RVO for return value
-  register const CTransform4f* ret;
-  // Hack to get around compiler error.
+    // Hack to get around compiler error.
   register const CTransform4f* thiz = this;
   __asm__ volatile {
     psq_l f0, CTransform4f.m00(thiz), 0, 0;
@@ -654,6 +654,7 @@ CTransform4f CTransform4f::operator*(register const CTransform4f& xf) const {
     psq_st f10, CTransform4f.m22(ret), 0, 0;
     // implicit return via RVO
   }
+  return *ret;
 #endif
 }
 
@@ -712,4 +713,4 @@ CTransform4f CTransform4f::GetInverse() const {
     o20, o21, o22, o23
   );
 #endif
-}
+} 

@@ -123,4 +123,6 @@ bool CParticleSwoosh::Update(double dt) {
   CParticleGlobals::SetEmitterTime(x28_curFrame);
   CParticleGlobals::UpdateParticleLifetimeTweenValues(0);
   float t = time * (1/60.f);
+  
+  return false;
 }

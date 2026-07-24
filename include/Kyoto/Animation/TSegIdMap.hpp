@@ -18,8 +18,6 @@ public:
       insert(seg, node);
     }
   }
-  
-  ~TSegIdMap() {}
 
   T& operator[](const CSegId& id) { return xd0_nodes[x8_indirectionMap[id.val()].second]; }
   const T& operator[](const CSegId& id) const {

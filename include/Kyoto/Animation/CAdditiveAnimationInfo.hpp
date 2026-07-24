@@ -10,6 +10,9 @@ public:
   CAdditiveAnimationInfo(CInputStream& in)
   : x0_fadeInDur(in.Get< float >()), x4_fadeOutDur(in.Get< float >()) {}
 
+  float GetFadeInTime() const { return x0_fadeInDur; }
+  float GetFadeOutTime() const { return x4_fadeOutDur; }
+
 private:
   float x0_fadeInDur;
   float x4_fadeOutDur;

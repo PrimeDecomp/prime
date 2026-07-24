@@ -31,6 +31,9 @@ public:
   CSegId GetSegIdFromString(const rstl::string& bone) const;
 
   void GetBodyPartSegIds() const;
+  
+  CVector3f GetFromParentUnrotated(const CSegId& parent) const;
+  const CCharLayoutNode& GetSegmentData(const CSegId& seg) const;
 
 private:
   rstl::auto_ptr< TSegIdMap< CCharLayoutNode > > mNodes;

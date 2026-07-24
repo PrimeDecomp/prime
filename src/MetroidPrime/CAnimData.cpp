@@ -414,7 +414,7 @@ void CAnimData::AddAdditiveSegData(const CSegIdList& list, CSegStatementSet& set
   uint i = 0;
   while (i < count) {
     const CAdditiveAnimPlayback& playback = x434_additiveAnims[i].second;
-    if (!close_enough(playback.xc_targetWeight, 0.f)) {
+    if (!close_enough(playback.GetWeight(), 0.f)) {
       playback.AddToSegStatementSet(list, **xcc_layoutData, setOut);
     }
     ++i;
@@ -451,12 +451,12 @@ SAdvancementDeltas CAnimData::UpdateAdditiveAnims(float dt) {
     CAdditiveAnimPlayback& playback = it->second;
     playback.Update(dt);
 
-    const CCharAnimTime remTime = playback.x8_anim->VGetTimeRemaining();
-    if (close_enough(remTime.GetSeconds(), 0.f) && playback.x20_needsFadeOut != 0) {
+    const CCharAnimTime remTime = playback.AnimationTree()->VGetTimeRemaining();
+    if (close_enough(remTime.GetSeconds(), 0.f) && playback.IsFadeOutWhenAnimOver() != 0) {
       playback.FadeOut();
     }
 
-    if (playback.x1c_phase == CAdditiveAnimPlayback::kPP_FadedOut) {
+    if (playback.GetFadingMode() == CAdditiveAnimPlayback::kPP_FadedOut) {
       it = fn_80029C18(&x434_additiveAnims, it);
     } else {
       ++it;
@@ -475,11 +475,11 @@ SAdvancementDeltas CAnimData::AdvanceAdditiveAnims(float dt) {
   const uint count = x434_additiveAnims.size();
   for (uint i = 0; i < count; ++i) {
     CAdditiveAnimPlayback& playback = x434_additiveAnims[i].second;
-    rstl::rc_ptr< CAnimTreeNode >& anim = playback.x8_anim;
+    rstl::rc_ptr< CAnimTreeNode >& anim = playback.AnimationTree();
 
     CCharAnimTime time(dt);
 
-    if (playback.x14_active != 0) {
+    if (playback.IsLoop()) {
       while (time.GreaterThanZero() && !close_enough(time.GetSeconds(), 0.f)) {
         x210_passedIntCount +=
             anim->GetInt32POIList(time, mInt32POINodes.data(), 16, x210_passedIntCount, 0);
@@ -958,7 +958,7 @@ const rstl::rc_ptr< CAnimTreeNode >& CAnimData::GetAdditiveAnimationTree(uint id
     ++search;
   }
 
-  return search->second.x8_anim;
+  return search->second.GetAnimationTree();
 }
 
 bool CAnimData::IsAdditiveAnimationAdded(uint idx) const {
@@ -983,7 +983,7 @@ float CAnimData::GetAdditiveAnimationWeight(uint idx) {
 
   while (search != end) {
     if (animIdx == search->first) {
-      return search->second.xc_targetWeight;
+      return search->second.GetWeight();
     }
     ++search;
   }
@@ -1005,7 +1005,7 @@ void CAnimData::DelAdditiveAnimation(uint idx) {
 
   if (search != end) {
     CAdditiveAnimPlayback& playback = search->second;
-    const int phase = playback.x1c_phase;
+    const CAdditiveAnimPlayback::EPlaybackPhase phase = playback.GetFadingMode();
     if (phase != CAdditiveAnimPlayback::kPP_FadingOut &&
         phase != CAdditiveAnimPlayback::kPP_FadedOut) {
       playback.FadeOut();

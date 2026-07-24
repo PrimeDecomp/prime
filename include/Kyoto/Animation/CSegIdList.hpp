@@ -17,7 +17,7 @@ public:
   const CSegId& operator[](int idx) const { return mSegIds[idx]; }
 
   size_type size() const { return mSegIds.size(); }
-  size_t Size() const { return mSegIds.size(); }
+  size_type Size() const { return mSegIds.size(); }
 
   iterator begin() { return mSegIds.begin(); }
   const_iterator begin() const { return mSegIds.begin(); }

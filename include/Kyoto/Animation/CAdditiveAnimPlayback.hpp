@@ -7,15 +7,12 @@
 
 #include "rstl/rc_ptr.hpp"
 
-class CAnimData;
 class CAnimTreeNode;
 class CCharLayoutInfo;
 class CSegIdList;
 class CSegStatementSet;
 
 class CAdditiveAnimPlayback {
-  friend class CAnimData;
-
 public:
   enum EPlaybackPhase {
     kPP_None,
@@ -31,10 +28,10 @@ public:
   const rstl::rc_ptr< CAnimTreeNode >& GetAnimationTree() const;
   rstl::ncrc_ptr< CAnimTreeNode >& AnimationTree() { return x8_anim; }
 
-  float GetWeight() const;
+  float GetWeight() const { return xc_targetWeight; }
   void SetWeight(float weight);
 
-  EPlaybackPhase GetFadingMode() const;
+  EPlaybackPhase GetFadingMode() const { return x1c_phase; }
   bool IsLoop() const { return x14_active; }
   void SetLoop(bool loop) { x14_active = loop; }
 
@@ -42,7 +39,7 @@ public:
   void SetFadeOutWhenAnimOver(bool fadeOut) { x20_needsFadeOut = fadeOut; }
 
   void FadeOut();
-  void Update(float);
+  void Update(float dt);
   void AddToSegStatementSet(const CSegIdList&, const CCharLayoutInfo&, CSegStatementSet&) const;
 
 private:

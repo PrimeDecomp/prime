@@ -26,6 +26,8 @@ public:
   bool IsEnding() const { return x15c_curTime > kEndingTime; }
   void ApplyDynamicDamage(const CVector3f&, CStateManager&);
 
+  static const CColor& FadeColor() { return kFadeColor; }
+  static const float EndingTime() { return kEndingTime; }
 private:
   static CColor kFadeColor;
   static const float kEndingTime;
