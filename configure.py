@@ -1938,7 +1938,7 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
                 "dolphin/os/OSError.c",
             ),
-            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "dolphin/os/OSFatal.c"),
+            Object(MatchingFor("GM8E01_00"), "dolphin/os/OSFatal.c"),
             Object(NonMatching, "dolphin/os/OSFont.c"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
