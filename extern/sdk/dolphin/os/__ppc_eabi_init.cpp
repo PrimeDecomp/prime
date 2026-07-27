@@ -50,12 +50,11 @@ __declspec(section ".init") extern voidfunctionptr _ctors[];
 __declspec(section ".init") extern voidfunctionptr _dtors[];
 
 void __init_cpp(void) {
-  voidfunctionptr* constructor;
 
   /*
    *	call static initializers
    */
-  for (constructor = _ctors; *constructor; constructor++) {
+  for (voidfunctionptr* constructor = _ctors; *constructor; constructor++) {
     (*constructor)();
   }
 }

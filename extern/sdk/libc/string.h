@@ -22,6 +22,7 @@ char* strncat(char* dest, const char* src, size_t n);
 char* strchr(const char* str, int chr);
 
 int memcmp(const void* a, const void* b, size_t n);
+void* memmove(void* dst, const void* src, size_t n);
 
 #ifdef __cplusplus
 }

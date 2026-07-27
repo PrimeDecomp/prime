@@ -6,8 +6,6 @@
 #include "Kyoto/Graphics/CModelFlags.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
 
-extern CVector3f sPlayerPosition;
-
 enum EStateFlags {
   kStateFlag_KonstValues = (1 << 3),
   kStateFlag_DepthSorting = (1 << 4),
@@ -55,7 +53,7 @@ public:
 private:
   static void SetupBlendMode(uint blendFactors, const CModelFlags& flags, bool alphaTest);
   static uint HandleReflection(bool usesTevReg2, GXTexMapID indTexSlot, int indMtxScaleExp,
-                               uint finalTevCount, uint texCount, uint tcgCount,
+                               uint tevCount, uint texCount, uint tcgCount,
                                uint finalKColorCount, uint& finalCCFlags, uint& finalACFlags);
 
   static CVector3f sViewingFrom;

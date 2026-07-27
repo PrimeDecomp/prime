@@ -78,7 +78,7 @@ public:
     return CModelFlags(*this, GetOtherFlags() | kF_NoTextureLock);
   }
   CModelFlags DepthCompareUpdate(const bool compare, const bool update) const {
-    uint newFlags = static_cast< uint >(compare) | (static_cast< uint >(update) << 1);
+    const uint newFlags = static_cast< uint >(compare) | (static_cast< uint >(update) << 1);
     return CModelFlags(*this, (x2_flags & ~(kF_DepthCompare | kF_DepthUpdate)) | newFlags);
   }
   CModelFlags DepthBackwards() const {
@@ -86,7 +86,7 @@ public:
   }
 
   const uchar GetBlendMode() const { return x0_blendMode; }
-  const ETrans GetTrans() const { return static_cast< ETrans >(x0_blendMode); }
+  const ETrans GetTrans() const { return static_cast< ETrans >(x0_blendModeChar); }
   const int GetShaderSet() const { return x1_matSetIdx; }
   const int GetOtherFlags() const { return x2_flags; }
   const CColor GetColor() const { return x4_color; }
@@ -119,7 +119,11 @@ public:
   static CModelFlags ColorModulate(const CColor& color);
 
 private:
-  uchar x0_blendMode;
+  // Dumb hack, need to figure this out
+  union {
+    uchar x0_blendMode;
+    char x0_blendModeChar;
+  };
   uchar x1_matSetIdx;
   ushort x2_flags;
   CColor x4_color;

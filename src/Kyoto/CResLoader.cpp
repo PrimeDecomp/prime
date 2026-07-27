@@ -204,14 +204,14 @@ CResLoader::ECompressionType CResLoader::GetResourceCompression(const SObjectTag
 CDvdRequest* CResLoader::LoadResourceAsync(const SObjectTag& tag, char* extBuf) {
   CPakFile* curPak = FindResourceForLoad(tag);
   CPakFile::SResInfo* info = x50_cachedResInfo;
-  return curPak->AsyncSeekRead(extBuf, align_size(info->GetSize()), kSO_Set, info->GetOffset());
+  return curPak->AsyncSeekRead(extBuf, align_size(info->GetSize()), kSO_Begin, info->GetOffset());
 }
 
 CDvdRequest* CResLoader::LoadResourcePartAsync(const SObjectTag& tag, const int offset,
                                                const int length, char* extBuf) {
   CPakFile* curPak = FindResourceForLoad(tag);
   CPakFile::SResInfo* info = x50_cachedResInfo;
-  return curPak->AsyncSeekRead(extBuf, length, kSO_Set, info->GetOffset() + offset);
+  return curPak->AsyncSeekRead(extBuf, length, kSO_Begin, info->GetOffset() + offset);
 }
 CInputStream* CResLoader::LoadNewResourceSync(const SObjectTag& tag, char* extBuf) {
   CPakFile* curPak = FindResourceForLoad(tag);
@@ -219,7 +219,7 @@ CInputStream* CResLoader::LoadNewResourceSync(const SObjectTag& tag, char* extBu
   uint len = align_size(info->GetSize());
   void* dest = extBuf ? extBuf : CMemory::Alloc(len, IAllocator::kHI_RoundUpLen);
 
-  curPak->SyncSeekRead(dest, len, kSO_Set, info->GetOffset());
+  curPak->SyncSeekRead(dest, len, kSO_Begin, info->GetOffset());
   CInputStream* input = rs_new CMemoryInStream(dest, info->GetSize(),
                                                extBuf == nullptr ? CMemoryInStream::kOS_Owned
                                                                  : CMemoryInStream::kOS_NotOwned);
@@ -249,7 +249,7 @@ void CResLoader::LoadMemResourceSync(const SObjectTag& tag, char** bufOut, int* 
   CPakFile::SResInfo* info = x50_cachedResInfo;
   uint len = align_size(info->GetSize());
   char* buf = static_cast< char* >(CMemory::Alloc(len, IAllocator::kHI_RoundUpLen));
-  curPak->SyncSeekRead(buf, len, kSO_Set, info->GetOffset());
+  curPak->SyncSeekRead(buf, len, kSO_Begin, info->GetOffset());
   *bufOut = buf;
   *lenOut = info->GetSize();
 }
@@ -260,7 +260,7 @@ CInputStream* CResLoader::LoadNewResourcePartSync(const SObjectTag& tag, int off
   CPakFile::SResInfo* info = x50_cachedResInfo;
 
   void* dest = extBuf ? extBuf : CMemory::Alloc(length, IAllocator::kHI_RoundUpLen);
-  curPak->SyncSeekRead(dest, length, kSO_Set, info->GetOffset() + offset);
+  curPak->SyncSeekRead(dest, length, kSO_Begin, info->GetOffset() + offset);
 
   CInputStream* input = rs_new CMemoryInStream(
       dest, length, extBuf == nullptr ? CMemoryInStream::kOS_Owned : CMemoryInStream::kOS_NotOwned);

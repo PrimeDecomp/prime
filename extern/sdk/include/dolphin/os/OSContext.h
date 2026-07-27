@@ -163,6 +163,7 @@ void OSClearContext(OSContext* context);
 OSContext* OSGetCurrentContext();
 void OSSetCurrentContext(OSContext* context);
 u32 OSGetStackPointer();
+int OSSwitchFiber(u32 pc, u32 newsp);
 
 #ifdef __cplusplus
 }

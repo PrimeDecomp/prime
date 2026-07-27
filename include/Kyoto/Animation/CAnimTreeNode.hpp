@@ -30,5 +30,7 @@ public:
 private:
   rstl::string x4_name;
 };
+rstl::ncrc_ptr<CAnimTreeNode> Cast(const rstl::ownership_transfer<IAnimReader>& x);
+
 
 #endif // _CANIMTREENODE

@@ -47,7 +47,7 @@ static rstl::reserved_vector< CInt32POINode, 16 > sInt32TransientCache;
 static int skPOICacheReferenceCount;
 static CInt32POINode* sInt32TransientCacheData;
 
-rstl::rc_ptr< CAnimTreeNode > Cast(const rstl::ownership_transfer< IAnimReader >& ptr);
+//rstl::rc_ptr< CAnimTreeNode > Cast(const rstl::ownership_transfer< IAnimReader >& ptr);
 
 extern const int lbl_805AE3D8;
 extern const int lbl_805AE3DC;

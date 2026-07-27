@@ -10,7 +10,7 @@
 #include "Kyoto/Math/CMath.hpp"
 
 #include "MetaRender/CCubeRenderer.hpp"
-
+#pragma inline_max_size(230)
 #include <dolphin/mtx.h>
 
 #ifndef __MWERKS__
@@ -19,15 +19,15 @@ void __memcpy(void*, const void*, int);
 
 #include "Kyoto/Math/CTransform4f.hpp"
 
-static CVector3f sPlayerPosition = CVector3f::Zero();
-CVector3f CCubeMaterial::sViewingFrom = CVector3f::Zero();
+static CVector3f sPlayerPosition(0.f, 0.f, 0.f);
+CVector3f CCubeMaterial::sViewingFrom(0.f, 0.f, 0.f);
+static CTransform4f sTextureProjectionTransform(CTransform4f::Identity());
 static uint sLastMaterialUnique = static_cast< uint >(~0);
 static int sMaterialCachedState = 0;
 static const CCubeModel* sLastModelCached = NULL;
 static const CCubeModel* sRenderingModel = NULL;
 static const uchar* sLastMaterialCached = NULL;
 static CTexture* spShadowTexture = NULL;
-static CTransform4f sTextureProjectionTransform = CTransform4f::Identity();
 static float sReflectionAlpha = 0.f;
 static float sLastTime = 0.f;
 static float sThrobX = 1.f;
@@ -41,7 +41,8 @@ static uchar sChannel1EnableLightMask = 0;
 static const GXColor sGXBlack = {0, 0, 0, 0};
 static const GXColor sGXWhite = {0xFF, 0xFF, 0xFF, 0xFF};
 
-void CCubeMaterial::SetupBlendMode(uint blendFactors, const CModelFlags& flags, bool alphaTest) {
+void CCubeMaterial::SetupBlendMode(const uint blendFactors, const CModelFlags& flags,
+                                   bool alphaTest) {
   GXBlendFactor newSrcFactor = static_cast< GXBlendFactor >(blendFactors & 0xFFFF);
   GXBlendFactor newDstFactor = static_cast< GXBlendFactor >(blendFactors >> 0x10);
   CModelFlags::ETrans blendMode = flags.GetTrans();
@@ -63,69 +64,6 @@ void CCubeMaterial::SetupBlendMode(uint blendFactors, const CModelFlags& flags, 
   CGX::SetBlendMode(GX_BM_BLEND, newSrcFactor, newDstFactor, GX_LO_CLEAR);
 }
 
-static void HandleDepth(uint modelFlags, uint matFlags) {
-  GXCompare func = GX_NEVER;
-  if ((modelFlags & CModelFlags::kF_DepthCompare) == 0) {
-    func = GX_ALWAYS;
-  } else if ((modelFlags & CModelFlags::kF_DepthGreater) != 0) {
-    if ((modelFlags & CModelFlags::kF_DepthNonInclusive) != 0) {
-      func = GX_GREATER;
-    } else {
-      func = GX_GEQUAL;
-    }
-  } else if ((modelFlags & CModelFlags::kF_DepthNonInclusive) != 0) {
-    func = GX_LESS;
-  } else {
-    func = GX_LEQUAL;
-  }
-  CGX::SetZMode(true, func,
-                (modelFlags & CModelFlags::kF_DepthUpdate) == CModelFlags::kF_DepthUpdate &&
-                    (matFlags & kStateFlag_DepthWrite) != 0);
-}
-
-static uint HandleColorChannels(uint chanCount, uint firstChan) {
-  if (sbRenderModelShadow) {
-    if (chanCount != 0) {
-      CGX::SetChanAmbColor(CGX::Channel1, sGXBlack);
-      CGX::SetChanMatColor(CGX::Channel1, sGXWhite);
-      CGX::SetChanCtrl(CGX::Channel1, true, GX_SRC_REG, GX_SRC_REG,
-                       static_cast< GXLightID >(sChannel1EnableLightMask), GX_DF_CLAMP, GX_AF_SPOT);
-
-      const int chan0Lights = CGraphics::GetLightMask() & ~sChannel0DisableLightMask;
-      CGX::SetChanCtrl_Compressed(CGX::Channel0, chan0Lights, firstChan);
-      if (chan0Lights != 0) {
-        CGX::SetChanMatColor(CGX::Channel0, sGXWhite);
-      } else {
-        CGX::SetChanMatColor(CGX::Channel0, CGX::GetChanAmbColor(CGX::Channel0));
-      }
-    }
-    return 2;
-  }
-
-  if (chanCount == 2) {
-    CGX::SetChanAmbColor(CGX::Channel1, sGXBlack);
-    CGX::SetChanMatColor(CGX::Channel1, sGXWhite);
-  } else {
-    CGX::SetChanCtrl(CGX::Channel1, false, GX_SRC_REG, GX_SRC_REG, GX_LIGHT_NULL, GX_DF_NONE,
-                     GX_AF_NONE);
-  }
-
-  if (chanCount >= 1) {
-    const int lightMask = CGraphics::GetLightMask();
-    CGX::SetChanCtrl_Compressed(CGX::Channel0, lightMask, firstChan);
-    if (lightMask != 0) {
-      CGX::SetChanMatColor(CGX::Channel0, sGXWhite);
-    } else {
-      CGX::SetChanMatColor(CGX::Channel0, CGX::GetChanAmbColor(CGX::Channel0));
-    }
-  } else {
-    CGX::SetChanCtrl(CGX::Channel0, false, GX_SRC_REG, GX_SRC_REG, GX_LIGHT_NULL, GX_DF_NONE,
-                     GX_AF_NONE);
-  }
-
-  return chanCount;
-}
-
 void HandleTev(int tevCur, const uint* materialDataCur, const uint* texMapTexCoordFlags,
                bool shadowMapsEnabled) {
   const GXTevStageID stage = static_cast< GXTevStageID >(tevCur);
@@ -144,13 +82,6 @@ void HandleTev(int tevCur, const uint* materialDataCur, const uint* texMapTexCoo
   CGX::SetTevKColorSel(stage, static_cast< GXTevKColorSel >(matFlags >> 0x8 & 0xFF));
   CGX::SetTevKAlphaSel(stage, static_cast< GXTevKAlphaSel >(matFlags >> 0x10 & 0xFF));
 }
-
-uint HandleAnimatedUV(const uint* uvAnim, GXTexMtx texMtx, GXPTTexMtx ptTexMtx);
-static void HandleTransparency(uint& finalTevCount, uint& finalKColorCount,
-                               const CModelFlags& modelFlags, uint blendFactors, uint& finalCCFlags,
-                               uint& finalACFlags);
-static void DoPassthru(uint finalTevCount);
-static void DoModelShadow(uint texCount, uint tcgCount);
 
 uint HandleAnimatedUV(const uint* uvAnim, GXTexMtx texMtx, GXPTTexMtx ptTexMtx) {
   static const Mtx postMtx = {
@@ -199,8 +130,8 @@ uint HandleAnimatedUV(const uint* uvAnim, GXTexMtx texMtx, GXPTTexMtx ptTexMtx) 
     const float asin = CMath::FastSinR(angle);
     const float acos = CMath::FastCosR(angle);
     Mtx mtx = {
-        {acos, -asin, 0.f, (1.f - (acos - asin)) * 0.5f},
-        {asin, acos, 0.f, (1.f - (asin + acos)) * 0.5f},
+        {acos, -asin, 0.f, (1.f - (acos - asin)) / 2.f},
+        {asin, acos, 0.f, (1.f - (asin + acos)) / 2.f},
         {0.f, 0.f, 1.f, 0.f},
     };
     CGX::LoadTexMtxImm(mtx, texMtx, GX_MTX3x4);
@@ -239,9 +170,7 @@ uint HandleAnimatedUV(const uint* uvAnim, GXTexMtx texMtx, GXPTTexMtx ptTexMtx) 
     };
     const CTransform4f& mm = CGraphics::GetModelMatrix();
     Mtx tmpTexMtx;
-    Mtx tmpPtMtx;
     __memcpy(&tmpTexMtx, &sTexMtx, sizeof(Mtx));
-    const CVector3f& dx = mm.GetRow(kDX);
     tmpTexMtx[0][0] = mm.Get00();
     tmpTexMtx[0][1] = mm.Get01();
     tmpTexMtx[0][2] = mm.Get02();
@@ -251,6 +180,7 @@ uint HandleAnimatedUV(const uint* uvAnim, GXTexMtx texMtx, GXPTTexMtx ptTexMtx) 
     tmpTexMtx[2][0] = mm.Get20();
     tmpTexMtx[2][1] = mm.Get21();
     tmpTexMtx[2][2] = mm.Get22();
+    Mtx tmpPtMtx;
     __memcpy(&tmpPtMtx, &sPtMtx, sizeof(Mtx));
     tmpPtMtx[0][3] = mm.Get03() * 0.05f;
     tmpPtMtx[1][3] = mm.Get13() * 0.05f;
@@ -267,18 +197,13 @@ uint HandleAnimatedUV(const uint* uvAnim, GXTexMtx texMtx, GXPTTexMtx ptTexMtx) 
     const CTransform4f& vm = CGraphics::GetViewMatrix();
     CTransform4f xf = CGraphics::GetViewMatrix().GetQuickInverse().MultiplyIgnoreTranslation(
         CGraphics::GetModelMatrix());
-    float v = SBig(params[0]) / 2.f;
-    float v03 = 0.025f * (vm.Get03() + vm.Get13()) * SBig(params[1]);
-    float v13 = 0.05f * vm.Get23() * SBig(params[1]);
-    float v03f = CMath::FastFmod(v03, 1.f);
-    float v13f = CMath::FastFmod(v13, 1.f);
     xf.SetTranslation(CVector3f::Zero());
     Mtx tmpPtMtx;
     __memcpy(&tmpPtMtx, &sPtMtx, sizeof(Mtx));
-    tmpPtMtx[0][0] = v;
-    tmpPtMtx[0][3] = v03f;
-    tmpPtMtx[1][2] = v;
-    tmpPtMtx[1][3] = v13f;
+    tmpPtMtx[0][0] = SBig(params[0]) / 2.f;
+    tmpPtMtx[0][3] = CMath::FastFmod(0.025f * (vm.Get03() + vm.Get13()) * SBig(params[1]), 1.f);
+    tmpPtMtx[1][2] = SBig(params[0]) / 2.f;
+    tmpPtMtx[1][3] = CMath::FastFmod(0.05f * vm.Get23() * SBig(params[1]), 1.f);
     CGX::LoadTexMtxImm(xf.GetCStyleMatrix(), texMtx, GX_MTX3x4);
     CGX::LoadTexMtxImm(tmpPtMtx, ptTexMtx, GX_MTX3x4);
     return 3;
@@ -286,6 +211,299 @@ uint HandleAnimatedUV(const uint* uvAnim, GXTexMtx texMtx, GXPTTexMtx ptTexMtx) 
   default:
     return 0;
   }
+}
+
+static void HandleTransparency(uint& finalTevCount, uint& finalKColorCount,
+                               const CModelFlags& modelFlags, uint blendFactors, uint& finalCCFlags,
+                               uint& finalACFlags) {
+  const CModelFlags::ETrans blendMode = modelFlags.GetTrans();
+  const CColor& color = modelFlags.GetColor();
+
+  if (blendMode == 2) {
+    if (static_cast< ushort >(blendFactors >> 16) == 1) {
+      return;
+    }
+  }
+
+  if (blendMode == 3) {
+    const uint stage = finalTevCount;
+    const uint stage2 = stage + 1;
+    CGX::SetTevColorIn(static_cast< GXTevStageID >(stage), GX_CC_ZERO, GX_CC_ZERO, GX_CC_ZERO,
+                       GX_CC_KONST);
+    CGX::SetTevAlphaIn(static_cast< GXTevStageID >(stage), GX_CA_ZERO, GX_CA_ZERO, GX_CA_ZERO,
+                       GX_CA_APREV);
+    CGX::SetTevColorOp(static_cast< GXTevStageID >(stage), GX_TEV_ADD, GX_TB_ZERO, GX_CS_SCALE_1,
+                       GX_TRUE, GX_TEVREG0);
+    CGX::SetTevKColorSel(static_cast< GXTevStageID >(stage),
+                         static_cast< GXTevKColorSel >(finalKColorCount + GX_TEV_KCSEL_K0_A));
+    CGX::SetTevAlphaOp(static_cast< GXTevStageID >(stage), GX_TEV_ADD, GX_TB_ZERO, GX_CS_SCALE_1,
+                       GX_TRUE, GX_TEVPREV);
+    CGX::SetTevOrder(static_cast< GXTevStageID >(stage), GX_TEXCOORD_NULL, GX_TEXMAP_NULL,
+                     GX_COLOR_NULL);
+    CGX::SetTevDirect(static_cast< GXTevStageID >(stage));
+
+    CGX::SetTevColorIn(static_cast< GXTevStageID >(stage2), GX_CC_CPREV, GX_CC_C0, GX_CC_KONST,
+                       GX_CC_ZERO);
+    CGX::SetTevAlphaIn(static_cast< GXTevStageID >(stage2), GX_CA_ZERO, GX_CA_ZERO, GX_CA_ZERO,
+                       GX_CA_APREV);
+    CGX::SetTevKColorSel(static_cast< GXTevStageID >(stage2),
+                         static_cast< GXTevKColorSel >(finalKColorCount + GX_TEV_KCSEL_K0));
+    CGX::SetStandardTevColorAlphaOp(static_cast< GXTevStageID >(stage2));
+    CGX::SetTevDirect(static_cast< GXTevStageID >(stage2));
+    CGX::SetTevOrder(static_cast< GXTevStageID >(stage2), GX_TEXCOORD_NULL, GX_TEXMAP_NULL,
+                     GX_COLOR_NULL);
+    CGX::SetTevKColor(static_cast< GXTevKColorID >(finalKColorCount), color.GetGXColor());
+
+    finalKColorCount += 1;
+    finalTevCount += 2;
+  } else {
+    uint alphaArgs = 0x380c7;
+    if (blendMode == 8) {
+      alphaArgs = 0x31ce7;
+    }
+
+    uint colorArgs = 0x81cf;
+    if (blendMode == 2) {
+      colorArgs = 0x7018f;
+    }
+
+    const uint stage = finalTevCount;
+    CGX::SetTevColorIn_Compressed(static_cast< GXTevStageID >(stage), colorArgs);
+    CGX::SetTevAlphaIn_Compressed(static_cast< GXTevStageID >(stage), alphaArgs);
+    CGX::SetStandardTevColorAlphaOp(static_cast< GXTevStageID >(stage));
+
+    finalCCFlags = 0x100;
+    finalACFlags = 0x100;
+
+    CGX::SetTevDirect(static_cast< GXTevStageID >(stage));
+    CGX::SetTevOrder(static_cast< GXTevStageID >(stage), GX_TEXCOORD_NULL, GX_TEXMAP_NULL,
+                     GX_COLOR_NULL);
+    CGX::SetTevKColor(static_cast< GXTevKColorID >(finalKColorCount), color.GetGXColor());
+    CGX::SetTevKColorSel(static_cast< GXTevStageID >(stage),
+                         static_cast< GXTevKColorSel >(finalKColorCount + GX_TEV_KCSEL_K0));
+    CGX::SetTevKAlphaSel(static_cast< GXTevStageID >(stage),
+                         static_cast< GXTevKAlphaSel >(finalKColorCount + GX_TEV_KASEL_K0_A));
+
+    finalTevCount += 1;
+    finalKColorCount += 1;
+  }
+}
+
+static void DoModelShadow(uint texCount, uint tcgCount) {
+  static const Mtx identity2D = {
+      {0.f, 0.f, 0.f, 0.f},
+      {0.f, 0.f, 0.f, 0.f},
+      {0.f, 0.f, 0.f, 1.f},
+  };
+
+  spShadowTexture->Load(static_cast< GXTexMapID >(texCount), CTexture::kCM_Repeat);
+
+  Mtx mtx;
+  __memcpy(&mtx, &identity2D, sizeof(Mtx));
+  mtx[0][0] = sTextureProjectionTransform.Get00();
+  mtx[0][1] = sTextureProjectionTransform.Get01();
+  mtx[0][2] = sTextureProjectionTransform.Get02();
+  mtx[0][3] = sTextureProjectionTransform.Get03();
+  mtx[1][0] = sTextureProjectionTransform.Get20();
+  mtx[1][1] = sTextureProjectionTransform.Get21();
+  mtx[1][2] = sTextureProjectionTransform.Get22();
+  mtx[1][3] = sTextureProjectionTransform.Get23();
+  CGX::LoadTexMtxImm(mtx, GX_TEXMTX5, GX_MTX3x4);
+
+  CGX::SetTexCoordGen(static_cast< GXTexCoordID >(tcgCount), GX_TG_MTX3x4, GX_TG_POS, GX_TEXMTX5,
+                      GX_FALSE, GX_PTIDENTITY);
+
+  CGX::SetTevColorOp(GX_TEVSTAGE0, GX_TEV_ADD, GX_TB_ZERO, GX_CS_SCALE_1, GX_TRUE, GX_TEVREG0);
+  CGX::SetTevAlphaOp(GX_TEVSTAGE0, GX_TEV_ADD, GX_TB_ZERO, GX_CS_SCALE_1, GX_TRUE, GX_TEVREG0);
+  CGX::SetTevColorIn(GX_TEVSTAGE0, GX_CC_ZERO, GX_CC_RASC, GX_CC_TEXC, GX_CC_ZERO);
+  CGX::SetTevAlphaIn(GX_TEVSTAGE0, GX_CA_ZERO, GX_CA_ZERO, GX_CA_ZERO, GX_CA_RASA);
+  CGX::SetTevOrder(GX_TEVSTAGE0, static_cast< GXTexCoordID >(tcgCount),
+                   static_cast< GXTexMapID >(texCount), GX_COLOR1A1);
+
+  CGX::SetTevColorOp(GX_TEVSTAGE1, GX_TEV_ADD, GX_TB_ZERO, GX_CS_SCALE_1, GX_TRUE, GX_TEVREG0);
+  CGX::SetTevAlphaOp(GX_TEVSTAGE1, GX_TEV_ADD, GX_TB_ZERO, GX_CS_SCALE_1, GX_TRUE, GX_TEVREG0);
+  CGX::SetTevColorIn(GX_TEVSTAGE1, GX_CC_ZERO, GX_CC_RASC, GX_CC_ONE, GX_CC_C0);
+  CGX::SetTevAlphaIn(GX_TEVSTAGE1, GX_CA_ZERO, GX_CA_RASA, GX_CA_KONST, GX_CA_A0);
+  CGX::SetTevKAlphaSel(GX_TEVSTAGE1, GX_TEV_KASEL_1);
+  CGX::SetTevOrder(GX_TEVSTAGE1, GX_TEXCOORD_NULL, GX_TEXMAP_NULL, GX_COLOR0A0);
+}
+
+uint CCubeMaterial::HandleReflection(const bool usesTevReg2, const GXTexMapID indTexSlot,
+                                     const int indMtxScaleExp, const uint tevCount,
+                                     const uint texCount, const uint tcgCount,
+                                     const uint kColorCount, uint& finalCCFlags,
+                                     uint& finalACFlags) {
+  uint out = 0;
+  GXTevStageID finalTevCount = static_cast< GXTevStageID >(tevCount);
+  GXTevColorArg colorArg = GX_CC_CPREV;
+  const GXTevKColorID finalKColorCount = static_cast< GXTevKColorID >(kColorCount);
+  const GXTexMapID texMap = static_cast< GXTexMapID >(texCount);
+  if (usesTevReg2) {
+    colorArg = GX_CC_C2;
+    CGX::SetTevColorIn(finalTevCount, GX_CC_ZERO, GX_CC_C2, GX_CC_KONST, GX_CC_ZERO);
+    CGX::SetTevAlphaIn(finalTevCount, GX_CA_ZERO, GX_CA_ZERO, GX_CA_ZERO, GX_CA_A2);
+    CGX::SetTevColorOp(finalTevCount, GX_TEV_ADD, GX_TB_ZERO, GX_CS_SCALE_1, GX_TRUE, GX_TEVREG2);
+    CGX::SetTevAlphaOp(finalTevCount, GX_TEV_ADD, GX_TB_ZERO, GX_CS_SCALE_1, GX_TRUE, GX_TEVREG2);
+    CGX::SetTevOrder(finalTevCount, GX_TEXCOORD_NULL, GX_TEXMAP_NULL, GX_COLOR_ZERO);
+    out = 1;
+  } else {
+    colorArg = GX_CC_KONST;
+  }
+
+  CColor reflectionColor;
+  reflectionColor.Set(sReflectionAlpha, sReflectionAlpha, sReflectionAlpha, sReflectionAlpha);
+  CGX::SetTevKColor(finalKColorCount, reflectionColor.GetGXColor());
+  CGX::SetTevKColorSel(finalTevCount,
+                       static_cast< GXTevKColorSel >(finalKColorCount + GX_TEV_KCSEL_K0));
+
+  finalTevCount = static_cast< GXTevStageID >(finalTevCount + out);
+
+  CCubeRenderer::That()->GetRealReflection()->Load(texMap, CTexture::kCM_Clamp);
+
+  GXTexCoordID texCoord;
+  if (indTexSlot != GX_TEXMAP_NULL) {
+    texCoord = static_cast< GXTexCoordID >(tcgCount + 1);
+    GXSetIndTexOrder(GX_INDTEXSTAGE0, static_cast< GXTexCoordID >(tcgCount), indTexSlot);
+    CGX::SetTexCoordGen(static_cast< GXTexCoordID >(tcgCount), GX_TG_MTX3x4, GX_TG_POS, GX_TEXMTX6,
+                        GX_TRUE, GX_PTTEXMTX6);
+    CGX::SetTevIndWarp(finalTevCount, GX_INDTEXSTAGE0, 1, 0, GX_ITM_0);
+    CGX::SetIndTexMtxSTPointFive(GX_ITM_0, static_cast< s8 >(indMtxScaleExp));
+    if (sReflectionStage > static_cast< int >(finalTevCount)) {
+      CGX::SetTevDirect(static_cast< GXTevStageID >(sReflectionStage));
+    }
+    sReflectionStage = finalTevCount;
+  } else {
+    texCoord = static_cast< GXTexCoordID >(tcgCount);
+  }
+
+  CGX::SetTexCoordGen(texCoord, GX_TG_MTX3x4, GX_TG_POS, GX_TEXMTX7, GX_FALSE, GX_PTIDENTITY);
+
+  CGX::SetTevColorIn(finalTevCount, GX_CC_ZERO, colorArg, GX_CC_TEXC, GX_CC_CPREV);
+  CGX::SetTevAlphaIn(finalTevCount, GX_CA_ZERO, GX_CA_ZERO, GX_CA_ZERO, GX_CA_APREV);
+  CGX::SetStandardTevColorAlphaOp(finalTevCount);
+
+  finalACFlags = 0;
+  finalCCFlags = 0;
+  CGX::SetTevOrder(finalTevCount, texCoord, texMap, GX_COLOR_NULL);
+  return out + 1;
+}
+
+void CCubeMaterial::EnsureTevsDirect() {
+  if (sReflectionStage == -1) {
+    return;
+  }
+
+  CGX::SetNumIndStages(0);
+  CGX::SetTevDirect(static_cast< GXTevStageID >(sReflectionStage));
+  sReflectionStage = -1;
+}
+
+void CCubeMaterial::SetCurrentBlack() const {
+  const uint* data = reinterpret_cast< const uint* >(x0_data);
+  const uint texCount = data[1];
+  const uint flags = data[0];
+  const uint vertexDesc = data[texCount + 2];
+
+  if ((flags & (kStateFlag_DepthSorting | kStateFlag_AlphaTest)) != 0) {
+    CGX::SetBlendMode(GX_BM_BLEND, GX_BL_ZERO, GX_BL_ONE, GX_LO_CLEAR);
+  } else {
+    CGX::SetBlendMode(GX_BM_BLEND, GX_BL_ONE, GX_BL_ZERO, GX_LO_CLEAR);
+  }
+
+  CGX::SetVtxDescv_Compressed(vertexDesc);
+
+  GXTevColorArg colorArg = GX_CC_ZERO;
+  if (lbl_805A9559) {
+    colorArg = GX_CC_ONE;
+  }
+  CGX::SetTevColorIn(GX_TEVSTAGE0, GX_CC_ZERO, GX_CC_ZERO, GX_CC_ZERO, colorArg);
+
+  GXTevAlphaArg alphaArg = GX_CA_ZERO;
+  if (lbl_805A9559) {
+    alphaArg = GX_CA_KONST;
+  }
+  CGX::SetTevAlphaIn(GX_TEVSTAGE0, GX_CA_ZERO, GX_CA_ZERO, GX_CA_ZERO, alphaArg);
+
+  CGX::SetTevKAlphaSel(GX_TEVSTAGE0, GX_TEV_KASEL_1);
+  CGX::SetTexCoordGen(GX_TEXCOORD0, GX_TG_MTX2x4, GX_TG_POS, GX_IDENTITY, GX_FALSE, GX_PTIDENTITY);
+  CGX::SetStandardTevColorAlphaOp(GX_TEVSTAGE0);
+  CGX::SetTevOrder(GX_TEVSTAGE0, GX_TEXCOORD_NULL, GX_TEXMAP_NULL, GX_COLOR_NULL);
+  CGX::SetNumTevStages(1);
+  CGX::SetNumChans(0);
+  CGX::SetNumTexGens(1);
+  CGX::SetNumIndStages(0);
+}
+
+static uint HandleColorChannels(uint chanCount, uint firstChan) {
+  if (sbRenderModelShadow) {
+    if (chanCount != 0) {
+      CGX::SetChanAmbColor(CGX::Channel1, sGXBlack);
+      CGX::SetChanMatColor(CGX::Channel1, sGXWhite);
+      CGX::SetChanCtrl(CGX::Channel1, true, GX_SRC_REG, GX_SRC_REG,
+                       static_cast< GXLightID >(sChannel1EnableLightMask), GX_DF_CLAMP, GX_AF_SPOT);
+
+      const int chan0Lights = CGraphics::GetLightMask() & ~sChannel0DisableLightMask;
+      CGX::SetChanCtrl_Compressed(CGX::Channel0, chan0Lights, firstChan);
+      if (chan0Lights != 0) {
+        CGX::SetChanMatColor(CGX::Channel0, sGXWhite);
+      } else {
+        CGX::SetChanMatColor(CGX::Channel0, CGX::GetChanAmbColor(CGX::Channel0));
+      }
+    }
+    return 2;
+  }
+
+  if (chanCount == 2) {
+    CGX::SetChanAmbColor(CGX::Channel1, sGXBlack);
+    CGX::SetChanMatColor(CGX::Channel1, sGXWhite);
+  } else {
+    CGX::SetChanCtrl(CGX::Channel1, false, GX_SRC_REG, GX_SRC_REG, GX_LIGHT_NULL, GX_DF_NONE,
+                     GX_AF_NONE);
+  }
+
+  if (chanCount >= 1) {
+    const int lightMask = CGraphics::GetLightMask();
+    CGX::SetChanCtrl_Compressed(CGX::Channel0, lightMask, firstChan);
+    if (lightMask != 0) {
+      CGX::SetChanMatColor(CGX::Channel0, sGXWhite);
+    } else {
+      CGX::SetChanMatColor(CGX::Channel0, CGX::GetChanAmbColor(CGX::Channel0));
+    }
+  } else {
+    CGX::SetChanCtrl(CGX::Channel0, false, GX_SRC_REG, GX_SRC_REG, GX_LIGHT_NULL, GX_DF_NONE,
+                     GX_AF_NONE);
+  }
+
+  return chanCount;
+}
+
+static void HandleDepth(uint modelFlags, uint matFlags) {
+  GXCompare func = GX_NEVER;
+  if ((modelFlags & CModelFlags::kF_DepthCompare) == 0) {
+    func = GX_ALWAYS;
+  } else if ((modelFlags & CModelFlags::kF_DepthGreater) != 0) {
+    if ((modelFlags & CModelFlags::kF_DepthNonInclusive) != 0) {
+      func = GX_GREATER;
+    } else {
+      func = GX_GEQUAL;
+    }
+  } else if ((modelFlags & CModelFlags::kF_DepthNonInclusive) != 0) {
+    func = GX_LESS;
+  } else {
+    func = GX_LEQUAL;
+  }
+  CGX::SetZMode(true, func,
+                (modelFlags & CModelFlags::kF_DepthUpdate) == CModelFlags::kF_DepthUpdate &&
+                    (matFlags & kStateFlag_DepthWrite) != 0);
+}
+
+static void DoPassthru(const uint finalTevCount) {
+  const GXTevStageID stage = static_cast< GXTevStageID >(finalTevCount);
+  CGX::SetTevColorIn(stage, GX_CC_ZERO, GX_CC_ZERO, GX_CC_ZERO, GX_CC_CPREV);
+  CGX::SetTevAlphaIn(stage, GX_CA_ZERO, GX_CA_ZERO, GX_CA_ZERO, GX_CA_APREV);
+  CGX::SetTevOrder(stage, GX_TEXCOORD_NULL, GX_TEXMAP_NULL, GX_COLOR_NULL);
+  CGX::SetTevDirect(stage);
+  CGX::SetStandardTevColorAlphaOp(stage);
 }
 
 void CCubeMaterial::SetCurrent(const CModelFlags& flags, const CCubeSurface& surface,
@@ -483,253 +701,6 @@ void CCubeMaterial::SetCurrent(const CModelFlags& flags, const CCubeSurface& sur
   CGX::SetNumTevStages(finalTevCount);
   CGX::SetNumTexGens(tcgCount);
   CGX::SetNumChans(finalNumColorChans);
-}
-
-void CCubeMaterial::SetCurrentBlack() const {
-  const uint* data = reinterpret_cast< const uint* >(x0_data);
-  const uint texCount = data[1];
-  const uint flags = data[0];
-  const uint vertexDesc = data[texCount + 2];
-
-  if ((flags & (kStateFlag_DepthSorting | kStateFlag_AlphaTest)) != 0) {
-    CGX::SetBlendMode(GX_BM_BLEND, GX_BL_ZERO, GX_BL_ONE, GX_LO_CLEAR);
-  } else {
-    CGX::SetBlendMode(GX_BM_BLEND, GX_BL_ONE, GX_BL_ZERO, GX_LO_CLEAR);
-  }
-
-  CGX::SetVtxDescv_Compressed(vertexDesc);
-
-  GXTevColorArg colorArg = GX_CC_ZERO;
-  if (lbl_805A9559) {
-    colorArg = GX_CC_ONE;
-  }
-  CGX::SetTevColorIn(GX_TEVSTAGE0, GX_CC_ZERO, GX_CC_ZERO, GX_CC_ZERO, colorArg);
-
-  GXTevAlphaArg alphaArg = GX_CA_ZERO;
-  if (lbl_805A9559) {
-    alphaArg = GX_CA_KONST;
-  }
-  CGX::SetTevAlphaIn(GX_TEVSTAGE0, GX_CA_ZERO, GX_CA_ZERO, GX_CA_ZERO, alphaArg);
-
-  CGX::SetTevKAlphaSel(GX_TEVSTAGE0, GX_TEV_KASEL_1);
-  CGX::SetTexCoordGen(GX_TEXCOORD0, GX_TG_MTX2x4, GX_TG_POS, GX_IDENTITY, GX_FALSE, GX_PTIDENTITY);
-  CGX::SetStandardTevColorAlphaOp(GX_TEVSTAGE0);
-  CGX::SetTevOrder(GX_TEVSTAGE0, GX_TEXCOORD_NULL, GX_TEXMAP_NULL, GX_COLOR_NULL);
-  CGX::SetNumTevStages(1);
-  CGX::SetNumChans(0);
-  CGX::SetNumTexGens(1);
-  CGX::SetNumIndStages(0);
-}
-
-void CCubeMaterial::EnsureTevsDirect() {
-  if (sReflectionStage == -1) {
-    return;
-  }
-
-  CGX::SetNumIndStages(0);
-  CGX::SetTevDirect(static_cast< GXTevStageID >(sReflectionStage));
-  sReflectionStage = -1;
-}
-
-uint CCubeMaterial::HandleReflection(bool usesTevReg2, GXTexMapID indTexSlot, int indMtxScaleExp,
-                                     uint finalTevCount, uint texCount, uint tcgCount,
-                                     uint finalKColorCount, uint& finalCCFlags,
-                                     uint& finalACFlags) {
-  uint out = 0;
-  GXTevColorArg colorArg;
-  if (usesTevReg2) {
-    colorArg = GX_CC_C2;
-    CGX::SetTevColorIn(static_cast< GXTevStageID >(finalTevCount), GX_CC_ZERO, GX_CC_C2,
-                       GX_CC_KONST, GX_CC_ZERO);
-    CGX::SetTevAlphaIn(static_cast< GXTevStageID >(finalTevCount), GX_CA_ZERO, GX_CA_ZERO,
-                       GX_CA_ZERO, GX_CA_A2);
-    CGX::SetTevColorOp(static_cast< GXTevStageID >(finalTevCount), GX_TEV_ADD, GX_TB_ZERO,
-                       GX_CS_SCALE_1, GX_TRUE, GX_TEVREG2);
-    CGX::SetTevAlphaOp(static_cast< GXTevStageID >(finalTevCount), GX_TEV_ADD, GX_TB_ZERO,
-                       GX_CS_SCALE_1, GX_TRUE, GX_TEVREG2);
-    CGX::SetTevOrder(static_cast< GXTevStageID >(finalTevCount), GX_TEXCOORD_NULL, GX_TEXMAP_NULL,
-                     GX_COLOR_ZERO);
-    out = 1;
-  } else {
-    colorArg = GX_CC_KONST;
-  }
-
-  CColor reflectionColor;
-  reflectionColor.Set(sReflectionAlpha, sReflectionAlpha, sReflectionAlpha, sReflectionAlpha);
-  CGX::SetTevKColor(static_cast< GXTevKColorID >(finalKColorCount), reflectionColor.GetGXColor());
-  CGX::SetTevKColorSel(static_cast< GXTevStageID >(finalTevCount),
-                       static_cast< GXTevKColorSel >(finalKColorCount + GX_TEV_KCSEL_K0));
-
-  finalTevCount += out;
-
-  CCubeRenderer::That()->GetRealReflection()->Load(static_cast< GXTexMapID >(texCount),
-                                                   CTexture::kCM_Clamp);
-
-  GXTexCoordID texCoord;
-  if (indTexSlot != GX_TEXMAP_NULL) {
-    texCoord = static_cast< GXTexCoordID >(tcgCount + 1);
-    GXSetIndTexOrder(GX_INDTEXSTAGE0, static_cast< GXTexCoordID >(tcgCount), indTexSlot);
-    CGX::SetTexCoordGen(static_cast< GXTexCoordID >(tcgCount), GX_TG_MTX3x4, GX_TG_POS, GX_TEXMTX6,
-                        GX_TRUE, GX_PTTEXMTX6);
-    CGX::SetTevIndWarp(static_cast< GXTevStageID >(finalTevCount), GX_INDTEXSTAGE0, 1, 0, GX_ITM_0);
-    CGX::SetIndTexMtxSTPointFive(GX_ITM_0, static_cast< s8 >(indMtxScaleExp));
-    if (sReflectionStage > static_cast< int >(finalTevCount)) {
-      CGX::SetTevDirect(static_cast< GXTevStageID >(sReflectionStage));
-    }
-    sReflectionStage = finalTevCount;
-  } else {
-    texCoord = static_cast< GXTexCoordID >(tcgCount);
-  }
-
-  CGX::SetTexCoordGen(texCoord, GX_TG_MTX3x4, GX_TG_POS, GX_TEXMTX7, GX_FALSE, GX_PTIDENTITY);
-
-  CGX::SetTevColorIn(static_cast< GXTevStageID >(finalTevCount), GX_CC_ZERO, colorArg, GX_CC_TEXC,
-                     GX_CC_CPREV);
-  CGX::SetTevAlphaIn(static_cast< GXTevStageID >(finalTevCount), GX_CA_ZERO, GX_CA_ZERO, GX_CA_ZERO,
-                     GX_CA_APREV);
-  CGX::SetStandardTevColorAlphaOp(static_cast< GXTevStageID >(finalTevCount));
-
-  finalACFlags = 0;
-  finalCCFlags = 0;
-  CGX::SetTevOrder(static_cast< GXTevStageID >(finalTevCount), texCoord,
-                   static_cast< GXTexMapID >(texCount), GX_COLOR_NULL);
-  return out + 1;
-}
-
-static void DoPassthru(uint finalTevCount) {
-  register uint stage = finalTevCount;
-  CGX::SetTevColorIn(static_cast< GXTevStageID >(stage), GX_CC_ZERO, GX_CC_ZERO, GX_CC_ZERO,
-                     GX_CC_CPREV);
-  CGX::SetTevAlphaIn(static_cast< GXTevStageID >(stage), GX_CA_ZERO, GX_CA_ZERO, GX_CA_ZERO,
-                     GX_CA_APREV);
-  CGX::SetTevOrder(static_cast< GXTevStageID >(stage), GX_TEXCOORD_NULL, GX_TEXMAP_NULL,
-                   GX_COLOR_NULL);
-  CGX::SetTevDirect(static_cast< GXTevStageID >(stage));
-  CGX::SetStandardTevColorAlphaOp(static_cast< GXTevStageID >(stage));
-}
-
-static void HandleTransparency(uint& finalTevCount, uint& finalKColorCount,
-                               const CModelFlags& modelFlags, uint blendFactors, uint& finalCCFlags,
-                               uint& finalACFlags) {
-  const char blendMode = *reinterpret_cast< const char* >(&modelFlags);
-  const GXColor& color =
-      *reinterpret_cast< const GXColor* >(reinterpret_cast< const uchar* >(&modelFlags) + 4);
-
-  if (blendMode == 2) {
-    if (static_cast< ushort >(blendFactors >> 16) == 1) {
-      return;
-    }
-  }
-
-  if (blendMode == 3) {
-    const uint stage = finalTevCount;
-    const uint stage2 = stage + 1;
-    CGX::SetTevColorIn(static_cast< GXTevStageID >(stage), GX_CC_ZERO, GX_CC_ZERO, GX_CC_ZERO,
-                       GX_CC_KONST);
-    CGX::SetTevAlphaIn(static_cast< GXTevStageID >(stage), GX_CA_ZERO, GX_CA_ZERO, GX_CA_ZERO,
-                       GX_CA_APREV);
-    CGX::SetTevColorOp(static_cast< GXTevStageID >(stage), GX_TEV_ADD, GX_TB_ZERO, GX_CS_SCALE_1,
-                       GX_TRUE, GX_TEVREG0);
-    CGX::SetTevKColorSel(static_cast< GXTevStageID >(stage),
-                         static_cast< GXTevKColorSel >(finalKColorCount + GX_TEV_KCSEL_K0_A));
-    CGX::SetTevAlphaOp(static_cast< GXTevStageID >(stage), GX_TEV_ADD, GX_TB_ZERO, GX_CS_SCALE_1,
-                       GX_TRUE, GX_TEVPREV);
-    CGX::SetTevOrder(static_cast< GXTevStageID >(stage), GX_TEXCOORD_NULL, GX_TEXMAP_NULL,
-                     GX_COLOR_NULL);
-    CGX::SetTevDirect(static_cast< GXTevStageID >(stage));
-
-    CGX::SetTevColorIn(static_cast< GXTevStageID >(stage2), GX_CC_CPREV, GX_CC_C0, GX_CC_KONST,
-                       GX_CC_ZERO);
-    CGX::SetTevAlphaIn(static_cast< GXTevStageID >(stage2), GX_CA_ZERO, GX_CA_ZERO, GX_CA_ZERO,
-                       GX_CA_APREV);
-    CGX::SetTevKColorSel(static_cast< GXTevStageID >(stage2),
-                         static_cast< GXTevKColorSel >(finalKColorCount + GX_TEV_KCSEL_K0));
-    CGX::SetStandardTevColorAlphaOp(static_cast< GXTevStageID >(stage2));
-    CGX::SetTevDirect(static_cast< GXTevStageID >(stage2));
-    CGX::SetTevOrder(static_cast< GXTevStageID >(stage2), GX_TEXCOORD_NULL, GX_TEXMAP_NULL,
-                     GX_COLOR_NULL);
-    CGX::SetTevKColor(static_cast< GXTevKColorID >(finalKColorCount), color);
-
-    finalKColorCount += 1;
-    finalTevCount += 2;
-  } else {
-    uint alphaArgs = 0x380c7;
-    if (blendMode == 8) {
-      alphaArgs = 0x31ce7;
-    }
-
-    uint colorArgs = 0x81cf;
-    if (blendMode == 2) {
-      colorArgs = 0x7018f;
-    }
-
-    const uint stage = finalTevCount;
-    CGX::SetTevColorIn_Compressed(static_cast< GXTevStageID >(stage), colorArgs);
-    CGX::SetTevAlphaIn_Compressed(static_cast< GXTevStageID >(stage), alphaArgs);
-    CGX::SetStandardTevColorAlphaOp(static_cast< GXTevStageID >(stage));
-
-    finalCCFlags = 0x100;
-    finalACFlags = 0x100;
-
-    CGX::SetTevDirect(static_cast< GXTevStageID >(stage));
-    CGX::SetTevOrder(static_cast< GXTevStageID >(stage), GX_TEXCOORD_NULL, GX_TEXMAP_NULL,
-                     GX_COLOR_NULL);
-    CGX::SetTevKColor(static_cast< GXTevKColorID >(finalKColorCount), color);
-    CGX::SetTevKColorSel(static_cast< GXTevStageID >(stage),
-                         static_cast< GXTevKColorSel >(finalKColorCount + GX_TEV_KCSEL_K0));
-    CGX::SetTevKAlphaSel(static_cast< GXTevStageID >(stage),
-                         static_cast< GXTevKAlphaSel >(finalKColorCount + GX_TEV_KASEL_K0_A));
-
-    finalTevCount += 1;
-    finalKColorCount += 1;
-  }
-}
-
-static void DoModelShadow(uint texCount, uint tcgCount) {
-  static const Mtx identity2D = {
-      {0.f, 0.f, 0.f, 0.f},
-      {0.f, 0.f, 0.f, 0.f},
-      {0.f, 0.f, 0.f, 1.f},
-  };
-
-  spShadowTexture->Load(static_cast< GXTexMapID >(texCount), CTexture::kCM_Repeat);
-
-  Mtx mtx;
-  __memcpy(&mtx, &identity2D, sizeof(Mtx));
-  mtx[0][0] = sTextureProjectionTransform.Get00();
-  mtx[0][1] = sTextureProjectionTransform.Get01();
-  mtx[0][2] = sTextureProjectionTransform.Get02();
-  mtx[0][3] = sTextureProjectionTransform.Get03();
-  mtx[1][0] = sTextureProjectionTransform.Get20();
-  mtx[1][1] = sTextureProjectionTransform.Get21();
-  mtx[1][2] = sTextureProjectionTransform.Get22();
-  mtx[1][3] = sTextureProjectionTransform.Get23();
-  CGX::LoadTexMtxImm(mtx, GX_TEXMTX5, GX_MTX3x4);
-
-  CGX::SetTexCoordGen(static_cast< GXTexCoordID >(tcgCount), GX_TG_MTX3x4, GX_TG_POS, GX_TEXMTX5,
-                      GX_FALSE, GX_PTIDENTITY);
-
-  CGX::SetTevColorOp(GX_TEVSTAGE0, GX_TEV_ADD, GX_TB_ZERO, GX_CS_SCALE_1, GX_TRUE, GX_TEVREG0);
-  CGX::SetTevAlphaOp(GX_TEVSTAGE0, GX_TEV_ADD, GX_TB_ZERO, GX_CS_SCALE_1, GX_TRUE, GX_TEVREG0);
-  CGX::SetTevColorIn(GX_TEVSTAGE0, GX_CC_ZERO, GX_CC_RASC, GX_CC_TEXC, GX_CC_ZERO);
-  CGX::SetTevAlphaIn(GX_TEVSTAGE0, GX_CA_ZERO, GX_CA_ZERO, GX_CA_ZERO, GX_CA_RASA);
-  CGX::SetTevOrder(GX_TEVSTAGE0, static_cast< GXTexCoordID >(tcgCount),
-                   static_cast< GXTexMapID >(texCount), GX_COLOR1A1);
-
-  CGX::SetTevColorOp(GX_TEVSTAGE1, GX_TEV_ADD, GX_TB_ZERO, GX_CS_SCALE_1, GX_TRUE, GX_TEVREG0);
-  CGX::SetTevAlphaOp(GX_TEVSTAGE1, GX_TEV_ADD, GX_TB_ZERO, GX_CS_SCALE_1, GX_TRUE, GX_TEVREG0);
-  CGX::SetTevColorIn(GX_TEVSTAGE1, GX_CC_ZERO, GX_CC_RASC, GX_CC_ONE, GX_CC_C0);
-  CGX::SetTevAlphaIn(GX_TEVSTAGE1, GX_CA_ZERO, GX_CA_RASA, GX_CA_KONST, GX_CA_A0);
-  CGX::SetTevKAlphaSel(GX_TEVSTAGE1, GX_TEV_KASEL_1);
-  CGX::SetTevOrder(GX_TEVSTAGE1, GX_TEXCOORD_NULL, GX_TEXMAP_NULL, GX_COLOR0A0);
-}
-
-void CGX::SetTevIndWarp(GXTevStageID stageId, GXIndTexStageID indStage, uchar signedOffset,
-                        uchar replaceMode, GXIndTexMtxID mtxSel) {
-  GXIndTexWrap wrap = signedOffset != 0 ? GX_ITW_0 : GX_ITW_OFF;
-  GXIndTexBiasSel biasSel = replaceMode != 0 ? GX_ITB_STU : GX_ITB_NONE;
-  SetTevIndirect(stageId, indStage, GX_ITF_8, biasSel, mtxSel, wrap, wrap, GX_FALSE, GX_FALSE,
-                 GX_ITBA_OFF);
 }
 
 void CCubeMaterial::EnsureViewDepStateCached(const CCubeSurface* surface) {

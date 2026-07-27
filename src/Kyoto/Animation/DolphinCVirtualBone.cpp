@@ -1,5 +1,6 @@
 #include "Kyoto/Animation/CPoseAsTransforms.hpp"
 #include "Kyoto/Animation/CVirtualBone.hpp"
+#include "dolphin/mtx.h"
 
 #include "rstl/math.hpp"
 
@@ -7,14 +8,14 @@
 
 static rstl::reserved_vector< SSkinWeighting, 3 > StreamInSkinWeighting(CInputStream& in) {
   rstl::reserved_vector< SSkinWeighting, 3 > weights;
-  int weightCount = in.ReadInt32();
+  const int weightCount = in.ReadInt32();
 
-  if (weightCount > 3) {
-    for (int i = 0; i < 3; ++i) {
+  if (weightCount > weights.capacity()) {
+    for (int i = 0; i < weights.capacity(); ++i) {
       weights.push_back(SSkinWeighting(in));
     }
 
-    for (int i = 3; i < weightCount; ++i) {
+    for (int i = weights.capacity(); i < weightCount; ++i) {
       SSkinWeighting tmp(in);
     }
   } else {
@@ -117,4 +118,24 @@ void CVirtualBone::BuildAccumulatedTransform(const CPoseAsTransforms& pose,
                                              const CVector3f* points) const {
   BuildFinalPosMatrix(pose, points);
   x50_rotation = pose.GetRotation(x0_weights[0].x0_id);
+}
+
+void PSMTXROMultS16VecArrayGathered(ROMtx mxt, const ushort* in, volatile void* out,
+                                    size_t pointCount);
+
+void CVirtualBone::BuildPoints(const ushort* in, volatile void* out, int pointCount) const {
+  if (pointCount < 3) {
+    float* outF = const_cast< float* >(static_cast< volatile float* >(out));
+    const CVector3f* inV = reinterpret_cast< const CVector3f* >(in);
+    for (int i = 0; i < pointCount; ++i) {
+      CVector3f point = x20_xf * inV[i];
+      *outF = point.GetX();
+      *outF = point.GetY();
+      *outF = point.GetZ();
+    }
+  } else {
+    ROMtx mtx;
+    PSMTXReorder(TransformToMtx(x20_xf), mtx);
+    PSMTXROMultS16VecArrayGathered(mtx, in, out, pointCount);
+  }
 }

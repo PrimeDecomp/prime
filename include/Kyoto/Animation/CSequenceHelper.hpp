@@ -1,6 +1,7 @@
 #ifndef _CSEQUENCEHELPER
 #define _CSEQUENCEHELPER
 #include "Kyoto/Animation/CAnimSysContext.hpp"
+#include "Kyoto/Animation/CSequenceFundamentals.hpp"
 
 class IMetaAnim;
 class CAnimTreeNode;
@@ -10,6 +11,8 @@ public:
                   const rstl::ncrc_ptr< CAnimTreeNode >& b, const CAnimSysContext& context);
   CSequenceHelper(const rstl::vector< rstl::rc_ptr< IMetaAnim > >& anims,
                   const CAnimSysContext& context);
+
+  CSequenceFundamentals ComputeSequenceFundamentals() const;
 
 private:
   CAnimSysContext x0_context;

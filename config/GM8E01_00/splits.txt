@@ -3871,14 +3871,14 @@ dolphin/os/OSFatal.c:
 	.text       start:0x80380058 end:0x80380C34
 	.bss        start:0x80541298 end:0x80541580
 	.sdata      start:0x805A8B40 end:0x805A8B48
-	.sdata2     start:0x805AEC18 end:0x805AEC48
+	.sdata2     start:0x805AEC18 end:0x805AEC58
 
 dolphin/os/OSFont.c:
 	.text       start:0x80380C34 end:0x80381660
 	.data       start:0x803F1750 end:0x803F2260
 	.sdata      start:0x805A8B48 end:0x805A8B50
 	.sbss       start:0x805A98C0 end:0x805A98D0
-	.sdata2     start:0x805AEC48 end:0x805AEC60
+	.sdata2     start:0x805AEC58 end:0x805AEC60
 
 dolphin/os/OSInterrupt.c:
 	.text       start:0x80381660 end:0x80381ECC
