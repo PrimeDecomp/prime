@@ -1,4 +1,5 @@
 #include "dolphin/os.h"
+#include "string.h"
 
 #define SHN_UNDEF 0
 #define SHN_LORESERVE 0xff00
@@ -250,7 +251,8 @@ static BOOL Link(OSModuleInfo* newModule, void* bss, BOOL fixed) {
     } else if (si->size != 0) {
       moduleHeader->bssSection = (u8)i;
       si->offset = (u32)bss;
-      bss = (void*)((u32)bss + si->size);
+      // Not in Metroid Prime?
+      //bss = (void*)((u32)bss + si->size);
     }
   }
   for (imp = (OSImportInfo*)moduleHeader->impOffset;

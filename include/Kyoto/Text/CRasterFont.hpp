@@ -47,8 +47,9 @@ private:
 
 class CGlyph {
 public:
-  CGlyph(int a, int b, int c, float startU, float startV, float endU, float endV, int cellWidth,
-         int cellHeight, int baseline, int kernStart)
+  CGlyph(const int a, const int b, const int c, const float startU, const float startV,
+         const float endU, const float endV, const int cellWidth, const int cellHeight,
+         const int baseline, const int kernStart)
   : x0_a(a)
   , x2_b(b)
   , x4_c(c)
@@ -102,7 +103,6 @@ class CRasterFont {
 public:
   friend class CFontInstruction;
   CRasterFont(CInputStream& in, IObjectStore* store);
-  ~CRasterFont();
 
   EFontMode GetMode() const;
 
@@ -122,7 +122,7 @@ public:
                  int length) const;
 
   void SinglePassDrawString(const CDrawStringOptions& options, int x, int y, int& xOut, int& yOut,
-                            CTextRenderBuffer* buffer, const wchar_t* str, s32 length) const;
+                            CTextRenderBuffer* buffer, const wchar_t* str, int length) const;
 
   void SetupRenderState();
 

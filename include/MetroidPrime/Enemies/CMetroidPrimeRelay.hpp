@@ -7,6 +7,7 @@
 
 #include "Kyoto/Math/CTransform4f.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
+#include "MetroidPrime/CAnimRes.hpp"
 
 class CMetroidPrimeRelay : public CEntity {
 public:
@@ -41,6 +42,9 @@ public:
   GetRoomParms() const {
     return xcb8_roomParms;
   }
+
+  void CreateMetroidPrime(CStateManager& mgr);
+  void ForwardMessageToMP(EScriptObjectMessage msg, CStateManager& mgr);
 
 private:
   TUniqueId x34_mpUid;

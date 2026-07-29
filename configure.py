@@ -45,7 +45,7 @@ DISABLED_VERSIONS = [
     # 2,
     # 3,
     # 4,
-    5,
+    # 5,
     6,
     7,
     8,
@@ -1908,7 +1908,7 @@ config.libs = [
         "os",
         [
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8J01_00", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8J01_00", "GM8E01_02"),
                 "dolphin/os/__start.c",
             ),
             Object(
@@ -1945,42 +1945,42 @@ config.libs = [
                 "dolphin/os/OSInterrupt.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
                 "dolphin/os/OSLink.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
                 "dolphin/os/OSMessage.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
                 "dolphin/os/OSMemory.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
                 "dolphin/os/OSMutex.c",
             ),
             Object(NonMatching, "dolphin/os/OSReboot.c"),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
                 "dolphin/os/OSReset.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
                 "dolphin/os/OSResetSW.c",
             ),
-            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "dolphin/os/OSRtc.c"),
-            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "dolphin/os/OSSync.c"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02"), "dolphin/os/OSRtc.c"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02"), "dolphin/os/OSSync.c"),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
                 "dolphin/os/OSThread.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
                 "dolphin/os/OSTime.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
                 "dolphin/os/__ppc_eabi_init.cpp",
             ),
         ],

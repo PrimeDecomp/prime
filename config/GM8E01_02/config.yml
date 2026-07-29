@@ -1,0 +1,23 @@
+object_base: orig/GM8E01_02
+object: sys/main.dol
+hash: 39a2f928159ad46491e9b1ef0a72613d91e0cc40
+symbols: config/GM8E01_02/symbols.txt
+splits: config/GM8E01_02/splits.txt
+mw_comment_version: 8
+quick_analysis: false # Faster reruns after full analysis
+fill_gaps: true # Alignments known
+
+# Extract embedded assets
+extract:
+- symbol: sDefaultFontData
+  binary: MetroidPrime/DefaultFontData.bin
+  header: MetroidPrime/DefaultFontData.inc
+- symbol: sDefaultFontTexture
+  binary: MetroidPrime/DefaultFontTexture.bin
+  header: MetroidPrime/DefaultFontTexture.inc
+
+modules:
+- object: files/NESemuP.rel
+  hash: 1a1f7fbcc83d24d90a90ecc4f7cc26825d26a754
+  symbols: config/GM8E01_02/NESemu/symbols.txt
+  splits: config/GM8E01_02/NESemu/splits.txt

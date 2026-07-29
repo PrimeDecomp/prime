@@ -1,0 +1,65 @@
+Sections:
+	.init       type:code align:32
+	extab       type:rodata align:32
+	extabindex  type:rodata align:32
+	.text       type:code align:32
+	.ctors      type:rodata align:32
+	.dtors      type:rodata align:32
+	.rodata     type:rodata align:32
+	.data       type:data align:32
+	.bss        type:bss align:32
+	.sdata      type:data align:32
+	.sbss       type:bss align:32
+	.sdata2     type:rodata align:32
+	.sbss2      type:bss align:32
+
+dolphin/os/OSLink.c:
+	.text       start:0x80382CC4 end:0x803836B0
+	.data       start:0x803F32B8 end:0x803F3308
+
+dolphin/os/OSMessage.c:
+	.text       start:0x803836B0 end:0x803838B4
+
+dolphin/os/OSMemory.c:
+	.text       start:0x803838B4 end:0x80383C58
+	.data       start:0x803F3308 end:0x803F3318
+
+dolphin/os/OSMutex.c:
+	.text       start:0x80383C58 end:0x80383CC8
+
+dolphin/os/OSReboot.c:
+	.text       start:0x80383CC8 end:0x80384044
+	.bss        start:0x80542600 end:0x80542620
+	.sbss       start:0x805AA998 end:0x805AA9A8
+
+dolphin/os/OSReset.c:
+	.text       start:0x80384044 end:0x803844B4
+	.sbss       start:0x805AA9A8 end:0x805AA9B0
+
+dolphin/os/OSResetSW.c:
+	.text       start:0x803844B4 end:0x80384840
+	.sbss       start:0x805AA9B0 end:0x805AA9D0
+
+dolphin/os/OSRtc.c:
+	.text       start:0x80384840 end:0x803853FC
+	.bss        start:0x80542620 end:0x80542678
+
+dolphin/os/OSSync.c:
+	.text       start:0x803853FC end:0x80385480
+
+dolphin/os/OSThread.c:
+	.text       start:0x80385480 end:0x803863C0
+	.bss        start:0x80542678 end:0x80543070
+	.sdata      start:0x805A9BE0 end:0x805A9BE4
+	.sbss       start:0x805AA9D0 end:0x805AA9E0
+
+dolphin/os/OSTime.c:
+	.text       start:0x803863C0 end:0x8038683C
+	.data       start:0x803F3318 end:0x803F3378
+
+dolphin/os/__start.c:
+	.init       start:0x80003100 end:0x80003354
+
+dolphin/os/__ppc_eabi_init.cpp:
+	.init       start:0x80003354 end:0x800033A8
+	.text       start:0x8038683C end:0x803868D0

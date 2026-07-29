@@ -6,8 +6,11 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-
+#if VERSION >= 4
+#define OS_MODULE_VERSION 3
+#else
 #define OS_MODULE_VERSION 2
+#endif
 typedef struct OSModuleHeader OSModuleHeader;
 
 typedef u32 OSModuleID;
