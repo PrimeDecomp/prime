@@ -1912,36 +1912,36 @@ config.libs = [
                 "dolphin/os/__start.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "dolphin/os/OS.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "dolphin/os/OS.c"
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
                 "dolphin/os/OSAlarm.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
                 "dolphin/os/OSArena.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
                 "dolphin/os/OSAudioSystem.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
                 "dolphin/os/OSCache.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
                 "dolphin/os/OSContext.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
                 "dolphin/os/OSError.c",
             ),
-            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "dolphin/os/OSFatal.c"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02"), "dolphin/os/OSFatal.c"),
             Object(NonMatching, "dolphin/os/OSFont.c"),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
                 "dolphin/os/OSInterrupt.c",
             ),
             Object(

@@ -4,8 +4,13 @@
 #include "dolphin/os/OSBootInfo.h"
 
 extern OSTime __OSGetSystemTime();
+#if VERSION < 4
 static const char* __OSVersion =
     "<< Dolphin SDK - OS\trelease build: Sep  5 2002 05:32:39 (0x2301) >>";
+#else
+static const char* __OSVersion =
+    "<< Dolphin SDK - OS\trelease build: Nov  5 2002 12:52:29 (0x2301) >>";
+#endif
 extern char _db_stack_end[];
 
 #define OS_BI2_DEBUG_ADDRESS 0x800000F4
@@ -278,8 +283,13 @@ void OSInit(void) {
     }
 
     // begin OS reporting
+#if VERSION < 4
     OSReport("\nDolphin OS $Revision: 58 $.\n");
     OSReport("Kernel built : %s %s\n", "Sep  5 2002", "05:32:39");
+#else 
+    OSReport("\nDolphin OS $Revision: 60 $.\n");
+    OSReport("Kernel built : %s %s\n", "Nov  5 2002", "12:52:29");
+#endif
     OSReport("Console Type : ");
 
     // this is a function in the same file, but it doesn't seem to match

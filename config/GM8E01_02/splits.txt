@@ -13,6 +13,57 @@ Sections:
 	.sdata2     type:rodata align:32
 	.sbss2      type:bss align:32
 
+dolphin/os/OS.c:
+	.text       start:0x8037E518 end:0x8037EE60
+	.data       start:0x803F1DC8 end:0x803F1FD0
+	.bss        start:0x80542280 end:0x805422D0
+	.sdata      start:0x805A9BB8 end:0x805A9BC0
+	.sbss       start:0x805AA930 end:0x805AA960
+
+dolphin/os/OSAlarm.c:
+	.text       start:0x8037EE60 end:0x8037F58C
+	.sbss       start:0x805AA960 end:0x805AA968
+
+dolphin/os/OSArena.c:
+	.text       start:0x8037F58C end:0x8037F5D8
+	.sdata      start:0x805A9BC0 end:0x805A9BC8
+	.sbss       start:0x805AA968 end:0x805AA970
+
+dolphin/os/OSAudioSystem.c:
+	.text       start:0x8037F5D8 end:0x8037F86C
+	.data       start:0x803F1FD0 end:0x803F2050
+
+dolphin/os/OSCache.c:
+	.text       start:0x8037F86C end:0x8037FFC0
+	.data       start:0x803F2050 end:0x803F2280
+
+dolphin/os/OSContext.c:
+	.text       start:0x8037FFC0 end:0x803807A4
+	.data       start:0x803F2280 end:0x803F2458
+
+dolphin/os/OSError.c:
+	.text       start:0x803807A4 end:0x80380E50
+	.data       start:0x803F2458 end:0x803F2778
+	.bss        start:0x805422D0 end:0x80542318
+	.sdata      start:0x805A9BC8 end:0x805A9BD0
+
+dolphin/os/OSFatal.c:
+	.text       start:0x80380E50 end:0x80381A2C
+	.bss        start:0x80542318 end:0x80542600
+	.sdata      start:0x805A9BD0 end:0x805A9BD8
+	.sdata2     start:0x805AFCE8 end:0x805AFD28
+
+dolphin/os/OSFont.c:
+	.text       start:0x80381A2C end:0x80382458
+	.data       start:0x803F2778 end:0x803F3288
+	.sdata      start:0x805A9BD8 end:0x805A9BE0
+	.sbss       start:0x805AA970 end:0x805AA980
+
+dolphin/os/OSInterrupt.c:
+	.text       start:0x80382458 end:0x80382CC4
+	.data       start:0x803F3288 end:0x803F32B8
+	.sbss       start:0x805AA980 end:0x805AA998
+
 dolphin/os/OSLink.c:
 	.text       start:0x80382CC4 end:0x803836B0
 	.data       start:0x803F32B8 end:0x803F3308
