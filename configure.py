@@ -636,7 +636,7 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/CParticleGenInfo.cpp",
             ),
-            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CParticleDatabase.cpp"),
+            Object(NonMatching, "MetroidPrime/CParticleDatabase.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Tweaks/CTweakGunRes.cpp"),
             Object(NonMatching, "MetroidPrime/CTargetReticles.cpp"),
             Object(NonMatching, "MetroidPrime/CWeaponMgr.cpp"),
@@ -1709,7 +1709,7 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
                 "Kyoto/Particles/CEffectComponent.cpp",
             ),
-            Object(NonMatching, "Kyoto/Particles/CParticleData.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Particles/CParticleData.cpp"),
             Object(NonMatching, "Kyoto/Animation/CVertexMorphEffect.cpp"),
             Object(NonMatching, "Kyoto/Animation/CSkinnedModelWithAvgNormals.cpp"),
             Object(
