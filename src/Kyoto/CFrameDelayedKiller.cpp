@@ -1,6 +1,9 @@
 #include "Kyoto/CFrameDelayedKiller.hpp"
-#include "dolphin/gx/GXManage.h"
 
+#include "Kyoto/Particles/CParticleDataFactory.hpp"
+#include "Kyoto/Particles/IElement.hpp"
+
+#include <dolphin/gx/GXManage.h>
 #include <rstl/list.hpp>
 
 #pragma force_active on
@@ -57,5 +60,19 @@ Something::Something() : unk1(256), unk2(0), unk3(0) {}
 bool Something::fn_8036CB50(uint x) { return unk1 > unk2 + (x + 3) / 4; }
 
 bool Something::fn_8036CB28(uint x) {
-  return false;
+  int r0 = (uintptr_t)&v;
+  int r3 = unk1;
+  r0 = x - r0;
+  r0 >>= 2;
+  r0 += r0;
+  r0 = r3 ^ r0;
+  r0 = __cntlzw(r0);
+  r0 = r3 << r0;
+  return r0 ? false : true;
 }
+
+void* IElement::operator new(size_t sz, const char* fileAndLine, const char* type) {
+  return CElementAllocator::Alloc(sz, fileAndLine, type);
+}
+
+void IElement::operator delete(void* ptr, const size_t sz) { CElementAllocator::Free(ptr, sz); }

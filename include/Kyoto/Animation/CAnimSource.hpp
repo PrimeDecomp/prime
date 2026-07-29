@@ -1,7 +1,11 @@
 #ifndef _CANIMSOURCE
 #define _CANIMSOURCE
 
+#include "CAnimPOIData.hpp"
+#include "Kyoto/Animation/CCharAnimTime.hpp"
+#include "Kyoto/Animation/CSegId.hpp"
 #include "Kyoto/Math/CQuaternion.hpp"
+#include "Kyoto/SObjectTag.hpp"
 #include "rstl/auto_ptr.hpp"
 
 #include <rstl/vector.hpp>
@@ -26,6 +30,7 @@ public:
 
   static void CopyRotationsAndOffsets(const rstl::vector< CQuaternion >&,
                                       const rstl::vector< CVector3f >&, uint numFrames, float* buf);
+  uint GetFrameSizeInBytes() const;
 
 private:
   rstl::auto_ptr< uint > x0_storage;
@@ -38,6 +43,24 @@ class CAnimSource {
 public:
   CAnimSource(CInputStream& in, IObjectStore& store);
   ~CAnimSource();
+
+  int HasOffset(const CSegId& seg) const;
+  CVector3f GetOffset(const CSegId& seg, const CCharAnimTime& animTime) const;
+  void CalcAverageVelocity();
+
+private:
+  CCharAnimTime x0_duration;
+  CCharAnimTime x8_interval;
+  uint x10_frameCount;
+  uint x14_;
+  uint x18_;
+  CSegId x1c_root;
+  rstl::vector< schar > x20_rotationChannels;
+  rstl::vector< schar > x30_offsetChannels;
+  RotationAndOffsetStorage x40_storage;
+  CAssetId x54_eventId;
+  rstl::auto_ptr< TLockedToken< CAnimPOIData > > x58_eventData;
+  float x60_averageVelocity;
 };
 
 #endif // _CANIMSOURCE

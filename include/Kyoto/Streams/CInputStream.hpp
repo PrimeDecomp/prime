@@ -80,6 +80,11 @@ inline unsigned char cinput_stream_helper(const TType< unsigned char >& type, CI
 }
 
 template <>
+inline schar cinput_stream_helper(const TType< schar >& type, CInputStream& in) {
+  return in.ReadChar();
+}
+
+template <>
 inline int cinput_stream_helper(const TType< int >& type, CInputStream& in) {
   return in.ReadLong();
 }
@@ -107,8 +112,7 @@ inline ushort cinput_stream_helper(const TType< ushort >& type, CInputStream& in
 // rstl
 #include "rstl/pair.hpp"
 template < typename L, typename R >
-inline rstl::pair< L, R >::pair(CInputStream& in)
-: first(in.Get< L >()), second(in.Get< R >()) {}
+inline rstl::pair< L, R >::pair(CInputStream& in) : first(in.Get< L >()), second(in.Get< R >()) {}
 
 #include "rstl/vector.hpp"
 template < typename T, typename Alloc >
@@ -123,7 +127,8 @@ inline rstl::vector< T, Alloc >::vector(CInputStream& in, const Alloc& allocator
 
 #include "rstl/reserved_vector.hpp"
 template < typename T, int N >
-inline rstl::reserved_vector< T, N >::reserved_vector(CInputStream& in) : x0_count(in.ReadInt32()) {
+inline rstl::reserved_vector< T, N >::reserved_vector(CInputStream& in)
+: x0_count(in.Get(TGetType(0))) {
   for (int i = 0; i < x0_count; i++) {
     construct(&data()[i], in.Get(TType< T >()));
   }

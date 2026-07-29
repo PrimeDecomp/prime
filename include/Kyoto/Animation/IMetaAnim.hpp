@@ -46,8 +46,8 @@ public:
   static CMetaAnimTreeBuildOrders PreAdvanceForAll(const CPreAdvanceIndicator& ind);
 
 private:
-  rstl::optional_object< CPreAdvanceIndicator > mRecursiveAdvance;
   rstl::optional_object< CPreAdvanceIndicator > mSingleAdvance;
+  rstl::optional_object< CPreAdvanceIndicator > mRecursiveAdvance;
 };
 
 class IMetaAnim {

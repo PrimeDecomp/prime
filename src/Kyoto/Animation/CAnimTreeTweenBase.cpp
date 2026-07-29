@@ -1,5 +1,6 @@
 #include "Kyoto/Animation/CAnimTreeTweenBase.hpp"
 #include "Kyoto/Animation/CCharAnimMemoryMetrics.hpp"
+#include <Kyoto/Animation/CAnimMathUtils.hpp>
 #include "Kyoto/Math/CQuaternion.hpp"
 #include "Kyoto/Math/CRelAngle.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
@@ -39,7 +40,7 @@ CQuaternion CAnimTreeTweenBase::VGetRotation(const CSegId& seg) const {
   } else {
     CQuaternion start_offset = x14_a->VGetRotation(seg);
     CQuaternion end_offset = x18_b->VGetRotation(seg);
-    return start_offset.SlerpLocal(start_offset, end_offset, blend_weight);
+    return CAnimMathUtils::SlerpLocal(start_offset, end_offset, blend_weight);
   }
 }
 
