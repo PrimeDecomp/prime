@@ -138,7 +138,15 @@ Kyoto/Basics/CStopwatch.cpp:
 	.bss        start:0x80588D90 end:0x80588DA8 align:4 common
 
 Kyoto/Audio/CSfxManager.cpp:
+	.text       start:0x802D36EC end:0x802D7368
+	.ctors      start:0x803B6E48 end:0x803B6E4C
+	.rodata     start:0x803C3230 end:0x803C3238
+	.data       start:0x803D5C00 end:0x803D5D38
+	.bss        start:0x80462C00 end:0x80462C30
 	.bss        start:0x80588DA8 end:0x8058E428 align:4 common
+	.sdata      start:0x80591800 end:0x80591818
+	.sbss       start:0x80592380 end:0x805923A0
+	.sdata2     start:0x80597630 end:0x80597660
 
 Kyoto/Graphics/CLight.cpp:
 	.bss        start:0x8058E428 end:0x8058E44C align:4 common
