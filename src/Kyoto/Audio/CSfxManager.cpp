@@ -11,7 +11,9 @@
 #include "types.h"
 #include <Kyoto/Audio/CSfxManager.hpp>
 
+#if VERSION == 4
 #pragma inline_max_size(140)
+#endif
 float CSfxManager::mReverbAmount = 1.f;
 float CSfxManager::mReverbScale = 0.1f;
 CSfxManager::EAuxEffect CSfxManager::mCurrentAuxEffect = kAE_None;
