@@ -2050,7 +2050,9 @@ void CMorphBall::UpdateMorphBallTransitionFlash(float dt) {
 void CMorphBall::RenderMorphBallTransitionFlash(const CStateManager&) const {
   if (x19dc_morphBallTransitionFlashGen.get() != nullptr) {
     const uchar* color = lbl_803CEAEC + 3 * x8_ballGlowColorIdx;
-    const CColor modColor(color[0], color[1], color[2], 0xff);
+    const uchar blue = color[2];
+    const uchar green = color[1];
+    const CColor modColor(color[0], green, blue, 0xff);
     x19dc_morphBallTransitionFlashGen->SetModulationColor(modColor);
     x19dc_morphBallTransitionFlashGen->Render();
   }
