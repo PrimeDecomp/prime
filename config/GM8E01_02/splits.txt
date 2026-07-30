@@ -13,6 +13,40 @@ Sections:
 	.sdata2     type:rodata align:32
 	.sbss2      type:bss align:32
 
+dolphin/ar/ar.c:
+	.text       start:0x8036E4D4 end:0x80370060
+	.data       start:0x803F0940 end:0x803F0988
+	.sdata      start:0x805A9B00 end:0x805A9B08
+	.sbss       start:0x805AA798 end:0x805AA7B8
+
+dolphin/ar/arq.c:
+	.text       start:0x80370060 end:0x80370404
+	.data       start:0x803F0988 end:0x803F09D0
+	.sdata      start:0x805A9B08 end:0x805A9B10
+	.sbss       start:0x805AA7B8 end:0x805AA7E0
+
+dolphin/PPCArch.c:
+	.text       start:0x80370404 end:0x803704FC
+
+dolphin/db.c:
+	.text       start:0x803704FC end:0x803705E8
+	.data       start:0x803F09D0 end:0x803F09E8
+	.sbss       start:0x805AA7E0 end:0x805AA7E8
+
+dolphin/dsp/dsp.c:
+	.text       start:0x803705E8 end:0x80370800
+	.data       start:0x803F09E8 end:0x803F0A68
+	.sdata      start:0x805A9B10 end:0x805A9B18
+	.sbss       start:0x805AA7E8 end:0x805AA7F0
+
+dolphin/dsp/dsp_debug.c:
+	.text       start:0x80370800 end:0x80370850
+
+dolphin/dsp/dsp_task.c:
+	.text       start:0x80370850 end:0x803710D4
+	.data       start:0x803F0A68 end:0x803F0BA8
+	.sbss       start:0x805AA7F0 end:0x805AA808
+
 dolphin/dvd/dvdlow.c:
 	.text       start:0x803710D4 end:0x80371F14
 	.bss        start:0x80541B00 end:0x80541BE0
