@@ -820,7 +820,7 @@ void C_MTXRotAxisRad(Mtx m, const Vec* axis, f32 rad) {
   c = cosf(rad);
   t = 1.0f - c;
 
-  C_VECNormalize(axis, &vN);
+  VECNormalize(axis, &vN);
 
   x = vN.x;
   y = vN.y;
@@ -1189,7 +1189,7 @@ void C_MTXReflect(Mtx m, const Vec* p, const Vec* n) {
   vxy = -2.0f * n->x * n->y;
   vxz = -2.0f * n->x * n->z;
   vyz = -2.0f * n->y * n->z;
-  pdotn = 2.0f * C_VECDotProduct(p, n);
+  pdotn = 2.0f * VECDotProduct(p, n);
 
   m[0][0] = 1.0f - 2.0f * n->x * n->x;
   m[0][1] = vxy;

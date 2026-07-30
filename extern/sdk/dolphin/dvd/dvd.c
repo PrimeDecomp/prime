@@ -4,7 +4,11 @@
 #include <dolphin/os.h>
 #include <dolphin/os/OSBootInfo.h>
 
+#if VERSION < 4
 const char* __DVDVersion = "<< Dolphin SDK - DVD\trelease build: Sep  5 2002 05:34:06 (0x2301) >>";
+#else
+const char* __DVDVersion = "<< Dolphin SDK - DVD\trelease build: Oct 29 2002 09:56:49 (0x2301) >>";
+#endif
 
 typedef void (*stateFunc)(DVDCommandBlock* block);
 stateFunc LastState;
@@ -108,7 +112,12 @@ static void stateReadingFST() {
   LastState = (stateFunc)stateReadingFST;
 
   if (bootInfo->FSTMaxLength < BB2.FSTLength) {
-    OSPanic("dvd.c", 630, "DVDChangeDisk(): FST in the new disc is too big.   ");
+#if VERSION < 4
+#define LINE 630
+#else
+#define LINE 647
+#endif
+    OSPanic("dvd.c", LINE, "DVDChangeDisk(): FST in the new disc is too big.   ");
   }
 
   DVDLowRead(bootInfo->FSTLocation, OSRoundUp32B(BB2.FSTLength), BB2.FSTPosition,
@@ -582,8 +591,12 @@ static void stateReady() {
   if (ResumeFromHere) {
     switch (ResumeFromHere) {
     case 1:
+#if VERSION < 4
       executing->state = 1;
       stateCoverClosed();
+#else
+      goto cover_closed;
+#endif
       break;
     case 2:
       executing->state = 11;
@@ -601,6 +614,7 @@ static void stateReady() {
       break;
     case 7:
     case 6:
+cover_closed:
       executing->state = 3;
       stateCoverClosed();
       break;
@@ -1102,7 +1116,7 @@ BOOL DVDSetAutoInvalidation(BOOL autoInval) {
   return prev;
 }
 
-inline void DVDPause(void) {
+void DVDPause(void) {
   BOOL level;
   level = OSDisableInterrupts();
   PauseFlag = TRUE;
@@ -1112,7 +1126,7 @@ inline void DVDPause(void) {
   OSRestoreInterrupts(level);
 }
 
-inline void DVDResume(void) {
+void DVDResume(void) {
   BOOL level;
   level = OSDisableInterrupts();
   PauseFlag = FALSE;
@@ -1126,6 +1140,9 @@ inline void DVDResume(void) {
 BOOL DVDCancelAsync(DVDCommandBlock* block, DVDCBCallback callback) {
   BOOL enabled;
   DVDLowCallback old;
+#if VERSION >= 4
+  DVDCommandBlock* finished;
+#endif
 
   enabled = OSDisableInterrupts();
 
@@ -1201,7 +1218,9 @@ BOOL DVDCancelAsync(DVDCommandBlock* block, DVDCBCallback callback) {
       ResumeFromHere = 2;
     if (block->state == 7)
       ResumeFromHere = 7;
-
+#if VERSION >= 4
+    executing = &DummyCommandBlock;
+#endif
     block->state = 10;
     if (block->callback) {
       (block->callback)(-3, block);
@@ -1358,6 +1377,10 @@ BOOL DVDCheckDisk(void) {
     coverReg = __DIRegs[1];
     if (((coverReg >> 2) & 1) || (coverReg & 1)) {
       retVal = FALSE;
+#if VERSION >= 4
+    } else if (ResumeFromHere) {
+      retVal = FALSE;
+#endif
     } else {
       retVal = TRUE;
     }

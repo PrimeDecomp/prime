@@ -202,8 +202,7 @@ f32 PSVECSquareDistance(const Vec* a, const Vec* b);
 f32 PSVECDistance(const Vec* a, const Vec* b);
 #endif
 
-// TODO
-#if defined( MTX_USE_PS) && 0
+#if defined( MTX_USE_PS)
 #define VECAdd PSVECAdd
 #define VECSubtract PSVECSubtract
 #define VECScale PSVECScale

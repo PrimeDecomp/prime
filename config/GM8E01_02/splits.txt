@@ -13,6 +13,137 @@ Sections:
 	.sdata2     type:rodata align:32
 	.sbss2      type:bss align:32
 
+dolphin/dvd/dvdlow.c:
+	.text       start:0x803710D4 end:0x80371F14
+	.bss        start:0x80541B00 end:0x80541BE0
+	.sdata      start:0x805A9B18 end:0x805A9B20
+	.sbss       start:0x805AA808 end:0x805AA850
+
+dolphin/dvd/dvdfs.c:
+	.text       start:0x80371F14 end:0x803727D0
+	.data       start:0x803F0BA8 end:0x803F0F98
+	.sdata      start:0x805A9B20 end:0x805A9B28
+	.sbss       start:0x805AA850 end:0x805AA870
+
+dolphin/dvd/dvd.c:
+	.text       start:0x803727D0 end:0x803751C4
+	.data       start:0x803F0F98 end:0x803F1118
+	.bss        start:0x80541BE0 end:0x80541C78
+	.sdata      start:0x805A9B28 end:0x805A9B40
+	.sbss       start:0x805AA870 end:0x805AA8B8
+
+dolphin/dvd/dvdqueue.c:
+	.text       start:0x803751C4 end:0x803753BC
+	.bss        start:0x80541C78 end:0x80541C98
+
+dolphin/dvd/dvderror.c:
+	.text       start:0x803753BC end:0x80375554
+	.data       start:0x803F1118 end:0x803F1160
+
+dolphin/dvd/dvdidutils.c:
+	.text       start:0x80375554 end:0x8037564C
+
+dolphin/dvd/dvdfatal.c:
+	.text       start:0x8037564C end:0x80375778
+	.rodata     start:0x803D9630 end:0x803D9648
+	.data       start:0x803F1160 end:0x803F1590
+	.sdata      start:0x805A9B40 end:0x805A9B48
+	.sbss       start:0x805AA8B8 end:0x805AA8C0
+	.sdata2     start:0x805AFBE8 end:0x805AFBF0
+
+dolphin/dvd/fstload.c:
+	.text       start:0x80375778 end:0x803759B8
+	.data       start:0x803F1590 end:0x803F1600
+	.bss        start:0x80541C98 end:0x80541D08
+	.sdata      start:0x805A9B48 end:0x805A9B58
+	.sbss       start:0x805AA8C0 end:0x805AA8D0
+
+dolphin/gx/GXInit.c:
+	.text       start:0x803759B8 end:0x80376D3C
+	.data       start:0x803F1600 end:0x803F1740
+	.bss        start:0x80541D08 end:0x80542280
+	.sdata      start:0x805A9B58 end:0x805A9B60
+	.sbss       start:0x805AA8D0 end:0x805AA8F8
+	.sdata2     start:0x805AFBF0 end:0x805AFC18
+
+dolphin/gx/GXFifo.c:
+	.text       start:0x80376D3C end:0x80377880
+	.sbss       start:0x805AA8F8 end:0x805AA918
+
+dolphin/gx/GXAttr.c:
+	.text       start:0x80377880 end:0x80378D64
+	.data       start:0x803F1740 end:0x803F1908
+	.sdata      start:0x805A9B60 end:0x805A9B70
+
+dolphin/gx/GXMisc.c:
+	.text       start:0x80378D64 end:0x803795EC
+	.sbss       start:0x805AA918 end:0x805AA930
+
+dolphin/gx/GXGeometry.c:
+	.text       start:0x803795EC end:0x8037999C
+
+dolphin/gx/GXFrameBuf.c:
+	.text       start:0x8037999C end:0x8037A480
+	.data       start:0x803F1908 end:0x803F19F8
+	.sdata2     start:0x805AFC18 end:0x805AFC20
+
+dolphin/gx/GXLight.c:
+	.text       start:0x8037A480 end:0x8037A9D8
+	.data       start:0x803F19F8 end:0x803F1A18
+	.sdata2     start:0x805AFC20 end:0x805AFC50
+
+dolphin/gx/GXTexture.c:
+	.text       start:0x8037A9D8 end:0x8037BBC4
+	.data       start:0x803F1A18 end:0x803F1C40
+	.sdata      start:0x805A9B70 end:0x805A9BB0
+	.sdata2     start:0x805AFC50 end:0x805AFC78
+
+dolphin/gx/GXBump.c:
+	.text       start:0x8037BBC4 end:0x8037C1B0
+	.sdata2     start:0x805AFC78 end:0x805AFC80
+
+dolphin/gx/GXTev.c:
+	.text       start:0x8037C1B0 end:0x8037C994
+	.data       start:0x803F1C40 end:0x803F1CB8
+
+dolphin/gx/GXPixel.c:
+	.text       start:0x8037C994 end:0x8037CFCC
+	.data       start:0x803F1CB8 end:0x803F1CD8
+	.sdata2     start:0x805AFC80 end:0x805AFCB8
+
+dolphin/gx/GXStubs.c:
+	.text       start:0x8037CFCC end:0x8037CFD0
+
+dolphin/gx/GXDisplayList.c:
+	.text       start:0x8037CFD0 end:0x8037D040
+
+dolphin/gx/GXTransform.c:
+	.text       start:0x8037D040 end:0x8037D5E4
+	.sdata2     start:0x805AFCB8 end:0x805AFCC8
+
+dolphin/gx/GXPerf.c:
+	.text       start:0x8037D5E4 end:0x8037DE3C
+	.data       start:0x803F1CD8 end:0x803F1DC8
+
+dolphin/mtx/mtx.c:
+	.text       start:0x8037DE3C end:0x8037E270
+	.sdata      start:0x805A9BB0 end:0x805A9BB8
+	.sdata2     start:0x805AFCC8 end:0x805AFCD0
+
+dolphin/mtx/mtx44vec.c:
+	.text       start:0x8037E270 end:0x8037E318
+
+dolphin/mtx/mtx44.c:
+	.text       start:0x8037E318 end:0x8037E44C
+	.sdata2     start:0x805AFCD0 end:0x805AFCE0
+
+dolphin/mtx/vec.c:
+	.text       start:0x8037E44C end:0x8037E4CC
+	.sdata2     start:0x805AFCE0 end:0x805AFCE8
+
+dolphin/mtx/psmtx.c:
+	.text       start:0x8037E4CC end:0x8037E518
+
 dolphin/os/OS.c:
 	.text       start:0x8037E518 end:0x8037EE60
 	.data       start:0x803F1DC8 end:0x803F1FD0
@@ -114,3 +245,6 @@ dolphin/os/__start.c:
 dolphin/os/__ppc_eabi_init.cpp:
 	.init       start:0x80003354 end:0x800033A8
 	.text       start:0x8038683C end:0x803868D0
+
+runtime/__mem.c:
+	.init       start:0x800033A8 end:0x800034E0
