@@ -143,24 +143,38 @@ static const char* const skSamusSpiderBallGlass =
 static const char* const skSamusBallFrozen = skMorphBallModelTables.x140_frozenBall[0].x0_name;
 
 namespace {
-const uchar lbl_803CEAD0[0x1c] = {
-    0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xd5,
-    0x19, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0x00,
+struct SColorRgb {
+  uchar x0_r;
+  uchar x1_g;
+  uchar x2_b;
 };
 
-const uchar lbl_803CEAEC[0x1c] = {
-    0xc2, 0x7e, 0x10, 0x66, 0xc4, 0xff, 0x60, 0xff, 0x90, 0x33, 0x33, 0xff, 0xff, 0x20,
-    0x20, 0x00, 0x9d, 0xb6, 0xd3, 0xf1, 0x00, 0xa6, 0x86, 0xd8, 0xfb, 0x98, 0x21, 0x00,
+/** Morph Ball glow color palette, indexed by x8_ballGlowColorIdx */
+const SColorRgb lbl_803CEAD0[9] = {
+    {255, 255, 255}, // White
+    {255, 255, 255}, // White
+    {255, 255, 255}, // White
+    {255, 255, 255}, // White
+    {255, 213, 25},  // Gold
+    {255, 255, 255}, // White
+    {255, 255, 255}, // White
+    {255, 255, 255}, // White
+    {255, 255, 255}, // White
 };
 
-const uchar lbl_803CEB08[0x1c] = {
-    0xc2, 0x7e, 0x10, 0x66, 0xc4, 0xff, 0x6c, 0xff, 0x61, 0x33, 0x33, 0xff, 0xff, 0x20,
-    0x20, 0x00, 0x9d, 0xb6, 0xd3, 0xf1, 0x00, 0xa6, 0x86, 0xd8, 0xfb, 0x98, 0x21, 0x00,
+const SColorRgb lbl_803CEAEC[9] = {
+    {194, 126, 16}, {102, 196, 255}, {96, 255, 144}, {51, 51, 255}, {255, 32, 32},
+    {0, 157, 182},  {211, 241, 0},   {166, 134, 216}, {251, 152, 33},
 };
 
-inline CColor GetGlowColor(const uchar* colors, uint colorIdx) {
-  const uchar* color = colors + 3 * colorIdx;
-  return CColor(color[0], color[1], color[2], 0xff);
+const SColorRgb lbl_803CEB08[9] = {
+    {194, 126, 16}, {102, 196, 255}, {108, 255, 97}, {51, 51, 255}, {255, 32, 32},
+    {0, 157, 182},  {211, 241, 0},   {166, 134, 216}, {251, 152, 33},
+};
+
+inline CColor GetGlowColor(const SColorRgb* palette, uint colorIdx) {
+  const SColorRgb& color = palette[colorIdx];
+  return CColor(color.x0_r, color.x1_g, color.x2_b, 0xff);
 }
 
 inline CColor GetAmbientColor(const CActorLights& lights) {
