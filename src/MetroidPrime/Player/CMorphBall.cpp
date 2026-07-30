@@ -1989,23 +1989,14 @@ void CMorphBall::Render(const CStateManager& mgr, const CActorLights* lights) co
     x1bc8_wakeEffectGens[x1c0c_wakeEffectIdx]->Render();
   }
 
-  const uchar* glowColorData = lbl_803CEAD0 + 3 * x8_ballGlowColorIdx;
-  const uchar glowBlue = glowColorData[2];
-  const uchar glowGreen = glowColorData[1];
-  x19d0_ballInnerGlowGen->SetModulationColor(CColor(glowColorData[0], glowGreen, glowBlue, 0xff));
+  x19d0_ballInnerGlowGen->SetModulationColor(
+      GetMorphBallGlowColor(lbl_803CEAD0, x8_ballGlowColorIdx));
   if (x19d0_ballInnerGlowGen->GetNumActiveChildParticles() > 0) {
     CParticleGen* particle = x19d0_ballInnerGlowGen->GetActiveChildParticle(0);
-    const uchar* transFlashColorData = lbl_803CEAEC + 3 * x8_ballGlowColorIdx;
-    const uchar transFlashBlue = transFlashColorData[2];
-    const uchar transFlashGreen = transFlashColorData[1];
-    particle->SetModulationColor(
-        CColor(transFlashColorData[0], transFlashGreen, transFlashBlue, 0xff));
+    particle->SetModulationColor(GetMorphBallGlowColor(lbl_803CEAEC, x8_ballGlowColorIdx));
     if (x19d0_ballInnerGlowGen->GetNumActiveChildParticles() > 1) {
       particle = x19d0_ballInnerGlowGen->GetActiveChildParticle(1);
-      const uchar* auxGlowColorData = lbl_803CEB08 + 3 * x8_ballGlowColorIdx;
-      const uchar auxGlowBlue = auxGlowColorData[2];
-      const uchar auxGlowGreen = auxGlowColorData[1];
-      particle->SetModulationColor(CColor(auxGlowColorData[0], auxGlowGreen, auxGlowBlue, 0xff));
+      particle->SetModulationColor(GetMorphBallGlowColor(lbl_803CEB08, x8_ballGlowColorIdx));
     }
   }
 
