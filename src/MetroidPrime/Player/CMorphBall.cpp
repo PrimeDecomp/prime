@@ -158,6 +158,11 @@ const uchar lbl_803CEB08[0x1c] = {
     0x20, 0x00, 0x9d, 0xb6, 0xd3, 0xf1, 0x00, 0xa6, 0x86, 0xd8, 0xfb, 0x98, 0x21, 0x00,
 };
 
+inline CColor GetMorphBallGlowColor(const uchar* colors, uint colorIdx) {
+  const uchar* color = colors + 3 * colorIdx;
+  return CColor(color[0], color[1], color[2], 0xff);
+}
+
 const uchar lbl_803CEB24[0x1c] = {
     0xc2, 0x8f, 0x17, 0x70, 0xd4, 0xff, 0x6a, 0xff, 0x8a, 0x3d, 0x4d, 0xff, 0xc0, 0x00,
     0x00, 0x00, 0xbe, 0xdc, 0xdf, 0xff, 0x00, 0xc4, 0x9e, 0xff, 0xff, 0x9a, 0x22, 0x00,
@@ -2049,11 +2054,8 @@ void CMorphBall::UpdateMorphBallTransitionFlash(float dt) {
 
 void CMorphBall::RenderMorphBallTransitionFlash(const CStateManager&) const {
   if (x19dc_morphBallTransitionFlashGen.get() != nullptr) {
-    const uchar* color = lbl_803CEAEC + 3 * x8_ballGlowColorIdx;
-    const uchar blue = color[2];
-    const uchar green = color[1];
-    const CColor modColor(color[0], green, blue, 0xff);
-    x19dc_morphBallTransitionFlashGen->SetModulationColor(modColor);
+    x19dc_morphBallTransitionFlashGen->SetModulationColor(
+        GetMorphBallGlowColor(lbl_803CEAEC, x8_ballGlowColorIdx));
     x19dc_morphBallTransitionFlashGen->Render();
   }
 }
