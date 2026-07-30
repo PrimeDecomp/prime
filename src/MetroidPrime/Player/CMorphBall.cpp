@@ -186,8 +186,7 @@ const SColorRgb lbl_803CEB08[9] = {
     {251, 152, 33},  // Orange
 };
 
-inline CColor GetGlowColor(const SColorRgb* palette, uint colorIdx) {
-  const SColorRgb& color = palette[colorIdx];
+inline CColor GetGlowColor(const SColorRgb& color) {
   return CColor(color.x0_r, color.x1_g, color.x2_b, 0xff);
 }
 
@@ -2020,13 +2019,13 @@ void CMorphBall::Render(const CStateManager& mgr, const CActorLights* lights) co
     x1bc8_wakeEffectGens[x1c0c_wakeEffectIdx]->Render();
   }
 
-  x19d0_ballInnerGlowGen->SetModulationColor(GetGlowColor(lbl_803CEAD0, x8_ballGlowColorIdx));
+  x19d0_ballInnerGlowGen->SetModulationColor(GetGlowColor(lbl_803CEAD0[x8_ballGlowColorIdx]));
   if (x19d0_ballInnerGlowGen->GetNumActiveChildParticles() > 0) {
     CParticleGen* particle = x19d0_ballInnerGlowGen->GetActiveChildParticle(0);
-    particle->SetModulationColor(GetGlowColor(lbl_803CEAEC, x8_ballGlowColorIdx));
+    particle->SetModulationColor(GetGlowColor(lbl_803CEAEC[x8_ballGlowColorIdx]));
     if (x19d0_ballInnerGlowGen->GetNumActiveChildParticles() > 1) {
       particle = x19d0_ballInnerGlowGen->GetActiveChildParticle(1);
-      particle->SetModulationColor(GetGlowColor(lbl_803CEB08, x8_ballGlowColorIdx));
+      particle->SetModulationColor(GetGlowColor(lbl_803CEB08[x8_ballGlowColorIdx]));
     }
   }
 
@@ -2076,7 +2075,7 @@ void CMorphBall::UpdateMorphBallTransitionFlash(float dt) {
 void CMorphBall::RenderMorphBallTransitionFlash(const CStateManager&) const {
   if (x19dc_morphBallTransitionFlashGen.get() != nullptr) {
     x19dc_morphBallTransitionFlashGen->SetModulationColor(
-        GetGlowColor(lbl_803CEAEC, x8_ballGlowColorIdx));
+        GetGlowColor(lbl_803CEAEC[x8_ballGlowColorIdx]));
     x19dc_morphBallTransitionFlashGen->Render();
   }
 }
