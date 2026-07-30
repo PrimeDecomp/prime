@@ -4249,6 +4249,7 @@ musyx/runtime/synth_ac.c:
 
 musyx/runtime/synth_dbtab.c:
 	.data       start:0x803F3820 end:0x803F3FA8
+	.bss        start:0x8055EC60 end:0x8055EC60
 
 musyx/runtime/synth_adsr.c:
 	.text       start:0x803A9210 end:0x803A99D0
@@ -4323,10 +4324,6 @@ musyx/runtime/hw_dolphin.c:
 musyx/runtime/hw_lib_dolphin.c:
 	.sbss       start:0x805A9B98 end:0x805A9B98
 
-MetroTRK/nubinit.c:
-	.text       start:0x803B5134 end:0x803B5134
-	.bss        start:0x80569900 end:0x80569908
-
 musyx/runtime/hw_memory.c:
 	.text       start:0x803B5134 end:0x803B5188
 
@@ -4358,6 +4355,10 @@ musyx/runtime/Chorus/chorus_fx.c:
 	.text       start:0x803B6CB0 end:0x803B7518
 	.data       start:0x803F6490 end:0x803F6C90
 	.sdata2     start:0x805AF438 end:0x805AF440
+
+MetroTRK/nubinit.c:
+	.text       start:0x803B7518 end:0x803B7518
+	.bss        start:0x80569900 end:0x80569908
 
 dolphin/dtk.c:
 	.text       start:0x803B7518 end:0x803B7E74

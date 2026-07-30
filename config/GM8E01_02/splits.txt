@@ -280,6 +280,173 @@ dolphin/os/__ppc_eabi_init.cpp:
 	.init       start:0x80003354 end:0x800033A8
 	.text       start:0x8038683C end:0x803868D0
 
+musyx/runtime/seq.c:
+	.text       start:0x80395D48 end:0x80399CB8
+	.data       start:0x803F3FB0 end:0x803F4000
+	.bss        start:0x80543650 end:0x80550E90
+	.sbss       start:0x805AAA98 end:0x805AAAB8
+	.sdata2     start:0x805B02E0 end:0x805B0300
+
+musyx/runtime/synth.c:
+	.text       start:0x80399CB8 end:0x8039D014
+	.bss        start:0x80550E90 end:0x80552478
+	.sbss       start:0x805AAAB8 end:0x805AAB00
+	.sdata2     start:0x805B0300 end:0x805B0340
+
+musyx/runtime/seq_api.c:
+	.text       start:0x8039D014 end:0x8039D1A8
+
+musyx/runtime/snd_synthapi.c:
+	.text       start:0x8039D1A8 end:0x8039D87C
+
+musyx/runtime/stream.c:
+	.text       start:0x8039D87C end:0x803A1C4C
+	.bss        start:0x80552478 end:0x80553D78
+	.sbss       start:0x805AAB00 end:0x805AAB08
+	.sdata2     start:0x805B0340 end:0x805B0358
+
+musyx/runtime/synthdata.c:
+	.text       start:0x803A1C4C end:0x803A39DC
+	.bss        start:0x80553D78 end:0x8055E3B0
+	.sbss       start:0x805AAB08 end:0x805AAB50
+
+musyx/runtime/synthmacros.c:
+	.text       start:0x803A39DC end:0x803A8678
+	.data       start:0x803F4000 end:0x803F4448
+	.bss        start:0x8055E3B0 end:0x8055E3D0
+	.sbss       start:0x805AAB50 end:0x805AAB70
+	.sdata2     start:0x805B0358 end:0x805B0380
+
+musyx/runtime/synthvoice.c:
+	.text       start:0x803A8678 end:0x803AA108
+	.bss        start:0x8055E3D0 end:0x8055F390
+	.sbss       start:0x805AAB70 end:0x805AAB88
+
+musyx/runtime/synth_ac.c:
+	.text       start:0x803AA108 end:0x803AA228
+	.data       start:0x803F4448 end:0x803F4848
+	.sdata2     start:0x805B0380 end:0x805B0398
+
+musyx/runtime/synth_adsr.c:
+	.text       start:0x803AA228 end:0x803AA9E8
+	.sdata2     start:0x805B0398 end:0x805B03C0
+
+musyx/runtime/synth_vsamples.c:
+	.text       start:0x803AA9E8 end:0x803AB19C
+	.bss        start:0x8055F390 end:0x8055FCE0
+
+musyx/runtime/synth_dbtab.c:
+	.data       start:0x803F4848 end:0x803F4FD0
+	.bss        start:0x8055FCE0 end:0x8055FCE0
+
+musyx/runtime/s_data.c:
+	.text       start:0x803AB19C end:0x803ABD14
+	.bss        start:0x8055FCE0 end:0x805602E0
+	.sbss       start:0x805AAB88 end:0x805AAB90
+
+musyx/runtime/hw_dspctrl.c:
+	.text       start:0x803ABD14 end:0x803AF128
+	.rodata     start:0x803D9B28 end:0x803D9B80
+	.data       start:0x803F4FD0 end:0x803F4FE8
+	.bss        start:0x805602E0 end:0x805609C0
+	.sbss       start:0x805AAB90 end:0x805AABD0
+
+musyx/runtime/hw_volconv.c:
+	.text       start:0x803AF128 end:0x803AF818
+	.data       start:0x803F4FE8 end:0x803F5210
+	.sdata2     start:0x805B03C0 end:0x805B03F8
+
+musyx/runtime/snd3d.c:
+	.text       start:0x803AF818 end:0x803B1BD8
+	.bss        start:0x805609C0 end:0x80561810
+	.sbss       start:0x805AABD0 end:0x805AABF0
+	.sdata2     start:0x805B03F8 end:0x805B0448
+
+musyx/runtime/snd_init.c:
+	.text       start:0x803B1BD8 end:0x803B1D24
+
+musyx/runtime/snd_math.c:
+	.text       start:0x803B1D24 end:0x803B20E4
+	.sbss       start:0x805AABF0 end:0x805AABF0
+	.sdata2     start:0x805B0448 end:0x805B0468
+
+musyx/runtime/snd_midictrl.c:
+	.text       start:0x803B20E4 end:0x803B3DB8
+	.rodata     start:0x803D9B80 end:0x803D9C90
+	.data       start:0x803F5210 end:0x803F52A0
+	.bss        start:0x80561810 end:0x80568010
+
+musyx/runtime/snd_service.c:
+	.text       start:0x803B3DB8 end:0x803B3F64
+	.data       start:0x803F52A0 end:0x803F5AA0
+	.sdata      start:0x805A9C60 end:0x805A9C64
+
+musyx/runtime/hardware.c:
+	.text       start:0x803B3F64 end:0x803B4F88
+	.rodata     start:0x803D9C90 end:0x803D9D90
+	.sdata      start:0x805A9C68 end:0x805A9C78
+	.sbss       start:0x805AABF0 end:0x805AAC00
+	.sdata2     start:0x805B0468 end:0x805B0480
+
+musyx/runtime/hw_aramdma.c:
+	.text       start:0x803B4F88 end:0x803B5C54
+	.bss        start:0x80568010 end:0x80568920
+	.sbss       start:0x805AAC00 end:0x805AAC20
+
+musyx/runtime/hw_dolphin.c:
+	.text       start:0x803B5C54 end:0x803B614C
+	.bss        start:0x80568920 end:0x8056A980 align:32
+	.sbss       start:0x805AAC20 end:0x805AAC48
+
+musyx/runtime/dsp_import.c:
+	.data       start:0x803F5AA0 end:0x803F7480
+	.sdata      start:0x805A9C78 end:0x805A9C80
+	.sbss       start:0x805AAC48 end:0x805AAC48
+
+musyx/runtime/hw_lib_dolphin.c:
+	.sbss       start:0x805AAC48 end:0x805AAC48
+
+musyx/runtime/hw_memory.c:
+	.text       start:0x803B614C end:0x803B61A0
+
+musyx/runtime/profile.c:
+	.text       start:0x803B61A0 end:0x803B61A0
+	.sbss       start:0x805AAC48 end:0x805AAC48
+	.sdata2     start:0x805B0480 end:0x805B0480
+
+musyx/runtime/CheapReverb/creverb_fx.c:
+	.text       start:0x803B61A0 end:0x803B625C
+
+musyx/runtime/CheapReverb/creverb.c:
+	.text       start:0x803B625C end:0x803B6B18
+	.data       start:0x803F7480 end:0x803F7490
+	.sdata2     start:0x805B0480 end:0x805B04C0
+
+musyx/runtime/StdReverb/reverb_fx.c:
+	.text       start:0x803B6B18 end:0x803B6BD8
+
+musyx/runtime/StdReverb/reverb.c:
+	.text       start:0x803B6BD8 end:0x803B791C
+	.data       start:0x803F7490 end:0x803F74B0
+	.sdata2     start:0x805B04C0 end:0x805B0508
+
+musyx/runtime/Delay/delay_fx.c:
+	.text       start:0x803B791C end:0x803B7CC8
+
+musyx/runtime/Chorus/chorus_fx.c:
+	.text       start:0x803B7CC8 end:0x803B8530
+	.data       start:0x803F74B0 end:0x803F7CB0
+	.sdata2     start:0x805B0508 end:0x805B0510
+
+MetroTRK/nubinit.c:
+	.text       start:0x803B8530 end:0x803B8530
+	.bss        start:0x8056A980 end:0x8056A988
+
+dolphin/dtk.c:
+	.text       start:0x803B8530 end:0x803B8E8C
+	.bss        start:0x8056A988 end:0x8056AAD8
+	.sbss       start:0x805AAC48 end:0x805AAC78
+
 dolphin/card/CARDBios.c:
 	.text       start:0x803B8E8C end:0x803BA0A4
 	.data       start:0x803F7CB0 end:0x803F7D08
