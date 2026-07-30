@@ -280,6 +280,273 @@ dolphin/os/__ppc_eabi_init.cpp:
 	.init       start:0x80003354 end:0x800033A8
 	.text       start:0x8038683C end:0x803868D0
 
+dolphin/pad/PadClamp.c:
+	.text       start:0x803868D0 end:0x80386B14
+	.rodata     start:0x803D9648 end:0x803D9658
+
+dolphin/pad/pad.c:
+	.text       start:0x80386B14 end:0x8038869C
+	.data       start:0x803F3378 end:0x803F33D0
+	.bss        start:0x80543070 end:0x805430C0
+	.sdata      start:0x805A9BE8 end:0x805A9C08
+	.sbss       start:0x805AA9E0 end:0x805AAA08
+
+dolphin/vi.c:
+	.text       start:0x8038869C end:0x8038A594
+	.data       start:0x803F33D0 end:0x803F37A0
+	.bss        start:0x805430C0 end:0x80543208
+	.sdata      start:0x805A9C08 end:0x805A9C18
+	.sbss       start:0x805AAA08 end:0x805AAA60
+
+runtime/__va_arg.c:
+	.text       start:0x8038A594 end:0x8038A65C
+
+runtime/global_destructor_chain.c:
+	.text       start:0x8038A65C end:0x8038A6BC
+	.dtors      start:0x803CC448 end:0x803CC44C
+	.sbss       start:0x805AAA60 end:0x805AAA68
+
+runtime/CPlusLibPPC.cpp:
+	.text       start:0x8038A6BC end:0x8038A6EC
+
+runtime/NMWException.cpp:
+	extab       start:0x800035A0 end:0x800035C8
+	extabindex  start:0x800035E0 end:0x80003604
+	.text       start:0x8038A6EC end:0x8038A914
+
+runtime/ptmf.c:
+	.text       start:0x8038A914 end:0x8038A96C
+	.rodata     start:0x803D9658 end:0x803D9668
+
+runtime/runtime.c:
+	.text       start:0x8038A96C end:0x8038B0FC
+	.rodata     start:0x803D9668 end:0x803D9680
+
+runtime/__init_cpp_exceptions.cpp:
+	.text       start:0x8038B0FC end:0x8038B178
+	.ctors      start:0x803CC280 end:0x803CC284
+	.dtors      start:0x803CC440 end:0x803CC448
+	.sdata      start:0x805A9C18 end:0x805A9C20
+
+runtime/Gecko_ExceptionPPC.cpp:
+	.text       start:0x8038B178 end:0x8038B1E0
+	.bss        start:0x80543208 end:0x80543218
+
+runtime/abort_exit.c:
+	.text       start:0x8038B1E0 end:0x8038B2AC
+	.bss        start:0x80543218 end:0x80543318
+	.sbss       start:0x805AAA68 end:0x805AAA78
+
+runtime/alloc.c:
+	.text       start:0x8038B2AC end:0x8038C0C0
+	.rodata     start:0x803D9680 end:0x803D9698
+	.bss        start:0x80543318 end:0x80543350
+	.sbss       start:0x805AAA78 end:0x805AAA80
+
+runtime/ansi_files.c:
+	.text       start:0x8038C0C0 end:0x8038C1C8
+	.data       start:0x803F37A0 end:0x803F38E0
+	.bss        start:0x80543350 end:0x80543650
+
+runtime/ansi_fp.c:
+	.text       start:0x8038C1C8 end:0x8038DE34
+	.rodata     start:0x803D9698 end:0x803D9778
+	.data       start:0x803F38E0 end:0x803F3A48
+	.sdata2     start:0x805AFD30 end:0x805AFD60
+
+runtime/arith.c:
+	.text       start:0x8038DE34 end:0x8038DE44
+
+runtime/buffer_io.c:
+	.text       start:0x8038DE44 end:0x8038DF3C
+
+runtime/ctype.c:
+	.text       start:0x8038DF3C end:0x8038DF60
+	.data       start:0x803F3A48 end:0x803F3D48
+
+runtime/locale.c:
+	.text       start:0x8038DF60 end:0x8038DF60
+	.rodata     start:0x803D9778 end:0x803D9780
+	.data       start:0x803F3D48 end:0x803F3D80
+
+runtime/direct_io.c:
+	.text       start:0x8038DF60 end:0x8038E28C
+
+runtime/file_io.c:
+	.text       start:0x8038E28C end:0x8038E484
+
+runtime/errno.c:
+	.text       start:0x8038E484 end:0x8038E484
+	.sbss       start:0x805AAA80 end:0x805AAA88
+
+runtime/FILE_POS.c:
+	.text       start:0x8038E484 end:0x8038E750
+
+runtime/mbstring.c:
+	.text       start:0x8038E750 end:0x8038E894
+	.sdata2     start:0x805AFD60 end:0x805AFD68
+
+runtime/mem.c:
+	.text       start:0x8038E894 end:0x8038EA04
+
+runtime/mem_funcs.c:
+	.text       start:0x8038EA04 end:0x8038ECE4
+
+runtime/misc_io.c:
+	.text       start:0x8038ECE4 end:0x8038ECF4
+
+runtime/printf.c:
+	.text       start:0x8038ECF4 end:0x80390D1C
+	.rodata     start:0x803D9780 end:0x803D97A8
+	.data       start:0x803F3D80 end:0x803F3FB0
+	.sdata      start:0x805A9C20 end:0x805A9C28
+	.sdata2     start:0x805AFD68 end:0x805AFD70
+
+runtime/qsort.c:
+	.text       start:0x80390D1C end:0x80390E8C
+
+runtime/rand.c:
+	.text       start:0x80390E8C end:0x80390EB4
+	.sdata      start:0x805A9C28 end:0x805A9C30
+
+runtime/sscanf.c:
+	.text       start:0x80390EB4 end:0x80390F44
+
+runtime/string.c:
+	.text       start:0x80390F44 end:0x803911F4
+
+runtime/float.c:
+	.text       start:0x803911F4 end:0x803911F4
+	.sdata      start:0x805A9C30 end:0x805A9C60
+
+runtime/strtold.c:
+	.text       start:0x803911F4 end:0x8039228C
+	.rodata     start:0x803D97A8 end:0x803D97E0
+	.sdata2     start:0x805AFD70 end:0x805AFD88
+
+runtime/uart_console_io.c:
+	.text       start:0x8039228C end:0x80392358
+	.sbss       start:0x805AAA88 end:0x805AAA90
+
+runtime/wchar_io.c:
+	.text       start:0x80392358 end:0x803923E0
+
+runtime/e_acos.c:
+	.text       start:0x803923E0 end:0x803926F0
+	.sdata2     start:0x805AFD88 end:0x805AFE18
+
+runtime/e_asin.c:
+	.text       start:0x803926F0 end:0x80392954
+	.sdata2     start:0x805AFE18 end:0x805AFEB0
+
+runtime/e_atan2.c:
+	.text       start:0x80392954 end:0x80392BE4
+	.sdata2     start:0x805AFEB0 end:0x805AFF08
+
+runtime/e_exp.c:
+	.text       start:0x80392BE4 end:0x80392E00
+	.rodata     start:0x803D97E0 end:0x803D9810
+	.sdata2     start:0x805AFF08 end:0x805AFF80
+
+runtime/e_fmod.c:
+	.text       start:0x80392E00 end:0x8039313C
+	.rodata     start:0x803D9810 end:0x803D9820
+
+runtime/e_log.c:
+	.text       start:0x8039313C end:0x803933B8
+	.sbss       start:0x805AAA90 end:0x805AAA98
+	.sdata2     start:0x805AFF80 end:0x805B0000
+
+runtime/e_pow.c:
+	.text       start:0x803933B8 end:0x80393C44
+	.rodata     start:0x803D9820 end:0x803D9850
+	.sdata2     start:0x805B0000 end:0x805B0110
+
+runtime/e_rem_pio2.c:
+	.text       start:0x80393C44 end:0x80393FE4
+	.rodata     start:0x803D9850 end:0x803D99D8
+	.sdata2     start:0x805B0110 end:0x805B0168
+
+runtime/k_cos.c:
+	.text       start:0x80393FE4 end:0x803940D8
+	.sdata2     start:0x805B0168 end:0x805B01B0
+
+runtime/k_rem_pio2.c:
+	.text       start:0x803940D8 end:0x80394F2C
+	.rodata     start:0x803D99D8 end:0x803D9A28
+	.sdata2     start:0x805B01B0 end:0x805B01F0
+
+runtime/k_sin.c:
+	.text       start:0x80394F2C end:0x80394FCC
+	.sdata2     start:0x805B01F0 end:0x805B0228
+
+runtime/k_tan.c:
+	.text       start:0x80394FCC end:0x803951E0
+	.rodata     start:0x803D9A28 end:0x803D9A90
+	.sdata2     start:0x805B0228 end:0x805B0260
+
+runtime/s_atan.c:
+	.text       start:0x803951E0 end:0x803953E0
+	.rodata     start:0x803D9A90 end:0x803D9B28
+	.sdata2     start:0x805B0260 end:0x805B0288
+
+runtime/s_copysign.c:
+	.text       start:0x803953E0 end:0x80395408
+
+runtime/s_cos.c:
+	.text       start:0x80395408 end:0x803954DC
+	.sdata2     start:0x805B0288 end:0x805B0290
+
+runtime/s_floor.c:
+	.text       start:0x803954DC end:0x80395624
+	.sdata2     start:0x805B0290 end:0x805B02A0
+
+runtime/s_frexp.c:
+	.text       start:0x80395624 end:0x803956B0
+	.sdata2     start:0x805B02A0 end:0x805B02A8
+
+runtime/s_ldexp.c:
+	.text       start:0x803956B0 end:0x80395874
+	.sdata2     start:0x805B02A8 end:0x805B02D0
+
+runtime/s_modf.c:
+	.text       start:0x80395874 end:0x80395970
+
+runtime/s_nextafter.c:
+	.text       start:0x80395970 end:0x80395AF4
+
+runtime/s_sin.c:
+	.text       start:0x80395AF4 end:0x80395BCC
+	.sdata2     start:0x805B02D0 end:0x805B02D8
+
+runtime/s_tan.c:
+	.text       start:0x80395BCC end:0x80395C44
+	.sdata2     start:0x805B02D8 end:0x805B02E0
+
+runtime/w_acos.c:
+	.text       start:0x80395C44 end:0x80395C64
+
+runtime/w_asin.c:
+	.text       start:0x80395C64 end:0x80395C84
+
+runtime/w_atan2.c:
+	.text       start:0x80395C84 end:0x80395CA4
+
+runtime/w_exp.c:
+	.text       start:0x80395CA4 end:0x80395CC4
+
+runtime/w_fmod.c:
+	.text       start:0x80395CC4 end:0x80395CE4
+
+runtime/w_log.c:
+	.text       start:0x80395CE4 end:0x80395D04
+
+runtime/w_pow.c:
+	.text       start:0x80395D04 end:0x80395D24
+
+runtime/math_ppc.c:
+	.text       start:0x80395D24 end:0x80395D48
+
 musyx/runtime/seq.c:
 	.text       start:0x80395D48 end:0x80399CB8
 	.data       start:0x803F3FB0 end:0x803F4000
