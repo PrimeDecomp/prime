@@ -280,5 +280,123 @@ dolphin/os/__ppc_eabi_init.cpp:
 	.init       start:0x80003354 end:0x800033A8
 	.text       start:0x8038683C end:0x803868D0
 
+dolphin/card/CARDBios.c:
+	.text       start:0x803B8E8C end:0x803BA0A4
+	.data       start:0x803F7CB0 end:0x803F7D08
+	.bss        start:0x8056AAD8 end:0x8056AD18
+	.sdata      start:0x805A9C80 end:0x805A9C88
+	.sbss       start:0x805AAC78 end:0x805AAC80
+
+dolphin/card/CARDUnlock.c:
+	.text       start:0x803BA0A4 end:0x803BB304
+	.data       start:0x803F7D20 end:0x803F7E80
+	.sdata      start:0x805A9C88 end:0x805A9C90
+
+dolphin/card/CARDRdwr.c:
+	.text       start:0x803BB304 end:0x803BB584
+
+dolphin/card/CARDBlock.c:
+	.text       start:0x803BB584 end:0x803BB988
+
+dolphin/card/CARDDir.c:
+	.text       start:0x803BB988 end:0x803BBBEC
+
+dolphin/card/CARDCheck.c:
+	.text       start:0x803BBBEC end:0x803BCB28
+
+dolphin/card/CARDMount.c:
+	.text       start:0x803BCB28 end:0x803BD5A0
+	.data       start:0x803F7E80 end:0x803F7EC0
+
+dolphin/card/CARDFormat.c:
+	.text       start:0x803BD5A0 end:0x803BDD84
+
+dolphin/card/CARDOpen.c:
+	.text       start:0x803BDD84 end:0x803BE1D8
+
+dolphin/card/CARDCreate.c:
+	.text       start:0x803BE1D8 end:0x803BE528
+
+dolphin/card/CARDRead.c:
+	.text       start:0x803BE528 end:0x803BE958
+
+dolphin/card/CARDWrite.c:
+	.text       start:0x803BE958 end:0x803BEC8C
+
+dolphin/card/CARDDelete.c:
+	.text       start:0x803BEC8C end:0x803BEF6C
+
+dolphin/card/CARDStat.c:
+	.text       start:0x803BEF6C end:0x803BF404
+
+dolphin/card/CARDRename.c:
+	.text       start:0x803BF404 end:0x803BF600
+
+dolphin/card/CARDNet.c:
+	.text       start:0x803BF600 end:0x803BF6C4
+	.sdata      start:0x805A9C90 end:0x805A9C98
+
+dolphin/si/SIBios.c:
+	.text       start:0x803BF6C4 end:0x803C0F24
+	.data       start:0x803F7EC0 end:0x803F7FD8
+	.bss        start:0x8056AD18 end:0x8056AF18
+	.sdata      start:0x805A9C98 end:0x805A9CA0
+	.sbss       start:0x805AAC80 end:0x805AAC8C
+
+dolphin/si/SISamplingRate.c:
+	.text       start:0x803C0F24 end:0x803C102C
+	.data       start:0x803F7FD8 end:0x803F8070
+	.sbss       start:0x805AAC90 end:0x805AAC98
+
+dolphin/exi/EXIBios.c:
+	.text       start:0x803C102C end:0x803C2998
+	.data       start:0x803F8070 end:0x803F8180
+	.bss        start:0x8056AF18 end:0x8056AFE0
+	.sdata      start:0x805A9CA0 end:0x805A9CA8
+	.sbss       start:0x805AAC98 end:0x805AACA0
+
+dolphin/exi/EXIUart.c:
+	.text       start:0x803C2998 end:0x803C2C24
+	.sbss       start:0x805AACA0 end:0x805AACB0
+
+dolphin/thp/THPDec.c:
+	.text       start:0x803C2C24 end:0x803CA18C
+	.rodata     start:0x803D9D90 end:0x803D9E20
+	.data       start:0x803F8180 end:0x803F81C0
+	.bss        start:0x8056AFE0 end:0x8056B120
+	.sdata      start:0x805A9CA8 end:0x805A9CAC
+	.sbss       start:0x805AACB0 end:0x805AADD8
+	.sdata2     start:0x805B0510 end:0x805B052C
+
+dolphin/thp/THPAudio.c:
+	.text       start:0x803CA18C end:0x803CA6BC
+
+dolphin/GBA/GBA.c:
+	.text       start:0x803CA6BC end:0x803CA9AC
+	.data       start:0x803F81C0 end:0x803F81D0
+	.bss        start:0x8056B120 end:0x8056B620
+	.sbss       start:0x805AADD8 end:0x805AADDC
+
+dolphin/GBA/GBAGetProcessStatus.c:
+	.text       start:0x803CA9AC end:0x803CAB20
+	.data       start:0x803F81D0 end:0x803F81D0
+
+dolphin/GBA/GBAJoyBoot.c:
+	.text       start:0x803CAB20 end:0x803CB9E4
+	.data       start:0x803F81D0 end:0x803F8200
+
+dolphin/GBA/GBARead.c:
+	.text       start:0x803CB9E4 end:0x803CBB44
+
+dolphin/GBA/GBAWrite.c:
+	.text       start:0x803CBB44 end:0x803CBCCC
+
+dolphin/GBA/GBAXfer.c:
+	.text       start:0x803CBCCC end:0x803CC004
+
+dolphin/GBA/GBAKey.c:
+	.text       start:0x803CC004 end:0x803CC26C
+	.data       start:0x803F8200 end:0x803F85A6
+
 runtime/__mem.c:
 	.init       start:0x800033A8 end:0x800034E0

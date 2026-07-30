@@ -4366,7 +4366,7 @@ dolphin/dtk.c:
 
 dolphin/card/CARDBios.c:
 	.text       start:0x803B7E74 end:0x803B908C
-	.data       start:0x803F6C90 end:0x803F6D00
+	.data       start:0x803F6C90 end:0x803F6CE8
 	.bss        start:0x80569A58 end:0x80569C98
 	.sdata      start:0x805A8BF0 end:0x805A8BF8
 	.sbss       start:0x805A9BC8 end:0x805A9BD0
