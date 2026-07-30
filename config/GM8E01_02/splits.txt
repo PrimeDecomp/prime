@@ -13,6 +13,27 @@ Sections:
 	.sdata2     type:rodata align:32
 	.sbss2      type:bss align:32
 
+Kyoto/Audio/CStaticAudioPlayer.cpp:
+	.text       start:0x8036C7E8 end:0x8036D694
+	.ctors      start:0x803CC434 end:0x803CC438
+	.rodata     start:0x803D9620 end:0x803D9628
+	.bss        start:0x80541AA0 end:0x80541AC0
+	.sbss       start:0x805AA740 end:0x805AA750
+
+Kyoto/CFrameDelayedKiller.cpp:
+	.text       start:0x8036D694 end:0x8036DB6C
+	.ctors      start:0x803CC438 end:0x803CC43C
+	.rodata     start:0x803D9628 end:0x803D9630
+	.data       start:0x803F08D8 end:0x803F08F8
+	.bss        start:0x80541AC0 end:0x80541B00
+	.sbss       start:0x805AA750 end:0x805AA758
+
+dolphin/ai.c:
+	.text       start:0x8036DB6C end:0x8036E4D4
+	.data       start:0x803F08F8 end:0x803F0940
+	.sdata      start:0x805A9AF8 end:0x805A9B00
+	.sbss       start:0x805AA758 end:0x805AA798
+
 dolphin/ar/ar.c:
 	.text       start:0x8036E4D4 end:0x80370060
 	.data       start:0x803F0940 end:0x803F0988

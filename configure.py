@@ -1780,7 +1780,7 @@ config.libs = [
     DolphinLib(
         "ai",
         [
-            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "dolphin/ai.c"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "dolphin/ai.c"),
         ],
     ),
     DolphinLib(
