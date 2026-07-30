@@ -163,6 +163,11 @@ inline CColor GetMorphBallGlowColor(const uchar* colors, uint colorIdx) {
   return CColor(color[0], color[1], color[2], 0xff);
 }
 
+inline CColor GetActorLightsAmbientColor(const CActorLights& lights) {
+  const CVector3f& ambient = lights.GetAmbientColor();
+  return CColor(ambient.GetX(), ambient.GetY(), ambient.GetZ(), 1.f);
+}
+
 const uchar lbl_803CEB24[0x1c] = {
     0xc2, 0x8f, 0x17, 0x70, 0xd4, 0xff, 0x6a, 0xff, 0x8a, 0x3d, 0x4d, 0xff, 0xc0, 0x00,
     0x00, 0x00, 0xbe, 0xdc, 0xdf, 0xff, 0x00, 0xc4, 0x9e, 0xff, 0xff, 0x9a, 0x22, 0x00,
@@ -1846,15 +1851,13 @@ void CMorphBall::PreRender(CStateManager& mgr, const CFrustumPlanes&) {
   }
 
   {
-    CColor ambientColor(lights->GetAmbientColor().GetX(), lights->GetAmbientColor().GetY(),
-                        lights->GetAmbientColor().GetZ(), 1.f);
-    lights->SetAmbientColor(CColor::Lerp(ambientColor, CColor::White(), x1c34_boostLightFactor));
+    lights->SetAmbientColor(CColor::Lerp(GetActorLightsAmbientColor(*lights), CColor::White(),
+                                        x1c34_boostLightFactor));
     *x1c18_actorLights = *lights;
 
     const float& lightFactor = rstl::max_val(x1c38_spiderLightFactor, x1c34_boostLightFactor);
-    CColor spiderAmbient(lights->GetAmbientColor().GetX(), lights->GetAmbientColor().GetY(),
-                         lights->GetAmbientColor().GetZ(), 1.f);
-    x1c18_actorLights->SetAmbientColor(CColor::Lerp(spiderAmbient, CColor::White(), lightFactor));
+    x1c18_actorLights->SetAmbientColor(
+        CColor::Lerp(GetActorLightsAmbientColor(*lights), CColor::White(), lightFactor));
   }
 
   if (x58_ballModel->AnimationData() != nullptr) {
