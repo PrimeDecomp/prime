@@ -191,12 +191,12 @@ private:
   static void PointGenerator(void*, const CVector3f*, const CVector3f*, int);
   static CColor GetAmbientColor(const CActorLights&);
   static CColor GetBallInnerGlowColor(uint);
-  static CColor GetBallGlowColor(uint);
-  static CColor GetBallGlowColor2(uint);
+  static CColor GetBallHullGlowColor(uint);
+  static CColor GetBallBoostedHullGlowColor(uint);
 
-  static const SColorRgb lbl_803CEAD0[9];
-  static const SColorRgb lbl_803CEAEC[9];
-  static const SColorRgb lbl_803CEB08[9];
+  static const SColorRgb skBallInnerGlowColors[9];
+  static const SColorRgb skBallHullGlowColors[9];
+  static const SColorRgb skBallBoostedHullGlowColors[9];
   static const uchar lbl_803CEB24[0x1c];
   static const uchar lbl_803CEB40[0x1c];
   static const uchar lbl_803CEB5C[0x1c];
