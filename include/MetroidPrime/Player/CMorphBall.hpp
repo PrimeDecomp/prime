@@ -170,6 +170,12 @@ public:
   void SetDamageTimer(const float time);
 
 private:
+  struct SColorRgb {
+    uchar x0_r;
+    uchar x1_g;
+    uchar x2_b;
+  };
+
   struct CSpiderBallElectricityManager {
     uint x0_effectIdx;
     uint x4_lifetime;
@@ -183,6 +189,18 @@ private:
   void SelectMorphBallSounds(const CMaterialList&);
   void UpdateMorphBallSound(float dt);
   static void PointGenerator(void*, const CVector3f*, const CVector3f*, int);
+  static CColor GetAmbientColor(const CActorLights&);
+  static CColor GetBallInnerGlowColor(uint);
+  static CColor GetBallGlowColor(uint);
+  static CColor GetBallGlowColor2(uint);
+
+  static const SColorRgb lbl_803CEAD0[9];
+  static const SColorRgb lbl_803CEAEC[9];
+  static const SColorRgb lbl_803CEB08[9];
+  static const uchar lbl_803CEB24[0x1c];
+  static const uchar lbl_803CEB40[0x1c];
+  static const uchar lbl_803CEB5C[0x1c];
+  static const uchar lbl_803CEB78[0x1c];
 
   CPlayer& x0_player;
   int x4_loadedModelId;
