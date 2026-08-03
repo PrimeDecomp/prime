@@ -21,28 +21,27 @@ struct Something {
   uint unk1;
   uint unk2;
   uint unk3;
-  uint* v;
 };
 
-void CFrameDelayedKiller::Initialize() { fn_8036CCFC(); }
-void CFrameDelayedKiller::ShutDown() { fn_8036CCFC(); }
+void CFrameDelayedKiller::Initialize() { StallAndFlushAllAllocations(); }
+void CFrameDelayedKiller::ShutDown() { StallAndFlushAllAllocations(); }
 
-void CFrameDelayedKiller::fn_8036CD20() {
+void CFrameDelayedKiller::FlushAllAllocations() {
   for (int i = 0; i < 2; ++i) {
-    fn_8036CB90();
+    FlushAllocationsForFrame();
   }
 }
-void CFrameDelayedKiller::fn_8036CCFC() {
+void CFrameDelayedKiller::StallAndFlushAllAllocations() {
   GXDrawDone();
-  fn_8036CD20();
+  FlushAllAllocations();
 }
 
-void CFrameDelayedKiller::fn_8036CC1C(const int frame, void* ptr) {
-  uint index = frame == 1 ? sCurList : sCurList ^ 1;
+void CFrameDelayedKiller::ScheduleDeletion(const EWhichFrame thisFrame, void* victim) {
+  uint index = thisFrame == true ? sCurList : sCurList ^ 1;
 
-  sFrameDelayedList[index].push_back(ptr);
+  sFrameDelayedList[index].push_back(victim);
 }
-void CFrameDelayedKiller::fn_8036CB90() {
+void CFrameDelayedKiller::FlushAllocationsForFrame() {
   sCurList ^= 1;
   rstl::list< void* >& list = sFrameDelayedList[sCurList];
   for (rstl::list< void* >::iterator t = list.begin(); t != list.end(); ++t) {
@@ -58,17 +57,12 @@ void CFrameDelayedKiller::fn_8036CB90() {
 Something::Something() : unk1(256), unk2(0), unk3(0) {}
 
 bool Something::fn_8036CB50(uint x) { return unk1 > unk2 + (x + 3) / 4; }
+bool Something::fn_8036CB28(unsigned int x) {
+  int endAddr = reinterpret_cast< uintptr_t >(reinterpret_cast< uchar* >(this) + sizeof(*this));
+  endAddr = (x - endAddr);
+  int index = endAddr / 4;
 
-bool Something::fn_8036CB28(uint x) {
-  int r0 = (uintptr_t)&v;
-  int r3 = unk1;
-  r0 = x - r0;
-  r0 >>= 2;
-  r0 += r0;
-  r0 = r3 ^ r0;
-  r0 = __cntlzw(r0);
-  r0 = r3 << r0;
-  return r0 ? false : true;
+  return (unk1 > index);
 }
 
 void* IElement::operator new(size_t sz, const char* fileAndLine, const char* type) {

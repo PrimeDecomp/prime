@@ -32,15 +32,9 @@ class CTexture;
 class CTransform4f;
 class CRippleManager;
 
-
 class CFluidPlaneCPURender {
 public:
-  enum ENormalMode {
-    kNM_None,
-    kNM_NoNormals,
-    kNM_Normals,
-    kNM_NBT
-  };
+  enum ENormalMode { kNM_None, kNM_NoNormals, kNM_Normals, kNM_NBT };
 
   struct SHFieldSample {
     float height;
@@ -92,11 +86,7 @@ public:
     int x20_gtoY;
 
     SRippleInfo(const CRipple& ripple, int fromX, int toX, int fromY, int toY)
-    : x0_ripple(&ripple)
-    , x14_gfromX(fromX)
-    , x18_gtoX(toX)
-    , x1c_gfromY(fromY)
-    , x20_gtoY(toY) {}
+    : x0_ripple(&ripple), x14_gfromX(fromX), x18_gtoX(toX), x1c_gfromY(fromY), x20_gtoY(toY) {}
   };
 
   static int numTilesInHField;
@@ -134,7 +124,7 @@ public:
                       const CTransform4f& xf, const CTransform4f& areaXf, bool noNormals,
                       const CFrustumPlanes& frustum,
                       const rstl::optional_object< CRippleManager >& rippleManager,
-                      TUniqueId waterId, const bool* gridFlags, int gridDimX, int gridDimY,
+                      TUniqueId waterId, const char* gridFlags, int gridDimX, int gridDimY,
                       const CVector3f& areaCenter) const {}
 
   void Update();

@@ -141,6 +141,8 @@ public:
   CAnimData* AnimationData() { return ModelData()->AnimationData(); }
   const CAnimData* GetAnimationData() const { return GetModelData()->GetAnimationData(); }
 
+  CVector3f GetModelScale() const { return GetModelData()->GetScale(); }
+
   bool HasShadow() const { return GetShadow() != nullptr; }
   CSimpleShadow* Shadow() { return x94_simpleShadow.get(); }
   const CSimpleShadow* GetShadow() const { return x94_simpleShadow.get(); }

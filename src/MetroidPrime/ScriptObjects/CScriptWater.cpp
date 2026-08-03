@@ -366,10 +366,10 @@ void CScriptWater::SetupGridClipping(CStateManager& mgr, int computeVerts) {
     x2e4_computedGridCellCount += computeVerts;
     if (x2e4_computedGridCellCount >= x2cc_gridCellCount) {
       x2e4_computedGridCellCount = x2cc_gridCellCount;
-      x2d8_tileIntersects = rs_new bool[x2c4_gridDimX * x2c8_gridDimY];
+      x2d8_tileIntersects = rs_new char[x2c4_gridDimX * x2c8_gridDimY];
 
       for (int i = 0; i < x2c8_gridDimY; ++i) {
-        bool* tileRow = x2d8_tileIntersects.get() + i * x2c4_gridDimX;
+        char* tileRow = x2d8_tileIntersects.get() + i * x2c4_gridDimX;
         const char* vertRow = (const char*)(x2dc_vertIntersects.get()) + i * (x2c4_gridDimX + 1);
         for (int j = 0; j < x2c4_gridDimX; ++j, ++tileRow, ++vertRow) {
           int dimX = x2c4_gridDimX;
@@ -456,14 +456,14 @@ void CScriptWater::SetupGrid(bool recomputeClipping) {
   x2dc_vertIntersects = (bool*)NULL;
 
   if (x2d8_tileIntersects.get() == NULL || dimX != x2c4_gridDimX || dimY != x2c8_gridDimY) {
-    x2d8_tileIntersects = rs_new bool[dimX * dimY];
+    x2d8_tileIntersects = rs_new char[dimX * dimY];
   }
 
   x2c4_gridDimX = dimX;
   x2c8_gridDimY = dimY;
 
   for (int i = 0; i < x2c8_gridDimY; ++i) {
-    bool* row = x2d8_tileIntersects.get() + i * x2c4_gridDimX;
+    char* row = x2d8_tileIntersects.get() + i * x2c4_gridDimX;
     for (int j = 0; j < x2c4_gridDimX; ++j, ++row) {
       *row = true;
     }
@@ -483,7 +483,7 @@ void CScriptWater::SetupGrid(bool recomputeClipping) {
 }
 
 bool CScriptWater::CanRippleAtPoint(const CVector3f& point) const {
-  if (x2d8_tileIntersects.get() == NULL) {
+  if (x2d8_tileIntersects.null()) {
     return true;
   }
 
@@ -497,12 +497,11 @@ bool CScriptWater::CanRippleAtPoint(const CVector3f& point) const {
     return false;
   }
 
-  const char* tiles = (const char*)x2d8_tileIntersects.get();
-  return tiles[yTile * x2c4_gridDimX + xTile] != 0;
+  return GetTileIntersects(xTile, yTile);
 }
 
 int CScriptWater::GetPatchRenderFlags(int x, int y) const {
-  return x2e0_patchIntersects.get()[x + y * x2d0_patchDimX];
+  return x2e0_patchIntersects.get()[CalculateIndex(x, y, x2d0_patchDimX)];
 }
 
 CScriptWater::~CScriptWater() {}

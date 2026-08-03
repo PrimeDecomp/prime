@@ -73,10 +73,12 @@ const SBurst skOOVBurst4InfoTemplate[] = {
     {0, {0, 0, 0, 0, 0, 0, 0, 0}, 0.000000, 0.000000},
 };
 
-const char* CScriptGunTurret::skGunLCTRName = "Gun_SDK";
-const char* CScriptGunTurret::skBlastLCTRName = "Blast_LCTR";
-const char* CScriptGunTurret::skLightLCTRName = "light_LCTR";
-const char* CScriptGunTurret::skLockonTargetLCTRName = "lockon_target_LCTR";
+const int CScriptGunTurretData::skMinProperties = 43;
+const float CScriptGunTurret::skExtensionOverlapMaxPer = 0.89999999f;
+const char* const CScriptGunTurret::skGunLCTRName = "Gun_SDK";
+const char* const CScriptGunTurret::skBlastLCTRName = "Blast_LCTR";
+const char* const CScriptGunTurret::skLightLCTRName = "light_LCTR";
+const char* const CScriptGunTurret::skLockonTargetLCTRName = "lockon_target_LCTR";
 
 static const SBurst* skBursts[] = {
     skBurst2InfoTemplate,
@@ -262,22 +264,17 @@ void CScriptGunTurret::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid,
     break;
   }
   case kSM_Registered: {
-    if (x258_type == kTC_Gun) {
-      if (x478_targettingLight->SystemHasLight()) {
-        x498_lightId = mgr.AllocateUniqueId();
-        mgr.AddObject(rs_new CGameLight(x498_lightId, GetCurrentAreaId(), GetActive(),
-                                        rstl::string_l("ParticleLight_") + GetDebugName(),
-                                        GetTransform(), GetUniqueId(),
-                                        x478_targettingLight->GetLight(), 0, 1, 0.f));
-      }
+    if (x258_type == kTC_Gun && x478_targettingLight->SystemHasLight()) {
+      x498_lightId = mgr.AllocateUniqueId();
+      mgr.AddObject(rs_new CGameLight(x498_lightId, GetCurrentAreaId(), GetActive(),
+                                      rstl::string_l("ParticleLight_") + GetDebugName(),
+                                      GetTransform(), GetUniqueId(),
+                                      x478_targettingLight->GetLight(), 0, 1, 0.f));
       SetupCollisionManager(mgr);
     } else if (x258_type == kTC_Base) {
       if (x2d4_data.GetExtensionModelResId() != kInvalidAssetId) {
-        {
-          const CModelData mData(
-              CStaticRes(x2d4_data.GetExtensionModelResId(), GetModelData()->GetScale()));
-          x4a4_extensionModel = rstl::optional_object< CModelData >(mData);
-        }
+        const CVector3f scale = GetModelData()->GetScale();
+        x4a4_extensionModel = rstl::optional_object< CModelData >(SetupExtensionModel(scale));
         x4f4_extensionRange = x4a4_extensionModel->GetBounds().GetDepth();
       }
 
@@ -285,6 +282,7 @@ void CScriptGunTurret::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid,
     }
     break;
   }
+
   case kSM_Deleted: {
     if (x258_type == kTC_Gun && x498_lightId != kInvalidUniqueId) {
       mgr.DeleteObjectRequest(x498_lightId);
@@ -299,6 +297,75 @@ void CScriptGunTurret::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid,
     }
     break;
   }
+  case kSM_Start:
+    if (x258_type != kTC_Base || x520_state != kTS_Inactive) {
+      break;
+    }
+    x560_29_scriptedStart = true;
+    break;
+  case kSM_Stop: {
+    if (x258_type != kTC_Base) {
+      break;
+    }
+
+    if (x520_state != kTS_Deactivate && x520_state != kTS_DeactivateFromReady &&
+        x520_state != kTS_Deactivating) {
+      SetTurretState(x560_28_hasBeenActivated ? kTS_DeactivatingFromReady : kTS_Deactivating, mgr);
+    }
+  } break;
+  case kSM_Action: {
+    if (x258_type == kTC_Gun) {
+      LaunchProjectile(mgr);
+    } else if (x258_type == kTC_Base) {
+      PlayAdditiveFlinchAnimation(mgr);
+    }
+  } break;
+  case kSM_SetToMax: {
+    x560_25_frozen = false;
+    SetMuted(false);
+  } break;
+  case kSM_SetToZero: {
+    x560_25_frozen = true;
+    SetMuted(true);
+  } break;
+  case kSM_InitializedInArea: {
+    if (x258_type != kTC_Base) {
+      break;
+    }
+
+    for (AUTO(conn, GetConnectionList().begin()); conn != GetConnectionList().end(); ++conn) {
+      if (conn->x0_state != kSS_Play || conn->x4_msg != kSM_Activate) {
+        continue;
+      }
+
+      TUniqueId gunId = mgr.GetIdForScript(conn->x8_objId);
+
+      if (CScriptGunTurret* gun = TCastToPtr< CScriptGunTurret >(mgr.ObjectById(gunId))) {
+        x25c_gunId = gunId;
+        x260_lastGunHP = gun->GetHealthInfo(mgr)->GetHP();
+        break;
+      }
+    }
+  } break;
+  case kSM_Damage: {
+    if (x258_type != kTC_Gun) {
+      break;
+    }
+    if (!(GetHealthInfo(mgr)->GetHP() <= 0.f)) {
+      break;
+    }
+
+    if (const CGameProjectile* proj = TCastToConstPtr< CGameProjectile >(mgr.GetObjectById(uid))) {
+      if ((proj->GetAttribField() & CWeapon::kPA_Wave) != CWeapon::kPA_Wave) {
+        break;
+      }
+
+      x520_state = kTS_Frenzy;
+      RemoveMaterial(kMT_Target, kMT_Orbit, mgr);
+      mgr.Player()->TryToBreakOrbit(GetUniqueId(), CPlayer::kOB_ActivateOrbitSource, mgr);
+      x53c_freezeRemTime = 0.f;
+    }
+  } break;
   default:
     break;
   }
@@ -311,8 +378,8 @@ void CScriptGunTurret::Render(const CStateManager& mgr) const {
   if (x258_type == kTC_Gun) {
     if (!x560_25_frozen) {
       switch (x520_state) {
-      case kTS_Deactive:
-      case kTS_DeactiveFromReady:
+      case kTS_Deactivate:
+      case kTS_DeactivateFromReady:
       case kTS_Deactivating:
       case kTS_DeactivatingFromReady:
         x470_deactivateLight->Render();
@@ -357,8 +424,8 @@ void CScriptGunTurret::AddToRenderer(const CFrustumPlanes& frustum,
 
   if (!x560_25_frozen) {
     switch (x520_state) {
-    case kTS_Deactive:
-    case kTS_DeactiveFromReady:
+    case kTS_Deactivate:
+    case kTS_DeactivateFromReady:
     case kTS_Deactivating:
     case kTS_DeactivatingFromReady:
       gpRender->AddParticleGen(*x470_deactivateLight);
@@ -419,8 +486,65 @@ void CScriptGunTurret::Touch(CActor& actor, CStateManager& mgr) {
   }
 }
 
+CVector3f CScriptGunTurret::GetAimPosition(const CStateManager& mgr, float dt) const {
+  if (x258_type == kTC_Gun) {
+    CTransform4f lctrXf(GetLocatorTransform(rstl::string_l(skGunLCTRName)));
+    return GetTranslation() + GetTransform().Rotate(lctrXf.GetTranslation());
+  }
+
+  return GetTranslation();
+}
+
+CVector3f CScriptGunTurret::GetOrbitPosition(const CStateManager& mgr) const {
+  return GetAimPosition(mgr, 0.f);
+}
+
+void CScriptGunTurret::SetTurretState(const ETurretState state, CStateManager& mgr) {
+  if (state >= kTS_Destroyed && state <= kTS_Frenzy) {
+    if (x520_state != kTS_Invalid) {
+      ProcessCurrentState(kStateMsg_Deactivate, 0.f, mgr);
+    }
+
+    x520_state = state;
+    x524_curStateTime = 0.f;
+    ProcessCurrentState(kStateMsg_Activate, 0.f, mgr);
+  }
+}
+
+void CScriptGunTurret::ProcessGunStateMachine(float dt, CStateManager& mgr) {
+  ProcessCurrentState(kStateMsg_Update, dt, mgr);
+  x524_curStateTime += dt;
+  PlayAdditiveChargingAnimation(mgr);
+
+  if (x25c_gunId == kInvalidUniqueId) {
+    return;
+  }
+
+  CScriptGunTurret* gun = TCastToPtr< CScriptGunTurret >(mgr.ObjectById(x25c_gunId));
+  if (!gun) {
+    return;
+  }
+
+  if (gun->x520_state != kTS_Frenzy) {
+    gun->x520_state = x520_state;
+    return;
+  }
+
+  if (x520_state == kTS_Frenzy) {
+    return;
+  }
+
+  SetTurretState(kTS_Frenzy, mgr);
+  gun->RemoveMaterial(kMT_Target, kMT_Orbit, mgr);
+  mgr.Player()->TryToBreakOrbit(GetUniqueId(), CPlayer::kOB_ActivateOrbitSource, mgr);
+}
+
 void CScriptGunTurret::ProcessCurrentState(EStateMsg msg, float dt, CStateManager& mgr) {
   switch (x520_state) {
+  case kTS_Destroyed:
+    break;
+  case kTS_Deactivate:
+    break;
   case kTS_Deactivating:
   case kTS_DeactivatingFromReady:
     ProcessDeactivatingState(msg, dt, mgr);
@@ -450,6 +574,48 @@ void CScriptGunTurret::ProcessCurrentState(EStateMsg msg, float dt, CStateManage
   }
 }
 
+void CScriptGunTurret::ProcessDeactivatingState(EStateMsg msg, float dt, CStateManager& mgr) {
+  switch (msg) {
+  case kStateMsg_Update:
+    if (x524_curStateTime >= x2d4_data.GetIntoDeactivateDelay()) {
+      SetTurretState(x560_28_hasBeenActivated ? kTS_DeactivateFromReady : kTS_Deactivate, mgr);
+    }
+    break;
+  default:
+    break;
+  }
+}
+
+void CScriptGunTurret::ProcessInactiveState(EStateMsg msg, float dt, CStateManager& mgr) {
+  switch (msg) {
+  case kStateMsg_Activate:
+    x528_curInactiveTime = 0.f;
+    x560_27_burstSet = false;
+    if (CScriptGunTurret* gun = TCastToPtr< CScriptGunTurret >(mgr.ObjectById(x25c_gunId))) {
+      x260_lastGunHP = gun->GetHealthInfo(mgr)->GetHP();
+    }
+    break;
+  case kStateMsg_Update: {
+    bool bVar7 = false;
+    if (x25c_gunId != kInvalidUniqueId) {
+      if (CScriptGunTurret* gun = TCastToPtr< CScriptGunTurret >(mgr.ObjectById(x25c_gunId))) {
+        x260_lastGunHP = gun->GetHealthInfo(mgr)->GetHP();
+        bVar7 = true;
+      }
+    }
+
+    if (!x2d4_data.IsScriptedStartOnly()) {
+    }
+  } break;
+  case kStateMsg_Deactivate:
+    x560_28_hasBeenActivated = true;
+    x468_idleLight->SetParticleEmission(false);
+    if (CScriptGunTurret* gun = TCastToPtr< CScriptGunTurret >(mgr.ObjectById(x25c_gunId))) {
+      x260_lastGunHP = gun->GetHealthInfo(mgr)->GetHP();
+    }
+    break;
+  }
+}
 bool CScriptGunTurret::IsStopped(const float dt) const {
   const CVector2f thisForward(GetTransform().GetForward().ToVec2f());
   const CVector2f lastForward(x514_lastFrontVector.ToVec2f());

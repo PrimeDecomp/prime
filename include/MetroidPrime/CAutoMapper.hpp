@@ -186,7 +186,7 @@ public:
   }
 
 private:
-  bool NotHintNavigating() const;
+  bool NotHintNavigating(const CStateManager& mgr) const;
   bool CanLeaveMapScreenInternal(const CStateManager& mgr) const;
   void LeaveMapScreen(const CStateManager& mgr) const;
   void SetupMiniMapWorld(CStateManager& mgr);

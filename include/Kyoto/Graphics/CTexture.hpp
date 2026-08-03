@@ -66,7 +66,7 @@ public:
   ~CTexture();
 
   // Used in certain destructors
-  void fn_8030E10C();
+  void ScheduleDeletion();
   void LoadMipLevel(int, GXTexMapID tex, EClampMode) const;
   void Load(GXTexMapID texMapId, EClampMode clampMode) const;
   bool HasPalette() const { return IsCITextureFormat(mTexelFormat); }

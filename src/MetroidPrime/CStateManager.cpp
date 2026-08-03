@@ -929,7 +929,7 @@ const bool CStateManager::MemoryAllocatorAllocationFailedCallback(const void* ob
 }
 
 bool CStateManager::SwapOutAllPossibleMemory() {
-  CFrameDelayedKiller::fn_8036CCFC();
+  CFrameDelayedKiller::StallAndFlushAllAllocations();
   CARAMManager::WaitForAllDMAsToComplete();
   CARAMToken::UpdateAllDMAs();
   return true;

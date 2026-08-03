@@ -77,6 +77,19 @@ CVector3f CScriptDoor::GetOrbitPosition(const CStateManager& mgr) const {
 }
 
 CScriptDoor::EDoorOpenCondition CScriptDoor::GetDoorOpenCondition(CStateManager& mgr) {
+  CScriptDock* dock = TCastToPtr<CScriptDock>(mgr.ObjectById(mDockId));
+  if (!dock) {
+    return kDOC_Ready;
+  }
+  
+  if (mAnimTime < 0.05f || mDoClose) {
+    return kDOC_Loading;
+  }
+  
+  const CWorld* world = mgr.GetWorld();
+  if (world->IsAreaValid(dock->GetAreaId()) && world->GetAreaAlways(dock->GetAreaId()).IsLoaded()) {
+    
+  }
   return kDOC_Loading;
 }
 

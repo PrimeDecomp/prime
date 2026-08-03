@@ -97,9 +97,9 @@ CModel::~CModel() {
   RemoveFromTotal(x4_dataLen);
   const int frame = CGraphics::GetFrameCounter();
   if (x38_lastFrame == frame) {
-    CFrameDelayedKiller::fn_8036CC1C(1, x0_data.release());
+    CFrameDelayedKiller::ScheduleDeletion(CFrameDelayedKiller::kWhichFrame_NextFrame, x0_data.release());
   } else if (x38_lastFrame == frame - 1) {
-    CFrameDelayedKiller::fn_8036CC1C(0, x0_data.release());
+    CFrameDelayedKiller::ScheduleDeletion(CFrameDelayedKiller::kWhichFrame_ThisFrame, x0_data.release());
   }
 }
 CFactoryFnReturn FModelFactory(const SObjectTag& tag, const rstl::auto_ptr< uchar >& ptr, int len,

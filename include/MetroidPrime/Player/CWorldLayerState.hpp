@@ -1,6 +1,7 @@
 #ifndef _CWORLDLAYERSTATE
 #define _CWORLDLAYERSTATE
 
+#include "Kyoto/SObjectTag.hpp"
 #include "MetroidPrime/TGameTypes.hpp"
 
 #include "rstl/vector.hpp"
@@ -19,6 +20,7 @@ public:
     uint m_layerBitsHi;
     uint m_layerBitsLo;
   };
+  static CWorldLayers ReadWorldLayers(CInputStream& in, int version, CAssetId mlvlId);
 };
 
 class WordBitmap {

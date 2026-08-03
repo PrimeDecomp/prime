@@ -111,8 +111,8 @@ public:
   enum ETurretState {
     kTS_Invalid = -1,
     kTS_Destroyed,
-    kTS_Deactive,
-    kTS_DeactiveFromReady,
+    kTS_Deactivate,
+    kTS_DeactivateFromReady,
     kTS_Deactivating,
     kTS_DeactivatingFromReady,
     kTS_Inactive,
@@ -138,15 +138,18 @@ public:
   void AddToRenderer(const CFrustumPlanes&, const CStateManager&) const override;
   rstl::optional_object< CAABox > GetTouchBounds() const override;
   void Touch(CActor& actor, CStateManager& mgr) override;
+  CVector3f GetAimPosition(const CStateManager& mgr, float dt) const override;
+  CVector3f GetOrbitPosition(const CStateManager& mgr) const override;
 
   CHealthInfo* HealthInfo(CStateManager& mgr) override { return &x264_healthInfo; }
   const CDamageVulnerability* GetDamageVulnerability() const override { return &x26c_damageVuln; }
 
 private:
-  static const char* skGunLCTRName;
-  static const char* skBlastLCTRName;
-  static const char* skLightLCTRName;
-  static const char* skLockonTargetLCTRName;
+  static const float skExtensionOverlapMaxPer;
+  static const char* const skGunLCTRName;
+  static const char* const skBlastLCTRName;
+  static const char* const skLightLCTRName;
+  static const char* const skLockonTargetLCTRName;
   void ProcessGunStateMachine(float dt, CStateManager& mgr);
   void ProcessCurrentState(EStateMsg msg, float dt, CStateManager& mgr);
   void ProcessDeactivatingState(EStateMsg msg, float dt, CStateManager& mgr);
@@ -166,10 +169,11 @@ private:
   void UpdateHealthInfo(CStateManager& mgr);
   void SetupCollisionManager(CStateManager& mgr);
   void SetTurretState(ETurretState state, CStateManager& mgr);
-  void SetupExtensionModel() {
-    const CModelData mData(
-        CStaticRes(x2d4_data.GetExtensionModelResId(), GetModelData()->GetScale()));
-    x4a4_extensionModel = rstl::optional_object< CModelData >(mData);
+  void PlayAdditiveChargingAnimation(CStateManager& mgr);
+  void PlayAdditiveFlinchAnimation(CStateManager& mgr);
+  void LaunchProjectile(CStateManager& mgr);
+  inline CStaticRes SetupExtensionModel(const CVector3f& scale) const {
+    return CStaticRes(x2d4_data.GetExtensionModelResId(), scale);
   }
 
   bool IsStopped(float dt) const;

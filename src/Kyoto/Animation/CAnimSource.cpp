@@ -37,9 +37,12 @@ RotationAndOffsetStorage::GetRotationsAndOffsets(const rstl::vector< CQuaternion
                                                  uint numFrames) {
   xc_rotationsPerFrame = rotations.size() / numFrames;
   x10_offsetsPerFrame = offsets.size() / numFrames;
-  const uint sizeInBytes =
-      DataSizeInBytes(rotations.size() / numFrames, offsets.size() / numFrames, numFrames);
-  rstl::auto_ptr< uint > storage(rs_new uint[sizeInBytes / 4 + 1]);
+  rstl::auto_ptr< uint > storage(rs_new uint[DataSizeInBytes(rotations.size() / numFrames, //
+                                                             offsets.size() / numFrames,   //
+                                                             numFrames                     //
+                                                             ) /
+                                                 4 +
+                                             1]);
   CopyRotationsAndOffsets(rotations, offsets, numFrames, reinterpret_cast< float* >(storage.get()));
 
   return storage;
@@ -52,23 +55,23 @@ void RotationAndOffsetStorage::CopyRotationsAndOffsets(const rstl::vector< CQuat
   const uint offsetsPerFrame = offsets.size() / numFrames;
 
   for (int frame = 0; frame < numFrames; frame++) {
-    for (int rotation = 0, i = 0; rotation < rotationsPerFrame; rotation++, i += numFrames) {
-      const CQuaternion& q = rotations[frame * i + rotation];
+    int i = 0;
+    for (int rotation = 0; i < rotationsPerFrame; rotation += numFrames, i++) {
+      const CQuaternion& q = rotations[frame + rotation];
       *(buf++) = q.GetW();
       *(buf++) = q.GetX();
       *(buf++) = q.GetY();
       *(buf++) = q.GetZ();
     }
-
-    for (int offset = 0, i = 0; offset < offsetsPerFrame; offset++, i += numFrames) {
-      const CVector3f& o = offsets[frame * i + offset];
+    i = 0;
+    for (int offset = 0; offset < offsetsPerFrame; offset++, i += numFrames) {
+      const CVector3f& o = offsets[frame + i];
       *(buf++) = o.GetX();
       *(buf++) = o.GetY();
       *(buf++) = o.GetZ();
     }
   }
 }
-
 uint RotationAndOffsetStorage::GetFrameSizeInBytes() const {
   return xc_rotationsPerFrame * sizeof(CQuaternion) + x10_offsetsPerFrame * sizeof(CVector3f);
 }
@@ -130,7 +133,6 @@ CVector3f CAnimSource::GetOffset(const CSegId& seg, const CCharAnimTime& animTim
 
   schar v = x20_rotationChannels[seg.val()];
   if (v >= 0) {
-
     return CVector3f(0.f, 0.f, 0.f);
   }
 

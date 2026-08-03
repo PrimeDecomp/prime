@@ -386,7 +386,7 @@ bool CAutoMapper::CanLeaveMapScreen(const CStateManager& mgr) const {
 }
 
 bool CAutoMapper::CanLeaveMapScreenInternal(const CStateManager& mgr) const {
-  if (!NotHintNavigating())
+  if (!NotHintNavigating(mgr))
     return false;
   if (IsRenderStateInterpolating())
     return false;
@@ -398,7 +398,9 @@ bool CAutoMapper::CanLeaveMapScreenInternal(const CStateManager& mgr) const {
   return ret;
 }
 
-bool CAutoMapper::NotHintNavigating() const { return x1e0_hintSteps.empty(); }
+bool CAutoMapper::NotHintNavigating(const CStateManager& mgr) const {
+  return x1e0_hintSteps.empty();
+}
 
 void CAutoMapper::UnmuteAllLoopedSounds() {
   CSfxManager::SfxVolume(x1cc_panningSfx, 127);
@@ -611,11 +613,12 @@ void CAutoMapper::ProcessControllerInput(const CFinalInput& input, const CStateM
 
     if (x9c_worldIdx != oldWldIdx) {
       CAssetId curMlvl = gpGameState->CurrentWorldAssetId();
-      for (uint i = 0; static_cast< int >(i) < static_cast< int >(x14_dummyWorlds.size()); ++i) {
+      for (int i = 0; i < x14_dummyWorlds.size(); ++i) {
         const CMapUniverse::CMapWorldData& mwData = mapu->GetMapWorldData(i);
-        if (i == x9c_worldIdx && curMlvl != mwData.GetWorldAssetId()) {
-          if (gpResourceFactory->CanBuild(SObjectTag('MLVL', mwData.GetWorldAssetId()))) {
-            CDummyWorld* dw = rs_new CDummyWorld(mwData.GetWorldAssetId());
+        const CAssetId mlvl = mwData.GetWorldAssetId();
+        if (i == x9c_worldIdx && curMlvl != mlvl) {
+          if (gpResourceFactory->CanBuild(SObjectTag('MLVL', mlvl))) {
+            CDummyWorld* dw = rs_new CDummyWorld(mlvl, true);
             rstl::auto_ptr< IWorld > newWorld(dw);
             x14_dummyWorlds[i] = newWorld;
           }
@@ -690,25 +693,29 @@ void CAutoMapper::ProcessControllerInput(const CFinalInput& input, const CStateM
   if (input.PY()) {
     CSystemState& sysState = gpGameState->SystemState();
     int keyState = sysState.GetAutoMapperKeyState();
-    if (keyState == 0) {
+    switch (keyState) {
+    case 0: {
       sysState.SetAutoMapperKeyState(1);
       CSfxManager::SfxStart(0x5ac, 127, 64, false, CSfxManager::kMedPriority, false,
                             CSfxManager::kAllAreas);
-    } else if (keyState == 1) {
+    } break;
+    case 1: {
       sysState.SetAutoMapperKeyState(2);
       CSfxManager::SfxStart(0x5a6, 127, 64, false, CSfxManager::kMedPriority, false,
                             CSfxManager::kAllAreas);
-    } else if (keyState == 2) {
+    } break;
+    case 2: {
       sysState.SetAutoMapperKeyState(0);
       CSfxManager::SfxStart(0x5ad, 127, 64, false, CSfxManager::kMedPriority, false,
                             CSfxManager::kAllAreas);
+    } break;
     }
   }
 
   if ((input.PZ() || input.PB()) && x328_ == 0) {
     if (CanLeaveMapScreenInternal(mgr)) {
       LeaveMapScreen(mgr);
-    } else if (NotHintNavigating()) {
+    } else if (NotHintNavigating(mgr)) {
       BeginMapperStateTransition(kAMS_MapScreenUniverse, mgr);
       x328_ = 1;
     }

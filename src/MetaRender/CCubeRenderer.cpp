@@ -440,7 +440,7 @@ CCubeRenderer::~CCubeRenderer() {
   Buckets::Shutdown();
   CSkinnedModel::RemoveDummySkinnedModelRef();
   if (!x314_phazonSuitMask.null()) {
-    x314_phazonSuitMask->fn_8030E10C();
+    x314_phazonSuitMask->ScheduleDeletion();
   }
 }
 
@@ -517,7 +517,7 @@ void CCubeRenderer::BeginScene() {
   if (x310_phazonSuitMaskCountdown != 0) {
     --x310_phazonSuitMaskCountdown;
     if (x310_phazonSuitMaskCountdown == 0) {
-      x314_phazonSuitMask->fn_8030E10C();
+      x314_phazonSuitMask->ScheduleDeletion();
       x314_phazonSuitMask = nullptr;
     }
   }

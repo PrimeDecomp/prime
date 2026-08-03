@@ -797,7 +797,7 @@ void CGraphics::EndScene() {
   GXEnableBreakPt(writePtr);
   mLastFrameUsedAbove = mInterruptLastFrameUsedAbove;
   ++mFrameCounter;
-  CFrameDelayedKiller::fn_8036CB90();
+  CFrameDelayedKiller::FlushAllocationsForFrame();
 }
 
 void CGraphics::SetDepthWriteMode(const bool test, ERglEnum comp, const bool write) {

@@ -28,7 +28,7 @@ class CResFactory;
 
 class IWorld {
 public:
-  virtual ~IWorld() {}
+  virtual ~IWorld();
   virtual CAssetId IGetWorldAssetId() const = 0;
   virtual CAssetId IGetStringTableAssetId() const = 0;
   virtual CAssetId IGetSaveWorldAssetId() const = 0;
@@ -187,10 +187,6 @@ private:
 };
 CHECK_SIZEOF(CWorld, 0xf4)
 
-struct SWorldLayers /* name? */ {
-  static SWorldLayers ReadWorldLayers(CInputStream& in, int version, CAssetId mlvlId);
-};
-
 class CDummyWorld : public IWorld {
   enum Phase {
     kP_Loading,
@@ -213,7 +209,7 @@ class CDummyWorld : public IWorld {
   TAreaId x3c_curAreaId;
 
 public:
-  CDummyWorld(CAssetId mlvlId);
+  CDummyWorld(CAssetId mlvlId, const bool loadMap);
   ~CDummyWorld() override;
   CAssetId IGetWorldAssetId() const override;
   CAssetId IGetStringTableAssetId() const override;
