@@ -1365,7 +1365,7 @@ config.libs = [
             Object(NonMatching, "Kyoto/Animation/IMetaAnim.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Audio/CSfxHandle.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Audio/CSfxManager.cpp"),
-            Object(NonMatching, "Kyoto/Animation/CAdvancementDeltas.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Animation/CAdvancementDeltas.cpp"),
             Object(NonMatching, "Kyoto/Animation/CAnimMathUtils.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Animation/CAnimPOIData.cpp"),
             Object(NonMatching, "Kyoto/Animation/CAnimSource.cpp"),
@@ -2213,8 +2213,8 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "runtime/w_pow.c"
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), 
-                    "runtime/math_ppc.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                "runtime/math_ppc.c"
             ),
         ],
     },

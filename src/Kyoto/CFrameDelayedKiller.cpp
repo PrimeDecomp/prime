@@ -18,6 +18,8 @@ struct Something {
 
   bool fn_8036CB50(uint x);
   bool fn_8036CB28(uint x);
+  uintptr_t fn_8036CAF4(uint x);
+  void fn_8036CAE4();
   uint unk1;
   uint unk2;
   uint unk3;
@@ -63,6 +65,17 @@ bool Something::fn_8036CB28(unsigned int x) {
   int index = endAddr / 4;
 
   return (unk1 > index);
+}
+
+uintptr_t Something::fn_8036CAF4(uint x) {
+  uintptr_t addr = (reinterpret_cast< uintptr_t >(this));
+  addr += (unk2 * 4) + sizeof(*this);
+  unk2 += (x + 3) / 4;
+  ++unk3;
+  return addr;
+}
+void Something::fn_8036CAE4() {
+  --unk3;
 }
 
 void* IElement::operator new(size_t sz, const char* fileAndLine, const char* type) {
