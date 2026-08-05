@@ -294,7 +294,7 @@ CElementGen::CElementGen(TToken< CGenDescription > gen, EModelOrientationType or
     if (x28_loadedGenDesc->x100_LFOT != nullptr) {
       int lfotVal = 1;
       x28_loadedGenDesc->x100_LFOT->GetValue(x74_curFrame, lfotVal);
-      switch (EFalloffType(lfotVal)) {
+      switch (static_cast< EFalloffType >(lfotVal)) {
       case kFT_Constant:
         x32c_falloffType = kFT_Constant;
         break;
@@ -2033,29 +2033,29 @@ void CElementGen::RenderParticlesIndirectTexture() {
         uint color = particle->x34_color.GetColor_u32();
         CGX::Begin(GX_QUADS, GX_VTXFMT0, 4);
 
-        RSPosition3f32(vpX + size, vpY, vpZ + size);
-        RSColor1u32(color);
-        RSTexCoord2f32(uvs.xMax, uvs.yMax);
-        RSTexCoord2f32(maxU, minV);
-        RSTexCoord2f32(uvsInd.xMax, uvsInd.yMax);
+        GXPosition3f32(vpX + size, vpY, vpZ + size);
+        GXColor1u32(color);
+        GXTexCoord2f32(uvs.xMax, uvs.yMax);
+        GXTexCoord2f32(maxU, minV);
+        GXTexCoord2f32(uvsInd.xMax, uvsInd.yMax);
 
-        RSPosition3f32(vpX - size, vpY, vpZ + size);
-        RSColor1u32(color);
-        RSTexCoord2f32(uvs.xMin, uvs.yMax);
-        RSTexCoord2f32(minU, minV);
-        RSTexCoord2f32(uvsInd.xMin, uvsInd.yMax);
+        GXPosition3f32(vpX - size, vpY, vpZ + size);
+        GXColor1u32(color);
+        GXTexCoord2f32(uvs.xMin, uvs.yMax);
+        GXTexCoord2f32(minU, minV);
+        GXTexCoord2f32(uvsInd.xMin, uvsInd.yMax);
 
-        RSPosition3f32(vpX - size, vpY, vpZ - size);
-        RSColor1u32(color);
-        RSTexCoord2f32(uvs.xMin, uvs.yMin);
-        RSTexCoord2f32(minU, maxV);
-        RSTexCoord2f32(uvsInd.xMin, uvsInd.yMin);
+        GXPosition3f32(vpX - size, vpY, vpZ - size);
+        GXColor1u32(color);
+        GXTexCoord2f32(uvs.xMin, uvs.yMin);
+        GXTexCoord2f32(minU, maxV);
+        GXTexCoord2f32(uvsInd.xMin, uvsInd.yMin);
 
-        RSPosition3f32(vpX + size, vpY, vpZ - size);
-        RSColor1u32(color);
-        RSTexCoord2f32(uvs.xMax, uvs.yMin);
-        RSTexCoord2f32(maxU, maxV);
-        RSTexCoord2f32(uvsInd.xMax, uvsInd.yMin);
+        GXPosition3f32(vpX + size, vpY, vpZ - size);
+        GXColor1u32(color);
+        GXTexCoord2f32(uvs.xMax, uvs.yMin);
+        GXTexCoord2f32(maxU, maxV);
+        GXTexCoord2f32(uvsInd.xMax, uvsInd.yMin);
 
         CGX::End();
       }

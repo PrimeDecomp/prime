@@ -12,7 +12,7 @@ const CTransform4f CTransform4f::sIdentity(1.f, 0.f, 0.f, 0.f, //
 CTransform4f CTransform4f::LookAt(const CVector3f& pos, const CVector3f& lookPos,
                                   const CVector3f& up) {
   CVector3f vLook = lookPos - pos;
-  float mag = vLook.Magnitude();
+  const float mag = vLook.Magnitude();
   if (mag <= FLT_EPSILON) {
     vLook = CVector3f(0.f, 1.f, 0.f);
   } else {
@@ -20,19 +20,18 @@ CTransform4f CTransform4f::LookAt(const CVector3f& pos, const CVector3f& lookPos
     vLook *= invMag;
   }
 
-  float clampedLookDot = CMath::Limit(CVector3f::Dot(up, vLook), 1.f);
-
-  CVector3f vUp = up - vLook * clampedLookDot;
-  if (vUp.Magnitude() <= FLT_EPSILON) {
+  CVector3f vUp = up - vLook * CMath::Limit(CVector3f::Dot(up, vLook), 1.f);
+  float vMag = vUp.Magnitude();
+  if (vMag <= FLT_EPSILON) {
     vUp = CVector3f(0.f, 0.f, 1.f) - vLook * vLook.GetZ();
-    if (vUp.Magnitude() <= FLT_EPSILON) {
+    vMag = vUp.Magnitude();
+    if (vMag <= FLT_EPSILON) {
       vUp = CVector3f(0.f, 1.f, 0.f) - vLook * vLook.GetY();
+      vMag = vUp.Magnitude();
     }
   }
 
-  mag = vUp.Magnitude();
-  const float invMag = 1.f / mag;
-  vUp *= invMag;
+  vUp *= (1.f / vMag);
 
   return CTransform4f(
       vLook.GetY() * vUp.GetZ() - vUp.GetY() * vLook.GetZ(), vLook.GetX(), vUp.GetX(), pos.GetX(),
@@ -654,7 +653,6 @@ CTransform4f CTransform4f::operator*(register const CTransform4f& xf) const {
     psq_st f10, CTransform4f.m22(ret), 0, 0;
     // implicit return via RVO
   }
-  return *ret;
 #endif
 }
 
