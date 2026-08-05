@@ -209,9 +209,9 @@ EWeaponCollisionResponseTypes CScriptActor::GetCollisionResponseType(const CVect
   if (dVuln->GetVulnerability(wMode, false) == kVN_Deflect) {
     const EDeflectionType deflectType = dVuln->GetDeflectionType(wMode);
     switch (deflectType) {
-    case kDT_One:
-    case kDT_Two:
-    case kDT_Three:
+    case kDT_Ricochet:
+    case kDT_RetargetPlayer:
+    case kDT_RetargetPlayerCombo:
       return kWCR_Unknown15;
     default:
       break;

@@ -30,6 +30,8 @@ public:
 
   void SetArea(CPFArea* area) { x0_area = area; }
   void SetPadding(const float pad) { xd8_padding = pad; }
+  
+  EResult OnPath(const CVector3f& pos) const;
 
 private:
   CPFArea* x0_area;
