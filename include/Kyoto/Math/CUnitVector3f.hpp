@@ -13,6 +13,8 @@ public:
   };
 
   CUnitVector3f(const float x, const float y, const float z) : CVector3f(x, y, z) {}
+  CUnitVector3f(const float x, const float y, const float z, ENormalize)
+  : CVector3f(x, y, z) {}
   CUnitVector3f(const CVector3f& vec, const ENormalize normalize) : CVector3f(vec) {
     if (normalize == kN_Yes) {
       Normalize();
