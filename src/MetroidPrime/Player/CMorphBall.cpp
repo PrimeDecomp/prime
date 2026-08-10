@@ -2811,7 +2811,8 @@ void CMorphBall::UpdateMorphBallSound(float dt) {
       // ? this forces them into .sdata2
       const float kRollVolumeMin = 64.f;
       const float kRollVolumeMax = 127.f;
-      uchar vol = CCast::ToUint8(CMath::Clamp(kRollVolumeMin, 3.2f * speed + 64.f, kRollVolumeMax));
+      const uchar vol =
+          CCast::ToUint8(CMath::Clamp(kRollVolumeMin, 3.2f * speed + 64.f, kRollVolumeMax));
       CSfxManager::UpdateEmitter(x1e2c_rollSfxHandle, x0_player.GetTranslation(), CVector3f::Zero(),
                                  vol);
       break;
