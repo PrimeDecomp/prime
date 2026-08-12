@@ -99,6 +99,7 @@ public:
   ~basic_string() { internal_dereference(); }
 
   size_t size() const { return x8_size; }
+  int refcount() { return x4_cow != nullptr ? x4_cow->x4_refCount : -1; }
   void reserve(int len) { internal_prepare_to_write(len, true); }
 
   void assign(const basic_string&);

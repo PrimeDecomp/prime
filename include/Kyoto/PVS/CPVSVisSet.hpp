@@ -17,6 +17,7 @@ public:
   CPVSVisSet(EPVSVisSetState state);
 
   EPVSVisSetState GetVisible(int index) const;
+  EPVSVisSetState GetState() const { return x0_state; }
 
   static inline CPVSVisSet MakeFromMemory(const int numBits, const int numLights,
                                           const rstl::auto_ptr< const char >& leafPtr) {

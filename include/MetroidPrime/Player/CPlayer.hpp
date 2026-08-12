@@ -306,6 +306,7 @@ public:
   void UpdateFreeLook(float dt);
   void UpdatePlayerHints(CStateManager& mgr);
   void UpdateBombJumpStuff();
+  void BombJump(const CVector3f& pos, CStateManager& mgr);
   void UpdateTransitionFilter(float dt, CStateManager& mgr);
   void CalculatePlayerMovementDirection(float dt);
   void UpdatePlayerControlDirection(float dt, CStateManager& mgr);
@@ -397,9 +398,11 @@ public:
   // CPlayer::GetFlipSpiderBallControlY() const weak
   // CPlayer::GetFlipSpiderBallControlX() const weak
   float GetDeathTime() const { return x9f4_deathTime; } // name?
+  void SetAccelerationChangeTimer(float time) { x2d4_accelerationChangeTimer = time; }
 
   bool IsCrosshairsOpen() const { return x9c4_25_showCrosshairs; }
   bool IsInsideFluid() const { return x9c4_31_inWaterMovement; }
+  bool GetDisableInput() const { return x9c6_29_disableInput; }
 
   void Teleport(const CTransform4f& xf, CStateManager& mgr, const bool resetBallCam);
   void SetSpawnedMorphBallState(const EPlayerMorphBallState state, CStateManager& mgr);

@@ -32,6 +32,8 @@ public:
 
   void Accept(IVisitor& visitor) override;
 
+  void ApplyRadiusDamage(const CVector3f& pos, const CDamageInfo& info, CStateManager& mgr);
+
   CVector3f GetLastKilledOffset() const { return x130_lastKilledOffset; }
 
 private:

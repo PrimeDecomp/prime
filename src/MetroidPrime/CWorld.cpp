@@ -20,9 +20,8 @@
 #include "MetroidPrime/TGameTypes.hpp"
 #include "rstl/vector.hpp"
 
-static CGameArea::CConstChainIterator sAliveAreasEnd;
-
-CGameArea::CConstChainIterator CWorld::GetAliveAreasEnd() { return sAliveAreasEnd; }
+CGameArea::CConstChainIterator CWorld::skGlobalEnd;
+CGameArea::CChainIterator CWorld::skGlobalNonConstEnd;
 
 CWorld::CWorld(IObjectStore& objStore, CResFactory& resFactory, CAssetId mlvlId)
 : x4_phase(kP_Loading)
@@ -87,7 +86,7 @@ bool CWorld::ScheduleAreaToLoad(CGameArea* area, CStateManager& mgr) {
 }
 
 // TOOD nonmatching
-void CWorld::TravelToArea(TAreaId aid, CStateManager& mgr, EAreaTravelType type) {
+void CWorld::TravelToArea(const TAreaId& aid, CStateManager& mgr, bool skipLoadOther) {
   if (aid.Value() < 0 || aid.Value() >= x18_areas.size())
     return;
   x70_24_currentAreaNeedsAllocation = false;
@@ -122,7 +121,7 @@ void CWorld::TravelToArea(TAreaId aid, CStateManager& mgr, EAreaTravelType type)
   area->SetOcclusionState(CGameArea::kOS_Visible);
 
   CGameArea* otherLoadArea = nullptr;
-  if (type == kATT_Zero) {
+  if (!skipLoadOther) {
     bool otherLoading = false;
     for (int i = 0; i < area->GetDockCount(); ++i) {
       const CGameArea::Dock& dock = area->GetDock(i);

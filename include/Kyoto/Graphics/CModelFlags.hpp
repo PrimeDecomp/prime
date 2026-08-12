@@ -90,6 +90,7 @@ public:
   const int GetShaderSet() const { return x1_matSetIdx; }
   const int GetOtherFlags() const { return x2_flags; }
   const CColor GetColor() const { return x4_color; }
+  const CColor& GetColorRef() const { return x4_color; }
 
   bool operator==(const CModelFlags& other) const {
     // TODO: cast to char for extsb; see CScriptActor::PreRender

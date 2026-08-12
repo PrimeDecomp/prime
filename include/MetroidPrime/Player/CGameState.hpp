@@ -25,6 +25,8 @@ public:
   void WriteSystemOptions(COutputStream& out);
 
   void SetCurrentWorldId(CAssetId);
+  void SetDeferPowerupInit(bool);
+  void SetTotalPlayTime(double);
 
   rstl::rc_ptr< CPlayerState >& PlayerState();
   CAssetId CurrentWorldAssetId() const;
@@ -47,6 +49,9 @@ public:
   void SetCardSerial(u64 serial) { x210_cardSerial = serial; }
   u64 GetCardSerial() const { return x210_cardSerial; }
   bool GetHardMode() const { return x228_24_hardMode; }
+  bool GetInitPowerupsAtFirstSpawn() const { return x228_25_initPowerupsAtFirstSpawn; }
+  double GetTotalPlayTime() const { return xa0_playTime; }
+  float GetHardModeDamageMultiplier() const;
   float GetHardModeWeaponMultiplier() const;
   rstl::rc_ptr< CWorldTransManager >& WorldTransitionManager(); // { return x9c_transManager.GetPtr(); }
 

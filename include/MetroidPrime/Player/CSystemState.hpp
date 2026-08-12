@@ -27,6 +27,7 @@ public:
 
   bool GetShowPowerBombAmmoMessage() const;
   void IncrementPowerBombAmmoCount();
+  void IncrementFrozenBallCount();
 
   bool GetAllItemsCollected() const { return xd0_29_allItemsCollected; }
   void SetAllItemsCollected(bool);

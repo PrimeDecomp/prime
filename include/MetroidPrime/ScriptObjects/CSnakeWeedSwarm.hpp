@@ -20,6 +20,8 @@ public:
 
   void Accept(IVisitor& visitor) override;
 
+  void ApplyRadiusDamage(const CVector3f& pos, const CDamageInfo& info, CStateManager& mgr);
+
 private:
   uchar xe8_pad[0x208 - 0xe8];
 };

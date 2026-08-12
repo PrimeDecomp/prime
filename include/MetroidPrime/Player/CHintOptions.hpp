@@ -26,6 +26,7 @@ public:
   void DelayHint(const rstl::string& name);
   void ActivateImmediateHintTimer(const rstl::string& name);
   void ActivateContinueDelayHintTimer(const rstl::string& name);
+  void DismissDisplayedHint();
 
   const SHintState* GetCurrentDisplayedHint() const;
   int GetNextHintIdx();

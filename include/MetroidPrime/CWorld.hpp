@@ -73,11 +73,6 @@ public:
     CSoundGroupData(int grpId, CAssetId agsc);
   };
 
-  enum EAreaTravelType {
-    kATT_Zero,
-    kATT_One,
-  };
-
   enum EChain {
     kC_Invalid = -1,
     kC_ToDeallocate,
@@ -108,7 +103,9 @@ public:
   void UnloadSoundGroups();
   bool ScheduleAreaToLoad(CGameArea* area, CStateManager& mgr);
   void MoveToChain(CGameArea* area, EChain chain);
-  void TravelToArea(TAreaId aid, CStateManager& mgr, EAreaTravelType type);
+  void TravelToArea(const TAreaId& aid, CStateManager& mgr, bool skipLoadOther);
+  void Update(float dt);
+  void PreRender();
   CMapWorld* GetMapWorld() const;
   void LoadSoundGroups();
   void LoadSoundGroup(uchar groupId, CAssetId agscId, CSoundGroupData& data);
@@ -136,6 +133,7 @@ public:
     return CGameArea::CConstChainIterator(x4c_chainHeads[size_t(chain)]);
   }
   static CGameArea::CConstChainIterator GetAliveAreasEnd();
+  static CGameArea::CChainIterator AliveAreasEnd();
   void StopGlobalSound(ushort soundId);
 
   int GetNumAreas() const { return x18_areas.size(); }
@@ -147,6 +145,9 @@ public:
   
 
 private:
+  static CGameArea::CConstChainIterator skGlobalEnd;
+  static CGameArea::CChainIterator skGlobalNonConstEnd;
+
   enum Phase {
     kP_Loading,
     kP_LoadingMap,

@@ -194,7 +194,9 @@ public:
     const u8* x10d4_firstMatPtr;
     const CScriptAreaAttributes* x10d8_areaAttributes;
     EOcclusionState x10dc_occlusionState;
-    uchar x10e0_pad[0x3c];
+    uint x10e0_;
+    float x10e4_occludedTime;
+    uchar x10e8_pad[0x34];
     float x111c_thermalCurrent;
     float x1120_thermalSpeed;
     float x1124_thermalTarget;
@@ -217,6 +219,7 @@ public:
 
   TAreaId GetId() const { return x4_selfIdx; }
   const CTransform4f& GetTM() const { return xc_transform; }
+  const CTransform4f& GetInverseTransform() const { return x3c_invTransform; }
   bool IsLoaded() const { return xf0_24_postConstructed; }
   bool IsActive() const { return xf0_25_active; }
   bool IsValidated() const { return xf0_28_validated; }
@@ -227,6 +230,9 @@ public:
   void SetXRaySpeedAndTarget(float speed, float target);
   void SetThermalSpeedAndTarget(float speed, float target);
   void SetWeaponWorldLighting(float speed, float target);
+
+  float GetXRayFogDistance();
+  rstl::pair< const uchar*, uint > GetLayerScriptBuffer(const int& layer);
 
   void SetAreaAttributes(CScriptAreaAttributes* areaAttributes);
   bool TryTakingOutOfARAM();
