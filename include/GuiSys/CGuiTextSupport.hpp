@@ -19,14 +19,14 @@ class CGuiTextProperties {
   friend class CGuiTextSupport;
 
 public:
-  CGuiTextProperties(bool wordWrap, bool horizontal, EJustification justification,
-                     EVerticalJustification vertJustification,
-                     const rstl::vector< rstl::pair< CAssetId, CAssetId > >* txtrMap = nullptr)
-  : x0_wordWrap(wordWrap)
-  , x1_horizontal(horizontal)
-  , x4_justification(justification)
-  , x8_vertJustification(vertJustification)
-  , xc_txtrMap(txtrMap) {}
+  CGuiTextProperties(const bool wordWrap, const bool horizontal, const EJustification justification,
+                     const EVerticalJustification vertJustification,
+                     const rstl::vector< rstl::pair< CAssetId, CAssetId > >* txtrMap = nullptr);
+  // : x0_wordWrap(wordWrap)
+  // , x1_horizontal(horizontal)
+  // , x4_justification(justification)
+  // , x8_vertJustification(vertJustification)
+  // , xc_txtrMap(txtrMap) {}
 
 private:
   bool x0_wordWrap;
@@ -44,6 +44,10 @@ public:
   CGuiTextSupport(CAssetId fontId, const CGuiTextProperties& props, const CColor& fontCol,
                   const CColor& outlineCol, const CColor& geomCol, int extX, int extY,
                   CSimplePool* store, int /*CGuiWidget::EGuiModelDrawFlags*/ drawFlags);
+  CGuiTextSupport(CAssetId fontId, const CGuiTextProperties& props, const CColor& fontCol,
+                const CColor& outlineCol, const CColor& geomCol, int extX, int extY,
+                CSimplePool* store);
+  ~CGuiTextSupport();
 
   void SetText(const rstl::wstring&, bool clearRenderBuffer = false);
   void SetText(const rstl::string&, bool multipage = false);

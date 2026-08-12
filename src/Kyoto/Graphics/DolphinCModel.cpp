@@ -15,6 +15,7 @@
 #include <Kyoto/Graphics/CGraphics.hpp>
 #include <Kyoto/IObjectStore.hpp>
 #include <Kyoto/TToken.hpp>
+#pragma inline_max_size(240)
 
 static bool sIsTextureTimeoutEnabled = true;
 uint CModel::sTotalMemory = 0;
@@ -97,11 +98,47 @@ CModel::~CModel() {
   RemoveFromTotal(x4_dataLen);
   const int frame = CGraphics::GetFrameCounter();
   if (x38_lastFrame == frame) {
-    CFrameDelayedKiller::ScheduleDeletion(CFrameDelayedKiller::kWhichFrame_NextFrame, x0_data.release());
+    CFrameDelayedKiller::ScheduleDeletion(CFrameDelayedKiller::kWhichFrame_NextFrame,
+                                          x0_data.release());
   } else if (x38_lastFrame == frame - 1) {
-    CFrameDelayedKiller::ScheduleDeletion(CFrameDelayedKiller::kWhichFrame_ThisFrame, x0_data.release());
+    CFrameDelayedKiller::ScheduleDeletion(CFrameDelayedKiller::kWhichFrame_ThisFrame,
+                                          x0_data.release());
   }
 }
+
+void CModel::Draw(const CModelFlags& flags) const {
+  if (flags.GetOtherFlags() & CModelFlags::kF_DrawNormal) {
+    x28_modelInstance->DrawNormal(nullptr, nullptr, kSS_All);
+  }
+
+  CCubeMaterial::ResetCachedMaterials();
+  MoveToThisFrameList();
+  VerifyCurrentShader(flags.GetShaderSet());
+  x28_modelInstance->Draw(flags);
+}
+
+void CModel::DrawUnsortedParts(const CModelFlags& flags) const {
+  if (flags.GetOtherFlags() & CModelFlags::kF_DrawNormal) {
+    x28_modelInstance->DrawNormal(nullptr, nullptr, kSS_Unsorted);
+  }
+
+  CCubeMaterial::ResetCachedMaterials();
+  MoveToThisFrameList();
+  VerifyCurrentShader(flags.GetShaderSet());
+  x28_modelInstance->DrawNormal(flags);
+}
+
+void CModel::DrawSortedParts(const CModelFlags& flags) const {
+  if (flags.GetOtherFlags() & CModelFlags::kF_DrawNormal) {
+    x28_modelInstance->DrawNormal(nullptr, nullptr, kSS_Sorted);
+  }
+
+  CCubeMaterial::ResetCachedMaterials();
+  MoveToThisFrameList();
+  VerifyCurrentShader(flags.GetShaderSet());
+  x28_modelInstance->DrawAlpha(flags);
+}
+
 CFactoryFnReturn FModelFactory(const SObjectTag& tag, const rstl::auto_ptr< uchar >& ptr, int len,
                                const CVParamTransfer& xfer) {
   rstl::rc_ptr< IVParamObj > obj = xfer.x0_obj;

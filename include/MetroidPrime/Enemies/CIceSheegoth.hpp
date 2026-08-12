@@ -76,12 +76,12 @@ private:
   float x1b0_;
   float x1b4_;
   CDamageInfo x1b8_;
-  short x1d4_;
+  ushort x1d4_;
   float x1d8_;
   float x1dc_;
   float x1e0_maxInterestTime;
   CAssetId x1e4_;
-  short x1e8_;
+  ushort x1e8_;
   CAssetId x1ec_;
   bool x1f0_24_ : 1;
   bool x1f0_25_ : 1;
@@ -104,13 +104,31 @@ public:
 
   ~CIceSheegoth() override;
   void Accept(IVisitor& visitor) override;
+  void Think(float dt, CStateManager& mgr) override;
+  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) override;
+  void Render(const CStateManager& mgr) const override;
+  void AddToRenderer(const CFrustumPlanes&, const CStateManager&) const override;
 
   CPathFindSearch* GetSearchPath() override;
+  void UpdateHeadTracking(float dt, CStateManager& mgr) {
+    x9f4_boneTracking.Update(dt);
+    x9f4_boneTracking.PreRender(mgr, *AnimationData(), GetTransform(), GetModelScale(),
+                                *BodyCtrl());
+  }
   const CCollisionPrimitive* GetCollisionPrimitive() const override;
   float GetGravityConstant() const override;
 
 private:
+  void AttractProjectiles(CStateManager& mgr);
+
+  void UpdateAILogicTimers(float dt);
+  void UpdateAimTarget(CStateManager& mgr);
   void UpdateTouchBounds();
+  void SetShootThrough(CStateManager& mgr);
+  void PreventPlayerPenetration(CStateManager& mgr, float dt);
+  void UpdateHealthInfo(CStateManager& mgr);
+  void UpdateSteeringBlendSpeed(float dt);
+  void UpdateParticleEffects(float dt, CStateManager& mgr);
 
   int x568_state;
   CIceSheegothData x56c_data;

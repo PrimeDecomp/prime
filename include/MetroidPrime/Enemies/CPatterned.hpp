@@ -34,7 +34,7 @@ typedef void (CPatterned::*FTryCommandCallback)(CStateManager& mgr, int arg);
 
 class CPatterned : public CAi {
 public:
-  enum ECharacter {
+  enum EPatternedAI {
     kC_AtomicAlpha = 0,
     kC_AtomicBeta = 1,
     kC_Babygoth = 2,
@@ -156,7 +156,7 @@ public:
     ushort GetBehaviourModifiers() const { return x1e_behaviourModifiers; }
   };
 
-  CPatterned(const ECharacter character, const TUniqueId uid, const rstl::string& name,
+  CPatterned(const EPatternedAI character, const TUniqueId uid, const rstl::string& name,
              const EFlavorType flavor, const CEntityInfo& info, const CTransform4f& xf,
              const CModelData& mData, const CPatternedInfo& pinfo, EMovementType movement,
              const EColliderType collider, const EBodyType body, const CActorParameters& params,
@@ -269,7 +269,7 @@ public:
   float GetStateMachineTime() const { return GetStateMachineState().GetTime(); }
   CStateMachineState& StateMachineState() { return x330_stateMachineState; }
   const CStateMachineState& GetStateMachineState() const { return x330_stateMachineState; }
-  ECharacter GetCharacterType() const { return x34c_characterType; }
+  EPatternedAI GetCharacterType() const { return x34c_characterType; }
   float GetPlayerLeashRadius() const { return x3c8_leashRadius; }
   float GetPlayerLeashTime() const { return x3d0_playerLeashTime; }
   EFlavorType GetFlavorType() const { return x3fc_flavor; }
@@ -325,9 +325,9 @@ public:
   float GetAnimationDistance(const CPASAnimParmData& data) const;
   void BuildBodyController(EBodyType bodyType);
   CEnergyProjectile*
-  LaunchProjectile(const CTransform4f&, CStateManager&, int, CWeapon::EProjectileAttrib, bool,
-                   const rstl::optional_object< TLockedToken< CGenDescription > >&, ushort, bool,
-                   const CVector3f&);
+  LaunchProjectile(const CTransform4f&, CStateManager&, const int, const CWeapon::EProjectileAttrib,
+                   const bool, const rstl::optional_object< TLockedToken< CGenDescription > >&,
+                   const ushort, const bool, const CVector3f&);
   void RenderIceModelWithFlags(const CModelFlags&) const;
 
   void UpdateThermalFrozenState(const bool thawed);
@@ -369,7 +369,7 @@ protected:
   bool x329_24_ : 1;
   EAnimState x32c_animState;
   CStateMachineState x330_stateMachineState;
-  ECharacter x34c_characterType;
+  EPatternedAI x34c_characterType;
   CVector3f x350_patternStartPos;
   CVector3f x35c_patternStartPlayerPos;
   CVector3f x368_destWPDelta;

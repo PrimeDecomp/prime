@@ -138,10 +138,15 @@ public:
   const CModelData* GetModelData() const { return x64_modelData.get(); }
 
   bool HasAnimation() const { return GetModelData() && GetModelData()->HasAnimation(); }
-  CAnimData* AnimationData() { return ModelData()->AnimationData(); }
+  CAnimData* AnimationData() {
+    return ModelData()->AnimationData();
+  }
   const CAnimData* GetAnimationData() const { return GetModelData()->GetAnimationData(); }
 
-  CVector3f GetModelScale() const { return GetModelData()->GetScale(); }
+  CVector3f GetModelScale() const {
+    const CModelData* modelData = GetModelData();
+    return modelData->GetScale();
+  }
 
   bool HasShadow() const { return GetShadow() != nullptr; }
   CSimpleShadow* Shadow() { return x94_simpleShadow.get(); }

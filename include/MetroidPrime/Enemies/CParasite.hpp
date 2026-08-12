@@ -40,7 +40,7 @@ public:
             float parasiteCohesionWeight, float destinationSeekWeight, float forwardMoveWeight,
             float playerSeparationDist, float playerSeparationWeight,
             float playerObstructionMinDist, float haltDelay, bool disableMove,
-            CWallWalker::EWalkerType wType, const CDamageVulnerability& dVuln,
+            CWallWalker::EType wType, const CDamageVulnerability& dVuln,
             const CDamageInfo& dInfo, ushort haltSfx, ushort getUpSfx, ushort crouchSfx,
             CAssetId modelRes, CAssetId skinRes, float iceZoomerJointHP,
             const CActorParameters& aParams);

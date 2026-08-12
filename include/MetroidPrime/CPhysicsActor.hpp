@@ -193,7 +193,7 @@ public:
 
   static float GravityConstant() { return kGravityAccel; }
 
-private:
+protected:
   float xe8_mass;
   float xec_massRecip;
   float xf0_inertiaTensor;

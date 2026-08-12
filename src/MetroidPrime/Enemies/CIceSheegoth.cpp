@@ -6,6 +6,8 @@
 #include "Kyoto/Math/CRelAngle.hpp"
 #include "Kyoto/Particles/CElementGen.hpp"
 #include "Kyoto/Particles/CParticleElectric.hpp"
+#include "MetroidPrime/BodyState/CBodyState.hpp"
+#include "rstl/math.hpp"
 
 const CVector3f CIceSheegoth::skChargingBounds(2.f, 2.f, 2.f);
 
@@ -102,7 +104,7 @@ CIceSheegoth::CIceSheegoth(TUniqueId uid, const rstl::string& name, const CEntit
 , xaac_(rs_new CElementGen(xaa0_))
 , xab4_(gpSimplePool->GetObj(SObjectTag('PART', sheegothData.GetX1a8())))
 , xabc_(rs_new CElementGen(xab4_))
-, xac8_(gpSimplePool->GetObj(SObjectTag('WPSC', sheegothData.GetX1ac())))
+, xac8_(gpSimplePool->GetObj(SObjectTag('ELSC', sheegothData.GetX1ac())))
 , xad4_(rs_new CParticleElectric(xac8_))
 , xadc_(gpSimplePool->GetObj(SObjectTag('PART', sheegothData.GetX19c())))
 , xaf4_mouthLocator(0xFF)
@@ -151,4 +153,46 @@ CPathFindSearch* CIceSheegoth::GetSearchPath() {
   }
 
   return &x844_approachSearch;
+}
+
+void CIceSheegoth::Think(float dt, CStateManager& mgr) {
+  if (!GetActive()) {
+    return;
+  }
+
+  CPatterned::Think(dt, mgr);
+  AttractProjectiles(mgr);
+  UpdateAILogicTimers(dt);
+  UpdateAimTarget(mgr);
+
+  if (!IsAlive()) {
+    x974_ = rstl::max_val(0.f, x974_ - (dt * x56c_data.GetX170()));
+    if (GetBodyCtrl()->GetBodyStateInfo().GetCurrentState()->IsDying()) {
+      SetShootThrough(mgr);
+    }
+  }
+
+  x96c_ -= dt;
+
+  if (x96c_ < 0.f) {
+    BodyCtrl()->CommandMgr().DeliverCmd(CBCAdditiveReactionCmd(pas::kART_Four, 1.f, false));
+    x96c_ = 3.f * mgr.Random()->Float() + 2.f;
+  }
+
+  ModelData()->AnimationData()->PreRender();
+  UpdateHeadTracking(dt, mgr);
+  xa2c_collisionActorManager->Update(dt, mgr, CCollisionActorManager::kUO_ObjectSpace);
+  PreventPlayerPenetration(mgr, dt);
+  UpdateHealthInfo(mgr);
+  UpdateSteeringBlendSpeed(dt);
+  UpdateParticleEffects(dt, mgr);
+  UpdateThermalFrozenState(x428_damageCooldownTimer > 0.f);
+}
+
+void CIceSheegoth::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) {}
+
+void CIceSheegoth::Render(const CStateManager& mgr) const { CPatterned::Render(mgr); }
+
+void CIceSheegoth::AddToRenderer(const CFrustumPlanes& frustum, const CStateManager& mgr) const {
+  CPatterned::AddToRenderer(frustum, mgr);
 }

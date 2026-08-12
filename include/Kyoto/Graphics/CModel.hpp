@@ -33,6 +33,8 @@ public:
   ~CModel();
   void Touch(int) const;
   void Draw(const CModelFlags&) const;
+  void DrawUnsortedParts(const CModelFlags& flags) const;
+  void DrawSortedParts(const CModelFlags& flags) const;
   void Draw(const float* positions, const float* normals, const CModelFlags& flags) const;
   bool IsLoaded(int matIdx) const;
   const float* GetPositions() const;
