@@ -12,5 +12,3 @@ COBBTree::SIndexData::SIndexData(CInputStream& in)
 , x40_edges(in)
 , x50_surfaceIndices(in)
 , x60_vertices(in) {}
-
-COBBTree::COBBTree(const SIndexData& indexData, const CNode* root);

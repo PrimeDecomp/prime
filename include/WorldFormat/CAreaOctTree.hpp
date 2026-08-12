@@ -10,7 +10,8 @@
 
 #include "rstl/optional_object.hpp"
 
-class CCollisionEdge;
+#include "WorldFormat/CCollisionEdge.hpp"
+
 class CLine;
 class CMaterialFilter;
 
@@ -26,11 +27,18 @@ public:
 
   class TriListReference {
   public:
+    explicit TriListReference(const void* ptr)
+    : m_ptr(reinterpret_cast< const ushort* >(ptr)) {}
     explicit TriListReference(const ushort* ptr) : m_ptr(ptr) {}
-    ushort GetAt(int idx) const { return m_ptr[idx + 1]; }
-    ushort GetSize() const { return m_ptr[0]; }
+    ushort GetAt(int idx) const { return m_ptr[idx + kTriangleDataOffset]; }
+    ushort GetSize() const { return m_ptr[kTriangleCountOffset]; }
 
   private:
+    enum {
+      kTriangleCountOffset = sizeof(CAABox) / sizeof(ushort),
+      kTriangleDataOffset = kTriangleCountOffset + 1,
+    };
+
     const ushort* m_ptr;
   };
 
@@ -72,16 +80,24 @@ public:
   };
 
   CAreaOctTree(const CAABox& bounds, Node::ETreeType treeType, uchar* buf, void* treeBuf,
-                             uint materialCount, uint* materials, uchar* vertexMaterials, uchar* edgeMaterials,
-                             uchar* triMaterials, uint edgeCount, CCollisionEdge* edges, uint triCount,
-                             ushort* triangles, uint vertexCount, CVector3f* vertices);
+               uint materialCount, uint* materials, uchar* vertexMaterials,
+               uchar* edgeMaterials, uchar* triMaterials, uint edgeCount,
+               CCollisionEdge* edges, uint triCount, ushort* triangles, uint vertexCount,
+               CVector3f* vertices);
   void MakeFromMemory(void* buf, uint bufLen, CAreaOctTree** treeOut, bool*);
   CCollisionSurface GetMasterListTriangle(ushort idx) const;
   Node GetRootNode() const { return Node(x20_treeBuf, x0_aabb, *this, x18_treeType); }
   const void* GetTreeMemory() const { return x20_treeBuf; }
   const CAABox& GetBoundingBox() const { return x0_aabb; }
   Node::ETreeType GetTreeType() const { return x18_treeType; }
-  // TODO
+
+  const CVector3f& GetVert(int idx) const { return x4c_verts[idx]; }
+  const CCollisionEdge& GetEdge(int idx) const { return x3c_edges[idx]; }
+  uint GetVertMaterial(int idx) const { return x28_materials[x2c_vertMats[idx]]; }
+  uint GetEdgeMaterial(int idx) const { return x28_materials[x30_edgeMats[idx]]; }
+  uint GetTriangleMaterial(int idx) const { return x28_materials[x34_polyMats[idx]]; }
+  void GetTriangleVertexIndices(ushort idx, ushort indicesOut[3]) const;
+  const ushort* GetTriangleEdgeIndices(ushort idx) const;
 
 private:
   CAABox x0_aabb;
