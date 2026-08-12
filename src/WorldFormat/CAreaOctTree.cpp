@@ -31,15 +31,15 @@ static CAABox BoxFromIndex(int index, const CVector3f& a, const CVector3f& b, co
 }
 
 CAreaOctTree::Node CAreaOctTree::Node::GetChild(int index) const {
-  const ushort* node = reinterpret_cast< const ushort* >(x18_ptr + (index * 4) + 4);
+  const void* node = x18_ptr + index * sizeof(uint) + sizeof(uint);
   ETreeType type = GetChildType(index);
   if (type == kTT_Leaf) {
-    CAABox bounds = reinterpret_cast< const Node* >(node)->GetBoundingBox();
-    return Node(reinterpret_cast< const uchar* >(node), bounds, GetOwner(), type);
+    CAABox bounds = *reinterpret_cast< const CAABox* >(node);
+    return Node(node, bounds, GetOwner(), type);
   }
   CAABox bounds =
       BoxFromIndex(index, x0_aabb.GetMinPoint(), x0_aabb.CenterPoint(), x0_aabb.GetMaxPoint());
-  return Node(reinterpret_cast< const uchar* >(node), bounds, GetOwner(), type);
+  return Node(node, bounds, GetOwner(), type);
 }
 
 CAreaOctTree::TriListReference CAreaOctTree::Node::GetTriangleArray() const {
@@ -48,7 +48,7 @@ CAreaOctTree::TriListReference CAreaOctTree::Node::GetTriangleArray() const {
     return TriListReference(skDeadArray);
   }
 
-  return TriListReference(reinterpret_cast< const ushort* >(x18_ptr));
+  return TriListReference(x18_ptr);
 }
 
 CAreaOctTree::CAreaOctTree(const CAABox& bounds, Node::ETreeType treeType, uchar* buf,

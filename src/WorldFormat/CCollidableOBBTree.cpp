@@ -16,10 +16,6 @@
 
 #include "WorldFormat/CCollisionSurface.hpp"
 
-static int mod3[4] = {0, 1, 2, 0};
-
-static CPlane TransformPlane(const CPlane& pl, const CTransform4f& xf);
-
 uint CCollidableOBBTree::sTableIndex = -1;
 
 // === Constructor ===
@@ -34,14 +30,14 @@ CCollidableOBBTree::CCollidableOBBTree(COBBTree* tree, const CMaterialList& list
 // === CalculateAABox ===
 
 CAABox CCollidableOBBTree::CalculateAABox(const CTransform4f& xf) const {
-  COBBox obb = COBBox::FromAABox(x10_tree->CalculateLocalAABox(), xf);
+  COBBox obb = COBBox::FromAABox(GetOBBTree().CalculateLocalAABox(), xf);
   return obb.CalculateAABox(CTransform4f::Identity());
 }
 
 // === CalculateLocalAABox ===
 
 CAABox CCollidableOBBTree::CalculateLocalAABox() const {
-  return x10_tree->CalculateLocalAABox();
+  return GetOBBTree().CalculateLocalAABox();
 }
 
 // === GetPrimType ===
@@ -59,7 +55,7 @@ bool CCollidableOBBTree::AABoxCollision(const COBBTree::CNode& node, const CTran
                                         CCollisionInfoList& infoList) const {
   bool ret = false;
 
-  const_cast< CCollidableOBBTree* >(this)->x14_tries += 1;
+  x14_tries += 1;
   if (obb.OBBIntersectsBox(node.GetOBB())) {
     node.SetHit(true);
     if (node.IsLeaf()) {
@@ -72,7 +68,7 @@ bool CCollidableOBBTree::AABoxCollision(const COBBTree::CNode& node, const CTran
         ret = true;
     }
   } else {
-    const_cast< CCollidableOBBTree* >(this)->x18_misses += 1;
+    x18_misses += 1;
   }
 
   return ret;
@@ -92,13 +88,14 @@ bool CCollidableOBBTree::AABoxCollideWithLeaf(const COBBTree::CLeafData& leaf,
   int surfCount = leaf.GetSurfaceVector().size();
   bool ret = false;
   for (int i = 0; i < surfCount; ++i) {
-    CCollisionSurface surf = x10_tree->GetTransformedSurface(leaf.GetSurfaceVector()[i], xf);
+    CCollisionSurface surf =
+        GetOBBTree().GetTransformedSurface(leaf.GetSurfaceVector()[i], xf);
     const CMaterialList& baseMat = GetMaterial();
     CMaterialList triMat(static_cast< u64 >(surf.GetSurfaceFlags()) | baseMat.GetValue());
     if (filter.Passes(triMat) &&
         CollisionUtil::TriBoxOverlap(center, extent, surf.GetVert(0), surf.GetVert(1),
                                      surf.GetVert(2))) {
-      const_cast< CCollidableOBBTree* >(this)->x1c_hits += 1;
+      x1c_hits += 1;
       CAABox newAABB = CAABox::MakeMaxInvertedBox();
       if (CMetroidAreaCollider::ConvexPolyCollision(planes, &surf.GetVert(0), newAABB)) {
         CPlane plane = surf.GetPlane();
@@ -121,9 +118,9 @@ bool CCollidableOBBTree::SphereCollision(const COBBTree::CNode& node, const CTra
                                          const CMaterialFilter& filter,
                                          CCollisionInfoList& infoList) const {
   bool ret = false;
-  const_cast< CCollidableOBBTree* >(this)->x14_tries += 1;
+  x14_tries += 1;
   if (obb.OBBIntersectsBox(node.GetOBB())) {
-    const_cast< COBBTree::CNode& >(node).SetHit(true);
+    node.SetHit(true);
     if (node.IsLeaf()) {
       if (SphereCollideWithLeaf(node.GetLeafData(), xf, sphere, material, filter, infoList))
         ret = true;
@@ -134,7 +131,7 @@ bool CCollidableOBBTree::SphereCollision(const COBBTree::CNode& node, const CTra
         ret = true;
     }
   } else {
-    const_cast< CCollidableOBBTree* >(this)->x18_misses += 1;
+    x18_misses += 1;
   }
   return ret;
 }
@@ -152,11 +149,12 @@ bool CCollidableOBBTree::SphereCollideWithLeaf(const COBBTree::CLeafData& leaf,
 
   int surfCount = leaf.GetSurfaceVector().size();
   for (int i = 0; i < surfCount; ++i) {
-    CCollisionSurface surf = x10_tree->GetTransformedSurface(leaf.GetSurfaceVector()[i], xf);
+    CCollisionSurface surf =
+        GetOBBTree().GetTransformedSurface(leaf.GetSurfaceVector()[i], xf);
     const CMaterialList& baseMat = GetMaterial();
     CMaterialList triMat(static_cast< u64 >(surf.GetSurfaceFlags()) | baseMat.GetValue());
     if (filter.Passes(triMat)) {
-      const_cast< CCollidableOBBTree* >(this)->x1c_hits += 1;
+      x1c_hits += 1;
       if (CollisionUtil::TriSphereIntersection(sphere, surf.GetVert(0), surf.GetVert(1),
                                                surf.GetVert(2), point, normal)) {
         infoList.Add(CCollisionInfo(point, material, triMat, normal), false);
@@ -177,14 +175,15 @@ bool CCollidableOBBTree::AABoxCollisionBoolean(const COBBTree::CNode& node,
   CVector3f center = aabb.GetCenterPoint();
   CVector3f extent = aabb.GetHalfExtent();
 
-  const_cast< CCollidableOBBTree* >(this)->x14_tries += 1;
+  x14_tries += 1;
   if (obb.OBBIntersectsBox(node.GetOBB())) {
     node.SetHit(true);
     if (node.IsLeaf()) {
       const COBBTree::CLeafData& leaf = node.GetLeafData();
       int surfCount = leaf.GetSurfaceVector().size();
       for (int i = 0; i < surfCount; ++i) {
-        CCollisionSurface surf = x10_tree->GetTransformedSurface(leaf.GetSurfaceVector()[i], xf);
+        CCollisionSurface surf =
+            GetOBBTree().GetTransformedSurface(leaf.GetSurfaceVector()[i], xf);
         const CMaterialList& baseMat = GetMaterial();
         CMaterialList triMat(static_cast< u64 >(surf.GetSurfaceFlags()) | baseMat.GetValue());
         if (filter.Passes(triMat) &&
@@ -200,7 +199,7 @@ bool CCollidableOBBTree::AABoxCollisionBoolean(const COBBTree::CNode& node,
         return true;
     }
   } else {
-    const_cast< CCollidableOBBTree* >(this)->x18_misses += 1;
+    x18_misses += 1;
   }
 
   return false;
@@ -212,14 +211,15 @@ bool CCollidableOBBTree::SphereCollisionBoolean(const COBBTree::CNode& node,
                                                 const CTransform4f& xf, const CSphere& sphere,
                                                 const COBBox& obb,
                                                 const CMaterialFilter& filter) const {
-  const_cast< CCollidableOBBTree* >(this)->x14_tries += 1;
+  x14_tries += 1;
   if (obb.OBBIntersectsBox(node.GetOBB())) {
-    const_cast< COBBTree::CNode& >(node).SetHit(true);
+    node.SetHit(true);
     if (node.IsLeaf()) {
       const COBBTree::CLeafData& leaf = node.GetLeafData();
       int surfCount = leaf.GetSurfaceVector().size();
       for (int i = 0; i < surfCount; ++i) {
-        CCollisionSurface surf = x10_tree->GetTransformedSurface(leaf.GetSurfaceVector()[i], xf);
+        CCollisionSurface surf =
+            GetOBBTree().GetTransformedSurface(leaf.GetSurfaceVector()[i], xf);
         const CMaterialList& baseMat = GetMaterial();
         CMaterialList triMat(static_cast< u64 >(surf.GetSurfaceFlags()) | baseMat.GetValue());
         if (filter.Passes(triMat) &&
@@ -235,7 +235,7 @@ bool CCollidableOBBTree::SphereCollisionBoolean(const COBBTree::CNode& node,
         return true;
     }
   } else {
-    const_cast< CCollidableOBBTree* >(this)->x18_misses += 1;
+    x18_misses += 1;
   }
 
   return false;
@@ -249,7 +249,7 @@ bool CCollidableOBBTree::AABoxCollisionMoving(
     const CMetroidAreaCollider::CMovingAABoxComponents& components, const CVector3f& dir,
     double& dOut, CCollisionInfo& info) const {
   bool ret = false;
-  const_cast< CCollidableOBBTree* >(this)->x14_tries += 1;
+  x14_tries += 1;
   if (obb.OBBIntersectsBox(node.GetOBB())) {
     node.SetHit(true);
     if (node.IsLeaf()) {
@@ -265,7 +265,7 @@ bool CCollidableOBBTree::AABoxCollisionMoving(
         ret = true;
     }
   } else {
-    const_cast< CCollidableOBBTree* >(this)->x18_misses += 1;
+    x18_misses += 1;
   }
   return ret;
 }
@@ -292,16 +292,16 @@ bool CCollidableOBBTree::AABoxCollideWithLeafMoving(
   int surfCount = leaf.GetSurfaceVector().size();
   for (int i = 0; i < surfCount; ++i) {
     ushort triIdx = leaf.GetSurfaceVector()[i];
-    CCollisionSurface surf = x10_tree->GetTransformedSurface(triIdx, xf);
+    CCollisionSurface surf = GetOBBTree().GetTransformedSurface(triIdx, xf);
     const CMaterialList& baseMat = GetMaterial();
     CMaterialList triMat(static_cast< u64 >(surf.GetSurfaceFlags()) | baseMat.GetValue());
     if (filter.Passes(triMat)) {
       if (CollisionUtil::TriBoxOverlap(center, extent, surf.GetVert(0), surf.GetVert(1),
                                        surf.GetVert(2))) {
-        const_cast< CCollidableOBBTree* >(this)->x1c_hits += 1;
+        x1c_hits += 1;
 
         ushort vertIndices[3];
-        x10_tree->GetTriangleVertexIndices(triIdx, vertIndices);
+        GetOBBTree().GetTriangleVertexIndices(triIdx, vertIndices);
 
         double d = dOut;
         if (CMetroidAreaCollider::MovingAABoxCollisionCheck_BoxVertexTri(
@@ -314,17 +314,17 @@ bool CCollidableOBBTree::AABoxCollideWithLeafMoving(
 
         for (int k = 0; k < 3; ++k) {
           uint vertIdx = vertIndices[k];
-          if (CMetroidAreaCollider::sDupVertexList[vertIdx] !=
-              CMetroidAreaCollider::sDupPrimitiveCheckCount) {
-            CMetroidAreaCollider::sDupVertexList[vertIdx] =
-                CMetroidAreaCollider::sDupPrimitiveCheckCount;
+          if (CMetroidAreaCollider::DupVertexListValue(vertIdx) !=
+              CMetroidAreaCollider::GetDupPrimitiveCheckCount()) {
+            CMetroidAreaCollider::DupVertexListValue(vertIdx) =
+                CMetroidAreaCollider::GetDupPrimitiveCheckCount();
             if (movedAABB.PointInside(surf.GetVert(k))) {
               d = dOut;
               if (CMetroidAreaCollider::MovingAABoxCollisionCheck_TriVertexBox(
                       surf.GetVert(k), aabb, dir, d, normal, point) &&
                   d < dOut) {
                 info = CCollisionInfo(point, material,
-                                      CMaterialList(x10_tree->GetVertMaterial(vertIdx)), normal);
+                                      CMaterialList(GetOBBTree().GetVertMaterial(vertIdx)), normal);
                 ret = true;
                 dOut = d;
               }
@@ -332,14 +332,14 @@ bool CCollidableOBBTree::AABoxCollideWithLeafMoving(
           }
         }
 
-        const ushort* edgeIndices = x10_tree->GetTriangleEdgeIndices(triIdx);
+        const ushort* edgeIndices = GetOBBTree().GetTriangleEdgeIndices(triIdx);
         for (int k = 0; k < 3; ++k) {
           uint edgeIdx = edgeIndices[k];
-          if (CMetroidAreaCollider::sDupEdgeList[edgeIdx] !=
-              CMetroidAreaCollider::sDupPrimitiveCheckCount) {
-            CMetroidAreaCollider::sDupEdgeList[edgeIdx] =
-                CMetroidAreaCollider::sDupPrimitiveCheckCount;
-            uint edgeMatVal = x10_tree->GetEdgeMaterial(edgeIdx);
+          if (CMetroidAreaCollider::DupEdgeListValue(edgeIdx) !=
+              CMetroidAreaCollider::GetDupPrimitiveCheckCount()) {
+            CMetroidAreaCollider::DupEdgeListValue(edgeIdx) =
+                CMetroidAreaCollider::GetDupPrimitiveCheckCount();
+            uint edgeMatVal = GetOBBTree().GetEdgeMaterial(edgeIdx);
             if (!(edgeMatVal & (1u << kMT_NoEdgeCollision))) {
               d = dOut;
               if (CMetroidAreaCollider::MovingAABoxCollisionCheck_Edge(
@@ -354,22 +354,22 @@ bool CCollidableOBBTree::AABoxCollideWithLeafMoving(
           }
         }
       } else {
-        const ushort* edgeIndices = x10_tree->GetTriangleEdgeIndices(triIdx);
-        CMetroidAreaCollider::sDupEdgeList[edgeIndices[0]] =
-            CMetroidAreaCollider::sDupPrimitiveCheckCount;
-        CMetroidAreaCollider::sDupEdgeList[edgeIndices[1]] =
-            CMetroidAreaCollider::sDupPrimitiveCheckCount;
-        CMetroidAreaCollider::sDupEdgeList[edgeIndices[2]] =
-            CMetroidAreaCollider::sDupPrimitiveCheckCount;
+        const ushort* edgeIndices = GetOBBTree().GetTriangleEdgeIndices(triIdx);
+        CMetroidAreaCollider::DupEdgeListValue(edgeIndices[0]) =
+            CMetroidAreaCollider::GetDupPrimitiveCheckCount();
+        CMetroidAreaCollider::DupEdgeListValue(edgeIndices[1]) =
+            CMetroidAreaCollider::GetDupPrimitiveCheckCount();
+        CMetroidAreaCollider::DupEdgeListValue(edgeIndices[2]) =
+            CMetroidAreaCollider::GetDupPrimitiveCheckCount();
 
         ushort vertIndices[3];
-        x10_tree->GetTriangleVertexIndices(triIdx, vertIndices);
-        CMetroidAreaCollider::sDupVertexList[vertIndices[0]] =
-            CMetroidAreaCollider::sDupPrimitiveCheckCount;
-        CMetroidAreaCollider::sDupVertexList[vertIndices[1]] =
-            CMetroidAreaCollider::sDupPrimitiveCheckCount;
-        CMetroidAreaCollider::sDupVertexList[vertIndices[2]] =
-            CMetroidAreaCollider::sDupPrimitiveCheckCount;
+        GetOBBTree().GetTriangleVertexIndices(triIdx, vertIndices);
+        CMetroidAreaCollider::DupVertexListValue(vertIndices[0]) =
+            CMetroidAreaCollider::GetDupPrimitiveCheckCount();
+        CMetroidAreaCollider::DupVertexListValue(vertIndices[1]) =
+            CMetroidAreaCollider::GetDupPrimitiveCheckCount();
+        CMetroidAreaCollider::DupVertexListValue(vertIndices[2]) =
+            CMetroidAreaCollider::GetDupPrimitiveCheckCount();
       }
     }
   }
@@ -384,9 +384,9 @@ bool CCollidableOBBTree::SphereCollisionMoving(
     const COBBox& obb, const CMaterialList& material, const CMaterialFilter& filter,
     const CVector3f& dir, double& dOut, CCollisionInfo& info) const {
   bool ret = false;
-  const_cast< CCollidableOBBTree* >(this)->x14_tries += 1;
+  x14_tries += 1;
   if (obb.OBBIntersectsBox(node.GetOBB())) {
-    const_cast< COBBTree::CNode& >(node).SetHit(true);
+    node.SetHit(true);
     if (node.IsLeaf()) {
       if (SphereCollideWithLeafMoving(node.GetLeafData(), xf, sphere, material, filter, dir, dOut,
                                       info))
@@ -400,7 +400,7 @@ bool CCollidableOBBTree::SphereCollisionMoving(
         ret = true;
     }
   } else {
-    const_cast< CCollidableOBBTree* >(this)->x18_misses += 1;
+    x18_misses += 1;
   }
   return ret;
 }
@@ -411,6 +411,8 @@ bool CCollidableOBBTree::SphereCollideWithLeafMoving(
     const COBBTree::CLeafData& leaf, const CTransform4f& xf, const CSphere& sphere,
     const CMaterialList& material, const CMaterialFilter& filter, const CVector3f& dir,
     double& dOut, CCollisionInfo& info) const {
+  static int mod3[4] = {0, 1, 2, 0};
+
   float radius = sphere.GetRadius();
   CVector3f radiusVec(radius, radius, radius);
   CAABox aabb(sphere.GetCenter() - radiusVec, sphere.GetCenter() + radiusVec);
@@ -427,13 +429,13 @@ bool CCollidableOBBTree::SphereCollideWithLeafMoving(
   int surfCount = leaf.GetSurfaceVector().size();
   for (int i = 0; i < surfCount; ++i) {
     ushort triIdx = leaf.GetSurfaceVector()[i];
-    CCollisionSurface surf = x10_tree->GetTransformedSurface(triIdx, xf);
+    CCollisionSurface surf = GetOBBTree().GetTransformedSurface(triIdx, xf);
     const CMaterialList& baseMat = GetMaterial();
     CMaterialList triMat(static_cast< u64 >(surf.GetSurfaceFlags()) | baseMat.GetValue());
     if (filter.Passes(triMat)) {
       if (CollisionUtil::TriBoxOverlap(boxCenter, extent, surf.GetVert(0), surf.GetVert(1),
                                        surf.GetVert(2))) {
-        const_cast< CCollidableOBBTree* >(this)->x1c_hits += 1;
+        x1c_hits += 1;
 
         CVector3f surfNormal = surf.GetNormal();
 
@@ -442,25 +444,29 @@ bool CCollidableOBBTree::SphereCollideWithLeafMoving(
           const CVector3f& vertToSphere0 = sphere.GetCenter() - surf.GetVert(0);
           float dirDotNorm = CVector3f::Dot(dir, surfNormal);
           const CVector3f& edge0 = surf.GetVert(1) - surf.GetVert(0);
-          double mag = (double)(sphere.GetRadius() - CVector3f::Dot(vertToSphere0, surfNormal)) / dirDotNorm;
+          double mag = static_cast< double >(
+                           sphere.GetRadius() - CVector3f::Dot(vertToSphere0, surfNormal)) /
+                       dirDotNorm;
           float magF = CCast::ToReal32(mag);
 
           CVector3f intersectPoint = sphere.GetCenter() + magF * dir;
           const CVector3f& cross0 = CVector3f::Cross(surfNormal, edge0);
           const CVector3f& d0 = intersectPoint - surf.GetVert(0);
-          bool outsideEdge0 = CVector3f::Dot(d0, cross0) < 0.f;
+          bool outsideEdges[3];
+          outsideEdges[0] = CVector3f::Dot(d0, cross0) < 0.f;
 
           const CVector3f& edge1 = surf.GetVert(2) - surf.GetVert(1);
           const CVector3f& cross1 = CVector3f::Cross(surfNormal, edge1);
           const CVector3f& d1 = intersectPoint - surf.GetVert(1);
-          bool outsideEdge1 = CVector3f::Dot(d1, cross1) < 0.f;
+          outsideEdges[1] = CVector3f::Dot(d1, cross1) < 0.f;
 
           const CVector3f& edge2 = surf.GetVert(0) - surf.GetVert(2);
           const CVector3f& cross2 = CVector3f::Cross(surfNormal, edge2);
           const CVector3f& d2 = intersectPoint - surf.GetVert(2);
-          bool outsideEdge2 = CVector3f::Dot(d2, cross2) < 0.f;
+          outsideEdges[2] = CVector3f::Dot(d2, cross2) < 0.f;
 
-          if (mag >= 0.0 && !outsideEdge0 && !outsideEdge1 && !outsideEdge2 && mag < dOut) {
+          if (mag >= 0.0 && !outsideEdges[0] && !outsideEdges[1] && !outsideEdges[2] &&
+              mag < dOut) {
             const CVector3f& collisionPoint =
                 intersectPoint - sphere.GetRadius() * surfNormal;
             info = CCollisionInfo(collisionPoint, material, triMat, surfNormal);
@@ -471,15 +477,15 @@ bool CCollidableOBBTree::SphereCollideWithLeafMoving(
           const CVector3f& vts2 = sphere.GetCenter() - surf.GetVert(0);
           bool intersects = CVector3f::Dot(vts2, surfNormal) <= sphere.GetRadius();
           bool testVert[3] = {true, true, true};
-          const ushort* edgeIndices = x10_tree->GetTriangleEdgeIndices(triIdx);
+          const ushort* edgeIndices = GetOBBTree().GetTriangleEdgeIndices(triIdx);
           for (int k = 0; k < 3; ++k) {
-            if (intersects || (&outsideEdge0)[k]) {
+            if (intersects || outsideEdges[k]) {
               uint edgeIdx = edgeIndices[k];
-              if (CMetroidAreaCollider::sDupEdgeList[edgeIdx] !=
-                  CMetroidAreaCollider::sDupPrimitiveCheckCount) {
-                CMetroidAreaCollider::sDupEdgeList[edgeIdx] =
-                    CMetroidAreaCollider::sDupPrimitiveCheckCount;
-                uint edgeMatVal = x10_tree->GetEdgeMaterial(edgeIdx);
+              if (CMetroidAreaCollider::DupEdgeListValue(edgeIdx) !=
+                  CMetroidAreaCollider::GetDupPrimitiveCheckCount()) {
+                CMetroidAreaCollider::DupEdgeListValue(edgeIdx) =
+                    CMetroidAreaCollider::GetDupPrimitiveCheckCount();
+                uint edgeMatVal = GetOBBTree().GetEdgeMaterial(edgeIdx);
                 if (!(edgeMatVal & (1u << kMT_NoEdgeCollision))) {
                   CVector3f edgeVec = surf.GetVert(mod3[k + 1]) - surf.GetVert(k);
                   float edgeVecMag = edgeVec.Magnitude();
@@ -531,14 +537,14 @@ bool CCollidableOBBTree::SphereCollideWithLeafMoving(
           }
 
           ushort vertIndices[3];
-          x10_tree->GetTriangleVertexIndices(triIdx, vertIndices);
+          GetOBBTree().GetTriangleVertexIndices(triIdx, vertIndices);
           for (int k = 0; k < 3; ++k) {
             uint vertIdx = vertIndices[k];
             if (testVert[k]) {
-              if (CMetroidAreaCollider::sDupVertexList[vertIdx] !=
-                  CMetroidAreaCollider::sDupPrimitiveCheckCount) {
-                CMetroidAreaCollider::sDupVertexList[vertIdx] =
-                    CMetroidAreaCollider::sDupPrimitiveCheckCount;
+              if (CMetroidAreaCollider::DupVertexListValue(vertIdx) !=
+                  CMetroidAreaCollider::GetDupPrimitiveCheckCount()) {
+                CMetroidAreaCollider::DupVertexListValue(vertIdx) =
+                    CMetroidAreaCollider::GetDupPrimitiveCheckCount();
                 double d = dOut;
                 if (CollisionUtil::RaySphereIntersection_Double(
                         CSphere(surf.GetVert(k), sphere.GetRadius()),
@@ -550,35 +556,35 @@ bool CCollidableOBBTree::SphereCollideWithLeafMoving(
                   const CVector3f& normVec2 = movedSph - surf.GetVert(k);
                   info = CCollisionInfo(
                       surf.GetVert(k), material,
-                      CMaterialList(x10_tree->GetVertMaterial(vertIdx)),
+                      CMaterialList(GetOBBTree().GetVertMaterial(vertIdx)),
                       normVec2.AsNormalized());
                   dOut = d;
                   ret = true;
                 }
               }
             } else {
-              CMetroidAreaCollider::sDupVertexList[vertIdx] =
-                  CMetroidAreaCollider::sDupPrimitiveCheckCount;
+              CMetroidAreaCollider::DupVertexListValue(vertIdx) =
+                  CMetroidAreaCollider::GetDupPrimitiveCheckCount();
             }
           }
         }
       } else {
-        const ushort* edgeIndices = x10_tree->GetTriangleEdgeIndices(triIdx);
-        CMetroidAreaCollider::sDupEdgeList[edgeIndices[0]] =
-            CMetroidAreaCollider::sDupPrimitiveCheckCount;
-        CMetroidAreaCollider::sDupEdgeList[edgeIndices[1]] =
-            CMetroidAreaCollider::sDupPrimitiveCheckCount;
-        CMetroidAreaCollider::sDupEdgeList[edgeIndices[2]] =
-            CMetroidAreaCollider::sDupPrimitiveCheckCount;
+        const ushort* edgeIndices = GetOBBTree().GetTriangleEdgeIndices(triIdx);
+        CMetroidAreaCollider::DupEdgeListValue(edgeIndices[0]) =
+            CMetroidAreaCollider::GetDupPrimitiveCheckCount();
+        CMetroidAreaCollider::DupEdgeListValue(edgeIndices[1]) =
+            CMetroidAreaCollider::GetDupPrimitiveCheckCount();
+        CMetroidAreaCollider::DupEdgeListValue(edgeIndices[2]) =
+            CMetroidAreaCollider::GetDupPrimitiveCheckCount();
 
         ushort vertIndices[3];
-        x10_tree->GetTriangleVertexIndices(triIdx, vertIndices);
-        CMetroidAreaCollider::sDupVertexList[vertIndices[0]] =
-            CMetroidAreaCollider::sDupPrimitiveCheckCount;
-        CMetroidAreaCollider::sDupVertexList[vertIndices[1]] =
-            CMetroidAreaCollider::sDupPrimitiveCheckCount;
-        CMetroidAreaCollider::sDupVertexList[vertIndices[2]] =
-            CMetroidAreaCollider::sDupPrimitiveCheckCount;
+        GetOBBTree().GetTriangleVertexIndices(triIdx, vertIndices);
+        CMetroidAreaCollider::DupVertexListValue(vertIndices[0]) =
+            CMetroidAreaCollider::GetDupPrimitiveCheckCount();
+        CMetroidAreaCollider::DupVertexListValue(vertIndices[1]) =
+            CMetroidAreaCollider::GetDupPrimitiveCheckCount();
+        CMetroidAreaCollider::DupVertexListValue(vertIndices[2]) =
+            CMetroidAreaCollider::GetDupPrimitiveCheckCount();
       }
     }
   }
@@ -611,7 +617,7 @@ CRayCastResult CCollidableOBBTree::LineIntersectsTree(const CMRay& ray,
                                                       const CTransform4f& xf) const {
   CMRay useRay = ray.GetInvUnscaledTransformRay(xf);
   CRayCastInfo info(useRay, filter, maxTime);
-  if (LineIntersectsOBBTree(&x10_tree->GetRoot(), info)) {
+  if (LineIntersectsOBBTree(&GetOBBTree().GetRoot(), info)) {
     CPlane xfPlane = TransformPlane(info.GetPlane(), xf);
     return CRayCastResult(info.GetMagnitude(),
                           ray.GetStart() + info.GetMagnitude() * ray.GetDirection(), xfPlane,
@@ -627,7 +633,7 @@ bool CCollidableOBBTree::LineIntersectsOBBTree(const COBBTree::CNode* node,
   float t;
   bool ret = false;
 
-  const_cast< CCollidableOBBTree* >(this)->x14_tries += 1;
+  x14_tries += 1;
   if (node->GetOBB().LineIntersectsBox(info.GetRay(), t) && t < info.GetMagnitude()) {
     if (node->IsLeaf() == true) {
       if (LineIntersectsLeaf(node->GetLeafData(), info) == true)
@@ -638,7 +644,7 @@ bool CCollidableOBBTree::LineIntersectsOBBTree(const COBBTree::CNode* node,
     }
     node->SetHit(true);
   } else {
-    const_cast< CCollidableOBBTree* >(this)->x18_misses += 1;
+    x18_misses += 1;
   }
 
   return ret;
@@ -653,7 +659,7 @@ bool CCollidableOBBTree::LineIntersectsOBBTree(const COBBTree::CNode* n0,
   float t0, t1;
   bool intersects0 = false;
 
-  const_cast< CCollidableOBBTree* >(this)->x14_tries += 2;
+  x14_tries += 2;
 
   if (n0->GetOBB().LineIntersectsBox(info.GetRay(), t0) == true && t0 < info.GetMagnitude())
     intersects0 = true;
@@ -727,7 +733,7 @@ bool CCollidableOBBTree::LineIntersectsLeaf(const COBBTree::CLeafData& leaf,
   int surfCount = leaf.GetSurfaceVector().size();
   const CMaterialFilter& filter = info.GetMaterialFilter();
   for (ushort i = 0; i < surfCount; ++i) {
-    const CCollisionSurface& surface = x10_tree->GetSurface(leaf.GetSurfaceVector()[i]);
+    const CCollisionSurface& surface = GetOBBTree().GetSurface(leaf.GetSurfaceVector()[i]);
     const CMaterialList& baseMat = GetMaterial();
     CMaterialList matList(static_cast< u64 >(surface.GetSurfaceFlags()) | baseMat.GetValue());
     if (filter.Passes(matList)) {
@@ -741,7 +747,8 @@ bool CCollidableOBBTree::LineIntersectsLeaf(const COBBTree::CLeafData& leaf,
   }
 
   if (ret) {
-    const CCollisionSurface& surf = x10_tree->GetSurface(leaf.GetSurfaceVector()[intersectIdx]);
+    const CCollisionSurface& surf =
+        GetOBBTree().GetSurface(leaf.GetSurfaceVector()[intersectIdx]);
     info.Plane() = surf.GetPlane();
     info.Material() = CMaterialList(surf.GetSurfaceFlags());
   }
@@ -754,7 +761,3 @@ bool CCollidableOBBTree::LineIntersectsLeaf(const COBBTree::CLeafData& leaf,
 uint CCollidableOBBTree::GetTableIndex() const {
   return sTableIndex;
 }
-
-// === Destructor ===
-
-CCollidableOBBTree::~CCollidableOBBTree() {}

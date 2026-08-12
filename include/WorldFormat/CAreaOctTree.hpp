@@ -27,11 +27,18 @@ public:
 
   class TriListReference {
   public:
+    explicit TriListReference(const void* ptr)
+    : m_ptr(reinterpret_cast< const ushort* >(ptr)) {}
     explicit TriListReference(const ushort* ptr) : m_ptr(ptr) {}
-    ushort GetAt(int idx) const { return m_ptr[idx + 13]; }
-    ushort GetSize() const { return m_ptr[12]; }
+    ushort GetAt(int idx) const { return m_ptr[idx + kTriangleDataOffset]; }
+    ushort GetSize() const { return m_ptr[kTriangleCountOffset]; }
 
   private:
+    enum {
+      kTriangleCountOffset = sizeof(CAABox) / sizeof(ushort),
+      kTriangleDataOffset = kTriangleCountOffset + 1,
+    };
+
     const ushort* m_ptr;
   };
 
@@ -73,9 +80,10 @@ public:
   };
 
   CAreaOctTree(const CAABox& bounds, Node::ETreeType treeType, uchar* buf, void* treeBuf,
-                             uint materialCount, uint* materials, uchar* vertexMaterials, uchar* edgeMaterials,
-                             uchar* triMaterials, uint edgeCount, CCollisionEdge* edges, uint triCount,
-                             ushort* triangles, uint vertexCount, CVector3f* vertices);
+               uint materialCount, uint* materials, uchar* vertexMaterials,
+               uchar* edgeMaterials, uchar* triMaterials, uint edgeCount,
+               CCollisionEdge* edges, uint triCount, ushort* triangles, uint vertexCount,
+               CVector3f* vertices);
   void MakeFromMemory(void* buf, uint bufLen, CAreaOctTree** treeOut, bool*);
   CCollisionSurface GetMasterListTriangle(ushort idx) const;
   Node GetRootNode() const { return Node(x20_treeBuf, x0_aabb, *this, x18_treeType); }

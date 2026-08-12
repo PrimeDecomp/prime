@@ -170,10 +170,10 @@ public:
                                                 float d, CCollisionInfo& infoOut,
                                                 double& dOut);
 
-  static ushort GetPrimitiveCheckCount() { return sDupPrimitiveCheckCount; }
+  static ushort GetDupPrimitiveCheckCount() { return sDupPrimitiveCheckCount; }
   static ushort& DupVertexListValue(uint idx) { return sDupVertexList[idx]; }
   static ushort& DupEdgeListValue(uint idx) { return sDupEdgeList[idx]; }
-  static ushort* GetTriangleList() { return sDupTriangleList; }
+  static ushort& DupTriangleListValue(uint idx) { return sDupTriangleList[idx]; }
 
 private:
   friend class CCollidableOBBTree;

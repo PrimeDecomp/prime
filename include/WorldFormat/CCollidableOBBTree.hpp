@@ -44,7 +44,6 @@ public:
 class CCollidableOBBTree : public CCollisionPrimitive {
 public:
   CCollidableOBBTree(COBBTree* tree, const CMaterialList& list);
-  ~CCollidableOBBTree() override;
 
   uint GetTableIndex() const override;
   CAABox CalculateAABox(const CTransform4f& xf) const override;
@@ -104,9 +103,9 @@ public:
 
 private:
   COBBTree* x10_tree;
-  uint x14_tries;
-  uint x18_misses;
-  uint x1c_hits;
+  mutable uint x14_tries;
+  mutable uint x18_misses;
+  mutable uint x1c_hits;
 
   static uint sTableIndex;
 };
