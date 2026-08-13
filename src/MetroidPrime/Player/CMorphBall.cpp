@@ -1515,7 +1515,7 @@ void CMorphBall::ComputeBoostBallMovement(const CFinalInput& input, const CState
     return;
   }
 
-  if (!x1de4_24_inBoost) {
+  if (!IsBoosting()) {
     x1dec_timeNotInBoost += dt;
 
     if (ControlMapper::GetDigitalInput(ControlMapper::kC_JumpOrBoost, input) &&
@@ -1548,12 +1548,14 @@ void CMorphBall::ComputeBoostBallMovement(const CFinalInput& input, const CState
       }
 
       if (x1de8_boostChargeTime >= gpTweakBall->GetBoostBallMinChargeTime()) {
+        CVector3f disabledBoostVec;
+        CVector3f availableBoostVec;
         if (GetBallBoostState() == kBBS_BoostAvailable) {
           if (GetIsInHalfPipeMode() || x1df8_27_ballCloseToCollision) {
             EnterBoosting(const_cast< CStateManager& >(mgr));
           } else {
-            CVector3f boostVec = 10000.f * -x1924_surfaceToWorld.GetColumn(kDY);
-            x0_player.ApplyImpulseWR(CVector3f::Zero(), CAxisAngle::FromVector(boostVec));
+            availableBoostVec = 10000.f * -x1924_surfaceToWorld.GetColumn(kDY);
+            x0_player.ApplyImpulseWR(CVector3f::Zero(), CAxisAngle::FromVector(availableBoostVec));
             CancelBoosting();
           }
         } else if (GetBallBoostState() == kBBS_BoostDisabled) {
@@ -1561,8 +1563,8 @@ void CMorphBall::ComputeBoostBallMovement(const CFinalInput& input, const CState
               x0_player.GetTranslation(),
               x0_player.GetTranslation() + GetBallToWorld().GetColumn(kDY), CVector3f::Up()));
 
-          CVector3f boostVec = 10000.f * -x0_player.GetTransform().GetColumn(kDX);
-          x0_player.ApplyImpulseWR(CVector3f::Zero(), CAxisAngle::FromVector(boostVec));
+          disabledBoostVec = 10000.f * -x0_player.GetTransform().GetColumn(kDX);
+          x0_player.ApplyImpulseWR(CVector3f::Zero(), CAxisAngle::FromVector(disabledBoostVec));
           CancelBoosting();
         }
       } else if (x1de8_boostChargeTime > 0.f) {
