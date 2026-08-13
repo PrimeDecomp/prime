@@ -6,6 +6,8 @@
 #include "rstl/optional_object.hpp"
 #include "rstl/reserved_vector.hpp"
 
+class CStateManager;
+
 class CDecalManager {
 public:
   struct SDecal {
@@ -20,6 +22,7 @@ public:
   static void Initialize();
   static void ShutDown();
   static void Reinitialize();
+  static void Update(float dt, CStateManager& mgr);
 
   static bool mbPoolInitialized;
   static rstl::reserved_vector< SDecal, 64 > mDecalPool;

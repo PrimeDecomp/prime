@@ -21,6 +21,8 @@ public:
                 float rateCamDistRangeFarRate, bool combatVisorVisible, bool thermalVisorVisible,
                 bool xrayVisorVisible, const CLightParameters& lParms, bool dieWhenSystemsDone);
 
+  static void ResetParticleCounts();
+
 private:
   TLockedToken< CElectricDescription > xe8_electricToken;
   rstl::single_ptr< CParticleElectric > xf4_electric;

@@ -44,6 +44,7 @@ public:
   void SetOverrideIVel(const CVector3f& vec) { x188_overrideIVel = vec; }
   void SetOverrideFPos(const CVector3f& vec) { x198_overrideFPos = vec; }
   void SetOverrideFVel(const CVector3f& vec) { x1a8_overrideFVel = vec; }
+  static void SetGlobalSeed(ushort seed) { sSeed = seed; }
 
 private:
   uchar x1c_pad[0x15c];
@@ -52,6 +53,8 @@ private:
   rstl::optional_object< CVector3f > x198_overrideFPos;
   rstl::optional_object< CVector3f > x1a8_overrideFVel;
   uchar x1b8_pad[0x2a0];
+
+  static ushort sSeed;
 };
 CHECK_SIZEOF(CParticleElectric, 0x458)
 

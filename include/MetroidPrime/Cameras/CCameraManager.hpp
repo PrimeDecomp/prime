@@ -92,6 +92,9 @@ public:
 
   void SetCurrentFov(float fov) { x3bc_curFov = fov; }
 
+  CGameArea::CAreaFog& Fog() { return x3c_fog; }
+  const CGameArea::CAreaFog& GetFog() const { return x3c_fog; }
+
   int GetFluidCounter() const { return x74_fluidCounter; }
   TUniqueId GetFluidId() const { return x78_fluidId; }
   bool GetInsideFluid() const { return x74_fluidCounter == 0; }

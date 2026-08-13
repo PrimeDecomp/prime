@@ -132,6 +132,7 @@ public:
   void StartTransitionToVisor(EPlayerVisor visor);
   void ResetVisor();
   bool IsAlive() const { return x0_24_alive; }
+  void SetPlayerAlive(bool alive) { x0_24_alive = alive; }
 
   const bool ItemEnabled(const EItemType type) const;
   void DisableItem(const EItemType type);
