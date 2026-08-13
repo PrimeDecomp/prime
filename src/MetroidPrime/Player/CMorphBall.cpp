@@ -715,22 +715,24 @@ bool CMorphBall::FindClosestSpiderBallWaypoint(CStateManager& mgr, const CVector
   mgr.BuildNearList(nearList, aabb, CMaterialFilter::skPassEverything, nullptr);
 
   for (AUTO(surfaceIt, nearList.begin()); surfaceIt != nearList.end(); ++surfaceIt) {
-    if (const CScriptSpiderBallAttractionSurface* surface =
-            TCastToConstPtr< CScriptSpiderBallAttractionSurface >(mgr.GetObjectById(*surfaceIt))) {
+    if (const CScriptSpiderBallAttractionSurface* const surface =
+            TCastToConstPtr< CScriptSpiderBallAttractionSurface >(
+                mgr.GetObjectById(*surfaceIt))) {
       const CVector3f surfaceNormal = surface->GetTransform().GetColumn(kDY).AsNormalized();
       CPlane plane(surface->GetTransform().GetTranslation(), CUnitVector3f(1.f * surfaceNormal));
       CVector3f point = CVector3f::Zero();
 
       if (CollisionUtil::RayPlaneIntersection(ballCenter + 2.1f * surfaceNormal,
                                               ballCenter - 2.1f * surfaceNormal, plane, point)) {
-        const float halfX = 0.5f * surface->GetScale().GetX();
-        const float halfY = 0.5f * surface->GetScale().GetY();
-        const float halfZ = 0.5f * surface->GetScale().GetZ();
-        CTransform4f invScaleXf = CTransform4f::Scale(1.f / halfX, 1.f / halfY, 1.f / halfZ);
+        const CVector3f halfScale = 0.5f * surface->GetScale();
+        CTransform4f invScaleXf =
+            CTransform4f::Scale(1.f / halfScale.GetX(), 1.f / halfScale.GetY(),
+                                1.f / halfScale.GetZ());
         CVector3f clampedPoint = (invScaleXf * surface->GetTransform().GetQuickInverse()) * point;
         clampedPoint[kDX] = CMath::Clamp(-1.f, clampedPoint[kDX], 1.f);
         clampedPoint[kDZ] = CMath::Clamp(-1.f, clampedPoint[kDZ], 1.f);
-        CTransform4f scaleXf = CTransform4f::Scale(halfX, halfY, halfZ);
+        CTransform4f scaleXf =
+            CTransform4f::Scale(halfScale.GetX(), halfScale.GetY(), halfScale.GetZ());
         CVector3f worldPoint = (surface->GetTransform() * scaleXf) * clampedPoint;
         const CVector3f finalDelta = worldPoint - ballCenter;
         const float finalMag = finalDelta.Magnitude();
