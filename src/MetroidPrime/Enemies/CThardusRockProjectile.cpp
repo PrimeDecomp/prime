@@ -18,7 +18,7 @@ CThardusRockProjectile::CThardusRockProjectile(const TUniqueId uid, const rstl::
                                                const rstl::vector< CModelData >& mDataVec,
                                                const CAssetId stateMachine, const float f1)
 : CPatterned(kC_ThardusRockProjectile, uid, name, kFT_Zero, info, xf, modelData, patternedInfo,
-             kMT_Flyer, kCT_One, kBT_Flyer, aParms, kKBV_Medium)
+             kMT_Flyer, kCT_One, kBT_Flyer, aParms, kCS_Medium)
 , x568_(1.f)
 , x570_(kInvalidUniqueId)
 , x572_(false)

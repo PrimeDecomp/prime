@@ -14,7 +14,7 @@ CJellyZap::CJellyZap(const TUniqueId uid, const rstl::string& name, const CEntit
                      const float repulseRadius, const float attractRadius, const float f12,
                      const CPatternedInfo& pInfo, const CActorParameters& actParms)
 : CPatterned(kC_JellyZap, uid, name, kFT_Zero, info, xf, mData, pInfo, kMT_Flyer, kCT_One,
-             kBT_BiPedal, actParms, kKBV_Medium)
+             kBT_BiPedal, actParms, kCS_Medium)
 , x568_(0)
 , x56c_attackDamage(attackDamage)
 , x588_attackRadius(attackRadius)

@@ -146,7 +146,7 @@ void CGunWeapon::LoadProjectileData(CStateManager& mgr) {
   CGlobalRandom grand(random);
 
   for (int i = 0; i < x144_weapons.capacity(); ++i) {
-    CWeaponDescription& weapon = **x144_weapons[i];
+    CWeaponDescription& weapon = *x144_weapons[i].GetObject();
 
     CVector3f weaponVel = CVector3f::Zero();
     if (const CVectorElement* ivec = weapon.x4_IVEC) {

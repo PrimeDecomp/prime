@@ -32,7 +32,7 @@ CFluidPlaneDoor::CFluidPlaneDoor(const CAssetId texPattern1, const CAssetId texP
 CFluidPlaneDoor::~CFluidPlaneDoor() {}
 
 void CFluidPlaneDoor::RenderSetup(const CStateManager& mgr, float alpha, const CTransform4f& xf,
-                                  const CAABox& bounds) const {
+                                  const CAABox& bounds, const bool noNormals) const {
   static GXColor white = {255, 255, 255, 255};
   float uvT = mgr.GetFluidPlaneManager()->GetUVTime();
   gpRender->SetModelMatrix(xf);
@@ -137,8 +137,8 @@ void CFluidPlaneDoor::RenderSetup(const CStateManager& mgr, float alpha, const C
 }
 
 void CFluidPlaneDoor::Render(const CStateManager& mgr, float alpha, const CAABox& aabb,
-                             const CTransform4f& xf, const CTransform4f& areaXf, bool noNormals,
-                             const CFrustumPlanes& frustum,
+                             const CTransform4f& xf, const CTransform4f& areaXf,
+                             const bool noNormals, const CFrustumPlanes& frustum,
                              const rstl::optional_object< CRippleManager >& rippleManager,
                              TUniqueId waterId, const bool* gridFlags, int gridDimX, int gridDimY,
                              const CVector3f& areaCenter) const {
@@ -146,7 +146,7 @@ void CFluidPlaneDoor::Render(const CStateManager& mgr, float alpha, const CAABox
     return;
   }
 
-  RenderSetup(mgr, alpha, xf, aabb);
+  RenderSetup(mgr, alpha, xf, aabb, noNormals);
   CGX::ResetVtxDescv();
   CGX::SetVtxDesc(GX_VA_POS, GX_DIRECT);
 

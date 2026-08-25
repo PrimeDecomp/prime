@@ -1849,7 +1849,7 @@ MetroidPrime/Enemies/CRipperControlledPlatform.cpp:
 	.data       start:0x803E82A0 end:0x803E8330
 	.sdata2     start:0x805AD5C8 end:0x805AD5F0
 
-MetroidPrime/Enemies/CKnockBackController.cpp:
+MetroidPrime/Enemies/CKnockBackMgr.cpp:
 	.text       start:0x80232D20 end:0x8023402C
 	.rodata     start:0x803D3670 end:0x803D44C8
 	.data       start:0x803E8330 end:0x803E8380

@@ -15,7 +15,7 @@ public:
 
 private:
   // TODO: some things use a 0, others use a 1
-  typedef red_black_tree< K, value_type, IS_PRIME_TYPE(V), select1st< value_type >, Cmp, Alloc >
+  typedef red_black_tree< K, value_type, IS_PRIME_TYPE(K), select1st< value_type >, Cmp, Alloc >
       rep_type;
 
 public:

@@ -25,7 +25,7 @@ CPuffer::CPuffer(TUniqueId uid, const rstl::string& name, const CEntityInfo& inf
                  CAssetId cloudSteam, float f2, bool b1, bool b2, bool b3,
                  const CDamageInfo& explosionDamage, ushort sfxId)
 : CPatterned(kC_Puffer, uid, name, kFT_Zero, info, xf, modelData, patternedInfo, kMT_Flyer, kCT_One,
-             kBT_RestrictedFlyer, actorParameters, kKBV_Small)
+             kBT_RestrictedFlyer, actorParameters, kCS_Small)
 , x568_face(xf.GetColumn(kDY))
 , x574_cloudEffect(gpSimplePool->GetObj(SObjectTag('PART', cloudEffect)))
 , x57c_cloudDamage(cloudDamage)
@@ -40,7 +40,7 @@ CPuffer::CPuffer(TUniqueId uid, const rstl::string& name, const CEntityInfo& inf
 , x5cc_(kInvalidUniqueId)
 , x5d0_enabledParticles(0) {
   SetDrawShadow(false);
-  GetKnockBackCtrl().SetImpulseDurationIdx(1);
+  KnockBackCtrl().SetImpulseDurationIdx(1);
   x574_cloudEffect.Lock();
   BodyCtrl()->SetRestrictedFlyerMoveSpeed(hoverSpeed);
 }

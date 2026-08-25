@@ -17,7 +17,7 @@ CTryclops::CTryclops(TUniqueId uid, const rstl::string& name, const CEntityInfo&
                      const CActorParameters& actParms, float f1, float f2, float f3,
                      float launchSpeed)
 : CPatterned(kC_Tryclops, uid, name, kFT_Zero, info, xf, mData, pInfo, kMT_Ground, kCT_One,
-             kBT_BiPedal, actParms, kKBV_Small)
+             kBT_BiPedal, actParms, kCS_Small)
 , x568_pathFindSearch(nullptr, 1, pInfo.GetPathfindingIndex(), 1.f, 1.f)
 , x64c_xf(CTransform4f::Identity())
 , x67c_(f1)
@@ -34,7 +34,7 @@ CTryclops::CTryclops(TUniqueId uid, const rstl::string& name, const CEntityInfo&
 , x698_27_dizzy(false) {
   SetDrawShadow(false);
   MakeThermalColdAndHot();
-  GetKnockBackCtrl().SetAutoResetImpulse(false);
+  KnockBackCtrl().SetAutoResetImpulse(false);
   x328_30_lookAtDeathDir = false;
 }
 

@@ -24,7 +24,7 @@ CRipper::CRipper(TUniqueId uid, const rstl::string& name, EFlavorType type, cons
                  const CPatternedInfo& patternedInfo, const CActorParameters& actorParams,
                  const CGrappleParameters& grappleParams)
 : CPatterned(kC_Ripper, uid, name, type, info, transform, modelData, patternedInfo, kMT_Flyer,
-             kCT_One, kBT_Flyer, actorParams, kKBV_Medium)
+             kCT_One, kBT_Flyer, actorParams, kCS_Medium)
 , mGrappleParams(grappleParams)
 , mGrapplePoint(kInvalidUniqueId)
 , mPlatform(kInvalidUniqueId)
@@ -33,8 +33,8 @@ CRipper::CRipper(TUniqueId uid, const rstl::string& name, EFlavorType type, cons
   SetMaterialFilter(CMaterialFilter::MakeIncludeExclude(
       CMaterialList(kMT_Solid),
       CMaterialList(kMT_NoStaticCollision, kMT_NoPlatformCollision, kMT_Platform)));
-  GetKnockBackCtrl().SetAutoResetImpulse(false);
-  GetKnockBackCtrl().SetAnimationStateRange(kKBAS_Flinch, kKBAS_KnockBack);
+  KnockBackCtrl().SetAutoResetImpulse(false);
+  KnockBackCtrl().SetAnimationStateRange(kAR_Flinch, kAR_KnockBack);
 }
 
 CRipper::~CRipper() {}

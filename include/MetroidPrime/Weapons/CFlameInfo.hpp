@@ -27,7 +27,8 @@ public:
   CFlameInfo(CInputStream& in);
 
   int GetAttributes() const { return x4_attributes; }
-  int GetLength() const { return xc_length; }
   CAssetId GetFlameFxId() const { return x8_flameFxId; }
+  int GetLength() const { return xc_length; }
+  float GetX10() const { return x10_;}
 };
 #endif

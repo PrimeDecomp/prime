@@ -18,7 +18,7 @@ CSeedling::CSeedling(const TUniqueId uid, const rstl::string& name, const CEntit
                      const CDamageInfo& deathDamage, const float f1, const float f2, const float f3,
                      const float f4)
 : CWallWalker(kC_Seedling, uid, name, kFT_Zero, info, xf, mData, pInfo, kMT_Flyer, kCT_Zero,
-              kBT_WallWalker, actParms, kKBV_Small, f3, kWT_Seedling, false, f2, f1, f4)
+              kBT_WallWalker, actParms, kCS_Small, f3, kWT_Seedling, false, f2, f1, f4)
 , x5d8_searchPath(nullptr, 1, pInfo.GetPathfindingIndex(), 1.f, 1.f)
 , x6bc_spikeData(rs_new CModelData(CStaticRes(needleModel, mData.ScaleCopy())))
 , x6c0_projectileInfo(weaponId, projectileDamage)
@@ -50,7 +50,7 @@ void CSeedling::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateM
   } break;
   case kSM_Activate: {
     x5d6_27_disableMove = false;
-    const TUniqueId id = GetWaypointForState(mgr, kSS_Patrol, kSM_Follow);
+    const TUniqueId id = GetConnectedObject(mgr, kSS_Patrol, kSM_Follow);
     if (id != kInvalidUniqueId) {
       x2dc_destObj = id;
     }
@@ -123,7 +123,7 @@ void CSeedling::Patrol(CStateManager& mgr, EStateMsg msg, float arg) {
     SetMovable(false);
     const TUniqueId id =
         (x720_prevObj != kInvalidUniqueId ? x720_prevObj
-                                          : GetWaypointForState(mgr, kSS_Patrol, kSM_Follow));
+                                          : GetConnectedObject(mgr, kSS_Patrol, kSM_Follow));
     if (id != kInvalidUniqueId) {
       x2dc_destObj = id;
     }

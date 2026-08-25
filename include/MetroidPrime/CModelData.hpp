@@ -110,7 +110,7 @@ public:
 
   bool GetIsLoop() const;
   void EnableLooping(bool enable);
-  static CModelData CModelDataNull();
+  static CModelData CModelDataNull() { return CModelData(); }
   static EWhichModel GetRenderingModel(const CStateManager& mgr);
   float GetAnimationDuration(int anim) const;
 

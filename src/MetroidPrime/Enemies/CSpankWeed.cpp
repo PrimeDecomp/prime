@@ -19,7 +19,7 @@ CSpankWeed::CSpankWeed(const TUniqueId uid, const rstl::string& name, const CEnt
                        const float maxDetectionRange, const float maxHearingRange,
                        const float maxSightRange, const float hideTime)
 : CPatterned(kC_SpankWeed, uid, name, kFT_Zero, info, xf, mData, pInfo, kMT_Flyer, kCT_One,
-             kBT_Restricted, actParms, kKBV_Medium)
+             kBT_Restricted, actParms, kCS_Medium)
 , x568_maxDetectionRange(maxDetectionRange)
 , x56c_detectionHeightRange(pInfo.GetDetectionHeightRange())
 , x570_maxHearingRange(maxHearingRange)
@@ -66,5 +66,5 @@ CSpankWeed::CSpankWeed(const TUniqueId uid, const rstl::string& name, const CEnt
     x59c_lockonOffset = scaledXf.GetTranslation() - GetTranslation();
   }
 
-  GetKnockBackCtrl().SetAutoResetImpulse(false);
+  KnockBackCtrl().SetAutoResetImpulse(false);
 }

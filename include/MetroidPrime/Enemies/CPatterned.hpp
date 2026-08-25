@@ -160,7 +160,7 @@ public:
              const EFlavorType flavor, const CEntityInfo& info, const CTransform4f& xf,
              const CModelData& mData, const CPatternedInfo& pinfo, EMovementType movement,
              const EColliderType collider, const EBodyType body, const CActorParameters& params,
-             const EKnockBackVariant kbVariant);
+             const ECreatureSize kbVariant);
 
   // CEntity
   ~CPatterned() override {}
@@ -278,8 +278,8 @@ public:
   void SetPendingDeath(const bool v) { x401_30_pendingDeath = v; }
   CBodyController* BodyCtrl() { return x450_bodyController.get(); }
   const CBodyController* GetBodyCtrl() const { return x450_bodyController.get(); }
-  CKnockBackController& GetKnockBackCtrl() { return x460_knockBackController; }
-  const CKnockBackController& GetKnockBackCtrl() const { return x460_knockBackController; }
+  CKnockBackMgr& KnockBackCtrl() { return x460_knockBackController; }
+  const CKnockBackMgr& GetKnockBackCtrl() const { return x460_knockBackController; }
 
   CVector3f& MoveVector() { return x310_moveVec; }
   const CVector3f& GetMoveVector() const { return x310_moveVec; }
@@ -338,6 +338,10 @@ public:
   void UpdateDamageColor(float dt);
   void UpdateAlphaDelta(float dt, CStateManager& mgr);
 
+  
+  TUniqueId GetConnectedObject(CStateManager& mgr, EScriptObjectState state,
+                                EScriptObjectMessage msg);
+  
   // TODO: names?
   bool IsMakingBigStrike() const { return x402_28_isMakingBigStrike; }
   float GetDamageDuration() const { return x504_damageDur; }
@@ -441,7 +445,7 @@ protected:
   u32 x454_deathSfx;
   u32 x458_iceShatterSfx;
   CSteeringBehaviors x45c_steeringBehaviors;
-  CKnockBackController x460_knockBackController;
+  CKnockBackMgr x460_knockBackController;
   CVector3f x4e4_latestPredictedTranslation;
   float x4f0_predictedLeashTime;
   float x4f4_intoFreezeDur;

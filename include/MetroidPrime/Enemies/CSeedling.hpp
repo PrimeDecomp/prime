@@ -47,10 +47,7 @@ public:
 
 private:
   void FireSpikes(CStateManager& mgr);
-
-  TUniqueId GetWaypointForState(CStateManager& mgr, EScriptObjectState state,
-                                EScriptObjectMessage msg);
-
+  
   CPathFindSearch x5d8_searchPath;
   rstl::single_ptr< CModelData > x6bc_spikeData;
   CProjectileInfo x6c0_projectileInfo;

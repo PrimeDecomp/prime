@@ -64,7 +64,7 @@ CIceSheegoth::CIceSheegoth(TUniqueId uid, const rstl::string& name, const CEntit
                            const CPatternedInfo& pInfo, const CActorParameters& actParms,
                            const CIceSheegothData& sheegothData)
 : CPatterned(kC_IceSheegoth, uid, name, kFT_Zero, info, xf, mData, pInfo, kMT_Ground, kCT_One,
-             kBT_BiPedal, actParms, kKBV_Large)
+             kBT_BiPedal, actParms, kCS_Large)
 , x568_state(-1)
 , x56c_data(sheegothData)
 , x760_pathSearch(nullptr, 1, pInfo.GetPathfindingIndex(), 1.f, 1.f)
@@ -126,10 +126,10 @@ CIceSheegoth::CIceSheegoth(TUniqueId uid, const rstl::string& name, const CEntit
 , xb29_29_scanned(false) {
   xa58_projectileInfo.Token().Lock();
   UpdateTouchBounds();
-  GetKnockBackCtrl().SetEnableFreeze(false);
-  GetKnockBackCtrl().SetX82_24(false);
-  GetKnockBackCtrl().SetEnableLaggedBurnDeath(false);
-  GetKnockBackCtrl().SetEnableExplodeDeath(false);
+  KnockBackCtrl().SetEnableFreeze(false);
+  KnockBackCtrl().SetX82_24(false);
+  KnockBackCtrl().SetEnableLaggedBurnDeath(false);
+  KnockBackCtrl().SetEnableExplodeDeath(false);
   const CPASAnimParmData parms(pas::kAS_Step, CPASAnimParm::FromEnum(1), CPASAnimParm::FromEnum(0));
   x950_ = GetAnimationDistance(parms) * GetModelScale().GetY();
   xa98_->SetGlobalScale(GetModelScale());

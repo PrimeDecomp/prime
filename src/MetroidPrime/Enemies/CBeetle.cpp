@@ -32,7 +32,7 @@ CBeetle::CBeetle(TUniqueId uid, const rstl::string& name, const CEntityInfo& inf
                  const CActorParameters& actorParams,
                  const rstl::optional_object< CStaticRes >& tailModel)
 : CPatterned(kC_Beetle, uid, name, flavor, info, xf, mData, pInfo, kMT_Ground, kCT_One, kBT_BiPedal,
-             actorParams, flavor != kFT_Zero ? kKBV_Medium : kKBV_Small)
+             actorParams, flavor != kFT_Zero ? kCS_Medium : kCS_Small)
 , x568_stateProg(-1)
 , x56c_entranceType(entranceType)
 , x570_aiMgr(kInvalidUniqueId)

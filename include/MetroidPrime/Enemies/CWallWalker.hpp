@@ -21,7 +21,7 @@ public:
               const EFlavorType flavorType, const CEntityInfo& info, const CTransform4f& xf,
               const CModelData& mData, const CPatternedInfo& pInfo, const EMovementType moveType,
               const EColliderType colType, const EBodyType bodyType,
-              const CActorParameters& actParms, const EKnockBackVariant kbVariant,
+              const CActorParameters& actParms, const ECreatureSize kbVariant,
               const float collisionCloseMargin, const EType walkerType, const bool disableMove,
               const float alignAngVel, const float advanceWpRadius,
               const float playerObstructionMinDist);

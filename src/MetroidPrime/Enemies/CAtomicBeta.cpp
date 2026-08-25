@@ -1,7 +1,7 @@
 #include "MetroidPrime/Enemies/CAtomicBeta.hpp"
 
 #include "MetroidPrime/CStateManager.hpp"
-#include "MetroidPrime/Enemies/CKnockBackController.hpp"
+#include "MetroidPrime/Enemies/CKnockBackMgr.hpp"
 #include "MetroidPrime/Enemies/CPatternedInfo.hpp"
 #include "MetroidPrime/TCastTo.hpp"
 
@@ -26,7 +26,7 @@ CAtomicBeta::CAtomicBeta(TUniqueId uid, const rstl::string& name, const CEntityI
                          const CDamageVulnerability& frozenDVuln, float moveSpeed, float minSpeed,
                          float maxSpeed, ushort sId1, ushort sId2, ushort sId3, float speedStep)
 : CPatterned(kC_AtomicBeta, uid, name, kFT_Zero, info, xf, mData, pInfo, kMT_Flyer, kCT_One,
-             kBT_RestrictedFlyer, actParms, kKBV_Small)
+             kBT_RestrictedFlyer, actParms, kCS_Small)
 , x568_projectileIds()
 , x574_beamFired(false)
 , x578_minSpeed(minSpeed)

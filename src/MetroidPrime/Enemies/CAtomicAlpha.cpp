@@ -19,7 +19,7 @@ CAtomicAlpha::CAtomicAlpha(TUniqueId uid, const rstl::string& name, const CEntit
                            float bombReappearDelay, float bombRappearTime, CAssetId cmdl,
                            bool invisible, bool applyBeamAttraction)
 : CPatterned(kC_AtomicAlpha, uid, name, kFT_Zero, info, xf, mData, pInfo, kMT_Flyer, kCT_One,
-             kBT_Flyer, actParms, kKBV_Medium)
+             kBT_Flyer, actParms, kCS_Medium)
 , x568_24_inRange(false)
 , x568_25_invisible(invisible)
 , x568_26_applyBeamAttraction(applyBeamAttraction)

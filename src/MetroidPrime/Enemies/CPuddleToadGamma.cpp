@@ -18,7 +18,7 @@ CPuddleToadGamma::CPuddleToadGamma(
     const float playerShootSpeed, const float shouldAttackWaitTime, const float spotPlayerWaitTime,
     const CDamageInfo& playerShootDamage, const CDamageInfo& dInfo2, const CAssetId dcln)
 : CPatterned(kC_PuddleToad, uid, name, flavor, info, xf, mData, pInfo, kMT_Flyer, kCT_Zero,
-             kBT_Restricted, aParms, kKBV_Large)
+             kBT_Restricted, aParms, kCS_Large)
 , x568_stateProg(0.f)
 , x56c_waitTimer(0.f)
 , x570_playerShootDamage(playerShootDamage)
@@ -36,11 +36,11 @@ CPuddleToadGamma::CPuddleToadGamma(
 , x5e8_25_waitTimerActive(false)
 , x5e8_26_shotPlayer(false) {
   x401_26_disableMove = true;
-  GetKnockBackCtrl().SetEnableBurn(false);
-  GetKnockBackCtrl().SetEnableLaggedBurnDeath(false);
-  GetKnockBackCtrl().SetEnableShock(false);
-  GetKnockBackCtrl().SetEnableFreeze(false);
-  GetKnockBackCtrl().SetX81_31(false);
+  KnockBackCtrl().SetEnableBurn(false);
+  KnockBackCtrl().SetEnableLaggedBurnDeath(false);
+  KnockBackCtrl().SetEnableShock(false);
+  KnockBackCtrl().SetEnableFreeze(false);
+  KnockBackCtrl().SetX81_31(false);
   SetMovable(false);
 
   if (dcln != kInvalidAssetId && gpResourceFactory->GetResourceTypeById(dcln) != 0) {

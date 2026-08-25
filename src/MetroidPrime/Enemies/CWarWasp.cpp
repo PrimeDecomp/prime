@@ -16,7 +16,7 @@ CWarWasp::CWarWasp(TUniqueId uid, const rstl::string& name, const CEntityInfo& i
                    CAssetId projectileWeapon, CDamageInfo projectileDamage,
                    CAssetId projectileVisorParticle, uint projectileVisorSfx)
 : CPatterned(kC_WarWasp, uid, name, flavor, info, xf, mData, pInfo, kMT_Flyer, collider,
-             kBT_Flyer, actParms, kKBV_Small)
+             kBT_Flyer, actParms, kCS_Small)
 , x568_stateProg(-1)
 , x570_cSphere(CSphere(CVector3f(0.f, 0.f, 1.8f), 1.f), GetMaterialList())
 , x590_pfSearch(NULL, 3, pInfo.GetPathfindingIndex(), 1.f, 1.f)
@@ -54,7 +54,7 @@ CWarWasp::CWarWasp(TUniqueId uid, const rstl::string& name, const CEntityInfo& i
     x71c_projectileVisorParticle = gpSimplePool->GetObj(SObjectTag('PART', projectileVisorParticle));
   }
   x328_29_noPatternShagging = true;
-  x460_knockBackController.SetAnimationStateRange(kKBAS_KnockBack, kKBAS_KnockBack);
+  x460_knockBackController.SetAnimationStateRange(kAR_KnockBack, kAR_KnockBack);
 }
 
 CWarWasp::~CWarWasp() {}

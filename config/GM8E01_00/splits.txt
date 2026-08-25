@@ -1010,7 +1010,7 @@ MetroidPrime/Enemies/CChozoGhost.cpp:
 	.rodata     start:0x803D0078 end:0x803D0098
 	.data       start:0x803E18E8 end:0x803E1C88
 	.bss        start:0x8046C748 end:0x8046C758
-	.bss        start:0x805719CC end:0x805719E8 align:4 common
+	.bss        start:0x805719CC end:0x805719DC align:4 common
 	.sdata      start:0x805A7758 end:0x805A7780
 	.sdata2     start:0x805AB878 end:0x805AB8E0
 
@@ -1081,6 +1081,7 @@ MetroidPrime/Enemies/CPuddleToadGamma.cpp:
 	.rodata     start:0x803D0170 end:0x803D01A0
 	.data       start:0x803E24E0 end:0x803E27B0
 	.bss        start:0x8046C758 end:0x8046C770
+	.bss        start:0x805719DC end:0x805719E8 align:4 common
 	.sdata      start:0x805A77B8 end:0x805A77D8
 	.sbss       start:0x805A8FA0 end:0x805A8FA8
 	.sdata2     start:0x805ABA10 end:0x805ABA40
@@ -1849,7 +1850,7 @@ MetroidPrime/Enemies/CRipperControlledPlatform.cpp:
 	.data       start:0x803E80C0 end:0x803E8150
 	.sdata2     start:0x805AD3E8 end:0x805AD410
 
-MetroidPrime/Enemies/CKnockBackController.cpp:
+MetroidPrime/Enemies/CKnockBackMgr.cpp:
 	.text       start:0x80232CA4 end:0x80233FB0
 	.rodata     start:0x803D3490 end:0x803D42E8
 	.data       start:0x803E8150 end:0x803E81A0

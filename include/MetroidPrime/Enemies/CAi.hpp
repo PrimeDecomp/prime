@@ -5,7 +5,7 @@
 #include "MetroidPrime/CHealthInfo.hpp"
 #include "MetroidPrime/CPhysicsActor.hpp"
 #include "MetroidPrime/Enemies/CAiFuncMap.hpp"
-#include "MetroidPrime/Enemies/CKnockBackController.hpp"
+#include "MetroidPrime/Enemies/CKnockBackMgr.hpp"
 #include "MetroidPrime/Enemies/EListenNoiseType.hpp"
 
 class CTeamAiRole;

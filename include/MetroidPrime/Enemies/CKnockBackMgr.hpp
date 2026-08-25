@@ -12,10 +12,10 @@ enum EKnockBackType {
   kKBT_Radius,
   kKBT_Direct,
 };
-enum EKnockBackVariant {
-  kKBV_Small,
-  kKBV_Medium,
-  kKBV_Large,
+enum ECreatureSize {
+  kCS_Small,
+  kCS_Medium,
+  kCS_Large,
 };
 enum EKnockBackWeaponType {
   kKBWT_Invalid = -1,
@@ -45,13 +45,13 @@ enum EKnockBackCharacterState {
   kKBCS_FrozenAlive,
   kKBCS_FrozenDead,
 };
-enum EKnockBackAnimationState {
-  kKBAS_Invalid = -1,
-  kKBAS_None,
-  kKBAS_Flinch,
-  kKBAS_KnockBack,
-  kKBAS_Hurled,
-  kKBAS_Fall,
+enum EAnimReaction {
+  kAR_Invalid = -1,
+  kAR_None,
+  kAR_Flinch,
+  kAR_KnockBack,
+  kAR_Hurled,
+  kAR_Fall,
 };
 enum EKnockBackAnimationFollowUp {
   kKBAFU_Invalid = -1,
@@ -67,24 +67,24 @@ enum EKnockBackAnimationFollowUp {
   kKBAFU_LaggedBurnDeath,
 };
 
-class CKnockBackController {
+class CKnockBackMgr {
   friend class CPatterned;
 
 public:
   struct KnockBackParms {
-    EKnockBackAnimationState x0_animState;
+    EAnimReaction x0_animState;
     EKnockBackAnimationFollowUp x4_animFollowup;
     float x8_followupDuration;
     float xc_intoFreezeDur;
   };
 
-  explicit CKnockBackController(EKnockBackVariant variant);
-  void SetKnockBackVariant(EKnockBackVariant v) { x0_variant = v; }
+  explicit CKnockBackMgr(ECreatureSize variant);
+  void SetCreatureSize(ECreatureSize v) { x0_variant = v; }
   void DeferKnockBack(EWeaponType tp);
   void sub80233d40(int i, float f1, float f2);
   void SetAutoResetImpulse(bool b);
   void SetImpulseDurationIdx(int i);
-  void SetAnimationStateRange(EKnockBackAnimationState a, EKnockBackAnimationState b);/* {
+  void SetAnimationStateRange(EAnimReaction a, EAnimReaction b);/* {
     x18_minAnimState = a;
     x1c_maxAnimState = b;
   }*/
@@ -119,9 +119,9 @@ public:
   void SetX82_24(bool b) { x82_24_ = b; }
   void SetLocomotionDuringElectrocution(bool b) { x82_26_locomotionDuringElectrocution = b; }
   const KnockBackParms& GetActiveParms() const { return x4_activeParms; }
-  EKnockBackVariant GetVariant() const { return x0_variant; }
+  ECreatureSize GetVariant() const { return x0_variant; }
   float GetFlinchRemTime() const { return x64_flinchRemTime; }
-  // void SetAvailableState(EKnockBackAnimationState s, bool b) {
+  void EnableAnimReaction(EAnimReaction s, bool b);// {
   //   x80_availableStates.set(size_t(s), b);
   // }
   // bool TestAvailableState(EKnockBackAnimationState s) const {
@@ -129,11 +129,11 @@ public:
   // }
 
 private:
-  EKnockBackVariant x0_variant;
+  ECreatureSize x0_variant;
   KnockBackParms x4_activeParms;
   EWeaponType x14_deferWeaponType;
-  EKnockBackAnimationState x18_minAnimState;
-  EKnockBackAnimationState x1c_maxAnimState;
+  EAnimReaction x18_minAnimState;
+  EAnimReaction x1c_maxAnimState;
   uint x20_impulseDurationIdx;
   rstl::reserved_vector< rstl::pair< float, float >, 5 > x24_;
   CVector3f x50_impulseDir;
@@ -159,6 +159,6 @@ private:
   bool x82_25_inDeferredKnockBack : 1;
   bool x82_26_locomotionDuringElectrocution : 1;
 };
-CHECK_SIZEOF(CKnockBackController, 0x84)
+CHECK_SIZEOF(CKnockBackMgr, 0x84)
 
 #endif // _CKNOCKBACKCONTROLLER

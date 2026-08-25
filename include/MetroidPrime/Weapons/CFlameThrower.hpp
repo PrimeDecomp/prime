@@ -19,10 +19,17 @@ public:
   void SetTransform(const CTransform4f& xf, CStateManager& mgr, float);
 
 private:
-  char data[0x400 - 0x2e8];
+  CTransform4f x2e8_;
+  CAABox x318_;
+  float x330_;
+  float x334_;
+  float x338_flame;
+  TCachedToken<CGenDescription> x33c_flamethrowerDesc;
   bool x400_24_active : 1;
   bool x400_25_particlesActive : 1;
   bool x400_26_ : 1;
   bool x400_27_coneCollision : 1; /* Z-sort and finer collision detection */
+  
+  static const CVector3f kLightOffset;
 };
 #endif
