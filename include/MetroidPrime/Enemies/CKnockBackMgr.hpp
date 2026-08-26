@@ -4,9 +4,15 @@
 #include "types.h"
 
 #include "Kyoto/Animation/CPASAnimState.hpp"
+#include "Kyoto/Math/CVector3f.hpp"
+
+#include "rstl/pair.hpp"
+
+#include "MetroidPrime/Weapons/WeaponTypes.hpp"
 
 class CDamageInfo;
 class CPatterned;
+class CStateManager;
 
 enum EKnockBackType {
   kKBT_Radius,
