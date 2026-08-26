@@ -19,4 +19,5 @@ CFlameThrower::CFlameThrower(const TToken< CWeaponDescription >& wDesc, const rs
 , x330_(0.f)
 , x334_(0.f)
 , x338_flame(flameInfo.GetX10())
-, x33c_flamethrowerDesc(gpSimplePool->GetObj(SObjectTag('PART', flameInfo.GetFlameFxId()))) {}
+, x33c_flamethrowerDesc(gpSimplePool->GetObj(SObjectTag('PART', flameInfo.GetFlameFxId())))
+, x34c_flameWarp(0.f, CVector3f::Zero(), false) {}

@@ -3,8 +3,12 @@
 
 #include "types.h"
 
-#include "Kyoto/Animation/CPASAnimState.hpp"
+#include "MetroidPrime/Weapons/WeaponCommon.hpp"
 
+#include "Kyoto/Animation/CPASAnimState.hpp"
+#include "Kyoto/Math/CVector3f.hpp"
+
+class CStateManager;
 class CDamageInfo;
 class CPatterned;
 
@@ -71,7 +75,7 @@ class CKnockBackMgr {
   friend class CPatterned;
 
 public:
-  struct KnockBackParms {
+  struct KnockBackParms {    
     EAnimReaction x0_animState;
     EKnockBackAnimationFollowUp x4_animFollowup;
     float x8_followupDuration;
@@ -79,15 +83,15 @@ public:
   };
 
   explicit CKnockBackMgr(ECreatureSize variant);
-  void SetCreatureSize(ECreatureSize v) { x0_variant = v; }
+  void SetCreatureSize(ECreatureSize v) { x0_size = v; }
   void DeferKnockBack(EWeaponType tp);
   void sub80233d40(int i, float f1, float f2);
   void SetAutoResetImpulse(bool b);
   void SetImpulseDurationIdx(int i);
-  void SetAnimationStateRange(EAnimReaction a, EAnimReaction b);/* {
-    x18_minAnimState = a;
-    x1c_maxAnimState = b;
-  }*/
+  void SetAnimationStateRange(EAnimReaction a, EAnimReaction b); /* {
+     x18_minAnimState = a;
+     x1c_maxAnimState = b;
+   }*/
   void Update(float dt, CStateManager& mgr, CPatterned& parent);
   void KnockBack(const CVector3f& backVec, CStateManager& mgr, CPatterned& parent,
                  const CDamageInfo& info, EKnockBackType type, float magnitude);
@@ -99,8 +103,7 @@ public:
   float CalculateExtraHurlVelocity(CStateManager& mgr, float magnitude, float kbResistance) const;
   void DoKnockBackAnimation(const CVector3f& backVec, CStateManager& mgr, CPatterned& parent,
                             float magnitude);
-  void ResetKnockBackImpulse(const CPatterned& parent, const CVector3f& backVec,
-                             float magnitude);
+  void ResetKnockBackImpulse(const CPatterned& parent, const CVector3f& backVec, float magnitude);
   void DoDeferredKnockBack(CStateManager& mgr, CPatterned& parent);
   EKnockBackWeaponType GetKnockBackWeaponType(const CDamageInfo& info, EWeaponType wType,
                                               EKnockBackType type);
@@ -119,9 +122,9 @@ public:
   void SetX82_24(bool b) { x82_24_ = b; }
   void SetLocomotionDuringElectrocution(bool b) { x82_26_locomotionDuringElectrocution = b; }
   const KnockBackParms& GetActiveParms() const { return x4_activeParms; }
-  ECreatureSize GetVariant() const { return x0_variant; }
+  ECreatureSize GetCreatureSize() const { return x0_size; }
   float GetFlinchRemTime() const { return x64_flinchRemTime; }
-  void EnableAnimReaction(EAnimReaction s, bool b);// {
+  void EnableAnimReaction(EAnimReaction s, bool b); // {
   //   x80_availableStates.set(size_t(s), b);
   // }
   // bool TestAvailableState(EKnockBackAnimationState s) const {
@@ -129,7 +132,7 @@ public:
   // }
 
 private:
-  ECreatureSize x0_variant;
+  ECreatureSize x0_size;
   KnockBackParms x4_activeParms;
   EWeaponType x14_deferWeaponType;
   EAnimReaction x18_minAnimState;
@@ -158,6 +161,7 @@ private:
   bool x82_24_ : 1;
   bool x82_25_inDeferredKnockBack : 1;
   bool x82_26_locomotionDuringElectrocution : 1;
+  static const KnockBackParms skDefaultParameters;
 };
 CHECK_SIZEOF(CKnockBackMgr, 0x84)
 

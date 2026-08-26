@@ -32,11 +32,11 @@ public:
   rstl::optional_object< CAABox > GetTouchBounds() const override;
   void DoUserAnimEvent(CStateManager& mgr, const CInt32POINode& node, EUserEventType type,
                        float dt) override;
-  const CCollisionPrimitive* GetCollisionPrimitive() const override { return &x570_cSphere; }
+  const CCollisionPrimitive* GetCollisionPrimitive() const override; // { return &x570_cSphere; }
 
   // CAi
   void Death(CStateManager& mgr, const CVector3f& direction, EScriptObjectState state) override;
-  bool IsListening() const override { return true; }
+  bool IsListening() const override; // { return true; }
   bool Listen(const CVector3f& pos, EListenNoiseType type) override;
   CVector3f GetOrigin(const CStateManager& mgr, const CTeamAiRole& role,
                       const CVector3f& aimPos) const override;
@@ -70,16 +70,16 @@ public:
   bool ShouldSpecialAttack(CStateManager& mgr, float arg) override;
 
   // CPatterned
-  CPathFindSearch* GetSearchPath() override { return &x590_pfSearch; }
-  CProjectileInfo* ProjectileInfo() override { return &x6d4_projectileInfo; }
+  CPathFindSearch* GetSearchPath() override;  // { return &x590_pfSearch; }
+  CProjectileInfo* ProjectileInfo() override; // { return &x6d4_projectileInfo; }
 
 private:
   void SwarmAdd(CStateManager& mgr);
   void SwarmRemove(CStateManager& mgr);
   void ApplyDamage(CStateManager& mgr);
-  void SetUpCircleBurstWaypoint(CStateManager& mgr);
+  void SetUpCircleBurstPoint(CStateManager& mgr);
   CVector3f GetProjectileAimPos(CStateManager& mgr, float zBias);
-  CVector3f GetCloseInPos(CStateManager& mgr, const CVector3f& aimPos) const;
+  CVector3f GetCloseInPos(const CStateManager& mgr, const CVector3f& aimPos) const;
   float GetCloseInZBasis(CStateManager& mgr) const;
   void SetUpPathFindBehavior(CStateManager& mgr);
   int GetAttackTeamSize(CStateManager& mgr, int team);

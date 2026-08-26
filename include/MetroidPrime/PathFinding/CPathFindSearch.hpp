@@ -10,6 +10,7 @@ class CBeetle;
 
 class CPathFindSearch {
   friend class CBeetle;
+
 public:
   enum EResult {
     kR_Success,
@@ -30,8 +31,10 @@ public:
 
   void SetArea(CPFArea* area) { x0_area = area; }
   void SetPadding(const float pad) { xd8_padding = pad; }
-  
+
   EResult OnPath(const CVector3f& pos) const;
+
+  bool IsShagged() const { return xcc_result != kR_Success; }
 
 private:
   CPFArea* x0_area;

@@ -1,8 +1,8 @@
 #ifndef _CTEAMAIMGR_HPP
 #define _CTEAMAIMGR_HPP
 
-#include "MetroidPrime/CEntity.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
+#include "MetroidPrime/CEntity.hpp"
 #include "rstl/vector.hpp"
 
 class CAi;
@@ -49,7 +49,10 @@ public:
   TUniqueId GetOwnerId() const { return x0_ownerId; }
   ETeamAiRole GetTeamAiRole() const { return x10_curRole; }
   void SetTeamAiRole(ETeamAiRole role) { x10_curRole = role; }
-  bool HasTeamAiRole() const { return x10_curRole != kTAR_Initial && x10_curRole >= kTAR_Initial && x10_curRole <= kTAR_Unassigned; }
+  bool HasTeamAiRole() const {
+    return x10_curRole != kTAR_Initial && x10_curRole >= kTAR_Initial &&
+           x10_curRole <= kTAR_Unassigned;
+  }
   int GetRoleIndex() const { return x14_roleIndex; }
   void SetRoleIndex(int idx) { x14_roleIndex = idx; }
   const CVector3f& GetTeamPosition() const { return x1c_position; }
@@ -98,7 +101,8 @@ public:
     static const int kNumProperties;
   };
 
-  CTeamAiMgr(TUniqueId uid, const rstl::string& name, const CEntityInfo& info, const CUnknown& data);
+  CTeamAiMgr(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
+             const CUnknown& data);
   ~CTeamAiMgr() override {}
 
   // CEntity
@@ -133,9 +137,13 @@ public:
   static void ResetTeamAiRole(EAttackType type, CStateManager& mgr, TUniqueId mgrId, TUniqueId aiId,
                               bool clearRole);
   static bool AddAttacker(EAttackType type, CStateManager& mgr, TUniqueId mgrId, TUniqueId aiId);
-  static bool CanAcceptAttacker(EAttackType type, CStateManager& mgr, TUniqueId mgrId, TUniqueId aiId);
-  static const CTeamAiRole* GetTeamAiRole(const CStateManager& mgr, TUniqueId mgrId, TUniqueId aiId);
+  static bool CanAcceptAttacker(EAttackType type, CStateManager& mgr, TUniqueId mgrId,
+                                TUniqueId aiId);
+  static const CTeamAiRole* GetTeamAiRole(const CStateManager& mgr, TUniqueId mgrId,
+                                          TUniqueId aiId);
   static TUniqueId GetTeamAiMgr(const CAi& ai, const CStateManager& mgr);
+
+  size_t GetNumRoles() const { return x58_roles.size(); }
 
 private:
   CUnknown x34_data;
