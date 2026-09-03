@@ -177,7 +177,7 @@ EWeaponCollisionResponseTypes CChozoGhost::GetCollisionResponseType(const CVecto
 
 const CDamageVulnerability* CChozoGhost::GetDamageVulnerability() const {
   if (x665_24_) {
-    return &CDamageVulnerability::PassThroughVulnerabilty();
+    return &CDamageVulnerability::PassThroughVulnerability();
   }
 
   return CAi::GetDamageVulnerability();

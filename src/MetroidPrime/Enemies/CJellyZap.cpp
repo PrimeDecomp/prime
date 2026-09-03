@@ -177,7 +177,7 @@ const CDamageVulnerability* CJellyZap::GetDamageVulnerability(const CVector3f& p
                                                               const CVector3f& dir,
                                                               const CDamageInfo& info) const {
   if (HitShell(pos)) {
-    return &CDamageVulnerability::ReflectVulnerabilty();
+    return &CDamageVulnerability::ReflectVulnerability();
   }
 
   return CAi::GetDamageVulnerability();

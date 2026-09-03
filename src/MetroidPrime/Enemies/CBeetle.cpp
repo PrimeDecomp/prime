@@ -1011,7 +1011,7 @@ const CDamageVulnerability* CBeetle::GetDamageVulnerability(const CVector3f& pos
                                                             const CVector3f& direction,
                                                             const CDamageInfo& damage) const {
   if (x838_25_burrowing) {
-    return &CDamageVulnerability::PassThroughVulnerabilty();
+    return &CDamageVulnerability::PassThroughVulnerability();
   }
 
   if (x3fc_flavor == kFT_One) {
@@ -1037,7 +1037,7 @@ const CDamageVulnerability* CBeetle::GetDamageVulnerability(const CVector3f& pos
 
 const CDamageVulnerability* CBeetle::GetDamageVulnerability() const {
   if (x838_25_burrowing) {
-    return &CDamageVulnerability::PassThroughVulnerabilty();
+    return &CDamageVulnerability::PassThroughVulnerability();
   }
 
   if (x3fc_flavor == kFT_One) {

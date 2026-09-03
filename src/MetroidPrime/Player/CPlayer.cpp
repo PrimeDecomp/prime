@@ -2837,9 +2837,9 @@ const CDamageVulnerability* CPlayer::GetDamageVulnerability(const CVector3f& v1,
                                                             const CVector3f& v2,
                                                             const CDamageInfo& info) const {
   if (x2f8_morphBallState == kMS_Morphed && x570_immuneTimer > 0.f && !info.NoImmunity()) {
-    return &CDamageVulnerability::ImmuneVulnerabilty();
+    return &CDamageVulnerability::ImmuneVulnerability();
   }
-  return &CDamageVulnerability::NormalVulnerabilty();
+  return &CDamageVulnerability::NormalVulnerability();
 }
 
 const CDamageVulnerability* CPlayer::GetDamageVulnerability() const {

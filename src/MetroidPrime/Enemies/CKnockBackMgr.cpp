@@ -36,9 +36,8 @@ CKnockBackMgr::CKnockBackMgr(const ECreatureSize size)
 , x82_25_inDeferredKnockBack(false)
 , x82_26_locomotionDuringElectrocution(false) {
   float f = FLT_MAX;
-  for (int i = 0; i <= x24_.capacity(); i++) {
-    const rstl::pair< float, float > pair(0.f, f);
-    x24_.push_back(pair);
+  for (int i = 0; i <= kAR_Fall; i++) {
+    x24_.push_back(rstl::pair< float, float >(0.f, f));
     EnableAnimReaction(static_cast< EAnimReaction >(i), true);
   }
 }
