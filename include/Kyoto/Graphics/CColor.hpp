@@ -42,7 +42,7 @@ public:
   void SetAlpha(float a) { mA = CCast::ToUint8(a * 255.f); }
   void SetAlpha(uchar a) { mRgba = (mRgba & ~0xff) | a; }
 
-  static CColor Lerp(const CColor& a, const CColor& b, float t);
+  static CColor Lerp(const CColor& a, const CColor& b, const float t);
   static uint Lerp(uint a, uint b, float t);
   static CColor Modulate(const CColor& a, const CColor& b);
   static CColor Add(const CColor& a, const CColor& b);

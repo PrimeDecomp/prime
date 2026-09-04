@@ -9,7 +9,7 @@
 #include "MetroidPrime/CBoneTracking.hpp"
 #include "MetroidPrime/CDamageInfo.hpp"
 #include "MetroidPrime/CDamageVulnerability.hpp"
-#include "MetroidPrime/Enemies/CBouncyGrenade.hpp"
+#include "MetroidPrime/Enemies/CGrenadeLauncher.hpp"
 #include "MetroidPrime/Enemies/CPatterned.hpp"
 #include "MetroidPrime/PathFinding/CPathFindSearch.hpp"
 #include "MetroidPrime/Weapons/CShockWave.hpp"
@@ -20,16 +20,6 @@
 
 class CCollisionActorManager;
 class CGenDescription;
-
-struct SGrenadeTrajectoryInfo {
-  float x0_grenadeSpeed;
-  float x4_grenadeAcceleration;
-  float x8_angleXRange;
-  float xc_angleZRange;
-
-  SGrenadeTrajectoryInfo(CInputStream& in);
-};
-CHECK_SIZEOF(SGrenadeTrajectoryInfo, 0x10)
 
 class CElitePirateData {
 public:
@@ -58,7 +48,7 @@ public:
   CAssetId GetGrenadeElementGenDescId3() const { return xd0_grenadeElementGenDescId3; }
   CAssetId GetGrenadeElementGenDescId4() const { return xd4_grenadeElementGenDescId4; }
   const SGrenadeVelocityInfo& GetGrenadeVelocityInfo() const { return xd8_grenadeVelocityInfo; }
-  const SGrenadeTrajectoryInfo& GetGrenadeTrajectoryInfo() const {
+  const CEPGrenadeLaunchParms& GetGrenadeTrajectoryInfo() const {
     return xe0_grenadeTrajectoryInfo;
   }
   uint GetGrenadeNumBounces() const { return xf0_grenadeNumBounces; }
@@ -94,7 +84,7 @@ private:
   CAssetId xd0_grenadeElementGenDescId3;
   CAssetId xd4_grenadeElementGenDescId4;
   SGrenadeVelocityInfo xd8_grenadeVelocityInfo;
-  SGrenadeTrajectoryInfo xe0_grenadeTrajectoryInfo;
+  CEPGrenadeLaunchParms xe0_grenadeTrajectoryInfo;
   uint xf0_grenadeNumBounces;
   ushort xf4_grenadeBounceSfxId;
   ushort xf6_grenadeExplodeSfxId;
