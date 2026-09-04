@@ -1057,7 +1057,7 @@ config.libs = [
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CRumbleManager.cpp"
             ),
-            Object(NonMatching, "MetroidPrime/Enemies/CBouncyGrenade.cpp"),
+            Object(Matching, "MetroidPrime/Enemies/CBouncyGrenade.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CGrenadeLauncher.cpp"),
             Object(NonMatching, "MetroidPrime/Weapons/CShockWave.cpp"),
             Object(

@@ -9,6 +9,7 @@
 #include "MetroidPrime/CBoneTracking.hpp"
 #include "MetroidPrime/CDamageInfo.hpp"
 #include "MetroidPrime/CDamageVulnerability.hpp"
+#include "MetroidPrime/Enemies/CBouncyGrenade.hpp"
 #include "MetroidPrime/Enemies/CPatterned.hpp"
 #include "MetroidPrime/PathFinding/CPathFindSearch.hpp"
 #include "MetroidPrime/Weapons/CShockWave.hpp"
@@ -19,12 +20,6 @@
 
 class CCollisionActorManager;
 class CGenDescription;
-
-struct SGrenadeVelocityInfo {
-  float x0_mass;
-  float x4_speed;
-};
-CHECK_SIZEOF(SGrenadeVelocityInfo, 0x8)
 
 struct SGrenadeTrajectoryInfo {
   float x0_grenadeSpeed;
