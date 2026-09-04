@@ -10,7 +10,17 @@ class CGenDescription;
 class CElementGen;
 class CScriptEffect : public CActor {
 public:
+  ~CScriptEffect() override;
   void Accept(IVisitor& visitor) override;
+  void Think(float dt, CStateManager& mgr) override;
+  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) override;
+  void SetActive(bool active) override;
+  void PreRender(CStateManager& mgr, const CFrustumPlanes& frustum) override;
+  void AddToRenderer(const CFrustumPlanes& frustum, const CStateManager& mgr) const override;
+  void Render(const CStateManager& mgr) const override;
+  bool CanRenderUnsorted(const CStateManager& mgr) const override;
+  void CalculateRenderBounds() override;
+  CAABox GetSortingBounds(const CStateManager& mgr) const override;
 
   CScriptEffect(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
                 const CTransform4f& xf, const CVector3f& scale, CAssetId partId, CAssetId elscId,
@@ -24,6 +34,10 @@ public:
   static void ResetParticleCounts();
 
 private:
+  bool AreBothSystemsDeleteable() const;
+  static uint mNumParticlesUpdating;
+  static uint mNumParticlesDrawing;
+
   TLockedToken< CElectricDescription > xe8_electricToken;
   rstl::single_ptr< CParticleElectric > xf4_electric;
   TLockedToken< CGenDescription > xf8_particleSystemToken;
@@ -47,12 +61,14 @@ private:
   float x120_rateCamDistRangeMin;
   float x124_rateCamDistRangeMax;
   float x128_rateCamDistRangeFarRate;
-  float x12c_remTime;
+  mutable float x12c_remTime;
   float x130_duration;
   float x134_durationResetWhileVisible;
   rstl::single_ptr< CActorLights > x138_actorLights;
   TUniqueId x13c_triggerId;
   float x140_destroyDelayTimer;
 };
+
+CHECK_SIZEOF(CScriptEffect, 0x148)
 
 #endif // _CSCRIPTEFFECT

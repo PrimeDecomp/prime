@@ -588,7 +588,7 @@ config.libs = [
             Object(NonMatching, "MetroidPrime/Enemies/CStateMachine.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CMapArea.cpp"),
             Object(NonMatching, "MetroidPrime/Cameras/CBallCamera.cpp"),
-            Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptEffect.cpp"),
+            Object(Matching, "MetroidPrime/ScriptObjects/CScriptEffect.cpp"),
             Object(NonMatching, "MetroidPrime/Weapons/CBomb.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
