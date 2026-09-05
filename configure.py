@@ -1018,7 +1018,7 @@ config.libs = [
             Object(NonMatching, "MetroidPrime/Weapons/CIceProjectile.cpp"),
             Object(Matching, "MetroidPrime/Enemies/CPatternedAiFunctions.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CFlyingPirate.cpp"),
-            Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptColorModulate.cpp"),
+            Object(Matching, "MetroidPrime/ScriptObjects/CScriptColorModulate.cpp"),
             Object(NonMatching, "MetroidPrime/CMapUniverse.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CThardusRockProjectile.cpp"),
             Object(NonMatching, "MetroidPrime/CInventoryScreen.cpp"),
