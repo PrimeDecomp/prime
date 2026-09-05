@@ -110,7 +110,7 @@ public:
   }
 
   node* do_insert_before(node* n, const T& val) {
-    node* nn = create_node(n->get_prev(), n, val);
+    node* nn = create_node(n->x0_prev, n, val);
     if (n == x4_start) {
       x4_start = nn;
     }
@@ -128,10 +128,8 @@ public:
 
   template < typename InputIterator >
   void insert(const iterator& pos, InputIterator first, InputIterator last) {
-    node* cur = first.get_node();
-    while (cur != last.get_node()) {
-      do_insert_before(pos.get_node(), *cur->get_value());
-      cur = cur->get_next();
+    for (InputIterator cur = first; cur != last; ++cur) {
+      do_insert_before(pos.get_node(), *cur);
     }
   }
 

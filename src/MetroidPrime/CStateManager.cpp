@@ -32,7 +32,7 @@
 #include "MetroidPrime/Player/CGameState.hpp"
 #include "MetroidPrime/Player/CPlayer.hpp"
 #include "MetroidPrime/Player/CPlayerState.hpp"
-#include "MetroidPrime/Player/CWorldLayerState.hpp"
+#include "MetroidPrime/CScriptLayerManager.hpp"
 #include "MetroidPrime/Player/CWorldTransManager.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptDock.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptDoor.hpp"
@@ -145,7 +145,7 @@ CStateManager::CStateManager(const rstl::ncrc_ptr< CScriptMailbox >& mailbox,
                              const rstl::ncrc_ptr< CMapWorldInfo >& mwInfo,
                              const rstl::ncrc_ptr< CPlayerState >& playerState,
                              const rstl::ncrc_ptr< CWorldTransManager >& wtMgr,
-                             const rstl::ncrc_ptr< CWorldLayerState >& layerState)
+                             const rstl::ncrc_ptr< CScriptLayerManager >& layerState)
 : x0_nextFreeIndex(0)
 , x4_objectIndexArray(0)
 , x808_objectLists(rstl::auto_ptr< CObjectList >())

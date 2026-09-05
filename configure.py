@@ -1066,7 +1066,7 @@ config.libs = [
                 "MetroidPrime/Enemies/CRipperControlledPlatform.cpp",
             ),
             Object(NonMatching, "MetroidPrime/Enemies/CKnockBackMgr.cpp"),
-            Object(NonMatching, "MetroidPrime/Player/CWorldLayerState.cpp"),
+            Object(Matching, "MetroidPrime/CScriptLayerManager.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CMagdolite.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CTeamAiMgr.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CSnakeWeedSwarm.cpp"),

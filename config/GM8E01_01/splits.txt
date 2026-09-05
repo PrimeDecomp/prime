@@ -1856,7 +1856,7 @@ MetroidPrime/Enemies/CKnockBackMgr.cpp:
 	.sdata      start:0x805A83D8 end:0x805A83E0
 	.sdata2     start:0x805AD5F0 end:0x805AD620
 
-MetroidPrime/Player/CWorldLayerState.cpp:
+MetroidPrime/CScriptLayerManager.cpp:
 	.text       start:0x8023402C end:0x802346F0
 	.ctors      start:0x803CB484 end:0x803CB488
 	.bss        start:0x8046D520 end:0x8046D540

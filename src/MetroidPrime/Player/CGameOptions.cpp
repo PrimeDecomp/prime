@@ -1,3 +1,5 @@
+#pragma inline_max_size(250)
+
 #include "MetroidPrime/Player/CGameOptions.hpp"
 
 #include "MetroidPrime/Tweaks/CTweaks.hpp"

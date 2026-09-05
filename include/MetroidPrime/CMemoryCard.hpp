@@ -5,7 +5,7 @@
 
 #include "Kyoto/TToken.hpp"
 #include "MetroidPrime/TGameTypes.hpp"
-#include "MetroidPrime/Player/CWorldLayerState.hpp"
+#include "MetroidPrime/CScriptLayerManager.hpp"
 #include "MetroidPrime/Player/CWorldSaveGameInfo.hpp"
 #include "rstl/auto_ptr.hpp"
 #include "rstl/optional_object.hpp"

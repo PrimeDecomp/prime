@@ -78,7 +78,7 @@ public:
 
   void pop_back() { --x4_count; }
 
-  vector& operator=(const vector& other);
+  inline vector& operator=(const vector& other);
 
   void clear() {
     destroy(begin(), end());

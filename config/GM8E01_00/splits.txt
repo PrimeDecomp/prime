@@ -1858,14 +1858,15 @@ MetroidPrime/Enemies/CRipperControlledPlatform.cpp:
 
 MetroidPrime/Enemies/CKnockBackMgr.cpp:
 	.text       start:0x80232CA4 end:0x80233FB0
-	.rodata     start:0x803D3490 end:0x803D42E8
+	.rodata     start:0x803D3490 end:0x803D42E0
 	.data       start:0x803E8150 end:0x803E81A0
 	.sdata      start:0x805A81F8 end:0x805A8200
 	.sdata2     start:0x805AD410 end:0x805AD440
 
-MetroidPrime/Player/CWorldLayerState.cpp:
+MetroidPrime/CScriptLayerManager.cpp:
 	.text       start:0x80233FB0 end:0x80234674
 	.ctors      start:0x803CB2A4 end:0x803CB2A8
+	.rodata     start:0x803D42E0 end:0x803D42E8
 	.bss        start:0x8046D340 end:0x8046D360
 	.sdata      start:0x805A8200 end:0x805A8208
 

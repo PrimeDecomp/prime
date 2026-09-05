@@ -1,3 +1,5 @@
+#pragma inline_max_size(250)
+
 #include "MetroidPrime/CAnimData.hpp"
 
 #include "Kyoto/Animation/CAnimTreeNode.hpp"
@@ -202,25 +204,33 @@ CAnimData::CAnimData(
 , x40c_playbackParms(-1, -1, 1.f, true)
 , x434_additiveAnims() {
   if (skPOICacheReferenceCount == 0) {
-    const CBoolPOINode boolNode(rstl::string_l(""), kPT_EmptyBool, CCharAnimTime(0.f), -1, false,
-                                1.f, -1, 0, false);
-    if (mBoolPOINodes.size() < mBoolPOINodes.capacity()) {
-      mBoolPOINodes.resize(mBoolPOINodes.capacity(), boolNode);
+    {
+      const CBoolPOINode boolNode(rstl::string_l(""), kPT_EmptyBool, CCharAnimTime(0.f), -1, false,
+                                 1.f, -1, 0, false);
+      if (mBoolPOINodes.size() < mBoolPOINodes.capacity()) {
+        mBoolPOINodes.resize(mBoolPOINodes.capacity(), boolNode);
+      }
     }
 
-    const CInt32POINode int32Node(rstl::string_l(""), kPT_EmptyInt32, CCharAnimTime(0.f), -1, false,
-                                  1.f, -1, 0, 0, rstl::string_l("root"));
-    mInt32POINodes.resize(mInt32POINodes.capacity(), int32Node);
+    {
+      const CInt32POINode int32Node(rstl::string_l(""), kPT_EmptyInt32, CCharAnimTime(0.f), -1, false,
+                                   1.f, -1, 0, 0, rstl::string_l("root"));
+      mInt32POINodes.resize(mInt32POINodes.capacity(), int32Node);
+    }
 
-    const CParticleData particleData(0, SObjectTag(0, 0), rstl::string_l("root"), 1.f,
-                                     CParticleData::kPM_Initial);
-    const CParticlePOINode particleNode(rstl::string_l(""), kPT_Particle, CCharAnimTime(0.f), -1,
+    {
+      const CParticleData particleData(0, SObjectTag(0, 0), rstl::string_l("root"), 1.f,
+                                      CParticleData::kPM_Initial);
+      const CParticlePOINode particleNode(rstl::string_l(""), kPT_Particle, CCharAnimTime(0.f), -1,
                                         false, 1.f, -1, 0, particleData);
-    mParticlePOINodes.resize(mParticlePOINodes.capacity(), particleNode);
+      mParticlePOINodes.resize(mParticlePOINodes.capacity(), particleNode);
+    }
 
-    const CSoundPOINode soundNode(rstl::string_l(""), kPT_Sound, CCharAnimTime(0.f), -1, false, 1.f,
+    {
+      const CSoundPOINode soundNode(rstl::string_l(""), kPT_Sound, CCharAnimTime(0.f), -1, false, 1.f,
                                   -1, 0, 0, 0.f, 0.f);
-    mSoundPOINodes.resize(mSoundPOINodes.capacity(), soundNode);
+      mSoundPOINodes.resize(mSoundPOINodes.capacity(), soundNode);
+    }
   }
   ++skPOICacheReferenceCount;
 
@@ -437,12 +447,6 @@ SAdvancementResults CAnimData::AdvanceAdditiveAnim(rstl::rc_ptr< CAnimTreeNode >
   return ret;
 }
 
-rstl::pair< uint, CAdditiveAnimPlayback >*
-fn_80029C18(rstl::reserved_vector< rstl::pair< uint, CAdditiveAnimPlayback >, 8 >* vec,
-            rstl::pair< uint, CAdditiveAnimPlayback >* it) {
-  return vec->erase(it);
-}
-
 SAdvancementDeltas CAnimData::UpdateAdditiveAnims(float dt) {
   rstl::pair< uint, CAdditiveAnimPlayback >* it = x434_additiveAnims.begin();
   rstl::pair< uint, CAdditiveAnimPlayback >* const begin = x434_additiveAnims.begin();
@@ -457,7 +461,7 @@ SAdvancementDeltas CAnimData::UpdateAdditiveAnims(float dt) {
     }
 
     if (playback.GetFadingMode() == CAdditiveAnimPlayback::kPP_FadedOut) {
-      it = fn_80029C18(&x434_additiveAnims, it);
+      it = x434_additiveAnims.erase(it);
     } else {
       ++it;
     }

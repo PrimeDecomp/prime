@@ -57,7 +57,7 @@ class CWorldTransManager;
 class CEntity;
 class CSinglePathMaze;
 class CRayCastResult;
-class CWorldLayerState;
+class CScriptLayerManager;
 class CLight;
 class CDamageInfo;
 class CDamageVulnerability;
@@ -129,7 +129,7 @@ public:
 
   CStateManager(const rstl::ncrc_ptr< CScriptMailbox >&, const rstl::ncrc_ptr< CMapWorldInfo >&,
                 const rstl::ncrc_ptr< CPlayerState >&, const rstl::ncrc_ptr< CWorldTransManager >&,
-                const rstl::ncrc_ptr< CWorldLayerState >&);
+                const rstl::ncrc_ptr< CScriptLayerManager >&);
   ~CStateManager();
 
   void PreRender();
@@ -397,7 +397,7 @@ private:
   rstl::rc_ptr< CScriptMailbox > x8bc_mailbox;
   rstl::rc_ptr< CMapWorldInfo > x8c0_mapWorldInfo;
   rstl::rc_ptr< CWorldTransManager > x8c4_worldTransManager;
-  rstl::rc_ptr< CWorldLayerState > x8c8_worldLayerState;
+  rstl::rc_ptr< CScriptLayerManager > x8c8_worldLayerState;
 
   TAreaId x8cc_nextAreaId;
   TAreaId x8d0_prevAreaId;
