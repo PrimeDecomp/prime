@@ -190,7 +190,7 @@ public:
   CHierarchyPoseBuilder& PoseBuilder() const { return x2fc_poseBuilder; }
   float GetPlaybackRate() const { return x200_speedScale; }
   // Pose__9CAnimDataFv
-  // GetPoseBuilder__9CAnimDataCFv
+  const CHierarchyPoseBuilder& GetPoseBuilder() const { return x2fc_poseBuilder; }
 
   // CacheSoundPoiList__9CAnimDataFRCQ24rstl25ncrc_ptr<13CAnimTreeNode>RC13CCharAnimTimei
   // CacheParticlePoiList__9CAnimDataFRCQ24rstl25ncrc_ptr<13CAnimTreeNode>RC13CCharAnimTimei

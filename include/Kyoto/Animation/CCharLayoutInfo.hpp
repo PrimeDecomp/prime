@@ -40,6 +40,7 @@ public:
                      GetSegmentData(node.GetParent()).GetReferenceStanceOffset();
   }
   const CCharLayoutNode& GetSegmentData(const CSegId& seg) const { return (*mNodes)[seg]; }
+  CSegId GetOriginalParent(const CSegId& seg) const { return GetSegmentData(seg).GetParent(); }
 
 private:
   rstl::object_owner< TSegIdMap< CCharLayoutNode > > mNodes;
