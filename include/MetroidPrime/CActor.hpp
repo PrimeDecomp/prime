@@ -132,12 +132,12 @@ public:
   bool NullModel() const { return !GetAnimationData() && !GetModelData()->HasNormalModel(); }
 
   bool HasModelData() const {
-    return GetModelData() && (GetModelData()->HasAnimation() || GetModelData()->HasNormalModel());
+    return !x64_modelData.null() && (GetModelData()->HasAnimation() || GetModelData()->HasNormalModel());
   }
   CModelData* ModelData() { return x64_modelData.get(); }
   const CModelData* GetModelData() const { return x64_modelData.get(); }
 
-  bool HasAnimation() const { return GetModelData() && GetModelData()->HasAnimation(); }
+  bool HasAnimation() const { return !x64_modelData.null() && GetModelData()->HasAnimation(); }
   CAnimData* AnimationData() {
     return ModelData()->AnimationData();
   }
