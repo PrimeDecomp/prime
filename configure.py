@@ -1016,6 +1016,7 @@ config.libs = [
                 "MetroidPrime/BodyState/CABSReaction.cpp",
             ),
             Object(NonMatching, "MetroidPrime/Weapons/CIceProjectile.cpp"),
+            Object(Matching, "MetroidPrime/Enemies/CPatternedAiFunctions.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CFlyingPirate.cpp"),
             Object(Matching, "MetroidPrime/ScriptObjects/CScriptColorModulate.cpp"),
             Object(NonMatching, "MetroidPrime/CMapUniverse.cpp"),

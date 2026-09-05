@@ -591,7 +591,7 @@ void CBeetle::Shuffle(CStateManager& mgr, EStateMsg msg, float dt) {
 
     const CVector3f dist = GetTranslation() - playerLimit;
     if (dist.MagSquared() > 4.f) {
-      const int stepDir = GetStepDirection(-playerToThis);
+      const int stepDir = FindBestStepDirection(-playerToThis);
       switch (stepDir) {
       case pas::kSD_Forward:
       case pas::kSD_Backward: {

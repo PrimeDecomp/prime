@@ -54,6 +54,8 @@ public:
   TUniqueId GetHitProjectileOwner() const { return x2c4_hitProjectileOwner; }
   void SetHitProjectileOwner(TUniqueId id) { x2c4_hitProjectileOwner = id; }
 
+  void SetMinHomingDistance(float distance) { x2e0_minHomingDist = distance; }
+
   bool GetWeaponActive() const { return x2e4_24_active; }
   void DeleteProjectileLight(CStateManager&);
 

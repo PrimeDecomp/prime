@@ -106,6 +106,8 @@ public:
   float GetTime() const { return x8_time; }
   float GetRandom() const { return xc_random; }
   float GetDelay() const { return x10_delay; }
+  float GetFixedRandom() const { return x14_; }
+  bool GetCodeTrigger() const { return x18_24_codeTrigger; }
   void SetCodeTrigger() { x18_24_codeTrigger = true; }
 
 private:

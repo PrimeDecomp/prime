@@ -92,7 +92,8 @@ public:
   static CCameraShakeData SoftVertShake(float duration, float);
   static CCameraShakeData SoftVertShakeDistance(float duration, float, float, CVector3f);
   static CCameraShakeData VerticalOverrideShake(float duration);
-  static CCameraShakeData BuildPatternedExplodeShakeData(const CVector3f& pos, float attackTime,
+  static CCameraShakeData BuildPatternedExplodeShakeData(float duration, float magnitude);
+  static CCameraShakeData BuildPatternedExplodeShakeData(CVector3f pos, float attackTime,
                                                          float sustainTime, float maxDist);
 
   float GetDuration() const { return x0_duration; } // In MP1R, returns either x0 or xec?

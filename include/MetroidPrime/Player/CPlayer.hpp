@@ -230,6 +230,7 @@ public:
   void BreakGrapple(EOrbitBrokenType type, CStateManager& mgr);
   void AddOrbitDisableSource(CStateManager& mgr, TUniqueId addId);
   void RemoveOrbitDisableSource(TUniqueId uid);
+  bool CheckOrbitDisableSourceList() const;
   void SetAimTargetId(TUniqueId target);
   void DoSfxEffects(CSfxHandle sfx);
   bool GetFrozenState() const;
