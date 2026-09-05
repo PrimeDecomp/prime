@@ -61,7 +61,7 @@ public:
     // double x = -this->x;
     // double y = -this->y;
     // double z = -this->z;
-    return CQuaternion(w, -imaginary.GetX(), -imaginary.GetY(), -imaginary.GetZ());
+    return CQuaternion(w, -imaginary);
   }
 
   static CQuaternion FromMatrixRows(const CVector3f&, const CVector3f&, const CVector3f&);

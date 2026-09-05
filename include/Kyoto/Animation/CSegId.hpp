@@ -7,6 +7,7 @@
 
 class CSegId {
 public:
+  CSegId(int id) : x0_id(id) {}
   CSegId(const char& id) : x0_id(id) {}
   // CSegId(uint id) : x0_id(id) {}
   CSegId(CInputStream& in) : x0_id(in.Get< uint >()) {}

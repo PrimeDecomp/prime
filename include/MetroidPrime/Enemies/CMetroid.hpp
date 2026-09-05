@@ -25,6 +25,7 @@ public:
            const CMetroidData& metroidData, const TUniqueId other);
   ~CMetroid();
   void UpdateTouchBounds();
+  bool IsAttacking() const { return mIsAttacking; }
 
   void Accept(IVisitor& visitor) override;
   void Think(float dt, CStateManager& mgr) override;

@@ -277,6 +277,8 @@ public:
   const bool IsAlive() const { return x400_25_alive; }
   void SetWasHit(const bool v) { x400_24_hitByPlayerProjectile = v; }
   void SetPendingDeath(const bool v) { x401_30_pendingDeath = v; }
+  bool GetFadeToDeath() const { return x400_27_fadeToDeath; }
+  void SetFadeToDeath(bool fade) { x400_27_fadeToDeath = fade; }
   CBodyController* BodyCtrl() { return x450_bodyController.get(); }
   const CBodyController* GetBodyCtrl() const { return x450_bodyController.get(); }
   CKnockBackMgr& KnockBackCtrl() { return x460_knockBackController; }
@@ -300,13 +302,17 @@ public:
   void TryKnockBack_Front(CStateManager& mgr, int arg);
   void TryLoopReaction(CStateManager& mgr, int arg);
   void TryTurn(CStateManager& mgr, int arg);
+  void TryCover(CStateManager& mgr, int arg);
+  void TryWallHang(CStateManager& mgr, int arg);
   void TryGetUp(CStateManager& mgr, int arg);
   void TryTaunt(CStateManager& mgr, int arg);
   void TryJump(CStateManager& mgr, int arg);
+  void TryJumpInLoop(CStateManager& mgr, int arg);
   void TryBreakDodge(CStateManager& mgr, int arg);
   void TryStep(CStateManager& mgr, int arg);
   int GetStepDirection(const CVector3f& dir);
   void TryDodge(CStateManager& mgr, int arg);
+  void TryRollingDodge(CStateManager& mgr, int arg);
   void TryMeleeAttack_TargetPos(CStateManager& mgr, int arg);
   void TryMeleeAttack(CStateManager& mgr, int arg);
   void TryGenerate(CStateManager& mgr, int arg);
@@ -341,10 +347,9 @@ public:
   void UpdateDamageColor(float dt);
   void UpdateAlphaDelta(float dt, CStateManager& mgr);
 
-  
   TUniqueId GetConnectedObject(CStateManager& mgr, EScriptObjectState state,
-                                EScriptObjectMessage msg);
-  
+                               EScriptObjectMessage msg);
+
   // TODO: names?
   bool IsMakingBigStrike() const { return x402_28_isMakingBigStrike; }
   float GetDamageDuration() const { return x504_damageDur; }

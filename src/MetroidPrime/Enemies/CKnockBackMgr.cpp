@@ -41,3 +41,11 @@ CKnockBackMgr::CKnockBackMgr(const ECreatureSize size)
     EnableAnimReaction(static_cast< EAnimReaction >(i), true);
   }
 }
+
+void CKnockBackMgr::sub80233d40(int index, float min, float max) {
+  if (index >= 0 && index <= 4) {
+    x24_[index] = rstl::pair< float, float >(min, max);
+  }
+}
+
+void CKnockBackMgr::SetCreatureSize(ECreatureSize size) { x0_size = size; }

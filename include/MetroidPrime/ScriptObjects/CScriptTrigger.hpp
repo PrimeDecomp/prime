@@ -64,6 +64,9 @@ public:
   void Touch(CActor&, CStateManager&) override;
   CAABox GetTriggerBoundsWR() const;
   const CAABox& GetTriggerBounds() const { return x130_bounds; }
+  uint GetTriggerFlags() const { return x12c_flags; }
+  float GetForceMagnitude() const { return x128_forceMagnitude; }
+  const CVector3f& GetForceField() const { return x11c_forceField; }
   void SetTriggerBounds(const CAABox& bounds) { x130_bounds = bounds; }
   bool CameraInside() const { return x148_25_camSubmerged; }
   rstl::optional_object< CAABox > GetTouchBounds() const override;

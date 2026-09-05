@@ -19,10 +19,19 @@ public:
     }
   }
 
-  T& operator[](const CSegId& id) { return xd0_nodes[x8_indirectionMap[id.val()].second]; }
-  const T& operator[](const CSegId& id) const {
-    return xd0_nodes[x8_indirectionMap[id.val()].second];
+  T& operator[](const CSegId& id) {
+    return AccessElement(static_cast< uchar >(x8_indirectionMap[id.val()].second));
   }
+  const T& operator[](const CSegId& id) const {
+    return AccessElement(static_cast< uchar >(x8_indirectionMap[id.val()].second));
+  }
+
+  bool ContainsDataFor(const CSegId& id) const {
+    return x8_indirectionMap[id.val()] != rstl::pair< char, char >(-1, -1);
+  }
+
+  T& AccessElement(int index) { return xd0_nodes[index]; }
+  const T& AccessElement(int index) const { return xd0_nodes[index]; }
 
   void insert(const CSegId& id, const T& value) {
     T* node = &xd0_nodes[x0_boneCount];
