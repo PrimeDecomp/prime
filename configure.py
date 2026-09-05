@@ -1045,7 +1045,7 @@ config.libs = [
             Object(NonMatching, "MetroidPrime/CInGameTweakManager.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CBabygoth.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CEyeBall.cpp"),
-            Object(NonMatching, "MetroidPrime/CIkChain.cpp"),
+            Object(Matching, "MetroidPrime/CIkChain.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/ScriptObjects/CScriptCameraPitchVolume.cpp",
