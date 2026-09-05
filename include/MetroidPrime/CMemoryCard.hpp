@@ -7,7 +7,7 @@
 #include "MetroidPrime/TGameTypes.hpp"
 #include "MetroidPrime/Player/CWorldSaveGameInfo.hpp"
 
-class CSaveWorldMemory;
+#include "MetroidPrime/CSaveWorldMemory.hpp"
 
 class CMemoryCard {
 public:

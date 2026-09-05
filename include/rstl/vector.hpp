@@ -161,58 +161,43 @@ void vector< T, Alloc >::insert(iterator it, from_iterator begin, from_iterator 
 template < typename T, typename Alloc >
 template < typename In >
 void vector< T, Alloc >::insert_into(iterator at, int n, In in) {
-  iterator atIt = at;
-  T* items = xc_items;
-  T* atPtr = atIt.operator->();
-  const int newCount = x4_count + n;
+  T* oldData = xc_items;
+  In input = in;
 
-  if (newCount <= x8_capacity) {
-    const int atIdx = atPtr - items;
+  if (x4_count + n <= x8_capacity) {
+    long atIdx = at - begin();
     int moveCount = x4_count - atIdx;
     int i = moveCount - 1;
-    T* dst = atPtr + i + n;
-
     for (; i >= 0; --i) {
-      construct(dst, items[atIdx + i]);
-      --dst;
+      construct(oldData + atIdx + n + i, (*this)[atIdx + i]);
+      destroy(oldData + atIdx + i);
     }
-
-    for (i = 0; i < n; ++i) {
-      construct(atPtr, *in);
-      ++atPtr;
+    for (i = 0; i < n; ++i, ++input) {
+      construct(oldData + atIdx + i, *input);
     }
-
     x4_count += n;
   } else {
-    int newCapacity = 4;
-    if (x8_capacity != 0) {
-      newCapacity = x8_capacity << 1;
-    }
-    while (newCapacity < newCount) {
-      newCapacity <<= 1;
+    int newCapacity = x8_capacity ? x8_capacity * 2 : 4;
+    while (newCapacity < x4_count + n) {
+      newCapacity *= 2;
     }
 
     T* newData;
     x0_allocator.allocate(newData, newCapacity);
-
-    int i = 0;
-    int atIdx = atPtr - items;
-    T* dst = newData;
-    for (; i < atIdx; ++i) {
-      construct(dst, items[i]);
-      ++dst;
+    long atIdx = at - begin();
+    int newIdx = 0;
+    for (int i = 0; i < atIdx; ++newIdx, ++i) {
+      construct(newData + newIdx, (*this)[i]);
     }
-    for (; i < atIdx + n; ++i) {
-      construct(dst, *in);
-      ++dst;
+    for (int i = 0; i < n; ++newIdx, ++i, ++input) {
+      construct(newData + newIdx, *input);
     }
-    for (; i < x4_count + n; ++i) {
-      construct(dst, items[i - n]);
-      ++dst;
+    for (int i = atIdx; i < size(); ++newIdx, ++i) {
+      construct(newData + newIdx, (*this)[i]);
     }
 
-    destroy(items, items + x4_count);
-    x0_allocator.deallocate(items);
+    destroy(oldData, oldData + size());
+    x0_allocator.deallocate(xc_items);
     xc_items = newData;
     x8_capacity = newCapacity;
     x4_count += n;
@@ -250,7 +235,7 @@ typename vector< T, Alloc >::iterator vector< T, Alloc >::erase(iterator first, 
 
   int newCount = tmp;
 
-  for (iterator it = last, moved = begin() + tmp; it != end(); ++moved, ++newCount, ++it) {
+  for (iterator it = last, moved = iterator(xc_items + tmp); it != end(); ++moved, ++newCount, ++it) {
     construct(&*moved, *it);
   }
   x4_count = newCount;
