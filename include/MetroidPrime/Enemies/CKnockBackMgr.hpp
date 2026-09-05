@@ -83,7 +83,7 @@ public:
   };
 
   explicit CKnockBackMgr(ECreatureSize variant);
-  void SetCreatureSize(ECreatureSize v) { x0_size = v; }
+  void SetCreatureSize(ECreatureSize size);
   void DeferKnockBack(EWeaponType tp);
   void sub80233d40(int i, float f1, float f2);
   void SetAutoResetImpulse(bool b);

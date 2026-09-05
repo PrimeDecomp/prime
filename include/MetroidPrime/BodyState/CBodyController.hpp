@@ -48,6 +48,7 @@ public:
   EBodyType GetBodyType() const { return x2f4_bodyType; }
   int GetCurrentAnimId() const { return x2f8_curAnim; }
   void SetTurnSpeed(float speed);
+  float GetTurnSpeed() const { return x2fc_turnSpeed; }
   bool IsAnimationOver() const { return x300_24_animationOver; }
   bool GetIsActive() const { return x300_25_active; }
   bool ShouldPlayDeathAnims() const { return x300_28_playDeathAnims; }

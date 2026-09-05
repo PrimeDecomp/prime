@@ -343,10 +343,7 @@ private:
 class CBCCoverCmd : public CBodyStateCmd {
 public:
   CBCCoverCmd(pas::ECoverDirection dir, const CVector3f& v1, const CVector3f& v2)
-  : CBodyStateCmd(kBSC_Cover)
-  , x8_dir(dir)
-  , xc_targetPos(v1)
-  , x18_alignDir(v2) {}
+  : CBodyStateCmd(kBSC_Cover), x8_dir(dir), xc_targetPos(v1), x18_alignDir(v2) {}
 
   pas::ECoverDirection GetDirection() const { return x8_dir; }
   const CVector3f& GetTarget() const { return xc_targetPos; }
@@ -471,6 +468,16 @@ public:
     x21c_scripted = cmd;
   }
 
+  void DeliverCmd(const CBCWallHangCmd& cmd) {
+    DeliverCmd(cmd.GetCommandId());
+    x254_wallHang = cmd;
+  }
+
+  void DeliverCmd(const CBCCoverCmd& cmd) {
+    DeliverCmd(cmd.GetCommandId());
+    x230_cover = cmd;
+  }
+
   void DeliverCmd(const CBCAdditiveReactionCmd& cmd) {
     DeliverCmd(cmd.GetCommandId());
     x284_additiveReaction = cmd;
@@ -489,7 +496,7 @@ public:
   CBodyStateCmd* GetCmd(EBodyStateCmd cmd);
   const CBodyStateCmd* GetCmd(EBodyStateCmd cmd) const;
   const CVector3f& GetMoveVector() const { return x0_move; }
-   CVector3f& MoveVector() { return x0_move; }
+  CVector3f& MoveVector() { return x0_move; }
   const CVector3f& GetFaceVector() const { return xc_face; }
   const CVector3f& GetTargetVector() const { return x18_target; }
   const CVector3f& GetAdditiveTargetVector() const { return x24_additiveTarget; }

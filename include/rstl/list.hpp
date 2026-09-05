@@ -4,6 +4,7 @@
 #include "types.h"
 
 #include "rstl/construct.hpp"
+#include "rstl/functional.hpp"
 #include "rstl/rmemory_allocator.hpp"
 
 namespace rstl {
@@ -144,6 +145,18 @@ public:
 
   void remove(const T& val);
 
+  template < typename Pred >
+  void remove_if(Pred pred) {
+    node* it = x4_start;
+    while (it != x8_end) {
+      if (pred(*it->get_value())) {
+        it = do_erase(it);
+      } else {
+        it = it->get_next();
+      }
+    }
+  }
+
   // TODO non-matching
   template < typename Cmp >
   void sort(Cmp cmp) {
@@ -228,6 +241,12 @@ private:
   node* x10_empty_next;
   int x14_count;
 };
+
+template < typename T, typename Alloc >
+void list< T, Alloc >::remove(const T& val) {
+  rstl::equal_to< T > equal;
+  remove_if(rstl::bind1st(equal, val));
+}
 
 template < typename T, typename Alloc >
 list< T, Alloc >::~list() {

@@ -30,11 +30,19 @@ public:
   // , xe0_indexMask((1 << index)) {}
 
   void SetCharacterRadius(float radius) { xd4_chRadius = radius; }
+  float GetCharacterHeight() const { return xd0_chHeight; }
+  const rstl::reserved_vector< CVector3f, 16 >& GetWaypoints() const { return x4_waypoints; }
+  float RemainingPathDistance(const CVector3f& pos) const;
   void SetCharacterHeight(float height) { xd0_chHeight = height; }
 
   void SetArea(CPFArea* area) { x0_area = area; }
   void SetPadding(const float pad) { xd8_padding = pad; }
 
+  const CVector3f& GetPoint() const {
+    return xc8_curWaypoint + 1 < x4_waypoints.size() ? x4_waypoints[xc8_curWaypoint + 1]
+                                                  : x4_waypoints[xc8_curWaypoint];
+  }
+  EResult PathExists(const CVector3f& source, const CVector3f& destination) const;
   EResult OnPath(const CVector3f& pos) const;
   EResult Search(const CVector3f& source, const CVector3f& destination);
   EResult FindClosestReachablePoint(const CVector3f& source, CVector3f& destination) const;
