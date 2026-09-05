@@ -86,7 +86,7 @@ public:
     const rstl::string& GetWorldLabel() const { return x0_label; }
     const CTransform4f& GetWorldTransform() const { return x14_transform; }
     const CMapAreaData& GetMapAreaData(int idx) const { return x44_areaDatas[idx]; }
-    uint GetNumMapAreaDatas() const { return x44_areaDatas.size(); }
+    int GetNumMapAreaDatas() const { return x44_areaDatas.size(); }
     const CColor& GetOutlineColorUnselected() const { return x60_outlineColorUnselected; }
     const CColor& GetOutlineColorSelected() const { return x58_outlineColorSelected; }
     const CColor& GetSurfaceColorUnselected() const { return x5c_surfColorUnselected; }
@@ -117,11 +117,12 @@ public:
 
 private:
   CAssetId x0_hexagonId;
-  TCachedToken< CMapArea > x4_hexagonToken;
+  mutable TCachedToken< CMapArea > x4_hexagonToken;
   rstl::vector< CMapWorldData > x10_worldDatas;
   CVector3f x20_universeCenter;
   float x2c_universeRadius;
 };
+CHECK_SIZEOF(CMapUniverse, 0x30)
 
 CFactoryFnReturn FMapUniverseFactory(const SObjectTag& tag, CInputStream& in,
                                      const CVParamTransfer& xfer);
