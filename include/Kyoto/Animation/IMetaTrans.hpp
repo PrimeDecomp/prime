@@ -25,9 +25,10 @@ public:
 
   virtual void WriteTransData(COutputStream&) const = 0;
 
-  rstl::rc_ptr< CAnimTreeNode > GetTransitionTree(const rstl::ncrc_ptr< CAnimTreeNode >& a,
-                                                  const rstl::ncrc_ptr< CAnimTreeNode >& b,
-                                                  const CAnimSysContext& animSys) {
+  rstl::rc_ptr< CAnimTreeNode >
+  GetTransitionTree(const rstl::ncrc_ptr< CAnimTreeNode >& a,
+                    const rstl::ncrc_ptr< CAnimTreeNode >& b,
+                    const CAnimSysContext& animSys) const {
     return VGetTransitionTree(a, b, animSys);
   }
 };
