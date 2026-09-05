@@ -50,6 +50,13 @@ public:
   // CPhysicsActor
   CTransform4f GetPrimitiveTransform() const override;
 
+  void SetDamageVulnerability(const CDamageVulnerability& vulnerability);
+
+  void SetExtendedTouchBounds(const CVector3f& bounds) { x304_extendedTouchBounds = bounds; }
+
+  void SetWeaponCollisionResponseType(EWeaponCollisionResponseTypes type) { x300_responseType = type; }
+
+  TUniqueId GetLastTouchedObject() const;
   TUniqueId GetOwnerId() const { return x25c_owner; }
 
 private:

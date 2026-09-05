@@ -12,6 +12,7 @@ private:
   float x4_speed;
 
 public:
+  SGrenadeVelocityInfo(float mass, float speed) : x0_mass(mass), x4_speed(speed) {}
   explicit SGrenadeVelocityInfo(CInputStream& in)
   : x0_mass(in.ReadFloat()), x4_speed(in.ReadFloat()) {}
 
@@ -32,7 +33,7 @@ class CBouncyGrenadeData {
   ushort x3a_explodeSfx;
 
 public:
-  CBouncyGrenadeData(const SGrenadeVelocityInfo& velocityInfo, const CDamageInfo& damageInfo,
+  CBouncyGrenadeData(const SGrenadeVelocityInfo& velocityInfo, CDamageInfo damageInfo,
                      CAssetId elementGenId1, CAssetId elementGenId2, CAssetId elementGenId3,
                      CAssetId elementGenId4, uint numBounces, ushort bounceSfx, ushort explodeSfx)
   : x0_velocityInfo(velocityInfo)

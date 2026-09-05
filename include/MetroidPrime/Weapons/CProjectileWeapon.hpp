@@ -29,6 +29,7 @@ public:
   virtual CVector3f GetTranslation() const;
   virtual CTransform4f GetTransform() const;
   const CVector3f& GetVelocity() const;        // { return xb0_velocity; }
+  void SetWorldSpaceOrientation(const CTransform4f& xf);
   void SetVelocity(const CVector3f& velocity); // { xb0_velocity = velocity; }
   CVector3f GetGravity() const;                // { return xbc_gravity; }
   void SetGravity(const CVector3f& gravity);

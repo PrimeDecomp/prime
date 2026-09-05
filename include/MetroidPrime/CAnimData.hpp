@@ -188,7 +188,7 @@ public:
   // GetInfraModel__9CAnimDataCFv
   // GetPose__9CAnimDataCFv
   // PoseBuilder__9CAnimDataCFv
-  // GetPlaybackRate__9CAnimDataCFv
+  float GetPlaybackRate() const { return x200_speedScale; }
   // Pose__9CAnimDataFv
   // GetPoseBuilder__9CAnimDataCFv
 

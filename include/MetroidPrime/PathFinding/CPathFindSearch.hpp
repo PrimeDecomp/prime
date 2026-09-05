@@ -29,6 +29,9 @@ public:
   // , xdc_flags(flags)
   // , xe0_indexMask((1 << index)) {}
 
+  void SetCharacterRadius(float radius) { xd4_chRadius = radius; }
+  void SetCharacterHeight(float height) { xd0_chHeight = height; }
+
   void SetArea(CPFArea* area) { x0_area = area; }
   void SetPadding(const float pad) { xd8_padding = pad; }
 
