@@ -21,6 +21,10 @@ public:
   bool CanBuild(const SObjectTag&);
   const SObjectTag* GetResourceIdByName(const char* name) const;
 
+  rstl::vector< rstl::pair< rstl::string, SObjectTag > > GetResourceIdToNameList() const {
+    return x4_resLoader.GetResourceIdToNameList();
+  }
+
   uint ResourceSize(const SObjectTag& tag) const { return x4_resLoader.ResourceSize(tag); }
 
   void AsyncIdle(uint time);

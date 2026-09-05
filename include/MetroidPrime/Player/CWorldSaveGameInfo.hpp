@@ -16,6 +16,10 @@ public:
 
   const rstl::vector< TEditorId >& GetDoors() const { return x34_doors; }
 
+  typedef rstl::pair< CAssetId, uint > ScanState;
+  uint GetAreaCount() const { return x0_areaCount; }
+  const rstl::vector< ScanState >& GetScans() const { return x44_scans; }
+
   int GetRelayIndex(const TEditorId&) const;
   
   const rstl::vector<TEditorId>& GetRelays() const { return x14_relays; }
@@ -26,6 +30,9 @@ private:
   rstl::vector<TEditorId> x14_relays;
   rstl::vector< SLayerState > x24_layers;
   rstl::vector< TEditorId > x34_doors;
+  rstl::vector< ScanState > x44_scans;
 };
+
+CHECK_SIZEOF(CWorldSaveGameInfo, 0x54)
 
 #endif // _CWORLDSAVEGAMEINFO

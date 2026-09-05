@@ -26,22 +26,15 @@ void CWorldLayerState::SetLayerActive(const TAreaId& areaIdx, const int& layerId
   CWorldLayers::Area& area = x0_areaLayers[areaIdx.Value()];
   int layerId = layerIdx;
   if (active) {
-    u32 flag = 1 << layerId;
-    // area.m_layerBits = area.m_layerBits | flag;
-    area.m_layerBitsLo = area.m_layerBitsLo | flag;
-    area.m_layerBitsHi = area.m_layerBitsHi | (flag >> 0x1f);
+    area.m_layerBits |= 1 << layerId;
   } else {
-    u32 flag = ~(1 << layerId);
-    // area.m_layerBits = area.m_layerBits & flag;
-    area.m_layerBitsLo = area.m_layerBitsLo & flag;
-    area.m_layerBitsHi = area.m_layerBitsHi & (flag >> 0x1f);
+    area.m_layerBits &= ~(1 << layerId);
   }
 }
 
 bool CWorldLayerState::IsLayerActive(const TAreaId& areaIdx, const int& layerIdx) {
-  const uint* layerBits = &x0_areaLayers[areaIdx.Value()].m_layerBitsHi;
-  u32 flag = 1 << layerIdx;
-  return ((layerBits[1] & flag) | (layerBits[0] >> 0x1f)) != 0;
+  const u64& layerBits = x0_areaLayers[areaIdx.Value()].m_layerBits;
+  return (layerBits & (1 << layerIdx)) != 0;
 }
 
 void WordBitmap::operator=(const WordBitmap& other) {
@@ -74,5 +67,9 @@ void CWorldLayerState::InitializeWorldLayers(const rstl::vector< CWorldLayers::A
 }
 
 int CWorldLayerState::GetAreaLayerCount(const TAreaId& areaId) {
-  return x0_areaLayers[areaId.Value()].m_startNameIdx;
+  return x0_areaLayers[areaId.Value()].m_layerCount;
+}
+
+const rstl::vector< CWorldLayers::Area >& CWorldLayerState::GetAreaLayers() const {
+  return x0_areaLayers;
 }

@@ -452,7 +452,7 @@ void CScriptSpecialFunction::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId
           if (aId != kInvalidAreaId) {
             // worldLayerState = mgr.WorldLayerState();
           } else {
-            const rstl::pair< CAssetId, TAreaId > worldAreaPair =
+            const rstl::pair< CAssetId, int > worldAreaPair =
                 gpMemoryCard->GetAreaAndWorldIdForSaveId(x1bc_areaSaveId);
 
             if (worldAreaPair.first != kInvalidAssetId) {

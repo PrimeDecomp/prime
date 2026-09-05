@@ -1083,7 +1083,7 @@ config.libs = [
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CGBASupport.cpp"
             ),
-            Object(NonMatching, "MetroidPrime/Player/CWorldSaveGameInfo.cpp"),
+            Object(NonMatching, "MetroidPrime/CMemoryCard.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/ScriptObjects/CScriptCameraHintTrigger.cpp",

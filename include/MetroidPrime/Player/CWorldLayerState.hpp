@@ -14,14 +14,14 @@ class CWorldLayers {
 public:
   class Area {
   public:
-    int m_startNameIdx;
+    Area(int layerCount, u64 layerBits) : m_layerCount(layerCount), m_layerBits(layerBits) {}
+
     int m_layerCount;
-    // u64 m_layerBits;
-    uint m_layerBitsHi;
-    uint m_layerBitsLo;
+    u64 m_layerBits;
   };
   static CWorldLayers ReadWorldLayers(CInputStream& in, int version, CAssetId mlvlId);
 };
+NESTED_CHECK_SIZEOF(CWorldLayers, Area, 0x10)
 
 class WordBitmap {
 public:
@@ -58,6 +58,8 @@ public:
 
   void SetLayerActive(const TAreaId& areaIdx, const int& layerIdx, bool active);
   bool IsLayerActive(const TAreaId& areaIdx, const int& layerIdx);
+
+  const rstl::vector< CWorldLayers::Area >& GetAreaLayers() const;
 
   void InitializeWorldLayers(const rstl::vector< CWorldLayers::Area >&);
   int GetAreaLayerCount(const TAreaId&);

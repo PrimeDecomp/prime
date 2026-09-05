@@ -1946,7 +1946,7 @@ MetroidPrime/CGBASupport.cpp:
 	.sbss       start:0x805A9110 end:0x805A9118
 	.sdata2     start:0x805AD598 end:0x805AD5A8
 
-MetroidPrime/Player/CWorldSaveGameInfo.cpp:
+MetroidPrime/CMemoryCard.cpp:
 	.text       start:0x80248DDC end:0x8024B39C
 	.rodata     start:0x803D4780 end:0x803D4798
 	.sdata      start:0x805A82C0 end:0x805A82C8

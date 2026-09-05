@@ -13,18 +13,6 @@
 
 #include "dolphin/os.h"
 
-namespace {
-class AssetIdSorter {
-public:
-  AssetIdSorter() {}
-
-  bool operator()(const rstl::pair< CAssetId, CAssetId >& a,
-                  const rstl::pair< CAssetId, CAssetId >& b) const {
-    return a.first < b.first;
-  }
-};
-} // namespace
-
 int CalculateBits(int i) {
   int result = 0;
   for (uint j = i; j != 0; j = j >> 1) {
@@ -284,7 +272,7 @@ void CGameOptions::ResetControllerAssets(int controls) {
         x6c_controlTxtrMap.push_back(value);
       }
 
-      rstl::sort(x6c_controlTxtrMap.begin(), x6c_controlTxtrMap.end(), AssetIdSorter());
+      rstl::sort_by_key(x6c_controlTxtrMap);
     }
     break;
   }
