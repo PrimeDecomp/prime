@@ -1066,7 +1066,7 @@ config.libs = [
                 "MetroidPrime/Enemies/CRipperControlledPlatform.cpp",
             ),
             Object(NonMatching, "MetroidPrime/Enemies/CKnockBackMgr.cpp"),
-            Object(NonMatching, "MetroidPrime/Player/CWorldLayerState.cpp"),
+            Object(Matching, "MetroidPrime/CScriptLayerManager.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CMagdolite.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CTeamAiMgr.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CSnakeWeedSwarm.cpp"),
@@ -1083,7 +1083,7 @@ config.libs = [
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CGBASupport.cpp"
             ),
-            Object(NonMatching, "MetroidPrime/Player/CWorldSaveGameInfo.cpp"),
+            Object(NonMatching, "MetroidPrime/CMemoryCard.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/ScriptObjects/CScriptCameraHintTrigger.cpp",
@@ -1110,11 +1110,11 @@ config.libs = [
             Object(NonMatching, "MetroidPrime/Weapons/CNewFlameThrower.cpp"),
             Object(NonMatching, "MetroidPrime/Cameras/CInterpolationCamera.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Enemies/CSeedling.cpp"),
-            Object(NonMatching, "MetroidPrime/Player/CGameHintInfo.cpp"),
+            Object(NonMatching, "MetroidPrime/CGameHintInfo.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CWallWalker.cpp"),
             Object(NonMatching, "MetroidPrime/CErrorOutputWindow.cpp"),
             Object(NonMatching, "MetroidPrime/CRainSplashGenerator.cpp"),
-            Object(NonMatching, "MetroidPrime/Factories/CWorldSaveGameInfoFactory.cpp"),
+            Object(Matching, "MetroidPrime/CWorldSaveGameInfo.cpp"),
             Object(NonMatching, "MetroidPrime/CFluidPlaneRender.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CBurrower.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CMetroidPrime.cpp"),

@@ -55,6 +55,12 @@ public:
     insert(begin(), count, value);
   }
 
+  bit_vector& operator=(const bit_vector& other) {
+    mSize = other.mSize;
+    mData = other.mData;
+    return *this;
+  }
+
   int size() const { return mSize; }
   iterator begin() { return iterator(mData.begin(), 0, 0); }
   iterator end() { return iterator(mData.begin(), mSize, 0); }

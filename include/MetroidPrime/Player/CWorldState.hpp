@@ -10,10 +10,12 @@ class rc_ptr;
 } // namespace rstl
 
 class CMapWorldInfo;
+class CScriptLayerManager;
 
 class CWorldState {
 public:
   ~CWorldState();
+  rstl::rc_ptr< CScriptLayerManager >& GetLayerState();
   void SetDesiredAreaAssetId(CAssetId id);
   void SetAreaId(TAreaId id);
   rstl::rc_ptr< CMapWorldInfo >& MapWorldInfo();

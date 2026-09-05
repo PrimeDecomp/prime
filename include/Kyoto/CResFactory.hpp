@@ -23,6 +23,10 @@ public:
 
   FourCC GetResourceTypeById(CAssetId id) { return GetResLoader().GetResourceTypeById(id); }
 
+  rstl::vector< rstl::pair< rstl::string, SObjectTag > > GetResourceIdToNameList() const {
+    return x4_resLoader.GetResourceIdToNameList();
+  }
+
   uint ResourceSize(const SObjectTag& tag) const { return x4_resLoader.ResourceSize(tag); }
 
   void AsyncIdle(uint time);
