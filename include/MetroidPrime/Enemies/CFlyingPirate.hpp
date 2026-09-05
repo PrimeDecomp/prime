@@ -10,15 +10,20 @@
 
 #include "Kyoto/Particles/CElementGen.hpp"
 
-#include "rstl/optional_object.hpp"
+#include "rstl/auto_ptr.hpp"
 #include "rstl/reserved_vector.hpp"
 #include "rstl/single_ptr.hpp"
 
 class CGenDescription;
+class CFlyingPirateRagDoll;
 
 class CFlyingPirate : public CPatterned {
+  friend class CFlyingPirateRagDoll;
+
 public:
   class CFlyingPirateData {
+    friend class CFlyingPirate;
+
   public:
     CFlyingPirateData(CInputStream& in, int propCount);
 
@@ -41,7 +46,7 @@ public:
     CProjectileInfo x60_altProjectileInfo2;
     float x88_knockBackDelay;
     float x8c_flyingHeight;
-    TCachedToken< CGenDescription > x90_particleGenDesc;
+    TLockedToken< CGenDescription > x90_particleGenDesc;
     CDamageInfo x9c_dInfo;
     float xb8_;
     float xbc_;
@@ -62,13 +67,13 @@ public:
     float xf0_projectileHomingDistance;
   };
 
-  class CFlyingPirateRagDoll;
-
   CFlyingPirate(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
                 const CTransform4f& xf, const CModelData& mData, const CActorParameters& actParms,
                 const CPatternedInfo& pInfo, CInputStream& in, int propCount);
 
   static uint GetNumProperties() { return skNumProperties; }
+  bool IsAquaPirate() const { return x6a0_25_isAquaPirate; }
+  float GetFloatingGravityConstant() const { return skFloatingGravityConstant; }
 
   // CEntity
   void Accept(IVisitor& visitor) override;
@@ -80,6 +85,8 @@ public:
   void PreRender(CStateManager& mgr, const CFrustumPlanes& frustum) override;
 
   // CAi
+  CVector3f GetOrigin(const CStateManager& mgr, const CTeamAiRole& role,
+                      const CVector3f& aimPos) const override;
   void Think(float dt, CStateManager& mgr) override;
 
   // CPatterned
@@ -93,6 +100,8 @@ public:
                  bool inDeferred, float magnitude) override;
   bool Listen(const CVector3f& pos, EListenNoiseType type) override;
   CProjectileInfo* ProjectileInfo() override;
+
+  void MassiveDeath(CStateManager& mgr) override;
 
   // State functions
   void Attack(CStateManager& mgr, EStateMsg msg, float dt) override;
@@ -138,28 +147,34 @@ public:
   bool Stuck(CStateManager& mgr, float arg) override;
 
 private:
-  CVector3f GetOrigin() const;
   void CheckForProjectiles(CStateManager& mgr);
   bool CanFireMissiles(CStateManager& mgr);
-  void FireProjectile(CStateManager& mgr, const CVector3f& dir);
+  bool FireProjectile(CStateManager& mgr, float dt);
   CVector3f GetTargetPos(CStateManager& mgr);
   pas::EStepDirection GetDodgeDirection(CStateManager& mgr, float arg);
   CVector3f AvoidActors(CStateManager& mgr);
   void UpdateCantSeePlayer(CStateManager& mgr);
-  bool LineOfSightTest(CStateManager& mgr, const CVector3f& start, const CVector3f& end);
+  bool LineOfSightTest(CStateManager& mgr, const CVector3f& start, const CVector3f& end,
+                       const CMaterialList& exclude);
   void UpdateLandingSmoke(CStateManager& mgr, bool active);
   void UpdateParticleEffects(CStateManager& mgr, float intensity, bool active);
   void DeliverGetUp();
   void AddToTeam(CStateManager& mgr);
   void RemoveFromTeam(CStateManager& mgr);
-  void Explode(CStateManager& mgr);
 
+  static const SBurst skBurstsFlying[];
+  static const SBurst skBurstsFlyingOutOfView[];
+  static const SBurst skBurstsLanded[];
+  static const SBurst skBurstsLandedOutOfView[];
   static const SBurst* skBursts[];
   static const uint skNumProperties;
+  static const float skGravityConstant;
+  static const float skAquaGravityConstant;
+  static const float skFloatingGravityConstant;
 
   CFlyingPirateData x568_data;
-  rstl::reserved_vector< TCachedToken< CGenDescription >, 3 > x65c_particleGenDescs;
-  rstl::reserved_vector< rstl::optional_object< CElementGen* >, 3 > x684_particleGens;
+  rstl::reserved_vector< TLockedToken< CGenDescription >, 3 > x65c_particleGenDescs;
+  rstl::reserved_vector< rstl::auto_ptr< CElementGen >, 3 > x684_particleGens;
   bool x6a0_24_isFlyingPirate : 1;
   bool x6a0_25_isAquaPirate : 1;
   bool x6a0_26_hearShot : 1;
@@ -167,7 +182,7 @@ private:
   bool x6a0_28_ : 1;
   bool x6a0_29_checkForProjectiles : 1;
   bool x6a0_30_ : 1;
-  bool x6a0_31_canSeePlayer : 1;
+  bool x6a0_31_cantSeePlayer : 1;
   bool x6a1_24_prevInCineCam : 1;
   bool x6a1_25_ : 1;
   bool x6a1_26_isAttackingObject : 1;
@@ -216,5 +231,7 @@ private:
   float x8a4_;
 };
 CHECK_SIZEOF(CFlyingPirate, 0x8A8)
+
+NESTED_CHECK_SIZEOF(CFlyingPirate, CFlyingPirateData, 0xF4)
 
 #endif // _CFLYINGPIRATE
