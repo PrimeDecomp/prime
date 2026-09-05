@@ -13,9 +13,9 @@ public:
   CAnimationManager(const TToken< CAnimationDatabase >& animDB, const CAnimSysContext& sysCtx)
   : x0_animDB(animDB), x8_sysCtx(sysCtx) {}
 
-  rstl::rc_ptr< CAnimTreeNode > GetAnimationTree(uint a,
-                                                 const CMetaAnimTreeBuildOrders& orders) const;
-  rstl::rc_ptr< IMetaAnim > GetMetaAnimation(uint a) const;
+  rstl::ncrc_ptr< CAnimTreeNode >
+  GetAnimationTree(uint animIdx, const CMetaAnimTreeBuildOrders& orders) const;
+  rstl::rc_ptr< IMetaAnim > GetMetaAnimation(uint animIdx) const;
 
 private:
   TToken< CAnimationDatabase > x0_animDB;
