@@ -36,6 +36,9 @@ public:
   void SetPadding(const float pad) { xd8_padding = pad; }
 
   EResult OnPath(const CVector3f& pos) const;
+  EResult Search(const CVector3f& source, const CVector3f& destination);
+  EResult FindClosestReachablePoint(const CVector3f& source, CVector3f& destination) const;
+  EResult GetResult() const { return xcc_result; }
 
   bool IsShagged() const { return xcc_result != kR_Success; }
 
