@@ -2,6 +2,7 @@
 #define _RSTL_OBJECT_OWNER
 
 #include "rstl/auto_ptr.hpp"
+#include "rstl/ownership_transfer.hpp"
 
 namespace rstl {
 template < typename T >
@@ -17,6 +18,7 @@ class object_owner {
 
 public:
   explicit object_owner(const auto_ptr< T >& ptr) : x0_ptr(ptr.release()) {}
+  explicit object_owner(const ownership_transfer< T >& ptr) : x0_ptr(ptr.take_ownership()) {}
   ~object_owner() { delete x0_ptr; }
 
   T& operator*() { return *x0_ptr; }

@@ -12,6 +12,7 @@
 #include "rstl/optional_object.hpp"
 #include "rstl/ownership_transfer.hpp"
 #include "rstl/string.hpp"
+#include "rstl/math.hpp"
 
 struct SAdvancementDeltas {
   CVector3f x0_posDelta;
@@ -56,6 +57,9 @@ public:
   const CSteadyStateAnimInfo& GetSteadyStateAnimInfo() const { return x14_ssInfo; }
   const CCharAnimTime& GetTimeRemaining() const { return x2c_remTime; }
   u32 GetAnimDatabaseIndex() const { return x34_dbIdx; }
+  float GetPhase() const {
+    return rstl::min_val(rstl::max_val(1.f - x2c_remTime / x14_ssInfo.GetDuration(), 0.f), 1.f);
+  }
 };
 
 class CSegId;
@@ -111,6 +115,9 @@ public:
                        uint iterator, int unk) const;
 
   rstl::ownership_transfer< IAnimReader > Clone() const { return VClone(); }
+  CCharAnimTime GetTimeRemaining() const { return VGetTimeRemaining(); }
+  CSteadyStateAnimInfo GetSteadyStateAnimInfo() const { return VGetSteadyStateAnimInfo(); }
+  void SetPhase(float phase) { VSetPhase(phase); }
 };
 
 #endif // _IANIMREADER
