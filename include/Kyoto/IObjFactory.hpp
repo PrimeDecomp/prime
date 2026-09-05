@@ -2,6 +2,7 @@
 #define _CIOBJFACTORY
 
 class IObjFactory {
+public:
   virtual ~IObjFactory() {};
 };
 
