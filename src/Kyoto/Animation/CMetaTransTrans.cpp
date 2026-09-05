@@ -1,4 +1,5 @@
 #include "Kyoto/Animation/CMetaTransTrans.hpp"
+#include "Kyoto/Animation/CAnimTreeTransition.hpp"
 #include "Kyoto/Streams/CInputStream.hpp"
 #include "Kyoto/Streams/COutputStream.hpp"
 
@@ -11,7 +12,11 @@ CMetaTransTrans::CMetaTransTrans(CInputStream& in)
 rstl::ncrc_ptr< CAnimTreeNode >
 CMetaTransTrans::VGetTransitionTree(const rstl::ncrc_ptr< CAnimTreeNode >& a,
                                     const rstl::ncrc_ptr< CAnimTreeNode >& b,
-                                    const CAnimSysContext& animSys) const {}
+                                    const CAnimSysContext& animSys) const {
+  return rs_new CAnimTreeTransition(
+      xc_, a, b, x4_transDur, xd_runA, x10_flags,
+      CAnimTreeTransition::CreatePrimitiveName(a, b, x4_transDur.GetSeconds()));
+}
 
 void CMetaTransTrans::WriteTransData(COutputStream& out) const {
   x4_transDur.PutTo(out);
