@@ -31,7 +31,7 @@ void CResLoader::MoveToCorrectLoadedList(const rstl::auto_ptr< CPakFile >& pak) 
 }
 
 bool CResLoader::CacheFromPak(const CPakFile& pak, const CAssetId asset) const {
-  CPakFile::SResInfo* resInfo = pak.GetResInfo(asset);
+  const CPakFile::SResInfo* resInfo = pak.GetResInfo(asset);
   if (!resInfo) {
     return false;
   }
@@ -43,7 +43,7 @@ bool CResLoader::CacheFromPak(const CPakFile& pak, const CAssetId asset) const {
 }
 
 bool CResLoader::CacheFromPakForLoad(CPakFile& pak, const CAssetId asset) {
-  CPakFile::SResInfo* resInfo = nullptr;
+  const CPakFile::SResInfo* resInfo = nullptr;
   if (x54_forwardSeek) {
     resInfo = pak.GetResInfoForLoadPreferForward(asset);
     x54_forwardSeek = false;
@@ -154,16 +154,16 @@ void CResLoader::AsyncIdlePakLoading() {
 
 bool CResLoader::AreAllPaksLoaded() const { return x30_pakLoadingList.empty(); }
 
-CAssetId* CResLoader::GetResourceIdByName(const char* name) const {
+const SObjectTag* CResLoader::GetResourceIdByName(const char* name) const {
   for (AUTO(it, x0_aramList.begin()); it != x0_aramList.end(); ++it) {
-    CAssetId* id = (*it)->GetResIdByName(name);
+    const SObjectTag* id = (*it)->GetResIdByName(name);
     if (id != nullptr) {
       return id;
     }
   }
 
   for (AUTO(it, x18_pakLoadedList.begin()); it != x18_pakLoadedList.end(); ++it) {
-    CAssetId* id = (*it)->GetResIdByName(name);
+    const SObjectTag* id = (*it)->GetResIdByName(name);
     if (id != nullptr) {
       return id;
     }
@@ -203,23 +203,23 @@ CResLoader::ECompressionType CResLoader::GetResourceCompression(const SObjectTag
 
 CDvdRequest* CResLoader::LoadResourceAsync(const SObjectTag& tag, char* extBuf) {
   CPakFile* curPak = FindResourceForLoad(tag);
-  CPakFile::SResInfo* info = x50_cachedResInfo;
-  return curPak->AsyncSeekRead(extBuf, align_size(info->GetSize()), kSO_Begin, info->GetOffset());
+  const CPakFile::SResInfo* info = x50_cachedResInfo;
+  return curPak->DvdFile().AsyncSeekRead(extBuf, align_size(info->GetSize()), kSO_Begin, info->GetOffset());
 }
 
 CDvdRequest* CResLoader::LoadResourcePartAsync(const SObjectTag& tag, const int offset,
                                                const int length, char* extBuf) {
   CPakFile* curPak = FindResourceForLoad(tag);
-  CPakFile::SResInfo* info = x50_cachedResInfo;
-  return curPak->AsyncSeekRead(extBuf, length, kSO_Begin, info->GetOffset() + offset);
+  const CPakFile::SResInfo* info = x50_cachedResInfo;
+  return curPak->DvdFile().AsyncSeekRead(extBuf, length, kSO_Begin, info->GetOffset() + offset);
 }
 CInputStream* CResLoader::LoadNewResourceSync(const SObjectTag& tag, char* extBuf) {
   CPakFile* curPak = FindResourceForLoad(tag);
-  CPakFile::SResInfo* info = x50_cachedResInfo;
+  const CPakFile::SResInfo* info = x50_cachedResInfo;
   uint len = align_size(info->GetSize());
   void* dest = extBuf ? extBuf : CMemory::Alloc(len, IAllocator::kHI_RoundUpLen);
 
-  curPak->SyncSeekRead(dest, len, kSO_Begin, info->GetOffset());
+  curPak->DvdFile().SyncSeekRead(dest, len, kSO_Begin, info->GetOffset());
   CInputStream* input = rs_new CMemoryInStream(dest, info->GetSize(),
                                                extBuf == nullptr ? CMemoryInStream::kOS_Owned
                                                                  : CMemoryInStream::kOS_NotOwned);
@@ -234,7 +234,7 @@ CInputStream* CResLoader::LoadNewResourceSync(const SObjectTag& tag, char* extBu
 
 CInputStream* CResLoader::LoadResourceFromMemorySync(const SObjectTag& tag, const void* extBuf) {
   FindResourceForLoad(tag);
-  CPakFile::SResInfo* info = x50_cachedResInfo;
+  const CPakFile::SResInfo* info = x50_cachedResInfo;
   CInputStream* input = rs_new CMemoryInStream(extBuf, info->GetSize());
 
   if (info->IsCompressed()) {
@@ -246,10 +246,10 @@ CInputStream* CResLoader::LoadResourceFromMemorySync(const SObjectTag& tag, cons
 
 void CResLoader::LoadMemResourceSync(const SObjectTag& tag, char** bufOut, int* lenOut) {
   CPakFile* curPak = FindResourceForLoad(tag);
-  CPakFile::SResInfo* info = x50_cachedResInfo;
+  const CPakFile::SResInfo* info = x50_cachedResInfo;
   uint len = align_size(info->GetSize());
   char* buf = static_cast< char* >(CMemory::Alloc(len, IAllocator::kHI_RoundUpLen));
-  curPak->SyncSeekRead(buf, len, kSO_Begin, info->GetOffset());
+  curPak->DvdFile().SyncSeekRead(buf, len, kSO_Begin, info->GetOffset());
   *bufOut = buf;
   *lenOut = info->GetSize();
 }
@@ -257,10 +257,10 @@ void CResLoader::LoadMemResourceSync(const SObjectTag& tag, char** bufOut, int* 
 CInputStream* CResLoader::LoadNewResourcePartSync(const SObjectTag& tag, int offset, int length,
                                                   char* extBuf) {
   CPakFile* curPak = FindResourceForLoad(tag);
-  CPakFile::SResInfo* info = x50_cachedResInfo;
+  const CPakFile::SResInfo* info = x50_cachedResInfo;
 
   void* dest = extBuf ? extBuf : CMemory::Alloc(length, IAllocator::kHI_RoundUpLen);
-  curPak->SyncSeekRead(dest, length, kSO_Begin, info->GetOffset() + offset);
+  curPak->DvdFile().SyncSeekRead(dest, length, kSO_Begin, info->GetOffset() + offset);
 
   CInputStream* input = rs_new CMemoryInStream(
       dest, length, extBuf == nullptr ? CMemoryInStream::kOS_Owned : CMemoryInStream::kOS_NotOwned);
@@ -284,7 +284,7 @@ void CResLoader::RemovePakFile(const rstl::string& filePath) {
     rstl::list< rstl::auto_ptr< CPakFile > >& list = *lists[i];
     for (AUTO(it, list.begin()); it != list.end(); ++it) {
       const CPakFile* pak = it->get();
-      if (CStringExtras::CompareCaseInsensitive(pak->GetFilename(), pathWithExt) == 0) {
+      if (CStringExtras::CompareCaseInsensitive(pak->GetDvdFile().GetFilename(), pathWithExt) == 0) {
         list.erase(it);
         return;
       }
@@ -293,7 +293,7 @@ void CResLoader::RemovePakFile(const rstl::string& filePath) {
 
   for (AUTO(it, x30_pakLoadingList.begin()); it != x30_pakLoadingList.end(); ++it) {
     const CPakFile* pak = it->get();
-    if (CStringExtras::CompareCaseInsensitive(pak->GetFilename(), pathWithExt) == 0) {
+    if (CStringExtras::CompareCaseInsensitive(pak->GetDvdFile().GetFilename(), pathWithExt) == 0) {
       while (!pak->IsCompletelyLoaded()) {
         AsyncIdlePakLoading();
       }
@@ -303,7 +303,7 @@ void CResLoader::RemovePakFile(const rstl::string& filePath) {
   }
 }
 
-rstl::vector< CAssetId >* CResLoader::GetTagListForFile(const rstl::string& filePath) const {
+const rstl::vector< CAssetId >* CResLoader::GetTagListForFile(const rstl::string& filePath) const {
   rstl::string pathWithExt(filePath + ".pak");
 
   const rstl::list< rstl::auto_ptr< CPakFile > >* lists[] = {&x0_aramList, &x18_pakLoadedList};
@@ -312,7 +312,7 @@ rstl::vector< CAssetId >* CResLoader::GetTagListForFile(const rstl::string& file
     const rstl::list< rstl::auto_ptr< CPakFile > >& list = *lists[i];
     for (AUTO(it, list.begin()); it != list.end(); ++it) {
       const CPakFile* pak = it->get();
-      if (CStringExtras::CompareCaseInsensitive(pak->GetFilename(), pathWithExt) == 0) {
+      if (CStringExtras::CompareCaseInsensitive(pak->GetDvdFile().GetFilename(), pathWithExt) == 0) {
         return pak->GetDepList();
       }
     }

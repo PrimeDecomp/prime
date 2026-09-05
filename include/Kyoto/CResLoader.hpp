@@ -30,7 +30,7 @@ public:
   void ClearCache();
   void AsyncIdlePakLoading();
   bool AreAllPaksLoaded() const;
-  CAssetId* GetResourceIdByName(const char* name) const;
+  const SObjectTag* GetResourceIdByName(const char* name) const;
   FourCC GetResourceTypeById(CAssetId asset) const;
   uint ResourceSize(const SObjectTag& tag) const;
   ECompressionType GetResourceCompression(const SObjectTag& tag) const;
@@ -44,7 +44,7 @@ public:
   CDvdRequest* LoadResourcePartAsync(const SObjectTag& tag, int offset, int length, char* extBuf);
   CDvdRequest* LoadResourceAsync(const SObjectTag& tag, char* extBuf);
 
-  rstl::vector< CAssetId >* GetTagListForFile(const rstl::string& pak) const;
+  const rstl::vector< CAssetId >* GetTagListForFile(const rstl::string& pak) const;
   rstl::vector< rstl::pair< rstl::string, SObjectTag > > GetResourceIdToNameList() const;
 
   int GetPakCount() const;
@@ -56,7 +56,7 @@ private:
   rstl::list< rstl::auto_ptr< CPakFile > > x30_pakLoadingList;
   rstl::list< rstl::auto_ptr< CPakFile > >::iterator x48_curPak;
   mutable CAssetId x4c_cachedResId;
-  mutable CPakFile::SResInfo* x50_cachedResInfo;
+  mutable const CPakFile::SResInfo* x50_cachedResInfo;
   bool x54_forwardSeek;
 };
 

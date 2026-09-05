@@ -5,10 +5,11 @@
 
 class CFactoryMgr {
 public:
+  static uint FourCCToTypeIdx(uint fcc);
+  static uint TypeIdxToFourCC(uint idx);
+
 private:
   uchar pad[0x38];
 };
-
-
 
 #endif // _CFACTORYMGR

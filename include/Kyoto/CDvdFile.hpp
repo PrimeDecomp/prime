@@ -39,6 +39,7 @@ public:
   void CalcFileOffset(int offset, ESeekOrigin origin);
   void UpdateFilePos(int pos);
   const int GetFileSize() const { return mSize; }
+  bool IsARAMFile() const { return mARAMAllocated; }
 
   static bool FileExists(const char*);
   static void DVDARAMXferCallback(long, DVDFileInfo*);

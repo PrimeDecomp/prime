@@ -28,10 +28,10 @@ public:
   typedef int size_type;
   typedef T value_type;
 
-  iterator begin() { return iterator(xc_items); }
-  const_iterator begin() const { return const_iterator(xc_items); }
-  iterator end() { return iterator(xc_items + x4_count); }
-  const_iterator end() const { return const_iterator(xc_items + x4_count); }
+  iterator begin() { return iterator(this, data()); }
+  const_iterator begin() const { return const_iterator(this, data()); }
+  iterator end() { return iterator(this, data() + size()); }
+  const_iterator end() const { return const_iterator(this, data() + size()); }
   vector(const Alloc& alloc = Alloc())
   : x0_allocator(alloc), x4_count(0), x8_capacity(0), xc_items(nullptr) {}
   vector(int count) : x4_count(0), x8_capacity(0), xc_items(0) { reserve(count); }
@@ -52,10 +52,11 @@ public:
   vector(CInputStream& in, const Alloc& alloc = Alloc());
   ~vector() {
     destroy(begin(), end());
-    x0_allocator.deallocate(xc_items);
+    x0_allocator.deallocate(data());
   }
 
   void resize(int size, const T& in = T());
+  void assign(int size, const T& in = T());
   void reserve(int size);
   iterator insert(iterator it, const T& value);
 
@@ -107,11 +108,24 @@ protected:
 };
 
 template < typename T, typename Alloc >
-void vector< T, Alloc >::resize(int size, const T& in) {
+void vector< T, Alloc >::assign(int size, const T& in) {
   clear();
   reserve(size);
   for (int i = 0; i < size; ++i) {
     push_back(in);
+  }
+}
+
+template < typename T, typename Alloc >
+void vector< T, Alloc >::resize(int size, const T& in) {
+  if (x4_count != size) {
+    if (size > x4_count) {
+      reserve(size);
+      uninitialized_fill_n(xc_items + x4_count, size - x4_count, in);
+    } else {
+      destroy(begin() + size, end());
+    }
+    x4_count = size;
   }
 }
 

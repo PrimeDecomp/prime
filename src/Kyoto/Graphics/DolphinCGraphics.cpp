@@ -1401,8 +1401,8 @@ CGraphics::ClipScreenRectFromVS(const CVector3f& p1, const CVector3f& p2, ETexel
   int minX = rstl::min_val(p1p.GetX(), p2p.GetX());
   int minY = rstl::min_val(p1p.GetY(), p2p.GetY());
 
-  int maxX = abs(p1p.GetX() - p2p.GetX());
-  int maxY = abs(p1p.GetY() - p2p.GetY());
+  int maxX = __abs(p1p.GetX() - p2p.GetX());
+  int maxY = __abs(p1p.GetY() - p2p.GetY());
 
   int left = minX & ~1;
   if (left >= mViewport.mLeft + mViewport.mWidth) {

@@ -35,7 +35,7 @@ public:
   static void CollectGarbage();
 
   static void PreInitializeAlloc(uint size) { mPreInitializeAlloc += size; }
-  static const void* GetInvalidAlloc() { return (const void*)kInvalidAlloc; }
+  static void* GetInvalidAlloc() { return reinterpret_cast< void* >(kInvalidAlloc); }
   static const uint GetInvalidDMAHandle() { return kInvalidHandle; }
   static uint GetAndIncrementUniqueID() {
     mDMAUniqueID++;

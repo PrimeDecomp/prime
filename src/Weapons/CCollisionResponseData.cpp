@@ -17,9 +17,9 @@ const EWeaponCollisionResponseTypes CCollisionResponseData::skWorldMaterialTable
 CCollisionResponseData::CCollisionResponseData(CInputStream& in, CSimplePool* sp)
 : mAudibleRange(50.f), mAudibleFallOff(0.2f) {
   bool done = false;
-  mGeneratorTokens.resize(94);
-  mSoundEffectIds.resize(94, kInvalidSFX);
-  mDecalTokens.resize(94);
+  mGeneratorTokens.assign(94);
+  mSoundEffectIds.assign(94, kInvalidSFX);
+  mDecalTokens.assign(94);
 
   if (CParticleDataFactory::GetClassID(in) != 'CRSM') {
     return;

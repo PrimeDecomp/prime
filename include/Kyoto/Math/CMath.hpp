@@ -5,6 +5,7 @@
 
 #include "float.h"
 #include "math.h"
+#include "stdlib.h"
 
 #include <Kyoto/Math/CVector3f.hpp>
 

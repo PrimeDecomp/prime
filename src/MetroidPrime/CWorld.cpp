@@ -290,7 +290,7 @@ CMemoryRelays::CMemoryRelays(CInputStream& in, const int&) {
 void LoadRelays(CInputStream& in, rstl::vector< CRelay >& relays) {}
 CDummyWorld::~CDummyWorld() {}
 
-#pragma inline_max_size(200)
+#pragma inline_max_size(250)
 // TOOD nonmatching
 bool CDummyWorld::ICheckWorldComplete() {
   switch (x8_phase) {

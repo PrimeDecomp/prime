@@ -18,6 +18,7 @@ public:
 
   const_pointer_iterator() : current(nullptr) {}
   const_pointer_iterator(const T* begin) : current(const_cast< T* >(begin)) {}
+  const_pointer_iterator(const Vec* owner, const T* begin) : current(const_cast< T* >(begin)) {}
   const_pointer_iterator& operator++() {
     ++this->current;
     return *this;
@@ -55,13 +56,6 @@ public:
   bool operator<=(const const_pointer_iterator& other) { return current <= other.current; }
   bool operator>=(const const_pointer_iterator& other) { return current >= other.current; }
 
-  // friend const_pointer_iterator operator+(const const_pointer_iterator& x, int v) {
-  //   return const_pointer_iterator(x.current + v);
-  // }
-  // friend const_pointer_iterator operator-(const const_pointer_iterator& x, int v) {
-  //   return const_pointer_iterator(x.current - v);
-  // }
-
 protected:
   T* current;
 };
@@ -77,6 +71,7 @@ public:
 
   pointer_iterator() : base(nullptr) {}
   pointer_iterator(T* begin) : base(begin) {}
+  pointer_iterator(Vec* owner, T* begin) : base(owner, begin) {}
   T& operator*() { return *this->current; }
   // TODO map says const, but breaks CScriptMazeNode::GenerateObjects
   T* operator->() { return this->current; }

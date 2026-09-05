@@ -12,8 +12,6 @@
 #include <dolphin/ai.h>
 #include <dolphin/os.h>
 
-#pragma inline_max_size(200)
-
 static CStaticAudioPlayer* sCurrentPlayer = nullptr;
 static rstl::reserved_vector< FAudioCallback, 4 > sAICallbacks;
 static bool sDMACallbackInstalled ATTRIBUTE_ALIGN(8) = false;

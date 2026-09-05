@@ -260,11 +260,11 @@ CElementGen::CElementGen(TToken< CGenDescription > gen, EModelOrientationType or
   x30_particles.reserve(count);
 
   if (x26d_28_enableADV) {
-    x60_advValues.resize(count);
+    x60_advValues.assign(count);
   }
 
   if (x2c_orientType == kMOT_One) {
-    x50_parentMatrices.resize(x90_MAXP, CMatrix3f::Identity());
+    x50_parentMatrices.assign(x90_MAXP, CMatrix3f::Identity());
   }
 
   x26c_31_LINE = x28_loadedGenDesc->x30_24_LINE;
@@ -581,7 +581,7 @@ void CElementGen::UpdateExistingParticles() {
         x60_advValues[x25c_activeParticleCount] = x60_advValues[x30_particles.size() - 1];
       }
       --x30_particles.x4_count;
-      if (p != x30_particles.data() + x30_particles.size()) {
+      if (p != x30_particles.end()) {
         if (p->x0_endFrame < x74_curFrame) {
           continue;
         }

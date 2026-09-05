@@ -12,6 +12,8 @@ extern "C" {
 
 void srand(unsigned int seed);
 int rand(void);
+int abs(int n);
+long labs(long n);
 void exit(int status);
 size_t wcstombs(char* dest, const wchar_t* src, size_t max);
 

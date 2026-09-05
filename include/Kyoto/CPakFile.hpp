@@ -6,64 +6,86 @@
 #include "Kyoto/CDvdFile.hpp"
 #include "Kyoto/SObjectTag.hpp"
 
+#include "rstl/aligned_allocator.hpp"
 #include "rstl/auto_ptr.hpp"
+#include "rstl/pair.hpp"
 #include "rstl/string.hpp"
+#include "rstl/vector.hpp"
 
 class CDvdRequest;
+class CMemoryInStream;
 
-class CPakFile : public CDvdFile {
+class CPakFile {
 public:
+  enum EAsyncPhase { kAP_Warmup, kAP_InitialHeaderLoad, kAP_DataLoad, kAP_Loaded };
+// Resource entries store a four-byte ID followed by six packed metadata bytes.
+#pragma pack(push, 2)
   struct SResInfo {
-    FourCC GetType() const;
+    CAssetId x0_id;
+    uchar x4_data[6];
+
+    SResInfo(uint id, uint fourCC, uint offset, uint size, uint flags);
+
+    uint GetType() const;
+    uint GetOffset() const;
     uint GetSize() const;
     bool IsCompressed() const;
-    uint GetOffset() const;
 
-    CAssetId x0_id;
-    bool x4_compressed : 1;
-    int x4_typeIdx; // CFactoryMgr::ETypeTable
-    uint x5_offsetDiv32 : 27;
-    uint x7_sizeDiv32 : 27;
+    CAssetId GetId() const { return x0_id; }
+    bool operator<(const SResInfo& other) const { return x0_id < other.x0_id; }
   };
-  CPakFile(const rstl::string& path, const bool a, const bool b);
+#pragma pack(pop)
+
+  CPakFile(const rstl::string& filename, const bool buildDepList, const bool worldPak);
   ~CPakFile();
+
+  CDvdFile& DvdFile() { return x0_file; }
+  const CDvdFile& GetDvdFile() const { return x0_file; }
+
+  void AsyncIdle();
   bool IsWorldPak() const { return x28_26_worldPak; }
+  bool IsCompletelyLoaded() const { return x2c_asyncLoadPhase == kAP_Loaded; }
   void EnsureWorldPakReady();
   void sub_8036742c();
 
   rstl::vector< rstl::pair< rstl::string, SObjectTag > >& NameList() { return x54_nameList; }
+  const rstl::vector< CAssetId >* GetDepList() const;
+  const SObjectTag* GetResIdByName(const char* name) const;
+  const SResInfo* GetResInfo(uint id) const;
+  const SResInfo* GetResInfoForLoadDirectionless(uint id);
+  const SResInfo* GetResInfoForLoadPreferForward(uint id);
+  uint GetFakeStaticSize() const;
 
-  void AsyncIdle();
-
-  bool IsCompletelyLoaded() const { return x2c_asyncLoadPhase == 3; }
   bool IsARAMPak() const { return x28_25_aramFile; }
   bool IsStashedInARAM() const { return x28_27_stashedInARAM; }
-
-  SResInfo* GetResInfo(CAssetId asset) const;
-  SResInfo* GetResInfoForLoadPreferForward(const CAssetId asset) const;
-  SResInfo* GetResInfoForLoadDirectionless(const CAssetId asset) const;
-  CAssetId* GetResIdByName(const char* name) const;
-  rstl::vector< CAssetId >* GetDepList() const;
 
   const rstl::vector< rstl::pair< rstl::string, SObjectTag > >& GetStringToObjectList() const {
     return x54_nameList;
   }
 
 private:
+  void Warmup();
+  void InitialHeaderLoad();
+  void DataLoad();
+  void LoadResourceTable(CMemoryInStream& in);
+
+  CDvdFile x0_file;
   bool x28_24_buildDepList : 1;
   bool x28_25_aramFile : 1;
   bool x28_26_worldPak : 1;
   bool x28_27_stashedInARAM : 1;
-  int x2c_asyncLoadPhase; // EAsyncPhase
+  EAsyncPhase x2c_asyncLoadPhase;
   rstl::auto_ptr< CDvdRequest > x30_dvdReq;
-  rstl::vector< uchar > x38_headerData;
+  rstl::vector< uchar, rstl::aligned_allocator > x38_headerData;
   uint x48_resTableOffset;
   uint x4c_resTableCount;
-  int x50_aramBase;
+  void* x50_aramBase;
   rstl::vector< rstl::pair< rstl::string, SObjectTag > > x54_nameList;
   rstl::vector< CAssetId > x64_depList;
   rstl::vector< SResInfo > x74_resList;
-  mutable int x84_currentSeek;
+  int x84_currentSeek;
 };
+CHECK_SIZEOF(CPakFile, 0x88)
+NESTED_CHECK_SIZEOF(CPakFile, SResInfo, 0xa)
 
 #endif // _CPAKFILE

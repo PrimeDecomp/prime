@@ -30,7 +30,7 @@ __as__Q24rstl63vector<Q24rstl19pair<Ui,9TEditorId>,Q24rstl17rmemory_allocator>FR
 __as__Q24rstl24single_ptr<10CGameState>FP10CGameState = .text:0x80003C88; // type:function size:0x48
 __dt__10CGameStateFv = .text:0x80003CD0; // type:function size:0x190
 __dt__Q24rstl48vector<11CWorldState,Q24rstl17rmemory_allocator>Fv = .text:0x80003E60; // type:function size:0x8C
-deallocate<11CWorldState>__Q24rstl17rmemory_allocatorFP11CWorldState = .text:0x80003EEC; // type:function size:0x98
+destroy<Q24rstl116pointer_iterator<11CWorldState,Q24rstl48vector<11CWorldState,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>>__4rstlFQ24rstl116pointer_iterator<11CWorldState,Q24rstl48vector<11CWorldState,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl116pointer_iterator<11CWorldState,Q24rstl48vector<11CWorldState,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator> = .text:0x80003EEC; // type:function size:0x98
 __dt__12CGameOptionsFv = .text:0x80003F84; // type:function size:0xF0
 __ct__12CGameOptionsFRC12CGameOptions = .text:0x80004074; // type:function size:0x164
 __dt__12CSystemStateFv = .text:0x800041D8; // type:function size:0x14C

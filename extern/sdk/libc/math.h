@@ -44,12 +44,7 @@ typedef unsigned int _UINT32;
 #endif
 
 #ifdef __MWERKS__
-#define abs(n) __abs(n)
-#define labs(n) __labs(n)
 _MATH_INLINE double fabs(double x) { return __fabs(x); }
-#else
-int abs(int n);
-long labs(long n);
 #endif
 
 extern _INT32 __float_huge[];
