@@ -3,7 +3,7 @@
 
 class IObjFactory {
 public:
-  virtual ~IObjFactory() {};
+  virtual ~IObjFactory() = 0;
 };
 
 #endif // _CIOBJFACTORY

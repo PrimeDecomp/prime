@@ -6,11 +6,15 @@
 class CAnimTreeNode;
 class CTransitionManager {
 public:
+  CTransitionManager(const CAnimSysContext& context) : x0_context(context) {}
+
   rstl::rc_ptr< CAnimTreeNode > GetTransitionTree(const rstl::ncrc_ptr< CAnimTreeNode >& a,
                                                   const rstl::ncrc_ptr< CAnimTreeNode >& b) const;
 
 private:
   CAnimSysContext x0_context;
 };
+
+CHECK_SIZEOF(CTransitionManager, 0x10)
 
 #endif // _CTRANSITIONMANAGER

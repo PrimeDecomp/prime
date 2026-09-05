@@ -7,12 +7,12 @@
 
 class CTransitionDatabase;
 class CRandom16;
-class CSimplePool;
+class IObjectStore;
 
 class CAnimSysContext {
 public:
   CAnimSysContext(const TToken< CTransitionDatabase >& transDb,
-                  const rstl::ncrc_ptr< CRandom16 >& random, CSimplePool& store)
+                  const rstl::ncrc_ptr< CRandom16 >& random, IObjectStore& store)
   : x0_transDb(transDb), x8_random(random), xc_store(store) {}
 
   const TToken< CTransitionDatabase >& GetTransitionDatabase() const { return x0_transDb; }
@@ -21,8 +21,10 @@ public:
 
 private:
   TToken< CTransitionDatabase > x0_transDb;
-  rstl::rc_ptr< CRandom16 > x8_random;
-  CSimplePool& xc_store;
+  rstl::ncrc_ptr< CRandom16 > x8_random;
+  IObjectStore& xc_store;
 };
+
+CHECK_SIZEOF(CAnimSysContext, 0x10)
 
 #endif // _CANIMSYSCONTEXT

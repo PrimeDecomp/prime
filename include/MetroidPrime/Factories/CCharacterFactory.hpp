@@ -18,6 +18,7 @@
 
 class CAllFormatsAnimSource;
 class CAnimCharacterSet;
+class CAnimData;
 class CAnimationManager;
 class CAnimSysContext;
 class CCharLayoutInfo;
@@ -38,6 +39,14 @@ public:
 
   CCharacterFactory(CSimplePool& store, const CAnimCharacterSet& ancs, CAssetId selfId);
   int GetEventResourceIdForAnimResourceId(int id) const;
+  rstl::auto_ptr< CAnimData > CreateCharacter(int charIdx, bool loop,
+                                             const TLockedToken< CCharacterFactory >& factory,
+                                             int defaultAnim) const;
+  const CCharacterInfo& GetCharInfo(int charIdx) const;
+
+  static rstl::vector< CCharacterInfo > GetCharacterInfoDB(const CAnimCharacterSet& ancs);
+  static rstl::vector< TToken< CCharLayoutInfo > >
+  GetCharLayoutInfoDB(CSimplePool& store, const rstl::vector< CCharacterInfo >& chars);
 
 private:
   rstl::vector< CCharacterInfo > x4_charInfoDB;
@@ -51,7 +60,7 @@ private:
   rstl::vector< rstl::pair< int, int > > x58_animResources;
   CAssetId x68_selfId;
   CDummyFactory x6c_dummyFactory;
-  CSimplePool x70_cacheResPool;
+  mutable CSimplePool x70_cacheResPool;
 };
 
 NESTED_CHECK_SIZEOF(CCharacterFactory, CDummyFactory, 0x4)

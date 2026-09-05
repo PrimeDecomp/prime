@@ -36,6 +36,12 @@ public:
     return x98_effects;
   }
 
+  CAssetId GetModelId() const { return x14_cmdl; }
+  CAssetId GetSkinRulesId() const { return x18_cksr; }
+  CAssetId GetCharLayoutInfoId() const { return x1c_cinf; }
+  CAssetId GetIceModelId() const { return xa8_cmdlOverlay; }
+  CAssetId GetIceSkinRulesId() const { return xac_cksrOverlay; }
+
   CCharacterInfo(CInputStream& in);
 
 private:

@@ -5,6 +5,8 @@
 
 #include "Kyoto/Animation/CAnimCharacterSet.hpp"
 
+IObjFactory::~IObjFactory() {}
+
 CFactoryFnReturn CCharacterFactoryBuilder::CDummyFactory::Build(const SObjectTag& tag,
                                                               const CVParamTransfer& params) {
   const CAssetId id = tag.GetId();
