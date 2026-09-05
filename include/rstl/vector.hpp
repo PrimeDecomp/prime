@@ -46,7 +46,7 @@ public:
       xc_items = nullptr;
     } else {
       x0_allocator.allocate(xc_items, x8_capacity);
-      uninitialized_copy_n(other.xc_items, x4_count, xc_items);
+      uninitialized_copy_n(other.xc_items, size(), xc_items);
     }
   }
   vector(CInputStream& in, const Alloc& alloc = Alloc());
