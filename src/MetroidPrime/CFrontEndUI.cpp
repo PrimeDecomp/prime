@@ -131,13 +131,11 @@ static const CFrontEndUI::SFusionBonusFrame::SGBALinkFrame::EUIType PrevLinkUI[1
     CFrontEndUI::SFusionBonusFrame::SGBALinkFrame::kUIT_Empty,
 };
 
-// PlayAdvanceSfx
 void CFrontEndUI::PlayAdvanceSfx() {
   CSfxManager::SfxStart(SFXui_x_start_00);
   CSfxManager::SfxStart(SFXui_x_start_00r);
 }
 
-// SFrontEndFrame::FindAndSetPairText
 void CFrontEndUI::SFrontEndFrame::FindAndSetPairText(CGuiFrame& frame, const char* name,
                                                      const wchar_t* str) {
   CGuiTextPane* w1 = static_cast< CGuiTextPane* >(frame.FindWidget(name));
@@ -147,7 +145,6 @@ void CFrontEndUI::SFrontEndFrame::FindAndSetPairText(CGuiFrame& frame, const cha
   w2->TextSupport().SetText(rstl::wstring(str));
 }
 
-// SGuiTextPair::SGuiTextPair
 CFrontEndUI::SGuiTextPair::SGuiTextPair() {
   x0_textPane = nullptr;
   x4_textPaneB = nullptr;
@@ -158,19 +155,16 @@ CFrontEndUI::SGuiTextPair::SGuiTextPair(const CGuiFrame* frame, const char* name
   x4_textPaneB = static_cast< CGuiTextPane* >(frame->FindWidget(CBasics::Stringize("%sb", name)));
 }
 
-// SGuiTextPair::SetPairText
 void CFrontEndUI::SGuiTextPair::SetPairText(const wchar_t* str) {
   x0_textPane->TextSupport().SetText(rstl::wstring(str));
   x4_textPaneB->TextSupport().SetText(rstl::wstring(str));
 }
 
-// SGuiTextPair::SetPairText (wstring overload)
 void CFrontEndUI::SGuiTextPair::SetPairText(const rstl::wstring& str) {
   x0_textPane->TextSupport().SetText(str);
   x4_textPaneB->TextSupport().SetText(str);
 }
 
-// SNesEmulatorFrame::SNesEmulatorFrame
 CFrontEndUI::SNesEmulatorFrame::SNesEmulatorFrame()
 : x0_mode(kEM_Emulator)
 , x4_nesEmu(rs_new CNESEmulator())
@@ -188,10 +182,8 @@ CFrontEndUI::SNesEmulatorFrame::SNesEmulatorFrame()
   xc_textSupport->SetExtentY(xc_textSupport->GetBounds().second.GetY());
 }
 
-// SNesEmulatorFrame::~SNesEmulatorFrame
 CFrontEndUI::SNesEmulatorFrame::~SNesEmulatorFrame() {}
 
-// SNesEmulatorFrame::SetMode
 void CFrontEndUI::SNesEmulatorFrame::SetMode(EMode mode) {
   switch (mode) {
   case kEM_Emulator:
@@ -215,7 +207,6 @@ void CFrontEndUI::SNesEmulatorFrame::SetMode(EMode mode) {
   x0_mode = mode;
 }
 
-// SNesEmulatorFrame::Update
 int CFrontEndUI::SNesEmulatorFrame::Update(float dt, CSaveGameScreen* saveUi) {
   bool doUpdate = true;
   if (saveUi != nullptr && saveUi->GetUIType() != CSaveGameScreen::kUIT_SaveReady) {
@@ -297,7 +288,6 @@ int CFrontEndUI::SNesEmulatorFrame::Update(float dt, CSaveGameScreen* saveUi) {
   return 0;
 }
 
-// SNesEmulatorFrame::ProcessUserInput
 void CFrontEndUI::SNesEmulatorFrame::ProcessUserInput(const CFinalInput& input,
                                                       CSaveGameScreen* sui) {
   bool doInput = true;
@@ -330,7 +320,6 @@ void CFrontEndUI::SNesEmulatorFrame::ProcessUserInput(const CFinalInput& input,
   }
 }
 
-// SNesEmulatorFrame::Draw
 void CFrontEndUI::SNesEmulatorFrame::Draw(CSaveGameScreen* saveUi) const {
   CColor mulColor = CColor::White();
   CColor dimColor(static_cast< uchar >(0x60), static_cast< uchar >(0x60),
@@ -367,7 +356,6 @@ void CFrontEndUI::SNesEmulatorFrame::Draw(CSaveGameScreen* saveUi) const {
   }
 }
 
-// SGBALinkFrame::SGBALinkFrame
 CFrontEndUI::SFusionBonusFrame::SGBALinkFrame::SGBALinkFrame(CGuiFrame* frme, CGBASupport* support,
                                                              bool linkInProgress)
 : x0_uiType(kUIT_Empty)
@@ -390,15 +378,12 @@ CFrontEndUI::SFusionBonusFrame::SGBALinkFrame::SGBALinkFrame(CGuiFrame* frme, CG
   FinishedLoading();
 }
 
-// SGBALinkFrame::~SGBALinkFrame
 CFrontEndUI::SFusionBonusFrame::SGBALinkFrame::~SGBALinkFrame() {}
 
-// SGBALinkFrame::Draw
 void CFrontEndUI::SFusionBonusFrame::SGBALinkFrame::Draw() {
   x8_frme->Draw(CGuiWidgetDrawParms::sDefaultDrawParms);
 }
 
-// SGBALinkFrame::FinishedLoading
 void CFrontEndUI::SFusionBonusFrame::SGBALinkFrame::FinishedLoading() {
   xc_textpane_instructions = SGuiTextPair(x8_frme, "textpane_instructions");
   x14_textpane_yes = static_cast< CGuiTextPane* >(x8_frme->FindWidget("textpane_yes"));
@@ -416,13 +401,11 @@ void CFrontEndUI::SFusionBonusFrame::SGBALinkFrame::FinishedLoading() {
   SetUIText(kUIT_InsertPak);
 }
 
-// SGBALinkFrame::Update
 void CFrontEndUI::SFusionBonusFrame::SGBALinkFrame::Update(float dt) {
   x4_gbaSupport->Update(dt);
   x8_frme->Update(dt);
 }
 
-// SGBALinkFrame::ProcessUserInput
 CFrontEndUI::SFusionBonusFrame::SGBALinkFrame::EAction
 CFrontEndUI::SFusionBonusFrame::SGBALinkFrame::ProcessUserInput(const CFinalInput& input,
                                                                 bool linkInProgress) {
@@ -482,7 +465,6 @@ CFrontEndUI::SFusionBonusFrame::SGBALinkFrame::ProcessUserInput(const CFinalInpu
   return kGA_None;
 }
 
-// SGBALinkFrame::SetUIText
 void CFrontEndUI::SFusionBonusFrame::SGBALinkFrame::SetUIText(EUIType tp) {
   int instructions = -1;
   int yes = -1;
@@ -587,13 +569,10 @@ void CFrontEndUI::SFusionBonusFrame::SGBALinkFrame::SetUIText(EUIType tp) {
   x0_uiType = tp;
 }
 
-// CStateSetterFlow::CStateSetterFlow
 CStateSetterFlow::CStateSetterFlow() : CIOWin(rstl::string_l("")) {}
 
-// CStateSetterFlow::~CStateSetterFlow
 CStateSetterFlow::~CStateSetterFlow() {}
 
-// CStateSetterFlow::OnMessage
 CIOWin::EMessageReturn CStateSetterFlow::OnMessage(const CArchitectureMessage& message,
                                                    CArchitectureQueue& queue) {
   switch (message.GetType()) {
@@ -605,7 +584,6 @@ CIOWin::EMessageReturn CStateSetterFlow::OnMessage(const CArchitectureMessage& m
   }
 }
 
-// SFrontEndFrame::SFrontEndFrame
 CFrontEndUI::SFrontEndFrame::SFrontEndFrame(uint rnd)
 : x0_rnd(rnd)
 , x4_action(kEA_None)
@@ -617,10 +595,8 @@ CFrontEndUI::SFrontEndFrame::SFrontEndFrame(uint rnd)
   x8_frme.Lock();
 }
 
-// SFrontEndFrame::~SFrontEndFrame
 CFrontEndUI::SFrontEndFrame::~SFrontEndFrame() {}
 
-// SFrontEndFrame::PumpLoad
 bool CFrontEndUI::SFrontEndFrame::PumpLoad() {
   if (x14_loadedFrme) {
     return true;
@@ -636,7 +612,6 @@ bool CFrontEndUI::SFrontEndFrame::PumpLoad() {
   return false;
 }
 
-// SFrontEndFrame::FinishedLoading
 void CFrontEndUI::SFrontEndFrame::FinishedLoading() {
   x18_tablegroup_mainmenu =
       static_cast< CGuiTableGroup* >(x14_loadedFrme->FindWidget("tablegroup_mainmenu"));
@@ -670,7 +645,6 @@ void CFrontEndUI::SFrontEndFrame::FinishedLoading() {
   HandleActiveChange(x18_tablegroup_mainmenu);
 }
 
-// SFrontEndFrame::Update
 void CFrontEndUI::SFrontEndFrame::Update(float dt) {
   CGuiWidget* imageGallery = x18_tablegroup_mainmenu->GetWorkerWidget(3);
 
@@ -687,7 +661,6 @@ void CFrontEndUI::SFrontEndFrame::Update(float dt) {
   x14_loadedFrme->Update(dt);
 }
 
-// SFrontEndFrame::ProcessUserInput
 CFrontEndUI::SFrontEndFrame::EAction
 CFrontEndUI::SFrontEndFrame::ProcessUserInput(const CFinalInput& input) {
   x4_action = kEA_None;
@@ -695,12 +668,10 @@ CFrontEndUI::SFrontEndFrame::ProcessUserInput(const CFinalInput& input) {
   return x4_action;
 }
 
-// SFrontEndFrame::Draw
 void CFrontEndUI::SFrontEndFrame::Draw() {
   x14_loadedFrme->Draw(CGuiWidgetDrawParms::sDefaultDrawParms);
 }
 
-// SFrontEndFrame::DoAdvance
 void CFrontEndUI::SFrontEndFrame::DoAdvance(CGuiTableGroup* caller) {
   switch (x18_tablegroup_mainmenu->GetUserSelection()) {
   case 0:
@@ -726,29 +697,24 @@ void CFrontEndUI::SFrontEndFrame::DoAdvance(CGuiTableGroup* caller) {
   }
 }
 
-// SFrontEndFrame::DoSelectionChange
 void CFrontEndUI::SFrontEndFrame::DoSelectionChange(CGuiTableGroup* caller, int oldSelection) {
   CSfxManager::SfxStart(SFXfnt_selection_change, 0x7f, 0x40, false, CSfxManager::kMedPriority,
                         false, CSfxManager::kAllAreas);
   HandleActiveChange(caller);
 }
 
-// SFrontEndFrame::HandleActiveChange
 void CFrontEndUI::SFrontEndFrame::HandleActiveChange(CGuiTableGroup* caller) {
   CColor selected((uchar)0xFF, (uchar)0xFF, (uchar)0xFF, (uchar)0xFF);
   CColor unselected((uchar)0xA0, (uchar)0xA0, (uchar)0xA0, (uchar)0xC8);
   caller->SetColors(selected, unselected);
 }
 
-// SFrontEndFrame::DoCancel
 void CFrontEndUI::SFrontEndFrame::DoCancel(CGuiTableGroup* caller) {}
 
-// SFileSelectOption::ComputeRandom
 float CFrontEndUI::SFileSelectOption::ComputeRandom() {
   return rand() / static_cast< float >(RAND_MAX) * 30.f + 30.f;
 }
 
-// SNewFileSelectFrame::StartTextAnimating
 void CFrontEndUI::SNewFileSelectFrame::StartTextAnimating(CGuiTextPane* text, rstl::wstring str,
                                                           float chRate) {
   text->TextSupport().SetText(rstl::wstring_l(L""));
@@ -774,7 +740,6 @@ CFrontEndUI::SFileSelectOption::SFileSelectOption(CGuiFrame* frame, int idx)
   x4_textpanes.push_back(SGuiTextPair(frame, buf));
 }
 
-// SNewFileSelectFrame::SNewFileSelectFrame
 CFrontEndUI::SNewFileSelectFrame::SNewFileSelectFrame(CSaveGameScreen* saveUI, uint rnd)
 : x0_rnd(rnd)
 , x4_saveUI(saveUI)
@@ -803,10 +768,8 @@ CFrontEndUI::SNewFileSelectFrame::SNewFileSelectFrame(CSaveGameScreen* saveUI, u
   x10_frme.Lock();
 }
 
-// SNewFileSelectFrame::~SNewFileSelectFrame
 CFrontEndUI::SNewFileSelectFrame::~SNewFileSelectFrame() {}
 
-// SNewFileSelectFrame::PumpLoad
 bool CFrontEndUI::SNewFileSelectFrame::PumpLoad() {
   if (x1c_loadedFrame) {
     return true;
@@ -822,10 +785,6 @@ bool CFrontEndUI::SNewFileSelectFrame::PumpLoad() {
   return false;
 }
 
-// fn_80020B98 (stub)
-// fn_80020B34 (stub)
-
-// SNewFileSelectFrame::FinishedLoading
 void CFrontEndUI::SNewFileSelectFrame::FinishedLoading() {
   x20_tablegroup_fileselect =
       static_cast< CGuiTableGroup* >(x1c_loadedFrame->FindWidget("tablegroup_fileselect"));
@@ -889,13 +848,11 @@ void CFrontEndUI::SNewFileSelectFrame::FinishedLoading() {
                       .GetZ();
 }
 
-// SNewFileSelectFrame::GetUserFileSelection
 uint CFrontEndUI::SNewFileSelectFrame::GetUserFileSelection() const {
   int sel = x20_tablegroup_fileselect->GetUserSelection();
   return sel < 3 ? sel : 0;
 }
 
-// SNewFileSelectFrame::Update
 void CFrontEndUI::SNewFileSelectFrame::Update(float dt) {
   bool saveReady = x4_saveUI->GetUIType() == 0x10;
   if (saveReady != x10c_saveReady) {
@@ -917,10 +874,8 @@ void CFrontEndUI::SNewFileSelectFrame::Update(float dt) {
   x1c_loadedFrame->Update(dt);
 }
 
-// CGuiWidget::GetIsActive (weak function emitted here)
 bool CGuiWidget::GetIsActive() const { return xb6_26_isActive; }
 
-// SNewFileSelectFrame::ProcessUserInput
 CFrontEndUI::SNewFileSelectFrame::EAction
 CFrontEndUI::SNewFileSelectFrame::ProcessUserInput(const CFinalInput& input) {
   xc_action = kA_None;
@@ -962,14 +917,12 @@ CFrontEndUI::SNewFileSelectFrame::ProcessUserInput(const CFinalInput& input) {
   return xc_action;
 }
 
-// SNewFileSelectFrame::Draw
 void CFrontEndUI::SNewFileSelectFrame::Draw() const {
   if (x1c_loadedFrame != nullptr && x10c_saveReady) {
     x1c_loadedFrame->Draw(CGuiWidgetDrawParms::sDefaultDrawParms);
   }
 }
 
-// SNewFileSelectFrame::HandleActiveChange
 void CFrontEndUI::SNewFileSelectFrame::HandleActiveChange(CGuiWidget* active) {
   if (active != nullptr) {
     int sel = static_cast< CGuiTableGroup* >(active)->GetUserSelection();
@@ -992,7 +945,6 @@ void CFrontEndUI::SNewFileSelectFrame::HandleActiveChange(CGuiWidget* active) {
   }
 }
 
-// SNewFileSelectFrame::DoFileselectAdvance
 void CFrontEndUI::SNewFileSelectFrame::DoFileselectAdvance(CGuiTableGroup* caller) {
   int userSel = x20_tablegroup_fileselect->GetUserSelection();
   if (userSel < 3) {
@@ -1018,7 +970,6 @@ void CFrontEndUI::SNewFileSelectFrame::DoFileselectAdvance(CGuiTableGroup* calle
   }
 }
 
-// SNewFileSelectFrame::SetupFrameContents
 void CFrontEndUI::SNewFileSelectFrame::SetupFrameContents() {
   for (int i = 0; i < 3; ++i) {
     SFileSelectOption& option = x64_fileSelections[i];
@@ -1099,7 +1050,6 @@ void CFrontEndUI::SNewFileSelectFrame::SetupFrameContents() {
   }
 }
 
-// SNewFileSelectFrame::ClearFrameContents
 void CFrontEndUI::SNewFileSelectFrame::ClearFrameContents() {
   x108_curTime = 0.f;
   bool hasSave = false;
@@ -1154,7 +1104,6 @@ void CFrontEndUI::SNewFileSelectFrame::ClearFrameContents() {
   HandleActiveChange(x20_tablegroup_fileselect);
 }
 
-// SNewFileSelectFrame::EnterErase
 void CFrontEndUI::SNewFileSelectFrame::EnterErase() {
   x8_subMenu = kSM_EraseGame;
 
@@ -1183,7 +1132,6 @@ void CFrontEndUI::SNewFileSelectFrame::EnterErase() {
   HandleActiveChange(x20_tablegroup_fileselect);
 }
 
-// SNewFileSelectFrame::ResetFrame
 void CFrontEndUI::SNewFileSelectFrame::ResetFrame() {
   x8_subMenu = kSM_Root;
 
@@ -1202,7 +1150,6 @@ void CFrontEndUI::SNewFileSelectFrame::ResetFrame() {
   x60_textpane_cancel->TextSupport().SetText(rstl::wstring_l(L""));
 }
 
-// SNewFileSelectFrame::ActivateNewGamePopup
 void CFrontEndUI::SNewFileSelectFrame::ActivateNewGamePopup() {
   x40_tablegroup_popup->SetIsActive(true);
   x40_tablegroup_popup->SetIsVisible(true);
@@ -1239,7 +1186,6 @@ void CFrontEndUI::SNewFileSelectFrame::ActivateNewGamePopup() {
   x60_textpane_cancel->TextSupport().SetText(rstl::wstring_l(gpStringTable->GetString(0x52)));
 }
 
-// SNewFileSelectFrame::DeactivateNewGamePopup
 void CFrontEndUI::SNewFileSelectFrame::DeactivateNewGamePopup() {
   x40_tablegroup_popup->SetIsActive(false);
   x40_tablegroup_popup->SetIsVisible(false);
@@ -1258,7 +1204,6 @@ void CFrontEndUI::SNewFileSelectFrame::DeactivateNewGamePopup() {
   x60_textpane_cancel->TextSupport().SetText(rstl::wstring_l(L""));
 }
 
-// SNewFileSelectFrame::ActivateExistingGamePopup
 void CFrontEndUI::SNewFileSelectFrame::ActivateExistingGamePopup() {
   x40_tablegroup_popup->SetIsActive(true);
   x40_tablegroup_popup->SetIsVisible(true);
@@ -1281,7 +1226,6 @@ void CFrontEndUI::SNewFileSelectFrame::ActivateExistingGamePopup() {
   x44_model_dash7->SetVisibility(false, kTM_Children);
 }
 
-// SNewFileSelectFrame::DeactivateExistingGamePopup
 void CFrontEndUI::SNewFileSelectFrame::DeactivateExistingGamePopup() {
   x40_tablegroup_popup->SetIsActive(false);
   x40_tablegroup_popup->SetIsVisible(false);
@@ -1292,7 +1236,6 @@ void CFrontEndUI::SNewFileSelectFrame::DeactivateExistingGamePopup() {
   x64_fileSelections[x20_tablegroup_fileselect->GetUserSelection()].x0_base->SetColor(white);
 }
 
-// SNewFileSelectFrame::IsTextDoneAnimating
 bool CFrontEndUI::SNewFileSelectFrame::IsTextDoneAnimating() {
   for (int i = 0; i < 3; ++i) {
     if (x64_fileSelections[i].x28_curField != 4)
@@ -1314,14 +1257,12 @@ bool CFrontEndUI::SNewFileSelectFrame::IsTextDoneAnimating() {
   return !(curTime < ts3.GetTotalAnimationTime());
 }
 
-// SNewFileSelectFrame::DoSelectionChange
 void CFrontEndUI::SNewFileSelectFrame::DoSelectionChange(CGuiTableGroup* caller, int oldSelection) {
   HandleActiveChange(caller);
   CSfxManager::SfxStart(SFXfnt_selection_change, 0x7f, 0x40, false, CSfxManager::kMedPriority,
                         false, CSfxManager::kAllAreas);
 }
 
-// SNewFileSelectFrame::DoFileselectCancel
 void CFrontEndUI::SNewFileSelectFrame::DoFileselectCancel(CGuiTableGroup* caller) {
   if (x8_subMenu == kSM_EraseGame) {
     CSfxManager::SfxStart(SFXfnt_back, 0x7f, 0x40, false, CSfxManager::kMedPriority, false,
@@ -1330,7 +1271,6 @@ void CFrontEndUI::SNewFileSelectFrame::DoFileselectCancel(CGuiTableGroup* caller
   }
 }
 
-// SNewFileSelectFrame::DoPopupAdvance
 void CFrontEndUI::SNewFileSelectFrame::DoPopupAdvance(CGuiTableGroup* caller) {
   if (x8_subMenu == kSM_EraseGamePopup) {
     if (x40_tablegroup_popup->GetUserSelection() == 1) {
@@ -1364,7 +1304,6 @@ void CFrontEndUI::SNewFileSelectFrame::DoPopupAdvance(CGuiTableGroup* caller) {
   }
 }
 
-// SNewFileSelectFrame::DoPopupCancel
 void CFrontEndUI::SNewFileSelectFrame::DoPopupCancel(CGuiTableGroup* caller) {
   if (x8_subMenu == kSM_EraseGamePopup) {
     CSfxManager::SfxStart(SFXfnt_back, 0x7f, 0x40, false, CSfxManager::kMedPriority, false,
@@ -1379,7 +1318,6 @@ void CFrontEndUI::SNewFileSelectFrame::DoPopupCancel(CGuiTableGroup* caller) {
   }
 }
 
-// SFusionBonusFrame::SFusionBonusFrame
 CFrontEndUI::SFusionBonusFrame::SFusionBonusFrame()
 : x0_gbaLinkFrame(nullptr)
 , x4_gbaSupport(rs_new CGBASupport())
@@ -1397,10 +1335,8 @@ CFrontEndUI::SFusionBonusFrame::SFusionBonusFrame()
   x18_gbaLink.Lock();
 }
 
-// SFusionBonusFrame::~SFusionBonusFrame
 CFrontEndUI::SFusionBonusFrame::~SFusionBonusFrame() {}
 
-// SFusionBonusFrame::Draw
 void CFrontEndUI::SFusionBonusFrame::Draw() {
   if (!x38_lastDoDraw)
     return;
@@ -1411,7 +1347,6 @@ void CFrontEndUI::SFusionBonusFrame::Draw() {
   }
 }
 
-// SFusionBonusFrame::Update
 void CFrontEndUI::SFusionBonusFrame::Update(float dt, CSaveGameScreen* saveUI) {
   bool doDraw = saveUI == nullptr || saveUI->GetUIType() == 0x10;
 
@@ -1467,7 +1402,6 @@ void CFrontEndUI::SFusionBonusFrame::Update(float dt, CSaveGameScreen* saveUI) {
   x30_textpane_instructions.SetPairText(sel == 1 ? text1 : text0);
 }
 
-// SFusionBonusFrame::ProcessUserInput
 CFrontEndUI::SFusionBonusFrame::EAction
 CFrontEndUI::SFusionBonusFrame::ProcessUserInput(const CFinalInput& input,
                                                  CSaveGameScreen* saveUI) {
@@ -1499,7 +1433,6 @@ CFrontEndUI::SFusionBonusFrame::ProcessUserInput(const CFinalInput& input,
   return x8_action;
 }
 
-// SFusionBonusFrame::PumpLoad
 bool CFrontEndUI::SFusionBonusFrame::PumpLoad() {
   if (x24_loadedFrame) {
     return true;
@@ -1519,7 +1452,6 @@ bool CFrontEndUI::SFusionBonusFrame::PumpLoad() {
   return false;
 }
 
-// SFusionBonusFrame::FinishedLoading
 void CFrontEndUI::SFusionBonusFrame::FinishedLoading() {
   x28_tablegroup_options =
       static_cast< CGuiTableGroup* >(x24_loadedFrame->FindWidget("tablegroup_options"));
@@ -1568,20 +1500,17 @@ void CFrontEndUI::SFusionBonusFrame::FinishedLoading() {
           *this, &SFusionBonusFrame::DoSelectionChange));
 }
 
-// SFusionBonusFrame::ResetCompletionFlags
 void CFrontEndUI::SFusionBonusFrame::ResetCompletionFlags() {
   x3a_mpNotComplete = false;
   x39_fusionNotComplete = false;
 }
 
-// SFusionBonusFrame::SetTableColors
 void CFrontEndUI::SFusionBonusFrame::SetTableColors(CGuiTableGroup* tbgp) {
   CColor selected(uchar(0xff), uchar(0xff), uchar(0xff), uchar(0xff));
   CColor unselected(uchar(0xa0), uchar(0xa0), uchar(0xa0), uchar(0xc8));
   tbgp->SetColors(selected, unselected);
 }
 
-// SFusionBonusFrame::DoOptionsAdvance
 void CFrontEndUI::SFusionBonusFrame::DoOptionsAdvance(CGuiTableGroup* caller) {
   int sel = x28_tablegroup_options->GetUserSelection();
   const CSystemState& systemState = gpGameState->SystemState();
@@ -1621,7 +1550,6 @@ void CFrontEndUI::SFusionBonusFrame::DoOptionsAdvance(CGuiTableGroup* caller) {
   }
 }
 
-// SFusionBonusFrame::DoSelectionChange
 void CFrontEndUI::SFusionBonusFrame::DoSelectionChange(CGuiTableGroup* caller, int oldSelection) {
   if (caller == x28_tablegroup_options) {
     CSfxManager::SfxStart(SFXfnt_selection_change, 0x7f, 0x40, false, CSfxManager::kMedPriority,
@@ -1638,7 +1566,6 @@ void CFrontEndUI::SFusionBonusFrame::DoSelectionChange(CGuiTableGroup* caller, i
   SetTableColors(caller);
 }
 
-// SFusionBonusFrame::DoOptionsCancel
 void CFrontEndUI::SFusionBonusFrame::DoOptionsCancel(CGuiTableGroup* caller) {
   if (x39_fusionNotComplete || x3a_mpNotComplete) {
     x3a_mpNotComplete = false;
@@ -1654,7 +1581,6 @@ void CFrontEndUI::SFusionBonusFrame::DoOptionsCancel(CGuiTableGroup* caller) {
   }
 }
 
-// CFrontEndUI::CFrontEndUI
 CFrontEndUI::CFrontEndUI()
 : CIOWin(rstl::string_l("FrontEndUI"))
 , x14_phase(kP_LoadDepsGroup)
@@ -1703,7 +1629,6 @@ CFrontEndUI::CFrontEndUI()
   }
 }
 
-// CFrontEndUI::~CFrontEndUI
 CFrontEndUI::~CFrontEndUI() {
   if (x14_phase >= kP_DisplayFrontEnd) {
     CAudioSys::SysPopGroupFromARAM();
@@ -1713,7 +1638,6 @@ CFrontEndUI::~CFrontEndUI() {
   CStreamAudioManager::FadeBackIn(0.f);
 }
 
-// CFrontEndUI::TransitionToFive
 void CFrontEndUI::TransitionToFive() {
   if (x14_phase < kP_ToPlayGame) {
     CSfxManager::SfxStart(FETransitionForwardSFX[x1c_rndB][0], 0x7f, 0x40, false,
@@ -1725,7 +1649,6 @@ void CFrontEndUI::TransitionToFive() {
   }
 }
 
-// CFrontEndUI::OnMessage
 CIOWin::EMessageReturn CFrontEndUI::OnMessage(const CArchitectureMessage& message,
                                               CArchitectureQueue& queue) {
   switch (message.GetType()) {
@@ -1747,7 +1670,6 @@ CIOWin::EMessageReturn CFrontEndUI::OnMessage(const CArchitectureMessage& messag
   return kMR_Normal;
 }
 
-// CFrontEndUI::UpdateMusicVol
 void CFrontEndUI::UpdateMusicVol() {
   float volMul = (xf4_curAudio == xd4_audio1.get()) ? 0.7421875f : 0.7421875f;
   if (xf4_curAudio != nullptr) {
@@ -1756,7 +1678,6 @@ void CFrontEndUI::UpdateMusicVol() {
   }
 }
 
-// CFrontEndUI::FinishedLoadingDepsGroup
 void CFrontEndUI::FinishedLoadingDepsGroup() {
   CDependencyGroup* dgrp = x20_depsGroup.GetT();
   const rstl::vector< SObjectTag >& tags = dgrp->GetObjectTagVector();
@@ -1769,7 +1690,6 @@ void CFrontEndUI::FinishedLoadingDepsGroup() {
   x44_frontendAudioGrp.Lock();
 }
 
-// CFrontEndUI::PumpLoad
 bool CFrontEndUI::PumpLoad() {
   for (int i = 0; i < x28_deps.size(); ++i) {
     if (!x28_deps[i].IsLoaded())
@@ -1778,7 +1698,6 @@ bool CFrontEndUI::PumpLoad() {
   return x44_frontendAudioGrp.TryCache();
 }
 
-// CFrontEndUI::Update
 CIOWin::EMessageReturn CFrontEndUI::Update(float dt, CArchitectureQueue& queue) {
   // Update save UI if active and past file select phase
   if (xdc_saveUI.get() != nullptr && x50_curScreen >= kS_FileSelect) {
@@ -1928,7 +1847,6 @@ CIOWin::EMessageReturn CFrontEndUI::Update(float dt, CArchitectureQueue& queue) 
         }
       }
 
-      // Update movies
       UpdateMovies(dt);
 
       // Press start pulsing
@@ -1981,7 +1899,6 @@ CIOWin::EMessageReturn CFrontEndUI::Update(float dt, CArchitectureQueue& queue) 
   return kMR_Exit;
 }
 
-// CFrontEndUI::PumpMovieLoad
 bool CFrontEndUI::PumpMovieLoad() {
   if (xd1_moviesLoaded) {
     return true;
@@ -2013,7 +1930,6 @@ bool CFrontEndUI::PumpMovieLoad() {
   return true;
 }
 
-// CFrontEndUI::UpdateMovies
 void CFrontEndUI::UpdateMovies(float dt) {
   if (xcc_curMoviePtr != nullptr) {
     if (!xcc_curMoviePtr->PumpIndexLoad()) {
@@ -2038,7 +1954,6 @@ void CFrontEndUI::UpdateMovies(float dt) {
   }
 }
 
-// CFrontEndUI::ProcessUserInput
 void CFrontEndUI::ProcessUserInput(const CFinalInput& input, CArchitectureQueue& queue) {
   if (gpMain->GetCardBusy())
     return;
@@ -2145,7 +2060,6 @@ void CFrontEndUI::ProcessUserInput(const CFinalInput& input, CArchitectureQueue&
   }
 }
 
-// CFrontEndUI::Draw
 void CFrontEndUI::Draw() const {
   if (x14_phase < kP_DisplayFrontEnd)
     return;
@@ -2235,13 +2149,11 @@ void CFrontEndUI::Draw() const {
   }
 }
 
-// CFrontEndUI::CanShowSaveUI
 bool CFrontEndUI::CanShowSaveUI() const {
   return (x50_curScreen == kS_FileSelect || x50_curScreen == kS_FusionBonus) &&
          (x54_nextScreen == kS_FileSelect || x54_nextScreen == kS_FusionBonus);
 }
 
-// CFrontEndUI::StartStateTransition
 void CFrontEndUI::StartStateTransition(EScreen screen) {
   switch (x50_curScreen) {
   case kS_OpenCredits:
@@ -2298,7 +2210,6 @@ void CFrontEndUI::StartStateTransition(EScreen screen) {
   x54_nextScreen = screen;
 }
 
-// CFrontEndUI::CompleteStateTransition
 void CFrontEndUI::CompleteStateTransition() {
   EScreen oldScreen = x50_curScreen;
   x50_curScreen = x54_nextScreen;
@@ -2341,7 +2252,6 @@ void CFrontEndUI::CompleteStateTransition() {
   }
 }
 
-// CFrontEndUI::StartAttractMovie
 void CFrontEndUI::StartAttractMovie() {
   if (!xc4_attractMovie.null()) {
     return;
@@ -2352,7 +2262,6 @@ void CFrontEndUI::StartAttractMovie() {
   xcc_curMoviePtr = xc4_attractMovie.get();
 }
 
-// CFrontEndUI::StopAttractMovie
 void CFrontEndUI::StopAttractMovie() {
   if (xc4_attractMovie.null()) {
     return;
@@ -2361,7 +2270,6 @@ void CFrontEndUI::StopAttractMovie() {
   xcc_curMoviePtr = nullptr;
 }
 
-// CFrontEndUI::SetCurrentMovie
 void CFrontEndUI::SetCurrentMovie(EMenuMovie movie) {
   if (movie == xb8_curMovie) {
     return;
@@ -2380,31 +2288,26 @@ void CFrontEndUI::SetCurrentMovie(EMenuMovie movie) {
   }
 }
 
-// CFrontEndUI::GetNextAttractMovieFileName
 const char* CFrontEndUI::GetNextAttractMovieFileName() {
   const char* ret = GetAttractMovieFileName(xbc_nextAttract);
   xbc_nextAttract = (xbc_nextAttract + 1) % xc0_attractCount;
   return ret;
 }
 
-// CFrontEndUI::GetAttractMovieFileName
 const char* CFrontEndUI::GetAttractMovieFileName(int idx) {
   return CBasics::Stringize("Video/attract%d.thp", idx);
 }
 
-// CFrontEndUI::SetFadeBlackTimer
 void CFrontEndUI::SetFadeBlackTimer(float seconds) {
   x58_fadeBlackTimer = seconds;
   x5c_fadeBlackWithMovie = false;
 }
 
-// CFrontEndUI::SetFadeBlackWithMovie
 void CFrontEndUI::SetFadeBlackWithMovie() {
   x58_fadeBlackTimer = 1000000.f;
   x5c_fadeBlackWithMovie = true;
 }
 
-// CFrontEndUI::StartSlideShow
 void CFrontEndUI::StartSlideShow(CArchitectureQueue& queue) {
   xf4_curAudio->StopMixOut();
   queue.Push(MakeMsg::CreateCreateIOWin(kAMT_IOWinManager, kFrontEndUIMsgPriority,
