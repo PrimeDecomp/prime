@@ -64,6 +64,7 @@ public:
   const TLockedToken< CSkinnedModel >& GetModelData() const { return xd8_modelData; }
 
   void SetIsAnimating(bool v) { x220_24_animating = v; }
+  void SetParticleCEXTValue(const rstl::string& name, int index, float value);
   void SetParticleEffectState(const rstl::string& name, const bool active, CStateManager& mgr);
 
   CAssetId GetSelfId() const { return x1d8_selfId; }

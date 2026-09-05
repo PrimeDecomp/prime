@@ -48,6 +48,13 @@ public:
   EResult FindClosestReachablePoint(const CVector3f& source, CVector3f& destination) const;
   EResult GetResult() const { return xcc_result; }
 
+  void Advance() { ++xc8_curWaypoint; }
+  bool SegmentOver(const CVector3f& pos) const;
+  void GetSplinePointWithLookahead(CVector3f& point, const CVector3f& pos, float lookahead) const;
+  int GetCurrentWaypoint() const { return xc8_curWaypoint; }
+  bool IsOver() const { return xc8_curWaypoint >= x4_waypoints.size() - 1; }
+  void GetSplinePoint(CVector3f& point, const CVector3f& pos) const;
+
   bool IsShagged() const { return xcc_result != kR_Success; }
 
 private:

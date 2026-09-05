@@ -1654,15 +1654,21 @@ MetroidPrime/Weapons/CIceProjectile.cpp:
 	.sdata      start:0x805A7E58 end:0x805A7E80
 	.sdata2     start:0x805ACC00 end:0x805ACC40
 
+MetroidPrime/Enemies/CPatternedAiFunctions.cpp:
+	.text       start:0x801F40C8 end:0x801F71E8
+	.rodata     start:0x803D2070 end:0x803D2078
+	.sdata      start:0x805A7E80 end:0x805A7E90
+	.sdata2     start:0x805ACC40 end:0x805ACC70
+
 MetroidPrime/Enemies/CFlyingPirate.cpp:
-	.text       start:0x801F40C8 end:0x80200BD8
+	.text       start:0x801F71E8 end:0x80200BD8
 	.ctors      start:0x803CB284 end:0x803CB288
-	.rodata     start:0x803D2070 end:0x803D2580
+	.rodata     start:0x803D2078 end:0x803D2580
 	.data       start:0x803E67E8 end:0x803E6BB0
 	.bss        start:0x8046C950 end:0x8046CB40
 	.bss        start:0x80572078 end:0x80572128 align:4 common
-	.sdata      start:0x805A7E80 end:0x805A7F00
-	.sdata2     start:0x805ACC40 end:0x805ACD50
+	.sdata      start:0x805A7E90 end:0x805A7F00
+	.sdata2     start:0x805ACC70 end:0x805ACD50
 
 MetroidPrime/ScriptObjects/CScriptColorModulate.cpp:
 	.text       start:0x80200BD8 end:0x80201D10
