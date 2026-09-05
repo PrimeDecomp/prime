@@ -21,18 +21,17 @@ class CTransform4f;
 
 class CLayoutDescription {
 public:
-  CLayoutDescription(const TLockedToken< CCharLayoutInfo >&);
-  ~CLayoutDescription();
+  CLayoutDescription(const TLockedToken< CCharLayoutInfo >& layout) : x0_layoutToken(layout) {}
 
   class CScaledLayoutDescription {
   private:
-    TCachedToken< CCharLayoutInfo > x0_layoutToken;
+    TLockedToken< CCharLayoutInfo > x0_layoutToken;
     float xc_scale;
     rstl::optional_object< CVector3f > x10_scaleVec;
   };
 
 private:
-  TCachedToken< CCharLayoutInfo > x0_layoutToken;
+  TLockedToken< CCharLayoutInfo > x0_layoutToken;
   rstl::optional_object< CScaledLayoutDescription > xc_scaled;
 };
 CHECK_SIZEOF(CLayoutDescription, 0x30)

@@ -19,4 +19,5 @@ private:
   rstl::vector< rstl::ncrc_ptr< CAnimTreeNode > > x10_nodes;
   rstl::vector< bool > x20_;
 };
+CHECK_SIZEOF(CSequenceHelper, 0x30)
 #endif // _CSEQUENCEHELPER

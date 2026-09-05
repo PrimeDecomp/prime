@@ -17,20 +17,26 @@ public:
   virtual CAnimTreeEffectiveContribution VGetContributionOfHighestInfluence() const = 0;
 
   virtual uint VGetNumChildren() const = 0;
-  virtual rstl::rc_ptr< IAnimReader > VGetBestUnblendedChild() const = 0;
+  virtual rstl::rc_ptr< CAnimTreeNode > VGetBestUnblendedChild() const = 0;
   virtual void VGetWeightedReaders(
       float w, rstl::reserved_vector< rstl::pair< float, IAnimReader* >, 16 >& out) const = 0;
+
 
   CAnimTreeEffectiveContribution GetContributionOfHighestInfluence() const {
     return VGetContributionOfHighestInfluence();
   }
 
+  rstl::rc_ptr< CAnimTreeNode > GetBestUnblendedChild() const {
+    return VGetBestUnblendedChild();
+  }
+
   bool IsCAnimTreeNode() const override { return true; }
 
-private:
+protected:
   rstl::string x4_name;
 };
-rstl::ncrc_ptr<CAnimTreeNode> Cast(const rstl::ownership_transfer<IAnimReader>& x);
+CHECK_SIZEOF(CAnimTreeNode, 0x14)
 
+rstl::ncrc_ptr< CAnimTreeNode > Cast(const rstl::ownership_transfer< IAnimReader >& ptr);
 
 #endif // _CANIMTREENODE

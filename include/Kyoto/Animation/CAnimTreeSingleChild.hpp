@@ -35,8 +35,11 @@ public:
   void VGetWeightedReaders(
       float w, rstl::reserved_vector< rstl::pair< float, IAnimReader* >, 16 >& out) const override;
 
+  void ReplaceChild(const rstl::ncrc_ptr< CAnimTreeNode >& node) { x14_child = node; }
+
 protected:
-  rstl::rc_ptr< CAnimTreeNode > x14_child;
+  rstl::ncrc_ptr< CAnimTreeNode > x14_child;
 };
+CHECK_SIZEOF(CAnimTreeSingleChild, 0x18)
 
 #endif // _CANIMTREESINGLECHILD

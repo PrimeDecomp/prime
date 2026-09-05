@@ -30,7 +30,7 @@ public:
   CCharLayoutInfo(CInputStream& in);
   CSegId GetSegIdFromString(const rstl::string& bone) const;
 
-  void GetBodyPartSegIds() const;
+  const CSegIdList& GetBodyPartSegIds() const { return mSegIdList; }
   
   CVector3f GetFromParentUnrotated(const CSegId& parent) const;
   const CCharLayoutNode& GetSegmentData(const CSegId& seg) const;

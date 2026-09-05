@@ -220,7 +220,7 @@ void vector< T, Alloc >::insert_into(iterator at, int n, In in) {
 }
 
 template < typename T, typename Alloc >
-vector< T, Alloc >& vector< T, Alloc >::operator=(const vector< T, Alloc >& other) {
+inline vector< T, Alloc >& vector< T, Alloc >::operator=(const vector< T, Alloc >& other) {
   if (this == &other)
     return *this;
   clear();
