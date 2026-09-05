@@ -1114,7 +1114,7 @@ config.libs = [
             Object(NonMatching, "MetroidPrime/Enemies/CWallWalker.cpp"),
             Object(NonMatching, "MetroidPrime/CErrorOutputWindow.cpp"),
             Object(NonMatching, "MetroidPrime/CRainSplashGenerator.cpp"),
-            Object(NonMatching, "MetroidPrime/Factories/CWorldSaveGameInfoFactory.cpp"),
+            Object(Matching, "MetroidPrime/CWorldSaveGameInfo.cpp"),
             Object(NonMatching, "MetroidPrime/CFluidPlaneRender.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CBurrower.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CMetroidPrime.cpp"),

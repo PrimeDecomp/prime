@@ -2074,7 +2074,7 @@ MetroidPrime/CRainSplashGenerator.cpp:
 	.rodata     start:0x803D55D8 end:0x803D55F8
 	.sdata2     start:0x805ADA48 end:0x805ADA90
 
-MetroidPrime/Factories/CWorldSaveGameInfoFactory.cpp:
+MetroidPrime/CWorldSaveGameInfo.cpp:
 	.text       start:0x8026ADDC end:0x8026BC6C
 	.rodata     start:0x803D55F8 end:0x803D5600
 

@@ -2082,9 +2082,10 @@ MetroidPrime/CRainSplashGenerator.cpp:
 	.rodata     start:0x803D53F8 end:0x803D5418
 	.sdata2     start:0x805AD868 end:0x805AD8B0
 
-MetroidPrime/Factories/CWorldSaveGameInfoFactory.cpp:
+MetroidPrime/CWorldSaveGameInfo.cpp:
 	.text       start:0x8026AD60 end:0x8026BBF0
 	.rodata     start:0x803D5418 end:0x803D5420
+	.data       start:0x803EA790 end:0x803EA7A0
 
 MetroidPrime/CFluidPlaneRender.cpp:
 	.text       start:0x8026BBF0 end:0x8026FB48
@@ -2097,7 +2098,7 @@ MetroidPrime/Enemies/CBurrower.cpp:
 	.text       start:0x8026FB48 end:0x802712AC
 	.ctors      start:0x803CB2BC end:0x803CB2C0
 	.rodata     start:0x803D5420 end:0x803D5428
-	.data       start:0x803EA790 end:0x803EAA90
+	.data       start:0x803EA7A0 end:0x803EAA90
 	.bss        start:0x80572694 end:0x805726FC align:4 common
 	.sdata2     start:0x805AD8D8 end:0x805AD8F0
 
