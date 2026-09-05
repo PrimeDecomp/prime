@@ -16,6 +16,10 @@ public:
     return first == other.first && second == other.second;
   }
 
+  bool operator!=(const pair& other) const {
+    return first != other.first || second != other.second;
+  }
+
   L first;
   R second;
 };

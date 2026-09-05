@@ -173,7 +173,7 @@ public:
   // GetAnimDir__9CAnimDataCFv
   // GetIsLoop__9CAnimDataCFv
   // IsAnimating__9CAnimDataCFv
-  // SetPoseBuilderValid__9CAnimDataFb
+  void SetPoseBuilderValid(bool valid) { x220_30_poseBuilt = valid; }
   rstl::rc_ptr< CAnimationManager > GetAnimationManager() const;
   // GetPoseValid__9CAnimDataCFv
   // GetPoseBuilderValid__9CAnimDataCFv
@@ -186,8 +186,8 @@ public:
   // GetSkinnedModel__9CAnimDataCFv
   // GetXRayModel__9CAnimDataCFv
   // GetInfraModel__9CAnimDataCFv
-  // GetPose__9CAnimDataCFv
-  // PoseBuilder__9CAnimDataCFv
+  const CPoseAsTransforms& GetPose() const { return x224_pose; }
+  CHierarchyPoseBuilder& PoseBuilder() const { return x2fc_poseBuilder; }
   float GetPlaybackRate() const { return x200_speedScale; }
   // Pose__9CAnimDataFv
   // GetPoseBuilder__9CAnimDataCFv
@@ -238,7 +238,7 @@ private:
   uchar x220_30_poseBuilt : 1;
   uchar x220_31_poseCached : 1;
   CPoseAsTransforms x224_pose;
-  CHierarchyPoseBuilder x2fc_poseBuilder;
+  mutable CHierarchyPoseBuilder x2fc_poseBuilder;
   CAnimPlaybackParms x40c_playbackParms;
   rstl::reserved_vector< rstl::pair< uint, CAdditiveAnimPlayback >, 8 > x434_additiveAnims;
 
