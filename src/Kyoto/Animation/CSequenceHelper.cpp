@@ -36,5 +36,7 @@ CSequenceFundamentals CSequenceHelper::ComputeSequenceFundamentals() const {
     Cast(reader);
   }
 
-  return CSequenceFundamentals(boolNodes, int32Nodes, partNodes, soundNodes);
+  return CSequenceFundamentals(
+      CSteadyStateAnimInfo(false, CCharAnimTime::Infinity(), CVector3f::Zero()),
+      boolNodes, int32Nodes, partNodes, soundNodes);
 }

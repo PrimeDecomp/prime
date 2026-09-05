@@ -21,8 +21,9 @@ public:
 
 private:
   TToken< CTransitionDatabase > x0_transDb;
-  rstl::rc_ptr< CRandom16 > x8_random;
+  rstl::ncrc_ptr< CRandom16 > x8_random;
   CSimplePool& xc_store;
 };
+CHECK_SIZEOF(CAnimSysContext, 0x10)
 
 #endif // _CANIMSYSCONTEXT

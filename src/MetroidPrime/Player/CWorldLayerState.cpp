@@ -1,3 +1,5 @@
+#pragma inline_max_size(250)
+
 #include "MetroidPrime/Player/CWorldLayerState.hpp"
 
 #include "Kyoto/Streams/CMemoryStreamOut.hpp"

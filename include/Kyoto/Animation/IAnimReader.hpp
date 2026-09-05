@@ -18,6 +18,8 @@ struct SAdvancementDeltas {
   CQuaternion xc_rotDelta;
 
   SAdvancementDeltas() : x0_posDelta(CVector3f::Zero()), xc_rotDelta(CQuaternion::NoRotation()) {}
+  SAdvancementDeltas(const CVector3f& pos, const CQuaternion& rot)
+  : x0_posDelta(pos), xc_rotDelta(rot) {}
   static SAdvancementDeltas Interpolate(const SAdvancementDeltas& a, const SAdvancementDeltas& b,
                                         float oldWeight, float newWeight);
   static SAdvancementDeltas Blend(const SAdvancementDeltas& a, const SAdvancementDeltas& b,
@@ -29,6 +31,8 @@ struct SAdvancementResults {
   SAdvancementDeltas x8_deltas;
   SAdvancementResults() {}
   SAdvancementResults(const CCharAnimTime& time) : x0_remTime(time) {}
+  SAdvancementResults(const CCharAnimTime& time, const SAdvancementDeltas& deltas)
+  : x0_remTime(time), x8_deltas(deltas) {}
 };
 
 struct CAnimTreeEffectiveContribution {
@@ -86,7 +90,7 @@ public:
   virtual void VGetSegStatementSet(const CSegIdList& list, CSegStatementSet& setOut) const = 0;
   virtual void VGetSegStatementSet(const CSegIdList& list, CSegStatementSet& setOut,
                                    const CCharAnimTime& time) const = 0;
-  virtual rstl::auto_ptr< IAnimReader > VClone() const = 0;
+  virtual rstl::ownership_transfer< IAnimReader > VClone() const = 0;
   virtual rstl::optional_object< rstl::ownership_transfer< IAnimReader > > VSimplified();
   rstl::optional_object< rstl::ownership_transfer< IAnimReader > > Simplified();
   virtual void VSetPhase(float) = 0;
@@ -106,7 +110,7 @@ public:
   uint GetSoundPOIList(const CCharAnimTime& time, CSoundPOINode* listOut, uint capacity,
                        uint iterator, int unk) const;
 
-  rstl::ownership_transfer< IAnimReader > Clone() const;
+  rstl::ownership_transfer< IAnimReader > Clone() const { return VClone(); }
 };
 
 #endif // _IANIMREADER

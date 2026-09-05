@@ -1,3 +1,5 @@
+#pragma inline_max_size(250)
+
 #include "MetroidPrime/CAnimData.hpp"
 
 #include "Kyoto/Animation/CAnimTreeNode.hpp"
@@ -47,8 +49,6 @@ static rstl::reserved_vector< CInt32POINode, 16 > sInt32TransientCache;
 static int skPOICacheReferenceCount;
 static CInt32POINode* sInt32TransientCacheData;
 
-//rstl::rc_ptr< CAnimTreeNode > Cast(const rstl::ownership_transfer< IAnimReader >& ptr);
-
 extern const int lbl_805AE3D8;
 extern const int lbl_805AE3DC;
 
@@ -65,7 +65,7 @@ public:
   SAdvancementResults VAdvanceView(const CCharAnimTime& dt);
   CCharAnimTime VGetTimeRemaining() const;
   CSteadyStateAnimInfo VGetSteadyStateAnimInfo() const;
-  rstl::auto_ptr< IAnimReader > VClone() const;
+  rstl::ownership_transfer< IAnimReader > VClone() const;
   void SetBlendingWeight(float w);
   float VGetBlendingWeight() const;
 
@@ -152,10 +152,6 @@ void CAnimData::SetXRayModel(const TLockedToken< CModel >& model,
   xf4_xrayModel = rstl::rc_ptr< CSkinnedModel >(skinnedModel);
 }
 
-static uchar GetSegIdCountFromLayout(const TLockedToken< CCharLayoutInfo >& layoutData) {
-  return *reinterpret_cast< const uchar* >(reinterpret_cast< const uchar* >(*layoutData) + 0xc);
-}
-
 CAnimData::CAnimData(
     uint selfId, const CCharacterInfo& charInfo, int defaultAnim, int charIdx, bool loop,
     const TLockedToken< CCharLayoutInfo >& layoutData, const TToken< CSkinnedModel >& modelData,
@@ -197,7 +193,7 @@ CAnimData::CAnimData(
 , x220_29_animationJustStarted(false)
 , x220_30_poseBuilt(false)
 , x220_31_poseCached(false)
-, x224_pose(GetSegIdCountFromLayout(layoutData))
+, x224_pose(static_cast< uchar >(layoutData->GetBodyPartSegIds().size()))
 , x2fc_poseBuilder(CLayoutDescription(layoutData))
 , x40c_playbackParms(-1, -1, 1.f, true)
 , x434_additiveAnims() {
@@ -437,12 +433,6 @@ SAdvancementResults CAnimData::AdvanceAdditiveAnim(rstl::rc_ptr< CAnimTreeNode >
   return ret;
 }
 
-rstl::pair< uint, CAdditiveAnimPlayback >*
-fn_80029C18(rstl::reserved_vector< rstl::pair< uint, CAdditiveAnimPlayback >, 8 >* vec,
-            rstl::pair< uint, CAdditiveAnimPlayback >* it) {
-  return vec->erase(it);
-}
-
 SAdvancementDeltas CAnimData::UpdateAdditiveAnims(float dt) {
   rstl::pair< uint, CAdditiveAnimPlayback >* it = x434_additiveAnims.begin();
   rstl::pair< uint, CAdditiveAnimPlayback >* const begin = x434_additiveAnims.begin();
@@ -457,7 +447,7 @@ SAdvancementDeltas CAnimData::UpdateAdditiveAnims(float dt) {
     }
 
     if (playback.GetFadingMode() == CAdditiveAnimPlayback::kPP_FadedOut) {
-      it = fn_80029C18(&x434_additiveAnims, it);
+      it = x434_additiveAnims.erase(it);
     } else {
       ++it;
     }

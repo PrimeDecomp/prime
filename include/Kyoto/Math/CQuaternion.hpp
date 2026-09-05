@@ -29,7 +29,10 @@ public:
   // }
 
   CQuaternion operator*(const CQuaternion&) const;
-  // __amu__11CQuaternionFRC11CQuaternion
+  CQuaternion& operator*=(const CQuaternion& other) {
+    *this = *this * other;
+    return *this;
+  }
   // ScalarVector__11CQuaternionFfRC9CVector3f
   // Slerp__11CQuaternionFRC11CQuaternionRC11CQuaternionf
   static CQuaternion ShortestRotationArc(const CVector3f&, const CVector3f&);
