@@ -36,7 +36,8 @@ void __insertion_sort(It first, It last, Cmp cmp) {
     It t1 = next - 1;
     It t2 = next;
     while (first < t2 && cmp(value, *t1)) {
-      *t2-- = *t1;
+      *t2 = *t1;
+      --t2;
       --t1;
     }
     *t2 = value;
@@ -107,6 +108,25 @@ It lower_bound(It start, It end, const T& value, Cmp cmp) {
     it = start;
     advance(it, halfDist);
     if (cmp(*it, value)) {
+      start = it;
+      ++start;
+      dist = (dist - halfDist) - 1;
+    } else {
+      dist = halfDist;
+    }
+  }
+  return start;
+}
+
+template < typename It, typename T >
+It lower_bound(It start, It end, const T& value) {
+  int dist = distance(start, end);
+  It it = start;
+  while (dist > 0) {
+    int halfDist = dist / 2;
+    it = start;
+    advance(it, halfDist);
+    if (*it < value) {
       start = it;
       ++start;
       dist = (dist - halfDist) - 1;
@@ -249,7 +269,7 @@ typename T::const_iterator inline find_by_key(
 template < typename T, class Cmp >
 typename T::const_iterator inline find_by_key(
     const T& container, const typename select1st< typename T::value_type >::value_type& key,
-    Cmp cmp) {
+    const Cmp& cmp) {
   return binary_find(container.begin(), container.end(), key,
                      pair_sorter_finder< typename T::value_type, Cmp >(cmp));
 }

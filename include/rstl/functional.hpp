@@ -3,8 +3,21 @@
 
 namespace rstl {
 
+template < typename Arg, typename Result >
+struct unary_function {
+  typedef Arg argument_type;
+  typedef Result result_type;
+};
+
+template < typename Arg1, typename Arg2, typename Result >
+struct binary_function {
+  typedef Arg1 first_argument_type;
+  typedef Arg2 second_argument_type;
+  typedef Result result_type;
+};
+
 template < typename P >
-struct identity {
+struct identity : unary_function< P, P > {
   const P& operator()(const P& it) const { return it; }
 };
 
@@ -33,7 +46,7 @@ binder1st< Op > bind1st(const Op& op, const T& value) {
 }
 
 template < typename T >
-struct less {
+struct less : binary_function< T, T, bool > {
   bool operator()(const T& a, const T& b) const { return a < b; }
 };
 

@@ -11,7 +11,9 @@ class CTransitionDatabase {
 public:
   virtual const rstl::rc_ptr< IMetaTrans >& GetMetaTrans(uint from, uint to) const = 0;
 
-  CTransitionDatabase() : x4_token(rstl::optional_object< TToken< CTransitionDatabase > >()) {}
+  explicit CTransitionDatabase(
+      const rstl::optional_object< TToken< CTransitionDatabase > >& token = rstl::optional_object_null())
+  : x4_token(token) {}
   ~CTransitionDatabase() {}
 
 private:

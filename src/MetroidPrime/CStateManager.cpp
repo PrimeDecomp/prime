@@ -2432,7 +2432,7 @@ void CStateManager::MurderScriptInstanceNames() {
     rstl::set< rstl::string >::iterator it = xb40_uniqueInstanceNames.begin();
     rstl::set< rstl::string >::iterator end = xb40_uniqueInstanceNames.end();
     for (; it != end; ++it) {
-      rstl::string* str = *it;
+      rstl::string* str = &*it;
       const int refCount = str->refcount();
 
       if (refCount == 1) {
