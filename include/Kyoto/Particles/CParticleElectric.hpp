@@ -21,16 +21,16 @@ public:
   void SetGlobalTranslation(const CVector3f& translation) override;
   void SetGlobalScale(const CVector3f& scale) override;
   void SetLocalScale(const CVector3f& scale) override;
-  void SetParticleEmission(bool emission) override;
+  void SetParticleEmission(const bool emission) override;
   void SetModulationColor(const CColor& col) override;
   void SetGeneratorRate(float rate) {}
   const CTransform4f& GetOrientation() const override;
   const CVector3f& GetTranslation() const override;
   const CTransform4f& GetGlobalOrientation() const override;
   const CVector3f& GetGlobalTranslation() const override;
-  const CVector3f& GetGlobalScale() const override;
+  const CVector3f& GetGlobalScale() const override { return xe0_globalScale; }
   bool GetParticleEmission() const override;
-  const CColor& GetModulationColor() const override;
+  const CColor& GetModulationColor() const override { return x1b8_moduColor; }
   bool IsSystemDeletable() const override;
   rstl::optional_object< CAABox > GetBounds() const override;
   int GetParticleCount() const override;
@@ -47,12 +47,15 @@ public:
   static void SetGlobalSeed(ushort seed) { sSeed = seed; }
 
 private:
-  uchar x1c_pad[0x15c];
+  uchar x1c_pad[0xc4];
+  CVector3f xe0_globalScale;
+  uchar xec_pad[0x8c];
   rstl::optional_object< CVector3f > x178_overrideIPos;
   rstl::optional_object< CVector3f > x188_overrideIVel;
   rstl::optional_object< CVector3f > x198_overrideFPos;
   rstl::optional_object< CVector3f > x1a8_overrideFVel;
-  uchar x1b8_pad[0x2a0];
+  CColor x1b8_moduColor;
+  uchar x1bc_pad[0x29c];
 
   static ushort sSeed;
 };

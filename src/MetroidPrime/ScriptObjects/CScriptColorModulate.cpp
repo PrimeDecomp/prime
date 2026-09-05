@@ -127,7 +127,56 @@ void CScriptColorModulate::End(CStateManager& mgr) {
   }
 }
 
-CModelFlags CScriptColorModulate::CalculateFlags(const CColor& col) const {}
+CModelFlags CScriptColorModulate::CalculateFlags(const CColor& col) const {
+  if (mDepthBackwards) {
+    switch (mBlendMode) {
+    case kBM_Alpha:
+      return CModelFlags::AlphaBlended(col)
+          .DepthCompareUpdate(mDepthCompare, mDepthUpdate)
+          .DepthBackwards();
+    case kBM_Additive:
+      return CModelFlags::Additive(col)
+          .DepthCompareUpdate(mDepthCompare, mDepthUpdate)
+          .DepthBackwards();
+    case kBM_Additive2:
+      return CModelFlags(CModelFlags::kT_Additive2, col)
+          .DepthCompareUpdate(mDepthCompare, mDepthUpdate)
+          .DepthBackwards();
+    case kBM_Opaque:
+      return CModelFlags(CModelFlags::kT_One, col)
+          .DepthCompareUpdate(mDepthCompare, mDepthUpdate)
+          .DepthBackwards();
+    case kBM_OpaqueAdd:
+      return CModelFlags(CModelFlags::kT_Two, col)
+          .DepthCompareUpdate(mDepthCompare, mDepthUpdate)
+          .DepthBackwards();
+    }
+  }
+  switch (mBlendMode) {
+  case kBM_Alpha:
+    if (col == CColor::White()) {
+      const bool update = mDepthUpdate;
+      const bool compare = mDepthCompare;
+      return CModelFlags::Normal().DepthCompareUpdate(compare, update);
+    }
+    return CModelFlags::AlphaBlended(col).DepthCompareUpdate(mDepthCompare, mDepthUpdate);
+  case kBM_Additive:
+    return CModelFlags::Additive(col).DepthCompareUpdate(mDepthCompare, mDepthUpdate);
+  case kBM_Additive2:
+    return CModelFlags(CModelFlags::kT_Additive2, col)
+        .DepthCompareUpdate(mDepthCompare, mDepthUpdate);
+  case kBM_Opaque:
+    if (col == CColor::White()) {
+      const bool update = mDepthUpdate;
+      const bool compare = mDepthCompare;
+      return CModelFlags::Normal().DepthCompareUpdate(compare, update);
+    }
+    return CModelFlags(CModelFlags::kT_One, col).DepthCompareUpdate(mDepthCompare, mDepthUpdate);
+  case kBM_OpaqueAdd:
+    return CModelFlags(CModelFlags::kT_Two, col).DepthCompareUpdate(mDepthCompare, mDepthUpdate);
+  }
+  return CModelFlags::Normal();
+}
 void CScriptColorModulate::Think(float dt, CStateManager& mgr) {
   if (!GetActive() || !mEnable) {
     return;
@@ -137,12 +186,9 @@ void CScriptColorModulate::Think(float dt, CStateManager& mgr) {
 
   switch (mFadeState) {
   case kFS_AtoB: {
-    float t = 1.f;
-    if (!close_enough(mTimeA2B, 0.f)) {
-      t = rstl::min_val(1.f, mCurTime / mTimeA2B);
-    }
-
-    CColor lerpedCol = CColor::Lerp(mColorA, mColorB, t);
+    CColor lerpedCol =
+        CColor::Lerp(mColorA, mColorB,
+                     close_enough(mTimeA2B, 0.f) ? 1.f : rstl::min_val(1.f, mCurTime / mTimeA2B));
     SetTargetFlags(mgr, CalculateFlags(lerpedCol));
 
     if (mCurTime > mTimeA2B) {
@@ -150,12 +196,9 @@ void CScriptColorModulate::Think(float dt, CStateManager& mgr) {
     }
   } break;
   case kFS_BtoA: {
-    float t = 1.f;
-    if (!close_enough(mTimeB2A, 0.f)) {
-      t = rstl::min_val(1.f, mCurTime / mTimeB2A);
-    }
-
-    CColor lerpedCol = CColor::Lerp(mColorA, mColorB, t);
+    CColor lerpedCol =
+        CColor::Lerp(mColorB, mColorA,
+                     close_enough(mTimeB2A, 0.f) ? 1.f : rstl::min_val(1.f, mCurTime / mTimeB2A));
     SetTargetFlags(mgr, CalculateFlags(lerpedCol));
 
     if (mCurTime > mTimeB2A) {

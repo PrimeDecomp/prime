@@ -67,5 +67,6 @@ private:
   bool mDieOnEnd : 1;
   bool mIsFadeOutHelper : 1;
 };
+CHECK_SIZEOF(CScriptColorModulate, 0x58)
 
 #endif // _CSCRIPTCOLORMODULATE

@@ -716,7 +716,7 @@ void CGraphics::SetCopyClear(const CColor& color, float depth) {
 
 void CGraphics::SetClearColor(const CColor& color) {
   mClearColor = color;
-  GXSetCopyClear(color.GetGXColor(), mClearDepthValue);
+  GXSetCopyClear(mClearColor.GetGXColor(), mClearDepthValue);
 }
 
 void CGraphics::ClearBackAndDepthBuffers() {
