@@ -7,10 +7,23 @@
 #include "MetroidPrime/TGameTypes.hpp"
 #include "MetroidPrime/Player/CWorldSaveGameInfo.hpp"
 
+class CSaveWorldMemory {
+public:
+  int GetAreaCount() const { return x8_areaCount; }
+
+private:
+  CAssetId x0_worldNameId;
+  CAssetId x4_saveWorldId;
+  int x8_areaCount;
+  // TODO: remaining save-world metadata
+};
+
 class CMemoryCard {
 public:
   ~CMemoryCard();
   // TODO
+
+  const CSaveWorldMemory& GetSaveWorldMemory(int worldId) const;
 
   rstl::pair< CAssetId, TAreaId > GetAreaAndWorldIdForSaveId(int saveId) const;
 
