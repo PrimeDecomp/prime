@@ -165,7 +165,8 @@ void CPakFile::LoadResourceTable(CMemoryInStream& in) {
     }
   }
 
-  rstl::sort(x74_resList.begin(), x74_resList.end(), rstl::less< SResInfo >());
+  static rstl::less< SResInfo > compare;
+  rstl::sort(x74_resList.begin(), x74_resList.end(), compare);
 }
 
 uint CPakFile::GetFakeStaticSize() const {
@@ -178,8 +179,9 @@ const CPakFile::SResInfo* CPakFile::GetResInfo(uint id) const {
   if (x28_27_stashedInARAM)
     return nullptr;
   SResInfo key(id, 'TXTR', 0, 0, 0);
+  static rstl::less< SResInfo > compare;
   rstl::vector< SResInfo >::const_iterator it =
-      rstl::lower_bound(x74_resList.begin(), x74_resList.end(), key, rstl::less< SResInfo >());
+      rstl::lower_bound(x74_resList.begin(), x74_resList.end(), key, compare);
   if (it == x74_resList.end() || it->GetId() != id) {
     return nullptr;
   }
@@ -190,8 +192,9 @@ const CPakFile::SResInfo* CPakFile::GetResInfoForLoadDirectionless(uint id) {
   if (x28_27_stashedInARAM)
     return nullptr;
   SResInfo key(id, 'TXTR', 0, 0, 0);
+  static rstl::less< SResInfo > compare;
   rstl::vector< SResInfo >::iterator it =
-      rstl::lower_bound(x74_resList.begin(), x74_resList.end(), key, rstl::less< SResInfo >());
+      rstl::lower_bound(x74_resList.begin(), x74_resList.end(), key, compare);
   if (it == x74_resList.end() || it->GetId() != id) {
     return nullptr;
   }
@@ -214,8 +217,9 @@ const CPakFile::SResInfo* CPakFile::GetResInfoForLoadPreferForward(uint id) {
   if (x28_27_stashedInARAM)
     return nullptr;
   SResInfo key(id, 'TXTR', 0, 0, 0);
+  static rstl::less< SResInfo > compare;
   rstl::vector< SResInfo >::iterator it =
-      rstl::lower_bound(x74_resList.begin(), x74_resList.end(), key, rstl::less< SResInfo >());
+      rstl::lower_bound(x74_resList.begin(), x74_resList.end(), key, compare);
   if (it == x74_resList.end() || it->GetId() != id)
     return nullptr;
   const SResInfo* bestInfo = &*it;
