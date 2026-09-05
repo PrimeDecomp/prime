@@ -45,6 +45,10 @@ public:
   void WriteShort(const short t) { Put(&t, sizeof(short)); }
   void WriteLong(const int t) { Put(&t, sizeof(int)); }
 
+  void WriteBool(const bool b) {
+    const uchar c = b ? 1 : 0;
+    WriteChar(c);
+  }
   void WriteChar(const uchar c) {
     FlushShiftRegister();
     if (mUnwrittenLen >= mBufLen) {

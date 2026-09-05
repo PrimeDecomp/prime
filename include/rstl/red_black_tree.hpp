@@ -19,7 +19,26 @@ void rbtree_rebalance(void*, void*);
 void* rbtree_traverse_forward(const void*, void*);
 void* rbtree_rebalance_for_erase(void* header_void, void* node_void);
 
-template < typename T, typename P, int U, typename S = select1st< P >, typename Cmp = less< T >,
+template < bool, unsigned int N, unsigned int D >
+struct is_prime_helper {
+  enum { value = (N % D == 0) ? 0 : is_prime_helper< ((D + 1) * (D + 1) <= N), N, D + 1 >::value };
+};
+
+template < unsigned int N, unsigned int D >
+struct is_prime_helper< false, N, D > {
+  enum { value = 1 };
+};
+
+template < unsigned int N >
+struct is_prime_v {
+  enum { value = (N <= 1) ? 0 : (N == 2 || N == 3) ? 1 : (N % 2 == 0) ? 0 : is_prime_helper< (9 <= N), N, 3 >::value };
+};
+
+#define IS_PRIME(N) (is_prime_v< (N) >::value)
+
+#define IS_PRIME_TYPE(Type) (is_prime_v< sizeof(Type) >::value)
+
+template < typename T, typename P, int Prime, typename S = select1st< P >, typename Cmp = less< T >,
            typename Alloc = rmemory_allocator >
 class red_black_tree {
 private:
@@ -78,11 +97,10 @@ public:
     const P* operator->() const { return mNode->get_value(); }
     const P* operator*() const { return mNode->get_value(); }
     bool operator==(const const_iterator& other) const {
-      return mNode == other.mNode && mHeader == other.mHeader;
+      return !(mNode != other.mNode || mHeader != other.mHeader);
     }
     bool operator!=(const const_iterator& other) const {
-      // return !(*this == other);
-      return mNode != other.mNode || mHeader != other.mHeader;
+      return (mNode != other.mNode || mHeader != other.mHeader);
     }
 
     const_iterator& operator++() {

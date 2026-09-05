@@ -3,33 +3,15 @@
 
 #include "types.h"
 
+#include "rstl/allocator_auto_ptr.hpp"
 #include "rstl/iterator.hpp"
 #include "rstl/pointer_iterator.hpp"
 #include "rstl/rmemory_allocator.hpp"
 
 class CInputStream;
+class COutputStream;
 
 namespace rstl {
-template < typename T, typename Alloc >
-struct allocator_auto_ptr {
-  allocator_auto_ptr(T* ptr, Alloc* alloc) : x0_ptr(ptr), x4_alloc(alloc) {}
-  ~allocator_auto_ptr() {
-    if (x0_ptr != nullptr) {
-      x4_alloc->deallocate(x0_ptr);
-      x0_ptr = nullptr;
-    }
-  }
-
-  T* release() const {
-    T* ret = x0_ptr;
-    const_cast< allocator_auto_ptr* >(this)->x0_ptr = nullptr;
-    return ret;
-  }
-
-private:
-  T* x0_ptr;
-  Alloc* x4_alloc;
-};
 
 template < typename T, typename Alloc = rmemory_allocator >
 class vector {
@@ -43,12 +25,13 @@ public:
   typedef Alloc allocator_type;
   typedef pointer_iterator< T, vector< T, Alloc >, Alloc > iterator;
   typedef const_pointer_iterator< T, vector< T, Alloc >, Alloc > const_iterator;
+  typedef int size_type;
   typedef T value_type;
 
-  iterator begin() { return iterator(xc_items); }
-  const_iterator begin() const { return const_iterator(xc_items); }
-  iterator end() { return iterator(xc_items + x4_count); }
-  const_iterator end() const { return const_iterator(xc_items + x4_count); }
+  iterator begin() { return iterator(this, data()); }
+  const_iterator begin() const { return const_iterator(this, data()); }
+  iterator end() { return iterator(this, data() + size()); }
+  const_iterator end() const { return const_iterator(this, data() + size()); }
   vector(const Alloc& alloc = Alloc())
   : x0_allocator(alloc), x4_count(0), x8_capacity(0), xc_items(nullptr) {}
   vector(int count) : x4_count(0), x8_capacity(0), xc_items(0) { reserve(count); }
@@ -69,15 +52,16 @@ public:
   vector(CInputStream& in, const Alloc& alloc = Alloc());
   ~vector() {
     destroy(begin(), end());
-    x0_allocator.deallocate(xc_items);
+    x0_allocator.deallocate(data());
   }
 
   void resize(int size, const T& in = T());
+  void assign(int size, const T& in = T());
   void reserve(int size);
   iterator insert(iterator it, const T& value);
 
   template < typename from_iterator >
-  iterator insert(iterator it, from_iterator begin, from_iterator end);
+  void insert(iterator it, from_iterator begin, from_iterator end);
 
   // iterator erase(iterator it);
   // iterator erase(iterator first, iterator last);
@@ -116,17 +100,32 @@ public:
   T& operator[](int idx) { return xc_items[idx]; }
   const T& operator[](int idx) const { return xc_items[idx]; }
 
+  void PutTo(COutputStream& out) const;
+
 protected:
   template < typename In >
   void insert_into(iterator at, int n, In in);
 };
 
 template < typename T, typename Alloc >
-void vector< T, Alloc >::resize(int size, const T& in) {
+void vector< T, Alloc >::assign(int size, const T& in) {
   clear();
   reserve(size);
   for (int i = 0; i < size; ++i) {
     push_back(in);
+  }
+}
+
+template < typename T, typename Alloc >
+void vector< T, Alloc >::resize(int size, const T& in) {
+  if (x4_count != size) {
+    if (size > x4_count) {
+      reserve(size);
+      uninitialized_fill_n(xc_items + x4_count, size - x4_count, in);
+    } else {
+      destroy(begin() + size, end());
+    }
+    x4_count = size;
   }
 }
 
@@ -150,13 +149,12 @@ typename vector< T, Alloc >::iterator vector< T, Alloc >::insert(iterator it, co
   typename iterator::difference_type diff = it.operator->() - xc_items;
   const_counting_iterator< T > in(&value, 0);
   insert_into(it, 1, in);
-  return iterator(xc_items + diff);
+  return iterator(xc_items) + diff;
 }
 
 template < typename T, typename Alloc >
 template < typename from_iterator >
-typename vector< T, Alloc >::iterator vector< T, Alloc >::insert(iterator it, from_iterator begin,
-                                                                 from_iterator end) {
+void vector< T, Alloc >::insert(iterator it, from_iterator begin, from_iterator end) {
   insert_into(it, rstl::distance(begin, end), begin);
 }
 

@@ -125,8 +125,7 @@ public:
   static short GetDefaultVolumeScale();
   static bool GetVerbose();
 
-  static SND_VOICEID SfxStart(const SND_FXID, const uchar vol, const uchar pan,
-                             const uchar prio);
+  static SND_VOICEID SfxStart(const SND_FXID, const uchar vol, const uchar pan, const uchar prio);
   static void SfxStop(SND_VOICEID handle);
   static void SfxCtrl(const SND_VOICEID handle, const uchar ctrl, const uchar val);
   static SND_VOICEID SfxCheck(SND_VOICEID handle);
@@ -171,13 +170,15 @@ public:
   static rstl::map< rstl::string, rstl::ncrc_ptr< CTrkData > >* mpDVDTrackDB;
   static rstl::vector< CEmitterData >* mpEmitterDB;
   static SND_LISTENER* mpListener;
-  
-  static short GetScaledVolume(const int vol) {
-    return kVolumeTable[vol];
-  }
+
+  static short GetScaledVolume(const int vol) { return kVolumeTable[vol]; }
+
+  static void EnableAICallback(bool enable);
+  static bool IsAICallbackEnabled();
 
   /* TODO: Remaining globals */
-
+  static void* mAICallback;
+  static bool mAICallbackEnabled;
   static ESurroundModes mSurroundMode;
   static uint mMaxAramUsage;
   static uint mCurrentAramUsage;

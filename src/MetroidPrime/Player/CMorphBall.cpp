@@ -142,42 +142,82 @@ static const char* const skSamusSpiderBallGlass =
     skMorphBallModelTables.x100_spiderBallGlass[0].x0_name;
 static const char* const skSamusBallFrozen = skMorphBallModelTables.x140_frozenBall[0].x0_name;
 
-namespace {
-const uchar lbl_803CEAD0[0x1c] = {
-    0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xd5,
-    0x19, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0x00,
+/** Morph Ball glow color palette, indexed by x8_ballGlowColorIdx */
+const CMorphBall::SColorRgb CMorphBall::skBallInnerGlowColors[9] = {
+    {255, 255, 255}, // White
+    {255, 255, 255}, // White
+    {255, 255, 255}, // White
+    {255, 255, 255}, // White
+    {255, 213, 25},  // Gold
+    {255, 255, 255}, // White
+    {255, 255, 255}, // White
+    {255, 255, 255}, // White
+    {255, 255, 255}, // White
 };
 
-const uchar lbl_803CEAEC[0x1c] = {
-    0xc2, 0x7e, 0x10, 0x66, 0xc4, 0xff, 0x60, 0xff, 0x90, 0x33, 0x33, 0xff, 0xff, 0x20,
-    0x20, 0x00, 0x9d, 0xb6, 0xd3, 0xf1, 0x00, 0xa6, 0x86, 0xd8, 0xfb, 0x98, 0x21, 0x00,
+const CMorphBall::SColorRgb CMorphBall::skBallHullGlowColors[9] = {
+    {194, 126, 16},  // Ochre
+    {102, 196, 255}, // Sky blue
+    {96, 255, 144},  // Mint green
+    {51, 51, 255},   // Blue
+    {255, 32, 32},   // Red
+    {0, 157, 182},   // Teal
+    {211, 241, 0},   // Lime
+    {166, 134, 216}, // Lavender
+    {251, 152, 33},  // Orange
 };
 
-const uchar lbl_803CEB08[0x1c] = {
-    0xc2, 0x7e, 0x10, 0x66, 0xc4, 0xff, 0x6c, 0xff, 0x61, 0x33, 0x33, 0xff, 0xff, 0x20,
-    0x20, 0x00, 0x9d, 0xb6, 0xd3, 0xf1, 0x00, 0xa6, 0x86, 0xd8, 0xfb, 0x98, 0x21, 0x00,
+const CMorphBall::SColorRgb CMorphBall::skBallBoostedHullGlowColors[9] = {
+    {194, 126, 16},  // Ochre
+    {102, 196, 255}, // Sky blue
+    {108, 255, 97},  // Bright green
+    {51, 51, 255},   // Blue
+    {255, 32, 32},   // Red
+    {0, 157, 182},   // Teal
+    {211, 241, 0},   // Lime
+    {166, 134, 216}, // Lavender
+    {251, 152, 33},  // Orange
 };
 
-const uchar lbl_803CEB24[0x1c] = {
+inline CColor CMorphBall::GetBallInnerGlowColor(uint idx) {
+  const SColorRgb& color = skBallInnerGlowColors[idx];
+  return CColor(color.x0_r, color.x1_g, color.x2_b, 0xff);
+}
+
+inline CColor CMorphBall::GetBallHullGlowColor(uint idx) {
+  const SColorRgb& color = skBallHullGlowColors[idx];
+  return CColor(color.x0_r, color.x1_g, color.x2_b, 0xff);
+}
+
+inline CColor CMorphBall::GetBallBoostedHullGlowColor(uint idx) {
+  const SColorRgb& color = skBallBoostedHullGlowColors[idx];
+  return CColor(color.x0_r, color.x1_g, color.x2_b, 0xff);
+}
+
+inline CColor CMorphBall::GetAmbientColor(const CActorLights& lights) {
+  const CVector3f& ambient = lights.GetAmbientColor();
+  return CColor(ambient.GetX(), ambient.GetY(), ambient.GetZ(), 1.f);
+}
+
+const uchar CMorphBall::lbl_803CEB24[0x1c] = {
     0xc2, 0x8f, 0x17, 0x70, 0xd4, 0xff, 0x6a, 0xff, 0x8a, 0x3d, 0x4d, 0xff, 0xc0, 0x00,
     0x00, 0x00, 0xbe, 0xdc, 0xdf, 0xff, 0x00, 0xc4, 0x9e, 0xff, 0xff, 0x9a, 0x22, 0x00,
 };
 
-const uchar lbl_803CEB40[0x1c] = {
+const uchar CMorphBall::lbl_803CEB40[0x1c] = {
     0xff, 0xe6, 0x00, 0xff, 0xe6, 0x00, 0xff, 0xe6, 0x00, 0xff, 0xe6, 0x00, 0xff, 0x80,
     0x20, 0xff, 0xe6, 0x00, 0xff, 0xe6, 0x00, 0xff, 0xe6, 0x00, 0xff, 0xe6, 0x00, 0x00,
 };
 
-const uchar lbl_803CEB5C[0x1c] = {
+const uchar CMorphBall::lbl_803CEB5C[0x1c] = {
     0xff, 0xcc, 0x00, 0xff, 0xcc, 0x00, 0xff, 0xcc, 0x00, 0xff, 0xcc, 0x00, 0xff, 0xd5,
     0x19, 0xff, 0xcc, 0x00, 0xff, 0xcc, 0x00, 0xff, 0xcc, 0x00, 0xff, 0xcc, 0x00, 0x00,
 };
 
-const uchar lbl_803CEB78[0x1c] = {
+const uchar CMorphBall::lbl_803CEB78[0x1c] = {
     0xc2, 0x7e, 0x10, 0x66, 0xc4, 0xff, 0x60, 0xff, 0x90, 0x33, 0x33, 0xff, 0xff, 0x80,
     0x80, 0x00, 0x9d, 0xb6, 0xd3, 0xf1, 0x00, 0x60, 0x33, 0xff, 0xfb, 0x98, 0x21, 0x00,
 };
-} // namespace
 
 static rstl::reserved_vector< int, 32 > skWakeEffectMap;
 
@@ -1534,7 +1574,6 @@ void CMorphBall::ComputeBoostBallMovement(const CFinalInput& input, const CState
       }
     } else {
       CVector3f translation;
-
       if (x1e20_ballAnimIdx == 1) {
         CAnimPlaybackParms parms(0, -1, 1.f, true);
         x58_ballModel->AnimationData()->SetAnimation(parms, false);
@@ -1841,15 +1880,13 @@ void CMorphBall::PreRender(CStateManager& mgr, const CFrustumPlanes&) {
   }
 
   {
-    CColor ambientColor(lights->GetAmbientColor().GetX(), lights->GetAmbientColor().GetY(),
-                        lights->GetAmbientColor().GetZ(), 1.f);
-    lights->SetAmbientColor(CColor::Lerp(ambientColor, CColor::White(), x1c34_boostLightFactor));
+    lights->SetAmbientColor(
+        CColor::Lerp(GetAmbientColor(*lights), CColor::White(), x1c34_boostLightFactor));
     *x1c18_actorLights = *lights;
 
     const float& lightFactor = rstl::max_val(x1c38_spiderLightFactor, x1c34_boostLightFactor);
-    CColor spiderAmbient(lights->GetAmbientColor().GetX(), lights->GetAmbientColor().GetY(),
-                         lights->GetAmbientColor().GetZ(), 1.f);
-    x1c18_actorLights->SetAmbientColor(CColor::Lerp(spiderAmbient, CColor::White(), lightFactor));
+    x1c18_actorLights->SetAmbientColor(
+        CColor::Lerp(GetAmbientColor(*lights), CColor::White(), lightFactor));
   }
 
   if (x58_ballModel->AnimationData() != nullptr) {
@@ -1984,23 +2021,13 @@ void CMorphBall::Render(const CStateManager& mgr, const CActorLights* lights) co
     x1bc8_wakeEffectGens[x1c0c_wakeEffectIdx]->Render();
   }
 
-  const uchar* glowColorData = lbl_803CEAD0 + 3 * x8_ballGlowColorIdx;
-  const uchar glowBlue = glowColorData[2];
-  const uchar glowGreen = glowColorData[1];
-  x19d0_ballInnerGlowGen->SetModulationColor(CColor(glowColorData[0], glowGreen, glowBlue, 0xff));
+  x19d0_ballInnerGlowGen->SetModulationColor(GetBallInnerGlowColor(x8_ballGlowColorIdx));
   if (x19d0_ballInnerGlowGen->GetNumActiveChildParticles() > 0) {
     CParticleGen* particle = x19d0_ballInnerGlowGen->GetActiveChildParticle(0);
-    const uchar* transFlashColorData = lbl_803CEAEC + 3 * x8_ballGlowColorIdx;
-    const uchar transFlashBlue = transFlashColorData[2];
-    const uchar transFlashGreen = transFlashColorData[1];
-    particle->SetModulationColor(
-        CColor(transFlashColorData[0], transFlashGreen, transFlashBlue, 0xff));
+    particle->SetModulationColor(GetBallHullGlowColor(x8_ballGlowColorIdx));
     if (x19d0_ballInnerGlowGen->GetNumActiveChildParticles() > 1) {
       particle = x19d0_ballInnerGlowGen->GetActiveChildParticle(1);
-      const uchar* auxGlowColorData = lbl_803CEB08 + 3 * x8_ballGlowColorIdx;
-      const uchar auxGlowBlue = auxGlowColorData[2];
-      const uchar auxGlowGreen = auxGlowColorData[1];
-      particle->SetModulationColor(CColor(auxGlowColorData[0], auxGlowGreen, auxGlowBlue, 0xff));
+      particle->SetModulationColor(GetBallBoostedHullGlowColor(x8_ballGlowColorIdx));
     }
   }
 
@@ -2049,9 +2076,8 @@ void CMorphBall::UpdateMorphBallTransitionFlash(float dt) {
 
 void CMorphBall::RenderMorphBallTransitionFlash(const CStateManager&) const {
   if (x19dc_morphBallTransitionFlashGen.get() != nullptr) {
-    const uchar* color = lbl_803CEAEC + 3 * x8_ballGlowColorIdx;
-    const CColor modColor(color[0], color[1], color[2], 0xff);
-    x19dc_morphBallTransitionFlashGen->SetModulationColor(modColor);
+    x19dc_morphBallTransitionFlashGen->SetModulationColor(
+        GetBallHullGlowColor(x8_ballGlowColorIdx));
     x19dc_morphBallTransitionFlashGen->Render();
   }
 }

@@ -32,9 +32,9 @@ public:
                uint, uint, uint, uint, uint, const CVector3f&, float, float, float, bool,
                CFluidPlane::EFluidType, bool, float, const CFluidUVMotion&, float, float, float,
                float, float, float, float, float, const CColor&, const CColor&, uint, uint, uint,
-               uint, uint, int, int, int, int, int, float, uint, float, float, float, float,
-               float, float, float, float, const CColor&, uint, float, float, float, uint, uint,
-               bool, int, int, const uint*);
+               uint, uint, int, int, int, int, int, float, uint, float, float, float, float, float,
+               float, float, float, const CColor&, uint, float, float, float, uint, uint, bool, int,
+               int, const uint*);
 
   // CEntity
   ~CScriptWater() override;
@@ -49,8 +49,7 @@ public:
   void CalculateRenderBounds() override;
   void Touch(CActor&, CStateManager&) override;
   EWeaponCollisionResponseTypes GetCollisionResponseType(const CVector3f&, const CVector3f&,
-                                                         const CWeaponMode&,
-                                                         int) const override;
+                                                         const CWeaponMode&, int) const override;
   CAABox GetSortingBounds(const CStateManager&) const override;
 
   bool CanRippleAtPoint(const CVector3f&) const;
@@ -64,9 +63,7 @@ public:
   const CScriptWater* GetNextConnectedWater(const CStateManager&) const;
   // RenderSurface__12CScriptWaterFv
 
-  CFluidPlaneCPU& FluidPlane() {
-    return reinterpret_cast< CFluidPlaneCPU& >(*x1b4_fluidPlane);
-  }
+  CFluidPlaneCPU& FluidPlane() { return reinterpret_cast< CFluidPlaneCPU& >(*x1b4_fluidPlane); }
   const CFluidPlaneCPU& GetFluidPlane() const {
     return reinterpret_cast< const CFluidPlaneCPU& >(*x1b4_fluidPlane);
   }
@@ -87,12 +84,19 @@ public:
   float GetMorphFactor() const { return x1f8_morphFactor; }
   // GetFrustumPlanes__12CScriptWaterCFv
   int GetSplashIndex(float scale) const;
-  const rstl::optional_object< TLockedToken< CGenDescription > >& GetSplashEffect(float scale) const;
+  const rstl::optional_object< TLockedToken< CGenDescription > >&
+  GetSplashEffect(float scale) const;
   int GetSplashSound(float scale) const;
   float GetSplashEffectScale(float scale) const;
   const CColor& GetSplashColor() const { return x2a4_splashColor; }
 
   static const float kSplashScales[6];
+
+  static int CalculateIndex(const int x, const int y, const int stride) { return y * stride + x; }
+  bool GetTileIntersects(const int x, const int y) const {
+    const int index = CalculateIndex(x, y, x2c4_gridDimX);
+    return x2d8_tileIntersects.get()[CalculateIndex(x, y, x2c4_gridDimX)] != false;
+  }
 
 private:
   CFrustumPlanes x150_frustum;
@@ -138,7 +142,7 @@ private:
   int x2cc_gridCellCount;
   int x2d0_patchDimX;
   int x2d4_patchDimY;
-  rstl::single_ptr< bool > x2d8_tileIntersects;
+  rstl::single_ptr< char > x2d8_tileIntersects;
   rstl::single_ptr< bool > x2dc_vertIntersects;
   // 0: all clear, 1: all intersect, 2: partial intersect
   rstl::single_ptr< char > x2e0_patchIntersects;

@@ -23,6 +23,8 @@ public:
   static double Dot(const CVector3d& a, const CVector3d& b);
   static CVector3d Cross(const CVector3d& a, const CVector3d& b);
 
+  bool IsNonZero() const { return GetX() != 0.0 || GetY() != 0.0 || GetZ() != 0.0; }
+
 private:
   double mX;
   double mY;

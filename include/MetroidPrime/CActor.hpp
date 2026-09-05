@@ -138,8 +138,15 @@ public:
   const CModelData* GetModelData() const { return x64_modelData.get(); }
 
   bool HasAnimation() const { return GetModelData() && GetModelData()->HasAnimation(); }
-  CAnimData* AnimationData() { return ModelData()->AnimationData(); }
+  CAnimData* AnimationData() {
+    return ModelData()->AnimationData();
+  }
   const CAnimData* GetAnimationData() const { return GetModelData()->GetAnimationData(); }
+
+  CVector3f GetModelScale() const {
+    const CModelData* modelData = GetModelData();
+    return modelData->GetScale();
+  }
 
   bool HasShadow() const { return GetShadow() != nullptr; }
   CSimpleShadow* Shadow() { return x94_simpleShadow.get(); }
@@ -207,9 +214,14 @@ public:
 
   const CAABox& GetRenderBoundsCached() const { return x9c_renderBounds; }
   void SetRenderBounds(const CAABox& bounds) { x9c_renderBounds = bounds; }
+  TUniqueId GetDrawParent() const { return xc6_nextDrawNode; }
+  uint GetDrawToken() const { return xc8_drawnToken; }
+  uint GetAddedToken() const { return xcc_addedToken; }
+  void SetDrawToken(uint token) const { const_cast< CActor* >(this)->xc8_drawnToken = token; }
   void SetAddedToken(unsigned int token) const {
     const_cast< CActor* >(this)->xcc_addedToken = token;
   }
+  bool IsDrawEnabled() const { return xe7_29_drawEnabled; }
 
   bool GetUseInSortedLists() const;
   void SetUseInSortedLists(bool use);

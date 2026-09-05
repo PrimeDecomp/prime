@@ -32,7 +32,7 @@ CBeetle::CBeetle(TUniqueId uid, const rstl::string& name, const CEntityInfo& inf
                  const CActorParameters& actorParams,
                  const rstl::optional_object< CStaticRes >& tailModel)
 : CPatterned(kC_Beetle, uid, name, flavor, info, xf, mData, pInfo, kMT_Ground, kCT_One, kBT_BiPedal,
-             actorParams, flavor != kFT_Zero ? kKBV_Medium : kKBV_Small)
+             actorParams, flavor != kFT_Zero ? kCS_Medium : kCS_Small)
 , x568_stateProg(-1)
 , x56c_entranceType(entranceType)
 , x570_aiMgr(kInvalidUniqueId)
@@ -1011,7 +1011,7 @@ const CDamageVulnerability* CBeetle::GetDamageVulnerability(const CVector3f& pos
                                                             const CVector3f& direction,
                                                             const CDamageInfo& damage) const {
   if (x838_25_burrowing) {
-    return &CDamageVulnerability::PassThroughVulnerabilty();
+    return &CDamageVulnerability::PassThroughVulnerability();
   }
 
   if (x3fc_flavor == kFT_One) {
@@ -1037,7 +1037,7 @@ const CDamageVulnerability* CBeetle::GetDamageVulnerability(const CVector3f& pos
 
 const CDamageVulnerability* CBeetle::GetDamageVulnerability() const {
   if (x838_25_burrowing) {
-    return &CDamageVulnerability::PassThroughVulnerabilty();
+    return &CDamageVulnerability::PassThroughVulnerability();
   }
 
   if (x3fc_flavor == kFT_One) {

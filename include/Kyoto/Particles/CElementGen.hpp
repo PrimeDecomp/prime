@@ -16,8 +16,26 @@
 class CGenDescription;
 class CModVectorElement;
 
+#pragma cpp_extensions on
 class CElementGen : public CParticleGen {
 public:
+  struct CParticleListItem {
+    ushort x0_partIdx;
+    CVector3f x4_viewPoint;
+
+    explicit CParticleListItem(short partIdx, const CVector3f& viewPoint)
+    : x0_partIdx(partIdx), x4_viewPoint(viewPoint) {}
+  };
+
+  struct CTexturedParticleListItem {
+    ushort x0_texMapIdx;
+    ushort x2_partIdx;
+    CVector3f x4_viewPoint;
+
+    explicit CTexturedParticleListItem(short texMapIdx, short partIdx, const CVector3f& viewPoint)
+    : x0_texMapIdx(texMapIdx), x2_partIdx(partIdx), x4_viewPoint(viewPoint) {}
+  };
+
   enum EModelOrientationType {
     kMOT_Normal,
     kMOT_One,
@@ -69,21 +87,21 @@ public:
   virtual void SetParticleEmission(const bool emission) override;
   virtual void SetModulationColor(const CColor& col) override;
   virtual void SetGeneratorRate(float rate) override;
-  virtual const CTransform4f& GetOrientation() const override;
-  virtual const CVector3f& GetTranslation() const override;
+  virtual const CTransform4f& GetOrientation() const override { return x1d8_orientation; }
+  virtual const CVector3f& GetTranslation() const override { return xdc_translation; }
   virtual const CTransform4f& GetGlobalOrientation() const override;
   virtual const CVector3f& GetGlobalTranslation() const override;
-  virtual const CVector3f& GetGlobalScale() const override;
+  virtual const CVector3f& GetGlobalScale() const override { return x100_globalScale; }
   virtual float GetGeneratorRate() const override;
   virtual bool GetParticleEmission() const override;
   virtual const CColor& GetModulationColor() const override;
   virtual bool IsSystemDeletable() const override;
   virtual rstl::optional_object< CAABox > GetBounds() const override;
-  virtual int GetParticleCount() const override;
+  virtual int GetParticleCount() const override { return x25c_activeParticleCount; }
   virtual bool SystemHasLight() const override;
   virtual CLight GetLight() const override;
   virtual void DestroyParticles() override;
-  virtual void AddModifier(CWarp*) override;
+  virtual void AddModifier(CWarp*) override {}
   virtual uint Get4CharId() const override;
   int GetMaxParticles() const { return x90_MAXP; }
   int GetEmitterTime() const;
@@ -130,6 +148,8 @@ public:
 
   static void SetSubtractBlend(bool subtract) { sSubtractBlend = subtract; }
   static void SetMoveRedToAlphaBuffer(const bool move) { sMoveRedToAlphaBuffer = move; }
+
+  static void SetGlobalSeed(const ushort seed) { sSeed = seed; }
 
 private:
   TLockedToken< CGenDescription > x1c_genDesc;
@@ -181,8 +201,13 @@ private:
   bool x26d_28_enableADV : 1;
   int x270_MBSP;
   uchar x274_backupLightActive;
-  uchar x275_pad[3];
-  bool x278_hasVMD[4];
+  // uchar x275_pad[3];
+  union {
+    struct {
+      bool x278_hasVMD[4];
+    };
+    uint x278_vmdStates;
+  };
   CRandom16 x27c_randState;
   CModVectorElement* x280_VELSources[4];
   rstl::vector< CParticleGen* > x290_activePartChildren;
@@ -209,11 +234,15 @@ private:
   float x334_LSLA;
   CColor x338_moduColor;
 
+  static double kKickTime;
+  static ushort sSeed;
   static int mParticleAliveCount;
   static int mParticleSystemAliveCount;
   static bool sSubtractBlend;
   static bool sMoveRedToAlphaBuffer;
 };
 CHECK_SIZEOF(CElementGen, 0x340)
+
+#pragma cpp_extensions reset
 
 #endif // _CELEMENTGEN

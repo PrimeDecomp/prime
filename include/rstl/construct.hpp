@@ -31,16 +31,18 @@ static inline T uninitialized_copy(It begin, It end, T out) {
   for (; cur != end; ++tmp, ++cur) {
     construct(tmp, *cur);
   }
-  
+
   return tmp;
 }
 
 template < typename S, typename D >
-static inline void uninitialized_copy_n(S src, int n, D dest) {
+static inline D uninitialized_copy_n(S src, int n, D dest) {
   D cur = dest;
   for (int i = 0; i < n; ++cur, ++i, ++src) {
     construct(&*cur, *src);
   }
+
+  return cur;
 }
 
 template < typename D, typename S >

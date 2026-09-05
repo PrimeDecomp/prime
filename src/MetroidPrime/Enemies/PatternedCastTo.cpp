@@ -16,7 +16,7 @@
 #include "MetroidPrime/TCastTo.hpp"
 
 class CEnergyBall;
-CPatterned* CastPatternedCharacter(CPatterned::ECharacter character, CEntity* entity) {
+CPatterned* CastPatternedCharacter(CPatterned::EPatternedAI character, CEntity* entity) {
   CPatterned* pat = TCastToPtr< CPatterned >(entity);
 
   if (pat && pat->GetCharacterType() == character) {

@@ -17,6 +17,7 @@ public:
   explicit CVirtualBone(CInputStream& in);
   const rstl::reserved_vector< SSkinWeighting, 3 >& GetWeights() const { return x0_weights; }
   uint GetVertexCount() const { return x1c_vertexCount; }
+  const CTransform4f& GetTransform() const { return x20_xf; }
 
   void BuildPoints(const ushort*, volatile void*, int) const;
   void BuildNormals(const ushort*, volatile void*, int) const;

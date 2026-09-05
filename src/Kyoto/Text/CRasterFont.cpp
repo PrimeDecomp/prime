@@ -4,13 +4,13 @@
 #include "Kyoto/CSimplePool.hpp"
 #include "Kyoto/CVParamTransfer.hpp"
 #include "Kyoto/Graphics/CColor.hpp"
+#include "Kyoto/Graphics/CGX.hpp"
 #include "Kyoto/Graphics/CGraphicsPalette.hpp"
 #include "Kyoto/Streams/CInputStream.hpp"
 #include "Kyoto/Text/CDrawStringOptions.hpp"
 #include "Kyoto/Text/CTextRenderBuffer.hpp"
-
-#include "Kyoto/Graphics/CGX.hpp"
 #include "Kyoto/Text/TextCommon.hpp"
+
 #include "rstl/algorithm.hpp"
 #include "rstl/string.hpp"
 #include "rstl/vector.hpp"
@@ -150,7 +150,41 @@ int CRasterFont::KernLookup(const rstl::vector< CKernPair >& kern, const int sta
   return 0;
 }
 
-const CGlyph* CRasterFont::InternalGetGlyph(wchar_t chr) const {
+void CRasterFont::SinglePassDrawString(const CDrawStringOptions& options, int x, int y, int& xOut,
+                                       int& yOut, CTextRenderBuffer* buffer, const wchar_t* str,
+                                       const int length) const {
+  if (!x0_initialized) {
+    return;
+  }
+
+  const CGlyph* curGlyph = nullptr;
+  const CGlyph* prevGlyph = nullptr;
+  for (const wchar_t* ptr = str; *ptr != 0 && (length == -1 || (ptr - str) < length); ++ptr) {
+    curGlyph = GetGlyph(*ptr);
+    if (curGlyph != nullptr) {
+      if (options.GetTextDirection() == kTD_Horizontal) {
+        x += curGlyph->GetA();
+        if (prevGlyph != nullptr) {
+          x += KernLookup(x1c_kerning, prevGlyph->GetKernStart(), *ptr);
+        }
+      }
+
+      if (buffer) {
+        buffer->AddCharacter(CVector2i(x, y - curGlyph->GetBaseline()), *ptr,
+                             options.GetPaletteEntry(2));
+      }
+
+      if (options.GetTextDirection() == kTD_Horizontal) {
+        x += curGlyph->GetB() + curGlyph->GetC();
+      }
+    }
+    prevGlyph = curGlyph;
+  }
+
+  xOut = x;
+  yOut = y;
+}
+const CGlyph* CRasterFont::InternalGetGlyph(const wchar_t chr) const {
   rstl::vector< rstl::pair< wchar_t, CGlyph > >::const_iterator it =
       rstl::find_by_key(xc_glyphs, chr);
 
@@ -160,7 +194,7 @@ const CGlyph* CRasterFont::InternalGetGlyph(wchar_t chr) const {
 
   return &it->second;
 }
-#pragma inline_max_size(110)
+
 CFactoryFnReturn FRasterFontFactory(const SObjectTag& tag, CInputStream& in,
                                     const CVParamTransfer& xfer) {
   const rstl::rc_ptr< IVParamObj > obj = xfer.x0_obj;

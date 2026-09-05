@@ -5,6 +5,8 @@
 
 #include "Kyoto/Math/CMath.hpp"
 
+class CRelAngle;
+
 class CAbsAngle {
 public:
   float AsDegrees() const { return x0_angle * (180.f / M_PIF); }
@@ -29,8 +31,8 @@ public:
     return *this;
   }
 
-  // __apl__9CAbsAngleFRC9CRelAngle
-  // __ami__9CAbsAngleFRC9CRelAngle
+  CAbsAngle& operator+=(const CRelAngle& v);
+  CAbsAngle& operator-=(const CRelAngle& v);
 
   static CAbsAngle FromDegrees(float deg) {
     return CAbsAngle(CMath::ClampRadians(deg * (M_PIF / 180.f)));

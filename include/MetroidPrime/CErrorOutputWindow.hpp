@@ -20,6 +20,8 @@ public:
   void Draw() const override;
 
   void UpdateWindow();
+  void Update();
+  void ShowMessage() const;
 
 private:
   enum EState {
@@ -37,8 +39,8 @@ private:
   bool x18_28_ : 1;
   const wchar_t* x1c_msg;
 
-  void fn_802694C4(EState);
-  void fn_802695F8() const;
+  void SetState(EState);
+  void DrawError() const;
 };
 
 #endif // _CERROROUTPUTWINDOW

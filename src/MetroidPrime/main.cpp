@@ -23,6 +23,8 @@
 #include "Kyoto/CARAMManager.hpp"
 #include "Kyoto/CARAMToken.hpp"
 #include "Kyoto/CFrameDelayedKiller.hpp"
+#include "Kyoto/Input/IController.hpp"
+
 #include "Kyoto/CMemoryCardSys.hpp"
 #include "Kyoto/CPakFile.hpp"
 #include "Kyoto/CResFactory.hpp"
@@ -68,11 +70,11 @@ CCharacterFactoryBuilder* gpCharacterFactoryBuilder;
 CGuiSys* gGuiSystem;
 CStringTable* gpStringTable;
 CMain* gpMain;
-unkptr gpController;
+IController* gpController;
 CGameState* gpGameState;
 CMemoryCard* gpMemoryCard;
 CInGameTweakManager* gpTweakManager;
-unkptr gpDefaultFont;
+const TToken< CRasterFont >* gpDefaultFont;
 unkptr lbl_805A8C50;
 unkptr lbl_805A8C54;
 bool COsContext::mProgressiveMode;
@@ -119,6 +121,7 @@ bool lbl_805A6BC0;
 class CSaveRegion {
 public:
   CSaveRegion(CMain& main);
+
 private:
   static void* mNonVolatileSettingsBuf;
   static void* mSaveBuffer;
@@ -300,7 +303,7 @@ CGameArchitectureSupport::CGameArchitectureSupport(COsContext& osContext)
   gpMain->SetMaxSpeed(false);
   gpMain->ResetGameState();
   if (!gpTweakGame->GetSplashScreensDisabled()) {
-    x58_ioWinMgr.AddIOWin(rs_new CSplashScreen(CSplashScreen::Nintendo), 1000, 10000);
+    x58_ioWinMgr.AddIOWin(rs_new CSplashScreen(CSplashScreen::kSplashScreen_Nintendo), 1000, 10000);
   }
   x58_ioWinMgr.AddIOWin(rs_new CMainFlow(), 0, 0);
   x58_ioWinMgr.AddIOWin(rs_new CConsoleOutputWindow(8, 5.f, 0.75f), 100, 0);
@@ -363,9 +366,9 @@ void CMain::RefreshGameState() {
 void CMain::EnsureWorldPaksReady(void) {
   CResLoader& resLoader = gpResourceFactory->GetResLoader();
   for (int i = 0; i < resLoader.GetPakCount(); ++i) {
-    CPakFile& file = resLoader.GetPakFile(i);
-    if (file.IsWorldPak()) {
-      file.EnsureWorldPakReady();
+    CPakFile* file = resLoader.GetPakFile(i);
+    if (file->IsWorldPak()) {
+      file->EnsureWorldPakReady();
     }
   }
 }
@@ -549,9 +552,9 @@ void CMain::EnsureWorldPakReady(CAssetId id) {
   CResLoader& resLoader = gpResourceFactory->GetResLoader();
   for (int i = 0; i < resLoader.GetPakCount(); ++i) {
     bool notInNameList = true;
-    CPakFile& pakFile = resLoader.GetPakFile(i);
-    if (pakFile.IsWorldPak()) {
-      rstl::vector< rstl::pair< rstl::string, SObjectTag > > nameList = pakFile.NameList();
+    CPakFile* pakFile = resLoader.GetPakFile(i);
+    if (pakFile->IsWorldPak()) {
+      rstl::vector< rstl::pair< rstl::string, SObjectTag > > nameList = pakFile->NameList();
       rstl::vector< rstl::pair< rstl::string, SObjectTag > >::iterator cur = nameList.begin();
       while (cur != nameList.end()) {
         if (cur->second.GetId() == id) {
@@ -560,9 +563,9 @@ void CMain::EnsureWorldPakReady(CAssetId id) {
         ++cur;
       }
       if (notInNameList) {
-        pakFile.sub_8036742c();
+        pakFile->sub_8036742c();
       } else {
-        pakFile.EnsureWorldPakReady();
+        pakFile->EnsureWorldPakReady();
       }
     }
   }

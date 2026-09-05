@@ -1,6 +1,7 @@
 #ifndef _CSPANKWEED
 #define _CSPANKWEED
 
+#include "MetroidPrime/Collision/CJointCollisionDescription.hpp"
 #include "types.h"
 
 #include "MetroidPrime/Enemies/CPatterned.hpp"
@@ -11,11 +12,10 @@ class CCollisionActorManager;
 
 class CSpankWeed : public CPatterned {
 public:
-  CSpankWeed(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
-             const CTransform4f& xf, const CModelData& mData,
-             const CActorParameters& actParms, const CPatternedInfo& pInfo,
-             float maxDetectionRange, float maxHearingRange, float maxSightRange,
-             float hideTime);
+  CSpankWeed(const TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
+             const CTransform4f& xf, const CModelData& mData, const CActorParameters& actParms,
+             const CPatternedInfo& pInfo, const float maxDetectionRange,
+             const float maxHearingRange, const float maxSightRange, const float hideTime);
 
   // CEntity
   ~CSpankWeed() override {}
@@ -64,6 +64,10 @@ private:
   int x5bc_;
 
   float GetPlayerDistance(CStateManager& mgr) const;
+
+  static const char* skJointNameList[];
+  static const int skJointNameListSize;
+  static const SSphereJointInfo skSphereJointInfoList[];
 };
 CHECK_SIZEOF(CSpankWeed, 0x5c0)
 

@@ -38,7 +38,9 @@
 #include "MetroidPrime/ScriptObjects/CScriptDoor.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptEffect.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptMazeNode.hpp"
+#include "MetroidPrime/ScriptObjects/CScriptPlayerActor.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptRoomAcoustics.hpp"
+#include "MetroidPrime/ScriptObjects/CSnakeWeedSwarm.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptSpawnPoint.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptSpecialFunction.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptWater.hpp"
@@ -69,6 +71,7 @@
 #include "Kyoto/Math/CRelAngle.hpp"
 #include "Kyoto/Math/CUnitVector3f.hpp"
 #include "Kyoto/Streams/CMemoryInStream.hpp"
+#include "Kyoto/Particles/CParticleElectric.hpp"
 #include "MetaRender/CCubeRenderer.hpp"
 #include "Weapons/CDecal.hpp"
 #include "WorldFormat/CPVSAreaSet.hpp"
@@ -121,58 +124,9 @@ static char init = 0;
 
 } // namespace
 
-extern "C" void TouchModels__18CScriptPlayerActorFRC13CStateManager(void*, const CStateManager&);
-extern "C" void ConvertToScreenSpace__11CGameCameraCFRC9CVector3f(CVector3f*, const CGameCamera*,
-                                                                  const CVector3f*);
-extern "C" void DrawReflection__13CStateManagerFRC9CVector3f(CStateManager*, const CVector3f&);
-extern "C" void
-SetNewPlayerPositionAndTime__10CCubeModelFRC9CVector3fRC10CStopwatch(const CVector3f&,
-                                                                     const CStopwatch&);
-extern "C" CGameArea::CChainIterator AliveAreasEnd__6CWorldFv();
-extern "C" void ResetParticleCounts__13CScriptEffectFv();
-extern "C" void Update__15CCameraBlurPassFf(CCameraBlurPass*, float);
-extern "C" void Update__13CDecalManagerFfR13CStateManager(float, CStateManager*);
-extern "C" void Update__6CWorldFf(CWorld*, float);
-extern "C" void PreRender__6CWorldFv(CWorld*);
-extern "C" void Update__13CEnvFxManagerFfR13CStateManager(float, CEnvFxManager*, CStateManager*);
-extern "C" void AsyncLoadResources__13CEnvFXManagerFR13CStateManager(CEnvFxManager*,
-                                                                     CStateManager*);
-extern "C" void DismissDisplayedHint__12CHintOptionsFv(CHintOptions*);
-extern "C" void CrossTouchActors__13CStateManagerFf(CStateManager*);
-extern "C" void TravelToArea__6CWorldFRC7TAreaIdR13CStateManagerb(CWorld*, const TAreaId&,
-                                                                  CStateManager*, bool);
-extern "C" void SetTotalPlayTime__10CGameStateFd(CGameState*, double);
-extern "C" void SetDeferPowerupInit__10CGameStateFb(CGameState*, bool);
-extern "C" void SetAreaId__11CWorldStateF7TAreaId(CWorldState*, TAreaId);
-extern "C" float GetXRayFogDistance__9CGameAreaFv(CGameArea*);
-extern "C" ushort lbl_805A88B8;
-extern "C" ushort lbl_805A8A10;
-extern "C" s64 lbl_805A8D98;
-extern "C" uint lbl_805A8D9C;
-extern "C" CGameArea* lbl_805A8DDC;
-extern "C" float lbl_805AA2D4;
-extern "C" void fn_80046DE8(const CStateManager*, const CGameArea*);
-extern "C" void fn_8004B504(CStateManager*);
-extern "C" float GetHardModeDamageMultiplier__10CGameStateCFv(const CGameState*);
-extern "C" void IncrementFrozenBallCount__12CSystemStateFv(CSystemState*);
-extern "C" float BombJump__7CPlayerFRC9CVector3fR13CStateManager(CPlayer*, const CVector3f*,
-                                                                 CStateManager*);
-extern "C" void ApplyRadiusDamage__17CWallCrawlerSwarmF9CVector3ffR13CStateManager(
-    CWallCrawlerSwarm*, const CVector3f*, const CDamageInfo*, CStateManager*);
-extern "C" void ApplyRadiusDamage__15CSnakeWeedSwarmF9CVector3ffR13CStateManager(CSnakeWeedSwarm*,
-                                                                                 const CVector3f*,
-                                                                                 const CDamageInfo*,
-                                                                                 CStateManager*);
+extern "C" void nullsub_34(CStateManager*);
 
-extern bool TestRayDamage(const CStateManager&, const CVector3f&, const CActor&,
-                          const TEntityList&);
-
-struct SScriptLayerBuffer {
-  const void* x0_buf;
-  uint x4_len;
-};
-
-extern "C" void GetLayerScriptBuffer__9CGameAreaFi(SScriptLayerBuffer*, CGameArea*, int*);
+static s64 sPreRenderStepTime;
 
 class CLightPredicate {
 public:
@@ -662,11 +616,11 @@ void CStateManager::DeleteObjectRequest(TUniqueId uid) {
   if (ent == nullptr) {
     return;
   }
-  if ((*reinterpret_cast< const uchar* >(reinterpret_cast< const uchar* >(ent) + 0x30) >> 6) & 1) {
+  if (ent->IsInGraveyard()) {
     return;
   }
 
-  ent->x30_25_inGraveyard = true;
+  ent->SetIsInGraveyard();
 
   if (x854_graveyard.size() == 0) {
     rstl::reserved_vector< TUniqueId, 32 > newVec;
@@ -853,8 +807,8 @@ void CStateManager::InitializeState(unsigned int mlvlId, TAreaId aid, unsigned i
   }
 
   SetCurrentAreaId(x8cc_nextAreaId);
-  SetAreaId__11CWorldStateF7TAreaId(&gpGameState->CurrentWorldState(), x8cc_nextAreaId);
-  TravelToArea__6CWorldFRC7TAreaIdR13CStateManagerb(x850_world.get(), x8cc_nextAreaId, this, true);
+  gpGameState->CurrentWorldState().SetAreaId(x8cc_nextAreaId);
+  x850_world->TravelToArea(x8cc_nextAreaId, *this, true);
   UpdateRoomAcoustics(x8cc_nextAreaId);
 
   CObjectList* allList = x808_objectLists[kOL_All].get();
@@ -874,10 +828,8 @@ void CStateManager::InitializeState(unsigned int mlvlId, TAreaId aid, unsigned i
         x84c_player->Teleport(lookAt, *this, true);
       }
 
-      const uchar gameStateFlags =
-          *reinterpret_cast< const uchar* >(reinterpret_cast< const uchar* >(gpGameState) + 0x228);
-      if (((gameStateFlags >> 6) & 1) != 0) {
-        SetDeferPowerupInit__10CGameStateFb(gpGameState, false);
+      if (gpGameState->GetInitPowerupsAtFirstSpawn()) {
+        gpGameState->SetDeferPowerupInit(false);
 
         for (int i = CPlayerState::kIT_PowerBeam; i < CPlayerState::kIT_Max; ++i) {
           CPlayerState::EItemType itemType = static_cast< CPlayerState::EItemType >(i);
@@ -912,7 +864,7 @@ void CStateManager::InitializeState(unsigned int mlvlId, TAreaId aid, unsigned i
     x900_random = nullptr;
   }
 
-  AsyncLoadResources__13CEnvFXManagerFR13CStateManager(x880_envFxManager, this);
+  x880_envFxManager->AsyncLoadResources(*this);
 }
 
 void CStateManager::FrameBegin(unsigned int frame) {
@@ -929,7 +881,7 @@ const bool CStateManager::MemoryAllocatorAllocationFailedCallback(const void* ob
 }
 
 bool CStateManager::SwapOutAllPossibleMemory() {
-  CFrameDelayedKiller::fn_8036CCFC();
+  CFrameDelayedKiller::StallAndFlushAllAllocations();
   CARAMManager::WaitForAllDMAsToComplete();
   CARAMToken::UpdateAllDMAs();
   return true;
@@ -964,8 +916,7 @@ void CStateManager::MoveDoors(float dt) {
           const CGameArea& area = x850_world->GetAreaAlways(areaId2);
           float occTime;
           if (area.IsPostConstructed()) {
-            occTime = *reinterpret_cast< const float* >(
-                reinterpret_cast< const uchar* >(area.GetPostConstructed()) + 0x10e4);
+            occTime = area.GetPostConstructed()->x10e4_occludedTime;
           } else {
             occTime = 0.f;
           }
@@ -987,7 +938,7 @@ void CStateManager::MoveDoors(float dt) {
   }
 }
 
-void CStateManager::CrossTouchActors(float) {
+void CStateManager::CrossTouchActors() {
   bool visits[kMaxEntities];
   memset(visits, 0, sizeof(visits));
   TEntityList nearList;
@@ -1032,8 +983,7 @@ void CStateManager::CrossTouchActors(float) {
 }
 
 void CStateManager::Think(float dt) {
-  const float deathTime =
-      *reinterpret_cast< const float* >(reinterpret_cast< const uchar* >(x84c_player) + 0x9f4);
+  const float deathTime = x84c_player->GetDeathTime();
   if (deathTime > 0.f) {
     x84c_player->DoThink(dt, *this);
     return;
@@ -1062,8 +1012,7 @@ void CStateManager::Think(float dt) {
             const CGameArea& area = x850_world->GetAreaAlways(areaId2);
             float occTime;
             if (area.IsPostConstructed()) {
-              occTime = *reinterpret_cast< const float* >(
-                  reinterpret_cast< const uchar* >(area.GetPostConstructed()) + 0x10e4);
+              occTime = area.GetPostConstructed()->x10e4_occludedTime;
             } else {
               occTime = 0.f;
             }
@@ -1086,8 +1035,7 @@ void CStateManager::Think(float dt) {
 }
 
 void CStateManager::PreThinkObjects(float dt) {
-  const float deathTime =
-      *reinterpret_cast< const float* >(reinterpret_cast< const uchar* >(x84c_player) + 0x9f4);
+  const float deathTime = x84c_player->GetDeathTime();
   if (deathTime > 0.f) {
     x84c_player->DoPreThink(dt, *this);
     return;
@@ -1116,8 +1064,8 @@ void CStateManager::PreThinkObjects(float dt) {
 void CStateManager::PostUpdatePlayer(float dt) { x84c_player->DoPostCameraStuff(dt, *this); }
 
 void CStateManager::Update(float dt) {
-  lbl_805A88B8 = static_cast< ushort >(x8d8_updateFrameIdx);
-  lbl_805A8A10 = static_cast< ushort >(x8d8_updateFrameIdx);
+  CElementGen::SetGlobalSeed(static_cast< ushort >(x8d8_updateFrameIdx));
+  CParticleElectric::SetGlobalSeed(static_cast< ushort >(x8d8_updateFrameIdx));
   CDecal::SetGlobalSeed(static_cast< ushort >(x8d8_updateFrameIdx));
   CProjectileWeapon::SetGlobalSeed(x8d8_updateFrameIdx);
 
@@ -1128,21 +1076,18 @@ void CStateManager::Update(float dt) {
 
   xf08_pauseHudMessage = kInvalidAssetId;
 
-  ResetParticleCounts__13CScriptEffectFv();
+  CScriptEffect::ResetParticleCounts();
   UpdateThermalVisor();
-  fn_8004B504(this);
+  nullsub_34(this);
   UpdateGameState();
 
-  const float deathTime =
-      *reinterpret_cast< const float* >(reinterpret_cast< const uchar* >(x84c_player) + 0x9f4);
+  const float deathTime = x84c_player->GetDeathTime();
   const bool isDead = deathTime > 0.f;
 
   if (x904_gameState == kGS_Running) {
     if (TCastToPtr< CCinematicCamera >(
             const_cast< CGameCamera& >(x870_cameraManager->GetCurrentCamera(*this))) == nullptr) {
-      SetTotalPlayTime__10CGameStateFd(
-          gpGameState, dt + *reinterpret_cast< const double* >(
-                                reinterpret_cast< const uchar* >(gpGameState) + 0xa0));
+      gpGameState->SetTotalPlayTime(dt + gpGameState->GetTotalPlayTime());
       UpdateHintState(dt);
     }
 
@@ -1150,7 +1095,7 @@ void CStateManager::Update(float dt) {
     CCameraBlurPass* blur = xd14_camBlurPasses.data();
     for (int i = 0; i < kCFS_Max; ++i) {
       filt->Update(dt);
-      Update__15CCameraBlurPassFf(blur, dt);
+      blur->Update(dt);
       ++filt;
       ++blur;
     }
@@ -1163,7 +1108,7 @@ void CStateManager::Update(float dt) {
 
   if (x904_gameState == kGS_Running) {
     if (!isDead) {
-      Update__13CDecalManagerFfR13CStateManager(dt, this);
+      CDecalManager::Update(dt, *this);
     }
 
     UpdateSortedLists();
@@ -1182,7 +1127,7 @@ void CStateManager::Update(float dt) {
     UpdateSortedLists();
 
     if (!isDead) {
-      CrossTouchActors__13CStateManagerFf(this);
+      CrossTouchActors();
     }
   } else {
     ProcessPlayerInput();
@@ -1224,11 +1169,11 @@ void CStateManager::Update(float dt) {
     UpdateEscapeSequenceTimer(dt);
   }
 
-  Update__6CWorldFf(x850_world.get(), dt);
+  x850_world->Update(dt);
   x88c_rumbleManager->Update(dt);
 
   if (!isDead) {
-    Update__13CEnvFxManagerFfR13CStateManager(dt, x880_envFxManager, this);
+    x880_envFxManager->Update(dt, *this);
   }
 
   UpdateAreaSounds();
@@ -1240,14 +1185,14 @@ void CStateManager::Update(float dt) {
     CHintOptions::SHintState* hint =
         const_cast< CHintOptions::SHintState* >(hintOptions.GetCurrentDisplayedHint());
     if (hint != nullptr && hint->CanContinue()) {
-      DismissDisplayedHint__12CHintOptionsFv(&hintOptions);
+      hintOptions.DismissDisplayedHint();
     }
     xf94_27_inMapScreen = false;
   }
 
-  SetAreaId__11CWorldStateF7TAreaId(&gpGameState->CurrentWorldState(), x8cc_nextAreaId);
+  gpGameState->CurrentWorldState().SetAreaId(x8cc_nextAreaId);
 
-  TravelToArea__6CWorldFRC7TAreaIdR13CStateManagerb(x850_world.get(), x8cc_nextAreaId, this, false);
+  x850_world->TravelToArea(x8cc_nextAreaId, *this, false);
 
   ClearGraveyard();
   ++x8d8_updateFrameIdx;
@@ -1260,9 +1205,7 @@ void CStateManager::ProcessInput(const CFinalInput& input) {
     const CGameCamera& cam = x870_cameraManager->GetCurrentCamera(*this);
     bool disableInput = cam.DisablesInput();
 
-    const uchar playerFlags =
-        *reinterpret_cast< const uchar* >(reinterpret_cast< const uchar* >(x84c_player) + 0x9c6);
-    if ((playerFlags >> 2) & 1) {
+    if (x84c_player->GetDisableInput()) {
       disableInput = true;
     }
 
@@ -1363,8 +1306,7 @@ void CStateManager::ApplyDamage(const TUniqueId damagerId, const TUniqueId damag
     CWallCrawlerSwarm* swarm = TCastToPtr< CWallCrawlerSwarm >(damageeEnt);
     if (swarm != nullptr && damager != nullptr) {
       const CVector3f damagerPos = damager->GetTranslation();
-      ApplyRadiusDamage__17CWallCrawlerSwarmF9CVector3ffR13CStateManager(swarm, &damagerPos, &info,
-                                                                         this);
+      swarm->ApplyRadiusDamage(damagerPos, info, *this);
     }
   }
 }
@@ -1393,7 +1335,7 @@ bool CStateManager::ApplyLocalDamage(const CVector3f& pos, const CVector3f& dir,
     }
 
     if (gpGameState->GetHardMode()) {
-      useDamage *= GetHardModeDamageMultiplier__10CGameStateCFv(gpGameState);
+      useDamage *= gpGameState->GetHardModeDamageMultiplier();
     }
 
     float damageReduction = 0.f;
@@ -1421,10 +1363,7 @@ bool CStateManager::ApplyLocalDamage(const CVector3f& pos, const CVector3f& dir,
   if (player != nullptr) {
     player->TakeDamage(significant, pos, useDamage, weaponMode.GetType(), *this);
     if (newHp <= 0.f) {
-      struct SPlayerStateFlags {
-        bool x0_24_alive : 1;
-      };
-      reinterpret_cast< SPlayerStateFlags* >(x8b8_playerState.GetPtr())->x0_24_alive = false;
+      x8b8_playerState->SetPlayerAlive(false);
     }
   } else if (ai != nullptr) {
     if (significant) {
@@ -1498,12 +1437,9 @@ void CStateManager::TestBombHittingWater(const CActor& damager, const CVector3f&
 }
 
 bool CStateManager::MultiRayCollideWorld(const CMRay& ray, const CMaterialFilter& filter) {
-  const CVector3f& start =
-      *reinterpret_cast< const CVector3f* >(reinterpret_cast< const uchar* >(&ray) + 0x0);
-  const CVector3f& dir =
-      *reinterpret_cast< const CVector3f* >(reinterpret_cast< const uchar* >(&ray) + 0x2c);
-  const float length =
-      *reinterpret_cast< const float* >(reinterpret_cast< const uchar* >(&ray) + 0x24);
+  const CVector3f& start = ray.GetStart();
+  const CVector3f& dir = ray.GetDirection();
+  const float length = ray.GetLength();
 
   CVector3f crossed(-dir.GetZ() * dir.GetZ() - dir.GetY() * dir.GetX(),
                     dir.GetX() * dir.GetX() - dir.GetZ() * dir.GetY(),
@@ -1605,7 +1541,7 @@ void CStateManager::ProcessRadiusDamage(const CActor& damager, CActor& damagee,
       const TUniqueId actorId = actor->GetUniqueId();
       if (damagerId != actorId && radiusSender != actorId && damageeId != actorId) {
         TestBombHittingWater(damager, pos, *actor);
-        if (TestRayDamage(*this, pos, *actor, nearList)) {
+        if (TestRayDamage(pos, *actor, nearList)) {
           ApplyRadiusDamage(damager, pos, *actor, info);
         }
       }
@@ -1637,27 +1573,25 @@ void CStateManager::ApplyDamageToWorld(TUniqueId damagerId, const CActor& actor,
 
     if (bomb && player != nullptr) {
       if (player->GetFrozenState()) {
-        IncrementFrozenBallCount__12CSystemStateFv(&gpGameState->SystemState());
+        gpGameState->SystemState().IncrementFrozenBallCount();
         CSamusHud::DisplayHudMemo(rstl::wstring_l(L""), CHUDMemoParms(0.f, true, true, true));
         player->BreakFrozenState(*this);
       } else if (weapon != nullptr && (weapon->GetAttribField() & CWeapon::kPA_Bombs) != 0) {
-        BombJump__7CPlayerFRC9CVector3fR13CStateManager(player, &pos, this);
+        player->BombJump(pos, *this);
       }
     } else if (act != nullptr && act->GetUniqueId() != damagerId) {
       TestBombHittingWater(actor, pos, *act);
-      if (TestRayDamage(*this, pos, *act, nearList)) {
+      if (TestRayDamage(pos, *act, nearList)) {
         ApplyRadiusDamage(actor, pos, *act, info);
       }
     }
 
     if (wallSwarm != nullptr) {
-      ApplyRadiusDamage__17CWallCrawlerSwarmF9CVector3ffR13CStateManager(wallSwarm, &pos, &info,
-                                                                         this);
+      wallSwarm->ApplyRadiusDamage(pos, info, *this);
     }
 
     if (snakeSwarm != nullptr) {
-      ApplyRadiusDamage__15CSnakeWeedSwarmF9CVector3ffR13CStateManager(snakeSwarm, &pos, &info,
-                                                                       this);
+      snakeSwarm->ApplyRadiusDamage(pos, info, *this);
     }
   }
 }
@@ -1674,8 +1608,7 @@ void CStateManager::ApplyKnockBack(CActor& actor, const CDamageInfo& info,
     return;
   }
 
-  const float resistance =
-      *reinterpret_cast< const float* >(reinterpret_cast< const uchar* >(hInfo) + 0x4);
+  const float resistance = hInfo->GetKnockBackResistance();
   const float dampedPower = (1.f - dampen) * info.GetKnockBackPower();
 
   CPlayer* player = TCastToPtr< CPlayer >(actor);
@@ -1736,7 +1669,7 @@ void CStateManager::KnockBackPlayer(CPlayer& player, const CVector3f& dir, float
 
   player.ApplyImpulseWR(dir * usePower, CAxisAngle::Identity());
   player.UseCollisionImpulses();
-  *reinterpret_cast< float* >(reinterpret_cast< uchar* >(&player) + 0x2d4) = 0.25f;
+  player.SetAccelerationChangeTimer(0.25f);
 
   const CVector3f velocity = player.GetVelocityWR();
   const float velocityMag = velocity.Magnitude();
@@ -1835,11 +1768,9 @@ rstl::pair< TEditorId, TUniqueId > CStateManager::GenerateObject(const TEditorId
     CGameArea* area = x850_world->Area(aid);
     if (area->IsPostConstructed()) {
       int layer = static_cast< int >(build.second.value >> 26);
-      SScriptLayerBuffer layerBuf;
-      GetLayerScriptBuffer__9CGameAreaFi(&layerBuf, area, &layer);
+      const rstl::pair< const uchar*, uint > layerBuf = area->GetLayerScriptBuffer(layer);
 
-      CMemoryInStream stream(static_cast< const uchar* >(layerBuf.x0_buf) +
-                                 build.first->x4_position,
+      CMemoryInStream stream(layerBuf.first + build.first->x4_position,
                              build.first->x8_length);
       return LoadScriptObject(aid, build.first->x0_type, build.first->x8_length, stream);
     }
@@ -1992,18 +1923,15 @@ void CStateManager::SendScriptMsg(TUniqueId uid, TEditorId target, EScriptObject
 
 void CStateManager::RecursiveDrawTree(TUniqueId uid) const {
   CActor* actor = TCastToPtr< CActor >(const_cast< CEntity* >(GetObjectById(uid)));
-  if (actor != NULL &&
-      x8dc_objectDrawToken != *reinterpret_cast< int* >(reinterpret_cast< uchar* >(actor) + 0xc8)) {
-    const TUniqueId nextNode =
-        *reinterpret_cast< TUniqueId* >(reinterpret_cast< uchar* >(actor) + 0xc6);
+  if (actor != NULL && x8dc_objectDrawToken != actor->GetDrawToken()) {
+    const TUniqueId nextNode = actor->GetDrawParent();
     if (nextNode != kInvalidUniqueId) {
       RecursiveDrawTree(nextNode);
     }
-    if (x8dc_objectDrawToken ==
-        *reinterpret_cast< int* >(reinterpret_cast< uchar* >(actor) + 0xcc)) {
+    if (x8dc_objectDrawToken == actor->GetAddedToken()) {
       actor->Render(*this);
     }
-    *reinterpret_cast< int* >(reinterpret_cast< uchar* >(actor) + 0xc8) = x8dc_objectDrawToken;
+    actor->SetDrawToken(x8dc_objectDrawToken);
   }
 }
 
@@ -2062,18 +1990,15 @@ bool CStateManager::GetVisSetForArea(TAreaId areaA, TAreaId areaB, CPVSVisSet& s
     if (areaSet != nullptr) {
       setState = 2;
 
-      const uint worldAreaArg = *reinterpret_cast< const uint* >(
-          reinterpret_cast< const uchar* >(x850_world.get()) + 0x20);
+      const uint worldAreaArg = x850_world->GetNumAreas();
       CPVSVisOctree& visOctree =
           *const_cast< CPVSVisOctree* >(&areaSet->GetVisOctree(worldAreaArg));
 
-      const CTransform4f& invAreaXf =
-          *reinterpret_cast< const CTransform4f* >(reinterpret_cast< const uchar* >(area) + 0x3c);
+      const CTransform4f& invAreaXf = x850_world->GetArea(areaA)->GetInverseTransform();
       const CVector3f localPoint = invAreaXf * closestDockPoint;
 
       CPVSVisSet visSet = visOctree.GetVisSet(localPoint);
-      if (*reinterpret_cast< const int* >(reinterpret_cast< const uchar* >(&visSet)) ==
-          kVSS_NodeFound) {
+      if (visSet.GetState() == kVSS_NodeFound) {
         setOut = visSet;
         setState = 3;
       }
@@ -2083,9 +2008,7 @@ bool CStateManager::GetVisSetForArea(TAreaId areaA, TAreaId areaB, CPVSVisSet& s
   return setState == 3;
 }
 
-extern "C" CGameArea::CChainIterator AliveAreasEnd__6CWorldFv() {
-  return CGameArea::CChainIterator(lbl_805A8DDC);
-}
+CGameArea::CChainIterator CWorld::AliveAreasEnd() { return skGlobalNonConstEnd; }
 
 void CStateManager::PreRender() {
   CStateManager* mgr = this;
@@ -2099,7 +2022,7 @@ void CStateManager::PreRender() {
   mgr->x86c_stateManagerContainer->xf39c_renderLast.clear();
   mgr->xf7c_projectedShadow = nullptr;
 
-  PreRender__6CWorldFv(mgr->x850_world.get());
+  mgr->x850_world->PreRender();
   mgr->BuildDynamicLightListForWorld();
 
   const CGameCamera& curCam = mgr->x870_cameraManager->GetCurrentCamera(*mgr);
@@ -2108,7 +2031,7 @@ void CStateManager::PreRender() {
                          curCam.GetNearClipDistance(), false, 100.f);
 
   for (CGameArea::CChainIterator areaIt = mgr->x850_world->ChainHead(CWorld::kC_Alive);
-       areaIt != AliveAreasEnd__6CWorldFv(); ++areaIt) {
+       areaIt != CWorld::AliveAreasEnd(); ++areaIt) {
     CGameArea::EOcclusionState occState;
     if (areaIt->IsPostConstructed()) {
       occState = areaIt->GetPostConstructed()->x10dc_occlusionState;
@@ -2122,10 +2045,7 @@ void CStateManager::PreRender() {
       for (int i = areaObjList->GetFirstObjectIndex(); i != -1;
            i = areaObjList->GetNextObjectIndex(i)) {
         CActor* actor = TCastToPtr< CActor >((*areaObjList)[i]);
-        if (actor != nullptr &&
-            ((*reinterpret_cast< const uchar* >(reinterpret_cast< const uchar* >(actor) + 0xe7) >>
-              2) &
-             1) != 0) {
+        if (actor != nullptr && actor->IsDrawEnabled()) {
           actor->CalculateRenderBounds();
           actor->PreRender(*mgr, frustum);
         }
@@ -2138,7 +2058,7 @@ void CStateManager::PreRender() {
   }
 
   gpRender->PrepareDynamicLights(mgr->x8e0_dynamicLights);
-  lbl_805A8D98 = timer.GetElapsedMicros();
+  sPreRenderStepTime = timer.GetElapsedMicros();
 }
 
 CFrustumPlanes CStateManager::SetupViewForDraw(const CViewport& viewport) const {
@@ -2147,8 +2067,7 @@ CFrustumPlanes CStateManager::SetupViewForDraw(const CViewport& viewport) const 
   gpRender->SetWorldViewpoint(camXf);
 
   const CVector3f playerPos = x84c_player->GetTranslation();
-  SetNewPlayerPositionAndTime__10CCubeModelFRC9CVector3fRC10CStopwatch(
-      playerPos, CStopwatch::GetGlobalTimerObj());
+  CCubeModel::SetNewPlayerPositionAndTime(playerPos, CStopwatch::GetGlobalTimerObj());
 
   const float scaledWidth = xf2c_viewportScaleX * static_cast< float >(viewport.mWidth);
   const float scaledHeight = xf30_viewportScaleY * static_cast< float >(viewport.mHeight);
@@ -2166,8 +2085,7 @@ CFrustumPlanes CStateManager::SetupViewForDraw(const CViewport& viewport) const 
   gpRender->SetViewport(left, top, width, halfHeight * 2);
   CGraphics::SetDepthRange(0.125f, 1.f);
 
-  const float zFar =
-      *reinterpret_cast< const float* >(reinterpret_cast< const uchar* >(&cam) + 0x164);
+  const float zFar = cam.GetFarClipDistance();
   gpRender->SetPerspective(360.f * ((1.f / (2.f * M_PIF)) * fov), scaledWidth, scaledHeight,
                            cam.GetNearClipDistance(), zFar);
 
@@ -2194,8 +2112,7 @@ bool CStateManager::SetupFogForDraw() const {
     return false;
   case CPlayerState::kPV_Combat:
   case CPlayerState::kPV_Scan: {
-    const CGameArea::CAreaFog* fog = reinterpret_cast< const CGameArea::CAreaFog* >(
-        reinterpret_cast< const uchar* >(x870_cameraManager) + 0x3c);
+    const CGameArea::CAreaFog* fog = &x870_cameraManager->GetFog();
     if (fog->IsFogDisabled()) {
       return false;
     }
@@ -2211,7 +2128,7 @@ void CStateManager::SetupFogForArea(const CGameArea& area) const {
   }
 
   if (x8b8_playerState->GetActiveVisor(*this) == CPlayerState::kPV_XRay) {
-    const float fogDist = GetXRayFogDistance__9CGameAreaFv(const_cast< CGameArea* >(&area));
+    const float fogDist = const_cast< CGameArea& >(area).GetXRayFogDistance();
     const CTweakGui* tweak = gpTweakGui;
     const float fogFarZ = tweak->GetXRayFogFarZ();
     const float nearZ = tweak->GetXRayFogNearZ();
@@ -2221,6 +2138,21 @@ void CStateManager::SetupFogForArea(const CGameArea& area) const {
   } else {
     area.GetPostConstructed()->x10c4_areaFog->SetCurrent();
   }
+}
+
+void CStateManager::SetupFogForArea3XRange(const CGameArea& area) const {
+  if (x8b8_playerState->GetActiveVisor(*this) != CPlayerState::kPV_XRay) {
+    return;
+  }
+
+  const float fogDist = const_cast< CGameArea& >(area).GetXRayFogDistance();
+  const CTweakGui* tweak = gpTweakGui;
+  const float invFogDist = 1.f - fogDist;
+  const float farTerm = tweak->GetXRayFogFarZ() * fogDist;
+  const float nearZ = tweak->GetXRayFogNearZ();
+  const float farZ = (nearZ * invFogDist + farTerm) * 3.f;
+  gpRender->SetWorldFog(static_cast< ERglFogMode >(tweak->GetXRayFogMode()), nearZ, farZ,
+                        tweak->GetXRayFogColor());
 }
 
 void CStateManager::SetupFogForArea(TAreaId area) const {
@@ -2251,9 +2183,11 @@ void CStateManager::SetupFogForArea3XRange(TAreaId area) const {
   areaValue = *areaId;
   const CGameArea* areaObj = x850_world->GetArea(areaValue);
   if (areaObj->IsPostConstructed()) {
-    fn_80046DE8(this, areaObj);
+    SetupFogForArea3XRange(*areaObj);
   }
 }
+
+CGameArea::CConstChainIterator CWorld::GetAliveAreasEnd() { return skGlobalEnd; }
 
 void CStateManager::DrawWorld() const {
 
@@ -2301,8 +2235,7 @@ void CStateManager::ResetViewAfterDraw(const CViewport& backupViewport,
   gpRender->SetClippingPlanes(frustum);
 
   const CViewport& viewport = CGraphics::GetViewport();
-  const float zFar =
-      *reinterpret_cast< const float* >(reinterpret_cast< const uchar* >(&cam) + 0x164);
+  const float zFar = cam.GetFarClipDistance();
   gpRender->SetPerspective(cam.GetFov(), static_cast< float >(viewport.mWidth),
                            static_cast< float >(viewport.mHeight), cam.GetNearClipDistance(), zFar);
 }
@@ -2319,8 +2252,7 @@ void CStateManager::DrawAdditionalFilters() const {
 
 void CStateManager::DrawE3DeathEffect() const {
   const CPlayer* player = x84c_player;
-  const float deathTime =
-      *reinterpret_cast< const float* >(reinterpret_cast< const uchar* >(player) + 0x9f4);
+  const float deathTime = player->GetDeathTime();
   float blurFactor;
   float whiteFactor;
 
@@ -2335,7 +2267,7 @@ void CStateManager::DrawE3DeathEffect() const {
       }
     }
 
-    whiteFactor = 1.f - deathTime / (lbl_805AA2D4 * gkBallDeathTime);
+    whiteFactor = 1.f - deathTime / (0.05f * gkBallDeathTime);
     const float whiteAmt = CMath::Clamp(0.f, whiteFactor, 1.f);
     const CColor color = CColor::White().WithAlphaOf(whiteAmt);
     CCameraFilterPass::DrawFilter(CCameraFilterPass::kFT_Add, CCameraFilterPass::kFS_Fullscreen,
@@ -2415,8 +2347,7 @@ void CStateManager::DrawReflection(const CVector3f& point) {
   const CGraphics::CProjectionState backupProj = CGraphics::GetProjectionState();
 
   const CViewport& viewport = CGraphics::GetViewport();
-  const float zFar =
-      *reinterpret_cast< const float* >(reinterpret_cast< const uchar* >(&curCam) + 0x164);
+  const float zFar = curCam.GetFarClipDistance();
   gpRender->SetPerspective(curCam.GetFov(), static_cast< float >(viewport.mWidth),
                            static_cast< float >(viewport.mHeight), curCam.GetNearClipDistance(),
                            zFar);
@@ -2437,9 +2368,7 @@ void CStateManager::DrawSpaceWarp(const CVector3f& point, float strength) const 
   }
 
   const CGameCamera& curCam = x870_cameraManager->GetCurrentCamera(*this);
-  CVector3f screenPoint;
-  ConvertToScreenSpace__11CGameCameraCFRC9CVector3f(&screenPoint, &curCam, &point);
-  gpRender->DrawSpaceWarp(screenPoint, strength);
+  gpRender->DrawSpaceWarp(curCam.ConvertToScreenSpace(point), strength);
 }
 
 void CStateManager::TouchSky() const { x850_world->TouchSky(); }
@@ -2448,7 +2377,7 @@ void CStateManager::TouchPlayerActor() const {
   if (xf6c_playerActorHead != kInvalidUniqueId) {
     const CEntity* ent = GetObjectById(xf6c_playerActorHead);
     if (ent != nullptr) {
-      TouchModels__18CScriptPlayerActorFRC13CStateManager(const_cast< CEntity* >(ent), *this);
+      static_cast< CScriptPlayerActor* >(const_cast< CEntity* >(ent))->TouchModels(*this);
     }
   }
 }
@@ -2503,13 +2432,8 @@ void CStateManager::MurderScriptInstanceNames() {
     rstl::set< rstl::string >::iterator it = xb40_uniqueInstanceNames.begin();
     rstl::set< rstl::string >::iterator end = xb40_uniqueInstanceNames.end();
     for (; it != end; ++it) {
-      const rstl::string* str = *it;
-      const void* cow =
-          *reinterpret_cast< const void* const* >(reinterpret_cast< const uchar* >(str) + 0x4);
-      int refCount = -1;
-      if (cow != nullptr) {
-        refCount = *reinterpret_cast< const int* >(reinterpret_cast< const uchar* >(cow) + 0x4);
-      }
+      rstl::string* str = *it;
+      const int refCount = str->refcount();
 
       if (refCount == 1) {
         xb40_uniqueInstanceNames.erase(it);
@@ -2536,10 +2460,7 @@ void CStateManager::UpdateEscapeSequenceTimer(float dt) {
   if (xf0c_escapeTimer > 0.f) {
     xf0c_escapeTimer = rstl::max_val(gkEpsilon, xf0c_escapeTimer - dt);
     if (xf0c_escapeTimer <= FLT_EPSILON) {
-      struct SPlayerStateFlags {
-        bool x0_24_alive : 1;
-      };
-      reinterpret_cast< SPlayerStateFlags* >(x8b8_playerState.GetPtr())->x0_24_alive = false;
+      x8b8_playerState->SetPlayerAlive(false);
     }
 
     if (!init) {
@@ -2676,20 +2597,10 @@ void CStateManager::AddDrawableActorPlane(const CActor& actor, const CPlane& pla
 
 bool CStateManager::RenderLast(const TUniqueId& uid) {
   CStateManagerContainer* container = x86c_stateManagerContainer.get();
-  CStateManagerContainer* bucket = container;
-  int count = *reinterpret_cast< int* >(reinterpret_cast< uchar* >(bucket) + 0xf39c);
-  if (count == 20) {
+  if (container->xf39c_renderLast.size() == 20) {
     return false;
   }
-
-  TUniqueId* id =
-      reinterpret_cast< TUniqueId* >(reinterpret_cast< uchar* >(bucket) + 0xf3a0) + count;
-  if (id != nullptr) {
-    *id = uid;
-  }
-
-  int* curCount = reinterpret_cast< int* >(reinterpret_cast< uchar* >(container) + 0xf39c);
-  *curCount = *curCount + 1;
+  container->xf39c_renderLast.push_back(uid);
   return true;
 }
 

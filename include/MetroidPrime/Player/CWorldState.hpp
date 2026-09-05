@@ -2,6 +2,7 @@
 #define _CWORLDSTATE
 
 #include "Kyoto/SObjectTag.hpp"
+#include "MetroidPrime/TGameTypes.hpp"
 
 namespace rstl {
 template < typename T >
@@ -14,6 +15,7 @@ class CWorldState {
 public:
   ~CWorldState();
   void SetDesiredAreaAssetId(CAssetId id);
+  void SetAreaId(TAreaId id);
   rstl::rc_ptr< CMapWorldInfo >& MapWorldInfo();
   rstl::rc_ptr< CMapWorldInfo > GetMapWorldInfo() const;
 

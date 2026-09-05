@@ -11,7 +11,7 @@ public:
   ~CFluidPlaneDoor() override;
 
   void RenderSetup(const CStateManager& mgr, float alpha, const CTransform4f& xf,
-                   const CAABox& bounds) const;
+                   const CAABox& bounds, bool noNormals) const;
   void AddRipple(const float mag, const TUniqueId rippler, const CVector3f& center,
                  const CScriptWater& water, CStateManager& mgr) override {}
   void AddRipple(float intensity, TUniqueId rippler, const CVector3f& center,

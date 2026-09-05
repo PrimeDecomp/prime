@@ -17,7 +17,9 @@ public:
 
   int GetInt1() const { return mInt1; }
   int GetInt2() const { return mInt2; }
-  const void* GetPtr() const { return mPtr; }
+  const void* GetPtr() const {
+    return reinterpret_cast< const uchar* >(this) + offsetof(CArchMsgParmInt32Int32VoidPtr, mPtr);
+  }
 };
 
 #endif // _CARCHMSGPARMINT32INT32VOIDPTR

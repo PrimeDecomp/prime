@@ -82,11 +82,9 @@ inline int ToInt32(double in) { return static_cast< int >(in); }
 inline float QtoF(long long in) { return static_cast< float >(in); }
 inline unsigned short ToUint16(short in) { return static_cast< unsigned short >(in); }
 inline char ToChar(int c) { return ToUint8(c); }
-inline int ToInt16(const s64 v) {
-  return v % 4096;
-}
+inline short ToInt16(const s64 v) { return v % 4096; }
 
-inline const short ToInt16(const int in) { return static_cast<const short>(in); }
+inline short ToInt16(int in) { return in; }
 } // namespace CCast
 
 #endif // _CCAST

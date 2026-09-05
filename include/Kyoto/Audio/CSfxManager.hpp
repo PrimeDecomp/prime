@@ -178,7 +178,7 @@ public:
   static void Update(float dt);
   static void RemoveEmitter(CSfxHandle handle);
   static void UpdateEmitter(CSfxHandle handle, const CVector3f& pos, const CVector3f& dir,
-                            uchar maxVol);
+                            const uchar maxVol);
   static void UpdateListener(const CVector3f& pos, const CVector3f& dir, const CVector3f&,
                              const CVector3f&, const uchar);
 
@@ -186,10 +186,10 @@ public:
   static const short kMedPriority;           // 0x7F
   static const ushort kInternalInvalidSfxId; // 0xFFFF
   static const int kAllAreas;                // 0xFFFFFFFF
-  static CSfxHandle AddEmitter(SND_FXID id, const CVector3f& pos, const CVector3f& dir,
+  static CSfxHandle AddEmitter(const SND_FXID id, const CVector3f& pos, const CVector3f& dir,
                                const bool useAcoustics = false, const bool looped = false,
                                const short prio = kMedPriority, const int areaId = kAllAreas);
-  static CSfxHandle AddEmitter(SND_FXID id, const CVector3f& pos, const CVector3f& dir,
+  static CSfxHandle AddEmitter(const SND_FXID id, const CVector3f& pos, const CVector3f& dir,
                                const uchar vol, const bool useAcoustics = false,
                                const bool looped = false, const short prio = kMedPriority,
                                const int areaId = kAllAreas);

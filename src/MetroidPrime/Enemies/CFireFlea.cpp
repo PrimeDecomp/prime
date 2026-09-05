@@ -8,7 +8,7 @@
 #include "MetroidPrime/CStateManager.hpp"
 #include "MetroidPrime/CWorld.hpp"
 #include "MetroidPrime/Cameras/CCameraFilterPass.hpp"
-#include "MetroidPrime/Enemies/CKnockBackController.hpp"
+#include "MetroidPrime/Enemies/CKnockBackMgr.hpp"
 #include "MetroidPrime/Enemies/CPatterned.hpp"
 #include "MetroidPrime/Player/CPlayerState.hpp"
 #include "MetroidPrime/TCastTo.hpp"
@@ -76,7 +76,7 @@ CFireFlea::CFireFlea(TUniqueId uid, const rstl::string& name, const CEntityInfo&
                      const CTransform4f& xf, const CModelData& mData,
                      const CActorParameters& actParams, const CPatternedInfo& pInfo, float f1)
 : CPatterned(kC_FireFlea, uid, name, kFT_Zero, info, xf, mData, pInfo, kMT_Flyer, kCT_One,
-             kBT_Flyer, actParams, kKBV_Small)
+             kBT_Flyer, actParams, kCS_Small)
 , x568_(1.f)
 , x56c_(f1)
 , xd74_(CVector3f::Zero())

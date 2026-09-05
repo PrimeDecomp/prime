@@ -15,10 +15,11 @@ class CParticleSwoosh : public CParticleGen {
 public:
   struct SSwooshData {
     SSwooshData(const CVector3f& translation = CVector3f::Zero(),
-                const CVector3f& offset = CVector3f::Zero(), float irot = 0.f, float rotm = 0.f, int startFrame = 0,
-                bool active = false, const CTransform4f& orient = CTransform4f::Identity(),
-                const CVector3f& velocity = CVector3f::Zero(), float leftRadius = 0.f, float rightRadius = 0.f,
-                const CColor& color = CColor(0.f, 0.f, 0.f, 0.f))
+                const CVector3f& offset = CVector3f::Zero(), float irot = 0.f, float rotm = 0.f,
+                int startFrame = 0, bool active = false,
+                const CTransform4f& orient = CTransform4f::Identity(),
+                const CVector3f& velocity = CVector3f::Zero(), float leftRadius = 0.f,
+                float rightRadius = 0.f, const CColor& color = CColor(0.f, 0.f, 0.f, 0.f))
     : mActive(active)
     , mLeftRad(leftRadius)
     , mRightRad(rightRadius)
@@ -49,42 +50,56 @@ public:
   CParticleSwoosh(TToken< CSwooshDescription > desc, int i);
   ~CParticleSwoosh();
 
-  bool Update(double dt);
-  void Render();
-  void SetOrientation(const CTransform4f& orientation);
-  void SetTranslation(const CVector3f& translation);
-  void SetGlobalOrientation(const CTransform4f& orientation);
-  void SetGlobalTranslation(const CVector3f& translation);
-  void SetGlobalScale(const CVector3f& scale);
-  void SetLocalScale(const CVector3f& scale);
-  void SetParticleEmission(bool emission);
-  void SetModulationColor(const CColor& col);
-  void SetGeneratorRate(float rate) {}
-  const CTransform4f& GetOrientation() const;
-  const CVector3f& GetTranslation() const;
-  const CTransform4f& GetGlobalOrientation() const;
-  const CVector3f& GetGlobalTranslation() const;
-  const CVector3f& GetGlobalScale() const;
-  bool GetParticleEmission() const;
-  const CColor& GetModulationColor() const;
-  bool IsSystemDeletable() const;
-  rstl::optional_object< CAABox > GetBounds() const;
-  int GetParticleCount() const;
-  bool SystemHasLight() const;
+  bool Update(double dt) override;
+  void Render() override;
+  void Render2SidedNoSplineNoGaps();
+  void Render2SidedNoSplineGaps();
+  void Render2SidedSpline();
+  void Render3SidedSolidNoSplineNoGaps();
+  void Render3SidedSolidNoSplineGaps();
+  void Render3SidedSolidSpline();
+  void RenderNSidedNoSplineNoGaps();
+  void RenderNSidedNoSpline();
+  void RenderNSidedSpline();
+  void SetOrientation(const CTransform4f& orientation) override;
+  void UpdateTranslationAndOrientation();
+  void SetTranslation(const CVector3f& translation) override;
+  void SetGlobalOrientation(const CTransform4f& orientation) override;
+  void SetGlobalTranslation(const CVector3f& translation) override;
+  void SetGlobalScale(const CVector3f& scale) override;
+  void SetLocalScale(const CVector3f& scale) override;
+  void SetParticleEmission(bool emission) override;
+  void SetModulationColor(const CColor& col) override;
+  const CTransform4f& GetOrientation() const override;
+  const CVector3f& GetTranslation() const override;
+  const CTransform4f& GetGlobalOrientation() const override;
+  const CVector3f& GetGlobalTranslation() const override;
+  const CVector3f& GetGlobalScale() const override;
+  bool GetParticleEmission() const override;
+  const CColor& GetModulationColor() const override;
+  bool IsSystemDeletable() const override;
+  rstl::optional_object< CAABox > GetBounds() const override;
+  int GetParticleCount() const override;
+  bool SystemHasLight() const override;
   CLight GetLight() const override;
-  void DestroyParticles();
-  void AddModifier(CWarp*);
-  uint Get4CharId() const;
+  void DestroyParticles() override;
+  void AddModifier(CWarp*) override;
+  uint Get4CharId() const override;
 
   void SetWarmUp() { x1d0_26_forceOneUpdate = true; }
 
   const int GetSwooshCount() const { return x15c_swooshes.size(); }
 
   bool IsLargeEnough() const;
+  void UpdateSwooshTranslation(const CVector3f& translation);
+
+  int WrapIndex(int index);
+  float GetLeftRadius(int index);
+  float GetRightRadius(int index);
 
 private:
   TLockedToken< CSwooshDescription > x1c_desc;
-  uint x28_curFrame;
+  int x28_curFrame;
   int x2c_PSLT;
   double x30_curTime;
   CVector3f x38_translation;
@@ -120,7 +135,10 @@ private:
   bool x1d0_30_VLS2 : 1;
   bool x1d0_31_constantTex : 1;
   bool x1d1_24_constantUv : 1;
-  SUVElementSet x1d4_uvs;
+  float x1d4_uMin;
+  float x1d8_vMin;
+  float x1dc_uMax;
+  float x1e0_vMax;
   CTexture* x1e4_tex;
   float x1e8_uvSpan;
   int x1ec_TSPN;

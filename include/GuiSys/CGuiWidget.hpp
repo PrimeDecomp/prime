@@ -56,6 +56,7 @@ public:
   virtual FourCC GetWidgetTypeID() const { return 'BWIG'; }
   virtual bool AddWorkerWidget(CGuiWidget* worker) { return false; }
   virtual bool GetIsFinishedLoadingWidgetSpecific() const { return true; };
+  bool GetIsFinishedLoading() const;
   virtual void OnVisible();
   virtual void OnActivate();
   short GetWorkerId() const { return xb4_workerId; }
@@ -63,9 +64,10 @@ public:
   void SetDepthTest(bool depthTest) { xb6_31_depthTest = depthTest; }
   void SetIsVisible(bool visible);
   void SetIsActive(bool active);
+  bool GetIsBackfaceCullingOn() const { return xb6_29_cullFaces; }
   void SetColor(const CColor& color);
   const CColor& GetColor() const { return xa4_color; }
-  const CColor& GetColor2() const { return xa8_color2; }
+  const CColor& GetModifiedColor() const { return xa8_color2; }
   const EGuiModelDrawFlags GetDrawFlags() const { return xac_drawFlags; }
   void SetVisibility(bool visible, ETraversalMode mode);
   void ParseBaseInfo(CGuiFrame* frame, CInputStream& in, const CGuiWidgetParms& parms);
@@ -73,12 +75,12 @@ public:
   static CGuiWidgetParms ReadWidgetHeader(CGuiFrame* frame, CInputStream& in);
 
   const CTransform4f& GetTransform() const { return x74_transform; }
-  CGuiFrame* GetFrame() { return xb0_frame; }
+  CGuiFrame* GetParentFrame() const { return xb0_frame; }
 
   static CGuiWidget* Create(CGuiFrame* frame, CInputStream& in, CSimplePool* sp);
   static const short InvalidWidgetId() { return gkInvalidWidgetId; }
 
-private:
+protected:
   static const short gkInvalidWidgetId;
   short x70_selfId;
   short x72_parentId;

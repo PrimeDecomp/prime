@@ -7,7 +7,12 @@ class CAnimTreeNode;
 class CAnimSysContext;
 class COutputStream;
 
-enum EMetaTransType { kMTT_MetaAnim, kMTT_Trans, kMTT_PhaseTrans, kMTT_Snap };
+enum EMetaTransType {
+  kMTT_MetaAnim,
+  kMTT_Trans,
+  kMTT_PhaseTrans,
+  kMTT_Snap,
+};
 
 class IMetaTrans {
 public:

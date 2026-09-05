@@ -2,6 +2,7 @@
 
 #include "Kyoto/Particles/CElementGen.hpp"
 
+#pragma inline_max_size(240)
 int CPuddleSpore::kEyeCount = 16;
 const char* CPuddleSpore::kEyeLocators[] = {
   "Glow_1_LCTR",
@@ -29,7 +30,7 @@ CPuddleSpore::CPuddleSpore(const TUniqueId uid, const rstl::string& name, const 
                            const CActorParameters& actParms, const CAssetId weapon,
                            const CDamageInfo& dInfo)
 : CPatterned(kC_PuddleSpore, uid, name, x3fc_flavor, info, xf, mData, pInfo, kMT_Flyer, colType,
-             kBT_Restricted, actParms, kKBV_Medium)
+             kBT_Restricted, actParms, kCS_Medium)
 , x568_(0.f)
 , x56c_(0.f)
 , x570_(f1)
@@ -55,5 +56,5 @@ CPuddleSpore::CPuddleSpore(const TUniqueId uid, const rstl::string& name, const 
   }
 
   mProjectileInfo.Token().Lock();
-  GetKnockBackCtrl().SetAutoResetImpulse(false);
+  KnockBackCtrl().SetAutoResetImpulse(false);
 }

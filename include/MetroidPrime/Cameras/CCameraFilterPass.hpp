@@ -46,13 +46,19 @@ public:
   void Update(float dt);
   void Draw() const;
 
+  float GetT(bool invert) const;
+
   static void DrawWideScreen(const CColor& color, const CTexture* tex, float v);
   static void DrawFilter(EFilterType type, EFilterShape shape, const CColor& color,
                          const CTexture* tex, float lod);
+  static void DrawFilterShape(EFilterShape shape, const CColor& color, const CTexture* tex,
+                              float lod);
   static void DrawFullScreenColoredQuad(const CColor& color);
   static void DrawFullScreenTexturedQuad(const CColor& color, const CTexture* tex, float lod);
   static void DrawFullScreenTexturedQuadQuarters(const CColor& color, const CTexture* tex,
                                                  float lod);
+  static void DrawScanLines(const CColor& color, bool even);
+  static void DrawRandomStatic(const CColor& color, float alpha, bool cookieCutter);
 
 private:
   EFilterType x0_curType;

@@ -1,5 +1,6 @@
 #include "Kyoto/Animation/IMetaAnim.hpp"
 
+#pragma inline_max_size(1024)
 bool CPreAdvanceIndicator::IsTime() const { return mIsTime; }
 
 const CCharAnimTime& CPreAdvanceIndicator::GetTime() const { return mTime; }

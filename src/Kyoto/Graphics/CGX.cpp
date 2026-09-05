@@ -17,7 +17,7 @@ static GXVtxDescList sVtxDescList[30];
 #endif
 
 #define CGX_INLINE
-
+#define CGX_CPP
 #include "Kyoto/Graphics/CGX_Impl.hpp" // IWYU pragma: keep
 
 CGX::SGXState::SGXState()

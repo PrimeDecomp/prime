@@ -5,6 +5,7 @@
 #include "Kyoto/Math/CVector3f.hpp"
 
 #include "Kyoto/Animation/CCharAnimTime.hpp"
+#include "Kyoto/Animation/CSteadyStateAnimInfo.hpp"
 #include "Kyoto/Particles/CParticleData.hpp"
 
 #include "rstl/auto_ptr.hpp"
@@ -28,20 +29,6 @@ struct SAdvancementResults {
   SAdvancementDeltas x8_deltas;
   SAdvancementResults() {}
   SAdvancementResults(const CCharAnimTime& time) : x0_remTime(time) {}
-};
-
-class CSteadyStateAnimInfo {
-  CCharAnimTime x0_duration;
-  CVector3f x8_offset;
-  bool x14_looping;
-
-public:
-  CSteadyStateAnimInfo(bool looping, const CCharAnimTime& duration, const CVector3f& offset)
-  : x0_duration(duration), x8_offset(offset), x14_looping(looping) {}
-
-  const CCharAnimTime& GetDuration() const { return x0_duration; }
-  const CVector3f& GetOffset() const { return x8_offset; }
-  bool IsLooping() const { return x14_looping; }
 };
 
 struct CAnimTreeEffectiveContribution {
@@ -118,6 +105,8 @@ public:
 
   uint GetSoundPOIList(const CCharAnimTime& time, CSoundPOINode* listOut, uint capacity,
                        uint iterator, int unk) const;
+
+  rstl::ownership_transfer< IAnimReader > Clone() const;
 };
 
 #endif // _IANIMREADER

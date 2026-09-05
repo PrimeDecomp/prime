@@ -13,15 +13,15 @@
 #include "MetroidPrime/CMain.hpp"
 #include "MetroidPrime/CMapWorld.hpp"
 #include "MetroidPrime/Player/CGameState.hpp"
+#include "MetroidPrime/Player/CWorldLayerState.hpp"
 #include "MetroidPrime/Player/CWorldTransManager.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptRoomAcoustics.hpp"
 #include "MetroidPrime/TCastTo.hpp"
 #include "MetroidPrime/TGameTypes.hpp"
 #include "rstl/vector.hpp"
 
-static CGameArea::CConstChainIterator sAliveAreasEnd;
-
-CGameArea::CConstChainIterator CWorld::GetAliveAreasEnd() { return sAliveAreasEnd; }
+CGameArea::CConstChainIterator CWorld::skGlobalEnd;
+CGameArea::CChainIterator CWorld::skGlobalNonConstEnd;
 
 CWorld::CWorld(IObjectStore& objStore, CResFactory& resFactory, CAssetId mlvlId)
 : x4_phase(kP_Loading)
@@ -86,7 +86,7 @@ bool CWorld::ScheduleAreaToLoad(CGameArea* area, CStateManager& mgr) {
 }
 
 // TOOD nonmatching
-void CWorld::TravelToArea(TAreaId aid, CStateManager& mgr, EAreaTravelType type) {
+void CWorld::TravelToArea(const TAreaId& aid, CStateManager& mgr, bool skipLoadOther) {
   if (aid.Value() < 0 || aid.Value() >= x18_areas.size())
     return;
   x70_24_currentAreaNeedsAllocation = false;
@@ -121,7 +121,7 @@ void CWorld::TravelToArea(TAreaId aid, CStateManager& mgr, EAreaTravelType type)
   area->SetOcclusionState(CGameArea::kOS_Visible);
 
   CGameArea* otherLoadArea = nullptr;
-  if (type == kATT_Zero) {
+  if (!skipLoadOther) {
     bool otherLoading = false;
     for (int i = 0; i < area->GetDockCount(); ++i) {
       const CGameArea::Dock& dock = area->GetDock(i);
@@ -250,8 +250,8 @@ rstl::string CWorld::IGetDefaultAudioTrack() const { return x84_defAudioTrack; }
 
 int CWorld::IGetAreaCount() const { return x18_areas.size(); }
 
-CDummyWorld::CDummyWorld(CAssetId mlvlId)
-: x4_loadMap(true)
+CDummyWorld::CDummyWorld(CAssetId mlvlId, const bool loadMap)
+: x4_loadMap(loadMap)
 , x8_phase(kP_Loading)
 , xc_mlvlId(mlvlId)
 #if NONMATCHING
@@ -265,7 +265,7 @@ CDummyWorld::CDummyWorld(CAssetId mlvlId)
 , x34_loadBuf()
 , x38_bufSz(0)
 , x3c_curAreaId(kInvalidAreaId) {
-  SObjectTag mlvl('MLVL', mlvlId);
+  const SObjectTag mlvl('MLVL', mlvlId);
   x38_bufSz = gpResourceFactory->ResourceSize(mlvl);
   x34_loadBuf = static_cast< char* >(CMemory::Alloc(x38_bufSz, IAllocator::kHI_RoundUpLen));
   x30_loadToken = gpResourceFactory->GetResLoader().LoadResourceAsync(mlvl, x34_loadBuf.get());
@@ -300,7 +300,7 @@ bool CDummyWorld::ICheckWorldComplete() {
     }
 
     CMemoryInStream r(x34_loadBuf.get(), x38_bufSz);
-    r.ReadLong();
+    uint magic = r.ReadLong();
     uint version = r.Get< uint >();
     x10_strgId = r.Get< CAssetId >();
 
@@ -308,14 +308,14 @@ bool CDummyWorld::ICheckWorldComplete() {
       x14_savwId = r.Get< CAssetId >();
     }
     if (version >= 12) {
-      r.ReadLong();
+      uint sky = r.ReadLong();
     }
     if (version >= 17) {
       rstl::vector< CRelay > relay(r);
     }
 
     int areaCount = r.Get< int >();
-    r.ReadLong();
+    uint unk = r.ReadLong();
 
     x18_areas.reserve(areaCount);
     for (int i = 0; i < areaCount; ++i) {
@@ -344,7 +344,7 @@ bool CDummyWorld::ICheckWorldComplete() {
       rstl::string s(r);
     }
 
-    SWorldLayers::ReadWorldLayers(r, version, xc_mlvlId);
+    CWorldLayers::ReadWorldLayers(r, version, xc_mlvlId);
 
     x30_loadToken = nullptr;
     x34_loadBuf = nullptr;
@@ -353,9 +353,8 @@ bool CDummyWorld::ICheckWorldComplete() {
     if (!x4_loadMap) {
       x8_phase = kP_Done;
       break;
-    } else {
-      x8_phase = kP_LoadingMap;
     }
+    x8_phase = kP_LoadingMap;
   }
   case kP_LoadingMap: {
     if (!x2c_mapWorld->TryCache()) {

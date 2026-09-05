@@ -274,6 +274,9 @@ public:
 
   static bool Startup(const COsContext& osContext, uint fifoSize, void* fifoBase);
   static GXTexRegion* TexRegionCallback(const GXTexObj* obj, GXTexMapID id);
+#if VERSION >= 4
+  static void InitGraphicsFifo(GXFifoObj* obj, void* base, uint fifoSize);
+#endif
   static void InitGraphicsVariables();
   static void Shutdown();
   static void InitGraphicsDefaults();
@@ -340,6 +343,12 @@ public:
   static void VideoPostCallback(u32 retraceCount);
 
   static const CViewport& GetViewport() { return mViewport; }
+  static void GetViewport(int& left, int& bottom, int& width, int& height) {
+    left = mViewport.mLeft;
+    bottom = mViewport.mTop;
+    width = mViewport.mWidth;
+    height = mViewport.mHeight;
+  }
   static const CVector3f& GetViewPoint() { return mViewPoint; }
   static const CTransform4f& GetViewMatrix() { return mViewMatrix; }
   static const CTransform4f& GetModelMatrix() { return mModelMatrix; }
@@ -432,6 +441,9 @@ private:
   static GXTexRegionCallback mGXDefaultTexRegionCallback;
   static void* mpFifo;
   static GXFifoObj* mpFifoObj;
+#if VERSION >= 4
+  static uint mFifoSize;
+#endif
   static uint mRenderTimings;
   static float mSecondsMod900;
   static CTimeProvider* mpExternalTimeProvider;

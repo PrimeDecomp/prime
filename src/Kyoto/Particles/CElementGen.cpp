@@ -56,35 +56,22 @@ bool CElementGen::sSubtractBlend;
 int CElementGen::mParticleAliveCount;
 int CElementGen::mParticleSystemAliveCount;
 
-static ushort g_GlobalSeed = 99;
+double CElementGen::kKickTime = 1 / 60.0;
+ushort CElementGen::sSeed = 99;
 static bool sStaticListInitialized;
 
-struct CParticleListItem {
-  ushort x0_partIdx;
-  CVector3f x4_viewPoint;
-
-  explicit CParticleListItem(short partIdx, const CVector3f& viewPoint)
-  : x0_partIdx(partIdx), x4_viewPoint(viewPoint) {}
-};
-
 struct CParticleListItemViewPointComp {
-  bool operator()(const CParticleListItem& a, const CParticleListItem& b) const {
+  bool operator()(const CElementGen::CParticleListItem& a,
+                  const CElementGen::CParticleListItem& b) const {
     return a.x4_viewPoint.GetY() > b.x4_viewPoint.GetY() ? true : false;
   }
 };
 
 // name?
-struct CTexturedParticleListItem {
-  ushort x0_texMapIdx;
-  ushort x2_partIdx;
-  CVector3f x4_viewPoint;
-
-  explicit CTexturedParticleListItem(short texMapIdx, short partIdx, const CVector3f& viewPoint)
-  : x0_texMapIdx(texMapIdx), x2_partIdx(partIdx), x4_viewPoint(viewPoint) {}
-};
 
 struct CTexturedParticleListItemViewPointComp {
-  bool operator()(const CTexturedParticleListItem& a, const CTexturedParticleListItem& b) const {
+  bool operator()(const CElementGen::CTexturedParticleListItem& a,
+                  const CElementGen::CTexturedParticleListItem& b) const {
     return a.x4_viewPoint.GetY() > b.x4_viewPoint.GetY() ? true : false;
   }
 };
@@ -108,7 +95,7 @@ CElementGen::CElementGen(TToken< CGenDescription > gen, EModelOrientationType or
 , x88_particleEmission(true)
 , x8c_generatorRemainder(0.f)
 , x90_MAXP(0)
-, x94_randomSeed(g_GlobalSeed)
+, x94_randomSeed(sSeed)
 , x98_generatorRate(1.f)
 , xdc_translation(CVector3f::Zero())
 , xe8_globalTranslation(CVector3f::Zero())
@@ -273,11 +260,11 @@ CElementGen::CElementGen(TToken< CGenDescription > gen, EModelOrientationType or
   x30_particles.reserve(count);
 
   if (x26d_28_enableADV) {
-    x60_advValues.resize(count);
+    x60_advValues.assign(count);
   }
 
   if (x2c_orientType == kMOT_One) {
-    x50_parentMatrices.resize(x90_MAXP, CMatrix3f::Identity());
+    x50_parentMatrices.assign(x90_MAXP, CMatrix3f::Identity());
   }
 
   x26c_31_LINE = x28_loadedGenDesc->x30_24_LINE;
@@ -307,7 +294,7 @@ CElementGen::CElementGen(TToken< CGenDescription > gen, EModelOrientationType or
     if (x28_loadedGenDesc->x100_LFOT != nullptr) {
       int lfotVal = 1;
       x28_loadedGenDesc->x100_LFOT->GetValue(x74_curFrame, lfotVal);
-      switch (EFalloffType(lfotVal)) {
+      switch (static_cast< EFalloffType >(lfotVal)) {
       case kFT_Constant:
         x32c_falloffType = kFT_Constant;
         break;
@@ -422,22 +409,20 @@ bool CElementGen::Update(double dt) {
   if (x28_loadedGenDesc->x4_PSWT && !x26d_25_warmedUp) {
     int pswt = 0;
     x28_loadedGenDesc->x4_PSWT->GetValue(x74_curFrame, pswt);
-    InternalUpdate((1.0 / 60.0) * pswt);
+    InternalUpdate(kKickTime * pswt);
     x26d_25_warmedUp = true;
   }
 
   return InternalUpdate(dt);
 }
 
-static double kFrameTime = 1.0 / 60.0;
-
 bool CElementGen::InternalUpdate(double dt) {
   CStopwatch sw;
   CGlobalRandom gr(x27c_randState);
 
   int frameUpdateCount = 0;
-  double t = x74_curFrame * kFrameTime;
-  double dt1 = close_enough(dt, kFrameTime) ? kFrameTime : dt;
+  double t = x74_curFrame * kKickTime;
+  double dt1 = close_enough(dt, kKickTime) ? kKickTime : dt;
 
   CParticleGlobals::SetEmitterTime(x74_curFrame);
 
@@ -492,10 +477,10 @@ bool CElementGen::InternalUpdate(double dt) {
       UpdateLightParameters();
     }
 
-    UpdateChildParticleSystems(kFrameTime);
+    UpdateChildParticleSystems(kKickTime);
 
     ++frameUpdateCount;
-    t += kFrameTime;
+    t += kKickTime;
     ++x74_curFrame;
   }
 
@@ -503,8 +488,8 @@ bool CElementGen::InternalUpdate(double dt) {
     x78_curSeconds = t;
     x80_timeDeltaScale = 1.0f;
   } else {
-    UpdateChildParticleSystems(dt1 - (double)frameUpdateCount * kFrameTime);
-    x80_timeDeltaScale = 1.0f - static_cast< float >((t - x78_curSeconds) / kFrameTime);
+    UpdateChildParticleSystems(dt1 - (double)frameUpdateCount * kKickTime);
+    x80_timeDeltaScale = 1.0f - static_cast< float >((t - x78_curSeconds) / kKickTime);
   }
 
   BuildParticleSystemBounds();
@@ -596,7 +581,7 @@ void CElementGen::UpdateExistingParticles() {
         x60_advValues[x25c_activeParticleCount] = x60_advValues[x30_particles.size() - 1];
       }
       --x30_particles.x4_count;
-      if (p != x30_particles.data() + x30_particles.size()) {
+      if (p != x30_particles.end()) {
         if (p->x0_endFrame < x74_curFrame) {
           continue;
         }
@@ -842,7 +827,7 @@ void CElementGen::UpdateChildParticleSystems(double dt) {
   // KSSM - spawn system keyframe data
   if (x28_loadedGenDesc->xbc_KSSM.get() != nullptr && x84_prevFrame != x74_curFrame &&
       x74_curFrame < x268_PSLT) {
-    ushort backupSeed = g_GlobalSeed;
+    ushort backupSeed = sSeed;
     rstl::vector< CSpawnSystemKeyframeData::CSpawnSystemKeyframeInfo >& spawns =
         x28_loadedGenDesc->xbc_KSSM->GetSpawnedSystemsAtFrame(x74_curFrame);
     x290_activePartChildren.reserve(spawns.size() + x290_activePartChildren.size());
@@ -853,10 +838,10 @@ void CElementGen::UpdateChildParticleSystems(double dt) {
       if (x26d_27_enableOPTS && kssmOPTS) {
         continue;
       }
-      g_GlobalSeed = incSeed;
+      sSeed = incSeed;
       x290_activePartChildren.push_back(ConstructChildParticleSystem(kssmToken));
     }
-    g_GlobalSeed = backupSeed;
+    sSeed = backupSeed;
   }
 
   // IDTS - child particle systems spawned at death
@@ -2048,29 +2033,29 @@ void CElementGen::RenderParticlesIndirectTexture() {
         uint color = particle->x34_color.GetColor_u32();
         CGX::Begin(GX_QUADS, GX_VTXFMT0, 4);
 
-        RSPosition3f32(vpX + size, vpY, vpZ + size);
-        RSColor1u32(color);
-        RSTexCoord2f32(uvs.xMax, uvs.yMax);
-        RSTexCoord2f32(maxU, minV);
-        RSTexCoord2f32(uvsInd.xMax, uvsInd.yMax);
+        GXPosition3f32(vpX + size, vpY, vpZ + size);
+        GXColor1u32(color);
+        GXTexCoord2f32(uvs.xMax, uvs.yMax);
+        GXTexCoord2f32(maxU, minV);
+        GXTexCoord2f32(uvsInd.xMax, uvsInd.yMax);
 
-        RSPosition3f32(vpX - size, vpY, vpZ + size);
-        RSColor1u32(color);
-        RSTexCoord2f32(uvs.xMin, uvs.yMax);
-        RSTexCoord2f32(minU, minV);
-        RSTexCoord2f32(uvsInd.xMin, uvsInd.yMax);
+        GXPosition3f32(vpX - size, vpY, vpZ + size);
+        GXColor1u32(color);
+        GXTexCoord2f32(uvs.xMin, uvs.yMax);
+        GXTexCoord2f32(minU, minV);
+        GXTexCoord2f32(uvsInd.xMin, uvsInd.yMax);
 
-        RSPosition3f32(vpX - size, vpY, vpZ - size);
-        RSColor1u32(color);
-        RSTexCoord2f32(uvs.xMin, uvs.yMin);
-        RSTexCoord2f32(minU, maxV);
-        RSTexCoord2f32(uvsInd.xMin, uvsInd.yMin);
+        GXPosition3f32(vpX - size, vpY, vpZ - size);
+        GXColor1u32(color);
+        GXTexCoord2f32(uvs.xMin, uvs.yMin);
+        GXTexCoord2f32(minU, maxV);
+        GXTexCoord2f32(uvsInd.xMin, uvsInd.yMin);
 
-        RSPosition3f32(vpX + size, vpY, vpZ - size);
-        RSColor1u32(color);
-        RSTexCoord2f32(uvs.xMax, uvs.yMin);
-        RSTexCoord2f32(maxU, maxV);
-        RSTexCoord2f32(uvsInd.xMax, uvsInd.yMin);
+        GXPosition3f32(vpX + size, vpY, vpZ - size);
+        GXColor1u32(color);
+        GXTexCoord2f32(uvs.xMax, uvs.yMin);
+        GXTexCoord2f32(maxU, maxV);
+        GXTexCoord2f32(uvsInd.xMax, uvsInd.yMin);
 
         CGX::End();
       }
@@ -2588,20 +2573,11 @@ void CElementGen::SetGeneratorRate(float rate) {
     }
   }
 }
+float CElementGen::GetGeneratorRate() const { return x98_generatorRate; }
 
-const CTransform4f& CElementGen::GetOrientation() const { return x1d8_orientation; }
 
-const CVector3f& CElementGen::GetTranslation() const { return xdc_translation; }
 
-const CTransform4f& CElementGen::GetGlobalOrientation() const { return x22c_globalOrientation; }
-
-const CVector3f& CElementGen::GetGlobalTranslation() const { return xe8_globalTranslation; }
-
-const CVector3f& CElementGen::GetGlobalScale() const { return x100_globalScale; }
-
-bool CElementGen::GetParticleEmission() const { return x88_particleEmission; }
-
-int CElementGen::GetParticleCount() const { return x25c_activeParticleCount; }
+uint CElementGen::Get4CharId() const { return 'PART'; }
 
 int CElementGen::GetNumActiveChildParticles() const { return x290_activePartChildren.size(); }
 
@@ -2617,8 +2593,8 @@ bool CElementGen::IsIndirectTextured() const {
   return x28_loadedGenDesc->x40_TEXR != nullptr && x28_loadedGenDesc->x44_TIND != nullptr;
 }
 
-uint CElementGen::Get4CharId() const { return 'PART'; }
+bool CElementGen::GetParticleEmission() const { return x88_particleEmission; }
 
-float CElementGen::GetGeneratorRate() const { return x98_generatorRate; }
+const CTransform4f& CElementGen::GetGlobalOrientation() const { return x22c_globalOrientation; }
 
-void CElementGen::AddModifier(CWarp*) {}
+const CVector3f& CElementGen::GetGlobalTranslation() const { return xe8_globalTranslation; }

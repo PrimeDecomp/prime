@@ -16,7 +16,7 @@ CMetaree::CMetaree(TUniqueId uid, const rstl::string& name, EFlavorType flavor,
                    const CVector3f& v1, float f2, EBodyType bodyType, float f3, float f4,
                    const CActorParameters& aParms)
 : CPatterned(kC_Metaree, uid, name, flavor, info, xf, mData, pInfo, kMT_Flyer, kCT_Zero, bodyType,
-             aParms, kKBV_Small)
+             aParms, kCS_Small)
 , x568_delay(f3)
 , x56c_haltDelay(f4)
 , x570_dropHeight(f1)

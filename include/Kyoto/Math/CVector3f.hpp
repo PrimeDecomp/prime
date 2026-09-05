@@ -74,8 +74,8 @@ public:
   const float& operator[](EDimY) const { return mY; }
   const float& operator[](EDimZ) const { return mZ; }
 
-  float& operator[](int i) { return (&mX)[i]; }
-  const float operator[](int i) const { return (&mX)[i]; }
+  float& operator[](const int i) { return (&mX)[i]; }
+  const float operator[](const int i) const { return (&mX)[i]; }
   bool IsNonZero() const { return mX != 0.f || mY != 0.f || mZ != 0.f; }
 
   CVector3f DropZ() const { return CVector3f(mX, mY, 0.f); }
@@ -113,7 +113,7 @@ public:
   static const CUnitVector3f& Right();
   static const CUnitVector3f& Forward();
   static const CUnitVector3f& Back();
-  
+
   friend CVector3f operator-(const CVector3f& lhs, const CVector3f& rhs);
   friend CVector3f operator+(const CVector3f& lhs, const CVector3f& rhs);
   friend CVector3f operator*(const CVector3f& vec, const float f);

@@ -165,17 +165,13 @@ CSfxHandle play_sfx(const ushort sfx, const bool underwater, const bool looped, 
   return hnd;
 }
 
-} // namespace NWeaponTypes
-
-CDamageInfo CGunWeapon::GetShotDamageInfo(const CDamageInfo& shotParam, CStateManager& mgr) const {
+CDamageInfo get_shot_damage(const CDamageInfo& shotParam, CStateManager& mgr) {
   CDamageInfo result = shotParam;
   if (gpGameState->GetHardMode()) {
     result.MultiplyDamage(gpGameState->GetHardModeWeaponMultiplier());
   }
   return result;
 }
-
-namespace NWeaponTypes {
 
 int get_current_suit(const CStateManager& mgr) {
   const CPlayerState* state = mgr.GetPlayerState();

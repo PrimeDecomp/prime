@@ -7,6 +7,7 @@
 
 #include "Kyoto/Animation/CSegId.hpp"
 
+#include "Kyoto/Animation/TSegIdMap.hpp"
 #include "Kyoto/Math/CQuaternion.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
 #include "Kyoto/TToken.hpp"
@@ -17,27 +18,6 @@
 class CCharLayoutInfo;
 class CPoseAsTransforms;
 class CTransform4f;
-
-template < typename T >
-class TSegIdMap {
-public:
-  T& operator[](const CSegId& id) {
-    return xd0_nodes[x8_indirectionMap[id.val() * 2 + 1].val()];
-  }
-  const T& operator[](const CSegId& id) const {
-    return xd0_nodes[x8_indirectionMap[id.val() * 2 + 1].val()];
-  }
-
-private:
-  CSegId x0_boneCount;
-  CSegId x1_capacity;
-  uint x4_maxCapacity;
-  CSegId x8_indirectionMap[200];
-  T* xd0_nodes;
-  CSegId xd4_curPrevBone;
-};
-typedef TSegIdMap< uchar > unk_TSegIdMap;
-CHECK_SIZEOF(unk_TSegIdMap, 0xd8)
 
 class CLayoutDescription {
 public:
@@ -77,12 +57,8 @@ public:
     CVector3f x14_offset;
   };
 
-  void Insert(const CSegId& id, const CQuaternion& rot) {
-    x38_treeMap[id].SetRotation(rot);
-  }
-  void Insert(const CSegId& id, const CVector3f& off) {
-    x38_treeMap[id].SetOffset(off);
-  }
+  void Insert(const CSegId& id, const CQuaternion& rot) { x38_treeMap[id].SetRotation(rot); }
+  void Insert(const CSegId& id, const CVector3f& off) { x38_treeMap[id].SetOffset(off); }
 
 private:
   CLayoutDescription x0_layoutDesc;

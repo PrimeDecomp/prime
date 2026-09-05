@@ -12,13 +12,14 @@
 
 class CPuddleToadGamma : public CPatterned {
 public:
-  CPuddleToadGamma(TUniqueId uid, const rstl::string& name, EFlavorType flavor,
+  CPuddleToadGamma(const TUniqueId uid, const rstl::string& name, const EFlavorType flavor,
                    const CEntityInfo& info, const CTransform4f& xf, const CModelData& mData,
                    const CPatternedInfo& pInfo, const CActorParameters& aParms,
-                   float suckForceMultiplier, float suckAngle, float playerSuckRange,
-                   CVector3f localShootDir, float playerShootSpeed, float shouldAttackWaitTime,
-                   float spotPlayerWaitTime, const CDamageInfo& playerShootDamage,
-                   const CDamageInfo& dInfo2, uint dcln);
+                   const float suckForceMultiplier, const float suckAngle,
+                   const float playerSuckRange, const CVector3f localShootDir,
+                   const float playerShootSpeed, const float shouldAttackWaitTime,
+                   const float spotPlayerWaitTime, const CDamageInfo& playerShootDamage,
+                   const CDamageInfo& dInfo2, const CAssetId dcln);
 
   // CEntity
   ~CPuddleToadGamma() override;
@@ -52,15 +53,15 @@ public:
 
 private:
   void SetSolid(CStateManager& mgr, bool solid);
-  void CenterPlayer(CStateManager& mgr, const CVector3f& pos);
+  void CenterPlayer(CStateManager& mgr, const CVector3f& pos, float mag);
   void ShootPlayer(CStateManager& mgr, float speed);
-  void SuckPlayer(CStateManager& mgr);
+  void SuckPlayer(CStateManager& mgr, float f1);
   bool PlayerInVortexArea(const CStateManager& mgr);
   void SetPlayerPosition(CStateManager& mgr, const CVector3f& pos);
 
   static const char* mMouthLocatorName;
   static const char* mBellyLocatorName;
-  static CVector3f skBellyOffset;
+  static const CVector3f skBellyOffset;
 
   int x568_stateProg;
   float x56c_waitTimer;

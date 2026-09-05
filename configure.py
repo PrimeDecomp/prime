@@ -44,8 +44,8 @@ DISABLED_VERSIONS = [
     # 1,
     # 2,
     # 3,
-    4,
-    5,
+    # 4,
+    # 5,
     6,
     7,
     8,
@@ -237,7 +237,8 @@ cflags_base = [
     "-fp_contract on",
     "-str reuse",
     "-i include",
-    "-i libc",
+    "-i extern/sdk/include",
+    "-i extern/sdk/libc",
     f"-i build/{config.version}/include",
     f"-DVERSION={version_num}",
     "-DPRIME1",
@@ -292,7 +293,8 @@ cflags_retro = [
     "-fp_contract on",
     "-str reuse",
     "-i include",
-    "-i libc",
+    "-i extern/sdk/include",
+    "-i extern/sdk/libc",
     f"-i build/{config.version}/include",
     f"-DVERSION={version_num}",
     "-DPRIME1",
@@ -312,8 +314,9 @@ cflags_musyx = [
     "-nodefaults",
     "-nosyspath",
     "-i include",
+    "-i extern/sdk/include",
     "-i extern/musyx/include",
-    "-i libc",
+    "-i extern/sdk/libc",
     "-inline auto,depth=4",
     "-O4,p",
     "-fp hard",
@@ -331,8 +334,9 @@ cflags_musyx_debug = [
     "-nodefaults",
     "-nosyspath",
     "-i include",
+    "-i extern/sdk/include",
     "-i extern/musyx/include",
-    "-i libc",
+    "-i extern/sdk/libc",
     "-g",
     "-inline off",
     "-sym on",
@@ -350,7 +354,7 @@ cflags_rel = [
     "-nodefaults",
     "-nosyspath",
     "-i include",
-    "-i libc",
+    "-i extern/sdk/libc",
     "-O0",
     "-sdata 0",
     "-sdata2 0",
@@ -376,6 +380,7 @@ config.linker_version = "GC/1.3.2"
 def DolphinLib(lib_name: str, objects: List[Object]) -> Dict[str, Any]:
     return {
         "lib": lib_name,
+        "src_dir": "extern/sdk",
         "mw_version": "GC/1.2.5n",
         "cflags": cflags_base,
         "progress_category": "sdk",
@@ -471,10 +476,10 @@ config.libs = [
         "TRK_MINNOW_DOLPHIN",
         [
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "MetroTRK/nubinit.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "MetroTRK/nubinit.c"
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "MetroTRK/mslsupp.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8J01_00", "GM8E01_48"), "MetroTRK/mslsupp.c"
             ),
         ],
     ),
@@ -485,7 +490,7 @@ config.libs = [
             Object(NonMatching, "MetroidPrime/main.cpp"),
             Object(NonMatching, "MetroidPrime/Cameras/CCameraManager.cpp"),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CControlMapper.cpp"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8J01_00"), "MetroidPrime/CControlMapper.cpp"
             ),
             Object(NonMatching, "MetroidPrime/Cameras/CFirstPersonCamera.cpp"),
             Object(
@@ -747,7 +752,7 @@ config.libs = [
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CPhysicsState.cpp"
             ),
-            Object(NonMatching, "MetroidPrime/CRipple.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CRipple.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CFluidUVMotion.cpp"
             ),
@@ -840,7 +845,7 @@ config.libs = [
                 "MetroidPrime/Weapons/CPowerBomb.cpp",
             ),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Enemies/CMetaree.cpp"),
-            Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptDockAreaChange.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/ScriptObjects/CScriptDockAreaChange.cpp"),
             Object(
                 NonMatching, "MetroidPrime/ScriptObjects/CScriptSpecialFunction.cpp"
             ),
@@ -898,7 +903,7 @@ config.libs = [
             ),
             Object(NonMatching, "MetroidPrime/CGroundMovement.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CNewIntroBoss.cpp"),
-            Object(NonMatching, "MetroidPrime/Weapons/CPhazonBeam.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Weapons/CPhazonBeam.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/ScriptObjects/CScriptTargetingPoint.cpp",
@@ -1059,7 +1064,7 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/Enemies/CRipperControlledPlatform.cpp",
             ),
-            Object(NonMatching, "MetroidPrime/Enemies/CKnockBackController.cpp"),
+            Object(NonMatching, "MetroidPrime/Enemies/CKnockBackMgr.cpp"),
             Object(NonMatching, "MetroidPrime/Player/CWorldLayerState.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CMagdolite.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CTeamAiMgr.cpp"),
@@ -1072,7 +1077,7 @@ config.libs = [
                 "MetroidPrime/ScriptObjects/CScriptMemoryRelay.cpp",
             ),
             Object(NonMatching, "MetroidPrime/CPauseScreenFrame.cpp"),
-            Object(NonMatching, "MetroidPrime/Enemies/CAtomicAlpha.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Enemies/CAtomicAlpha.cpp"),
             Object(NonMatching, "MetroidPrime/CLogBookScreen.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CGBASupport.cpp"
@@ -1088,7 +1093,7 @@ config.libs = [
             ),
             Object(NonMatching, "MetroidPrime/CMemoryCardDriver.cpp"),
             Object(NonMatching, "MetroidPrime/CSaveGameScreen.cpp"),
-            Object(NonMatching, "MetroidPrime/Enemies/CAtomicBeta.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Enemies/CAtomicBeta.cpp"),
             Object(NonMatching, "MetroidPrime/Weapons/CElectricBeamProjectile.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CRidley.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CPuffer.cpp"),
@@ -1103,7 +1108,7 @@ config.libs = [
             Object(NonMatching, "MetroidPrime/Enemies/CTryclops.cpp"),
             Object(NonMatching, "MetroidPrime/Weapons/CNewFlameThrower.cpp"),
             Object(NonMatching, "MetroidPrime/Cameras/CInterpolationCamera.cpp"),
-            Object(NonMatching, "MetroidPrime/Enemies/CSeedling.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Enemies/CSeedling.cpp"),
             Object(NonMatching, "MetroidPrime/Player/CGameHintInfo.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CWallWalker.cpp"),
             Object(NonMatching, "MetroidPrime/CErrorOutputWindow.cpp"),
@@ -1196,7 +1201,7 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01"), "Weapons/IWeaponRenderer.cpp"
             ),
             Object(NonMatching, "Weapons/CDecalDataFactory.cpp"),
-            Object(NonMatching, "Weapons/CDecal.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Weapons/CDecal.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"), "Weapons/CWeaponDescription.cpp"
             ),
@@ -1227,7 +1232,7 @@ config.libs = [
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "GuiSys/CGuiLight.cpp"),
             Object(NonMatching, "GuiSys/CGuiModel.cpp"),
             Object(NonMatching, "GuiSys/CGuiObject.cpp"),
-            Object(NonMatching, "GuiSys/CGuiPane.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "GuiSys/CGuiPane.cpp"),
             Object(NonMatching, "GuiSys/CGuiSliderGroup.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "GuiSys/CGuiSys.cpp"),
             Object(NonMatching, "GuiSys/CGuiTableGroup.cpp"),
@@ -1306,7 +1311,7 @@ config.libs = [
             ),
             Object(NonMatching, "Kyoto/Animation/CAnimationManager.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Animation/CAnimationSet.cpp"),
-            Object(NonMatching, "Kyoto/Animation/CAnimCharacterSet.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Animation/CAnimCharacterSet.cpp"),
             Object(NonMatching, "Kyoto/Animation/CAnimTreeLoopIn.cpp"),
             Object(NonMatching, "Kyoto/Animation/CAnimTreeSequence.cpp"),
             Object(NonMatching, "Kyoto/Animation/CCharacterInfo.cpp"),
@@ -1360,7 +1365,7 @@ config.libs = [
             Object(NonMatching, "Kyoto/Animation/IMetaAnim.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Audio/CSfxHandle.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Audio/CSfxManager.cpp"),
-            Object(NonMatching, "Kyoto/Animation/CAdvancementDeltas.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Animation/CAdvancementDeltas.cpp"),
             Object(NonMatching, "Kyoto/Animation/CAnimMathUtils.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Animation/CAnimPOIData.cpp"),
             Object(NonMatching, "Kyoto/Animation/CAnimSource.cpp"),
@@ -1382,7 +1387,7 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "Kyoto/Animation/CBoolPOINode.cpp",
             ),
-            Object(NonMatching, "Kyoto/Animation/CCharAnimMemoryMetrics.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Animation/CCharAnimMemoryMetrics.cpp"),
             Object(NonMatching, "Kyoto/Animation/CCharLayoutInfo.cpp"),
             Object(NonMatching, "Kyoto/Animation/CFBStreamedAnimReader.cpp"),
             Object(NonMatching, "Kyoto/Animation/CFBStreamedCompression.cpp"),
@@ -1455,7 +1460,7 @@ config.libs = [
             ),
             Object(NonMatching, "Kyoto/Text/CTextParser.cpp"),
             Object(NonMatching, "Kyoto/Text/CWordBreakTables.cpp"),
-            Object(NonMatching, "Kyoto/Text/CWordInstruction.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Text/CWordInstruction.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "Kyoto/Text/CBlockInstruction.cpp",
@@ -1648,7 +1653,7 @@ config.libs = [
             Object(NonMatching, "Kyoto/Math/CFrustumPlanes.cpp"),
             Object(NonMatching, "Kyoto/Graphics/CCubeMaterial.cpp"),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8J01_00", "GM8E01_48"),
                 "Kyoto/Graphics/CCubeSurface.cpp",
             ),
             Object(
@@ -1704,7 +1709,7 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
                 "Kyoto/Particles/CEffectComponent.cpp",
             ),
-            Object(NonMatching, "Kyoto/Particles/CParticleData.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Particles/CParticleData.cpp"),
             Object(NonMatching, "Kyoto/Animation/CVertexMorphEffect.cpp"),
             Object(NonMatching, "Kyoto/Animation/CSkinnedModelWithAvgNormals.cpp"),
             Object(
@@ -1726,7 +1731,7 @@ config.libs = [
             Object(NonMatching, "Kyoto/Text/CImageInstruction.cpp"),
             Object(NonMatching, "Kyoto/Text/CTextRenderBuffer.cpp"),
             Object(NonMatching, "Kyoto/Graphics/CCubeMoviePlayer.cpp"),
-            Object(NonMatching, "Kyoto/Animation/CAdditiveAnimPlayback.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Animation/CAdditiveAnimPlayback.cpp"),
             Object(NonMatching, "Kyoto/Particles/CParticleElectricDataFactory.cpp"),
             Object(NonMatching, "Kyoto/Particles/CParticleElectric.cpp"),
             Object(
@@ -1775,17 +1780,17 @@ config.libs = [
     DolphinLib(
         "ai",
         [
-            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Dolphin/ai.c"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "dolphin/ai.c"),
         ],
     ),
     DolphinLib(
         "ar",
         [
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Dolphin/ar/ar.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "dolphin/ar/ar.c"
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Dolphin/ar/arq.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "dolphin/ar/arq.c"
             ),
         ],
     ),
@@ -1793,29 +1798,29 @@ config.libs = [
         "base",
         [
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Dolphin/PPCArch.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "dolphin/PPCArch.c"
             ),
         ],
     ),
     DolphinLib(
         "db",
         [
-            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Dolphin/db.c"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "dolphin/db.c"),
         ],
     ),
     DolphinLib(
         "dsp",
         [
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Dolphin/dsp/dsp.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "dolphin/dsp/dsp.c"
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
-                "Dolphin/dsp/dsp_debug.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                "dolphin/dsp/dsp_debug.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
-                "Dolphin/dsp/dsp_task.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                "dolphin/dsp/dsp_task.c",
             ),
         ],
     ),
@@ -1823,159 +1828,160 @@ config.libs = [
         "dvd",
         [
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
-                "Dolphin/dvd/dvdlow.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                "dolphin/dvd/dvdlow.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
-                "Dolphin/dvd/dvdfs.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                "dolphin/dvd/dvdfs.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Dolphin/dvd/dvd.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "dolphin/dvd/dvd.c"
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
-                "Dolphin/dvd/dvdqueue.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                "dolphin/dvd/dvdqueue.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
-                "Dolphin/dvd/dvderror.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                "dolphin/dvd/dvderror.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
-                "Dolphin/dvd/dvdidutils.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                "dolphin/dvd/dvdidutils.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
-                "Dolphin/dvd/dvdfatal.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                "dolphin/dvd/dvdfatal.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
-                "Dolphin/dvd/fstload.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                "dolphin/dvd/fstload.c",
             ),
         ],
     ),
     DolphinLib(
         "gx",
         [
-            Object(NonMatching, "Dolphin/gx/GXInit.c"),
-            Object(NonMatching, "Dolphin/gx/GXFifo.c"),
-            Object(NonMatching, "Dolphin/gx/GXAttr.c"),
-            Object(NonMatching, "Dolphin/gx/GXMisc.c"),
-            Object(NonMatching, "Dolphin/gx/GXGeometry.c"),
-            Object(NonMatching, "Dolphin/gx/GXFrameBuf.c"),
-            Object(NonMatching, "Dolphin/gx/GXLight.c"),
-            Object(NonMatching, "Dolphin/gx/GXTexture.c"),
-            Object(NonMatching, "Dolphin/gx/GXBump.c"),
-            Object(NonMatching, "Dolphin/gx/GXTev.c"),
-            Object(NonMatching, "Dolphin/gx/GXPixel.c"),
-            Object(NonMatching, "Dolphin/gx/GXStubs.c"),
-            Object(NonMatching, "Dolphin/gx/GXDisplayList.c"),
-            Object(NonMatching, "Dolphin/gx/GXTransform.c"),
-            Object(NonMatching, "Dolphin/gx/GXPerf.c"),
+            Object(NonMatching, "dolphin/gx/GXInit.c"),
+            Object(NonMatching, "dolphin/gx/GXFifo.c"),
+            Object(NonMatching, "dolphin/gx/GXAttr.c"),
+            Object(NonMatching, "dolphin/gx/GXMisc.c"),
+            Object(NonMatching, "dolphin/gx/GXGeometry.c"),
+            Object(NonMatching, "dolphin/gx/GXFrameBuf.c"),
+            Object(NonMatching, "dolphin/gx/GXLight.c"),
+            Object(NonMatching, "dolphin/gx/GXTexture.c"),
+            Object(NonMatching, "dolphin/gx/GXBump.c"),
+            Object(NonMatching, "dolphin/gx/GXTev.c"),
+            Object(NonMatching, "dolphin/gx/GXPixel.c"),
+            Object(NonMatching, "dolphin/gx/GXStubs.c"),
+            Object(NonMatching, "dolphin/gx/GXDisplayList.c"),
+            Object(NonMatching, "dolphin/gx/GXTransform.c"),
+            Object(NonMatching, "dolphin/gx/GXPerf.c"),
         ],
     ),
     {
         "lib": "mtx",
         "mw_version": "GC/1.2.5n",
-        # "cflags": ["-nodefaults","-proc gekko","-align powerpc","-fp hardware","-g","-sym on","-maxerrors 1","-nosyspath","-i include","-i libc", "-D_DEBUG=1", "-inline off", "-Cpp_exceptions off"],
+        # "cflags": ["-nodefaults","-proc gekko","-align powerpc","-fp hardware","-g","-sym on","-maxerrors 1","-nosyspath","-i include","-i extern/sdk/libc", "-D_DEBUG=1", "-inline off", "-Cpp_exceptions off"],
         "cflags": [*cflags_base, "-fp_contract off"],
         "progress_category": "sdk",
+        "src_dir": "extern/sdk",
         "shift_jis": True,
         "objects": [
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Dolphin/mtx/mtx.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8J01_01", "GM8E01_02"), "dolphin/mtx/mtx.c"
             ),
-            Object(NonMatching, "Dolphin/mtx/mtxvec.c"),
-            Object(NonMatching, "Dolphin/mtx/mtxstack.c"),
-            Object(NonMatching, "Dolphin/mtx/mtx44vec.c"),
+            Object(NonMatching, "dolphin/mtx/mtxvec.c"),
+            Object(NonMatching, "dolphin/mtx/mtxstack.c"),
+            Object(NonMatching, "dolphin/mtx/mtx44vec.c"),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
-                "Dolphin/mtx/mtx44.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8J01_00", "GM8E01_02"),
+                "dolphin/mtx/mtx44.c",
             ),
-            Object(NonMatching, "Dolphin/mtx/vec.c"),
-            Object(Equivalent, "Dolphin/mtx/quat.c"),
-            Object(NonMatching, "Dolphin/mtx/psmtx.c"),
+            Object(NonMatching, "dolphin/mtx/vec.c"),
+            Object(Equivalent, "dolphin/mtx/quat.c"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8J01_00", "GM8E01_02"), "dolphin/mtx/psmtx.c"),
         ],
     },
     DolphinLib(
         "os",
         [
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
-                "Dolphin/os/__start.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8J01_00", "GM8E01_02"),
+                "dolphin/os/__start.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Dolphin/os/OS.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "dolphin/os/OS.c"
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
-                "Dolphin/os/OSAlarm.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                "dolphin/os/OSAlarm.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
-                "Dolphin/os/OSArena.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                "dolphin/os/OSArena.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
-                "Dolphin/os/OSAudioSystem.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                "dolphin/os/OSAudioSystem.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
-                "Dolphin/os/OSCache.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                "dolphin/os/OSCache.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
-                "Dolphin/os/OSContext.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                "dolphin/os/OSContext.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
-                "Dolphin/os/OSError.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                "dolphin/os/OSError.c",
             ),
-            Object(NonMatching, "Dolphin/os/OSFatal.c"),
-            Object(NonMatching, "Dolphin/os/OSFont.c"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02"), "dolphin/os/OSFatal.c"),
+            Object(NonMatching, "dolphin/os/OSFont.c"),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
-                "Dolphin/os/OSInterrupt.c",
-            ),
-            Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
-                "Dolphin/os/OSLink.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                "dolphin/os/OSInterrupt.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
-                "Dolphin/os/OSMessage.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                "dolphin/os/OSLink.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
-                "Dolphin/os/OSMemory.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                "dolphin/os/OSMessage.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
-                "Dolphin/os/OSMutex.c",
-            ),
-            Object(NonMatching, "Dolphin/os/OSReboot.c"),
-            Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
-                "Dolphin/os/OSReset.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                "dolphin/os/OSMemory.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
-                "Dolphin/os/OSResetSW.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                "dolphin/os/OSMutex.c",
             ),
-            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Dolphin/os/OSRtc.c"),
-            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Dolphin/os/OSSync.c"),
+            Object(NonMatching, "dolphin/os/OSReboot.c"),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
-                "Dolphin/os/OSThread.c",
-            ),
-            Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
-                "Dolphin/os/OSTime.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                "dolphin/os/OSReset.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
-                "Dolphin/os/__ppc_eabi_init.cpp",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                "dolphin/os/OSResetSW.c",
+            ),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02"), "dolphin/os/OSRtc.c"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02"), "dolphin/os/OSSync.c"),
+            Object(
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                "dolphin/os/OSThread.c",
+            ),
+            Object(
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                "dolphin/os/OSTime.c",
+            ),
+            Object(
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                "dolphin/os/__ppc_eabi_init.cpp",
             ),
         ],
     ),
@@ -1983,18 +1989,18 @@ config.libs = [
         "pad",
         [
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
-                "Dolphin/pad/PadClamp.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                "dolphin/pad/PadClamp.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Dolphin/pad/pad.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "dolphin/pad/pad.c"
             ),
         ],
     ),
     DolphinLib(
         "vi",
         [
-            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Dolphin/vi.c"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "dolphin/vi.c"),
         ],
     ),
     {
@@ -2002,210 +2008,213 @@ config.libs = [
         "mw_version": "GC/1.3",
         "cflags": cflags_runtime,
         "progress_category": "sdk",
+        "src_dir": "extern/sdk",
         "shift_jis": False,
         "objects": [
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00"), "Runtime/__mem.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00", "GM8J01_01", "GM8E01_02"),
+                "runtime/__mem.c"
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00"), "Runtime/__va_arg.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00", "GM8E01_02"), "runtime/__va_arg.c"
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00"),
-                "Runtime/global_destructor_chain.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00", "GM8E01_02"),
+                "runtime/global_destructor_chain.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00"),
-                "Runtime/CPlusLibPPC.cpp",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00", "GM8E01_02"),
+                "runtime/CPlusLibPPC.cpp",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00"),
-                "Runtime/NMWException.cpp",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00", "GM8E01_02"),
+                "runtime/NMWException.cpp",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00"), "Runtime/ptmf.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00", "GM8E01_02"), "runtime/ptmf.c"
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Runtime/runtime.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "runtime/runtime.c"
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
-                "Runtime/__init_cpp_exceptions.cpp",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                "runtime/__init_cpp_exceptions.cpp",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
-                "Runtime/Gecko_ExceptionPPC.cpp",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                "runtime/Gecko_ExceptionPPC.cpp",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
-                "Runtime/abort_exit.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                "runtime/abort_exit.c",
             ),
-            Object(NonMatching, "Runtime/alloc.c"),
+            Object(NonMatching, "runtime/alloc.c"),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
-                "Runtime/ansi_files.c",
-            ),
-            Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Runtime/ansi_fp.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                "runtime/ansi_files.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Runtime/arith.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "runtime/ansi_fp.c"
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
-                "Runtime/buffer_io.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "runtime/arith.c"
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Runtime/ctype.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                "runtime/buffer_io.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Runtime/locale.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "runtime/ctype.c"
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
-                "Runtime/direct_io.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "runtime/locale.c"
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Runtime/file_io.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                "runtime/direct_io.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Runtime/errno.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "runtime/file_io.c"
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Runtime/FILE_POS.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "runtime/errno.c"
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Runtime/mbstring.c"
-            ),
-            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Runtime/mem.c"),
-            Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
-                "Runtime/mem_funcs.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "runtime/FILE_POS.c"
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Runtime/misc_io.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "runtime/mbstring.c"
+            ),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "runtime/mem.c"),
+            Object(
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                "runtime/mem_funcs.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Runtime/printf.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "runtime/misc_io.c"
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Runtime/qsort.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "runtime/printf.c"
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Runtime/rand.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "runtime/qsort.c"
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Runtime/sscanf.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "runtime/rand.c"
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Runtime/string.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "runtime/sscanf.c"
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Runtime/float.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "runtime/string.c"
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Runtime/strtold.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "runtime/float.c"
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
-                "Runtime/uart_console_io.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "runtime/strtold.c"
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Runtime/wchar_io.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                "runtime/uart_console_io.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Runtime/e_acos.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "runtime/wchar_io.c"
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Runtime/e_asin.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "runtime/e_acos.c"
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Runtime/e_atan2.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "runtime/e_asin.c"
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Runtime/e_exp.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "runtime/e_atan2.c"
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Runtime/e_fmod.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "runtime/e_exp.c"
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Runtime/e_log.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "runtime/e_fmod.c"
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Runtime/e_pow.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "runtime/e_log.c"
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
-                "Runtime/e_rem_pio2.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "runtime/e_pow.c"
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Runtime/k_cos.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                "runtime/e_rem_pio2.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
-                "Runtime/k_rem_pio2.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "runtime/k_cos.c"
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Runtime/k_sin.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                "runtime/k_rem_pio2.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Runtime/k_tan.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "runtime/k_sin.c"
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Runtime/s_atan.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "runtime/k_tan.c"
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
-                "Runtime/s_copysign.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "runtime/s_atan.c"
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Runtime/s_cos.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                "runtime/s_copysign.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Runtime/s_floor.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "runtime/s_cos.c"
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Runtime/s_frexp.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "runtime/s_floor.c"
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Runtime/s_ldexp.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "runtime/s_frexp.c"
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Runtime/s_modf.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "runtime/s_ldexp.c"
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
-                "Runtime/s_nextafter.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "runtime/s_modf.c"
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Runtime/s_sin.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                "runtime/s_nextafter.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Runtime/s_tan.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "runtime/s_sin.c"
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Runtime/w_acos.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "runtime/s_tan.c"
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Runtime/w_asin.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "runtime/w_acos.c"
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Runtime/w_atan2.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "runtime/w_asin.c"
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Runtime/w_exp.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "runtime/w_atan2.c"
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Runtime/w_fmod.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "runtime/w_exp.c"
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Runtime/w_log.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "runtime/w_fmod.c"
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Runtime/w_pow.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "runtime/w_log.c"
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Runtime/math_ppc.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "runtime/w_pow.c"
+            ),
+            Object(
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                "runtime/math_ppc.c"
             ),
         ],
     },
@@ -2217,135 +2226,135 @@ config.libs = [
         patch=0,
         objects=[
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
                 "musyx/runtime/seq.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
                 "musyx/runtime/synth.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
                 "musyx/runtime/seq_api.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
                 "musyx/runtime/snd_synthapi.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
                 "musyx/runtime/stream.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
                 "musyx/runtime/synthdata.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
                 "musyx/runtime/synthmacros.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
                 "musyx/runtime/synthvoice.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
                 "musyx/runtime/synth_ac.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
                 "musyx/runtime/synth_adsr.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
                 "musyx/runtime/synth_vsamples.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
                 "musyx/runtime/synth_dbtab.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
                 "musyx/runtime/s_data.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
                 "musyx/runtime/hw_dspctrl.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
                 "musyx/runtime/hw_volconv.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
                 "musyx/runtime/snd3d.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
                 "musyx/runtime/snd_init.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
                 "musyx/runtime/snd_math.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
                 "musyx/runtime/snd_midictrl.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
                 "musyx/runtime/snd_service.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
                 "musyx/runtime/hardware.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
                 "musyx/runtime/hw_aramdma.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
                 "musyx/runtime/dsp_import.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
                 "musyx/runtime/hw_dolphin.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
                 "musyx/runtime/hw_memory.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
                 "musyx/runtime/hw_lib_dolphin.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
                 "musyx/runtime/profile.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
                 "musyx/runtime/CheapReverb/creverb_fx.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
                 "musyx/runtime/CheapReverb/creverb.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
                 "musyx/runtime/StdReverb/reverb_fx.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
                 "musyx/runtime/StdReverb/reverb.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
                 "musyx/runtime/Delay/delay_fx.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
                 "musyx/runtime/Chorus/chorus_fx.c",
             ),
         ],
@@ -2353,75 +2362,76 @@ config.libs = [
     DolphinLib(
         "dtk",
         [
-            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Dolphin/dtk.c"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                   "dolphin/dtk.c"),
         ],
     ),
     DolphinLib(
         "card",
         [
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00"),
-                "Dolphin/card/CARDBios.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00", "GM8E01_02"),
+                "dolphin/card/CARDBios.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
-                "Dolphin/card/CARDUnlock.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                "dolphin/card/CARDUnlock.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
-                "Dolphin/card/CARDRdwr.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                "dolphin/card/CARDRdwr.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
-                "Dolphin/card/CARDBlock.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                "dolphin/card/CARDBlock.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
-                "Dolphin/card/CARDDir.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                "dolphin/card/CARDDir.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
-                "Dolphin/card/CARDCheck.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                "dolphin/card/CARDCheck.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
-                "Dolphin/card/CARDMount.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                "dolphin/card/CARDMount.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
-                "Dolphin/card/CARDFormat.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                "dolphin/card/CARDFormat.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
-                "Dolphin/card/CARDOpen.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                "dolphin/card/CARDOpen.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
-                "Dolphin/card/CARDCreate.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                "dolphin/card/CARDCreate.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
-                "Dolphin/card/CARDRead.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                "dolphin/card/CARDRead.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
-                "Dolphin/card/CARDWrite.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                "dolphin/card/CARDWrite.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
-                "Dolphin/card/CARDDelete.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                "dolphin/card/CARDDelete.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
-                "Dolphin/card/CARDStat.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                "dolphin/card/CARDStat.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
-                "Dolphin/card/CARDRename.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                "dolphin/card/CARDRename.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
-                "Dolphin/card/CARDNet.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                "dolphin/card/CARDNet.c",
             ),
         ],
     ),
@@ -2429,12 +2439,12 @@ config.libs = [
         "si",
         [
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00"),
-                "Dolphin/si/SIBios.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00", "GM8E01_02"),
+                "dolphin/si/SIBios.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00"),
-                "Dolphin/si/SISamplingRate.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00", "GM8E01_02"),
+                "dolphin/si/SISamplingRate.c",
             ),
         ],
     ),
@@ -2442,12 +2452,12 @@ config.libs = [
         "exi",
         [
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00"),
-                "Dolphin/exi/EXIBios.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00", "GM8E01_02"),
+                "dolphin/exi/EXIBios.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00"),
-                "Dolphin/exi/EXIUart.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00", "GM8E01_02"),
+                "dolphin/exi/EXIUart.c",
             ),
         ],
     ),
@@ -2455,12 +2465,12 @@ config.libs = [
         "thp",
         [
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00"),
-                "Dolphin/thp/THPDec.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00", "GM8E01_02"),
+                "dolphin/thp/THPDec.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00"),
-                "Dolphin/thp/THPAudio.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00", "GM8E01_02"),
+                "dolphin/thp/THPAudio.c",
             ),
         ],
     ),
@@ -2468,32 +2478,32 @@ config.libs = [
         "gba",
         [
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00"),
-                "Dolphin/GBA/GBA.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00", "GM8E01_02"),
+                "dolphin/GBA/GBA.c"
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00"),
-                "Dolphin/GBA/GBAGetProcessStatus.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00", "GM8E01_02"),
+                "dolphin/GBA/GBAGetProcessStatus.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00"),
-                "Dolphin/GBA/GBAJoyBoot.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00", "GM8E01_02"),
+                "dolphin/GBA/GBAJoyBoot.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00"),
-                "Dolphin/GBA/GBARead.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00", "GM8E01_02"),
+                "dolphin/GBA/GBARead.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00"),
-                "Dolphin/GBA/GBAWrite.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00", "GM8E01_02"),
+                "dolphin/GBA/GBAWrite.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00"),
-                "Dolphin/GBA/GBAXfer.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00", "GM8E01_02"),
+                "dolphin/GBA/GBAXfer.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00"),
-                "Dolphin/GBA/GBAKey.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00", "GM8E01_02"),
+                "dolphin/GBA/GBAKey.c",
             ),
         ],
     ),

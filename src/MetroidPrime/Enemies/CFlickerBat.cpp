@@ -14,7 +14,7 @@ CFlickerBat::CFlickerBat(const TUniqueId uid, const rstl::string& name, const EF
                          const bool startsVisible, const CActorParameters& actParms,
                          const bool enableLineOfSight)
 : CPatterned(kC_FlickerBat, uid, name, flavor, info, xf, mData, pInfo, kMT_Flyer, colType,
-             kBT_Pitchable, actParms, kKBV_Small)
+             kBT_Pitchable, actParms, kCS_Small)
 , x568_(0.f)
 , x56c_(0.f)
 , x570_(0.f)

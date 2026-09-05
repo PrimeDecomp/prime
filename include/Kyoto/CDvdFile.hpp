@@ -9,8 +9,11 @@
 #include "rstl/single_ptr.hpp"
 #include "rstl/string.hpp"
 
-enum ESeekOrigin { kSO_Set, kSO_Cur, kSO_End };
-
+enum ESeekOrigin {
+  kSO_Begin,
+  kSO_Current,
+  kSO_End,
+};
 
 class CDvdFile;
 struct CDvdFileARAM;
@@ -19,7 +22,7 @@ class CDvdFile {
 public:
   CDvdFile(const char* name);
   ~CDvdFile();
-  uint Length() { return x14_size; }
+  uint Length() { return mSize; }
   void HandleDVDInterrupt();
   void HandleARAMInterrupt();
   void PingARAMTransfer();
@@ -35,24 +38,24 @@ public:
   void CloseFile();
   void CalcFileOffset(int offset, ESeekOrigin origin);
   void UpdateFilePos(int pos);
-  const int GetFileSize() const { return x14_size; }
-  const rstl::string& GetFilename() const { return x18_filename; }
-  bool IsARAMFile() const { return x8_; }
+  const int GetFileSize() const { return mSize; }
+  bool IsARAMFile() const { return mARAMAllocated; }
 
   static bool FileExists(const char*);
   static void DVDARAMXferCallback(long, DVDFileInfo*);
   static void ARAMARAMXferCallback(u32 addr);
   static void internalCallback(s32, DVDFileInfo*);
+  const rstl::string& GetFilename() const { return mFilename; }
 
 private:
-  int x0_fileEntry;
-  uchar* x4_;
-  bool x8_;
-  bool x9_;
-  rstl::single_ptr< CDvdFileARAM > xc_;
-  int x10_offset;
-  int x14_size;
-  rstl::string x18_filename;
+  int mFileEntry;
+  uchar* mARAMBuffer;
+  bool mARAMAllocated;
+  bool mARAMPopped;
+  rstl::single_ptr< CDvdFileARAM > mARAMFile;
+  int mOffset;
+  int mSize;
+  rstl::string mFilename;
 };
 CHECK_SIZEOF(CDvdFile, 0x28)
 

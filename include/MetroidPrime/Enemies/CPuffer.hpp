@@ -25,7 +25,11 @@ public:
   void Touch(CActor&, CStateManager&) override;
   void Death(CStateManager&, const CVector3f&, EScriptObjectState) override;
 
-  void SetParticleEnabled(int idx, const bool enabled) {}
+  void SetParticleEnabled(const int idx, const bool enabled) {
+    x5d0_enabledParticles =
+        enabled ? x5d0_enabledParticles | (1 << idx) : x5d0_enabledParticles & ~(1 << idx);
+  }
+  bool IsParticleEnabled(const int idx) const { return (x5d0_enabledParticles & (1 << idx)) != 0; }
 
 private:
   CVector3f x568_face;

@@ -3,6 +3,7 @@
 
 #include "MetroidPrime/CIOWin.hpp"
 
+class CGuiTableGroup;
 class CFrontEndUI : public CIOWin {
 public:
   struct SFusionBonusFrame {
@@ -21,6 +22,13 @@ public:
         kUIT_Cancelled = 9
       };
     };
+
+    void FinishedLoading();
+    void OnMenuSelectionChanged(CGuiTableGroup* tableGroup, const int selection);
+    void OnMenuAdvance(CGuiTableGroup* tableGroup);
+    void OnMenuCancel(CGuiTableGroup* tableGroup);
+    
+    CGuiTableGroup* test;
   };
   CFrontEndUI();
 

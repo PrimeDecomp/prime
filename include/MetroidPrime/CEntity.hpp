@@ -30,6 +30,8 @@ public:
   const TAreaId GetAreaId() const;
   const TAreaId GetCurrentAreaId() const { return x4_areaId; }
   const bool GetActive() const { return x30_24_active; }
+  bool IsInGraveyard() const { return x30_25_inGraveyard; }
+  void SetIsInGraveyard() { x30_25_inGraveyard = true; }
   bool IsScriptingBlocked() const { return x30_26_scriptingBlocked; }
 
   // might be fake?

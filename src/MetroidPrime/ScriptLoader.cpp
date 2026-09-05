@@ -2352,7 +2352,7 @@ CEntity* ScriptLoader::LoadParasite(CStateManager& mgr, CInputStream& in, int pr
       parasiteSeparationWeight, parasiteAlignmentWeight, parasiteCohesionWeight,
       destinationSeekWeight, forwardMoveWeight, playerSeparationDist, playerSeparationWeight,
       playerObstructionMinDist, 0.f, disableMove, CWallWalker::kWT_Parasite,
-      CDamageVulnerability::NormalVulnerabilty(), CDamageInfo(CWeaponMode::Power(), 0.f, 0.f, 0.f),
+      CDamageVulnerability::NormalVulnerability(), CDamageInfo(CWeaponMode::Power(), 0.f, 0.f, 0.f),
       CSfxManager::kInternalInvalidSfxId, CSfxManager::kInternalInvalidSfxId,
       CSfxManager::kInternalInvalidSfxId, kInvalidAssetId, kInvalidAssetId, 0.f, actParms);
 }
@@ -3723,7 +3723,7 @@ CEntity* ScriptLoader::LoadGeemer(CStateManager& mgr, CInputStream& in, int prop
                           pInfo.GetAnimationParameters().GetInitialAnimation(), true)),
       pInfo, kBT_WallWalker, 0.f, advanceWpRadius, f2, alignAngVel, f4, 0.2f, 0.4f, 0.f, 0.f, 0.f,
       0.f, 0.f, 1.f, forwardMoveWeight, 0.f, 0.f, playerObstructionMinDist, haltDelay, false,
-      CWallWalker::kWT_Geemer, CDamageVulnerability::NormalVulnerabilty(),
+      CWallWalker::kWT_Geemer, CDamageVulnerability::NormalVulnerability(),
       CDamageInfo(CWeaponMode::Power(), 0.f, 0.f, 0.f), haltSfx, getUpSfx, crouchSfx,
       kInvalidAssetId, kInvalidAssetId, 0.f, actParms);
 }

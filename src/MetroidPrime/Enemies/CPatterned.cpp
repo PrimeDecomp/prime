@@ -57,11 +57,11 @@ static EMaterialTypes skCharacterMat = kMT_Character;
 
 class CMetroid;
 
-CPatterned::CPatterned(const ECharacter character, const TUniqueId uid, const rstl::string& name,
+CPatterned::CPatterned(const EPatternedAI character, const TUniqueId uid, const rstl::string& name,
                        const EFlavorType flavor, const CEntityInfo& info, const CTransform4f& xf,
                        const CModelData& mData, const CPatternedInfo& pinfo, EMovementType movement,
                        const EColliderType collider, const EBodyType body,
-                       const CActorParameters& params, const EKnockBackVariant kbVariant)
+                       const CActorParameters& params, const ECreatureSize kbVariant)
 : CAi(uid, pinfo.xf8_active, name, info, xf, mData,
       CAABox(-pinfo.xc4_halfExtent + pinfo.xcc_bodyOrigin.GetX(),
              -pinfo.xc4_halfExtent + pinfo.xcc_bodyOrigin.GetY(), pinfo.xcc_bodyOrigin.GetZ(),
@@ -1201,7 +1201,7 @@ void CPatterned::Freeze(CStateManager& mgr, const CVector3f& pos, CUnitVector3f 
   if (playSfx) {
     const CVector3f& posOut = GetTranslation();
     CSfxManager::AddEmitter(
-        x460_knockBackController.GetVariant() != kKBV_Small &&
+        x460_knockBackController.GetCreatureSize() != kCS_Small &&
                 CPatterned::CastTo< CMetroid >(TPatternedCast< CMetroid >(
                     const_cast< CEntity* >(mgr.GetObjectById(GetUniqueId())))) != nullptr
             ? (SND_FXID)0x701
@@ -1415,10 +1415,10 @@ void CPatterned::RenderIceModelWithFlags(const CModelFlags& flags) const {
 }
 
 CEnergyProjectile* CPatterned::LaunchProjectile(
-    const CTransform4f& xf, CStateManager& mgr, int maxAllowed, CWeapon::EProjectileAttrib attrib,
-    bool playerHoming,
-    const rstl::optional_object< TLockedToken< CGenDescription > >& visorParticle, ushort visorSfx,
-    bool sendCollideMsg, const CVector3f& scale) {
+    const CTransform4f& xf, CStateManager& mgr, const int maxAllowed, const CWeapon::EProjectileAttrib attrib,
+    const bool playerHoming,
+    const rstl::optional_object< TLockedToken< CGenDescription > >& visorParticle, const ushort visorSfx,
+    const bool sendCollideMsg, const CVector3f& scale) {
   CEnergyProjectile* projectile = 0;
   CProjectileInfo* projectileInfo = ProjectileInfo();
   if (projectileInfo->Token().TryCache()) {

@@ -96,7 +96,7 @@ CMetroid::CMetroid(const TUniqueId uid, const rstl::string& name, const EFlavorT
                    const CPatternedInfo& pInfo, const CActorParameters& aParms,
                    const CMetroidData& metroidData, const TUniqueId other)
 : CPatterned(kC_Metroid, uid, name, flavor, info, xf, mData, pInfo, kMT_Flyer, kCT_One, kBT_Flyer,
-             aParms, kKBV_Medium)
+             aParms, kCS_Medium)
 , mState(kAiState_Invalid)
 , mMetroidData(metroidData)
 , mTeamAiManagerId(kInvalidUniqueId)
@@ -142,12 +142,12 @@ CMetroid::CMetroid(const TUniqueId uid, const rstl::string& name, const EFlavorT
 
   UpdateTouchBounds();
   SetCoefficientOfRestitutionModifier(0.9f);
-  GetKnockBackCtrl().SetX82_24(false);
-  GetKnockBackCtrl().SetEnableBurn(false);
-  GetKnockBackCtrl().SetEnableBurnDeath(false);
-  GetKnockBackCtrl().SetEnableShock(false);
+  KnockBackCtrl().SetX82_24(false);
+  KnockBackCtrl().SetEnableBurn(false);
+  KnockBackCtrl().SetEnableBurnDeath(false);
+  KnockBackCtrl().SetEnableShock(false);
   if (GetFlavorType() == kFT_Two) {
-    GetKnockBackCtrl().SetEnableFreeze(false);
+    KnockBackCtrl().SetEnableFreeze(false);
   }
   mPatternedInfo.SetActive(true);
 }

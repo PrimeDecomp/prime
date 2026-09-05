@@ -72,7 +72,9 @@ void CMFGame::Touch() const {
 }
 
 CIOWin::EMessageReturn CMFGame::OnMessage(const CArchitectureMessage& message,
-                                          CArchitectureQueue& queue) {}
+                                          CArchitectureQueue& queue) {
+  return kMR_Exit;
+}
 
 void CMFGame::Draw() const {
   if (!mInitialized) {

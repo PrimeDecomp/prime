@@ -15,11 +15,13 @@ class CPASAnimState {
 public:
   CPASAnimState(int id);
   CPASAnimState(CInputStream& in);
-  
+
   CPASAnimParm GetAnimParmData(int, unsigned int) const;
 
   pas::EAnimationState GetStateId() const { return x0_id; }
   bool HasAnims() const { return static_cast< uint >(x14_anims.size()) != 0; }
+
+  bool operator<(const CPASAnimState& rhs) const { return x0_id < rhs.x0_id; }
 
 private:
   pas::EAnimationState x0_id;

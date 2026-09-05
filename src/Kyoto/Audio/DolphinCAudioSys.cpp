@@ -1,7 +1,7 @@
 #include "Kyoto/Audio/CAudioSys.hpp"
 
-#include "Kyoto/Audio/CAudioGroupSet.hpp"
 #include "Kyoto/Alloc/CMemory.hpp"
+#include "Kyoto/Audio/CAudioGroupSet.hpp"
 
 #include "dolphin/ai.h"
 #include "dolphin/dtk.h"
@@ -156,12 +156,17 @@ SND_LISTENER* CAudioSys::mpListener = nullptr;
 CAudioSys::ESurroundModes CAudioSys::mSurroundMode = CAudioSys::kSM_Mono;
 uint CAudioSys::mMaxAramUsage = 0;
 uint CAudioSys::mCurrentAramUsage = 0;
-
 const uchar CAudioSys::kEmitterMedPriority = 0x7f;
 const uchar CAudioSys::kMaxVolume = 0x7f;
 bool CAudioSys::mProLogic2 = true;
+
 short CAudioSys::mVolumeScale = 0x7f;
 short CAudioSys::mDefaultVolumeScale = 0x7f;
+
+bool CAudioSys::mAICallbackEnabled = true;
+void* CAudioSys::mAICallback = nullptr;
+
+uint lbl_805A95BC = 0;
 
 const rstl::string CAudioSys::mpDefaultInvalidString(rstl::string_l("NULL"));
 
@@ -267,7 +272,8 @@ bool CAudioSys::SysUnloadSampleData(const rstl::string& name) {
 }
 
 void CAudioSys::SysUnloadGroupSet(const rstl::string& name) {
-  rstl::map< rstl::string, rstl::ncrc_ptr< CAudioGroupSet > >::iterator it = mpGroupSetDB->find(name);
+  rstl::map< rstl::string, rstl::ncrc_ptr< CAudioGroupSet > >::iterator it =
+      mpGroupSetDB->find(name);
   if (it == mpGroupSetDB->end()) {
     return;
   }
@@ -285,9 +291,7 @@ bool CAudioSys::SysPushGroupIntoARAM(const rstl::string& name, const uchar group
   return sndPushGroup(nullptr, groupId, nullptr, nullptr, nullptr);
 }
 
-void CAudioSys::SysPopGroupFromARAM() {
-  sndPopGroup();
-}
+void CAudioSys::SysPopGroupFromARAM() { sndPopGroup(); }
 
 const rstl::string& CAudioSys::SysGetGroupSetName(const uint id) {
   rstl::map< uint, rstl::string >::const_iterator it = mpGroupSetResNameDB->find(id);
@@ -319,7 +323,9 @@ void CAudioSys::SfxStop(const SND_VOICEID handle) { sndFXKeyOff(handle); }
 
 SND_VOICEID CAudioSys::SfxCheck(SND_VOICEID handle) { return sndFXCheck(handle); }
 
-void CAudioSys::SfxSpan(SND_VOICEID handle, const uchar span) { sndFXSurroundPanning(handle, span); }
+void CAudioSys::SfxSpan(SND_VOICEID handle, const uchar span) {
+  sndFXSurroundPanning(handle, span);
+}
 
 void CAudioSys::SfxVolume(SND_VOICEID handle, const u8 vol) { sndFXVolume(handle, vol); }
 
@@ -327,18 +333,20 @@ void CAudioSys::SfxPitchBend(SND_VOICEID handle, const ushort pitch) {
   sndFXPitchBend(handle, pitch);
 }
 
-void CAudioSys::SfxCtrl(const SND_VOICEID handle, uchar ctrl, uchar val) { sndFXCtrl(handle, ctrl, val); }
+void CAudioSys::SfxCtrl(const SND_VOICEID handle, uchar ctrl, uchar val) {
+  sndFXCtrl(handle, ctrl, val);
+}
 
 int CAudioSys::TrkQueueTrack(const rstl::string& name, void (*callback)(unsigned long),
                              const uint eventMask) {
-  while (TrkGetState() == 3) {}
+  while (TrkGetState() == 3) {
+  }
 
   rstl::ncrc_ptr< CTrkData > trk = FindTrack(name);
   if (!trk.GetPtr()) {
     CTrkData* data = rs_new CTrkData(name);
     rstl::ncrc_ptr< CTrkData > newTrk(data);
-    mpDVDTrackDB->insert(rstl::pair< rstl::string, rstl::ncrc_ptr< CTrkData > >(
-        name, newTrk));
+    mpDVDTrackDB->insert(rstl::pair< rstl::string, rstl::ncrc_ptr< CTrkData > >(name, newTrk));
     return DTKQueueTrack(newTrk->GetFileName(), newTrk->GetTrack(), eventMask, callback);
   }
 
@@ -472,11 +480,14 @@ uint CAudioSys::S3dAddEmitterParaEx(const C3DEmitterParmData& params, ushort gro
   _dir.y = params.xc_dir.GetY();
   _dir.z = params.xc_dir.GetZ();
 
-  const uchar scaledMaxVol = (mVolumeScale * (params.x26_maxVol > 0x7f ? 0x7f : params.x26_maxVol)) / 0x7f;
+  const uchar scaledMaxVol =
+      (mVolumeScale * (params.x26_maxVol > 0x7f ? 0x7f : params.x26_maxVol)) / 0x7f;
   const char maxVol = scaledMaxVol;
-  const uchar minVol = (mVolumeScale * (params.x27_minVol > 0x7f ? 0x7f : params.x27_minVol)) / 0x7f;
+  const uchar minVol =
+      (mVolumeScale * (params.x27_minVol > 0x7f ? 0x7f : params.x27_minVol)) / 0x7f;
   sndAddEmitterParaEx(&data.x0_emitter, &_pos, &_dir, params.x18_maxDist, params.x1c_distComp,
-                      params.x20_flags, params.x24_sfxId, groupId, maxVol, minVol, nullptr, paraInfo);
+                      params.x20_flags, params.x24_sfxId, groupId, maxVol, minVol, nullptr,
+                      paraInfo);
   data._50 = true;
   data._51 = params.x28_important;
   data._52 = params.x29_prio;
@@ -647,3 +658,16 @@ void CAudioSys::SetVolumeScale(const short scale) { mVolumeScale = scale; }
 void CAudioSys::SetDefaultVolumeScale(const short scale) { mDefaultVolumeScale = scale; }
 
 short CAudioSys::GetDefaultVolumeScale() { return mDefaultVolumeScale; }
+
+void CAudioSys::EnableAICallback(const bool enable) {
+  if (mAICallbackEnabled != enable) {
+    mAICallbackEnabled = enable;
+    if (enable) {
+      AIRegisterDMACallback(reinterpret_cast< AIDCallback >(mAICallback));
+    } else {
+      mAICallback = reinterpret_cast< void* >(AIRegisterDMACallback(nullptr));
+    }
+  }
+}
+
+bool CAudioSys::IsAICallbackEnabled() { return mAICallbackEnabled; }

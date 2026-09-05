@@ -69,7 +69,7 @@ class CPlayer : public CPhysicsActor, public TOneStatic< CPlayer > {
     };
 
     CPlayerStuckTracker();
-    ~CPlayerStuckTracker();
+    //~CPlayerStuckTracker();
     void AddState(EPlayerState, const CVector3f&, const CVector3f&, const CVector2f&);
     bool IsPlayerStuck();
     void ResetStats();
@@ -306,6 +306,7 @@ public:
   void UpdateFreeLook(float dt);
   void UpdatePlayerHints(CStateManager& mgr);
   void UpdateBombJumpStuff();
+  void BombJump(const CVector3f& pos, CStateManager& mgr);
   void UpdateTransitionFilter(float dt, CStateManager& mgr);
   void CalculatePlayerMovementDirection(float dt);
   void UpdatePlayerControlDirection(float dt, CStateManager& mgr);
@@ -370,10 +371,13 @@ public:
     return x2b0_outOfWaterTicks == 2 ? GetCurrentSurfaceRestraint() : kSR_Water;
   }
 
+  EOrbitBrokenType GetOrbitBrokenType() const { return x30c_orbitBrokenType; }
   TUniqueId GetOrbitTargetId() const { return x310_orbitTargetId; }
   const CVector3f& GetOrbitPoint() const { return x314_orbitPoint; }
   TUniqueId GetOrbitNextTargetId() const { return x33c_orbitNextTargetId; }
+  CVector3f GetHUDOrbitTargetPosition() const;
   TUniqueId GetAttachedActor() const { return x26c_attachedActor; }
+  bool IsAttached() const { return GetAttachedActor(); }
   bool GetControlsFrozen() const { return x760_controlsFrozen; } // name?
   float GetDistanceUnderWater() const { return x828_distanceUnderWater; }
   TUniqueId GetScanningObjectId() const { return x3b4_scanningObject; }
@@ -394,8 +398,11 @@ public:
   // CPlayer::GetFlipSpiderBallControlY() const weak
   // CPlayer::GetFlipSpiderBallControlX() const weak
   float GetDeathTime() const { return x9f4_deathTime; } // name?
+  void SetAccelerationChangeTimer(float time) { x2d4_accelerationChangeTimer = time; }
 
+  bool IsCrosshairsOpen() const { return x9c4_25_showCrosshairs; }
   bool IsInsideFluid() const { return x9c4_31_inWaterMovement; }
+  bool GetDisableInput() const { return x9c6_29_disableInput; }
 
   void Teleport(const CTransform4f& xf, CStateManager& mgr, const bool resetBallCam);
   void SetSpawnedMorphBallState(const EPlayerMorphBallState state, CStateManager& mgr);

@@ -38,7 +38,7 @@ public:
     uint GetNumBolts() const { return x1c_numBolts; }
 
   private:
-    uint x0_propertyCount;
+    int x0_propertyCount;
     float x4_lurk;
     float x8_taunt;
     float xc_attack;
@@ -59,7 +59,6 @@ public:
               float f3, float f4, uint nearChance, uint midChance);
 
   // CEntity
-  ~CChozoGhost() override;
   void Accept(IVisitor& visitor) override;
   void Think(float dt, CStateManager& mgr) override;
   void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) override;
@@ -119,9 +118,9 @@ private:
   void AddToTeam(CStateManager& mgr);
   void RemoveFromTeam(CStateManager& mgr);
   void FloatToLevel(float f1, float dt);
-  const CBehaveChance& ChooseBehaveChanceRange(CStateManager& mgr);
-  bool IsVisibleEnough(const CStateManager& mgr) const { return GetModelAlphau8(mgr) > 31; }
-  void FindSpaceWarpPosition(CStateManager& mgr, const CVector3f& dir);
+  const CBehaveChance& ChooseBehaveChanceRange(CStateManager& mgr) const;
+  bool IsVisibleEnough(const CStateManager& mgr) const; // { return GetModelAlphau8(mgr) > 31; }
+  void SetWarpPosition(CStateManager& mgr, const CVector3f& dir);
   void FindBestAnchor(CStateManager& mgr);
 
   float x568_hearingRadius;
@@ -139,7 +138,7 @@ private:
   ushort x632_sfxFadeOut;
   float x634_;
   float x638_hurlRecoverTime;
-  uint x63c_;
+  int x63c_;
   rstl::optional_object< TLockedToken< CGenDescription > > x640_projectileVisor;
   ushort x650_soundProjectileVisor;
   float x654_;
@@ -174,6 +173,8 @@ private:
   float x6c8_spaceWarpTime;
   CVector3f x6cc_spaceWarpPosition;
   uint x6d8_;
+
+  static const rstl::string skSpeedSwooshName;
 };
 CHECK_SIZEOF(CChozoGhost, 0x6E0)
 

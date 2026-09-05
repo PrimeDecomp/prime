@@ -9,6 +9,7 @@ public:
   CLineInstruction(int width, int height, int baseline, EJustification justification,
                    EVerticalJustification verticalJustification);
 
+  int GetWordCount() const { return mWordCount; }
   int GetHeight() const;
   int GetBaseline() const;
 

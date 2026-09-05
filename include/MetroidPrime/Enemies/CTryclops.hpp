@@ -62,7 +62,8 @@ public:
   CPathFindSearch* GetSearchPath() override { return &x568_pathFindSearch; }
 
 private:
-  static const CDamageVulnerability skVulnerabilities;
+  static const CDamageVulnerability skPowerBombVulnerability;
+  static CVector3f kBombPosOffset;
 
   CPathFindSearch x568_pathFindSearch;
   CTransform4f x64c_xf;

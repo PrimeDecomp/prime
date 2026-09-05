@@ -17,10 +17,9 @@
 class CAtomicAlpha : public CPatterned {
 public:
   CAtomicAlpha(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
-               const CTransform4f& xf, const CModelData& mData,
-               const CActorParameters& actParms, const CPatternedInfo& pInfo,
-               CAssetId bombWeapon, const CDamageInfo& bombDamage, float bombDropDelay,
-               float bombReappearDelay, float bombRappearTime, CAssetId cmdl,
+               const CTransform4f& xf, const CModelData& mData, const CActorParameters& actParms,
+               const CPatternedInfo& pInfo, CAssetId bombWeapon, const CDamageInfo& bombDamage,
+               float bombDropDelay, float bombReappearDelay, float bombRappearTime, CAssetId cmdl,
                bool invisible, bool applyBeamAttraction);
 
   // CEntity
@@ -51,6 +50,11 @@ public:
   CProjectileInfo* ProjectileInfo() override { return &x668_bombProjectile; }
   CPathFindSearch* GetSearchPath() override { return &x580_pathFind; }
 
+  bool CanDropBomb() const {
+    return x578_bombTime >= x56c_bombDropDelay &&
+           x6dc_bombLocators[0].x14_scaleTime > (x570_bombReappearDelay + x574_bombRappearTime);
+  }
+
 private:
   enum { kBombCount = 4 };
 
@@ -70,7 +74,7 @@ private:
   float x570_bombReappearDelay;
   float x574_bombRappearTime;
   float x578_bombTime;
-  uint x57c_curBomb;
+  int x57c_curBomb;
   CPathFindSearch x580_pathFind;
   CSteeringBehaviors x664_steeringBehaviors;
   CProjectileInfo x668_bombProjectile;

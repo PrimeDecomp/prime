@@ -36,7 +36,7 @@ public:
   , x10_radius(radius)
   , x14_knockback(knockback)
   , x18_24_noImmunity(noImmunity) {}
-
+  
   CDamageInfo(CInputStream& in);
   CDamageInfo(const CDamageInfo&, float);
 
@@ -60,14 +60,16 @@ public:
     xc_radiusDamage = m * xc_radiusDamage;
     x14_knockback = m * x14_knockback;
   }
-  void MultiplyDamageAndRadius(float m) {
+  CDamageInfo& MultiplyDamageAndRadius(float m) {
     x8_damage *= m;
     xc_radiusDamage *= m;
     x10_radius *= m;
     x14_knockback *= m;
+    return *this;
   }
 
   CDamageInfo MakeScaledForTime(const float dt) const;
+  
 
 private:
   CWeaponMode x0_weaponMode;

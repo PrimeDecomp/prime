@@ -12,7 +12,6 @@ class list {
 public:
   class iterator;
   class const_iterator;
-  iterator erase(const iterator& item) { return do_erase(item.get_node()); }
 
   // private:
 #pragma pack(push, 1)
@@ -26,6 +25,33 @@ public:
   , xc_empty_prev(reinterpret_cast< node* >(&xc_empty_prev))
   , x10_empty_next(reinterpret_cast< node* >(&xc_empty_prev))
   , x14_count(0) {}
+
+  struct destroy_helper {
+    destroy_helper(list* l) : x0_list(l), x4_active(true) {}
+    ~destroy_helper() {
+      if (x4_active) {
+        x0_list->destroy();
+      }
+    }
+    void release() { x4_active = false; }
+
+  private:
+    list* x0_list;
+    bool x4_active;
+  };
+
+  list(const list& other)
+  : x0_allocator(other.x0_allocator)
+  , x4_start(reinterpret_cast< node* >(&xc_empty_prev))
+  , x8_end(reinterpret_cast< node* >(&xc_empty_prev))
+  , xc_empty_prev(reinterpret_cast< node* >(&xc_empty_prev))
+  , x10_empty_next(reinterpret_cast< node* >(&xc_empty_prev))
+  , x14_count(0) {
+    destroy_helper dh(this);
+    insert(end(), other.begin(), other.end());
+    dh.release();
+  }
+
   ~list();
   node* do_erase(node* item);
 
@@ -36,6 +62,9 @@ public:
   int size() const { return x14_count; }
   bool empty() const { return x14_count == 0; }
 
+  T& front() { return *x4_start->get_value(); }
+  const T& front() const { return *x4_start->get_value(); }
+
   void pop_front() { erase(x4_start); }
 
   iterator begin() { return iterator(x4_start); }
@@ -43,6 +72,7 @@ public:
   iterator end() { return iterator(x8_end); }
   const_iterator end() const { return const_iterator(x8_end); }
 
+  iterator erase(const iterator& item) { return do_erase(item.get_node()); }
   iterator erase(const iterator& start, const iterator& end) {
     node* last = end.get_node();
     node* it = start.get_node();
@@ -88,6 +118,30 @@ public:
     ++x14_count;
 
     return nn;
+  }
+
+  iterator insert(const iterator& pos, const T& val) {
+    do_insert_before(pos.get_node(), val);
+    return pos;
+  }
+
+  template < typename InputIterator >
+  void insert(const iterator& pos, InputIterator first, InputIterator last) {
+    node* cur = first.get_node();
+    while (cur != last.get_node()) {
+      do_insert_before(pos.get_node(), *cur->get_value());
+      cur = cur->get_next();
+    }
+  }
+
+  // TODO: demo map shows this delegates to clear(),
+  // but this matches better in CSkinnedModelWithAvgNormals
+  void destroy() {
+    node* end = x8_end;
+    node* it = x4_start;
+    while (it != end) {
+      it = do_erase(it);
+    }
   }
 
   void remove(const T& val);
@@ -184,7 +238,7 @@ list< T, Alloc >::~list() {
     node* it = cur;
     node* next = cur->get_next();
     cur = next;
-    destroy(it->get_value());
+    rstl::destroy(it->get_value());
     x0_allocator.deallocate(it);
   }
 }
@@ -197,7 +251,7 @@ typename list< T, Alloc >::node* list< T, Alloc >::do_erase(node* node) {
   }
   node->get_prev()->set_next(node->get_next());
   node->get_next()->set_prev(node->get_prev());
-  destroy(node->get_value());
+  rstl::destroy(node->get_value());
   x0_allocator.deallocate(node);
   x14_count--;
   return result;

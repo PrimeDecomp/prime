@@ -10,7 +10,7 @@ CEnergyBall::CEnergyBall(const TUniqueId uid, const rstl::string& name, const CE
                          const CAssetId a3, const ushort sfxId2, const float f3, const float f4,
                          const CAssetId a4, const CDamageInfo& dInfo2, const float f5)
 : CPatterned(kC_EnergyBall, uid, name, kFT_Zero, info, xf, mData, pInfo, kMT_Flyer, kCT_One,
-             kBT_NewFlyer, actParms, kKBV_Medium)
+             kBT_NewFlyer, actParms, kCS_Medium)
 , x56c(0.f)
 , x570(w1)
 , x574(f1)
@@ -28,15 +28,15 @@ CEnergyBall::CEnergyBall(const TUniqueId uid, const rstl::string& name, const CE
 , x5cc(dInfo2)
 , x5e8(f5) {
   SetDrawShadow(false);
-  GetKnockBackCtrl().SetEnableExplodeDeath(false);
-  GetKnockBackCtrl().SetAutoResetImpulse(false);
-  GetKnockBackCtrl().SetEnableBurnDeath(false);
-  GetKnockBackCtrl().SetX82_24(false);
-  GetKnockBackCtrl().SetEnableBurn(false);
-  GetKnockBackCtrl().SetEnableLaggedBurnDeath(false);
-  GetKnockBackCtrl().SetEnableShock(false);
-  GetKnockBackCtrl().SetEnableFreeze(false);
-  GetKnockBackCtrl().SetX81_31(false);
+  KnockBackCtrl().SetEnableExplodeDeath(false);
+  KnockBackCtrl().SetAutoResetImpulse(false);
+  KnockBackCtrl().SetEnableBurnDeath(false);
+  KnockBackCtrl().SetX82_24(false);
+  KnockBackCtrl().SetEnableBurn(false);
+  KnockBackCtrl().SetEnableLaggedBurnDeath(false);
+  KnockBackCtrl().SetEnableShock(false);
+  KnockBackCtrl().SetEnableFreeze(false);
+  KnockBackCtrl().SetX81_31(false);
 }
 
 CEnergyBall::~CEnergyBall() {}

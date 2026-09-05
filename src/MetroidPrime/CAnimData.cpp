@@ -47,7 +47,7 @@ static rstl::reserved_vector< CInt32POINode, 16 > sInt32TransientCache;
 static int skPOICacheReferenceCount;
 static CInt32POINode* sInt32TransientCacheData;
 
-rstl::rc_ptr< CAnimTreeNode > Cast(const rstl::ownership_transfer< IAnimReader >& ptr);
+//rstl::rc_ptr< CAnimTreeNode > Cast(const rstl::ownership_transfer< IAnimReader >& ptr);
 
 extern const int lbl_805AE3D8;
 extern const int lbl_805AE3DC;
@@ -410,15 +410,11 @@ int CAnimData::GetEventResourceIdForAnimResourceId(int id) const {
 }
 
 void CAnimData::AddAdditiveSegData(const CSegIdList& list, CSegStatementSet& setOut) const {
-  float zero = 0.f;
-  float close = 0.00001f;
-
   const uint count = x434_additiveAnims.size();
   uint i = 0;
   while (i < count) {
     const CAdditiveAnimPlayback& playback = x434_additiveAnims[i].second;
-    if (fabsf(playback.xc_targetWeight - zero) < close) {
-    } else {
+    if (!close_enough(playback.GetWeight(), 0.f)) {
       playback.AddToSegStatementSet(list, **xcc_layoutData, setOut);
     }
     ++i;
@@ -448,9 +444,6 @@ fn_80029C18(rstl::reserved_vector< rstl::pair< uint, CAdditiveAnimPlayback >, 8 
 }
 
 SAdvancementDeltas CAnimData::UpdateAdditiveAnims(float dt) {
-  float zero = 0.f;
-  float close = 0.00001f;
-
   rstl::pair< uint, CAdditiveAnimPlayback >* it = x434_additiveAnims.begin();
   rstl::pair< uint, CAdditiveAnimPlayback >* const begin = x434_additiveAnims.begin();
 
@@ -458,12 +451,12 @@ SAdvancementDeltas CAnimData::UpdateAdditiveAnims(float dt) {
     CAdditiveAnimPlayback& playback = it->second;
     playback.Update(dt);
 
-    const CCharAnimTime remTime = playback.x8_anim->VGetTimeRemaining();
-    if (fabsf(remTime.GetSeconds() - zero) < close && playback.x20_needsFadeOut != 0) {
+    const CCharAnimTime remTime = playback.AnimationTree()->VGetTimeRemaining();
+    if (close_enough(remTime.GetSeconds(), 0.f) && playback.IsFadeOutWhenAnimOver() != 0) {
       playback.FadeOut();
     }
 
-    if (playback.x1c_phase == CAdditiveAnimPlayback::kPP_FadedOut) {
+    if (playback.GetFadingMode() == CAdditiveAnimPlayback::kPP_FadedOut) {
       it = fn_80029C18(&x434_additiveAnims, it);
     } else {
       ++it;
@@ -482,14 +475,12 @@ SAdvancementDeltas CAnimData::AdvanceAdditiveAnims(float dt) {
   const uint count = x434_additiveAnims.size();
   for (uint i = 0; i < count; ++i) {
     CAdditiveAnimPlayback& playback = x434_additiveAnims[i].second;
-    rstl::rc_ptr< CAnimTreeNode >& anim = playback.x8_anim;
+    rstl::rc_ptr< CAnimTreeNode >& anim = playback.AnimationTree();
 
     CCharAnimTime time(dt);
 
-    if (playback.x14_active != 0) {
-      float zero = 0.f;
-      float close = 0.00001f;
-      while (time.GreaterThanZero() && fabsf(time.GetSeconds() - zero) >= close) {
+    if (playback.IsLoop()) {
+      while (time.GreaterThanZero() && !close_enough(time.GetSeconds(), 0.f)) {
         x210_passedIntCount +=
             anim->GetInt32POIList(time, mInt32POINodes.data(), 16, x210_passedIntCount, 0);
         x20c_passedBoolCount +=
@@ -511,12 +502,9 @@ SAdvancementDeltas CAnimData::AdvanceAdditiveAnims(float dt) {
         time = advResult.x0_remTime;
       }
     } else {
-      float zero = 0.f;
-      float close = 0.00001f;
       CCharAnimTime remTime = anim->VGetTimeRemaining();
 
-      while (fabsf(remTime.GetSeconds() - zero) >= close &&
-             fabsf(time.GetSeconds() - zero) >= close) {
+      while (!close_enough(remTime.GetSeconds(), 0.f) && !close_enough(time.GetSeconds(), 0.f)) {
         x210_passedIntCount +=
             anim->GetInt32POIList(time, mInt32POINodes.data(), 16, x210_passedIntCount, 0);
         x20c_passedBoolCount +=
@@ -960,9 +948,8 @@ const rstl::ncrc_ptr< CAnimTreeNode >& CAnimData::GetRootAnimationTree() const {
 
 const rstl::rc_ptr< CAnimTreeNode >& CAnimData::GetAdditiveAnimationTree(uint idx) const {
   const uint animIdx = xc_charInfo.GetAnimationIndexList()[idx];
-  const rstl::pair< uint, CAdditiveAnimPlayback >* end =
-      x434_additiveAnims.data() + x434_additiveAnims.size();
-  const rstl::pair< uint, CAdditiveAnimPlayback >* search = x434_additiveAnims.data();
+  const rstl::pair< uint, CAdditiveAnimPlayback >* end = x434_additiveAnims.end();
+  const rstl::pair< uint, CAdditiveAnimPlayback >* search = x434_additiveAnims.begin();
 
   while (search != end) {
     if (animIdx == search->first) {
@@ -971,14 +958,13 @@ const rstl::rc_ptr< CAnimTreeNode >& CAnimData::GetAdditiveAnimationTree(uint id
     ++search;
   }
 
-  return search->second.x8_anim;
+  return search->second.GetAnimationTree();
 }
 
 bool CAnimData::IsAdditiveAnimationAdded(uint idx) const {
   const uint animIdx = xc_charInfo.GetAnimationIndexList()[idx];
-  const rstl::pair< uint, CAdditiveAnimPlayback >* end =
-      x434_additiveAnims.data() + x434_additiveAnims.size();
-  const rstl::pair< uint, CAdditiveAnimPlayback >* search = x434_additiveAnims.data();
+  const rstl::pair< uint, CAdditiveAnimPlayback >* end = x434_additiveAnims.end();
+  const rstl::pair< uint, CAdditiveAnimPlayback >* search = x434_additiveAnims.begin();
 
   while (search != end) {
     if (animIdx == search->first) {
@@ -992,13 +978,12 @@ bool CAnimData::IsAdditiveAnimationAdded(uint idx) const {
 
 float CAnimData::GetAdditiveAnimationWeight(uint idx) {
   const uint animIdx = xc_charInfo.GetAnimationIndexList()[idx];
-  rstl::pair< uint, CAdditiveAnimPlayback >* end =
-      x434_additiveAnims.data() + x434_additiveAnims.size();
-  rstl::pair< uint, CAdditiveAnimPlayback >* search = x434_additiveAnims.data();
+  rstl::pair< uint, CAdditiveAnimPlayback >* end = x434_additiveAnims.end();
+  rstl::pair< uint, CAdditiveAnimPlayback >* search = x434_additiveAnims.begin();
 
   while (search != end) {
     if (animIdx == search->first) {
-      return search->second.xc_targetWeight;
+      return search->second.GetWeight();
     }
     ++search;
   }
@@ -1008,9 +993,8 @@ float CAnimData::GetAdditiveAnimationWeight(uint idx) {
 
 void CAnimData::DelAdditiveAnimation(uint idx) {
   const uint animIdx = xc_charInfo.GetAnimationIndexList()[idx];
-  rstl::pair< uint, CAdditiveAnimPlayback >* end =
-      x434_additiveAnims.data() + x434_additiveAnims.size();
-  rstl::pair< uint, CAdditiveAnimPlayback >* search = x434_additiveAnims.data();
+  rstl::pair< uint, CAdditiveAnimPlayback >* end = x434_additiveAnims.end();
+  rstl::pair< uint, CAdditiveAnimPlayback >* search = x434_additiveAnims.begin();
 
   while (search != end) {
     if (animIdx == search->first) {
@@ -1021,7 +1005,7 @@ void CAnimData::DelAdditiveAnimation(uint idx) {
 
   if (search != end) {
     CAdditiveAnimPlayback& playback = search->second;
-    const int phase = playback.x1c_phase;
+    const CAdditiveAnimPlayback::EPlaybackPhase phase = playback.GetFadingMode();
     if (phase != CAdditiveAnimPlayback::kPP_FadingOut &&
         phase != CAdditiveAnimPlayback::kPP_FadedOut) {
       playback.FadeOut();
@@ -1031,9 +1015,8 @@ void CAnimData::DelAdditiveAnimation(uint idx) {
 
 void CAnimData::AddAdditiveAnimation(uint idx, float weight, bool active, bool fadeOut) {
   const uint animIdx = xc_charInfo.GetAnimationIndexList()[idx];
-  rstl::pair< uint, CAdditiveAnimPlayback >* end =
-      x434_additiveAnims.data() + x434_additiveAnims.size();
-  rstl::pair< uint, CAdditiveAnimPlayback >* search = x434_additiveAnims.data();
+  rstl::pair< uint, CAdditiveAnimPlayback >* end = x434_additiveAnims.end();
+  rstl::pair< uint, CAdditiveAnimPlayback >* search = x434_additiveAnims.begin();
 
   while (search != end) {
     if (animIdx == search->first) {
@@ -1086,11 +1069,11 @@ void CAnimData::RecalcPoseBuilder(const CCharAnimTime* time) const {
 
   AddAdditiveSegData(*segIdList, statementSet);
 
-  CSegId seg;
+  CSegId seg = CSegId::Invalid();
   int i = 0;
-  const int segCount = segIdList->x0_segList.size();
+  const int segCount = segIdList->size();
   while (i < segCount) {
-    seg = segIdList->x0_segList[i];
+    seg = (*segIdList)[i];
     if (seg.val() != 3) {
       const_cast< CHierarchyPoseBuilder& >(x2fc_poseBuilder)
           .Insert(seg, statementSet[seg].mRotation);
@@ -1297,7 +1280,6 @@ SAdvancementDeltas CAnimData::DoAdvance(float dt, bool& suspendParticles, CRando
 
   const float scaledDt = dt * x200_speedScale;
   const float zero = 0.f;
-  const float close = 0.00001f;
 
   ResetPOILists();
 
@@ -1330,7 +1312,7 @@ SAdvancementDeltas CAnimData::DoAdvance(float dt, bool& suspendParticles, CRando
     CCharAnimTime time(scaledDt);
 
     if (x220_25_loop) {
-      while (time.GreaterThanZero() && fabsf(time.GetSeconds() - zero) >= close) {
+      while (time.GreaterThanZero() && !close_enough(time.GetSeconds(), 0.f)) {
         x210_passedIntCount +=
             x1f8_animRoot->GetInt32POIList(time, mInt32POINodes.data(), 16, x210_passedIntCount, 0);
         x20c_passedBoolCount +=
@@ -1345,8 +1327,7 @@ SAdvancementDeltas CAnimData::DoAdvance(float dt, bool& suspendParticles, CRando
     } else {
       CCharAnimTime remTime = x1f8_animRoot->VGetTimeRemaining();
 
-      while (fabsf(remTime.GetSeconds() - zero) >= close &&
-             fabsf(time.GetSeconds() - zero) >= close) {
+      while (!close_enough(remTime.GetSeconds(), 0.f) && !close_enough(time.GetSeconds(), 0.f)) {
         x210_passedIntCount +=
             x1f8_animRoot->GetInt32POIList(time, mInt32POINodes.data(), 16, x210_passedIntCount, 0);
         x20c_passedBoolCount +=
@@ -1362,7 +1343,7 @@ SAdvancementDeltas CAnimData::DoAdvance(float dt, bool& suspendParticles, CRando
         time = CCharAnimTime(
             rstl::max_val(zero, rstl::min_val(remTime.GetSeconds(), time.GetSeconds())));
 
-        if (fabsf(remTime.GetSeconds() - zero) < close) {
+        if (close_enough(remTime.GetSeconds(), 0.f)) {
           x220_24_animating = false;
           x1dc_alignPos = CVector3f::Zero();
           x220_28_ = false;

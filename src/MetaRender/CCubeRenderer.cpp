@@ -440,7 +440,7 @@ CCubeRenderer::~CCubeRenderer() {
   Buckets::Shutdown();
   CSkinnedModel::RemoveDummySkinnedModelRef();
   if (!x314_phazonSuitMask.null()) {
-    x314_phazonSuitMask->fn_8030E10C();
+    x314_phazonSuitMask->ScheduleDeletion();
   }
 }
 
@@ -517,7 +517,7 @@ void CCubeRenderer::BeginScene() {
   if (x310_phazonSuitMaskCountdown != 0) {
     --x310_phazonSuitMaskCountdown;
     if (x310_phazonSuitMaskCountdown == 0) {
-      x314_phazonSuitMask->fn_8030E10C();
+      x314_phazonSuitMask->ScheduleDeletion();
       x314_phazonSuitMask = nullptr;
     }
   }
@@ -2138,8 +2138,7 @@ void CCubeRenderer::DoThermalModelDraw(const CCubeModel& model, const CColor& mu
 void CCubeRenderer::DrawThermalModel(const CModel& model, const CColor& mulCol,
                                      const CColor& addCol, const float* pos, const float* nrm,
                                      const CModelFlags& flags) {
-  const CCubeModel* modelInst = *reinterpret_cast< const CCubeModel* const* >(
-      reinterpret_cast< const uchar* >(&model) + 0x28);
+  const CCubeModel* modelInst = model.GetCubeModel();
   model.UpdateLastFrame();
   DoThermalModelDraw(*modelInst, mulCol, addCol, pos, nrm, flags);
 }
@@ -2165,10 +2164,8 @@ void CCubeRenderer::DrawModelDisintegrate(const CModel& model, const CTexture& t
   CGX::SetTevKColorSel(GX_TEVSTAGE1, GX_TEV_KCSEL_K0);
   CGX::SetTevKColor(GX_KCOLOR0, color.GetGXColor());
 
-  const CCubeModel* modelInst = *reinterpret_cast< const CCubeModel* const* >(
-      reinterpret_cast< const uchar* >(&model) + 0x28);
-  const CAABox& modelBounds =
-      *reinterpret_cast< const CAABox* >(reinterpret_cast< const uchar* >(modelInst) + 0x20);
+  const CCubeModel* modelInst = model.GetCubeModel();
+  const CAABox& modelBounds = modelInst->GetBoundingBox();
 
   const CRelAngle rotateAng(-0.7853982f);
   CTransform4f rotateXf = CTransform4f::RotateX(rotateAng);
@@ -2250,8 +2247,7 @@ void CCubeRenderer::DrawModelFlat(const CModel& model, const CModelFlags& flags,
   CGX::SetAlphaCompare(GX_ALWAYS, 0, GX_AOP_AND, GX_ALWAYS, 0);
   CGX::SetTevColorIn(GX_TEVSTAGE0, GX_CC_ZERO, GX_CC_ZERO, GX_CC_ZERO, GX_CC_KONST);
   CGX::SetTevAlphaIn(GX_TEVSTAGE0, GX_CA_ZERO, GX_CA_ZERO, GX_CA_ZERO, GX_CA_KONST);
-  CGX::SetTevKColor(GX_KCOLOR0, *reinterpret_cast< const GXColor* >(
-                                    reinterpret_cast< const uchar* >(&flags) + 4));
+  CGX::SetTevKColor(GX_KCOLOR0, flags.GetColorRef().GetGXColor());
   CGX::SetTevKColorSel(GX_TEVSTAGE0, GX_TEV_KCSEL_K0);
   CGX::SetTevKAlphaSel(GX_TEVSTAGE0, GX_TEV_KASEL_K0_A);
   CGX::SetTevOrder(GX_TEVSTAGE0, GX_TEXCOORD_NULL, GX_TEXMAP_NULL, GX_COLOR_NULL);
@@ -2260,8 +2256,7 @@ void CCubeRenderer::DrawModelFlat(const CModel& model, const CModelFlags& flags,
   CGX::SetTexCoordGen(GX_TEXCOORD0, GX_TG_MTX2x4, GX_TG_POS, GX_IDENTITY, false, GX_PTIDENTITY);
 
   model.UpdateLastFrame();
-  const CCubeModel* modelInst = *reinterpret_cast< const CCubeModel* const* >(
-      reinterpret_cast< const uchar* >(&model) + 0x28);
+  const CCubeModel* modelInst = model.GetCubeModel();
   modelInst->DrawFlat(pos, nrm, unsortedOnly ? kSS_Unsorted : kSS_All);
 }
 
@@ -2302,8 +2297,7 @@ void CCubeRenderer::DrawAreaGeometry(int areaIdx, uint mask, uint targetMask) {
         continue;
       }
 
-      if (!x44_frustumPlanes.BoxInFrustumPlanes(*reinterpret_cast< const CAABox* >(
-              reinterpret_cast< const uchar* >(&model) + 0x20))) {
+      if (!x44_frustumPlanes.BoxInFrustumPlanes(model.GetBoundingBox())) {
         continue;
       }
 
@@ -2354,8 +2348,7 @@ CAABox CCubeRenderer::GetAreaModelBounds(int areaIdx, int modelIdx) {
       const rstl::vector< rstl::auto_ptr< CCubeModel > >& models = *areaIt->GetModelList();
       for (AUTO(modelIt, models.begin()); modelIt != models.end(); ++modelIt, ++idx) {
         if (idx == modelIdx) {
-          return *reinterpret_cast< const CAABox* >(
-              reinterpret_cast< const uchar* >(modelIt->get()) + 0x20);
+          return modelIt->get()->GetBoundingBox();
         }
       }
     }
@@ -2560,7 +2553,7 @@ void* CCubeRenderer::GetRenderToTexBuffer(int idx) {
          (static_cast< uint >(idx * CGraphics::mSpareBufferSize) >> 4);
 }
 
-void CCubeRenderer::CopyTex(int div, bool half, void* dest, GXTexFmt fmt, bool clear) {
+void CCubeRenderer::CopyTex(const int div, const bool half, void* dest, const GXTexFmt fmt, const bool clear) {
   const CViewport& vp = CGraphics::mViewport;
   uint width = vp.mWidth;
   uint height = vp.mHeight;

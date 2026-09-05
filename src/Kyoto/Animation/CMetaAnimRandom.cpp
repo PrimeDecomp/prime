@@ -8,7 +8,7 @@
 
 CMetaAnimRandom::CMetaAnimRandom(CInputStream& in) : x4_randomData(CreateRandomData(in)) {}
 
-rstl::rc_ptr< CAnimTreeNode >
+rstl::ncrc_ptr< CAnimTreeNode >
 CMetaAnimRandom::VGetAnimationTree(const CAnimSysContext& animSys,
                                    const CMetaAnimTreeBuildOrders& orders) const {
   const int r = const_cast< CAnimSysContext& >(animSys).Random()->Range(1, 100);

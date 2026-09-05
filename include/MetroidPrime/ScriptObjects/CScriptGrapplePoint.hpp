@@ -20,6 +20,8 @@ public:
   void Think(float, CStateManager&);
   void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&);
   void Accept(IVisitor&);
+
+  const CGrappleParameters& GetGrappleParameters() const { return x100_parameters; }
 };
 
 #endif // _CSCRIPTGRAPPLEPOINT

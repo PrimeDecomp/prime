@@ -281,6 +281,7 @@ public:
 
   // Fog
   void SetupFogForArea3XRange(TAreaId area) const;
+  void SetupFogForArea3XRange(const CGameArea& area) const;
   void SetupFogForArea(TAreaId area) const;
   void SetupFogForArea(const CGameArea&) const;
   bool SetupFogForDraw() const;
@@ -459,7 +460,7 @@ private:
   void UpdateHintState(float dt);
   void MovePlatforms(float dt);
   void MoveDoors(float dt);
-  void CrossTouchActors(float dt);
+  void CrossTouchActors();
   void Think(float dt);
   void PreThinkObjects(float dt);
   void UpdateRoomAcoustics(TAreaId areaId);
@@ -470,6 +471,7 @@ private:
   void ProcessRadiusDamage(const CActor&, CActor&, TUniqueId, const CDamageInfo&,
                            const CMaterialFilter&);
   void ApplyRadiusDamage(const CActor&, const CVector3f&, CActor&, const CDamageInfo&);
+  bool TestRayDamage(const CVector3f&, const CActor&, const TEntityList&) const;
   bool MultiRayCollideWorld(const CMRay&, const CMaterialFilter&);
   void TestBombHittingWater(const CActor&, const CVector3f&, CActor&);
   rstl::optional_object< CAABox > CalculateObjectBounds(const CActor&);

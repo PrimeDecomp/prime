@@ -69,5 +69,6 @@ rstl::optional_object< CAABox > CGameProjectile::GetTouchBounds() const {
 }
 
 CProjectileTouchResult CGameProjectile::CanCollideWithTrigger(CActor& act, CStateManager& mgr) {
+  return CProjectileTouchResult();
 }
 void CGameProjectile::Accept(IVisitor& visitor) { visitor.Visit(*this); }

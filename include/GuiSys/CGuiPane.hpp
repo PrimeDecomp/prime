@@ -3,6 +3,7 @@
 
 #include "GuiSys/CGuiWidget.hpp"
 #include "rstl/reserved_vector.hpp"
+#include "Kyoto/TFunctor.hpp"
 
 class CGuiPane : public CGuiWidget {
 public:
@@ -16,19 +17,23 @@ public:
   virtual CVector2f GetDimensions() const;
   virtual void InitializeBuffers();
   virtual void WriteData(COutputStream& out, bool flag) const;
-  int GetCount() const { return xc4_ * 3; }
+  int GetCount() const { return xc4_panePointCount * 3; }
 
   float GetWidth() const { return xb8_width; }
   float GetHeight() const { return xbc_height; }
 
   FourCC GetWidgetTypeID() const;
 
+  CVector3f& ScaleCenter() { return xc8_scaleCenter; }
+  const CVector3f& GetScaleCenter() const { return xc8_scaleCenter; }
+
+  const int GetPointCount() const { return xc4_panePointCount; }
+
 private:
-  static const CVector3f skDefaultNormal;
   float xb8_width;
   float xbc_height;
-  float* xc0_;
-  int xc4_;
+  float* xc0_panePoints;
+  int xc4_panePointCount;
   CVector3f xc8_scaleCenter;
 };
 CHECK_SIZEOF(CGuiPane, 0xd4)

@@ -36,6 +36,8 @@ public:
     return x98_effects;
   }
 
+  CCharacterInfo(CInputStream& in);
+
 private:
   ushort x0_tableCount;
   rstl::string x4_name;

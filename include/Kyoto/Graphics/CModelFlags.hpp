@@ -9,10 +9,10 @@ class CModelFlags {
 public:
   enum ETrans {
     kT_Opaque = 0,
-    kT_One = 1,  // ?
-    kT_Two = 2,  // ?
+    kT_One = 1,   // ?
+    kT_Two = 2,   // ?
     kT_Three = 3, // ?
-    kT_Four = 4, // ?
+    kT_Four = 4,  // ?
     kT_Blend = 5,
     kT_Additive = 7,
     kT_Additive2 = 8,
@@ -78,13 +78,7 @@ public:
     return CModelFlags(*this, GetOtherFlags() | kF_NoTextureLock);
   }
   CModelFlags DepthCompareUpdate(const bool compare, const bool update) const {
-    uint newFlags = 0;
-    if (compare) {
-      newFlags |= kF_DepthCompare;
-    }
-    if (update) {
-      newFlags |= kF_DepthUpdate;
-    }
+    const uint newFlags = static_cast< uint >(compare) | (static_cast< uint >(update) << 1);
     return CModelFlags(*this, (x2_flags & ~(kF_DepthCompare | kF_DepthUpdate)) | newFlags);
   }
   CModelFlags DepthBackwards() const {
@@ -92,10 +86,11 @@ public:
   }
 
   const uchar GetBlendMode() const { return x0_blendMode; }
-  const ETrans GetTrans() const { return static_cast< ETrans >(x0_blendMode); }
+  const ETrans GetTrans() const { return static_cast< ETrans >(x0_blendModeChar); }
   const int GetShaderSet() const { return x1_matSetIdx; }
   const int GetOtherFlags() const { return x2_flags; }
   const CColor GetColor() const { return x4_color; }
+  const CColor& GetColorRef() const { return x4_color; }
 
   bool operator==(const CModelFlags& other) const {
     // TODO: cast to char for extsb; see CScriptActor::PreRender
@@ -117,11 +112,19 @@ public:
   }
   static CModelFlags Additive(const float f) { return CModelFlags(kT_Additive, f); }
   static CModelFlags Additive(const CColor& color) { return CModelFlags(kT_Additive, color); }
+  static CModelFlags AdditiveDepthCompareUpdate(const CColor& color, const bool compare,
+                                                const bool update) {
+    return Additive(color).DepthCompareUpdate(compare, update);
+  }
   static CModelFlags AdditiveRGB(const CColor& color);
   static CModelFlags ColorModulate(const CColor& color);
 
 private:
-  uchar x0_blendMode;
+  // Dumb hack, need to figure this out
+  union {
+    uchar x0_blendMode;
+    char x0_blendModeChar;
+  };
   uchar x1_matSetIdx;
   ushort x2_flags;
   CColor x4_color;

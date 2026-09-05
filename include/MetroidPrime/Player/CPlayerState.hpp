@@ -114,6 +114,13 @@ public:
   EPlayerVisor GetCurrentVisor() const { return x14_currentVisor; }
   EPlayerVisor GetTransitioningVisor() const { return x18_transitioningVisor; }
   EPlayerVisor GetActiveVisor(const CStateManager& mgr) const;
+  const bool IsXRayActive(const CStateManager& mgr) const {
+    return GetActiveVisor(mgr) == kPV_XRay;
+  }
+  const bool IsStandardVisor(const CStateManager& mgr) const {
+    EPlayerVisor activeVisor = GetActiveVisor(mgr);
+    return (activeVisor == kPV_Combat || activeVisor == kPV_Scan);
+  }
 
   void UpdateStaticInterference(CStateManager& stateMgr, const float& dt);
   void IncreaseScanTime(uint time, float val);
@@ -125,6 +132,7 @@ public:
   void StartTransitionToVisor(EPlayerVisor visor);
   void ResetVisor();
   bool IsAlive() const { return x0_24_alive; }
+  void SetPlayerAlive(bool alive) { x0_24_alive = alive; }
 
   const bool ItemEnabled(const EItemType type) const;
   void DisableItem(const EItemType type);

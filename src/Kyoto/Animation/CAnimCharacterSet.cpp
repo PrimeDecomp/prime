@@ -2,7 +2,7 @@
 #include "Kyoto/CFactoryFnReturn.hpp"
 #include "Kyoto/Streams/CInputStream.hpp"
 
-
+#pragma inline_max_size(240)
 CAnimCharacterSet::CAnimCharacterSet(CInputStream& in)
 : mVersion(in.Get< short >()), mCharacterSet(in), mAnimationSet(in) {}
 

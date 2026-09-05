@@ -6,6 +6,7 @@
 #include "rstl/rc_ptr.hpp"
 
 #include "Kyoto/Text/CSaveableState.hpp"
+#include "rstl/string.hpp"
 
 class CInstruction;
 class CBlockInstruction;
@@ -40,13 +41,19 @@ public:
   void AddLineExtraSpace(int space);
   void AddJustification(EJustification just);
   void AddVerticalJustification(EVerticalJustification just);
+  void AddWordWrapping(const bool wrap) { x18_.SetWordWrapping(wrap); }
   void AddPushState();
   void AddPopState();
   void AddImage(const CFontImageDef& image);
   void AddColor(EColorType type, const CTextColor& color);
   void AddRemoveColorOverride(int idx);
   void AddColorOverride(int idx, const CTextColor& color);
+  void AddString(const rstl::wstring& str) { AddString(str.data(), str.size()); }
   void AddString(const wchar_t* str, const int len);
+
+  void BeginBlock(int x, int y, int width, int height, bool, ETextDirection, EJustification,
+                  EVerticalJustification);
+  void EndBlock();
 
   void Clear();
 
