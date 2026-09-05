@@ -2049,7 +2049,7 @@ MetroidPrime/Enemies/CSeedling.cpp:
 	.sdata      start:0x805A85D8 end:0x805A85E0
 	.sdata2     start:0x805AD9C8 end:0x805AD9D8
 
-MetroidPrime/Player/CGameHintInfo.cpp:
+MetroidPrime/CGameHintInfo.cpp:
 	.text       start:0x802671C0 end:0x802685E8
 	.rodata     start:0x803D55A0 end:0x803D55A8
 	.data       start:0x803EA2C0 end:0x803EA2D0

@@ -5,6 +5,7 @@
 
 #include "Kyoto/TToken.hpp"
 #include "MetroidPrime/TGameTypes.hpp"
+#include "MetroidPrime/CGameHintInfo.hpp"
 #include "MetroidPrime/CScriptLayerManager.hpp"
 #include "MetroidPrime/CWorldSaveGameInfo.hpp"
 #include "rstl/auto_ptr.hpp"
@@ -14,7 +15,6 @@
 #include "rstl/single_ptr.hpp"
 
 class CDummyWorld;
-class CGameHintInfo;
 class CStringTable;
 
 class CSaveWorldMemory {
@@ -65,6 +65,10 @@ public:
   bool HasSaveWorldMemory(CAssetId worldId) const;
   const CSaveWorldMemory& GetSaveWorldMemory(CAssetId worldId) const;
   rstl::pair< CAssetId, int > GetAreaAndWorldIdForSaveId(int saveId) const;
+
+  const rstl::vector< CGameHintInfo::CGameHint >& GetHints() const {
+    return x0_hints.GetObject()->GetHints();
+  }
 
   typedef rstl::pair< CAssetId, uint > ScanState;
   const rstl::vector< ScanState >& GetScanStates() const { return x20_scanStates; }

@@ -3,6 +3,8 @@
 
 #include "types.h"
 
+#include "Kyoto/SObjectTag.hpp"
+
 #include "MetroidPrime/TGameTypes.hpp"
 #include "rstl/string.hpp"
 #include "rstl/vector.hpp"
@@ -11,6 +13,8 @@ class CInputStream;
 
 class CGameHintInfo {
 public:
+  static const float skHintTextTime;
+
   struct SHintLocation {
     CAssetId x0_mlvlId;
     CAssetId x4_mreaId;
@@ -22,9 +26,7 @@ public:
 
   class CGameHint {
   public:
-    CGameHint(CInputStream& in, uint version);
-    CGameHint(const CGameHint& other);
-    ~CGameHint();
+    CGameHint(CInputStream& in, int version);
 
     const rstl::string& GetName() const { return x0_name; }
     float GetImmediateTime() const { return x10_immediateTime; }
@@ -39,18 +41,22 @@ public:
     CAssetId x18_stringId;
     float x1c_textTime;
     rstl::vector< SHintLocation > x20_locations;
+
+  private:
+    void ReadLocations(CInputStream& in);
   };
 
-  CGameHintInfo(CInputStream& in, uint version);
+  CGameHintInfo(CInputStream& in, int version);
 
   const rstl::vector< CGameHint >& GetHints() const { return x0_hints; }
 
-  static int FindHintIndex(const char* name);
+  static int FindHintIndex(const rstl::string& name);
 
 private:
   rstl::vector< CGameHint > x0_hints;
 };
 
+CHECK_SIZEOF(CGameHintInfo, 0x10)
 NESTED_CHECK_SIZEOF(CGameHintInfo, SHintLocation, 0x10)
 NESTED_CHECK_SIZEOF(CGameHintInfo, CGameHint, 0x30)
 

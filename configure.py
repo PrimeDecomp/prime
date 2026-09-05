@@ -1110,7 +1110,7 @@ config.libs = [
             Object(NonMatching, "MetroidPrime/Weapons/CNewFlameThrower.cpp"),
             Object(NonMatching, "MetroidPrime/Cameras/CInterpolationCamera.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Enemies/CSeedling.cpp"),
-            Object(NonMatching, "MetroidPrime/Player/CGameHintInfo.cpp"),
+            Object(NonMatching, "MetroidPrime/CGameHintInfo.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CWallWalker.cpp"),
             Object(NonMatching, "MetroidPrime/CErrorOutputWindow.cpp"),
             Object(NonMatching, "MetroidPrime/CRainSplashGenerator.cpp"),
