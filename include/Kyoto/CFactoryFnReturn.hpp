@@ -4,6 +4,7 @@
 
 class CFactoryFnReturn {
 public:
+  CFactoryFnReturn() {}
   template < typename T >
   CFactoryFnReturn(T* ptr) : obj(TToken< T >::GetIObjObjectFor(ptr).release()) {}
 

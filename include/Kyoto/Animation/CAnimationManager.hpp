@@ -1,6 +1,7 @@
 #ifndef _CANIMATIONMANAGER
 #define _CANIMATIONMANAGER
 
+#include "Kyoto/Animation/CAnimSysContext.hpp"
 #include "Kyoto/Animation/CAnimationDatabase.hpp"
 #include "Kyoto/TToken.hpp"
 
@@ -18,7 +19,9 @@ public:
 
 private:
   TToken< CAnimationDatabase > x0_animDB;
-  const CAnimSysContext& x8_sysCtx;
+  CAnimSysContext x8_sysCtx;
 };
+
+CHECK_SIZEOF(CAnimationManager, 0x18)
 
 #endif // _CANIMATIONMANAGER

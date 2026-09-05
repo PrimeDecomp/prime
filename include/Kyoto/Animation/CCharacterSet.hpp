@@ -10,10 +10,14 @@ class CInputStream;
 class CCharacterSet {
 public:
   CCharacterSet(CInputStream& in);
-  //~CCharacterSet();
+  const rstl::vector< rstl::pair< int, CCharacterInfo > >& GetCharacterList() const {
+    return mCharacters;
+  }
 
 private:
   ushort mTableCount;
   rstl::vector< rstl::pair< int, CCharacterInfo > > mCharacters;
 };
+CHECK_SIZEOF(CCharacterSet, 0x14)
+
 #endif // _CCHARACTERSET

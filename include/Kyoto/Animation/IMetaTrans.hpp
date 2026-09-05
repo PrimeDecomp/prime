@@ -16,14 +16,14 @@ enum EMetaTransType {
 
 class IMetaTrans {
 public:
-  virtual ~IMetaTrans() {}
+  virtual ~IMetaTrans() = 0;
   virtual rstl::rc_ptr< CAnimTreeNode >
   VGetTransitionTree(const rstl::ncrc_ptr< CAnimTreeNode >& a,
                      const rstl::ncrc_ptr< CAnimTreeNode >& b,
                      const CAnimSysContext& animSys) const = 0;
   virtual EMetaTransType GetType() const = 0;
 
-  virtual void WriteTransData(COutputStream&) const;
+  virtual void WriteTransData(COutputStream&) const = 0;
 
   rstl::rc_ptr< CAnimTreeNode > GetTransitionTree(const rstl::ncrc_ptr< CAnimTreeNode >& a,
                                                   const rstl::ncrc_ptr< CAnimTreeNode >& b,
@@ -31,5 +31,7 @@ public:
     return VGetTransitionTree(a, b, animSys);
   }
 };
+
+inline IMetaTrans::~IMetaTrans() {}
 
 #endif // _IMETATRANS

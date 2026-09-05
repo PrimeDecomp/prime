@@ -79,7 +79,7 @@ public:
     ++this->current;
     return *this;
   }
-  pointer_iterator operator++(int) { return *this += 1; }
+  pointer_iterator operator++(int) { return pointer_iterator(this->current++); }
   pointer_iterator& operator--() {
     --this->current;
     return *this;
