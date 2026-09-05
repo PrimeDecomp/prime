@@ -14,12 +14,30 @@ public:
   virtual rstl::ownership_transfer< IVaryingAnimationTimeScale > VClone() const = 0;
   virtual rstl::ownership_transfer< IVaryingAnimationTimeScale >
   VGetFunctionMirrored(const float& value) const = 0;
+
+  rstl::ownership_transfer< IVaryingAnimationTimeScale > Clone() const { return VClone(); }
 };
 CHECK_SIZEOF(IVaryingAnimationTimeScale, 0x4)
 
+class CConstantAnimationTimeScale : public IVaryingAnimationTimeScale {
+public:
+  EVaryingAnimationTimeScaleType GetType() const override { return kVATST_Constant; }
+  float VTimeScaleIntegral(const float& lowerLimit, const float& upperLimit) const override;
+  float VFindUpperLimit(const float& lowerLimit, const float& root) const override;
+  rstl::ownership_transfer< IVaryingAnimationTimeScale > VClone() const override;
+  rstl::ownership_transfer< IVaryingAnimationTimeScale >
+  VGetFunctionMirrored(const float& value) const override;
+
+  explicit CConstantAnimationTimeScale(float scale) : x4_scale(scale) {}
+
+private:
+  float x4_scale;
+};
+CHECK_SIZEOF(CConstantAnimationTimeScale, 0x8)
+
 class CLinearAnimationTimeScale : public IVaryingAnimationTimeScale {
 public:
-  EVaryingAnimationTimeScaleType GetType() const override;
+  EVaryingAnimationTimeScaleType GetType() const override { return kVATST_Linear; }
   float VTimeScaleIntegral(const float& lowerLimit, const float& upperLimit) const override;
   float VFindUpperLimit(const float& lowerLimit, const float& root) const override;
   rstl::ownership_transfer< IVaryingAnimationTimeScale > VClone() const override;
@@ -37,8 +55,15 @@ private:
     CFunctionDescription(float slope, const float& yIntercept, const float& t1, const float& t2)
     : x0_slope(slope), x4_yIntercept(yIntercept), x8_t1(t1), xc_t2(t2) {}
 
-    rstl::ownership_transfer< IVaryingAnimationTimeScale >
-    FunctionMirroredAround(const float& value) const;
+    CFunctionDescription FunctionMirroredAround(const float& value) const {
+      CFunctionDescription result(*this);
+      float twiceValue = 2.f * value;
+      result.x0_slope = -x0_slope;
+      result.x4_yIntercept = x4_yIntercept - x0_slope * twiceValue;
+      result.x8_t1 = twiceValue - xc_t2;
+      result.xc_t2 = twiceValue - x8_t1;
+      return result;
+    }
 
     float x0_slope;
     float x4_yIntercept;
@@ -50,6 +75,9 @@ private:
                                       const float& root);
   static float TimeScaleIntegralWithSortedLimits(const CFunctionDescription& desc,
                                                  const float& lowerLimit, const float& upperLimit);
+  static float GetScale(const CFunctionDescription& desc, const float& time) {
+    return desc.x0_slope * time + desc.x4_yIntercept;
+  }
   CFunctionDescription x4_desc;
 };
 CHECK_SIZEOF(CLinearAnimationTimeScale, 0x14)
