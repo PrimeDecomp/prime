@@ -84,7 +84,7 @@ public:
   struct const_iterator {
     typedef int difference_type;
     typedef forward_iterator_tag iterator_category;
-    typedef P* value_type;
+    typedef P value_type;
 
     node* mNode;
     const header* mHeader;
@@ -95,7 +95,7 @@ public:
     : mNode(node), mHeader(header) /*, x8_(b)*/ {}
 
     const P* operator->() const { return mNode->get_value(); }
-    const P* operator*() const { return mNode->get_value(); }
+    const P& operator*() const { return *mNode->get_value(); }
     bool operator==(const const_iterator& other) const {
       return !(mNode != other.mNode || mHeader != other.mHeader);
     }
@@ -120,11 +120,12 @@ public:
     iterator(node* node, const header* header, bool b) : const_iterator(node, header, b) {}
 
     P* operator->() { return const_iterator::mNode->get_value(); }
-    P* operator*() { return const_iterator::mNode->get_value(); }
+    P& operator*() { return *const_iterator::mNode->get_value(); }
     node* get_node() { return const_iterator::mNode; }
   };
 
-  red_black_tree() : x0_(0), x1_(0), x4_count(0) {}
+  red_black_tree(const S& selector = S(), const Cmp& cmp = Cmp(), const Alloc& alloc = Alloc())
+  : x0_selector(selector), x1_cmp(cmp), x2_allocator(alloc), x4_count(0) {}
   ~red_black_tree() { destroy(); }
 
   iterator insert_into(node* n, const P& item);
@@ -152,7 +153,7 @@ public:
     node* needle = nullptr;
     node* n = x8_header.get_root();
     while (n != nullptr) {
-      if (!x2_cmp(x3_selector(*n->get_value()), key)) {
+      if (!x1_cmp(x0_selector(*n->get_value()), key)) {
         needle = n;
         n = n->get_left();
       } else {
@@ -160,7 +161,7 @@ public:
       }
     }
     bool noResult = false;
-    if (needle == nullptr || x2_cmp(key, x3_selector(*needle->get_value()))) {
+    if (needle == nullptr || x1_cmp(key, x0_selector(*needle->get_value()))) {
       noResult = true;
     }
     if (noResult) {
@@ -173,7 +174,7 @@ public:
     node* needle = nullptr;
     node* n = x8_header.get_root();
     while (n != nullptr) {
-      if (!x2_cmp(x3_selector(*n->get_value()), key)) {
+      if (!x1_cmp(x0_selector(*n->get_value()), key)) {
         needle = n;
         n = n->get_left();
       } else {
@@ -181,7 +182,7 @@ public:
       }
     }
     bool noResult = false;
-    if (needle == nullptr || x2_cmp(key, x3_selector(*needle->get_value()))) {
+    if (needle == nullptr || x1_cmp(key, x0_selector(*needle->get_value()))) {
       noResult = true;
     }
     if (noResult) {
@@ -194,7 +195,7 @@ public:
     node* ub = nullptr;
     node* n1 = x8_header.get_root();
     while (n1 != nullptr) {
-      if (x2_cmp(key, x3_selector(*n1->get_value()))) {
+      if (x1_cmp(key, x0_selector(*n1->get_value()))) {
         ub = n1;
         n1 = n1->get_left();
       } else {
@@ -204,7 +205,7 @@ public:
     node* lb = nullptr;
     node* n2 = x8_header.get_root();
     while (n2 != nullptr) {
-      if (x2_cmp(x3_selector(*n2->get_value()), key)) {
+      if (x1_cmp(x0_selector(*n2->get_value()), key)) {
         n2 = n2->get_right();
       } else {
         lb = n2;
@@ -237,10 +238,9 @@ public:
   int size() const { return x4_count; }
 
 private:
-  uchar x0_;
-  uchar x1_;
-  Cmp x2_cmp;
-  S x3_selector;
+  S x0_selector;
+  Cmp x1_cmp;
+  Alloc x2_allocator;
   int x4_count;
   header x8_header;
 
@@ -293,8 +293,8 @@ red_black_tree< T, P, U, S, Cmp, Alloc >::insert_into(node* n, const P& item) {
   } else {
     node* newNode = nullptr;
     while (newNode == nullptr) {
-      bool firstComp = x2_cmp(x3_selector(*n->get_value()), x3_selector(item));
-      if (!firstComp && !x2_cmp(x3_selector(item), x3_selector(*n->get_value()))) {
+      bool firstComp = x1_cmp(x0_selector(*n->get_value()), x0_selector(item));
+      if (!firstComp && !x1_cmp(x0_selector(item), x0_selector(*n->get_value()))) {
         return iterator(n, &x8_header, kUnknownValueEqualKey);
       }
       if (firstComp) {

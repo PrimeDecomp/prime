@@ -3,6 +3,8 @@
 
 #include "types.h"
 
+#include "rstl/functional.hpp"
+
 class CInputStream;
 namespace rstl {
 template < typename L, typename R >
@@ -25,12 +27,12 @@ public:
 };
 
 template < typename P >
-struct select1st {
+struct select1st : unary_function< P, P > {
   const P& operator()(const P& it) const { return it; }
 };
 
 template < typename K, typename V >
-struct select1st< pair< K, V > > {
+struct select1st< pair< K, V > > : unary_function< pair< K, V >, K > {
   typedef K value_type;
 
   const K& operator()(const pair< K, V >& it) const { return it.first; }

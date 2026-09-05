@@ -18,6 +18,7 @@ public:
 
   const_pointer_iterator() : current(nullptr) {}
   const_pointer_iterator(const T* begin) : current(const_cast< T* >(begin)) {}
+  const_pointer_iterator(const Vec*, const T* begin) : current(const_cast< T* >(begin)) {}
   const_pointer_iterator& operator++() {
     ++this->current;
     return *this;
@@ -77,6 +78,7 @@ public:
 
   pointer_iterator() : base(nullptr) {}
   pointer_iterator(T* begin) : base(begin) {}
+  pointer_iterator(Vec* vec, T* begin) : base(vec, begin) {}
   T& operator*() { return *this->current; }
   // TODO map says const, but breaks CScriptMazeNode::GenerateObjects
   T* operator->() { return this->current; }

@@ -117,6 +117,25 @@ It lower_bound(It start, It end, const T& value, Cmp cmp) {
   return start;
 }
 
+template < typename It, typename T >
+It lower_bound(It start, It end, const T& value) {
+  int dist = distance(start, end);
+  It it = start;
+  while (dist > 0) {
+    int halfDist = dist / 2;
+    it = start;
+    advance(it, halfDist);
+    if (*it < value) {
+      start = it;
+      ++start;
+      dist = (dist - halfDist) - 1;
+    } else {
+      dist = halfDist;
+    }
+  }
+  return start;
+}
+
 template < typename Vec >
 typename Vec::const_iterator lower_bound_const(typename Vec::const_iterator start,
                                                typename Vec::const_iterator end,

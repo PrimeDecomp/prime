@@ -25,7 +25,9 @@ public:
   virtual void GetUniquePrimitivesFromMetaAnim(rstl::set< CPrimitive >& primsOut,
                                                const rstl::string& name) const = 0;
 
-  CAnimationDatabase() : x4_(rstl::optional_object< TToken< CAnimationDatabase > >()) {}
+  explicit CAnimationDatabase(
+      const rstl::optional_object< TToken< CAnimationDatabase > >& token = rstl::optional_object_null())
+  : x4_(token) {}
   ~CAnimationDatabase() {}
 
 private:

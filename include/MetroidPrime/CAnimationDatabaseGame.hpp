@@ -17,5 +17,6 @@ public:
 private:
   rstl::vector< rstl::rc_ptr< IMetaAnim > > x10_anims;
 };
+CHECK_SIZEOF(CAnimationDatabaseGame, 0x20)
 
 #endif // _CANIMATIONDATABASEGAME

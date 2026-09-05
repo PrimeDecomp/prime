@@ -158,7 +158,7 @@ void vector< T, Alloc >::insert_into(iterator at, int n, In in) {
       construct(oldData + atIdx + n + i, (*this)[atIdx + i]);
       destroy(oldData + atIdx + i);
     }
-    for (i = 0; i < n; ++i, ++input) {
+    for (i = 0; i < n; ++input, ++i) {
       construct(oldData + atIdx + i, *input);
     }
     x4_count += n;
@@ -175,7 +175,7 @@ void vector< T, Alloc >::insert_into(iterator at, int n, In in) {
     for (int i = 0; i < atIdx; ++newIdx, ++i) {
       construct(newData + newIdx, (*this)[i]);
     }
-    for (int i = 0; i < n; ++newIdx, ++i, ++input) {
+    for (int i = 0; i < n; ++input, ++newIdx, ++i) {
       construct(newData + newIdx, *input);
     }
     for (int i = atIdx; i < size(); ++newIdx, ++i) {
