@@ -35,6 +35,7 @@ public:
   void SetMusicVolume(const int,const  bool);
   void SetSurroundMode(CAudioSys::ESurroundModes, bool);
 
+  int GetMusicVolume() const { return x5c_musicVol; }
   const float GetHudAlpha() const;
   const float GetHelmetAlpha() const;
   void SetHelmetAlpha(const int);

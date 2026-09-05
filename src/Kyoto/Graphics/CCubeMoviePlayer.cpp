@@ -135,7 +135,7 @@ CMoviePlayer::CMoviePlayer(const char* path, const float fps, const bool loop,
   }
   ++sNumReferences;
   VerifyCallbackStatus();
-  xa0_request = x0_dvdFile.SyncRead(xa4_requestBuffer.get(), 64);
+  x98_request = x0_dvdFile.SyncRead(x90_requestBuffer.get(), 64);
 }
 
 CMoviePlayer::~CMoviePlayer() {

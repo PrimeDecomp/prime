@@ -88,11 +88,8 @@ public:
 
     node* mNode;
     const header* mHeader;
-    // bool x8_;
-
-    // TODO why is this bool here?
-    const_iterator(node* node, const header* header, bool b)
-    : mNode(node), mHeader(header) /*, x8_(b)*/ {}
+    const_iterator(node* node, const header* header)
+    : mNode(node), mHeader(header) {}
 
     const P* operator->() const { return mNode->get_value(); }
     const P* operator*() const { return mNode->get_value(); }
@@ -117,7 +114,7 @@ public:
     }
   };
   struct iterator : public const_iterator {
-    iterator(node* node, const header* header, bool b) : const_iterator(node, header, b) {}
+    iterator(node* node, const header* header) : const_iterator(node, header) {}
 
     P* operator->() { return const_iterator::mNode->get_value(); }
     P* operator*() { return const_iterator::mNode->get_value(); }
@@ -127,25 +124,25 @@ public:
   red_black_tree() : x0_(0), x1_(0), x4_count(0) {}
   ~red_black_tree() { destroy(); }
 
-  iterator insert_into(node* n, const P& item);
-  iterator insert(const P& item) { return insert_into(x8_header.get_root(), item); }
+  pair< iterator, bool > insert_into(node* n, const P& item);
+  pair< iterator, bool > insert(const P& item) { return insert_into(x8_header.get_root(), item); }
 
   const_iterator begin() const {
     // TODO
-    return const_iterator(x8_header.get_leftmost(), &x8_header, false);
+    return const_iterator(x8_header.get_leftmost(), &x8_header);
   }
   const_iterator end() const {
     // TODO
-    return const_iterator(nullptr, &x8_header, false);
+    return const_iterator(nullptr, &x8_header);
   }
 
   iterator begin() {
     // TODO
-    return iterator(x8_header.get_leftmost(), &x8_header, false);
+    return iterator(x8_header.get_leftmost(), &x8_header);
   }
   iterator end() {
     // TODO
-    return iterator(nullptr, &x8_header, false);
+    return iterator(nullptr, &x8_header);
   }
 
   const_iterator find(const T& key) const {
@@ -166,7 +163,7 @@ public:
     if (noResult) {
       needle = nullptr;
     }
-    return const_iterator(needle, &x8_header, false);
+    return const_iterator(needle, &x8_header);
   }
 
   iterator find(const T& key) {
@@ -187,7 +184,7 @@ public:
     if (noResult) {
       needle = nullptr;
     }
-    return iterator(needle, &x8_header, false);
+    return iterator(needle, &x8_header);
   }
 
   pair< iterator, iterator > equal_range(const T& key) {
@@ -211,8 +208,8 @@ public:
         n2 = n2->get_left();
       }
     }
-    return pair< iterator, iterator >(iterator(lb, &x8_header, false),
-                                      iterator(ub, &x8_header, false));
+    return pair< iterator, iterator >(iterator(lb, &x8_header),
+                                      iterator(ub, &x8_header));
   }
 
   iterator erase(iterator it) {
@@ -276,26 +273,22 @@ private:
   void destroy() { clear(); }
 };
 
-static bool kUnknownValueNewRoot = true;
-static bool kUnknownValueEqualKey = false;
-static bool kUnknownValueNewItem = true;
-
 template < typename T, typename P, int U, typename S, typename Cmp, typename Alloc >
-typename red_black_tree< T, P, U, S, Cmp, Alloc >::iterator
+pair< typename red_black_tree< T, P, U, S, Cmp, Alloc >::iterator, bool >
 red_black_tree< T, P, U, S, Cmp, Alloc >::insert_into(node* n, const P& item) {
   if (n == nullptr) {
     x8_header.set_root(create_node(nullptr, nullptr, nullptr, kNC_Red, item));
     x4_count += 1;
     x8_header.set_leftmost(x8_header.get_root());
     x8_header.set_rightmost(x8_header.get_root());
-    return iterator(x8_header.get_root(), &x8_header, kUnknownValueNewRoot);
+    return pair< iterator, bool >(iterator(x8_header.get_root(), &x8_header), true);
 
   } else {
     node* newNode = nullptr;
     while (newNode == nullptr) {
       bool firstComp = x2_cmp(x3_selector(*n->get_value()), x3_selector(item));
       if (!firstComp && !x2_cmp(x3_selector(item), x3_selector(*n->get_value()))) {
-        return iterator(n, &x8_header, kUnknownValueEqualKey);
+        return pair< iterator, bool >(iterator(n, &x8_header), false);
       }
       if (firstComp) {
         if (n->get_left() == nullptr) {
@@ -321,7 +314,7 @@ red_black_tree< T, P, U, S, Cmp, Alloc >::insert_into(node* n, const P& item) {
     }
     x4_count += 1;
     rebalance(newNode);
-    return iterator(newNode, &x8_header, kUnknownValueNewItem);
+    return pair< iterator, bool >(iterator(newNode, &x8_header), true);
   }
 }
 

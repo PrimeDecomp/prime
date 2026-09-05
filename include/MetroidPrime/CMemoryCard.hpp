@@ -7,10 +7,15 @@
 #include "MetroidPrime/TGameTypes.hpp"
 #include "MetroidPrime/Player/CWorldSaveGameInfo.hpp"
 
+class CSaveWorldMemory;
+
 class CMemoryCard {
 public:
   ~CMemoryCard();
   // TODO
+
+  bool HasSaveWorldMemory(int wldId);
+  const CSaveWorldMemory& GetSaveWorldMemory(int wldId) const;
 
   rstl::pair< CAssetId, TAreaId > GetAreaAndWorldIdForSaveId(int saveId) const;
 

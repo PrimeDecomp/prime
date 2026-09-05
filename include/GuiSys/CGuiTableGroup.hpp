@@ -3,7 +3,9 @@
 
 #include "GuiSys/CGuiCompoundWidget.hpp"
 
-#include <Kyoto/TFunctor.hpp>
+#include "Kyoto/TFunctor.hpp"
+
+class CColor;
 
 class CGuiTableGroup : public CGuiCompoundWidget {
 public:
@@ -26,6 +28,14 @@ public:
   void SetMenuAdvanceCallback(const TFunctor1< CGuiTableGroup* const >& func);
   void SetMenuCancelCallback(const TFunctor1< CGuiTableGroup* const >& func);
   void SetMenuSelectionChangeCallback(const TFunctor2< CGuiTableGroup* const, const int >& func);
+
+  void SetColors(const CColor& selected, const CColor& unselected) const;
+  int GetUserSelection() const { return xc4_userSelection; }
+  void SetUserSelection(int sel) {
+    xc8_prevUserSelection = xc4_userSelection;
+    xc4_userSelection = sel;
+  }
+  void SetVertical(bool v) { xd1_vertical = v; }
 
   bool HasMenuAdvanceCallback() const { return xd4_doMenuAdvance; }
 

@@ -20,7 +20,7 @@ public:
   typedef typename rep_type::iterator iterator;
   typedef typename rep_type::const_iterator const_iterator;
 
-  iterator insert(const value_type& item) { return inner.insert(item); }
+  iterator insert(const value_type& item) { return inner.insert(item).first; }
 
   const_iterator begin() const { return inner.begin(); }
   const_iterator end() const { return inner.end(); }

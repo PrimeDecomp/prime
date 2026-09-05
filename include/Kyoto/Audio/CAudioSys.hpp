@@ -95,7 +95,7 @@ public:
   static void SysSetVolume(uchar, ushort, uchar);
   static void SysSetSfxVolume(uchar, ushort, uchar, uchar);
   static bool SysLoadGroupSet(CSimplePool*, uint);
-  static bool SysLoadGroupSet(TLockedToken< CAudioGroupSet >, rstl::string, uint);
+  static bool SysLoadGroupSet(const CToken&, const rstl::string&, uint);
   static const rstl::string& SysGetGroupSetName(uint);
   static bool SysPushGroupIntoARAM(const rstl::string& name, uchar);
   static void SysPopGroupFromARAM();
@@ -180,8 +180,8 @@ public:
   static void* mAICallback;
   static bool mAICallbackEnabled;
   static ESurroundModes mSurroundMode;
-  static uint mMaxAramUsage;
-  static uint mCurrentAramUsage;
+  static int mMaxAramUsage;
+  static int mCurrentAramUsage;
   static bool mProLogic2;
   static short mVolumeScale;
   static short mDefaultVolumeScale;
