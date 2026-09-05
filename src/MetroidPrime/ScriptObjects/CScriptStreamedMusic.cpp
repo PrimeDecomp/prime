@@ -119,7 +119,7 @@ void CScriptStreamedMusic::sub_8020c414(CStateManager& mgr) {
 }
 
 void CScriptStreamedMusic::sub_8020c3f0(CStateManager& mgr) {
-  CStreamAudioManager::fn_8036590C(x4c_fadeOut);
+  CStreamAudioManager::FadeBackIn(x4c_fadeOut);
 }
 
 void CScriptStreamedMusic::StartStream(CStateManager& mgr) {

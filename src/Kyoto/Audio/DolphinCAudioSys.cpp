@@ -154,8 +154,8 @@ rstl::map< rstl::string, rstl::ncrc_ptr< CAudioSys::CTrkData > >* CAudioSys::mpD
 rstl::vector< CAudioSys::CEmitterData >* CAudioSys::mpEmitterDB = nullptr;
 SND_LISTENER* CAudioSys::mpListener = nullptr;
 CAudioSys::ESurroundModes CAudioSys::mSurroundMode = CAudioSys::kSM_Mono;
-uint CAudioSys::mMaxAramUsage = 0;
-uint CAudioSys::mCurrentAramUsage = 0;
+int CAudioSys::mMaxAramUsage = 0;
+int CAudioSys::mCurrentAramUsage = 0;
 const uchar CAudioSys::kEmitterMedPriority = 0x7f;
 const uchar CAudioSys::kMaxVolume = 0x7f;
 bool CAudioSys::mProLogic2 = true;
@@ -239,24 +239,45 @@ void CAudioSys::SysSetSfxVolume(const uchar volume, const ushort time, const uch
 }
 
 bool CAudioSys::SysLoadGroupSet(CSimplePool* pool, const uint id) {
-  if (SysIsGroupSetLoaded(SysGetGroupSetName(id))) {
-    return true;
+  const rstl::string& name = SysGetGroupSetName(id);
+  rstl::rc_ptr< CAudioGroupSet > existing = FindGroupSet(name);
+  if (!existing) {
+    TLockedToken< CAudioGrpSetLoc > token(pool->GetObj(SObjectTag('AGSC', id)));
+    rstl::ncrc_ptr< CAudioGroupSet > group(rs_new CAudioGroupSet(token));
+    int aramUsage = mCurrentAramUsage + group->AramUsage();
+    if (aramUsage > mMaxAramUsage) {
+      return true;
+    }
+    mCurrentAramUsage = aramUsage;
+    const rstl::string& groupName = group->GetName();
+    mpGroupSetDB->insert(rstl::pair< rstl::string, rstl::ncrc_ptr< CAudioGroupSet > >(
+        groupName, group));
+    mpGroupSetResNameDB->insert(rstl::pair< uint, rstl::string >(id, groupName));
+    return false;
   }
-
-  TLockedToken< CAudioGroupSet > group(pool->GetObj(SObjectTag('AGSC', id)));
-  return SysLoadGroupSet(group, group->GetName(), id);
+  existing->Reload();
+  return true;
 }
 
-bool CAudioSys::SysLoadGroupSet(TLockedToken< CAudioGroupSet > group, rstl::string name,
+bool CAudioSys::SysLoadGroupSet(const CToken& token, const rstl::string& name,
                                 const uint id) {
-  if (FindGroupSet(name)) {
-    return true;
+  rstl::rc_ptr< CAudioGroupSet > existing = FindGroupSet(name);
+  if (!existing) {
+    rstl::ncrc_ptr< CAudioGroupSet > group(
+        rs_new CAudioGroupSet(TLockedToken< CAudioGrpSetLoc >(token)));
+    int aramUsage = mCurrentAramUsage + group->AramUsage();
+    if (aramUsage > mMaxAramUsage) {
+      return true;
+    }
+    mCurrentAramUsage = aramUsage;
+    const rstl::string& groupName = group->GetName();
+    mpGroupSetDB->insert(rstl::pair< rstl::string, rstl::ncrc_ptr< CAudioGroupSet > >(
+        groupName, group));
+    mpGroupSetResNameDB->insert(rstl::pair< uint, rstl::string >(id, groupName));
+    return false;
   }
-
-  mpGroupSetDB->insert(rstl::pair< rstl::string, rstl::ncrc_ptr< CAudioGroupSet > >(
-      name, rstl::ncrc_ptr< CAudioGroupSet >(group.GetT())));
-  mpGroupSetResNameDB->insert(rstl::pair< uint, rstl::string >(id, name));
-  return false;
+  existing->Reload();
+  return true;
 }
 
 bool CAudioSys::SysIsGroupSetLoaded(const rstl::string& name) { return FindGroupSet(name); }

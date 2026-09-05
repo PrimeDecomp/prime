@@ -62,6 +62,7 @@ public:
   short GetWorkerId() const { return xb4_workerId; }
 
   void SetDepthTest(bool depthTest) { xb6_31_depthTest = depthTest; }
+  void SetIsSelectable(bool selectable) { xb6_27_isSelectable = selectable; }
   void SetIsVisible(bool visible);
   void SetIsActive(bool active);
   bool GetIsBackfaceCullingOn() const { return xb6_29_cullFaces; }

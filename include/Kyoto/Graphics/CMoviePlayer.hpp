@@ -3,6 +3,7 @@
 
 #include "Kyoto/CDvdFile.hpp"
 #include "Kyoto/CDvdRequest.hpp"
+#include "Kyoto/Math/CVector3f.hpp"
 
 #include "dolphin/thp/THPInfo.h"
 #include "rstl/vector.hpp"
@@ -38,7 +39,7 @@ public:
   };
   static void SetSfxVolume(uchar);
 
-  CMoviePlayer(const char* path, float fps, bool loop, bool deinterlace);
+  CMoviePlayer(const char* path, const float fps, const bool loop, const bool deinterlace);
   ~CMoviePlayer();
 
   void Update(float dt);
@@ -51,8 +52,17 @@ public:
   void SetPlayMode(EPlayMode mode);
   float GetTotalSeconds() const;
   float GetPlayedSeconds() const;
+  uint GetWidth() const;
+  uint GetHeight() const;
+  bool CanDrawVideo() const { return xac_indexLoad == nullptr; }
+  bool PumpIndexLoad();
+  void Rewind();
+  bool GetIsFullyCached() const;
+  bool GetIsMovieFinishedPlaying() const;
+  bool IsLooping() const { return xf4_24_loop; }
 
 private:
+  struct SIndexLoad;
   static void VerifyCallbackStatus();
   CDvdFile x0_dvdFile;
   THPHeader x28_header;
@@ -60,9 +70,10 @@ private:
   THPVideoInfoOld x6c_videoInfo;
   THPAudioInfoOld x74_audioInfo;
   rstl::vector< CTHPTextureSet > x80_textures;
-  rstl::vector< rstl::auto_ptr< uchar > > x90_requestQueue;
-  CDvdRequest* xa0_request;
-  rstl::auto_ptr< uchar > xa4_requestBuffer;
+  rstl::auto_ptr< uchar > x90_requestBuffer;
+  CDvdRequest* x98_request;
+  rstl::vector< rstl::auto_ptr< uchar > > x9c_requestQueue;
+  SIndexLoad* xac_indexLoad;
   uint xb0_nextReadSize;
   uint xb4_nextReadOff;
   uint xb8_readSizeWrapped;
@@ -79,6 +90,14 @@ private:
   float xe4_totalSeconds;
   float xe8_;
   float xec_fps;
+  uint xf0_preLoadFrames;
+  bool xf4_24_loop : 1;
+  bool xf4_25_hasAudio : 1;
+  bool xf4_26_fieldFlip : 1;
+  bool xf4_27_deinterlace : 1;
+  uint xf8_;
+  uint xfc_fieldIndex;
 };
+CHECK_SIZEOF(CMoviePlayer, 0x100)
 
 #endif // _CMOVIEPLAYER

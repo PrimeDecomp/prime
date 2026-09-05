@@ -26,7 +26,7 @@ public:
   map(CInputStream& in, const Cmp& cmp = Cmp(), const Alloc& alloc = Alloc());
   ~map() {}
 
-  iterator insert(const value_type& item) { return inner.insert(item); }
+  pair< iterator, bool > insert(const value_type& item) { return inner.insert(item); }
 
   const_iterator begin() const { return inner.begin(); }
   const_iterator end() const { return inner.end(); }

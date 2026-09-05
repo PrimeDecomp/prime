@@ -49,6 +49,7 @@ public:
   void SetCardSerial(u64 serial) { x210_cardSerial = serial; }
   u64 GetCardSerial() const { return x210_cardSerial; }
   bool GetHardMode() const { return x228_24_hardMode; }
+  void SetHardMode(bool v);
   bool GetInitPowerupsAtFirstSpawn() const { return x228_25_initPowerupsAtFirstSpawn; }
   double GetTotalPlayTime() const { return xa0_playTime; }
   float GetHardModeDamageMultiplier() const;

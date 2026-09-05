@@ -16,7 +16,12 @@ public:
   ~CSystemState();
   void PutTo(COutputStream&) const;
 
+  void SetFusionLinked(bool v);
+  void SetFusionBeat(bool v);
   void SetHasFusion(bool v);
+  bool GetFusionLinked() const { return xd0_24_fusionLinked; }
+  bool GetNormalModeBeat() const { return xd0_25_normalModeBeat; }
+  bool GetFusionBeat() const { return xd0_27_fusionBeat; }
   bool GetHasFusion() const { return xd0_28_fusionSuitActive; }
 
   bool GetCinematicState(rstl::pair< CAssetId, TEditorId > cineId) const;
@@ -28,6 +33,8 @@ public:
   bool GetShowPowerBombAmmoMessage() const;
   void IncrementPowerBombAmmoCount();
   void IncrementFrozenBallCount();
+
+  uchar* GetNESState() { return x0_nesState.data(); }
 
   bool GetAllItemsCollected() const { return xd0_29_allItemsCollected; }
   void SetAllItemsCollected(bool);

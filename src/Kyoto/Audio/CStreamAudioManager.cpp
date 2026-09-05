@@ -326,7 +326,7 @@ bool CStreamedAudioManager::AreStringsNotEqual(const char* lhs, const char* rhs)
   return CPatterned::CompareStateString(lhs, rhs, -1) != 0;
 }
 
-void CStreamAudioManager::fn_8036590C(float fadeTime) {
+void CStreamAudioManager::FadeBackIn(float fadeTime) {
   if (fadeTime == 0.f) {
     mVolumeIncrement2 = mCurrentVolume;
     mVolumeIncrement = mTargetVolume;
