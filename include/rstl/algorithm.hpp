@@ -266,6 +266,12 @@ typename T::iterator inline find_by_key_nc(
   return binary_find(container.begin(), container.end(), key, default_pair_sorter_finder< T >());
 }
 
+template < typename T >
+inline void sort_by_key(T& container) {
+  less< typename select1st< typename T::value_type >::value_type > cmp;
+  sort_by_key(container, cmp);
+}
+
 template < typename T, class Cmp >
 inline void sort_by_key(T& container, const Cmp& cmp) {
   sort(container.begin(), container.end(), pair_sorter_finder< typename T::value_type, Cmp >(cmp));
