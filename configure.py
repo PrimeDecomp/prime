@@ -1330,7 +1330,7 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "Kyoto/Animation/CMetaTransFactory.cpp",
             ),
-            Object(NonMatching, "Kyoto/Animation/CMetaTransMetaAnim.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Animation/CMetaTransMetaAnim.cpp"),
             Object(NonMatching, "Kyoto/Animation/CMetaTransPhaseTrans.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),

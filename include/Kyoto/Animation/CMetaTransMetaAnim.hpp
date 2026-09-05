@@ -8,17 +8,19 @@ class CInputStream;
 class COutputStream;
 
 class CMetaTransMetaAnim : public IMetaTrans {
-  rstl::rc_ptr< IMetaAnim > x4_metaAnim;
-
 public:
   explicit CMetaTransMetaAnim(CInputStream& in);
   EMetaTransType GetType() const override { return kMTT_MetaAnim; }
 
-  rstl::rc_ptr< CAnimTreeNode > VGetTransitionTree(const rstl::ncrc_ptr< CAnimTreeNode >& a,
-                                                   const rstl::ncrc_ptr< CAnimTreeNode >& b,
-                                                   const CAnimSysContext& animSys) const override;
+  rstl::ncrc_ptr< CAnimTreeNode > VGetTransitionTree(const rstl::ncrc_ptr< CAnimTreeNode >& a,
+                                                     const rstl::ncrc_ptr< CAnimTreeNode >& b,
+                                                     const CAnimSysContext& animSys) const override;
 
   void WriteTransData(COutputStream&) const override;
+
+private:
+  rstl::rc_ptr< IMetaAnim > x4_metaAnim;
 };
+CHECK_SIZEOF(CMetaTransMetaAnim, 0x8)
 
 #endif // _CMETATRANSMETAANIM

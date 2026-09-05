@@ -7,7 +7,7 @@ class CAnimTreeNode;
 class CAnimSysContext;
 class CTreeUtils {
 public:
-  static rstl::rc_ptr< CAnimTreeNode > GetTransitionTree(const rstl::ncrc_ptr< CAnimTreeNode >& a,
+  static rstl::ncrc_ptr< CAnimTreeNode > GetTransitionTree(const rstl::ncrc_ptr< CAnimTreeNode >& a,
                                                          const rstl::ncrc_ptr< CAnimTreeNode >& b,
                                                          const CAnimSysContext& animCtx);
 };

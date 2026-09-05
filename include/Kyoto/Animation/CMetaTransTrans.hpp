@@ -18,7 +18,7 @@ public:
   explicit CMetaTransTrans(CInputStream& in);
   EMetaTransType GetType() const override { return kMTT_Trans; }
 
-  rstl::rc_ptr< CAnimTreeNode > VGetTransitionTree(const rstl::ncrc_ptr< CAnimTreeNode >& a,
+  rstl::ncrc_ptr< CAnimTreeNode > VGetTransitionTree(const rstl::ncrc_ptr< CAnimTreeNode >& a,
                                                    const rstl::ncrc_ptr< CAnimTreeNode >& b,
                                                    const CAnimSysContext& animSys) const override;
 

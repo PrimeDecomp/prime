@@ -8,7 +8,7 @@ CMetaTransPhaseTrans::CMetaTransPhaseTrans(CInputStream& in)
 , xd_runA(in.ReadBool())
 , x10_flags(in.ReadLong()) {}
 
-rstl::rc_ptr< CAnimTreeNode >
+rstl::ncrc_ptr< CAnimTreeNode >
 CMetaTransPhaseTrans::VGetTransitionTree(const rstl::ncrc_ptr< CAnimTreeNode >& a,
                                          const rstl::ncrc_ptr< CAnimTreeNode >& b,
                                          const CAnimSysContext& animSys) const {}

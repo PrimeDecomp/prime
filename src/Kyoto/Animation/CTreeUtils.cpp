@@ -5,7 +5,7 @@
 #include "Kyoto/Animation/CTransitionDatabase.hpp"
 #include "Kyoto/Animation/IMetaTrans.hpp"
 
-rstl::rc_ptr< CAnimTreeNode >
+rstl::ncrc_ptr< CAnimTreeNode >
 CTreeUtils::GetTransitionTree(const rstl::ncrc_ptr< CAnimTreeNode >& a,
                               const rstl::ncrc_ptr< CAnimTreeNode >& b,
                               const CAnimSysContext& animCtx) {
