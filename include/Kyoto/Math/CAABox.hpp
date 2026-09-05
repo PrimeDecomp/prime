@@ -56,6 +56,10 @@ public:
   CVector3f GetCenterPoint() const;
   CVector3f CenterPoint() const { return (min + max) * 0.5f; }
   CVector3f GetPoint(int) const;
+  void Include(const CAABox& box) {
+    AccumulateBounds(box.GetMinPoint());
+    AccumulateBounds(box.GetMaxPoint());
+  }
   void Include(const CVector3f& vec) { AccumulateBounds(vec); }
   void AccumulateBounds(const CVector3f&);
   bool Invalid() const;
