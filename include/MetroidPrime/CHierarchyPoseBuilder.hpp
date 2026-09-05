@@ -24,11 +24,19 @@ public:
   CLayoutDescription(const TLockedToken< CCharLayoutInfo >& layout) : x0_layoutToken(layout) {}
 
   class CScaledLayoutDescription {
+  public:
+    const TLockedToken< CCharLayoutInfo >& ScaledLayout() const { return x0_layoutToken; }
+
   private:
     TLockedToken< CCharLayoutInfo > x0_layoutToken;
     float xc_scale;
     rstl::optional_object< CVector3f > x10_scaleVec;
   };
+
+  bool UsesScale() const { return xc_scaled.valid(); }
+  const TLockedToken< CCharLayoutInfo >& ScaledLayout() const {
+    return UsesScale() ? xc_scaled->ScaledLayout() : x0_layoutToken;
+  }
 
 private:
   TLockedToken< CCharLayoutInfo > x0_layoutToken;
@@ -46,6 +54,7 @@ public:
 
   class CTreeNode {
   public:
+    const CQuaternion& GetRotation() const { return x4_rotation; }
     void SetRotation(const CQuaternion& rot) { x4_rotation = rot; }
     void SetOffset(const CVector3f& off) { x14_offset = off; }
 
@@ -58,6 +67,10 @@ public:
 
   void Insert(const CSegId& id, const CQuaternion& rot) { x38_treeMap[id].SetRotation(rot); }
   void Insert(const CSegId& id, const CVector3f& off) { x38_treeMap[id].SetOffset(off); }
+  CQuaternion GetSegRotation(const CSegId& id) const { return x38_treeMap[id].GetRotation(); }
+  const TLockedToken< CCharLayoutInfo >& CharLayoutInfo() const {
+    return x0_layoutDesc.ScaledLayout();
+  }
 
 private:
   CLayoutDescription x0_layoutDesc;

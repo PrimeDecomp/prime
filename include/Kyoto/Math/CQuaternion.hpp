@@ -33,7 +33,9 @@ public:
     *this = *this * other;
     return *this;
   }
-  // ScalarVector__11CQuaternionFfRC9CVector3f
+  static CQuaternion ScalarVector(float w, const CVector3f& imaginary) {
+    return CQuaternion(w, imaginary);
+  }
   // Slerp__11CQuaternionFRC11CQuaternionRC11CQuaternionf
   static CQuaternion ShortestRotationArc(const CVector3f&, const CVector3f&);
 
@@ -56,13 +58,7 @@ public:
   CMatrix3f BuildTransform() const;
   CTransform4f BuildTransform4f() const;
   CTransform4f BuildTransform4f(const CVector3f&) const;
-  CQuaternion BuildInverted() const {
-    // double w = this->w;
-    // double x = -this->x;
-    // double y = -this->y;
-    // double z = -this->z;
-    return CQuaternion(w, -imaginary);
-  }
+  CQuaternion BuildInverted() const { return ScalarVector(w, -imaginary); }
 
   static CQuaternion FromMatrixRows(const CVector3f&, const CVector3f&, const CVector3f&);
   static CQuaternion FromMatrix(const CMatrix3f&);
