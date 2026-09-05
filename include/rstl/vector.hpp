@@ -154,15 +154,12 @@ void vector< T, Alloc >::insert_into(iterator at, int n, In in) {
     long atIdx = at - begin();
     int moveCount = x4_count - atIdx;
     int i = moveCount - 1;
-    T* dst = oldData + atIdx + i + n;
     for (; i >= 0; --i) {
-      construct(dst, (*this)[atIdx + i]);
-      --dst;
+      construct(oldData + atIdx + n + i, (*this)[atIdx + i]);
+      destroy(oldData + atIdx + i);
     }
-    dst = oldData + atIdx;
     for (i = 0; i < n; ++i, ++input) {
-      construct(dst, *input);
-      ++dst;
+      construct(oldData + atIdx + i, *input);
     }
     x4_count += n;
   } else {
