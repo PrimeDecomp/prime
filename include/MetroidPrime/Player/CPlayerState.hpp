@@ -108,6 +108,7 @@ public:
 
   EPlayerSuit GetCurrentSuit() const;
   EPlayerSuit GetCurrentSuitRaw() const { return x20_currentSuit; }
+  bool IsFiringComboBeam() const { return x0_25_firingComboBeam; }
   EBeamId GetCurrentBeam() const { return x8_currentBeam; }
   void SetCurrentBeam(EBeamId beam) { x8_currentBeam = beam; }
   bool CanVisorSeeFog(const CStateManager& stateMgr) const;

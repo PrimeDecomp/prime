@@ -271,7 +271,7 @@ static CVisorParameters LoadVisorParameters(CInputStream& in) {
   return CVisorParameters(mask, b1, scanPassthrough);
 }
 
-static CActorParameters LoadActorParameters(CInputStream& in) {
+CActorParameters LoadActorParameters(CInputStream& in) {
   int propCount = in.ReadLong();
   bool valid = false;
   if (propCount >= 5 && propCount <= 0xe)

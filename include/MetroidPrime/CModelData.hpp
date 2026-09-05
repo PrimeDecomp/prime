@@ -43,6 +43,7 @@ private:
 
 class CModelData {
 public:
+  int GetNumMaterialSets() const;
   enum EWhichModel {
     kWM_Normal,
     kWM_XRay,

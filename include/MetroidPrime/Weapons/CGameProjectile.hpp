@@ -48,6 +48,7 @@ public:
   CProjectileTouchResult CanCollideWithTrigger(CActor& act, CStateManager& mgr);
   const CProjectileWeapon& GetProjectile() const { return x170_projectile; }
   CProjectileWeapon& Projectile() { return x170_projectile; }
+  CVector3f GetVelocity() const { return GetTranslation() - x298_previousPos; }
   const CVector3f& GetPreviousPos() const { return x298_previousPos; }
   TUniqueId GetHomingTargetId() const { return x2c0_homingTargetId; }
   TUniqueId GetHitProjectileOwner() const { return x2c4_hitProjectileOwner; }

@@ -11,20 +11,22 @@
 #include "MetroidPrime/CDamageVulnerability.hpp"
 #include "MetroidPrime/Enemies/CGrenadeLauncher.hpp"
 #include "MetroidPrime/Enemies/CPatterned.hpp"
+#include "MetroidPrime/Enemies/SPositionHistory.hpp"
 #include "MetroidPrime/PathFinding/CPathFindSearch.hpp"
 #include "MetroidPrime/Weapons/CShockWave.hpp"
 
 #include "Kyoto/TToken.hpp"
 
 #include "rstl/reserved_vector.hpp"
+#include "rstl/single_ptr.hpp"
 
 class CCollisionActorManager;
 class CGenDescription;
+class CJointCollisionDescription;
 
 class CElitePirateData {
 public:
   CElitePirateData(CInputStream& in, int propCount);
-  CElitePirateData(const CElitePirateData& other);
 
   static int GetMinProperties() { return skMinProperties; }
 
@@ -104,7 +106,7 @@ public:
   CElitePirate(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
                const CTransform4f& xf, const CModelData& mData, const CPatternedInfo& pInfo,
                const CActorParameters& actParms, const CElitePirateData& data);
-  ~CElitePirate();
+  ~CElitePirate() override;
 
   void Accept(IVisitor& visitor) override;
   void Think(float dt, CStateManager& mgr) override;
@@ -117,7 +119,7 @@ public:
   CVector3f GetAimPosition(const CStateManager& mgr, float dt) const override;
   void DoUserAnimEvent(CStateManager& mgr, const CInt32POINode& node, EUserEventType type,
                        float dt) override;
-  const CCollisionPrimitive* GetCollisionPrimitive() const override;
+  const CCollisionPrimitive* GetCollisionPrimitive() const override { return &x738_collisionAabb; }
   void KnockBack(const CVector3f& dir, CStateManager& mgr, const CDamageInfo& info,
                  EKnockBackType type, bool inDeferred, float magnitude) override;
   void TakeDamage(const CVector3f& dir, float arg) override;
@@ -146,24 +148,79 @@ public:
   bool ShotAt(CStateManager& mgr, float arg) override;
   bool ShouldSpecialAttack(CStateManager& mgr, float arg) override;
   bool ShouldCallForBackup(CStateManager& mgr, float arg) override;
-  CPathFindSearch* GetSearchPath() override;
-  virtual bool HasWeakPointHead() const;
-  virtual bool IsElitePirate() const;
+  CPathFindSearch* GetSearchPath() override { return &x7d0_pathFindSearch; }
+  virtual bool IsUsingBaseCollisionActors() const { return true; }
+  virtual bool IsElitePirate() const { return true; }
   virtual void SetupHealthInfo(CStateManager& mgr);
-  virtual void SetLaunchersActive(CStateManager& mgr, bool val);
-  virtual CShockWaveInfo GetShockWaveData() const;
+  virtual void ActivateGrenadeLauncher(CStateManager& mgr, bool val);
+  virtual CShockWaveInfo GetShockWaveInfo() const {
+    return CShockWaveInfo(
+        x5d8_data.GetShockwaveParticleDescId(), x5d8_data.GetShockwaveDamageInfo(), 16.5217f,
+        x5d8_data.GetShockwaveWeaponDescId(), x5d8_data.GetShockwaveElectrocuteSfxId());
+  }
 
 protected:
   const CElitePirateData& GetData() const { return x5d8_data; }
   TUniqueId GetLauncherId() const { return x772_launcherId; }
 
 private:
-  struct SPositionHistory {
-    float x0_magSquared;
-    rstl::reserved_vector< CVector3f, 16 > x4_values;
-
-    SPositionHistory(float mag);
+  struct SJointInfo {
+    const char* x0_from;
+    const char* x4_to;
+    float x8_radius;
+    float xc_separation;
   };
+  struct SSphereJointInfo {
+    const char* x0_name;
+    float x4_radius;
+  };
+
+  static const SJointInfo skLeftArmJointList[3];
+  static const SJointInfo skRightArmJointList[3];
+  static const SSphereJointInfo skSphereJointList[7];
+  static const char* const skpHeadLCTR;
+  static const char* const skpLauncherLCTR;
+  static const char* const skpRightClawLCTR;
+  static const char* const skpLeftClawLCTR;
+  static const char* const skpGrenadeLauncherLCTR;
+  static const CVector3f skExtendedClawBounds;
+  static const CVector3f skLocalShieldBounds;
+
+  bool ShouldCallForBackupForLauncher(CStateManager& mgr, TUniqueId uid) const;
+  void ActivateGrenadeLauncherById(CStateManager& mgr, bool active, TUniqueId uid) const;
+  void SetupHealthInfoForLauncher(CStateManager& mgr, TUniqueId uid) const;
+  void UpdateHealthInfo(CStateManager& mgr);
+  CVector3f GetGrenadeLaunchPos(const CActor& actor) const;
+  bool IsArmClawCollider(TUniqueId uid, const rstl::reserved_vector< TUniqueId, 7 >& ids) const;
+  bool IsArmClawCollider(const rstl::string& name, const char* locator, const SJointInfo* joints,
+                         int count) const;
+  void ExtendTouchBounds(CStateManager& mgr, const rstl::reserved_vector< TUniqueId, 7 >& ids,
+                         const CVector3f& bounds) const;
+  void UpdateAttackTimeLeft(CStateManager& mgr);
+  void UpdateBreadCrumbTrail();
+  void UpdatePathDestination(CStateManager& mgr);
+  void SetShotAt(bool shotAt, CStateManager& mgr);
+  bool ShouldFireLauncher(CStateManager& mgr, TUniqueId uid);
+  void AddCollisionList(const SJointInfo* joints, int count,
+                        rstl::vector< CJointCollisionDescription >& list);
+  void AddSphereCollisionList(const SSphereJointInfo* joints, int count,
+                              rstl::vector< CJointCollisionDescription >& list);
+  void SetupCollisionActorInfo(CStateManager& mgr);
+  void SetupCollisionManager(CStateManager& mgr);
+  void CreateGrenadeLauncher(CStateManager& mgr, TUniqueId uid);
+  void UpdateGrenadeLauncher(CStateManager& mgr, TUniqueId& uid, const rstl::string& locator) const;
+  void ReDirectDamage(CStateManager& mgr, TUniqueId uid);
+  bool IsClosestEnergyAttractor(CStateManager& mgr,
+                                const rstl::reserved_vector< TUniqueId, 1024 >& nearList,
+                                const CVector3f& pos) const;
+  void StartAbsorbEnergyEffects(CStateManager& mgr, const CTransform4f& xf);
+  void UpdateBlockPose(float dt, CStateManager& mgr);
+  void AttractProjectiles(CStateManager& mgr);
+  void ProcessStompGround(CStateManager& mgr);
+  void SetupPathFindSearch();
+  bool IsShieldActive() const;
+  void UpdateAILogicTimers(float dt);
+  bool AllowKnockBack(const CDamageInfo& info) const;
 
   enum EState {
     kState_Invalid = -1,
@@ -175,13 +232,12 @@ private:
 
   EState x568_state;
   CDamageVulnerability x56c_vulnerability;
-  CCollisionActorManager* x5d4_collisionActorMgr;
+  rstl::single_ptr< CCollisionActorManager > x5d4_collisionActorMgr;
   CElitePirateData x5d8_data;
   CBoneTracking x6f8_boneTracking;
-  CCollisionActorManager* x730_collisionActorMgrHead;
-  int x734_;
+  rstl::single_ptr< CCollisionActorManager > x730_collisionActorMgrHead;
   CCollidableAABox x738_collisionAabb;
-  rstl::optional_object< TCachedToken< CGenDescription > > x760_energyAbsorbDesc;
+  rstl::optional_object< TLockedToken< CGenDescription > > x760_energyAbsorbDesc;
   TUniqueId x770_collisionHeadId;
   TUniqueId x772_launcherId;
   rstl::reserved_vector< TUniqueId, 7 > x774_collisionRJointIds;

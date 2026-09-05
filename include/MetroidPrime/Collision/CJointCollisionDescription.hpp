@@ -53,6 +53,7 @@ public:
 
   void ScaleAllBounds(const CVector3f& scale);
 
+  const rstl::string& GetName() const { return x2c_name; }
   TUniqueId GetCollisionActorId() const { return x3c_actorId; }
   static CJointCollisionDescription SphereSubdivideCollision(CSegId pivotId, CSegId nextId,
                                                              float radius, float maxSeparation,
