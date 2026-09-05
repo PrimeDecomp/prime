@@ -28,6 +28,11 @@ public:
   }
   CColor(const CColor& other) : mRgba(other.mRgba) {}
 
+  CColor& operator=(const CColor& other) {
+    mRgba = other.mRgba;
+    return *this;
+  }
+
   void Set(const float r, const float g, const float b, const float a);
   void Set(uchar r, uchar g, uchar b, uchar a = 255) {
     mR = r;
@@ -40,7 +45,7 @@ public:
   void Get(float& r, float& g, float& b) const;
   // TODO check. Maybe this calls SetAlpha(uchar)?
   void SetAlpha(float a) { mA = CCast::ToUint8(a * 255.f); }
-  void SetAlpha(uchar a) { mRgba = (mRgba & ~0xff) | a; }
+  void SetAlpha(uchar a) { mA = a; }
 
   static CColor Lerp(const CColor& a, const CColor& b, const float t);
   static uint Lerp(uint a, uint b, float t);
