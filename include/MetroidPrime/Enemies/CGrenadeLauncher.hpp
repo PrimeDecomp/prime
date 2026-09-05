@@ -16,6 +16,11 @@ class CEPGrenadeLaunchParms {
   float xc_angleMax;
 
 public:
+  CEPGrenadeLaunchParms(float velocityMin, float velocityMax, float angleMin, float angleMax)
+  : x0_velocityMin(velocityMin)
+  , x4_velocityMax(velocityMax)
+  , x8_angleMin(angleMin)
+  , xc_angleMax(angleMax) {}
   explicit CEPGrenadeLaunchParms(CInputStream& in)
   : x0_velocityMin(in.ReadFloat())
   , x4_velocityMax(in.ReadFloat())

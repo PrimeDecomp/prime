@@ -262,6 +262,7 @@ public:
   float GetAverageAttackTime() const { return x304_averageAttackTime; }
   float GetAttackTimeVariation() const { return x308_attackTimeVariation; }
   const bool GetVerticalMovement() const { return x328_25_verticalMovement; }
+  bool IsEnergyAttractor() const { return x328_31_energyAttractor; }
   const bool IsInCollision() const { return x328_26_solidCollision; }
   void SetVerticalMovement(const bool v) { x328_25_verticalMovement = v; }
   EAnimState GetAnimationState() const { return x32c_animState; }
@@ -316,6 +317,8 @@ public:
   void SetupPlayerCollision(const bool startsHidden);
 
   void ApproachDest(CStateManager& mgr);
+  bool IsPatternObstructed(CStateManager& mgr, const CVector3f& from, const CVector3f& to) const;
+  void UpdateDest(CStateManager& mgr);
   void SetDestPos(const CVector3f& pos);
 
   CScriptCoverPoint* GetCoverPoint(CStateManager& mgr, TUniqueId id) const;
