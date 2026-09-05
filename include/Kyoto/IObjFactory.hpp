@@ -2,7 +2,8 @@
 #define _CIOBJFACTORY
 
 class IObjFactory {
-  virtual ~IObjFactory() {};
+public:
+  virtual ~IObjFactory() = 0;
 };
 
 #endif // _CIOBJFACTORY

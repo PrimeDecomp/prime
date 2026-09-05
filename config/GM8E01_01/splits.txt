@@ -125,7 +125,7 @@ MetroidPrime/CSplashScreen.cpp:
 	.sdata2     start:0x805AA280 end:0x805AA2D0
 
 MetroidPrime/CAnimData.cpp:
-	.text       start:0x80029508 end:0x80031AA8
+	.text       start:0x80029508 end:0x80031D18
 	.ctors      start:0x803CB3BC end:0x803CB3C0
 	.rodata     start:0x803CCF00 end:0x803CCF58
 	.data       start:0x803D9D48 end:0x803D9D88
@@ -136,7 +136,7 @@ MetroidPrime/CAnimData.cpp:
 	.sdata2     start:0x805AA2D0 end:0x805AA2F8
 
 MetroidPrime/Factories/CCharacterFactory.cpp:
-	.text       start:0x80031AA8 end:0x800348C8
+	.text       start:0x80031D18 end:0x800348C8
 	.rodata     start:0x803CCF58 end:0x803CCF60
 	.data       start:0x803D9D88 end:0x803D9E68
 

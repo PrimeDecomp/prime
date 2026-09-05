@@ -10,7 +10,7 @@ class IObj;
 
 class IFactory {
 public:
-  virtual ~IFactory() {}
+  virtual ~IFactory() = 0;
   virtual CFactoryFnReturn Build(const SObjectTag&, const CVParamTransfer&) = 0;
   virtual void BuildAsync(const SObjectTag&, const CVParamTransfer&, IObj**) = 0;
   virtual void CancelBuild(const SObjectTag&) = 0;
@@ -18,5 +18,7 @@ public:
   virtual const SObjectTag* GetResourceIdByName(const char* name) const = 0;
   // TODO
 };
+
+inline IFactory::~IFactory() {}
 
 #endif // _IFACTORY

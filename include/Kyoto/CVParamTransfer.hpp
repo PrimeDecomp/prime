@@ -10,8 +10,9 @@ template < typename T >
 class TObjOwnerParam : public IVParamObj {
 public:
   ~TObjOwnerParam() {}
-  TObjOwnerParam(T data) : x4_data(data) {}
-  T GetData() const { return static_cast<T>(x4_data); }
+  TObjOwnerParam(const T& data) : x4_data(data) {}
+  const T& GetData() const { return x4_data; }
+  const T& operator*() const { return GetData(); }
 
 private:
   T x4_data;
@@ -22,7 +23,7 @@ public:
   CVParamTransfer() {}
   template < typename T >
   CVParamTransfer(TObjOwnerParam< T >* obj) : x0_obj(obj) {}
-  static CVParamTransfer Null();
+  static CVParamTransfer Null() { return CVParamTransfer(); }
 
   const IVParamObj& operator*() const { return *x0_obj; }
   rstl::rc_ptr< IVParamObj > x0_obj;

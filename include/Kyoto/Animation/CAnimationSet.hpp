@@ -16,6 +16,14 @@ public:
 
   CAnimationSet(CInputStream& in);
 
+  const AnimationList& GetAnimations() const { return mAnimations; }
+  const TransitionList& GetTransitions() const { return mTransitions; }
+  const HalfTransitionList& GetHalfTransitions() const { return mHalfTransitions; }
+  const rstl::rc_ptr< IMetaTrans >& GetDefaultTransition() const { return mDefaultTransition; }
+  const AdditiveAnimationList& GetAdditiveAnimInfoList() const { return mAdditiveAnimations; }
+  const CAdditiveAnimationInfo& GetDefaultAdditiveAnimInfo() const { return mDefaultAdditiveAnimation; }
+  const AnimResidEventResIdList& GetAnimResIdEventResIdList() const { return mAnimRes; }
+
   static HalfTransitionList StreamHalfTransitions(ushort tableCount, CInputStream& in);
   static AnimResidEventResIdList StreamAnimResIdEventResIdList(ushort tableCount, CInputStream& in);
   static AdditiveAnimationList StreamAdditiveAnimInfoList(ushort tableCount, CInputStream& in);
