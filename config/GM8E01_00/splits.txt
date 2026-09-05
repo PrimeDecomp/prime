@@ -1858,14 +1858,15 @@ MetroidPrime/Enemies/CRipperControlledPlatform.cpp:
 
 MetroidPrime/Enemies/CKnockBackMgr.cpp:
 	.text       start:0x80232CA4 end:0x80233FB0
-	.rodata     start:0x803D3490 end:0x803D42E8
+	.rodata     start:0x803D3490 end:0x803D42E0
 	.data       start:0x803E8150 end:0x803E81A0
 	.sdata      start:0x805A81F8 end:0x805A8200
 	.sdata2     start:0x805AD410 end:0x805AD440
 
-MetroidPrime/Player/CWorldLayerState.cpp:
+MetroidPrime/CScriptLayerManager.cpp:
 	.text       start:0x80233FB0 end:0x80234674
 	.ctors      start:0x803CB2A4 end:0x803CB2A8
+	.rodata     start:0x803D42E0 end:0x803D42E8
 	.bss        start:0x8046D340 end:0x8046D360
 	.sdata      start:0x805A8200 end:0x805A8208
 
@@ -1946,7 +1947,7 @@ MetroidPrime/CGBASupport.cpp:
 	.sbss       start:0x805A9110 end:0x805A9118
 	.sdata2     start:0x805AD598 end:0x805AD5A8
 
-MetroidPrime/Player/CWorldSaveGameInfo.cpp:
+MetroidPrime/CMemoryCard.cpp:
 	.text       start:0x80248DDC end:0x8024B39C
 	.rodata     start:0x803D4780 end:0x803D4798
 	.sdata      start:0x805A82C0 end:0x805A82C8
@@ -2056,7 +2057,7 @@ MetroidPrime/Enemies/CSeedling.cpp:
 	.sdata      start:0x805A83F8 end:0x805A8400
 	.sdata2     start:0x805AD7E8 end:0x805AD7F8
 
-MetroidPrime/Player/CGameHintInfo.cpp:
+MetroidPrime/CGameHintInfo.cpp:
 	.text       start:0x80267144 end:0x8026856C
 	.rodata     start:0x803D53C0 end:0x803D53C8
 	.data       start:0x803EA0E0 end:0x803EA0F0
@@ -2081,9 +2082,10 @@ MetroidPrime/CRainSplashGenerator.cpp:
 	.rodata     start:0x803D53F8 end:0x803D5418
 	.sdata2     start:0x805AD868 end:0x805AD8B0
 
-MetroidPrime/Factories/CWorldSaveGameInfoFactory.cpp:
+MetroidPrime/CWorldSaveGameInfo.cpp:
 	.text       start:0x8026AD60 end:0x8026BBF0
 	.rodata     start:0x803D5418 end:0x803D5420
+	.data       start:0x803EA790 end:0x803EA7A0
 
 MetroidPrime/CFluidPlaneRender.cpp:
 	.text       start:0x8026BBF0 end:0x8026FB48
@@ -2096,7 +2098,7 @@ MetroidPrime/Enemies/CBurrower.cpp:
 	.text       start:0x8026FB48 end:0x802712AC
 	.ctors      start:0x803CB2BC end:0x803CB2C0
 	.rodata     start:0x803D5420 end:0x803D5428
-	.data       start:0x803EA790 end:0x803EAA90
+	.data       start:0x803EA7A0 end:0x803EAA90
 	.bss        start:0x80572694 end:0x805726FC align:4 common
 	.sdata2     start:0x805AD8D8 end:0x805AD8F0
 

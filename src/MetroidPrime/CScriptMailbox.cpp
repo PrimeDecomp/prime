@@ -2,7 +2,7 @@
 
 #include "MetroidPrime/CStateManager.hpp"
 #include "MetroidPrime/CWorld.hpp"
-#include "MetroidPrime/Player/CWorldSaveGameInfo.hpp"
+#include "MetroidPrime/CWorldSaveGameInfo.hpp"
 
 #include "Kyoto/Streams/CInputStream.hpp"
 #include "Kyoto/Streams/COutputStream.hpp"

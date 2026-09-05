@@ -1,7 +1,7 @@
 #include "MetroidPrime/CMapWorldInfo.hpp"
 
 #include "MetroidPrime/CMemoryCard.hpp"
-#include "MetroidPrime/Player/CWorldSaveGameInfo.hpp"
+#include "MetroidPrime/CWorldSaveGameInfo.hpp"
 
 #include "Kyoto/Streams/CInputStream.hpp"
 #include "Kyoto/Streams/COutputStream.hpp"

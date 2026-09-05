@@ -4,7 +4,7 @@
 #include "types.h"
 
 #include "Kyoto/TToken.hpp"
-#include "MetroidPrime/Player/CWorldLayerState.hpp"
+#include "MetroidPrime/CScriptLayerManager.hpp"
 #include "MetroidPrime/TGameTypes.hpp"
 #include "rstl/optional_object.hpp"
 #include "rstl/vector.hpp"
