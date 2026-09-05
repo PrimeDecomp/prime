@@ -10,6 +10,7 @@
 #include "MetroidPrime/Enemies/CStateMachine.hpp"
 #include "MetroidPrime/Weapons/CWeapon.hpp"
 
+#include "rstl/pair.hpp"
 #include "rstl/rc_ptr.hpp"
 
 class CPASAnimParmData;
@@ -22,6 +23,7 @@ class CModelFlags;
 class CEnergyProjectile;
 class CSegId;
 class CScriptCoverPoint;
+class CScriptWaypoint;
 
 template < typename T >
 struct TPatternedCast {
@@ -101,6 +103,7 @@ public:
     kBO_MoveDir,
     kBO_Constant,
     kBO_Destination,
+    kBO_Three,
   };
   enum EBehaviourModifiers {
     kBM_Zero,
@@ -147,7 +150,14 @@ public:
 
   public:
     CPatternNode(const CVector3f& pos, const CVector3f& forward, float speed, uint behaviour,
-                 uint behaviourOrient, uint behaviourModifiers, uint animation);
+                 uint behaviourOrient, uint behaviourModifiers, uint animation)
+    : x0_pos(pos)
+    , xc_forward(forward)
+    , x18_speed(speed)
+    , x1c_behaviour(behaviour)
+    , x1d_behaviourOrient(behaviourOrient)
+    , x1e_behaviourModifiers(behaviourModifiers)
+    , x20_animation(animation) {}
     const CVector3f& GetPos() const { return x0_pos; }
     const CVector3f& GetForward() const { return xc_forward; }
     float GetSpeed() const { return x18_speed; }
@@ -310,7 +320,7 @@ public:
   void TryJumpInLoop(CStateManager& mgr, int arg);
   void TryBreakDodge(CStateManager& mgr, int arg);
   void TryStep(CStateManager& mgr, int arg);
-  int GetStepDirection(const CVector3f& dir);
+  pas::EStepDirection FindBestStepDirection(const CVector3f& dir) const;
   void TryDodge(CStateManager& mgr, int arg);
   void TryRollingDodge(CStateManager& mgr, int arg);
   void TryMeleeAttack_TargetPos(CStateManager& mgr, int arg);
@@ -322,6 +332,13 @@ public:
 
   void SetupPlayerCollision(const bool startsHidden);
 
+  void SetupPattern(CStateManager& mgr);
+  void UpdatePatternDestPos(CStateManager& mgr);
+  CVector3f FindPatternDir(CStateManager& mgr);
+  CQuaternion FindPatternRotation(const CVector3f& dir);
+  rstl::pair< CScriptWaypoint*, CScriptWaypoint* > GetDestWaypoints(CStateManager& mgr) const;
+  EScriptObjectState GetDesiredAttackState(CStateManager& mgr) const;
+  void UpdateActorKeyframe(CStateManager& mgr);
   void ApproachDest(CStateManager& mgr);
   bool IsPatternObstructed(CStateManager& mgr, const CVector3f& from, const CVector3f& to) const;
   void UpdateDest(CStateManager& mgr);
@@ -367,7 +384,7 @@ protected:
   float x300_maxAttackRange;
   float x304_averageAttackTime;
   float x308_attackTimeVariation;
-  EBehaviourOrient x30c_behaviourOrient;
+  uint x30c_behaviourOrient;
   CVector3f x310_moveVec;
   CVector3f x31c_faceVec;
   bool x328_24_inPosition : 1;
@@ -392,7 +409,7 @@ protected:
   EBehaviourModifiers x384_behaviourModifiers;
   int x388_anim;
   rstl::vector< CPatternNode > x38c_patterns;
-  uint x39c_curPattern;
+  int x39c_curPattern;
   CVector3f x3a0_latestLeashPosition;
   TUniqueId x3ac_lastPatrolDest;
   float x3b0_moveSpeed;
@@ -471,6 +488,7 @@ protected:
   rstl::optional_object< TCachedToken< CGenDescription > > x54c_iceDeathExplosionParticle;
   CVector3f x55c_moveScale;
 };
+NESTED_CHECK_SIZEOF(CPatterned, CPatternNode, 0x24)
 CHECK_SIZEOF(CPatterned, 0x568)
 
 #endif // _CPATTERNED
