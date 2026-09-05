@@ -161,10 +161,7 @@ typename Vec::iterator lower_bound(typename Vec::iterator start, typename Vec::i
 template < typename It, typename T, typename Cmp >
 inline It binary_find(It start, It end, const T& value, Cmp cmp) {
   It lower = lower_bound(start, end, value, cmp);
-  bool found = false;
-  if (lower != end && !cmp(value, *lower)) {
-    found = true;
-  }
+  bool found = lower != end && !cmp(value, *lower);
   return found ? lower : end;
 }
 
@@ -245,7 +242,8 @@ find_by_key(const T& container,
 template < typename T >
 typename T::const_iterator inline find_by_key(
     const T& container, const typename select1st< typename T::value_type >::value_type& key) {
-  return binary_find(container.begin(), container.end(), key, default_pair_sorter_finder< T >());
+  less< typename select1st< typename T::value_type >::value_type > cmp;
+  return find_by_key(container, key, cmp);
 }
 
 template < typename T, class Cmp >
@@ -264,6 +262,12 @@ template < typename T >
 typename T::iterator inline find_by_key_nc(
     T& container, const typename select1st< typename T::value_type >::value_type& key) {
   return binary_find(container.begin(), container.end(), key, default_pair_sorter_finder< T >());
+}
+
+template < typename T >
+inline void sort_by_key(T& container) {
+  less< typename select1st< typename T::value_type >::value_type > cmp;
+  sort_by_key(container, cmp);
 }
 
 template < typename T, class Cmp >

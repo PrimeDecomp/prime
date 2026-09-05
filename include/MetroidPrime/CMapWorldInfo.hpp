@@ -17,16 +17,19 @@ public:
   bool IsWorldVisible(const TAreaId areaId) const;
   bool IsAnythingSet();
   bool IsDoorVisited(const TEditorId eid) const;
-  void SetIsMapped(TAreaId areaId) const;
-  void SetIsMapped(TAreaId areaId, bool) const { SetIsMapped(areaId); }
+  void SetIsMapped(TAreaId areaId, bool mapped);
+  void PutTo(COutputStream& out, const CWorldSaveGameInfo& saveInfo, int worldId) const;
+  bool GetMapStationUsed() const { return mMapStationUsed; }
+  void SetIsMapped(bool mapped) { mMapStationUsed = mapped; }
   void SetAreaVisited(TAreaId areaId, bool visited);
   void SetDoorVisited(TEditorId eid, const bool visited);
 
 private:
-  rstl::bit_vector<> mMappedAreas;
-  rstl::bit_vector<> mVisitedAreas;
-  rstl::vector< rstl::pair< TEditorId, bool > > mVisitedDoors;
+  mutable rstl::bit_vector<> mVisitedAreas;
+  mutable rstl::bit_vector<> mMappedAreas;
+  mutable rstl::vector< rstl::pair< TEditorId, bool > > mVisitedDoors;
   bool mMapStationUsed;
 };
+CHECK_SIZEOF(CMapWorldInfo, 0x3c)
 
 #endif // _CMAPWORLDINFO
