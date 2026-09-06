@@ -13,6 +13,9 @@ public:
   CSegStatement& operator[](const CSegId& id) { return mSegData[id.val()]; }
   const CSegStatement& operator[](const CSegId& id) const { return mSegData[id.val()]; }
 
+  CSegStatement& Statement(const CSegId& id) { return mSegData[id.val()]; }
+  const CSegStatement& GetData(const CSegId& id) const { return mSegData[id.val()]; }
+  void Set(const CSegId& id, const CQuaternion& rotation) { Statement(id).Set(rotation); }
   void Set(const CSegId& id, const CSegStatement& seg);
   
   void Set(const CSegId& id, const CVector3f& vec) {

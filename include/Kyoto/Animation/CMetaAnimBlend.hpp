@@ -6,13 +6,7 @@
 #include "rstl/vector.hpp"
 
 class CMetaAnimBlend : public IMetaAnim {
-  rstl::rc_ptr< IMetaAnim > x4_animA;
-  rstl::rc_ptr< IMetaAnim > x8_animB;
-  float xc_blend;
-  bool x10_;
-
 public:
-  explicit CMetaAnimBlend(CInputStream& in);
   EMetaAnimType GetType() const override { return kMAT_Blend; }
 
   void GetUniquePrimitives(rstl::set< CPrimitive >& primsOut) const override;
@@ -20,7 +14,16 @@ public:
   VGetAnimationTree(const CAnimSysContext& animSys,
                     const CMetaAnimTreeBuildOrders& orders) const override;
 
-  void WriteAnimData(COutputStream& out) const;
+  void WriteAnimData(COutputStream& out) const override;
+
+  explicit CMetaAnimBlend(CInputStream& in);
+
+private:
+  rstl::rc_ptr< IMetaAnim > x4_animA;
+  rstl::rc_ptr< IMetaAnim > x8_animB;
+  float xc_blend;
+  bool x10_characterSpaceBlend;
 };
+CHECK_SIZEOF(CMetaAnimBlend, 0x14)
 
 #endif // _CMETAANIMBLEND

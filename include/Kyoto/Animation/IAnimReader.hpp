@@ -5,6 +5,7 @@
 #include "Kyoto/Math/CVector3f.hpp"
 
 #include "Kyoto/Animation/CCharAnimTime.hpp"
+#include "Kyoto/Animation/CAdvancementDeltas.hpp"
 #include "Kyoto/Animation/CSteadyStateAnimInfo.hpp"
 #include "Kyoto/Particles/CParticleData.hpp"
 
@@ -12,28 +13,20 @@
 #include "rstl/optional_object.hpp"
 #include "rstl/ownership_transfer.hpp"
 #include "rstl/string.hpp"
+#include "rstl/math.hpp"
 
-struct SAdvancementDeltas {
-  CVector3f x0_posDelta;
-  CQuaternion xc_rotDelta;
-
-  SAdvancementDeltas() : x0_posDelta(CVector3f::Zero()), xc_rotDelta(CQuaternion::NoRotation()) {}
-  SAdvancementDeltas(const CVector3f& pos, const CQuaternion& rot)
-  : x0_posDelta(pos), xc_rotDelta(rot) {}
-  static SAdvancementDeltas Interpolate(const SAdvancementDeltas& a, const SAdvancementDeltas& b,
-                                        float oldWeight, float newWeight);
-  static SAdvancementDeltas Blend(const SAdvancementDeltas& a, const SAdvancementDeltas& b,
-                                  float w);
-};
-
-struct SAdvancementResults {
+struct CAdvancementResults {
   CCharAnimTime x0_remTime;
-  SAdvancementDeltas x8_deltas;
-  SAdvancementResults() {}
-  SAdvancementResults(const CCharAnimTime& time) : x0_remTime(time) {}
-  SAdvancementResults(const CCharAnimTime& time, const SAdvancementDeltas& deltas)
+  CAdvancementDeltas x8_deltas;
+  const CCharAnimTime& GetRemainder() const { return x0_remTime; }
+  const CAdvancementDeltas& GetAdvancementDeltas() const { return x8_deltas; }
+  CAdvancementResults() {}
+  CAdvancementResults(const CCharAnimTime& time) : x0_remTime(time) {}
+  CAdvancementResults(const CCharAnimTime& time, const CAdvancementDeltas& deltas)
   : x0_remTime(time), x8_deltas(deltas) {}
 };
+
+CHECK_SIZEOF(CAdvancementResults, 0x24)
 
 struct CAnimTreeEffectiveContribution {
   float x0_contributionWeight;
@@ -56,6 +49,9 @@ public:
   const CSteadyStateAnimInfo& GetSteadyStateAnimInfo() const { return x14_ssInfo; }
   const CCharAnimTime& GetTimeRemaining() const { return x2c_remTime; }
   u32 GetAnimDatabaseIndex() const { return x34_dbIdx; }
+  float GetPhase() const {
+    return rstl::min_val(rstl::max_val(1.f - x2c_remTime / x14_ssInfo.GetDuration(), 0.f), 1.f);
+  }
 };
 
 class CSegId;
@@ -69,8 +65,8 @@ class CSegStatementSet;
 class IAnimReader {
 public:
   virtual ~IAnimReader();
-  virtual bool IsCAnimTreeNode() const { return false; }
-  virtual SAdvancementResults VAdvanceView(const CCharAnimTime& a) = 0;
+  virtual bool IsCAnimTreeNode() const;
+  virtual CAdvancementResults VAdvanceView(const CCharAnimTime& a) = 0;
   virtual CCharAnimTime VGetTimeRemaining() const = 0;
   virtual CSteadyStateAnimInfo VGetSteadyStateAnimInfo() const = 0;
   virtual bool VHasOffset(const CSegId& seg) const = 0;
@@ -94,7 +90,7 @@ public:
   virtual rstl::optional_object< rstl::ownership_transfer< IAnimReader > > VSimplified();
   rstl::optional_object< rstl::ownership_transfer< IAnimReader > > Simplified();
   virtual void VSetPhase(float) = 0;
-  virtual SAdvancementResults VGetAdvancementResults(const CCharAnimTime& aTime,
+  virtual CAdvancementResults VGetAdvancementResults(const CCharAnimTime& aTime,
                                                      const CCharAnimTime& bTime) const;
   virtual uint Depth() const = 0;
 
@@ -111,6 +107,27 @@ public:
                        uint iterator, int unk) const;
 
   rstl::ownership_transfer< IAnimReader > Clone() const { return VClone(); }
+  CCharAnimTime GetTimeRemaining() const { return VGetTimeRemaining(); }
+  bool HasOffset(const CSegId& seg) const { return VHasOffset(seg); }
+  CVector3f GetOffset(const CSegId& seg) const { return VGetOffset(seg); }
+  CQuaternion GetRotation(const CSegId& seg) const { return VGetRotation(seg); }
+  CAdvancementResults GetAdvancementResults(const CCharAnimTime& a, const CCharAnimTime& b) const {
+    return VGetAdvancementResults(a, b);
+  }
+  CSteadyStateAnimInfo GetSteadyStateAnimInfo() const { return VGetSteadyStateAnimInfo(); }
+  void GetSegStatementSet(const CSegIdList& list, CSegStatementSet& setOut) const {
+    VGetSegStatementSet(list, setOut);
+  }
+  void GetSegStatementSet(const CSegIdList& list, CSegStatementSet& setOut, const CCharAnimTime& time) const {
+    VGetSegStatementSet(list, setOut, time);
+  }
+  void SetPhase(float phase) { VSetPhase(phase); }
+  CAdvancementResults AdvanceView(const CCharAnimTime& time) { return VAdvanceView(time); }
+  bool GetBoolPOIState(const char* name) const { return VGetBoolPOIState(name); }
+  s32 GetInt32POIState(const char* name) const { return VGetInt32POIState(name); }
+  CParticleData::EParentedMode GetParticlePOIState(const char* name) const {
+    return VGetParticlePOIState(name);
+  }
 };
 
 #endif // _IANIMREADER

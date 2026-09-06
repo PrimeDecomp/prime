@@ -7,6 +7,13 @@
 
 struct CSegStatement {
 public:
+  CQuaternion& Orientation() { return mRotation; }
+  const CQuaternion& Orientation() const { return mRotation; }
+  CVector3f& Offset() { return mOffset; }
+  const CVector3f& Offset() const { return mOffset; }
+  bool OffsetValid() const { return mStatus != 0; }
+  void Set(const CQuaternion& rotation) { Orientation() = rotation; }
+
   void SetStatus(uint status) { mStatus = status; }
 
   void Set(const CVector3f& offset) {

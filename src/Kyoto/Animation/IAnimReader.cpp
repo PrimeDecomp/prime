@@ -8,9 +8,9 @@ rstl::optional_object< rstl::ownership_transfer< IAnimReader > > IAnimReader::VS
   return rstl::optional_object_null();
 }
 
-SAdvancementResults IAnimReader::VGetAdvancementResults(const CCharAnimTime& aTime,
+CAdvancementResults IAnimReader::VGetAdvancementResults(const CCharAnimTime& aTime,
                                                         const CCharAnimTime& bTime) const {
-  return SAdvancementResults(aTime);
+  return CAdvancementResults(aTime);
 };
 
 uint IAnimReader::GetBoolPOIList(const CCharAnimTime& time, CBoolPOINode* listOut, uint capacity,
@@ -44,3 +44,5 @@ uint IAnimReader::GetSoundPOIList(const CCharAnimTime& time, CSoundPOINode* list
   }
   return 0;
 }
+
+bool IAnimReader::IsCAnimTreeNode() const { return false; }

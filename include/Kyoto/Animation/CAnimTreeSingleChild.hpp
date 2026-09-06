@@ -8,7 +8,7 @@ public:
   CAnimTreeSingleChild(const rstl::ncrc_ptr< CAnimTreeNode >& node, const rstl::string& name)
   : CAnimTreeNode(name), x14_child(node) {}
 
-  SAdvancementResults VAdvanceView(const CCharAnimTime& dt) override;
+  CAdvancementResults VAdvanceView(const CCharAnimTime& dt) override;
   CCharAnimTime VGetTimeRemaining() const override;
   bool VHasOffset(const CSegId& seg) const override;
   CVector3f VGetOffset(const CSegId& seg) const override;
@@ -28,9 +28,9 @@ public:
   void VGetSegStatementSet(const CSegIdList& list, CSegStatementSet& setOut,
                            const CCharAnimTime& time) const override;
   void VSetPhase(float) override;
-  SAdvancementResults VGetAdvancementResults(const CCharAnimTime& a,
+  CAdvancementResults VGetAdvancementResults(const CCharAnimTime& a,
                                              const CCharAnimTime& b) const override;
-  uint Depth() const override { return x14_child->Depth(); }
+  uint Depth() const override { return x14_child->Depth() + 1; }
   uint VGetNumChildren() const override;
   void VGetWeightedReaders(
       float w, rstl::reserved_vector< rstl::pair< float, IAnimReader* >, 16 >& out) const override;

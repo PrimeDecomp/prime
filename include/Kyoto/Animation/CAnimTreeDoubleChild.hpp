@@ -6,15 +6,15 @@ class CAnimTreeDoubleChild : public CAnimTreeNode {
 public:
   class CDoubleChildAdvancementResult {
     CCharAnimTime x0_trueAdvancement;
-    SAdvancementDeltas x8_leftDeltas;
-    SAdvancementDeltas x24_rightDeltas;
+    CAdvancementDeltas x8_leftDeltas;
+    CAdvancementDeltas x24_rightDeltas;
 
   public:
     CDoubleChildAdvancementResult(const CCharAnimTime& trueAdvancement,
-                                  const SAdvancementDeltas& leftDeltas,
-                                  const SAdvancementDeltas& rightDeltas);
-    const SAdvancementDeltas& GetLeftAdvancementDeltas() const { return x8_leftDeltas; }
-    const SAdvancementDeltas& GetRightAdvancementDeltas() const { return x24_rightDeltas; }
+                                  const CAdvancementDeltas& leftDeltas,
+                                  const CAdvancementDeltas& rightDeltas);
+    const CAdvancementDeltas& GetLeftAdvancementDeltas() const { return x8_leftDeltas; }
+    const CAdvancementDeltas& GetRightAdvancementDeltas() const { return x24_rightDeltas; }
     const CCharAnimTime& GetTrueAdvancement() const { return x0_trueAdvancement; }
   };
 
@@ -26,7 +26,7 @@ public:
   CAnimTreeDoubleChild(const rstl::ncrc_ptr< CAnimTreeNode >& a,
                        const rstl::ncrc_ptr< CAnimTreeNode >& b, const rstl::string& name);
   ~CAnimTreeDoubleChild() override;
-  SAdvancementResults VAdvanceView(const CCharAnimTime& a) override;
+  CAdvancementResults VAdvanceView(const CCharAnimTime& a) override;
   uint VGetBoolPOIList(const CCharAnimTime& time, CBoolPOINode* listOut, uint capacity,
                        uint iterator, int unk) const override;
   uint VGetInt32POIList(const CCharAnimTime& time, CInt32POINode* listOut, uint capacity,
@@ -39,9 +39,9 @@ public:
   s32 VGetInt32POIState(const char* name) const override;
   CParticleData::EParentedMode VGetParticlePOIState(const char* name) const override;
   void VSetPhase(float) override;
-  SAdvancementResults VGetAdvancementResults(const CCharAnimTime& a,
+  CAdvancementResults VGetAdvancementResults(const CCharAnimTime& a,
                                              const CCharAnimTime& b) const override;
-  uint Depth() const override;
+  uint Depth() const override { return rstl::max_val(x14_a->Depth(), x18_b->Depth()) + 1; }
   CAnimTreeEffectiveContribution VGetContributionOfHighestInfluence() const override;
   uint VGetNumChildren() const override;
   rstl::rc_ptr< CAnimTreeNode > VGetBestUnblendedChild() const override;
@@ -49,14 +49,20 @@ public:
       float w, rstl::reserved_vector< rstl::pair< float, IAnimReader* >, 16 >& out) const override;
 
   virtual float VGetRightChildWeight() const = 0;
+  void ReplaceLeftChild(const rstl::ncrc_ptr< CAnimTreeNode >& child) { x14_a = child; }
+  void ReplaceRightChild(const rstl::ncrc_ptr< CAnimTreeNode >& child) { x18_b = child; }
+
+  float GetLeftChildWeight() const { return 1.f - VGetRightChildWeight(); }
   float GetRightChildWeight() const { return VGetRightChildWeight(); }
 
   const rstl::rc_ptr< CAnimTreeNode >& GetLeftChild() const { return x14_a; }
   const rstl::rc_ptr< CAnimTreeNode >& GetRightChild() const { return x18_b; }
 
 protected:
-  rstl::rc_ptr< CAnimTreeNode > x14_a;
-  rstl::rc_ptr< CAnimTreeNode > x18_b;
+  rstl::ncrc_ptr< CAnimTreeNode > x14_a;
+  rstl::ncrc_ptr< CAnimTreeNode > x18_b;
 };
+
+CHECK_SIZEOF(CAnimTreeDoubleChild, 0x1c)
 
 #endif // _CANIMTREEDOUBLECHILD

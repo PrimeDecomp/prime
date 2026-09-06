@@ -1,7 +1,7 @@
 #include "Kyoto/Animation/CAnimTreeSingleChild.hpp"
 #include "Kyoto/Math/CQuaternion.hpp"
 
-SAdvancementResults CAnimTreeSingleChild::VAdvanceView(const CCharAnimTime& dt) {
+CAdvancementResults CAnimTreeSingleChild::VAdvanceView(const CCharAnimTime& dt) {
   return x14_child->VAdvanceView(dt);
 }
 
@@ -67,7 +67,7 @@ uint CAnimTreeSingleChild::VGetNumChildren() const { return x14_child->VGetNumCh
 
 void CAnimTreeSingleChild::VSetPhase(float phase) { x14_child->VSetPhase(phase); }
 
-SAdvancementResults CAnimTreeSingleChild::VGetAdvancementResults(const CCharAnimTime& a,
+CAdvancementResults CAnimTreeSingleChild::VGetAdvancementResults(const CCharAnimTime& a,
                                                                  const CCharAnimTime& b) const {
   return x14_child->VGetAdvancementResults(a, b);
 }

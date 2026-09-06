@@ -62,7 +62,7 @@ public:
                  const rstl::string& name)
   : CAnimTreeTweenBase(b1, a, b, lbl_805AE3D8 | lbl_805AE3DC, name), x24_blendWeight(blendWeight) {}
 
-  SAdvancementResults VAdvanceView(const CCharAnimTime& dt);
+  CAdvancementResults VAdvanceView(const CCharAnimTime& dt);
   CCharAnimTime VGetTimeRemaining() const;
   CSteadyStateAnimInfo VGetSteadyStateAnimInfo() const;
   rstl::ownership_transfer< IAnimReader > VClone() const;
@@ -429,9 +429,9 @@ rstl::optional_object< rstl::ownership_transfer< IAnimReader > > IAnimReader::Si
   return VSimplified();
 }
 
-SAdvancementResults CAnimData::AdvanceAdditiveAnim(rstl::rc_ptr< CAnimTreeNode >& anim,
+CAdvancementResults CAnimData::AdvanceAdditiveAnim(rstl::rc_ptr< CAnimTreeNode >& anim,
                                                    const CCharAnimTime& time) {
-  SAdvancementResults ret = anim->VAdvanceView(time);
+  CAdvancementResults ret = anim->VAdvanceView(time);
 
   rstl::optional_object< rstl::ownership_transfer< IAnimReader > > simplified = anim->Simplified();
   if (simplified.valid()) {
@@ -441,7 +441,7 @@ SAdvancementResults CAnimData::AdvanceAdditiveAnim(rstl::rc_ptr< CAnimTreeNode >
   return ret;
 }
 
-SAdvancementDeltas CAnimData::UpdateAdditiveAnims(float dt) {
+CAdvancementDeltas CAnimData::UpdateAdditiveAnims(float dt) {
   rstl::pair< uint, CAdditiveAnimPlayback >* it = x434_additiveAnims.begin();
   rstl::pair< uint, CAdditiveAnimPlayback >* const begin = x434_additiveAnims.begin();
 
@@ -464,7 +464,7 @@ SAdvancementDeltas CAnimData::UpdateAdditiveAnims(float dt) {
   return AdvanceAdditiveAnims(dt);
 }
 
-SAdvancementDeltas CAnimData::AdvanceAdditiveAnims(float dt) {
+CAdvancementDeltas CAnimData::AdvanceAdditiveAnims(float dt) {
   CQuaternion rotDelta(CQuaternion::NoRotation());
   float posDeltaX = 0.f;
   float posDeltaY = 0.f;
@@ -489,8 +489,8 @@ SAdvancementDeltas CAnimData::AdvanceAdditiveAnims(float dt) {
             anim->GetSoundPOIList(time, mSoundPOINodes.data(), 20, x218_passedSoundCount, 0);
 
         CCharAnimTime copyTime(time);
-        const SAdvancementResults advResult = AdvanceAdditiveAnim(anim, copyTime);
-        const SAdvancementDeltas deltas = advResult.x8_deltas;
+        const CAdvancementResults advResult = AdvanceAdditiveAnim(anim, copyTime);
+        const CAdvancementDeltas deltas = advResult.x8_deltas;
         const CQuaternion thisRot = deltas.xc_rotDelta;
 
         posDeltaX += deltas.x0_posDelta.GetX();
@@ -513,8 +513,8 @@ SAdvancementDeltas CAnimData::AdvanceAdditiveAnims(float dt) {
             anim->GetSoundPOIList(time, mSoundPOINodes.data(), 20, x218_passedSoundCount, 0);
 
         CCharAnimTime copyTime(time);
-        const SAdvancementResults advResult = AdvanceAdditiveAnim(anim, copyTime);
-        const SAdvancementDeltas deltas = advResult.x8_deltas;
+        const CAdvancementResults advResult = AdvanceAdditiveAnim(anim, copyTime);
+        const CAdvancementDeltas deltas = advResult.x8_deltas;
         const CQuaternion thisRot = deltas.xc_rotDelta;
 
         posDeltaX += deltas.x0_posDelta.GetX();
@@ -529,7 +529,7 @@ SAdvancementDeltas CAnimData::AdvanceAdditiveAnims(float dt) {
     }
   }
 
-  SAdvancementDeltas ret;
+  CAdvancementDeltas ret;
   ret.x0_posDelta = CVector3f(posDeltaX, posDeltaY, posDeltaZ);
   ret.xc_rotDelta = rotDelta;
 
@@ -659,7 +659,7 @@ void CAnimData::CalcPlaybackAlignmentParms(const CAnimPlaybackParms& parms,
       for (int i = x210_passedIntCount; i > 0; --i, ++poi) {
         if (poi->GetPoiType() == kPT_UserEvent && poi->GetValue() == kUE_AlignTargetRot) {
           const CCharAnimTime poiTime = poi->GetTime();
-          const SAdvancementResults adv = node->VGetAdvancementResults(poiTime, CCharAnimTime(0.f));
+          const CAdvancementResults adv = node->VGetAdvancementResults(poiTime, CCharAnimTime(0.f));
           const CQuaternion invObjRot =
               CQuaternion::FromMatrix(objectXf->BuildMatrix3f().Inverse());
           const CQuaternion targetRot = (*deltaOrient) * invObjRot;
@@ -707,7 +707,7 @@ void CAnimData::CalcPlaybackAlignmentParms(const CAnimPlaybackParms& parms,
               startTime = poi->GetTime();
               foundStart = true;
 
-              const SAdvancementResults adv =
+              const CAdvancementResults adv =
                   node->VGetAdvancementResults(startTime, CCharAnimTime(0.f));
               startPos = adv.x8_deltas.x0_posDelta;
 
@@ -722,7 +722,7 @@ void CAnimData::CalcPlaybackAlignmentParms(const CAnimPlaybackParms& parms,
               alignTime = poi->GetTime();
               foundAlign = true;
 
-              const SAdvancementResults adv =
+              const CAdvancementResults adv =
                   node->VGetAdvancementResults(alignTime, CCharAnimTime(0.f));
               alignPos = adv.x8_deltas.x0_posDelta;
 
@@ -815,7 +815,7 @@ void CAnimData::CalcPlaybackAlignmentParms(const CAnimPlaybackParms& parms,
           bool foundStartPos = false;
 
           while (time < alignTime) {
-            const SAdvancementResults adv = node->VGetAdvancementResults(frameDt, time);
+            const CAdvancementResults adv = node->VGetAdvancementResults(frameDt, time);
             alignPos += curRot.BuildTransform() * adv.x8_deltas.x0_posDelta;
             curRot = curRot * (adv.x8_deltas.xc_rotDelta * alignRot);
 
@@ -1212,7 +1212,7 @@ void CAnimData::RenderAuxiliary(const CFrustumPlanes& frustum) const {
 }
 
 void CAnimData::AdvanceAnim(CCharAnimTime& time, CVector3f& offset, CQuaternion& rotation) {
-  SAdvancementResults results(CCharAnimTime(0.f));
+  CAdvancementResults results(CCharAnimTime(0.f));
   rstl::optional_object< rstl::ownership_transfer< IAnimReader > > simplified;
 
   if (x104_animDir == kAD_Forward) {
@@ -1264,7 +1264,7 @@ void CAnimData::AdvanceAnim(CCharAnimTime& time, CVector3f& offset, CQuaternion&
   time = results.x0_remTime;
 }
 
-SAdvancementDeltas CAnimData::DoAdvance(float dt, bool& suspendParticles, CRandom16& random,
+CAdvancementDeltas CAnimData::DoAdvance(float dt, bool& suspendParticles, CRandom16& random,
                                         bool advTree) {
   suspendParticles = false;
 
@@ -1282,7 +1282,7 @@ SAdvancementDeltas CAnimData::DoAdvance(float dt, bool& suspendParticles, CRando
   ResetPOILists();
 
   if (x434_additiveAnims.size() > 0) {
-    const SAdvancementDeltas additiveDeltas = UpdateAdditiveAnims(scaledDt);
+    const CAdvancementDeltas additiveDeltas = UpdateAdditiveAnims(scaledDt);
     additiveOffsetX = additiveDeltas.x0_posDelta.GetX();
     additiveOffsetY = additiveDeltas.x0_posDelta.GetY();
     additiveOffsetZ = additiveDeltas.x0_posDelta.GetZ();
@@ -1293,7 +1293,7 @@ SAdvancementDeltas CAnimData::DoAdvance(float dt, bool& suspendParticles, CRando
 
   if (!x220_24_animating) {
     suspendParticles = true;
-    SAdvancementDeltas ret;
+    CAdvancementDeltas ret;
     ret.x0_posDelta = offset;
     ret.xc_rotDelta = rotation;
     return ret;
@@ -1356,7 +1356,7 @@ SAdvancementDeltas CAnimData::DoAdvance(float dt, bool& suspendParticles, CRando
 
   const CQuaternion totalRotation = rotation * additiveRotation;
 
-  SAdvancementDeltas ret;
+  CAdvancementDeltas ret;
   ret.x0_posDelta = CVector3f(offset.GetX() + additiveOffsetX, offset.GetY() + additiveOffsetY,
                               offset.GetZ() + additiveOffsetZ);
   ret.xc_rotDelta = totalRotation;
@@ -1364,10 +1364,10 @@ SAdvancementDeltas CAnimData::DoAdvance(float dt, bool& suspendParticles, CRando
   return ret;
 }
 
-SAdvancementDeltas CAnimData::Advance(float dt, const CVector3f& scale, CStateManager& mgr,
+CAdvancementDeltas CAnimData::Advance(float dt, const CVector3f& scale, CStateManager& mgr,
                                       TAreaId aid, bool advTree) {
   bool suspendParticles;
-  SAdvancementDeltas deltas = DoAdvance(
+  CAdvancementDeltas deltas = DoAdvance(
       dt, suspendParticles,
       **reinterpret_cast< CRandom16** >(reinterpret_cast< uchar* >(&mgr) + 0x900), advTree);
 
@@ -1388,7 +1388,7 @@ SAdvancementDeltas CAnimData::Advance(float dt, const CVector3f& scale, CStateMa
   return deltas;
 }
 
-SAdvancementDeltas CAnimData::AdvanceIgnoreParticles(float dt, CRandom16& random, bool advTree) {
+CAdvancementDeltas CAnimData::AdvanceIgnoreParticles(float dt, CRandom16& random, bool advTree) {
   bool suspendParticles;
   return DoAdvance(dt, suspendParticles, random, advTree);
 }

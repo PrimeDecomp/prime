@@ -13,3 +13,5 @@ rstl::ncrc_ptr< CAnimTreeNode > Cast(const rstl::ownership_transfer< IAnimReader
   rstl::auto_ptr< IAnimReader > invalidReader(reader);
   return rstl::ncrc_ptr< CAnimTreeNode >();
 }
+
+bool CAnimTreeNode::IsCAnimTreeNode() const { return true; }

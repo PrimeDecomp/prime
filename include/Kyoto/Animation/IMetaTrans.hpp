@@ -17,7 +17,7 @@ enum EMetaTransType {
 class IMetaTrans {
 public:
   virtual ~IMetaTrans() = 0;
-  virtual rstl::rc_ptr< CAnimTreeNode >
+  virtual rstl::ncrc_ptr< CAnimTreeNode >
   VGetTransitionTree(const rstl::ncrc_ptr< CAnimTreeNode >& a,
                      const rstl::ncrc_ptr< CAnimTreeNode >& b,
                      const CAnimSysContext& animSys) const = 0;
@@ -25,9 +25,10 @@ public:
 
   virtual void WriteTransData(COutputStream&) const = 0;
 
-  rstl::rc_ptr< CAnimTreeNode > GetTransitionTree(const rstl::ncrc_ptr< CAnimTreeNode >& a,
-                                                  const rstl::ncrc_ptr< CAnimTreeNode >& b,
-                                                  const CAnimSysContext& animSys) {
+  rstl::ncrc_ptr< CAnimTreeNode >
+  GetTransitionTree(const rstl::ncrc_ptr< CAnimTreeNode >& a,
+                    const rstl::ncrc_ptr< CAnimTreeNode >& b,
+                    const CAnimSysContext& animSys) const {
     return VGetTransitionTree(a, b, animSys);
   }
 };

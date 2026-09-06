@@ -11,8 +11,8 @@
 namespace rstl {
 
 enum node_color {
-  kNC_Red,
   kNC_Black,
+  kNC_Red,
 };
 
 void rbtree_rebalance(void*, void*);
@@ -275,19 +275,20 @@ private:
 
 template < typename T, typename P, int U, typename S, typename Cmp, typename Alloc >
 pair< typename red_black_tree< T, P, U, S, Cmp, Alloc >::iterator, bool >
-red_black_tree< T, P, U, S, Cmp, Alloc >::insert_into(node* n, const P& item) {
-  if (n == nullptr) {
-    x8_header.set_root(create_node(nullptr, nullptr, nullptr, kNC_Red, item));
+red_black_tree< T, P, U, S, Cmp, Alloc >::insert_into(node* start, const P& item) {
+  if (start == nullptr) {
+    x8_header.set_root(create_node(nullptr, nullptr, nullptr, kNC_Black, item));
     x4_count += 1;
     x8_header.set_leftmost(x8_header.get_root());
     x8_header.set_rightmost(x8_header.get_root());
     return pair< iterator, bool >(iterator(x8_header.get_root(), &x8_header), true);
 
   } else {
+    node* n = start;
     node* newNode = nullptr;
     while (newNode == nullptr) {
-      bool firstComp = x1_cmp(x0_selector(*n->get_value()), x0_selector(item));
-      if (!firstComp && !x1_cmp(x0_selector(item), x0_selector(*n->get_value()))) {
+      bool firstComp = x1_cmp(x0_selector(item), x0_selector(*n->get_value()));
+      if (!firstComp && !x1_cmp(x0_selector(*n->get_value()), x0_selector(item))) {
         return pair< iterator, bool >(iterator(n, &x8_header), false);
       }
       if (firstComp) {
@@ -302,7 +303,7 @@ red_black_tree< T, P, U, S, Cmp, Alloc >::insert_into(node* n, const P& item) {
         }
       } else {
         if (n->get_right() == nullptr) {
-          newNode = create_node(nullptr, nullptr, n, kNC_Black, item);
+          newNode = create_node(nullptr, nullptr, n, kNC_Red, item);
           n->set_right(newNode);
           if (n == x8_header.get_rightmost()) {
             x8_header.set_rightmost(newNode);

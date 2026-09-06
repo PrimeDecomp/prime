@@ -35,7 +35,7 @@ class CAllFormatsAnimSource {
 public:
   CAllFormatsAnimSource(CInputStream& in, IObjectStore& storea, const SObjectTag& tag);
 
-  static IAnimReader* GetNewReader(const TLockedToken< CAllFormatsAnimSource >& tok,
+  static rstl::ownership_transfer< IAnimReader > GetNewReader(const TLockedToken< CAllFormatsAnimSource >& tok,
                                    const CCharAnimTime& time);
 
 private:

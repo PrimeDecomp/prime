@@ -4,6 +4,7 @@
 #include "Kyoto/Math/CQuaternion.hpp"
 struct CAdvancementDeltas {
 public:
+  CAdvancementDeltas() : x0_posDelta(CVector3f::Zero()), xc_rotDelta(CQuaternion::NoRotation()) {}
   CAdvancementDeltas(const CVector3f& posDelta, const CQuaternion& rotDelta)
   : x0_posDelta(posDelta), xc_rotDelta(rotDelta) {}
 
@@ -15,7 +16,6 @@ public:
   static CAdvancementDeltas Blend(const CAdvancementDeltas& a, const CAdvancementDeltas& b,
                                   const float t);
 
-private:
   CVector3f x0_posDelta;
   CQuaternion xc_rotDelta;
 };

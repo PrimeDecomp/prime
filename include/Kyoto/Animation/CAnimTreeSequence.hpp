@@ -21,7 +21,7 @@ public:
                    const CSequenceFundamentals& fundamentals, const CCharAnimTime& time);
 
   // IAnimReader
-  SAdvancementResults VAdvanceView(const CCharAnimTime& dt) override;
+  CAdvancementResults VAdvanceView(const CCharAnimTime& dt) override;
   CCharAnimTime VGetTimeRemaining() const override;
   CSteadyStateAnimInfo VGetSteadyStateAnimInfo() const override;
   uint VGetBoolPOIList(const CCharAnimTime& time, CBoolPOINode* listOut, uint capacity,
