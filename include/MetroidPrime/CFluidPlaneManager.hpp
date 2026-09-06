@@ -179,7 +179,7 @@ public:
 
   class CSplashRecord {
   public:
-    CSplashRecord(float time, TUniqueId id) : x0_time(time), x4_id(id) {}
+    CSplashRecord(TUniqueId id) : x0_time(0.f), x4_id(id) {}
     void SetTime(float t) { x0_time = t; }
     float GetTime() const { return x0_time; }
     TUniqueId GetUniqueId() const { return x4_id; }

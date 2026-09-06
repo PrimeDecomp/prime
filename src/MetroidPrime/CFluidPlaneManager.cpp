@@ -185,7 +185,7 @@ void CFluidPlaneManager::CreateSplash(TUniqueId splasher, CStateManager& mgr,
   }
 
   float oldestTime = 0.f;
-  CSplashRecord* oldestRecord = NULL;
+  CSplashRecord* oldestRecord = nullptr;
   for (CSplashRecord* it = SplashRecords().begin(); it != SplashRecords().end(); ++it) {
     if (it->GetTime() > oldestTime) {
       oldestRecord = it;
@@ -193,20 +193,21 @@ void CFluidPlaneManager::CreateSplash(TUniqueId splasher, CStateManager& mgr,
     }
   }
 
-  CSplashRecord newRecord(0.f, splasher);
-  if (oldestRecord != NULL) {
+  CSplashRecord newRecord(splasher);
+  if (oldestRecord != nullptr) {
     *oldestRecord = newRecord;
   } else {
-    x18_splashes.push_back(newRecord);
+    SplashRecords().push_back(newRecord);
   }
 
   float splashScale = water.GetSplashEffectScale(factor);
   if (water.GetSplashEffect(factor)) {
-    if (CExplosion* expl = rs_new CExplosion(
+    CEntity* expl = rs_new CExplosion(
             *water.GetSplashEffect(factor), mgr.AllocateUniqueId(), true,
             CEntityInfo(water.GetCurrentAreaId(), CEntity::NullConnectionList),
             rstl::string_l("Splash"), CTransform4f(CMatrix3f::Identity(), pos), 1,
-            CVector3f(splashScale, splashScale, splashScale), water.GetSplashColor())) {
+            CVector3f(splashScale, splashScale, splashScale), water.GetSplashColor());
+    if (expl) {
       mgr.AddObject(*expl);
     }
   }
