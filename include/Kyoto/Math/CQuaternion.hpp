@@ -68,8 +68,7 @@ public:
   static const CQuaternion& NoRotation() { return sNoRotation; }
 
   static float Dot(const CQuaternion& a, const CQuaternion& b) {
-    return (a.GetW() * b.GetW()) + (a.GetX() * b.GetX()) + (a.GetY() * b.GetY()) +
-           (a.GetZ() * b.GetZ());
+    return a.GetScalar() * b.GetScalar() + CVector3f::Dot(a.GetVector(), b.GetVector());
   }
 
   // TODO: fake

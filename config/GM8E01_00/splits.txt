@@ -2759,8 +2759,11 @@ Kyoto/Animation/CAdvancementDeltas.cpp:
 	.sdata2     start:0x805AE348 end:0x805AE358
 
 Kyoto/Animation/CAnimMathUtils.cpp:
-	.text       start:0x802EB6BC end:0x802EBAF0
+	.text       start:0x802EB6BC end:0x802EB9F8
 	.sdata2     start:0x805AE358 end:0x805AE370
+
+Kyoto/Animation/CAnimPerSegmentData.cpp:
+	.text       start:0x802EB9F8 end:0x802EBAF0
 
 Kyoto/Animation/CAnimPOIData.cpp:
 	.text       start:0x802EBAF0 end:0x802EC704

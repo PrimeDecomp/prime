@@ -1,7 +1,9 @@
-#ifndef MP1_CANIMMATHUTILS_HPP
-#define MP1_CANIMMATHUTILS_HPP
+#ifndef _CANIMMATHUTILS
+#define _CANIMMATHUTILS
 
 #include "Kyoto/Math/CMath.hpp"
+
+class CQuaternion;
 
 class CAnimMathUtils {
 public:
@@ -9,4 +11,4 @@ public:
   static CQuaternion Slerp(const CQuaternion& start, const CQuaternion& end, float t);
   static CQuaternion SlerpLocal(const CQuaternion& start, const CQuaternion& end, float t);
 };
-#endif // MP1_CANIMMATHUTILS_HPP
+#endif // _CANIMMATHUTILS
