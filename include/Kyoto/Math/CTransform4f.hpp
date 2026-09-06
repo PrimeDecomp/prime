@@ -78,6 +78,20 @@ public:
   
   const CVector3f GetColumn(EDimY dim) const { return CVector3f(m01, m11, m21); }
   const CVector3f GetColumn(EDimZ dim) const { return CVector3f(m02, m12, m22); }
+  CVector3f GetColumn(int column) const {
+    switch (column) {
+    case 0:
+      return GetColumn(kDX);
+    case 1:
+      return GetColumn(kDY);
+    case 2:
+      return GetColumn(kDZ);
+    case 3:
+      return GetTranslation();
+    default:
+      return CVector3f::Zero();
+    }
+  }
   void ScaleBy(const float scale);
   // GetCStyleMatrix__12CTransform4fCFv
   CTransform4f GetInverse() const;
