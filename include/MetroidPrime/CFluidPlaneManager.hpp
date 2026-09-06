@@ -215,6 +215,7 @@ public:
   static uint GetFreqTableIndex(float);
   static void SetupRippleMap();
   static CFluidProfile sProfile;
+  static const float kOldestTime;
 
 private:
   CRippleManager x0_rippleManager;

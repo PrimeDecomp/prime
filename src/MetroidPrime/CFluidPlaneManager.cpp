@@ -221,6 +221,8 @@ float CFluidPlaneManager::GetLastRippleDeltaTime(TUniqueId rippler) const {
   return x0_rippleManager.GetLastRippleDeltaTime(rippler);
 }
 
+const float CFluidPlaneManager::kOldestTime = 9999.f;
+
 float CFluidPlaneManager::GetLastSplashDeltaTime(TUniqueId splasher) const {
   float newestTime = 9999.f;
   for (const CSplashRecord* it = GetSplashRecords().begin(); it != GetSplashRecords().end(); ++it) {
