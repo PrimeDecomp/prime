@@ -65,6 +65,7 @@ public:
   bool GetIsAlwaysDepthWrite() const { return xb7_24_depthWrite; }
   void SetDepthTest(bool depthTest) { xb6_31_depthTest = depthTest; }
   void SetIsSelectable(bool selectable) { xb6_27_isSelectable = selectable; }
+  bool GetIsSelectable() const { return xb6_27_isSelectable; }
   void SetIsVisible(bool visible);
   void SetIsActive(bool active);
   bool GetIsBackfaceCullingOn() const { return xb6_29_cullFaces; }
