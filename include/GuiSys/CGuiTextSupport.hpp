@@ -93,6 +93,9 @@ public:
   float GetNumCharactersPrinted() const;
   float GetTotalAnimationTime() const;
   bool IsAnimationDone() const { return x3c_curTime >= GetTotalAnimationTime(); }
+  CAssetId GetFontID() const { return x5c_fontId; }
+  int GetTextBoundingWidth() const { return x34_extentX; }
+  int GetTextBoundingHeight() const { return x38_extentY; }
   float GetCurTime() const { return x3c_curTime; }
   void SetCurTime(float t) { x3c_curTime = t; }
 
