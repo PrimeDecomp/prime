@@ -24,6 +24,9 @@ struct char_traits< char > {
   }
 };
 
+template < typename _CharTp >
+struct case_insensitive_char_traits {};
+
 template < typename _CharTp, typename Traits = char_traits< _CharTp >,
            typename Alloc = rmemory_allocator >
 class basic_string {
@@ -131,6 +134,8 @@ public:
   bool operator!=(const basic_string& other) const;
   bool operator<(const basic_string& other) const;
 
+  int find(_CharTp ch, int pos = 0) const;
+  const _CharTp* c_str() const { return x0_ptr; }
   const _CharTp* data() const { return x0_ptr; }
   void PutTo(COutputStream& out) const;
   const _CharTp at(int idx) const { return data()[idx]; }
@@ -184,6 +189,10 @@ bool basic_string< _CharTp, Traits, Alloc >::operator<(const basic_string& other
 
 typedef basic_string< wchar_t > wstring;
 typedef basic_string< char > string;
+typedef basic_string< char, case_insensitive_char_traits< char > > istring;
+
+istring istring_l(const char* data);
+bool operator==(const istring& a, const istring& b);
 
 bool operator==(const string& lhs, const char* rhs);
 bool operator==(const char* lhs, const string& rhs);
