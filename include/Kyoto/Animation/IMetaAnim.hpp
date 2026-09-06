@@ -45,9 +45,8 @@ public:
   static CMetaAnimTreeBuildOrders NoSpecialOrders();
   static CMetaAnimTreeBuildOrders PreAdvanceForAll(const CPreAdvanceIndicator& ind);
 
-private:
-  rstl::optional_object< CPreAdvanceIndicator > mSingleAdvance;
-  rstl::optional_object< CPreAdvanceIndicator > mRecursiveAdvance;
+  rstl::optional_object< CPreAdvanceIndicator > x0_recursiveAdvance;
+  rstl::optional_object< CPreAdvanceIndicator > x44_singleAdvance;
 };
 
 class IMetaAnim {
@@ -58,6 +57,7 @@ public:
   GetAnimationTree(const CAnimSysContext& animSys, const CMetaAnimTreeBuildOrders& orders) const;
   virtual void GetUniquePrimitives(rstl::set< CPrimitive >& primsOut) const = 0;
   virtual EMetaAnimType GetType() const = 0;
+  virtual void WriteAnimData(COutputStream& out) const = 0;
   virtual rstl::ncrc_ptr< CAnimTreeNode >
   VGetAnimationTree(const CAnimSysContext& animSys,
                     const CMetaAnimTreeBuildOrders& orders) const = 0;

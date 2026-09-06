@@ -15,6 +15,6 @@ CMetaAnimTreeBuildOrders CMetaAnimTreeBuildOrders::NoSpecialOrders() {
 CMetaAnimTreeBuildOrders
 CMetaAnimTreeBuildOrders::PreAdvanceForAll(const CPreAdvanceIndicator& ind) {
   CMetaAnimTreeBuildOrders ret;
-  ret.mSingleAdvance = ind;
+  ret.x44_singleAdvance = ind;
   return ret;
 }
