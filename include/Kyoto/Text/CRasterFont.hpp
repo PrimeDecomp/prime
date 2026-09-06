@@ -17,7 +17,7 @@ class IObjectStore;
 
 class CFontInfo {
 public:
-  CFontInfo(bool a, bool b, int c, int fontSize, const char* name)
+  CFontInfo(bool a, bool b, int c, int fontSize, const char* const name)
   : x0_(a), x1_(b), x4_(c), x8_fontSize(fontSize) {
     strcpy(xc_name, name);
   }
@@ -30,10 +30,14 @@ private:
   char xc_name[64];
 };
 
+CHECK_SIZEOF(CFontInfo, 0x4c)
+
 class CKernPair {
 public:
-  CKernPair(wchar_t first, wchar_t second, int howMuch)
-  : x0_first(first), x2_second(second), x4_howMuch(howMuch) {}
+  CKernPair(const wchar_t first, const wchar_t second, const int howMuch) : x4_howMuch(howMuch) {
+    x2_second = second;
+    x0_first = first;
+  }
 
   wchar_t GetFirst() const { return x0_first; }
   wchar_t GetSecond() const { return x2_second; }
@@ -44,6 +48,8 @@ private:
   wchar_t x2_second;
   int x4_howMuch;
 };
+
+CHECK_SIZEOF(CKernPair, 0x8)
 
 class CGlyph {
 public:
@@ -71,9 +77,8 @@ public:
   float GetEndV() const { return x14_endV; }
   short GetCellWidth() const { return x18_cellWidth; }
   short GetCellHeight() const { return x1a_cellHeight; }
-  short GetBaseline() const { return x1c_baseline; }
-  short GetKernStart() const { return x1e_kernStart; }
-  // short GetLayer() const { return x20_layer; }
+  short GetBaseLine() const { return x1c_baseline; }
+  int GetKernStart() const { return x1e_kernStart; }
 
 private:
   short x0_a;
@@ -87,8 +92,9 @@ private:
   short x1a_cellHeight;
   short x1c_baseline;
   short x1e_kernStart;
-  // short x20_layer;
 };
+
+CHECK_SIZEOF(CGlyph, 0x20)
 
 enum EFontMode {
   kFM_None = -1,
@@ -131,9 +137,6 @@ public:
   bool IsFinishedLoading();
 
 private:
-  static int KernLookup(const rstl::vector< CKernPair >& kerning, int a, const int b);
-  const CGlyph* InternalGetGlyph(wchar_t c) const;
-
   bool x0_initialized;
   int x4_monoWidth;
   int x8_monoHeight;
@@ -144,6 +147,9 @@ private:
   rstl::optional_object< TToken< CTexture > > x80_texture;
   int x8c_baseline;
   int x90_lineMargin;
+
+  static int KernLookup(const rstl::vector< CKernPair >& kerning, int a, const int b);
+  const CGlyph* InternalGetGlyph(wchar_t c) const;
 };
 CHECK_SIZEOF(CRasterFont, 0x94)
 

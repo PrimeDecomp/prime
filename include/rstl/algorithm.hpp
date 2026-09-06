@@ -27,23 +27,6 @@ inline void iter_swap(I1 a, I2 b) {
   *b = tmp;
 }
 
-template < typename It, class Cmp >
-void __insertion_sort(It first, It last, Cmp cmp) {
-  It next = first;
-  for (++next; next < last; ++next) {
-    typename iterator_traits< It >::value_type value = *next;
-
-    It t1 = next - 1;
-    It t2 = next;
-    while (first < t2 && cmp(value, *t1)) {
-      *t2 = *t1;
-      --t2;
-      --t1;
-    }
-    *t2 = value;
-  }
-}
-
 template < typename T, class Cmp >
 void __sort3(T& a, T& b, T& c, const Cmp comp) {
   if (comp(b, a)) {
@@ -58,6 +41,23 @@ void __sort3(T& a, T& b, T& c, const Cmp comp) {
     } else {
       b = tmp;
     }
+  }
+}
+
+template < typename It, class Cmp >
+void __insertion_sort(It first, It last, Cmp cmp) {
+  It next = first;
+  for (++next; next < last; ++next) {
+    typename iterator_traits< It >::value_type value = *next;
+
+    It t1 = next - 1;
+    It t2 = next;
+    while (first < t2 && cmp(value, *t1)) {
+      *t2 = *t1;
+      --t2;
+      --t1;
+    }
+    *t2 = value;
   }
 }
 

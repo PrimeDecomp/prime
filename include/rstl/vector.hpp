@@ -52,7 +52,7 @@ public:
   vector(CInputStream& in, const Alloc& alloc = Alloc());
   ~vector() {
     destroy(begin(), end());
-    x0_allocator.deallocate(data());
+    x0_allocator.deallocate(xc_items);
   }
 
   void resize(int size, const T& in = T());

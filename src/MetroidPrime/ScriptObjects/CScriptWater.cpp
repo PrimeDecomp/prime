@@ -1,3 +1,5 @@
+#pragma inline_max_size(250)
+
 #include "MetroidPrime/ScriptObjects/CScriptWater.hpp"
 
 #include "MetroidPrime/CActorLights.hpp"
