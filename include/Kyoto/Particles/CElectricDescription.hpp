@@ -39,4 +39,6 @@ public:
   bool x70_ZERY;
 };
 
+CHECK_SIZEOF(CElectricDescription, 0x74)
+
 #endif // _CELECTRICDESCRIPTION

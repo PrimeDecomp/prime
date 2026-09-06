@@ -58,7 +58,7 @@ void CCubeModel::MakeTexturesFromMats(const void* data,
 
   for (int i = 0; i < textureCount; i++) {
     textures.push_back(store.GetObj(SObjectTag('TXTR', *textureIds)));
-    if (!cache && !textures.back().GetObject()) {
+    if (!cache) {
       textures.back().ForceCache();
     }
     ++textureIds;

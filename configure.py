@@ -1745,7 +1745,10 @@ config.libs = [
             ),
             Object(NonMatching, "Kyoto/Graphics/CCubeMoviePlayer.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Animation/CAdditiveAnimPlayback.cpp"),
-            Object(NonMatching, "Kyoto/Particles/CParticleElectricDataFactory.cpp"),
+            Object(
+                MatchingFor("GM8E01_00", "GM8E01_01"),
+                "Kyoto/Particles/CParticleElectricDataFactory.cpp",
+            ),
             Object(NonMatching, "Kyoto/Particles/CParticleElectric.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
