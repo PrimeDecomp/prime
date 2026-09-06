@@ -736,6 +736,7 @@ void CPatterned::UpdateDamageColor(float dt) {
   }
 }
 
+// TODO: Move to rstl/string.hpp once header inlining preserves the helper and Think codegen.
 bool rstl::operator==(const char* lhs, const rstl::string& rhs) {
   return rhs.compare(lhs, -1) == 0;
 }
