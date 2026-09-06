@@ -19,6 +19,8 @@ public:
   virtual void WriteData(COutputStream& out, bool flag) const;
   int GetCount() const { return xc4_panePointCount * 3; }
 
+  const float* GetVtxBuf() const { return xc0_panePoints; }
+  const CVector3f& GetPivot() const { return xc8_scaleCenter; }
   float GetWidth() const { return xb8_width; }
   float GetHeight() const { return xbc_height; }
 
