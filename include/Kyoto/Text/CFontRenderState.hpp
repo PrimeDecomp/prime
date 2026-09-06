@@ -1,17 +1,18 @@
 #ifndef _CFONTRENDERSTATE
 #define _CFONTRENDERSTATE
 
+#include "rstl/list.hpp"
+
 #include "Kyoto/Text/CBlockInstruction.hpp"
 #include "Kyoto/Text/CDrawStringOptions.hpp"
 #include "Kyoto/Text/CRasterFont.hpp"
 #include "Kyoto/Text/CSaveableState.hpp"
 #include "Kyoto/Text/TextCommon.hpp"
-#include "rstl/stack.hpp"
 #include <rstl/vector.hpp>
 
 class CBlockInstruction;
 class CLineInstruction;
-class CFontRenderState : public CSaveableState {
+class CFontRenderState {
 public:
   CFontRenderState();
   void RefreshColor(EColorType col);
@@ -20,8 +21,16 @@ public:
   void PopState();
   void SetColor(EColorType type, const CTextColor& color);
   void RefreshPalette();
-  TToken< CRasterFont >& GetFont() { return *CSaveableState::GetFont(); }
-  void SetExtraLineSpace(int spacing) { SetLineExtraSpace(spacing); }
+  TToken< CRasterFont >& GetFont() { return *x0_state.GetFont(); }
+  bool IsFinishedLoading() { return x0_state.IsFinishedLoading(); }
+  CDrawStringOptions& GetOptions() { return x0_state.GetOptions(); }
+  void SetFont(const TToken< CRasterFont >& font) { x0_state.SetFont(font); }
+  rstl::vector< CTextColor >& GetColors() { return x0_state.GetColors(); }
+  rstl::vector< bool >& GetOverride() { return x0_state.GetOverride(); }
+  float GetLineSpacing() const { return x0_state.GetLineSpacing(); }
+  void SetLineSpacing(float spacing) { x0_state.SetLineSpacing(spacing); }
+  int GetLineExtraSpacing() const { return x0_state.GetLineExtraSpacing(); }
+  void SetExtraLineSpace(int spacing) { x0_state.SetLineExtraSpace(spacing); }
   const CBlockInstruction* GetBlock() const { return x88_curBlock; }
   void SetBlock(const CBlockInstruction* block) {
     x88_curBlock = const_cast< CBlockInstruction* >(block);
@@ -52,6 +61,7 @@ public:
   }
 
 private:
+  CSaveableState x0_state;
   CBlockInstruction* x88_curBlock;
   CDrawStringOptions x8c_drawOpts;
   int xd4_curX;
@@ -62,7 +72,7 @@ private:
   rstl::vector< uint > xe8_;
   rstl::vector< uchar > xf8_;
   bool x108_lineInitialized;
-  rstl::stack< CSaveableState > x10c_pushedStates;
+  rstl::list< CSaveableState > x10c_pushedStates;
 };
 
 CHECK_SIZEOF(CFontRenderState, 0x124)

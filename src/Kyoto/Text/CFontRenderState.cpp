@@ -82,11 +82,11 @@ void CFontRenderState::SetColor(const EColorType type, const CTextColor& color) 
   RefreshColor(type);
 }
 
-void CFontRenderState::PushState() { x10c_pushedStates.push(*this); }
+void CFontRenderState::PushState() { x10c_pushedStates.push_front(x0_state); }
 
 void CFontRenderState::PopState() {
-  CSaveableState::operator=(x10c_pushedStates.top());
-  x10c_pushedStates.pop();
+  x0_state = x10c_pushedStates.front();
+  x10c_pushedStates.pop_front();
   RefreshPalette();
 }
 

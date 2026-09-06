@@ -1430,7 +1430,7 @@ config.libs = [
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Text/CFontInstruction.cpp"
             ),
-            Object(NonMatching, "Kyoto/Text/CFontRenderState.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Text/CFontRenderState.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "Kyoto/Text/CLineExtraSpaceInstruction.cpp",
