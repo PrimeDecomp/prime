@@ -13,6 +13,309 @@ Sections:
 	.sdata2     type:rodata align:8
 	.sbss2      type:bss align:32
 
+Kyoto/Audio/CSfxHandle.cpp:
+	.sbss       start:0x8046B3E0 end:0x8046B3E8
+
+Kyoto/Animation/CCharAnimMemoryMetrics.cpp:
+	.sbss       start:0x8046B440 end:0x8046B448
+
+Kyoto/IObj.cpp:
+	.sbss       start:0x8046B650 end:0x8046B660
+
+MetroidPrime/Decode.cpp:
+	.rodata     start:0x803B78C0 end:0x803B78C8
+
+MetroidPrime/CIOWinManager.cpp:
+	.rodata     start:0x803B78C8 end:0x803B7908
+
+WorldFormat/CPVSAreaSet.cpp:
+	.rodata     start:0x803C15F8 end:0x803C1600
+
+MetroTRK/mslsupp.c:
+	.text       start:0x80003640 end:0x80003658
+
+MetroidPrime/CMatrix3f_Ext.cpp:
+	.text       start:0x8001C32C end:0x8001C354
+
+MetroidPrime/CArchMsgParmInt32Int32VoidPtr.cpp:
+	.text       start:0x800526C0 end:0x80052744
+	.data       start:0x803C5240 end:0x803C5250
+
+MetroidPrime/CArchMsgParmNull.cpp:
+	.text       start:0x80052744 end:0x800527BC
+	.data       start:0x803C5250 end:0x803C5260
+
+MetroidPrime/CArchMsgParmReal32.cpp:
+	.text       start:0x800527BC end:0x80052838
+	.data       start:0x803C5260 end:0x803C5270
+
+MetroidPrime/Tweaks/CTweakParticle.cpp:
+	.text       start:0x8005B1E8 end:0x8005B32C
+	.data       start:0x803C5468 end:0x803C5478
+
+MetroidPrime/CParticleGenInfoGeneric.cpp:
+	.data       start:0x803C99E8 end:0x803C9A88
+
+MetroidPrime/ScriptObjects/CScriptRelay.cpp:
+	.data       start:0x803C9DD0 end:0x803C9DF0
+
+MetroidPrime/ScriptObjects/CScriptSpawnPoint.cpp:
+	.data       start:0x803C9DF0 end:0x803C9E10
+
+MetroidPrime/ScriptObjects/CScriptCameraBlurKeyframe.cpp:
+	.data       start:0x803CA240 end:0x803CA260
+
+MetroidPrime/ScriptObjects/CScriptSwitch.cpp:
+	.data       start:0x803CEEB0 end:0x803CEED0
+
+MetroidPrime/BodyState/CABSIdle.cpp:
+	.data       start:0x803CEED0 end:0x803CEEF0
+
+Weapons/CWeaponDescription.cpp:
+	.data       start:0x803D4418 end:0x803D4428
+
+Kyoto/Animation/CMetaTransSnap.cpp:
+	.data       start:0x803D4C10 end:0x803D4C28
+
+MetroidPrime/Clamp_int.cpp:
+	.text       start:0x8005B32C end:0x8005B358
+
+MetroidPrime/HUD/CHUDMemoParms.cpp:
+	.text       start:0x800E0314 end:0x800E0370
+
+MetroidPrime/CPhysicsState.cpp:
+	.text       start:0x80113DC0 end:0x80113EAC
+
+MetroidPrime/CFluidUVMotion.cpp:
+	.text       start:0x80114074 end:0x801144DC
+	.sdata2     start:0x8046D5D8 end:0x8046D600
+
+MetroidPrime/PathFinding/CPathFindSearch.cpp:
+	.text       start:0x801B9CAC end:0x801BC020
+	.sdata2     start:0x8046EA08 end:0x8046EA20
+
+MetroidPrime/PathFinding/CPathFindRegion.cpp:
+	.text       start:0x801BC020 end:0x801BD2E4
+	.sdata2     start:0x8046EA20 end:0x8046EA30
+
+GuiSys/CRepeatState.cpp:
+	.sdata2     start:0x804703D8 end:0x804703E8
+
+Collision/CCollisionInfo.cpp:
+	.sdata2     start:0x80470400 end:0x80470408
+
+Collision/COBBox.cpp:
+	.sdata2     start:0x804704A8 end:0x804704B8
+
+GuiSys/CGuiWidgetIdDB.cpp:
+	.text       start:0x802B6F5C end:0x802B7198
+	.rodata     start:0x803C1E40 end:0x803C1EA0
+
+Collision/InternalColliders.cpp:
+	.text       start:0x802BA3D4 end:0x802BA538
+	.rodata     start:0x803C1F10 end:0x803C1F38
+
+Collision/CMRay.cpp:
+	.text       start:0x802C1C10 end:0x802C1DD8
+	.sdata2     start:0x804704B8 end:0x804704C0
+
+Kyoto/Animation/CAdvancementDeltas.cpp:
+	.sdata2     start:0x80470588 end:0x80470598
+
+Kyoto/Animation/CAnimation.cpp:
+	.text       start:0x802C28B4 end:0x802C2920
+
+Kyoto/Animation/CAnimationManager.cpp:
+	.text       start:0x802C2920 end:0x802C2A68
+
+Kyoto/Animation/CPASAnimInfo.cpp:
+	.text       start:0x802CD500 end:0x802CD604
+
+Kyoto/Animation/CPrimitive.cpp:
+	.text       start:0x802CFD48 end:0x802CFE28
+
+Kyoto/Animation/CTransitionManager.cpp:
+	.text       start:0x802D10BC end:0x802D10FC
+
+Kyoto/Animation/CAnimMathUtils.cpp:
+	.text       start:0x802D56E0 end:0x802D5A1C
+	.sdata2     start:0x80470598 end:0x804705B0
+
+Kyoto/Animation/CAnimPerSegmentData.cpp:
+	.text       start:0x802D5A1C end:0x802D5B14
+
+Kyoto/Animation/CAnimTreeSingleChild.cpp:
+	.text       start:0x802DD018 end:0x802DD3D0
+	.data       start:0x803D5090 end:0x803D5100
+
+Kyoto/Animation/CBoolPOINode.cpp:
+	.text       start:0x802E0A24 end:0x802E0B18
+
+Kyoto/Animation/CPOINode.cpp:
+	.text       start:0x802E5D64 end:0x802E5F68
+
+Kyoto/Text/CColorInstruction.cpp:
+	.text       start:0x802E7434 end:0x802E74EC
+	.data       start:0x803D5400 end:0x803D5420
+
+Kyoto/Text/CColorOverrideInstruction.cpp:
+	.data       start:0x803D5420 end:0x803D5440
+
+Kyoto/Text/CPopStateInstruction.cpp:
+	.data       start:0x803D54E8 end:0x803D5508
+
+Kyoto/Text/CPushStateInstruction.cpp:
+	.data       start:0x803D5508 end:0x803D5528
+
+Kyoto/Text/CRemoveColorOverrideInstruction.cpp:
+	.data       start:0x803D5528 end:0x803D5548
+
+Kyoto/Alloc/IAllocator.cpp:
+	.data       start:0x803D5838 end:0x803D5878
+
+Kyoto/Particles/CWarp.cpp:
+	.data       start:0x803D6170 end:0x803D6190
+
+Kyoto/Streams/CMemoryInStream.cpp:
+	.data       start:0x803D6210 end:0x803D6220
+
+Kyoto/Math/CVector3d.cpp:
+	.text       start:0x802FD0E4 end:0x802FD33C
+	.sdata2     start:0x80470868 end:0x80470870
+
+Kyoto/Math/CVector3i.cpp:
+	.text       start:0x802FD964 end:0x802FD974
+
+Kyoto/Math/RMathUtils.cpp:
+	.text       start:0x802FD974 end:0x802FE2AC
+	.sdata2     start:0x80470888 end:0x80470930
+
+Kyoto/Math/CPlane.cpp:
+	.sdata2     start:0x80470AE0 end:0x80470AE8
+
+Kyoto/Animation/DolphinCVirtualBone.cpp:
+	.sdata2     start:0x80470C00 end:0x80470C08
+
+Kyoto/Input/RumbleAdsr.cpp:
+	.sdata2     start:0x80470D68 end:0x80470D70
+
+Kyoto/CCrc32.cpp:
+	.text       start:0x802FE2AC end:0x802FE37C
+	.rodata     start:0x803C28A8 end:0x803C2CA8
+
+Kyoto/Alloc/CCircularBuffer.cpp:
+	.text       start:0x802FE37C end:0x802FE534
+
+Kyoto/PVS/CPVSVisSet.cpp:
+	.text       start:0x802FED68 end:0x802FF1B8
+
+Kyoto/Streams/CMemoryStreamOut.cpp:
+	.text       start:0x80327A40 end:0x80327BAC
+	.data       start:0x803D6220 end:0x803D6230
+
+Kyoto/Streams/CZipSupport.cpp:
+	.text       start:0x803281DC end:0x80328238
+	.rodata     start:0x803C2EF8 end:0x803C2F08
+
+Kyoto/CToken.cpp:
+	.rodata     start:0x803C2F10 end:0x803C2F18
+
+Kyoto/CFactoryStore.cpp:
+	.text       start:0x80328238 end:0x803282A4
+	.data       start:0x803D6250 end:0x803D6288
+
+Kyoto/zlib/adler32.c:
+	.text       start:0x803298C4 end:0x80329A48
+
+Kyoto/zlib/inffast.c:
+	.text       start:0x8032B568 end:0x8032BB00
+	.rodata     start:0x803C3010 end:0x803C3048
+
+Kyoto/Particles/CParticleElectricDataFactory.cpp:
+	.rodata     start:0x803C3888 end:0x803C3890
+
+Kyoto/zlib/infutil.c:
+	.text       start:0x8032CBB0 end:0x8032CD30
+	.data       start:0x803D7440 end:0x803D7488
+
+Kyoto/zlib/zutil.c:
+	.text       start:0x8032CD30 end:0x8032CD8C
+
+Kyoto/Alloc/CSmallAllocPool.cpp:
+	.text       start:0x80339DA0 end:0x8033A0B4
+
+Kyoto/Particles/CEffectComponent.cpp:
+	.text       start:0x80340A30 end:0x80340B1C
+
+Kyoto/CTimeProvider.cpp:
+	.text       start:0x80341A8C end:0x80341B64
+	.sbss       start:0x8046B7A0 end:0x8046B7A8
+
+dolphin/gx/GXFifo.c:
+	.sbss       start:0x8046B988 end:0x8046B9A8
+
+dolphin/gx/GXMisc.c:
+	.sbss       start:0x8046B9A8 end:0x8046B9C0
+
+dolphin/dsp/dsp_debug.c:
+	.text       start:0x80359CF8 end:0x80359D48
+
+dolphin/dvd/dvdqueue.c:
+	.text       start:0x8035E6BC end:0x8035E8B4
+	.bss        start:0x80402C98 end:0x80402CB8
+
+dolphin/dvd/dvdidutils.c:
+	.text       start:0x8035EA4C end:0x8035EB44
+
+dolphin/gx/GXGeometry.c:
+	.text       start:0x80362658 end:0x80362A08
+
+dolphin/gx/GXTev.c:
+	.text       start:0x8036521C end:0x80365A00
+	.data       start:0x803D8AB0 end:0x803D8B28
+
+dolphin/gx/GXDisplayList.c:
+	.text       start:0x8036603C end:0x803660AC
+
+dolphin/gx/GXPerf.c:
+	.text       start:0x80366650 end:0x80366EA8
+	.data       start:0x803D8B48 end:0x803D8C38
+
+dolphin/os/OSLink.c:
+	.data       start:0x803DA128 end:0x803DA178
+
+dolphin/mtx/mtx44vec.c:
+	.text       start:0x803672DC end:0x80367384
+
+dolphin/mtx/mtx44.c:
+	.text       start:0x80367384 end:0x803674B8
+	.sdata2     start:0x80470E70 end:0x80470E80
+
+dolphin/mtx/vec.c:
+	.text       start:0x803674B8 end:0x80367538
+	.sdata2     start:0x80470E80 end:0x80470E88
+
+dolphin/mtx/psmtx.c:
+	.text       start:0x80367538 end:0x80367584
+
+dolphin/os/OSAlarm.c:
+	.text       start:0x80367ECC end:0x803685F8
+	.sbss       start:0x8046B9F0 end:0x8046B9F8
+
+dolphin/os/OSMessage.c:
+	.text       start:0x8036C71C end:0x8036C920
+
+dolphin/os/OSMemory.c:
+	.text       start:0x8036C920 end:0x8036CCC4
+	.data       start:0x803DA178 end:0x803DA188
+
+dolphin/os/OSMutex.c:
+	.text       start:0x8036CCC4 end:0x8036CD34
+
+dolphin/pad/PadClamp.c:
+	.text       start:0x8036F93C end:0x8036FB80
+	.rodata     start:0x803C3A20 end:0x803C3A30
+
 Runtime/__va_arg.c:
 	.text       start:0x803735C4 end:0x8037368C
 
@@ -33,12 +336,213 @@ Runtime/ptmf.c:
 	.text       start:0x80373914 end:0x8037396C
 	.rodata     start:0x803C3A30 end:0x803C3A40
 
+runtime/runtime.c:
+	.text       start:0x8037396C end:0x803740FC
+	.rodata     start:0x803C3A40 end:0x803C3A58
+
+runtime/Gecko_ExceptionPPC.cpp:
+	.text       start:0x80374178 end:0x803741E0
+	.bss        start:0x80404228 end:0x80404238
+
+runtime/arith.c:
+	.text       start:0x80376E34 end:0x80376E44
+
+runtime/buffer_io.c:
+	.text       start:0x80376E44 end:0x80376F3C
+
+runtime/ctype.c:
+	.text       start:0x80376F3C end:0x80376F60
+	.data       start:0x803DA8B8 end:0x803DABB8
+
+musyx/runtime/synth_dbtab.c:
+	.data       start:0x803DB6B8 end:0x803DBE40
+
+runtime/direct_io.c:
+	.text       start:0x80376F60 end:0x8037728C
+
+runtime/file_io.c:
+	.text       start:0x8037728C end:0x80377484
+
+runtime/FILE_POS.c:
+	.text       start:0x80377484 end:0x80377750
+
+runtime/mbstring.c:
+	.text       start:0x80377750 end:0x80377894
+	.sdata2     start:0x80470F00 end:0x80470F08
+
+runtime/mem.c:
+	.text       start:0x80377894 end:0x80377A04
+
+runtime/mem_funcs.c:
+	.text       start:0x80377A04 end:0x80377CE4
+
+runtime/misc_io.c:
+	.text       start:0x80377CE4 end:0x80377CF4
+
+runtime/qsort.c:
+	.text       start:0x80379D1C end:0x80379E8C
+
+runtime/rand.c:
+	.text       start:0x80379E8C end:0x80379EB4
+	.sdata      start:0x8046AC88 end:0x8046AC90
+
+runtime/float.c:
+	.sdata      start:0x8046AC90 end:0x8046ACC0
+
+runtime/sscanf.c:
+	.text       start:0x80379EB4 end:0x80379F44
+
+runtime/string.c:
+	.text       start:0x80379F44 end:0x8037A1F4
+
+runtime/e_acos.c:
+	.text       start:0x8037B3E0 end:0x8037B6F0
+	.sdata2     start:0x80470F28 end:0x80470FB8
+
+runtime/e_asin.c:
+	.text       start:0x8037B6F0 end:0x8037B954
+	.sdata2     start:0x80470FB8 end:0x80471050
+
+runtime/e_atan2.c:
+	.text       start:0x8037B954 end:0x8037BBE4
+	.sdata2     start:0x80471050 end:0x804710A8
+
+runtime/e_fmod.c:
+	.text       start:0x8037BE00 end:0x8037C13C
+	.rodata     start:0x803C3BE8 end:0x803C3BF8
+
+runtime/k_cos.c:
+	.text       start:0x8037CFE4 end:0x8037D0D8
+	.sdata2     start:0x80471308 end:0x80471350
+
+runtime/k_sin.c:
+	.text       start:0x8037DF2C end:0x8037DFCC
+	.sdata2     start:0x80471390 end:0x804713C8
+
+runtime/s_copysign.c:
+	.text       start:0x8037E3E0 end:0x8037E408
+
+runtime/s_cos.c:
+	.text       start:0x8037E408 end:0x8037E4DC
+	.sdata2     start:0x80471428 end:0x80471430
+
+runtime/s_floor.c:
+	.text       start:0x8037E4DC end:0x8037E624
+	.sdata2     start:0x80471430 end:0x80471440
+
+runtime/s_frexp.c:
+	.text       start:0x8037E624 end:0x8037E6B0
+	.sdata2     start:0x80471440 end:0x80471448
+
+runtime/s_ldexp.c:
+	.text       start:0x8037E6B0 end:0x8037E874
+	.sdata2     start:0x80471448 end:0x80471470
+
+runtime/s_modf.c:
+	.text       start:0x8037E874 end:0x8037E970
+
+runtime/s_nextafter.c:
+	.text       start:0x8037E970 end:0x8037EAF4
+
+runtime/s_sin.c:
+	.text       start:0x8037EAF4 end:0x8037EBCC
+	.sdata2     start:0x80471470 end:0x80471478
+
+runtime/s_tan.c:
+	.text       start:0x8037EBCC end:0x8037EC44
+	.sdata2     start:0x80471478 end:0x80471480
+
+runtime/w_acos.c:
+	.text       start:0x8037EC44 end:0x8037EC64
+
+runtime/w_asin.c:
+	.text       start:0x8037EC64 end:0x8037EC84
+
+runtime/w_atan2.c:
+	.text       start:0x8037EC84 end:0x8037ECA4
+
+runtime/w_exp.c:
+	.text       start:0x8037ECA4 end:0x8037ECC4
+
+runtime/w_fmod.c:
+	.text       start:0x8037ECC4 end:0x8037ECE4
+
+runtime/w_log.c:
+	.text       start:0x8037ECE4 end:0x8037ED04
+
+runtime/w_pow.c:
+	.text       start:0x8037ED04 end:0x8037ED24
+
+runtime/math_ppc.c:
+	.text       start:0x8037ED24 end:0x8037ED48
+
+musyx/runtime/seq_api.c:
+	.text       start:0x80386014 end:0x803861A8
+
+musyx/runtime/snd_synthapi.c:
+	.text       start:0x803861A8 end:0x8038687C
+
+musyx/runtime/synth_adsr.c:
+	.text       start:0x80393228 end:0x803939E8
+	.sdata2     start:0x80471538 end:0x80471560
+
+musyx/runtime/synth_vsamples.c:
+	.text       start:0x803939E8 end:0x8039419C
+	.bss        start:0x804203B0 end:0x80420D00
+
+musyx/runtime/snd_init.c:
+	.text       start:0x8039ABD8 end:0x8039AD24
+
+musyx/runtime/snd_math.c:
+	.text       start:0x8039AD24 end:0x8039B0E4
+	.sdata2     start:0x804715E8 end:0x80471608
+
+musyx/runtime/hw_memory.c:
+	.text       start:0x8039F14C end:0x8039F1A0
+
+musyx/runtime/CheapReverb/creverb_fx.c:
+	.text       start:0x8039F1A0 end:0x8039F25C
+
+musyx/runtime/StdReverb/reverb_fx.c:
+	.text       start:0x8039FB18 end:0x8039FBD8
+
+musyx/runtime/Delay/delay_fx.c:
+	.text       start:0x803A091C end:0x803A0CC8
+
 dolphin/card/CARDBios.c:
 	.text       start:0x803A1E8C end:0x803A3170
 	.data       start:0x803DEB30 end:0x803DEB88
 	.bss        start:0x8042BAF8 end:0x8042BD38
 	.sdata      start:0x8046ACE0 end:0x8046ACE8
 	.sbss       start:0x8046BD08 end:0x8046BD10
+
+dolphin/card/CARDMount.c:
+	.data       start:0x803DED00 end:0x803DED40
+
+dolphin/card/CARDRdwr.c:
+	.text       start:0x803A43D0 end:0x803A4650
+
+dolphin/card/CARDBlock.c:
+	.text       start:0x803A4650 end:0x803A4A54
+
+dolphin/card/CARDDir.c:
+	.text       start:0x803A4A54 end:0x803A4CB8
+
+dolphin/card/CARDCheck.c:
+	.text       start:0x803A4CB8 end:0x803A5BF4
+
+dolphin/card/CARDFormat.c:
+	.text       start:0x803A66B4 end:0x803A6E98
+
+dolphin/card/CARDCreate.c:
+	.text       start:0x803A719C end:0x803A74EC
+
+dolphin/card/CARDStat.c:
+	.text       start:0x803A7E68 end:0x803A8300
+
+dolphin/card/CARDNet.c:
+	.text       start:0x803A8300 end:0x803A83C4
+	.sdata      start:0x8046ACF0 end:0x8046ACF8
 
 dolphin/si/SIBios.c:
 	.text       start:0x803A83C4 end:0x803A9C24
@@ -81,6 +585,15 @@ dolphin/GBA/GBA.c:
 	.bss        start:0x8042C140 end:0x8042C640
 	.sbss       start:0x8046BE58 end:0x8046BE5C
 
+MetroidPrime/CAxisAngle.cpp:
+	.bss        start:0x8042C688 end:0x8042C694
+
+MetroidPrime/CDamageVulnerability.cpp:
+	.bss        start:0x8042F618 end:0x8042F8F0
+
+Collision/CMaterialFilter.cpp:
+	.bss        start:0x80461DB8 end:0x80461DD0
+
 dolphin/GBA/GBAGetProcessStatus.c:
 	.text       start:0x803B36AC end:0x803B3820
 
@@ -100,6 +613,9 @@ dolphin/GBA/GBAXfer.c:
 dolphin/GBA/GBAKey.c:
 	.text       start:0x803B4D04 end:0x803B4F6C
 	.data       start:0x803DF080 end:0x803DF426
+
+dolphin/os/__start.c:
+	.init       start:0x80003100 end:0x80003354
 
 runtime/__mem.c:
 	.init       start:0x800033A8 end:0x800034E0
