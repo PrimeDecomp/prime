@@ -63,6 +63,7 @@ public:
 
   bool GetIsAlwaysDepthRead() const { return xb6_31_depthTest; }
   bool GetIsAlwaysDepthWrite() const { return xb7_24_depthWrite; }
+  bool GetIsDepthBackwards() const { return xb6_30_depthGreater; }
   void SetDepthTest(bool depthTest) { xb6_31_depthTest = depthTest; }
   void SetIsSelectable(bool selectable) { xb6_27_isSelectable = selectable; }
   bool GetIsSelectable() const { return xb6_27_isSelectable; }

@@ -82,7 +82,8 @@ public:
     return CModelFlags(*this, (x2_flags & ~(kF_DepthCompare | kF_DepthUpdate)) | newFlags);
   }
   CModelFlags DepthBackwards() const {
-    return CModelFlags(*this, GetOtherFlags() | kF_DepthGreater);
+    const EFlags flags = static_cast< EFlags >(GetOtherFlags() | kF_DepthGreater);
+    return CModelFlags(static_cast< ETrans >(x0_blendMode), GetShaderSet(), flags, x4_color);
   }
 
   const uchar GetBlendMode() const { return x0_blendMode; }
@@ -116,8 +117,8 @@ public:
                                                 const bool update) {
     return Additive(color).DepthCompareUpdate(compare, update);
   }
-  static CModelFlags AdditiveRGB(const CColor& color);
-  static CModelFlags ColorModulate(const CColor& color);
+  static CModelFlags AdditiveRGB(const CColor& color) { return CModelFlags(kT_Additive2, color); }
+  static CModelFlags ColorModulate(const CColor& color) { return CModelFlags(kT_One, color); }
 
 private:
   // Dumb hack, need to figure this out
