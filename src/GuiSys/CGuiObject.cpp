@@ -103,21 +103,19 @@ void CGuiObject::AddChildObject(CGuiObject* child, const bool makeWorldLocal, co
     const CGuiObject* parent = child->GetParent();
     CTransform4f worldLocalXf = CTransform4f::Identity();
     CVector3f position = parent->x34_worldXF.GetTranslation() * -1.f;
-    const float upMag = parent->x34_worldXF.GetUp().Magnitude();
-    const float forwardMag = parent->x34_worldXF.GetForward().Magnitude();
-    const float rightMag = parent->x34_worldXF.GetRight().Magnitude();
-    const CVector3f _tmp1 = parent->x34_worldXF.GetColumn(kDZ);
-    const CVector3f m2 = (1.f / upMag) * _tmp1;
-    const CVector3f _tmp2 = parent->x34_worldXF.GetColumn(kDY);
-    const CVector3f m1 = (1.f / forwardMag) * _tmp2;
-    const CVector3f _tmp3 = parent->x34_worldXF.GetColumn(kDX);
-    const CVector3f m0 = (1.f / rightMag) * _tmp3;
+    const CVector3f scale(parent->x34_worldXF.GetColumn(0).Magnitude(),
+                         parent->x34_worldXF.GetColumn(1).Magnitude(),
+                         parent->x34_worldXF.GetColumn(2).Magnitude());
+    const CVector3f& m2 = (1.f / scale.GetZ()) * parent->x34_worldXF.GetColumn(2);
+    const CVector3f& m1 = (1.f / scale.GetY()) * parent->x34_worldXF.GetColumn(1);
+    const CVector3f& m0 = (1.f / scale.GetX()) * parent->x34_worldXF.GetColumn(0);
     const CMatrix3f tmpMtx(m0, m1, m2);
     const CVector3f pos = tmpMtx * position;
 
-    worldLocalXf = CTransform4f(tmpMtx.Get00(), tmpMtx.Get01(), tmpMtx.Get02(), pos.GetX(), //
-                                tmpMtx.Get10(), tmpMtx.Get11(), tmpMtx.Get12(), pos.GetY(), //
-                                tmpMtx.Get20(), tmpMtx.Get21(), tmpMtx.Get22(), pos.GetZ());
+    worldLocalXf = CTransform4f(
+        tmpMtx.GetColumn(0).GetX(), tmpMtx.GetColumn(1).GetX(), tmpMtx.GetColumn(2).GetX(), pos.GetX(),
+        tmpMtx.GetColumn(0).GetY(), tmpMtx.GetColumn(1).GetY(), tmpMtx.GetColumn(2).GetY(), pos.GetY(),
+        tmpMtx.GetColumn(0).GetZ(), tmpMtx.GetColumn(1).GetZ(), tmpMtx.GetColumn(2).GetZ(), pos.GetZ());
     child->x4_localXF = worldLocalXf * child->x34_worldXF;
   }
 
@@ -132,7 +130,19 @@ CGuiObject* CGuiObject::NextSibling() { return x6c_nextSibling; }
 
 CGuiObject* CGuiObject::Parent() { return x64_parent; }
 
-void CGuiObject::RecalculateTransforms() {}
+void CGuiObject::RecalculateTransforms() {
+  if (x64_parent) {
+    x34_worldXF = x64_parent->x34_worldXF * x4_localXF;
+  } else {
+    x34_worldXF = x4_localXF;
+  }
+  if (x6c_nextSibling) {
+    x6c_nextSibling->RecalculateTransforms();
+  }
+  if (x68_child) {
+    x68_child->RecalculateTransforms();
+  }
+}
 
 void CGuiObject::SetLocalTransform(const CTransform4f& xf) {
   x4_localXF = xf;

@@ -1235,7 +1235,7 @@ config.libs = [
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "GuiSys/CGuiHeadWidget.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "GuiSys/CGuiLight.cpp"),
             Object(NonMatching, "GuiSys/CGuiModel.cpp"),
-            Object(NonMatching, "GuiSys/CGuiObject.cpp"),
+            Object(NonMatching, "GuiSys/CGuiObject.cpp", cflags=[*cflags_retro, "-inline auto"]),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "GuiSys/CGuiPane.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "GuiSys/CGuiSliderGroup.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "GuiSys/CGuiSys.cpp"),
