@@ -14,7 +14,7 @@ public:
     kT_ZeroDecreasing,
     kT_Infinity,
   };
-  float GetSeconds() const { return x0_time; }
+  const float GetSeconds() const { return x0_time; }
 
   explicit CCharAnimTime(CInputStream& in);
   explicit CCharAnimTime(float time = 0.f);

@@ -16,6 +16,12 @@ public:
   VGetFunctionMirrored(const float& value) const = 0;
 
   rstl::ownership_transfer< IVaryingAnimationTimeScale > Clone() const { return VClone(); }
+  CCharAnimTime TimeScaleIntegral(const CCharAnimTime& lower, const CCharAnimTime& upper) const {
+    return CCharAnimTime(VTimeScaleIntegral(lower.GetSeconds(), upper.GetSeconds()));
+  }
+  CCharAnimTime FindUpperLimit(const CCharAnimTime& lower, const CCharAnimTime& root) const {
+    return CCharAnimTime(VFindUpperLimit(lower.GetSeconds(), root.GetSeconds()));
+  }
 };
 CHECK_SIZEOF(IVaryingAnimationTimeScale, 0x4)
 

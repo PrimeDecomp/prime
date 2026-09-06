@@ -118,6 +118,12 @@ public:
   CCharAnimTime GetTimeRemaining() const { return VGetTimeRemaining(); }
   CSteadyStateAnimInfo GetSteadyStateAnimInfo() const { return VGetSteadyStateAnimInfo(); }
   void SetPhase(float phase) { VSetPhase(phase); }
+  SAdvancementResults AdvanceView(const CCharAnimTime& time) { return VAdvanceView(time); }
+  bool GetBoolPOIState(const char* name) const { return VGetBoolPOIState(name); }
+  s32 GetInt32POIState(const char* name) const { return VGetInt32POIState(name); }
+  CParticleData::EParentedMode GetParticlePOIState(const char* name) const {
+    return VGetParticlePOIState(name);
+  }
 };
 
 #endif // _IANIMREADER

@@ -15,7 +15,7 @@ public:
 
   CCharAnimTime GetDuration() const { return x0_duration; }
   const CVector3f& GetOffset() const { return x8_offset; }
-  bool IsLooping() const { return x14_looping; }
+  const bool IsLooping() const { return x14_looping; }
 };
 CHECK_SIZEOF(CSteadyStateAnimInfo, 0x18)
 

@@ -7,7 +7,7 @@
 
 class CAnimTreeTimeScale : public CAnimTreeSingleChild {
 public:
-  ~CAnimTreeTimeScale() override;
+  ~CAnimTreeTimeScale() override {}
   SAdvancementResults VAdvanceView(const CCharAnimTime& time) override;
   CCharAnimTime VGetTimeRemaining() const override;
   CSteadyStateAnimInfo VGetSteadyStateAnimInfo() const override;
@@ -44,6 +44,16 @@ public:
   CCharAnimTime GetRealLifeTime(const CCharAnimTime& time) const;
 
 private:
+  CAnimTreeTimeScale(const rstl::ncrc_ptr< CAnimTreeNode >& node,
+                     const rstl::ownership_transfer< IVaryingAnimationTimeScale >& timeScale,
+                     const CCharAnimTime& curTime, const CCharAnimTime& targetTime,
+                     const CCharAnimTime& initialTime, const rstl::string& name)
+  : CAnimTreeSingleChild(node, name)
+  , x18_timeScale(timeScale)
+  , x20_curAccelTime(curTime)
+  , x28_targetAccelTime(targetTime)
+  , x30_initialTime(initialTime) {}
+
   rstl::object_owner< IVaryingAnimationTimeScale > x18_timeScale;
   CCharAnimTime x20_curAccelTime;
   CCharAnimTime x28_targetAccelTime;
