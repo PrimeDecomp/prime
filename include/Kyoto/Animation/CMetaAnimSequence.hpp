@@ -6,19 +6,21 @@
 #include "rstl/vector.hpp"
 
 class CMetaAnimSequence : public IMetaAnim {
-  rstl::vector< rstl::rc_ptr< IMetaAnim > > x4_sequence;
-  static rstl::vector< rstl::rc_ptr< IMetaAnim > > CreateSequence(CInputStream& in);
-
 public:
-  explicit CMetaAnimSequence(CInputStream& in);
+  ~CMetaAnimSequence() override {}
   EMetaAnimType GetType() const override { return kMAT_Sequence; }
-
   void GetUniquePrimitives(rstl::set< CPrimitive >& primsOut) const override;
   rstl::ncrc_ptr< CAnimTreeNode >
   VGetAnimationTree(const CAnimSysContext& animSys,
                     const CMetaAnimTreeBuildOrders& orders) const override;
+  void WriteAnimData(COutputStream& out) const override;
 
-  void WriteAnimData(COutputStream&) const;
+  explicit CMetaAnimSequence(CInputStream& in);
+
+private:
+  static rstl::vector< rstl::rc_ptr< IMetaAnim > > CreateSequence(CInputStream& in);
+  rstl::vector< rstl::rc_ptr< IMetaAnim > > x4_sequence;
 };
+CHECK_SIZEOF(CMetaAnimSequence, 0x14)
 
 #endif // _CMETAANIMSEQUENCE

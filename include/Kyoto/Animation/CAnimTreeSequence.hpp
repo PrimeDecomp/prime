@@ -39,7 +39,7 @@ public:
   rstl::rc_ptr< CAnimTreeNode > VGetBestUnblendedChild() const override;
 
   virtual bool VSupportsReverseView() const;
-  rstl::string VGetNodeType() const;
+  static rstl::string CreatePrimitiveName(const rstl::vector< rstl::string >& names);
 
 private:
   CAnimSysContext x18_animCtx;

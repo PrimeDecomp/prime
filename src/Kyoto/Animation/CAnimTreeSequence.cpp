@@ -170,4 +170,6 @@ CAnimTreeEffectiveContribution CAnimTreeSequence::VGetContributionOfHighestInflu
   return x14_child->GetContributionOfHighestInfluence();
 }
 
-rstl::string CAnimTreeSequence::VGetNodeType() const { return rstl::string_l(""); }
+rstl::string CAnimTreeSequence::CreatePrimitiveName(const rstl::vector< rstl::string >& names) {
+  return rstl::string_l("");
+}

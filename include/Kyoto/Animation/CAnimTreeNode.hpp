@@ -30,6 +30,8 @@ public:
     return VGetBestUnblendedChild();
   }
 
+  const rstl::string& GetPrimitiveName() const { return x4_name; }
+
   bool IsCAnimTreeNode() const override;
 
 protected:
