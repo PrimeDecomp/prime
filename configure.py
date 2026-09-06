@@ -1383,7 +1383,7 @@ config.libs = [
             ),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Animation/CAnimTreeTimeScale.cpp"),
             Object(NonMatching, "Kyoto/Animation/CAnimTreeTransition.cpp"),
-            Object(NonMatching, "Kyoto/Animation/CAnimTreeTweenBase.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Animation/CAnimTreeTweenBase.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "Kyoto/Animation/CBoolPOINode.cpp",

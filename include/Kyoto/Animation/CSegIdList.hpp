@@ -14,7 +14,7 @@ public:
 
   CSegIdList(CInputStream& in);
 
-  const CSegId& operator[](int idx) const { return mSegIds[idx]; }
+  CSegId operator[](int idx) const { return mSegIds[idx]; }
 
   size_type size() const { return mSegIds.size(); }
   size_type Size() const { return mSegIds.size(); }

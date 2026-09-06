@@ -5,6 +5,7 @@
 
 class CAnimMathUtils {
 public:
+  static const float kInterpolationThreshold;
   static CQuaternion Slerp(const CQuaternion& start, const CQuaternion& end, float t);
   static CQuaternion SlerpLocal(const CQuaternion& start, const CQuaternion& end, float t);
 };

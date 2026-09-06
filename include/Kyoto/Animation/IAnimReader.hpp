@@ -112,6 +112,12 @@ public:
     return VGetAdvancementResults(a, b);
   }
   CSteadyStateAnimInfo GetSteadyStateAnimInfo() const { return VGetSteadyStateAnimInfo(); }
+  void GetSegStatementSet(const CSegIdList& list, CSegStatementSet& setOut) const {
+    VGetSegStatementSet(list, setOut);
+  }
+  void GetSegStatementSet(const CSegIdList& list, CSegStatementSet& setOut, const CCharAnimTime& time) const {
+    VGetSegStatementSet(list, setOut, time);
+  }
   void SetPhase(float phase) { VSetPhase(phase); }
   CAdvancementResults AdvanceView(const CCharAnimTime& time) { return VAdvanceView(time); }
   bool GetBoolPOIState(const char* name) const { return VGetBoolPOIState(name); }

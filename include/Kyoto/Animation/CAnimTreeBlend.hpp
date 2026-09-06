@@ -16,7 +16,7 @@ public:
   CAnimTreeBlend(const bool characterSpaceBlend, const rstl::ncrc_ptr< CAnimTreeNode >& a,
                  const rstl::ncrc_ptr< CAnimTreeNode >& b, float blendWeight,
                  const rstl::string& name)
-  : CAnimTreeTweenBase(characterSpaceBlend, a, b, skBlendAdvancementDeltas | skBlendFlag2, name)
+  : CAnimTreeTweenBase(characterSpaceBlend, a, b, kBlendRoot_Offset | kBlendRoot_Rotation, name)
   , x24_blendWeight(blendWeight) {}
 
   static rstl::string CreatePrimitiveName(const rstl::ncrc_ptr< CAnimTreeNode >& a,

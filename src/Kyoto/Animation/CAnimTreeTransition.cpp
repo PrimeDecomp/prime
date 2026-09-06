@@ -73,7 +73,7 @@ CAnimTreeTransition::AdvanceViewForTransitionalPeriod(const CCharAnimTime& time)
   }
   const CAdvancementDeltas& leftDeltas = res.GetLeftAdvancementDeltas();
   const CAdvancementDeltas& rightDeltas = res.GetRightAdvancementDeltas();
-  if (GetBlendRoot() & skBlendAdvancementDeltas)
+  if (GetBlendRoot() & kBlendRoot_Offset)
     return rstl::pair< CCharAnimTime, CAdvancementDeltas >(
         res.GetTrueAdvancement(),
         CAdvancementDeltas::Interpolate(leftDeltas, rightDeltas, oldWeight, newWeight));
@@ -151,6 +151,6 @@ rstl::rc_ptr< CAnimTreeNode > CAnimTreeTransition::VGetBestUnblendedChild() cons
   return child;
 }
 
-const int CAnimTreeTweenBase::skBlendAdvancementDeltas = 1;
+const int CAnimTreeTweenBase::kBlendRoot_Offset = 1;
 
-const int CAnimTreeTweenBase::skBlendFlag2 = 2;
+const int CAnimTreeTweenBase::kBlendRoot_Rotation = 2;

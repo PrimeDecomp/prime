@@ -49,6 +49,9 @@ public:
       float w, rstl::reserved_vector< rstl::pair< float, IAnimReader* >, 16 >& out) const override;
 
   virtual float VGetRightChildWeight() const = 0;
+  void ReplaceLeftChild(const rstl::ncrc_ptr< CAnimTreeNode >& child) { x14_a = child; }
+  void ReplaceRightChild(const rstl::ncrc_ptr< CAnimTreeNode >& child) { x18_b = child; }
+
   float GetLeftChildWeight() const { return 1.f - VGetRightChildWeight(); }
   float GetRightChildWeight() const { return VGetRightChildWeight(); }
 

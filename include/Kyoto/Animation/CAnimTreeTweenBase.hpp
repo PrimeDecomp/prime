@@ -7,8 +7,8 @@ class CAnimTreeTweenBase : public CAnimTreeDoubleChild {
   static s32 sAdvancementDepth;
 
 public:
-  static const int skBlendAdvancementDeltas;
-  static const int skBlendFlag2;
+  static const int kBlendRoot_Offset;
+  static const int kBlendRoot_Rotation;
   CAnimTreeTweenBase(bool, const rstl::ncrc_ptr< CAnimTreeNode >& a,
                      const rstl::ncrc_ptr< CAnimTreeNode >& b, int, const rstl::string& name);
   ~CAnimTreeTweenBase() override;
@@ -41,7 +41,7 @@ public:
 protected:
   int x1c_flags;
   s32 x20_24_characterSpaceBlend : 1;
-  u32 x20_25_cullSelector : 2;
+  s32 x20_25_cullSelector : 2;
 };
 
 CHECK_SIZEOF(CAnimTreeTweenBase, 0x24)

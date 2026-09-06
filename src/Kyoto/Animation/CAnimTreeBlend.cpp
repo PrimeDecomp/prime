@@ -54,7 +54,7 @@ CAdvancementResults CAnimTreeBlend::VAdvanceView(const CCharAnimTime& time) {
       x20_25_cullSelector = 2;
   }
   CCharAnimTime remainder = rstl::max_val(resA.GetRemainder(), resB.GetRemainder());
-  if (GetBlendRoot() & skBlendAdvancementDeltas)
+  if (GetBlendRoot() & kBlendRoot_Offset)
     return CAdvancementResults(remainder,
                                CAdvancementDeltas::Blend(deltasA, deltasB, GetBlendingWeight()));
   return resB;
