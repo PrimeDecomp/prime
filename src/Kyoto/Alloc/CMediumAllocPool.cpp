@@ -6,6 +6,9 @@ CMediumAllocPool::CMediumAllocPool() : x18_lastNodePrev(x0_list.begin()) { gMedi
 
 void CMediumAllocPool::ClearPuddles() {
   x18_lastNodePrev = x0_list.end();
+  for (AUTO(it, x0_list.begin()); it != x0_list.end(); ++it) {
+    // The debug build checks each puddle here before releasing the pool.
+  }
   x0_list.clear();
   gMediumAllocPtr = nullptr;
 }

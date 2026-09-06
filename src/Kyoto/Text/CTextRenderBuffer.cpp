@@ -186,8 +186,8 @@ void CTextRenderBuffer::Render(const CColor& color, float time) const {
           image.GetImages()[static_cast< int >(time * image.GetFps()) % image.GetImages().size()];
       if (texture.IsLoaded()) {
         texture->Load(GX_TEXMAP0, CTexture::kCM_Clamp);
-        int width = image.GetMonoWidth();
-        int height = image.GetMonoHeight();
+        short width = image.GetMonoWidth();
+        short height = image.GetMonoHeight();
         float cropXHalf = image.GetScale().GetX() / 2.f;
         float cropYHalf = image.GetScale().GetY() / 2.f;
         CGX::SetTevKAlphaSel(GX_TEVSTAGE0, GX_TEV_KASEL_K0_A);
