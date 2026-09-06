@@ -3,7 +3,6 @@
 #include "Kyoto/Audio/CAudioSys.hpp"
 #include "Kyoto/Audio/CDSPStreamManager.hpp"
 #include "Kyoto/Basics/CCast.hpp"
-#include "MetroidPrime/Enemies/CPatterned.hpp"
 #include "rstl/StringExtras.hpp"
 
 rstl::string CStreamAudioManager::mDefaultAudioFile;
@@ -322,9 +321,7 @@ void CStreamAudioManager::SetSfxVolume(uint vol) {
   }
 }
 
-bool CStreamedAudioManager::AreStringsNotEqual(const char* lhs, const char* rhs) {
-  return CPatterned::CompareStateString(lhs, rhs, -1) != 0;
-}
+bool rstl::operator!=(const rstl::string& lhs, const char* rhs) { return lhs.compare(rhs) != 0; }
 
 void CStreamAudioManager::FadeBackIn(float fadeTime) {
   if (fadeTime == 0.f) {
@@ -335,8 +332,7 @@ void CStreamAudioManager::FadeBackIn(float fadeTime) {
     mVolumeIncrement = mTargetVolume / fadeTime;
   }
   mNewAudioFile = mDefaultAudioFile;
-  if (CStreamedAudioManager::AreStringsNotEqual(reinterpret_cast< const char* >(&mDefaultAudioFile),
-                                                "") &&
+  if (mDefaultAudioFile != "" &&
       mCurrentAudioFile != mDefaultAudioFile) {
     mCurrentState = 2;
   } else {

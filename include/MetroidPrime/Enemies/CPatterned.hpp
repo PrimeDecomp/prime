@@ -359,8 +359,6 @@ public:
   void UpdateThermalFrozenState(const bool thawed);
   void MakeThermalColdAndHot();
 
-  static bool AreStateStringsEqual(const char*, const char*);
-  static int CompareStateString(const char*, const char*, int);
   void UpdateDamageColor(float dt);
   void UpdateAlphaDelta(float dt, CStateManager& mgr);
 

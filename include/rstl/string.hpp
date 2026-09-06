@@ -10,7 +10,19 @@ class COutputStream;
 
 namespace rstl {
 template < typename _CharTp >
-struct char_traits {};
+struct char_traits {
+  static int compare(const _CharTp& lhs, const _CharTp& rhs) {
+    return static_cast< int >(lhs) - static_cast< int >(rhs);
+  }
+};
+
+template <>
+struct char_traits< char > {
+  static int compare(const char& lhs, const char& rhs) {
+    return static_cast< int >(static_cast< signed char >(lhs)) -
+           static_cast< int >(static_cast< signed char >(rhs));
+  }
+};
 
 template < typename _CharTp, typename Traits = char_traits< _CharTp >,
            typename Alloc = rmemory_allocator >
@@ -113,6 +125,7 @@ public:
   void append(int, _CharTp);
   void append(const _CharTp*, int);
 
+  int compare(const _CharTp* rhs, int count = -1) const;
   int _eq_helper(const basic_string& other) const;
   bool operator==(const basic_string& other) const;
   bool operator!=(const basic_string& other) const;
@@ -122,6 +135,32 @@ public:
   void PutTo(COutputStream& out) const;
   const _CharTp at(int idx) const { return data()[idx]; }
 };
+
+template < typename _CharTp, typename Traits, typename Alloc >
+int basic_string< _CharTp, Traits, Alloc >::compare(const _CharTp* rhs, int count) const {
+  int rhsCharCount = 0;
+  const _CharTp* rhsEnd = rhs;
+  while ((count == -1 || rhsCharCount < count) && *rhsEnd != '\0') {
+    ++rhsEnd;
+    ++rhsCharCount;
+  }
+  int lhsIndex = 0;
+  while (lhsIndex != static_cast< int >(size()) && rhs != rhsEnd) {
+    const int diff = Traits::compare(data()[lhsIndex], *rhs);
+    if (diff != 0) {
+      return diff;
+    }
+    ++lhsIndex;
+    ++rhs;
+  }
+  if (lhsIndex == static_cast< int >(size()) && rhs != rhsEnd) {
+    return -1;
+  } else if (lhsIndex == static_cast< int >(size())) {
+    return 0;
+  } else {
+    return 1;
+  }
+}
 
 template < typename _CharTp, typename Traits, typename Alloc >
 bool basic_string< _CharTp, Traits, Alloc >::operator==(const basic_string& other) const {
@@ -145,6 +184,10 @@ bool basic_string< _CharTp, Traits, Alloc >::operator<(const basic_string& other
 
 typedef basic_string< wchar_t > wstring;
 typedef basic_string< char > string;
+
+bool operator==(const string& lhs, const char* rhs);
+bool operator==(const char* lhs, const string& rhs);
+bool operator!=(const string& lhs, const char* rhs);
 
 #ifdef __MWERKS__
 __declspec(weak) // TODO

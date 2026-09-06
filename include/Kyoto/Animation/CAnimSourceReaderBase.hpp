@@ -4,6 +4,7 @@
 #include "Kyoto/Animation/IAnimReader.hpp"
 #include "rstl/object_owner.hpp"
 #include "rstl/pair.hpp"
+#include "rstl/set.hpp"
 #include "rstl/vector.hpp"
 
 class IAnimSourceInfo {
@@ -20,7 +21,7 @@ CHECK_SIZEOF(IAnimSourceInfo, 0x4)
 
 class CAnimSourceReaderBase : public IAnimReader {
 public:
-  ~CAnimSourceReaderBase() override;
+  ~CAnimSourceReaderBase() override {}
   uint VGetBoolPOIList(const CCharAnimTime& time, CBoolPOINode* listOut, uint capacity,
                        uint iterator, int unk) const override;
   uint VGetInt32POIList(const CCharAnimTime& time, CInt32POINode* listOut, uint capacity,
@@ -37,17 +38,22 @@ public:
   : x4_sourceInfo(sourceInfo), xc_curTime(0.f) {}
   void PostConstruct(const CCharAnimTime& time);
   void UpdatePOIStates();
+  const IAnimSourceInfo& AnimSource() const { return *x4_sourceInfo; }
   const CCharAnimTime& GetCurTime() const { return xc_curTime; }
 
 protected:
+  rstl::set< rstl::pair< rstl::string, int > > GetUniqueBoolPOIs() const;
+  rstl::set< rstl::pair< rstl::string, int > > GetUniqueInt32POIs() const;
+  rstl::set< rstl::pair< rstl::string, int > > GetUniqueParticlePOIs() const;
+
   rstl::object_owner< IAnimSourceInfo > x4_sourceInfo;
   CCharAnimTime xc_curTime;
-  uint x14_passedBoolCount;
-  uint x18_passedIntCount;
-  uint x1c_passedParticleCount;
-  uint x20_passedSoundCount;
+  int x14_passedBoolCount;
+  int x18_passedIntCount;
+  int x1c_passedParticleCount;
+  int x20_passedSoundCount;
   rstl::vector< rstl::pair< rstl::string, bool > > x24_boolStates;
-  rstl::vector< rstl::pair< rstl::string, s32 > > x34_int32States;
+  rstl::vector< rstl::pair< rstl::string, int > > x34_int32States;
   rstl::vector< rstl::pair< rstl::string, CParticleData::EParentedMode > > x44_particleStates;
 };
 CHECK_SIZEOF(CAnimSourceReaderBase, 0x54)

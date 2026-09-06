@@ -20,11 +20,6 @@ struct SDSPStreamCacheEntry {
                        float fadeOut, int handle, bool music);
 };
 
-class CStreamedAudioManager {
-public:
-  static bool AreStringsNotEqual(const char* lhs, const char* rhs);
-};
-
 class CStreamAudioManager {
 public:
   enum ESoftwareChannel {
