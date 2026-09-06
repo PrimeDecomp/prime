@@ -4,10 +4,21 @@
 #include "Kyoto/Animation/CAllFormatsAnimSource.hpp"
 #include "Kyoto/Animation/CAnimSourceReaderBase.hpp"
 
+class CMemoryInputToBitLevelLoader;
+template < typename T >
+class CBitLevelLoader;
+
 class CFBStreamedAnimReaderTotals {
 public:
   CFBStreamedAnimReaderTotals(const CFBStreamedCompression& source);
   ~CFBStreamedAnimReaderTotals();
+  void CalculateDown();
+  void IncrementInto(CBitLevelLoader< CMemoryInputToBitLevelLoader >& loader,
+                     const CFBStreamedCompression& source, CFBStreamedAnimReaderTotals& out);
+  const CVector3f& GetVector(uint index) const {
+    uint offset = index * 8 + 4;
+    return *reinterpret_cast< const CVector3f* >(x10_computedFloats + offset);
+  }
 
 private:
   uchar* x0_buffer;
@@ -59,8 +70,10 @@ private:
 CHECK_SIZEOF(CFBStreamedPairOfTotals, 0x88)
 
 class CMemoryInputToBitLevelLoader {
+  friend class CBitLevelLoader< CMemoryInputToBitLevelLoader >;
+
 public:
-  CMemoryInputToBitLevelLoader(const uint* data);
+  CMemoryInputToBitLevelLoader(const uint* data) : x0_data(data - 1) {}
 
 private:
   const uint* x0_data;
@@ -70,13 +83,21 @@ CHECK_SIZEOF(CMemoryInputToBitLevelLoader, 0x4)
 template < typename T >
 class CBitLevelLoader {
 public:
-  CBitLevelLoader(T& input);
+  CBitLevelLoader(T& input) : x0_input(&input), x4_word(Input(input)), x8_bit(0) {}
 
 private:
-  T& x0_input;
+  static uint Input(T& input);
+
+  T* x0_input;
   uint x4_word;
   uint x8_bit;
 };
+
+template <>
+inline uint
+CBitLevelLoader< CMemoryInputToBitLevelLoader >::Input(CMemoryInputToBitLevelLoader& input) {
+  return *++input.x0_data;
+}
 
 class CSegIdToIndexConverter {
 public:
