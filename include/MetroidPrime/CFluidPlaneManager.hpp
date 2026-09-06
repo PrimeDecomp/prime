@@ -60,7 +60,7 @@ public:
     short x2a_gridDimX;
     short x2c_gridDimY;
     short x2e_tileY;
-    const bool* x30_gridFlags;
+    const char* x30_gridFlags;
     uchar x34_redShift;
     uchar x35_greenShift;
     uchar x36_blueShift;
@@ -71,7 +71,7 @@ public:
                float rippleResolution, float tileSize, float wavecapIntensityScale,
                int numSubdivisionsInHField, int normalMode, int redShift, int greenShift,
                uchar blueShift, int tileX, int gridDimX, int gridDimY, int tileY,
-               const bool* gridFlags);
+               const char* gridFlags);
   };
 
   struct SRippleInfo {

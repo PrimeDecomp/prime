@@ -1112,7 +1112,7 @@ CFluidPlaneCPURender::SPatchInfo::SPatchInfo(const CVector3f& localMin, const CV
                                              int numSubdivisionsInHField, int normalMode,
                                              int redShift, int greenShift, uchar blueShift,
                                              int tileX, int gridDimX, int gridDimY, int tileY,
-                                             const bool* gridFlags) {
+                                             const char* gridFlags) {
   short maxSubsX;
   short xSubs =
       CCast::FtoS(1.f + (localMax.GetX() - localMin.GetX()) / rippleResolution - FLT_EPSILON) + 2;
@@ -1157,7 +1157,7 @@ void CFluidPlaneCPU::Render(const CStateManager& mgr, float alpha, const CAABox&
                             const CTransform4f& xf, const CTransform4f& areaXf, bool noNormals,
                             const CFrustumPlanes& frustum,
                             const rstl::optional_object< CRippleManager >& rippleManager,
-                            TUniqueId waterId, const bool* gridFlags, int gridDimX, int gridDimY,
+                            TUniqueId waterId, const char* gridFlags, int gridDimX, int gridDimY,
                             const CVector3f& areaCenter) const {
   if (!sRenderFog) {
     return;
