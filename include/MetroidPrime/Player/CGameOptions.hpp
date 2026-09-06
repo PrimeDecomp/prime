@@ -16,6 +16,12 @@ class CMemoryStreamOut;
 
 class CGameOptions {
 public:
+  static const bool skDefaultHudLag;
+  static const bool skDefaultInvertY;
+  static const bool skDefaultRumble;
+  static const bool skDefaultSwapBeamsControls;
+  static const bool skDefaultHintSystem;
+
   CGameOptions();
   CGameOptions(CInputStream& in);
   ~CGameOptions();
@@ -69,5 +75,7 @@ private:
   bool x68_28_hintSystem : 1;
   rstl::vector< rstl::pair< CAssetId, CAssetId > > x6c_controlTxtrMap;
 };
+
+CHECK_SIZEOF(CGameOptions, 0x7c)
 
 #endif // _CGAMEOPTIONS
