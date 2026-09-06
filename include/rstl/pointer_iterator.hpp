@@ -49,12 +49,12 @@ public:
   const T* get_pointer() const { return current; }
   const T& operator*() const { return *current; }
   const T* operator->() const { return current; }
-  bool operator==(const const_pointer_iterator& other) { return current == other.current; }
-  bool operator!=(const const_pointer_iterator& other) { return current != other.current; }
-  bool operator<(const const_pointer_iterator& other) { return current < other.current; }
-  bool operator>(const const_pointer_iterator& other) { return current > other.current; }
-  bool operator<=(const const_pointer_iterator& other) { return current <= other.current; }
-  bool operator>=(const const_pointer_iterator& other) { return current >= other.current; }
+  bool operator==(const const_pointer_iterator& other) const { return current == other.current; }
+  bool operator!=(const const_pointer_iterator& other) const { return current != other.current; }
+  bool operator<(const const_pointer_iterator& other) const { return current < other.current; }
+  bool operator>(const const_pointer_iterator& other) const { return current > other.current; }
+  bool operator<=(const const_pointer_iterator& other) const { return current <= other.current; }
+  bool operator>=(const const_pointer_iterator& other) const { return current >= other.current; }
 
 protected:
   T* current;
@@ -72,7 +72,8 @@ public:
   pointer_iterator() : base(nullptr) {}
   pointer_iterator(T* begin) : base(begin) {}
   pointer_iterator(Vec* owner, T* begin) : base(owner, begin) {}
-  T& operator*() { return *this->current; }
+  T* get_pointer() const { return this->current; }
+  T& operator*() const { return *get_pointer(); }
   // TODO map says const, but breaks CScriptMazeNode::GenerateObjects
   T* operator->() { return this->current; }
   pointer_iterator& operator++() {
@@ -93,12 +94,9 @@ public:
     this->current -= v;
     return *this;
   }
-  pointer_iterator operator+(int v) const {
-    return pointer_iterator(this->current) += v;
-  }
+  pointer_iterator operator+(int v) const { return pointer_iterator(this->current) += v; }
   pointer_iterator operator-(int v) const { return pointer_iterator(this->current - v); }
-  // HACK: non-const operator- is required to match vector::insert
-  difference_type operator-(const pointer_iterator& other) { return this->current - other.current; }
+  difference_type operator-(const base& other) const { return this->current - other.get_pointer(); }
 };
 
 template < typename T >
@@ -115,16 +113,6 @@ struct const_counting_iterator {
     return *this;
   }
 };
-
-template < typename It >
-typename It::difference_type __distance(It first, It last, random_access_iterator_tag) {
-  return last - first;
-}
-
-template < typename It, typename S >
-void __advance(It& it, S count, random_access_iterator_tag) {
-  it += count;
-}
 
 template < typename T >
 struct iterator_traits {};

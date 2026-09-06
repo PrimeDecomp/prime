@@ -3,6 +3,7 @@
 
 #include "Kyoto/Text/TextCommon.hpp"
 #include "rstl/list.hpp"
+#include "rstl/stack.hpp"
 #include "rstl/rc_ptr.hpp"
 
 #include "Kyoto/Text/CSaveableState.hpp"
@@ -13,23 +14,6 @@ class CBlockInstruction;
 class CLineInstruction;
 class CFontImageDef;
 
-namespace rstl {
-template < typename T, typename _Container = list< T > >
-class stack {
-public:
-  typename _Container::iterator top() { return container.begin(); }
-  typename _Container::const_iterator top() const { return container.begin(); }
-
-  void pop() { return container.pop_front(); }
-
-  void push(const T& item) { container.push_front(item); }
-
-  void clear() { container.clear(); }
-
-private:
-  _Container container;
-};
-} // namespace rstl
 class CTextExecuteBuffer {
   typedef rstl::list< rstl::ncrc_ptr< CInstruction > > InstList;
 

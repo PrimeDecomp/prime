@@ -268,7 +268,7 @@ typename list< T, Alloc >::node* list< T, Alloc >::do_erase(node* node) {
   }
   node->get_prev()->set_next(node->get_next());
   node->get_next()->set_prev(node->get_prev());
-  rstl::destroy(node->get_value());
+  node->get_value()->~T();
   x0_allocator.deallocate(node);
   x14_count--;
   return result;

@@ -39,4 +39,6 @@ public:
   EVerticalJustification x84_vjust;
 };
 
+CHECK_SIZEOF(CSaveableState, 0x88)
+
 #endif // _CSAVEABLESTATE

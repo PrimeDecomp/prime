@@ -6,11 +6,12 @@
 #include "Kyoto/Text/CRasterFont.hpp"
 #include "Kyoto/Text/CSaveableState.hpp"
 #include "Kyoto/Text/TextCommon.hpp"
+#include "rstl/stack.hpp"
 #include <rstl/vector.hpp>
 
 class CBlockInstruction;
 class CLineInstruction;
-class CFontRenderState {
+class CFontRenderState : public CSaveableState {
 public:
   CFontRenderState();
   void RefreshColor(EColorType col);
@@ -19,15 +20,8 @@ public:
   void PopState();
   void SetColor(EColorType type, const CTextColor& color);
   void RefreshPalette();
-  CDrawStringOptions& GetOptions() { return x0_state.GetOptions(); }
-  TToken< CRasterFont >& GetFont() { return *x0_state.GetFont(); }
-  void SetFont(const TToken< CRasterFont >& font) { x0_state.SetFont(font); }
-  rstl::vector< CTextColor >& GetColors() { return x0_state.GetColors(); }
-  rstl::vector< bool >& GetOverride() { return x0_state.GetOverride(); }
-  float GetLineSpacing() const { return x0_state.GetLineSpacing(); }
-  void SetLineSpacing(float spacing) { x0_state.SetLineSpacing(spacing); }
-  int GetLineExtraSpacing() const { return x0_state.GetLineExtraSpacing(); }
-  void SetExtraLineSpace(int spacing) { x0_state.SetLineExtraSpace(spacing); }
+  TToken< CRasterFont >& GetFont() { return *CSaveableState::GetFont(); }
+  void SetExtraLineSpace(int spacing) { SetLineExtraSpace(spacing); }
   const CBlockInstruction* GetBlock() const { return x88_curBlock; }
   void SetBlock(const CBlockInstruction* block) {
     x88_curBlock = const_cast< CBlockInstruction* >(block);
@@ -58,7 +52,6 @@ public:
   }
 
 private:
-  CSaveableState x0_state;
   CBlockInstruction* x88_curBlock;
   CDrawStringOptions x8c_drawOpts;
   int xd4_curX;
@@ -69,7 +62,9 @@ private:
   rstl::vector< uint > xe8_;
   rstl::vector< uchar > xf8_;
   bool x108_lineInitialized;
-  rstl::list< CSaveableState > x10c_pushedStates;
+  rstl::stack< CSaveableState > x10c_pushedStates;
 };
+
+CHECK_SIZEOF(CFontRenderState, 0x124)
 
 #endif // _CFONTRENDERSTATE

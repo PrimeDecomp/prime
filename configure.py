@@ -1448,7 +1448,7 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "Kyoto/Text/CPushStateInstruction.cpp",
             ),
-            Object(NonMatching, "Kyoto/Text/CRasterFont.cpp"),
+            Object(NonMatching, "Kyoto/Text/CRasterFont.cpp"),  # Iterator helper order differs.
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "Kyoto/Text/CRemoveColorOverrideInstruction.cpp",

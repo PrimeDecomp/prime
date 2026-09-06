@@ -21,6 +21,11 @@ typename It::difference_type __distance(It first, It last, forward_iterator_tag)
 }
 
 template < typename It >
+typename It::difference_type __distance(It first, It last, random_access_iterator_tag) {
+  return last - first;
+}
+
+template < typename It >
 typename It::difference_type distance(It first, It last) {
   return __distance(first, last, typename It::iterator_category());
 }
@@ -30,6 +35,11 @@ void __advance(It& it, S count, forward_iterator_tag) {
   while (count > 0) {
     ++it;
   }
+}
+
+template < typename It, typename S >
+void __advance(It& it, S count, random_access_iterator_tag) {
+  it += count;
 }
 
 template < typename It, typename S >
