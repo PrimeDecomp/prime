@@ -12,6 +12,8 @@
 #include "dolphin/gx/GXEnum.h"
 
 class CParticleSwoosh : public CParticleGen {
+  friend class CParticleElectric;
+
 public:
   struct SSwooshData {
     SSwooshData(const CVector3f& translation = CVector3f::Zero(),
