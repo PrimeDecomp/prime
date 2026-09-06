@@ -5,11 +5,14 @@
 #include "Kyoto/TFunctor.hpp"
 #include "rstl/reserved_vector.hpp"
 
+class CGuiFunctionDef;
+class CGuiControllerInfo;
+
 class CGuiSliderGroup : public CGuiCompoundWidget {
 public:
   enum EState { kS_None, kS_Decreasing, kS_Increasing };
 
-  ~CGuiSliderGroup();
+  ~CGuiSliderGroup() {}
   FourCC GetWidgetTypeID() const override { return 'SLGP'; }
   void Update(float dt) override;
   void ProcessUserInput(const CFinalInput& input) override;
@@ -19,9 +22,10 @@ public:
   CGuiSliderGroup(const CGuiWidgetParms& parms, float min, float max, float cur, float increment);
   static CGuiWidget* Create(CGuiFrame* frame, CInputStream& in, CSimplePool* sp);
 
-  void SetSelectionChangedCallback(const TFunctor2< CGuiSliderGroup* const, const float >& callback);
-  void StartDecreasing();
-  void StartIncreasing();
+  void SetSelectionChangedCallback(
+      const TFunctor2< CGuiSliderGroup* const, const float >& callback);
+  int MAF_Decrement(CGuiFunctionDef* func, CGuiControllerInfo* info);
+  int MAF_Increment(CGuiFunctionDef* func, CGuiControllerInfo* info);
   void SetIncrement(float increment);
   void SetMinVal(float min);
   void SetMaxVal(float max);
