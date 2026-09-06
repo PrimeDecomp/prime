@@ -15,6 +15,12 @@
 
 #include "dolphin/os.h"
 
+const bool CGameOptions::skDefaultHudLag = true;
+const bool CGameOptions::skDefaultInvertY = false;
+const bool CGameOptions::skDefaultRumble = true;
+const bool CGameOptions::skDefaultSwapBeamsControls = false;
+const bool CGameOptions::skDefaultHintSystem = true;
+
 int CalculateBits(int i) {
   int result = 0;
   for (uint j = i; j != 0; j = j >> 1) {
@@ -46,11 +52,11 @@ CGameOptions::CGameOptions()
 , x5c_musicVol(0x7f)
 , x60_hudAlpha(0xff)
 , x64_helmetAlpha(0xff)
-, x68_24_hudLag(true)
-, x68_25_invertY(false)
-, x68_26_rumble(true)
-, x68_27_swapBeamsControls(false)
-, x68_28_hintSystem(true) {
+, x68_24_hudLag(skDefaultHudLag)
+, x68_25_invertY(skDefaultInvertY)
+, x68_26_rumble(skDefaultRumble)
+, x68_27_swapBeamsControls(skDefaultSwapBeamsControls)
+, x68_28_hintSystem(skDefaultHintSystem) {
   InitSoundMode();
 }
 
@@ -65,11 +71,11 @@ CGameOptions::CGameOptions(CInputStream& in)
 , x5c_musicVol(0x7f)
 , x60_hudAlpha(0xff)
 , x64_helmetAlpha(0xff)
-, x68_24_hudLag(true)
-, x68_25_invertY(false)
-, x68_26_rumble(true)
-, x68_27_swapBeamsControls(false)
-, x68_28_hintSystem(true) {
+, x68_24_hudLag(skDefaultHudLag)
+, x68_25_invertY(skDefaultInvertY)
+, x68_26_rumble(skDefaultRumble)
+, x68_27_swapBeamsControls(skDefaultSwapBeamsControls)
+, x68_28_hintSystem(skDefaultHintSystem) {
 
   for (int i = 0; i < x0_.size(); ++i) {
     x0_[i] = in.ReadBits(8);
@@ -125,11 +131,11 @@ void CGameOptions::ResetToDefaults() {
   x44_soundMode = CAudioSys::kSM_Stereo;
   x60_hudAlpha = 0xff;
   x64_helmetAlpha = 0xff;
-  x68_24_hudLag = true;
-  x68_25_invertY = false;
-  x68_26_rumble = true;
-  x68_27_swapBeamsControls = false;
-  x68_28_hintSystem = true;
+  x68_24_hudLag = skDefaultHudLag;
+  x68_25_invertY = skDefaultInvertY;
+  x68_26_rumble = skDefaultRumble;
+  x68_27_swapBeamsControls = skDefaultSwapBeamsControls;
+  x68_28_hintSystem = skDefaultHintSystem;
   InitSoundMode();
   EnsureOptions();
 }

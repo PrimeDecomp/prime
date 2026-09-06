@@ -1031,7 +1031,7 @@ config.libs = [
             Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptMidi.cpp"),
             Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptStreamedMusic.cpp"),
             Object(NonMatching, "MetroidPrime/CRagDoll.cpp"),
-            Object(NonMatching, "MetroidPrime/Player/CGameOptions.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Player/CGameOptions.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/ScriptObjects/CRepulsor.cpp",
