@@ -1,5 +1,8 @@
 #include "Kyoto/Animation/CAllFormatsAnimSource.hpp"
 
+#include "Kyoto/Animation/CAnimSourceReader.hpp"
+#include "Kyoto/Animation/CFBStreamedAnimReader.hpp"
+
 #include "Kyoto/CVParamTransfer.hpp"
 #include "Kyoto/IObjectStore.hpp"
 #include "Kyoto/Streams/CInputStream.hpp"
@@ -38,7 +41,7 @@ void CAnimFormatUnion::SubConstruct(uchar* ptr, const uint format, CInputStream&
 
 CAllFormatsAnimSource::CAllFormatsAnimSource(CInputStream& in, IObjectStore& store,
                                              const SObjectTag& tag)
-: mFormatUnion(in, store), x68_(0.f), x6c_(0.f), x70_(0.f), mTag(tag) {}
+: mFormatUnion(in, store), x68_(0.f, 0.f, 0.f), mTag(tag) {}
 
 CFactoryFnReturn AnimSourceFactory(const SObjectTag& tag, CInputStream& in,
                                    const CVParamTransfer& param) {
@@ -47,3 +50,18 @@ CFactoryFnReturn AnimSourceFactory(const SObjectTag& tag, CInputStream& in,
 
   return rs_new CAllFormatsAnimSource(in, *pool, tag);
 }
+
+rstl::ownership_transfer< IAnimReader >
+CAllFormatsAnimSource::GetNewReader(const TLockedToken< CAllFormatsAnimSource >& tok,
+                                    const CCharAnimTime& time) {
+  switch (tok->GetType()) {
+  case 0:
+    return rs_new CAnimSourceReader(tok, time);
+  case 2:
+    return rs_new CFBStreamedAnimReader(tok, time);
+  default:
+    return rs_new CFBStreamedAnimReader(tok, time);
+  }
+}
+
+CAllFormatsAnimSource::~CAllFormatsAnimSource() {}

@@ -92,7 +92,6 @@ public:
   virtual void VSetPhase(float) = 0;
   virtual CAdvancementResults VGetAdvancementResults(const CCharAnimTime& aTime,
                                                      const CCharAnimTime& bTime) const;
-  virtual uint Depth() const = 0;
 
   uint GetBoolPOIList(const CCharAnimTime& time, CBoolPOINode* listOut, uint capacity,
                       uint iterator, int unk) const;
