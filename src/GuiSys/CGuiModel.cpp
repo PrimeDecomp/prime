@@ -18,9 +18,11 @@ CGuiModel* CGuiModel::Create(CGuiFrame* frame, CInputStream& in, CSimplePool* sp
   return ret;
 }
 
-CGuiModel::CGuiModel(const CGuiWidgetParms& parms, CSimplePool* sp, CAssetId modelId,
-                     uint lightMask, bool flag)
-: CGuiWidget(parms), xc8_modelId(modelId), xcc_lightMask(lightMask) {
+CGuiModel::CGuiModel(const CGuiWidgetParms& parms, CSimplePool* sp, CAssetId modelId, uint lightMask,
+                     bool flag)
+: CGuiWidget(parms)
+, xc8_modelId(modelId)
+, xcc_lightMask(lightMask) {
   const CGuiSys* gs = CGuiSys::GetGlobalGuiSys();
   if (flag && xc8_modelId != kInvalidAssetId && gs->GetUsageMode() != CGuiSys::kUM_Two) {
     xb8_model = sp->GetObj(SObjectTag('CMDL', modelId));
@@ -32,8 +34,17 @@ CGuiModel::~CGuiModel() {}
 
 void CGuiModel::Draw(const CGuiWidgetDrawParms& parms) const {
   CGraphics::SetModelMatrix(GetWorldTransform());
-  if (xb8_model && GetIsFinishedLoading() && xb8_model->GetObject() && GetIsVisible()) {
-    CModel* model = xb8_model->GetObject();
+  if (!xb8_model) {
+    return;
+  }
+  if (!GetIsFinishedLoading()) {
+    return;
+  }
+  CModel* const model = xb8_model->GetObject();
+  if (!model) {
+    return;
+  }
+  if (GetIsVisible()) {
     CColor col = GetModifiedColor().WithAlphaModulatedBy(parms.GetAlpha());
     GetParentFrame()->EnableLights(xcc_lightMask);
 
@@ -49,16 +60,28 @@ void CGuiModel::Draw(const CGuiWidgetDrawParms& parms) const {
       flags = CModelFlags::Normal();
       break;
     case kGMDF_Opaque:
-      flags = CModelFlags::Normal();
+      flags = CModelFlags::ColorModulate(col);
       break;
     case kGMDF_Alpha:
-      flags = CModelFlags::AlphaBlended(col);
+      flags = CModelFlags::AlphaBlended(col).DepthCompareUpdate(GetIsAlwaysDepthRead(),
+                                                              GetIsAlwaysDepthWrite());
       break;
     case kGMDF_Additive:
-      flags = CModelFlags::Additive(col);
+      flags = CModelFlags::Additive(col).DepthCompareUpdate(GetIsAlwaysDepthRead(),
+                                                          GetIsAlwaysDepthWrite());
       break;
     case kGMDF_AlphaAdditiveOverdraw:
-      
+      flags = CModelFlags::AlphaBlended(col).DepthCompareUpdate(GetIsAlwaysDepthRead(), false);
+      if (GetIsDepthBackwards()) {
+        flags = flags.DepthBackwards();
+      }
+      model->Draw(flags);
+      flags = CModelFlags::AdditiveRGB(col).DepthCompareUpdate(GetIsAlwaysDepthRead(),
+             GetIsAlwaysDepthWrite());
+      if (GetIsDepthBackwards()) {
+        flags = flags.DepthBackwards();
+      }
+      model->Draw(flags);
       doDraw = false;
       break;
     default:
@@ -67,6 +90,9 @@ void CGuiModel::Draw(const CGuiWidgetDrawParms& parms) const {
     }
 
     if (doDraw) {
+      if (GetIsDepthBackwards()) {
+        flags = flags.DepthBackwards();
+      }
       model->Draw(flags);
     }
 

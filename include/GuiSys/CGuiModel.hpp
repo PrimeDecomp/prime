@@ -23,7 +23,7 @@ public:
 
   static CGuiModel* Create(CGuiFrame* frame, CInputStream& in, CSimplePool* sp);
 
-  rstl::vector< CAssetId > GetModelAssets() const;
+  virtual rstl::vector< CAssetId > GetModelAssets() const;
   FourCC GetWidgetTypeID() const;
 
 private:
@@ -31,5 +31,6 @@ private:
   CAssetId xc8_modelId;
   uint xcc_lightMask;
 };
+CHECK_SIZEOF(CGuiModel, 0xd0)
 
 #endif // _CGUIMODEL
