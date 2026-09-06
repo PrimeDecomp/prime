@@ -5,6 +5,8 @@
 #include <dolphin/os/OSCache.h>
 
 namespace {
+const int kSegmentCount = 100;
+const int kSegmentSetSize = kSegmentCount * sizeof(CSegStatement);
 int sFreeSegments = 31;
 inline void* AllocateSegment() {
   LCQueueWait(0);
@@ -13,19 +15,19 @@ inline void* AllocateSegment() {
       if ((sFreeSegments & (1 << i)) != 0) {
         sFreeSegments ^= (1 << i);
         char* base = static_cast< char* >(LCGetBase());
-        base = (i * 0xc80) + base;
+        base = (i * kSegmentSetSize) + base;
         return base;
       }
     }
   }
 
-  return CMemory::Alloc(0xc80);
+  return CMemory::Alloc(kSegmentSetSize);
 }
 inline void FreeSegment(CSegStatement* seg) {
   char* base = static_cast< char* >(LCGetBase());
   char* ptr = reinterpret_cast< char* >(seg);
-  if (ptr >= base && ptr < base + 5 * 0xc80) {
-    int index = (ptr - base) / 0xc80;
+  if (ptr >= base && ptr < base + 5 * kSegmentSetSize) {
+    int index = (ptr - base) / kSegmentSetSize;
     sFreeSegments |= 1 << index;
   } else {
     CMemory::Free(seg);
@@ -34,7 +36,7 @@ inline void FreeSegment(CSegStatement* seg) {
 } // namespace
 
 CSegStatementSet::CSegStatementSet(void* ptr) : mSegData(static_cast< CSegStatement* >(ptr)) {
-  for (int i = 0; i < 100; ++i) {
+  for (int i = 0; i < kSegmentCount; ++i) {
     new (&mSegData[i]) CSegStatement;
   }
 }
