@@ -63,7 +63,7 @@ void __insertion_sort(It first, It last, Cmp cmp) {
 
 template < typename It, class Cmp >
 void sort(It first, It last, Cmp cmp) {
-  const int count = last - first;
+  const typename iterator_traits< It >::difference_type count = last - first;
   if (count <= 1) {
     return;
   }
