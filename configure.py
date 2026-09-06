@@ -1730,7 +1730,10 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
                 "Kyoto/Text/CFontImageDef.cpp",
             ),
-            Object(NonMatching, "Kyoto/Text/CImageInstruction.cpp"),
+            Object(
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                "Kyoto/Text/CImageInstruction.cpp",
+            ),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
                 "Kyoto/Text/CTextRenderBuffer.cpp",

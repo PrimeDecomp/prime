@@ -21,6 +21,7 @@ public:
   void TestLargestImage(const int width, const int height, const int baseline);
 
   int GetX() const { return mCurX; }
+  int GetWidth() const { return mCurX; }
   int GetY() const { return mCurY; }
 
   EJustification GetJustification() const { return mJustification; }

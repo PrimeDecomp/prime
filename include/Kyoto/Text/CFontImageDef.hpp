@@ -26,12 +26,16 @@ public:
     TToken< CTexture > tex = mTextures[0];
     return tex->GetHeight() * mCropFactor.GetY();
   }
-  // inline short GetWidth() { }
-  int GetHeight() {
+  int GetWidth() const {
+    TToken< CTexture > tex = mTextures[0];
+    return tex->GetWidth() * mCropFactor.GetX();
+  }
+  int GetHeight() const {
     TToken< CTexture > tex = mTextures[0];
     return tex.GetT()->GetHeight() * mCropFactor.GetY();
   }
-  int CalculateBaseline();
+  int CalculateBaseline() const;
+  int CalculateHeight() const;
 
 private:
   float mFPS;
