@@ -41,7 +41,7 @@ public:
   void VSetPhase(float) override;
   CAdvancementResults VGetAdvancementResults(const CCharAnimTime& a,
                                              const CCharAnimTime& b) const override;
-  uint Depth() const override;
+  uint Depth() const override { return rstl::max_val(x14_a->Depth(), x18_b->Depth()) + 1; }
   CAnimTreeEffectiveContribution VGetContributionOfHighestInfluence() const override;
   uint VGetNumChildren() const override;
   rstl::rc_ptr< CAnimTreeNode > VGetBestUnblendedChild() const override;

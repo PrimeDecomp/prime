@@ -152,3 +152,5 @@ rstl::rc_ptr< CAnimTreeNode > CAnimTreeTransition::VGetBestUnblendedChild() cons
 }
 
 const int CAnimTreeTweenBase::skBlendAdvancementDeltas = 1;
+
+const int CAnimTreeTweenBase::skBlendFlag2 = 2;

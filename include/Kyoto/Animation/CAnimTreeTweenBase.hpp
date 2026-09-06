@@ -8,6 +8,7 @@ class CAnimTreeTweenBase : public CAnimTreeDoubleChild {
 
 public:
   static const int skBlendAdvancementDeltas;
+  static const int skBlendFlag2;
   CAnimTreeTweenBase(bool, const rstl::ncrc_ptr< CAnimTreeNode >& a,
                      const rstl::ncrc_ptr< CAnimTreeNode >& b, int, const rstl::string& name);
   ~CAnimTreeTweenBase() override;
