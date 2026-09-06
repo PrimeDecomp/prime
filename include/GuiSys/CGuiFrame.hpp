@@ -16,6 +16,7 @@ public:
   void Update(float dt);
   void Draw(const CGuiWidgetDrawParms& parms) const;
   void ProcessUserInput(const CFinalInput& input);
+  CGuiWidget* FindWidget(const short id) const;
   CGuiWidget* FindWidget(const char* name) const;
   CGuiWidget* FindWidget(const rstl::string& name) const;
   bool GetIsFinishedLoading() const;
@@ -25,6 +26,7 @@ public:
   void AddLight(CGuiLight* light);
   void RemoveLight(CGuiLight* light);
   void SetHeadWidget(CGuiHeadWidget* widget);
+  void RemoveWidgetFromDrawList(CGuiWidget* widget);
 
   CGuiWidgetIdDB& WidgetIdDB() { return x18_db; }
 
@@ -37,7 +39,8 @@ private:
   uint x0_id;
   uint x4_;
   CGuiSys& x8_guiSys;
-  char x0_[0xC];
+  CGuiHeadWidget* xc_headWidget;
+  CGuiWidget* x10_rootWidget;
   CGuiCamera* x14_camera;
   CGuiWidgetIdDB x18_db;
 };
