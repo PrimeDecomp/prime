@@ -736,37 +736,8 @@ void CPatterned::UpdateDamageColor(float dt) {
   }
 }
 
-int CPatterned::CompareStateString(const char* lhs, const char* rhs, int count) {
-  int rhsCharCount = 0;
-  const char* rhsEnd = rhs;
-  while ((count == -1 || rhsCharCount < count) && *rhsEnd != '\0') {
-    ++rhsEnd;
-    ++rhsCharCount;
-  }
-
-  const rstl::string* lhsString = reinterpret_cast< const rstl::string* >(lhs);
-  int lhsIndex = 0;
-  while (lhsIndex != static_cast< int >(lhsString->size()) && rhs != rhsEnd) {
-    const int diff = static_cast< int >(static_cast< signed char >(lhsString->data()[lhsIndex])) -
-                     static_cast< int >(static_cast< signed char >(*rhs));
-    if (diff != 0) {
-      return diff;
-    }
-    ++lhsIndex;
-    ++rhs;
-  }
-
-  if (lhsIndex == static_cast< int >(lhsString->size()) && rhs != rhsEnd) {
-    return -1;
-  } else if (lhsIndex == static_cast< int >(lhsString->size())) {
-    return 0;
-  } else {
-    return 1;
-  }
-}
-
-bool CPatterned::AreStateStringsEqual(const char* lhs, const char* rhs) {
-  return CompareStateString(rhs, lhs, -1) == 0;
+bool rstl::operator==(const char* lhs, const rstl::string& rhs) {
+  return rhs.compare(lhs, -1) == 0;
 }
 
 void CPatterned::Think(float dt, CStateManager& mgr) {
@@ -809,8 +780,7 @@ void CPatterned::Think(float dt, CStateManager& mgr) {
         bool isDead;
         {
           const rstl::string& dead = rstl::string_l("Dead");
-          isDead = AreStateStringsEqual(x330_stateMachineState.GetName(),
-                                        reinterpret_cast< const char* >(&dead));
+          isDead = x330_stateMachineState.GetName() == dead;
         }
         if (isDead && x330_stateMachineState.GetTime() > 15.f) {
           MassiveDeath(mgr);

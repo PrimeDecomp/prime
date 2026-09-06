@@ -13,7 +13,7 @@ public:
   CBoolPOINode(CInputStream& in);
   static CBoolPOINode CopyNodeMinusStartTime(const CBoolPOINode& node,
                                              const CCharAnimTime& startTime);
-  bool GetValue() const { return x38_val; }
+  const bool GetValue() const { return x38_val; }
 
 private:
   bool x38_val;

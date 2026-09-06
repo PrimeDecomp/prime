@@ -123,6 +123,16 @@ public:
 
   red_black_tree(const S& selector = S(), const Cmp& cmp = Cmp(), const Alloc& alloc = Alloc())
   : x0_selector(selector), x1_cmp(cmp), x2_allocator(alloc), x4_count(0) {}
+  red_black_tree(const red_black_tree& other)
+  : x0_selector(other.x0_selector)
+  , x1_cmp(other.x1_cmp)
+  , x2_allocator(other.x2_allocator)
+  , x4_count(other.x4_count) {
+    node* root = copy_from(other.x8_header.get_root());
+    x8_header.set_leftmost(leftmost(root));
+    x8_header.set_rightmost(rightmost(root));
+    x8_header.set_root(root);
+  }
   ~red_black_tree() { destroy(); }
 
   pair< iterator, bool > insert_into(node* n, const P& item);
@@ -241,6 +251,27 @@ private:
   int x4_count;
   header x8_header;
 
+  node* leftmost(node* n) {
+    node* ret;
+    if ((ret = n) != nullptr) {
+      while (node* next = ret->get_left()) {
+        ret = next;
+      }
+    }
+    return ret;
+  }
+
+  node* rightmost(node* n) {
+    if (n != nullptr) {
+      while (n->get_right() != nullptr) {
+        n = n->get_right();
+      }
+    }
+    return n;
+  }
+
+  node* copy_from(node* n);
+
   node* create_node(node* left, node* right, node* parent, node_color color, const P& value) {
     node* n;
     Alloc::allocate(n, 1);
@@ -328,6 +359,30 @@ void red_black_tree< T, P, U, S, Cmp, Alloc >::free_node_and_sub_nodes(node* n) 
     free_node_and_sub_nodes(right);
   }
   free_node(n);
+}
+
+template < typename T, typename P, int U, typename S, typename Cmp, typename Alloc >
+typename red_black_tree< T, P, U, S, Cmp, Alloc >::node*
+red_black_tree< T, P, U, S, Cmp, Alloc >::copy_from(node* n) {
+  if (n == nullptr) {
+    return nullptr;
+  }
+  node* left = nullptr;
+  node* right = nullptr;
+  if (n->get_left() != nullptr) {
+    left = copy_from(n->get_left());
+  }
+  if (n->get_right() != nullptr) {
+    right = copy_from(n->get_right());
+  }
+  node* ret = rs_new node(left, right, nullptr, n->mColor, *n->get_value());
+  if (left != nullptr) {
+    left->mParent = ret;
+  }
+  if (right != nullptr) {
+    right->mParent = ret;
+  }
+  return ret;
 }
 
 }; // namespace rstl

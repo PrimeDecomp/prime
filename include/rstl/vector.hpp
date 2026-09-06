@@ -55,7 +55,7 @@ public:
     x0_allocator.deallocate(data());
   }
 
-  void resize(int size, const T& in = T());
+  inline void resize(int size, const T& in = T());
   void assign(int size, const T& in = T());
   void reserve(int size);
   iterator insert(iterator it, const T& value);
