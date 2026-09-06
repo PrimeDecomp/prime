@@ -28,9 +28,7 @@ class CPreAdvanceIndicator {
   char xc_string[50];
 
 public:
-  explicit CPreAdvanceIndicator(const CCharAnimTime& time)
-  : x0_isTime(true)
-  , x4_time(time) {}
+  explicit CPreAdvanceIndicator(const CCharAnimTime& time) : x0_isTime(true), x4_time(time) {}
   explicit CPreAdvanceIndicator(const char* string);
   bool IsTime() const;
   const CCharAnimTime& GetTime() const;
@@ -51,7 +49,7 @@ public:
 
 class IMetaAnim {
 public:
-  virtual ~IMetaAnim() {}
+  virtual ~IMetaAnim() = 0;
 
   virtual rstl::ncrc_ptr< CAnimTreeNode >
   GetAnimationTree(const CAnimSysContext& animSys, const CMetaAnimTreeBuildOrders& orders) const;
@@ -67,5 +65,7 @@ public:
   static void AdvanceAnim(IAnimReader& anim, const CCharAnimTime& dt);
   static CCharAnimTime GetTime(const CPreAdvanceIndicator& ind, const IAnimReader& anim);
 };
+
+inline IMetaAnim::~IMetaAnim() {}
 
 #endif // _IMETAANIM
