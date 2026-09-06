@@ -108,6 +108,9 @@ public:
 
   rstl::ownership_transfer< IAnimReader > Clone() const { return VClone(); }
   CCharAnimTime GetTimeRemaining() const { return VGetTimeRemaining(); }
+  bool HasOffset(const CSegId& seg) const { return VHasOffset(seg); }
+  CVector3f GetOffset(const CSegId& seg) const { return VGetOffset(seg); }
+  CQuaternion GetRotation(const CSegId& seg) const { return VGetRotation(seg); }
   CAdvancementResults GetAdvancementResults(const CCharAnimTime& a, const CCharAnimTime& b) const {
     return VGetAdvancementResults(a, b);
   }

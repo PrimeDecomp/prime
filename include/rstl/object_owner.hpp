@@ -8,6 +8,9 @@ namespace rstl {
 template < typename T >
 class deep_clone_disabled {};
 
+template < typename T >
+class call_deep_clone {};
+
 template < typename T, typename Clone = deep_clone_disabled< T > >
 class object_owner {
   T* x0_ptr;
