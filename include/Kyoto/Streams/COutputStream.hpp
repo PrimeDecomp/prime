@@ -43,7 +43,7 @@ public:
   void WriteInt32(const int t) { Put(t); }
 
   void WriteShort(const short t) { Put(&t, sizeof(short)); }
-  void WriteLong(const int t) { Put(&t, sizeof(int)); }
+  void WriteLong(const uint t) { Put(&t, sizeof(uint)); }
 
   void WriteBool(const bool b) {
     const uchar c = b ? 1 : 0;
@@ -77,8 +77,8 @@ inline void coutput_stream_helper(const T& t, COutputStream& out) {
 
 template <>
 inline void coutput_stream_helper(const float& t, COutputStream& out) {
-  int i = *(int*)(&t);
-  out.Put(&i, sizeof(float));
+  const float value = t;
+  out.WriteLong(*reinterpret_cast< const uint* >(&value));
 }
 
 template <>
@@ -118,14 +118,18 @@ inline void coutput_stream_helper(const bool& t, COutputStream& out) {
 
 #include "rstl/reserved_vector.hpp"
 namespace rstl {
+template < typename Iter >
+inline void StreamObjects(COutputStream& out, const Iter& begin, const Iter& end, int) {
+  Iter iterEnd = end;
+  for (Iter iter = begin; iter != iterEnd; ++iter) {
+    out.Put(*iter);
+  }
+}
+
 template < typename T, int N >
 inline void reserved_vector< T, N >::PutTo(COutputStream& out) const {
   out.Put(size());
-  const_iterator iter = begin();
-  const_iterator iterEnd = end();
-  for (; iter != iterEnd; ++iter) {
-    out.Put(*iter);
-  }
+  StreamObjects(out, begin(), end(), size());
 }
 } // namespace rstl
 

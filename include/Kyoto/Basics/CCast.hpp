@@ -82,6 +82,7 @@ inline float LtoF(int in) { return static_cast< float >(in); }
 inline float ToReal32(int in) { return static_cast< float >(in); }
 inline float ToReal32(double in) { return static_cast< float >(in); }
 inline int ToInt32(float in) { return static_cast< int >(in); }
+inline int ToInt(float in) { return ToInt32(in); }
 inline int ToInt32(double in) { return static_cast< int >(in); }
 inline float QtoF(long long in) { return static_cast< float >(in); }
 inline unsigned short ToUint16(short in) { return static_cast< unsigned short >(in); }
