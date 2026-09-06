@@ -13,6 +13,10 @@ class CParticlePOINode;
 class CAnimPOIData {
 public:
   CAnimPOIData(CInputStream& in);
+  const rstl::vector< CBoolPOINode >& GetBoolPOIStream() const { return mBoolNodes; }
+  const rstl::vector< CInt32POINode >& GetInt32POIStream() const { return mInt32Nodes; }
+  const rstl::vector< CParticlePOINode >& GetParticlePOIStream() const { return mParticleNodes; }
+  const rstl::vector< CSoundPOINode >& GetSoundPOIStream() const { return mSoundNodes; }
 
 private:
   uint mVersion;

@@ -14,7 +14,7 @@ public:
   virtual const rstl::vector< CParticlePOINode >& GetParticlePOIStream() const = 0;
   virtual const rstl::vector< CSoundPOINode >& GetSoundPOIStream() const = 0;
   virtual CCharAnimTime GetAnimationDuration() const = 0;
-  virtual ~IAnimSourceInfo();
+  virtual ~IAnimSourceInfo() {}
 };
 CHECK_SIZEOF(IAnimSourceInfo, 0x4)
 
@@ -33,7 +33,8 @@ public:
   s32 VGetInt32POIState(const char* name) const override;
   CParticleData::EParentedMode VGetParticlePOIState(const char* name) const override;
 
-  CAnimSourceReaderBase(const rstl::ownership_transfer< IAnimSourceInfo >& sourceInfo);
+  CAnimSourceReaderBase(const rstl::ownership_transfer< IAnimSourceInfo >& sourceInfo)
+  : x4_sourceInfo(sourceInfo), xc_curTime(0.f) {}
   void PostConstruct(const CCharAnimTime& time);
   void UpdatePOIStates();
   const CCharAnimTime& GetCurTime() const { return xc_curTime; }

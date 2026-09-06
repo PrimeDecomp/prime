@@ -4,12 +4,15 @@
 #include "types.h"
 
 #include "Kyoto/Animation/CCharAnimTime.hpp"
+#include "Kyoto/Animation/CAnimPOIData.hpp"
+#include "Kyoto/Animation/CSteadyStateAnimInfo.hpp"
 #include "Kyoto/Animation/CSegId.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
 #include "Kyoto/Streams/CInputStream.hpp"
 #include "Kyoto/TToken.hpp"
 
 #include "rstl/auto_ptr.hpp"
+#include "rstl/pair.hpp"
 #include "rstl/single_ptr.hpp"
 
 class CAnimPOIData;
@@ -81,6 +84,24 @@ public:
   const TLoadedVal< ushort >& Width() const { return x0_width; }
   uint GetWidth() const { return *Width(); }
   static uint Height() { return Components; }
+  short GetInitialValue(uint component) const {
+    if (component == SignComponent) {
+      return 0;
+    }
+    uint index = component;
+    if (SignComponent < Components) {
+      --index;
+    }
+    return *reinterpret_cast< const short* >(reinterpret_cast< const uchar* >(this) +
+                                            sizeof(ushort) + index * 3);
+  }
+  uint GetBitCount(uint component) const {
+    uint index = component;
+    if (SignComponent < Components) {
+      --index;
+    }
+    return reinterpret_cast< const uchar* >(this)[sizeof(ushort) + index * 3 + 2];
+  }
   const uchar* AfterEnd() const {
     if (*Width() == 0) {
       return reinterpret_cast< const uchar* >(this) + sizeof(ushort);
@@ -216,6 +237,8 @@ CHECK_SIZEOF(CFBStreamedPerChannelHeaderList, 0x4)
 
 class CFBKeyFrameReductionPerChannel_HeaderForAll {
 public:
+  typedef rstl::pair< const uint*, uint > FrameIterator;
+
   template < typename Stream >
   CFBKeyFrameReductionPerChannel_HeaderForAll(Stream& in) : x0_bitCount(in.Get< uint >()) {
     uint words = Uint32sForBitCount(x0_bitCount);
@@ -226,6 +249,24 @@ public:
   }
   static uint LoadUint32(CInputStream& in) { return in.Get< uint >(); }
   static uint Uint32sForBitCount(uint bits) { return (bits % 32 == 0) ? bits / 32 : bits / 32 + 1; }
+  uint FrameAfter(uint frame) const {
+    uint word = frame / 32;
+    uint bit = frame - word * 32;
+    FrameIterator it(reinterpret_cast< const uint* >(this + 1) + word, 1u << bit);
+    do {
+      ++frame;
+      Advance(it);
+    } while (!FrameAt(it));
+    return frame;
+  }
+  static bool FrameAt(const FrameIterator& it) { return (*it.first & it.second) != 0; }
+  static void Advance(FrameIterator& it) {
+    it.second <<= 1;
+    if (it.second == 0) {
+      it.second = 1;
+      ++it.first;
+    }
+  }
   const void* AfterEnd() const {
     return reinterpret_cast< const uint* >(this + 1) + Uint32sForBitCount(x0_bitCount);
   }
@@ -248,6 +289,23 @@ public:
   ~CFBStreamedCompression();
 
   CCharAnimTime GetAnimationDuration() const;
+  bool HasPOIData() const { return !x8_evntToken.null(); }
+  const rstl::vector< CBoolPOINode >& GetBoolPOIStream() const {
+    return (*x8_evntToken)->GetBoolPOIStream();
+  }
+  const rstl::vector< CInt32POINode >& GetInt32POIStream() const {
+    return (*x8_evntToken)->GetInt32POIStream();
+  }
+  const rstl::vector< CParticlePOINode >& GetParticlePOIStream() const {
+    return (*x8_evntToken)->GetParticlePOIStream();
+  }
+  const rstl::vector< CSoundPOINode >& GetSoundPOIStream() const {
+    return (*x8_evntToken)->GetSoundPOIStream();
+  }
+  CSteadyStateAnimInfo GetSteadyStateAnimInfo() const {
+    return CSteadyStateAnimInfo(MainHeader().IsLooping(), GetAnimationDuration(), x14_rootOffset);
+  }
+  CCharAnimTime FinestSample() const { return MainHeader().GetStandardInterval(); }
   const CStandardMultiFormatHeader& MainHeader() const {
     return *reinterpret_cast< const CStandardMultiFormatHeader* >(xc_rotsAndOffs.get());
   }
