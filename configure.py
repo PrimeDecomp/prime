@@ -1730,8 +1730,14 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
                 "Kyoto/Text/CFontImageDef.cpp",
             ),
-            Object(NonMatching, "Kyoto/Text/CImageInstruction.cpp"),
-            Object(NonMatching, "Kyoto/Text/CTextRenderBuffer.cpp"),
+            Object(
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                "Kyoto/Text/CImageInstruction.cpp",
+            ),
+            Object(
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                "Kyoto/Text/CTextRenderBuffer.cpp",
+            ),
             Object(NonMatching, "Kyoto/Graphics/CCubeMoviePlayer.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Animation/CAdditiveAnimPlayback.cpp"),
             Object(NonMatching, "Kyoto/Particles/CParticleElectricDataFactory.cpp"),

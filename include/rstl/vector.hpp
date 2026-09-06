@@ -117,7 +117,7 @@ void vector< T, Alloc >::assign(int size, const T& in) {
 }
 
 template < typename T, typename Alloc >
-void vector< T, Alloc >::resize(int size, const T& in) {
+inline void vector< T, Alloc >::resize(int size, const T& in) {
   if (x4_count != size) {
     if (size > x4_count) {
       reserve(size);
