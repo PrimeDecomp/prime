@@ -132,7 +132,11 @@ public:
   template < typename InputIterator >
   void insert(const iterator& pos, InputIterator first, InputIterator last);
 
-  void destroy() { clear(); }
+  void destroy() {
+    iterator last = end();
+    iterator first = begin();
+    erase(first, last);
+  }
 
   void remove(const T& val);
 

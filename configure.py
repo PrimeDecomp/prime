@@ -1459,7 +1459,9 @@ config.libs = [
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Text/CSaveableState.cpp"
             ),
-            Object(NonMatching, "Kyoto/Text/CTextExecuteBuffer.cpp"),
+            Object(
+                MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Text/CTextExecuteBuffer.cpp"
+            ),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Text/CTextInstruction.cpp"
             ),
