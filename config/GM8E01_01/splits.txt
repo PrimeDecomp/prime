@@ -2402,13 +2402,25 @@ GuiSys/CGuiCompoundWidget.cpp:
 	.text       start:0x802C1A9C end:0x802C1C78
 	.data       start:0x803EC958 end:0x803EC998
 
-GuiSys/CGuiGroup.cpp:
-	.text       start:0x802C1C78 end:0x802C3664
+GuiSys/CGuiFactories.cpp:
+	.text       start:0x802C1C78 end:0x802C20D8
+	.rodata     start:0x803D6A68 end:0x803D6A70
+	.data       start:0x803EC998 end:0x803EC9A8
+
+GuiSys/CGuiFeeHelper.cpp:
+	.text       start:0x802C20D8 end:0x802C21F0
 	.ctors      start:0x803CB4C4 end:0x803CB4C8
-	.rodata     start:0x803D6A68 end:0x803D6A80
-	.data       start:0x803EC998 end:0x803EC9E8
 	.bss        start:0x8059FDB0 end:0x8059FEE8 align:4 common
 	.sbss       start:0x805A93D8 end:0x805A93E0
+
+GuiSys/CGuiFrame.cpp:
+	.text       start:0x802C21F0 end:0x802C345C
+	.rodata     start:0x803D6A70 end:0x803D6A78
+
+GuiSys/CGuiGroup.cpp:
+	.text       start:0x802C345C end:0x802C3664
+	.rodata     start:0x803D6A78 end:0x803D6A80
+	.data       start:0x803EC9A8 end:0x803EC9E8
 
 GuiSys/CGuiHeadWidget.cpp:
 	.text       start:0x802C3664 end:0x802C37EC

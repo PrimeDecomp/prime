@@ -90,8 +90,9 @@ public:
   static CGuiWidget* Create(CGuiFrame* frame, CInputStream& in, CSimplePool* sp);
   static const short InvalidWidgetId() { return gkInvalidWidgetId; }
 
-protected:
   static const short gkDummyWidgetID;
+
+protected:
   static const short gkInvalidWidgetId;
   short x70_selfId;
   short x72_parentId;
@@ -114,6 +115,6 @@ protected:
 };
 CHECK_SIZEOF(CGuiWidget, 0xb8)
 
-CGuiWidget* FGuiWidgetFactoryInGame(uint type, CGuiFrame* parent, CInputStream& in);
+CGuiWidget* FGuiWidgetFactoryInGame(uint type, CGuiFrame* parent, CInputStream& in, CSimplePool* sp);
 
 #endif // _CGUIWIDGET

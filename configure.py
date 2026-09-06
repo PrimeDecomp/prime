@@ -1228,6 +1228,9 @@ config.libs = [
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"), "GuiSys/CGuiCompoundWidget.cpp"
             ),
+            Object(NonMatching, "GuiSys/CGuiFactories.cpp"),
+            Object(NonMatching, "GuiSys/CGuiFeeHelper.cpp"),
+            Object(NonMatching, "GuiSys/CGuiFrame.cpp"),
             Object(NonMatching, "GuiSys/CGuiGroup.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "GuiSys/CGuiHeadWidget.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "GuiSys/CGuiLight.cpp"),
