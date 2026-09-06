@@ -6,15 +6,15 @@ class CAnimTreeDoubleChild : public CAnimTreeNode {
 public:
   class CDoubleChildAdvancementResult {
     CCharAnimTime x0_trueAdvancement;
-    SAdvancementDeltas x8_leftDeltas;
-    SAdvancementDeltas x24_rightDeltas;
+    CAdvancementDeltas x8_leftDeltas;
+    CAdvancementDeltas x24_rightDeltas;
 
   public:
     CDoubleChildAdvancementResult(const CCharAnimTime& trueAdvancement,
-                                  const SAdvancementDeltas& leftDeltas,
-                                  const SAdvancementDeltas& rightDeltas);
-    const SAdvancementDeltas& GetLeftAdvancementDeltas() const { return x8_leftDeltas; }
-    const SAdvancementDeltas& GetRightAdvancementDeltas() const { return x24_rightDeltas; }
+                                  const CAdvancementDeltas& leftDeltas,
+                                  const CAdvancementDeltas& rightDeltas);
+    const CAdvancementDeltas& GetLeftAdvancementDeltas() const { return x8_leftDeltas; }
+    const CAdvancementDeltas& GetRightAdvancementDeltas() const { return x24_rightDeltas; }
     const CCharAnimTime& GetTrueAdvancement() const { return x0_trueAdvancement; }
   };
 
@@ -26,7 +26,7 @@ public:
   CAnimTreeDoubleChild(const rstl::ncrc_ptr< CAnimTreeNode >& a,
                        const rstl::ncrc_ptr< CAnimTreeNode >& b, const rstl::string& name);
   ~CAnimTreeDoubleChild() override;
-  SAdvancementResults VAdvanceView(const CCharAnimTime& a) override;
+  CAdvancementResults VAdvanceView(const CCharAnimTime& a) override;
   uint VGetBoolPOIList(const CCharAnimTime& time, CBoolPOINode* listOut, uint capacity,
                        uint iterator, int unk) const override;
   uint VGetInt32POIList(const CCharAnimTime& time, CInt32POINode* listOut, uint capacity,
@@ -39,7 +39,7 @@ public:
   s32 VGetInt32POIState(const char* name) const override;
   CParticleData::EParentedMode VGetParticlePOIState(const char* name) const override;
   void VSetPhase(float) override;
-  SAdvancementResults VGetAdvancementResults(const CCharAnimTime& a,
+  CAdvancementResults VGetAdvancementResults(const CCharAnimTime& a,
                                              const CCharAnimTime& b) const override;
   uint Depth() const override;
   CAnimTreeEffectiveContribution VGetContributionOfHighestInfluence() const override;
@@ -58,5 +58,7 @@ protected:
   rstl::rc_ptr< CAnimTreeNode > x14_a;
   rstl::rc_ptr< CAnimTreeNode > x18_b;
 };
+
+CHECK_SIZEOF(CAnimTreeDoubleChild, 0x1c)
 
 #endif // _CANIMTREEDOUBLECHILD

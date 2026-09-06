@@ -7,6 +7,7 @@ class CAnimTreeTweenBase : public CAnimTreeDoubleChild {
   static s32 sAdvancementDepth;
 
 public:
+  static const int skBlendAdvancementDeltas;
   CAnimTreeTweenBase(bool, const rstl::ncrc_ptr< CAnimTreeNode >& a,
                      const rstl::ncrc_ptr< CAnimTreeNode >& b, int, const rstl::string& name);
   ~CAnimTreeTweenBase() override;
@@ -14,6 +15,8 @@ public:
   virtual void SetBlendingWeight(float w) = 0;
 
   float GetBlendingWeight() const;
+  bool CharacterSpaceBlend() const { return x20_24_characterSpaceBlend; }
+  int GetBlendRoot() const { return x1c_flags; }
 
   void VGetWeightedReaders(
       float w, rstl::reserved_vector< rstl::pair< float, IAnimReader* >, 16 >& out) const override;
@@ -30,14 +33,16 @@ public:
   virtual rstl::optional_object< rstl::ownership_transfer< IAnimReader > > VReverseSimplified();
   virtual float VGetBlendingWeight() const = 0;
 
-  static bool ShouldCullTree() { return 3 <= sAdvancementDepth; }
+  static bool ShouldCullTree();
   static void IncAdvancementDepth() { sAdvancementDepth++; }
   static void DecAdvancementDepth() { sAdvancementDepth--; }
 
 protected:
   int x1c_flags;
-  u32 x20_24_b1 : 1;
+  s32 x20_24_characterSpaceBlend : 1;
   u32 x20_25_cullSelector : 2;
 };
+
+CHECK_SIZEOF(CAnimTreeTweenBase, 0x24)
 
 #endif // _CANIMTREETWEENBASE

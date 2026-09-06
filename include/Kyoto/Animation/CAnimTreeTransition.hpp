@@ -6,7 +6,7 @@
 class CAnimTreeTransition : public CAnimTreeTweenBase {
 public:
   ~CAnimTreeTransition() override;
-  SAdvancementResults VAdvanceView(const CCharAnimTime& time) override;
+  CAdvancementResults VAdvanceView(const CCharAnimTime& time) override;
   CCharAnimTime VGetTimeRemaining() const override;
   CSteadyStateAnimInfo VGetSteadyStateAnimInfo() const override;
   rstl::ownership_transfer< IAnimReader > VClone() const override;
@@ -28,11 +28,12 @@ public:
                                           const rstl::ncrc_ptr< CAnimTreeNode >& b, float duration);
 
 private:
-  SAdvancementResults AdvanceViewForTransitionalPeriod(const CCharAnimTime& time);
+  rstl::pair< CCharAnimTime, CAdvancementDeltas >
+  AdvanceViewForTransitionalPeriod(const CCharAnimTime& time);
 
   CCharAnimTime x24_transDur;
   CCharAnimTime x2c_timeInTrans;
-  bool x34_runA;
+  const bool x34_runA;
   bool x35_loopA;
   bool x36_initialized;
 };

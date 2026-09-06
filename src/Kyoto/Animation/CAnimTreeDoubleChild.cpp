@@ -16,7 +16,7 @@ CAnimTreeDoubleChild::CAnimTreeDoubleChild(const rstl::ncrc_ptr< CAnimTreeNode >
   CCharAnimMemoryMetrics::AddToTotalSize(8, CCharAnimMemoryMetrics::kASS_Two);
 }
 
-SAdvancementResults CAnimTreeDoubleChild::VAdvanceView(const CCharAnimTime& dt) {}
+CAdvancementResults CAnimTreeDoubleChild::VAdvanceView(const CCharAnimTime& dt) {}
 
 CAnimTreeDoubleChild::~CAnimTreeDoubleChild() {
   CCharAnimMemoryMetrics::SubtractFromTotalSize(8, CCharAnimMemoryMetrics::kASS_Two);
@@ -83,8 +83,8 @@ uint CAnimTreeDoubleChild::VGetNumChildren() const {
 }
 
 CAnimTreeDoubleChild::CDoubleChildAdvancementResult::CDoubleChildAdvancementResult(
-    const CCharAnimTime& trueAdvancement, const SAdvancementDeltas& leftDeltas,
-    const SAdvancementDeltas& rightDeltas)
+    const CCharAnimTime& trueAdvancement, const CAdvancementDeltas& leftDeltas,
+    const CAdvancementDeltas& rightDeltas)
 : x0_trueAdvancement(trueAdvancement), x8_leftDeltas(leftDeltas), x24_rightDeltas(rightDeltas) {}
 
 CAnimTreeDoubleChild::CDoubleChildAdvancementResult
@@ -95,7 +95,7 @@ void CAnimTreeDoubleChild::VSetPhase(float phase) {
   x18_b->VSetPhase(phase);
 }
 
-SAdvancementResults CAnimTreeDoubleChild::VGetAdvancementResults(const CCharAnimTime& a,
+CAdvancementResults CAnimTreeDoubleChild::VGetAdvancementResults(const CCharAnimTime& a,
                                                                  const CCharAnimTime& b) const {}
 
 rstl::rc_ptr< CAnimTreeNode > CAnimTreeDoubleChild::VGetBestUnblendedChild() const {}

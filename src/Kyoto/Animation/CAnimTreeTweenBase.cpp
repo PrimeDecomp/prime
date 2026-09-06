@@ -7,10 +7,12 @@
 #include "rstl/auto_ptr.hpp"
 #include "rstl/optional_object.hpp"
 
+s32 CAnimTreeTweenBase::sAdvancementDepth = 0;
+
 CAnimTreeTweenBase::CAnimTreeTweenBase(bool b1, const rstl::ncrc_ptr< CAnimTreeNode >& a,
                                        const rstl::ncrc_ptr< CAnimTreeNode >& b, int flags,
                                        const rstl::string& name)
-: CAnimTreeDoubleChild(a, b, name), x1c_flags(flags), x20_24_b1(b1), x20_25_cullSelector(0) {
+: CAnimTreeDoubleChild(a, b, name), x1c_flags(flags), x20_24_characterSpaceBlend(b1), x20_25_cullSelector(0) {
   CCharAnimMemoryMetrics::AddToTotalSize(8, CCharAnimMemoryMetrics::kASS_Two);
 }
 
@@ -52,6 +54,8 @@ void CAnimTreeTweenBase::VGetSegStatementSet(const CSegIdList& list, CSegStateme
 float CAnimTreeTweenBase::VGetRightChildWeight() const { return GetBlendingWeight(); }
 
 float CAnimTreeTweenBase::GetBlendingWeight() const { return VGetBlendingWeight(); }
+
+bool CAnimTreeTweenBase::ShouldCullTree() { return 3 <= sAdvancementDepth; }
 
 rstl::optional_object< rstl::ownership_transfer< IAnimReader > > CAnimTreeTweenBase::VSimplified() {}
 

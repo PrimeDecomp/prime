@@ -51,9 +51,9 @@ CAnimTreeLoopIn::CAnimTreeLoopIn(const rstl::ncrc_ptr< CAnimTreeNode >& a,
 , x30_fundamentals(fundamentals)
 , x88_curTime(time) {}
 
-SAdvancementResults CAnimTreeLoopIn::VAdvanceView(const CCharAnimTime& dt) {
+CAdvancementResults CAnimTreeLoopIn::VAdvanceView(const CCharAnimTime& dt) {
   rstl::ncrc_ptr< CAnimTreeNode > origChild = x14_child;
-  SAdvancementResults res = origChild->AdvanceView(dt);
+  CAdvancementResults res = origChild->AdvanceView(dt);
   CCharAnimTime remainder = res.GetRemainder();
   x88_curTime += dt - remainder;
   CCharAnimTime remTime = origChild->GetTimeRemaining();

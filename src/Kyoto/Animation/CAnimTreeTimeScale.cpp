@@ -5,7 +5,7 @@
 #include "Kyoto/Animation/CParticlePOINode.hpp"
 #include "Kyoto/Animation/CSoundPOINode.hpp"
 
-SAdvancementResults CAnimTreeTimeScale::VAdvanceView(const CCharAnimTime& dt) {
+CAdvancementResults CAnimTreeTimeScale::VAdvanceView(const CCharAnimTime& dt) {
   if (dt.EqualsZero() && dt > CCharAnimTime::ZeroFlat())
     return x14_child->AdvanceView(dt);
 
@@ -13,24 +13,24 @@ SAdvancementResults CAnimTreeTimeScale::VAdvanceView(const CCharAnimTime& dt) {
   CCharAnimTime newTime = x20_curAccelTime + dt;
   if (newTime < x28_targetAccelTime) {
     CCharAnimTime integral = x18_timeScale->TimeScaleIntegral(origAccelTime, newTime);
-    SAdvancementResults res = x14_child->AdvanceView(integral);
+    CAdvancementResults res = x14_child->AdvanceView(integral);
     if (res.x0_remTime.EqualsZero()) {
       x20_curAccelTime = newTime;
-      return SAdvancementResults(CCharAnimTime::ZeroFlat(), res.x8_deltas);
+      return CAdvancementResults(CCharAnimTime::ZeroFlat(), res.x8_deltas);
     } else {
       x20_curAccelTime = x18_timeScale->FindUpperLimit(origAccelTime, integral - res.x0_remTime);
       CCharAnimTime elapsed = x20_curAccelTime - origAccelTime;
       CCharAnimTime remaining = dt - elapsed;
-      return SAdvancementResults(remaining, res.x8_deltas);
+      return CAdvancementResults(remaining, res.x8_deltas);
     }
   } else {
     CCharAnimTime newDt = x18_timeScale->TimeScaleIntegral(origAccelTime, x28_targetAccelTime);
-    SAdvancementResults res(CCharAnimTime(0.f), SAdvancementDeltas());
+    CAdvancementResults res(CCharAnimTime(0.f), CAdvancementDeltas());
     if (newDt.GreaterThanZero())
       res = x14_child->AdvanceView(newDt);
     CCharAnimTime remTime = res.x0_remTime + (newTime - x28_targetAccelTime);
     x20_curAccelTime = x28_targetAccelTime;
-    return SAdvancementResults(remTime, res.x8_deltas);
+    return CAdvancementResults(remTime, res.x8_deltas);
   }
 }
 

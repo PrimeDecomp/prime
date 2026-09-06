@@ -39,8 +39,8 @@ class CModelFlags;
 class CPrimitive;
 class CFrustumPlanes;
 
-struct SAdvancementDeltas;
-struct SAdvancementResults;
+struct CAdvancementDeltas;
+struct CAdvancementResults;
 
 class CAnimData {
 public:
@@ -106,9 +106,9 @@ public:
   void SetXRayModel(const TLockedToken< CModel >&, const TLockedToken< CSkinRules >&);
   void SubstituteModelData(const TCachedToken< CSkinnedModel >&);
   void AdvanceAnim(CCharAnimTime&, CVector3f&, CQuaternion&);
-  SAdvancementDeltas Advance(float, const CVector3f&, CStateManager&, TAreaId, bool);
-  SAdvancementDeltas AdvanceIgnoreParticles(float, CRandom16&, bool);
-  SAdvancementDeltas DoAdvance(float, bool&, CRandom16&, bool);
+  CAdvancementDeltas Advance(float, const CVector3f&, CStateManager&, TAreaId, bool);
+  CAdvancementDeltas AdvanceIgnoreParticles(float, CRandom16&, bool);
+  CAdvancementDeltas DoAdvance(float, bool&, CRandom16&, bool);
   void SetAnimation(const CAnimPlaybackParms& parms, const bool noTrans);
   void GetAnimationPrimitives(const CAnimPlaybackParms& parms,
                               rstl::set< CPrimitive >& primsOut) const;
@@ -148,9 +148,9 @@ public:
   // AnimationTree__9CAnimDataFv
   // IsAdditiveAnimation__9CAnimDataCFUi
   bool IsAdditiveAnimationAdded(uint idx) const;
-  SAdvancementDeltas UpdateAdditiveAnims(float);
-  SAdvancementDeltas AdvanceAdditiveAnims(float);
-  static SAdvancementResults AdvanceAdditiveAnim(rstl::rc_ptr< CAnimTreeNode >&,
+  CAdvancementDeltas UpdateAdditiveAnims(float);
+  CAdvancementDeltas AdvanceAdditiveAnims(float);
+  static CAdvancementResults AdvanceAdditiveAnim(rstl::rc_ptr< CAnimTreeNode >&,
                                                  const CCharAnimTime&);
   void AddAdditiveSegData(const CSegIdList&, CSegStatementSet&) const;
   int GetEventResourceIdForAnimResourceId(int id) const;

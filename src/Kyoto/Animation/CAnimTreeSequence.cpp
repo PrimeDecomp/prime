@@ -58,7 +58,7 @@ CAnimTreeSequence::CAnimTreeSequence(const rstl::ncrc_ptr< CAnimTreeNode >& curN
   x14_child->VGetTimeRemaining();
 }
 
-SAdvancementResults CAnimTreeSequence::VAdvanceView(const CCharAnimTime& dt) {
+CAdvancementResults CAnimTreeSequence::VAdvanceView(const CCharAnimTime& dt) {
   CCharAnimTime totalDelta(0.f);
   CVector3f posDelta(0.f, 0.f, 0.f);
   CQuaternion rotDelta = CQuaternion::NoRotation();
@@ -95,7 +95,7 @@ SAdvancementResults CAnimTreeSequence::VAdvanceView(const CCharAnimTime& dt) {
     }
     curChild = x14_child;
     if (x38_curIdx < seqSize) {
-      SAdvancementResults res = curChild->VAdvanceView(remTime);
+      CAdvancementResults res = curChild->VAdvanceView(remTime);
       rstl::optional_object< rstl::ownership_transfer< IAnimReader > > simp =
           curChild->Simplified();
       if (simp) {
@@ -106,14 +106,14 @@ SAdvancementResults CAnimTreeSequence::VAdvanceView(const CCharAnimTime& dt) {
       CCharAnimTime prevRemTime = remTime;
       remTime = res.x0_remTime;
       totalDelta += prevRemTime - remTime;
-      const SAdvancementDeltas& deltas = res.x8_deltas;
+      const CAdvancementDeltas& deltas = res.x8_deltas;
       posDelta += deltas.x0_posDelta;
       rotDelta *= deltas.xc_rotDelta;
     }
   }
 
   x94_curTime += totalDelta;
-  return SAdvancementResults(dt - totalDelta, SAdvancementDeltas(posDelta, rotDelta));
+  return CAdvancementResults(dt - totalDelta, CAdvancementDeltas(posDelta, rotDelta));
 }
 
 CCharAnimTime CAnimTreeSequence::VGetTimeRemaining() const {
