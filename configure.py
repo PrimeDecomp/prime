@@ -1460,7 +1460,7 @@ config.libs = [
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Text/CTextInstruction.cpp"
             ),
-            Object(NonMatching, "Kyoto/Text/CTextParser.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Text/CTextParser.cpp"),
             Object(NonMatching, "Kyoto/Text/CWordBreakTables.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Text/CWordInstruction.cpp"),
             Object(

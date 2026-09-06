@@ -6,11 +6,15 @@
 #include "Kyoto/Text/TextCommon.hpp"
 #include <rstl/StringExtras.hpp>
 #include <rstl/algorithm.hpp>
+#include <stdlib.h>
+
+// Unused asset-ID format retained in the original string pool.
+static const char* const skAssetIdFormat = "%02x%02x%02x%02x";
 
 CTextParser::CTextParser(IObjectStore& store) : mObjectStore(store) {}
 
 void CTextParser::ParseText(CTextExecuteBuffer& buffer, const wchar_t* str, int len,
-                            rstl::vector< rstl::pair< CAssetId, CAssetId > >& txtrMap) {
+                            const rstl::vector< rstl::pair< CAssetId, CAssetId > >* txtrMap) {
   int b = 0, e = 0;
   for (b = 0, e = 0; str[e] && (len == -1 || e < len);) {
     if (str[e] == L'&') {
@@ -42,13 +46,15 @@ void CTextParser::ParseText(CTextExecuteBuffer& buffer, const wchar_t* str, int 
 
 const CAssetId
 CTextParser::GetAssetIdFromString(const rstl::string& inStr,
-                                  rstl::vector< rstl::pair< CAssetId, CAssetId > >* txtrMap) {
+                                  const rstl::vector< rstl::pair< CAssetId, CAssetId > >* txtrMap) {
   rstl::wstring str = CStringExtras::ConvertToUNICODE(inStr);
   int id = (GetColorValue(str.data()) << 24) | (GetColorValue(str.data() + 2) << 16) |
            (GetColorValue(str.data() + 4) << 8) | GetColorValue(str.data() + 6);
   if (txtrMap) {
-    rstl::vector< rstl::pair< CAssetId, CAssetId > >::const_iterator search =
-        rstl::find_by_key(*txtrMap, id);
+    typedef rstl::pair< CAssetId, CAssetId > AssetPair;
+    rstl::vector< AssetPair >::const_iterator search = rstl::binary_find(
+        txtrMap->begin(), txtrMap->end(), static_cast< CAssetId >(id),
+        rstl::pair_sorter_finder< AssetPair, rstl::less< CAssetId > >(rstl::less< CAssetId >()));
     if (search != txtrMap->end()) {
       return search->second;
     }
@@ -65,8 +71,55 @@ TToken< CRasterFont > CTextParser::GetFont(const wchar_t* str, int len) {
 }
 
 CFontImageDef CTextParser::GetImage(const wchar_t* str, int len,
-                                    rstl::vector< rstl::pair< CAssetId, CAssetId > >& vec) {
-  return CFontImageDef(TToken< CTexture >(), CVector2f(0.f, 0.f));
+                                    const rstl::vector< rstl::pair< CAssetId, CAssetId > >* vec) {
+  const rstl::string text = CStringExtras::ConvertToANSI(rstl::wstring(str, len));
+  int commaCount = 0;
+  int pos = 0;
+  while (true) {
+    pos = text.find(',', pos);
+    if (pos == -1) {
+      break;
+    }
+    ++commaCount;
+    ++pos;
+  }
+  if (commaCount > 0) {
+    const rstl::vector< rstl::string > tokens =
+        CStringExtras::TokenizeString(text, ",", commaCount + 1);
+    if (rstl::operator==(rstl::istring(tokens[0].c_str()), rstl::istring_l("A"))) {
+      const float fps = atof(tokens[1].c_str());
+      rstl::vector< TToken< CTexture > > textures;
+      textures.reserve(tokens.size() - 2);
+      for (int i = 2; i < tokens.size(); ++i) {
+        textures.push_back(
+            mObjectStore.GetObj(SObjectTag('TXTR', GetAssetIdFromString(tokens[i], vec))));
+      }
+      return CFontImageDef(textures, fps, CVector2f(1.f, 1.f));
+    }
+    if (rstl::operator==(rstl::istring(tokens[0].c_str()), rstl::istring_l("SA")) &&
+        tokens.size() >= 5) {
+      const float fps = atof(tokens[1].c_str());
+      const float cropX = atof(tokens[2].c_str());
+      const float cropY = atof(tokens[3].c_str());
+      rstl::vector< TToken< CTexture > > textures;
+      textures.reserve(tokens.size() - 4);
+      for (int i = 4; i < tokens.size(); ++i) {
+        textures.push_back(
+            mObjectStore.GetObj(SObjectTag('TXTR', GetAssetIdFromString(tokens[i], vec))));
+      }
+      return CFontImageDef(textures, fps, CVector2f(cropX, cropY));
+    }
+    if (rstl::operator==(rstl::istring(tokens[0].c_str()), rstl::istring_l("SI")) &&
+        tokens.size() == 4) {
+      const float cropX = atof(tokens[1].c_str());
+      const float cropY = atof(tokens[2].c_str());
+      return CFontImageDef(
+          mObjectStore.GetObj(SObjectTag('TXTR', GetAssetIdFromString(tokens[3], vec))),
+          CVector2f(cropX, cropY));
+    }
+  }
+  return CFontImageDef(mObjectStore.GetObj(SObjectTag('TXTR', GetAssetIdFromString(text, vec))),
+                       CVector2f(1.f, 1.f));
 }
 
 uint CTextParser::HandleUserTag(CTextExecuteBuffer& buffer, const wchar_t* string, int len) {
@@ -74,7 +127,7 @@ uint CTextParser::HandleUserTag(CTextExecuteBuffer& buffer, const wchar_t* strin
 }
 
 void CTextParser::ParseTag(CTextExecuteBuffer& buffer, const wchar_t* string, int len,
-                           rstl::vector< rstl::pair< CAssetId, CAssetId > >& vec) {
+                           const rstl::vector< rstl::pair< CAssetId, CAssetId > >* vec) {
   if (BeginsWith(string, len, L"font=")) {
     TToken< CRasterFont > font = GetFont(string + 5, len - 5);
     buffer.AddFont(font);

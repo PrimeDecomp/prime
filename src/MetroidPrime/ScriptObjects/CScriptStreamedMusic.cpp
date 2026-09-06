@@ -10,8 +10,6 @@
 #include "rstl/StringExtras.hpp"
 
 extern "C" void nullsub_42(CScriptStreamedMusic*);
-// int sub_8020c154(const rstl::string&, int, int);
-
 // extern "C" int sub_8020c844(int* a, int* b) { return b[1] - a[1]; }
 
 // rstl::string sub_8020c7f0(const rstl::string&) {
@@ -152,10 +150,12 @@ void CScriptStreamedMusic::TweakOverride(CStateManager& mgr) {
   }
 }
 
-int sub_8020c154(const rstl::string&, int, int) { return 0; }
+// TODO: The original string-search helper is emitted in this translation unit.
+template <>
+int rstl::string::find(char, int) const { return 0; }
 
 void CScriptStreamedMusic::sub_8020be90() {
-  if (x45_fileIsDsp && sub_8020c154(x34_fileName, 0x7c, 0) == -1 && x34_fileName.size() >= 5) {
+  if (x45_fileIsDsp && x34_fileName.find('|', 0) == -1 && x34_fileName.size() >= 5) {
     if (CStringExtras::CompareCaseInsensitive(
             rstl::string_l(x34_fileName.data() + (x34_fileName.size() - 5)),
             rstl::string_l("L.dsp")) == 0) {
