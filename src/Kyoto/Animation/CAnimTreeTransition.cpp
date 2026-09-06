@@ -3,7 +3,7 @@
 #include "Kyoto/Animation/CCharAnimMemoryMetrics.hpp"
 #include "Kyoto/Math/CloseEnough.hpp"
 
-CAnimTreeTransition::CAnimTreeTransition(bool b1, const rstl::ncrc_ptr< CAnimTreeNode >& a,
+CAnimTreeTransition::CAnimTreeTransition(const bool b1, const rstl::ncrc_ptr< CAnimTreeNode >& a,
                                          const rstl::ncrc_ptr< CAnimTreeNode >& b,
                                          const CCharAnimTime& transDur, bool runA, int flags,
                                          const rstl::string& name)
@@ -16,7 +16,7 @@ CAnimTreeTransition::CAnimTreeTransition(bool b1, const rstl::ncrc_ptr< CAnimTre
   CCharAnimMemoryMetrics::AddToTotalSize(19, CCharAnimMemoryMetrics::kASS_Two);
 }
 
-CAnimTreeTransition::CAnimTreeTransition(bool b1, const rstl::ncrc_ptr< CAnimTreeNode >& a,
+CAnimTreeTransition::CAnimTreeTransition(const bool b1, const rstl::ncrc_ptr< CAnimTreeNode >& a,
                                          const rstl::ncrc_ptr< CAnimTreeNode >& b,
                                          const CCharAnimTime& transDur,
                                          const CCharAnimTime& timeInTrans, bool runA, bool loopA,

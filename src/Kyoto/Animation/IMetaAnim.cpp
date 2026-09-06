@@ -1,13 +1,12 @@
 #include "Kyoto/Animation/IMetaAnim.hpp"
 
-#pragma inline_max_size(1024)
-bool CPreAdvanceIndicator::IsTime() const { return mIsTime; }
+bool CPreAdvanceIndicator::IsTime() const { return x0_isTime; }
 
-const CCharAnimTime& CPreAdvanceIndicator::GetTime() const { return mTime; }
+const CCharAnimTime& CPreAdvanceIndicator::GetTime() const { return x4_time; }
 
 bool CPreAdvanceIndicator::IsString() const { return !IsTime(); }
 
-const char* const& CPreAdvanceIndicator::GetString() const { return mString; }
+const char* CPreAdvanceIndicator::GetString() const { return xc_string; }
 
 CMetaAnimTreeBuildOrders CMetaAnimTreeBuildOrders::NoSpecialOrders() {
   return CMetaAnimTreeBuildOrders();

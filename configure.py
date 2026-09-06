@@ -1317,7 +1317,7 @@ config.libs = [
             Object(NonMatching, "Kyoto/Animation/CAnimTreeSequence.cpp"),
             Object(NonMatching, "Kyoto/Animation/CCharacterInfo.cpp"),
             Object(NonMatching, "Kyoto/Animation/CCharacterSet.cpp"),
-            Object(NonMatching, "Kyoto/Animation/CMetaAnimBlend.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Animation/CMetaAnimBlend.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "Kyoto/Animation/CMetaAnimFactory.cpp",

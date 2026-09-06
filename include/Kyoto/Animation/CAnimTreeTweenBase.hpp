@@ -9,14 +9,14 @@ class CAnimTreeTweenBase : public CAnimTreeDoubleChild {
 public:
   static const int kBlendRoot_Offset;
   static const int kBlendRoot_Rotation;
-  CAnimTreeTweenBase(bool, const rstl::ncrc_ptr< CAnimTreeNode >& a,
+  CAnimTreeTweenBase(const bool, const rstl::ncrc_ptr< CAnimTreeNode >& a,
                      const rstl::ncrc_ptr< CAnimTreeNode >& b, int, const rstl::string& name);
   ~CAnimTreeTweenBase() override;
 
   virtual void SetBlendingWeight(float w) = 0;
 
   float GetBlendingWeight() const;
-  bool CharacterSpaceBlend() const { return x20_24_characterSpaceBlend; }
+  bool CharacterSpaceBlend() const { return x20_24_characterSpaceBlend != 0; }
   int GetBlendRoot() const { return x1c_flags; }
 
   void VGetWeightedReaders(
