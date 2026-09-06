@@ -35,7 +35,7 @@ void CTextExecuteBuffer::AddPushState() {
 void CTextExecuteBuffer::AddPopState() {
   const rstl::ncrc_ptr< CInstruction > newInst = rs_new CPopStateInstruction();
   x0_instructions.push_front(newInst);
-  x18_ = *xc4_stateStack.top();
+  x18_ = xc4_stateStack.top();
   xc4_stateStack.pop();
   
   if (xa4_curLine->GetX() == 0) {
