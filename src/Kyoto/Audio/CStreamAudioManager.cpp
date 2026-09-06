@@ -321,6 +321,7 @@ void CStreamAudioManager::SetSfxVolume(uint vol) {
   }
 }
 
+// TODO: Move to rstl/string.hpp once header inlining preserves the helper and FadeBackIn codegen.
 bool rstl::operator!=(const rstl::string& lhs, const char* rhs) { return lhs.compare(rhs) != 0; }
 
 void CStreamAudioManager::FadeBackIn(float fadeTime) {
