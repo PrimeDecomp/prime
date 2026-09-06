@@ -28,9 +28,9 @@ public:
   };
   class CGuiWidgetParms {
   public:
-    CGuiWidgetParms(CGuiFrame* frame, bool useAnimController, short selfId, short parentId,
-                    bool defaultVisible, bool defaultActive, bool cullFaces, const CColor& color,
-                    EGuiModelDrawFlags drawFlags, bool g, bool h);
+    CGuiWidgetParms(CGuiFrame* frame, bool useAnimController, const short selfId,
+                    const short parentId, bool defaultVisible, bool defaultActive, bool cullFaces,
+                    const CColor& color, EGuiModelDrawFlags drawFlags, bool g, bool h);
     CGuiFrame* x0_frame;
     bool x4_useAnimController;
     short x6_selfId;
@@ -73,6 +73,13 @@ public:
   const CColor& GetModifiedColor() const { return xa8_color2; }
   const EGuiModelDrawFlags GetDrawFlags() const { return xac_drawFlags; }
   void SetVisibility(bool visible, ETraversalMode mode);
+  void InitializeRecursive();
+  void RecalcWidgetColor(ETraversalMode mode);
+  void ReapplyXform();
+  CVector3f GetIdlePosition() const;
+  void AddChildWidget(CGuiWidget* widget, bool makeWorldLocal, bool atEnd);
+  CGuiWidget* FindWidget(short id);
+  void ReadUnusedThing(CInputStream& in);
   void ParseBaseInfo(CGuiFrame* frame, CInputStream& in, const CGuiWidgetParms& parms);
 
   static CGuiWidgetParms ReadWidgetHeader(CGuiFrame* frame, CInputStream& in);
@@ -84,6 +91,7 @@ public:
   static const short InvalidWidgetId() { return gkInvalidWidgetId; }
 
 protected:
+  static const short gkDummyWidgetID;
   static const short gkInvalidWidgetId;
   short x70_selfId;
   short x72_parentId;
