@@ -9,6 +9,7 @@
 
 class CAnimTreeNode : public IAnimReader {
 public:
+  virtual uint Depth() const = 0;
   CAnimTreeNode(const rstl::string&);
   ~CAnimTreeNode() override {
     CCharAnimMemoryMetrics::SubtractFromTotalSize(x4_name.size(), CCharAnimMemoryMetrics::kASS_Two);
