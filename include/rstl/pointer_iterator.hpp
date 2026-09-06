@@ -114,19 +114,6 @@ struct const_counting_iterator {
   }
 };
 
-template < typename T >
-struct iterator_traits {};
-
-template < typename T >
-struct iterator_traits< T* > {
-  typedef T value_type;
-};
-
-template < typename T, typename Vec, typename Alloc >
-struct iterator_traits< pointer_iterator< T, Vec, Alloc > > {
-  typedef typename pointer_iterator< T, Vec, Alloc >::value_type value_type;
-};
-
 } // namespace rstl
 
 #endif // _RSTL_POINTER_ITERATOR

@@ -7,8 +7,8 @@ struct CCharacterIdentifier {
   uint rank;
 
   struct Compare {
-    bool operator()(const CCharacterIdentifier& ident, wchar_t chr) { return ident.chr == chr; }
-    bool operator()(wchar_t chr, const CCharacterIdentifier& ident) { return chr == ident.chr; }
+    bool operator()(const CCharacterIdentifier& ident, wchar_t chr) { return ident.chr < chr; }
+    bool operator()(wchar_t chr, const CCharacterIdentifier& ident) { return chr < ident.chr; }
   };
 };
 
@@ -41,6 +41,21 @@ const CCharacterIdentifier gCantEndChars[89] = {
 };
 
 int CWordBreakTables::GetBeginRank(wchar_t chr) {
-  //rstl::binary_find(&gCantBeginChars[0], &gCantBeginChars[62], chr, CCharacterIdentifier::Compare());
-  return -1;
+  const CCharacterIdentifier* end = gCantBeginChars + 63;
+  const CCharacterIdentifier* found =
+      rstl::binary_find(gCantBeginChars, end, chr, CCharacterIdentifier::Compare());
+  if (found != end) {
+    return found->rank;
+  }
+  return 5;
+}
+
+int CWordBreakTables::GetEndRank(wchar_t chr) {
+  const CCharacterIdentifier* end = gCantEndChars + 89;
+  const CCharacterIdentifier* found =
+      rstl::binary_find(gCantEndChars, end, chr, CCharacterIdentifier::Compare());
+  if (found != end) {
+    return found->rank;
+  }
+  return 5;
 }
