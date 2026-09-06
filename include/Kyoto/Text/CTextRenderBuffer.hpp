@@ -51,6 +51,7 @@ public:
   size_t GetCurLen();
   void SetMode(EMode mode);
   void Render(const CColor& color, float time) const;
+  int GetNumPrimitives() const { return x24_primOffsets.size(); }
   Primitive GetPrimitive(int index) const;
   void SetPrimitive(const Primitive& prim, int index);
   rstl::pair< CVector2i, CVector2i > AccumulateTextBounds();

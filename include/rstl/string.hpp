@@ -4,13 +4,16 @@
 #include "types.h"
 
 #include "rstl/rmemory_allocator.hpp"
+#include "rstl/linear_iterator.hpp"
 
 class CInputStream;
 class COutputStream;
 
 namespace rstl {
 template < typename _CharTp >
-struct char_traits {};
+struct char_traits {
+  static int compare(const _CharTp& a, const _CharTp& b) { return a - b; }
+};
 
 template < typename _CharTp >
 struct case_insensitive_char_traits {};
@@ -46,6 +49,8 @@ class basic_string {
   static const _CharTp mNull;
 
 public:
+  typedef const_linear_iterator< _CharTp, basic_string, Alloc > const_iterator;
+
   struct literal_t {};
 
   basic_string() : x0_ptr(&mNull), x4_cow(nullptr), x8_size(0) {}
@@ -116,7 +121,13 @@ public:
   void append(int, _CharTp);
   void append(const _CharTp*, int);
 
-  int _eq_helper(const basic_string& other) const;
+  const _CharTp& operator[](int idx) const { return x0_ptr[idx]; }
+  const_iterator begin() const { return const_iterator(this, 0); }
+  const_iterator end() const { return const_iterator(this, size()); }
+
+  template < typename It >
+  static int internal_compare(const_iterator first, const_iterator last, It otherFirst, It otherLast);
+  int compare(const basic_string& other) const;
   bool operator==(const basic_string& other) const;
   bool operator!=(const basic_string& other) const;
   bool operator<(const basic_string& other) const;
@@ -129,18 +140,44 @@ public:
 };
 
 template < typename _CharTp, typename Traits, typename Alloc >
-bool basic_string< _CharTp, Traits, Alloc >::operator==(const basic_string& other) const {
-  return _eq_helper(other) == 0;
+template < typename It >
+inline int basic_string< _CharTp, Traits, Alloc >::internal_compare(const_iterator first, const_iterator last,
+                                                          It otherFirst, It otherLast) {
+  const_iterator it = first;
+  It other = otherFirst;
+  for (; it != last && other != otherLast; ++it, ++other) {
+    int cmp = Traits::compare(*it, *other);
+    if (cmp != 0) {
+      return cmp;
+    }
+  }
+  if (it == last && other != otherLast) {
+    return -1;
+  }
+  if (it == last) {
+    return 0;
+  }
+  return 1;
 }
 
 template < typename _CharTp, typename Traits, typename Alloc >
-bool basic_string< _CharTp, Traits, Alloc >::operator!=(const basic_string& other) const {
-  return _eq_helper(other) != 0;
+inline int basic_string< _CharTp, Traits, Alloc >::compare(const basic_string& other) const {
+  return internal_compare(begin(), end(), other.begin(), other.end());
+}
+
+template < typename _CharTp, typename Traits, typename Alloc >
+bool basic_string< _CharTp, Traits, Alloc >::operator==(const basic_string& other) const {
+  return compare(other) == 0;
+}
+
+template < typename _CharTp, typename Traits, typename Alloc >
+inline bool basic_string< _CharTp, Traits, Alloc >::operator!=(const basic_string& other) const {
+  return compare(other) != 0;
 }
 
 template < typename _CharTp, typename Traits, typename Alloc >
 bool basic_string< _CharTp, Traits, Alloc >::operator<(const basic_string& other) const {
-  return _eq_helper(other) < 0;
+  return compare(other) < 0;
 }
 
 // template <>

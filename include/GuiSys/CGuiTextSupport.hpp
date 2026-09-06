@@ -1,7 +1,12 @@
 #ifndef _CGUITEXTSUPPORT
 #define _CGUITEXTSUPPORT
 
+#include "rstl/list.hpp"
+
+#include "Kyoto/Graphics/CColor.hpp"
 #include "Kyoto/SObjectTag.hpp"
+#include "Kyoto/Text/CTextRenderBuffer.hpp"
+#include "rstl/optional_object.hpp"
 
 #include "Kyoto/Math/CVector2i.hpp"
 #include "Kyoto/Text/TextCommon.hpp"
@@ -24,6 +29,11 @@ public:
                      const EVerticalJustification vertJustification,
                      const rstl::vector< rstl::pair< CAssetId, CAssetId > >* txtrMap = nullptr);
 
+  bool GetIsWrap() const { return x0_wordWrap; }
+  bool GetIsLeftToRight() const { return x1_horizontal; }
+  EJustification GetJustification() const { return x4_justification; }
+  EVerticalJustification GetVerticalJustification() const { return x8_vertJustification; }
+
 private:
   bool x0_wordWrap;
   bool x1_horizontal;
@@ -42,16 +52,31 @@ public:
                   CSimplePool* store);
   ~CGuiTextSupport();
 
-  void SetText(const rstl::wstring&, bool clearRenderBuffer = false);
+  void SetText(const rstl::wstring&, bool multipage = false);
   void SetText(const rstl::string&, bool multipage = false);
+  void AddText(const rstl::wstring& str);
   void SetWordWrap(bool wordWrap);
+  void SetJustification(EJustification just);
+  void SetVerticalJustification(EVerticalJustification just);
+  void SetControlTXTRMap(const rstl::vector< rstl::pair< CAssetId, CAssetId > >* txtrMap);
+  void Update(float dt);
+  void CheckAndRebuildTextBuffer() const;
+  bool CheckAndRebuildRenderBuffer() const;
+  const CTextRenderBuffer* GetCurrentPageRenderBuffer() const;
+  CTextRenderBuffer* GetCurrentPageRenderBuffer() {
+    return const_cast< CTextRenderBuffer* >(
+        static_cast< const CGuiTextSupport* >(this)->GetCurrentPageRenderBuffer());
+  }
+  float GetCurrentAnimationOverAge() const;
+  int GetTotalPageCount();
+  void SetPage(int page);
   void ClearRenderBuffer();
   void SetImageBaseline(bool baseline);
-  bool SetTypeWriteEffectOptions(bool enable, float fadeTime, float rate);
+  void SetTypeWriteEffectOptions(bool enable, float fadeTime, float rate);
   void SetGeometryColor(const CColor& col);
   void SetOutlineColor(const CColor& col);
   void SetFontColor(const CColor& col);
-  void Render();
+  void Render() const;
   const rstl::pair< CVector2i, CVector2i >& GetBounds();
   bool GetIsTextSupportFinishedLoading() const;
 
@@ -77,11 +102,33 @@ public:
   }
 
 private:
-  char x0_pad[0x34];
+  bool _GetIsTextSupportFinishedLoading() const;
+
+  rstl::wstring x0_string;
+  float x10_curTimeMod900;
+  CGuiTextProperties x14_props;
+  CColor x24_fontColor;
+  CColor x28_outlineColor;
+  CColor x2c_geometryColor;
+  bool x30_imageBaseline;
   int x34_extentX;
   int x38_extentY;
   float x3c_curTime;
-  char x40_pad[0x30c - 0x40];
+  rstl::vector< rstl::pair< float, int > > x40_primStartTimes;
+  bool x50_typeEnable;
+  float x54_chFadeTime;
+  float x58_chRate;
+  CAssetId x5c_fontId;
+  mutable rstl::optional_object< CTextRenderBuffer > x60_renderBuf;
+  mutable rstl::vector< CToken > x2bc_assets;
+  rstl::optional_object< TLockedToken< CRasterFont > > x2cc_font;
+  mutable rstl::pair< CVector2i, CVector2i > x2dc_oneBufBounds;
+  mutable rstl::list< CTextRenderBuffer > x2ec_renderBufferPages;
+  int x304_pageCounter;
+  bool x308_multipageFlag;
 };
+
+CHECK_SIZEOF(CGuiTextProperties, 0x10)
+CHECK_SIZEOF(CGuiTextSupport, 0x30c)
 
 #endif // _CGUITEXTSUPPORT
