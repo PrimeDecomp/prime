@@ -1393,7 +1393,7 @@ config.libs = [
             Object(NonMatching, "Kyoto/Animation/CCharLayoutInfo.cpp"),
             Object(NonMatching, "Kyoto/Animation/CFBStreamedAnimReader.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Animation/CFBStreamedCompression.cpp"),
-            Object(NonMatching, "Kyoto/Animation/CHierarchyPoseBuilder.cpp"),
+            Object(Matching, "Kyoto/Animation/CHierarchyPoseBuilder.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "Kyoto/Animation/CInt32POINode.cpp",

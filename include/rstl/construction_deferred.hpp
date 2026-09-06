@@ -13,8 +13,8 @@ public:
 
   template < typename A >
   void build(const A& arg) {
-    rstl::construct(get_ptr(), arg);
     makeValid();
+    rstl::construct(get_ptr(), arg);
   }
   void clear(); // TODO
   bool valid() const { return m_valid; }

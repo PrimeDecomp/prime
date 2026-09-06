@@ -17,7 +17,7 @@ public:
   static CSegId Null() { return CSegId(0); }
   static CSegId Invalid() { return CSegId(-1); }
   static CSegId Root() { return CSegId(3); }
-  static CSegId Character() { return CSegId(3); }
+  static CSegId Character() { return CSegId(2); }
 
   bool operator==(const CSegId& rhs) const { return x0_id == rhs.x0_id; }
   bool operator!=(const CSegId& rhs) const { return x0_id != rhs.x0_id; }

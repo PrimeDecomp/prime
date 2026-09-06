@@ -11,7 +11,7 @@
 #include "Kyoto/Animation/CSoundPOINode.hpp"
 #include "MetroidPrime/ActorCommon.hpp"
 #include "MetroidPrime/CAnimPlaybackParms.hpp"
-#include "MetroidPrime/CHierarchyPoseBuilder.hpp"
+#include "Kyoto/Animation/CHierarchyPoseBuilder.hpp"
 #include "MetroidPrime/CParticleDatabase.hpp"
 #include "MetroidPrime/CPoseAsTransforms.hpp"
 
