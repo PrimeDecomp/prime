@@ -12494,7 +12494,7 @@ __ct__Q24rstl49vector<12CBoolPOINode,Q24rstl17rmemory_allocator>FRCQ24rstl49vect
 __dt__20CAnimTreeSingleChildFv = .text:0x802D9A44; // type:function size:0xAC scope:global
 __ct__15CAnimTreeLoopInFRCQ24rstl25ncrc_ptr<13CAnimTreeNode>RCQ24rstl25ncrc_ptr<13CAnimTreeNode>RCQ24rstl25ncrc_ptr<13CAnimTreeNode>RC15CAnimSysContextRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator> = .text:0x802D9AF0; // type:function size:0x144 scope:global
 __dt__15CSequenceHelperFv = .text:0x802D9C34; // type:function size:0xD0 scope:global
-fn_802D9D04 = .text:0x802D9D04; // type:function size:0xB0
+__dt__Q24rstl69vector<Q24rstl25ncrc_ptr<13CAnimTreeNode>,Q24rstl17rmemory_allocator>Fv = .text:0x802D9D04; // type:function size:0xB0 scope:weak
 _getPOIList<12CBoolPOINode>__FRC13CCharAnimTimeP12CBoolPOINodeUiUiiRCQ24rstl49vector<12CBoolPOINode,Q24rstl17rmemory_allocator>RC13CCharAnimTime = .text:0x802D9DB4; // type:function size:0x2C4 scope:global
 _getPOIList<13CInt32POINode>__FRC13CCharAnimTimeP13CInt32POINodeUiUiiRCQ24rstl50vector<13CInt32POINode,Q24rstl17rmemory_allocator>RC13CCharAnimTime = .text:0x802DA078; // type:function size:0x348 scope:global
 _getPOIList<16CParticlePOINode>__FRC13CCharAnimTimeP16CParticlePOINodeUiUiiRCQ24rstl53vector<16CParticlePOINode,Q24rstl17rmemory_allocator>RC13CCharAnimTime = .text:0x802DA3C0; // type:function size:0x3D8 scope:global

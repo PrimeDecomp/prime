@@ -30,7 +30,7 @@ public:
   void VSetPhase(float) override;
   SAdvancementResults VGetAdvancementResults(const CCharAnimTime& a,
                                              const CCharAnimTime& b) const override;
-  uint Depth() const override { return x14_child->Depth(); }
+  uint Depth() const override { return x14_child->Depth() + 1; }
   uint VGetNumChildren() const override;
   void VGetWeightedReaders(
       float w, rstl::reserved_vector< rstl::pair< float, IAnimReader* >, 16 >& out) const override;

@@ -30,6 +30,8 @@ struct SAdvancementDeltas {
 struct SAdvancementResults {
   CCharAnimTime x0_remTime;
   SAdvancementDeltas x8_deltas;
+  const CCharAnimTime& GetRemainder() const { return x0_remTime; }
+  const SAdvancementDeltas& GetAdvancementDeltas() const { return x8_deltas; }
   SAdvancementResults() {}
   SAdvancementResults(const CCharAnimTime& time) : x0_remTime(time) {}
   SAdvancementResults(const CCharAnimTime& time, const SAdvancementDeltas& deltas)
