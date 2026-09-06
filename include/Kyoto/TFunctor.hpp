@@ -175,4 +175,69 @@ public:
   }
 };
 
+template < class Arg1, typename R >
+class TFunctor1R {
+public:
+  typedef R (*Functor)(const void* object, const void* func, Arg1 arg1);
+
+  TFunctor1R() : mFunctor(nullptr), mObject(nullptr) {}
+  TFunctor1R(Functor functor, const void* object, const void* func, int v)
+  : mFunctor(functor)
+  , mObject(object)
+  , mMethod(func, v) {}
+
+  R operator()(Arg1 arg1) const { return mFunctor(mObject, mMethod.GetMethodPointer(), arg1); }
+  operator bool() const { return !mMethod.IsNull(); }
+
+private:
+  Functor mFunctor;
+  const void* mObject;
+  CMethodPtrStore mMethod;
+};
+
+template < typename Arg1, typename Arg2, typename R >
+class TFunctor2R {
+public:
+  typedef R (*Functor)(const void* object, const void* func, Arg1 arg1, Arg2 arg2);
+
+  TFunctor2R() : mFunctor(nullptr), mObject(nullptr) {}
+  TFunctor2R(Functor functor, const void* object, const void* func, int v)
+  : mFunctor(functor)
+  , mObject(object)
+  , mMethod(func, v) {}
+
+  R operator()(Arg1 arg1, Arg2 arg2) const {
+    return mFunctor(mObject, mMethod.GetMethodPointer(), arg1, arg2);
+  }
+  operator bool() const { return !mMethod.IsNull(); }
+
+private:
+  Functor mFunctor;
+  const void* mObject;
+  CMethodPtrStore mMethod;
+};
+
+template < typename Arg1, typename Arg2, typename Arg3, typename R >
+class TFunctor3R {
+public:
+  typedef R (*Functor)(const void* object, const void* func, Arg1 arg1, Arg2 arg2, Arg3 arg3);
+
+  TFunctor3R() : mFunctor(nullptr), mObject(nullptr) {}
+  TFunctor3R(Functor functor, const void* object, const void* func, int v)
+  : mFunctor(functor)
+  , mObject(object)
+  , mMethod(func, v) {}
+
+  R operator()(Arg1 arg1, Arg2 arg2, Arg3 arg3) const {
+    return mFunctor(mObject, mMethod.GetMethodPointer(), arg1, arg2, arg3);
+  }
+
+  operator bool() const { return !mMethod.IsNull(); }
+
+private:
+  Functor mFunctor;
+  const void* mObject;
+  CMethodPtrStore mMethod;
+};
+
 #endif // _TFUNCTOR_HPP

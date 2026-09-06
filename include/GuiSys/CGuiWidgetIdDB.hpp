@@ -13,6 +13,9 @@ public:
 
 private:
   rstl::vector< rstl::string > x0_db;
+  short x10_lastPoolId;
 };
+
+CHECK_SIZEOF(CGuiWidgetIdDB, 0x14);
 
 #endif // _CGUIWIDGETIDDB
