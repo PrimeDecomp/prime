@@ -1237,7 +1237,7 @@ config.libs = [
             Object(NonMatching, "GuiSys/CGuiSliderGroup.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "GuiSys/CGuiSys.cpp"),
             Object(NonMatching, "GuiSys/CGuiTableGroup.cpp"),
-            Object(NonMatching, "GuiSys/CGuiTextPane.cpp"),
+            Object(Matching, "GuiSys/CGuiTextPane.cpp"),
             Object(NonMatching, "GuiSys/CGuiTextSupport.cpp"),
             Object(NonMatching, "GuiSys/CGuiWidget.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "GuiSys/CGuiWidgetIdDB.cpp"),
