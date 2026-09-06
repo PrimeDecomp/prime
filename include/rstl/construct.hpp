@@ -37,9 +37,10 @@ static inline T uninitialized_copy(It begin, It end, T out) {
 
 template < typename S, typename D >
 static inline D uninitialized_copy_n(S src, int n, D dest) {
+  S it = src;
   D cur = dest;
-  for (int i = 0; i < n; ++cur, ++i, ++src) {
-    construct(&*cur, *src);
+  for (int i = 0; i < n; ++cur, ++i, ++it) {
+    construct(&*cur, *it);
   }
 
   return cur;

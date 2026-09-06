@@ -54,6 +54,15 @@ public:
     dh.release();
   }
 
+  list& operator=(const list& other) {
+    if (this == &other) {
+      return *this;
+    }
+    clear();
+    insert(end(), other.begin(), other.end());
+    return *this;
+  }
+
   ~list();
   node* do_erase(node* item);
 
@@ -234,7 +243,7 @@ inline typename list< T, Alloc >::iterator list< T, Alloc >::insert(const iterat
 
 template < typename T, typename Alloc >
 template < typename InputIterator >
-void list< T, Alloc >::insert(const iterator& pos, InputIterator first, InputIterator last) {
+inline void list< T, Alloc >::insert(const iterator& pos, InputIterator first, InputIterator last) {
   for (InputIterator it = first; it != last; ++it) {
     insert(pos, *it);
   }
