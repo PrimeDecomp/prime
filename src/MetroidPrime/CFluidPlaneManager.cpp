@@ -22,9 +22,11 @@
 #include "rstl/math.hpp"
 
 float CFluidPlane::kRippleIntensityRange = 1.f;
-const bool sRenderFog = true;
-const bool sRenderBumpMaps = true;
-const int sFluidEnvMapType = 2;
+const bool gkWaterEnable = true;
+const bool gkWaterTurbulence = true;
+const bool gkWaterBumpMapping = true;
+const int gkWaterEnvMap = 1;
+const bool gkWaterFog = true;
 
 static int kMinValue = 0;
 static int kMaxValue = 255;

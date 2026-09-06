@@ -142,7 +142,7 @@ void CFluidPlaneDoor::Render(const CStateManager& mgr, float alpha, const CAABox
                              const rstl::optional_object< CRippleManager >& rippleManager,
                              TUniqueId waterId, const char* gridFlags, int gridDimX, int gridDimY,
                              const CVector3f& areaCenter) const {
-  if (!sRenderFog) {
+  if (!gkWaterEnable) {
     return;
   }
 

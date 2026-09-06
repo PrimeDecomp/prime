@@ -161,7 +161,11 @@ protected:
 };
 CHECK_SIZEOF(CFluidPlane, 0xA0);
 
-extern const bool sRenderFog;
+extern const bool gkWaterEnable;
+extern const bool gkWaterTurbulence;
+extern const bool gkWaterBumpMapping;
+extern const int gkWaterEnvMap;
+extern const bool gkWaterFog;
 
 class CFluidPlaneManager {
 public:

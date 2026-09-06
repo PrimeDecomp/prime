@@ -38,8 +38,6 @@
 #pragma inline_max_size(250)
 
 extern "C" float* InitializeSineWave();
-extern const bool sRenderBumpMaps;
-extern const int sFluidEnvMapType;
 
 struct STexMtx24 {
   float m[2][4];
@@ -425,7 +423,7 @@ void ApplyTurbulence(float time, CFluidPlaneCPURender::SHFieldSample (&heights)[
                      const unsigned char* flags, const float (&sineTable)[256],
                      const CFluidPlaneCPURender::SPatchInfo& info, const CFluidPlaneCPU& fluidPlane,
                      const CVector3f& areaCenter) {
-  bool hasTurb = sRenderFog ? fluidPlane.HasTurbulence() : false;
+  bool hasTurb = gkWaterTurbulence ? fluidPlane.HasTurbulence() : false;
   if (!hasTurb) {
     DCZeroRange(&heights, sizeof(heights));
     return;
@@ -568,14 +566,14 @@ void CFluidPlaneCPU::RenderSetup(const CStateManager& mgr, float alpha, const CT
                                  CScriptWater* water) const {
   const SFluidTexMtxTable* tbl = &kTexMtxTable;
 
-  if (!sRenderFog) {
+  if (!gkWaterEnable) {
     return;
   }
 
   bool hasBumpMap = false;
   bool hasDoubleLightmap = false;
   float uvT = mgr.GetFluidPlaneManager()->GetTime();
-  if (HasBumpMap() && sRenderBumpMaps) {
+  if (HasBumpMap() && gkWaterBumpMapping) {
     hasBumpMap = true;
   }
   bool hasLightmap = HasLightMap();
@@ -584,7 +582,7 @@ void CFluidPlaneCPU::RenderSetup(const CStateManager& mgr, float alpha, const CT
     envMapType = 0;
   } else {
     bool hasEnv = HasEnvMap();
-    envMapType = sFluidEnvMapType & ((-hasEnv | hasEnv) >> 31);
+    envMapType = gkWaterEnvMap & ((-hasEnv | hasEnv) >> 31);
   }
   bool hasEnvBumpMap = HasEnvBumpMap();
 
@@ -1159,7 +1157,7 @@ void CFluidPlaneCPU::Render(const CStateManager& mgr, float alpha, const CAABox&
                             const rstl::optional_object< CRippleManager >& rippleManager,
                             TUniqueId waterId, const char* gridFlags, int gridDimX, int gridDimY,
                             const CVector3f& areaCenter) const {
-  if (!sRenderFog) {
+  if (!gkWaterEnable) {
     return;
   }
 
@@ -1171,7 +1169,7 @@ void CFluidPlaneCPU::Render(const CStateManager& mgr, float alpha, const CAABox&
   CGX::ResetVtxDescv();
 
   int normalMode;
-  if (HasBumpMap() && sRenderBumpMaps) {
+  if (HasBumpMap() && gkWaterBumpMapping) {
     normalMode = CFluidPlaneCPURender::kNM_NBT;
   } else if (!noNormals) {
     normalMode = CFluidPlaneCPURender::kNM_Normals;
@@ -1368,7 +1366,7 @@ void CFluidPlaneCPU::Render(const CStateManager& mgr, float alpha, const CAABox&
 }
 
 void CFluidPlaneCPU::RenderCleanup() const {
-  if (!sRenderFog) {
+  if (!gkWaterEnable) {
     return;
   }
 
