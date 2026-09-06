@@ -1,3 +1,5 @@
+#pragma inline_max_size(250)
+
 #include "MetroidPrime/CIOWinManager.hpp"
 
 #include "MetroidPrime/CIOWin.hpp"

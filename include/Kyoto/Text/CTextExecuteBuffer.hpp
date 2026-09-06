@@ -35,12 +35,16 @@ public:
   void AddPopState();
   void AddImage(const CFontImageDef& image);
   void AddColor(EColorType type, const CTextColor& color);
+  void AddColor(EColorType type, float r, float g, float b, float a) {
+    AddColor(type, CTextColor(static_cast< uchar >(255.f * r), static_cast< uchar >(255.f * g),
+                              static_cast< uchar >(255.f * b), static_cast< uchar >(255.f * a)));
+  }
   void AddRemoveColorOverride(int idx);
   void AddColorOverride(int idx, const CTextColor& color);
   void AddString(const rstl::wstring& str) { AddString(str.data(), str.size()); }
   void AddString(const wchar_t* str, const int len);
 
-  void BeginBlock(int x, int y, int width, int height, bool imageBaseline, ETextDirection dir,
+  void BeginBlock(int x, int y, int width, int height, const bool imageBaseline, ETextDirection dir,
                   EJustification just, EVerticalJustification vjust);
   void EndBlock();
 
