@@ -74,6 +74,10 @@ inline float StoF(const short& in) { return static_cast< float >(in); }
 
 inline uchar ToUint8(int c) { return static_cast< uchar >(c); }
 inline int FtoL(float in) { return static_cast< int >(in); }
+inline uint ToUint32(float in) { return static_cast< uint >(in); }
+inline uint ToUint32(uint in) { return in; }
+inline float ToReal32(uint in) { return static_cast< float >(in); }
+inline float ToReal32(const short& in) { return StoF(in); }
 inline float LtoF(int in) { return static_cast< float >(in); }
 inline float ToReal32(int in) { return static_cast< float >(in); }
 inline float ToReal32(double in) { return static_cast< float >(in); }
