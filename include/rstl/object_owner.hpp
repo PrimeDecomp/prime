@@ -20,6 +20,9 @@ class object_owner {
   object_owner& operator=(const object_owner&);
 
 public:
+  template < typename U >
+  explicit object_owner(U* ptr) : x0_ptr(ptr) {}
+
   explicit object_owner(const auto_ptr< T >& ptr) : x0_ptr(ptr.release()) {}
   explicit object_owner(const ownership_transfer< T >& ptr) : x0_ptr(ptr.take_ownership()) {}
   ~object_owner() { delete x0_ptr; }

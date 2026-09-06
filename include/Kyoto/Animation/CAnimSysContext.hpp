@@ -17,6 +17,7 @@ public:
 
   IObjectStore& GetSimplePool() const { return xc_store; }
   const TToken< CTransitionDatabase >& GetTransitionDatabase() const { return x0_transDb; }
+  CRandom16& GetRandomNumberGenerator() const { return *x8_random; }
   CRandom16* Random() { return x8_random.GetPtr(); }
   const CRandom16* GetRandom() const { return x8_random.GetPtr(); }
 

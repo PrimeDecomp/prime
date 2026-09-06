@@ -1,5 +1,6 @@
 #include "Kyoto/Animation/CMetaAnimRandom.hpp"
 #include "Kyoto/Animation/CAnimSysContext.hpp"
+#include "Kyoto/Animation/CAnimTreeNode.hpp"
 #include "Kyoto/Animation/CMetaAnimFactory.hpp"
 #include "Kyoto/CRandom16.hpp"
 #include "Kyoto/Streams/CInputStream.hpp"
@@ -11,19 +12,20 @@ CMetaAnimRandom::CMetaAnimRandom(CInputStream& in) : x4_randomData(CreateRandomD
 rstl::ncrc_ptr< CAnimTreeNode >
 CMetaAnimRandom::VGetAnimationTree(const CAnimSysContext& animSys,
                                    const CMetaAnimTreeBuildOrders& orders) const {
-  const int r = const_cast< CAnimSysContext& >(animSys).Random()->Range(1, 100);
+  const int r = animSys.GetRandomNumberGenerator().Range(1, 100);
 
   CMetaAnimRandom::RandomData::const_iterator rd = x4_randomData.begin();
-  int found = 0;
-  while (bool(!found)) {
+  bool found = false;
+  while (!found) {
     if (r <= rd->second) {
-      found = 1;
+      found = true;
     } else {
       rd++;
     }
   }
 
-  return rd->first->GetAnimationTree(animSys, orders);
+  const rstl::ncrc_ptr< CAnimTreeNode >& tree = rd->first->GetAnimationTree(animSys, orders);
+  return tree;
 }
 
 void CMetaAnimRandom::GetUniquePrimitives(rstl::set< CPrimitive >& primsOut) const {
@@ -36,18 +38,19 @@ void CMetaAnimRandom::GetUniquePrimitives(rstl::set< CPrimitive >& primsOut) con
 void CMetaAnimRandom::WriteAnimData(COutputStream& out) const {
   CMetaAnimRandom::RandomData::const_iterator it = x4_randomData.begin();
   CMetaAnimRandom::RandomData::const_iterator end = x4_randomData.end();
-  out.WriteLong(x4_randomData.size());
+  out.WriteInt32(x4_randomData.size());
   while (it != end) {
     rstl::rc_ptr< IMetaAnim > anim = it->first;
+    int weight = it->second;
     anim->PutTo(out);
-    out.WriteLong(it->second);
+    out.WriteLong(weight);
     ++it;
   }
 }
 
 CMetaAnimRandom::RandomData CMetaAnimRandom::CreateRandomData(CInputStream& in) {
   CMetaAnimRandom::RandomData ret;
-  int randCount = in.ReadLong();
+  int randCount = in.Get< int >();
   ret.reserve(randCount);
 
   for (int i = 0; i < randCount; ++i) {

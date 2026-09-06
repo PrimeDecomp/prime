@@ -29,7 +29,12 @@ public:
   rstl::rc_ptr< CAnimTreeNode > VGetBestUnblendedChild() const override;
 
   CAnimTreeTimeScale(const rstl::ncrc_ptr< CAnimTreeNode >& node, float timeScale,
-                     const rstl::string& name);
+                     const rstl::string& name)
+  : CAnimTreeSingleChild(node, name)
+  , x18_timeScale(rs_new CConstantAnimationTimeScale(timeScale))
+  , x20_curAccelTime(0.f)
+  , x28_targetAccelTime(CCharAnimTime::Infinity())
+  , x30_initialTime(CCharAnimTime::ZeroFlat()) {}
   CAnimTreeTimeScale(const rstl::ncrc_ptr< CAnimTreeNode >& node,
                      const rstl::ownership_transfer< IVaryingAnimationTimeScale >& timeScale,
                      const CCharAnimTime& time, const rstl::string& name)
