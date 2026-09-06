@@ -15,6 +15,17 @@ public:
                 const CVector2f& cropFactor);
 
   bool IsLoaded() const;
+  const rstl::vector< TToken< CTexture > >& GetImages() const { return mTextures; }
+  float GetFps() const { return mFPS; }
+  const CVector2f& GetScale() const { return mCropFactor; }
+  short GetMonoWidth() const {
+    TToken< CTexture > tex = mTextures[0];
+    return tex->GetWidth() * mCropFactor.GetX();
+  }
+  short GetMonoHeight() const {
+    TToken< CTexture > tex = mTextures[0];
+    return tex->GetHeight() * mCropFactor.GetY();
+  }
   // inline short GetWidth() { }
   int GetHeight() {
     TToken< CTexture > tex = mTextures[0];
@@ -27,5 +38,7 @@ private:
   rstl::vector< TToken< CTexture > > mTextures;
   CVector2f mCropFactor;
 };
+
+CHECK_SIZEOF(CFontImageDef, 0x1c)
 
 #endif // _CFONTIMAGEDEF

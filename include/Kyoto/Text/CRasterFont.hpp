@@ -117,6 +117,7 @@ public:
   int GetCarriageAdvance();
 
   const CGlyph* GetGlyph(wchar_t c) const;
+  bool HasGlyph(wchar_t c) const { return GetGlyph(c) != nullptr; }
 
   void GetSize(const CDrawStringOptions&, int&, int&, const wchar_t*, int) const;
   void SetTexture(TToken< CTexture > token);
