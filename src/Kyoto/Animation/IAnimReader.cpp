@@ -44,3 +44,5 @@ uint IAnimReader::GetSoundPOIList(const CCharAnimTime& time, CSoundPOINode* list
   }
   return 0;
 }
+
+bool IAnimReader::IsCAnimTreeNode() const { return false; }

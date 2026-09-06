@@ -65,7 +65,7 @@ class CSegStatementSet;
 class IAnimReader {
 public:
   virtual ~IAnimReader();
-  virtual bool IsCAnimTreeNode() const { return false; }
+  virtual bool IsCAnimTreeNode() const;
   virtual CAdvancementResults VAdvanceView(const CCharAnimTime& a) = 0;
   virtual CCharAnimTime VGetTimeRemaining() const = 0;
   virtual CSteadyStateAnimInfo VGetSteadyStateAnimInfo() const = 0;

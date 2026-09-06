@@ -30,7 +30,7 @@ public:
     return VGetBestUnblendedChild();
   }
 
-  bool IsCAnimTreeNode() const override { return true; }
+  bool IsCAnimTreeNode() const override;
 
 protected:
   rstl::string x4_name;
