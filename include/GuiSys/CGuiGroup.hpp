@@ -5,7 +5,8 @@
 
 class CGuiGroup : public CGuiCompoundWidget {
 public:
-  CGuiGroup(const CGuiWidgetParms& parms, int, bool);
+  CGuiGroup(const CGuiWidgetParms& parms, int defaultWorker, bool b);
+  static CGuiWidget* Create(CGuiFrame* frame, CInputStream& in, CSimplePool* sp);
   FourCC GetWidgetTypeID() const override { return 'GRUP'; }
 
   void SelectWorkerWidget(int workerId, bool setActive, bool setVisible);
@@ -18,5 +19,7 @@ private:
   int xbc_selectedWorker;
   bool xc0_b;
 };
+
+CHECK_SIZEOF(CGuiGroup, 0xc4)
 
 #endif // _CGUIGROUP
