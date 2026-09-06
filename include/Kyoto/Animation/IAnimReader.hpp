@@ -108,6 +108,9 @@ public:
 
   rstl::ownership_transfer< IAnimReader > Clone() const { return VClone(); }
   CCharAnimTime GetTimeRemaining() const { return VGetTimeRemaining(); }
+  CAdvancementResults GetAdvancementResults(const CCharAnimTime& a, const CCharAnimTime& b) const {
+    return VGetAdvancementResults(a, b);
+  }
   CSteadyStateAnimInfo GetSteadyStateAnimInfo() const { return VGetSteadyStateAnimInfo(); }
   void SetPhase(float phase) { VSetPhase(phase); }
   CAdvancementResults AdvanceView(const CCharAnimTime& time) { return VAdvanceView(time); }

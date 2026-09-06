@@ -49,14 +49,15 @@ public:
       float w, rstl::reserved_vector< rstl::pair< float, IAnimReader* >, 16 >& out) const override;
 
   virtual float VGetRightChildWeight() const = 0;
+  float GetLeftChildWeight() const { return 1.f - VGetRightChildWeight(); }
   float GetRightChildWeight() const { return VGetRightChildWeight(); }
 
   const rstl::rc_ptr< CAnimTreeNode >& GetLeftChild() const { return x14_a; }
   const rstl::rc_ptr< CAnimTreeNode >& GetRightChild() const { return x18_b; }
 
 protected:
-  rstl::rc_ptr< CAnimTreeNode > x14_a;
-  rstl::rc_ptr< CAnimTreeNode > x18_b;
+  rstl::ncrc_ptr< CAnimTreeNode > x14_a;
+  rstl::ncrc_ptr< CAnimTreeNode > x18_b;
 };
 
 CHECK_SIZEOF(CAnimTreeDoubleChild, 0x1c)
