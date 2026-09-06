@@ -5,6 +5,7 @@
 
 #include "rstl/construct.hpp"
 #include "rstl/functional.hpp"
+#include "rstl/iterator.hpp"
 #include "rstl/rmemory_allocator.hpp"
 
 namespace rstl {
@@ -75,15 +76,11 @@ public:
 
   iterator erase(const iterator& item) { return do_erase(item.get_node()); }
   iterator erase(const iterator& start, const iterator& end) {
-    node* last = end.get_node();
-    node* it = start.get_node();
-    for (node* t = it; t != last; t = t->get_next()) {
+    iterator it = start;
+    while (it != end) {
+      it = erase(it);
     }
-
-    while (it != last) {
-      it = do_erase(it);
-    }
-    return iterator(it);
+    return it;
   }
 
   struct node {
@@ -121,27 +118,12 @@ public:
     return nn;
   }
 
-  iterator insert(const iterator& pos, const T& val) {
-    do_insert_before(pos.get_node(), val);
-    return pos;
-  }
+  iterator insert(const iterator& pos, const T& val);
 
   template < typename InputIterator >
-  void insert(const iterator& pos, InputIterator first, InputIterator last) {
-    for (InputIterator it = first; it != last; ++it) {
-      do_insert_before(pos.get_node(), *it);
-    }
-  }
+  void insert(const iterator& pos, InputIterator first, InputIterator last);
 
-  // TODO: demo map shows this delegates to clear(),
-  // but this matches better in CSkinnedModelWithAvgNormals
-  void destroy() {
-    node* end = x8_end;
-    node* it = x4_start;
-    while (it != end) {
-      it = do_erase(it);
-    }
-  }
+  void destroy() { clear(); }
 
   void remove(const T& val);
 
@@ -180,10 +162,12 @@ public:
 public:
   class const_iterator {
   public:
+    typedef bidirectional_iterator_tag iterator_category;
+    typedef int difference_type;
     typedef T* value_type;
 
     const_iterator() : current(nullptr) {}
-    const_iterator(node* begin) : current(begin) {}
+    const_iterator(node* const begin) : current(begin) {}
     const_iterator& operator++() {
       this->current = this->current->x4_next;
       return *this;
@@ -211,7 +195,7 @@ public:
     typedef T* value_type;
 
     iterator() : const_iterator(nullptr) {}
-    iterator(node* begin) : const_iterator(begin) {}
+    iterator(node* const begin) : const_iterator(begin) {}
     iterator& operator++() {
       this->current = this->current->x4_next;
       return *this;
@@ -243,6 +227,20 @@ private:
 };
 
 template < typename T, typename Alloc >
+inline typename list< T, Alloc >::iterator list< T, Alloc >::insert(const iterator& pos, const T& val) {
+  node* const result = do_insert_before(pos.get_node(), val);
+  return iterator(result);
+}
+
+template < typename T, typename Alloc >
+template < typename InputIterator >
+void list< T, Alloc >::insert(const iterator& pos, InputIterator first, InputIterator last) {
+  for (InputIterator it = first; it != last; ++it) {
+    insert(pos, *it);
+  }
+}
+
+template < typename T, typename Alloc >
 void list< T, Alloc >::remove(const T& val) {
   rstl::equal_to< T > equal;
   remove_if(rstl::bind1st(equal, val));
@@ -255,7 +253,7 @@ list< T, Alloc >::~list() {
     node* it = cur;
     node* next = cur->get_next();
     cur = next;
-    rstl::destroy(it->get_value());
+    it->get_value()->~T();
     x0_allocator.deallocate(it);
   }
 }

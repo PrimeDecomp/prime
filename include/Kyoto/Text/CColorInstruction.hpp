@@ -6,7 +6,7 @@
 #include "Kyoto/Text/CTextColor.hpp"
 #include "Kyoto/Text/TextCommon.hpp"
 
-class CColorInstruction : CInstruction {
+class CColorInstruction : public CInstruction {
 public:
   CColorInstruction(EColorType type, const CTextColor& color) : x4_type(type), x8_color(color) {}
 

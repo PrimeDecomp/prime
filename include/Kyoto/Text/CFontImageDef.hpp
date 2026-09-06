@@ -18,22 +18,16 @@ public:
   const rstl::vector< TToken< CTexture > >& GetImages() const { return mTextures; }
   float GetFps() const { return mFPS; }
   const CVector2f& GetScale() const { return mCropFactor; }
-  short GetMonoWidth() const {
+  int GetMonoWidth() const {
     TToken< CTexture > tex = mTextures[0];
     return tex->GetWidth() * mCropFactor.GetX();
   }
-  short GetMonoHeight() const {
+  int GetMonoHeight() const {
     TToken< CTexture > tex = mTextures[0];
     return tex->GetHeight() * mCropFactor.GetY();
   }
-  int GetWidth() const {
-    TToken< CTexture > tex = mTextures[0];
-    return tex->GetWidth() * mCropFactor.GetX();
-  }
-  int GetHeight() const {
-    TToken< CTexture > tex = mTextures[0];
-    return tex.GetT()->GetHeight() * mCropFactor.GetY();
-  }
+  int GetWidth() const { return GetMonoWidth(); }
+  int GetHeight() const { return GetMonoHeight(); }
   int CalculateBaseline() const;
   int CalculateHeight() const;
 

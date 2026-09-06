@@ -38,6 +38,19 @@ void __advance(It& it, S count, forward_iterator_tag) {
 }
 
 template < typename It, typename S >
+void __advance(It& it, S count, bidirectional_iterator_tag) {
+  if (count > 0) {
+    for (S i = 0; i < count; ++i) {
+      ++it;
+    }
+  } else {
+    for (S i = 0; i > count; --i) {
+      --it;
+    }
+  }
+}
+
+template < typename It, typename S >
 void __advance(It& it, S count, random_access_iterator_tag) {
   it += count;
 }
@@ -45,6 +58,13 @@ void __advance(It& it, S count, random_access_iterator_tag) {
 template < typename It, typename S >
 void advance(It& it, S count) {
   __advance(it, count, typename It::iterator_category());
+}
+
+template < typename It, typename S >
+It advance_iterator(It it, S count) {
+  It result = it;
+  advance(result, count);
+  return result;
 }
 
 } // namespace rstl

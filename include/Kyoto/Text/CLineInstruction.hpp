@@ -6,8 +6,20 @@
 
 class CLineInstruction : public CInstruction {
 public:
-  CLineInstruction(int width, int height, int baseline, EJustification justification,
-                   EVerticalJustification verticalJustification);
+  CLineInstruction(int words, int width, int height, const bool imageBaseline,
+                   EJustification justification, EVerticalJustification verticalJustification)
+  : mWordCount(words)
+  , mCurX(width)
+  , mCurY(height)
+  , mLargestFontHeight(0)
+  , mLargestFontWidth(0)
+  , mLargestFontBaseline(0)
+  , mLargestImageHeight(0)
+  , mLargestImageWidth(0)
+  , mLargestImageBaseline(0)
+  , mJustification(justification)
+  , mVerticalJustification(verticalJustification)
+  , mImageBaseline(imageBaseline) {}
 
   int GetWordCount() const { return mWordCount; }
   int GetHeight() const;
@@ -23,6 +35,12 @@ public:
   int GetX() const { return mCurX; }
   int GetWidth() const { return mCurX; }
   int GetY() const { return mCurY; }
+  void IncWords() { ++mWordCount; }
+  void DecWords() { --mWordCount; }
+  void AddWidth(int width) { mCurX += width; }
+  void SubWidth(int width) { mCurX -= width; }
+  void AddHeight(int height) { mCurY += height; }
+  void SetHeight(int height) { mCurY = height; }
 
   EJustification GetJustification() const { return mJustification; }
   void SetJustification(const EJustification justification) { mJustification = justification; }
@@ -45,5 +63,7 @@ private:
   EVerticalJustification mVerticalJustification;
   bool mImageBaseline;
 };
+
+CHECK_SIZEOF(CLineInstruction, 0x34)
 
 #endif // _CLINEINSTRUCTION

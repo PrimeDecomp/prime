@@ -23,6 +23,9 @@ public:
   int GetLineExtraSpacing() const { return x78_extraLineSpacing; }
   void SetLineExtraSpace(int spacing) { x78_extraLineSpacing = spacing; }
   void SetWordWrapping(const bool wrap) { x7c_enableWordWrap = wrap; }
+  bool IsWordWrapping() const { return x7c_enableWordWrap; }
+  void SetJustification(EJustification just) { x80_just = just; }
+  void SetVerticalJustification(EVerticalJustification just) { x84_vjust = just; }
 
   EJustification GetJustification() const { return x80_just; }
   EVerticalJustification GetVerticalJustification() const { return x84_vjust; }
