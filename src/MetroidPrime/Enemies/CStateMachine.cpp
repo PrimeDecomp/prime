@@ -88,13 +88,15 @@ const char* CStateMachineState::GetName() const {
 
 CStateMachine::CStateMachine(CInputStream& in) {
   CAiTrigger* lastTrig = nullptr;
-  int stateCount = in.ReadLong();
+  const int stateCount = in.Get< int >();
+  char name[32];
+  int nameLen;
+  int i;
 
   x0_states.reserve(stateCount);
 
-  for (int i = 0; i < stateCount; ++i) {
-    char name[32];
-    int nameLen = 0;
+  for (i = 0; i < stateCount; ++i) {
+    nameLen = 0;
     for (; nameLen < 31; ++nameLen) {
       name[nameLen] = in.Get< char >();
       if (name[nameLen] == '\0') {
@@ -108,27 +110,28 @@ CStateMachine::CStateMachine(CInputStream& in) {
 
   x10_triggers.reserve(in.Get< int >());
 
-  for (int i = 0; i < stateCount; ++i) {
-    x0_states[i].SetNumTriggers(in.Get< int >());
+  for (i = 0; i < stateCount; ++i) {
+    int j;
+    CAiState& state = x0_states[i];
+    const int firstTriggerIdx = x10_triggers.size();
+    state.SetNumTriggers(in.Get< int >());
 
-    if (x0_states[i].GetNumTriggers() == 0) {
+    if (state.GetNumTriggers() == 0) {
       continue;
     }
 
-    for (uint i = 0; i < x0_states[i].GetNumTriggers(); ++i) {
+    for (j = 0; j < state.GetNumTriggers(); ++j) {
       x10_triggers.push_back(CAiTrigger());
     }
-    
-    CAiTrigger* firstTrig = x10_triggers.data() + x10_triggers.size();
-    x0_states[i].SetTriggers(firstTrig);
 
-    for (int j = 0; j < x0_states[i].GetNumTriggers(); ++j) {
+    state.SetTriggers(&x10_triggers[firstTriggerIdx]);
+
+    for (j = 0; j < state.GetNumTriggers(); ++j) {
       const int triggerCount = in.Get< int >();
       const int lastTriggerIdx = triggerCount - 1;
 
       for (int k = 0; k < triggerCount; ++k) {
-        char name[32];
-        int nameLen = 0;
+        nameLen = 0;
         for (; nameLen < 31; ++nameLen) {
           name[nameLen] = in.Get< char >();
 
@@ -147,7 +150,7 @@ CStateMachine::CStateMachine(CInputStream& in) {
           x10_triggers.push_back(CAiTrigger());
           newTrig = &x10_triggers.back();
         } else {
-          newTrig = x0_states[i].GetTrig(j);
+          newTrig = state.GetTrig(j);
         }
         if (k == 0) {
           newTrig->Setup(func, isNot, arg, &x0_states[in.Get< int >()]);
