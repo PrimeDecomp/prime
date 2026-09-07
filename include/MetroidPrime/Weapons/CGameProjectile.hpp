@@ -14,12 +14,21 @@
 #include "rstl/vector.hpp"
 
 class CGenDescription;
+class CLight;
 class CProjectileTouchResult {
 public:
+  CProjectileTouchResult(const TUniqueId& id, const rstl::optional_object< CRayCastResult >& result)
+  : x0_id(id), x4_result(result) {}
+  TUniqueId GetActorId() const { return x0_id; }
+  bool HasRayCastResult() const { return x4_result.valid(); }
+  const CRayCastResult& GetRayCastResult() const { return *x4_result; }
+
 private:
   TUniqueId x0_id;
   rstl::optional_object< CRayCastResult > x4_result;
 };
+
+CHECK_SIZEOF(CProjectileTouchResult, 0x38)
 
 class CGameProjectile : public CWeapon {
 public:
@@ -32,7 +41,7 @@ public:
                   const ushort visorSfx, bool sendCollideMsg);
 
   // CEntity
-  ~CGameProjectile() override; // Remove this when possible
+  ~CGameProjectile() override;
   void Accept(IVisitor& visitor) override;
   void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) override;
 
@@ -61,11 +70,21 @@ public:
 
   void ApplyDamageToActors(CStateManager& mgr, const CDamageInfo& dInfo);
   CRayCastResult RayCollisionCheckWithWorld(TUniqueId& idOut, const CVector3f& start,
-                                            const CVector3f& end, float mag,
-                                            const TEntityList& nearList, CStateManager& mgr);
+                                            const CVector3f& end, float mag, TEntityList& nearList,
+                                            CStateManager& mgr);
   static EProjectileAttrib GetBeamAttribType(EWeaponType wType);
 
   CAABox GetProjectileBounds() const;
+  void CreateProjectileLight(const rstl::string& name, const CLight& light, CStateManager& mgr);
+  void Chase(float dt, CStateManager& mgr);
+  void UpdateHoming(float dt, CStateManager& mgr);
+  void UpdateProjectileMovement(float dt, CStateManager& mgr);
+  CRayCastResult DoCollisionCheck(TUniqueId& idOut, CStateManager& mgr);
+  CProjectileTouchResult CanCollideWith(CActor& act, CStateManager& mgr);
+  CProjectileTouchResult CanCollideWithComplexCollision(CActor& act, CStateManager& mgr);
+  CProjectileTouchResult CanCollideWithGameObject(CActor& act, CStateManager& mgr);
+
+  static const float kProjectileBoxAllowance;
 
 protected:
   rstl::optional_object< TLockedToken< CGenDescription > > x158_visorParticle;

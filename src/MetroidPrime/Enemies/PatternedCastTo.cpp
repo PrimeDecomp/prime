@@ -8,7 +8,7 @@
 #include "MetroidPrime/Enemies/CMetroidBeta.hpp"
 #include "MetroidPrime/Enemies/CMetroidPrime.hpp"
 #include "MetroidPrime/Enemies/CParasite.hpp"
-#include "MetroidPrime/Enemies/CPuddleToad.hpp"
+#include "MetroidPrime/Enemies/CPuddleToadGamma.hpp"
 #include "MetroidPrime/Enemies/CSpacePirate.hpp"
 #include "MetroidPrime/Enemies/CThardusRockProjectile.hpp"
 #include "MetroidPrime/Enemies/CWarWasp.hpp"
@@ -84,10 +84,10 @@ CParasite* CPatterned::CastTo< CParasite >(const TPatternedCast< CParasite >& en
 }
 
 template <>
-TPatternedCast< CPuddleToad >::TPatternedCast(CEntity* ent) : ent(ent) {}
+TPatternedCast< CPuddleToadGamma >::TPatternedCast(CEntity* ent) : ent(ent) {}
 template <>
-CPuddleToad* CPatterned::CastTo< CPuddleToad >(const TPatternedCast< CPuddleToad >& ent) {
-  return static_cast< CPuddleToad* >(CastPatternedCharacter(CPatterned::kC_PuddleToad, ent.ent));
+CPuddleToadGamma* CPatterned::CastTo< CPuddleToadGamma >(const TPatternedCast< CPuddleToadGamma >& ent) {
+  return static_cast< CPuddleToadGamma* >(CastPatternedCharacter(CPatterned::kC_PuddleToad, ent.ent));
 }
 
 template <>
