@@ -23,7 +23,7 @@ public:
                          const rstl::vector< CJointCollisionDescription >& descs, bool active);
   ~CCollisionActorManager();
 
-  void Update(float dt, CStateManager& mgr, EUpdateOptions opts) const;
+  void Update(float dt, CStateManager& mgr, EUpdateOptions opts);
   void Destroy(CStateManager& mgr) const;
   void SetActive(CStateManager& mgr, bool active);
   uchar GetActive() const;
@@ -31,10 +31,8 @@ public:
   void SetMovable(CStateManager& mgr, bool movable);
 
   uint GetNumCollisionActors() const;
-  rstl::optional_object< CVector3f > GetDeviation(const CStateManager& mgr, CSegId seg);
-  const CJointCollisionDescription& GetCollisionDescFromIndex(uint i) const; /*{
-    return x0_jointDescriptions[i];
-  }*/
+  rstl::optional_object< CVector3f > GetDeviation(const CStateManager& mgr, CSegId seg) const;
+  const CJointCollisionDescription& GetCollisionDescFromIndex(uint i) const;
 
   static CTransform4f GetWRLocatorTransform(const CAnimData& animData, CSegId id,
                                             const CTransform4f& worldXf,
@@ -47,5 +45,7 @@ private:
   mutable bool x13_destroyed;
   bool x14_movable;
 };
+
+CHECK_SIZEOF(CCollisionActorManager, 0x18)
 
 #endif // _CCOLLISIONACTORMANAGER
