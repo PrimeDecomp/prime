@@ -28,12 +28,13 @@ public:
   void SetDeferPowerupInit(bool);
   void SetTotalPlayTime(double);
 
-  rstl::rc_ptr< CPlayerState >& PlayerState();
+  rstl::ncrc_ptr< CPlayerState >& PlayerState();
   CAssetId CurrentWorldAssetId() const;
   void WriteBackupBuf();
 
   CWorldState& StateForWorld(CAssetId mlvlId);
   CWorldState& CurrentWorldState();
+  const CWorldState& GetCurrentWorldState() const;
 
   void ImportPersistentOptions(const CSystemState&);
   void ExportPersistentOptions(CSystemState&);
@@ -54,7 +55,7 @@ public:
   double GetTotalPlayTime() const { return xa0_playTime; }
   float GetHardModeDamageMultiplier() const;
   float GetHardModeWeaponMultiplier() const;
-  rstl::rc_ptr< CWorldTransManager >& WorldTransitionManager(); // { return x9c_transManager.GetPtr(); }
+  rstl::ncrc_ptr< CWorldTransManager >& WorldTransitionManager();
 
   struct GameFileStateInfo {
     double x0_playTime;
@@ -72,8 +73,8 @@ private:
   rstl::reserved_vector< bool, 128 > x0_;
   CAssetId x84_mlvlId;
   rstl::vector< CWorldState > x88_worldStates;
-  rstl::rc_ptr< CPlayerState > x98_playerState;
-  rstl::rc_ptr< CWorldTransManager > x9c_transManager;
+  rstl::ncrc_ptr< CPlayerState > x98_playerState;
+  rstl::ncrc_ptr< CWorldTransManager > x9c_transManager;
   double xa0_playTime;
   CSystemState xa8_systemState;
   CGameOptions x17c_gameOptions;

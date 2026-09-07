@@ -238,6 +238,7 @@ public:
   void SetGameState(EGameState state);
 
   CRandom16* Random() const { return x900_random; }
+  void SetRandomAvailable(bool available) { x900_random = available ? &x8fc_random : nullptr; }
   uint GetUpdateFrameIndex() const { return x8d8_updateFrameIdx; }
 
   CObjectList& ObjectListById(EGameObjectList id) { return *x808_objectLists[id]; }
@@ -290,6 +291,8 @@ public:
   void ShowPausedHUDMemo(CAssetId strg, float time);
   void QueueMessage(int frameCount, CAssetId msg, float f1);
   int GetHUDMessageFrameCount() const { return xf80_hudMessageFrameCount; }
+  float GetHUDMessageTime() const { return xf78_hudMessageTime; }
+  void IncrementHUDMessageFrameCounter() { ++xf80_hudMessageFrameCount; }
 
   // Weapon
   int GetWeaponIdCount(TUniqueId, EWeaponType);
@@ -313,6 +316,8 @@ public:
   // State transitions
   bool CanShowMapScreen();
   void DeferStateTransition(EStateManagerTransition t);
+  EStateManagerTransition GetDeferredStateTransition() const { return xf90_deferredTransition; }
+  bool IsFullyInitialized() const { return xb3c_initPhase == kIP_Done; }
   void EnterMapScreen() { DeferStateTransition(kSMT_MapScreen); }
   void EnterPauseScreen() { DeferStateTransition(kSMT_PauseGame); }
   void EnterLogBookScreen() { DeferStateTransition(kSMT_LogBook); }
@@ -350,6 +355,7 @@ public:
   bool GetWantsToQuit() const { return xf94_25_quitGame; }
   bool SpecialSkipCinematic();
   void SetCinematicSkipObject(TUniqueId id) { xf38_skipCineSpecialFunc = id; }
+  TUniqueId GetCinematicSkipObject() const { return xf38_skipCineSpecialFunc; }
   void SetCinematicPause(bool pause) { xf94_29_cinematicPause = pause; }
   void SetInSaveUI(bool b) { xf94_28_inSaveUI = b; }
   bool GetInSaveUI() const { return xf94_28_inSaveUI; }

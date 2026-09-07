@@ -32,6 +32,9 @@ public:
   void AsyncIdle(uint time);
 
   CResLoader& GetResLoader() { return x4_resLoader; }
+  const rstl::vector< CAssetId >* GetTagListForFile(const rstl::string& pak) const {
+    return x4_resLoader.GetTagListForFile(pak);
+  }
 
   CInputStream* LoadResourceFromMemorySync(const SObjectTag& tag, const void* extBuf) {
     return x4_resLoader.LoadResourceFromMemorySync(tag, extBuf);
