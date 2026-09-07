@@ -292,14 +292,22 @@ bool CAudioSys::SysUnloadSampleData(const rstl::string& name) {
   return false;
 }
 
-void CAudioSys::SysUnloadGroupSet(const rstl::string& name) {
-  rstl::map< rstl::string, rstl::ncrc_ptr< CAudioGroupSet > >::iterator it =
-      mpGroupSetDB->find(name);
-  if (it == mpGroupSetDB->end()) {
-    return;
+bool CAudioSys::SysUnloadGroupSet(const rstl::string& name) {
+  rstl::rc_ptr< CAudioGroupSet > group = FindGroupSet(name);
+  if (group) {
+    AUTO(it, mpGroupSetResNameDB->begin());
+    while (it != mpGroupSetResNameDB->end()) {
+      if (it->second == name) {
+        it = mpGroupSetResNameDB->erase(it);
+      } else {
+        ++it;
+      }
+    }
+    mCurrentAramUsage -= group->AramUsage();
+    mpGroupSetDB->erase(name);
+    return true;
   }
-
-  mpGroupSetDB->erase(it);
+  return false;
 }
 
 bool CAudioSys::SysPushGroupIntoARAM(const rstl::string& name, const uchar groupId) {
