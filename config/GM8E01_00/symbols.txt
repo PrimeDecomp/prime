@@ -8870,8 +8870,8 @@ GetNewDerivedObject__34TObjOwnerDerivedFromIObj<7CPFArea>FRCQ24rstl18auto_ptr<7C
 __ct__34TObjOwnerDerivedFromIObj<7CPFArea>FRCQ24rstl18auto_ptr<7CPFArea> = .text:0x801CA42C; // type:function size:0x9C scope:global
 __dt__34TObjOwnerDerivedFromIObj<7CPFArea>Fv = .text:0x801CA4C8; // type:function size:0x64 scope:global
 PathExists__7CPFAreaCFPC9CPFRegionPC9CPFRegionUi = .text:0x801CA52C; // type:function size:0xB8 scope:global
-FindClosestReachablePoint__7CPFAreaFRQ24rstl30reserved_vector<P9CPFRegion,4>RC9CVector3fUi = .text:0x801CA5E4; // type:function size:0x1B8 scope:global
-FindClosestRegion__7CPFAreaFRC9CVector3fUif = .text:0x801CA79C; // type:function size:0x2A8 scope:global
+FindClosestReachablePoint__7CPFAreaFRQ24rstl30reserved_vector<P9CPFRegion,4>RC9CVector3fUiUi = .text:0x801CA5E4; // type:function size:0x1B8 scope:global
+FindClosestRegion__7CPFAreaFRC9CVector3fUiUif = .text:0x801CA79C; // type:function size:0x2A8 scope:global
 FindRegions__7CPFAreaFRQ24rstl30reserved_vector<P9CPFRegion,4>RC9CVector3fUiUi = .text:0x801CAA44; // type:function size:0xFC scope:global
 GetOctreeRegionList__7CPFAreaFRC9CVector3f = .text:0x801CAB40; // type:function size:0x7C scope:global
 __ct__7CPFAreaFRCQ24rstl12auto_ptr<Uc>i = .text:0x801CABBC; // type:function size:0x628 scope:global
