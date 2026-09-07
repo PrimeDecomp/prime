@@ -13,7 +13,7 @@ public:
   CDamageInfo()
   : x0_weaponMode(CWeaponMode::Invalid())
   , x8_damage(0.f)
-  , xc_radiusDamage(0.f)
+  , xc_radiusDamage(x8_damage)
   , x10_radius(0.f)
   , x14_knockback(0.f)
   , x18_24_noImmunity(false) {}

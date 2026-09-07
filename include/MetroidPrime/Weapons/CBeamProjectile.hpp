@@ -21,8 +21,8 @@ public:
                   EProjectileAttrib attribs, bool growingBeam);
 
   // CEntity
-  ~CBeamProjectile() override;
   void Accept(IVisitor& visitor) override;
+  ~CBeamProjectile() override;
 
   // CActor
   rstl::optional_object<CAABox> GetTouchBounds() const override;
@@ -34,11 +34,18 @@ public:
   virtual void ResetBeam(CStateManager&, bool);
   virtual void Fire(const CTransform4f&, CStateManager&, bool) = 0;
   
-  void CauseDamage(bool b) { x464_25_enableTouchDamage = b; }
+  void CauseDamage(const bool b) { x464_25_enableTouchDamage = b; }
   EDamageType GetDamageType() const { return x2f8_damageType; }
   const CVector3f& GetCurrentPos() const { return x318_collisionPoint; }
   const CVector3f& GetSurfaceNormal() const { return x30c_collisionNormal; }
   const CTransform4f& GetBeamTransform() const { return x324_xf; }
+  float GetCurrentLength() const { return x304_beamLength; }
+  float GetMaxLength() const { return x2ec_maxLength; }
+  float GetInvMaxLength() const { return x2f0_invMaxLength; }
+  float GetMaxRadius() const { return x2f4_beamRadius; }
+  TUniqueId GetCollisionActorId() const { return x2fe_collisionActorId; }
+  const rstl::reserved_vector< CVector3f, 8 >& GetPointCache() const { return x400_pointCache; }
+  rstl::reserved_vector< CVector3f, 8 >& PointCache() { return x400_pointCache; }
 
 private:
   int x2e8_intMaxLength;
