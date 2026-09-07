@@ -24,6 +24,7 @@ public:
 
 
   CLight GetAsCGraphicsLight() const;
+  bool DoesCastShadows() const { return x34_castShadows; }
   const CVector3f& GetPosition() const { return x10_position; }
 
 public:

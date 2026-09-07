@@ -262,6 +262,8 @@ public:
   const rstl::vector< CWorldLight >& GetLightsB() const {
     return x12c_postConstructed->x80_lightsB;
   }
+  uint Get1stPVSLightFeature(uint idx) const;
+  uint Get2ndPVSLightFeature(uint idx) const;
   const CPVSAreaSet* GetAreaVisSet() const { return x12c_postConstructed->xa0_pvs; }
   bool IsPostConstructed() const { return xf0_24_postConstructed; }                         // name?
   CPostConstructed* GetPostConstructed() { return x12c_postConstructed.get(); }             // name?

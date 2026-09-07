@@ -81,6 +81,8 @@
 
 #include "Kyoto/CFrameDelayedKiller.hpp"
 
+const int gkPVSEnabled = 1;
+
 namespace {
 class area_sorter {
 public:
@@ -1990,9 +1992,7 @@ bool CStateManager::GetVisSetForArea(TAreaId areaA, TAreaId areaB, CPVSVisSet& s
     if (areaSet != nullptr) {
       setState = 2;
 
-      const uint worldAreaArg = x850_world->GetNumAreas();
-      CPVSVisOctree& visOctree =
-          *const_cast< CPVSVisOctree* >(&areaSet->GetVisOctree(worldAreaArg));
+      CPVSVisOctree& visOctree = areaSet->GetVisOctree();
 
       const CTransform4f& invAreaXf = x850_world->GetArea(areaA)->GetInverseTransform();
       const CVector3f localPoint = invAreaXf * closestDockPoint;

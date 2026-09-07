@@ -34,7 +34,7 @@ rstl::auto_ptr< CPVSAreaSet > CPVSAreaSet::MakeAreaSet(const char* data, int len
                             lightIndexCount, data1, entityIndexEnd, data3);
 }
 
-const CPVSVisOctree& CPVSAreaSet::GetVisOctree(const uint) const { return x20_octree; }
+CPVSVisOctree& CPVSAreaSet::GetVisOctree() const { return x20_octree; }
 
 CPVSVisSet CPVSAreaSet::GetLightSet(int lightIdx) const {
   // return CPVSVisSet(x20_octree.GetNumObjects(), x20_octree.GetNumLights(),

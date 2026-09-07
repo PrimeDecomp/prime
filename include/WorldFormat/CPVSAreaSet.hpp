@@ -16,7 +16,8 @@ public:
   CPVSVisSet GetLightSet(int) const;
   int GetEntityIdByIndex(uint idx) const;
 
-  const CPVSVisOctree& GetVisOctree(const uint) const;
+  CPVSVisOctree& GetVisOctree() const;
+  bool Has2ndLayerLights() const { return x8_ != 0; }
 
 private:
   int x0_;
@@ -27,7 +28,7 @@ private:
   int x14_;
   const char* x18_;
   const char* x1c_lightLeaves;
-  CPVSVisOctree x20_octree;
+  mutable CPVSVisOctree x20_octree;
 };
 
 #endif // _CPVSAREASET

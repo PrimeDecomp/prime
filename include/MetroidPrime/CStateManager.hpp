@@ -1,6 +1,8 @@
 #ifndef _CSTATEMANAGER
 #define _CSTATEMANAGER
 
+extern const int gkPVSEnabled;
+
 #include "types.h"
 
 #include "Kyoto/CRandom16.hpp"
@@ -362,6 +364,7 @@ public:
   void SetInMapScreen(bool b) { xf94_27_inMapScreen = b; }
   bool GetInMapScreen() const { return xf94_27_inMapScreen; }
   void SetIsFullThreat(bool v) { xf94_30_fullThreat = v; }
+  const rstl::vector< CLight >& GetDynamicLightList() const { return x8e0_dynamicLights; }
   uint GetInputFrameIdx() const { return x8d4_inputFrameIdx; }
   CMapWorldInfo* MapWorldInfo() const { return x8c0_mapWorldInfo.GetPtr(); }
 
