@@ -13,6 +13,14 @@
 #include "rstl/string.hpp"
 #include <stdio.h>
 
+static const char skBombGroupName[] = "basewidget_bombstuff";
+static const char skBombDigitsName[] = "textpane_bombdigits";
+static const char skBombCounterBaseName[] = "group_bombcount";
+static const char skBombTextName[] = "model_bomb_text";
+static const char skPowerBombIconName[] = "model_bombicon";
+static const char skEnergyDecoName[] = "basewidget_energydeco";
+static const char skBombDecoName[] = "basewidget_bombdeco";
+
 CHudBallInterface::CHudBallInterface(CGuiFrame& selHud, int pbAmount, int pbCapacity,
                                      int availableBombs, bool hasBombs, bool hasPb)
 : x34_camPos(CVector3f::Zero())
@@ -22,19 +30,13 @@ CHudBallInterface::CHudBallInterface(CGuiFrame& selHud, int pbAmount, int pbCapa
 , x4c_hasPb(hasPb) {
   x0_camera = selHud.GetFrameCamera();
 
-  const char* basewidget_bombstuff = "basewidget_bombstuff";
-  const char* basewidget_bombdeco = "basewidget_bombdeco";
-  const char* model_bombicon = "model_bombicon";
-  const char* textpane_bombdigits = "textpane_bombdigits";
-  const char* basewidget_energydeco = "basewidget_energydeco";
-
-  x4_basewidget_bombstuff = selHud.FindWidget(basewidget_bombstuff);
-  x8_basewidget_bombdeco = selHud.FindWidget(basewidget_bombdeco);
-  xc_model_bombicon = static_cast< CGuiModel* >(selHud.FindWidget(model_bombicon));
-  x10_textpane_bombdigits = static_cast< CGuiTextPane* >(selHud.FindWidget(textpane_bombdigits));
+  x4_basewidget_bombstuff = selHud.FindWidget(skBombGroupName);
+  x10_textpane_bombdigits = static_cast< CGuiTextPane* >(selHud.FindWidget(skBombDigitsName));
+  xc_model_bombicon = static_cast< CGuiModel* >(selHud.FindWidget(skPowerBombIconName));
+  x8_basewidget_bombdeco = selHud.FindWidget(skBombDecoName);
 
   for (int i = 0; i < 3; ++i) {
-    rstl::string groupName(CBasics::Stringize("%s%d", "group_bombcount", i));
+    rstl::string groupName(CBasics::Stringize("%s%d", skBombCounterBaseName, i));
     CGuiGroup* grp = static_cast< CGuiGroup* >(selHud.FindWidget(groupName));
     CGuiWidget* filled = grp->GetWorkerWidget(1);
     CGuiWidget* empty = grp->GetWorkerWidget(0);
@@ -49,10 +51,10 @@ CHudBallInterface::CHudBallInterface(CGuiFrame& selHud, int pbAmount, int pbCapa
   x8_basewidget_bombdeco->SetColor(gpTweakGuiColors->GetBallBombDecoColor());
   x34_camPos = x0_camera->GetLocalPosition();
 
-  if (CGuiWidget* w = selHud.FindWidget(rstl::string_l(basewidget_energydeco))) {
+  if (CGuiWidget* w = selHud.FindWidget(rstl::string_l(skEnergyDecoName))) {
     w->SetColor(gpTweakGuiColors->GetBallBombEnergyColor());
   }
-  SetBombParams(pbAmount, pbCapacity, availableBombs, hasBombs, hasPb, true);
+  SetBombParams(x40_pbAmount, pbCapacity, availableBombs, hasBombs, hasPb, true);
 }
 
 void CHudBallInterface::SetBombParams(int pbAmount, int pbCapacity, int availableBombs,
@@ -89,16 +91,17 @@ void CHudBallInterface::SetBombParams(int pbAmount, int pbCapacity, int availabl
 
 void CHudBallInterface::SetBallModeFactor(float t) {
   float tmp = gpTweakGui->GetBallViewportYReduction() * 448.0f * 0.5f;
-  x0_camera->SetLocalTransform(CTransform4f::Translate(CVector3f(
-      x34_camPos.GetX(), x34_camPos.GetY(), x34_camPos.GetZ() + (t * tmp - tmp) * 0.01f)));
+  float zOffset = t * tmp - tmp;
+  zOffset *= 0.01f;
+  x0_camera->SetO2PTransform(CTransform4f::Translate(
+      CVector3f(x34_camPos.GetX(), x34_camPos.GetY(), zOffset + x34_camPos.GetZ())));
 }
 
 void CHudBallInterface::UpdatePowerBombReadoutColors() {
+  bool hasPbsCapacity = x44_pbCapacity > 0;
+  bool hasPbsAmount = x40_pbAmount > 0;
   CColor clear(0);
 
-  bool hasPbsAmount = x40_pbAmount > 0;
-  bool hasPbsCapacity = x44_pbCapacity > 0;
-  
   const CColor* fontColor = nullptr;
   if (hasPbsAmount) {
     fontColor = &gpTweakGuiColors->GetPowerBombDigitAvailableFont();
