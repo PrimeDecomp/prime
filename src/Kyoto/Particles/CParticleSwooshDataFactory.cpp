@@ -2,7 +2,7 @@
 
 #include "Kyoto/CRandom16.hpp"
 #include "Kyoto/Particles/CParticleDataFactory.hpp"
-#include "MetroidPrime/CFlameWarp.hpp"
+#include "Kyoto/Streams/CInputStream.hpp"
 
 CFactoryFnReturn FParticleSwooshDataFactory(const SObjectTag& tag, CInputStream& in,
                                             const CVParamTransfer& transfer) {
@@ -34,8 +34,8 @@ CSwooshDescription* CParticleSwooshDataFactory::CreateGeneratorDescription(CInpu
 bool CParticleSwooshDataFactory::CreateWPSM(CSwooshDescription* swoosh, CInputStream& in,
                                             CSimplePool* pool) {
   bool done = false;
-  CRandom16 _(99);
-  CGlobalRandom __(_);
+  CRandom16 random(99);
+  CGlobalRandom globalRandom(random);
 
   while (!done) {
     const FourCC classId = CParticleDataFactory::GetClassID(in);
@@ -131,6 +131,6 @@ bool CParticleSwooshDataFactory::CreateWPSM(CSwooshDescription* swoosh, CInputSt
       return false;
     }
   }
-  
+
   return true;
 }
