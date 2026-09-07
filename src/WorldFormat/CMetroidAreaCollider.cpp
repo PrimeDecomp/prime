@@ -270,7 +270,7 @@ bool CMetroidAreaCollider::AABoxCollisionCheckBoolean_Cached(const COctreeLeafCa
     if (aabb.DoBoundsOverlap(node.GetBoundingBox())) {
       CAreaOctTree::TriListReference list = node.GetTriangleArray();
       const CAreaOctTree& owner = node.GetOwner();
-      int size = list.GetSize();
+      int size = static_cast< ushort >(list.GetSize());
       for (int j = 0; j < size; ++j) {
         ++gTrianglesProcessed;
         const CCollisionSurface& surf = owner.GetMasterListTriangle(list.GetAt(j));

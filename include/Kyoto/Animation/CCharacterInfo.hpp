@@ -24,6 +24,7 @@ public:
     rstl::vector< CAssetId > x30_elsc;
   };
 
+  int GetAnimationIndex(const rstl::string& name) const;
   const rstl::string& GetCharacterName() const { return x4_name; }
   const CPASDatabase& GetPASDatabase() const { return x30_pasDatabase; }
   const CParticleResData& GetParticleResData() const { return x44_partRes; }

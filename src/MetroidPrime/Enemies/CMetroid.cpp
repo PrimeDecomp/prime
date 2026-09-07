@@ -100,7 +100,7 @@ CMetroid::CMetroid(const TUniqueId uid, const rstl::string& name, const EFlavorT
 , mState(kAiState_Invalid)
 , mMetroidData(metroidData)
 , mTeamAiManagerId(kInvalidUniqueId)
-, mCollisionPrimitive(CSphere(CVector3f::Zero(), GetModelData()->ScaleCopy().GetY() * 0.9f),
+, mCollisionPrimitive(CSphere(CVector3f::Zero(), GetModelData()->ScaleCopy()[kDY] * 0.9f),
                       GetMaterialList())
 , mPathFindSearch(nullptr, 1 | 2, pInfo.GetPathfindingIndex(), 1.f, 1.f)
 , x7a4(CVector3f::Zero())

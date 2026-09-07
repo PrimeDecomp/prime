@@ -35,13 +35,14 @@ public:
   void Render(const CStateManager& mgr) const override;
   const CCollisionPrimitive* GetCollisionPrimitive() const override { return &x590_colSphere; }
 
-  void UpdateWPDestination(CStateManager& mgr);
-
+  static bool PointOnSurface(const CCollisionSurface& surface, const CVector3f& point);
+  static CVector3f ProjectPointToPlane(const CVector3f& point, const CVector3f& planePoint,
+                                      const CVector3f& normal);
   static CVector3f ProjectVectorToPlane(const CVector3f& vec, const CVector3f& planeDir);
 
 protected:
   void OrientToSurfaceNormal(const CVector3f& normal, float clampAngle);
-  void AlignToFloor(CStateManager& mgr, float dt, const CVector3f& vec, float f);
+  void AlignToFloor(CStateManager& mgr, float radius, const CVector3f& newPos, float dt);
   void GotoNextWaypoint(CStateManager& mgr);
 
   CCollisionSurface x568_alignNormal;

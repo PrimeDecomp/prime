@@ -42,7 +42,7 @@ public:
 
   // TODO: map says const CUnitVector3f&, but this matches better in CBSCover/CSamusFaceReflection
   static CQuaternion LookAt(const CUnitVector3f&, const CUnitVector3f&, const CRelAngle&);
-  static CQuaternion ClampedRotateTo(const CUnitVector3f&, const CUnitVector3f&, const CRelAngle&);
+  static CQuaternion ClampedRotateTo(const CVector3f&, const CVector3f&, const CRelAngle&);
 
   // normalize_angle__Ff
   // IsValidQuaternion__11CQuaternionCFf
@@ -50,7 +50,7 @@ public:
   static CQuaternion SlerpLocal(const CQuaternion& from, const CQuaternion& to, float t);
   CRelAngle AngleFrom(const CQuaternion& other) const;
   CQuaternion BuildEquivalent() const;
-  // BuildNormalized__11CQuaternionCFv
+  CQuaternion BuildNormalized() const;
   static CQuaternion AxisAngle(const CUnitVector3f&, const CRelAngle&);
   CVector3f Transform(const CVector3f&) const;
   static CQuaternion XRotation(const CRelAngle&);

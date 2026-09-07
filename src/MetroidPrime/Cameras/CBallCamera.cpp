@@ -941,7 +941,8 @@ CTransform4f CBallCamera::UpdateCameraPositions(float dt, const CTransform4f& ol
     if (CVector3f::Dot(oldXf.GetRight(), newXf.GetRight()) > 0.999f) {
     } else {
       CRelAngle ang(2.f * (0.017453292f * dt));
-      CQuaternion quat = CQuaternion::ClampedRotateTo(oldXf.GetRight(), newXf.GetRight(), ang);
+      CQuaternion quat = CQuaternion::ClampedRotateTo(CUnitVector3f(oldXf.GetRight()),
+                                                      CUnitVector3f(newXf.GetRight()), ang);
       CQuaternion quatCopy(quat);
       CVector3f useRight = quatCopy.BuildTransform4f() * oldXf.GetRight();
       if (CMath::AbsF(CVector3f::Dot(useRight, newXf.GetForward())) > 0.999f) {
