@@ -27,7 +27,7 @@ public:
               const float playerObstructionMinDist);
 
   // CEntity
-  ~CWallWalker() override;
+  ~CWallWalker() override {}
   void PreThink(float dt, CStateManager& mgr) override;
   void Think(float dt, CStateManager& mgr) override;
 

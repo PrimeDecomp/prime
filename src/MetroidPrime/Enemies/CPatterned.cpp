@@ -1205,6 +1205,8 @@ float CPatterned::CalcDyingThinkRate() {
   return thinkRate;
 }
 
+CDamageInfo CPatterned::GetContactDamage() const { return x404_contactDamage; }
+
 void CPatterned::DeathDelete(CStateManager& mgr) {
   SendScriptMsgs(kSS_Dead, mgr, kSM_None);
 

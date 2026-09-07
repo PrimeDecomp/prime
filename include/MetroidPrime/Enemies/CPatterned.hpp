@@ -249,7 +249,7 @@ public:
   virtual void Shock(CStateManager& mgr, float duration, float damage);
   virtual void ThinkAboutMove(float);
   virtual CPathFindSearch* GetSearchPath() { return nullptr; }
-  virtual CDamageInfo GetContactDamage() const { return x404_contactDamage; }
+  virtual CDamageInfo GetContactDamage() const;
   virtual u8 GetModelAlphau8(const CStateManager&) const { return x42c_color.GetAlphau8(); }
   virtual bool IsOnGround() const { return x328_27_onGround; }
   virtual float GetGravityConstant() const { return CPhysicsActor::GravityConstant(); }
