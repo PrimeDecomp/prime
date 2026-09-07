@@ -46,15 +46,14 @@ struct CardStat {
   int GetCommentAddr() const;
 };
 
-
 class CMemoryCardSys {
 public:
   enum EMemoryCardPort { kCS_SlotA, kCS_SlotB };
 
   class CCardFileInfo {
     uchar pad[0xf4];
-    rstl::vector<u8> xf4_saveBuffer;
-    rstl::vector<u8> x104_cardBuffer;
+    rstl::vector< u8 > xf4_saveBuffer;
+    rstl::vector< u8 > x104_cardBuffer;
 
   public:
     CCardFileInfo(EMemoryCardPort port, const rstl::string& name);
@@ -69,7 +68,7 @@ public:
     ECardResult WriteFile();
     ECardResult CloseFile();
 
-    rstl::vector<u8>& SaveBuffer() { return xf4_saveBuffer; }
+    rstl::vector< u8 >& SaveBuffer() { return xf4_saveBuffer; }
 
     inline CMemoryStreamOut BeginMemoryOut(uint sz) {
       xf4_saveBuffer.resize(sz);
@@ -100,11 +99,14 @@ public:
   static void UnmountCard(EMemoryCardPort);
   static ECardResult Rename(EMemoryCardPort, const rstl::string&, const rstl::string&);
   static ECardResult GetNumFreeBytes(EMemoryCardPort port, uint& freeBytes, uint& freeFiles);
-
+  static rstl::vector< char, rstl::aligned_allocator >& WorkAreaVector(EMemoryCardPort port);
+  static char* AllocCardWorkArea(EMemoryCardPort port);
+  static void FreeCardWorkArea(EMemoryCardPort port);
   void Initialize();
 
 private:
-  // TODO
+  static rstl::vector< char, rstl::aligned_allocator > mWorkAreaA;
+  static rstl::vector< char, rstl::aligned_allocator > mWorkAreaB;
 };
 
 NESTED_CHECK_SIZEOF(CMemoryCardSys, CCardFileInfo, 0x114)
