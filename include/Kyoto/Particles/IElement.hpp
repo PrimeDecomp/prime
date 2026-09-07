@@ -15,13 +15,15 @@ public:
     static void* Alloc(size_t sz, const char*, const char*);
     static void Free(void* ptr, size_t sz);
   };
-  virtual ~IElement() {};
+  virtual ~IElement() = 0;
 
   // -> CFrameDelayedKiller
   void* operator new(size_t sz, const char*, const char*);
   void* operator new(size_t sz) { return operator new(sz, "\?\?(\?\?)", nullptr); }
   void operator delete(void* ptr, size_t sz);
 };
+
+inline IElement::~IElement() {}
 
 class CRealElement : public IElement {
 public:
