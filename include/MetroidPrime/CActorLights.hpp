@@ -47,6 +47,7 @@ public:
 
   void SetAmbientColor(const CColor& color);
   void SetNeedsRelight(bool v) { x298_24_dirty = v; }
+  void SetActorPositionBias(const CVector3f& bias) { x2ac_lightingPositionOffset = bias; }
   void SetCastShadows(bool v) { x298_25_castShadows = v; }
   void SetFindShadowLight(bool v) { x298_27_findShadowLight = v; }
   void SetShadowDynamicRangeThreshold(float t) { x2d0_shadowDynamicRangeThreshold = t; }

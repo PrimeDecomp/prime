@@ -189,6 +189,7 @@ public:
   void SetTransformDirty(bool b) { xe4_27_notInSortedLists = b; }
   void SetTransformDirtySpare(bool b) { xe4_28_transformDirty = b; }
   void SetPreRenderHasMoved(bool b) { xe4_29_actorLightsDirty = b; }
+  void SetWorldLightingDirty(bool b) { xe7_28_worldLightingDirty = b; }
   void SetPreRenderClipped(bool b) { xe4_30_outOfFrustum = b; }
   void SetCalculateLighting(bool b);
   void SetDrawShadow(bool b);
