@@ -1490,10 +1490,14 @@ MetroidPrime/PathFinding/CPathFindRegion.cpp:
 	.sdata2     start:0x805ACA40 end:0x805ACA50
 
 MetroidPrime/PathFinding/CPathFindArea.cpp:
-	.text       start:0x801CA1E8 end:0x801CC1A8
+	.text       start:0x801CA1E8 end:0x801CBAEC
 	.rodata     start:0x803D1C80 end:0x803D1C88
 	.data       start:0x803E58F8 end:0x803E5908
-	.sdata2     start:0x805ACA50 end:0x805ACA70
+	.sdata2     start:0x805ACA50 end:0x805ACA60
+
+MetroidPrime/PathFinding/CPathFindSpline.cpp:
+	.text       start:0x801CBAEC end:0x801CC1A8
+	.sdata2     start:0x805ACA60 end:0x805ACA70
 
 MetroidPrime/Weapons/GunController/CGunController.cpp:
 	.text       start:0x801CC1A8 end:0x801CCD24
