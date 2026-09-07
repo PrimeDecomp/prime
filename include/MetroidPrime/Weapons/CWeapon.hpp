@@ -48,6 +48,15 @@ public:
 
   void SetDamageFalloffSpeed(float d);
 
+  void SetDamageDuration(float duration) {
+    xe8_projectileAttribs |= kPA_BigStrike;
+    x150_damageDuration = duration;
+  }
+  void SetInterferenceDuration(float duration) {
+    xe8_projectileAttribs |= kPA_StaticInterference;
+    x154_interferenceDuration = duration;
+  }
+
   int GetAttribField() const { return xe8_projectileAttribs; }
   bool HasAttrib(EProjectileAttrib attrib) const {
     return (xe8_projectileAttribs & attrib) == attrib; // maybe wrong

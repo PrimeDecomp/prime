@@ -1010,7 +1010,7 @@ MetroidPrime/Enemies/CChozoGhost.cpp:
 	.rodata     start:0x803D0258 end:0x803D0278
 	.data       start:0x803E1AC8 end:0x803E1E68
 	.bss        start:0x8046C928 end:0x8046C938
-	.bss        start:0x80571BAC end:0x80571BC8 align:4 common
+	.bss        start:0x80571BAC end:0x80571BBC align:4 common
 	.sdata      start:0x805A7938 end:0x805A7960
 	.sdata2     start:0x805ABA58 end:0x805ABAC0
 
@@ -1081,6 +1081,7 @@ MetroidPrime/Enemies/CPuddleToadGamma.cpp:
 	.rodata     start:0x803D0350 end:0x803D0380
 	.data       start:0x803E26C0 end:0x803E2990
 	.bss        start:0x8046C938 end:0x8046C950
+	.bss        start:0x80571BBC end:0x80571BC8 align:4 common
 	.sdata      start:0x805A7998 end:0x805A79B8
 	.sbss       start:0x805A9180 end:0x805A9188
 	.sdata2     start:0x805ABBF0 end:0x805ABC20

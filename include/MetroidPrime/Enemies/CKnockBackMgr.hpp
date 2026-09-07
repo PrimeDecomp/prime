@@ -127,9 +127,7 @@ public:
   void EnableAnimReaction(EAnimReaction s, bool b); // {
   //   x80_availableStates.set(size_t(s), b);
   // }
-  // bool TestAvailableState(EKnockBackAnimationState s) const {
-  //   return x80_availableStates.test(size_t(s));
-  // }
+  bool TestAvailableState(int s) const;
 
 private:
   ECreatureSize x0_size;
