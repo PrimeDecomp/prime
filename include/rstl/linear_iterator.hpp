@@ -18,6 +18,27 @@ public:
     ++x4_index;
     return *this;
   }
+  const_linear_iterator& operator+=(int count) {
+    x4_index += count;
+    return *this;
+  }
+  const_linear_iterator& operator-=(int count) {
+    x4_index -= count;
+    return *this;
+  }
+  const_linear_iterator operator+(int count) const {
+    const_linear_iterator result = *this;
+    result += count;
+    return result;
+  }
+  const_linear_iterator operator-(int count) const {
+    const_linear_iterator result = *this;
+    result -= count;
+    return result;
+  }
+  difference_type operator-(const const_linear_iterator& other) const {
+    return x4_index - other.x4_index;
+  }
   bool operator==(const const_linear_iterator& other) const {
     return x0_owner == other.x0_owner && x4_index == other.x4_index;
   }
