@@ -1873,7 +1873,7 @@ void CStateManager::FreeScriptObjects(TAreaId aid) {
     }
   }
 
-  typedef rstl::red_black_tree< TEditorId, rstl::pair< TEditorId, SScriptObjectStream >, 0,
+  typedef rstl::red_black_tree< TEditorId, rstl::pair< TEditorId, SScriptObjectStream >, false,
                                 rstl::select1st< rstl::pair< TEditorId, SScriptObjectStream > >,
                                 rstl::less< TEditorId >, rstl::rmemory_allocator >
       TLoadedScriptObjMapInner;

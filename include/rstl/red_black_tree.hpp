@@ -19,7 +19,7 @@ void rbtree_rebalance(void*, void*);
 void* rbtree_traverse_forward(const void*, void*);
 void* rbtree_rebalance_for_erase(void* header_void, void* node_void);
 
-template < typename T, typename P, int U, typename S = select1st< P >, typename Cmp = less< T >,
+template < typename T, typename P, bool IsMulti, typename S = select1st< P >, typename Cmp = less< T >,
            typename Alloc = rmemory_allocator >
 class red_black_tree {
 private:
@@ -285,9 +285,9 @@ private:
   void destroy() { clear(); }
 };
 
-template < typename T, typename P, int U, typename S, typename Cmp, typename Alloc >
-pair< typename red_black_tree< T, P, U, S, Cmp, Alloc >::iterator, bool >
-red_black_tree< T, P, U, S, Cmp, Alloc >::insert_into(node* start, const P& item) {
+template < typename T, typename P, bool IsMulti, typename S, typename Cmp, typename Alloc >
+pair< typename red_black_tree< T, P, IsMulti, S, Cmp, Alloc >::iterator, bool >
+red_black_tree< T, P, IsMulti, S, Cmp, Alloc >::insert_into(node* start, const P& item) {
   if (start == nullptr) {
     x8_header.set_root(create_node(nullptr, nullptr, nullptr, kNC_Black, item));
     x4_count += 1;
@@ -331,8 +331,8 @@ red_black_tree< T, P, U, S, Cmp, Alloc >::insert_into(node* start, const P& item
   }
 }
 
-template < typename T, typename P, int U, typename S, typename Cmp, typename Alloc >
-void red_black_tree< T, P, U, S, Cmp, Alloc >::free_node_and_sub_nodes(node* n) {
+template < typename T, typename P, bool IsMulti, typename S, typename Cmp, typename Alloc >
+void red_black_tree< T, P, IsMulti, S, Cmp, Alloc >::free_node_and_sub_nodes(node* n) {
   if (node* left = n->get_left()) {
     free_node_and_sub_nodes(left);
   }
@@ -342,9 +342,9 @@ void red_black_tree< T, P, U, S, Cmp, Alloc >::free_node_and_sub_nodes(node* n) 
   free_node(n);
 }
 
-template < typename T, typename P, int U, typename S, typename Cmp, typename Alloc >
-typename red_black_tree< T, P, U, S, Cmp, Alloc >::node*
-red_black_tree< T, P, U, S, Cmp, Alloc >::copy_from(node* n) {
+template < typename T, typename P, bool IsMulti, typename S, typename Cmp, typename Alloc >
+typename red_black_tree< T, P, IsMulti, S, Cmp, Alloc >::node*
+red_black_tree< T, P, IsMulti, S, Cmp, Alloc >::copy_from(node* n) {
   if (n == nullptr) {
     return nullptr;
   }

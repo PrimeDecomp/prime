@@ -14,7 +14,7 @@ public:
   typedef pair< K, V > value_type;
 
 private:
-  typedef red_black_tree< K, value_type, 0, select1st< value_type >, Cmp, Alloc >
+  typedef red_black_tree< K, value_type, false, select1st< value_type >, Cmp, Alloc >
       rep_type;
 
 public:
