@@ -2943,7 +2943,7 @@ void CCubeRenderer::ReallyDrawPhazonSuitIndirectEffect(const CColor& vertColor,
 
 void CCubeRenderer::DrawPhazonSuitIndirectEffect(
     const CColor& nonIndirectColor,
-    const rstl::optional_object< TLockedToken< CTexture > >& indirectTex,
+    const rstl::optional_object< TCachedToken< CTexture > >& indirectTex,
     const CColor& indirectColor, float blurRadius, float scale, float offX, float offY) {
   if (x318_27_currentRGBA6 && x310_phazonSuitMaskCountdown != 0) {
     const CTransform4f backupView(CGraphics::mViewMatrix);
@@ -2960,7 +2960,7 @@ void CCubeRenderer::DrawPhazonSuitIndirectEffect(
     CopyTex(4, false, x314_phazonSuitMask->GetBitMapData(0), GX_TF_A8, true);
 
     CTexture* indTex = 0;
-    if (indirectTex && (indTex = **indirectTex)) {
+    if (indirectTex && (indTex = indirectTex->GetObject())) {
       ReallyDrawPhazonSuitIndirectEffect(CColor(1.f, 1.f, 1.f, 1.f), *x314_phazonSuitMask, *indTex,
                                          indirectColor, scale, offX, offY);
     } else {

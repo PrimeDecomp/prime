@@ -39,7 +39,11 @@ public:
     x0_allocator.allocate(xc_items, x4_count);
     uninitialized_fill_n(xc_items, count, v);
   }
-  vector(int count, const T& v, const Alloc& alloc);
+  vector(int count, const T& v, const Alloc& alloc)
+  : x0_allocator(alloc), x4_count(count), x8_capacity(count) {
+    x0_allocator.allocate(xc_items, x4_count);
+    uninitialized_fill_n(xc_items, count, v);
+  }
 
   vector(const vector& other) : x4_count(other.x4_count), x8_capacity(other.x8_capacity) {
     if (other.x4_count == 0 && other.x8_capacity == 0) {

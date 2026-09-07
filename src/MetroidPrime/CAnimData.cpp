@@ -110,10 +110,8 @@ void CAnimData::FreeCache() {
   sInt32TransientCacheData = static_cast< CInt32POINode* >(0);
 }
 
-void CAnimData::SubstituteModelData(const TCachedToken< CSkinnedModel >& model) {
-  static_cast< CToken& >(xd8_modelData) = static_cast< const CToken& >(model);
-  *reinterpret_cast< CSkinnedModel** >(reinterpret_cast< uchar* >(&xd8_modelData) + 8) =
-      model.GetObject();
+void CAnimData::SubstituteModelData(const TLockedToken< CSkinnedModel >& model) {
+  xd8_modelData = model;
 
   xd8_modelData->CalculateDefault();
   x108_aabb = CAABox::MakeMaxInvertedBox();
