@@ -31,7 +31,7 @@ struct SDrawData {
   uchar xf_idxD;
 };
 
-static const SDrawData sDrawData[6] = {
+static const SDrawData skDoorSurfaceInfos[6] = {
     // clang-format off
     { 0.f,  0.f, -1.f, 6, 4, 2, 0},
     { 0.f,  0.f,  1.f, 3, 1, 7, 5},
@@ -63,7 +63,7 @@ void CMappableObject::ReadAutomapperTweaks(const CTweakAutoMapper& tweaks) {
 
 rstl::pair< CColor, CColor >
 CMappableObject::GetDoorColors(int curAreaId, const CMapWorldInfo& mwInfo, float alpha) const {
-  CColor firstColor((uchar)0xff, 0x00, 0xff, 0xff);
+  CColor firstColor;
   bool areaNumMatches = x8_objId.AreaNum() == curAreaId;
   bool doorVisited = mwInfo.IsDoorVisited(x8_objId);
 
@@ -106,10 +106,10 @@ CMappableObject::GetDoorColors(int curAreaId, const CMapWorldInfo& mwInfo, float
   }
 
   firstColor = firstColor.WithAlphaModulatedBy(alpha);
-  const CColor secondColor(rstl::min_val(1.0f, firstColor.GetRed() * 0.5f),
-                           rstl::min_val(1.0f, firstColor.GetGreen() * 0.5f),
-                           rstl::min_val(1.0f, firstColor.GetBlue() * 0.5f),
-                           rstl::min_val(1.0f, firstColor.GetAlpha() * 0.5f));
+  const CColor secondColor(rstl::min_val(1.0f, firstColor.GetRed() * 1.4f),
+                           rstl::min_val(1.0f, firstColor.GetGreen() * 1.4f),
+                           rstl::min_val(1.0f, firstColor.GetBlue() * 1.4f),
+                           rstl::min_val(1.0f, firstColor.GetAlpha() * 1.4f));
   return rstl::pair< CColor, CColor >(firstColor, secondColor);
 }
 
@@ -120,30 +120,37 @@ void CMappableObject::PostConstruct(const void*) {
   x10_transform = AdjustTransformForType();
 }
 
+static inline void draw_door_surface(const CColor& firstColor, const CColor& secondColor,
+                                     int surfaceIdx, bool needsVtxLoad) {
+  const SDrawData& drawData = skDoorSurfaceInfos[surfaceIdx];
+  if (needsVtxLoad) {
+    CGX::SetArray(GX_VA_POS, skDoorVerts, sizeof(skDoorVerts[0]));
+  }
+
+  CGX::SetTevKColor(GX_KCOLOR0, firstColor.GetGXColor());
+  CGX::Begin(GX_TRIANGLESTRIP, GX_VTXFMT0, 4);
+  RSPosition1x8(drawData.xc_idxA);
+  RSPosition1x8(drawData.xd_idxB);
+  RSPosition1x8(drawData.xe_idxC);
+  RSPosition1x8(drawData.xf_idxD);
+  CGX::End();
+
+  CGX::SetTevKColor(GX_KCOLOR0, secondColor.GetGXColor());
+  CGX::Begin(GX_LINESTRIP, GX_VTXFMT0, 5);
+  RSPosition1x8(drawData.xc_idxA);
+  RSPosition1x8(drawData.xd_idxB);
+  RSPosition1x8(drawData.xf_idxD);
+  RSPosition1x8(drawData.xe_idxC);
+  RSPosition1x8(drawData.xc_idxA);
+  CGX::End();
+}
+
 void CMappableObject::Draw(int curArea, const CMapWorldInfo& mwInfo, float alpha,
                            bool needsVtxLoad) const {
   if (IsDoorType(x0_type) == true) {
     rstl::pair< CColor, CColor > colors = GetDoorColors(curArea, mwInfo, alpha);
     for (int i = 0; i < 6; ++i) {
-      if (needsVtxLoad) {
-        CGX::SetArray(GX_VA_POS, skDoorVerts, sizeof(skDoorVerts[0]));
-      }
-      CGX::SetTevKColor(GX_KCOLOR0, colors.first.GetGXColor());
-      CGX::Begin(GX_TRIANGLESTRIP, GX_VTXFMT0, 4);
-      RSPosition1x8(sDrawData[i].xc_idxA);
-      RSPosition1x8(sDrawData[i].xd_idxB);
-      RSPosition1x8(sDrawData[i].xe_idxC);
-      RSPosition1x8(sDrawData[i].xf_idxD);
-      CGX::End();
-
-      CGX::SetTevKColor(GX_KCOLOR0, colors.second.GetGXColor());
-      CGX::Begin(GX_LINESTRIP, GX_VTXFMT0, 5);
-      RSPosition1x8(sDrawData[i].xc_idxA);
-      RSPosition1x8(sDrawData[i].xd_idxB);
-      RSPosition1x8(sDrawData[i].xf_idxD);
-      RSPosition1x8(sDrawData[i].xe_idxC);
-      RSPosition1x8(sDrawData[i].xc_idxA);
-      CGX::End();
+      draw_door_surface(colors.first, colors.second, i, needsVtxLoad);
     }
     return;
   }
@@ -205,27 +212,7 @@ void CMappableObject::Draw(int curArea, const CMapWorldInfo& mwInfo, float alpha
 void CMappableObject::DrawDoorSurface(int curAreaId, const CMapWorldInfo& mwInfo, float alpha,
                                       int surfaceIdx, bool needsVtxLoad) const {
   rstl::pair< CColor, CColor > colors = GetDoorColors(curAreaId, mwInfo, alpha);
-  const SDrawData& drawData = sDrawData[surfaceIdx];
-  if (needsVtxLoad) {
-    CGX::SetArray(GX_VA_POS, skDoorVerts, 12);
-  }
-
-  CGX::SetTevKColor(GX_KCOLOR0, colors.first.GetGXColor());
-  CGX::Begin(GX_TRIANGLESTRIP, GX_VTXFMT0, 4);
-  RSPosition1x8(drawData.xc_idxA);
-  RSPosition1x8(drawData.xd_idxB);
-  RSPosition1x8(drawData.xe_idxC);
-  RSPosition1x8(drawData.xf_idxD);
-  CGX::End();
-
-  CGX::SetTevKColor(GX_KCOLOR0, colors.second.GetGXColor());
-  CGX::Begin(GX_LINESTRIP, GX_VTXFMT0, 5);
-  RSPosition1x8(drawData.xc_idxA);
-  RSPosition1x8(drawData.xd_idxB);
-  RSPosition1x8(drawData.xf_idxD);
-  RSPosition1x8(drawData.xe_idxC);
-  RSPosition1x8(drawData.xc_idxA);
-  CGX::End();
+  draw_door_surface(colors.first, colors.second, surfaceIdx, needsVtxLoad);
 }
 
 CVector3f CMappableObject::BuildSurfaceCenterPoint(int surfaceIdx) const {
@@ -285,12 +272,12 @@ CTransform4f CMappableObject::AdjustTransformForType() const {
   } else if (x0_type == kMOT_IceDoorCeiling || x0_type == kMOT_WaveDoorCeiling ||
              x0_type == kMOT_PlasmaDoorCeiling) {
     return GetTransform() * CTransform4f(CMatrix3f::RotateY(CRelAngle::FromDegrees(90.f)),
-                                         CVector3f(doorCenterX * -1.65f, 0.f, doorCenterZ * -1.f));
+                                         CVector3f(doorCenterX * -1.65f, 0.f, doorCenterZ * -1.5f));
   } else if (x0_type == kMOT_IceDoorFloor || x0_type == kMOT_WaveDoorFloor ||
              x0_type == kMOT_PlasmaDoorFloor) {
     return GetTransform() * CTransform4f(CMatrix3f::RotateY(CRelAngle::FromDegrees(90.f)),
                                          CVector3f(doorCenterX * -1.65f, 0.f, doorCenterZ * -1.f));
-  } else if ((u32(x0_type) - u32(kMOT_IceDoorFloor2)) <= u32(kMOT_ShieldDoor) ||
+  } else if (x0_type == kMOT_IceDoorFloor2 || x0_type == kMOT_WaveDoorFloor2 ||
              x0_type == kMOT_PlasmaDoorFloor2) {
     return GetTransform() * CTransform4f(CMatrix3f::RotateY(CRelAngle::FromDegrees(90.f)),
                                          CVector3f(doorCenterX * -0.49f, 0.f, doorCenterZ * -1.f));

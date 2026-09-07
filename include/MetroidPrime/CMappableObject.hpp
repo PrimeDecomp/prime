@@ -8,8 +8,6 @@
 
 #include "rstl/pair.hpp"
 
-#include "CMapWorldInfo.hpp"
-
 class CTweakAutoMapper;
 class CMapWorldInfo;
 
@@ -71,8 +69,6 @@ private:
   uint xc_;
   CTransform4f x10_transform;
   uchar x40_pad[0x10];
-
-  CTransform4f AdjustTransformForType();
 };
 CHECK_SIZEOF(CMappableObject, 0x50)
 
