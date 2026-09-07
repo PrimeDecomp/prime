@@ -34,6 +34,8 @@ public:
   float GetTelegraphAttackTime() const { return mTelegraphAttackTime; }
   float GetStage2GrowthScale() const { return mStage2GrowthScale; }
   float GetStage2GrowthEnergy() const { return mStage2GrowthEnergy; }
+  void SetStage2GrowthEnergy(float energy) { mStage2GrowthEnergy = energy; }
+  void SetExplosionGrowthEnergy(float energy) { mExplosionGrowthEnergy = energy; }
   float GetExplosionGrowthEnergy() const { return mExplosionGrowthEnergy; }
   bool GetStartsInWall() const { return mStartsInWall; }
   void SetStartsInWall(bool v) { mStartsInWall = v; }

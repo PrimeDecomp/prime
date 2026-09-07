@@ -30,6 +30,7 @@ public:
   const CBodyState* GetCurrentState() const;
   CBodyState* GetCurrentState();
   bool ApplyHeadTracking() const;
+  bool IsDead() const { return GetCurrentState()->IsDead(); }
   bool IsInAir() const { return GetCurrentState()->IsInAir(*x18_bodyController); }
   void SetAdditiveState(pas::EAnimationState s);
   CAdditiveBodyState* GetCurrentAdditiveState();
