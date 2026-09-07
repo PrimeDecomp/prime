@@ -80,8 +80,8 @@ public:
                       const CVector3f& aimPos) const override;
 
   // CPatterned
-  void KnockBack(const CVector3f&, CStateManager&, const CDamageInfo& info, EKnockBackType type,
-                 bool inDeferred, float magnitude) override;
+  void KnockBack(const CVector3f&, CStateManager&, const CDamageInfo& info, float magnitude,
+                 bool direct, const bool inDeferred) override;
   bool CanBeShot(const CStateManager& mgr, int w1) override;
   uchar GetModelAlphau8(const CStateManager& mgr) const override;
   bool IsOnGround() const override;

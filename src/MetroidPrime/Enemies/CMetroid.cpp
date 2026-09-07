@@ -349,7 +349,7 @@ void CMetroid::DoUserAnimEvent(CStateManager& mgr, const CInt32POINode& node, EU
 }
 
 void CMetroid::KnockBack(const CVector3f& dir, CStateManager& mgr, const CDamageInfo& info,
-                         EKnockBackType type, bool inDeferred, float magnitude) {
+                         float magnitude, bool direct, const bool inDeferred) {
   if (!IsAlive()) {
     return;
   }
@@ -365,11 +365,11 @@ void CMetroid::KnockBack(const CVector3f& dir, CStateManager& mgr, const CDamage
     if (frozen) {
       BodyCtrl()->UnFreeze();
     }
-    CPatterned::KnockBack(dir, mgr, info, type, inDeferred, magnitude);
+    CPatterned::KnockBack(dir, mgr, info, magnitude, direct, inDeferred);
   } else if (!frozen && vulnerability->WeaponHits(mode, false) &&
              (mode.IsCharged() || mode.IsComboed() || mode.GetType() == kWT_Missile) &&
              !ShouldSpawnGammaMetroid()) {
-    CPatterned::KnockBack(dir, mgr, info, type, false, magnitude);
+    CPatterned::KnockBack(dir, mgr, info, magnitude, direct, false);
     mSeekTime = mMaxSeekTime;
   }
 }

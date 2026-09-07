@@ -258,8 +258,8 @@ void CElitePirate::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CSta
               TCastToConstPtr< CGameProjectile >(mgr.GetObjectById(touchedUid))) {
         if (uid == x770_collisionHeadId) {
           x428_damageCooldownTimer = skDamageHitTime;
-          KnockBack(projectile->GetVelocity(), mgr, projectile->GetCurrentDamageInfo(), kKBT_Direct,
-                    false, projectile->GetCurrentDamageInfo().GetKnockBackPower());
+          KnockBack(projectile->GetVelocity(), mgr, projectile->GetCurrentDamageInfo(),
+                    projectile->GetCurrentDamageInfo().GetKnockBackPower(), true, false);
           CPatterned::AcceptScriptMsg(msg, touchedUid, mgr);
         } else if (uid == x79c_energyAttractorId && x760_energyAbsorbDesc) {
           StartAbsorbEnergyEffects(mgr, projectile->GetTransform());
@@ -297,9 +297,9 @@ void CElitePirate::PreRender(CStateManager& mgr, const CFrustumPlanes& frustum) 
 }
 
 void CElitePirate::KnockBack(const CVector3f& dir, CStateManager& mgr, const CDamageInfo& info,
-                             EKnockBackType type, bool inDeferred, float magnitude) {
+                             float magnitude, bool direct, const bool inDeferred) {
   if (AllowKnockBack(info)) {
-    CPatterned::KnockBack(dir, mgr, info, type, inDeferred, magnitude);
+    CPatterned::KnockBack(dir, mgr, info, magnitude, direct, inDeferred);
     if (info.GetWeaponMode().IsComboed() && info.GetWeaponMode().GetType() == kWT_Ice) {
       const CVector3f pos(0.f, 0.f, 0.f);
       const CUnitVector3f localDir(GetTransform().TransposeRotate(dir));

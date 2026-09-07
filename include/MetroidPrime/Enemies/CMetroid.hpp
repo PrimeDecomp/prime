@@ -43,8 +43,8 @@ public:
                                                          const CWeaponMode&, int) const override;
   void DoUserAnimEvent(CStateManager& mgr, const CInt32POINode& node, EUserEventType type,
                        float dt) override;
-  void KnockBack(const CVector3f& dir, CStateManager& mgr, const CDamageInfo& info,
-                 EKnockBackType type, bool inDeferred, float magnitude) override;
+  void KnockBack(const CVector3f& dir, CStateManager& mgr, const CDamageInfo& info, float magnitude,
+                 bool direct, const bool inDeferred) override;
   void Death(CStateManager& mgr, const CVector3f& direction, EScriptObjectState state) override;
   bool AnimOver(CStateManager& mgr, float arg) override;
   bool AttackOver(CStateManager& mgr, float arg) override;

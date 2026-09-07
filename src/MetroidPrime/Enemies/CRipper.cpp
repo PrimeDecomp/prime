@@ -120,8 +120,8 @@ EWeaponCollisionResponseTypes CRipper::GetCollisionResponseType(const CVector3f&
 }
 
 void CRipper::KnockBack(const CVector3f& direction, CStateManager& mgr, const CDamageInfo& damage,
-                        EKnockBackType knockback, bool inDeferred, float mag) {
-  CPatterned::KnockBack(direction, mgr, damage, knockback, inDeferred, mag);
+                        float mag, bool direct, const bool inDeferred) {
+  CPatterned::KnockBack(direction, mgr, damage, mag, direct, inDeferred);
   BodyCtrl()->CommandMgr().DeliverCmd(CBCKnockBackCmd(-direction, pas::kS_One));
 }
 

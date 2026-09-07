@@ -32,8 +32,8 @@ public:
   void FluidFXThink(EFluidState, CScriptWater&, CStateManager&) override;
 
   virtual void Death(CStateManager& mgr, const CVector3f& direction, EScriptObjectState state) = 0;
-  virtual void KnockBack(const CVector3f&, CStateManager&, const CDamageInfo& info,
-                         EKnockBackType type, bool inDeferred, float magnitude) = 0;
+  virtual void KnockBack(const CVector3f&, CStateManager&, const CDamageInfo& info, float magnitude,
+                         bool direct, const bool inDeferred) = 0;
   virtual CDamageVulnerability* GetDamageVulnerability();
   virtual void TakeDamage(const CVector3f& direction, float magnitude);
   virtual bool CanBeShot(const CStateManager&, int) { return true; }

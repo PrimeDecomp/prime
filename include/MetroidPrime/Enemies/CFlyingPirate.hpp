@@ -96,8 +96,8 @@ public:
   CPathFindSearch* GetSearchPath() override;
   bool IsListening() const override;
   bool KnockbackWhenFrozen() const override;
-  void KnockBack(const CVector3f&, CStateManager&, const CDamageInfo& info, EKnockBackType type,
-                 bool inDeferred, float magnitude) override;
+  void KnockBack(const CVector3f&, CStateManager&, const CDamageInfo& info, float magnitude,
+                 bool direct, const bool inDeferred) override;
   bool Listen(const CVector3f& pos, EListenNoiseType type) override;
   CProjectileInfo* ProjectileInfo() override;
 

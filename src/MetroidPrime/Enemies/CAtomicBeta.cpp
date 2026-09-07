@@ -212,7 +212,7 @@ void CAtomicBeta::Touch(CActor& other, CStateManager& mgr) {
   if (proj && proj->GetOwnerId() == mgr.GetPlayer()->GetUniqueId() &&
       (proj->GetAttribField() & CWeapon::kPA_Ice) == CWeapon::kPA_Ice &&
       GetBodyCtrl()->GetPercentageFrozen() == 0.f) {
-    KnockBack(CVector3f::Forward(), mgr, proj->GetCurrentDamageInfo(), kKBT_Direct, false, 0.f);
+    KnockBack(CVector3f::Forward(), mgr, proj->GetCurrentDamageInfo(), 0.f, true, false);
   }
   CPatterned::Touch(other, mgr);
 }

@@ -47,8 +47,8 @@ public:
 
   // CAi
   void Death(CStateManager& mgr, const CVector3f& direction, EScriptObjectState state) override;
-  void KnockBack(const CVector3f&, CStateManager&, const CDamageInfo& info, EKnockBackType type,
-                 bool inDeferred, float magnitude) override;
+  void KnockBack(const CVector3f&, CStateManager&, const CDamageInfo& info, float magnitude,
+                 bool direct, const bool inDeferred) override;
 
   // CPatterned (state functions)
   void SelectTarget(CStateManager& mgr, EStateMsg msg, float arg) override;

@@ -942,14 +942,14 @@ void CChozoGhost::DoUserAnimEvent(CStateManager& mgr, const CInt32POINode& node,
 }
 
 void CChozoGhost::KnockBack(const CVector3f& dir, CStateManager& mgr, const CDamageInfo& info,
-                            EKnockBackType type, bool inDeferred, float magnitude) {
+                            float magnitude, bool direct, const bool inDeferred) {
   if (!IsAlive()) {
     KnockBackCtrl().EnableAnimReaction(kAR_Hurled, false);
   } else if (!KnockBackCtrl().TestAvailableState(kAR_KnockBack) &&
              info.GetWeaponMode().IsCharged()) {
     KnockBackCtrl().SetAnimationStateRange(kAR_Hurled, kAR_Fall);
   }
-  CPatterned::KnockBack(dir, mgr, info, type, inDeferred, magnitude);
+  CPatterned::KnockBack(dir, mgr, info, magnitude, direct, inDeferred);
   KnockBackCtrl().SetAnimationStateRange(kAR_Flinch, kAR_Fall);
   if (IsAlive()) {
     if (KnockBackCtrl().GetActiveParms().x0_animState == kAR_Hurled) {
