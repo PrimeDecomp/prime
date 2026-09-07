@@ -485,8 +485,9 @@ void CSamusDoll::Draw(const CStateManager& mgr, float alpha) {
           0.2f, (10.f - (xc0_userZoom >= 0.f ? xc0_userZoom : -xc0_userZoom)) / 20.f, 1.f);
       renderer->DrawPhazonSuitIndirectEffect(
           CColor(0.1f, 0.1f, 0.1f, drawAlpha), x250_phazonIndirectTexture,
-          gpTweakGuiColors->GetPauseBlurFilterColor().WithAlphaOf(drawAlpha), radius, 0.1f,
-          CMath::FastSinR(x260_phazonOffsetAngle), CMath::FastSinR(x260_phazonOffsetAngle));
+          radius, 0.1f, CMath::FastSinR(x260_phazonOffsetAngle),
+          CMath::FastSinR(x260_phazonOffsetAngle),
+          gpTweakGuiColors->GetPauseBlurFilterColor().WithAlphaOf(drawAlpha));
     }
   } else {
     CModelFlags flags[2] = {

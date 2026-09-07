@@ -109,7 +109,7 @@ void CPhazonBeam::Draw(const bool drawSuitArm, const CStateManager& mgr, const C
   if (standardVisor) {
     renderer->DrawPhazonSuitIndirectEffect(
         CColor(mIndirectAlpha * 0.3f, mIndirectAlpha * 0.6f, mIndirectAlpha, mIndirectAlpha * 0.5f),
-        rstl::optional_object_null(), CColor::White(), 1.f, 0.f, 0.f, 0.f);
+        rstl::optional_object_null(), 1.f, 0.f, 0.f, 0.f);
   }
 
   if (mVeinsData.null()) {

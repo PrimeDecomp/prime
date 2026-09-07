@@ -167,7 +167,7 @@ public:
   void AllocatePhazonSuitMaskTexture();
   void DrawPhazonSuitIndirectEffect(const CColor&,
                                     const rstl::optional_object< TCachedToken< CTexture > >&,
-                                    const CColor&, float, float, float, float);
+                                    float, float, float, float, const CColor& = CColor::White());
   void ReallyDrawPhazonSuitIndirectEffect(const CColor&, const CTexture&, const CTexture&,
                                           const CColor&, float, float, float);
   void ReallyDrawPhazonSuitEffect(const CColor&, const CTexture&);

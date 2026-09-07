@@ -2944,7 +2944,7 @@ void CCubeRenderer::ReallyDrawPhazonSuitIndirectEffect(const CColor& vertColor,
 void CCubeRenderer::DrawPhazonSuitIndirectEffect(
     const CColor& nonIndirectColor,
     const rstl::optional_object< TCachedToken< CTexture > >& indirectTex,
-    const CColor& indirectColor, float blurRadius, float scale, float offX, float offY) {
+    float blurRadius, float scale, float offX, float offY, const CColor& indirectColor) {
   if (x318_27_currentRGBA6 && x310_phazonSuitMaskCountdown != 0) {
     const CTransform4f backupView(CGraphics::mViewMatrix);
     const CGraphics::CProjectionState backupProjection = CGraphics::GetProjectionState();
