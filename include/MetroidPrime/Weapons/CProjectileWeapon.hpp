@@ -1,6 +1,7 @@
 #ifndef _CPROJECTILEWEAPON
 #define _CPROJECTILEWEAPON
 
+#include "MetroidPrime/ActorCommon.hpp"
 #include "types.h"
 
 #include "Kyoto/CRandom16.hpp"
@@ -16,6 +17,8 @@ class CWeaponDescription;
 class CElementGen;
 class CModel;
 class CParticleSwoosh;
+class CGenDescription;
+class CDecalDescription;
 
 class CProjectileWeapon {
 public:
@@ -40,6 +43,21 @@ public:
   float GetMaxTurnRate() const;
   bool IsProjectileActive() const { return x124_24_active; }
   TLockedToken< CWeaponDescription > GetWeaponDescription() const { return x4_weaponDesc; }
+  CElementGen* GetAttachedPS1() { return xfc_APSMGen.get(); }
+  const CElementGen* GetAttachedPS1() const { return xfc_APSMGen.get(); }
+  double GameTime() const { return xd0_curTime; }
+  void UpdateParticleFX();
+  const bool IsSystemDeletable() const;
+  void RenderParticles() const;
+  uint GetSoundIdForCollision(EWeaponCollisionResponseTypes type) const;
+  float GetAudibleRange() const;
+  float GetAudibleFallOff() const;
+  rstl::optional_object< TLockedToken< CGenDescription > >
+  CollisionOccured(const EWeaponCollisionResponseTypes type, const bool deflected,
+                   const bool useTarget, const CVector3f& pos, const CVector3f& normal,
+                   const CVector3f& target);
+  rstl::optional_object< TLockedToken< CDecalDescription > >
+  GetDecalForCollision(EWeaponCollisionResponseTypes type) const;
 
   rstl::optional_object< CAABox > GetBounds() const;
 

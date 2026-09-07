@@ -1047,7 +1047,7 @@ config.libs = [
                 "MetroidPrime/ScriptObjects/CRepulsor.cpp",
             ),
             Object(NonMatching, "MetroidPrime/CEnvFxManager.cpp"),
-            Object(NonMatching, "MetroidPrime/Weapons/CEnergyProjectile.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Weapons/CEnergyProjectile.cpp"),
             Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptGunTurret.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),

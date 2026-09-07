@@ -47,10 +47,11 @@ public:
   const CVector3f& GetGrapplingArmPosition() const { return x64_grapplingArmPosition; }
 
   const SWeaponInfo& GetBeamInfo(int beam) const;
+  float GetRichochetDamage(EWeaponType type) const;
 
   const CDamageInfo& GetBombInfo() const { return x70_bomb; }
 
-// private:
+  // private:
   float x4_upLookAngle;
   float x8_downLookAngle;
   float xc_verticalSpread;
