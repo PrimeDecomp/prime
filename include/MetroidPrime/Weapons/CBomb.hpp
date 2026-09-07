@@ -31,9 +31,9 @@ public:
 
   const bool IsBeingDragged() const { return mBeingDragged; }
 
-  bool SetFuseDisabled(bool fuse) { mDisableFuse = true; }
+  void SetFuseDisabled(bool disabled) { mDisableFuse = disabled; }
 
-  bool SetIsBeingDragged(bool isBeingDragged) { mBeingDragged = isBeingDragged; }
+  void SetIsBeingDragged(bool isBeingDragged) { mBeingDragged = isBeingDragged; }
 
 private:
   CVector3f mVelocity;

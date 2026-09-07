@@ -381,7 +381,7 @@ public:
   TUniqueId GetOrbitNextTargetId() const { return x33c_orbitNextTargetId; }
   CVector3f GetHUDOrbitTargetPosition() const;
   TUniqueId GetAttachedActor() const { return x26c_attachedActor; }
-  bool IsAttached() const { return GetAttachedActor(); }
+  bool IsAttached() const { return GetAttachedActor() != kInvalidUniqueId; }
   bool GetControlsFrozen() const { return x760_controlsFrozen; } // name?
   float GetDistanceUnderWater() const { return x828_distanceUnderWater; }
   TUniqueId GetScanningObjectId() const { return x3b4_scanningObject; }

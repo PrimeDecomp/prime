@@ -1109,7 +1109,7 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/CPauseScreenBlur.cpp",
             ),
-            Object(NonMatching, "MetroidPrime/Enemies/CTryclops.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Enemies/CTryclops.cpp"),
             Object(NonMatching, "MetroidPrime/Weapons/CNewFlameThrower.cpp"),
             Object(NonMatching, "MetroidPrime/Cameras/CInterpolationCamera.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Enemies/CSeedling.cpp"),
