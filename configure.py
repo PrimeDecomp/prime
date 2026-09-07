@@ -1075,7 +1075,7 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/Enemies/CRipperControlledPlatform.cpp",
             ),
-            Object(NonMatching, "MetroidPrime/Enemies/CKnockBackMgr.cpp"),
+            Object(Matching, "MetroidPrime/Enemies/CKnockBackMgr.cpp"),
             Object(Matching, "MetroidPrime/CScriptLayerManager.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CMagdolite.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CTeamAiMgr.cpp"),
