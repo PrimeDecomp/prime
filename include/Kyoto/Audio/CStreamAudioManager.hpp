@@ -38,8 +38,8 @@ public:
   static void FadeInSoftwareAudio(ESoftwareChannel chan, float fadeTime);
   static void FadeOutSoftwareAudio(ESoftwareChannel chan, float fadeTime);
 
-  static void PlaySoftwareAudio(ESoftwareChannel chan, const rstl::string& fileName, int volume,
-                                bool music, float fadeIn, float fadeOut);
+  static void PlaySoftwareAudio(ESoftwareChannel chan, const rstl::string& fileName, float fadeIn,
+                                float fadeOut, int volume, bool music);
   static void StopSoftwareAudio(ESoftwareChannel chan, const rstl::string& fileName);
 
   static void SetDefaultAudio(const rstl::string& fileName, float fadeIn, float fadeOut,

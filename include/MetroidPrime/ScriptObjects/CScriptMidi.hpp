@@ -25,5 +25,6 @@ private:
 
   void StopInternal(float fadeTime);
 };
+CHECK_SIZEOF(CScriptMidi, 0x4c)
 
 #endif // _CSCRIPTMIDI
