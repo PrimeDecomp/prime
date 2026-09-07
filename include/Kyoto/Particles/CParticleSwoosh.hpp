@@ -58,9 +58,7 @@ public:
   void Render2SidedNoSplineGaps();
   void Render2SidedSpline();
   void Render3SidedSolidNoSplineNoGaps();
-  void Render3SidedSolidNoSplineGaps();
   void Render3SidedSolidSpline();
-  void RenderNSidedNoSplineNoGaps();
   void RenderNSidedNoSpline();
   void RenderNSidedSpline();
   void SetOrientation(const CTransform4f& orientation) override;
@@ -85,7 +83,6 @@ public:
   bool SystemHasLight() const override;
   CLight GetLight() const override;
   void DestroyParticles() override;
-  void AddModifier(CWarp*) override;
   uint Get4CharId() const override;
 
   void SetWarmUp() { x1d0_26_forceOneUpdate = true; }
@@ -98,6 +95,10 @@ public:
   int WrapIndex(int index);
   float GetLeftRadius(int index);
   float GetRightRadius(int index);
+  CVector3f GetSplinePoint(const CVector3f& p0, const CVector3f& p1, const CVector3f& p2,
+                           const CVector3f& p3, float t) const;
+  void UpdateBounds(const CVector3f& pos);
+  void UpdateMaxRadius(float radius);
 
 private:
   TLockedToken< CSwooshDescription > x1c_desc;
@@ -113,13 +114,13 @@ private:
   CTransform4f xec_scaleXf;
   CTransform4f x11c_invScaleXf;
   CVector3f x14c_localScale;
-  uint x158_curParticle;
+  int x158_curParticle;
   rstl::vector< SSwooshData > x15c_swooshes;
   rstl::vector< CVector3f > x16c_p0;
   rstl::vector< CVector3f > x17c_p1;
   rstl::vector< CVector3f > x18c_p2;
   rstl::vector< CVector3f > x19c_p3;
-  uint x1ac_particleCount;
+  int x1ac_particleCount;
   int x1b0_SPLN;
   int x1b4_LENG;
   int x1b8_SIDE;
@@ -151,5 +152,8 @@ private:
 
   static uint mSwooshAliveCount;
 };
+
+CHECK_SIZEOF(CParticleSwoosh, 0x210)
+NESTED_CHECK_SIZEOF(CParticleSwoosh, SSwooshData, 0x80)
 
 #endif // _CPARTICLESWOOSH
