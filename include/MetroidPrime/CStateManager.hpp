@@ -240,6 +240,7 @@ public:
   void SetGameState(EGameState state);
 
   CRandom16* Random() const { return x900_random; }
+  rstl::list< TUniqueId >& ActiveParasites() { return xf54_activeParasites; }
   void SetRandomAvailable(bool available) { x900_random = available ? &x8fc_random : nullptr; }
   uint GetUpdateFrameIndex() const { return x8d8_updateFrameIdx; }
 

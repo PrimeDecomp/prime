@@ -854,7 +854,9 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Player/CFidget.cpp"
             ),
             Object(NonMatching, "MetroidPrime/Enemies/CSpankWeed.cpp"),
-            Object(NonMatching, "MetroidPrime/Enemies/CParasite.cpp"),
+            Object(
+                MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Enemies/CParasite.cpp"
+            ),
             Object(NonMatching, "MetroidPrime/Player/CSamusFaceReflection.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
