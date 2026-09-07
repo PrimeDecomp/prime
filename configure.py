@@ -874,7 +874,10 @@ config.libs = [
             ),
             Object(NonMatching, "MetroidPrime/Enemies/CDrone.cpp"),
             Object(NonMatching, "MetroidPrime/CMapWorldInfo.cpp"),
-            Object(NonMatching, "MetroidPrime/Factories/CScannableObjectInfo.cpp"),
+            Object(
+                MatchingFor("GM8E01_00", "GM8E01_01"),
+                "MetroidPrime/Factories/CScannableObjectInfo.cpp",
+            ),
             Object(NonMatching, "MetroidPrime/Enemies/CMetroid.cpp"),
             Object(NonMatching, "MetroidPrime/Player/CScanDisplay.cpp"),
             Object(
