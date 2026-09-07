@@ -79,6 +79,7 @@ public:
   bool IsSingleDirection() const;
   void ResetTime();
   void SetAttenuation(float, CVector3f);
+  void SetSfxPositionAndDistance(CVector3f pos, float distance);
   void SetTranslation(const CVector3f&);
 
   static CCameraShakeData HardBothAxesShake(float duration, float);

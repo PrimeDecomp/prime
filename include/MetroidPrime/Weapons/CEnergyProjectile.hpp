@@ -11,8 +11,8 @@
 
 class CEnergyProjectile : public CGameProjectile {
 public:
-  CEnergyProjectile(const bool active, const TToken< CWeaponDescription >& desc, const EWeaponType type,
-                    const CTransform4f& xf, const EMaterialTypes excludeMat,
+  CEnergyProjectile(const bool active, const TToken< CWeaponDescription >& desc,
+                    const EWeaponType type, const CTransform4f& xf, const EMaterialTypes excludeMat,
                     const CDamageInfo& damage, const TUniqueId uid, const TAreaId aid,
                     const TUniqueId owner, TUniqueId homingTarget, const uint attribs,
                     const bool underwater, const CVector3f& scale,
@@ -20,8 +20,8 @@ public:
                     const ushort visorSfx, const bool sendCollideMsg);
 
   // CEntity
-  ~CEnergyProjectile() override;
   void Accept(IVisitor& visitor) override;
+  ~CEnergyProjectile() override;
   void Think(float dt, CStateManager& mgr) override;
   void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) override;
 
@@ -35,9 +35,9 @@ public:
                                  CStateManager& mgr) override;
 
   // CEnergyProjectile
-  virtual bool Explode(const CVector3f& pos, const CVector3f& normal,
-                       const EWeaponCollisionResponseTypes type, CStateManager& mgr,
-                       const CDamageVulnerability& dVuln, const TUniqueId hitActor);
+  virtual const bool Explode(const CVector3f& pos, const CVector3f& normal,
+                             const EWeaponCollisionResponseTypes type, CStateManager& mgr,
+                             const CDamageVulnerability& dVuln, const TUniqueId hitActor);
 
   void Set3d0_26(bool v) { x3d0_26_ = v; }
 
@@ -46,6 +46,9 @@ public:
   void StopProjectile(CStateManager& mgr);
 
   void SetCameraShake(const CCameraShakeData& data);
+  void PlayImpactSound(const CVector3f& pos, EWeaponCollisionResponseTypes type);
+  void ChangeProjectileOwner(TUniqueId owner, CStateManager& mgr);
+  void ResolveCollisionWithWorld(const CRayCastResult& res, CStateManager& mgr);
 
 private:
   CSfxHandle x2e8_sfx;

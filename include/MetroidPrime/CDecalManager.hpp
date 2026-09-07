@@ -11,9 +11,10 @@ class CStateManager;
 class CDecalManager {
 public:
   struct SDecal {
-    SDecal(const rstl::optional_object< CDecal >& decal, const TAreaId id, const char w, const char z)
+    SDecal(const rstl::optional_object< CDecal >& decal, const TAreaId id, const char w,
+           const char z)
     : mDecal(decal), aid(id), unk(w), unk1(z) {}
-    
+
     rstl::optional_object< CDecal > mDecal;
     TAreaId aid;
     char unk;
@@ -23,6 +24,8 @@ public:
   static void ShutDown();
   static void Reinitialize();
   static void Update(float dt, CStateManager& mgr);
+  static void AddDecal(const TToken< CDecalDescription >& desc, const CTransform4f& xf, bool notIce,
+                       CStateManager& mgr);
 
   static bool mbPoolInitialized;
   static rstl::reserved_vector< SDecal, 64 > mDecalPool;
