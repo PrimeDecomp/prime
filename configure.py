@@ -802,7 +802,7 @@ config.libs = [
             ),
             Object(NonMatching, "MetroidPrime/BodyState/CBSTurn.cpp"),
             Object(NonMatching, "MetroidPrime/BodyState/CBodyController.cpp"),
-            Object(NonMatching, "MetroidPrime/BodyState/CBSLoopAttack.cpp"),
+            Object(Matching, "MetroidPrime/BodyState/CBSLoopAttack.cpp"),
             Object(NonMatching, "MetroidPrime/Weapons/CTargetableProjectile.cpp"),
             Object(NonMatching, "MetroidPrime/BodyState/CBSLoopReaction.cpp"),
             Object(NonMatching, "MetroidPrime/CSteeringBehaviors.cpp"),
