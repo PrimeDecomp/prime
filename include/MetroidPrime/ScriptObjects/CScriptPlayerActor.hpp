@@ -13,6 +13,8 @@
 
 class CModel;
 class CTexture;
+class CSkinnedModel;
+class CSkinRules;
 
 class CScriptPlayerActor : public CScriptActor {
 public:
@@ -20,36 +22,43 @@ public:
                      const CTransform4f& xf, const CAnimRes& animRes, const CModelData& mData,
                      const CAABox& aabb, bool setBoundingBox, const CMaterialList& matList,
                      float mass, float zMomentum, const CHealthInfo& hInfo,
-                     const CDamageVulnerability& dVuln, const CActorParameters& aParams,
-                     bool loop, bool active, uint flags, CPlayerState::EBeamId beam);
+                     const CDamageVulnerability& dVuln, const CActorParameters& aParams, bool loop,
+                     bool active, uint flags, CPlayerState::EBeamId beam);
 
   // CEntity
   ~CScriptPlayerActor() override;
-  void Accept(IVisitor& visitor) override;
   void Think(float dt, CStateManager& mgr) override;
   void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) override;
-  void SetActive(bool active) override;
+  void SetActive(const bool active) override;
 
   // CActor
   void PreRender(CStateManager&, const CFrustumPlanes&) override;
   void AddToRenderer(const CFrustumPlanes&, const CStateManager&) const override;
   void Render(const CStateManager&) const override;
 
-  void TouchModels(const CStateManager& mgr);
+  void TouchModels(const CStateManager& mgr) const;
 
 private:
-  uint GetSuitCharIdx(const CStateManager& mgr, CPlayerState::EPlayerSuit suit) const;
-  uint GetNextSuitCharIdx(const CStateManager& mgr) const;
-  void LoadSuit(uint charIdx);
+  int GetSuitCharIdx(const CStateManager& mgr, CPlayerState::EPlayerSuit suit) const;
+  int GetNextSuitCharIdx(const CStateManager& mgr) const;
+  void LoadSuit(int charIdx);
   void LoadBeam(CPlayerState::EBeamId beam);
-  void PumpBeamModel(const CStateManager& mgr);
-  void PumpSuitModel(const CStateManager& mgr);
+  void PumpBeamModel(CStateManager& mgr);
+  void PumpSuitModel(CStateManager& mgr);
   void BuildBeamModelData();
   void SetupOfflineModelData();
   void SetupOnlineModelData();
   void TouchModels_Internal(const CStateManager& mgr) const;
-  bool HasGunModelData() const;
-  void SetupEnvFx(const CStateManager& mgr, bool set);
+  bool HasGunModelData() const {
+    return !x314_beamModelData.null() && !x314_beamModelData->IsNull();
+  }
+  bool HasSuitModelData() const {
+    return !x318_suitModelData.null() &&
+           (x318_suitModelData->HasAnimation() || x318_suitModelData->HasNormalModel());
+  }
+  void SetupEnvFx(CStateManager& mgr, bool set);
+  TUniqueId GetNextPlayerActor() const { return x356_nextPlayerActor; }
+  void SetNextPlayerActor(TUniqueId id) { x356_nextPlayerActor = id; }
   void SetIntoStateManager(CStateManager& mgr, bool set);
 
   CAnimRes x2e8_suitRes;
@@ -59,12 +68,12 @@ private:
   int x310_loadedCharIdx;
   rstl::single_ptr< CModelData > x314_beamModelData;
   rstl::single_ptr< CModelData > x318_suitModelData;
-  CToken* x31c_beamModel;
-  CToken* x320_suitModel;
-  CToken* x324_suitSkin;
-  rstl::optional_object< TLockedToken< CModel > > x328_backupModelData;
+  rstl::single_ptr< TToken< CModel > > x31c_beamModel;
+  rstl::single_ptr< TCachedToken< CModel > > x320_suitModel;
+  rstl::single_ptr< TToken< CSkinRules > > x324_suitSkin;
+  rstl::optional_object< TLockedToken< CSkinnedModel > > x328_backupModelData;
   rstl::optional_object< TCachedToken< CTexture > > x338_phazonIndirectTexture;
-  uint x348_deallocateBackupCountdown;
+  int x348_deallocateBackupCountdown;
   float x34c_phazonOffsetAngle;
   uint x350_flags;
   bool x354_24_setBoundingBox : 1;

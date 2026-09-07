@@ -219,6 +219,8 @@ public:
 #endif
   CCameraManager* CameraManager() { return x870_cameraManager; }
   const CCameraManager* GetCameraManager() const { return x870_cameraManager; }
+  TUniqueId GetPlayerActorHead() const { return xf6c_playerActorHead; }
+  void SetPlayerActorHead(TUniqueId id) { xf6c_playerActorHead = id; }
   CPlayerState* PlayerState() { return &*x8b8_playerState; }
   const CPlayerState* GetPlayerState() const { return &*x8b8_playerState; }
   CWorld* World() { return x850_world.get(); }

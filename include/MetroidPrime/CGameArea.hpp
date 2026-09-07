@@ -201,7 +201,8 @@ public:
     float x1120_thermalSpeed;
     float x1124_thermalTarget;
     float x1128_worldLightingLevel;
-    uchar x112c_pad[0x14];
+    uchar x112c_pad[0x10];
+    uint x113c_playerActorsLoading;
 
     CPostConstructed();
     ~CPostConstructed();

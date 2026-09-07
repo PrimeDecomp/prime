@@ -98,6 +98,7 @@ public:
   bool CheckWorldComplete(CStateManager* mgr, TAreaId aid, CAssetId mreaId);
 
   void SetLoadPauseState(bool);
+  void CyclePauseState();
   void TouchSky() const;
   void StopSounds();
   void UnloadSoundGroups();
