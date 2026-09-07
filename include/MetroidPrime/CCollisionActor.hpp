@@ -57,6 +57,7 @@ public:
   void SetWeaponCollisionResponseType(EWeaponCollisionResponseTypes type) { x300_responseType = type; }
 
   TUniqueId GetLastTouchedObject() const;
+  float GetSphereRadius() const;
   TUniqueId GetOwnerId() const { return x25c_owner; }
 
 private:

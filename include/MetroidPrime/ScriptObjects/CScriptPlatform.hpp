@@ -71,6 +71,8 @@ public:
   TUniqueId GetWaypoint(CStateManager& mgr);
   TUniqueId GetNext(TUniqueId uid, CStateManager& mgr);
 
+  bool HasComplexCollision() const { return x314_treeGroup.get() != nullptr; }
+
   bool IsRider(TUniqueId id) const;
   bool IsSlave(TUniqueId id) const;
   void BuildSlaveList(CStateManager& mgr);

@@ -162,14 +162,14 @@ MetroidPrime/Tweaks/CTweakGame.cpp:
 	.data       start:0x803D9EB0 end:0x803D9EC0
 
 MetroidPrime/Weapons/CGameProjectile.cpp:
-	.text       start:0x8003747C end:0x8003A820
+	.text       start:0x8003747C end:0x8003A89C
 	.rodata     start:0x803CD000 end:0x803CD018
 	.data       start:0x803D9EC0 end:0x803D9F30
 	.sdata      start:0x805A6F98 end:0x805A6FC0
 	.sdata2     start:0x805AA300 end:0x805AA348
 
 MetroidPrime/Player/CPlayerGun.cpp:
-	.text       start:0x8003A820 end:0x80043E5C
+	.text       start:0x8003A89C end:0x80043E5C
 	.ctors      start:0x803CB3C0 end:0x803CB3C4
 	.rodata     start:0x803CD018 end:0x803CD0C0
 	.data       start:0x803D9F30 end:0x803DA010

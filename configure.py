@@ -524,7 +524,7 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/Tweaks/CTweakGame.cpp",
             ),
-            Object(NonMatching, "MetroidPrime/Weapons/CGameProjectile.cpp"),
+            Object(Matching, "MetroidPrime/Weapons/CGameProjectile.cpp"),
             Object(NonMatching, "MetroidPrime/Player/CPlayerGun.cpp"),
             Object(NonMatching, "MetroidPrime/CStateManager.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CEntity.cpp"),
