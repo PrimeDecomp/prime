@@ -69,16 +69,16 @@ class CPlayer : public CPhysicsActor, public TOneStatic< CPlayer > {
     };
 
     CPlayerStuckTracker();
-    //~CPlayerStuckTracker();
-    void AddState(EPlayerState, const CVector3f&, const CVector3f&, const CVector2f&);
-    bool IsPlayerStuck();
+    void AddState(EPlayerState state, const CVector3f& position, const CVector3f& velocity,
+                  const CVector2f& input);
+    bool IsPlayerStuck() const;
     void ResetStats();
 
   private:
-    rstl::reserved_vector< EPlayerState, 20 > x0_;
-    rstl::reserved_vector< CVector3f, 20 > x54_;
-    rstl::reserved_vector< CVector3f, 20 > x148_;
-    rstl::reserved_vector< CVector2f, 20 > x23c_;
+    rstl::reserved_vector< int, 20 > x0_states;
+    rstl::reserved_vector< CVector3f, 20 > x54_positions;
+    rstl::reserved_vector< CVector3f, 20 > x148_velocities;
+    rstl::reserved_vector< CVector2f, 20 > x23c_inputs;
   };
 
 public:
@@ -630,6 +630,7 @@ private:
   int xa2c_damageLoopSfxDelayTicks;
   float xa30_samusExhaustedVoiceTimer;
 };
+NESTED_CHECK_SIZEOF(CPlayer, CPlayerStuckTracker, 0x2e0);
 CHECK_SIZEOF(CPlayer, 0xa38)
 
 extern const bool gkAutoAim;
