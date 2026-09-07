@@ -13,5 +13,5 @@ public:
 };
 
 CFactoryFnReturn FParticleSwooshDataFactory(const SObjectTag& tag, CInputStream& in,
-                                                   const CVParamTransfer& transfer);
+                                            const CVParamTransfer& transfer);
 #endif
