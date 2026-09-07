@@ -57,8 +57,9 @@ CSaveWorldIntermediate::CSaveWorldIntermediate(CAssetId mlvlId, CAssetId savwId)
 bool CSaveWorldIntermediate::InitializePump() {
   if (!x2c_dummyWorld.null()) {
     if (x2c_dummyWorld->ICheckWorldComplete()) {
-      IWorld& world = *x2c_dummyWorld;
-      x4_worldNameId = world.IGetStringTableAssetId();
+      CDummyWorld* dummyWorld = x2c_dummyWorld.get();
+      IWorld& world = *dummyWorld;
+      x4_worldNameId = dummyWorld->IGetStringTableAssetId();
       x8_saveWorldId = world.IGetSaveWorldAssetId();
       int areaCount = world.IGetAreaCount();
       xc_areaIds.reserve(areaCount);
