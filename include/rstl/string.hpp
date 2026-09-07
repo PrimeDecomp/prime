@@ -158,7 +158,6 @@ public:
   int compare(const basic_string& other) const;
   bool operator==(const basic_string& other) const;
   bool operator!=(const basic_string& other) const;
-  bool operator<(const basic_string& other) const;
 
   int find(_CharTp ch, int pos = 0) const;
   int get_real_pos_for_begin(int pos) const {
@@ -272,11 +271,6 @@ inline bool basic_string< _CharTp, Traits, Alloc >::operator!=(const basic_strin
   return compare(other) != 0;
 }
 
-template < typename _CharTp, typename Traits, typename Alloc >
-bool basic_string< _CharTp, Traits, Alloc >::operator<(const basic_string& other) const {
-  return compare(other) < 0;
-}
-
 // template <>
 // const char basic_string<char>::mNull = 0;
 // template <>
@@ -285,6 +279,8 @@ bool basic_string< _CharTp, Traits, Alloc >::operator<(const basic_string& other
 typedef basic_string< wchar_t > wstring;
 typedef basic_string< char > string;
 typedef basic_string< char, case_insensitive_char_traits< char > > istring;
+
+inline bool operator<(const string& lhs, const string& rhs) { return lhs.compare(rhs) < 0; }
 
 istring istring_l(const char* data);
 bool operator==(const istring& a, const istring& b);
