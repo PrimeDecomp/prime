@@ -885,7 +885,7 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/ScriptObjects/CScriptRipple.cpp",
             ),
-            Object(NonMatching, "MetroidPrime/CBoneTracking.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CBoneTracking.cpp"),
             Object(NonMatching, "MetroidPrime/Player/CFaceplateDecoration.cpp"),
             Object(NonMatching, "MetroidPrime/BodyState/CBSCover.cpp"),
             Object(
