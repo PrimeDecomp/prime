@@ -74,6 +74,7 @@ public:
   bool empty() const { return x14_count == 0; }
 
   T& front() { return *x4_start->get_value(); }
+  T& back() { return *x8_end->get_prev()->get_value(); }
   const T& front() const { return *x4_start->get_value(); }
 
   void pop_front() { erase(x4_start); }
