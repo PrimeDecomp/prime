@@ -51,8 +51,10 @@ pas::EAnimationState CBSLoopAttack::UpdateBody(float dt, CBodyController& bc, CS
 
   if (st == pas::kAS_Invalid) {
     CBodyStateCmdMgr& commandMgr = bc.CommandMgr();
-    CBodyStateCmd* cmd = commandMgr.GetCmd(kBSC_ExitState);
-    xc_25_advance = ((GetAdvance() | cmd != nullptr) << 4) & 0x10;
+    const bool exitRequested = commandMgr.GetCmd(kBSC_ExitState) != nullptr;
+    bool advance = GetAdvance();
+    advance |= exitRequested;
+    xc_25_advance = advance;
 
     switch (x4_state) {
     case pas::kLS_Begin:
