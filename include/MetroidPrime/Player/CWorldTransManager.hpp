@@ -10,6 +10,8 @@ class CWorldTransManager {
 public:
   enum ETransType { kTT_Disabled, kTT_Enabled, kTT_Text };
 
+  CWorldTransManager();
+
   void SetSfx(ushort, uchar, uchar);
   void SfxStart();
   void SfxStop();

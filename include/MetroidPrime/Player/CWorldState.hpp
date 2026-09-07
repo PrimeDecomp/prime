@@ -10,6 +10,10 @@
 
 class CWorldState {
 public:
+  explicit CWorldState(CAssetId worldId);
+  CWorldState(CInputStream& in, CAssetId worldId, const CWorldSaveGameInfo& saveWorld);
+  void PutTo(COutputStream& out, CWorldSaveGameInfo& saveWorld);
+
   rstl::ncrc_ptr< CScriptLayerManager >& GetLayerState();
   rstl::ncrc_ptr< CScriptMailbox >& Mailbox();
   CAssetId GetWorldAssetId() const;

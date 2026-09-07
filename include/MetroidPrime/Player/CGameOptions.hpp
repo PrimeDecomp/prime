@@ -26,7 +26,7 @@ public:
   CGameOptions(CInputStream& in);
   ~CGameOptions();
 
-  void PutTo(CMemoryStreamOut&);
+  void PutTo(COutputStream&);
 
   void InitSoundMode();
   void ResetToDefaults();

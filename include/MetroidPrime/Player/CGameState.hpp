@@ -21,7 +21,7 @@ public:
   CGameState(CInputStream& in, int saveIdx);
 
   void ReadSystemOptions(CInputStream& in);
-  void PutTo(COutputStream& out) const;
+  void PutTo(COutputStream& out);
   void WriteSystemOptions(COutputStream& out);
 
   void SetCurrentWorldId(CAssetId);
@@ -29,6 +29,7 @@ public:
   void SetTotalPlayTime(double);
 
   rstl::ncrc_ptr< CPlayerState >& PlayerState();
+  rstl::rc_ptr< CPlayerState > GetPlayerState() const;
   CAssetId CurrentWorldAssetId() const;
   void WriteBackupBuf();
 
@@ -70,7 +71,10 @@ public:
   static GameFileStateInfo LoadGameFileState(const void* data);
 
 private:
-  rstl::reserved_vector< bool, 128 > x0_;
+  void InitializeMemoryStates();
+  void InitializeMemoryWorlds();
+
+  rstl::reserved_vector< uchar, 128 > x0_;
   CAssetId x84_mlvlId;
   rstl::vector< CWorldState > x88_worldStates;
   rstl::ncrc_ptr< CPlayerState > x98_playerState;
@@ -85,6 +89,7 @@ private:
   bool x228_24_hardMode : 1;
   bool x228_25_initPowerupsAtFirstSpawn : 1;
 };
+CHECK_SIZEOF(CGameState, 0x230)
 
 extern CGameState* gpGameState;
 
