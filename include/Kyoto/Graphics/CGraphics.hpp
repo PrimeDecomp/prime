@@ -343,6 +343,8 @@ public:
   static void VideoPostCallback(u32 retraceCount);
 
   static const CViewport& GetViewport() { return mViewport; }
+  static int GetViewportWidth() { return mViewport.mWidth; }
+  static int GetViewportHeight() { return mViewport.mHeight; }
   static void GetViewport(int& left, int& top, int& width, int& height) {
     left = mViewport.mLeft;
     top = mViewport.mTop;

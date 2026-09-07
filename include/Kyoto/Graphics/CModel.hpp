@@ -40,6 +40,10 @@ public:
   const float* GetPositions() const;
   const float* GetNormals() const;
   void UpdateLastFrame() const;
+  // Retail buffer relocation methods; names are inferred from their implementations.
+  rstl::auto_ptr< uchar > GetData();
+  uint GetDataSize() const;
+  void RemapData(uchar* data);
 
   const CCubeModel* GetCubeModel() const { return x28_modelInstance.get(); }
 

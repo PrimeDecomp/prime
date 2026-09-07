@@ -43,6 +43,7 @@ public:
   CTweakPlayerRes(CInputStream& in);
 
   CAssetId GetBallTransitionBeamResId(CPlayerState::EBeamId id) const;
+  CAssetId GetCinematicBeamResId(CPlayerState::EBeamId id) const;
 };
 CHECK_SIZEOF(CTweakPlayerRes, 0xf4);
 
