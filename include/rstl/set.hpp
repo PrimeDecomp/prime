@@ -13,7 +13,7 @@ public:
   typedef T value_type;
 
 private:
-  typedef red_black_tree< T, value_type, 0, identity< T >, Cmp, Alloc > rep_type;
+  typedef red_black_tree< T, value_type, false, identity< T >, Cmp, Alloc > rep_type;
 
 public:
   typedef typename rep_type::iterator iterator;

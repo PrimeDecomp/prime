@@ -326,7 +326,7 @@ const rstl::string& CAudioSys::SysGetGroupSetName(const uint id) {
 rstl::ncrc_ptr< CAudioGroupSet > CAudioSys::FindGroupSet(const rstl::string& name) {
   rstl::map< rstl::string, rstl::ncrc_ptr< CAudioGroupSet > >::const_iterator it(
       mpGroupSetDB->find(name));
-  rstl::map< rstl::string, rstl::ncrc_ptr< CAudioGroupSet > >::const_iterator end(
+  rstl::map< rstl::string, rstl::ncrc_ptr< CAudioGroupSet > >::iterator end(
       mpGroupSetDB->end());
   if (it != end) {
     return it->second;
@@ -411,7 +411,7 @@ void CAudioSys::TrkNextTrack() { DTKNextTrack(); }
 rstl::ncrc_ptr< CAudioSys::CTrkData > CAudioSys::FindTrack(const rstl::string& name) {
   rstl::map< rstl::string, rstl::ncrc_ptr< CTrkData > >::const_iterator it(
       mpDVDTrackDB->find(name));
-  rstl::map< rstl::string, rstl::ncrc_ptr< CTrkData > >::const_iterator end(mpDVDTrackDB->end());
+  rstl::map< rstl::string, rstl::ncrc_ptr< CTrkData > >::iterator end(mpDVDTrackDB->end());
   if (it != end) {
     return it->second;
   }
