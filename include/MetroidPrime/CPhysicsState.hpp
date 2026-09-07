@@ -14,6 +14,7 @@ public:
                 const CAxisAngle& torque, const CAxisAngle& angularImpulse);
 
   CVector3f GetTranslation() const { return x0_translation; }
+  void SetTranslation(const CVector3f& translation) { x0_translation = translation; }
   CQuaternion GetOrientation() const { return xc_orientation; }
   CVector3f GetConstantForceWR() const { return x1c_constantForce; }
   CAxisAngle GetAngularMomentumWR() const { return x28_angularMomentum; }

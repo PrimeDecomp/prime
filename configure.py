@@ -816,7 +816,7 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/BodyState/CBSGenerate.cpp",
             ),
-            Object(NonMatching, "MetroidPrime/Enemies/CPuddleSpore.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Enemies/CPuddleSpore.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/BodyState/CBSTaunt.cpp",

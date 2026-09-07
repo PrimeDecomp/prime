@@ -100,7 +100,7 @@ public:
 #endif
   static double SqrtD(double x);
   // IsEpsilon__5CMathFfff global
-  // FastMin__5CMathFff weak
+  static float FastMin(float a, float b) { return FastFSel(a - b, b, a); }
   // FastMax__5CMathFff weak
   // PowF__5CMathFff global
   // Rev2Deg__5CMathFf weak
