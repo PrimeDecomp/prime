@@ -14,16 +14,16 @@
 
 class CGenDescription;
 
-enum EBehaveType {
-  kBT_Lurk,
-  kBT_Taunt,
-  kBT_Attack,
-  kBT_Move,
-  kBT_None,
-};
-
 class CChozoGhost : public CPatterned {
 public:
+  enum EBehaveType {
+    kBT_Lurk,
+    kBT_Taunt,
+    kBT_Attack,
+    kBT_Move,
+    kBT_None,
+  };
+
   class CBehaveChance {
   public:
     explicit CBehaveChance(CInputStream& in);
@@ -143,8 +143,8 @@ private:
   ushort x650_soundProjectileVisor;
   float x654_;
   float x658_;
-  uint x65c_nearChance;
-  uint x660_midChance;
+  int x65c_nearChance;
+  int x660_midChance;
   bool x664_24_behaviorEnabled : 1;
   bool x664_25_flinch : 1;
   bool x664_26_alert : 1;
@@ -164,7 +164,7 @@ private:
   float x670_;
   TUniqueId x674_coverPoint;
   float x678_floorLevel;
-  uint x67c_attackType;
+  int x67c_attackType;
   EBehaveType x680_behaveType;
   float x684_lurkDelay;
   CSteeringBehaviors x688_steeringBehaviors;
@@ -172,7 +172,7 @@ private:
   TUniqueId x6c4_teamMgr;
   float x6c8_spaceWarpTime;
   CVector3f x6cc_spaceWarpPosition;
-  uint x6d8_;
+  int x6d8_;
 
   static const rstl::string skSpeedSwooshName;
 };

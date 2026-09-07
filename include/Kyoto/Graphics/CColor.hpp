@@ -46,6 +46,9 @@ public:
   // TODO check. Maybe this calls SetAlpha(uchar)?
   void SetAlpha(float a) { mA = CCast::ToUint8(a * 255.f); }
   void SetAlpha(uchar a) { mA = a; }
+  void SetRed(uchar r) { mR = r; }
+  void SetGreen(uchar g) { mG = g; }
+  void SetBlue(uchar b) { mB = b; }
 
   static CColor Lerp(const CColor& a, const CColor& b, const float t);
   static uint Lerp(uint a, uint b, float t);
