@@ -3,23 +3,21 @@
 
 #include <types.h>
 
-namespace rstl {
 template < typename T >
 class prereserved_vector {
 public:
-  prereserved_vector() : mData(nullptr), mSize(0) {}
+  prereserved_vector() : mSize(0), mData(nullptr) {}
 
-  uint size() const { return mSize; }
-  void set_size(uint size) { mSize = size; }
+  int size() const { return mSize; }
+  void set_size(int size) { mSize = size; }
   void set_data(T* data) { mData = data; }
 
-  T& operator[](uint idx) { return mData[idx]; }
-  const T& operator[](uint idx) const { return mData[idx]; }
+  T& operator[](int idx) { return mData[idx]; }
+  const T& operator[](int idx) const { return mData[idx]; }
 
 private:
+  int mSize;
   T* mData;
-  uint mSize;
 };
-}; // namespace rstl
 
 #endif // _RSTL_PRERESERVED_VECTOR
