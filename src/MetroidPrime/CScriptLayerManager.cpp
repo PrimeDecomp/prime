@@ -18,7 +18,7 @@ CScriptLayerManager::CScriptLayerManager(CInputStream& in, const CWorldSaveGameI
   }
 }
 
-void CScriptLayerManager::PutTo(COutputStream& out) const {
+void CScriptLayerManager::PutTo(COutputStream& out, const CWorldSaveGameInfo&) const {
   uint totalLayerCount = 0;
   const int areaCount = x0_areaLayers.size();
   for (int i = 0; i < areaCount; ++i) {
@@ -48,7 +48,10 @@ bool CScriptLayerManager::IsLayerActive(TAreaId areaIdx, TLayerId layerIdx) cons
   return (layerBits & (1 << layerIdx.Value())) != 0;
 }
 
-void CScriptLayerManager::InitializeWorldLayers(const rstl::vector< CWorldLayers::Area >& layers) {
+void CScriptLayerManager::InitializeWorldLayers(
+    const rstl::vector< CWorldLayers::Area >& layers,
+    const rstl::rc_ptr< rstl::vector< rstl::string > >&,
+    const rstl::rc_ptr< rstl::vector< int > >&) {
   if (!x0_areaLayers.empty()) {
     return;
   }

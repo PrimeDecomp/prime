@@ -49,6 +49,9 @@ public:
     return x0_hints.GetObject()->GetHints();
   }
 
+  typedef rstl::pair< CAssetId, CSaveWorldMemory > MemoryWorld;
+  const rstl::vector< MemoryWorld >& GetMemoryWorlds() const { return xc_memoryWorlds; }
+
   typedef rstl::pair< CAssetId, uint > ScanState;
   const rstl::vector< ScanState >& GetScanStates() const { return x20_scanStates; }
 

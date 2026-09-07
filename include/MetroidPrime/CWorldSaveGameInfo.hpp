@@ -20,6 +20,9 @@ public:
 
   explicit CWorldSaveGameInfo(CInputStream& in);
 
+  int GetCinematicCount() const { return x4_cinematics.size(); }
+  const rstl::vector< TEditorId >& GetCinematics() const { return x4_cinematics; }
+
   const rstl::vector< TEditorId >& GetDoors() const { return x34_doors; }
 
   typedef rstl::pair< CAssetId, uint > ScanState;

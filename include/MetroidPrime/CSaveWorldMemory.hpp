@@ -21,6 +21,8 @@ public:
   , x8_areaCount(0) {}
   int GetAreaCount() const { return x8_areaCount; }
   CAssetId GetWorldNameId() const { return x0_worldNameId; }
+  CAssetId GetSaveWorldAssetId() const { return x4_saveWorldId; }
+  const rstl::vector< CWorldLayers::Area >& GetDefaultLayerStates() const { return x1c_defaultLayerStates; }
   const wchar_t* GetFrontEndName() const;
 
 private:

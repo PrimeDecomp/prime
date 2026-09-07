@@ -29,7 +29,7 @@ int CalculateBits(int i) {
   return result;
 }
 
-inline void WriteValue(CMemoryStreamOut& out, uint value, int maxSize) {
+inline void WriteValue(COutputStream& out, uint value, int maxSize) {
   out.WriteBits(value, CalculateBits(maxSize));
 }
 
@@ -99,7 +99,7 @@ CGameOptions::CGameOptions(CInputStream& in)
   InitSoundMode();
 }
 
-void CGameOptions::PutTo(CMemoryStreamOut& out) {
+void CGameOptions::PutTo(COutputStream& out) {
   for (int i = 0; i < x0_.size(); ++i) {
     out.WriteBits(x0_[i], 8);
   }
