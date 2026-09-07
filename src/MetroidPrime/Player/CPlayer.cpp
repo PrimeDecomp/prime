@@ -625,7 +625,7 @@ void CPlayer::UpdateAssistedAiming(const CTransform4f& xf, CStateManager& mgr) {
   CTransform4f assistXf = xf;
   if (const CActor* target = TCastToConstPtr< CActor >(mgr.GetObjectById(GetAimTargetId()))) {
     CVector3f gunToTarget = x480_assistedTargetAim - xf.GetTranslation();
-    CVector3f gunToTargetFlat = gunToTarget.DropZ();
+    CVector3f gunToTargetFlat(gunToTarget.GetX(), gunToTarget.GetY(), 0.f);
     float gunToTargetFlatMag = gunToTargetFlat.Magnitude();
     CVector3f gunDirFlat = xf.GetColumn(kDY);
     gunDirFlat.SetZ(0.f);
@@ -2752,7 +2752,8 @@ void CPlayer::FluidFXThink(EFluidState state, CScriptWater& water, CStateManager
       case kFS_EnteredFluid: {
         bool doSplash = true;
         if (x4fc_flatMoveSpeed > 12.5f) {
-          CVector3f lookDir = GetTransform().GetColumn(kDY).DropZ().AsNormalized();
+          CVector3f lookDir = CVector3f(GetTransform().GetColumn(kDY).GetX(),
+                                      GetTransform().GetColumn(kDY).GetY(), 0.f).AsNormalized();
           if (CVector3f::Dot(lookDir, CVector3f(GetDampedClampedVelocityWR().GetX(),
                                                 GetDampedClampedVelocityWR().GetY(), 0.f)
                                           .AsNormalized()) > 0.75f) {
