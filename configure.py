@@ -1194,7 +1194,7 @@ config.libs = [
             Object(NonMatching, "WorldFormat/CAreaOctTree.cpp"),
             Object(NonMatching, "WorldFormat/CMetroidAreaCollider.cpp"),
             Object(NonMatching, "WorldFormat/CWorldLight.cpp"),
-            Object(NonMatching, "WorldFormat/COBBTree.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "WorldFormat/COBBTree.cpp"),
             Object(NonMatching, "WorldFormat/CCollidableOBBTree.cpp"),
             Object(NonMatching, "WorldFormat/CCollidableOBBTreeGroup.cpp"),
             Object(NonMatching, "WorldFormat/CPVSAreaSet.cpp"),

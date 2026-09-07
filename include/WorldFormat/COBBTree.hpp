@@ -8,6 +8,7 @@
 
 #include "WorldFormat/CCollisionEdge.hpp"
 
+#include "rstl/auto_ptr.hpp"
 #include "rstl/vector.hpp"
 
 class CAABox;
@@ -18,7 +19,7 @@ class CTransform4f;
 class COBBTree {
 public:
   class CSimpleAllocator {
-    void* x0_buffer;
+    char* x0_buffer;
     uint x4_size;
     uint x8_offset;
 
@@ -26,6 +27,7 @@ public:
     CSimpleAllocator(uint size);
     ~CSimpleAllocator();
     void* Alloc(size_t size);
+    uint GetPoolMemSize() const { return x4_size; }
   };
 
   class CLeafData {
@@ -81,8 +83,7 @@ public:
     rstl::vector< ushort > x50_surfaceIndices;
     rstl::vector< CVector3f > x60_vertices;
 
-    SIndexData();
-    SIndexData(const SIndexData& other);
+    SIndexData() {}
     SIndexData(CInputStream& in);
   };
 
@@ -108,7 +109,8 @@ public:
 
   CAABox CalculateLocalAABox() const;
 
-  static COBBTree* BuildOrientedBoundingBoxTree(const CVector3f& extent, const CVector3f& center);
+  static rstl::auto_ptr< COBBTree > BuildOrientedBoundingBoxTree(const CVector3f& extent,
+                                                                 const CVector3f& center);
 
 private:
   uint x0_magic;
