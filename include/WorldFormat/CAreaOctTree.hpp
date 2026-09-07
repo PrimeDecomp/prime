@@ -30,7 +30,7 @@ public:
     explicit TriListReference(const void* ptr) : m_ptr(reinterpret_cast< const ushort* >(ptr)) {}
     explicit TriListReference(const ushort* ptr) : m_ptr(ptr) {}
     ushort GetAt(int idx) const { return m_ptr[idx + kTriangleDataOffset]; }
-    ushort GetSize() const { return m_ptr[kTriangleCountOffset]; }
+    const ushort GetSize() const { return m_ptr[kTriangleCountOffset]; }
 
   private:
     // Leaf records store bounds, then a ushort count followed by the triangle indices.
