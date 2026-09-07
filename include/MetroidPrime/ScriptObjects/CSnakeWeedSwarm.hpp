@@ -21,9 +21,13 @@ public:
   void Accept(IVisitor& visitor) override;
 
   void ApplyRadiusDamage(const CVector3f& pos, const CDamageInfo& info, CStateManager& mgr);
+  void HandleRadiusDamage(float radius, CStateManager& mgr, const CVector3f& pos);
+  float GetWeaponDamageRadius() const { return x100_weaponDamageRadius; }
 
 private:
-  uchar xe8_pad[0x208 - 0xe8];
+  uchar xe8_pad[0x100 - 0xe8];
+  float x100_weaponDamageRadius;
+  uchar x104_pad[0x208 - 0x104];
 };
 CHECK_SIZEOF(CSnakeWeedSwarm, 0x208)
 

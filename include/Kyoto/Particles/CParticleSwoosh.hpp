@@ -86,8 +86,12 @@ public:
   uint Get4CharId() const override;
 
   void SetWarmUp() { x1d0_26_forceOneUpdate = true; }
+  void SetRenderGaps(bool gaps) { x1d0_27_renderGaps = gaps; }
 
   const int GetSwooshCount() const { return x15c_swooshes.size(); }
+  int GetCurParticle() const { return x158_curParticle; }
+  rstl::vector< SSwooshData >& Swooshes() { return x15c_swooshes; }
+  const rstl::vector< SSwooshData >& GetSwooshes() const { return x15c_swooshes; }
 
   bool IsLargeEnough() const;
   void UpdateSwooshTranslation(const CVector3f& translation);
