@@ -929,7 +929,7 @@ config.libs = [
             ),
             Object(NonMatching, "MetroidPrime/Enemies/CIceSheegoth.cpp"),
             Object(NonMatching, "MetroidPrime/CCollisionActorManager.cpp"),
-            Object(NonMatching, "MetroidPrime/CCollisionActor.cpp"),
+            Object(Matching, "MetroidPrime/CCollisionActor.cpp"),
             Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptPlayerActor.cpp"),
             Object(NonMatching, "MetroidPrime/Tweaks/CTweakPlayerRes.cpp"),
             Object(
