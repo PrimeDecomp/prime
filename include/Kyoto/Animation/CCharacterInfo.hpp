@@ -17,7 +17,7 @@
 class CCharacterInfo {
 public:
   class CParticleResData {
-  private:
+  public:
     rstl::vector< CAssetId > x0_part;
     rstl::vector< CAssetId > x10_swhc;
     rstl::vector< CAssetId > x20_elsc;

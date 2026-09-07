@@ -28,6 +28,9 @@ public:
   CParticleData(CInputStream& in);
 
   int GetDuration() const { return x0_duration; }
+  SObjectTag GetParticleAssetInfo() const {
+    return SObjectTag(x4_particle.GetType(), x4_particle.GetId());
+  }
   const rstl::string& GetLocatorName() const { return xc_boneName; }
   float GetScale() const { return x1c_scale; }
   EParentedMode GetParentedMode() const { return static_cast<EParentedMode>(x20_parentMode); }
@@ -41,6 +44,14 @@ private:
 };
 
 class CAuxiliaryParticleData {
+public:
+  uint GetDuration() const { return x0_duration; }
+  SObjectTag GetParticleAssetInfo() const {
+    return SObjectTag(x4_particle.GetType(), x4_particle.GetId());
+  }
+  const CVector3f& GetTranslation() const { return xc_translation; }
+  float GetScale() const { return x18_scale; }
+
 private:
   uint x0_duration;
   SObjectTag x4_particle;
