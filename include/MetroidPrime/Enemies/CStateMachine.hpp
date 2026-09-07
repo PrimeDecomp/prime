@@ -53,6 +53,8 @@ private:
   bool x18_lNot;
 };
 
+CHECK_SIZEOF(CAiTrigger, 0x1c)
+
 class CAiState {
 public:
   CAiState(CAiStateFunc func, const char* name)
@@ -60,7 +62,7 @@ public:
     strncpy(xc_name, name, 31);
   }
 
-  CAiTrigger* GetTrig(int idx) { return &x30_firstTrigger[idx]; }
+  CAiTrigger* GetTrig(int idx) const { return &x30_firstTrigger[idx]; }
   const char* GetName() const { return xc_name; }
   void SetTriggers(CAiTrigger* triggers) { x30_firstTrigger = triggers; }
   void SetNumTriggers(int numTriggers) { x2c_numTriggers = numTriggers; }
@@ -79,6 +81,8 @@ private:
   CAiTrigger* x30_firstTrigger;
 };
 
+CHECK_SIZEOF(CAiState, 0x34)
+
 class CStateMachine {
 public:
   explicit CStateMachine(CInputStream& in);
@@ -90,6 +94,8 @@ private:
   rstl::vector< CAiState > x0_states;
   rstl::vector< CAiTrigger > x10_triggers;
 };
+
+CHECK_SIZEOF(CStateMachine, 0x20)
 
 class CStateMachineState {
 public:
@@ -106,7 +112,7 @@ public:
   float GetTime() const { return x8_time; }
   float GetRandom() const { return xc_random; }
   float GetDelay() const { return x10_delay; }
-  float GetFixedRandom() const { return x14_; }
+  float GetFixedRandom() const { return x14_fixedRandom; }
   bool GetCodeTrigger() const { return x18_24_codeTrigger; }
   void SetCodeTrigger() { x18_24_codeTrigger = true; }
 
@@ -116,8 +122,10 @@ private:
   float x8_time;
   float xc_random;
   float x10_delay;
-  float x14_;
+  float x14_fixedRandom;
   bool x18_24_codeTrigger : 1;
 };
+
+CHECK_SIZEOF(CStateMachineState, 0x1c)
 
 #endif // _CSTATEMACHINE
