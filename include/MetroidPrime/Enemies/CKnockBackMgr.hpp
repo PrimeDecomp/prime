@@ -1,5 +1,5 @@
-#ifndef _CKNOCKBACKCONTROLLER
-#define _CKNOCKBACKCONTROLLER
+#ifndef _CKNOCKBACKMGR
+#define _CKNOCKBACKMGR
 
 #include "types.h"
 
@@ -71,7 +71,7 @@ class CKnockBackMgr {
   friend class CPatterned;
 
 public:
-  struct KnockBackParms {    
+  struct KnockBackParms {
     EAnimReaction x0_animState;
     EKnockBackAnimationFollowUp x4_animFollowup;
     float x8_followupDuration;
@@ -84,26 +84,23 @@ public:
   void sub80233d40(int i, float f1, float f2);
   void SetAutoResetImpulse(bool b);
   void SetImpulseDurationIdx(int i);
-  void SetAnimationStateRange(EAnimReaction a, EAnimReaction b); /* {
-     x18_minAnimState = a;
-     x1c_maxAnimState = b;
-   }*/
+  void SetAnimationStateRange(EAnimReaction a, EAnimReaction b);
   void Update(float dt, CStateManager& mgr, CPatterned& parent);
   void KnockBack(const CVector3f& backVec, CStateManager& mgr, CPatterned& parent,
                  const CDamageInfo& info, float magnitude, bool direct);
 
   void ApplyImpulse(float dt, CPatterned& parent);
   bool TickDeferredTimer(float dt);
-  EKnockBackCharacterState GetKnockBackCharacterState(const CPatterned& parent) const;
-  void ValidateState(const CPatterned& parent);
-  float CalculateExtraHurlVelocity(CStateManager& mgr, float magnitude, float kbResistance) const;
+  EKnockBackCharacterState GetKnockBackCharacterState(CPatterned& parent);
+  void ValidateState(CPatterned& parent);
+  float CalculateExtraHurlVelocity(CStateManager& mgr, float magnitude, float kbResistance);
   void DoKnockBackAnimation(const CVector3f& backVec, CStateManager& mgr, CPatterned& parent,
                             float magnitude);
-  void ResetKnockBackImpulse(const CPatterned& parent, const CVector3f& backVec, float magnitude);
+  void ResetKnockBackImpulse(CPatterned& parent, const CVector3f& backVec, float magnitude);
   void DoDeferredKnockBack(CStateManager& mgr, CPatterned& parent);
   EKnockBackWeaponType GetKnockBackWeaponType(const CDamageInfo& info, EWeaponType wType,
                                               bool direct);
-  void SelectDamageState(const CPatterned& parent, const CDamageInfo& info, EWeaponType wType,
+  void SelectDamageState(CPatterned& parent, const CDamageInfo& info, EWeaponType wType,
                          bool direct);
 
   void SetSeverity(pas::ESeverity v) { x7c_severity = v; }
@@ -120,9 +117,7 @@ public:
   const KnockBackParms& GetActiveParms() const { return x4_activeParms; }
   ECreatureSize GetCreatureSize() const { return x0_size; }
   float GetFlinchRemTime() const { return x64_flinchRemTime; }
-  void EnableAnimReaction(EAnimReaction s, bool b); // {
-  //   x80_availableStates.set(size_t(s), b);
-  // }
+  void EnableAnimReaction(EAnimReaction s, bool b);
   bool TestAvailableState(int s) const;
 
 private:
@@ -131,7 +126,7 @@ private:
   EWeaponType x14_deferWeaponType;
   EAnimReaction x18_minAnimState;
   EAnimReaction x1c_maxAnimState;
-  uint x20_impulseDurationIdx;
+  int x20_impulseDurationIdx;
   rstl::reserved_vector< rstl::pair< float, float >, 5 > x24_;
   CVector3f x50_impulseDir;
   float x5c_impulseMag;
@@ -156,7 +151,8 @@ private:
   bool x82_25_inDeferredKnockBack : 1;
   bool x82_26_locomotionDuringElectrocution : 1;
   static const KnockBackParms skDefaultParameters;
+  static const KnockBackParms skKnockBackParameters[3][19][4];
 };
 CHECK_SIZEOF(CKnockBackMgr, 0x84)
 
-#endif // _CKNOCKBACKCONTROLLER
+#endif // _CKNOCKBACKMGR
