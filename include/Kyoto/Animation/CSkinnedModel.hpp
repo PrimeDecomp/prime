@@ -33,6 +33,7 @@ public:
   TLockedToken< CModel >& Model() { return x4_model; }
   const TLockedToken< CModel >& GetModel() const { return x4_model; }
   const TLockedToken< CCharLayoutInfo >& GetLayoutInfo() const { return x1c_layoutInfo; }
+  void SetLayoutInfo(const TLockedToken< CCharLayoutInfo >& layout) { x1c_layoutInfo = layout; }
 
   void CalculateDefault();
   int GetNumPoints() const { return x10_skinRules->GetNumPoints(); }

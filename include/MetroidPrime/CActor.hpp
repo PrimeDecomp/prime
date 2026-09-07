@@ -239,6 +239,7 @@ public:
 
 protected:
   void SetDrawEnabled(bool v) { xe7_29_drawEnabled = v; }
+  void SetEnableRender(bool v) { xe7_27_enableRender = v; }
 
 private:
   CTransform4f x34_transform;

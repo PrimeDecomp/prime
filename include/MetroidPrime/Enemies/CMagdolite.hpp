@@ -10,11 +10,11 @@
 
 #include "Kyoto/TToken.hpp"
 
+#include "rstl/rc_ptr.hpp"
 #include "rstl/reserved_vector.hpp"
 #include "rstl/single_ptr.hpp"
 
 class CCollisionActorManager;
-class CObjectReference;
 class CSkinnedModel;
 class CWeaponDescription;
 
@@ -72,13 +72,13 @@ public:
   bool ShouldRetreat(CStateManager& mgr, float arg) override;
 
 private:
-  void ApplyContactDamage(TUniqueId uid, CStateManager& mgr);
-  void SetupCollisionActors(CStateManager& mgr);
+  void DoContactDamage(TUniqueId uid, CStateManager& mgr);
+  void CreateCollisionActors(CStateManager& mgr);
   void CreateFlameThrower(CStateManager& mgr);
-  void LaunchFlameThrower(CStateManager& mgr, bool fire);
-  void UpdateOrientation(CStateManager& mgr);
-  TUniqueId FindSuitableTarget(CStateManager& mgr, EScriptObjectState state,
-                               EScriptObjectMessage msg);
+  void SetFlameThrowerActive(CStateManager& mgr, bool fire);
+  void SnapToFacePlayer(CStateManager& mgr);
+  TUniqueId GetBestConnectedObject(CStateManager& mgr, EScriptObjectState state,
+                                   EScriptObjectMessage msg);
 
   float x568_initialDelay;
   float x56c_minDelay;
@@ -90,7 +90,7 @@ private:
   CBoneTracking x584_boneTracker;
   CDamageVulnerability x5bc_instaKillVulnerability;
   CDamageVulnerability x624_normalVulnerability;
-  CObjectReference* x68c_;
+  rstl::ncrc_ptr< CModelData > x68c_;
   TLockedToken< CSkinnedModel > x690_headlessModel;
   rstl::reserved_vector< TUniqueId, 4 > x69c_headCollisionActors;
   CFlameInfo x6a8_flameInfo;
