@@ -12,6 +12,8 @@ class COutputStream;
 namespace rstl {
 template < typename _CharTp >
 struct char_traits {
+  static bool eq(const _CharTp& lhs, const _CharTp& rhs) { return lhs == rhs; }
+  static _CharTp eos() { return 0; }
   static int compare(const _CharTp& lhs, const _CharTp& rhs) {
     return static_cast< int >(lhs) - static_cast< int >(rhs);
   }
@@ -19,6 +21,8 @@ struct char_traits {
 
 template <>
 struct char_traits< char > {
+  static bool eq(const char& lhs, const char& rhs) { return lhs == rhs; }
+  static char eos() { return 0; }
   static int compare(const char& lhs, const char& rhs) {
     return static_cast< int >(static_cast< signed char >(lhs)) -
            static_cast< int >(static_cast< signed char >(rhs));
@@ -87,6 +91,18 @@ public:
 
   basic_string(CInputStream& in, const Alloc& = rmemory_allocator());
 
+  template < typename It >
+  basic_string(It first, It last, const Alloc& = rmemory_allocator()) {
+    const int len = rstl::distance(first, last);
+    internal_allocate(len + 1);
+    int i = 0;
+    for (It it = first; it != last; it = it + 1, ++i) {
+      const_cast< _CharTp& >(x0_ptr[i]) = *it;
+    }
+    const_cast< _CharTp& >(x0_ptr[i]) = Traits::eos();
+    x8_size = len;
+  }
+
   basic_string(const _CharTp* data, int size = -1, const Alloc& = rmemory_allocator());
   // {
   //     if (size <= 0 && !data)
@@ -126,7 +142,6 @@ public:
     assign(other);
     return *this;
   }
-  basic_string operator+(const _CharTp*);
   void append(const basic_string& other);
   void append(int, _CharTp);
   void append(const _CharTp*, int);
@@ -138,17 +153,62 @@ public:
 
   template < typename It >
   static int internal_compare(const_iterator first, const_iterator last, It otherFirst, It otherLast);
+  template < typename It, typename OtherIt >
+  static int internal_search(It first, It last, OtherIt otherFirst, OtherIt otherLast);
   int compare(const basic_string& other) const;
   bool operator==(const basic_string& other) const;
   bool operator!=(const basic_string& other) const;
   bool operator<(const basic_string& other) const;
 
   int find(_CharTp ch, int pos = 0) const;
+  int get_real_pos_for_begin(int pos) const {
+    if (pos == -1 || pos >= static_cast< int >(size())) {
+      return size();
+    }
+    return pos;
+  }
   const _CharTp* c_str() const { return x0_ptr; }
   const _CharTp* data() const { return x0_ptr; }
   void PutTo(COutputStream& out) const;
   const _CharTp at(int idx) const { return data()[idx]; }
 };
+
+template < typename _CharTp, typename Traits, typename Alloc >
+template < typename It, typename OtherIt >
+inline int basic_string< _CharTp, Traits, Alloc >::internal_search(It first, It last,
+                                                                   OtherIt otherFirst,
+                                                                   OtherIt otherLast) {
+  int matched = 0;
+  OtherIt search = otherFirst;
+  if (search == otherLast) {
+    return 0;
+  }
+  for (It it = first; it != last; ++it) {
+    if (Traits::eq(*it, *search)) {
+      ++search;
+      ++matched;
+      if (search == otherLast) {
+        return (it - first) - matched + 1;
+      }
+    } else {
+      search = otherFirst;
+      matched = 0;
+    }
+  }
+  return -1;
+}
+
+template < typename _CharTp, typename Traits, typename Alloc >
+int basic_string< _CharTp, Traits, Alloc >::find(_CharTp ch, int pos) const {
+  pos = get_real_pos_for_begin(pos);
+  const int found = internal_search(begin() + pos, end(), static_cast< const _CharTp* >(&ch),
+                                    static_cast< const _CharTp* >(&ch) + 1);
+  int result = found + pos;
+  if (found == -1) {
+    result = found;
+  }
+  return result;
+}
 
 template < typename _CharTp, typename Traits, typename Alloc >
 int basic_string< _CharTp, Traits, Alloc >::compare(const _CharTp* rhs, int count) const {
