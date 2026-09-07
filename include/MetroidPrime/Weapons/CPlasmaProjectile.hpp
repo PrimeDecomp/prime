@@ -48,8 +48,25 @@ public:
   CColor GetInnerColor() const { return x490_innerColor; }
   CColor GetOuterColor() const { return x494_outerColor; }
   bool IsFiring() const { return x548_26_firing; }
+  void SetPlayerSustainedDamage(float duration, const CDamageInfo& damage);
 
 private:
+  static const int kMaxPlasmaLights;
+  static const float kInvMaxPlasmaLights;
+
+  float UpdateBeamState(float dt, CStateManager& mgr);
+  void MakeBillboardEffect(const rstl::optional_object< TToken< CGenDescription > >& particle,
+                           const rstl::optional_object< TToken< CElectricDescription > >& electric,
+                           const rstl::string& name, CStateManager& mgr);
+  void UpdatePlayerEffects(float dt, CStateManager& mgr);
+  void RenderBeam(int subdivs, float width, const CColor& color, int flags) const;
+  void RenderMotionBlur() const;
+  void UpdateEnergyPulse(float dt);
+  void SetLightsActive(bool active, CStateManager& mgr);
+  void CreatePlasmaLights(uint sourceId, const CLight& light, CStateManager& mgr);
+  void DeletePlasmaLights(CStateManager& mgr);
+  void UpdateLights(float expansion, float dt, CStateManager& mgr);
+
   rstl::vector< TUniqueId > x468_lights;
   int x478_beamAttributes;
   float x47c_lifeTime;
@@ -93,5 +110,6 @@ private:
   bool x548_28_drawOwnerFirst : 1;
   bool x548_29_activePlayerPhazon : 1;
 };
+CHECK_SIZEOF(CPlasmaProjectile, 0x550)
 
 #endif // _CPLASMAPROJECTILE

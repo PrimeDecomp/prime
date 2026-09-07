@@ -897,7 +897,7 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/ScriptObjects/CScriptBallTrigger.cpp",
             ),
-            Object(NonMatching, "MetroidPrime/Weapons/CPlasmaProjectile.cpp"),
+            Object(Matching, "MetroidPrime/Weapons/CPlasmaProjectile.cpp"),
             Object(NonMatching, "MetroidPrime/Player/CPlayerOrbit.cpp"),
             Object(NonMatching, "MetroidPrime/CGameCollision.cpp"),
             Object(

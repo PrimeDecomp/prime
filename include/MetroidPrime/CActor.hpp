@@ -216,6 +216,7 @@ public:
   const CAABox& GetRenderBoundsCached() const { return x9c_renderBounds; }
   void SetRenderBounds(const CAABox& bounds) { x9c_renderBounds = bounds; }
   TUniqueId GetDrawParent() const { return xc6_nextDrawNode; }
+  void SetDrawParentId(TUniqueId id) { xc6_nextDrawNode = id; }
   uint GetDrawToken() const { return xc8_drawnToken; }
   uint GetAddedToken() const { return xcc_addedToken; }
   void SetDrawToken(uint token) const { const_cast< CActor* >(this)->xc8_drawnToken = token; }
