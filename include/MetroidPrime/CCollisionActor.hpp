@@ -22,13 +22,6 @@ public:
     kPT_Sphere,
   };
 
-  CCollisionActor(TUniqueId uid, TAreaId areaId, TUniqueId owner, const CVector3f& extent,
-                  const CVector3f& center, bool active, float mass);
-  CCollisionActor(TUniqueId uid, TAreaId areaId, TUniqueId owner, const CVector3f& boxSize,
-                  bool active, float mass);
-  CCollisionActor(TUniqueId uid, TAreaId areaId, TUniqueId owner, bool active, float radius,
-                  float mass);
-
   // CEntity
   ~CCollisionActor() override;
   void Accept(IVisitor& visitor) override;
@@ -48,16 +41,28 @@ public:
   void OnScanStateChange(EScanState, CStateManager&) override;
 
   // CPhysicsActor
+  const CCollisionPrimitive* GetCollisionPrimitive() const override;
   CTransform4f GetPrimitiveTransform() const override;
+
+  CCollisionActor(TUniqueId uid, TAreaId areaId, TUniqueId owner, const CVector3f& extent,
+                  const CVector3f& center, bool active, float mass);
+  CCollisionActor(TUniqueId uid, TAreaId areaId, TUniqueId owner, const CVector3f& boxSize,
+                  bool active, float mass);
+  CCollisionActor(TUniqueId uid, TAreaId areaId, TUniqueId owner, bool active, float radius,
+                  float mass);
 
   void SetDamageVulnerability(const CDamageVulnerability& vulnerability);
 
   void SetExtendedTouchBounds(const CVector3f& bounds) { x304_extendedTouchBounds = bounds; }
 
-  void SetWeaponCollisionResponseType(EWeaponCollisionResponseTypes type) { x300_responseType = type; }
+  void SetWeaponCollisionResponseType(EWeaponCollisionResponseTypes type) {
+    x300_responseType = type;
+  }
 
   TUniqueId GetLastTouchedObject() const;
+  const CVector3f& GetBoxSize() const;
   float GetSphereRadius() const;
+  void SetSphereRadius(float radius);
   TUniqueId GetOwnerId() const { return x25c_owner; }
 
 private:
@@ -76,5 +81,7 @@ private:
   EWeaponCollisionResponseTypes x300_responseType;
   CVector3f x304_extendedTouchBounds;
 };
+
+CHECK_SIZEOF(CCollisionActor, 0x310)
 
 #endif // _CCOLLISIONACTOR
