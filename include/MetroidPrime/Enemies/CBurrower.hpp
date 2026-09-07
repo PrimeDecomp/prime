@@ -22,7 +22,7 @@ public:
             const CActorParameters& actParms, const CAssetId& jumpParticle,
             const CAssetId& trailParticle, const CAssetId& projectile,
             const CDamageInfo& projectileDamage, const CAssetId& visorParticle, const uint visorSfx,
-            const CAssetId& deathExplosionParticle);
+            const CAssetId deathExplosionParticle);
 
   // CEntity
   ~CBurrower() override;
@@ -52,7 +52,7 @@ public:
 
   // CPatterned
   CPathFindSearch* GetSearchPath() override { return &x568_pathFindSearch; }
-  CProjectileInfo* ProjectileInfo() override { return &x64c_projectileInfo; }
+  CProjectileInfo* ProjectileInfo() override;
   const rstl::optional_object< TCachedToken< CGenDescription > >&
   GetDeathExplosionParticle() const override;
 
@@ -61,13 +61,13 @@ private:
   CProjectileInfo x64c_projectileInfo;
   rstl::single_ptr< CElementGen > x674_jumpParticle;
   rstl::single_ptr< CElementGen > x678_trailParticle;
-  rstl::optional_object< TCachedToken< CGenDescription > > x67c_visorParticle;
+  rstl::optional_object< TLockedToken< CGenDescription > > x67c_visorParticle;
   rstl::optional_object< TCachedToken< CGenDescription > > x68c_deathExplosionParticle;
   float x69c_attackTime;
   float x6a0_lurkTimer;
   float x6a4_invulnDamageTime;
   TUniqueId x6a8_lastDestObj;
-  short x6aa_visorSfx;
+  ushort x6aa_visorSfx;
   bool x6ac_24_doFacePlayer : 1;
   bool x6ac_25_inAir : 1;
 
