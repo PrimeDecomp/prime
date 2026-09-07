@@ -29,13 +29,17 @@ public:
 
     static void SetupGXMaterial();
 
-    const CVector3f& GetNormal() const { return x0_normal; }
-    const CVector3f& GetCenterPosition() const { return xc_centroid; }
+    CVector3f GetNormal() const { return x0_normal; }
+    CVector3f GetCenterPosition() const { return xc_centroid; }
   };
   enum EVisMode { kVM_Always, kVM_MapStationOrVisit, kVM_Visit, kVM_Never };
 
   CMapArea(CInputStream& in, uint size);
   ~CMapArea();
+
+  int GetNumSurfaces() const { return x30_surfaceCount; }
+  const CMapAreaSurface& GetSurface(int idx) const { return x40_surfaceStart[idx]; }
+  const CVector3f* GetVertices() const { return x3c_vertexStart; }
 
   void PostConstruct();
   bool GetIsVisibleToAutoMapper(bool worldVis, bool areaVis) const;

@@ -21,17 +21,21 @@ public:
   CGameState(CInputStream& in, int saveIdx);
 
   void ReadSystemOptions(CInputStream& in);
-  void PutTo(COutputStream& out) const;
+  void PutTo(COutputStream& out);
   void WriteSystemOptions(COutputStream& out);
 
   void SetCurrentWorldId(CAssetId);
+  void SetDeferPowerupInit(bool);
+  void SetTotalPlayTime(double);
 
-  rstl::rc_ptr< CPlayerState >& PlayerState();
+  rstl::ncrc_ptr< CPlayerState >& PlayerState();
+  rstl::rc_ptr< CPlayerState > GetPlayerState() const;
   CAssetId CurrentWorldAssetId() const;
   void WriteBackupBuf();
 
   CWorldState& StateForWorld(CAssetId mlvlId);
   CWorldState& CurrentWorldState();
+  const CWorldState& GetCurrentWorldState() const;
 
   void ImportPersistentOptions(const CSystemState&);
   void ExportPersistentOptions(CSystemState&);
@@ -47,8 +51,12 @@ public:
   void SetCardSerial(u64 serial) { x210_cardSerial = serial; }
   u64 GetCardSerial() const { return x210_cardSerial; }
   bool GetHardMode() const { return x228_24_hardMode; }
+  void SetHardMode(bool v);
+  bool GetInitPowerupsAtFirstSpawn() const { return x228_25_initPowerupsAtFirstSpawn; }
+  double GetTotalPlayTime() const { return xa0_playTime; }
+  float GetHardModeDamageMultiplier() const;
   float GetHardModeWeaponMultiplier() const;
-  rstl::rc_ptr< CWorldTransManager >& WorldTransitionManager(); // { return x9c_transManager.GetPtr(); }
+  rstl::ncrc_ptr< CWorldTransManager >& WorldTransitionManager();
 
   struct GameFileStateInfo {
     double x0_playTime;
@@ -63,11 +71,14 @@ public:
   static GameFileStateInfo LoadGameFileState(const void* data);
 
 private:
-  rstl::reserved_vector< bool, 128 > x0_;
+  void InitializeMemoryStates();
+  void InitializeMemoryWorlds();
+
+  rstl::reserved_vector< uchar, 128 > x0_;
   CAssetId x84_mlvlId;
   rstl::vector< CWorldState > x88_worldStates;
-  rstl::rc_ptr< CPlayerState > x98_playerState;
-  rstl::rc_ptr< CWorldTransManager > x9c_transManager;
+  rstl::ncrc_ptr< CPlayerState > x98_playerState;
+  rstl::ncrc_ptr< CWorldTransManager > x9c_transManager;
   double xa0_playTime;
   CSystemState xa8_systemState;
   CGameOptions x17c_gameOptions;
@@ -78,6 +89,7 @@ private:
   bool x228_24_hardMode : 1;
   bool x228_25_initPowerupsAtFirstSpawn : 1;
 };
+CHECK_SIZEOF(CGameState, 0x230)
 
 extern CGameState* gpGameState;
 

@@ -18,12 +18,6 @@ class IMetaAnim;
 
 class CAnimationDatabase {
 public:
-  CAnimationDatabase()
-  : x4_(false ? rstl::optional_object< CToken >() : rstl::optional_object_null()) {}
-
-  virtual ~CAnimationDatabase();
-  virtual const rstl::rc_ptr< CAnimTreeNode >
-  GetAnimationTree(const CAnimSysContext& ctx, const CMetaAnimTreeBuildOrders& orders) const = 0;
   virtual const rstl::rc_ptr< IMetaAnim >& GetMetaAnim(uint idx) const = 0;
   virtual uint GetNumMetaAnims() const = 0;
   virtual rstl::string GetMetaAnimName(uint idx) const = 0;
@@ -31,8 +25,15 @@ public:
   virtual void GetUniquePrimitivesFromMetaAnim(rstl::set< CPrimitive >& primsOut,
                                                const rstl::string& name) const = 0;
 
+  explicit CAnimationDatabase(
+      const rstl::optional_object< TToken< CAnimationDatabase > >& token = rstl::optional_object_null())
+  : x4_(token) {}
+  ~CAnimationDatabase() {}
+
 private:
-  rstl::optional_object< CToken > x4_;
+  rstl::optional_object< TToken< CAnimationDatabase > > x4_;
 };
+
+CHECK_SIZEOF(CAnimationDatabase, 0x10)
 
 #endif // _CANIMATIONDATABASE

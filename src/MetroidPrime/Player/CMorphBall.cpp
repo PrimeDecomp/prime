@@ -54,130 +54,131 @@
 
 float kSpiderBallCollisionRadius;
 
-struct SMorphBallModelInfo {
-  const char* x0_name;
-  uint x4_shader;
+const SMorphBallModelInfo CMorphBall::skBallCharacter[8] = {
+    {"SamusBallANCS", 0},       {"SamusBallANCS", 0},       {"SamusBallANCS", 1},
+    {"SamusBallANCS", 0},       {"SamusFusionBallANCS", 0}, {"SamusFusionBallANCS", 2},
+    {"SamusFusionBallANCS", 1}, {"SamusFusionBallANCS", 3},
 };
 
-struct SMorphBallModelTables {
-  SMorphBallModelInfo x0_ballCharacter[8];
-  SMorphBallModelInfo x40_ballLowPoly[8];
-  SMorphBallModelInfo x80_spiderBallLowPoly[8];
-  SMorphBallModelInfo xc0_spiderBallCharacter[8];
-  SMorphBallModelInfo x100_spiderBallGlass[8];
-  SMorphBallModelInfo x140_frozenBall[8];
-  uint x180_spiderBallGlowColorIdx[8];
-  uint x1a0_ballGlowColorIdx[8];
+const SMorphBallModelInfo CMorphBall::skBallLowPoly[8] = {
+    {"SamusBallLowPolyCMDL", 0},       {"SamusBallLowPolyCMDL", 0},
+    {"SamusBallLowPolyCMDL", 1},       {"SamusBallLowPolyCMDL", 0},
+    {"SamusBallFusionLowPolyCMDL", 0}, {"SamusBallFusionLowPolyCMDL", 2},
+    {"SamusBallFusionLowPolyCMDL", 1}, {"SamusBallFusionLowPolyCMDL", 3},
 };
 
-static const SMorphBallModelTables skMorphBallModelTables = {
-    {
-        {"SamusBallANCS", 0},
-        {"SamusBallANCS", 0},
-        {"SamusBallANCS", 1},
-        {"SamusBallANCS", 0},
-        {"SamusFusionBallANCS", 0},
-        {"SamusFusionBallANCS", 2},
-        {"SamusFusionBallANCS", 1},
-        {"SamusFusionBallANCS", 3},
-    },
-    {
-        {"SamusBallLowPolyCMDL", 0},
-        {"SamusBallLowPolyCMDL", 0},
-        {"SamusBallLowPolyCMDL", 1},
-        {"SamusBallLowPolyCMDL", 0},
-        {"SamusBallFusionLowPolyCMDL", 0},
-        {"SamusBallFusionLowPolyCMDL", 2},
-        {"SamusBallFusionLowPolyCMDL", 1},
-        {"SamusBallFusionLowPolyCMDL", 3},
-    },
-    {
-        {"SamusSpiderBallLowPolyCMDL", 0},
-        {"SamusSpiderBallLowPolyCMDL", 0},
-        {"SamusSpiderBallLowPolyCMDL", 1},
-        {"SamusSpiderBallLowPolyCMDL", 2},
-        {"SamusBallFusionLowPolyCMDL", 0},
-        {"SamusBallFusionLowPolyCMDL", 2},
-        {"SamusBallFusionLowPolyCMDL", 1},
-        {"SamusBallFusionLowPolyCMDL", 3},
-    },
-    {
-        {"SamusSpiderBallANCS", 0},
-        {"SamusSpiderBallANCS", 0},
-        {"SamusSpiderBallANCS", 1},
-        {"SamusPhazonBallANCS", 0},
-        {"SamusFusionBallANCS", 0},
-        {"SamusFusionBallANCS", 2},
-        {"SamusFusionBallANCS", 1},
-        {"SamusFusionBallANCS", 3},
-    },
-    {
-        {"SamusSpiderBallGlassCMDL", 0},
-        {"SamusSpiderBallGlassCMDL", 0},
-        {"SamusSpiderBallGlassCMDL", 1},
-        {"SamusPhazonBallGlassCMDL", 0},
-        {"SamusSpiderBallGlassCMDL", 0},
-        {"SamusSpiderBallGlassCMDL", 0},
-        {"SamusSpiderBallGlassCMDL", 1},
-        {"SamusPhazonBallGlassCMDL", 0},
-    },
-    {
-        // TODO hack: where is the \0 coming from?
-        {"SamusBallFrozenCMDL\0", 0},
-        {"SamusBallFrozenCMDL\0", 0},
-        {"SamusBallFrozenCMDL\0", 0},
-        {"SamusBallFrozenCMDL\0", 0},
-        {"SamusBallFrozenCMDL\0", 0},
-        {"SamusBallFrozenCMDL\0", 0},
-        {"SamusBallFrozenCMDL\0", 0},
-        {"SamusBallFrozenCMDL\0", 0},
-    },
-    {3, 3, 2, 4, 5, 7, 6, 8},
-    {0, 0, 1, 0, 5, 7, 6, 8},
+const SMorphBallModelInfo CMorphBall::skSpiderBallLowPoly[8] = {
+    {"SamusSpiderBallLowPolyCMDL", 0}, {"SamusSpiderBallLowPolyCMDL", 0},
+    {"SamusSpiderBallLowPolyCMDL", 1}, {"SamusSpiderBallLowPolyCMDL", 2},
+    {"SamusBallFusionLowPolyCMDL", 0}, {"SamusBallFusionLowPolyCMDL", 2},
+    {"SamusBallFusionLowPolyCMDL", 1}, {"SamusBallFusionLowPolyCMDL", 3},
 };
 
-static const char* const skSamusBall = skMorphBallModelTables.x0_ballCharacter[0].x0_name;
-static const char* const skSamusBallLowPoly = skMorphBallModelTables.x40_ballLowPoly[0].x0_name;
-static const char* const skSamusSpiderBallGlass =
-    skMorphBallModelTables.x100_spiderBallGlass[0].x0_name;
-static const char* const skSamusBallFrozen = skMorphBallModelTables.x140_frozenBall[0].x0_name;
-
-namespace {
-const uchar lbl_803CEAD0[0x1c] = {
-    0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xd5,
-    0x19, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0x00,
+const SMorphBallModelInfo CMorphBall::skSpiderBallCharacter[8] = {
+    {"SamusSpiderBallANCS", 0}, {"SamusSpiderBallANCS", 0}, {"SamusSpiderBallANCS", 1},
+    {"SamusPhazonBallANCS", 0}, {"SamusFusionBallANCS", 0}, {"SamusFusionBallANCS", 2},
+    {"SamusFusionBallANCS", 1}, {"SamusFusionBallANCS", 3},
 };
 
-const uchar lbl_803CEAEC[0x1c] = {
-    0xc2, 0x7e, 0x10, 0x66, 0xc4, 0xff, 0x60, 0xff, 0x90, 0x33, 0x33, 0xff, 0xff, 0x20,
-    0x20, 0x00, 0x9d, 0xb6, 0xd3, 0xf1, 0x00, 0xa6, 0x86, 0xd8, 0xfb, 0x98, 0x21, 0x00,
+const SMorphBallModelInfo CMorphBall::skSpiderBallGlass[8] = {
+    {"SamusSpiderBallGlassCMDL", 0}, {"SamusSpiderBallGlassCMDL", 0},
+    {"SamusSpiderBallGlassCMDL", 1}, {"SamusPhazonBallGlassCMDL", 0},
+    {"SamusSpiderBallGlassCMDL", 0}, {"SamusSpiderBallGlassCMDL", 0},
+    {"SamusSpiderBallGlassCMDL", 1}, {"SamusPhazonBallGlassCMDL", 0},
 };
 
-const uchar lbl_803CEB08[0x1c] = {
-    0xc2, 0x7e, 0x10, 0x66, 0xc4, 0xff, 0x6c, 0xff, 0x61, 0x33, 0x33, 0xff, 0xff, 0x20,
-    0x20, 0x00, 0x9d, 0xb6, 0xd3, 0xf1, 0x00, 0xa6, 0x86, 0xd8, 0xfb, 0x98, 0x21, 0x00,
+const SMorphBallModelInfo CMorphBall::skFrozenBall[8] = {
+    // TODO hack: where is the \0 coming from?
+    {"SamusBallFrozenCMDL\0", 0}, {"SamusBallFrozenCMDL\0", 0}, {"SamusBallFrozenCMDL\0", 0},
+    {"SamusBallFrozenCMDL\0", 0}, {"SamusBallFrozenCMDL\0", 0}, {"SamusBallFrozenCMDL\0", 0},
+    {"SamusBallFrozenCMDL\0", 0}, {"SamusBallFrozenCMDL\0", 0},
 };
 
-const uchar lbl_803CEB24[0x1c] = {
+const uint CMorphBall::skSpiderBallGlowColorIdx[8] = {3, 3, 2, 4, 5, 7, 6, 8};
+
+const uint CMorphBall::skBallGlowColorIdx[8] = {0, 0, 1, 0, 5, 7, 6, 8};
+
+static const char* const skSamusBall = CMorphBall::skBallCharacter[0].x0_name;
+static const char* const skSamusBallLowPoly = CMorphBall::skBallLowPoly[0].x0_name;
+static const char* const skSamusSpiderBallGlass = CMorphBall::skSpiderBallGlass[0].x0_name;
+static const char* const skSamusBallFrozen = CMorphBall::skFrozenBall[0].x0_name;
+
+/** Morph Ball glow color palette, indexed by x8_ballGlowColorIdx */
+const CMorphBall::SColorRgb CMorphBall::skBallInnerGlowColors[9] = {
+    {255, 255, 255}, // White
+    {255, 255, 255}, // White
+    {255, 255, 255}, // White
+    {255, 255, 255}, // White
+    {255, 213, 25},  // Gold
+    {255, 255, 255}, // White
+    {255, 255, 255}, // White
+    {255, 255, 255}, // White
+    {255, 255, 255}, // White
+};
+
+const CMorphBall::SColorRgb CMorphBall::skBallHullGlowColors[9] = {
+    {194, 126, 16},  // Ochre
+    {102, 196, 255}, // Sky blue
+    {96, 255, 144},  // Mint green
+    {51, 51, 255},   // Blue
+    {255, 32, 32},   // Red
+    {0, 157, 182},   // Teal
+    {211, 241, 0},   // Lime
+    {166, 134, 216}, // Lavender
+    {251, 152, 33},  // Orange
+};
+
+const CMorphBall::SColorRgb CMorphBall::skBallBoostedHullGlowColors[9] = {
+    {194, 126, 16},  // Ochre
+    {102, 196, 255}, // Sky blue
+    {108, 255, 97},  // Bright green
+    {51, 51, 255},   // Blue
+    {255, 32, 32},   // Red
+    {0, 157, 182},   // Teal
+    {211, 241, 0},   // Lime
+    {166, 134, 216}, // Lavender
+    {251, 152, 33},  // Orange
+};
+
+inline CColor CMorphBall::GetBallInnerGlowColor(uint idx) {
+  const SColorRgb& color = skBallInnerGlowColors[idx];
+  return CColor(color.x0_r, color.x1_g, color.x2_b, 0xff);
+}
+
+inline CColor CMorphBall::GetBallHullGlowColor(uint idx) {
+  const SColorRgb& color = skBallHullGlowColors[idx];
+  return CColor(color.x0_r, color.x1_g, color.x2_b, 0xff);
+}
+
+inline CColor CMorphBall::GetBallBoostedHullGlowColor(uint idx) {
+  const SColorRgb& color = skBallBoostedHullGlowColors[idx];
+  return CColor(color.x0_r, color.x1_g, color.x2_b, 0xff);
+}
+
+inline CColor CMorphBall::GetAmbientColor(const CActorLights& lights) {
+  const CVector3f& ambient = lights.GetAmbientColor();
+  return CColor(ambient.GetX(), ambient.GetY(), ambient.GetZ(), 1.f);
+}
+
+const uchar CMorphBall::lbl_803CEB24[0x1c] = {
     0xc2, 0x8f, 0x17, 0x70, 0xd4, 0xff, 0x6a, 0xff, 0x8a, 0x3d, 0x4d, 0xff, 0xc0, 0x00,
     0x00, 0x00, 0xbe, 0xdc, 0xdf, 0xff, 0x00, 0xc4, 0x9e, 0xff, 0xff, 0x9a, 0x22, 0x00,
 };
 
-const uchar lbl_803CEB40[0x1c] = {
+const uchar CMorphBall::lbl_803CEB40[0x1c] = {
     0xff, 0xe6, 0x00, 0xff, 0xe6, 0x00, 0xff, 0xe6, 0x00, 0xff, 0xe6, 0x00, 0xff, 0x80,
     0x20, 0xff, 0xe6, 0x00, 0xff, 0xe6, 0x00, 0xff, 0xe6, 0x00, 0xff, 0xe6, 0x00, 0x00,
 };
 
-const uchar lbl_803CEB5C[0x1c] = {
+const uchar CMorphBall::lbl_803CEB5C[0x1c] = {
     0xff, 0xcc, 0x00, 0xff, 0xcc, 0x00, 0xff, 0xcc, 0x00, 0xff, 0xcc, 0x00, 0xff, 0xd5,
     0x19, 0xff, 0xcc, 0x00, 0xff, 0xcc, 0x00, 0xff, 0xcc, 0x00, 0xff, 0xcc, 0x00, 0x00,
 };
 
-const uchar lbl_803CEB78[0x1c] = {
+const uchar CMorphBall::lbl_803CEB78[0x1c] = {
     0xc2, 0x7e, 0x10, 0x66, 0xc4, 0xff, 0x60, 0xff, 0x90, 0x33, 0x33, 0xff, 0xff, 0x80,
     0x80, 0x00, 0x9d, 0xb6, 0xd3, 0xf1, 0x00, 0x60, 0x33, 0xff, 0xfb, 0x98, 0x21, 0x00,
 };
-} // namespace
 
 static rstl::reserved_vector< int, 32 > skWakeEffectMap;
 
@@ -1534,7 +1535,6 @@ void CMorphBall::ComputeBoostBallMovement(const CFinalInput& input, const CState
       }
     } else {
       CVector3f translation;
-
       if (x1e20_ballAnimIdx == 1) {
         CAnimPlaybackParms parms(0, -1, 1.f, true);
         x58_ballModel->AnimationData()->SetAnimation(parms, false);
@@ -1841,15 +1841,13 @@ void CMorphBall::PreRender(CStateManager& mgr, const CFrustumPlanes&) {
   }
 
   {
-    CColor ambientColor(lights->GetAmbientColor().GetX(), lights->GetAmbientColor().GetY(),
-                        lights->GetAmbientColor().GetZ(), 1.f);
-    lights->SetAmbientColor(CColor::Lerp(ambientColor, CColor::White(), x1c34_boostLightFactor));
+    lights->SetAmbientColor(
+        CColor::Lerp(GetAmbientColor(*lights), CColor::White(), x1c34_boostLightFactor));
     *x1c18_actorLights = *lights;
 
     const float& lightFactor = rstl::max_val(x1c38_spiderLightFactor, x1c34_boostLightFactor);
-    CColor spiderAmbient(lights->GetAmbientColor().GetX(), lights->GetAmbientColor().GetY(),
-                         lights->GetAmbientColor().GetZ(), 1.f);
-    x1c18_actorLights->SetAmbientColor(CColor::Lerp(spiderAmbient, CColor::White(), lightFactor));
+    x1c18_actorLights->SetAmbientColor(
+        CColor::Lerp(GetAmbientColor(*lights), CColor::White(), lightFactor));
   }
 
   if (x58_ballModel->AnimationData() != nullptr) {
@@ -1984,23 +1982,13 @@ void CMorphBall::Render(const CStateManager& mgr, const CActorLights* lights) co
     x1bc8_wakeEffectGens[x1c0c_wakeEffectIdx]->Render();
   }
 
-  const uchar* glowColorData = lbl_803CEAD0 + 3 * x8_ballGlowColorIdx;
-  const uchar glowBlue = glowColorData[2];
-  const uchar glowGreen = glowColorData[1];
-  x19d0_ballInnerGlowGen->SetModulationColor(CColor(glowColorData[0], glowGreen, glowBlue, 0xff));
+  x19d0_ballInnerGlowGen->SetModulationColor(GetBallInnerGlowColor(x8_ballGlowColorIdx));
   if (x19d0_ballInnerGlowGen->GetNumActiveChildParticles() > 0) {
     CParticleGen* particle = x19d0_ballInnerGlowGen->GetActiveChildParticle(0);
-    const uchar* transFlashColorData = lbl_803CEAEC + 3 * x8_ballGlowColorIdx;
-    const uchar transFlashBlue = transFlashColorData[2];
-    const uchar transFlashGreen = transFlashColorData[1];
-    particle->SetModulationColor(
-        CColor(transFlashColorData[0], transFlashGreen, transFlashBlue, 0xff));
+    particle->SetModulationColor(GetBallHullGlowColor(x8_ballGlowColorIdx));
     if (x19d0_ballInnerGlowGen->GetNumActiveChildParticles() > 1) {
       particle = x19d0_ballInnerGlowGen->GetActiveChildParticle(1);
-      const uchar* auxGlowColorData = lbl_803CEB08 + 3 * x8_ballGlowColorIdx;
-      const uchar auxGlowBlue = auxGlowColorData[2];
-      const uchar auxGlowGreen = auxGlowColorData[1];
-      particle->SetModulationColor(CColor(auxGlowColorData[0], auxGlowGreen, auxGlowBlue, 0xff));
+      particle->SetModulationColor(GetBallBoostedHullGlowColor(x8_ballGlowColorIdx));
     }
   }
 
@@ -2049,9 +2037,8 @@ void CMorphBall::UpdateMorphBallTransitionFlash(float dt) {
 
 void CMorphBall::RenderMorphBallTransitionFlash(const CStateManager&) const {
   if (x19dc_morphBallTransitionFlashGen.get() != nullptr) {
-    const uchar* color = lbl_803CEAEC + 3 * x8_ballGlowColorIdx;
-    const CColor modColor(color[0], color[1], color[2], 0xff);
-    x19dc_morphBallTransitionFlashGen->SetModulationColor(modColor);
+    x19dc_morphBallTransitionFlashGen->SetModulationColor(
+        GetBallHullGlowColor(x8_ballGlowColorIdx));
     x19dc_morphBallTransitionFlashGen->Render();
   }
 }
@@ -2554,7 +2541,6 @@ void CMorphBall::FluidFXThink(CActor::EFluidState state, CScriptWater& water, CS
 }
 
 void CMorphBall::LoadMorphBallModel(CStateManager& mgr) {
-  const SMorphBallModelTables& tables = skMorphBallModelTables;
   int modelIdx;
   int loadModelId;
   CPlayerState* playerState;
@@ -2578,34 +2564,29 @@ void CMorphBall::LoadMorphBallModel(CStateManager& mgr) {
   if (x4_loadedModelId != loadModelId) {
     x4_loadedModelId = loadModelId;
     if (spiderBall) {
-      const SMorphBallModelInfo* character = tables.xc0_spiderBallCharacter;
-      const SMorphBallModelInfo* lowPoly = tables.x80_spiderBallLowPoly;
-      const SMorphBallModelInfo* glass = tables.x100_spiderBallGlass;
-
-      x58_ballModel = GetMorphBallModel(rstl::string_l(character[modelIdx].x0_name), xc_radius);
-      x5c_ballModelShader = character[modelIdx].x4_shader;
+      x58_ballModel =
+          GetMorphBallModel(rstl::string_l(skSpiderBallCharacter[modelIdx].x0_name), xc_radius);
+      x5c_ballModelShader = skSpiderBallCharacter[modelIdx].x4_shader;
       x68_lowPolyBallModel =
-          GetMorphBallModel(rstl::string_l(lowPoly[modelIdx].x0_name), xc_radius);
-      x6c_lowPolyBallModelShader = lowPoly[modelIdx].x4_shader;
-      if (glass[modelIdx].x0_name != nullptr) {
+          GetMorphBallModel(rstl::string_l(skSpiderBallLowPoly[modelIdx].x0_name), xc_radius);
+      x6c_lowPolyBallModelShader = skSpiderBallLowPoly[modelIdx].x4_shader;
+      if (skSpiderBallGlass[modelIdx].x0_name != nullptr) {
         x60_spiderBallGlassModel =
-            GetMorphBallModel(rstl::string_l(glass[modelIdx].x0_name), xc_radius);
-        x64_spiderBallGlassModelShader = glass[modelIdx].x4_shader;
+            GetMorphBallModel(rstl::string_l(skSpiderBallGlass[modelIdx].x0_name), xc_radius);
+        x64_spiderBallGlassModelShader = skSpiderBallGlass[modelIdx].x4_shader;
       } else {
         x60_spiderBallGlassModel = nullptr;
         x64_spiderBallGlassModelShader = 0;
       }
-      x8_ballGlowColorIdx = tables.x180_spiderBallGlowColorIdx[modelIdx];
+      x8_ballGlowColorIdx = skSpiderBallGlowColorIdx[modelIdx];
     } else {
-      const SMorphBallModelInfo* character = tables.x0_ballCharacter;
-      const SMorphBallModelInfo* lowPoly = tables.x40_ballLowPoly;
-
-      x58_ballModel = GetMorphBallModel(rstl::string_l(character[modelIdx].x0_name), xc_radius);
-      x5c_ballModelShader = character[modelIdx].x4_shader;
+      x58_ballModel =
+          GetMorphBallModel(rstl::string_l(skBallCharacter[modelIdx].x0_name), xc_radius);
+      x5c_ballModelShader = skBallCharacter[modelIdx].x4_shader;
       x68_lowPolyBallModel =
-          GetMorphBallModel(rstl::string_l(lowPoly[modelIdx].x0_name), xc_radius);
-      x6c_lowPolyBallModelShader = lowPoly[modelIdx].x4_shader;
-      x8_ballGlowColorIdx = tables.x1a0_ballGlowColorIdx[modelIdx];
+          GetMorphBallModel(rstl::string_l(skBallLowPoly[modelIdx].x0_name), xc_radius);
+      x6c_lowPolyBallModelShader = skBallLowPoly[modelIdx].x4_shader;
+      x8_ballGlowColorIdx = skBallGlowColorIdx[modelIdx];
     }
 
     const float scale = 2.f * gpTweakPlayer->GetPlayerBallHalfExtent();
@@ -2616,8 +2597,8 @@ void CMorphBall::LoadMorphBallModel(CStateManager& mgr) {
 CModelData* CMorphBall::GetMorphBallModel(const rstl::string& name, float radius) {
   const SObjectTag* tag = gpResourceFactory->GetResourceIdByName(name.data());
 
-  // what is going on here?
-  const CAssetId& id = tag->GetId();
+  // Keep a copy of the resolved resource ID while allocating the model.
+  const CAssetId& id = CAssetId(tag->GetId());
   const FourCC& type = tag->GetType();
   const FourCC* const typePtr = &type;
 

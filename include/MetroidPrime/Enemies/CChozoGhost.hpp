@@ -14,16 +14,16 @@
 
 class CGenDescription;
 
-enum EBehaveType {
-  kBT_Lurk,
-  kBT_Taunt,
-  kBT_Attack,
-  kBT_Move,
-  kBT_None,
-};
-
 class CChozoGhost : public CPatterned {
 public:
+  enum EBehaveType {
+    kBT_Lurk,
+    kBT_Taunt,
+    kBT_Attack,
+    kBT_Move,
+    kBT_None,
+  };
+
   class CBehaveChance {
   public:
     explicit CBehaveChance(CInputStream& in);
@@ -38,7 +38,7 @@ public:
     uint GetNumBolts() const { return x1c_numBolts; }
 
   private:
-    uint x0_propertyCount;
+    int x0_propertyCount;
     float x4_lurk;
     float x8_taunt;
     float xc_attack;
@@ -59,7 +59,6 @@ public:
               float f3, float f4, uint nearChance, uint midChance);
 
   // CEntity
-  ~CChozoGhost() override;
   void Accept(IVisitor& visitor) override;
   void Think(float dt, CStateManager& mgr) override;
   void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) override;
@@ -81,8 +80,8 @@ public:
                       const CVector3f& aimPos) const override;
 
   // CPatterned
-  void KnockBack(const CVector3f&, CStateManager&, const CDamageInfo& info, EKnockBackType type,
-                 bool inDeferred, float magnitude) override;
+  void KnockBack(const CVector3f&, CStateManager&, const CDamageInfo& info, float magnitude,
+                 bool direct, const bool inDeferred) override;
   bool CanBeShot(const CStateManager& mgr, int w1) override;
   uchar GetModelAlphau8(const CStateManager& mgr) const override;
   bool IsOnGround() const override;
@@ -119,9 +118,9 @@ private:
   void AddToTeam(CStateManager& mgr);
   void RemoveFromTeam(CStateManager& mgr);
   void FloatToLevel(float f1, float dt);
-  const CBehaveChance& ChooseBehaveChanceRange(CStateManager& mgr);
-  bool IsVisibleEnough(const CStateManager& mgr) const { return GetModelAlphau8(mgr) > 31; }
-  void FindSpaceWarpPosition(CStateManager& mgr, const CVector3f& dir);
+  const CBehaveChance& ChooseBehaveChanceRange(CStateManager& mgr) const;
+  bool IsVisibleEnough(const CStateManager& mgr) const; // { return GetModelAlphau8(mgr) > 31; }
+  void SetWarpPosition(CStateManager& mgr, const CVector3f& dir);
   void FindBestAnchor(CStateManager& mgr);
 
   float x568_hearingRadius;
@@ -139,13 +138,13 @@ private:
   ushort x632_sfxFadeOut;
   float x634_;
   float x638_hurlRecoverTime;
-  uint x63c_;
+  int x63c_;
   rstl::optional_object< TLockedToken< CGenDescription > > x640_projectileVisor;
   ushort x650_soundProjectileVisor;
   float x654_;
   float x658_;
-  uint x65c_nearChance;
-  uint x660_midChance;
+  int x65c_nearChance;
+  int x660_midChance;
   bool x664_24_behaviorEnabled : 1;
   bool x664_25_flinch : 1;
   bool x664_26_alert : 1;
@@ -165,7 +164,7 @@ private:
   float x670_;
   TUniqueId x674_coverPoint;
   float x678_floorLevel;
-  uint x67c_attackType;
+  int x67c_attackType;
   EBehaveType x680_behaveType;
   float x684_lurkDelay;
   CSteeringBehaviors x688_steeringBehaviors;
@@ -173,7 +172,9 @@ private:
   TUniqueId x6c4_teamMgr;
   float x6c8_spaceWarpTime;
   CVector3f x6cc_spaceWarpPosition;
-  uint x6d8_;
+  int x6d8_;
+
+  static const rstl::string skSpeedSwooshName;
 };
 CHECK_SIZEOF(CChozoGhost, 0x6E0)
 

@@ -57,11 +57,11 @@ static EMaterialTypes skCharacterMat = kMT_Character;
 
 class CMetroid;
 
-CPatterned::CPatterned(const ECharacter character, const TUniqueId uid, const rstl::string& name,
+CPatterned::CPatterned(const EPatternedAI character, const TUniqueId uid, const rstl::string& name,
                        const EFlavorType flavor, const CEntityInfo& info, const CTransform4f& xf,
                        const CModelData& mData, const CPatternedInfo& pinfo, EMovementType movement,
                        const EColliderType collider, const EBodyType body,
-                       const CActorParameters& params, const EKnockBackVariant kbVariant)
+                       const CActorParameters& params, const ECreatureSize kbVariant)
 : CAi(uid, pinfo.xf8_active, name, info, xf, mData,
       CAABox(-pinfo.xc4_halfExtent + pinfo.xcc_bodyOrigin.GetX(),
              -pinfo.xc4_halfExtent + pinfo.xcc_bodyOrigin.GetY(), pinfo.xcc_bodyOrigin.GetZ(),
@@ -290,15 +290,15 @@ void CPatterned::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CState
         if (x460_knockBackController.x81_26_enableShock &&
             proj->GetCurrentDamageInfo().GetWeaponMode().IsComboed() && HealthInfo(mgr) != 0) {
           x401_31_nextPendingShock = true;
-          KnockBack(GetTransform().GetForward(), mgr, proj->GetCurrentDamageInfo(), kKBT_Direct,
-                    false, proj->GetCurrentDamageInfo().GetKnockBackPower());
+          KnockBack(GetTransform().GetForward(), mgr, proj->GetCurrentDamageInfo(),
+                    proj->GetCurrentDamageInfo().GetKnockBackPower(), true, false);
           x460_knockBackController.DeferKnockBack(kWT_Wave);
         }
       } else if (proj->GetCurrentDamageInfo().GetWeaponMode().GetType() == kWT_Plasma) {
         if (x460_knockBackController.x81_27_enableBurn &&
             proj->GetCurrentDamageInfo().GetWeaponMode().IsComboed() && HealthInfo(mgr) != 0) {
-          KnockBack(GetTransform().GetForward(), mgr, proj->GetCurrentDamageInfo(), kKBT_Direct,
-                    false, proj->GetCurrentDamageInfo().GetKnockBackPower());
+          KnockBack(GetTransform().GetForward(), mgr, proj->GetCurrentDamageInfo(),
+                    proj->GetCurrentDamageInfo().GetKnockBackPower(), true, false);
           x460_knockBackController.DeferKnockBack(kWT_Plasma);
         }
       }
@@ -628,10 +628,10 @@ void CPatterned::MassiveFrozenDeath(CStateManager& mgr) {
 }
 
 void CPatterned::KnockBack(const CVector3f& backVec, CStateManager& mgr, const CDamageInfo& info,
-                           EKnockBackType type, bool, float magnitude) {
+                           float magnitude, bool direct, bool) {
   CHealthInfo* health = HealthInfo(mgr);
   if (!x401_27_phazingOut && !x401_28_burning && health != nullptr) {
-    x460_knockBackController.KnockBack(backVec, mgr, *this, info, type, magnitude);
+    x460_knockBackController.KnockBack(backVec, mgr, *this, info, magnitude, direct);
 
     if (x450_bodyController->IsFrozen() &&
         x460_knockBackController.GetActiveParms().xc_intoFreezeDur >= 0.f) {
@@ -666,11 +666,11 @@ void CPatterned::KnockBack(const CVector3f& backVec, CStateManager& mgr, const C
       x402_29_drawParticles = false;
       x450_bodyController->DouseFlames();
       CActorModelParticles* particles = mgr.ActorModelParticles();
-      particles->StopThermalHotParticles(*this);
+      particles->StopFire(*this);
       particles->StartBurnDeath(*this);
       if (!x401_29_laggedBurnDeath) {
-        particles->EnsureFirePopLoaded(*this);
-        particles->EnsureIceBreakLoaded(*this);
+        particles->DoFirePop(*this);
+        particles->StartAsh(*this);
       }
       break;
     }
@@ -736,37 +736,9 @@ void CPatterned::UpdateDamageColor(float dt) {
   }
 }
 
-int CPatterned::CompareStateString(const char* lhs, const char* rhs, int count) {
-  int rhsCharCount = 0;
-  const char* rhsEnd = rhs;
-  while ((count == -1 || rhsCharCount < count) && *rhsEnd != '\0') {
-    ++rhsEnd;
-    ++rhsCharCount;
-  }
-
-  const rstl::string* lhsString = reinterpret_cast< const rstl::string* >(lhs);
-  int lhsIndex = 0;
-  while (lhsIndex != static_cast< int >(lhsString->size()) && rhs != rhsEnd) {
-    const int diff = static_cast< int >(static_cast< signed char >(lhsString->data()[lhsIndex])) -
-                     static_cast< int >(static_cast< signed char >(*rhs));
-    if (diff != 0) {
-      return diff;
-    }
-    ++lhsIndex;
-    ++rhs;
-  }
-
-  if (lhsIndex == static_cast< int >(lhsString->size()) && rhs != rhsEnd) {
-    return -1;
-  } else if (lhsIndex == static_cast< int >(lhsString->size())) {
-    return 0;
-  } else {
-    return 1;
-  }
-}
-
-bool CPatterned::AreStateStringsEqual(const char* lhs, const char* rhs) {
-  return CompareStateString(rhs, lhs, -1) == 0;
+// TODO: Move to rstl/string.hpp once header inlining preserves the helper and Think codegen.
+bool rstl::operator==(const char* lhs, const rstl::string& rhs) {
+  return rhs.compare(lhs, -1) == 0;
 }
 
 void CPatterned::Think(float dt, CStateManager& mgr) {
@@ -809,8 +781,7 @@ void CPatterned::Think(float dt, CStateManager& mgr) {
         bool isDead;
         {
           const rstl::string& dead = rstl::string_l("Dead");
-          isDead = AreStateStringsEqual(x330_stateMachineState.GetName(),
-                                        reinterpret_cast< const char* >(&dead));
+          isDead = x330_stateMachineState.GetName() == dead;
         }
         if (isDead && x330_stateMachineState.GetTime() > 15.f) {
           MassiveDeath(mgr);
@@ -846,7 +817,7 @@ void CPatterned::Think(float dt, CStateManager& mgr) {
     x401_31_nextPendingShock = false;
 
     if (x450_bodyController->IsElectrocuting()) {
-      mgr.ActorModelParticles()->LoadAndStartElectric(*this);
+      mgr.ActorModelParticles()->StartElectric(*this);
 
       if (x3f0_pendingShockDamage > 0.f && x400_25_alive) {
         const CDamageInfo shockDmg =
@@ -880,7 +851,7 @@ void CPatterned::Think(float dt, CStateManager& mgr) {
     }
 
     if (x450_bodyController->IsFrozen()) {
-      mgr.ActorModelParticles()->StopThermalHotParticles(*this);
+      mgr.ActorModelParticles()->StopFire(*this);
     }
   }
 
@@ -1188,7 +1159,7 @@ void CPatterned::Freeze(CStateManager& mgr, const CVector3f& pos, CUnitVector3f 
   if (x450_bodyController->IsFrozen()) {
     x450_bodyController->Freeze(x460_knockBackController.GetActiveParms().xc_intoFreezeDur,
                                 frozenDur, x4f8_outofFreezeDur);
-    mgr.ActorModelParticles()->EnsureElectricLoaded(*this);
+    mgr.ActorModelParticles()->DoIcePop(*this);
     playSfx = true;
   } else if (!x450_bodyController->IsElectrocuting() && !x450_bodyController->IsOnFire()) {
     x450_bodyController->Freeze(x4f4_intoFreezeDur, frozenDur, x4f8_outofFreezeDur);
@@ -1201,7 +1172,7 @@ void CPatterned::Freeze(CStateManager& mgr, const CVector3f& pos, CUnitVector3f 
   if (playSfx) {
     const CVector3f& posOut = GetTranslation();
     CSfxManager::AddEmitter(
-        x460_knockBackController.GetVariant() != kKBV_Small &&
+        x460_knockBackController.GetCreatureSize() != kCS_Small &&
                 CPatterned::CastTo< CMetroid >(TPatternedCast< CMetroid >(
                     const_cast< CEntity* >(mgr.GetObjectById(GetUniqueId())))) != nullptr
             ? (SND_FXID)0x701
@@ -1233,6 +1204,8 @@ float CPatterned::CalcDyingThinkRate() {
   thinkRate = CMath::Max(0.1f, thinkRate);
   return thinkRate;
 }
+
+CDamageInfo CPatterned::GetContactDamage() const { return x404_contactDamage; }
 
 void CPatterned::DeathDelete(CStateManager& mgr) {
   SendScriptMsgs(kSS_Dead, mgr, kSM_None);
@@ -1415,10 +1388,10 @@ void CPatterned::RenderIceModelWithFlags(const CModelFlags& flags) const {
 }
 
 CEnergyProjectile* CPatterned::LaunchProjectile(
-    const CTransform4f& xf, CStateManager& mgr, int maxAllowed, CWeapon::EProjectileAttrib attrib,
-    bool playerHoming,
-    const rstl::optional_object< TLockedToken< CGenDescription > >& visorParticle, ushort visorSfx,
-    bool sendCollideMsg, const CVector3f& scale) {
+    const CTransform4f& xf, CStateManager& mgr, const int maxAllowed, const CWeapon::EProjectileAttrib attrib,
+    const bool playerHoming,
+    const rstl::optional_object< TLockedToken< CGenDescription > >& visorParticle, const ushort visorSfx,
+    const bool sendCollideMsg, const CVector3f& scale) {
   CEnergyProjectile* projectile = 0;
   CProjectileInfo* projectileInfo = ProjectileInfo();
   if (projectileInfo->Token().TryCache()) {

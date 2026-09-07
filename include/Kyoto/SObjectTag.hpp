@@ -16,7 +16,13 @@ public:
   SObjectTag(const SObjectTag& other) : mType(other.mType), mId(other.mId) {}
   SObjectTag(CInputStream& in) : mType(in.Get< FourCC >()), mId(in.Get< CAssetId >()) {}
 
-  const CAssetId GetId() const { return mId; }
+  SObjectTag& operator=(const SObjectTag& other) {
+    mType = other.mType;
+    mId = other.mId;
+    return *this;
+  }
+
+  const CAssetId& GetId() const { return mId; }
   const FourCC GetType() const { return mType; }
   static const char* Type2Text(FourCC type);
 

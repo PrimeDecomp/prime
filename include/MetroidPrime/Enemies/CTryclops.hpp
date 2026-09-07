@@ -12,7 +12,8 @@ class CTryclops : public CPatterned {
 public:
   CTryclops(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
             const CTransform4f& xf, const CModelData& mData, const CPatternedInfo& pInfo,
-            const CActorParameters& actParms, float f1, float f2, float f3, float launchSpeed);
+            const CActorParameters& actParms, float suckForceMultiplier, float suckAngle,
+            float suckRange, float launchSpeed);
 
   // CEntity
   ~CTryclops() override;
@@ -26,8 +27,9 @@ public:
   void DoUserAnimEvent(CStateManager& mgr, const CInt32POINode& node, EUserEventType type,
                        float dt) override;
 
-  // CAi
+  // CAi and CPatterned
   void Death(CStateManager& mgr, const CVector3f& direction, EScriptObjectState state) override;
+  CPathFindSearch* GetSearchPath() override { return &x568_pathFindSearch; }
   bool IsListening() const override { return true; }
   void Patrol(CStateManager& mgr, EStateMsg msg, float arg) override;
   void PathFind(CStateManager& mgr, EStateMsg msg, float arg) override;
@@ -58,38 +60,37 @@ public:
   bool ShouldRetreat(CStateManager& mgr, float arg) override;
   bool IsDizzy(CStateManager& mgr, float arg) override;
 
-  // CPatterned
-  CPathFindSearch* GetSearchPath() override { return &x568_pathFindSearch; }
-
 private:
-  static const CDamageVulnerability skVulnerabilities;
+  static const CDamageVulnerability skPowerBombVulnerability;
+  static CVector3f kBombPosOffset;
+  static const char* const kMouthLctr;
 
   CPathFindSearch x568_pathFindSearch;
-  CTransform4f x64c_xf;
-  float x67c_;
-  float x680_;
-  float x684_;
+  CTransform4f x64c_playerRotation;
+  float x67c_suckForceMultiplier;
+  float x680_minSuckAngleProj;
+  float x684_suckRange;
   float x688_launchSpeed;
-  float x68c_;
+  float x68c_ignoreMorphballTimer;
   uint x690_;
   TUniqueId x694_bombId;
   TUniqueId x696_;
-  bool x698_24_ : 1;
-  bool x698_25_ : 1;
-  bool x698_26_ : 1;
+  bool x698_24_shotTarget : 1;
+  bool x698_25_targetingBomb : 1;
+  bool x698_26_vulnerable : 1;
   bool x698_27_dizzy : 1;
 
-  bool sub8025dbd0(CStateManager& mgr);
-  void LaunchPlayer(CStateManager& mgr, const CTransform4f& xf, float f);
-  void DragBomb(CStateManager& mgr, const CTransform4f& xf);
-  void ApplySeparation(CStateManager& mgr);
-  void GrabBomb(CStateManager& mgr);
-  void DragPlayer(CStateManager& mgr, const CVector3f& locOrig);
-  bool InRangeToLocator(const CVector3f& vec, float f) const;
-  bool sub80260180(const CVector3f& v1, const CVector3f& v2, const CAABox& box,
-                   CStateManager& mgr);
-  void SuckPlayer(CStateManager& mgr, float f);
-  void AttractPlayer(CStateManager& mgr, const CVector3f& dest, float f);
+  bool BallCloseToCollision(const CStateManager& mgr) const;
+  void ShootPlayer(CStateManager& mgr, const CTransform4f& xf, float f);
+  void ShootBomb(CStateManager& mgr, const CTransform4f& xf);
+  void ApplySeparationBehavior(CStateManager& mgr);
+  void SetBombPosition(CStateManager& mgr);
+  void SetPlayerPosition(CStateManager& mgr, const CVector3f& locOrig);
+  bool TargetCaught(const CVector3f& vec, float f);
+  bool ObjectInVortexArea(const CVector3f& v1, const CVector3f& v2, const CAABox& box,
+                          const CStateManager& mgr);
+  void AttractPlayer(CStateManager& mgr, float f);
+  void CenterPlayer(CStateManager& mgr, const CVector3f& dest, float f);
   void AttractBomb(CStateManager& mgr, float f);
 };
 CHECK_SIZEOF(CTryclops, 0x6A0)

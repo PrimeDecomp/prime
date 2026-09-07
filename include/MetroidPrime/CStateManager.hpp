@@ -1,6 +1,8 @@
 #ifndef _CSTATEMANAGER
 #define _CSTATEMANAGER
 
+extern const int gkPVSEnabled;
+
 #include "types.h"
 
 #include "Kyoto/CRandom16.hpp"
@@ -57,7 +59,7 @@ class CWorldTransManager;
 class CEntity;
 class CSinglePathMaze;
 class CRayCastResult;
-class CWorldLayerState;
+class CScriptLayerManager;
 class CLight;
 class CDamageInfo;
 class CDamageVulnerability;
@@ -129,7 +131,7 @@ public:
 
   CStateManager(const rstl::ncrc_ptr< CScriptMailbox >&, const rstl::ncrc_ptr< CMapWorldInfo >&,
                 const rstl::ncrc_ptr< CPlayerState >&, const rstl::ncrc_ptr< CWorldTransManager >&,
-                const rstl::ncrc_ptr< CWorldLayerState >&);
+                const rstl::ncrc_ptr< CScriptLayerManager >&);
   ~CStateManager();
 
   void PreRender();
@@ -238,6 +240,8 @@ public:
   void SetGameState(EGameState state);
 
   CRandom16* Random() const { return x900_random; }
+  rstl::list< TUniqueId >& ActiveParasites() { return xf54_activeParasites; }
+  void SetRandomAvailable(bool available) { x900_random = available ? &x8fc_random : nullptr; }
   uint GetUpdateFrameIndex() const { return x8d8_updateFrameIdx; }
 
   CObjectList& ObjectListById(EGameObjectList id) { return *x808_objectLists[id]; }
@@ -281,6 +285,7 @@ public:
 
   // Fog
   void SetupFogForArea3XRange(TAreaId area) const;
+  void SetupFogForArea3XRange(const CGameArea& area) const;
   void SetupFogForArea(TAreaId area) const;
   void SetupFogForArea(const CGameArea&) const;
   bool SetupFogForDraw() const;
@@ -289,6 +294,8 @@ public:
   void ShowPausedHUDMemo(CAssetId strg, float time);
   void QueueMessage(int frameCount, CAssetId msg, float f1);
   int GetHUDMessageFrameCount() const { return xf80_hudMessageFrameCount; }
+  float GetHUDMessageTime() const { return xf78_hudMessageTime; }
+  void IncrementHUDMessageFrameCounter() { ++xf80_hudMessageFrameCount; }
 
   // Weapon
   int GetWeaponIdCount(TUniqueId, EWeaponType);
@@ -312,6 +319,8 @@ public:
   // State transitions
   bool CanShowMapScreen();
   void DeferStateTransition(EStateManagerTransition t);
+  EStateManagerTransition GetDeferredStateTransition() const { return xf90_deferredTransition; }
+  bool IsFullyInitialized() const { return xb3c_initPhase == kIP_Done; }
   void EnterMapScreen() { DeferStateTransition(kSMT_MapScreen); }
   void EnterPauseScreen() { DeferStateTransition(kSMT_PauseGame); }
   void EnterLogBookScreen() { DeferStateTransition(kSMT_LogBook); }
@@ -349,12 +358,14 @@ public:
   bool GetWantsToQuit() const { return xf94_25_quitGame; }
   bool SpecialSkipCinematic();
   void SetCinematicSkipObject(TUniqueId id) { xf38_skipCineSpecialFunc = id; }
+  TUniqueId GetCinematicSkipObject() const { return xf38_skipCineSpecialFunc; }
   void SetCinematicPause(bool pause) { xf94_29_cinematicPause = pause; }
   void SetInSaveUI(bool b) { xf94_28_inSaveUI = b; }
   bool GetInSaveUI() const { return xf94_28_inSaveUI; }
   void SetInMapScreen(bool b) { xf94_27_inMapScreen = b; }
   bool GetInMapScreen() const { return xf94_27_inMapScreen; }
   void SetIsFullThreat(bool v) { xf94_30_fullThreat = v; }
+  const rstl::vector< CLight >& GetDynamicLightList() const { return x8e0_dynamicLights; }
   uint GetInputFrameIdx() const { return x8d4_inputFrameIdx; }
   CMapWorldInfo* MapWorldInfo() const { return x8c0_mapWorldInfo.GetPtr(); }
 
@@ -396,7 +407,7 @@ private:
   rstl::rc_ptr< CScriptMailbox > x8bc_mailbox;
   rstl::rc_ptr< CMapWorldInfo > x8c0_mapWorldInfo;
   rstl::rc_ptr< CWorldTransManager > x8c4_worldTransManager;
-  rstl::rc_ptr< CWorldLayerState > x8c8_worldLayerState;
+  rstl::rc_ptr< CScriptLayerManager > x8c8_worldLayerState;
 
   TAreaId x8cc_nextAreaId;
   TAreaId x8d0_prevAreaId;
@@ -459,7 +470,7 @@ private:
   void UpdateHintState(float dt);
   void MovePlatforms(float dt);
   void MoveDoors(float dt);
-  void CrossTouchActors(float dt);
+  void CrossTouchActors();
   void Think(float dt);
   void PreThinkObjects(float dt);
   void UpdateRoomAcoustics(TAreaId areaId);
@@ -470,6 +481,7 @@ private:
   void ProcessRadiusDamage(const CActor&, CActor&, TUniqueId, const CDamageInfo&,
                            const CMaterialFilter&);
   void ApplyRadiusDamage(const CActor&, const CVector3f&, CActor&, const CDamageInfo&);
+  bool TestRayDamage(const CVector3f&, const CActor&, const TEntityList&) const;
   bool MultiRayCollideWorld(const CMRay&, const CMaterialFilter&);
   void TestBombHittingWater(const CActor&, const CVector3f&, CActor&);
   rstl::optional_object< CAABox > CalculateObjectBounds(const CActor&);

@@ -24,7 +24,16 @@ public:
   rstl::optional_object< CAABox > GetTouchBounds() const override;
   void UpdateLight(float dt, CStateManager& mgr);
 
-  const bool IsDetonated() { return !mIsNotDetonated; }
+  void SetVelocityWR(const CVector3f& velocity) { mVelocity = velocity; }
+  void SetConstantAccelerationWR(const CVector3f& acceleration) { mAcceleration = acceleration; }
+
+  const bool IsDetonated() const { return !mIsNotDetonated; }
+
+  const bool IsBeingDragged() const { return mBeingDragged; }
+
+  void SetFuseDisabled(bool disabled) { mDisableFuse = disabled; }
+
+  void SetIsBeingDragged(bool isBeingDragged) { mBeingDragged = isBeingDragged; }
 
 private:
   CVector3f mVelocity;

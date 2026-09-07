@@ -11,12 +11,13 @@
 
 class CEnergyProjectile : public CGameProjectile {
 public:
-  CEnergyProjectile(bool active, const TToken< CWeaponDescription >& desc, EWeaponType type,
-                    const CTransform4f& xf, EMaterialTypes excludeMat, const CDamageInfo& damage,
-                    TUniqueId uid, TAreaId aid, TUniqueId owner, TUniqueId homingTarget,
-                    uint attribs, bool underwater, const CVector3f& scale,
+  CEnergyProjectile(const bool active, const TToken< CWeaponDescription >& desc, const EWeaponType type,
+                    const CTransform4f& xf, const EMaterialTypes excludeMat,
+                    const CDamageInfo& damage, const TUniqueId uid, const TAreaId aid,
+                    const TUniqueId owner, TUniqueId homingTarget, const uint attribs,
+                    const bool underwater, const CVector3f& scale,
                     const rstl::optional_object< TLockedToken< CGenDescription > >& visorParticle,
-                    ushort visorSfx, bool sendCollideMsg);
+                    const ushort visorSfx, const bool sendCollideMsg);
 
   // CEntity
   ~CEnergyProjectile() override;
@@ -39,11 +40,11 @@ public:
                        const CDamageVulnerability& dVuln, const TUniqueId hitActor);
 
   void Set3d0_26(bool v) { x3d0_26_ = v; }
-  
+
   CProjectileWeapon& ProjectileWeapon() { return x170_projectile; }
-  
+
   void StopProjectile(CStateManager& mgr);
-  
+
   void SetCameraShake(const CCameraShakeData& data);
 
 private:
@@ -56,7 +57,7 @@ private:
   bool x3d0_26_ : 1;
   bool x3d0_27_camShakeDirty : 1;
   float x3d4_curTime;
-  
+
   static const CMaterialList kCheckMaterial;
 };
 CHECK_SIZEOF(CEnergyProjectile, 0x3d8);

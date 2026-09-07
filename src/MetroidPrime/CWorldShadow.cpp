@@ -32,7 +32,7 @@ CWorldShadow::CWorldShadow(uint w, uint h, bool rgba8)
 
 CWorldShadow::~CWorldShadow() {
   if (x0_texture.get())
-    x0_texture->fn_8030E10C();
+    x0_texture->ScheduleDeletion();
 }
 
 void CWorldShadow::BuildLightShadowTexture(const CStateManager& mgr, TAreaId aid, uint lightIdx,

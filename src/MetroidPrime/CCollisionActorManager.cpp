@@ -9,7 +9,7 @@ CJointCollisionDescription CJointCollisionDescription::SphereCollision(CSegId pi
                                                                        const rstl::string& name,
                                                                        float mass) {
 
-  return CJointCollisionDescription(kCT_Sphere, pivotId, CSegId(), CVector3f::Zero(),
+  return CJointCollisionDescription(kCT_Sphere, pivotId, CSegId::Invalid(), CVector3f::Zero(),
                                     CVector3f::Zero(), radius, 0.f, kOT_Zero, name, mass);
 }
 
@@ -25,7 +25,7 @@ CJointCollisionDescription CJointCollisionDescription::AABoxCollision(CSegId piv
                                                                       const CVector3f& bounds,
                                                                       const rstl::string& name,
                                                                       float mass) {
-  return CJointCollisionDescription(kCT_AABox, pivotId, CSegId(), bounds, CVector3f::Zero(), 0.f,
+  return CJointCollisionDescription(kCT_AABox, pivotId, CSegId::Invalid(), bounds, CVector3f::Zero(), 0.f,
                                     0.f, kOT_Zero, name, mass);
 }
 
@@ -42,7 +42,7 @@ CJointCollisionDescription CJointCollisionDescription::OBBCollision(CSegId pivot
                                                                     const rstl::string& name,
                                                                     float mass) {
 
-  return CJointCollisionDescription(kCT_OBB, pivotId, CSegId(), bounds, pivotPoint, 0.f, 0.f,
+  return CJointCollisionDescription(kCT_OBB, pivotId, CSegId::Invalid(), bounds, pivotPoint, 0.f, 0.f,
                                     kOT_Zero, name, mass);
 }
 

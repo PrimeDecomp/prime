@@ -16,9 +16,9 @@ class CSeedling : public CWallWalker {
 public:
   CSeedling(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
             const CTransform4f& xf, const CModelData& mData, const CPatternedInfo& pInfo,
-            const CActorParameters& actParms, const CAssetId& needleModel,
-            const CAssetId& weaponId, const CDamageInfo& projectileDamage,
-            const CDamageInfo& deathDamage, float f1, float f2, float f3, float f4);
+            const CActorParameters& actParms, const CAssetId& needleModel, const CAssetId& weaponId,
+            const CDamageInfo& projectileDamage, const CDamageInfo& deathDamage, float f1, float f2,
+            float f3, float f4);
 
   // CEntity
   ~CSeedling() override;
@@ -43,13 +43,13 @@ public:
   // CPatterned
   void MassiveDeath(CStateManager& mgr) override;
   CPathFindSearch* GetSearchPath() override { return &x5d8_searchPath; }
-  CProjectileInfo* ProjectileInfo() override { return &x6c0_projectileInfo; }
+  CProjectileInfo* ProjectileInfo() override;
 
 private:
-  void LaunchNeedles(CStateManager& mgr);
-
+  void FireSpikes(CStateManager& mgr);
+  
   CPathFindSearch x5d8_searchPath;
-  CModelData* x6bc_spikeData;
+  rstl::single_ptr< CModelData > x6bc_spikeData;
   CProjectileInfo x6c0_projectileInfo;
   CDamageInfo x6e8_deathDamage;
   CAABox x704_modelBounds;
@@ -57,6 +57,8 @@ private:
   TUniqueId x720_prevObj;
   bool x722_24_renderOnlyClusterA : 1;
   bool x722_25_curNeedleCluster : 1;
+
+  static const char* const skSpikeLocators[12];
 };
 CHECK_SIZEOF(CSeedling, 0x728)
 

@@ -31,7 +31,7 @@ CGraphicsPalette::CGraphicsPalette(CInputStream& in)
 CGraphicsPalette::~CGraphicsPalette() {
   uint frameDiff = sCurrentFrameCount - x4_frameLoaded;
   if (frameDiff < 2) {
-    CFrameDelayedKiller::fn_8036CC1C(frameDiff > 0 ? 0 : 1, xc_entries.release());
+    CFrameDelayedKiller::ScheduleDeletion(frameDiff > 0 ? CFrameDelayedKiller::kWhichFrame_ThisFrame : CFrameDelayedKiller::kWhichFrame_NextFrame, xc_entries.release());
   }
 }
 

@@ -14,6 +14,7 @@ public:
   const CVector3f& GetNormal() const { return mEnd; }
   const CVector3f& GetDelta() const { return mDelta; }
   const CVector3f& GetDirection() const { return mDir; }
+  float GetLength() const { return mLength; }
 
 private:
   CVector3f mStart;

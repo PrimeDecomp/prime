@@ -16,11 +16,17 @@ class CMemoryStreamOut;
 
 class CGameOptions {
 public:
+  static const bool skDefaultHudLag;
+  static const bool skDefaultInvertY;
+  static const bool skDefaultRumble;
+  static const bool skDefaultSwapBeamsControls;
+  static const bool skDefaultHintSystem;
+
   CGameOptions();
   CGameOptions(CInputStream& in);
   ~CGameOptions();
 
-  void PutTo(CMemoryStreamOut&);
+  void PutTo(COutputStream&);
 
   void InitSoundMode();
   void ResetToDefaults();
@@ -35,6 +41,7 @@ public:
   void SetMusicVolume(const int,const  bool);
   void SetSurroundMode(CAudioSys::ESurroundModes, bool);
 
+  int GetMusicVolume() const { return x5c_musicVol; }
   const float GetHudAlpha() const;
   const float GetHelmetAlpha() const;
   void SetHelmetAlpha(const int);
@@ -68,5 +75,7 @@ private:
   bool x68_28_hintSystem : 1;
   rstl::vector< rstl::pair< CAssetId, CAssetId > > x6c_controlTxtrMap;
 };
+
+CHECK_SIZEOF(CGameOptions, 0x7c)
 
 #endif // _CGAMEOPTIONS

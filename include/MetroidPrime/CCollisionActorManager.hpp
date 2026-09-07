@@ -30,7 +30,7 @@ public:
   void AddMaterial(CStateManager& mgr, const CMaterialList& list);
   void SetMovable(CStateManager& mgr, bool movable);
 
-  uint GetNumCollisionActors() const { return x0_jointDescriptions.size(); }
+  uint GetNumCollisionActors() const;
   rstl::optional_object< CVector3f > GetDeviation(const CStateManager& mgr, CSegId seg);
   const CJointCollisionDescription& GetCollisionDescFromIndex(uint i) const; /*{
     return x0_jointDescriptions[i];

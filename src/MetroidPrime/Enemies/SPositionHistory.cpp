@@ -2,7 +2,7 @@
 
 SPositionHistory::SPositionHistory(float mag) : x0_magSquared(mag * mag) {}
 
-void SPositionHistory::AddValue(const CVector3f& pos) {
+void SPositionHistory::AddValue(CVector3f pos) {
   if (x4_values.size() >= 16) {
     return;
   }
@@ -16,7 +16,7 @@ void SPositionHistory::AddValue(const CVector3f& pos) {
   }
 }
 
-CVector3f SPositionHistory::GetValue(const CVector3f& pos, const CVector3f& face) {
+CVector3f SPositionHistory::GetValue(CVector3f pos, CVector3f face) {
   CVector3f result = CVector3f::Zero();
 
   while (!x4_values.empty()) {

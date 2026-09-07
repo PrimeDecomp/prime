@@ -14,7 +14,7 @@ CJellyZap::CJellyZap(const TUniqueId uid, const rstl::string& name, const CEntit
                      const float repulseRadius, const float attractRadius, const float f12,
                      const CPatternedInfo& pInfo, const CActorParameters& actParms)
 : CPatterned(kC_JellyZap, uid, name, kFT_Zero, info, xf, mData, pInfo, kMT_Flyer, kCT_One,
-             kBT_BiPedal, actParms, kKBV_Medium)
+             kBT_BiPedal, actParms, kCS_Medium)
 , x568_(0)
 , x56c_attackDamage(attackDamage)
 , x588_attackRadius(attackRadius)
@@ -177,7 +177,7 @@ const CDamageVulnerability* CJellyZap::GetDamageVulnerability(const CVector3f& p
                                                               const CVector3f& dir,
                                                               const CDamageInfo& info) const {
   if (HitShell(pos)) {
-    return &CDamageVulnerability::ReflectVulnerabilty();
+    return &CDamageVulnerability::ReflectVulnerability();
   }
 
   return CAi::GetDamageVulnerability();
@@ -258,7 +258,7 @@ void CJellyZap::RemoveSelfFromFishCloud(CStateManager& mgr) {
 bool CJellyZap::ClosestToPlayer(CStateManager& mgr) const { return false; }
 
 void CJellyZap::KnockBack(const CVector3f& pos, CStateManager& mgr, const CDamageInfo& info,
-                          const EKnockBackType type, const bool inDeferred, const float magnitude) {
+                          const float magnitude, const bool direct, const bool inDeferred) {
   if (info.GetWeaponMode().GetType() == kWT_Ice) {
     const CVector3f newPos(0.f, 0.f, 0.f);
     const CUnitVector3f dir = CUnitVector3f(GetTransform().TransposeRotate(pos));

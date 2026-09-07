@@ -69,16 +69,16 @@ class CPlayer : public CPhysicsActor, public TOneStatic< CPlayer > {
     };
 
     CPlayerStuckTracker();
-    //~CPlayerStuckTracker();
-    void AddState(EPlayerState, const CVector3f&, const CVector3f&, const CVector2f&);
-    bool IsPlayerStuck();
+    void AddState(EPlayerState state, const CVector3f& position, const CVector3f& velocity,
+                  const CVector2f& input);
+    bool IsPlayerStuck() const;
     void ResetStats();
 
   private:
-    rstl::reserved_vector< EPlayerState, 20 > x0_;
-    rstl::reserved_vector< CVector3f, 20 > x54_;
-    rstl::reserved_vector< CVector3f, 20 > x148_;
-    rstl::reserved_vector< CVector2f, 20 > x23c_;
+    rstl::reserved_vector< int, 20 > x0_states;
+    rstl::reserved_vector< CVector3f, 20 > x54_positions;
+    rstl::reserved_vector< CVector3f, 20 > x148_velocities;
+    rstl::reserved_vector< CVector2f, 20 > x23c_inputs;
   };
 
 public:
@@ -205,6 +205,8 @@ public:
   // CPlayer
   virtual bool IsTransparent();
 
+  void EnableLeaveMorphBall(bool enabled) { x590_leaveMorphballAllowed = enabled; }
+
   CVector3f GetBallPosition() const;
   float GetBallMaxVelocity() const;
   CVector3f GetEyePosition() const;
@@ -230,6 +232,7 @@ public:
   void BreakGrapple(EOrbitBrokenType type, CStateManager& mgr);
   void AddOrbitDisableSource(CStateManager& mgr, TUniqueId addId);
   void RemoveOrbitDisableSource(TUniqueId uid);
+  bool CheckOrbitDisableSourceList() const;
   void SetAimTargetId(TUniqueId target);
   void DoSfxEffects(CSfxHandle sfx);
   bool GetFrozenState() const;
@@ -237,11 +240,11 @@ public:
   void BreakFrozenState(CStateManager& mgr);
   void UpdateCinematicState(CStateManager& mgr);
   bool IsMorphBallTransitioning() const;
+  bool IsSidewaysDashing() const { return x37c_sidewaysDashing; }
   float GetMorphBallTransitionFactor() const {
-    if (x578_morphDuration == 0.f) {
-      return 0.f;
-    }
-    return CMath::Clamp(-1.f, x574_morphTime / x578_morphDuration, 1.f);
+    return x578_morphDuration == 0.f
+               ? 0.f
+               : CMath::Clamp(0.f, x574_morphTime / x578_morphDuration, 1.f);
   }
   void InitialiseAnimation();
   void LoadAnimationTokens();
@@ -306,6 +309,7 @@ public:
   void UpdateFreeLook(float dt);
   void UpdatePlayerHints(CStateManager& mgr);
   void UpdateBombJumpStuff();
+  void BombJump(const CVector3f& pos, CStateManager& mgr);
   void UpdateTransitionFilter(float dt, CStateManager& mgr);
   void CalculatePlayerMovementDirection(float dt);
   void UpdatePlayerControlDirection(float dt, CStateManager& mgr);
@@ -376,6 +380,7 @@ public:
   TUniqueId GetOrbitNextTargetId() const { return x33c_orbitNextTargetId; }
   CVector3f GetHUDOrbitTargetPosition() const;
   TUniqueId GetAttachedActor() const { return x26c_attachedActor; }
+  bool IsAttached() const { return GetAttachedActor() != kInvalidUniqueId; }
   bool GetControlsFrozen() const { return x760_controlsFrozen; } // name?
   float GetDistanceUnderWater() const { return x828_distanceUnderWater; }
   TUniqueId GetScanningObjectId() const { return x3b4_scanningObject; }
@@ -396,9 +401,11 @@ public:
   // CPlayer::GetFlipSpiderBallControlY() const weak
   // CPlayer::GetFlipSpiderBallControlX() const weak
   float GetDeathTime() const { return x9f4_deathTime; } // name?
+  void SetAccelerationChangeTimer(float time) { x2d4_accelerationChangeTimer = time; }
 
   bool IsCrosshairsOpen() const { return x9c4_25_showCrosshairs; }
   bool IsInsideFluid() const { return x9c4_31_inWaterMovement; }
+  bool GetDisableInput() const { return x9c6_29_disableInput; }
 
   void Teleport(const CTransform4f& xf, CStateManager& mgr, const bool resetBallCam);
   void SetSpawnedMorphBallState(const EPlayerMorphBallState state, CStateManager& mgr);
@@ -412,6 +419,8 @@ public:
   float GetGravity() const;
 
   float GetAttachedActorStruggle() const;
+  CPlayerEnergyDrain& GetPlayerEnergyDrain() { return x274_energyDrain; }
+  void SetNoDamageLoopSfx(bool value) { x9c7_24_noDamageLoopSfx = value; }
   const CPlayerEnergyDrain& GetPlayerEnergyDrain() const { return x274_energyDrain; }
   float GetGunAlpha() const { return x494_gunAlpha; }
   void SetAttachedActorStruggle(float struggle) { xa28_attachedActorStruggle = struggle; }
@@ -624,6 +633,7 @@ private:
   int xa2c_damageLoopSfxDelayTicks;
   float xa30_samusExhaustedVoiceTimer;
 };
+NESTED_CHECK_SIZEOF(CPlayer, CPlayerStuckTracker, 0x2e0);
 CHECK_SIZEOF(CPlayer, 0xa38)
 
 extern const bool gkAutoAim;

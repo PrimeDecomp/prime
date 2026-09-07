@@ -65,7 +65,7 @@ public:
   bool ReadFromMemoryCard(const rstl::string&);
   rstl::vector< CAssetId > GetSongAssetsInWorld(CAssetId world) const;
 
-  static rstl::string sub_8021cb38(CAssetId, const rstl::string&);
+  static rstl::string GetIdentifierForMusicEvent(CAssetId, const rstl::string&);
 
   static rstl::string GetIdentifierForMidiEvent(CAssetId world, CAssetId area, const rstl::string& midiObj);
 

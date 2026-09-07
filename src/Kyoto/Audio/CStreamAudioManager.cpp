@@ -3,7 +3,6 @@
 #include "Kyoto/Audio/CAudioSys.hpp"
 #include "Kyoto/Audio/CDSPStreamManager.hpp"
 #include "Kyoto/Basics/CCast.hpp"
-#include "MetroidPrime/Enemies/CPatterned.hpp"
 #include "rstl/StringExtras.hpp"
 
 rstl::string CStreamAudioManager::mDefaultAudioFile;
@@ -64,8 +63,8 @@ void CStreamAudioManager::UpdateSoftwareChannel(ESoftwareChannel chan, float dt)
   if (p.x10_playState == 0) {
     SDSPStreamCacheEntry& qp = s_QueuedPlayers[chan];
     if (qp.x10_playState != 0) {
-      PlaySoftwareAudio(chan, qp.x0_fileName, qp.x14_volume & 0xFF, qp.x28_music, qp.x18_fadeIn,
-                        qp.x1c_fadeOut);
+      PlaySoftwareAudio(chan, qp.x0_fileName, qp.x18_fadeIn, qp.x1c_fadeOut,
+                        static_cast< uchar >(qp.x14_volume), qp.x28_music);
       qp = SDSPStreamCacheEntry();
     }
     return;
@@ -172,7 +171,7 @@ void CStreamAudioManager::StopSoftwareAudio(CStreamAudioManager::ESoftwareChanne
 }
 
 void CStreamAudioManager::PlaySoftwareAudio(ESoftwareChannel chan, const rstl::string& fileName,
-                                            int volume, bool music, float fadeIn, float fadeOut) {
+                                            float fadeIn, float fadeOut, int volume, bool music) {
   SDSPStreamCacheEntry& p = s_Players[chan];
   SDSPStreamCacheEntry& qp = s_QueuedPlayers[chan];
 
@@ -322,11 +321,10 @@ void CStreamAudioManager::SetSfxVolume(uint vol) {
   }
 }
 
-bool CStreamedAudioManager::AreStringsNotEqual(const char* lhs, const char* rhs) {
-  return CPatterned::CompareStateString(lhs, rhs, -1) != 0;
-}
+// TODO: Move to rstl/string.hpp once header inlining preserves the helper and FadeBackIn codegen.
+bool rstl::operator!=(const rstl::string& lhs, const char* rhs) { return lhs.compare(rhs) != 0; }
 
-void CStreamAudioManager::fn_8036590C(float fadeTime) {
+void CStreamAudioManager::FadeBackIn(float fadeTime) {
   if (fadeTime == 0.f) {
     mVolumeIncrement2 = mCurrentVolume;
     mVolumeIncrement = mTargetVolume;
@@ -335,8 +333,7 @@ void CStreamAudioManager::fn_8036590C(float fadeTime) {
     mVolumeIncrement = mTargetVolume / fadeTime;
   }
   mNewAudioFile = mDefaultAudioFile;
-  if (CStreamedAudioManager::AreStringsNotEqual(reinterpret_cast< const char* >(&mDefaultAudioFile),
-                                                "") &&
+  if (mDefaultAudioFile != "" &&
       mCurrentAudioFile != mDefaultAudioFile) {
     mCurrentState = 2;
   } else {

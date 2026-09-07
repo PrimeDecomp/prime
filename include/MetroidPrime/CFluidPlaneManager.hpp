@@ -32,15 +32,9 @@ class CTexture;
 class CTransform4f;
 class CRippleManager;
 
-
 class CFluidPlaneCPURender {
 public:
-  enum ENormalMode {
-    kNM_None,
-    kNM_NoNormals,
-    kNM_Normals,
-    kNM_NBT
-  };
+  enum ENormalMode { kNM_None, kNM_NoNormals, kNM_Normals, kNM_NBT };
 
   struct SHFieldSample {
     float height;
@@ -66,7 +60,7 @@ public:
     short x2a_gridDimX;
     short x2c_gridDimY;
     short x2e_tileY;
-    const bool* x30_gridFlags;
+    const char* x30_gridFlags;
     uchar x34_redShift;
     uchar x35_greenShift;
     uchar x36_blueShift;
@@ -77,7 +71,7 @@ public:
                float rippleResolution, float tileSize, float wavecapIntensityScale,
                int numSubdivisionsInHField, int normalMode, int redShift, int greenShift,
                uchar blueShift, int tileX, int gridDimX, int gridDimY, int tileY,
-               const bool* gridFlags);
+               const char* gridFlags);
   };
 
   struct SRippleInfo {
@@ -92,11 +86,7 @@ public:
     int x20_gtoY;
 
     SRippleInfo(const CRipple& ripple, int fromX, int toX, int fromY, int toY)
-    : x0_ripple(&ripple)
-    , x14_gfromX(fromX)
-    , x18_gtoX(toX)
-    , x1c_gfromY(fromY)
-    , x20_gtoY(toY) {}
+    : x0_ripple(&ripple), x14_gfromX(fromX), x18_gtoX(toX), x1c_gfromY(fromY), x20_gtoY(toY) {}
   };
 
   static int numTilesInHField;
@@ -134,7 +124,7 @@ public:
                       const CTransform4f& xf, const CTransform4f& areaXf, bool noNormals,
                       const CFrustumPlanes& frustum,
                       const rstl::optional_object< CRippleManager >& rippleManager,
-                      TUniqueId waterId, const bool* gridFlags, int gridDimX, int gridDimY,
+                      TUniqueId waterId, const char* gridFlags, int gridDimX, int gridDimY,
                       const CVector3f& areaCenter) const {}
 
   void Update();
@@ -171,7 +161,11 @@ protected:
 };
 CHECK_SIZEOF(CFluidPlane, 0xA0);
 
-extern const bool sRenderFog;
+extern const bool gkWaterEnable;
+extern const bool gkWaterTurbulence;
+extern const bool gkWaterBumpMapping;
+extern const int gkWaterEnvMap;
+extern const bool gkWaterFog;
 
 class CFluidPlaneManager {
 public:
@@ -189,7 +183,7 @@ public:
 
   class CSplashRecord {
   public:
-    CSplashRecord(float time, TUniqueId id) : x0_time(time), x4_id(id) {}
+    CSplashRecord(TUniqueId id) : x0_time(0.f), x4_id(id) {}
     void SetTime(float t) { x0_time = t; }
     float GetTime() const { return x0_time; }
     TUniqueId GetUniqueId() const { return x4_id; }
@@ -225,6 +219,7 @@ public:
   static uint GetFreqTableIndex(float);
   static void SetupRippleMap();
   static CFluidProfile sProfile;
+  static const float kOldestTime;
 
 private:
   CRippleManager x0_rippleManager;

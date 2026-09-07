@@ -47,8 +47,8 @@ CPASAnimState::CPASAnimState(CInputStream& in) : x0_id(pas::kAS_Invalid) {
       parms.push_back(val);
     }
     CPASAnimInfo animInfo(id, parms);
-    rstl::vector< CPASAnimInfo >::iterator iter = rstl::lower_bound(
-        x14_anims.begin(), x14_anims.end(), animInfo, rstl::less< CPASAnimInfo >());
+    rstl::vector< CPASAnimInfo >::iterator iter =
+        rstl::lower_bound(x14_anims.begin(), x14_anims.end(), animInfo);
     x14_anims.insert(iter, animInfo);
   }
 }

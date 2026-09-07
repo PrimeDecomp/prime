@@ -59,6 +59,9 @@ public:
              uchar visorFlags, bool texturesLoaded, uint idx);
   static void SetRenderModelBlack(bool v);
   static void SetModelWireframe(bool v);
+  void UnlockTextures() const;
+  void RemapMaterialData(const void* data, rstl::vector< TCachedToken< CTexture > >* texture);
+  void DrawNormal(const float* positions, const float* normals, ESurfaceSelection which) const;
   static void DisableShadowMaps();
   static void EnableShadowMaps(const CTexture*, const CTransform4f&, unsigned char, unsigned char);
   static void SetNewPlayerPositionAndTime(const CVector3f&, const CStopwatch&);
@@ -66,6 +69,9 @@ public:
   static void MakeTexturesFromMats(const void* data,
                                    rstl::vector< TCachedToken< CTexture > >& textures,
                                    IObjectStore& store, bool cache);
+
+  const void* GetPositions() const { return x0_instance.GetVertexPointer(); }
+  const void* GetNormals() const { return x0_instance.GetNormalPointer(); }
 
   const CAABox& GetBoundingBox() const { return x20_bounds; }
   const CCubeSurface& GetNormalSurfaces() const { return x38_firstUnsorted; }
@@ -81,10 +87,14 @@ public:
   void SetSkinningArraysCurrent(const float* positions, const float* normals) const;
   void SetUsingPackedLightmaps(const bool use) const;
   static bool IsUsingPackedLightmaps() { return sUsingPackedLightmaps; }
-  void DrawFlat(const float* positions, const float* normals, ESurfaceSelection which) const;
   void DrawSurface(const CCubeSurface& surface, const CModelFlags& modelFlags) const;
   void DrawSurfaceWireframe(const CCubeSurface& surface) const;
+  void DrawFlat(const float* positions, const float* normals, ESurfaceSelection which) const;
   bool TryLockTextures() const;
+  void Draw(const CModelFlags& flags) const;
+  void Draw(const float* positions, const float* normals, const CModelFlags& flags) const;
+  void DrawNormal(const CModelFlags& flags) const;
+  void DrawAlpha(const CModelFlags& flags) const;
   void DrawSurfaces(const CModelFlags& flags) const;
   void DrawNormalSurfaces(const CModelFlags& flags) const;
   void DrawAlphaSurfaces(const CModelFlags& flags) const;

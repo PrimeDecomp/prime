@@ -155,7 +155,7 @@ void CScriptPlatform::AddRider(rstl::vector< SRiders >& riders, TUniqueId riderI
     riders.reserve(riders.size() + 1);
     riders.push_back(rider);
   } else {
-    it->x4_decayTimer = 1.f / 6.f;
+    (*it).x4_decayTimer = 1.f / 6.f;
   }
 }
 

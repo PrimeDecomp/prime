@@ -28,6 +28,17 @@ class CBurstFire {
 public:
   CBurstFire(const SBurst** burstDefs, int firstBurstCount);
 
+  void SetBurstType(int type) { x0_burstType = type; }
+  int GetBurstType() const { return x0_burstType; }
+  bool IsBurstSet() const { return x18_curBursts != nullptr; }
+  bool ShouldFire() const { return x14_24_shouldFire; }
+  void SetAvoidAccuracy(bool avoid) { x14_25_avoidAccuracy = avoid; }
+  void SetTimeToNextShot(float time) {
+    if (x8_timeToNextShot > 0.f) {
+      x8_timeToNextShot = time;
+    }
+  }
+
   void Start(CStateManager& mgr);
   void Update(CStateManager& mgr, float dt);
   

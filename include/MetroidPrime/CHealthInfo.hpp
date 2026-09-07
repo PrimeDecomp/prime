@@ -12,6 +12,7 @@ public:
   void SetHP(float hp) { x0_health = hp; }
   void SetKnockbackResistance(float resist) { x4_knockbackResistance = resist; }
   float GetHP() const { return x0_health; }
+  float GetKnockBackResistance() const { return x4_knockbackResistance; }
 
 private:
   float x0_health;

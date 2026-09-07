@@ -58,11 +58,11 @@ public:
   bool ShotAt(CStateManager& mgr, float arg) override;
   bool CodeTrigger(CStateManager& mgr, float arg) override;
   bool ShouldCallForBackup(CStateManager& mgr, float arg) override;
-  bool HasWeakPointHead() const override;
+  bool IsUsingBaseCollisionActors() const override;
   bool IsElitePirate() const override;
   void SetupHealthInfo(CStateManager& mgr) override;
-  void SetLaunchersActive(CStateManager& mgr, bool val) override;
-  CShockWaveInfo GetShockWaveData() const override;
+  void ActivateGrenadeLauncher(CStateManager& mgr, bool val) override;
+  CShockWaveInfo GetShockWaveInfo() const override;
 
 private:
   enum ENormalFadeState {

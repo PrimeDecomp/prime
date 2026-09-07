@@ -14,6 +14,8 @@ class CRandom16;
 class CPASDatabase {
 
 public:
+  CPASDatabase(CInputStream& in);
+
   bool HasState(int id) const;
   const CPASAnimState* GetAnimState(int) const;
 
@@ -29,7 +31,10 @@ public:
     return &x0_states[index];
   }*/
 
+  void AddAnimState(const CPASAnimState& state);
   int GetDefaultState() const { return x10_defaultState; }
+  void SetDefaultState(int state);
+
 private:
   rstl::vector< CPASAnimState > x0_states;
   int x10_defaultState;

@@ -18,8 +18,8 @@ CGuiSys::CGuiSys(IFactory* factory, CSimplePool* pool, EUsageMode mode)
 
 CGuiSys::~CGuiSys() {}
 
-CGuiWidget* CGuiSys::CreateWidgetInGame(FourCC type, CInputStream& in, CGuiFrame* parent) {
-  return FGuiWidgetFactoryInGame(type, parent, in);
+CGuiWidget* CGuiSys::CreateWidgetInGame(FourCC type, CInputStream& in, CGuiFrame* parent, CSimplePool* sp) {
+  return FGuiWidgetFactoryInGame(type, parent, in, sp);
 }
 
 void CGuiSys::AddFactories(EUsageMode mode) {}

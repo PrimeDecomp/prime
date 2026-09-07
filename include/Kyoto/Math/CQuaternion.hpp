@@ -12,6 +12,7 @@ class CNUQuaternion;
 
 class CQuaternion {
 public:
+  CQuaternion() {}
   CQuaternion(CInputStream& in);
   CQuaternion(float w, float x, float y, float z) : w(w), imaginary(x, y, z) {}
   CQuaternion(float w, const CVector3f& imaginary) : w(w), imaginary(imaginary) {}
@@ -29,14 +30,19 @@ public:
   // }
 
   CQuaternion operator*(const CQuaternion&) const;
-  // __amu__11CQuaternionFRC11CQuaternion
-  // ScalarVector__11CQuaternionFfRC9CVector3f
+  CQuaternion& operator*=(const CQuaternion& other) {
+    *this = *this * other;
+    return *this;
+  }
+  static CQuaternion ScalarVector(float w, const CVector3f& imaginary) {
+    return CQuaternion(w, imaginary);
+  }
   // Slerp__11CQuaternionFRC11CQuaternionRC11CQuaternionf
   static CQuaternion ShortestRotationArc(const CVector3f&, const CVector3f&);
 
   // TODO: map says const CUnitVector3f&, but this matches better in CBSCover/CSamusFaceReflection
   static CQuaternion LookAt(const CUnitVector3f&, const CUnitVector3f&, const CRelAngle&);
-  static CQuaternion ClampedRotateTo(const CUnitVector3f&, const CUnitVector3f&, const CRelAngle&);
+  static CQuaternion ClampedRotateTo(const CVector3f&, const CVector3f&, const CRelAngle&);
 
   // normalize_angle__Ff
   // IsValidQuaternion__11CQuaternionCFf
@@ -44,22 +50,19 @@ public:
   static CQuaternion SlerpLocal(const CQuaternion& from, const CQuaternion& to, float t);
   CRelAngle AngleFrom(const CQuaternion& other) const;
   CQuaternion BuildEquivalent() const;
-  // BuildNormalized__11CQuaternionCFv
+  CQuaternion BuildNormalized() const;
   static CQuaternion AxisAngle(const CUnitVector3f&, const CRelAngle&);
   CVector3f Transform(const CVector3f&) const;
   static CQuaternion XRotation(const CRelAngle&);
   static CQuaternion YRotation(const CRelAngle&);
   static CQuaternion ZRotation(const CRelAngle&);
+  static CQuaternion YXZRotation(const CRelAngle& y, const CRelAngle& x, const CRelAngle& z) {
+    return ZRotation(z) * XRotation(x) * YRotation(y);
+  }
   CMatrix3f BuildTransform() const;
   CTransform4f BuildTransform4f() const;
   CTransform4f BuildTransform4f(const CVector3f&) const;
-  CQuaternion BuildInverted() const {
-    // double w = this->w;
-    // double x = -this->x;
-    // double y = -this->y;
-    // double z = -this->z;
-    return CQuaternion(w, -imaginary.GetX(), -imaginary.GetY(), -imaginary.GetZ());
-  }
+  CQuaternion BuildInverted() const { return ScalarVector(w, -imaginary); }
 
   static CQuaternion FromMatrixRows(const CVector3f&, const CVector3f&, const CVector3f&);
   static CQuaternion FromMatrix(const CMatrix3f&);
@@ -69,8 +72,7 @@ public:
   static const CQuaternion& NoRotation() { return sNoRotation; }
 
   static float Dot(const CQuaternion& a, const CQuaternion& b) {
-    return (a.GetW() * b.GetW()) + (a.GetX() * b.GetX()) + (a.GetY() * b.GetY()) +
-           (a.GetZ() * b.GetZ());
+    return a.GetScalar() * b.GetScalar() + CVector3f::Dot(a.GetVector(), b.GetVector());
   }
 
   // TODO: fake

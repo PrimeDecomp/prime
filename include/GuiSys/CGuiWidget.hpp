@@ -28,9 +28,9 @@ public:
   };
   class CGuiWidgetParms {
   public:
-    CGuiWidgetParms(CGuiFrame* frame, bool useAnimController, short selfId, short parentId,
-                    bool defaultVisible, bool defaultActive, bool cullFaces, const CColor& color,
-                    EGuiModelDrawFlags drawFlags, bool g, bool h);
+    CGuiWidgetParms(CGuiFrame* frame, bool useAnimController, const short selfId,
+                    const short parentId, bool defaultVisible, bool defaultActive, bool cullFaces,
+                    const CColor& color, EGuiModelDrawFlags drawFlags, bool g, bool h);
     CGuiFrame* x0_frame;
     bool x4_useAnimController;
     short x6_selfId;
@@ -56,29 +56,45 @@ public:
   virtual FourCC GetWidgetTypeID() const { return 'BWIG'; }
   virtual bool AddWorkerWidget(CGuiWidget* worker) { return false; }
   virtual bool GetIsFinishedLoadingWidgetSpecific() const { return true; };
+  bool GetIsFinishedLoading() const;
   virtual void OnVisible();
   virtual void OnActivate();
   short GetWorkerId() const { return xb4_workerId; }
 
+  bool GetIsAlwaysDepthRead() const { return xb6_31_depthTest; }
+  bool GetIsAlwaysDepthWrite() const { return xb7_24_depthWrite; }
+  bool GetIsDepthBackwards() const { return xb6_30_depthGreater; }
   void SetDepthTest(bool depthTest) { xb6_31_depthTest = depthTest; }
+  void SetIsSelectable(bool selectable) { xb6_27_isSelectable = selectable; }
+  bool GetIsSelectable() const { return xb6_27_isSelectable; }
   void SetIsVisible(bool visible);
   void SetIsActive(bool active);
+  bool GetIsBackfaceCullingOn() const { return xb6_29_cullFaces; }
   void SetColor(const CColor& color);
   const CColor& GetColor() const { return xa4_color; }
-  const CColor& GetColor2() const { return xa8_color2; }
+  const CColor& GetModifiedColor() const { return xa8_color2; }
   const EGuiModelDrawFlags GetDrawFlags() const { return xac_drawFlags; }
   void SetVisibility(bool visible, ETraversalMode mode);
+  void InitializeRecursive();
+  void RecalcWidgetColor(ETraversalMode mode);
+  void ReapplyXform();
+  CVector3f GetIdlePosition() const;
+  void AddChildWidget(CGuiWidget* widget, bool makeWorldLocal, bool atEnd);
+  CGuiWidget* FindWidget(short id);
+  void ReadUnusedThing(CInputStream& in);
   void ParseBaseInfo(CGuiFrame* frame, CInputStream& in, const CGuiWidgetParms& parms);
 
   static CGuiWidgetParms ReadWidgetHeader(CGuiFrame* frame, CInputStream& in);
 
   const CTransform4f& GetTransform() const { return x74_transform; }
-  CGuiFrame* GetFrame() { return xb0_frame; }
+  CGuiFrame* GetParentFrame() const { return xb0_frame; }
 
   static CGuiWidget* Create(CGuiFrame* frame, CInputStream& in, CSimplePool* sp);
   static const short InvalidWidgetId() { return gkInvalidWidgetId; }
 
-private:
+  static const short gkDummyWidgetID;
+
+protected:
   static const short gkInvalidWidgetId;
   short x70_selfId;
   short x72_parentId;
@@ -101,6 +117,6 @@ private:
 };
 CHECK_SIZEOF(CGuiWidget, 0xb8)
 
-CGuiWidget* FGuiWidgetFactoryInGame(uint type, CGuiFrame* parent, CInputStream& in);
+CGuiWidget* FGuiWidgetFactoryInGame(uint type, CGuiFrame* parent, CInputStream& in, CSimplePool* sp);
 
 #endif // _CGUIWIDGET

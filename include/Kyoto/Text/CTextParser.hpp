@@ -17,16 +17,16 @@ class CTextParser {
 public:
   CTextParser(IObjectStore& store);
   void ParseText(CTextExecuteBuffer&, const wchar_t* str, int len,
-                 rstl::vector< rstl::pair< CAssetId, CAssetId > >& vec);
+                 const rstl::vector< rstl::pair< CAssetId, CAssetId > >* vec);
   static const CAssetId
   GetAssetIdFromString(const rstl::string& str,
-                       rstl::vector< rstl::pair< CAssetId, CAssetId > >* txtrMap);
+                       const rstl::vector< rstl::pair< CAssetId, CAssetId > >* txtrMap);
   TToken< CRasterFont > GetFont(const wchar_t* str, int len);
   CFontImageDef GetImage(const wchar_t* str, int len,
-                         rstl::vector< rstl::pair< CAssetId, CAssetId > >& vec);
+                         const rstl::vector< rstl::pair< CAssetId, CAssetId > >* vec);
   uint HandleUserTag(CTextExecuteBuffer& buffer, const wchar_t* str, int len);
   void ParseTag(CTextExecuteBuffer&, const wchar_t* str, int len,
-                rstl::vector< rstl::pair< CAssetId, CAssetId > >& vec);
+                const rstl::vector< rstl::pair< CAssetId, CAssetId > >* vec);
   static bool BeginsWith(const wchar_t* str1, int len, const wchar_t* str2);
   static bool Equals(const wchar_t* str1, int len, const wchar_t* str2);
   static int ParseInt(const wchar_t* str, int len, bool);
@@ -37,5 +37,7 @@ public:
 private:
   IObjectStore& mObjectStore;
 };
+
+CHECK_SIZEOF(CTextParser, 0x4)
 
 #endif // _CTEXTPARSER

@@ -1,6 +1,7 @@
 #include "MetroidPrime/Weapons/CPhazonBeam.hpp"
 
 #include "Kyoto/Audio/CSfxHandle.hpp"
+#include "Kyoto/Graphics/CGX.hpp"
 #include "Kyoto/Graphics/CGraphics.hpp"
 #include "MetaRender/CCubeRenderer.hpp"
 #include "MetroidPrime/CStateManager.hpp"
@@ -11,6 +12,7 @@
 
 #include <Kyoto/Particles/CElementGen.hpp>
 
+extern void DrawClipCube(const CAABox&);
 const ushort CPhazonBeam::skSoundIds[] = {
     SFXcra_a_phazfire_00,
     SFXsam_a_cbmfire_00,
@@ -93,8 +95,45 @@ void CPhazonBeam::DrawMuzzleFx(const CStateManager& mgr) const {
   CGunWeapon::DrawMuzzleFx(mgr);
 }
 
-void CPhazonBeam::Draw(bool drawSuitArm, const CStateManager& mgr, const CTransform4f& xf,
-                       const CModelFlags& flags, const CActorLights* lights) const {}
+void CPhazonBeam::Draw(const bool drawSuitArm, const CStateManager& mgr, const CTransform4f& xf,
+                       const CModelFlags& flags, const CActorLights* lights) const {
+  const bool standardVisor = mgr.GetPlayerState()->IsStandardVisor(mgr);
+  CCubeRenderer* renderer = gpRender;
+  if (standardVisor) {
+    renderer->CopyTex(1, true, CGraphics::GetDolphinSpareBuffer(), GX_TF_RGB565, false);
+    GXSetDstAlpha(GX_TRUE, 255);
+  }
+
+  CGunWeapon::Draw(drawSuitArm, mgr, xf, flags, lights);
+
+  if (standardVisor) {
+    renderer->DrawPhazonSuitIndirectEffect(
+        CColor(mIndirectAlpha * 0.3f, mIndirectAlpha * 0.6f, mIndirectAlpha, mIndirectAlpha * 0.5f),
+        rstl::optional_object_null(), CColor::White(), 1.f, 0.f, 0.f, 0.f);
+  }
+
+  if (mVeinsData.null()) {
+    return;
+  }
+  CTransform4f modelXf =
+      xf * x10_solidModelData->GetScaledLocatorTransform(rstl::string_l(skElbowLocator));
+
+  if (mClipWipeActive) {
+    const float wipeFactor = 1.f - mClipWipeScale;
+    gpRender->SetModelMatrix(modelXf * CTransform4f::Scale(wipeFactor, wipeFactor, wipeFactor));
+    DrawClipCube(mAABoxScale);
+    gpRender->SetModelMatrix(modelXf * CTransform4f::Translate(0.f, -mClipWipeTranslate, 0.f));
+    DrawClipCube(mAABoxTranslate);
+  }
+
+  if (mVeinsAlphaActive) {
+    mVeinsData->Render(
+        mgr, modelXf * CTransform4f::Scale(mIndirectAlpha, mIndirectAlpha, mIndirectAlpha), lights,
+        CModelFlags::AlphaBlended(mIndirectAlpha * 0.5f));
+  } else {
+    mVeinsData->Render(mgr, modelXf, lights, flags);
+  }
+}
 
 void CPhazonBeam::Fire(const bool underwater, const float dt,
                        const CPlayerState::EChargeStage chargeState, const CTransform4f& xf,

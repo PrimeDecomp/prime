@@ -6,6 +6,7 @@
 #include "MetroidPrime/CAnimData.hpp"
 #include "MetroidPrime/TGameTypes.hpp"
 
+#include "Kyoto/Animation/CAdvancementDeltas.hpp"
 #include "Kyoto/Animation/IAnimReader.hpp"
 #include "Kyoto/Graphics/CColor.hpp"
 #include "Kyoto/Math/CTransform4f.hpp"
@@ -28,22 +29,6 @@ class CTexture;
 class CSkinnedModel;
 class CRandom16;
 
-// TODO move
-#include "Kyoto/Math/CQuaternion.hpp"
-struct CAdvancementDeltas {
-public:
-  CAdvancementDeltas(const CVector3f& posDelta, const CQuaternion& rotDelta)
-  : x0_posDelta(posDelta), xc_rotDelta(rotDelta) {}
-
-  const CVector3f& GetOffsetDelta() const { return x0_posDelta; }
-  const CQuaternion& GetOrientationDelta() const { return xc_rotDelta; }
-
-private:
-  CVector3f x0_posDelta;
-  CQuaternion xc_rotDelta;
-};
-CHECK_SIZEOF(CAdvancementDeltas, 0x1c)
-
 class CStaticRes {
 public:
   CStaticRes(CAssetId id, const CVector3f& scale) : x0_cmdlId(id), x4_scale(scale) {}
@@ -58,6 +43,7 @@ private:
 
 class CModelData {
 public:
+  int GetNumMaterialSets() const;
   enum EWhichModel {
     kWM_Normal,
     kWM_XRay,
@@ -83,11 +69,16 @@ public:
   void Render(const CStateManager&, const CTransform4f&, const CActorLights*,
               const CModelFlags&) const;
   void Render(EWhichModel, const CTransform4f&, const CActorLights*, const CModelFlags&) const;
+  void MultipassDraw(EWhichModel which, const CTransform4f& xf, const CActorLights* lights,
+                     const CModelFlags* flags, int count);
+  void MultiLightingDraw(EWhichModel which, const CTransform4f& xf, const CActorLights* lights,
+                         const CColor& mulColor, const CColor& addColor);
   void FlatDraw(EWhichModel which, const CTransform4f& xf, bool unsortedOnly,
                 const CModelFlags& flags) const;
   CSkinnedModel& PickAnimatedModel(EWhichModel which) const;
   void Touch(const CStateManager& mgr, int) const;
-  SAdvancementDeltas AdvanceAnimationIgnoreParticles(float dt, CRandom16& rand, bool advTree);
+  void Touch(EWhichModel which, int) const;
+  CAdvancementDeltas AdvanceAnimationIgnoreParticles(float dt, CRandom16& rand, bool advTree);
 
   const CAnimData* GetAnimationData() const { return xc_animData.get(); }
   CAnimData* AnimationData() {
@@ -125,7 +116,7 @@ public:
 
   bool GetIsLoop() const;
   void EnableLooping(bool enable);
-  static CModelData CModelDataNull();
+  static CModelData CModelDataNull() { return CModelData(); }
   static EWhichModel GetRenderingModel(const CStateManager& mgr);
   float GetAnimationDuration(int anim) const;
 

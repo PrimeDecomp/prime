@@ -1,6 +1,7 @@
 #ifndef _CSPANKWEED
 #define _CSPANKWEED
 
+#include "MetroidPrime/Collision/CJointCollisionDescription.hpp"
 #include "types.h"
 
 #include "MetroidPrime/Enemies/CPatterned.hpp"
@@ -11,14 +12,13 @@ class CCollisionActorManager;
 
 class CSpankWeed : public CPatterned {
 public:
-  CSpankWeed(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
-             const CTransform4f& xf, const CModelData& mData,
-             const CActorParameters& actParms, const CPatternedInfo& pInfo,
-             float maxDetectionRange, float maxHearingRange, float maxSightRange,
-             float hideTime);
+  CSpankWeed(const TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
+             const CTransform4f& xf, const CModelData& mData, const CActorParameters& actParms,
+             const CPatternedInfo& pInfo, const float maxDetectionRange,
+             const float maxHearingRange, const float maxSightRange, const float hideTime);
 
   // CEntity
-  ~CSpankWeed() override {}
+  ~CSpankWeed() override;
   void Accept(IVisitor& visitor) override;
   void Think(float dt, CStateManager& mgr) override;
   void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) override;
@@ -30,7 +30,7 @@ public:
 
   // CAi
   void KnockBack(const CVector3f& backVec, CStateManager& mgr, const CDamageInfo& info,
-                 EKnockBackType type, bool inDeferred, float magnitude) override;
+                 float magnitude, bool direct, const bool inDeferred) override;
   void Patrol(CStateManager& mgr, EStateMsg msg, float arg) override;
   void TargetPatrol(CStateManager& mgr, EStateMsg msg, float arg) override;
   void Attack(CStateManager& mgr, EStateMsg msg, float arg) override;
@@ -59,11 +59,13 @@ private:
   bool x598_isHiding;
   CVector3f x59c_lockonOffset;
   CVector3f x5a8_lockonTarget;
-  int x5b4_;
-  int x5b8_;
-  int x5bc_;
+  int x5b4_state;
+  int x5b8_previousState;
+  int x5bc_animPhase;
 
   float GetPlayerDistance(CStateManager& mgr) const;
+
+  static const SSphereJointInfo skSphereJointInfoList[];
 };
 CHECK_SIZEOF(CSpankWeed, 0x5c0)
 

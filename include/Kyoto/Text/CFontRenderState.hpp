@@ -1,6 +1,8 @@
 #ifndef _CFONTRENDERSTATE
 #define _CFONTRENDERSTATE
 
+#include "rstl/list.hpp"
+
 #include "Kyoto/Text/CBlockInstruction.hpp"
 #include "Kyoto/Text/CDrawStringOptions.hpp"
 #include "Kyoto/Text/CRasterFont.hpp"
@@ -19,8 +21,9 @@ public:
   void PopState();
   void SetColor(EColorType type, const CTextColor& color);
   void RefreshPalette();
-  CDrawStringOptions& GetOptions() { return x0_state.GetOptions(); }
   TToken< CRasterFont >& GetFont() { return *x0_state.GetFont(); }
+  bool IsFinishedLoading() { return x0_state.IsFinishedLoading(); }
+  CDrawStringOptions& GetOptions() { return x0_state.GetOptions(); }
   void SetFont(const TToken< CRasterFont >& font) { x0_state.SetFont(font); }
   rstl::vector< CTextColor >& GetColors() { return x0_state.GetColors(); }
   rstl::vector< bool >& GetOverride() { return x0_state.GetOverride(); }
@@ -71,5 +74,7 @@ private:
   bool x108_lineInitialized;
   rstl::list< CSaveableState > x10c_pushedStates;
 };
+
+CHECK_SIZEOF(CFontRenderState, 0x124)
 
 #endif // _CFONTRENDERSTATE

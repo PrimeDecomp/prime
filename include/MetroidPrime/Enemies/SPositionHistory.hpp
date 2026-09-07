@@ -12,8 +12,8 @@ private:
 
 public:
   explicit SPositionHistory(float mag);
-  CVector3f GetValue(const CVector3f& pos, const CVector3f& face);
-  void AddValue(const CVector3f& pos);
+  CVector3f GetValue(CVector3f pos, CVector3f face);
+  void AddValue(CVector3f pos);
   void Clear() { x4_values.clear(); }
 };
 

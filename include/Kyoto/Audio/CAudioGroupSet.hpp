@@ -18,7 +18,7 @@ public:
   const rstl::string& GetBaseDirName() const { return x10_baseDirName; }
   const rstl::string& GetGroupSetName() const { return x20_groupSetName; }
   void FreeSampleBuffer();
-  uint AramUsage() const;
+  int AramUsage() const { return x30_aramSize; }
   const void* GetPool() const;
   const void* GetProject() const;
   const void* GetSample() const;
@@ -37,7 +37,7 @@ private:
   rstl::auto_ptr< uchar > x8_;
   rstl::string x10_baseDirName;
   rstl::string x20_groupSetName;
-  uint x30_aramSize;
+  int x30_aramSize;
   uchar* x34_;
   uchar* x38_;
   uchar* x3c_;
@@ -52,6 +52,7 @@ public:
   void FreeSampleBuffer();
   void FreeAllBuffers();
   const rstl::string& GetName() const { return x10_groupSetName; }
+  int AramUsage() { return x20_groupSetTok.data()->AramUsage(); }
 
 private:
   rstl::string x0_baseDir;

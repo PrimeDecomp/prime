@@ -1,3 +1,5 @@
+#pragma inline_max_size(250)
+
 #include "MetroidPrime/Player/CGameOptions.hpp"
 
 #include "MetroidPrime/Tweaks/CTweaks.hpp"
@@ -13,17 +15,11 @@
 
 #include "dolphin/os.h"
 
-namespace {
-class AssetIdSorter {
-public:
-  AssetIdSorter() {}
-
-  bool operator()(const rstl::pair< CAssetId, CAssetId >& a,
-                  const rstl::pair< CAssetId, CAssetId >& b) const {
-    return a.first < b.first;
-  }
-};
-} // namespace
+const bool CGameOptions::skDefaultHudLag = true;
+const bool CGameOptions::skDefaultInvertY = false;
+const bool CGameOptions::skDefaultRumble = true;
+const bool CGameOptions::skDefaultSwapBeamsControls = false;
+const bool CGameOptions::skDefaultHintSystem = true;
 
 int CalculateBits(int i) {
   int result = 0;
@@ -33,7 +29,7 @@ int CalculateBits(int i) {
   return result;
 }
 
-inline void WriteValue(CMemoryStreamOut& out, uint value, int maxSize) {
+inline void WriteValue(COutputStream& out, uint value, int maxSize) {
   out.WriteBits(value, CalculateBits(maxSize));
 }
 
@@ -56,11 +52,11 @@ CGameOptions::CGameOptions()
 , x5c_musicVol(0x7f)
 , x60_hudAlpha(0xff)
 , x64_helmetAlpha(0xff)
-, x68_24_hudLag(true)
-, x68_25_invertY(false)
-, x68_26_rumble(true)
-, x68_27_swapBeamsControls(false)
-, x68_28_hintSystem(true) {
+, x68_24_hudLag(skDefaultHudLag)
+, x68_25_invertY(skDefaultInvertY)
+, x68_26_rumble(skDefaultRumble)
+, x68_27_swapBeamsControls(skDefaultSwapBeamsControls)
+, x68_28_hintSystem(skDefaultHintSystem) {
   InitSoundMode();
 }
 
@@ -75,11 +71,11 @@ CGameOptions::CGameOptions(CInputStream& in)
 , x5c_musicVol(0x7f)
 , x60_hudAlpha(0xff)
 , x64_helmetAlpha(0xff)
-, x68_24_hudLag(true)
-, x68_25_invertY(false)
-, x68_26_rumble(true)
-, x68_27_swapBeamsControls(false)
-, x68_28_hintSystem(true) {
+, x68_24_hudLag(skDefaultHudLag)
+, x68_25_invertY(skDefaultInvertY)
+, x68_26_rumble(skDefaultRumble)
+, x68_27_swapBeamsControls(skDefaultSwapBeamsControls)
+, x68_28_hintSystem(skDefaultHintSystem) {
 
   for (int i = 0; i < x0_.size(); ++i) {
     x0_[i] = in.ReadBits(8);
@@ -103,7 +99,7 @@ CGameOptions::CGameOptions(CInputStream& in)
   InitSoundMode();
 }
 
-void CGameOptions::PutTo(CMemoryStreamOut& out) {
+void CGameOptions::PutTo(COutputStream& out) {
   for (int i = 0; i < x0_.size(); ++i) {
     out.WriteBits(x0_[i], 8);
   }
@@ -135,11 +131,11 @@ void CGameOptions::ResetToDefaults() {
   x44_soundMode = CAudioSys::kSM_Stereo;
   x60_hudAlpha = 0xff;
   x64_helmetAlpha = 0xff;
-  x68_24_hudLag = true;
-  x68_25_invertY = false;
-  x68_26_rumble = true;
-  x68_27_swapBeamsControls = false;
-  x68_28_hintSystem = true;
+  x68_24_hudLag = skDefaultHudLag;
+  x68_25_invertY = skDefaultInvertY;
+  x68_26_rumble = skDefaultRumble;
+  x68_27_swapBeamsControls = skDefaultSwapBeamsControls;
+  x68_28_hintSystem = skDefaultHintSystem;
   InitSoundMode();
   EnsureOptions();
 }
@@ -284,7 +280,7 @@ void CGameOptions::ResetControllerAssets(int controls) {
         x6c_controlTxtrMap.push_back(value);
       }
 
-      rstl::sort(x6c_controlTxtrMap.begin(), x6c_controlTxtrMap.end(), AssetIdSorter());
+      rstl::sort_by_key(x6c_controlTxtrMap);
     }
     break;
   }

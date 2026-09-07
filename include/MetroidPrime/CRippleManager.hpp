@@ -14,7 +14,6 @@ private:
 
 public:
   CRippleManager(int maxRipples, float alpha);
-  CRippleManager(const CRippleManager& other);
   ~CRippleManager() {}
 
   void Init(int maxRipples);
@@ -31,5 +30,6 @@ public:
   void SetAlpha(float a) { x14_alpha = a; }
   float GetAlpha() const { return x14_alpha; }
 };
+CHECK_SIZEOF(CRippleManager, 0x18)
 
 #endif // _CRIPPLEMANAGER

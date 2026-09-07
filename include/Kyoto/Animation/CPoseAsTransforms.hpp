@@ -25,7 +25,7 @@ public:
   CPoseAsTransforms(uchar count);
 
   void Insert(const CSegId& seg, const CMatrix3f& rotation, const CVector3f& offset);
-  const CElementType& GetRotation(const CSegId& id) const;
+  const CMatrix3f& GetRotation(const CSegId& id) const;
   const CMatrix3f& GetTransformMinusOffset(const CSegId& id) const;
   const CVector3f& GetOffset(const CSegId& id) const;
   void Clear();

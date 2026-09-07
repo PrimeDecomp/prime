@@ -4,8 +4,9 @@
 #include "types.h"
 
 #include "rstl/construct.hpp"
-#include "rstl/rmemory_allocator.hpp"
-
+#include "rstl/functional.hpp"
+#include "rstl/iterator.hpp"
+#include "rstl/allocator.hpp"
 namespace rstl {
 template < typename T, typename Alloc = rmemory_allocator >
 class list {
@@ -52,6 +53,15 @@ public:
     dh.release();
   }
 
+  list& operator=(const list& other) {
+    if (this == &other) {
+      return *this;
+    }
+    clear();
+    insert(end(), other.begin(), other.end());
+    return *this;
+  }
+
   ~list();
   node* do_erase(node* item);
 
@@ -63,6 +73,7 @@ public:
   bool empty() const { return x14_count == 0; }
 
   T& front() { return *x4_start->get_value(); }
+  T& back() { return *x8_end->get_prev()->get_value(); }
   const T& front() const { return *x4_start->get_value(); }
 
   void pop_front() { erase(x4_start); }
@@ -74,15 +85,11 @@ public:
 
   iterator erase(const iterator& item) { return do_erase(item.get_node()); }
   iterator erase(const iterator& start, const iterator& end) {
-    node* last = end.get_node();
-    node* it = start.get_node();
-    for (node* t = it; t != last; t = t->get_next()) {
+    iterator it = start;
+    while (it != end) {
+      it = erase(it);
     }
-
-    while (it != last) {
-      it = do_erase(it);
-    }
-    return iterator(it);
+    return it;
   }
 
   struct node {
@@ -109,7 +116,7 @@ public:
   }
 
   node* do_insert_before(node* n, const T& val) {
-    node* nn = create_node(n->get_prev(), n, val);
+    node* nn = create_node(n->x0_prev, n, val);
     if (n == x4_start) {
       x4_start = nn;
     }
@@ -120,31 +127,30 @@ public:
     return nn;
   }
 
-  iterator insert(const iterator& pos, const T& val) {
-    do_insert_before(pos.get_node(), val);
-    return pos;
-  }
+  iterator insert(const iterator& pos, const T& val);
 
   template < typename InputIterator >
-  void insert(const iterator& pos, InputIterator first, InputIterator last) {
-    node* cur = first.get_node();
-    while (cur != last.get_node()) {
-      do_insert_before(pos.get_node(), *cur->get_value());
-      cur = cur->get_next();
-    }
-  }
+  void insert(const iterator& pos, InputIterator first, InputIterator last);
 
-  // TODO: demo map shows this delegates to clear(),
-  // but this matches better in CSkinnedModelWithAvgNormals
   void destroy() {
-    node* end = x8_end;
-    node* it = x4_start;
-    while (it != end) {
-      it = do_erase(it);
-    }
+    iterator last = end();
+    iterator first = begin();
+    erase(first, last);
   }
 
   void remove(const T& val);
+
+  template < typename Pred >
+  void remove_if(Pred pred) {
+    node* it = x4_start;
+    while (it != x8_end) {
+      if (pred(*it->get_value())) {
+        it = do_erase(it);
+      } else {
+        it = it->get_next();
+      }
+    }
+  }
 
   // TODO non-matching
   template < typename Cmp >
@@ -169,10 +175,12 @@ public:
 public:
   class const_iterator {
   public:
+    typedef bidirectional_iterator_tag iterator_category;
+    typedef int difference_type;
     typedef T* value_type;
 
     const_iterator() : current(nullptr) {}
-    const_iterator(node* begin) : current(begin) {}
+    const_iterator(node* const begin) : current(begin) {}
     const_iterator& operator++() {
       this->current = this->current->x4_next;
       return *this;
@@ -200,7 +208,7 @@ public:
     typedef T* value_type;
 
     iterator() : const_iterator(nullptr) {}
-    iterator(node* begin) : const_iterator(begin) {}
+    iterator(node* const begin) : const_iterator(begin) {}
     iterator& operator++() {
       this->current = this->current->x4_next;
       return *this;
@@ -232,13 +240,33 @@ private:
 };
 
 template < typename T, typename Alloc >
+inline typename list< T, Alloc >::iterator list< T, Alloc >::insert(const iterator& pos, const T& val) {
+  node* const result = do_insert_before(pos.get_node(), val);
+  return iterator(result);
+}
+
+template < typename T, typename Alloc >
+template < typename InputIterator >
+inline void list< T, Alloc >::insert(const iterator& pos, InputIterator first, InputIterator last) {
+  for (InputIterator it = first; it != last; ++it) {
+    insert(pos, *it);
+  }
+}
+
+template < typename T, typename Alloc >
+void list< T, Alloc >::remove(const T& val) {
+  rstl::equal_to< T > equal;
+  remove_if(rstl::bind1st(equal, val));
+}
+
+template < typename T, typename Alloc >
 list< T, Alloc >::~list() {
   node* cur = x4_start;
   while (cur != x8_end) {
     node* it = cur;
     node* next = cur->get_next();
     cur = next;
-    rstl::destroy(it->get_value());
+    it->get_value()->~T();
     x0_allocator.deallocate(it);
   }
 }
@@ -251,7 +279,7 @@ typename list< T, Alloc >::node* list< T, Alloc >::do_erase(node* node) {
   }
   node->get_prev()->set_next(node->get_next());
   node->get_next()->set_prev(node->get_prev());
-  rstl::destroy(node->get_value());
+  node->get_value()->~T();
   x0_allocator.deallocate(node);
   x14_count--;
   return result;

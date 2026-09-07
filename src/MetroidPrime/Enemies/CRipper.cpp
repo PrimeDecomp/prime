@@ -24,7 +24,7 @@ CRipper::CRipper(TUniqueId uid, const rstl::string& name, EFlavorType type, cons
                  const CPatternedInfo& patternedInfo, const CActorParameters& actorParams,
                  const CGrappleParameters& grappleParams)
 : CPatterned(kC_Ripper, uid, name, type, info, transform, modelData, patternedInfo, kMT_Flyer,
-             kCT_One, kBT_Flyer, actorParams, kKBV_Medium)
+             kCT_One, kBT_Flyer, actorParams, kCS_Medium)
 , mGrappleParams(grappleParams)
 , mGrapplePoint(kInvalidUniqueId)
 , mPlatform(kInvalidUniqueId)
@@ -33,8 +33,8 @@ CRipper::CRipper(TUniqueId uid, const rstl::string& name, EFlavorType type, cons
   SetMaterialFilter(CMaterialFilter::MakeIncludeExclude(
       CMaterialList(kMT_Solid),
       CMaterialList(kMT_NoStaticCollision, kMT_NoPlatformCollision, kMT_Platform)));
-  GetKnockBackCtrl().SetAutoResetImpulse(false);
-  GetKnockBackCtrl().SetAnimationStateRange(kKBAS_Flinch, kKBAS_KnockBack);
+  KnockBackCtrl().SetAutoResetImpulse(false);
+  KnockBackCtrl().SetAnimationStateRange(kAR_Flinch, kAR_KnockBack);
 }
 
 CRipper::~CRipper() {}
@@ -120,8 +120,8 @@ EWeaponCollisionResponseTypes CRipper::GetCollisionResponseType(const CVector3f&
 }
 
 void CRipper::KnockBack(const CVector3f& direction, CStateManager& mgr, const CDamageInfo& damage,
-                        EKnockBackType knockback, bool inDeferred, float mag) {
-  CPatterned::KnockBack(direction, mgr, damage, knockback, inDeferred, mag);
+                        float mag, bool direct, const bool inDeferred) {
+  CPatterned::KnockBack(direction, mgr, damage, mag, direct, inDeferred);
   BodyCtrl()->CommandMgr().DeliverCmd(CBCKnockBackCmd(-direction, pas::kS_One));
 }
 

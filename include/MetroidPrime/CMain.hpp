@@ -81,6 +81,7 @@ public:
   void SetRestartMode(const ERestartMode s) { x12c_restartMode = s; }
   ERestartMode GetRestartMode() const { return x12c_restartMode; }
   void SetCardBusy(bool v) { x160_31_cardBusy = v; }
+  bool GetCardBusy() const { return x160_31_cardBusy; }
 
   void SetMaxSpeed(bool v) {
     // ?
@@ -88,6 +89,8 @@ public:
   }
 
   void SetGameFlowBuilt(const bool built) { x160_25_mfGameBuilt = built; }
+  float GetAverageTickTime() const { return x118_; }
+  float GetAverageDrawTime() const { return x11c_; }
   void SetScreenFading(const bool fading) { x160_26_screenFading = fading; }
   void SetGameFrameDrawn(const bool drawn) { x161_24_gameFrameDrawn = drawn; }
 

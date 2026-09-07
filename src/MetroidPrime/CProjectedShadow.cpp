@@ -17,7 +17,7 @@ CProjectedShadow::CProjectedShadow(int w, int h, uchar persistent)
 {}
 
 CProjectedShadow::~CProjectedShadow() {
-  x0_texture.fn_8030E10C();
+  x0_texture.ScheduleDeletion();
 }
 
 void CProjectedShadow::ModelDrawCallback(const float*, const float*, const SShadowDrawContext*) {

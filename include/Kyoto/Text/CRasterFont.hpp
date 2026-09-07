@@ -17,7 +17,7 @@ class IObjectStore;
 
 class CFontInfo {
 public:
-  CFontInfo(bool a, bool b, int c, int fontSize, const char* name)
+  CFontInfo(bool a, bool b, int c, int fontSize, const char* const name)
   : x0_(a), x1_(b), x4_(c), x8_fontSize(fontSize) {
     strcpy(xc_name, name);
   }
@@ -30,10 +30,14 @@ private:
   char xc_name[64];
 };
 
+CHECK_SIZEOF(CFontInfo, 0x4c)
+
 class CKernPair {
 public:
-  CKernPair(wchar_t first, wchar_t second, int howMuch)
-  : x0_first(first), x2_second(second), x4_howMuch(howMuch) {}
+  CKernPair(const wchar_t first, const wchar_t second, const int howMuch) : x4_howMuch(howMuch) {
+    x2_second = second;
+    x0_first = first;
+  }
 
   wchar_t GetFirst() const { return x0_first; }
   wchar_t GetSecond() const { return x2_second; }
@@ -45,10 +49,13 @@ private:
   int x4_howMuch;
 };
 
+CHECK_SIZEOF(CKernPair, 0x8)
+
 class CGlyph {
 public:
-  CGlyph(int a, int b, int c, float startU, float startV, float endU, float endV, int cellWidth,
-         int cellHeight, int baseline, int kernStart)
+  CGlyph(const int a, const int b, const int c, const float startU, const float startV,
+         const float endU, const float endV, const int cellWidth, const int cellHeight,
+         const int baseline, const int kernStart)
   : x0_a(a)
   , x2_b(b)
   , x4_c(c)
@@ -70,9 +77,8 @@ public:
   float GetEndV() const { return x14_endV; }
   short GetCellWidth() const { return x18_cellWidth; }
   short GetCellHeight() const { return x1a_cellHeight; }
-  short GetBaseline() const { return x1c_baseline; }
-  short GetKernStart() const { return x1e_kernStart; }
-  // short GetLayer() const { return x20_layer; }
+  short GetBaseLine() const { return x1c_baseline; }
+  int GetKernStart() const { return x1e_kernStart; }
 
 private:
   short x0_a;
@@ -86,8 +92,9 @@ private:
   short x1a_cellHeight;
   short x1c_baseline;
   short x1e_kernStart;
-  // short x20_layer;
 };
+
+CHECK_SIZEOF(CGlyph, 0x20)
 
 enum EFontMode {
   kFM_None = -1,
@@ -102,7 +109,6 @@ class CRasterFont {
 public:
   friend class CFontInstruction;
   CRasterFont(CInputStream& in, IObjectStore* store);
-  ~CRasterFont();
 
   EFontMode GetMode() const;
 
@@ -111,6 +117,7 @@ public:
   int GetCarriageAdvance();
 
   const CGlyph* GetGlyph(wchar_t c) const;
+  bool HasGlyph(wchar_t c) const { return GetGlyph(c) != nullptr; }
 
   void GetSize(const CDrawStringOptions&, int&, int&, const wchar_t*, int) const;
   void SetTexture(TToken< CTexture > token);
@@ -122,7 +129,7 @@ public:
                  int length) const;
 
   void SinglePassDrawString(const CDrawStringOptions& options, int x, int y, int& xOut, int& yOut,
-                            CTextRenderBuffer* buffer, const wchar_t* str, s32 length) const;
+                            CTextRenderBuffer* buffer, const wchar_t* str, int length) const;
 
   void SetupRenderState();
 
@@ -131,9 +138,6 @@ public:
   bool IsFinishedLoading();
 
 private:
-  static int KernLookup(const rstl::vector< CKernPair >& kerning, int a, const int b);
-  const CGlyph* InternalGetGlyph(wchar_t c) const;
-
   bool x0_initialized;
   int x4_monoWidth;
   int x8_monoHeight;
@@ -144,6 +148,9 @@ private:
   rstl::optional_object< TToken< CTexture > > x80_texture;
   int x8c_baseline;
   int x90_lineMargin;
+
+  static int KernLookup(const rstl::vector< CKernPair >& kerning, int a, const int b);
+  const CGlyph* InternalGetGlyph(wchar_t c) const;
 };
 CHECK_SIZEOF(CRasterFont, 0x94)
 

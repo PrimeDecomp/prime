@@ -2,6 +2,7 @@
 #define _SCRIPTLOADER
 #include "CAnimationParameters.hpp"
 
+class CActorParameters;
 class CEntity;
 class CStateManager;
 class CInputStream;
@@ -151,5 +152,6 @@ public:
 };
 
 CAnimationParameters LoadAnimationParameters(CInputStream& in);
+CActorParameters LoadActorParameters(CInputStream& in);
 
 #endif // _SCRIPTLOADER

@@ -15,9 +15,9 @@ public:
   CArchMsgParmInt32Int32VoidPtr(int val1, int val2, const void* ptr);
   ~CArchMsgParmInt32Int32VoidPtr();
 
-  int GetInt1() const { return mInt1; }
-  int GetInt2() const { return mInt2; }
-  const void* GetPtr() const { return mPtr; }
+  int GetFirstInt32() const { return mInt1; }
+  int GetSecondInt32() const { return mInt2; }
+  const void* GetVoidPtr() const { return mPtr; }
 };
 
 #endif // _CARCHMSGPARMINT32INT32VOIDPTR

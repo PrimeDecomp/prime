@@ -532,8 +532,9 @@ void CTexture::UncountMemory() const {
 
 void CTexture::InvalidateTexmap(GXTexMapID texmap) { sLoadedTextures[texmap] = nullptr; }
 
-void CTexture::fn_8030E10C() {
+void CTexture::ScheduleDeletion() {
   if (mARAMToken.GetStatus() != CARAMToken::kS_Six) {
-    CFrameDelayedKiller::fn_8036CC1C(true, mARAMToken.ForceSyncMRAM());
+    CFrameDelayedKiller::ScheduleDeletion(CFrameDelayedKiller::kWhichFrame_NextFrame,
+                                          mARAMToken.ForceSyncMRAM());
   }
 }

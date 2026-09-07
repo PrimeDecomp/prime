@@ -27,22 +27,6 @@ inline void iter_swap(I1 a, I2 b) {
   *b = tmp;
 }
 
-template < typename It, class Cmp >
-void __insertion_sort(It first, It last, Cmp cmp) {
-  It next = first;
-  for (++next; next < last; ++next) {
-    typename iterator_traits< It >::value_type value = *next;
-
-    It t1 = next - 1;
-    It t2 = next;
-    while (first < t2 && cmp(value, *t1)) {
-      *t2-- = *t1;
-      --t1;
-    }
-    *t2 = value;
-  }
-}
-
 template < typename T, class Cmp >
 void __sort3(T& a, T& b, T& c, const Cmp comp) {
   if (comp(b, a)) {
@@ -61,8 +45,25 @@ void __sort3(T& a, T& b, T& c, const Cmp comp) {
 }
 
 template < typename It, class Cmp >
+void __insertion_sort(It first, It last, Cmp cmp) {
+  It next = first;
+  for (++next; next < last; ++next) {
+    typename iterator_traits< It >::value_type value = *next;
+
+    It t1 = next - 1;
+    It t2 = next;
+    while (first < t2 && cmp(value, *t1)) {
+      *t2 = *t1;
+      --t2;
+      --t1;
+    }
+    *t2 = value;
+  }
+}
+
+template < typename It, class Cmp >
 void sort(It first, It last, Cmp cmp) {
-  const int count = last - first;
+  const typename iterator_traits< It >::difference_type count = last - first;
   if (count <= 1) {
     return;
   }
@@ -117,6 +118,92 @@ It lower_bound(It start, It end, const T& value, Cmp cmp) {
   return start;
 }
 
+template < typename T >
+void __sort3(T& a, T& b, T& c) {
+  if (b < a) {
+    swap(a, b);
+  }
+  if (c < b) {
+    T tmp(c);
+    c = b;
+    if (tmp < a) {
+      b = a;
+      a = tmp;
+    } else {
+      b = tmp;
+    }
+  }
+}
+
+template < typename It >
+void __insertion_sort(It first, It last) {
+  It next = first;
+  for (++next; next < last; ++next) {
+    typename iterator_traits< It >::value_type value = *next;
+    It t1 = next - 1;
+    It t2 = next;
+    while (first < t2 && value < *t1) {
+      *t2 = *t1;
+      --t2;
+      --t1;
+    }
+    *t2 = value;
+  }
+}
+
+template < typename It >
+void sort(It first, It last) {
+  const typename iterator_traits< It >::difference_type count = last - first;
+  if (count <= 1) {
+    return;
+  }
+  if (count <= 20) {
+    __insertion_sort(first, last);
+    return;
+  }
+  It mid = first + count / 2;
+  It end = last - 1;
+  __sort3(*first, *mid, *end);
+  typename iterator_traits< It >::value_type pivot = *mid;
+  It it = first + 1;
+  --end;
+  while (true) {
+    while (*it < pivot) {
+      ++it;
+    }
+    while (pivot < *end) {
+      --end;
+    }
+    if (it >= end) {
+      break;
+    }
+    iter_swap(it, end);
+    ++it;
+    --end;
+  }
+  sort(first, it);
+  sort(it, last);
+}
+
+template < typename It, typename T >
+It lower_bound(It start, It end, const T& value) {
+  int dist = distance(start, end);
+  It it = start;
+  while (dist > 0) {
+    int halfDist = dist / 2;
+    it = start;
+    advance(it, halfDist);
+    if (*it < value) {
+      start = it;
+      ++start;
+      dist = (dist - halfDist) - 1;
+    } else {
+      dist = halfDist;
+    }
+  }
+  return start;
+}
+
 template < typename Vec >
 typename Vec::const_iterator lower_bound_const(typename Vec::const_iterator start,
                                                typename Vec::const_iterator end,
@@ -133,6 +220,25 @@ typename Vec::const_iterator lower_bound_const(typename Vec::const_iterator star
       dist = (dist - halfDist) - 1;
     } else {
       dist = halfDist;
+    }
+  }
+  return start;
+}
+
+template < typename It, typename T >
+It upper_bound(It start, It end, const T& value) {
+  int dist = distance(start, end);
+  It it = start;
+  while (dist > 0) {
+    int halfDist = dist / 2;
+    it = start;
+    advance(it, halfDist);
+    if (value < *it) {
+      dist = halfDist;
+    } else {
+      start = it;
+      ++start;
+      dist = (dist - halfDist) - 1;
     }
   }
   return start;
@@ -161,10 +267,7 @@ typename Vec::iterator lower_bound(typename Vec::iterator start, typename Vec::i
 template < typename It, typename T, typename Cmp >
 inline It binary_find(It start, It end, const T& value, Cmp cmp) {
   It lower = lower_bound(start, end, value, cmp);
-  bool found = false;
-  if (lower != end && !cmp(value, *lower)) {
-    found = true;
-  }
+  bool found = lower != end && !cmp(value, *lower);
   return found ? lower : end;
 }
 
@@ -245,13 +348,14 @@ find_by_key(const T& container,
 template < typename T >
 typename T::const_iterator inline find_by_key(
     const T& container, const typename select1st< typename T::value_type >::value_type& key) {
-  return binary_find(container.begin(), container.end(), key, default_pair_sorter_finder< T >());
+  less< typename select1st< typename T::value_type >::value_type > cmp;
+  return find_by_key(container, key, cmp);
 }
 
 template < typename T, class Cmp >
 typename T::const_iterator inline find_by_key(
     const T& container, const typename select1st< typename T::value_type >::value_type& key,
-    Cmp cmp) {
+    const Cmp& cmp) {
   return binary_find(container.begin(), container.end(), key,
                      pair_sorter_finder< typename T::value_type, Cmp >(cmp));
 }
@@ -264,6 +368,12 @@ template < typename T >
 typename T::iterator inline find_by_key_nc(
     T& container, const typename select1st< typename T::value_type >::value_type& key) {
   return binary_find(container.begin(), container.end(), key, default_pair_sorter_finder< T >());
+}
+
+template < typename T >
+inline void sort_by_key(T& container) {
+  less< typename select1st< typename T::value_type >::value_type > cmp;
+  sort_by_key(container, cmp);
 }
 
 template < typename T, class Cmp >

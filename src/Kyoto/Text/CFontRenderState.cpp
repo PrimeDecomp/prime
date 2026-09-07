@@ -6,25 +6,25 @@ CFontRenderState::CFontRenderState()
 , xd8_curY(0)
 , xdc_currentLineInst(nullptr)
 , x108_lineInitialized(true) {
-  x0_state.GetColors()[0] = CTextColor(255, 255, 255, 255);
-  x0_state.GetColors()[1] = CTextColor(128, 128, 128, 255);
-  x0_state.GetColors()[2] = CTextColor(255, 255, 255, 255);
+  GetColors()[0] = CTextColor(255, 255, 255, 255);
+  GetColors()[1] = CTextColor(128, 128, 128, 255);
+  GetColors()[2] = CTextColor(255, 255, 255, 255);
   RefreshPalette();
 }
 
 void CFontRenderState::RefreshColor(const EColorType col) {
   switch (col) {
   case kCT_Main: {
-    if (x0_state.IsFinishedLoading() && GetFont().IsLoaded()) {
+    if (IsFinishedLoading() && GetFont().IsLoaded()) {
       switch (GetFont()->GetMode()) {
       case kFM_OneLayer:
-        if (!x0_state.GetOverride()[0]) {
-          x0_state.GetOptions().SetPaletteEntry(0, ConvertToTextureSpace(x0_state.GetColors()[0]));
+        if (!GetOverride()[0]) {
+          GetOptions().SetPaletteEntry(0, ConvertToTextureSpace(GetColors()[0]));
         }
         break;
       case kFM_OneLayerOutline: {
-        if (!x0_state.GetOverride()[0]) {
-          x0_state.GetOptions().SetPaletteEntry(0, ConvertToTextureSpace(x0_state.GetColors()[0]));
+        if (!GetOverride()[0]) {
+          GetOptions().SetPaletteEntry(0, ConvertToTextureSpace(GetColors()[0]));
         }
         break;
       }
@@ -35,14 +35,14 @@ void CFontRenderState::RefreshColor(const EColorType col) {
     break;
   }
   case kCT_Geometry: {
-    if (!x0_state.GetOverride()[2]) {
-      x0_state.GetOptions().SetPaletteEntry(2, ConvertToTextureSpace(x0_state.GetColors()[2]));
+    if (!GetOverride()[2]) {
+      GetOptions().SetPaletteEntry(2, ConvertToTextureSpace(GetColors()[2]));
     }
   } break;
   case kCT_Outline: {
-    if (x0_state.IsFinishedLoading() && GetFont().IsLoaded() && !x0_state.GetOverride()[1]) {
+    if (IsFinishedLoading() && GetFont().IsLoaded() && !GetOverride()[1]) {
       if (GetFont()->GetMode() == kFM_OneLayerOutline) {
-        x0_state.GetOptions().SetPaletteEntry(1, ConvertToTextureSpace(x0_state.GetColors()[1]));
+        GetOptions().SetPaletteEntry(1, ConvertToTextureSpace(GetColors()[1]));
       }
     }
     break;
@@ -69,13 +69,13 @@ void CFontRenderState::SetColor(const EColorType type, const CTextColor& color) 
   case kCT_Main:
   case kCT_Outline:
   case kCT_Geometry:
-    x0_state.GetColors()[type] = color;
+    GetColors()[type] = color;
     break;
   case kCT_Foreground:
-    x0_state.GetColors()[0] = color;
+    GetColors()[0] = color;
     break;
   case kCT_Background:
-    x0_state.GetColors()[1] = color;
+    GetColors()[1] = color;
     break;
   }
 
@@ -85,18 +85,11 @@ void CFontRenderState::SetColor(const EColorType type, const CTextColor& color) 
 void CFontRenderState::PushState() { x10c_pushedStates.push_front(x0_state); }
 
 void CFontRenderState::PopState() {
-  x0_state = *x10c_pushedStates.begin();
+  x0_state = x10c_pushedStates.front();
   x10c_pushedStates.pop_front();
   RefreshPalette();
 }
 
-#ifdef __MWERKS__
-#pragma cpp_extensions reset
-#endif
 uint CFontRenderState::ConvertToTextureSpace(const CTextColor& color) const {
   return CTextColor(color).GetRGBA();
 }
-
-#ifdef __MWERKS__
-#pragma cpp_extensions reset
-#endif

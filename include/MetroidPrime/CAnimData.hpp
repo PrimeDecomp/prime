@@ -3,15 +3,15 @@
 
 #include "types.h"
 
+#include "../Kyoto/Animation/CAdditiveAnimPlayback.hpp"
 #include "Kyoto/Animation/CBoolPOINode.hpp"
 #include "Kyoto/Animation/CCharacterInfo.hpp"
 #include "Kyoto/Animation/CInt32POINode.hpp"
 #include "Kyoto/Animation/CParticlePOINode.hpp"
 #include "Kyoto/Animation/CSoundPOINode.hpp"
 #include "MetroidPrime/ActorCommon.hpp"
-#include "MetroidPrime/CAdditiveAnimPlayback.hpp"
 #include "MetroidPrime/CAnimPlaybackParms.hpp"
-#include "MetroidPrime/CHierarchyPoseBuilder.hpp"
+#include "Kyoto/Animation/CHierarchyPoseBuilder.hpp"
 #include "MetroidPrime/CParticleDatabase.hpp"
 #include "MetroidPrime/CPoseAsTransforms.hpp"
 
@@ -39,8 +39,8 @@ class CModelFlags;
 class CPrimitive;
 class CFrustumPlanes;
 
-struct SAdvancementDeltas;
-struct SAdvancementResults;
+struct CAdvancementDeltas;
+struct CAdvancementResults;
 
 class CAnimData {
 public:
@@ -56,6 +56,7 @@ public:
   ~CAnimData();
 
   void PreRender();
+  bool GetIsLoop() const { return x220_25_loop; }
   void EnableLooping(bool v) {
     x220_25_loop = v;
     x220_24_animating = true;
@@ -64,7 +65,8 @@ public:
   const TLockedToken< CSkinnedModel >& GetModelData() const { return xd8_modelData; }
 
   void SetIsAnimating(bool v) { x220_24_animating = v; }
-  void SetParticleEffectState(const rstl::string& name, bool active, CStateManager& mgr);
+  void SetParticleCEXTValue(const rstl::string& name, int index, float value);
+  void SetParticleEffectState(const rstl::string& name, const bool active, CStateManager& mgr);
 
   CAssetId GetSelfId() const { return x1d8_selfId; }
   int GetCharacterIndex() const { return x204_charIdx; }
@@ -103,11 +105,11 @@ public:
   // FreeCache__9CAnimDataFv
   void SetInfraModel(const TLockedToken< CModel >&, const TLockedToken< CSkinRules >&);
   void SetXRayModel(const TLockedToken< CModel >&, const TLockedToken< CSkinRules >&);
-  void SubstituteModelData(const TCachedToken< CSkinnedModel >&);
+  void SubstituteModelData(const TLockedToken< CSkinnedModel >&);
   void AdvanceAnim(CCharAnimTime&, CVector3f&, CQuaternion&);
-  SAdvancementDeltas Advance(float, const CVector3f&, CStateManager&, TAreaId, bool);
-  SAdvancementDeltas AdvanceIgnoreParticles(float, CRandom16&, bool);
-  SAdvancementDeltas DoAdvance(float, bool&, CRandom16&, bool);
+  CAdvancementDeltas Advance(float, const CVector3f&, CStateManager&, TAreaId, bool);
+  CAdvancementDeltas AdvanceIgnoreParticles(float, CRandom16&, bool);
+  CAdvancementDeltas DoAdvance(float, bool&, CRandom16&, bool);
   void SetAnimation(const CAnimPlaybackParms& parms, const bool noTrans);
   void GetAnimationPrimitives(const CAnimPlaybackParms& parms,
                               rstl::set< CPrimitive >& primsOut) const;
@@ -147,9 +149,9 @@ public:
   // AnimationTree__9CAnimDataFv
   // IsAdditiveAnimation__9CAnimDataCFUi
   bool IsAdditiveAnimationAdded(uint idx) const;
-  SAdvancementDeltas UpdateAdditiveAnims(float);
-  SAdvancementDeltas AdvanceAdditiveAnims(float);
-  static SAdvancementResults AdvanceAdditiveAnim(rstl::rc_ptr< CAnimTreeNode >&,
+  CAdvancementDeltas UpdateAdditiveAnims(float);
+  CAdvancementDeltas AdvanceAdditiveAnims(float);
+  static CAdvancementResults AdvanceAdditiveAnim(rstl::rc_ptr< CAnimTreeNode >&,
                                                  const CCharAnimTime&);
   void AddAdditiveSegData(const CSegIdList&, CSegStatementSet&) const;
   int GetEventResourceIdForAnimResourceId(int id) const;
@@ -173,7 +175,7 @@ public:
   // GetAnimDir__9CAnimDataCFv
   // GetIsLoop__9CAnimDataCFv
   // IsAnimating__9CAnimDataCFv
-  // SetPoseBuilderValid__9CAnimDataFb
+  void SetPoseBuilderValid(bool valid) { x220_30_poseBuilt = valid; }
   rstl::rc_ptr< CAnimationManager > GetAnimationManager() const;
   // GetPoseValid__9CAnimDataCFv
   // GetPoseBuilderValid__9CAnimDataCFv
@@ -186,11 +188,11 @@ public:
   // GetSkinnedModel__9CAnimDataCFv
   // GetXRayModel__9CAnimDataCFv
   // GetInfraModel__9CAnimDataCFv
-  // GetPose__9CAnimDataCFv
-  // PoseBuilder__9CAnimDataCFv
-  // GetPlaybackRate__9CAnimDataCFv
+  const CPoseAsTransforms& GetPose() const { return x224_pose; }
+  CHierarchyPoseBuilder& PoseBuilder() const { return x2fc_poseBuilder; }
+  float GetPlaybackRate() const { return x200_speedScale; }
   // Pose__9CAnimDataFv
-  // GetPoseBuilder__9CAnimDataCFv
+  const CHierarchyPoseBuilder& GetPoseBuilder() const { return x2fc_poseBuilder; }
 
   // CacheSoundPoiList__9CAnimDataFRCQ24rstl25ncrc_ptr<13CAnimTreeNode>RC13CCharAnimTimei
   // CacheParticlePoiList__9CAnimDataFRCQ24rstl25ncrc_ptr<13CAnimTreeNode>RC13CCharAnimTimei
@@ -238,7 +240,7 @@ private:
   uchar x220_30_poseBuilt : 1;
   uchar x220_31_poseCached : 1;
   CPoseAsTransforms x224_pose;
-  CHierarchyPoseBuilder x2fc_poseBuilder;
+  mutable CHierarchyPoseBuilder x2fc_poseBuilder;
   CAnimPlaybackParms x40c_playbackParms;
   rstl::reserved_vector< rstl::pair< uint, CAdditiveAnimPlayback >, 8 > x434_additiveAnims;
 

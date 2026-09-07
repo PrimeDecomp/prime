@@ -132,14 +132,21 @@ public:
   bool NullModel() const { return !GetAnimationData() && !GetModelData()->HasNormalModel(); }
 
   bool HasModelData() const {
-    return GetModelData() && (GetModelData()->HasAnimation() || GetModelData()->HasNormalModel());
+    return !x64_modelData.null() && (GetModelData()->HasAnimation() || GetModelData()->HasNormalModel());
   }
   CModelData* ModelData() { return x64_modelData.get(); }
   const CModelData* GetModelData() const { return x64_modelData.get(); }
 
-  bool HasAnimation() const { return GetModelData() && GetModelData()->HasAnimation(); }
-  CAnimData* AnimationData() { return ModelData()->AnimationData(); }
+  bool HasAnimation() const { return !x64_modelData.null() && GetModelData()->HasAnimation(); }
+  CAnimData* AnimationData() {
+    return ModelData()->AnimationData();
+  }
   const CAnimData* GetAnimationData() const { return GetModelData()->GetAnimationData(); }
+
+  CVector3f GetModelScale() const {
+    const CModelData* modelData = GetModelData();
+    return modelData->GetScale();
+  }
 
   bool HasShadow() const { return GetShadow() != nullptr; }
   CSimpleShadow* Shadow() { return x94_simpleShadow.get(); }
@@ -171,6 +178,7 @@ public:
   bool GetShadowDirty() const { return xe5_25_shadowDirty; }
   bool GetMuted() const { return xe5_26_muted; }
   bool GetPointGeneratorParticles() const { return xe5_31_pointGeneratorParticles; }
+  void SetPointGeneratorParticles(bool active) { xe5_31_pointGeneratorParticles = active; }
   bool IsInFluid() const { return xe6_24_fluidCounter != 0; }
   EThermalFlags GetThermalFlags() const {
     return static_cast< EThermalFlags >(xe6_27_thermalVisorFlags);
@@ -181,6 +189,7 @@ public:
   void SetTransformDirty(bool b) { xe4_27_notInSortedLists = b; }
   void SetTransformDirtySpare(bool b) { xe4_28_transformDirty = b; }
   void SetPreRenderHasMoved(bool b) { xe4_29_actorLightsDirty = b; }
+  void SetWorldLightingDirty(bool b) { xe7_28_worldLightingDirty = b; }
   void SetPreRenderClipped(bool b) { xe4_30_outOfFrustum = b; }
   void SetCalculateLighting(bool b);
   void SetDrawShadow(bool b);
@@ -207,9 +216,14 @@ public:
 
   const CAABox& GetRenderBoundsCached() const { return x9c_renderBounds; }
   void SetRenderBounds(const CAABox& bounds) { x9c_renderBounds = bounds; }
+  TUniqueId GetDrawParent() const { return xc6_nextDrawNode; }
+  uint GetDrawToken() const { return xc8_drawnToken; }
+  uint GetAddedToken() const { return xcc_addedToken; }
+  void SetDrawToken(uint token) const { const_cast< CActor* >(this)->xc8_drawnToken = token; }
   void SetAddedToken(unsigned int token) const {
     const_cast< CActor* >(this)->xcc_addedToken = token;
   }
+  bool IsDrawEnabled() const { return xe7_29_drawEnabled; }
 
   bool GetUseInSortedLists() const;
   void SetUseInSortedLists(bool use);
@@ -227,6 +241,7 @@ public:
 
 protected:
   void SetDrawEnabled(bool v) { xe7_29_drawEnabled = v; }
+  void SetEnableRender(bool v) { xe7_27_enableRender = v; }
 
 private:
   CTransform4f x34_transform;

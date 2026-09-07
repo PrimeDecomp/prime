@@ -409,7 +409,7 @@ float CActor::GetPitch() const {
 CHealthInfo* CActor::HealthInfo(CStateManager& mgr) { return nullptr; }
 
 const CDamageVulnerability* CActor::GetDamageVulnerability() const {
-  return &CDamageVulnerability::NormalVulnerabilty();
+  return &CDamageVulnerability::NormalVulnerability();
 }
 
 const CDamageVulnerability* CActor::GetDamageVulnerability(const CVector3f&, const CVector3f&,

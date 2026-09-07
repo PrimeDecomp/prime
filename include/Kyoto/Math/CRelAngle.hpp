@@ -31,8 +31,8 @@ public:
 
   bool operator<(const CRelAngle& rhs) const { return x0_angle < rhs.x0_angle; }
 
-  static CRelAngle FromDegrees(float deg) { return CRelAngle(deg * (M_PIF / 180.f)); }
-  static CRelAngle FromRadians(float rad) { return CRelAngle(rad); }
+  static CRelAngle FromDegrees(const float deg) { return CRelAngle(deg * (M_PIF / 180.f)); }
+  static CRelAngle FromRadians(const float rad) { return CRelAngle(rad); }
 
 private:
   float x0_angle;

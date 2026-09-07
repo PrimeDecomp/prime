@@ -19,26 +19,6 @@ class CGenDescription;
 class CInputStream;
 struct CMetroidPrimeData;
 
-class CMetroidPrime : public CPatterned {
-public:
-  struct CMetroidPrimeAttackWeights {
-    rstl::reserved_vector< float, 14 > x0_floats;
-
-    explicit CMetroidPrimeAttackWeights(CInputStream& in);
-  };
-
-  struct CVulnerabilityEntry {
-    uint x0_propertyCount;
-    CDamageVulnerability x4_damageVulnerability;
-    CColor x6c_color;
-    uint x70_[2];
-
-    explicit CVulnerabilityEntry(CInputStream& in);
-  };
-};
-NESTED_CHECK_SIZEOF(CMetroidPrime, CMetroidPrimeAttackWeights, 0x3C)
-NESTED_CHECK_SIZEOF(CMetroidPrime, CVulnerabilityEntry, 0x78)
-
 struct CMetroidPrimeIceAttack {
   uint x0_propertyCount;
   CAssetId x4_particle1;
@@ -66,6 +46,45 @@ struct CMetroidPrimeParasiteQueenAttack {
   explicit CMetroidPrimeParasiteQueenAttack(CInputStream& in);
 };
 CHECK_SIZEOF(CMetroidPrimeParasiteQueenAttack, 0xA8)
+
+class CMetroidPrime : public CPatterned {
+public:
+  enum EAttackType {
+
+  };
+  struct CMetroidPrimeAttackWeights {
+    rstl::reserved_vector< float, 14 > mAttackWeights;
+
+    explicit CMetroidPrimeAttackWeights(CInputStream& in);
+
+    float GetAttackWeight(const EAttackType attack) { return mAttackWeights[attack]; }
+  };
+
+  struct CVulnerabilityEntry {
+    uint x0_propertyCount;
+    CDamageVulnerability x4_damageVulnerability;
+    CColor x6c_color;
+    uint x70_[2];
+
+    explicit CVulnerabilityEntry(CInputStream& in);
+  };
+
+  CMetroidPrime(const TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
+                const CTransform4f& xf, const CModelData& mData, const CPatternedInfo& pInfo,
+                const CActorParameters& actorParms, const int pw1,
+                const CCameraShakeData& shakeData1, const CCameraShakeData& shakeData2,
+                const CCameraShakeData& shakeData3, const CMetroidPrimeIceAttack& iceAttack,
+                const CAssetId particle1,
+                const rstl::reserved_vector< CMetroidPrimeParasiteQueenAttack, 4 >& breathAttacks,
+                const CAssetId weaponDesc1, const CDamageInfo&, const CCameraShakeData& shakeData4,
+                const CAssetId weaponDesc2, const CDamageInfo& dInfo2, const CCameraShakeData& shakeData5,
+                const CPoisonInfo& poisonInfo, const CDamageInfo& dInfo3,
+                const CCameraShakeData& shakeData6, const CAssetId particle2, const CAssetId swoosh,
+                const CAssetId particle3, const CAssetId particle4,
+                const rstl::reserved_vector< CVulnerabilityEntry, 4 >& vulnerabilities);
+};
+NESTED_CHECK_SIZEOF(CMetroidPrime, CMetroidPrimeAttackWeights, 0x3C)
+NESTED_CHECK_SIZEOF(CMetroidPrime, CVulnerabilityEntry, 0x78)
 
 struct CMetroidPrimeData {
   uint x0_propertyCount;

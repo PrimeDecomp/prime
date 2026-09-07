@@ -4,7 +4,7 @@
 #include "Kyoto/Particles/CParticleDataFactory.hpp"
 
 CFactoryFnReturn FDecalDataFactory(const SObjectTag& tag, CInputStream& in,
-                                   const CVParamTransfer& transfer) {
+                                 const CVParamTransfer& transfer) {
   rstl::rc_ptr< IVParamObj > obj = transfer.x0_obj;
   CSimplePool* pool = static_cast< TObjOwnerParam< CSimplePool* >* >(obj.GetPtr())->GetData();
   CDecalDescription* ret = CDecalDataFactory::GetGeneratorDesc(in, pool);
@@ -15,7 +15,7 @@ CDecalDescription* CDecalDataFactory::GetGeneratorDesc(CInputStream& in, CSimple
   return CreateGeneratorDescription(in, pool);
 }
 CDecalDescription* CDecalDataFactory::CreateGeneratorDescription(CInputStream& in,
-                                                                 CSimplePool* pool) {
+                                                              CSimplePool* pool) {
   if (CParticleDataFactory::GetClassID(in) != 'DPSM') {
     return nullptr;
   }
@@ -25,14 +25,45 @@ CDecalDescription* CDecalDataFactory::CreateGeneratorDescription(CInputStream& i
   return desc;
 }
 void CDecalDataFactory::GetQuadDecalInfo(CInputStream& in, CSimplePool* pool, uint classId,
-                                         CDecalDescription::SQuadDescr& quad) {}
+                                      CDecalDescription::SQuadDescr& quad) {
+  switch (classId) {
+  case '1LFT':
+  case '2LFT':
+    quad.x0_LFT = CParticleDataFactory::GetIntElement(in);
+    break;
+  case '1SZE':
+  case '2SZE':
+    quad.x4_SZE = CParticleDataFactory::GetRealElement(in);
+    break;
+  case '1ROT':
+  case '2ROT':
+    quad.x8_ROT = CParticleDataFactory::GetRealElement(in);
+    break;
+  case '1OFF':
+  case '2OFF':
+    quad.xc_OFF = CParticleDataFactory::GetVectorElement(in);
+    break;
+  case '1CLR':
+  case '2CLR':
+    quad.x10_CLR = CParticleDataFactory::GetColorElement(in);
+    break;
+  case '1TEX':
+  case '2TEX':
+    quad.x14_TEX = CParticleDataFactory::GetTextureElement(in, pool);
+    break;
+  case '1ADD':
+  case '2ADD':
+    quad.x18_ADD = CParticleDataFactory::GetBool(in);
+    break;
+  }
+}
 
 bool CDecalDataFactory::CreateDPSM(CDecalDescription* desc, CInputStream& in, CSimplePool* pool) {
   bool done = false;
-  CRandom16 _;
+  CRandom16 random;
 
   while (!done) {
-    CGlobalRandom __(_);
+    CGlobalRandom globalRandom(random);
     const FourCC clsId = CParticleDataFactory::GetClassID(in);
     bool loadFirstDesc = false;
     switch (clsId) {
@@ -57,8 +88,9 @@ bool CDecalDataFactory::CreateDPSM(CDecalDescription* desc, CInputStream& in, CS
     case 'DMDL': {
       rstl::optional_object< TToken< CModel > > model = CParticleDataFactory::GetModel(in, pool);
       if (model.valid()) {
-        rstl::optional_object<TLockedToken<CModel> > m = TLockedToken<CModel>(*model);
-        desc->x38_DMDL = m;
+        desc->x38_DMDL = TLockedToken< CModel >(*model);
+      } else {
+        desc->x38_DMDL = rstl::optional_object_null();
       }
     } break;
     case 'DLFT':

@@ -14,19 +14,28 @@ class CResFactory : public IFactory {
 public:
   CResFactory();
 
-  ~CResFactory();
-  CFactoryFnReturn Build(const SObjectTag&, const CVParamTransfer&);
-  void BuildAsync(const SObjectTag&, const CVParamTransfer&, IObj**);
-  void CancelBuild(const SObjectTag&);
-  bool CanBuild(const SObjectTag&);
-  const SObjectTag* GetResourceIdByName(const char* name) const;
+  ~CResFactory() override;
+  CFactoryFnReturn Build(const SObjectTag&, const CVParamTransfer&) override;
+  void BuildAsync(const SObjectTag&, const CVParamTransfer&, IObj**) override;
+  void CancelBuild(const SObjectTag&) override;
+  bool CanBuild(const SObjectTag& tag) override { return x4_resLoader.ResourceExists(tag); }
+  const SObjectTag* GetResourceIdByName(const char* name) const override;
+
+  FourCC GetResourceTypeById(CAssetId id) { return GetResLoader().GetResourceTypeById(id); }
+
+  rstl::vector< rstl::pair< rstl::string, SObjectTag > > GetResourceIdToNameList() const {
+    return x4_resLoader.GetResourceIdToNameList();
+  }
 
   uint ResourceSize(const SObjectTag& tag) const { return x4_resLoader.ResourceSize(tag); }
 
   void AsyncIdle(uint time);
 
   CResLoader& GetResLoader() { return x4_resLoader; }
-  FourCC GetResourceTypeById(CAssetId id) { return GetResLoader().GetResourceTypeById(id); }
+  const rstl::vector< CAssetId >* GetTagListForFile(const rstl::string& pak) const {
+    return x4_resLoader.GetTagListForFile(pak);
+  }
+
   CInputStream* LoadResourceFromMemorySync(const SObjectTag& tag, const void* extBuf) {
     return x4_resLoader.LoadResourceFromMemorySync(tag, extBuf);
   }

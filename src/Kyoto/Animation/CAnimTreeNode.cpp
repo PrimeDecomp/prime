@@ -1,15 +1,17 @@
 #include "Kyoto/Animation/CAnimTreeNode.hpp"
 #include "rstl/rc_ptr.hpp"
-#include "rstl/single_ptr.hpp"
+#include "rstl/auto_ptr.hpp"
 
 CAnimTreeNode::CAnimTreeNode(const rstl::string& name) : x4_name(name) {}
 
-/*
-rstl::rc_ptr< CAnimTreeNode > Cast(const rstl::ownership_transfer< IAnimReader >& ptr) {
-  if (ptr->IsCAnimTreeNode()) {
-    return static_cast< CAnimTreeNode* >(ptr.get());
+rstl::ncrc_ptr< CAnimTreeNode > Cast(const rstl::ownership_transfer< IAnimReader >& ptr) {
+  IAnimReader* reader = ptr.take_ownership();
+  if (reader->IsCAnimTreeNode()) {
+    return static_cast< CAnimTreeNode* >(reader);
   }
 
-  return rstl::rc_ptr< CAnimTreeNode >();
+  rstl::auto_ptr< IAnimReader > invalidReader(reader);
+  return rstl::ncrc_ptr< CAnimTreeNode >();
 }
-*/
+
+bool CAnimTreeNode::IsCAnimTreeNode() const { return true; }

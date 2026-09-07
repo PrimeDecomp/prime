@@ -1,3 +1,5 @@
+#pragma inline_max_size(250)
+
 #include "MetroidPrime/CMemoryCardDriver.hpp"
 
 #include "MetroidPrime/CMain.hpp"
@@ -751,7 +753,7 @@ void CMemoryCardDriver::ExportPersistentOptions() {
   gpGameState->ExportPersistentOptions(state);
 
   CMemoryStreamOut w(data, x30_systemData.capacity());
-  w.Put(state);
+  state.PutTo(w);
 }
 
 SSaveHeader::SSaveHeader(int i) : x0_version(i) {}
@@ -784,7 +786,7 @@ void SGameFileSlot::PutTo(COutputStream& w) const {
 void SGameFileSlot::InitializeFromGameState() {
   {
     CMemoryStreamOut w(x0_saveBuffer.data(), x0_saveBuffer.capacity());
-    w.Put(*gpGameState);
+    gpGameState->PutTo(w);
   }
   x944_fileInfo = CGameState::LoadGameFileState(x0_saveBuffer.data());
 }

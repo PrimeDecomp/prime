@@ -5,6 +5,7 @@
 
 #include "Kyoto/Animation/CCharAnimTime.hpp"
 #include "rstl/string.hpp"
+#include "rstl/vector.hpp"
 
 enum EPOIType {
   kPT_Loop = 0,
@@ -28,6 +29,7 @@ public:
   const rstl::string& GetString() const { return x8_name; }
   const EPOIType GetPoiType() const { return static_cast< EPOIType >(x18_type); }
   const CCharAnimTime& GetTime() const { return x1c_time; }
+  void SetTime(const CCharAnimTime& time) { x1c_time = time; }
   const int GetIndex() const { return x24_index; }
   const bool GetSaveState() const { return x28_unique; }
   const float GetWeight() const { return x2c_weight; }
@@ -50,6 +52,5 @@ protected:
   int x34_flags;
 };
 CHECK_SIZEOF(CPOINode, 0x38)
-
 
 #endif // _CPOINODE

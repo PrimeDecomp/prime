@@ -44,6 +44,7 @@ public:
   T& operator*() const { return *get(); }
   bool owns_object() const { return x0_owns; }
 };
+
 } // namespace rstl
 
 #endif // _RSTL_OWNERSHIP_TRANSFER

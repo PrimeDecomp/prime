@@ -159,13 +159,13 @@ bool CParticleDataFactory::CreateGPSM(CGenDescription* desc, CInputStream& in,
     case SBIG('CIND'):
       desc->x32_24_CIND = GetBool(in);
       break;
-    case SBIG('PMDL'):
+    case SBIG('PMDL'): {
       rstl::optional_object< TToken< CModel > > model(GetModel(in, pool));
       if (model) {
         TCachedToken< CModel > tok = *model;
         desc->x48_PMDL = tok;
       }
-      break;
+    } break;
     case SBIG('PMOP'):
       desc->x58_PMOP = GetVectorElement(in);
       break;

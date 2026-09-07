@@ -74,19 +74,22 @@ inline float StoF(const short& in) { return static_cast< float >(in); }
 
 inline uchar ToUint8(int c) { return static_cast< uchar >(c); }
 inline int FtoL(float in) { return static_cast< int >(in); }
+inline uint ToUint32(float in) { return static_cast< uint >(in); }
+inline uint ToUint32(uint in) { return in; }
+inline float ToReal32(uint in) { return static_cast< float >(in); }
+inline float ToReal32(const short& in) { return StoF(in); }
 inline float LtoF(int in) { return static_cast< float >(in); }
 inline float ToReal32(int in) { return static_cast< float >(in); }
 inline float ToReal32(double in) { return static_cast< float >(in); }
 inline int ToInt32(float in) { return static_cast< int >(in); }
+inline int ToInt(float in) { return ToInt32(in); }
 inline int ToInt32(double in) { return static_cast< int >(in); }
 inline float QtoF(long long in) { return static_cast< float >(in); }
 inline unsigned short ToUint16(short in) { return static_cast< unsigned short >(in); }
 inline char ToChar(int c) { return ToUint8(c); }
-inline int ToInt16(const s64 v) {
-  return v % 4096;
-}
+inline short ToInt16(const s64 v) { return v % 4096; }
 
-inline const short ToInt16(const int in) { return static_cast<const short>(in); }
+inline short ToInt16(int in) { return in; }
 } // namespace CCast
 
 #endif // _CCAST

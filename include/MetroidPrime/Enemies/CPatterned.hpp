@@ -10,6 +10,7 @@
 #include "MetroidPrime/Enemies/CStateMachine.hpp"
 #include "MetroidPrime/Weapons/CWeapon.hpp"
 
+#include "rstl/pair.hpp"
 #include "rstl/rc_ptr.hpp"
 
 class CPASAnimParmData;
@@ -22,6 +23,7 @@ class CModelFlags;
 class CEnergyProjectile;
 class CSegId;
 class CScriptCoverPoint;
+class CScriptWaypoint;
 
 template < typename T >
 struct TPatternedCast {
@@ -34,7 +36,7 @@ typedef void (CPatterned::*FTryCommandCallback)(CStateManager& mgr, int arg);
 
 class CPatterned : public CAi {
 public:
-  enum ECharacter {
+  enum EPatternedAI {
     kC_AtomicAlpha = 0,
     kC_AtomicBeta = 1,
     kC_Babygoth = 2,
@@ -101,6 +103,7 @@ public:
     kBO_MoveDir,
     kBO_Constant,
     kBO_Destination,
+    kBO_Three,
   };
   enum EBehaviourModifiers {
     kBM_Zero,
@@ -147,7 +150,14 @@ public:
 
   public:
     CPatternNode(const CVector3f& pos, const CVector3f& forward, float speed, uint behaviour,
-                 uint behaviourOrient, uint behaviourModifiers, uint animation);
+                 uint behaviourOrient, uint behaviourModifiers, uint animation)
+    : x0_pos(pos)
+    , xc_forward(forward)
+    , x18_speed(speed)
+    , x1c_behaviour(behaviour)
+    , x1d_behaviourOrient(behaviourOrient)
+    , x1e_behaviourModifiers(behaviourModifiers)
+    , x20_animation(animation) {}
     const CVector3f& GetPos() const { return x0_pos; }
     const CVector3f& GetForward() const { return xc_forward; }
     float GetSpeed() const { return x18_speed; }
@@ -156,11 +166,11 @@ public:
     ushort GetBehaviourModifiers() const { return x1e_behaviourModifiers; }
   };
 
-  CPatterned(const ECharacter character, const TUniqueId uid, const rstl::string& name,
+  CPatterned(const EPatternedAI character, const TUniqueId uid, const rstl::string& name,
              const EFlavorType flavor, const CEntityInfo& info, const CTransform4f& xf,
              const CModelData& mData, const CPatternedInfo& pinfo, EMovementType movement,
              const EColliderType collider, const EBodyType body, const CActorParameters& params,
-             const EKnockBackVariant kbVariant);
+             const ECreatureSize kbVariant);
 
   // CEntity
   ~CPatterned() override {}
@@ -189,8 +199,8 @@ public:
 
   // CAi
   void Death(CStateManager& mgr, const CVector3f& direction, EScriptObjectState state) override;
-  void KnockBack(const CVector3f&, CStateManager&, const CDamageInfo& info, EKnockBackType type,
-                 bool inDeferred, float magnitude) override;
+  void KnockBack(const CVector3f&, CStateManager&, const CDamageInfo& info, float magnitude,
+                 bool direct, const bool inDeferred) override;
   void TakeDamage(const CVector3f& direction, float magnitude) override;
   void Patrol(CStateManager& mgr, EStateMsg msg, float arg) override;
   void FollowPattern(CStateManager& mgr, EStateMsg msg, float arg) override;
@@ -239,7 +249,7 @@ public:
   virtual void Shock(CStateManager& mgr, float duration, float damage);
   virtual void ThinkAboutMove(float);
   virtual CPathFindSearch* GetSearchPath() { return nullptr; }
-  virtual CDamageInfo GetContactDamage() const { return x404_contactDamage; }
+  virtual CDamageInfo GetContactDamage() const;
   virtual u8 GetModelAlphau8(const CStateManager&) const { return x42c_color.GetAlphau8(); }
   virtual bool IsOnGround() const { return x328_27_onGround; }
   virtual float GetGravityConstant() const { return CPhysicsActor::GravityConstant(); }
@@ -262,6 +272,7 @@ public:
   float GetAverageAttackTime() const { return x304_averageAttackTime; }
   float GetAttackTimeVariation() const { return x308_attackTimeVariation; }
   const bool GetVerticalMovement() const { return x328_25_verticalMovement; }
+  bool IsEnergyAttractor() const { return x328_31_energyAttractor; }
   const bool IsInCollision() const { return x328_26_solidCollision; }
   void SetVerticalMovement(const bool v) { x328_25_verticalMovement = v; }
   EAnimState GetAnimationState() const { return x32c_animState; }
@@ -269,17 +280,21 @@ public:
   float GetStateMachineTime() const { return GetStateMachineState().GetTime(); }
   CStateMachineState& StateMachineState() { return x330_stateMachineState; }
   const CStateMachineState& GetStateMachineState() const { return x330_stateMachineState; }
-  ECharacter GetCharacterType() const { return x34c_characterType; }
+  EPatternedAI GetCharacterType() const { return x34c_characterType; }
+  float GetDetectionRange() const { return x3bc_detectionRange; }
   float GetPlayerLeashRadius() const { return x3c8_leashRadius; }
   float GetPlayerLeashTime() const { return x3d0_playerLeashTime; }
   EFlavorType GetFlavorType() const { return x3fc_flavor; }
   const bool IsAlive() const { return x400_25_alive; }
   void SetWasHit(const bool v) { x400_24_hitByPlayerProjectile = v; }
+  bool GetWasHit() const { return x400_24_hitByPlayerProjectile; }
   void SetPendingDeath(const bool v) { x401_30_pendingDeath = v; }
+  bool GetFadeToDeath() const { return x400_27_fadeToDeath; }
+  void SetFadeToDeath(bool fade) { x400_27_fadeToDeath = fade; }
   CBodyController* BodyCtrl() { return x450_bodyController.get(); }
   const CBodyController* GetBodyCtrl() const { return x450_bodyController.get(); }
-  CKnockBackController& GetKnockBackCtrl() { return x460_knockBackController; }
-  const CKnockBackController& GetKnockBackCtrl() const { return x460_knockBackController; }
+  CKnockBackMgr& KnockBackCtrl() { return x460_knockBackController; }
+  const CKnockBackMgr& GetKnockBackCtrl() const { return x460_knockBackController; }
 
   CVector3f& MoveVector() { return x310_moveVec; }
   const CVector3f& GetMoveVector() const { return x310_moveVec; }
@@ -299,13 +314,17 @@ public:
   void TryKnockBack_Front(CStateManager& mgr, int arg);
   void TryLoopReaction(CStateManager& mgr, int arg);
   void TryTurn(CStateManager& mgr, int arg);
+  void TryCover(CStateManager& mgr, int arg);
+  void TryWallHang(CStateManager& mgr, int arg);
   void TryGetUp(CStateManager& mgr, int arg);
   void TryTaunt(CStateManager& mgr, int arg);
   void TryJump(CStateManager& mgr, int arg);
+  void TryJumpInLoop(CStateManager& mgr, int arg);
   void TryBreakDodge(CStateManager& mgr, int arg);
   void TryStep(CStateManager& mgr, int arg);
-  int GetStepDirection(const CVector3f& dir);
+  pas::EStepDirection FindBestStepDirection(const CVector3f& dir) const;
   void TryDodge(CStateManager& mgr, int arg);
+  void TryRollingDodge(CStateManager& mgr, int arg);
   void TryMeleeAttack_TargetPos(CStateManager& mgr, int arg);
   void TryMeleeAttack(CStateManager& mgr, int arg);
   void TryGenerate(CStateManager& mgr, int arg);
@@ -315,7 +334,16 @@ public:
 
   void SetupPlayerCollision(const bool startsHidden);
 
+  void SetupPattern(CStateManager& mgr);
+  void UpdatePatternDestPos(CStateManager& mgr);
+  CVector3f FindPatternDir(CStateManager& mgr);
+  CQuaternion FindPatternRotation(const CVector3f& dir);
+  rstl::pair< CScriptWaypoint*, CScriptWaypoint* > GetDestWaypoints(CStateManager& mgr) const;
+  EScriptObjectState GetDesiredAttackState(CStateManager& mgr) const;
+  void UpdateActorKeyframe(CStateManager& mgr);
   void ApproachDest(CStateManager& mgr);
+  bool IsPatternObstructed(CStateManager& mgr, const CVector3f& from, const CVector3f& to) const;
+  void UpdateDest(CStateManager& mgr);
   void SetDestPos(const CVector3f& pos);
 
   CScriptCoverPoint* GetCoverPoint(CStateManager& mgr, TUniqueId id) const;
@@ -325,21 +353,23 @@ public:
   float GetAnimationDistance(const CPASAnimParmData& data) const;
   void BuildBodyController(EBodyType bodyType);
   CEnergyProjectile*
-  LaunchProjectile(const CTransform4f&, CStateManager&, int, CWeapon::EProjectileAttrib, bool,
-                   const rstl::optional_object< TLockedToken< CGenDescription > >&, ushort, bool,
-                   const CVector3f&);
+  LaunchProjectile(const CTransform4f&, CStateManager&, const int, const CWeapon::EProjectileAttrib,
+                   const bool, const rstl::optional_object< TLockedToken< CGenDescription > >&,
+                   const ushort, const bool, const CVector3f&);
   void RenderIceModelWithFlags(const CModelFlags&) const;
 
   void UpdateThermalFrozenState(const bool thawed);
   void MakeThermalColdAndHot();
 
-  static bool AreStateStringsEqual(const char*, const char*);
-  static int CompareStateString(const char*, const char*, int);
   void UpdateDamageColor(float dt);
   void UpdateAlphaDelta(float dt, CStateManager& mgr);
 
+  TUniqueId GetConnectedObject(CStateManager& mgr, EScriptObjectState state,
+                               EScriptObjectMessage msg);
+
   // TODO: names?
   bool IsMakingBigStrike() const { return x402_28_isMakingBigStrike; }
+  float GetXDamageThreshold() const { return x3d8_xDamageThreshold; }
   float GetDamageDuration() const { return x504_damageDur; }
 
   static const float skDamageHitTime;
@@ -355,7 +385,7 @@ protected:
   float x300_maxAttackRange;
   float x304_averageAttackTime;
   float x308_attackTimeVariation;
-  EBehaviourOrient x30c_behaviourOrient;
+  uint x30c_behaviourOrient;
   CVector3f x310_moveVec;
   CVector3f x31c_faceVec;
   bool x328_24_inPosition : 1;
@@ -369,7 +399,7 @@ protected:
   bool x329_24_ : 1;
   EAnimState x32c_animState;
   CStateMachineState x330_stateMachineState;
-  ECharacter x34c_characterType;
+  EPatternedAI x34c_characterType;
   CVector3f x350_patternStartPos;
   CVector3f x35c_patternStartPlayerPos;
   CVector3f x368_destWPDelta;
@@ -380,7 +410,7 @@ protected:
   EBehaviourModifiers x384_behaviourModifiers;
   int x388_anim;
   rstl::vector< CPatternNode > x38c_patterns;
-  uint x39c_curPattern;
+  int x39c_curPattern;
   CVector3f x3a0_latestLeashPosition;
   TUniqueId x3ac_lastPatrolDest;
   float x3b0_moveSpeed;
@@ -441,7 +471,7 @@ protected:
   u32 x454_deathSfx;
   u32 x458_iceShatterSfx;
   CSteeringBehaviors x45c_steeringBehaviors;
-  CKnockBackController x460_knockBackController;
+  CKnockBackMgr x460_knockBackController;
   CVector3f x4e4_latestPredictedTranslation;
   float x4f0_predictedLeashTime;
   float x4f4_intoFreezeDur;
@@ -459,6 +489,7 @@ protected:
   rstl::optional_object< TCachedToken< CGenDescription > > x54c_iceDeathExplosionParticle;
   CVector3f x55c_moveScale;
 };
+NESTED_CHECK_SIZEOF(CPatterned, CPatternNode, 0x24)
 CHECK_SIZEOF(CPatterned, 0x568)
 
 #endif // _CPATTERNED

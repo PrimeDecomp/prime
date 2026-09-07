@@ -23,3 +23,28 @@ CQuaternion CQuaternion::operator*(const CQuaternion& rhs) const {
       rhs.w * imaginary + this->w * rhs.imaginary + CVector3f::Cross(imaginary, rhs.imaginary);
   return CQuaternion(w, imag);
 }
+
+CMatrix3f CQuaternion::BuildTransform() const {
+  const CVector3f twoVec = 2.f * imaginary;
+  const CVector3f two_x_x = twoVec.ByElementMultiply(twoVec, imaginary); // f0
+  return CMatrix3f((1.0f - two_x_x.GetY()) - two_x_x.GetZ(),
+                   (twoVec.GetX() * imaginary.GetY()) - (w * twoVec.GetZ()),
+                   (twoVec.GetX() * imaginary.GetZ()) + (w * twoVec.GetY()),
+                   (twoVec.GetX() * imaginary.GetY()) + (w * twoVec.GetZ()),
+                   (1.0f - two_x_x.GetX()) - two_x_x.GetZ(),
+                   (twoVec.GetY() * imaginary.GetZ()) - (w * twoVec.GetX()),
+                   (twoVec.GetX() * imaginary.GetZ()) - (w * twoVec.GetY()),
+                   (twoVec.GetY() * imaginary.GetZ()) + (w * twoVec.GetX()),
+                   (1.0f - two_x_x.GetX()) - two_x_x.GetY());
+
+  // return CMatrix3f(1.0f - (2.0f*y)*y - (2.0f*z)*z,
+  //                  (2.0f*y)*x - w*(2.0f*z),
+  //                  (2.0f*z)*x + w*(2.0f*y),
+  //                  (2.0f*y)*x + w*(2.0f*z),
+  //                  1.0f - (2.0f*x)*x - (2.0f*z)*z,
+  //                  (2.0f*y)*z - w*(2.0f*x),
+  //                  (2.0f*x)*z - w*(2.0f*y),
+  //                  (2.0f*y)*z + w*(2.0f*x),
+  //                  1.0f - (2.0f*x)*x - (2.0f*y)*y
+  //                 );
+}

@@ -36,6 +36,7 @@ public:
 
   void ActivateLights() const;
   uint GetActiveLightCount() const;
+  const CLight& GetLight(uint idx) const;
 
   bool GetNeedsRelight() const { return x298_24_dirty == TRUE; }
   bool HasShadowLight() const { return x29c_shadowLightArrIdx != kInvalidShadowLightIndex; }
@@ -46,6 +47,7 @@ public:
 
   void SetAmbientColor(const CColor& color);
   void SetNeedsRelight(bool v) { x298_24_dirty = v; }
+  void SetActorPositionBias(const CVector3f& bias) { x2ac_lightingPositionOffset = bias; }
   void SetCastShadows(bool v) { x298_25_castShadows = v; }
   void SetFindShadowLight(bool v) { x298_27_findShadowLight = v; }
   void SetShadowDynamicRangeThreshold(float t) { x2d0_shadowDynamicRangeThreshold = t; }
@@ -92,7 +94,14 @@ private:
   int x2d8_brightLightIdx;
   uint x2dc_brightLightLag;
 
-  static int kInvalidShadowLightIndex;
+  void UpdateBrightLight();
+  void MultiplyLightingLevels(float level);
+  void MoveAmbienceToLights(const CVector3f& color);
+  void AddOverflowToLights(const CLight& light, const CVector3f& color, float mag);
+  static void MergeOverflowLight(CLight& out, CVector3f& color, const CLight& in, float mag);
+
+  static const int kInvalidShadowLightIndex;
+  static int sFrameSchedulerCount;
 };
 CHECK_SIZEOF(CActorLights, 0x2e0)
 

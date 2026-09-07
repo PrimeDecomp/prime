@@ -299,7 +299,7 @@ void RenderStripWithRipples(const CFluidPlaneCPURender::SHFieldSample (&heights)
   int xPos = 1;
 
   for (; xPos < xSubdivs - 2;) {
-    const bool* gridFlags = info.x30_gridFlags;
+    const char* gridFlags = info.x30_gridFlags;
     int numCombined = 1;
 
     if (gridFlags != NULL && reinterpret_cast< const char* >(gridFlags)[gridOffset] == 0) {
@@ -1164,7 +1164,7 @@ void RenderPatch(const CFluidPlaneCPURender::SPatchInfo& info, bool noRipples,
         int iX = 0;
 
         while (iX < numTilesXP1) {
-          const bool* gridFlags = info.x30_gridFlags;
+          const char* gridFlags = info.x30_gridFlags;
           if (gridFlags == NULL ||
               reinterpret_cast< const char* >(gridFlags)[gridOffset + iX] != 0) {
             bool isLeftEdge = iX == 0;
@@ -1314,7 +1314,7 @@ void RenderPatch(const CFluidPlaneCPURender::SPatchInfo& info, bool noRipples,
           endX = localMinX;
           int iX = 0;
           while (iX < numTilesX) {
-            const bool* gridFlags = info.x30_gridFlags;
+            const char* gridFlags = info.x30_gridFlags;
             if (reinterpret_cast< const char* >(gridFlags)[iX + gridOffset] != 0) {
               int endIX = iX + 1;
               const char* ptr = reinterpret_cast< const char* >(gridFlags) + endIX + gridOffset;

@@ -35,7 +35,7 @@ class CGunController {
 
 public:
   explicit CGunController(CModelData& modelData);
-  ~CGunController();
+  //~CGunController();
 
   void EnterFreeLook(CStateManager&, int, int);
   void EnterComboFire(CStateManager&, int);

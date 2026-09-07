@@ -30,25 +30,27 @@ class CTexture;
 
 class CActorModelParticles {
 public:
-  enum EDependency {
-    kD_OnFire,
-    kD_Ice,
-    kD_Ash,
-    kD_FirePop,
-    kD_Electric,
-    kD_IcePop,
+  enum ESystemTypes {
+    kST_OnFire,
+    kST_Ice,
+    kST_Ash,
+    kST_FirePop,
+    kST_Electric,
+    kST_IcePop,
   };
 
-  struct Dependency {
+  struct CSystem {
     rstl::vector< CToken > x0_tokens;
     int x10_refCount;
     bool x14_loaded;
 
-    void UpdateLoad();
-    void Unload();
-    void Load();
-    void Decrement();
-    void Increment();
+    explicit CSystem(const char* name);
+
+    void Update();
+    void Unlock();
+    void Lock();
+    void DelRef();
+    void AddRef();
   };
 
   class CItem {
@@ -79,28 +81,33 @@ public:
     CVector3f xec_particleOffsetScale;
     CTransform4f xf8_iceXf;
     CActorModelParticles* x128_parent;
-    uchar x12c_flags;
+    mutable bool x12c_24_thermalCold : 1;
+    mutable bool x12c_25_thermalHot : 1;
     float x130_remTime;
-    uchar x134_lockDeps;
+    mutable uchar x134_lockDeps;
 
-    bool UpdateOnFire(float dt, CActor& actor, CStateManager& mgr);
-    bool UpdateAshGen(float dt, CActor& actor, CStateManager& mgr);
-    bool UpdateIcePop(float dt, CActor& actor);
-    bool UpdateFirePop(float dt, CActor& actor);
-    bool UpdateElectric(float dt, CActor& actor, CStateManager& mgr);
-    void EnsureLoaded(int dep);
+    bool UpdateOnFire(float dt, CActor* actor, CStateManager& mgr);
+    bool UpdateAshGen(float dt, const CActor* actor, CStateManager& mgr);
+    bool UpdateIcePop(float dt, const CActor* actor);
+    bool UpdateFirePop(float dt, const CActor* actor);
+    bool UpdateElectric(float dt, const CActor* actor, CStateManager& mgr);
+    bool UpdateIce(float dt, const CActor* actor, CStateManager& mgr);
+    bool UpdateRainSplash(float dt, const CActor* actor, CStateManager& mgr);
+    bool UpdateBurn(float dt, const CActor* actor, CStateManager& mgr);
+    void UseType(ESystemTypes dep);
 
   public:
     CItem(const CEntity& ent, CActorModelParticles& parent);
+    ~CItem();
 
     void GeneratePoints(const CVector3f* vertices, const CVector3f* normals, int count);
     bool Update(float dt, CStateManager& mgr);
-    void Unlock(EDependency dep);
+    void DontUseType(ESystemTypes dep);
   };
 
   CActorModelParticles();
 
-  CTexture* GetAshyTexture(CActor& actor);
+  CTexture* GetAshyTexture(const CActor& actor) const;
   void StartBurnDeath(CActor& actor);
   void Render(const CStateManager& mgr, const CActor& actor) const;
   void AddStragglersToRenderer(const CStateManager& mgr) const;
@@ -108,18 +115,19 @@ public:
   rstl::list< CItem >::const_iterator FindSystem(TUniqueId uid) const;
   rstl::list< CItem >::iterator FindOrCreateSystem(CActor& actor);
   void SetupHook(TUniqueId uid) const;
-  uint PointGenerator(uint seed, const CVector3f* vertices, const CVector3f* normals, int count);
+  static void PointGenerator(uint context, const CVector3f* vertices, const CVector3f* normals,
+                             int count);
   void RemoveRainSplashGenerator(CActor& actor);
   void AddRainSplashGenerator(CActor& actor, CStateManager& mgr, int maxSplashes, int genRate,
                               float minZ);
-  void StopThermalHotParticles(CActor& actor);
+  void StopFire(CActor& actor);
   void LightDudeOnFire(CActor& actor);
   void StopElectric(CActor& actor);
-  void LoadAndStartElectric(CActor& actor);
+  void StartElectric(CActor& actor);
   void StartIce(CActor& actor, CStateManager& mgr);
-  void EnsureElectricLoaded(CActor& actor);
-  void EnsureFirePopLoaded(CActor& actor);
-  void EnsureIceBreakLoaded(CActor& actor);
+  void DoIcePop(CActor& actor);
+  void DoFirePop(CActor& actor);
+  void StartAsh(CActor& actor);
   void Update(float dt, CStateManager& mgr);
 
 private:
@@ -133,25 +141,24 @@ private:
   TToken< CGenDescription > x38_icePop;
   TToken< CElectricDescription > x40_electric;
   CToken x48_ashy;
-  rstl::reserved_vector< Dependency, 6 > x50_dgrps;
-  bool xe4_loadingDeps;
-  bool xe5_justLoadedDeps;
-  bool xe6_loadedDeps;
+  rstl::reserved_vector< CSystem, 6 > x50_dgrps;
+  uchar xe4_loadingDeps;
+  uchar xe5_justLoadedDeps;
+  uchar xe6_loadedDeps;
 
-  void UpdateLoad();
-  void DecrementDependency(EDependency dep);
-  void IncrementDependency(int dep);
-  void LoadParticleDGRPs();
-  Dependency GetParticleDGRPTokens(const rstl::string& name);
+  void UpdateSystemTypes();
+  void DelTypeRef(ESystemTypes dep);
+  void AddTypeRef(ESystemTypes dep);
+  void InitializeSystemTypes();
 
-  rstl::auto_ptr< CElementGen > MakeOnFireGen();
-  rstl::auto_ptr< CParticleElectric > MakeElectricGen();
-  rstl::auto_ptr< CElementGen > MakeIcePopGen();
-  rstl::auto_ptr< CElementGen > MakeFirePopGen();
-  rstl::auto_ptr< CElementGen > MakeAshGen();
-  rstl::auto_ptr< CElementGen > MakeIceGen();
+  CElementGen* MakeOnFireGen();
+  CParticleElectric* MakeElectricGen();
+  CElementGen* MakeIcePopGen();
+  CElementGen* MakeFirePopGen();
+  CElementGen* MakeAshGen();
+  CElementGen* MakeIceGen();
 };
-NESTED_CHECK_SIZEOF(CActorModelParticles, Dependency, 0x18)
+NESTED_CHECK_SIZEOF(CActorModelParticles, CSystem, 0x18)
 NESTED_CHECK_SIZEOF(CActorModelParticles, CItem, 0x138)
 CHECK_SIZEOF(CActorModelParticles, 0xe8);
 

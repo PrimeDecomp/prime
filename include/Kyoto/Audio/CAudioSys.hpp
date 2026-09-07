@@ -95,11 +95,11 @@ public:
   static void SysSetVolume(uchar, ushort, uchar);
   static void SysSetSfxVolume(uchar, ushort, uchar, uchar);
   static bool SysLoadGroupSet(CSimplePool*, uint);
-  static bool SysLoadGroupSet(TLockedToken< CAudioGroupSet >, rstl::string, uint);
+  static bool SysLoadGroupSet(const CToken&, const rstl::string&, uint);
   static const rstl::string& SysGetGroupSetName(uint);
   static bool SysPushGroupIntoARAM(const rstl::string& name, uchar);
   static void SysPopGroupFromARAM();
-  static void SysUnloadGroupSet(const rstl::string& name);
+  static bool SysUnloadGroupSet(const rstl::string& name);
   static bool SysUnloadSampleData(const rstl::string& name);
   static bool SysIsGroupSetLoaded(const rstl::string& name);
   static rstl::ncrc_ptr< CAudioGroupSet > FindGroupSet(const rstl::string& name);
@@ -125,8 +125,7 @@ public:
   static short GetDefaultVolumeScale();
   static bool GetVerbose();
 
-  static SND_VOICEID SfxStart(const SND_FXID, const uchar vol, const uchar pan,
-                             const uchar prio);
+  static SND_VOICEID SfxStart(const SND_FXID, const uchar vol, const uchar pan, const uchar prio);
   static void SfxStop(SND_VOICEID handle);
   static void SfxCtrl(const SND_VOICEID handle, const uchar ctrl, const uchar val);
   static SND_VOICEID SfxCheck(SND_VOICEID handle);
@@ -171,16 +170,18 @@ public:
   static rstl::map< rstl::string, rstl::ncrc_ptr< CTrkData > >* mpDVDTrackDB;
   static rstl::vector< CEmitterData >* mpEmitterDB;
   static SND_LISTENER* mpListener;
-  
-  static short GetScaledVolume(const int vol) {
-    return kVolumeTable[vol];
-  }
+
+  static short GetScaledVolume(const int vol) { return kVolumeTable[vol]; }
+
+  static void EnableAICallback(bool enable);
+  static bool IsAICallbackEnabled();
 
   /* TODO: Remaining globals */
-
+  static void* mAICallback;
+  static bool mAICallbackEnabled;
   static ESurroundModes mSurroundMode;
-  static uint mMaxAramUsage;
-  static uint mCurrentAramUsage;
+  static int mMaxAramUsage;
+  static int mCurrentAramUsage;
   static bool mProLogic2;
   static short mVolumeScale;
   static short mDefaultVolumeScale;

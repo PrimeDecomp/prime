@@ -30,13 +30,13 @@ CRandom16* CRandom16::GetRandomNumber() { return gRandomNumber; }
 
 void CRandom16::_SetRandomNumber(CRandom16* rnd) { gRandomNumber = rnd; }
 
-CRandom16::CRandom16(uint seed) : mSeed(seed) {}
+CRandom16::CRandom16(const uint seed) : mSeed(seed) {}
 
-void CRandom16::SetSeed(uint seed) { mSeed = seed; }
+void CRandom16::SetSeed(const uint seed) { mSeed = seed; }
 
-int CRandom16::Range(int min, int max) { return min + (Next() % ((max - min) + 1)); }
+int CRandom16::Range(const int min, const int max) { return min + (Next() % ((max - min) + 1)); }
 
-float CRandom16::Range(float min, float max) { return ((max - min) * Float()) + min; }
+float CRandom16::Range(const float min, const float max) { return ((max - min) * Float()) + min; }
 
 int CRandom16::Next() {
   mSeed = (mSeed * 0x41c64e6d) + 0x00003039;
@@ -44,6 +44,6 @@ int CRandom16::Next() {
 }
 
 const float CRandom16::Float() {
-  float next = CCast::ToReal32(Next());
+  const float next = CCast::ToReal32(Next());
   return 1.52590222E-5f * next;
 }

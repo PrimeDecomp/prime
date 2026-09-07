@@ -1,6 +1,7 @@
 #ifndef _CICESHEEGOTH
 #define _CICESHEEGOTH
 
+#include "CElitePirate.hpp"
 #include "types.h"
 
 #include "MetroidPrime/CDamageInfo.hpp"
@@ -9,11 +10,14 @@
 
 #include "Kyoto/Math/CVector3f.hpp"
 #include "Kyoto/SObjectTag.hpp"
+#include "MetroidPrime/Collision/CJointCollisionDescription.hpp"
+#include "MetroidPrime/Weapons/CProjectileInfo.hpp"
 
+class CParticleElectric;
 class CIceSheegothData {
 public:
+  static int GetMinProperties() { return skMinProperties; }
   CIceSheegothData(CInputStream& in, int propCount);
-  CIceSheegothData(CIceSheegothData&);
 
   float GetX0() const { return x0_; }
   float GetX4() const { return x4_; }
@@ -72,32 +76,127 @@ private:
   float x1b0_;
   float x1b4_;
   CDamageInfo x1b8_;
-  short x1d4_;
+  ushort x1d4_;
   float x1d8_;
   float x1dc_;
   float x1e0_maxInterestTime;
   CAssetId x1e4_;
-  short x1e8_;
+  ushort x1e8_;
   CAssetId x1ec_;
   bool x1f0_24_ : 1;
   bool x1f0_25_ : 1;
 
   static const int skNumProperties;
+  static const int skMinProperties;
 };
 CHECK_SIZEOF(CIceSheegothData, 0x1f4)
 
 class CIceSheegoth : public CPatterned {
 public:
+  enum EPathFindMode {
+    kPFM_Normal,
+    kPFM_Approach,
+  };
+
   CIceSheegoth(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
                const CTransform4f& xf, const CModelData& mData, const CPatternedInfo& pInfo,
                const CActorParameters& actParms, const CIceSheegothData& sheegothData);
 
   ~CIceSheegoth() override;
   void Accept(IVisitor& visitor) override;
+  void Think(float dt, CStateManager& mgr) override;
+  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) override;
+  void Render(const CStateManager& mgr) const override;
+  void AddToRenderer(const CFrustumPlanes&, const CStateManager&) const override;
+
+  CPathFindSearch* GetSearchPath() override;
+  void UpdateHeadTracking(float dt, CStateManager& mgr) {
+    x9f4_boneTracking.Update(dt);
+    x9f4_boneTracking.PreRender(mgr, *AnimationData(), GetTransform(), GetModelScale(),
+                                *BodyCtrl());
+  }
+  const CCollisionPrimitive* GetCollisionPrimitive() const override;
+  float GetGravityConstant() const override;
 
 private:
-  uchar x568_pad[0xb30 - 0x568];
+  void AttractProjectiles(CStateManager& mgr);
+
+  void UpdateAILogicTimers(float dt);
+  void UpdateAimTarget(CStateManager& mgr);
+  void UpdateTouchBounds();
+  void SetShootThrough(CStateManager& mgr);
+  void PreventPlayerPenetration(CStateManager& mgr, float dt);
+  void UpdateHealthInfo(CStateManager& mgr);
+  void UpdateSteeringBlendSpeed(float dt);
+  void UpdateParticleEffects(float dt, CStateManager& mgr);
+
+  int x568_state;
+  CIceSheegothData x56c_data;
+  CPathFindSearch x760_pathSearch;
+  CPathFindSearch x844_approachSearch;
+  EPathFindMode x928_pathFindMode;
+  CVector3f x92c_lastDest;
+  CVector3f x938_;
+  float x944_;
+  float x948_;
+  float x94c_;
+  float x950_;
+  float x954_attackTimeLeft;
+  float x958_;
+  float x95c_;
+  float x960_;
+  float x964_;
+  float x968_interestTimer;
+  float x96c_;
+  float x970_maxHp;
+  float x974_;
+  float x978_;
+  float x97c_;
+  CVector3f x980_;
+  CDamageVulnerability x98c_mouthVulnerability;
+  CBoneTracking x9f4_boneTracking;
+  rstl::single_ptr< CCollisionActorManager > xa2c_collisionActorManager;
+  CCollidableAABox xa30_;
+  CProjectileInfo xa58_projectileInfo;
+  TUniqueId xa80_flameThrowerId;
+  TToken< CWeaponDescription > xa84_;
+  TLockedToken< CGenDescription > xa8c_;
+  rstl::auto_ptr< CElementGen > xa98_;
+  TLockedToken< CGenDescription > xaa0_;
+  rstl::auto_ptr< CElementGen > xaac_;
+  TLockedToken< CGenDescription > xab4_;
+  rstl::auto_ptr< CElementGen > xabc_;
+  TLockedToken< CElectricDescription > xac8_;
+  rstl::auto_ptr< CParticleElectric > xad4_;
+  TLockedToken< CGenDescription > xadc_;
+  rstl::auto_ptr< CElementGen > xae8_;
+  CSfxHandle xaf0_crackleSfx;
+  uchar xaf4_mouthLocator;
+  TUniqueId xaf6_iceShardsCollider;
+  TUniqueId xaf8_mouthCollider;
+  rstl::reserved_vector< TUniqueId, 2 > xafc_gillColliders;
+  rstl::reserved_vector< TUniqueId, 10 > xb04_;
+  rstl::reserved_vector< CSegId, 7 > xb1c_;
+  bool xb28_24_shotAt : 1;
+  bool xb28_25_ : 1;
+  bool xb28_26_ : 1;
+  bool xb28_27_ : 1;
+  bool xb28_28_ : 1;
+  bool xb28_29_ : 1;
+  bool xb28_30_ : 1;
+  bool xb28_31_ : 1;
+  bool xb29_24_ : 1;
+  bool xb29_25_ : 1;
+  bool xb29_26_ : 1;
+  bool xb29_27_ : 1;
+  bool xb29_28_ : 1;
+  bool xb29_29_scanned : 1;
+
+  static const SJointInfo skLeftLegJointList[];
+  static const SJointInfo skRightLegJointList[];
+  static const SSphereJointInfo skSphereJointList[];
+  static const CVector3f skChargingBounds;
 };
-CHECK_SIZEOF(CIceSheegoth, 0xb30)
+// CHECK_SIZEOF(CIceSheegoth, 0xb30)
 
 #endif // _CICESHEEGOTH

@@ -19,7 +19,8 @@ public:
   void Think(float dt, CStateManager& mgr) override;
   void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId sender, CStateManager& mgr) override;
   EWeaponCollisionResponseTypes GetCollisionResponseType(const CVector3f& position, const CVector3f& direction, const CWeaponMode& mode, int projectileAtrib) const override;
-  void KnockBack(const CVector3f& direction, CStateManager& mgr, const CDamageInfo& damage, EKnockBackType knockBack, bool inDeferred, float mag) override;
+  void KnockBack(const CVector3f& direction, CStateManager& mgr, const CDamageInfo& damage,
+                 float mag, bool direct, const bool inDeferred) override;
   bool PathOver(CStateManager& mgr, float arg) override;
   void Patrol(CStateManager& mgr, EStateMsg msg, float arg) override;
 

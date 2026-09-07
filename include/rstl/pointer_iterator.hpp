@@ -18,6 +18,7 @@ public:
 
   const_pointer_iterator() : current(nullptr) {}
   const_pointer_iterator(const T* begin) : current(const_cast< T* >(begin)) {}
+  const_pointer_iterator(const Vec* owner, const T* begin) : current(const_cast< T* >(begin)) {}
   const_pointer_iterator& operator++() {
     ++this->current;
     return *this;
@@ -48,19 +49,12 @@ public:
   const T* get_pointer() const { return current; }
   const T& operator*() const { return *current; }
   const T* operator->() const { return current; }
-  bool operator==(const const_pointer_iterator& other) { return current == other.current; }
-  bool operator!=(const const_pointer_iterator& other) { return current != other.current; }
-  bool operator<(const const_pointer_iterator& other) { return current < other.current; }
-  bool operator>(const const_pointer_iterator& other) { return current > other.current; }
-  bool operator<=(const const_pointer_iterator& other) { return current <= other.current; }
-  bool operator>=(const const_pointer_iterator& other) { return current >= other.current; }
-
-  // friend const_pointer_iterator operator+(const const_pointer_iterator& x, int v) {
-  //   return const_pointer_iterator(x.current + v);
-  // }
-  // friend const_pointer_iterator operator-(const const_pointer_iterator& x, int v) {
-  //   return const_pointer_iterator(x.current - v);
-  // }
+  bool operator==(const const_pointer_iterator& other) const { return current == other.current; }
+  bool operator!=(const const_pointer_iterator& other) const { return current != other.current; }
+  bool operator<(const const_pointer_iterator& other) const { return current < other.current; }
+  bool operator>(const const_pointer_iterator& other) const { return current > other.current; }
+  bool operator<=(const const_pointer_iterator& other) const { return current <= other.current; }
+  bool operator>=(const const_pointer_iterator& other) const { return current >= other.current; }
 
 protected:
   T* current;
@@ -77,14 +71,16 @@ public:
 
   pointer_iterator() : base(nullptr) {}
   pointer_iterator(T* begin) : base(begin) {}
-  T& operator*() { return *this->current; }
+  pointer_iterator(Vec* owner, T* begin) : base(owner, begin) {}
+  T* get_pointer() const { return this->current; }
+  T& operator*() const { return *get_pointer(); }
   // TODO map says const, but breaks CScriptMazeNode::GenerateObjects
   T* operator->() { return this->current; }
   pointer_iterator& operator++() {
     ++this->current;
     return *this;
   }
-  pointer_iterator operator++(int) { return *this += 1; }
+  pointer_iterator operator++(int) { return pointer_iterator(this->current++); }
   pointer_iterator& operator--() {
     --this->current;
     return *this;
@@ -98,10 +94,9 @@ public:
     this->current -= v;
     return *this;
   }
-  pointer_iterator operator+(int v) const { return pointer_iterator(this->current + v); }
+  pointer_iterator operator+(int v) const { return pointer_iterator(this->current) += v; }
   pointer_iterator operator-(int v) const { return pointer_iterator(this->current - v); }
-  // HACK: non-const operator- is required to match vector::insert
-  difference_type operator-(const pointer_iterator& other) { return this->current - other.current; }
+  difference_type operator-(const base& other) const { return this->current - other.get_pointer(); }
 };
 
 template < typename T >
@@ -117,29 +112,6 @@ struct const_counting_iterator {
     ++this->count;
     return *this;
   }
-};
-
-template < typename It >
-typename It::difference_type __distance(It first, It last, random_access_iterator_tag) {
-  return last - first;
-}
-
-template < typename It, typename S >
-void __advance(It& it, S count, random_access_iterator_tag) {
-  it += count;
-}
-
-template < typename T >
-struct iterator_traits {};
-
-template < typename T >
-struct iterator_traits< T* > {
-  typedef T value_type;
-};
-
-template < typename T, typename Vec, typename Alloc >
-struct iterator_traits< pointer_iterator< T, Vec, Alloc > > {
-  typedef typename pointer_iterator< T, Vec, Alloc >::value_type value_type;
 };
 
 } // namespace rstl

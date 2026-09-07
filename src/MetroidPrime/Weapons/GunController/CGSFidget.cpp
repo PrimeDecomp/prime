@@ -1,3 +1,5 @@
+#pragma inline_max_size(250)
+
 #include "MetroidPrime/Weapons/GunController/CGSFidget.hpp"
 
 #include "MetroidPrime/CAnimData.hpp"

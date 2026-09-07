@@ -32,10 +32,10 @@ bool CTargetableProjectile::Explode(const CVector3f& pos, const CVector3f& norma
   if (!GetWeaponActive()) {
     const TUniqueId projOwner = GetHitProjectileOwner();
     if (projOwner != kInvalidUniqueId && projOwner == mgr.GetPlayer()->GetUniqueId()) {
-
-      if (const CActor* act = TCastToConstPtr< CActor >(mgr.GetObjectById(GetOwnerId()))) {
-        TUniqueId uid = mgr.AllocateUniqueId();
-        CVector3f aimPosition = act->GetAimPosition(mgr, 0.f);
+      const CActor* act = TCastToConstPtr< CActor >(mgr.GetObjectById(GetOwnerId()));
+      if (act) {
+        const TUniqueId uid = mgr.AllocateUniqueId();
+        const CVector3f aimPosition = act->GetAimPosition(mgr, 0.f);
 
         CEnergyProjectile* projectile = rs_new CEnergyProjectile(
             true, x3d8_weaponDesc, GetType(),

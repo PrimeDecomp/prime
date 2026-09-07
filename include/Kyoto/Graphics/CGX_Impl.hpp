@@ -239,10 +239,11 @@ CGX_INLINE void CGX::SetAlphaCompare(GXCompare comp0, uchar ref0, GXAlphaOp op, 
   }
 }
 
-CGX_INLINE void CGX::SetTevIndirect(GXTevStageID stageId, GXIndTexStageID indStage,
-                                    GXIndTexFormat fmt, GXIndTexBiasSel biasSel,
-                                    GXIndTexMtxID mtxSel, GXIndTexWrap wrapS, GXIndTexWrap wrapT,
-                                    GXBool addPrev, GXBool indLod, GXIndTexAlphaSel alphaSel) {
+CGX_INLINE void CGX::SetTevIndirect(const GXTevStageID stageId, const GXIndTexStageID indStage,
+                                    const GXIndTexFormat fmt, const GXIndTexBiasSel biasSel,
+                                    const GXIndTexMtxID mtxSel, const GXIndTexWrap wrapS,
+                                    const GXIndTexWrap wrapT, GXBool addPrev, const GXBool indLod,
+                                    const GXIndTexAlphaSel alphaSel) {
   STevState& state = sGXState.x68_tevStates[stageId];
   uint flags = MaskAndShiftLeft(indStage, 3, 0) | MaskAndShiftLeft(fmt, 3, 2) |
                MaskAndShiftLeft(biasSel, 7, 4) | MaskAndShiftLeft(mtxSel, 15, 7) |

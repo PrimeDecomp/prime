@@ -4,8 +4,7 @@
 #include "types.h"
 
 #include "rstl/red_black_tree.hpp"
-#include "rstl/rmemory_allocator.hpp"
-
+#include "rstl/allocator.hpp"
 namespace rstl {
 template < typename T, typename Cmp = less< T >, typename Alloc = rmemory_allocator >
 class set {
@@ -13,13 +12,16 @@ public:
   typedef T value_type;
 
 private:
-  typedef red_black_tree< T, value_type, 0, identity< T >, Cmp, Alloc > rep_type;
+  typedef red_black_tree< T, value_type, false, identity< T >, Cmp, Alloc > rep_type;
 
 public:
   typedef typename rep_type::iterator iterator;
   typedef typename rep_type::const_iterator const_iterator;
 
-  iterator insert(const value_type& item) { return inner.insert(item); }
+  explicit set(const Cmp& cmp = Cmp(), const Alloc& alloc = Alloc())
+  : inner(identity< T >(), cmp, alloc) {}
+
+  pair< iterator, bool > insert(const value_type& item) { return inner.insert(item); }
 
   const_iterator begin() const { return inner.begin(); }
   const_iterator end() const { return inner.end(); }

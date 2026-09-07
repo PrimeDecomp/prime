@@ -2,8 +2,7 @@
 #define _RSTL_RC_PTR
 
 #include "types.h"
-#include "rstl/rmemory_allocator.hpp"
-
+#include "rstl/allocator.hpp"
 namespace rstl {
 class CRefData {
 public:
@@ -38,6 +37,13 @@ public:
     return *this;
   }
   T* GetPtr() const { return static_cast< T* >(x0_refData->GetPtr()); }
+  bool IsNull() const { return GetPtr() == nullptr; }
+  template < typename U >
+  void Assign(const U* ptr) {
+    const T* base = ptr;
+    ReleaseData();
+    x0_refData = rs_new CRefData(base);
+  }
   void ReleaseData();
   T* operator->() const { return GetPtr(); }
   T& operator*() const { return *GetPtr(); }
@@ -63,6 +69,11 @@ public:
   ncrc_ptr(const rc_ptr< T >& other) : rc_ptr< T >(other) {}
   ncrc_ptr& operator=(const rc_ptr< T >& other) {
     rc_ptr< T >::operator=(other);
+    return *this;
+  }
+  template < typename U >
+  ncrc_ptr& operator=(const U* ptr) {
+    rc_ptr< T >::Assign(ptr);
     return *this;
   }
 };

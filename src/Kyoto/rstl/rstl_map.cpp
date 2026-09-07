@@ -73,14 +73,14 @@ void rbtree_rebalance(void* header_void, void* node_void) {
   _node* node = static_cast< _node* >(node_void);
   _header* header = static_cast< _header* >(header_void);
 
-  while (node->mParent != nullptr && node->mParent->mColor == kNC_Black) {
+  while (node->mParent != nullptr && node->mParent->mColor == kNC_Red) {
     _node* p = node->mParent->mParent->mLeft;
     if (node->mParent == p) {
       p = node->mParent->mParent->mRight;
-      if ((p != nullptr && p->mColor == kNC_Black)) {
-        node->mParent->mColor = kNC_Red;
-        p->mColor = kNC_Red;
-        node->mParent->mParent->mColor = kNC_Black;
+      if ((p != nullptr && p->mColor == kNC_Red)) {
+        node->mParent->mColor = kNC_Black;
+        p->mColor = kNC_Black;
+        node->mParent->mParent->mColor = kNC_Red;
         node = node->mParent->mParent;
 
       } else {
@@ -88,14 +88,14 @@ void rbtree_rebalance(void* header_void, void* node_void) {
           node = node->mParent;
           rbtree_rotate_left(header, node);
         }
-        node->mParent->mColor = kNC_Red;
-        node->mParent->mParent->mColor = kNC_Black;
+        node->mParent->mColor = kNC_Black;
+        node->mParent->mParent->mColor = kNC_Red;
         rbtree_rotate_right(header, node->mParent->mParent);
       }
-    } else if (p != nullptr && p->mColor == kNC_Black) {
-      node->mParent->mColor = kNC_Red;
-      p->mColor = kNC_Red;
-      node->mParent->mParent->mColor = kNC_Black;
+    } else if (p != nullptr && p->mColor == kNC_Red) {
+      node->mParent->mColor = kNC_Black;
+      p->mColor = kNC_Black;
+      node->mParent->mParent->mColor = kNC_Red;
       node = node->mParent->mParent;
 
     } else {
@@ -103,12 +103,12 @@ void rbtree_rebalance(void* header_void, void* node_void) {
         node = node->mParent;
         rbtree_rotate_right(header, node);
       }
-      node->mParent->mColor = kNC_Red;
-      node->mParent->mParent->mColor = kNC_Black;
+      node->mParent->mColor = kNC_Black;
+      node->mParent->mParent->mColor = kNC_Red;
       rbtree_rotate_left(header, node->mParent->mParent);
     }
   }
-  header->mRootNode->mColor = kNC_Red;
+  header->mRootNode->mColor = kNC_Black;
 }
 
 void* rbtree_rebalance_for_erase(void* header_void, void* node_void) {
@@ -217,83 +217,83 @@ void* rbtree_rebalance_for_erase(void* header_void, void* node_void) {
     }
   }
 
-  if (successor->mColor != kNC_Black) {
+  if (successor->mColor != kNC_Red) {
     _node* currentParent;
     _node* siblingChild;
     _node* sibling;
 
     while (true) {
       currentParent = parent;
-      if (replacement == header->mRootNode || (replacement && replacement->mColor != kNC_Red)) {
+      if (replacement == header->mRootNode || (replacement && replacement->mColor != kNC_Black)) {
         break;
       }
       sibling = currentParent->mLeft;
       if (replacement == sibling) {
         // Replacement is left child, sibling is on the right
         sibling = currentParent->mRight;
-        if (sibling->mColor == kNC_Black) {
-          sibling->mColor = kNC_Red;
-          currentParent->mColor = kNC_Black;
+        if (sibling->mColor == kNC_Red) {
+          sibling->mColor = kNC_Black;
+          currentParent->mColor = kNC_Red;
           rbtree_rotate_left(header, currentParent);
           sibling = currentParent->mRight;
         }
         siblingChild = sibling->mLeft;
-        if (((siblingChild != nullptr) && (siblingChild->mColor != kNC_Red)) ||
-            ((sibling->mRight != nullptr && (sibling->mRight->mColor != kNC_Red)))) {
-          if ((sibling->mRight == nullptr) || (sibling->mRight->mColor == kNC_Red)) {
+        if (((siblingChild != nullptr) && (siblingChild->mColor != kNC_Black)) ||
+            ((sibling->mRight != nullptr && (sibling->mRight->mColor != kNC_Black)))) {
+          if ((sibling->mRight == nullptr) || (sibling->mRight->mColor == kNC_Black)) {
             if (siblingChild != nullptr) {
-              siblingChild->mColor = kNC_Red;
+              siblingChild->mColor = kNC_Black;
             }
-            sibling->mColor = kNC_Black;
+            sibling->mColor = kNC_Red;
             rbtree_rotate_right(header, sibling);
             sibling = currentParent->mRight;
           }
           sibling->mColor = currentParent->mColor;
-          currentParent->mColor = kNC_Red;
+          currentParent->mColor = kNC_Black;
           if (sibling->mRight != nullptr) {
-            sibling->mRight->mColor = kNC_Red;
+            sibling->mRight->mColor = kNC_Black;
           }
           rbtree_rotate_left(header, currentParent);
           break;
         }
-        sibling->mColor = kNC_Black;
+        sibling->mColor = kNC_Red;
         parent = currentParent->mParent;
         replacement = currentParent;
       } else {
         // Replacement is right child, sibling is on the left
-        if (sibling->mColor == kNC_Black) {
-          sibling->mColor = kNC_Red;
-          currentParent->mColor = kNC_Black;
+        if (sibling->mColor == kNC_Red) {
+          sibling->mColor = kNC_Black;
+          currentParent->mColor = kNC_Red;
           rbtree_rotate_right(header, currentParent);
           sibling = currentParent->mLeft;
         }
         siblingChild = sibling->mRight;
-        if ((siblingChild && siblingChild->mColor != kNC_Red) ||
-            (sibling->mLeft && sibling->mLeft->mColor != kNC_Red)) {
+        if ((siblingChild && siblingChild->mColor != kNC_Black) ||
+            (sibling->mLeft && sibling->mLeft->mColor != kNC_Black)) {
             
-          if (!sibling->mLeft || sibling->mLeft->mColor == kNC_Red) {
+          if (!sibling->mLeft || sibling->mLeft->mColor == kNC_Black) {
             if (siblingChild) {
-              siblingChild->mColor = kNC_Red;
+              siblingChild->mColor = kNC_Black;
             }
-            sibling->mColor = kNC_Black;
+            sibling->mColor = kNC_Red;
             rbtree_rotate_left(header, sibling);
             sibling = currentParent->mLeft;
           }
           sibling->mColor = currentParent->mColor;
-          currentParent->mColor = kNC_Red;
+          currentParent->mColor = kNC_Black;
           if (sibling->mLeft != nullptr) {
-            sibling->mLeft->mColor = kNC_Red;
+            sibling->mLeft->mColor = kNC_Black;
           }
           rbtree_rotate_right(header, currentParent);
           break;
         }
-        sibling->mColor = kNC_Black;
+        sibling->mColor = kNC_Red;
         parent = currentParent->mParent;
         replacement = currentParent;
       }
     }
     if (replacement != nullptr) {
-      replacement->mColor = kNC_Red;
+      replacement->mColor = kNC_Black;
     }
   }
 

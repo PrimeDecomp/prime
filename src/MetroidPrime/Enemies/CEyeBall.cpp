@@ -32,7 +32,7 @@ CEyeBall::CEyeBall(const TUniqueId uid, const rstl::string& name, const EFlavorT
                    const uint anim1, const uint anim2, const uint anim3, const uint beamSfx,
                    const bool attackDisabled, const CActorParameters& actParams)
 : CPatterned(kC_EyeBall, uid, name, flavor, info, xf, mData, pInfo, kMT_Flyer, kCT_Zero,
-             kBT_Restricted, actParams, kKBV_Medium)
+             kBT_Restricted, actParams, kCS_Medium)
 , mAttackDelay(attackDelay)
 , mAttackStartTime(attackStartTime)
 , mTargetPosition(CVector3f::Zero())
@@ -55,7 +55,7 @@ CEyeBall::CEyeBall(const TUniqueId uid, const rstl::string& name, const EFlavorT
   mAnimIndices[1] = anim1;
   mAnimIndices[2] = anim2;
   mAnimIndices[3] = anim3;
-  GetKnockBackCtrl().SetAutoResetImpulse(false);
+  KnockBackCtrl().SetAutoResetImpulse(false);
 }
 
 void CEyeBall::Accept(IVisitor& visitor) { visitor.Visit(*this); }

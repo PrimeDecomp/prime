@@ -6,8 +6,6 @@
 #include "Kyoto/Graphics/CModelFlags.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
 
-extern CVector3f sPlayerPosition;
-
 enum EStateFlags {
   kStateFlag_KonstValues = (1 << 3),
   kStateFlag_DepthSorting = (1 << 4),
@@ -40,7 +38,12 @@ public:
   void SetCurrentBlack() const;
   uint GetTextureCount() const { return *reinterpret_cast< const u32* >(GetData() + 4); }
   uint GetVertexDesc() const {
-    return reinterpret_cast< const uint* >(x0_data)[GetTextureCount() + 2];
+    return *reinterpret_cast< const uint* >(GetData() + (GetTextureCount() * sizeof(uint) + sizeof(uint) * 2));
+  }
+  
+  // TODO: Figure out wtf is going on here
+  uint GetVertexDescLwzx() const {
+    return static_cast< const uint* >(x0_data)[GetTextureCount() + 2];
   }
 
   uint GetCompressedBlend() const;
@@ -50,7 +53,7 @@ public:
 private:
   static void SetupBlendMode(uint blendFactors, const CModelFlags& flags, bool alphaTest);
   static uint HandleReflection(bool usesTevReg2, GXTexMapID indTexSlot, int indMtxScaleExp,
-                               uint finalTevCount, uint texCount, uint tcgCount,
+                               uint tevCount, uint texCount, uint tcgCount,
                                uint finalKColorCount, uint& finalCCFlags, uint& finalACFlags);
 
   static CVector3f sViewingFrom;

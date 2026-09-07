@@ -25,6 +25,7 @@ public:
   FourCC GetPrimType() const override;
   CSphere Transform(const CTransform4f& xf) const;
   const CSphere& GetSphere() const { return x10_sphere; }
+  void SetSphere(const CSphere& sphere) { x10_sphere = sphere; }
   void SetSphereCenter(const CVector3f& center) { x10_sphere = CSphere(center, x10_sphere.GetRadius()); }
   ~CCollidableSphere() override {}
   CRayCastResult CastRayInternal(const CInternalRayCastStructure& internalRayCast) const override;

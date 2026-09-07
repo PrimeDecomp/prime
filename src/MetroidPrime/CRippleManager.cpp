@@ -1,39 +1,36 @@
 #include "MetroidPrime/CRippleManager.hpp"
 
+#include "MetroidPrime/CFluidPlaneManager.hpp"
 #include "MetroidPrime/CRipple.hpp"
 
 #include "rstl/math.hpp"
 
 CRippleManager::CRippleManager(int maxRipples, float alpha)
-: x0_maxTimeFalloff(0.f), x14_alpha(alpha) {
+: x0_maxTimeFalloff(0.f)
+, x14_alpha(alpha) {
   Init(maxRipples);
 }
-
-CRippleManager::CRippleManager(const CRippleManager& other)
-: x0_maxTimeFalloff(other.x0_maxTimeFalloff)
-, x4_ripples(other.x4_ripples)
-, x14_alpha(other.x14_alpha) {}
 
 void CRippleManager::Init(int maxRipples) {
   x4_ripples.resize(maxRipples);
   for (AUTO(it, x4_ripples.begin()); it != x4_ripples.end(); ++it) {
-    it->SetTime(9999.f);
+    it->SetTime(CFluidPlaneManager::kOldestTime);
   }
 }
 
 void CRippleManager::Update(float dt) {
-  for (AUTO(it, x4_ripples.begin()); it != x4_ripples.end(); ++it) {
+  for (AUTO(it, Ripples().begin()); it != Ripples().end(); ++it) {
     it->SetTime(it->GetTime() + dt);
-    if (it->GetTime() < 9999.f) {
-      it->SetTime(9999.f);
+    if (it->GetTime() > CFluidPlaneManager::kOldestTime) {
+      it->SetTime(CFluidPlaneManager::kOldestTime);
     }
   }
 }
 
 float CRippleManager::GetLastRippleDeltaTime(TUniqueId rippler) const {
-  float res = 9999.f;
+  float res = CFluidPlaneManager::kOldestTime;
 
-  for (AUTO(it, x4_ripples.begin()); it != x4_ripples.end(); ++it) {
+  for (AUTO(it, GetRipples().begin()); it != GetRipples().end(); ++it) {
     if (rippler == it->GetUniqueId()) {
       if (res > it->GetTime()) {
         res = it->GetTime();
@@ -46,10 +43,10 @@ float CRippleManager::GetLastRippleDeltaTime(TUniqueId rippler) const {
 
 void CRippleManager::AddRipple(const CRipple& ripple) {
   float maxTime = 0.f;
-  rstl::vector< CRipple >::iterator oldestRipple = x4_ripples.end();
+  rstl::vector< CRipple >::iterator oldestRipple = Ripples().end();
 
-  for (AUTO(it, x4_ripples.begin()); it != x4_ripples.end(); ++it) {
-    if (it->GetTime() == 9999.0f) {
+  for (AUTO(it, Ripples().begin()); it != Ripples().end(); ++it) {
+    if (it->GetTime() == CFluidPlaneManager::kOldestTime) {
       oldestRipple = it;
       break;
     }
@@ -60,7 +57,7 @@ void CRippleManager::AddRipple(const CRipple& ripple) {
     }
   }
 
-  if (oldestRipple != x4_ripples.end()) {
+  if (oldestRipple != Ripples().end()) {
     *oldestRipple = ripple;
     oldestRipple->SetTime(0.f);
     SetMaxTimeFalloff(rstl::max_val(GetMaxTimeFalloff(), ripple.GetTimeFalloff()));

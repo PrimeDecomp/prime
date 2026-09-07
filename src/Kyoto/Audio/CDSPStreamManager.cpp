@@ -12,8 +12,6 @@
 static CDSPStreamManager g_Streams[4];
 static int sHandleCounter;
 
-int sub_8020c154(const rstl::string&, int, int);
-
 struct SDSPStreamInfo : SStreamInfo {
   SDSPStreamInfo(const CDSPStreamManager& stream);
 };
@@ -91,7 +89,7 @@ void CDSPStreamManager::Shutdown() {
 
 int CDSPStreamManager::StartStreaming(const rstl::string& fileName, char volume, bool oneshot) {
   BOOL ints = OSDisableInterrupts();
-  const int sep = sub_8020c154(fileName, '|', 0);
+  const int sep = fileName.find('|', 0);
   if (sep == -1) {
     const int idx = FindUnclaimedStreamIdx();
     if (idx == -1) {

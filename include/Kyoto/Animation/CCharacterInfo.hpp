@@ -17,13 +17,14 @@
 class CCharacterInfo {
 public:
   class CParticleResData {
-  private:
+  public:
     rstl::vector< CAssetId > x0_part;
     rstl::vector< CAssetId > x10_swhc;
     rstl::vector< CAssetId > x20_elsc;
     rstl::vector< CAssetId > x30_elsc;
   };
 
+  int GetAnimationIndex(const rstl::string& name) const;
   const rstl::string& GetCharacterName() const { return x4_name; }
   const CPASDatabase& GetPASDatabase() const { return x30_pasDatabase; }
   const CParticleResData& GetParticleResData() const { return x44_partRes; }
@@ -35,6 +36,14 @@ public:
   GetEffectList() const {
     return x98_effects;
   }
+
+  CAssetId GetModelId() const { return x14_cmdl; }
+  CAssetId GetSkinRulesId() const { return x18_cksr; }
+  CAssetId GetCharLayoutInfoId() const { return x1c_cinf; }
+  CAssetId GetIceModelId() const { return xa8_cmdlOverlay; }
+  CAssetId GetIceSkinRulesId() const { return xac_cksrOverlay; }
+
+  CCharacterInfo(CInputStream& in);
 
 private:
   ushort x0_tableCount;

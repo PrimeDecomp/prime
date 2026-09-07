@@ -1,7 +1,7 @@
 #include "Kyoto/Audio/CAudioSys.hpp"
 
-#include "Kyoto/Audio/CAudioGroupSet.hpp"
 #include "Kyoto/Alloc/CMemory.hpp"
+#include "Kyoto/Audio/CAudioGroupSet.hpp"
 
 #include "dolphin/ai.h"
 #include "dolphin/dtk.h"
@@ -154,14 +154,19 @@ rstl::map< rstl::string, rstl::ncrc_ptr< CAudioSys::CTrkData > >* CAudioSys::mpD
 rstl::vector< CAudioSys::CEmitterData >* CAudioSys::mpEmitterDB = nullptr;
 SND_LISTENER* CAudioSys::mpListener = nullptr;
 CAudioSys::ESurroundModes CAudioSys::mSurroundMode = CAudioSys::kSM_Mono;
-uint CAudioSys::mMaxAramUsage = 0;
-uint CAudioSys::mCurrentAramUsage = 0;
-
+int CAudioSys::mMaxAramUsage = 0;
+int CAudioSys::mCurrentAramUsage = 0;
 const uchar CAudioSys::kEmitterMedPriority = 0x7f;
 const uchar CAudioSys::kMaxVolume = 0x7f;
 bool CAudioSys::mProLogic2 = true;
+
 short CAudioSys::mVolumeScale = 0x7f;
 short CAudioSys::mDefaultVolumeScale = 0x7f;
+
+bool CAudioSys::mAICallbackEnabled = true;
+void* CAudioSys::mAICallback = nullptr;
+
+uint lbl_805A95BC = 0;
 
 const rstl::string CAudioSys::mpDefaultInvalidString(rstl::string_l("NULL"));
 
@@ -234,24 +239,45 @@ void CAudioSys::SysSetSfxVolume(const uchar volume, const ushort time, const uch
 }
 
 bool CAudioSys::SysLoadGroupSet(CSimplePool* pool, const uint id) {
-  if (SysIsGroupSetLoaded(SysGetGroupSetName(id))) {
-    return true;
+  const rstl::string& name = SysGetGroupSetName(id);
+  rstl::rc_ptr< CAudioGroupSet > existing = FindGroupSet(name);
+  if (!existing) {
+    TLockedToken< CAudioGrpSetLoc > token(pool->GetObj(SObjectTag('AGSC', id)));
+    rstl::ncrc_ptr< CAudioGroupSet > group(rs_new CAudioGroupSet(token));
+    int aramUsage = mCurrentAramUsage + group->AramUsage();
+    if (aramUsage > mMaxAramUsage) {
+      return true;
+    }
+    mCurrentAramUsage = aramUsage;
+    const rstl::string& groupName = group->GetName();
+    mpGroupSetDB->insert(rstl::pair< rstl::string, rstl::ncrc_ptr< CAudioGroupSet > >(
+        groupName, group));
+    mpGroupSetResNameDB->insert(rstl::pair< uint, rstl::string >(id, groupName));
+    return false;
   }
-
-  TLockedToken< CAudioGroupSet > group(pool->GetObj(SObjectTag('AGSC', id)));
-  return SysLoadGroupSet(group, group->GetName(), id);
+  existing->Reload();
+  return true;
 }
 
-bool CAudioSys::SysLoadGroupSet(TLockedToken< CAudioGroupSet > group, rstl::string name,
+bool CAudioSys::SysLoadGroupSet(const CToken& token, const rstl::string& name,
                                 const uint id) {
-  if (FindGroupSet(name)) {
-    return true;
+  rstl::rc_ptr< CAudioGroupSet > existing = FindGroupSet(name);
+  if (!existing) {
+    rstl::ncrc_ptr< CAudioGroupSet > group(
+        rs_new CAudioGroupSet(TLockedToken< CAudioGrpSetLoc >(token)));
+    int aramUsage = mCurrentAramUsage + group->AramUsage();
+    if (aramUsage > mMaxAramUsage) {
+      return true;
+    }
+    mCurrentAramUsage = aramUsage;
+    const rstl::string& groupName = group->GetName();
+    mpGroupSetDB->insert(rstl::pair< rstl::string, rstl::ncrc_ptr< CAudioGroupSet > >(
+        groupName, group));
+    mpGroupSetResNameDB->insert(rstl::pair< uint, rstl::string >(id, groupName));
+    return false;
   }
-
-  mpGroupSetDB->insert(rstl::pair< rstl::string, rstl::ncrc_ptr< CAudioGroupSet > >(
-      name, rstl::ncrc_ptr< CAudioGroupSet >(group.GetT())));
-  mpGroupSetResNameDB->insert(rstl::pair< uint, rstl::string >(id, name));
-  return false;
+  existing->Reload();
+  return true;
 }
 
 bool CAudioSys::SysIsGroupSetLoaded(const rstl::string& name) { return FindGroupSet(name); }
@@ -266,13 +292,22 @@ bool CAudioSys::SysUnloadSampleData(const rstl::string& name) {
   return false;
 }
 
-void CAudioSys::SysUnloadGroupSet(const rstl::string& name) {
-  rstl::map< rstl::string, rstl::ncrc_ptr< CAudioGroupSet > >::iterator it = mpGroupSetDB->find(name);
-  if (it == mpGroupSetDB->end()) {
-    return;
+bool CAudioSys::SysUnloadGroupSet(const rstl::string& name) {
+  rstl::rc_ptr< CAudioGroupSet > group = FindGroupSet(name);
+  if (group) {
+    AUTO(it, mpGroupSetResNameDB->begin());
+    while (it != mpGroupSetResNameDB->end()) {
+      if (it->second == name) {
+        it = mpGroupSetResNameDB->erase(it);
+      } else {
+        ++it;
+      }
+    }
+    mCurrentAramUsage -= group->AramUsage();
+    mpGroupSetDB->erase(name);
+    return true;
   }
-
-  mpGroupSetDB->erase(it);
+  return false;
 }
 
 bool CAudioSys::SysPushGroupIntoARAM(const rstl::string& name, const uchar groupId) {
@@ -285,9 +320,7 @@ bool CAudioSys::SysPushGroupIntoARAM(const rstl::string& name, const uchar group
   return sndPushGroup(nullptr, groupId, nullptr, nullptr, nullptr);
 }
 
-void CAudioSys::SysPopGroupFromARAM() {
-  sndPopGroup();
-}
+void CAudioSys::SysPopGroupFromARAM() { sndPopGroup(); }
 
 const rstl::string& CAudioSys::SysGetGroupSetName(const uint id) {
   rstl::map< uint, rstl::string >::const_iterator it = mpGroupSetResNameDB->find(id);
@@ -301,7 +334,7 @@ const rstl::string& CAudioSys::SysGetGroupSetName(const uint id) {
 rstl::ncrc_ptr< CAudioGroupSet > CAudioSys::FindGroupSet(const rstl::string& name) {
   rstl::map< rstl::string, rstl::ncrc_ptr< CAudioGroupSet > >::const_iterator it(
       mpGroupSetDB->find(name));
-  rstl::map< rstl::string, rstl::ncrc_ptr< CAudioGroupSet > >::const_iterator end(
+  rstl::map< rstl::string, rstl::ncrc_ptr< CAudioGroupSet > >::iterator end(
       mpGroupSetDB->end());
   if (it != end) {
     return it->second;
@@ -319,7 +352,9 @@ void CAudioSys::SfxStop(const SND_VOICEID handle) { sndFXKeyOff(handle); }
 
 SND_VOICEID CAudioSys::SfxCheck(SND_VOICEID handle) { return sndFXCheck(handle); }
 
-void CAudioSys::SfxSpan(SND_VOICEID handle, const uchar span) { sndFXSurroundPanning(handle, span); }
+void CAudioSys::SfxSpan(SND_VOICEID handle, const uchar span) {
+  sndFXSurroundPanning(handle, span);
+}
 
 void CAudioSys::SfxVolume(SND_VOICEID handle, const u8 vol) { sndFXVolume(handle, vol); }
 
@@ -327,18 +362,20 @@ void CAudioSys::SfxPitchBend(SND_VOICEID handle, const ushort pitch) {
   sndFXPitchBend(handle, pitch);
 }
 
-void CAudioSys::SfxCtrl(const SND_VOICEID handle, uchar ctrl, uchar val) { sndFXCtrl(handle, ctrl, val); }
+void CAudioSys::SfxCtrl(const SND_VOICEID handle, uchar ctrl, uchar val) {
+  sndFXCtrl(handle, ctrl, val);
+}
 
 int CAudioSys::TrkQueueTrack(const rstl::string& name, void (*callback)(unsigned long),
                              const uint eventMask) {
-  while (TrkGetState() == 3) {}
+  while (TrkGetState() == 3) {
+  }
 
   rstl::ncrc_ptr< CTrkData > trk = FindTrack(name);
   if (!trk.GetPtr()) {
     CTrkData* data = rs_new CTrkData(name);
     rstl::ncrc_ptr< CTrkData > newTrk(data);
-    mpDVDTrackDB->insert(rstl::pair< rstl::string, rstl::ncrc_ptr< CTrkData > >(
-        name, newTrk));
+    mpDVDTrackDB->insert(rstl::pair< rstl::string, rstl::ncrc_ptr< CTrkData > >(name, newTrk));
     return DTKQueueTrack(newTrk->GetFileName(), newTrk->GetTrack(), eventMask, callback);
   }
 
@@ -382,7 +419,7 @@ void CAudioSys::TrkNextTrack() { DTKNextTrack(); }
 rstl::ncrc_ptr< CAudioSys::CTrkData > CAudioSys::FindTrack(const rstl::string& name) {
   rstl::map< rstl::string, rstl::ncrc_ptr< CTrkData > >::const_iterator it(
       mpDVDTrackDB->find(name));
-  rstl::map< rstl::string, rstl::ncrc_ptr< CTrkData > >::const_iterator end(mpDVDTrackDB->end());
+  rstl::map< rstl::string, rstl::ncrc_ptr< CTrkData > >::iterator end(mpDVDTrackDB->end());
   if (it != end) {
     return it->second;
   }
@@ -472,11 +509,14 @@ uint CAudioSys::S3dAddEmitterParaEx(const C3DEmitterParmData& params, ushort gro
   _dir.y = params.xc_dir.GetY();
   _dir.z = params.xc_dir.GetZ();
 
-  const uchar scaledMaxVol = (mVolumeScale * (params.x26_maxVol > 0x7f ? 0x7f : params.x26_maxVol)) / 0x7f;
+  const uchar scaledMaxVol =
+      (mVolumeScale * (params.x26_maxVol > 0x7f ? 0x7f : params.x26_maxVol)) / 0x7f;
   const char maxVol = scaledMaxVol;
-  const uchar minVol = (mVolumeScale * (params.x27_minVol > 0x7f ? 0x7f : params.x27_minVol)) / 0x7f;
+  const uchar minVol =
+      (mVolumeScale * (params.x27_minVol > 0x7f ? 0x7f : params.x27_minVol)) / 0x7f;
   sndAddEmitterParaEx(&data.x0_emitter, &_pos, &_dir, params.x18_maxDist, params.x1c_distComp,
-                      params.x20_flags, params.x24_sfxId, groupId, maxVol, minVol, nullptr, paraInfo);
+                      params.x20_flags, params.x24_sfxId, groupId, maxVol, minVol, nullptr,
+                      paraInfo);
   data._50 = true;
   data._51 = params.x28_important;
   data._52 = params.x29_prio;
@@ -647,3 +687,16 @@ void CAudioSys::SetVolumeScale(const short scale) { mVolumeScale = scale; }
 void CAudioSys::SetDefaultVolumeScale(const short scale) { mDefaultVolumeScale = scale; }
 
 short CAudioSys::GetDefaultVolumeScale() { return mDefaultVolumeScale; }
+
+void CAudioSys::EnableAICallback(const bool enable) {
+  if (mAICallbackEnabled != enable) {
+    mAICallbackEnabled = enable;
+    if (enable) {
+      AIRegisterDMACallback(reinterpret_cast< AIDCallback >(mAICallback));
+    } else {
+      mAICallback = reinterpret_cast< void* >(AIRegisterDMACallback(nullptr));
+    }
+  }
+}
+
+bool CAudioSys::IsAICallbackEnabled() { return mAICallbackEnabled; }

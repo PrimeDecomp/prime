@@ -7,6 +7,7 @@
 
 #include "Kyoto/Math/CVector3f.hpp"
 #include "Kyoto/SObjectTag.hpp"
+#include "Kyoto/TToken.hpp"
 
 #include "rstl/list.hpp"
 #include "rstl/vector.hpp"
@@ -14,7 +15,7 @@
 class CActorParameters;
 class CCollisionActorManager;
 class CHealthInfo;
-class CToken;
+class CSkinnedModel;
 class IVisitor;
 
 class CParasite : public CWallWalker {
@@ -40,10 +41,9 @@ public:
             float parasiteCohesionWeight, float destinationSeekWeight, float forwardMoveWeight,
             float playerSeparationDist, float playerSeparationWeight,
             float playerObstructionMinDist, float haltDelay, bool disableMove,
-            CWallWalker::EWalkerType wType, const CDamageVulnerability& dVuln,
-            const CDamageInfo& dInfo, ushort haltSfx, ushort getUpSfx, ushort crouchSfx,
-            CAssetId modelRes, CAssetId skinRes, float iceZoomerJointHP,
-            const CActorParameters& aParams);
+            CWallWalker::EType wType, const CDamageVulnerability& dVuln, const CDamageInfo& dInfo,
+            ushort haltSfx, ushort getUpSfx, ushort crouchSfx, CAssetId modelRes, CAssetId skinRes,
+            float iceZoomerJointHP, const CActorParameters& aParams);
 
   // CEntity
   ~CParasite() override;
@@ -54,7 +54,6 @@ public:
 
   // CActor
   void Render(const CStateManager& mgr) const override;
-  const CCollisionPrimitive* GetCollisionPrimitive() const override;
   const CDamageVulnerability* GetDamageVulnerability() const override;
   void Touch(CActor& actor, CStateManager& mgr) override;
   CVector3f GetAimPosition(const CStateManager& mgr, float dt) const override;
@@ -95,11 +94,10 @@ public:
   bool ShotAt(CStateManager& mgr, float arg) override;
 
   // CParasite
-  virtual void UpdateWalkerAnimation(CStateManager& mgr, float dt);
-
-  static rstl::list< CParasite* > sParasites;
+  virtual CAdvancementDeltas UpdateWalkerAnimation(CStateManager& mgr, float dt);
 
 private:
+  bool CloseToWall(CStateManager& mgr);
   void FaceTarget(CVector3f target);
   TUniqueId RecursiveFindClosestWayPoint(CStateManager& mgr, TUniqueId id, float& dist) const;
   TUniqueId GetClosestWaypointForState(EScriptObjectState state, CStateManager& mgr) const;
@@ -109,7 +107,7 @@ private:
   void SetupIceZoomerVulnerability(CStateManager& mgr, const CDamageVulnerability& dVuln,
                                    const CHealthInfo& hInfo);
   void AddDoorRepulsors(CStateManager& mgr);
-  void UpdateCollisionActors(CStateManager& mgr);
+  void UpdateCollisionActors(float dt, CStateManager& mgr);
   void DestroyActorManager(CStateManager& mgr);
   void UpdateJumpVelocity();
 
@@ -127,8 +125,8 @@ private:
   float x60c_stuckTime;
   float x610_;
   CVector3f x614_lastStuckPos;
-  CCollisionActorManager* x620_collisionActorManager;
-  CToken* x624_extraModel;
+  rstl::single_ptr< CCollisionActorManager > x620_collisionActorManager;
+  rstl::single_ptr< TLockedToken< CSkinnedModel > > x624_extraModel;
   CVector3f x628_parasiteSeparationMove;
   CVector3f x634_parasiteCohesionMove;
   CVector3f x640_parasiteAlignmentMove;

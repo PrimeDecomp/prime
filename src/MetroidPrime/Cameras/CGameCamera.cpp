@@ -1,3 +1,5 @@
+#pragma inline_max_size(250)
+
 #include "MetroidPrime/Cameras/CGameCamera.hpp"
 
 #include "Collision/CMaterialFilter.hpp"
@@ -133,7 +135,7 @@ void CCameraSpline::CalculateKnots(TUniqueId uid, const rstl::vector< SConnectio
 
       // what is going on here?
       if (x14_wpTracker.size() == x14_wpTracker.capacity()) {
-        x14_wpTracker.reserve(x14_wpTracker.size() * 2);
+        x14_wpTracker.reserve(x14_wpTracker.size());
       }
       x14_wpTracker.push_back(waypoint->GetUniqueId());
       size += 1;

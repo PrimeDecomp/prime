@@ -54,7 +54,7 @@ public:
   void Render(const CStateManager& mgr, float alpha, const CAABox& aabb, const CTransform4f& xf,
               const CTransform4f& areaXf, bool noNormals, const CFrustumPlanes& frustum,
               const rstl::optional_object< CRippleManager >& rippleManager, TUniqueId waterId,
-              const bool* gridFlags, int gridDimX, int gridDimY,
+              const char* gridFlags, int gridDimX, int gridDimY,
               const CVector3f& areaCenter) const override;
 
   void RenderSetup(const CStateManager& mgr, float alpha, const CTransform4f& xf,

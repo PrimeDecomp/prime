@@ -14,15 +14,38 @@
 class CInputStream;
 class CScannableObjectInfo {
 public:
+  enum EPanelType {
+    kPT_Invalid = -1,
+    kPT_0,
+    kPT_1,
+    kPT_2,
+    kPT_3,
+    kPT_01,
+    kPT_12,
+    kPT_23,
+    kPT_012,
+    kPT_123,
+    kPT_0123,
+    kPT_4,
+    kPT_5,
+    kPT_6,
+    kPT_7,
+    kPT_45,
+    kPT_56,
+    kPT_67,
+    kPT_456,
+    kPT_567,
+    kPT_4567
+  };
   struct SBucket {
     CAssetId x0_texture;
     float x4_appearanceRange;
-    int x8_imagePos;
+    EPanelType x8_imagePos;
     CVector2i xc_size;
     float x14_interval;
     float x18_fadeDuration;
 
-    SBucket(CAssetId textureId, float appearanceRange, int imagePos, const CVector2i& size,
+    SBucket(CAssetId textureId, float appearanceRange, EPanelType imagePos, const CVector2i& size,
             float interval, float fadeDuration)
     : x0_texture(textureId)
     , x4_appearanceRange(appearanceRange)
@@ -33,7 +56,7 @@ public:
     SBucket(CInputStream& in, uint version)
     : x0_texture(in.ReadLong())
     , x4_appearanceRange(in.ReadFloat())
-    , x8_imagePos(in.ReadLong())
+    , x8_imagePos(static_cast< EPanelType >(in.ReadLong()))
     , xc_size(version == 1 ? CVector2i() : CVector2i(in))
     , x14_interval(version == 1 ? 0.f : in.ReadFloat())
     , x18_fadeDuration(version < 3 ? 0.f : in.ReadFloat()) {}
@@ -43,8 +66,8 @@ public:
     const float GetAppearanceRange() const { return x4_appearanceRange; }
     void SetAppearanceRange(const float range) { x4_appearanceRange = range; }
 
-    int GetImagePosition() const { return x8_imagePos; }
-    void SetImagePosition(int position) { x8_imagePos = position; }
+    EPanelType GetImagePosition() const { return x8_imagePos; }
+    void SetImagePosition(EPanelType position) { x8_imagePos = position; }
   };
 
   static const char* GetImagePaneName(uint pane);
@@ -65,6 +88,7 @@ private:
   bool x10_important;
   rstl::reserved_vector< SBucket, 4 > x14_buckets;
 };
+CHECK_SIZEOF(CScannableObjectInfo, 0x88)
 
 CFactoryFnReturn FScannableObjectInfoFactory(const SObjectTag& tag, CInputStream& in,
                                              const CVParamTransfer& xfer);

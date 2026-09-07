@@ -63,13 +63,13 @@ CGuiLight::CGuiLight(const CGuiWidgetParms& parms, const CLight& light)
 , xd8_lightId(light.GetId())
 , xdc_ambColor(CColor::Black()) {}
 
-CGuiLight::~CGuiLight() { GetFrame()->RemoveLight(this); }
+CGuiLight::~CGuiLight() { GetParentFrame()->RemoveLight(this); }
 
 void CGuiLight::SetIsVisible(const bool visible) {
   if (visible) {
-    GetFrame()->AddLight(this);
+    GetParentFrame()->AddLight(this);
   } else {
-    GetFrame()->RemoveLight(this);
+    GetParentFrame()->RemoveLight(this);
   }
 
   CGuiWidget::SetIsVisible(visible);

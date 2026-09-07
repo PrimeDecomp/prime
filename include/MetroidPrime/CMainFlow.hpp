@@ -31,8 +31,11 @@ public:
 
   void AdvanceGameState(CArchitectureQueue& queue);
   void SetGameState(EClientFlowStates state, CArchitectureQueue& queue);
+
 private:
   EClientFlowStates x14_gameState;
 };
+
+CHECK_SIZEOF(CMainFlow, 0x18)
 
 #endif // _CMAINFLOW

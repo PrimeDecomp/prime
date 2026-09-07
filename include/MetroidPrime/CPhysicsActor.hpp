@@ -71,6 +71,7 @@ CHECK_SIZEOF(CMotionState, 0x34)
 class CCollisionInfoList;
 
 class CPhysicsActor : public CActor {
+protected:
   static const float kGravityAccel;
 
 public:
@@ -192,7 +193,7 @@ public:
 
   static float GravityConstant() { return kGravityAccel; }
 
-private:
+protected:
   float xe8_mass;
   float xec_massRecip;
   float xf0_inertiaTensor;

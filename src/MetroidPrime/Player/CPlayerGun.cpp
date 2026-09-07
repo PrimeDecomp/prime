@@ -493,21 +493,15 @@ void CPlayerGun::PreRender(CStateManager& mgr, const CFrustumPlanes& frustum,
 static void CopyScreenTex() {
   GXSetTexCopySrc(0x140, 0xe0, 0x140, 0xe0);
   GXSetTexCopyDst(0x140, 0xe0, GX_TF_RGBA8, false);
-  GXCopyTex(CGraphics::mpSpareBuffer, false);
+  GXCopyTex(CGraphics::GetDolphinSpareBuffer(), false);
   GXPixModeSync();
 }
 
 static void DrawScreenTex(float z) {
   const CTransform4f backupViewMtx(CGraphics::GetViewMatrix());
   const CGraphics::CProjectionState backupProjectionState(CGraphics::GetProjectionState());
-  const int vpLeft = CGraphics::mViewport.mLeft;
-  const int vpTop = CGraphics::mViewport.mTop;
-  const int vpRight = vpLeft + CGraphics::mViewport.mWidth;
-  const int vpBottom = vpTop + CGraphics::mViewport.mHeight;
-  const float bottom = static_cast< float >(vpBottom);
-  const float top = static_cast< float >(vpTop);
-  const float right = static_cast< float >(vpRight);
-  CGraphics::SetOrtho(static_cast< float >(vpLeft), right, bottom, top, -1.f, 1.f);
+  const CViewport& vp = CGraphics::GetViewport();
+  CGraphics::SetOrtho(vp.mLeft, vp.mLeft + vp.mWidth, vp.mTop, vp.mTop + vp.mHeight, -1.f, 1.f);
   CGraphics::SetViewPointMatrix(CTransform4f::Identity());
   gpRender->SetModelMatrix(CTransform4f::Identity());
   gpRender->SetBlendMode_AlphaBlended();
@@ -1868,7 +1862,7 @@ void CPlayerGun::UpdateWeaponFire(float dt, CPlayerState& playerState, CStateMan
       if (x53a_powerBomb != kInvalidUniqueId &&
           !mgr.CanCreateProjectile(x538_playerId, kWT_PowerBomb, 1)) {
         const CPowerBomb* pb = static_cast< const CPowerBomb* >(mgr.GetObjectById(x53a_powerBomb));
-        if (pb != NULL && pb->GetCurTime() <= CPowerBomb::kEndingTime) {
+        if (pb != NULL && pb->GetCurTime() <= CPowerBomb::EndingTime()) {
           x835_28_bombReady = false;
         } else {
           x53a_powerBomb = kInvalidUniqueId;

@@ -24,7 +24,7 @@ CBloodFlower::CBloodFlower(const TUniqueId uid, const rstl::string& name, const 
                            const CAssetId partId2, const CAssetId partId3, const CAssetId partId4,
                            const float f1, const CAssetId partId5, const uint soundId)
 : CPatterned(kC_BloodFlower, uid, name, kFT_Zero, info, xf, mData, pInfo, kMT_Ground, kCT_One,
-             kBT_Restricted, actParams, kKBV_Medium)
+             kBT_Restricted, actParams, kCS_Medium)
 , mPodEffectDescription(gpSimplePool->GetObj(SObjectTag('PART', podEffectDescId)))
 , mPodEffect(rs_new CElementGen(mPodEffectDescription))
 , mProjectileDesc(gpSimplePool->GetObj(SObjectTag('WPSC', projectileDescId)))
@@ -52,7 +52,7 @@ CBloodFlower::CBloodFlower(const TUniqueId uid, const rstl::string& name, const 
   mPodEffect->SetGlobalScale(modelScale);
   mProjectileDesc.Lock();
   mProjectileInfo.Token().Lock();
-  GetKnockBackCtrl().SetAutoResetImpulse(false);
+  KnockBackCtrl().SetAutoResetImpulse(false);
   if (partId5 != kInvalidAssetId) {
     mVisorParticle = gpSimplePool->GetObj(SObjectTag('PART', partId5));
   }

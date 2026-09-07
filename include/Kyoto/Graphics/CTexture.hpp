@@ -66,7 +66,7 @@ public:
   ~CTexture();
 
   // Used in certain destructors
-  void fn_8030E10C();
+  void ScheduleDeletion();
   void LoadMipLevel(int, GXTexMapID tex, EClampMode) const;
   void Load(GXTexMapID texMapId, EClampMode clampMode) const;
   bool HasPalette() const { return IsCITextureFormat(mTexelFormat); }
@@ -75,6 +75,7 @@ public:
   ETexelFormat GetTexelFormat() const { return mTexelFormat; }
   const short GetWidth() const { return mWidth; }
   const short GetHeight() const { return mHeight; }
+  int GetNumberOfMipMaps() const { return mNumMips; }
   void* Lock() {
     mLocked = true;
     return GetBitMapData(0);

@@ -113,7 +113,7 @@ void CScriptPickup::Think(float dt, CStateManager& mgr) {
     x274_tractorTime += dt;
     float halfTractorTime = rstl::min_val(x274_tractorTime, 2.f) * 0.5f;
     velocity = velocity.AsNormalized() * (halfTractorTime * 20.f);
-    if (x28c_26_enableTractorTest && mgr.GetPlayer()->GetPlayerGun()->GetChargeBeamFactor() <
+    if (x28c_26_enableTractorTest && mgr.GetPlayer()->GetPlayerGun()->GetChargePercentage() <
                                          CPlayerGun::GetTractorBeamFactor()) {
       x28c_26_enableTractorTest = false;
       x28c_25_inTractor = false;
@@ -121,7 +121,7 @@ void CScriptPickup::Think(float dt, CStateManager& mgr) {
     }
     SetVelocityWR(velocity);
   } else if (x28c_24_generated) {
-    if (mgr.GetPlayer()->GetPlayerGun()->GetChargeBeamFactor() >
+    if (mgr.GetPlayer()->GetPlayerGun()->GetChargePercentage() >
         CPlayerGun::GetTractorBeamFactor()) {
       const CFirstPersonCamera* camera = mgr.CameraManager()->FirstPersonCamera();
       CVector3f posDelta = GetTranslation() - camera->GetTranslation();

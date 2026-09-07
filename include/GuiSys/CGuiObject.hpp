@@ -21,6 +21,10 @@ public:
   void SetLocalPosition(const CVector3f& pos);
   CTransform4f& LocalTransform() { return x4_localXF; }
   void SetLocalTransform(const CTransform4f& xf);
+  void SetO2PTransform(const CTransform4f& xf) {
+    x4_localXF = xf;
+    RecalculateTransforms();
+  }
   void SetO2WTransform(const CTransform4f& xf);
 
   void RotateReset();

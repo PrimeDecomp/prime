@@ -20,11 +20,6 @@ struct SDSPStreamCacheEntry {
                        float fadeOut, int handle, bool music);
 };
 
-class CStreamedAudioManager {
-public:
-  static bool AreStringsNotEqual(const char* lhs, const char* rhs);
-};
-
 class CStreamAudioManager {
 public:
   enum ESoftwareChannel {
@@ -34,6 +29,7 @@ public:
 
   static void Update(float dt);
   static void StopAll();
+  static void FadeBackIn(float time);
   static void StopOneShot();
   static void SetMusicVolume(uint vol);
   static void SetSfxVolume(uint vol);
@@ -42,8 +38,8 @@ public:
   static void FadeInSoftwareAudio(ESoftwareChannel chan, float fadeTime);
   static void FadeOutSoftwareAudio(ESoftwareChannel chan, float fadeTime);
 
-  static void PlaySoftwareAudio(ESoftwareChannel chan, const rstl::string& fileName, int volume,
-                                bool music, float fadeIn, float fadeOut);
+  static void PlaySoftwareAudio(ESoftwareChannel chan, const rstl::string& fileName, float fadeIn,
+                                float fadeOut, int volume, bool music);
   static void StopSoftwareAudio(ESoftwareChannel chan, const rstl::string& fileName);
 
   static void SetDefaultAudio(const rstl::string& fileName, float fadeIn, float fadeOut,
@@ -53,7 +49,6 @@ public:
 
   static void fn_803653F8(float fadeTime);
   static void fn_80365424(float fadeTime);
-  static void fn_8036590C(float fadeTime);
 
 private:
   static void HandleMusicUnmute();

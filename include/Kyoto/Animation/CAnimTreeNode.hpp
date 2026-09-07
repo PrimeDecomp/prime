@@ -9,6 +9,7 @@
 
 class CAnimTreeNode : public IAnimReader {
 public:
+  virtual uint Depth() const = 0;
   CAnimTreeNode(const rstl::string&);
   ~CAnimTreeNode() override {
     CCharAnimMemoryMetrics::SubtractFromTotalSize(x4_name.size(), CCharAnimMemoryMetrics::kASS_Two);
@@ -17,18 +18,28 @@ public:
   virtual CAnimTreeEffectiveContribution VGetContributionOfHighestInfluence() const = 0;
 
   virtual uint VGetNumChildren() const = 0;
-  virtual rstl::rc_ptr< IAnimReader > VGetBestUnblendedChild() const = 0;
+  virtual rstl::rc_ptr< CAnimTreeNode > VGetBestUnblendedChild() const = 0;
   virtual void VGetWeightedReaders(
       float w, rstl::reserved_vector< rstl::pair< float, IAnimReader* >, 16 >& out) const = 0;
+
 
   CAnimTreeEffectiveContribution GetContributionOfHighestInfluence() const {
     return VGetContributionOfHighestInfluence();
   }
 
-  bool IsCAnimTreeNode() const override { return true; }
+  rstl::rc_ptr< CAnimTreeNode > GetBestUnblendedChild() const {
+    return VGetBestUnblendedChild();
+  }
 
-private:
+  const rstl::string& GetPrimitiveName() const { return x4_name; }
+
+  bool IsCAnimTreeNode() const override;
+
+protected:
   rstl::string x4_name;
 };
+CHECK_SIZEOF(CAnimTreeNode, 0x14)
+
+rstl::ncrc_ptr< CAnimTreeNode > Cast(const rstl::ownership_transfer< IAnimReader >& ptr);
 
 #endif // _CANIMTREENODE

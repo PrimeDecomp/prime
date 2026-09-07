@@ -11,7 +11,7 @@ public:
   ~CFluidPlaneDoor() override;
 
   void RenderSetup(const CStateManager& mgr, float alpha, const CTransform4f& xf,
-                   const CAABox& bounds) const;
+                   const CAABox& bounds, bool noNormals) const;
   void AddRipple(const float mag, const TUniqueId rippler, const CVector3f& center,
                  const CScriptWater& water, CStateManager& mgr) override {}
   void AddRipple(float intensity, TUniqueId rippler, const CVector3f& center,
@@ -22,7 +22,7 @@ public:
               const CTransform4f& xf, const CTransform4f& areaXf, bool noNormals,
               const CFrustumPlanes& frustum,
               const rstl::optional_object< CRippleManager >& rippleManager,
-              TUniqueId waterId, const bool* gridFlags, int gridDimX, int gridDimY,
+              TUniqueId waterId, const char* gridFlags, int gridDimX, int gridDimY,
               const CVector3f& areaCenter) const override;
 
   void Update();

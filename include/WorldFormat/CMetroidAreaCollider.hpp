@@ -10,8 +10,10 @@
 #include "Collision/CMaterialList.hpp"
 
 #include "Kyoto/Math/CAABox.hpp"
+#include "Kyoto/Math/CLineSeg.hpp"
 #include "Kyoto/Math/CPlane.hpp"
 #include "Kyoto/Math/CSphere.hpp"
+#include "Kyoto/Math/CVector3d.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
 
 #include "rstl/reserved_vector.hpp"
@@ -21,14 +23,7 @@ public:
   friend class CMetroidAreaCollider;
 
   CAABoxAreaCache(const CAABox& aabb, const CPlane* pl, const CMaterialFilter& filter,
-                  const CMaterialList& material, CCollisionInfoList& collisionList)
-  : x0_aabb(aabb)
-  , x4_planes(pl)
-  , x8_filter(filter)
-  , xc_material(material)
-  , x10_collisionList(collisionList)
-  , x14_center(aabb.GetCenterPoint())
-  , x20_halfExtent(aabb.GetHalfExtent()) {}
+                  const CMaterialList& material, CCollisionInfoList& collisionList);
 
 private:
   const CAABox& x0_aabb;
@@ -40,8 +35,84 @@ private:
   CVector3f x20_halfExtent;
 };
 
+CHECK_SIZEOF(CAABoxAreaCache, 0x2c)
+
+class CBooleanAABoxAreaCache {
+public:
+  friend class CMetroidAreaCollider;
+
+  CBooleanAABoxAreaCache(const CAABox& aabb, const CMaterialFilter& filter);
+
+private:
+  const CAABox& x0_aabb;
+  const CMaterialFilter& x4_filter;
+  CVector3f x8_center;
+  CVector3f x14_halfExtent;
+};
+
+CHECK_SIZEOF(CBooleanAABoxAreaCache, 0x20)
+
+class CSphereAreaCache {
+public:
+  friend class CMetroidAreaCollider;
+
+  CSphereAreaCache(const CAABox& aabb, const CSphere& sphere, const CMaterialFilter& filter,
+                   const CMaterialList& material, CCollisionInfoList& collisionList)
+  : x0_aabb(aabb)
+  , x4_sphere(sphere)
+  , x8_filter(filter)
+  , xc_material(material)
+  , x10_collisionList(collisionList) {}
+
+private:
+  const CAABox& x0_aabb;
+  const CSphere& x4_sphere;
+  const CMaterialFilter& x8_filter;
+  const CMaterialList& xc_material;
+  CCollisionInfoList& x10_collisionList;
+};
+
+CHECK_SIZEOF(CSphereAreaCache, 0x14)
+
+class CBooleanSphereAreaCache {
+public:
+  friend class CMetroidAreaCollider;
+
+  CBooleanSphereAreaCache(const CAABox& aabb, const CSphere& sphere, const CMaterialFilter& filter)
+  : x0_aabb(aabb), x4_sphere(sphere), x8_filter(filter) {}
+
+private:
+  const CAABox& x0_aabb;
+  const CSphere& x4_sphere;
+  const CMaterialFilter& x8_filter;
+};
+
+CHECK_SIZEOF(CBooleanSphereAreaCache, 0xc)
+
 class CMetroidAreaCollider {
 public:
+  struct SBoxEdge {
+    CLineSeg x0_seg;
+    CVector3d x28_start;
+    CVector3d x40_end;
+    CVector3d x58_delta;
+    CVector3d x70_coDir;
+    double x88_dirCoDirDot;
+    SBoxEdge(const CAABox& aabb, int idx, const CVector3f& dir);
+  };
+
+  class CMovingAABoxComponents {
+  public:
+    CMovingAABoxComponents(const CAABox& aabb, const CVector3f& dir);
+
+  private:
+    friend class CMetroidAreaCollider;
+    friend class CCollidableOBBTree;
+    rstl::reserved_vector< SBoxEdge, 12 > x0_edges;
+    rstl::reserved_vector< uint, 8 > x6c4_vertIdxs;
+    CAABox x6e8_aabb;
+  };
+
   class COctreeLeafCache {
   public:
     COctreeLeafCache(const CAreaOctTree& octTree);
@@ -58,6 +129,7 @@ public:
     }
 
   private:
+    friend class CMetroidAreaCollider;
     const CAreaOctTree& x0_octTree;
     rstl::reserved_vector< CAreaOctTree::Node, 64 > x4_nodeCache;
     bool x908_24_overflow : 1;
@@ -69,18 +141,15 @@ public:
   static bool AABoxCollisionCheckBoolean(const CAreaOctTree& octTree, const CAABox& aabb,
                                          const CMaterialFilter& filter);
   static bool SphereCollisionCheckBoolean(const CAreaOctTree& octTree, const CAABox& aabb,
-                                          const CSphere& sphere,
-                                          const CMaterialFilter& filter);
+                                          const CSphere& sphere, const CMaterialFilter& filter);
   static bool AABoxCollisionCheckBoolean_Cached(const COctreeLeafCache& leafCache,
-                                                const CAABox& aabb,
-                                                const CMaterialFilter& filter);
+                                                const CAABox& aabb, const CMaterialFilter& filter);
   static bool SphereCollisionCheckBoolean_Cached(const COctreeLeafCache& leafCache,
-                                                 const CAABox& aabb,
-                                                 const CSphere& sphere,
+                                                 const CAABox& aabb, const CSphere& sphere,
                                                  const CMaterialFilter& filter);
   static bool AABoxCollisionCheck(const CAreaOctTree& octTree, const CAABox& aabb,
-                                  const CMaterialFilter& filter,
-                                  const CMaterialList& matList, CCollisionInfoList& list);
+                                  const CMaterialFilter& filter, const CMaterialList& matList,
+                                  CCollisionInfoList& list);
   static bool SphereCollisionCheck(const CAreaOctTree& octTree, const CAABox& aabb,
                                    const CSphere& sphere, const CMaterialList& matList,
                                    const CMaterialFilter& filter, CCollisionInfoList& list);
@@ -88,32 +157,49 @@ public:
                                          const CMaterialFilter& filter,
                                          const CMaterialList& matList, CCollisionInfoList& list);
   static bool SphereCollisionCheck_Cached(const COctreeLeafCache& leafCache, const CAABox& aabb,
-                                          const CSphere& sphere,
-                                          const CMaterialList& matList,
-                                          const CMaterialFilter& filter,
-                                          CCollisionInfoList& list);
+                                          const CSphere& sphere, const CMaterialList& matList,
+                                          const CMaterialFilter& filter, CCollisionInfoList& list);
   static bool MovingAABoxCollisionCheck_Cached(const COctreeLeafCache& leafCache,
-                                               const CAABox& aabb,
-                                               const CMaterialFilter& filter,
-                                               const CMaterialList& matList, CVector3f dir,
-                                               float d, CCollisionInfo& infoOut,
-                                               double& dOut);
+                                               const CAABox& aabb, const CMaterialFilter& filter,
+                                               const CMaterialList& matList, CVector3f dir, float d,
+                                               CCollisionInfo& infoOut, double& dOut);
   static bool MovingSphereCollisionCheck_Cached(const COctreeLeafCache& leafCache,
-                                                const CAABox& aabb,
-                                                const CSphere& sphere,
+                                                const CAABox& aabb, const CSphere& sphere,
                                                 const CMaterialFilter& filter,
                                                 const CMaterialList& matList, CVector3f dir,
-                                                float d, CCollisionInfo& infoOut,
-                                                double& dOut);
+                                                float d, CCollisionInfo& infoOut, double& dOut);
+
+  static ushort GetDupPrimitiveCheckCount() { return sDupPrimitiveCheckCount; }
+  static ushort& DupVertexListValue(uint idx) { return sDupVertexList[idx]; }
+  static ushort& DupEdgeListValue(uint idx) { return sDupEdgeList[idx]; }
+  static ushort& DupTriangleListValue(uint idx) { return sDupTriangleList[idx]; }
 
 private:
+  friend class CCollidableOBBTree;
   static ushort sDupPrimitiveCheckCount;
   static ushort sDupVertexList[0x2800];
   static ushort sDupEdgeList[0x6000];
   static ushort sDupTriangleList[0x4000];
   static void ResetInternalCounters();
   static bool AABoxCollisionCheck_Internal(const CAreaOctTree::Node&, CAABoxAreaCache&);
+  static bool AABoxCollisionCheckBoolean_Internal(const CAreaOctTree::Node&,
+                                                  const CBooleanAABoxAreaCache&);
+  static bool SphereCollisionCheck_Internal(const CAreaOctTree::Node&, CSphereAreaCache&);
+  static bool SphereCollisionCheckBoolean_Internal(const CAreaOctTree::Node&,
+                                                   const CBooleanSphereAreaCache&);
+  static bool MovingAABoxCollisionCheck_BoxVertexTri(const CCollisionSurface&, const CAABox&,
+                                                     const rstl::reserved_vector< uint, 8 >&,
+                                                     CVector3f, double&, CVector3f&, CVector3f&);
+  static bool MovingAABoxCollisionCheck_TriVertexBox(const CVector3f&, const CAABox&, CVector3f,
+                                                     double&, CVector3f&, CVector3f&);
+  static bool MovingAABoxCollisionCheck_Edge(const CVector3f&, const CVector3f&,
+                                             const rstl::reserved_vector< SBoxEdge, 12 >&,
+                                             CVector3f, double&, CVector3f&, CVector3f&);
 };
+
+NESTED_CHECK_SIZEOF(CMetroidAreaCollider, SBoxEdge, 0x90)
+NESTED_CHECK_SIZEOF(CMetroidAreaCollider, CMovingAABoxComponents, 0x700)
+NESTED_CHECK_SIZEOF(CMetroidAreaCollider, COctreeLeafCache, 0x90c)
 
 class CAreaCollisionCache {
 public:

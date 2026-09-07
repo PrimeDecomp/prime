@@ -83,7 +83,7 @@ CNewIntroBoss::CNewIntroBoss(TUniqueId uid, const rstl::string& name, const CEnt
                              CAssetId beamContactFxId, CAssetId beamPulseFxId,
                              CAssetId beamTextureId, CAssetId beamGlowTextureId)
 : CPatterned(kC_NewIntroBoss, uid, name, kFT_Zero, info, xf, mData, pInfo, kMT_Flyer, kCT_One,
-             kBT_Restricted, actParms, kKBV_Medium)
+             kBT_Restricted, actParms, kCS_Medium)
 , x568_locomotion(pas::kLT_Relaxed)
 , x56c_stateProg(0)
 , x570_minTurnAngle(minTurnAngle)

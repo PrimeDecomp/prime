@@ -75,7 +75,7 @@ public:
   // Virtual Methods
   virtual void Reset(CStateManager& mgr);
   virtual void PlayAnim(const NWeaponTypes::EGunAnimType type, bool loop);
-  virtual void PreRenderGunFx(const CStateManager& mgr, const CTransform4f& xf);
+  virtual void PreRenderGunFx(const CStateManager& mgr, const CTransform4f& xf) {}
   virtual void PostRenderGunFx(const CStateManager& mgr, const CTransform4f& xf);
   virtual void UpdateGunFx(const bool shotSmoke, const float dt, const CStateManager& mgr,
                            const CTransform4f& xf);
@@ -83,8 +83,10 @@ public:
                     const CPlayerState::EChargeStage chargeState, const CTransform4f& xf,
                     CStateManager& mgr, const TUniqueId homingTarget, const float chargeFactor1,
                     const float chargeFactor2);
-  virtual void EnableFx(const bool enable);
-  virtual void EnableSecondaryFx(const ESecondaryFxType type);
+  virtual void EnableFx(const bool enable) {}
+  virtual void EnableSecondaryFx(const ESecondaryFxType type) {
+    x1cc_enabledSecondaryEffect = type;
+  }
   virtual void Draw(const bool drawSuitArm, const CStateManager& mgr, const CTransform4f& xf,
                     const CModelFlags& flags, const CActorLights* lights) const;
   virtual void DrawMuzzleFx(const CStateManager& mgr) const;
@@ -107,7 +109,8 @@ public:
   void ActivateCharge(bool enable, bool resetEffect);
   bool PlayPasAnim(SamusGun::EAnimationState state, CStateManager& mgr, float angle);
   bool IsChargeAnimOver() const;
-  void UpdateMuzzleFx(const float dt, const CVector3f& scale, const CVector3f& pos, const bool emitting);
+  void UpdateMuzzleFx(const float dt, const CVector3f& scale, const CVector3f& pos,
+                      const bool emitting);
   CElementGen* GetChargeMuzzleFx() const;
   void DrawHologram(const CStateManager& mgr, const CTransform4f& xf,
                     const CModelFlags& flags) const;
@@ -124,8 +127,6 @@ public:
 
   CDamageInfo GetDamageInfo(CStateManager& mgr, CPlayerState::EChargeStage chargeState,
                             float chargeFactor);
-  CDamageInfo GetShotDamageInfo(const CDamageInfo& shotParam, CStateManager& mgr) const;
-
   static const char* GetMuzzleLocator() { return skMuzzleLocator; }
 
 protected:
@@ -137,7 +138,7 @@ protected:
   rstl::single_ptr< CGunController > x100_gunController;
   TToken< CAnimCharacterSet > x104_gunCharacter;
   rstl::vector< CToken > x10c_anims;
-  rstl::vector< int > x11c_unk;
+  rstl::vector< CToken > x11c_unk;
   rstl::vector< CToken > x12c_deps;
   TToken< CAnimCharacterSet > x13c_armCharacter;
   rstl::reserved_vector< TCachedToken< CWeaponDescription >, 2 > x144_weapons;

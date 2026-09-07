@@ -30,7 +30,7 @@ CScannableObjectInfo::CScannableObjectInfo(CInputStream& in, CAssetId id)
 
   const float appearanceOffset = gpTweakGui->GetScanAppearanceDuration();
   for (int i = 0; i < x14_buckets.size(); ++i) {
-    if (x14_buckets[i].GetImagePosition() == -1) {
+    if (x14_buckets[i].GetImagePosition() == kPT_Invalid) {
       continue;
     }
 
@@ -41,11 +41,11 @@ CScannableObjectInfo::CScannableObjectInfo(CInputStream& in, CAssetId id)
   }
 
   for (int i = 0; i < x14_buckets.size() - 1; ++i) {
-    const int& pos = x14_buckets[i].x8_imagePos;
+    const EPanelType& pos = x14_buckets[i].x8_imagePos;
     for (int j = i + 1; j < x14_buckets.size(); ++j) {
       SBucket& bucket = x14_buckets[j];
-      if (pos == bucket.x8_imagePos && pos != -1) {
-        bucket.x8_imagePos = -1;
+      if (pos == bucket.x8_imagePos && pos != kPT_Invalid) {
+        bucket.x8_imagePos = kPT_Invalid;
       }
     }
   }

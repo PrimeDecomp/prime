@@ -1,8 +1,9 @@
 #include "WorldFormat/COBBTree.hpp"
+#include "WorldFormat/CCollisionSurface.hpp"
 
 #include "Collision/CMaterialList.hpp"
 #include "Kyoto/Streams/CInputStream.hpp"
-#include <rstl/algorithm.hpp>
+#include "rstl/algorithm.hpp"
 
 #pragma inline_max_size(250)
 
@@ -18,7 +19,7 @@ COBBTree::SIndexData::SIndexData(CInputStream& in)
 , x60_vertices(in) {}
 
 COBBTree::COBBTree(const SIndexData& indexData, const CNode* root)
-: x8_memoryUsage(root->GetMemoryUsage())
+: x8_memsize(root->GetMemoryUsage())
 , xc_allocator(0)
 , x18_indexData(indexData)
 , x88_root(root) {
@@ -29,10 +30,10 @@ uint verify_deaf_babe(CInputStream& in) { return in.Get< uint >(); }
 uint verify_version(CInputStream& in) { return in.Get< uint >(); }
 
 COBBTree::COBBTree(CInputStream& in)
-: x0_(verify_deaf_babe(in))
-, x4_(verify_version(in))
-, x8_memoryUsage(in.Get< uint >())
-, xc_allocator(x8_memoryUsage)
+: x0_magic(verify_deaf_babe(in))
+, x4_version(verify_version(in))
+, x8_memsize(in.Get< uint >())
+, xc_allocator(x8_memsize)
 , x18_indexData(in)
 , x88_root(nullptr) {
   CNode::SetAllocator(&xc_allocator);
@@ -57,19 +58,60 @@ CAABox COBBTree::CalculateLocalAABox() const {
   return CAABox(0.f, 0.f, 0.f, 0.f, 0.f, 0.f);
 }
 
+CCollisionSurface COBBTree::GetSurface(const ushort index) const {
+  const int surfIdx = index * 3;
+  const CCollisionEdge& e0 = x18_indexData.x40_edges[x18_indexData.x50_surfaceIndices[surfIdx]];
+  const CCollisionEdge& e1 = x18_indexData.x40_edges[x18_indexData.x50_surfaceIndices[surfIdx + 1]];
+  const ushort v2 =
+      (e1.GetVertIndex1() != e0.GetVertIndex1() && e1.GetVertIndex1() != e0.GetVertIndex2())
+          ? e1.GetVertIndex1()
+          : e1.GetVertIndex2();
+  const uint material = x18_indexData.x0_materials[x18_indexData.x30_surfaceMaterials[index]];
+  if ((material & 0x2000000) != 0) {
+    const CVector3f& thirdVertex = x18_indexData.x60_vertices[v2];
+    return CCollisionSurface(x18_indexData.x60_vertices[e0.GetVertIndex2()],
+                             x18_indexData.x60_vertices[e0.GetVertIndex1()], thirdVertex, material);
+  }
+  const CVector3f& thirdVertex = x18_indexData.x60_vertices[v2];
+  return CCollisionSurface(x18_indexData.x60_vertices[e0.GetVertIndex1()],
+                           x18_indexData.x60_vertices[e0.GetVertIndex2()], thirdVertex, material);
+}
+
+CCollisionSurface COBBTree::GetTransformedSurface(const ushort index,
+                                                  const CTransform4f& xf) const {
+  const int surfIdx = index * 3;
+  const CCollisionEdge& e0 = x18_indexData.x40_edges[x18_indexData.x50_surfaceIndices[surfIdx]];
+  const CCollisionEdge& e1 = x18_indexData.x40_edges[x18_indexData.x50_surfaceIndices[surfIdx + 1]];
+  const ushort v2 =
+      (e1.GetVertIndex1() != e0.GetVertIndex1() && e1.GetVertIndex1() != e0.GetVertIndex2())
+          ? e1.GetVertIndex1()
+          : e1.GetVertIndex2();
+  const uint material = x18_indexData.x0_materials[x18_indexData.x30_surfaceMaterials[index]];
+  if ((material & 0x2000000) != 0) {
+    const CVector3f& thirdVertex = x18_indexData.x60_vertices[v2];
+    return CCollisionSurface(xf * x18_indexData.x60_vertices[e0.GetVertIndex2()],
+                             xf * x18_indexData.x60_vertices[e0.GetVertIndex1()], xf * thirdVertex,
+                             material);
+  }
+  const CVector3f& thirdVertex = x18_indexData.x60_vertices[v2];
+  return CCollisionSurface(xf * x18_indexData.x60_vertices[e0.GetVertIndex1()],
+                           xf * x18_indexData.x60_vertices[e0.GetVertIndex2()], xf * thirdVertex,
+                           material);
+}
+
 rstl::auto_ptr< COBBTree > COBBTree::BuildOrientedBoundingBoxTree(const CVector3f& extent,
                                                                   const CVector3f& center) {
-  const CVector3f halfExtent = (extent * 0.5f);
-  const CVector3f negHalfExtent = (extent * -0.5f);
+  const CVector3f halfExtent = extent * 0.5f;
+  const CVector3f negHalfExtent = extent * -0.5f;
   const CAABox aabb(negHalfExtent + center, halfExtent + center);
   SIndexData indexData;
-#define BIT(x) ((uint)(1 << x))
   indexData.x0_materials.reserve(3);
-  indexData.x0_materials.push_back(BIT(kMT_Wall) | BIT(kMT_NoPlatformCollision) | BIT(kMT_Solid));
-  indexData.x0_materials.push_back(BIT(kMT_Wall) | BIT(kMT_RedundantEdgeOrFlippedTri) |
-                                   BIT(kMT_NoPlatformCollision) | BIT(kMT_Solid));
-  indexData.x0_materials.push_back(BIT(kMT_Wall) | BIT(kMT_NoEdgeCollision) |
-                                   BIT(kMT_NoPlatformCollision) | BIT(kMT_Solid));
+  indexData.x0_materials.push_back((1u << kMT_Wall) | (1u << kMT_NoPlatformCollision) |
+                                   (1u << kMT_Solid));
+  indexData.x0_materials.push_back((1u << kMT_Wall) | (1u << kMT_RedundantEdgeOrFlippedTri) |
+                                   (1u << kMT_NoPlatformCollision) | (1u << kMT_Solid));
+  indexData.x0_materials.push_back((1u << kMT_Wall) | (1u << kMT_NoEdgeCollision) |
+                                   (1u << kMT_NoPlatformCollision) | (1u << kMT_Solid));
   indexData.x10_vertMaterials = rstl::vector< uchar >(8, 0);
   static const uchar kEdgeMaterials[] = {
       2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 2, 0, 0, 2, 0, 0, 2, 2,
@@ -97,14 +139,14 @@ rstl::auto_ptr< COBBTree > COBBTree::BuildOrientedBoundingBoxTree(const CVector3
     indexData.x40_edges.push_back(CCollisionEdge(kEdges[i], kEdges[i + 1]));
   }
 
-  static const ushort kTriangleEdgeMaterials[] = {
+  static const ushort kTriangleEdgeIndices[] = {
       0,  1, 2,  0,  3, 4,  5,  6,  7, 5,  8,  9, 10, 3,  11, 10, 6,  12,
       13, 8, 14, 13, 1, 15, 16, 14, 7, 16, 11, 2, 17, 15, 4,  17, 12, 9,
   };
 
-  indexData.x50_surfaceIndices.reserve(ARRAY_SIZE(kTriangleEdgeMaterials));
-  for (size_t i = 0; i < ARRAY_SIZE(kTriangleEdgeMaterials); i++) {
-    indexData.x50_surfaceIndices.push_back(kTriangleEdgeMaterials[i]);
+  indexData.x50_surfaceIndices.reserve(ARRAY_SIZE(kTriangleEdgeIndices));
+  for (size_t i = 0; i < ARRAY_SIZE(kTriangleEdgeIndices); i++) {
+    indexData.x50_surfaceIndices.push_back(kTriangleEdgeIndices[i]);
   }
 
   indexData.x60_vertices.reserve(8);
@@ -125,8 +167,9 @@ rstl::auto_ptr< COBBTree > COBBTree::BuildOrientedBoundingBoxTree(const CVector3
 
   return rs_new COBBTree(indexData, root);
 }
-void COBBTree::GetTriangleVertexIndices(const ushort index, ushort out[2]) const {
-  const int surfIdx = (index * 3);
+
+void COBBTree::GetTriangleVertexIndices(const ushort index, ushort out[3]) const {
+  const int surfIdx = index * 3;
   const CCollisionEdge& e0 = x18_indexData.x40_edges[x18_indexData.x50_surfaceIndices[surfIdx]];
   const CCollisionEdge& e1 = x18_indexData.x40_edges[x18_indexData.x50_surfaceIndices[surfIdx + 1]];
 
@@ -179,13 +222,14 @@ uint COBBTree::CNode::GetMemoryUsage() const {
   }
 
   if (ret & 3) {
-    ret += (4 - (ret & 3));
+    ret += 4 - (ret & 3);
   }
 
   return ret;
 }
 
 void COBBTree::CNode::SetAllocator(CSimpleAllocator* allocator) { spAllocator = allocator; }
+
 void* COBBTree::CNode::operator new(size_t size, const char* file, int line) {
   if (spAllocator == nullptr) {
     return rs_new char[size];
@@ -195,7 +239,7 @@ void* COBBTree::CNode::operator new(size_t size, const char* file, int line) {
 
 void COBBTree::CNode::operator delete(void* ptr, size_t size) {
   if (spAllocator == nullptr && ptr != nullptr) {
-    delete[] ptr;
+    delete[] static_cast< char* >(ptr);
   }
 }
 
@@ -206,26 +250,28 @@ uint COBBTree::CLeafData::GetMemoryUsage() const {
   uint ret = sizeof(CLeafData) + x0_surface.size() * sizeof(ushort);
 
   if (ret & 3) {
-    ret += (4 - (ret & 3));
+    ret += 4 - (ret & 3);
   }
 
   return ret;
 }
 
 COBBTree::CSimpleAllocator::CSimpleAllocator(uint size)
-: mPool(rs_new char[size]), mPoolSize(size), mPoolOffset(0) {}
+: x0_buffer(rs_new char[size])
+, x4_size(size)
+, x8_offset(0) {}
 
 COBBTree::CSimpleAllocator::~CSimpleAllocator() {
-  if (mPool) {
-    delete[] mPool;
+  if (x0_buffer) {
+    delete[] x0_buffer;
   }
 }
 
 void* COBBTree::CSimpleAllocator::Alloc(const size_t size) {
-  void* ret = mPool + mPoolOffset;
-  mPoolOffset += size;
-  if (mPoolOffset & 3) {
-    mPoolOffset += (4 - (mPoolOffset & 3));
+  void* ret = x0_buffer + x8_offset;
+  x8_offset += size;
+  if (x8_offset & 3) {
+    x8_offset += 4 - (x8_offset & 3);
   }
 
   return ret;

@@ -8,7 +8,7 @@
 
 class CSphere {
 public:
-  CSphere(const CVector3f& pos, float radius) : x0_center(pos), xc_radius(radius){}
+  CSphere(const CVector3f& pos, const float radius) : x0_center(pos), xc_radius(radius){}
   
   const CVector3f& GetCenter() const { return x0_center; }
   const float GetRadius() const { return xc_radius; }

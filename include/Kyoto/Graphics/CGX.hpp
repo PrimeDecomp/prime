@@ -99,12 +99,6 @@ public:
   static void SetNumTexGens(uchar num);
   static void SetNumTevStages(uchar num);
   static void SetNumIndStages(uchar num);
-  static void SetNumIndStages_Inline(uchar num) {
-    if (sGXState.x51_numIndStages != num) {
-      sGXState.x51_numIndStages = num;
-      GXSetNumIndStages(num);
-    }
-  }
   static void SetChanAmbColor(EChannelId channel, const GXColor& color);
   static void SetChanMatColor(EChannelId channel, const GXColor& color);
   static void SetChanCtrl(EChannelId channel, GXBool enable, GXColorSrc ambSrc, GXColorSrc matSrc,
@@ -132,12 +126,18 @@ public:
   static void SetZMode(GXBool compareEnable, GXCompare func, GXBool updateEnable);
   static void SetAlphaCompare(GXCompare comp0, uchar ref0, GXAlphaOp op, GXCompare comp1,
                               uchar ref1);
-  static void SetTevIndirect(GXTevStageID stageId, GXIndTexStageID indStage, GXIndTexFormat fmt,
-                             GXIndTexBiasSel biasSel, GXIndTexMtxID mtxSel, GXIndTexWrap wrapS,
-                             GXIndTexWrap wrapT, GXBool addPrev, GXBool indLod,
-                             GXIndTexAlphaSel alphaSel);
-  static void SetTevIndWarp(GXTevStageID stageId, GXIndTexStageID indStage, uchar signedOffset,
-                            uchar replaceMode, GXIndTexMtxID mtxSel);
+  static void SetTevIndirect(const GXTevStageID stageId, const GXIndTexStageID indStage,
+                             const GXIndTexFormat fmt, const GXIndTexBiasSel biasSel,
+                             const GXIndTexMtxID mtxSel, const GXIndTexWrap wrapS,
+                             const GXIndTexWrap wrapT, GXBool addPrev, const GXBool indLod,
+                             const GXIndTexAlphaSel alphaSel);
+  static void SetTevIndWarp(const GXTevStageID stageId, const GXIndTexStageID indStage,
+                            const uchar signedOffset, const uchar replaceMode,
+                            const GXIndTexMtxID mtxSel) {
+    const GXIndTexWrap wrap = replaceMode != 0 ? GX_ITW_0 : GX_ITW_OFF;
+    SetTevIndirect(stageId, indStage, GX_ITF_8, signedOffset != 0 ? GX_ITB_STU : GX_ITB_NONE,
+                   mtxSel, wrap, wrap, GX_FALSE, GX_FALSE, GX_ITBA_OFF);
+  }
   static void SetTevDirect(GXTevStageID stageId);
   static void SetTexCoordGen(GXTexCoordID dstCoord, GXTexGenType fn, GXTexGenSrc src, GXTexMtx mtx,
                              GXBool normalize, GXPTTexMtx postMtx);

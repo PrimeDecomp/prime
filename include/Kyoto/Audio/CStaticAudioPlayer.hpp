@@ -24,11 +24,14 @@ public:
   void DoMix();
   static void RunDMACallback(FAudioCallback);
   static void CancelDMACallback(FAudioCallback);
+  static void InstallAICallback();
+  static void AICallback();
+
   void Decode(const ushort* bufIn, ushort* bufOut, int numSamples);
   void DecodeMonoAndMix(ushort* bufIn, ushort* bufOut, int numSamples,
                         int curSample, int sampleEnd, int sampleStart,
                         int vol, g72x_state& state);
-  void SetVolume(char vol);
+  void SetVolume(uchar vol);
 
 private:
   rstl::string x0_filepath;

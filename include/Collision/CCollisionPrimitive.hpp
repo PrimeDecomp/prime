@@ -158,7 +158,6 @@ private:
                                     CCollisionInfo&);
   static bool InternalCollideBoolean(const CInternalCollisionStructure&);
 
-  uint x4_;
   CMaterialList x8_material;
 };
 CHECK_SIZEOF(CCollisionPrimitive, 0x10)

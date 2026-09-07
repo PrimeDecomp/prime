@@ -35,7 +35,7 @@ public:
   void AddToRenderer(const CFrustumPlanes&, const CStateManager&) const override;
   void Render(const CStateManager&) const override;
 
-  void TouchModels(const CStateManager& mgr) const;
+  void TouchModels(const CStateManager& mgr);
 
 private:
   uint GetSuitCharIdx(const CStateManager& mgr, CPlayerState::EPlayerSuit suit) const;

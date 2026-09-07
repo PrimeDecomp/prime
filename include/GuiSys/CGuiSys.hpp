@@ -35,10 +35,11 @@ public:
   }
 
   static CGuiSys* GetGlobalGuiSys() { return spGuiSys; }
-  static CGuiWidget* CreateWidgetInGame(uint type, CInputStream& in, CGuiFrame* parent);
+  static CGuiWidget* CreateWidgetInGame(uint type, CInputStream& in, CGuiFrame* parent, CSimplePool* sp);
 
   void AddFactories(EUsageMode mode);
 
+  bool GetIsUsedInGame() const { return x8_mode == kUM_Zero; }
   EUsageMode GetUsageMode() const { return x8_mode; }
 
 private:

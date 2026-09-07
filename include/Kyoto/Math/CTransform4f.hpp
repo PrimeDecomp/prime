@@ -78,6 +78,20 @@ public:
   
   const CVector3f GetColumn(EDimY dim) const { return CVector3f(m01, m11, m21); }
   const CVector3f GetColumn(EDimZ dim) const { return CVector3f(m02, m12, m22); }
+  CVector3f GetColumn(int column) const {
+    switch (column) {
+    case 0:
+      return GetColumn(kDX);
+    case 1:
+      return GetColumn(kDY);
+    case 2:
+      return GetColumn(kDZ);
+    case 3:
+      return GetTranslation();
+    default:
+      return CVector3f::Zero();
+    }
+  }
   void ScaleBy(const float scale);
   // GetCStyleMatrix__12CTransform4fCFv
   CTransform4f GetInverse() const;
@@ -115,7 +129,10 @@ public:
   void SetRotation(const CMatrix3f& rotation);
   void SetRotation(const CTransform4f& rotation);
   CVector3f TransposeMultiply(const CVector3f& in) const {
-    return TransposeRotate(CVector3f(in.GetX() - m03, in.GetY() - m13, in.GetZ() - m23));
+    float x = in.GetX();
+    float y = in.GetY();
+    float z = in.GetZ();
+    return TransposeRotate(CVector3f(x - m03, y - m13, z - m23));
   }
   CVector3f TransposeRotate(const CVector3f& in) const;
 

@@ -132,4 +132,6 @@ rstl::vector< rstl::string > CStringExtras::TokenizeString(const rstl::string& s
                                                            const char* delims, int expectedSize) {
   rstl::vector< rstl::string > ret;
   ret.reserve(expectedSize);
+  
+  return ret;
 }

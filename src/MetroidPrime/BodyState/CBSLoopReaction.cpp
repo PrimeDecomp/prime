@@ -26,7 +26,8 @@ void CBSLoopReaction::Start(CBodyController& bc, CStateManager& mgr) {
   x4_state = pas::kLS_Begin;
   const CPASAnimParmData parms(pas::kAS_LoopReaction, CPASAnimParm::FromEnum(x8_reactionType),
                                CPASAnimParm::FromEnum(x4_state));
-  rstl::pair< float, int > best = bc.GetPASDatabase().FindBestAnimation(parms, *mgr.Random(), -1);
+  const CPASDatabase& db = bc.GetPASDatabase();
+  rstl::pair< float, int > best = db.FindBestAnimation(parms, *mgr.Random(), -1);
 
   if (best.first > FLT_EPSILON) {
     const CAnimPlaybackParms playParms(best.second, -1, 1.f, true);
@@ -35,6 +36,7 @@ void CBSLoopReaction::Start(CBodyController& bc, CStateManager& mgr) {
     x4_state = pas::kLS_Loop;
     CPASAnimParmData loopParms(pas::kAS_LoopReaction, CPASAnimParm::FromEnum(x8_reactionType),
                                CPASAnimParm::FromEnum(x4_state));
+    // The original uses the begin parameters here, despite constructing loopParms.
     bc.LoopBestAnimation(parms, *mgr.Random());
   }
 }
@@ -90,6 +92,8 @@ pas::EAnimationState CBSLoopReaction::UpdateBody(float dt, CBodyController& bc,
   }
   return st;
 }
+
+void CBSLoopReaction::Shutdown(CBodyController&) {}
 
 bool CBSLoopReaction::PlayExitAnimation(CBodyController& bc, CStateManager& mgr) const {
   const CPASDatabase& db = bc.GetPASDatabase();

@@ -28,8 +28,8 @@ CRipple::CRipple(const TUniqueId id, const CVector3f& center, const float intens
     // lmao
   } else {
     static CRandom16 sRippleRandom(0xABBA);
-    float intensityScale = (intensity * (sRippleRandom.Float() - .5f));
-    intensityScale = .1f * (intensityScale * 2.f) + intensity;
+    const float rippleFactor = sRippleRandom.Float();
+    float intensityScale = .1f * ((intensity * (rippleFactor - 0.5f)) * 2.f) + intensity;
 
     if (intensityScale < 0.f) {
       intensityScale = 0.f;

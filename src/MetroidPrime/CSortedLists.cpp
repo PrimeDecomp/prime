@@ -35,9 +35,13 @@ bool CSortedListManager::ActorInLists(const CActor* actor) const {
   return ret;
 }
 
-short CSortedListManager::FindInListLower(ESortedLists list, f32 value) const {}
+short CSortedListManager::FindInListLower(ESortedLists list, f32 value) const {
+  return 0;
+}
 
-short CSortedListManager::FindInListUpper(ESortedLists list, f32 value) const {}
+short CSortedListManager::FindInListUpper(ESortedLists list, f32 value) const {
+  return 0;
+}
 
 void CSortedListManager::InsertInList(ESortedLists list, SNode& node) {}
 
@@ -111,7 +115,9 @@ short CSortedListManager::CalculateIntersections(ESortedLists la, ESortedLists l
                                                  ESortedLists slB, ESortedLists slC,
                                                  ESortedLists slD, const CAABox& aabb) const {}
 
-short CSortedListManager::ConstructIntersectionArray(const CAABox& aabb) const {}
+short CSortedListManager::ConstructIntersectionArray(const CAABox& aabb) const {
+  return 0;
+}
 
 void CSortedListManager::BuildNearList(rstl::reserved_vector< TUniqueId, 1024 >& nearListOut,
                                        const CAABox& box, const CMaterialFilter& filter,

@@ -48,6 +48,7 @@ public:
   EBodyType GetBodyType() const { return x2f4_bodyType; }
   int GetCurrentAnimId() const { return x2f8_curAnim; }
   void SetTurnSpeed(float speed);
+  float GetTurnSpeed() const { return x2fc_turnSpeed; }
   bool IsAnimationOver() const { return x300_24_animationOver; }
   bool GetIsActive() const { return x300_25_active; }
   bool ShouldPlayDeathAnims() const { return x300_28_playDeathAnims; }
@@ -61,6 +62,7 @@ public:
   void MultiplyPlaybackRate(float scale);
   void SetOnFire(float duration);
   void DouseFlames();
+  bool HasBeenFrozen() const { return x300_27_hasBeenFrozen; }
   bool IsFrozen() const { return x300_26_frozen; }
   void SetElectrocuting(float duration);
   bool IsElectrocuting() const { return x324_electrocutionDur > 0.f; }

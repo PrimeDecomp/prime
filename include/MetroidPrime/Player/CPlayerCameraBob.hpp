@@ -38,10 +38,10 @@ public:
   static float kSlowSpeedPeriodScale;
   static float kTargetMagnitudeTrackingRate;
   static float kLandingBobSpringConstant;
-  static float lbl_805A7398;
-  static float lbl_805A739C;
-  static float kLandingBobSpringConstant2;
-  static float lbl_805A73A4;
+  static float kPeakNegativeVerticalSpeedForHeavyLanding;
+  static float kMaxNegativeVerticalSpeedConsidered;
+  static float kHeavyLandingBobSpringConstant;
+  static float kHeavyLandingHelmetBobSpringConstant;
   static float kViewWanderRadius;
   static float kViewWanderSpeedMin;
   static float kViewWanderSpeedMax;
@@ -49,20 +49,17 @@ public:
   static float kGunBobMagnitude;
   static float kHelmetBobMagnitude;
   static float kLandingBobDamping;
-  static float kLandingBobDamping2;
-  static float kCameraDamping;
-  static float lbl_805A73C0;
-  static float lbl_805A73C4;
-  static float lbl_805A73C8;
-  static float lbl_805A73CC;
-  static float lbl_805A73D0;
-  static float lbl_805A73D4;
+  static float kHeavyLandingBobDamping;
+  static float kHeavyLandingHelmetBobDamping;
 
   CPlayerCameraBob(ECameraBobType type,
                    const CVector2f& vec = CVector2f(kCameraBobExtentX, kCameraBobExtentY),
                    float bobPeriod = kCameraBobPeriod);
 
-  CTransform4f GetViewWanderTransform() const;
+  const CVector3f& GetCameraBobTranslation() const {
+    return x2c_cameraBobTransform.GetTranslation();
+  }
+  const CTransform4f& GetViewWanderTransform() const;
   CVector3f GetHelmetBobTranslation() const;
   CTransform4f GetGunBobTransformation() const;
   CTransform4f GetCameraBobTransformation() const;
@@ -70,24 +67,27 @@ public:
   void SetBobMagnitude(float);
   void SetBobTimeScale(float);
   void ResetCameraBobTime();
-  void SetCameraBobTransform(const CTransform4f&);
-  void SetState(ECameraBobState, CStateManager&);
+  void SetCameraBobTransform(const CTransform4f& xf);
+  void SetState(ECameraBobState state, CStateManager& mgr);
   void InitViewWander(CStateManager&);
   void UpdateViewWander(float, CStateManager&);
   void Update(float, CStateManager&);
-  CVector3f CalculateRandomViewWanderPosition(CStateManager&) const;
-  float CalculateRandomViewWanderPitch(CStateManager&) const;
-  void CalculateMovingTranslation(float& x, float& y) const;
+  CVector3f CalculateRandomViewWanderPosition(CStateManager&);
+  float CalculateRandomViewWanderPitch(CStateManager&);
+  void CalculateMovingTranslation(float& x, float& z) const;
   float CalculateLandingTranslation() const;
   CTransform4f CalculateCameraBobTransformation() const;
+
+  const float& GetViewWanderMagnitude() const { return x100_wanderMagnitude; }
   static void ReadTweaks(CInputStream& in);
 
-  // static float GetCameraBobExtentX() { return kCameraBobExtentX; }
-  // static float GetCameraBobExtentY() { return kCameraBobExtentY; }
-  // static float GetCameraBobPeriod() { return kCameraBobPeriod; }
+  static float GetCameraBobExtentX() { return kCameraBobExtentX; }
+  static float GetCameraBobExtentY() { return kCameraBobExtentY; }
+  static float GetCameraBobPeriod() { return kCameraBobPeriod; }
   static float GetOrbitBobScale() { return kOrbitBobScale; }
   static float GetMaxOrbitBobScale() { return kMaxOrbitBobScale; }
   static float GetSlowSpeedPeriodScale() { return kSlowSpeedPeriodScale; }
+  static float GetMaxNegativeVerticalSpeedConsidered() { return kMaxNegativeVerticalSpeedConsidered; }
 
 private:
   ECameraBobType x0_type;

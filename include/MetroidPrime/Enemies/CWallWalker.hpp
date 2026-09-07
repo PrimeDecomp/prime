@@ -9,7 +9,7 @@
 
 class CWallWalker : public CPatterned {
 public:
-  enum EWalkerType {
+  enum EType {
     kWT_Parasite = 0,
     kWT_Oculus = 1,
     kWT_Geemer = 2,
@@ -17,16 +17,17 @@ public:
     kWT_Seedling = 4,
   };
 
-  CWallWalker(ECharacter chr, TUniqueId uid, const rstl::string& name, EFlavorType flavorType,
-              const CEntityInfo& info, const CTransform4f& xf, const CModelData& mData,
-              const CPatternedInfo& pInfo, EMovementType moveType, EColliderType colType,
-              EBodyType bodyType, const CActorParameters& actParms,
-              float collisionCloseMargin, float alignAngVel,
-              EKnockBackVariant kbVariant, float advanceWpRadius,
-              EWalkerType walkerType, float playerObstructionMinDist, bool disableMove);
+  CWallWalker(const EPatternedAI chr, const TUniqueId uid, const rstl::string& name,
+              const EFlavorType flavorType, const CEntityInfo& info, const CTransform4f& xf,
+              const CModelData& mData, const CPatternedInfo& pInfo, const EMovementType moveType,
+              const EColliderType colType, const EBodyType bodyType,
+              const CActorParameters& actParms, const ECreatureSize kbVariant,
+              const float collisionCloseMargin, const EType walkerType, const bool disableMove,
+              const float alignAngVel, const float advanceWpRadius,
+              const float playerObstructionMinDist);
 
   // CEntity
-  ~CWallWalker() override;
+  ~CWallWalker() override {}
   void PreThink(float dt, CStateManager& mgr) override;
   void Think(float dt, CStateManager& mgr) override;
 
@@ -34,11 +35,14 @@ public:
   void Render(const CStateManager& mgr) const override;
   const CCollisionPrimitive* GetCollisionPrimitive() const override { return &x590_colSphere; }
 
-  void UpdateWPDestination(CStateManager& mgr);
+  static bool PointOnSurface(const CCollisionSurface& surface, const CVector3f& point);
+  static CVector3f ProjectPointToPlane(const CVector3f& point, const CVector3f& planePoint,
+                                      const CVector3f& normal);
+  static CVector3f ProjectVectorToPlane(const CVector3f& vec, const CVector3f& planeDir);
 
 protected:
   void OrientToSurfaceNormal(const CVector3f& normal, float clampAngle);
-  void AlignToFloor(CStateManager& mgr, float dt, const CVector3f& vec, float f);
+  void AlignToFloor(CStateManager& mgr, float radius, const CVector3f& newPos, float dt);
   void GotoNextWaypoint(CStateManager& mgr);
 
   CCollisionSurface x568_alignNormal;
@@ -51,7 +55,7 @@ protected:
   float x5c4_playerObstructionMinDist;
   float x5c8_bendingHackWeight;
   int x5cc_bendingHackAnim;
-  EWalkerType x5d0_walkerType;
+  EType x5d0_walkerType;
   short x5d4_thinkCounter;
   bool x5d6_24_alignToFloor : 1;
   bool x5d6_25_hasAlignSurface : 1;

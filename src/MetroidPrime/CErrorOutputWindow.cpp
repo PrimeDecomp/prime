@@ -3,7 +3,9 @@
 #include "MetroidPrime/CArchitectureMessage.hpp"
 
 #include "Kyoto/Graphics/CGraphics.hpp"
+#include "Kyoto/Text/CTextExecuteBuffer.hpp"
 #include "MetaRender/CCubeRenderer.hpp"
+#include "MetroidPrime/CGameGlobalObjects.hpp"
 
 #include "MetroidPrime/CIOWin.hpp"
 #include "MetroidPrime/CMemoryCardDriver.hpp"
@@ -36,11 +38,7 @@ CIOWin::EMessageReturn CErrorOutputWindow::OnMessage(const CArchitectureMessage&
 
   case kAM_TimerTick:
   case kAM_FrameEnd:
-    if (x14_state < kS_One) {
-      return kMR_Exit;
-    }
-    return kMR_Normal;
-
+    return x14_state > kS_One ? kMR_Exit : kMR_Normal;
   default:
     break;
   }
@@ -49,15 +47,15 @@ CIOWin::EMessageReturn CErrorOutputWindow::OnMessage(const CArchitectureMessage&
 
 void CErrorOutputWindow::UpdateWindow() {
   if (x14_state == 1) {
-    fn_802694C4(kS_Two);
+    SetState(kS_Two);
     return;
   }
   s32 driveStatus = DVDGetDriveStatus();
   const wchar_t* errMsg = nullptr;
   bool flagThing = x14_state != kS_Zero;
-  static s32 s_LastDvdStatus = 0;
-  if (driveStatus != s_LastDvdStatus) {
-    s_LastDvdStatus = driveStatus;
+  static s32 sLastDvdStatus = 0;
+  if (driveStatus != sLastDvdStatus) {
+    sLastDvdStatus = driveStatus;
   }
   switch (driveStatus) {
   case 5:
@@ -97,19 +95,19 @@ void CErrorOutputWindow::UpdateWindow() {
       if (x18_28_) {
         CGraphics::SetIsBeginSceneClearFb(x18_24_);
       }
-      fn_802694C4(kS_Zero);
+      SetState(kS_Zero);
     }
   } else if (x14_state != kS_Three) {
     if (x14_state == kS_Zero) {
       x18_24_ = CGraphics::IsBeginSceneClearFb();
     }
-    fn_802694C4(EState(x14_state + 1));
+    SetState(EState(x14_state + 1));
   } else {
     if (flag) {
       if (x18_28_) {
         CGraphics::SetIsBeginSceneClearFb(x18_24_);
       }
-      fn_802694C4(kS_Two);
+      SetState(kS_Two);
     }
   }
 }
@@ -120,7 +118,7 @@ void CErrorOutputWindow::Draw() const {
     break;
 
   case 2:
-    fn_802695F8();
+    DrawError();
 
   case 1:
   case 3:
@@ -132,6 +130,44 @@ void CErrorOutputWindow::Draw() const {
   }
 }
 
-void CErrorOutputWindow::fn_802695F8() const {}
+void CErrorOutputWindow::DrawError() const {
+  if (!x1c_msg) {
+    return;
+  }
 
-void CErrorOutputWindow::fn_802694C4(EState) {}
+  CViewport viewport = CGraphics::GetViewport();
+  CTextExecuteBuffer execBuffer;
+  execBuffer.AddWordWrapping(true);
+  execBuffer.BeginBlock(0, 0, viewport.mWidth, viewport.mHeight, false, kTD_Horizontal,
+                        kJustification_Center, kVerticalJustification_Center);
+  execBuffer.AddFont(TToken< CRasterFont >(*gpDefaultFont));
+  execBuffer.AddString(rstl::wstring_l(x1c_msg));
+  execBuffer.EndBlock();
+
+  if (x18_24_) {
+    CCameraFilterPass::DrawFilter(CCameraFilterPass::kFT_Blend, CCameraFilterPass::kFS_Fullscreen,
+                                  CColor::Black().WithAlphaOf(1.f), nullptr, 0.f);
+    CGraphics::SetViewPointMatrix(CTransform4f::Identity());
+    const float left = viewport.mLeft;
+    const float top = viewport.mTop;
+    const float right = viewport.mLeft + viewport.mWidth;
+    const float bottom = viewport.mTop + viewport.mHeight;
+    CGraphics::SetOrtho(left, right, top, bottom, -4096.f, 4095.f);
+    CGraphics::SetBlendMode(kBM_Blend, kBF_SrcAlpha, kBF_InvSrcAlpha, kLO_Clear);
+    CGraphics::SetCullMode(kCM_None);
+    CGraphics::SetDepthWriteMode(true, kE_Always, false);
+    CGraphics::SetAlphaCompare(kAF_Always, 0, kAO_And, kAF_Always, 0);
+  }
+}
+
+void CErrorOutputWindow::SetState(EState) {}
+
+void CErrorOutputWindow::Update() { UpdateWindow(); }
+
+void CErrorOutputWindow::ShowMessage() const {
+  if (!x1c_msg) {
+    return;
+  }
+
+  DrawError();
+}

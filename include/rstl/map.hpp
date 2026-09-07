@@ -5,8 +5,7 @@
 
 #include "rstl/pair.hpp"
 #include "rstl/red_black_tree.hpp"
-#include "rstl/rmemory_allocator.hpp"
-
+#include "rstl/allocator.hpp"
 namespace rstl {
 template < typename K, typename V, typename Cmp = less< K >, typename Alloc = rmemory_allocator >
 class map {
@@ -14,25 +13,31 @@ public:
   typedef pair< K, V > value_type;
 
 private:
-  // TODO: some things use a 0, others use a 1
-  typedef red_black_tree< K, value_type, 0, select1st< value_type >, Cmp, Alloc > rep_type;
+  typedef red_black_tree< K, value_type, false, select1st< value_type >, Cmp, Alloc >
+      rep_type;
 
 public:
   typedef typename rep_type::iterator iterator;
   typedef typename rep_type::const_iterator const_iterator;
 
+  explicit map(const Cmp& cmp = Cmp(), const Alloc& alloc = Alloc())
+  : inner(select1st< value_type >(), cmp, alloc) {}
+  map(CInputStream& in, const Cmp& cmp = Cmp(), const Alloc& alloc = Alloc());
   ~map() {}
 
-  iterator insert(const value_type& item) { return inner.insert(item); }
+  pair< iterator, bool > insert(const value_type& item) { return inner.insert(item); }
 
+  iterator begin() { return inner.begin(); }
+  iterator end() { return inner.end(); }
   const_iterator begin() const { return inner.begin(); }
   const_iterator end() const { return inner.end(); }
-  uint size() const { return inner.size(); }
+  int size() const { return inner.size(); }
 
   iterator find(const K& key) { return inner.find(key); }
   const_iterator find(const K& key) const { return inner.find(key); }
 
-  void erase(iterator it) { inner.erase(it); }
+  iterator erase(iterator it) { return inner.erase(it); }
+  int erase(const K& key) { return inner.erase(key); }
   void clear() { inner.clear(); }
 
 private:

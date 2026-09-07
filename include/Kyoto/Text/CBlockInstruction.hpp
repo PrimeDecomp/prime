@@ -39,6 +39,9 @@ public:
   int GetLineX() const { return x2c_lineX; }
   int GetLineY() const { return x30_lineY; }
   int GetLines() const { return x34_lineCount; }
+  void IncLines() { ++x34_lineCount; }
+  void AddHeight(int height) { x30_lineY += height; }
+  void SetWidth(int width) { x2c_lineX = width; }
 
 private:
   int x4_offsetX;

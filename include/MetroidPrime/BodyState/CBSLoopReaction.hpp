@@ -6,10 +6,10 @@
 class CBSLoopReaction : public CBodyState {
 public:
   CBSLoopReaction();
-  
+
   void Start(CBodyController& bc, CStateManager& mgr) override;
   pas::EAnimationState UpdateBody(float dt, CBodyController& bc, CStateManager& mgr) override;
-  void Shutdown(CBodyController&) override {}
+  void Shutdown(CBodyController&) override;
 
 private:
   pas::ELoopState x4_state;

@@ -11,7 +11,7 @@ CRipperControlledPlatform::CRipperControlledPlatform(
     const rstl::optional_object< TLockedToken< CCollidableOBBTreeGroupContainer > >& colTree)
 : CScriptPlatform(uid, name, info, xf, CModelData::CModelDataNull(), CActorParameters::None(),
                   bounds, 0.f, false, 1.f, active, CHealthInfo(FLT_MAX, 10.f),
-                  CDamageVulnerability::ImmuneVulnerabilty(), colTree, false, 1, 1)
+                  CDamageVulnerability::ImmuneVulnerability(), colTree, false, 1, 1)
 , x358_owner(owner)
 , x35c_yaw(GetYaw()) {}
 
