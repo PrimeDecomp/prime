@@ -23,38 +23,40 @@ CIOWinManager::IOWinPQNode::IOWinPQNode(rstl::ncrc_ptr< CIOWin > iowin, int prio
 void CIOWinManager::AddIOWin(rstl::ncrc_ptr< CIOWin > chIow, int pumpPrio, int drawPrio) {
   IOWinPQNode* prevNode = nullptr;
   IOWinPQNode* node;
-  for (node = x4_pumpRoot; node != nullptr && node->x4_prio > pumpPrio; node = node->x8_next) {
+  for (node = x4_pumpRoot; node != nullptr && node->GetPriority() > pumpPrio;
+       node = node->GetNext()) {
     prevNode = node;
   }
   IOWinPQNode* newNode = rs_new IOWinPQNode(chIow, pumpPrio, node);
   if (!prevNode) {
     x4_pumpRoot = newNode;
   } else {
-    prevNode->x8_next = newNode;
+    prevNode->SetNext(newNode);
   }
 
   IOWinPQNode* prevDrawNode = nullptr;
   IOWinPQNode* drawNode;
-  for (drawNode = x0_drawRoot; drawNode != nullptr && drawNode->x4_prio > drawPrio;
-       drawNode = drawNode->x8_next) {
+  for (drawNode = x0_drawRoot; drawNode != nullptr && drawNode->GetPriority() > drawPrio;
+       drawNode = drawNode->GetNext()) {
     prevDrawNode = drawNode;
   }
   IOWinPQNode* newDrawNode = rs_new IOWinPQNode(chIow, drawPrio, drawNode);
   if (!prevDrawNode) {
     x0_drawRoot = newDrawNode;
   } else {
-    prevDrawNode->x8_next = newDrawNode;
+    prevDrawNode->SetNext(newDrawNode);
   }
 }
 
 void CIOWinManager::RemoveIOWin(rstl::ncrc_ptr< CIOWin > chIow) {
+  IOWinPQNode* node = x4_pumpRoot;
   IOWinPQNode* prevNode = nullptr;
-  for (IOWinPQNode* node = x4_pumpRoot; node; node = node->x8_next) {
+  for (; node; node = node->GetNext()) {
     if (node->GetIOWin() == chIow) {
-      if (prevNode)
-        prevNode->x8_next = node->x8_next;
+      if (prevNode == nullptr)
+        x4_pumpRoot = node->GetNext();
       else
-        x4_pumpRoot = node->x8_next;
+        prevNode->SetNext(node->GetNext());
       delete node;
       break;
     }
@@ -62,12 +64,12 @@ void CIOWinManager::RemoveIOWin(rstl::ncrc_ptr< CIOWin > chIow) {
   }
 
   prevNode = nullptr;
-  for (IOWinPQNode* node = x0_drawRoot; node; node = node->x8_next) {
+  for (IOWinPQNode* node = x0_drawRoot; node; node = node->GetNext()) {
     if (node->GetIOWin() == chIow) {
-      if (prevNode)
-        prevNode->x8_next = node->x8_next;
+      if (prevNode == nullptr)
+        x0_drawRoot = node->GetNext();
       else
-        x0_drawRoot = node->x8_next;
+        prevNode->SetNext(node->GetNext());
       delete node;
       break;
     }
@@ -88,65 +90,63 @@ void CIOWinManager::ChangeIOWinPriority(rstl::ncrc_ptr< CIOWin > toChange, int p
                                         int drawPrio) {
   IOWinPQNode* prevNode = nullptr;
 
-  for (IOWinPQNode* node = x4_pumpRoot; node; node = node->x8_next) {
+  for (IOWinPQNode* node = x4_pumpRoot; node; node = node->GetNext()) {
     if (node->GetIOWin() == toChange) {
       if (prevNode == nullptr)
-        x4_pumpRoot = node->x8_next;
+        x4_pumpRoot = node->GetNext();
       else
-        prevNode->x8_next = node->x8_next;
+        prevNode->SetNext(node->GetNext());
 
-      node->x4_prio = pumpPrio;
-      IOWinPQNode* testNode = x4_pumpRoot;
+      node->SetPriority(pumpPrio);
       IOWinPQNode* testPrevNode = nullptr;
-      for (; testNode && testNode->x4_prio > pumpPrio; testNode = testNode->x8_next) {
+      IOWinPQNode* testNode = x4_pumpRoot;
+      for (; testNode && testNode->GetPriority() > pumpPrio; testNode = testNode->GetNext()) {
         testPrevNode = testNode;
       }
-      node->x8_next = testNode;
+      node->SetNext(testNode);
 
       if (testPrevNode == nullptr)
         x4_pumpRoot = node;
       else
-        testPrevNode->x8_next = node;
+        testPrevNode->SetNext(node);
       break;
     }
     prevNode = node;
   }
 
   prevNode = nullptr;
-  for (IOWinPQNode* node = x0_drawRoot; node; node = node->x8_next) {
+  for (IOWinPQNode* node = x0_drawRoot; node; node = node->GetNext()) {
     if (node->GetIOWin() == toChange) {
       if (prevNode == nullptr)
-        x0_drawRoot = node->x8_next;
+        x0_drawRoot = node->GetNext();
       else
-        prevNode->x8_next = node->x8_next;
+        prevNode->SetNext(node->GetNext());
 
-      node->x4_prio = drawPrio;
-      IOWinPQNode* testNode = x0_drawRoot;
+      node->SetPriority(drawPrio);
       IOWinPQNode* testPrevNode = nullptr;
-      for (; testNode && testNode->x4_prio > drawPrio; testNode = testNode->x8_next) {
+      IOWinPQNode* testNode = x0_drawRoot;
+      for (; testNode && testNode->GetPriority() > drawPrio; testNode = testNode->GetNext()) {
         testPrevNode = testNode;
       }
-      node->x8_next = testNode;
+      node->SetNext(testNode);
       if (testPrevNode == nullptr)
         x0_drawRoot = node;
       else
-        testPrevNode->x8_next = node;
+        testPrevNode->SetNext(node);
       break;
     }
     prevNode = node;
   }
 }
 
-rstl::ncrc_ptr< CIOWin > CIOWinManager::FindIOWin(const char* name) {
-  const rstl::string& nameStr = reinterpret_cast< const rstl::string& >(*name);
-
-  for (IOWinPQNode* node = x4_pumpRoot; node; node = node->x8_next) {
-    if (node->GetIOWin()->GetName() == nameStr) {
+rstl::ncrc_ptr< CIOWin > CIOWinManager::FindIOWin(const rstl::string& name) const {
+  for (IOWinPQNode* node = x4_pumpRoot; node; node = node->GetNext()) {
+    if (node->GetIOWin()->GetName() == name) {
       return node->GetIOWin();
     }
   }
-  for (IOWinPQNode* node = x0_drawRoot; node; node = node->x8_next) {
-    if (node->GetIOWin()->GetName() == nameStr) {
+  for (IOWinPQNode* node = x0_drawRoot; node; node = node->GetNext()) {
+    if (node->GetIOWin()->GetName() == name) {
       return node->GetIOWin();
     }
   }
@@ -180,10 +180,10 @@ bool CIOWinManager::DistributeOneMessage(const CArchitectureMessage& msg,
     }
 
     if (mret == CIOWin::kMR_RemoveIOWinAndExit || mret == CIOWin::kMR_RemoveIOWin) {
-      node = node->x8_next;
+      node = node->GetNext();
       RemoveIOWin(iow);
     } else {
-      node = node->x8_next;
+      node = node->GetNext();
     }
     if (mret == CIOWin::kMR_Exit || mret == CIOWin::kMR_RemoveIOWinAndExit) {
       break;
@@ -194,12 +194,12 @@ bool CIOWinManager::DistributeOneMessage(const CArchitectureMessage& msg,
 }
 
 void CIOWinManager::Draw() const {
-  for (IOWinPQNode* node = x0_drawRoot; node; node = node->x8_next) {
+  for (IOWinPQNode* node = x0_drawRoot; node; node = node->GetNext()) {
     node->GetIOWin()->PreDraw();
     if (!node->GetIOWin()->GetIsContinueDraw())
       break;
   }
-  for (IOWinPQNode* node = x0_drawRoot; node; node = node->x8_next) {
+  for (IOWinPQNode* node = x0_drawRoot; node; node = node->GetNext()) {
     node->GetIOWin()->Draw();
     if (!node->GetIOWin()->GetIsContinueDraw())
       break;
@@ -209,26 +209,26 @@ void CIOWinManager::Draw() const {
 bool CIOWinManager::OnIOWinMessage(const CArchitectureMessage& msg) {
   switch (msg.GetType()) {
   case kAM_RemoveIOWin: {
-    const CArchMsgParmNull& parm = MakeMsg::GetParmDeleteIOWin(msg);
-    rstl::ncrc_ptr< CIOWin > iow = FindIOWin((char*)&parm + 4);
+    const CArchMsgParmString& parm = MakeMsg::GetParmDeleteIOWin(msg);
+    rstl::ncrc_ptr< CIOWin > iow = FindIOWin(parm.GetString());
     if (iow)
       RemoveIOWin(iow);
     break;
   }
   case kAM_CreateIOWin: {
     const CArchMsgParmInt32Int32VoidPtr& parm = MakeMsg::GetParmCreateIOWin(msg);
-    int drawPrio = parm.GetInt2();
-    int pumpPrio = parm.GetInt1();
-    rstl::rc_ptr< CIOWin > ptr(static_cast< CIOWin* >(const_cast< void* >(parm.GetPtr())));
+    int pumpPrio = parm.GetFirstInt32();
+    int drawPrio = parm.GetSecondInt32();
+    const void* iow = parm.GetVoidPtr();
+    rstl::ncrc_ptr< CIOWin > ptr(static_cast< CIOWin* >(const_cast< void* >(iow)));
     AddIOWin(ptr, pumpPrio, drawPrio);
     break;
   }
   case kAM_ChangeIOWinPriority: {
-    const CArchMsgParmInt32Int32VoidPtr& parm = MakeMsg::GetParmChangeIOWinPriority(msg);
-    int pumpPrio = parm.GetInt1();
-    int drawPrio = parm.GetInt2();
-    const void* ptr = parm.GetPtr();
-    rstl::ncrc_ptr< CIOWin > iow = FindIOWin((char*)&parm + 0xc);
+    const CArchMsgParmInt32Int32String& parm = MakeMsg::GetParmChangeIOWinPriority(msg);
+    int pumpPrio = parm.GetFirstInt32();
+    int drawPrio = parm.GetSecondInt32();
+    rstl::ncrc_ptr< CIOWin > iow = FindIOWin(parm.GetString());
     if (iow)
       ChangeIOWinPriority(iow, pumpPrio, drawPrio);
     break;

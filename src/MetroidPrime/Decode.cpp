@@ -1,8 +1,8 @@
 #include "MetroidPrime/Decode.hpp"
 #include "Kyoto/Alloc/CMemory.hpp"
 
-const CArchMsgParmNull& MakeMsg::GetParmDeleteIOWin(const CArchitectureMessage& msg) {
-  return *static_cast< const CArchMsgParmNull* >(msg.GetParm());
+const CArchMsgParmString& MakeMsg::GetParmDeleteIOWin(const CArchitectureMessage& msg) {
+  return *static_cast< const CArchMsgParmString* >(msg.GetParm());
 }
 
 CArchitectureMessage MakeMsg::CreateCreateIOWin(EArchMsgTarget target, const int& pmin,
@@ -16,9 +16,9 @@ const CArchMsgParmInt32Int32VoidPtr& MakeMsg::GetParmCreateIOWin(const CArchitec
   return *static_cast< const CArchMsgParmInt32Int32VoidPtr* >(msg.GetParm());
 }
 
-const CArchMsgParmInt32Int32VoidPtr&
+const CArchMsgParmInt32Int32String&
 MakeMsg::GetParmChangeIOWinPriority(const CArchitectureMessage& msg) {
-  return *static_cast< const CArchMsgParmInt32Int32VoidPtr* >(msg.GetParm());
+  return *static_cast< const CArchMsgParmInt32Int32String* >(msg.GetParm());
 }
 
 CArchitectureMessage MakeMsg::CreateTimerTick(EArchMsgTarget target, const float& val) {
