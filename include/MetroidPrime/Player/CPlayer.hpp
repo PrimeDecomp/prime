@@ -205,6 +205,8 @@ public:
   // CPlayer
   virtual bool IsTransparent();
 
+  void EnableLeaveMorphBall(bool enabled) { x590_leaveMorphballAllowed = enabled; }
+
   CVector3f GetBallPosition() const;
   float GetBallMaxVelocity() const;
   CVector3f GetEyePosition() const;
