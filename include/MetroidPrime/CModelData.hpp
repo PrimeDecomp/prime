@@ -73,6 +73,7 @@ public:
                 const CModelFlags& flags) const;
   CSkinnedModel& PickAnimatedModel(EWhichModel which) const;
   void Touch(const CStateManager& mgr, int) const;
+  void Touch(EWhichModel which, int) const;
   CAdvancementDeltas AdvanceAnimationIgnoreParticles(float dt, CRandom16& rand, bool advTree);
 
   const CAnimData* GetAnimationData() const { return xc_animData.get(); }
