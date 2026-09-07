@@ -184,8 +184,8 @@ void CMagdolite::Think(float dt, CStateManager& mgr) {
 }
 
 void CMagdolite::KnockBack(const CVector3f& direction, CStateManager& mgr, const CDamageInfo& info,
-                           EKnockBackType type, bool inDeferred, float magnitude) {
-  CPatterned::KnockBack(direction, mgr, info, type, inDeferred, magnitude);
+                           float magnitude, bool direct, const bool inDeferred) {
+  CPatterned::KnockBack(direction, mgr, info, magnitude, direct, inDeferred);
 }
 
 void CMagdolite::Render(const CStateManager& mgr) const { CPatterned::Render(mgr); }

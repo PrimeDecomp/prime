@@ -258,7 +258,7 @@ void CJellyZap::RemoveSelfFromFishCloud(CStateManager& mgr) {
 bool CJellyZap::ClosestToPlayer(CStateManager& mgr) const { return false; }
 
 void CJellyZap::KnockBack(const CVector3f& pos, CStateManager& mgr, const CDamageInfo& info,
-                          const EKnockBackType type, const bool inDeferred, const float magnitude) {
+                          const float magnitude, const bool direct, const bool inDeferred) {
   if (info.GetWeaponMode().GetType() == kWT_Ice) {
     const CVector3f newPos(0.f, 0.f, 0.f);
     const CUnitVector3f dir = CUnitVector3f(GetTransform().TransposeRotate(pos));

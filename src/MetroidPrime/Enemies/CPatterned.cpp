@@ -290,15 +290,15 @@ void CPatterned::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CState
         if (x460_knockBackController.x81_26_enableShock &&
             proj->GetCurrentDamageInfo().GetWeaponMode().IsComboed() && HealthInfo(mgr) != 0) {
           x401_31_nextPendingShock = true;
-          KnockBack(GetTransform().GetForward(), mgr, proj->GetCurrentDamageInfo(), kKBT_Direct,
-                    false, proj->GetCurrentDamageInfo().GetKnockBackPower());
+          KnockBack(GetTransform().GetForward(), mgr, proj->GetCurrentDamageInfo(),
+                    proj->GetCurrentDamageInfo().GetKnockBackPower(), true, false);
           x460_knockBackController.DeferKnockBack(kWT_Wave);
         }
       } else if (proj->GetCurrentDamageInfo().GetWeaponMode().GetType() == kWT_Plasma) {
         if (x460_knockBackController.x81_27_enableBurn &&
             proj->GetCurrentDamageInfo().GetWeaponMode().IsComboed() && HealthInfo(mgr) != 0) {
-          KnockBack(GetTransform().GetForward(), mgr, proj->GetCurrentDamageInfo(), kKBT_Direct,
-                    false, proj->GetCurrentDamageInfo().GetKnockBackPower());
+          KnockBack(GetTransform().GetForward(), mgr, proj->GetCurrentDamageInfo(),
+                    proj->GetCurrentDamageInfo().GetKnockBackPower(), true, false);
           x460_knockBackController.DeferKnockBack(kWT_Plasma);
         }
       }
@@ -628,10 +628,10 @@ void CPatterned::MassiveFrozenDeath(CStateManager& mgr) {
 }
 
 void CPatterned::KnockBack(const CVector3f& backVec, CStateManager& mgr, const CDamageInfo& info,
-                           EKnockBackType type, bool, float magnitude) {
+                           float magnitude, bool direct, bool) {
   CHealthInfo* health = HealthInfo(mgr);
   if (!x401_27_phazingOut && !x401_28_burning && health != nullptr) {
-    x460_knockBackController.KnockBack(backVec, mgr, *this, info, type, magnitude);
+    x460_knockBackController.KnockBack(backVec, mgr, *this, info, magnitude, direct);
 
     if (x450_bodyController->IsFrozen() &&
         x460_knockBackController.GetActiveParms().xc_intoFreezeDur >= 0.f) {

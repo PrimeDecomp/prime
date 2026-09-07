@@ -1636,8 +1636,7 @@ void CStateManager::ApplyKnockBack(CActor& actor, const CDamageInfo& info,
   }
 
   if (patterned != nullptr) {
-    patterned->KnockBack(dir, *this, info, dampen == 0.f ? kKBT_Direct : kKBT_Radius, false,
-                         dampedPower);
+    patterned->KnockBack(dir, *this, info, dampedPower, dampen == 0.f, false);
   }
 }
 

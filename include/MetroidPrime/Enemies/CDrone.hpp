@@ -32,8 +32,8 @@ public:
                        float dt) override;
   const CCollisionPrimitive* GetCollisionPrimitive() const override;
   void Death(CStateManager& mgr, const CVector3f& direction, EScriptObjectState state) override;
-  void KnockBack(const CVector3f& dir, CStateManager& mgr, const CDamageInfo& info,
-                 EKnockBackType type, bool inDeferred, float magnitude) override;
+  void KnockBack(const CVector3f& dir, CStateManager& mgr, const CDamageInfo& info, float magnitude,
+                 bool direct, const bool inDeferred) override;
   void Patrol(CStateManager& mgr, EStateMsg msg, float dt) override;
   void PathFind(CStateManager& mgr, EStateMsg msg, float dt) override;
   void TargetPlayer(CStateManager& mgr, EStateMsg msg, float dt) override;

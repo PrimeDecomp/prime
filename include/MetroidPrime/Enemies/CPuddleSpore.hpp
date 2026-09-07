@@ -36,7 +36,7 @@ public:
 
   // CAi
   void KnockBack(const CVector3f& direction, CStateManager& mgr, const CDamageInfo& info,
-                 EKnockBackType type, bool inDeferred, float magnitude) override;
+                 float magnitude, bool direct, const bool inDeferred) override;
   void InActive(CStateManager& mgr, EStateMsg msg, float arg) override;
   void Active(CStateManager& mgr, EStateMsg msg, float arg) override;
   void Run(CStateManager& mgr, EStateMsg msg, float arg) override;

@@ -30,8 +30,8 @@ public:
                                                      const CDamageInfo& info) const override;
   void Attack(CStateManager& mgr, EStateMsg msg, float arg) override;
   void Flinch(CStateManager& mgr, EStateMsg msg, float arg) override;
-  void KnockBack(const CVector3f&, CStateManager&, const CDamageInfo& info, EKnockBackType type,
-                 bool inDeferred, float magnitude) override;
+  void KnockBack(const CVector3f&, CStateManager&, const CDamageInfo& info, float magnitude,
+                 bool direct, const bool inDeferred) override;
 
 private:
   void AddAttractor(CStateManager& mgr);

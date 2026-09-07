@@ -30,8 +30,8 @@ public:
   void DoUserAnimEvent(CStateManager& mgr, const CInt32POINode& node, EUserEventType type,
                        float dt) override;
   void Death(CStateManager& mgr, const CVector3f& dir, EScriptObjectState state) override;
-  void KnockBack(const CVector3f& dir, CStateManager& mgr, const CDamageInfo& info,
-                 EKnockBackType type, bool inDeferred, float magnitude) override;
+  void KnockBack(const CVector3f& dir, CStateManager& mgr, const CDamageInfo& info, float magnitude,
+                 bool direct, const bool inDeferred) override;
   bool IsListening() const override { return true; }
   bool Listen(const CVector3f& pos, EListenNoiseType type) override;
   CVector3f GetOrigin(const CStateManager& mgr, const CTeamAiRole& role,

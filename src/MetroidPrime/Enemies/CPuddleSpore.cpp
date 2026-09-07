@@ -159,10 +159,10 @@ void CPuddleSpore::Touch(CActor& actor, CStateManager& mgr) {
 }
 
 void CPuddleSpore::KnockBack(const CVector3f& direction, CStateManager& mgr,
-                             const CDamageInfo& info, EKnockBackType type, bool inDeferred,
-                             float magnitude) {
+                             const CDamageInfo& info, float magnitude, bool direct,
+                             const bool inDeferred) {
   if (x5c8_collisionState != 1) {
-    CPatterned::KnockBack(direction, mgr, info, type, inDeferred, magnitude);
+    CPatterned::KnockBack(direction, mgr, info, magnitude, direct, inDeferred);
   }
 }
 

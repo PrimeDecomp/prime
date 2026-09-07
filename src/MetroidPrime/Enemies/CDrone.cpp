@@ -859,9 +859,9 @@ void CDrone::SetLaserActive(CStateManager& mgr, int laserIdx, bool active) {
 }
 
 void CDrone::KnockBack(const CVector3f& dir, CStateManager& mgr, const CDamageInfo& info,
-                       EKnockBackType type, bool inDeferred, float magnitude) {
+                       float magnitude, bool direct, const bool inDeferred) {
   if (IsAlive()) {
-    CPatterned::KnockBack(dir, mgr, info, type, inDeferred, magnitude);
+    CPatterned::KnockBack(dir, mgr, info, magnitude, direct, inDeferred);
     if (x460_knockBackController.GetActiveParms().x0_animState != kAR_Invalid) {
       x630_ = 0.5f;
       x634_ = 1.f;

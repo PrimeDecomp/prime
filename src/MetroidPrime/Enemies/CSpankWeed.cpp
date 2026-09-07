@@ -182,9 +182,9 @@ void CSpankWeed::Think(float dt, CStateManager& mgr) {
 }
 
 void CSpankWeed::KnockBack(const CVector3f& backVec, CStateManager& mgr, const CDamageInfo& info,
-                           EKnockBackType type, bool inDeferred, float magnitude) {
+                           float magnitude, bool direct, const bool inDeferred) {
   if (x57c_canKnockBack) {
-    CPatterned::KnockBack(backVec, mgr, info, type, inDeferred, magnitude);
+    CPatterned::KnockBack(backVec, mgr, info, magnitude, direct, inDeferred);
     x57c_canKnockBack = false;
   }
 }

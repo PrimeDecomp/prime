@@ -12,10 +12,6 @@ class CStateManager;
 class CDamageInfo;
 class CPatterned;
 
-enum EKnockBackType {
-  kKBT_Radius,
-  kKBT_Direct,
-};
 enum ECreatureSize {
   kCS_Small,
   kCS_Medium,
@@ -94,7 +90,7 @@ public:
    }*/
   void Update(float dt, CStateManager& mgr, CPatterned& parent);
   void KnockBack(const CVector3f& backVec, CStateManager& mgr, CPatterned& parent,
-                 const CDamageInfo& info, EKnockBackType type, float magnitude);
+                 const CDamageInfo& info, float magnitude, bool direct);
 
   void ApplyImpulse(float dt, CPatterned& parent);
   bool TickDeferredTimer(float dt);
@@ -106,9 +102,9 @@ public:
   void ResetKnockBackImpulse(const CPatterned& parent, const CVector3f& backVec, float magnitude);
   void DoDeferredKnockBack(CStateManager& mgr, CPatterned& parent);
   EKnockBackWeaponType GetKnockBackWeaponType(const CDamageInfo& info, EWeaponType wType,
-                                              EKnockBackType type);
+                                              bool direct);
   void SelectDamageState(const CPatterned& parent, const CDamageInfo& info, EWeaponType wType,
-                         EKnockBackType type);
+                         bool direct);
 
   void SetSeverity(pas::ESeverity v) { x7c_severity = v; }
   void SetEnableFreeze(bool b) { x81_25_enableFreeze = b; }

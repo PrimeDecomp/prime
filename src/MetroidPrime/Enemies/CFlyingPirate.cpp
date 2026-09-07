@@ -843,7 +843,7 @@ bool CFlyingPirate::CanFireMissiles(CStateManager& mgr) {
 }
 
 void CFlyingPirate::KnockBack(const CVector3f& pos, CStateManager& mgr, const CDamageInfo& info,
-                              EKnockBackType type, bool inDeferred, float magnitude) {
+                              float magnitude, bool direct, const bool inDeferred) {
   if (IsAlive()) {
     KnockBackCtrl().SetSeverity(x328_25_verticalMovement ? pas::kS_Zero : pas::kS_One);
   } else if (!IsOnGround()) {
@@ -871,7 +871,7 @@ void CFlyingPirate::KnockBack(const CVector3f& pos, CStateManager& mgr, const CD
     SetDestPos(homingPos + cross);
     x7a0_boneTracking.SetActive(false);
   }
-  CPatterned::KnockBack(pos, mgr, info, type, inDeferred, magnitude);
+  CPatterned::KnockBack(pos, mgr, info, magnitude, direct, inDeferred);
   if (IsAlive()) {
     switch (KnockBackCtrl().GetActiveParms().x0_animState) {
     case kAR_Hurled:

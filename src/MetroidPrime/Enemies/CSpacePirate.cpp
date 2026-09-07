@@ -1103,7 +1103,7 @@ void CSpacePirate::SetNonCinematicCollision(CStateManager& mgr) {
 }
 
 void CSpacePirate::KnockBack(const CVector3f& dir, CStateManager& mgr, const CDamageInfo& info,
-                             EKnockBackType type, bool inDeferred, float magnitude) {
+                             float magnitude, bool direct, const bool inDeferred) {
   if (!x634_25_ceilingAmbush || !x400_25_alive || inDeferred) {
     x460_knockBackController.SetAutoResetImpulse(!x634_31_noKnockbackImpulseReset);
     x460_knockBackController.EnableAnimReaction(kAR_KnockBack, IsOnGround());
@@ -1113,7 +1113,7 @@ void CSpacePirate::KnockBack(const CVector3f& dir, CStateManager& mgr, const CDa
       enableFreeze = false;
     }
     x460_knockBackController.SetEnableFreeze(enableFreeze);
-    CPatterned::KnockBack(dir, mgr, info, type, inDeferred, magnitude);
+    CPatterned::KnockBack(dir, mgr, info, magnitude, direct, inDeferred);
     if (x635_27_shadowPirate) {
       if (x400_25_alive) {
         if (magnitude >= 4.f && !BodyCtrl()->IsFrozen()) {

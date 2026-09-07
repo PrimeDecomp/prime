@@ -30,7 +30,7 @@ public:
 
   // CAi
   void KnockBack(const CVector3f& backVec, CStateManager& mgr, const CDamageInfo& info,
-                 EKnockBackType type, bool inDeferred, float magnitude) override;
+                 float magnitude, bool direct, const bool inDeferred) override;
   void Patrol(CStateManager& mgr, EStateMsg msg, float arg) override;
   void TargetPatrol(CStateManager& mgr, EStateMsg msg, float arg) override;
   void Attack(CStateManager& mgr, EStateMsg msg, float arg) override;

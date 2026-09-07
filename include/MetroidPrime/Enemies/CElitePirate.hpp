@@ -120,8 +120,8 @@ public:
   void DoUserAnimEvent(CStateManager& mgr, const CInt32POINode& node, EUserEventType type,
                        float dt) override;
   const CCollisionPrimitive* GetCollisionPrimitive() const override { return &x738_collisionAabb; }
-  void KnockBack(const CVector3f& dir, CStateManager& mgr, const CDamageInfo& info,
-                 EKnockBackType type, bool inDeferred, float magnitude) override;
+  void KnockBack(const CVector3f& dir, CStateManager& mgr, const CDamageInfo& info, float magnitude,
+                 bool direct, const bool inDeferred) override;
   void TakeDamage(const CVector3f& dir, float arg) override;
   void Patrol(CStateManager& mgr, EStateMsg msg, float dt) override;
   void PathFind(CStateManager& mgr, EStateMsg msg, float dt) override;
