@@ -22,7 +22,7 @@ public:
               const CTransform4f& xf, const CTransform4f& areaXf, bool noNormals,
               const CFrustumPlanes& frustum,
               const rstl::optional_object< CRippleManager >& rippleManager,
-              TUniqueId waterId, const bool* gridFlags, int gridDimX, int gridDimY,
+              TUniqueId waterId, const char* gridFlags, int gridDimX, int gridDimY,
               const CVector3f& areaCenter) const override;
 
   void Update();

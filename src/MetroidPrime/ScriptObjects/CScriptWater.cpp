@@ -278,7 +278,7 @@ void CScriptWater::Render(const CStateManager& mgr) const {
                             x2c4_gridDimX, x2c8_gridDimY, areaCenter);
     if (x214_fogBias != 0.f) {
       if (mgr.GetPlayerState()->CanVisorSeeFog(mgr)) {
-        if (sRenderFog) {
+        if (gkWaterFog) {
           float sinVal = CMath::FastSinR(x224_fogSpeed * CGraphics::GetSecondsMod900());
           float fogLevel = mgr.IntegrateVisorFog(x218_fogMagnitude * sinVal + x214_fogBias);
           if (fogLevel > 0.f) {
