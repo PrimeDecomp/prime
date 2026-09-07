@@ -6,7 +6,6 @@
 #include "Kyoto/Animation/CSegId.hpp"
 #include "Kyoto/Math/CQuaternion.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
-#include "MetroidPrime/TGameTypes.hpp"
 
 #include "rstl/optional_object.hpp"
 #include "rstl/string.hpp"
@@ -56,5 +55,7 @@ private:
   bool x36_28_noHorizontalAim : 1;
   bool x36_29_parentIk : 1;
 };
+
+CHECK_SIZEOF(CBoneTracking, 0x38)
 
 #endif // _CBONETRACKING
