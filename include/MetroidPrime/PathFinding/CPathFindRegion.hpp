@@ -1,25 +1,64 @@
 #ifndef _CPATHFINDREGION
 #define _CPATHFINDREGION
 
-#include <Kyoto/Math/CVector3f.hpp>
 #include <Kyoto/Math/CAABox.hpp>
+#include <Kyoto/Math/CVector3f.hpp>
+
+class CPFArea;
+class CPFNode {
+public:
+  const CVector3f& GetPos() const { return x0_position; }
+  const CVector3f& GetNormal() const { return xc_normal; }
+
+private:
+  CVector3f x0_position;
+  CVector3f xc_normal;
+};
+CHECK_SIZEOF(CPFNode, 0x18)
+
+class CPFLink {
+public:
+  int GetNode() const { return x0_node; }
+  int GetRegion() const { return x4_region; }
+  float Get2dWidth() const { return x8_2dWidth; }
+  float GetOO2dWidth() const { return xc_oo2dWidth; }
+
+private:
+  int x0_node;
+  int x4_region;
+  float x8_2dWidth;
+  float xc_oo2dWidth;
+};
+CHECK_SIZEOF(CPFLink, 0x10)
 
 class CPFRegion;
 class CPFRegionData {
+public:
   CPFRegionData();
 
-  void SetOpenLess(CPFRegion* region);
-  CPFRegion* GetOpenLess();
+  void SetOpenLess(CPFRegion* region) { x24_openLess = region; }
+  CPFRegion* GetOpenLess() { return x24_openLess; }
 
-  void SetOpenMore(CPFRegion* region);
-  CPFRegion* GetOpenMore();
+  void SetOpenMore(CPFRegion* region) { x28_openMore = region; }
+  CPFRegion* GetOpenMore() { return x28_openMore; }
 
-  float GetCost();
+  float GetCost() { return x14_cost; }
 
-  void* GetParent();
-  void Setup(CPFRegion* region, float cost);
-  void Setup(CPFRegion* region, float, float);
-  void GetG();
+  CPFRegion* GetParent() { return x20_parent; }
+  void Setup(CPFRegion* region, float g) {
+    x20_parent = region;
+    x18_g = g;
+    x14_cost = x18_g + x1c_h;
+  }
+  void Setup(CPFRegion* region, float g, float h) {
+    x20_parent = region;
+    x18_g = g;
+    x1c_h = h;
+    x14_cost = x18_g + x1c_h;
+  }
+  float GetG() { return x18_g; }
+  int GetPathLink() const { return x2c_parentLink; }
+  void SetPathLink(int link) { x2c_parentLink = link; }
 
   void SetBestPoint(const CVector3f& point);
   const CVector3f& GetBestPoint() const;
@@ -39,26 +78,43 @@ private:
   CPFRegion* x28_openMore;
   int x2c_parentLink;
 };
+CHECK_SIZEOF(CPFRegionData, 0x30)
 
-class CPFArea;
-class CPFNode;
-class CPFLink;
 class CPFRegion {
+public:
   CPFRegion();
   void Fixup(CPFArea& area, int& numNodes);
+  void SetData(CPFRegionData* data) { x4c_data = data; }
+  CPFRegionData* Data() const { return x4c_data; }
+  int GetIndex() const { return x24_regionIdx; }
+  uint GetFlags() const { return x10_flags; }
+  int GetNumLinks() const { return x8_numLinks; }
+  const CPFLink* GetLink(int index) const { return &xc_startLink[index]; }
+  const CPFLink* GetPathLink() const { return &xc_startLink[x4c_data->GetPathLink()]; }
+  const CVector3f& GetCentroid() const { return x28_centroid; }
+  void SetCentroid(const CVector3f& point) { x28_centroid = point; }
+  float GetHeight() const { return x14_height; }
+  void SetLinkTo(int index);
+  void DropToGround(CVector3f& point) const;
+  CVector3f GetLinkMidPoint(const CPFLink& link) const;
+  CVector3f FitThroughLink2d(const CVector3f& source, const CPFLink& link,
+                             const CVector3f& destination, float radius) const;
+  CVector3f FitThroughLink3d(const CVector3f& source, const CPFLink& link, float height,
+                             const CVector3f& destination, float radius, float halfHeight) const;
 
 private:
-  uint x0_numNodes;
+  int x0_numNodes;
   CPFNode* x4_startNode;
-  uint x8_numLinks;
+  int x8_numLinks;
   CPFLink* xc_startLink;
   uint x10_flags;
   float x14_height;
   CVector3f x18_normal;
-  uint x24_regionIdx;
+  int x24_regionIdx;
   CVector3f x28_centroid;
   CAABox x34_bounds;
   CPFRegionData* x4c_data;
 };
+CHECK_SIZEOF(CPFRegion, 0x50)
 
 #endif // _CPATHFINDREGION
