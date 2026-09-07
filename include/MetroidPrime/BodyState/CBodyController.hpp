@@ -62,6 +62,7 @@ public:
   void MultiplyPlaybackRate(float scale);
   void SetOnFire(float duration);
   void DouseFlames();
+  bool HasBeenFrozen() const { return x300_27_hasBeenFrozen; }
   bool IsFrozen() const { return x300_26_frozen; }
   void SetElectrocuting(float duration);
   bool IsElectrocuting() const { return x324_electrocutionDur > 0.f; }

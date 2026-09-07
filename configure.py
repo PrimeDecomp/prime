@@ -880,7 +880,7 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/Factories/CScannableObjectInfo.cpp",
             ),
-            Object(NonMatching, "MetroidPrime/Enemies/CMetroid.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Enemies/CMetroid.cpp"),
             Object(NonMatching, "MetroidPrime/Player/CScanDisplay.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),

@@ -281,6 +281,7 @@ public:
   CStateMachineState& StateMachineState() { return x330_stateMachineState; }
   const CStateMachineState& GetStateMachineState() const { return x330_stateMachineState; }
   EPatternedAI GetCharacterType() const { return x34c_characterType; }
+  float GetDetectionRange() const { return x3bc_detectionRange; }
   float GetPlayerLeashRadius() const { return x3c8_leashRadius; }
   float GetPlayerLeashTime() const { return x3d0_playerLeashTime; }
   EFlavorType GetFlavorType() const { return x3fc_flavor; }
@@ -367,6 +368,7 @@ public:
 
   // TODO: names?
   bool IsMakingBigStrike() const { return x402_28_isMakingBigStrike; }
+  float GetXDamageThreshold() const { return x3d8_xDamageThreshold; }
   float GetDamageDuration() const { return x504_damageDur; }
 
   static const float skDamageHitTime;

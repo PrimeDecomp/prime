@@ -56,6 +56,7 @@ public:
   ~CAnimData();
 
   void PreRender();
+  bool GetIsLoop() const { return x220_25_loop; }
   void EnableLooping(bool v) {
     x220_25_loop = v;
     x220_24_animating = true;

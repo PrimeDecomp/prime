@@ -242,10 +242,9 @@ public:
   bool IsMorphBallTransitioning() const;
   bool IsSidewaysDashing() const { return x37c_sidewaysDashing; }
   float GetMorphBallTransitionFactor() const {
-    if (x578_morphDuration == 0.f) {
-      return 0.f;
-    }
-    return CMath::Clamp(-1.f, x574_morphTime / x578_morphDuration, 1.f);
+    return x578_morphDuration == 0.f
+               ? 0.f
+               : CMath::Clamp(0.f, x574_morphTime / x578_morphDuration, 1.f);
   }
   void InitialiseAnimation();
   void LoadAnimationTokens();
@@ -420,6 +419,8 @@ public:
   float GetGravity() const;
 
   float GetAttachedActorStruggle() const;
+  CPlayerEnergyDrain& GetPlayerEnergyDrain() { return x274_energyDrain; }
+  void SetNoDamageLoopSfx(bool value) { x9c7_24_noDamageLoopSfx = value; }
   const CPlayerEnergyDrain& GetPlayerEnergyDrain() const { return x274_energyDrain; }
   float GetGunAlpha() const { return x494_gunAlpha; }
   void SetAttachedActorStruggle(float struggle) { xa28_attachedActorStruggle = struggle; }

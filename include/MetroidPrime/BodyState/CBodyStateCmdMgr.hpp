@@ -433,6 +433,11 @@ public:
     x128_projectileAttack = cmd;
   }
 
+  void DeliverCmd(const CBCLoopAttackCmd& cmd) {
+    DeliverCmd(cmd.GetCommandId());
+    x144_loopAttack = cmd;
+  }
+
   void DeliverCmd(const CBCLoopReactionCmd& cmd) {
     DeliverCmd(cmd.GetCommandId());
     x154_loopReaction = cmd;
