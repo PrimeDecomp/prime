@@ -19,26 +19,7 @@ void rbtree_rebalance(void*, void*);
 void* rbtree_traverse_forward(const void*, void*);
 void* rbtree_rebalance_for_erase(void* header_void, void* node_void);
 
-template < bool, unsigned int N, unsigned int D >
-struct is_prime_helper {
-  enum { value = (N % D == 0) ? 0 : is_prime_helper< ((D + 1) * (D + 1) <= N), N, D + 1 >::value };
-};
-
-template < unsigned int N, unsigned int D >
-struct is_prime_helper< false, N, D > {
-  enum { value = 1 };
-};
-
-template < unsigned int N >
-struct is_prime_v {
-  enum { value = (N <= 1) ? 0 : (N == 2 || N == 3) ? 1 : (N % 2 == 0) ? 0 : is_prime_helper< (9 <= N), N, 3 >::value };
-};
-
-#define IS_PRIME(N) (is_prime_v< (N) >::value)
-
-#define IS_PRIME_TYPE(Type) (is_prime_v< sizeof(Type) >::value)
-
-template < typename T, typename P, int Prime, typename S = select1st< P >, typename Cmp = less< T >,
+template < typename T, typename P, int U, typename S = select1st< P >, typename Cmp = less< T >,
            typename Alloc = rmemory_allocator >
 class red_black_tree {
 private:
@@ -51,9 +32,9 @@ private:
 
     node(node* left, node* right, node* parent, node_color color, const P& value)
     : mLeft(left), mRight(right), mParent(parent), mColor(color) {
-      construct(get_value(), value);
+      new (mValue) P(value);
     }
-    ~node() { get_value()->~P(); }
+    ~node() { reinterpret_cast< P* >(mValue)->~P(); }
 
     P* get_value() { return reinterpret_cast< P* >(&mValue); }
     const P* get_value() const { return reinterpret_cast< const P* >(&mValue); }

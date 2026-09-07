@@ -14,20 +14,22 @@ public:
   typedef pair< K, V > value_type;
 
 private:
-  // TODO: some things use a 0, others use a 1
-  typedef red_black_tree< K, value_type, IS_PRIME_TYPE(K), select1st< value_type >, Cmp, Alloc >
+  typedef red_black_tree< K, value_type, 0, select1st< value_type >, Cmp, Alloc >
       rep_type;
 
 public:
   typedef typename rep_type::iterator iterator;
   typedef typename rep_type::const_iterator const_iterator;
 
-  map() {};
+  explicit map(const Cmp& cmp = Cmp(), const Alloc& alloc = Alloc())
+  : inner(select1st< value_type >(), cmp, alloc) {}
   map(CInputStream& in, const Cmp& cmp = Cmp(), const Alloc& alloc = Alloc());
   ~map() {}
 
   pair< iterator, bool > insert(const value_type& item) { return inner.insert(item); }
 
+  iterator begin() { return inner.begin(); }
+  iterator end() { return inner.end(); }
   const_iterator begin() const { return inner.begin(); }
   const_iterator end() const { return inner.end(); }
   uint size() const { return inner.size(); }
