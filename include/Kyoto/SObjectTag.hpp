@@ -22,7 +22,7 @@ public:
     return *this;
   }
 
-  const CAssetId GetId() const { return mId; }
+  const CAssetId& GetId() const { return mId; }
   const FourCC GetType() const { return mType; }
   static const char* Type2Text(FourCC type);
 
