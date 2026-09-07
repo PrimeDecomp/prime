@@ -63,8 +63,8 @@ void CStreamAudioManager::UpdateSoftwareChannel(ESoftwareChannel chan, float dt)
   if (p.x10_playState == 0) {
     SDSPStreamCacheEntry& qp = s_QueuedPlayers[chan];
     if (qp.x10_playState != 0) {
-      PlaySoftwareAudio(chan, qp.x0_fileName, qp.x14_volume & 0xFF, qp.x28_music, qp.x18_fadeIn,
-                        qp.x1c_fadeOut);
+      PlaySoftwareAudio(chan, qp.x0_fileName, qp.x18_fadeIn, qp.x1c_fadeOut,
+                        static_cast< uchar >(qp.x14_volume), qp.x28_music);
       qp = SDSPStreamCacheEntry();
     }
     return;
@@ -171,7 +171,7 @@ void CStreamAudioManager::StopSoftwareAudio(CStreamAudioManager::ESoftwareChanne
 }
 
 void CStreamAudioManager::PlaySoftwareAudio(ESoftwareChannel chan, const rstl::string& fileName,
-                                            int volume, bool music, float fadeIn, float fadeOut) {
+                                            float fadeIn, float fadeOut, int volume, bool music) {
   SDSPStreamCacheEntry& p = s_Players[chan];
   SDSPStreamCacheEntry& qp = s_QueuedPlayers[chan];
 

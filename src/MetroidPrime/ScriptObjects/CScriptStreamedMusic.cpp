@@ -10,19 +10,13 @@
 #include "rstl/StringExtras.hpp"
 
 extern "C" void nullsub_42(CScriptStreamedMusic*);
-// extern "C" int sub_8020c844(int* a, int* b) { return b[1] - a[1]; }
-
-// rstl::string sub_8020c7f0(const rstl::string&) {
-//   sub_8020c844(nullptr, nullptr);
-//   return rstl::string();
-// }
 
 CStreamAudioManager::ESoftwareChannel CScriptStreamedMusic::IsOneShot(bool b) {
   return b ? CStreamAudioManager::kSC_OneShot : CStreamAudioManager::kSC_Default;
 }
 
 CScriptStreamedMusic::CScriptStreamedMusic(TUniqueId id, const CEntityInfo& info,
-                                           const rstl::string& name, bool active,
+                                           const rstl::string& name, const bool active,
                                            const rstl::string& fileName, bool noStopOnDeactivate,
                                            float fadeIn, float fadeOut, uint volume, bool loop,
                                            bool music)
@@ -42,7 +36,7 @@ extern "C" void nullsub_42(CScriptStreamedMusic*) {}
 
 bool CScriptStreamedMusic::IsAudioTrackNameSoftware(const rstl::string& fileName) {
   return !CStringExtras::CompareCaseInsensitive(fileName, rstl::string_l("sw")) ||
-         CStringExtras::FindCaseInsensitive(fileName, rstl::string_l(".dsp")) != -1;
+         CStringExtras::IndexOfSubstring(fileName, rstl::string_l(".dsp")) != -1;
 }
 
 void CScriptStreamedMusic::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objId,
@@ -68,7 +62,7 @@ void CScriptStreamedMusic::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId o
 
   case kSM_Increment:
     if (x45_fileIsDsp) {
-      CStreamAudioManager::FadeOutSoftwareAudio(IsOneShot(x46_loop), x48_fadeIn);
+      CStreamAudioManager::FadeInSoftwareAudio(IsOneShot(x46_loop), x48_fadeIn);
     } else {
       CStreamAudioManager::fn_803653F8(x48_fadeIn);
     }
@@ -121,8 +115,8 @@ void CScriptStreamedMusic::sub_8020c3f0(CStateManager& mgr) {
 }
 
 void CScriptStreamedMusic::StartStream(CStateManager& mgr) {
-  CStreamAudioManager::PlaySoftwareAudio(IsOneShot(x46_loop), x34_fileName, x50_volume & 0xff,
-                                         x47_music, x48_fadeIn, x4c_fadeOut);
+  CStreamAudioManager::PlaySoftwareAudio(IsOneShot(x46_loop), x34_fileName, x48_fadeIn, x4c_fadeOut,
+                                         static_cast< uchar >(x50_volume), x47_music);
 }
 
 void CScriptStreamedMusic::StopStream(CStateManager& mgr) {
@@ -132,12 +126,13 @@ void CScriptStreamedMusic::StopStream(CStateManager& mgr) {
 void CScriptStreamedMusic::TweakOverride(CStateManager& mgr) {
   const CWorld* wld = mgr.GetWorld();
   const CGameArea& area = wld->GetAreaAlways(GetCurrentAreaId());
-  rstl::string twkName = CInGameTweakManager::sub_8021cb38(area.GetAreaAssetId(), GetDebugName());
+  rstl::string twkName =
+      CInGameTweakManager::GetIdentifierForMusicEvent(area.GetAreaAssetId(), GetDebugName());
   if (gpTweakManager->HasTweakValue(twkName)) {
     const CTweakValue::Audio& audio = gpTweakManager->GetTweakValue(twkName)->GetAudio();
     rstl::string fileName(audio.GetFileName());
     float fadeIn = audio.GetFadeIn();
-    char volume = audio.GetVolume() * 127.f;
+    char volume = CCast::ToInt8(audio.GetVolume() * 127.f);
     float fadeOut = audio.GetFadeOut();
 
     x34_fileName = fileName;
@@ -150,18 +145,14 @@ void CScriptStreamedMusic::TweakOverride(CStateManager& mgr) {
   }
 }
 
-// TODO: The original string-search helper is emitted in this translation unit.
-template <>
-int rstl::string::find(char, int) const { return 0; }
-
 void CScriptStreamedMusic::sub_8020be90() {
-  if (x45_fileIsDsp && x34_fileName.find('|', 0) == -1 && x34_fileName.size() >= 5) {
-    if (CStringExtras::CompareCaseInsensitive(
-            rstl::string_l(x34_fileName.data() + (x34_fileName.size() - 5)),
-            rstl::string_l("L.dsp")) == 0) {
-
-      // sub_8020c7f0(x34_fileName);
-      rstl::string file = x34_fileName + "R.dsp";
+  if (x45_fileIsDsp && x34_fileName.find('|', 0) == -1 &&
+      static_cast< int >(x34_fileName.size()) >= 5) {
+    const int cmp = CStringExtras::CompareCaseInsensitive(
+        rstl::string_l(x34_fileName.data() + static_cast< int >(x34_fileName.size()) - 5),
+        rstl::string_l("L.dsp"));
+    if (cmp == 0) {
+      rstl::string file = rstl::string(x34_fileName.begin(), x34_fileName.end() - 5) + "R.dsp";
       if (CDvdFile::FileExists(file.data())) {
         x34_fileName = x34_fileName + '|' + file;
       }
