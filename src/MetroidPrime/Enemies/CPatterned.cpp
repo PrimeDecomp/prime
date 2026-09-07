@@ -666,11 +666,11 @@ void CPatterned::KnockBack(const CVector3f& backVec, CStateManager& mgr, const C
       x402_29_drawParticles = false;
       x450_bodyController->DouseFlames();
       CActorModelParticles* particles = mgr.ActorModelParticles();
-      particles->StopThermalHotParticles(*this);
+      particles->StopFire(*this);
       particles->StartBurnDeath(*this);
       if (!x401_29_laggedBurnDeath) {
-        particles->EnsureFirePopLoaded(*this);
-        particles->EnsureIceBreakLoaded(*this);
+        particles->DoFirePop(*this);
+        particles->StartAsh(*this);
       }
       break;
     }
@@ -817,7 +817,7 @@ void CPatterned::Think(float dt, CStateManager& mgr) {
     x401_31_nextPendingShock = false;
 
     if (x450_bodyController->IsElectrocuting()) {
-      mgr.ActorModelParticles()->LoadAndStartElectric(*this);
+      mgr.ActorModelParticles()->StartElectric(*this);
 
       if (x3f0_pendingShockDamage > 0.f && x400_25_alive) {
         const CDamageInfo shockDmg =
@@ -851,7 +851,7 @@ void CPatterned::Think(float dt, CStateManager& mgr) {
     }
 
     if (x450_bodyController->IsFrozen()) {
-      mgr.ActorModelParticles()->StopThermalHotParticles(*this);
+      mgr.ActorModelParticles()->StopFire(*this);
     }
   }
 
@@ -1159,7 +1159,7 @@ void CPatterned::Freeze(CStateManager& mgr, const CVector3f& pos, CUnitVector3f 
   if (x450_bodyController->IsFrozen()) {
     x450_bodyController->Freeze(x460_knockBackController.GetActiveParms().xc_intoFreezeDur,
                                 frozenDur, x4f8_outofFreezeDur);
-    mgr.ActorModelParticles()->EnsureElectricLoaded(*this);
+    mgr.ActorModelParticles()->DoIcePop(*this);
     playSfx = true;
   } else if (!x450_bodyController->IsElectrocuting() && !x450_bodyController->IsOnFire()) {
     x450_bodyController->Freeze(x4f4_intoFreezeDur, frozenDur, x4f8_outofFreezeDur);

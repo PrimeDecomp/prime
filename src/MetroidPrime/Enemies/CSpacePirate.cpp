@@ -718,7 +718,7 @@ void CSpacePirate::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId sender, C
       x8a8_cloakDelayTimer = CMath::Clamp(0.f, x8a8_cloakDelayTimer, 1.f);
       x8bc_maxCloakAlpha = 0.5f;
       if (x400_25_alive) {
-        mgr.ActorModelParticles()->LoadAndStartElectric(*this);
+        mgr.ActorModelParticles()->StartElectric(*this);
         x8ac_electricParticleTimer = 1.f + x8a8_cloakDelayTimer;
       }
     }
@@ -1121,13 +1121,13 @@ void CSpacePirate::KnockBack(const CVector3f& dir, CStateManager& mgr, const CDa
           x8a8_cloakDelayTimer += 0.1f * magnitude;
           x8a8_cloakDelayTimer = CMath::Clamp(0.f, x8a8_cloakDelayTimer, 1.f);
           x8bc_maxCloakAlpha = 0.5f;
-          mgr.ActorModelParticles()->LoadAndStartElectric(*this);
+          mgr.ActorModelParticles()->StartElectric(*this);
           x8ac_electricParticleTimer = x8a8_cloakDelayTimer + 1.f;
         }
       } else {
         x8bc_maxCloakAlpha = x3e8_alphaDelta = 1.f;
         x8b8_minCloakAlpha = 0.f;
-        mgr.ActorModelParticles()->LoadAndStartElectric(*this);
+        mgr.ActorModelParticles()->StartElectric(*this);
         x8ac_electricParticleTimer = 2.f;
       }
     }
@@ -2631,7 +2631,7 @@ void CSpacePirate::DoUserAnimEvent(CStateManager& mgr, const CInt32POINode& node
   case kUE_FadeOut:
     if (x635_27_shadowPirate) {
       x3e8_alphaDelta = -0.8f;
-      mgr.ActorModelParticles()->LoadAndStartElectric(*this);
+      mgr.ActorModelParticles()->StartElectric(*this);
       x8ac_electricParticleTimer = 1.f;
     }
     handled = true;

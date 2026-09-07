@@ -178,6 +178,7 @@ public:
   bool GetShadowDirty() const { return xe5_25_shadowDirty; }
   bool GetMuted() const { return xe5_26_muted; }
   bool GetPointGeneratorParticles() const { return xe5_31_pointGeneratorParticles; }
+  void SetPointGeneratorParticles(bool active) { xe5_31_pointGeneratorParticles = active; }
   bool IsInFluid() const { return xe6_24_fluidCounter != 0; }
   EThermalFlags GetThermalFlags() const {
     return static_cast< EThermalFlags >(xe6_27_thermalVisorFlags);
