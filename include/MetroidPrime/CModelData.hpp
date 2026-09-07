@@ -69,6 +69,10 @@ public:
   void Render(const CStateManager&, const CTransform4f&, const CActorLights*,
               const CModelFlags&) const;
   void Render(EWhichModel, const CTransform4f&, const CActorLights*, const CModelFlags&) const;
+  void MultipassDraw(EWhichModel which, const CTransform4f& xf, const CActorLights* lights,
+                     const CModelFlags* flags, int count);
+  void MultiLightingDraw(EWhichModel which, const CTransform4f& xf, const CActorLights* lights,
+                         const CColor& mulColor, const CColor& addColor);
   void FlatDraw(EWhichModel which, const CTransform4f& xf, bool unsortedOnly,
                 const CModelFlags& flags) const;
   CSkinnedModel& PickAnimatedModel(EWhichModel which) const;

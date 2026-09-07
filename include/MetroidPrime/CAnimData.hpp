@@ -104,7 +104,7 @@ public:
   // FreeCache__9CAnimDataFv
   void SetInfraModel(const TLockedToken< CModel >&, const TLockedToken< CSkinRules >&);
   void SetXRayModel(const TLockedToken< CModel >&, const TLockedToken< CSkinRules >&);
-  void SubstituteModelData(const TCachedToken< CSkinnedModel >&);
+  void SubstituteModelData(const TLockedToken< CSkinnedModel >&);
   void AdvanceAnim(CCharAnimTime&, CVector3f&, CQuaternion&);
   CAdvancementDeltas Advance(float, const CVector3f&, CStateManager&, TAreaId, bool);
   CAdvancementDeltas AdvanceIgnoreParticles(float, CRandom16&, bool);

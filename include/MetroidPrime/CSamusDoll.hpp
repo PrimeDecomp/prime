@@ -1,20 +1,53 @@
-#ifndef _CSAMUSDOLL_HPP
-#define _CSAMUSDOLL_HPP
+#ifndef _CSAMUSDOLL
+#define _CSAMUSDOLL
 
 #include "MetroidPrime/Player/CPlayerState.hpp"
+#include "MetroidPrime/CModelData.hpp"
+#include "Kyoto/Audio/CSfxHandle.hpp"
+#include "Kyoto/Graphics/CLight.hpp"
+#include "Kyoto/Math/CRelAngle.hpp"
+#include "rstl/single_ptr.hpp"
 
 #include "Kyoto/CDependencyGroup.hpp"
 #include "Kyoto/Math/CQuaternion.hpp"
 #include "Kyoto/Math/CTransform4f.hpp"
+
+class CActorLights;
+class CAnimCharacterSet;
+class CElementGen;
+class CGenDescription;
 
 class CSamusDoll {
 public:
   CSamusDoll(const CDependencyGroup& suitDgrp, const CDependencyGroup& ballDgrp,
              const CPlayerState::EPlayerSuit suit, const CPlayerState::EBeamId beam,
              const bool hasSpiderBall, const bool hasGrappleBeam);
-  bool TryFinishLoad();
+  ~CSamusDoll();
+  bool CheckLoadComplete();
+  bool IsLoaded() const;
+  void Update(float dt, CRandom16& rand);
+  void Draw(const CStateManager& mgr, float alpha);
+  void Touch();
+  void CheckTransition(bool morphball);
+  void SetRotation(float xDelta, float zDelta, float dt);
+  void SetOffset(const CVector3f& offset, float dt);
+  void BeginViewInterpolate(bool zoomIn);
+  void SetPulseBeam(bool pulse);
+  void SetPulseGrapple(bool pulse);
+  void SetPulseBoots(bool pulse);
+  void SetPulseVisor(bool pulse);
+  void SetPulseSuit(bool pulse);
 
 private:
+  static CModelData BuildSuitModelData1(CPlayerState::EPlayerSuit suit);
+  static CModelData BuildSuitModelDataBoots(CPlayerState::EPlayerSuit suit);
+  void SetupLights();
+  void SetTransitionAnimation();
+  bool IsViewInterpolating() const { return xc4_viewInterp != 0.f && xc4_viewInterp != 1.f; }
+  void SetOffsetSfxPlaying(bool playing);
+  void SetZoomSfxPlaying(const bool playing);
+  void SetRotationSfxPlaying(bool playing);
+
   rstl::vector< CToken > x0_depTokens;
   CTransform4f x10_ballTransform;
   float x40_alphaIn;
@@ -39,7 +72,40 @@ private:
   CQuaternion xb0_userRot;
   float xc0_userZoom;
 
-  static const CVector3f skUnk;
-  static const CVector3f skInitialOffset;
+  float xc4_viewInterp;
+  rstl::optional_object< CModelData > xc8_suitModel0;
+  rstl::reserved_vector< TLockedToken< CSkinnedModel >, 2 > x118_suitModel1and2;
+  rstl::optional_object< CModelData > x134_suitModelBoots;
+  rstl::optional_object< CModelData > x184_ballModelData;
+  TCachedToken< CModel > x1d4_spiderBallGlass;
+  uint x1e0_ballMatIdx;
+  uint x1e4_glassMatIdx;
+  uint x1e8_ballGlowColorIdx;
+  CToken x1ec_itemScreenSamus;
+  TCachedToken< CModel > x1f4_invBeam;
+  TCachedToken< CModel > x200_invVisor;
+  TCachedToken< CModel > x20c_invGrappleBeam;
+  TCachedToken< CModel > x218_invFins;
+  TToken< CGenDescription > x224_ballInnerGlow;
+  rstl::single_ptr< CElementGen > x22c_ballInnerGlowGen;
+  TToken< CGenDescription > x230_ballTransitionFlash;
+  rstl::single_ptr< CElementGen > x238_ballTransitionFlashGen;
+  rstl::vector< CLight > x23c_lights;
+  rstl::single_ptr< CActorLights > x24c_actorLights;
+  rstl::optional_object< TCachedToken< CTexture > > x250_phazonIndirectTexture;
+  float x260_phazonOffsetAngle;
+  CSfxHandle x264_offsetSfx;
+  CSfxHandle x268_rotateSfx;
+  CSfxHandle x26c_zoomSfx;
+  bool x270_24_hasSpiderBall : 1;
+  bool x270_25_hasGrappleBeam : 1;
+  bool x270_26_pulseSuit : 1;
+  bool x270_27_pulseBeam : 1;
+  bool x270_28_pulseGrapple : 1;
+  bool x270_29_pulseBoots : 1;
+  bool x270_30_pulseVisor : 1;
+  bool x270_31_loaded : 1;
 };
-#endif // _CSAMUSDOLL_HPP
+CHECK_SIZEOF(CSamusDoll, 0x274)
+
+#endif // _CSAMUSDOLL

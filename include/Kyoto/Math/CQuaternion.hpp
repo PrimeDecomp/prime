@@ -56,6 +56,9 @@ public:
   static CQuaternion XRotation(const CRelAngle&);
   static CQuaternion YRotation(const CRelAngle&);
   static CQuaternion ZRotation(const CRelAngle&);
+  static CQuaternion YXZRotation(const CRelAngle& y, const CRelAngle& x, const CRelAngle& z) {
+    return ZRotation(z) * XRotation(x) * YRotation(y);
+  }
   CMatrix3f BuildTransform() const;
   CTransform4f BuildTransform4f() const;
   CTransform4f BuildTransform4f(const CVector3f&) const;

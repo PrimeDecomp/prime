@@ -35,8 +35,31 @@ class CSwooshDescription;
 class CToken;
 class CWorldShadow;
 
+struct SMorphBallModelInfo {
+  const char* x0_name;
+  uint x4_shader;
+};
+
 class CMorphBall : public TOneStatic< CMorphBall > {
 public:
+  static const SMorphBallModelInfo skBallCharacter[8];
+  static const SMorphBallModelInfo skBallLowPoly[8];
+  static const SMorphBallModelInfo skSpiderBallLowPoly[8];
+  static const SMorphBallModelInfo skSpiderBallCharacter[8];
+  static const SMorphBallModelInfo skSpiderBallGlass[8];
+  static const SMorphBallModelInfo skFrozenBall[8];
+  static const uint skSpiderBallGlowColorIdx[8];
+  static const uint skBallGlowColorIdx[8];
+  struct SColorRgb {
+    uchar x0_r;
+    uchar x1_g;
+    uchar x2_b;
+  };
+
+  static const SColorRgb skBallInnerGlowColors[9];
+  static const SColorRgb skBallHullGlowColors[9];
+  static const SColorRgb skBallBoostedHullGlowColors[9];
+
   enum EBallBoostState { kBBS_BoostAvailable, kBBS_BoostDisabled };
   enum ESpiderBallState { kSBS_Inactive, kSBS_Active };
   enum EBombJumpState { kBJS_BombJumpAvailable, kBJS_BombJumpDisabled };
@@ -170,12 +193,6 @@ public:
   void SetDamageTimer(const float time);
 
 private:
-  struct SColorRgb {
-    uchar x0_r;
-    uchar x1_g;
-    uchar x2_b;
-  };
-
   struct CSpiderBallElectricityManager {
     uint x0_effectIdx;
     uint x4_lifetime;
@@ -194,9 +211,6 @@ private:
   static CColor GetBallHullGlowColor(uint);
   static CColor GetBallBoostedHullGlowColor(uint);
 
-  static const SColorRgb skBallInnerGlowColors[9];
-  static const SColorRgb skBallHullGlowColors[9];
-  static const SColorRgb skBallBoostedHullGlowColors[9];
   static const uchar lbl_803CEB24[0x1c];
   static const uchar lbl_803CEB40[0x1c];
   static const uchar lbl_803CEB5C[0x1c];
