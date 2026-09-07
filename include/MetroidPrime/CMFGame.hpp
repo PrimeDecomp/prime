@@ -31,8 +31,8 @@ public:
 
   void Touch() const;
   EMessageReturn OnMessage(const CArchitectureMessage&, CArchitectureQueue&) override;
-  void Draw() const;
-  
+  void Draw() const override;
+
   void EnterMapScreen();
   void PauseGame();
   void EnterLogBook();
@@ -54,9 +54,5 @@ private:
   bool mPlayerAlive : 1;
 };
 
-class CMFGameLoader : public CIOWin {
-public:
-  CMFGameLoader();
-  ~CMFGameLoader() override;
-};
+CHECK_SIZEOF(CMFGame, 0x2c)
 #endif

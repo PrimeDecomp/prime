@@ -20,6 +20,7 @@ public:
   , x4_saveWorldId(kInvalidAssetId)
   , x8_areaCount(0) {}
   int GetAreaCount() const { return x8_areaCount; }
+  CAssetId GetWorldNameId() const { return x0_worldNameId; }
   const wchar_t* GetFrontEndName() const;
 
 private:

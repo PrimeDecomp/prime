@@ -1,15 +1,31 @@
 #ifndef _CMFGAMELOADER
 #define _CMFGAMELOADER
 
+#include "Kyoto/CToken.hpp"
 #include "MetroidPrime/CIOWin.hpp"
+#include "rstl/rc_ptr.hpp"
+#include "rstl/vector.hpp"
+
+class CStateManager;
+class CInGameGuiManager;
 
 class CMFGameLoader : public CIOWin {
 
 public:
   CMFGameLoader();
-  EMessageReturn OnMessage(const CArchitectureMessage& message, CArchitectureQueue& queue);
+  ~CMFGameLoader() override;
+  EMessageReturn OnMessage(const CArchitectureMessage& message, CArchitectureQueue& queue) override;
+  void Draw() const override;
+
+  void MakeLoadDependancyList();
+
 private:
-  char data[0x1c];
+  rstl::ncrc_ptr< CStateManager > x14_stateManager;
+  rstl::ncrc_ptr< CInGameGuiManager > x18_guiManager;
+  rstl::vector< CToken > x1c_loadList;
+  bool x2c_24_initialized : 1;
+  bool x2c_25_transitionFinished : 1;
 };
+CHECK_SIZEOF(CMFGameLoader, 0x30)
 
 #endif // _CMFGAMELOADER
