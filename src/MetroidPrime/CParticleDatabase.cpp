@@ -294,7 +294,7 @@ void CParticleDatabase::SetParticleEffectState(const rstl::string& name, bool ac
   }
 }
 
-void CParticleDatabase::SetCEXTValue(const rstl::string& name, int index, float value) {
+void CParticleDatabase::SetExternalVarValue(const rstl::string& name, int index, float value) {
   CParticleGenInfo* effect = GetParticleEffect(name);
   if (effect != nullptr) {
     CElementGen* system = static_cast< CElementGen* >(

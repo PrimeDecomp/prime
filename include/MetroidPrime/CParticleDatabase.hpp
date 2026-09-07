@@ -51,7 +51,7 @@ public:
   void RenderSystemsToBeDrawnLastMasked(int mask, int target) const;
   void SetModulationColorAllActiveEffects(const CColor& color);
   CParticleGenInfo* GetParticleEffect(const rstl::string& name);
-  void SetCEXTValue(const rstl::string& name, int index, float value);
+  void SetExternalVarValue(const rstl::string& name, int index, float value);
   void AddAuxiliaryParticleEffect(const rstl::string& name, int flags,
                                   const CAuxiliaryParticleData& data, const CVector3f& scale,
                                   CStateManager& mgr, TAreaId areaId, int lightIdx);
