@@ -1135,7 +1135,7 @@ config.libs = [
             Object(NonMatching, "MetroidPrime/CNESEmulator.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CPhazonHealingNodule.cpp"),
             Object(NonMatching, "MetroidPrime/Player/CMorphBallShadow.cpp"),
-            Object(NonMatching, "MetroidPrime/Player/CPlayerStuckTracker.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Player/CPlayerStuckTracker.cpp"),
             Object(NonMatching, "MetroidPrime/CSlideShow.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
