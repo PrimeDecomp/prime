@@ -53,6 +53,16 @@ public:
 
   void ScaleAllBounds(const CVector3f& scale);
 
+  ECollisionType GetType() const { return x0_colType; }
+  EOrientationType GetOrientationType() const { return x4_orientType; }
+  CSegId GetPivotId() const { return x8_pivotId; }
+  CSegId GetNextId() const { return x9_nextId; }
+  const CVector3f& GetBounds() const { return xc_bounds; }
+  const CVector3f& GetPivotPoint() const { return x18_pivotPoint; }
+  float GetRadius() const { return x24_radius; }
+  float GetMaxSeparation() const { return x28_maxSeparation; }
+  float GetMass() const { return x40_mass; }
+  void SetCollisionActorId(TUniqueId uid) { x3c_actorId = uid; }
   const rstl::string& GetName() const { return x2c_name; }
   TUniqueId GetCollisionActorId() const { return x3c_actorId; }
   static CJointCollisionDescription SphereSubdivideCollision(CSegId pivotId, CSegId nextId,
@@ -84,5 +94,7 @@ private:
   TUniqueId x3c_actorId;
   float x40_mass;
 };
+
+CHECK_SIZEOF(CJointCollisionDescription, 0x44)
 
 #endif // _CJOINTCOLLISIONDESCRIPTION
