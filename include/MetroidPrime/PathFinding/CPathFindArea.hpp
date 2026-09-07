@@ -9,6 +9,7 @@
 #include "rstl/auto_ptr.hpp"
 #include "rstl/prereserved_vector.hpp"
 #include "rstl/reserved_vector.hpp"
+#include "rstl/single_ptr.hpp"
 #include "rstl/vector.hpp"
 
 class CPFOpenList {
@@ -60,16 +61,52 @@ private:
 };
 CHECK_SIZEOF(CPFOpenList, 0xc0)
 
-class CPFAreaOctree;
+class CPFAreaOctree {
+public:
+  void Fixup(CPFArea& area);
+  uint GetChildIndex(const CVector3f& point) const;
+  prereserved_vector< CPFRegion* >* GetRegionList(const CVector3f& point);
+  void GetRegionListList(rstl::reserved_vector< prereserved_vector< CPFRegion* >*, 32 >& lists,
+                         const CVector3f& point, float padding);
+  bool IsPointInsidePaddedAABox(const CVector3f& point, float padding) const {
+    return point[kDX] >= x4_bounds.GetMinPoint()[kDX] - padding &&
+           point[kDX] <= x4_bounds.GetMaxPoint()[kDX] + padding &&
+           point[kDY] >= x4_bounds.GetMinPoint()[kDY] - padding &&
+           point[kDY] <= x4_bounds.GetMaxPoint()[kDY] + padding &&
+           point[kDZ] >= x4_bounds.GetMinPoint()[kDZ] - padding &&
+           point[kDZ] <= x4_bounds.GetMaxPoint()[kDZ] + padding;
+  }
+
+private:
+  bool x0_isLeaf;
+  CAABox x4_bounds;
+  CVector3f x1c_center;
+  CPFAreaOctree* x28_children[8];
+  prereserved_vector< CPFRegion* > x48_regions;
+};
+CHECK_SIZEOF(CPFAreaOctree, 0x50)
+
+class CPFAreaVersion {
+public:
+  CPFAreaVersion() {}
+  ~CPFAreaVersion() {}
+};
+CHECK_SIZEOF(CPFAreaVersion, 1)
+
 class CPFArea {
 public:
   CPFArea(const rstl::auto_ptr< uchar >& data, int size);
-  ~CPFArea();
   const CTransform4f& GetTransform() const { return x188_transform; }
   void SetTransform(const CTransform4f& transform) { x188_transform = transform; }
   CVector3f GetClosestPoint() const { return x4_closestPoint; }
   int GetNumRegions() const { return x150_regions.size(); }
   CPFRegion& GetRegion(int index) { return x150_regions[index]; }
+  const CPFNode& GetNode(int index) const { return x140_nodes[index]; }
+  CPFLink& GetLink(int index) { return x148_links[index]; }
+  CPFRegionData& GetRegionData(int index) { return x178_regionData[index]; }
+  CPFAreaOctree& GetOctree(int index) { return x158_octree[index]; }
+  CPFRegion*& GetOctreeRegionPtrs(int index) { return x160_octreeRegions[index]; }
+  prereserved_vector< CPFRegion* >* GetOctreeRegionList(const CVector3f& point);
   CPFOpenList& OpenList() { return x78_openList; }
   CPFBitSet& ClosedSet() { return x38_closedSet; }
   int FindRegions(rstl::reserved_vector< CPFRegion*, 4 >& regions, const CVector3f& point,
@@ -89,8 +126,8 @@ private:
   int x34_regionFindCookie;
   CPFBitSet x38_closedSet;
   CPFOpenList x78_openList;
-  uint x138_;
-  uchar* x13c_data;
+  CPFAreaVersion x138_version;
+  rstl::single_ptr< uchar > x13c_data;
   prereserved_vector< CPFNode > x140_nodes;
   prereserved_vector< CPFLink > x148_links;
   prereserved_vector< CPFRegion > x150_regions;
@@ -102,5 +139,19 @@ private:
   CTransform4f x188_transform;
 };
 CHECK_SIZEOF(CPFArea, 0x1b8)
+
+inline void CPFAreaOctree::Fixup(CPFArea& area) {
+  x0_isLeaf = *reinterpret_cast< const int* >(this) != 0;
+  if (x0_isLeaf) {
+    if (x48_regions.size() != 0) {
+      x48_regions.set_data(&area.GetOctreeRegionPtrs(reinterpret_cast< int >(&x48_regions[0])));
+    }
+  } else {
+    for (int i = 0; i < 8; ++i) {
+      int index = reinterpret_cast< int >(x28_children[i]);
+      x28_children[i] = index >= 0 ? &area.GetOctree(index) : nullptr;
+    }
+  }
+}
 
 #endif // _CPATHFINDAREA

@@ -3,6 +3,7 @@
 
 #include <Kyoto/Math/CAABox.hpp>
 #include <Kyoto/Math/CVector3f.hpp>
+#include <rstl/vector.hpp>
 
 class CPFArea;
 class CPFNode {
@@ -60,11 +61,13 @@ public:
   int GetPathLink() const { return x2c_parentLink; }
   void SetPathLink(int link) { x2c_parentLink = link; }
 
-  void SetBestPoint(const CVector3f& point);
-  const CVector3f& GetBestPoint() const;
+  void SetBestPoint(const CVector3f& point) { x4_bestPoint = point; }
+  const CVector3f& GetBestPoint() const { return x4_bestPoint; }
+  void SetBestDistanceSquared(float distance) { x0_bestPointDistSq = distance; }
+  float GetBestDistanceSquared() const { return x0_bestPointDistSq; }
 
-  void SetCookie(int cookie);
-  int GetCookie() const;
+  void SetCookie(int cookie) { x10_cookie = cookie; }
+  int GetCookie() const { return x10_cookie; }
 
 private:
   float x0_bestPointDistSq;
@@ -94,17 +97,36 @@ public:
   const CVector3f& GetCentroid() const { return x28_centroid; }
   void SetCentroid(const CVector3f& point) { x28_centroid = point; }
   float GetHeight() const { return x14_height; }
+  int GetNumNodes() const { return x0_numNodes; }
+  const CPFNode& GetNode(int index) const { return x4_startNode[index]; }
+  const CVector3f& GetNormal() const { return x18_normal; }
+  bool IsPointInside(const CVector3f& point) const;
+  bool IsPointInsidePaddedAABox(const CVector3f& point, float padding) const {
+    return point[kDX] >= x34_bounds.GetMinPoint()[kDX] - padding &&
+           point[kDX] <= x34_bounds.GetMaxPoint()[kDX] + padding &&
+           point[kDY] >= x34_bounds.GetMinPoint()[kDY] - padding &&
+           point[kDY] <= x34_bounds.GetMaxPoint()[kDY] + padding &&
+           point[kDZ] >= x34_bounds.GetMinPoint()[kDZ] - padding &&
+           point[kDZ] <= x34_bounds.GetMaxPoint()[kDZ] + padding;
+  }
+  float PointHeight(const CVector3f& point) const;
+  bool FindClosestPointOnPolygon(const rstl::vector< CVector3f >& polyPoints,
+                                 const CVector3f& normal, const CVector3f& point,
+                                 bool excludePolyPoints);
+  bool FindBestPoint(rstl::vector< CVector3f >& polyPoints, const CVector3f& point, uint flags,
+                     float paddingSq);
   void SetLinkTo(int index);
   void DropToGround(CVector3f& point) const;
   CVector3f GetLinkMidPoint(const CPFLink& link) const;
   CVector3f FitThroughLink2d(const CVector3f& source, const CPFLink& link,
                              const CVector3f& destination, float radius) const;
   CVector3f FitThroughLink3d(const CVector3f& source, const CPFLink& link, float height,
-                             const CVector3f& destination, float radius, float halfHeight) const;
+                             const CVector3f& destination, const float radius,
+                             float halfHeight) const;
 
 private:
   int x0_numNodes;
-  CPFNode* x4_startNode;
+  const CPFNode* x4_startNode;
   int x8_numLinks;
   CPFLink* xc_startLink;
   uint x10_flags;

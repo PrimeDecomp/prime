@@ -951,8 +951,13 @@ config.libs = [
             Object(NonMatching, "MetroidPrime/Player/CStaticInterference.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CMetroidBeta.cpp"),
             Object(NonMatching, "MetroidPrime/PathFinding/CPathFindSearch.cpp"),
-            Object(NonMatching, "MetroidPrime/PathFinding/CPathFindRegion.cpp"),
-            Object(NonMatching, "MetroidPrime/PathFinding/CPathFindArea.cpp"),
+            Object(MatchingFor("GM8E01_00"), "MetroidPrime/PathFinding/CPathFindRegion.cpp"),
+            Object(
+                MatchingFor("GM8E01_00"),
+                "MetroidPrime/PathFinding/CPathFindArea.cpp",
+                cflags=[*cflags_retro, "-inline auto"],
+            ),
+            Object(MatchingFor("GM8E01_00"), "MetroidPrime/PathFinding/CPathFindSpline.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Weapons/GunController/CGunController.cpp"
             ),

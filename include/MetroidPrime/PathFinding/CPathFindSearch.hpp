@@ -42,7 +42,7 @@ public:
   EResult GetResult() const { return xcc_result; }
 
   void Advance() { ++xc8_curWaypoint; }
-  bool SegmentOver(const CVector3f& pos) const;
+  const bool SegmentOver(const CVector3f& pos) const;
   void GetSplinePointWithLookahead(CVector3f& point, const CVector3f& pos, float lookahead) const;
   int GetCurrentWaypoint() const { return xc8_curWaypoint; }
   bool IsOver() const { return xc8_curWaypoint >= x4_waypoints.size() - 1; }
@@ -51,6 +51,9 @@ public:
   bool IsShagged() const { return xcc_result != kR_Success; }
 
 private:
+  void GetSplinePoint(CVector3f& point, const CVector3f& pos, int waypoint) const;
+  void GetSplinePointWithLookahead(CVector3f& point, const CVector3f& pos, int waypoint,
+                                   float lookahead) const;
   bool Search(rstl::reserved_vector< CPFRegion*, 4 >& sourceRegions, const CVector3f& source,
               rstl::reserved_vector< CPFRegion*, 4 >& destRegions, const CVector3f& destination);
   CPFArea* x0_area;
