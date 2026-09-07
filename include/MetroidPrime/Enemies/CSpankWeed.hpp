@@ -18,7 +18,7 @@ public:
              const float maxHearingRange, const float maxSightRange, const float hideTime);
 
   // CEntity
-  ~CSpankWeed() override {}
+  ~CSpankWeed() override;
   void Accept(IVisitor& visitor) override;
   void Think(float dt, CStateManager& mgr) override;
   void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) override;
@@ -59,14 +59,12 @@ private:
   bool x598_isHiding;
   CVector3f x59c_lockonOffset;
   CVector3f x5a8_lockonTarget;
-  int x5b4_;
-  int x5b8_;
-  int x5bc_;
+  int x5b4_state;
+  int x5b8_previousState;
+  int x5bc_animPhase;
 
   float GetPlayerDistance(CStateManager& mgr) const;
 
-  static const char* skJointNameList[];
-  static const int skJointNameListSize;
   static const SSphereJointInfo skSphereJointInfoList[];
 };
 CHECK_SIZEOF(CSpankWeed, 0x5c0)

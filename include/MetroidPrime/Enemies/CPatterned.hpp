@@ -287,6 +287,7 @@ public:
   EFlavorType GetFlavorType() const { return x3fc_flavor; }
   const bool IsAlive() const { return x400_25_alive; }
   void SetWasHit(const bool v) { x400_24_hitByPlayerProjectile = v; }
+  bool GetWasHit() const { return x400_24_hitByPlayerProjectile; }
   void SetPendingDeath(const bool v) { x401_30_pendingDeath = v; }
   bool GetFadeToDeath() const { return x400_27_fadeToDeath; }
   void SetFadeToDeath(bool fade) { x400_27_fadeToDeath = fade; }
