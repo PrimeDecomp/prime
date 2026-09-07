@@ -12,9 +12,9 @@ class COutputStream;
 class CRelAngle;
 class CUnitVector3f;
 
-enum EDimX { kDX };
-enum EDimY { kDY };
-enum EDimZ { kDZ };
+enum EDimX { kDX = 0 };
+enum EDimY { kDY = 1 };
+enum EDimZ { kDZ = 2 };
 
 class CVector3f {
 public:
