@@ -6,7 +6,7 @@
 #include "rstl/list.hpp"
 #include "rstl/pair.hpp"
 #include "rstl/red_black_tree.hpp"
-#include "rstl/rmemory_allocator.hpp"
+#include "rstl/allocator.hpp"
 #include "rstl/vector.hpp"
 
 namespace rstl {

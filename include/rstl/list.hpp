@@ -6,8 +6,7 @@
 #include "rstl/construct.hpp"
 #include "rstl/functional.hpp"
 #include "rstl/iterator.hpp"
-#include "rstl/rmemory_allocator.hpp"
-
+#include "rstl/allocator.hpp"
 namespace rstl {
 template < typename T, typename Alloc = rmemory_allocator >
 class list {

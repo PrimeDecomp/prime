@@ -9,7 +9,6 @@
 #include "Kyoto/Math/CTransform4f.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
 #include "Kyoto/TToken.hpp"
-#include "rstl/aligned_allocator.hpp"
 #include "rstl/auto_ptr.hpp"
 #include "rstl/list.hpp"
 #include "rstl/reserved_vector.hpp"

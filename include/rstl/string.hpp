@@ -3,7 +3,7 @@
 
 #include "types.h"
 
-#include "rstl/rmemory_allocator.hpp"
+#include "rstl/allocator.hpp"
 #include "rstl/linear_iterator.hpp"
 
 class CInputStream;

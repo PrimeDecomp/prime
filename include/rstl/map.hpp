@@ -5,8 +5,7 @@
 
 #include "rstl/pair.hpp"
 #include "rstl/red_black_tree.hpp"
-#include "rstl/rmemory_allocator.hpp"
-
+#include "rstl/allocator.hpp"
 namespace rstl {
 template < typename K, typename V, typename Cmp = less< K >, typename Alloc = rmemory_allocator >
 class map {

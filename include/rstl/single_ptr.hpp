@@ -2,7 +2,7 @@
 #define _RSTL_SINGLE_PTR
 
 #include "types.h"
-#include <rstl/rmemory_allocator.hpp>
+#include "rstl/allocator.hpp"
 
 namespace rstl {
 template < typename T >

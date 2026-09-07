@@ -6,7 +6,6 @@
 #include "Kyoto/CDvdFile.hpp"
 #include "Kyoto/SObjectTag.hpp"
 
-#include "rstl/aligned_allocator.hpp"
 #include "rstl/auto_ptr.hpp"
 #include "rstl/pair.hpp"
 #include "rstl/string.hpp"

@@ -4,8 +4,7 @@
 #include "types.h"
 
 #include "rstl/red_black_tree.hpp"
-#include "rstl/rmemory_allocator.hpp"
-
+#include "rstl/allocator.hpp"
 namespace rstl {
 template < typename T, typename Cmp = less< T >, typename Alloc = rmemory_allocator >
 class set {

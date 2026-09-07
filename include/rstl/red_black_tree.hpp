@@ -6,8 +6,7 @@
 #include "rstl/functional.hpp"
 #include "rstl/iterator.hpp"
 #include "rstl/pair.hpp"
-#include "rstl/rmemory_allocator.hpp"
-
+#include "rstl/allocator.hpp"
 namespace rstl {
 
 enum node_color {

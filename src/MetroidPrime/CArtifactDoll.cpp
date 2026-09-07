@@ -7,8 +7,7 @@
 #include "MetroidPrime/CStateManager.hpp"
 #include "MetroidPrime/Player/CPlayerState.hpp"
 #include "rstl/math.hpp"
-#include "rstl/rmemory_allocator.hpp"
-
+#include "rstl/allocator.hpp"
 const CColor CArtifactDoll::skPreColor((uchar)255, 160, 5, 255);
 const CColor CArtifactDoll::skPostColor((uchar)103, 174, 225, 205);
 

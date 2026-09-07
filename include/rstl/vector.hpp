@@ -6,8 +6,7 @@
 #include "rstl/allocator_auto_ptr.hpp"
 #include "rstl/iterator.hpp"
 #include "rstl/pointer_iterator.hpp"
-#include "rstl/rmemory_allocator.hpp"
-
+#include "rstl/allocator.hpp"
 class CInputStream;
 class COutputStream;
 

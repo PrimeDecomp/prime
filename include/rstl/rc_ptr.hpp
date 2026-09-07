@@ -2,8 +2,7 @@
 #define _RSTL_RC_PTR
 
 #include "types.h"
-#include "rstl/rmemory_allocator.hpp"
-
+#include "rstl/allocator.hpp"
 namespace rstl {
 class CRefData {
 public:
