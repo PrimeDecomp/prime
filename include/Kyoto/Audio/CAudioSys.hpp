@@ -99,7 +99,7 @@ public:
   static const rstl::string& SysGetGroupSetName(uint);
   static bool SysPushGroupIntoARAM(const rstl::string& name, uchar);
   static void SysPopGroupFromARAM();
-  static void SysUnloadGroupSet(const rstl::string& name);
+  static bool SysUnloadGroupSet(const rstl::string& name);
   static bool SysUnloadSampleData(const rstl::string& name);
   static bool SysIsGroupSetLoaded(const rstl::string& name);
   static rstl::ncrc_ptr< CAudioGroupSet > FindGroupSet(const rstl::string& name);

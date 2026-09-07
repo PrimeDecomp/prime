@@ -2597,8 +2597,8 @@ void CMorphBall::LoadMorphBallModel(CStateManager& mgr) {
 CModelData* CMorphBall::GetMorphBallModel(const rstl::string& name, float radius) {
   const SObjectTag* tag = gpResourceFactory->GetResourceIdByName(name.data());
 
-  // what is going on here?
-  const CAssetId& id = tag->GetId();
+  // Keep a copy of the resolved resource ID while allocating the model.
+  const CAssetId& id = CAssetId(tag->GetId());
   const FourCC& type = tag->GetType();
   const FourCC* const typePtr = &type;
 

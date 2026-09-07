@@ -74,7 +74,7 @@ public:
     const P* operator->() const { return mNode->get_value(); }
     const P& operator*() const { return *mNode->get_value(); }
     bool operator==(const const_iterator& other) const {
-      return !(mNode != other.mNode || mHeader != other.mHeader);
+      return mNode == other.mNode && mHeader == other.mHeader;
     }
     bool operator!=(const const_iterator& other) const {
       return (mNode != other.mNode || mHeader != other.mHeader);
@@ -99,6 +99,19 @@ public:
     P* operator->() { return const_iterator::mNode->get_value(); }
     P& operator*() { return *const_iterator::mNode->get_value(); }
     node* get_node() { return const_iterator::mNode; }
+
+    iterator& operator++() {
+      const_iterator::mNode = static_cast< node* >(
+          rbtree_traverse_forward(static_cast< const void* >(const_iterator::mHeader),
+                                  static_cast< void* >(const_iterator::mNode)));
+      return *this;
+    }
+
+    iterator operator++(int) {
+      iterator result = *this;
+      ++*this;
+      return result;
+    }
   };
 
   red_black_tree(const S& selector = S(), const Cmp& cmp = Cmp(), const Alloc& alloc = Alloc())
@@ -136,30 +149,13 @@ public:
     return iterator(nullptr, &x8_header);
   }
 
-  const_iterator find(const T& key) const {
-    node* needle = nullptr;
-    node* n = x8_header.get_root();
-    while (n != nullptr) {
-      if (!x1_cmp(x0_selector(*n->get_value()), key)) {
-        needle = n;
-        n = n->get_left();
-      } else {
-        n = n->get_right();
-      }
-    }
-    bool noResult = false;
-    if (needle == nullptr || x1_cmp(key, x0_selector(*needle->get_value()))) {
-      noResult = true;
-    }
-    if (noResult) {
-      needle = nullptr;
-    }
-    return const_iterator(needle, &x8_header);
-  }
+  const_iterator find(const T& key) const { return const_iterator(find_node(key), &x8_header); }
 
-  iterator find(const T& key) {
-    node* needle = nullptr;
+  iterator find(const T& key) { return iterator(find_node(key), &x8_header); }
+
+  node* find_node(const T& key) const {
     node* n = x8_header.get_root();
+    node* needle = nullptr;
     while (n != nullptr) {
       if (!x1_cmp(x0_selector(*n->get_value()), key)) {
         needle = n;
@@ -172,10 +168,7 @@ public:
     if (needle == nullptr || x1_cmp(key, x0_selector(*needle->get_value()))) {
       noResult = true;
     }
-    if (noResult) {
-      needle = nullptr;
-    }
-    return iterator(needle, &x8_header);
+    return noResult ? nullptr : needle;
   }
 
   pair< iterator, iterator > equal_range(const T& key) {
@@ -204,12 +197,14 @@ public:
   }
 
   iterator erase(iterator it) {
-    node* node = it.get_node();
-    ++it;
-    free_node(rebalance_for_erase(node));
+    node* n = it.get_node();
+    it.mNode = static_cast< node* >(rbtree_traverse_forward(it.mHeader, it.mNode));
+    free_node(rebalance_for_erase(n));
     x4_count--;
     return it;
   }
+
+  int erase(const T& key);
 
   void clear() {
     node* root = x8_header.get_root();

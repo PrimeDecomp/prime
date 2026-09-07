@@ -9,7 +9,7 @@ IObjFactory::~IObjFactory() {}
 
 CFactoryFnReturn CCharacterFactoryBuilder::CDummyFactory::Build(const SObjectTag& tag,
                                                               const CVParamTransfer& params) {
-  const CAssetId id = tag.GetId();
+  CAssetId id = tag.GetId();
   TToken< CAnimCharacterSet > ancs = gpSimplePool->GetObj(SObjectTag('ANCS', id));
   return CFactoryFnReturn(CFactoryFnReturn(rs_new CCharacterFactory(*gpSimplePool, **ancs, id)));
 }
