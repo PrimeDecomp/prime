@@ -89,6 +89,8 @@ public:
   }
 
   void SetGameFlowBuilt(const bool built) { x160_25_mfGameBuilt = built; }
+  float GetAverageTickTime() const { return x118_; }
+  float GetAverageDrawTime() const { return x11c_; }
   void SetScreenFading(const bool fading) { x160_26_screenFading = fading; }
   void SetGameFrameDrawn(const bool drawn) { x161_24_gameFrameDrawn = drawn; }
 

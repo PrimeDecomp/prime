@@ -104,6 +104,8 @@ public:
   virtual void AddModifier(CWarp*) override {}
   virtual uint Get4CharId() const override;
   int GetMaxParticles() const { return x90_MAXP; }
+  rstl::vector< CParticle >& Particles() { return x30_particles; }
+  const rstl::vector< CParticle >& GetParticles() const { return x30_particles; }
   int GetEmitterTime() const;
   int GetSystemCount();
   void EndLifetime();
