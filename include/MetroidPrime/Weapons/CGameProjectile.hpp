@@ -59,7 +59,9 @@ public:
   CProjectileWeapon& Projectile() { return x170_projectile; }
   CVector3f GetVelocity() const { return GetTranslation() - x298_previousPos; }
   const CVector3f& GetPreviousPos() const { return x298_previousPos; }
+  TUniqueId GetProjectileLightId() const { return x2c8_projectileLight; }
   TUniqueId GetHomingTargetId() const { return x2c0_homingTargetId; }
+  void SetHomingTargetId(TUniqueId id) { x2c0_homingTargetId = id; }
   TUniqueId GetHitProjectileOwner() const { return x2c4_hitProjectileOwner; }
   void SetHitProjectileOwner(TUniqueId id) { x2c4_hitProjectileOwner = id; }
 
