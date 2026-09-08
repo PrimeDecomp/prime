@@ -57,14 +57,17 @@ public:
 
   void PreRender();
   bool GetIsLoop() const { return x220_25_loop; }
-  void EnableLooping(bool v) {
+  void EnableLooping(const bool v) {
     x220_25_loop = v;
     x220_24_animating = true;
   }
 
   const TLockedToken< CSkinnedModel >& GetModelData() const { return xd8_modelData; }
+  CSkinnedModel* GetXRayModel() const { return xf4_xrayModel.GetPtr(); }
+  CSkinnedModel* GetInfraModel() const { return xf8_infraModel.GetPtr(); }
 
   void SetIsAnimating(bool v) { x220_24_animating = v; }
+  bool IsAnimating() const { return x220_24_animating; }
   void SetParticleCEXTValue(const rstl::string& name, int index, float value);
   void SetParticleEffectState(const rstl::string& name, const bool active, CStateManager& mgr);
 
@@ -232,7 +235,7 @@ private:
   int x218_passedSoundCount;
   int x21c_particleLightIdx;
   uchar x220_24_animating : 1;
-  uchar x220_25_loop : 1;
+  bool x220_25_loop : 1;
   uchar x220_26_aligningPos : 1;
   uchar x220_27_ : 1;
   uchar x220_28_ : 1;

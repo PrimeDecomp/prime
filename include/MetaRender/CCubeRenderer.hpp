@@ -141,7 +141,7 @@ public:
                         const CModelFlags&) override;
   void DrawModelDisintegrate(const CModel&, const CTexture&, const CColor&, const float*,
                              const float*, float) override;
-  void DrawModelFlat(const CModel&, const CModelFlags&, bool, const float*, const float*) override;
+  void DrawModelFlat(const CModel&, const CModelFlags&, const bool, const float*, const float*) override;
   void SetWireframeFlags(int) override;
   void SetWorldFog(ERglFogMode mode, float startz, float endz, const CColor& color) override;
   void RenderFogVolume(const CColor&, const CAABox&, const TLockedToken< CModel >*,
