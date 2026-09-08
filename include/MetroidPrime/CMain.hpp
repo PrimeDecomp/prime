@@ -81,6 +81,7 @@ public:
   void SetRestartMode(const ERestartMode s) { x12c_restartMode = s; }
   ERestartMode GetRestartMode() const { return x12c_restartMode; }
   void SetCardBusy(bool v) { x160_31_cardBusy = v; }
+  void SetManageCard(bool v) { x160_28_manageCard = v; }
   bool GetCardBusy() const { return x160_31_cardBusy; }
 
   void SetMaxSpeed(bool v) {
