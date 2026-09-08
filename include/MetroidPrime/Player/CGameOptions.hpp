@@ -13,6 +13,25 @@
 
 class CInputStream;
 class CMemoryStreamOut;
+class CFinalInput;
+
+enum EGameOption {
+  kGO_VisorOpacity,
+  kGO_HelmetOpacity,
+  kGO_HUDLag,
+  kGO_HintSystem,
+  kGO_ScreenBrightness,
+  kGO_ScreenOffsetX,
+  kGO_ScreenOffsetY,
+  kGO_ScreenStretch,
+  kGO_SFXVolume,
+  kGO_MusicVolume,
+  kGO_SoundMode,
+  kGO_ReverseYAxis,
+  kGO_Rumble,
+  kGO_SwapBeamControls,
+  kGO_RestoreDefaults
+};
 
 class CGameOptions {
 public:
@@ -21,6 +40,10 @@ public:
   static const bool skDefaultRumble;
   static const bool skDefaultSwapBeamsControls;
   static const bool skDefaultHintSystem;
+
+  static int GetOption(EGameOption option);
+  static void SetOption(EGameOption option, int value);
+  static void TryRestoreDefaults(const CFinalInput& input, int category, int option, bool frontEnd);
 
   CGameOptions();
   CGameOptions(CInputStream& in);
@@ -38,7 +61,7 @@ public:
   void SetScreenPositionY(const int, const bool);
   void SetScreenStretch(const int, const bool);
   void SetSfxVolume(const int, const bool);
-  void SetMusicVolume(const int,const  bool);
+  void SetMusicVolume(const int, const bool);
   void SetSurroundMode(CAudioSys::ESurroundModes, bool);
 
   const rstl::vector< rstl::pair< CAssetId, CAssetId > >& GetControlTXTRMap() const {

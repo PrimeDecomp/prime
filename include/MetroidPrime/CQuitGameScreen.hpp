@@ -23,15 +23,15 @@ public:
 
   void SetColors();
   void FinishedLoading();
-  void DoSelectionChange(CGuiTableGroup* caller);
+  void DoSelectionChange(CGuiTableGroup* caller, int oldSel);
   void DoAdvance(CGuiTableGroup* caller);
   EQuitAction Update(float dt);
-  void Draw();
+  void Draw() const;
   void ProcessUserInput(const CFinalInput& input);
 
 private:
   EQuitType x0_type;
-  TLockedToken< CGuiFrame > x4_frame;
+  TCachedToken< CGuiFrame > x4_frame;
   CGuiFrame* x10_loadedFrame;
   CGuiTableGroup* x14_tablegroup_quitgame;
   EQuitAction x18_action;
