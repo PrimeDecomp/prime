@@ -226,6 +226,7 @@ public:
   void IncrementEnvironmentDamage(); // name?
   void DecrementEnvironmentDamage(); // name?
   // GetMovementDirection2D__7CPlayerCFv ??
+  void SetOrbitState(EPlayerOrbitState state, CStateManager& mgr);
   void SetOrbitTargetId(TUniqueId id, CStateManager& mgr);
   void TryToBreakOrbit(TUniqueId id, EOrbitBrokenType type, CStateManager& mgr);
   void BreakOrbit(EOrbitBrokenType type, CStateManager& mgr);

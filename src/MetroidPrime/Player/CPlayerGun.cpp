@@ -138,6 +138,7 @@ static const ushort mToMissileSound[4] = {
 // };
 
 float CPlayerGun::kTractorBeamFactor = 0.25f / CPlayerState::GetMissileComboChargeFactor();
+const float CPlayerGun::kGunScale = 2.f;
 CVector3f CPlayerGun::kScaleVector(2.f, 2.f, 2.f);
 float CPlayerGun::CMotionState::gGunExtendDistance = 0.125f;
 

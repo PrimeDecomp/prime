@@ -14,6 +14,8 @@
 #include "rstl/single_ptr.hpp"
 
 class CCollisionActorManager;
+class CJointCollisionDescription;
+struct SSphereJointInfo;
 class CElementGen;
 class CGenDescription;
 class CParticleSwoosh;
@@ -29,13 +31,20 @@ public:
   }
   float GetEnergyDrainPerSec() const { return xd0_energyDrainPerSec; }
   float GetMaxEnergyDrainAllowed() const { return xd4_maxEnergyDrainAllowed; }
-  float GetTelegraphAttackTime() const { return xd8_telegraphAttackTime; }
-  float GetBreakLeashEnergyDrain() const { return xe8_breakLeashEnergyDrain; }
+  float GetSpecialAttackTime() const { return xe0_specialAttackTime; }
+  float GetTelegraphAttackTime() const { return xdc_telegraphAttackTime; }
+  float GetStage2GrowthEnergy() const { return xec_stage2GrowthEnergy; }
+  float GetStage3GrowthEnergy() const { return xf0_stage3GrowthEnergy; }
+  float GetMaxGrowthScale() const { return xe8_maxGrowthScale; }
+  float GetGrowthEnergy() const { return xec_stage2GrowthEnergy; }
+  float GetBreakLeashEnergyDrain() const { return xd8_breakLeashEnergyDrain; }
   CAssetId GetElectricParticleId() const { return xf4_electricParticleId; }
   CAssetId GetElectricSwooshEffectId() const { return xf8_electricSwooshEffectId; }
   CAssetId GetElectricMorphBallHitEffectId() const { return xfc_electricMorphBallHitEffectId; }
   CAssetId GetElectricGunHitEffectId() const { return x100_electricGunHitEffectId; }
   CAssetId GetElectricGunFeedbackId() const { return x104_electricGunFeedbackId; }
+
+  bool StartsInWall() const { return x108_24_startsInWall; }
 
   static int GetNumProperties() { return skNumProperties; }
 
@@ -44,13 +53,13 @@ private:
   CDamageVulnerability x68_energyDrainVulnerability;
   float xd0_energyDrainPerSec;
   float xd4_maxEnergyDrainAllowed;
-  float xd8_telegraphAttackTime;
-  float xdc_;
-  float xe0_;
+  float xd8_breakLeashEnergyDrain;
+  float xdc_telegraphAttackTime;
+  float xe0_specialAttackTime;
   float xe4_;
-  float xe8_breakLeashEnergyDrain;
-  float xec_;
-  float xf0_;
+  float xe8_maxGrowthScale;
+  float xec_stage2GrowthEnergy;
+  float xf0_stage3GrowthEnergy;
   CAssetId xf4_electricParticleId;
   CAssetId xf8_electricSwooshEffectId;
   CAssetId xfc_electricMorphBallHitEffectId;
@@ -66,7 +75,7 @@ class CMetroidData;
 
 class CMetroidBeta : public CPatterned {
 public:
-  CMetroidBeta(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
+  CMetroidBeta(const TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
                const CTransform4f& xf, const CModelData& mData, const CPatternedInfo& pInfo,
                const CActorParameters& aParms, const CMetroidBetaData& metroidData);
   ~CMetroidBeta();
@@ -83,10 +92,11 @@ public:
   CVector3f GetAimPosition(const CStateManager& mgr, float dt) const override;
   void DoUserAnimEvent(CStateManager& mgr, const CInt32POINode& node, EUserEventType type,
                        float dt) override;
-  const CCollisionPrimitive* GetCollisionPrimitive() const override;
+  bool IsListening() const override { return true; }
+  const CCollisionPrimitive* GetCollisionPrimitive() const override { return &x768_colPrim; }
+  CPathFindSearch* GetSearchPath() override { return &x67c_pathFind; }
   void CollidedWith(const TUniqueId& id, const CCollisionInfoList& list,
                     CStateManager& mgr) override;
-  bool IsListening() const override;
   CVector3f GetOrigin(const CStateManager& mgr, const CTeamAiRole& role,
                       const CVector3f& aimPos) const override;
   EWeaponCollisionResponseTypes GetCollisionResponseType(const CVector3f&, const CVector3f&,
@@ -118,46 +128,70 @@ public:
   bool BreakAttack(CStateManager& mgr, float arg) override;
   bool ShouldSpecialAttack(CStateManager& mgr, float arg) override;
 
-  CPathFindSearch* GetSearchPath() override;
-
   void RenderHitGunEffect() const;
   void RenderHitBallEffect() const;
 
 private:
+  void SwarmAdd(CStateManager& mgr);
+  void SwarmRemove(CStateManager& mgr);
+  void SetupHealthInfo(CStateManager& mgr);
+  void SetupCollisionManager(CStateManager& mgr);
+  void AddSphereCollisionList(const SSphereJointInfo* joints, int count,
+                              rstl::vector< CJointCollisionDescription >& list);
+  void UpdateHealthInfo(CStateManager& mgr);
+  void UpdateAILogicTimers(float dt, CStateManager& mgr);
+  void UpdateParticleEffects(float dt, CStateManager& mgr);
+  void UpdateHitTargetParticleEffect(float dt, CStateManager& mgr, const CVector3f& target);
+  CVector3f GetTentacleSourcePos() const;
+  CVector3f ComputeTargetPos(CStateManager& mgr) const;
+  void UpdateSoundVolume();
+  void AdjustPathFindSteering(CStateManager& mgr);
+  void ApplyForwardSteering(CStateManager& mgr, const CVector3f& destination);
+  void ApplySeparationBehavior(CStateManager& mgr);
+  void UpdateModelScale(const CVector3f& scale);
+  void ApplyBreakLeashDamage(CStateManager& mgr);
+  void SuckEnergyFromTarget(float dt, CStateManager& mgr);
+  bool ShouldReleaseFromTarget(CStateManager& mgr);
+  void ApplyGrowth(float amount, CStateManager& mgr);
+  float GetGrowthStage() const;
+  float GetDamageMultiplier() const;
+  void ExtendTouchBounds(CStateManager& mgr, const CVector3f& bounds);
+  bool IsSuckingEnergy() const;
+
   int x568_progState;
   CMetroidBetaData x56c_data;
   TUniqueId x678_teamMgr;
   CPathFindSearch x67c_pathFind;
-  uchar x760_;
-  uchar x761_;
+  CSegId x760_leftClaw;
+  CSegId x761_rightClaw;
   rstl::single_ptr< CCollisionActorManager > x764_collisionManager;
   CCollidableAABox x768_colPrim;
-  TUniqueId x790_;
-  float x794_;
-  float x798_;
-  float x79c_;
-  float x7a0_;
-  float x7a4_;
-  CVector3f x7a8_;
-  CVector3f x7b4_;
-  CVector3f x7c0_;
-  CVector3f x7cc_;
-  float x7d8_;
-  float x7dc_;
-  float x7e0_;
-  TCachedToken< CGenDescription > x7e4_;
-  TCachedToken< CSwooshDescription > x7f0_;
-  TCachedToken< CGenDescription > x7fc_;
-  TCachedToken< CGenDescription > x808_;
-  TCachedToken< CGenDescription > x814_;
+  TUniqueId x790_pelvisCollisionId;
+  float x794_attackCooldown;
+  float x798_telegraphTimer;
+  float x79c_drainedEnergy;
+  float x7a0_interferenceTime;
+  float x7a4_specialAttackTime;
+  CVector3f x7a8_targetPos;
+  CVector3f x7b4_growthScale;
+  CVector3f x7c0_generateStartScale;
+  CVector3f x7cc_initialScale;
+  float x7d8_generateDuration;
+  float x7dc_growthEnergy;
+  float x7e0_previousGrowthEnergy;
+  TLockedToken< CGenDescription > x7e4_;
+  TLockedToken< CSwooshDescription > x7f0_;
+  TLockedToken< CGenDescription > x7fc_;
+  TLockedToken< CGenDescription > x808_;
+  TLockedToken< CGenDescription > x814_;
   rstl::single_ptr< CElementGen > x820_;
   rstl::single_ptr< CParticleSwoosh > x824_;
   rstl::single_ptr< CElementGen > x828_;
   rstl::single_ptr< CElementGen > x82c_;
   rstl::single_ptr< CElementGen > x830_;
-  float x834_;
-  CRandom16 x838_;
-  float x83c_;
+  float x834_particlePhase;
+  CRandom16 x838_random;
+  float x83c_shotSeverity;
   bool x840_24_ : 1;
   bool x840_25_ : 1;
   bool x840_26_ : 1;
