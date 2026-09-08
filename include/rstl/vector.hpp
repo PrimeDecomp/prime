@@ -29,7 +29,10 @@ public:
 
   iterator begin() { return iterator(this, data()); }
   const_iterator begin() const { return const_iterator(this, data()); }
-  iterator end() { return iterator(this, data() + size()); }
+  iterator end() {
+    T* const end = data() + x4_count;
+    return iterator(end);
+  }
   const_iterator end() const { return const_iterator(this, data() + size()); }
   vector(const Alloc& alloc = Alloc())
   : x0_allocator(alloc), x4_count(0), x8_capacity(0), xc_items(nullptr) {}
