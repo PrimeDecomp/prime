@@ -10,6 +10,12 @@ struct CWeaponAssetInfo {
   int count;
   CAssetId data[8];
 
+  CWeaponAssetInfo(const CWeaponAssetInfo& other) : count(other.count) {
+    for (int i = 0; i < 8; ++i) {
+      data[i] = other.data[i];
+    }
+  }
+
   explicit CWeaponAssetInfo(const CAssetId a = kInvalidAssetId, const CAssetId b = kInvalidAssetId,
                             const CAssetId c = kInvalidAssetId, const CAssetId d = kInvalidAssetId,
                             const CAssetId e = kInvalidAssetId, const CAssetId f = kInvalidAssetId,
@@ -25,6 +31,7 @@ struct CWeaponAssetInfo {
     data[7] = h;
   }
 };
+CHECK_SIZEOF(CWeaponAssetInfo, 0x24)
 
 class CPlasmaProjectile : public CBeamProjectile {
 public:

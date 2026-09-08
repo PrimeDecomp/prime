@@ -20,13 +20,8 @@ struct SCameraShakePoint {
   , x10_sustainTime(0.f)
   , x14_duration(0.f) {}
 
-  SCameraShakePoint(bool useEnvelope, float attackTime, float sustainTime, float duration,
-                    float magnitude)
-  : x0_useEnvelope(useEnvelope)
-  , x8_magnitude(magnitude)
-  , xc_attackTime(attackTime)
-  , x10_sustainTime(sustainTime)
-  , x14_duration(duration) {}
+  SCameraShakePoint(int flags, float attackTime, float sustainTime, float duration,
+                    float magnitude);
 };
 CHECK_SIZEOF(SCameraShakePoint, 0x18)
 
@@ -34,9 +29,7 @@ class CCameraShakerComponent {
 public:
   CCameraShakerComponent() : x4_useModulation(false), x38_value(0.f) {}
 
-  CCameraShakerComponent(bool useModulation, const SCameraShakePoint& am,
-                         const SCameraShakePoint& fm)
-  : x4_useModulation(useModulation), x8_am(am), x20_fm(fm) {}
+  CCameraShakerComponent(int flags, const SCameraShakePoint& am, const SCameraShakePoint& fm);
 
   virtual ~CCameraShakerComponent() {}
 
@@ -56,15 +49,7 @@ public:
                    const CCameraShakerComponent& shakerX, const CCameraShakerComponent& shakerY,
                    const CCameraShakerComponent& shakerZ);
 
-  CCameraShakeData(float duration, float magnitude)
-  : x0_duration(duration)
-  , xd0_sfxDist(100.f)
-  , xc0_flags(0)
-  , xc4_sfxPos(CVector3f::Zero())
-  , x8_shakerX()
-  , x44_shakerY()
-  , x80_shakerZ(true, SCameraShakePoint(false, 0.25f * duration, 0.f, 0.75f * duration, magnitude),
-                SCameraShakePoint(true, 0.f, 0.f, 0.5f * duration, 2.f)) {}
+  CCameraShakeData(float duration, float magnitude);
 
   void SetId(int id) { xbc_shakerId = id; }
   int GetId() const { return xbc_shakerId; }
@@ -80,7 +65,7 @@ public:
   bool IsSingleDirection() const;
   void ResetTime();
   void SetAttenuation(float, CVector3f);
-  void SetSfxPositionAndDistance(CVector3f pos, float distance);
+  void SetSfxPositionAndDistance(float distance, CVector3f pos);
   void SetTranslation(const CVector3f&);
 
   static CCameraShakeData HardBothAxesShake(float duration, float);

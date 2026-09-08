@@ -124,7 +124,7 @@ const bool CEnergyProjectile::Explode(const CVector3f& pos, const CVector3f& nor
   } else {
     StopProjectile(mgr);
     if (x3d0_27_camShakeDirty) {
-      x2fc_camShake.SetSfxPositionAndDistance(pos, 50.f);
+      x2fc_camShake.SetSfxPositionAndDistance(50.f, pos);
       mgr.CameraManager()->AddCameraShaker(x2fc_camShake, false);
     }
   }
