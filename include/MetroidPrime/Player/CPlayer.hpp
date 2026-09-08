@@ -428,6 +428,7 @@ public:
   float GetStaticTimer() const { return x740_staticTimer; }
 
   bool GetPlayerIsSlidingOnWall() const { return x9c5_28_slidingOnWall; }
+  void SetPlayerIsSlidingOnWall(bool sliding) { x9c5_28_slidingOnWall = sliding; }
   ESurfaceRestraints GetCurrentSurfaceRestraint() const { return x2ac_surfaceRestraint; }
   ESurfaceRestraints GetSurfaceRestraint() const {
     return x2b0_outOfWaterTicks == 2 ? GetCurrentSurfaceRestraint() : kSR_Water;

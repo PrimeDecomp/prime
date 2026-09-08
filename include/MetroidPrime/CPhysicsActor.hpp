@@ -56,8 +56,10 @@ public:
   // }
 
   const CVector3f& GetTranslation() const { return x0_translation; }
+  void SetTranslation(const CVector3f& translation) { x0_translation = translation; }
   const CNUQuaternion& GetOrientation() const { return xc_orientation; }
   const CVector3f& GetVelocity() const { return x1c_velocity; }
+  void SetVelocity(const CVector3f& velocity) { x1c_velocity = velocity; }
   const CAxisAngle& GetAngularMomentum() const { return x28_angularMomentum; }
 
 private:
@@ -135,10 +137,13 @@ public:
   const CAxisAngle& GetAngularVelocityWR() const { return x144_angularVelocity; }
   const CVector3f& GetVelocityWR() const { return x138_velocity; }
   const CVector3f& GetMomentumWR() const { return x150_momentum; }
+  CVector3f& MomentumWR() { return x150_momentum; }
   void SetMomentumWR(const CVector3f& momentum) { x150_momentum = momentum; }
   const CVector3f& GetForceWR() const { return x15c_force; }
+  CVector3f& ForceWR() { return x15c_force; }
   void SetForceWR(const CVector3f& force) { x15c_force = force; }
   const CVector3f& GetImpulseWR() const { return x168_impulse; }
+  CVector3f& ImpulseWR() { return x168_impulse; }
   void SetImpulseWR(const CVector3f& impulse) { x168_impulse = impulse; }
   const CAxisAngle& GetTorqueWR() const { return x174_torque; }
   void SetTorqueWR(const CAxisAngle& torque) { x174_torque = torque; }
@@ -148,6 +153,12 @@ public:
   }
   CMotionState GetLastNonCollidingState() const { return x1f4_lastNonCollidingState; }
   void SetLastNonCollidingState(const CMotionState& state) { x1f4_lastNonCollidingState = state; }
+  const rstl::optional_object< CVector3f >& GetLastFloorPlaneNormal() const {
+    return x228_lastFloorPlaneNormal;
+  }
+  void SetLastFloorPlaneNormal(const rstl::optional_object< CVector3f >& normal) {
+    x228_lastFloorPlaneNormal = normal;
+  }
   uint GetNumTicksStuck() const { return x24c_numTicksStuck; }
   void SetNumTicksStuck(uint v) { x24c_numTicksStuck = v; }
   uint GetNumTicksPartialUpdate() const { return x250_numTicksPartialUpdate; }
