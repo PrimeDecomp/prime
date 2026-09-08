@@ -56,7 +56,8 @@ private:
 template < typename T >
 void rc_ptr< T >::ReleaseData() {
   if (x0_refData->DelRef() <= 0) {
-    delete GetPtr();
+    T* const ptr = GetPtr();
+    delete ptr;
     delete x0_refData;
   }
 }
