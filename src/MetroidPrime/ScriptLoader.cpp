@@ -163,7 +163,7 @@ static CTransform4f ConvertEditorEulerToTransform4f(const CVector3f& orientation
   const CVector3f& r0 = mat.GetRow(kDX);
   const CVector3f& r1 = mat.GetRow(kDY);
   const CVector3f& r2 = mat.GetRow(kDZ);
-  return CTransform4f(CVector3f(r0[kDX], r1[kDX], r2[kDX]), CVector3f(r0[kDY], r1[kDY], r2[kDY]),
+  return CTransform4f::FromColumns(CVector3f(r0[kDX], r1[kDX], r2[kDX]), CVector3f(r0[kDY], r1[kDY], r2[kDY]),
                       CVector3f(r0[kDZ], r1[kDZ], r2[kDZ]), position);
 }
 

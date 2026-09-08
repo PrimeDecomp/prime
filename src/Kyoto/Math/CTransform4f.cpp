@@ -56,15 +56,9 @@ CTransform4f CTransform4f::MakeRotationsBasedOnY(const CUnitVector3f& yRot) {
   CVector3f v(0.f, 0.f, 0.f);
   v[i] = 1.f;
 
-  CVector3f crossVec(yRot.GetY() * v.GetZ() - v.GetY() * yRot.GetZ(),
-                     yRot.GetZ() * v.GetX() - v.GetZ() * yRot.GetX(),
-                     yRot.GetX() * v.GetY() - v.GetX() * yRot.GetY());
-  CUnitVector3f xRot(crossVec);
-
-  CVector3f zRot(yRot.GetY() * xRot.GetZ() - xRot.GetY() * yRot.GetZ(),
-                 yRot.GetZ() * xRot.GetX() - xRot.GetZ() * yRot.GetX(),
-                 yRot.GetX() * xRot.GetY() - xRot.GetX() * yRot.GetY());
-  return CTransform4f(xRot, yRot, zRot, CVector3f::Zero());
+  CUnitVector3f xRot(CVector3f::Cross(yRot, v));
+  const CVector3f& zRot = CVector3f::Cross(xRot, yRot);
+  return CTransform4f::FromColumns(xRot, yRot, zRot, CVector3f::Zero());
 }
 
 CTransform4f CTransform4f::RotateX(const CRelAngle& x) {
@@ -290,38 +284,14 @@ void CTransform4f::ScaleBy(float scale) {
   m22 *= scale;
 }
 
-CTransform4f::CTransform4f(const CVector3f& m0, const CVector3f& m1, const CVector3f& m2,
-                           const CVector3f& pos) {
-  const float _m23 = pos.GetZ();
-  const float _m22 = m2.GetZ();
-  const float _m12 = m1.GetZ();
-  const float _m02 = m0.GetZ();
-
-  const float _m13 = pos.GetY();
-  const float _m21 = m2.GetY();
-  const float _m11 = m1.GetY();
-  const float _m01 = m0.GetY();
-
-  const float _m03 = pos.GetX();
-  const float _m20 = m2.GetX();
-  const float _m10 = m1.GetX();
-  const float _m00 = m0.GetX();
-
-  m00 = _m00;
-  m01 = _m10;
-  m02 = _m20;
-  m03 = _m03;
-  m10 = _m01;
-  m11 = _m11;
-  m12 = _m21;
-  m13 = _m13;
-  m20 = _m02;
-  m21 = _m12;
-  m22 = _m22;
-  m23 = _m23;
+CTransform4f CTransform4f::FromColumns(const CVector3f& m0, const CVector3f& m1,
+                                      const CVector3f& m2, const CVector3f& pos) {
+  return CTransform4f(m0.GetX(), m1.GetX(), m2.GetX(), pos.GetX(),
+                      m0.GetY(), m1.GetY(), m2.GetY(), pos.GetY(),
+                      m0.GetZ(), m1.GetZ(), m2.GetZ(), pos.GetZ());
 }
 
-CTransform4f CTransform4f::FromColumns(const CVector3f& m0, const CVector3f& m1,
+CTransform4f CTransform4f::FromRows(const CVector3f& m0, const CVector3f& m1,
                                        const CVector3f& m2, const CVector3f& pos) {
   return CTransform4f(m0.GetX(), m0.GetY(), m0.GetZ(), pos.GetX(), //
                       m1.GetX(), m1.GetY(), m1.GetZ(), pos.GetY(), //

@@ -1905,7 +1905,7 @@ void CFlyingPirate::Think(const float dt, CStateManager& mgr) {
       CVector3f right = CVector3f::Cross(GetTransform().GetForward(), up);
       const CVector3f forward = CVector3f::Cross(up, right).AsNormalized();
       right = CVector3f::Cross(forward, up);
-      SetTransform(CTransform4f(right, forward, up, GetTranslation()));
+      SetTransform(CTransform4f::FromColumns(right, forward, up, GetTranslation()));
     }
     if (!x450_bodyController->IsFrozen()) {
       x7a0_boneTracking.Update(dt);
