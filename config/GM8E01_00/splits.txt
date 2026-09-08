@@ -499,7 +499,6 @@ MetroidPrime/Tweaks/CTweakTargeting.cpp:
 MetroidPrime/Tweaks/CTweakAutoMapper.cpp:
 	.text       start:0x800B69BC end:0x800B6ECC
 	.data       start:0x803DF438 end:0x803DF448
-	.sbss       start:0x805A8EB0 end:0x805A8EB8
 	.sdata2     start:0x805AAA28 end:0x805AAA30
 
 MetroidPrime/CParticleGenInfoGeneric.cpp:
@@ -548,6 +547,7 @@ MetroidPrime/CDamageInfo.cpp:
 
 MetroidPrime/CMemoryDrawEnum.cpp:
 	.text       start:0x800C364C end:0x800C3700
+	.sbss       start:0x805A8EB0 end:0x805A8EB8
 
 MetroidPrime/ScriptObjects/CScriptDock.cpp:
 	.text       start:0x800C3700 end:0x800C468C

@@ -2,6 +2,8 @@
 
 #include "MetroidPrime/CGameArea.hpp"
 
+#include "MetroidPrime/CMemoryDrawEnum.hpp"
+
 #include "Kyoto/Basics/CBasics.hpp"
 #include "Kyoto/CDvdRequest.hpp"
 #include "Kyoto/CResFactory.hpp"
@@ -19,8 +21,6 @@
 #include "WorldFormat/CAreaBspTree.hpp"
 #include "WorldFormat/CAreaOctTree.hpp"
 #include "WorldFormat/CPVSAreaSet.hpp"
-
-extern "C" int lbl_805A8EB0;
 
 #define ROUND_UP_32(val) (((val) + 31) & ~31)
 
@@ -156,14 +156,14 @@ CGameArea::CGameArea(CInputStream& in, int idx, int mlvlVersion)
         gpResourceFactory->ResourceSize(SObjectTag(xac_deps2[i].second, xac_deps2[i].first));
   }
   xec_totalResourcesSize += gpResourceFactory->ResourceSize(SObjectTag('MREA', x84_mrea));
-  lbl_805A8EB0 += GetPreConstructedSize();
+  CMemoryDrawEnum::AddWorldMemory(GetPreConstructedSize());
 }
 
 CGameArea::~CGameArea() {
   if (xf0_24_postConstructed) {
-    lbl_805A8EB0 -= GetPostConstructedSize();
+    CMemoryDrawEnum::SubtractWorldMemory(GetPostConstructedSize());
   }
-  lbl_805A8EB0 -= GetPreConstructedSize();
+  CMemoryDrawEnum::SubtractWorldMemory(GetPreConstructedSize());
   if (xf0_24_postConstructed) {
     RemoveStaticGeometry();
   } else {
@@ -439,7 +439,7 @@ void CGameArea::PostConstructArea() {
   x12c_postConstructed->x10c0_areaObjectList = rs_new CAreaObjectList(x4_selfIdx);
   x12c_postConstructed->x10c4_areaFog = rs_new CAreaFog;
   xf0_24_postConstructed = true;
-  lbl_805A8EB0 += GetPostConstructedSize();
+  CMemoryDrawEnum::AddWorldMemory(GetPostConstructedSize());
 
   CMemoryInStream stream(x12c_postConstructed->x10c8_sclyBuf.get(), GetScriptingSize());
   if (stream.ReadLong() == 'SCLY') {
@@ -597,7 +597,7 @@ bool CGameArea::Invalidate(CStateManager* mgr) {
   if (mgr != nullptr) {
     mgr->PrepareAreaUnload(GetId());
   }
-  lbl_805A8EB0 -= GetPostConstructedSize();
+  CMemoryDrawEnum::SubtractWorldMemory(GetPostConstructedSize());
   RemoveStaticGeometry();
   x12c_postConstructed = nullptr;
   xf0_24_postConstructed = false;
