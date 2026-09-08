@@ -15,6 +15,10 @@
 class CCollisionActorManager;
 class CElementGen;
 class CGenDescription;
+struct SSphereJointInfo;
+class CJointCollisionDescription;
+class CShockWaveInfo;
+class CRayCastResult;
 
 class CMetroidPrimeStage2 : public CPatterned {
 public:
@@ -66,7 +70,30 @@ public:
   CPathFindSearch* GetSearchPath() override { return &x574_searchPath; }
 
 private:
-  TCachedToken< CGenDescription > x568_particleDesc;
+  bool CanSummonToPosition(const CTransform4f& xf, CStateManager& mgr);
+  void PlayPainSound(CStateManager& mgr);
+  void UpdateNumActiveMetroids(CStateManager& mgr);
+  void UpdateVisibleSpectrum(float dt, CStateManager& mgr);
+  CRayCastResult GetGroundContactPoint(CStateManager& mgr);
+  void SpawnPhazonPool(CStateManager& mgr);
+  void BlastShake(float magnitude, CStateManager& mgr);
+  void CreateShockWave(CStateManager& mgr, const CShockWaveInfo& info);
+  void KillActiveMetroids(CStateManager& mgr);
+  void UpdateHealthInfo(CStateManager& mgr);
+  void SetupHealthInfo(CStateManager& mgr);
+  void SetupCollisionManager(CStateManager& mgr);
+  void UpdateSummonType(CStateManager& mgr);
+  void AddSphereCollisionList(const SSphereJointInfo* joints, int count,
+                              rstl::vector< CJointCollisionDescription >& descs);
+  const CTransform4f& GetCreatureTransform(CStateManager& mgr) const;
+  void StepToPosition(const CVector3f& position);
+  uint GetAvoidanceStep(CStateManager& mgr, bool allowBackward);
+  void StartSpectralFade(CStateManager& mgr);
+  int GetMaxSpawnCount(CStateManager& mgr);
+  void UpdateMaterialSet(float t);
+  void ActivateHeadFx(CStateManager& mgr, bool active);
+
+  TLockedToken< CGenDescription > x568_particleDesc;
   CPathFindSearch x574_searchPath;
   rstl::single_ptr< CCollisionActorManager > x658_collisionManager;
   rstl::single_ptr< CElementGen > x65c_elementGen;
@@ -81,21 +108,21 @@ private:
   float x6cc_baseScale;
   float x6d0_maxScale;
   float x6d4_morphT;
-  uint x6d8_damagePhase;
-  uint x6dc_currentVisorPhase;
-  uint x6e0_previousVisorPhase;
-  uint x6e4_spawnedAiCount;
-  uint x6e8_minAttackInterval;
-  uint x6ec_maxAttackInterval;
-  uint x6f0_attackCounter;
-  uint x6f4_nextAttackThreshold;
-  uint x6f8_maxSpawnedCount;
-  uint x6fc_materialSetIdx;
+  int x6d8_damagePhase;
+  int x6dc_currentVisorPhase;
+  int x6e0_previousVisorPhase;
+  int x6e4_spawnedAiCount;
+  int x6e8_minAttackInterval;
+  int x6ec_maxAttackInterval;
+  int x6f0_attackCounter;
+  int x6f4_nextAttackThreshold;
+  int x6f8_maxSpawnedCount;
+  int x6fc_materialSetIdx;
   uint x700_stepDirection;
   TUniqueId x704_bossUtilityWaypointId;
   TUniqueId x706_lockOnTargetCollider;
   CSfxHandle x708_sfxHandle;
-  short x70c_sfxId;
+  ushort x70c_sfxId;
   bool x70e_24_isProjectileAttacking : 1;
   bool x70e_25_canAttack : 1;
   bool x70e_26_isPhaseTransitioning : 1;

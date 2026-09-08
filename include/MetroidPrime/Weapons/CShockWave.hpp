@@ -13,14 +13,14 @@ class CElementGen;
 class CShockWaveInfo {
 public:
   CShockWaveInfo(const CAssetId part, const CDamageInfo& dInfo, const float initialExpansionSpeed,
-                 CAssetId weapon, ushort sfx)
+                 CAssetId weapon, ushort sfx, float speedIncrease = 0.f)
   : x0_(8)
   , mParticleDesc(part)
   , mDamageInfo(dInfo)
   , mInitialRadius(0.f)
   , mWidthPercent(0.5f)
   , mInitialExpansionSpeed(initialExpansionSpeed)
-  , mSpeedIncrease(0.f)
+  , mSpeedIncrease(speedIncrease)
   , mWeaponDesc(weapon)
   , mElectrocuteSfx(sfx) {}
 
