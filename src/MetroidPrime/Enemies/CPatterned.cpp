@@ -44,8 +44,8 @@
 const float CPatterned::skDamageHitTime = 0.33f;
 const float CPatterned::skActorApproachDistance = 3.f;
 
-static CColor skDefaultDamageColor = CColor(0.5f, 0.f, 0.f, 1.f);
-static CColor skFrozenDamageColor = CColor(0.5f, 0.5f, 0.f, 1.f);
+const CColor CPatterned::skDamageColor = CColor(0.5f, 0.f, 0.f, 1.f);
+const CColor CPatterned::skFrozenDamageColor = CColor(0.5f, 0.5f, 0.f, 1.f);
 
 static CColor skDisintegrateColor(static_cast< u8 >(0xff), 0xff, 0xc0, 0xff);
 
@@ -159,7 +159,7 @@ CPatterned::CPatterned(const EPatternedAI character, const TUniqueId uid, const 
 , x424_damageWaitTime(pinfo.x50_damageWaitTime)
 , x428_damageCooldownTimer(-1.f)
 , x42c_color(0.f, 0.f, 0.f, 1.f)
-, x430_damageColor(skDefaultDamageColor)
+, x430_damageColor(skDamageColor)
 , x434_posDelta(CVector3f::Zero())
 , x440_rotDelta(CQuaternion::NoRotation())
 , x450_bodyController()
