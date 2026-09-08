@@ -16,12 +16,6 @@
 
 class CWarWasp : public CPatterned {
 public:
-  CWarWasp(TUniqueId uid, const rstl::string& name, const CEntityInfo& info, const CTransform4f& xf,
-           const CModelData& mData, const CPatternedInfo& pInfo, CPatterned::EFlavorType flavor,
-           CPatterned::EColliderType collider, const CDamageInfo& dInfo,
-           const CActorParameters& actParms, CAssetId projectileWeapon,
-           CDamageInfo projectileDamage, CAssetId projectileVisorParticle, uint projectileVisorSfx);
-
   // CEntity
   ~CWarWasp() override;
   void Accept(IVisitor& visitor) override;
@@ -32,11 +26,11 @@ public:
   rstl::optional_object< CAABox > GetTouchBounds() const override;
   void DoUserAnimEvent(CStateManager& mgr, const CInt32POINode& node, EUserEventType type,
                        float dt) override;
-  const CCollisionPrimitive* GetCollisionPrimitive() const override; // { return &x570_cSphere; }
+  const CCollisionPrimitive* GetCollisionPrimitive() const override;
 
   // CAi
   void Death(CStateManager& mgr, const CVector3f& direction, EScriptObjectState state) override;
-  bool IsListening() const override; // { return true; }
+  bool IsListening() const override;
   bool Listen(const CVector3f& pos, EListenNoiseType type) override;
   CVector3f GetOrigin(const CStateManager& mgr, const CTeamAiRole& role,
                       const CVector3f& aimPos) const override;
@@ -70,34 +64,40 @@ public:
   bool ShouldSpecialAttack(CStateManager& mgr, float arg) override;
 
   // CPatterned
-  CPathFindSearch* GetSearchPath() override;  // { return &x590_pfSearch; }
-  CProjectileInfo* ProjectileInfo() override; // { return &x6d4_projectileInfo; }
+  CPathFindSearch* GetSearchPath() override;
+  CProjectileInfo* ProjectileInfo() override;
+
+  CWarWasp(TUniqueId uid, const rstl::string& name, const CEntityInfo& info, const CTransform4f& xf,
+           const CModelData& mData, const CPatternedInfo& pInfo, CPatterned::EFlavorType flavor,
+           CPatterned::EColliderType collider, const CDamageInfo& dInfo,
+           const CActorParameters& actParms, CAssetId projectileWeapon,
+           CDamageInfo projectileDamage, CAssetId projectileVisorParticle, uint projectileVisorSfx);
 
 private:
   void SwarmAdd(CStateManager& mgr);
   void SwarmRemove(CStateManager& mgr);
   void ApplyDamage(CStateManager& mgr);
-  void SetUpCircleBurstPoint(CStateManager& mgr);
-  CVector3f GetProjectileAimPos(CStateManager& mgr, float zBias);
+  void SetUpCircleBurstWaypoint(CStateManager& mgr);
+  CVector3f GetProjectileAimPos(const CStateManager& mgr, float zBias) const;
   CVector3f GetCloseInPos(const CStateManager& mgr, const CVector3f& aimPos) const;
-  float GetCloseInZBasis(CStateManager& mgr) const;
+  float GetCloseInZBasis(const CStateManager& mgr) const;
   void SetUpPathFindBehavior(CStateManager& mgr);
-  int GetAttackTeamSize(CStateManager& mgr, int team);
-  float CalcTimeToNextAttack(CStateManager& mgr);
-  float CalcOffTotemAngle(CStateManager& mgr);
+  int GetAttackTeamSize(const CStateManager& mgr, int team) const;
+  float CalcTimeToNextAttack(CStateManager& mgr) const;
+  float CalcOffTotemAngle(CStateManager& mgr) const;
   void JoinCircleAttackTeam(int unit, CStateManager& mgr);
   void SetUpCircleTelegraphTeam(CStateManager& mgr);
-  TUniqueId GetAttackTeamLeader(CStateManager& mgr, int team);
+  TUniqueId GetAttackTeamLeader(const CStateManager& mgr, int team) const;
   void TryCircleTeamMerge(CStateManager& mgr);
-  float GetTeamZStratum(int team);
-  float CalcSeekMagnitude(CStateManager& mgr);
+  float GetTeamZStratum(int team) const;
+  float CalcSeekMagnitude(const CStateManager& mgr) const;
   void UpdateTelegraphMoveSpeed(CStateManager& mgr);
-  bool CheckCircleAttackSpread(CStateManager& mgr, int team);
+  bool CheckCircleAttackSpread(const CStateManager& mgr, int team) const;
   void ApplyNormalSteering(CStateManager& mgr);
   void ApplySeparationBehavior(CStateManager& mgr, float sep);
-  bool PathToHiveIsClear(CStateManager& mgr);
+  bool PathToHiveIsClear(CStateManager& mgr) const;
   bool SteerToDeactivatePos(CStateManager& mgr, EStateMsg msg, float dt);
-  CVector3f CalcShuffleDest(CStateManager& mgr);
+  CVector3f CalcShuffleDest(const CStateManager& mgr) const;
   void UpdateTouchBounds();
 
   int x568_stateProg;

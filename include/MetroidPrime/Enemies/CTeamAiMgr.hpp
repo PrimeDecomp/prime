@@ -144,9 +144,14 @@ public:
   static TUniqueId GetTeamAiMgr(const CAi& ai, const CStateManager& mgr);
 
   uint GetProjectileRoleCount() const { return x34_data.x8_projectileCount; }
+  uint GetMaxMeleeAttackerCount() const { return x34_data.x10_maxMeleeAttackerCount; }
+  uint GetMaxProjectileAttackerCount() const { return x34_data.x14_maxProjectileAttackerCount; }
+  bool HasMeleeAttackers() const { return x68_meleeAttackers.size() != 0u; }
+  bool HasProjectileAttackers() const { return x78_projectileAttackers.size() != 0u; }
   const rstl::vector< TUniqueId >& GetProjectileAttackers() const { return x78_projectileAttackers; }
 
   rstl::vector< CTeamAiRole >& GetTeamAiRoles() { return x58_roles; }
+  const rstl::vector< CTeamAiRole >& GetTeamAiRoles() const { return x58_roles; }
 
   size_t GetNumRoles() const { return x58_roles.size(); }
 
