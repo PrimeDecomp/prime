@@ -151,7 +151,7 @@ void CAnimData::SetXRayModel(const TLockedToken< CModel >& model,
 }
 
 CAnimData::CAnimData(
-    uint selfId, const CCharacterInfo& charInfo, int defaultAnim, int charIdx, bool loop,
+    uint selfId, const CCharacterInfo& charInfo, int defaultAnim, int charIdx, const bool loop,
     const TLockedToken< CCharLayoutInfo >& layoutData, const TToken< CSkinnedModel >& modelData,
     const rstl::optional_object< TLockedToken< CSkinnedModelWithAvgNormals > >& iceModelData,
     const rstl::ncrc_ptr< CAnimSysContext >& animCtx,
