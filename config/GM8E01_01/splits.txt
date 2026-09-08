@@ -1276,6 +1276,7 @@ MetroidPrime/CGameCollision.cpp:
 	.rodata     start:0x803D0870 end:0x803D08B0
 	.data       start:0x803E4160 end:0x803E41D8
 	.sdata      start:0x805A7C20 end:0x805A7C48
+	.sbss       start:0x805A9200 end:0x805A9208
 	.sdata2     start:0x805AC1A8 end:0x805AC1F8
 
 MetroidPrime/CBallFilter.cpp:
@@ -1291,7 +1292,7 @@ MetroidPrime/CAABoxFilter.cpp:
 MetroidPrime/CGroundMovement.cpp:
 	.text       start:0x80185A8C end:0x80189E10
 	.sdata      start:0x805A7C48 end:0x805A7C80
-	.sbss       start:0x805A9200 end:0x805A9220
+	.sbss       start:0x805A9208 end:0x805A9220
 	.sdata2     start:0x805AC210 end:0x805AC288
 
 MetroidPrime/Enemies/CNewIntroBoss.cpp:
