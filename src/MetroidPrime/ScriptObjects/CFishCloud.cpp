@@ -350,22 +350,6 @@ bool CFishCloud::AddAttractor(TUniqueId source, bool swirl, float radius, float 
   return false;
 }
 
-// Keep the modifier vector helpers beside their callers in deferred emission order.
-template void rstl::vector< CFishCloud::CModifierSource >::insert_into<
-    rstl::const_counting_iterator< CFishCloud::CModifierSource > >(
-    rstl::vector< CFishCloud::CModifierSource >::iterator, int,
-    rstl::const_counting_iterator< CFishCloud::CModifierSource >);
-
-template <>
-rstl::vector< CFishCloud::CModifierSource >::iterator
-rstl::vector< CFishCloud::CModifierSource >::insert(iterator it,
-                                                    const CFishCloud::CModifierSource& value) {
-  iterator::difference_type diff = it.operator->() - xc_items;
-  rstl::const_counting_iterator< CFishCloud::CModifierSource > in(&value, 0);
-  insert_into(it, 1, in);
-  return iterator(xc_items) + diff;
-}
-
 bool CFishCloud::AddRepulsor(TUniqueId source, bool swirl, float radius, float priority) {
   const CModifierSource modifier(source, true, swirl, radius, priority);
   AUTO(it, rstl::binary_find(x108_modifierSources.begin(), x108_modifierSources.end(), modifier));
@@ -389,26 +373,6 @@ void CFishCloud::RemoveAttractor(TUniqueId source) {
   if (it != x108_modifierSources.end()) {
     x108_modifierSources.erase(it);
   }
-}
-
-template <>
-rstl::vector< CFishCloud::CModifierSource >::iterator
-rstl::vector< CFishCloud::CModifierSource >::erase(iterator first, iterator last) {
-  destroy(first, last);
-  const int tmp = first - begin();
-  int newCount = tmp;
-  for (iterator it = last, moved = iterator(xc_items + tmp); it != end();
-       ++moved, ++newCount, ++it) {
-    construct(&*moved, *it);
-  }
-  x4_count = newCount;
-  return first;
-}
-
-template <>
-rstl::vector< CFishCloud::CModifierSource >::iterator
-rstl::vector< CFishCloud::CModifierSource >::erase(iterator it) {
-  return erase(it, it + 1);
 }
 
 void CFishCloud::RemoveRepulsor(TUniqueId source) {

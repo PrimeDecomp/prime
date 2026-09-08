@@ -968,7 +968,7 @@ config.libs = [
             ),
             Object(NonMatching, "MetroidPrime/HUD/CHudBallInterface.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Tweaks/CTweakGuiColors.cpp"),
-            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/ScriptObjects/CFishCloud.cpp"),
+            Object(NonMatching, "MetroidPrime/ScriptObjects/CFishCloud.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CHealthInfo.cpp"
             ),

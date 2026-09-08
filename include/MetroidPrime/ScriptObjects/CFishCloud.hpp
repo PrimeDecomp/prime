@@ -75,11 +75,6 @@ private:
     bool operator<(const CModifierSource& other) const;
   };
 
-  // Preserve the deferred vector helper order.
-  typedef rstl::vector< CModifierSource >::iterator modifier_iterator;
-  typedef rstl::vector< CBoid* >::iterator partition_iterator;
-  typedef rstl::vector< CBoid >::iterator boid_iterator;
-
   void InitAnimBoids(CStateManager& mgr, CModelData::EWhichModel which);
   CAABox GetBoundingBox() const;
   CAABox GetUntransformedBoundingBox() const;
