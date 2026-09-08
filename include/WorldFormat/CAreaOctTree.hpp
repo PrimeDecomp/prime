@@ -29,7 +29,7 @@ public:
   public:
     explicit TriListReference(const void* ptr) : m_ptr(reinterpret_cast< const ushort* >(ptr)) {}
     explicit TriListReference(const ushort* ptr) : m_ptr(ptr) {}
-    ushort GetAt(int idx) const { return m_ptr[idx + kTriangleDataOffset]; }
+    const ushort GetAt(int idx) const { return m_ptr[idx + kTriangleDataOffset]; }
     const ushort GetSize() const { return m_ptr[kTriangleCountOffset]; }
 
   private:

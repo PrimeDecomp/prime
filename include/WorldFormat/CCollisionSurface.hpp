@@ -14,7 +14,7 @@ public:
   CPlane GetPlane() const;
   uint GetSurfaceFlags() const { return x24_flags; }
   const CVector3f& GetVert(int i) const { return (&x0_a)[i]; }
-  // GetPoint__17CCollisionSurfaceCFi ??
+  const CVector3f& GetPoint(int i) const { return (&x0_a)[i]; }
 
 private:
   CVector3f x0_a;
