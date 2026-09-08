@@ -13,7 +13,7 @@ class CFaceplateDecoration {
   rstl::optional_object< TToken< CTexture > > x4_tex;
 
 public:
-  explicit CFaceplateDecoration(CStateManager& stateMgr);
+  explicit CFaceplateDecoration(const CStateManager& stateMgr);
   void Update(float dt, const CStateManager& stateMgr);
   void Draw(const CStateManager& stateMgr) const;
 };

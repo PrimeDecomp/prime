@@ -21,7 +21,7 @@ CPauseScreenBlur::CPauseScreenBlur()
 
 CPauseScreenBlur::~CPauseScreenBlur() {}
 
-void CPauseScreenBlur::OnNewInGameGuiState(EInGameGuiState state, CStateManager& stateMgr) {
+void CPauseScreenBlur::OnNewInGameGuiState(EInGameGuiState state, const CStateManager& stateMgr) {
   bool valid = false;
   if (state >= 0 && state <= 1) {
     valid = true;
@@ -32,17 +32,17 @@ void CPauseScreenBlur::OnNewInGameGuiState(EInGameGuiState state, CStateManager&
   }
 
   switch (state) {
-  case kIGS_MapScreen:
+  case kIGGS_MapScreen:
     SetState(kS_MapScreen);
     break;
-  case kIGS_PauseSaveGame:
+  case kIGGS_PauseSaveGame:
     SetState(kS_SaveGame);
     break;
-  case kIGS_PauseHUDMessage:
+  case kIGGS_PauseHUDMessage:
     SetState(kS_HUDMessage);
     break;
-  case kIGS_PauseGame:
-  case kIGS_PauseLogBook:
+  case kIGGS_PauseGame:
+  case kIGGS_PauseLogBook:
     SetState(kS_Pause);
     break;
   }

@@ -8,7 +8,7 @@
 #include "Kyoto/Math/CMatrix3f.hpp"
 #include "Kyoto/Math/CVector2f.hpp"
 #include "Kyoto/SObjectTag.hpp"
-#include "MetroidPrime/CInGameGuiManager.hpp"
+#include "MetroidPrime/CInGameGuiManagerCommon.hpp"
 #include "MetroidPrime/CTargetReticles.hpp"
 #include "MetroidPrime/Cameras/CCameraFilterPass.hpp"
 #include "MetroidPrime/HUD/CHUDMemoParms.hpp"
@@ -61,7 +61,7 @@ public:
   void ProcessControllerInput(const CFinalInput& input);
   void UpdateStateTransition(float dt, const CStateManager& mgr);
   bool CheckLoadComplete(const CStateManager& mgr);
-  void OnNewInGameGuiState(EInGameGuiState state, CStateManager& mgr);
+  void OnNewInGameGuiState(EInGameGuiState state, const CStateManager& mgr);
   void RefreshHudOptions();
   void Touch() const;
   const CTargetingManager& GetTargetingManager() const;

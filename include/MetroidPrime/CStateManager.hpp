@@ -21,6 +21,7 @@ extern const int gkPVSEnabled;
 #include "MetroidPrime/Enemies/EListenNoiseType.hpp"
 #include "MetroidPrime/ScriptLoader.hpp"
 #include "MetroidPrime/TGameTypes.hpp"
+#include "MetroidPrime/SOnScreenTex.hpp"
 #include "MetroidPrime/Weapons/WeaponTypes.hpp"
 
 #include "rstl/auto_ptr.hpp"
@@ -98,14 +99,6 @@ struct SScriptObjectStream {
   : x0_type(type), x4_position(position), x8_length(length) {}
 };
 
-struct SOnScreenTex {
-  CAssetId x0_id;
-  CVector2i x4_origin;
-  CVector2i xc_extent;
-
-  SOnScreenTex() : x0_id(kInvalidAssetId), x4_origin(0, 0), xc_extent(0, 0) {}
-};
-
 class CStateManager : public TOneStatic< CStateManager > {
 public:
   typedef rstl::map< TEditorId, TUniqueId > TIdList;
@@ -154,6 +147,8 @@ public:
   void AddObject(CEntity*);
   void AddObject(CEntity&);
   bool HasWorld() const;
+  void SetViewportScaleX(float scale) const { xf2c_viewportScaleX = scale; }
+  void SetViewportScaleY(float scale) const { xf30_viewportScaleY = scale; }
   TUniqueId AllocateUniqueId();
   const rstl::string& HashInstanceName(CInputStream& in);
   bool SwapOutAllPossibleMemory();
@@ -350,7 +345,7 @@ public:
   void SetEnergyBarActorInfo(TUniqueId bossId, float maxEnergy, uint stringIdx) {
     SetBossParams(bossId, maxEnergy, stringIdx);
   }
-  void SetPendingOnScreenTex(CAssetId texId, const CVector2i& origin, const CVector2i& extent);
+  void SetPendingOnScreenTex(CAssetId texId, const CVector2i& extent, const CVector2i& offset);
   const SOnScreenTex& GetPendingScreenTex() const { return xef4_pendingScreenTex; }
   float IntegrateVisorFog(float f) const;
 
@@ -445,8 +440,8 @@ private:
   uint xf20_bossStringIdx;
   float xf24_thermColdScale1;
   float xf28_thermColdScale2;
-  float xf2c_viewportScaleX;
-  float xf30_viewportScaleY;
+  mutable float xf2c_viewportScaleX;
+  mutable float xf30_viewportScaleY;
   EThermalDrawFlag xf34_thermalFlag;
   TUniqueId xf38_skipCineSpecialFunc;
   rstl::list< TUniqueId > xf3c_activeFlickerBats;

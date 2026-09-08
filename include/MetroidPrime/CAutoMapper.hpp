@@ -17,7 +17,7 @@
 #include "rstl/single_ptr.hpp"
 #include "rstl/vector.hpp"
 
-#include "MetroidPrime/CInGameGuiManager.hpp"
+#include "MetroidPrime/CInGameGuiManagerCommon.hpp"
 #include "MetroidPrime/TGameTypes.hpp"
 
 class CGuiFrame;
@@ -129,7 +129,7 @@ public:
   virtual ~CAutoMapper();
 
   // Public methods
-  explicit CAutoMapper(CStateManager& stateMgr);
+  explicit CAutoMapper(const CStateManager& stateMgr);
   bool CheckLoadComplete();
   bool CanLeaveMapScreen(const CStateManager& mgr) const;
   float GetMapRotationX() const { return xa8_renderState0.x1c_camAngle; }
@@ -170,6 +170,7 @@ public:
                              const CMapWorldInfo& mwInfo) const;
   SClosestWorldResult FindClosestVisibleWorld(const CVector3f& point, const CUnitVector3f& camDir,
                                                const CStateManager& mgr) const;
+  EAutoMapperState GetCurrentState() const { return x1bc_state; }
   EAutoMapperState GetNextState() const { return x1c0_nextState; }
   bool IsInMapperState(EAutoMapperState state) const;
   bool IsInMapperStateTransition() const;
@@ -178,7 +179,7 @@ public:
   bool IsFullyOutOfMiniMapState() const {
     return x1bc_state != kAMS_MiniMap && x1c0_nextState != kAMS_MiniMap;
   }
-  void OnNewInGameGuiState(EInGameGuiState state, CStateManager& mgr);
+  void OnNewInGameGuiState(EInGameGuiState state, const CStateManager& mgr);
   float GetInterp() const {
     if (x1c4_interpDur > 0.f)
       return x1c8_interpTime / x1c4_interpDur;
