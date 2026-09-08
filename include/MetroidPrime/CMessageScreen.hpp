@@ -36,7 +36,7 @@ private:
   CVector3f x50_bottomPos;
   CVector3f x5c_videoBandPos;
   float x68_videoBandOffset;
-  uint x6c_page;
+  int x6c_page;
   float x70_blurAmt;
   float x74_delayTime;
   bool x78_24_exit : 1;
