@@ -112,11 +112,11 @@ CSfxHandle CMidiManager::LocateHandle() {
 }
 
 CMidiManager::CMidiData::CMidiData(CInputStream& in)
-: x0_songId(-1), x2_groupId(-1), x4_setupId(-1) {
+: x0_songId(-1), x2_groupId(-1), x4_agscId(-1) {
   in.ReadLong();
   x0_songId = in.ReadLong();
   x2_groupId = in.ReadLong();
-  x4_setupId = in.ReadLong();
+  x4_agscId = in.ReadLong();
   int len = in.ReadInt32();
   x8_data = rs_new uchar[len];
   in.Get(x8_data.get(), len);

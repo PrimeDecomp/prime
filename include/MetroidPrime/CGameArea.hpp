@@ -244,7 +244,7 @@ public:
     ~CPostConstructed();
   };
 
-  CGameArea(CInputStream& in, int idx, int mlvlVersion);
+  CGameArea(CInputStream& in, int idx, const int mlvlVersion);
   ~CGameArea();
   static float skEntityThinkDisableDelayOnOcclusion;
   const CTransform4f& IGetTM() const override;
@@ -312,6 +312,7 @@ public:
 
   CAssetId GetAreaAssetId() const { return x84_mrea; }
   const TAreaId& GetAreaId() const { return x4_selfIdx; }
+  int GetAreaSaveId() const { return x88_areaId; }
   const Dock& GetDock(int idx) const { return xcc_docks[idx]; }
   Dock& DockNC(int idx) { return xcc_docks[idx]; }
   int GetDockCount() const { return xcc_docks.size(); }
@@ -398,7 +399,7 @@ class CDummyGameArea final : public IGameArea {
   friend class CDummyWorld;
 
 public:
-  CDummyGameArea(CInputStream& in, int idx, int mlvlVersion);
+  CDummyGameArea(CInputStream& in, int idx, const int mlvlVersion);
   rstl::pair< rstl::auto_ptr< char >, int > IGetScriptingMemoryAlways() const override;
   int IGetAreaSaveId() const override;
   CAssetId IGetAreaAssetId() const override;
