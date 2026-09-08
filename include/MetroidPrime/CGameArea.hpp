@@ -238,7 +238,7 @@ public:
     float x1130_xrayTarget;
     float x1134_weaponWorldLightingSpeed;
     float x1138_weaponWorldLightingTarget;
-    uint x113c_playerActorsLoading;
+    int x113c_playerActorsLoading;
 
     CPostConstructed();
     ~CPostConstructed();
@@ -307,6 +307,7 @@ public:
   EEnvFxType DoesAreaNeedEnvFx() const;
 
   CAssetId GetAreaAssetId() const { return x84_mrea; }
+  const TAreaId& GetAreaId() const { return x4_selfIdx; }
   const Dock& GetDock(int idx) const { return xcc_docks[idx]; }
   Dock& DockNC(int idx) { return xcc_docks[idx]; }
   int GetDockCount() const { return xcc_docks.size(); }

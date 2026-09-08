@@ -584,7 +584,7 @@ config.libs = [
                 "MetroidPrime/ScriptObjects/CScriptWaypoint.cpp",
             ),
             Object(NonMatching, "MetroidPrime/Enemies/CPatterned.cpp"),
-            Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptDoor.cpp"),
+            Object(MatchingFor("GM8E01_00"), "MetroidPrime/ScriptObjects/CScriptDoor.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CStateMachine.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CMapArea.cpp"),
             Object(NonMatching, "MetroidPrime/Cameras/CBallCamera.cpp"),
