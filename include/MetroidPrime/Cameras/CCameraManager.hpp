@@ -65,6 +65,7 @@ public:
 
   void SetPlayerCamera(CStateManager& mgr, TUniqueId newCamId);
   bool IsInCinematicCamera() const;
+  float GetCameraBobMagnitude() const;
   void AddCinemaCamera(TUniqueId uid, CStateManager& mgr);
   void RemoveCinemaCamera(TUniqueId uid, CStateManager& mgr);
   void EnterCinematic(CStateManager& mgr);
@@ -89,6 +90,8 @@ public:
   void ReallyRemoveCameraHint(TUniqueId uid, CStateManager& mgr);
   // SetSpecialCameras__14CCameraManagerFR18CFirstPersonCameraR11CBallCamera
   void ResetCameraHint(CStateManager& mgr);
+  void SetupBallCamera(CStateManager& mgr);
+  bool HasBallCameraInitialPositionHint(CStateManager& mgr) const;
 
   void SetCurrentFov(float fov) { x3bc_curFov = fov; }
 

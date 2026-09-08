@@ -15,6 +15,8 @@ public:
   int GetOverrideFlags() const { return x104_overrideFlags; }
   TUniqueId GetActorId() const { return x108_mpId; }
   void ClearObjectList();
+  uint GetObjectCount() const { return xe8_objectList.size(); }
+  bool GetDeactivated() const { return xfc_deactivated; }
   void SetDeactivated() { xfc_deactivated = true; }
 
 private:

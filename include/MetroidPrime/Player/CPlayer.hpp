@@ -18,6 +18,7 @@
 class CPlayerGun;
 class CMorphBall;
 class CPlayerCameraBob;
+class CCollidableSphere;
 
 namespace NPlayer {
 enum EPlayerMovementState {
@@ -221,6 +222,8 @@ public:
   float GetBallMaxVelocity() const;
   CVector3f GetEyePosition() const;
   float GetEyeHeight() const;
+  float GetUnbiasedEyeHeight() const;
+  const CCollidableSphere* GetCollidableSphere() const;
   CTransform4f CreateTransformFromMovementDirection() const;
   float GetOrbitMaxTargetDistance(const CStateManager& mgr) const;
   EPlayerOrbitState GetOrbitState() const { return x304_orbitState; }
@@ -261,6 +264,10 @@ public:
                : CMath::Clamp(0.f, x574_morphTime / x578_morphDuration, 1.f);
   }
   void InitialiseAnimation();
+  void SetIntoBallReadyAnimation(CStateManager& mgr);
+  int ChoseTransitionToAnimation(float dt, CStateManager& mgr) const;
+  int GetNextBallTransitionAnim(float dt, bool& loop, CStateManager& mgr);
+  void ActivateMorphBallCamera(CStateManager& mgr);
   void LoadAnimationTokens();
   void HolsterGun(CStateManager& mgr);
   void ResetAimTargetPrediction(TUniqueId target);
@@ -315,9 +322,9 @@ public:
   void StartLandingControlFreeze(); // name?
   void EndLandingControlFreeze();   // name?
   void AdjustEyeOffset(CStateManager& mgr);
-  void SetEyeOffset(float bias);
+  void SetEyeZBias(float bias);
   float GetEyeOffset() const { return x9c8_eyeZBias; }
-  void UpdateStepUpSmoothing(float dt);
+  void UpdateStepCameraZBias(float dt);
   void UpdateEnvironmentDamageCameraShake(float dt, CStateManager& mgr);
   void UpdatePhazonDamage(float dt, CStateManager& mgr);
   void UpdateFreeLook(float dt);
@@ -325,6 +332,7 @@ public:
   void UpdateBombJumpStuff();
   void BombJump(const CVector3f& pos, CStateManager& mgr);
   void UpdateTransitionFilter(float dt, CStateManager& mgr);
+  void CalculatePlayerControlDirection(CStateManager& mgr);
   void CalculatePlayerMovementDirection(float dt);
   void UpdatePlayerControlDirection(float dt, CStateManager& mgr);
   void UpdateFrozenState(const CFinalInput& input, CStateManager& mgr);
@@ -383,6 +391,7 @@ public:
 
   float GetStaticTimer() const { return x740_staticTimer; }
 
+  bool GetPlayerIsSlidingOnWall() const { return x9c5_28_slidingOnWall; }
   ESurfaceRestraints GetCurrentSurfaceRestraint() const { return x2ac_surfaceRestraint; }
   ESurfaceRestraints GetSurfaceRestraint() const {
     return x2b0_outOfWaterTicks == 2 ? GetCurrentSurfaceRestraint() : kSR_Water;
@@ -430,7 +439,12 @@ public:
 
   CVector3f GetDampedClampedVelocityWR() const;
   float GetAverageSpeed() const;
+  float GetAcceleration() const;
   float GetGravity() const;
+  void FinishSidewaysDash();
+  bool SidewaysDashAllowed(float strafeInput, float forwardInput, const CFinalInput& input,
+                          CStateManager& mgr) const;
+  void ComputeDash(const CFinalInput& input, float dt, CStateManager& mgr);
 
   float GetAttachedActorStruggle() const;
   CPlayerEnergyDrain& GetPlayerEnergyDrain() { return x274_energyDrain; }
@@ -440,11 +454,11 @@ public:
   void SetAttachedActorStruggle(float struggle) { xa28_attachedActorStruggle = struggle; }
 
   // PlayerHint
-  // bool SetAreaPlayerHint(const CScriptPlayerHint& hint, CStateManager& mgr);
+  const bool SetAreaPlayerHint(const CScriptPlayerHint& hint, CStateManager& mgr);
+  void ResetPlayerHintState(CStateManager& mgr);
   void AddToPlayerHintRemoveList(TUniqueId id, CStateManager& mgr);
   void AddToPlayerHintAddList(TUniqueId id, CStateManager& mgr);
-  // void DeactivatePlayerHint(TUniqueId id, CStateManager& mgr);
-  // void UpdatePlayerHints(CStateManager& mgr);
+  void DeactivatePlayerHint(TUniqueId id, CStateManager& mgr);
 
   static int SfxIdFromMaterial(const CMaterialList& mat, const ushort* idList, int tableLen,
                                ushort defId);
@@ -471,7 +485,7 @@ private:
   ESurfaceRestraints x2ac_surfaceRestraint;
   int x2b0_outOfWaterTicks;
   rstl::reserved_vector< float, 6 > x2b4_accelerationTable;
-  uint x2d0_curAcceleration;
+  int x2d0_curAcceleration;
   float x2d4_accelerationChangeTimer;
   CAABox x2d8_fpBounds;
   float x2f0_ballTransHeight;
@@ -557,7 +571,7 @@ private:
   float x578_morphDuration;
   uint x57c_;
   uint x580_;
-  int x584_ballTransitionAnim;
+  uint x584_ballTransitionAnim;
   float x588_alpha;
   float x58c_transitionVel;
   bool x590_leaveMorphballAllowed;
@@ -598,8 +612,8 @@ private:
   bool x82c_inLava;
   TUniqueId x82e_ridingPlatform;
   TUniqueId x830_playerHint;
-  uint x834_playerHintPriority;
-  rstl::reserved_vector< rstl::pair< uint, TUniqueId >, 32 > x838_playerHints;
+  int x834_playerHintPriority;
+  rstl::reserved_vector< rstl::pair< int, TUniqueId >, 32 > x838_playerHints;
   rstl::reserved_vector< TUniqueId, 32 > x93c_playerHintsToRemove;
   rstl::reserved_vector< TUniqueId, 32 > x980_playerHintsToAdd;
   bool x9c4_24_visorChangeRequested : 1;
@@ -630,7 +644,7 @@ private:
   bool x9c7_25_outOfBallLookAtHintActor : 1;
   float x9c8_eyeZBias;
   float x9cc_stepCameraZBias;
-  uint x9d0_bombJumpCount;
+  int x9d0_bombJumpCount;
   int x9d4_bombJumpCheckDelayFrames;
   CVector3f x9d8_controlDirOverrideDir;
   rstl::reserved_vector< TUniqueId, 5 > x9e4_orbitDisableList;
