@@ -54,6 +54,9 @@ public:
 
   typedef rstl::pair< CAssetId, uint > ScanState;
   const rstl::vector< ScanState >& GetScanStates() const { return x20_scanStates; }
+  uint GetScanCategoryCount(CWorldSaveGameInfo::EScanCategory category) const {
+    return x30_scanCategoryCounts[category];
+  }
 
 private:
   TCachedToken< CGameHintInfo > x0_hints;
