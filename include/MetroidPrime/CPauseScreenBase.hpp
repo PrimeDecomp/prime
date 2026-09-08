@@ -39,10 +39,11 @@ public:
   virtual bool ShouldLeftTableAdvance();
   virtual bool ShouldRightTableAdvance();
   virtual uint GetRightTableCount() const = 0;
-  virtual bool IsRightLogDynamic() const;
-  virtual void UpdateRightLogColors(bool active, const CColor& color);
+  virtual bool IsRightLogDynamic() const { return false; }
+  virtual void UpdateRightLogColors(bool active, const CColor& activeColor,
+                                    const CColor& inactiveColor) {}
   virtual void UpdateRightLogHighlight(bool active, int idx, const CColor& activeColor,
-                                       const CColor& inactiveColor);
+                                       const CColor& inactiveColor) {}
 
   CPauseScreenBase(const CStateManager& mgr, CGuiFrame& frame, const CStringTable& pauseStrg);
   bool ShouldExitPauseScreen() const;
