@@ -17,8 +17,8 @@ class CCollisionActorManager;
 class CFlaahgraTentacle : public CPatterned {
 public:
   CFlaahgraTentacle(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
-                    const CTransform4f& xf, const CModelData& mData,
-                    const CPatternedInfo& pInfo, const CActorParameters& actParms);
+                    const CTransform4f& xf, const CModelData& mData, const CPatternedInfo& pInfo,
+                    const CActorParameters& actParms);
 
   // CEntity
   ~CFlaahgraTentacle() override;
@@ -42,6 +42,11 @@ public:
   void InActive(CStateManager& mgr, EStateMsg msg, float arg) override;
 
 private:
+  struct SSphereJointInfo {
+    const char* name;
+    float radius;
+  };
+
   void AddSphereCollisionList(const SSphereJointInfo* sphereJoints, int jointCount,
                               rstl::vector< CJointCollisionDescription >& outJoints);
   void SetupCollisionManager(CStateManager& mgr);
@@ -60,7 +65,7 @@ private:
   bool x58e_24_ : 1;
 
   static const SSphereJointInfo skJointList[];
-  static const char* skpTentacleTip;
+  static const char* const skpTentacleTip;
 };
 CHECK_SIZEOF(CFlaahgraTentacle, 0x590)
 

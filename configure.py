@@ -1016,7 +1016,7 @@ config.libs = [
                 "MetroidPrime/ScriptObjects/CScriptAiJumpPoint.cpp",
             ),
             Object(NonMatching, "MetroidPrime/CMessageScreen.cpp"),
-            Object(NonMatching, "MetroidPrime/Enemies/CFlaahgraTentacle.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Enemies/CFlaahgraTentacle.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/Weapons/GunController/CGSFidget.cpp",
