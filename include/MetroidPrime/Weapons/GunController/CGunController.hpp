@@ -51,6 +51,7 @@ public:
   void UnLoadFidget() { x30_fidget.UnLoadAnim(); }
   bool IsFidgetLoaded() const { return x30_fidget.IsAnimLoaded(); }
 
+  int GetCurAnimId() const { return x54_curAnimId; }
   int GetFreeLookSetId() const { return x4_freeLook.GetSetId(); }
 };
 CHECK_SIZEOF(CGunController, 0x5C)

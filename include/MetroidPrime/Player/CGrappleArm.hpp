@@ -6,6 +6,7 @@
 #include "Kyoto/Animation/CAnimCharacterSet.hpp"
 #include "Kyoto/Audio/CSfxHandle.hpp"
 #include "Kyoto/Math/CTransform4f.hpp"
+#include "MetroidPrime/ActorCommon.hpp"
 #include "MetroidPrime/CEntityInfo.hpp"
 #include "MetroidPrime/CModelData.hpp"
 #include "MetroidPrime/Player/CPlayerState.hpp"
@@ -26,6 +27,7 @@ class CParticleSwoosh;
 class CRainSplashGenerator;
 class CModelFlags;
 class CActorLights;
+class CInt32POINode;
 
 class CGrappleArm {
 public:
@@ -55,13 +57,17 @@ public:
   void EnterIdle(CStateManager& mgr);
   void EnterStruck(CStateManager&, float, bool, bool);
   void DisconnectGrappleBeam();
+  void ResetAuxParams(bool resetGunController);
+  static void PointGenerator(void* context, const CVector3f* vertices, const CVector3f* normals,
+                             int count);
   void GrappleBeamConnected();
   void GrappleBeamDisconnected();
   void Activate(bool active);
   void RenderGrappleBeam(const CStateManager&, const CVector3f&) const;
   void AsyncLoadSuit(CStateManager& mgr);
   void TouchModel(const CStateManager&) const;
-  void Render(const CStateManager&, const CVector3f&, const CModelFlags&, const CActorLights*) const;
+  void Render(const CStateManager&, const CVector3f&, const CModelFlags&,
+              const CActorLights*) const;
   void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&);
 
   void SetTransform(const CTransform4f& xf) { x220_xf = xf; }
@@ -72,6 +78,7 @@ public:
 
   EArmState GetAnimState() const { return x334_animState; }
   void SetAnimState(EArmState state);
+  bool CanRender() const { return x3b2_24_active && !x3b2_29_suitLoading; }
   const bool GetActive() const { return x3b2_24_active; }
   void SetActive(const bool active) { x3b2_24_active = active; }
   const bool BeamActive() const { return x3b2_25_beamActive; }
@@ -84,7 +91,19 @@ public:
   void SetIsSuitLoading(const bool active) { x3b2_29_suitLoading = active; }
 
   void BuildSuitDependencyList();
+  void FillTokenVector(const rstl::vector< SObjectTag >& tags, rstl::vector< CToken >& objects);
+  void LoadSuitPoll();
+  void BuildXRayModel();
+  void RenderXRayModel(const CStateManager& mgr, const CTransform4f& xf,
+                       const CModelFlags& flags) const;
   void LoadAnimations();
+  void UpdateArmMovement(float dt, CStateManager& mgr);
+  void UpdateSwingAction(float swingT, float dt, CStateManager& mgr);
+  const bool UpdateGrappleBeam(float dt, const CTransform4f& beamLoc, CStateManager& mgr);
+  void UpdateGrappleBeamFX(const CVector3f& beamGunPos, const CVector3f& beamAirPos,
+                           CStateManager& mgr);
+  void DoUserAnimEvents(CStateManager& mgr);
+  void DoUserAnimEvent(CStateManager& mgr, const CInt32POINode& node, EUserEventType type);
 
 private:
   static float kPhaseDelta;
@@ -114,7 +133,7 @@ private:
   float x33c_beamDist;
   float x340_anglePhase;
   float x344_xAmplitude;
-  float x348_yAmplitude;
+  float x348_zAmplitude;
   rstl::pair< ushort, CSfxHandle > x34c_animSfx;
   TLockedToken< CGenDescription > x354_grappleSegmentDesc;
   TLockedToken< CGenDescription > x360_grappleClawDesc;
@@ -128,7 +147,7 @@ private:
   rstl::single_ptr< CParticleSwoosh > x3a0_grappleSwooshGen;
   rstl::single_ptr< CRainSplashGenerator > x3a4_rainSplashGenerator;
   CPlayerState::EPlayerSuit x3a8_loadedSuit;
-  uint x3ac_pitchBend;
+  int x3ac_pitchBend;
   short x3b0_rumbleHandle;
   bool x3b2_24_active : 1;
   bool x3b2_25_beamActive : 1;
