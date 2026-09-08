@@ -7,7 +7,7 @@ namespace rstl {
 template < typename T >
 class auto_ptr {
   mutable bool x0_has;
-  mutable T* x4_item;
+  T* x4_item;
 
 public:
   auto_ptr() : x0_has(false), x4_item(nullptr) {}

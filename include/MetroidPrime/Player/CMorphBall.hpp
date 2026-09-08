@@ -202,6 +202,7 @@ private:
     : x0_effectIdx(effectIdx), x4_lifetime(lifetime), x8_curFrame(0) {}
   };
 
+  void AddLiftSpeed(float liftSpeed);
   void InitializeWakeEffects();
   void LoadAnimationTokens(const rstl::string& name);
   void SelectMorphBallSounds(const CMaterialList&);
@@ -211,6 +212,7 @@ private:
   static CColor GetBallInnerGlowColor(uint);
   static CColor GetBallHullGlowColor(uint);
   static CColor GetBallBoostedHullGlowColor(uint);
+  static CColor GetBallLightModulationColor(uint);
 
   static const SColorRgb skBallTailSwooshColors[9];
   static const SColorRgb skBallBoostedTailSwooshColors[9];
