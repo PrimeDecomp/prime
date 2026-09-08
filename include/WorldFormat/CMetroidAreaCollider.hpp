@@ -213,6 +213,9 @@ public:
   const CMetroidAreaCollider::COctreeLeafCache& GetOctreeLeafCache(int idx) {
     return x18_leafCaches[idx];
   }
+  const CMetroidAreaCollider::COctreeLeafCache& GetOctreeLeafCache(int idx) const {
+    return x18_leafCaches[idx];
+  }
   bool HasCacheOverflowed() const { return x1b40_24_leafOverflow; }
   rstl::reserved_vector< CMetroidAreaCollider::COctreeLeafCache, 3 >::const_iterator begin() const {
     return x18_leafCaches.begin();
