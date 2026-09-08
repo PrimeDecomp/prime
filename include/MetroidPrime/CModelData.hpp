@@ -28,6 +28,11 @@ class CStateManager;
 class CTexture;
 class CSkinnedModel;
 class CRandom16;
+struct SThermalDrawContext;
+struct SOneTextureDrawContext;
+struct SFlatDrawContext;
+struct SMultiLightingDrawContext;
+struct SMultipassDrawContext;
 
 class CStaticRes {
 public:
@@ -66,18 +71,21 @@ public:
                            const CModelFlags& flags) const;
   static void ThermalDraw(CSkinnedModel& model, const float* positions, const float* normals,
                           const CColor& mulColor, const CColor& addColor, const CModelFlags& flags);
+  static void ThermalDraw(CSkinnedModel& model, const CColor& mulColor, const CColor& addColor,
+                          const CModelFlags& flags);
   void RenderThermal(const CTransform4f& xf, const CColor& mulColor, const CColor& addColor,
                      const CModelFlags& flags) const;
   void Render(const CStateManager&, const CTransform4f&, const CActorLights*,
               const CModelFlags&) const;
   void Render(EWhichModel, const CTransform4f&, const CActorLights*, const CModelFlags&) const;
   void MultipassDraw(EWhichModel which, const CTransform4f& xf, const CActorLights* lights,
-                     const CModelFlags* flags, int count);
+                     const CModelFlags* flags, int count) const;
   void MultiLightingDraw(EWhichModel which, const CTransform4f& xf, const CActorLights* lights,
-                         const CColor& mulColor, const CColor& addColor);
+                         const CColor& mulColor, const CColor& addColor) const;
   void FlatDraw(EWhichModel which, const CTransform4f& xf, bool unsortedOnly,
                 const CModelFlags& flags) const;
   CSkinnedModel& PickAnimatedModel(EWhichModel which) const;
+  const TLockedToken< CModel >& PickStaticModel(EWhichModel which) const;
   void Touch(const CStateManager& mgr, int) const;
   void Touch(EWhichModel which, int) const;
   CAdvancementDeltas AdvanceAnimationIgnoreParticles(float dt, CRandom16& rand, bool advTree);
@@ -126,11 +134,18 @@ public:
   bool HasModel(EWhichModel which) const;
   void DisintegrateDraw(const CStateManager&, const CTransform4f&, const CTexture&, const CColor&,
                         float) const;
+  void DisintegrateDraw(EWhichModel which, const CTransform4f& xf, const CTexture& texture,
+                        const CColor& color, float t) const;
 
 private:
+  static void ThermalDrawCallback(const float*, const float*, const SThermalDrawContext*);
+  static void DisintegrateDrawCallback(const float*, const float*, const SOneTextureDrawContext*);
+  static void FlatDrawCallback(const float*, const float*, const SFlatDrawContext*);
+  static void MultiLightingDrawCallback(const float*, const float*, SMultiLightingDrawContext*);
+  static void MultipassDrawCallback(const float*, const float*, const SMultipassDrawContext*);
   CVector3f x0_scale;
   rstl::auto_ptr< CAnimData > xc_animData;
-  bool x14_24_renderSorted : 1;
+  mutable bool x14_24_renderSorted : 1;
   bool x14_25_sortThermal : 1;
   CColor x18_ambientColor;
   rstl::optional_object< TLockedToken< CModel > > x1c_normalModel;

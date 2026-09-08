@@ -24,18 +24,14 @@ class CScriptCameraHint;
 class CScriptWater;
 class CStateManager;
 
-#ifdef __MWERKS__
-#pragma cpp_extensions on
-#endif
-
 class CCameraManager {
   static float sFirstPersonFOV;
   static float sThirdPersonFOV;
   static float sNearPlane;
   static float sFarPlane;
   static float sAspectRatio;
-  static float lbl_805A6BE4;
-  static float lbl_805A6BE8;
+  static float sMinShakeVolume;
+  static float sMaxShakeVolume;
 
 public:
   CCameraManager(TUniqueId curCamera = kInvalidUniqueId);
@@ -90,7 +86,7 @@ public:
   void ReallyRemoveCameraHint(TUniqueId uid, CStateManager& mgr);
   // SetSpecialCameras__14CCameraManagerFR18CFirstPersonCameraR11CBallCamera
   void ResetCameraHint(CStateManager& mgr);
-  void SetupBallCamera(CStateManager& mgr);
+  bool HasCameraHint(CStateManager& mgr) const;
   bool HasBallCameraInitialPositionHint(CStateManager& mgr) const;
 
   void SetCurrentFov(float fov) { x3bc_curFov = fov; }
@@ -140,14 +136,9 @@ private:
   float x94_fogDensityFactor;
   float x98_fogDensitySpeed;
   float x9c_fogDensityFactorTarget;
-  union {
-    struct {
-      bool xa0_24_pendingRumble : 1;
-      bool xa0_25_rumbling : 1;
-      bool xa0_26_inWater : 1;
-    };
-    uchar xa0_flags;
-  };
+  bool xa0_24_pendingRumble : 1;
+  bool xa0_25_rumbling : 1;
+  bool xa0_26_inWater : 1;
 
   TUniqueId xa2_spindleCamId;
   TUniqueId xa4_pathCamId;
@@ -161,9 +152,5 @@ private:
   float x3bc_curFov;
 };
 CHECK_SIZEOF(CCameraManager, 0x3c0)
-
-#ifdef __MWERKS__
-#pragma cpp_extensions reset
-#endif
 
 #endif // _CCAMERAMANAGER

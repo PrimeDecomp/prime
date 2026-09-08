@@ -70,6 +70,7 @@ public:
   float GetCurrentAnimationOverAge() const;
   int GetTotalPageCount();
   void SetPage(int page);
+  int GetPageCounter() const { return x304_pageCounter; }
   void ClearRenderBuffer();
   void SetImageBaseline(bool baseline);
   void SetTypeWriteEffectOptions(bool enable, float fadeTime, float rate);

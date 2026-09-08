@@ -143,7 +143,7 @@ public:
 
   bool DStart() const { return x2d_b27_Start; }
 
-  bool PLAUp() const { return kInput_AnalogOnThreshhold < xc_anaLeftY && x21_enableAnaLeftYP ? true : false; }
+  bool PLAUp() const { return DLAUp() && x21_enableAnaLeftYP ? true : false; }
 
   bool PLADown() const { return -kInput_AnalogOnThreshhold > xc_anaLeftY && x21_enableAnaLeftYP ? true : false; }
 

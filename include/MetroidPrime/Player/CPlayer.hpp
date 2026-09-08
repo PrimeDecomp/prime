@@ -393,6 +393,7 @@ public:
   void DoPostCameraStuff(float dt, CStateManager& mgr); // name?
   float UpdateCameraBob(float dt, CStateManager& mgr);
   const CPlayerCameraBob* GetCameraBobObject() const { return x76c_cameraBob.get(); }
+  CPlayerCameraBob* CameraBobObject() { return x76c_cameraBob.get(); }
   float CalculateOrbitZBasedDistance(EPlayerOrbitType type);
   void UpdateOrbitPosition(float distance, CStateManager& mgr);
   void UpdateOrbitZPosition();
@@ -428,10 +429,15 @@ public:
   float GetStaticTimer() const { return x740_staticTimer; }
 
   bool GetPlayerIsSlidingOnWall() const { return x9c5_28_slidingOnWall; }
+  void SetPlayerIsSlidingOnWall(bool sliding) { x9c5_28_slidingOnWall = sliding; }
   ESurfaceRestraints GetCurrentSurfaceRestraint() const { return x2ac_surfaceRestraint; }
   ESurfaceRestraints GetSurfaceRestraint() const {
     return x2b0_outOfWaterTicks == 2 ? GetCurrentSurfaceRestraint() : kSR_Water;
   }
+
+  EPlayerZoneInfo GetOrbitZoneMode() const { return x330_orbitZoneMode; }
+  EPlayerZoneType GetOrbitZoneType() const { return x334_orbitType; }
+  const rstl::vector< TUniqueId >& GetOrbitObjectsOnScreenList() const { return x344_nearbyOrbitObjects; }
 
   EOrbitBrokenType GetOrbitBrokenType() const { return x30c_orbitBrokenType; }
   TUniqueId GetOrbitTargetId() const { return x310_orbitTargetId; }
@@ -449,6 +455,11 @@ public:
   EGrappleState GetGrappleState() const { return x3b8_grappleState; }
   bool IsInFreeLook() const { return x3dc_inFreeLook; }
   bool IsLookButtonHeld() const { return x3dd_lookButtonHeld; }
+  float GetFreeLookAngleZ() const { return x3e4_freeLookYawAngle; }
+  float GetFreeLookAngleX() const { return x3ec_freeLookPitchAngle; }
+  float GetJumpCameraTimer() const { return x294_jumpCameraTimer; }
+  float GetFallCameraTimer() const { return x29c_fallCameraTimer; }
+  bool GetOrbitLockAcquired() const { return x374_orbitLockEstablished; }
   bool GetFreeLookStickState() const { return x3de_lookAnalogHeld; }
   TUniqueId GetAimTargetId() const { return x3f4_aimTarget; }
   EPlayerCameraState GetCameraState() const { return x2f4_cameraState; }

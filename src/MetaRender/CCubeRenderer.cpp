@@ -2222,7 +2222,7 @@ void CCubeRenderer::DrawModelDisintegrate(const CModel& model, const CTexture& t
   CGX::SetAlphaCompare(GX_ALWAYS, 0, GX_AOP_AND, GX_ALWAYS, 0);
 }
 
-void CCubeRenderer::DrawModelFlat(const CModel& model, const CModelFlags& flags, bool unsortedOnly,
+void CCubeRenderer::DrawModelFlat(const CModel& model, const CModelFlags& flags, const bool unsortedOnly,
                                   const float* pos, const float* nrm) {
   const char blendMode = static_cast< char >(flags.GetBlendMode());
   if (blendMode > 6) {

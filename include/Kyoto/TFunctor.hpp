@@ -67,7 +67,7 @@ public:
     typedef TNonStaticCallback1< T, P1 > CallbackBridge;
     typedef typename TFunctor1< P1 >::Functor InternalFunctorPtr;
 
-    InternalFunctorPtr bridgeFunc = &CallbackBridge::Function;
+    InternalFunctorPtr bridgeFunc = CallbackBridge::Function;
     char methodData[sizeof(method)];
     memcpy(methodData, &method, sizeof(method));
 
@@ -116,7 +116,7 @@ public:
     typedef TNonStaticCallback2< T, P1, P2 > CallbackBridge;
     typedef typename TFunctor2< P1, P2 >::Functor InternalFunctorPtr;
 
-    InternalFunctorPtr bridgeFunc = &CallbackBridge::Function;
+    InternalFunctorPtr bridgeFunc = CallbackBridge::Function;
     char methodData[sizeof(method)];
     memcpy(methodData, &method, sizeof(method));
 
@@ -167,7 +167,7 @@ public:
     typedef TNonStaticCallback3< T, P1, P2, P3 > CallbackBridge;
     typedef typename TFunctor3< P1, P2, P3 >::Functor InternalFunctorPtr;
 
-    InternalFunctorPtr bridgeFunc = &CallbackBridge::Function;
+    InternalFunctorPtr bridgeFunc = CallbackBridge::Function;
     char methodData[sizeof(method)];
     memcpy(methodData, &method, sizeof(method));
 

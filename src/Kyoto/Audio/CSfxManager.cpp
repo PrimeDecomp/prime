@@ -436,7 +436,7 @@ void CSfxManager::StopSound(CSfxHandle handle) {
   chan.x48_[handle.GetIndex()] = nullptr;
 }
 
-void CSfxManager::SetDuration(const CSfxHandle& handle, float duration) {
+void CSfxManager::SetDuration(CSfxHandle handle, float duration) {
   CSfxChannel& chan = mChannels[mCurrentChannel];
   if (handle.GetIndex() < 0 || handle.GetIndex() >= chan.x48_.size()) {
     return;

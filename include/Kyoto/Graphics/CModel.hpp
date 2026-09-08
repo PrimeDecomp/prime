@@ -46,6 +46,11 @@ public:
   void RemapData(uchar* data);
 
   const CCubeModel* GetCubeModel() const { return x28_modelInstance.get(); }
+  const CAABox& GetBoundingBox() const { return x28_modelInstance->GetBoundingBox(); }
+  int GetNumMaterialSets() const { return x18_matSets.size(); }
+  bool IsDefinitelyOpaque() const {
+    return x28_modelInstance.get() != nullptr && !x28_modelInstance->GetAlphaSurfaces().IsValid();
+  }
 
   static void DisableTextureTimeout();
   static void EnableTextureTimeout();

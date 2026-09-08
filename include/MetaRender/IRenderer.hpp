@@ -118,7 +118,7 @@ public:
                                 const float*, const CModelFlags&);
   virtual void DrawModelDisintegrate(const CModel&, const CTexture&, const CColor&, const float*,
                                      const float*, float);
-  virtual void DrawModelFlat(const CModel&, const CModelFlags&, bool, const float*, const float*);
+  virtual void DrawModelFlat(const CModel&, const CModelFlags&, const bool, const float*, const float*);
   virtual void SetWireframeFlags(int);
   virtual void SetWorldFog(ERglFogMode mode, float startz, float endz, const CColor& color);
   virtual void RenderFogVolume(const CColor&, const CAABox&, const TLockedToken< CModel >*,

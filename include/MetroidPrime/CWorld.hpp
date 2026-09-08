@@ -104,6 +104,7 @@ public:
   void UnloadSoundGroups();
   bool ScheduleAreaToLoad(CGameArea* area, CStateManager& mgr);
   void MoveToChain(CGameArea* area, EChain chain);
+  void MoveAreaToChain3(TAreaId aid);
   void TravelToArea(const TAreaId& aid, CStateManager& mgr, bool skipLoadOther);
   void Update(float dt);
   void PreRender();

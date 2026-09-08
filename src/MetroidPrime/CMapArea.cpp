@@ -1,5 +1,7 @@
 #include "MetroidPrime/CMapArea.hpp"
 
+#include "MetroidPrime/CMemoryDrawEnum.hpp"
+
 #include "Kyoto/Basics/CBasics.hpp"
 #include "MetroidPrime/CMappableObject.hpp"
 #include "MetroidPrime/CWorld.hpp"
@@ -35,11 +37,11 @@ CMapArea::CMapArea(CInputStream& in, uint size)
   PostConstruct();
 
   DCFlushRange(x3c_vertexStart, x2c_vertexCount * 0xc);
-  lbl_805A8EB0 += x34_size + sizeof(*this);
+  CMemoryDrawEnum::AddWorldMemory(x34_size + sizeof(*this));
 }
 
 CMapArea::~CMapArea() {
-  lbl_805A8EB0 -= x34_size + sizeof(*this);
+  CMemoryDrawEnum::SubtractWorldMemory(x34_size + sizeof(*this));
   CFrameDelayedKiller::ScheduleDeletion(CFrameDelayedKiller::kWhichFrame_NextFrame, x44_buf.release());
 }
 

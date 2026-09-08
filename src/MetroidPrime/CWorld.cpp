@@ -301,16 +301,16 @@ bool CDummyWorld::ICheckWorldComplete() {
 
     CMemoryInStream r(x34_loadBuf.get(), x38_bufSz);
     uint magic = r.ReadLong();
-    uint version = r.Get< uint >();
+    int version = r.Get< int >();
     x10_strgId = r.Get< CAssetId >();
 
-    if (version >= 15) {
+    if (static_cast< uint >(version) >= 15) {
       x14_savwId = r.Get< CAssetId >();
     }
-    if (version >= 12) {
+    if (static_cast< uint >(version) >= 12) {
       uint sky = r.ReadLong();
     }
-    if (version >= 17) {
+    if (static_cast< uint >(version) >= 17) {
       rstl::vector< CRelay > relay(r);
     }
 
@@ -332,7 +332,7 @@ bool CDummyWorld::ICheckWorldComplete() {
     r.ReadChar();
     r.ReadLong();
 
-    if (version > 10) {
+    if (static_cast< uint >(version) > 10) {
       int audioGroupCount = r.ReadLong();
       for (int i = 0; i < audioGroupCount; ++i) {
         r.ReadLong();
@@ -340,7 +340,7 @@ bool CDummyWorld::ICheckWorldComplete() {
       }
     }
 
-    if (version > 12) {
+    if (static_cast< uint >(version) > 12) {
       rstl::string s(r);
     }
 

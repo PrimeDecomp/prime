@@ -253,7 +253,7 @@ bool CCollidableOBBTree::AABoxCollideWithLeafMoving(
 
   int surfCount = leaf.GetSurfaceVector().size();
   for (int i = 0; i < surfCount; ++i) {
-    ushort triIdx = leaf.GetSurfaceVector()[i];
+    int triIdx = leaf.GetSurfaceVector()[i];
     CCollisionSurface surf = GetOBBTree().GetTransformedSurface(triIdx, xf);
     const CMaterialList& baseMat = GetMaterial();
     CMaterialList triMat(static_cast< u64 >(surf.GetSurfaceFlags()) | baseMat.GetValue());
@@ -303,10 +303,11 @@ bool CCollidableOBBTree::AABoxCollideWithLeafMoving(
                 CMetroidAreaCollider::GetDupPrimitiveCheckCount();
             uint edgeMatVal = GetOBBTree().GetEdgeMaterial(edgeIdx);
             if (!(edgeMatVal & (1u << kMT_NoEdgeCollision))) {
+              int nextVert = k == 2 ? 0 : k + 1;
               d = dOut;
               if (CMetroidAreaCollider::MovingAABoxCollisionCheck_Edge(
-                      surf.GetVert(k), surf.GetVert(k == 2 ? 0 : k + 1), components.x0_edges, dir,
-                      d, normal, point) &&
+                      surf.GetVert(k), surf.GetVert(nextVert), components.x0_edges, dir, d, normal,
+                      point) &&
                   d < dOut) {
                 info = CCollisionInfo(point, material, CMaterialList(edgeMatVal), normal);
                 ret = true;
@@ -366,6 +367,12 @@ bool CCollidableOBBTree::SphereCollisionMoving(const COBBTree::CNode& node, cons
   return ret;
 }
 
+static inline CVector3f TriangleEdgeNormal(const CVector3f& normal, const CVector3f& edge) {
+  return CVector3f(normal.GetY() * edge.GetZ() - edge.GetY() * normal.GetZ(),
+                   normal.GetZ() * edge.GetX() - edge.GetZ() * normal.GetX(),
+                   normal.GetX() * edge.GetY() - edge.GetX() * normal.GetY());
+}
+
 bool CCollidableOBBTree::SphereCollideWithLeafMoving(const COBBTree::CLeafData& leaf,
                                                      const CTransform4f& xf, const CSphere& sphere,
                                                      const CMaterialList& material,
@@ -380,7 +387,7 @@ bool CCollidableOBBTree::SphereCollideWithLeafMoving(const COBBTree::CLeafData& 
 
   CVector3f moveVec = CCast::ToReal32(dOut) * dir;
   CAABox moveAABB = aabb;
-  moveAABB.AccumulateBounds(aabb.GetMaxPoint() + moveVec);
+  moveAABB.AccumulateBounds(moveAABB.GetMaxPoint() + moveVec);
   moveAABB.AccumulateBounds(aabb.GetMinPoint() + moveVec);
 
   CVector3f boxCenter = moveAABB.GetCenterPoint();
@@ -389,7 +396,7 @@ bool CCollidableOBBTree::SphereCollideWithLeafMoving(const COBBTree::CLeafData& 
 
   int surfCount = leaf.GetSurfaceVector().size();
   for (int i = 0; i < surfCount; ++i) {
-    ushort triIdx = leaf.GetSurfaceVector()[i];
+    int triIdx = leaf.GetSurfaceVector()[i];
     CCollisionSurface surf = GetOBBTree().GetTransformedSurface(triIdx, xf);
     const CMaterialList& baseMat = GetMaterial();
     CMaterialList triMat(static_cast< u64 >(surf.GetSurfaceFlags()) | baseMat.GetValue());
@@ -399,32 +406,28 @@ bool CCollidableOBBTree::SphereCollideWithLeafMoving(const COBBTree::CLeafData& 
         x1c_hits += 1;
 
         CVector3f surfNormal = surf.GetNormal();
-
-        if (!(CVector3f::Dot(sphere.GetCenter() + moveVec - surf.GetVert(0), surfNormal) >
-              sphere.GetRadius())) {
-          const CVector3f& vertToSphere0 = sphere.GetCenter() - surf.GetVert(0);
-          float dirDotNorm = CVector3f::Dot(dir, surfNormal);
-          const CVector3f& edge0 = surf.GetVert(1) - surf.GetVert(0);
-          double mag = static_cast< double >(sphere.GetRadius() -
-                                             CVector3f::Dot(vertToSphere0, surfNormal)) /
-                       dirDotNorm;
+        CVector3f toMovedSphere = sphere.GetCenter() + moveVec - surf.GetVert(0);
+        if (!(CVector3f::Dot(toMovedSphere, surfNormal) > sphere.GetRadius())) {
+          double mag = static_cast< double >(
+                           sphere.GetRadius() -
+                           CVector3f::Dot(sphere.GetCenter() - surf.GetVert(0), surfNormal)) /
+                       CVector3f::Dot(dir, surfNormal);
           float magF = CCast::ToReal32(mag);
 
           CVector3f intersectPoint = sphere.GetCenter() + magF * dir;
-          const CVector3f& cross0 = CVector3f::Cross(surfNormal, edge0);
-          const CVector3f& d0 = intersectPoint - surf.GetVert(0);
           bool outsideEdges[3];
-          outsideEdges[0] = CVector3f::Dot(d0, cross0) < 0.f;
-
-          const CVector3f& edge1 = surf.GetVert(2) - surf.GetVert(1);
-          const CVector3f& cross1 = CVector3f::Cross(surfNormal, edge1);
-          const CVector3f& d1 = intersectPoint - surf.GetVert(1);
-          outsideEdges[1] = CVector3f::Dot(d1, cross1) < 0.f;
-
-          const CVector3f& edge2 = surf.GetVert(0) - surf.GetVert(2);
-          const CVector3f& cross2 = CVector3f::Cross(surfNormal, edge2);
-          const CVector3f& d2 = intersectPoint - surf.GetVert(2);
-          outsideEdges[2] = CVector3f::Dot(d2, cross2) < 0.f;
+          outsideEdges[0] =
+              CVector3f::Dot(intersectPoint - surf.GetVert(0),
+                             TriangleEdgeNormal(surfNormal, surf.GetVert(1) - surf.GetVert(0))) <
+              0.f;
+          outsideEdges[1] =
+              CVector3f::Dot(intersectPoint - surf.GetVert(1),
+                             TriangleEdgeNormal(surfNormal, surf.GetVert(2) - surf.GetVert(1))) <
+              0.f;
+          outsideEdges[2] =
+              CVector3f::Dot(intersectPoint - surf.GetVert(2),
+                             TriangleEdgeNormal(surfNormal, surf.GetVert(0) - surf.GetVert(2))) <
+              0.f;
 
           if (mag >= 0.0 && !outsideEdges[0] && !outsideEdges[1] && !outsideEdges[2] &&
               mag < dOut) {
@@ -450,29 +453,30 @@ bool CCollidableOBBTree::SphereCollideWithLeafMoving(const COBBTree::CLeafData& 
                   CVector3f edgeVec = surf.GetVert(mod3[k + 1]) - surf.GetVert(k);
                   float edgeVecMag = edgeVec.Magnitude();
                   edgeVec *= 1.f / edgeVecMag;
-                  float dirDotEdge = CVector3f::Dot(dir, edgeVec);
-                  CVector3f edgeRej = dir - dirDotEdge * edgeVec;
-                  float edgeRejMagSq = edgeRej.MagSquared();
+
                   CVector3f vertToSphere = sphere.GetCenter() - surf.GetVert(k);
                   float vtsDotEdge = CVector3f::Dot(vertToSphere, edgeVec);
+                  float dirDotEdge = CVector3f::Dot(dir, edgeVec);
                   CVector3f vtsRej = vertToSphere - vtsDotEdge * edgeVec;
+                  CVector3f edgeRej = dir - dirDotEdge * edgeVec;
+                  float edgeRejMagSq = edgeRej.MagSquared();
+
                   if (edgeRejMagSq > 0.f) {
-                    float tmp = 2.f * CVector3f::Dot(vtsRej, edgeRej);
-                    float tmp2 =
-                        4.f * edgeRejMagSq *
-                            (vtsRej.MagSquared() - sphere.GetRadius() * sphere.GetRadius()) -
-                        tmp * tmp;
-                    if (tmp2 >= 0.f) {
-                      double mag2 = 0.5 / edgeRejMagSq * (-tmp - sqrt(tmp2));
+                    float b = 2.f * CVector3f::Dot(vtsRej, edgeRej);
+                    float discriminant =
+                        b * b - 4.f * edgeRejMagSq *
+                                    (vtsRej.MagSquared() - sphere.GetRadius() * sphere.GetRadius());
+                    if (discriminant >= 0.f) {
+                      double inverse = 0.5 / edgeRejMagSq;
+                      double mag2 = inverse * (-b - sqrt(discriminant));
                       if (mag2 >= 0.0) {
                         double t = mag2 * dirDotEdge + vtsDotEdge;
                         if (t >= 0.0 && t <= edgeVecMag && mag2 < dOut) {
                           CVector3f point = surf.GetVert(k) + CCast::ToReal32(t) * edgeVec;
-                          const CVector3f& movedSphere =
-                              sphere.GetCenter() + CCast::ToReal32(mag2) * dir;
-                          const CVector3f& normVec = movedSphere - point;
-                          info = CCollisionInfo(point, material, CMaterialList(edgeMatVal),
-                                                normVec.AsNormalized());
+                          CVector3f normal =
+                              (sphere.GetCenter() + CCast::ToReal32(mag2) * dir - point)
+                                  .AsNormalized();
+                          info = CCollisionInfo(point, material, CMaterialList(edgeMatVal), normal);
                           dOut = mag2;
                           ret = true;
                           testVert[k] = false;
@@ -507,11 +511,11 @@ bool CCollidableOBBTree::SphereCollideWithLeafMoving(const COBBTree::CLeafData& 
                         CSphere(surf.GetVert(k), sphere.GetRadius()), sphere.GetCenter(), dir, d) &&
                     d >= 0.0) {
                   float dF = CCast::ToReal32(d);
-                  const CVector3f& movedSph = sphere.GetCenter() + dF * dir;
-                  const CVector3f& normVec2 = movedSph - surf.GetVert(k);
-                  info = CCollisionInfo(surf.GetVert(k), material,
-                                        CMaterialList(GetOBBTree().GetVertMaterial(vertIdx)),
-                                        normVec2.AsNormalized());
+                  CVector3f normal =
+                      (sphere.GetCenter() + dF * dir - surf.GetVert(k)).AsNormalized();
+                  info =
+                      CCollisionInfo(surf.GetVert(k), material,
+                                     CMaterialList(GetOBBTree().GetVertMaterial(vertIdx)), normal);
                   dOut = d;
                   ret = true;
                 }
@@ -667,10 +671,10 @@ bool CCollidableOBBTree::LineIntersectsOBBTree(const COBBTree::CNode* n0, const 
 
 bool CCollidableOBBTree::LineIntersectsLeaf(const COBBTree::CLeafData& leaf,
                                             CRayCastInfo& info) const {
-  bool ret = false;
   ushort intersectIdx = 0;
+  bool ret = false;
   int surfCount = leaf.GetSurfaceVector().size();
-  const CMaterialFilter& filter = info.GetMaterialFilter();
+  const CMaterialFilter& filter = info.x4_filter;
   for (ushort i = 0; i < surfCount; ++i) {
     const CCollisionSurface& surface = GetOBBTree().GetSurface(leaf.GetSurfaceVector()[i]);
     const CMaterialList& baseMat = GetMaterial();

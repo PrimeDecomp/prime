@@ -94,7 +94,7 @@ public:
   const CNode& GetRoot() const { return *x88_root; }
 
   CCollisionSurface GetSurface(ushort idx) const;
-  CCollisionSurface GetTransformedSurface(ushort idx, const CTransform4f& xf) const;
+  CCollisionSurface GetTransformedSurface(const ushort idx, const CTransform4f& xf) const;
   const ushort* GetTriangleEdgeIndices(ushort idx) const;
   void GetTriangleVertexIndices(ushort idx, ushort* out) const;
 

@@ -17,9 +17,9 @@ public:
   void Think(float, CStateManager&) override;
   rstl::optional_object< CAABox > GetTouchBounds() const override;
   void Touch(CActor&, CStateManager&) override;
-  // float GetUpPitch() const { return x124_upPitch; }
-  // float GetDownPitch() const { return x128_downPitch; }
-  // const CVector3f& GetScale() const { return x12c_scale; }
+  const CRelAngle& GetUpPitch() const { return x124_upPitch; }
+  const CRelAngle& GetDownPitch() const { return x128_downPitch; }
+  const CVector3f& GetScale() const { return x12c_scale; }
   float GetMaxInterpolationDistance() const { return x138_maxInterpDistance; }
   void Entered(CStateManager&);
   void Exited(CStateManager&);

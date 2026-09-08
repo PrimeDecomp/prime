@@ -488,7 +488,7 @@ config.libs = [
         "game",
         [
             Object(NonMatching, "MetroidPrime/main.cpp"),
-            Object(NonMatching, "MetroidPrime/Cameras/CCameraManager.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Cameras/CCameraManager.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8J01_00"), "MetroidPrime/CControlMapper.cpp"
             ),
@@ -572,7 +572,7 @@ config.libs = [
                 "MetroidPrime/Tweaks/CTweakPlayerControl.cpp",
             ),
             Object(NonMatching, "MetroidPrime/Tweaks/CTweakPlayerGun.cpp"),
-            Object(NonMatching, "MetroidPrime/CPauseScreen.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CPauseScreen.cpp"),
             Object(NonMatching, "MetroidPrime/Tweaks/CTweakGui.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
@@ -599,7 +599,7 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/ScriptObjects/CScriptTimer.cpp",
             ),
-            Object(NonMatching, "MetroidPrime/Cameras/CCinematicCamera.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Cameras/CCinematicCamera.cpp"),
             Object(NonMatching, "MetroidPrime/CAutoMapper.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
@@ -738,8 +738,10 @@ config.libs = [
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CAudioStateWin.cpp"
             ),
-            Object(NonMatching, "MetroidPrime/Player/CPlayerVisor.cpp"),
-            Object(NonMatching, "MetroidPrime/CModelData.cpp"),
+            Object(
+                MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Player/CPlayerVisor.cpp"
+            ),
+            Object(Matching, "MetroidPrime/CModelData.cpp"),
             Object(NonMatching, "MetroidPrime/CDecalManager.cpp"),
             Object(
                 NonMatching, "MetroidPrime/ScriptObjects/CScriptSpiderBallWaypoint.cpp"
@@ -1038,7 +1040,7 @@ config.libs = [
             Object(Matching, "MetroidPrime/ScriptObjects/CScriptColorModulate.cpp"),
             Object(NonMatching, "MetroidPrime/CMapUniverse.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CThardusRockProjectile.cpp"),
-            Object(NonMatching, "MetroidPrime/CInventoryScreen.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CInventoryScreen.cpp"),
             Object(NonMatching, "MetroidPrime/CVisorFlare.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
@@ -1094,7 +1096,7 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/ScriptObjects/CScriptMemoryRelay.cpp",
             ),
-            Object(NonMatching, "MetroidPrime/CPauseScreenFrame.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CPauseScreenFrame.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Enemies/CAtomicAlpha.cpp"),
             Object(NonMatching, "MetroidPrime/CLogBookScreen.cpp"),
             Object(

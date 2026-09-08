@@ -30,6 +30,8 @@ public:
   void SetMinVal(float min);
   void SetMaxVal(float max);
   void SetCurVal(float cur);
+  float GetCurVal() const { return xc0_roundedCurVal; }
+  EState GetState() const { return xf0_state; }
 
 private:
   float xb8_minVal;

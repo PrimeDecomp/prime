@@ -3,6 +3,10 @@
 
 #include "types.h"
 
+#include "Kyoto/CARAMToken.hpp"
+#include "Kyoto/TToken.hpp"
+#include "MetroidPrime/CEnvFxManager.hpp"
+#include "MetroidPrime/CObjectList.hpp"
 #include "MetroidPrime/CStateManager.hpp"
 #include "MetroidPrime/TGameTypes.hpp"
 
@@ -25,6 +29,7 @@
 #include "rstl/vector.hpp"
 
 class CAreaOctTree;
+class CAreaBspTree;
 class CDvdRequest;
 class CPVSAreaSet;
 class CScriptAreaAttributes;
@@ -35,11 +40,12 @@ public:
   class Dock {
   public:
     struct SDockReference {
-      uint x0_area;
+      TAreaId x0_area;
       s16 x4_dock;
-      bool x6_loadOther;
+      short x6_loadOther : 1;
 
-      SDockReference();
+      SDockReference(const TAreaId& area, short dock, short loadOther)
+      : x0_area(area), x4_dock(dock), x6_loadOther(loadOther) {}
     };
 
   private:
@@ -52,7 +58,7 @@ public:
     const rstl::reserved_vector< CVector3f, 4 >& GetPlaneVertices() const {
       return x14_planeVertices;
     }
-    int GetReferenceCount() const { return x0_referenceCount; }
+    int GetReferenceCount() const;
     const rstl::vector< SDockReference >& GetDockRefs() const { return x4_dockReferences; }
     Dock(CInputStream& in, const CTransform4f& xf);
     TAreaId GetConnectedAreaId(int other) const;
@@ -61,11 +67,8 @@ public:
     void SetShouldLoadOther(int other, bool should);
     bool ShouldLoadOtherArea(int other) const;
     CVector3f GetPoint(int idx) const;
-    bool IsReferenced() const { return x48_isReferenced; }
-    void SetReferenceCount(int v) {
-      x0_referenceCount = v;
-      x48_isReferenced = true;
-    }
+    bool IsReferenced() const;
+    void SetReferenceCount(int v);
   };
 
   virtual ~IGameArea();
@@ -76,7 +79,7 @@ public:
   virtual bool IIsActive() const = 0;
   virtual CAssetId IGetAreaAssetId() const = 0;
   virtual int IGetAreaSaveId() const = 0;
-  virtual rstl::pair< rstl::auto_ptr< uchar >, int > IGetScriptingMemoryAlways() const = 0;
+  virtual rstl::pair< rstl::auto_ptr< char >, int > IGetScriptingMemoryAlways() const = 0;
 };
 
 struct CAreaRenderOctTree {
@@ -92,8 +95,7 @@ struct CAreaRenderOctTree {
                                 const CAABox& testAABB) const;
   };
 
-  const u8* x0_buf;
-  int x4_; // TODO
+  rstl::auto_ptr< const u8 > x0_buf;
   uint x8_bitmapCount;
   uint xc_meshCount;
   uint x10_nodeCount;
@@ -103,7 +105,7 @@ struct CAreaRenderOctTree {
   const u32* x34_indirectionTable;
   const u8* x38_entries;
 
-  explicit CAreaRenderOctTree(const u8* buf);
+  explicit CAreaRenderOctTree(const rstl::auto_ptr< const u8 >& buf);
 
   void FindOverlappingModels(rstl::vector< uint >& out, const CAABox& testAABB) const;
   void FindOverlappingModels(uint* out, const CAABox& testAABB) const;
@@ -173,42 +175,78 @@ public:
   };
 
   enum EOcclusionState { kOS_Occluded, kOS_Visible };
+  enum EARAMTransfer { kAT_Blocking, kAT_Async };
+
+  class CAreaObjectList : public CObjectList {
+  public:
+    uchar IsQualified(const CEntity& ent) override;
+    explicit CAreaObjectList(TAreaId areaId) : CObjectList(kOL_Invalid), x200c_areaId(areaId) {}
+
+  private:
+    TAreaId x200c_areaId;
+  };
+
+  struct SPVSActorInfo {
+    ushort x0_pvsId;
+    TUniqueId x2_uniqueId;
+
+    SPVSActorInfo(ushort pvsId, TUniqueId uniqueId) : x0_pvsId(pvsId), x2_uniqueId(uniqueId) {}
+  };
 
   struct CPostConstructed {
     rstl::auto_ptr< CAreaOctTree > x0_collision;
-    int x8_; // TODO
+    int x8_collisionSize;
     rstl::optional_object< CAreaRenderOctTree > xc_octTree;
     rstl::vector< CMetroidModelInstance > x4c_insts;
-    rstl::single_ptr< int > x5c_; // TODO
+    rstl::single_ptr< CAreaBspTree > x5c_bspTree;
     rstl::vector< CWorldLight > x60_lightsA;
     rstl::vector< CLight > x70_gfxLightsA;
     rstl::vector< CWorldLight > x80_lightsB;
     rstl::vector< CLight > x90_gfxLightsB;
-    CPVSAreaSet* xa0_pvs;
-    uchar xa4_pad[0x1018];
+    rstl::single_ptr< CPVSAreaSet > xa0_pvs;
+    rstl::reserved_vector< SPVSActorInfo, 1024 > xa4_pvsEntityMap;
+    int x10a8_pvsVersion;
+    rstl::optional_object< TLockedToken< CPFArea > > x10ac_pathToken;
     CPFArea* x10bc_pathArea;
-    unkptr x10c0_areaObjectList; // CAreaObjectList
+    rstl::single_ptr< CAreaObjectList > x10c0_areaObjectList;
     rstl::single_ptr< CAreaFog > x10c4_areaFog;
-    rstl::optional_object< void* > x10c8_sclyBuf;
+    rstl::auto_ptr< char > x10c8_sclyBuf;
     u32 x10d0_sclySize;
     const u8* x10d4_firstMatPtr;
     const CScriptAreaAttributes* x10d8_areaAttributes;
     EOcclusionState x10dc_occlusionState;
-    uint x10e0_;
+    int x10e0_;
     float x10e4_occludedTime;
-    uchar x10e8_pad[0x34];
+    uint x10e8_;
+    uint x10ec_firstMatSection;
+    rstl::vector< rstl::pair< CARAMToken, int > > x10f0_tokens;
+    uint x1100_;
+    uint x1104_;
+    bool x1108_24_ : 1;
+    bool x1108_25_modelsConstructed : 1;
+    bool x1108_26_ : 1;
+    bool x1108_27_ : 1;
+    bool x1108_28_occlusionPinged : 1;
+    bool x1108_29_pvsHasActors : 1;
+    bool x1108_30_ : 1;
+    rstl::vector< rstl::pair< int, int > > x110c_layerOffsets;
     float x111c_thermalCurrent;
     float x1120_thermalSpeed;
     float x1124_thermalTarget;
     float x1128_worldLightingLevel;
-    uchar x112c_pad[0x10];
+    float x112c_xraySpeed;
+    float x1130_xrayTarget;
+    float x1134_weaponWorldLightingSpeed;
+    float x1138_weaponWorldLightingTarget;
     uint x113c_playerActorsLoading;
 
     CPostConstructed();
     ~CPostConstructed();
   };
 
+  CGameArea(CInputStream& in, int idx, int mlvlVersion);
   ~CGameArea();
+  static float skEntityThinkDisableDelayOnOcclusion;
   const CTransform4f& IGetTM() const override;
   CAssetId IGetStringTableAssetId() const override;
   uint IGetNumAttachedAreas() const override;
@@ -216,9 +254,12 @@ public:
   bool IIsActive() const override;
   CAssetId IGetAreaAssetId() const override;
   int IGetAreaSaveId() const override;
-  rstl::pair< rstl::auto_ptr< uchar >, int > IGetScriptingMemoryAlways() const override;
+  rstl::pair< rstl::auto_ptr< char >, int > IGetScriptingMemoryAlways() const override;
 
   TAreaId GetId() const { return x4_selfIdx; }
+  int GetScriptingSize() const {
+    return xf0_24_postConstructed ? x12c_postConstructed->x10d0_sclySize : 0;
+  }
   const CTransform4f& GetTM() const { return xc_transform; }
   const CTransform4f& GetInverseTransform() const { return x3c_invTransform; }
   bool IsLoaded() const { return xf0_24_postConstructed; }
@@ -227,13 +268,19 @@ public:
   const CAABox& GetAABB() const { return x6c_aabb; }
   CGameArea* GetNext() const; // { return x130_next; }
 
+  bool IsFinishedOccluding() const;
+  void SetLoadPauseState(bool paused);
+  void UpdateThermalVisor(float dt);
+  void UpdateWeaponWorldLighting(float dt);
+  TUniqueId LookupPVSUniqueID(TUniqueId id);
+  ushort LookupPVSID(TUniqueId id);
   void UpdateFog(const float dt);
   void SetXRaySpeedAndTarget(float speed, float target);
   void SetThermalSpeedAndTarget(float speed, float target);
   void SetWeaponWorldLighting(float speed, float target);
 
   float GetXRayFogDistance();
-  rstl::pair< const uchar*, uint > GetLayerScriptBuffer(const int& layer);
+  rstl::pair< const uchar*, int > GetLayerScriptBuffer(const int& layer);
 
   void SetAreaAttributes(CScriptAreaAttributes* areaAttributes);
   bool TryTakingOutOfARAM();
@@ -244,7 +291,19 @@ public:
   void SetOcclusionState(EOcclusionState state);
   void RemoveStaticGeometry();
   void StartStreamIn(CStateManager& mgr);
-  void SetChain(CGameArea* next, int chain);
+  int SetChain(CGameArea* next, int chain);
+  void AddStaticGeometry();
+  bool TransferTokensToARAM();
+  bool UnloadAllloadedTextures();
+  bool ReloadAllUnloadedTextures();
+  bool TransferARAMTokensOver(EARAMTransfer mode);
+  void FillInStaticGeometry();
+  void OtherAreaOcclusionChanged();
+  void PingOcclusionState();
+  void PreRender();
+  void AliveUpdate(float dt);
+  bool DoesAreaNeedSkyNow() const;
+  EEnvFxType DoesAreaNeedEnvFx() const;
 
   CAssetId GetAreaAssetId() const { return x84_mrea; }
   const Dock& GetDock(int idx) const { return xcc_docks[idx]; }
@@ -265,7 +324,7 @@ public:
   }
   uint Get1stPVSLightFeature(uint idx) const;
   uint Get2ndPVSLightFeature(uint idx) const;
-  const CPVSAreaSet* GetAreaVisSet() const { return x12c_postConstructed->xa0_pvs; }
+  const CPVSAreaSet* GetAreaVisSet() const { return x12c_postConstructed->xa0_pvs.get(); }
   bool IsPostConstructed() const { return xf0_24_postConstructed; }                         // name?
   CPostConstructed* GetPostConstructed() { return x12c_postConstructed.get(); }             // name?
   const CPostConstructed* GetPostConstructed() const { return x12c_postConstructed.get(); } // name?
@@ -275,7 +334,14 @@ public:
   int GetCurChain() const { return x138_curChain; }                                         // name?
 
 private:
-  void AllocNewAreaData(int, int);
+  int GetPreConstructedSize() const;
+  int GetPostConstructedSize() const;
+  void ClearTokenList();
+  void VerifyTokenList(CStateManager& mgr);
+  void KillmAreaData();
+  void LoadScriptObjects(CStateManager& mgr);
+  void PostConstructArea();
+  char* AllocNewAreaData(int offset, int size);
   void CullDeadAreaRequests();
   int VerifyHeader() const;
   int GetNumPartSizes() const;
@@ -295,8 +361,8 @@ private:
   CAssetId x84_mrea;
   int x88_areaId;
   rstl::vector< ushort > x8c_attachedAreaIndices;
-  rstl::vector< SObjectTag > x9c_deps1;
-  rstl::vector< SObjectTag > xac_deps2;
+  rstl::vector< rstl::pair< uint, uint > > x9c_deps1;
+  rstl::vector< rstl::pair< uint, uint > > xac_deps2;
   rstl::vector< uint > xbc_layerDepOffsets;
   rstl::vector< Dock > xcc_docks;
   rstl::vector< CToken > xdc_tokens;
@@ -307,7 +373,7 @@ private:
   bool xf0_27_loadPaused : 1;
   bool xf0_28_validated : 1;
   EPhase xf4_phase;
-  rstl::list< rstl::rc_ptr< CDvdRequest > > xf8_loadTransactions;
+  rstl::list< rstl::auto_ptr< CDvdRequest > > xf8_loadTransactions;
   rstl::vector< rstl::pair< rstl::auto_ptr< char >, int > > x110_mreaSecBufs;
   int x120_unk;
   int x124_secCount;
@@ -324,8 +390,8 @@ class CDummyGameArea final : public IGameArea {
   friend class CDummyWorld;
 
 public:
-  CDummyGameArea(CInputStream& in, int idx, uint mlvlVersion);
-  rstl::pair< rstl::auto_ptr< uchar >, int > IGetScriptingMemoryAlways() const override;
+  CDummyGameArea(CInputStream& in, int idx, int mlvlVersion);
+  rstl::pair< rstl::auto_ptr< char >, int > IGetScriptingMemoryAlways() const override;
   int IGetAreaSaveId() const override;
   CAssetId IGetAreaAssetId() const override;
   bool IIsActive() const override;
@@ -335,7 +401,7 @@ public:
   const CTransform4f& IGetTM() const override;
 
 private:
-  int x4_mlvlVersion;
+  int x4_selfIdx;
   CAssetId x8_nameSTRG;
   CAssetId xc_mrea;
   int x10_areaId;

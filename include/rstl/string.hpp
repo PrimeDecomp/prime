@@ -323,6 +323,12 @@ static inline string operator+(const string& a, const char* c) {
   return result;
 }
 
+static inline wstring operator+(const wstring& a, const wchar_t* c) {
+  wstring result(a);
+  result.append(c, -1);
+  return result;
+}
+
 CHECK_SIZEOF(string, 0x10)
 } // namespace rstl
 
