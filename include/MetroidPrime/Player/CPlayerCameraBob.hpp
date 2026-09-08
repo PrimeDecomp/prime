@@ -67,7 +67,7 @@ public:
   void SetBobMagnitude(float);
   void SetBobTimeScale(float);
   void ResetCameraBobTime();
-  void SetCameraBobTransform(const CTransform4f& xf);
+  void SetCameraBobTransform(const CTransform4f& xf) { x2c_cameraBobTransform = xf; }
   void SetState(ECameraBobState state, CStateManager& mgr);
   void InitViewWander(CStateManager&);
   void UpdateViewWander(float, CStateManager&);
