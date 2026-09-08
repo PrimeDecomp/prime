@@ -17,6 +17,7 @@ class COBBox;
 class CSphere;
 
 class CRayCastInfo {
+  friend class CCollidableOBBTree;
   const CMRay& x0_ray;
   const CMaterialFilter& x4_filter;
   float x8_mag;
