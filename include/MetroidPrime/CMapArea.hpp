@@ -37,6 +37,8 @@ public:
   CMapArea(CInputStream& in, uint size);
   ~CMapArea();
 
+  int GetNumMappableObjects() const { return x28_mappableObjCount; }
+  const CMappableObject& GetMappableObject(int idx) const { return x38_moStart[idx]; }
   int GetNumSurfaces() const { return x30_surfaceCount; }
   const CMapAreaSurface& GetSurface(int idx) const { return x40_surfaceStart[idx]; }
   const CVector3f* GetVertices() const { return x3c_vertexStart; }
