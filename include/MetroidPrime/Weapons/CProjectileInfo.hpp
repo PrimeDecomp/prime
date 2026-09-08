@@ -26,6 +26,7 @@ public:
   TCachedToken< CWeaponDescription >& Token() { return x0_weaponDescription; }
 
   const CDamageInfo& GetDamage() const { return xc_damageInfo; }
+  void SetDamage(const CDamageInfo& damage) { xc_damageInfo = damage; }
 };
 
 #endif // _CPROJECTILEINFO

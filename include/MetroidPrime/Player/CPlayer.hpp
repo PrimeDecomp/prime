@@ -437,6 +437,10 @@ public:
   static int SfxIdFromMaterial(const CMaterialList& mat, const ushort* idList, int tableLen,
                                ushort defId);
 
+  void SetIsOverrideRadarRadius(bool value) { x9c6_31_overrideRadarRadius = value; }
+  void SetRadarXYRadiusOverride(float value) { xa20_radarXYRadiusOverride = value; }
+  void SetRadarZRadiusOverride(float value) { xa24_radarZRadiusOverride = value; }
+
 private:
   NPlayer::EPlayerMovementState x258_movementState;
   rstl::vector< CToken > x25c_ballTransitionsRes;
