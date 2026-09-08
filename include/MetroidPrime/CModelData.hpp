@@ -64,6 +64,8 @@ public:
   void RenderParticles(const CFrustumPlanes& planes) const;
   void RenderUnsortedParts(EWhichModel which, const CTransform4f& xf, const CActorLights* lights,
                            const CModelFlags& flags) const;
+  static void ThermalDraw(CSkinnedModel& model, const float* positions, const float* normals,
+                          const CColor& mulColor, const CColor& addColor, const CModelFlags& flags);
   void RenderThermal(const CTransform4f& xf, const CColor& mulColor, const CColor& addColor,
                      const CModelFlags& flags) const;
   void Render(const CStateManager&, const CTransform4f&, const CActorLights*,
