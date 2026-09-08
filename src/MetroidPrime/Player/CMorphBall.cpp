@@ -159,24 +159,56 @@ inline CColor CMorphBall::GetAmbientColor(const CActorLights& lights) {
   return lights.GetAmbientColor();
 }
 
-const uchar CMorphBall::lbl_803CEB24[0x1c] = {
-    0xc2, 0x8f, 0x17, 0x70, 0xd4, 0xff, 0x6a, 0xff, 0x8a, 0x3d, 0x4d, 0xff, 0xc0, 0x00,
-    0x00, 0x00, 0xbe, 0xdc, 0xdf, 0xff, 0x00, 0xc4, 0x9e, 0xff, 0xff, 0x9a, 0x22, 0x00,
+// lbl_803CEB24
+const CMorphBall::SColorRgb CMorphBall::skBallTailSwooshColors[9] = {
+    {194, 143, 23},  // Ochre
+    {112, 212, 255}, // Sky blue
+    {106, 255, 138}, // Mint green
+    {61, 77, 255},   // Blue
+    {192, 0, 0},     // Dark red
+    {0, 190, 220},   // Cyan
+    {223, 255, 0},   // Lime
+    {196, 158, 255}, // Lavender
+    {255, 154, 34},  // Orange
 };
 
-const uchar CMorphBall::lbl_803CEB40[0x1c] = {
-    0xff, 0xe6, 0x00, 0xff, 0xe6, 0x00, 0xff, 0xe6, 0x00, 0xff, 0xe6, 0x00, 0xff, 0x80,
-    0x20, 0xff, 0xe6, 0x00, 0xff, 0xe6, 0x00, 0xff, 0xe6, 0x00, 0xff, 0xe6, 0x00, 0x00,
+// lbl_803CEB40
+const CMorphBall::SColorRgb CMorphBall::skBallBoostedTailSwooshColors[9] = {
+    {255, 230, 0},   // Golden yellow
+    {255, 230, 0},   // Golden yellow
+    {255, 230, 0},   // Golden yellow
+    {255, 230, 0},   // Golden yellow
+    {255, 128, 32},  // Orange
+    {255, 230, 0},   // Golden yellow
+    {255, 230, 0},   // Golden yellow
+    {255, 230, 0},   // Golden yellow
+    {255, 230, 0},   // Golden yellow
 };
 
-const uchar CMorphBall::lbl_803CEB5C[0x1c] = {
-    0xff, 0xcc, 0x00, 0xff, 0xcc, 0x00, 0xff, 0xcc, 0x00, 0xff, 0xcc, 0x00, 0xff, 0xd5,
-    0x19, 0xff, 0xcc, 0x00, 0xff, 0xcc, 0x00, 0xff, 0xcc, 0x00, 0xff, 0xcc, 0x00, 0x00,
+// lbl_803CEB5C
+const CMorphBall::SColorRgb CMorphBall::skBallJaggyTrailColors[9] = {
+    {255, 204, 0},   // Gold
+    {255, 204, 0},   // Gold
+    {255, 204, 0},   // Gold
+    {255, 204, 0},   // Gold
+    {255, 213, 25},  // Gold
+    {255, 204, 0},   // Gold
+    {255, 204, 0},   // Gold
+    {255, 204, 0},   // Gold
+    {255, 204, 0},   // Gold
 };
 
-const uchar CMorphBall::lbl_803CEB78[0x1c] = {
-    0xc2, 0x7e, 0x10, 0x66, 0xc4, 0xff, 0x60, 0xff, 0x90, 0x33, 0x33, 0xff, 0xff, 0x80,
-    0x80, 0x00, 0x9d, 0xb6, 0xd3, 0xf1, 0x00, 0x60, 0x33, 0xff, 0xfb, 0x98, 0x21, 0x00,
+// lbl_803CEB78
+const CMorphBall::SColorRgb CMorphBall::skBallLightModulationColors[9] = {
+    {194, 126, 16},  // Ochre
+    {102, 196, 255}, // Sky blue
+    {96, 255, 144},  // Mint green
+    {51, 51, 255},   // Blue
+    {255, 128, 128}, // Salmon pink
+    {0, 157, 182},   // Teal
+    {211, 241, 0},   // Lime
+    {96, 51, 255},   // Violet
+    {251, 152, 33},  // Orange
 };
 
 static rstl::reserved_vector< int, 32 > skWakeEffectMap;
@@ -1461,8 +1493,8 @@ void CMorphBall::UpdateEffects(float dt, CStateManager& mgr) {
       if (light.valid()) {
         CLight lightCopy(*light);
         const CColor& lightColor = lightCopy.GetColor();
-        const uchar* color = lbl_803CEB78 + 3 * x8_ballGlowColorIdx;
-        const CColor modColor(color[0], color[1], color[2], 0xff);
+        const SColorRgb& color = skBallLightModulationColors[x8_ballGlowColorIdx];
+        const CColor modColor(color.x0_r, color.x1_g, color.x2_b, 0xff);
         lightCopy.SetColor(CColor::Modulate(lightColor, modColor));
 
         if (x0_player.GetMorphballTransitionState() == CPlayer::kMS_Unmorphing) {
@@ -1931,11 +1963,11 @@ void CMorphBall::Render(const CStateManager& mgr, const CActorLights* lights) co
 
   {
     const float swooshAlpha = x1c20_tireFactor / x1c24_maxTireFactor;
-    const uchar* swooshColor0 = lbl_803CEB24 + 3 * x8_ballGlowColorIdx;
-    CColor color0 = CColor(swooshColor0[0], swooshColor0[1], swooshColor0[2], 0xff);
+    const SColorRgb& swooshColor0 = skBallTailSwooshColors[x8_ballGlowColorIdx];
+    CColor color0 = CColor(swooshColor0.x0_r, swooshColor0.x1_g, swooshColor0.x2_b, 0xff);
     color0.SetAlpha(swooshAlpha);
-    const uchar* swooshColor1 = lbl_803CEB40 + 3 * x8_ballGlowColorIdx;
-    CColor color1 = CColor(swooshColor1[0], swooshColor1[1], swooshColor1[2], 0xff);
+    const SColorRgb& swooshColor1 = skBallBoostedTailSwooshColors[x8_ballGlowColorIdx];
+    CColor color1 = CColor(swooshColor1.x0_r, swooshColor1.x1_g, swooshColor1.x2_b, 0xff);
     color1.SetAlpha(swooshAlpha);
 
     float t = 0.f;
@@ -1955,8 +1987,8 @@ void CMorphBall::Render(const CStateManager& mgr, const CActorLights* lights) co
 
     if (x1df4_boostDrainTime > 0.f && speed > 23.f && static_cast< double >(swooshAlpha) > 0.5) {
       const float jaggyAlpha = CMath::Clamp(0.f, (speed - 23.f) / 17.f, t);
-      const uchar* jaggyColorData = lbl_803CEB5C + 3 * x8_ballGlowColorIdx;
-      CColor jaggyColor = CColor(jaggyColorData[0], jaggyColorData[1], jaggyColorData[2], 0xff);
+      const SColorRgb& jaggyColorData = skBallJaggyTrailColors[x8_ballGlowColorIdx];
+      CColor jaggyColor = CColor(jaggyColorData.x0_r, jaggyColorData.x1_g, jaggyColorData.x2_b, 0xff);
       jaggyColor.SetAlpha(jaggyAlpha);
       x19c8_jaggyTrailGen->SetModulationColor(jaggyColor);
       x19c8_jaggyTrailGen->Render();

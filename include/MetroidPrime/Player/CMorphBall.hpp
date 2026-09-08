@@ -212,10 +212,10 @@ private:
   static CColor GetBallHullGlowColor(uint);
   static CColor GetBallBoostedHullGlowColor(uint);
 
-  static const uchar lbl_803CEB24[0x1c];
-  static const uchar lbl_803CEB40[0x1c];
-  static const uchar lbl_803CEB5C[0x1c];
-  static const uchar lbl_803CEB78[0x1c];
+  static const SColorRgb skBallTailSwooshColors[9];
+  static const SColorRgb skBallBoostedTailSwooshColors[9];
+  static const SColorRgb skBallJaggyTrailColors[9];
+  static const SColorRgb skBallLightModulationColors[9];
 
   CPlayer& x0_player;
   int x4_loadedModelId;
