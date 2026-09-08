@@ -16,6 +16,7 @@
 
 #include "MetroidPrime/Collision/CJointCollisionDescription.hpp"
 
+#include "rstl/auto_ptr.hpp"
 #include "rstl/optional_object.hpp"
 #include "rstl/reserved_vector.hpp"
 #include "rstl/single_ptr.hpp"
@@ -29,16 +30,15 @@ class CFlaahgraProjectile;
 class CFlaahgraData {
 public:
   CFlaahgraData(CInputStream& in, int propCount);
-  CFlaahgraData(const CFlaahgraData&);
 
-  float GetSmallScale() const;
-  float GetLargeScale() const;
-  float GetRetreatTime() const;
-  float GetReGrowthTime() const;
-  float GetRetreatHP() const;
+  float GetSmallScale() const { return x0_; }
+  float GetLargeScale() const { return x4_; }
+  float GetRetreatTime() const { return x8_; }
+  float GetDizzyDuration() const { return x144_; }
+  float GetCoverCooldown() const { return x148_; }
+  float GetRetreatHP() const { return x140_; }
+  const CActorParameters& GetActorParameters() const { return xd8_actorParameters; }
   float GetFaintToSmallHP() const { return xc_faintToSmallHP; }
-  float GetPlantDamagePerSecond() const;
-  float GetLargeDamageScale() const;
 
   const CDamageVulnerability& GetSnakeVulnerability() const { return x10_snakeVulnerability; }
 
@@ -48,6 +48,8 @@ public:
   const CDamageInfo& GetChargedProjectileDamage() const { return x9c_chargedProjectileDamage; }
   CAssetId GetGrowingPlantsRes() const { return xb8_growingPlantsRes; }
   const CDamageInfo& GetBombSlotDamage() const { return xbc_bombSlotDamage; }
+
+  CAssetId GetDependencyGroup() const { return x158_; }
 
   const CAnimationParameters& GetAnimationParameters() const { return x14c_animationParameters; }
 
@@ -92,6 +94,7 @@ public:
 private:
   TUniqueId xe8_owner;
 };
+CHECK_SIZEOF(CFlaahgraRenderer, 0xf0)
 
 class CFlaahgra : public CPatterned {
 public:
@@ -121,10 +124,8 @@ public:
   bool AIStage(CStateManager& mgr, float arg) override;
   bool HitSomething(CStateManager& mgr, float arg) override;
   bool OffLine(CStateManager& mgr, float arg) override;
-  bool SpotPlayer(CStateManager& mgr, float arg) override;
   bool ShouldTurn(CStateManager& mgr, float arg) override;
   bool ShouldAttack(CStateManager& mgr, float arg) override;
-  bool ShouldRetreat(CStateManager& mgr, float arg) override;
   bool BreakAttack(CStateManager& mgr, float arg) override;
   bool IsDizzy(CStateManager& mgr, float arg) override;
   bool CoverCheck(CStateManager& mgr, float arg) override;
@@ -146,12 +147,22 @@ public:
   void Cover(CStateManager& mgr, EStateMsg msg, float arg) override;
   void SpecialAttack(CStateManager& mgr, EStateMsg msg, float arg) override;
   void Enraged(CStateManager& mgr, EStateMsg msg, float arg) override;
-  void Retreat(CStateManager& mgr, EStateMsg msg, float arg) override;
 
   // CPatterned
   CProjectileInfo* ProjectileInfo() override;
 
 private:
+  struct SJointInfo {
+    const char* from;
+    const char* to;
+    float radius;
+    float separation;
+  };
+  struct SSphereJointInfo {
+    const char* name;
+    float radius;
+  };
+
   void LoadDependencies(CAssetId id);
   void ResetModelDataAndBodyController();
   void GatherAssets(CStateManager& mgr);
@@ -159,38 +170,39 @@ private:
   void FinalizeLoad(CStateManager& mgr);
   void GetMirrorWaypoints(CStateManager& mgr);
   void SetupCollisionManager(CStateManager& mgr);
+  void AddCollisionList(const SJointInfo* list, int count,
+                        rstl::vector< CJointCollisionDescription >& out);
+  void AddSphereCollisionList(const SSphereJointInfo* list, int count,
+                              rstl::vector< CJointCollisionDescription >& out);
   void UpdateCollisionManagers(float dt, CStateManager& mgr);
   void UpdateSmallScaleReGrowth(float dt);
   void UpdateHealthInfo(CStateManager& mgr);
   void UpdateAimPosition(CStateManager& mgr, float dt);
-  void SetMaterialProperties(const rstl::single_ptr< CCollisionActorManager >& colMgr,
-                              CStateManager& mgr);
+  void SetMaterialProperties(rstl::single_ptr< CCollisionActorManager >& colMgr,
+                             CStateManager& mgr);
   void SetCollisionActorBounds(CStateManager& mgr,
-                                const rstl::single_ptr< CCollisionActorManager >& colMgr,
-                                const CVector3f& extendedBounds);
-  void UpdateScale(float dt);
+                               const rstl::single_ptr< CCollisionActorManager >& colMgr,
+                               const CVector3f& extendedBounds);
+  void UpdateScale(float t, float minScale, float maxScale);
   void SetupHealthInfo(CStateManager& mgr);
-  CVector3f GetAttackTargetPos(const CStateManager& mgr) const;
+  CVector3f GetAttackTargetPos(CStateManager& mgr) const;
   void RattlePlayer(CStateManager& mgr, const CVector3f& vec);
   void CalculateFallDirection();
-  void UpdateHeadDamageVulnerability(CStateManager& mgr);
+  void UpdateHeadDamageVulnerability(CStateManager& mgr, bool vulnerable);
   void ApplyBombSlotDamage(CStateManager& mgr);
-  uint GetGrowthType() const;
-  CVector3f GetAttackTargetVector(const CStateManager& mgr) const;
-  CVector3f PredictTargetPosition(float dt, const CStateManager& mgr) const;
-  uint FindBestMeleeAttackType(const CStateManager& mgr) const;
+  CVector3f GetAttackTargetVector(CStateManager& mgr) const;
+  uint FindBestMeleeAttackType(CStateManager& mgr) const;
   bool IsSwipeAttack() const;
+  bool IsPlantStrikeAttack() const;
+  float GetEndActionTime() const;
   bool IsFiringProjectile() const;
   bool IsSphereCollider(TUniqueId uid) const;
-  void ResetMirrors(float dt);
-  void ProcessResetMirrors(CStateManager& mgr, float dt);
   TUniqueId GetMirrorNearestPlayer(const CStateManager& mgr) const;
   CFlaahgraProjectile* CreateProjectile(const CTransform4f& xf, CStateManager& mgr);
-  float GetOrbitDistanceCheck() const;
 
   int x568_state;
   CFlaahgraData x56c_data;
-  rstl::single_ptr< CBoneTracking > x6cc_boneTracking;
+  rstl::auto_ptr< CBoneTracking > x6c8_boneTracking;
   TUniqueId x6d0_rendererId;
   TToken< CGenDescription > x6d4_plantsParticleGenDesc;
   CProjectileInfo x6dc_normalProjectileInfo;
@@ -199,9 +211,9 @@ private:
   rstl::reserved_vector< CVector3f, 5 > x730_projectileDirs;
   rstl::reserved_vector< TUniqueId, 4 > x770_mirrorWaypoints;
   TUniqueId x77c_targetMirrorWaypointId;
-  uint x780_;
-  uint x784_;
-  uint x788_stage;
+  int x780_;
+  int x784_;
+  int x788_stage;
   CVector3f x78c_;
   int x798_meleeInitialAnimState;
   rstl::single_ptr< CCollisionActorManager > x79c_leftArmCollision;
@@ -221,7 +233,7 @@ private:
   float x7d4_faintTime;
   float x7d8_;
   CDamageInfo x7dc_halfContactDamage;
-  uint x7f8_;
+  int x7f8_;
   rstl::reserved_vector< TUniqueId, 6 > x7fc_sphereColliders;
   TUniqueId x80c_headActor;
   float x810_;
@@ -234,7 +246,7 @@ private:
   CVector3f x894_fallDirection;
   CVector3f x8a0_;
   CAnimRes x8ac_;
-  rstl::optional_object< TToken< CDependencyGroup > > x8c8_depGroup;
+  rstl::optional_object< CToken > x8c8_depGroup;
   rstl::vector< CToken > x8d4_tokens;
   bool x8e4_24_loaded : 1;
   bool x8e4_25_loading : 1;
@@ -253,11 +265,9 @@ private:
   bool x8e5_30_ : 1;
 
   static const SJointInfo skLeftArmJointList[];
-  static const SJointInfo skLeftArmAttackJointList[];
   static const SJointInfo skRightArmJointList[];
-  static const SJointInfo skRightArmAttackJointList[];
   static const SSphereJointInfo skSphereJointList[];
-  static const int skpAttackTypeLookup[];
+  static const pas::ESeverity skpAttackTypeLookup[];
   static const int skpComboChain[];
 };
 CHECK_SIZEOF(CFlaahgra, 0x8e8)
