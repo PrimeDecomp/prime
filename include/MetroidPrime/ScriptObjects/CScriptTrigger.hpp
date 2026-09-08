@@ -67,6 +67,11 @@ public:
   uint GetTriggerFlags() const { return x12c_flags; }
   float GetForceMagnitude() const { return x128_forceMagnitude; }
   const CVector3f& GetForceField() const { return x11c_forceField; }
+  void SetForceField(const CVector3f& force) {
+    x11c_forceField = force;
+    x128_forceMagnitude = force.Magnitude();
+  }
+  bool GetPlayerInside() const { return x148_28_playerTriggerProc; }
   void SetTriggerBounds(const CAABox& bounds) { x130_bounds = bounds; }
   bool CameraInside() const { return x148_25_camSubmerged; }
   rstl::optional_object< CAABox > GetTouchBounds() const override;
