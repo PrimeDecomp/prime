@@ -374,6 +374,8 @@ public:
 
   static const float skDamageHitTime;
   static const float skActorApproachDistance;
+  static const CColor skDamageColor;
+  static const CColor skFrozenDamageColor;
 
 protected:
   EPatrolState x2d8_patrolState;
