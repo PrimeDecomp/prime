@@ -40,7 +40,7 @@ public:
 
   bool IsPlayerActor() const { return x2e3_24_isPlayerActor; }
 
-private:
+protected:
   CHealthInfo x258_initialHealth;
   CHealthInfo x260_currentHealth;
   CDamageVulnerability x268_damageVulnerability;
