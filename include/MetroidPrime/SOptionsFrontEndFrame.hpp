@@ -17,10 +17,21 @@ public:
   SOptionsFrontEndFrame();
   ~SOptionsFrontEndFrame();
   void Update(float dt, const CSaveGameScreen* saveUI);
-  bool ProcessUserInput(const CFinalInput& input, const CSaveGameScreen* saveUI);
-  void Draw();
+  bool ProcessUserInput(const CFinalInput& input, CSaveGameScreen* saveUI);
+  void Draw() const;
 
 private:
+  bool PumpLoad();
+  void FinishedLoading();
+  void SetRightUIText();
+  void HandleRightSelectionChange();
+  void DeactivateRightMenu();
+  void DoLeftMenuAdvance(CGuiTableGroup* caller);
+  void DoMenuSelectionChange(CGuiTableGroup* caller, int oldSel);
+  void DoMenuCancel(CGuiTableGroup* caller);
+  void SetTableColors(CGuiTableGroup* table) const;
+  void DoSliderChange(CGuiSliderGroup* caller, float value);
+
   float x0_uiAlpha;
   TCachedToken< CGuiFrame > x4_frme;
   TCachedToken< CStringTable > x10_pauseScreen;
