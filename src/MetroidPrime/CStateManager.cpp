@@ -507,7 +507,8 @@ void CStateManager::AddObject(CEntity& obj) {
   if (objAreaId != kInvalidAreaId) {
     CGameArea* area = x850_world->Area(objAreaId);
     if (area->IsPostConstructed()) {
-      static_cast< CObjectList* >(area->GetPostConstructed()->x10c0_areaObjectList)->AddObject(obj);
+      static_cast< CObjectList* >(area->GetPostConstructed()->x10c0_areaObjectList.get())
+          ->AddObject(obj);
     }
   }
 
@@ -735,7 +736,7 @@ void CStateManager::RemoveObject(TUniqueId id) {
     if (areaId != kInvalidAreaId) {
       CGameArea* area = x850_world->Area(areaId);
       if (area->IsPostConstructed()) {
-        static_cast< CObjectList* >(area->GetPostConstructed()->x10c0_areaObjectList)
+        static_cast< CObjectList* >(area->GetPostConstructed()->x10c0_areaObjectList.get())
             ->RemoveObject(id);
       }
     }
@@ -1769,7 +1770,7 @@ rstl::pair< TEditorId, TUniqueId > CStateManager::GenerateObject(const TEditorId
     CGameArea* area = x850_world->Area(aid);
     if (area->IsPostConstructed()) {
       int layer = static_cast< int >(build.second.value >> 26);
-      const rstl::pair< const uchar*, uint > layerBuf = area->GetLayerScriptBuffer(layer);
+      const rstl::pair< const uchar*, int > layerBuf = area->GetLayerScriptBuffer(layer);
 
       CMemoryInStream stream(layerBuf.first + build.first->x4_position,
                              build.first->x8_length);
@@ -1780,32 +1781,31 @@ rstl::pair< TEditorId, TUniqueId > CStateManager::GenerateObject(const TEditorId
   return rstl::pair< TEditorId, TUniqueId >(kInvalidEditorId, kInvalidUniqueId);
 }
 
-void CStateManager::LoadScriptObjects(TAreaId aid, CInputStream& in, EScriptPersistence persist) {
+void CStateManager::LoadScriptObjects(TAreaId aid, CInputStream& in,
+                                      rstl::vector< TEditorId >& persist) {
   in.ReadChar();
 
-  int count = in.ReadLong();
+  const int count = in.ReadLong();
+  int remaining = count;
   persist.reserve(count + persist.size());
-  while (count != 0) {
+  while (remaining--) {
     const char type = in.ReadChar();
     const uint length = in.ReadLong();
     const uint readPos = in.GetReadPosition();
+    SScriptObjectStream stream(static_cast< EScriptObjectType >(static_cast< uchar >(type)),
+                               readPos, length);
 
-    const rstl::pair< TEditorId, TUniqueId > loaded =
-        LoadScriptObject(aid, static_cast< EScriptObjectType >(type), length, in);
+    const rstl::pair< TEditorId, TUniqueId > loaded = LoadScriptObject(
+        aid, static_cast< EScriptObjectType >(static_cast< uchar >(type)), length, in);
     const TEditorId eid = loaded.first;
     if (eid != kInvalidEditorId) {
       const rstl::pair< const SScriptObjectStream*, TEditorId > build = GetBuildForScript(eid);
       if (build.first == NULL) {
-        SScriptObjectStream stream;
-        stream.x0_type = static_cast< EScriptObjectType >(type);
-        stream.x4_position = readPos;
-        stream.x8_length = length;
-        x8a4_loadedScriptObjects.insert(rstl::pair< TEditorId, SScriptObjectStream >(eid, stream));
+        const rstl::pair< TEditorId, SScriptObjectStream > entry(eid, stream);
+        x8a4_loadedScriptObjects.insert(entry);
         persist.push_back(eid);
       }
     }
-
-    --count;
   }
 }
 
@@ -1895,7 +1895,7 @@ void CStateManager::FreeScriptObjects(TAreaId aid) {
   CGameArea* area = x850_world->Area(aid);
   if (area->IsPostConstructed()) {
     CObjectList* areaObjList =
-        static_cast< CObjectList* >(area->GetPostConstructed()->x10c0_areaObjectList);
+        static_cast< CObjectList* >(area->GetPostConstructed()->x10c0_areaObjectList.get());
 
     for (int i = areaObjList->GetFirstObjectIndex(); i != -1;
          i = areaObjList->GetNextObjectIndex(i)) {
@@ -1987,7 +1987,7 @@ bool CStateManager::GetVisSetForArea(TAreaId areaA, TAreaId areaB, CPVSVisSet& s
     setState = 1;
 
     const CGameArea* area = x850_world->GetArea(areaA);
-    const CPVSAreaSet* areaSet = area->GetPostConstructed()->xa0_pvs;
+    const CPVSAreaSet* areaSet = area->GetPostConstructed()->xa0_pvs.get();
     if (areaSet != nullptr) {
       setState = 2;
 
@@ -2040,7 +2040,7 @@ void CStateManager::PreRender() {
 
     if (occState == CGameArea::kOS_Visible) {
       CObjectList* areaObjList =
-          static_cast< CObjectList* >(areaIt->GetPostConstructed()->x10c0_areaObjectList);
+          static_cast< CObjectList* >(areaIt->GetPostConstructed()->x10c0_areaObjectList.get());
       for (int i = areaObjList->GetFirstObjectIndex(); i != -1;
            i = areaObjList->GetNextObjectIndex(i)) {
         CActor* actor = TCastToPtr< CActor >((*areaObjList)[i]);
@@ -2391,7 +2391,7 @@ void CStateManager::SetActorAreaId(CActor& actor, TAreaId aid) {
       TAreaId oldAid2 = actor.x4_areaId;
       CGameArea* oldAreaObj = world->Area(oldAid);
       if (oldAreaObj->IsPostConstructed()) {
-        static_cast< CObjectList* >(oldAreaObj->GetPostConstructed()->x10c0_areaObjectList)
+        static_cast< CObjectList* >(oldAreaObj->GetPostConstructed()->x10c0_areaObjectList.get())
             ->RemoveObject(actor.GetUniqueId());
       }
     }
@@ -2403,8 +2403,8 @@ void CStateManager::SetActorAreaId(CActor& actor, TAreaId aid) {
       CGameArea* newAreaObj = world->Area(newAid);
       if (newAreaObj->IsPostConstructed()) {
         TUniqueId uid = actor.GetUniqueId();
-        CObjectList* areaObjList =
-            static_cast< CObjectList* >(newAreaObj->GetPostConstructed()->x10c0_areaObjectList);
+        CObjectList* areaObjList = static_cast< CObjectList* >(
+            newAreaObj->GetPostConstructed()->x10c0_areaObjectList.get());
         if (static_cast< const CObjectList* >(areaObjList)->GetValidObjectById(uid) == nullptr) {
           areaObjList->AddObject(actor);
         }

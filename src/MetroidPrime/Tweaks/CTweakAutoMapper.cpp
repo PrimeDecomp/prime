@@ -2,10 +2,6 @@
 
 #include "Kyoto/Streams/CInputStream.hpp"
 
-// Used by CGameArea, CMapArea and CMapWorld.
-// TODO: properly handle this
-extern "C" int lbl_805A8EB0 = 0;
-
 CTweakAutoMapper::~CTweakAutoMapper() {}
 
 CTweakAutoMapper::CTweakAutoMapper(CInputStream& in)

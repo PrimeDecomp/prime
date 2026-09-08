@@ -261,14 +261,15 @@ MetroidPrime/CEffect.cpp:
 	.sdata      start:0x805A6E78 end:0x805A6E80
 
 MetroidPrime/Cameras/CGameCamera.cpp:
-	.text       start:0x8005AE3C end:0x8005DCF8
+	.text       start:0x8005AE3C end:0x8005DEE4
+	.rodata     start:0x803CCF90 end:0x803CCF98
 	.data       start:0x803DA188 end:0x803DA208
 	.sdata      start:0x805A6E80 end:0x805A6E98
 	.sdata2     start:0x805AA3D8 end:0x805AA420
 
 MetroidPrime/CGameArea.cpp:
-	.text       start:0x8005DCF8 end:0x80064800
-	.rodata     start:0x803CCF90 end:0x803CCFB8
+	.text       start:0x8005DEE4 end:0x80064800
+	.rodata     start:0x803CCF98 end:0x803CCFB8
 	.data       start:0x803DA208 end:0x803DA298
 	.sdata      start:0x805A6E98 end:0x805A6EB0
 	.sdata2     start:0x805AA420 end:0x805AA448
@@ -498,7 +499,6 @@ MetroidPrime/Tweaks/CTweakTargeting.cpp:
 MetroidPrime/Tweaks/CTweakAutoMapper.cpp:
 	.text       start:0x800B69BC end:0x800B6ECC
 	.data       start:0x803DF438 end:0x803DF448
-	.sbss       start:0x805A8EB0 end:0x805A8EB8
 	.sdata2     start:0x805AAA28 end:0x805AAA30
 
 MetroidPrime/CParticleGenInfoGeneric.cpp:
@@ -547,6 +547,7 @@ MetroidPrime/CDamageInfo.cpp:
 
 MetroidPrime/CMemoryDrawEnum.cpp:
 	.text       start:0x800C364C end:0x800C3700
+	.sbss       start:0x805A8EB0 end:0x805A8EB8
 
 MetroidPrime/ScriptObjects/CScriptDock.cpp:
 	.text       start:0x800C3700 end:0x800C468C

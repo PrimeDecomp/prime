@@ -90,10 +90,12 @@ enum EThermalDrawFlag {
 };
 
 struct SScriptObjectStream {
-  // CEntity* x0_obj;
   EScriptObjectType x0_type;
-  u32 x4_position;
-  u32 x8_length;
+  unsigned long x4_position;
+  unsigned long x8_length;
+
+  SScriptObjectStream(EScriptObjectType type, unsigned long position, unsigned long length)
+  : x0_type(type), x4_position(position), x8_length(length) {}
 };
 
 struct SOnScreenTex {
@@ -108,11 +110,6 @@ class CStateManager : public TOneStatic< CStateManager > {
 public:
   typedef rstl::map< TEditorId, TUniqueId > TIdList;
   typedef rstl::pair< TIdList::const_iterator, TIdList::const_iterator > TIdListResult;
-
-  class EScriptPersistence : public rstl::vector< TEditorId > {
-  public:
-    EScriptPersistence() : rstl::vector< TEditorId >() {}
-  };
 
   enum EGameState { kGS_Running, kGS_SoftPaused, kGS_Paused };
 
@@ -144,7 +141,7 @@ public:
   void SendScriptMsgAlways(TUniqueId uid, TUniqueId src, EScriptObjectMessage msg);
   void RecursiveDrawTree(TUniqueId) const;
   void FreeScriptObjects(TAreaId);
-  void LoadScriptObjects(TAreaId, CInputStream&, EScriptPersistence);
+  void LoadScriptObjects(TAreaId, CInputStream&, rstl::vector< TEditorId >&);
   rstl::pair< TEditorId, TUniqueId >
   LoadScriptObject(TAreaId, EScriptObjectType, unsigned int, CInputStream&);
   bool AddDrawableActor(const CActor& actor, const CVector3f& pos, const CAABox& bounds) const;
@@ -223,6 +220,7 @@ public:
   void SetPlayerActorHead(TUniqueId id) { xf6c_playerActorHead = id; }
   CPlayerState* PlayerState() { return &*x8b8_playerState; }
   const CPlayerState* GetPlayerState() const { return &*x8b8_playerState; }
+  rstl::rc_ptr< CScriptLayerManager >& WorldLayerState() { return x8c8_worldLayerState; }
   CWorld* World() { return x850_world.get(); }
   const CWorld* GetWorld() const { return x850_world.get(); }
   CScriptMailbox* Mailbox() { return x8bc_mailbox.GetPtr(); }

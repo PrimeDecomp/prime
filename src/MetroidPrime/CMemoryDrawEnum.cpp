@@ -1,5 +1,7 @@
-//#include <MetroidPrime/CMemoryDrawEnum.hpp>
+#include "MetroidPrime/CMemoryDrawEnum.hpp"
 #include <Kyoto/Alloc/IAllocator.hpp>
+
+uint CMemoryDrawEnum::sWorldMemory = 0;
 
 /* ODR strikes again! */
 IAllocator::SMetrics::SMetrics(const SMetrics& other)

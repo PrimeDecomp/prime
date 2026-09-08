@@ -1,5 +1,7 @@
 #include "MetroidPrime/CMapWorld.hpp"
 
+#include "MetroidPrime/CMemoryDrawEnum.hpp"
+
 #include "Kyoto/CFactoryFnReturn.hpp"
 #include "Kyoto/Graphics/CGraphics.hpp"
 #include "Kyoto/Math/CMath.hpp"
@@ -135,11 +137,11 @@ CMapWorld::CMapWorld(CInputStream& in)
     x0_areas.push_back(CMapAreaData(areaRes, kMAL_Unloaded, i == 0 ? nullptr : &x0_areas[i - 1]));
   }
   x10_listHeads[kMAL_Unloaded] = &x0_areas.back();
-  lbl_805A8EB0 += x0_areas.capacity() * sizeof(CMapAreaData) + sizeof(*this);
+  CMemoryDrawEnum::AddWorldMemory(x0_areas.capacity() * sizeof(CMapAreaData) + sizeof(*this));
 }
 
 CMapWorld::~CMapWorld() {
-  lbl_805A8EB0 -= x0_areas.capacity() * sizeof(CMapAreaData) + sizeof(*this);
+  CMemoryDrawEnum::SubtractWorldMemory(x0_areas.capacity() * sizeof(CMapAreaData) + sizeof(*this));
 }
 
 CMapArea* CMapWorld::GetMapArea(int aid) const { return x0_areas[aid].GetMapArea(); }
