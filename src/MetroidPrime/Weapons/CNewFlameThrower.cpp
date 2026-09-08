@@ -416,9 +416,9 @@ bool CNewFlameThrower::DoCollisionCheck(CStateManager& mgr,
             if (previous != i && swoosh.mActive) {
               const float sphereRadius = radius;
               const CSphere sphere(swoosh.mTranslation, sphereRadius);
-              swarm->HandleRadiusDamage(rstl::max_val(sphere.GetRadius(), 1.f) *
-                                            swarm->GetWeaponDamageRadius(),
-                                        mgr, sphere.GetCenter());
+              swarm->ScareSnakeWeeds(mgr, sphere.GetCenter(),
+                                     rstl::max_val(sphere.GetRadius(), 1.f) *
+                                         swarm->GetWeaponDamageRadius());
             }
           }
         }

@@ -18,6 +18,7 @@
 class CPlayerGun;
 class CMorphBall;
 class CPlayerCameraBob;
+class CCollidableSphere;
 
 namespace NPlayer {
 enum EPlayerMovementState {
@@ -221,8 +222,12 @@ public:
   float GetBallMaxVelocity() const;
   CVector3f GetEyePosition() const;
   float GetEyeHeight() const;
+  float GetUnbiasedEyeHeight() const;
+  const CCollidableSphere* GetCollidableSphere() const;
   CTransform4f CreateTransformFromMovementDirection() const;
   float GetOrbitMaxTargetDistance(const CStateManager& mgr) const;
+  float GetOrbitMaxLockDistance(const CStateManager& mgr) const;
+  bool ValidateOrbitTargetIdAndPointer(TUniqueId id, CStateManager& mgr) const;
   EPlayerOrbitState GetOrbitState() const { return x304_orbitState; }
   const CVector3f& GetMovementDirection() const { return x50c_moveDir; }
   float GetMoveSpeed() const { return x4f8_moveSpeed; }
@@ -245,12 +250,18 @@ public:
   void AddOrbitDisableSource(CStateManager& mgr, TUniqueId addId);
   void RemoveOrbitDisableSource(TUniqueId uid);
   bool CheckOrbitDisableSourceList() const;
+  bool CheckOrbitDisableSourceList(const CStateManager& mgr);
+  bool WithinOrbitScreenEllipse(const CVector3f& screenCoords, EPlayerZoneInfo zone) const;
+  bool WithinOrbitScreenBox(const CVector3f& screenCoords, EPlayerZoneInfo zone,
+                            EPlayerZoneType type) const;
   void SetAimTargetId(TUniqueId target);
+  EOrbitValidationResult ValidateCurrentOrbitTargetId(CStateManager& mgr);
   EOrbitValidationResult ValidateOrbitTargetId(TUniqueId target, CStateManager& mgr) const;
   void DoSfxEffects(CSfxHandle sfx);
   bool GetFrozenState() const;
   void SetFrozenState(CStateManager& stateMgr, CAssetId steamTxtr, ushort sfx, CAssetId iceTxtr);
   void BreakFrozenState(CStateManager& mgr);
+  void SetFrozenTimeoutBias(float bias) { x758_frozenTimeoutBias = bias; }
   void UpdateCinematicState(CStateManager& mgr);
   bool IsMorphBallTransitioning() const;
   bool IsSidewaysDashing() const { return x37c_sidewaysDashing; }
@@ -260,12 +271,20 @@ public:
                : CMath::Clamp(0.f, x574_morphTime / x578_morphDuration, 1.f);
   }
   void InitialiseAnimation();
+  void SetIntoBallReadyAnimation(CStateManager& mgr);
+  int ChoseTransitionToAnimation(float dt, CStateManager& mgr) const;
+  int GetNextBallTransitionAnim(float dt, bool& loop, CStateManager& mgr);
+  void ActivateMorphBallCamera(CStateManager& mgr);
   void LoadAnimationTokens();
   void HolsterGun(CStateManager& mgr);
   void ResetAimTargetPrediction(TUniqueId target);
   void ResetGun(CStateManager& mgr);
   void DrawGun(CStateManager& mgr);
   bool CheckPostGrapple() const;
+  void PreventFallingCameraPitch();
+  void ApplyGrappleJump(CStateManager& mgr);
+  void BeginGrapple(CVector3f& direction, CStateManager& mgr);
+  bool ValidateFPPosition(CVector3f position, CStateManager& mgr);
   void UpdateGunState(const CFinalInput& input, CStateManager& mgr);
   void UpdateAimTargetPrediction(const CTransform4f& xf, CStateManager& mgr);
   void UpdateAssistedAiming(const CTransform4f& xf, CStateManager& mgr);
@@ -314,9 +333,9 @@ public:
   void StartLandingControlFreeze(); // name?
   void EndLandingControlFreeze();   // name?
   void AdjustEyeOffset(CStateManager& mgr);
-  void SetEyeOffset(float bias);
+  void SetEyeZBias(float bias);
   float GetEyeOffset() const { return x9c8_eyeZBias; }
-  void UpdateStepUpSmoothing(float dt);
+  void UpdateStepCameraZBias(float dt);
   void UpdateEnvironmentDamageCameraShake(float dt, CStateManager& mgr);
   void UpdatePhazonDamage(float dt, CStateManager& mgr);
   void UpdateFreeLook(float dt);
@@ -324,6 +343,7 @@ public:
   void UpdateBombJumpStuff();
   void BombJump(const CVector3f& pos, CStateManager& mgr);
   void UpdateTransitionFilter(float dt, CStateManager& mgr);
+  void CalculatePlayerControlDirection(CStateManager& mgr);
   void CalculatePlayerMovementDirection(float dt);
   void UpdatePlayerControlDirection(float dt, CStateManager& mgr);
   void UpdateFrozenState(const CFinalInput& input, CStateManager& mgr);
@@ -373,6 +393,28 @@ public:
   void DoPostCameraStuff(float dt, CStateManager& mgr); // name?
   float UpdateCameraBob(float dt, CStateManager& mgr);
   const CPlayerCameraBob* GetCameraBobObject() const { return x76c_cameraBob.get(); }
+  float CalculateOrbitZBasedDistance(EPlayerOrbitType type);
+  void UpdateOrbitPosition(float distance, CStateManager& mgr);
+  void UpdateOrbitZPosition();
+  void UpdateOrbitFixedPosition();
+  void SetOrbitPosition(float distance, CStateManager& mgr);
+  void ActivateOrbitSource(CStateManager& mgr);
+  void UpdateOrbitSelection(const CFinalInput& input, CStateManager& mgr);
+  void UpdateOrbitableObjects(CStateManager& mgr);
+  void FindOrbitableObjects(const rstl::reserved_vector< TUniqueId, 1024 >& nearObjects,
+                           rstl::vector< TUniqueId >& listOut, EPlayerZoneInfo zone,
+                           EPlayerZoneType type, CStateManager& mgr, bool onScreenTest) const;
+  TUniqueId FindBestOrbitableObject(const rstl::vector< TUniqueId >& ids, EPlayerZoneInfo zone,
+                                  CStateManager& mgr) const;
+  TUniqueId FindOrbitTargetId(CStateManager& mgr);
+  bool ValidateAimTargetId(TUniqueId id, CStateManager& mgr);
+  bool ValidateObjectForMode(TUniqueId id, CStateManager& mgr) const;
+  TUniqueId FindAimTargetId(CStateManager& mgr);
+  TUniqueId CheckEnemiesAgainstOrbitZone(const rstl::reserved_vector< TUniqueId, 1024 >& ids,
+                                        EPlayerZoneInfo zone, EPlayerZoneType type,
+                                        CStateManager& mgr) const;
+  void OrbitPoint(EPlayerOrbitType type, CStateManager& mgr);
+  void OrbitCarcass(CStateManager& mgr);
   void UpdateOrbitTarget(CStateManager& mgr);
   void UpdateOrbitOrientation(CStateManager& mgr);
   bool IsTransparent() const;
@@ -385,6 +427,7 @@ public:
 
   float GetStaticTimer() const { return x740_staticTimer; }
 
+  bool GetPlayerIsSlidingOnWall() const { return x9c5_28_slidingOnWall; }
   ESurfaceRestraints GetCurrentSurfaceRestraint() const { return x2ac_surfaceRestraint; }
   ESurfaceRestraints GetSurfaceRestraint() const {
     return x2b0_outOfWaterTicks == 2 ? GetCurrentSurfaceRestraint() : kSR_Water;
@@ -393,6 +436,7 @@ public:
   EOrbitBrokenType GetOrbitBrokenType() const { return x30c_orbitBrokenType; }
   TUniqueId GetOrbitTargetId() const { return x310_orbitTargetId; }
   const CVector3f& GetOrbitPoint() const { return x314_orbitPoint; }
+  void SetOrbitNextTargetId(TUniqueId id) { x33c_orbitNextTargetId = id; }
   TUniqueId GetOrbitNextTargetId() const { return x33c_orbitNextTargetId; }
   CVector3f GetHUDOrbitTargetPosition() const;
   TUniqueId GetAttachedActor() const { return x26c_attachedActor; }
@@ -432,7 +476,12 @@ public:
 
   CVector3f GetDampedClampedVelocityWR() const;
   float GetAverageSpeed() const;
+  float GetAcceleration() const;
   float GetGravity() const;
+  void FinishSidewaysDash();
+  bool SidewaysDashAllowed(float strafeInput, float forwardInput, const CFinalInput& input,
+                          CStateManager& mgr) const;
+  void ComputeDash(const CFinalInput& input, float dt, CStateManager& mgr);
 
   float GetAttachedActorStruggle() const;
   CPlayerEnergyDrain& GetPlayerEnergyDrain() { return x274_energyDrain; }
@@ -442,11 +491,11 @@ public:
   void SetAttachedActorStruggle(float struggle) { xa28_attachedActorStruggle = struggle; }
 
   // PlayerHint
-  // bool SetAreaPlayerHint(const CScriptPlayerHint& hint, CStateManager& mgr);
+  const bool SetAreaPlayerHint(const CScriptPlayerHint& hint, CStateManager& mgr);
+  void ResetPlayerHintState(CStateManager& mgr);
   void AddToPlayerHintRemoveList(TUniqueId id, CStateManager& mgr);
   void AddToPlayerHintAddList(TUniqueId id, CStateManager& mgr);
-  // void DeactivatePlayerHint(TUniqueId id, CStateManager& mgr);
-  // void UpdatePlayerHints(CStateManager& mgr);
+  void DeactivatePlayerHint(TUniqueId id, CStateManager& mgr);
 
   static int SfxIdFromMaterial(const CMaterialList& mat, const ushort* idList, int tableLen,
                                ushort defId);
@@ -473,7 +522,7 @@ private:
   ESurfaceRestraints x2ac_surfaceRestraint;
   int x2b0_outOfWaterTicks;
   rstl::reserved_vector< float, 6 > x2b4_accelerationTable;
-  uint x2d0_curAcceleration;
+  int x2d0_curAcceleration;
   float x2d4_accelerationChangeTimer;
   CAABox x2d8_fpBounds;
   float x2f0_ballTransHeight;
@@ -504,7 +553,7 @@ private:
   float x384_dashTimer;
   float x388_dashButtonHoldTime;
   bool x38c_doneSidewaysDashing;
-  uint x390_orbitSource;
+  int x390_orbitSource;
   bool x394_orbitingEnemy;
   float x398_dashSpeedMultiplier;
   bool x39c_noStrafeDashBlend;
@@ -559,7 +608,7 @@ private:
   float x578_morphDuration;
   uint x57c_;
   uint x580_;
-  int x584_ballTransitionAnim;
+  uint x584_ballTransitionAnim;
   float x588_alpha;
   float x58c_transitionVel;
   bool x590_leaveMorphballAllowed;
@@ -600,8 +649,8 @@ private:
   bool x82c_inLava;
   TUniqueId x82e_ridingPlatform;
   TUniqueId x830_playerHint;
-  uint x834_playerHintPriority;
-  rstl::reserved_vector< rstl::pair< uint, TUniqueId >, 32 > x838_playerHints;
+  int x834_playerHintPriority;
+  rstl::reserved_vector< rstl::pair< int, TUniqueId >, 32 > x838_playerHints;
   rstl::reserved_vector< TUniqueId, 32 > x93c_playerHintsToRemove;
   rstl::reserved_vector< TUniqueId, 32 > x980_playerHintsToAdd;
   bool x9c4_24_visorChangeRequested : 1;
@@ -632,7 +681,7 @@ private:
   bool x9c7_25_outOfBallLookAtHintActor : 1;
   float x9c8_eyeZBias;
   float x9cc_stepCameraZBias;
-  uint x9d0_bombJumpCount;
+  int x9d0_bombJumpCount;
   int x9d4_bombJumpCheckDelayFrames;
   CVector3f x9d8_controlDirOverrideDir;
   rstl::reserved_vector< TUniqueId, 5 > x9e4_orbitDisableList;

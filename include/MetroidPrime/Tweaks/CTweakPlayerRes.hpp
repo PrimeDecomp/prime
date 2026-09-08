@@ -6,6 +6,7 @@
 
 #include "Kyoto/SObjectTag.hpp"
 #include "Kyoto/TOneStatic.hpp"
+#include "rstl/reserved_vector.hpp"
 #include "types.h"
 
 struct CTweakPlayerRes : public ITweakObject, public TOneStatic< CTweakPlayerRes > {
@@ -17,24 +18,15 @@ public:
   CAssetId x14_minesBreakFirstBottomIcon;
   CAssetId x18_minesBreakSecondTopIcon;
   CAssetId x1c_minesBreakSecondBottomIcon;
-  CAssetId x20_unk;
-  CAssetId x24_lStick[9];
-  CAssetId x48_unk;
-  CAssetId x4c_cStick[9];
-  CAssetId x70_unk;
-  CAssetId x74_lTrigger[2];
-  CAssetId x7c_unk;
-  CAssetId x80_rTrigger[2];
-  CAssetId x88_unk;
-  CAssetId x8c_startButton[2];
-  CAssetId x94_unk;
-  CAssetId x98_aButton[2];
-  CAssetId xa0_unk;
-  CAssetId xa4_bButton[2];
-  CAssetId xac_unk;
-  CAssetId xb0_xButton[2];
-  CAssetId xb8_unk;
-  CAssetId xbc_yButton[2];
+  rstl::reserved_vector< CAssetId, 9 > x20_lStick;
+  rstl::reserved_vector< CAssetId, 9 > x48_cStick;
+  rstl::reserved_vector< CAssetId, 2 > x70_lTrigger;
+  rstl::reserved_vector< CAssetId, 2 > x7c_rTrigger;
+  rstl::reserved_vector< CAssetId, 2 > x88_startButton;
+  rstl::reserved_vector< CAssetId, 2 > x94_aButton;
+  rstl::reserved_vector< CAssetId, 2 > xa0_bButton;
+  rstl::reserved_vector< CAssetId, 2 > xac_xButton;
+  rstl::reserved_vector< CAssetId, 2 > xb8_yButton;
   CAssetId xc4_ballTransitionsANCS;
   CAssetId xc8_ballTransitions[5];
   CAssetId xdc_cineGun[5];

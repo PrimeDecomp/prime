@@ -25,8 +25,9 @@ public:
   // UpdateElevation__18CFirstPersonCameraFR13CStateManager
   // UpdateTransform__18CFirstPersonCameraFR13CStateManagerf
   const CTransform4f& GetGunFollowTransform() const;
-  // SetLockCamera__18CFirstPersonCameraFb
+  void SetLockCamera(bool lock) { x18c_lockCamera = lock; }
   void CancelCinematicOffset();
+  void DeferBallTransitionProcessing() { x1c6_24_deferBallTransitionProcessing = true; }
 
 private:
   float x188_orbitCameraSpeed;

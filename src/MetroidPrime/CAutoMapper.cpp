@@ -656,7 +656,7 @@ void CAutoMapper::ProcessControllerInput(const CFinalInput& input, const CStateM
       string.append(imagePrefix, -1);
       {
         rstl::string hexStr(
-            CBasics::Stringize("SI,0.6,1.0,%8.8X", gpTweakPlayerRes->x24_lStick[x2e4_lStickPos]));
+            CBasics::Stringize("SI,0.6,1.0,%8.8X", gpTweakPlayerRes->x20_lStick[x2e4_lStickPos]));
         string.append(CStringExtras::ConvertToUNICODE(hexStr));
       }
       string.append(imageSuffix, -1);
@@ -666,7 +666,7 @@ void CAutoMapper::ProcessControllerInput(const CFinalInput& input, const CStateM
       string.assign(imagePrefix, -1);
       {
         rstl::string hexStr(
-            CBasics::Stringize("SI,0.6,1.0,%8.8X", gpTweakPlayerRes->x4c_cStick[x2e8_rStickPos]));
+            CBasics::Stringize("SI,0.6,1.0,%8.8X", gpTweakPlayerRes->x48_cStick[x2e8_rStickPos]));
         string.append(CStringExtras::ConvertToUNICODE(hexStr));
       }
       string.append(imageSuffix, -1);
@@ -676,7 +676,7 @@ void CAutoMapper::ProcessControllerInput(const CFinalInput& input, const CStateM
       string.assign(imagePrefix, -1);
       {
         rstl::string hexStr(
-            CBasics::Stringize("%8.8X", gpTweakPlayerRes->x74_lTrigger[x2ec_lTriggerPos]));
+            CBasics::Stringize("%8.8X", gpTweakPlayerRes->x70_lTrigger[x2ec_lTriggerPos]));
         string.append(CStringExtras::ConvertToUNICODE(hexStr));
       }
       string.append(imageSuffix, -1);
@@ -684,7 +684,7 @@ void CAutoMapper::ProcessControllerInput(const CFinalInput& input, const CStateM
       string.append(imagePrefix, -1);
       {
         rstl::string hexStr(
-            CBasics::Stringize("%8.8X", gpTweakPlayerRes->x80_rTrigger[x2f0_rTriggerPos]));
+            CBasics::Stringize("%8.8X", gpTweakPlayerRes->x7c_rTrigger[x2f0_rTriggerPos]));
         string.append(CStringExtras::ConvertToUNICODE(hexStr));
       }
       string.append(imageSuffix, -1);
@@ -1405,7 +1405,7 @@ void CAutoMapper::Update(float dt, const CStateManager& mgr) {
       string.reserve(0x100);
       string.append(imagePrefix, -1);
       rstl::string hexStr(
-          CBasics::Stringize("%8.8X", gpTweakPlayerRes->x98_aButton[x2f4_aButtonPos]));
+          CBasics::Stringize("%8.8X", gpTweakPlayerRes->x94_aButton[x2f4_aButtonPos]));
       rstl::wstring unicodeHex = CStringExtras::ConvertToUNICODE(hexStr);
       string.append(unicodeHex);
       string.append(imageSuffix, -1);

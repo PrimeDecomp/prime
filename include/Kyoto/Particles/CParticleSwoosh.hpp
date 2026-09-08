@@ -85,6 +85,8 @@ public:
   void DestroyParticles() override;
   uint Get4CharId() const override;
 
+  static int GetAliveParticleSystemCount();
+
   void SetWarmUp() { x1d0_26_forceOneUpdate = true; }
   void SetRenderGaps(bool gaps) { x1d0_27_renderGaps = gaps; }
 

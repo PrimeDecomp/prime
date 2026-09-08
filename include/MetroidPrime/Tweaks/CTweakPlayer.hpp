@@ -18,21 +18,39 @@ public:
   CTweakPlayer(CInputStream&);
 
   float GetMaxTranslationalAcceleration(CPlayer::ESurfaceRestraints s) const {
+    if (s < CPlayer::kSR_Normal || s > CPlayer::kSR_Shrubbery) {
+      s = CPlayer::kSR_Normal;
+    }
     return mMaxTranslationalAcceleration[s];
   }
   float GetMaxRotationalAcceleration(CPlayer::ESurfaceRestraints s) const {
+    if (s < CPlayer::kSR_Normal || s > CPlayer::kSR_Shrubbery) {
+      s = CPlayer::kSR_Normal;
+    }
     return mMaxRotationalAcceleration[s];
   }
   float GetPlayerTranslationFriction(CPlayer::ESurfaceRestraints s) const {
+    if (s < CPlayer::kSR_Normal || s > CPlayer::kSR_Shrubbery) {
+      s = CPlayer::kSR_Normal;
+    }
     return mTranslationFriction[s];
   }
   float GetPlayerRotationFriction(CPlayer::ESurfaceRestraints s) const {
+    if (s < CPlayer::kSR_Normal || s > CPlayer::kSR_Shrubbery) {
+      s = CPlayer::kSR_Normal;
+    }
     return mRotationFriction[s];
   }
   float GetPlayerRotationMaxSpeed(CPlayer::ESurfaceRestraints s) const {
+    if (s < CPlayer::kSR_Normal || s > CPlayer::kSR_Shrubbery) {
+      s = CPlayer::kSR_Normal;
+    }
     return mRotationMaxSpeed[s];
   }
   float GetPlayerTranslationMaxSpeed(CPlayer::ESurfaceRestraints s) const {
+    if (s < CPlayer::kSR_Normal || s > CPlayer::kSR_Shrubbery) {
+      s = CPlayer::kSR_Normal;
+    }
     return mTranslationMaxSpeed[s];
   }
   float GetNormalGravAccel() const { return mNormalGravAccel; }
@@ -72,10 +90,10 @@ public:
   float GetOrbitMaxTargetDistance() const { return mOrbitMaxTargetDistance; }
   float GetOrbitMaxLockDistance() const { return mOrbitMaxLockDistance; }
   float GetOrbitDistanceThreshold() const { return mOrbitDistanceThreshold; }
-  uint GetOrbitScreenBoxHalfExtentX(int zone) const { return mOrbitScreenBoxHalfExtentX[zone]; }
-  uint GetOrbitScreenBoxHalfExtentY(int zone) const { return mOrbitScreenBoxHalfExtentY[zone]; }
-  uint GetOrbitScreenBoxCenterX(int zone) const { return mOrbitScreenBoxCenterX[zone]; }
-  uint GetOrbitScreenBoxCenterY(int zone) const { return mOrbitScreenBoxCenterY[zone]; }
+  uint GetOrbitZoneWidth(int zone) const { return mOrbitScreenBoxHalfExtentX[zone]; }
+  uint GetOrbitZoneHeight(int zone) const { return mOrbitScreenBoxHalfExtentY[zone]; }
+  uint GetOrbitZoneCentreX(int zone) const { return mOrbitScreenBoxCenterX[zone]; }
+  uint GetOrbitZoneCentreY(int zone) const { return mOrbitScreenBoxCenterY[zone]; }
   uint GetOrbitZoneIdealX(int zone) const { return mOrbitZoneIdealX[zone]; }
   uint GetOrbitZoneIdealY(int zone) const { return mOrbitZoneIdealY[zone]; }
   float GetOrbitNearX() const { return mOrbitNearX; }

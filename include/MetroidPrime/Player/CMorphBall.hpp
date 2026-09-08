@@ -83,6 +83,7 @@ public:
   void LeaveMorphBallState(CStateManager& mgr);
   void LeaveBoosting();
   void CancelBoosting();
+  void SetBoostEnabled(bool enabled) { x1de4_25_boostEnabled = enabled; }
   // InSpiderMode__10CMorphBallCFv weak
   void SetAsProjectile();
   void CollidedWith(const TUniqueId&, const CCollisionInfoList&, CStateManager&);
@@ -91,7 +92,7 @@ public:
   void DampLinearAndAngularVelocities(float linDamp, float angDamp);
   bool IsClimbable(const CCollisionInfo&) const;
   void FluidFXThink(CActor::EFluidState state, CScriptWater& water, CStateManager& mgr);
-  // GetCollidableSphere__10CMorphBallCFv weak
+  const CCollidableSphere& GetCollidableSphere() const { return x38_collisionSphere; }
   // DrawCollisionPrimitive__10CMorphBallCFv global
   // GetPrimitiveTransform__10CMorphBallCFv global
   void TouchModel(const CStateManager&) const;

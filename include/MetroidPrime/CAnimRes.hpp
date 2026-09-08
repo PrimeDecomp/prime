@@ -41,7 +41,7 @@ public:
   int GetCharacterNodeId() const { return x4_charIdx; }
   const CVector3f& GetScale() const { return x8_scale; }
   int GetDefaultAnim() const { return x18_defaultAnim; }
-  bool CanLoop() const { return x14_canLoop; }
+  const bool CanLoop() const { return x14_canLoop; }
 
   static const int kDefaultCharIdx;
 };

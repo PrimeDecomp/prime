@@ -55,6 +55,9 @@ public:
   void EnterIdle(CStateManager& mgr);
   void EnterStruck(CStateManager&, float, bool, bool);
   void DisconnectGrappleBeam();
+  void GrappleBeamConnected();
+  void GrappleBeamDisconnected();
+  void Activate(bool active);
   void RenderGrappleBeam(const CStateManager&, const CVector3f&) const;
   void AsyncLoadSuit(CStateManager& mgr);
   void TouchModel(const CStateManager&) const;
@@ -68,7 +71,7 @@ public:
   const CGunController* GetGunController() const { return x328_gunController.get(); }
 
   EArmState GetAnimState() const { return x334_animState; }
-  void SetAnimState(const EArmState state) { x334_animState = state; }
+  void SetAnimState(EArmState state);
   const bool GetActive() const { return x3b2_24_active; }
   void SetActive(const bool active) { x3b2_24_active = active; }
   const bool BeamActive() const { return x3b2_25_beamActive; }

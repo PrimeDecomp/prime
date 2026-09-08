@@ -1,7 +1,9 @@
 #ifndef _CICESHEEGOTH
 #define _CICESHEEGOTH
 
-#include "CElitePirate.hpp"
+#include "Collision/CCollidableAABox.hpp"
+#include "MetroidPrime/CBoneTracking.hpp"
+#include "MetroidPrime/PathFinding/CPathFindSearch.hpp"
 #include "types.h"
 
 #include "MetroidPrime/CDamageInfo.hpp"
@@ -14,6 +16,11 @@
 #include "MetroidPrime/Weapons/CProjectileInfo.hpp"
 
 class CParticleElectric;
+class CElementGen;
+class CElectricDescription;
+class CCollisionActor;
+class CCollisionActorManager;
+class CGameProjectile;
 class CIceSheegothData {
 public:
   static int GetMinProperties() { return skMinProperties; }
@@ -46,7 +53,7 @@ public:
   float GetX1dc() const { return x1dc_; }
   float GetMaxInterestTime() const { return x1e0_maxInterestTime; }
   CAssetId GetX1e4() const { return x1e4_; }
-  short GetX1e8() const { return x1e8_; }
+  const ushort GetX1e8() const { return x1e8_; }
   CAssetId GetX1ec() const { return x1ec_; }
   bool GetX1f0_24() const { return x1f0_24_; }
   bool GetX1f0_25() const { return x1f0_25_; }
@@ -109,6 +116,49 @@ public:
   void Render(const CStateManager& mgr) const override;
   void AddToRenderer(const CFrustumPlanes&, const CStateManager&) const override;
 
+  const CDamageVulnerability* GetDamageVulnerability() const override;
+  const CDamageVulnerability* GetDamageVulnerability(const CVector3f&, const CVector3f&,
+                                                     const CDamageInfo&) const override;
+  CVector3f GetAimPosition(const CStateManager& mgr, float dt) const override;
+  CAABox GetSortingBounds(const CStateManager& mgr) const override;
+  EWeaponCollisionResponseTypes GetCollisionResponseType(const CVector3f&, const CVector3f&,
+                                                         const CWeaponMode&, int) const override;
+  void DoUserAnimEvent(CStateManager& mgr, const CInt32POINode& node, EUserEventType type,
+                       float dt) override;
+  CProjectileInfo* ProjectileInfo() override { return &xa58_projectileInfo; }
+  void Patrol(CStateManager& mgr, EStateMsg msg, float arg) override;
+  void ProjectileAttack(CStateManager& mgr, EStateMsg msg, float arg) override;
+  void Attack(CStateManager& mgr, EStateMsg msg, float arg) override;
+  void SpecialAttack(CStateManager& mgr, EStateMsg msg, float arg) override;
+  void DoubleSnap(CStateManager& mgr, EStateMsg msg, float arg) override;
+  void PathFind(CStateManager& mgr, EStateMsg msg, float arg) override;
+  void Approach(CStateManager& mgr, EStateMsg msg, float arg) override;
+  void TargetPatrol(CStateManager& mgr, EStateMsg msg, float arg) override;
+  void Generate(CStateManager& mgr, EStateMsg msg, float arg) override;
+  void Deactivate(CStateManager& mgr, EStateMsg msg, float arg) override;
+  void Crouch(CStateManager& mgr, EStateMsg msg, float arg) override;
+  void Taunt(CStateManager& mgr, EStateMsg msg, float arg) override;
+  void Enraged(CStateManager& mgr, EStateMsg msg, float arg) override;
+  void TurnAround(CStateManager& mgr, EStateMsg msg, float arg) override;
+  void Flinch(CStateManager& mgr, EStateMsg msg, float arg) override;
+  bool InMaxRange(CStateManager& mgr, float arg) override;
+  bool ShotAt(CStateManager& mgr, float arg) override;
+  bool TooClose(CStateManager& mgr, float arg) override;
+  bool OffLine(CStateManager& mgr, float arg) override;
+  bool LostInterest(CStateManager& mgr, float arg) override;
+  bool Leash(CStateManager& mgr, float arg) override;
+  bool ShouldAttack(CStateManager& mgr, float arg) override;
+  bool ShouldSpecialAttack(CStateManager& mgr, float arg) override;
+  bool ShouldDoubleSnap(CStateManager& mgr, float arg) override;
+  bool ShouldFire(CStateManager& mgr, float arg) override;
+  bool ShouldTurn(CStateManager& mgr, float arg) override;
+  bool ShouldFlinch(CStateManager& mgr, float arg) override;
+  bool AggressionCheck(CStateManager& mgr, float arg) override;
+  bool InPosition(CStateManager& mgr, float arg) override;
+  bool InDetectionRange(CStateManager& mgr, float arg) override;
+  bool SpotPlayer(CStateManager& mgr, float arg) override;
+  bool AnimOver(CStateManager& mgr, float arg) override;
+
   CPathFindSearch* GetSearchPath() override;
   void UpdateHeadTracking(float dt, CStateManager& mgr) {
     x9f4_boneTracking.Update(dt);
@@ -119,12 +169,48 @@ public:
   float GetGravityConstant() const override;
 
 private:
+  struct SJointInfo {
+    const char* from;
+    const char* to;
+    float radius;
+    float separation;
+  };
+  struct SSphereJointInfo {
+    const char* name;
+    float radius;
+  };
+  bool AllowSpecialAttackByChance() const;
+  void SetPathFindMode(EPathFindMode mode);
+  bool IsGillCollisionActor(const CCollisionActor& actor) const;
+  bool IsMouthCollisionActor(const CCollisionActor& actor) const;
+  bool IsEnraged(CStateManager& mgr) const;
   void AttractProjectiles(CStateManager& mgr);
+  CVector3f GetEnergyAttractionPos(CStateManager& mgr) const;
+  bool ShouldAttractProjectile(const CGameProjectile& projectile, const CStateManager& mgr) const;
+  bool IsClosestSheegoth(CStateManager& mgr,
+                         const rstl::reserved_vector< TUniqueId, 1024 >& nearList,
+                         const CVector3f& pos) const;
 
   void UpdateAILogicTimers(float dt);
   void UpdateAimTarget(CStateManager& mgr);
   void UpdateTouchBounds();
   void SetShootThrough(CStateManager& mgr);
+  void EnableMouthDamage(CStateManager& mgr, bool enabled);
+  void ReDirectDamage(CStateManager& mgr, TUniqueId id);
+  void ApplyContactDamage(TUniqueId id, CStateManager& mgr);
+  void ProcessStompGround(CStateManager& mgr);
+  void EnableGillDamage(CStateManager& mgr, bool enabled);
+  void AbsorbEnergy(float damage, CStateManager& mgr);
+  void UpdateAttackPosition(CStateManager& mgr, CVector3f& pos);
+  bool PredictShouldTurn(const CStateManager& mgr, float minAngle) const;
+  void SetupHealthInfo(CStateManager& mgr);
+  void SetupCollisionManager(CStateManager& mgr);
+  void CreateFlameThrower(CStateManager& mgr);
+  void ExtendTouchBounds(CStateManager& mgr, const CVector3f& bounds);
+  void AddSphereCollisionList(const SSphereJointInfo* joints, int count,
+                              rstl::vector< CJointCollisionDescription >& out);
+  void AddCollisionList(const SJointInfo* joints, int count,
+                        rstl::vector< CJointCollisionDescription >& out);
   void PreventPlayerPenetration(CStateManager& mgr, float dt);
   void UpdateHealthInfo(CStateManager& mgr);
   void UpdateSteeringBlendSpeed(float dt);
@@ -171,7 +257,7 @@ private:
   TLockedToken< CGenDescription > xadc_;
   rstl::auto_ptr< CElementGen > xae8_;
   CSfxHandle xaf0_crackleSfx;
-  uchar xaf4_mouthLocator;
+  CSegId xaf4_mouthLocator;
   TUniqueId xaf6_iceShardsCollider;
   TUniqueId xaf8_mouthCollider;
   rstl::reserved_vector< TUniqueId, 2 > xafc_gillColliders;
@@ -196,7 +282,12 @@ private:
   static const SJointInfo skRightLegJointList[];
   static const SSphereJointInfo skSphereJointList[];
   static const CVector3f skChargingBounds;
+  static const char* const skpIceShardsLCTR;
+  static const char* const skpMouthDamageJoint;
+  static const char* const skpJawJoint;
+  static const char* const skpLeftGillJoint;
+  static const char* const skpRightGillJoint;
 };
-// CHECK_SIZEOF(CIceSheegoth, 0xb30)
+CHECK_SIZEOF(CIceSheegoth, 0xb30)
 
 #endif // _CICESHEEGOTH

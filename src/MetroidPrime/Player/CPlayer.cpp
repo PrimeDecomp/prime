@@ -1579,14 +1579,14 @@ void CPlayer::AdjustEyeOffset(CStateManager& mgr) {
   float waterToDeltaDelta = eyePos.GetZ() - bounds.GetZ();
 
   if (eyePos.GetZ() >= bounds.GetZ() && waterToDeltaDelta <= 0.25f) {
-    SetEyeOffset(GetEyeOffset() + bounds.GetZ() + 0.25f - eyePos.GetZ());
+    SetEyeZBias(GetEyeOffset() + bounds.GetZ() + 0.25f - eyePos.GetZ());
   } else if (eyePos.GetZ() < bounds.GetZ() && waterToDeltaDelta >= -0.2f) {
-    SetEyeOffset(GetEyeOffset() + bounds.GetZ() - 0.2f - eyePos.GetZ());
+    SetEyeZBias(GetEyeOffset() + bounds.GetZ() - 0.2f - eyePos.GetZ());
   }
 }
 
 void CPlayer::Think(float dt, CStateManager& mgr) {
-  UpdateStepUpSmoothing(dt);
+  UpdateStepCameraZBias(dt);
   AdjustEyeOffset(mgr);
   UpdateEnvironmentDamageCameraShake(dt, mgr);
   UpdatePhazonDamage(dt, mgr);
@@ -3085,7 +3085,7 @@ void CPlayer::UpdateSlideShowUnlocking(CStateManager& mgr) {
 
   if (mgr.PlayerState()->GetScanTime(scanInfo->GetScannableObjectId()) >= 1.f &&
       CPlayerState::IsValidScan(scanInfo->GetScannableObjectId())) {
-    rstl::pair< int, int > scanCompletion = mgr.CalculateScanPair();
+    rstl::pair< int, int > scanCompletion = mgr.CalculateScanCompletionRate();
     extern CAssetId UpdatePersistentScanPercent(int, int, int); // TODO: CSlideShow
     CAssetId message = UpdatePersistentScanPercent(mgr.PlayerState()->GetLogScans(),
                                                    scanCompletion.first, scanCompletion.second);

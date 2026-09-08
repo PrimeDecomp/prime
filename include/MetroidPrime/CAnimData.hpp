@@ -91,7 +91,7 @@ public:
   CParticleDatabase& GetParticleDB() { return x120_particleDB; }
   const CParticleDatabase& GetParticleDB() const { return x120_particleDB; }
   // SetIsAnimating__9CAnimDataFb
-  // SetAnimDir__9CAnimDataFQ29CAnimData8EAnimDir
+  void SetAnimDir(EAnimDir dir) { x104_animDir = dir; }
   CAABox GetBoundingBox() const;
   CAABox GetBoundingBox(const CTransform4f& xf) const;
   CSegId GetLocatorSegId(const rstl::string& name) const;
