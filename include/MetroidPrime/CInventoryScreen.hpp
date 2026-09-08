@@ -35,6 +35,12 @@ public:
                    const CDependencyGroup& suitDgrp, const CDependencyGroup& ballDgrp);
 
 private:
+  void UpdateTextBody();
+  void UpdateSamusDollPulses();
+  bool HasLeftInventoryItem(int idx) const;
+  bool HasRightInventoryItem(int idx) const;
+  bool IsRightInventoryItemEquipped(int idx) const;
+
   enum EState { kS_Active, kS_Leaving, kS_Inactive };
 
   rstl::single_ptr< CSamusDoll > x19c_samusDoll;

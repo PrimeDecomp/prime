@@ -25,25 +25,26 @@ public:
   ~CSamusDoll();
   bool CheckLoadComplete();
   bool IsLoaded() const;
+  float GetViewInterpolation() const { return xc4_viewInterp; }
+  bool IsViewInterpolating() const { return xc4_viewInterp != 0.f && xc4_viewInterp != 1.f; }
   void Update(float dt, CRandom16& rand);
   void Draw(const CStateManager& mgr, float alpha);
   void Touch();
-  void CheckTransition(bool morphball);
+  void CheckTransition(const bool morphball);
   void SetRotation(float xDelta, float zDelta, float dt);
   void SetOffset(const CVector3f& offset, float dt);
   void BeginViewInterpolate(bool zoomIn);
-  void SetPulseBeam(bool pulse);
-  void SetPulseGrapple(bool pulse);
-  void SetPulseBoots(bool pulse);
-  void SetPulseVisor(bool pulse);
-  void SetPulseSuit(bool pulse);
+  void SetPulseBeam(const bool pulse);
+  void SetPulseGrapple(const bool pulse);
+  void SetPulseBoots(const bool pulse);
+  void SetPulseVisor(const bool pulse);
+  void SetPulseSuit(const bool pulse);
 
 private:
   static CModelData BuildSuitModelData1(CPlayerState::EPlayerSuit suit);
   static CModelData BuildSuitModelDataBoots(CPlayerState::EPlayerSuit suit);
   void SetupLights();
   void SetTransitionAnimation();
-  bool IsViewInterpolating() const { return xc4_viewInterp != 0.f && xc4_viewInterp != 1.f; }
   void SetOffsetSfxPlaying(bool playing);
   void SetZoomSfxPlaying(const bool playing);
   void SetRotationSfxPlaying(bool playing);
