@@ -2207,7 +2207,7 @@ bool CMorphBall::BallCloseToCollision(const CStateManager& mgr, float dist,
   }
 
   for (TEntityList::const_iterator id = nearList.begin(); id != nearList.end(); ++id) {
-    if (const CPhysicsActor* actor = TCastToConstPtr< CPhysicsActor >(mgr.GetObjectById(*id))) {
+    if (const CPhysicsActor* const actor = TCastToConstPtr< CPhysicsActor >(mgr.GetObjectById(*id))) {
       if (CCollisionPrimitive::CollideBoolean(
               CInternalCollisionStructure::CPrimDesc(prim, filter, CTransform4f::Identity()),
               CInternalCollisionStructure::CPrimDesc(*actor->GetCollisionPrimitive(),
