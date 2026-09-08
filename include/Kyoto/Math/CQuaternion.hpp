@@ -17,18 +17,6 @@ public:
   CQuaternion(float w, float x, float y, float z) : w(w), imaginary(x, y, z) {}
   CQuaternion(float w, const CVector3f& imaginary) : w(w), imaginary(imaginary) {}
 
-  // CQuaternion(const CQuaternion& other)
-  // : w(other.w)
-  // , x(other.x)
-  // , y(other.y)
-  // , z(other.z) {}
-  // CQuaternion& operator=(const CQuaternion& other) {
-  //   w = other.w;
-  //   x = other.x;
-  //   y = other.y;
-  //   z = other.z;
-  // }
-
   CQuaternion operator*(const CQuaternion&) const;
   CQuaternion& operator*=(const CQuaternion& other) {
     *this = *this * other;
@@ -37,14 +25,11 @@ public:
   static CQuaternion ScalarVector(float w, const CVector3f& imaginary) {
     return CQuaternion(w, imaginary);
   }
-  // Slerp__11CQuaternionFRC11CQuaternionRC11CQuaternionf
   static CQuaternion ShortestRotationArc(const CVector3f&, const CVector3f&);
 
-  // TODO: map says const CUnitVector3f&, but this matches better in CBSCover/CSamusFaceReflection
   static CQuaternion LookAt(const CUnitVector3f&, const CUnitVector3f&, const CRelAngle&);
   static CQuaternion ClampedRotateTo(const CVector3f&, const CVector3f&, const CRelAngle&);
 
-  // normalize_angle__Ff
   // IsValidQuaternion__11CQuaternionCFf
   static CQuaternion Slerp(const CQuaternion& a, const CQuaternion& b, float t);
   static CQuaternion SlerpLocal(const CQuaternion& from, const CQuaternion& to, float t);
@@ -85,6 +70,9 @@ public:
   // Real
   float GetScalar() const { return w; }
   const CVector3f& GetVector() const { return imaginary; }
+  float AxisX() const { return imaginary.GetX(); }
+  float AxisY() const { return imaginary.GetY(); }
+  float AxisZ() const { return imaginary.GetZ(); }
 
 private:
   float w;
@@ -92,5 +80,6 @@ private:
 
   static const CQuaternion sNoRotation;
 };
+CHECK_SIZEOF(CQuaternion, 0x10)
 
 #endif // _CQUATERNION

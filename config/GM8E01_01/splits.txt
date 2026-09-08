@@ -3131,14 +3131,18 @@ Kyoto/Math/CMatrix4f.cpp:
 	.bss        start:0x805A6800 end:0x805A6840 align:4 common
 	.sdata2     start:0x805AE758 end:0x805AE760
 
+Kyoto/Math/CNUQuaternion.cpp:
+	.text       start:0x80310AC8 end:0x80311100
+	.sdata2     start:0x805AE760 end:0x805AE770
+
 Kyoto/Math/CQuaternion.cpp:
-	.text       start:0x80310AC8 end:0x803125BC
+	.text       start:0x80311100 end:0x803125BC
 	.ctors      start:0x803CB504 end:0x803CB508
 	.bss        start:0x804BFF10 end:0x804BFF38
 	.bss        start:0x805A6840 end:0x805A6850 align:4 common
 	.sdata      start:0x805A8A30 end:0x805A8A48
 	.sbss       start:0x805A9628 end:0x805A9630
-	.sdata2     start:0x805AE760 end:0x805AE7C0
+	.sdata2     start:0x805AE770 end:0x805AE7C0
 
 Kyoto/CRandom16.cpp:
 	.text       start:0x803125BC end:0x803127C0
