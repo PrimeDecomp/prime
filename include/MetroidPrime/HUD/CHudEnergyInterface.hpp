@@ -2,6 +2,8 @@
 #define _CHUDENERGYINTERFACE
 
 #include "MetroidPrime/HUD/CHudInterface.hpp"
+#include "Kyoto/Math/CVector3f.hpp"
+#include "rstl/pair.hpp"
 #include "types.h"
 
 class CGuiFrame;
@@ -23,6 +25,10 @@ public:
   void SetNumFilledEnergyTanks(int tanks);
   void SetNumTotalEnergyTanks(int tanks);
   void SetCurrEnergy(float energy, bool wrapped);
+  static rstl::pair< CVector3f, CVector3f > CombatEnergyCoordFunc(float t);
+  static rstl::pair< CVector3f, CVector3f > BallEnergyCoordFunc(float t);
+  static rstl::pair< CVector3f, CVector3f > ThermalEnergyCoordFunc(float t);
+  static rstl::pair< CVector3f, CVector3f > XRayEnergyCoordFunc(float t);
 
 private:
   EHudType x0_hudType;

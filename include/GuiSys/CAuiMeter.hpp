@@ -11,7 +11,7 @@ public:
   CGuiWidget* GetWorkerWidget(int idx);
   void SetMaxCapacity(int cap);
   void SetCapacity(int cap);
-  void SetRemainder(int rem);
+  void SetCurrValue(int rem);
   void OnVisible() override;
   void UpdateMeterWorkers();
   FourCC GetWidgetTypeID() const override { return 'METR'; }

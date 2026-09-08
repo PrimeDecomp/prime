@@ -56,7 +56,7 @@ void CAuiMeter::SetCapacity(int cap) {
   UpdateMeterWorkers();
 }
 
-void CAuiMeter::SetRemainder(int rem) {
+void CAuiMeter::SetCurrValue(int rem) {
   xd0_value = CMath::Clamp(0, rem, xcc_capacity);
   UpdateMeterWorkers();
 }

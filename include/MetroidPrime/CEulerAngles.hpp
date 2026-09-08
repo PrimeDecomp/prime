@@ -13,6 +13,7 @@ public:
 
   static CEulerAngles FromTransform(const CTransform4f&);
   static CEulerAngles FromQuaternion(const CQuaternion&);
+  float GetYaw() const { return GetZ(); }
 
 private:
   static CEulerAngles sIdentity;

@@ -1325,12 +1325,55 @@ MetroidPrime/ScriptObjects/CScriptEMPulse.cpp:
 	.sdata      start:0x805A7C90 end:0x805A7C98
 	.sdata2     start:0x805AC390 end:0x805AC398
 
+MetroidPrime/HUD/CHudEnergyInterface.cpp:
+	.text       start:0x8018F3E0 end:0x801900B4
+	.rodata     start:0x803D0B28 end:0x803D0C28
+	.sdata      start:0x805A7C98 end:0x805A7CB8
+	.sdata2     start:0x805AC398 end:0x805AC3F8
+
+MetroidPrime/HUD/CHudFreeLookInterface.cpp:
+	.text       start:0x801900B4 end:0x80190B40
+	.rodata     start:0x803D0C28 end:0x803D0DB8
+	.data       start:0x803E4650 end:0x803E4688
+	.sdata      start:0x805A7CB8 end:0x805A7CD0
+	.sdata2     start:0x805AC3F8 end:0x805AC418
+
+MetroidPrime/HUD/CHudHelmetInterface.cpp:
+	.text       start:0x80190B40 end:0x80191054
+	.rodata     start:0x803D0DB8 end:0x803D0E08
+	.sdata2     start:0x805AC418 end:0x805AC420
+
+MetroidPrime/HUD/CHudMissileInterface.cpp:
+	.text       start:0x80191054 end:0x80191F5C
+	.rodata     start:0x803D0E08 end:0x803D0F18
+	.sdata      start:0x805A7CD0 end:0x805A7D00
+	.sdata2     start:0x805AC420 end:0x805AC480
+
+MetroidPrime/HUD/CHudRadarInterface.cpp:
+	.text       start:0x80191F5C end:0x80192B54
+	.rodata     start:0x803D0F18 end:0x803D0F40
+	.sdata      start:0x805A7D00 end:0x805A7D10
+	.sdata2     start:0x805AC480 end:0x805AC4B0
+
+MetroidPrime/HUD/CHudThreatInterface.cpp:
+	.text       start:0x80192B54 end:0x80193834
+	.rodata     start:0x803D0F40 end:0x803D1018
+	.data       start:0x803E4688 end:0x803E46A8
+	.sdata      start:0x805A7D10 end:0x805A7D38
+	.sdata2     start:0x805AC4B0 end:0x805AC500
+
+MetroidPrime/HUD/CHudVisorBeamMenu.cpp:
+	.text       start:0x80193834 end:0x801949F8
+	.rodata     start:0x803D1018 end:0x803D10F0
+	.sdata      start:0x805A7D38 end:0x805A7D48
+	.sdata2     start:0x805AC500 end:0x805AC568
+
 MetroidPrime/HUD/CHudDecoInterface.cpp:
-	.text       start:0x8018F3E0 end:0x80197538
-	.rodata     start:0x803D0B28 end:0x803D13F0
-	.data       start:0x803E4650 end:0x803E47B8
-	.sdata      start:0x805A7C98 end:0x805A7D70
-	.sdata2     start:0x805AC398 end:0x805AC5A0
+	.text       start:0x801949F8 end:0x80197538
+	.rodata     start:0x803D10F0 end:0x803D13F0
+	.data       start:0x803E46A8 end:0x803E47B8
+	.sdata      start:0x805A7D48 end:0x805A7D70
+	.sdata2     start:0x805AC568 end:0x805AC5A0
 
 MetroidPrime/Weapons/CFlameThrower.cpp:
 	.text       start:0x80197538 end:0x80198E5C

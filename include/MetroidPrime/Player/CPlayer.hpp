@@ -443,6 +443,8 @@ public:
   bool IsAttached() const { return GetAttachedActor() != kInvalidUniqueId; }
   bool GetControlsFrozen() const { return x760_controlsFrozen; } // name?
   float GetDistanceUnderWater() const { return x828_distanceUnderWater; }
+  float GetScanTimer() const { return x3ac_scanningTime; }
+  bool IsNewScanScanning() const { return x9c6_30_newScanScanning; }
   TUniqueId GetScanningObjectId() const { return x3b4_scanningObject; }
   EGrappleState GetGrappleState() const { return x3b8_grappleState; }
   bool IsInFreeLook() const { return x3dc_inFreeLook; }
@@ -501,6 +503,9 @@ public:
                                ushort defId);
 
   void SetIsOverrideRadarRadius(bool value) { x9c6_31_overrideRadarRadius = value; }
+  bool IsOverrideRadarRadius() const { return x9c6_31_overrideRadarRadius; }
+  float GetRadarXYRadiusOverride() const { return xa20_radarXYRadiusOverride; }
+  float GetRadarZRadiusOverride() const { return xa24_radarZRadiusOverride; }
   void SetRadarXYRadiusOverride(float value) { xa20_radarXYRadiusOverride = value; }
   void SetRadarZRadiusOverride(float value) { xa24_radarZRadiusOverride = value; }
 

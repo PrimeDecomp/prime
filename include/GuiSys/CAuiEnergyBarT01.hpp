@@ -29,6 +29,18 @@ public:
   void Draw(const CGuiWidgetDrawParms& parms) const override;
 
   float GetActualFraction() const;
+  float GetLaggedEnergy() const { return mFilledEnergy; }
+  float GetActualEnergy() const { return mSetEnergy; }
+  float GetMaxEnergy() const { return mMaxEnergy; }
+  void SetFilledColor(const CColor& color) { mFilledColor = color; }
+  void SetShadowColor(const CColor& color) { mShadowColor = color; }
+  void SetEmptyColor(const CColor& color) { mEmptyColor = color; }
+  void SetCoordFunc(FCoordFunc func) { mCoordFunc = func; }
+  void SetTesselation(float tesselation) { mTesselation = tesselation; }
+  void SetFilledDrainSpeed(float speed) { mFilledSpeed = speed; }
+  void SetShadowDrainSpeed(float speed) { mShadowSpeed = speed; }
+  void SetShadowDrainDelay(float delay) { mShadowDrainDelay = delay; }
+  void SetIsAlwaysResetTimer(bool reset) { mAlwaysResetDelayTimer = reset; }
   FourCC GetWidgetTypeID() const override;
 
 private:

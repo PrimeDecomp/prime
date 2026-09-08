@@ -13,6 +13,26 @@
 class CTweakGuiColors;
 class CTweakGuiColors : public ITweakObject, public TOneStatic< CTweakGuiColors > {
 public:
+  struct SPerVisorColors {
+    CColor x0_energyBarFilled;
+    CColor x4_energyBarEmpty;
+    CColor x8_energyBarShadow;
+    CColor xc_energyTankFilled;
+    CColor x10_energyTankEmpty;
+    CColor x14_energyDigitsFont;
+    CColor x18_energyDigitsOutline;
+
+    explicit SPerVisorColors(CInputStream& in)
+    : x0_energyBarFilled(in)
+    , x4_energyBarEmpty(in)
+    , x8_energyBarShadow(in)
+    , xc_energyTankFilled(in)
+    , x10_energyTankEmpty(in)
+    , x14_energyDigitsFont(in)
+    , x18_energyDigitsOutline(in) {}
+  };
+  const SPerVisorColors& GetVisorColors(int visor) const { return x1c4_perVisorColors[visor]; }
+
   ~CTweakGuiColors() override;
   CTweakGuiColors(CInputStream& in);
 
@@ -215,24 +235,6 @@ private:
   CColor x1b8_thermalLockColor;
   CColor x1bc_pauseItemAmber;
   CColor x1c0_pauseItemBlue;
-  struct SPerVisorColors {
-    CColor x0_energyBarFilled;
-    CColor x4_energyBarEmpty;
-    CColor x8_energyBarShadow;
-    CColor xc_energyTankFilled;
-    CColor x10_energyTankEmpty;
-    CColor x14_energyDigitsFont;
-    CColor x18_energyDigitsOutline;
-
-    explicit SPerVisorColors(CInputStream& in)
-    : x0_energyBarFilled(in)
-    , x4_energyBarEmpty(in)
-    , x8_energyBarShadow(in)
-    , xc_energyTankFilled(in)
-    , x10_energyTankEmpty(in)
-    , x14_energyDigitsFont(in)
-    , x18_energyDigitsOutline(in) {}
-  };
   /* Combat, Scan, XRay, Thermal, Ball */
   rstl::reserved_vector< SPerVisorColors, 5 > x1c4_perVisorColors;
 };

@@ -34,8 +34,8 @@ public:
              float znear, float zfar);
 
   void Draw(const CGuiWidgetDrawParms& parms) const override;
-  const UCameraParms& GetParms() const { return mCameraParms; }
-  void SetParms(const UCameraParms& parms) { mCameraParms = parms; }
+  UCameraParms GetParms() const { return mCameraParms; }
+  void SetParms(UCameraParms parms) { mCameraParms = parms; }
 
   FourCC GetWidgetTypeID() const override { return 'CAMR'; }
 

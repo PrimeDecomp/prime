@@ -51,6 +51,7 @@ public:
   explicit CHudDecoInterfaceCombat(CGuiFrame& hud);
 
 private:
+  void UpdateVisibility();
   CQuaternion x4_rotation;
   CVector3f x14_pivotPosition;
   CVector3f x20_offset;
@@ -86,6 +87,10 @@ public:
   explicit CHudDecoInterfaceScan(CGuiFrame& hud);
 
 private:
+  void UpdateVisibility();
+  void InitializeFlatFrame();
+  void UpdateScanDisplay(const CStateManager& mgr, float dt);
+  const CScannableObjectInfo* GetCurrScanInfo(const CStateManager& mgr) const;
   TCachedToken< CGuiFrame > x4_scanHudFlat;
   CGuiFrame* x10_loadedScanHudFlat;
   CGuiFrame& x14_selHud;
@@ -141,6 +146,7 @@ public:
   explicit CHudDecoInterfaceXRay(CGuiFrame& hud);
 
 private:
+  void UpdateVisibility();
   float x4_seekerScale;
   CQuaternion x8_rotation;
   CVector3f x18_pivotPosition;
@@ -174,6 +180,12 @@ public:
   explicit CHudDecoInterfaceThermal(CGuiFrame& hud);
 
 private:
+  struct SLockWidget {
+    explicit SLockWidget(CGuiWidget* widget);
+    CGuiWidget* x0_widget;
+    CTransform4f x4_transform;
+  };
+  void UpdateVisibility();
   CQuaternion x4_rotation;
   CVector3f x14_pivotPosition;
   CVector3f x20_offset;
@@ -188,7 +200,7 @@ private:
   CGuiWidget* x78_basewidget_pivot;
   CGuiWidget* x7c_basewidget_reticle;
   CGuiModel* x80_model_retflash;
-  rstl::vector< rstl::pair< CGuiWidget*, CTransform4f > > x84_lockonWidgets;
+  rstl::vector< SLockWidget > x84_lockonWidgets;
 };
 CHECK_SIZEOF(CHudDecoInterfaceThermal, 0x94)
 
