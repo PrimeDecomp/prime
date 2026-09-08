@@ -251,6 +251,7 @@ public:
   bool GetFrozenState() const;
   void SetFrozenState(CStateManager& stateMgr, CAssetId steamTxtr, ushort sfx, CAssetId iceTxtr);
   void BreakFrozenState(CStateManager& mgr);
+  void SetFrozenTimeoutBias(float bias) { x758_frozenTimeoutBias = bias; }
   void UpdateCinematicState(CStateManager& mgr);
   bool IsMorphBallTransitioning() const;
   bool IsSidewaysDashing() const { return x37c_sidewaysDashing; }

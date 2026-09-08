@@ -15,9 +15,12 @@ public:
   ~CEnergyBall();
 
   void Accept(IVisitor& visitor) override;
+  int GetBallType() const { return x570_ballType; }
 
 private:
-  uchar x568_pad[0x5F0 - 0x568];
+  uchar x568_pad[8];
+  int x570_ballType;
+  uchar x574_pad[0x5F0 - 0x574];
 };
 CHECK_SIZEOF(CEnergyBall, 0x5F0)
 

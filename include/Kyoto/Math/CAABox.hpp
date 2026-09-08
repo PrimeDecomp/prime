@@ -34,6 +34,7 @@ public:
     kF_ZMin,
   };
 
+  CAABox() : min(CVector3f::Zero()), max(CVector3f::Zero()) {}
   CAABox(const CVector3f& min, const CVector3f& max);
   CAABox(const float minX, const float minY, const float minZ, const float maxX, const float maxY,
          const float maxZ)
