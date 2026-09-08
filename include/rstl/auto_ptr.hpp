@@ -32,6 +32,7 @@ public:
     }
     return *this;
   }
+  T* get() { return x4_item; }
   T* get() const { return x4_item; }
   bool owner() const { return x0_has; }
   T* operator->() const { return x4_item; }

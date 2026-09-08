@@ -502,7 +502,7 @@ void CActorModelParticles::StartIce(CActor& actor, CStateManager& mgr) {
 
 void CActorModelParticles::StartElectric(CActor& actor) {
   AUTO(it, FindOrCreateSystem(actor));
-  if (it->xc0_electricGen.null()) {
+  if (it->xc0_electricGen.get() == nullptr) {
     it->UseType(kST_Electric);
   } else {
     CParticleElectric* gen = it->xc0_electricGen.get();

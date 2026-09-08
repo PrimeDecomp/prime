@@ -1887,7 +1887,7 @@ void CMorphBall::PreRender(CStateManager& mgr, const CFrustumPlanes&) {
         CColor::Lerp(GetAmbientColor(*lights), CColor::White(), lightFactor));
   }
 
-  if (x58_ballModel->AnimationData() != nullptr) {
+  if (x58_ballModel->HasAnimation()) {
     x58_ballModel->AnimationData()->PreRender();
   }
 }
