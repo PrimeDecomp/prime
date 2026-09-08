@@ -21,12 +21,11 @@ public:
     float xc_outlineDrawDepth;
 
   public:
-    CMapAreaBFSInfo(int areaIdx, int depth, float a, float b)
-    : x0_areaIdx(areaIdx), x4_depth(depth), x8_surfDrawDepth(a), xc_outlineDrawDepth(b) {}
+    CMapAreaBFSInfo(int areaIdx, int depth, float surfDepth, float outlineDepth);
     int GetAreaIndex() const { return x0_areaIdx; }
     int GetDepth() const { return x4_depth; }
-    float GetOutlineDrawDepth() const { return x8_surfDrawDepth; }
-    float GetSurfaceDrawDepth() const { return xc_outlineDrawDepth; }
+    float GetOutlineDrawDepth() const { return xc_outlineDrawDepth; }
+    float GetSurfaceDrawDepth() const { return x8_surfDrawDepth; }
   };
 
   class CMapObjectSortInfo {
@@ -45,39 +44,34 @@ public:
       kOC_Surface = 4 << 16
     };
 
-    CMapObjectSortInfo(float zDist, int areaIdx, EObjectCode type, int idx, const CColor& surfColor,
-                       const CColor& outlineColor)
-    : x0_zDist(zDist)
-    , x4_areaIdx(areaIdx)
-    , x8_typeAndIdx(int(type) | idx)
-    , xc_surfColor(surfColor)
-    , x10_outlineColor(outlineColor) {}
+    CMapObjectSortInfo(float zDist, int areaIdx, EObjectCode type, int idx, CColor surfColor,
+                       CColor outlineColor);
     const CColor& GetOutlineColor() const { return x10_outlineColor; }
     const CColor& GetSurfaceColor() const { return xc_surfColor; }
-    uint GetLocalObjectIndex() const { return x8_typeAndIdx & 0xffff; }
+    int GetLocalObjectIndex() const { return x8_typeAndIdx & 0xffff; }
     EObjectCode GetObjectCode() const { return EObjectCode(x8_typeAndIdx & 0xffff0000); }
-    uint GetAreaIndex() const { return x4_areaIdx; }
+    int GetAreaIndex() const { return x4_areaIdx; }
     float GetZDistance() const { return x0_zDist; }
   };
 
   class CMapAreaData {
-    int x0_areaIdx;
-    TCachedToken< CMapArea > x4_area;
-    EMapAreaList x10_list;
-    CMapAreaData* x14_next;
+    CAssetId x0_areaRes;
+    mutable TCachedToken< CMapArea > x4_area;
+    mutable EMapAreaList x10_list;
+    mutable CMapAreaData* x14_next;
 
   public:
     CMapAreaData(CAssetId areaRes, EMapAreaList list, CMapAreaData* next);
-    void Lock() { x4_area.Lock(); }
-    void Unlock() { x4_area.Unlock(); }
-    bool IsLoaded() const { return x4_area.IsLoaded(); }
+    void Lock();
+    void Unlock();
+    bool IsLoaded() const;
     CMapArea* MapArea() { return x4_area.GetT(); }
-    const CMapArea* GetMapArea() const { return x4_area.GetObject(); }
-    CMapAreaData* GetNextMapAreaData() { return x14_next; }
-    const CMapAreaData* GetNextMapAreaData() const { return x14_next; }
+    CMapArea* GetMapArea() const;
+    CMapAreaData* NextMapAreaData() { return x14_next; }
+    CMapAreaData* GetNextMapAreaData() const { return x14_next; }
     EMapAreaList GetContainingList() const { return x10_list; }
-    void SetContainingList(EMapAreaList list) { x10_list = list; }
-    void SetNextMapArea(CMapAreaData* next) { x14_next = next; }
+    void SetContainingList(EMapAreaList list) const { x10_list = list; }
+    void SetNextMapArea(CMapAreaData* next) const { x14_next = next; }
   };
 
   class CMapWorldDrawParms {
@@ -99,10 +93,9 @@ public:
 
   public:
     CMapWorldDrawParms(float alphaSurfVisited, float alphaOlVisited, float alphaSurfUnvisited,
-                       float alphaOlUnvisited, float alpha,
-                       const CStateManager& mgr, const CTransform4f& modelXf,
-                       const CTransform4f& viewXf, const IWorld& wld, const CMapWorldInfo& mwInfo,
-                       float outlineWidthScale, bool sortDoorSurfs,
+                       float alphaOlUnvisited, float alpha, const CStateManager& mgr,
+                       const CTransform4f& modelXf, const CTransform4f& viewXf, const IWorld& wld,
+                       const CMapWorldInfo& mwInfo, float outlineWidthScale, bool sortDoorSurfs,
                        float playerFlash, float hintFlash, float objectScale);
     const IWorld& GetWorld() const { return x24_wld; }
     float GetOutlineWidthScale() const { return x14_outlineWidthScale; }
@@ -124,16 +117,17 @@ public:
 private:
   rstl::vector< CMapAreaData > x0_areas;
   rstl::reserved_vector< CMapAreaData*, 3 > x10_listHeads;
-  rstl::vector< bool > x20_traversed;
-  CVector3f x30_worldSpherePoint;
-  float x3c_worldSphereRadius;
-  float x40_worldSphereHalfDepth;
+  mutable rstl::vector< bool > x20_traversed;
+  mutable CVector3f x30_worldSpherePoint;
+  mutable float x3c_worldSphereRadius;
+  mutable float x40_worldSphereHalfDepth;
 
 public:
   explicit CMapWorld(CInputStream& in);
+  ~CMapWorld();
   uint GetNumAreas() const { return x0_areas.size(); }
   CMapArea* GetMapArea(int aid) { return x0_areas[aid].MapArea(); }
-  const CMapArea* GetMapArea(int aid) const { return x0_areas[aid].GetMapArea(); }
+  CMapArea* GetMapArea(int aid) const;
   bool IsMapAreaInBFSInfoVector(const CMapAreaData* area,
                                 const rstl::vector< CMapAreaBFSInfo >& vec) const;
   void SetWhichMapAreasLoaded(const IWorld& wld, int start, int count);
@@ -143,17 +137,19 @@ public:
   void Draw(const CMapWorldDrawParms& parms, int curArea, int otherArea, float depth1, float depth2,
             bool inMapScreen) const;
   void DoBFS(const IWorld& wld, int startArea, int areaCount, float surfDepth, float outlineDepth,
-             bool checkLoad, rstl::vector< CMapAreaBFSInfo >& bfsInfos);
+             bool checkLoad, rstl::vector< CMapAreaBFSInfo >& bfsInfos) const;
   bool IsMapAreaValid(const IWorld& wld, int areaIdx, bool checkLoad) const;
   void DrawAreas(const CMapWorldDrawParms& parms, int selArea,
-                 const rstl::vector< CMapAreaBFSInfo >& bfsInfos, bool inMapScreen);
+                 const rstl::vector< CMapAreaBFSInfo >& bfsInfos, bool inMapScreen) const;
   void RecalculateWorldSphere(const CMapWorldInfo& mwInfo, const IWorld& wld) const;
   CVector3f ConstrainToWorldVolume(const CVector3f& point, const CVector3f& lookVec) const;
-  void ClearTraversedFlags();
-  void SetWhichMapAreasLoaded(const IWorld& wld, int start, int count, bool load);
+  void ClearTraversedFlags() const;
   bool IsMapAreasStreaming() const;
 };
+NESTED_CHECK_SIZEOF(CMapWorld, CMapAreaBFSInfo, 0x10)
+NESTED_CHECK_SIZEOF(CMapWorld, CMapObjectSortInfo, 0x14)
 NESTED_CHECK_SIZEOF(CMapWorld, CMapAreaData, 0x18)
+NESTED_CHECK_SIZEOF(CMapWorld, CMapWorldDrawParms, 0x3c)
 CHECK_SIZEOF(CMapWorld, 0x44)
 
 #endif // _CMAPWORLD
