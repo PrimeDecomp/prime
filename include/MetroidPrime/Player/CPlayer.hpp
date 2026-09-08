@@ -371,6 +371,8 @@ public:
   bool GetCombatMode() const;
   bool GetExplorationMode() const;
   void SetScanningState(EPlayerScanState state, CStateManager& mgr);
+  EPlayerScanState GetPlayerScanState() const { return x3a8_scanState; }
+  float GetThreatOverride() const { return xa1c_threatOverride; }
   void UpdateSlideShowUnlocking(CStateManager& mgr); // name?
   bool ValidateScanning(const CFinalInput& input, CStateManager& mgr) const;
   float GetTransitionAlpha(const CVector3f& camPos, float zNear) const;
@@ -390,6 +392,7 @@ public:
   void SetPlayerHitWallDuringMove();
   void DoPostCameraStuff(float dt, CStateManager& mgr); // name?
   float UpdateCameraBob(float dt, CStateManager& mgr);
+  const CPlayerCameraBob* GetCameraBobObject() const { return x76c_cameraBob.get(); }
   float CalculateOrbitZBasedDistance(EPlayerOrbitType type);
   void UpdateOrbitPosition(float distance, CStateManager& mgr);
   void UpdateOrbitZPosition();

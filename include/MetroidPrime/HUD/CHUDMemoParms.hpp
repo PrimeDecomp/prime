@@ -23,16 +23,6 @@ private:
   bool mHintMemo;
 };
 
-class SHudMemoInfo {
-public:
-  SHudMemoInfo(float dispTime, bool clear, bool fadeOut, bool hint)
-  : mDispTime(dispTime), mClearMemoWindow(clear), mFadeOutOnly(fadeOut), mHintMemo(hint) {}
-
-private:
-  float mDispTime;
-  bool mClearMemoWindow;
-  bool mFadeOutOnly;
-  bool mHintMemo;
-};
+CHECK_SIZEOF(CHUDMemoParms, 0x8)
 
 #endif // _CHUDMEMOPARMS

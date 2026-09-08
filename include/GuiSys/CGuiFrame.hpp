@@ -37,6 +37,7 @@ public:
   void SetHeadWidget(CGuiHeadWidget* widget);
   void RemoveWidgetFromDrawList(CGuiWidget* widget);
 
+  short AddWidgetToIDDB(const rstl::string& name) { return x18_db.AddWidget(name); }
   CGuiWidgetIdDB& WidgetIdDB() { return x18_db; }
 
   CGuiSys& GetGuiSys() const { return x8_guiSys; }

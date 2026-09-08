@@ -158,6 +158,7 @@ public:
 
   static const uint GetBitCount(uint);
 
+  float GetHudStaticInterferenceAmount() const { return x188_staticIntf.GetTotalInterference(); }
   CStaticInterference& StaticInterference() { return x188_staticIntf; }
   const CStaticInterference& GetStaticInterference() const { return x188_staticIntf; }
 

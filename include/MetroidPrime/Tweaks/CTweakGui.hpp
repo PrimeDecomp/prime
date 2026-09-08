@@ -48,19 +48,19 @@ public:
   float GetDamageLightAngleC() const { return x58_damageLightAngleC; }
   float GetDamageLightAngleL() const { return x5c_damageLightAngleL; }
   float GetDamageLightAngleQ() const { return x60_damageLightAngleQ; }
-  CVector3f GetDamageLightPreTranslate() const { return x64_damageLightPreTranslate; }
-  CVector3f GetDamageLightCenterTranslate() const { return x70_damageLightCenterTranslate; }
+  const CVector3f& GetDamageLightPreTranslate() const { return x64_damageLightPreTranslate; }
+  const CVector3f& GetDamageLightCenterTranslate() const { return x70_damageLightCenterTranslate; }
   float GetDamageLightXfXAngle() const { return x7c_damageLightXfXAngle; }
   float GetDamageLightXfZAngle() const { return x80_damageLightXfZAngle; }
   float GetHudDecoShakeTranslateVelConstant() const { return x84_hudDecoShakeTranslateVelConstant; }
   float GetHudDecoShakeTranslateVelLinear() const { return x88_hudDecoShakeTranslateVelLinear; }
-  float GetMaxDecoDamageShakeTranslate() const { return x8c_maxDecoDamageShakeTranslate; }
+  const float& GetMaxDecoDamageShakeTranslate() const { return x8c_maxDecoDamageShakeTranslate; }
   float GetDecoDamageShakeDeceleration() const { return x90_decoDamageShakeDeceleration; }
   float GetDecoShakeGainConstant() const { return x94_decoShakeGainConstant; }
   float GetDecoShakeGainLinear() const { return x98_decoShakeGainLinear; }
   float GetDecoShakeInitConstant() const { return x9c_decoShakeInitConstant; }
   float GetDecoShakeInitLinear() const { return xa0_decoShakeInitLinear; }
-  float GetMaxDecoDamageShakeRotate() const { return xa4_maxDecoDamageShakeRotate; }
+  const float& GetMaxDecoDamageShakeRotate() const { return xa4_maxDecoDamageShakeRotate; }
   uint GetHudCamFovTweak() const { return xa8_hudCamFovTweak; }
   uint GetHudCamYTweak() const { return xac_hudCamYTweak; }
   uint GetHudCamZTweak() const { return xb0_hudCamZTweak; }

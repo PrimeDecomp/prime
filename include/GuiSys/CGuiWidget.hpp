@@ -51,7 +51,7 @@ public:
   void Initialize() override {}
   virtual void ProcessUserInput(const CFinalInput& input);
   virtual void Touch() const {}
-  virtual bool GetIsVisible() const;
+  virtual bool GetIsVisible() const { return xb6_25_isVisible; }
   virtual bool GetIsActive() const;
   virtual FourCC GetWidgetTypeID() const { return 'BWIG'; }
   virtual bool AddWorkerWidget(CGuiWidget* worker) { return false; }
@@ -59,11 +59,13 @@ public:
   bool GetIsFinishedLoading() const;
   virtual void OnVisible();
   virtual void OnActivate();
+  short GetWidgetID() const { return x70_selfId; }
   short GetWorkerId() const { return xb4_workerId; }
 
   bool GetIsAlwaysDepthRead() const { return xb6_31_depthTest; }
   bool GetIsAlwaysDepthWrite() const { return xb7_24_depthWrite; }
   bool GetIsDepthBackwards() const { return xb6_30_depthGreater; }
+  void SetIsAlwaysDepthWrite(bool depthWrite) { xb7_24_depthWrite = depthWrite; }
   void SetDepthTest(bool depthTest) { xb6_31_depthTest = depthTest; }
   void SetIsSelectable(bool selectable) { xb6_27_isSelectable = selectable; }
   bool GetIsSelectable() const { return xb6_27_isSelectable; }
@@ -79,6 +81,13 @@ public:
   void RecalcWidgetColor(ETraversalMode mode);
   void ReapplyXform();
   CVector3f GetIdlePosition() const;
+  const CTransform4f& GetIdleXform() const { return x74_transform; }
+  void SetIdleXform(const CTransform4f& xf, bool reapply = true) {
+    x74_transform = xf;
+    if (reapply) {
+      ReapplyXform();
+    }
+  }
   void AddChildWidget(CGuiWidget* widget, bool makeWorldLocal, bool atEnd);
   CGuiWidget* FindWidget(short id);
   void ReadUnusedThing(CInputStream& in);

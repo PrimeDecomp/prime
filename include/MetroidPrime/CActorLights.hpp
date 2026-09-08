@@ -36,6 +36,7 @@ public:
 
   void ActivateLights() const;
   uint GetActiveLightCount() const;
+  uint GetActiveAreaLightCount() const { return x0_areaLights.size(); }
   const CLight& GetLight(uint idx) const;
 
   bool GetNeedsRelight() const { return x298_24_dirty == TRUE; }
@@ -43,7 +44,9 @@ public:
   const TAreaId GetAreaLightIndexForShadowLight() const { return x29c_shadowLightArrIdx; }
   uint GetShadowLightArrIndex() const { return x29c_shadowLightArrIdx; }
   int GetShadowLightIndex() const { return x2a0_shadowLightIdx; }
-  const CVector3f& GetAmbientColor() const { return x288_ambientColor; }
+  CColor GetAmbientColor() const {
+    return CColor(x288_ambientColor.GetX(), x288_ambientColor.GetY(), x288_ambientColor.GetZ(), 1.f);
+  }
 
   void SetAmbientColor(const CColor& color);
   void SetNeedsRelight(bool v) { x298_24_dirty = v; }

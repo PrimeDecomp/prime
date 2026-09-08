@@ -2513,7 +2513,7 @@ void CStateManager::UpdateHintState(float dt) {
       CSamusHud::DisplayHudMemo(empty, memoInfo);
     } else {
       const CGameHintInfo::CGameHint* hint = &GetGameHints()[nextHintIdx];
-      SHudMemoInfo memoInfo(0.f, true, false, true);
+      CHUDMemoParms memoInfo(0.f, true, false, true);
       CSamusHud::DeferHintMemo(hint->GetStringId(), hintPeriods, memoInfo);
     }
 

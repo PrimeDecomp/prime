@@ -74,7 +74,6 @@ public:
   };
 
   explicit CCompoundTargetReticle(const CStateManager& mgr);
-  ~CCompoundTargetReticle();
 
   void SetLeadingOrientation(const CQuaternion& o) { x0_leadingOrientation = o; }
   bool CheckLoadComplete();
@@ -167,7 +166,6 @@ CHECK_SIZEOF(CCompoundTargetReticle, 0x21C)
 class COrbitPointMarker {
 public:
   COrbitPointMarker();
-  ~COrbitPointMarker();
 
   bool CheckLoadComplete();
   void Update(float dt, const CStateManager& mgr);

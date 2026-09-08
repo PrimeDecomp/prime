@@ -65,6 +65,7 @@ public:
   CAABox GetTriggerBoundsWR() const;
   const CAABox& GetTriggerBounds() const { return x130_bounds; }
   uint GetTriggerFlags() const { return x12c_flags; }
+  const CDamageInfo& GetDamageInfo() const { return x100_damageInfo; }
   float GetForceMagnitude() const { return x128_forceMagnitude; }
   const CVector3f& GetForceField() const { return x11c_forceField; }
   void SetForceField(const CVector3f& force) {

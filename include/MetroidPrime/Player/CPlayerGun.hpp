@@ -182,6 +182,8 @@ public:
   CPlayerState::EBeamId GetPrimaryDestWeaponId() const { return x314_nextBeam; }
   uint GetSecondaryItemId() const { return x318_comboAmmoIdx; }
   int GetBombsPending() const { return x308_bombCount; }
+  bool IsBombReady() const { return x835_28_bombReady; }
+  bool IsPowerBombReady() const { return x835_29_powerBombReady; }
   int GetFiring() const { return x2ec_lastFireButtonStates; }
   EMissileMode GetMissileMode() const { return x31c_missileMode; }
   float GetHoloTransitionFactor() const { return x678_morph.GetTransitionFactor(); }

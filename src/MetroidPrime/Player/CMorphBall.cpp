@@ -156,8 +156,7 @@ inline CColor CMorphBall::GetBallBoostedHullGlowColor(uint idx) {
 }
 
 inline CColor CMorphBall::GetAmbientColor(const CActorLights& lights) {
-  const CVector3f& ambient = lights.GetAmbientColor();
-  return CColor(ambient.GetX(), ambient.GetY(), ambient.GetZ(), 1.f);
+  return lights.GetAmbientColor();
 }
 
 const uchar CMorphBall::lbl_803CEB24[0x1c] = {
