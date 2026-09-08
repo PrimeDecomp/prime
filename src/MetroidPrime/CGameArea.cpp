@@ -922,7 +922,7 @@ TAreaId IGameArea::Dock::GetConnectedAreaId(int other) const {
   return x4_dockReferences.empty() ? TAreaId(-1) : x4_dockReferences[other].x0_area;
 }
 
-s16 IGameArea::Dock::GetOtherDockNumber(int other) const {
+int IGameArea::Dock::GetOtherDockNumber(int other) const {
   if (x4_dockReferences.empty()) {
     return -1;
   }
