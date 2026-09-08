@@ -433,6 +433,10 @@ public:
     return x2b0_outOfWaterTicks == 2 ? GetCurrentSurfaceRestraint() : kSR_Water;
   }
 
+  EPlayerZoneInfo GetOrbitZoneMode() const { return x330_orbitZoneMode; }
+  EPlayerZoneType GetOrbitZoneType() const { return x334_orbitType; }
+  const rstl::vector< TUniqueId >& GetOrbitObjectsOnScreenList() const { return x344_nearbyOrbitObjects; }
+
   EOrbitBrokenType GetOrbitBrokenType() const { return x30c_orbitBrokenType; }
   TUniqueId GetOrbitTargetId() const { return x310_orbitTargetId; }
   const CVector3f& GetOrbitPoint() const { return x314_orbitPoint; }
