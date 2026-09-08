@@ -151,6 +151,9 @@ private:
 public:
   static bool IsCardBusy(EState);
   static bool IsCardWriting(EState);
+  EState GetState() const { return x10_state; }
+  EError GetError() const { return x14_error; }
+  u64 GetCardSerial() const { return x28_cardSerial; }
   CMemoryCardDriver(CMemoryCardSys::EMemoryCardPort cardPort, CAssetId saveBanner, CAssetId saveIcon0,
                     CAssetId saveIcon1, bool importPersistent);
   void ClearFileInfo();
