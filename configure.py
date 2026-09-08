@@ -1200,7 +1200,7 @@ config.libs = [
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"), "WorldFormat/CAreaBspTree.cpp"
             ),
-            Object(NonMatching, "WorldFormat/CAreaOctTree.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "WorldFormat/CAreaOctTree.cpp"),
             Object(NonMatching, "WorldFormat/CMetroidAreaCollider.cpp"),
             Object(NonMatching, "WorldFormat/CWorldLight.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "WorldFormat/COBBTree.cpp"),
