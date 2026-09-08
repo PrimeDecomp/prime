@@ -47,6 +47,7 @@ class CPlayerGun;
 
 class CPlayerGun : public TOneStatic< CPlayerGun > {
   static float kTractorBeamFactor;
+  static const float kGunScale;
   static CVector3f kScaleVector;
   static const uint mHandAnimId[4];
 
@@ -173,7 +174,7 @@ public:
   void SetPhazonBeamFeedback(bool);
   void SetAssistAimTransform(const CTransform4f& xf) { x478_assistAimXf = xf; }
 
-  CTransform4f GetTransform() const { return x3e8_xf; }
+  const CTransform4f& GetTransform() const { return x3e8_xf; }
   float GetChargePercentage() const { return x834_24_charging ? x340_chargeBeamFactor : 0.f; }
   EChargeState GetChargeState() const { return x330_chargeState; }
   CPlayerState::EBeamId GetPrimaryWeaponId() const { return x310_currentBeam; }
@@ -186,7 +187,7 @@ public:
   TUniqueId GetPowerBombId() const { return x53a_powerBomb; }
 
   static float GetTractorBeamFactor() { return kTractorBeamFactor; }
-  static const CVector3f& GetGunScale() { return kScaleVector; }
+  static float GetGunScale() { return kGunScale; }
 
   int GetStateFlags() const { return x2f8_stateFlags; }
   void SetStateFlags(int flags) { x2f8_stateFlags = flags; }

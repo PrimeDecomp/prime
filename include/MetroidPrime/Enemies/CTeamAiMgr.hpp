@@ -143,6 +143,7 @@ public:
                                           TUniqueId aiId);
   static TUniqueId GetTeamAiMgr(const CAi& ai, const CStateManager& mgr);
 
+  uint GetProjectileRoleCount() const { return x34_data.x8_projectileCount; }
   const rstl::vector< TUniqueId >& GetProjectileAttackers() const { return x78_projectileAttackers; }
 
   rstl::vector< CTeamAiRole >& GetTeamAiRoles() { return x58_roles; }
