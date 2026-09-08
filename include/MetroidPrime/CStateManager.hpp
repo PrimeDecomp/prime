@@ -171,7 +171,7 @@ public:
   void UpdateAreaSounds();
   void FrameEnd();
   void UpdateObjectInLists(CEntity&);
-  rstl::pair< int, int > CalculateScanPair() const;
+  rstl::pair< int, int > CalculateScanCompletionRate() const;
 
   void BuildNearList(TEntityList& nearList, const CVector3f& pos, const CVector3f& dir, float mag,
                      const CMaterialFilter& filter = CMaterialFilter::skPassEverything,

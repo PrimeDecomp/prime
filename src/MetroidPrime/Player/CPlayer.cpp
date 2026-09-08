@@ -3085,7 +3085,7 @@ void CPlayer::UpdateSlideShowUnlocking(CStateManager& mgr) {
 
   if (mgr.PlayerState()->GetScanTime(scanInfo->GetScannableObjectId()) >= 1.f &&
       CPlayerState::IsValidScan(scanInfo->GetScannableObjectId())) {
-    rstl::pair< int, int > scanCompletion = mgr.CalculateScanPair();
+    rstl::pair< int, int > scanCompletion = mgr.CalculateScanCompletionRate();
     extern CAssetId UpdatePersistentScanPercent(int, int, int); // TODO: CSlideShow
     CAssetId message = UpdatePersistentScanPercent(mgr.PlayerState()->GetLogScans(),
                                                    scanCompletion.first, scanCompletion.second);
