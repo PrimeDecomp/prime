@@ -556,8 +556,7 @@ CColor CWallCrawlerSwarm::SoftwareLight(const CStateManager& mgr, const CAABox& 
   lights.SetFindShadowLight(false);
   lights.BuildAreaLightList(mgr, mgr.GetWorld()->GetAreaAlways(GetCurrentAreaId()), bounds);
   lights.BuildDynamicLightList(mgr, bounds);
-  const CVector3f& ambient = lights.GetAmbientColor();
-  CColor result = CColor(ambient.GetX(), ambient.GetY(), ambient.GetZ(), 1.f);
+  CColor result = lights.GetAmbientColor();
   const CVector3f center = bounds.GetCenterPoint();
   for (uint i = 0; i < lights.GetActiveLightCount(); ++i) {
     const CLight& light = lights.GetLight(i);

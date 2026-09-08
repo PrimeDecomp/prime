@@ -41,11 +41,15 @@ public:
   void SetMusicVolume(const int,const  bool);
   void SetSurroundMode(CAudioSys::ESurroundModes, bool);
 
+  const rstl::vector< rstl::pair< CAssetId, CAssetId > >& GetControlTXTRMap() const {
+    return x6c_controlTxtrMap;
+  }
   int GetMusicVolume() const { return x5c_musicVol; }
   const float GetHudAlpha() const;
   const float GetHelmetAlpha() const;
   void SetHelmetAlpha(const int);
   void SetHUDLag(const bool);
+  bool GetHUDLag() const { return x68_24_hudLag; }
   void SetIsHintSystemEnabled(bool);
   void ToggleControls(const bool);
   void ResetControllerAssets(const int);
@@ -56,6 +60,7 @@ public:
   void SetIsRumbleEnabled(const bool rumble);
   const bool GetIsRumbleEnabled() const { return x68_26_rumble; }
   bool GetIsHintSystemEnabled() const { return x68_28_hintSystem; }
+  bool GetSwapBeamControls() const { return x68_27_swapBeamsControls; }
 
 private:
   rstl::reserved_vector< uchar, 64 > x0_;

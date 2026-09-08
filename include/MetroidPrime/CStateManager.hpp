@@ -345,6 +345,9 @@ public:
   TUniqueId* GetLastRelayIdPtr() { return &xf76_lastRelay; }
   TUniqueId GetLastRelayId() const { return xf76_lastRelay; }
 
+  TUniqueId GetBossId() const { return xf18_bossId; }
+  float GetTotalBossEnergy() const { return xf1c_totalBossEnergy; }
+  uint GetBossStringIdx() const { return xf20_bossStringIdx; }
   void SetBossParams(TUniqueId bossId, float maxEnergy, uint stringIdx);
   void SetEnergyBarActorInfo(TUniqueId bossId, float maxEnergy, uint stringIdx) {
     SetBossParams(bossId, maxEnergy, stringIdx);
@@ -367,6 +370,7 @@ public:
   void SetInMapScreen(bool b) { xf94_27_inMapScreen = b; }
   bool GetInMapScreen() const { return xf94_27_inMapScreen; }
   void SetIsFullThreat(bool v) { xf94_30_fullThreat = v; }
+  bool IsFullThreat() const { return xf94_30_fullThreat; }
   const rstl::vector< CLight >& GetDynamicLightList() const { return x8e0_dynamicLights; }
   uint GetInputFrameIdx() const { return x8d4_inputFrameIdx; }
   CMapWorldInfo* MapWorldInfo() const { return x8c0_mapWorldInfo.GetPtr(); }
