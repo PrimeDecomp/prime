@@ -1071,7 +1071,7 @@ CTransform4f CMorphBall::CalculateSurfaceToWorld(const CVector3f& trackNormal,
       const float upY = rightZ * forwardX - forwardZ * rightX;
       const CVector3f upNorm = CVector3f(upX, upY, upZ).AsNormalized();
 
-      return CTransform4f(right, forward, upNorm, trackPoint + CVector3f(0.f, 0.f, 0.f));
+      return CTransform4f::FromColumns(right, forward, upNorm, trackPoint + CVector3f(0.f, 0.f, 0.f));
     }
   }
 

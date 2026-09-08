@@ -52,7 +52,7 @@ CIceAttackProjectile::CIceAttackProjectile(TToken< CGenDescription > trail,
   const CVector3f up(0.f, 0.f, 1.f);
   const CVector3f right = CVector3f::Cross(up, xf.GetForward()).AsNormalized();
   const CVector3f forward = CVector3f::Cross(right, up).AsNormalized();
-  SetTransform(CTransform4f(right, forward, up, GetTranslation()));
+  SetTransform(CTransform4f::FromColumns(right, forward, up, GetTranslation()));
   x100_movingGen = rs_new CElementGen(xf8_movingDesc);
 }
 

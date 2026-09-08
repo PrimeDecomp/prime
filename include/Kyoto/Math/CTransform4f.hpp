@@ -14,7 +14,6 @@ class CUnitVector3f;
 
 class CTransform4f {
 public:
-  CTransform4f(const CVector3f& m0, const CVector3f& m1, const CVector3f& m2, const CVector3f& pos);
   CTransform4f(const float _m00, const float _m01, const float _m02, const float _m03,
                const float _m10, const float _m11, const float _m12, const float _m13,
                const float _m20, const float _m21, const float _m22, const float _m23)
@@ -155,6 +154,8 @@ public:
   CTransform4f operator*(const CTransform4f& vec) const;
   CVector3f operator*(const CVector3f& vec) const;
 
+  static CTransform4f FromRows(const CVector3f&, const CVector3f&, const CVector3f&,
+                               const CVector3f&);
   static CTransform4f FromColumns(const CVector3f&, const CVector3f&, const CVector3f&,
                                   const CVector3f&);
   static CTransform4f Translate(float x, float y, float z);

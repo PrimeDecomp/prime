@@ -95,7 +95,7 @@ rstl::optional_object< CAABox > CGameProjectile::GetTouchBounds() const {
 }
 
 CProjectileTouchResult CGameProjectile::CanCollideWithTrigger(CActor& act, CStateManager& mgr) {
-  const bool isWater = TCastToPtr< CScriptWater >(act);
+  const bool isWater = TCastToPtr< CScriptWater >(act) != nullptr;
   if (isWater) {
     const bool enteredWater = (isWater && !x2e4_25_startedUnderwater) &&
                               !x170_projectile.GetWeaponDescription()->xa4_EWTR;

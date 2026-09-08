@@ -950,7 +950,7 @@ CTransform4f CBallCamera::UpdateCameraPositions(float dt, const CTransform4f& ol
         CVector3f up = CVector3f::Cross(newXf.GetForward(), useRight).AsNormalized();
         CVector3f forward = newXf.GetForward().AsNormalized();
         useRight = CVector3f::Cross(up, forward);
-        useXf = CTransform4f(useRight, newXf.GetForward(), up, newXf.GetTranslation());
+        useXf = CTransform4f::FromColumns(useRight, newXf.GetForward(), up, newXf.GetTranslation());
       }
     }
   }

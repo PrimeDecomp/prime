@@ -212,6 +212,7 @@ public:
   CVector3f GetEyePosition() const;
   float GetEyeHeight() const;
   CTransform4f CreateTransformFromMovementDirection() const;
+  float GetOrbitMaxTargetDistance(const CStateManager& mgr) const;
   EPlayerOrbitState GetOrbitState() const { return x304_orbitState; }
   const CVector3f& GetMovementDirection() const { return x50c_moveDir; }
   float GetMoveSpeed() const { return x4f8_moveSpeed; }

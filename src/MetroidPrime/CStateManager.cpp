@@ -768,7 +768,7 @@ void CStateManager::CreateStandardGameObjects() {
   axis.Normalize();
   const CQuaternion quat = CQuaternion::AxisAngle(axis, angle);
   CMatrix3f mtx = quat.BuildTransform();
-  CTransform4f xf = CTransform4f(mtx.GetColumn(kDX), mtx.GetColumn(kDY), mtx.GetColumn(kDZ), pos);
+  CTransform4f xf = CTransform4f::FromColumns(mtx.GetColumn(kDX), mtx.GetColumn(kDY), mtx.GetColumn(kDZ), pos);
 
   x84c_player = rs_new CPlayer(uid, xf, playerBounds, gpTweakPlayerRes->xc4_ballTransitionsANCS,
                                CVector3f(1.65f, 1.65f, 1.65f), 200.f, stepUp, stepDown, ballRadius,

@@ -688,8 +688,7 @@ void CActorModelParticles::CItem::GeneratePoints(const CVector3f* vertices,
         normal.Normalize();
         const CVector3f& right = CVector3f::Cross(normal, CVector3f::Up());
         CElementGen* gen = x78_ashGen.get();
-        const CTransform4f orientation(right, normal, CVector3f::Up(), CVector3f::Zero());
-        gen->SetOrientation(orientation);
+        gen->SetOrientation(CTransform4f::FromColumns(right, normal, CVector3f::Up(), CVector3f::Zero()));
       }
       x78_ashGen->ForceParticleCreation(1);
       previousIndex = index;
