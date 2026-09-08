@@ -163,7 +163,7 @@ protected:
   const CElitePirateData& GetData() const { return x5d8_data; }
   TUniqueId GetLauncherId() const { return x772_launcherId; }
 
-private:
+protected:
   struct SJointInfo {
     const char* x0_from;
     const char* x4_to;
@@ -186,7 +186,7 @@ private:
   static const CVector3f skExtendedClawBounds;
   static const CVector3f skLocalShieldBounds;
 
-  bool ShouldCallForBackupForLauncher(CStateManager& mgr, TUniqueId uid) const;
+  bool ShouldCallForBackupForLauncher(CStateManager& mgr, float arg, TUniqueId uid) const;
   void ActivateGrenadeLauncherById(CStateManager& mgr, bool active, TUniqueId uid) const;
   void SetupHealthInfoForLauncher(CStateManager& mgr, TUniqueId uid) const;
   void UpdateHealthInfo(CStateManager& mgr);

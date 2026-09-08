@@ -178,6 +178,7 @@ public:
   float GetChargePercentage() const { return x834_24_charging ? x340_chargeBeamFactor : 0.f; }
   EChargeState GetChargeState() const { return x330_chargeState; }
   CPlayerState::EBeamId GetPrimaryWeaponId() const { return x310_currentBeam; }
+  CAuxWeapon& AuxWeapon() { return *x744_auxWeapon; }
   CPlayerState::EBeamId GetPrimaryDestWeaponId() const { return x314_nextBeam; }
   uint GetSecondaryItemId() const { return x318_comboAmmoIdx; }
   int GetBombsPending() const { return x308_bombCount; }

@@ -82,6 +82,9 @@ public:
   rstl::vector< SRiders >& GetDynamicSlaves() { return x338_slavesDynamic; }
 
   void SetControlledAnimation(bool controlled) { x356_25_controlledAnimation = controlled; }
+  void SetDamageVulnerability(const CDamageVulnerability& vuln);
+  void SetDisableXRayAlpha(bool value) { x356_30_disableXrayAlpha = value; }
+  void SetXRayFog(bool value) { x356_31_xrayFog = value; }
 
   static void AddRider(rstl::vector< SRiders >& riders, TUniqueId riderId,
                        const CPhysicsActor* ridee, CStateManager& mgr);

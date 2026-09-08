@@ -9,6 +9,7 @@
 #include "Kyoto/TToken.hpp"
 
 #include "MetroidPrime/CDamageVulnerability.hpp"
+#include "MetroidPrime/Collision/CJointCollisionDescription.hpp"
 #include "MetroidPrime/Enemies/CElitePirate.hpp"
 
 #include "rstl/string.hpp"
@@ -58,13 +59,64 @@ public:
   bool ShotAt(CStateManager& mgr, float arg) override;
   bool CodeTrigger(CStateManager& mgr, float arg) override;
   bool ShouldCallForBackup(CStateManager& mgr, float arg) override;
-  bool IsUsingBaseCollisionActors() const override;
-  bool IsElitePirate() const override;
+  bool IsUsingBaseCollisionActors() const override { return false; }
+  bool IsElitePirate() const override { return false; }
   void SetupHealthInfo(CStateManager& mgr) override;
   void ActivateGrenadeLauncher(CStateManager& mgr, bool val) override;
   CShockWaveInfo GetShockWaveInfo() const override;
 
 private:
+  class CFlash : public CActor {
+  public:
+    void Accept(IVisitor& visitor) override;
+    void Think(float dt, CStateManager& mgr) override;
+    void PreRender(CStateManager& mgr, const CFrustumPlanes& frustum) override;
+    void AddToRenderer(const CFrustumPlanes& frustum, const CStateManager& mgr) const override;
+    void Render(const CStateManager& mgr) const override;
+    CFlash(TUniqueId uid, const CEntityInfo& info, const CVector3f& pos,
+           const TToken< CTexture >& thermalSpot, float delay);
+
+  private:
+    TCachedToken< CTexture > xe8_thermalSpot;
+    float xf4_delay;
+    float xf8_time;
+    float xfc_size;
+  };
+
+  struct SOBBoxJointInfo {
+    const char* x0_from;
+    const char* x4_to;
+    float x8_boundsX;
+    float xc_boundsY;
+    float x10_boundsZ;
+  };
+  static const char* const skpGrenadeLauncher2LCTR;
+  static const ::SSphereJointInfo skSphereJointList[1];
+  static const SOBBoxJointInfo skOBBJointList[11];
+  void CreateFlash(CStateManager& mgr, float delay);
+  void KillOmegaPirate(CStateManager& mgr);
+  void InitializeOmegaPirateCollisionManagers(CStateManager& mgr);
+  void UpdateVeinsModel(CStateManager& mgr, float dt);
+  void UpdateTeleportEffect(CStateManager& mgr, float dt);
+  void TeleportToFurthestPlatform(CStateManager& mgr);
+  static CVector3f FindGround(const CVector3f& pos, CStateManager& mgr);
+  void UpdateInvisibility(CStateManager& mgr, float dt);
+  void UpdateVeinsModelGlowEffect(CStateManager& mgr, float dt);
+  void SetOmegaPirateCrystalCollisionMaterialProperties(
+      rstl::single_ptr< CCollisionActorManager >& actors, CStateManager& mgr) const;
+  void
+  SetOmegaPirateOBBCollisionMaterialProperties(rstl::single_ptr< CCollisionActorManager >& actors,
+                                               CStateManager& mgr) const;
+  void SpawnNextQueuedTrooperPirate(CStateManager& mgr, float dt);
+  void QueueTrooperPiratesOfActiveType(uint count, CStateManager& mgr);
+  void QueueTrooperPiratesOfOneRandomColor(uint count, CStateManager& mgr);
+  uint GetNumActiveTrooperPirates() const;
+  uint GetNumTypesOfActiveAndQueuedTrooperPirates() const;
+  void AddOmegaPirateSphereCollisionList(const ::SSphereJointInfo* joints, int count,
+                                         rstl::vector< CJointCollisionDescription >& list) const;
+  void AddOBBCollisionList(const SOBBoxJointInfo* joints, int count,
+                           rstl::vector< CJointCollisionDescription >& list) const;
+
   enum ENormalFadeState {
     kNFS_Zero,
     kNFS_One,
@@ -115,7 +167,7 @@ private:
   float xa2c_skeletonAlpha;
   ESkeletonFadeState xa30_skeletonFadeState;
   float xa34_skeletonStateTime;
-  CCollisionActorManager* xa38_collisionActorMgr1;
+  rstl::single_ptr< CCollisionActorManager > xa38_collisionActorMgr1;
   bool xa3c_hearPlayer;
   pas::ELocomotionType xa40_locomotionType;
   bool xa44_targetable;
@@ -131,13 +183,13 @@ private:
   float xa90_xrayFadeInTime;
   float xa94_xrayFadeTriggerTime;
   float xa98_maxEnergy;
-  CCollisionActorManager* xa9c_collisionActorMgr2;
+  rstl::single_ptr< CCollisionActorManager > xa9c_collisionActorMgr2;
   rstl::vector< rstl::pair< TUniqueId, rstl::string > > xaa0_scriptSounds;
   float xab0_;
   rstl::vector< uint > xab4_;
   int xac4_;
   int xac8_;
-  int xacc_;
+  uint xacc_;
   bool xad0_scaleUpTrigger;
   float xad4_cachedSpeed;
   bool xad8_cover;
@@ -148,18 +200,18 @@ private:
   bool xadf_launcher1FollowPlayer;
   bool xae0_launcher2FollowPlayer;
   CDamageVulnerability xae4_platformVuln;
-  int xb4c_armorPiecesHealed;
+  uint xb4c_armorPiecesHealed;
   float xb50_armorPieceHealTime;
   CColor xb54_platformColor;
   float xb58_healTime;
   float xb5c_hpLost;
   float xb60_hpLostInPhase;
   float xb64_stateTime;
-  int xb68_;
+  uint xb68_;
   bool xb6c_exit1Sent;
   bool xb6d_exit2Sent;
   bool xb6e_armorPieceActivated;
-  CToken xb70_thermalSpot;
+  TToken< CTexture > xb70_thermalSpot;
   bool xb78_codeTrigger;
   uchar xb79_bossPhaseActive;
   rstl::vector< uchar > xb7c_;
