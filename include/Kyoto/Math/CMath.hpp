@@ -23,9 +23,7 @@ public:
   static const T& Clamp(const T& min, const T& val, const T& max);
   static float SqrtF(float v);
   static inline float Limit(float v, float h) {
-    if (fabs(v) > h)
-      return h * Sign(v);
-    return v;
+    return fabs(v) > h ? h * Sign(v) : v;
   }
   static inline float Sign(float v) { return FastFSel(v, 1.f, -1.f); }
 #ifdef __MWERKS__

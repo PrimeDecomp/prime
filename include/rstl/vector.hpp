@@ -229,12 +229,12 @@ inline vector< T, Alloc >& vector< T, Alloc >::operator=(const vector< T, Alloc 
 }
 
 template < typename T, typename Alloc >
-typename vector< T, Alloc >::iterator vector< T, Alloc >::erase(iterator it) {
+inline typename vector< T, Alloc >::iterator vector< T, Alloc >::erase(iterator it) {
   return erase(it, it + 1);
 }
 
 template < typename T, typename Alloc >
-typename vector< T, Alloc >::iterator vector< T, Alloc >::erase(iterator first, iterator last) {
+inline typename vector< T, Alloc >::iterator vector< T, Alloc >::erase(iterator first, iterator last) {
   destroy(first, last);
 
   const int tmp = first - begin();

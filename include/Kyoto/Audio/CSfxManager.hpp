@@ -208,7 +208,7 @@ public:
   static void SetActiveAreas(const rstl::reserved_vector< int, 10 >& areas);
 
   static void PitchBend(CSfxHandle handle, int pitch);
-  static void SetDuration(const CSfxHandle& handle, float duration);
+  static void SetDuration(CSfxHandle handle, float duration);
   static const short GetReverbAmount();
 
   static CSfxHandle SfxStart(const ushort id, const short vol = 127, const short pan = 64,

@@ -1329,29 +1329,29 @@ CEntity* ScriptLoader::LoadSpindleCamera(CStateManager& mgr, CInputStream& in, i
   float hintToCamVOffMax = in.ReadFloat();
 
   CSpindleCameraInterpolant seg1 = LoadSpindleSegment(in);
-  seg1.FixupAngles();
+  seg1.ConvertToRadians();
   CSpindleCameraInterpolant seg2 = LoadSpindleSegment(in);
   CSpindleCameraInterpolant seg3 = LoadSpindleSegment(in);
   CSpindleCameraInterpolant seg4 = LoadSpindleSegment(in);
   CSpindleCameraInterpolant seg5 = LoadSpindleSegment(in);
-  seg5.FixupAngles();
+  seg5.ConvertToRadians();
   CSpindleCameraInterpolant seg6 = LoadSpindleSegment(in);
-  seg6.FixupAngles();
+  seg6.ConvertToRadians();
   CSpindleCameraInterpolant seg7 = LoadSpindleSegment(in);
-  seg7.FixupAngles();
+  seg7.ConvertToRadians();
   CSpindleCameraInterpolant seg8 = LoadSpindleSegment(in);
-  seg8.FixupAngles();
+  seg8.ConvertToRadians();
   CSpindleCameraInterpolant seg9 = LoadSpindleSegment(in);
   CSpindleCameraInterpolant seg10 = LoadSpindleSegment(in);
   CSpindleCameraInterpolant seg11 = LoadSpindleSegment(in);
-  seg11.FixupAngles();
+  seg11.ConvertToRadians();
   CSpindleCameraInterpolant seg12 = LoadSpindleSegment(in);
-  seg12.FixupAngles();
+  seg12.ConvertToRadians();
   CSpindleCameraInterpolant seg13 = LoadSpindleSegment(in);
-  seg13.FixupAngles();
+  seg13.ConvertToRadians();
   CSpindleCameraInterpolant seg14 = LoadSpindleSegment(in);
   CSpindleCameraInterpolant seg15 = LoadSpindleSegment(in);
-  seg15.FixupAngles();
+  seg15.ConvertToRadians();
 
   return rs_new CScriptSpindleCamera(
       mgr.AllocateUniqueId(), aHead.x0_name, info, aHead.x10_transform, active, flags,
