@@ -20,6 +20,7 @@ public:
   const CTransform4f& GetWorldTransform() const { return x34_worldXF; }
   void SetLocalPosition(const CVector3f& pos);
   CTransform4f& LocalTransform() { return x4_localXF; }
+  const CTransform4f& GetO2PTransform() const { return x4_localXF; }
   void SetLocalTransform(const CTransform4f& xf);
   void SetO2PTransform(const CTransform4f& xf) {
     x4_localXF = xf;

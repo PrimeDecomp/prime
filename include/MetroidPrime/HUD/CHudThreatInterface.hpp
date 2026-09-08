@@ -4,6 +4,7 @@
 #include "Kyoto/Math/CTransform4f.hpp"
 #include "MetroidPrime/HUD/CHudInterface.hpp"
 #include "types.h"
+#include "rstl/pair.hpp"
 
 class CGuiFrame;
 class CGuiWidget;
@@ -31,8 +32,12 @@ public:
   void SetIsVisibleGame(bool visible) override;
   ~CHudThreatInterface() override;
   CHudThreatInterface(CGuiFrame& hud, EHudType type, float distance);
+  static rstl::pair< CVector3f, CVector3f > CombatThreatBarCoordFunc(float t);
+  static rstl::pair< CVector3f, CVector3f > ThermalThreatBarCoordFunc(float t);
+  static rstl::pair< CVector3f, CVector3f > XRayThreatBarCoordFunc(float t);
 
 private:
+  void UpdateVisibility();
   enum EThreatStatus { kTS_Normal, kTS_Warning, kTS_Damage };
   EHudType x4_hudType;
   float x8_damagePulseTimer;

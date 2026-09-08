@@ -11,7 +11,7 @@ public:
   CGuiWidgetDrawParms(float alpha, const CVector3f& offset) : mAlpha(alpha), mCameraOffset(offset) {}
   float GetAlpha() const { return mAlpha; }
   const CVector3f& GetCameraOffset() const { return mCameraOffset; }
-  static CGuiWidgetDrawParms Default() { return sDefaultDrawParms; }
+  static const CGuiWidgetDrawParms& Default() { return sDefaultDrawParms; }
 
 private:
   float mAlpha;

@@ -34,6 +34,8 @@ public:
                         bool lockedOn);
 
 private:
+  void UpdateVisibility();
+
   EHudType x4_hudType;
   CTransform4f x8_freeLookLeftXf;
   CTransform4f x38_freeLookRightXf;
@@ -64,6 +66,8 @@ public:
   CHudFreeLookInterfaceXRay(CGuiFrame& hud, bool freeLook, bool controlHeld, bool lockedOn);
 
 private:
+  void UpdateVisibility();
+
   CVector3f x4_freeLookLeftPos;
   CVector3f x10_freeLookRightPos;
   float x1c_freeLookInterp;

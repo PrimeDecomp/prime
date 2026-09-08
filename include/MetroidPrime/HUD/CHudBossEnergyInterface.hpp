@@ -2,6 +2,8 @@
 #define _CHUDBOSSENERGYINTERFACE
 
 #include "rstl/string.hpp"
+#include "rstl/pair.hpp"
+#include "Kyoto/Math/CVector3f.hpp"
 #include "types.h"
 
 class CGuiFrame;
@@ -19,6 +21,7 @@ public:
   void Update(float dt);
   void SetAlpha(float alpha);
   void SetBossParams(bool visible, const rstl::wstring& name, float energy, float maxEnergy);
+  static rstl::pair< CVector3f, CVector3f > BossEnergyCoordFunc(float t);
 
 private:
   float x0_alpha;

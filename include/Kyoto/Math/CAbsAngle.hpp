@@ -4,6 +4,7 @@
 #include "types.h"
 
 #include "Kyoto/Math/CMath.hpp"
+#include "Kyoto/Math/CRelAngle.hpp"
 
 class CRelAngle;
 
@@ -46,7 +47,9 @@ private:
 };
 CHECK_SIZEOF(CAbsAngle, 0x4)
 
-// __mi__FRC9CAbsAngleRC9CAbsAngle
+inline CRelAngle operator-(const CAbsAngle& lhs, const CAbsAngle& rhs) {
+  return CRelAngle::FromRadians(lhs.AsRadians() - rhs.AsRadians());
+}
 
 static inline float cosine(const CAbsAngle& angle) { return cos(angle.AsRadians()); }
 

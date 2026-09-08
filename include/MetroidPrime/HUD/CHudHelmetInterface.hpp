@@ -25,6 +25,8 @@ public:
   void SetIsVisibleDebug(const bool helmet, const bool glow);
 
 private:
+  void UpdateVisibility();
+
   CMatrix3f x0_hudLagRotation;
   CVector3f x24_pivotPosition;
   CVector3f x30_hudLagPosition;

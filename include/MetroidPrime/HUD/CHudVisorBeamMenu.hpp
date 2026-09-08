@@ -26,12 +26,16 @@ public:
 
 private:
   struct SMenuItem {
+    SMenuItem() : x0_model_loz(nullptr), x4_model_icon(nullptr), x8_positioner(0.f), xc_opacity(0.f) {}
     CGuiModel* x0_model_loz;
     CGuiModel* x4_model_icon;
     float x8_positioner;
     float xc_opacity;
   };
   enum EAnimPhase { kAP_None, kAP_Steady, kAP_SelectFlash, kAP_Animate };
+  EVisorBeamMenu GetSwappedType() const { return x80_24_swapBeamControls ? static_cast< EVisorBeamMenu >(1 - x4_type) : x4_type; }
+  bool GetIsVisible() const { return x14_24_visibleDebug && x14_25_visibleGame; }
+  void UpdateMenuWidgetTransform(int idx, CGuiWidget& widget, float t);
   CGuiFrame& x0_baseHud;
   EVisorBeamMenu x4_type;
   int x8_selectedItem;

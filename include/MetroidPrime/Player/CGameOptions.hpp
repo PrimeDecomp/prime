@@ -46,6 +46,7 @@ public:
   }
   int GetMusicVolume() const { return x5c_musicVol; }
   const float GetHudAlpha() const;
+  int GetHUDAlpha() const { return x60_hudAlpha; }
   const float GetHelmetAlpha() const;
   void SetHelmetAlpha(const int);
   void SetHUDLag(const bool);

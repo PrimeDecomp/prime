@@ -69,9 +69,9 @@ public:
   float GetVisorBeamMenuItemInactiveScale() const { return xc8_visorBeamMenuItemInactiveScale; }
   float GetVisorBeamMenuItemTranslate() const { return xcc_visorBeamMenuItemTranslate; }
   float GetThreatRange() const { return xe4_threatRange; }
-  float GetRadarScopeCoordRadius() const { return xe8_radarScopeCoordRadius; }
-  float GetRadarPlayerPaintRadius() const { return xec_radarPlayerPaintRadius; }
-  float GetRadarEnemyPaintRadius() const { return xf0_radarEnemyPaintRadius; }
+  const float& GetRadarScopeCoordRadius() const { return xe8_radarScopeCoordRadius; }
+  const float& GetRadarPlayerPaintRadius() const { return xec_radarPlayerPaintRadius; }
+  const float& GetRadarEnemyPaintRadius() const { return xf0_radarEnemyPaintRadius; }
   float GetMissileArrowVisTime() const { return xf4_missileArrowVisTime; }
   EHudVisMode GetHudVisMode() const { return xf8_hudVisMode; }
   EHelmetVisMode GetHelmetVisMode() const { return xfc_helmetVisMode; }
@@ -113,9 +113,9 @@ public:
   float GetScanSidesAngle() const { return x210_scanSidesAngle; }
   float GetScanSidesXScale() const { return x214_scanSidesXScale; }
   float GetScanSidesPositionEnd() const { return x218_scanSidesPositionEnd; }
-  float GetScanSidesDuration() const { return x220_scanSidesDuration; }
-  float GetScanSidesStartTime() const { return x224_scanSidesStartTime; }
-  float GetScanSidesEndTime() const { return x228_scanSidesEndTime; }
+  const float& GetScanSidesDuration() const { return x220_scanSidesDuration; }
+  const float& GetScanSidesStartTime() const { return x224_scanSidesStartTime; }
+  const float& GetScanSidesEndTime() const { return x228_scanSidesEndTime; }
   float GetScanDataDotRadius() const { return x22c_scanDataDotRadius; }
   float GetScanDataDotPosRandMagnitude() const { return x230_scanDataDotPosRandMag; }
   float GetScanDataDotSeekDurationMin() const { return x234_scanDataDotSeekDurationMin; }

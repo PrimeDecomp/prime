@@ -70,6 +70,7 @@ public:
   };
 
   CScanDisplay(const CGuiFrame* selHud);
+  ~CScanDisplay();
 
   void StartScan(TUniqueId uid, const CScannableObjectInfo& info, CGuiTextPane* message,
                  CGuiTextPane* scrollMessage, CGuiWidget* textGroup, CGuiModel* xMark,
@@ -78,6 +79,10 @@ public:
   void Update(float a, float b);
   void ProcessInput(const CFinalInput& input);
   void Draw() const;
+
+  TUniqueId GetScanTarget() const { return mObject; }
+  EScanState GetScanState() const { return mState; }
+  float GetBodyAlpha() const { return mBodyAlpha; }
 
   float GetDownloadStartTime(const int bucket);
   float GetDownloadFraction(const int bucket, const float time);
