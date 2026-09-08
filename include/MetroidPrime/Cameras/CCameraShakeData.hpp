@@ -51,6 +51,7 @@ CHECK_SIZEOF(CCameraShakerComponent, 0x3c)
 class CStateManager;
 class CCameraShakeData {
 public:
+  CCameraShakeData(CInputStream& in);
   CCameraShakeData(float duration, float sfxDist, int flags, const CVector3f& sfxPos,
                    const CCameraShakerComponent& shakerX, const CCameraShakerComponent& shakerY,
                    const CCameraShakerComponent& shakerZ);
