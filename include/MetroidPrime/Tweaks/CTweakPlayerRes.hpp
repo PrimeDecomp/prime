@@ -34,6 +34,10 @@ public:
 
   CTweakPlayerRes(CInputStream& in);
 
+  float GetCinematicMoveOutofIntoPlayerDistance() const {
+    return xf0_cinematicMoveOutofIntoPlayerDistance;
+  }
+
   CAssetId GetBallTransitionBeamResId(CPlayerState::EBeamId id) const;
   CAssetId GetCinematicBeamResId(CPlayerState::EBeamId id) const;
 };

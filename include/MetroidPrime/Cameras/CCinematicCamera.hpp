@@ -8,9 +8,8 @@
 class CCinematicCamera : public CGameCamera {
 public:
   CCinematicCamera(const TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
-                   const CTransform4f& xf, bool active, const float shotDuration,
-                   const float fovy, const float znear, const float zfar, const float aspect,
-                   const uint flags);
+                   const CTransform4f& xf, bool active, const float shotDuration, const float fovy,
+                   const float znear, const float zfar, const float aspect, const uint flags);
   ~CCinematicCamera();
   // CActor
   void Accept(IVisitor& visitor) override;
@@ -66,5 +65,6 @@ private:
                   // 0x200: disable out of into
   bool x220_24_ : 1;
 };
+CHECK_SIZEOF(CCinematicCamera, 0x228)
 
 #endif // _CCINEMATICCAMERA

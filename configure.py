@@ -599,7 +599,7 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/ScriptObjects/CScriptTimer.cpp",
             ),
-            Object(NonMatching, "MetroidPrime/Cameras/CCinematicCamera.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Cameras/CCinematicCamera.cpp"),
             Object(NonMatching, "MetroidPrime/CAutoMapper.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
