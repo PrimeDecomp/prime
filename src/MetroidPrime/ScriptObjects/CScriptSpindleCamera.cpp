@@ -17,20 +17,13 @@
 #include "Kyoto/Math/CloseEnough.hpp"
 #include "Kyoto/Streams/CInputStream.hpp"
 
-// FIXME: needed to get CVector3f::Cross to inline
-#pragma inline_max_total_size(10000)
-
-#define CROSS(a, b) CVector3f::Cross(a, b)
-// #define CROSS(a, b) CVector3f(\
-//   a.GetY() * b.GetZ() - b.GetY() * a.GetZ(),\
-//   a.GetZ() * b.GetX() - b.GetZ() * a.GetX(),\
-//   a.GetX() * b.GetY() - b.GetX() * a.GetY())
-
 extern uint LoadParameterFlags(CInputStream& in);
 
-static const CMaterialFilter sMaterialFilter = CMaterialFilter::MakeIncludeExclude(
-    CMaterialList(kMT_Solid),
-    CMaterialList(kMT_ProjectilePassthrough, kMT_Player, kMT_Character, kMT_CameraPassthrough));
+static const CMaterialList sIncludeMaterial = CMaterialList(kMT_Solid);
+static const CMaterialList sExcludeMaterial = CMaterialList(kMT_ProjectilePassthrough, kMT_Player, kMT_Character,
+                                            kMT_CameraPassthrough);
+static const CMaterialFilter sMaterialFilter =
+    CMaterialFilter::MakeIncludeExclude(sIncludeMaterial, sExcludeMaterial);
 
 CSpindleCameraInterpolant::CSpindleCameraInterpolant(ESpindleInput input, uint flags, float lowOut,
                                                      float highOut, float lowIn, float highIn)
@@ -63,12 +56,12 @@ CSpindleCameraInterpolant LoadSpindleSegment(CInputStream& in) {
   return CSpindleCameraInterpolant(input, flags, lowOut, highOut, lowIn, highIn);
 }
 
-void CSpindleCameraInterpolant::FixupAngles() {
+void CSpindleCameraInterpolant::ConvertToRadians() {
   x8_lowOut *= 0.017453292f;
   xc_highOut *= 0.017453292f;
 }
 
-float CSpindleCameraInterpolant::GetValue(float inVar) const {
+float CSpindleCameraInterpolant::InterpolateValue(float inVar) const {
   float ret;
   if (x4_input == kSI_Constant) {
     ret = x8_lowOut;
@@ -156,7 +149,7 @@ void CScriptSpindleCamera::Reset(const CTransform4f&, CStateManager& mgr) {
   x33c_24_inResetThink = false;
 }
 
-float CScriptSpindleCamera::GetInVar(const CSpindleCameraInterpolant& seg) const {
+float CScriptSpindleCamera::GetInterpolant(const CSpindleCameraInterpolant& seg) const {
   return x18c_inVars[static_cast< int >(seg.x4_input)];
 }
 
@@ -229,7 +222,7 @@ void CScriptSpindleCamera::Think(float dt, CStateManager& mgr) {
   x18c_inVars.push_back(hintDeltaVOff);
 
   if ((x188_flags & 0x2000) != 0 &&
-      hintToBallDist > x2f8_deleteHintBallDist.GetValue(GetInVar(x2f8_deleteHintBallDist))) {
+      hintToBallDist > x2f8_deleteHintBallDist.InterpolateValue(GetInterpolant(x2f8_deleteHintBallDist))) {
     if (hint->GetDelegatedCameraId() == GetUniqueId()) {
       mgr.CameraManager()->ReallyRemoveCameraHint(hint->GetUniqueId(), mgr);
     }
@@ -241,18 +234,18 @@ void CScriptSpindleCamera::Think(float dt, CStateManager& mgr) {
     if ((x188_flags & 0x20) != 0) {
       if (!x32c_24_outsideClampedAzimuth) {
         if (hintBallAngle >
-            x2b0_clampedAzimuthFromHintDir.GetValue(GetInVar(x2b0_clampedAzimuthFromHintDir))) {
+            x2b0_clampedAzimuthFromHintDir.InterpolateValue(GetInterpolant(x2b0_clampedAzimuthFromHintDir))) {
           x330_lookDir = hintToBallDir;
           x32c_24_outsideClampedAzimuth = true;
         }
       } else {
         const float hintCamCross =
             hintToCamDir.GetX() * hintDir.GetY() - hintDir.GetX() * hintToCamDir.GetY();
-        if ((hintBallAngle < x310_recoverClampedAzimuthFromHintDir.GetValue(
-                                 GetInVar(x310_recoverClampedAzimuthFromHintDir)) &&
+        if ((hintBallAngle < x310_recoverClampedAzimuthFromHintDir.InterpolateValue(
+                                 GetInterpolant(x310_recoverClampedAzimuthFromHintDir)) &&
              hintBallCross * hintCamCross < 0.f) ||
             hintBallAngle <=
-                x2b0_clampedAzimuthFromHintDir.GetValue(GetInVar(x2b0_clampedAzimuthFromHintDir))) {
+                x2b0_clampedAzimuthFromHintDir.InterpolateValue(GetInterpolant(x2b0_clampedAzimuthFromHintDir))) {
           x32c_24_outsideClampedAzimuth = false;
         } else {
           hintToBallDir = x330_lookDir;
@@ -260,10 +253,10 @@ void CScriptSpindleCamera::Think(float dt, CStateManager& mgr) {
       }
     }
 
-    float newHintToCamDist = x1f0_hintToCamDist.GetValue(GetInVar(x1f0_hintToCamDist));
+    float newHintToCamDist = x1f0_hintToCamDist.InterpolateValue(GetInterpolant(x1f0_hintToCamDist));
     if ((x188_flags & 0x40) != 0) {
-      newHintToCamDist = hintToBallDist + x208_distOffsetFromBallDist.GetValue(
-                                              GetInVar(x208_distOffsetFromBallDist));
+      newHintToCamDist = hintToBallDist + x208_distOffsetFromBallDist.InterpolateValue(
+                                              GetInterpolant(x208_distOffsetFromBallDist));
     }
     newHintToCamDist = CMath::Clamp(x1b0_hintToCamDistMin, newHintToCamDist, x1b4_hintToCamDistMax);
 
@@ -273,12 +266,12 @@ void CScriptSpindleCamera::Think(float dt, CStateManager& mgr) {
       hintToCamDir.Normalize();
     } else {
       hintToCamDir = hintDir;
-      hintToCamDist = x1f0_hintToCamDist.GetValue(GetInVar(x1f0_hintToCamDist));
+      hintToCamDist = x1f0_hintToCamDist.InterpolateValue(GetInterpolant(x1f0_hintToCamDist));
     }
 
     float hintBallToCamTargetAzimuth =
-        x220_hintBallToCamAzimuth.GetValue(GetInVar(x220_hintBallToCamAzimuth));
-    if ((x188_flags & 0x4000) == 0 && CROSS(hintToCamDir, hintToBallDir).GetZ() >= 0.f) {
+        x220_hintBallToCamAzimuth.InterpolateValue(GetInterpolant(x220_hintBallToCamAzimuth));
+    if ((x188_flags & 0x4000) == 0 && CVector3f::Cross(hintToCamDir, hintToBallDir).GetZ() >= 0.f) {
       hintBallToCamTargetAzimuth = -hintBallToCamTargetAzimuth;
     }
 
@@ -292,25 +285,25 @@ void CScriptSpindleCamera::Think(float dt, CStateManager& mgr) {
 
     float hintToCamDeltaAngleSpeedFactor =
         CMath::Limit(hintToCamDeltaAngleRange /
-                         x2c8_dampingAzimuthSpeed.GetValue(GetInVar(x2c8_dampingAzimuthSpeed)),
+                         x2c8_dampingAzimuthSpeed.InterpolateValue(GetInterpolant(x2c8_dampingAzimuthSpeed)),
                      1.f);
 
     float targetHintToCamDeltaAngleVel =
-        x1c0_targetHintToCamDeltaAngleVel.GetValue(GetInVar(x1c0_targetHintToCamDeltaAngleVel));
+        x1c0_targetHintToCamDeltaAngleVel.InterpolateValue(GetInterpolant(x1c0_targetHintToCamDeltaAngleVel));
     if ((x188_flags & 0x100) == 0) {
       targetHintToCamDeltaAngleVel = CMath::Limit(
-          x1d8_deltaAngleScaleWithCamDist.GetValue(GetInVar(x1d8_deltaAngleScaleWithCamDist)) /
+          x1d8_deltaAngleScaleWithCamDist.InterpolateValue(GetInterpolant(x1d8_deltaAngleScaleWithCamDist)) /
               hintToCamDist,
           targetHintToCamDeltaAngleVel);
     }
 
-    if ((CROSS(hintToBallDir, hintToCamDir).GetZ() >= 0.f &&
-         CROSS(targetHintToCam, hintToCamDir).GetZ() < 0.f) ||
-        (CROSS(hintToBallDir, hintToCamDir).GetZ() < 0.f &&
-         CROSS(targetHintToCam, hintToCamDir).GetZ() >= 0.f)) {
+    if ((CVector3f::Cross(hintToBallDir, hintToCamDir).GetZ() >= 0.f &&
+         CVector3f::Cross(targetHintToCam, hintToCamDir).GetZ() < 0.f) ||
+        (CVector3f::Cross(hintToBallDir, hintToCamDir).GetZ() < 0.f &&
+         CVector3f::Cross(targetHintToCam, hintToCamDir).GetZ() >= 0.f)) {
       const float targetHintToCamDeltaAngleVelRange =
-          x2e0_targetHintToCamDeltaAngleVelRange.GetValue(
-              GetInVar(x2e0_targetHintToCamDeltaAngleVelRange));
+          x2e0_targetHintToCamDeltaAngleVelRange.InterpolateValue(
+              GetInterpolant(x2e0_targetHintToCamDeltaAngleVelRange));
       targetHintToCamDeltaAngleVel =
           CMath::Limit(targetHintToCamDeltaAngleVel, targetHintToCamDeltaAngleVelRange);
     }
@@ -340,14 +333,14 @@ void CScriptSpindleCamera::Think(float dt, CStateManager& mgr) {
     const float hintBallToCamAzimuth = acosf(hintBallToCamDot);
     if ((x188_flags & 0x10) != 0) {
       if (CMath::AbsF(hintBallToCamAzimuth) <
-              x220_hintBallToCamAzimuth.GetValue(GetInVar(x220_hintBallToCamAzimuth)) ||
+              x220_hintBallToCamAzimuth.InterpolateValue(GetInterpolant(x220_hintBallToCamAzimuth)) ||
           (x188_flags & 0x8) != 0 || x33c_24_inResetThink) {
         newHintToCamDir = targetHintToCam;
       }
     }
 
     const float maxHintBallToCamAzimuth =
-        x250_maxHintBallToCamAzimuth.GetValue(GetInVar(x250_maxHintBallToCamAzimuth));
+        x250_maxHintBallToCamAzimuth.InterpolateValue(GetInterpolant(x250_maxHintBallToCamAzimuth));
 
     if (CMath::AbsF(hintBallToCamAzimuth) > maxHintBallToCamAzimuth) {
       x328_maxAzimuthInterpTimer += dt;
@@ -355,7 +348,7 @@ void CScriptSpindleCamera::Think(float dt, CStateManager& mgr) {
         const float ballToCamAzimuthInterp = CMath::Limit(x328_maxAzimuthInterpTimer / 3.f, 1.f);
         float hintBallToCamAzimuthDelta =
             CMath::AbsF(maxHintBallToCamAzimuth - hintBallToCamAzimuth);
-        if (CROSS(hintToBallDir, newHintToCamDir).GetZ() > 0.f) {
+        if (CVector3f::Cross(hintToBallDir, newHintToCamDir).GetZ() > 0.f) {
           hintBallToCamAzimuthDelta = -hintBallToCamAzimuthDelta;
         }
 
@@ -383,9 +376,9 @@ void CScriptSpindleCamera::Think(float dt, CStateManager& mgr) {
         float hintCamDot = CMath::Limit(CVector3f::Dot(hintDir2, newHintToCamDir), 1.f);
         float hintCamAzimuth = CMath::Limit(
             CMath::AbsF(acosf(hintCamDot)),
-            x2b0_clampedAzimuthFromHintDir.GetValue(GetInVar(x2b0_clampedAzimuthFromHintDir)));
+            x2b0_clampedAzimuthFromHintDir.InterpolateValue(GetInterpolant(x2b0_clampedAzimuthFromHintDir)));
 
-        const float hintDirCamCross = CROSS(hintDir2, newHintToCamDir).GetZ();
+        const float hintDirCamCross = CVector3f::Cross(hintDir2, newHintToCamDir).GetZ();
         if (hintDirCamCross < 0.f) {
           hintCamAzimuth = -hintCamAzimuth;
         }
@@ -398,9 +391,9 @@ void CScriptSpindleCamera::Think(float dt, CStateManager& mgr) {
     newHintToCamDir *= newHintToCamDist;
     newCamPos = hintPos + newHintToCamDir;
     if ((x188_flags & 0x80) != 0) {
-      newCamPos[kDZ] = ballPos.GetZ() + x298_camPosZOffset.GetValue(GetInVar(x298_camPosZOffset));
+      newCamPos[kDZ] = ballPos.GetZ() + x298_camPosZOffset.InterpolateValue(GetInterpolant(x298_camPosZOffset));
     } else {
-      newCamPos[kDZ] = hintPos.GetZ() + x298_camPosZOffset.GetValue(GetInVar(x298_camPosZOffset));
+      newCamPos[kDZ] = hintPos.GetZ() + x298_camPosZOffset.InterpolateValue(GetInterpolant(x298_camPosZOffset));
     }
 
     float hintToCamVOff = newCamPos.GetZ() - hintPos.GetZ();
@@ -409,10 +402,10 @@ void CScriptSpindleCamera::Think(float dt, CStateManager& mgr) {
 
     if ((x188_flags & 0x200) != 0) {
       lookAheadPos[kDZ] =
-          ballPos.GetZ() + x280_lookPosZOffset.GetValue(GetInVar(x280_lookPosZOffset));
+          ballPos.GetZ() + x280_lookPosZOffset.InterpolateValue(GetInterpolant(x280_lookPosZOffset));
     } else {
       lookAheadPos[kDZ] =
-          hintPos.GetZ() + x280_lookPosZOffset.GetValue(GetInVar(x280_lookPosZOffset));
+          hintPos.GetZ() + x280_lookPosZOffset.InterpolateValue(GetInterpolant(x280_lookPosZOffset));
     }
 
     CVector3f newLookDelta = lookAheadPos - newCamPos;
@@ -423,7 +416,7 @@ void CScriptSpindleCamera::Think(float dt, CStateManager& mgr) {
       const float newLookDistFlat = newLookDirFlat.Magnitude();
       newLookDirFlat.Normalize();
 
-      float camLookRelAzimuth = -x268_camLookRelAzimuth.GetValue(GetInVar(x268_camLookRelAzimuth));
+      float camLookRelAzimuth = -x268_camLookRelAzimuth.InterpolateValue(GetInterpolant(x268_camLookRelAzimuth));
       CVector3f newHintToCamDirFlat = newCamPos - hintPos;
       newHintToCamDirFlat[kDZ] = 0.f;
 
@@ -433,7 +426,7 @@ void CScriptSpindleCamera::Think(float dt, CStateManager& mgr) {
         newHintToCamDirFlat = CVector3f(0.f, 1.f, 0.f);
       }
 
-      const float newHintBallCross = CROSS(newHintToCamDirFlat, hintToBallDir).GetZ();
+      const float newHintBallCross = CVector3f::Cross(newHintToCamDirFlat, hintToBallDir).GetZ();
       if (newHintBallCross >= 0.f) {
         camLookRelAzimuth = -camLookRelAzimuth;
       }

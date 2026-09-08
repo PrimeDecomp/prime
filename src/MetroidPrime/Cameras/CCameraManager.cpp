@@ -1,3 +1,5 @@
+#pragma inline_max_size(250)
+
 #include "MetroidPrime/Cameras/CCameraManager.hpp"
 
 #include "Kyoto/Math/CVector3f.hpp"
@@ -9,10 +11,12 @@
 #include "MetroidPrime/Cameras/CFirstPersonCamera.hpp"
 #include "MetroidPrime/Cameras/CGameCamera.hpp"
 #include "MetroidPrime/Cameras/CInterpolationCamera.hpp"
+#include "MetroidPrime/Cameras/CPathCamera.hpp"
 #include "MetroidPrime/Player/CPlayer.hpp"
 #include "MetroidPrime/Player/CPlayerGun.hpp"
 #include "MetroidPrime/SFX/Misc.h"
 #include "MetroidPrime/ScriptObjects/CScriptCameraHint.hpp"
+#include "MetroidPrime/ScriptObjects/CScriptSpindleCamera.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptWater.hpp"
 #include "MetroidPrime/Tweaks/CTweakGame.hpp"
 #include "MetroidPrime/Tweaks/CTweakPlayer.hpp"
@@ -30,8 +34,8 @@ float CCameraManager::sThirdPersonFOV = 60.f;
 float CCameraManager::sNearPlane = 0.2f;
 float CCameraManager::sFarPlane = 750.f;
 float CCameraManager::sAspectRatio = 1.42f;
-float CCameraManager::lbl_805A6BE4 = 100.f;
-float CCameraManager::lbl_805A6BE8 = 127.f;
+float CCameraManager::sMinShakeVolume = 100.f;
+float CCameraManager::sMaxShakeVolume = 127.f;
 
 CCameraManager::CCameraManager(TUniqueId curCamera)
 : x0_curCameraId(curCamera)
@@ -61,7 +65,8 @@ CCameraManager::CCameraManager(TUniqueId curCamera)
   CSfxManager::AddListener(CSfxManager::kSC_Game, CVector3f::Zero(), CVector3f::Zero(),
                            CVector3f(1.f, 0.f, 0.f), CVector3f(0.f, 0.f, 1.f), 50.f, 50.f, 1000.f,
                            1, CAudioSys::kMaxVolume);
-  sAspectRatio = (float)CGraphics::GetViewport().mWidth / CGraphics::GetViewport().mHeight;
+  sAspectRatio =
+      static_cast< float >(CGraphics::GetViewport().mWidth) / CGraphics::GetViewport().mHeight;
   sFirstPersonFOV = gpTweakGame->GetFirstPersonFOV();
 }
 
@@ -326,7 +331,6 @@ void CCameraManager::AddCinemaCamera(TUniqueId uid, CStateManager& mgr) {
   }
 }
 
-// TODO nonmatching
 void CCameraManager::RemoveCinemaCamera(TUniqueId uid, CStateManager& mgr) {
   rstl::vector< TUniqueId >::iterator it =
       rstl::find(x4_cineCameras.begin(), x4_cineCameras.end(), uid);
@@ -335,7 +339,6 @@ void CCameraManager::RemoveCinemaCamera(TUniqueId uid, CStateManager& mgr) {
   }
 }
 
-// TODO nonmatching: regswap
 void CCameraManager::EnterCinematic(CStateManager& mgr) {
   mgr.Player()->PlayerGun()->CancelFiring(mgr);
   mgr.Player()->BreakFrozenState(mgr);
@@ -345,7 +348,7 @@ void CCameraManager::EnterCinematic(CStateManager& mgr) {
   while (idx != -1) {
     if (CExplosion* explosion = TCastToPtr< CExplosion >(objList[idx])) {
       mgr.DeleteObjectRequest(explosion->GetUniqueId());
-    } else if (CWeapon* weapon = TCastToPtr< CWeapon >(objList[idx])) {
+    } else if (CWeapon* const weapon = TCastToPtr< CWeapon >(objList[idx])) {
       if (weapon->GetActive() && (weapon->GetAttribField() & CWeapon::kPA_KeepInCinematic) !=
                                      CWeapon::kPA_KeepInCinematic) {
         CPatterned* patterned = TCastToPtr< CPatterned >(mgr.ObjectById(weapon->GetOwnerId()));
@@ -364,20 +367,12 @@ void CCameraManager::StopCinematics(CStateManager& mgr) {
   while (ent) {
     ent->SetActive(false);
     ent->WasDeactivated(mgr);
-    ent = TCastToPtr< CCinematicCamera >(&CurrentCamera(mgr));
+    ent = TCastToPtr< CCinematicCamera >(CurrentCamera(mgr));
   }
   mgr.Player()->UpdateCinematicState(mgr);
   x7c_fpCamera->CancelCinematicOffset();
 }
 
-inline CSfxHandle CreateSfxHandle(uchar vol, const CCameraShakeData& data) {
-  if (data.GetFlags() & 1) {
-    CVector3f pos = data.GetSfxPos();
-    CSfxHandle tmp = CSfxManager::AddEmitter(SFXamb_x_rumble_lp_00, pos, CVector3f::Zero(), vol);
-    return tmp;
-  }
-  return CSfxManager::SfxStart(SFXamb_x_rumble_lp_00, vol, 64);
-}
 int CCameraManager::AddCameraShaker(const CCameraShakeData& data, const bool sfx) {
   CCameraShakeData shakeData = data;
   shakeData.SetId(++x2c_lastShakeId);
@@ -388,13 +383,20 @@ int CCameraManager::AddCameraShaker(const CCameraShakeData& data, const bool sfx
   }
   float duration = data.GetDuration();
   if (sfx && duration > 0.f) {
-    float component1 = data.GetSomething();
-    float component2 = data.GetSomething2();
+    float component1 = data.GetMaxAmplitude();
+    float component2 = data.GetMaxSeverity();
     if (component2 > component1) {
       component1 = component2;
     }
-    const CSfxHandle handle = CreateSfxHandle(
-        static_cast< uchar >(CMath::Clamp(100.f, component1 * 9.f + 100.f, 127.f)), data);
+    uchar vol = static_cast< uchar >(
+        CMath::Clamp(sMinShakeVolume, component1 * 9.f + 100.f, sMaxShakeVolume));
+    CSfxHandle handle;
+    if (data.GetFlags() & 1) {
+      CVector3f pos = data.GetSfxPos();
+      handle = CSfxManager::AddEmitter(SFXamb_x_rumble_lp_00, pos, CVector3f::Zero(), vol);
+    } else {
+      handle = CSfxManager::SfxStart(SFXamb_x_rumble_lp_00, vol, 64);
+    }
     CSfxManager::SetDuration(handle, duration);
   }
   return x2c_lastShakeId;
@@ -461,14 +463,14 @@ void CCameraManager::CinematicCut(CStateManager& mgr) {
   }
 }
 
-// TODO: nonmatching
 void CCameraManager::UseCameraHint(const CScriptCameraHint& hint, CStateManager& mgr) {
   if (x80_ballCamera->GetState() == CBallCamera::kBCS_ToBall) {
     x80_ballCamera->SetState(CBallCamera::kBCS_Default, mgr);
     mgr.Player()->SetCameraState(CPlayer::kCS_Ball, mgr);
   }
 
-  CScriptCameraHint* oldHint = TCastToPtr< CScriptCameraHint >(mgr.ObjectById(xa6_camHintId));
+  const CScriptCameraHint* const oldHint =
+      TCastToConstPtr< CScriptCameraHint >(mgr.ObjectById(xa6_camHintId));
   xa6_camHintId = hint.GetUniqueId();
   xa8_hintPriority = hint.GetPriority();
 
@@ -503,11 +505,10 @@ void CCameraManager::UseCameraHint(const CScriptCameraHint& hint, CStateManager&
       (hint.GetBehaviourType() != CBallCamera::kBCB_Default ||
        (oldHint && (!oldHint || oldHint->GetBehaviourType() != CBallCamera::kBCB_Default)))) {
     const CVector3f& lookAtPos = x80_ballCamera->GetLookAtPosition();
-    float interpTime = hint.GetInfo().GetInterpolateTime();
-    float positionSpeed = hint.GetInfo().GetClampVelRange();
-    float rotationSpeed = hint.GetInfo().GetClampRotRange();
-    SetupInterpolation(camXf, x80_ballCamera->GetUniqueId(), lookAtPos, interpTime, positionSpeed,
-                       rotationSpeed, hint.GetInfo().Flagx400(), mgr);
+    SetupInterpolation(camXf, x80_ballCamera->GetUniqueId(), lookAtPos,
+                       hint.GetInfo().GetInterpolateTime(), hint.GetInfo().GetClampVelRange(),
+                       hint.GetInfo().GetClampRotRange(), (hint.GetOverrideFlags() & 0x400) != 0,
+                       mgr);
   }
 }
 
@@ -548,7 +549,6 @@ void CCameraManager::NoCameraHintsLeft(CStateManager& mgr) {
   }
 }
 
-// TODO: nonmatching
 void CCameraManager::UpdateCameraHints(float dt, CStateManager& mgr) {
   bool invalidHintRemoved = false;
   for (rstl::reserved_vector< rstl::pair< int, TUniqueId >, 64 >::iterator it =
@@ -567,7 +567,8 @@ void CCameraManager::UpdateCameraHints(float dt, CStateManager& mgr) {
     for (rstl::reserved_vector< TUniqueId, 64 >::iterator id = x2b0_inactiveCameraHints.begin();
          id != x2b0_inactiveCameraHints.end(); ++id) {
       TUniqueId uid = *id;
-      const CScriptCameraHint* hint = TCastToConstPtr< CScriptCameraHint >(mgr.GetObjectById(uid));
+      const CScriptCameraHint* const hint =
+          TCastToConstPtr< CScriptCameraHint >(mgr.GetObjectById(uid));
       if (hint) {
         if (hint->GetSenderCount() == 0 || hint->GetInactive()) {
           for (rstl::reserved_vector< rstl::pair< int, TUniqueId >, 64 >::iterator it =
@@ -594,7 +595,8 @@ void CCameraManager::UpdateCameraHints(float dt, CStateManager& mgr) {
     for (rstl::reserved_vector< TUniqueId, 64 >::iterator id = x334_activeCameraHints.begin();
          id != x334_activeCameraHints.end(); ++id) {
       TUniqueId uid = *id;
-      const CScriptCameraHint* hint = TCastToConstPtr< CScriptCameraHint >(mgr.GetObjectById(uid));
+      const CScriptCameraHint* const hint =
+          TCastToConstPtr< CScriptCameraHint >(mgr.GetObjectById(uid));
       if (hint) {
         bool activeHintPresent = false;
         for (rstl::reserved_vector< rstl::pair< int, TUniqueId >, 64 >::const_iterator it =
@@ -755,7 +757,7 @@ void CCameraManager::UpdateCameraHints(float dt, CStateManager& mgr) {
                                      x80_ballCamera->GetLookAtPosition()),
                 mgr);
           }
-          DeleteCameraHint(bestHint->GetUniqueId(), mgr);
+          ReallyRemoveCameraHint(bestHint->GetUniqueId(), mgr);
           if ((bestHint->GetInfo().GetOverrideFlags() & 0x2000) != 0) {
             CinematicCut(mgr);
           }
@@ -770,4 +772,107 @@ void CCameraManager::UpdateCameraHints(float dt, CStateManager& mgr) {
       }
     }
   }
+}
+
+bool CCameraManager::HasBallCameraInitialPositionHint(CStateManager& mgr) const {
+  if (HasCameraHint(mgr)) {
+    switch (mgr.CameraManager()->GetCameraHint(mgr)->GetBehaviourType()) {
+    case CBallCamera::kBCB_HintBallToCam:
+    case CBallCamera::kBCB_HintFixedPosition:
+    case CBallCamera::kBCB_HintFixedTransform:
+    case CBallCamera::kBCB_PathCamera:
+    case CBallCamera::kBCB_SpindleCamera:
+      return true;
+    default:
+      break;
+    }
+  }
+  return false;
+}
+
+void CCameraManager::AddCameraHint(TUniqueId uid, CStateManager& mgr) {
+  if (CScriptCameraHint* hint = TCastToPtr< CScriptCameraHint >(mgr.ObjectById(uid))) {
+    const rstl::reserved_vector< TUniqueId, 64 >::iterator search =
+        rstl::find(x334_activeCameraHints.begin(), x334_activeCameraHints.end(), uid);
+    if (search != x334_activeCameraHints.end() || xac_cameraHints.size() == 64 ||
+        x334_activeCameraHints.size() == 64) {
+      return;
+    }
+    x334_activeCameraHints.push_back(uid);
+  }
+}
+
+void CCameraManager::ReallyRemoveCameraHint(TUniqueId uid, CStateManager& mgr) {
+  if (CScriptCameraHint* const hint = TCastToPtr< CScriptCameraHint >(mgr.ObjectById(uid))) {
+    if (rstl::find(x2b0_inactiveCameraHints.begin(), x2b0_inactiveCameraHints.end(), uid) ==
+        x2b0_inactiveCameraHints.end()) {
+      hint->ClearSenders();
+      hint->SetInactive(true);
+      if (x2b0_inactiveCameraHints.size() != 64) {
+        x2b0_inactiveCameraHints.push_back(uid);
+      }
+    }
+  }
+}
+
+void CCameraManager::DeleteCameraHint(TUniqueId uid, CStateManager& mgr) {
+  const CScriptCameraHint* const hint = TCastToConstPtr< CScriptCameraHint >(mgr.ObjectById(uid));
+  const rstl::reserved_vector< TUniqueId, 64 >::iterator search =
+      rstl::find(x2b0_inactiveCameraHints.begin(), x2b0_inactiveCameraHints.end(), uid);
+  if (search == x2b0_inactiveCameraHints.end() && hint && x2b0_inactiveCameraHints.size() != 64) {
+    x2b0_inactiveCameraHints.push_back(uid);
+  }
+}
+
+void CCameraManager::ResetCameraHint(CStateManager& mgr) {
+  if (const CScriptCameraHint* hint =
+          TCastToPtr< CScriptCameraHint >(mgr.ObjectById(xa6_camHintId))) {
+    if (hint->GetBehaviourType() == CBallCamera::kBCB_HintInitializePosition) {
+      if (hint->GetOverrideFlags() & 0x20) {
+        x80_ballCamera->TeleportCamera(hint->GetTransform(), mgr);
+      }
+      DeleteCameraHint(xa6_camHintId, mgr);
+    } else {
+      UseCameraHint(*hint, mgr);
+    }
+  }
+}
+
+const CScriptCameraHint* CCameraManager::GetCameraHint(CStateManager& mgr) const {
+  return TCastToConstPtr< CScriptCameraHint >(mgr.GetObjectById(xa6_camHintId));
+}
+
+bool CCameraManager::HasCameraHint(CStateManager& mgr) const {
+  if (!xac_cameraHints.empty() && xa6_camHintId != kInvalidUniqueId &&
+      mgr.GetObjectById(xa6_camHintId)) {
+    return true;
+  }
+  return false;
+}
+
+void CCameraManager::SetPathCamera(TUniqueId uid, CStateManager& mgr) {
+  xa4_pathCamId = uid;
+  if (CPathCamera* camera = TCastToPtr< CPathCamera >(mgr.ObjectById(uid))) {
+    camera->Reset(GetCurrentCameraTransform(mgr), mgr);
+    x80_ballCamera->TeleportCamera(camera->GetTransform(), mgr);
+  }
+}
+
+TUniqueId CCameraManager::GetPathCameraId() const { return xa4_pathCamId; }
+
+void CCameraManager::SetSpindleCamera(TUniqueId uid, CStateManager& mgr) {
+  xa2_spindleCamId = uid;
+  if (CScriptSpindleCamera* camera = TCastToPtr< CScriptSpindleCamera >(mgr.ObjectById(uid))) {
+    camera->Reset(GetCurrentCameraTransform(mgr), mgr);
+    x80_ballCamera->TeleportCamera(camera->GetTransform(), mgr);
+  }
+}
+
+TUniqueId CCameraManager::GetSpindleCameraId() const { return xa2_spindleCamId; }
+
+float CCameraManager::GetCameraBobMagnitude() const {
+  float dot = CMath::AbsF(CMath::Limit(
+      CVector3f::Dot(x7c_fpCamera->GetTransform().GetForward(), CVector3f::Up()), 1.f));
+  float pitch = CMath::Limit(dot / cosf(M_PIF / 6.f), 1.f);
+  return 1.f - pitch;
 }

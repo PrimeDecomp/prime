@@ -32,8 +32,8 @@ struct CSpindleCameraInterpolant {
   CSpindleCameraInterpolant(ESpindleInput input, uint flags, float lowOut, float highOut,
                             float lowIn, float highIn);
 
-  void FixupAngles();
-  float GetValue(float inVar) const;
+  void ConvertToRadians();
+  float InterpolateValue(float inVar) const;
 };
 CHECK_SIZEOF(CSpindleCameraInterpolant, 0x18)
 
@@ -71,7 +71,7 @@ public:
   void Reset(const CTransform4f& xf, CStateManager& mgr) override;
 
 private:
-  float GetInVar(const CSpindleCameraInterpolant& seg) const;
+  float GetInterpolant(const CSpindleCameraInterpolant& seg) const;
 
   uint x188_flags;
   rstl::reserved_vector< float, 8 > x18c_inVars;

@@ -55,8 +55,6 @@ public:
   int GetId() const { return xbc_shakerId; }
   void Update(float dt, CStateManager& mgr);
   // GeneratePoint__16CCameraShakeDataFfR9CRandom16
-  float GetSomething() const;
-  float GetSomething2() const;
 
   // From MP1R
   float GetAttenuatedMagnitude() const;

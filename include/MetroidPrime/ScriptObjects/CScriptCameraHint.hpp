@@ -44,6 +44,7 @@ public:
 
   uint GetSenderCount() const { return mSenders.size(); }
   bool GetInactive() const { return mInactive; }
+  void SetInactive(bool inactive) { mInactive = inactive; }
 
 private:
   int mPriority;

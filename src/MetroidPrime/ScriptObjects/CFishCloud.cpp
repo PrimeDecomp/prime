@@ -1,3 +1,5 @@
+#pragma inline_max_size(250)
+
 #include "MetroidPrime/ScriptObjects/CFishCloud.hpp"
 #include "MetroidPrime/ScriptObjects/CFishCloudModifier.hpp"
 

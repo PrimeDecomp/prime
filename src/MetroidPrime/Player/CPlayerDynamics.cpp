@@ -1373,7 +1373,7 @@ void CPlayer::TransitionToMorphBallState(float dt, CStateManager& mgr) {
   CBallCamera* ballCamera = mgr.CameraManager()->BallCamera();
   mgr.CameraManager()->SetPlayerCamera(mgr, ballCamera->GetUniqueId());
   if (!mgr.GetCameraManager()->HasBallCameraInitialPositionHint(mgr)) {
-    mgr.CameraManager()->SetupBallCamera(mgr);
+    mgr.CameraManager()->ResetCameraHint(mgr);
     ballCamera->SetState(CBallCamera::kBCS_ToBall, mgr);
   } else {
     ballCamera->SetState(CBallCamera::kBCS_Default, mgr);
@@ -1381,7 +1381,7 @@ void CPlayer::TransitionToMorphBallState(float dt, CStateManager& mgr) {
     const CTransform4f newXf = mgr.GetCameraManager()->GetFirstPersonCamera()->GetTransform();
     ballCamera->SetTransform(newXf);
     ballCamera->TeleportCamera(newXf.GetTranslation(), mgr);
-    mgr.CameraManager()->SetupBallCamera(mgr);
+    mgr.CameraManager()->ResetCameraHint(mgr);
     ballCamera->InterpolateFOV(mgr.GetCameraManager()->GetFirstPersonCamera()->GetFov(),
                                CCameraManager::GetDefaultThirdPersonVerticalFOV(), 1.f, 0.f);
   }

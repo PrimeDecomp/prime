@@ -1,3 +1,5 @@
+#pragma inline_max_size(250)
+
 #include "MetroidPrime/ScriptObjects/CScriptRandomRelay.hpp"
 
 #include "MetroidPrime/CStateManager.hpp"
