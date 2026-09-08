@@ -41,7 +41,8 @@ protected:
     bool x3c_25_ : 1;
 
   public:
-    CRagDollParticle(CSegId id, const CVector3f& curPos, float radius, const CVector3f& prevPos)
+    CRagDollParticle(const CSegId& id, const CVector3f& curPos, float radius,
+                     const CVector3f& prevPos)
     : x0_id(id)
     , x4_curPos(curPos)
     , x10_radius(radius)
