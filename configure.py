@@ -572,7 +572,7 @@ config.libs = [
                 "MetroidPrime/Tweaks/CTweakPlayerControl.cpp",
             ),
             Object(NonMatching, "MetroidPrime/Tweaks/CTweakPlayerGun.cpp"),
-            Object(NonMatching, "MetroidPrime/CPauseScreen.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CPauseScreen.cpp"),
             Object(NonMatching, "MetroidPrime/Tweaks/CTweakGui.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),

@@ -39,6 +39,7 @@ public:
   void SelectWorker(int worker);
   bool IsWorkerSelectable(int worker);
   int GetUserSelection() const { return xc4_userSelection; }
+  int GetElementCount() const { return xc0_elementCount; }
   void SetUserSelection(int sel) {
     xc8_prevUserSelection = xc4_userSelection;
     xc4_userSelection = sel;
