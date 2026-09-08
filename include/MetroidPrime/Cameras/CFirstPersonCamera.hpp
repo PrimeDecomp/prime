@@ -22,8 +22,8 @@ public:
   void Reset(const CTransform4f& xf, CStateManager& mgr) override;
 
   void SetScriptPitchId(TUniqueId uid) { x1c4_pitchId = uid; }
-  // UpdateElevation__18CFirstPersonCameraFR13CStateManager
-  // UpdateTransform__18CFirstPersonCameraFR13CStateManagerf
+  void UpdateElevation(CStateManager& mgr);
+  void UpdateTransform(CStateManager& mgr, float dt);
   const CTransform4f& GetGunFollowTransform() const;
   void SetLockCamera(bool lock) { x18c_lockCamera = lock; }
   void CancelCinematicOffset();
@@ -39,5 +39,6 @@ private:
   CVector3f x1c8_closeInVec;
   float x1d4_closeInTimer;
 };
+CHECK_SIZEOF(CFirstPersonCamera, 0x1d8)
 
 #endif // _CFIRSTPERSONCAMERA

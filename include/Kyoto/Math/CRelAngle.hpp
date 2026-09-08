@@ -54,6 +54,11 @@ inline CRelAngle operator/(const CRelAngle& a, float b) {
   out /= b;
   return out;
 }
+inline CRelAngle operator*(const CRelAngle& a, float b) {
+  CRelAngle out(a);
+  out *= b;
+  return out;
+}
 inline float sine(const CRelAngle& angle) { return sin(angle.AsRadians()); }
 inline float cosine(const CRelAngle& angle) { return cos(angle.AsRadians()); }
 
