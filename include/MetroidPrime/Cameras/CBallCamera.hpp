@@ -178,6 +178,7 @@ public:
   void SetElevation(float v) { x1a0_elevation = v; }
   void SetLookAtOffset(CVector3f vec) { x1b4_lookAtOffset = vec; }
   TUniqueId GetTooCloseActorId() const { return x3dc_tooCloseActorId; }
+  float GetTooCloseActorDistance() const { return x3e0_tooCloseActorDist; }
   void SetChaseLookAtOffset(CVector3f vec) { x410_chaseLookAtOffset = vec; }
   void SetWorldOffset(CVector3f vec); // TODO
   EBallCameraState GetState() const { return x400_state; }
@@ -194,6 +195,7 @@ public:
   CVector3f GetFixedLookTarget(const CVector3f& hintToLookDir, CStateManager& mgr) const;
   void CheckFailSafe(float dt, CStateManager& mgr);
   bool CheckFailsafeFromMorphBallState(CStateManager& mgr) const;
+  bool TransitionFromMorphBallState(CStateManager& mgr);
   void ActivateFailSafe(float dt, CStateManager& mgr);
   CVector3f ClampElevationToWater(const CVector3f& pos, CStateManager& mgr) const;
   CVector3f MoveCollisionActor(const CVector3f& pos, float dt, CStateManager& mgr);

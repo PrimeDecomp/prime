@@ -18,21 +18,39 @@ public:
   CTweakPlayer(CInputStream&);
 
   float GetMaxTranslationalAcceleration(CPlayer::ESurfaceRestraints s) const {
+    if (s < CPlayer::kSR_Normal || s > CPlayer::kSR_Shrubbery) {
+      s = CPlayer::kSR_Normal;
+    }
     return mMaxTranslationalAcceleration[s];
   }
   float GetMaxRotationalAcceleration(CPlayer::ESurfaceRestraints s) const {
+    if (s < CPlayer::kSR_Normal || s > CPlayer::kSR_Shrubbery) {
+      s = CPlayer::kSR_Normal;
+    }
     return mMaxRotationalAcceleration[s];
   }
   float GetPlayerTranslationFriction(CPlayer::ESurfaceRestraints s) const {
+    if (s < CPlayer::kSR_Normal || s > CPlayer::kSR_Shrubbery) {
+      s = CPlayer::kSR_Normal;
+    }
     return mTranslationFriction[s];
   }
   float GetPlayerRotationFriction(CPlayer::ESurfaceRestraints s) const {
+    if (s < CPlayer::kSR_Normal || s > CPlayer::kSR_Shrubbery) {
+      s = CPlayer::kSR_Normal;
+    }
     return mRotationFriction[s];
   }
   float GetPlayerRotationMaxSpeed(CPlayer::ESurfaceRestraints s) const {
+    if (s < CPlayer::kSR_Normal || s > CPlayer::kSR_Shrubbery) {
+      s = CPlayer::kSR_Normal;
+    }
     return mRotationMaxSpeed[s];
   }
   float GetPlayerTranslationMaxSpeed(CPlayer::ESurfaceRestraints s) const {
+    if (s < CPlayer::kSR_Normal || s > CPlayer::kSR_Shrubbery) {
+      s = CPlayer::kSR_Normal;
+    }
     return mTranslationMaxSpeed[s];
   }
   float GetNormalGravAccel() const { return mNormalGravAccel; }
