@@ -49,7 +49,7 @@ public:
   ushort GetUnFreezeSoundId() const { return x80_unfreezeSoundId; }
   ushort GetStopClankSoundId() const { return x82_stopClankSoundId; }
   ushort GetChargingSoundId() const { return x84_chargingSoundId; }
-  ushort GetVisorSoundId() const { return x86_visorSoundId; }
+  const ushort GetVisorSoundId() const { return x86_visorSoundId; }
   CAssetId GetExtensionModelResId() const { return x88_extensionModelResId; }
   float GetExtensionDropDownDist() const { return x8c_extensionDropDownDist; }
   uint GetNumInitialShots() const { return x90_numInitialShots; }
@@ -145,6 +145,14 @@ public:
   const CDamageVulnerability* GetDamageVulnerability() const override { return &x26c_damageVuln; }
 
 private:
+  static const uint skStateToLocoTypeLookup[];
+  static const SBurst skBurst2InfoTemplate[];
+  static const SBurst skBurst3InfoTemplate[];
+  static const SBurst skBurst4InfoTemplate[];
+  static const SBurst skOOVBurst2InfoTemplate[];
+  static const SBurst skOOVBurst3InfoTemplate[];
+  static const SBurst skOOVBurst4InfoTemplate[];
+  static const SBurst* skBursts[];
   static const float skExtensionOverlapMaxPer;
   static const char* const skGunLCTRName;
   static const char* const skBlastLCTRName;
@@ -177,6 +185,14 @@ private:
   }
 
   bool IsStopped(float dt) const;
+  bool IsPlayerInFiringRange(CStateManager& mgr) const;
+  bool InDetectionRange(CStateManager& mgr) const;
+  bool ShouldFire(CStateManager& mgr) const;
+  bool LineOfSightTest(CStateManager& mgr) const;
+  bool PlayerInsideTurretSphere(CStateManager& mgr);
+  void UpdateTargettingMode(float dt, CStateManager& mgr);
+  void UpdateBurstType(CStateManager& mgr);
+  void SetTargetPosition(const CVector3f& position) { x404_targetPosition = position; }
 
   ETurretComponent x258_type;
   TUniqueId x25c_gunId;
@@ -233,5 +249,7 @@ private:
   bool x560_30_needsStopClankSound : 1;
   bool x560_31_frenzyReverse : 1;
 };
+
+CHECK_SIZEOF(CScriptGunTurret, 0x568)
 
 #endif // _CSCRIPTGUNTURRET
