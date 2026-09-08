@@ -1238,7 +1238,7 @@ CVector3f CCompoundTargetReticle::CalculatePositionWorld(const CActor& actor,
 CVector3f CCompoundTargetReticle::CalculateOrbitZoneReticlePosition(const CStateManager& mgr,
                                                                     bool lag) const {
   const CGameCamera& cam = mgr.GetCameraManager()->GetCurrentCamera(mgr);
-  float halfExtY = CCast::LtoF(gpTweakPlayer->GetOrbitScreenBoxHalfExtentY(0));
+  float halfExtY = CCast::LtoF(gpTweakPlayer->GetOrbitZoneHeight(0));
   float dist = 224.f / halfExtY;
   dist /= CMath::SlowTangentR(cam.GetFov() * 0.5f * (1.f / 360.f) * (2.f * M_PIF));
 

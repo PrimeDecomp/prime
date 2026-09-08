@@ -226,6 +226,8 @@ public:
   const CCollidableSphere* GetCollidableSphere() const;
   CTransform4f CreateTransformFromMovementDirection() const;
   float GetOrbitMaxTargetDistance(const CStateManager& mgr) const;
+  float GetOrbitMaxLockDistance(const CStateManager& mgr) const;
+  bool ValidateOrbitTargetIdAndPointer(TUniqueId id, CStateManager& mgr) const;
   EPlayerOrbitState GetOrbitState() const { return x304_orbitState; }
   const CVector3f& GetMovementDirection() const { return x50c_moveDir; }
   float GetMoveSpeed() const { return x4f8_moveSpeed; }
@@ -248,7 +250,12 @@ public:
   void AddOrbitDisableSource(CStateManager& mgr, TUniqueId addId);
   void RemoveOrbitDisableSource(TUniqueId uid);
   bool CheckOrbitDisableSourceList() const;
+  bool CheckOrbitDisableSourceList(const CStateManager& mgr);
+  bool WithinOrbitScreenEllipse(const CVector3f& screenCoords, EPlayerZoneInfo zone) const;
+  bool WithinOrbitScreenBox(const CVector3f& screenCoords, EPlayerZoneInfo zone,
+                            EPlayerZoneType type) const;
   void SetAimTargetId(TUniqueId target);
+  EOrbitValidationResult ValidateCurrentOrbitTargetId(CStateManager& mgr);
   EOrbitValidationResult ValidateOrbitTargetId(TUniqueId target, CStateManager& mgr) const;
   void DoSfxEffects(CSfxHandle sfx);
   bool GetFrozenState() const;
@@ -273,6 +280,10 @@ public:
   void ResetGun(CStateManager& mgr);
   void DrawGun(CStateManager& mgr);
   bool CheckPostGrapple() const;
+  void PreventFallingCameraPitch();
+  void ApplyGrappleJump(CStateManager& mgr);
+  void BeginGrapple(CVector3f& direction, CStateManager& mgr);
+  bool ValidateFPPosition(CVector3f position, CStateManager& mgr);
   void UpdateGunState(const CFinalInput& input, CStateManager& mgr);
   void UpdateAimTargetPrediction(const CTransform4f& xf, CStateManager& mgr);
   void UpdateAssistedAiming(const CTransform4f& xf, CStateManager& mgr);
@@ -378,6 +389,28 @@ public:
   void SetPlayerHitWallDuringMove();
   void DoPostCameraStuff(float dt, CStateManager& mgr); // name?
   float UpdateCameraBob(float dt, CStateManager& mgr);
+  float CalculateOrbitZBasedDistance(EPlayerOrbitType type);
+  void UpdateOrbitPosition(float distance, CStateManager& mgr);
+  void UpdateOrbitZPosition();
+  void UpdateOrbitFixedPosition();
+  void SetOrbitPosition(float distance, CStateManager& mgr);
+  void ActivateOrbitSource(CStateManager& mgr);
+  void UpdateOrbitSelection(const CFinalInput& input, CStateManager& mgr);
+  void UpdateOrbitableObjects(CStateManager& mgr);
+  void FindOrbitableObjects(const rstl::reserved_vector< TUniqueId, 1024 >& nearObjects,
+                           rstl::vector< TUniqueId >& listOut, EPlayerZoneInfo zone,
+                           EPlayerZoneType type, CStateManager& mgr, bool onScreenTest) const;
+  TUniqueId FindBestOrbitableObject(const rstl::vector< TUniqueId >& ids, EPlayerZoneInfo zone,
+                                  CStateManager& mgr) const;
+  TUniqueId FindOrbitTargetId(CStateManager& mgr);
+  bool ValidateAimTargetId(TUniqueId id, CStateManager& mgr);
+  bool ValidateObjectForMode(TUniqueId id, CStateManager& mgr) const;
+  TUniqueId FindAimTargetId(CStateManager& mgr);
+  TUniqueId CheckEnemiesAgainstOrbitZone(const rstl::reserved_vector< TUniqueId, 1024 >& ids,
+                                        EPlayerZoneInfo zone, EPlayerZoneType type,
+                                        CStateManager& mgr) const;
+  void OrbitPoint(EPlayerOrbitType type, CStateManager& mgr);
+  void OrbitCarcass(CStateManager& mgr);
   void UpdateOrbitTarget(CStateManager& mgr);
   void UpdateOrbitOrientation(CStateManager& mgr);
   bool IsTransparent() const;
@@ -399,6 +432,7 @@ public:
   EOrbitBrokenType GetOrbitBrokenType() const { return x30c_orbitBrokenType; }
   TUniqueId GetOrbitTargetId() const { return x310_orbitTargetId; }
   const CVector3f& GetOrbitPoint() const { return x314_orbitPoint; }
+  void SetOrbitNextTargetId(TUniqueId id) { x33c_orbitNextTargetId = id; }
   TUniqueId GetOrbitNextTargetId() const { return x33c_orbitNextTargetId; }
   CVector3f GetHUDOrbitTargetPosition() const;
   TUniqueId GetAttachedActor() const { return x26c_attachedActor; }
@@ -515,7 +549,7 @@ private:
   float x384_dashTimer;
   float x388_dashButtonHoldTime;
   bool x38c_doneSidewaysDashing;
-  uint x390_orbitSource;
+  int x390_orbitSource;
   bool x394_orbitingEnemy;
   float x398_dashSpeedMultiplier;
   bool x39c_noStrafeDashBlend;
