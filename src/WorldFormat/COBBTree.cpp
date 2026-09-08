@@ -112,7 +112,7 @@ rstl::auto_ptr< COBBTree > COBBTree::BuildOrientedBoundingBoxTree(const CVector3
                                    (1u << kMT_NoPlatformCollision) | (1u << kMT_Solid));
   indexData.x0_materials.push_back((1u << kMT_Wall) | (1u << kMT_NoEdgeCollision) |
                                    (1u << kMT_NoPlatformCollision) | (1u << kMT_Solid));
-  indexData.x10_vertMaterials = rstl::vector< uchar >(8, 0);
+  indexData.x10_vertMaterials = rstl::vector< uchar >(8, static_cast< uchar >(0));
   static const uchar kEdgeMaterials[] = {
       2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 2, 0, 0, 2, 0, 0, 2, 2,
   };
