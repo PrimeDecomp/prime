@@ -6,7 +6,8 @@
 
 class CVector2i {
 public:
-  CVector2i(int x = 0, int y = 0);
+  CVector2i() : mX(0), mY(0) {}
+  CVector2i(int x, int y = 0);
   CVector2i(CInputStream& in) {
     mX = in.ReadLong();
     mY = in.ReadLong();
