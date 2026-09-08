@@ -43,9 +43,9 @@ public:
   void SetIsAlwaysResetTimer(bool reset) { mAlwaysResetDelayTimer = reset; }
   FourCC GetWidgetTypeID() const override;
 
-private:
   static rstl::pair< CVector3f, CVector3f > DownloadBarCoordFunc(float t);
 
+private:
   CAssetId mTextureId;                                        // 0xb8
   rstl::optional_object< TCachedToken< CTexture > > mTexture; // 0xbc
   CColor mEmptyColor;                                         // 0xcc

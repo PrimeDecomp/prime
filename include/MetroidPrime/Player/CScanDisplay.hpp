@@ -49,7 +49,14 @@ public:
     void StartTransitionTo(const CVector2f& target, float duration);
     void Update(float dt);
     void SetDestPosition(const CVector2f& dest);
-    void SetDesiredAlpha(const float alpha) { mDesiredAlpha = 0.f; }
+    void SetDesiredAlpha(const float alpha) { mDesiredAlpha = alpha; }
+    void SetAlpha(float alpha) { mAlpha = alpha; }
+    void SetDotState(EDotState state) { mState = state; }
+    EDotState GetDotState() const { return mState; }
+    const CVector2f& GetCurrPosition() const { return mCurPos; }
+    float GetTransitionFactor() const {
+      return mTransitionDuration > 0.f ? mRemainingTime / mTransitionDuration : 0.f;
+    }
 
   private:
     EDotState mState;
@@ -76,7 +83,7 @@ public:
                  CGuiTextPane* scrollMessage, CGuiWidget* textGroup, CGuiModel* xMark,
                  CGuiModel* aButton, CGuiModel* dash, float scanTime);
   void StopScan();
-  void Update(float a, float b);
+  void Update(float dt, float scanningTime);
   void ProcessInput(const CFinalInput& input);
   void Draw() const;
 
@@ -84,8 +91,8 @@ public:
   EScanState GetScanState() const { return mState; }
   float GetBodyAlpha() const { return mBodyAlpha; }
 
-  float GetDownloadStartTime(const int bucket);
-  float GetDownloadFraction(const int bucket, const float time);
+  float GetDownloadStartTime(const int bucket) const;
+  float GetDownloadFraction(const int bucket, const float time) const;
 
 private:
   TCachedToken< CTexture > mDataDotTexture;
@@ -108,5 +115,7 @@ private:
   float mAPulse;
   bool mScanComplete;
 };
+
+CHECK_SIZEOF(CScanDisplay, 0x1b8)
 
 #endif // _CSCANDISPLAY
