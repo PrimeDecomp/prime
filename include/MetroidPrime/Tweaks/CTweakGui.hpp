@@ -173,7 +173,6 @@ public:
   static float FaceReflectionOrthoWidthDebugValueToActualValue(float v);
   static float FaceReflectionOrthoHeightDebugValueToActualValue(float v);
 
-private:
   bool x4_;
   float x8_mapAlphaInterp;
   float xc_pauseBlurFactor;
@@ -331,24 +330,20 @@ private:
   rstl::string x2d0_creditsTable;
   rstl::string x2e0_creditsFont;
   rstl::string x2f0_japaneseCreditsFont;
-public:
   CColor x300_creditsTextFontColor;
   CColor x304_creditsTextBorderColor;
-private:
   float x308_;
   float x30c_;
   float x310_;
   rstl::string x314_;
   rstl::string x324_;
   rstl::string x334_;
-public:
   CColor x344_completionTitleColor;
   CColor x348_completionTitleOutlineColor;
   CColor x34c_completionBodyColor;
   CColor x350_completionBodyOutlineColor;
   CColor x354_completionUnlockColor;
   CColor x358_completionUnlockOutlineColor;
-private:
   float x35c_;
   float x360_;
   float x364_;

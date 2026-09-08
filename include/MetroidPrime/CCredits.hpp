@@ -32,6 +32,8 @@ public:
   EMessageReturn Update(float, CArchitectureQueue& queue);
   EMessageReturn ProcessUserInput(const CFinalInput& input);
 
+  static void DrawText(CGuiTextSupport&, const CVector3f& translation);
+
 private:
   int x14_state;
   TToken< CStringTable > x18_creditsTable;
@@ -52,9 +54,6 @@ private:
 
   void DrawVideo() const;
   void DrawText() const;
-
-public:
-  static void DrawText(CGuiTextSupport&, const CVector3f& translation);
 };
 CHECK_SIZEOF(CCredits, 0x60)
 
