@@ -20,8 +20,9 @@ class CScriptDebris : public CPhysicsActor {
 public:
   enum EOrientationType {
     kOT_NotOriented,
-    kOT_ToObject,
     kOT_AlongVelocity,
+    kOT_ToObject,
+    kOT_AlongCollisionNormal,
   };
 
   enum EScaleType {
@@ -36,21 +37,21 @@ public:
                 float angMaxMag, float minDuration, float maxDuration, float colorInT,
                 float colorOutT, const CColor& color, const CColor& endsColor, float scaleOutStartT,
                 const CVector3f& scale, const CVector3f& endScale, float restitution,
-                float zImpulse, const CVector3f& particle0Scale, uint particle0,
-                const CVector3f& particle1Scale, bool particle1GlobalTranslation,
+                float downwardSpeed, const CVector3f& localOffset, uint particle0,
+                const CVector3f& particle0Scale, bool particle1GlobalTranslation,
                 bool deferDeleteTillParticle1Done, EOrientationType particleOr0, uint particle1,
-                const CVector3f& particle2Scale, bool particle2GlobalTranslation,
+                const CVector3f& particle1Scale, bool particle2GlobalTranslation,
                 bool deferDeleteTillParticle2Done, EOrientationType particleOr1, uint particle2,
-                const CVector3f& particle2Scale2, EOrientationType particleOr2,
-                bool randomAngImpulse, bool dieOnProjectile, bool noBounce, bool active);
+                const CVector3f& particle2Scale, EOrientationType particleOr2,
+                bool solid, bool dieOnProjectile, bool noBounce, bool active);
 
   // Simple constructor (LoadDebris)
   CScriptDebris(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
                 const CTransform4f& xf, const CModelData& mData, const CActorParameters& aParams,
                 uint particleId, const CVector3f& particleScale, float zImpulse,
-                const CVector3f& velocity, const CColor& endsColor, float duration,
-                float restitution, float scaleOutStartT, EScaleType scaleType,
-                bool randomAngImpulse, bool dieOnProjectile, bool noBounce);
+                const CVector3f& velocity, const CColor& endsColor, float mass,
+                float restitution, float duration, EScaleType scaleType,
+                bool unused, bool randomAngImpulse, bool active);
 
   // CEntity
   ~CScriptDebris() override;
@@ -88,9 +89,9 @@ private:
   bool x281_30_debrisExtended : 1;
   bool x281_31_dieOnProjectile : 1;
   bool x282_24_noBounce : 1;
-  uchar x283_particleOr0;
-  uchar x284_particleOr1;
-  uchar x285_particleOr2;
+  char x283_particleOr0;
+  char x284_particleOr1;
+  char x285_particleOr2;
   float x288_linConeAngle;
   float x28c_linMinMag;
   float x290_linMaxMag;

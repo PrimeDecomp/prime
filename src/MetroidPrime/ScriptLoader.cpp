@@ -1484,41 +1484,42 @@ CEntity* ScriptLoader::LoadDebrisExtended(CStateManager& mgr, CInputStream& in, 
   float scaleOutStartT = in.ReadFloat();
   CVector3f endScale(in);
   float restitution = in.ReadFloat();
-  float zImpulse = in.ReadFloat();
+  float downwardSpeed = in.ReadFloat();
   CVector3f localOffset(in);
 
   CAssetId model = in.Get< CAssetId >();
   CActorParameters aParams = LoadActorParameters(in);
 
   CAssetId particle0 = in.Get< CAssetId >();
-  CVector3f particle1Scale(in);
+  CVector3f particle0Scale(in);
   bool particle1GlobalTranslation = in.Get< bool >();
   bool deferDeleteTillParticle1Done = in.Get< bool >();
   CScriptDebris::EOrientationType particleOr0 = CScriptDebris::EOrientationType(in.Get< int >());
   CAssetId particle1 = in.Get< CAssetId >();
-  CVector3f particle2Scale(in);
+  CVector3f particle1Scale(in);
   bool particle2GlobalTranslation = in.Get< bool >();
   bool deferDeleteTillParticle2Done = in.Get< bool >();
   CScriptDebris::EOrientationType particleOr1 = CScriptDebris::EOrientationType(in.Get< int >());
   CAssetId particle2 = in.Get< CAssetId >();
-  CVector3f particle3Scale(in);
+  CVector3f particle2Scale(in);
   CScriptDebris::EOrientationType particleOr2 = CScriptDebris::EOrientationType(in.Get< int >());
-  bool randomAngImpulse = in.Get< bool >();
+  bool solid = in.Get< bool >();
   bool dieOnProjectile = in.Get< bool >();
   bool noBounce = in.Get< bool >();
   bool active = in.Get< bool >();
 
   uint resType = gpResourceFactory->GetResourceTypeById(model);
 
+  // Retail uses the second particle scale for the third generator as well.
   return rs_new CScriptDebris(
       mgr.AllocateUniqueId(), head.x0_actorHead.x0_name, info, head.x0_actorHead.x10_transform,
       resType != 0 ? CModelData(CStaticRes(model, head.x40_scale)) : CModelData::CModelDataNull(),
       aParams, linConeAngle, linMinMag, linMaxMag, angMinMag, angMaxMag, minDuration, maxDuration,
       colorInT, colorOutT, color, endsColor, scaleOutStartT, head.x40_scale, endScale, restitution,
-      zImpulse, localOffset, particle0, particle1Scale, particle1GlobalTranslation,
-      deferDeleteTillParticle1Done, particleOr0, particle1, particle2Scale,
+      downwardSpeed, localOffset, particle0, particle0Scale, particle1GlobalTranslation,
+      deferDeleteTillParticle1Done, particleOr0, particle1, particle1Scale,
       particle2GlobalTranslation, deferDeleteTillParticle2Done, particleOr1, particle2,
-      particle2Scale, particleOr2, randomAngImpulse, dieOnProjectile, noBounce, active);
+      particle1Scale, particleOr2, solid, dieOnProjectile, noBounce, active);
 }
 
 CEntity* ScriptLoader::LoadDebris(CStateManager& mgr, CInputStream& in, int propCount,
@@ -1531,17 +1532,17 @@ CEntity* ScriptLoader::LoadDebris(CStateManager& mgr, CInputStream& in, int prop
   float zImpulse = in.ReadFloat();
   CVector3f velocity(in);
   CColor endsColor(in);
-  float duration = in.ReadFloat();
+  float mass = in.ReadFloat();
   float restitution = in.ReadFloat();
-  float scaleOutStartT = in.ReadFloat();
+  float duration = in.ReadFloat();
   CScriptDebris::EScaleType scaleType = CScriptDebris::EScaleType(in.Get< int >());
-  bool dieOnProjectile = in.Get< bool >();
+  bool randomAngImpulse = in.Get< bool >();
   CAssetId model = in.Get< CAssetId >();
   CActorParameters aParams = LoadActorParameters(in);
   CAssetId particleId = in.Get< CAssetId >();
   CVector3f particleScale(in);
-  bool randomAngImpulse = in.Get< bool >();
-  bool noBounce = in.Get< bool >();
+  bool unused = in.Get< bool >();
+  bool active = in.Get< bool >();
 
   if (gpResourceFactory->GetResourceTypeById(model) == 0)
     return nullptr;
@@ -1549,8 +1550,8 @@ CEntity* ScriptLoader::LoadDebris(CStateManager& mgr, CInputStream& in, int prop
   return rs_new CScriptDebris(
       mgr.AllocateUniqueId(), head.x0_actorHead.x0_name, info, head.x0_actorHead.x10_transform,
       CModelData(CStaticRes(model, head.x40_scale)), aParams, particleId, particleScale, zImpulse,
-      velocity, endsColor, duration, restitution, scaleOutStartT, scaleType, randomAngImpulse,
-      dieOnProjectile, noBounce);
+      velocity, endsColor, mass, restitution, duration, scaleType, unused,
+      randomAngImpulse, active);
 }
 
 CEntity* ScriptLoader::LoadCameraShaker(CStateManager& mgr, CInputStream& in, int propCount,

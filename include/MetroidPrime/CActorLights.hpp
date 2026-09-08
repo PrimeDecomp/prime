@@ -65,6 +65,8 @@ public:
   void SetFindNearestDynamicLights(bool v) { x29a_findNearestDynamicLights = v; }
   bool GetIsDirty() const { return x298_24_dirty; }
   int GetMaxAreaLights() const { return x2b8_maxAreaLights; }
+  uint GetFramesBetweenRecalculation() const { return x2a8_areaUpdateFramePeriod; }
+  void SetFramesBetweenRecalculation(uint period) { x2a8_areaUpdateFramePeriod = period; }
 
 private:
   rstl::reserved_vector< CLight, 4 > x0_areaLights;
