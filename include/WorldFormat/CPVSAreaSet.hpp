@@ -17,6 +17,9 @@ public:
   int GetEntityIdByIndex(uint idx) const;
 
   CPVSVisOctree& GetVisOctree() const;
+  int GetNumFeatures() const { return x0_; }
+  int GetNumActors() const { return xc_; }
+  int GetNum2ndLights() const { return x8_; }
   bool Has2ndLayerLights() const { return x8_ != 0; }
 
 private:

@@ -261,14 +261,15 @@ MetroidPrime/CEffect.cpp:
 	.sdata      start:0x805A6E78 end:0x805A6E80
 
 MetroidPrime/Cameras/CGameCamera.cpp:
-	.text       start:0x8005AE3C end:0x8005DCF8
+	.text       start:0x8005AE3C end:0x8005DEE4
+	.rodata     start:0x803CCF90 end:0x803CCF98
 	.data       start:0x803DA188 end:0x803DA208
 	.sdata      start:0x805A6E80 end:0x805A6E98
 	.sdata2     start:0x805AA3D8 end:0x805AA420
 
 MetroidPrime/CGameArea.cpp:
-	.text       start:0x8005DCF8 end:0x80064800
-	.rodata     start:0x803CCF90 end:0x803CCFB8
+	.text       start:0x8005DEE4 end:0x80064800
+	.rodata     start:0x803CCF98 end:0x803CCFB8
 	.data       start:0x803DA208 end:0x803DA298
 	.sdata      start:0x805A6E98 end:0x805A6EB0
 	.sdata2     start:0x805AA420 end:0x805AA448

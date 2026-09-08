@@ -23,6 +23,7 @@ public:
   void PostConstruct(void* ptr, uint len, int unk);
   CARAMToken& operator=(const CARAMToken& other);
   const EStatus GetStatus() const { return x0_status; }
+  int GetSize() const { return xc_dataLen; }
   bool LoadToMRAM();
   bool LoadToARAM();
   bool RefreshStatus();
