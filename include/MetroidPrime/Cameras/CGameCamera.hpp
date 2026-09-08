@@ -35,7 +35,10 @@ public:
 
   TUniqueId GetWatchedObject() const { return xe8_watchedObject; }
   float GetFov() const { return x15c_currentFov; }
-  void SetFov(float fov) { x15c_currentFov = fov; }
+  void SetFov(float fov) {
+    x15c_currentFov = fov;
+    x170_24_perspDirty = true;
+  }
   float GetNearClipDistance() const { return x160_znear; }
   float GetFarClipDistance() const { return x164_zfar; }
   void InterpolateFOV(float start, float fov, float time, float delayTime);
