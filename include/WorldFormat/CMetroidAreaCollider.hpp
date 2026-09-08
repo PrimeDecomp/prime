@@ -169,6 +169,7 @@ public:
                                                 const CMaterialList& matList, CVector3f dir,
                                                 float d, CCollisionInfo& infoOut, double& dOut);
 
+  static void ResetInternalCounters();
   static ushort GetDupPrimitiveCheckCount() { return sDupPrimitiveCheckCount; }
   static ushort& DupVertexListValue(uint idx) { return sDupVertexList[idx]; }
   static ushort& DupEdgeListValue(uint idx) { return sDupEdgeList[idx]; }
@@ -180,7 +181,6 @@ private:
   static ushort sDupVertexList[0x2800];
   static ushort sDupEdgeList[0x6000];
   static ushort sDupTriangleList[0x4000];
-  static void ResetInternalCounters();
   static bool AABoxCollisionCheck_Internal(const CAreaOctTree::Node&, CAABoxAreaCache&);
   static bool AABoxCollisionCheckBoolean_Internal(const CAreaOctTree::Node&,
                                                   const CBooleanAABoxAreaCache&);

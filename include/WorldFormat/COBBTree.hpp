@@ -107,6 +107,7 @@ public:
     return x18_indexData.x0_materials[x18_indexData.x20_edgeMaterials[idx]];
   }
 
+  int NumSurfaceMaterials() const { return x18_indexData.x30_surfaceMaterials.size(); }
   CAABox CalculateLocalAABox() const;
 
   static rstl::auto_ptr< COBBTree > BuildOrientedBoundingBoxTree(const CVector3f& extent,

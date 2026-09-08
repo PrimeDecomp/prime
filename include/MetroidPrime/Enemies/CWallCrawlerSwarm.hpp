@@ -6,6 +6,7 @@
 #include "WorldFormat/CCollisionSurface.hpp"
 
 class CAnimRes;
+class CMarkerGrid;
 class CDamageInfo;
 class CDamageVulnerability;
 class CHealthInfo;
@@ -52,6 +53,8 @@ public:
                     int launchSfx, int scatterSfx, CActorParameters actParams);
 
   void Accept(IVisitor& visitor) override;
+
+  void FreezeCollision(const CMarkerGrid& grid, float duration);
 
   void ApplyRadiusDamage(const CVector3f& pos, const CDamageInfo& info, CStateManager& mgr);
 

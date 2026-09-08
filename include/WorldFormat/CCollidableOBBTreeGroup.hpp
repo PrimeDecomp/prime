@@ -17,6 +17,8 @@ public:
   CCollidableOBBTreeGroupContainer(CInputStream& in);
   CCollidableOBBTreeGroupContainer(const CVector3f&, const CVector3f&);
 
+  int NumTrees() const { return x0_trees.size(); }
+
 private:
   friend class CCollidableOBBTreeGroup;
   rstl::vector< rstl::auto_ptr< COBBTree > > x0_trees;
@@ -35,6 +37,9 @@ public:
   FourCC GetPrimType() const override;
   ~CCollidableOBBTreeGroup() override {}
   CRayCastResult CastRayInternal(const CInternalRayCastStructure&) const override;
+
+  const CCollidableOBBTreeGroupContainer* GetContainer() const { return x10_container; }
+  const COBBTree* GetOBBTreeAABox(int idx) const;
 
   static Type GetType();
   static void SetStaticTableIndex(uint);
