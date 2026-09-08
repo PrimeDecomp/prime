@@ -109,6 +109,8 @@ public:
   static CCameraShakeData skHardRecoil;
 
   static CCameraShakeData BuildProjectileCameraShake(const float duration, const float magnitude);
+  static CCameraShakeData BuildMissileShakeData(float duration, float magnitude, float distance,
+                                                CVector3f origin);
 
 private:
   float x0_duration;

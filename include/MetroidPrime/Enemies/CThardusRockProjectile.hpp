@@ -8,7 +8,10 @@
 
 class CCollisionActorManager;
 class CThardusRockProjectile : public CPatterned {
+  friend class CThardus;
+
 public:
+  enum EProjectileState { kPS_Zero, kPS_One, kPS_Two, kPS_Three };
   enum EModifyMaterial {
     kMM_Add,
     kMM_Remove,
@@ -37,6 +40,10 @@ public:
   void Render(const CStateManager&) const override;
 
   void AddGravity(CStateManager& mgr);
+  void SetState(EProjectileState state) { mAiState = state; }
+  void SetGetUpDelayTime(float time) { mDelayTime = time; }
+  void SetAttackDelayTime(float time) { mAttackTime = time; }
+  void SetThardusId(TUniqueId id) { mThardusId = id; }
   void AddDeathEffects(CStateManager& mgr, const CVector3f& position);
   void AddParticleEffect(CStateManager& mgr, const CAssetId particle, const CVector3f& position,
                          const CVector3f& scale, const int unk);
@@ -76,7 +83,8 @@ private:
   uint x5d8_;
   bool x5dc_;
   bool x5dd_;
-  
+  bool x5de_;
+
   static const CPatternedCollisionUtils::SSphereJointInfo skJointInfoList[];
 };
 

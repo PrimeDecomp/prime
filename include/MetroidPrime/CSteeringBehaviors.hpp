@@ -28,7 +28,7 @@ public:
                      float dampingRadius, const CStateManager& mgr) const;
 
   CVector2f Flee2D(const CPhysicsActor& actor, const CVector2f& v0) const;
-  CVector2f Arrival2D(const CPhysicsActor& actor, const CVector2f& v0, const float) const;
+  CVector2f Arrival2D(const CPhysicsActor& actor, const CVector2f& v0) const;
   static bool SolveQuadratic(const float a, const float b, const float c, float& xPos, float& xNeg);
   static bool ProjectLinearIntersection(const CVector3f& v0, float f1, const CVector3f& v1,
                                         const CVector3f& v2, CVector3f& v3);
