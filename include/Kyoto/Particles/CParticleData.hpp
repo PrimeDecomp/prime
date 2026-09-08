@@ -33,7 +33,7 @@ public:
   }
   const rstl::string& GetLocatorName() const { return xc_boneName; }
   float GetScale() const { return x1c_scale; }
-  EParentedMode GetParentedMode() const { return static_cast<EParentedMode>(x20_parentMode); }
+  EParentedMode GetParentedMode() const { return static_cast< EParentedMode >(x20_parentMode); }
 
 private:
   int x0_duration;
@@ -45,6 +45,10 @@ private:
 
 class CAuxiliaryParticleData {
 public:
+  CAuxiliaryParticleData(uint duration, const SObjectTag& tag, const CVector3f& translation,
+                         float scale)
+  : x0_duration(duration), x4_particle(tag), xc_translation(translation), x18_scale(scale) {}
+
   uint GetDuration() const { return x0_duration; }
   SObjectTag GetParticleAssetInfo() const {
     return SObjectTag(x4_particle.GetType(), x4_particle.GetId());

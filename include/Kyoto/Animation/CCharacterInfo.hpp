@@ -18,6 +18,10 @@ class CCharacterInfo {
 public:
   class CParticleResData {
   public:
+    CParticleResData() {}
+    CParticleResData(const rstl::vector< CAssetId >& part, const rstl::vector< CAssetId >& swhc,
+                     const rstl::vector< CAssetId >& elsc, const rstl::vector< CAssetId >& swoosh)
+    : x0_part(part), x10_swhc(swhc), x20_elsc(elsc), x30_elsc(swoosh) {}
     rstl::vector< CAssetId > x0_part;
     rstl::vector< CAssetId > x10_swhc;
     rstl::vector< CAssetId > x20_elsc;

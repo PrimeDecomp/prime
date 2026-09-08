@@ -109,8 +109,7 @@ CVector2f CSteeringBehaviors::Flee2D(const CPhysicsActor& actor, const CVector2f
   return actor.GetTransform().GetForward().ToVec2f();
 }
 
-CVector2f CSteeringBehaviors::Arrival2D(const CPhysicsActor& actor, const CVector2f& v0,
-                                        const float) const {
+CVector2f CSteeringBehaviors::Arrival2D(const CPhysicsActor& actor, const CVector2f& v0) const {
   const CVector2f diffVec = v0 - actor.GetTranslation().ToVec2f();
   if (diffVec.MagSquared() > FLT_EPSILON) {
     return diffVec.AsNormalized();
