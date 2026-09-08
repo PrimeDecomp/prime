@@ -762,7 +762,7 @@ void CThardus::Think(float dt, CStateManager& mgr) {
           if (mgr.GetCameraManager()->GetCurrentCameraId() ==
               mgr.GetCameraManager()->GetFirstPersonCamera()->GetUniqueId()) {
             const CCameraShakeData& shake =
-                CCameraShakeData::BuildMissileShakeData(0.25f, 0.75f, 125.f, GetTranslation());
+                CCameraShakeData::HardVertShakeDistance(0.25f, 0.75f, 125.f, GetTranslation());
             mgr.CameraManager()->AddCameraShaker(shake, true);
           }
           x6f8_ = 0.f;
@@ -1897,7 +1897,7 @@ void CThardus::ShakeScreen(CStateManager& mgr, const CVector3f& pos, float magni
   if (mgr.GetCameraManager()->GetCurrentCameraId() ==
       mgr.GetCameraManager()->GetFirstPersonCamera()->GetUniqueId()) {
     const CCameraShakeData& data =
-        CCameraShakeData::BuildMissileShakeData(duration, magnitude, distance, GetTranslation());
+        CCameraShakeData::HardVertShakeDistance(duration, magnitude, distance, GetTranslation());
     mgr.CameraManager()->AddCameraShaker(data, true);
   }
   if (x908_) {

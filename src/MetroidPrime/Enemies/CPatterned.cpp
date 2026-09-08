@@ -619,7 +619,7 @@ void CPatterned::MassiveFrozenDeath(CStateManager& mgr) {
   const float toPlayerDist = (mgr.Player()->GetTranslation() - GetTranslation()).Magnitude();
   if (toPlayerDist < 40.f) {
     mgr.CameraManager()->AddCameraShaker(
-        CCameraShakeData::BuildPatternedExplodeShakeData(GetTranslation(), 0.25f, 0.3f, 40.f),
+        CCameraShakeData::HardHorizShakeDistance(GetTranslation(), 0.25f, 0.3f, 40.f),
         true);
   }
 

@@ -45,7 +45,7 @@ CEnergyProjectile::CEnergyProjectile(
                   sendCollideMsg)
 , x2ec_dir(xf.GetForward())
 , x2f8_mag(x2ec_dir.Magnitude())
-, x2fc_camShake(CCameraShakeData::BuildProjectileCameraShake(0.5f, 0.75f))
+, x2fc_camShake(CCameraShakeData::SoftHorizShake(0.5f, 0.75f))
 , x3d0_24_dead(false)
 , x3d0_25_(false)
 , x3d0_26_(false)
