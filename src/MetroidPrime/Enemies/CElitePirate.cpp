@@ -482,11 +482,11 @@ bool CElitePirate::ShouldSpecialAttack(CStateManager& mgr, float) {
   return false;
 }
 
-bool CElitePirate::ShouldCallForBackup(CStateManager& mgr, float) {
-  return ShouldCallForBackupForLauncher(mgr, x772_launcherId);
+bool CElitePirate::ShouldCallForBackup(CStateManager& mgr, float arg) {
+  return ShouldCallForBackupForLauncher(mgr, arg, x772_launcherId);
 }
 
-bool CElitePirate::ShouldCallForBackupForLauncher(CStateManager&, TUniqueId uid) const {
+bool CElitePirate::ShouldCallForBackupForLauncher(CStateManager&, float, TUniqueId uid) const {
   if (!x988_30_calledForBackup && uid == kInvalidUniqueId && x5d8_data.CanCallForBackup()) {
     return x7a8_pathShaggedTime >= 3.f;
   }

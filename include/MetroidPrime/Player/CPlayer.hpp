@@ -82,6 +82,16 @@ class CPlayer : public CPhysicsActor, public TOneStatic< CPlayer > {
   };
 
 public:
+  enum EOrbitValidationResult {
+    kOVR_OK,
+    kOVR_InvalidTarget,
+    kOVR_PlayerNotReadyToTarget,
+    kOVR_NonTargetableTarget,
+    kOVR_ExtremeHorizonAngle,
+    kOVR_BrokenLookAngle,
+    kOVR_TargetingThroughDoor,
+  };
+
   enum EPlayerOrbitState {
     kOS_NoOrbit,
     kOS_OrbitObject,
@@ -236,6 +246,7 @@ public:
   void RemoveOrbitDisableSource(TUniqueId uid);
   bool CheckOrbitDisableSourceList() const;
   void SetAimTargetId(TUniqueId target);
+  EOrbitValidationResult ValidateOrbitTargetId(TUniqueId target, CStateManager& mgr) const;
   void DoSfxEffects(CSfxHandle sfx);
   bool GetFrozenState() const;
   void SetFrozenState(CStateManager& stateMgr, CAssetId steamTxtr, ushort sfx, CAssetId iceTxtr);

@@ -239,10 +239,10 @@ public:
   void SetSoundEventPitchBend(int);
   CSfxHandle GetSfxHandle() const;
   bool CanDrawStatic() const;
+  void SetEnableRender(bool v) { xe7_27_enableRender = v; }
 
 protected:
   void SetDrawEnabled(bool v) { xe7_29_drawEnabled = v; }
-  void SetEnableRender(bool v) { xe7_27_enableRender = v; }
 
 private:
   CTransform4f x34_transform;
