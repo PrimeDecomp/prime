@@ -59,6 +59,7 @@ public:
   void Rewind();
   bool GetIsFullyCached() const;
   bool GetIsMovieFinishedPlaying() const;
+  void DisableLoop() { xf4_24_loop = false; }
   bool IsLooping() const { return xf4_24_loop; }
 
 private:

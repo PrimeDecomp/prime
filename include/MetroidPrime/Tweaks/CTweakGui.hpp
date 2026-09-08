@@ -155,11 +155,18 @@ public:
   const rstl::string& GetCreditsTable() const { return x2d0_creditsTable; }
   const rstl::string& GetCreditsFont() const { return x2e0_creditsFont; }
   const rstl::string& GetJapaneseCreditsFont() const { return x2f0_japaneseCreditsFont; }
-  const CColor& GetCreditsTextFontColor() const { return x300_; }
-  const CColor& GetCreditsTextBorderColor() const { return x304_; }
-  float GetCredits_x30c() const { return x30c_; }
-  float GetCredits_x310() const { return x310_; }
+  const CColor& GetCreditsTextFontColor() const { return x300_creditsTextFontColor; }
+  const CColor& GetCreditsTextBorderColor() const { return x304_creditsTextBorderColor; }
+  const float& GetCredits_x308() const { return x308_; }
+  const float& GetCredits_x30c() const { return x30c_; }
+  const float& GetCredits_x310() const { return x310_; }
   
+  const rstl::string& GetCompletionScreenTable() const { return x314_; }
+  const rstl::string& GetCompletionScreenTitleFont() const { return x324_; }
+  const rstl::string& GetCompletionScreenBodyFont() const { return x334_; }
+  const float& GetCompletionScreenPulseTime() const { return x35c_; }
+  const float& GetCompletionScreenTextDelay() const { return x364_; }
+
   static float FaceReflectionDistanceDebugValueToActualValue(float v);
   static float FaceReflectionHeightDebugValueToActualValue(float v);
   static float FaceReflectionAspectDebugValueToActualValue(float v);
@@ -324,20 +331,24 @@ private:
   rstl::string x2d0_creditsTable;
   rstl::string x2e0_creditsFont;
   rstl::string x2f0_japaneseCreditsFont;
-  CColor x300_;
-  CColor x304_;
+public:
+  CColor x300_creditsTextFontColor;
+  CColor x304_creditsTextBorderColor;
+private:
   float x308_;
   float x30c_;
   float x310_;
   rstl::string x314_;
   rstl::string x324_;
   rstl::string x334_;
-  CColor x344_;
-  CColor x348_;
-  CColor x34c_;
-  CColor x350_;
-  CColor x354_;
-  CColor x358_;
+public:
+  CColor x344_completionTitleColor;
+  CColor x348_completionTitleOutlineColor;
+  CColor x34c_completionBodyColor;
+  CColor x350_completionBodyOutlineColor;
+  CColor x354_completionUnlockColor;
+  CColor x358_completionUnlockOutlineColor;
+private:
   float x35c_;
   float x360_;
   float x364_;

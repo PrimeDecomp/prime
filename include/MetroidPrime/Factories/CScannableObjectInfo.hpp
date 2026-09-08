@@ -57,7 +57,7 @@ public:
     : x0_texture(in.ReadLong())
     , x4_appearanceRange(in.ReadFloat())
     , x8_imagePos(static_cast< EPanelType >(in.ReadLong()))
-    , xc_size(version == 1 ? CVector2i() : CVector2i(in))
+    , xc_size(version == 1 ? CVector2i(0, 0) : CVector2i(in))
     , x14_interval(version == 1 ? 0.f : in.ReadFloat())
     , x18_fadeDuration(version < 3 ? 0.f : in.ReadFloat()) {}
     CAssetId GetTextureId() const { return x0_texture; }
