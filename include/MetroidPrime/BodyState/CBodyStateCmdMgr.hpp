@@ -492,6 +492,16 @@ public:
     x270_additiveAim = cmd;
   }
 
+  void DeliverCmd(const CBCAdditiveFlinchCmd& cmd) {
+    DeliverCmd(cmd.GetCommandId());
+    x278_additiveFlinch = cmd;
+  }
+
+  void DeliverCmd(const CBCLoopHitReactionCmd& cmd) {
+    DeliverCmd(cmd.GetCommandId());
+    x160_loopHitReaction = cmd;
+  }
+
   void DeliverTargetVector(const CVector3f& t) { x18_target = t; }
   void DeliverAdditiveTargetVector(const CVector3f& t) { x24_additiveTarget = t; }
   void BlendSteeringCmds();
