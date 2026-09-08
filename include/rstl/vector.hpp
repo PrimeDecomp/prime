@@ -240,6 +240,7 @@ typename vector< T, Alloc >::iterator vector< T, Alloc >::erase(iterator first, 
 
   for (iterator it = last, moved = iterator(xc_items + tmp); it != end(); ++moved, ++newCount, ++it) {
     construct(&*moved, *it);
+    destroy(&*it);
   }
   x4_count = newCount;
 
