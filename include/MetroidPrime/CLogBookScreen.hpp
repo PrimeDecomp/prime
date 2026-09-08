@@ -3,12 +3,15 @@
 
 #include "Kyoto/TToken.hpp"
 #include "MetroidPrime/CPauseScreenBase.hpp"
+#include "MetroidPrime/CWorldSaveGameInfo.hpp"
+#include "rstl/optional_object.hpp"
 #include "rstl/pair.hpp"
 #include "rstl/single_ptr.hpp"
 #include "rstl/vector.hpp"
 
 class CArtifactDoll;
 class CScannableObjectInfo;
+class CPlayerState;
 
 class CLogBookScreen : public CPauseScreenBase {
 public:
@@ -33,13 +36,28 @@ public:
 private:
   enum ELeavePauseState { kLPS_InPause, kLPS_LeavingPause, kLPS_LeftPause };
 
-  rstl::reserved_vector< rstl::vector< rstl::pair< CAssetId, bool > >, 5 > x19c_scanCompletes;
-  rstl::vector< rstl::pair< TCachedToken< CScannableObjectInfo >, TCachedToken< CStringTable > > >
-      x1f0_curViewScans;
-  rstl::reserved_vector< rstl::vector< rstl::pair< TLockedToken< CScannableObjectInfo >,
-                                                   TLockedToken< CStringTable > > >,
-                         5 >
-      x200_viewScans;
+  typedef rstl::pair< CAssetId, bool > SScanComplete;
+  typedef rstl::vector< SScanComplete > CScanCategory;
+  typedef rstl::pair< TCachedToken< CScannableObjectInfo >,
+                      rstl::optional_object< TCachedToken< CStringTable > > >
+      SArticle;
+  typedef rstl::vector< SArticle > CArticleList;
+
+  static bool IsScanComplete(CWorldSaveGameInfo::EScanCategory category, CAssetId scan,
+                             const CPlayerState& playerState);
+  bool IsScanCategoryReady(CWorldSaveGameInfo::EScanCategory category);
+  void InitializeLogBook();
+  void PumpArticleLoad();
+  int NextSurroundingArticleIndex(int cur);
+  void UpdateRightTitles();
+  void UpdateBodyText();
+  void UpdateBodyImagesAndText();
+  bool IsArtifactCategorySelected() const;
+  int GetSelectedArtifactHeadScanIndex() const;
+
+  rstl::reserved_vector< CScanCategory, 5 > x19c_scanCompletes;
+  CArticleList x1f0_curViewScans;
+  rstl::reserved_vector< CArticleList, 5 > x200_viewScans;
   float x254_viewInterp;
   rstl::single_ptr< CArtifactDoll > x258_artifactDoll;
   ELeavePauseState x25c_leavePauseState;

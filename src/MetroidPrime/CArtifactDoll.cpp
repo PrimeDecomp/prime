@@ -75,7 +75,9 @@ bool CArtifactDoll::CheckLoadComplete() {
 
   return true;
 }
+
 const bool CArtifactDoll::IsLoaded() const { return !!mIsLoaded; }
+
 void CArtifactDoll::UpdateActorLights() {
   mLights[0] = CLight::BuildDirectional(
       (CVector3f::Forward() + (CVector3f::Right() * 0.25f) + (CVector3f::Down() * 0.1f))
@@ -84,6 +86,7 @@ void CArtifactDoll::UpdateActorLights() {
   mLights[1] = CLight::BuildDirectional(-CVector3f::Forward(), CColor((uchar)0, 0, 0));
   mActorLights->BuildFakeLightList(mLights, CColor(0.25f, 0.25f, 0.25f));
 }
+
 void CArtifactDoll::Touch() {
   if (!CheckLoadComplete()) {
     return;
@@ -94,7 +97,7 @@ void CArtifactDoll::Touch() {
   }
 }
 
-void CArtifactDoll::Update(float dt, CStateManager& mgr) {
+void CArtifactDoll::Update(float dt, const CStateManager& mgr) {
   if (!CheckLoadComplete()) {
     return;
   }
@@ -106,22 +109,24 @@ void CArtifactDoll::Update(float dt, CStateManager& mgr) {
   }
   UpdateActorLights();
 }
-void CArtifactDoll::CompleteArtifactHeadScan(CStateManager& mgr) {
+
+void CArtifactDoll::CompleteArtifactHeadScan(const CStateManager& mgr) {
   UpdateArtifactHeadScan(mgr, 1.f);
 }
 
-void CArtifactDoll::UpdateArtifactHeadScan(CStateManager& mgr, const float delta) {
+void CArtifactDoll::UpdateArtifactHeadScan(const CStateManager& mgr, const float delta) {
   for (int i = 0; i < ARRAY_SIZE(ArtifactScanIds); ++i) {
-    if (mgr.PlayerState()->HasPowerUp(CPlayerState::EItemType(i + CPlayerState::kIT_Truth))) {
+    if (mgr.GetPlayerState()->HasPowerUp(CPlayerState::EItemType(i + CPlayerState::kIT_Truth))) {
       const CAssetId id = ArtifactScanIds[i];
-      mgr.PlayerState()->SetScanTime(
-          id, rstl::min_val(1.f, delta + mgr.PlayerState()->GetScanTime(id)));
+      mgr.GetPlayerState()->SetScanTime(
+          id, rstl::min_val(1.f, delta + mgr.GetPlayerState()->GetScanTime(id)));
     }
   }
 }
 
 void CArtifactDoll::Draw(float alpha, const CStateManager& mgr, const bool inArtifactCategory,
                          const CAssetId selectedArtifact) {}
+
 CAssetId CArtifactDoll::GetArtifactHeadScanFromItemType(CPlayerState::EItemType item) {
   if (item >= CPlayerState::kIT_Truth && item <= CPlayerState::kIT_Newborn) {
     int tmp = size_t(item) - CPlayerState::kIT_Truth;

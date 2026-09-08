@@ -219,7 +219,7 @@ public:
   TUniqueId GetPlayerActorHead() const { return xf6c_playerActorHead; }
   void SetPlayerActorHead(TUniqueId id) { xf6c_playerActorHead = id; }
   CPlayerState* PlayerState() { return &*x8b8_playerState; }
-  const CPlayerState* GetPlayerState() const { return &*x8b8_playerState; }
+  CPlayerState* GetPlayerState() const { return &*x8b8_playerState; }
   rstl::rc_ptr< CScriptLayerManager >& WorldLayerState() { return x8c8_worldLayerState; }
   CWorld* World() { return x850_world.get(); }
   const CWorld* GetWorld() const { return x850_world.get(); }

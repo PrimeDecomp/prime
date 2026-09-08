@@ -20,12 +20,12 @@ public:
   ~CArtifactDoll();
   static CAssetId GetArtifactHeadScanFromItemType(CPlayerState::EItemType);
   static int GetArtifactHeadScanIndex(CAssetId scanId);
-  static void UpdateArtifactHeadScan(CStateManager& mgr, const float delta);
+  static void UpdateArtifactHeadScan(const CStateManager& mgr, const float delta);
 
-  void CompleteArtifactHeadScan(CStateManager& mgr);
-  void Draw(float alpha, const CStateManager& mgr, const bool inArtifactCategory,
+  void CompleteArtifactHeadScan(const CStateManager& mgr);
+  void Draw(float alpha, const CStateManager& mgr, bool inArtifactCategory,
             const CAssetId selectedArtifact);
-  void Update(float dt, CStateManager& mgr);
+  void Update(float dt, const CStateManager& mgr);
   void Touch();
   bool CheckLoadComplete();
   const bool IsLoaded() const;
