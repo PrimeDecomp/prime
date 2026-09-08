@@ -20,6 +20,8 @@ public:
   CAuiImagePane(const CGuiWidget::CGuiWidgetParms&, CSimplePool* sp, CAssetId tex0, CAssetId tex1,
                 const rstl::reserved_vector< CVector3f, 4 >& coords,
                 const rstl::reserved_vector< CVector2f, 4 >& uvs, bool initTex);
+  void SetFlashFactor(float factor) { x150_flashFactor = factor; }
+  void SetDeResFactor(float factor) { x14c_deResFactor = factor; }
   void SetTextureID0(CAssetId tex, CSimplePool* sp);
   void SetAnimationParms(const CVector2f& tileSize, float interval, float fadeDuration);
 

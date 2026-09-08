@@ -74,11 +74,13 @@ public:
   CScannableObjectInfo(CInputStream& in, CAssetId id);
 
   CAssetId GetScannableObjectId() const { return x0_scannableObjectId; }
+  CAssetId GetStringTableId() const { return x4_stringId; }
+  int GetCategory() const { return static_cast< int >(xc_category); }
   float GetTotalDownloadTime() const { return x8_totalDownloadTime; }
 
   void Load(CInputStream& in, uint version);
 
-  const SBucket& GetBucket(const int bucket) const { return x14_buckets[bucket]; }
+  const SBucket& GetBucket(int bucket) const { return x14_buckets[bucket]; }
 
 private:
   CAssetId x0_scannableObjectId;

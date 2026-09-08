@@ -117,7 +117,7 @@ public:
   const float& GetScanSidesStartTime() const { return x224_scanSidesStartTime; }
   const float& GetScanSidesEndTime() const { return x228_scanSidesEndTime; }
   float GetScanDataDotRadius() const { return x22c_scanDataDotRadius; }
-  float GetScanDataDotPosRandMagnitude() const { return x230_scanDataDotPosRandMag; }
+  const float& GetScanDataDotPosRandMagnitude() const { return x230_scanDataDotPosRandMag; }
   float GetScanDataDotSeekDurationMin() const { return x234_scanDataDotSeekDurationMin; }
   float GetScanDataDotSeekDurationMax() const { return x238_scanDataDotSeekDurationMax; }
   float GetScanDataDotHoldDurationMin() const { return x23c_scanDataDotHoldDurationMin; }
