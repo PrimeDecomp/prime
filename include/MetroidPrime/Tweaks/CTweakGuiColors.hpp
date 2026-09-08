@@ -122,7 +122,7 @@ public:
   const CColor& GetPauseItemAmberColor() const { return x1bc_pauseItemAmber; }
   const CColor& GetPauseItemBlueColor() const { return x1c0_pauseItemBlue; }
 
-private:
+public:
   CColor x4_pauseBlurFilterColor;
   CColor x8_radarStuffColor;
   CColor xc_radarPlayerPaintColor;

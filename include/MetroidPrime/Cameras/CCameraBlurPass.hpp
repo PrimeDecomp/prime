@@ -30,6 +30,9 @@ public:
   void DisableBlur(float duration);
   void Draw() const;
 
+  static float GetXRayViewportScaleX() { return skXRayViewportScaleX; }
+  static float GetXRayViewportScaleY() { return skXRayViewportScaleY; }
+
   static void DrawWideScreen(const CColor& color, const CTexture* tex, float v);
 
   EBlurType GetCurrType() const { return x10_curType; }
@@ -40,6 +43,9 @@ public:
   void AllocatePersistentFbTexture();
 
 private:
+  static const float skXRayViewportScaleX;
+  static const float skXRayViewportScaleY;
+
   rstl::optional_object< TCachedToken< CTexture > > x0_paletteTex;
   EBlurType x10_curType;
   EBlurType x14_endType;

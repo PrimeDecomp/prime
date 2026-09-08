@@ -75,6 +75,7 @@ public:
 
   CAssetId GetScannableObjectId() const { return x0_scannableObjectId; }
   CAssetId GetStringTableId() const { return x4_stringId; }
+  const bool IsImportant() const { return x10_important; }
   int GetCategory() const { return static_cast< int >(xc_category); }
   float GetTotalDownloadTime() const { return x8_totalDownloadTime; }
 
