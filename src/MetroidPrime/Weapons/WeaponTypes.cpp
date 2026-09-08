@@ -99,8 +99,8 @@ void primitive_set_to_token_vector(const CAnimData& animData,
 
 void do_sound_event(rstl::pair< u16, CSfxHandle >& sfxHandle, int& pitch, bool doPitchBend,
                     uint soundId, float weight, uint flags, float falloff, float maxDist,
-                    uchar minVol, uchar maxVol, const CVector3f& posToCam, const CVector3f& pos,
-                    TAreaId aid, CStateManager& mgr) {
+                    uchar minVol, const uchar maxVol, const CVector3f& posToCam, const CVector3f& pos,
+                    int aid, CStateManager& mgr) {
   if (posToCam.MagSquared() >= maxDist * maxDist)
     return;
 
@@ -122,10 +122,10 @@ void do_sound_event(rstl::pair< u16, CSfxHandle >& sfxHandle, int& pitch, bool d
         CSfxHandle hnd;
         if ((soundId & 0x40000000) != 0)
           hnd = CSfxManager::SfxStart(useSfxId, 0x7f, 0x40, true, CSfxManager::kMedPriority, true,
-                                      aid.Value());
+                                      aid);
         else
           hnd = CSfxManager::AddEmitter(parms, useAcoustics, CSfxManager::kMedPriority, true,
-                                        aid.Value());
+                                        aid);
         if (hnd) {
           sfxHandle.first = useSfxId;
           sfxHandle.second = hnd;
@@ -138,7 +138,7 @@ void do_sound_event(rstl::pair< u16, CSfxHandle >& sfxHandle, int& pitch, bool d
         } else if ((flags & 0x4) != 0) // Pausable
         {
           CSfxManager::RemoveEmitter(sfxHandle.second);
-          CSfxHandle hnd = CSfxManager::AddEmitter(parms, useAcoustics, 0x7f, true, aid.Value());
+          CSfxHandle hnd = CSfxManager::AddEmitter(parms, useAcoustics, 0x7f, true, aid);
           if (hnd) {
             sfxHandle.first = useSfxId;
             sfxHandle.second = hnd;
@@ -150,9 +150,9 @@ void do_sound_event(rstl::pair< u16, CSfxHandle >& sfxHandle, int& pitch, bool d
     } else {
       CSfxHandle hnd;
       if ((soundId & 0x40000000) != 0)
-        hnd = CSfxManager::SfxStart(useSfxId, 1.f, 0.f, true, 0x7f, false, aid.Value());
+        hnd = CSfxManager::SfxStart(useSfxId, 1.f, 0.f, true, 0x7f, false, aid);
       else
-        hnd = CSfxManager::AddEmitter(parms, useAcoustics, 0x7f, false, aid.Value());
+        hnd = CSfxManager::AddEmitter(parms, useAcoustics, 0x7f, false, aid);
       if (doPitchBend)
         CSfxManager::PitchBend(hnd, pitch);
     }

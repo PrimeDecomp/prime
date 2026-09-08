@@ -2415,7 +2415,7 @@ void CPlayerGun::DoUserAnimEvents(float dt, CStateManager& mgr) {
       NWeaponTypes::do_sound_event(x670_animSfx, x328_animSfxPitch, false, soundNode->GetSoundId(),
                                    soundNode->GetWeight(), soundNode->GetFlags(),
                                    soundNode->GetFallOff(), soundNode->GetMaxDistance(), 0x14, 0x7f,
-                                   posToCam, origin, aid, mgr);
+                                   posToCam, origin, aid.Value(), mgr);
     }
   }
 
@@ -2433,7 +2433,7 @@ void CPlayerGun::DoUserAnimEvents(float dt, CStateManager& mgr) {
           break;
         NWeaponTypes::do_sound_event(x670_animSfx, x328_animSfxPitch, false, intNode->GetValue(),
                                      intNode->GetWeight(), intNode->GetFlags(), 0.1f, 150.f, 0x14,
-                                     0x7f, posToCam, origin, aid, mgr);
+                                     0x7f, posToCam, origin, aid.Value(), mgr);
         break;
       default:
         break;
