@@ -99,7 +99,7 @@ void CGrappleArm::EnterFidget(CStateManager& mgr, int a, int b, int c) {
 
   SetActive(true);
   SetIsArmMoving(true);
-  SetAnimState(kAS_GunControllerAnimation);
+  x334_animState = kAS_GunControllerAnimation;
   x328_gunController->EnterFidget(mgr, a, b, c);
 }
 void CGrappleArm::EnterComboFire(int a, CStateManager& mgr) {
@@ -109,7 +109,7 @@ void CGrappleArm::EnterComboFire(int a, CStateManager& mgr) {
 
   SetActive(true);
   SetIsArmMoving(true);
-  SetAnimState(kAS_GunControllerAnimation);
+  x334_animState = kAS_GunControllerAnimation;
   x328_gunController->EnterComboFire(mgr, a);
 }
 void CGrappleArm::ReturnToDefault(CStateManager& mgr, float dt, bool setState) {

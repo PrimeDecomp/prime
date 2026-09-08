@@ -184,6 +184,8 @@ public:
     return static_cast< EThermalFlags >(xe6_27_thermalVisorFlags);
   }
   bool GetRenderParticleDatabaseInside() const { return xe6_29_renderParticleDBInside; }
+  uchar GetTargetableVisorFlags() const { return xe6_31_targetableVisorFlags; }
+  bool GetDoTargetDistanceTest() const { return xe7_30_doTargetDistanceTest; }
   bool GetTargetable() const { return xe7_31_targetable; }
 
   void SetTransformDirty(bool b) { xe4_27_notInSortedLists = b; }
