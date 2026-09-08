@@ -271,6 +271,13 @@ inline It binary_find(It start, It end, const T& value, Cmp cmp) {
   return found ? lower : end;
 }
 
+template < typename It, typename T >
+inline It binary_find(It start, It end, const T& value) {
+  It lower = lower_bound(start, end, value);
+  bool found = lower != end && !(value < *lower);
+  return found ? lower : end;
+}
+
 template < typename Vec >
 inline typename Vec::const_iterator binary_find_const(typename Vec::const_iterator start,
                                                       typename Vec::const_iterator end,
