@@ -1981,14 +1981,14 @@ config.libs = [
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8J01_01", "GM8E01_02"), "dolphin/mtx/mtx.c"
             ),
-            Object(NonMatching, "dolphin/mtx/mtxvec.c"),
+            Object(Matching, "dolphin/mtx/mtxvec.c"),
             Object(NonMatching, "dolphin/mtx/mtxstack.c"),
             Object(NonMatching, "dolphin/mtx/mtx44vec.c"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8J01_00", "GM8E01_02"),
                 "dolphin/mtx/mtx44.c",
             ),
-            Object(NonMatching, "dolphin/mtx/vec.c"),
+            Object(Matching, "dolphin/mtx/vec.c"),
             Object(Equivalent, "dolphin/mtx/quat.c"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8J01_00", "GM8E01_02"), "dolphin/mtx/psmtx.c"),
         ],
