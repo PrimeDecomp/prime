@@ -8,7 +8,8 @@
 struct SSkinWeighting {
   CSegId x0_id;
   float x4_weight;
-  explicit SSkinWeighting(CInputStream& in) : x0_id(in), x4_weight(in.ReadFloat()) {}
+  explicit SSkinWeighting(CInputStream& in)
+  : x0_id(in.Get< int >()), x4_weight(in.Get< float >()) {}
 };
 
 class CPoseAsTransforms;
@@ -31,5 +32,7 @@ private:
   mutable CTransform4f x20_xf;
   mutable CMatrix3f x50_rotation;
 };
+
+CHECK_SIZEOF(CVirtualBone, 0x74)
 
 #endif // _CVIRTUALBONE
