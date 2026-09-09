@@ -52,7 +52,7 @@ bool CCollidableAABox::CollideMovingAABox(const CInternalCollisionStructure& col
   CVector3f point = CVector3f::Zero();
   CVector3f normal = CVector3f::Zero();
   double tmpD;
-  if (CollisionUtil::AABox_AABox_Moving(leftAABox, rightAABox, dir, tmpD, point, normal) &&
+  if (CollisionUtil::AABox_ABBox_Moving(leftAABox, rightAABox, dir, tmpD, point, normal) &&
       tmpD > 0 && tmpD < dOut) {
     dOut = tmpD;
     infoOut = CCollisionInfo(point, left.GetMaterial(), right.GetMaterial(), normal, -normal);

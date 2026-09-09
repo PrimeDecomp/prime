@@ -10130,7 +10130,7 @@ MovingSphereAABox__13CollisionUtilFRC7CSphereRC6CAABoxRC9CVector3fRdR9CVector3fR
 LineCircleIntersection2d__13CollisionUtilFRC9CVector3fRC9CVector3fRC7CSphereiiRf = .text:0x802BD0A8; // type:function size:0x1B4
 TriBoxOverlap__13CollisionUtilFRC9CVector3fRC9CVector3fRC9CVector3fRC9CVector3fRC9CVector3f = .text:0x802BD25C; // type:function size:0x6C8
 BoxLineTest__13CollisionUtilFRC6CAABoxRC9CVector3fRC9CVector3fRfRfRiRb = .text:0x802BD924; // type:function size:0x10C
-AABox_AABox_Moving__13CollisionUtilFRC6CAABoxRC6CAABoxRC9CVector3fRdR9CVector3fR9CVector3f = .text:0x802BDA30; // type:function size:0x400
+AABox_ABBox_Moving__13CollisionUtilFRC6CAABoxRC6CAABoxRC9CVector3fRdR9CVector3fR9CVector3f = .text:0x802BDA30; // type:function size:0x400
 AddAverageToFront__13CollisionUtilFRC18CCollisionInfoListR18CCollisionInfoList = .text:0x802BDE30; // type:function size:0x294
 FilterOutBackfaces__13CollisionUtilFRC9CVector3fRC18CCollisionInfoListR18CCollisionInfoList = .text:0x802BE0C4; // type:function size:0x110
 FilterByClosestNormal__13CollisionUtilFRC9CVector3fRC18CCollisionInfoListR18CCollisionInfoList = .text:0x802BE1D4; // type:function size:0x9C

@@ -6,6 +6,7 @@
 #include "Collision/NormalTable.hpp"
 
 #include "Collision/CMRay.hpp"
+#include "Kyoto/Basics/CCast.hpp"
 #include "Kyoto/Math/CAABox.hpp"
 #include "Kyoto/Math/CMath.hpp"
 #include "Kyoto/Math/CPlane.hpp"
@@ -16,6 +17,39 @@
 #include "rstl/math.hpp"
 
 #pragma inline_max_size(250)
+
+static inline float float_min(float a, float b) { return a < b ? a : b; }
+
+static inline float float_max(float a, float b) { return a > b ? a : b; }
+
+inline int spanIntersection(float minA, float maxA, float minB, float maxB) {
+  const bool minMin = minA <= minB;
+  const bool minMax = minA <= maxB;
+  const bool maxMax = maxA <= maxB;
+  const bool maxMin = maxA <= minB;
+  return (maxMax << 3) | (maxMin << 2) | (minMax << 1) | minMin;
+}
+
+static inline int planeBoxOverlap(float* normal, float d, const CVector3f& maxbox) {
+  float vmin[3];
+  float vmax[3];
+  for (int q = 0; q < 3; ++q) {
+    if (normal[q] > 0.f) {
+      vmin[q] = -maxbox[q];
+      vmax[q] = maxbox[q];
+    } else {
+      vmin[q] = maxbox[q];
+      vmax[q] = -maxbox[q];
+    }
+  }
+  if ((normal[0] * vmin[0] + normal[1] * vmin[1] + normal[2] * vmin[2]) + d > 0.f) {
+    return 0;
+  }
+  if ((normal[0] * vmax[0] + normal[1] * vmax[1] + normal[2] * vmax[2]) + d >= 0.f) {
+    return 1;
+  }
+  return 0;
+}
 
 namespace CollisionUtil {
 bool RayPlaneIntersection(const CVector3f& from, const CVector3f& to, const CPlane& plane,
@@ -89,28 +123,24 @@ int RayAABoxIntersection(const CMRay& ray, const CAABox& box, CVector3f& normal,
   int sign[3] = {2, 2, 2};
   float maxT[3] = {-1.f, -1.f, -1.f};
   const float zero = 0.f;
-  const CVector3f& zeroVec = CVector3f(CVector3f::Zero());
-  float coord[3];
-  float* const coordVals = coord;
+  CVector3f coord(CVector3f::Zero());
+  float* const coordVals = &coord[0];
   bool inside = true;
-  float deltaX = ray.GetDelta().GetX();
-  float deltaY;
-  float deltaZ;
 
-  if (zero != deltaX && (deltaY = ray.GetDelta().GetY(), zero != deltaY) &&
-      (deltaZ = ray.GetDelta().GetZ(), zero != deltaZ)) {
+  if (zero != ray.GetDelta().GetX() && zero != ray.GetDelta().GetY() &&
+      zero != ray.GetDelta().GetZ()) {
     float startX = ray.GetStart().GetX();
     float minX = box.GetMinPoint().GetX();
     if (startX < minX) {
       sign[0] = 1;
       inside = false;
-      maxT[0] = (minX - startX) / deltaX;
+      maxT[0] = (minX - startX) / ray.GetDelta().GetX();
     } else {
       float maxX = box.GetMaxPoint().GetX();
       if (startX > maxX) {
         sign[0] = 0;
         inside = false;
-        maxT[0] = (maxX - startX) / deltaX;
+        maxT[0] = (maxX - startX) / ray.GetDelta().GetX();
       }
     }
 
@@ -119,13 +149,13 @@ int RayAABoxIntersection(const CMRay& ray, const CAABox& box, CVector3f& normal,
     if (startY < minY) {
       sign[1] = 1;
       inside = false;
-      maxT[1] = (minY - startY) / deltaY;
+      maxT[1] = (minY - startY) / ray.GetDelta().GetY();
     } else {
       float maxY = box.GetMaxPoint().GetY();
       if (startY > maxY) {
         sign[1] = 0;
         inside = false;
-        maxT[1] = (maxY - startY) / deltaY;
+        maxT[1] = (maxY - startY) / ray.GetDelta().GetY();
       }
     }
 
@@ -134,13 +164,13 @@ int RayAABoxIntersection(const CMRay& ray, const CAABox& box, CVector3f& normal,
     if (startZ < minZ) {
       sign[2] = 1;
       inside = false;
-      maxT[2] = (minZ - startZ) / deltaZ;
+      maxT[2] = (minZ - startZ) / ray.GetDelta().GetZ();
     } else {
       float maxZ = box.GetMaxPoint().GetZ();
       if (startZ > maxZ) {
         sign[2] = 0;
         inside = false;
-        maxT[2] = (maxZ - startZ) / deltaZ;
+        maxT[2] = (maxZ - startZ) / ray.GetDelta().GetZ();
       }
     }
 
@@ -202,14 +232,14 @@ int RayAABoxIntersection(const CMRay& ray, const CAABox& box, CVector3f& normal,
       return 1;
     }
 
-    if (sign[0] != 2 && zero != deltaX) {
-      maxT[0] = (candidateX - startX) / deltaX;
+    if (sign[0] != 2 && zero != ray.GetDelta().GetX()) {
+      maxT[0] = (candidateX - startX) / ray.GetDelta().GetX();
     }
-    if (sign[1] != 2 && (deltaY = ray.GetDelta().GetY(), zero != deltaY)) {
-      maxT[1] = (candidateY - startY) / deltaY;
+    if (sign[1] != 2 && zero != ray.GetDelta().GetY()) {
+      maxT[1] = (candidateY - startY) / ray.GetDelta().GetY();
     }
-    if (sign[2] != 2 && (deltaZ = ray.GetDelta().GetZ(), zero != deltaZ)) {
-      maxT[2] = (candidateZ - startZ) / deltaZ;
+    if (sign[2] != 2 && zero != ray.GetDelta().GetZ()) {
+      maxT[2] = (candidateZ - startZ) / ray.GetDelta().GetZ();
     }
   }
 
@@ -232,7 +262,7 @@ int RayAABoxIntersection(const CMRay& ray, const CAABox& box, CVector3f& normal,
   }
 
   if (whichPlane != 0) {
-    coordVals[0] = maxCoord * deltaX + ray.GetStart().GetX();
+    coordVals[0] = maxCoord * ray.GetDelta().GetX() + ray.GetStart().GetX();
     if (coordVals[0] < box.GetMinPoint().GetX() || coordVals[0] > box.GetMaxPoint().GetX()) {
       return 0;
     }
@@ -251,12 +281,8 @@ int RayAABoxIntersection(const CMRay& ray, const CAABox& box, CVector3f& normal,
   }
 
   penetration = maxCoord;
-  normal = zeroVec;
-  if (sign[whichPlane] == 1) {
-    (&normal[0])[whichPlane] = -1.f;
-  } else {
-    (&normal[0])[whichPlane] = 1.f;
-  }
+  normal = CVector3f::Zero();
+  normal[whichPlane] = sign[whichPlane] == 1 ? -1.f : 1.f;
   return 2;
 }
 
@@ -271,53 +297,40 @@ int RayAABoxIntersection_Double(const CMRay& ray, const CAABox& box, CVector3f& 
   CVector3d boxMax(box.GetMaxPoint());
   CVector3d coord(0.0, 0.0, 0.0);
 
-  double deltaX = rayDelta.GetX();
-  double deltaY;
-  double deltaZ;
-  if (0.0 != deltaX && (deltaY = rayDelta.GetY(), 0.0 != deltaY) &&
-      (deltaZ = rayDelta.GetZ(), 0.0 != deltaZ)) {
-    double startX = rayStart.GetX();
-    double minX = boxMin.GetX();
-    if (startX < minX) {
+  if (0.0 != rayDelta.GetX() && 0.0 != rayDelta.GetY() && 0.0 != rayDelta.GetZ()) {
+    if (rayStart.GetX() < boxMin[0]) {
       sign[0] = 1;
       inside = false;
-      maxT[0] = (minX - startX) / deltaX;
+      maxT[0] = (boxMin[0] - rayStart.GetX()) / rayDelta.GetX();
     } else {
-      double maxX = boxMax.GetX();
-      if (startX > maxX) {
+      if (rayStart.GetX() > boxMax.GetX()) {
         sign[0] = 0;
         inside = false;
-        maxT[0] = (maxX - startX) / deltaX;
+        maxT[0] = (boxMax.GetX() - rayStart.GetX()) / rayDelta.GetX();
       }
     }
 
-    double startY = rayStart.GetY();
-    double minY = boxMin.GetY();
-    if (startY < minY) {
+    if (rayStart.GetY() < boxMin[1]) {
       sign[1] = 1;
       inside = false;
-      maxT[1] = (minY - startY) / deltaY;
+      maxT[1] = (boxMin[1] - rayStart.GetY()) / rayDelta.GetY();
     } else {
-      double maxY = boxMax.GetY();
-      if (startY > maxY) {
+      if (rayStart.GetY() > boxMax.GetY()) {
         sign[1] = 0;
         inside = false;
-        maxT[1] = (maxY - startY) / deltaY;
+        maxT[1] = (boxMax.GetY() - rayStart.GetY()) / rayDelta.GetY();
       }
     }
 
-    double startZ = rayStart.GetZ();
-    double minZ = boxMin.GetZ();
-    if (startZ < minZ) {
+    if (rayStart.GetZ() < boxMin[2]) {
       sign[2] = 1;
       inside = false;
-      maxT[2] = (minZ - startZ) / deltaZ;
+      maxT[2] = (boxMin[2] - rayStart.GetZ()) / rayDelta.GetZ();
     } else {
-      double maxZ = boxMax.GetZ();
-      if (startZ > maxZ) {
+      if (rayStart.GetZ() > boxMax.GetZ()) {
         sign[2] = 0;
         inside = false;
-        maxT[2] = (maxZ - startZ) / deltaZ;
+        maxT[2] = (boxMax.GetZ() - rayStart.GetZ()) / rayDelta.GetZ();
       }
     }
 
@@ -330,48 +343,39 @@ int RayAABoxIntersection_Double(const CMRay& ray, const CAABox& box, CVector3f& 
     double candidateY;
     double candidateZ;
 
-    double startX = rayStart.GetX();
-    double minX = boxMin.GetX();
-    if (startX < minX) {
+    if (rayStart.GetX() < boxMin[0]) {
       sign[0] = 1;
       inside = false;
-      candidateX = minX;
+      candidateX = boxMin[0];
     } else {
-      double maxX = boxMax.GetX();
-      if (startX > maxX) {
+      if (rayStart.GetX() > boxMax.GetX()) {
         sign[0] = 0;
         inside = false;
-        candidateX = maxX;
+        candidateX = boxMax.GetX();
       }
     }
 
-    double startY = rayStart.GetY();
-    double minY = boxMin.GetY();
-    if (startY < minY) {
+    if (rayStart.GetY() < boxMin[1]) {
       sign[1] = 1;
       inside = false;
-      candidateY = minY;
+      candidateY = boxMin[1];
     } else {
-      double maxY = boxMax.GetY();
-      if (startY > maxY) {
+      if (rayStart.GetY() > boxMax.GetY()) {
         sign[1] = 0;
         inside = false;
-        candidateY = maxY;
+        candidateY = boxMax.GetY();
       }
     }
 
-    double startZ = rayStart.GetZ();
-    double minZ = boxMin.GetZ();
-    if (startZ < minZ) {
+    if (rayStart.GetZ() < boxMin[2]) {
       sign[2] = 1;
       inside = false;
-      candidateZ = minZ;
+      candidateZ = boxMin[2];
     } else {
-      double maxZ = boxMax.GetZ();
-      if (startZ > maxZ) {
+      if (rayStart.GetZ() > boxMax.GetZ()) {
         sign[2] = 0;
         inside = false;
-        candidateZ = maxZ;
+        candidateZ = boxMax.GetZ();
       }
     }
 
@@ -380,14 +384,14 @@ int RayAABoxIntersection_Double(const CMRay& ray, const CAABox& box, CVector3f& 
       return 1;
     }
 
-    if (sign[0] != 2 && 0.0 != deltaX) {
-      maxT[0] = (candidateX - startX) / deltaX;
+    if (sign[0] != 2 && 0.0 != rayDelta.GetX()) {
+      maxT[0] = (candidateX - rayStart.GetX()) / rayDelta.GetX();
     }
-    if (sign[1] != 2 && (deltaY = rayDelta.GetY(), 0.0 != deltaY)) {
-      maxT[1] = (candidateY - startY) / deltaY;
+    if (sign[1] != 2 && 0.0 != rayDelta.GetY()) {
+      maxT[1] = (candidateY - rayStart.GetY()) / rayDelta.GetY();
     }
-    if (sign[2] != 2 && (deltaZ = rayDelta.GetZ(), 0.0 != deltaZ)) {
-      maxT[2] = (candidateZ - startZ) / deltaZ;
+    if (sign[2] != 2 && 0.0 != rayDelta.GetZ()) {
+      maxT[2] = (candidateZ - rayStart.GetZ()) / rayDelta.GetZ();
     }
   }
 
@@ -410,58 +414,48 @@ int RayAABoxIntersection_Double(const CMRay& ray, const CAABox& box, CVector3f& 
   }
 
   if (whichPlane != 0) {
-    coord[0] = maxCoord * deltaX + rayStart.GetX();
-    if (coord[0] < boxMin.GetX() || coord[0] > boxMax.GetX()) {
+    coord[0] = maxCoord * rayDelta.GetX() + rayStart.GetX();
+    if (coord[0] < boxMin[0] || coord[0] > boxMax.GetX()) {
       return 0;
     }
   }
 
   if (whichPlane != 1) {
     coord[1] = maxCoord * rayDelta.GetY() + rayStart.GetY();
-    if (coord[1] < boxMin.GetY() || coord[1] > boxMax.GetY()) {
+    if (coord[1] < boxMin[1] || coord[1] > boxMax.GetY()) {
       return 0;
     }
   }
   if (whichPlane != 2) {
     coord[2] = maxCoord * rayDelta.GetZ() + rayStart.GetZ();
-    if (coord[2] < boxMin.GetZ() || coord[2] > boxMax.GetZ()) {
+    if (coord[2] < boxMin[2] || coord[2] > boxMax.GetZ()) {
       return 0;
     }
   }
 
   penetration = maxCoord;
   normal = CVector3f::Zero();
-  if (sign[whichPlane] == 1) {
-    (&normal[0])[whichPlane] = -1.f;
-  } else {
-    (&normal[0])[whichPlane] = 1.f;
-  }
+  normal[whichPlane] = sign[whichPlane] == 1 ? -1.f : 1.f;
   return 2;
 }
 
 int RayAABoxIntersection(const CMRay& ray, const CAABox& box, float& tMin, float& tMax) {
-  float start[3];
-  float dir[3];
-  float* dirPtr = dir;
-  float* startPtr = start;
-
-  start[0] = ray.GetStart().GetX();
-  start[1] = ray.GetStart().GetY();
-  start[2] = ray.GetStart().GetZ();
-  dir[0] = ray.GetDirection().GetX();
-  dir[1] = ray.GetDirection().GetY();
-  dir[2] = ray.GetDirection().GetZ();
+  const CVector3f start = ray.GetStart();
+  const CVector3f dir = ray.GetDirection();
+  const CVector3f& boxMin = box.GetMinPoint();
+  const CVector3f& boxMax = box.GetMaxPoint();
+  const float* dirPtr = &dir[kDX];
+  const float* startPtr = &start[kDX];
+  const float* minPtr = &boxMin[kDX];
+  const float* maxPtr = &boxMax[kDX];
   tMin = -999999.f;
   tMax = 999999.f;
-  const CAABox* boxIt = &box;
-  const CVector3f* boxMaxIt =
-      reinterpret_cast< const CVector3f* >(reinterpret_cast< const char* >(boxIt) + 0xc);
 
-  for (int i = 3; i != 0; --i) {
+  for (int i = 0; i < 3; ++i) {
+    const float boxMinI = *minPtr;
+    const float startI = *startPtr;
     const float dirI = *dirPtr;
-    float startI = *startPtr;
-    const float boxMinI = boxIt->GetMinPoint().GetX();
-    float boxMaxI = boxMaxIt->GetX();
+    const float boxMaxI = *maxPtr;
 
     if (close_enough(dirI, 0.f)) {
       if (startI < boxMinI || startI > boxMaxI) {
@@ -491,10 +485,10 @@ int RayAABoxIntersection(const CMRay& ray, const CAABox& box, float& tMin, float
       }
     }
 
-    dirPtr += 1;
-    startPtr += 1;
-    boxIt = reinterpret_cast< const CAABox* >(reinterpret_cast< const char* >(boxIt) + 4);
-    boxMaxIt = reinterpret_cast< const CVector3f* >(reinterpret_cast< const char* >(boxMaxIt) + 4);
+    ++dirPtr;
+    ++startPtr;
+    ++minPtr;
+    ++maxPtr;
   }
 
   if (tMin <= tMax) {
@@ -504,161 +498,67 @@ int RayAABoxIntersection(const CMRay& ray, const CAABox& box, float& tMin, float
 }
 
 bool AABoxAABoxIntersection(const CAABox& left, const CAABox& right) {
-  const float* leftVals = reinterpret_cast< const float* >(&left);
-  const float* rightVals = reinterpret_cast< const float* >(&right);
-
-  const float leftMinX = leftVals[0];
-  float minX = rightVals[0];
-  if (leftMinX > minX) {
-    minX = leftMinX;
-  }
-
-  const float leftMinY = leftVals[1];
-  float minY = rightVals[1];
-  if (leftMinY > minY) {
-    minY = leftMinY;
-  }
-
-  const float leftMinZ = leftVals[2];
-  float minZ = rightVals[2];
-  if (leftMinZ > minZ) {
-    minZ = leftMinZ;
-  }
-
-  const float leftMaxX = leftVals[3];
-  float maxX = rightVals[3];
-  if (leftMaxX < maxX) {
-    maxX = leftMaxX;
-  }
-
-  const float leftMaxY = leftVals[4];
-  float maxY = rightVals[4];
-  if (leftMaxY < maxY) {
-    maxY = leftMaxY;
-  }
-
-  if (minX >= maxX || minY >= maxY) {
+  const float minX = float_max(left.GetMinPoint().GetX(), right.GetMinPoint().GetX());
+  const float minY = float_max(left.GetMinPoint().GetY(), right.GetMinPoint().GetY());
+  const float minZ = float_max(left.GetMinPoint().GetZ(), right.GetMinPoint().GetZ());
+  const float maxX = float_min(left.GetMaxPoint().GetX(), right.GetMaxPoint().GetX());
+  const float maxY = float_min(left.GetMaxPoint().GetY(), right.GetMaxPoint().GetY());
+  const float maxZ = float_min(left.GetMaxPoint().GetZ(), right.GetMaxPoint().GetZ());
+  if (minX >= maxX || minY >= maxY || minZ >= maxZ) {
     return false;
   }
-
-  const float leftMaxZ = leftVals[5];
-  float maxZ = rightVals[5];
-  if (leftMaxZ < maxZ) {
-    maxZ = leftMaxZ;
-  }
-
-  if (minZ < maxZ) {
-    return true;
-  }
-  return false;
+  return true;
 }
 
 bool AABoxAABoxIntersection(const CAABox& left, const CMaterialList& leftFilter,
                             const CAABox& right, const CMaterialList& rightFilter,
                             CCollisionInfoList& list) {
-  const float* leftVals = reinterpret_cast< const float* >(&left);
-  const float* rightVals = reinterpret_cast< const float* >(&right);
-
-  float maxOfMinZ = rightVals[2];
-  const float leftMinZ = leftVals[2];
-  if (leftMinZ > maxOfMinZ) {
-    maxOfMinZ = leftMinZ;
-  }
-
-  float maxOfMinY = rightVals[1];
-  const float leftMinY = leftVals[1];
-  if (leftMinY > maxOfMinY) {
-    maxOfMinY = leftMinY;
-  }
-
-  float maxOfMinX = rightVals[0];
-  const float leftMinX = leftVals[0];
-  if (leftMinX > maxOfMinX) {
-    maxOfMinX = leftMinX;
-  }
-
-  float minOfMaxZ = rightVals[5];
-  const float leftMaxZ = leftVals[5];
-  if (leftMaxZ < minOfMaxZ) {
-    minOfMaxZ = leftMaxZ;
-  }
-
-  float minOfMaxY = rightVals[4];
-  const float leftMaxY = leftVals[4];
-  if (leftMaxY < minOfMaxY) {
-    minOfMaxY = leftMaxY;
-  }
-
-  float minOfMaxX = rightVals[3];
-  const float leftMaxX = leftVals[3];
-  if (leftMaxX < minOfMaxX) {
-    minOfMaxX = leftMaxX;
-  }
-
-  CVector3f overlapMax(minOfMaxX, minOfMaxY, minOfMaxZ);
-  CVector3f overlapMin(maxOfMinX, maxOfMinY, maxOfMinZ);
-  if (overlapMax.GetX() <= overlapMin.GetX() || overlapMax.GetY() <= overlapMin.GetY() ||
-      overlapMax.GetZ() <= overlapMin.GetZ()) {
+  int flags[3];
+  CVector3f overlapMin(float_max(left.GetMinPoint().GetX(), right.GetMinPoint().GetX()),
+                       float_max(left.GetMinPoint().GetY(), right.GetMinPoint().GetY()),
+                       float_max(left.GetMinPoint().GetZ(), right.GetMinPoint().GetZ()));
+  CVector3f overlapMax(float_min(left.GetMaxPoint().GetX(), right.GetMaxPoint().GetX()),
+                       float_min(left.GetMaxPoint().GetY(), right.GetMaxPoint().GetY()),
+                       float_min(left.GetMaxPoint().GetZ(), right.GetMaxPoint().GetZ()));
+  if (overlapMin.GetX() >= overlapMax.GetX() || overlapMin.GetY() >= overlapMax.GetY() ||
+      overlapMin.GetZ() >= overlapMax.GetZ()) {
     return false;
   }
 
   CAABox overlapBox(overlapMin, overlapMax);
+  flags[0] = spanIntersection(left.GetMinPoint().GetX(), left.GetMaxPoint().GetX(),
+                              right.GetMinPoint().GetX(), right.GetMaxPoint().GetX());
+  flags[1] = spanIntersection(left.GetMinPoint().GetY(), left.GetMaxPoint().GetY(),
+                              right.GetMinPoint().GetY(), right.GetMaxPoint().GetY());
+  flags[2] = spanIntersection(left.GetMinPoint().GetZ(), left.GetMaxPoint().GetZ(),
+                              right.GetMinPoint().GetZ(), right.GetMaxPoint().GetZ());
 
-  const float rightMinX = rightVals[0];
-  const float leftMinX2 = leftVals[0];
-  const float rightMaxX = rightVals[3];
-  const float leftMaxX2 = leftVals[3];
-  const float rightMinY = rightVals[1];
-  const float leftMinY2 = leftVals[1];
-  const float rightMaxY = rightVals[4];
-  const float leftMaxY2 = leftVals[4];
-  uint flags[3];
-  flags[0] = ((uint)(uchar)((leftMinX2 <= rightMinX) << 1) << 0x1c) >> 0x1d |
-             (uint)(uchar)((leftMinX2 <= rightMaxX) << 1) |
-             ((uint)(uchar)((leftMaxX2 <= rightMaxX) << 1) << 0x1c) >> 0x1a |
-             ((uint)(uchar)((leftMaxX2 <= rightMinX) << 1) << 0x1c) >> 0x1b;
-
-  const float rightMinZ = rightVals[2];
-  const float leftMinZ2 = leftVals[2];
-  const float rightMaxZ = rightVals[5];
-  const float leftMaxZ2 = leftVals[5];
-  flags[1] = ((uint)(uchar)((leftMinY2 <= rightMinY) << 1) << 0x1c) >> 0x1d |
-             (uint)(uchar)((leftMinY2 <= rightMaxY) << 1) |
-             ((uint)(uchar)((leftMaxY2 <= rightMaxY) << 1) << 0x1c) >> 0x1a |
-             ((uint)(uchar)((leftMaxY2 <= rightMinY) << 1) << 0x1c) >> 0x1b;
-  flags[2] = ((uint)(uchar)((leftMinZ2 <= rightMinZ) << 1) << 0x1c) >> 0x1d |
-             (uint)(uchar)((leftMinZ2 <= rightMaxZ) << 1) |
-             ((uint)(uchar)((leftMaxZ2 <= rightMaxZ) << 1) << 0x1c) >> 0x1a |
-             ((uint)(uchar)((leftMaxZ2 <= rightMinZ) << 1) << 0x1c) >> 0x1b;
-
-  const uint* flag = flags;
-  const CVector3f* normal = normalTable;
   for (int i = 0; i < 3; ++i) {
-    const uint u = *flag;
-    if (u != 10) {
-      if (u < 10) {
-        if (u > 1) {
-          const CVector3f& opposite = normalTable[i * 2 + 1];
-          CVector3f inv(-normal[1].GetX(), -normal[1].GetY(), -normal[1].GetZ());
-          list.Add(CCollisionInfo(overlapBox, leftFilter, rightFilter, opposite, inv), false);
-        }
-      } else if (u < 12) {
-        CVector3f inv(-normal->GetX(), -normal->GetY(), -normal->GetZ());
-        list.Add(CCollisionInfo(overlapBox, leftFilter, rightFilter, *normal, inv), false);
-      }
+    switch (flags[i]) {
+    case 2:
+      list.Add(CCollisionInfo(overlapBox, leftFilter, rightFilter, normalTable[i * 2 + 1],
+                              -normalTable[i * 2 + 1]),
+               false);
+      break;
+    case 3:
+    case 10:
+      break;
+    case 11:
+      list.Add(CCollisionInfo(overlapBox, leftFilter, rightFilter, normalTable[i * 2],
+                              -normalTable[i * 2]),
+               false);
+      break;
+    default:
+      break;
     }
-    ++flag;
-    normal += 2;
   }
 
   if (list.GetCount() == 0) {
-    CVector3f neg4(-normalTable[4].GetX(), -normalTable[4].GetY(), -normalTable[4].GetZ());
-    list.Add(CCollisionInfo(overlapBox, leftFilter, rightFilter, normalTable[4], neg4), false);
-
-    CVector3f neg5(-normalTable[5].GetX(), -normalTable[5].GetY(), -normalTable[5].GetZ());
-    list.Add(CCollisionInfo(overlapBox, leftFilter, rightFilter, normalTable[5], neg5), false);
+    list.Add(CCollisionInfo(overlapBox, leftFilter, rightFilter, normalTable[4], -normalTable[4]),
+             false);
+    list.Add(CCollisionInfo(overlapBox, leftFilter, rightFilter, normalTable[5], -normalTable[5]),
+             false);
   }
-
   return true;
 }
 
@@ -743,9 +643,9 @@ bool RayTriangleIntersection(const CVector3f& point, const CVector3f& dir, const
                              float& d) {
   CVector3f v0tov1 = verts[1] - verts[0];
   CVector3f v0tov2 = verts[2] - verts[0];
-  const CVector3f cross0 = CVector3f::Cross(dir, v0tov2);
+  CVector3f cross0 = CVector3f(CVector3f::Cross(dir, v0tov2));
   const float dot0 = CVector3f::Dot(v0tov1, cross0);
-  if (dot0 < FLT_EPSILON) {
+  if (dot0 < 10.f * FLT_EPSILON) {
     return false;
   }
 
@@ -776,7 +676,7 @@ bool RayTriangleIntersection_Double(const CVector3f& point, const CVector3f& dir
   CVector3d v0tov2(verts[2] - verts[0]);
   CVector3d cross0 = CVector3d::Cross(CVector3d(dir), v0tov2);
   const double dot0 = CVector3d::Dot(v0tov1, cross0);
-  if (dot0 < DBL_EPSILON) {
+  if (dot0 < FLT_EPSILON) {
     return false;
   }
 
@@ -870,8 +770,8 @@ void AddAverageToFront(const CCollisionInfoList& in, CCollisionInfoList& out) {
 /*======================== X-tests ========================*/
 #define AXISTEST_X01(a, b, fa, fb)                                                                 \
   do {                                                                                             \
-    p0 = a * v0.GetY() - b * v0.GetZ();                                                            \
-    p2 = a * v2.GetY() - b * v2.GetZ();                                                            \
+    p0 = a * v0[1] - b * v0[2];                                                                    \
+    p2 = a * v2[1] - b * v2[2];                                                                    \
     if (p0 < p2) {                                                                                 \
       min = p0;                                                                                    \
       max = p2;                                                                                    \
@@ -886,8 +786,8 @@ void AddAverageToFront(const CCollisionInfoList& in, CCollisionInfoList& out) {
 
 #define AXISTEST_X2(a, b, fa, fb)                                                                  \
   do {                                                                                             \
-    p0 = a * v0.GetY() - b * v0.GetZ();                                                            \
-    p1 = a * v1.GetY() - b * v1.GetZ();                                                            \
+    p0 = a * v0[1] - b * v0[2];                                                                    \
+    p1 = a * v1[1] - b * v1[2];                                                                    \
     if (p0 < p1) {                                                                                 \
       min = p0;                                                                                    \
       max = p1;                                                                                    \
@@ -903,8 +803,8 @@ void AddAverageToFront(const CCollisionInfoList& in, CCollisionInfoList& out) {
 /*======================== Y-tests ========================*/
 #define AXISTEST_Y02(a, b, fa, fb)                                                                 \
   do {                                                                                             \
-    p0 = -a * v0.GetX() + b * v0.GetZ();                                                           \
-    p2 = -a * v2.GetX() + b * v2.GetZ();                                                           \
+    p0 = -a * v0[0] + b * v0[2];                                                                   \
+    p2 = -a * v2[0] + b * v2[2];                                                                   \
     if (p0 < p2) {                                                                                 \
       min = p0;                                                                                    \
       max = p2;                                                                                    \
@@ -919,8 +819,8 @@ void AddAverageToFront(const CCollisionInfoList& in, CCollisionInfoList& out) {
 
 #define AXISTEST_Y1(a, b, fa, fb)                                                                  \
   do {                                                                                             \
-    p0 = -a * v0.GetX() + b * v0.GetZ();                                                           \
-    p1 = -a * v1.GetX() + b * v1.GetZ();                                                           \
+    p0 = -a * v0[0] + b * v0[2];                                                                   \
+    p1 = -a * v1[0] + b * v1[2];                                                                   \
     if (p0 < p1) {                                                                                 \
       min = p0;                                                                                    \
       max = p1;                                                                                    \
@@ -936,8 +836,8 @@ void AddAverageToFront(const CCollisionInfoList& in, CCollisionInfoList& out) {
 /*======================== Z-tests ========================*/
 #define AXISTEST_Z12(a, b, fa, fb)                                                                 \
   do {                                                                                             \
-    p1 = a * v1.GetX() - b * v1.GetY();                                                            \
-    p2 = a * v2.GetX() - b * v2.GetY();                                                            \
+    p1 = a * v1[0] - b * v1[1];                                                                    \
+    p2 = a * v2[0] - b * v2[1];                                                                    \
     if (p2 < p1) {                                                                                 \
       min = p2;                                                                                    \
       max = p1;                                                                                    \
@@ -952,8 +852,8 @@ void AddAverageToFront(const CCollisionInfoList& in, CCollisionInfoList& out) {
 
 #define AXISTEST_Z0(a, b, fa, fb)                                                                  \
   do {                                                                                             \
-    p0 = a * v0.GetX() - b * v0.GetY();                                                            \
-    p1 = a * v1.GetX() - b * v1.GetY();                                                            \
+    p0 = a * v0[0] - b * v0[1];                                                                    \
+    p1 = a * v1[0] - b * v1[1];                                                                    \
     if (p0 < p1) {                                                                                 \
       min = p0;                                                                                    \
       max = p1;                                                                                    \
@@ -966,46 +866,46 @@ void AddAverageToFront(const CCollisionInfoList& in, CCollisionInfoList& out) {
       return false;                                                                                \
   } while (false)
 
-bool AABox_AABox_Moving(const CAABox& aabb0, const CAABox& aabb1, const CVector3f& dir, double& d,
+bool AABox_ABBox_Moving(const CAABox& aabb0, const CAABox& aabb1, const CVector3f& dir, double& d,
                         CVector3f& point, CVector3f& normal) {
   CVector3d vecMin(-FLT_MAX, -FLT_MAX, -FLT_MAX);
   CVector3d vecMax(FLT_MAX, FLT_MAX, FLT_MAX);
 
+  const CVector3f& leftMin = aabb0.GetMinPoint();
+  const CVector3f& rightMin = aabb1.GetMinPoint();
   for (int i = 0; i < 3; ++i) {
     if (CMath::AbsF(dir[i]) < FLT_EPSILON) {
-      const float rightMin = aabb1.GetMinPoint()[i];
-      const float leftMin = aabb0.GetMinPoint()[i];
-      if (leftMin >= rightMin && leftMin <= aabb1.GetMaxPoint()[i]) {
+      if (leftMin[i] >= rightMin[i] && leftMin[i] <= aabb1.GetMaxPoint()[i]) {
         continue;
       }
-      const float leftMax = aabb0.GetMaxPoint()[i];
-      if (leftMax >= rightMin && leftMax <= aabb1.GetMaxPoint()[i]) {
+      if (aabb0.GetMaxPoint()[i] >= rightMin[i] &&
+          aabb0.GetMaxPoint()[i] <= aabb1.GetMaxPoint()[i]) {
         continue;
       }
-      if (leftMin < rightMin && leftMax > aabb1.GetMaxPoint()[i]) {
+      if (leftMin[i] < rightMin[i] && aabb0.GetMaxPoint()[i] > aabb1.GetMaxPoint()[i]) {
         continue;
       }
       return false;
     }
 
-    if (aabb0.GetMaxPoint()[i] < aabb1.GetMinPoint()[i] && dir[i] > 0.f) {
-      vecMin[i] = (aabb1.GetMinPoint()[i] - aabb0.GetMaxPoint()[i]) / dir[i];
-    } else if (aabb1.GetMaxPoint()[i] < aabb0.GetMinPoint()[i] && dir[i] < 0.f) {
-      vecMin[i] = (aabb1.GetMaxPoint()[i] - aabb0.GetMinPoint()[i]) / dir[i];
-    } else if (aabb1.GetMaxPoint()[i] > aabb0.GetMinPoint()[i] && dir[i] < 0.f) {
-      vecMin[i] = (aabb1.GetMaxPoint()[i] - aabb0.GetMinPoint()[i]) / dir[i];
-    } else if (aabb0.GetMaxPoint()[i] > aabb1.GetMinPoint()[i] && dir[i] > 0.f) {
-      vecMin[i] = (aabb1.GetMinPoint()[i] - aabb0.GetMaxPoint()[i]) / dir[i];
+    if (aabb0.GetMaxPoint()[i] < rightMin[i] && dir[i] > 0.f) {
+      vecMin[i] = (rightMin[i] - aabb0.GetMaxPoint()[i]) / dir[i];
+    } else if (aabb1.GetMaxPoint()[i] < leftMin[i] && dir[i] < 0.f) {
+      vecMin[i] = (aabb1.GetMaxPoint()[i] - leftMin[i]) / dir[i];
+    } else if (aabb1.GetMaxPoint()[i] > leftMin[i] && dir[i] < 0.f) {
+      vecMin[i] = (aabb1.GetMaxPoint()[i] - leftMin[i]) / dir[i];
+    } else if (aabb0.GetMaxPoint()[i] > rightMin[i] && dir[i] > 0.f) {
+      vecMin[i] = (rightMin[i] - aabb0.GetMaxPoint()[i]) / dir[i];
     }
 
-    if (aabb1.GetMaxPoint()[i] > aabb0.GetMinPoint()[i] && dir[i] > 0.f) {
-      vecMax[i] = (aabb1.GetMaxPoint()[i] - aabb0.GetMinPoint()[i]) / dir[i];
-    } else if (aabb0.GetMaxPoint()[i] > aabb1.GetMinPoint()[i] && dir[i] < 0.f) {
-      vecMax[i] = (aabb1.GetMinPoint()[i] - aabb0.GetMaxPoint()[i]) / dir[i];
-    } else if (aabb0.GetMaxPoint()[i] < aabb1.GetMinPoint()[i] && dir[i] < 0.f) {
-      vecMax[i] = (aabb1.GetMinPoint()[i] - aabb0.GetMaxPoint()[i]) / dir[i];
-    } else if (aabb1.GetMaxPoint()[i] < aabb0.GetMinPoint()[i] && dir[i] > 0.f) {
-      vecMax[i] = (aabb1.GetMaxPoint()[i] - aabb0.GetMinPoint()[i]) / dir[i];
+    if (aabb1.GetMaxPoint()[i] > leftMin[i] && dir[i] > 0.f) {
+      vecMax[i] = (aabb1.GetMaxPoint()[i] - leftMin[i]) / dir[i];
+    } else if (aabb0.GetMaxPoint()[i] > rightMin[i] && dir[i] < 0.f) {
+      vecMax[i] = (rightMin[i] - aabb0.GetMaxPoint()[i]) / dir[i];
+    } else if (aabb0.GetMaxPoint()[i] < rightMin[i] && dir[i] < 0.f) {
+      vecMax[i] = (rightMin[i] - aabb0.GetMaxPoint()[i]) / dir[i];
+    } else if (aabb1.GetMaxPoint()[i] < leftMin[i] && dir[i] > 0.f) {
+      vecMax[i] = (aabb1.GetMaxPoint()[i] - leftMin[i]) / dir[i];
     }
   }
 
@@ -1017,8 +917,7 @@ bool AABox_AABox_Moving(const CAABox& aabb0, const CAABox& aabb1, const CVector3
     maxAxis = 2;
   }
 
-  const double& minMax01 = vecMax[2] < vecMax[1] ? vecMax[2] : vecMax[1];
-  const double& minMax = minMax01 < vecMax[0] ? minMax01 : vecMax[0];
+  const double& minMax = rstl::min_val(vecMax[0], rstl::min_val(vecMax[1], vecMax[2]));
   if (vecMin[maxAxis] > minMax) {
     return false;
   }
@@ -1031,7 +930,7 @@ bool AABox_AABox_Moving(const CAABox& aabb0, const CAABox& aabb1, const CVector3
   point[1] = dir[1] > 0.f ? aabb0.GetMaxPoint()[1] : aabb0.GetMinPoint()[1];
   point[2] = dir[2] > 0.f ? aabb0.GetMaxPoint()[2] : aabb0.GetMinPoint()[2];
 
-  point += float(d) * dir;
+  point += CCast::ToReal32(d) * dir;
   return true;
 }
 
@@ -1087,17 +986,35 @@ bool TriBoxOverlap(const CVector3f& boxcenter, const CVector3f& boxhalfsize,
                    const CVector3f& trivert2) {
   float min, max, d, p0, p1, p2, rad, fex, fey, fez;
 
-  const CVector3f v0(trivert0 - boxcenter);
-  const CVector3f v1(trivert1 - boxcenter);
-  const CVector3f v2(trivert2 - boxcenter);
+  float v0[3];
+  v0[0] = trivert0.GetX() - boxcenter.GetX();
+  v0[1] = trivert0.GetY() - boxcenter.GetY();
+  v0[2] = trivert0.GetZ() - boxcenter.GetZ();
+  float v1[3];
+  v1[0] = trivert1.GetX() - boxcenter.GetX();
+  v1[1] = trivert1.GetY() - boxcenter.GetY();
+  v1[2] = trivert1.GetZ() - boxcenter.GetZ();
+  float v2[3];
+  v2[0] = trivert2.GetX() - boxcenter.GetX();
+  v2[1] = trivert2.GetY() - boxcenter.GetY();
+  v2[2] = trivert2.GetZ() - boxcenter.GetZ();
 
-  const CVector3f e0(v1 - v0);
-  const CVector3f e1(v2 - v1);
-  const CVector3f e2(v0 - v2);
+  float e0[3];
+  e0[0] = v1[0] - v0[0];
+  e0[1] = v1[1] - v0[1];
+  e0[2] = v1[2] - v0[2];
+  float e1[3];
+  e1[0] = v2[0] - v1[0];
+  e1[1] = v2[1] - v1[1];
+  e1[2] = v2[2] - v1[2];
+  float e2[3];
+  e2[0] = v0[0] - v2[0];
+  e2[1] = v0[1] - v2[1];
+  e2[2] = v0[2] - v2[2];
 
-  const float e0x = e0.GetX();
-  const float e0y = e0.GetY();
-  const float e0z = e0.GetZ();
+  const float e0x = e0[0];
+  const float e0y = e0[1];
+  const float e0z = e0[2];
   fex = CMath::AbsF(e0x);
   fey = CMath::AbsF(e0y);
   fez = CMath::AbsF(e0z);
@@ -1105,9 +1022,9 @@ bool TriBoxOverlap(const CVector3f& boxcenter, const CVector3f& boxhalfsize,
   AXISTEST_Y02(e0z, e0x, fez, fex);
   AXISTEST_Z12(e0y, e0x, fey, fex);
 
-  const float e1x = e1.GetX();
-  const float e1y = e1.GetY();
-  const float e1z = e1.GetZ();
+  const float e1x = e1[0];
+  const float e1y = e1[1];
+  const float e1z = e1[2];
   fex = CMath::AbsF(e1x);
   fey = CMath::AbsF(e1y);
   fez = CMath::AbsF(e1z);
@@ -1115,9 +1032,9 @@ bool TriBoxOverlap(const CVector3f& boxcenter, const CVector3f& boxhalfsize,
   AXISTEST_Y02(e1z, e1x, fez, fex);
   AXISTEST_Z0(e1y, e1x, fey, fex);
 
-  const float e2x = e2.GetX();
-  const float e2y = e2.GetY();
-  const float e2z = e2.GetZ();
+  const float e2x = e2[0];
+  const float e2y = e2[1];
+  const float e2z = e2[2];
   fex = CMath::AbsF(e2x);
   fey = CMath::AbsF(e2y);
   fez = CMath::AbsF(e2z);
@@ -1125,95 +1042,74 @@ bool TriBoxOverlap(const CVector3f& boxcenter, const CVector3f& boxhalfsize,
   AXISTEST_Y1(e2z, e2x, fez, fex);
   AXISTEST_Z12(e2y, e2x, fey, fex);
 
-  min = v0.GetX();
-  max = v0.GetX();
-  if (v1.GetX() < v0.GetX()) {
-    min = v1.GetX();
+  min = max = v0[0];
+  if (v1[0] < v0[0]) {
+    min = v1[0];
   }
-  if (v1.GetX() > v0.GetX()) {
-    max = v1.GetX();
+  if (v1[0] > v0[0]) {
+    max = v1[0];
   }
-  if (v2.GetX() < min) {
-    min = v2.GetX();
+  if (v2[0] < min) {
+    min = v2[0];
   }
-  if (v2.GetX() > max) {
-    max = v2.GetX();
+  if (v2[0] > max) {
+    max = v2[0];
   }
   if (min > boxhalfsize.GetX() || max < -boxhalfsize.GetX()) {
     return false;
   }
 
-  min = v0.GetY();
-  max = v0.GetY();
-  if (v1.GetY() < v0.GetY()) {
-    min = v1.GetY();
+  min = max = v0[1];
+  if (v1[1] < v0[1]) {
+    min = v1[1];
   }
-  if (v1.GetY() > v0.GetY()) {
-    max = v1.GetY();
+  if (v1[1] > v0[1]) {
+    max = v1[1];
   }
-  if (v2.GetY() < min) {
-    min = v2.GetY();
+  if (v2[1] < min) {
+    min = v2[1];
   }
-  if (v2.GetY() > max) {
-    max = v2.GetY();
+  if (v2[1] > max) {
+    max = v2[1];
   }
   if (min > boxhalfsize.GetY() || max < -boxhalfsize.GetY()) {
     return false;
   }
 
-  min = v0.GetZ();
-  max = v0.GetZ();
-  if (v1.GetZ() < v0.GetZ()) {
-    min = v1.GetZ();
+  min = max = v0[2];
+  if (v1[2] < v0[2]) {
+    min = v1[2];
   }
-  if (v1.GetZ() > v0.GetZ()) {
-    max = v1.GetZ();
+  if (v1[2] > v0[2]) {
+    max = v1[2];
   }
-  if (v2.GetZ() < min) {
-    min = v2.GetZ();
+  if (v2[2] < min) {
+    min = v2[2];
   }
-  if (v2.GetZ() > max) {
-    max = v2.GetZ();
+  if (v2[2] > max) {
+    max = v2[2];
   }
   if (min > boxhalfsize.GetZ() || max < -boxhalfsize.GetZ()) {
     return false;
   }
 
-  const CVector3f normal = CVector3f::Cross(e0, e1);
-  d = -CVector3f::Dot(normal, v0);
-
-  CVector3f vmax;
-  CVector3f vmin;
-  for (int q = 0; q < 3; ++q) {
-    if (normal[q] > 0.f) {
-      vmin[q] = -boxhalfsize[q];
-      vmax[q] = boxhalfsize[q];
-    } else {
-      vmin[q] = boxhalfsize[q];
-      vmax[q] = -boxhalfsize[q];
-    }
-  }
-
-  if (CVector3f::Dot(normal, vmin) + d > 0.f) {
-    return false;
-  }
-  register int ret;
-  if (CVector3f::Dot(normal, vmax) + d >= 0.f) {
-    ret = 1;
-  } else {
-    ret = 0;
-  }
-
-  return (uint)-ret >> 31;
+  float normal[3];
+  normal[0] = e0[1] * e1[2] - e0[2] * e1[1];
+  normal[1] = e0[2] * e1[0] - e0[0] * e1[2];
+  normal[2] = e0[0] * e1[1] - e0[1] * e1[0];
+  d = -(normal[0] * v0[0] + normal[1] * v0[1] + normal[2] * v0[2]);
+  return planeBoxOverlap(&normal[0], d, boxhalfsize);
 }
 
 bool LineCircleIntersection2d(const CVector3f& point, const CVector3f& dir, const CSphere& sphere,
                               int axis1, int axis2, float& d) {
-  float delta[3];
-  delta[1] = sphere.GetCenter().GetY() - point.GetY();
-  delta[2] = sphere.GetCenter().GetZ() - point.GetZ();
-  delta[0] = sphere.GetCenter().GetX() - point.GetX();
-  const CVector2f deltaVec(delta[axis1], delta[axis2]);
+  CVector3f delta;
+  delta.SetY(sphere.GetCenter().GetY() - point.GetY());
+  delta.SetZ(sphere.GetCenter().GetZ() - point.GetZ());
+  delta.SetX(sphere.GetCenter().GetX() - point.GetX());
+  const float& deltaY = delta[axis2];
+  const float& deltaX = delta[axis1];
+  const CVector2f deltaVec(deltaX, deltaY);
   const CVector2f dirVec(dir[axis1], dir[axis2]);
 
   const float dirVecMag = dirVec.Magnitude();
@@ -1243,8 +1139,9 @@ bool LineCircleIntersection2d(const CVector3f& point, const CVector3f& dir, cons
 
 bool MovingSphereAABox(const CSphere& sphere, const CAABox& aabb, const CVector3f& dir,
                        double& dOut, CVector3f& point, CVector3f& normal) {
+  const CVector3f& aabbMax = aabb.GetMaxPoint();
   const CVector3f radiusVec(sphere.GetRadius(), sphere.GetRadius(), sphere.GetRadius());
-  const CAABox expAABB(aabb.GetMinPoint() - radiusVec, aabb.GetMaxPoint() + radiusVec);
+  const CAABox expAABB(aabb.GetMinPoint() - radiusVec, aabbMax + radiusVec);
   float tMin;
   float tMax;
   int axis;
@@ -1258,11 +1155,13 @@ bool MovingSphereAABox(const CSphere& sphere, const CAABox& aabb, const CVector3
   const int nextAxis1 = (axis + 1) % 3;
   const int nextAxis2 = (axis + 2) % 3;
 
-  const bool inMin1 = point[nextAxis1] >= aabb.GetMinPoint()[nextAxis1];
-  const bool inMax1 = point[nextAxis1] <= aabb.GetMaxPoint()[nextAxis1];
+  const float coord1 = point[nextAxis1];
+  const bool inMin1 = coord1 >= aabb.GetMinPoint()[nextAxis1];
+  const bool inMax1 = coord1 <= aabbMax[nextAxis1];
+  const float coord2 = point[nextAxis2];
+  const bool inMin2 = coord2 >= aabb.GetMinPoint()[nextAxis2];
+  const bool inMax2 = coord2 <= aabbMax[nextAxis2];
   const bool inBounds1 = inMin1 && inMax1;
-  const bool inMin2 = point[nextAxis2] >= aabb.GetMinPoint()[nextAxis2];
-  const bool inMax2 = point[nextAxis2] <= aabb.GetMaxPoint()[nextAxis2];
   const bool inBounds2 = inMin2 && inMax2;
 
   if (inBounds1 && inBounds2) {
@@ -1279,9 +1178,10 @@ bool MovingSphereAABox(const CSphere& sphere, const CAABox& aabb, const CVector3
     const int pointFlags =
         (1 << axis) * sign | (1 << nextAxis1) * inMin1 | (1 << nextAxis2) * inMin2;
     const CVector3f& aabbPoint = aabb.GetPoint(pointFlags);
-    float d;
+    float rayTime;
     if (CollisionUtil::RaySphereIntersection(CSphere(aabbPoint, sphere.GetRadius()),
-                                             sphere.GetCenter(), dir, float(dOut), d, point)) {
+                                             sphere.GetCenter(), dir, CCast::ToReal32(dOut),
+                                             rayTime, point)) {
       int useAxis = -1;
       for (int i = 0; i < 3; ++i) {
         if ((pointFlags & (1 << i)) ? aabbPoint[i] > point[i] : aabbPoint[i] < point[i]) {
@@ -1291,18 +1191,21 @@ bool MovingSphereAABox(const CSphere& sphere, const CAABox& aabb, const CVector3
       }
 
       if (useAxis == -1) {
+        dOut = rayTime;
         normal = (point - aabbPoint).AsNormalized();
         point -= sphere.GetRadius() * normal;
         return true;
       }
 
+      float d;
       const int useAxisNext1 = (useAxis + 1) % 3;
       const int useAxisNext2 = (useAxis + 2) % 3;
       if (CollisionUtil::LineCircleIntersection2d(sphere.GetCenter(), dir,
                                                   CSphere(aabbPoint, sphere.GetRadius()),
                                                   useAxisNext1, useAxisNext2, d) &&
           d > 0.f && d < dOut) {
-        if (point[useAxis] > aabb.GetMaxPoint()[useAxis]) {
+        point = sphere.GetCenter() + d * dir;
+        if (point[useAxis] > aabbMax[useAxis]) {
           const int useAxisBit = 1 << useAxis;
           if (pointFlags & useAxisBit) {
             return false;
@@ -1310,8 +1213,8 @@ bool MovingSphereAABox(const CSphere& sphere, const CAABox& aabb, const CVector3
 
           const CVector3f& aabbPoint1 = aabb.GetPoint(pointFlags | useAxisBit);
           if (CollisionUtil::RaySphereIntersection(CSphere(aabbPoint1, sphere.GetRadius()),
-                                                   sphere.GetCenter(), dir, float(dOut), d,
-                                                   point)) {
+                                                   sphere.GetCenter(), dir, CCast::ToReal32(dOut),
+                                                   d, point)) {
             dOut = d;
             normal = (point - aabbPoint1).AsNormalized();
             point -= normal * sphere.GetRadius();
@@ -1326,8 +1229,8 @@ bool MovingSphereAABox(const CSphere& sphere, const CAABox& aabb, const CVector3
 
           const CVector3f& aabbPoint1 = aabb.GetPoint(pointFlags ^ useAxisBit);
           if (CollisionUtil::RaySphereIntersection(CSphere(aabbPoint1, sphere.GetRadius()),
-                                                   sphere.GetCenter(), dir, float(dOut), d,
-                                                   point)) {
+                                                   sphere.GetCenter(), dir, CCast::ToReal32(dOut),
+                                                   d, point)) {
             dOut = d;
             normal = (point - aabbPoint1).AsNormalized();
             point -= normal * sphere.GetRadius();
@@ -1335,6 +1238,7 @@ bool MovingSphereAABox(const CSphere& sphere, const CAABox& aabb, const CVector3
           }
           return false;
         } else {
+          dOut = d;
           normal = point - aabbPoint;
           normal[useAxis] = 0.f;
           normal.Normalize();
@@ -1343,17 +1247,16 @@ bool MovingSphereAABox(const CSphere& sphere, const CAABox& aabb, const CVector3
         }
       }
     } else {
+      int minAxis = 0;
       int reverseCount = 0;
       float dMin = 1.0e10f;
-      int minAxis = 0;
       for (int i = 0; i < 3; ++i) {
-        if (CMath::AbsF(dir[i]) > FLT_EPSILON) {
+        if (!(CMath::AbsF(dir[i]) < FLT_EPSILON)) {
           const bool pointMax = (pointFlags & (1 << i)) != 0;
           if (pointMax != (dir[i] > 0.f)) {
             ++reverseCount;
-            const float d =
-                (1.f / dir[i]) * ((pointMax ? aabb.GetMaxPoint()[i] : aabb.GetMinPoint()[i]) -
-                                  sphere.GetCenter()[i]);
+            const float d = (1.f / dir[i]) * ((pointMax ? aabbMax[i] : aabb.GetMinPoint()[i]) -
+                                              sphere.GetCenter()[i]);
             if (d < 0.f) {
               return false;
             }
@@ -1369,6 +1272,7 @@ bool MovingSphereAABox(const CSphere& sphere, const CAABox& aabb, const CVector3
         return false;
       }
 
+      float d;
       const int useAxisNext1 = (minAxis + 1) % 3;
       const int useAxisNext2 = (minAxis + 2) % 3;
       if (CollisionUtil::LineCircleIntersection2d(sphere.GetCenter(), dir,
@@ -1376,7 +1280,7 @@ bool MovingSphereAABox(const CSphere& sphere, const CAABox& aabb, const CVector3
                                                   useAxisNext1, useAxisNext2, d) &&
           d > 0.f && d < dOut) {
         point = sphere.GetCenter() + d * dir;
-        if (point[minAxis] > aabb.GetMaxPoint()[minAxis]) {
+        if (point[minAxis] > aabbMax[minAxis]) {
           return false;
         }
         if (point[minAxis] < aabb.GetMinPoint()[minAxis]) {
@@ -1390,63 +1294,55 @@ bool MovingSphereAABox(const CSphere& sphere, const CAABox& aabb, const CVector3
         point -= sphere.GetRadius() * normal;
         return true;
       }
-      return false;
     }
-  }
-
-  int useNextAxis1 = nextAxis1;
-  int useNextAxis2 = nextAxis2;
-  if (inBounds1) {
-    useNextAxis1 = nextAxis2;
-    useNextAxis2 = nextAxis1;
-  }
-
-  int pointSign = inMin1;
-  if (inBounds1) {
-    pointSign = inMin2;
-  }
-  const int pointFlags = ((1 << useNextAxis1) * pointSign) | ((1 << axis) * sign);
-  const CVector3f& aabbPoint2 = aabb.GetPoint(pointFlags);
-  float d;
-  if (LineCircleIntersection2d(sphere.GetCenter(), dir, CSphere(aabbPoint2, sphere.GetRadius()),
-                               axis, useNextAxis1, d) &&
-      d > 0.f && d < dOut) {
-    point = sphere.GetCenter() + d * dir;
-    if (point[useNextAxis2] > aabb.GetMaxPoint()[useNextAxis2]) {
-      const CVector3f& aabbPoint3 = aabb.GetPoint(pointFlags | (1 << useNextAxis2));
-      if (point[useNextAxis2] < expAABB.GetMaxPoint()[useNextAxis2]) {
-        if (RaySphereIntersection(CSphere(aabbPoint3, sphere.GetRadius()), sphere.GetCenter(), dir,
-                                  float(dOut), d, point)) {
-          dOut = d;
-          normal = (point - aabbPoint3).AsNormalized();
-          point -= sphere.GetRadius() * normal;
-          return true;
+    return false;
+  } else {
+    const int useNextAxis1 = inBounds1 ? nextAxis2 : nextAxis1;
+    const bool pointSign = inBounds1 ? inMin2 : inMin1;
+    const int pointFlag1 = (1 << useNextAxis1) * pointSign;
+    const int useNextAxis2 = inBounds1 ? nextAxis1 : nextAxis2;
+    const int pointFlags = pointFlag1 | ((1 << axis) * sign);
+    const CVector3f& aabbPoint2 = aabb.GetPoint(pointFlags);
+    float d;
+    if (LineCircleIntersection2d(sphere.GetCenter(), dir, CSphere(aabbPoint2, sphere.GetRadius()),
+                                 axis, useNextAxis1, d) &&
+        d > 0.f && d < dOut) {
+      point = sphere.GetCenter() + d * dir;
+      if (point[useNextAxis2] > aabbMax[useNextAxis2]) {
+        const CVector3f& aabbPoint3 = aabb.GetPoint(pointFlags | (1 << useNextAxis2));
+        if (point[useNextAxis2] < expAABB.GetMaxPoint()[useNextAxis2]) {
+          if (RaySphereIntersection(CSphere(aabbPoint3, sphere.GetRadius()), sphere.GetCenter(),
+                                    dir, CCast::ToReal32(dOut), d, point)) {
+            dOut = d;
+            normal = (point - aabbPoint3).AsNormalized();
+            point -= sphere.GetRadius() * normal;
+            return true;
+          }
         }
+        return false;
       }
-      return false;
-    }
 
-    if (point[useNextAxis2] < aabb.GetMinPoint()[useNextAxis2]) {
-      if (point[useNextAxis2] > expAABB.GetMinPoint()[useNextAxis2]) {
-        if (RaySphereIntersection(CSphere(aabbPoint2, sphere.GetRadius()), sphere.GetCenter(), dir,
-                                  float(dOut), d, point)) {
-          dOut = d;
-          normal = (point - aabbPoint2).AsNormalized();
-          point -= sphere.GetRadius() * normal;
-          return true;
+      if (point[useNextAxis2] < aabb.GetMinPoint()[useNextAxis2]) {
+        if (point[useNextAxis2] > expAABB.GetMinPoint()[useNextAxis2]) {
+          if (RaySphereIntersection(CSphere(aabbPoint2, sphere.GetRadius()), sphere.GetCenter(),
+                                    dir, CCast::ToReal32(dOut), d, point)) {
+            dOut = d;
+            normal = (point - aabbPoint2).AsNormalized();
+            point -= sphere.GetRadius() * normal;
+            return true;
+          }
         }
+        return false;
+      } else {
+        dOut = d;
+        normal = point - aabbPoint2;
+        normal[useNextAxis2] = 0.f;
+        normal.Normalize();
+        point -= sphere.GetRadius() * normal;
+        return true;
       }
-      return false;
-    } else {
-      dOut = d;
-      normal = point - aabbPoint2;
-      normal[useNextAxis2] = 0.f;
-      normal.Normalize();
-      point -= sphere.GetRadius() * normal;
-      return true;
     }
   }
-
   return false;
 }
 
@@ -1471,9 +1367,7 @@ bool TriSphereIntersection(const CSphere& sphere, const CVector3f& trivert0,
 
   if (baryX == 0.f || baryX == 1.f || baryY == 0.f || baryY == 1.f || baryZ == 0.f ||
       baryZ == 1.f) {
-    const CUnitVector3f& surf = sphere.GetSurfaceNormal(point);
-    const CVector3f& inv = -surf;
-    normal = inv;
+    normal = -sphere.GetSurfaceNormal(point);
   } else {
     normal = CVector3f::Cross(trivert1 - trivert0, trivert2 - trivert0).AsNormalized();
   }

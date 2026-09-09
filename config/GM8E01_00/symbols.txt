@@ -12360,7 +12360,7 @@ MovingSphereAABox__13CollisionUtilFRC7CSphereRC6CAABoxRC9CVector3fRdR9CVector3fR
 LineCircleIntersection2d__13CollisionUtilFRC9CVector3fRC9CVector3fRC7CSphereiiRf = .text:0x802D132C; // type:function size:0x1B4 scope:global
 TriBoxOverlap__13CollisionUtilFRC9CVector3fRC9CVector3fRC9CVector3fRC9CVector3fRC9CVector3f = .text:0x802D14E0; // type:function size:0x6C8 scope:global
 BoxLineTest__13CollisionUtilFRC6CAABoxRC9CVector3fRC9CVector3fRfRfRiRb = .text:0x802D1BA8; // type:function size:0x10C scope:global
-AABox_AABox_Moving__13CollisionUtilFRC6CAABoxRC6CAABoxRC9CVector3fRdR9CVector3fR9CVector3f = .text:0x802D1CB4; // type:function size:0x400 scope:global
+AABox_ABBox_Moving__13CollisionUtilFRC6CAABoxRC6CAABoxRC9CVector3fRdR9CVector3fR9CVector3f = .text:0x802D1CB4; // type:function size:0x400 scope:global
 AddAverageToFront__13CollisionUtilFRC18CCollisionInfoListR18CCollisionInfoList = .text:0x802D20B4; // type:function size:0x294 scope:global
 FilterOutBackfaces__13CollisionUtilFRC9CVector3fRC18CCollisionInfoListR18CCollisionInfoList = .text:0x802D2348; // type:function size:0x110 scope:global
 FilterByClosestNormal__13CollisionUtilFRC9CVector3fRC18CCollisionInfoListR18CCollisionInfoList = .text:0x802D2458; // type:function size:0x9C scope:global

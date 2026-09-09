@@ -214,13 +214,16 @@ bool CMetroidAreaCollider::AABoxCollisionCheck(const CAreaOctTree& octTree, cons
                                                CCollisionInfoList& list) {
   const CVector3f min = aabb.GetMinPoint();
   const CVector3f max = aabb.GetMaxPoint();
+  const CUnitVector3f xAxis(1.f, 0.f, 0.f);
+  const CUnitVector3f yAxis(0.f, 1.f, 0.f);
+  const CUnitVector3f zAxis(0.f, 0.f, 1.f);
   CPlane planes[6] = {
-      CPlane(min, CUnitVector3f(1.f, 0.f, 0.f)),
-      CPlane(max, -CUnitVector3f(1.f, 0.f, 0.f)),
-      CPlane(min, CUnitVector3f(0.f, 1.f, 0.f)),
-      CPlane(max, -CUnitVector3f(0.f, 1.f, 0.f)),
-      CPlane(min, CUnitVector3f(0.f, 0.f, 1.f)),
-      CPlane(max, -CUnitVector3f(0.f, 0.f, 1.f)),
+      CPlane(min, xAxis),
+      CPlane(max, -xAxis),
+      CPlane(min, yAxis),
+      CPlane(max, -yAxis),
+      CPlane(min, zAxis),
+      CPlane(max, -zAxis),
   };
   CAABoxAreaCache cache(aabb, planes, filter, matList, list);
 
