@@ -315,6 +315,7 @@ public:
                                                  ETexelFormat fmt);
   static CVector2i ProjectPoint(const CVector3f& point);
 
+  static const GXRenderModeObj& GetRenderMode() { return mRenderModeObj; }
   static float GetDepthNear() { return mDepthNear; }
   static float GetDepthFar() { return mDepthFar; }
 
