@@ -16,7 +16,7 @@ enum EStateFlags {
   kStateFlag_ShadowOccluderMesh = (1 << 9),
   kStateFlag_ReflectionIndirectTexture = (1 << 10),
   kStateFlag_Lightmap = (1 << 11),
-  kStateFlag_LightmapUvArray = (1 << 12),
+  kStateFlag_LightmapUvArray = (1 << 13),
   kStateFlag_TextureSlotMask = static_cast< uint >(~kStateFlag_LightmapUvArray),
 };
 
@@ -56,6 +56,8 @@ private:
                                uint tevCount, uint texCount, uint tcgCount,
                                uint finalKColorCount, uint& finalCCFlags, uint& finalACFlags);
 
+  static const CCubeModel* sLastModelCached;
+  static const CCubeModel* sRenderingModel;
   static CVector3f sViewingFrom;
   const void* x0_data;
 };

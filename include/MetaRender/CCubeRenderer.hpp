@@ -194,7 +194,7 @@ public:
 
   void SetRequestRGBA6(bool req) { x318_26_requestRGBA6 = req; }
   bool IsRGBA6Current() const { return x318_27_currentRGBA6; }
-  bool GetReflectionFlag() const { return x318_24_reflectionDirty; }
+  bool GetReflectionFlag() { return x318_24_reflectionDirty; }
   void SetReflectionFlag() { x318_24_reflectionDirty = true; }
   CTexture* GetRealReflection();
   const CPlane& GetViewPlane() const { return xb0_viewPlane; }

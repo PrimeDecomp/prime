@@ -2,6 +2,7 @@
 #define _CCUBESURFACE
 
 #include "Kyoto/Math/CAABox.hpp"
+#include "Kyoto/Math/CUnitVector3f.hpp"
 
 class CCubeModel;
 class CCubeSurface {
@@ -15,7 +16,7 @@ public:
     CCubeModel* mParent;
     void* mNextSurface;
     uint mExtraSize;
-    CVector3f mNormal;
+    CUnitVector3f mNormal;
     CAABox mBounds;
     uchar pad[7];
   };
@@ -32,6 +33,8 @@ public:
     return reinterpret_cast< const SSurfaceData* >(x0_rawdata + GetSurfaceHeaderSize());
   }
   uint GetSurfaceHeaderSize() const { return (sizeof(SSurfaceData) + x0_data->mExtraSize) & ~31; }
+  const CVector3f& GetCenter() const { return x0_data->mCenter; }
+  const CUnitVector3f& GetNormalHint() const { return x0_data->mNormal; }
   uint GetMaterialIndex() const { return x0_data->mMaterialIndex; }
 
   CAABox GetBounds() const;
