@@ -30,7 +30,7 @@ public:
   void Reset(int size);
   bool GetSurroundingPoints(int idx, rstl::reserved_vector< CVector3f, 4 >& positions,
                             rstl::reserved_vector< CVector3f, 4 >& directions);
-  float ClampLength(const CVector3f& pos, bool collide, const CMaterialFilter& filter,
+  float ClampLength(const CVector3f pos, bool collide, const CMaterialFilter filter,
                     const CStateManager& mgr) const;
   float CalculateSplineLength();
   void UpdateSplineLength() { x44_length = CalculateSplineLength(); }

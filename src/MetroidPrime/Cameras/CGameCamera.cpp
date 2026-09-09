@@ -255,7 +255,7 @@ bool CCameraSpline::GetSurroundingPoints(int idx, rstl::reserved_vector< CVector
   return true;
 }
 
-float CCameraSpline::ClampLength(const CVector3f& pos, bool collide, const CMaterialFilter& filter,
+float CCameraSpline::ClampLength(const CVector3f pos, bool collide, const CMaterialFilter filter,
                                  const CStateManager& mgr) const {
   if (x4_positions.empty()) {
     return 0.f;

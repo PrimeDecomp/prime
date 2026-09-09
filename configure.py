@@ -765,7 +765,7 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/ScriptObjects/CScriptCoverPoint.cpp",
             ),
-            Object(NonMatching, "MetroidPrime/Cameras/CPathCamera.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Cameras/CPathCamera.cpp"),
             Object(NonMatching, "MetroidPrime/CFluidPlaneManager.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
