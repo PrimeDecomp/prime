@@ -3,6 +3,7 @@
 #include "MetroidPrime/BodyState/CAdditiveBodyState.hpp"
 #include "MetroidPrime/BodyState/CBodyState.hpp"
 #include "MetroidPrime/CActor.hpp"
+#include "MetroidPrime/CActorModelParticles.hpp"
 #include "MetroidPrime/CAnimData.hpp"
 #include "MetroidPrime/CAnimPlaybackParms.hpp"
 #include "MetroidPrime/CModelData.hpp"
@@ -12,6 +13,9 @@
 #include "rstl/math.hpp"
 
 #include "Kyoto/Animation/CPASDatabase.hpp"
+#include "Kyoto/Math/CRelAngle.hpp"
+#include "Kyoto/Math/CUnitVector3f.hpp"
+#include "Kyoto/Math/CloseEnough.hpp"
 
 CBodyController::CBodyController(CActor& actor, float turnSpeed, EBodyType bodyType)
 : x0_actor(&actor)
@@ -116,7 +120,7 @@ void CBodyController::EnableAnimation(bool enable) {
 }
 
 void CBodyController::SetCurrentAnimation(const CAnimPlaybackParms& parms, bool loop,
-                                          bool noTrans) {
+                                          const bool noTrans) {
   GetOwner().ModelData()->AnimationData()->SetAnimation(parms, noTrans);
   GetOwner().ModelData()->EnableLooping(loop);
   x2f8_curAnim = parms.GetAnimationId();
@@ -137,9 +141,57 @@ void CBodyController::MultiplyPlaybackRate(float mul) {
 
 void CBodyController::SetDeltaRotation(const CQuaternion& q) { x2dc_rot = x2dc_rot * q; }
 
-void CBodyController::FaceDirection(const CVector3f& v0, float dt) {}
+void CBodyController::FaceDirection(const CVector3f& v0, float dt) {
+  if (x300_26_frozen) {
+    return;
+  }
 
-void CBodyController::FaceDirection3D(const CVector3f& v0, const CVector3f& v1, float dt) {}
+  CVector3f noZ = v0;
+  noZ[kDZ] = 0.f;
+  if (noZ.CanBeNormalized()) {
+    if (CPhysicsActor* actor = TCastToPtr< CPhysicsActor >(x0_actor)) {
+      CVector3f normalized(noZ.AsNormalized());
+      const CVector3f forward = GetOwner().GetTransform().GetForward();
+      const CRelAngle angle = CRelAngle::FromDegrees(dt * x2fc_turnSpeed);
+      CQuaternion rot = CQuaternion::LookAt(
+          CUnitVector3f(forward, CUnitVector3f::kN_No),
+          CUnitVector3f(normalized[kDX], normalized[kDY], normalized[kDZ]), angle);
+      const CQuaternion localRot = CQuaternion::ScalarVector(
+          rot.GetScalar(), GetOwner().TransformWorldToLocalRotation(rot.GetVector()));
+      actor->RotateInOneFrameOR(localRot, dt);
+    }
+  }
+}
+
+void CBodyController::FaceDirection3D(const CVector3f& v0, const CVector3f& v1, float dt) {
+  if (x300_26_frozen) {
+    return;
+  }
+
+  if (v0.CanBeNormalized() && v1.CanBeNormalized()) {
+    if (CPhysicsActor* actor = TCastToPtr< CPhysicsActor >(x0_actor)) {
+      const CUnitVector3f uv0(v0);
+      const CUnitVector3f uv1(v1);
+      const float dot = CVector3f::Dot(uv0, uv1);
+      if (!close_enough(dot, 1.f)) {
+        if (dot < -0.99981f) {
+          const CQuaternion rot = CQuaternion::AxisAngle(
+              CUnitVector3f(actor->GetTransform().GetColumn(2), CUnitVector3f::kN_No),
+              CRelAngle::FromDegrees(dt * x2fc_turnSpeed));
+          const CQuaternion localRot = CQuaternion::ScalarVector(
+              rot.GetScalar(), GetOwner().TransformWorldToLocalRotation(rot.GetVector()));
+          actor->RotateInOneFrameOR(localRot, dt);
+        } else {
+          const CQuaternion rot =
+              CQuaternion::ClampedRotateTo(uv1, uv0, CRelAngle::FromDegrees(dt * x2fc_turnSpeed));
+          const CQuaternion localRot = CQuaternion::ScalarVector(
+              rot.GetScalar(), GetOwner().TransformWorldToLocalRotation(rot.GetVector()));
+          actor->RotateInOneFrameOR(localRot, dt);
+        }
+      }
+    }
+  }
+}
 
 const CPASDatabase& CBodyController::GetPASDatabase() const {
   return GetOwner().GetModelData()->GetAnimationData()->GetPASDatabase();
@@ -196,19 +248,19 @@ void CBodyController::UnFreeze() {
 }
 
 float CBodyController::GetPercentageFrozen() const {
-  float sum = x304_intoFreezeDur + x308_frozenDur + x30c_breakoutDur;
-  if (x310_timeFrozen == 0.f || sum == 0.f)
+  const float sum = x304_intoFreezeDur + x308_frozenDur + x30c_breakoutDur;
+  if (x310_timeFrozen == 0.f || sum == 0.f) {
     return 0.f;
+  }
 
-  if (x310_timeFrozen <= x304_intoFreezeDur && x304_intoFreezeDur > 0.f)
+  float result = 1.f;
+  if (x310_timeFrozen <= x304_intoFreezeDur && x304_intoFreezeDur > 0.f) {
     return x310_timeFrozen / x304_intoFreezeDur;
-
-  if (x310_timeFrozen < sum - x30c_breakoutDur)
-    return 1.f;
-  if (x30c_breakoutDur <= 0.f)
-    return 1.f;
-
-  return 1.f - (x310_timeFrozen - (x308_frozenDur + x304_intoFreezeDur)) / x30c_breakoutDur;
+  }
+  if (x310_timeFrozen >= sum - x30c_breakoutDur && x30c_breakoutDur > 0.f) {
+    result = 1.f - (x310_timeFrozen - (x308_frozenDur + x304_intoFreezeDur)) / x30c_breakoutDur;
+  }
+  return result;
 }
 
 void CBodyController::SetOnFire(float duration) {
@@ -229,7 +281,7 @@ void CBodyController::DouseFlames() {
 void CBodyController::SetElectrocuting(float duration) {
   if (!IsElectrocuting()) {
     CBCAdditiveReactionCmd reaction(pas::kART_Electrocution, 1.f, true);
-    x4_cmdMgr.DeliverCmd(reaction);
+    CommandMgr().DeliverCmd(reaction);
   }
   x324_electrocutionDur = duration;
   x32c_timeElectrocuting = 0.f;
@@ -244,4 +296,32 @@ void CBodyController::StopElectrocution() {
   x32c_timeElectrocuting = 0.f;
   CBodyStateCmd cmd(kBSC_StopReaction);
   x4_cmdMgr.DeliverCmd(cmd);
+}
+
+void CBodyController::UpdateFrozenInfo(float dt, CStateManager& mgr) {
+  if (x300_26_frozen) {
+    const float totalTime = x304_intoFreezeDur + x308_frozenDur + x30c_breakoutDur;
+    if (x310_timeFrozen > totalTime &&
+        x2a4_bodyStateInfo.GetCurrentAdditiveStateId() != pas::kAS_AdditiveReaction) {
+      UnFreeze();
+      if (x0_actor) {
+        x0_actor->SendScriptMsgs(kSS_UnFrozen, mgr, kSM_None);
+      }
+      mgr.ActorModelParticles()->StartIce(GetOwner());
+      return;
+    }
+
+    if (x310_timeFrozen <= totalTime) {
+      float unfrozen = 1.f;
+      if (x310_timeFrozen < totalTime - x30c_breakoutDur) {
+        unfrozen = 1.f - GetPercentageFrozen();
+      }
+      MultiplyPlaybackRate(unfrozen);
+      x310_timeFrozen += dt;
+      GetOwner().SetVolume(static_cast< uchar >(127.f * unfrozen));
+      if (x310_timeFrozen > totalTime && HasIceBreakoutState()) {
+        CommandMgr().DeliverCmd(CBCAdditiveReactionCmd(pas::kART_IceBreakout, 1.f, false));
+      }
+    }
+  }
 }
