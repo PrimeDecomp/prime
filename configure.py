@@ -727,7 +727,7 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/Enemies/CPatternedInfo.cpp",
             ),
-            Object(NonMatching, "MetroidPrime/CSimpleShadow.cpp"),
+            Object(MatchingFor("GM8E01_00"), "MetroidPrime/CSimpleShadow.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/CActorParameters.cpp",
