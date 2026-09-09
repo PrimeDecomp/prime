@@ -8,14 +8,14 @@
 #include "rstl/auto_ptr.hpp"
 #include "rstl/vector.hpp"
 
-#include <Kyoto/CFactoryFnReturn.hpp>
+#include "Kyoto/CFactoryFnReturn.hpp"
 
 class COBBTree;
 
 class CCollidableOBBTreeGroupContainer {
 public:
   CCollidableOBBTreeGroupContainer(CInputStream& in);
-  CCollidableOBBTreeGroupContainer(const CVector3f&, const CVector3f&);
+  CCollidableOBBTreeGroupContainer(const CVector3f& extent, const CVector3f& center);
 
   int NumTrees() const { return x0_trees.size(); }
 
@@ -25,12 +25,10 @@ private:
   rstl::vector< CAABox > x10_aabbs;
   CAABox x20_aabox;
 };
+CHECK_SIZEOF(CCollidableOBBTreeGroupContainer, 0x38)
 
 class CCollidableOBBTreeGroup : public CCollisionPrimitive {
 public:
-  CCollidableOBBTreeGroup(CCollidableOBBTreeGroupContainer* container,
-                          const CMaterialList& matList);
-
   uint GetTableIndex() const override;
   CAABox CalculateAABox(const CTransform4f&) const override;
   CAABox CalculateLocalAABox() const override;
@@ -38,8 +36,11 @@ public:
   ~CCollidableOBBTreeGroup() override {}
   CRayCastResult CastRayInternal(const CInternalRayCastStructure&) const override;
 
+  CCollidableOBBTreeGroup(CCollidableOBBTreeGroupContainer* container,
+                          const CMaterialList& matList);
+
   const CCollidableOBBTreeGroupContainer* GetContainer() const { return x10_container; }
-  const COBBTree* GetOBBTreeAABox(int idx) const;
+  COBBTree* GetOBBTreeAABox(int idx) const;
 
   static Type GetType();
   static void SetStaticTableIndex(uint);
@@ -57,7 +58,9 @@ public:
 
 private:
   CCollidableOBBTreeGroupContainer* x10_container;
+  static uint sTableIndex;
 };
+CHECK_SIZEOF(CCollidableOBBTreeGroup, 0x18)
 
 CFactoryFnReturn FCollidableOBBTreeGroupFactory(const SObjectTag& tag, CInputStream& in,
                                                 const CVParamTransfer& xfer);
