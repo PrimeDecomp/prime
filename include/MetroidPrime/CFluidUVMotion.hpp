@@ -12,6 +12,12 @@ public:
     kFM_NumLayers,
   };
 
+  enum EFluidLayer {
+    kFL_Color,
+    kFL_Pattern1,
+    kFL_Pattern2,
+  };
+
   struct SFluidLayerMotion {
     EFluidMotion x0_motion;
     float x4_ooTimeToWrap;
@@ -52,8 +58,8 @@ public:
 
   float GetOOTimeToWrapTexPage() const { return x4c_ooTimeToWrap; }
   float GetOrientation() const { return x50_orientation; }
-  const SFluidLayerMotion& GetFluidLayerMotion(EFluidMotion motion) const {
-    return x0_fluidLayers[motion];
+  const SFluidLayerMotion& GetFluidLayerMotion(EFluidLayer layer) const {
+    return x0_fluidLayers[layer];
   }
   const rstl::reserved_vector< SFluidLayerMotion, kFM_NumLayers >& GetFluidLayers() const {
     return x0_fluidLayers;

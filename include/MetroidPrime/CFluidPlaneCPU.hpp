@@ -41,13 +41,12 @@ public:
 
 public:
   CFluidPlaneCPU(uint patternMap1, uint patternMap2, uint colorMap, uint bumpMap, uint envMap,
-                 uint envBumpMap, float unitsPerLightmapTexel, uint lightmap,
-                 uint tileSubdivisions, EFluidType fluidType, float tileSize,
-                 const CVector3f& bumpLightDir, float alpha, const CFluidUVMotion& uvMotion,
-                 float bumpScale, float turbSpeed, float turbDistance, float turbFreqMax,
-                 float turbFreqMin, float turbPhaseMax, float turbPhaseMin,
-                 float turbAmplitudeMax, float turbAmplitudeMin, float specularMin,
-                 float specularMax, float reflectionBlend, float reflectionSize,
+                 uint envBumpMap, float unitsPerLightmapTexel, uint lightmap, uint tileSubdivisions,
+                 EFluidType fluidType, float tileSize, const CVector3f& bumpLightDir, float alpha,
+                 const CFluidUVMotion& uvMotion, float bumpScale, float turbSpeed,
+                 float turbDistance, float turbFreqMax, float turbFreqMin, float turbPhaseMax,
+                 float turbPhaseMin, float turbAmplitudeMax, float turbAmplitudeMin,
+                 float specularMin, float specularMax, float reflectionBlend, float reflectionSize,
                  float rippleIntensity);
   ~CFluidPlaneCPU() {}
 
@@ -60,8 +59,8 @@ public:
   void RenderSetup(const CStateManager& mgr, float alpha, const CTransform4f& xf,
                    const CTransform4f& areaXf, const CAABox& aabb, CScriptWater* water) const;
   void RenderCleanup() const;
-  void CalculateLightmapMtx(const CTransform4f& areaXf, const CTransform4f& xf,
-                             const CAABox& aabb, int idx);
+  void CalculateLightmapMtx(const CTransform4f& areaXf, const CTransform4f& xf, const CAABox& aabb,
+                            int idx) const;
 
   float GetReflectionBlend() const { return x114_reflectionBlend; }
   float GetSpecularMax() const { return x110_specularMax; }
@@ -72,9 +71,9 @@ public:
   const TLockedToken< CTexture >& GetBumpMap() const { return *xb0_bumpMap; }
   bool HasEnvMap() const { return xc0_envMap; }
   const TLockedToken< CTexture >& GetEnvMap() const { return *xc0_envMap; }
-  bool HasEnvBumpMap() const { return xd0_envBumpMap; }
+  bool HasEnvBumpMap() const { return xd0_envBumpMap.valid(); }
   const TLockedToken< CTexture >& GetEnvBumpMap() const { return *xd0_envBumpMap; }
-  bool HasLightMap() const { return xe0_lightmap; }
+  bool HasLightMap() const { return xe0_lightmap.valid(); }
   const TLockedToken< CTexture >& GetLightMap() const { return *xe0_lightmap; }
   const CVector3f& GetBumpLightDir() const { return xf0_bumpLightDir; }
   float GetTileSize() const { return x100_tileSize; }

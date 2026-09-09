@@ -19,6 +19,10 @@ extern unsigned char sRippleMaxs[64];
 static int sZeroX = 0;
 static int sZeroY = 0;
 
+int CFluidPlaneCPURender::numTilesInHField;
+int CFluidPlaneCPURender::numSubdivisionsInTile;
+int CFluidPlaneCPURender::numSubdivisionsInHField;
+
 static float sGlobalSineWave[256];
 static bool sSineWaveInitialized;
 
@@ -865,13 +869,12 @@ void RenderStripWithRipples(const CFluidPlaneCPURender::SHFieldSample (&heights)
   }
 }
 
-void ApplyRipple(const CRipple& ripple, CFluidPlaneCPURender::SHFieldSample (&heights)[45][45],
+void ApplyRipple(const CFluidPlaneCPURender::SRippleInfo& rippleInfo, CFluidPlaneCPURender::SHFieldSample (&heights)[45][45],
                  unsigned char (&flags)[9][9], const float (&sineWave)[256],
                  CFluidPlaneCPURender::SPatchInfo& info) {
   typedef CFluidPlaneCPURender::SRippleInfo SRippleInfo;
   typedef CFluidPlaneCPURender::SHFieldSample SHFieldSample;
 
-  const SRippleInfo& rippleInfo = reinterpret_cast< const SRippleInfo& >(ripple);
   const CRipple& rip = *rippleInfo.x0_ripple;
 
   float timeRatio = rip.GetTime() * rip.GetOoTimeFalloff();
@@ -1074,18 +1077,16 @@ void ApplyRipple(const CRipple& ripple, CFluidPlaneCPURender::SHFieldSample (&he
   }
 }
 
-void ApplyRipples(const CRippleManager& rippleManager,
+void ApplyRipples(const rstl::reserved_vector< CFluidPlaneCPURender::SRippleInfo, 32 >& ripples,
                   CFluidPlaneCPURender::SHFieldSample (&heights)[45][45],
                   unsigned char (&flags)[9][9], const float (&sineWave)[256],
                   CFluidPlaneCPURender::SPatchInfo& info) {
   LCQueueWait(0);
 
   typedef CFluidPlaneCPURender::SRippleInfo SRippleInfo;
-  const rstl::reserved_vector< SRippleInfo, 32 >& ripples =
-      reinterpret_cast< const rstl::reserved_vector< SRippleInfo, 32 >& >(rippleManager);
   rstl::reserved_vector< SRippleInfo, 32 >::const_iterator it = ripples.begin();
   for (; it != ripples.end(); ++it) {
-    ApplyRipple(reinterpret_cast< const CRipple& >(*it), heights, flags, sineWave, info);
+    ApplyRipple(*it, heights, flags, sineWave, info);
   }
 
   unsigned char* ptr;
