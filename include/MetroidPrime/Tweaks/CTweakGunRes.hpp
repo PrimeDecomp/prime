@@ -52,6 +52,13 @@ public:
   ResId xc0_grappleMuzzle;
   ResId xc4_grappleSwoosh;
 
+  CAssetId GetAuxMuzzleResId(CPlayerState::EBeamId beam) const {
+    if (beam < CPlayerState::kBI_Power || beam > CPlayerState::kBI_Phazon) {
+      return kInvalidAssetId;
+    }
+    return xa4_auxMuzzle[beam];
+  }
+
   const ResIdVec& GetBeamResIdVec(CPlayerState::EBeamId beam) const;
 };
 

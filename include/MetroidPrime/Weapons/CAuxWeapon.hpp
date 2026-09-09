@@ -29,15 +29,16 @@ public:
   void SetNewTarget(TUniqueId target, CStateManager& mgr);
   void StopComboFx(CStateManager& mgr, bool deactivate);
   void Load(int curBeam, CStateManager& mgr);
-  void Fire(float dt, bool underwater, int currentBeam, CPlayerState::EChargeStage chargeState,
-            const CTransform4f& xf, CStateManager& mgr, EWeaponType type, TUniqueId homingId);
+  void LoadIdle();
+  void Fire(float dt, const bool underwater, int currentBeam,
+            CPlayerState::EChargeStage chargeState, const CTransform4f& xf, CStateManager& mgr,
+            EWeaponType type, TUniqueId homingId);
   void RenderMuzzleFx() const;
   void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&);
 
   bool IsLoaded() const { return x80_24_isLoaded; }
 
 private:
-  void LoadIdle();
   void FreeComboVoiceId();
   void DeleteWaveBusterBeam(CStateManager& mgr);
   void DeleteFlameThrower(CStateManager& mgr);

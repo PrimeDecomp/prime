@@ -16,7 +16,8 @@ public:
     kI_Invalid,
     kI_Valid,
   };
-  CRayCastResult(const float time, const CVector3f& point, const CPlane& plane, const CMaterialList& list)
+  CRayCastResult(const float time, const CVector3f& point, const CPlane& plane,
+                 const CMaterialList& list)
   : x0_time(time), x4_point(point), x10_plane(plane), x20_valid(kI_Valid), x28_material(list) {}
   CRayCastResult(const EInvalid invalid = kI_Invalid)
   : x0_time(0)
@@ -27,16 +28,14 @@ public:
   float GetTime() const { return x0_time; }
   const CVector3f& GetPoint() const { return x4_point; }
   const CPlane& GetPlane() const { return x10_plane; }
-  bool IsValid() const { return x20_valid != kI_Invalid; }
+  const bool IsValid() const { return x20_valid; }
   bool GetValid() const { return x20_valid; }
   // TODO: figure out what's going on here
   bool IsInvalid() const { return x20_valid == kI_Invalid; }
   const CMaterialList& GetMaterial() const { return x28_material; }
   void Transform(const CTransform4f& xf);
 
-  static CRayCastResult MakeInvalid() {
-    return CRayCastResult();
-  }
+  static CRayCastResult MakeInvalid() { return CRayCastResult(); }
 
 private:
   float x0_time;
