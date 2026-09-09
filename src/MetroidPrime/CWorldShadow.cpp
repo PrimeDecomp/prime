@@ -17,8 +17,6 @@
 
 #include "dolphin/gx/GXFrameBuffer.h"
 
-static int kUnknownValue = 1;
-
 CWorldShadow::CWorldShadow(uint w, uint h, bool rgba8)
 : x0_texture(rs_new CTexture(rgba8 ? kTF_RGBA8 : kTF_RGB565, w, h, 1))
 , x4_view(CTransform4f::Identity())
@@ -49,18 +47,16 @@ void CWorldShadow::BuildLightShadowTexture(const CStateManager& mgr, TAreaId aid
       const CWorldLight& light = area.GetLightsA()[lightIdx];
       CVector3f centerPoint = aabb.GetCenterPoint();
       const CPVSAreaSet* pvs = area.GetAreaVisSet();
-      if (pvs && kUnknownValue == 1) {
-        CPVSVisSet lightSet = pvs->GetLightSet(lightIdx);
+      if (pvs && gkPVSEnabled == 1) {
+        CPVSVisSet lightSet = pvs->GetLightSet(lightIdx + pvs->GetNum2ndLights());
         gpRender->EnablePVS(&lightSet, aid.Value());
       } else {
-        // TODO: Figure this out
-        // CPVSVisSet lightSet;
-        // gpRender->EnablePVS(lightSet, aid.Value());
+        gpRender->EnablePVS(&CPVSVisSet(kVSS_OutOfBounds), aid.Value());
       }
       CVector3f lightToPoint = centerPoint - light.GetPosition();
       x64_objHalfExtent = (aabb.GetMaxPoint() - centerPoint).Magnitude();
       float distance = lightToPoint.Magnitude();
-      float fov = CMath::Rad2Deg(atan2f(x64_objHalfExtent, distance)) * 2.f;
+      float fov = CMath::Rad2Deg(CCast::ToReal32(atan2(x64_objHalfExtent, distance))) * 2.f;
       if (!(fov < 0.00001f)) {
         lightToPoint.Normalize();
         x4_view =
@@ -68,19 +64,19 @@ void CWorldShadow::BuildLightShadowTexture(const CStateManager& mgr, TAreaId aid
         x68_objPos = centerPoint;
         x74_lightPos = light.GetPosition();
         CGraphics::SetViewPointMatrix(x4_view);
-        CFrustumPlanes frumtum(x4_view, fov * 0.01745329238474369, 1.0f, 0.1f, true,
+        CFrustumPlanes frustum(x4_view, fov * 0.01745329238474369f, 1.0f, 0.1f, true,
                                distance + x64_objHalfExtent);
-        gpRender->SetClippingPlanes(frumtum);
+        gpRender->SetClippingPlanes(frustum);
         gpRender->SetPerspective(fov, x0_texture->GetWidth(), x0_texture->GetHeight(), 0.1f,
                                  1000.f);
         float backupDepthNear = CGraphics::GetDepthNear();
         float backupDepthFar = CGraphics::GetDepthFar();
         CGraphics::SetDepthRange(0.f, 1.0f);
-        int backupVpHeight = CGraphics::GetViewport().mHeight;
-        int backupVpWidth = CGraphics::GetViewport().mWidth;
-        int backupVpTop = CGraphics::GetViewport().mTop;
         int backupVpLeft = CGraphics::GetViewport().mLeft;
-        gpRender->SetViewport(0, 0, x0_texture->GetWidth(), x0_texture->GetHeight());
+        int backupVpTop = CGraphics::GetViewport().mTop;
+        int backupVpWidth = CGraphics::GetViewport().mWidth;
+        int backupVpHeight = CGraphics::GetViewport().mHeight;
+        gpRender->SetViewport(0, 0, x0_texture->GetWidth() * 2, x0_texture->GetHeight() * 2);
 
         float extent = 1.4142f * x64_objHalfExtent;
         x34_model =
@@ -133,7 +129,7 @@ void CWorldShadow::BuildLightShadowTexture(const CStateManager& mgr, TAreaId aid
           CGraphics::SetTevOp(kTS_Stage0, CGraphics::kEnvModulate);
           CGraphics::SetTevOp(kTS_Stage1, CGraphics::kEnvPassthru);
           CGraphics::Render2D(*x0_texture, 0, x0_texture->GetWidth() * 2,
-                              x0_texture->GetHeight() * 2, x0_texture->GetWidth() * -2,
+                              x0_texture->GetHeight() * 2, (-x0_texture->GetWidth()) * 2,
                               CColor(1.f, 1.f, 1.f, 0.85f));
           CGraphics::SetDepthWriteMode(true, kE_LEqual, true);
         }
@@ -142,13 +138,12 @@ void CWorldShadow::BuildLightShadowTexture(const CStateManager& mgr, TAreaId aid
 
         GXSetTexCopySrc(0, 448 - x0_texture->GetHeight() * 2, x0_texture->GetWidth() * 2,
                         x0_texture->GetHeight() * 2);
-        GXTexFmt fmt = GX_TF_RGBA8;
-        if (x0_texture->GetTexelFormat() == 0x7) {
-          fmt = GX_TF_RGB565;
-        }
-        GXSetTexCopyDst(x0_texture->GetWidth(), x0_texture->GetHeight(), fmt, true);
+        GXSetTexCopyDst(x0_texture->GetWidth(), x0_texture->GetHeight(),
+                        x0_texture->GetTexelFormat() == kTF_RGB565 ? GX_TF_RGB565 : GX_TF_RGBA8,
+                        true);
         static int unkInt = 0;
-        void* dest = x0_texture->Lock();
+        x0_texture->SetFlag1(true);
+        void* dest = x0_texture->GetBitMapData(0);
         GXCopyTex(dest, true);
         x0_texture->UnLock();
 
@@ -162,13 +157,13 @@ void CWorldShadow::BuildLightShadowTexture(const CStateManager& mgr, TAreaId aid
 void CWorldShadow::EnableModelProjectedShadow(const CTransform4f& pos, uint lightIdx,
                                               float f1) const {
 
-  static float sqrt2 = CMath::SqrtD(2.0); // TODO: should be an inlined function
+  static float sqrt2 = sqrt(2.0);
   CTransform4f texTransform = CTransform4f::LookAt(CVector3f::Zero(), x74_lightPos - x68_objPos,
                                                    CVector3f(0.0f, 0.0f, 1.0f));
   CTransform4f posXf = pos;
   posXf.SetTranslation(CVector3f::Zero());
   texTransform = posXf.GetInverse() * texTransform;
-  texTransform = texTransform * CTransform4f::Scale(float(sqrt2) * x64_objHalfExtent * f1);
+  texTransform *= CTransform4f::Scale(float(sqrt2) * x64_objHalfExtent * f1);
   texTransform = texTransform.GetInverse();
   texTransform = CTransform4f::Translate(0.5f, 0.f, 0.5f) * texTransform;
 
