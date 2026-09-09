@@ -22,7 +22,7 @@ public:
     float GetFadeOut() const { return x4_fadeOut; }
     float GetVolume() const { return x8_volume; }
     const rstl::string& GetFileName() const { return xc_fileName; }
-    CAssetId GetResId() const { return x1c_res; }
+    const CAssetId& GetResId() const { return x1c_res; }
     // static Audio None() { return Audio(0.f, 0.f, 0.f, "", 0); }
 
   private:
@@ -55,6 +55,9 @@ private:
   };
 };
 
+NESTED_CHECK_SIZEOF(CTweakValue, Audio, 0x20)
+CHECK_SIZEOF(CTweakValue, 0x48)
+
 class CInGameTweakManager {
 public:
   CInGameTweakManager();
@@ -64,11 +67,13 @@ public:
   const CTweakValue* GetTweakValue(const rstl::string& name) const;
   bool ReadFromMemoryCard(const rstl::string&);
   rstl::vector< CAssetId > GetSongAssetsInWorld(CAssetId world) const;
+  rstl::vector< CTweakValue > GetTweaksInWorld(CAssetId world) const;
 
   static rstl::string GetIdentifierForWorldDefaultMusic(CAssetId world);
   static rstl::string GetIdentifierForMusicEvent(CAssetId, const rstl::string&);
 
-  static rstl::string GetIdentifierForMidiEvent(CAssetId world, CAssetId area, const rstl::string& midiObj);
+  static rstl::string GetIdentifierForMidiEvent(CAssetId world, CAssetId area,
+                                                const rstl::string& midiObj);
 
 private:
   rstl::vector< CTweakValue > x0_values;
