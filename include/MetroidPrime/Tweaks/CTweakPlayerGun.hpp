@@ -49,6 +49,9 @@ public:
   const SWeaponInfo& GetBeamInfo(int beam) const;
   float GetRichochetDamage(EWeaponType type) const;
 
+  const CDamageInfo& GetComboDamage(int beam) const { return x1f0_combos[beam]; }
+  const CDamageInfo& GetMissleDamage() const { return x1d4_missile; }
+
   const CDamageInfo& GetBombInfo() const { return x70_bomb; }
 
   // private:
@@ -75,8 +78,8 @@ public:
   CVector3f x64_grapplingArmPosition;
   CDamageInfo x70_bomb;
   CDamageInfo x8c_powerBomb;
-  CDamageInfo x1d4_missile;
   SWeaponInfo xa8_beams[5];
+  CDamageInfo x1d4_missile;
   rstl::reserved_vector< CDamageInfo, 5 > x1f0_combos;
   rstl::reserved_vector< float, 5 > x280_ricochetData;
 };

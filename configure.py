@@ -956,7 +956,7 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/GameObjectLists.cpp",
             ),
-            Object(NonMatching, "MetroidPrime/Weapons/CAuxWeapon.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Weapons/CAuxWeapon.cpp"),
             Object(NonMatching, "MetroidPrime/Weapons/CGunWeapon.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/ScriptObjects/CScriptAreaAttributes.cpp"),
             Object(NonMatching, "MetroidPrime/Weapons/CWaveBuster.cpp"),
