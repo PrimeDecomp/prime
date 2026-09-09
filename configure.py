@@ -1174,7 +1174,7 @@ config.libs = [
             Object(
                 NonMatching, "MetroidPrime/ScriptObjects/CScriptProjectedShadow.cpp"
             ),
-            Object(NonMatching, "MetroidPrime/ScriptObjects/CEnergyBall.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/ScriptObjects/CEnergyBall.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/ScriptObjects/CSustainedPlayerDamage.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
