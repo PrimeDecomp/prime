@@ -5,8 +5,10 @@
 
 class CInt32POINode : public CPOINode {
 public:
-  CInt32POINode(rstl::string name, ushort type, const CCharAnimTime& time, int index, bool unique,
-                float weight, int charIdx, int flags, int value, const rstl::string& locatorName);
+  CInt32POINode(rstl::string name = rstl::string_l(""), ushort type = kPT_EmptyInt32,
+                const CCharAnimTime& time = CCharAnimTime(), int index = -1, bool unique = false,
+                float weight = 1.f, int charIdx = -1, int flags = 0, int value = 0,
+                const rstl::string& locatorName = rstl::string_l("root"));
   /*: CPOINode(name, type, time, index, unique, weight, charIdx, flags)
   , x38_val(value)
   , x3c_lctrName(locatorName) {} */
