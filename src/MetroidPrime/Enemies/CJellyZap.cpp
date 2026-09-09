@@ -1,9 +1,10 @@
 #include "MetroidPrime/Enemies/CJellyZap.hpp"
 
-#include "MetroidPrime/ScriptObjects/CFishCloud.hpp"
+#include "Kyoto/Math/CloseEnough.hpp"
 
 #include "MetroidPrime/BodyState/CBodyController.hpp"
 #include "MetroidPrime/Player/CPlayer.hpp"
+#include "MetroidPrime/Player/CPlayerState.hpp"
 #include "MetroidPrime/ScriptObjects/CFishCloud.hpp"
 
 CJellyZap::CJellyZap(const TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
@@ -159,7 +160,51 @@ void CJellyZap::Active(CStateManager& mgr, EStateMsg msg, float arg) {
   }
 }
 
-void CJellyZap::Suck(CStateManager& mgr, EStateMsg msg, float arg) {}
+void CJellyZap::Suck(CStateManager& mgr, EStateMsg msg, float arg) {
+  const CPlayerState::EPlayerSuit suit = mgr.GetPlayerState()->GetCurrentSuitRaw();
+  switch (msg) {
+  case kStateMsg_Activate:
+    SetAnimationState(kAS_Ready);
+    RemoveAllAttractors(mgr);
+    x568_ = 1;
+    SetWasHit(false);
+    x5b8_24_ = true;
+    x5b8_25_ = true;
+    StateMachineState().SetDelay(x5b4_);
+    break;
+  case kStateMsg_Update: {
+    TryCommand(mgr, pas::kAS_LoopReaction, &CPatterned::TryLoopReaction, 0);
+    BodyCtrl()->CommandMgr().DeliverTargetVector(
+        (mgr.GetPlayer()->GetTranslation() + CVector3f(0.f, 0.f, 1.f)) - GetTranslation());
+    CPlayer& player = *mgr.Player();
+    float intensity = 1.f;
+    if (mgr.GetPlayerState()->HasPowerUp(CPlayerState::kIT_GravitySuit)) {
+      intensity = 0.1f;
+    }
+    const CVector3f posDiff = player.GetTranslation() - GetTranslation();
+    const float magnitude = posDiff.Magnitude();
+    const float massScale =
+        5.f * (player.GetMorphballTransitionState() == CPlayer::kMS_Morphed ? x594_
+               : suit == CPlayerState::kPS_Gravity ? x590_ : x58c_);
+    const float strength = massScale * player.GetMass();
+    const float inverseMagnitude = 1.f / magnitude;
+    const CVector3f pullForce = strength * (intensity * (inverseMagnitude * -posDiff));
+    player.ApplyImpulseWR(arg * pullForce, CAxisAngle::Identity());
+    player.UseCollisionImpulses();
+    player.SetAccelerationChangeTimer(2.f * arg);
+    mgr.GetPlayerState()->StaticInterference().AddSource(GetUniqueId(), 0.1f, 0.1f);
+    break;
+  }
+  case kStateMsg_Deactivate:
+    BodyCtrl()->CommandMgr().DeliverCmd(CBodyStateCmd(kBSC_ExitState));
+    mgr.GetPlayerState()->StaticInterference().RemoveSource(GetUniqueId());
+    SetAnimationState(kAS_NotReady);
+    x5b8_24_ = false;
+    x5b8_25_ = false;
+    break;
+  }
+}
+
 bool CJellyZap::HitShell(const CVector3f&) const { return x568_ != 1; }
 
 EWeaponCollisionResponseTypes CJellyZap::GetCollisionResponseType(const CVector3f& pos,
@@ -183,7 +228,35 @@ const CDamageVulnerability* CJellyZap::GetDamageVulnerability(const CVector3f& p
   return CAi::GetDamageVulnerability();
 }
 
-void CJellyZap::Attack(CStateManager& mgr, EStateMsg msg, float arg) {}
+void CJellyZap::Attack(CStateManager& mgr, EStateMsg msg, float arg) {
+  switch (msg) {
+  case kStateMsg_Activate: {
+    SetAnimationState(kAS_Ready);
+    AddRepulsor(mgr);
+    x5b8_25_ = true;
+    const float distance = (GetTranslation() - mgr.GetPlayer()->GetTranslation()).Magnitude();
+    if (distance < x56c_attackDamage.GetRadius()) {
+      const float staticTimer = 3.f * (1.f - distance / x56c_attackDamage.GetRadius()) + 2.f;
+      if (staticTimer > mgr.GetPlayer()->GetStaticTimer()) {
+        mgr.Player()->SetHudDisable(staticTimer);
+        mgr.Player()->TryToBreakOrbit(mgr.GetPlayer()->GetOrbitTargetId(),
+                                     CPlayer::kOB_ActivateOrbitSource, mgr);
+      }
+      mgr.GetPlayerState()->StaticInterference().AddSource(GetUniqueId(), 0.5f, 0.5f);
+    }
+    StateMachineState().SetDelay(x5ac_);
+    break;
+  }
+  case kStateMsg_Update:
+    TryCommand(mgr, pas::kAS_MeleeAttack, &CPatterned::TryMeleeAttack, 1);
+    break;
+  case kStateMsg_Deactivate:
+    RemoveAllAttractors(mgr);
+    SetAnimationState(kAS_NotReady);
+    x5b8_25_ = false;
+    break;
+  }
+}
 
 void CJellyZap::Flinch(CStateManager& mgr, EStateMsg msg, float arg) {
   switch (msg) {
@@ -193,7 +266,7 @@ void CJellyZap::Flinch(CStateManager& mgr, EStateMsg msg, float arg) {
     StateMachineState().SetDelay(x5b0_);
     break;
   case kStateMsg_Update:
-    TryCommand(mgr, pas::kAS_KnockBack, &CPatterned::TryKnockBack, 0);
+    TryCommand(mgr, pas::kAS_KnockBack, &CPatterned::TryKnockBack_Front, 0);
     break;
   case kStateMsg_Deactivate:
     SetAnimationState(kAS_NotReady);
@@ -255,13 +328,32 @@ void CJellyZap::RemoveSelfFromFishCloud(CStateManager& mgr) {
   }
 }
 
-bool CJellyZap::ClosestToPlayer(CStateManager& mgr) const { return false; }
+bool CJellyZap::ClosestToPlayer(CStateManager& mgr) const {
+  CObjectList& list = mgr.ObjectListById(kOL_PhysicsActor);
+  const CVector3f playerPos = mgr.GetPlayer()->GetTranslation();
+  const float ourDistance = (playerPos - GetTranslation()).MagSquared();
+  float closestDistance = ourDistance;
+  for (int i = list.GetFirstObjectIndex(); i != -1; i = list.GetNextObjectIndex(i)) {
+    CEntity* entity = list[i];
+    const CJellyZap* zap = CPatterned::CastTo< CJellyZap >(TPatternedCast< CJellyZap >(entity));
+    if (zap && zap->GetCurrentAreaId() == GetCurrentAreaId() && zap != this) {
+      const float distance = (playerPos - zap->GetTranslation()).MagSquared();
+      if (distance < closestDistance) {
+        closestDistance = distance;
+      }
+      if (zap->x5b8_25_) {
+        return false;
+      }
+    }
+  }
+  return close_enough(closestDistance, ourDistance);
+}
 
 void CJellyZap::KnockBack(const CVector3f& pos, CStateManager& mgr, const CDamageInfo& info,
                           const float magnitude, const bool direct, const bool inDeferred) {
   if (info.GetWeaponMode().GetType() == kWT_Ice) {
     const CVector3f newPos(0.f, 0.f, 0.f);
-    const CUnitVector3f dir = CUnitVector3f(GetTransform().TransposeRotate(pos));
+    const CUnitVector3f dir(GetTransform().TransposeRotate(pos));
     Freeze(mgr, newPos, dir, GetFreezeDuration());
   }
 }
