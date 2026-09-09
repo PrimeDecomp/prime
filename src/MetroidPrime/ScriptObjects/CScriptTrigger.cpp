@@ -87,7 +87,8 @@ void CScriptTrigger::Touch(CActor& act, CStateManager& mgr) {
             }
             if (!x100_damageInfo.HasNoDamage()) {
               const CDamageVulnerability* dVuln = pl->GetDamageVulnerability();
-              bool phazonHurt = dVuln->WeaponHurts(x100_damageInfo.GetWeaponMode(), false);
+              bool phazonHurt =
+                  dVuln->WeaponHurts(x100_damageInfo.GetWeaponMode(), CDamageVulnerability::kRD_No);
               if (x100_damageInfo.GetWeaponMode().GetType() == kWT_Phazon) {
                 if (mgr.GetPlayerState()->HasPowerUp(CPlayerState::kIT_PhazonSuit)) {
                   phazonHurt = false;

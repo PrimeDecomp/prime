@@ -206,7 +206,7 @@ EWeaponCollisionResponseTypes CScriptActor::GetCollisionResponseType(const CVect
                                                                      int w) const {
 
   const CDamageVulnerability* dVuln = GetDamageVulnerability();
-  if (dVuln->GetVulnerability(wMode, false) == kVN_Deflect) {
+  if (dVuln->GetVulnerability(wMode, CDamageVulnerability::kRD_No) == kVN_Deflect) {
     const EDeflectionType deflectType = dVuln->GetDeflectionType(wMode);
     switch (deflectType) {
     case kDT_Ricochet:

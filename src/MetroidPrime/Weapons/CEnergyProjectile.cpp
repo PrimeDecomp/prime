@@ -75,7 +75,7 @@ const bool CEnergyProjectile::Explode(const CVector3f& pos, const CVector3f& nor
   bool deflect = false;
   CVector3f targetPos = CVector3f::Zero();
   const EVulnerability vulnerability =
-      dVuln.GetVulnerability(GetCurrentDamageInfo().GetWeaponMode(), false);
+      dVuln.GetVulnerability(GetCurrentDamageInfo().GetWeaponMode(), CDamageVulnerability::kRD_No);
   if (vulnerability == kVN_Deflect) {
     const EDeflectionType deflection =
         dVuln.GetDeflectionType(GetCurrentDamageInfo().GetWeaponMode());

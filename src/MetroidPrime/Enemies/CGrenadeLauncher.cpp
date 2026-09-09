@@ -148,7 +148,7 @@ void CGrenadeLauncher::Touch(CActor& act, CStateManager& mgr) {
     if (projectile->GetOwnerId() == mgr.GetPlayer()->GetUniqueId()) {
       const CDamageVulnerability* vulnerability = GetDamageVulnerability();
       const CWeaponMode mode(projectile->GetType());
-      if (vulnerability->WeaponHurts(mode, false)) {
+      if (vulnerability->WeaponHurts(mode, CDamageVulnerability::kRD_No)) {
         x348_shotTimer = 0.5f;
         CEntity* parent = mgr.ObjectById(x2cc_parentId);
         if (parent)

@@ -482,7 +482,7 @@ void CScriptGunTurret::Touch(CActor& actor, CStateManager& mgr) {
       const CDamageVulnerability* dVuln = GetDamageVulnerability();
       if (!x560_24_dead && x520_state != kTS_Frenzy &&
           (proj->GetAttribField() & CWeapon::kPA_Ice) == CWeapon::kPA_Ice &&
-          dVuln->WeaponHits(CWeaponMode::Ice(), false)) {
+          dVuln->WeaponHits(CWeaponMode::Ice(), CDamageVulnerability::kRD_No)) {
         x560_25_frozen = true;
         SendScriptMsgs(kSS_Zero, mgr, kSM_None);
         x53c_freezeRemTime =

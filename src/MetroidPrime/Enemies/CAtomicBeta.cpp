@@ -222,8 +222,9 @@ EWeaponCollisionResponseTypes CAtomicBeta::GetCollisionResponseType(const CVecto
                                                                     const CWeaponMode& wMode,
                                                                     int) const {
 
-  return GetDamageVulnerability()->WeaponHits(wMode, false) ? kWCR_AtomicBeta
-                                                            : kWCR_AtomicBetaReflect;
+  return GetDamageVulnerability()->WeaponHits(wMode, CDamageVulnerability::kRD_No)
+             ? kWCR_AtomicBeta
+             : kWCR_AtomicBetaReflect;
 }
 
 void CAtomicBeta::Death(CStateManager& mgr, const CVector3f& direction, EScriptObjectState state) {

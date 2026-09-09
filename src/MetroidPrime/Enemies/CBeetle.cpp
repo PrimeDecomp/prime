@@ -973,7 +973,7 @@ void CBeetle::Burn(float duration, float damage) {
     dVuln = x7ac_tailVuln;
   }
 
-  switch (dVuln.GetVulnerability(CWeaponMode(kWT_Wave), 0)) {
+  switch (dVuln.GetVulnerability(CWeaponMode(kWT_Wave), CDamageVulnerability::kRD_No)) {
   case kVN_Weak:
     x450_bodyController->SetOnFire(1.5f * duration);
     x3ec_pendingFireDamage = 1.5f * damage;
@@ -993,7 +993,7 @@ void CBeetle::Shock(float duration, float damage) {
     dVuln = x7ac_tailVuln;
   }
 
-  switch (dVuln.GetVulnerability(CWeaponMode(kWT_Wave), 0)) {
+  switch (dVuln.GetVulnerability(CWeaponMode(kWT_Wave), CDamageVulnerability::kRD_No)) {
   case kVN_Weak:
     x450_bodyController->SetElectrocuting(1.5f * duration);
     x3f0_pendingShockDamage = 1.5f * damage;
@@ -1068,7 +1068,7 @@ EWeaponCollisionResponseTypes CBeetle::GetCollisionResponseType(const CVector3f&
 
     if (forwardDotDirection > 0.f && forwardDotCenterPos < -0.5f) {
       ret = kWCR_Unknown44;
-    } else if (!x744_platingVuln.WeaponHurts(mode, 0)) {
+    } else if (!x744_platingVuln.WeaponHurts(mode, CDamageVulnerability::kRD_No)) {
       ret = kWCR_Unknown69;
     }
   }

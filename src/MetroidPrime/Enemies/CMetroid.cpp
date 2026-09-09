@@ -221,7 +221,7 @@ void CMetroid::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateMa
     if (const CGameProjectile* projectile =
             TCastToConstPtr< CGameProjectile >(mgr.GetObjectById(uid))) {
       if (GetDamageVulnerability()->WeaponHits(projectile->GetCurrentDamageInfo().GetWeaponMode(),
-                                               false)) {
+                                               CDamageVulnerability::kRD_No)) {
         ApplyGrowth(projectile->GetCurrentDamageInfo().GetDamage(), mgr);
       }
     }
@@ -255,7 +255,7 @@ void CMetroid::Touch(CActor& actor, CStateManager& mgr) {
     if (projectile->GetOwnerId() == mgr.GetPlayer()->GetUniqueId()) {
       const CDamageVulnerability* vulnerability = GetDamageVulnerability();
       if (GetFlavorType() != kFT_Two && projectile->HasAttrib(CWeapon::kPA_Ice) &&
-          vulnerability->WeaponHits(CWeaponMode::Ice(), false)) {
+          vulnerability->WeaponHits(CWeaponMode::Ice(), CDamageVulnerability::kRD_No)) {
         float multiplier = 1.f;
         if (projectile->HasAttrib(CWeapon::kPA_Charged)) {
           multiplier = 2.f;
@@ -328,7 +328,7 @@ EWeaponCollisionResponseTypes CMetroid::GetCollisionResponseType(const CVector3f
                                                                  int) const {
   EWeaponCollisionResponseTypes response = static_cast< EWeaponCollisionResponseTypes >(33);
   const bool frozen = GetBodyCtrl()->GetPercentageFrozen() > 0.f;
-  if (!GetDamageVulnerability()->WeaponHurts(mode, false) && !frozen) {
+  if (!GetDamageVulnerability()->WeaponHurts(mode, CDamageVulnerability::kRD_No) && !frozen) {
     response = static_cast< EWeaponCollisionResponseTypes >(58);
   }
   return response;
@@ -357,16 +357,16 @@ void CMetroid::KnockBack(const CVector3f& dir, CStateManager& mgr, const CDamage
   const bool frozen = BodyCtrl()->GetPercentageFrozen() > 0.f;
   const CWeaponMode& mode = info.GetWeaponMode();
   if (mAttackState == kAttackState_Draining) {
-    if (vulnerability->WeaponHits(mode, false)) {
+    if (vulnerability->WeaponHits(mode, CDamageVulnerability::kRD_No)) {
       mEnergyDrained = mMetroidData.GetMaxEnergyDrainAllowed() * GetDamageMultiplier();
     }
-  } else if (vulnerability->WeaponHurts(mode, false)) {
+  } else if (vulnerability->WeaponHurts(mode, CDamageVulnerability::kRD_No)) {
     mAttackChance = x308_attackTimeVariation * mgr.Random()->Float() + x304_averageAttackTime;
     if (frozen) {
       BodyCtrl()->UnFreeze();
     }
     CPatterned::KnockBack(dir, mgr, info, magnitude, direct, inDeferred);
-  } else if (!frozen && vulnerability->WeaponHits(mode, false) &&
+  } else if (!frozen && vulnerability->WeaponHits(mode, CDamageVulnerability::kRD_No) &&
              (mode.IsCharged() || mode.IsComboed() || mode.GetType() == kWT_Missile) &&
              !ShouldSpawnGammaMetroid()) {
     CPatterned::KnockBack(dir, mgr, info, magnitude, direct, false);

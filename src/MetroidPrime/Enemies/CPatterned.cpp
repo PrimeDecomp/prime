@@ -1119,7 +1119,7 @@ void CPatterned::DoUserAnimEvent(CStateManager& mgr, const CInt32POINode& node, 
 
 void CPatterned::Burn(float duration, float damage) {
   switch (static_cast< const CPatterned* >(this)->GetDamageVulnerability()->GetVulnerability(
-      CWeaponMode::Plasma(), false)) {
+      CWeaponMode::Plasma(), CDamageVulnerability::kRD_No)) {
   case kVN_Weak:
     x450_bodyController->SetOnFire(1.5f * duration);
     x3ec_pendingFireDamage = 1.5f * damage;
@@ -1135,7 +1135,7 @@ void CPatterned::Burn(float duration, float damage) {
 
 void CPatterned::Shock(CStateManager&, float duration, float damage) {
   switch (static_cast< const CPatterned* >(this)->GetDamageVulnerability()->GetVulnerability(
-      CWeaponMode::Wave(), false)) {
+      CWeaponMode::Wave(), CDamageVulnerability::kRD_No)) {
   case kVN_Weak:
     x450_bodyController->SetElectrocuting(1.5f * duration);
     x3f0_pendingShockDamage = 1.5f * damage;

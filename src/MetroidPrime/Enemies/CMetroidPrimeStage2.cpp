@@ -153,7 +153,8 @@ void CMetroidPrimeStage2::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId ui
         if (projectile->GetOwnerId() == mgr.GetPlayer()->GetUniqueId()) {
           const CDamageVulnerability* vulnerability = actor->GetDamageVulnerability();
           const CWeaponMode& mode = projectile->GetCurrentDamageInfo().GetWeaponMode();
-          if (vulnerability->WeaponHits(mode, false) && mode.GetType() == kWT_Phazon) {
+          if (vulnerability->WeaponHits(mode, CDamageVulnerability::kRD_No) &&
+              mode.GetType() == kWT_Phazon) {
             UpdateSummonType(mgr);
             TakeDamage(CVector3f::Forward(), 1.f);
             if (!x70e_24_isProjectileAttacking && !x70e_26_isPhaseTransitioning) {

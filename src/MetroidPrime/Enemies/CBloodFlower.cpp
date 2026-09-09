@@ -265,7 +265,8 @@ EWeaponCollisionResponseTypes CBloodFlower::GetCollisionResponseType(const CVect
                                                                      const CVector3f& direction,
                                                                      const CWeaponMode& mode,
                                                                      int attrib) const {
-  return GetDamageVulnerability()->WeaponHurts(mode, 0) ? kWCR_Unknown28 : kWCR_Unknown78;
+  return GetDamageVulnerability()->WeaponHurts(mode, CDamageVulnerability::kRD_No) ? kWCR_Unknown28
+                                                                                   : kWCR_Unknown78;
 }
 
 CTargetableProjectile* CBloodFlower::CreateArcProjectile(CStateManager& mgr,
