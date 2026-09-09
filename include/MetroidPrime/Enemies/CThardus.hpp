@@ -38,6 +38,7 @@ public:
   float GetDamageFlashTimer() const { return x324_; }
   void UsePhazonModel();
   void SetThermalMag(float mag) { x32c_thermalMag = mag; }
+  void SetX340(bool value) { x340_ = value; }
   bool IsUsingPhazonModel() const { return x335_usePhazonModel; }
   void PreThink(float dt, CStateManager& mgr) override;
   void Think(float dt, CStateManager& mgr) override;
@@ -124,6 +125,8 @@ public:
   void ShakeScreen(CStateManager& mgr, const CVector3f& position, const float, const float,
                    const float);
   void StartTimedThermalFlash(CStateManager& mgr, float, const CActor& actor);
+  bool CanLockOnToRockProjectiles(const CStateManager& mgr) const;
+  int GetThermalFlashState() const { return x7c4_; }
 
 private:
   enum EThardusState { kTS_Invalid = -1, kTS_Zero, kTS_Retreat, kTS_Patrol };
@@ -136,7 +139,6 @@ private:
   void AddParticleEffect(CStateManager& mgr, const CVector3f& pos, CAssetId particle);
   static const char* const skHeadRockNameStr;
 
-  bool CanLockOnToRockProjectiles(const CStateManager& mgr) const;
   bool IsEnraged() const;
   void BeginFlash(CStateManager& mgr, const CActor& actor);
   void UpdateThermalFlash(CStateManager& mgr, float dt);
