@@ -1,50 +1,131 @@
 #include "Kyoto/Particles/CParticleDataFactory.hpp"
 
 #include "Kyoto/CFactoryFnReturn.hpp"
-#include "Kyoto/CFrameDelayedKiller.hpp"
 #include "Kyoto/CRandom16.hpp"
 #include "Kyoto/CSimplePool.hpp"
 #include "Kyoto/CVParamTransfer.hpp"
+#include "Kyoto/Graphics/CTexture.hpp"
+#include "Kyoto/Particles/CColorElement.hpp"
+#include "Kyoto/Particles/CEmitterElement.hpp"
 #include "Kyoto/Particles/CGenDescription.hpp"
 #include "Kyoto/Particles/CIntElement.hpp"
 #include "Kyoto/Particles/CModVectorElement.hpp"
+#include "Kyoto/Particles/CParticleGen.hpp"
 #include "Kyoto/Particles/CRealElement.hpp"
 #include "Kyoto/Particles/CSpawnSystemKeyframeData.hpp"
 #include "Kyoto/Particles/CSwooshDescription.hpp"
+#include "Kyoto/Particles/CUVElement.hpp"
 #include "Kyoto/Particles/CVectorElement.hpp"
 #include "Kyoto/Particles/IElement.hpp"
 #include "Kyoto/SObjectTag.hpp"
 #include "Kyoto/Streams/CInputStream.hpp"
 #include "Kyoto/TToken.hpp"
 #include "dolphin/types.h"
+#include "rstl/algorithm.hpp"
+#include "rstl/list.hpp"
 #include "rstl/optional_object.hpp"
 #define SBIG(v) v
+
+CTexture* CreateTexture(int value);
+
+rstl::list< CElementAllocationChunk > sElementAllocationChunks;
+CElementAllocationChunk* IElement::CElementAllocator::sCurrentChunk = nullptr;
+CElementAllocationChunk* IElement::CElementAllocator::sFreeChunk = nullptr;
+
+void* IElement::CElementAllocator::Alloc(size_t size, const char*, const char*) {
+  if (sCurrentChunk == nullptr || !sCurrentChunk->CanAllocate(size)) {
+    sElementAllocationChunks.push_back(CElementAllocationChunk());
+    sCurrentChunk = &sElementAllocationChunks.back();
+  }
+
+  return sCurrentChunk->Allocate(size);
+}
+
+void IElement::CElementAllocator::Free(void* ptr, size_t) {
+  if (ptr == nullptr) {
+    return;
+  }
+
+  if (sFreeChunk == nullptr || !sFreeChunk->Contains(ptr)) {
+    sFreeChunk = nullptr;
+    for (AUTO(it, sElementAllocationChunks.begin()); it != sElementAllocationChunks.end(); ++it) {
+      if (it->Contains(ptr)) {
+        sFreeChunk = &*it;
+        break;
+      }
+    }
+  }
+
+  sFreeChunk->Free(ptr);
+  if (sFreeChunk->GetAllocationCount() == 0) {
+    for (AUTO(it, sElementAllocationChunks.begin()); it != sElementAllocationChunks.end(); ++it) {
+      if (&*it == sFreeChunk) {
+        sElementAllocationChunks.erase(it);
+        if (sCurrentChunk == sFreeChunk) {
+          sCurrentChunk = nullptr;
+        }
+        break;
+      }
+    }
+    sFreeChunk = nullptr;
+  }
+}
 
 CFactoryFnReturn FParticleFactory(const SObjectTag& tag, CInputStream& in,
                                   const CVParamTransfer& xfer) {
   rstl::rc_ptr< IVParamObj > obj = xfer.x0_obj;
   CSimplePool* pool = static_cast< TObjOwnerParam< CSimplePool* >* >(obj.GetPtr())->GetData();
-  return CParticleDataFactory::GetGeneratorDesc(in, pool, in.GetBlockOffset());
+  return CParticleDataFactory::GetGeneratorDesc(in, pool, tag.GetId());
 }
 
 CGenDescription* CParticleDataFactory::GetGeneratorDesc(CInputStream& in, CSimplePool* pool,
-                                                        uint offset) {
+                                                        uint id) {
   rstl::vector< uint > assets;
   assets.reserve(8);
-  return CParticleDataFactory::CreateGeneratorDescription(in, assets, offset, pool);
+  return CParticleDataFactory::CreateGeneratorDescription(in, assets, id, pool);
 }
 
 CGenDescription* CParticleDataFactory::CreateGeneratorDescription(CInputStream& in,
                                                                   rstl::vector< uint >& assets,
-                                                                  uint, CSimplePool* pool) {
-  return nullptr;
+                                                                  const uint id,
+                                                                  CSimplePool* pool) {
+  if (rstl::count(assets.begin(), assets.end(), id) != 0) {
+    return nullptr;
+  }
+  assets.push_back(id);
+  FourCC clsId = GetClassID(in);
+  if (clsId != SBIG('GPSM')) {
+    return nullptr;
+  }
+  CGenDescription* desc = rs_new CGenDescription;
+  CreateGPSM(desc, in, assets, pool);
+  LoadGPSMTokens(desc);
+  return desc;
+}
+
+void CParticleDataFactory::LoadGPSMTokens(CGenDescription* desc) {
+  if (desc->x48_PMDL) {
+    desc->x48_PMDL->ForceCache();
+  }
+  if (desc->x78_ICTS) {
+    desc->x78_ICTS->ForceCache();
+  }
+  if (desc->x90_IDTS) {
+    desc->x90_IDTS->ForceCache();
+  }
+  if (desc->xa4_IITS) {
+    desc->xa4_IITS->ForceCache();
+  }
+  if (desc->xc0_SSWH) {
+    desc->xc0_SSWH->ForceCache();
+  }
 }
 
 bool CParticleDataFactory::CreateGPSM(CGenDescription* desc, CInputStream& in,
                                       rstl::vector< CAssetId >& resources, CSimplePool* pool) {
   bool done = false;
-  CRandom16 _(99);
-  CGlobalRandom __(_);
+  CRandom16 random(99);
+  CGlobalRandom context(random);
   while (!done) {
     FourCC clsId = GetClassID(in);
     switch (clsId) {
@@ -162,8 +243,9 @@ bool CParticleDataFactory::CreateGPSM(CGenDescription* desc, CInputStream& in,
     case SBIG('PMDL'): {
       rstl::optional_object< TToken< CModel > > model(GetModel(in, pool));
       if (model) {
-        TCachedToken< CModel > tok = *model;
-        desc->x48_PMDL = tok;
+        desc->x48_PMDL = TCachedToken< CModel >(*model);
+      } else {
+        desc->x48_PMDL = rstl::optional_object_null();
       }
     } break;
     case SBIG('PMOP'):
@@ -191,7 +273,13 @@ bool CParticleDataFactory::CreateGPSM(CGenDescription* desc, CInputStream& in,
       desc->x10_SEED = GetIntElement(in);
       break;
     case SBIG('ICTS'): {
-      desc->x78_ICTS = *GetChildGeneratorDesc(in, pool, resources);
+      rstl::optional_object< TToken< CGenDescription > > child(
+          GetChildGeneratorDesc(in, pool, resources));
+      if (child) {
+        desc->x78_ICTS = TCachedToken< CGenDescription >(*child);
+      } else {
+        desc->x78_ICTS = rstl::optional_object_null();
+      }
       break;
     }
     case SBIG('NCSY'):
@@ -201,14 +289,26 @@ bool CParticleDataFactory::CreateGPSM(CGenDescription* desc, CInputStream& in,
       desc->x8c_CSSD = GetIntElement(in);
       break;
     case SBIG('IDTS'): {
-      desc->x90_IDTS = *GetChildGeneratorDesc(in, pool, resources);
+      rstl::optional_object< TToken< CGenDescription > > child(
+          GetChildGeneratorDesc(in, pool, resources));
+      if (child) {
+        desc->x90_IDTS = TCachedToken< CGenDescription >(*child);
+      } else {
+        desc->x90_IDTS = rstl::optional_object_null();
+      }
       break;
     }
     case SBIG('NDSY'):
       desc->xa0_NDSY = GetIntElement(in);
       break;
     case SBIG('IITS'): {
-      desc->xa4_IITS = *GetChildGeneratorDesc(in, pool, resources);
+      rstl::optional_object< TToken< CGenDescription > > child(
+          GetChildGeneratorDesc(in, pool, resources));
+      if (child) {
+        desc->xa4_IITS = TCachedToken< CGenDescription >(*child);
+      } else {
+        desc->xa4_IITS = rstl::optional_object_null();
+      }
       break;
     }
     case SBIG('PISY'):
@@ -218,7 +318,12 @@ bool CParticleDataFactory::CreateGPSM(CGenDescription* desc, CInputStream& in,
       desc->xb8_SISY = GetIntElement(in);
       break;
     case SBIG('SSWH'): {
-      desc->xc0_SSWH = *GetSwooshGeneratorDesc(in, pool);
+      rstl::optional_object< TToken< CSwooshDescription > > child(GetSwooshGeneratorDesc(in, pool));
+      if (child) {
+        desc->xc0_SSWH = TCachedToken< CSwooshDescription >(*child);
+      } else {
+        desc->xc0_SSWH = rstl::optional_object_null();
+      }
       break;
     }
     case SBIG('SSSD'):
@@ -227,9 +332,16 @@ bool CParticleDataFactory::CreateGPSM(CGenDescription* desc, CInputStream& in,
     case SBIG('SSPO'):
       desc->xd4_SSPO = GetVectorElement(in);
       break;
-    case SBIG('SELC'):
-      desc->xd8_SELC = GetElectricGeneratorDesc(in, pool);
+    case SBIG('SELC'): {
+      rstl::optional_object< TToken< CElectricDescription > > electric =
+          GetElectricGeneratorDesc(in, pool);
+      if (electric) {
+        desc->xd8_SELC = *electric;
+      } else {
+        desc->xd8_SELC = rstl::optional_object_null();
+      }
       break;
+    }
     case SBIG('SESD'):
       desc->xe4_SESD = GetIntElement(in);
       break;
@@ -611,8 +723,8 @@ CVectorElement* CParticleDataFactory::GetVectorElement(CInputStream& in) {
     ret = nullptr;
     break;
   case SBIG('CNST'): {
-    uint iVar1 = CFrameDelayedKiller::Get805A9488();
-    uint iVar2 = CFrameDelayedKiller::someInline();
+    CElementAllocationChunk* allocationContext = IElement::CElementAllocator::GetCurrentChunk();
+    uint initialSize = IElement::CElementAllocator::GetCurrentAllocatedSize();
     CRealElement* x = GetRealElement(in);
     CRealElement* y = GetRealElement(in);
     CRealElement* z = GetRealElement(in);
@@ -627,8 +739,9 @@ CVectorElement* CParticleDataFactory::GetVectorElement(CInputStream& in) {
         delete y;
         delete z;
 
-        if (iVar1 != 0 && iVar1 == CFrameDelayedKiller::Get805A9488()) {
-          CFrameDelayedKiller::fn_8036CAB8(iVar1, CFrameDelayedKiller::fn_8036CAAC(iVar1) - iVar2);
+        if (allocationContext != nullptr &&
+            allocationContext == IElement::CElementAllocator::GetCurrentChunk()) {
+          allocationContext->Rewind(allocationContext->GetAllocatedSize() - initialSize);
         }
         ret = rs_new CVEFastConstant(xf, yf, zf);
         break;
@@ -753,7 +866,60 @@ CVectorElement* CParticleDataFactory::GetVectorElement(CInputStream& in) {
   return ret;
 }
 
-CEmitterElement* CParticleDataFactory::GetEmitterElement(CInputStream& in) { return nullptr; }
+CEmitterElement* CParticleDataFactory::GetEmitterElement(CInputStream& in) {
+  CEmitterElement* ret;
+  FourCC clsId = GetClassID(in);
+  switch (clsId) {
+  case SBIG('NONE'):
+    ret = nullptr;
+    break;
+  case SBIG('SETR'): {
+    FourCC prop = GetClassID(in);
+    CVectorElement* pos = nullptr;
+    CVectorElement* vel = nullptr;
+    bool valid = false;
+    if (prop == SBIG('ILOC')) {
+      pos = GetVectorElement(in);
+      prop = GetClassID(in);
+      if (prop == SBIG('IVEC')) {
+        vel = GetVectorElement(in);
+        valid = true;
+      }
+    }
+    ret = valid ? rs_new CEESimpleEmitter(pos, vel) : nullptr;
+    break;
+  }
+  case SBIG('SEMR'): {
+    CVectorElement* pos = GetVectorElement(in);
+    CVectorElement* vel = GetVectorElement(in);
+    ret = rs_new CEESimpleEmitter(pos, vel);
+    break;
+  }
+  case SBIG('SPHE'): {
+    CVectorElement* origin = GetVectorElement(in);
+    CRealElement* radius = GetRealElement(in);
+    CRealElement* velocity = GetRealElement(in);
+    ret = rs_new CVESphere(origin, radius, velocity);
+    break;
+  }
+  case SBIG('ASPH'): {
+    CVectorElement* origin = GetVectorElement(in);
+    CRealElement* angleXBias = GetRealElement(in);
+    CRealElement* angleYBias = GetRealElement(in);
+    CRealElement* angleXRange = GetRealElement(in);
+    CRealElement* angleYRange = GetRealElement(in);
+    CRealElement* radius = GetRealElement(in);
+    CRealElement* velocity = GetRealElement(in);
+    ret = rs_new CVEAngleSphere(origin, radius, velocity, angleXBias, angleYBias, angleXRange,
+                                angleYRange);
+    break;
+  }
+  default:
+    ret = nullptr;
+    break;
+  }
+  return ret;
+}
 
 CModVectorElement* CParticleDataFactory::GetModVectorElement(CInputStream& in) {
   CModVectorElement* ret;
@@ -874,8 +1040,213 @@ CModVectorElement* CParticleDataFactory::GetModVectorElement(CInputStream& in) {
   return ret;
 }
 
-CColorElement* CParticleDataFactory::GetColorElement(CInputStream& in) { return nullptr; }
+CColorElement* CParticleDataFactory::GetColorElement(CInputStream& in) {
+  CColorElement* ret;
+  FourCC clsId = GetClassID(in);
+  switch (clsId) {
+  case SBIG('CNST'): {
+    CElementAllocationChunk* allocationContext = IElement::CElementAllocator::GetCurrentChunk();
+    uint initialSize = IElement::CElementAllocator::GetCurrentAllocatedSize();
+    CRealElement* r = GetRealElement(in);
+    CRealElement* g = GetRealElement(in);
+    CRealElement* b = GetRealElement(in);
+    CRealElement* a = GetRealElement(in);
+    if (r && g && b && a) {
+      if (r->IsConstant() && g->IsConstant() && b->IsConstant() && a->IsConstant()) {
+        float rf, gf, bf, af;
+        r->GetValue(0, rf);
+        g->GetValue(0, gf);
+        b->GetValue(0, bf);
+        a->GetValue(0, af);
+
+        delete r;
+        delete g;
+        delete b;
+        delete a;
+
+        if (allocationContext != nullptr &&
+            allocationContext == IElement::CElementAllocator::GetCurrentChunk()) {
+          allocationContext->Rewind(allocationContext->GetAllocatedSize() - initialSize);
+        }
+        ret = rs_new CCEFastConstant(rf, gf, bf, af);
+        break;
+      }
+    }
+    ret = rs_new CCEConstant(r, g, b, a);
+    break;
+  }
+  case SBIG('KEYE'):
+  case SBIG('KEYP'):
+    ret = rs_new CCEKeyframeEmitter(in);
+    break;
+  case SBIG('FADE'): {
+    CColorElement* a = GetColorElement(in);
+    CColorElement* b = GetColorElement(in);
+    CRealElement* end = GetRealElement(in);
+    ret = rs_new CCEFade(a, b, end);
+    break;
+  }
+  case SBIG('CFDE'): {
+    CColorElement* a = GetColorElement(in);
+    CColorElement* b = GetColorElement(in);
+    CRealElement* start = GetRealElement(in);
+    CRealElement* end = GetRealElement(in);
+    ret = rs_new CCEFadeEnd(a, b, start, end);
+    break;
+  }
+  case SBIG('CHAN'): {
+    CColorElement* a = GetColorElement(in);
+    CColorElement* b = GetColorElement(in);
+    CIntElement* frame = GetIntElement(in);
+    ret = rs_new CCETimeChain(a, b, frame);
+    break;
+  }
+  case SBIG('PULS'): {
+    CIntElement* aDuration = GetIntElement(in);
+    CIntElement* bDuration = GetIntElement(in);
+    CColorElement* a = GetColorElement(in);
+    CColorElement* b = GetColorElement(in);
+    ret = rs_new CCEPulse(aDuration, bDuration, a, b);
+    break;
+  }
+  case SBIG('PCOL'):
+    ret = rs_new CCEParticleColor();
+    break;
+  case SBIG('NONE'):
+    ret = nullptr;
+    break;
+  default:
+    ret = nullptr;
+    break;
+  }
+  return ret;
+}
 
 CUVElement* CParticleDataFactory::GetTextureElement(CInputStream& in, CSimplePool* resPool) {
-  return nullptr;
+  CUVElement* ret;
+  FourCC clsId = GetClassID(in);
+  switch (clsId) {
+  case SBIG('NONE'):
+    ret = nullptr;
+    break;
+  case SBIG('CNST'): {
+    CAssetId id = 0;
+    FourCC subId = GetClassID(in);
+    if (subId != SBIG('NONE')) {
+      id = in.ReadLong();
+    }
+    if (id == 0) {
+      TToken< CTexture > tex = CreateTexture(-1);
+      ret = rs_new CUVEConstant(tex);
+    } else {
+      TToken< CTexture > tex = resPool->GetObj(SObjectTag(SBIG('TXTR'), id));
+      ret = rs_new CUVEConstant(tex);
+    }
+    break;
+  }
+  case SBIG('ATEX'): {
+    CAssetId id = 0;
+    FourCC subId = GetClassID(in);
+    if (subId != SBIG('NONE')) {
+      id = in.ReadLong();
+    }
+    CIntElement* tileW = GetIntElement(in);
+    CIntElement* tileH = GetIntElement(in);
+    CIntElement* strideW = GetIntElement(in);
+    CIntElement* strideH = GetIntElement(in);
+    CIntElement* cycleFrames = GetIntElement(in);
+    bool loop = GetBool(in);
+    if (id == 0) {
+      TToken< CTexture > tex = CreateTexture(-1);
+      ret = rs_new CUVEAnimTexture(tex, tileW, tileH, strideW, strideH, cycleFrames, loop);
+    } else {
+      TToken< CTexture > tex = resPool->GetObj(SObjectTag(SBIG('TXTR'), id));
+      ret = rs_new CUVEAnimTexture(tex, tileW, tileH, strideW, strideH, cycleFrames, loop);
+    }
+    break;
+  }
+  default:
+    return nullptr;
+  }
+  return ret;
+}
+
+rstl::optional_object< TToken< CGenDescription > >
+CParticleDataFactory::GetChildGeneratorDesc(CInputStream& in, CSimplePool* pool,
+                                            const rstl::vector< CAssetId >& resources) {
+  FourCC clsId = GetClassID(in);
+  CAssetId id;
+  if (clsId != SBIG('NONE')) {
+    id = in.Get< CAssetId >();
+  } else {
+    return rstl::optional_object_null();
+  }
+  if (id == 0) {
+    return rstl::optional_object_null();
+  }
+  return GetChildGeneratorDesc(id, pool, resources);
+}
+
+rstl::optional_object< TToken< CGenDescription > >
+CParticleDataFactory::GetChildGeneratorDesc(CAssetId id, CSimplePool* pool,
+                                            const rstl::vector< CAssetId >& resources) {
+  if (rstl::count(resources.begin(), resources.end(), id) == 0) {
+    return TToken< CGenDescription >(pool->GetObj(SObjectTag(CParticleGen::ResType(), id)));
+  }
+  return rstl::optional_object_null();
+}
+
+rstl::optional_object< TToken< CSwooshDescription > >
+CParticleDataFactory::GetSwooshGeneratorDesc(CInputStream& in, CSimplePool* pool) {
+  FourCC clsId = GetClassID(in);
+  CAssetId id;
+  if (clsId != SBIG('NONE')) {
+    id = in.Get< CAssetId >();
+  } else {
+    return rstl::optional_object_null();
+  }
+  if (id == 0) {
+    return rstl::optional_object_null();
+  }
+  return TToken< CSwooshDescription >(pool->GetObj(SObjectTag(SBIG('SWHC'), id)));
+}
+
+rstl::optional_object< TToken< CElectricDescription > >
+CParticleDataFactory::GetElectricGeneratorDesc(CInputStream& in, CSimplePool* pool) {
+  FourCC clsId = GetClassID(in);
+  CAssetId id;
+  if (clsId != SBIG('NONE')) {
+    id = in.Get< CAssetId >();
+  } else {
+    return rstl::optional_object_null();
+  }
+  if (id == 0) {
+    return rstl::optional_object_null();
+  }
+  return TToken< CElectricDescription >(pool->GetObj(SObjectTag(SBIG('ELSC'), id)));
+}
+
+rstl::optional_object< TToken< CModel > > CParticleDataFactory::GetModel(CInputStream& in,
+                                                                         CSimplePool* pool) {
+  FourCC clsId = GetClassID(in);
+  CAssetId id;
+  if (clsId != SBIG('NONE')) {
+    id = in.Get< CAssetId >();
+  } else {
+    return rstl::optional_object_null();
+  }
+  if (id == 0) {
+    return rstl::optional_object_null();
+  }
+  return TToken< CModel >(pool->GetObj(SObjectTag(SBIG('CMDL'), id)));
+}
+
+CTexture* CreateTexture(int value) {
+  CTexture* texture = rs_new CTexture(kTF_RGBA8, 4, 4, 1);
+  int* data = static_cast< int* >(texture->Lock());
+  for (int i = 1; i <= 16; ++i) {
+    data[i - 1] = value;
+  }
+  texture->UnLock();
+  return texture;
 }

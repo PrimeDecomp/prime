@@ -3244,7 +3244,6 @@ Kyoto/Particles/CParticleDataFactory.cpp:
 	.text       start:0x803249F4 end:0x8032A6B0
 	.ctors      start:0x803CB518 end:0x803CB51C
 	.rodata     start:0x803D7AF8 end:0x803D7B00
-	.data       start:0x803EDEE8 end:0x803EDF60
 	.bss        start:0x804C00E0 end:0x804C00F0
 	.bss        start:0x805A691C end:0x805A6934 align:4 common
 	.sbss       start:0x805A9668 end:0x805A9670
@@ -3252,6 +3251,7 @@ Kyoto/Particles/CParticleDataFactory.cpp:
 Kyoto/Particles/CParticleGen.cpp:
 	.text       start:0x8032A6B0 end:0x8032A75C
 	.rodata     start:0x803D7B00 end:0x803D7B08
+	.data       start:0x803EDEE8 end:0x803EDF60
 
 Kyoto/Particles/CParticleGlobals.cpp:
 	.text       start:0x8032A75C end:0x8032A888

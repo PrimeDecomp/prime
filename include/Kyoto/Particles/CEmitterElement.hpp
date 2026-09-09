@@ -3,7 +3,7 @@
 
 #include "Kyoto/Particles/IElement.hpp"
 
-class CEESimpleEmitter : CEmitterElement {
+class CEESimpleEmitter : public CEmitterElement {
 public:
   CEESimpleEmitter(CVectorElement* pos, CVectorElement* vel);
   ~CEESimpleEmitter();
@@ -15,7 +15,7 @@ private:
   CVectorElement* x8_vel;
 };
 
-class CVESphere : CEmitterElement {
+class CVESphere : public CEmitterElement {
 public:
   CVESphere(CVectorElement* origin, CRealElement* radius, CRealElement* velocityMag);
   ~CVESphere();
@@ -28,7 +28,7 @@ private:
   CRealElement* xc_velocityMag;
 };
 
-class CVEAngleSphere : CEmitterElement {
+class CVEAngleSphere : public CEmitterElement {
 public:
   CVEAngleSphere(CVectorElement* origin, CRealElement* radius, CRealElement* velocityMag,
                  CRealElement* angleXBias, CRealElement* angleYBias, CRealElement* angleXRange,

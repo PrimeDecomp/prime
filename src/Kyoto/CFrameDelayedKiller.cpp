@@ -1,31 +1,15 @@
 #include "Kyoto/CFrameDelayedKiller.hpp"
 
-#include "Kyoto/Particles/CParticleDataFactory.hpp"
 #include "Kyoto/Particles/IElement.hpp"
 
 #include <dolphin/gx/GXManage.h>
 #include <rstl/list.hpp>
 
-#pragma force_active on
-/* TODO: This is a hack we need to see what's throwing off the alignment and fix it */
-static char unused[32] = {0};
-#pragma force_active reset
-
 static uint sCurList = 0;
 static rstl::list< void* > sFrameDelayedList[2];
-struct Something {
-  Something();
-
-  bool fn_8036CB50(uint x);
-  bool fn_8036CB28(uint x);
-  uintptr_t fn_8036CAF4(uint x);
-  void fn_8036CAE4();
-  uint unk1;
-  uint unk2;
-  uint unk3;
-};
 
 void CFrameDelayedKiller::Initialize() { StallAndFlushAllAllocations(); }
+
 void CFrameDelayedKiller::ShutDown() { StallAndFlushAllAllocations(); }
 
 void CFrameDelayedKiller::FlushAllAllocations() {
@@ -33,6 +17,7 @@ void CFrameDelayedKiller::FlushAllAllocations() {
     FlushAllocationsForFrame();
   }
 }
+
 void CFrameDelayedKiller::StallAndFlushAllAllocations() {
   GXDrawDone();
   FlushAllAllocations();
@@ -43,6 +28,7 @@ void CFrameDelayedKiller::ScheduleDeletion(const EWhichFrame thisFrame, void* vi
 
   sFrameDelayedList[index].push_back(victim);
 }
+
 void CFrameDelayedKiller::FlushAllocationsForFrame() {
   sCurList ^= 1;
   rstl::list< void* >& list = sFrameDelayedList[sCurList];
@@ -56,27 +42,43 @@ void CFrameDelayedKiller::FlushAllocationsForFrame() {
     it = list.do_erase(it);
   }
 }
-Something::Something() : unk1(256), unk2(0), unk3(0) {}
 
-bool Something::fn_8036CB50(uint x) { return unk1 > unk2 + (x + 3) / 4; }
-bool Something::fn_8036CB28(unsigned int x) {
-  int endAddr = reinterpret_cast< uintptr_t >(reinterpret_cast< uchar* >(this) + sizeof(*this));
-  endAddr = (x - endAddr);
-  int index = endAddr / 4;
+CElementAllocationChunk::CElementAllocationChunk()
+: x0_capacity(256)
+, x4_allocatedWords(0)
+, x8_allocationCount(0) {}
 
-  return (unk1 > index);
+bool CElementAllocationChunk::CanAllocate(uint size) const {
+  return x0_capacity > x4_allocatedWords + (size + 3) / 4;
 }
 
-uintptr_t Something::fn_8036CAF4(uint x) {
-  uintptr_t addr = (reinterpret_cast< uintptr_t >(this));
-  addr += (unk2 * 4) + sizeof(*this);
-  unk2 += (x + 3) / 4;
-  ++unk3;
-  return addr;
+bool CElementAllocationChunk::Contains(const void* ptr) const {
+  int offset = static_cast< const char* >(ptr) - reinterpret_cast< const char* >(xc_data);
+  int index = offset / 4;
+  return x0_capacity > index;
 }
-void Something::fn_8036CAE4() {
-  --unk3;
+
+void* CElementAllocationChunk::Allocate(uint size) {
+  void* ptr = &xc_data[x4_allocatedWords];
+  x4_allocatedWords += (size + 3) / 4;
+  ++x8_allocationCount;
+  return ptr;
 }
+
+void CElementAllocationChunk::Free(void*) { --x8_allocationCount; }
+
+void CElementAllocationChunk::Rewind(uint size) {
+  uint words = (size + 3) / 4;
+  if (words > x4_allocatedWords) {
+    x4_allocatedWords = 0;
+  } else {
+    x4_allocatedWords -= words;
+  }
+}
+
+uint CElementAllocationChunk::GetAllocatedSize() const { return x4_allocatedWords * 4; }
+
+uint CElementAllocationChunk::GetAllocationCount() const { return x8_allocationCount; }
 
 void* IElement::operator new(size_t sz, const char* fileAndLine, const char* type) {
   return CElementAllocator::Alloc(sz, fileAndLine, type);

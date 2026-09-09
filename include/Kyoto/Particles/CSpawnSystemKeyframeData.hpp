@@ -14,6 +14,11 @@ public:
   class CSpawnSystemKeyframeInfo {
   public:
     CSpawnSystemKeyframeInfo(CInputStream& in);
+    ~CSpawnSystemKeyframeInfo() {
+      if (x10_token) {
+        x10_token->Unlock();
+      }
+    }
     void LoadToken(CSimplePool* pool);
     rstl::optional_object< CToken > GetToken() const { return x10_token; }
 
