@@ -45,6 +45,9 @@ private:
   CAssetId mWeaponDesc;
   ushort mElectrocuteSfx;
 };
+
+CHECK_SIZEOF(CShockWaveInfo, 0x3c)
+
 class CShockWave : public CActor {
 public:
   CShockWave(const TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
@@ -82,4 +85,7 @@ private:
   rstl::optional_object< TToken< CElectricDescription > > mElectricDesc;
   TUniqueId mLightId;
 };
+
+CHECK_SIZEOF(CShockWave, 0x988)
+
 #endif // _CSHOCKWAVE
