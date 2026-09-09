@@ -1154,7 +1154,7 @@ config.libs = [
             Object(NonMatching, "MetroidPrime/Weapons/WeaponTypes.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/COmegaPirate.cpp"),
             Object(MatchingFor("GM8E01_00"), "MetroidPrime/Enemies/CScriptPhazonPool.cpp"),
-            Object(NonMatching, "MetroidPrime/CNESEmulator.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CNESEmulator.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Enemies/CPhazonHealingNodule.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Player/CMorphBallShadow.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Player/CPlayerStuckTracker.cpp"),

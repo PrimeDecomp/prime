@@ -1,10 +1,15 @@
 #ifndef _CNESEMULATOR
 #define _CNESEMULATOR
 
+#include "rstl/single_ptr.hpp"
 #include "types.h"
 
 class CColor;
 class CFinalInput;
+class CDvdRequest;
+struct ksNesCommonWorkObj;
+struct ksNesStateObj;
+struct OSModuleHeader;
 
 class CNESEmulator {
 public:
@@ -23,7 +28,18 @@ public:
   EPasswordEntryState GetPasswordEntryState() const;
 
 private:
-  uchar x0_pad[0x20];
+  static bool CheckForGameOver(const uchar* vram, uchar* passwordOut);
+  static bool SetPasswordIntoEntryScreen(uchar* vram, uchar* wram, const uchar* password);
+  static EPasswordEntryState CheckForPasswordEntryScreen(const uchar* vram);
+
+  rstl::single_ptr< CDvdRequest > x0_dvdRequest;
+  rstl::single_ptr< uchar > x4_resultBuffer;
+  ksNesCommonWorkObj* x8_work;
+  ksNesStateObj* xc_state;
+  OSModuleHeader* x10_module;
+  void* x14_bss;
+  uchar* x18_chrRam;
+  uchar* x1c_bbRam;
   bool x20_gameOver;
   uchar x21_password[18];
   EPasswordEntryState x34_passwordEntryState;
