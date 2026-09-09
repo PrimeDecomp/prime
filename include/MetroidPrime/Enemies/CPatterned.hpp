@@ -312,13 +312,15 @@ public:
 
   void TryKnockBack(CStateManager& mgr, int arg);
   void TryKnockBack_Front(CStateManager& mgr, int arg);
-  void TryLoopReaction(CStateManager& mgr, int arg);
+  void TryLoopedReaction(CStateManager& mgr, int arg);
+  void TryLoopedHitReaction(CStateManager& mgr, int arg);
   void TryTurn(CStateManager& mgr, int arg);
   void TryCover(CStateManager& mgr, int arg);
   void TryWallHang(CStateManager& mgr, int arg);
   void TryGetUp(CStateManager& mgr, int arg);
   void TryTaunt(CStateManager& mgr, int arg);
   void TryJump(CStateManager& mgr, int arg);
+  void TrySlide(CStateManager& mgr, int arg);
   void TryJumpInLoop(CStateManager& mgr, int arg);
   void TryBreakDodge(CStateManager& mgr, int arg);
   void TryStep(CStateManager& mgr, int arg);

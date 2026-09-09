@@ -173,7 +173,7 @@ void CJellyZap::Suck(CStateManager& mgr, EStateMsg msg, float arg) {
     StateMachineState().SetDelay(x5b4_);
     break;
   case kStateMsg_Update: {
-    TryCommand(mgr, pas::kAS_LoopReaction, &CPatterned::TryLoopReaction, 0);
+    TryCommand(mgr, pas::kAS_LoopReaction, &CPatterned::TryLoopedReaction, 0);
     BodyCtrl()->CommandMgr().DeliverTargetVector(
         (mgr.GetPlayer()->GetTranslation() + CVector3f(0.f, 0.f, 1.f)) - GetTranslation());
     CPlayer& player = *mgr.Player();
