@@ -57,7 +57,7 @@ private:
       return x8_textures;
     }
     const rstl::auto_ptr< rstl::vector< rstl::auto_ptr< CCubeModel > > >& GetModelList() const {
-      return xc_models;
+      return x10_models;
     }
     int GetAreaId() const { return x18_areaIdx; }
 
@@ -65,7 +65,7 @@ private:
     const rstl::vector< CMetroidModelInstance >* x0_geometry;
     const CAreaRenderOctTree* x4_octTree;
     const rstl::auto_ptr< rstl::vector< TCachedToken< CTexture > > > x8_textures;
-    const rstl::auto_ptr< rstl::vector< rstl::auto_ptr< CCubeModel > > > xc_models;
+    const rstl::auto_ptr< rstl::vector< rstl::auto_ptr< CCubeModel > > > x10_models;
     int x18_areaIdx;
     rstl::vector< uint > x1c_lightOctreeWords;
   };
@@ -186,8 +186,6 @@ public:
   static void DrawFogFan(const CVector3f*, int);
   static void DrawFogFans(const CPlane*, int, const CVector3f*, int, int, int);
   static void DrawFogSlices(const CPlane*, int, int, const CVector3f&, float);
-  static void RenderFogVolumeModel(const CAABox&, const CModel*, const CTransform4f&, CTransform4f,
-                                   const CSkinnedModel*);
   void ReallyRenderFogVolume(const CColor&, const CAABox&, const CModel*, const CSkinnedModel*);
   void _DrawSpaceWarp(const CVector3f&, float);
   static void* GetRenderToTexBuffer(int);
