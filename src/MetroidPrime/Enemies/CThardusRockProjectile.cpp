@@ -228,7 +228,7 @@ void CThardusRockProjectile::GetUp(CStateManager& mgr, const EStateMsg msg, cons
       if (mgr.GetCameraManager()->GetCurrentCameraId() ==
           mgr.GetCameraManager()->GetFirstPersonCamera()->GetUniqueId()) {
         const CCameraShakeData& data =
-            CCameraShakeData::BuildMissileShakeData(0.25f, 0.5f, 50.f, GetTranslation());
+            CCameraShakeData::HardVertShakeDistance(0.25f, 0.5f, 50.f, GetTranslation());
         mgr.CameraManager()->AddCameraShaker(data, true);
       }
     } else {
