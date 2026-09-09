@@ -725,7 +725,7 @@ void CStateManager::RemoveObject(TUniqueId id) {
           range = x890_scriptIdMap.equal_range(editorId);
       while (range.first != range.second) {
         if (range.first->second == id) {
-          range.first = x890_scriptIdMap.get_inner().erase(range.first);
+          range.first = x890_scriptIdMap.erase(range.first);
         } else {
           ++range.first;
         }
@@ -1864,8 +1864,8 @@ CStateManager::GetBuildForScript(TEditorId eid) const {
 }
 
 void CStateManager::FreeScriptObjects(TAreaId aid) {
-  rstl::multimap< TEditorId, TUniqueId >::iterator scriptIt = x890_scriptIdMap.get_inner().begin();
-  while (scriptIt != x890_scriptIdMap.get_inner().end()) {
+  rstl::multimap< TEditorId, TUniqueId >::iterator scriptIt = x890_scriptIdMap.begin();
+  while (scriptIt != x890_scriptIdMap.end()) {
     rstl::multimap< TEditorId, TUniqueId >::iterator cur = scriptIt;
     ++scriptIt;
 

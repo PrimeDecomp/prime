@@ -7,7 +7,7 @@
 #include "rstl/allocator.hpp"
 namespace rstl {
 template < typename T, typename Cmp = less< T >, typename Alloc = rmemory_allocator >
-class set {
+class set : public red_black_tree< T, T, false, identity< T >, Cmp, Alloc > {
 public:
   typedef T value_type;
 
@@ -19,24 +19,10 @@ public:
   typedef typename rep_type::const_iterator const_iterator;
 
   explicit set(const Cmp& cmp = Cmp(), const Alloc& alloc = Alloc())
-  : inner(identity< T >(), cmp, alloc) {}
+  : rep_type(identity< T >(), cmp, alloc) {}
   set(CInputStream& in, const Cmp& cmp = Cmp(), const Alloc& alloc = Alloc());
 
-  pair< iterator, bool > insert(const value_type& item) { return inner.insert(item); }
-
-  const_iterator begin() const { return inner.begin(); }
-  const_iterator end() const { return inner.end(); }
-  iterator begin() { return inner.begin(); }
-  iterator end() { return inner.end(); }
-
-  iterator find(const T& key) { return inner.find(key); }
-  const_iterator find(const T& key) const { return inner.find(key); }
-
-  void erase(iterator it) { inner.erase(it); }
-  int size() const { return inner.size(); }
-  
-private:
-  rep_type inner;
+  ~set() {}
 };
 
 typedef set< char, char > unk_set;
