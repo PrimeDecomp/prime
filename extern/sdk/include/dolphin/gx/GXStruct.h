@@ -32,6 +32,10 @@ typedef struct _GXColor {
   u8 a;
 } GXColor;
 
+typedef struct _GXFogAdjTable {
+  u16 r[10];
+} GXFogAdjTable;
+
 typedef struct _GXTexObj {
 #ifdef TARGET_PC
   u32 dummy[22];

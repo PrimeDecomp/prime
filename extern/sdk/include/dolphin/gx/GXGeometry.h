@@ -11,6 +11,7 @@ void GXSetVtxDesc(GXAttr attr, GXAttrType type);
 void GXSetVtxDescv(GXVtxDescList* list);
 void GXClearVtxDesc(void);
 void GXSetVtxAttrFmt(GXVtxFmt vtxfmt, GXAttr attr, GXCompCnt cnt, GXCompType type, u8 frac);
+void GXSetVtxAttrFmtv(GXVtxFmt vtxfmt, const GXVtxAttrFmtList* list);
 void GXSetNumTexGens(u8 nTexGens);
 void GXBegin(GXPrimitive type, GXVtxFmt vtxfmt, u16 nverts);
 void GXSetTexCoordGen2(GXTexCoordID dst_coord, GXTexGenType func, GXTexGenSrc src_param, u32 mtx,
