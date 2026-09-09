@@ -116,6 +116,9 @@ public:
     SetPreRenderHasMoved(true);
   }
   void SetRotation(const CQuaternion& rot) { SetTransform(rot.BuildTransform4f(GetTranslation())); }
+  CQuaternion TransformLocalToWorldRotation(const CQuaternion& rot) const {
+    return rot * CQuaternion::FromMatrix(GetTransform());
+  }
   CQuaternion GetRotation() const { return CQuaternion::FromMatrix(GetTransform()); }
   CVector3f GetTranslation() const { return x34_transform.GetTranslation(); }
   void SetTranslation(const CVector3f& vec);

@@ -97,6 +97,12 @@ public:
                          CQuaternion rotDelta);
 
 private:
+  typedef rstl::reserved_vector< ushort, 1024 > TMovedList;
+
+  void DragSlave(CStateManager& mgr, TMovedList& moved, CActor* actor, const CVector3f& delta);
+  void DragSlaves(CStateManager& mgr, TMovedList& moved, const CVector3f& delta);
+  static bool IsInMovedList(TUniqueId id, const TMovedList& moved);
+
   TUniqueId x258_currentWaypoint;
   TUniqueId x25a_targetWaypoint;
   float x25c_currentSpeed;
