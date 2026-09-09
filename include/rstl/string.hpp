@@ -270,27 +270,12 @@ int basic_string< _CharTp, Traits, Alloc >::find(_CharTp ch, int pos) const {
 template < typename _CharTp, typename Traits, typename Alloc >
 int basic_string< _CharTp, Traits, Alloc >::compare(const _CharTp* rhs, int count) const {
   int rhsCharCount = 0;
-  const _CharTp* rhsEnd = rhs;
-  while ((count == -1 || rhsCharCount < count) && *rhsEnd != '\0') {
-    ++rhsEnd;
+  const _CharTp* rhsStart = rhs;
+  while ((count == -1 || rhsCharCount < count) && *rhs != '\0') {
+    ++rhs;
     ++rhsCharCount;
   }
-  int lhsIndex = 0;
-  while (lhsIndex != static_cast< int >(size()) && rhs != rhsEnd) {
-    const int diff = Traits::compare(data()[lhsIndex], *rhs);
-    if (diff != 0) {
-      return diff;
-    }
-    ++lhsIndex;
-    ++rhs;
-  }
-  if (lhsIndex == static_cast< int >(size()) && rhs != rhsEnd) {
-    return -1;
-  } else if (lhsIndex == static_cast< int >(size())) {
-    return 0;
-  } else {
-    return 1;
-  }
+  return internal_compare(begin(), end(), rhsStart, rhs);
 }
 
 template < typename _CharTp, typename Traits, typename Alloc >
