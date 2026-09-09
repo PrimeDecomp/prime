@@ -27,5 +27,6 @@ private:
   CTransform4f mTransform;
   CVector3f mExtents;
 };
+CHECK_SIZEOF(COBBox, 0x3c)
 
 #endif // _COBBOX
