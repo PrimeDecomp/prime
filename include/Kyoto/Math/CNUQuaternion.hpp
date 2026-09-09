@@ -3,13 +3,14 @@
 
 #include "types.h"
 
+#include "Kyoto/Math/CVector3f.hpp"
+
 class CMatrix3f;
-class CVector3f;
 class CQuaternion;
 
 class CNUQuaternion {
 public:
-  CNUQuaternion(float w, float x, float y, float z) : w(w), x(x), y(y), z(z) {}
+  CNUQuaternion(float w, float x, float y, float z);
   CNUQuaternion(float, const CVector3f&);
 
   static CNUQuaternion BuildFromMatrix3f(const CMatrix3f& matrix);
@@ -18,13 +19,16 @@ public:
 
   CNUQuaternion& operator+=(const CNUQuaternion&);
   CNUQuaternion operator*(const CNUQuaternion&) const;
+  CNUQuaternion AsNormalized() const;
+
+  float GetScalar() const { return w; }
+  const CVector3f GetVector() const { return imaginary; }
 
 private:
   float w;
-  float x;
-  float y;
-  float z;
+  CVector3f imaginary;
 };
+CHECK_SIZEOF(CNUQuaternion, 0x10)
 
 CNUQuaternion operator*(float f, const CNUQuaternion&);
 CNUQuaternion operator*(const CNUQuaternion&, float f);
