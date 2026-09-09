@@ -2693,11 +2693,12 @@ Kyoto/Animation/CCharacterInfo.cpp:
 	.text       start:0x802DD97C end:0x802DF5B4
 	.rodata     start:0x803D6F28 end:0x803D6F30
 	.sdata      start:0x805A88E8 end:0x805A88F0
-	.sbss       start:0x805A9450 end:0x805A9498
+	.sbss       start:0x805A9450 end:0x805A9490
 
 Kyoto/Animation/CCharacterSet.cpp:
 	.text       start:0x802DF5B4 end:0x802DF9C8
 	.rodata     start:0x803D6F30 end:0x803D6F38
+	.sbss       start:0x805A9490 end:0x805A9498
 
 Kyoto/Animation/CMetaAnimBlend.cpp:
 	.text       start:0x802DF9C8 end:0x802E00BC
