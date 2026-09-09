@@ -910,7 +910,7 @@ void CFlyingPirate::MassiveDeath(CStateManager& mgr) {
         GetUniqueId(), *this, GetTranslation(), x568_data.x9c_dInfo,
         CMaterialFilter::MakeIncludeExclude(CMaterialList(kMT_Solid), CMaterialList()));
     mgr.CameraManager()->AddCameraShaker(
-        CCameraShakeData::BuildPatternedExplodeShakeData(0.5f, 0.3f), true);
+        CCameraShakeData::HardHorizShake(0.5f, 0.3f), true);
   }
   CPatterned::MassiveDeath(mgr);
 }
@@ -1706,7 +1706,7 @@ void CFlyingPirate::DoUserAnimEvent(CStateManager& mgr, const CInt32POINode& nod
       if (projectile != nullptr) {
         mgr.AddObject(projectile);
         if (!x6a1_26_isAttackingObject) {
-          projectile->SetCameraShake(CCameraShakeData::BuildPatternedExplodeShakeData(
+          projectile->SetCameraShake(CCameraShakeData::HardHorizShakeDistance(
               projectile->GetTranslation(), 0.3f, 0.2f, 50.f));
           if (x6a0_25_isAquaPirate) {
             projectile->SetMinHomingDistance(x568_data.xf0_projectileHomingDistance);

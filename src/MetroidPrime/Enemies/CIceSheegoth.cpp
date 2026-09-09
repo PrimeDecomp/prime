@@ -1347,7 +1347,7 @@ void CIceSheegoth::ProcessStompGround(CStateManager& mgr) {
     if (player.GetMorphballTransitionState() != CPlayer::kMS_Morphed) {
       if (mgr.GetCameraManager()->GetCurrentCameraId() ==
           mgr.GetCameraManager()->GetFirstPersonCamera()->GetUniqueId()) {
-        mgr.CameraManager()->AddCameraShaker(CCameraShakeData::BuildPatternedExplodeShakeData(
+        mgr.CameraManager()->AddCameraShaker(CCameraShakeData::HardHorizShakeDistance(
                                                  GetTranslation(), 0.5f, magnitude, 50.f),
                                              true);
       }

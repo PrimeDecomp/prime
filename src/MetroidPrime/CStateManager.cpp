@@ -2472,7 +2472,8 @@ void CStateManager::UpdateEscapeSequenceTimer(float dt) {
       const float factor = 1.f - xf0c_escapeTimer / totalTime;
       const float factorSq = factor * factor;
       {
-        const CCameraShakeData shakeData(1.f, 0.2f * factorSq * x900_random->Range(0.5f, 1.f));
+        const CCameraShakeData& shakeData =
+            CCameraShakeData::HardVertShake(1.f, 0.2f * factorSq * x900_random->Range(0.5f, 1.f));
         x870_cameraManager->AddCameraShaker(shakeData, true);
       }
       x88c_rumbleManager->Rumble(*this, static_cast< ERumbleFxId >(0xb), 0.75f, kRP_One);

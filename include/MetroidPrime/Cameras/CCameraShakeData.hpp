@@ -13,25 +13,27 @@ struct SCameraShakePoint {
   float x10_sustainTime;
   float x14_duration;
 
-  SCameraShakePoint()
-  : x0_useEnvelope(false)
-  , x8_magnitude(0.f)
-  , xc_attackTime(0.f)
-  , x10_sustainTime(0.f)
-  , x14_duration(0.f) {}
-
   SCameraShakePoint(int flags, float attackTime, float sustainTime, float duration,
                     float magnitude);
+
+  static SCameraShakePoint NoMotion();
+  void Update(float curTime);
+  float GetValue() const;
 };
 CHECK_SIZEOF(SCameraShakePoint, 0x18)
 
 class CCameraShakerComponent {
 public:
-  CCameraShakerComponent() : x4_useModulation(false), x38_value(0.f) {}
+  virtual ~CCameraShakerComponent() {}
 
   CCameraShakerComponent(int flags, const SCameraShakePoint& am, const SCameraShakePoint& fm);
 
-  virtual ~CCameraShakerComponent() {}
+  static CCameraShakerComponent NoMotion();
+  void UpdateMotion(float curTime, float duration, float distAtt);
+  float GetValue() const { return x38_value; }
+  bool IsModulated() const { return (x4_useModulation & 1) != 0; }
+  float GetAmplitude() const { return x8_am.GetValue(); }
+  float GetSeverity() const { return x20_fm.GetValue(); }
 
 private:
   uint x4_useModulation;
@@ -44,56 +46,37 @@ CHECK_SIZEOF(CCameraShakerComponent, 0x3c)
 class CStateManager;
 class CCameraShakeData {
 public:
-  CCameraShakeData(CInputStream& in);
+  static CCameraShakeData EatOldCameraShakerData(CInputStream& in);
   CCameraShakeData(float duration, float sfxDist, int flags, const CVector3f& sfxPos,
                    const CCameraShakerComponent& shakerX, const CCameraShakerComponent& shakerY,
                    const CCameraShakerComponent& shakerZ);
 
-  CCameraShakeData(float duration, float magnitude);
-
   void SetId(int id) { xbc_shakerId = id; }
   int GetId() const { return xbc_shakerId; }
   void Update(float dt, CStateManager& mgr);
-  // GeneratePoint__16CCameraShakeDataFfR9CRandom16
-
-  // From MP1R
-  float GetAttenuatedMagnitude() const;
   float GetMaxAmplitude() const;
   float GetMaxSeverity() const;
-  bool IsSingleDirection() const;
-  void ResetTime();
-  void SetAttenuation(float, CVector3f);
   void SetSfxPositionAndDistance(float distance, CVector3f pos);
-  void SetTranslation(const CVector3f&);
 
-  static CCameraShakeData HardBothAxesShake(float duration, float);
-  static CCameraShakeData HardHorizShake(float duration, float);
-  static CCameraShakeData HardHorizShakeDistance(float duration, float, float, CVector3f);
-  static CCameraShakeData HardVertShake(float duration, float);
-  static CCameraShakeData HardVertShakeDistance(float duration, float, float, CVector3f);
-  static CCameraShakeData SoftBothAxesShake(float duration, float);
-  static CCameraShakeData SoftHorizShake(float duration, float);
-  static CCameraShakeData SoftHorizShakeDistance(float duration, float, float, CVector3f);
-  static CCameraShakeData SoftVertShake(float duration, float);
-  static CCameraShakeData SoftVertShakeDistance(float duration, float, float, CVector3f);
-  static CCameraShakeData VerticalOverrideShake(float duration);
-  static CCameraShakeData BuildPatternedExplodeShakeData(float duration, float magnitude);
-  static CCameraShakeData BuildPatternedExplodeShakeData(CVector3f pos, float attackTime,
-                                                         float sustainTime, float maxDist);
+  static CCameraShakeData SoftHorizShake(float duration, float magnitude);
+  static CCameraShakeData SoftBothAxesShake(float duration, float magnitude);
+  static CCameraShakeData HardHorizShake(float duration, float magnitude);
+  static CCameraShakeData HardVertShake(float duration, float magnitude);
+  static CCameraShakeData HardBothAxesShake(float duration, float magnitude);
+  static CCameraShakeData HardHorizShakeDistance(CVector3f pos, float duration, float magnitude,
+                                                 float distance);
+  static CCameraShakeData HardVertShakeDistance(float duration, float magnitude, float distance,
+                                                CVector3f pos);
 
-  float GetDuration() const { return x0_duration; } // In MP1R, returns either x0 or xec?
+  float GetDuration() const { return x0_duration; }
   float GetCurTime() const { return x4_curTime; }
-  CVector3f GetPoint() const;                             // { return xc4_sfxPos; }
-  bool Done() const { return x4_curTime >= x0_duration; } // Finished in MP1R
+  CVector3f GetPoint() const;
+  bool Done() const { return x4_curTime >= x0_duration; }
   uint GetFlags() const { return xc0_flags; }
   const CVector3f& GetSfxPos() const { return xc4_sfxPos; }
 
   static CCameraShakeData skSoftRecoil;
   static CCameraShakeData skHardRecoil;
-
-  static CCameraShakeData BuildProjectileCameraShake(const float duration, const float magnitude);
-  static CCameraShakeData BuildMissileShakeData(float duration, float magnitude, float distance,
-                                                CVector3f origin);
 
 private:
   float x0_duration;

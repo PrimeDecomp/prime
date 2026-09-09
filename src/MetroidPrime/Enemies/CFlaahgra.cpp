@@ -1427,7 +1427,7 @@ void CFlaahgra::RattlePlayer(CStateManager& mgr, const CVector3f& vec) {
     if (player.GetMorphballTransitionState() != CPlayer::kMS_Morphed) {
       TUniqueId firstPersonId = mgr.GetCameraManager()->GetFirstPersonCamera()->GetUniqueId();
       if (mgr.GetCameraManager()->GetCurrentCameraId() == firstPersonId) {
-        mgr.CameraManager()->AddCameraShaker(CCameraShakeData(2.f, 0.75f), true);
+        mgr.CameraManager()->AddCameraShaker(CCameraShakeData::HardVertShake(2.f, 0.75f), true);
       }
     } else {
       CVector3f velocity = 25.f * CVector3f::Up();
