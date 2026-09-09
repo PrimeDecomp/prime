@@ -88,8 +88,8 @@ CScriptWater::CScriptWater(
 , x2a8_insideFogColor(insideFogColor)
 , x2ac_alphaInTime(alphaInTime)
 , x2b0_alphaOutTime(alphaOutTime)
-, x2b4_alphaInRecip(alphaInTime != 0.f ? 1.f / alphaInTime : 0.f)
-, x2b8_alphaOutRecip(alphaOutTime != 0.f ? 1.f / alphaOutTime : 0.f)
+, x2b4_alphaInRecip(alphaInTime ? 1.f / alphaInTime : 0.f)
+, x2b8_alphaOutRecip(alphaOutTime ? 1.f / alphaOutTime : 0.f)
 , x2bc_alpha(alpha)
 , x2c0_tileSize(tileSize)
 , x2c4_gridDimX(
@@ -202,20 +202,22 @@ void CScriptWater::CalculateRenderBounds() {
   const CAABox& bounds = GetTriggerBounds();
   CVector3f translation = GetTranslation();
   float maxZ = bounds.GetMaxPoint().GetZ();
-  const CVector3f& boundsMax =
-      CVector3f(bounds.GetMaxPoint().GetX(), bounds.GetMaxPoint().GetY(), maxZ + 1.f);
-  CVector3f aabbMax = boundsMax + translation;
-  const CVector3f& boundsMin =
-      CVector3f(bounds.GetMinPoint().GetX(), bounds.GetMinPoint().GetY(), maxZ - 1.f);
-  CVector3f aabbMin = boundsMin + translation;
-  SetRenderBounds(CAABox(aabbMin, aabbMax));
+  CVector3f worldMin;
+  CVector3f localMin;
+  CVector3f worldMax;
+  CVector3f localMax(bounds.GetMaxPoint().GetX(), bounds.GetMaxPoint().GetY(), maxZ + 1.f);
+  const CVector3f& boundsMax = localMax;
+  worldMax = boundsMax + translation;
+  localMin = CVector3f(bounds.GetMinPoint().GetX(), bounds.GetMinPoint().GetY(), maxZ - 1.f);
+  const CVector3f& boundsMin = localMin;
+  worldMin = boundsMin + translation;
+  SetRenderBounds(CAABox(worldMin, worldMax));
 }
 
 CAABox CScriptWater::GetSortingBounds(const CStateManager&) const {
   const CAABox& bounds = GetRenderBoundsCached();
   CVector3f maxPoint = bounds.GetMaxPoint();
-  float fogZ = x214_fogBias + (maxPoint.GetZ() - 1.f);
-  fogZ = x218_fogMagnitude + fogZ;
+  float fogZ = x218_fogMagnitude + (x214_fogBias + (maxPoint.GetZ() - 1.f));
   if (fogZ > maxPoint.GetZ()) {
     maxPoint[kDZ] = fogZ;
   }
@@ -268,28 +270,28 @@ void CScriptWater::Render(const CStateManager& mgr) const {
         -GetTransform().Get03(), -GetTransform().Get13(), -GetTransform().Get23() - zOffset));
     CTransform4f xf(GetTransform());
     xf.AddTranslationZ(zOffset);
-    CVector3f areaCenter =
+    const CVector3f& areaCenter =
         mgr.GetWorld()->GetAreaAlways(mgr.GetNextAreaId()).GetAABB().GetCenterPoint();
-    rstl::optional_object< CRippleManager > rippleMan(
-        mgr.GetFluidPlaneManager()->GetRippleManager());
-    x1b4_fluidPlane->Render(mgr, x2bc_alpha, aabb, xf,
-                            mgr.GetWorld()->GetAreaAlways(GetCurrentAreaId()).GetTM(), false,
-                            x150_frustum, rippleMan, GetUniqueId(), x2d8_tileIntersects.get(),
-                            x2c4_gridDimX, x2c8_gridDimY, areaCenter);
-    if (x214_fogBias != 0.f) {
+    x1b4_fluidPlane->Render(
+        mgr, x2bc_alpha, aabb, xf, mgr.GetWorld()->GetAreaAlways(GetCurrentAreaId()).GetTM(), false,
+        x150_frustum, mgr.GetFluidPlaneManager()->GetRippleManager(), GetUniqueId(),
+        x2d8_tileIntersects.get(), x2c4_gridDimX, x2c8_gridDimY, areaCenter);
+    if (x214_fogBias) {
       if (mgr.GetPlayerState()->CanVisorSeeFog(mgr)) {
         if (gkWaterFog) {
           float sinVal = CMath::FastSinR(x224_fogSpeed * CGraphics::GetSecondsMod900());
           float fogLevel = mgr.IntegrateVisorFog(x218_fogMagnitude * sinVal + x214_fogBias);
           if (fogLevel > 0.f) {
-            CAABox fogBox = GetTriggerBoundsWR();
-            CAABox renderBounds(CVector3f(fogBox.GetMinPoint().GetX(), fogBox.GetMinPoint().GetY(),
-                                          fogBox.GetMaxPoint().GetZ()),
-                                CVector3f(fogBox.GetMaxPoint().GetX(), fogBox.GetMaxPoint().GetY(),
-                                          fogLevel + fogBox.GetMaxPoint().GetZ()));
-            CTransform4f scaleMtx = CTransform4f::Scale(
-                (renderBounds.GetMaxPoint() - renderBounds.GetMinPoint()) * 0.5f);
-            CTransform4f modelXf(CTransform4f::Translate(renderBounds.GetCenterPoint()) * scaleMtx);
+            const CAABox fogBox = GetTriggerBoundsWR();
+            const CVector3f& fogMin = fogBox.GetMinPoint();
+            const CVector3f& fogMax = fogBox.GetMaxPoint();
+            CAABox renderBounds =
+                CAABox(CVector3f(fogMin.GetX(), fogMin.GetY(), fogMax.GetZ()),
+                       CVector3f(fogMax.GetX(), fogMax.GetY(), fogLevel + fogMax.GetZ()));
+            CTransform4f modelXf(
+                CTransform4f::Translate(renderBounds.GetCenterPoint()) *
+                CTransform4f::Scale((renderBounds.GetMaxPoint() - renderBounds.GetMinPoint()) *
+                                    0.5f));
             CAABox renderAABB(CVector3f(-1.f, -1.f, -1.f), CVector3f(1.f, 1.f, 1.f));
             gpRender->SetModelMatrix(modelXf);
             gpRender->SetAmbientColor(CColor::White());
@@ -320,7 +322,7 @@ void CScriptWater::SetMorphing(const bool m) {
 void CScriptWater::SetupGridClipping(CStateManager& mgr, int computeVerts) {
   if (x2e8_28_recomputeClipping) {
     x2e4_computedGridCellCount = 0;
-    x2dc_vertIntersects = (bool*)NULL;
+    x2dc_vertIntersects = static_cast< bool* >(nullptr);
     x2e8_28_recomputeClipping = false;
   }
 
@@ -334,20 +336,20 @@ void CScriptWater::SetupGridClipping(CStateManager& mgr, int computeVerts) {
 
     CVector3f downVec(0.f, 0.f, -1.f);
     CAABox trigBounds = GetTriggerBoundsWR();
-    float baseZ = 0.8f + trigBounds.GetMaxPoint().GetZ();
+    float baseZ = gkFluidMaxCrest + trigBounds.GetMaxPoint().GetZ();
     CAABox trigBounds2 = GetTriggerBoundsWR();
 
     int gridDimXP1 = x2c4_gridDimX + 1;
     int curCell = x2e4_computedGridCellCount;
     int row = curCell / gridDimXP1;
-    int col = curCell - row * gridDimXP1;
+    int col = curCell % gridDimXP1;
     bool* vertPtr = x2dc_vertIntersects.get() + curCell;
     float zDiff = x130_bounds.GetMaxPoint().GetZ() - x130_bounds.GetMinPoint().GetZ();
     float baseX = trigBounds2.GetMinPoint().GetX();
     float yOffset = x2c0_tileSize * (float)row;
     float baseY = trigBounds2.GetMinPoint().GetY();
     float xOffset = x2c0_tileSize * (float)col;
-    float mag = 2.f * zDiff + 0.8f;
+    float mag = 2.f * zDiff + gkFluidMaxCrest;
     float useMag = rstl::min_val(mag, kMaxRayLength);
 
     int i = x2e4_computedGridCellCount;
@@ -384,8 +386,8 @@ void CScriptWater::SetupGridClipping(CStateManager& mgr, int computeVerts) {
         }
       }
 
-      int tmp = 42 / GetFluidPlane().GetTileSubdivisions();
-      const int tilesPerPatch = rstl::min_val(kMaxTilesPerPatch, tmp);
+      const int tilesPerPatch = rstl::min_val(
+          kMaxTilesPerPatch, static_cast< int >(42u / GetFluidPlane().GetTileSubdivisions()));
 
       x2d0_patchDimX = (tilesPerPatch + x2c4_gridDimX - 1) / tilesPerPatch;
       x2d4_patchDimY = (tilesPerPatch + x2c8_gridDimY - 1) / tilesPerPatch;
@@ -394,18 +396,17 @@ void CScriptWater::SetupGridClipping(CStateManager& mgr, int computeVerts) {
       int curTileY = 0;
       int patchIdx = 0;
       for (; patchIdx < x2d4_patchDimY; ++patchIdx) {
-        int nextTileY = curTileY + tilesPerPatch;
         int curTileX = 0;
         int patchJ = 0;
-        char* patchRow = x2e0_patchIntersects.get() + patchIdx * x2d0_patchDimX;
+        char* const patchRow = x2e0_patchIntersects.get() + patchIdx * x2d0_patchDimX;
         for (; patchJ < x2d0_patchDimX; ++patchJ) {
-          int nextTileX = curTileX + tilesPerPatch;
           bool allClear = true;
           bool allIntersect = true;
-          for (int k = curTileY; k < rstl::min_val(x2c8_gridDimY, nextTileY); ++k) {
+          for (int k = curTileY; k < rstl::min_val(x2c8_gridDimY, curTileY + tilesPerPatch); ++k) {
             if (!allClear && !allIntersect)
               break;
-            for (int l = curTileX; l < rstl::min_val(x2c4_gridDimX, nextTileX); ++l) {
+            for (int l = curTileX; l < rstl::min_val(x2c4_gridDimX, curTileX + tilesPerPatch);
+                 ++l) {
               if (((const char*)x2d8_tileIntersects.get())[l + k * x2c4_gridDimX] != 0) {
                 allClear = false;
                 if (!allIntersect)
@@ -427,14 +428,13 @@ void CScriptWater::SetupGridClipping(CStateManager& mgr, int computeVerts) {
               flag = 0;
             }
           }
-          *patchRow = flag;
+          patchRow[patchJ] = flag;
           curTileX += tilesPerPatch;
-          patchRow += 1;
         }
         curTileY += tilesPerPatch;
       }
 
-      x2dc_vertIntersects = (bool*)NULL;
+      x2dc_vertIntersects = static_cast< bool* >(nullptr);
     }
   }
 }
@@ -455,7 +455,7 @@ void CScriptWater::SetupGrid(bool recomputeClipping) {
   x2cc_gridCellCount = (dimX + 1) * (dimY + 1);
   x2e4_computedGridCellCount = x2cc_gridCellCount;
 
-  x2dc_vertIntersects = (bool*)NULL;
+  x2dc_vertIntersects = static_cast< bool* >(nullptr);
 
   if (x2d8_tileIntersects.get() == NULL || dimX != x2c4_gridDimX || dimY != x2c8_gridDimY) {
     x2d8_tileIntersects = rs_new char[dimX * dimY];
@@ -499,7 +499,7 @@ bool CScriptWater::CanRippleAtPoint(const CVector3f& point) const {
     return false;
   }
 
-  return GetTileIntersects(xTile, yTile);
+  return x2d8_tileIntersects.get()[xTile + yTile * x2c4_gridDimX] != 0;
 }
 
 int CScriptWater::GetPatchRenderFlags(int x, int y) const {
@@ -623,7 +623,7 @@ void CScriptWater::Think(float dt, CStateManager& mgr) {
     }
   }
 
-  if (x2e8_26_morphing) {
+  if (IsMorphing()) {
     bool stillMorphing = true;
     if (x2e8_25_morphIn) {
       x1f8_morphFactor += dt / x1d0_morphInTime;
@@ -664,7 +664,7 @@ void CScriptWater::UpdateSplashInhabitants(CStateManager& mgr) {
   while (it != x1fc_waterInhabitants.end()) {
     rstl::list< rstl::pair< TUniqueId, bool > >::iterator next = it;
     ++next;
-    CActor* act = TCastToPtr< CActor >(mgr.ObjectById(it->first));
+    CActor* const act = TCastToPtr< CActor >(mgr.ObjectById(it->first));
     bool intersects = false;
     if (act != NULL) {
       rstl::optional_object< CAABox > touchBounds = act->GetTouchBounds();

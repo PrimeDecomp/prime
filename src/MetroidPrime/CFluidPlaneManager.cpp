@@ -22,6 +22,7 @@
 #include "rstl/math.hpp"
 
 float CFluidPlane::kRippleIntensityRange = 1.f;
+const float gkFluidMaxCrest = 0.8f;
 const bool gkWaterEnable = true;
 const bool gkWaterTurbulence = true;
 const bool gkWaterBumpMapping = true;
