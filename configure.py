@@ -511,7 +511,7 @@ config.libs = [
             Object(MatchingFor("GM8E01_00"), "MetroidPrime/CMainFlow.cpp"),
             Object(MatchingFor("GM8E01_00"), "MetroidPrime/CMFGame.cpp"),
             Object(NonMatching, "MetroidPrime/CCredits.cpp"),
-            Object(NonMatching, "MetroidPrime/CSplashScreen.cpp"),
+            Object(MatchingFor("GM8E01_00"), "MetroidPrime/CSplashScreen.cpp"),
             Object(NonMatching, "MetroidPrime/CAnimData.cpp"),
             Object(NonMatching, "MetroidPrime/Factories/CCharacterFactory.cpp"),
             Object(Matching, "MetroidPrime/Factories/CAssetFactory.cpp"),

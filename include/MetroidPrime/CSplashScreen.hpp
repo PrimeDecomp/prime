@@ -24,13 +24,22 @@ public:
   bool IsCurrentSplashScreen(const ESplashScreen splash) const { return mSplash == splash; }
 
 private:
+  enum EProgressivePhase {
+    kPP_Initial,
+    kPP_Selection,
+    kPP_Confirmation,
+    kPP_Complete,
+  };
+
   ESplashScreen mSplash;
   float mSplashTimeout;
   float mProgressiveSelectionTimeout;
-  int mProgressivePhase;
+  EProgressivePhase mProgressivePhase;
   bool mProgressiveMode;
   bool mTexturesLoaded;
   TToken< CTexture > mSplashTexture;
 };
+
+CHECK_SIZEOF(CSplashScreen, 0x30)
 
 #endif // _CSPLASHSCREEN
