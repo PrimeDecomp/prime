@@ -4,6 +4,7 @@
 #include "MetroidPrime/Tweaks/ITweakObject.hpp"
 
 #include "Kyoto/Graphics/CColor.hpp"
+#include "Kyoto/Math/CVector3f.hpp"
 #include "Kyoto/TOneStatic.hpp"
 
 #include "rstl/vector.hpp"
@@ -23,11 +24,26 @@ public:
   float x24_seekerScale;
   float x28_seekerAngleSpeed;
   float x2c_xrayRetAngleSpeed;
-  uchar x30_pad[0x20]; // CVector3f x30_, x3c_, floats x48_, x4c_
+  CVector3f x30_;
+  CVector3f x3c_;
+  float x48_;
+  float x4c_;
   float x50_orbitPointZOffset;
   float x54_orbitPointInTime;
   float x58_orbitPointOutTime;
-  uchar x5c_pad1[0x54]; // fields x5c through xaf
+  float x5c_;
+  CVector3f x60_;
+  CVector3f x6c_;
+  CVector3f x78_;
+  CVector3f x84_;
+  float x90_;
+  float x94_;
+  float x98_;
+  float x9c_;
+  float xa0_;
+  float xa4_;
+  float xa8_;
+  float xac_;
   CColor xb0_thermalReticuleColor;
   float xb4_targetFlowerScale;
   CColor xb8_targetFlowerColor;
@@ -93,10 +109,22 @@ public:
   CColor x1c0_crosshairsColor;
   float x1c4_crosshairsScaleDur;
   bool x1c8_drawOrbitPoint;
-  uchar x1c9_pad[0x03];
   CColor x1cc_chargeGaugePulseColorLow;
   float x1d0_chargeGaugePulsePeriod;
-  uchar x1d4_pad3[0x38]; // x1d4 through x20b
+  CColor x1d4_;
+  CColor x1d8_;
+  CColor x1dc_;
+  float x1e0_;
+  float x1e4_;
+  float x1e8_;
+  float x1ec_;
+  float x1f0_;
+  float x1f4_;
+  float x1f8_;
+  float x1fc_;
+  float x200_;
+  float x204_;
+  float x208_;
   float x20c_reticuleClampMin;
   float x210_reticuleClampMax;
   CColor x214_xrayRetRingColor;
@@ -104,8 +132,9 @@ public:
   float x21c_scanTargetClampMin;
   float x220_scanTargetClampMax;
   float x224_angularLagSpeed;
-  uchar x228_pad[0x04]; // remaining
 };
+
+CHECK_SIZEOF(CTweakTargeting, 0x228)
 
 extern CTweakTargeting* gpTweakTargeting;
 
