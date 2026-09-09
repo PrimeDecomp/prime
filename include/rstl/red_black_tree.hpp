@@ -98,8 +98,8 @@ public:
   struct iterator : public const_iterator {
     iterator(node* node, const header* header) : const_iterator(node, header) {}
 
-    P* operator->() { return const_iterator::mNode->get_value(); }
-    P& operator*() { return *const_iterator::mNode->get_value(); }
+    P* operator->() const { return const_iterator::mNode->get_value(); }
+    P& operator*() const { return *const_iterator::mNode->get_value(); }
     node* get_node() { return const_iterator::mNode; }
 
     iterator& operator++() {
@@ -175,36 +175,21 @@ public:
     return noResult ? nullptr : needle;
   }
 
-  iterator lower_bound(const T& key) {
-    node* n = x8_header.get_root();
-    node* result = nullptr;
-    while (n != nullptr) {
-      if (!x1_cmp(x0_selector(*n->get_value()), key)) {
-        result = n;
-        n = n->get_left();
-      } else {
-        n = n->get_right();
-      }
-    }
-    return iterator(result, &x8_header);
+  iterator lower_bound(const T& key) { return iterator(find_lower_bound(key), &x8_header); }
+  const_iterator lower_bound(const T& key) const {
+    return const_iterator(find_lower_bound(key), &x8_header);
   }
 
-  iterator upper_bound(const T& key) {
-    node* n = x8_header.get_root();
-    node* result = nullptr;
-    while (n != nullptr) {
-      if (x1_cmp(key, x0_selector(*n->get_value()))) {
-        result = n;
-        n = n->get_left();
-      } else {
-        n = n->get_right();
-      }
-    }
-    return iterator(result, &x8_header);
+  iterator upper_bound(const T& key) { return iterator(find_upper_bound(key), &x8_header); }
+  const_iterator upper_bound(const T& key) const {
+    return const_iterator(find_upper_bound(key), &x8_header);
   }
 
   pair< iterator, iterator > equal_range(const T& key) {
     return pair< iterator, iterator >(lower_bound(key), upper_bound(key));
+  }
+  pair< const_iterator, const_iterator > equal_range(const T& key) const {
+    return pair< const_iterator, const_iterator >(lower_bound(key), upper_bound(key));
   }
 
   iterator erase(iterator it) {
@@ -239,6 +224,34 @@ public:
   int size() const { return x4_count; }
 
 private:
+  node* find_lower_bound(const T& key) const {
+    node* n = x8_header.get_root();
+    node* result = nullptr;
+    while (n != nullptr) {
+      if (!x1_cmp(x0_selector(*n->get_value()), key)) {
+        result = n;
+        n = n->get_left();
+      } else {
+        n = n->get_right();
+      }
+    }
+    return result;
+  }
+
+  node* find_upper_bound(const T& key) const {
+    node* n = x8_header.get_root();
+    node* result = nullptr;
+    while (n != nullptr) {
+      if (x1_cmp(key, x0_selector(*n->get_value()))) {
+        result = n;
+        n = n->get_left();
+      } else {
+        n = n->get_right();
+      }
+    }
+    return result;
+  }
+
   S x0_selector;
   Cmp x1_cmp;
   Alloc x2_allocator;
@@ -303,7 +316,7 @@ red_black_tree< T, P, IsMulti, S, Cmp, Alloc >::insert_into(node* start, const P
     node* newNode = nullptr;
     while (newNode == nullptr) {
       bool firstComp = x1_cmp(x0_selector(item), x0_selector(*n->get_value()));
-      if (!firstComp && !x1_cmp(x0_selector(*n->get_value()), x0_selector(item))) {
+      if (!IsMulti && !firstComp && !x1_cmp(x0_selector(*n->get_value()), x0_selector(item))) {
         return pair< iterator, bool >(iterator(n, &x8_header), false);
       }
       if (firstComp) {

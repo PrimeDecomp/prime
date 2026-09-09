@@ -8,7 +8,7 @@
 #include "rstl/allocator.hpp"
 namespace rstl {
 template < typename K, typename V, typename Cmp = less< K >, typename Alloc = rmemory_allocator >
-class multimap {
+class multimap : public red_black_tree< K, pair< K, V >, true, select1st< pair< K, V > >, Cmp, Alloc > {
 public:
   typedef pair< K, V > value_type;
 
@@ -16,24 +16,9 @@ private:
   typedef red_black_tree< K, value_type, true, select1st< value_type >, Cmp, Alloc > rep_type;
 
 public:
-  typedef typename rep_type::iterator iterator;
-  typedef typename rep_type::const_iterator const_iterator;
-
-  iterator insert(const value_type& item) { return inner.insert(item).first; }
-
-  const_iterator begin() const { return inner.begin(); }
-  const_iterator end() const { return inner.end(); }
-
-  iterator find(const K& key) { return inner.find(key); }
-  const_iterator find(const K& key) const { return inner.find(key); }
-
-  rstl::pair< iterator, iterator > equal_range(const K& key) { return inner.equal_range(key); }
-
-  void erase(iterator it) { inner.erase(it); }
-
-  rep_type& get_inner() { return inner; }  // hack for CWeaponMgr inlining depth
-private:
-  rep_type inner;
+  explicit multimap(const Cmp& cmp = Cmp(), const Alloc& alloc = Alloc())
+  : rep_type(select1st< value_type >(), cmp, alloc) {}
+  ~multimap() {}
 };
 
 typedef multimap< char, char > unk_multimap;

@@ -148,6 +148,6 @@ inline rstl::red_black_tree< T, P, IsMulti, S, Cmp, Alloc >::red_black_tree(
 
 template < typename T, typename Cmp, typename Alloc >
 inline rstl::set< T, Cmp, Alloc >::set(CInputStream& in, const Cmp& cmp, const Alloc& alloc)
-: inner(in, identity< T >(), cmp, alloc) {}
+: rep_type(in, identity< T >(), cmp, alloc) {}
 
 #endif // _CINPUTSTREAM
