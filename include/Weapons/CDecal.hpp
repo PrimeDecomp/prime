@@ -46,6 +46,7 @@ public:
   void Update(float dt);
 
   bool IsDone() const { return x5c_flags == 7; }
+  CVector3f GetTranslation() const { return xc_transform.GetTranslation(); }
 
 private:
   TLockedToken< CDecalDescription > x0_description;
