@@ -1,13 +1,14 @@
 #include "Weapons/CProjectileWeaponDataFactory.hpp"
 
-#include "MetroidPrime/Weapons/CWeapon.hpp"
+#include "Kyoto/CRandom16.hpp"
+#include "Kyoto/CVParamTransfer.hpp"
 #include "Weapons/CWeaponDescription.hpp"
 
 #include <Kyoto/Particles/CParticleDataFactory.hpp>
 #include <rstl/vector.hpp>
 
-CFactoryFnReturn FProjectileWeaponDataFactory(const SObjectTag& tag, CInputStream& in,
-                                              const CVParamTransfer& xfer) {
+const CFactoryFnReturn FProjectileWeaponDataFactory(const SObjectTag& tag, CInputStream& in,
+                                                    const CVParamTransfer& xfer) {
   rstl::rc_ptr< IVParamObj > obj = xfer.x0_obj;
   CSimplePool* pool = static_cast< TObjOwnerParam< CSimplePool* >* >(obj.GetPtr())->GetData();
   return CProjectileWeaponDataFactory::GetGeneratorDesc(in, pool);
@@ -15,7 +16,7 @@ CFactoryFnReturn FProjectileWeaponDataFactory(const SObjectTag& tag, CInputStrea
 
 CWeaponDescription* CProjectileWeaponDataFactory::GetGeneratorDesc(CInputStream& in,
                                                                    CSimplePool* pool) {
-  rstl::vector< unkptr > t; // TODO: See if we can figure out what this actually is
+  rstl::vector< CAssetId > assets;
   return CreateGeneratorDescription(in, pool);
 }
 
@@ -30,14 +31,14 @@ CWeaponDescription* CProjectileWeaponDataFactory::CreateGeneratorDescription(CIn
   return desc;
 }
 
-void CProjectileWeaponDataFactory::CreateWPSM(CWeaponDescription* desc, CInputStream& in,
+bool CProjectileWeaponDataFactory::CreateWPSM(CWeaponDescription* desc, CInputStream& in,
                                               CSimplePool* pool) {
-  CRandom16 _;
-  CGlobalRandom __(_);
+  bool done = false;
+  CRandom16 random;
+  CGlobalRandom globalRandom(random);
 
-  while (true) {
-    uint cls = CParticleDataFactory::GetClassID(in);
-    switch (cls) {
+  while (!done) {
+    switch (CParticleDataFactory::GetClassID(in)) {
     case 'IORN':
       desc->x0_IORN = CParticleDataFactory::GetVectorElement(in);
       break;
@@ -60,14 +61,123 @@ void CProjectileWeaponDataFactory::CreateWPSM(CWeaponDescription* desc, CInputSt
       rstl::vector< CAssetId > assets;
       rstl::optional_object< TToken< CGenDescription > > child =
           CParticleDataFactory::GetChildGeneratorDesc(in, pool, assets);
-      desc->x34_APSM = *child;
+      if (child) {
+        desc->x34_APSM = TLockedToken< CGenDescription >(*child);
+      } else {
+        desc->x34_APSM = rstl::optional_object_null();
+      }
+      break;
+    }
+    case 'AP11':
+      desc->x2a_AP11 = CParticleDataFactory::GetBool(in);
+      break;
+    case 'APS2': {
+      rstl::vector< CAssetId > assets;
+      rstl::optional_object< TToken< CGenDescription > > child =
+          CParticleDataFactory::GetChildGeneratorDesc(in, pool, assets);
+      if (child) {
+        desc->x44_APS2 = TLockedToken< CGenDescription >(*child);
+      } else {
+        desc->x44_APS2 = rstl::optional_object_null();
+      }
+      break;
+    }
+    case 'AP21':
+      desc->x2b_AP21 = CParticleDataFactory::GetBool(in);
+      break;
+    case 'APSO':
+      desc->x28_APSO = CParticleDataFactory::GetBool(in);
+      break;
+    case 'ASW1': {
+      if (CParticleDataFactory::GetClassID(in) != 'NONE') {
+        CAssetId id = in.ReadLong();
+        desc->x54_ASW1 = TLockedToken< CSwooshDescription >(pool->GetObj(SObjectTag('SWHC', id)));
+      }
+      break;
+    }
+    case 'AS11':
+      desc->x2c_AS11 = CParticleDataFactory::GetBool(in);
+      break;
+    case 'ASW2': {
+      if (CParticleDataFactory::GetClassID(in) != 'NONE') {
+        CAssetId id = in.ReadLong();
+        desc->x64_ASW2 = TLockedToken< CSwooshDescription >(pool->GetObj(SObjectTag('SWHC', id)));
+      }
+      break;
+    }
+    case 'AS12':
+      desc->x2d_AS12 = CParticleDataFactory::GetBool(in);
+      break;
+    case 'ASW3': {
+      if (CParticleDataFactory::GetClassID(in) != 'NONE') {
+        CAssetId id = in.ReadLong();
+        desc->x74_ASW3 = TLockedToken< CSwooshDescription >(pool->GetObj(SObjectTag('SWHC', id)));
+      }
+      break;
+    }
+    case 'AS13':
+      desc->x2e_AS13 = CParticleDataFactory::GetBool(in);
+      break;
+    case 'OHEF': {
+      if (CParticleDataFactory::GetClassID(in) != 'NONE') {
+        CAssetId id = in.ReadLong();
+        desc->x84_OHEF = TLockedToken< CModel >(pool->GetObj(SObjectTag('CMDL', id)));
+      }
       break;
     }
     case 'PSCL':
       desc->x18_PSCL = CParticleDataFactory::GetVectorElement(in);
       break;
-    case '_END':
+    case 'PCOL':
+      desc->x1c_PCOL = CParticleDataFactory::GetColorElement(in);
+      break;
+    case 'COLR': {
+      if (CParticleDataFactory::GetClassID(in) != 'NONE') {
+        CAssetId id = in.ReadLong();
+        desc->x94_COLR =
+            TLockedToken< CCollisionResponseData >(pool->GetObj(SObjectTag('CRSC', id)));
+      }
       break;
     }
+    case 'POFS':
+      desc->x20_POFS = CParticleDataFactory::GetVectorElement(in);
+      break;
+    case 'OFST':
+      desc->x24_OFST = CParticleDataFactory::GetVectorElement(in);
+      break;
+    case 'HOMG':
+      desc->x29_HOMG = CParticleDataFactory::GetBool(in);
+      break;
+    case 'TRAT':
+      desc->x30_TRAT = CParticleDataFactory::GetRealElement(in);
+      break;
+    case 'PJFX':
+      if (CParticleDataFactory::GetClassID(in) != 'NONE') {
+        desc->xa8_PJFX = in.ReadLong();
+      }
+      break;
+    case 'RNGE':
+      desc->xac_RNGE = CParticleDataFactory::GetRealElement(in);
+      break;
+    case 'FOFF':
+      desc->xb0_FOFF = CParticleDataFactory::GetRealElement(in);
+      break;
+    case 'EWTR':
+      desc->xa4_EWTR = CParticleDataFactory::GetBool(in);
+      break;
+    case 'LWTR':
+      desc->xa5_LWTR = CParticleDataFactory::GetBool(in);
+      break;
+    case 'SWTR':
+      desc->xa6_SWTR = CParticleDataFactory::GetBool(in);
+      break;
+    case '_END':
+      done = true;
+      break;
+    default:
+      return false;
+    }
   }
+
+  return true;
 }
