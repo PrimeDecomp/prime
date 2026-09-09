@@ -19,10 +19,10 @@ public:
   const rstl::string& GetGroupSetName() const { return x20_groupSetName; }
   void FreeSampleBuffer();
   int AramUsage() const { return x30_aramSize; }
-  const void* GetPool() const;
-  const void* GetProject() const;
-  const void* GetSample() const;
-  const void* GetSampleDir() const;
+  void* GetPool() const { return x34_; }
+  void* GetProject() const { return x38_; }
+  void* GetSample() const { return x40_; }
+  void* GetSampleDir() const { return x3c_; }
 
 private:
   uint ReadHeader(void* ptr, uint len, uint& readPosition) {
@@ -53,11 +53,18 @@ public:
   void FreeAllBuffers();
   const rstl::string& GetName() const { return x10_groupSetName; }
   int AramUsage() { return x20_groupSetTok.data()->AramUsage(); }
+  void* GetProjBuffer() const { return x20_groupSetTok.data()->GetProject(); }
+  void* GetSampleBuffer() const { return x20_groupSetTok.data()->GetSample(); }
+  void* GetSDirBuffer() const { return x20_groupSetTok.data()->GetSampleDir(); }
+  void* GetPoolBuffer() const { return x20_groupSetTok.data()->GetPool(); }
 
 private:
   rstl::string x0_baseDir;
   rstl::string x10_groupSetName;
   rstl::optional_object< TLockedToken< CAudioGrpSetLoc > > x20_groupSetTok;
 };
+
+CHECK_SIZEOF(CAudioGrpSetLoc, 0x44)
+CHECK_SIZEOF(CAudioGroupSet, 0x30)
 
 #endif // _CAUDIOGROUPSET

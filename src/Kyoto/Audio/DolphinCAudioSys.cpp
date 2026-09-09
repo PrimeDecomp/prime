@@ -4,6 +4,7 @@
 #include "Kyoto/Audio/CAudioGroupSet.hpp"
 
 #include "dolphin/ai.h"
+#include "dolphin/ar.h"
 #include "dolphin/dtk.h"
 #include "dolphin/os.h"
 
@@ -11,6 +12,7 @@
 #include "musyx/musyx.h"
 
 #include <rstl/math.hpp>
+#include <string.h>
 
 const ushort CAudioSys::kVolumeTable[] = {
     // pow(i / 127, 2) * 32768
@@ -146,18 +148,18 @@ const ushort CAudioSys::kVolumeTable[] = {
 bool CAudioSys::mInitialized = false;
 bool CAudioSys::mIsListenerActive = false;
 bool CAudioSys::mVerbose = false;
-uint CAudioSys::mUnusedEmitterHandle = 0;
 uchar CAudioSys::mMaxNumEmitters = 0;
 rstl::map< rstl::string, rstl::ncrc_ptr< CAudioGroupSet > >* CAudioSys::mpGroupSetDB = nullptr;
 rstl::map< uint, rstl::string >* CAudioSys::mpGroupSetResNameDB = nullptr;
 rstl::map< rstl::string, rstl::ncrc_ptr< CAudioSys::CTrkData > >* CAudioSys::mpDVDTrackDB = nullptr;
 rstl::vector< CAudioSys::CEmitterData >* CAudioSys::mpEmitterDB = nullptr;
 SND_LISTENER* CAudioSys::mpListener = nullptr;
+uint CAudioSys::mUnusedEmitterHandle = 0;
 CAudioSys::ESurroundModes CAudioSys::mSurroundMode = CAudioSys::kSM_Mono;
 int CAudioSys::mMaxAramUsage = 0;
 int CAudioSys::mCurrentAramUsage = 0;
-const uchar CAudioSys::kEmitterMedPriority = 0x7f;
 const uchar CAudioSys::kMaxVolume = 0x7f;
+const uchar CAudioSys::kEmitterMedPriority = 0x7f;
 bool CAudioSys::mProLogic2 = true;
 
 short CAudioSys::mVolumeScale = 0x7f;
@@ -166,7 +168,7 @@ short CAudioSys::mDefaultVolumeScale = 0x7f;
 bool CAudioSys::mAICallbackEnabled = true;
 void* CAudioSys::mAICallback = nullptr;
 
-uint lbl_805A95BC = 0;
+void* CAudioSys::mpSampleDataUploadBuffer = nullptr;
 
 const rstl::string CAudioSys::mpDefaultInvalidString(rstl::string_l("NULL"));
 
@@ -250,8 +252,8 @@ bool CAudioSys::SysLoadGroupSet(CSimplePool* pool, const uint id) {
     }
     mCurrentAramUsage = aramUsage;
     const rstl::string& groupName = group->GetName();
-    mpGroupSetDB->insert(rstl::pair< rstl::string, rstl::ncrc_ptr< CAudioGroupSet > >(
-        groupName, group));
+    mpGroupSetDB->insert(
+        rstl::pair< rstl::string, rstl::ncrc_ptr< CAudioGroupSet > >(groupName, group));
     mpGroupSetResNameDB->insert(rstl::pair< uint, rstl::string >(id, groupName));
     return false;
   }
@@ -259,8 +261,7 @@ bool CAudioSys::SysLoadGroupSet(CSimplePool* pool, const uint id) {
   return true;
 }
 
-bool CAudioSys::SysLoadGroupSet(const CToken& token, const rstl::string& name,
-                                const uint id) {
+bool CAudioSys::SysLoadGroupSet(const CToken& token, const rstl::string& name, const uint id) {
   rstl::rc_ptr< CAudioGroupSet > existing = FindGroupSet(name);
   if (!existing) {
     rstl::ncrc_ptr< CAudioGroupSet > group(
@@ -271,8 +272,8 @@ bool CAudioSys::SysLoadGroupSet(const CToken& token, const rstl::string& name,
     }
     mCurrentAramUsage = aramUsage;
     const rstl::string& groupName = group->GetName();
-    mpGroupSetDB->insert(rstl::pair< rstl::string, rstl::ncrc_ptr< CAudioGroupSet > >(
-        groupName, group));
+    mpGroupSetDB->insert(
+        rstl::pair< rstl::string, rstl::ncrc_ptr< CAudioGroupSet > >(groupName, group));
     mpGroupSetResNameDB->insert(rstl::pair< uint, rstl::string >(id, groupName));
     return false;
   }
@@ -310,14 +311,33 @@ bool CAudioSys::SysUnloadGroupSet(const rstl::string& name) {
   return false;
 }
 
+void* CAudioSys::SampleDataUploadCallback(u32 address, u32 bytes) {
+  volatile bool busy = true;
+  while (busy) {
+    busy = ARGetDMAStatus() != 0;
+  }
+  memcpy(mpSampleDataUploadBuffer, reinterpret_cast< void* >(address), bytes);
+  DCFlushRange(mpSampleDataUploadBuffer, bytes);
+  return mpSampleDataUploadBuffer;
+}
+
 bool CAudioSys::SysPushGroupIntoARAM(const rstl::string& name, const uchar groupId) {
   rstl::ncrc_ptr< CAudioGroupSet > groupSet = FindGroupSet(name);
-  if (!groupSet) {
-    return false;
+  CAudioGroupSet* group = groupSet.GetPtr();
+  if (group) {
+    void* project = group->GetProjBuffer();
+    void* samples = group->GetSampleBuffer();
+    void* sampleDir = group->GetSDirBuffer();
+    void* pool = group->GetPoolBuffer();
+    uchar buffer[0x1020];
+    mpSampleDataUploadBuffer =
+        reinterpret_cast< void* >((reinterpret_cast< uint >(buffer) + 31) & ~31);
+    sndSetSampleDataUploadCallback(SampleDataUploadCallback, 0x1000);
+    const bool result = sndPushGroup(project, groupId, samples, sampleDir, pool);
+    sndSetSampleDataUploadCallback(nullptr, 0);
+    return result;
   }
-
-  ++mCurrentAramUsage;
-  return sndPushGroup(nullptr, groupId, nullptr, nullptr, nullptr);
+  return false;
 }
 
 void CAudioSys::SysPopGroupFromARAM() { sndPopGroup(); }
@@ -332,9 +352,12 @@ const rstl::string& CAudioSys::SysGetGroupSetName(const uint id) {
 }
 
 rstl::ncrc_ptr< CAudioGroupSet > CAudioSys::FindGroupSet(const rstl::string& name) {
+  if (mpGroupSetDB->size() <= 0) {
+    return rstl::ncrc_ptr< CAudioGroupSet >();
+  }
   rstl::map< rstl::string, rstl::ncrc_ptr< CAudioGroupSet > >::const_iterator it(
       mpGroupSetDB->find(name));
-  rstl::map< rstl::string, rstl::ncrc_ptr< CAudioGroupSet > >::iterator end(
+  rstl::map< rstl::string, rstl::ncrc_ptr< CAudioGroupSet > >::const_iterator end(
       mpGroupSetDB->end());
   if (it != end) {
     return it->second;
@@ -388,19 +411,10 @@ int CAudioSys::TrkQueueTrack(const rstl::string& name, void (*callback)(unsigned
 
 static void track_flusher_callback() {}
 
-static void sub_8034CA34(rstl::map< rstl::string, rstl::ncrc_ptr< CAudioSys::CTrkData > >* db) {
-  for (rstl::map< rstl::string, rstl::ncrc_ptr< CAudioSys::CTrkData > >::const_iterator it =
-           db->begin();
-       it != db->end(); ++it) {
-    it->second->SetIsTrackInUse(false);
-  }
-  db->clear();
-}
-
 void CAudioSys::TrkFlushTracks() {
   if (mpDVDTrackDB->size() > 0) {
     DTKFlushTracks(nullptr);
-    sub_8034CA34(mpDVDTrackDB);
+    mpDVDTrackDB->clear();
   }
 }
 
@@ -417,9 +431,12 @@ void CAudioSys::TrkSetVolume(const uchar left, const uchar right) { DTKSetVolume
 void CAudioSys::TrkNextTrack() { DTKNextTrack(); }
 
 rstl::ncrc_ptr< CAudioSys::CTrkData > CAudioSys::FindTrack(const rstl::string& name) {
+  if (mpDVDTrackDB->size() <= 0) {
+    return rstl::ncrc_ptr< CTrkData >();
+  }
   rstl::map< rstl::string, rstl::ncrc_ptr< CTrkData > >::const_iterator it(
       mpDVDTrackDB->find(name));
-  rstl::map< rstl::string, rstl::ncrc_ptr< CTrkData > >::iterator end(mpDVDTrackDB->end());
+  rstl::map< rstl::string, rstl::ncrc_ptr< CTrkData > >::const_iterator end(mpDVDTrackDB->end());
   if (it != end) {
     return it->second;
   }
@@ -428,7 +445,7 @@ rstl::ncrc_ptr< CAudioSys::CTrkData > CAudioSys::FindTrack(const rstl::string& n
 
 void CAudioSys::S3dAddListener(const CVector3f& pos, const CVector3f& dir, const CVector3f& heading,
                                const CVector3f& up, const float frontSur, const float backSur,
-                               const float soundSpeed, const uint flags, const uchar voiume) {
+                               const float soundSpeed, const uint flags, const uchar volume) {
   if (mIsListenerActive) {
     S3dRemoveListener();
   }
@@ -451,7 +468,7 @@ void CAudioSys::S3dAddListener(const CVector3f& pos, const CVector3f& dir, const
   _up.z = up.GetZ();
   mIsListenerActive = true;
   sndAddListener(mpListener, &_pos, &_dir, &_heading, &_up, frontSur, backSur, soundSpeed, flags,
-                 voiume, nullptr);
+                 volume, nullptr);
 }
 
 bool CAudioSys::S3dUpdateListener(const CVector3f& pos, const CVector3f& dir,
@@ -492,10 +509,11 @@ uint CAudioSys::S3dAddEmitterParaEx(const C3DEmitterParmData& params, ushort gro
 
   uint handle = mUnusedEmitterHandle;
   if (handle == -1) {
-    handle = S3dFindLowerPriorityHandle(params.x29_prio);
-    if (handle == -1) {
+    uint lowerHandle = S3dFindLowerPriorityHandle(params.x29_prio);
+    if (lowerHandle == -1) {
       return -1;
     }
+    handle = lowerHandle;
   }
 
   CEmitterData& data = (*mpEmitterDB)[handle];
@@ -517,9 +535,9 @@ uint CAudioSys::S3dAddEmitterParaEx(const C3DEmitterParmData& params, ushort gro
   sndAddEmitterParaEx(&data.x0_emitter, &_pos, &_dir, params.x18_maxDist, params.x1c_distComp,
                       params.x20_flags, params.x24_sfxId, groupId, maxVol, minVol, nullptr,
                       paraInfo);
-  data._50 = true;
-  data._51 = params.x28_important;
-  data._52 = params.x29_prio;
+  data.x50_used = true;
+  data.x51_important = params.x28_important;
+  data.x52_prio = params.x29_prio;
   mUnusedEmitterHandle = S3dFindUnusedHandle();
   return handle;
 }
@@ -548,8 +566,8 @@ const bool CAudioSys::S3dRemoveEmitter(uint handle) {
   }
 
   CEmitterData& data = (*mpEmitterDB)[handle];
-  if (data._50) {
-    data._50 = false;
+  if (data.x50_used) {
+    data.x50_used = false;
     mUnusedEmitterHandle = handle;
     return sndRemoveEmitter(&data.x0_emitter);
   }
@@ -560,11 +578,11 @@ const bool CAudioSys::S3dRemoveEmitter(uint handle) {
 void CAudioSys::S3dFlushAllEmitters() {
   rstl::vector< CEmitterData >::iterator iter = mpEmitterDB->begin();
   for (; iter != mpEmitterDB->end(); ++iter) {
-    if (!iter->_50) {
+    if (!iter->x50_used) {
       continue;
     }
 
-    iter->_50 = false;
+    iter->x50_used = false;
     sndRemoveEmitter(&iter->x0_emitter);
   }
   mUnusedEmitterHandle = 0;
@@ -573,11 +591,11 @@ void CAudioSys::S3dFlushAllEmitters() {
 void CAudioSys::S3dFlushUnusedEmitters() {
   rstl::vector< CEmitterData >::iterator iter = mpEmitterDB->begin();
   for (; iter != mpEmitterDB->end(); ++iter) {
-    if (!iter->_50 || sndCheckEmitter(&iter->x0_emitter) || iter->_51) {
+    if (!iter->x50_used || sndCheckEmitter(&iter->x0_emitter) || iter->x51_important) {
       continue;
     }
 
-    iter->_50 = false;
+    iter->x50_used = false;
     sndRemoveEmitter(&iter->x0_emitter);
   }
 }
@@ -588,7 +606,7 @@ const bool CAudioSys::S3dCheckEmitter(const uint handle) {
   }
 
   CEmitterData& data = (*mpEmitterDB)[handle];
-  if (data._50) {
+  if (data.x50_used) {
     return sndCheckEmitter(&data.x0_emitter);
   }
 
@@ -601,7 +619,7 @@ uint CAudioSys::S3dEmitterVoiceID(const uint handle) {
   }
 
   CEmitterData& data = (*mpEmitterDB)[handle];
-  if (data._50) {
+  if (data.x50_used) {
     return sndEmitterVoiceID(&data.x0_emitter);
   }
 
@@ -611,7 +629,7 @@ uint CAudioSys::S3dEmitterVoiceID(const uint handle) {
 uint CAudioSys::S3dFindUnusedHandle() {
   int i = 0;
   do {
-    if (!(*mpEmitterDB)[i]._50) {
+    if (!(*mpEmitterDB)[i].x50_used) {
       break;
     }
     ++i;
@@ -629,11 +647,11 @@ uint CAudioSys::S3dFindLowerPriorityHandle(const uint prio) {
   int i = 0;
   do {
     CEmitterData& data = (*mpEmitterDB)[i];
-    if (!data._50) {
+    if (!data.x50_used) {
       break;
     }
 
-    if (data._52 <= prio && !data._51) {
+    if (data.x52_prio <= prio && !data.x51_important) {
       S3dRemoveEmitter(i);
       break;
     }
