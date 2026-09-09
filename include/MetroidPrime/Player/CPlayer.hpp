@@ -76,10 +76,10 @@ class CPlayer : public CPhysicsActor, public TOneStatic< CPlayer > {
     void ResetStats();
 
   private:
-    rstl::reserved_vector< int, 20 > x0_states;
-    rstl::reserved_vector< CVector3f, 20 > x54_positions;
-    rstl::reserved_vector< CVector3f, 20 > x148_velocities;
-    rstl::reserved_vector< CVector2f, 20 > x23c_inputs;
+    TReservedAverage< int, 20 > x0_states;
+    TReservedAverage< CVector3f, 20 > x54_positions;
+    TReservedAverage< CVector3f, 20 > x148_velocities;
+    TReservedAverage< CVector2f, 20 > x23c_inputs;
   };
 
 public:
@@ -214,7 +214,7 @@ public:
   float GetWeight() const override;
 
   // CPlayer
-  virtual bool IsTransparent();
+  virtual bool IsTransparent() const;
 
   void EnableLeaveMorphBall(bool enabled) { x590_leaveMorphballAllowed = enabled; }
 
@@ -418,7 +418,6 @@ public:
   void OrbitCarcass(CStateManager& mgr);
   void UpdateOrbitTarget(CStateManager& mgr);
   void UpdateOrbitOrientation(CStateManager& mgr);
-  bool IsTransparent() const;
 
   CPlayerGun* PlayerGun() { return x490_gun.get(); }
   const CPlayerGun* GetPlayerGun() const { return x490_gun.get(); }
