@@ -11419,8 +11419,8 @@ destroy<PQ24rstl71pair<9TUniqueId,Q24rstl45vector<9TUniqueId,Q24rstl17rmemory_al
 uninitialized_copy<Q24rstl251pointer_iterator<Q24rstl71pair<9TUniqueId,Q24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>>,Q24rstl115vector<Q24rstl71pair<9TUniqueId,Q24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,PQ24rstl71pair<9TUniqueId,Q24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>>>__4rstlFQ24rstl251pointer_iterator<Q24rstl71pair<9TUniqueId,Q24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>>,Q24rstl115vector<Q24rstl71pair<9TUniqueId,Q24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl251pointer_iterator<Q24rstl71pair<9TUniqueId,Q24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>>,Q24rstl115vector<Q24rstl71pair<9TUniqueId,Q24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>PQ24rstl71pair<9TUniqueId,Q24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>> = .text:0x802922E4; // type:function size:0x104 scope:local
 reserve__Q24rstl136vector<Q24rstl92pair<9TUniqueId,Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>,Q24rstl17rmemory_allocator>Fi = .text:0x802923E8; // type:function size:0x108 scope:weak
 reserve__Q24rstl37vector<Ui,Q24rstl17rmemory_allocator>Fi = .text:0x802924F0; // type:function size:0xF0 scope:local
-fn_802925E0 = .text:0x802925E0; // type:function size:0x38
-fn_80292618 = .text:0x80292618; // type:function size:0xA0
+SetEmitParticles__17CScriptPhazonPoolFb = .text:0x802925E0; // type:function size:0x38
+RemoveInhabitants__17CScriptPhazonPoolFR13CStateManager = .text:0x80292618; // type:function size:0xA0
 UpdateInhabitants__17CScriptPhazonPoolFR13CStateManager = .text:0x802926B8; // type:function size:0x170 scope:global
 AddToRenderer__17CScriptPhazonPoolCFRC14CFrustumPlanesRC13CStateManager = .text:0x80292828; // type:function size:0xA8 scope:global
 Accept__17CScriptPhazonPoolFR8IVisitor = .text:0x802928D0; // type:function size:0x38 scope:global
@@ -11428,7 +11428,7 @@ AcceptScriptMsg__17CScriptPhazonPoolF20EScriptObjectMessage9TUniqueIdR13CStateMa
 GetTouchBounds__17CScriptPhazonPoolCFv = .text:0x80292B74; // type:function size:0x2C scope:global
 Touch__17CScriptPhazonPoolFR6CActorR13CStateManager = .text:0x80292BA0; // type:function size:0x1C0 scope:global
 Think__17CScriptPhazonPoolFfR13CStateManager = .text:0x80292D60; // type:function size:0x4AC scope:global
-fn_8029320C = .text:0x8029320C; // type:function size:0x144
+UpdateParticleGens__17CScriptPhazonPoolFR13CStateManager = .text:0x8029320C; // type:function size:0x144
 Render__17CScriptPhazonPoolCFRC13CStateManager = .text:0x80293350; // type:function size:0x1A8 scope:global
 __dt__17CScriptPhazonPoolFv = .text:0x802934F8; // type:function size:0xE8 scope:global
 __ct__17CScriptPhazonPoolF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC9CVector3fbRCUiRCUiRCUiRCUiUiRC11CDamageInfoRC9CVector3f13ETriggerFlagsbffff = .text:0x802935E0; // type:function size:0x520 scope:global
