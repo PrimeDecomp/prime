@@ -17,8 +17,9 @@ public:
     kPM_ContinuousSystem,
   };
 
-  CParticleData(int duration, const SObjectTag& tag, const rstl::string& boneName, float scale,
-                EParentedMode mode)
+  CParticleData(int duration = 0, const SObjectTag& tag = SObjectTag(0, 0),
+                const rstl::string& boneName = rstl::string_l("root"), float scale = 1.f,
+                EParentedMode mode = kPM_Initial)
   : x0_duration(duration)
   , x4_particle(tag)
   , xc_boneName(boneName)

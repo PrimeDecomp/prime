@@ -6,8 +6,10 @@
 
 class CSoundPOINode : public CPOINode {
 public:
-  CSoundPOINode(rstl::string name, ushort type, const CCharAnimTime& time, int index, bool unique,
-                float weight, int charIdx, int flags, int sfxId, float fallOff, float maxDist);
+  CSoundPOINode(rstl::string name = "", ushort type = kPT_Sound,
+                const CCharAnimTime& time = CCharAnimTime(), int index = -1, bool unique = false,
+                float weight = 1.f, int charIdx = -1, int flags = 0, int sfxId = 0,
+                float fallOff = 0.f, float maxDist = 0.f);
   /* : CPOINode(name, type, time, index, unique, weight, charIdx, flags)
   , x38_sfxId(sfxId)
   , x3c_falloff(fallOff)
