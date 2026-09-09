@@ -292,7 +292,7 @@ CRasterFont* CGameGlobalObjects::LoadDefaultFont() {
 }
 
 void CGameGlobalObjects::PostInitialize(COsContext& osContext, CMemorySys& memorySys) {
-#if VERSION == 1
+#if VERSION != 0
   AddPaksAndFactories(osContext);
 #else
   AddPaksAndFactories();
@@ -495,7 +495,7 @@ void CMain::MemoryCardInitializePump() {
   }
 }
 
-#if VERSION == 1
+#if VERSION != 0
 void CGameGlobalObjects::AddPaksAndFactories(const COsContext& osContext) {
 #else
 void CGameGlobalObjects::AddPaksAndFactories() {
@@ -511,7 +511,7 @@ void CGameGlobalObjects::AddPaksAndFactories() {
   CErrorOutputWindow errorWindow(CErrorOutputWindow::kF_One);
   CGraphics::SetIsBeginSceneClearFb(true);
   CGraphics::SetViewport(0, 0, CGraphics::GetViewportWidth(), CGraphics::GetViewportHeight());
-#if VERSION == 1
+#if VERSION != 0
   rstl::single_ptr< IController > controller(IController::Create(osContext));
   gpController = controller.get();
 #endif
@@ -521,12 +521,12 @@ void CGameGlobalObjects::AddPaksAndFactories() {
     CGraphics::BeginScene();
     errorWindow.ShowMessage();
     CGraphics::EndScene();
-#if VERSION == 1
+#if VERSION != 0
     controller->Poll();
     gpMain->CheckReset();
 #endif
   }
-#if VERSION == 1
+#if VERSION != 0
   gpController = nullptr;
 #endif
 
@@ -610,7 +610,7 @@ bool CMain::CheckReset() {
     }
     GXDrawDone();
     GXAbortFrame();
-#if VERSION != 1
+#if VERSION == 0
     CAudioSys::TrkFlushTracks();
     AISetStreamPlayState(0);
 #endif
@@ -643,7 +643,7 @@ bool CMain::CheckReset() {
       DVDCancelAll();
       DVDCommandBlock block;
       DVDCancelStream(&block);
-#if VERSION == 1
+#if VERSION != 0
       if (CAudioSys::mInitialized) {
         CAudioSys::TrkFlushTracks();
       }

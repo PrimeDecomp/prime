@@ -29,7 +29,7 @@ public:
   CGameGlobalObjects(COsContext&, CMemorySys&);
 
   void PostInitialize(COsContext&, CMemorySys&);
-#if VERSION == 1
+#if VERSION != 0
   void AddPaksAndFactories(const COsContext& osContext);
 #else
   void AddPaksAndFactories();
