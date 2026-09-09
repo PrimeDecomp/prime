@@ -22,14 +22,8 @@ public:
   rstl::pair< float, int > FindBestAnimation(const CPASAnimParmData& data, int ignoreAnim) const;
   rstl::pair< float, int > FindBestAnimation(const CPASAnimParmData&, CRandom16&, int) const;
 
-  size_t GetNumAnimStates() const;                           // { return x0_states.size(); }
-  const CPASAnimState* GetAnimStateByIndex(int index) const; /* {
-    if (index >= x0_states.size()) {
-      return nullptr;
-    }
-
-    return &x0_states[index];
-  }*/
+  size_t GetNumAnimStates() const;
+  const CPASAnimState* GetAnimStateByIndex(int index) const;
 
   void AddAnimState(const CPASAnimState& state);
   int GetDefaultState() const { return x10_defaultState; }
