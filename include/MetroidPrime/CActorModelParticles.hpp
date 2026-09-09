@@ -124,7 +124,7 @@ public:
   void LightDudeOnFire(CActor& actor);
   void StopElectric(CActor& actor);
   void StartElectric(CActor& actor);
-  void StartIce(CActor& actor, CStateManager& mgr);
+  void StartIce(CActor& actor);
   void DoIcePop(CActor& actor);
   void DoFirePop(CActor& actor);
   void StartAsh(CActor& actor);

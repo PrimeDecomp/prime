@@ -495,7 +495,7 @@ void CActorModelParticles::DoIcePop(CActor& actor) {
   it->UseType(kST_IcePop);
 }
 
-void CActorModelParticles::StartIce(CActor& actor, CStateManager& mgr) {
+void CActorModelParticles::StartIce(CActor& actor) {
   AUTO(it, FindOrCreateSystem(actor));
   it->UseType(kST_Ice);
 }
