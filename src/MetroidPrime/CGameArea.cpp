@@ -517,7 +517,7 @@ void CGameArea::LoadScriptObjects(CStateManager& mgr) {
   for (int i = 0; i < count; ++i) {
     TLayerId layer(i);
     if (layers.IsLayerActive(x4_selfIdx, layer)) {
-      rstl::pair< const uchar*, int > buffer = GetLayerScriptBuffer(layer.Value());
+      rstl::pair< const uchar*, int > buffer = GetLayerScriptBuffer(layer);
       CMemoryInStream stream(buffer.first, buffer.second);
       mgr.LoadScriptObjects(GetId(), stream, ids);
     }
@@ -1174,9 +1174,9 @@ bool CGameArea::IsFinishedOccluding() const {
   return true;
 }
 
-rstl::pair< const uchar*, int > CGameArea::GetLayerScriptBuffer(const int& layer) {
+rstl::pair< const uchar*, int > CGameArea::GetLayerScriptBuffer(const TLayerId layer) const {
   if (xf0_24_postConstructed) {
-    const rstl::pair< int, int >& offsets = x12c_postConstructed->x110c_layerOffsets[layer];
+    const rstl::pair< int, int >& offsets = x12c_postConstructed->x110c_layerOffsets[layer.Value()];
     return rstl::pair< const uchar*, int >(
         reinterpret_cast< const uchar* >(x12c_postConstructed->x10c8_sclyBuf.get()) + offsets.first,
         offsets.second);
@@ -1287,7 +1287,7 @@ void CGameArea::UpdateWeaponWorldLighting(float dt) {
   }
 }
 
-ushort CGameArea::LookupPVSID(TUniqueId id) {
+uint CGameArea::LookupPVSID(TUniqueId id) {
   return x12c_postConstructed->xa4_pvsEntityMap[id.Value()].x0_pvsId;
 }
 

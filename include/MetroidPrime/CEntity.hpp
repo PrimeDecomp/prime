@@ -43,6 +43,8 @@ public:
 private:
   friend class CStateManager;
 
+  void __SetCurrentAreaId(TAreaId areaId) { x4_areaId = areaId; }
+
   TAreaId x4_areaId;
   TUniqueId x8_uid;
   TEditorId xc_editorId;

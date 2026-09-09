@@ -28,6 +28,8 @@
 #include "rstl/single_ptr.hpp"
 #include "rstl/vector.hpp"
 
+struct TLayerId;
+
 class CAreaOctTree;
 class CAreaBspTree;
 class CDvdRequest;
@@ -278,14 +280,14 @@ public:
   void UpdateThermalVisor(float dt);
   void UpdateWeaponWorldLighting(float dt);
   TUniqueId LookupPVSUniqueID(TUniqueId id);
-  ushort LookupPVSID(TUniqueId id);
+  uint LookupPVSID(TUniqueId id);
   void UpdateFog(const float dt);
   void SetXRaySpeedAndTarget(float speed, float target);
   void SetThermalSpeedAndTarget(float speed, float target);
   void SetWeaponWorldLighting(float speed, float target);
 
   float GetXRayFogDistance();
-  rstl::pair< const uchar*, int > GetLayerScriptBuffer(const int& layer);
+  rstl::pair< const uchar*, int > GetLayerScriptBuffer(const TLayerId layer) const;
 
   void SetAreaAttributes(CScriptAreaAttributes* areaAttributes);
   bool TryTakingOutOfARAM();
@@ -317,6 +319,9 @@ public:
   Dock& DockNC(int idx) { return xcc_docks[idx]; }
   int GetDockCount() const { return xcc_docks.size(); }
   CAreaObjectList* ObjectList() const { return x12c_postConstructed->x10c0_areaObjectList.get(); }
+  const CAreaObjectList* GetObjectList() const {
+    return x12c_postConstructed->x10c0_areaObjectList.get();
+  }
   const CAreaFog* GetAreaFog() const { return x12c_postConstructed->x10c4_areaFog.get(); }
   CAreaFog* AreaFog() { return x12c_postConstructed->x10c4_areaFog.get(); }
   EOcclusionState GetOcclusionState() const {
