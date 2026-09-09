@@ -719,7 +719,7 @@ void CActor::ProcessSoundEvent(const int sfxId, const float weight, const int fl
     parms.xc_dir = CVector3f::Zero();
     parms.x24_sfxId = id;
 
-    bool useAcoustics = (flags & 0x80) == 0;
+    const bool useAcoustics = (flags & 0x80) == 0;
     bool looping = (sfxId & 0x80000000) != 0;
     bool nonEmitter = (sfxId & 0x40000000) != 0;
 
@@ -730,7 +730,7 @@ void CActor::ProcessSoundEvent(const int sfxId, const float weight, const int fl
           CSfxHandle handle;
           if (nonEmitter) {
             handle =
-                CSfxManager::SfxStart(id, 1.f, 0.f, true, CSfxManager::kMedPriority, true, aid);
+                CSfxManager::SfxStart(id, 127, 64, true, CSfxManager::kMedPriority, true, aid);
           } else {
             handle =
                 CSfxManager::AddEmitter(parms, useAcoustics, CSfxManager::kMedPriority, true, aid);
@@ -751,7 +751,7 @@ void CActor::ProcessSoundEvent(const int sfxId, const float weight, const int fl
           if (handle) {
             x88_sfxId = id;
             x8c_loopingSfxHandle = handle;
-            if (xe6_30_enablePitchBend) {
+            if (xe6_30_enablePitchBend && handle) {
               CSfxManager::PitchBend(handle, xc0_pitchBend);
             }
           }
@@ -759,7 +759,7 @@ void CActor::ProcessSoundEvent(const int sfxId, const float weight, const int fl
       } else {
         CSfxHandle handle;
         if (nonEmitter) {
-          handle = CSfxManager::SfxStart(id, 1.f, 0.f, useAcoustics, CSfxManager::kMedPriority,
+          handle = CSfxManager::SfxStart(id, 127, 64, useAcoustics, CSfxManager::kMedPriority,
                                          false, aid);
         } else {
           handle =

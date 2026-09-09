@@ -612,7 +612,7 @@ config.libs = [
                 "MetroidPrime/Enemies/PatternedCastTo.cpp",
             ),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/TCastTo.cpp"),
-            Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptSound.cpp"),
+            Object(MatchingFor("GM8E01_00"), "MetroidPrime/ScriptObjects/CScriptSound.cpp"),
             Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptPlatform.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/UserNames.cpp"),
             Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptGenerator.cpp"),

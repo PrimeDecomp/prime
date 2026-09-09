@@ -292,7 +292,7 @@ void CSfxManager::UpdateListener(const CVector3f& pos, const CVector3f& dir, con
 }
 
 CSfxHandle CSfxManager::AddEmitter(const SND_FXID id, const CVector3f& pos, const CVector3f& dir,
-                                   const bool useAcoustics, const bool looped, const short prio,
+                                   bool useAcoustics, const bool looped, const short prio,
                                    const int areaId) {
   CAudioSys::C3DEmitterParmData emitterParm(150, 0.1f, 1, 127, 20);
   emitterParm.x0_pos = pos;
@@ -302,7 +302,7 @@ CSfxHandle CSfxManager::AddEmitter(const SND_FXID id, const CVector3f& pos, cons
 }
 
 CSfxHandle CSfxManager::AddEmitter(const SND_FXID id, const CVector3f& pos, const CVector3f& dir,
-                                   const uchar vol, const bool useAcoustics, const bool looped,
+                                   const uchar vol, bool useAcoustics, const bool looped,
                                    const short prio, const int areaId) {
   CAudioSys::C3DEmitterParmData emitterParm(150.f, 0.1f, 1, vol > 20 ? vol : 21, 20);
   emitterParm.x24_sfxId = id;

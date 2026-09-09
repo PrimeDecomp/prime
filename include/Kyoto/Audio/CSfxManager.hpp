@@ -194,7 +194,7 @@ public:
                                const bool looped = false, const short prio = kMedPriority,
                                const int areaId = kAllAreas);
   static CSfxHandle AddEmitter(CAudioSys::C3DEmitterParmData& parmData,
-                               const bool useAcoustics = false, const short prio = kMedPriority,
+                               bool useAcoustics = false, const short prio = kMedPriority,
                                const bool looped = false, const int areaId = kAllAreas);
 
   static void AddListener(ESfxChannels channel, const CVector3f& pos, const CVector3f& dir,
