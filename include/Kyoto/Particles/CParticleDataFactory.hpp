@@ -11,9 +11,10 @@ class CInputStream;
 
 class CParticleDataFactory {
 public:
-  static CGenDescription* GetGeneratorDesc(CInputStream& in, CSimplePool* pool, uint offset);
+  static CGenDescription* GetGeneratorDesc(CInputStream& in, CSimplePool* pool, uint id);
   static CGenDescription* CreateGeneratorDescription(CInputStream&, rstl::vector< uint >& assets,
-                                                     uint offset, CSimplePool* pool);
+                                                     uint id, CSimplePool* pool);
+  static void LoadGPSMTokens(CGenDescription* desc);
   static bool CreateGPSM(CGenDescription* desc, CInputStream& in,
                          rstl::vector< CAssetId >& resources, CSimplePool* pool);
   static CUVElement* GetTextureElement(CInputStream& in, CSimplePool* resPool);
@@ -30,10 +31,13 @@ public:
   static FourCC GetClassID(CInputStream& in);
   static rstl::optional_object< TToken< CModel > > GetModel(CInputStream& in, CSimplePool* pool);
   static rstl::optional_object< TToken< CGenDescription > >
-  GetChildGeneratorDesc(CInputStream& in, CSimplePool* pool, rstl::vector< CAssetId >& resources);
+  GetChildGeneratorDesc(CInputStream& in, CSimplePool* pool,
+                        const rstl::vector< CAssetId >& resources);
+  static rstl::optional_object< TToken< CGenDescription > >
+  GetChildGeneratorDesc(CAssetId id, CSimplePool* pool, const rstl::vector< CAssetId >& resources);
   static rstl::optional_object< TToken< CSwooshDescription > >
   GetSwooshGeneratorDesc(CInputStream& in, CSimplePool* pool);
-  static rstl::optional_object< CToken >
+  static rstl::optional_object< TToken< CElectricDescription > >
   GetElectricGeneratorDesc(CInputStream& in, CSimplePool* pool);
 };
 

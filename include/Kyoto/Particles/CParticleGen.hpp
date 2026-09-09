@@ -1,6 +1,8 @@
 #ifndef _CPARTICLEGEN
 #define _CPARTICLEGEN
 
+#include "Kyoto/SObjectTag.hpp"
+
 #include "rstl/list.hpp"
 #include "rstl/optional_object.hpp"
 #include "rstl/pair.hpp"
@@ -42,6 +44,8 @@ public:
   virtual void DestroyParticles() = 0;
   virtual void AddModifier(CWarp*);
   virtual uint Get4CharId() const = 0;
+
+  static FourCC ResType() { return 'PART'; }
 
 protected:
   rstl::list< CWarp* > x4_modifiersList;

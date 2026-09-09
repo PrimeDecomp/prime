@@ -3,6 +3,7 @@
 
 #include "types.h"
 
+#include "Kyoto/Particles/CElementAllocationChunk.hpp"
 #include "Kyoto/TToken.hpp"
 
 class CColor;
@@ -14,6 +15,15 @@ public:
   struct CElementAllocator {
     static void* Alloc(size_t sz, const char*, const char*);
     static void Free(void* ptr, size_t sz);
+
+    static CElementAllocationChunk* GetCurrentChunk() { return sCurrentChunk; }
+    static uint GetCurrentAllocatedSize() {
+      return sCurrentChunk ? sCurrentChunk->GetAllocatedSize() : 0;
+    }
+
+  private:
+    static CElementAllocationChunk* sCurrentChunk;
+    static CElementAllocationChunk* sFreeChunk;
   };
   virtual ~IElement() = 0;
 

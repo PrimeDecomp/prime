@@ -6,6 +6,17 @@
 #include "rstl/pointer_iterator.hpp"
 
 namespace rstl {
+template < typename It, typename T >
+int count(It first, It last, const T& val) {
+  int result = 0;
+  for (; first != last; ++first) {
+    if (*first == val) {
+      ++result;
+    }
+  }
+  return result;
+}
+
 template < class It, class T >
 inline It find(It first, It last, const T& val) {
   while (first != last && !(*first == val))
