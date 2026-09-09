@@ -898,11 +898,11 @@ void CSamusHud::UpdateHudDynamicLights(float dt, const CStateManager& mgr) {
   const CPlayerState::EPlayerVisor visor = playerState.GetCurrentVisor();
   const float visorTransition = playerState.GetVisorTransitionFactor();
   const CColor addColors[4] = {
-      gpTweakGui->GetVisorHudLightAdd(0), gpTweakGui->GetVisorHudLightAdd(1),
-      gpTweakGui->GetVisorHudLightAdd(2), gpTweakGui->GetVisorHudLightAdd(3)};
+      gpTweakGui->GetCombatVisorHudLightAdd(), gpTweakGui->GetXRayVisorHudLightAdd(),
+      gpTweakGui->GetScanVisorHudLightAdd(), gpTweakGui->GetThermalVisorHudLightAdd()};
   const CColor multiplyColors[4] = {
-      gpTweakGui->GetVisorHudLightMultiply(0), gpTweakGui->GetVisorHudLightMultiply(1),
-      gpTweakGui->GetVisorHudLightMultiply(2), gpTweakGui->GetVisorHudLightMultiply(3)};
+      gpTweakGui->GetCombatVisorHudLightMultiply(), gpTweakGui->GetXRayVisorHudLightMultiply(),
+      gpTweakGui->GetScanVisorHudLightMultiply(), gpTweakGui->GetThermalVisorHudLightMultiply()};
   CColor lightAdd = CColor::Lerp(addColors[0], addColors[visor], visorTransition);
   const CColor lightMultiply =
       CColor::Lerp(multiplyColors[0], multiplyColors[visor], visorTransition);
