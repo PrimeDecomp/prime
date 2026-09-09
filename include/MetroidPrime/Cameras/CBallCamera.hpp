@@ -257,6 +257,8 @@ public:
 
   static bool CheckDoorProximity(const CVector3f& vec, const CStateManager& mgr);
 
+  EBallCameraBehaviour GetBehaviourType() const { return x188_behaviour; }
+
 private:
   struct SFailsafeState {
     CTransform4f x0_playerXf;
