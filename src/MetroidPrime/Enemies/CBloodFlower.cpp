@@ -48,7 +48,7 @@ CBloodFlower::CBloodFlower(const TUniqueId uid, const rstl::string& name, const 
   mPodEffect->SetParticleEmission(false);
   mPodEffect->SetOrientation(xf.GetRotation());
   mPodEffect->SetGlobalTranslation(xf.GetTranslation());
-  const CVector3f modelScale = mData.GetScale();
+  const CVector3f& modelScale = CVector3f(mData.GetScale());
   mPodEffect->SetGlobalScale(modelScale);
   mProjectileDesc.Lock();
   mProjectileInfo.Token().Lock();
@@ -316,7 +316,7 @@ void CBloodFlower::TurnEffectsOff(const int effectIndex, CStateManager& mgr) {
 }
 
 void CBloodFlower::Touch(CActor&, CStateManager&) {}
-void CBloodFlower::LaunchPollenProjectile(const CTransform4f& xf, CStateManager& mgr, float f28,
+void CBloodFlower::LaunchPollenProjectile(const CTransform4f& xf, CStateManager& mgr, float height,
                                           int maxProjectiles) {
   static float sProjectileTickPeriod = CProjectileWeapon::GetTickPeriod();
   CProjectileInfo* projInfo = ProjectileInfo();
@@ -328,13 +328,22 @@ void CBloodFlower::LaunchPollenProjectile(const CTransform4f& xf, CStateManager&
     return;
   }
 
-  CVector3f aimPos = mgr.GetPlayer()->GetAimPosition(mgr, 0.f);
-  CVector3f xfTranslation = xf.GetTranslation();
-  // float f3 =
+  const CVector3f aimPos = mgr.GetPlayer()->GetAimPosition(mgr, 0.f);
+  const CVector3f& xfTranslation = xf.GetTranslation();
+  const float zDiff = xfTranslation.GetZ() - aimPos.GetZ();
+  const float rise = zDiff > 0.f ? height : -zDiff + height;
+  if (zDiff > 0.f) {
+    height = zDiff + height;
+  }
+  const float riseTime = CMath::SqrtF(2.f * rise / 4.905f);
+  const float flightTime = riseTime + CMath::SqrtF(2.f * height / 4.905f);
+  const float invTime = 1.f / flightTime;
+  const CVector3f& position = xf.GetTranslation();
+  const CVector3f velocity(invTime * (aimPos.GetX() - position.GetX()),
+                           invTime * (aimPos.GetY() - position.GetY()),
+                           2.4525f * flightTime + (-zDiff / flightTime));
+  const CTransform4f projXf = CTransform4f::Translate(position);
 
-  CTransform4f projXf = CTransform4f::Translate(xfTranslation);
-
-#if 0
   CTargetableProjectile* proj = CreateArcProjectile(
       mgr, ProjectileInfo()->Token(), projXf, ProjectileInfo()->GetDamage(), kInvalidUniqueId);
 
@@ -342,8 +351,7 @@ void CBloodFlower::LaunchPollenProjectile(const CTransform4f& xf, CStateManager&
     return;
   }
   CProjectileWeapon& wp = proj->ProjectileWeapon();
-  wp.SetVelocity(sProjectileTickPeriod * vel);
-  wp.SetGravity(sProjectileTickPeriod * CVector3f(-0.f, 0.f, -4.905f));
+  wp.SetVelocity(sProjectileTickPeriod * velocity);
+  wp.SetGravity(sProjectileTickPeriod * CVector3f(0.f, 0.f, -4.905f));
   mgr.AddObject(*proj);
-#endif
 }
