@@ -66,15 +66,18 @@ CGameAllocator::~CGameAllocator() {
 }
 
 bool CGameAllocator::Initialize(COsContext& ctx) {
-  x8_heapSize = ctx.GetBaseFreeRam();
+  x8_heapSize = ctx.GetBaseFreeRam() - 2 * sizeof(SGameMemInfo);
   xc_first = static_cast< SGameMemInfo* >(OSAllocFromArenaLo(x8_heapSize, sizeof(SGameMemInfo)));
-  xb4_physicalAddr = (void*)((int)this->xc_first - ((uint)(xc_first)&0xf0000000));
+  xb4_physicalAddr = (void*)((int)this->xc_first - ((uint)(xc_first) & 0xf0000000));
   OSGetArenaLo();
-  x10_last = &xc_first[-1] + x8_heapSize;
+  x10_last =
+      reinterpret_cast< SGameMemInfo* >(reinterpret_cast< char* >(xc_first - 1) + x8_heapSize);
 
-  *xc_first = SGameMemInfo(nullptr, x10_last, x10_last, x8_heapSize - sizeof(SGameMemInfo) * 2,
-                           "MemHead", "MemHead");
-  *x10_last = SGameMemInfo(xc_first, nullptr, nullptr, 0, "MemTail", "MemTail");
+  const SGameMemInfo& head = SGameMemInfo(
+      nullptr, x10_last, x10_last, x8_heapSize - sizeof(SGameMemInfo) * 2, "MemHead", "MemHead");
+  *xc_first = head;
+  const SGameMemInfo& tail = SGameMemInfo(xc_first, nullptr, nullptr, 0, "MemTail", "MemTail");
+  *x10_last = tail;
   for (uint i = 0; i < 16; i++) {
     x14_bins[i] = nullptr;
   }
@@ -82,6 +85,7 @@ bool CGameAllocator::Initialize(COsContext& ctx) {
   AddFreeEntryToFreeList(xc_first);
   x80_ = 0;
   x84_ = 0;
+  x88_ = 0;
   x8c_ = 0;
   x90_heapSize2 = x8_heapSize;
   x94_ = 0;
@@ -106,11 +110,13 @@ bool CGameAllocator::Initialize(COsContext& ctx) {
       new (Alloc(0x1c, kHI_None, kSC_Unk1, kTP_Heap,
                  CCallStack(0xffffffff, "MediumAllocClass      ", " - Ignore"))) CMediumAllocPool();
 
-  x78_ = Alloc(0x21000, kHI_None, kSC_Unk1, kTP_Heap,
+  uint mediumSize = CMediumAllocPool::GetAllocMemoryRequired(0x1000);
+  mediumSize += CMediumAllocPool::GetBookKeepingMemoryRequired(0x1000);
+  x78_ = Alloc(mediumSize, kHI_None, kSC_Unk1, kTP_Heap,
                CCallStack(0xffffffff, "MediumAllocMainData   ", " - Ignore"));
   x84_ -= 4;
   xbc_ = 0xc6000;
-  return false;
+  return true;
 }
 
 void CGameAllocator::Shutdown() {
@@ -119,9 +125,9 @@ void CGameAllocator::Shutdown() {
   x54_ = 0;
 }
 
-void* CGameAllocator::Alloc(size_t size, EHint hint, EScope scope, EType type,
+void* CGameAllocator::Alloc(size_t size, const EHint hint, const EScope scope, const EType type,
                             const CCallStack& callstack) {
-  OSTick startTick = OSGetTick();
+  const OSTick startTick = OSGetTick();
 
   if (hint & kHI_RoundUpLen) {
     size = T_round_up< size_t, size_t >(size, 32);
@@ -163,7 +169,9 @@ void* CGameAllocator::Alloc(size_t size, EHint hint, EScope scope, EType type,
     buf = x74_mediumPool->Alloc(size);
 
     if (buf == nullptr) {
-      buf = Alloc(0x21000, kHI_None, kSC_Unk1, kTP_Heap,
+      buf = Alloc(CMediumAllocPool::GetAllocMemoryRequired(0x1000) +
+                      CMediumAllocPool::GetBookKeepingMemoryRequired(0x1000),
+                  kHI_None, kSC_Unk1, kTP_Heap,
                   CCallStack(-1, "MediumAllocMainData   ", " - Ignore"));
       x74_mediumPool->AddPuddle(0x1000, buf, 1);
       buf = x74_mediumPool->Alloc(size);
@@ -225,41 +233,31 @@ void* CGameAllocator::Alloc(size_t size, EHint hint, EScope scope, EType type,
 }
 
 CGameAllocator::SGameMemInfo* CGameAllocator::FindFreeBlock(uint len) {
+  uint delta;
   CGameAllocator::SGameMemInfo* ret = nullptr;
   uint binIndex = GetFreeBinEntryForSize(len);
 
-  CGameAllocator::SGameMemInfo* previous = NULL;
   uint chosenBin = 0;
+  SGameMemInfo* previous = nullptr;
   uint bestDelta = 0x10000000;
 
-  while (binIndex < 16 && !ret) {
-    CGameAllocator::SGameMemInfo* fromBin = x14_bins[binIndex];
-    CGameAllocator::SGameMemInfo* pSVar7 = NULL;
-    uint candidateDelta;
-
-    while (true) {
-      CGameAllocator::SGameMemInfo* candidate = fromBin;
-      candidateDelta = bestDelta;
-      if (candidate == NULL)
-        break;
-
-      if (!candidate->IsAllocated() && (candidate->GetLength() >= len)) {
-        candidateDelta = candidate->GetLength() - len;
-        if (candidateDelta < bestDelta && candidate->GetNext()) {
-          chosenBin = binIndex;
-          previous = pSVar7;
-          bestDelta = candidateDelta;
+  for (; binIndex < 16 && !ret; ++binIndex) {
+    SGameMemInfo* candidate = x14_bins[binIndex];
+    SGameMemInfo* last = nullptr;
+    for (; candidate; last = candidate, candidate = candidate->GetNextFree()) {
+      if (!candidate->IsAllocated() && candidate->x4_len >= len) {
+        delta = candidate->x4_len - len;
+        if (delta < bestDelta && candidate->GetNext()) {
           ret = candidate;
-          if (candidateDelta < 0x20) {
+          previous = last;
+          bestDelta = delta;
+          chosenBin = binIndex;
+          if (delta < sizeof(SGameMemInfo)) {
             break;
           }
         }
       }
-      fromBin = candidate->GetNextFree();
-      pSVar7 = candidate;
     }
-    binIndex += 1;
-    bestDelta = candidateDelta;
   }
 
   if (ret) {
@@ -288,54 +286,53 @@ CGameAllocator::SGameMemInfo* CGameAllocator::FindFreeBlockFromTopOfHeap(uint si
   return ret;
 }
 
-uint CGameAllocator::FixupAllocPtrs(SGameMemInfo* info, uint len, uint roundedLen, EHint hint,
+uint CGameAllocator::FixupAllocPtrs(SGameMemInfo* info, const uint len, uint roundedLen, EHint hint,
                                     const CCallStack& cs) {
 
+  const bool topOfHeap = (hint & kHI_TopOfHeap) != 0;
   uint ret = 0;
-  if (info->GetLength() == roundedLen + sizeof(SGameMemInfo)) {
+  const size_t blockLength = info->x4_len;
+  if (blockLength == roundedLen + sizeof(SGameMemInfo)) {
     ret = sizeof(SGameMemInfo);
     roundedLen += sizeof(SGameMemInfo);
   }
 
-  if (info->GetLength() == roundedLen) {
-    info->x8_fileAndLine = cs.GetFileAndLineText();
-    info->xc_type = cs.GetTypeText();
-    
-  } else {
-    SGameMemInfo* newPtr;
+  SGameMemInfo* newPtr = info;
+  if (blockLength != roundedLen) {
     SGameMemInfo* newInfo;
 
     SGameMemInfo* infoNext = info->GetNext();
-    if ((hint & kHI_TopOfHeap) == kHI_None) {
-      newInfo = (SGameMemInfo*)((char*)(info + 1) + roundedLen);
-      new (newInfo) SGameMemInfo(info, infoNext, info->GetNextFree(),
-                                 info->GetLength() - roundedLen - sizeof(SGameMemInfo), "", "");
-      AddFreeEntryToFreeList(newInfo);
-      newPtr = info;
-    } else {
-      newInfo = (SGameMemInfo*)((char*)(infoNext) - (roundedLen + sizeof(SGameMemInfo)));
-      new (newInfo) SGameMemInfo(info, infoNext, nullptr,
-                                 info->GetLength(), "", "");
-      info->SetLength(info->GetLength() - (roundedLen + sizeof(SGameMemInfo)));
+    if (topOfHeap) {
+      newInfo =
+          reinterpret_cast< SGameMemInfo* >(reinterpret_cast< char* >(infoNext) - roundedLen) - 1;
+      const SGameMemInfo& block = SGameMemInfo(info, infoNext, nullptr, len, "", "");
+      *newInfo = block;
+      info->x4_len -= roundedLen + sizeof(SGameMemInfo);
       AddFreeEntryToFreeList(info);
       newPtr = newInfo;
+    } else {
+      uint offset = roundedLen + sizeof(SGameMemInfo);
+      newInfo = reinterpret_cast< SGameMemInfo* >(reinterpret_cast< char* >(info) + offset);
+      const SGameMemInfo& block =
+          SGameMemInfo(info, infoNext, info->GetNextFree(),
+                       info->x4_len - roundedLen - sizeof(SGameMemInfo), "", "");
+      *newInfo = block;
+      AddFreeEntryToFreeList(newInfo);
     }
     newPtr->x8_fileAndLine = cs.GetFileAndLineText();
     newPtr->xc_type = cs.GetTypeText();
     ret = sizeof(SGameMemInfo);
 
     infoNext->SetPrev(newInfo);
-    infoNext = info->GetNext();
     info->SetNext(newInfo);
-    info = newPtr;
+  } else {
+    info->x8_fileAndLine = cs.GetFileAndLineText();
+    info->xc_type = cs.GetTypeText();
   }
 
-  uint uVar3 = 0;
-  if (hint & kHI_TopOfHeap) {
-    uVar3 = 2;
-  }
-  info->SetTopOfHeapAllocated(uVar3 != 0);  // maybe?
-  info->SetLength(len);
+  newPtr->SetTopOfHeapAllocated(topOfHeap);
+  newPtr->SetAllocated(true);
+  newPtr->x4_len = len;
   return ret;
 }
 
@@ -389,7 +386,8 @@ bool CGameAllocator::Free(const void* ptr) {
 
 bool CGameAllocator::FreeNormalAllocation(const void* ptr) {
   SGameMemInfo* info = GetMemInfoFromBlockPtr(ptr);
-  size_t infoLen = info->GetLength();
+  size_t newLen = 0;
+  const size_t infoLen = info->x4_len;
   SGameMemInfo* k = info->GetNext();
   size_t len = 0;
   if (k) {
@@ -399,7 +397,6 @@ bool CGameAllocator::FreeNormalAllocation(const void* ptr) {
 
   SGameMemInfo* prev = info->GetPrev();
   SGameMemInfo* next = info->GetNext();
-  size_t newLen = 0;
 
   if (prev && !prev->IsAllocated()) {
     RemoveFreeEntryFromFreeList(prev);
@@ -408,30 +405,27 @@ bool CGameAllocator::FreeNormalAllocation(const void* ptr) {
       next->SetPrev(prev);
     }
     newLen = sizeof(SGameMemInfo);
-    prev->SetLength(prev->GetLength() + sizeof(SGameMemInfo) + info->GetLength());
+    prev->x4_len += info->x4_len + sizeof(SGameMemInfo);
+    info = prev;
   }
 
-  if (next) {
-    if (!next->IsAllocated()) {
-      if (next->GetNext()) {
-        RemoveFreeEntryFromFreeList(next);
-        info->SetNext(next->GetNext());
-        if (info->GetNext()) {
-          info->GetNext()->SetPrev(info);
-        }
-        newLen += sizeof(SGameMemInfo);
-        info->SetLength(next->GetLength() + info->GetLength() + sizeof(SGameMemInfo));
-      }
+  if (next && !next->IsAllocated() && next->GetNext()) {
+    RemoveFreeEntryFromFreeList(next);
+    info->SetNext(next->GetNext());
+    if (info->GetNext()) {
+      info->GetNext()->SetPrev(info);
     }
+    newLen += sizeof(SGameMemInfo);
+    info->x4_len += next->x4_len + sizeof(SGameMemInfo);
   }
-  info->SetNotAllocated();
+  info->SetAllocated(false);
   AddFreeEntryToFreeList(info);
 
   x84_ -= 1;
   x88_ -= infoLen;
   x8c_ -= (len + newLen);
   x90_heapSize2 += (len + newLen);
-  if (infoLen <= 0x39) {
+  if (infoLen <= 56) {
     xa8_ -= 1;
   }
 
@@ -465,7 +459,7 @@ void* CGameAllocator::AllocSecondary(size_t size, EHint hint, EScope scope, ETyp
 
 bool CGameAllocator::FreeSecondary(const void* ptr) { return Free(ptr); };
 
-void CGameAllocator::ReleaseAllSecondary(){};
+void CGameAllocator::ReleaseAllSecondary() {};
 
 void CGameAllocator::SetOutOfMemoryCallback(FOutOfMemoryCb cb, const void* target) {
   x58_oomCallback = cb;
