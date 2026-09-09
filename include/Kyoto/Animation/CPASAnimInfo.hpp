@@ -17,7 +17,7 @@ public:
   bool operator<(const CPASAnimInfo& rhs) const { return x0_id < rhs.x0_id; }
 
 private:
-  uint x0_id;
+  int x0_id;
   rstl::reserved_vector< CPASAnimParm::UParmValue, 8 > x4_parms;
 };
 

@@ -185,7 +185,7 @@ void vector< T, Alloc >::insert_into(iterator at, int n, In in) {
     int moveCount = x4_count - atIdx;
     int i = moveCount - 1;
     for (; i >= 0; --i) {
-      construct(oldData + atIdx + n + i, (*this)[atIdx + i]);
+      construct(oldData + atIdx + n + i, data()[atIdx + i]);
       destroy(oldData + atIdx + i);
     }
     for (i = 0; i < n; ++input, ++i) {
