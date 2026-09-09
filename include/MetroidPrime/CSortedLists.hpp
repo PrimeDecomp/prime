@@ -57,7 +57,7 @@ public:
   void Insert(CActor* actor, const CAABox& box);
   void Remove(const CActor* actor);
   void Move(const CActor* actor, const CAABox& box);
-  void AddToLinkedList(short nodeId, short& headId, short& tailId) const;
+  void AddToLinkedList(const short nodeId, short& headId, short& tailId) const;
   short CalculateIntersections(ESortedLists la, ESortedLists lb, short a, short b, short c, short d,
                                ESortedLists slA, ESortedLists slB, ESortedLists slC,
                                ESortedLists slD, const CAABox& aabb) const;
