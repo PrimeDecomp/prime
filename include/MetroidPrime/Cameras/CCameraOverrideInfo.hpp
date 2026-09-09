@@ -23,9 +23,9 @@ public:
   float GetMinDist() const { return mMinDist; }
   float GetMaxDist() const { return mMaxDist; }
   float GetBackwardsDist() const { return mBackwardsDist; }
-  const CVector3f& GetLookAtOffset() const { return mLookAtOffset; }
-  const CVector3f& GetChaseLookAtOffset() const { return mChaseLookAtOffset; }
-  const CVector3f& GetBallToCam() const { return mBallToCam; }
+  CVector3f GetLookAtOffset() const { return mLookAtOffset; }
+  CVector3f GetChaseLookAtOffset() const { return mChaseLookAtOffset; }
+  CVector3f GetBallToCam() const { return mBallToCam; }
   float GetFov() const { return mFov; }
   float GetAttitudeRange() const { return mAttitudeRange; }
   float GetAzimuthRange() const { return mAzimuthRange; }

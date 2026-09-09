@@ -25,7 +25,7 @@ public:
                       CStateManager& mgr);
   float GetKnotT(int idx) const;
   CVector3f GetKnotPosition(int idx) const;
-  void SetKnotPosition(int idx, const CVector3f& pos);
+  void SetKnotPosition(int idx, CVector3f pos);
   void AddKnot(CVector3f pos, CVector3f dir);
   void Reset(int size);
   bool GetSurroundingPoints(int idx, rstl::reserved_vector< CVector3f, 4 >& positions,
