@@ -14,7 +14,7 @@ CDamageInfo::CDamageInfo(CInputStream& in)
 }
 
 float CDamageInfo::GetDamage(const CDamageVulnerability& dVuln) const {
-  EVulnerability vuln = dVuln.GetVulnerability(x0_weaponMode, false);
+  EVulnerability vuln = dVuln.GetVulnerability(x0_weaponMode, CDamageVulnerability::kRD_No);
   if (vuln == kVN_Deflect)
     return 0.f;
   else if (vuln == kVN_Weak)
@@ -24,7 +24,7 @@ float CDamageInfo::GetDamage(const CDamageVulnerability& dVuln) const {
 }
 
 float CDamageInfo::GetRadiusDamage(const CDamageVulnerability& dVuln) const {
-  EVulnerability vuln = dVuln.GetVulnerability(x0_weaponMode, false);
+  EVulnerability vuln = dVuln.GetVulnerability(x0_weaponMode, CDamageVulnerability::kRD_No);
   if (vuln == kVN_Deflect) {
     return 0.f;
   }

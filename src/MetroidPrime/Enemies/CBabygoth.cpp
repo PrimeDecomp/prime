@@ -325,7 +325,8 @@ void CBabygoth::Shock(CStateManager& mgr, float duration, float damage) {
   if (!x9f8_shellIds.empty()) {
     if (CCollisionActor* actor = TCastToPtr< CCollisionActor >(mgr.ObjectById(x9f8_shellIds[0]))) {
       const CWeaponMode weapon(kWT_Wave);
-      switch (actor->GetDamageVulnerability()->GetVulnerability(weapon, false)) {
+      switch (
+          actor->GetDamageVulnerability()->GetVulnerability(weapon, CDamageVulnerability::kRD_No)) {
       case kVN_Weak:
         x450_bodyController->SetElectrocuting(1.5f * duration);
         x3f0_pendingShockDamage = 1.5f * damage;

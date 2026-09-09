@@ -650,8 +650,8 @@ void CNewFlameThrower::SetWorldDarkening(CStateManager& mgr, TAreaId area, float
 }
 
 bool CNewFlameThrower::CanDamage(CActor& actor, CStateManager& mgr) {
-  if (actor.GetDamageVulnerability()->GetVulnerability(x12c_curDamageInfo.GetWeaponMode(), false) ==
-      kVN_PassThrough) {
+  if (actor.GetDamageVulnerability()->GetVulnerability(
+          x12c_curDamageInfo.GetWeaponMode(), CDamageVulnerability::kRD_No) == kVN_PassThrough) {
     return false;
   }
   if (TCastToPtr< CScriptTrigger >(actor)) {

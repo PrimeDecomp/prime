@@ -876,8 +876,9 @@ void CMetroidPrime::DoFaceHitCheck(const TUniqueId uid, CStateManager& mgr) {
     if (actor && IsAlive()) {
       const TUniqueId touched = actor->GetLastTouchedObject();
       const CWeapon* const weapon = TCastToConstPtr< CWeapon >(mgr.GetObjectById(touched));
-      if (weapon && actor->GetDamageVulnerability()->WeaponHurts(
-                        weapon->GetCurrentDamageInfo().GetWeaponMode(), false)) {
+      if (weapon &&
+          actor->GetDamageVulnerability()->WeaponHurts(
+              weapon->GetCurrentDamageInfo().GetWeaponMode(), CDamageVulnerability::kRD_No)) {
         x428_damageCooldownTimer = skDamageHitTime;
         if (uid == x8cc_headColActor) {
           if (weapon->GetCurrentDamageInfo().GetWeaponMode().GetType() == kWT_Ice) {

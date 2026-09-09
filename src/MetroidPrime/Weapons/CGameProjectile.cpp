@@ -192,8 +192,8 @@ CProjectileTouchResult CGameProjectile::CanCollideWithComplexCollision(CActor& a
 }
 
 CProjectileTouchResult CGameProjectile::CanCollideWith(CActor& act, CStateManager& mgr) {
-  if (act.GetDamageVulnerability()->GetVulnerability(x12c_curDamageInfo.GetWeaponMode(), false) ==
-      kVN_PassThrough) {
+  if (act.GetDamageVulnerability()->GetVulnerability(
+          x12c_curDamageInfo.GetWeaponMode(), CDamageVulnerability::kRD_No) == kVN_PassThrough) {
     return CProjectileTouchResult(kInvalidUniqueId, rstl::optional_object_null());
   }
   if (TCastToPtr< CScriptTrigger >(act)) {

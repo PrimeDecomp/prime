@@ -1143,7 +1143,8 @@ void CWallCrawlerSwarm::Touch(CActor& actor, CStateManager& mgr) {
   CActor::Touch(actor, mgr);
   if (const CGameProjectile* projectile = TCastToPtr< CGameProjectile >(actor)) {
     const CDamageInfo& damage = projectile->GetCurrentDamageInfo();
-    if (x3c4_damageVulnerability.WeaponHurts(damage.GetWeaponMode(), false)) {
+    if (x3c4_damageVulnerability.WeaponHurts(damage.GetWeaponMode(),
+                                             CDamageVulnerability::kRD_No)) {
       const rstl::optional_object< CAABox > touchBounds = projectile->GetTouchBounds();
       if (touchBounds) {
         const CAABox projectileBounds = *touchBounds;

@@ -84,7 +84,8 @@ void CEyeBall::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId sender, CStat
             TCastToConstPtr< CGameProjectile >(mgr.GetObjectById(sender))) {
       if (proj->GetOwnerId() == mgr.GetPlayer()->GetUniqueId()) {
         if (static_cast< CActor* >(this)->GetDamageVulnerability()->GetVulnerability(
-                proj->GetCurrentDamageInfo().GetWeaponMode(), 0) != kVN_Deflect) {
+                proj->GetCurrentDamageInfo().GetWeaponMode(), CDamageVulnerability::kRD_No) !=
+            kVN_Deflect) {
           SetWasHit(true);
         }
       }
@@ -96,7 +97,8 @@ void CEyeBall::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId sender, CStat
             TCastToConstPtr< CGameProjectile >(mgr.GetObjectById(sender))) {
       if (proj->GetOwnerId() == mgr.GetPlayer()->GetUniqueId()) {
         if (static_cast< CActor* >(this)->GetDamageVulnerability()->GetVulnerability(
-                proj->GetCurrentDamageInfo().GetWeaponMode(), 0) != kVN_Deflect) {
+                proj->GetCurrentDamageInfo().GetWeaponMode(), CDamageVulnerability::kRD_No) !=
+            kVN_Deflect) {
           SetWasHit(true);
         }
       }

@@ -112,7 +112,7 @@ EWeaponCollisionResponseTypes CRipper::GetCollisionResponseType(const CVector3f&
                                                                 const CWeaponMode& mode,
                                                                 int projectileAtrib) const {
   EWeaponCollisionResponseTypes ret = kWCR_Unknown32;
-  if (!GetDamageVulnerability()->WeaponHits(mode, 0)) {
+  if (!GetDamageVulnerability()->WeaponHits(mode, CDamageVulnerability::kRD_No)) {
     ret = kWCR_Unknown82;
   }
 

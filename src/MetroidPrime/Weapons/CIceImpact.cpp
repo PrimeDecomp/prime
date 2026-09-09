@@ -268,7 +268,7 @@ void CIceImpact::Touch(CActor& actor, CStateManager& mgr) {
                                   bounds->GetMaxPoint() + CVector3f(0.f, 0.f, 0.5f));
       if (x118_grid.AABoxTouchesData(expandedBounds, 1)) {
         if (static_cast< const CActor* >(ai)->GetDamageVulnerability()->WeaponHits(
-                CWeaponMode(kWT_Ice), false) &&
+                CWeaponMode(kWT_Ice), CDamageVulnerability::kRD_No) &&
             ai->GetKnockBackCtrl().GetEnableFreeze() &&
             ai->BodyCtrl()->GetPercentageFrozen() == 0.f &&
             xf8_latestDamageTime - xf4_lifeTimer > 0.5f && xf4_lifeTimer < 0.8f) {

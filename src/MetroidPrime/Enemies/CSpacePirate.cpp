@@ -569,7 +569,7 @@ CSpacePirate::CSpacePirate(TUniqueId uid, const rstl::string& name, const CEntit
     KnockBackCtrl().SetCreatureSize(kCS_Small);
   } else if (x636_24_trooper &&
              static_cast< const CSpacePirate* >(this)->GetDamageVulnerability()->WeaponHurts(
-                 CWeaponMode(kWT_Plasma), false)) {
+                 CWeaponMode(kWT_Plasma), CDamageVulnerability::kRD_No)) {
     KnockBackCtrl().SetCreatureSize(kCS_Large);
   }
 
@@ -580,13 +580,13 @@ CSpacePirate::CSpacePirate(TUniqueId uid, const rstl::string& name, const CEntit
   if (x636_24_trooper) {
     const CDamageVulnerability& vulnerability =
         *static_cast< const CSpacePirate* >(this)->GetDamageVulnerability();
-    if (vulnerability.WeaponHurts(CWeaponMode(kWT_Plasma), false)) {
+    if (vulnerability.WeaponHurts(CWeaponMode(kWT_Plasma), CDamageVulnerability::kRD_No)) {
       x8cc_trooperColor = CColor(uchar(254), uchar(0), uchar(40), uchar(255));
-    } else if (vulnerability.WeaponHurts(CWeaponMode(kWT_Ice), false)) {
+    } else if (vulnerability.WeaponHurts(CWeaponMode(kWT_Ice), CDamageVulnerability::kRD_No)) {
       x8cc_trooperColor = CColor::White();
-    } else if (vulnerability.WeaponHurts(CWeaponMode(kWT_Power), false)) {
+    } else if (vulnerability.WeaponHurts(CWeaponMode(kWT_Power), CDamageVulnerability::kRD_No)) {
       x8cc_trooperColor = CColor(uchar(253), uchar(239), uchar(86), uchar(255));
-    } else if (vulnerability.WeaponHurts(CWeaponMode(kWT_Wave), false)) {
+    } else if (vulnerability.WeaponHurts(CWeaponMode(kWT_Wave), CDamageVulnerability::kRD_No)) {
       x8cc_trooperColor = CColor(uchar(198), uchar(14), uchar(255), uchar(255));
     }
   }

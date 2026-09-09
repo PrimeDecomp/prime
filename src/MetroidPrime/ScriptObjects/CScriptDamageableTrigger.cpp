@@ -224,7 +224,8 @@ void CScriptDamageableTrigger::Render(const CStateManager& mgr) const {
 EWeaponCollisionResponseTypes
 CScriptDamageableTrigger::GetCollisionResponseType(const CVector3f&, const CVector3f&,
                                                    const CWeaponMode& weapon, int) const {
-  return x174_dVuln.WeaponHurts(weapon, false) ? kWCR_OtherProjectile : kWCR_Unknown15;
+  return x174_dVuln.WeaponHurts(weapon, CDamageVulnerability::kRD_No) ? kWCR_OtherProjectile
+                                                                      : kWCR_Unknown15;
 }
 
 void CScriptDamageableTrigger::Accept(IVisitor& visitor) { visitor.Visit(*this); }

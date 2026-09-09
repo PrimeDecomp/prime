@@ -199,7 +199,8 @@ void CMagdolite::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CState
       if (proj->GetOwnerId() == mgr.GetPlayer()->GetUniqueId()) {
         if (GetBodyCtrl()->GetPercentageFrozen() > 0.f &&
             x5bc_instaKillVulnerability.GetVulnerability(
-                proj->GetCurrentDamageInfo().GetWeaponMode(), false) != kVN_Deflect) {
+                proj->GetCurrentDamageInfo().GetWeaponMode(), CDamageVulnerability::kRD_No) !=
+                kVN_Deflect) {
           if (IsAlive()) {
             x754_26_lostMyHead = true;
             x401_30_pendingDeath = true;
@@ -209,7 +210,8 @@ void CMagdolite::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CState
             x70c_curHealth = HealthInfo(mgr)->GetHP();
             x754_24_retreat = true;
           } else if (x624_normalVulnerability.GetVulnerability(
-                         proj->GetCurrentDamageInfo().GetWeaponMode(), false) != kVN_Deflect) {
+                         proj->GetCurrentDamageInfo().GetWeaponMode(),
+                         CDamageVulnerability::kRD_No) != kVN_Deflect) {
             x400_24_hitByPlayerProjectile = true;
           }
         }

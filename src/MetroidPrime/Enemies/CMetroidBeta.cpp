@@ -161,7 +161,7 @@ void CMetroidBeta::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CSta
           const CDamageVulnerability& vulnerability = *actor->GetDamageVulnerability();
           const CDamageInfo& damage = projectile->GetCurrentDamageInfo();
           ApplyGrowth(damage.GetDamage(), mgr);
-          if (vulnerability.WeaponHits(damage.GetWeaponMode(), false)) {
+          if (vulnerability.WeaponHits(damage.GetWeaponMode(), CDamageVulnerability::kRD_No)) {
             if (damage.GetWeaponMode().IsCharged() || damage.GetWeaponMode().IsComboed() ||
                 damage.GetWeaponMode().GetType() == kWT_Missile) {
               x840_31_ = true;
@@ -283,7 +283,7 @@ void CMetroidBeta::Touch(CActor& actor, CStateManager& mgr) {
         } else {
           const CDamageVulnerability* vulnerability = GetDamageVulnerability();
           if (projectile->HasAttrib(CWeapon::kPA_Ice) &&
-              vulnerability->WeaponHits(CWeaponMode::Ice(), false)) {
+              vulnerability->WeaponHits(CWeaponMode::Ice(), CDamageVulnerability::kRD_No)) {
             float multiplier = 1.f;
             if (projectile->HasAttrib(CWeapon::kPA_Charged)) {
               multiplier = 2.f;
@@ -382,7 +382,7 @@ EWeaponCollisionResponseTypes CMetroidBeta::GetCollisionResponseType(const CVect
                                                                      int) const {
   EWeaponCollisionResponseTypes response = kWCR_Unknown33;
   const bool frozen = GetBodyCtrl()->GetPercentageFrozen() > 0.f;
-  if (!GetDamageVulnerability()->WeaponHurts(mode, false) && !frozen) {
+  if (!GetDamageVulnerability()->WeaponHurts(mode, CDamageVulnerability::kRD_No) && !frozen) {
     response = kWCR_Unknown58;
   }
   return response;

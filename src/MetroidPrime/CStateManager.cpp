@@ -1301,7 +1301,7 @@ void CStateManager::ApplyDamage(const TUniqueId damagerId, const TUniqueId damag
                        : damagee->GetDamageVulnerability();
 
       if (info.GetWeaponMode().GetType() == kWT_None ||
-          dVuln->WeaponHurts(info.GetWeaponMode(), 0)) {
+          dVuln->WeaponHurts(info.GetWeaponMode(), CDamageVulnerability::kRD_No)) {
         const float localDamage = info.GetDamage(*dVuln);
         if (localDamage > 0.f) {
           ApplyLocalDamage(position, direction, *damagee, localDamage, info.GetWeaponMode());
@@ -1545,7 +1545,7 @@ void CStateManager::ApplyRadiusDamage(const CActor& damager, const CVector3f& po
   const CDamageVulnerability* vuln = rad > 0.f ? damagee.GetDamageVulnerability(pos, delta, info)
                                                : damagee.GetDamageVulnerability();
 
-  if (vuln->WeaponHurts(info.GetWeaponMode(), 1)) {
+  if (vuln->WeaponHurts(info.GetWeaponMode(), CDamageVulnerability::kRD_Yes)) {
     const float localDamage = info.GetRadiusDamage(*vuln);
     if (localDamage > 0.f) {
       ApplyLocalDamage(pos, delta, damagee, localDamage, info.GetWeaponMode());
@@ -1647,7 +1647,7 @@ void CStateManager::ApplyDamageToWorld(TUniqueId damagerId, const CActor& actor,
 void CStateManager::ApplyKnockBack(CActor& actor, const CDamageInfo& info,
                                    const CDamageVulnerability& vuln, const CVector3f& dir,
                                    float dampen) {
-  if (vuln.GetVulnerability(info.GetWeaponMode(), 0) == kVN_Deflect) {
+  if (vuln.GetVulnerability(info.GetWeaponMode(), CDamageVulnerability::kRD_No) == kVN_Deflect) {
     return;
   }
 

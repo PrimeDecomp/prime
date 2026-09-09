@@ -721,7 +721,7 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/Weapons/CWeapon.cpp",
             ),
-            Object(NonMatching, "MetroidPrime/CDamageVulnerability.cpp"),
+            Object(MatchingFor("GM8E01_00"), "MetroidPrime/CDamageVulnerability.cpp"),
             Object(NonMatching, "MetroidPrime/CActorLights.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),

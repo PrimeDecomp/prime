@@ -210,6 +210,7 @@ EWeaponCollisionResponseTypes CAtomicAlpha::GetCollisionResponseType(const CVect
                                                                      const CVector3f&,
                                                                      const CWeaponMode& wMode,
                                                                      int attrib) const {
-  return GetDamageVulnerability()->WeaponHits(wMode, false) ? kWCR_AtomicAlpha
-                                                            : kWCR_AtomicAlphaReflect;
+  return GetDamageVulnerability()->WeaponHits(wMode, CDamageVulnerability::kRD_No)
+             ? kWCR_AtomicAlpha
+             : kWCR_AtomicAlphaReflect;
 }
