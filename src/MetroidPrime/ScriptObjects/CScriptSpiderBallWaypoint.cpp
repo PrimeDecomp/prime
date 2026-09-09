@@ -130,20 +130,22 @@ void CScriptSpiderBallWaypoint::GetClosestPointAlongWaypoints(
   }
 
   float minPointToBallDistSq = maxPointToBallDist * maxPointToBallDist;
-  const float deltaBetweenInterpDistSq = deltaBetweenInterpPoints * deltaBetweenInterpDistSq;
+  const float deltaBetweenInterpDistSq = deltaBetweenInterpPoints * deltaBetweenInterpPoints;
   CVector3f lastPoint = wp->GetTranslation();
   CVector3f lastDelta = CVector3f::Zero();
   bool computeDelta = wp->GetActive();
+  bool done = false;
 
-  while (true) {
+  while (!done) {
     if (wp->NextWaypoint(mgr, kCAW_Check) != kInvalidUniqueId) {
       if (computeDelta) {
         const CScriptSpiderBallWaypoint* prevWp = wp;
         wp = static_cast< const CScriptSpiderBallWaypoint* >(
             mgr.GetObjectById(wp->NextWaypoint(mgr, kCAW_Check)));
 
-        const CVector3f thisDelta = wp->GetTranslation() - lastPoint;
+        const CVector3f nextPoint = wp->GetTranslation();
         const CVector3f lastPointToBall = ballPos - lastPoint;
+        const CVector3f thisDelta = nextPoint - lastPoint;
         if (prevWp->PreviousWaypoint(mgr, kCAW_Check) == kInvalidUniqueId) {
           lastDelta = thisDelta;
         }
@@ -153,7 +155,7 @@ void CScriptSpiderBallWaypoint::GetClosestPointAlongWaypoints(
           minPointToBallDistSq = pointToBallDistSq;
           closestPoint = lastPoint;
           deltaBetweenPoints = thisDelta;
-          interpDeltaBetweenPoints = (thisDelta.AsNormalized() + lastDelta.AsNormalized()) * 0.5f;
+          interpDeltaBetweenPoints = (lastDelta.AsNormalized() + thisDelta.AsNormalized()) * 0.5f;
           *closestWaypoint = wp;
         }
 
@@ -161,61 +163,59 @@ void CScriptSpiderBallWaypoint::GetClosestPointAlongWaypoints(
         if (projectedT >= 0.f) {
           const float normT = projectedT / thisDelta.MagSquared();
           if (normT < 1.f) {
-            const CVector3f projectedPoint =
-                CVector3f::Lerp(lastPoint, wp->GetTranslation(), normT);
+            const CVector3f projectedPoint = CVector3f::Lerp(lastPoint, nextPoint, normT);
             const float projToBallDistSq = (ballPos - projectedPoint).MagSquared();
             if (projToBallDistSq < minPointToBallDistSq) {
               minPointToBallDistSq = projToBallDistSq;
               closestPoint = projectedPoint;
-              interpDeltaBetweenPoints = deltaBetweenPoints = thisDelta;
+              deltaBetweenPoints = thisDelta;
               *closestWaypoint = wp;
+              interpDeltaBetweenPoints = deltaBetweenPoints;
               float lastToProjDist = (lastPoint - projectedPoint).Magnitude();
               if (lastToProjDist < deltaBetweenInterpDistSq) {
                 interpDeltaBetweenPoints = CVector3f::Lerp(
-                    0.5f * (thisDelta.AsNormalized() + lastDelta.AsNormalized()),
-                    thisDelta.AsNormalized(), lastToProjDist / deltaBetweenInterpDistSq);
+                    0.5f * (lastDelta.AsNormalized() + thisDelta.AsNormalized()),
+                    thisDelta.AsNormalized(), lastToProjDist / deltaBetweenInterpPoints);
               } else if (wp->NextWaypoint(mgr, kCAW_Check) != kInvalidUniqueId) {
-                lastToProjDist = (projectedPoint - wp->GetTranslation()).Magnitude();
+                lastToProjDist = (projectedPoint - nextPoint).Magnitude();
                 if (lastToProjDist < deltaBetweenInterpPoints) {
-                  const float t = lastToProjDist / deltaBetweenInterpPoints;
                   const CScriptSpiderBallWaypoint* tmpWp =
                       static_cast< const CScriptSpiderBallWaypoint* >(
                           mgr.GetObjectById(wp->NextWaypoint(mgr, kCAW_Check)));
+                  const CVector3f nextDelta = tmpWp->GetTranslation() - nextPoint;
                   interpDeltaBetweenPoints = CVector3f::Lerp(
-                      ((tmpWp->GetTranslation() - wp->GetTranslation()).AsNormalized() +
-                       (wp->GetTranslation().AsNormalized() + thisDelta.AsNormalized())) *
-                          0.5f,
-                      thisDelta.AsNormalized(), t);
+                      (nextDelta.AsNormalized() + thisDelta.AsNormalized()) * 0.5f,
+                      thisDelta.AsNormalized(), lastToProjDist / deltaBetweenInterpPoints);
                 }
               }
             }
           }
         }
         lastDelta = thisDelta;
-        lastPoint = wp->GetTranslation();
+        lastPoint = nextPoint;
         computeDelta = true;
       } else {
+        computeDelta = true;
         wp = static_cast< const CScriptSpiderBallWaypoint* >(
             mgr.GetObjectById(wp->NextWaypoint(mgr, kCAW_Check)));
         lastPoint = wp->GetTranslation();
-        computeDelta = true;
       }
     } else if (wp->NextWaypoint(mgr, kCAW_SkipCheck) != kInvalidUniqueId) {
       wp = static_cast< const CScriptSpiderBallWaypoint* >(
-          mgr.GetObjectById(wp->NextWaypoint(mgr, kCAW_Check)));
+          mgr.GetObjectById(wp->NextWaypoint(mgr, kCAW_SkipCheck)));
       computeDelta = false;
     } else {
-      break;
+      done = true;
     }
   }
 
-  if ((ballPos - lastPoint).MagSquared() >= minPointToBallDistSq) {
+  if (!((ballPos - lastPoint).MagSquared() < minPointToBallDistSq)) {
     return;
   }
 
   closestPoint = lastPoint;
 
-  if (wp->PreviousWaypoint(mgr, kCAW_Check)) {
+  if (wp->PreviousWaypoint(mgr, kCAW_Check) != kInvalidUniqueId) {
     wp = static_cast< const CScriptSpiderBallWaypoint* >(
         mgr.GetObjectById(wp->PreviousWaypoint(mgr, kCAW_Check)));
     deltaBetweenPoints = lastPoint - wp->GetTranslation();
