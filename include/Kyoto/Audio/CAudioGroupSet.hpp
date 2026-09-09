@@ -19,10 +19,10 @@ public:
   const rstl::string& GetGroupSetName() const { return x20_groupSetName; }
   void FreeSampleBuffer();
   int AramUsage() const { return x30_aramSize; }
-  void* GetPool() const { return x34_; }
-  void* GetProject() const { return x38_; }
-  void* GetSample() const { return x40_; }
-  void* GetSampleDir() const { return x3c_; }
+  void* GetPool() const { return x34_pool; }
+  void* GetProject() const { return x38_project; }
+  void* GetSample() const { return x40_samples; }
+  void* GetSampleDir() const { return x3c_sampleDir; }
 
 private:
   uint ReadHeader(void* ptr, uint len, uint& readPosition) {
@@ -34,14 +34,14 @@ private:
     return ret;
   }
   rstl::auto_ptr< uchar > x0_data;
-  rstl::auto_ptr< uchar > x8_;
+  rstl::auto_ptr< uchar > x8_groupData;
   rstl::string x10_baseDirName;
   rstl::string x20_groupSetName;
   int x30_aramSize;
-  uchar* x34_;
-  uchar* x38_;
-  uchar* x3c_;
-  uchar* x40_;
+  uchar* x34_pool;
+  uchar* x38_project;
+  uchar* x3c_sampleDir;
+  uchar* x40_samples;
 };
 
 class CAudioGroupSet {
