@@ -687,7 +687,8 @@ void CCompoundTargetReticle::DrawGrapplePoint(const CScriptGrapplePoint& point, 
   CMatrix3f scaledRot = rot * CMatrix3f::Scale(scale);
   gpRender->SetModelMatrix(CTransform4f(scaledRot, orbitPos));
 
-  x94_grapple.GetObject()->Draw(CModelFlags::Additive(color).DepthCompareUpdate(zEqual, false));
+  const CModel* model = x94_grapple.GetObject();
+  model->Draw(CModelFlags::Additive(color).DepthCompareUpdate(zEqual, false));
 }
 
 void CCompoundTargetReticle::DrawCurrLockOnGroup(const CMatrix3f& rot,
@@ -731,19 +732,17 @@ void CCompoundTargetReticle::DrawCurrLockOnGroup(const CMatrix3f& rot,
   CColor lockBreakColor(0);
 
   if (IsDamageOrbit(mgr.GetPlayer()->GetOrbitBrokenType()) && x14c_currGroupB.GetFactor() == 0.f) {
-    CVector3f right(CVector3f::Right());
-    CVector3f forward(CVector3f::Forward());
-    CVector3f up(CVector3f::Up());
+    CVector3f columns[3] = {CVector3f::Right(), CVector3f::Forward(), CVector3f::Up()};
 
     for (int i = 0; i < 4; ++i) {
       int r1 = rand();
       int idx = rand() % 9;
       int col = idx % 3;
       int row = idx / 3;
-      (&right)[col][row] += static_cast< float >(r1) / static_cast< float >(RAND_MAX) - 0.5f;
+      columns[col][row] += static_cast< float >(r1) / static_cast< float >(RAND_MAX) - 0.5f;
     }
 
-    lockBreakXf = CMatrix3f(right, forward, up);
+    lockBreakXf = CMatrix3f(columns[0], columns[1], columns[2]);
 
     if (factor > 0.8f) {
       lockBreakColor = CColor::White().WithAlphaOf(0.3f * (factor - 0.8f) / 0.2f);
@@ -758,30 +757,31 @@ void CCompoundTargetReticle::DrawCurrLockOnGroup(const CMatrix3f& rot,
 
   if (lockConfirm) {
     const_cast< TCachedToken< CModel >& >(x4c_lockConfirm).TryCache();
-    if (CModel* model = x4c_lockConfirm.GetObject()) {
-      float scale = CalculateClampedScale(
-          position, radius, minVpClampScale * gpTweakTargeting->x154_lockConfirmClampMin,
-          gpTweakTargeting->x158_lockConfirmClampMax, mgr);
+    if (CModel* const model = x4c_lockConfirm.GetObject()) {
       CTweakTargeting* tweak = gpTweakTargeting;
-      scale *= tweak->x14_lockConfirmScale;
+      float scale =
+          CalculateClampedScale(position, radius, minVpClampScale * tweak->x154_lockConfirmClampMin,
+                                tweak->x158_lockConfirmClampMax, mgr);
+      scale *= gpTweakTargeting->x14_lockConfirmScale;
       scale /= factor;
 
       CMatrix3f combined =
           rot * CMatrix3f::RotateY(CRelAngle(x1ec_seekerAngle)) * CMatrix3f::Scale(scale);
 
-      CVector3f pos = x10c_currGroupInterp.GetTargetPositionWorld();
-      gpRender->SetModelMatrix(CTransform4f(lockBreakXf * combined, pos));
+      gpRender->SetModelMatrix(
+          CTransform4f(lockBreakXf * combined, x10c_currGroupInterp.GetTargetPositionWorld()));
 
-      CColor color = tweak->x14c_lockConfirmColor.WithAlphaModulatedBy(lockBreakAlpha);
-      CColor addedColor = CColor::Add(lockBreakColor, color);
-      model->Draw(CModelFlags::Additive(addedColor).DepthCompareUpdate(false, false));
+      model->Draw(CModelFlags::Additive(
+                      CColor::Add(lockBreakColor, tweak->x14c_lockConfirmColor.WithAlphaModulatedBy(
+                                                      lockBreakAlpha)))
+                      .DepthCompareUpdate(false, false));
     }
   }
 
   if (lockReticule) {
     // Target flower
     const_cast< TCachedToken< CModel >& >(x58_targetFlower).TryCache();
-    if (CModel* model = x58_targetFlower.GetObject()) {
+    if (CModel* const model = x58_targetFlower.GetObject()) {
       float scale = CalculateClampedScale(
           position, radius, minVpClampScale * gpTweakTargeting->x15c_targetFlowerClampMin,
           gpTweakTargeting->x160_targetFlowerClampMax, mgr);
@@ -792,19 +792,19 @@ void CCompoundTargetReticle::DrawCurrLockOnGroup(const CMatrix3f& rot,
       CMatrix3f combined =
           rot * CMatrix3f::RotateY(CRelAngle(x1f0_xrayRetAngle)) * CMatrix3f::Scale(scale);
 
-      CVector3f pos = x10c_currGroupInterp.GetTargetPositionWorld();
-      gpRender->SetModelMatrix(CTransform4f(lockBreakXf * combined, pos));
+      gpRender->SetModelMatrix(
+          CTransform4f(lockBreakXf * combined, x10c_currGroupInterp.GetTargetPositionWorld()));
 
-      CColor color =
-          tweak->xb8_targetFlowerColor.WithAlphaModulatedBy(lockBreakAlpha * visorFactor);
-      CColor addedColor = CColor::Add(lockBreakColor, color);
-      model->Draw(CModelFlags::Additive(addedColor).DepthCompareUpdate(true, false));
+      model->Draw(CModelFlags::Additive(
+                      CColor::Add(lockBreakColor, tweak->xb8_targetFlowerColor.WithAlphaModulatedBy(
+                                                      lockBreakAlpha * visorFactor)))
+                      .DepthCompareUpdate(true, false));
     }
 
     // Missile bracket
     if (x1f8_missileBracketTimer != 0.f) {
       const_cast< TCachedToken< CModel >& >(x64_missileBracket).TryCache();
-      if (CModel* bracketModel = x64_missileBracket.GetObject()) {
+      if (CModel* const bracketModel = x64_missileBracket.GetObject()) {
         float bracketScale = CalculateClampedScale(
             position, radius, minVpClampScale * gpTweakTargeting->x16c_missileBracketClampMin,
             gpTweakTargeting->x170_missileBracketClampMax, mgr);
@@ -813,24 +813,27 @@ void CCompoundTargetReticle::DrawCurrLockOnGroup(const CMatrix3f& rot,
         float t = CMath::AbsF((x1fc_missileBracketScaleTimer - halfDur) / halfDur);
         float tscale =
             (1.f - t) * tweak->xc4_missileBracketScaleEnd + t * tweak->xc0_missileBracketScaleStart;
-        float s = CMath::AbsF(x1f8_missileBracketTimer) / tweak->xbc_missileBracketDuration *
-                  bracketScale * tscale / factor;
+        float bracketFactor =
+            CMath::AbsF(x1f8_missileBracketTimer) / tweak->xbc_missileBracketDuration;
+        float s = bracketFactor * bracketScale * tscale / factor;
 
         CMatrix3f scaleMtx = CMatrix3f::Scale(s);
 
         for (int i = 0; i < 4; ++i) {
           float xSign = i < 2 ? 1.f : -1.f;
           float zSign = (i & 1) != 0 ? 1.f : -1.f;
-          CMatrix3f flipMtx(xSign, 0.f, 0.f, 0.f, 1.f, 0.f, 0.f, 0.f, zSign);
-          CMatrix3f combined = lockBreakXf * rot * flipMtx * scaleMtx;
+          CMatrix3f combined = lockBreakXf * rot *
+                               CMatrix3f(xSign, 0.f, 0.f, 0.f, 1.f, 0.f, 0.f, 0.f, zSign) *
+                               scaleMtx;
 
-          CVector3f pos = x10c_currGroupInterp.GetTargetPositionWorld();
-          gpRender->SetModelMatrix(CTransform4f(combined, pos));
+          gpRender->SetModelMatrix(
+              CTransform4f(combined, x10c_currGroupInterp.GetTargetPositionWorld()));
 
-          CColor color =
-              tweak->xcc_missileBracketColor.WithAlphaModulatedBy(lockBreakAlpha * visorFactor);
-          CColor addedColor = CColor::Add(lockBreakColor, color);
-          bracketModel->Draw(CModelFlags::Additive(addedColor).DepthCompareUpdate(false, false));
+          bracketModel->Draw(
+              CModelFlags::Additive(
+                  CColor::Add(lockBreakColor, tweak->xcc_missileBracketColor.WithAlphaModulatedBy(
+                                                  lockBreakAlpha * visorFactor)))
+                  .DepthCompareUpdate(false, false));
         }
       }
     }
@@ -843,22 +846,25 @@ void CCompoundTargetReticle::DrawCurrLockOnGroup(const CMatrix3f& rot,
       outerScale = gpTweakTargeting->xf0_outerBeamSquaresScale * (1.f / factor * outerScale);
 
       CMatrix3f outerBeamXf = rot * CMatrix3f::Scale(outerScale);
+      int i;
       CTweakTargeting* tweak = gpTweakTargeting;
 
-      for (int i = 0; i < 9; ++i) {
+      for (i = 0; i < 9; ++i) {
         const SOuterItemInfo& info = xe0_outerBeamIconSquares[i];
         const_cast< TCachedToken< CModel >& >(info.x0_model).TryCache();
-        CModel* outerModel = info.x0_model.GetObject();
+        CModel* const outerModel = info.x0_model.GetObject();
         if (outerModel != nullptr) {
-          CMatrix3f combined = outerBeamXf * CMatrix3f::RotateY(CRelAngle(info.x10_rotAng));
+          CRelAngle outerAngle(info.x10_rotAng);
+          CMatrix3f combined = outerBeamXf * CMatrix3f::RotateY(outerAngle);
 
-          CVector3f pos = x10c_currGroupInterp.GetTargetPositionWorld();
-          gpRender->SetModelMatrix(CTransform4f(lockBreakXf * combined, pos));
+          gpRender->SetModelMatrix(
+              CTransform4f(lockBreakXf * combined, x10c_currGroupInterp.GetTargetPositionWorld()));
 
-          CColor color =
-              tweak->xf4_outerBeamSquareColor.WithAlphaModulatedBy(lockBreakAlpha * visorFactor);
-          CColor addedColor = CColor::Add(lockBreakColor, color);
-          outerModel->Draw(CModelFlags::Additive(addedColor).DepthCompareUpdate(false, false));
+          outerModel->Draw(
+              CModelFlags::Additive(
+                  CColor::Add(lockBreakColor, tweak->xf4_outerBeamSquareColor.WithAlphaModulatedBy(
+                                                  lockBreakAlpha * visorFactor)))
+                  .DepthCompareUpdate(false, false));
         }
       }
     }
@@ -866,19 +872,19 @@ void CCompoundTargetReticle::DrawCurrLockOnGroup(const CMatrix3f& rot,
     // Charge gauge
     {
       const_cast< SOuterItemInfo& >(xc4_chargeGauge).x0_model.TryCache();
-      if (CModel* gaugeModel = xc4_chargeGauge.x0_model.GetObject()) {
+      if (CModel* const gaugeModel = xc4_chargeGauge.x0_model.GetObject()) {
         float gaugeScale = CalculateClampedScale(
             position, radius, minVpClampScale * gpTweakTargeting->x17c_chargeGaugeClampMin,
             gpTweakTargeting->x180_chargeGaugeClampMax, mgr);
         gaugeScale = gaugeScale * gpTweakTargeting->x118_chargeGaugeScale / factor;
 
         CMatrix3f gaugeMtx = rot * CMatrix3f::Scale(gaugeScale);
-        CMatrix3f chargeGaugeXf =
-            gaugeMtx * CMatrix3f::RotateY(CRelAngle(xc4_chargeGauge.x10_rotAng));
+        CRelAngle gaugeAngle(xc4_chargeGauge.x10_rotAng);
+        CMatrix3f chargeGaugeXf = gaugeMtx * CMatrix3f::RotateY(gaugeAngle);
 
-        float pulsePeriod = gpTweakTargeting->x1d0_chargeGaugePulsePeriod;
         float chargeFadeFactor =
             x214_fullChargeFadeTimer / gpTweakTargeting->x1b8_fullChargeFadeDuration;
+        float pulsePeriod = gpTweakTargeting->x1d0_chargeGaugePulsePeriod;
         float secondsMod = CGraphics::GetSecondsMod900();
         float pulseT = CMath::AbsF(static_cast< float >(
             fmod(static_cast< double >(secondsMod), static_cast< double >(pulsePeriod))));
@@ -896,26 +902,28 @@ void CCompoundTargetReticle::DrawCurrLockOnGroup(const CMatrix3f& rot,
         CColor gaugeColor = CColor::Lerp(gpTweakTargeting->x11c_chargeGaugeNonFullColor, pulseColor,
                                          chargeFadeFactor);
 
-        CVector3f pos = x10c_currGroupInterp.GetTargetPositionWorld();
-        CTransform4f modelXf = CTransform4f(lockBreakXf * chargeGaugeXf, pos);
+        CTransform4f modelXf = CTransform4f(lockBreakXf * chargeGaugeXf,
+                                            x10c_currGroupInterp.GetTargetPositionWorld());
         gpRender->SetModelMatrix(modelXf);
 
-        CColor color = gaugeColor.WithAlphaModulatedBy(lockBreakAlpha * visorFactor);
-        CColor addedColor = CColor::Add(lockBreakColor, color);
-        gaugeModel->Draw(CModelFlags::Additive(addedColor).DepthCompareUpdate(false, false));
+        gaugeModel->Draw(
+            CModelFlags::Additive(CColor::Add(lockBreakColor, gaugeColor.WithAlphaModulatedBy(
+                                                                  lockBreakAlpha * visorFactor)))
+                .DepthCompareUpdate(false, false));
 
         // Charge ticks
         const_cast< TCachedToken< CModel >& >(xa0_chargeTickFirst).TryCache();
-        CModel* tickModel = xa0_chargeTickFirst.GetObject();
+        CModel* const tickModel = xa0_chargeTickFirst.GetObject();
         if (tickModel != nullptr) {
           const CPlayerGun* gun = mgr.GetPlayer()->GetPlayerGun();
           int numTicks =
               static_cast< int >(static_cast< float >(gpTweakTargeting->x120_chargeTickCount) *
                                  gun->GetChargePercentage());
           for (int i = 0; i < numTicks; ++i) {
-            CColor tickColor = gaugeColor.WithAlphaModulatedBy(lockBreakAlpha * visorFactor);
-            CColor tickAdded = CColor::Add(lockBreakColor, tickColor);
-            tickModel->Draw(CModelFlags::Additive(tickAdded).DepthCompareUpdate(false, false));
+            tickModel->Draw(CModelFlags::Additive(
+                                CColor::Add(lockBreakColor, gaugeColor.WithAlphaModulatedBy(
+                                                                lockBreakAlpha * visorFactor)))
+                                .DepthCompareUpdate(false, false));
             modelXf.RotateLocalY(CRelAngle(gpTweakTargeting->x124_chargeTickAnglePitch));
             gpRender->SetModelMatrix(modelXf);
           }
@@ -926,7 +934,7 @@ void CCompoundTargetReticle::DrawCurrLockOnGroup(const CMatrix3f& rot,
     // Inner beam icon
     if (x208_lockonTimer > 0.f) {
       const_cast< TCachedToken< CModel >& >(x70_innerBeamIcon).TryCache();
-      if (CModel* beamModel = x70_innerBeamIcon.GetObject()) {
+      if (CModel* const beamModel = x70_innerBeamIcon.GetObject()) {
         const CColor* iconColor;
         if (x200_beam == CPlayerState::kBI_Power) {
           iconColor = &gpTweakTargeting->xd8_innerBeamColorPower;
@@ -946,19 +954,20 @@ void CCompoundTargetReticle::DrawCurrLockOnGroup(const CMatrix3f& rot,
 
         CMatrix3f beamMtx = rot * CMatrix3f::Scale(beamScale);
 
-        CVector3f pos = x10c_currGroupInterp.GetTargetPositionWorld();
-        gpRender->SetModelMatrix(CTransform4f(lockBreakXf * beamMtx, pos));
+        gpRender->SetModelMatrix(
+            CTransform4f(lockBreakXf * beamMtx, x10c_currGroupInterp.GetTargetPositionWorld()));
 
-        CColor color = iconColor->WithAlphaModulatedBy(lockBreakAlpha * visorFactor);
-        CColor addedColor = CColor::Add(lockBreakColor, color);
-        beamModel->Draw(CModelFlags::Additive(addedColor).DepthCompareUpdate(false, false));
+        beamModel->Draw(
+            CModelFlags::Additive(CColor::Add(lockBreakColor, iconColor->WithAlphaModulatedBy(
+                                                                  lockBreakAlpha * visorFactor)))
+                .DepthCompareUpdate(false, false));
       }
     }
 
     // Lock fire
     if (x210_lockFireTimer > 0.f) {
       const_cast< TCachedToken< CModel >& >(x7c_lockFire).TryCache();
-      if (CModel* fireModel = x7c_lockFire.GetObject()) {
+      if (CModel* const fireModel = x7c_lockFire.GetObject()) {
         CTweakTargeting* tweak = gpTweakTargeting;
         float lockFireFactor = x210_lockFireTimer / tweak->x12c_lockFireDuration;
 
@@ -970,20 +979,21 @@ void CCompoundTargetReticle::DrawCurrLockOnGroup(const CMatrix3f& rot,
         CMatrix3f combined =
             rot * CMatrix3f::Scale(fireScale) * CMatrix3f::RotateY(CRelAngle(x1f0_xrayRetAngle));
 
-        CVector3f pos = x10c_currGroupInterp.GetTargetPositionWorld();
-        gpRender->SetModelMatrix(CTransform4f(lockBreakXf * combined, pos));
+        gpRender->SetModelMatrix(
+            CTransform4f(lockBreakXf * combined, x10c_currGroupInterp.GetTargetPositionWorld()));
 
-        CColor color = tweak->x130_lockFireColor.WithAlphaModulatedBy(visorFactor * lockBreakAlpha *
-                                                                      lockFireFactor);
-        CColor addedColor = CColor::Add(lockBreakColor, color);
-        fireModel->Draw(CModelFlags::Additive(addedColor).DepthCompareUpdate(false, false));
+        fireModel->Draw(
+            CModelFlags::Additive(
+                CColor::Add(lockBreakColor, tweak->x130_lockFireColor.WithAlphaModulatedBy(
+                                                lockBreakAlpha * lockFireFactor * visorFactor)))
+                .DepthCompareUpdate(false, false));
       }
     }
 
     // Lock dagger
     if (x208_lockonTimer > 0.f) {
       const_cast< TCachedToken< CModel >& >(x88_lockDagger).TryCache();
-      if (CModel* daggerModel = x88_lockDagger.GetObject()) {
+      if (CModel* const daggerModel = x88_lockDagger.GetObject()) {
         float daggerScale = CalculateClampedScale(
             position, radius, minVpClampScale * gpTweakTargeting->x18c_lockDaggerClampMin,
             gpTweakTargeting->x190_lockDaggerClampMax, mgr);
@@ -1009,13 +1019,14 @@ void CCompoundTargetReticle::DrawCurrLockOnGroup(const CMatrix3f& rot,
 
           CMatrix3f combined = daggerMtx * CMatrix3f::RotateY(CRelAngle(ang));
 
-          CVector3f pos = x10c_currGroupInterp.GetTargetPositionWorld();
-          gpRender->SetModelMatrix(CTransform4f(lockBreakXf * combined, pos));
+          gpRender->SetModelMatrix(
+              CTransform4f(lockBreakXf * combined, x10c_currGroupInterp.GetTargetPositionWorld()));
 
-          CColor color =
-              tweak->x13c_lockDaggerColor.WithAlphaModulatedBy(lockBreakAlpha * visorFactor);
-          CColor addedColor = CColor::Add(lockBreakColor, color);
-          daggerModel->Draw(CModelFlags::Additive(addedColor).DepthCompareUpdate(false, false));
+          daggerModel->Draw(
+              CModelFlags::Additive(
+                  CColor::Add(lockBreakColor, tweak->x13c_lockDaggerColor.WithAlphaModulatedBy(
+                                                  lockBreakAlpha * visorFactor)))
+                  .DepthCompareUpdate(false, false));
         }
       }
     }
@@ -1056,7 +1067,7 @@ void CCompoundTargetReticle::DrawNextLockOnGroup(const CMatrix3f& rot,
 
   if (!xrayRet && factor > 0.f) {
     const_cast< TCachedToken< CModel >& >(x40_seeker).TryCache();
-    if (CModel* model = x40_seeker.GetObject()) {
+    if (CModel* const model = x40_seeker.GetObject()) {
       float scale = CalculateClampedScale(position, radius,
                                           minVpClampScale * gpTweakTargeting->x164_seekerClampMin,
                                           gpTweakTargeting->x168_seekerClampMax, mgr);
@@ -1065,8 +1076,9 @@ void CCompoundTargetReticle::DrawNextLockOnGroup(const CMatrix3f& rot,
 
       CMatrix3f seekerMatrix(rot * CMatrix3f::RotateY(CRelAngle(x1ec_seekerAngle)) *
                              CMatrix3f::Scale(scale));
-      CVector3f sPos = x174_nextGroupInterp.GetTargetPositionWorld();
-      gpRender->SetModelMatrix(CTransform4f(seekerMatrix, sPos));
+
+      gpRender->SetModelMatrix(
+          CTransform4f(seekerMatrix, x174_nextGroupInterp.GetTargetPositionWorld()));
 
       model->Draw(CModelFlags::Additive(tweak->x150_seekerColor.WithAlphaModulatedBy(factor))
                       .DepthCompareUpdate(false, false));
@@ -1075,7 +1087,7 @@ void CCompoundTargetReticle::DrawNextLockOnGroup(const CMatrix3f& rot,
 
   if (xrayRet) {
     const_cast< TCachedToken< CModel >& >(xac_xrayRetRing).TryCache();
-    if (CModel* model = xac_xrayRetRing.GetObject()) {
+    if (CModel* const model = xac_xrayRetRing.GetObject()) {
       float scale = CalculateClampedScale(position, radius,
                                           minVpClampScale * gpTweakTargeting->x20c_reticuleClampMin,
                                           gpTweakTargeting->x210_reticuleClampMax, mgr);
@@ -1084,8 +1096,9 @@ void CCompoundTargetReticle::DrawNextLockOnGroup(const CMatrix3f& rot,
 
       CMatrix3f xrayMatrix(rot * CMatrix3f::Scale(scale) *
                            CMatrix3f::RotateY(CRelAngle(x1f0_xrayRetAngle)));
-      CVector3f xPos = x174_nextGroupInterp.GetTargetPositionWorld();
-      gpRender->SetModelMatrix(CTransform4f(xrayMatrix, xPos));
+
+      gpRender->SetModelMatrix(
+          CTransform4f(xrayMatrix, x174_nextGroupInterp.GetTargetPositionWorld()));
 
       model->Draw(
           CModelFlags::Additive(tweak->x214_xrayRetRingColor.WithAlphaModulatedBy(visorFactor))
@@ -1095,7 +1108,7 @@ void CCompoundTargetReticle::DrawNextLockOnGroup(const CMatrix3f& rot,
 
   if (thermalRet) {
     const_cast< TCachedToken< CModel >& >(xb8_thermalReticle).TryCache();
-    if (CModel* model = xb8_thermalReticle.GetObject()) {
+    if (CModel* const model = xb8_thermalReticle.GetObject()) {
       float scale = CalculateClampedScale(position, radius,
                                           minVpClampScale * gpTweakTargeting->x20c_reticuleClampMin,
                                           gpTweakTargeting->x210_reticuleClampMax, mgr);
@@ -1103,8 +1116,9 @@ void CCompoundTargetReticle::DrawNextLockOnGroup(const CMatrix3f& rot,
       scale *= tweak->x218_reticuleScale;
 
       CMatrix3f thermalMatrix(rot * CMatrix3f::Scale(scale));
-      CVector3f tPos = x174_nextGroupInterp.GetTargetPositionWorld();
-      gpRender->SetModelMatrix(CTransform4f(thermalMatrix, tPos));
+
+      gpRender->SetModelMatrix(
+          CTransform4f(thermalMatrix, x174_nextGroupInterp.GetTargetPositionWorld()));
 
       model->Draw(
           CModelFlags::Additive(tweak->xb0_thermalReticuleColor.WithAlphaModulatedBy(visorFactor))
@@ -1117,23 +1131,23 @@ void CCompoundTargetReticle::DrawNextLockOnGroup(const CMatrix3f& rot,
     float scale = CalculateClampedScale(position, radius,
                                         minVpClampScale * gpTweakTargeting->x21c_scanTargetClampMin,
                                         gpTweakTargeting->x220_scanTargetClampMax, mgr);
+    int i;
     CTweakGuiColors* guiColors = gpTweakGuiColors;
-    float combinedFactor = visorFactor * nextFactor;
-    scale *= 1.f / combinedFactor;
+    scale *= 1.f / (visorFactor * nextFactor);
 
     CMatrix3f scanMatrix(rot * CMatrix3f::Scale(scale));
-    CVector3f scPos = x174_nextGroupInterp.GetTargetPositionWorld();
-    gpRender->SetModelMatrix(CTransform4f(scanMatrix, scPos));
+
+    gpRender->SetModelMatrix(
+        CTransform4f(scanMatrix, x174_nextGroupInterp.GetTargetPositionWorld()));
 
     CGraphics::SetDepthWriteMode(true, kE_Less, false);
 
-    float alpha = 0.5f * combinedFactor;
-
-    for (int i = 0; i < 2; ++i) {
+    for (i = 0; i < 2; ++i) {
       float lineWidth = i == 0 ? 1.f : 2.5f;
       CGraphics::SetLineWidth(lineWidth, kTO_Zero);
 
-      CColor color = guiColors->GetScanReticuleColor().WithAlphaModulatedBy(alpha);
+      CColor color =
+          guiColors->GetScanReticuleColor().WithAlphaModulatedBy(0.5f * (visorFactor * nextFactor));
 
       gpRender->BeginLines(8);
       gpRender->PrimColor(color);
@@ -1168,11 +1182,12 @@ void CCompoundTargetReticle::DrawOrbitZoneGroup(const CMatrix3f& rot,
                                                 const CStateManager& mgr) const {
   if (x28_noDrawTicks <= 0 && x1e8_crosshairsScale > 0.f) {
     const_cast< TCachedToken< CModel >& >(x34_crosshairs).TryCache();
-    CModel* model = x34_crosshairs.GetObject();
+    CTweakTargeting* tweak;
+    CModel* const model = x34_crosshairs.GetObject();
     if (model == nullptr)
       return;
 
-    CTweakTargeting* tweak = gpTweakTargeting;
+    tweak = gpTweakTargeting;
 
     gpRender->SetModelMatrix(CTransform4f(rot, xf4_targetPos) *
                              CTransform4f::Scale(x1e8_crosshairsScale));
@@ -1222,7 +1237,7 @@ float CCompoundTargetReticle::CalculateRadiusWorld(const CActor& actor,
     float w = max[0] - min[0];
     float h = max[1] - min[1];
     float d = max[2] - min[2];
-    radius = (w + h + d) * (1.f / 6.f);
+    radius = (w + d + h) * (1.f / 6.f);
     break;
   }
   }

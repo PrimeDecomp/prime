@@ -5673,7 +5673,7 @@ UpdateTargetParameters__22CCompoundTargetReticleFR25CTargetReticleRenderStateRC1
 DrawOrbitZoneGroup__22CCompoundTargetReticleCFRC9CMatrix3fRC13CStateManager = .text:0x800BD69C; // type:function size:0x16C scope:global
 DrawNextLockOnGroup__22CCompoundTargetReticleCFRC9CMatrix3fRC13CStateManager = .text:0x800BD808; // type:function size:0xA54 scope:global
 DrawCurrLockOnGroup__22CCompoundTargetReticleCFRC9CMatrix3fRC13CStateManager = .text:0x800BE25C; // type:function size:0x15F8 scope:global
-DrawGrapplePoint__22CCompoundTargetReticleFRC19CScriptGrapplePointfRC13CStateManagerRC9CMatrix3fb = .text:0x800BF854; // type:function size:0x1A8 scope:global
+DrawGrapplePoint__22CCompoundTargetReticleCFRC19CScriptGrapplePointfRC13CStateManagerRC9CMatrix3fb = .text:0x800BF854; // type:function size:0x1A8 scope:global
 DrawGrappleGroup__22CCompoundTargetReticleCFRC9CMatrix3fRC13CStateManagerb = .text:0x800BF9FC; // type:function size:0x258 scope:global
 Draw__22CCompoundTargetReticleCFRC13CStateManagerb = .text:0x800BFC54; // type:function size:0x10C scope:global
 UpdateOrbitZoneGroup__22CCompoundTargetReticleFfRC13CStateManager = .text:0x800BFD60; // type:function size:0x124 scope:global
