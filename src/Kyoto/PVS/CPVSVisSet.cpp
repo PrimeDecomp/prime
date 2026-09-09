@@ -1,4 +1,5 @@
 #include "Kyoto/PVS/CPVSVisSet.hpp"
+#include "Kyoto/Basics/CCast.hpp"
 #include "Kyoto/PVS/CPVSVisOctree.hpp"
 #include "Kyoto/Streams/CMemoryInStream.hpp"
 
@@ -54,30 +55,44 @@ CPVSVisSet CPVSVisOctree::GetVisSet(const CVector3f& point) {
     return CPVSVisSet(kVSS_OutOfBounds);
   }
 
+  uchar nodeData;
   const char* data = mOctreeData.get();
   mMin = mBounds.GetMinPoint();
   mMax = mBounds.GetMaxPoint();
 
-  char bVar1 = *data;
-  int searchRes;
-  while ((searchRes = IterateSearch(bVar1, point)) != -1) {
-    if (searchRes != 0) {
+  int child;
+  while ((child = IterateSearch((nodeData = CCast::ToUint8(*data++)), point)) != -1) {
+    if (child != 0) {
+      if ((nodeData & 0x60) == 0) {
+        const int index = child - 1;
+        data += reinterpret_cast< const ushort* >(data)[index];
+      } else if (nodeData & 0x20) {
+        data += CCast::ToUint8(data[child - 1]);
+      } else {
+        const uchar* offset = reinterpret_cast< const uchar* >(data) + (child - 1) * 3;
+        data += (offset[0] << 16) + (offset[1] << 8) + offset[2];
+      }
+    }
+
+    if ((nodeData & 0x60) == 0) {
+      data += (GetNumChildren(nodeData) - 1) * 2;
+    } else if (nodeData & 0x20) {
+      data += GetNumChildren(nodeData) - 1;
+    } else {
+      data += (GetNumChildren(nodeData) - 1) * 3;
     }
   }
 
-  bVar1 &= 0x18;
-
-  switch (bVar1) {
+  switch (nodeData & 0x18) {
   case 24: {
-    rstl::auto_ptr< const char > tmp(data);
-    {
-      rstl::auto_ptr< const char > tmp2(tmp);
-      return CPVSVisSet(mNumObjects, mNumLights, tmp2);
-    }
+    rstl::auto_ptr< const char > leaf(data);
+    leaf.release();
+    const int numObjects = GetNumObjects();
+    return CPVSVisSet(numObjects, GetNumLights(), rstl::auto_ptr< const char >(leaf));
   }
-  case 16:
-    return CPVSVisSet(kVSS_OutOfBounds);
   case 8:
+    return CPVSVisSet(kVSS_OutOfBounds);
+  case 16:
     return CPVSVisSet(kVSS_EndOfTree);
   default:
     return CPVSVisSet(kVSS_OutOfBounds);

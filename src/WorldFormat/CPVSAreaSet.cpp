@@ -20,25 +20,28 @@ CPVSAreaSet::CPVSAreaSet(int numFeatures, int numLights, int num2ndLights, int n
 
 rstl::auto_ptr< CPVSAreaSet > CPVSAreaSet::MakeAreaSet(const char* data, int len) {
   CMemoryInStream in(data, len);
-  int numFeatures = in.ReadLong();
-  int numLights = in.ReadLong();
-  int num2ndLights = in.ReadLong();
-  int numActors = in.ReadLong();
-  int leafSize = in.ReadLong();
-  int lightIndexCount = in.ReadLong();
-  char* data1 = (char*)(data + in.GetReadPosition());
-  char* entityIndexEnd = (char*)(data + in.GetReadPosition() + (numActors * 4));
-  char* data3 = entityIndexEnd + lightIndexCount * leafSize;
+  const int numFeatures = in.ReadLong();
+  const int numLights = in.ReadLong();
+  const int num2ndLights = in.ReadLong();
+  const int numActors = in.ReadLong();
+  const int leafSize = in.ReadLong();
+  const int lightIndexCount = in.ReadLong();
+  const char* const entityIndex = data + in.GetReadPosition();
+  const char* const entityIndexEnd = entityIndex + numActors * 4;
+  const char* const octreeData = entityIndexEnd + lightIndexCount * leafSize;
 
-  return rs_new CPVSAreaSet(numFeatures, numLights, num2ndLights, numActors, leafSize,
-                            lightIndexCount, data1, entityIndexEnd, data3);
+  return rstl::auto_ptr< CPVSAreaSet >(rs_new CPVSAreaSet(numFeatures, numLights, num2ndLights,
+                                                          numActors, leafSize, lightIndexCount,
+                                                          entityIndex, entityIndexEnd, octreeData));
 }
 
 CPVSVisOctree& CPVSAreaSet::GetVisOctree() const { return x20_octree; }
 
 CPVSVisSet CPVSAreaSet::GetLightSet(int lightIdx) const {
-  // return CPVSVisSet(x20_octree.GetNumObjects(), x20_octree.GetNumLights(),
-  // x1c_lightLeaves + x10_leafSize * lightIdx);
+  rstl::auto_ptr< const char > leaf(x1c_lightLeaves + x10_leafSize * lightIdx);
+  leaf.release();
+  return CPVSVisSet(x20_octree.GetNumObjects(), x20_octree.GetNumLights(),
+                    rstl::auto_ptr< const char >(leaf));
 }
 
 int CPVSAreaSet::GetEntityIdByIndex(uint idx) const {
