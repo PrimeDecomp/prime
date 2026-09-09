@@ -151,5 +151,6 @@ public:
   int GetSpecialEnding(const CStateManager&) const;
   void AddOrUpdateEmitter(float pitch, CSfxHandle& handle, ushort id, CVector3f pos, uchar vol);
 };
+CHECK_SIZEOF(CScriptSpecialFunction, 0x1f8)
 
 #endif // _CSCRIPTSPECIALFUNCTION
