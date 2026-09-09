@@ -2,6 +2,8 @@
 #define _CSCRIPTDAMAGEABLETRIGGER
 
 #include "MetroidPrime/CActor.hpp"
+#include "MetroidPrime/CDamageVulnerability.hpp"
+#include "MetroidPrime/CHealthInfo.hpp"
 
 #include "MetroidPrime/CFluidPlaneDoor.hpp"
 
@@ -17,6 +19,7 @@ public:
     kCO_Orbit,
   };
 
+  ~CScriptDamageableTrigger() override;
   CScriptDamageableTrigger(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
                            const CVector3f& position, const CVector3f& extent,
                            const CHealthInfo& hInfo, const CDamageVulnerability& dVuln,
@@ -27,13 +30,12 @@ public:
   void Accept(IVisitor& visitor) override;
   void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&) override;
   EWeaponCollisionResponseTypes GetCollisionResponseType(const CVector3f&, const CVector3f&,
-                                                         const CWeaponMode&,
-                                                         int) const override;
+                                                         const CWeaponMode&, int) const override;
   void Render(const CStateManager& mgr) const override;
   void AddToRenderer(const CFrustumPlanes& frustum, const CStateManager& mgr) const override;
   void PreRender(CStateManager& mgr, const CFrustumPlanes& frustum) override;
-  const CDamageVulnerability* GetDamageVulnerability() const override { return &x174_dVuln; }
-  CHealthInfo* HealthInfo(CStateManager&) override { return &x16c_hInfo; }
+  const CDamageVulnerability* GetDamageVulnerability() const override;
+  CHealthInfo* HealthInfo(CStateManager&) override;
   void Think(float, CStateManager&) override;
   rstl::optional_object< CAABox > GetTouchBounds() const override;
 
@@ -58,6 +60,9 @@ private:
 
   void SetLinkedObjectAlpha(float a, CStateManager& mgr);
   float GetPuddleAlphaScale() const;
+  const CFluidPlane& GetFluidPlane() const { return x254_fluidPlane; }
+  const CFrustumPlanes& GetFrustumPlanes() const { return xe8_frustum; }
 };
+CHECK_SIZEOF(CScriptDamageableTrigger, 0x308)
 
 #endif // _CSCRIPTDAMAGEABLETRIGGER
