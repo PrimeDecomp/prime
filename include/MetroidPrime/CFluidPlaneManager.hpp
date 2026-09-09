@@ -162,6 +162,7 @@ protected:
 CHECK_SIZEOF(CFluidPlane, 0xA0);
 
 extern const bool gkWaterEnable;
+extern const float gkFluidMaxCrest;
 extern const bool gkWaterTurbulence;
 extern const bool gkWaterBumpMapping;
 extern const int gkWaterEnvMap;

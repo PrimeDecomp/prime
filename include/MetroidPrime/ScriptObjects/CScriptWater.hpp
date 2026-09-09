@@ -63,10 +63,8 @@ public:
   const CScriptWater* GetNextConnectedWater(const CStateManager&) const;
   // RenderSurface__12CScriptWaterFv
 
-  CFluidPlaneCPU& FluidPlane() { return reinterpret_cast< CFluidPlaneCPU& >(*x1b4_fluidPlane); }
-  const CFluidPlaneCPU& GetFluidPlane() const {
-    return reinterpret_cast< const CFluidPlaneCPU& >(*x1b4_fluidPlane);
-  }
+  CFluidPlaneCPU& FluidPlane() { return *x1b4_fluidPlane; }
+  const CFluidPlaneCPU& GetFluidPlane() const { return *x1b4_fluidPlane; }
   // GetWRSurfacePlane__12CScriptWaterCFv
   float GetSurfaceZ() const { return GetTriggerBoundsWR().GetMaxPoint().GetZ(); }
   const CColor& GetUnderwaterFogColor() const { return x2a8_insideFogColor; }
@@ -100,7 +98,7 @@ public:
 
 private:
   CFrustumPlanes x150_frustum;
-  rstl::single_ptr< CFluidPlane > x1b4_fluidPlane;
+  rstl::single_ptr< CFluidPlaneCPU > x1b4_fluidPlane;
   CVector3f x1b8_positionMorphed;
   CVector3f x1c4_extentMorphed;
   float x1d0_morphInTime;
@@ -155,5 +153,7 @@ private:
   bool x2e8_29_alphaIn : 1;
   bool x2e8_30_alphaOut : 1;
 };
+
+CHECK_SIZEOF(CScriptWater, 0x2f0)
 
 #endif // _CSCRIPTWATER
