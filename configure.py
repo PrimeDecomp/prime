@@ -742,7 +742,7 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Player/CPlayerVisor.cpp"
             ),
             Object(Matching, "MetroidPrime/CModelData.cpp"),
-            Object(NonMatching, "MetroidPrime/CDecalManager.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CDecalManager.cpp"),
             Object(
                 NonMatching, "MetroidPrime/ScriptObjects/CScriptSpiderBallWaypoint.cpp"
             ),

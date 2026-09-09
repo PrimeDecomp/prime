@@ -143,7 +143,9 @@ const bool CEnergyProjectile::Explode(const CVector3f& pos, const CVector3f& nor
       const rstl::optional_object< TLockedToken< CDecalDescription > > decal =
           projectile.GetDecalForCollision(type);
       if (decal.valid()) {
-        CDecalManager::AddDecal(*decal, particleXf, !HasAttrib(kPA_Ice), mgr);
+        CDecalManager::AddDecal(*decal, particleXf,
+                               HasAttrib(kPA_Ice) ? CDecalManager::kTH_Cold : CDecalManager::kTH_Hot,
+                               mgr);
       }
       CVector3f scale(1.f, 1.f, 1.f);
       bool cameraClose = false;
