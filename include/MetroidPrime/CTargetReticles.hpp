@@ -45,7 +45,7 @@ public:
 
   TUniqueId GetTargetId() const { return x0_target; }
   float GetRadiusWorld() const { return x4_radiusWorld; }
-  const CVector3f& GetTargetPositionWorld() const { return x8_positionWorld; }
+  CVector3f GetTargetPositionWorld() const { return x8_positionWorld; }
   float GetFactor() const { return x14_factor; }
   float GetMinViewportClampScale() const { return x18_minVpClampScale; }
   bool GetIsOrbitZoneIdlePosition() const { return x1c_orbitZoneIdlePosition; }
