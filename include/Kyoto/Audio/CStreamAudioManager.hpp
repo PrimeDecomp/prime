@@ -34,6 +34,9 @@ public:
   static void SetMusicVolume(uint vol);
   static void SetSfxVolume(uint vol);
   static void SetMusicUnmute(bool unmute);
+  static bool GetMusicUnmute() { return mEnable; }
+  static bool GetSfxUnmute() { return mForegroundEnable; }
+  static void SetSfxUnmute(bool unmute) { mForegroundEnable = unmute; }
 
   static void FadeInSoftwareAudio(ESoftwareChannel chan, float fadeTime);
   static void FadeOutSoftwareAudio(ESoftwareChannel chan, float fadeTime);

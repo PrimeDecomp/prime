@@ -43,4 +43,6 @@ private:
   void DrawError() const;
 };
 
+CHECK_SIZEOF(CErrorOutputWindow, 0x20)
+
 #endif // _CERROROUTPUTWINDOW
