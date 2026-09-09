@@ -15,7 +15,7 @@
 #include "Kyoto/CFactoryFnReturn.hpp"
 #include "Kyoto/CVParamTransfer.hpp"
 
-CFactoryFnReturn RGuiFrameFactoryInGame(const SObjectTag& tag, CInputStream& in,
+const CFactoryFnReturn RGuiFrameFactoryInGame(const SObjectTag& tag, CInputStream& in,
                                       const CVParamTransfer& xfer) {
   rstl::rc_ptr< IVParamObj > obj = xfer.x0_obj;
   CSimplePool* pool = static_cast< TObjOwnerParam< CSimplePool* >* >(obj.GetPtr())->GetData();

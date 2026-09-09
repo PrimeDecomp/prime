@@ -62,7 +62,7 @@ private:
 };
 CHECK_SIZEOF(CCollidableOBBTreeGroup, 0x18)
 
-CFactoryFnReturn FCollidableOBBTreeGroupFactory(const SObjectTag& tag, CInputStream& in,
+const CFactoryFnReturn FCollidableOBBTreeGroupFactory(const SObjectTag& tag, CInputStream& in,
                                                 const CVParamTransfer& xfer);
 
 #endif // _CCOLLIDABLEOBBTREEGROUP

@@ -16,6 +16,6 @@ public:
   static bool CreateDPSM(CDecalDescription* desc, CInputStream& in, CSimplePool* pool);
 };
 
-CFactoryFnReturn FDecalDataFactory(const SObjectTag& tag, CInputStream& in,
+const CFactoryFnReturn FDecalDataFactory(const SObjectTag& tag, CInputStream& in,
                                    const CVParamTransfer& transfer);
 #endif

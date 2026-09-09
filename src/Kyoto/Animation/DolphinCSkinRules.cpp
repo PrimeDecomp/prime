@@ -30,7 +30,7 @@ CSkinRules::~CSkinRules() {
   CModel::RemoveFromTotal(x0_virtualBones.size() * sizeof(CVirtualBone) + sizeof(CSkinRules));
 }
 
-CFactoryFnReturn FSkinRulesFactory(const SObjectTag& tag, CInputStream& in,
+const CFactoryFnReturn FSkinRulesFactory(const SObjectTag& tag, CInputStream& in,
                                    const CVParamTransfer&) {
   return rs_new CSkinRules(in);
 }

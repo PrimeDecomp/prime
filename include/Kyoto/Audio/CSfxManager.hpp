@@ -258,7 +258,7 @@ public:
 
 inline CSfxManager::CBaseSfxWrapper::~CBaseSfxWrapper() {}
 
-CFactoryFnReturn FAudioTranslationTableFactory(const SObjectTag& obj, CInputStream& in,
+const CFactoryFnReturn FAudioTranslationTableFactory(const SObjectTag& obj, CInputStream& in,
                                                const CVParamTransfer& xfer);
 
 #endif // _CSFXMANAGER

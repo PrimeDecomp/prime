@@ -3,7 +3,7 @@
 #include "Kyoto/CFactoryFnReturn.hpp"
 #include "Kyoto/Streams/CInputStream.hpp"
 
-CFactoryFnReturn FCharLayoutInfo(const SObjectTag& tag, CInputStream& in, const CVParamTransfer&) {
+const CFactoryFnReturn FCharLayoutInfo(const SObjectTag& tag, CInputStream& in, const CVParamTransfer&) {
   return rs_new CCharLayoutInfo(in);
 }
 

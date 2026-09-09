@@ -3,7 +3,7 @@
 #include "Kyoto/CRandom16.hpp"
 #include "Kyoto/Particles/CParticleDataFactory.hpp"
 
-CFactoryFnReturn FDecalDataFactory(const SObjectTag& tag, CInputStream& in,
+const CFactoryFnReturn FDecalDataFactory(const SObjectTag& tag, CInputStream& in,
                                  const CVParamTransfer& transfer) {
   rstl::rc_ptr< IVParamObj > obj = transfer.x0_obj;
   CSimplePool* pool = static_cast< TObjOwnerParam< CSimplePool* >* >(obj.GetPtr())->GetData();

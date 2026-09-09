@@ -20,7 +20,7 @@ public:
 
 extern CStringTable* gpStringTable;
 
-CFactoryFnReturn FStringTableFactory(const SObjectTag& tag, CInputStream& in,
+const CFactoryFnReturn FStringTableFactory(const SObjectTag& tag, CInputStream& in,
                                      const CVParamTransfer& xfer);
 
 #endif // _CSTRINGTABLE

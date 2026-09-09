@@ -228,7 +228,7 @@ bool CPFArea::PathExists(const CPFRegion* source, const CPFRegion* destination, 
   return (x168_connectionsGround[bit / 32] >> (bit % 32)) & 1;
 }
 
-CFactoryFnReturn FPathFindAreaFactory(const SObjectTag& tag, const rstl::auto_ptr< uchar >& data,
+const CFactoryFnReturn FPathFindAreaFactory(const SObjectTag& tag, const rstl::auto_ptr< uchar >& data,
                                       int size, const CVParamTransfer& xfer) {
   return rs_new CPFArea(data, size);
 }

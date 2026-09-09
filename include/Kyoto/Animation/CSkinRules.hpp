@@ -36,5 +36,5 @@ private:
   uint x14_normalCount;
 };
 
-CFactoryFnReturn FSkinRulesFactory(const SObjectTag& tag, CInputStream& in, const CVParamTransfer&);
+const CFactoryFnReturn FSkinRulesFactory(const SObjectTag& tag, CInputStream& in, const CVParamTransfer&);
 #endif // _CSKINRULES

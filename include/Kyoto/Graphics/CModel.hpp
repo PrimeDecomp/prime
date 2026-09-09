@@ -84,6 +84,6 @@ private:
   mutable uint x38_lastFrame;
 };
 
-CFactoryFnReturn FModelFactory(const SObjectTag& tag, const rstl::auto_ptr< uchar >& ptr, int len,
+const CFactoryFnReturn FModelFactory(const SObjectTag& tag, const rstl::auto_ptr< uchar >& ptr, int len,
                                const CVParamTransfer& xfer);
 #endif // _CMODEL

@@ -76,7 +76,7 @@ inline CFactoryFnReturn::CFactoryFnReturn(CScannableObjectInfo* ptr)
 : obj(TToken< CScannableObjectInfo >::GetIObjObjectFor(rstl::auto_ptr< CScannableObjectInfo >(ptr))
           .release()) {}
 
-CFactoryFnReturn FScannableObjectInfoFactory(const SObjectTag& tag, CInputStream& in,
+const CFactoryFnReturn FScannableObjectInfoFactory(const SObjectTag& tag, CInputStream& in,
                                              const CVParamTransfer& xfer) {
   return rs_new CScannableObjectInfo(in, tag.GetId());
 }

@@ -123,6 +123,6 @@ CMidiManager::CMidiData::CMidiData(CInputStream& in)
 }
 
 #pragma inline_max_size(250)
-CFactoryFnReturn FMidiDataFactory(const SObjectTag& tag, CInputStream& in, const CVParamTransfer&) {
+const CFactoryFnReturn FMidiDataFactory(const SObjectTag& tag, CInputStream& in, const CVParamTransfer&) {
   return rs_new CMidiManager::CMidiData(in);
 }

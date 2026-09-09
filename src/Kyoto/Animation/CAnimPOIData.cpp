@@ -17,7 +17,7 @@ CAnimPOIData::CAnimPOIData(CInputStream& in)
   }
 }
 
-CFactoryFnReturn AnimPOIDataFactory(const SObjectTag& tag, CInputStream& in,
+const CFactoryFnReturn AnimPOIDataFactory(const SObjectTag& tag, CInputStream& in,
                                     const CVParamTransfer& xfer) {
   return rs_new CAnimPOIData(in);
 }

@@ -26,7 +26,7 @@ private:
   rstl::vector< CSoundPOINode > mSoundNodes;
 };
 
-CFactoryFnReturn AnimPOIDataFactory(const SObjectTag& tag, CInputStream& in,
+const CFactoryFnReturn AnimPOIDataFactory(const SObjectTag& tag, CInputStream& in,
                                     const CVParamTransfer& xfer);
 
 #endif // _CANIMPOIDATA

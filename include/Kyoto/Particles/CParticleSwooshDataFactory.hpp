@@ -12,6 +12,6 @@ public:
   static bool CreateWPSM(CSwooshDescription* swoosh, CInputStream& in, CSimplePool* pool);
 };
 
-CFactoryFnReturn FParticleSwooshDataFactory(const SObjectTag& tag, CInputStream& in,
+const CFactoryFnReturn FParticleSwooshDataFactory(const SObjectTag& tag, CInputStream& in,
                                             const CVParamTransfer& transfer);
 #endif

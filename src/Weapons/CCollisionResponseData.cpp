@@ -254,7 +254,7 @@ EWeaponCollisionResponseTypes CCollisionResponseData::GetWorldCollisionResponseT
 }
 
 
-CFactoryFnReturn FCollisionResponseDataFactory(const SObjectTag& tag, CInputStream& in,
+const CFactoryFnReturn FCollisionResponseDataFactory(const SObjectTag& tag, CInputStream& in,
                                                const CVParamTransfer& xfer) {
   rstl::rc_ptr< IVParamObj > obj = xfer.x0_obj;
   CSimplePool* pool = static_cast< TObjOwnerParam< CSimplePool* >* >(obj.GetPtr())->GetData();
