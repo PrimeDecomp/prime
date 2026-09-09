@@ -43,6 +43,26 @@ public:
   ~CAllFormatsAnimSource();
 
   int GetType() const { return mFormatUnion.GetType(); }
+  CCharAnimTime GetAnimationDuration() const {
+    switch (GetType()) {
+    case 0:
+      return AsCAnimSource().GetAnimationDuration();
+    case 2:
+      return AsCFBStreamedCompression().GetAnimationDuration();
+    default:
+      return AsCAnimSource().GetAnimationDuration();
+    }
+  }
+  float GetAverageVelocity() const {
+    switch (GetType()) {
+    case 0:
+      return AsCAnimSource().GetAverageVelocity();
+    case 2:
+      return AsCFBStreamedCompression().GetAverageVelocity();
+    default:
+      return AsCAnimSource().GetAverageVelocity();
+    }
+  }
   const CAnimSource& AsCAnimSource() const { return mFormatUnion.AsCAnimSource(); }
   const CFBStreamedCompression& AsCFBStreamedCompression() const {
     return mFormatUnion.AsCFBStreamedCompression();

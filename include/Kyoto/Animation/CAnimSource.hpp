@@ -85,6 +85,7 @@ public:
     return CSteadyStateAnimInfo(false, GetAnimationDuration(), GetOverallOffset(time));
   }
   void CalcAverageVelocity();
+  float GetAverageVelocity() const { return x60_averageVelocity; }
 
 private:
   CCharAnimTime x0_duration;

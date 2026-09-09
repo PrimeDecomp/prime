@@ -289,6 +289,7 @@ public:
   ~CFBStreamedCompression();
 
   CCharAnimTime GetAnimationDuration() const;
+  float GetAverageVelocity() const { return x10_averageVelocity; }
   bool HasPOIData() const { return !x8_evntToken.null(); }
   const rstl::vector< CBoolPOINode >& GetBoolPOIStream() const {
     return (*x8_evntToken)->GetBoolPOIStream();

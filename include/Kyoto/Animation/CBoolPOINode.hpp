@@ -7,8 +7,8 @@ class CBoolPOINode : public CPOINode {
 public:
   CBoolPOINode(rstl::string name = "", ushort type = kPT_EmptyBool,
                const CCharAnimTime& time = CCharAnimTime(), int index = -1, bool unique = false,
-               float weight = 1.f, int charIdx = -1, int flags = 0, bool value = false);
-  // : CPOINode(name, type, time, index, unique, weight, charIdx, flags), x38_val(value) {}
+               float weight = 1.f, int charIdx = -1, int flags = 0, bool value = false)
+  : CPOINode(name, type, time, index, unique, weight, charIdx, flags), x38_val(value) {}
 
   CBoolPOINode(CInputStream& in);
   static CBoolPOINode CopyNodeMinusStartTime(const CBoolPOINode& node,

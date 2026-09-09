@@ -3,7 +3,7 @@
 
 #include "types.h"
 
-#include "../Kyoto/Animation/CAdditiveAnimPlayback.hpp"
+#include "Kyoto/Animation/CAdditiveAnimPlayback.hpp"
 #include "Kyoto/Animation/CBoolPOINode.hpp"
 #include "Kyoto/Animation/CCharacterInfo.hpp"
 #include "Kyoto/Animation/CInt32POINode.hpp"
@@ -11,9 +11,9 @@
 #include "Kyoto/Animation/CSoundPOINode.hpp"
 #include "MetroidPrime/ActorCommon.hpp"
 #include "MetroidPrime/CAnimPlaybackParms.hpp"
+#include "Kyoto/Animation/CPoseAsTransforms.hpp"
 #include "Kyoto/Animation/CHierarchyPoseBuilder.hpp"
 #include "MetroidPrime/CParticleDatabase.hpp"
-#include "MetroidPrime/CPoseAsTransforms.hpp"
 
 #include "Kyoto/Animation/CCharAnimTime.hpp"
 #include "Kyoto/Animation/CCharLayoutInfo.hpp"
@@ -50,7 +50,8 @@ public:
   };
 
   CAnimData(uint, const CCharacterInfo&, int, int, bool, const TLockedToken< CCharLayoutInfo >&,
-            const TToken< CSkinnedModel >&, const rstl::optional_object< TLockedToken< CSkinnedModelWithAvgNormals > >&,
+            const TToken< CSkinnedModel >&,
+            const rstl::optional_object< TLockedToken< CSkinnedModelWithAvgNormals > >&,
             const rstl::ncrc_ptr< CAnimSysContext >&, const rstl::rc_ptr< CAnimationManager >&,
             const rstl::rc_ptr< CTransitionManager >&, const TLockedToken< CCharacterFactory >&);
   ~CAnimData();
@@ -116,8 +117,8 @@ public:
   void SetAnimation(const CAnimPlaybackParms& parms, const bool noTrans);
   void GetAnimationPrimitives(const CAnimPlaybackParms& parms,
                               rstl::set< CPrimitive >& primsOut) const;
-  static void PrimitiveSetToTokenVector(const rstl::set< CPrimitive >&,
-                                        rstl::vector< CToken >&, bool);
+  static void PrimitiveSetToTokenVector(const rstl::set< CPrimitive >&, rstl::vector< CToken >&,
+                                        bool);
   void BuildPose();
   // PreRender__9CAnimDataFv
   void SetupRender(const CSkinnedModel&, const rstl::optional_object< CVertexMorphEffect >&,
@@ -133,7 +134,8 @@ public:
   bool IsAnimTimeRemaining(float, const rstl::string&) const;
   CTransform4f GetLocatorTransform(const rstl::string&, const CCharAnimTime*) const;
   CTransform4f GetLocatorTransform(CSegId, const CCharAnimTime*) const;
-  void CalcPlaybackAlignmentParms(const CAnimPlaybackParms&, const rstl::ncrc_ptr< CAnimTreeNode >&);
+  void CalcPlaybackAlignmentParms(const CAnimPlaybackParms&,
+                                  const rstl::ncrc_ptr< CAnimTreeNode >&);
   void SetRandomPlaybackRate(CRandom16& random);
   void SetPlaybackRate(float set);
   void MultiplyPlaybackRate(float scale);
@@ -154,8 +156,7 @@ public:
   bool IsAdditiveAnimationAdded(uint idx) const;
   CAdvancementDeltas UpdateAdditiveAnims(float);
   CAdvancementDeltas AdvanceAdditiveAnims(float);
-  static CAdvancementResults AdvanceAdditiveAnim(rstl::rc_ptr< CAnimTreeNode >&,
-                                                 const CCharAnimTime&);
+  static CAdvancementResults AdvanceAdditiveAnim(rstl::rc_ptr< CAnimTreeNode >&, CCharAnimTime);
   void AddAdditiveSegData(const CSegIdList&, CSegStatementSet&) const;
   int GetEventResourceIdForAnimResourceId(int id) const;
   rstl::rc_ptr< CAnimationManager > GetAnimationManager();
@@ -185,7 +186,9 @@ public:
   rstl::ncrc_ptr< CAnimSysContext > GetAnimSysContext() const;
   // CacheInt32PoiList__9CAnimDataFRC13CCharAnimTimeiRCQ24rstl25ncrc_ptr<13CAnimTreeNode>
 
-  const rstl::optional_object< TLockedToken< CSkinnedModelWithAvgNormals > >& GetIceModel() const { return xe4_iceModelData; }
+  const rstl::optional_object< TLockedToken< CSkinnedModelWithAvgNormals > >& GetIceModel() const {
+    return xe4_iceModelData;
+  }
   const CPASDatabase& GetPASDatabase() const { return xc_charInfo.GetPASDatabase(); }
   // EnableLooping__9CAnimDataFb
   // GetSkinnedModel__9CAnimDataCFv
@@ -234,14 +237,14 @@ private:
   int x214_passedParticleCount;
   int x218_passedSoundCount;
   int x21c_particleLightIdx;
-  uchar x220_24_animating : 1;
+  bool x220_24_animating : 1;
   bool x220_25_loop : 1;
-  uchar x220_26_aligningPos : 1;
-  uchar x220_27_ : 1;
-  uchar x220_28_ : 1;
-  uchar x220_29_animationJustStarted : 1;
-  uchar x220_30_poseBuilt : 1;
-  uchar x220_31_poseCached : 1;
+  bool x220_26_aligningPos : 1;
+  bool x220_27_ : 1;
+  bool x220_28_ : 1;
+  bool x220_29_animationJustStarted : 1;
+  bool x220_30_poseBuilt : 1;
+  bool x220_31_poseCached : 1;
   CPoseAsTransforms x224_pose;
   mutable CHierarchyPoseBuilder x2fc_poseBuilder;
   CAnimPlaybackParms x40c_playbackParms;

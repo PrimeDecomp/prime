@@ -40,7 +40,10 @@ public:
     return x8_indirectionMap[id.val()] != rstl::pair< char, char >(-1, -1);
   }
 
-  T& AccessElement(int index) { return xd0_nodes[index]; }
+  T& AccessElement(int index) {
+    T* ptr = xd0_nodes + index;
+    return *ptr;
+  }
   const T& AccessElement(int index) const { return xd0_nodes[index]; }
 
   void insert(const CSegId& id, const T& value);

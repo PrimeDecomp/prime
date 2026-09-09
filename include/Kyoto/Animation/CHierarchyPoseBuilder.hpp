@@ -19,7 +19,7 @@ class CTransform4f;
 class CHierarchyPoseBuilder {
 public:
   CHierarchyPoseBuilder(const CLayoutDescription& layout);
-  ~CHierarchyPoseBuilder();
+  ~CHierarchyPoseBuilder() {}
 
   void BuildNoScale(CPoseAsTransforms& pose);
   void BuildTransform(const CSegId& seg, CTransform4f& transform) const;

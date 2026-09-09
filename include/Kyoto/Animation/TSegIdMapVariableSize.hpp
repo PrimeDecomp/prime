@@ -14,13 +14,7 @@ public:
   : mNextId(0), mCount(count), mLinks(link_node(0xFF, 0xFF)), mItems(nullptr), mLastInserted(0) {
     mItems = reinterpret_cast< T* >(rs_new uchar[count * sizeof(T)]);
   }
-  ~TSegIdMapVariableSize() {
-    uchar cur = mLastInserted;
-    while (cur) {
-      cur = mLinks[cur].first;
-    }
-    delete mItems;
-  }
+  ~TSegIdMapVariableSize();
 
   void Clear();
 
@@ -43,6 +37,17 @@ private:
   T* mItems;
   char mLastInserted;
 };
+
+template < typename T >
+TSegIdMapVariableSize< T >::~TSegIdMapVariableSize() {
+  CSegId cur(mLastInserted);
+  while (cur != CSegId::Null()) {
+    GetElementAt(cur).~T();
+    cur = CSegId(mLinks[cur.val()].first);
+  }
+  delete[] reinterpret_cast< uchar* >(mItems);
+}
+
 template < typename T >
 void TSegIdMapVariableSize< T >::Clear() {
   for (uchar cur = mLastInserted; cur != 0;) {

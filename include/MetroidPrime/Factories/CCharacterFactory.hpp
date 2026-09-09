@@ -43,6 +43,12 @@ public:
                                              const TLockedToken< CCharacterFactory >& factory,
                                              int defaultAnim) const;
   const CCharacterInfo& GetCharInfo(int charIdx) const;
+  const rstl::vector< rstl::pair< uint, CAdditiveAnimationInfo > >& GetAdditiveAnimInfoList() const {
+    return x40_additiveInfo;
+  }
+  const CAdditiveAnimationInfo& GetDefaultAdditiveAnimInfo() const {
+    return x50_defaultAdditiveInfo;
+  }
 
   static rstl::vector< CCharacterInfo > GetCharacterInfoDB(const CAnimCharacterSet& ancs);
   static rstl::vector< TToken< CCharLayoutInfo > >

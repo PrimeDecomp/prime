@@ -25,7 +25,7 @@ public:
   CAdditiveAnimPlayback(const rstl::ncrc_ptr< CAnimTreeNode >& anim, float weight, bool loop,
                         const CAdditiveAnimationInfo& info, bool fadeOut);
 
-  const rstl::rc_ptr< CAnimTreeNode >& GetAnimationTree() const;
+  const rstl::rc_ptr< CAnimTreeNode >& GetAnimationTree() const { return x8_anim; }
   rstl::ncrc_ptr< CAnimTreeNode >& AnimationTree() { return x8_anim; }
 
   float GetWeight() const { return xc_targetWeight; }
