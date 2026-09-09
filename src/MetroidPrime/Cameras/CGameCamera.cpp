@@ -175,7 +175,7 @@ CVector3f CCameraSpline::GetKnotPosition(int idx) const {
   return CVector3f::Zero();
 }
 
-void CCameraSpline::SetKnotPosition(int idx, const CVector3f& pos) {
+void CCameraSpline::SetKnotPosition(int idx, CVector3f pos) {
   if (idx >= x4_positions.size()) {
     return;
   }
