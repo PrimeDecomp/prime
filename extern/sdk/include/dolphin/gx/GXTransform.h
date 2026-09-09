@@ -9,16 +9,18 @@ extern "C" {
 
 #define GX_PROJECTION_SZ 7
 
+void GXSetProjectionv(const f32* ptr);
+
 #ifdef TARGET_PC
 void GXSetProjection(const void* mtx, GXProjectionType type);
 void GXLoadPosMtxImm(const void* mtx, u32 id);
 void GXLoadNrmMtxImm(const void* mtx, u32 id);
 void GXLoadTexMtxImm(const void* mtx, u32 id, GXTexMtxType type);
 #else
-void GXSetProjection(f32 mtx[4][4], GXProjectionType type);
-void GXLoadPosMtxImm(f32 mtx[3][4], u32 id);
-void GXLoadNrmMtxImm(f32 mtx[3][4], u32 id);
-void GXLoadTexMtxImm(f32 mtx[][4], u32 id, GXTexMtxType type);
+void GXSetProjection(const f32 mtx[4][4], GXProjectionType type);
+void GXLoadPosMtxImm(const f32 mtx[3][4], u32 id);
+void GXLoadNrmMtxImm(const f32 mtx[3][4], u32 id);
+void GXLoadTexMtxImm(const f32 mtx[][4], u32 id, GXTexMtxType type);
 #endif
 void GXSetViewport(f32 left, f32 top, f32 wd, f32 ht, f32 nearz, f32 farz);
 void GXSetCurrentMtx(u32 id);

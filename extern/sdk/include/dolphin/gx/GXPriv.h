@@ -25,8 +25,10 @@ typedef struct GXLightObjInt {
 
 #define GX_FIFO_ADDR 0xCC008000
 
-#define GX_WRITE_U8(v) (GXWGFifo.u8 = v)
-#define GX_WRITE_U32(v) (GXWGFifo.u32 = v)
+volatile PPCWGPipe __GXWGFifo AT_ADDRESS(GX_FIFO_ADDR);
+
+#define GX_WRITE_U8(v) (__GXWGFifo.u8 = (u8)(v))
+#define GX_WRITE_U32(v) (__GXWGFifo.u32 = (u32)(v))
 
 typedef struct __GXData_struct {
   u16 vNumNot;
@@ -79,7 +81,7 @@ typedef struct __GXData_struct {
   u32 nextTexRgn;
   u32 nextTexRgnCI;
   GXTlutRegion TlutRegions[20];
-  GXTexRegion* (*texRegionCallback)(GXTexObj*, GXTexMapID);
+  GXTexRegion* (*texRegionCallback)(const GXTexObj*, GXTexMapID);
   GXTlutRegion* (*tlutRegionCallback)(u32);
   GXAttrType nrmType;
   GXBool hasNrms;
@@ -108,9 +110,85 @@ typedef struct __GXData_struct {
   u32 dirtyState;
 } GXData;
 
-extern GXData* gx;
-// #define gx __GXData
+typedef struct __GXFifoObj {
+  u8* base;
+  u8* top;
+  u32 size;
+  u32 hiWatermark;
+  u32 loWatermark;
+  void* rdPtr;
+  void* wrPtr;
+  s32 count;
+  u8 bind_cpu;
+  u8 bind_gp;
+} __GXFifoObj;
 
+void __GXCleanGPFifo(void);
+void __GetImageTileCount(GXTexFmt fmt, u16 wd, u16 ht, u32* rowTiles, u32* colTiles, u32* cmpTiles);
+
+extern GXData* const __GXData;
+
+extern void* __piReg;
+extern void* __cpReg;
+extern void* __peReg;
+extern void* __memReg;
+
+#define GX_WRITE_U16(v) (__GXWGFifo.u16 = (u16)(v))
+#define GX_WRITE_F32(v) (__GXWGFifo.f32 = (f32)(v))
+#define GX_WRITE_RAS_REG(v) GX_WRITE_RA_REG(v)
+
+#define SET_REG_FIELD(reg, size, shift, val)                                                       \
+  do {                                                                                             \
+    (reg) = ((u32)(reg) & ~(((1 << (size)) - 1) << (shift))) | ((u32)(val) << (shift));            \
+  } while (0)
+#define GET_REG_FIELD(reg, size, shift) ((int)((reg) >> (shift)) & ((1 << (size)) - 1))
+
+#define __SET_REG_FIELD(reg, size, shift, val)                                                     \
+  ((reg) = __rlwimi((u32)(reg), (val), (shift), 32 - (shift) - (size), 31 - (shift)))
+
+#define GX_WRITE_XF_REG(addr, value)                                                               \
+  do {                                                                                             \
+    GX_WRITE_U8(0x10);                                                                             \
+    GX_WRITE_U32(0x1000 + (addr));                                                                 \
+    GX_WRITE_U32(value);                                                                           \
+  } while (0)
+
+#define GX_WRITE_SOME_REG4(command, address, value, index)                                         \
+  do {                                                                                             \
+    s32 regAddr;                                                                                   \
+    GX_WRITE_U8(command);                                                                          \
+    GX_WRITE_U8(address);                                                                          \
+    GX_WRITE_U32(value);                                                                           \
+    regAddr = index;                                                                               \
+  } while (0)
+#define GX_WRITE_SOME_REG2(command, address, value, index)                                         \
+  GX_WRITE_SOME_REG4(command, address, value, index)
+#define GX_WRITE_SOME_REG3(command, address, value, index)                                         \
+  GX_WRITE_SOME_REG4(command, address, value, index)
+
+#define GX_GET_MEM_REG(offset) (((volatile u16*)__memReg)[offset])
+#define GX_GET_CP_REG(offset) (((volatile u16*)__cpReg)[offset])
+#define GX_GET_PE_REG(offset) (((volatile u16*)__peReg)[offset])
+#define GX_GET_PI_REG(offset) (((volatile u32*)__piReg)[offset])
+#define GX_SET_MEM_REG(offset, value) (GX_GET_MEM_REG(offset) = (value))
+#define GX_SET_CP_REG(offset, value) (GX_GET_CP_REG(offset) = (value))
+#define GX_SET_PE_REG(offset, value) (GX_GET_PE_REG(offset) = (value))
+#define GX_SET_PI_REG(offset, value) (GX_GET_PI_REG(offset) = (value))
+
+void __GXFifoInit(void);
+void __GXPEInit(void);
+void __GXSetDirtyState(void);
+void __GXSetSUTexRegs(void);
+void __GXFlushTextureState(void);
+void __GXUpdateBPMask(void);
+void __GXSetGenMode(void);
+void __GXSetVCD(void);
+void __GXSetVAT(void);
+void __GXCalculateVLim(void);
+void __GXSendFlushPrim(void);
+
+void __GXSetMatrixIndex(GXAttr matIdxAttr);
+void __GXSetRange(f32 nearz, f32 sideX);
 void __GXInitGX();
 
 #define GX_REG_ASSERT(c) ASSERTMSG(c, "GX Internal: Register field out of range")
@@ -126,7 +204,7 @@ void __GXInitGX();
 #define GX_GENMODE_REG_ID_SIZE 8
 #define GX_GENMODE_REG_ID_SHIFT 24
 #define GX_GENMODE_REG_ID_MASK 0xff000000
-#define GX_GENMODE_GET_REG_ID(genMode)                                                               \
+#define GX_GENMODE_GET_REG_ID(genMode)                                                             \
   ((((u32)(genMode)) & GX_GENMODE_REG_ID_MASK) >> GX_GENMODE_REG_ID_SHIFT)
 
 #define GX_BPMASK_ID 15
@@ -281,7 +359,7 @@ void __GXInitGX();
   {                                                                                                \
     GX_WRITE_U8(GX_OPCODE(1, 12));                                                                 \
     GX_WRITE_U32((reg));                                                                           \
-    __gxVerif->rasRegs[GX_GENMODE_GET_REG_ID(reg)] = reg;                                             \
+    __gxVerif->rasRegs[GX_GENMODE_GET_REG_ID(reg)] = reg;                                          \
   }
 #else
 #define GX_WRITE_RA_REG(reg)                                                                       \
@@ -291,15 +369,16 @@ void __GXInitGX();
   }
 #endif
 
-#define GX_BITFIELD(field, pos, size, value)       (__rlwimi((field), (value), 31 - (pos) - (size) + 1, (pos), (pos) + (size) - 1))
-#define GX_BITFIELD_SET(field, pos, size, value)   ((field) = GX_BITFIELD(field, pos, size, value))
+#define GX_BITFIELD(field, pos, size, value)                                                       \
+  (__rlwimi((field), (value), 31 - (pos) - (size) + 1, (pos), (pos) + (size) - 1))
+#define GX_BITFIELD_SET(field, pos, size, value) ((field) = GX_BITFIELD(field, pos, size, value))
 
 #define CP_STREAM_REG_INDEX_SIZE 4
 #define CP_STREAM_REG_INDEX_SHIFT 0
 #define CP_STREAM_REG_INDEX_MASK 0x0000000f
 
 #define CP_STREAM_REG_ADDR_SIZE 4
-#define CP_STREAM_REG_ADDR_SHIFT    4
+#define CP_STREAM_REG_ADDR_SHIFT 4
 #define CP_STREAM_REG_ADDR_MASK 0x000000f0
 
 #define CP_STREAM_REG(index, addr)                                                                 \
@@ -313,13 +392,13 @@ void __GXInitGX();
     GX_WRITE_U8(GX_OPCODE(0, 1));                                                                  \
     GX_WRITE_U8(CP_STREAM_REG((vtxfmt), (addr)));                                                  \
     GX_WRITE_U32((data));                                                                          \
-    regAddr = (vtxfmt)-GX_POS_MTX_ARRAY + GX_VA_POS;                                               \
+    regAddr = (vtxfmt) - GX_POS_MTX_ARRAY + GX_VA_POS;                                             \
     if ((addr) == 10) {                                                                            \
       if (regAddr >= 0 && regAddr < 4)                                                             \
-        gx->indexBase[regAddr] = (data);                                                           \
+        __GXData->indexBase[regAddr] = (data);                                                     \
     } else if ((addr) == 11) {                                                                     \
       if (regAddr >= 0 && regAddr < 4)                                                             \
-        gx->indexStride[regAddr] = (data);                                                         \
+        __GXData->indexStride[regAddr] = (data);                                                   \
     }                                                                                              \
   }
 #else
