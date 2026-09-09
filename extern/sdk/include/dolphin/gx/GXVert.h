@@ -84,23 +84,23 @@ extern void GXEnd(void);
 // TODO: should these params be const? It helps CFluidPlaneCPURender
 
 #define FUNC_1PARAM(name, T)                                                                       \
-  static inline void name##1##T(const T x) { GXWGFifo.T = x; }
+  static inline void name##1##T(T x) { GXWGFifo.T = x; }
 
 #define FUNC_2PARAM(name, T)                                                                       \
-  static inline void name##2##T(const T x, const T y) {                                            \
+  static inline void name##2##T(T x, T y) {                                                        \
     GXWGFifo.T = x;                                                                                \
     GXWGFifo.T = y;                                                                                \
   }
 
 #define FUNC_3PARAM(name, T)                                                                       \
-  static inline void name##3##T(const T x, const T y, const T z) {                                 \
+  static inline void name##3##T(T x, T y, T z) {                                                   \
     GXWGFifo.T = x;                                                                                \
     GXWGFifo.T = y;                                                                                \
     GXWGFifo.T = z;                                                                                \
   }
 
 #define FUNC_4PARAM(name, T)                                                                       \
-  static inline void name##4##T(const T x, const T y, const T z, const T w) {                      \
+  static inline void name##4##T(T x, T y, T z, T w) {                                              \
     GXWGFifo.T = x;                                                                                \
     GXWGFifo.T = y;                                                                                \
     GXWGFifo.T = z;                                                                                \
@@ -139,10 +139,7 @@ FUNC_2PARAM(GXPosition, f32)
 FUNC_2PARAM(GXPosition, u8)
 FUNC_2PARAM(GXPosition, s8)
 FUNC_2PARAM(GXPosition, u16)
-static inline void GXPosition2s16(s16 x, s16 y) {
-  GXWGFifo.s16 = x;
-  GXWGFifo.s16 = y;
-}
+FUNC_2PARAM(GXPosition, s16)
 FUNC_INDEX16(GXPosition)
 FUNC_INDEX8(GXPosition)
 
