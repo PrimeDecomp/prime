@@ -31,6 +31,7 @@ void CDSPStream::CloseFiles() {
 }
 
 int CDSPStream::PickFreeStream(CDSPStream*& streamOut, int oneshot) {
+  const CDSPStream* streams = g_Streams;
   for (int i = 0; i < 4; ++i) {
     if (g_Streams[i].x0_state != 0 || oneshot != g_Streams[i].x1_oneshot) {
       continue;
@@ -38,16 +39,14 @@ int CDSPStream::PickFreeStream(CDSPStream*& streamOut, int oneshot) {
 
     uint handle;
     for (;;) {
-      handle = sHandleCounter;
-      sHandleCounter = handle + 1;
+      handle = sHandleCounter++;
       if (handle == static_cast< uint >(-1)) {
-        handle = sHandleCounter;
-        sHandleCounter = handle + 1;
+        handle = sHandleCounter++;
       }
 
       uint j = 0;
       for (; j < 4; ++j) {
-        if (g_Streams[j].x0_state != 0 && handle == g_Streams[j].x4_handle) {
+        if (streams[j].x0_state != 0 && handle == streams[j].x4_handle) {
           break;
         }
       }
@@ -58,8 +57,8 @@ int CDSPStream::PickFreeStream(CDSPStream*& streamOut, int oneshot) {
 
     g_Streams[i].x0_state = 1;
     g_Streams[i].x4_handle = handle;
-    g_Streams[i].x8_right = NULL;
-    g_Streams[i].xc_left = NULL;
+    g_Streams[i].x8_right = nullptr;
+    g_Streams[i].xc_left = nullptr;
     streamOut = &g_Streams[i];
     return handle;
   }
@@ -77,23 +76,20 @@ int CDSPStream::FindStreamIdx(int handle) {
 }
 
 void CDSPStream::DoAllocateStream() {
-  xd4_buffer =
-      CMemory::Alloc(0x11DC0, IAllocator::kHI_RoundUpLen, IAllocator::kSC_Unk1,
-                     IAllocator::kTP_Heap, CCallStack(-1, "??(??)"));
-  xc8_streamId = sndStreamAllocEx(static_cast< u8 >(0xFF), xd4_buffer, xdc_streamSamples,
-                                  static_cast< u32 >(32000), static_cast< u8 >(0),
-                                  static_cast< u8 >(0x40), static_cast< u8 >(0),
-                                  static_cast< u8 >(0), static_cast< u8 >(0),
-                                  static_cast< u8 >(0), static_cast< u32 >(0x30001), UpdateStream,
-                                  reinterpret_cast< u32 >(this),
-                                  static_cast< SND_ADPCMSTREAM_INFO* >(NULL));
+  xd4_buffer = CMemory::Alloc(0x11DC0, IAllocator::kHI_RoundUpLen, IAllocator::kSC_Unk1,
+                              IAllocator::kTP_Heap, CCallStack(-1, "??(??)"));
+  xc8_streamId = sndStreamAllocEx(
+      static_cast< u8 >(0xFF), xd4_buffer, xdc_streamSamples, static_cast< u32 >(32000),
+      static_cast< u8 >(0), static_cast< u8 >(0x40), static_cast< u8 >(0), static_cast< u8 >(0),
+      static_cast< u8 >(0), static_cast< u8 >(0), static_cast< u32 >(0x30001), UpdateStream,
+      reinterpret_cast< u32 >(this), static_cast< SND_ADPCMSTREAM_INFO* >(nullptr));
 }
 
 void CDSPStream::Initialize() {
   for (uint i = 0; i < 4; ++i) {
     CDSPStream& stream = g_Streams[i];
     stream.x0_state = 0;
-    stream.xd4_buffer = NULL;
+    stream.xd4_buffer = nullptr;
     stream.xd8_bufferBytes = 0x11DC0;
     stream.xdc_streamSamples = 0x1F410;
     stream.xc8_streamId = static_cast< uint >(-1);
@@ -108,7 +104,7 @@ void CDSPStream::Initialize() {
   g_StreamData.unkCounter = 0;
 }
 
-void CDSPStream::FreeAllStreams(int) {
+void CDSPStream::FreeAllStreams() {
   for (uint i = 0; i < 4; ++i) {
     sndStreamFree(g_Streams[i].xc8_streamId);
     CMemory::Free(g_Streams[i].xd4_buffer);
@@ -123,13 +119,9 @@ uint CDSPStream::AllocateStream(const SStreamInfo& info, char vol, char pan) {
   x20_loopFlag = info.x10_loopFlag;
   x24_loopStartByte = info.x14_loopStartByte;
   x28_loopEndByte = info.x18_loopEndByte;
-  {
-    struct CoefBlock { int w[8]; };
-    *reinterpret_cast< CoefBlock* >(x2c_coef) =
-        *reinterpret_cast< const CoefBlock* >(info.x1c_coef);
-  }
+  x2c_adpcmInfo = info.x1c_adpcmInfo;
 
-  if (xd4_buffer == NULL) {
+  if (xd4_buffer == nullptr) {
     DoAllocateStream();
   }
 
@@ -162,9 +154,10 @@ uint CDSPStream::AllocateStream(const SStreamInfo& info, char vol, char pan) {
 }
 
 int CDSPStream::AllocateMono(const SStreamInfo& info, char vol, char pan, int oneshot) {
+  int handle;
   BOOL ints = OSDisableInterrupts();
   CDSPStream* stream;
-  int handle = PickFreeStream(stream, oneshot);
+  handle = PickFreeStream(stream, oneshot);
   if (static_cast< uint >(handle) != static_cast< uint >(-1)) {
     uint readLen = stream->AllocateStream(info, vol, pan);
     OSRestoreInterrupts(ints);
@@ -186,9 +179,9 @@ void CDSPStream::DeallocateStream() {
     }
     break;
   case 1:
-    if (xd4_buffer != NULL) {
+    if (xd4_buffer != nullptr) {
       CMemory::Free(xd4_buffer);
-      xd4_buffer = NULL;
+      xd4_buffer = nullptr;
       if (xc8_streamId != static_cast< uint >(-1)) {
         sndStreamDeactivate(xc8_streamId);
         sndStreamFree(xc8_streamId);
@@ -202,26 +195,27 @@ void CDSPStream::DeallocateStream() {
 int CDSPStream::AllocateStereo(const SStreamInfo& leftInfo, const SStreamInfo& rightInfo, char vol,
                                int oneshot) {
   BOOL ints = OSDisableInterrupts();
-  CDSPStream* right;
-  CDSPStream* left;
-  int handle = PickFreeStream(left, oneshot);
+  CDSPStream* streams[2];
+  int handle = PickFreeStream(streams[0], oneshot);
   if (static_cast< uint >(handle) != static_cast< uint >(-1)) {
-    if (static_cast< uint >(PickFreeStream(right, oneshot)) != static_cast< uint >(-1)) {
-      left->x8_right = right;
-      right->xc_left = left;
-      uint leftReadLen = left->AllocateStream(leftInfo, vol, 0);
-      uint rightReadLen = right->AllocateStream(rightInfo, vol, 0x7F);
+    if (static_cast< uint >(PickFreeStream(streams[1], oneshot)) != static_cast< uint >(-1)) {
+      streams[0]->x8_right = streams[1];
+      streams[1]->xc_left = streams[0];
+      uint readLen[2];
+      readLen[0] = streams[0]->AllocateStream(leftInfo, vol, 0);
+      readLen[1] = streams[1]->AllocateStream(rightInfo, vol, 0x7F);
       OSRestoreInterrupts(ints);
-      OpenFiles(left->x10_fileName, *left);
-      OpenFiles(right->x10_fileName, *right);
-      DVDReadAsyncPrio(&left->x50_fileInfo1, left->xd4_buffer, static_cast< s32 >(leftReadLen),
-                       static_cast< s32 >(left->x18_headerSize), ReadCompleted, 1);
-      DVDReadAsyncPrio(&right->x50_fileInfo1, right->xd4_buffer,
-                       static_cast< s32 >(rightReadLen), static_cast< s32 >(right->x18_headerSize),
-                       ReadCompleted, 1);
+      OpenFiles(streams[0]->x10_fileName, *streams[0]);
+      OpenFiles(streams[1]->x10_fileName, *streams[1]);
+      DVDReadAsyncPrio(&streams[0]->x50_fileInfo1, streams[0]->xd4_buffer,
+                       static_cast< s32 >(readLen[0]),
+                       static_cast< s32 >(streams[0]->x18_headerSize), ReadCompleted, 1);
+      DVDReadAsyncPrio(&streams[1]->x50_fileInfo1, streams[1]->xd4_buffer,
+                       static_cast< s32 >(readLen[1]),
+                       static_cast< s32 >(streams[1]->x18_headerSize), ReadCompleted, 1);
       return handle;
     }
-    left->DeallocateStream();
+    streams[0]->DeallocateStream();
     handle = -1;
   }
   OSRestoreInterrupts(ints);
@@ -240,41 +234,41 @@ void CDSPStream::Silence(int handle) {
   int idx = FindStreamIdx(handle);
   if (static_cast< uint >(idx) != 0xFFFFFFFF) {
     g_Streams[idx].SilenceStream();
-    if (g_Streams[idx].x8_right != NULL) {
+    if (g_Streams[idx].x8_right != nullptr) {
       g_Streams[idx].x8_right->SilenceStream();
     }
-    if (g_Streams[idx].xc_left != NULL) {
+    if (g_Streams[idx].xc_left != nullptr) {
       g_Streams[idx].xc_left->SilenceStream();
     }
   }
   OSRestoreInterrupts(ints);
 }
 
-void CDSPStream::UpdateStreamVolume(int vol) {
+void CDSPStream::UpdateStreamVolume(char vol) {
   x4c_vol = vol;
   if (x0_state != 0 && xe8_silenced == 0) {
     sndStreamMixParameterEx(xc8_streamId, x4c_vol, x4d_pan, 0, 0, 0);
   }
 }
 
-void CDSPStream::UpdateVolume(int handle, int vol) {
+void CDSPStream::UpdateVolume(int handle, char vol) {
   BOOL ints = OSDisableInterrupts();
   int idx = FindStreamIdx(handle);
   if (static_cast< uint >(idx) != 0xFFFFFFFF) {
     CDSPStream& stream = g_Streams[idx];
     stream.UpdateStreamVolume(vol);
-    if (stream.x8_right != NULL) {
+    if (stream.x8_right != nullptr) {
       stream.x8_right->UpdateStreamVolume(vol);
     }
-    if (stream.xc_left != NULL) {
+    if (stream.xc_left != nullptr) {
       stream.xc_left->UpdateStreamVolume(vol);
     }
   }
   OSRestoreInterrupts(ints);
 }
 
-uint CDSPStream::IsStreamActive(int handle) {
-  uint ret = 0;
+bool CDSPStream::IsStreamActive(int handle) {
+  bool ret = false;
   BOOL ints = OSDisableInterrupts();
   int idx = FindStreamIdx(handle);
   if (static_cast< uint >(idx) != 0xFFFFFFFF) {
@@ -284,8 +278,8 @@ uint CDSPStream::IsStreamActive(int handle) {
   return ret;
 }
 
-uint CDSPStream::IsStreamAvailable(int handle) {
-  int ret = 0;
+bool CDSPStream::IsStreamAvailable(int handle) {
+  bool ret = false;
   BOOL ints = OSDisableInterrupts();
   int idx = FindStreamIdx(handle);
   if (static_cast< uint >(idx) != 0xFFFFFFFF) {
@@ -307,13 +301,13 @@ void CDSPStream::StopStream() {
 void CDSPStream::BufferStream() {
   void* buf;
   uint readLen = xd8_bufferBytes >> 1;
+  uint secondReadLen = 0;
   if (xe0_curBuffer != 0) {
     buf = static_cast< char* >(xd4_buffer) + readLen;
   } else {
     buf = xd4_buffer;
   }
 
-  uint secondReadLen = 0;
   uint endByte;
   if (x20_loopFlag != 0) {
     endByte = x28_loopEndByte;
@@ -391,7 +385,7 @@ int CDSPStream::InitializeStream() {
 
   sndStreamMixParameterEx(xc8_streamId, x4c_vol, x4d_pan, 0, 0, 0);
   sndStreamFrq(xc8_streamId, x14_sampleRate);
-  sndStreamADPCMParameter(xc8_streamId, reinterpret_cast< SND_ADPCMSTREAM_INFO* >(x2c_coef));
+  sndStreamADPCMParameter(xc8_streamId, &x2c_adpcmInfo);
   sndStreamARAMUpdate(xc8_streamId, 0, xdc_streamSamples >> 1, 0, 0);
   if (sndStreamActivate(xc8_streamId)) {
     x0_state = 4;
@@ -429,35 +423,36 @@ void CDSPStream::ReadCompleted(s32, DVDFileInfo* fileInfo) {
   if (DVDGetCommandBlockStatus(&fileInfo->cb) == 0) {
     switch (stream.x0_state) {
     case 2:
-      if (stream.x8_right != NULL) {
+      if (stream.x8_right != nullptr) {
         if (stream.x8_right->x0_state != 3) {
           stream.x0_state = 3;
           return;
         }
         if (!stream.x8_right->InitializeStream()) {
-          stream.x8_right = NULL;
+          stream.x8_right = nullptr;
         }
       }
-      if (stream.xc_left != NULL) {
+      if (stream.xc_left != nullptr) {
         if (stream.xc_left->x0_state != 3) {
           stream.x0_state = 3;
           return;
         }
         if (!stream.xc_left->InitializeStream()) {
-          stream.xc_left = NULL;
+          stream.xc_left = nullptr;
         }
       }
       if (!stream.InitializeStream()) {
-        if (stream.x8_right != NULL) {
-          stream.x8_right->xc_left = NULL;
+        if (stream.x8_right != nullptr) {
+          stream.x8_right->xc_left = nullptr;
         }
-        if (stream.xc_left != NULL) {
-          stream.xc_left->x8_right = NULL;
+        if (stream.xc_left != nullptr) {
+          stream.xc_left->x8_right = nullptr;
         }
       }
       break;
     case 4:
-      sndStreamARAMUpdate(stream.xc8_streamId, stream.xe0_curBuffer != 0 ? 0 : stream.xdc_streamSamples >> 1,
+      sndStreamARAMUpdate(stream.xc8_streamId,
+                          stream.xe0_curBuffer != 0 ? 0 : stream.xdc_streamSamples >> 1,
                           stream.xdc_streamSamples >> 1, 0, 0);
       break;
     }
@@ -467,11 +462,11 @@ void CDSPStream::ReadCompleted(s32, DVDFileInfo* fileInfo) {
     }
     stream.CloseFiles();
     stream.DeallocateStream();
-    if (stream.x8_right != NULL) {
-      stream.x8_right->xc_left = NULL;
+    if (stream.x8_right != nullptr) {
+      stream.x8_right->xc_left = nullptr;
     }
-    if (stream.xc_left != NULL) {
-      stream.xc_left->x8_right = NULL;
+    if (stream.xc_left != nullptr) {
+      stream.xc_left->x8_right = nullptr;
     }
   }
 }

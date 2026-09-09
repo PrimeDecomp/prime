@@ -1779,7 +1779,7 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
                 "Kyoto/Graphics/DolphinCColor.cpp",
             ),
-            Object(NonMatching, "Kyoto/Audio/CDSPStreamManager.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Audio/CDSPStreamManager.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
                 "Kyoto/CDependencyGroup.cpp",
@@ -1809,7 +1809,7 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
                 "Kyoto/Input/CRumbleGenerator.cpp",
             ),
-            Object(NonMatching, "Kyoto/Audio/CDSPStream.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Audio/CDSPStream.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
                 "Kyoto/Audio/g721.cpp",
