@@ -27,9 +27,10 @@ CSimpleShadow::CSimpleShadow(float scale, float userAlpha, float maxObjHeight, f
 void CSimpleShadow::Calculate(const CAABox& aabb, const CTransform4f& xf,
                               const CStateManager& mgr) {
   x48_24_collision = false;
-  float halfHeight = (aabb.GetMaxPoint().GetZ() - aabb.GetMinPoint().GetZ()) * 0.5f;
-  float xExtent = aabb.GetMaxPoint().GetX() - aabb.GetMinPoint().GetX();
-  float yExtent = aabb.GetMaxPoint().GetY() - aabb.GetMinPoint().GetY();
+  const CVector3f extent = aabb.GetMaxPoint() - aabb.GetMinPoint();
+  const float halfHeight = extent.GetZ() / 2.f;
+  const float xExtent = extent.GetX();
+  const float yExtent = extent.GetY();
 
   CVector3f pos = xf.GetTranslation() + CVector3f(0.f, 0.f, halfHeight);
   CVector3f dir(0.0f, 0.0f, -1.0f);
@@ -41,20 +42,20 @@ void CSimpleShadow::Calculate(const CAABox& aabb, const CTransform4f& xf,
     x48_24_collision = true;
     height = res.GetTime();
   }
-  CVector3f resPoint = res.GetPoint();
-  CUnitVector3f resPlaneNormal = res.GetPlane().GetNormal();
+
+  CRayCastResult closestResult = res;
 
   if (height > 0.1f + halfHeight) {
     TEntityList nearList;
-    mgr.BuildNearList(nearList, pos, dir, x40_maxObjHeight, CMaterialFilter::MakeInclude(CMaterialList(kMT_Floor)), nullptr);
-    
+    mgr.BuildNearList(nearList, pos, dir, x40_maxObjHeight,
+                      CMaterialFilter::MakeInclude(CMaterialList(kMT_Platform)), nullptr);
+
     TUniqueId cid = kInvalidUniqueId;
     CRayCastResult resD =
         CGameCollision::RayDynamicIntersection(mgr, cid, pos, dir, x40_maxObjHeight,
                                                CMaterialFilter::GetPassEverything(), nearList);
     if (resD.IsValid() && resD.GetTime() < height) {
-      resPoint = resD.GetPoint();
-      resPlaneNormal = resD.GetPlane().GetNormal();
+      closestResult = resD;
       x48_24_collision = true;
       height = resD.GetTime();
     }
@@ -62,11 +63,11 @@ void CSimpleShadow::Calculate(const CAABox& aabb, const CTransform4f& xf,
 
   if (x48_24_collision) {
     x3c_heightAlpha = 1.f - height / x40_maxObjHeight;
-    CVector3f normalVector = resPlaneNormal;
+    CVector3f normalVector = closestResult.GetPlane().GetNormal();
     x0_xf = CTransform4f::LookAt(normalVector, CVector3f::Zero());
-    x0_xf.SetTranslation(resPoint + x44_displacement * normalVector);
+    x0_xf.SetTranslation(closestResult.GetPoint() + x44_displacement * normalVector);
     if (x48_25_alwaysCalculateRadius || !x48_26_radiusCalculated) {
-      x34_radius = sqrtf(xExtent * xExtent + yExtent * yExtent) * 0.5f;
+      x34_radius = sqrtf(xExtent * xExtent + yExtent * yExtent) / 2.f;
       x48_26_radiusCalculated = true;
     }
   }

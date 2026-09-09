@@ -37,5 +37,6 @@ private:
   bool x48_25_alwaysCalculateRadius : 1;
   bool x48_26_radiusCalculated : 1;
 };
+CHECK_SIZEOF(CSimpleShadow, 0x4c)
 
 #endif // _CSIMPLESHADOW
