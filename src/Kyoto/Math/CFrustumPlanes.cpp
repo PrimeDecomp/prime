@@ -1,3 +1,4 @@
+#include "Kyoto/Basics/CCast.hpp"
 #include "Kyoto/Math/CPlane.hpp"
 #include <Kyoto/Math/CFrustumPlanes.hpp>
 
@@ -10,28 +11,38 @@ static CUnitVector3f CreateNormal(const CVector3f& a, const CVector3f& b, const 
   return CVector3f::Cross(b - a, c - a);
 }
 
-CFrustumPlanes::CFrustumPlanes(const CTransform4f& xf, float a, float b, float c, bool b1,
-                               float d) {
+CFrustumPlanes::CFrustumPlanes(const CTransform4f& xf, float fov, float aspect, float nearZ,
+                               bool useFarPlane, float farZ) {
+  float halfFov = fov / 2.f;
+  const float cosV = CCast::ToReal32(cos(halfFov));
+  const float sinV = CCast::ToReal32(sin(halfFov));
+  const float verticalLength = nearZ / cosV;
+  const float height = verticalLength * sinV;
+  halfFov *= aspect;
+  const float cosH = CCast::ToReal32(cos(halfFov));
+  const float sinH = CCast::ToReal32(sin(halfFov));
+  float width = nearZ / cosH;
+  width *= sinH;
 
-  float dVar6 = cos(a * 0.5f * b);
-  float dVar7 = sin(a * 0.5f * b);
-  float fVar1 = sin(a * 0.5f) * (c / cosf(a * 0.5f));
-
-  CVector3f local_f4 = xf.Rotate(CVector3f((c / dVar6) * dVar7, c, fVar1));
-  CVector3f local_e8 = xf.Rotate(CVector3f(c, (c / dVar6) * dVar7, -fVar1));
-  CVector3f local_dc = xf.Rotate(CVector3f(-(c / dVar6) * dVar7, c, -fVar1));
-  CVector3f local_d0 = xf.Rotate(CVector3f(-(c / dVar6) * dVar7, c, fVar1));
-
+  CVector3f corners[4] = {CVector3f(width, nearZ, height), CVector3f(width, nearZ, -height),
+                          CVector3f(-width, nearZ, -height), CVector3f(-width, nearZ, height)};
+  CVector3f worldCorners[4] = {xf.Rotate(corners[0]), xf.Rotate(corners[1]), xf.Rotate(corners[2]),
+                               xf.Rotate(corners[3])};
   CVector3f pos = xf.GetTranslation();
+  CVector3f nearPos = xf * CVector3f(0.f, nearZ, 0.f);
 
-  CVector3f local_138 = xf * CVector3f(0.f, c, 0.f);
-  x0_planes.push_back(CPlane(local_138, CreateNormal(local_f4, local_dc, local_e8)));
-  x0_planes.push_back(CPlane(pos, CreateNormal(CVector3f::Zero(), local_e8, local_f4)));
-  x0_planes.push_back(CPlane(pos, CreateNormal(CVector3f::Zero(), local_d0, local_dc)));
-  x0_planes.push_back(CPlane(pos, CreateNormal(CVector3f::Zero(), local_f4, local_d0)));
-  x0_planes.push_back(CPlane(pos, CreateNormal(CVector3f::Zero(), local_dc, local_e8)));
-  if (b1) {
-    x0_planes.push_back(CPlane(d - x0_planes[0].GetConstant(), -x0_planes[0].GetNormal()));
+  x0_planes.push_back(
+      CPlane(nearPos, CreateNormal(worldCorners[0], worldCorners[2], worldCorners[1])));
+  x0_planes.push_back(
+      CPlane(pos, CreateNormal(CVector3f::Zero(), worldCorners[1], worldCorners[0])));
+  x0_planes.push_back(
+      CPlane(pos, CreateNormal(CVector3f::Zero(), worldCorners[3], worldCorners[2])));
+  x0_planes.push_back(
+      CPlane(pos, CreateNormal(CVector3f::Zero(), worldCorners[0], worldCorners[3])));
+  x0_planes.push_back(
+      CPlane(pos, CreateNormal(CVector3f::Zero(), worldCorners[2], worldCorners[1])));
+  if (useFarPlane) {
+    x0_planes.push_back(CPlane(farZ - x0_planes[0].GetConstant(), -x0_planes[0].GetNormal()));
   }
 }
 
