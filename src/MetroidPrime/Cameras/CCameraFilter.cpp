@@ -150,17 +150,15 @@ void CCameraFilterPass::Update(float dt) {
 
 void CCameraFilterPass::DrawFullScreenColoredQuad(const CColor& color) {
   rstl::pair< CVector2f, CVector2f > vp = gpRender->SetViewportOrtho(true, -4096.f, 4096.f);
-  float left = vp.first.GetX();
-  float top = vp.first.GetY();
-  float right = vp.second.GetX();
-  float bottom = vp.second.GetY();
+  const CVector2f& lt = vp.first;
+  const CVector2f& rb = vp.second;
   gpRender->SetDepthReadWrite(false, false);
   gpRender->BeginTriangleStrip(4);
   gpRender->PrimColor(color);
-  gpRender->PrimVertex(CVector3f(left - 1.f, 0.f, bottom + 1.f));
-  gpRender->PrimVertex(CVector3f(left - 1.f, 0.f, top - 1.f));
-  gpRender->PrimVertex(CVector3f(right + 1.f, 0.f, bottom + 1.f));
-  gpRender->PrimVertex(CVector3f(right + 1.f, 0.f, top - 1.f));
+  gpRender->PrimVertex(CVector3f(lt.GetX() - 1.f, 0.f, 1.f + rb.GetY()));
+  gpRender->PrimVertex(CVector3f(lt.GetX() - 1.f, 0.f, lt.GetY() - 1.f));
+  gpRender->PrimVertex(CVector3f(1.f + rb.GetX(), 0.f, 1.f + rb.GetY()));
+  gpRender->PrimVertex(CVector3f(1.f + rb.GetX(), 0.f, lt.GetY() - 1.f));
   gpRender->EndPrimitive();
 }
 
@@ -169,10 +167,8 @@ void CCameraFilterPass::DrawFullScreenTexturedQuad(const CColor& color, const CT
   const float u = 0.5f - 0.5f * lod;
   const float v = 0.5f + 0.5f * lod;
   rstl::pair< CVector2f, CVector2f > vp = gpRender->SetViewportOrtho(true, -4096.f, 4096.f);
-  float left = vp.first.GetX();
-  float top = vp.first.GetY();
-  float right = vp.second.GetX();
-  float bottom = vp.second.GetY();
+  const CVector2f& lt = vp.first;
+  const CVector2f& rb = vp.second;
   gpRender->SetDepthReadWrite(false, false);
   if (tex != nullptr) {
     tex->Load(GX_TEXMAP0, CTexture::kCM_Repeat);
@@ -182,23 +178,21 @@ void CCameraFilterPass::DrawFullScreenTexturedQuad(const CColor& color, const CT
   CGraphics::StreamBegin(kP_TriangleStrip);
   CGraphics::StreamColor(color);
   CGraphics::StreamTexcoord(u, v);
-  CGraphics::StreamVertex(CVector3f(left - 1.f, 0.f, 1.f + bottom));
+  CGraphics::StreamVertex(CVector3f(lt.GetX() - 1.f, 0.f, 1.f + rb.GetY()));
   CGraphics::StreamTexcoord(u, u);
-  CGraphics::StreamVertex(CVector3f(left - 1.f, 0.f, top - 1.f));
+  CGraphics::StreamVertex(CVector3f(lt.GetX() - 1.f, 0.f, lt.GetY() - 1.f));
   CGraphics::StreamTexcoord(v, v);
-  CGraphics::StreamVertex(CVector3f(1.f + right, 0.f, 1.f + bottom));
+  CGraphics::StreamVertex(CVector3f(1.f + rb.GetX(), 0.f, 1.f + rb.GetY()));
   CGraphics::StreamTexcoord(v, u);
-  CGraphics::StreamVertex(CVector3f(1.f + right, 0.f, top - 1.f));
+  CGraphics::StreamVertex(CVector3f(1.f + rb.GetX(), 0.f, lt.GetY() - 1.f));
   CGraphics::StreamEnd();
 }
 
 void CCameraFilterPass::DrawFullScreenTexturedQuadQuarters(const CColor& color, const CTexture* tex,
                                                            float lod) {
   rstl::pair< CVector2f, CVector2f > vp = gpRender->SetViewportOrtho(true, -4096.f, 4096.f);
-  float left = vp.first.GetX();
-  float top = vp.first.GetY();
-  float right = vp.second.GetX();
-  float bottom = vp.second.GetY();
+  const CVector2f& lt = vp.first;
+  const CVector2f& rb = vp.second;
   CGraphics::SetTevOp(kTS_Stage0, CGraphics::kEnvModulate);
   CGraphics::SetTevOp(kTS_Stage1, CGraphics::kEnvPassthru);
   gpRender->SetDepthReadWrite(false, false);
@@ -213,11 +207,11 @@ void CCameraFilterPass::DrawFullScreenTexturedQuadQuarters(const CColor& color, 
     CGraphics::StreamBegin(kP_TriangleStrip);
     CGraphics::StreamColor(color);
     CGraphics::StreamTexcoord(lod, lod);
-    CGraphics::StreamVertex(CVector3f(left, 0.f, bottom));
+    CGraphics::StreamVertex(CVector3f(lt.GetX(), 0.f, rb.GetY()));
     CGraphics::StreamTexcoord(lod, 0.f);
-    CGraphics::StreamVertex(CVector3f(left, 0.f, 0.f));
+    CGraphics::StreamVertex(CVector3f(lt.GetX(), 0.f, 0.f));
     CGraphics::StreamTexcoord(0.f, lod);
-    CGraphics::StreamVertex(CVector3f(0.f, 0.f, bottom));
+    CGraphics::StreamVertex(CVector3f(0.f, 0.f, rb.GetY()));
     CGraphics::StreamTexcoord(0.f, 0.f);
     CGraphics::StreamVertex(CVector3f(0.f, 0.f, 0.f));
     CGraphics::StreamEnd();
@@ -227,21 +221,19 @@ void CCameraFilterPass::DrawFullScreenTexturedQuadQuarters(const CColor& color, 
 
 void CCameraFilterPass::DrawScanLines(const CColor& color, bool even) {
   rstl::pair< CVector2f, CVector2f > vp = gpRender->SetViewportOrtho(true, -4096.f, 4096.f);
-  const float& left = vp.first.GetX();
-  const float& top = vp.first.GetY();
-  const float& right = vp.second.GetX();
-  const float& bottom = vp.second.GetY();
+  const CVector2f& lt = vp.first;
+  const CVector2f& rb = vp.second;
   gpRender->SetDepthReadWrite(false, false);
   gpRender->SetModelMatrix(CTransform4f::Identity());
   float offset = even ? 0.f : 2.f;
-  int count = static_cast< int >((bottom - top) * 0.5f);
+  int count = static_cast< int >((rb.GetY() - lt.GetY()) / 4.f);
   CGraphics::SetLineWidth(2.f, kTO_One);
   gpRender->BeginLines(count * 2);
   gpRender->PrimColor(color);
   for (int i = 0; i < count; ++i) {
-    float fi = 2.f * CCast::ToReal32(i);
-    gpRender->PrimVertex(CVector3f(left, 0.f, fi + top + offset));
-    gpRender->PrimVertex(CVector3f(right, 0.f, fi + top + offset));
+    float fi = 4.f * CCast::ToReal32(i);
+    gpRender->PrimVertex(CVector3f(lt.GetX(), 0.f, fi + lt.GetY() + offset));
+    gpRender->PrimVertex(CVector3f(rb.GetX(), 0.f, fi + lt.GetY() + offset));
   }
   gpRender->EndPrimitive();
   CGraphics::SetLineWidth(1.f, kTO_One);
@@ -260,16 +252,13 @@ float CCameraFilterPass::GetT(bool invert) const {
   return tmp;
 }
 
-// NON_MATCHING: FPR promotion of viewport locals (TU-wide issue)
 void CCameraFilterPass::DrawWideScreen(const CColor& color, const CTexture* tex, float lod) {
   const rstl::pair< CVector2f, CVector2f > vp = gpRender->SetViewportOrtho(true, -4096.f, 4096.f);
-  float left = vp.first.GetX();
-  float dVar5 = -((vp.second.GetX() - vp.first.GetX()) * 0.0625f * 9.f -
-                  (vp.second.GetY() - vp.first.GetY())) *
-                0.5f;
-  float bottom = vp.first.GetY();
-  float right = vp.second.GetX();
-  float top = vp.second.GetY();
+  const CVector2f& lt = vp.first;
+  const CVector2f& rb = vp.second;
+  float barHeight =
+      -((vp.second.GetX() - vp.first.GetX()) / 16.f * 9.f - (vp.second.GetY() - vp.first.GetY())) *
+      0.5f;
   gpRender->SetDepthReadWrite(false, false);
   gpRender->SetModelMatrix(CTransform4f::Identity());
   if (tex != nullptr) {
@@ -280,40 +269,38 @@ void CCameraFilterPass::DrawWideScreen(const CColor& color, const CTexture* tex,
 
   {
     CGraphics::StreamBegin(kP_TriangleStrip);
-    float v = (float)(rand() % 16384) / 16384.f;
+    float v = static_cast< float >(rand() % 16384) / 16384.f;
     CGraphics::StreamColor(color);
     CGraphics::StreamTexcoord(v, 1.f);
-    CGraphics::StreamVertex(CVector3f(left - 10.f, 0.f, bottom + (dVar5 * lod)));
+    CGraphics::StreamVertex(CVector3f(lt.GetX() - 10.f, 0.f, lt.GetY() - -(barHeight * lod)));
     CGraphics::StreamTexcoord(v, 0.f);
-    CGraphics::StreamVertex(CVector3f(left - 10.f, 0.f, bottom));
-    CGraphics::StreamTexcoord(v + 1.f, 1.f);
-    CGraphics::StreamVertex(CVector3f(right + 10.f, 0.f, bottom + (dVar5 * lod)));
-    CGraphics::StreamTexcoord(v + 1.f, 0.f);
-    CGraphics::StreamVertex(CVector3f(right + 10.f, 0.f, bottom));
+    CGraphics::StreamVertex(CVector3f(lt.GetX() - 10.f, 0.f, lt.GetY()));
+    CGraphics::StreamTexcoord(1.f + v, 1.f);
+    CGraphics::StreamVertex(CVector3f(10.f + rb.GetX(), 0.f, lt.GetY() - -(barHeight * lod)));
+    CGraphics::StreamTexcoord(1.f + v, 0.f);
+    CGraphics::StreamVertex(CVector3f(10.f + rb.GetX(), 0.f, lt.GetY()));
     CGraphics::StreamEnd();
   }
   {
     CGraphics::StreamBegin(kP_TriangleStrip);
-    float v = (float)(rand() % 16384) / 16384.f;
+    float v = static_cast< float >(rand() % 16384) / 16384.f;
     CGraphics::StreamColor(color);
     CGraphics::StreamTexcoord(v, 0.f);
-    CGraphics::StreamVertex(CVector3f(left - 10.f, 0.f, top));
+    CGraphics::StreamVertex(CVector3f(lt.GetX() - 10.f, 0.f, rb.GetY()));
     CGraphics::StreamTexcoord(v, 1.f);
-    CGraphics::StreamVertex(CVector3f(left - 10.f, 0.f, top - (dVar5 * lod)));
-    CGraphics::StreamTexcoord(v + 1.f, 0.f);
-    CGraphics::StreamVertex(CVector3f(right + 10.f, 0.f, top));
-    CGraphics::StreamTexcoord(v + 1.f, 1.f);
-    CGraphics::StreamVertex(CVector3f(right + 10.f, 0.f, top - (dVar5 * lod)));
+    CGraphics::StreamVertex(CVector3f(lt.GetX() - 10.f, 0.f, rb.GetY() - (barHeight * lod)));
+    CGraphics::StreamTexcoord(1.f + v, 0.f);
+    CGraphics::StreamVertex(CVector3f(10.f + rb.GetX(), 0.f, rb.GetY()));
+    CGraphics::StreamTexcoord(1.f + v, 1.f);
+    CGraphics::StreamVertex(CVector3f(10.f + rb.GetX(), 0.f, rb.GetY() - (barHeight * lod)));
     CGraphics::StreamEnd();
   }
 }
 
 void CCameraFilterPass::DrawRandomStatic(const CColor& color, float alpha, bool cookieCutterDepth) {
   rstl::pair< CVector2f, CVector2f > vp = gpRender->SetViewportOrtho(true, 0.f, 1.f);
-  float left = vp.first.GetX();
-  float bottom = vp.first.GetY();
-  float right = vp.second.GetX();
-  float top = vp.second.GetY();
+  const CVector2f& lt = vp.first;
+  const CVector2f& rb = vp.second;
 
   if (cookieCutterDepth) {
     CGraphics::SetAlphaCompare(kAF_GEqual, CCast::ToUint8((1.f - alpha) * 255.f), kAO_And,
@@ -321,32 +308,30 @@ void CCameraFilterPass::DrawRandomStatic(const CColor& color, float alpha, bool 
     gpRender->SetDepthReadWrite(true, true);
     CGraphics::SetTevOp(kTS_Stage0, CGraphics::kEnvModulate);
     CGraphics::SetTevOp(kTS_Stage1, CGraphics::kEnvPassthru);
-    int r = rand();
-    int width = static_cast< int >(0.5f + (right - left));
-    int height = static_cast< int >(0.5f + (top - bottom));
-    void* randTexData = reinterpret_cast< void* >(((r + 0x1f) & ~0x1f) + 0x8000);
-    CGraphics::LoadDolphinSpareTexture(width, height, GX_TF_IA4, randTexData, GX_TEXMAP0);
+    CGraphics::LoadDolphinSpareTexture(
+        static_cast< int >(2.f + (rb.GetX() - lt.GetX())),
+        static_cast< int >(2.f + (rb.GetY() - lt.GetY())), GX_TF_IA4,
+        reinterpret_cast< void* >(((rand() + 0x1f) & ~0x1f) + 0x8000), GX_TEXMAP0);
   } else {
     gpRender->SetDepthReadWrite(false, false);
     CGraphics::SetTevOp(kTS_Stage0, CGraphics::kEnvModulateColor);
     CGraphics::SetTevOp(kTS_Stage1, CGraphics::kEnvPassthru);
-    int r = rand();
-    int width = static_cast< int >(0.5f + (right - left));
-    int height = static_cast< int >(0.5f + (top - bottom));
-    void* randTexData = reinterpret_cast< void* >(((r + 0x1f) & ~0x1f) + 0x8000);
-    CGraphics::LoadDolphinSpareTexture(width, height, GX_TF_IA4, randTexData, GX_TEXMAP0);
+    CGraphics::LoadDolphinSpareTexture(
+        static_cast< int >(2.f + (rb.GetX() - lt.GetX())),
+        static_cast< int >(2.f + (rb.GetY() - lt.GetY())), GX_TF_IA4,
+        reinterpret_cast< void* >(((rand() + 0x1f) & ~0x1f) + 0x8000), GX_TEXMAP0);
   }
 
   CGraphics::StreamBegin(kP_TriangleStrip);
   CGraphics::StreamColor(color);
   CGraphics::StreamTexcoord(0.f, 1.f);
-  CGraphics::StreamVertex(CVector3f(left - 1.f, 0.01f, 1.f + top));
+  CGraphics::StreamVertex(CVector3f(lt.GetX() - 1.f, 0.01f, 1.f + rb.GetY()));
   CGraphics::StreamTexcoord(0.f, 0.f);
-  CGraphics::StreamVertex(CVector3f(left - 1.f, 0.01f, bottom - 1.f));
+  CGraphics::StreamVertex(CVector3f(lt.GetX() - 1.f, 0.01f, lt.GetY() - 1.f));
   CGraphics::StreamTexcoord(1.f, 1.f);
-  CGraphics::StreamVertex(CVector3f(1.f + right, 0.01f, 1.f + top));
+  CGraphics::StreamVertex(CVector3f(1.f + rb.GetX(), 0.01f, 1.f + rb.GetY()));
   CGraphics::StreamTexcoord(1.f, 0.f);
-  CGraphics::StreamVertex(CVector3f(1.f + right, 0.01f, bottom - 1.f));
+  CGraphics::StreamVertex(CVector3f(1.f + rb.GetX(), 0.01f, lt.GetY() - 1.f));
   CGraphics::StreamEnd();
 
   if (cookieCutterDepth) {
@@ -534,10 +519,10 @@ void CCameraBlurPass::DisableBlur(float duration) {
   SetBlur(kBT_NoBlur, 0.f, duration, x2c_usePersistent);
 }
 
-static inline float get_stretched_t(float t, float half) {
-  float r = 2.0f * (t - half);
-  float rcube = r * r * r;
-  return 0.1f * ((1.0f + rcube) * half) + 0.9f * t;
+static inline float get_stretched_t(float t, float linearWeight) {
+  float r = 2.f * (t - 0.5f);
+  float rcube = r * (r * r);
+  return (1.f - linearWeight) * ((1.f + rcube) / 2.f) + linearWeight * t;
 }
 
 void CCameraBlurPass::Draw() const {
@@ -630,17 +615,16 @@ void CCameraBlurPass::Draw() const {
 
     float tweakLinear = gpTweakGui->GetXrayBlurScaleLinear() / 4.f;
     float tweakQuad = gpTweakGui->GetXrayBlurScaleQuadratic() / 4.f;
-    float quadCoeff = x1c_curValue * tweakQuad;
     float linearCoeff = x1c_curValue * tweakLinear;
+    float quadCoeff = x1c_curValue * tweakQuad;
 
     for (int i = 0; i < 4; ++i) {
       float val = linearCoeff * static_cast< float >(i) +
                   quadCoeff * static_cast< float >(i) * static_cast< float >(i);
       float amplitude = 1.0f - val;
-      float offset = -0.5f * amplitude + 0.5f;
       float mtx[2][4] = {
-          {amplitude, 0.0f, 0.0f, offset},
-          {0.0f, amplitude, 0.0f, offset},
+          {amplitude, 0.0f, 0.0f, -0.5f * amplitude + 0.5f},
+          {0.0f, amplitude, 0.0f, -0.5f * amplitude + 0.5f},
       };
       GXLoadTexMtxImm(mtx, GX_TEXMTX0 + i * 3, GX_MTX2x4);
     }
@@ -658,17 +642,16 @@ void CCameraBlurPass::Draw() const {
     const float uStep = 1.0f / 7.0f;
 
     for (float v = 0.f; v < 1.f; v += step) {
-      float posYTop = vHeight * get_stretched_t(1.0f - v, 0.5f) + vTop;
-      float posYBot = vHeight * get_stretched_t(1.0f - (v + step), 0.5f) + vTop;
+      float posYBot = vHeight * get_stretched_t(1.0f - v - step, 0.9f) + vTop;
+      float posYTop = vHeight * get_stretched_t(1.0f - v, 0.9f) + vTop;
       float texVTop = 0.9f * (v - 0.5f) + 0.5f;
       float texVBot = 0.9f * (v + step - 0.5f) + 0.5f;
 
       for (float u = 0.f; u < 1.f; u += uStep) {
-        float uNext = uStep + u;
-        float posXLeft = vWidth * get_stretched_t(u, 0.5f) + vLeft;
-        float posXRight = vWidth * get_stretched_t(uNext, 0.5f) + vLeft;
+        float posXLeft = vWidth * get_stretched_t(u, 0.9f) + vLeft;
+        float posXRight = vWidth * get_stretched_t(uStep + u, 0.9f) + vLeft;
         float texULeft = 0.9f * (u - 0.5f) + 0.5f;
-        float texURight = 0.9f * (uNext - 0.5f) + 0.5f;
+        float texURight = 0.9f * (uStep + u - 0.5f) + 0.5f;
 
         CGX::Begin(GX_TRIANGLESTRIP, GX_VTXFMT0, 4);
         GXPosition3f32(posXLeft, 0.f, posYTop);
