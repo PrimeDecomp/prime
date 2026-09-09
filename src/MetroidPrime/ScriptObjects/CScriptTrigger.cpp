@@ -29,7 +29,7 @@ CScriptTrigger::CScriptTrigger(const TUniqueId uid, const rstl::string& name, co
 }
 
 CScriptTrigger::~CScriptTrigger() {
-  xe8_inhabitants.clear();
+  xe8_inhabitants.erase(xe8_inhabitants.begin(), xe8_inhabitants.end());
   if (x12c_flags & 0x11000) {
     x12c_flags = x12c_flags & 0xfffeefff;
     x12c_flags = x12c_flags | 1;
@@ -161,7 +161,7 @@ void CScriptTrigger::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CS
           x148_29_didPhazonDamage = false;
         }
 
-        if (GetUniqueId() == mgr.GetLastTriggerId()) {
+        if (mgr.GetLastTriggerId() == GetUniqueId()) {
           mgr.SetLastTriggerId(kInvalidUniqueId);
         }
       }
@@ -176,7 +176,7 @@ void CScriptTrigger::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CS
           x148_29_didPhazonDamage = false;
         }
 
-        if (GetUniqueId() == mgr.GetLastTriggerId()) {
+        if (mgr.GetLastTriggerId() == GetUniqueId()) {
           mgr.SetLastTriggerId(kInvalidUniqueId);
         }
       }
@@ -195,6 +195,7 @@ void CScriptTrigger::Think(float dt, CStateManager& mgr) {
 void CScriptTrigger::UpdateInhabitants(float dt, CStateManager& mgr) {
   bool sendInside = false;
   bool sendExited = false;
+  rstl::optional_object< CDamageInfo > timedDamage;
   rstl::list< CObjectTracker >::iterator nextIt;
   for (rstl::list< CObjectTracker >::iterator it = xe8_inhabitants.begin();
        it != xe8_inhabitants.end(); it = nextIt) {
@@ -203,87 +204,96 @@ void CScriptTrigger::UpdateInhabitants(float dt, CStateManager& mgr) {
     if (CActor* act = TCastToPtr< CActor >(mgr.ObjectById(it->GetObjectId()))) {
       bool playerValid = true;
       if (it->GetObjectId() == mgr.GetPlayer()->GetUniqueId()) {
-        if (((x12c_flags & kTFL_DetectPlayer) == 0) &&
-            ((mgr.GetPlayer()->GetMorphballTransitionState() == CPlayer::kMS_Morphed &&
-              (x12c_flags & kTFL_DetectUnmorphedPlayer)) ||
-             (mgr.GetPlayer()->GetMorphballTransitionState() == CPlayer::kMS_Unmorphed &&
-              (x12c_flags & kTFL_DetectMorphedPlayer)))) {
-          playerValid = false;
-        }
-        if (!playerValid) {
-          xe8_inhabitants.erase(it);
-          sendExited = true;
-          if (x148_28_playerTriggerProc) {
-            x148_28_playerTriggerProc = false;
-            if (x148_29_didPhazonDamage) {
-              mgr.Player()->DecrementEnvironmentDamage();
-              x148_29_didPhazonDamage = false;
-            }
-
-            if (mgr.GetLastTriggerId() == GetUniqueId()) {
-              mgr.SetLastTriggerId(kInvalidUniqueId);
+        if ((x12c_flags & kTFL_DetectPlayer) == 0) {
+          if (mgr.GetPlayer()->GetMorphballTransitionState() == CPlayer::kMS_Morphed) {
+            if (x12c_flags & kTFL_DetectUnmorphedPlayer) {
+              playerValid = false;
             }
           }
-
-          InhabitantExited(*act, mgr);
-          continue;
+          if (mgr.GetPlayer()->GetMorphballTransitionState() == CPlayer::kMS_Unmorphed) {
+            if (x12c_flags & kTFL_DetectMorphedPlayer) {
+              playerValid = false;
+            }
+          }
         }
       }
-
-      rstl::optional_object< CAABox > touchBounds = GetTouchBounds();
-      rstl::optional_object< CAABox > actTouchBounds = act->GetTouchBounds();
-      if (touchBounds.valid() && actTouchBounds.valid() &&
-          touchBounds->DoBoundsOverlap(*actTouchBounds)) {
-        sendInside = true;
-        InhabitantIdle(*act, mgr);
-        if (act->HealthInfo(mgr) && x100_damageInfo.GetDamage() > 0.f) {
-          // mgr.ApplyDamage(GetUniqueId(), act->GetUniqueId(), GetUniqueId(), {x100_damageInfo,
-          // dt},
-          //                 CMaterialFilter::MakeIncludeExclude({EMaterialTypes::Solid}, {}),
-          //                 zeus::skZero3f);
-        }
-
-        if (x128_forceMagnitude > 0.f) {
-          if (CPhysicsActor* pact = TCastToPtr< CPhysicsActor >(act)) {
-            float forceMult = 1.f;
-            if ((x12c_flags & kTFL_UseBooleanIntersection)) {
-              forceMult = touchBounds->GetBooleanIntersection(*actTouchBounds).GetVolume() /
-                          actTouchBounds->GetVolume();
-            }
-
-            const CVector3f force = forceMult * x11c_forceField;
-            if ((x12c_flags & kTFL_UseCollisionImpulses)) {
-              pact->ApplyImpulseWR(force, CAxisAngle());
-              pact->UseCollisionImpulses();
-            } else {
-              pact->ApplyForceWR(force, CAxisAngle());
-            }
-          }
-        }
-      } else {
-        const TUniqueId tmpId = it->GetObjectId();
+      if (!playerValid) {
         xe8_inhabitants.erase(it);
         sendExited = true;
-        if (mgr.GetPlayer()->GetUniqueId() == tmpId && x148_28_playerTriggerProc) {
+        if (x148_28_playerTriggerProc) {
           x148_28_playerTriggerProc = false;
+          CPlayer* player = mgr.Player();
           if (x148_29_didPhazonDamage) {
-            mgr.Player()->DecrementEnvironmentDamage();
+            player->DecrementEnvironmentDamage();
             x148_29_didPhazonDamage = false;
           }
 
-          if (mgr.GetLastTriggerId() == GetUniqueId())
+          if (mgr.GetLastTriggerId() == GetUniqueId()) {
             mgr.SetLastTriggerId(kInvalidUniqueId);
+          }
         }
 
         InhabitantExited(*act, mgr);
       }
+      if (playerValid) {
+        rstl::optional_object< CAABox > touchBounds = GetTouchBounds();
+        rstl::optional_object< CAABox > actTouchBounds = act->GetTouchBounds();
+        if (touchBounds.valid() && actTouchBounds.valid() &&
+            touchBounds->DoBoundsOverlap(*actTouchBounds)) {
+          sendInside = true;
+          InhabitantIdle(*act, mgr);
+          if (act->HealthInfo(mgr) && x100_damageInfo.GetDamage() > 0.f) {
+            if (!timedDamage) {
+              timedDamage = x100_damageInfo.MakeScaledForTime(dt);
+            }
+            mgr.ApplyDamage(
+                GetUniqueId(), act->GetUniqueId(), GetUniqueId(), *timedDamage,
+                CMaterialFilter::MakeIncludeExclude(CMaterialList(SolidMaterial), CMaterialList(0)),
+                CVector3f::Zero());
+          }
+
+          if (x128_forceMagnitude > 0.f) {
+            if (CPhysicsActor* pact = TCastToPtr< CPhysicsActor >(act)) {
+              float forceMult = 1.f;
+              if ((x12c_flags & kTFL_UseBooleanIntersection)) {
+                forceMult = touchBounds->GetBooleanIntersection(*actTouchBounds).GetVolume() /
+                            actTouchBounds->GetVolume();
+              }
+
+              const CVector3f force = forceMult * x11c_forceField;
+              if ((x12c_flags & kTFL_UseCollisionImpulses)) {
+                pact->ApplyImpulseWR(force, CAxisAngle::Identity());
+                pact->UseCollisionImpulses();
+              } else {
+                pact->ApplyForceWR(force, CAxisAngle::Identity());
+              }
+            }
+          }
+        } else {
+          xe8_inhabitants.erase(it);
+          sendExited = true;
+          if (mgr.GetPlayer()->GetUniqueId() == it->GetObjectId() && x148_28_playerTriggerProc) {
+            x148_28_playerTriggerProc = false;
+            CPlayer* player = mgr.Player();
+            if (x148_29_didPhazonDamage) {
+              player->DecrementEnvironmentDamage();
+              x148_29_didPhazonDamage = false;
+            }
+
+            if (mgr.GetLastTriggerId() == GetUniqueId())
+              mgr.SetLastTriggerId(kInvalidUniqueId);
+          }
+
+          InhabitantExited(*act, mgr);
+        }
+      }
     } else {
-      const TUniqueId tmpId = it->GetObjectId();
       xe8_inhabitants.erase(it);
-      if (mgr.GetPlayer()->GetUniqueId() == tmpId && x148_28_playerTriggerProc) {
+      if (mgr.GetPlayer()->GetUniqueId() == it->GetObjectId() && x148_28_playerTriggerProc) {
         x148_28_playerTriggerProc = false;
+        CPlayer* player = mgr.Player();
         if (x148_29_didPhazonDamage) {
-          mgr.Player()->DecrementEnvironmentDamage();
+          player->DecrementEnvironmentDamage();
           x148_29_didPhazonDamage = false;
         }
 
