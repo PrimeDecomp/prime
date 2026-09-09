@@ -11,6 +11,7 @@
 #include <dolphin/gx/GXPixel.h>
 #include <dolphin/gx/GXStruct.h>
 #include <dolphin/gx/GXTransform.h>
+#include <dolphin/gx/GXVert.h>
 #include <dolphin/mtx.h>
 
 class CGX {
@@ -154,6 +155,8 @@ public:
   static void SetStandardDirectTev_Compressed(GXTevStageID stageId, uint colorArgs, uint alphaArgs,
                                               uint colorOps, uint alphaOps);
   static void SetStandardTevColorAlphaOp(GXTevStageID stageId);
+
+  static void Normal3s8(const s8 x, const s8 y, const s8 z) { GXNormal3s8(x, y, z); }
 
   static void CallDisplayList(const void* ptr, size_t size);
   static void Begin(GXPrimitive prim, GXVtxFmt fmt, ushort numVtx);
