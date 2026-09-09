@@ -48,6 +48,7 @@ public:
   static float kViewWanderRollVariation;
   static float kGunBobMagnitude;
   static float kHelmetBobMagnitude;
+  static float kHeavyLandingViewDip;
   static float kLandingBobDamping;
   static float kHeavyLandingBobDamping;
   static float kHeavyLandingHelmetBobDamping;
@@ -56,9 +57,7 @@ public:
                    const CVector2f& vec = CVector2f(kCameraBobExtentX, kCameraBobExtentY),
                    float bobPeriod = kCameraBobPeriod);
 
-  const CVector3f& GetCameraBobTranslation() const {
-    return x2c_cameraBobTransform.GetTranslation();
-  }
+  CVector3f GetCameraBobTranslation() const { return x2c_cameraBobTransform.GetTranslation(); }
   const CTransform4f& GetViewWanderTransform() const;
   CVector3f GetHelmetBobTranslation() const;
   CTransform4f GetGunBobTransformation() const;
@@ -87,7 +86,9 @@ public:
   static float GetOrbitBobScale() { return kOrbitBobScale; }
   static float GetMaxOrbitBobScale() { return kMaxOrbitBobScale; }
   static float GetSlowSpeedPeriodScale() { return kSlowSpeedPeriodScale; }
-  static float GetMaxNegativeVerticalSpeedConsidered() { return kMaxNegativeVerticalSpeedConsidered; }
+  static float GetMaxNegativeVerticalSpeedConsidered() {
+    return kMaxNegativeVerticalSpeedConsidered;
+  }
 
 private:
   ECameraBobType x0_type;
@@ -112,7 +113,7 @@ private:
   rstl::reserved_vector< float, 4 > xb0_wanderPitches;
   float xc4_wanderTime;
   float xc8_viewWanderSpeed;
-  uint xcc_wanderIndex;
+  int xcc_wanderIndex;
   CTransform4f xd0_viewWanderXf;
   float x100_wanderMagnitude;
   float x104_targetWanderMagnitude;

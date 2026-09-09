@@ -265,6 +265,7 @@ public:
   void UpdateCinematicState(CStateManager& mgr);
   bool IsMorphBallTransitioning() const;
   bool IsSidewaysDashing() const { return x37c_sidewaysDashing; }
+  bool GetDoneSidewaysDashing() const { return x38c_doneSidewaysDashing; }
   float GetMorphBallTransitionFactor() const {
     return x578_morphDuration == 0.f
                ? 0.f
