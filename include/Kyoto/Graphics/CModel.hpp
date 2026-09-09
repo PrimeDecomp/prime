@@ -75,15 +75,15 @@ private:
   rstl::single_ptr< uchar > x0_data;
   uint x4_dataLen;
   rstl::vector< void* > x8_surfaces;
-  rstl::vector< SShader > x18_matSets;
+  mutable rstl::vector< SShader > x18_matSets;
   rstl::single_ptr< CCubeModel > x28_modelInstance;
-  ushort x2c_currentMatxIdx;
-  ushort x2e_lastMaterialFrame;
+  mutable short x2c_currentMatxIdx;
+  mutable short x2e_lastMaterialFrame;
   mutable CModel* x30_prev;
   mutable CModel* x34_next;
   mutable uint x38_lastFrame;
 };
 
-const CFactoryFnReturn FModelFactory(const SObjectTag& tag, const rstl::auto_ptr< uchar >& ptr, int len,
-                               const CVParamTransfer& xfer);
+const CFactoryFnReturn FModelFactory(const SObjectTag& tag, const rstl::auto_ptr< uchar >& ptr,
+                                     int len, const CVParamTransfer& xfer);
 #endif // _CMODEL
