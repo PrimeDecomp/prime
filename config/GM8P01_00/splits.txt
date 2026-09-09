@@ -72,6 +72,9 @@ MetroidPrime/CAnimData.cpp:
 MetroidPrime/Factories/CCharacterFactory.cpp:
 	.text       start:0x80033574 end:0x8003364C
 
+MetroidPrime/Factories/CAssetFactory.cpp:
+	.text       start:0x80036244 end:0x800362E0
+
 MetroidPrime/Tweaks/CTweakPlayer.cpp:
 	.text       start:0x800368B0 end:0x80037434
 	.data       start:0x803C5098 end:0x803C50B0
@@ -203,6 +206,9 @@ MetroidPrime/CMapArea.cpp:
 MetroidPrime/Cameras/CBallCamera.cpp:
 	.text       start:0x800819B8 end:0x8008DDC0
 	.ctors      start:0x803B4FC0 end:0x803B4FC4
+
+MetroidPrime/ScriptObjects/CScriptEffect.cpp:
+	.text       start:0x8008E188 end:0x8008E678
 
 MetroidPrime/Weapons/CBomb.cpp:
 	.text       start:0x8009086C end:0x80090DDC
@@ -511,6 +517,12 @@ MetroidPrime/BodyState/CBSTurn.cpp:
 MetroidPrime/BodyState/CBodyController.cpp:
 	.text       start:0x80130FBC end:0x80132120
 
+MetroidPrime/BodyState/CBSLoopAttack.cpp:
+	.text       start:0x801326C0 end:0x80132A8C
+
+MetroidPrime/BodyState/CBSLoopReaction.cpp:
+	.text       start:0x8013388C end:0x80133B80
+
 MetroidPrime/CSteeringBehaviors.cpp:
 	.text       start:0x80134730 end:0x80135F20
 
@@ -578,6 +590,9 @@ MetroidPrime/ScriptObjects/CScriptActorRotate.cpp:
 
 MetroidPrime/Player/CFidget.cpp:
 	.text       start:0x8014BA28 end:0x8014BACC
+
+MetroidPrime/Enemies/CSpankWeed.cpp:
+	.text       start:0x8014BB98 end:0x8014D620
 
 MetroidPrime/Enemies/CParasite.cpp:
 	.text       start:0x8014D750 end:0x801517C4
@@ -713,6 +728,12 @@ MetroidPrime/Enemies/CIceSheegoth.cpp:
 
 MetroidPrime/CCollisionActorManager.cpp:
 	.text       start:0x8019B43C end:0x8019C914
+
+MetroidPrime/CCollisionActor.cpp:
+	.text       start:0x8019CB80 end:0x8019CF74
+
+MetroidPrime/ScriptObjects/CScriptPlayerActor.cpp:
+	.text       start:0x8019E624 end:0x8019E6A8
 
 MetroidPrime/Tweaks/CTweakPlayerRes.cpp:
 	.text       start:0x801A0864 end:0x801A09A4
@@ -854,9 +875,15 @@ MetroidPrime/BodyState/CABSReaction.cpp:
 MetroidPrime/Weapons/CIceProjectile.cpp:
 	.text       start:0x801E3304 end:0x801E5988
 
+MetroidPrime/Enemies/CPatternedAiFunctions.cpp:
+	.text       start:0x801E59A0 end:0x801E83C8
+
 MetroidPrime/Enemies/CFlyingPirate.cpp:
 	.text       start:0x801E8C08 end:0x801F20F8
 	.ctors      start:0x803B504C end:0x803B5050
+
+MetroidPrime/ScriptObjects/CScriptColorModulate.cpp:
+	.text       start:0x801F24D8 end:0x801F29B4
 
 MetroidPrime/CMapUniverse.cpp:
 	.text       start:0x801F3404 end:0x801F4CD8
@@ -911,6 +938,9 @@ MetroidPrime/Enemies/CBabygoth.cpp:
 MetroidPrime/Enemies/CEyeBall.cpp:
 	.text       start:0x80215990 end:0x80215FBC
 
+MetroidPrime/CIkChain.cpp:
+	.text       start:0x80216A14 end:0x80216C28
+
 MetroidPrime/ScriptObjects/CScriptCameraPitchVolume.cpp:
 	.text       start:0x802174B4 end:0x802174CC
 	.ctors      start:0x803B505C end:0x803B5060
@@ -927,9 +957,21 @@ MetroidPrime/Enemies/CElitePirate.cpp:
 MetroidPrime/CRumbleManager.cpp:
 	.text       start:0x8021E9EC end:0x8021EC18
 
+MetroidPrime/Enemies/CBouncyGrenade.cpp:
+	.text       start:0x8021F178 end:0x8021FAA8
+
+MetroidPrime/Enemies/CGrenadeLauncher.cpp:
+	.text       start:0x8021FE9C end:0x80221450
+
 MetroidPrime/Enemies/CRipperControlledPlatform.cpp:
 	.text       start:0x80222E08 end:0x80222E68
 	.data       start:0x803D0C10 end:0x803D0CA0
+
+MetroidPrime/Enemies/CKnockBackMgr.cpp:
+	.text       start:0x802237EC end:0x802239DC
+
+MetroidPrime/CScriptLayerManager.cpp:
+	.text       start:0x8022492C end:0x80224A1C
 
 MetroidPrime/Enemies/CMagdolite.cpp:
 	.text       start:0x80224E50 end:0x80227D90
@@ -1023,6 +1065,9 @@ MetroidPrime/CErrorOutputWindow.cpp:
 
 MetroidPrime/CRainSplashGenerator.cpp:
 	.text       start:0x802588B4 end:0x80259A08
+
+MetroidPrime/CWorldSaveGameInfo.cpp:
+	.text       start:0x80259ED0 end:0x8025A7A4
 
 MetroidPrime/CFluidPlaneRender.cpp:
 	.text       start:0x8025A880 end:0x8025E8F0
@@ -1419,6 +1464,9 @@ Kyoto/Animation/CAnimSource.cpp:
 
 Kyoto/Animation/CAnimSourceReader.cpp:
 	.text       start:0x802D7F44 end:0x802D95FC
+
+Kyoto/Animation/CAnimSourceReaderBase.cpp:
+	.text       start:0x802D9F54 end:0x802DA1F4
 
 Kyoto/Animation/CAnimTreeAnimReaderContainer.cpp:
 	.text       start:0x802DAFB4 end:0x802DB630
@@ -2133,6 +2181,9 @@ dolphin/os/OSError.c:
 
 dolphin/os/OSFatal.c:
 	.text       start:0x80369EBC end:0x8036AA98
+
+dolphin/os/OSFont.c:
+	.text       start:0x8036AE8C end:0x8036B1C0
 
 dolphin/os/OSInterrupt.c:
 	.text       start:0x8036B4C4 end:0x8036BD30
