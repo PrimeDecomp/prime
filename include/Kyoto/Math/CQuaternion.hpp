@@ -60,6 +60,12 @@ public:
     return a.GetScalar() * b.GetScalar() + CVector3f::Dot(a.GetVector(), b.GetVector());
   }
 
+  bool LocalTo(const CQuaternion& other) const { return Dot(other, *this) >= 0.f; }
+
+  static CQuaternion MadeLocalToFirst(const CQuaternion& first, const CQuaternion& second) {
+    return second.LocalTo(first) ? second : second.BuildEquivalent();
+  }
+
   // TODO: fake
   float GetW() const { return w; }
   float GetX() const { return imaginary.GetX(); }

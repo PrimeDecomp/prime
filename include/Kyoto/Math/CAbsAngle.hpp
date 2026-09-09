@@ -19,6 +19,7 @@ public:
     x0_angle += v.x0_angle;
     return *this;
   }
+
   CAbsAngle& operator-=(const CAbsAngle& v) {
     x0_angle -= v.x0_angle;
     return *this;
@@ -32,8 +33,15 @@ public:
     return *this;
   }
 
-  CAbsAngle& operator+=(const CRelAngle& v);
-  CAbsAngle& operator-=(const CRelAngle& v);
+  CAbsAngle& operator+=(const CRelAngle& v) {
+    x0_angle = CMath::ClampRadians(x0_angle + v.AsRadians());
+    return *this;
+  }
+
+  CAbsAngle& operator-=(const CRelAngle& v) {
+    x0_angle = CMath::ClampRadians(x0_angle - v.AsRadians());
+    return *this;
+  }
 
   static CAbsAngle FromDegrees(float deg) {
     return CAbsAngle(CMath::ClampRadians(deg * (M_PIF / 180.f)));
