@@ -6,7 +6,7 @@
 
 class CStateManager;
 class CModelData;
-class SShadowDrawContext;
+struct SShadowDrawContext;
 
 class CProjectedShadow {
 public:
@@ -19,19 +19,19 @@ public:
 
   void SetOpacity(float opacity) { x98_opacity = opacity; }
 
-  CAABox sub_8029e214();
-  void sub_8029dc98();
-  void sub_8029d6c8();
+  void Disable();
 
   static void ModelDrawCallback(const float*, const float*, const SShadowDrawContext*);
 
 private:
+  void ExpandBoundsForTexture();
+
   CTexture x0_texture;
-  CAABox x68_;
-  bool x80_;
+  CAABox x68_bounds;
+  bool x80_enabled;
   uchar x81_persistent;
-  float x84_;
-  CVector3f x88_;
+  float x84_scale;
+  CVector3f x88_translation;
   float x94_zDistanceAdjust;
   float x98_opacity;
 };

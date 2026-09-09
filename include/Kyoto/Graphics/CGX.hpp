@@ -178,8 +178,9 @@ public:
   static inline uint MaskAndShiftLeft(uint v, uint m, uint s) { return (v & m) << s; }
   static inline uint ShiftRightAndMask(uint v, uint m, uint s) { return (v >> s) & m; }
 
-private:
   static void FlushState();
+
+private:
   static void update_fog(uint flags);
   static void apply_fog() {
     static const GXColor black = {0, 0, 0, 0};

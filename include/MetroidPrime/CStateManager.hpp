@@ -38,6 +38,7 @@ extern const int gkPVSEnabled;
 
 class CAABox;
 class CActor;
+class CProjectedShadow;
 class CPlane;
 class CGameArea;
 class CPVSVisSet;
@@ -123,6 +124,8 @@ public:
                 const rstl::ncrc_ptr< CPlayerState >&, const rstl::ncrc_ptr< CWorldTransManager >&,
                 const rstl::ncrc_ptr< CScriptLayerManager >&);
   ~CStateManager();
+
+  void SetProjectedShadow(CProjectedShadow* shadow) { xf7c_projectedShadow = shadow; }
 
   void PreRender();
   bool RenderLast(const TUniqueId&);
@@ -451,7 +454,7 @@ private:
   TUniqueId xf74_lastTrigger;
   TUniqueId xf76_lastRelay;
   float xf78_hudMessageTime;
-  unkptr xf7c_projectedShadow;
+  CProjectedShadow* xf7c_projectedShadow;
   uint xf80_hudMessageFrameCount;
   CAssetId xf84_;
   CAssetId xf88_;

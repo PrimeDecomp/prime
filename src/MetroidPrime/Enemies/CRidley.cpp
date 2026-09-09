@@ -782,10 +782,10 @@ void CRidley::PreRender(CStateManager& mgr, const CFrustumPlanes& frustum) {
                                 CVector3f::Zero(), xccc_, 10.f + height);
       xd10_->SetOpacity(0.8f);
     } else {
-      xd10_->sub_8029d6c8();
+      xd10_->Disable();
     }
   } else {
-    xd10_->sub_8029d6c8();
+    xd10_->Disable();
   }
 }
 
