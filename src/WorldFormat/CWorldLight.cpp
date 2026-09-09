@@ -22,37 +22,42 @@ CWorldLight::CWorldLight(CInputStream& in)
 , x40_(in.Get< float >()) {}
 
 CLight CWorldLight::GetAsCGraphicsLight() const {
-  float R = x4_color.GetX();
-  float G = x4_color.GetY();
-  float B = x4_color.GetZ();
-  CColor color(R, G, B);
+  CVector3f floatColor = x4_color;
+  CColor color(floatColor[0], floatColor[1], floatColor[2]);
 
-  float q = x28_q < FLT_EPSILON ? 0.000001f : x28_q;
+  float q = x28_q;
+  if (x28_q < FLT_EPSILON) {
+    q = 10.f * FLT_EPSILON;
+  }
+
   if (x0_type == kWLT_LocalAmbient) {
-    R *= q;
-    G *= q;
-    B *= q;
+    floatColor *= q;
 
-    R = rstl::min_val(1.f, R);
-    G = rstl::min_val(1.f, G);
-    B = rstl::min_val(1.f, B);
-    return CLight::BuildLocalAmbient(x10_position, CColor(R, G, B));
+    floatColor[0] = rstl::min_val(1.f, floatColor[0]);
+    floatColor[1] = rstl::min_val(1.f, floatColor[1]);
+    floatColor[2] = rstl::min_val(1.f, floatColor[2]);
+    CColor ambientColor(floatColor[0], floatColor[1], floatColor[2]);
+
+    return CLight::BuildLocalAmbient(x10_position, ambientColor);
   }
+
   if (x0_type == kWLT_Directional) {
-    return CLight::BuildDirectional(x10_position, color);
+    return CLight::BuildDirectional(x1c_direction, color);
   }
+
   if (x0_type == kWLT_Spot) {
     CLight light =
-        CLight::BuildSpot(x10_position, x1c_direction.AsNormalized(), color, x2c_cutoffAngle * .5f);
+        CLight::BuildSpot(x10_position, x1c_direction.AsNormalized(), color, x2c_cutoffAngle / 2.f);
     float quadratic = x3c_falloff == kFT_Quadratic ? (25000.0f / q) : 0.f;
-    float linear = x3c_falloff == kFT_Linear ? (250.f / q) : 0.f;
+    float linear = x3c_falloff == kFT_Linear ? ((1.f / 0.004f) / q) : 0.f;
     float constant = x3c_falloff == kFT_Constant ? (2.0f / q) : 0.f;
 
     light.SetAttenuation(constant, linear, quadratic);
     return light;
   }
+
   float quadratic = x3c_falloff == kFT_Quadratic ? (25000.0f / q) : 0.f;
-  float linear = x3c_falloff == kFT_Linear ? (250.f / q) : 0.f;
+  float linear = x3c_falloff == kFT_Linear ? ((1.f / 0.004f) / q) : 0.f;
   float constant = x3c_falloff == kFT_Constant ? (2.0f / q) : 0.f;
   return CLight::BuildCustom(x10_position, CVector3f(1.f, 0.f, 0.f), color, constant, linear,
                              quadratic, 1.f, 0.f, 0.f);
