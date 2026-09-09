@@ -1,5 +1,7 @@
 #include "MetroidPrime/Enemies/CFireFlea.hpp"
 
+#include "Collision/CRayCastResult.hpp"
+#include "Kyoto/Math/CUnitVector3f.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
 #include "Kyoto/Math/CloseEnough.hpp"
 #include "MetroidPrime/BodyState/CBodyController.hpp"
@@ -35,9 +37,9 @@ void CFireFlea::CDeathCameraEffect::PreThink(float dt, CStateManager& mgr) {
 
   if (x44_currentTime >= x34_startFadeTime && x44_currentTime <= endFadeTime) {
     sCurrentFadeColor =
-        CColor::Add(sCurrentFadeColor, CColor::Lerp(skStartFadeColor, skEndFadeColor,
-                                                    (float)(x44_currentTime - x34_startFadeTime) /
-                                                        x40_totalFadeDuration));
+        CColor::Add(sCurrentFadeColor,
+                    CColor::Lerp(skStartFadeColor, skEndFadeColor,
+                                 (float)(x44_currentTime - x34_startFadeTime) / x38_fadeDuration));
     pass.SetFilter(CCameraFilterPass::kFT_Blend, CCameraFilterPass::kFS_Fullscreen, 0.f,
                    sCurrentFadeColor, -1);
   } else if (x44_currentTime >= reverseFadeStartTime && x44_currentTime <= endTransitionTime) {
@@ -150,4 +152,149 @@ bool CFireFlea::MoveTooCloseToWater(CStateManager& mgr, const CVector3f& forward
   }
 
   return false;
+}
+
+CVector3f CFireFlea::AdjustMovementVec(CStateManager& mgr, const CVector3f& forward) const {
+  CVector3f movement = forward;
+  const float magnitude = movement.Magnitude();
+  if (magnitude > 0.f) {
+    const CVector3f direction = movement.AsNormalized();
+    const CRayCastResult result = mgr.RayStaticIntersection(
+        GetTranslation(), direction, 1.f, CMaterialFilter::MakeInclude(CMaterialList(kMT_Solid)));
+    const bool nearWater = MoveTooCloseToWater(mgr, direction);
+    if (result.IsValid() || nearWater) {
+      const CVector3f& worldUp = CVector3f::Up();
+      const float upX = worldUp.GetX();
+      const float upY = worldUp.GetY();
+      const float upZ = worldUp.GetZ();
+      const float dirX = direction.GetX();
+      const float dirY = direction.GetY();
+      const float dirZ = direction.GetZ();
+      const float rightX = upY * dirZ - dirY * upZ;
+      const float rightY = upZ * dirX - dirZ * upX;
+      const float rightZ = upX * dirY - dirX * upY;
+      const CVector3f right = CVector3f(rightX, rightY, rightZ).AsNormalized();
+      const CRayCastResult rightResult = mgr.RayStaticIntersection(
+          GetTranslation(), right, 1.f, CMaterialFilter::MakeInclude(CMaterialList(kMT_Solid)));
+      if (rightResult.IsValid()) {
+        const CVector3f left = -right;
+        const CRayCastResult leftResult = mgr.RayStaticIntersection(
+            GetTranslation(), left, 1.f, CMaterialFilter::MakeInclude(CMaterialList(kMT_Solid)));
+        if (leftResult.IsValid()) {
+          const CVector3f up = CVector3f::Cross(direction, right);
+          const CRayCastResult upResult = mgr.RayStaticIntersection(
+              GetTranslation(), up, 1.f, CMaterialFilter::MakeInclude(CMaterialList(kMT_Solid)));
+          if (upResult.IsValid()) {
+            const CVector3f down = -up;
+            const CRayCastResult downResult =
+                mgr.RayStaticIntersection(GetTranslation(), down, 1.f,
+                                          CMaterialFilter::MakeInclude(CMaterialList(kMT_Solid)));
+            if (downResult.IsInvalid()) {
+              movement = magnitude * down;
+            } else {
+              movement = -movement;
+            }
+          } else {
+            movement = magnitude * up;
+          }
+        } else {
+          movement = magnitude * left;
+        }
+      } else {
+        movement = magnitude * right;
+      }
+    }
+    return movement;
+  }
+  return CVector3f::Zero();
+}
+
+void CFireFlea::Flee(CStateManager& mgr, EStateMsg msg, float arg) {
+  switch (msg) {
+  case kStateMsg_Activate:
+    BodyCtrl()->SetLocomotionType(pas::kLT_Lurk);
+    break;
+  case kStateMsg_Update:
+    if (x570_nearList.size() == 0) {
+      xd74_ = AdjustMovementVec(mgr, xd74_);
+      BodyCtrl()->CommandMgr().DeliverCmd(CBCLocomotionCmd(xd74_, CVector3f::Zero(), 1.f));
+    } else {
+      for (TEntityList::const_iterator it = x570_nearList.begin(); it != x570_nearList.end();
+           ++it) {
+        if (const CActor* actor = static_cast< const CActor* >(mgr.GetObjectById(*it))) {
+          CVector3f direction = x45c_steeringBehaviors.Flee(*this, actor->GetTranslation());
+          direction = AdjustMovementVec(mgr, direction);
+          xd74_ = direction;
+          BodyCtrl()->CommandMgr().DeliverCmd(CBCLocomotionCmd(direction, CVector3f::Zero(), 1.f));
+        }
+      }
+    }
+    break;
+  case kStateMsg_Deactivate:
+    BodyCtrl()->SetLocomotionType(pas::kLT_Relaxed);
+    break;
+  default:
+    break;
+  }
+}
+
+void CFireFlea::Dead(CStateManager& mgr, EStateMsg msg, float arg) {
+  switch (msg) {
+  case kStateMsg_Activate:
+    if (mgr.GetPlayerState()->GetActiveVisor(mgr) == CPlayerState::kPV_Thermal) {
+      const rstl::string name("");
+      mgr.AddObject(rs_new CDeathCameraEffect(mgr.AllocateUniqueId(), GetCurrentAreaId(), name));
+    }
+    break;
+  case kStateMsg_Update:
+  case kStateMsg_Deactivate:
+  default:
+    break;
+  }
+}
+
+void CFireFlea::TargetPatrol(CStateManager& mgr, EStateMsg msg, float arg) {
+  switch (msg) {
+  case kStateMsg_Deactivate:
+    break;
+  case kStateMsg_Activate:
+    CPatterned::Patrol(mgr, msg, arg);
+    UpdateDest(mgr);
+    xd80_targetPos = x2e0_destPos;
+    break;
+  case kStateMsg_Update:
+    if (GetSearchPath()) {
+      if (GetSearchPath()->GetResult() != CPathFindSearch::kR_Success) {
+        CVector3f closestPoint = CVector3f::Zero();
+        if (GetSearchPath()->FindClosestReachablePoint(GetTranslation(), closestPoint) ==
+            CPathFindSearch::kR_Success) {
+          CVector3f direction = x45c_steeringBehaviors.Arrival(*this, xd80_targetPos, 5.f);
+          direction = AdjustMovementVec(mgr, direction);
+          BodyCtrl()->CommandMgr().DeliverCmd(CBCLocomotionCmd(direction, CVector3f::Zero(), 1.f));
+        }
+      } else {
+        CPatterned::PathFind(mgr, msg, arg);
+      }
+    } else {
+      BodyCtrl()->CommandMgr().DeliverCmd(CBCLocomotionCmd(
+          x45c_steeringBehaviors.Arrival(*this, xd80_targetPos, 5.f), CVector3f::Zero(), 1.f));
+    }
+    break;
+  default:
+    break;
+  }
+}
+
+bool CFireFlea::InPosition(CStateManager& mgr, float arg) {
+  if (GetDestObj() != kInvalidUniqueId) {
+    const CVector3f& delta = xd80_targetPos - GetTranslation();
+    return delta.MagSquared() < 25.f;
+  }
+  return false;
+}
+
+CPathFindSearch* CFireFlea::GetSearchPath() { return &xd8c_pathFind; }
+
+bool CFireFlea::Delay(CStateManager& mgr, float arg) {
+  return GetStateMachineState().GetTime() > 0.5f;
 }

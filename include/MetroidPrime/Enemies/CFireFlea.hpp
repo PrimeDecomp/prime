@@ -8,18 +8,19 @@
 class CFireFlea : public CPatterned {
 public:
   class CDeathCameraEffect : public CEntity {
-    static const CColor skEndFadeColor;
-    static const CColor skStartFadeColor;
-    static CColor sCurrentFadeColor;
-
-    CDeathCameraEffect(const TUniqueId uid, const TAreaId aid, const rstl::string& name);
+  public:
     ~CDeathCameraEffect() {}
-
     void PreThink(float, CStateManager& mgr) override;
     void Think(float, CStateManager& mgr) override;
     void Accept(IVisitor& visitor) override;
 
+    CDeathCameraEffect(const TUniqueId uid, const TAreaId aid, const rstl::string& name);
+
   private:
+    static const CColor skEndFadeColor;
+    static const CColor skStartFadeColor;
+    static CColor sCurrentFadeColor;
+
     uint x34_startFadeTime;
     uint x38_fadeDuration;
     uint x3c_reverseFadeDuration;
@@ -37,9 +38,15 @@ public:
 
   bool HearShot(CStateManager& mgr, float arg) override;
   void Patrol(CStateManager& mgr, EStateMsg msg, float arg) override;
+  bool Delay(CStateManager& mgr, float arg) override;
+  CPathFindSearch* GetSearchPath() override;
+  bool InPosition(CStateManager& mgr, float arg) override;
+  void Flee(CStateManager& mgr, EStateMsg msg, float arg) override;
+  void Dead(CStateManager& mgr, EStateMsg msg, float arg) override;
+  void TargetPatrol(CStateManager& mgr, EStateMsg msg, float arg) override;
 
 private:
-  CVector3f AdjustMovementVec(CStateManager& mgr, const CVector3f& forward);
+  CVector3f AdjustMovementVec(CStateManager& mgr, const CVector3f& forward) const;
   bool MoveTooCloseToWater(CStateManager& mgr, const CVector3f& forward) const;
   const bool HeardShot() const { return !(x570_nearList.size() <= 0); }
   float x568_;
@@ -51,5 +58,7 @@ private:
 
   static int sLightIdx;
 };
+
+CHECK_SIZEOF(CFireFlea, 0xe70)
 
 #endif // _CFIREFLEA

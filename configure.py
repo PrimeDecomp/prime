@@ -813,7 +813,7 @@ config.libs = [
             Object(NonMatching, "MetroidPrime/CSteeringBehaviors.cpp"),
             Object(NonMatching, "MetroidPrime/BodyState/CBSGroundHit.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CChozoGhost.cpp"),
-            Object(NonMatching, "MetroidPrime/Enemies/CFireFlea.cpp"),
+            Object(MatchingFor("GM8E01_00"), "MetroidPrime/Enemies/CFireFlea.cpp"),
             Object(NonMatching, "MetroidPrime/BodyState/CBSSlide.cpp"),
             Object(NonMatching, "MetroidPrime/BodyState/CBSHurled.cpp"),
             Object(NonMatching, "MetroidPrime/BodyState/CBSJump.cpp"),
