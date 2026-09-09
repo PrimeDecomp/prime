@@ -16,6 +16,7 @@
 #include "Kyoto/Math/CTransform4f.hpp"
 #include "Kyoto/Math/CVector2f.hpp"
 
+#include "WorldFormat/CAreaRenderOctTree.hpp"
 #include "WorldFormat/CMetroidModelInstance.hpp"
 #include "WorldFormat/CWorldLight.hpp"
 
@@ -84,37 +85,6 @@ public:
   virtual rstl::pair< rstl::auto_ptr< char >, int > IGetScriptingMemoryAlways() const = 0;
 };
 
-struct CAreaRenderOctTree {
-  struct Node {
-    ushort x0_bitmapIdx;
-    ushort x2_flags;
-    ushort x4_children[1];
-
-    uint GetChildCount() const;
-    CAABox GetNodeBounds(const CAABox& curAABB, int idx) const;
-
-    void RecursiveBuildOverlaps(u32* out, const CAreaRenderOctTree& parent, const CAABox& curAABB,
-                                const CAABox& testAABB) const;
-  };
-
-  rstl::auto_ptr< const u8 > x0_buf;
-  uint x8_bitmapCount;
-  uint xc_meshCount;
-  uint x10_nodeCount;
-  uint x14_bitmapWordCount;
-  CAABox x18_aabb;
-  const u32* x30_bitmaps;
-  const u32* x34_indirectionTable;
-  const u8* x38_entries;
-
-  explicit CAreaRenderOctTree(const rstl::auto_ptr< const u8 >& buf);
-
-  void FindOverlappingModels(rstl::vector< uint >& out, const CAABox& testAABB) const;
-  void FindOverlappingModels(uint* out, const CAABox& testAABB) const;
-
-  static bool TestBit(const uint* words, int bitIdx);
-};
-CHECK_SIZEOF(CAreaRenderOctTree, 0x3c);
 class CPFArea;
 class CGameArea : public IGameArea {
 public:
