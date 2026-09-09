@@ -174,6 +174,7 @@ public:
   bool operator==(const basic_string& other) const;
   bool operator!=(const basic_string& other) const;
 
+  int find(const basic_string& other, int pos = 0) const;
   int find(_CharTp ch, int pos = 0) const;
   int find_first_of(const basic_string& other, int pos = 0) const;
   pair< const_iterator, const_iterator > range_iterator(int pos, int count) const;
@@ -221,13 +222,14 @@ template < typename _CharTp, typename Traits, typename Alloc >
 template < typename It, typename OtherIt >
 inline int basic_string< _CharTp, Traits, Alloc >::internal_search(It first, It last,
                                                                    OtherIt otherFirst,
-                                                                   OtherIt otherLast) {
-  int matched = 0;
-  OtherIt search = otherFirst;
-  if (search == otherLast) {
+                                                                   const OtherIt otherLast) {
+  if (otherFirst == otherLast) {
     return 0;
   }
-  for (It it = first; it != last; ++it) {
+  It it = first;
+  int matched = 0;
+  OtherIt search = otherFirst;
+  for (; it != last; ++it) {
     if (Traits::eq(*it, *search)) {
       ++search;
       ++matched;
@@ -240,6 +242,17 @@ inline int basic_string< _CharTp, Traits, Alloc >::internal_search(It first, It 
     }
   }
   return -1;
+}
+
+template < typename _CharTp, typename Traits, typename Alloc >
+int basic_string< _CharTp, Traits, Alloc >::find(const basic_string& other, int pos) const {
+  pos = get_real_pos_for_begin(pos);
+  const int found = internal_search(begin() + pos, end(), other.begin(), other.end());
+  int result = found + pos;
+  if (found == -1) {
+    result = found;
+  }
+  return result;
 }
 
 template < typename _CharTp, typename Traits, typename Alloc >

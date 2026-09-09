@@ -6,14 +6,18 @@
 #include "MetroidPrime/CAnimData.hpp"
 #include "MetroidPrime/CEnvFxManager.hpp"
 #include "MetroidPrime/CMain.hpp"
+#include "MetroidPrime/CMapWorld.hpp"
+#include "MetroidPrime/CMapWorldInfo.hpp"
 #include "MetroidPrime/CRumbleManager.hpp"
+#include "MetroidPrime/CScriptLayerManager.hpp"
 #include "MetroidPrime/CStateManager.hpp"
 #include "MetroidPrime/CWorld.hpp"
 #include "MetroidPrime/Cameras/CCameraManager.hpp"
 #include "MetroidPrime/Player/CGameState.hpp"
 #include "MetroidPrime/Player/CPlayer.hpp"
+#include "MetroidPrime/Player/CPlayerGun.hpp"
 #include "MetroidPrime/Player/CPlayerState.hpp"
-#include "MetroidPrime/CScriptLayerManager.hpp"
+#include "MetroidPrime/Player/CWorldState.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptPlatform.hpp"
 #include "MetroidPrime/TCastTo.hpp"
 #include "MetroidPrime/Weapons/CEnergyProjectile.hpp"
@@ -37,13 +41,6 @@
 
 #include "math.h"
 #include "rstl/optional_object.hpp"
-
-namespace rstl {
-static int string_find(const string& haystack, const string& needle, int) {
-  // TODO: proper implementation
-  return 0;
-}
-} // namespace rstl
 
 CScriptSpecialFunction::CScriptSpecialFunction(
     TUniqueId uid, const rstl::string& name, const CEntityInfo& info, const CTransform4f& xf,
@@ -208,15 +205,15 @@ static const ERumbleFxId skRumbleFxList[6] = {
 
 namespace {
 class CRingSorter {
-  CStateManager* mgr;
+  const CStateManager& mgr;
 
 public:
-  CRingSorter(CStateManager* mgr) : mgr(mgr) {}
+  CRingSorter(const CStateManager& mgr) : mgr(mgr) {}
 
   bool operator()(const CScriptSpecialFunction::SRingController& a,
                   const CScriptSpecialFunction::SRingController& b) const {
-    const CActor* actA = TCastToConstPtr< CActor >(mgr->GetObjectById(a.x0_id));
-    const CActor* actB = TCastToConstPtr< CActor >(mgr->GetObjectById(b.x0_id));
+    const CActor* actA = TCastToConstPtr< CActor >(mgr.GetObjectById(a.x0_id));
+    const CActor* actB = TCastToConstPtr< CActor >(mgr.GetObjectById(b.x0_id));
     if (actA && actB) {
       return actA->GetTranslation().GetZ() < actB->GetTranslation().GetZ();
     }
@@ -228,7 +225,7 @@ public:
 void CScriptSpecialFunction::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid,
                                              CStateManager& mgr) {
   if (GetActive() && msg == kSM_Deactivate && xe8_function == kSF_Billboard) {
-    mgr.SetPendingOnScreenTex(CAssetId(), CVector2i(0, 0), CVector2i(0, 0));
+    mgr.SetPendingOnScreenTex(kInvalidAssetId, CVector2i(0, 0), CVector2i(0, 0));
     x1e8_ = rstl::optional_object_null();
     x1e5_26_displayBillboard = false;
   }
@@ -254,13 +251,13 @@ void CScriptSpecialFunction::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId
     }
     case kSF_SpinnerController: {
       switch (msg) {
-      case kSM_Stop: {
-        x1e4_25_spinnerCanMove = false;
-        break;
-      }
       case kSM_Play: {
         x1e4_25_spinnerCanMove = true;
         mgr.Player()->SetAngularVelocityWR(CAxisAngle::Identity());
+        break;
+      }
+      case kSM_Stop: {
+        x1e4_25_spinnerCanMove = false;
         break;
       }
       case kSM_Deactivate:
@@ -272,33 +269,23 @@ void CScriptSpecialFunction::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId
       break;
     }
     case kSF_ShotSpinnerController: {
-      switch (msg) {
-      case kSM_Increment: {
-
-        x16c_ = CMath::Clamp(0.f, x16c_ + 1.f, 1.f);
+      if (msg == kSM_Increment) {
+        x16c_ = rstl::max_val(0.f, rstl::min_val(x16c_ + 1.f, 1.f));
         SendScriptMsgs(kSS_Play, mgr, kSM_None);
-        break;
-      }
-      case kSM_SetToMax: {
+      } else if (msg == kSM_SetToMax) {
         x16c_ = x104_float3;
         SendScriptMsgs(kSS_Play, mgr, kSM_None);
-        break;
-      }
-      case kSM_SetToZero: {
+      } else if (msg == kSM_SetToZero) {
         x16c_ = -0.5f * x104_float3;
-        break;
-      }
-      default:
-        break;
       }
       break;
     }
     case kSF_MapStation: {
       if (msg == kSM_Action) {
-        // TODO
-        // mgr.MapWorldInfo()->SetIsMapped(true);
-        // mgr.GetWorld()->GetMapWorld()->RecalculateWorldSphere(*mgr.MapWorldInfo(),
-        // *mgr.GetWorld());
+        mgr.MapWorldInfo()->SetIsMapped(true);
+        CMapWorld* mapWorld = mgr.GetWorld()->GetMapWorld();
+        mapWorld->RecalculateWorldSphere(*mgr.MapWorldInfo(), *mgr.GetWorld());
+        mgr.EnterMapScreen();
       }
       break;
     }
@@ -320,10 +307,11 @@ void CScriptSpecialFunction::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId
     }
     case kSF_SaveStation: {
       if (msg == kSM_Action) {
+        const bool noCard = gpGameState->CardSerial() == 0;
         mgr.PlayerState()->IncrPickUp(CPlayerState::kIT_EnergyTanks, 1);
-        if (gpGameState->CardSerial() == 0) {
+        if (noCard) {
           SendScriptMsgs(kSS_Closed, mgr, kSM_None);
-        } else {
+        } else if (!noCard) {
           mgr.EnterSaveGameScreen();
           x1e5_24_doSave = true;
         }
@@ -333,34 +321,6 @@ void CScriptSpecialFunction::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId
     case kSF_IntroBossRingController: {
       if (x1a8_ringState != kRS_Breakup) {
         switch (msg) {
-        case kSM_Play: {
-          if (x1a8_ringState != kRS_Scramble) {
-            RingScramble(mgr);
-          }
-
-          for (rstl::vector< SRingController >::iterator rc = x198_ringControllers.begin();
-               rc != x198_ringControllers.end(); ++rc) {
-            if (CActor* act = TCastToPtr< CActor >(mgr.ObjectById(rc->x0_id))) {
-              rc->xc_ = act->GetTransform().GetForward();
-            } else {
-              rc->xc_ = CVector3f::Forward();
-            }
-          }
-
-          x1a8_ringState = kRS_Breakup;
-          break;
-        }
-        case kSM_SetToZero: {
-          x1a8_ringState = kRS_Rotate;
-          x1ac_ringRotateTarget = GetTranslation() - mgr.GetPlayer()->GetTranslation();
-          x1ac_ringRotateTarget.SetZ(0.f);
-          x1ac_ringRotateTarget.Normalize();
-          break;
-        }
-        case kSM_Action: {
-          RingScramble(mgr);
-          break;
-        }
         case kSM_InitializedInArea: {
           x198_ringControllers.reserve(3);
 
@@ -370,23 +330,51 @@ void CScriptSpecialFunction::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId
               continue;
             }
 
-            const CStateManager::TIdListResult& it = mgr.GetIdListForScript(conn->x8_objId);
-            if (it.first != it.second) {
-              TUniqueId uid = it.first->second;
-              if (CActor* act = TCastToPtr< CActor >(mgr.ObjectById(uid))) {
-                x198_ringControllers.push_back(SRingController(uid, 0.f, false));
+            const CStateManager::TIdListResult it = mgr.GetIdListForScript(conn->x8_objId);
+            AUTO(id, it.first);
+            if (!(id == it.second)) {
+              if (CActor* const act = TCastToPtr< CActor >(mgr.ObjectById(id->second))) {
+                x198_ringControllers.reserve(x198_ringControllers.size() + 1);
+                x198_ringControllers.push_back(SRingController(id->second, 0.f, false));
                 act->RemoveMaterial(kMT_Occluder, mgr);
               }
             }
           }
 
-          rstl::sort(x198_ringControllers.begin(), x198_ringControllers.end(), CRingSorter(&mgr));
+          rstl::sort(x198_ringControllers.begin(), x198_ringControllers.end(), CRingSorter(mgr));
 
-          for (rstl::vector< SRingController >::iterator rc = x198_ringControllers.begin();
-               rc != x198_ringControllers.end(); ++rc) {
-            rc->x4_rotateSpeed = (x1b8_ringReverse ? 1.f : -1.f) * xfc_float1;
-            rc->x8_reachedTarget = false;
+          for (int i = 0; i < x198_ringControllers.size(); ++i) {
+            x198_ringControllers[i].x4_rotateSpeed = xfc_float1 * (x1b8_ringReverse ? 1.f : -1.f);
+            x198_ringControllers[i].x8_reachedTarget = false;
           }
+          break;
+        }
+        case kSM_Play: {
+          if (x1a8_ringState != kRS_Scramble) {
+            RingScramble(mgr);
+          }
+
+          for (int i = 0; i < x198_ringControllers.size(); ++i) {
+            if (CActor* const act =
+                    TCastToPtr< CActor >(mgr.ObjectById(x198_ringControllers[i].x0_id))) {
+              x198_ringControllers[i].xc_ = act->GetTransform().GetForward();
+            } else {
+              x198_ringControllers[i].xc_ = CVector3f::Forward();
+            }
+          }
+
+          x1a8_ringState = kRS_Breakup;
+          break;
+        }
+        case kSM_Action: {
+          RingScramble(mgr);
+          break;
+        }
+        case kSM_SetToZero: {
+          x1a8_ringState = kRS_Rotate;
+          x1ac_ringRotateTarget = GetTranslation() - mgr.GetPlayer()->GetTranslation();
+          x1ac_ringRotateTarget.SetZ(0.f);
+          x1ac_ringRotateTarget.Normalize();
           break;
         }
         default:
@@ -397,21 +385,20 @@ void CScriptSpecialFunction::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId
     }
     case kSF_RadialDamage: {
       if (msg == kSM_Action) {
-        CMaterialList includeList(kMT_Solid);
-        CMaterialList excudeList(0);
-        CMaterialFilter filter(CMaterialFilter::MakeIncludeExclude(includeList, excudeList));
-
         CDamageInfo dInfo = x11c_damageInfo;
         dInfo.SetRadius(xfc_float1);
-        mgr.ApplyDamageToWorld(GetUniqueId(), *this, GetTranslation(), dInfo, filter);
+        mgr.ApplyDamageToWorld(
+            GetUniqueId(), *this, GetTranslation(), dInfo,
+            CMaterialFilter::MakeIncludeExclude(CMaterialList(kMT_Solid), CMaterialList(0)));
       }
       break;
     }
     case kSF_BossEnergyBar: {
       if (msg == kSM_Increment) {
-        mgr.SetEnergyBarActorInfo(uid, xfc_float1, uint(x100_float2) + 86);
+        const int stringIdx = static_cast< int >(x100_float2) + 86;
+        mgr.SetBossParams(uid, xfc_float1, stringIdx);
       } else if (msg == kSM_Decrement) {
-        mgr.SetEnergyBarActorInfo(kInvalidUniqueId, 0.f, 0);
+        mgr.SetBossParams(kInvalidUniqueId, 0.f, 0);
       }
       break;
     }
@@ -446,32 +433,34 @@ void CScriptSpecialFunction::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId
       break;
     }
     case kSF_ScriptLayerController: {
-      if (msg == kSM_Decrement || msg == kSM_Increment) {
-        if (x1bc_areaSaveId != -1 && x1c0_layerIdx != -1) {
+      switch (msg) {
+      case kSM_Decrement:
+      case kSM_Increment: {
+        if (x1bc_areaSaveId != -1u && x1c0_layerIdx != -1u) {
+          bool active = msg == kSM_Increment;
           TAreaId aId = mgr.GetWorld()->GetAreaIdForSaveId(x1bc_areaSaveId);
-          rstl::rc_ptr< CScriptLayerManager > worldLayerState(NULL);
+          CScriptLayerManager* worldLayerState = nullptr;
 
-          if (aId != kInvalidAreaId) {
-            // worldLayerState = mgr.WorldLayerState();
+          if (aId.Value() != -1) {
+            worldLayerState = mgr.WorldLayerState().GetPtr();
           } else {
             const rstl::pair< CAssetId, int > worldAreaPair =
                 gpMemoryCard->GetAreaAndWorldIdForSaveId(x1bc_areaSaveId);
 
             if (worldAreaPair.first != kInvalidAssetId) {
-              // worldLayerState = gpGameState->StateForWorld(worldAreaPair.first).GetLayerState();
+              worldLayerState =
+                  gpGameState->StateForWorld(worldAreaPair.first).GetLayerState().GetPtr();
               aId = worldAreaPair.second;
             }
           }
 
-          if (aId != kInvalidAreaId) {
-            // TODO
-            // worldLayerState->SetLayerActive(aId, x1c0_layerIdx, msg == kSM_Increment);
+          if (aId.Value() != -1) {
+            worldLayerState->SetLayerActive(aId, TLayerId(x1c0_layerIdx), active);
           }
         }
+      } break;
       }
-      /*
-      For some bizarre reason ScriptLayerController drops into EnvFxDensityController
-      */
+      // Fall through to the density controller.
     }
     case kSF_EnvFxDensityController: {
       if (msg == kSM_Action) {
@@ -494,7 +483,7 @@ void CScriptSpecialFunction::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId
       } else {
         CVector3f pos = GetTranslation();
         if ((param3 & 2) != 0) {
-          if (const CActor* act = TCastToConstPtr< CActor >(mgr.GetObjectById(uid))) {
+          if (const CActor* const act = TCastToConstPtr< CActor >(mgr.GetObjectById(uid))) {
             pos = act->GetTranslation();
           }
         }
@@ -525,10 +514,9 @@ void CScriptSpecialFunction::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId
     case kSF_DropBomb: {
       if (msg == kSM_Action) {
         if (xfc_float1 >= 1.f) {
-          // TODO: no CPlayerGun header
-          // mgr.Player()->PlayerGun()->DropBomb(CPlayerGun::EBWeapon::PowerBomb, mgr);
+          mgr.Player()->PlayerGun()->DropBomb(CPlayerGun::kBW_PowerBomb, mgr);
         } else {
-          // mgr.Player()->PlayerGun()->DropBomb(CPlayerGun::EBWeapon::Bomb, mgr);
+          mgr.Player()->PlayerGun()->DropBomb(CPlayerGun::kBW_Bomb, mgr);
         }
       }
       break;
@@ -550,16 +538,16 @@ void CScriptSpecialFunction::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId
             gpResourceFactory->GetResourceIdByName(xec_locatorName.data());
         const CAssetId assetId = objectTag ? objectTag->GetId() : kInvalidAssetId;
 
-        mgr.SetPendingOnScreenTex(assetId, CVector2i(int(x104_float3), int(x108_float4)),
-                                  CVector2i(int(xfc_float1), int(x100_float2)));
+        mgr.SetPendingOnScreenTex(assetId, CVector2i(int(xfc_float1), int(x100_float2)),
+                                  CVector2i(int(x104_float3), int(x108_float4)));
         if (objectTag) {
           x1e8_ = gpSimplePool->GetObj(xec_locatorName.data());
           x1e8_->Lock();
           x1e5_26_displayBillboard = true;
         }
       } else if (msg == kSM_Decrement) {
-        mgr.SetPendingOnScreenTex(kInvalidAssetId, CVector2i(int(x104_float3), int(x108_float4)),
-                                  CVector2i(int(xfc_float1), int(x100_float2)));
+        mgr.SetPendingOnScreenTex(kInvalidAssetId, CVector2i(int(xfc_float1), int(x100_float2)),
+                                  CVector2i(int(x104_float3), int(x108_float4)));
         x1e8_ = rstl::optional_object_null();
         x1e5_26_displayBillboard = false;
       }
@@ -567,7 +555,7 @@ void CScriptSpecialFunction::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId
     }
     case kSF_PlayerInAreaRelay: {
       if ((msg == kSM_Action || msg == kSM_SetToZero) &&
-          GetCurrentAreaId() == mgr.GetPlayer()->GetCurrentAreaId()) {
+          mgr.GetPlayer()->GetCurrentAreaId() == GetCurrentAreaId()) {
         SendScriptMsgs(kSS_Zero, mgr, kSM_None);
       }
       break;
@@ -596,8 +584,11 @@ void CScriptSpecialFunction::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId
       break;
     }
     case kSF_Ending: {
-      if (msg == kSM_Action && GetSpecialEnding(mgr) == int(xfc_float1)) {
-        SendScriptMsgs(kSS_Zero, mgr, kSM_None);
+      if (msg == kSM_Action) {
+        const int ending = GetSpecialEnding(mgr);
+        if (ending == int(xfc_float1)) {
+          SendScriptMsgs(kSS_Zero, mgr, kSM_None);
+        }
       }
       break;
     }
@@ -650,7 +641,7 @@ void CScriptSpecialFunction::ThinkSaveStation(float, CStateManager& mgr) {
 void CScriptSpecialFunction::ThinkIntroBossRingController(float dt, CStateManager& mgr) {
   if (x1a8_ringState != kRS_Breakup) {
     for (int i = 0; i < x198_ringControllers.size(); ++i) {
-      if (CActor* act = TCastToPtr< CActor >(mgr.ObjectById(x198_ringControllers[i].x0_id))) {
+      if (CActor* const act = TCastToPtr< CActor >(mgr.ObjectById(x198_ringControllers[i].x0_id))) {
         CTransform4f newXf = act->GetTransform();
         newXf.RotateLocalZ(CRelAngle::FromDegrees(dt * x198_ringControllers[i].x4_rotateSpeed));
         act->SetTransform(newXf);
@@ -663,7 +654,7 @@ void CScriptSpecialFunction::ThinkIntroBossRingController(float dt, CStateManage
   case kRS_Breakup: {
     float minMag = 0.f;
     for (int i = 0; i < x198_ringControllers.size(); ++i) {
-      if (CActor* act = TCastToPtr< CActor >(mgr.ObjectById(x198_ringControllers[i].x0_id))) {
+      if (CActor* const act = TCastToPtr< CActor >(mgr.ObjectById(x198_ringControllers[i].x0_id))) {
         act->SetTranslation(act->GetTranslation() + act->GetTransform().GetForward() * 50.f * dt);
         minMag = rstl::min_val(minMag, act->GetTranslation().Magnitude());
       }
@@ -691,7 +682,7 @@ void CScriptSpecialFunction::ThinkIntroBossRingController(float dt, CStateManage
       if (x198_ringControllers[i].x8_reachedTarget) {
         continue;
       }
-      if (CActor* act = TCastToPtr< CActor >(mgr.ObjectById(x198_ringControllers[i].x0_id))) {
+      if (CActor* const act = TCastToPtr< CActor >(mgr.ObjectById(x198_ringControllers[i].x0_id))) {
         CVector3f forward = act->GetTransform().GetForward();
         forward.SetZ(0.f);
         forward.Normalize();
@@ -730,18 +721,19 @@ void CScriptSpecialFunction::ThinkPlayerFollowLocator(float, CStateManager& mgr)
       continue;
     }
 
-    const CStateManager::TIdListResult& it = mgr.GetIdListForScript(conn->x8_objId);
-    if (it.first != it.second) {
-      if (const CActor* act = TCastToConstPtr< CActor >(mgr.GetObjectById(it.first->second))) {
+    const CStateManager::TIdListResult it = mgr.GetIdListForScript(conn->x8_objId);
+    if (!(it.first == it.second)) {
+      if (const CActor* const act =
+              TCastToConstPtr< CActor >(mgr.GetObjectById(it.first->second))) {
         if (!act->HasAnimation()) {
           continue;
         }
         CTransform4f xf = act->GetTransform() * act->GetLocatorTransform(xec_locatorName);
-        CPlayer* player = mgr.Player();
-        player->SetTransform(xf);
-        player->SetVelocityWR(CVector3f::Zero());
-        player->SetAngularVelocityWR(CAxisAngle::Identity());
-        player->ClearForcesAndTorques();
+        CPlayer& player = *mgr.Player();
+        player.SetTransform(xf);
+        player.SetVelocityWR(CVector3f::Zero());
+        player.SetAngularVelocityWR(CAxisAngle::Identity());
+        player.ClearForcesAndTorques();
         return;
       }
     }
@@ -750,9 +742,8 @@ void CScriptSpecialFunction::ThinkPlayerFollowLocator(float, CStateManager& mgr)
 
 void CScriptSpecialFunction::ThinkSpinnerController(float dt, CStateManager& mgr,
                                                     ESpinnerControllerMode mode) {
-  // rstl::string_find is found in CScriptSpecialFunction.s as sub_80150d98
-  const bool allowWrap = rstl::string_find(xec_locatorName, rstl::string_l("AllowWrap"), 0) != -1;
-  const bool noBackward = rstl::string_find(xec_locatorName, rstl::string_l("NoBackward"), 0) != -1;
+  const bool allowWrap = xec_locatorName.find(rstl::string_l("AllowWrap"), 0) != -1;
+  const bool noBackward = xec_locatorName.find(rstl::string_l("NoBackward"), 0) != -1;
   const float pointOneByDt = 0.1f * dt;
   const float twoByDt = 2.f * dt;
 
@@ -762,11 +753,11 @@ void CScriptSpecialFunction::ThinkSpinnerController(float dt, CStateManager& mgr
       continue;
     }
 
-    const CStateManager::TIdListResult& it = mgr.GetIdListForScript(conn->x8_objId);
+    const CStateManager::TIdListResult it = mgr.GetIdListForScript(conn->x8_objId);
     if (it.first == it.second) {
-      return;
+      continue;
     }
-    
+
     if (CScriptPlatform* plat = TCastToPtr< CScriptPlatform >(mgr.ObjectById(it.first->second))) {
       if (plat->HasAnimation()) {
         plat->SetControlledAnimation(true);
@@ -775,14 +766,14 @@ void CScriptSpecialFunction::ThinkSpinnerController(float dt, CStateManager& mgr
           x1e4_24_spinnerInitializedXf = true;
         }
 
-        float f28 = x138_;
-        const float f29 = pointOneByDt * x100_float2;
+        const float decay = pointOneByDt * x100_float2;
+        const float previous = x138_;
 
         if (mode == kSCM_Zero) {
           if (x1e4_25_spinnerCanMove) {
             bool isMorphed = mgr.GetPlayer()->GetMorphballTransitionState() == CPlayer::kMS_Morphed;
             const CVector3f angVel = mgr.GetPlayer()->GetAngularVelocityOR().GetVector();
-            float mag = angVel.CanBeNormalized() ? mag = angVel.Magnitude() : 0.f;
+            float mag = angVel.CanBeNormalized() ? angVel.Magnitude() : 0.f;
             const float spinImpulse = (isMorphed ? 0.025f * mag : 0.f);
             if (spinImpulse > x180_) {
               SendScriptMsgs(kSS_Play, mgr, kSM_None);
@@ -792,16 +783,16 @@ void CScriptSpecialFunction::ThinkSpinnerController(float dt, CStateManager& mgr
             x138_ += 0.01f * spinImpulse * xfc_float1;
 
             if (!noBackward) {
-              x138_ -= f29;
+              x138_ -= decay;
             }
           } else if (!noBackward) {
-            x138_ = f28 - twoByDt;
+            x138_ = previous - twoByDt;
           }
         } else if (mode == kSCM_One) {
-          x138_ = (0.01f * x16c_) * xfc_float1 + f28;
+          x138_ = (0.01f * x16c_) * xfc_float1 + previous;
 
           if (!noBackward) {
-            x138_ -= f29;
+            x138_ -= decay;
 
             if (CMath::AbsF(x16c_) < dt) {
               x16c_ = 0.f;
@@ -822,7 +813,7 @@ void CScriptSpecialFunction::ThinkSpinnerController(float dt, CStateManager& mgr
         }
 
         bool noSfxPlayed = true;
-        f28 = x138_ - f28; // always 0?
+        const float movementDelta = x138_ - previous;
         if (close_enough(x138_, 1.f)) {
           if (!x1e4_27_sfx3Played) {
             if (x174_sfx3 != CSfxManager::kInternalInvalidSfxId) {
@@ -853,18 +844,19 @@ void CScriptSpecialFunction::ThinkSpinnerController(float dt, CStateManager& mgr
           x1e4_26_sfx2Played = false;
         }
 
-        rstl::optional_object< float > unused = x184_.GetAverage();
+        // Retail samples the average before updating it with the current movement.
+        rstl::optional_object< float > previousAverage = x184_.GetAverage();
 
         if (noSfxPlayed) {
           if (x170_sfx1 != CSfxManager::kInternalInvalidSfxId) {
-            bool b = f28 >= 0.f;
+            bool movingForward = movementDelta >= 0.f;
             if (noSfxPlayed) {
-              x184_.AddValue(b ? uchar(100) : uchar(0x7F));
+              x184_.AddValue(movingForward ? uchar(100) : uchar(0x7F));
             } else {
               x184_.AddValue(0.f);
             }
             const rstl::optional_object< float >& volume = x184_.GetAverage();
-            float pitch = b ? x108_float4 : 1.f;
+            float pitch = movingForward ? x108_float4 : 1.f;
             AddOrUpdateEmitter(pitch, x178_sfxHandle, x170_sfx1, GetTranslation(), volume.data());
           }
         } else {
@@ -893,10 +885,10 @@ void CScriptSpecialFunction::ThinkObjectFollowLocator(float, CStateManager& mgr)
       continue;
     }
 
-    const CStateManager::TIdListResult& it = mgr.GetIdListForScript(conn->x8_objId);
-    if (it.first != it.second) {
+    const CStateManager::TIdListResult it = mgr.GetIdListForScript(conn->x8_objId);
+    if (!(it.first == it.second)) {
       TUniqueId uid = it.first->second;
-      if (const CActor* act = TCastToConstPtr< CActor >(mgr.GetObjectById(uid))) {
+      if (const CActor* const act = TCastToConstPtr< CActor >(mgr.GetObjectById(uid))) {
         if (conn->x4_msg == kSM_Activate && act->HasAnimation()) {
           if (!act->GetActive()) {
             return;
@@ -930,10 +922,10 @@ void CScriptSpecialFunction::ThinkObjectFollowObject(float, CStateManager& mgr) 
       continue;
     }
 
-    const CStateManager::TIdListResult& it = mgr.GetIdListForScript(conn->x8_objId);
-    if (it.first != it.second) {
+    const CStateManager::TIdListResult it = mgr.GetIdListForScript(conn->x8_objId);
+    if (!(it.first == it.second)) {
       TUniqueId uid = it.first->second;
-      if (const CActor* act = TCastToConstPtr< CActor >(mgr.GetObjectById(uid))) {
+      if (const CActor* const act = TCastToConstPtr< CActor >(mgr.GetObjectById(uid))) {
         if (conn->x4_msg == kSM_Activate) {
           if (!act->GetActive()) {
             return;
@@ -959,12 +951,13 @@ void CScriptSpecialFunction::Render(const CStateManager& mgr) const {
       const float z = mgr.IntegrateVisorFog(
           xfc_float1 * CMath::FastSinR(CGraphics::GetSecondsMod900() * x100_float2));
       if (z > 0.f) {
-        CVector3f min(GetTranslation() - x10c_vector3f);
-        CVector3f max(GetTranslation() + x10c_vector3f);
-        max.SetZ(max.GetZ() + z);
+        const CVector3f pos = GetTranslation();
+        CVector3f min(pos - x10c_vector3f);
+        CVector3f max(pos + x10c_vector3f);
+        max[kDZ] += z;
         CAABox box(min, max);
         CTransform4f modelMtx = CTransform4f::Translate(box.GetCenterPoint()) *
-                                CTransform4f::Scale(box.GetHalfExtent());
+                                CTransform4f::Scale((box.GetMaxPoint() - box.GetMinPoint()) * 0.5f);
 
         CAABox renderbox(CVector3f(-1.f, -1.f, -1.f), CVector3f(1.f, 1.f, 1.f));
 
