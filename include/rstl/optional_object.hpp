@@ -62,7 +62,7 @@ private:
 
   void assign(const T& item) {
     if (!m_valid) {
-      construct(get_ptr(), item);
+      construct< T >(m_data, item);
       m_valid = true;
     } else {
       data() = item;
