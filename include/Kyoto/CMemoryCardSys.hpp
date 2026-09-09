@@ -6,10 +6,16 @@
 
 #include "Kyoto/CSimplePool.hpp"
 #include "Kyoto/Streams/CMemoryStreamOut.hpp"
+#include "Kyoto/TToken.hpp"
 
+#include "dolphin/card.h"
+#include "rstl/optional_object.hpp"
+#include "rstl/reserved_vector.hpp"
 #include "rstl/string.hpp"
 
-// TODO: likely comes from dolphin sdk
+class CTexture;
+
+// Dolphin SDK result codes, with Retro's CRC mismatch extension.
 enum ECardResult {
   kCR_CRC_MISMATCH = -1003, /* Extension enum for Retro's CRC check */
   kCR_FATAL_ERROR = -128,
@@ -27,37 +33,59 @@ enum ECardResult {
   kCR_READY = 0
 };
 
-struct FileHandle {
-  u8 x0_pad[0x10];
-};
-
 struct ProbeResults {
   ECardResult x0_error;
-  int x4_cardSize;   /* in megabits */
-  int x8_sectorSize; /* in bytes */
+  s32 x4_cardSize;   /* in megabits */
+  s32 x8_sectorSize; /* in bytes */
 };
 
 struct CardStat {
-  u8 x0_pad[0x6c];
+  CARDStat x0_stat;
 
   CardStat() { memset(this, 0, sizeof(CardStat)); }
 
   int GetTime() const;
   int GetCommentAddr() const;
+  int GetFileLength();
+  int GetBannerFormat();
+  int GetIconFormat(int idx);
+  void SetBannerFormat(int format);
+  void SetIconFormat(int format, int idx);
+  void SetIconSpeed(int speed, int idx);
+  void SetIconAddr(int addr);
+  void SetCommentAddr(int addr);
 };
+CHECK_SIZEOF(CardStat, 0x6C);
 
 class CMemoryCardSys {
 public:
   enum EMemoryCardPort { kCS_SlotA, kCS_SlotB };
 
   class CCardFileInfo {
-    uchar pad[0xf4];
+    struct Icon {
+      CAssetId x0_id;
+      int x4_speed;
+      TLockedToken< CTexture > x8_tex;
+
+      Icon(CAssetId id, int speed, CSimplePool& pool);
+    };
+
+    enum EStatus { kS_Standby, kS_Transferring, kS_Done };
+
+    EStatus x0_status;
+    CARDFileInfo x4_fileInfo;
+    rstl::string x18_fileName;
+    rstl::string x28_comment;
+    int x38_;
+    CAssetId x3c_bannerTex;
+    rstl::optional_object< TLockedToken< CTexture > > x40_bannerTok;
+    rstl::reserved_vector< Icon, 8 > x50_iconToks;
     rstl::vector< u8 > xf4_saveBuffer;
-    rstl::vector< u8 > x104_cardBuffer;
+    rstl::vector< u8, rstl::aligned_allocator > x104_cardBuffer;
 
   public:
     CCardFileInfo(EMemoryCardPort port, const rstl::string& name);
-    ~CCardFileInfo();
+    ~CCardFileInfo() {}
 
     void SetComment(const rstl::string& name);
     void LockBannerToken(CAssetId bannerTxtr, CSimplePool& sp);
@@ -67,6 +95,14 @@ public:
     ECardResult CreateFile();
     ECardResult WriteFile();
     ECardResult CloseFile();
+    ECardResult GetStatus(CardStat& stat);
+    EMemoryCardPort GetCardPort();
+    int GetFileNo();
+    uint CalculateBannerDataSize();
+    uint CalculateTotalDataSize();
+    void BuildCardBuffer();
+    void WriteBannerData(COutputStream& out);
+    void WriteIconData(COutputStream& out);
 
     rstl::vector< u8 >& SaveBuffer() { return xf4_saveBuffer; }
 
@@ -76,13 +112,6 @@ public:
     }
   };
 
-  struct CardFileHandle {
-    EMemoryCardPort slot;
-    FileHandle handle;
-    CardFileHandle(EMemoryCardPort slot) : slot(slot) {}
-    int GetFileNo() const;
-  };
-
   CMemoryCardSys();
   ~CMemoryCardSys();
 
@@ -90,25 +119,53 @@ public:
   static ECardResult MountCard(EMemoryCardPort port);
   static ECardResult CheckCard(EMemoryCardPort port);
   static ECardResult GetStatus(EMemoryCardPort port, int fileNo, CardStat& statOut);
+  static ECardResult SetStatus(EMemoryCardPort port, int fileNo, const CardStat& stat);
   static ECardResult DeleteFile(EMemoryCardPort port, const rstl::string& name);
   static ECardResult FastDeleteFile(EMemoryCardPort port, int fileNo);
   static ECardResult FormatCard(EMemoryCardPort port);
 
   static ProbeResults IsMemoryCardInserted(EMemoryCardPort);
   static ECardResult GetSerialNo(EMemoryCardPort port, long long& serialOut);
-  static void UnmountCard(EMemoryCardPort);
+  static ECardResult UnmountCard(EMemoryCardPort);
   static ECardResult Rename(EMemoryCardPort, const rstl::string&, const rstl::string&);
   static ECardResult GetNumFreeBytes(EMemoryCardPort port, uint& freeBytes, uint& freeFiles);
   static rstl::vector< char, rstl::aligned_allocator >& WorkAreaVector(EMemoryCardPort port);
   static char* AllocCardWorkArea(EMemoryCardPort port);
   static void FreeCardWorkArea(EMemoryCardPort port);
-  void Initialize();
+  inline void Initialize();
 
 private:
+  static bool mIsInitialized;
+  static bool mIsCardSysExists;
   static rstl::vector< char, rstl::aligned_allocator > mWorkAreaA;
   static rstl::vector< char, rstl::aligned_allocator > mWorkAreaB;
 };
 
 NESTED_CHECK_SIZEOF(CMemoryCardSys, CCardFileInfo, 0x114)
+
+struct SMemoryCardFileInfo {
+  CARDFileInfo x0_fileInfo;
+  rstl::string x14_name;
+  rstl::vector< uchar, rstl::aligned_allocator > x24_saveFileData;
+  rstl::vector< uchar > x34_saveData;
+
+  SMemoryCardFileInfo(int cardPort, const rstl::string& name);
+  SMemoryCardFileInfo(const SMemoryCardFileInfo& other)
+  : x0_fileInfo(other.x0_fileInfo)
+  , x14_name(other.x14_name)
+  , x24_saveFileData(other.x24_saveFileData)
+  , x34_saveData(other.x34_saveData) {}
+  ~SMemoryCardFileInfo() {}
+
+  ECardResult Open();
+  ECardResult Close();
+  CMemoryCardSys::EMemoryCardPort GetFileCardPort();
+  int GetFileNo() const;
+  ECardResult StartRead();
+  ECardResult TryFileRead();
+  ECardResult FileRead();
+  ECardResult GetSaveDataOffset(uint& offOut);
+};
+CHECK_SIZEOF(SMemoryCardFileInfo, 0x44);
 
 #endif // _CMEMORYCARDSYS
