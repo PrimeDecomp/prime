@@ -203,9 +203,6 @@ void CEnvFxManager::MoveWrapCells(int moveX, int moveY) {
   bool moveAll = CMath::AbsD(static_cast< double >(moveX)) >= 1.0 ||
                  CMath::AbsD(static_cast< double >(moveY)) >= 1.0;
 
-  int moveYMaj = moveY << 11;
-  int moveXMaj = moveX << 11;
-
   for (int i = 0; i < 8; ++i) {
     for (int j = 0; j < 8; ++j) {
       CEnvFxManagerGrid& grid = x50_grids[i * 8 + j];
@@ -222,7 +219,9 @@ void CEnvFxManager::MoveWrapCells(int moveX, int moveY) {
         grid.SetDirty(true);
       }
 
-      grid.SetStart(CVector2i((moveXMaj + startX) & 0x3FFF, (moveYMaj + startY) & 0x3FFF));
+      const CVector2i nextStart =
+          CVector2i(((moveX << 11) + startX) & 0x3FFF, ((moveY << 11) + startY) & 0x3FFF);
+      grid.SetStart(nextStart);
     }
   }
 }
@@ -278,33 +277,23 @@ void CEnvFxManager::Update(float dt, CStateManager& mgr) {
     }
   } else {
     float densityDelta = x34_targetFxDensity - x30_fxDensity;
-    float densityDamper = rstl::min_val(1.f, CMath::AbsF(densityDelta) / 0.15f);
-    float maxDensityDelta = dt * (x38_maxDensityDeltaSpeed / 11000.f);
-    float clampedDelta;
-    if (fabs(densityDelta) > maxDensityDelta) {
-      clampedDelta = maxDensityDelta * CMath::Sign(densityDelta);
-    } else {
-      clampedDelta = densityDelta;
-    }
-    x30_fxDensity += densityDamper * clampedDelta;
+    x30_fxDensity += rstl::min_val(1.f, CMath::AbsF(densityDelta) / 0.15f) *
+                     CMath::Limit(densityDelta, dt * (x38_maxDensityDeltaSpeed / 11000.f));
 
-    CVector3f pbtws = GetParticleBoundsToWorldScale();
+    const CVector3f& pbtws = GetParticleBoundsToWorldScale();
     CVector3f oopbtws(1.f / pbtws.GetX(), 1.f / pbtws.GetY(), 1.f / pbtws.GetZ());
 
-    CVector3f forwardPoint = camXf.GetTranslation() + camXf.GetForward() * 23.8125f;
+    const CVector3f& forwardPoint = camXf.GetForward() * 23.8125f + camXf.GetTranslation();
     CVector3f cellBase = forwardPoint - CVector3f(CMath::ModF(forwardPoint.GetX(), 7.9375f),
                                                   CMath::ModF(forwardPoint.GetY(), 7.9375f), 0.f);
-    CVector3f delta = x18_focusCellPosition - CVector3f(cellBase.GetX(), cellBase.GetY(), 0.f);
-
-    float oldFocusZ = x18_focusCellPosition.GetZ();
+    CVector3f delta = x18_focusCellPosition - cellBase;
     x18_focusCellPosition = cellBase;
 
     MoveWrapCells(static_cast< int >(delta.GetX() / 7.9375f),
                   static_cast< int >(delta.GetY() / 7.9375f));
 
-    CVectorFixed8_8 zVec(real_to_fixed8_8(oopbtws.GetX() * 0.f),
-                         real_to_fixed8_8(oopbtws.GetY() * 0.f),
-                         real_to_fixed8_8(oopbtws.GetZ() * (oldFocusZ - cellBase.GetZ())));
+    CVectorFixed8_8 zVec = CVectorFixed8_8::FromCVector3f(
+        CVector3f::ByElementMultiply(oopbtws, CVector3f(0.f, 0.f, delta.GetZ())));
     if (fxType == kEFX_UnderwaterFlake) {
       zVec.z += real_to_fixed8_8(0.5f * dt);
     }
@@ -415,7 +404,7 @@ void CEnvFxManager::UpdateBlockedGrids(CStateManager& mgr, EEnvFxType type,
                             ? camXf.GetTranslation()
                             : player->GetBallPosition();
 
-  CVector3f localPos = CVector3f(invXf * playerPos);
+  const CVector3f& localPos = CVector3f(invXf * playerPos);
   CVector2i localPlayerPos(real_to_fixed8_8(localPos.GetX()), real_to_fixed8_8(localPos.GetY()));
 
   x2c_lastBlockedGridIdx = -1;
@@ -430,17 +419,19 @@ void CEnvFxManager::UpdateBlockedGrids(CStateManager& mgr, EEnvFxType type,
 
     if (blockedGrids < 8 && grid.IsDirty()) {
       if (type == kEFX_UnderwaterFlake) {
-        grid.SetVisibility(rstl::pair< bool, float >(true, -FLT_MAX));
+        const float noCeiling = -FLT_MAX;
+        grid.SetVisibility(rstl::pair< bool, float >(true, noCeiling));
       } else {
         CMaterialFilter filter = CMaterialFilter::MakeIncludeExclude(
             CMaterialList(kMT_Solid, kMT_Trigger),
             CMaterialList(kMT_ProjectilePassthrough, kMT_SeeThrough));
 
-        CVector2i gridPos = grid.x4_position + grid.xc_extent * 0;
+        const CVector2i& gridPos = CVector2i(grid.GetStart() + grid.GetSize() * 0);
         float gx = fixed8_8_to_real(gridPos.GetX());
         float gy = fixed8_8_to_real(gridPos.GetY());
 
-        CVector3f pos = xf * CVector3f(gx, gy, 0.f) + CVector3f::Up() * 500.f;
+        CVector3f gridLocal(gx, gy, 0.f);
+        CVector3f pos = xf * gridLocal + CVector3f::Up() * 500.f;
         CVector3f down = CVector3f::Down();
 
         CRayCastResult result =
@@ -457,13 +448,14 @@ void CEnvFxManager::UpdateBlockedGrids(CStateManager& mgr, EEnvFxType type,
             if (const CScriptTrigger* trig =
                     TCastToConstPtr< CScriptTrigger >(mgr.GetObjectById(*it))) {
               AUTO(tb, trig->GetTouchBounds());
-              if (tb) {
-                CCollidableAABox caabb(*tb, CMaterialList(kMT_Trigger));
-                CRayCastResult result2 =
-                    caabb.CastRay(pos, down, 1000.f, filter, CTransform4f::Identity());
-                if (result2.IsValid() && result2.GetTime() < bestResult.GetTime()) {
-                  bestResult = result2;
-                }
+              if (!tb) {
+                continue;
+              }
+              CCollidableAABox caabb(*tb, CMaterialList(kMT_Trigger));
+              CRayCastResult result2 =
+                  caabb.CastRay(pos, down, 1000.f, filter, CTransform4f::Identity());
+              if (result2.IsValid() && result2.GetTime() < bestResult.GetTime()) {
+                bestResult = result2;
               }
             }
           }

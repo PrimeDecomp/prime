@@ -35,9 +35,9 @@ public:
   CVectorFixed8_8() : x(0), y(0), z(0) {}
   CVectorFixed8_8(short xi, short yi, short zi) : x(xi), y(yi), z(zi) {}
 
-  short GetX() const { return x; }
-  short GetY() const { return y; }
-  short GetZ() const { return z; }
+  const short GetX() const { return x; }
+  const short GetY() const { return y; }
+  const short GetZ() const { return z; }
 
   CVectorFixed8_8& operator+=(const CVectorFixed8_8& rhs) {
     x += rhs.x;
@@ -61,11 +61,17 @@ public:
   }
 
   CVectorFixed8_8 operator+(const CVectorFixed8_8& rhs) const {
-    return CVectorFixed8_8(x + rhs.x, y + rhs.y, z + rhs.z);
+    short outX = x + rhs.x;
+    short outY = y + rhs.y;
+    short outZ = z + rhs.z;
+    return CVectorFixed8_8(outX, outY, outZ);
   }
 
   CVectorFixed8_8 operator-(const CVectorFixed8_8& rhs) const {
-    return CVectorFixed8_8(x - rhs.x, y - rhs.y, z - rhs.z);
+    short outX = x - rhs.x;
+    short outY = y - rhs.y;
+    short outZ = z - rhs.z;
+    return CVectorFixed8_8(outX, outY, outZ);
   }
 
   static inline CVectorFixed8_8 FromCVector3f(const CVector3f& v);
@@ -83,8 +89,10 @@ inline short real_to_fixed8_8(float f) {
 inline float fixed8_8_to_real(short val) { return (1.f / 256.f) * static_cast< float >(val); }
 
 inline CVectorFixed8_8 CVectorFixed8_8::FromCVector3f(const CVector3f& v) {
-  return CVectorFixed8_8(real_to_fixed8_8(v.GetX()), real_to_fixed8_8(v.GetY()),
-                         real_to_fixed8_8(v.GetZ()));
+  short x = real_to_fixed8_8(v.GetX());
+  short y = real_to_fixed8_8(v.GetY());
+  short z = real_to_fixed8_8(v.GetZ());
+  return CVectorFixed8_8(x, y, z);
 }
 
 class CEnvFxManagerGrid {
@@ -101,6 +109,7 @@ public:
   bool IsDirty() const { return x0_24_blockDirty; }
 
   const CVector2i& GetStart() const { return x4_position; }
+  const CVector2i& GetSize() const { return xc_extent; }
   void SetStart(const CVector2i& start) { x4_position = start; }
 
   rstl::pair< bool, float > GetVisibility() const { return x14_block; }
