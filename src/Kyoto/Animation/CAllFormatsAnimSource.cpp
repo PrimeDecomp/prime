@@ -43,7 +43,7 @@ CAllFormatsAnimSource::CAllFormatsAnimSource(CInputStream& in, IObjectStore& sto
                                              const SObjectTag& tag)
 : mFormatUnion(in, store), x68_(0.f, 0.f, 0.f), mTag(tag) {}
 
-CFactoryFnReturn AnimSourceFactory(const SObjectTag& tag, CInputStream& in,
+const CFactoryFnReturn AnimSourceFactory(const SObjectTag& tag, CInputStream& in,
                                    const CVParamTransfer& param) {
   const rstl::rc_ptr< IVParamObj > obj = param.x0_obj;
   IObjectStore* pool = static_cast< TObjOwnerParam< IObjectStore* >* >(obj.GetPtr())->GetData();

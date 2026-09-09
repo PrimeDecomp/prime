@@ -183,7 +183,7 @@ const CMapUniverse::CMapWorldData& CMapUniverse::GetMapWorldDataByWorldId(CAsset
 
   return x10_worldDatas[0];
 }
-CFactoryFnReturn FMapUniverseFactory(const SObjectTag& tag, CInputStream& in,
+const CFactoryFnReturn FMapUniverseFactory(const SObjectTag& tag, CInputStream& in,
                                      const CVParamTransfer& xfer) {
   in.Get< uint >();
   uint version = in.Get< uint >();

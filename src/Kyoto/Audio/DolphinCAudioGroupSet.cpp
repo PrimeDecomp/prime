@@ -60,7 +60,7 @@ CFactoryFnReturn::CFactoryFnReturn(CAudioGrpSetLoc* ptr)
 : obj(TToken< CAudioGrpSetLoc >::GetIObjObjectFor(rstl::auto_ptr< CAudioGrpSetLoc >(ptr))
           .release()) {}
 
-CFactoryFnReturn FAudioGroupSetLocDataFactory(const SObjectTag& tag,
+const CFactoryFnReturn FAudioGroupSetLocDataFactory(const SObjectTag& tag,
                                               const rstl::auto_ptr< uchar >& data, int length,
                                               const CVParamTransfer& xfer) {
   return rs_new CAudioGrpSetLoc(data, length);

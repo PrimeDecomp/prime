@@ -34,7 +34,7 @@ int CWorldSaveGameInfo::GetRelayIndex(const TEditorId& id) const {
   return -1;
 }
 
-CFactoryFnReturn FSaveWorldFactory(const SObjectTag& tag, CInputStream& in,
+const CFactoryFnReturn FSaveWorldFactory(const SObjectTag& tag, CInputStream& in,
                                   const CVParamTransfer& params) {
   return rs_new CWorldSaveGameInfo(in);
 }

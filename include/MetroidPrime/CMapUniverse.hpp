@@ -124,6 +124,6 @@ private:
 };
 CHECK_SIZEOF(CMapUniverse, 0x30)
 
-CFactoryFnReturn FMapUniverseFactory(const SObjectTag& tag, CInputStream& in,
+const CFactoryFnReturn FMapUniverseFactory(const SObjectTag& tag, CInputStream& in,
                                      const CVParamTransfer& xfer);
 #endif // _CMAPUNIVERSE

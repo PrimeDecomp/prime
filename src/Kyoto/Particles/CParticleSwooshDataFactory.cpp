@@ -4,7 +4,7 @@
 #include "Kyoto/Particles/CParticleDataFactory.hpp"
 #include "Kyoto/Streams/CInputStream.hpp"
 
-CFactoryFnReturn FParticleSwooshDataFactory(const SObjectTag& tag, CInputStream& in,
+const CFactoryFnReturn FParticleSwooshDataFactory(const SObjectTag& tag, CInputStream& in,
                                             const CVParamTransfer& transfer) {
   rstl::rc_ptr< IVParamObj > obj = transfer.x0_obj;
   CSimplePool* pool = static_cast< TObjOwnerParam< CSimplePool* >* >(obj.GetPtr())->GetData();

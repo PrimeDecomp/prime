@@ -905,7 +905,7 @@ void CSfxManager::DisableAuxCallbacks() {
   mCurrentAuxEffect = kAE_None;
 }
 
-CFactoryFnReturn FAudioTranslationTableFactory(const SObjectTag& obj, CInputStream& in,
+const CFactoryFnReturn FAudioTranslationTableFactory(const SObjectTag& obj, CInputStream& in,
                                                const CVParamTransfer& xfer) {
   return rs_new rstl::vector< short >(in);
 }

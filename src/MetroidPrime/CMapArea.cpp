@@ -250,7 +250,7 @@ const CVector3f& CMapArea::GetAreaPostTranslate(const IWorld& world, int aid) {
 }
 static CAssetId gHackAssetId = kInvalidAssetId;
 
-CFactoryFnReturn FMapAreaFactory(const SObjectTag& objTag, CInputStream& in,
+const CFactoryFnReturn FMapAreaFactory(const SObjectTag& objTag, CInputStream& in,
                                  const CVParamTransfer&) {
   gHackAssetId = objTag.GetId();
   return CFactoryFnReturn(rs_new CMapArea(in, gpResourceFactory->ResourceSize(objTag)));

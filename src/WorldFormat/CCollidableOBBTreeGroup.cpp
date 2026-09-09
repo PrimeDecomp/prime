@@ -13,7 +13,7 @@
 
 uint CCollidableOBBTreeGroup::sTableIndex = -1;
 
-CFactoryFnReturn FCollidableOBBTreeGroupFactory(const SObjectTag& tag, CInputStream& in,
+const CFactoryFnReturn FCollidableOBBTreeGroupFactory(const SObjectTag& tag, CInputStream& in,
                                                 const CVParamTransfer& xfer) {
   return rs_new CCollidableOBBTreeGroupContainer(in);
 }

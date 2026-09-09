@@ -98,6 +98,6 @@ private:
   const T* xc_source;
 };
 
-CFactoryFnReturn AnimSourceFactory(const SObjectTag& tag, CInputStream& in,
+const CFactoryFnReturn AnimSourceFactory(const SObjectTag& tag, CInputStream& in,
                                    const CVParamTransfer& param);
 #endif // _CALLFORMATSANIMSOURCE

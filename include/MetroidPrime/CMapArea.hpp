@@ -68,7 +68,7 @@ private:
   static int gUsedMemory;
 };
 
-CFactoryFnReturn FMapAreaFactory(const SObjectTag& objTag, CInputStream& in,
+const CFactoryFnReturn FMapAreaFactory(const SObjectTag& objTag, CInputStream& in,
                                  const CVParamTransfer&);
 
 #endif // _CMAPAREA

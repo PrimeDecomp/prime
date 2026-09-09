@@ -93,7 +93,7 @@ private:
 };
 CHECK_SIZEOF(CScannableObjectInfo, 0x88)
 
-CFactoryFnReturn FScannableObjectInfoFactory(const SObjectTag& tag, CInputStream& in,
+const CFactoryFnReturn FScannableObjectInfoFactory(const SObjectTag& tag, CInputStream& in,
                                              const CVParamTransfer& xfer);
 
 #endif // _CSCANNABLEOBJECTINFO

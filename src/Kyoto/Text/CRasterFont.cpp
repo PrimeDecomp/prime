@@ -220,7 +220,7 @@ const CGlyph* CRasterFont::InternalGetGlyph(const wchar_t chr) const {
   return &it->second;
 }
 
-CFactoryFnReturn FRasterFontFactory(const SObjectTag& tag, CInputStream& in,
+const CFactoryFnReturn FRasterFontFactory(const SObjectTag& tag, CInputStream& in,
                                     const CVParamTransfer& xfer) {
   const rstl::rc_ptr< IVParamObj > obj = xfer.x0_obj;
   CSimplePool* pool = static_cast< TObjOwnerParam< CSimplePool* >* >(obj.GetPtr())->GetData();
