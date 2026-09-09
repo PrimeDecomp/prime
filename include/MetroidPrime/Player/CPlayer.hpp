@@ -178,7 +178,7 @@ public:
   };
 
   CPlayer(TUniqueId uid, const CTransform4f& xf, const CAABox& aabb, CAssetId resId,
-          const CVector3f& playerScale, float mass, float stepUp, float stepDown, float ballRadius,
+          CVector3f playerScale, float mass, float stepUp, float stepDown, float ballRadius,
           const CMaterialList& ml);
 
   // CEntity
