@@ -152,19 +152,21 @@ public:
     }
   }
 
-  // TODO non-matching
   template < typename Cmp >
   void sort(Cmp cmp) {
     iterator it = begin();
     while (it != end()) {
-      iterator next = it++;
       iterator min = it;
+      iterator next = it;
+      ++next;
       for (; next != end(); ++next) {
         if (cmp(*min, *next)) {
           min = next;
         }
       }
-      next = it++;
+
+      next = it;
+      ++next;
       exchange(it.get_node(), min.get_node());
       it = next;
     }
