@@ -2275,6 +2275,7 @@ MetroidPrime/CPreFrontEnd.cpp:
 MetroidPrime/CGameCubeDoll.cpp:
 	.text       start:0x8029E6F0 end:0x8029ED84
 	.rodata     start:0x803D6078 end:0x803D6090
+	.sdata      start:0x805A87C8 end:0x805A87D0
 	.sdata2     start:0x805ADFB0 end:0x805ADFE8
 
 MetroidPrime/ScriptObjects/CScriptProjectedShadow.cpp:
@@ -2287,7 +2288,7 @@ MetroidPrime/ScriptObjects/CEnergyBall.cpp:
 	.text       start:0x8029F3C4 end:0x802A00C8
 	.rodata     start:0x803D6098 end:0x803D60C8
 	.data       start:0x803EC280 end:0x803EC550
-	.sdata      start:0x805A87C8 end:0x805A87E8
+	.sdata      start:0x805A87D0 end:0x805A87E8
 	.sdata2     start:0x805ADFF8 end:0x805AE008
 
 MetroidPrime/ScriptObjects/CSustainedPlayerDamage.cpp:

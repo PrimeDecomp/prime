@@ -21,10 +21,10 @@ public:
 
 private:
   void Detonate(CStateManager& mgr);
-  static void CreateVisorEffect(
-      const rstl::optional_object< TToken< CGenDescription > >& particle,
-      const rstl::optional_object< TToken< CElectricDescription > >& electric,
-      const rstl::string& name, CStateManager& mgr);
+  static void
+  CreateVisorEffect(const rstl::optional_object< TToken< CGenDescription > >& particle,
+                    const rstl::optional_object< TToken< CElectricDescription > >& electric,
+                    const rstl::string& name, CStateManager& mgr);
 
   CSteeringBehaviors mSteeringBehaviors;
   float x56c;

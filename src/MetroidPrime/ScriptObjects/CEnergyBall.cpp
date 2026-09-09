@@ -1,16 +1,15 @@
 #include "MetroidPrime/ScriptObjects/CEnergyBall.hpp"
+#include "Kyoto/Audio/CSfxManager.hpp"
+#include "MetroidPrime/BodyState/CBodyController.hpp"
 #include "MetroidPrime/CAnimData.hpp"
 #include "MetroidPrime/CStateManager.hpp"
-#include "MetroidPrime/BodyState/CBodyController.hpp"
 #include "MetroidPrime/Player/CPlayer.hpp"
 #include "MetroidPrime/Player/CPlayerState.hpp"
 #include "MetroidPrime/ScriptObjects/CHUDBillboardEffect.hpp"
 #include "MetroidPrime/ScriptObjects/CSustainedPlayerDamage.hpp"
-#include "Kyoto/Audio/CSfxManager.hpp"
 
 static EMaterialTypes sSolidMaterial = kMT_Solid;
 static EMaterialTypes sPlayerMaterial = kMT_Player;
-
 
 CEnergyBall::CEnergyBall(const TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
                          const CTransform4f& xf, const CModelData& mData,
@@ -65,9 +64,10 @@ void CEnergyBall::Generate(CStateManager& mgr, EStateMsg msg, float arg) {
   switch (msg) {
   case kStateMsg_Activate:
     x32c_animState = kAS_Ready;
+    // Fall through.
   case kStateMsg_Update:
     TryGenerateDeactivate(mgr, 0);
-    if (!BodyCtrl()->GetActive()) {
+    if (!BodyCtrl()->GetIsActive()) {
       BodyCtrl()->Activate(mgr);
     }
     break;
@@ -78,21 +78,29 @@ void CEnergyBall::Generate(CStateManager& mgr, EStateMsg msg, float arg) {
 }
 
 void CEnergyBall::Attack(CStateManager& mgr, EStateMsg msg, float arg) {
-  if (msg == kStateMsg_Update) {
+  switch (msg) {
+  case kStateMsg_Activate:
+    break;
+  case kStateMsg_Update: {
     const CVector3f eyePos = mgr.GetPlayer()->GetEyePosition();
     const CVector3f seek = mSteeringBehaviors.Seek(*this, eyePos);
     BodyCtrl()->FaceDirection3D(seek, GetTransform().GetForward(), arg);
+    break;
+  }
+  case kStateMsg_Deactivate:
+    break;
   }
 }
 
 void CEnergyBall::Think(float dt, CStateManager& mgr) {
-  x3b8_turnSpeed = mInitialTurnSpeed *
-                  rstl::max_val(0.f, rstl::min_val(1.f, (x56c - 2.5f) * 0.125f));
-  BodyCtrl()->SetTurnSpeed(x3b8_turnSpeed);
+  const float turnRatio = (x56c - 2.5f) / 8.f;
+  const float turnSpeed = mInitialTurnSpeed * rstl::max_val(0.f, rstl::min_val(1.f, turnRatio));
+  x3b8_turnSpeed = turnSpeed;
+  BodyCtrl()->SetTurnSpeed(turnSpeed);
   CPatterned::Think(dt, mgr);
-  ModelData()->AnimationData()->GetParticleDB().SetModulationColorAllActiveEffects(
-      CColor::Lerp(CColor::White(), CColor::Red(),
-                   rstl::max_val(0.f, rstl::min_val(1.f, x428_damageCooldownTimer / skDamageHitTime))));
+  const float damageRatio = x428_damageCooldownTimer / skDamageHitTime;
+  ModelData()->AnimationData()->GetParticleDB().SetModulationColorAllActiveEffects(CColor::Lerp(
+      CColor::White(), CColor::Red(), rstl::max_val(0.f, rstl::min_val(1.f, damageRatio))));
 
   bool shouldDetonate = false;
   if (GetActive() && IsAlive()) {
@@ -110,19 +118,22 @@ void CEnergyBall::Think(float dt, CStateManager& mgr) {
 }
 
 void CEnergyBall::Detonate(CStateManager& mgr) {
-  const CVector3f playerPos = mgr.GetPlayer()->GetTranslation();
-  const CVector3f delta = playerPos - GetTranslation();
+  const CVector3f& delta = mgr.GetPlayer()->GetTranslation() - GetTranslation();
   if (delta.MagSquared() <= x578.GetRadius() * x578.GetRadius()) {
     bool breakFrozen = true;
     switch (x570) {
-    case 0:
-      x402_28_isMakingBigStrike = x598 > 0.f;
-      x504_damageDur = x598;
+    case 0: {
+      const float duration = x598;
+      x402_28_isMakingBigStrike = duration > 0.f;
+      x504_damageDur = duration;
       break;
-    case 1:
-      mgr.Player()->SetFrozenState(mgr, x59c, x5a0, x5a4);
+    }
+    case 1: {
+      const ushort freezeSfx = x5a0;
+      mgr.Player()->SetFrozenState(mgr, x59c, freezeSfx, x5a4);
       breakFrozen = false;
       break;
+    }
     case 2:
       CreateVisorEffect(rstl::optional_object< TToken< CGenDescription > >(), x5a8,
                         rstl::string_l("PlasmaElectricFx"), mgr);
@@ -134,17 +145,18 @@ void CEnergyBall::Detonate(CStateManager& mgr) {
       CreateVisorEffect(x5c0, rstl::optional_object< TToken< CElectricDescription > >(),
                         rstl::string_l("PlasmaVisorFx"), mgr);
       mgr.AddObject(rs_new CSustainedPlayerDamage(
-          mgr.AllocateUniqueId(), CEntityInfo(GetAreaId(), CEntity::NullConnectionList, kInvalidEditorId),
-          true, rstl::string_l("SusDamage"), x5cc, x5e8));
+          mgr.AllocateUniqueId(),
+          CEntityInfo(GetCurrentAreaId(), CEntity::NullConnectionList, kInvalidEditorId), true,
+          rstl::string_l("SusDamage"), x5cc, x5e8));
       break;
     }
     if (breakFrozen && mgr.GetPlayer()->GetFrozenState()) {
       mgr.Player()->BreakFrozenState(mgr);
     }
   }
-  mgr.ApplyDamageToWorld(GetUniqueId(), *this, GetTranslation(), x578,
-                         CMaterialFilter::MakeIncludeExclude(CMaterialList(sSolidMaterial),
-                                                              CMaterialList()));
+  mgr.ApplyDamageToWorld(
+      GetUniqueId(), *this, GetTranslation(), x578,
+      CMaterialFilter::MakeIncludeExclude(CMaterialList(sSolidMaterial), CMaterialList()));
   MassiveDeath(mgr);
 }
 
