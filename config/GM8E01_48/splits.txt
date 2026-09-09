@@ -661,7 +661,7 @@ dolphin/mtx/mtx.c:
 	.sdata      start:0x805A87F8 end:0x805A8800
 	.sdata2     start:0x805AE8C8 end:0x805AE8D0
 
-dolphin/mtx/mtx44vec.c:
+dolphin/mtx/mtxvec.c:
 	.text       start:0x8037D5E4 end:0x8037D68C
 
 dolphin/mtx/mtx44.c:
