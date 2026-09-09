@@ -48,9 +48,7 @@ public:
 
   FourCC GetResourceTypeById(CAssetId id) { return GetResLoader().GetResourceTypeById(id); }
 
-  rstl::vector< rstl::pair< rstl::string, SObjectTag > > GetResourceIdToNameList() const {
-    return x4_resLoader.GetResourceIdToNameList();
-  }
+  rstl::vector< rstl::pair< rstl::string, SObjectTag > > GetResourceIdToNameList() const;
 
   uint ResourceSize(const SObjectTag& tag) { return x4_resLoader.ResourceSize(tag); }
 

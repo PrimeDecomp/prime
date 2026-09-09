@@ -5,6 +5,7 @@
 
 #include "rstl/allocator.hpp"
 #include "rstl/linear_iterator.hpp"
+#include "rstl/pair.hpp"
 
 class CInputStream;
 class COutputStream;
@@ -30,7 +31,19 @@ struct char_traits< char > {
 };
 
 template < typename _CharTp >
-struct case_insensitive_char_traits {};
+struct case_insensitive_char_traits {
+  static _CharTp eos() { return 0; }
+  static _CharTp toupper(const _CharTp ch) {
+    return (ch >= 'a' && ch <= 'z')         ? ch - 32
+           : (ch >= 0xe0 && ch <= 0xfe)     ? ch - 32
+           : (ch >= 0x30a0 && ch <= 0x30ff) ? ch - 96
+                                            : ch;
+  }
+
+  static bool eq(const _CharTp& lhs, const _CharTp& rhs) { return toupper(lhs) == toupper(rhs); }
+
+  static int compare(const _CharTp& lhs, const _CharTp& rhs) { return toupper(rhs) - toupper(lhs); }
+};
 
 template < typename _CharTp, typename Traits = char_traits< _CharTp >,
            typename Alloc = rmemory_allocator >
@@ -155,11 +168,16 @@ public:
   static int internal_compare(const_iterator first, const_iterator last, It otherFirst, It otherLast);
   template < typename It, typename OtherIt >
   static int internal_search(It first, It last, OtherIt otherFirst, OtherIt otherLast);
+  template < typename It, typename OtherIt >
+  static int internal_search_of(It first, It last, OtherIt otherFirst, OtherIt otherLast);
   int compare(const basic_string& other) const;
   bool operator==(const basic_string& other) const;
   bool operator!=(const basic_string& other) const;
 
   int find(_CharTp ch, int pos = 0) const;
+  int find_first_of(const basic_string& other, int pos = 0) const;
+  pair< const_iterator, const_iterator > range_iterator(int pos, int count) const;
+  basic_string substr(int pos = 0, int count = -1) const;
   int get_real_pos_for_begin(int pos) const {
     if (pos == -1 || pos >= static_cast< int >(size())) {
       return size();
@@ -171,6 +189,33 @@ public:
   void PutTo(COutputStream& out) const;
   const _CharTp at(int idx) const { return data()[idx]; }
 };
+
+template < typename _CharTp, typename Traits, typename Alloc >
+template < typename It, typename OtherIt >
+inline int basic_string< _CharTp, Traits, Alloc >::internal_search_of(
+    It first, It last, OtherIt otherFirst, OtherIt otherLast) {
+  int index = 0;
+  for (It it = first; it != last; ++it, ++index) {
+    for (OtherIt other = otherFirst; other != otherLast; ++other) {
+      if (Traits::eq(*it, *other)) {
+        return index;
+      }
+    }
+  }
+  return -1;
+}
+
+template < typename _CharTp, typename Traits, typename Alloc >
+inline int basic_string< _CharTp, Traits, Alloc >::find_first_of(const basic_string& other,
+                                                             int pos) const {
+  pos = get_real_pos_for_begin(pos);
+  const int found = internal_search_of(begin() + pos, end(), other.begin(), other.end());
+  int result = found + pos;
+  if (found == -1) {
+    result = found;
+  }
+  return result;
+}
 
 template < typename _CharTp, typename Traits, typename Alloc >
 template < typename It, typename OtherIt >
@@ -283,7 +328,7 @@ typedef basic_string< char, case_insensitive_char_traits< char > > istring;
 inline bool operator<(const string& lhs, const string& rhs) { return lhs.compare(rhs) < 0; }
 
 istring istring_l(const char* data);
-bool operator==(const istring& a, const istring& b);
+inline bool operator==(const istring& a, const istring& b) { return a.compare(b) == 0; }
 
 bool operator==(const string& lhs, const char* rhs);
 bool operator==(const char* lhs, const string& rhs);
