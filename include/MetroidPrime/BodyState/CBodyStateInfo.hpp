@@ -1,10 +1,11 @@
 #ifndef _CBODYSTATEINFO
 #define _CBODYSTATEINFO
 
+#include "rstl/map.hpp"
+
 #include "Kyoto/Animation/CharacterCommon.hpp"
 #include "MetroidPrime/BodyState/CBodyState.hpp"
 
-#include "rstl/map.hpp"
 #include "rstl/auto_ptr.hpp"
 #include "rstl/vector.hpp"
 
@@ -36,7 +37,7 @@ public:
   CAdditiveBodyState* GetCurrentAdditiveState();
   float GetMaxSpeed() const;
   float GetLocomotionSpeed(pas::ELocomotionAnim anim) const;
-  
+
 private:
   friend class CBodyController;
   rstl::map< int, CBodyState* > x0_stateMap;
@@ -51,9 +52,10 @@ private:
   CBodyState* SetupNewFlyerBodyStates(int stateId, CActor& actor);
   CBodyState* SetupWallWalkerBodyStates(int stateId, CActor& actor);
   CBodyState* SetupFlyerBodyStates(int stateId, CActor& actor);
-  CBodyState* SetupPitchableFlyerBodyStates(int, CActor&);
+  CBodyState* SetupPitchableFlyerBodyStates(int stateId, CActor& actor);
   CBodyState* SetupRestrictedBodyStates(int stateId, CActor& actor);
   CBodyState* SetupBiPedalBodyStates(int stateId, CActor& actor);
 };
+CHECK_SIZEOF(CBodyStateInfo, 0x38)
 
 #endif // _CBODYSTATEINFO

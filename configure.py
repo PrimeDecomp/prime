@@ -781,7 +781,10 @@ config.libs = [
                 "MetroidPrime/BodyState/CBodyStateCmdMgr.cpp",
                 cflags=[*cflags_retro, "-inline auto"],
             ),
-            Object(NonMatching, "MetroidPrime/BodyState/CBodyStateInfo.cpp"),
+            Object(
+                MatchingFor("GM8E01_00", "GM8E01_01"),
+                "MetroidPrime/BodyState/CBodyStateInfo.cpp",
+            ),
             Object(NonMatching, "MetroidPrime/BodyState/CBSAttack.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),

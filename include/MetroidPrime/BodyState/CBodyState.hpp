@@ -8,7 +8,7 @@ class CBodyController;
 
 class CBodyState {
 public:
-  virtual ~CBodyState() {}
+  virtual ~CBodyState() = 0;
   virtual bool IsInAir(const CBodyController&) const { return false; }
   virtual bool IsDead() const { return false; }
   virtual bool IsDying() const { return false; }
@@ -21,5 +21,7 @@ public:
   virtual pas::EAnimationState UpdateBody(float, CBodyController&, CStateManager&) = 0;
   virtual void Shutdown(CBodyController&) = 0;
 };
+
+inline CBodyState::~CBodyState() {}
 
 #endif // _CBODYSTATE
