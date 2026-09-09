@@ -72,6 +72,9 @@ public:
                      const CActor* actor) const;
 
 private:
+  void BuildActorNearList(rstl::reserved_vector< TUniqueId, 1024 >& nearListOut,
+                          const CActor& actor, const CAABox& box,
+                          const CMaterialFilter& filter) const;
   SNode x0_nodes[kMaxObjects];
   SSortedList xb000_sortedLists[6];
 };
