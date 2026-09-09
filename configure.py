@@ -182,7 +182,7 @@ if not config.non_matching:
 # Tool versions
 config.binutils_tag = "2.42-1"
 config.compilers_tag = "20251118"
-config.dtk_tag = "v1.8.3"
+config.dtk_tag = "v1.8.4"
 config.objdiff_tag = "v3.7.0"
 config.sjiswrap_tag = "v1.2.2"
 config.wibo_tag = "1.0.3"
@@ -207,8 +207,8 @@ if args.map:
     config.ldflags.append("-mapunused")
     # config.ldflags.append("-listclosure") # For Wii linkers
 
-# Don't build RELs unless specifically needed
-config.build_rels = False
+# Build the NES emulator module alongside the main executable.
+config.build_rels = config.version in ("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8E01_48")
 
 # Use for any additional files that should cause a re-configure when modified
 config.reconfig_deps = []
@@ -2603,8 +2603,30 @@ config.libs = [
         "NESemuP",
         [
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01"),
-                "NESemu/modwrapper.c",
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8E01_48"),
+                "NESemu/modwrapper.cpp",
+                cflags=[*cflags_base, "-O0", "-sdata 0", "-sdata2 0", "-str noreuse"],
+            ),
+            Object(
+                NonMatching,
+                "NESemu/emu.cpp",
+                cflags=[*cflags_base, "-sdata 0", "-sdata2 0", "-pool on"],
+            ),
+            Object(
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8E01_48"),
+                "NESemu/ksNesAudio.cpp",
+                cflags=[
+                    *cflags_base, "-O4,s", "-inline off", "-func_align 32",
+                    "-sdata 0", "-sdata2 0", "-pool on", "-i extern/musyx/include",
+                ],
+            ),
+            Object(
+                NonMatching,
+                "NESemu/emusound.cpp",
+                cflags=[
+                    *cflags_base, "-O4,s", "-inline off", "-func_align 32", "-vector on",
+                    "-sdata 0", "-sdata2 0", "-pool on", "-i extern/musyx/include",
+                ],
             ),
         ],
     ),

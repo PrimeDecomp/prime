@@ -11,9 +11,6 @@ void _prolog();
 void _epilog();
 void _unresolved();
 
-// User functions
-void ksNesInitModule(void);
-
 #ifdef __MWERKS__
 #define REL_EXPORT __declspec(export)
 #else
@@ -23,5 +20,7 @@ void ksNesInitModule(void);
 #ifdef __cplusplus
 }
 #endif
+
+void ksNesInitModule(void);
 
 #endif // _MODWRAPPER_H_

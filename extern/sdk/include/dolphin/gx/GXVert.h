@@ -139,7 +139,10 @@ FUNC_2PARAM(GXPosition, f32)
 FUNC_2PARAM(GXPosition, u8)
 FUNC_2PARAM(GXPosition, s8)
 FUNC_2PARAM(GXPosition, u16)
-FUNC_2PARAM(GXPosition, s16)
+static inline void GXPosition2s16(s16 x, s16 y) {
+  GXWGFifo.s16 = x;
+  GXWGFifo.s16 = y;
+}
 FUNC_INDEX16(GXPosition)
 FUNC_INDEX8(GXPosition)
 
@@ -161,7 +164,10 @@ FUNC_INDEX8(GXColor)
 // GXTexCoord
 FUNC_2PARAM(GXTexCoord, f32)
 FUNC_2PARAM(GXTexCoord, s16)
-FUNC_2PARAM(GXTexCoord, u16)
+static inline void GXTexCoord2u16(u16 s, u16 t) {
+  GXWGFifo.u16 = s;
+  GXWGFifo.u16 = t;
+}
 FUNC_2PARAM(GXTexCoord, s8)
 FUNC_2PARAM(GXTexCoord, u8)
 FUNC_1PARAM(GXTexCoord, f32)

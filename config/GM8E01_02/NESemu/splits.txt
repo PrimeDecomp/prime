@@ -1,7 +1,28 @@
 Sections:
-	.text       type:code align:4
+	.text       type:code align:32
 	.ctors      type:rodata align:4
 	.dtors      type:rodata align:4
 	.rodata     type:rodata align:8
 	.data       type:data align:8
 	.bss        type:bss align:32
+
+NESemu/modwrapper.cpp:
+	.text       start:0x00000000 end:0x000000D4
+	.data       start:0x00000000 end:0x00000030
+
+NESemu/emu.cpp:
+	.text       start:0x000000D4 end:0x00005FC0
+	.rodata     start:0x00000000 end:0x00000078
+	.data       start:0x00000030 end:0x0001EBF0
+	.bss        start:0x00000000 end:0x00000020
+
+NESemu/ksNesAudio.cpp:
+	.text       start:0x00005FC0 end:0x00006280 align:32
+	.data       start:0x0001EBF0 end:0x0001EBF8
+	.bss        start:0x00000020 end:0x00001940 align:32
+
+NESemu/emusound.cpp:
+	.text       start:0x00006280 end:0x0000A1F4 align:32
+	.rodata     start:0x00000078 end:0x00000104
+	.data       start:0x0001EBF8 end:0x0001F104
+	.bss        start:0x00001940 end:0x00009E1C

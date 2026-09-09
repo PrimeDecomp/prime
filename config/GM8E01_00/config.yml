@@ -21,3 +21,7 @@ modules:
   hash: 5ad6bb727d6dd220e6aceef9143c61a86a6f2bb5
   symbols: config/GM8E01_00/NESemu/symbols.txt
   splits: config/GM8E01_00/NESemu/splits.txt
+  extract:
+  - symbol: kRomData
+    binary: NESemu/MetroidRom.bin
+    header: NESemu/MetroidRom.inc
