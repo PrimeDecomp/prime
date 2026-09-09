@@ -24,6 +24,7 @@
 #include "Kyoto/Math/CTransform4f.hpp"
 #include "Kyoto/Math/CUnitVector3f.hpp"
 #include "Kyoto/Math/CVector2f.hpp"
+#include "Kyoto/Math/CVector3d.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
 #include "Kyoto/Particles/CElementGen.hpp"
 #include "Kyoto/Particles/CParticleGen.hpp"
@@ -93,19 +94,19 @@ void Shutdown() {
   sPlaneObjectBucket = nullptr;
 }
 
-// TODO non-matching
 void Insert(const CVector3f& pos, const CAABox& aabb, EDrawableType dtype, const void* data,
             const CPlane& plane, const ushort extraSort) {
   AUTO_REF(tmpData, *sData);
   if (tmpData.size() == tmpData.capacity()) {
     return;
   }
-  float dist = plane.GetHeight(pos);
-  tmpData.push_back(CDrawable(dtype, extraSort, dist, aabb, data));
+  float dist = CVector3f::Dot(pos, plane.GetNormal()) - plane.GetConstant();
+  const CDrawable& drawable = CDrawable(dtype, extraSort, dist, aabb, data);
+  tmpData.push_back(drawable);
   sMinMaxDistance.first = rstl::min_val(dist, sMinMaxDistance.first);
   sMinMaxDistance.second = rstl::max_val(dist, sMinMaxDistance.second);
 #ifdef __MWERKS__
-  __dcbt(&tmpData.back(), 0);
+  __dcbt(&tmpData.back() + 1, 0);
 #endif
 }
 
@@ -119,12 +120,8 @@ void InsertPlaneObject(float closeDist, float farDist, const CAABox& aabb, bool 
       CDrawablePlaneObject(dtype, closeDist, farDist, aabb, invertTest, plane, zOnly, data));
 }
 
-static int kMinSlot1 = 1;
-static int kMaxSlot1 = 49;
-static int kMinSlot2 = 0;
-
 struct planeSorter {
-  bool operator()(uint a, uint b) const {
+  bool operator()(const ushort a, const ushort b) const {
     const CDrawablePlaneObject& planeA = (*sPlaneObjectData)[a];
     const CDrawablePlaneObject& planeB = (*sPlaneObjectData)[b];
     return planeA.GetDistance() < planeB.GetDistance();
@@ -147,55 +144,59 @@ void Sort() {
   const float delta = rstl::max_val(sMinMaxDistance.second - sMinMaxDistance.first, 1.f);
   float pitch = 1.f / (delta * (1.f / 49.f));
 
-  ushort idx = 0;
-  for (CDrawablePlaneObject* it = sPlaneObjectData->begin(); it != sPlaneObjectData->end(); ++it) {
+  int idx = 0;
+  for (CDrawablePlaneObject* it = sPlaneObjectData->begin(); it != sPlaneObjectData->end();
+       ++it, ++idx) {
     if (sPlaneObjectBucket->size() < sPlaneObjectBucket->capacity()) {
-      sPlaneObjectBucket->push_back(idx);
+      sPlaneObjectBucket->push_back(static_cast< ushort >(idx));
     }
-    ++idx;
   }
 
   int precision = 50;
-  if (sPlaneObjectBucket->size() != 0) {
-    rstl::sort(sPlaneObjectBucket->begin(), sPlaneObjectBucket->end(), planeSorter());
+  AUTO_REF(planeBuckets, *sPlaneObjectBucket);
+  if (planeBuckets.size() != 0) {
+    rstl::sort(planeBuckets.begin(), planeBuckets.end(), planeSorter());
 
-    precision = 50 / (sPlaneObjectBucket->size() + 1);
+    precision = 50 / (planeBuckets.size() + 1);
     pitch = 1.f / (delta * (1.f / static_cast< float >(precision - 2)));
 
-    int accum = 0;
-    for (AUTO(it, sPlaneObjectBucket->begin()); it != sPlaneObjectBucket->end(); ++it) {
-      ++accum;
-      (*sPlaneObjectData)[*it].SetBucketIndex(precision * accum);
+    short accum = 0;
+    for (AUTO(it, planeBuckets.begin()); it != planeBuckets.end(); ++it, ++accum) {
+      (*sPlaneObjectData)[*it].SetBucketIndex(precision * (accum + 1));
     }
   }
 
+  AUTO_REF(planeBucketData, *sPlaneObjectBucket);
+  AUTO_REF(planeObjectData, *sPlaneObjectData);
   for (AUTO(it, sData->begin()); it != sData->end(); ++it) {
     int slot = -1;
     const float relDist = negMin + it->GetDistance();
 
-    if (sPlaneObjectBucket->size() == 0) {
-      const int computed = static_cast< int >(relDist * pitch);
-      slot = computed < kMaxSlot1 ? computed : kMaxSlot1;
-      slot = slot < kMinSlot1 ? kMinSlot1 : slot;
+    if (planeBucketData.size() == 0) {
+      slot = rstl::max_val(rstl::min_val(49, static_cast< int >(relDist * pitch)), 1);
     } else {
-      const int maxSlot = precision - 2;
-      const int computed = static_cast< int >(relDist * pitch);
-      slot = computed < maxSlot ? computed : maxSlot;
-      slot = slot < kMinSlot2 ? kMinSlot2 : slot;
+      slot = rstl::max_val(rstl::min_val(precision - 2, static_cast< int >(relDist * pitch)), 0);
 
-      for (AUTO(jt, sPlaneObjectBucket->begin()); jt != sPlaneObjectBucket->end(); ++jt) {
-        CDrawablePlaneObject& planeObj = (*sPlaneObjectData)[*jt];
+      for (AUTO(jt, planeBucketData.begin()); jt != planeBucketData.end(); ++jt) {
+        CDrawablePlaneObject& planeObj = planeObjectData[*jt];
 
         bool partial;
         bool full;
         if (planeObj.IsOptimalPlane()) {
-          partial = it->GetBounds().GetMaxPoint().GetZ() > planeObj.GetPlane().GetConstant();
-          full = it->GetBounds().GetMinPoint().GetZ() > planeObj.GetPlane().GetConstant();
+          partial = it->GetBounds().GetMaxPoint().GetZ() > planeObj.GetPlane().GetConstant()
+                        ? true
+                        : false;
+          full = it->GetBounds().GetMinPoint().GetZ() > planeObj.GetPlane().GetConstant() ? true
+                                                                                          : false;
         } else {
           partial = planeObj.GetPlane().GetHeight(it->GetBounds().ClosestPointAlongVector(
-                        planeObj.GetPlane().GetNormal())) > 0.f;
+                        planeObj.GetPlane().GetNormal())) > 0.f
+                        ? true
+                        : false;
           full = planeObj.GetPlane().GetHeight(it->GetBounds().FurthestPointAlongVector(
-                     planeObj.GetPlane().GetNormal())) > 0.f;
+                     planeObj.GetPlane().GetNormal())) > 0.f
+                     ? true
+                     : false;
         }
 
         bool cont;
@@ -225,22 +226,17 @@ void Sort() {
     }
   }
 
-  ushort bucketIdx = sBuckets->size();
   for (int i = sBuckets->size() - 1; i >= 0; --i) {
-    --bucketIdx;
-    sBucketIndex.push_back(bucketIdx);
-
     BucketHolderType& bucket = (*sBuckets)[i];
+    sBucketIndex.push_back(static_cast< ushort >(i));
     if (bucket.size() != 0) {
       rstl::sort(bucket.begin(), bucket.end(), sorter());
     }
   }
 
-  for (AUTO(it, sPlaneObjectBucket->begin() + sPlaneObjectBucket->size());
-       it != sPlaneObjectBucket->begin();) {
-    --it;
+  for (AUTO(it, planeBucketData.end() - 1); it != planeBucketData.begin() - 1; --it) {
 
-    CDrawablePlaneObject& planeObj = (*sPlaneObjectData)[*it];
+    CDrawablePlaneObject& planeObj = planeObjectData[*it];
     BucketHolderType& bucket = (*sBuckets)[planeObj.GetBucketIndex()];
     if (bucket.size() < bucket.capacity()) {
       bucket.push_back(&planeObj);
@@ -267,7 +263,7 @@ CCubeRenderer::CAreaListItem::CAreaListItem(
 : x0_geometry(geometry)
 , x4_octTree(octTree)
 , x8_textures(textures)
-, xc_models(models)
+, x10_models(models)
 , x18_areaIdx(areaIdx)
 , x1c_lightOctreeWords() {}
 
@@ -281,9 +277,6 @@ CCubeRenderer::CFogVolumeListItem::CFogVolumeListItem(const CTransform4f& xf, CC
 , x4c_model(model ? rstl::optional_object< TLockedToken< CModel > >(*model)
                   : rstl::optional_object_null())
 , x5c_skinnedModel(skinnedModel) {}
-
-// TODO CSkinnedModel
-extern "C" void fn_80352740();
 
 CCubeRenderer::CCubeRenderer(IObjectStore& objStore, COsContext& osContext, CMemorySys& memorySys,
                              CResFactory& resFactory)
@@ -301,7 +294,7 @@ CCubeRenderer::CCubeRenderer(IObjectStore& objStore, COsContext& osContext, CMem
 , xb0_viewPlane(0.f, CUnitVector3f(CVector3f(0.f, 1.f, 0.f), CUnitVector3f::kN_Yes))
 , xc0_pvsMode(0)
 #if NONMATCHING
-, xc4_unk5(0)
+, xc4_pvsState(0)
 #endif
 , xc8_pvsVisSet()
 , xe0_pvsAreaIdx(-1)
@@ -341,23 +334,23 @@ CCubeRenderer::CCubeRenderer(IObjectStore& objStore, COsContext& osContext, CMem
   LoadThermoPalette();
   sRenderer = this;
   Buckets::Init();
-  fn_80352740();
+  CSkinnedModel::AddDummySkinnedModelRef();
 }
 
 void CCubeRenderer::GenerateReflectionTex() {
-  float threshold = 1.f;
-  float halfScale = 127.5f;
+  float threshold = 14.f;
+  float halfScale = 128.f;
 
   ushort* base = static_cast< ushort* >(x150_reflectionTex.Lock());
-  ushort* data = base;
+  int texel = 0;
   for (int yBlock = 0; yBlock < 8; ++yBlock) {
     for (int xBlock = 0; xBlock < 8; ++xBlock) {
       for (int y = 0; y < 4; ++y) {
         for (int x = 0; x < 4; ++x) {
           float fx = 0.f;
           float fy = 0.f;
-          CVector2f vec(static_cast< float >(xBlock * 4 + x - 14),
-                        static_cast< float >(yBlock * 4 + y - 14));
+          CVector2f vec(static_cast< float >(xBlock * 4 + (x - 14)),
+                        static_cast< float >(yBlock * 4 + (y - 14)));
           float mag = vec.Magnitude();
           if (mag <= threshold) {
             vec.Normalize();
@@ -371,7 +364,8 @@ void CCubeRenderer::GenerateReflectionTex() {
           float scaledY = halfScale * fy + halfScale;
           int iy = static_cast< int >(CMath::Clamp(0.f, scaledY, 255.f));
 
-          *data++ = static_cast< ushort >((iy & 0xFF) | ((ix & 0xFF) << 8));
+          base[texel] = static_cast< ushort >((iy & 0xFF) | ((ix & 0xFF) << 8));
+          ++texel;
         }
       }
     }
@@ -382,17 +376,16 @@ void CCubeRenderer::GenerateReflectionTex() {
 void CCubeRenderer::GenerateFogVolumeRampTex() {
   uchar* data = static_cast< uchar* >(x1b8_fogVolumeRamp.Lock());
   memset(data, 0xFF, 0x10000);
-  int yOff = 0;
-  for (int y = 0; y < 2048; ++y, yOff += 32) {
+  for (int y = 0, yOff = 0; y < 2048; ++y, yOff += 32) {
     int tileXBase = (y % 32) * 8;
     int tileYBase = (y / 32) * 4;
     uchar* ptr = &data[yOff];
     for (int x = 0; x < 32; ++x) {
       int tileX = tileXBase + (x & 7);
-      int tileY = tileYBase + (x / 8);
+      int tileY = tileYBase + (x >> 3);
       uint tmp = static_cast< uint >((tileY << 16) | (tileX << 8) | 0x7F);
       double t = static_cast< double >(tmp) / static_cast< double >(0xFFFFFF);
-      double a = (-(150.0 / (t * (750.0 - 0.2) - 750.0)) - 0.2) * 3.0 / (750.0 - 0.2);
+      double a = (-(150.0 / (t * (750.f - 0.2f) - 750.0)) - 0.2f) * 3.0 / (750.f - 0.2f);
       float cf = CMath::Clamp< float >(0.f, a, 1.f);
       *ptr++ = CCast::ToUint8((0.5f * (cf * cf + cf)) * 255.f);
     }
@@ -423,14 +416,13 @@ void CCubeRenderer::GenerateSphereRampTex() {
   x220_sphereRamp.UnLock();
 }
 
-// TODO non-matching
 void CCubeRenderer::LoadThermoPalette() {
   x288_thermalPalette.Lock();
   TLockedToken< CTexture > token = xc_objStore.GetObj("TXTR_ThermoPalette");
   const CGraphicsPalette* pal = token->GetPalette();
   for (int i = 0; i < 16; ++i) {
-    ushort* dst = x288_thermalPalette.GetPaletteData();
-    dst[i] = pal ? pal->GetPaletteData()[i] : 0;
+    ushort& dst = x288_thermalPalette.GetPaletteData()[i];
+    dst = pal ? pal->GetPaletteData()[i] : 0;
   }
   x288_thermalPalette.UnLock();
 }
@@ -875,7 +867,7 @@ void CCubeRenderer::ActivateLightsForModel(const CAreaListItem* areaListItem,
 
   if (lightState != 0) {
     const GXColor color = {0xFF, 0xFF, 0xFF, 0xFF};
-    CGraphics::SetLightState(lightState);
+    CGraphics::SetLightState(static_cast< uchar >(lightState));
     CGX::SetChanMatColor(CGX::Channel0, color);
   } else {
     CGraphics::DisableAllLights();
@@ -1097,61 +1089,65 @@ void CCubeRenderer::CacheReflection(void (*cb)(void*, const CVector3f&), void* c
 }
 
 void CCubeRenderer::DrawSpaceWarp(const CVector3f& point, float strength) {
-  if (!(point.GetZ() >= 0.f)) {
+  if (!(point.GetZ() >= 1.f)) {
     _DrawSpaceWarp(point, strength);
   }
 }
 
 void CCubeRenderer::_DrawSpaceWarp(const CVector3f& point, float strength) {
+  const int vpLeft = CGraphics::GetViewport().mLeft;
+  const int vpTop = CGraphics::GetViewport().mTop;
   const int vpWidth = CGraphics::GetViewport().mWidth;
   const int vpHeight = CGraphics::GetViewport().mHeight;
-  const int vpTop = CGraphics::GetViewport().mTop;
-  const int vpLeft = CGraphics::GetViewport().mLeft;
 
-  const CVector3f& pointRef = CVector3f(point.GetX(), point.GetY(), point.GetZ());
-  const float projectedX = static_cast< float >(vpLeft) +
-                           static_cast< float >(vpWidth / 2) * pointRef.GetX() +
-                           static_cast< float >(vpWidth / 2);
-  const float projectedY = static_cast< float >(vpTop) +
-                           static_cast< float >(vpHeight / 2) * -pointRef.GetY() +
-                           static_cast< float >(vpHeight / 2);
+  CVector3f projectedPoint = point;
+  float& screenY = projectedPoint[1];
+  float& screenX = projectedPoint[0];
+  screenX = static_cast< float >(vpLeft) +
+            (static_cast< float >(vpWidth / 2) * screenX + static_cast< float >(vpWidth / 2));
+  screenY = static_cast< float >(vpTop) +
+            (static_cast< float >(vpHeight / 2) * -screenY + static_cast< float >(vpHeight / 2));
 
-  CVector2i center(static_cast< int >(projectedX) & ~3, static_cast< int >(projectedY) & ~3);
-  CVector2i v2right = center - CVector2i(0x60, 0x60);
-  CVector2i v2left = center + CVector2i(0x60, 0x60);
+  CVector2i center(static_cast< int >(screenX) & ~3, static_cast< int >(screenY) & ~3);
+  CVector2i minPoint = center - CVector2i(0x60, 0x60);
+  CVector2i maxPoint = center + CVector2i(0x60, 0x60);
 
+  int& minX = minPoint[0];
+  int& maxX = maxPoint[0];
   CVector2f uv1min(0.f, 0.f);
+  float& uMin = uv1min[0];
   CVector2f uv1max(1.f, 1.f);
-  float* uv1minVals = reinterpret_cast< float* >(&uv1min);
-  float* uv1maxVals = reinterpret_cast< float* >(&uv1max);
+  float& uMax = uv1max[0];
 
   const int alignedLeft = vpLeft & ~3;
   const int alignedTop = vpTop & ~3;
-  const int alignedRight = (vpLeft + vpWidth + 3) & ~3;
-  const int alignedBottom = (vpTop + vpHeight + 3) & ~3;
+  const int alignedRight = (3 + (vpLeft + vpWidth)) & ~3;
+  const int alignedBottom = (3 + (vpTop + vpHeight)) & ~3;
 
-  if (v2right.GetX() < alignedLeft) {
-    uv1minVals[0] = 0.0052083335f * static_cast< float >(alignedLeft - v2right.GetX());
-    v2right.SetX(alignedLeft);
+  if (minX < alignedLeft) {
+    uv1min[0] = 0.0052083335f * static_cast< float >(alignedLeft - minPoint.GetX());
+    minPoint.SetX(alignedLeft);
   }
 
-  if (v2right.GetY() < alignedTop) {
-    uv1minVals[1] = 0.0052083335f * static_cast< float >(alignedTop - v2right.GetY());
-    v2right.SetY(alignedTop);
+  if (minPoint[1] < alignedTop) {
+    uv1min[1] = 0.0052083335f * static_cast< float >(alignedTop - minPoint.GetY());
+    minPoint.SetY(alignedTop);
   }
 
-  if (v2left.GetX() > alignedRight) {
-    uv1maxVals[0] = 1.f - 0.0052083335f * static_cast< float >(v2left.GetX() - alignedRight);
-    v2left.SetX(alignedRight);
+  if (maxX > alignedRight) {
+    uv1max[0] = 1.f - 0.0052083335f * static_cast< float >(maxPoint.GetX() - alignedRight);
+    maxPoint.SetX(alignedRight);
   }
 
-  if (v2left.GetY() > alignedBottom) {
-    uv1maxVals[1] = 1.f - 0.0052083335f * static_cast< float >(v2left.GetY() - alignedBottom);
-    v2left.SetY(alignedBottom);
+  if (maxPoint[1] > alignedBottom) {
+    uv1max[1] = 1.f - 0.0052083335f * static_cast< float >(maxPoint.GetY() - alignedBottom);
+    maxPoint.SetY(alignedBottom);
   }
 
-  const CVector2i v2sub = v2left - v2right;
-  if (v2sub.GetX() <= 0 || v2sub.GetY() <= 0) {
+  CVector2i dimensions = maxPoint - minPoint;
+  int& sizeX = dimensions[0];
+  int& sizeY = dimensions[1];
+  if (sizeX <= 0 || sizeY <= 0) {
     return;
   }
 
@@ -1166,13 +1162,12 @@ void CCubeRenderer::_DrawSpaceWarp(const CVector3f& point, float strength) {
   CGX::SetFog(GX_FOG_NONE, fogStartZ, fogEndZ, fogNearZ, fogFarZ, fogColor);
 
   void* spareBuffer = CGraphics::mpSpareBuffer;
-  GXSetTexCopySrc(v2right.GetX(), v2right.GetY(), v2sub.GetX(), v2sub.GetY());
-  GXSetTexCopyDst(v2sub.GetX(), v2sub.GetY(), GX_TF_RGBA8, false);
+  GXSetTexCopySrc(minPoint.GetX(), minPoint.GetY(), sizeX, sizeY);
+  GXSetTexCopyDst(sizeX, sizeY, GX_TF_RGBA8, false);
   GXCopyTex(spareBuffer, false);
   GXPixModeSync();
 
-  CGraphics::LoadDolphinSpareTexture(v2sub.GetX(), v2sub.GetY(), GX_TF_RGBA8, 0,
-                                     CGraphics::kSpareBufferTexMapID);
+  CGraphics::LoadDolphinSpareTexture(sizeX, sizeY, GX_TF_RGBA8, 0, CGraphics::kSpareBufferTexMapID);
 
   x150_reflectionTex.Load(GX_TEXMAP1, CTexture::kCM_Clamp);
   CGX::SetTevColorIn(GX_TEVSTAGE0, GX_CC_ZERO, GX_CC_ZERO, GX_CC_ZERO, GX_CC_TEXC);
@@ -1207,8 +1202,8 @@ void CCubeRenderer::_DrawSpaceWarp(const CVector3f& point, float strength) {
   CGraphics::CProjectionState backupProj(CGraphics::GetProjectionState());
   CTransform4f backupViewMtx(CGraphics::mViewMatrix);
 
-  CGraphics::SetOrtho(static_cast< float >(vpLeft), static_cast< float >(vpLeft + vpWidth),
-                      static_cast< float >(vpTop), static_cast< float >(vpTop + vpHeight), -4096.f,
+  CGraphics::SetOrtho(static_cast< float >(vpLeft), static_cast< float >(vpWidth + vpLeft),
+                      static_cast< float >(vpTop), static_cast< float >(vpHeight + vpTop), -4096.f,
                       4096.f);
   CGraphics::SetViewPointMatrix(CTransform4f::Identity());
   CGraphics::SetModelMatrix(CTransform4f::Identity());
@@ -1218,21 +1213,25 @@ void CCubeRenderer::_DrawSpaceWarp(const CVector3f& point, float strength) {
 
   CGX::Begin(GX_TRIANGLEFAN, GX_VTXFMT0, 4);
 
-  GXPosition3f32(static_cast< float >(v2right.GetX()), 0.5f, static_cast< float >(v2right.GetY()));
+  GXPosition3f32(static_cast< float >(minPoint.GetX()), 0.5f,
+                 static_cast< float >(minPoint.GetY()));
   GXTexCoord2f32(0.f, 0.f);
-  GXTexCoord2f32(uv1minVals[0], uv1minVals[1]);
+  GXTexCoord2f32(uMin, uv1min[1]);
 
-  GXPosition3f32(static_cast< float >(v2right.GetX()), 0.5f, static_cast< float >(v2left.GetY()));
+  GXPosition3f32(static_cast< float >(minPoint.GetX()), 0.5f,
+                 static_cast< float >(maxPoint.GetY()));
   GXTexCoord2f32(0.f, 1.f);
-  GXTexCoord2f32(uv1minVals[0], uv1maxVals[1]);
+  GXTexCoord2f32(uMin, uv1max[1]);
 
-  GXPosition3f32(static_cast< float >(v2left.GetX()), 0.5f, static_cast< float >(v2left.GetY()));
+  GXPosition3f32(static_cast< float >(maxPoint.GetX()), 0.5f,
+                 static_cast< float >(maxPoint.GetY()));
   GXTexCoord2f32(1.f, 1.f);
-  GXTexCoord2f32(uv1maxVals[0], uv1maxVals[1]);
+  GXTexCoord2f32(uMax, uv1max[1]);
 
-  GXPosition3f32(static_cast< float >(v2left.GetX()), 0.5f, static_cast< float >(v2right.GetY()));
+  GXPosition3f32(static_cast< float >(maxPoint.GetX()), 0.5f,
+                 static_cast< float >(minPoint.GetY()));
   GXTexCoord2f32(1.f, 0.f);
-  GXTexCoord2f32(uv1maxVals[0], uv1minVals[1]);
+  GXTexCoord2f32(uMax, uv1min[1]);
 
   CGX::End();
 
@@ -1259,12 +1258,11 @@ void CCubeRenderer::SetWorldFog(ERglFogMode mode, float startz, float endz, cons
 }
 
 int CCubeRenderer::GetStaticWorldDataSize() {
+  int size = 0;
   rstl::list< CAreaListItem >::const_iterator it = x1c_areaListItems.begin();
   rstl::list< CAreaListItem >::const_iterator end = x1c_areaListItems.end();
-  const rstl::vector< TCachedToken< CTexture > >* textures = 0;
-  int size = 0;
   for (; it != end; ++it) {
-    textures = it->x8_textures.get();
+    const rstl::vector< TCachedToken< CTexture > >* const textures = it->x8_textures.get();
     if (textures) {
       size += textures->size() * 0xc;
     }
@@ -1288,133 +1286,81 @@ void CCubeRenderer::DrawFogFans(const CPlane* planes, int planeCount, const CVec
                                 int vertCount, int startPlane, int curPlane) {
   if (curPlane == startPlane) {
     DrawFogFans(planes, planeCount, verts, vertCount, startPlane, curPlane + 1);
-    return;
-  }
-
-  if (curPlane == planeCount) {
+  } else if (curPlane == planeCount) {
     DrawFogFan(verts, vertCount);
-    return;
-  }
-
-  int clippedVertCount = 0;
-  uchar clippedFlags[20];
-  int clippedFlagCount = 0;
-
-  const CPlane& plane = planes[curPlane];
-  for (int i = 0; i < vertCount; ++i) {
-    clippedFlags[clippedFlagCount++] = plane.IsFacing(verts[i]) ? 0 : 1;
-  }
-
-  CVector3f clippedVerts[20];
-  for (int i = 0; i < vertCount; ++i) {
-    const uint next = static_cast< uint >(i + 1) &
-                      static_cast< uint >((i - (vertCount - 1) | (vertCount - 1) - i) >> 31);
-    const uint clippedMask =
-        static_cast< uint >(clippedFlags[i]) | (static_cast< uint >(clippedFlags[next]) << 1);
-
-    if ((clippedFlags[i] & 1) == 0) {
-      clippedVerts[clippedVertCount++] = verts[i];
+  } else {
+    rstl::reserved_vector< CVector3f, 20 > clippedVerts;
+    rstl::reserved_vector< bool, 20 > clippedFlags;
+    const CPlane& plane = planes[curPlane];
+    for (int i = 0; i < vertCount; ++i) {
+      clippedFlags.push_back(!plane.IsFacing(verts[i]));
     }
 
-    if (clippedMask == 1 || clippedMask == 2) {
-      const float t = plane.ClipLineSegment(verts[i], verts[next]);
-      if (0.f < t && t < 1.f) {
-        const float invT = 1.f - t;
-        clippedVerts[clippedVertCount++] =
-            CVector3f(verts[i].GetX() * invT + verts[next].GetX() * t,
-                      verts[i].GetY() * invT + verts[next].GetY() * t,
-                      verts[i].GetZ() * invT + verts[next].GetZ() * t);
+    for (int i = 0; i < vertCount; ++i) {
+      const int next = i != vertCount - 1 ? i + 1 : 0;
+      const int clippedMask = clippedFlags[i] | (clippedFlags[next] << 1);
+      if ((clippedMask & 1) == 0) {
+        clippedVerts.push_back(verts[i]);
+      }
+      if (clippedMask == 1 || clippedMask == 2) {
+        const float t = plane.ClipLineSegment(verts[i], verts[next]);
+        if (t > 0.f && t < 1.f) {
+          clippedVerts.push_back(CVector3f::Lerp(verts[i], verts[next], t));
+        }
       }
     }
-  }
 
-  if (clippedVertCount > 2) {
-    DrawFogFans(planes, planeCount, clippedVerts, clippedVertCount, startPlane, curPlane + 1);
+    if (clippedVerts.size() >= 3) {
+      DrawFogFans(planes, planeCount, clippedVerts.data(), clippedVerts.size(), startPlane,
+                  curPlane + 1);
+    }
   }
 }
 
 void CCubeRenderer::DrawFogSlices(const CPlane* planes, int planeCount, int planeIdx,
                                   const CVector3f& point, float extent) {
-  static const int skEdges[3][2] = {
-      {1, 2},
-      {0, 2},
-      {0, 1},
-  };
-
+  static const int skEdges[3][2] = {{1, 2}, {0, 2}, {0, 1}};
   const CPlane& plane = planes[planeIdx];
+  rstl::reserved_vector< CVector3d, 4 > doubleCorners;
+  rstl::reserved_vector< CVector3f, 4 > corners;
 
   int axis = 0;
-  if (CMath::AbsF(plane.GetNormal().GetX()) < CMath::AbsF(plane.GetNormal().GetY())) {
+  if (fabs(plane.GetNormal().GetY()) > fabs(plane.GetNormal().GetX())) {
     axis = 1;
   }
-
-  const float axisVal = axis == 0 ? plane.GetNormal().GetX() : plane.GetNormal().GetY();
-  if (CMath::AbsF(axisVal) < CMath::AbsF(plane.GetNormal().GetZ())) {
+  if (fabs(plane.GetNormal().GetZ()) > fabs(plane.GetNormal()[axis])) {
     axis = 2;
   }
 
-  const float dist = plane.GetHeight(point);
-  const CVector3f projectedPoint(point.GetX() - dist * plane.GetNormal().GetX(),
-                                 point.GetY() - dist * plane.GetNormal().GetY(),
-                                 point.GetZ() - dist * plane.GetNormal().GetZ());
-
-  float axisSign = (axis == 0   ? plane.GetNormal().GetX()
-                    : axis == 1 ? plane.GetNormal().GetY()
-                                : plane.GetNormal().GetZ()) >= 0.f
-                       ? -1.f
-                       : 1.f;
+  const CVector3d projectedPoint(point - plane.GetHeight(point) * plane.GetNormal());
+  float negative = -1.f;
+  float positive = 1.f;
+  float axisSign = CMath::FastFSel(plane.GetNormal()[axis], negative, positive);
   if (axis == 1) {
     axisSign = -axisSign;
   }
-
-  double offsetA[3] = {0.0, 0.0, 0.0};
-  double offsetB[3] = {0.0, 0.0, 0.0};
+  CVector3d offsetA(0.0, 0.0, 0.0);
+  CVector3d offsetB(0.0, 0.0, 0.0);
   offsetA[skEdges[axis][0]] = extent;
-  offsetB[skEdges[axis][1]] = static_cast< double >(extent * axisSign);
+  offsetB[skEdges[axis][1]] = extent * axisSign;
+  doubleCorners.push_back(projectedPoint - offsetA - offsetB);
+  doubleCorners.push_back(projectedPoint + offsetA - offsetB);
+  doubleCorners.push_back(projectedPoint + offsetA + offsetB);
+  doubleCorners.push_back(projectedPoint - offsetA + offsetB);
 
-  double base[3] = {projectedPoint.GetX(), projectedPoint.GetY(), projectedPoint.GetZ()};
-  double cornerDbl[4][3];
-  int cornerCount = 0;
-
-  cornerDbl[cornerCount][0] = base[0] - offsetA[0] - offsetB[0];
-  cornerDbl[cornerCount][1] = base[1] - offsetA[1] - offsetB[1];
-  cornerDbl[cornerCount][2] = base[2] - offsetA[2] - offsetB[2];
-  ++cornerCount;
-
-  cornerDbl[cornerCount][0] = base[0] + offsetA[0] - offsetB[0];
-  cornerDbl[cornerCount][1] = base[1] + offsetA[1] - offsetB[1];
-  cornerDbl[cornerCount][2] = base[2] + offsetA[2] - offsetB[2];
-  ++cornerCount;
-
-  cornerDbl[cornerCount][0] = base[0] + offsetA[0] + offsetB[0];
-  cornerDbl[cornerCount][1] = base[1] + offsetA[1] + offsetB[1];
-  cornerDbl[cornerCount][2] = base[2] + offsetA[2] + offsetB[2];
-  ++cornerCount;
-
-  cornerDbl[cornerCount][0] = base[0] - offsetA[0] + offsetB[0];
-  cornerDbl[cornerCount][1] = base[1] - offsetA[1] + offsetB[1];
-  cornerDbl[cornerCount][2] = base[2] - offsetA[2] + offsetB[2];
-  ++cornerCount;
-
-  CVector3f corners[4];
-  int clipCornerCount = 0;
   for (int i = 0; i < 4; ++i) {
-    const double planeDot = cornerDbl[i][0] * plane.GetNormal().GetX() +
-                            cornerDbl[i][1] * plane.GetNormal().GetY() +
-                            cornerDbl[i][2] * plane.GetNormal().GetZ() - plane.GetConstant();
-
-    corners[clipCornerCount++] =
-        CVector3f(static_cast< float >(cornerDbl[i][0] - planeDot * plane.GetNormal().GetX()),
-                  static_cast< float >(cornerDbl[i][1] - planeDot * plane.GetNormal().GetY()),
-                  static_cast< float >(cornerDbl[i][2] - planeDot * plane.GetNormal().GetZ()));
+    const CVector3d normal(plane.GetNormal());
+    const CVector3d& corner = doubleCorners[i];
+    const double height = corner.GetX() * normal.GetX() + corner.GetY() * normal.GetY() +
+                          corner.GetZ() * normal.GetZ() - plane.GetConstant();
+    const CVector3d projected = corner - height * normal;
+    corners.push_back(CVector3f(projected.GetX(), projected.GetY(), projected.GetZ()));
   }
-
-  DrawFogFans(planes, planeCount, corners, cornerCount, planeIdx, 0);
+  DrawFogFans(planes, planeCount, corners.data(), doubleCorners.size(), planeIdx, 0);
 }
 
-void CCubeRenderer::RenderFogVolumeModel(const CAABox& aabb, const CModel* model,
-                                         const CTransform4f& modelXf, CTransform4f viewXf,
-                                         const CSkinnedModel* skinnedModel) {
+static void draw_box_or_model(const CAABox& aabb, const CModel* model, const CTransform4f& modelXf,
+                              const CTransform4f& viewXf, const CSkinnedModel* skinnedModel) {
   if (model == nullptr && skinnedModel == nullptr) {
     const CAABox transformedAabb = aabb.GetTransformedAABox(modelXf);
     CAABox worldAabb = transformedAabb;
@@ -1426,33 +1372,39 @@ void CCubeRenderer::RenderFogVolumeModel(const CAABox& aabb, const CModel* model
     CGX::SetVtxDescv(vtxDescrs2);
 
     const CUnitVector3f viewPlaneFwd(viewXf.GetForward());
-    const CVector3f min = worldAabb.GetMinPoint();
-    const CVector3f max = -worldAabb.GetMaxPoint();
+
+    CVector3f max = worldAabb.GetMaxPoint();
+    max.SetX(-max.GetX());
+    max.SetY(-max.GetY());
+    max.SetZ(-max.GetZ());
 
     CPlane fogPlanes[7] = {
-        CPlane(min.GetX(), CVector3f::Right()),
+        CPlane(worldAabb.GetMinPoint().GetX(), CVector3f::Right()),
         CPlane(max.GetX(), CVector3f::Left()),
-        CPlane(min.GetY(), CVector3f::Forward()),
+        CPlane(worldAabb.GetMinPoint().GetY(), CVector3f::Forward()),
         CPlane(max.GetY(), CVector3f::Back()),
-        CPlane(min.GetZ(), CVector3f::Up()),
+        CPlane(worldAabb.GetMinPoint().GetZ(), CVector3f::Up()),
         CPlane(max.GetZ(), CVector3f::Down()),
         CPlane(CVector3f::Dot(viewXf.GetTranslation(), viewPlaneFwd) + 0.2f + 0.1f, viewPlaneFwd),
     };
     CGraphics::SetModelMatrix(CTransform4f::Identity());
 
-    CVector3f extents(worldAabb.GetWidth(), worldAabb.GetHeight(), worldAabb.GetDepth());
-    float maxExtent = rstl::max_val(extents.GetX(), rstl::max_val(extents.GetY(), extents.GetZ()));
+    float maxExtent = rstl::max_val(rstl::max_val(worldAabb.GetDepth(), worldAabb.GetHeight()),
+                                    worldAabb.GetWidth());
 
     const float sliceExtent = maxExtent * 2.f;
     for (int i = 0; i < 7; ++i) {
-      DrawFogSlices(fogPlanes, 7, i, worldAabb.GetCenterPoint(), sliceExtent);
+      CCubeRenderer::DrawFogSlices(fogPlanes, 7, i, worldAabb.GetCenterPoint(), sliceExtent);
     }
   } else if (skinnedModel != nullptr) {
     const CModel* skModel = *skinnedModel->GetModel();
     skModel->Touch(0);
     if (const CCubeModel* modelInst = skModel->GetCubeModel()) {
       skModel->UpdateLastFrame();
-      modelInst->DrawFlat(skModel->GetPositions(), skModel->GetNormals(), kSS_All);
+      const CModel& normalModel = **skinnedModel->GetModel();
+      const float* const& normals = normalModel.GetNormals();
+      const CModel& positionModel = **skinnedModel->GetModel();
+      modelInst->DrawFlat(positionModel.GetPositions(), normals, kSS_All);
     }
   } else {
     model->Touch(0);
@@ -1635,7 +1587,7 @@ void CCubeRenderer::DoThermalBlendHot() {
   CGX::SetNumChans(0);
   CGX::SetZMode(false, GX_LEQUAL, false);
 
-  const GXVtxDescList vtxDesc[3] = {
+  static const GXVtxDescList vtxDesc[3] = {
       {GX_VA_POS, GX_DIRECT},
       {GX_VA_TEX0, GX_DIRECT},
       {GX_VA_NULL, GX_NONE},
@@ -1692,8 +1644,6 @@ void CCubeRenderer::ReallyRenderFogVolume(const CColor& color, const CAABox& aab
       {GX_VA_TEX0, GX_DIRECT},
       {GX_VA_NULL, GX_NONE},
   };
-  static int skMinX = 0;
-  static int skMinY = 0;
 
   void* copyBufA = CGraphics::mpSpareBuffer;
   void* copyBufB = static_cast< uchar* >(CGraphics::mpSpareBuffer) + 0x23000;
@@ -1704,13 +1654,17 @@ void CCubeRenderer::ReallyRenderFogVolume(const CColor& color, const CAABox& aab
   const int vpHeight = CGraphics::mViewport.mHeight;
 
   int maxChunkW = 0x140;
-  int chunkH = 0xe0;
+  int maxChunkH = 0xe0;
+  int chunkH = maxChunkH;
   int chunkW = maxChunkW;
-  int drawRight = vpWidth;
-  int drawBottom = vpHeight;
   int drawLeft = 0;
   int drawTop = 0;
   bool recalcChunk = true;
+
+  float uv0MinX = 0.f;
+  float uv0MinY = 0.f;
+  float uv0MaxX = 0.f;
+  float uv0MaxY = 0.f;
 
   const CTransform4f modelXf(CGraphics::mModelMatrix);
   const CTransform4f viewXf(CGraphics::mViewMatrix);
@@ -1719,95 +1673,85 @@ void CCubeRenderer::ReallyRenderFogVolume(const CColor& color, const CAABox& aab
   CVector2i minBounds(vpWidth, vpHeight);
   CVector2i maxBounds(0, 0);
 
+  int& minY = minBounds[1];
+  bool allOutside = true;
   rstl::reserved_vector< CVector3f, 8 > clipPts;
   rstl::reserved_vector< float, 8 > clipWs;
   for (int i = 0; i < 8; ++i) {
-    const CVector3f point = aabb.GetPoint(i);
-    const CVector3f worldPoint = modelXf * point;
+    const CVector3f worldPoint = modelXf * aabb.GetPoint(i);
 
-    const CVector3f viewVec(worldPoint.GetX() - viewXf.Get03(), worldPoint.GetY() - viewXf.Get13(),
-                            worldPoint.GetZ() - viewXf.Get23());
-    const CVector3f rotated = viewXf.TransposeRotate(viewVec);
+    const CVector3f rotated = viewXf.TransposeRotate(CVector3f(worldPoint.GetX() - viewXf.Get03(),
+                                                               worldPoint.GetY() - viewXf.Get13(),
+                                                               worldPoint.GetZ() - viewXf.Get23()));
 
-    clipPts.push_back(projMtx * rotated);
+    const CVector3f projected = projMtx * rotated;
+    clipPts.push_back(projected);
     clipWs.push_back(projMtx.MultiplyGetW(rotated));
   }
 
-  bool allOutside = true;
   for (int i = 0; i < 20; ++i) {
-    float ndcX;
-    float ndcY;
-    float ndcZ;
-    bool validPoint = false;
+    CVector3f ndc;
 
     if (i < 8) {
-      const float invW = 1.f / clipWs[i];
-      ndcX = invW * clipPts[i].GetX();
-      ndcY = invW * clipPts[i].GetY();
-      ndcZ = invW * clipPts[i].GetZ();
-      validPoint = true;
+      ndc = clipPts[i] / clipWs[i];
     } else {
-      const int idxA = skEdges[i - 8][0];
-      const int idxB = skEdges[i - 8][1];
+      const int edge = i - 8;
+      const int idxA = skEdges[edge][0];
+      const int idxB = skEdges[edge][1];
 
       const float wA = clipWs[idxA];
       const float wB = clipWs[idxB];
-      const CVector3f& pA = clipPts[idxA];
-      const CVector3f& pB = clipPts[idxB];
+      const CVector3f pA = clipPts[idxA];
+      const CVector3f pB = clipPts[idxB];
 
-      if ((1.f < pA.GetZ() / wA) != (1.f < pB.GetZ() / wB)) {
+      if ((pA.GetZ() / wA > 1.f) != (pB.GetZ() / wB > 1.f)) {
         const float t = -(wA - 1.f) / (wB - wA);
-        if (0.f < t && t < 1.f) {
+        if (t > 0.f && t < 1.f) {
           const float invW = 1.f / (wA + t * (wB - wA));
-          ndcX = invW * (pA.GetX() + t * (pB.GetX() - pA.GetX()));
-          ndcY = invW * (pA.GetY() + t * (pB.GetY() - pA.GetY()));
-          ndcZ = invW * (pA.GetZ() + t * (pB.GetZ() - pA.GetZ()));
-          validPoint = true;
+          ndc = invW * (pA + t * (pB - pA));
+        } else {
+          continue;
         }
+      } else {
+        continue;
       }
     }
 
-    if (!validPoint || ndcZ > 1.001f) {
+    if (!(ndc.GetZ() <= 1.001f)) {
       continue;
     }
 
-    const int scrX = static_cast< int >(static_cast< float >(vpWidth) * ndcX * 0.5f +
+    const int scrX = static_cast< int >(static_cast< float >(vpWidth) * ndc.GetX() * 0.5f +
                                         static_cast< float >(vpWidth / 2));
-    const int scrY = static_cast< int >(static_cast< float >(vpHeight) * -ndcY * 0.5f +
+    const int scrY = static_cast< int >(static_cast< float >(vpHeight) * -ndc.GetY() * 0.5f +
                                         static_cast< float >(vpHeight / 2));
 
-    const int p0 = rstl::max_val(skMinX, scrX) & ~3;
-    const int p1 = rstl::max_val(skMinY, scrY) & ~3;
-    const int p2 = rstl::min_val(vpWidth - 4, scrX + 3) & ~3;
-    const int p3 = rstl::min_val(vpHeight - 4, scrY + 3) & ~3;
+    const int p0 = rstl::max_val(scrX, 0) & ~3;
+    const int p1 = rstl::max_val(scrY, 0) & ~3;
+    const int p2 = rstl::min_val(scrX + 3, vpWidth - 4) & ~3;
+    const int p3 = rstl::min_val(scrY + 3, vpHeight - 4) & ~3;
 
-    if (p0 < minBounds.GetX()) {
-      minBounds.SetX(p0);
-    }
-    if (p1 < minBounds.GetY()) {
-      minBounds.SetY(p1);
-    }
-    if (p2 > maxBounds.GetX()) {
-      maxBounds.SetX(p2);
-    }
-    if (p3 > maxBounds.GetY()) {
-      maxBounds.SetY(p3);
-    }
+    minBounds[0] = rstl::min_val(minBounds[0], p0);
+    minY = rstl::min_val(minY, p1);
+    maxBounds[0] = rstl::max_val(maxBounds[0], p2);
+    maxBounds[1] = rstl::max_val(maxBounds[1], p3);
 
     allOutside = false;
   }
 
+  int drawRight = vpWidth;
+  int drawBottom = vpHeight;
   if (!allOutside) {
-    maxChunkW = rstl::min_val(maxChunkW, maxBounds.GetX() - minBounds.GetX());
-    chunkH = rstl::min_val(chunkH, maxBounds.GetY() - minBounds.GetY());
+    maxChunkW = rstl::min_val(maxBounds.GetX() - minBounds.GetX(), maxChunkW);
+    maxChunkH = rstl::min_val(maxBounds.GetY() - minBounds.GetY(), maxChunkH);
 
-    drawRight = rstl::min_val(vpWidth, maxBounds.GetX());
-    drawBottom = rstl::min_val(vpHeight, maxBounds.GetY());
+    drawRight = rstl::min_val(maxBounds[0], vpWidth);
+    drawBottom = rstl::min_val(maxBounds[1], vpHeight);
     drawLeft = minBounds.GetX();
     drawTop = minBounds.GetY();
   }
 
-  if (maxChunkW <= 0 || chunkH <= 0) {
+  if (maxChunkW <= 0 || maxChunkH <= 0) {
     return;
   }
 
@@ -1821,25 +1765,21 @@ void CCubeRenderer::ReallyRenderFogVolume(const CColor& color, const CAABox& aab
   bool oldVideoFilter = CGraphics::GetUseVideoFilter();
   CGraphics::SetUseVideoFilter(false);
 
+  const float texOffsetX = 0.5f / static_cast< float >(x1b8_fogVolumeRamp.GetWidth());
+  const float texOffsetY = 0.5f / static_cast< float >(x1b8_fogVolumeRamp.GetHeight());
   float fogTexMtx[2][4] = {
       {0.f, 0.f, 0.f, 0.f},
       {0.f, 0.f, 0.f, 0.f},
   };
-  fogTexMtx[0][3] = 0.5f / static_cast< float >(x1b8_fogVolumeRamp.GetWidth());
-  fogTexMtx[1][3] = 0.5f / static_cast< float >(x1b8_fogVolumeRamp.GetHeight());
+  fogTexMtx[0][3] = texOffsetX;
+  fogTexMtx[1][3] = texOffsetY;
   GXLoadTexMtxImm(fogTexMtx, GX_TEXMTX0, GX_MTX2x4);
 
-  const CVector3f maxPt = modelXf * aabb.GetMaxPoint();
-  const CVector3f minPt = modelXf * aabb.GetMinPoint();
-  const CAABox modelAabb(CVector3f(minPt.GetX() - 1.f, minPt.GetY() - 1.f, minPt.GetZ() - 1.f),
-                         CVector3f(maxPt.GetX() + 1.f, maxPt.GetY() + 1.f, maxPt.GetZ() + 1.f));
+  const CAABox modelAabb(modelXf * aabb.GetMinPoint() - CVector3f(1.f, 1.f, 1.f),
+                         modelXf * aabb.GetMaxPoint() + CVector3f(1.f, 1.f, 1.f));
 
-  bool doDoublePass = false;
-  const CVector3f camPos(CGraphics::mViewMatrix.Get03(), CGraphics::mViewMatrix.Get13(),
-                         CGraphics::mViewMatrix.Get23());
-  if (modelAabb.PointInside(camPos) && (model != 0 || skinnedModel != 0)) {
-    doDoublePass = true;
-  }
+  bool doDoublePass = modelAabb.PointInside(CGraphics::mViewMatrix.GetTranslation()) &&
+                      (model != nullptr || skinnedModel != nullptr);
   if (doDoublePass) {
     x318_26_requestRGBA6 = true;
     if (!x318_27_currentRGBA6) {
@@ -1848,8 +1788,8 @@ void CCubeRenderer::ReallyRenderFogVolume(const CColor& color, const CAABox& aab
   }
 
   CGX::SetIndTexMtxSTPointFive(GX_ITM_0, 1);
+  const int passCount = static_cast< int >(doDoublePass) + 1;
 
-  chunkW = maxChunkW;
   for (int y = drawTop; y < drawBottom; y += chunkH) {
     if (drawBottom - y < chunkH) {
       chunkH = drawBottom - y;
@@ -1870,10 +1810,6 @@ void CCubeRenderer::ReallyRenderFogVolume(const CColor& color, const CAABox& aab
         recalcChunk = true;
       }
 
-      float uv0MaxX = 0.f;
-      float uv0MaxY = 0.f;
-      float uv0MinX = 0.f;
-      float uv0MinY = 0.f;
       if (recalcChunk) {
         uv0MaxX = static_cast< float >(chunkW - 1) / static_cast< float >(chunkW);
         uv0MaxY = static_cast< float >(chunkH - 1) / static_cast< float >(chunkH);
@@ -1899,11 +1835,11 @@ void CCubeRenderer::ReallyRenderFogVolume(const CColor& color, const CAABox& aab
       x1b8_fogVolumeRamp.Load(GX_TEXMAP2, CTexture::kCM_Clamp);
       GXSetCullMode(GX_CULL_BACK);
       GXSetDstAlpha(GX_TRUE, 0xff);
-      RenderFogVolumeModel(aabb, model, modelXf, CGraphics::mViewMatrix, skinnedModel);
+      draw_box_or_model(aabb, model, modelXf, CGraphics::mViewMatrix, skinnedModel);
 
       if (doDoublePass) {
         CGX::SetZMode(false, GX_ALWAYS, false);
-        RenderFogVolumeModel(aabb, model, modelXf, CGraphics::mViewMatrix, skinnedModel);
+        draw_box_or_model(aabb, model, modelXf, CGraphics::mViewMatrix, skinnedModel);
         CGX::SetZMode(true, GX_LEQUAL, true);
       }
 
@@ -1913,11 +1849,11 @@ void CCubeRenderer::ReallyRenderFogVolume(const CColor& color, const CAABox& aab
       CGraphics::LoadDolphinSpareTexture(chunkW, chunkH, GX_TF_IA8, copyBufA, GX_TEXMAP0);
 
       GXSetCullMode(GX_CULL_FRONT);
-      RenderFogVolumeModel(aabb, model, modelXf, CGraphics::mViewMatrix, skinnedModel);
+      draw_box_or_model(aabb, model, modelXf, CGraphics::mViewMatrix, skinnedModel);
 
       if (doDoublePass) {
         CGX::SetZMode(true, GX_GREATER, false);
-        RenderFogVolumeModel(aabb, model, modelXf, CGraphics::mViewMatrix, skinnedModel);
+        draw_box_or_model(aabb, model, modelXf, CGraphics::mViewMatrix, skinnedModel);
         CGX::SetZMode(true, GX_LEQUAL, true);
       }
 
@@ -1950,12 +1886,8 @@ void CCubeRenderer::ReallyRenderFogVolume(const CColor& color, const CAABox& aab
       GXSetCullMode(GX_CULL_NONE);
       GXSetAlphaUpdate(GX_FALSE);
 
-      const float uv1MaxY = uv0MinY + uv0MaxY;
-      const float uv1MaxX = uv0MinX + uv0MaxX;
-
-      const int rightAbs = copyLeft + chunkW;
+      const int right = x + chunkW;
       const int bottom = y + chunkH;
-      const int passCount = doDoublePass ? 2 : 1;
       for (int pass = 0; pass < passCount; ++pass) {
         if (pass == 0) {
           CGX::SetTevIndirect(GX_TEVSTAGE0, GX_INDTEXSTAGE0, GX_ITF_8, GX_ITB_NONE, GX_ITM_0,
@@ -1978,7 +1910,7 @@ void CCubeRenderer::ReallyRenderFogVolume(const CColor& color, const CAABox& aab
           CGX::SetNumIndStages(2);
           CGX::SetNumTevStages(2);
           CGX::SetBlendMode(GX_BM_BLEND, GX_BL_SRCALPHA, GX_BL_ONE, GX_LO_CLEAR);
-        } else {
+        } else if (pass == 1) {
           CGX::SetTevDirect(GX_TEVSTAGE1);
           GXSetIndTexOrder(GX_INDTEXSTAGE0, GX_TEXCOORD0, GX_TEXMAP0);
 
@@ -1998,17 +1930,17 @@ void CCubeRenderer::ReallyRenderFogVolume(const CColor& color, const CAABox& aab
 
         CGX::Begin(GX_TRIANGLEFAN, GX_VTXFMT0, 4);
 
-        GXPosition3f32(static_cast< float >(copyLeft), 0.5f, static_cast< float >(y));
+        GXPosition3f32(static_cast< float >(x), 0.5f, static_cast< float >(y));
         GXTexCoord2f32(uv0MinX, uv0MinY);
 
-        GXPosition3f32(static_cast< float >(copyLeft), 0.5f, static_cast< float >(bottom));
-        GXTexCoord2f32(uv0MinX, uv1MaxY);
+        GXPosition3f32(static_cast< float >(x), 0.5f, static_cast< float >(bottom));
+        GXTexCoord2f32(uv0MinX, (uv0MinY + uv0MaxY));
 
-        GXPosition3f32(static_cast< float >(rightAbs), 0.5f, static_cast< float >(bottom));
-        GXTexCoord2f32(uv1MaxX, uv1MaxY);
+        GXPosition3f32(static_cast< float >(right), 0.5f, static_cast< float >(bottom));
+        GXTexCoord2f32((uv0MinX + uv0MaxX), (uv0MinY + uv0MaxY));
 
-        GXPosition3f32(static_cast< float >(rightAbs), 0.5f, static_cast< float >(y));
-        GXTexCoord2f32(uv1MaxX, uv0MinY);
+        GXPosition3f32(static_cast< float >(right), 0.5f, static_cast< float >(y));
+        GXTexCoord2f32((uv0MinX + uv0MaxX), uv0MinY);
 
         CGX::End();
       }
@@ -2053,10 +1985,8 @@ struct fog_sorter {
     const CAABox boxA = xfA.x34_aabb.GetTransformedAABox(xfA.x0_xf);
     const CAABox boxB = xfB.x34_aabb.GetTransformedAABox(xfB.x0_xf);
 
-    const bool insideA =
-        boxA.PointInside(CVector3f(pos.GetX(), pos.GetY(), boxA.GetMinPoint().GetZ()));
-    const bool insideB =
-        boxB.PointInside(CVector3f(pos.GetX(), pos.GetY(), boxB.GetMinPoint().GetZ()));
+    bool insideA = boxA.PointInside(CVector3f(pos.GetX(), pos.GetY(), boxA.GetMinPoint().GetZ()));
+    bool insideB = boxB.PointInside(CVector3f(pos.GetX(), pos.GetY(), boxB.GetMinPoint().GetZ()));
     if (insideA != insideB) {
       return insideA;
     }
@@ -2078,14 +2008,10 @@ void CCubeRenderer::PostRenderFogs() {
   x2ac_fogVolumes.sort(fog_sorter());
 
   for (AUTO(fogIt, x2ac_fogVolumes.begin()); fogIt != x2ac_fogVolumes.end(); ++fogIt) {
-    CGraphics::SetModelMatrix(fogIt->x0_xf);
-
-    const CModel* model = 0;
-    if (fogIt->x4c_model) {
-      model = (*fogIt->x4c_model).GetT();
-    }
-
-    ReallyRenderFogVolume(fogIt->x30_color, fogIt->x34_aabb, model, fogIt->x5c_skinnedModel);
+    CFogVolumeListItem& fog = *fogIt;
+    CGraphics::SetModelMatrix(fog.x0_xf);
+    ReallyRenderFogVolume(fog.x30_color, fog.x34_aabb, fog.x4c_model ? **fog.x4c_model : nullptr,
+                          fog.x5c_skinnedModel);
   }
 
   x2ac_fogVolumes.clear();
@@ -2124,11 +2050,10 @@ void CCubeRenderer::DoThermalModelDraw(const CCubeModel& model, const CColor& mu
   CGX::SetAlphaCompare(GX_ALWAYS, 0, GX_AOP_OR, GX_ALWAYS, 0);
   CGX::SetBlendMode(GX_BM_BLEND, GX_BL_ONE, GX_BL_ONE, GX_LO_CLEAR);
 
-  const ushort otherFlags = flags.GetOtherFlags();
-  const bool depthCompare = !(otherFlags & CModelFlags::kF_DepthCompare);
-  const bool depthUpdate = !(otherFlags & CModelFlags::kF_DepthUpdate);
-  CGX::SetZMode(depthCompare ? GX_ENABLE : GX_DISABLE, GX_LEQUAL,
-                depthUpdate ? GX_ENABLE : GX_DISABLE);
+  CGX::SetZMode(
+      (flags.GetOtherFlags() & CModelFlags::kF_DepthCompare) == CModelFlags::kF_DepthCompare,
+      GX_LEQUAL,
+      (flags.GetOtherFlags() & CModelFlags::kF_DepthUpdate) == CModelFlags::kF_DepthUpdate);
 
   const ushort drawFlags = flags.GetOtherFlags();
   model.DrawFlat(pos, nrm,
@@ -2164,8 +2089,7 @@ void CCubeRenderer::DrawModelDisintegrate(const CModel& model, const CTexture& t
   CGX::SetTevKColorSel(GX_TEVSTAGE1, GX_TEV_KCSEL_K0);
   CGX::SetTevKColor(GX_KCOLOR0, color.GetGXColor());
 
-  const CCubeModel* modelInst = model.GetCubeModel();
-  const CAABox& modelBounds = modelInst->GetBoundingBox();
+  const CAABox& modelBounds = model.GetCubeModel()->GetBoundingBox();
 
   const CRelAngle rotateAng(-0.7853982f);
   CTransform4f rotateXf = CTransform4f::RotateX(rotateAng);
@@ -2176,36 +2100,29 @@ void CCubeRenderer::DrawModelDisintegrate(const CModel& model, const CTexture& t
   const CVector3f& aabbMax = xfdAabb.GetMaxPoint();
 
   CVector3f xlateVec(-aabbMin.GetX(), -aabbMin.GetY(), -aabbMin.GetZ());
-  float aabbSizeX = aabbMax.GetX() - aabbMin.GetX();
-  float aabbSizeY = aabbMax.GetY() - aabbMin.GetY();
-  float aabbSizeZ = aabbMax.GetZ() - aabbMin.GetZ();
+  const CVector3f dimensions = aabbMax - aabbMin;
 
-  const CTransform4f& xlateXf = CTransform4f::Translate(xlateVec);
-  const CTransform4f& scaleXf =
-      CTransform4f::Scale(5.f / aabbSizeX, 5.f / aabbSizeY, 5.f / aabbSizeZ);
-  rotateXf = (scaleXf * xlateXf) * rotateXf;
+  rotateXf = (CTransform4f::Scale(5.f / dimensions.GetX(), 5.f / dimensions.GetY(),
+                                  5.f / dimensions.GetZ()) *
+              CTransform4f::Translate(xlateVec)) *
+             rotateXf;
 
-  const CAABox transformedAabb = modelBounds.GetTransformedAABox(rotateXf);
+  const CAABox transformedAabb =
+      model.GetCubeModel()->GetBoundingBox().GetTransformedAABox(rotateXf);
   (void)transformedAabb;
 
+  const float f1 = -(1.f - t) * 6.f + 1.f;
+  const float f2 = -0.85f * t - 0.15f;
   float ptTex0[3][4] = {
-      {1.f, 1.f, 0.f, 0.f},
-      {0.f, 0.f, 1.f, 0.f},
+      {1.f, 1.f, 0.f, t},
+      {0.f, 0.f, 1.f, f1},
       {0.f, 0.f, 0.f, 1.f},
   };
   float ptTex1[3][4] = {
-      {1.f, 1.f, 0.f, 0.f},
-      {0.f, 0.f, 1.f, 0.f},
+      {1.f, 1.f, 0.f, f2},
+      {0.f, 0.f, 1.f, f1},
       {0.f, 0.f, 0.f, 1.f},
   };
-
-  float f1 = 1.f - t;
-  f1 = 6.f * (-f1) + 1.f;
-  float f2 = (-0.85f * t) - 0.15f;
-  ptTex0[0][3] = t;
-  ptTex0[1][3] = f1;
-  ptTex1[0][3] = f2;
-  ptTex1[1][3] = f1;
 
   GXLoadTexMtxImm(const_cast< MtxPtr >(rotateXf.GetCStyleMatrix()), GX_TEXMTX0, GX_MTX3x4);
   GXLoadTexMtxImm(ptTex0, GX_PTTEXMTX0, GX_MTX3x4);
@@ -2217,7 +2134,7 @@ void CCubeRenderer::DrawModelDisintegrate(const CModel& model, const CTexture& t
   CGX::SetZMode(true, GX_LEQUAL, true);
 
   model.UpdateLastFrame();
-  modelInst->DrawFlat(pos, nrm, kSS_All);
+  model.GetCubeModel()->DrawFlat(pos, nrm, kSS_All);
 
   CGX::SetAlphaCompare(GX_ALWAYS, 0, GX_AOP_AND, GX_ALWAYS, 0);
 }
@@ -2233,12 +2150,9 @@ void CCubeRenderer::DrawModelFlat(const CModel& model, const CModelFlags& flags,
     CGX::SetBlendMode(GX_BM_BLEND, GX_BL_ONE, GX_BL_ZERO, GX_LO_CLEAR);
   }
 
-  const ushort otherFlags = flags.GetOtherFlags();
-  GXCompare zComp = GX_ALWAYS;
-  if ((otherFlags & CModelFlags::kF_DepthCompare) != 0) {
-    zComp = GX_LEQUAL;
-  }
-  CGX::SetZMode(true, zComp, (otherFlags & CModelFlags::kF_DepthUpdate) != 0);
+  const uint otherFlags = flags.GetOtherFlags();
+  CGX::SetZMode(true, (otherFlags & CModelFlags::kF_DepthCompare) != 0 ? GX_LEQUAL : GX_ALWAYS,
+                (otherFlags & CModelFlags::kF_DepthUpdate) != 0);
 
   CGX::SetNumTevStages(1);
   CGX::SetNumTexGens(1);
@@ -2383,7 +2297,7 @@ void CCubeRenderer::PrepareDynamicLights(const rstl::vector< CLight >& lights) {
           const CAABox aabb(light.GetPosition() - CVector3f(radius, radius, radius),
                             light.GetPosition() + CVector3f(radius, radius, radius));
           octTree->FindOverlappingModels(octWords.data() + wordOffset, aabb);
-          wordOffset += octreeWordCount;
+          wordOffset = wordOffset + octreeWordCount;
         }
 
         OSGetTime();
@@ -2423,8 +2337,7 @@ void CCubeRenderer::FindOverlappingWorldModels(rstl::vector< uint >& modelBits,
 
     octTree->FindOverlappingModels(modelBits.data() + curWord, aabb);
 
-    int wordModel = 0;
-    for (int i = 0; i < octTree->x14_bitmapWordCount; ++i, wordModel += 0x20) {
+    for (int i = 0, wordModel = 0; i < octTree->x14_bitmapWordCount; ++i, wordModel += 0x20) {
       uint& word = modelBits[curWord + i];
       if (word == 0) {
         continue;
@@ -2458,8 +2371,7 @@ int CCubeRenderer::DrawOverlappingWorldModelIDs(int alphaVal, rstl::vector< uint
       continue;
     }
 
-    int wordModel = 0;
-    for (int i = 0; i < octTree->x14_bitmapWordCount; ++i, wordModel += 0x20) {
+    for (int i = 0, wordModel = 0; i < octTree->x14_bitmapWordCount; ++i, wordModel += 0x20) {
       const uint word = modelBits[curWord + i];
       if (word == 0) {
         continue;
@@ -2511,8 +2423,7 @@ void CCubeRenderer::DrawOverlappingWorldModelShadows(int alphaVal, rstl::vector<
       continue;
     }
 
-    int wordModel = 0;
-    for (int i = 0; i < octTree->x14_bitmapWordCount; ++i, wordModel += 0x20) {
+    for (int i = 0, wordModel = 0; i < octTree->x14_bitmapWordCount; ++i, wordModel += 0x20) {
       const uint word = modelBits[curWord + i];
       if (word == 0) {
         continue;
@@ -2532,7 +2443,7 @@ void CCubeRenderer::DrawOverlappingWorldModelShadows(int alphaVal, rstl::vector<
              surf = surf.GetNextSurface()) {
           if (surf.GetBounds().DoBoundsOverlap(aabb)) {
             const CCubeMaterial mat = model->GetMaterialByIndex(surf.GetMaterialIndex());
-            CGX::SetVtxDescv_Compressed(mat.GetVertexDesc());
+            CGX::SetVtxDescv_Compressed(mat.GetVertexDescLwzx());
             CGX::CallDisplayList(surf.GetDisplayList(), surf.GetDisplayListSize());
           }
         }
@@ -2559,25 +2470,18 @@ void CCubeRenderer::CopyTex(const int div, const bool half, void* dest, const GX
   uint height = vp.mHeight;
   const uint copyHeight = height / div;
 
-  GXSetTexCopySrc(static_cast< u16 >(vp.mLeft),
-                  static_cast< u16 >(vp.mTop + vp.mHeight - copyHeight),
-                  static_cast< u16 >(vp.mWidth / div), static_cast< u16 >(copyHeight));
+  GXSetTexCopySrc(static_cast< u16 >(vp.mLeft), static_cast< u16 >(vp.mTop + height - copyHeight),
+                  static_cast< u16 >(width / div), static_cast< u16 >(copyHeight));
 
-  if (half) {
-    width >>= 1;
-    height >>= 1;
-  }
-
-  GXSetTexCopyDst(static_cast< u16 >(width / div), static_cast< u16 >(height / div), fmt, half);
+  const uint destWidth = (half ? static_cast< int >(width) / 2 : width) / div;
+  const uint destHeight = (half ? static_cast< int >(height) / 2 : height) / div;
+  GXSetTexCopyDst(static_cast< u16 >(destWidth), static_cast< u16 >(destHeight), fmt, half);
 
   CColor clearColor(0);
   CGraphics::SetClearColor(clearColor);
 
   GXSetColorUpdate(false);
-  if (dest == nullptr) {
-    dest = CGraphics::mpSpareBuffer;
-  }
-  GXCopyTex(dest, clear);
+  GXCopyTex(dest ? dest : CGraphics::mpSpareBuffer, clear);
   GXSetColorUpdate(true);
   GXPixModeSync();
 }
@@ -2661,21 +2565,22 @@ void CCubeRenderer::DoPhazonSuitIndirectAlphaBlur(float blurRadius, float blurRa
   for (uint i = 0; i < 8; ++i) {
     CGX::Begin(GX_TRIANGLESTRIP, GX_VTXFMT0, 4);
 
-    const CVector2f ofs(blurScale * blurOffsets[i][0], blurScale * blurOffsets[i][1]);
+    CVector2f ofs(blurScale * blurOffsets[i][0], blurScale * blurOffsets[i][1]);
+    float& offsetX = ofs[0];
 
-    GXPosition3f32(ofs.GetX(), 0.f, ofs.GetY());
+    GXPosition3f32(offsetX, 0.f, ofs[1]);
     GXColor1u32(blurColorA);
     GXTexCoord2f32(0.f, 1.f);
 
-    GXPosition3f32(ofs.GetX() + 0.25f, 0.f, ofs.GetY());
+    GXPosition3f32(offsetX + 0.25f, 0.f, ofs[1]);
     GXColor1u32(blurColorA);
     GXTexCoord2f32(1.f, 1.f);
 
-    GXPosition3f32(ofs.GetX(), 0.f, ofs.GetY() + 0.25f);
+    GXPosition3f32(offsetX, 0.f, ofs[1] + 0.25f);
     GXColor1u32(blurColorA);
     GXTexCoord2f32(0.f, 0.f);
 
-    GXPosition3f32(ofs.GetX() + 0.25f, 0.f, ofs.GetY() + 0.25f);
+    GXPosition3f32(offsetX + 0.25f, 0.f, ofs[1] + 0.25f);
     GXColor1u32(blurColorA);
     GXTexCoord2f32(1.f, 0.f);
 
@@ -2725,21 +2630,22 @@ void CCubeRenderer::DoPhazonSuitIndirectAlphaBlur(float blurRadius, float blurRa
   for (uint i = 0; i < 8; ++i) {
     CGX::Begin(GX_TRIANGLESTRIP, GX_VTXFMT0, 4);
 
-    const CVector2f ofs(blurScaleB * blurOffsets[i][0], blurScaleB * blurOffsets[i][1]);
+    CVector2f ofs(blurScaleB * blurOffsets[i][0], blurScaleB * blurOffsets[i][1]);
+    float& offsetX = ofs[0];
 
-    GXPosition3f32(ofs.GetX(), 0.f, ofs.GetY());
+    GXPosition3f32(offsetX, 0.f, ofs[1]);
     GXColor1u32(blurColorB);
     GXTexCoord2f32(0.f, 1.f);
 
-    GXPosition3f32(0.25f + ofs.GetX(), 0.f, ofs.GetY());
+    GXPosition3f32(0.25f + offsetX, 0.f, ofs[1]);
     GXColor1u32(blurColorB);
     GXTexCoord2f32(1.f, 1.f);
 
-    GXPosition3f32(ofs.GetX(), 0.f, 0.25f + ofs.GetY());
+    GXPosition3f32(offsetX, 0.f, 0.25f + ofs[1]);
     GXColor1u32(blurColorB);
     GXTexCoord2f32(0.f, 0.f);
 
-    GXPosition3f32(0.25f + ofs.GetX(), 0.f, 0.25f + ofs.GetY());
+    GXPosition3f32(0.25f + offsetX, 0.f, 0.25f + ofs[1]);
     GXColor1u32(blurColorB);
     GXTexCoord2f32(1.f, 0.f);
 
@@ -2817,17 +2723,20 @@ void CCubeRenderer::ReallyDrawPhazonSuitIndirectEffect(const CColor& vertColor,
   CVector2i topLeft(0, 0);
   CVector2i bottomRight(width, height);
   CVector2f uv0Min(0.f, 0.f);
+  float& uv0MinX = uv0Min[0];
   CVector2f uv0Max(1.f, 1.f);
+  float& uv0MaxX = uv0Max[0];
 
   CVector2i dim = bottomRight - topLeft;
   CVector2i halfDim = dim / 2;
+  int& halfX = halfDim[0];
 
   if (dim.GetX() <= 0 || dim.GetY() <= 0) {
     return;
   }
 
-  CGraphics::LoadDolphinSpareTexture(halfDim.GetX(), halfDim.GetY(), GX_TF_RGB565,
-                                     CGraphics::mpSpareBuffer, CGraphics::kSpareBufferTexMapID);
+  CGraphics::LoadDolphinSpareTexture(halfX, halfDim.GetY(), GX_TF_RGB565, CGraphics::mpSpareBuffer,
+                                     CGraphics::kSpareBufferTexMapID);
   indirectTex.Load(GX_TEXMAP1, CTexture::kCM_Repeat);
   maskTex.Load(GX_TEXMAP2, CTexture::kCM_Repeat);
 
@@ -2903,33 +2812,35 @@ void CCubeRenderer::ReallyDrawPhazonSuitIndirectEffect(const CColor& vertColor,
 
   const uint vertColorU32 = vertColor.GetColor_u32();
   CVector2f uv1Min(0.f, 0.f);
+  float& uv1MinX = uv1Min[0];
   CVector2f uv1Max(1.f, 1.f);
+  float& uv1MaxX = uv1Max[0];
 
   CGX::Begin(GX_TRIANGLEFAN, GX_VTXFMT0, 4);
 
   GXPosition3f32(topLeft.GetX(), 0.5f, topLeft.GetY());
   GXColor1u32(vertColorU32);
   GXTexCoord2f32(0.01f, 0.01f);
-  GXTexCoord2f32(uv0Min.GetX(), uv0Min.GetY());
-  GXTexCoord2f32(uv1Min.GetX(), uv1Min.GetY());
+  GXTexCoord2f32(uv0MinX, uv0Min[1]);
+  GXTexCoord2f32(uv1MinX, uv1Min[1]);
 
   GXPosition3f32(topLeft.GetX(), 0.5f, bottomRight.GetY());
   GXColor1u32(vertColorU32);
   GXTexCoord2f32(0.01f, 0.99f);
-  GXTexCoord2f32(uv0Min.GetX(), uv0Max.GetY());
-  GXTexCoord2f32(uv1Min.GetX(), uv1Max.GetY());
+  GXTexCoord2f32(uv0MinX, uv0Max[1]);
+  GXTexCoord2f32(uv1MinX, uv1Max[1]);
 
   GXPosition3f32(bottomRight.GetX(), 0.5f, bottomRight.GetY());
   GXColor1u32(vertColorU32);
   GXTexCoord2f32(0.99f, 0.99f);
-  GXTexCoord2f32(uv0Max.GetX(), uv0Max.GetY());
-  GXTexCoord2f32(uv1Max.GetX(), uv1Max.GetY());
+  GXTexCoord2f32(uv0MaxX, uv0Max[1]);
+  GXTexCoord2f32(uv1MaxX, uv1Max[1]);
 
   GXPosition3f32(bottomRight.GetX(), 0.5f, topLeft.GetY());
   GXColor1u32(vertColorU32);
   GXTexCoord2f32(0.99f, 0.01f);
-  GXTexCoord2f32(uv0Max.GetX(), uv0Min.GetY());
-  GXTexCoord2f32(uv1Max.GetX(), uv1Min.GetY());
+  GXTexCoord2f32(uv0MaxX, uv0Min[1]);
+  GXTexCoord2f32(uv1MaxX, uv1Min[1]);
 
   CGX::End();
 
@@ -2997,8 +2908,7 @@ void CCubeRenderer::DrawXRayOutline(const CAABox& bounds, const float*, const fl
     rstl::vector< uint > modelBits;
     octTree->FindOverlappingModels(modelBits, bounds);
 
-    int wordModel = 0;
-    for (uint i = 0; i < octTree->x14_bitmapWordCount; ++i, wordModel += 0x20) {
+    for (int i = 0, wordModel = 0; i < octTree->x14_bitmapWordCount; ++i, wordModel += 0x20) {
       const uint word = modelBits[i];
       if (word == 0) {
         continue;
@@ -3016,7 +2926,7 @@ void CCubeRenderer::DrawXRayOutline(const CAABox& bounds, const float*, const fl
              surf = surf.GetNextSurface()) {
           if (surf.GetBounds().DoBoundsOverlap(bounds)) {
             const CCubeMaterial mat = modelInst->GetMaterialByIndex(surf.GetMaterialIndex());
-            CGX::SetVtxDescv_Compressed(mat.GetVertexDesc());
+            CGX::SetVtxDescv_Compressed(mat.GetVertexDescLwzx());
             CGX::CallDisplayList(surf.GetDisplayList(), surf.GetDisplayListSize());
           }
         }

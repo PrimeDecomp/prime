@@ -17,7 +17,7 @@
 
 CGX_INLINE void CGX::SetNumChans(uchar num) {
   sGXState.x4e_numChans = num;
-  sGXState.x4c_flags.numDirty = sGXState.x4e_numChans != sGXState.x4d_prevNumChans;
+  sGXState.x4c_flags.numDirty = num != sGXState.x4d_prevNumChans;
 }
 
 CGX_INLINE void CGX::SetNumTexGens(uchar num) {
@@ -61,7 +61,7 @@ CGX_INLINE void CGX::SetChanCtrl(EChannelId channel, GXBool enable, GXColorSrc a
       ((flags != prevFlags) << (channel + 1)) | (sGXState.x4c_chanFlags & ~(1 << (channel + 1)));
 }
 
-CGX_INLINE void CGX::SetChanCtrl_Compressed(EChannelId channel, int lights, uint ctrl) {
+CGX_INLINE void CGX::SetChanCtrl_Compressed(EChannelId channel, GXLightID lights, uint ctrl) {
   ushort& state = sGXState.x34_chanCtrls[channel];
   ushort prevFlags = sGXState.x30_prevChanCtrls[channel];
   uint flags = ctrl & ~1;
@@ -89,8 +89,7 @@ CGX_INLINE void CGX::SetTevKColor(GXTevKColorID id, const GXColor& color) {
 
 CGX_INLINE void CGX::SetTevColorIn(GXTevStageID stageId, GXTevColorArg a, GXTevColorArg b,
                                    GXTevColorArg c, GXTevColorArg d) {
-  const uint flags = MaskAndShiftLeft(a, 0x1F, 0) | MaskAndShiftLeft(b, 0x1F, 5) |
-                     MaskAndShiftLeft(c, 0x1F, 10) | MaskAndShiftLeft(d, 0x1F, 15);
+  const uint flags = (a & 0x1F) | ((b & 0x1F) << 5) | ((c & 0x1F) << 10) | ((d & 0x1F) << 15);
   STevState& state = sGXState.x68_tevStates[stageId];
   if (flags != state.x0_colorInArgs) {
     state.x0_colorInArgs = flags;
@@ -198,8 +197,7 @@ CGX_INLINE void CGX::SetTevKAlphaSel(GXTevStageID stageId, GXTevKAlphaSel sel) {
 CGX_INLINE void CGX::SetTevOrder(GXTevStageID stageId, GXTexCoordID texCoord, GXTexMapID texMap,
                                  GXChannelID color) {
   STevState& state = sGXState.x68_tevStates[stageId];
-  uint flags = MaskAndShiftLeft(texCoord, 0xFF, 0) | MaskAndShiftLeft(texMap, 0xFF, 8) |
-               MaskAndShiftLeft(color, 0xFF, 16);
+  uint flags = (texCoord & 0xFF) | ((texMap & 0xFF) << 8) | ((color & 0xFF) << 16);
   if (state.x14_tevOrderFlags != flags) {
     state.x14_tevOrderFlags = flags;
     GXSetTevOrder(stageId, texCoord, texMap, color);
@@ -274,9 +272,8 @@ CGX_INLINE void CGX::SetTexCoordGen(GXTexCoordID dstCoord, GXTexGenType fn, GXTe
   // Similarly to GXTexMtx, this should also be divided by 3
   vp /= 3;
 #endif
-  uint flags = MaskAndShiftLeft(fn, 0xF, 0) | MaskAndShiftLeft(src, 0x1F, 4) |
-               MaskAndShiftLeft(vm, 0x1F, 9) | MaskAndShiftLeft(normalize, 1, 14) |
-               MaskAndShiftLeft(vp, 0x3F, 15);
+  uint flags = (fn & 0xF) | ((src & 0x1F) << 4) | ((vm & 0x1F) << 9) | ((normalize & 1) << 14) |
+               ((vp & 0x3F) << 15);
   if (state.x0_coordGen != flags) {
     state.x0_coordGen = flags;
     GXSetTexCoordGen2(dstCoord, fn, src, mtx, normalize, postMtx);
@@ -286,12 +283,12 @@ CGX_INLINE void CGX::SetTexCoordGen(GXTexCoordID dstCoord, GXTexGenType fn, GXTe
 CGX_INLINE void CGX::SetTexCoordGen_Compressed(GXTexCoordID dstCoord, uint flags) {
   STexState& state = sGXState.x228_texStates[dstCoord];
   if (state.x0_coordGen != flags) {
+    GXTexMtx vm = static_cast< GXTexMtx >((flags >> 9 & 0x1F) + GX_TEXMTX0);
+    GXPTTexMtx vp = static_cast< GXPTTexMtx >((flags >> 15 & 0x3F) + GX_PTTEXMTX0);
     state.x0_coordGen = flags;
     GXSetTexCoordGen2(dstCoord, static_cast< GXTexGenType >(flags & 0xF),
-                      static_cast< GXTexGenSrc >(flags >> 4 & 0x1F),
-                      static_cast< GXTexMtx >((flags >> 9 & 0x1F) * 3 + GX_TEXMTX0),
-                      static_cast< GXBool >(flags >> 14 & 1),
-                      static_cast< GXPTTexMtx >(flags >> 15 & 0x3F));
+                      static_cast< GXTexGenSrc >(flags >> 4 & 0x1F), vm,
+                      static_cast< GXBool >(flags >> 14 & 1), vp);
   }
 }
 
