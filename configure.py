@@ -525,7 +525,7 @@ config.libs = [
                 "MetroidPrime/Tweaks/CTweakGame.cpp",
             ),
             Object(Matching, "MetroidPrime/Weapons/CGameProjectile.cpp"),
-            Object(NonMatching, "MetroidPrime/Player/CPlayerGun.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Player/CPlayerGun.cpp"),
             Object(NonMatching, "MetroidPrime/CStateManager.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CEntity.cpp"),
             Object(
@@ -957,7 +957,7 @@ config.libs = [
                 "MetroidPrime/GameObjectLists.cpp",
             ),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Weapons/CAuxWeapon.cpp"),
-            Object(NonMatching, "MetroidPrime/Weapons/CGunWeapon.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Weapons/CGunWeapon.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/ScriptObjects/CScriptAreaAttributes.cpp"),
             Object(NonMatching, "MetroidPrime/Weapons/CWaveBuster.cpp"),
             Object(NonMatching, "MetroidPrime/Player/CStaticInterference.cpp"),

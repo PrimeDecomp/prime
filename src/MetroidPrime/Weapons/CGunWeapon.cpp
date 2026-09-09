@@ -30,34 +30,34 @@
 
 #pragma inline_max_size(250)
 
-static const char* const skMuzzleNames[] = {
+const char* const CGunWeapon::skMuzzleNames[10] = {
     "PowerMuzzle", "PowerCharge",  "IceMuzzle",    "IceCharge",    "PowerMuzzle",
     "WaveCharge",  "PlasmaMuzzle", "PlasmaCharge", "PhazonMuzzle", "EmptyMuzzle",
 };
 
-static const char* const skFrozenNames[] = {
+const char* const CGunWeapon::skFrozenNames[10] = {
     "powerFrozen", "Ice2nd_2",     "iceFrozen", "Ice2nd_2",  "waveFrozen",
     "Ice2nd_2",    "plasmaFrozen", "Ice2nd_2",  "iceFrozen", "Ice2nd_2",
 };
 
-static const char* const skBeamXferNames[] = {
+const char* const CGunWeapon::skBeamXferNames[5] = {
     "PowerXfer", "IceXfer", "WaveXfer", "PlasmaXfer", "PhazonXfer",
 };
 
-static const char* const skAnimDependencyNames[] = {
+const char* const CGunWeapon::skAnimDependencyNames[5] = {
     "Power_Anim_DGRP", "Ice_Anim_DGRP", "Wave_Anim_DGRP", "Plasma_Anim_DGRP", "Phazon_Anim_DGRP",
 };
 
-static const char* const skDependencyNames[] = {
+const char* const CGunWeapon::skDependencyNames[5] = {
     "Power_DGRP", "Ice_DGRP", "Wave_DGRP", "Plasma_DGRP", "Phazon_DGRP",
 };
 
-static const char* const skSuitArmNames[] = {
+const char* const CGunWeapon::skSuitArmNames[8] = {
     "PowerArm",  "GravityArm", "VariaArm",   "PhazonArm",
     "FusionArm", "FusionArmG", "FusionArmV", "FusionArmP",
 };
 
-static const int skAnimTypeList[] = {
+const int CGunWeapon::skAnimTypeList[11] = {
     0, 4, 1, 2, 3, 5, 6, 7, 8, 9, 10,
 };
 
@@ -198,10 +198,11 @@ void CGunWeapon::PlayAnim(NWeaponTypes::EGunAnimType type, bool loop) {
       type > NWeaponTypes::kGAT_ToBeam) {
     return;
   }
-  x10_solidModelData->AnimationData()->EnableLooping(loop);
+  CAnimData& animData = *x10_solidModelData->AnimationData();
+  animData.EnableLooping(loop);
 
   const CAnimPlaybackParms parms(skAnimTypeList[type], -1, 1.f, true);
-  x10_solidModelData->AnimationData()->SetAnimation(parms, false);
+  animData.SetAnimation(parms, false);
 }
 
 void CGunWeapon::Reset(CStateManager& mgr) {
@@ -209,8 +210,8 @@ void CGunWeapon::Reset(CStateManager& mgr) {
     return;
 
   x10_solidModelData->AnimationData()->EnableLooping(false);
-  if (x218_25_enableCharge)
-    x218_25_enableCharge = false;
+  if (IsCharged())
+    EnableCharge(false);
   else
     x100_gunController->Reset();
 }
@@ -316,18 +317,18 @@ void CGunWeapon::Draw(const bool drawSuitArm, const CStateManager& mgr, const CT
   if (!x218_26_loaded)
     return;
 
-  CTransform4f armXf = xf * x10_solidModelData->GetScaledLocatorTransform(rstl::string_l("elbow"));
+  CTransform4f armXf =
+      xf * x10_solidModelData->GetScaledLocatorTransform(rstl::string_l(skElbowLocator));
 
   if (x1bc_rainSplashGenerator && x1bc_rainSplashGenerator->IsRaining()) {
-    CSkinnedModel::SetPointGeneratorFunc((void*)x1bc_rainSplashGenerator,
-                                         &CGunWeapon::PointGenerator);
+    CSkinnedModel::SetPointGeneratorFunc(x1bc_rainSplashGenerator, &CGunWeapon::PointGenerator);
   }
 
   if (mgr.GetThermalDrawFlag() == kTD_Hot && x200_beamId != CPlayerState::kBI_Ice) {
     /* Hot Draw */
-    float a = flags.GetColor().GetAlpha();
+    float a = flags.GetColorRef().GetAlpha();
     const CColor mulColor(a, a, a, a);
-    CColor addColor((uchar)0x40, 0x40, 0x40, 0x40);
+    CColor addColor(static_cast< uchar >(0x40), 0x40, 0x40, 0x40);
     if (x218_29_drawHologram) {
       DrawHologram(mgr, xf, flags);
     } else {
@@ -364,13 +365,12 @@ void CGunWeapon::DrawHologram(const CStateManager& mgr, const CTransform4f& xf,
   if (!x218_26_loaded)
     return;
 
-  // TODO
   if (x218_29_drawHologram) {
     x60_holoModelData->FlatDraw(CModelData::kWM_Normal, xf, false, flags);
   } else {
-    const CVector3f& scale = x10_solidModelData->GetScale();
+    const CVector3f& scale = CVector3f(x10_solidModelData->GetScale());
     CTransform4f modelMatrix(xf);
-    modelMatrix = modelMatrix * CTransform4f::Scale(scale.GetX(), scale.GetY(), scale.GetZ());
+    modelMatrix *= CTransform4f::Scale(scale.GetX(), scale.GetY(), scale.GetZ());
     gpRender->SetModelMatrix(modelMatrix);
 
     CGraphics::DisableAllLights();
@@ -385,41 +385,31 @@ void CGunWeapon::DrawHologram(const CStateManager& mgr, const CTransform4f& xf,
 
 const int CGunWeapon::skShootAnim[2] = {4, 3};
 
-static float kChargeScaleFactor = 1.0f;
-
-inline float GetChargeFactor(CPlayerState::EChargeStage chargeState, float chargeFactor2) {
-  float k = chargeFactor2;
-  if (chargeState == CPlayerState::kCS_Normal) {
-    k = 1.0f;
-  }
-  return k * kChargeScaleFactor;
-}
-
 void CGunWeapon::Fire(const bool underwater, const float dt,
                       const CPlayerState::EChargeStage chargeState, const CTransform4f& xf,
                       CStateManager& mgr, const TUniqueId homingTarget, const float chargeFactor1,
                       const float chargeFactor2) {
   CDamageInfo dInfo(GetDamageInfo(mgr, chargeState, chargeFactor1));
 
-  CVector3f scale(GetChargeFactor(chargeState, chargeFactor2),
-                  GetChargeFactor(chargeState, chargeFactor2),
-                  GetChargeFactor(chargeState, chargeFactor2));
+  CVector3f scale =
+      (chargeState == CPlayerState::kCS_Normal ? 1.f : chargeFactor2) * CVector3f(1.f, 1.f, 1.f);
   bool partialCharge =
       chargeState == CPlayerState::kCS_Normal ? false : !close_enough(chargeFactor1, 1.f);
 
   uint particleChargeAttribs = 0;
   if (partialCharge)
-    particleChargeAttribs = CWeapon::kPA_PartialCharge;
+    particleChargeAttribs = CWeapon::kPA_ParticleOPTS;
 
-  uint attribs = CWeapon::kPA_ArmCannon;
-  if (chargeState != CPlayerState::kCS_Normal)
-    attribs = CWeapon::kPA_ArmCannon | CWeapon::kPA_Charged;
+  const uint attribs = chargeState != CPlayerState::kCS_Normal
+                           ? CWeapon::kPA_ArmCannon | CWeapon::kPA_Charged
+                           : CWeapon::kPA_ArmCannon;
 
+  const uint projectileAttribs = attribs | particleChargeAttribs;
+  const TToken< CWeaponDescription >& weapon = x144_weapons[chargeState];
   CEnergyProjectile* proj = rs_new CEnergyProjectile(
-      true, x144_weapons[chargeState], x1c0_weaponType, xf, x1c8_playerMaterial, dInfo,
-      mgr.AllocateUniqueId(), kInvalidAreaId, GetPlayerId(), homingTarget,
-      particleChargeAttribs | attribs, underwater, scale, rstl::optional_object_null(),
-      CSfxManager::kInternalInvalidSfxId, false);
+      true, weapon, x1c0_weaponType, xf, x1c8_playerMaterial, dInfo, mgr.AllocateUniqueId(),
+      kInvalidAreaId, GetPlayerId(), homingTarget, projectileAttribs, underwater, scale,
+      rstl::optional_object_null(), CSfxManager::kInternalInvalidSfxId, false);
   if (proj) {
     mgr.AddObject(proj);
     proj->Think(dt, mgr);
@@ -430,9 +420,10 @@ void CGunWeapon::Fire(const bool underwater, const float dt,
     mgr.CameraManager()->AddCameraShaker(CCameraShakeData::skSoftRecoil, false);
   }
 
-  x10_solidModelData->AnimationData()->EnableLooping(false);
+  CAnimData& animData = *x10_solidModelData->AnimationData();
+  animData.EnableLooping(false);
   CAnimPlaybackParms parms(skShootAnim[chargeState], -1, 1.f, true);
-  x10_solidModelData->AnimationData()->SetAnimation(parms, false);
+  animData.SetAnimation(parms, false);
 }
 
 void CGunWeapon::ReturnToDefault(CStateManager& mgr) {
@@ -520,9 +511,9 @@ bool CGunWeapon::IsLoaded() const { return x218_26_loaded; }
 
 void CGunWeapon::AllocResPools(CPlayerState::EBeamId beam) {
   const CTweakGunRes::ResIdVec& wPair = gpTweakGunRes->GetBeamResIdVec(beam);
-  const char* const* muzzleNames = &skMuzzleNames[size_t(beam) * 2];
 
   for (int i = 0; i < x16c_muzzleEffects.capacity(); ++i) {
+    const char* const* muzzleNames = &skMuzzleNames[size_t(beam) * 2];
     x16c_muzzleEffects.push_back(gpSimplePool->GetObj(muzzleNames[i]));
     x144_weapons.push_back(gpSimplePool->GetObj(SObjectTag('WPSC', wPair[i])));
   }
@@ -566,22 +557,22 @@ void CGunWeapon::LoadFxIdle(float dt, CStateManager& mgr) {
 
   bool loaded = true;
   for (int i = 0; i < x16c_muzzleEffects.capacity(); ++i) {
-    if (!x16c_muzzleEffects[i].IsLoaded()) {
+    if (!x16c_muzzleEffects[i].TryCache()) {
       loaded = false;
       break;
     }
-    if (!x144_weapons[i].IsLoaded()) {
+    if (!x144_weapons[i].TryCache()) {
       loaded = false;
       break;
     }
   }
   for (int i = 0; i < x188_frozenEffects.capacity(); ++i) {
-    if (!x188_frozenEffects[i].IsLoaded()) {
+    if (!x188_frozenEffects[i].TryCache()) {
       loaded = false;
       break;
     }
   }
-  if (!x160_xferEffect.IsLoaded()) {
+  if (!x160_xferEffect.TryCache()) {
     loaded = false;
   }
   if (loaded) {
@@ -675,7 +666,7 @@ void CGunWeapon::LoadSuitArm(CStateManager& mgr) {
 void CGunWeapon::PointGenerator(void* ptr, const CVector3f* vertices, const CVector3f* normals,
                                 int count) {
 
-  ((CRainSplashGenerator*)ptr)->GeneratePoints(vertices, normals, count);
+  static_cast< CRainSplashGenerator* >(ptr)->GeneratePoints(vertices, normals, count);
 }
 
 void CGunWeapon::EnableFrozenEffect(EFrozenFxType type) {

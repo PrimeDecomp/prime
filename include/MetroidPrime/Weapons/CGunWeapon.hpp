@@ -107,6 +107,8 @@ public:
   CAABox GetBounds(const CTransform4f& xf) const;
   const SWeaponInfo& GetWeaponInfo() const;
   void ActivateCharge(bool enable, bool resetEffect);
+  bool IsCharged() const { return x218_25_enableCharge; }
+  void EnableCharge(bool enable) { x218_25_enableCharge = enable; }
   bool PlayPasAnim(SamusGun::EAnimationState state, CStateManager& mgr, float angle);
   bool IsChargeAnimOver() const;
   void UpdateMuzzleFx(const float dt, const CVector3f& scale, const CVector3f& pos,
@@ -171,6 +173,13 @@ protected:
   static const char* const skMuzzleLocator;
   static const char* const skElbowLocator;
   static const int skShootAnim[2];
+  static const char* const skMuzzleNames[10];
+  static const char* const skFrozenNames[10];
+  static const char* const skBeamXferNames[5];
+  static const char* const skAnimDependencyNames[5];
+  static const char* const skDependencyNames[5];
+  static const char* const skSuitArmNames[8];
+  static const int skAnimTypeList[11];
 
   void AllocResPools(CPlayerState::EBeamId beam);
   void FreeResPools();

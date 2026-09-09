@@ -326,7 +326,7 @@ private:
   uint x300_remainingMissiles;
   uint x304_;
   int x308_bombCount;
-  uint x30c_rapidFireShots;
+  int x30c_rapidFireShots;
   CPlayerState::EBeamId x310_currentBeam;
   CPlayerState::EBeamId x314_nextBeam;
   uint x318_comboAmmoIdx;
