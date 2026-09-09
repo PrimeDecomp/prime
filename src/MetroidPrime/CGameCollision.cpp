@@ -567,7 +567,7 @@ CRayCastResult CGameCollision::RayDynamicIntersection(const CStateManager& mgr, 
 
 bool CGameCollision::RayDynamicIntersectionBool(const CStateManager& mgr, const CVector3f& pos,
                                                 const CVector3f& dir, const CMaterialFilter& filter,
-                                                TEntityList nearList, const CActor* damagee,
+                                                const TEntityList& nearList, const CActor* damagee,
                                                 float length) {
   float mag = length > 0.f ? length : 100000.f;
 

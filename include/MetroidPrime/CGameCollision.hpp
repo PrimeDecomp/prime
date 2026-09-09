@@ -82,7 +82,7 @@ public:
                                                float mag, const CMaterialFilter& filter,
                                                const TEntityList& nearList);
   static bool RayDynamicIntersectionBool(const CStateManager&, const CVector3f&, const CVector3f&,
-                                         const CMaterialFilter&, TEntityList, const CActor*, float);
+                                         const CMaterialFilter&, const TEntityList&, const CActor*, float);
   static CRayCastResult RayWorldIntersection(const CStateManager& mgr, TUniqueId& idOut,
                                              const CVector3f& pos, const CVector3f& dir,
                                              float mag, const CMaterialFilter& filter,
