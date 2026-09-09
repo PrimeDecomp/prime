@@ -1,5 +1,7 @@
+#define CSTATEMANAGER_OUT_OF_LINE_GETPLAYER
 #include "MetroidPrime/Weapons/CShockWave.hpp"
 
+#include "Kyoto/Audio/CSfxManager.hpp"
 #include "Kyoto/Math/CAABox.hpp"
 #include "MetaRender/CCubeRenderer.hpp"
 #include "MetroidPrime/CActorParameters.hpp"
@@ -7,6 +9,7 @@
 #include "MetroidPrime/CEntityInfo.hpp"
 #include "MetroidPrime/CGameLight.hpp"
 #include "MetroidPrime/Player/CPlayer.hpp"
+#include "MetroidPrime/ScriptObjects/CHUDBillboardEffect.hpp"
 #include "MetroidPrime/TGameTypes.hpp"
 
 #include <Kyoto/CSimplePool.hpp>
@@ -108,7 +111,7 @@ void CShockWave::Touch(CActor& actor, CStateManager& mgr) {
     return;
   }
 
-  bool isParent = mParentId == actor.GetUniqueId();
+  bool isParent = actor.GetUniqueId() == mParentId;
 
   if (const CCollisionActor* colAct =
           TCastToConstPtr< CCollisionActor >(mgr.GetObjectById(actor.GetUniqueId()))) {
@@ -119,7 +122,71 @@ void CShockWave::Touch(CActor& actor, CStateManager& mgr) {
     return;
   }
 
-  // TODO: Finish
+  float maxDistance = mRadius * mRadius;
+  CVector3f distance = actor.GetTranslation() - GetTranslation();
+  float minDistance =
+      maxDistance * mShockWaveInfo.GetWidthPercent() * mShockWaveInfo.GetWidthPercent();
+  CDamageInfo damageInfo = mDamageInfo;
+  float knockbackScale = rstl::max_val(1.f - mKnockBack * mActiveTime, 0.f);
+  const bool isPlayer = actor.GetUniqueId() == mgr.GetPlayer()->GetUniqueId();
+  const bool isPlayerInAir =
+      isPlayer && mgr.Player()->GetPlayerMovementState() != NPlayer::kMS_OnGround;
+  distance.SetZ(0.f);
+  const float distanceSquared = CVector3f::Dot(distance, distance);
+  if (distanceSquared >= minDistance && distanceSquared <= maxDistance) {
+    if (isPlayer) {
+      if (mgr.Player()->GetMorphballTransitionState() == CPlayer::kMS_Unmorphed) {
+        const CTransform4f playerTransform = mgr.Player()->GetTransform();
+        CVector3f playerDirection = GetTranslation() - playerTransform.GetTranslation();
+        if (playerDirection.CanBeNormalized()) {
+          playerDirection.Normalize();
+          const float dot =
+              CMath::AbsF(CVector3f::Dot(playerDirection, playerTransform.GetForward()));
+          const float minKnockbackScale = 1.f - 0.88f;
+          knockbackScale *= rstl::max_val(minKnockbackScale, 0.88f * (dot * dot));
+        }
+      }
+      const CVector3f velocity = mgr.Player()->GetVelocityWR();
+      if (velocity.Magnitude() > 40.f) {
+        mTimeSinceHitPlayer = 0.2666f;
+      }
+    }
+    damageInfo.SetKnockBackPower(knockbackScale * mDamageInfo.GetKnockBackPower());
+
+    bool canDamage = true;
+    if (isPlayer && (mTimeSinceHitPlayerInAir >= 0.1333f || mTimeSinceHitPlayer >= 0.2666f)) {
+      canDamage = false;
+    }
+    if (canDamage) {
+      if (!WasAlreadyDamaged(actor.GetUniqueId())) {
+        mgr.ApplyDamage(
+            GetUniqueId(), actor.GetUniqueId(), GetUniqueId(), damageInfo,
+            CMaterialFilter::MakeIncludeExclude(CMaterialList(SolidMaterial), CMaterialList()),
+            CVector3f::Zero());
+        if (isPlayer && mElectricDesc) {
+          mgr.AddObject(rs_new CHUDBillboardEffect(
+              rstl::optional_object_null(), mElectricDesc, mgr.AllocateUniqueId(), true,
+              rstl::string_l("VisorElectricFx"), CHUDBillboardEffect::GetNearClipDistance(mgr),
+              CHUDBillboardEffect::GetScaleForPOV(mgr), CColor(1.f, 1.f, 1.f, 1.f),
+              CVector3f(1.f, 1.f, 1.f), CVector3f(0.f, 0.f, 0.f)));
+          CSfxManager::SfxStart(mShockWaveInfo.GetElectrocuteSfx());
+        }
+        mHitIds.push_back(actor.GetUniqueId());
+      } else {
+        damageInfo.SetDamage(0.f);
+        mgr.ApplyDamage(
+            GetUniqueId(), actor.GetUniqueId(), GetUniqueId(), damageInfo,
+            CMaterialFilter::MakeIncludeExclude(CMaterialList(SolidMaterial), CMaterialList()),
+            CVector3f::Zero());
+      }
+      if (isPlayerInAir) {
+        mHitPlayerInAir = true;
+      }
+      if (isPlayer) {
+        mHitPlayer = true;
+      }
+    }
+  }
 }
 
 rstl::optional_object< CAABox > CShockWave::GetTouchBounds() const {

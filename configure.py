@@ -1082,7 +1082,7 @@ config.libs = [
             ),
             Object(Matching, "MetroidPrime/Enemies/CBouncyGrenade.cpp"),
             Object(Matching, "MetroidPrime/Enemies/CGrenadeLauncher.cpp"),
-            Object(NonMatching, "MetroidPrime/Weapons/CShockWave.cpp"),
+            Object(MatchingFor("GM8E01_00"), "MetroidPrime/Weapons/CShockWave.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/Enemies/CRipperControlledPlatform.cpp",
