@@ -38,7 +38,7 @@ public:
   virtual void TakeDamage(const CVector3f& direction, float magnitude);
   virtual bool CanBeShot(const CStateManager&, int) { return true; }
   virtual bool IsListening() const;
-  virtual bool Listen(const CVector3f&, EListenNoiseType);
+  virtual bool Listen(const CVector3f&, EListenNoiseType) { return false; }
 
   virtual CVector3f GetOrigin(const CStateManager& mgr, const CTeamAiRole& role,
                               const CVector3f& aimPos) const;
