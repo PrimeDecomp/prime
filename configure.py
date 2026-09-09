@@ -1682,7 +1682,7 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
                 "Kyoto/CARAMManager.cpp",
             ),
-            Object(NonMatching, "Kyoto/Math/CFrustumPlanes.cpp"),
+            Object(MatchingFor("GM8E01_00"), "Kyoto/Math/CFrustumPlanes.cpp"),
             Object(NonMatching, "Kyoto/Graphics/CCubeMaterial.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00", "GM8J01_00"),
