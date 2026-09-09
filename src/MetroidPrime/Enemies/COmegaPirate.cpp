@@ -1386,7 +1386,7 @@ void COmegaPirate::QueueTrooperPiratesOfActiveType(uint count, CStateManager& mg
   rstl::vector< uchar > activeTypes;
   activeTypes.reserve(4);
   uint numEntries = xab4_.size();
-  rstl::vector< uchar > queued(4, 0);
+  rstl::vector< uchar > queued(4, static_cast< uchar >(0));
   for (uint i = 0; i < numEntries;) {
     ++queued[xab4_[i++]];
   }
@@ -1639,7 +1639,7 @@ uint COmegaPirate::GetNumActiveTrooperPirates() const {
 
 uint COmegaPirate::GetNumTypesOfActiveAndQueuedTrooperPirates() const {
   const uint numQueued = xab4_.size();
-  rstl::vector< uchar > queued(4, 0);
+  rstl::vector< uchar > queued(4, static_cast< uchar >(0));
   for (uint i = 0; i < numQueued;) {
     ++queued[xab4_[i++]];
   }

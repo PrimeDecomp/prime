@@ -2,6 +2,7 @@
 #define _CMIDIMANAGER
 
 #include "Kyoto/Audio/CSfxHandle.hpp"
+#include "Kyoto/SObjectTag.hpp"
 
 #include <rstl/auto_ptr.hpp>
 #include <rstl/reserved_vector.hpp>
@@ -35,13 +36,13 @@ public:
 
     const short GetSongId() const { return x0_songId; }
     const short GetGroupId() const { return x2_groupId; }
-    const int GetSetupId() const { return x4_setupId; }
+    CAssetId GetAGSCAssetId() const { return x4_agscId; }
     uchar* GetData() const { return x8_data.get(); }
 
   private:
     short x0_songId;
     short x2_groupId;
-    int x4_setupId;
+    CAssetId x4_agscId;
     rstl::auto_ptr< uchar > x8_data;
   };
 

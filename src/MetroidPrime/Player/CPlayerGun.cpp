@@ -965,7 +965,7 @@ void CPlayerGun::Update(float grappleSwingT, float cameraBobT, float dt, CStateM
     ProcessPhazonGunMorph(advDt, mgr);
   }
 
-  if (x832_26_comboFiring && x77c_comboXferGen.get()) {
+  if (x832_26_comboFiring && !x77c_comboXferGen.null()) {
     x77c_comboXferGen->SetGlobalTranslation(x418_beamLocalXf.GetTranslation());
     x77c_comboXferGen->SetGlobalOrientation(x418_beamLocalXf.GetRotation());
     x77c_comboXferGen->Update(advDt);

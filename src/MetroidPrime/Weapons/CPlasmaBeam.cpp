@@ -14,7 +14,7 @@
 
 #include "rstl/math.hpp"
 
-CCameraShakeData CameraShaker = CCameraShakeData(0.125f, 0.25f);
+CCameraShakeData CameraShaker = CCameraShakeData::HardVertShake(0.125f, 0.25f);
 static const ushort kSoundId[2] = {SFXsam_a_plafire_00, SFXsam_a_plachfire_00};
 
 CPlasmaBeam::CPlasmaBeam(const CAssetId characterId, const EWeaponType type,

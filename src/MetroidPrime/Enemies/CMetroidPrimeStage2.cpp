@@ -724,7 +724,7 @@ void CMetroidPrimeStage2::BlastShake(float magnitude, CStateManager& mgr) {
   const CVector3f delta = GetTranslation() - player->GetTranslation();
   const float shake = 0.5f - 0.01f * delta.Magnitude();
   if (shake > 0.f && player->GetSurfaceRestraint() != CPlayer::kSR_Air) {
-    mgr.CameraManager()->AddCameraShaker(CCameraShakeData(0.5f, shake), true);
+    mgr.CameraManager()->AddCameraShaker(CCameraShakeData::HardVertShake(0.5f, shake), true);
   }
 }
 

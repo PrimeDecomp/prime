@@ -17,6 +17,7 @@ public:
 
   void Stop(CStateManager& mgr);
   void Play(CStateManager& mgr);
+  static bool IsAudioTrackNameSoftware(const rstl::string& fileName);
 
 private:
   rstl::string x34_fileName;
@@ -28,7 +29,6 @@ private:
   float x4c_fadeOut;
   uint x50_volume;
 
-  static bool IsAudioTrackNameSoftware(const rstl::string& fileName);
   static CStreamAudioManager::ESoftwareChannel IsOneShot(bool);
   void StopStream(CStateManager& mgr);
   void StartStream(CStateManager& mgr);

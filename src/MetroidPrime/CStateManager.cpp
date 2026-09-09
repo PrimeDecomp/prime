@@ -811,7 +811,7 @@ void CStateManager::InitializeState(unsigned int mlvlId, TAreaId aid, unsigned i
 
   SetCurrentAreaId(x8cc_nextAreaId);
   gpGameState->CurrentWorldState().SetAreaId(x8cc_nextAreaId);
-  x850_world->TravelToArea(x8cc_nextAreaId, *this, true);
+  x850_world->TravelToArea(x8cc_nextAreaId, *this, CWorld::kATT_SkipAdjacent);
   UpdateRoomAcoustics(x8cc_nextAreaId);
 
   CObjectList* allList = x808_objectLists[kOL_All].get();
@@ -1195,7 +1195,7 @@ void CStateManager::Update(float dt) {
 
   gpGameState->CurrentWorldState().SetAreaId(x8cc_nextAreaId);
 
-  x850_world->TravelToArea(x8cc_nextAreaId, *this, false);
+  x850_world->TravelToArea(x8cc_nextAreaId, *this, CWorld::kATT_LoadAdjacent);
 
   ClearGraveyard();
   ++x8d8_updateFrameIdx;
@@ -2472,7 +2472,8 @@ void CStateManager::UpdateEscapeSequenceTimer(float dt) {
       const float factor = 1.f - xf0c_escapeTimer / totalTime;
       const float factorSq = factor * factor;
       {
-        const CCameraShakeData shakeData(1.f, 0.2f * factorSq * x900_random->Range(0.5f, 1.f));
+        const CCameraShakeData& shakeData =
+            CCameraShakeData::HardVertShake(1.f, 0.2f * factorSq * x900_random->Range(0.5f, 1.f));
         x870_cameraManager->AddCameraShaker(shakeData, true);
       }
       x88c_rumbleManager->Rumble(*this, static_cast< ERumbleFxId >(0xb), 0.75f, kRP_One);
@@ -2765,11 +2766,11 @@ void CStateManager::SetSinglePathMaze(rstl::single_ptr< CSinglePathMaze > maze) 
   xf70_currentMaze = maze;
 }
 
-void CStateManager::SetPendingOnScreenTex(CAssetId texId, const CVector2i& origin,
-                                          const CVector2i& extent) {
+void CStateManager::SetPendingOnScreenTex(CAssetId texId, const CVector2i& extent,
+                                          const CVector2i& offset) {
   xef4_pendingScreenTex.x0_id = texId;
-  xef4_pendingScreenTex.x4_origin = origin;
-  xef4_pendingScreenTex.xc_extent = extent;
+  xef4_pendingScreenTex.x4_extent = extent;
+  xef4_pendingScreenTex.xc_offset = offset;
 }
 
 void CStateManager::SetGameState(EGameState state) {

@@ -1230,7 +1230,7 @@ void CElitePirate::ProcessStompGround(CStateManager& mgr) {
     if (player.GetMorphballTransitionState() != CPlayer::kMS_Morphed) {
       if (mgr.GetCameraManager()->GetCurrentCameraId() ==
           mgr.GetCameraManager()->GetFirstPersonCamera()->GetUniqueId()) {
-        mgr.CameraManager()->AddCameraShaker(CCameraShakeData(0.5f, magnitude), true);
+        mgr.CameraManager()->AddCameraShaker(CCameraShakeData::HardVertShake(0.5f, magnitude), true);
       }
     } else {
       const float intensity = x988_29_shockWaveAnim ? 20.f : 10.f;

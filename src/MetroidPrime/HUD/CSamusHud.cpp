@@ -1189,7 +1189,7 @@ void CSamusHud::UpdateStateTransition(float dt, const CStateManager& mgr) {
   }
 }
 
-void CSamusHud::OnNewInGameGuiState(EInGameGuiState state, CStateManager& mgr) {}
+void CSamusHud::OnNewInGameGuiState(EInGameGuiState state, const CStateManager& mgr) {}
 
 void CSamusHud::Touch() const {
   if (x264_loadedFrmeHelmet != nullptr) {

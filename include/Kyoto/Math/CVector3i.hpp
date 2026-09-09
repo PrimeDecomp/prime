@@ -4,6 +4,7 @@
 class CVector3i {
 public:
   CVector3i(int x, int y, int z);
+  int operator[](int index) const { return (&mX)[index]; }
 
 private:
   int mX;

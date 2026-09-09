@@ -427,7 +427,7 @@ void CGunWeapon::Fire(const bool underwater, const float dt,
 
   if (chargeState != CPlayerState::kCS_Normal) {
     x218_25_enableCharge = true;
-    mgr.CameraManager()->AddCameraShaker(CCameraShakeData::skHardRecoil, false);
+    mgr.CameraManager()->AddCameraShaker(CCameraShakeData::skSoftRecoil, false);
   }
 
   x10_solidModelData->AnimationData()->EnableLooping(false);

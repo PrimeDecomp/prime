@@ -21,6 +21,7 @@ public:
   void PreDraw();
   void Draw() const;
   bool IsLoaded() const;
+  bool IsTransitioning() const { return x8_curSubscreen != xc_nextSubscreen; }
   bool ShouldSwitchToMapScreen() const;
   bool ShouldSwitchToInGame() const;
   float GetHelmetCamYOff() const;

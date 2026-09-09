@@ -76,6 +76,8 @@ public:
   const short GetWidth() const { return mWidth; }
   const short GetHeight() const { return mHeight; }
   int GetNumberOfMipMaps() const { return mNumMips; }
+  uint GetMemoryAllocated() const { return mMemoryAllocated; }
+  bool GetNoSwap() const { return mNoSwap; }
   void* Lock() {
     mLocked = true;
     return GetBitMapData(0);

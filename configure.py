@@ -548,7 +548,7 @@ config.libs = [
             Object(NonMatching, "MetroidPrime/CIOWinManager.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CIOWin.cpp"),
             Object(NonMatching, "MetroidPrime/CActor.cpp"),
-            Object(NonMatching, "MetroidPrime/CWorld.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CWorld.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/Tweaks/CTweakParticle.cpp",
@@ -584,7 +584,7 @@ config.libs = [
                 "MetroidPrime/ScriptObjects/CScriptWaypoint.cpp",
             ),
             Object(NonMatching, "MetroidPrime/Enemies/CPatterned.cpp"),
-            Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptDoor.cpp"),
+            Object(MatchingFor("GM8E01_00"), "MetroidPrime/ScriptObjects/CScriptDoor.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CStateMachine.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CMapArea.cpp"),
             Object(NonMatching, "MetroidPrime/Cameras/CBallCamera.cpp"),
@@ -781,7 +781,10 @@ config.libs = [
                 "MetroidPrime/BodyState/CBodyStateCmdMgr.cpp",
                 cflags=[*cflags_retro, "-inline auto"],
             ),
-            Object(NonMatching, "MetroidPrime/BodyState/CBodyStateInfo.cpp"),
+            Object(
+                MatchingFor("GM8E01_00", "GM8E01_01"),
+                "MetroidPrime/BodyState/CBodyStateInfo.cpp",
+            ),
             Object(NonMatching, "MetroidPrime/BodyState/CBSAttack.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
@@ -1024,7 +1027,7 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/ScriptObjects/CScriptAiJumpPoint.cpp",
             ),
-            Object(NonMatching, "MetroidPrime/CMessageScreen.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CMessageScreen.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Enemies/CFlaahgraTentacle.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
@@ -1114,7 +1117,7 @@ config.libs = [
             Object(NonMatching, "MetroidPrime/CMemoryCardDriver.cpp"),
             Object(NonMatching, "MetroidPrime/CSaveGameScreen.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Enemies/CAtomicBeta.cpp"),
-            Object(NonMatching, "MetroidPrime/Weapons/CElectricBeamProjectile.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Weapons/CElectricBeamProjectile.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CRidley.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CPuffer.cpp"),
             Object(
@@ -1200,12 +1203,14 @@ config.libs = [
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"), "WorldFormat/CAreaBspTree.cpp"
             ),
-            Object(NonMatching, "WorldFormat/CAreaOctTree.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "WorldFormat/CAreaOctTree.cpp"),
             Object(NonMatching, "WorldFormat/CMetroidAreaCollider.cpp"),
             Object(NonMatching, "WorldFormat/CWorldLight.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "WorldFormat/COBBTree.cpp"),
             Object(NonMatching, "WorldFormat/CCollidableOBBTree.cpp"),
-            Object(NonMatching, "WorldFormat/CCollidableOBBTreeGroup.cpp"),
+            Object(
+                MatchingFor("GM8E01_00", "GM8E01_01"), "WorldFormat/CCollidableOBBTreeGroup.cpp"
+            ),
             Object(NonMatching, "WorldFormat/CPVSAreaSet.cpp"),
             Object(NonMatching, "WorldFormat/CAreaRenderOctTree.cpp"),
         ],
@@ -1338,7 +1343,7 @@ config.libs = [
             Object(NonMatching, "Kyoto/Animation/CAnimTreeLoopIn.cpp"),
             Object(NonMatching, "Kyoto/Animation/CAnimTreeSequence.cpp"),
             Object(NonMatching, "Kyoto/Animation/CCharacterInfo.cpp"),
-            Object(NonMatching, "Kyoto/Animation/CCharacterSet.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Animation/CCharacterSet.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Animation/CMetaAnimBlend.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),

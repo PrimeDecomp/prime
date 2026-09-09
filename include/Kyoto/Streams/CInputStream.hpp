@@ -112,7 +112,8 @@ inline ushort cinput_stream_helper(const TType< ushort >& type, CInputStream& in
 // rstl
 #include "rstl/pair.hpp"
 template < typename L, typename R >
-inline rstl::pair< L, R >::pair(CInputStream& in) : first(in.Get< L >()), second(in.Get< R >()) {}
+inline rstl::pair< L, R >::pair(CInputStream& in)
+: first(in.Get(TGetType(first))), second(in.Get(TGetType(second))) {}
 
 #include "rstl/vector.hpp"
 template < typename T, typename Alloc >
@@ -133,5 +134,20 @@ inline rstl::reserved_vector< T, N >::reserved_vector(CInputStream& in)
     construct(&data()[i], in.Get(TType< T >()));
   }
 }
+
+#include "rstl/set.hpp"
+template < typename T, typename P, bool IsMulti, typename S, typename Cmp, typename Alloc >
+inline rstl::red_black_tree< T, P, IsMulti, S, Cmp, Alloc >::red_black_tree(
+    CInputStream& in, const S& selector, const Cmp& cmp, const Alloc& alloc)
+: x0_selector(selector), x1_cmp(cmp), x2_allocator(alloc), x4_count(0) {
+  const int count = in.Get< int >();
+  for (int i = 0; i < count; ++i) {
+    insert(in.Get< P >());
+  }
+}
+
+template < typename T, typename Cmp, typename Alloc >
+inline rstl::set< T, Cmp, Alloc >::set(CInputStream& in, const Cmp& cmp, const Alloc& alloc)
+: inner(in, identity< T >(), cmp, alloc) {}
 
 #endif // _CINPUTSTREAM

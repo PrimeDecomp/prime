@@ -146,11 +146,11 @@ CAutoMapper::SAutoMapperHintLocation::SAutoMapperHintLocation(uint showBeacon, f
                                                               CAssetId worldId, TAreaId areaId)
 : x0_showBeacon(showBeacon), x4_beaconAlpha(beaconAlpha), x8_worldId(worldId), xc_areaId(areaId) {}
 
-CAutoMapper::CAutoMapper(CStateManager& stateMgr)
+CAutoMapper::CAutoMapper(const CStateManager& stateMgr)
 : x4_loadPhase(kLP_LoadResources)
 , x8_mapu(gpSimplePool->GetObj("MAPU_MapUniverse"))
 , x14_dummyWorlds()
-, x24_world(stateMgr.World())
+, x24_world(const_cast< CWorld* >(stateMgr.GetWorld()))
 , x28_frmeMapScreen()
 , x2c_frmeInitialized(nullptr)
 , x30_miniMapSamus(gpSimplePool->GetObj("CMDL_MiniMapSamus"))
@@ -356,10 +356,10 @@ void CAutoMapper::SetupHintNavigation() {
   }
 }
 
-void CAutoMapper::OnNewInGameGuiState(EInGameGuiState state, CStateManager& mgr) {
+void CAutoMapper::OnNewInGameGuiState(EInGameGuiState state, const CStateManager& mgr) {
   if (state == kIGGS_MapScreen) {
     CMain::EnsureWorldPaksReady();
-    CWorld* wld = mgr.World();
+    CWorld* wld = const_cast< CWorld* >(mgr.GetWorld());
     wld->GetMapWorld()->SetWhichMapAreasLoaded(*wld, 0, 9999);
     SetupHintNavigation();
     BeginMapperStateTransition(kAMS_MapScreen, mgr);

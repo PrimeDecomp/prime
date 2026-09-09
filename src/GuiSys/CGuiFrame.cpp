@@ -29,7 +29,7 @@ CGuiFrame::CGuiFrame(uint id, CGuiSys& sys, int a, int b, int c, CSimplePool* sp
 , xc_headWidget(nullptr)
 , x10_rootWidget(nullptr)
 , x14_camera(nullptr)
-, x3c_lights(rstl::vector< CGuiLight* >(8, nullptr))
+, x3c_lights(rstl::vector< CGuiLight* >(8, static_cast< CGuiLight* >(nullptr)))
 , x4c_a(a)
 , x50_b(b)
 , x54_c(c)

@@ -116,6 +116,8 @@ public:
 
   red_black_tree(const S& selector = S(), const Cmp& cmp = Cmp(), const Alloc& alloc = Alloc())
   : x0_selector(selector), x1_cmp(cmp), x2_allocator(alloc), x4_count(0) {}
+  red_black_tree(CInputStream& in, const S& selector = S(), const Cmp& cmp = Cmp(),
+                 const Alloc& alloc = Alloc());
   red_black_tree(const red_black_tree& other)
   : x0_selector(other.x0_selector)
   , x1_cmp(other.x1_cmp)
