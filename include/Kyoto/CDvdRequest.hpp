@@ -6,12 +6,14 @@
 
 class CDvdRequest {
 public:
-  virtual ~CDvdRequest() {};            // 8
+  virtual ~CDvdRequest() = 0;           // 8
   virtual void WaitUntilComplete() = 0; // c
   virtual bool IsComplete() = 0;        // 10
   virtual void PostCancelRequest() = 0; // 14
   virtual int GetMediaType() const = 0; // 18
 };
+
+inline CDvdRequest::~CDvdRequest() {}
 
 class CRealDvdRequest : public CDvdRequest {
 public:
