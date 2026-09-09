@@ -37,8 +37,9 @@ rstl::optional_object< CAABox > CBeamProjectile::GetTouchBounds() const {
     return rstl::optional_object_null();
   }
   const CVector3f pos = GetTranslation();
-  return CAABox(pos.GetX() - 0.1f, pos.GetY() - 0.1f, pos.GetZ() - 0.1f, pos.GetX() + 0.1f,
-                pos.GetY() + 0.1f, pos.GetZ() + 0.1f);
+  return CAABox(pos.GetX() - kProjectileBoxAllowance, pos.GetY() - kProjectileBoxAllowance,
+                pos.GetZ() - kProjectileBoxAllowance, pos.GetX() + kProjectileBoxAllowance,
+                pos.GetY() + kProjectileBoxAllowance, pos.GetZ() + kProjectileBoxAllowance);
 }
 
 void CBeamProjectile::CalculateRenderBounds() {
@@ -54,7 +55,6 @@ void CBeamProjectile::ResetBeam(CStateManager&, bool) {
     x300_intBeamLength = 0.f;
 }
 
-
 void CBeamProjectile::SetCollisionResultData(EDamageType dType, CRayCastResult& res, TUniqueId id) {
   x2f8_damageType = dType;
   x304_beamLength = res.GetTime();
@@ -62,6 +62,13 @@ void CBeamProjectile::SetCollisionResultData(EDamageType dType, CRayCastResult& 
   x30c_collisionNormal = res.GetPlane().GetNormal();
   x2fe_collisionActorId = dType == kDT_Actor ? id : kInvalidUniqueId;
   SetTranslation(res.GetPoint());
+}
+
+static inline void ApplyBeamWorldDamage(CBeamProjectile& beam, CStateManager& mgr,
+                                        const CVector3f& point, const CDamageInfo& damage,
+                                        const CMaterialFilter& filter) {
+  const TUniqueId owner = beam.GetOwnerId();
+  mgr.ApplyDamageToWorld(owner, beam, point, damage, filter);
 }
 
 void CBeamProjectile::UpdateFx(const CTransform4f& xf, float dt, CStateManager& mgr) {
@@ -76,13 +83,15 @@ void CBeamProjectile::UpdateFx(const CTransform4f& xf, float dt, CStateManager& 
   }
   x304_beamLength = x300_intBeamLength;
   x2f8_damageType = kDT_None;
-  CVector3f beamEnd = xf.GetColumn(kDY).AsNormalized() * x300_intBeamLength + xf.GetTranslation();
-  x298_previousPos = xf.GetTranslation();
+  const CVector3f origin = xf.GetTranslation();
+  const CVector3f beamEnd =
+      xf.GetTranslation() + x300_intBeamLength * xf.GetColumn(kDY).AsNormalized();
+  x298_previousPos = origin;
   SetTranslation(beamEnd);
 
   x354_ = CAABox(-x2f4_beamRadius, 0.f, -x2f4_beamRadius, x2f4_beamRadius, x304_beamLength,
                  x2f4_beamRadius);
-                 
+
   x36c_ = CAABox(CVector3f(-x2f4_beamRadius, 0.f, -x2f4_beamRadius),
                  CVector3f(x2f4_beamRadius, x300_intBeamLength, x2f4_beamRadius))
               .GetTransformedAABox(xf);
@@ -90,23 +99,21 @@ void CBeamProjectile::UpdateFx(const CTransform4f& xf, float dt, CStateManager& 
   TUniqueId collideId = kInvalidUniqueId;
   TEntityList nearList;
   mgr.BuildNearList(nearList, x36c_,
-                    CMaterialFilter::MakeExclude(CMaterialList(kMT_ProjectilePassthrough)),
-                    this);
+                    CMaterialFilter::MakeExclude(CMaterialList(kMT_ProjectilePassthrough)), this);
 
-  CRayCastResult res = RayCollisionCheckWithWorld(collideId, x298_previousPos, beamEnd,
-                                                  x300_intBeamLength, nearList, mgr);
+  CRayCastResult res =
+      RayCollisionCheckWithWorld(collideId, origin, beamEnd, x300_intBeamLength, nearList, mgr);
 
   if (TCastToConstPtr< CActor >(mgr.ObjectById(collideId))) {
     SetCollisionResultData(kDT_Actor, res, collideId);
     if (x464_25_enableTouchDamage)
-      ApplyDamageToActors(mgr, CDamageInfo(x12c_curDamageInfo, dt));
+      ApplyDamageToActors(mgr, x12c_curDamageInfo.MakeScaledForTime(dt));
 
   } else if (res.IsValid()) {
     SetCollisionResultData(kDT_World, res, kInvalidUniqueId);
     if (x464_25_enableTouchDamage) {
-      CMaterialFilter filter(GetFilter());
-      CDamageInfo dmg(x12c_curDamageInfo, dt);
-      mgr.ApplyDamageToWorld(GetOwnerId(), *this, res.GetPoint(), dmg, filter);
+      ApplyBeamWorldDamage(*this, mgr, res.GetPoint(), GetCurrentDamageInfo().MakeScaledForTime(dt),
+                           GetFilter());
     }
   } else {
     x318_collisionPoint = xf * CVector3f(x2f4_beamRadius, x304_beamLength, x2f4_beamRadius);
