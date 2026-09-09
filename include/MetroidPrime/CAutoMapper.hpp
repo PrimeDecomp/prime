@@ -13,6 +13,7 @@
 #include "rstl/auto_ptr.hpp"
 #include "rstl/list.hpp"
 #include "rstl/optional_object.hpp"
+#include "rstl/pair.hpp"
 #include "rstl/reserved_vector.hpp"
 #include "rstl/single_ptr.hpp"
 #include "rstl/vector.hpp"
@@ -88,8 +89,7 @@ public:
                            float alphaOutlineUnvisited);
 
     void ResetInterpolation();
-    static void InterpolateWithClamp(const SAutoMapperRenderState& a,
-                                     SAutoMapperRenderState& out,
+    static void InterpolateWithClamp(const SAutoMapperRenderState& a, SAutoMapperRenderState& out,
                                      const SAutoMapperRenderState& b, float t);
   };
 
@@ -104,25 +104,33 @@ public:
       kHST_ZoomOut,
     };
 
-    Type x0_type;
-    union {
-      CAssetId x4_worldId;
-      TAreaId x4_areaId;
-      float x4_float;
+    union Data {
+      CAssetId x0_worldId;
+      int x0_areaId;
+      float x0_float;
+
+      Data(int value) : x0_areaId(value) {}
+
+      Data(float value) : x0_float(value) {}
     };
+
+    Type x0_type;
+    Data x4_data;
     bool x8_processing;
 
-    SAutoMapperHintStep(Type type, int val) : x0_type(type), x4_areaId(val), x8_processing(false) {}
-    SAutoMapperHintStep(Type type, float val) : x0_type(type), x4_float(val), x8_processing(false) {}
+    SAutoMapperHintStep(Type type, int data) : x0_type(type), x4_data(data), x8_processing(false) {}
+
+    SAutoMapperHintStep(Type type, const float& data)
+    : x0_type(type), x4_data(data), x8_processing(false) {}
   };
 
   struct SAutoMapperHintLocation {
-    uint x0_showBeacon;
+    int x0_showBeacon;
     float x4_beaconAlpha;
     CAssetId x8_worldId;
     TAreaId xc_areaId;
 
-    SAutoMapperHintLocation(uint showBeacon, float beaconAlpha, CAssetId worldId, TAreaId areaId);
+    SAutoMapperHintLocation(uint showBeacon, float beaconAlpha, CAssetId worldId, int areaId);
   };
 
   // Virtuals
@@ -148,28 +156,23 @@ public:
   void CompleteMapperStateTransition(const CStateManager& mgr);
   void ResetInterpolationTimer(float duration);
   SAutoMapperRenderState BuildMiniMapWorldRenderState(const CStateManager& stateMgr,
-                                                      const CQuaternion& rot,
-                                                      int area) const;
+                                                      const CQuaternion& rot, int area) const;
   SAutoMapperRenderState BuildMapScreenWorldRenderState(const CStateManager& mgr,
-                                                        const CQuaternion& rot,
-                                                        int area, bool doingHint) const;
+                                                        const CQuaternion& rot, int area,
+                                                        bool doingHint) const;
   SAutoMapperRenderState BuildMapScreenUniverseRenderState(const CStateManager& mgr,
-                                                            const CQuaternion& rot,
-                                                            int area) const;
+                                                           const CQuaternion& rot, int area) const;
   void LeaveMapScreenState();
   void ProcessMapScreenInput(const CFinalInput& input, const CStateManager& mgr);
   static CQuaternion GetMiniMapCameraOrientation(const CStateManager& stateMgr);
   CVector3f GetAreaPointOfInterest(const CStateManager& mgr, int aid) const;
-  struct SClosestWorldResult {
-    int x0_worldIdx;
-    int x4_areaIdx;
-  };
 
   int FindClosestVisibleArea(const CVector3f& point, const CUnitVector3f& camDir,
                              const CStateManager& mgr, const IWorld& wld,
                              const CMapWorldInfo& mwInfo) const;
-  SClosestWorldResult FindClosestVisibleWorld(const CVector3f& point, const CUnitVector3f& camDir,
-                                               const CStateManager& mgr) const;
+  rstl::pair< int, int > FindClosestVisibleWorld(const CVector3f& point,
+                                                 const CUnitVector3f& camDir,
+                                                 const CStateManager& mgr) const;
   EAutoMapperState GetCurrentState() const { return x1bc_state; }
   EAutoMapperState GetNextState() const { return x1c0_nextState; }
   bool IsInMapperState(EAutoMapperState state) const;
@@ -189,9 +192,9 @@ public:
 private:
   bool NotHintNavigating(const CStateManager& mgr) const;
   bool CanLeaveMapScreenInternal(const CStateManager& mgr) const;
-  void LeaveMapScreen(const CStateManager& mgr) const;
+  void LeaveMapScreen(const CStateManager& mgr);
   void SetupMiniMapWorld(CStateManager& mgr);
-  bool HasCurrentMapUniverseWorld();
+  bool HasCurrentMapUniverseWorld(const CStateManager& mgr);
   bool CheckDummyWorldLoad(const CStateManager& mgr);
   void UpdateHintNavigation(float dt, const CStateManager& mgr);
   static CVector2i GetMiniMapViewportSize();
@@ -234,7 +237,7 @@ private:
   rstl::optional_object< TCachedToken< CStringTable > > x78_areaHintDesc;
   CAssetId x88_mapAreaStringId;
   rstl::optional_object< TCachedToken< CStringTable > > x8c_mapAreaString;
-  uint x9c_worldIdx;
+  int x9c_worldIdx;
   TAreaId xa0_curAreaId;
   TAreaId xa4_otherAreaId;
   SAutoMapperRenderState xa8_renderState0;
@@ -276,6 +279,8 @@ private:
   int x328_;
   bool x32c_loadingDummyWorld;
 };
+NESTED_CHECK_SIZEOF(CAutoMapper, SAutoMapperHintStep, 0xc)
+NESTED_CHECK_SIZEOF(CAutoMapper, SAutoMapperHintLocation, 0x10)
 CHECK_SIZEOF(CAutoMapper, 0x330)
 
 #endif // _CAUTOMAPPER
