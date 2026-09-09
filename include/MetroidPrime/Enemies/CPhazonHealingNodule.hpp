@@ -57,8 +57,8 @@ private:
   bool x56c_emitting;
   // 1 byte pad
   TUniqueId x56e_connId;
-  TCachedToken< CElectricDescription > x570_electricDesc;
-  rstl::rc_ptr< CParticleElectric > x57c_particleElectric;
+  TLockedToken< CElectricDescription > x570_electricDesc;
+  rstl::ncrc_ptr< CParticleElectric > x57c_particleElectric;
   CHealthInfo x580_initialHealthInfo;
   int x588_state;
   rstl::string x58c_actorLctr;

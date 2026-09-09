@@ -45,6 +45,11 @@ public:
     x0_refData = rs_new CRefData(base);
   }
   void ReleaseData();
+  void reset() {
+    ReleaseData();
+    x0_refData = &CRefData::sNull;
+    x0_refData->AddRef();
+  }
   T* operator->() const { return GetPtr(); }
   T& operator*() const { return *GetPtr(); }
   operator bool() const { return GetPtr() != nullptr; }
