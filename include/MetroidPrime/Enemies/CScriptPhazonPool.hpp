@@ -57,7 +57,7 @@ private:
   float x1d0;
   float x1d4;
   uint x1d8;
-  uint x1dc;
+  int x1dc;
   bool x1e0_24 : 1;
   bool x1e0_25 : 1;
 
@@ -66,7 +66,6 @@ private:
   void RemoveInhabitants(CStateManager& mgr);
   void SetEmitParticles(bool val);
 };
-// NOTE: operator_new allocates 0x1E8 bytes. CScriptTrigger base may have
-// undiscovered members at 0x14C-0x14F causing a 4-byte size discrepancy.
+CHECK_SIZEOF(CScriptPhazonPool, 0x1e8)
 
 #endif // _CSCRIPTPHAZONPOOL
