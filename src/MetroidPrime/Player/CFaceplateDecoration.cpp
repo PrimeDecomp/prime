@@ -6,7 +6,7 @@
 #include "Kyoto/Math/CloseEnough.hpp"
 #include "Kyoto/SObjectTag.hpp"
 
-CFaceplateDecoration::CFaceplateDecoration(CStateManager& stateMgr) : x0_id(kInvalidAssetId) {}
+CFaceplateDecoration::CFaceplateDecoration(const CStateManager& stateMgr) : x0_id(kInvalidAssetId) {}
 
 void CFaceplateDecoration::Update(float dt, const CStateManager& mgr) {
   CAssetId txtrId = mgr.GetPlayer()->GetVisorSteam().GetTextureId();

@@ -517,6 +517,8 @@ public:
   bool IsOverrideRadarRadius() const { return x9c6_31_overrideRadarRadius; }
   float GetRadarXYRadiusOverride() const { return xa20_radarXYRadiusOverride; }
   float GetRadarZRadiusOverride() const { return xa24_radarZRadiusOverride; }
+  float GetVisorStaticAlpha() const { return x74c_visorStaticAlpha; }
+
   void SetRadarXYRadiusOverride(float value) { xa20_radarXYRadiusOverride = value; }
   void SetRadarZRadiusOverride(float value) { xa24_radarZRadiusOverride = value; }
 

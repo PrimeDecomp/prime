@@ -2,22 +2,12 @@
 #define _CPAUSESCREENBLUR
 
 #include "MetroidPrime/Cameras/CCameraBlurPass.hpp"
+#include "MetroidPrime/CInGameGuiManagerCommon.hpp"
 
 #include "Kyoto/TToken.hpp"
 
 class CTexture;
 class CStateManager;
-
-// TODO: move elsewhere?
-enum EInGameGuiState {
-  kIGS_Zero,
-  kIGS_InGame,
-  kIGS_MapScreen,
-  kIGS_PauseGame,
-  kIGS_PauseLogBook,
-  kIGS_PauseSaveGame,
-  kIGS_PauseHUDMessage
-};
 
 class CPauseScreenBlur {
 public:
@@ -26,7 +16,7 @@ public:
   CPauseScreenBlur();
   virtual ~CPauseScreenBlur();
 
-  void OnNewInGameGuiState(EInGameGuiState state, CStateManager& stateMgr);
+  void OnNewInGameGuiState(EInGameGuiState state, const CStateManager& stateMgr);
   bool IsGameDraw() const { return x50_25_gameDraw; }
   void Update(float dt, const CStateManager& stateMgr, bool);
   void Draw(const CStateManager& stateMgr);
@@ -46,6 +36,5 @@ private:
   void SetState(EState state);
   float GetBlurAmtInline() const { return fabs(x18_blurAmt); }
 };
-
 
 #endif // _CPAUSESCREENBLUR

@@ -2765,11 +2765,11 @@ void CStateManager::SetSinglePathMaze(rstl::single_ptr< CSinglePathMaze > maze) 
   xf70_currentMaze = maze;
 }
 
-void CStateManager::SetPendingOnScreenTex(CAssetId texId, const CVector2i& origin,
-                                          const CVector2i& extent) {
+void CStateManager::SetPendingOnScreenTex(CAssetId texId, const CVector2i& extent,
+                                          const CVector2i& offset) {
   xef4_pendingScreenTex.x0_id = texId;
-  xef4_pendingScreenTex.x4_origin = origin;
-  xef4_pendingScreenTex.xc_extent = extent;
+  xef4_pendingScreenTex.x4_extent = extent;
+  xef4_pendingScreenTex.xc_offset = offset;
 }
 
 void CStateManager::SetGameState(EGameState state) {

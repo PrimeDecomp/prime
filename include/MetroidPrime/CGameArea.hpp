@@ -257,6 +257,10 @@ public:
   rstl::pair< rstl::auto_ptr< char >, int > IGetScriptingMemoryAlways() const override;
 
   TAreaId GetId() const { return x4_selfIdx; }
+  int GetNumAttachedAreas() const { return x8c_attachedAreaIndices.size(); }
+  TAreaId GetAttachedAreaId(int idx) const { return TAreaId(x8c_attachedAreaIndices[idx]); }
+  int GetTokenCount() const { return xdc_tokens.size(); }
+  const rstl::pair< uint, uint >& GetAssetID(int idx) const { return xac_deps2[idx]; }
   int GetScriptingSize() const {
     return xf0_24_postConstructed ? x12c_postConstructed->x10d0_sclySize : 0;
   }
