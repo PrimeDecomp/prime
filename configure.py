@@ -1706,7 +1706,7 @@ config.libs = [
             ),
             Object(NonMatching, "Kyoto/Audio/DolphinCAudioGroupSet.cpp"),
             Object(NonMatching, "Kyoto/Audio/DolphinCAudioSys.cpp"),
-            Object(NonMatching, "Kyoto/DolphinCMemoryCardSys.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/DolphinCMemoryCardSys.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
                 "Kyoto/Input/DolphinIController.cpp",

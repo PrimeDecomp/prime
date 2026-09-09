@@ -680,8 +680,9 @@ void CMemoryCardDriver::InitializeFileInfo() {
 void CMemoryCardDriver::ReadFinished() {
   SMemoryCardFileInfo& fileInfo = x100_mcFileInfos[x194_fileIdx].second;
   CardStat stat;
-  if (CMemoryCardSys::GetStatus(fileInfo.x0_fileInfo.slot, fileInfo.GetFileNo(), stat) !=
-      kCR_READY) {
+  if (CMemoryCardSys::GetStatus(
+          static_cast< CMemoryCardSys::EMemoryCardPort >(fileInfo.x0_fileInfo.chan),
+          fileInfo.GetFileNo(), stat) != kCR_READY) {
     NoCardFound();
     return;
   }

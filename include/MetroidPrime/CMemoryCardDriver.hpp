@@ -13,31 +13,6 @@
 
 class CMemoryInStream;
 
-struct SMemoryCardFileInfo {
-  CMemoryCardSys::CardFileHandle x0_fileInfo;
-
-  rstl::string x14_name;
-  rstl::vector< uchar > x24_saveFileData;
-  rstl::vector< char > x34_saveData;
-
-  SMemoryCardFileInfo(int cardPort, const rstl::string& name);
-  SMemoryCardFileInfo(const SMemoryCardFileInfo& other)
-  : x0_fileInfo(other.x0_fileInfo)
-  , x14_name(other.x14_name)
-  , x24_saveFileData(other.x24_saveFileData)
-  , x34_saveData(other.x34_saveData) {}
-  ~SMemoryCardFileInfo() {}
-
-  ECardResult Open();
-  ECardResult Close();
-  CMemoryCardSys::EMemoryCardPort GetFileCardPort() const { return x0_fileInfo.slot; }
-  int GetFileNo() const; // { return x0_fileInfo.GetFileNo(); }
-  ECardResult StartRead();
-  ECardResult TryFileRead();
-  ECardResult FileRead();
-  ECardResult GetSaveDataOffset(u32& offOut) const;
-};
-
 struct SSaveHeader {
   uint x0_version;
   bool x4_savePresent[3];
@@ -49,7 +24,7 @@ struct SSaveHeader {
 };
 
 struct SGameFileSlot {
-  rstl::reserved_vector<u8, 940> x0_saveBuffer;
+  rstl::reserved_vector< u8, 940 > x0_saveBuffer;
   CGameState::GameFileStateInfo x944_fileInfo;
 
   SGameFileSlot();
@@ -124,8 +99,7 @@ public:
 
     SFileInfo(EFileState state, int cardPort, const rstl::string& name)
     : first(state)
-    , second(cardPort, name)
-    {}
+    , second(cardPort, name) {}
     ~SFileInfo();
   };
 
@@ -154,8 +128,8 @@ public:
   EState GetState() const { return x10_state; }
   EError GetError() const { return x14_error; }
   u64 GetCardSerial() const { return x28_cardSerial; }
-  CMemoryCardDriver(CMemoryCardSys::EMemoryCardPort cardPort, CAssetId saveBanner, CAssetId saveIcon0,
-                    CAssetId saveIcon1, bool importPersistent);
+  CMemoryCardDriver(CMemoryCardSys::EMemoryCardPort cardPort, CAssetId saveBanner,
+                    CAssetId saveIcon0, CAssetId saveIcon1, bool importPersistent);
   void ClearFileInfo();
   ~CMemoryCardDriver();
   void Update();
