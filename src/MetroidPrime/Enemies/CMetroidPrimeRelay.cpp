@@ -1,6 +1,112 @@
 #include "MetroidPrime/Enemies/CMetroidPrimeRelay.hpp"
 
 #include "MetroidPrime/CAnimRes.hpp"
+#include "MetroidPrime/ScriptLoader.hpp"
+
+#include "Kyoto/Audio/CSfxManager.hpp"
+#include "Kyoto/Streams/CInputStream.hpp"
+
+#pragma inline_max_size(250)
+
+CCameraShakeData LoadAndBuildPrimeCameraShakeData(CInputStream& in);
+
+CMetroidPrimeIceAttack::CMetroidPrimeIceAttack(CInputStream& in)
+: x0_propertyCount(in.ReadLong())
+, x4_particle1(in.ReadLong())
+, x8_particle2(in.ReadLong())
+, xc_particle3(in.ReadLong())
+, x10_dInfo(in)
+, x2c_(in.ReadFloat())
+, x30_(in.ReadFloat())
+, x34_texture(in.ReadLong())
+, x38_(CSfxManager::TranslateSFXID(in.ReadLong()))
+, x3a_(CSfxManager::TranslateSFXID(in.ReadLong())) {}
+
+uint CMetroidPrimeData::VerifyExportCount(CInputStream& in) { return in.ReadLong(); }
+
+CMetroidPrimeData::CMetroidPrimeData(CInputStream& in)
+: x0_propertyCount(VerifyExportCount(in))
+, x4_patternedInfo(in, CPatternedInfo::HasCorrectParameterCount(in, "Metroid Prime").second)
+, x13c_actorParms(LoadActorParameters(in))
+, x1a4_(in.ReadLong() - 1)
+, x1a8_(LoadAndBuildPrimeCameraShakeData(in))
+, x27c_(LoadAndBuildPrimeCameraShakeData(in))
+, x350_(LoadAndBuildPrimeCameraShakeData(in))
+, x424_(in)
+, x460_particle1(in.ReadLong())
+, x464_(LoadParasiteQueenBeams(in))
+, x708_wpsc1(in.ReadLong())
+, x70c_dInfo1(in)
+, x728_shakeData1(LoadAndBuildPrimeCameraShakeData(in))
+, x7fc_wpsc2(in.ReadLong())
+, x800_dInfo2(in)
+, x81c_shakeData2(LoadAndBuildPrimeCameraShakeData(in))
+, x8f0_(in)
+, x92c_(in)
+, x948_(LoadAndBuildPrimeCameraShakeData(in))
+, xa1c_particle2(in.ReadLong())
+, xa20_swoosh(in.ReadLong())
+, xa24_particle3(in.ReadLong())
+, xa28_particle4(in.ReadLong())
+, xa2c_(LoadVulnerabilities(in)) {}
+
+CWeaponAssetInfo::CWeaponAssetInfo(CInputStream& in) : count(in.ReadLong()) {
+  data[0] = in.ReadLong();
+  data[1] = in.ReadLong();
+  data[2] = in.ReadLong();
+  data[3] = in.ReadLong();
+  data[4] = in.ReadLong();
+  data[5] = in.ReadLong();
+  data[6] = in.ReadLong();
+  data[7] = in.ReadLong();
+}
+
+CMetroidPrimeParasiteQueenAttack::CMetroidPrimeParasiteQueenAttack(CInputStream& in)
+: x0_beamInfo(in)
+, x44_(in.ReadLong())
+, x48_dInfo1(in)
+, x64_struct5(in)
+, x88_(in.ReadFloat())
+, x8c_dInfo2(in) {}
+
+rstl::reserved_vector< CMetroidPrimeParasiteQueenAttack, 4 >
+CMetroidPrimeData::LoadParasiteQueenBeams(CInputStream& in) {
+  rstl::reserved_vector< CMetroidPrimeParasiteQueenAttack, 4 > result;
+  for (int i = 0; i < 4; ++i) {
+    result.push_back(CMetroidPrimeParasiteQueenAttack(in));
+  }
+  return result;
+}
+
+rstl::reserved_vector< CMetroidPrime::CVulnerabilityEntry, 4 >
+CMetroidPrimeData::LoadVulnerabilities(CInputStream& in) {
+  rstl::reserved_vector< CMetroidPrime::CVulnerabilityEntry, 4 > result;
+  for (int i = 0; i < 4; ++i) {
+    result.push_back(CMetroidPrime::CVulnerabilityEntry(in));
+  }
+  return result;
+}
+
+SPrimeCameraShakePoint::SPrimeCameraShakePoint(CInputStream& in)
+: x0_attackTime(in.ReadFloat())
+, x4_sustainTime(in.ReadFloat())
+, x8_duration(in.ReadFloat())
+, xc_magnitude(in.ReadFloat()) {}
+
+SPrimeCameraShakerComponent::SPrimeCameraShakerComponent(CInputStream& in)
+: x0_useModulation(in.ReadBool()), x4_am(in), x14_fm(in) {}
+
+SPrimeCameraShakeData::SPrimeCameraShakeData(CInputStream& in)
+: x0_useSfx(in.ReadBool())
+, x4_duration(in.ReadFloat())
+, x8_sfxDist(in.ReadFloat())
+, xc_shakerX(in)
+, x30_shakerY(in)
+, x54_shakerZ(in) {}
+
+CCameraShakeData LoadAndBuildPrimeCameraShakeData(CInputStream& in) {
+  return BuildCameraShakeData(SPrimeCameraShakeData(in));
+}
 
 CMetroidPrimeRelay::CMetroidPrimeRelay(
     TUniqueId uid, const rstl::string& name, const CEntityInfo& info, const bool active,
@@ -31,7 +137,7 @@ void CMetroidPrimeRelay::Accept(IVisitor& visitor) { visitor.Visit(*this); }
 void CMetroidPrimeRelay::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid,
                                          CStateManager& mgr) {
   if (uid != x34_mpUid) {
-    ForwardMessageToMP(msg, mgr);
+    ForwardScriptMessageToMP(msg, mgr);
   }
   switch (msg) {
   case kSM_InitializedInArea:
@@ -42,7 +148,7 @@ void CMetroidPrimeRelay::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid
   }
 }
 
-void CMetroidPrimeRelay::ForwardMessageToMP(EScriptObjectMessage msg, CStateManager& mgr) {
+void CMetroidPrimeRelay::ForwardScriptMessageToMP(EScriptObjectMessage msg, CStateManager& mgr) {
   CMetroidPrime* pat =
       CPatterned::CastTo(TPatternedCast< CMetroidPrime >(mgr.ObjectById(x34_mpUid)));
   if (!pat) {
@@ -66,13 +172,13 @@ void CMetroidPrimeRelay::CreateMetroidPrime(CStateManager& mgr) {
     }
   }
 
+  const CAnimationParameters& animParms = x74_parms.x4_patternedInfo.GetAnimationParameters();
   CMetroidPrime* mp = rs_new CMetroidPrime(
       mgr.AllocateUniqueId(), rstl::string_l("Metroid Prime! (Stage 1)"),
       CEntityInfo(GetCurrentAreaId(), NullConnectionList), x38_xf,
-      CAnimRes(x74_parms.GetPatternedInfo().GetAnimationParameters().GetACSFile(),
-               x74_parms.GetPatternedInfo().GetAnimationParameters().GetCharacter(), x68_scale,
-               x74_parms.GetPatternedInfo().GetAnimationParameters().GetInitialAnimation(), true),
-      x74_parms.GetPatternedInfo(), x74_parms.x13c_actorParms, x74_parms.x1a4_, x74_parms.x1a8_,
+      CAnimRes(animParms.GetACSFile(), animParms.GetCharacter(), x68_scale,
+               animParms.GetInitialAnimation(), true),
+      x74_parms.x4_patternedInfo, x74_parms.x13c_actorParms, x74_parms.x1a4_, x74_parms.x1a8_,
       x74_parms.x27c_, x74_parms.x350_, x74_parms.x424_, x74_parms.x460_particle1, x74_parms.x464_,
       x74_parms.x708_wpsc1, x74_parms.x70c_dInfo1, x74_parms.x728_shakeData1, x74_parms.x7fc_wpsc2,
       x74_parms.x800_dInfo2, x74_parms.x81c_shakeData2, x74_parms.x8f0_, x74_parms.x92c_,

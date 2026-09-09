@@ -44,7 +44,7 @@ public:
   }
 
   void CreateMetroidPrime(CStateManager& mgr);
-  void ForwardMessageToMP(EScriptObjectMessage msg, CStateManager& mgr);
+  void ForwardScriptMessageToMP(EScriptObjectMessage msg, CStateManager& mgr);
 
 private:
   TUniqueId x34_mpUid;
