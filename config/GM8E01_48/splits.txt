@@ -670,14 +670,14 @@ dolphin/os/OSFatal.c:
 	.text       start:0x803801C8 end:0x80380DA4
 	.bss        start:0x80540F78 end:0x80541260
 	.sdata      start:0x805A8818 end:0x805A8820
-	.sdata2     start:0x805AE8E8 end:0x805AE918
+	.sdata2     start:0x805AE8E8 end:0x805AE928
 
 dolphin/os/OSFont.c:
 	.text       start:0x80380DA4 end:0x803817D0
 	.data       start:0x803F1420 end:0x803F1F30
 	.sdata      start:0x805A8820 end:0x805A8828
 	.sbss       start:0x805A95A0 end:0x805A95B0
-	.sdata2     start:0x805AE918 end:0x805AE930
+	.sdata2     start:0x805AE928 end:0x805AE930
 
 dolphin/os/OSInterrupt.c:
 	.text       start:0x803817D0 end:0x8038203C
