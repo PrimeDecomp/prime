@@ -30,8 +30,8 @@ private:
   uint mNumLights;
   rstl::auto_ptr< const char > mOctreeData;
   uint _28;
-  CVector3f mMin;
-  CVector3f mMax;
+  mutable CVector3f mMin;
+  mutable CVector3f mMax;
 };
 
 #endif // _CPVSVISOCTREE
