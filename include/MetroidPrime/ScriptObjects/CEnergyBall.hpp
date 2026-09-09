@@ -12,7 +12,20 @@ public:
               const CAssetId a4, const CDamageInfo& dInfo2, const float f5);
   ~CEnergyBall();
 
+  void Accept(IVisitor& visitor) override;
+  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) override;
+  void Generate(CStateManager& mgr, EStateMsg msg, float arg) override;
+  void Attack(CStateManager& mgr, EStateMsg msg, float arg) override;
+  void Think(float dt, CStateManager& mgr) override;
+  void Death(CStateManager& mgr, const CVector3f& direction, EScriptObjectState state) override;
+
 private:
+  void Detonate(CStateManager& mgr);
+  static void CreateVisorEffect(
+      const rstl::optional_object< TToken< CGenDescription > >& particle,
+      const rstl::optional_object< TToken< CElectricDescription > >& electric,
+      const rstl::string& name, CStateManager& mgr);
+
   CSteeringBehaviors mSteeringBehaviors;
   float x56c;
   int x570;
@@ -31,4 +44,5 @@ private:
   CDamageInfo x5cc;
   float x5e8;
 };
+CHECK_SIZEOF(CEnergyBall, 0x5f0)
 #endif
