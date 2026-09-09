@@ -2137,7 +2137,10 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
                 "runtime/abort_exit.c",
             ),
-            Object(NonMatching, "runtime/alloc.c"),
+            Object(
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8E01_48"),
+                "runtime/alloc.c",
+            ),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
                 "runtime/ansi_files.c",
