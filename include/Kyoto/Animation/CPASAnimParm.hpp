@@ -12,7 +12,7 @@ public:
     kPT_Float = 2,
     kPT_Bool = 3,
     kPT_Enum = 4,
- 
+
   };
   union UParmValue {
     int m_int;
@@ -22,7 +22,7 @@ public:
   };
 
   CPASAnimParm(UParmValue value, EParmType type);
-  
+
   static CPASAnimParm NoParameter();
   static CPASAnimParm FromInt32(int value);
   static CPASAnimParm FromUint32(uint value);
@@ -37,6 +37,7 @@ public:
   int GetEnumValue() const;
 
   UParmValue GetParameter() { return x0_value; }
+  EParmType GetParameterType() const { return x4_type; }
 
 private:
   UParmValue x0_value;
