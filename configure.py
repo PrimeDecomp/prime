@@ -548,7 +548,7 @@ config.libs = [
             Object(NonMatching, "MetroidPrime/CIOWinManager.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CIOWin.cpp"),
             Object(NonMatching, "MetroidPrime/CActor.cpp"),
-            Object(NonMatching, "MetroidPrime/CWorld.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CWorld.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/Tweaks/CTweakParticle.cpp",

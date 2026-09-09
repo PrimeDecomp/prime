@@ -17,12 +17,14 @@ class CWorldLayers {
 public:
   class Area {
   public:
+    explicit Area(CInputStream& in)
+    : m_layerCount(in.Get< int >()), m_layerBits(in.ReadLongLong()) {}
     Area(int layerCount, u64 layerBits) : m_layerCount(layerCount), m_layerBits(layerBits) {}
 
     int m_layerCount;
     u64 m_layerBits;
   };
-  static CWorldLayers ReadWorldLayers(CInputStream& in, int version, CAssetId mlvlId);
+  static void ReadWorldLayers(CInputStream& in, int version, CAssetId mlvlId);
 };
 NESTED_CHECK_SIZEOF(CWorldLayers, Area, 0x10)
 

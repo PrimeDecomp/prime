@@ -811,7 +811,7 @@ void CStateManager::InitializeState(unsigned int mlvlId, TAreaId aid, unsigned i
 
   SetCurrentAreaId(x8cc_nextAreaId);
   gpGameState->CurrentWorldState().SetAreaId(x8cc_nextAreaId);
-  x850_world->TravelToArea(x8cc_nextAreaId, *this, true);
+  x850_world->TravelToArea(x8cc_nextAreaId, *this, CWorld::kATT_SkipAdjacent);
   UpdateRoomAcoustics(x8cc_nextAreaId);
 
   CObjectList* allList = x808_objectLists[kOL_All].get();
@@ -1195,7 +1195,7 @@ void CStateManager::Update(float dt) {
 
   gpGameState->CurrentWorldState().SetAreaId(x8cc_nextAreaId);
 
-  x850_world->TravelToArea(x8cc_nextAreaId, *this, false);
+  x850_world->TravelToArea(x8cc_nextAreaId, *this, CWorld::kATT_LoadAdjacent);
 
   ClearGraveyard();
   ++x8d8_updateFrameIdx;
