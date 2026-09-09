@@ -212,7 +212,7 @@ public:
   static const short GetReverbAmount();
 
   static CSfxHandle SfxStart(const ushort id, const short vol = 127, const short pan = 64,
-                             const bool useAcoustics = false, const short prio = kMedPriority,
+                             bool useAcoustics = false, const short prio = kMedPriority,
                              const bool looped = false, const int areaId = kAllAreas);
   static void SfxStop(CSfxHandle handle);
   static void SfxVolume(CSfxHandle handle, uchar volume);
