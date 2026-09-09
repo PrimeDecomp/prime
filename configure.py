@@ -1212,7 +1212,7 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01"), "WorldFormat/CCollidableOBBTreeGroup.cpp"
             ),
             Object(NonMatching, "WorldFormat/CPVSAreaSet.cpp"),
-            Object(NonMatching, "WorldFormat/CAreaRenderOctTree.cpp"),
+            Object(Matching, "WorldFormat/CAreaRenderOctTree.cpp"),
         ],
     ),
     RetroLib(
