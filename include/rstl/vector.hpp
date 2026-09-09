@@ -56,6 +56,13 @@ public:
     }
   }
   vector(CInputStream& in, const Alloc& alloc = Alloc());
+  template < typename It >
+  vector(It first, It last, const Alloc& alloc = Alloc())
+  : x0_allocator(alloc), x4_count(0), x8_capacity(0) {
+    x4_count = x8_capacity = rstl::distance(first, last);
+    x0_allocator.allocate(xc_items, x4_count);
+    rstl::uninitialized_copy(first, last, xc_items);
+  }
   ~vector() {
     destroy(begin(), end());
     x0_allocator.deallocate(xc_items);
