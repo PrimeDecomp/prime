@@ -158,6 +158,7 @@ public:
   CTransform4f UpdateCameraPositions(float dt, const CTransform4f& oldXf,
                                      const CTransform4f& newXf);
 
+  const CVector3f& GetFixedLookPos() const { return x1cc_fixedLookPos; }
   const CVector3f& GetLookAtPosition() const { return x1d8_lookPos; }
   const CVector3f& GetLookPosAhead() const { return x1c0_lookPosAhead; }
   float GetDistance() const { return x190_curMinDistance; }
