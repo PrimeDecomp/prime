@@ -1,6 +1,22 @@
 #include "MetroidPrime/Tweaks/CTweakGui.hpp"
 
+#include "Kyoto/Graphics/CGraphics.hpp"
 #include "Kyoto/Streams/CInputStream.hpp"
+
+static inline ERglFogMode read_fog_mode(CInputStream& in) {
+  switch (in.ReadInt32()) {
+  case 0:
+    return kRFM_None;
+  case 1:
+    return kRFM_PerspLin;
+  case 2:
+    return kRFM_PerspExp;
+  case 3:
+    return kRFM_PerspExp2;
+  default:
+    return kRFM_None;
+  }
+}
 
 CTweakGui::CTweakGui(CInputStream& in)
 : x4_(in.ReadBool())
@@ -52,16 +68,16 @@ CTweakGui::CTweakGui(CInputStream& in)
 , xcc_visorBeamMenuItemTranslate(in.ReadFloat())
 , xd0_(in.ReadFloat())
 , xd4_(in.ReadInt32())
-, xd8_((in.ReadFloat() * 0.002777778f) * 6.283185f)
-, xdc_((in.ReadFloat() * 0.002777778f) * 6.283185f)
+, xd8_(CMath::Deg2Rad(in.ReadFloat()))
+, xdc_(CMath::Deg2Rad(in.ReadFloat()))
 , xe0_(in.ReadFloat())
 , xe4_threatRange(in.ReadFloat())
 , xe8_radarScopeCoordRadius(in.ReadFloat())
 , xec_radarPlayerPaintRadius(in.ReadFloat())
 , xf0_radarEnemyPaintRadius(in.ReadFloat())
 , xf4_missileArrowVisTime(in.ReadFloat())
-, xf8_hudVisMode((EHudVisMode)in.ReadInt32())
-, xfc_helmetVisMode((EHelmetVisMode)in.ReadInt32())
+, xf8_hudVisMode(static_cast< EHudVisMode >(in.ReadInt32()))
+, xfc_helmetVisMode(static_cast< EHelmetVisMode >(in.ReadInt32()))
 , x100_enableAutoMapper(in.ReadInt32())
 , x104_(in.ReadInt32())
 , x108_enableTargetingManager(in.ReadInt32())
@@ -115,4 +131,89 @@ CTweakGui::CTweakGui(CInputStream& in)
 , x200_(x1f4_ * 0.25f, x1f8_ * 0.25f, x1fc_ * 0.25f)
 , x204_xrayBlurScaleLinear(0.0014f)
 , x208_xrayBlurScaleQuadratic(0.0000525f)
-, x20c_(in.ReadFloat()) {}
+, x20c_(in.ReadFloat())
+, x210_scanSidesAngle(CMath::Deg2Rad(in.ReadFloat()))
+, x214_scanSidesXScale(in.ReadFloat())
+, x218_scanSidesPositionEnd(in.ReadFloat())
+, x21c_(in.ReadFloat())
+, x220_scanSidesDuration(in.ReadFloat())
+, x224_scanSidesStartTime(in.ReadFloat())
+, x228_scanSidesEndTime(x220_scanSidesDuration + x224_scanSidesStartTime)
+, x22c_scanDataDotRadius(in.ReadFloat())
+, x230_scanDataDotPosRandMag(in.ReadFloat())
+, x234_scanDataDotSeekDurationMin(in.ReadFloat())
+, x238_scanDataDotSeekDurationMax(in.ReadFloat())
+, x23c_scanDataDotHoldDurationMin(in.ReadFloat())
+, x240_scanDataDotHoldDurationMax(in.ReadFloat())
+, x244_scanAppearanceDuration(in.ReadFloat())
+, x248_scanPaneFlashFactor(in.ReadFloat())
+, x24c_scanPaneFadeInTime(in.ReadFloat())
+, x250_scanPaneFadeOutTime(in.ReadFloat())
+, x254_ballViewportYReduction(in.ReadFloat())
+, x258_scanWindowIdleW(in.ReadFloat())
+, x25c_scanWindowIdleH(in.ReadFloat())
+, x260_scanWindowActiveW(in.ReadFloat())
+, x264_scanWindowActiveH(in.ReadFloat())
+, x268_scanWindowMagnification(in.ReadFloat())
+, x26c_scanWindowScanningAspect(in.ReadFloat())
+, x270_scanSidesPositionStart(in.ReadFloat())
+, x274_showAutomapperInMorphball(in.ReadBool())
+, x275_latchArticleText(true)
+, x278_wtMgrCharsPerSfx(in.ReadFloat())
+, x27c_xrayFogMode(read_fog_mode(in))
+, x280_xrayFogNearZ(in.ReadFloat())
+, x284_xrayFogFarZ(in.ReadFloat())
+, x288_xrayFogColor(in)
+, x28c_thermalVisorLevel(in.ReadFloat())
+, x290_thermalVisorColor(in)
+, x294_combatVisorHudLightAdd(in)
+, x298_xRayVisorHudLightAdd(in)
+, x29c_scanVisorHudLightAdd(in)
+, x2a0_thermalVisorHudLightAdd(in)
+, x2a4_combatVisorHudLightMultiply(in)
+, x2a8_xRayVisorHudLightMultiply(in)
+, x2ac_scanVisorHudLightMultiply(in)
+, x2b0_thermalVisorHudLightMultiply(in)
+, x2b4_hudReflectivityLightColor(in)
+, x2b8_hudLightAttMulConstant(in.ReadFloat())
+, x2bc_hudLightAttMulLinear(in.ReadFloat())
+, x2c0_hudLightAttMulQuadratic(in.ReadFloat())
+, x2c4_scanSpeeds(in)
+, x2d0_creditsTable(in)
+, x2e0_creditsFont(in)
+, x2f0_japaneseCreditsFont(in)
+, x300_creditsTextFontColor(in)
+, x304_creditsTextBorderColor(in)
+, x308_(in.ReadFloat())
+, x30c_(in.ReadFloat())
+, x310_(in.ReadFloat())
+, x314_(in)
+, x324_(in)
+, x334_(in)
+, x344_completionTitleColor(in)
+, x348_completionTitleOutlineColor(in)
+, x34c_completionBodyColor(in)
+, x350_completionBodyOutlineColor(in)
+, x354_completionUnlockColor(in)
+, x358_completionUnlockOutlineColor(in)
+, x35c_(in.ReadFloat())
+, x360_(in.ReadFloat())
+, x364_(in.ReadFloat()) {
+  x84_hudDecoShakeTranslateVelConstant *= 2.f;
+}
+
+float CTweakGui::FaceReflectionDistanceDebugValueToActualValue(float v) {
+  return 0.2f + 0.015f * v;
+}
+
+float CTweakGui::FaceReflectionHeightDebugValueToActualValue(float v) { return 0.005f * v - 0.05f; }
+
+float CTweakGui::FaceReflectionAspectDebugValueToActualValue(float v) { return 1.f + 0.05f * v; }
+
+float CTweakGui::FaceReflectionOrthoWidthDebugValueToActualValue(float v) {
+  return 0.02f + 0.007f * v;
+}
+
+float CTweakGui::FaceReflectionOrthoHeightDebugValueToActualValue(float v) {
+  return 0.02f + 0.007f * v;
+}

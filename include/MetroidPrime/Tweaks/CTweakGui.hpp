@@ -143,15 +143,21 @@ public:
   const CColor& GetXRayFogColor() const { return x288_xrayFogColor; }
   float GetThermalVisorLevel() const { return x28c_thermalVisorLevel; }
   const CColor& GetThermalVisorColor() const { return x290_thermalVisorColor; }
-  const CColor& GetVisorHudLightAdd(int v) const { return x294_hudLightAddPerVisor[v]; }
-  const CColor& GetVisorHudLightMultiply(int v) const { return x2a4_hudLightMultiplyPerVisor[v]; }
+  const CColor& GetCombatVisorHudLightAdd() const { return x294_combatVisorHudLightAdd; }
+  const CColor& GetXRayVisorHudLightAdd() const { return x298_xRayVisorHudLightAdd; }
+  const CColor& GetScanVisorHudLightAdd() const { return x29c_scanVisorHudLightAdd; }
+  const CColor& GetThermalVisorHudLightAdd() const { return x2a0_thermalVisorHudLightAdd; }
+  const CColor& GetCombatVisorHudLightMultiply() const { return x2a4_combatVisorHudLightMultiply; }
+  const CColor& GetXRayVisorHudLightMultiply() const { return x2a8_xRayVisorHudLightMultiply; }
+  const CColor& GetScanVisorHudLightMultiply() const { return x2ac_scanVisorHudLightMultiply; }
+  const CColor& GetThermalVisorHudLightMultiply() const {
+    return x2b0_thermalVisorHudLightMultiply;
+  }
   const CColor& GetHudReflectivityLightColor() const { return x2b4_hudReflectivityLightColor; }
   float GetHudLightAttMulConstant() const { return x2b8_hudLightAttMulConstant; }
   float GetHudLightAttMulLinear() const { return x2bc_hudLightAttMulLinear; }
   float GetHudLightAttMulQuadratic() const { return x2c0_hudLightAttMulQuadratic; }
-  float GetScanSpeed(uint speed) const {
-    return x2c4_scanSpeeds[speed];
-  }
+  float GetScanSpeed(uint speed) const { return x2c4_scanSpeeds[speed]; }
   const rstl::string& GetCreditsTable() const { return x2d0_creditsTable; }
   const rstl::string& GetCreditsFont() const { return x2e0_creditsFont; }
   const rstl::string& GetJapaneseCreditsFont() const { return x2f0_japaneseCreditsFont; }
@@ -160,7 +166,7 @@ public:
   const float& GetCredits_x308() const { return x308_; }
   const float& GetCredits_x30c() const { return x30c_; }
   const float& GetCredits_x310() const { return x310_; }
-  
+
   const rstl::string& GetCompletionScreenTable() const { return x314_; }
   const rstl::string& GetCompletionScreenTitleFont() const { return x324_; }
   const rstl::string& GetCompletionScreenBodyFont() const { return x334_; }
@@ -320,8 +326,14 @@ public:
   CColor x288_xrayFogColor;
   float x28c_thermalVisorLevel;
   CColor x290_thermalVisorColor;
-  CColor x294_hudLightAddPerVisor[4];
-  CColor x2a4_hudLightMultiplyPerVisor[4];
+  CColor x294_combatVisorHudLightAdd;
+  CColor x298_xRayVisorHudLightAdd;
+  CColor x29c_scanVisorHudLightAdd;
+  CColor x2a0_thermalVisorHudLightAdd;
+  CColor x2a4_combatVisorHudLightMultiply;
+  CColor x2a8_xRayVisorHudLightMultiply;
+  CColor x2ac_scanVisorHudLightMultiply;
+  CColor x2b0_thermalVisorHudLightMultiply;
   CColor x2b4_hudReflectivityLightColor;
   float x2b8_hudLightAttMulConstant;
   float x2bc_hudLightAttMulLinear;
@@ -348,6 +360,8 @@ public:
   float x360_;
   float x364_;
 };
+
+CHECK_SIZEOF(CTweakGui, 0x368)
 
 extern CTweakGui* gpTweakGui;
 
