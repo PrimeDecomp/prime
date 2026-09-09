@@ -1202,7 +1202,7 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/ScriptObjects/CScriptMazeNode.cpp",
             ),
-            Object(NonMatching, "MetroidPrime/Weapons/WeaponTypes.cpp"),
+            Object(MatchingFor("GM8E01_00"), "MetroidPrime/Weapons/WeaponTypes.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/COmegaPirate.cpp"),
             Object(MatchingFor("GM8E01_00"), "MetroidPrime/Enemies/CScriptPhazonPool.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CNESEmulator.cpp"),

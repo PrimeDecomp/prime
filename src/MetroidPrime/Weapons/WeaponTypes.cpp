@@ -30,7 +30,7 @@ CAssetId get_asset_id_from_name(const char* name) {
 }
 
 void get_token_vector(CAnimData& animData, int animIdx, rstl::vector< CToken >& tokensOut,
-                      bool preLock) {
+                      const bool preLock) {
   rstl::set< CPrimitive > prims;
   CAnimPlaybackParms parms(animIdx, -1, 1.f, true);
   animData.GetAnimationPrimitives(parms, prims);
@@ -38,7 +38,7 @@ void get_token_vector(CAnimData& animData, int animIdx, rstl::vector< CToken >& 
 }
 
 void get_token_vector(const CAnimData& animData, int begin, int end,
-                      rstl::vector< CToken >& tokensOut, bool preLock) {
+                      rstl::vector< CToken >& tokensOut, const bool preLock) {
   rstl::set< CPrimitive > prims;
   for (int i = begin; i < end; ++i) {
     CAnimPlaybackParms parms(i, -1, 1.f, true);
@@ -66,7 +66,7 @@ void unlock_tokens(rstl::vector< CToken >& anims) {
 
 void primitive_set_to_token_vector(const CAnimData& animData,
                                    const rstl::set< CPrimitive >& primSet,
-                                   rstl::vector< CToken >& tokensOut, bool preLock) {
+                                   rstl::vector< CToken >& tokensOut, const bool preLock) {
 
   int eventCount = 0;
 
@@ -99,33 +99,35 @@ void primitive_set_to_token_vector(const CAnimData& animData,
 
 void do_sound_event(rstl::pair< u16, CSfxHandle >& sfxHandle, int& pitch, bool doPitchBend,
                     uint soundId, float weight, uint flags, float falloff, float maxDist,
-                    uchar minVol, const uchar maxVol, const CVector3f& posToCam, const CVector3f& pos,
-                    int aid, CStateManager& mgr) {
-  if (posToCam.MagSquared() >= maxDist * maxDist)
+                    uchar minVol, const uchar maxVol, const CVector3f& posToCam,
+                    const CVector3f& pos, int aid, CStateManager& mgr) {
+  if (!(posToCam.MagSquared() < maxDist * maxDist))
     return;
 
-  u16 useSfxId = CSfxManager::TranslateSFXID(u16(soundId));
+  const u16 useSfxId = CSfxManager::TranslateSFXID(u16(soundId));
+  const bool looping = (soundId & 0x80000000) != 0;
+  const bool nonPositional = (soundId & 0x40000000) != 0;
+  const bool useAcoustics = (flags & 0x80) == 0;
   uint useFlags = 0x1; // Continuous parameter update
   if ((flags & 0x8) != 0)
     useFlags |= 0x8; // Doppler effect
-  const bool useAcoustics = (flags & 0x80) == 0;
 
-  // TODO ctor?
   CAudioSys::C3DEmitterParmData parms(maxDist, falloff, useFlags, maxVol, minVol);
   parms.x0_pos = pos;
   parms.xc_dir = CVector3f::Up();
   parms.x24_sfxId = useSfxId;
 
   if (mgr.Random()->Float() <= weight) {
-    if ((soundId & 0x80000000) != 0) {
-      if (!sfxHandle.second) {
+    if (looping) {
+      const CSfxHandle currentHandle = sfxHandle.second;
+      const u16 currentId = sfxHandle.first;
+      if (!currentHandle) {
         CSfxHandle hnd;
-        if ((soundId & 0x40000000) != 0)
+        if (nonPositional)
           hnd = CSfxManager::SfxStart(useSfxId, 0x7f, 0x40, true, CSfxManager::kMedPriority, true,
                                       aid);
         else
-          hnd = CSfxManager::AddEmitter(parms, useAcoustics, CSfxManager::kMedPriority, true,
-                                        aid);
+          hnd = CSfxManager::AddEmitter(parms, useAcoustics, CSfxManager::kMedPriority, true, aid);
         if (hnd) {
           sfxHandle.first = useSfxId;
           sfxHandle.second = hnd;
@@ -133,12 +135,13 @@ void do_sound_event(rstl::pair< u16, CSfxHandle >& sfxHandle, int& pitch, bool d
             CSfxManager::PitchBend(hnd, pitch);
         }
       } else {
-        if (sfxHandle.first == useSfxId) {
-          CSfxManager::UpdateEmitter(sfxHandle.second, parms.x0_pos, parms.xc_dir, maxVol);
+        if (currentId == useSfxId) {
+          CSfxManager::UpdateEmitter(currentHandle, parms.x0_pos, parms.xc_dir, maxVol);
         } else if ((flags & 0x4) != 0) // Pausable
         {
-          CSfxManager::RemoveEmitter(sfxHandle.second);
-          CSfxHandle hnd = CSfxManager::AddEmitter(parms, useAcoustics, 0x7f, true, aid);
+          CSfxManager::RemoveEmitter(currentHandle);
+          CSfxHandle hnd =
+              CSfxManager::AddEmitter(parms, useAcoustics, CSfxManager::kMedPriority, true, aid);
           if (hnd) {
             sfxHandle.first = useSfxId;
             sfxHandle.second = hnd;
@@ -149,10 +152,11 @@ void do_sound_event(rstl::pair< u16, CSfxHandle >& sfxHandle, int& pitch, bool d
       }
     } else {
       CSfxHandle hnd;
-      if ((soundId & 0x40000000) != 0)
-        hnd = CSfxManager::SfxStart(useSfxId, 1.f, 0.f, true, 0x7f, false, aid);
+      if (nonPositional)
+        hnd = CSfxManager::SfxStart(useSfxId, 0x7f, 0x40, useAcoustics, CSfxManager::kMedPriority,
+                                    false, aid);
       else
-        hnd = CSfxManager::AddEmitter(parms, useAcoustics, 0x7f, false, aid);
+        hnd = CSfxManager::AddEmitter(parms, useAcoustics, CSfxManager::kMedPriority, false, aid);
       if (doPitchBend)
         CSfxManager::PitchBend(hnd, pitch);
     }

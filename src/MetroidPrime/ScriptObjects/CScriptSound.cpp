@@ -191,9 +191,10 @@ void CScriptSound::PlaySound(CStateManager& mgr) {
     CWorld* world = mgr.World();
     if (!x11c_30_worldSfx || !world->HasGlobalSound(x100_soundId)) {
       const bool looped = x11c_25_looped;
+      const bool acoustics = x11c_29_acoustics;
       xec_sfxHandle =
-          CSfxManager::SfxStart(x100_soundId, x10e_vol, x114_pan, x11c_29_acoustics, x112_prio,
-                                looped, x11c_30_worldSfx ? CSfxManager::kAllAreas : areaId);
+          CSfxManager::SfxStart(x100_soundId, x10e_vol, x114_pan, acoustics, x112_prio, looped,
+                                x11c_30_worldSfx ? CSfxManager::kAllAreas : areaId);
       if (x11c_30_worldSfx) {
         world->AddGlobalSound(x100_soundId, xec_sfxHandle);
       }
