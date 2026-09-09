@@ -39,4 +39,6 @@ private:
   mutable rstl::vector< float > x38_floats;
 };
 
+CHECK_SIZEOF(CVertexMorphEffect, 0x48)
+
 #endif // _CVERTEXMORPHEFFECT
