@@ -2,7 +2,11 @@
 
 #include "MetroidPrime/CArchitectureMessage.hpp"
 
+#include "Kyoto/Audio/CStreamAudioManager.hpp"
 #include "Kyoto/Graphics/CGraphics.hpp"
+#include "Kyoto/Graphics/CMoviePlayer.hpp"
+#include "Kyoto/Input/IController.hpp"
+#include "Kyoto/Text/CTextRenderBuffer.hpp"
 #include "Kyoto/Text/CTextExecuteBuffer.hpp"
 #include "MetaRender/CCubeRenderer.hpp"
 #include "MetroidPrime/CGameGlobalObjects.hpp"
@@ -144,23 +148,54 @@ void CErrorOutputWindow::DrawError() const {
   execBuffer.AddString(rstl::wstring_l(x1c_msg));
   execBuffer.EndBlock();
 
-  if (x18_24_) {
+  if (x18_28_) {
     CCameraFilterPass::DrawFilter(CCameraFilterPass::kFT_Blend, CCameraFilterPass::kFS_Fullscreen,
-                                  CColor::Black().WithAlphaOf(1.f), nullptr, 0.f);
-    CGraphics::SetViewPointMatrix(CTransform4f::Identity());
-    const float left = viewport.mLeft;
-    const float top = viewport.mTop;
-    const float right = viewport.mLeft + viewport.mWidth;
-    const float bottom = viewport.mTop + viewport.mHeight;
-    CGraphics::SetOrtho(left, right, top, bottom, -4096.f, 4095.f);
-    CGraphics::SetBlendMode(kBM_Blend, kBF_SrcAlpha, kBF_InvSrcAlpha, kLO_Clear);
-    CGraphics::SetCullMode(kCM_None);
-    CGraphics::SetDepthWriteMode(true, kE_Always, false);
-    CGraphics::SetAlphaCompare(kAF_Always, 0, kAO_And, kAF_Always, 0);
+                                  CColor::Black().WithAlphaOf(1.f), nullptr, 1.f);
   }
+
+  const float top = CCast::ToReal32(viewport.mTop);
+  CGraphics::SetViewPointMatrix(CTransform4f::Identity());
+  CGraphics::SetOrtho(viewport.mLeft, viewport.mLeft + viewport.mWidth,
+                      viewport.mTop + viewport.mHeight, top, -4096.f, 4096.f);
+  CGraphics::SetBlendMode(kBM_Blend, kBF_SrcAlpha, kBF_InvSrcAlpha, kLO_Clear);
+  CGraphics::SetCullMode(kCM_None);
+  CGraphics::SetDepthWriteMode(true, kE_Always, false);
+  CGraphics::SetAlphaCompare(kAF_Always, 0, kAO_And, kAF_Always, 0);
+  const CTransform4f xf = CTransform4f::FromColumns(CVector3f::Right(), CVector3f::Forward(),
+                                             CVector3f::Down(), CVector3f(0.f, 0.f, viewport.mHeight));
+  CGraphics::SetModelMatrix(xf);
+  execBuffer.BuildRenderBuffer().Render(CColor::White(), 0.f);
+  CGraphics::SetCullMode(kCM_Front);
 }
 
-void CErrorOutputWindow::SetState(EState) {}
+void CErrorOutputWindow::SetState(EState state) {
+  if (state != kS_Zero && gpController != nullptr) {
+    for (int i = 0; i < 4; ++i) {
+      gpController->SetMotorState(static_cast< EIOPort >(i), kMS_Stop);
+    }
+  }
+
+  if (state != x14_state) {
+    if (x14_state == kS_Zero) {
+      if (gpRender != nullptr) {
+        gpRender->SetRequestRGBA6(true);
+      }
+      if (x18_28_) {
+        x18_26_ = CStreamAudioManager::GetMusicUnmute();
+        x18_27_ = CStreamAudioManager::GetSfxUnmute();
+        x18_25_ = CMoviePlayer::GetAudioEnabled();
+        CStreamAudioManager::SetMusicUnmute(false);
+        CStreamAudioManager::SetSfxUnmute(false);
+        CMoviePlayer::SetAudioEnabled(false);
+      }
+    } else if (state == kS_Zero && x18_28_) {
+      CStreamAudioManager::SetMusicUnmute(x18_26_);
+      CStreamAudioManager::SetSfxUnmute(x18_27_);
+      CMoviePlayer::SetAudioEnabled(x18_25_);
+    }
+    x14_state = state;
+  }
+}
 
 void CErrorOutputWindow::Update() { UpdateWindow(); }
 
