@@ -949,7 +949,7 @@ config.libs = [
                 "MetroidPrime/Enemies/CBurstFire.cpp",
             ),
             Object(NonMatching, "MetroidPrime/Enemies/CFlaahgra.cpp"),
-            Object(NonMatching, "MetroidPrime/Player/CPlayerEnergyDrain.cpp"),
+            Object(MatchingFor("GM8E01_00"), "MetroidPrime/Player/CPlayerEnergyDrain.cpp"),
             Object(NonMatching, "MetroidPrime/CFlameWarp.cpp"),
             Object(NonMatching, "MetroidPrime/Weapons/CIceImpact.cpp"),
             Object(
