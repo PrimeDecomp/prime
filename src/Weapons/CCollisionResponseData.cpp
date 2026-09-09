@@ -1,3 +1,5 @@
+#pragma inline_max_size(250)
+
 #include "Weapons/CCollisionResponseData.hpp"
 
 #include "Kyoto/CFactoryFnReturn.hpp"

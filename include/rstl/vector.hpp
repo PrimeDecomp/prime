@@ -72,7 +72,7 @@ public:
   }
 
   inline void resize(int size, const T& in = T());
-  void assign(int size, const T& in = T());
+  inline void assign(int size, const T& in = T());
   void reserve(int size);
   iterator insert(iterator it, const T& value);
 
