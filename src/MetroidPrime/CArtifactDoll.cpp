@@ -3,6 +3,9 @@
 #include "MetroidPrime/CArtifactDoll.hpp"
 #include "Kyoto/CSimplePool.hpp"
 #include "Kyoto/Graphics/CModel.hpp"
+#include "Kyoto/Graphics/CGraphics.hpp"
+#include "Kyoto/Math/CRelAngle.hpp"
+#include "MetaRender/CCubeRenderer.hpp"
 #include "Kyoto/Math/CloseEnough.hpp"
 #include "Kyoto/SObjectTag.hpp"
 #include "Kyoto/TToken.hpp"
@@ -59,8 +62,6 @@ CArtifactDoll::CArtifactDoll()
   }
 }
 
-CArtifactDoll::~CArtifactDoll() {}
-
 bool CArtifactDoll::CheckLoadComplete() {
   if (IsLoaded()) {
     return true;
@@ -78,11 +79,13 @@ bool CArtifactDoll::CheckLoadComplete() {
 
 const bool CArtifactDoll::IsLoaded() const { return !!mIsLoaded; }
 
+CArtifactDoll::~CArtifactDoll() {}
+
 void CArtifactDoll::UpdateActorLights() {
-  mLights[0] = CLight::BuildDirectional(
-      (CVector3f::Forward() + (CVector3f::Right() * 0.25f) + (CVector3f::Down() * 0.1f))
-          .AsNormalized(),
-      CColor((uchar)255, 255, 255));
+  // Retail computes this direction but uses the forward vector for the first light.
+  (CVector3f::Forward() + (CVector3f::Right() * 0.25f) + (CVector3f::Down() * 0.1f))
+      .AsNormalized();
+  mLights[0] = CLight::BuildDirectional(CVector3f::Forward(), CColor((uchar)255, 255, 255));
   mLights[1] = CLight::BuildDirectional(-CVector3f::Forward(), CColor((uchar)0, 0, 0));
   mActorLights->BuildFakeLightList(mLights, CColor(0.25f, 0.25f, 0.25f));
 }
@@ -105,7 +108,7 @@ void CArtifactDoll::Update(float dt, const CStateManager& mgr) {
   mFader = rstl::min_val(1.f, mFader + 2.f * dt);
 
   if (close_enough(mFader, 1.f)) {
-    UpdateArtifactHeadScan(mgr, 0.5f * dt * 0.5f);
+    UpdateArtifactHeadScan(mgr, 0.5f * dt / 2.f);
   }
   UpdateActorLights();
 }
@@ -114,18 +117,65 @@ void CArtifactDoll::CompleteArtifactHeadScan(const CStateManager& mgr) {
   UpdateArtifactHeadScan(mgr, 1.f);
 }
 
-void CArtifactDoll::UpdateArtifactHeadScan(const CStateManager& mgr, const float delta) {
+void CArtifactDoll::UpdateArtifactHeadScan(const CStateManager& mgr, float delta) {
   for (int i = 0; i < ARRAY_SIZE(ArtifactScanIds); ++i) {
     if (mgr.GetPlayerState()->HasPowerUp(CPlayerState::EItemType(i + CPlayerState::kIT_Truth))) {
-      const CAssetId id = ArtifactScanIds[i];
-      mgr.GetPlayerState()->SetScanTime(
-          id, rstl::min_val(1.f, delta + mgr.GetPlayerState()->GetScanTime(id)));
+      CAssetId id = ArtifactScanIds[i];
+      const float currentTime = mgr.GetPlayerState()->GetScanTime(id);
+      const float scanTime = currentTime + delta;
+      mgr.GetPlayerState()->SetScanTime(id, rstl::min_val(1.f, scanTime));
     }
   }
 }
 
 void CArtifactDoll::Draw(float alpha, const CStateManager& mgr, const bool inArtifactCategory,
-                         const CAssetId selectedArtifact) {}
+                         const int selectedArtifact) {
+  if (!IsLoaded()) {
+    return;
+  }
+
+  const float effectiveAlpha = alpha * mFader;
+  gpRender->SetPerspective(55.f, CGraphics::GetViewportWidth(), CGraphics::GetViewportHeight(),
+                          0.2f, 4096.f);
+  CGraphics::SetViewPointMatrix(CTransform4f::Translate(0.f, -10.f, 0.f));
+  mActorLights->ActivateLights();
+  const float angle = CGraphics::GetSecondsMod900() * M_PIF * 2.f * 0.25f;
+  const float xAngle = 8.f * CMath::SlowSineR(angle);
+  float zAngle = 8.f * CMath::SlowCosineR(angle);
+  CGraphics::SetModelMatrix(CTransform4f::RotateX(CRelAngle::FromDegrees(xAngle)) *
+                            CTransform4f::RotateZ(CRelAngle::FromDegrees(zAngle)) *
+                            CTransform4f::RotateX(CRelAngle::FromRadians(M_PIF / 2.f)) * CTransform4f::Scale(0.2f));
+
+  const CPlayerState& playerState = *mgr.GetPlayerState();
+  CGraphics::SetCullMode(kCM_None);
+  for (int i = 0; i < mModels.size(); ++i) {
+    TToken< CModel > model(mModels[i]);
+    const bool owned = playerState.HasPowerUp(static_cast< CPlayerState::EItemType >(i + CPlayerState::kIT_Truth));
+    CColor color = skPostColor;
+    if (owned) {
+      if (ArtifactScanIds[i] != kInvalidAssetId) {
+        const float scanTime = mgr.GetPlayerState()->GetScanTime(ArtifactScanIds[i]);
+        const float interp = 2.f * (scanTime - 0.5f);
+        if (interp < 0.5f) {
+          color = CColor::Lerp(skPostColor, CColor::White(), 2.f * interp);
+        } else {
+          color = CColor::Lerp(CColor::White(), skPreColor, 2.f * (interp - 0.5f));
+        }
+      } else {
+        color = skPreColor;
+      }
+    }
+    if (inArtifactCategory && i == selectedArtifact) {
+      const float interp = 0.5f * (1.f + CMath::SlowSineR(2.f * (M_PIF * CGraphics::GetSecondsMod900())));
+      color = CColor::Lerp(CColor::White(), color, interp)
+                  .WithAlphaModulatedBy(CMath::Clamp(0.f, 1.25f - interp, 1.f));
+    }
+    model->Draw(CModelFlags::Additive(0.f).DepthCompareUpdate(true, true));
+    model->Draw(CModelFlags::AdditiveRGB(color.WithAlphaModulatedBy(effectiveAlpha)).DepthCompareUpdate(true, false));
+  }
+  CGraphics::SetCullMode(kCM_Front);
+  CGraphics::DisableAllLights();
+}
 
 CAssetId CArtifactDoll::GetArtifactHeadScanFromItemType(CPlayerState::EItemType item) {
   if (item >= CPlayerState::kIT_Truth && item <= CPlayerState::kIT_Newborn) {
