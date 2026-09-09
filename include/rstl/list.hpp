@@ -111,12 +111,12 @@ public:
     node* n;
     x0_allocator.allocate(n, 1);
     new (n) node(prev, next);
-    new (n->get_value()) T(val);
+    new (n->x8_item) T(val);
     return n;
   }
 
   node* do_insert_before(node* n, const T& val) {
-    node* nn = create_node(n->x0_prev, n, val);
+    node* const nn = create_node(n->x0_prev, n, val);
     if (n == x4_start) {
       x4_start = nn;
     }
