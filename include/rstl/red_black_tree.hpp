@@ -42,6 +42,8 @@ private:
     void set_left(node* n) { mLeft = n; }
     node* get_right() { return mRight; }
     void set_right(node* n) { mRight = n; }
+    node_color get_color() const { return mColor; }
+    void set_parent(node* n) { mParent = n; }
   };
   class header {
   public:
@@ -262,6 +264,7 @@ private:
     return n;
   }
 
+  void free_node_and_sub_nodes(node* n);
   node* copy_from(node* n);
 
   node* create_node(node* left, node* right, node* parent, node_color color, const P& value) {
@@ -270,17 +273,6 @@ private:
     new (n) node(left, right, parent, color, value);
     return n;
   }
-
-  void free_node_and_sub_nodes(node* n);
-  // void free_node_and_sub_nodes(node* n) {
-  //   if (node* left = n->get_left()) {
-  //     free_node_and_sub_nodes(left);
-  //   }
-  //   if (node* right = n->get_right()) {
-  //     free_node_and_sub_nodes(right);
-  //   }
-  //   free_node(n);
-  // }
 
   void free_node(node* n) {
     n->~node();
@@ -367,12 +359,12 @@ red_black_tree< T, P, IsMulti, S, Cmp, Alloc >::copy_from(node* n) {
   if (n->get_right() != nullptr) {
     right = copy_from(n->get_right());
   }
-  node* ret = rs_new node(left, right, nullptr, n->mColor, *n->get_value());
+  node* const ret = create_node(left, right, nullptr, n->get_color(), *n->get_value());
   if (left != nullptr) {
-    left->mParent = ret;
+    left->set_parent(ret);
   }
   if (right != nullptr) {
-    right->mParent = ret;
+    right->set_parent(ret);
   }
   return ret;
 }
