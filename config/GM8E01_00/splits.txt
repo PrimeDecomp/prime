@@ -2835,13 +2835,13 @@ Kyoto/Animation/CAnimPOIData.cpp:
 	.sbss       start:0x805A92E0 end:0x805A9300
 
 Kyoto/Animation/CAnimSource.cpp:
-	.text       start:0x802EC704 end:0x802EE2F8
+	.text       start:0x802EC704 end:0x802EDF68
 	.rodata     start:0x803D6DD8 end:0x803D6DE0
 	.sdata      start:0x805A8780 end:0x805A8788
 	.sdata2     start:0x805AE370 end:0x805AE398
 
 Kyoto/Animation/CAnimSourceReader.cpp:
-	.text       start:0x802EE2F8 end:0x802EF8B0
+	.text       start:0x802EDF68 end:0x802EF8B0
 	.rodata     start:0x803D6DE0 end:0x803D6DE8
 	.data       start:0x803ECF58 end:0x803ED008
 	.sdata      start:0x805A8788 end:0x805A8790
