@@ -29,10 +29,15 @@ public:
   CGameGlobalObjects(COsContext&, CMemorySys&);
 
   void PostInitialize(COsContext&, CMemorySys&);
+#if VERSION != 0
+  void AddPaksAndFactories(const COsContext& osContext);
+#else
   void AddPaksAndFactories();
+#endif
   void LoadStringTable();
 
   rstl::single_ptr< CGameState >& GameState() { return x134_gameState; }
+  rstl::single_ptr< CMemoryCard >& MemoryCard() { return x138_memoryCard; }
 
   static CRasterFont* LoadDefaultFont();
 
@@ -44,7 +49,7 @@ private:
   CAiFuncMap x110_aiFuncMap;
   CGraphicsSys x130_graphicsSys;
   rstl::single_ptr< CGameState > x134_gameState;
-  rstl::single_ptr< CMemoryCard > x138_;
+  rstl::single_ptr< CMemoryCard > x138_memoryCard;
   rstl::optional_object< TLockedToken< CStringTable > > x13c_stringTable;
   rstl::single_ptr< IRenderer > x14c_renderer;
   rstl::single_ptr< CInGameTweakManager > x150_inGameTweakManager;

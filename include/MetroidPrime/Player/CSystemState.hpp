@@ -14,7 +14,7 @@ class CSystemState {
 public:
   CSystemState();
   explicit CSystemState(CInputStream&);
-  ~CSystemState();
+  ~CSystemState() {}
   void PutTo(COutputStream&);
 
   void SetFusionLinked(bool v);

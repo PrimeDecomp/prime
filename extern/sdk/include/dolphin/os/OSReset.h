@@ -27,6 +27,7 @@ extern "C" {
 #define OS_RESET_PRIO_ALARM 4294967295
 
 typedef BOOL (*OSResetFunction)(BOOL final);
+void OSResetSystem(int reset, u32 resetCode, BOOL forceMenu);
 typedef struct OSResetFunctionInfo OSResetFunctionInfo;
 
 struct OSResetFunctionInfo {

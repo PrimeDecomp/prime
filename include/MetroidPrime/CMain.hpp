@@ -17,10 +17,16 @@
 
 class CMain;
 
-// TODO
-class UnkClassArena {
+class CSaveRegion {
 public:
-  UnkClassArena(CMain*);
+  CSaveRegion(CMain& main);
+
+  static void* GetSaveBuffer() { return mSaveBuffer; }
+  static void* GetNonVolatileSettingsBuffer() { return mNonVolatileSettingsBuf; }
+
+private:
+  static void* mSaveBuffer;
+  static void* mNonVolatileSettingsBuf;
 };
 
 // TODO move to new header
@@ -77,7 +83,8 @@ public:
   void DrawDebugMetrics(double dt, CStopwatch& stopWatch);
   bool CheckTerminate();
   bool CheckReset();
-  void OpenWindow();
+  void CheckTweakManagerDebugOptions();
+  COsContext& OpenWindow();
   void SetRestartMode(const ERestartMode s) { x12c_restartMode = s; }
   ERestartMode GetRestartMode() const { return x12c_restartMode; }
   void SetCardBusy(bool v) { x160_31_cardBusy = v; }
@@ -90,39 +97,33 @@ public:
   }
 
   void SetGameFlowBuilt(const bool built) { x160_25_mfGameBuilt = built; }
-  float GetAverageTickTime() const { return x118_; }
-  float GetAverageDrawTime() const { return x11c_; }
+  float GetAverageTickTime() const { return x118_averageTickTime; }
+  float GetAverageDrawTime() const { return x11c_averageDrawTime; }
   bool GetScreenFading() const { return x160_26_screenFading; }
   void SetScreenFading(const bool fading) { x160_26_screenFading = fading; }
   void SetGameFrameDrawn(const bool drawn) { x161_24_gameFrameDrawn = drawn; }
 
-  void SetX30(bool v) { x160_30_ = v; }
+  void SetX30(bool v) { x160_30_gameExitReset = v; }
 
   static void EnsureWorldPaksReady();
   static void EnsureWorldPakReady(CAssetId id);
-
-  // TODO
-  COsContext& InitOsContext() {
-    OpenWindow();
-    return x0_osContext;
-  }
 
   COsContext& OsContext() { return x0_osContext; }
   const COsContext& GetOsContext() const { return x0_osContext; }
 
 private:
   COsContext x0_osContext;
-  UnkClassArena x6c_unk;
+  CSaveRegion x6c_saveRegion;
   CMemorySys x6d_memorySys;
   CDvdRequestSys x6e_dvdRequestSys;
   CTweaks x70_tweaks;
-  double xe8_;
-  TReservedAverage< float, 4 > xf0_;
-  TReservedAverage< float, 4 > x104_;
-  float x118_;
-  float x11c_;
-  float x120_;
-  float x124_;
+  double xe8_unknown;
+  TReservedAverage< float, 4 > xf0_tickTimes;
+  TReservedAverage< float, 4 > x104_drawTimes;
+  float x118_averageTickTime;
+  float x11c_averageDrawTime;
+  float x120_softResetHoldTime;
+  float x124_resetInputDelay;
   CGameGlobalObjects* x128_gameGlobalObjects;
   ERestartMode x12c_restartMode;
   rstl::reserved_vector< uint, 10 > x130_frameTimes;
@@ -130,13 +131,13 @@ private:
   bool x160_24_finished : 1;
   bool x160_25_mfGameBuilt : 1;
   bool x160_26_screenFading : 1;
-  bool x160_27_ : 1;
+  bool x160_27_resetButtonHeld : 1;
   bool x160_28_manageCard : 1;
-  bool x160_29_ : 1;
-  bool x160_30_ : 1;
+  bool x160_29_resetRequested : 1;
+  bool x160_30_gameExitReset : 1;
   bool x160_31_cardBusy : 1;
   bool x161_24_gameFrameDrawn : 1;
-  CGameArchitectureSupport* x164_;
+  CGameArchitectureSupport* x164_archSupport;
 };
 CHECK_SIZEOF(CMain, 0x168)
 

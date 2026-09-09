@@ -25,6 +25,7 @@ public:
   void WriteSystemOptions(COutputStream& out);
 
   void SetCurrentWorldId(CAssetId);
+  void InitializeMemoryStates();
   void SetDeferPowerupInit(bool);
   void SetTotalPlayTime(double);
 
@@ -71,7 +72,6 @@ public:
   static GameFileStateInfo LoadGameFileState(const void* data);
 
 private:
-  void InitializeMemoryStates();
   void InitializeMemoryWorlds();
 
   rstl::reserved_vector< uchar, 128 > x0_;

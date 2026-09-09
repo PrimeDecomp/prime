@@ -13,7 +13,7 @@ public:
   };
 
   CErrorOutputWindow(EFlag);
-  ~CErrorOutputWindow() override;
+  ~CErrorOutputWindow() override {}
 
   EMessageReturn OnMessage(const CArchitectureMessage&, CArchitectureQueue&) override;
   bool GetIsContinueDraw() const override;

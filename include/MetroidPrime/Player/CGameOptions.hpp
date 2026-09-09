@@ -47,7 +47,7 @@ public:
 
   CGameOptions();
   CGameOptions(CInputStream& in);
-  ~CGameOptions();
+  ~CGameOptions() {}
 
   void PutTo(COutputStream&);
 

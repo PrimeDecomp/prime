@@ -58,7 +58,7 @@ private:
 class CInGameTweakManager {
 public:
   CInGameTweakManager();
-  ~CInGameTweakManager();
+  ~CInGameTweakManager() {}
 
   bool HasTweakValue(const rstl::string& name) const;
   const CTweakValue* GetTweakValue(const rstl::string& name) const;
