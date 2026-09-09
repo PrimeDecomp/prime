@@ -571,7 +571,7 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/Tweaks/CTweakPlayerControl.cpp",
             ),
-            Object(NonMatching, "MetroidPrime/Tweaks/CTweakPlayerGun.cpp"),
+            Object(Matching, "MetroidPrime/Tweaks/CTweakPlayerGun.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CPauseScreen.cpp"),
             Object(NonMatching, "MetroidPrime/Tweaks/CTweakGui.cpp"),
             Object(
@@ -943,7 +943,7 @@ config.libs = [
             Object(NonMatching, "MetroidPrime/CCollisionActorManager.cpp"),
             Object(Matching, "MetroidPrime/CCollisionActor.cpp"),
             Object(Matching, "MetroidPrime/ScriptObjects/CScriptPlayerActor.cpp"),
-            Object(NonMatching, "MetroidPrime/Tweaks/CTweakPlayerRes.cpp"),
+            Object(Matching, "MetroidPrime/Tweaks/CTweakPlayerRes.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/Enemies/CBurstFire.cpp",
