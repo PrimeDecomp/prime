@@ -19,7 +19,7 @@ typedef bool (CAi::*CAiTriggerFunc)(CStateManager& mgr, float arg);
 class CAiFuncMap {
 public:
   CAiFuncMap();
-  ~CAiFuncMap();
+  ~CAiFuncMap() {}
 
   const CAiStateFunc GetStateFunc(const char* state) const;
   const CAiTriggerFunc GetTriggerFunc(const char* state) const;

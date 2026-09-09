@@ -61,6 +61,7 @@ public:
   void AsyncIdle(uint time);
 
   CResLoader& GetResLoader() { return x4_resLoader; }
+  CFactoryMgr& GetFactoryMgr() { return x5c_factoryMgr; }
 
   const rstl::vector< CAssetId >* GetTagListForFile(const rstl::string& pak) const {
     return x4_resLoader.GetTagListForFile(pak);

@@ -33,6 +33,7 @@ public:
   void StartTextFadeOut();
   void Update(float dt);
   void Draw() const;
+  void TouchModels();
   bool WaitForModelsAndTextures();
   bool IsTransitionFinished() const { return x44_24_transitionFinished; }
 
@@ -42,7 +43,6 @@ private:
   struct SModelDatas;
 
   static int GetSuitCharIdx();
-  void TouchModels();
   void UpdateDisabled(float dt);
   void UpdateEnabled(float dt);
   void UpdateText(float dt);
