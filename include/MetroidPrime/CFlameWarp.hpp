@@ -27,9 +27,9 @@ public:
   void SetMaxDistSq(float d) { x8c_maxDistSq = d; }
   void SetStateManager(CStateManager& mgr) { x9c_stateMgr = &mgr; }
   bool UpdateWarp() override;
-  void ModifyParticles(int particleCount, int stripe, int*, CVector3f* particlePos,
-                                 CVector3f* particlePrevPos, CVector3f* particleVelocity,
-                                 CColor* color, float* lineLengthOrSize, float* lineWidthOrRota) override;
+  void ModifyParticles(int particleCount, int stripe, int*, CVector3f* particlePrevPos,
+                       CVector3f* particlePos, CVector3f* particleVelocity, CColor* color,
+                       float* lineLengthOrSize, float* lineWidthOrRota) override;
   void Activate(bool val) override { xa0_24_activated = val; }
   bool IsActivated() override;
   bool IsProcessed() const { return xa0_26_processed; }
@@ -50,5 +50,6 @@ private:
   bool xa0_25_collisionWarp : 1;
   bool xa0_26_processed : 1;
 };
+CHECK_SIZEOF(CFlameWarp, 0xa4)
 
 #endif // _CFLAMEWARP
