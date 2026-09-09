@@ -10,13 +10,19 @@ template < typename T >
 class construction_deferred {
 public:
   construction_deferred() : m_valid(false) {}
+  ~construction_deferred() { clear(); }
 
   template < typename A >
   void build(const A& arg) {
     makeValid();
     rstl::construct(get_ptr(), arg);
   }
-  void clear(); // TODO
+  void clear() {
+    if (valid()) {
+      rstl::destroy(get_ptr());
+      m_valid = false;
+    }
+  }
   bool valid() const { return m_valid; }
 
   T* get_ptr() { return reinterpret_cast< T* >(x0_data); }

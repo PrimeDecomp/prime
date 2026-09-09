@@ -37,12 +37,7 @@ public:
   , x30_initialTime(CCharAnimTime::ZeroFlat()) {}
   CAnimTreeTimeScale(const rstl::ncrc_ptr< CAnimTreeNode >& node,
                      const rstl::ownership_transfer< IVaryingAnimationTimeScale >& timeScale,
-                     const CCharAnimTime& time, const rstl::string& name)
-  : CAnimTreeSingleChild(node, name)
-  , x18_timeScale(timeScale)
-  , x20_curAccelTime(0.f)
-  , x28_targetAccelTime(time)
-  , x30_initialTime(node->GetSteadyStateAnimInfo().GetDuration() - node->GetTimeRemaining()) {}
+                     const CCharAnimTime& time, const rstl::string& name);
 
   static rstl::string CreatePrimitiveName(const rstl::ncrc_ptr< CAnimTreeNode >& node, float scaleA,
                                           const CCharAnimTime& time, float scaleB);
