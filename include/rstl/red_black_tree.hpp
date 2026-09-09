@@ -194,7 +194,7 @@ public:
 
   iterator erase(iterator it) {
     node* n = it.get_node();
-    it.mNode = static_cast< node* >(rbtree_traverse_forward(it.mHeader, it.mNode));
+    ++it;
     free_node(rebalance_for_erase(n));
     x4_count--;
     return it;
