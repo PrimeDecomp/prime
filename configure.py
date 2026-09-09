@@ -623,7 +623,7 @@ config.libs = [
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CGameLight.cpp"
             ),
-            Object(NonMatching, "MetroidPrime/Tweaks/CTweakTargeting.cpp"),
+            Object(Matching, "MetroidPrime/Tweaks/CTweakTargeting.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/Tweaks/CTweakAutoMapper.cpp",
