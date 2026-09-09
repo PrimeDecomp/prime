@@ -6,20 +6,19 @@
 #include "Kyoto/Audio/CDSPStream.hpp"
 #include "rstl/string.hpp"
 
-struct SDSPStreamInfo;
-
 class CDSPStreamManager {
-  friend struct SDSPStreamInfo;
+  friend SStreamInfo MakeDSPStreamInfo(const CDSPStreamManager& stream);
 
 public:
   enum EState { kCDSPSM_Looping, kCDSPSM_Oneshot, kCDSPSM_Preparing };
 
-  CDSPStreamManager();
-  CDSPStreamManager(const rstl::string& fileName, int handle, char volume, char oneshot);
+  CDSPStreamManager(int unused = 0);
+  CDSPStreamManager(const rstl::string& fileName, int handle, char volume, bool oneshot);
+  CDSPStreamManager& operator=(const CDSPStreamManager& other);
 
   static void Initialize();
   static void Shutdown();
-  static int StartStreaming(const rstl::string& fileName, char volume, bool oneshot);
+  static int StartStreaming(const rstl::string& fileName, char volume, int oneshot);
   static void StopStreaming(int handle);
   static void UpdateVolume(int handle, char volume);
   static bool IsStreamAvailable(int handle);
@@ -35,24 +34,26 @@ private:
   static void HeaderReadComplete(s32 result, DVDFileInfo* fileInfo);
 
   bool StartHeaderRead(DVDCallback callback);
-  bool fn_80364870();
+  bool HasSupportedSampleRate();
   void WaitForReadCompletion();
 
 private:
-  dspadpcm_header x0_header;
+  enum EHeaderReadState { kHRS_Unread, kHRS_Reading, kHRS_Read };
+
+  char CompanionRight() { return x71_companionRight; }
+
+  dspadpcm_header x0_header ATTRIBUTE_ALIGN(32);
   rstl::string x60_fileName;
   bool x70_24_unclaimed : 1;
-  bool x70_25_headerReadCancelled : 1;
+  volatile bool x70_25_headerReadCancelled : 1;
   uchar x70_26_headerReadState : 2;
   char x71_companionRight;
   char x72_companionLeft;
   char x73_volume;
   char x74_oneshot;
-  uchar x75_pad[3];
   int x78_handleId;
-  int x7c_streamId;
+  uint x7c_streamId;
   DVDFileInfo x80_dvdFile;
-  uchar xbc_pad[4];
 };
 CHECK_SIZEOF(CDSPStreamManager, 0xC0);
 

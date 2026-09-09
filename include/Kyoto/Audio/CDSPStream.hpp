@@ -4,6 +4,7 @@
 #include "types.h"
 
 #include "dolphin/dvd.h"
+#include "musyx/musyx.h"
 
 struct dspadpcm_header {
   uint x0_numSamples;
@@ -36,7 +37,7 @@ struct SStreamInfo {
   uchar x11_pad[3];
   uint x14_loopStartByte;
   uint x18_loopEndByte;
-  short x1c_coef[8][2];
+  SND_ADPCMSTREAM_INFO x1c_adpcmInfo;
 };
 CHECK_SIZEOF(SStreamInfo, 0x3C);
 
@@ -49,10 +50,10 @@ public:
   void BufferStream();
   void StopStream();
 
-  static uint IsStreamAvailable(int handle);
-  static uint IsStreamActive(int handle);
-  static void UpdateVolume(int handle, int vol);
-  void UpdateStreamVolume(int vol);
+  static bool IsStreamAvailable(int handle);
+  static bool IsStreamActive(int handle);
+  static void UpdateVolume(int handle, char vol);
+  void UpdateStreamVolume(char vol);
 
   static void Silence(int handle);
   void SilenceStream();
@@ -63,7 +64,7 @@ public:
   static int AllocateMono(const SStreamInfo& info, char vol, char pan, int oneshot);
   uint AllocateStream(const SStreamInfo& info, char vol, char pan);
 
-  static void FreeAllStreams(int unused);
+  static void FreeAllStreams();
   static void Initialize();
 
 private:
@@ -89,7 +90,7 @@ private:
   uchar x21_pad[3];
   uint x24_loopStartByte;
   uint x28_loopEndByte;
-  short x2c_coef[8][2];
+  SND_ADPCMSTREAM_INFO x2c_adpcmInfo;
   uchar x4c_vol;
   uchar x4d_pan;
   ushort x4e_pad;
