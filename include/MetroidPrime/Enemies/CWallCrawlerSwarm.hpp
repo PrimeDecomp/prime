@@ -87,7 +87,7 @@ public:
                     int launchSfx, int scatterSfx, CActorParameters actParams);
 
   void FreezeCollision(const CMarkerGrid& grid, float duration);
-  void ApplyRadiusDamage(const CVector3f& pos, const CDamageInfo& info, CStateManager& mgr);
+  void ApplyRadiusDamage(CVector3f pos, const CDamageInfo& info, CStateManager& mgr);
   CVector3f GetLastKilledOffset() const { return x130_lastKilledOffset; }
   int GetCurrentLockOnId() const { return x42c_lockOnIdx; }
   int GetBoidCount() const { return x108_boids.size(); }
