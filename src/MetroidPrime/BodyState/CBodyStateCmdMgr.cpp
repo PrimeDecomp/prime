@@ -1,5 +1,8 @@
 #include "MetroidPrime/BodyState/CBodyStateCmdMgr.hpp"
 
+#include "Kyoto/Math/CloseEnough.hpp"
+#include <float.h>
+
 CBodyStateCmdMgr::CBodyStateCmdMgr()
 : x0_move(CVector3f::Zero())
 , xc_face(CVector3f::Zero())
@@ -35,9 +38,38 @@ CBodyStateCmdMgr::CBodyStateCmdMgr()
 , x254_wallHang(kInvalidUniqueId)
 , x260_locomotion(kBSC_Locomotion)
 , x268_additiveIdle(kBSC_AdditiveIdle)
-, x278_additiveFlinch(0.f)
+, x278_additiveFlinch(1.f)
 , x284_additiveReaction(pas::kART_Invalid, 0.f, false)
-, x298_stopReaction(kBSC_StopReaction) {}
+, x298_stopReaction(kBSC_StopReaction) {
+  x40_commandTable[kBSC_Getup] = &xb8_getup;
+  x40_commandTable[kBSC_Step] = &xc4_step;
+  x40_commandTable[kBSC_Die] = &xd4_die;
+  x40_commandTable[kBSC_KnockDown] = &xdc_knockDown;
+  x40_commandTable[kBSC_KnockBack] = &xf4_knockBack;
+  x40_commandTable[kBSC_MeleeAttack] = &x10c_meleeAttack;
+  x40_commandTable[kBSC_ProjectileAttack] = &x128_projectileAttack;
+  x40_commandTable[kBSC_LoopAttack] = &x144_loopAttack;
+  x40_commandTable[kBSC_LoopReaction] = &x154_loopReaction;
+  x40_commandTable[kBSC_LoopHitReaction] = &x160_loopHitReaction;
+  x40_commandTable[kBSC_ExitState] = &x16c_exitState;
+  x40_commandTable[kBSC_LeanFromCover] = &x174_leanFromCover;
+  x40_commandTable[kBSC_NextState] = &x17c_nextState;
+  x40_commandTable[kBSC_MaintainVelocity] = &x184_maintainVelocity;
+  x40_commandTable[kBSC_Generate] = &x18c_generate;
+  x40_commandTable[kBSC_Hurled] = &x1ac_hurled;
+  x40_commandTable[kBSC_Jump] = &x1d0_jump;
+  x40_commandTable[kBSC_Slide] = &x1f8_slide;
+  x40_commandTable[kBSC_Taunt] = &x210_taunt;
+  x40_commandTable[kBSC_Scripted] = &x21c_scripted;
+  x40_commandTable[kBSC_Cover] = &x230_cover;
+  x40_commandTable[kBSC_WallHang] = &x254_wallHang;
+  x40_commandTable[kBSC_Locomotion] = &x260_locomotion;
+  x40_commandTable[kBSC_AdditiveIdle] = &x268_additiveIdle;
+  x40_commandTable[kBSC_AdditiveAim] = &x270_additiveAim;
+  x40_commandTable[kBSC_AdditiveFlinch] = &x278_additiveFlinch;
+  x40_commandTable[kBSC_AdditiveReaction] = &x284_additiveReaction;
+  x40_commandTable[kBSC_StopReaction] = &x298_stopReaction;
+}
 
 CBodyStateCmdMgr::~CBodyStateCmdMgr() {
   x0_move = CVector3f::Zero();
@@ -57,12 +89,42 @@ void CBodyStateCmdMgr::DeliverCmd(const CBodyStateCmd& cmd) {
   *x40_commandTable[(uint)cmd.GetCommandId()] = cmd;
 }
 
-void CBodyStateCmdMgr::DeliverCmd(const CBCLocomotionCmd&) {
-  
+void CBodyStateCmdMgr::DeliverCmd(const CBCLocomotionCmd& cmd) {
+  if (!(cmd.GetWeight() > FLT_EPSILON)) {
+    return;
+  }
+  x3c_steeringSpeed += cmd.GetWeight();
+  x0_move += cmd.GetMoveVector() * cmd.GetWeight();
+  xc_face += cmd.GetFaceVector() * cmd.GetWeight();
 }
 
 void CBodyStateCmdMgr::BlendSteeringCmds() {
-  
+  if (x3c_steeringSpeed > FLT_EPSILON) {
+    const float weightScale = 1.f / x3c_steeringSpeed;
+    xc_face *= weightScale;
+    switch (x30_steeringMode) {
+    case kSBM_Normal:
+      x0_move *= weightScale;
+      break;
+    case kSBM_FullSpeed:
+      if (!close_enough(x0_move, CVector3f::Zero(), 0.0001f)) {
+        x0_move.Normalize();
+        x0_move *= x38_steeringSpeedMax;
+      }
+      break;
+    case kSBM_Clamped:
+      x0_move *= weightScale;
+      if (!close_enough(x0_move, CVector3f::Zero(), 0.0001f)) {
+        const float speed = x0_move.Magnitude();
+        if (speed < x34_steeringSpeedMin) {
+          x0_move = x0_move.AsNormalized() * x34_steeringSpeedMin;
+        } else if (speed > x38_steeringSpeedMax) {
+          x0_move = x0_move.AsNormalized() * x38_steeringSpeedMax;
+        }
+      }
+      break;
+    }
+  }
 }
 
 void CBodyStateCmdMgr::Reset() {

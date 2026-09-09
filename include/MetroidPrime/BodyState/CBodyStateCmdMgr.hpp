@@ -154,7 +154,7 @@ private:
 
 class CBCSlideCmd : public CBodyStateCmd {
 public:
-  CBCSlideCmd(pas::ESlideType type, const CVector3f& dir)
+  CBCSlideCmd(pas::ESlideType type, CVector3f dir)
   : CBodyStateCmd(kBSC_Slide), x8_type(type), xc_dir(dir) {}
 
   ~CBCSlideCmd() override {}
