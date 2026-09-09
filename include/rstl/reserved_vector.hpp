@@ -85,6 +85,7 @@ public:
       for (iterator j = it; j < end() - 1; ++j) {
         *j = *(j + 1);
       }
+      destroy(end() - 1);
       --x0_count;
       return it;
     }
@@ -92,8 +93,8 @@ public:
   }
 
   void resize(int count, const T& item = T()) {
-    if (size() < count) {
-      uninitialized_fill_n(end(), count - size(), item);
+    if (x0_count < count) {
+      uninitialized_fill_n(data() + x0_count, count - x0_count, item);
       x0_count = count;
     }
   }

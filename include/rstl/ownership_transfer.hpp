@@ -21,7 +21,7 @@ public:
   ~ownership_transfer() { dec_ref_count(); }
 
   ownership_transfer& operator=(const ownership_transfer& other) {
-    if (this != &other) {
+    if (&other != this) {
       dec_ref_count();
       x0_owns = other.x0_owns;
       x4_ptr = other.x4_ptr;

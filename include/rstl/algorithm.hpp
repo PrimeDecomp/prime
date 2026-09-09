@@ -332,7 +332,7 @@ default_pair_sorter_finder() {
 template < typename K, typename V, typename Cmp >
 inline bool pair_sorter_finder< pair< K, V >, Cmp >::operator()(const K& a,
                                                                 const pair< K, V >& b) const {
-  return !!cmp(a, b.first);
+  return cmp(a, b.first);
 }
 
 template < typename K, typename V, typename Cmp >
@@ -355,8 +355,9 @@ find_by_key(const T& container,
 template < typename T >
 typename T::const_iterator inline find_by_key(
     const T& container, const typename select1st< typename T::value_type >::value_type& key) {
-  less< typename select1st< typename T::value_type >::value_type > cmp;
-  return find_by_key(container, key, cmp);
+  return binary_find(container.begin(), container.end(), key,
+    pair_sorter_finder< typename T::value_type, less< typename select1st< typename T::value_type >::value_type > >(
+      less< typename select1st< typename T::value_type >::value_type >()));
 }
 
 template < typename T, class Cmp >
