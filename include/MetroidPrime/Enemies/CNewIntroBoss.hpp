@@ -55,14 +55,14 @@ public:
 
 private:
   pas::ELocomotionType x568_locomotion;
-  uint x56c_stateProg;
+  int x56c_stateProg;
   float x570_minTurnAngle;
   CBoneTracking x574_boneTracking;
   CProjectileInfo x5ac_projectileInfo;
   TUniqueId x5d4_stage1Projectile;
   TUniqueId x5d6_stage2Projectile;
   TUniqueId x5d8_stage3Projectile;
-  rstl::string x5dc_damageLocator; // ???
+  rstl::string x5dc_damageLocator;
   rstl::single_ptr< CCollisionActorManager > x5ec_collisionManager;
   CAssetId x5f0_beamContactFxId;
   CAssetId x5f4_beamPulseFxId;
@@ -83,5 +83,7 @@ private:
   TUniqueId x676_curProjectile;
   bool x678_;
 };
+
+CHECK_SIZEOF(CNewIntroBoss, 0x680)
 
 #endif // _CNEWINTROBOSS
