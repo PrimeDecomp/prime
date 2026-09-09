@@ -23,16 +23,15 @@ ushort CMetroidAreaCollider::sDupTriangleList[0x4000];
 bool CMetroidAreaCollider::ConvexPolyCollision(const CPlane* planes, const CVector3f* verts,
                                                CAABox& aabb) {
   typedef rstl::reserved_vector< CVector3f, 20 > ClipVec;
-  ++gCalledClip;
-
   ClipVec vecs[2];
+  ++gCalledClip;
   ++gRejectedByClip;
   int vecIdx = 0;
   int otherVecIdx = 1;
 
-  vecs[0].push_back(verts[0]);
-  vecs[0].push_back(verts[1]);
-  vecs[0].push_back(verts[2]);
+  for (int i = 0; i < 3; ++i) {
+    vecs[0].push_back(verts[i]);
+  }
 
   for (int i = 0; i < 6; ++i) {
     ClipVec& vec = vecs[vecIdx];
@@ -157,19 +156,21 @@ bool CMetroidAreaCollider::AABoxCollisionCheck_Cached(const COctreeLeafCache& le
                                                       const CMaterialFilter& filter,
                                                       const CMaterialList& matList,
                                                       CCollisionInfoList& list) {
-  bool ret = false;
   const CUnitVector3f right(1.f, 0.f, 0.f);
   const CUnitVector3f forward(0.f, 1.f, 0.f);
   const CUnitVector3f up(0.f, 0.f, 1.f);
+  const CVector3f min = aabb.GetMinPoint();
+  const CVector3f max = aabb.GetMaxPoint();
   const CPlane planes[6] = {
-      CPlane(aabb.GetMinPoint(), right),   CPlane(aabb.GetMaxPoint(), -right),
-      CPlane(aabb.GetMinPoint(), forward), CPlane(aabb.GetMaxPoint(), -forward),
-      CPlane(aabb.GetMinPoint(), up),      CPlane(aabb.GetMaxPoint(), -up),
+      CPlane(min, right),   CPlane(max, -right),
+      CPlane(min, forward), CPlane(max, -forward),
+      CPlane(min, up),      CPlane(max, -up),
   };
 
   ResetInternalCounters();
   CVector3f center = aabb.GetCenterPoint();
   CVector3f halfExtent = aabb.GetHalfExtent();
+  bool ret = false;
 
   for (int i = 0; i < leafCache.GetNumLeaves(); ++i) {
     const CAreaOctTree::Node& node = leafCache.GetLeaf(i);
@@ -211,13 +212,15 @@ bool CMetroidAreaCollider::AABoxCollisionCheck(const CAreaOctTree& octTree, cons
                                                const CMaterialFilter& filter,
                                                const CMaterialList& matList,
                                                CCollisionInfoList& list) {
+  const CVector3f min = aabb.GetMinPoint();
+  const CVector3f max = aabb.GetMaxPoint();
   CPlane planes[6] = {
-      CPlane(aabb.GetMinPoint(), CUnitVector3f(1.f, 0.f, 0.f)),
-      CPlane(aabb.GetMaxPoint(), -CUnitVector3f(1.f, 0.f, 0.f)),
-      CPlane(aabb.GetMinPoint(), CUnitVector3f(0.f, 1.f, 0.f)),
-      CPlane(aabb.GetMaxPoint(), -CUnitVector3f(0.f, 1.f, 0.f)),
-      CPlane(aabb.GetMinPoint(), CUnitVector3f(0.f, 0.f, 1.f)),
-      CPlane(aabb.GetMaxPoint(), -CUnitVector3f(0.f, 0.f, 1.f)),
+      CPlane(min, CUnitVector3f(1.f, 0.f, 0.f)),
+      CPlane(max, -CUnitVector3f(1.f, 0.f, 0.f)),
+      CPlane(min, CUnitVector3f(0.f, 1.f, 0.f)),
+      CPlane(max, -CUnitVector3f(0.f, 1.f, 0.f)),
+      CPlane(min, CUnitVector3f(0.f, 0.f, 1.f)),
+      CPlane(max, -CUnitVector3f(0.f, 0.f, 1.f)),
   };
   CAABoxAreaCache cache(aabb, planes, filter, matList, list);
 
@@ -270,7 +273,7 @@ bool CMetroidAreaCollider::AABoxCollisionCheckBoolean_Cached(const COctreeLeafCa
     if (aabb.DoBoundsOverlap(node.GetBoundingBox())) {
       CAreaOctTree::TriListReference list = node.GetTriangleArray();
       const CAreaOctTree& owner = node.GetOwner();
-      int size = static_cast< ushort >(list.GetSize());
+      int size = list.GetSize();
       for (int j = 0; j < size; ++j) {
         ++gTrianglesProcessed;
         const CCollisionSurface& surf = owner.GetMasterListTriangle(list.GetAt(j));
@@ -296,7 +299,9 @@ bool CMetroidAreaCollider::AABoxCollisionCheckBoolean(const CAreaOctTree& octTre
                                                       const CAABox& aabb,
                                                       const CMaterialFilter& filter) {
   CBooleanAABoxAreaCache cache(aabb, filter);
-  return AABoxCollisionCheckBoolean_Internal(octTree.GetRootNode(), cache);
+  CAreaOctTree::Node node(octTree.GetTreeMemory(), octTree.GetBoundingBox(), octTree,
+                          octTree.GetTreeType());
+  return AABoxCollisionCheckBoolean_Internal(node, cache);
 }
 
 bool CMetroidAreaCollider::SphereCollisionCheck_Internal(const CAreaOctTree::Node& node,
@@ -392,7 +397,9 @@ bool CMetroidAreaCollider::SphereCollisionCheck(const CAreaOctTree& octTree, con
                                                 CCollisionInfoList& list) {
   CSphereAreaCache cache(aabb, sphere, filter, matList, list);
   ResetInternalCounters();
-  return SphereCollisionCheck_Internal(octTree.GetRootNode(), cache);
+  CAreaOctTree::Node node(octTree.GetTreeMemory(), octTree.GetBoundingBox(), octTree,
+                          octTree.GetTreeType());
+  return SphereCollisionCheck_Internal(node, cache);
 }
 
 bool CMetroidAreaCollider::SphereCollisionCheckBoolean_Internal(
@@ -454,7 +461,9 @@ bool CMetroidAreaCollider::SphereCollisionCheckBoolean(const CAreaOctTree& octTr
                                                        const CAABox& aabb, const CSphere& sphere,
                                                        const CMaterialFilter& filter) {
   CBooleanSphereAreaCache cache(aabb, sphere, filter);
-  return SphereCollisionCheckBoolean_Internal(octTree.GetRootNode(), cache);
+  CAreaOctTree::Node node(octTree.GetTreeMemory(), octTree.GetBoundingBox(), octTree,
+                          octTree.GetTreeType());
+  return SphereCollisionCheckBoolean_Internal(node, cache);
 }
 
 bool CMetroidAreaCollider::MovingSphereCollisionCheck_Cached(
@@ -495,8 +504,9 @@ bool CMetroidAreaCollider::MovingSphereCollisionCheck_Cached(
             if (CollisionUtil::TriBoxOverlap(center, extent, surf.GetVert(0), surf.GetVert(1),
                                              surf.GetVert(2)) == true) {
               CVector3f surfNormal = surf.GetNormal();
-              if (CVector3f::Dot(sphere.GetCenter() + moveVec - surf.GetVert(0), surfNormal) <=
-                  sphere.GetRadius()) {
+              CVector3f endDelta = sphere.GetCenter() + moveVec - surf.GetVert(0);
+              float endHeight = CVector3f::Dot(endDelta, surfNormal);
+              if (!(endHeight > sphere.GetRadius())) {
                 bool triRet = false;
 
                 double triMagD =
@@ -504,8 +514,7 @@ bool CMetroidAreaCollider::MovingSphereCollisionCheck_Cached(
                         sphere.GetRadius() -
                         CVector3f::Dot(sphere.GetCenter() - surf.GetVert(0), surfNormal)) /
                     static_cast< double >(CVector3f::Dot(dir, surfNormal));
-                float triMag = static_cast< float >(triMagD);
-                CVector3f intersectPoint = sphere.GetCenter() + triMag * dir;
+                CVector3f intersectPoint = sphere.GetCenter() + static_cast< float >(triMagD) * dir;
 
                 bool outsideEdges[3];
                 outsideEdges[0] =
@@ -523,10 +532,10 @@ bool CMetroidAreaCollider::MovingSphereCollisionCheck_Cached(
 
                 if (triMagD >= 0.0 && !outsideEdges[0] && !outsideEdges[1] && !outsideEdges[2] &&
                     triMagD < dOut) {
+                  triRet = true;
                   infoOut = CCollisionInfo(intersectPoint - sphere.GetRadius() * surfNormal,
                                            matList, triMat, surfNormal);
                   dOut = triMagD;
-                  triRet = true;
                   ret = true;
                 }
 
@@ -536,14 +545,13 @@ bool CMetroidAreaCollider::MovingSphereCollisionCheck_Cached(
                 const ushort* edgeIndices = owner.GetTriangleEdgeIndices(triIdx);
                 for (int k = 0; k < 3; ++k) {
                   if (intersects || outsideEdges[k]) {
-                    ushort edgeIdx = edgeIndices[k];
+                    int edgeIdx = edgeIndices[k];
                     if (sDupPrimitiveCheckCount != sDupEdgeList[edgeIdx]) {
                       sDupEdgeList[edgeIdx] = sDupPrimitiveCheckCount;
                       uint edgeMatVal = owner.GetEdgeMaterial(edgeIdx);
                       if (!(edgeMatVal & (1u << kMT_NoEdgeCollision))) {
                         static int mod3[4] = {0, 1, 2, 0};
-                        int nextIdx = mod3[k + 1];
-                        CVector3f edgeVec = surf.GetVert(nextIdx) - surf.GetVert(k);
+                        CVector3f edgeVec = surf.GetVert(mod3[k + 1]) - surf.GetVert(k);
                         float edgeVecMag = edgeVec.Magnitude();
                         edgeVec *= 1.f / edgeVecMag;
                         float dirDotEdge = CVector3f::Dot(dir, edgeVec);
@@ -555,14 +563,16 @@ bool CMetroidAreaCollider::MovingSphereCollisionCheck_Cached(
                         if (edgeRejMagSq > 0.f) {
                           float tmp = 2.f * CVector3f::Dot(vtsRej, edgeRej);
                           float tmp2 =
+                              tmp * tmp -
                               4.f * edgeRejMagSq *
-                                  (vtsRej.MagSquared() - sphere.GetRadius() * sphere.GetRadius()) -
-                              tmp * tmp;
+                                  (vtsRej.MagSquared() - sphere.GetRadius() * sphere.GetRadius());
                           if (tmp2 >= 0.f) {
-                            double eMag = 0.5 / edgeRejMagSq * (-tmp - sqrt(tmp2));
+                            double invDenom = 0.5 / edgeRejMagSq;
+                            double eMag = invDenom * (-tmp - sqrt(tmp2));
                             if (eMag >= 0.0) {
                               double t = eMag * dirDotEdge + vtsDotEdge;
                               if (t >= 0.0 && t <= edgeVecMag && eMag < dOut) {
+                                triRet = true;
                                 CVector3f ePoint =
                                     surf.GetVert(k) + static_cast< float >(t) * edgeVec;
                                 CVector3f eNormal =
@@ -571,19 +581,18 @@ bool CMetroidAreaCollider::MovingSphereCollisionCheck_Cached(
                                 infoOut = CCollisionInfo(ePoint, matList, CMaterialList(edgeMatVal),
                                                          eNormal);
                                 dOut = eMag;
-                                triRet = true;
                                 ret = true;
                                 testVert[k] = false;
-                                testVert[nextIdx] = false;
+                                testVert[mod3[k + 1]] = false;
                               } else if (t < -sphere.GetRadius() && dirDotEdge <= 0.f) {
                                 testVert[k] = false;
                               } else if (t > edgeVecMag + sphere.GetRadius() && dirDotEdge >= 0.f) {
-                                testVert[nextIdx] = false;
+                                testVert[mod3[k + 1]] = false;
                               }
                             }
                           } else {
                             testVert[k] = false;
-                            testVert[nextIdx] = false;
+                            testVert[mod3[k + 1]] = false;
                           }
                         }
                       }
@@ -592,7 +601,7 @@ bool CMetroidAreaCollider::MovingSphereCollisionCheck_Cached(
                 }
 
                 for (int k = 0; k < 3; ++k) {
-                  ushort vertIdx = vertIndices[k];
+                  int vertIdx = vertIndices[k];
                   if (testVert[k]) {
                     if (sDupPrimitiveCheckCount != sDupVertexList[vertIdx]) {
                       sDupVertexList[vertIdx] = sDupPrimitiveCheckCount;
@@ -601,13 +610,14 @@ bool CMetroidAreaCollider::MovingSphereCollisionCheck_Cached(
                               CSphere(surf.GetVert(k), sphere.GetRadius()), sphere.GetCenter(), dir,
                               d) &&
                           d >= 0.0) {
+                        triRet = true;
                         CVector3f vNormal =
                             (sphere.GetCenter() + dir * static_cast< float >(d) - surf.GetVert(k))
                                 .AsNormalized();
-                        CMaterialList vertMat(owner.GetVertMaterial(vertIdx));
-                        infoOut = CCollisionInfo(surf.GetVert(k), matList, vertMat, vNormal);
+                        infoOut = CCollisionInfo(surf.GetVert(k), matList,
+                                                 CMaterialList(owner.GetVertMaterial(vertIdx)),
+                                                 vNormal);
                         dOut = d;
-                        triRet = true;
                         ret = true;
                       }
                     }
@@ -696,7 +706,7 @@ bool CMetroidAreaCollider::MovingAABoxCollisionCheck_Cached(
               }
 
               for (int k = 0; k < 3; ++k) {
-                ushort vertIdx = vertIndices[k];
+                int vertIdx = vertIndices[k];
                 if (sDupPrimitiveCheckCount != sDupVertexList[vertIdx]) {
                   sDupVertexList[vertIdx] = sDupPrimitiveCheckCount;
                   const CVector3f& vtx = owner.GetVert(vertIdx);
@@ -716,7 +726,7 @@ bool CMetroidAreaCollider::MovingAABoxCollisionCheck_Cached(
 
               const ushort* edgeIndices = owner.GetTriangleEdgeIndices(triIdx);
               for (int k = 0; k < 3; ++k) {
-                ushort edgeIdx = edgeIndices[k];
+                int edgeIdx = edgeIndices[k];
                 if (sDupPrimitiveCheckCount != sDupEdgeList[edgeIdx]) {
                   sDupEdgeList[edgeIdx] = sDupPrimitiveCheckCount;
                   uint edgeMat = owner.GetEdgeMaterial(edgeIdx);
