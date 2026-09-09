@@ -9,6 +9,7 @@
 #include "Kyoto/Animation/CSkinnedModel.hpp"
 #include "Kyoto/Animation/CVertexMorphEffect.hpp"
 #include "Kyoto/Audio/CSfxManager.hpp"
+#include "Kyoto/Basics/CCast.hpp"
 #include "Kyoto/CSimplePool.hpp"
 #include "Kyoto/Graphics/CModelFlags.hpp"
 #include "Kyoto/Math/CMath.hpp"
@@ -459,6 +460,12 @@ void CPatterned::TryJump(CStateManager&, int arg) {
   cmdMgr.DeliverCmd(cmd);
 }
 
+void CPatterned::TrySlide(CStateManager&, int arg) {
+  CBodyStateCmdMgr& cmdMgr = x450_bodyController->CommandMgr();
+  CBCSlideCmd cmd(static_cast< pas::ESlideType >(arg), x2e0_destPos - GetTranslation());
+  cmdMgr.DeliverCmd(cmd);
+}
+
 void CPatterned::TryTaunt(CStateManager&, int arg) {
   CBodyStateCmdMgr& cmdMgr = x450_bodyController->CommandMgr();
   CBCTauntCmd cmd(static_cast< pas::ETauntType >(arg));
@@ -484,9 +491,15 @@ void CPatterned::TryTurn(CStateManager&, int) {
   cmdMgr.DeliverCmd(cmd);
 }
 
-void CPatterned::TryLoopReaction(CStateManager&, int arg) {
+void CPatterned::TryLoopedReaction(CStateManager&, int arg) {
   CBodyStateCmdMgr& cmdMgr = x450_bodyController->CommandMgr();
   CBCLoopReactionCmd cmd(static_cast< pas::EReactionType >(arg));
+  cmdMgr.DeliverCmd(cmd);
+}
+
+void CPatterned::TryLoopedHitReaction(CStateManager&, int arg) {
+  CBodyStateCmdMgr& cmdMgr = x450_bodyController->CommandMgr();
+  CBCLoopHitReactionCmd cmd(static_cast< pas::EReactionType >(arg));
   cmdMgr.DeliverCmd(cmd);
 }
 
@@ -547,29 +560,29 @@ void CPatterned::Death(CStateManager& mgr, const CVector3f& direction, EScriptOb
 void CPatterned::GenerateDeathExplosion(CStateManager& mgr) {
   const rstl::optional_object< TCachedToken< CGenDescription > >& deathParticle =
       GetDeathExplosionParticle();
+  const rstl::optional_object< TCachedToken< CElectricDescription > >& deathElectric =
+      x530_deathExplosionElectric;
 
-  if (deathParticle.valid() || x530_deathExplosionElectric.valid()) {
+  if (deathParticle.valid() || deathElectric.valid()) {
     CTransform4f xf(GetTransform());
     const CVector3f offset =
         CVector3f::ByElementMultiply(GetModelData()->GetScale(), x514_deathExplosionOffset);
     xf.SetTranslation(GetTransform() * offset);
 
     if (deathParticle.valid()) {
-      const uint flags = !x402_24_pendingShock;
       if (CExplosion* explosion = rs_new CExplosion(
               TLockedToken< CGenDescription >(*deathParticle), mgr.AllocateUniqueId(), true,
-              CEntityInfo(GetCurrentAreaId(), CEntity::NullConnectionList, kInvalidEditorId),
-              rstl::string_l(""), xf, flags, CVector3f(1.f, 1.f, 1.f), CColor::White())) {
+              CEntityInfo(GetCurrentAreaId(), CEntity::NullConnectionList), rstl::string_l(""), xf,
+              x402_31_thawed ? 0 : 1, CVector3f(1.f, 1.f, 1.f), CColor::White())) {
         mgr.AddObject(explosion);
       }
     }
 
-    if (x530_deathExplosionElectric.valid()) {
+    if (deathElectric.valid()) {
       if (CExplosion* explosion = rs_new CExplosion(
-              TLockedToken< CElectricDescription >(*x530_deathExplosionElectric),
-              mgr.AllocateUniqueId(), true,
-              CEntityInfo(GetCurrentAreaId(), CEntity::NullConnectionList, kInvalidEditorId),
-              rstl::string_l(""), xf, 0, CVector3f(1.f, 1.f, 1.f), CColor::White())) {
+              TLockedToken< CElectricDescription >(*deathElectric), mgr.AllocateUniqueId(), true,
+              CEntityInfo(GetCurrentAreaId(), CEntity::NullConnectionList), rstl::string_l(""), xf,
+              0, CVector3f(1.f, 1.f, 1.f), CColor::White())) {
         mgr.AddObject(explosion);
       }
     }
@@ -577,24 +590,30 @@ void CPatterned::GenerateDeathExplosion(CStateManager& mgr) {
 }
 
 void CPatterned::GenerateIceDeathExplosion(CStateManager& mgr) {
-  if (x54c_iceDeathExplosionParticle.valid()) {
+  const rstl::optional_object< TCachedToken< CGenDescription > >& deathParticle =
+      x54c_iceDeathExplosionParticle;
+  if (deathParticle.valid()) {
     CTransform4f xf(GetTransform());
     const CVector3f offset =
         CVector3f::ByElementMultiply(GetModelData()->GetScale(), x540_iceDeathExplosionOffset);
-    xf.SetTranslation(GetTransform() * offset);
+    const CVector3f position = GetTransform() * offset;
+    const bool valid = deathParticle.valid();
+    xf.SetTranslation(position);
 
-    if (CExplosion* explosion = rs_new CExplosion(
-            TLockedToken< CGenDescription >(*x54c_iceDeathExplosionParticle),
-            mgr.AllocateUniqueId(), true,
-            CEntityInfo(GetCurrentAreaId(), CEntity::NullConnectionList, kInvalidEditorId),
-            rstl::string_l(""), xf, 1, CVector3f(1.f, 1.f, 1.f), CColor::White())) {
-      mgr.AddObject(explosion);
+    if (valid) {
+      if (CExplosion* explosion = rs_new CExplosion(
+              TLockedToken< CGenDescription >(*deathParticle), mgr.AllocateUniqueId(), true,
+              CEntityInfo(GetCurrentAreaId(), CEntity::NullConnectionList), rstl::string_l(""), xf,
+              1, CVector3f(1.f, 1.f, 1.f), CColor::White())) {
+        mgr.AddObject(explosion);
+      }
     }
   }
 }
 
 void CPatterned::MassiveDeath(CStateManager& mgr) {
-  CSfxManager::AddEmitter(x454_deathSfx, GetTranslation(), CVector3f::Zero(), true, false,
+  const ushort sfx = x454_deathSfx;
+  CSfxManager::AddEmitter(sfx, GetTranslation(), CVector3f::Zero(), true, false,
                           CSfxManager::kMedPriority, CSfxManager::kAllAreas);
 
   if (!x401_28_burning) {
@@ -611,16 +630,17 @@ void CPatterned::MassiveFrozenDeath(CStateManager& mgr) {
     x458_iceShatterSfx = x454_deathSfx;
   }
 
-  CSfxManager::AddEmitter(x458_iceShatterSfx, GetTranslation(), CVector3f::Zero(), true, false,
+  const ushort sfx = x458_iceShatterSfx;
+  CSfxManager::AddEmitter(sfx, GetTranslation(), CVector3f::Zero(), true, false,
                           CSfxManager::kMedPriority, CSfxManager::kAllAreas);
   SendScriptMsgs(kSS_MassiveFrozenDeath, mgr, kSM_None);
   GenerateIceDeathExplosion(mgr);
 
-  const float toPlayerDist = (mgr.Player()->GetTranslation() - GetTranslation()).Magnitude();
+  const CVector3f playerDelta = mgr.Player()->GetTranslation() - GetTranslation();
+  const float toPlayerDist = playerDelta.Magnitude();
   if (toPlayerDist < 40.f) {
     mgr.CameraManager()->AddCameraShaker(
-        CCameraShakeData::HardHorizShakeDistance(GetTranslation(), 0.25f, 0.3f, 40.f),
-        true);
+        CCameraShakeData::HardHorizShakeDistance(GetTranslation(), 0.25f, 0.3f, 40.f), true);
   }
 
   DeathDelete(mgr);
@@ -630,72 +650,74 @@ void CPatterned::MassiveFrozenDeath(CStateManager& mgr) {
 void CPatterned::KnockBack(const CVector3f& backVec, CStateManager& mgr, const CDamageInfo& info,
                            float magnitude, bool direct, bool) {
   CHealthInfo* health = HealthInfo(mgr);
-  if (!x401_27_phazingOut && !x401_28_burning && health != nullptr) {
-    x460_knockBackController.KnockBack(backVec, mgr, *this, info, magnitude, direct);
+  if (x401_27_phazingOut || x401_28_burning || health == nullptr) {
+    return;
+  }
 
-    if (x450_bodyController->IsFrozen() &&
-        x460_knockBackController.GetActiveParms().xc_intoFreezeDur >= 0.f) {
+  x460_knockBackController.KnockBack(backVec, mgr, *this, info, magnitude, direct);
+
+  if (x450_bodyController->IsFrozen() &&
+      x460_knockBackController.GetActiveParms().xc_intoFreezeDur >= 0.f) {
+    x450_bodyController->FrozenBreakout();
+  }
+
+  switch (x460_knockBackController.GetActiveParms().x4_animFollowup) {
+  case kKBAFU_Freeze: {
+    CVector3f pos(0.f, 0.f, 0.f);
+    CUnitVector3f dir = GetTransform().TransposeRotate(backVec);
+    float dur = x460_knockBackController.GetActiveParms().x8_followupDuration;
+    Freeze(mgr, pos, dir, dur);
+    break;
+  }
+  case kKBAFU_PhazeOut:
+    PhazeOut(mgr);
+    break;
+  case kKBAFU_Shock:
+    Shock(mgr, x460_knockBackController.GetActiveParms().x8_followupDuration, -1.f);
+    break;
+  case kKBAFU_Burn:
+    Burn(x460_knockBackController.GetActiveParms().x8_followupDuration, 0.25f);
+    break;
+  case kKBAFU_LaggedBurnDeath:
+    x401_29_laggedBurnDeath = true;
+  case kKBAFU_BurnDeath: {
+    Burn(x460_knockBackController.GetActiveParms().x8_followupDuration, -1.f);
+    Death(mgr, CVector3f::Zero(), kSS_DeathRattle);
+    x400_28_pendingMassiveDeath = x400_29_pendingMassiveFrozenDeath = false;
+    x400_27_fadeToDeath = x401_28_burning = true;
+    x3f4_burnThinkRateTimer = 1.5f;
+    x402_29_drawParticles = false;
+    x450_bodyController->DouseFlames();
+    CActorModelParticles* particles = mgr.ActorModelParticles();
+    particles->StopFire(*this);
+    particles->StartBurnDeath(*this);
+    if (!x401_29_laggedBurnDeath) {
+      particles->DoFirePop(*this);
+      particles->StartAsh(*this);
+    }
+    break;
+  }
+  case kKBAFU_Death:
+    Death(mgr, CVector3f::Zero(), kSS_DeathRattle);
+    break;
+  case kKBAFU_ExplodeDeath:
+    Death(mgr, CVector3f::Zero(), kSS_DeathRattle);
+    if (GetDeathExplosionParticle().valid() || x530_deathExplosionElectric.valid()) {
+      MassiveDeath(mgr);
+    } else if (x450_bodyController->IsFrozen()) {
       x450_bodyController->FrozenBreakout();
     }
-
-    switch (x460_knockBackController.GetActiveParms().x4_animFollowup) {
-    case kKBAFU_Freeze: {
-      CVector3f pos(0.f, 0.f, 0.f);
-      CUnitVector3f dir = GetTransform().TransposeRotate(backVec);
-      float dur = x460_knockBackController.GetActiveParms().x8_followupDuration;
-      Freeze(mgr, pos, dir, dur);
-      break;
+    break;
+  case kKBAFU_IceDeath:
+    Death(mgr, CVector3f::Zero(), kSS_DeathRattle);
+    if (x54c_iceDeathExplosionParticle.valid()) {
+      MassiveFrozenDeath(mgr);
+    } else if (x450_bodyController->IsFrozen()) {
+      x450_bodyController->FrozenBreakout();
     }
-    case kKBAFU_PhazeOut:
-      PhazeOut(mgr);
-      break;
-    case kKBAFU_Shock:
-      Shock(mgr, x460_knockBackController.GetActiveParms().x8_followupDuration, -1.f);
-      break;
-    case kKBAFU_Burn:
-      Burn(x460_knockBackController.GetActiveParms().x8_followupDuration, 0.25f);
-      break;
-    case kKBAFU_LaggedBurnDeath:
-      x401_29_laggedBurnDeath = true;
-    case kKBAFU_BurnDeath: {
-      Burn(x460_knockBackController.GetActiveParms().x8_followupDuration, -1.f);
-      Death(mgr, CVector3f::Zero(), kSS_DeathRattle);
-      x400_28_pendingMassiveDeath = x400_29_pendingMassiveFrozenDeath = false;
-      x400_27_fadeToDeath = x401_28_burning = true;
-      x3f4_burnThinkRateTimer = 1.5f;
-      x402_29_drawParticles = false;
-      x450_bodyController->DouseFlames();
-      CActorModelParticles* particles = mgr.ActorModelParticles();
-      particles->StopFire(*this);
-      particles->StartBurnDeath(*this);
-      if (!x401_29_laggedBurnDeath) {
-        particles->DoFirePop(*this);
-        particles->StartAsh(*this);
-      }
-      break;
-    }
-    case kKBAFU_Death:
-      Death(mgr, CVector3f::Zero(), kSS_DeathRattle);
-      break;
-    case kKBAFU_ExplodeDeath:
-      Death(mgr, CVector3f::Zero(), kSS_DeathRattle);
-      if (GetDeathExplosionParticle().valid() || x530_deathExplosionElectric.valid()) {
-        MassiveDeath(mgr);
-      } else if (x450_bodyController->IsFrozen()) {
-        x450_bodyController->FrozenBreakout();
-      }
-      break;
-    case kKBAFU_IceDeath:
-      Death(mgr, CVector3f::Zero(), kSS_DeathRattle);
-      if (x54c_iceDeathExplosionParticle.valid()) {
-        MassiveFrozenDeath(mgr);
-      } else if (x450_bodyController->IsFrozen()) {
-        x450_bodyController->FrozenBreakout();
-      }
-      break;
-    default:
-      break;
-    }
+    break;
+  default:
+    break;
   }
 }
 
@@ -778,11 +800,7 @@ void CPatterned::Think(float dt, CStateManager& mgr) {
 
     if (x403_26_stateControlledMassiveDeath) {
       if (x330_stateMachineState.GetName() != 0) {
-        bool isDead;
-        {
-          const rstl::string& dead = rstl::string_l("Dead");
-          isDead = x330_stateMachineState.GetName() == dead;
-        }
+        const bool isDead = x330_stateMachineState.GetName() == rstl::string_l("Dead");
         if (isDead && x330_stateMachineState.GetTime() > 15.f) {
           MassiveDeath(mgr);
         }
@@ -906,7 +924,7 @@ void CPatterned::Think(float dt, CStateManager& mgr) {
     }
 
     float playerLeashRadius = x3cc_playerLeashRadius;
-    if (playerLeashRadius != 0.f) {
+    if (playerLeashRadius) {
       if ((GetTranslation() - mgr.Player()->GetTranslation()).MagSquared() >
           playerLeashRadius * playerLeashRadius) {
         x3d4_curPlayerLeashTime += dt;
@@ -1000,12 +1018,13 @@ void CPatterned::ThinkAboutMove(float dt) {
   }
 
   if (doMove && x39c_curPattern < x38c_patterns.size()) {
+    const CVector3f forward = GetTransform().GetForward();
     CVector3f faceVec = x31c_faceVec;
     if (faceVec.MagSquared() > 0.1f) {
       faceVec.Normalize();
     }
 
-    const float faceDot = CVector3f::Dot(GetTransform().GetForward(), faceVec);
+    const float faceDot = CVector3f::Dot(forward, faceVec);
     switch (x3f8_moveState) {
     case kMS_Zero:
       if (!x328_26_solidCollision) {
@@ -1043,10 +1062,14 @@ void CPatterned::ThinkAboutMove(float dt) {
   if (!x401_26_disableMove && doMove) {
     if (x450_bodyController->GetBodyStateInfo().GetCurrentState()->ApplyAnimationDeltas() &&
         !close_enough(x2e0_destPos - GetTranslation(), CVector3f::Zero())) {
-      MoveToOR(CVector3f::ByElementMultiply(
-                   CVector3f::ByElementMultiply(GetModelData()->GetScale(), x434_posDelta),
-                   x55c_moveScale),
-               dt);
+      const CVector3f& scale = CVector3f(GetModelData()->GetScale());
+      const float& sx = scale[kDX];
+      const float& sy = scale[kDY];
+      const float& sz = scale[kDZ];
+      const CVector3f scaledDelta(sx * x434_posDelta.GetX() * x55c_moveScale.GetX(),
+                                  sy * x434_posDelta.GetY() * x55c_moveScale.GetY(),
+                                  sz * x434_posDelta.GetZ() * x55c_moveScale.GetZ());
+      MoveToOR(scaledDelta, dt);
     }
   }
 
@@ -1059,9 +1082,9 @@ void CPatterned::DoUserAnimEvent(CStateManager& mgr, const CInt32POINode& node, 
   case kUE_Projectile: {
     const CTransform4f lctrXf = GetLctrTransform(node.GetLocatorName());
     const CVector3f aimPos = mgr.GetPlayer()->GetAimPosition(mgr, 0.f);
+    const CVector3f forward = lctrXf.GetForward();
 
-    if (CVector3f::Dot((aimPos - lctrXf.GetTranslation()).AsNormalized(), lctrXf.GetForward()) >
-        0.f) {
+    if (CVector3f::Dot(forward, (aimPos - lctrXf.GetTranslation()).AsNormalized()) > 0.f) {
       const CTransform4f lookAtXf = CTransform4f::LookAt(lctrXf.GetTranslation(), aimPos);
       LaunchProjectile(lookAtXf, mgr, 1, CWeapon::kPA_None, false,
                        rstl::optional_object< TLockedToken< CGenDescription > >(),
@@ -1074,25 +1097,25 @@ void CPatterned::DoUserAnimEvent(CStateManager& mgr, const CInt32POINode& node, 
     break;
   }
   case kUE_DamageOn: {
-    const CVector3f& scale = GetModelData()->GetScale();
+    const CVector3f scale = GetModelData()->GetScale();
     const CTransform4f& lctrXf = GetLocatorTransform(node.GetLocatorName());
-    const CVector3f xfOrigin =
-        GetTransform() * CVector3f::ByElementMultiply(scale, lctrXf.GetTranslation());
-    const CVector3f margin(scale.GetX(), scale.GetY(), scale.GetZ() * 0.5f);
+    CVector3f xfOrigin = CVector3f::ByElementMultiply(scale, lctrXf.GetTranslation());
+    xfOrigin = GetTransform() * xfOrigin;
+    const CVector3f margin = CVector3f::ByElementMultiply(scale, CVector3f(1.f, 1.f, 0.5f));
     const CAABox touchBounds(xfOrigin - margin, xfOrigin + margin);
 
     if (touchBounds.DoBoundsOverlap(mgr.GetPlayer()->GetBoundingBox())) {
-      const CMaterialFilter filter =
-          CMaterialFilter::MakeIncludeExclude(CMaterialList(kMT_Solid), CMaterialList());
-      mgr.ApplyDamage(GetUniqueId(), mgr.GetPlayer()->GetUniqueId(), GetUniqueId(),
-                      GetContactDamage(), filter, CVector3f::Zero());
+      mgr.ApplyDamage(
+          GetUniqueId(), mgr.GetPlayer()->GetUniqueId(), GetUniqueId(), GetContactDamage(),
+          CMaterialFilter::MakeIncludeExclude(CMaterialList(kMT_Solid), CMaterialList()),
+          CVector3f::Zero());
     }
     break;
   }
   case kUE_Delete:
     if (!x400_25_alive) {
       if (!x400_27_fadeToDeath) {
-        x3e8_alphaDelta = -0.333333f;
+        x3e8_alphaDelta = -1.f / 3.f;
         x400_27_fadeToDeath = true;
       }
       RemoveMaterial(kMT_Character, kMT_Solid, kMT_Target, kMT_Orbit, mgr);
@@ -1201,7 +1224,8 @@ float CPatterned::CalcDyingThinkRate() {
     thinkRate = 1.f;
   }
 
-  thinkRate = CMath::Max(0.1f, thinkRate);
+  const float minThinkRate = 0.1f;
+  thinkRate = CMath::Max(minThinkRate, thinkRate);
   return thinkRate;
 }
 
@@ -1274,8 +1298,11 @@ void CPatterned::PreRender(CStateManager& mgr, const CFrustumPlanes& frustum) {
 
   CColor color = x42c_color;
   uchar alpha = GetModelAlphau8(mgr);
-  if (x402_27_noXrayModel && mgr.GetPlayerState()->GetActiveVisor(mgr) == CPlayerState::kPV_XRay) {
-    alpha = 76;
+  if (x402_27_noXrayModel) {
+    const bool xray = mgr.GetPlayerState()->IsXRayActive(mgr);
+    if (xray) {
+      alpha = 76;
+    }
   }
 
   if (alpha < 255) {
@@ -1315,9 +1342,9 @@ bool CPatterned::CanRenderUnsorted(const CStateManager& mgr) const {
 }
 
 void CPatterned::Render(const CStateManager& mgr) const {
+  const bool drawParticles = x402_29_drawParticles;
   int mask = 0;
   int target = 0;
-  const bool drawParticles = x402_29_drawParticles;
   if (drawParticles) {
     const_cast< CStateManager& >(mgr).GetCharacterRenderMaskAndTarget(x402_31_thawed, mask, target);
     GetModelData()->GetAnimationData()->GetParticleDB().RenderSystemsToBeDrawnFirstMasked(mask,
@@ -1348,7 +1375,7 @@ void CPatterned::Render(const CStateManager& mgr) const {
 
         const CColor disColor = *disintegrateColor;
         const float t =
-            static_cast< float >(alpha) * (x401_29_laggedBurnDeath ? 0.0078740157f : 0.0039215689f);
+            (x401_29_laggedBurnDeath ? 0.0078740157f : 0.0039215689f) * CCast::ToReal32(alpha);
         GetModelData()->DisintegrateDraw(mgr, GetTransform(), *ashyTexture, disColor, t);
 
         if (GetPointGeneratorParticles()) {
@@ -1388,10 +1415,10 @@ void CPatterned::RenderIceModelWithFlags(const CModelFlags& flags) const {
 }
 
 CEnergyProjectile* CPatterned::LaunchProjectile(
-    const CTransform4f& xf, CStateManager& mgr, const int maxAllowed, const CWeapon::EProjectileAttrib attrib,
-    const bool playerHoming,
-    const rstl::optional_object< TLockedToken< CGenDescription > >& visorParticle, const ushort visorSfx,
-    const bool sendCollideMsg, const CVector3f& scale) {
+    const CTransform4f& xf, CStateManager& mgr, const int maxAllowed,
+    const CWeapon::EProjectileAttrib attrib, const bool playerHoming,
+    const rstl::optional_object< TLockedToken< CGenDescription > >& visorParticle,
+    const ushort visorSfx, const bool sendCollideMsg, const CVector3f& scale) {
   CEnergyProjectile* projectile = 0;
   CProjectileInfo* projectileInfo = ProjectileInfo();
   if (projectileInfo->Token().TryCache()) {

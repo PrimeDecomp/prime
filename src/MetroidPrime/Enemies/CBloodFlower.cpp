@@ -102,7 +102,7 @@ void CBloodFlower::Active(CStateManager& mgr, EStateMsg msg, float arg) {
     ResetShotTimer(mgr);
     break;
   case kStateMsg_Update: {
-    TryCommand(mgr, pas::kAS_LoopReaction, &CPatterned::TryLoopReaction, 0);
+    TryCommand(mgr, pas::kAS_LoopReaction, &CPatterned::TryLoopedReaction, 0);
     BodyCtrl()->CommandMgr().DeliverCmd(CBCAdditiveAimCmd());
     mCurAttackTime += arg;
     CVector3f diff = mgr.GetPlayer()->GetTranslation() - GetTranslation();

@@ -779,7 +779,7 @@ void CParasite::Halt(CStateManager& mgr, EStateMsg msg, float) {
       CSfxManager::AddEmitter(x73c_haltSfx, GetTranslation(), CVector3f::Zero(), true, false);
     break;
   case kStateMsg_Update:
-    TryCommand(mgr, pas::kAS_LoopReaction, &CPatterned::TryLoopReaction, 1);
+    TryCommand(mgr, pas::kAS_LoopReaction, &CPatterned::TryLoopedReaction, 1);
     x400_24_hitByPlayerProjectile = false;
     break;
   case kStateMsg_Deactivate:
