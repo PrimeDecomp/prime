@@ -199,6 +199,7 @@ public:
   CTexture* GetRealReflection();
   const CPlane& GetViewPlane() const { return xb0_viewPlane; }
   const CTexture& GetZeroTexture() const { return xe4_blackTex; }
+  const CTexture& GetSphereRamp() const { return x220_sphereRamp; }
   static CCubeRenderer* That() { return sRenderer; }
 
 private:
