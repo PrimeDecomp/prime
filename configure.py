@@ -571,12 +571,12 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/Tweaks/CTweakPlayerControl.cpp",
             ),
-            Object(Matching, "MetroidPrime/Tweaks/CTweakPlayerGun.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Tweaks/CTweakPlayerGun.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CPauseScreen.cpp"),
-            Object(Matching, "MetroidPrime/Tweaks/CTweakGui.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Tweaks/CTweakGui.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
-                "MetroidPrime/ScriptObjects/CScriptActor.cpp",
+                "MetroidPrime/ScriptObjects/CScriptActor.cpp"
             ),
             Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptTrigger.cpp"),
             Object(
@@ -943,7 +943,7 @@ config.libs = [
             Object(NonMatching, "MetroidPrime/CCollisionActorManager.cpp"),
             Object(Matching, "MetroidPrime/CCollisionActor.cpp"),
             Object(Matching, "MetroidPrime/ScriptObjects/CScriptPlayerActor.cpp"),
-            Object(Matching, "MetroidPrime/Tweaks/CTweakPlayerRes.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Tweaks/CTweakPlayerRes.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/Enemies/CBurstFire.cpp",
@@ -1212,7 +1212,7 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01"), "WorldFormat/CCollidableOBBTreeGroup.cpp"
             ),
             Object(NonMatching, "WorldFormat/CPVSAreaSet.cpp"),
-            Object(Matching, "WorldFormat/CAreaRenderOctTree.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "WorldFormat/CAreaRenderOctTree.cpp"),
         ],
     ),
     RetroLib(
