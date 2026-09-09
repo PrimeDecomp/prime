@@ -411,6 +411,9 @@ MetroidPrime/CAudioStateWin.cpp:
 MetroidPrime/Player/CPlayerVisor.cpp:
 	.text       start:0x801098CC end:0x8010C600
 
+MetroidPrime/CModelData.cpp:
+	.text       start:0x8010C9F0 end:0x8010CC54
+
 MetroidPrime/CDecalManager.cpp:
 	.text       start:0x8010E8AC end:0x8010F61C
 	.ctors      start:0x803B4FF0 end:0x803B4FF4
