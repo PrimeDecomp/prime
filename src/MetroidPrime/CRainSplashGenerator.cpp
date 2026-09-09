@@ -13,31 +13,38 @@
 
 #pragma inline_max_size(250)
 
-GXVtxDescList vtxDescv[] = {
+const float CRainSplashGenerator::SSplashLine::skInitialSpeed = 4.f;
+const float CRainSplashGenerator::SSplashLine::skInitialHeight = 0.015625f;
+const uchar CRainSplashGenerator::SSplashLine::skInitialWidth = 3;
+
+static const GXVtxDescList vtxDescv[] = {
     {GX_VA_POS, GX_DIRECT},
     {GX_VA_CLR0, GX_DIRECT},
     {GX_VA_NULL, GX_NONE},
 };
 
-int CRainSplashGenerator::GetNextBestPt(int pt, const CVector3f* vertices, const CVector3f* normals,
-                                        int count, CRandom16& rand, float minZ) {
+int CRainSplashGenerator::GetNextBestPt(const int pt, const CVector3f* vertices,
+                                        const CVector3f* normals, int count, CRandom16& rand,
+                                        float minZ) {
+  int nextPt = pt;
   const CVector3f& refVert = vertices[pt];
   float maxDist = 0.f;
-  int nextPt = pt;
   for (int i = 0; i < 3; ++i) {
-    bool goodNorm = false;
     const int idx = rand.Range(0, count - 1);
-    const CVector3f& vert = vertices[idx];
     const CVector3f& norm = normals[idx];
+    const CVector3f& vert = vertices[idx];
 
     const float distSq = (refVert - vert).MagSquared();
     const float normDot = CVector3f::Dot(norm, CVector3f::Up());
 
-    if (0.0f <= normDot && normDot <= 1.0f) {
-      goodNorm = true;
-    }
+    const bool goodNorm = normDot >= 0.f && normDot <= 1.f;
 
-    bool goodZ = minZ < 0.0f || minZ < vert.GetZ();
+    bool goodZ;
+    if (minZ > 0.f) {
+      goodZ = vert.GetZ() > minZ;
+    } else {
+      goodZ = true;
+    }
 
     if (distSq > maxDist && goodNorm && goodZ) {
       nextPt = idx;
@@ -58,7 +65,9 @@ CRainSplashGenerator::CRainSplashGenerator(const CVector3f& scale, int maxSplash
 , x38_queueTail(0)
 , x3c_queueHead(0)
 , x40_queueSize(0)
-, x44_genRate(rstl::min_val(maxSplashes, genRate)) {
+, x44_genRate(genRate > maxSplashes ? maxSplashes : genRate)
+, x48_24(false)
+, x48_25_raining(true) {
   x0_rainSplashes.reserve(maxSplashes);
   for (int i = 0; i < maxSplashes; ++i) {
     x0_rainSplashes.push_back(SRainSplash());
@@ -66,40 +75,46 @@ CRainSplashGenerator::CRainSplashGenerator(const CVector3f& scale, int maxSplash
 }
 
 void CRainSplashGenerator::AddPoint(const CVector3f& pos) {
-  if (x38_queueTail >= x0_rainSplashes.size())
+  if (x38_queueTail >= x0_rainSplashes.size()) {
     x38_queueTail = 0;
+  }
   x0_rainSplashes[x38_queueTail].SetPoint(pos);
   x40_queueSize += 1;
   x38_queueTail += 1;
 }
 
 void CRainSplashGenerator::GeneratePoints(const CVector3f* vertices, const CVector3f* normals,
-                                          int count) {
-  if (!x48_25_raining)
+                                          const int count) {
+  if (!x48_25_raining) {
     return;
+  }
 
   if (x20_generateTimer > x24_generateInterval) {
     int pt = x34_curPoint;
     for (int i = 0; i < x44_genRate; ++i) {
-      if (x40_queueSize >= x0_rainSplashes.size())
+      if (x40_queueSize >= x0_rainSplashes.size()) {
         break;
-      pt = GetNextBestPt(x34_curPoint, vertices, normals, count, x10_random, x2c_minZ);
-      AddPoint(CVector3f::ByElementMultiply(x14_scale, vertices[pt]));
+      }
+      const int nextPt = GetNextBestPt(pt, vertices, normals, count, x10_random, x2c_minZ);
+      AddPoint(CVector3f::ByElementMultiply(x14_scale, vertices[nextPt]));
+      pt = nextPt;
     }
     x34_curPoint = pt;
     x20_generateTimer = 0.f;
   }
 }
 
-void CRainSplashGenerator::UpdateRainSplashRange(CStateManager& mgr, int start, int end, float dt) {
+void CRainSplashGenerator::UpdateRainSplashRange(CStateManager& mgr, const int start, const int end,
+                                                 float dt) {
   for (int i = start; i < end; ++i) {
     SRainSplash& set = x0_rainSplashes[i];
     set.Update(dt, mgr);
     if (!set.IsActive()) {
       x40_queueSize -= 1;
       x3c_queueHead += 1;
-      if (x3c_queueHead >= x0_rainSplashes.size())
+      if (x3c_queueHead >= x0_rainSplashes.size()) {
         x3c_queueHead = 0;
+      }
     }
   }
 }
@@ -109,7 +124,7 @@ void CRainSplashGenerator::UpdateRainSplashes(CStateManager& mgr, float magnitud
   x24_generateInterval = 1.f / (70.f * magnitude);
   if (x40_queueSize > 0) {
     if (x38_queueTail <= x3c_queueHead) {
-      UpdateRainSplashRange(mgr, x3c_queueHead, int(x0_rainSplashes.size()), dt);
+      UpdateRainSplashRange(mgr, x3c_queueHead, static_cast< int >(x0_rainSplashes.size()), dt);
       UpdateRainSplashRange(mgr, 0, x38_queueTail, dt);
     } else {
       UpdateRainSplashRange(mgr, x3c_queueHead, x38_queueTail, dt);
@@ -118,14 +133,15 @@ void CRainSplashGenerator::UpdateRainSplashes(CStateManager& mgr, float magnitud
 }
 
 void CRainSplashGenerator::Update(float dt, CStateManager& mgr) {
+  const CEnvFxManager& envFx = *mgr.GetEnvFxManager();
   EEnvFxType neededFx = mgr.GetWorld()->GetNeededEnvFx();
   x28_dt = dt;
   x48_25_raining = false;
-  if (neededFx != kEFX_None && mgr.GetEnvFxManager()->IsSplashActive()) {
-    if (mgr.GetEnvFxManager()->GetRainMagnitude() != 0.f) {
+  if (neededFx != kEFX_None && envFx.IsSplashActive()) {
+    if (envFx.GetRainMagnitude()) {
       switch (neededFx) {
       case kEFX_Rain:
-        UpdateRainSplashes(mgr, mgr.GetEnvFxManager()->GetRainMagnitude(), dt);
+        UpdateRainSplashes(mgr, envFx.GetRainMagnitude(), dt);
         x48_25_raining = true;
         break;
       default:
@@ -181,38 +197,41 @@ void CRainSplashGenerator::DoDraw(const CTransform4f& xf) const {
 void CRainSplashGenerator::SSplashLine::SetActive() { x16_active = true; }
 
 void CRainSplashGenerator::SSplashLine::Update(float dt, CStateManager& mgr) {
-  if (!x16_active)
+  if (!x16_active) {
     return;
+  }
   if (x0_t <= 0.8f) {
-    x14_ = u8(5.f * (1.f - x0_t) + 3.f * x0_t);
+    x14_lineWidth = CCast::ToUint8(5.f * (1.f - x0_t) + 3.f * x0_t);
     x0_t += dt * xc_speed;
   } else if (x15_length != 0) {
     x15_length -= 1;
   } else {
     x16_active = false;
+    x0_t = 0.f;
     xc_speed = mgr.Random()->Range(4.0f, 8.0f);
     x10_zParabolaHeight = mgr.Random()->Range(0.015625f, 0.03125f);
     x4_xEnd = mgr.Random()->Range(-0.125f, 0.125f);
     x8_yEnd = mgr.Random()->Range(-0.125f, 0.125f);
-    x15_length = u8(mgr.Random()->Range(1, 2));
+    x15_length = static_cast< uchar >(mgr.Random()->Range(1, 2));
   }
 }
 
 void CRainSplashGenerator::SSplashLine::Draw(float alpha, float dt, const CVector3f& pos) const {
   if (x0_t > 0.f) {
     float delta = dt * xc_speed;
-    float vt = x0_t - delta * x15_length;
+    const float trailTime = delta * CCast::ToReal32(x15_length);
+    float vt = x0_t - trailTime;
     if (vt < 0.0f) {
       vt = 0.0f;
     }
     int vertCount = static_cast< int >((x0_t - vt) / delta + 1.f);
 
-    CGX::SetLineWidth(x14_ * 6, GX_TO_ZERO);
+    CGX::SetLineWidth(x14_lineWidth * 6, GX_TO_ZERO);
     CGX::Begin(GX_LINESTRIP, GX_VTXFMT0, vertCount);
 
     for (int i = 0; i < vertCount; ++i) {
-      GXPosition3f32(vt * x4_xEnd + pos.GetX(), vt * x8_yEnd + pos.GetY(),
-                     -4.f * vt * (vt - 1.f) * x10_zParabolaHeight + pos.GetZ());
+      const float height = -4.f * vt * (vt - 1.f) * x10_zParabolaHeight;
+      GXPosition3f32(vt * x4_xEnd + pos.GetX(), vt * x8_yEnd + pos.GetY(), height + pos.GetZ());
       GXColor1u32(static_cast< uint >(vt * alpha) | 0xffffff00);
       vt += delta;
     }
@@ -235,7 +254,7 @@ void CRainSplashGenerator::SRainSplash::Draw(float alpha, float dt, const CVecto
   }
 }
 
-bool CRainSplashGenerator::SRainSplash::IsActive() const {
+const bool CRainSplashGenerator::SRainSplash::IsActive() const {
   bool ret = false;
   for (AUTO(it, x0_lines.begin()); it != x0_lines.end(); ++it) {
     ret |= it->x16_active;

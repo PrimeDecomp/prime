@@ -15,12 +15,16 @@ class SSkinningWorkspace;
 
 class CRainSplashGenerator {
   struct SSplashLine {
+    static const float skInitialSpeed;
+    static const float skInitialHeight;
+    static const uchar skInitialWidth;
+
     float x0_t;
     float x4_xEnd;
     float x8_yEnd;
     float xc_speed;
     float x10_zParabolaHeight;
-    uchar x14_;
+    uchar x14_lineWidth;
     uchar x15_length;
     bool x16_active : 1;
 
@@ -28,9 +32,9 @@ class CRainSplashGenerator {
     : x0_t(0.0f)
     , x4_xEnd(0.0f)
     , x8_yEnd(0.0f)
-    , xc_speed(4.0f)
-    , x10_zParabolaHeight(0.015625f) // 1/64?
-    , x14_(3)
+    , xc_speed(skInitialSpeed)
+    , x10_zParabolaHeight(skInitialHeight)
+    , x14_lineWidth(skInitialWidth)
     , x15_length(1)
     , x16_active(true) {}
 
@@ -47,7 +51,7 @@ class CRainSplashGenerator {
     SRainSplash();
 
     void Update(float dt, CStateManager& mgr);
-    bool IsActive() const;
+    const bool IsActive() const;
     void Draw(float alpha, float dt, const CVector3f& pos) const;
     void SetPoint(const CVector3f& pos);
   };
@@ -85,7 +89,7 @@ private:
   void AddPoint(const CVector3f& pos);
   void DoDraw(const CTransform4f& xf) const;
 
-  int GetNextBestPt(int, const CVector3f*, const CVector3f*, int, CRandom16&, float);
+  static int GetNextBestPt(int, const CVector3f*, const CVector3f*, int, CRandom16&, float);
 };
 CHECK_SIZEOF(CRainSplashGenerator, 0x4c)
 
