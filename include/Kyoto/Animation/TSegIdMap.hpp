@@ -45,6 +45,8 @@ public:
 
   void insert(const CSegId& id, const T& value);
 
+  ~TSegIdMap();
+
 private:
   char x0_boneCount;
   char x1_capacity;
@@ -52,6 +54,18 @@ private:
   T* xd0_nodes;
   char xd4_curPrevBone;
 };
+
+template < typename T >
+TSegIdMap< T >::~TSegIdMap() {
+  CSegId id(xd4_curPrevBone);
+  while (id != CSegId::Null()) {
+    (*this)[id].~T();
+    id = CSegId(x8_indirectionMap[id.val()].first);
+  }
+
+  delete[] reinterpret_cast< char* >(xd0_nodes);
+}
+
 template < typename T >
 void TSegIdMap< T >::insert(const CSegId& id, const T& value) {
   T* node = &xd0_nodes[x0_boneCount];
