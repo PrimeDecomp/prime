@@ -103,7 +103,7 @@ public:
   static void SetChanMatColor(EChannelId channel, const GXColor& color);
   static void SetChanCtrl(EChannelId channel, GXBool enable, GXColorSrc ambSrc, GXColorSrc matSrc,
                           GXLightID lights, GXDiffuseFn diffFn, GXAttnFn attnFn);
-  static void SetChanCtrl_Compressed(EChannelId channel, int lights, uint ctrl);
+  static void SetChanCtrl_Compressed(EChannelId channel, GXLightID lights, uint ctrl);
   static void SetTevKColor(GXTevKColorID id, const GXColor& color);
   static void SetTevColorIn(GXTevStageID stageId, GXTevColorArg a, GXTevColorArg b, GXTevColorArg c,
                             GXTevColorArg d);
@@ -175,7 +175,7 @@ public:
   static inline void CopyGXColor(GXColor& dst, const GXColor& src) {
     *reinterpret_cast< uint* >(&dst) = *reinterpret_cast< const uint* >(&src);
   }
-  static inline uint MaskAndShiftLeft(uint v, uint m, uint s) { return (v & m) << s; }
+  static inline uint MaskAndShiftLeft(uint v, uint m, uint s) { return (v << s) & (m << s); }
   static inline uint ShiftRightAndMask(uint v, uint m, uint s) { return (v >> s) & m; }
 
   static void FlushState();

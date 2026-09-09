@@ -8,9 +8,9 @@
 #include "Kyoto/Graphics/CModelFlags.hpp"
 #include "Kyoto/Graphics/CTexture.hpp"
 #include "Kyoto/Math/CMath.hpp"
+#include "Kyoto/Math/CPlane.hpp"
 
 #include "MetaRender/CCubeRenderer.hpp"
-#pragma inline_max_size(230)
 #include <dolphin/mtx.h>
 
 #ifndef __MWERKS__
@@ -19,14 +19,16 @@ void __memcpy(void*, const void*, int);
 
 #include "Kyoto/Math/CTransform4f.hpp"
 
+static const float gkEpsilon32 = FLT_EPSILON;
+
 static CVector3f sPlayerPosition(0.f, 0.f, 0.f);
 CVector3f CCubeMaterial::sViewingFrom(0.f, 0.f, 0.f);
 static CTransform4f sTextureProjectionTransform(CTransform4f::Identity());
-static uint sLastMaterialUnique = static_cast< uint >(~0);
+int sLastMaterialUnique = -1;
 static int sMaterialCachedState = 0;
-static const CCubeModel* sLastModelCached = NULL;
-static const CCubeModel* sRenderingModel = NULL;
-static const uchar* sLastMaterialCached = NULL;
+const CCubeModel* CCubeMaterial::sLastModelCached = nullptr;
+const CCubeModel* CCubeMaterial::sRenderingModel = nullptr;
+const uchar* sLastMaterialCached = nullptr;
 static CTexture* spShadowTexture = NULL;
 static float sReflectionAlpha = 0.f;
 static float sLastTime = 0.f;
@@ -38,7 +40,7 @@ static bool lbl_805A9559 = false;
 static bool sbRenderModelShadow = false;
 static uchar sChannel0DisableLightMask = 0;
 static uchar sChannel1EnableLightMask = 0;
-static const GXColor sGXBlack = {0, 0, 0, 0};
+static const GXColor sGXBlack = {0, 0, 0, 255};
 static const GXColor sGXWhite = {0xFF, 0xFF, 0xFF, 0xFF};
 
 void CCubeMaterial::SetupBlendMode(const uint blendFactors, const CModelFlags& flags,
@@ -64,8 +66,8 @@ void CCubeMaterial::SetupBlendMode(const uint blendFactors, const CModelFlags& f
   CGX::SetBlendMode(GX_BM_BLEND, newSrcFactor, newDstFactor, GX_LO_CLEAR);
 }
 
-void HandleTev(int tevCur, const uint* materialDataCur, const uint* texMapTexCoordFlags,
-               bool shadowMapsEnabled) {
+static void HandleTev(int tevCur, const uint* materialDataCur, const uint* texMapTexCoordFlags,
+                      bool shadowMapsEnabled) {
   const GXTevStageID stage = static_cast< GXTevStageID >(tevCur);
   const uint colorArgs = shadowMapsEnabled ? 0x7a04f : SBig(materialDataCur[0]);
   const uint alphaArgs = SBig(materialDataCur[1]);
@@ -83,16 +85,16 @@ void HandleTev(int tevCur, const uint* materialDataCur, const uint* texMapTexCoo
   CGX::SetTevKAlphaSel(stage, static_cast< GXTevKAlphaSel >(matFlags >> 0x10 & 0xFF));
 }
 
-uint HandleAnimatedUV(const uint* uvAnim, GXTexMtx texMtx, GXPTTexMtx ptTexMtx) {
+static uint HandleAnimatedUV(const uint* uvAnim, GXTexMtx texMtx, GXPTTexMtx ptTexMtx) {
   static const Mtx postMtx = {
       {0.5f, 0.0f, 0.0f, 0.5f},
       {0.0f, 0.0f, 0.5f, 0.5f},
       {0.0f, 0.0f, 0.0f, 1.0f},
   };
-  static Mtx translateMtx = {
-      {0.5f, 0.0f, 0.0f, 0.5f},
-      {0.0f, 0.0f, 0.5f, 0.5f},
-      {0.0f, 0.0f, 0.0f, 1.0f},
+  static Mtx texMtx1 = {
+      {1.f, 0.f, 0.f, 0.f},
+      {0.f, 1.f, 0.f, 0.f},
+      {0.f, 0.f, 1.f, 0.f},
   };
   uint type = SBig(*uvAnim);
   const float* params = reinterpret_cast< const float* >(uvAnim + 1);
@@ -117,9 +119,9 @@ uint HandleAnimatedUV(const uint* uvAnim, GXTexMtx texMtx, GXPTTexMtx ptTexMtx) 
     const float f3 = SBig(params[2]);
     const float f4 = SBig(params[3]);
     const float seconds = CGraphics::GetSecondsMod900();
-    translateMtx[0][3] = f1 + seconds * f3;
-    translateMtx[1][3] = f2 + seconds * f4;
-    CGX::LoadTexMtxImm(translateMtx, texMtx, GX_MTX3x4);
+    texMtx1[0][3] = f1 + seconds * f3;
+    texMtx1[1][3] = f2 + seconds * f4;
+    CGX::LoadTexMtxImm(texMtx1, texMtx, GX_MTX3x4);
     return 5;
   }
   case 3: {
@@ -130,8 +132,8 @@ uint HandleAnimatedUV(const uint* uvAnim, GXTexMtx texMtx, GXPTTexMtx ptTexMtx) 
     const float asin = CMath::FastSinR(angle);
     const float acos = CMath::FastCosR(angle);
     Mtx mtx = {
-        {acos, -asin, 0.f, (1.f - (acos - asin)) / 2.f},
-        {asin, acos, 0.f, (1.f - (asin + acos)) / 2.f},
+        {acos, -asin, 0.f, 0.5f * (1.f - (acos - asin))},
+        {asin, acos, 0.f, 0.5f * (1.f - (asin + acos))},
         {0.f, 0.f, 1.f, 0.f},
     };
     CGX::LoadTexMtxImm(mtx, texMtx, GX_MTX3x4);
@@ -148,13 +150,13 @@ uint HandleAnimatedUV(const uint* uvAnim, GXTexMtx texMtx, GXPTTexMtx ptTexMtx) 
     const float fs = CCast::FtoS(fmod * f2);
     const float v2 = fs * f3;
     if (type == 4) {
-      translateMtx[0][3] = v2;
-      translateMtx[1][3] = 0.f;
+      texMtx1[0][3] = v2;
+      texMtx1[1][3] = 0.f;
     } else {
-      translateMtx[0][3] = 0.f;
-      translateMtx[1][3] = v2;
+      texMtx1[0][3] = 0.f;
+      texMtx1[1][3] = v2;
     }
-    CGX::LoadTexMtxImm(translateMtx, texMtx, GX_MTX3x4);
+    CGX::LoadTexMtxImm(texMtx1, texMtx, GX_MTX3x4);
     return 5;
   }
   case 6: {
@@ -169,17 +171,20 @@ uint HandleAnimatedUV(const uint* uvAnim, GXTexMtx texMtx, GXPTTexMtx ptTexMtx) 
         {0.f, 0.f, 0.f, 1.f},
     };
     const CTransform4f& mm = CGraphics::GetModelMatrix();
+    const CVector3f& rowX = mm.GetRow(kDX);
+    const CVector3f& rowY = mm.GetRow(kDY);
+    const CVector3f& rowZ = mm.GetRow(kDZ);
     Mtx tmpTexMtx;
     __memcpy(&tmpTexMtx, &sTexMtx, sizeof(Mtx));
-    tmpTexMtx[0][0] = mm.Get00();
-    tmpTexMtx[0][1] = mm.Get01();
-    tmpTexMtx[0][2] = mm.Get02();
-    tmpTexMtx[1][0] = mm.Get10();
-    tmpTexMtx[1][1] = mm.Get11();
-    tmpTexMtx[1][2] = mm.Get12();
-    tmpTexMtx[2][0] = mm.Get20();
-    tmpTexMtx[2][1] = mm.Get21();
-    tmpTexMtx[2][2] = mm.Get22();
+    tmpTexMtx[0][0] = rowX[kDX];
+    tmpTexMtx[0][1] = rowX[kDY];
+    tmpTexMtx[0][2] = rowX[kDZ];
+    tmpTexMtx[1][0] = rowY[kDX];
+    tmpTexMtx[1][1] = rowY[kDY];
+    tmpTexMtx[1][2] = rowY[kDZ];
+    tmpTexMtx[2][0] = rowZ[kDX];
+    tmpTexMtx[2][1] = rowZ[kDY];
+    tmpTexMtx[2][2] = rowZ[kDZ];
     Mtx tmpPtMtx;
     __memcpy(&tmpPtMtx, &sPtMtx, sizeof(Mtx));
     tmpPtMtx[0][3] = mm.Get03() * 0.05f;
@@ -200,9 +205,11 @@ uint HandleAnimatedUV(const uint* uvAnim, GXTexMtx texMtx, GXPTTexMtx ptTexMtx) 
     xf.SetTranslation(CVector3f::Zero());
     Mtx tmpPtMtx;
     __memcpy(&tmpPtMtx, &sPtMtx, sizeof(Mtx));
-    tmpPtMtx[0][0] = SBig(params[0]) / 2.f;
+    float scale = SBig(params[0]);
+    scale = 0.5f * scale;
+    tmpPtMtx[0][0] = scale;
     tmpPtMtx[0][3] = CMath::FastFmod(0.025f * (vm.Get03() + vm.Get13()) * SBig(params[1]), 1.f);
-    tmpPtMtx[1][2] = SBig(params[0]) / 2.f;
+    tmpPtMtx[1][2] = scale;
     tmpPtMtx[1][3] = CMath::FastFmod(0.05f * vm.Get23() * SBig(params[1]), 1.f);
     CGX::LoadTexMtxImm(xf.GetCStyleMatrix(), texMtx, GX_MTX3x4);
     CGX::LoadTexMtxImm(tmpPtMtx, ptTexMtx, GX_MTX3x4);
@@ -217,10 +224,10 @@ static void HandleTransparency(uint& finalTevCount, uint& finalKColorCount,
                                const CModelFlags& modelFlags, uint blendFactors, uint& finalCCFlags,
                                uint& finalACFlags) {
   const CModelFlags::ETrans blendMode = modelFlags.GetTrans();
-  const CColor& color = modelFlags.GetColor();
+  const CColor& color = modelFlags.GetColorRef();
 
   if (blendMode == 2) {
-    if (static_cast< ushort >(blendFactors >> 16) == 1) {
+    if (static_cast< GXBlendFactor >(blendFactors >> 16) == 1) {
       return;
     }
   }
@@ -246,7 +253,7 @@ static void HandleTransparency(uint& finalTevCount, uint& finalKColorCount,
                        GX_CC_ZERO);
     CGX::SetTevAlphaIn(static_cast< GXTevStageID >(stage2), GX_CA_ZERO, GX_CA_ZERO, GX_CA_ZERO,
                        GX_CA_APREV);
-    CGX::SetTevKColorSel(static_cast< GXTevStageID >(stage2),
+    CGX::SetTevKColorSel(static_cast< GXTevStageID >(stage),
                          static_cast< GXTevKColorSel >(finalKColorCount + GX_TEV_KCSEL_K0));
     CGX::SetStandardTevColorAlphaOp(static_cast< GXTevStageID >(stage2));
     CGX::SetTevDirect(static_cast< GXTevStageID >(stage2));
@@ -262,7 +269,7 @@ static void HandleTransparency(uint& finalTevCount, uint& finalKColorCount,
       alphaArgs = 0x31ce7;
     }
 
-    uint colorArgs = 0x81cf;
+    uint colorArgs = 0x781cf;
     if (blendMode == 2) {
       colorArgs = 0x7018f;
     }
@@ -328,7 +335,7 @@ static void DoModelShadow(uint texCount, uint tcgCount) {
   CGX::SetTevOrder(GX_TEVSTAGE1, GX_TEXCOORD_NULL, GX_TEXMAP_NULL, GX_COLOR0A0);
 }
 
-uint CCubeMaterial::HandleReflection(const bool usesTevReg2, const GXTexMapID indTexSlot,
+uint CCubeMaterial::HandleReflection(bool usesTevReg2, const GXTexMapID indTexSlot,
                                      const int indMtxScaleExp, const uint tevCount,
                                      const uint texCount, const uint tcgCount,
                                      const uint kColorCount, uint& finalCCFlags,
@@ -442,8 +449,8 @@ static uint HandleColorChannels(uint chanCount, uint firstChan) {
       CGX::SetChanCtrl(CGX::Channel1, true, GX_SRC_REG, GX_SRC_REG,
                        static_cast< GXLightID >(sChannel1EnableLightMask), GX_DF_CLAMP, GX_AF_SPOT);
 
-      const int chan0Lights = CGraphics::GetLightMask() & ~sChannel0DisableLightMask;
-      CGX::SetChanCtrl_Compressed(CGX::Channel0, chan0Lights, firstChan);
+      const uchar chan0Lights = CGraphics::GetLightMask() & ~sChannel0DisableLightMask;
+      CGX::SetChanCtrl_Compressed(CGX::Channel0, static_cast< GXLightID >(chan0Lights), firstChan);
       if (chan0Lights != 0) {
         CGX::SetChanMatColor(CGX::Channel0, sGXWhite);
       } else {
@@ -462,8 +469,8 @@ static uint HandleColorChannels(uint chanCount, uint firstChan) {
   }
 
   if (chanCount >= 1) {
-    const int lightMask = CGraphics::GetLightMask();
-    CGX::SetChanCtrl_Compressed(CGX::Channel0, lightMask, firstChan);
+    const uchar lightMask = CGraphics::GetLightMask();
+    CGX::SetChanCtrl_Compressed(CGX::Channel0, static_cast< GXLightID >(lightMask), firstChan);
     if (lightMask != 0) {
       CGX::SetChanMatColor(CGX::Channel0, sGXWhite);
     } else {
@@ -506,14 +513,23 @@ static void DoPassthru(const uint finalTevCount) {
   CGX::SetStandardTevColorAlphaOp(stage);
 }
 
+union scanner_t {
+  const uint* words;
+  const uchar* bytes;
+};
+
 void CCubeMaterial::SetCurrent(const CModelFlags& flags, const CCubeSurface& surface,
                                const CCubeModel& model) const {
-  if (sLastMaterialCached == x0_data) {
-    if (sMaterialCachedState == 1) {
+  if (x0_data == sLastMaterialCached) {
+    switch (sMaterialCachedState) {
+    case 1:
       if (sLastModelCached == sRenderingModel) {
         return;
       }
-    } else if (sMaterialCachedState != 2) {
+      break;
+    case 2:
+      break;
+    default:
       return;
     }
   }
@@ -523,42 +539,43 @@ void CCubeMaterial::SetCurrent(const CModelFlags& flags, const CCubeSurface& sur
     return;
   }
 
-  sRenderingModel = &model;
-  sLastMaterialCached = static_cast< const uchar* >(x0_data);
-
   uint numIndStages = 0;
-  const uint* materialDataCur = reinterpret_cast< const uint* >(x0_data);
-  const uint matFlags = SBig(*materialDataCur++);
+  GXTexMapID indTexSlot = GX_TEXMAP0;
+  scanner_t materialDataCur;
+  materialDataCur.bytes = GetData();
+  const uint matFlags = SBig(materialDataCur.words[0]);
+  uint texCount = SBig(materialDataCur.words[1]);
   const bool reflection =
       (matFlags & (kStateFlag_Reflection | kStateFlag_ReflectionSurfaceEye)) != 0;
   if (reflection) {
-    if ((matFlags & kStateFlag_ReflectionSurfaceEye) != 0) {
-      EnsureViewDepStateCached(&surface);
-    } else {
-      EnsureViewDepStateCached(NULL);
-    }
+    sLastMaterialCached = materialDataCur.bytes;
+    sRenderingModel = &model;
+    EnsureViewDepStateCached((matFlags & kStateFlag_ReflectionSurfaceEye) != 0 ? &surface
+                                                                               : nullptr);
   }
 
-  uint texCount = SBig(*materialDataCur++);
-  if ((flags.GetOtherFlags() & CModelFlags::kF_NoTextureLock) == CModelFlags::kF_NoTextureLock) {
-    materialDataCur += texCount;
-  } else {
+  sRenderingModel = &model;
+  sLastMaterialCached = GetData();
+  if ((flags.GetOtherFlags() & CModelFlags::kF_NoTextureLock) == 0) {
+    const rstl::vector< TCachedToken< CTexture > >& textures = model.GetTextures();
+    materialDataCur.words += 2;
     for (uint i = 0; i < texCount; ++i) {
-      const uint texIdx = SBig(*materialDataCur++);
-      model.GetTextures()[texIdx].GetObject()->Load(static_cast< GXTexMapID >(i),
-                                                    CTexture::kCM_Repeat);
+      textures[SBig(*materialDataCur.words)].GetObject()->Load(static_cast< GXTexMapID >(i),
+                                                               CTexture::kCM_Repeat);
+      ++materialDataCur.words;
     }
+  } else {
+    materialDataCur.words += texCount + 2;
   }
 
-  const uint groupIdx = SBig(materialDataCur[1]);
-  if (sLastMaterialUnique != static_cast< uint >(~0) && sLastMaterialUnique == groupIdx &&
-      sMaterialCachedState == 0) {
+  const int groupIdx = static_cast< int >(SBig(materialDataCur.words[1]));
+  if (sLastMaterialUnique != -1 && sLastMaterialUnique == groupIdx && sMaterialCachedState == 0) {
     return;
   }
   sLastMaterialUnique = groupIdx;
 
-  CGX::SetVtxDescv_Compressed(SBig(materialDataCur[0]));
-  materialDataCur += 2;
+  CGX::SetVtxDescv_Compressed(SBig(materialDataCur.words[0]));
+  materialDataCur.words += 2;
 
   const bool packedLightmaps = (matFlags & kStateFlag_LightmapUvArray) != 0;
   if (packedLightmaps != CCubeModel::IsUsingPackedLightmaps()) {
@@ -567,105 +584,116 @@ void CCubeMaterial::SetCurrent(const CModelFlags& flags, const CCubeSurface& sur
 
   uint finalKColorCount = 0;
   if ((matFlags & kStateFlag_KonstValues) != 0) {
-    const uint konstCount = SBig(*materialDataCur++);
-    finalKColorCount = konstCount;
-    for (uint i = 0; i < konstCount; ++i) {
-      CGX::SetTevKColor(static_cast< GXTevKColorID >(i), CColor::ToGX(SBig(*materialDataCur++)));
+    finalKColorCount = SBig(materialDataCur.words[0]);
+    for (uint i = 0; i < finalKColorCount; ++i) {
+      CGX::SetTevKColor(static_cast< GXTevKColorID >(i),
+                        CColor::ToGX(SBig(materialDataCur.words[i + 1])));
     }
+    materialDataCur.words += finalKColorCount + 1;
   }
 
-  const uint blendFactors = SBig(*materialDataCur++);
+  const uint blendFactors = SBig(*materialDataCur.words);
   if (CCubeRenderer::That()->GetInAreaDraw()) {
     CGX::SetBlendMode(GX_BM_BLEND, GX_BL_ONE, GX_BL_ONE, GX_LO_CLEAR);
   } else {
     SetupBlendMode(blendFactors, flags, (matFlags & kStateFlag_AlphaTest) != 0);
   }
 
-  GXTexMapID indTexSlot = GX_TEXMAP_NULL;
-  if ((matFlags & kStateFlag_ReflectionIndirectTexture) != 0) {
-    indTexSlot = static_cast< GXTexMapID >(SBig(*materialDataCur++));
+  ++materialDataCur.words;
+  const bool indTex = (matFlags & kStateFlag_ReflectionIndirectTexture) != 0;
+  if (indTex) {
+    indTexSlot = static_cast< GXTexMapID >(SBig(*materialDataCur.words++));
   }
 
   HandleDepth(flags.GetOtherFlags(), matFlags);
 
-  const uint chanCount = SBig(*materialDataCur++);
-  const uint firstChan = SBig(*materialDataCur);
-  materialDataCur += chanCount + 1;
+  const uint chanCount = SBig(materialDataCur.words[0]);
+  const uint firstChan = SBig(materialDataCur.words[1]);
+  materialDataCur.words += chanCount + 1;
   const uint finalNumColorChans = HandleColorChannels(chanCount, firstChan);
 
+  uint matTevCount;
   uint firstTev = 0;
   if (sbRenderModelShadow) {
     firstTev = 2;
   }
 
-  const uint matTevCount = SBig(*materialDataCur++);
-  uint finalTevCount = 0;
-  const uint* texMapTexCoordFlags = materialDataCur + matTevCount * 5;
-  const uint* tcgs = texMapTexCoordFlags + matTevCount;
-  bool usesTevReg2 = false;
+  matTevCount = SBig(*materialDataCur.words++);
+  uint finalTevCount = matTevCount;
   uint finalCCFlags = 0;
   uint finalACFlags = 0;
+  scanner_t texMapTexCoordFlags;
+  texMapTexCoordFlags = materialDataCur;
+  texMapTexCoordFlags.bytes += matTevCount * 20;
+  bool usesTevReg2 = false;
 
-  if (CCubeRenderer::That()->GetThermal()) {
+  const bool thermal = CCubeRenderer::That()->GetThermal();
+  if (thermal) {
+    scanner_t savedTexMapTexCoordFlags;
+    savedTexMapTexCoordFlags = texMapTexCoordFlags;
     finalTevCount = firstTev + 1;
-    finalCCFlags = SBig(materialDataCur[2]);
-    if (static_cast< GXTevRegID >(finalCCFlags >> 9 & 3) == GX_TEVREG0) {
-      materialDataCur += 5;
-      texMapTexCoordFlags += 1;
-      finalCCFlags = SBig(materialDataCur[2]);
-      GXSetTevColor(GX_TEVREG0, CColor::ToGX(0xc0c0c0c0));
+    finalCCFlags = SBig(materialDataCur.words[2]);
+    if ((finalCCFlags >> 9 & 3) == GX_TEVREG0) {
+      materialDataCur.words += 5;
+      texMapTexCoordFlags.words += 1;
+      const GXColor thermalColor = {0xc0, 0xc0, 0xc0, 0xc0};
+      GXSetTevColor(GX_TEVREG0, thermalColor);
+      finalCCFlags = SBig(materialDataCur.words[2]);
     }
-    finalACFlags = SBig(materialDataCur[3]);
-    HandleTev(firstTev, materialDataCur, texMapTexCoordFlags, sbRenderModelShadow);
+    finalACFlags = SBig(materialDataCur.words[3]);
+    HandleTev(firstTev, materialDataCur.words, texMapTexCoordFlags.words, sbRenderModelShadow);
+    usesTevReg2 = false;
+    texMapTexCoordFlags.words = savedTexMapTexCoordFlags.words + matTevCount;
   } else {
-    finalTevCount = firstTev + matTevCount;
+    finalTevCount = matTevCount + firstTev;
     for (uint i = firstTev; i < finalTevCount; ++i) {
-      HandleTev(i, materialDataCur, texMapTexCoordFlags, sbRenderModelShadow && i == firstTev);
-      finalCCFlags = SBig(materialDataCur[2]);
-      finalACFlags = SBig(materialDataCur[3]);
-      if (static_cast< GXTevRegID >(finalCCFlags >> 9 & 3) == GX_TEVREG2) {
+      HandleTev(i, materialDataCur.words, texMapTexCoordFlags.words,
+                sbRenderModelShadow && i == firstTev);
+      finalCCFlags = SBig(materialDataCur.words[2]);
+      finalACFlags = SBig(materialDataCur.words[3]);
+      if ((finalCCFlags >> 9 & 3) == GX_TEVREG2) {
         usesTevReg2 = true;
       }
-      materialDataCur += 5;
-      texMapTexCoordFlags += 1;
+      materialDataCur.words += 5;
+      texMapTexCoordFlags.words += 1;
     }
   }
 
+  scanner_t uvAnim;
+  uvAnim = texMapTexCoordFlags;
   uint tcgCount = 0;
-  if (CCubeRenderer::That()->GetThermal()) {
-    const uint fullTcgCount = SBig(*tcgs++);
-    tcgCount = fullTcgCount;
-    if (tcgCount > 2) {
-      tcgCount = 2;
-    }
+  if (thermal) {
+    const uint fullTcgCount = SBig(uvAnim.words[0]);
+    tcgCount = fullTcgCount <= 2 ? fullTcgCount : 2;
     for (uint i = 0; i < tcgCount; ++i) {
-      CGX::SetTexCoordGen_Compressed(static_cast< GXTexCoordID >(i), SBig(tcgs[i]));
+      CGX::SetTexCoordGen_Compressed(static_cast< GXTexCoordID >(i), SBig(uvAnim.words[i + 1]));
     }
-    tcgs += fullTcgCount;
+    uvAnim.words += fullTcgCount + 1;
   } else {
-    tcgCount = SBig(*tcgs++);
+    tcgCount = SBig(uvAnim.words[0]);
     for (uint i = 0; i < tcgCount; ++i) {
-      CGX::SetTexCoordGen_Compressed(static_cast< GXTexCoordID >(i), SBig(tcgs[i]));
+      CGX::SetTexCoordGen_Compressed(static_cast< GXTexCoordID >(i), SBig(uvAnim.words[i + 1]));
     }
-    tcgs += tcgCount;
+    uvAnim.words += tcgCount + 1;
   }
 
-  const uint* uvAnim = tcgs;
-  const uint animCount = SBig(uvAnim[1]);
-  uvAnim += 2;
+  const uint animCount = SBig(uvAnim.words[1]);
+  uvAnim.words += 2;
+  uint animIdx = 0;
   GXTexMtx texMtx = GX_TEXMTX0;
   GXPTTexMtx ptTexMtx = GX_PTTEXMTX0;
-  for (uint i = 0; i < animCount; ++i) {
-    const uint size = HandleAnimatedUV(uvAnim, texMtx, ptTexMtx);
+  for (; animIdx < animCount;) {
+    const int size = HandleAnimatedUV(uvAnim.words, texMtx, ptTexMtx);
     if (size == 0) {
       break;
     }
-    uvAnim += size;
+    ++animIdx;
     texMtx = static_cast< GXTexMtx >(texMtx + 3);
     ptTexMtx = static_cast< GXPTTexMtx >(ptTexMtx + 3);
+    uvAnim.words += size;
   }
 
-  if (flags.GetBlendMode() != 0) {
+  if (flags.GetTrans() != CModelFlags::kT_Opaque) {
     HandleTransparency(finalTevCount, finalKColorCount, flags, blendFactors, finalCCFlags,
                        finalACFlags);
   }
@@ -673,9 +701,10 @@ void CCubeMaterial::SetCurrent(const CModelFlags& flags, const CCubeSurface& sur
   if (reflection) {
     if (sReflectionAlpha > 0.f) {
       uint addedTevs = 0;
-      if (indTexSlot != GX_TEXMAP_NULL) {
-        addedTevs = HandleReflection(usesTevReg2, indTexSlot, 0, finalTevCount, texCount, tcgCount,
-                                     finalKColorCount, finalCCFlags, finalACFlags);
+      if (indTex) {
+        addedTevs = HandleReflection(usesTevReg2, static_cast< GXTexMapID >(indTexSlot & 7), 0,
+                                     finalTevCount, texCount, tcgCount, finalKColorCount,
+                                     finalCCFlags, finalACFlags);
         numIndStages = 1;
         tcgCount += 2;
       } else {
@@ -704,7 +733,6 @@ void CCubeMaterial::SetCurrent(const CModelFlags& flags, const CCubeSurface& sur
 }
 
 void CCubeMaterial::EnsureViewDepStateCached(const CCubeSurface* surface) {
-  static const float gkEpsilon32 = FLT_EPSILON;
   static const Mtx texMtx1 = {
       {0.5f, 0.f, 0.f, 0.5f},
       {0.f, 0.f, 0.5f, 0.5f},
@@ -721,43 +749,37 @@ void CCubeMaterial::EnsureViewDepStateCached(const CCubeSurface* surface) {
   }
 
   const CTransform4f& modelMtx = CGraphics::GetModelMatrix();
-  CVector3f playerDelta(sPlayerPosition.GetX() - modelMtx.Get03(),
-                        sPlayerPosition.GetY() - modelMtx.Get13(),
-                        sPlayerPosition.GetZ() - modelMtx.Get23());
-  CVector3f playerPos = modelMtx.TransposeRotate(playerDelta);
-  CVector3f modelPoint = CVector3f::Zero();
-  CVector3f playerPoint = playerPos;
-  float radius = 0.f;
-
+  const CVector3f& playerPos =
+      modelMtx.TransposeRotate(sPlayerPosition - modelMtx.GetTranslation());
+  CVector3f points[2];
+  points[1] = playerPos;
   sLastModelCached = sRenderingModel;
+  points[0] = CVector3f::Zero();
+  CVector3f& modelPoint = points[0];
+  CVector3f& playerPoint = points[1];
+  float radius = 0.f;
 
   if (surface != NULL) {
     sMaterialCachedState = 2;
 
-    const CCubeSurface::SSurfaceData* surfData = surface->x0_data;
-    const CVector3f& normal = surfData->mNormal;
-    const CVector3f& center = surfData->mCenter;
-    const float planeD = CVector3f::Dot(center, normal);
-    const float height = CVector3f::Dot(normal, playerPos) - planeD;
-    modelPoint = playerPos - height * normal;
+    const CPlane plane(surface->GetCenter(), surface->GetNormalHint());
+    modelPoint = playerPoint - plane.GetHeight(playerPoint) * plane.GetNormal();
   } else {
     sMaterialCachedState = 1;
 
     const CAABox& bounds = sRenderingModel->GetBoundingBox();
     modelPoint = bounds.GetCenterPoint();
-    modelPoint.SetZ(playerPos.GetZ());
+    modelPoint.SetZ(playerPoint.GetZ());
     radius = 0.5f * (bounds.GetWidth() + bounds.GetHeight());
   }
 
   CCubeRenderer* renderer = CCubeRenderer::That();
   if (renderer->GetReflectionFlag()) {
-    const float oldX = sViewingFrom.GetX() - sPlayerPosition.GetX();
-    const float oldY = sViewingFrom.GetY() - sPlayerPosition.GetY();
-    const float oldZ = sViewingFrom.GetZ() - sPlayerPosition.GetZ();
-    const float newX = modelPoint.GetX() - sPlayerPosition.GetX();
-    const float newY = modelPoint.GetY() - sPlayerPosition.GetY();
-    const float newZ = modelPoint.GetZ() - sPlayerPosition.GetZ();
-    if (newX * newX + newY * newY + newZ * newZ < oldX * oldX + oldY * oldY + oldZ * oldZ) {
+    const CVector3f& oldDelta = sViewingFrom - sPlayerPosition;
+    const CVector3f& newDelta = modelPoint - sPlayerPosition;
+    const float oldMag = oldDelta.MagSquared();
+    const float newMag = newDelta.MagSquared();
+    if (newMag < oldMag) {
       sViewingFrom = modelPoint;
     }
   } else {
@@ -765,9 +787,7 @@ void CCubeMaterial::EnsureViewDepStateCached(const CCubeSurface* surface) {
     renderer->SetReflectionFlag();
   }
 
-  const CVector3f distVec(modelPoint.GetX() - playerPoint.GetX(),
-                          modelPoint.GetY() - playerPoint.GetY(),
-                          modelPoint.GetZ() - playerPoint.GetZ());
+  const CVector3f distVec = modelPoint - playerPoint;
   const float dist = distVec.Magnitude();
   const float reflDist = CMath::Max(gkEpsilon32, dist - 0.5f * radius);
 
@@ -778,14 +798,11 @@ void CCubeMaterial::EnsureViewDepStateCached(const CCubeSurface* surface) {
 
   sReflectionAlpha = (5.f - reflDist) / 5.f;
 
-  CTransform4f tmpXf = CGraphics::GetViewMatrix().GetQuickInverse() * CGraphics::GetModelMatrix();
-  CTransform4f xf(tmpXf);
+  CTransform4f xf = CGraphics::GetViewMatrix().GetQuickInverse() * CGraphics::GetModelMatrix();
   CGX::LoadTexMtxImm(xf.GetCStyleMatrix(), GX_TEXMTX6, GX_MTX3x4);
   CGX::LoadTexMtxImm(texMtx1, GX_PTTEXMTX6, GX_MTX3x4);
 
-  const float invDist = 1.f / reflDist;
-  CVector3f right(-(modelPoint.GetY() - playerPoint.GetY()) * invDist,
-                  (modelPoint.GetX() - playerPoint.GetX()) * invDist, 0.f);
+  CVector3f right = CVector3f::Cross(distVec / reflDist, CVector3f(0.f, 0.f, 1.f));
   float xScale = 0.32258067f;
   float yScale = 0.32258067f;
   if (right.CanBeNormalized()) {
@@ -802,9 +819,7 @@ void CCubeMaterial::EnsureViewDepStateCached(const CCubeSurface* surface) {
   __memcpy(&texMtx, &texMtx2, sizeof(Mtx));
   texMtx[0][0] = xScale * right.GetX();
   texMtx[0][1] = xScale * right.GetY();
-  texMtx[0][3] =
-      1.f - xScale * (modelPoint.GetX() * right.GetX() + modelPoint.GetY() * right.GetY() +
-                      modelPoint.GetZ() * right.GetZ());
+  texMtx[0][3] = -CVector3f::Dot(modelPoint, right) * xScale + 0.5f;
   texMtx[1][2] = yScale;
   texMtx[1][3] = -playerPoint.GetZ() * yScale;
   CGX::LoadTexMtxImm(texMtx, GX_TEXMTX7, GX_MTX3x4);
@@ -816,24 +831,29 @@ void CCubeMaterial::ResetCachedMaterials() {
   KillCachedViewDepState();
   sRenderingModel = NULL;
   sLastMaterialCached = NULL;
-  sLastMaterialUnique = static_cast< uint >(~0);
+  sLastMaterialUnique = -1;
 }
 
-void CCubeModel::SetNewPlayerPositionAndTime(const CVector3f& pos, const CStopwatch&) {
+void CCubeModel::SetNewPlayerPositionAndTime(const CVector3f& pos, const CStopwatch& stopwatch) {
   sPlayerPosition = pos;
   CCubeMaterial::KillCachedViewDepState();
 
-  s64 micros = CStopwatch::GetGlobalMicros() / 1000;
+  s64 millis = stopwatch.GetCurrMicros() / 1000;
 
-  const float periodScaleA = 100000.f;
-  const float periodScaleB = 4.1887903f;
+  float frequency = 1.5f;
+  float timeWrapScale = 100000.f;
+  float period = M_2PIF / frequency;
   const float time = static_cast< float >(static_cast< uint >(
-                         micros % static_cast< uint >(periodScaleA * periodScaleB))) /
+                         millis % static_cast< uint >(timeWrapScale * period))) /
                      1000.f;
   sLastTime = time;
 
-  sThrobX = 1. / (1. - 0.05f * sin(time * 1.5f + 0.f));
-  sThrobY = 1. / (1. - 0.015f * sin(sLastTime * 1.5f + 1.f));
+  float throbAmplitudeX = 0.05f;
+  float throbAmplitudeY = 0.015f;
+  float phaseX = 0.f;
+  float phaseY = 1.f;
+  sThrobX = 1. / (1. - throbAmplitudeX * sin(time * frequency + phaseX));
+  sThrobY = 1. / (1. - throbAmplitudeY * sin(sLastTime * frequency + phaseY));
 }
 
 void CCubeModel::SetRenderModelBlack(bool v) {
