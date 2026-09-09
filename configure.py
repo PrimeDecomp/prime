@@ -1742,7 +1742,7 @@ config.libs = [
                 "Kyoto/Particles/CEffectComponent.cpp",
             ),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"), "Kyoto/Particles/CParticleData.cpp"),
-            Object(NonMatching, "Kyoto/Animation/CVertexMorphEffect.cpp"),
+            Object(MatchingFor("GM8E01_00"), "Kyoto/Animation/CVertexMorphEffect.cpp"),
             Object(NonMatching, "Kyoto/Animation/CSkinnedModelWithAvgNormals.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
