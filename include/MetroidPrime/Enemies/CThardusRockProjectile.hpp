@@ -88,4 +88,6 @@ private:
   static const CPatternedCollisionUtils::SSphereJointInfo skJointInfoList[];
 };
 
+CHECK_SIZEOF(CThardusRockProjectile, 0x5e0)
+
 #endif // _CTHARDUSROCKPROJECTILE

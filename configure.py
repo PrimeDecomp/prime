@@ -1042,7 +1042,7 @@ config.libs = [
             Object(NonMatching, "MetroidPrime/Enemies/CFlyingPirate.cpp"),
             Object(Matching, "MetroidPrime/ScriptObjects/CScriptColorModulate.cpp"),
             Object(NonMatching, "MetroidPrime/CMapUniverse.cpp"),
-            Object(NonMatching, "MetroidPrime/Enemies/CThardusRockProjectile.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Enemies/CThardusRockProjectile.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CInventoryScreen.cpp"),
             Object(NonMatching, "MetroidPrime/CVisorFlare.cpp"),
             Object(
