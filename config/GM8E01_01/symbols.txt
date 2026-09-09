@@ -14194,7 +14194,7 @@ Get<Q24rstl89vector<Q224CSpawnSystemKeyframeData24CSpawnSystemKeyframeInfo,Q24rs
 cinput_stream_helper<Q24rstl89vector<Q224CSpawnSystemKeyframeData24CSpawnSystemKeyframeInfo,Q24rstl17rmemory_allocator>>__FRC105TType<Q24rstl89vector<Q224CSpawnSystemKeyframeData24CSpawnSystemKeyframeInfo,Q24rstl17rmemory_allocator>>R12CInputStream = .text:0x80333B80; // type:function size:0x28 scope:global
 __ct__Q24rstl89vector<Q224CSpawnSystemKeyframeData24CSpawnSystemKeyframeInfo,Q24rstl17rmemory_allocator>FR12CInputStreamRCQ24rstl17rmemory_allocator = .text:0x80333BA8; // type:function size:0x154 scope:global
 fn_80333C1C = .text:0x80333CFC; // type:function size:0x3C scope:global
-fn_80333C58 = .text:0x80333D38; // type:function size:0x6C scope:global
+cinput_stream_helper<Q224CSpawnSystemKeyframeData24CSpawnSystemKeyframeInfo>__FRC61TType<Q224CSpawnSystemKeyframeData24CSpawnSystemKeyframeInfo>R12CInputStream = .text:0x80333D38; // type:function size:0x6C scope:global
 reserve__Q24rstl89vector<Q224CSpawnSystemKeyframeData24CSpawnSystemKeyframeInfo,Q24rstl17rmemory_allocator>Fi = .text:0x80333DA4; // type:function size:0x160 scope:global
 fn_80333E24 = .text:0x80333F04; // type:function size:0xD0 scope:global
 destroy<PQ24rstl107pair<Ui,Q24rstl89vector<Q224CSpawnSystemKeyframeData24CSpawnSystemKeyframeInfo,Q24rstl17rmemory_allocator>>>__4rstlFPQ24rstl107pair<Ui,Q24rstl89vector<Q224CSpawnSystemKeyframeData24CSpawnSystemKeyframeInfo,Q24rstl17rmemory_allocator>>PQ24rstl107pair<Ui,Q24rstl89vector<Q224CSpawnSystemKeyframeData24CSpawnSystemKeyframeInfo,Q24rstl17rmemory_allocator>> = .text:0x80333FD4; // type:function size:0x4C scope:global
