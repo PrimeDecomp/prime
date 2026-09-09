@@ -7,6 +7,7 @@
 #include "Kyoto/Math/CSphere.hpp"
 #include "rstl/single_ptr.hpp"
 
+struct CWeaponAssetInfo;
 class CElementGen;
 class CParticleSwoosh;
 class CSwooshDescription;
@@ -29,16 +30,16 @@ public:
   void Touch(CActor& actor, CStateManager& mgr) override;
 
   CNewFlameThrower(const TToken< CWeaponDescription >& desc, const rstl::string& name,
-                   EWeaponType wType, const rstl::reserved_vector< CAssetId, 8 >& resInfo,
+                   EWeaponType wType, const CWeaponAssetInfo& resInfo,
                    const CTransform4f& xf, EMaterialTypes matType, const CDamageInfo& dInfo,
                    TUniqueId uid, TAreaId aid, TUniqueId owner, uint attribs);
 
-  void Fire(const CTransform4f& xf, CStateManager& mgr);
+  void Fire(const CTransform4f& xf, CStateManager& mgr, bool unused);
   void Reset(CStateManager& mgr, bool deactivate);
   void UpdateFx(const CTransform4f& xf, float dt, CStateManager& mgr);
   const bool AreEffectsFinished() const;
-  bool CanRenderAuxEffects() const { return x37c_24_renderAuxEffects; }
-  bool IsFiring() const { return x37c_25_firing; }
+  const bool CanRenderAuxEffects() const { return x37c_24_renderAuxEffects; }
+  const bool IsFiring() const { return x37c_25_firing; }
 
 private:
   struct SSortedListEntry {

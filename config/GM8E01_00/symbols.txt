@@ -10858,7 +10858,7 @@ DoCollisionCheck__16CNewFlameThrowerFR13CStateManagerRQ24rstl28reserved_vector<7
 AcceptScriptMsg__16CNewFlameThrowerF20EScriptObjectMessage9TUniqueIdR13CStateManager = .text:0x802633A4; // type:function size:0x118 scope:global
 CreateFlameParticles__16CNewFlameThrowerFR13CStateManager = .text:0x802634BC; // type:function size:0x424 scope:global
 Reset__16CNewFlameThrowerFR13CStateManagerb = .text:0x802638E0; // type:function size:0xE0 scope:global
-Fire__16CNewFlameThrowerFRC12CTransform4fR13CStateManager = .text:0x802639C0; // type:function size:0x74 scope:global
+Fire__16CNewFlameThrowerFRC12CTransform4fR13CStateManagerb = .text:0x802639C0; // type:function size:0x74 scope:global
 Render__16CNewFlameThrowerCFRC13CStateManager = .text:0x80263A34; // type:function size:0x90 scope:global
 AddToRenderer__16CNewFlameThrowerCFRC14CFrustumPlanesRC13CStateManager = .text:0x80263AC4; // type:function size:0x78 scope:global
 UpdateFx__16CNewFlameThrowerFRC12CTransform4ffR13CStateManager = .text:0x80263B3C; // type:function size:0x690 scope:global
@@ -10867,7 +10867,7 @@ Think__16CNewFlameThrowerFfR13CStateManager = .text:0x80264330; // type:function
 Touch__16CNewFlameThrowerFR6CActorR13CStateManager = .text:0x802643DC; // type:function size:0x4
 Accept__16CNewFlameThrowerFR8IVisitor = .text:0x802643E0; // type:function size:0x38 scope:global
 GetTouchBounds__16CNewFlameThrowerCFv = .text:0x80264418; // type:function size:0xC scope:global
-__ct__16CNewFlameThrowerFRC28TToken<18CWeaponDescription>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>11EWeaponTypeRCQ24rstl21reserved_vector<Ui,8>RC12CTransform4f14EMaterialTypesRC11CDamageInfo9TUniqueId7TAreaId9TUniqueIdUi = .text:0x80264424; // type:function size:0x488 scope:global
+__ct__16CNewFlameThrowerFRC28TToken<18CWeaponDescription>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>11EWeaponTypeRC16CWeaponAssetInfoRC12CTransform4f14EMaterialTypesRC11CDamageInfo9TUniqueId7TAreaId9TUniqueIdUi = .text:0x80264424; // type:function size:0x488 scope:global
 __ct__Q24rstl101reserved_vector<Q24rstl73vector<Q216CNewFlameThrower16SSortedListEntry,Q24rstl17rmemory_allocator>,3>FiRCQ24rstl73vector<Q216CNewFlameThrower16SSortedListEntry,Q24rstl17rmemory_allocator> = .text:0x802648AC; // type:function size:0x38
 uninitialized_fill_n<PQ24rstl73vector<Q216CNewFlameThrower16SSortedListEntry,Q24rstl17rmemory_allocator>,Q24rstl73vector<Q216CNewFlameThrower16SSortedListEntry,Q24rstl17rmemory_allocator>>__4rstlFPQ24rstl73vector<Q216CNewFlameThrower16SSortedListEntry,Q24rstl17rmemory_allocator>iRCQ24rstl73vector<Q216CNewFlameThrower16SSortedListEntry,Q24rstl17rmemory_allocator> = .text:0x802648E4; // type:function size:0x104
 sort<Q24rstl166pointer_iterator<Q216CNewFlameThrower16SSortedListEntry,Q24rstl73vector<Q216CNewFlameThrower16SSortedListEntry,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>>__4rstlFQ24rstl166pointer_iterator<Q216CNewFlameThrower16SSortedListEntry,Q24rstl73vector<Q216CNewFlameThrower16SSortedListEntry,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl166pointer_iterator<Q216CNewFlameThrower16SSortedListEntry,Q24rstl73vector<Q216CNewFlameThrower16SSortedListEntry,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator> = .text:0x802649E8; // type:function size:0x188

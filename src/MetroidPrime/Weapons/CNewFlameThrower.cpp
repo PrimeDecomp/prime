@@ -1,4 +1,5 @@
 #include "MetroidPrime/Weapons/CNewFlameThrower.hpp"
+#include "MetroidPrime/Weapons/CWeaponAssetInfo.hpp"
 
 #include "Collision/CCollidableAABox.hpp"
 #include "Collision/CCollidableSphere.hpp"
@@ -34,7 +35,7 @@ static const CMaterialFilter skExcludeProjectilePassthrough =
 
 CNewFlameThrower::CNewFlameThrower(const TToken< CWeaponDescription >& desc,
                                    const rstl::string& name, EWeaponType wType,
-                                   const rstl::reserved_vector< CAssetId, 8 >& resInfo,
+                                   const CWeaponAssetInfo& resInfo,
                                    const CTransform4f& xf, EMaterialTypes matType,
                                    const CDamageInfo& dInfo, TUniqueId uid, TAreaId aid,
                                    TUniqueId owner, uint attribs)
@@ -45,13 +46,13 @@ CNewFlameThrower::CNewFlameThrower(const TToken< CWeaponDescription >& desc,
 , x2ec_particlesDoneTimer(0.f)
 , x2f0_flamesDoneTimer(0.f)
 , x2f4_lastParticleCollisionLoc()
-, x304_mainFire(gpSimplePool->GetObj(SObjectTag('PART', resInfo[0])))
-, x310_mainSmoke(gpSimplePool->GetObj(SObjectTag('PART', resInfo[1])))
-, x31c_secondarySmoke(gpSimplePool->GetObj(SObjectTag('PART', resInfo[4])))
-, x328_secondaryFire(gpSimplePool->GetObj(SObjectTag('PART', resInfo[5])))
-, x334_secondarySparks(gpSimplePool->GetObj(SObjectTag('PART', resInfo[6])))
-, x340_swooshCenter(gpSimplePool->GetObj(SObjectTag('SWHC', resInfo[2])))
-, x34c_swooshFire(gpSimplePool->GetObj(SObjectTag('SWHC', resInfo[3])))
+, x304_mainFire(gpSimplePool->GetObj(SObjectTag('PART', resInfo.data[0])))
+, x310_mainSmoke(gpSimplePool->GetObj(SObjectTag('PART', resInfo.data[1])))
+, x31c_secondarySmoke(gpSimplePool->GetObj(SObjectTag('PART', resInfo.data[4])))
+, x328_secondaryFire(gpSimplePool->GetObj(SObjectTag('PART', resInfo.data[5])))
+, x334_secondarySparks(gpSimplePool->GetObj(SObjectTag('PART', resInfo.data[6])))
+, x340_swooshCenter(gpSimplePool->GetObj(SObjectTag('SWHC', resInfo.data[2])))
+, x34c_swooshFire(gpSimplePool->GetObj(SObjectTag('SWHC', resInfo.data[3])))
 , x358_mainFireGen(nullptr)
 , x35c_mainSmokeGen(nullptr)
 , x360_secondarySmokeGen(nullptr)
@@ -234,7 +235,7 @@ void CNewFlameThrower::Render(const CStateManager& mgr) const {
   }
 }
 
-void CNewFlameThrower::Fire(const CTransform4f& xf, CStateManager& mgr) {
+void CNewFlameThrower::Fire(const CTransform4f& xf, CStateManager& mgr, bool) {
   SetActive(true);
   x37c_25_firing = true;
   x37c_24_renderAuxEffects = true;
