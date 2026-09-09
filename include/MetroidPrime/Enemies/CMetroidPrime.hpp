@@ -10,8 +10,8 @@
 #include "MetroidPrime/Enemies/CPatternedInfo.hpp"
 #include "MetroidPrime/Enemies/CPoisonProjectile.hpp"
 #include "MetroidPrime/Weapons/CBeamInfo.hpp"
-#include "MetroidPrime/Weapons/CProjectileInfo.hpp"
 #include "MetroidPrime/Weapons/CPlasmaProjectile.hpp"
+#include "MetroidPrime/Weapons/CProjectileInfo.hpp"
 
 #include "Kyoto/Audio/CSfxHandle.hpp"
 
@@ -38,6 +38,8 @@ struct SPrimeCameraShakePoint {
   float x4_sustainTime;
   float x8_duration;
   float xc_magnitude;
+
+  explicit inline SPrimeCameraShakePoint(CInputStream& in);
 };
 CHECK_SIZEOF(SPrimeCameraShakePoint, 0x10)
 
@@ -45,6 +47,8 @@ struct SPrimeCameraShakerComponent {
   bool x0_useModulation;
   SPrimeCameraShakePoint x4_am;
   SPrimeCameraShakePoint x14_fm;
+
+  explicit SPrimeCameraShakerComponent(CInputStream& in);
 };
 CHECK_SIZEOF(SPrimeCameraShakerComponent, 0x24)
 
@@ -52,7 +56,11 @@ struct SPrimeCameraShakeData {
   bool x0_useSfx;
   float x4_duration;
   float x8_sfxDist;
-  SPrimeCameraShakerComponent xc_components[3];
+  SPrimeCameraShakerComponent xc_shakerX;
+  SPrimeCameraShakerComponent x30_shakerY;
+  SPrimeCameraShakerComponent x54_shakerZ;
+
+  explicit SPrimeCameraShakeData(CInputStream& in);
 };
 CHECK_SIZEOF(SPrimeCameraShakeData, 0x78)
 
@@ -370,7 +378,7 @@ struct CMetroidPrimeData {
   uint x0_propertyCount;
   CPatternedInfo x4_patternedInfo;
   CActorParameters x13c_actorParms;
-  uint x1a4_;
+  int x1a4_;
   CCameraShakeData x1a8_;
   CCameraShakeData x27c_;
   CCameraShakeData x350_;
@@ -393,11 +401,14 @@ struct CMetroidPrimeData {
   rstl::reserved_vector< CMetroidPrime::CVulnerabilityEntry, 4 > xa2c_;
 
   explicit CMetroidPrimeData(CInputStream& in);
+  static uint VerifyExportCount(CInputStream& in);
 
   const CPatternedInfo& GetPatternedInfo() const { return x4_patternedInfo; }
 
-  void LoadPrimeStruct4s(CInputStream& in);
-  void LoadPrimeStruct6s(CInputStream& in);
+  static rstl::reserved_vector< CMetroidPrimeParasiteQueenAttack, 4 >
+  LoadParasiteQueenBeams(CInputStream& in);
+  static rstl::reserved_vector< CMetroidPrime::CVulnerabilityEntry, 4 >
+  LoadVulnerabilities(CInputStream& in);
 };
 CHECK_SIZEOF(CMetroidPrimeData, 0xC10)
 

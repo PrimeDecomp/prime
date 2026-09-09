@@ -134,9 +134,9 @@ CCameraShakerComponent BuildCameraShakerComponent(const SPrimeCameraShakerCompon
 
 CCameraShakeData BuildCameraShakeData(const SPrimeCameraShakeData& data) {
   return CCameraShakeData(data.x4_duration, data.x8_sfxDist, data.x0_useSfx ? 1 : 0,
-                          CVector3f::Zero(), BuildCameraShakerComponent(data.xc_components[0]),
-                          BuildCameraShakerComponent(data.xc_components[1]),
-                          BuildCameraShakerComponent(data.xc_components[2]));
+                          CVector3f::Zero(), BuildCameraShakerComponent(data.xc_shakerX),
+                          BuildCameraShakerComponent(data.x30_shakerY),
+                          BuildCameraShakerComponent(data.x54_shakerZ));
 }
 
 CMetroidPrime::CVulnerabilityEntry::CVulnerabilityEntry(CInputStream& in)

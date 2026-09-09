@@ -3,9 +3,13 @@
 
 #include "MetroidPrime/TGameTypes.hpp"
 
+class CInputStream;
+
 struct CWeaponAssetInfo {
   int count;
   CAssetId data[8];
+
+  explicit CWeaponAssetInfo(CInputStream& in);
 
   CWeaponAssetInfo(const CWeaponAssetInfo& other) : count(other.count) {
     for (int i = 0; i < 8; ++i) {
