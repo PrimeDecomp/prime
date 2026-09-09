@@ -7,8 +7,8 @@
 
 class CAnimTreeTimeScale : public CAnimTreeSingleChild {
 public:
-  ~CAnimTreeTimeScale() override {}
   CAdvancementResults VAdvanceView(const CCharAnimTime& time) override;
+  ~CAnimTreeTimeScale() override;
   CCharAnimTime VGetTimeRemaining() const override;
   CSteadyStateAnimInfo VGetSteadyStateAnimInfo() const override;
   uint VGetBoolPOIList(const CCharAnimTime& time, CBoolPOINode* listOut, uint capacity,
