@@ -299,6 +299,7 @@ void CSortedListManager::BuildNearList(rstl::reserved_vector< TUniqueId, 1024 >&
   }
 }
 
+// TODO: check how material and filters are retrieve
 static inline void GetActorMaterialData(const CActor& actor, const CMaterialFilter*& filter,
                                         const CMaterialList*& materials) {
   filter = &actor.GetMaterialFilter();
