@@ -32,6 +32,7 @@ public:
 
   void AccumulateScaledTransform(const CSegId& seg, CMatrix3f& transform, float scale) const;
   bool ContainsDataFor(const CSegId& seg) const;
+  const TSegIdMapVariableSize< CElementType >& GetTransforms() const { return mSegIdMap; }
 
 private:
   TSegIdMapVariableSize< CElementType > mSegIdMap;

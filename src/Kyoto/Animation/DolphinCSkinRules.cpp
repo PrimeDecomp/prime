@@ -1,4 +1,6 @@
 #include "Kyoto/Animation/CSkinRules.hpp"
+#include "Kyoto/Animation/CCharLayoutInfo.hpp"
+#include "Kyoto/Animation/CPoseAsTransforms.hpp"
 #include "Kyoto/Graphics/CModel.hpp"
 #include "dolphin/os/OSCache.h"
 #include "rstl/math.hpp"
@@ -6,7 +8,7 @@
 #pragma inline_max_size(250)
 
 static int StreamFloatToShort(CInputStream& in) {
-  const int result = in.ReadLong();
+  const int result = in.Get< int >();
   if (result == -1) {
     return in.ReadLong();
   }
@@ -35,6 +37,61 @@ const CFactoryFnReturn FSkinRulesFactory(const SObjectTag& tag, CInputStream& in
   return rs_new CSkinRules(in);
 }
 
+void CSkinRules::BuildAccumulatedTransforms(const CPoseAsTransforms& pose,
+                                          const CCharLayoutInfo& layoutInfo) const {
+  float pointStorage[100][3];
+  float (*points)[3] = pointStorage;
+  CSegId id = pose.GetTransforms().GetFirstElementPresent();
+  while (id != CSegId::Null()) {
+    const CVector3f& origin = layoutInfo.GetReferenceStanceOffset(id);
+    const CVector3f& rotatedOrigin = pose.GetTransformMinusOffset(id) * origin;
+    const CVector3f point = pose.GetOffset(id) - rotatedOrigin;
+    float* destination = points[id.val()];
+    destination[0] = point.GetX();
+    destination[1] = point.GetY();
+    destination[2] = point.GetZ();
+    id = pose.GetTransforms().GetIdAfter(id);
+  }
+
+  for (int i = 0; i < x0_virtualBones.size(); ++i) {
+    x0_virtualBones[i].BuildAccumulatedTransform(pose, reinterpret_cast< const CVector3f* >(points));
+  }
+}
+
+void CSkinRules::BuildPoints(volatile void* pipe) const {
+  for (int i = 0; i < x0_virtualBones.size(); ++i) {
+    int vertexCount = x0_virtualBones[i].GetNumIndices();
+    ushort* buffer = nullptr;
+    for (int done = 0; done < vertexCount;) {
+      const int count = ProcessingPoints(vertexCount - done, &buffer);
+      x0_virtualBones[i].BuildPoints(buffer, pipe, count);
+      done += count;
+    }
+  }
+}
+
+void CSkinRules::BuildNormals(volatile void* pipe) const {
+  for (int i = 0; i < x0_virtualBones.size(); ++i) {
+    int vertexCount = x0_virtualBones[i].GetNumIndices();
+    ushort* buffer = nullptr;
+    for (int done = 0; done < vertexCount;) {
+      const int count = ProcessingNormals(vertexCount - done, &buffer);
+      x0_virtualBones[i].BuildNormals(buffer, pipe, count);
+      done += count;
+    }
+  }
+}
+
+void CSkinRules::BuildNormalsFrom(const CVector3f* averageNormals, CVector3f* out) const {
+  int offset = 0;
+  for (int i = 0; i < x0_virtualBones.size(); ++i) {
+    const CVirtualBone& bone = x0_virtualBones[i];
+    int count = bone.GetNumIndices();
+    bone.BuildNormals(averageNormals + offset, out + offset, count);
+    offset += count;
+  }
+}
+
 static CSkinRules* sLockedRules = nullptr;
 static const CModel* sCurrentTransaction = nullptr;
 static int sCurrentPointCount = 0;
@@ -43,7 +100,7 @@ static int sNextPointStart = nullptr;
 static int sNextNormalStart = nullptr;
 static int sCurrentPoint = nullptr;
 static int sCurrentNormal = nullptr;
-static void* sCurrentBase = nullptr;
+static CVector3f* sCurrentBase = nullptr;
 static int sCurrentFirst = 0;
 static int sTransactionCount = 0;
 
@@ -61,7 +118,31 @@ void CSkinRules::InitLockedCacheState(const CModel& model) {
   StartNextTransaction();
 }
 
-void CSkinRules::StartNextTransaction() {}
+void CSkinRules::StartNextTransaction() {
+  uchar* destination = reinterpret_cast< uchar* >(LC_BASE);
+  if (!sTransferringFirstPage) {
+    destination += 0x1000;
+  }
+
+  int count;
+  const CVector3f* source;
+  if (sNextPointStart != sLockedRules->GetNumPoints()) {
+    count = rstl::min_val(336, sLockedRules->GetNumPoints() - sNextPointStart);
+    source = static_cast< const CVector3f* >(sCurrentTransaction->GetCubeModel()->GetPositions()) + sNextPointStart;
+  } else {
+    const int normalCount = sLockedRules->GetNumNormals();
+    if (normalCount == sNextNormalStart) {
+      return;
+    }
+    count = rstl::min_val(336, normalCount - sNextNormalStart);
+    source = static_cast< const CVector3f* >(sCurrentTransaction->GetCubeModel()->GetNormals()) + sNextNormalStart;
+  }
+
+  LCLoadData(destination, const_cast< CVector3f* >(source), (count * sizeof(CVector3f) + 31) & ~31);
+  sCurrentPointCount = count;
+  ++sTransactionCount;
+  sTransferringFirstPage = !sTransferringFirstPage;
+}
 
 static void WaitForQueue() {
   if (!LCQueueLength()) {
@@ -70,14 +151,14 @@ static void WaitForQueue() {
   LCQueueWait(0);
 }
 
-void CSkinRules::ProcessingPoints(int count, ushort** buf) {
+int CSkinRules::ProcessingPoints(int count, ushort** buf) {
   if (sCurrentPoint + count > sNextPointStart) {
     if (sCurrentPoint == sNextPointStart) {
       WaitForQueue();
-      sCurrentBase = reinterpret_cast< void* >(LC_BASE);
       sCurrentFirst = sNextPointStart;
+      sCurrentBase = reinterpret_cast< CVector3f* >(LC_BASE);
       if (sTransferringFirstPage) {
-        sCurrentBase = reinterpret_cast< void* >(LC_BASE + 0x1000);
+        sCurrentBase = reinterpret_cast< CVector3f* >(LC_BASE + 0x1000);
       }
 
       sNextPointStart += sCurrentPointCount;
@@ -85,24 +166,26 @@ void CSkinRules::ProcessingPoints(int count, ushort** buf) {
     }
 
     int c = rstl::min_val(sNextPointStart - sCurrentPoint, count);
-    *buf = reinterpret_cast< ushort* >(static_cast< CVector3f* >(sCurrentBase) +
+    *buf = reinterpret_cast< ushort* >(sCurrentBase +
                                        (sCurrentPoint - sCurrentFirst));
     sCurrentPoint += c;
+    return c;
   } else {
-    *buf = reinterpret_cast< ushort* >(static_cast< CVector3f* >(sCurrentBase) +
+    *buf = reinterpret_cast< ushort* >(sCurrentBase +
                                        (sCurrentPoint - sCurrentFirst));
     sCurrentPoint += count;
+    return count;
   }
 }
 
-void CSkinRules::ProcessingNormals(int count, ushort** buf) {
+int CSkinRules::ProcessingNormals(int count, ushort** buf) {
   if (sCurrentNormal + count > sNextNormalStart) {
     if (sCurrentNormal == sNextNormalStart) {
       WaitForQueue();
-      sCurrentBase = reinterpret_cast< void* >(LC_BASE);
       sCurrentFirst = sNextNormalStart;
+      sCurrentBase = reinterpret_cast< CVector3f* >(LC_BASE);
       if (sTransferringFirstPage) {
-        sCurrentBase = reinterpret_cast< void* >(LC_BASE + 0x1000);
+        sCurrentBase = reinterpret_cast< CVector3f* >(LC_BASE + 0x1000);
       }
 
       sNextNormalStart += sCurrentPointCount;
@@ -110,12 +193,14 @@ void CSkinRules::ProcessingNormals(int count, ushort** buf) {
     }
 
     int c = rstl::min_val(sNextNormalStart - sCurrentNormal, count);
-    *buf = reinterpret_cast< ushort* >(static_cast< CVector3f* >(sCurrentBase) +
+    *buf = reinterpret_cast< ushort* >(sCurrentBase +
                                        (sCurrentNormal - sCurrentFirst));
     sCurrentNormal += c;
+    return c;
   } else {
-    *buf = reinterpret_cast< ushort* >(static_cast< CVector3f* >(sCurrentBase) +
+    *buf = reinterpret_cast< ushort* >(sCurrentBase +
                                        (sCurrentNormal - sCurrentFirst));
     sCurrentNormal += count;
+    return count;
   }
 }

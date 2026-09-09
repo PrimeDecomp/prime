@@ -17,7 +17,7 @@ class CVirtualBone {
 public:
   explicit CVirtualBone(CInputStream& in);
   const rstl::reserved_vector< SSkinWeighting, 3 >& GetWeights() const { return x0_weights; }
-  uint GetVertexCount() const { return x1c_vertexCount; }
+  int GetNumIndices() const { return x1c_vertexCount; }
   const CTransform4f& GetTransform() const { return x20_xf; }
 
   void BuildPoints(const ushort*, volatile void*, int) const;
@@ -28,7 +28,7 @@ public:
 
 private:
   rstl::reserved_vector< SSkinWeighting, 3 > x0_weights;
-  uint x1c_vertexCount;
+  int x1c_vertexCount;
   mutable CTransform4f x20_xf;
   mutable CMatrix3f x50_rotation;
 };
