@@ -32,6 +32,9 @@ public:
   CSegId GetSegIdFromString(const rstl::string& bone) const;
 
   const CSegIdList& GetBodyPartSegIds() const { return mSegIdList; }
+  const CVector3f& GetReferenceStanceOffset(const CSegId& id) const {
+    return id != CSegId::Root() ? GetSegmentData(id).GetReferenceStanceOffset() : CVector3f::Zero();
+  }
 
   CVector3f GetFromParentUnrotated(const CSegId& id) const {
     const CCharLayoutNode& node = GetSegmentData(id);

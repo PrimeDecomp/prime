@@ -22,13 +22,15 @@ public:
 
   T& AccessElement(const uchar idx) { return mItems[idx]; }
   const T& AccessElement(const uchar idx) const { return mItems[idx]; }
-  const T& GetElementAt(const CSegId& seg) const { return AccessElement(GetIdAfter(seg)); }
+  const T& GetElementAt(const CSegId& seg) const { return AccessElement(GetStorageIndex(seg)); }
 
   bool ContainsDataFor(const CSegId& seg) const {
     return !(mLinks[seg.val()] == link_node(-1, -1));
   }
 
-  uchar GetIdAfter(const CSegId& seg) const { return mLinks[seg.val()].second; }
+  CSegId GetFirstElementPresent() const { return CSegId(mLastInserted); }
+  CSegId GetIdAfter(const CSegId& seg) const { return CSegId(mLinks[seg.val()].first); }
+  uchar GetStorageIndex(const CSegId& seg) const { return mLinks[seg.val()].second; }
 
 private:
   char mNextId;
