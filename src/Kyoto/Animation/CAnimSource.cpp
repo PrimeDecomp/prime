@@ -111,10 +111,8 @@ CAnimSource::~CAnimSource() {
                                                 CCharAnimMemoryMetrics::kASS_Two);
 }
 
-int CAnimSource::HasOffset(const CSegId& seg) const {
-  uint ret = x30_offsetChannels[x20_rotationChannels[seg.val()]];
-  ret >>= 31;
-  return ret ^ 1;
+bool CAnimSource::HasOffset(const CSegId& seg) const {
+  return x30_offsetChannels[x20_rotationChannels[seg.val()]] >= 0;
 }
 
 CVector3f CAnimSource::GetOffset(const CSegId& seg, const CCharAnimTime& animTime) const {
