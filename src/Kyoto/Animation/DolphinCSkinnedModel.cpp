@@ -15,6 +15,7 @@
 #include <dolphin/os.h>
 #include <dolphin/os/OSCache.h>
 
+#include <rstl/list.hpp>
 #include <rstl/optional_object.hpp>
 
 CSkinnedModel::TPointGenFunc CSkinnedModel::sPointGen;

@@ -4,7 +4,7 @@
 #include "Kyoto/CVParamTransfer.hpp"
 #include "types.h"
 
-#include "rstl/hash_map.hpp"
+#include "rstl/map.hpp"
 #include "rstl/rc_ptr.hpp"
 
 #include "Kyoto/CToken.hpp"
@@ -12,6 +12,13 @@
 
 class IFactory;
 class CSimplePool : public IObjectStore {
+  struct TagIdLess {
+    bool operator()(const SObjectTag& a, const SObjectTag& b) const {
+      return a.GetId() < b.GetId();
+    }
+  };
+  typedef rstl::map< SObjectTag, CObjectReference*, TagIdLess > ResourceMap;
+
 public:
   CSimplePool(IFactory& factory);
   ~CSimplePool();
@@ -28,9 +35,7 @@ public:
   rstl::vector< SObjectTag > GetReferencedTags();
 
 private:
-  uchar x4_;
-  uchar x5_;
-  rstl::hash_map< unkptr, unkptr, void, void > x8_resources;
+  ResourceMap x4_resources;
   IFactory& x18_factory;
   CVParamTransfer x1c_paramXfr;
 };
