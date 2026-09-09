@@ -8,6 +8,7 @@
 #include "Kyoto/Math/CAABox.hpp"
 
 class CActor;
+class CMaterialFilter;
 
 namespace SL {
 enum ESortedLists {
@@ -23,7 +24,7 @@ struct SNode {
   CActor* x0_actor;
   CAABox x4_box;
   short x1c_selfIdxs[6];
-  short x28_next;
+  mutable short x28_next;
   bool x2a_populated;
 
   SNode();
