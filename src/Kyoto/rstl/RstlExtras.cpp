@@ -6,16 +6,21 @@
 #include "Kyoto/Basics/CCast.hpp"
 #include "Kyoto/Streams/CInputStream.hpp"
 
+#include <string.h>
+
+// The retail pool retains the format from the stripped CreateFromReal helper.
+static const char* const skStringLiterals[] = {"??(??)", "%%.%df"};
+
 namespace rstl {
 CRefData CRefData::sNull(nullptr, 0x1000000 - 1);
 }
 
-int CStringExtras::FindCaseInsensitive(const rstl::string& left, const rstl::string& right) {
-  int rightSize = right.size();
+int CStringExtras::IndexOfSubstring(const rstl::string& left, const rstl::string& right) {
+  int rightSize = right.length();
   if (rightSize == 0) {
     return 0;
   }
-  int leftSize = left.size();
+  int leftSize = left.length();
   if (leftSize == 0) {
     return -1;
   }
@@ -23,7 +28,8 @@ int CStringExtras::FindCaseInsensitive(const rstl::string& left, const rstl::str
   for (int i = 0; i < (leftSize - rightSize) + 1; ++i) {
     int j = 0;
     for (; j < rightSize; ++j) {
-      if (ConvertToUpperCase(right.at(i)) != ConvertToUpperCase(left.at(i + j))) {
+      const int index = i + j;
+      if (ConvertToUpperCase(right[j]) != ConvertToUpperCase(left[index])) {
         break;
       }
     }
@@ -35,22 +41,22 @@ int CStringExtras::FindCaseInsensitive(const rstl::string& left, const rstl::str
 }
 
 int CStringExtras::CompareCaseInsensitive(const rstl::string& left, const rstl::string& right) {
-  int left_size = left.size();
-  int right_size = right.size();
-  int max_size = rstl::min_val(left_size, right_size);
+  int leftLength = left.length();
+  int rightLength = right.length();
+  int commonLength = rstl::min_val(leftLength, rightLength);
 
-  for (int idx = 0; idx < max_size; ++idx) {
-    if (ConvertToUpperCase(left.at(idx)) < ConvertToUpperCase(right.at(idx))) {
+  for (int idx = 0; idx < commonLength; ++idx) {
+    if (ConvertToUpperCase(left[idx]) < ConvertToUpperCase(right[idx])) {
       return -1;
     }
 
-    if (ConvertToUpperCase(left.at(idx)) > ConvertToUpperCase(right.at(idx))) {
+    if (ConvertToUpperCase(left[idx]) > ConvertToUpperCase(right[idx])) {
       return 1;
     }
   }
-  if (left_size < right_size) {
+  if (leftLength < rightLength) {
     return -1;
-  } else if (left_size > right_size) {
+  } else if (leftLength > rightLength) {
     return 1;
   } else {
     return 0;
@@ -66,29 +72,26 @@ char CStringExtras::ConvertToUpperCase(char c) {
 }
 
 rstl::string CStringExtras::CreateFromInteger(int v) {
-  int iVar3 = ((v >> 31) ^ v) - (v >> 31);
-  int iVar4 = 0;
-  uchar tmp[24];
+  int magnitude = v < 0 ? -v : v;
+  int count = 0;
+  schar digits[24];
   if (v == 0) {
     return rstl::string_l("0");
   }
 
-  uchar* ptr = &tmp[0];
-  while (iVar3 > 0) {
-    ++iVar4;
-    int iVar1 = iVar3 / 10 + (iVar3 >> 31);
-    *ptr = iVar3 + (((iVar1 - (iVar1 >> 31)) * 10) + '0');
-    ++ptr;
-    iVar3 = iVar1 - (iVar1 >> 31);
+  while (magnitude > 0) {
+    digits[count] = '0' + magnitude % 10;
+    ++count;
+    magnitude /= 10;
   }
 
   rstl::string ret;
   if (v < 0) {
-    ret.append("-");
+    ret.append("-", -1);
   }
 
-  for (int i = 0; i < iVar4; ++i) {
-    ret.append(1, tmp[iVar4 - i]);
+  for (int i = 0; i < count; ++i) {
+    ret.append(1, digits[count - i - 1]);
   }
 
   return ret;
@@ -98,17 +101,18 @@ rstl::string CStringExtras::ConvertToANSI(const rstl::wstring& str) {
   rstl::string ret;
   ret.reserve(str.size() + 1);
 
-  for (int i = 0; i < (int)str.size(); ++i) {
-    ret.assign(ret + (char)(str.at(i)));
+  for (int i = 0; i < static_cast< int >(str.size()); ++i) {
+    ret.assign(ret + static_cast< char >(str.at(i)));
   }
   return ret;
 }
+
 rstl::wstring CStringExtras::ConvertToUNICODE(const rstl::string& str) {
   rstl::wstring ret;
   ret.reserve(str.size() + 1);
 
-  for (int i = 0; i < (int)str.size(); ++i) {
-    ret.append(1, (wchar_t)str.at(i));
+  for (int i = 0; i < static_cast< int >(str.size()); ++i) {
+    ret.append(1, static_cast< wchar_t >(str.at(i)));
   }
   return ret;
 }
@@ -131,7 +135,27 @@ rstl::string CStringExtras::ReadString(CInputStream& in) {
 rstl::vector< rstl::string > CStringExtras::TokenizeString(const rstl::string& string,
                                                            const char* delims, int expectedSize) {
   rstl::vector< rstl::string > ret;
-  ret.reserve(expectedSize);
-  
+  if (expectedSize > 0) {
+    ret.reserve(expectedSize);
+  }
+
+  const int size = string.length();
+  int pos = 0;
+  while (pos < size) {
+    while (pos < size && strchr(delims, string[pos]) != nullptr) {
+      ++pos;
+    }
+    if (pos == size) {
+      break;
+    }
+
+    int end = pos + 1;
+    while (end < size && strchr(delims, string[end]) == nullptr) {
+      ++end;
+    }
+    ret.push_back(string.substr(pos, end - pos));
+    pos = end + 1;
+  }
+
   return ret;
 }
