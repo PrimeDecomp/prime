@@ -36,17 +36,19 @@ enum ETRKRepeatMode {
 
 class CAudioSys {
   static const rstl::string mpDefaultInvalidString;
+  static void* SampleDataUploadCallback(u32 address, u32 bytes);
+  static void* mpSampleDataUploadBuffer;
 
 public:
   enum ESurroundModes { kSM_Mono, kSM_Stereo, kSM_Surround };
   class CEmitterData {
   public:
-    CEmitterData() : _50(0), _51(0), _52(kEmitterMedPriority) {};
+    CEmitterData() : x50_used(0), x51_important(0), x52_prio(kEmitterMedPriority) {}
 
     SND_EMITTER x0_emitter;
-    bool _50;
-    bool _51;
-    uchar _52;
+    bool x50_used;
+    bool x51_important;
+    uchar x52_prio;
   };
 
   struct C3DEmitterParmData {
@@ -144,10 +146,10 @@ public:
 
   static void S3dAddListener(const CVector3f& pos, const CVector3f& dir, const CVector3f& heading,
                              const CVector3f& up, const float frontSur, const float backSur,
-                             const float soundSpeed, const uint flags, const uchar voiume);
+                             const float soundSpeed, const uint flags, const uchar volume);
   static bool S3dRemoveListener();
   static bool S3dUpdateListener(const CVector3f& pos, const CVector3f& dir,
-                                const CVector3f& heading, const CVector3f& up, const uchar voiume);
+                                const CVector3f& heading, const CVector3f& up, const uchar volume);
 
   static void S3dAddEmitter(SND_FXID fxid, const CVector3f& pos, const CVector3f& dir,
                             const bool b1, const bool b2, short, int);
@@ -189,5 +191,10 @@ public:
   static const uchar kEmitterMedPriority;
   static const ushort kVolumeTable[];
 };
+
+CHECK_SIZEOF(CAudioSys, 0x1)
+NESTED_CHECK_SIZEOF(CAudioSys, CEmitterData, 0x54)
+NESTED_CHECK_SIZEOF(CAudioSys, C3DEmitterParmData, 0x2c)
+NESTED_CHECK_SIZEOF(CAudioSys, CTrkData, 0x64)
 
 #endif // _CAUDIOSYS
