@@ -108,7 +108,7 @@ void do_sound_event(rstl::pair< u16, CSfxHandle >& sfxHandle, int& pitch, bool d
   uint useFlags = 0x1; // Continuous parameter update
   if ((flags & 0x8) != 0)
     useFlags |= 0x8; // Doppler effect
-  bool useAcoustics = (flags & 0x80) == 0;
+  const bool useAcoustics = (flags & 0x80) == 0;
 
   // TODO ctor?
   CAudioSys::C3DEmitterParmData parms(maxDist, falloff, useFlags, maxVol, minVol);

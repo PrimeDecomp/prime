@@ -97,11 +97,14 @@ void CScriptSound::Think(float dt, CStateManager& mgr) {
     if (xe8_occUpdateTimer <= 0.f && sFirstInFrame) {
       sFirstInFrame = false;
       const float occVol = GetOccludedVolumeAmount(GetTranslation(), mgr);
-      const short newMaxVol = rstl::max_val(static_cast< short >(occVol * x10e_vol), x10c_minVol);
-      if (newMaxVol != xf0_maxVol) {
+      short newMaxVol = CCast::FtoUS(x10e_vol * occVol);
+      if (newMaxVol < x10c_minVol) {
+        newMaxVol = x10c_minVol;
+      }
+      if (xf0_maxVol != newMaxVol) {
         xf0_maxVol = newMaxVol;
         const int delta = xf0_maxVol - xf2_maxVolUpd;
-        xf4_maxVolUpdDelta = delta / 10.5f;
+        xf4_maxVolUpdDelta = delta / 30;
         if (xf4_maxVolUpdDelta == 0) {
           if (xf2_maxVolUpd < xf0_maxVol) {
             xf4_maxVolUpdDelta = 1;
@@ -110,7 +113,33 @@ void CScriptSound::Think(float dt, CStateManager& mgr) {
           }
         }
       }
+      xe8_occUpdateTimer = 0.5f;
+    } else {
+      xe8_occUpdateTimer -= dt;
     }
+
+    if (xf2_maxVolUpd != xf0_maxVol) {
+      xf2_maxVolUpd += xf4_maxVolUpdDelta;
+      if (xf4_maxVolUpdDelta > 0 && xf2_maxVolUpd > xf0_maxVol) {
+        xf2_maxVolUpd = xf0_maxVol;
+      }
+      if (xf4_maxVolUpdDelta < 0 && xf2_maxVolUpd < xf0_maxVol) {
+        xf2_maxVolUpd = xf0_maxVol;
+      }
+      const uchar volume = xf2_maxVolUpd;
+      CSfxManager::UpdateEmitter(xec_sfxHandle, GetTranslation(), CVector3f::Zero(), volume);
+    }
+  }
+
+  if (x11c_24_playRequested) {
+    xfc_startDelay -= dt;
+    if (xfc_startDelay <= 0.f) {
+      x11c_24_playRequested = false;
+      PlaySound(mgr);
+    }
+  }
+  if (x118_pitch != 8192 && xec_sfxHandle) {
+    CSfxManager::PitchBend(xec_sfxHandle, x118_pitch);
   }
 }
 
@@ -151,19 +180,37 @@ void CScriptSound::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CSta
 }
 
 void CScriptSound::PlaySound(CStateManager& mgr) {
-  TAreaId areaId = GetCurrentAreaId();
-  if (!x11d_24_allowDuplicates && xec_sfxHandle) {
-    if (CSfxManager::IsHandleValid(xec_sfxHandle)) {
-      return;
-    }
-  }
-
-  if (x11d_25_processedThisFrame) {
+  const int areaId = GetCurrentAreaId().Value();
+  if ((!x11d_24_allowDuplicates && xec_sfxHandle && CSfxManager::IsHandleValid(xec_sfxHandle)) ||
+      x11d_25_processedThisFrame) {
     return;
   }
+
   x11d_25_processedThisFrame = true;
-  if (!x11c_26_nonEmitter) {
-    const float volume = x11c_30_worldSfx ? 1.f : GetOccludedVolumeAmount(GetTranslation(), mgr);
+  if (x11c_26_nonEmitter) {
+    CWorld* world = mgr.World();
+    if (!x11c_30_worldSfx || !world->HasGlobalSound(x100_soundId)) {
+      const bool looped = x11c_25_looped;
+      xec_sfxHandle =
+          CSfxManager::SfxStart(x100_soundId, x10e_vol, x114_pan, x11c_29_acoustics, x112_prio,
+                                looped, x11c_30_worldSfx ? CSfxManager::kAllAreas : areaId);
+      if (x11c_30_worldSfx) {
+        world->AddGlobalSound(x100_soundId, xec_sfxHandle);
+      }
+    }
+  } else {
+    const float volume =
+        x11c_28_occlusionTest ? GetOccludedVolumeAmount(GetTranslation(), mgr) : 1.f;
+    xf0_maxVol = CCast::FtoUS(x10e_vol * volume);
+    xf2_maxVolUpd = xf0_maxVol;
+    CAudioSys::C3DEmitterParmData data(x104_maxDist, x108_distComp, 1, xf0_maxVol, x10c_minVol);
+    data.x0_pos = GetTranslation();
+    data.x24_sfxId = x100_soundId;
+    if (x11c_25_looped) {
+      xec_sfxHandle = CSfxManager::AddEmitter(data, x11c_29_acoustics, x112_prio, true, areaId);
+    } else {
+      xec_sfxHandle = CSfxManager::AddEmitter(data, x11c_29_acoustics, x112_prio, false, areaId);
+    }
   }
 }
 
@@ -179,36 +226,33 @@ void CScriptSound::StopSound(CStateManager& mgr) {
 }
 
 void CScriptSound::AddToRenderer(const CFrustumPlanes& planes, const CStateManager& mgr) const {}
+
 void CScriptSound::Accept(IVisitor& visitor) { visitor.Visit(*this); }
+
 float CScriptSound::GetOccludedVolumeAmount(const CVector3f& pos, const CStateManager& mgr) {
   const CTransform4f camXf = mgr.GetCameraManager()->GetCurrentCameraTransform(mgr);
   const CVector3f soundToCam = camXf.GetTranslation() - pos;
   const float soundToCamMag = soundToCam.Magnitude();
   const CVector3f soundToCamNorm = soundToCam * (1.f / soundToCamMag);
-  const CVector3f thirdEdge =
-      CVector3f::Up() - soundToCamNorm * CVector3f::Dot(soundToCamNorm, CVector3f::Up());
+  const CVector3f up(0.f, 0.f, 1.f);
+  const CVector3f thirdEdge = up - soundToCamNorm * CVector3f::Dot(up, soundToCamNorm);
   const CVector3f cross = CVector3f::Cross(soundToCamNorm, thirdEdge);
-  static float kInfluenceAmount = 3.f / soundToCamMag;
-  static float kInfluenceIncrement = kInfluenceAmount;
+  static const float kInfluenceAmount = 3.f / soundToCamMag;
+  static const float kInfluenceIncrement = kInfluenceAmount;
   static CMaterialFilter kSolidFilter = CMaterialFilter::MakeIncludeExclude(
       CMaterialList(kMT_Solid), CMaterialList(kMT_ProjectilePassthrough));
-  float influenceIncrement = kInfluenceIncrement;
-  float influenceAmount = kInfluenceAmount;
-  float f17 = -influenceAmount;
   int totalCount = 0;
   int invalCount = 0;
-
-  for (float i = -influenceAmount; i <= influenceAmount; i += influenceIncrement) {
-    const CVector3f angledDir = (thirdEdge * i + soundToCamNorm);
-    for (float j = -influenceAmount; j <= influenceAmount; j += influenceIncrement) {
+  for (float i = -kInfluenceAmount; i <= kInfluenceAmount; i += kInfluenceIncrement) {
+    for (float j = -kInfluenceAmount; j <= kInfluenceAmount; j += kInfluenceIncrement) {
       ++totalCount;
 
-      if (mgr.RayStaticIntersection(pos, (cross * j + angledDir).AsNormalized(), soundToCamMag,
-                                    kSolidFilter)
+      const CVector3f rayDir = (soundToCamNorm + i * thirdEdge) + j * cross;
+      if (mgr.RayStaticIntersection(pos, rayDir.AsNormalized(), soundToCamMag, kSolidFilter)
               .IsInvalid()) {
         ++invalCount;
       }
     }
   }
-  return invalCount / static_cast< float >(totalCount) * 0.42f + 0.58f;
+  return invalCount / static_cast< float >(totalCount) * (1.f - 0.58f) + 0.58f;
 }

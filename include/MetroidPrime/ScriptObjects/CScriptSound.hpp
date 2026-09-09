@@ -6,12 +6,10 @@
 class CScriptSound : public CActor {
 public:
   CScriptSound(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
-               const CTransform4f& xf, ushort soundId, bool active, float maxDist,
-               float distComp, float startDelay, uint minVol, uint vol,
-               uint w3, uint prio, uint pan, uint w6, bool looped,
-               bool nonEmitter, bool autoStart, bool occlusionTest,
-               bool acoustics, bool worldSfx, bool allowDuplicates,
-               int pitch);
+               const CTransform4f& xf, ushort soundId, bool active, float maxDist, float distComp,
+               float startDelay, uint minVol, uint vol, uint w3, uint prio, uint pan, uint w6,
+               bool looped, bool nonEmitter, bool autoStart, bool occlusionTest, bool acoustics,
+               bool worldSfx, bool allowDuplicates, int pitch);
   ~CScriptSound();
 
   void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&) override;
@@ -44,9 +42,9 @@ private:
   short x10e_vol;
   short x110_;
   short x112_prio;
-  ushort x114_pan;
+  short x114_pan;
   short x116_;
-  uint x118_pitch;
+  int x118_pitch;
   bool x11c_24_playRequested : 1;
   bool x11c_25_looped : 1;
   bool x11c_26_nonEmitter : 1;
@@ -58,5 +56,7 @@ private:
   bool x11d_24_allowDuplicates : 1;
   bool x11d_25_processedThisFrame : 1;
 };
+
+CHECK_SIZEOF(CScriptSound, 0x120)
 
 #endif // _CSCRIPTSOUND
