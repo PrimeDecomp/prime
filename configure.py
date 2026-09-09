@@ -1164,7 +1164,7 @@ config.libs = [
                 "MetroidPrime/Tweaks/CTweakSlideShow.cpp",
             ),
             Object(NonMatching, "MetroidPrime/CArtifactDoll.cpp"),
-            Object(NonMatching, "MetroidPrime/CProjectedShadow.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CProjectedShadow.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CPreFrontEnd.cpp"
             ),

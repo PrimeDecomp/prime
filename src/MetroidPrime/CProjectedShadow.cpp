@@ -130,7 +130,7 @@ CAABox ScaleAndTranslateBounds(const CAABox& bounds, const CVector3f& translatio
                 (bounds.GetMaxPoint() + padding) + translation);
 }
 
-void CProjectedShadow::Render(const CStateManager& mgr) {
+void CProjectedShadow::Render(const CStateManager& mgr) const {
   if (!x80_enabled) {
     return;
   }

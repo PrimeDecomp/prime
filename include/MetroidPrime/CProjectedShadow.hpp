@@ -13,7 +13,7 @@ public:
   CProjectedShadow(int, int, uchar);
   ~CProjectedShadow();
 
-  void Render(const CStateManager&);
+  void Render(const CStateManager&) const;
   void RenderShadowBuffer(CStateManager&, const CModelData&, const CTransform4f&, int,
                           const CVector3f&, float, float);
 
