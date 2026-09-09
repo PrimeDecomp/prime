@@ -1301,7 +1301,7 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01"), "Collision/CMaterialList.cpp"
             ),
             Object(NonMatching, "Collision/CollisionUtil.cpp"),
-            Object(NonMatching, "Collision/CCollidableSphere.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Collision/CCollidableSphere.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"), "Collision/CMaterialFilter.cpp"
             ),
