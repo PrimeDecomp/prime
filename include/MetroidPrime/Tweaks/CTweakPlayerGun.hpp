@@ -16,14 +16,14 @@ struct SWeaponInfo {
   CDamageInfo x4_normal;
   CDamageInfo x20_charged;
 
-  SWeaponInfo() : x0_coolDown(0.1f) {}
-  explicit SWeaponInfo(CInputStream& in);
+  SWeaponInfo() {}
 };
+CHECK_SIZEOF(SWeaponInfo, 0x3c)
 
 class CTweakPlayerGun : public ITweakObject, public TOneStatic< CTweakPlayerGun > {
 public:
   CTweakPlayerGun(CInputStream& in);
-  ~CTweakPlayerGun() override;
+  ~CTweakPlayerGun() override {}
 
   float GetUpLookAngle() const { return x4_upLookAngle; }
   float GetDownLookAngle() const { return x8_downLookAngle; }
@@ -54,6 +54,11 @@ public:
 
   const CDamageInfo& GetBombInfo() const { return x70_bomb; }
 
+private:
+  void InitBeamData(CInputStream& in);
+  void InitRicochetDamageFactor(CInputStream& in);
+
+public:
   // private:
   float x4_upLookAngle;
   float x8_downLookAngle;
@@ -78,11 +83,16 @@ public:
   CVector3f x64_grapplingArmPosition;
   CDamageInfo x70_bomb;
   CDamageInfo x8c_powerBomb;
-  SWeaponInfo xa8_beams[5];
+  SWeaponInfo xa8_powerBeam;
+  SWeaponInfo xe4_iceBeam;
+  SWeaponInfo x120_waveBeam;
+  SWeaponInfo x15c_plasmaBeam;
+  SWeaponInfo x198_phazonBeam;
   CDamageInfo x1d4_missile;
   rstl::reserved_vector< CDamageInfo, 5 > x1f0_combos;
   rstl::reserved_vector< float, 5 > x280_ricochetData;
 };
+CHECK_SIZEOF(CTweakPlayerGun, 0x298)
 
 extern CTweakPlayerGun* gpTweakPlayerGun;
 
