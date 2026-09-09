@@ -377,6 +377,7 @@ public:
   static void SetTevStates(uchar);
 
   static void SetUseVideoFilter(const bool b);
+  static bool GetDolphinLastFrameAbove() { return mLastFrameUsedAbove; }
   static bool GetUseVideoFilter();
   static int GetFrameCounter();
   static void SetProgressiveMode(bool b);
