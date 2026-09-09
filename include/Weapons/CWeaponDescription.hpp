@@ -16,13 +16,13 @@ class CCollisionResponseData;
 class CWeaponDescription {
 public:
   typedef rstl::optional_object< TLockedToken< CModel > > TParticleModel;
-  typedef rstl::optional_object< TCachedToken< CGenDescription > > TChildGeneratorDesc;
-  typedef rstl::optional_object< TCachedToken< CSwooshDescription > > TSwooshGeneratorDesc;
-  typedef rstl::optional_object< TCachedToken< CCollisionResponseData > > TCollisionResponseDesc;
+  typedef rstl::optional_object< TLockedToken< CGenDescription > > TChildGeneratorDesc;
+  typedef rstl::optional_object< TLockedToken< CSwooshDescription > > TSwooshGeneratorDesc;
+  typedef rstl::optional_object< TLockedToken< CCollisionResponseData > > TCollisionResponseDesc;
 
   const TCollisionResponseDesc& GetCollisionResponse() const { return x94_COLR; }
   const TParticleModel& GetOHEF() const { return x84_OHEF; }
-  static float GetTickPeriod(); 
+  static float GetTickPeriod();
   CWeaponDescription();
   ~CWeaponDescription();
   CVectorElement* x0_IORN;
@@ -57,5 +57,6 @@ public:
   CRealElement* xac_RNGE;
   CRealElement* xb0_FOFF;
 };
+CHECK_SIZEOF(CWeaponDescription, 0xb4)
 
 #endif // _CWEAPONDESCRIPTION
