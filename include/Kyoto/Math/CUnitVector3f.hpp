@@ -25,12 +25,9 @@ public:
     }
   }
   CUnitVector3f(const CVector3f& vec);
+  CUnitVector3f operator-() const { return CUnitVector3f(-GetX(), -GetY(), -GetZ()); }
 };
 CHECK_SIZEOF(CUnitVector3f, 0xc)
-
-inline CUnitVector3f operator-(const CUnitVector3f& vec) {
-  return CUnitVector3f(-vec.GetX(), -vec.GetY(), -vec.GetZ());
-}
 
 inline const CUnitVector3f& CVector3f::Up() { return sUpVector; }
 inline const CUnitVector3f& CVector3f::Down() { return sDownVector; }

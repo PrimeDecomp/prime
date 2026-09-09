@@ -35,12 +35,12 @@ float AABoxSphereIntersectionRadius(const CAABox&, const CSphere&);
 bool RayTriangleIntersection(const CVector3f&, const CVector3f&, const CVector3f*, float&);
 bool RayTriangleIntersection_Double(const CVector3f&, const CVector3f&, const CVector3f*, double&);
 int RayAABoxIntersection(const CMRay& ray, const CAABox& box, float& tMin, float& tMax);
-int RayAABoxIntersection_Double(const CMRay& ray, const CAABox& box, CVector3f& dir,
+int RayAABoxIntersection_Double(const CMRay& ray, const CAABox& box, CVector3f& normal,
                                 double& penetration);
-int RayAABoxIntersection(const CMRay& ray, const CAABox& box, CVector3f& dir, float& penetration);
-bool AABox_AABox_Moving(const CAABox& left, const CAABox& right, const CVector3f& dir, double& d,
+int RayAABoxIntersection(const CMRay& ray, const CAABox& box, CVector3f& normal,
+                         float& penetration);
+bool AABox_ABBox_Moving(const CAABox& left, const CAABox& right, const CVector3f& dir, double& d,
                         CVector3f& point, CVector3f& normal);
-float AABoxSphereIntersectionRadius(const CAABox&, const CSphere&);
 
 bool MovingSphereAABox(const CSphere& sphere, const CAABox& aabb, const CVector3f& dir,
                        double& dOut, CVector3f& point, CVector3f& normal);
