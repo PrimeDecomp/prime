@@ -1248,7 +1248,7 @@ int CWallCrawlerSwarm::GetLockOnIndex(const CStateManager& mgr) const {
   return result;
 }
 
-void CWallCrawlerSwarm::ApplyRadiusDamage(const CVector3f& pos, const CDamageInfo& info,
+void CWallCrawlerSwarm::ApplyRadiusDamage(CVector3f pos, const CDamageInfo& info,
                                           CStateManager& mgr) {
   const float radiusSquared = info.GetRadius() * info.GetRadius();
   for (AUTO(it, x108_boids.begin()); it != x108_boids.end(); ++it) {

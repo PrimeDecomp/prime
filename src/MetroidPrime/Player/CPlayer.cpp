@@ -217,7 +217,7 @@ CAnimRes MakePlayerAnimres(CAssetId resId, const CVector3f& scale) {
 }
 
 CPlayer::CPlayer(TUniqueId uid, const CTransform4f& xf, const CAABox& aabb, CAssetId resId,
-                 const CVector3f& playerScale, float mass, float stepUp, float stepDown,
+                 CVector3f playerScale, float mass, float stepUp, float stepDown,
                  float ballRadius, const CMaterialList& ml)
 : CPhysicsActor(uid, true, rstl::string_l("CPlayer"),
                 CEntityInfo(kInvalidAreaId, CEntity::NullConnectionList), xf,
