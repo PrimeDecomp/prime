@@ -2028,7 +2028,7 @@ config.libs = [
                 "dolphin/os/OSError.c",
             ),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02"), "dolphin/os/OSFatal.c"),
-            Object(NonMatching, "dolphin/os/OSFont.c"),
+            Object(Matching, "dolphin/os/OSFont.c"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
                 "dolphin/os/OSInterrupt.c",
@@ -2049,7 +2049,7 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
                 "dolphin/os/OSMutex.c",
             ),
-            Object(NonMatching, "dolphin/os/OSReboot.c"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "dolphin/os/OSReboot.c"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
                 "dolphin/os/OSReset.c",

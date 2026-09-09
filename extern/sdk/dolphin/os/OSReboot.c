@@ -14,42 +14,29 @@ typedef struct ApploaderHeader {
   u32 reserved2;  // offset 0x1C, size 0x4
 } ApploaderHeader;
 
-struct {
-  // total size: 0x1C
-  int valid;                 // offset 0x0, size 0x4
-  unsigned long restartCode; // offset 0x4, size 0x4
-  unsigned long bootDol;     // offset 0x8, size 0x4
-  void* regionStart;         // offset 0xC, size 0x4
-  void* regionEnd;           // offset 0x10, size 0x4
-  int argsUseDefault;        // offset 0x14, size 0x4
-  void* argsAddr;            // offset 0x18, size 0x4
-} __OSRebootParams;          // size: 0x1C, address: 0x0
-
 static ApploaderHeader Header ATTRIBUTE_ALIGN(32);
 
-extern void* __OSSavedRegionStart;
-extern void* __OSSavedRegionEnd;
+extern void *__OSSavedRegionStart;
+extern void *__OSSavedRegionEnd;
 
-static void* SaveStart = NULL;
-static void* SaveEnd = NULL;
+static void *SaveStart = NULL;
+static void *SaveEnd = NULL;
 
-volatile u8 DAT_800030e2 : 0x800030e2;
+volatile u8 OS_REBOOT_BOOL : 0x800030e2;
 
-extern u32 BOOT_REGION_START AT_ADDRESS(0x812FDFF0); //(*(u32 *)0x812fdff0)
-extern u32 BOOT_REGION_END AT_ADDRESS(0x812FDFEC);   //(*(u32 *)0x812fdfec)
+extern u32 BOOT_REGION_START AT_ADDRESS(0x812FDFF0);
+extern u32 BOOT_REGION_END AT_ADDRESS(0x812FDFEC);
 extern u32 UNK_HOT_RESET1 AT_ADDRESS(0x817ffff8);
 extern u32 UNK_HOT_RESET2 AT_ADDRESS(0x817ffffc);
 
-extern u32 __OSIsGcam;
-
-static BOOL Prepared = FALSE;
+static volatile BOOL Prepared = FALSE;
 
 extern void __DVDPrepareResetAsync(DVDCBCallback callback);
 extern BOOL DVDCheckDisk(void);
-extern BOOL DVDReadAbsAsyncForBS(DVDCommandBlock* block, void* addr, s32 length, s32 offset,
+extern BOOL DVDReadAbsAsyncForBS(DVDCommandBlock *block, void *addr, s32 length, s32 offset,
                                  DVDCBCallback callback);
 
-asm void Run() {
+asm void Run(void *entrypoint) {
   // clang-format off
   nofralloc
   sync
@@ -59,54 +46,86 @@ asm void Run() {
   // clang-format on
 }
 
-static void Callback() { Prepared = TRUE; }
+static void Callback(s32 result, DVDCommandBlock *block) { Prepared = TRUE; }
 
-void ReadApploader(OSTime time1, OSTime time2) {}
+static inline void ReadApploader(void *addr, long length, long offset) {
+  DVDCommandBlock block;
+
+  while (!Prepared) {
+  }
+
+  DVDReadAbsAsyncForBS(&block, addr, length, offset + 0x2440, NULL);
+  while (1) {
+    switch (block.state) {
+    case 0:
+      return;
+    case 1:
+      break;
+    case -1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+    case 6:
+    case 7:
+    case 8:
+    case 9:
+    case 10:
+    case 11:
+      __OSDoHotReset(UNK_HOT_RESET2);
+      break;
+    default:
+      break;
+    }
+  }
+}
 
 void __OSReboot(u32 resetCode, u32 bootDol) {
-  // Local variables
-  OSContext exceptionContext; // r1+0x18
-  char* argvToPass;           // r1+0x10
-  DVDCommandBlock headerCommand;
-  ApploaderHeader* header = &Header;
+  OSContext exceptionContext;
+  u32 numBytes;
+  u32 offset;
 
   OSDisableInterrupts();
-
-  UNK_HOT_RESET1 = 0;
   UNK_HOT_RESET2 = 0;
-  DAT_800030e2 = 1;
-  __OSSavedRegionStart = SaveStart;
-  __OSSavedRegionEnd = SaveEnd;
+  UNK_HOT_RESET1 = 0;
+  OS_REBOOT_BOOL = 1;
+  BOOT_REGION_START = (u32)SaveStart;
+  BOOT_REGION_END = (u32)SaveEnd;
   OSClearContext(&exceptionContext);
   OSSetCurrentContext(&exceptionContext);
   DVDInit();
   DVDSetAutoInvalidation(TRUE);
   __DVDPrepareResetAsync(Callback);
-  if (DVDCheckDisk() == FALSE) {
+  if (!DVDCheckDisk()) {
     __OSDoHotReset(UNK_HOT_RESET2);
   }
 
-  __OSMaskInterrupts(OS_INTERRUPTMASK_PI);
+  __OSMaskInterrupts(~0x1F);
   __OSUnmaskInterrupts(0x400);
   OSEnableInterrupts();
 
-  do {
+  ReadApploader(&Header, 32, 0);
+  offset = Header.size + 0x20;
+  numBytes = OSRoundUp32B(Header.rebootSize);
+  ReadApploader((void *)OS_BOOTROM_ADDR, numBytes, offset);
 
-  } while (Prepared == 0);
-  DVDReadAbsAsyncForBS(&headerCommand, header, sizeof(ApploaderHeader), 0x2440, NULL);
+  ICInvalidateRange((void *)OS_BOOTROM_ADDR, numBytes);
+  OSDisableInterrupts();
+  ICFlashInvalidate();
+  Run((void *)OS_BOOTROM_ADDR);
 }
 
-void OSSetSaveRegion(void* start, void* end) {
+void OSSetSaveRegion(void *start, void *end) {
   SaveStart = start;
   SaveEnd = end;
 }
 
-void OSGetSaveRegion(void** start, void** end) {
+void OSGetSaveRegion(void **start, void **end) {
   *start = SaveStart;
   *end = SaveEnd;
 }
 
-void OSGetSavedRegion(void** start, void** end) {
+void OSGetSavedRegion(void **start, void **end) {
   *start = __OSSavedRegionStart;
   *end = __OSSavedRegionEnd;
 }

@@ -244,6 +244,7 @@ dolphin/os/OSFont.c:
 	.data       start:0x803F2778 end:0x803F3288
 	.sdata      start:0x805A9BD8 end:0x805A9BE0
 	.sbss       start:0x805AA970 end:0x805AA980
+	.sdata2     start:0x805AFD28 end:0x805AFD30
 
 dolphin/os/OSInterrupt.c:
 	.text       start:0x80382458 end:0x80382CC4
