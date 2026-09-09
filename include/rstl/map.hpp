@@ -22,7 +22,8 @@ public:
 
   explicit map(const Cmp& cmp = Cmp(), const Alloc& alloc = Alloc())
   : inner(select1st< value_type >(), cmp, alloc) {}
-  map(CInputStream& in, const Cmp& cmp = Cmp(), const Alloc& alloc = Alloc());
+  map(CInputStream& in, const Cmp& cmp = Cmp(), const Alloc& alloc = Alloc())
+  : inner(in, select1st< value_type >(), cmp, alloc) {}
   ~map() {}
 
   pair< iterator, bool > insert(const value_type& item) { return inner.insert(item); }

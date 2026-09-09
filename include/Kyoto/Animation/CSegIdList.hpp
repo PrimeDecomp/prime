@@ -1,6 +1,7 @@
 #ifndef _CSEGIDLIST
 #define _CSEGIDLIST
 
+#include "Kyoto/Animation/CCharAnimMemoryMetrics.hpp"
 #include "Kyoto/Animation/CSegId.hpp"
 #include "rstl/vector.hpp"
 
@@ -13,6 +14,11 @@ public:
   typedef rstl::vector< CSegId >::value_type value_type;
 
   CSegIdList(CInputStream& in);
+
+  ~CSegIdList() {
+    CCharAnimMemoryMetrics::SubtractFromTotalSize(mSegIds.capacity(),
+                                                CCharAnimMemoryMetrics::kASS_Two);
+  }
 
   CSegId operator[](int idx) const { return mSegIds[idx]; }
 
