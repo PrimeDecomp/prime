@@ -661,7 +661,7 @@ void CAnimData::CalcPlaybackAlignmentParms(const CAnimPlaybackParms& parms,
           const CQuaternion invObjRot =
               CQuaternion::FromMatrix(objectXf->BuildMatrix3f().Inverse());
           const CQuaternion targetRot = (*deltaOrient) * invObjRot;
-          const CQuaternion animInvRot = adv.x8_deltas.xc_rotDelta.BuildInverted();
+          const CQuaternion& animInvRot = adv.x8_deltas.xc_rotDelta.BuildInverted();
           const CQuaternion fullRot = targetRot * animInvRot;
 
           alignRot = CQuaternion::Slerp(CQuaternion::NoRotation(), fullRot,
