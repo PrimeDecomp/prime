@@ -62,11 +62,11 @@ public:
     const rstl::vector< SDockReference >& GetDockRefs() const { return x4_dockReferences; }
     Dock(CInputStream& in, const CTransform4f& xf);
     TAreaId GetConnectedAreaId(int other) const;
-    s16 GetOtherDockNumber(int other) const;
+    int GetOtherDockNumber(int other) const;
     bool GetShouldLoadOther(int other) const;
     void SetShouldLoadOther(int other, bool should);
     bool ShouldLoadOtherArea(int other) const;
-    CVector3f GetPoint(int idx) const;
+    const CVector3f& GetPoint(int idx) const { return x14_planeVertices[idx]; }
     bool IsReferenced() const;
     void SetReferenceCount(int v);
   };
@@ -238,7 +238,7 @@ public:
     float x1130_xrayTarget;
     float x1134_weaponWorldLightingSpeed;
     float x1138_weaponWorldLightingTarget;
-    uint x113c_playerActorsLoading;
+    int x113c_playerActorsLoading;
 
     CPostConstructed();
     ~CPostConstructed();
@@ -268,6 +268,7 @@ public:
   const CTransform4f& GetInverseTransform() const { return x3c_invTransform; }
   bool IsLoaded() const { return xf0_24_postConstructed; }
   bool IsActive() const { return xf0_25_active; }
+  void SetActive(bool active) { xf0_25_active = active; }
   bool IsValidated() const { return xf0_28_validated; }
   const CAABox& GetAABB() const { return x6c_aabb; }
   CGameArea* GetNext() const; // { return x130_next; }
@@ -310,8 +311,11 @@ public:
   EEnvFxType DoesAreaNeedEnvFx() const;
 
   CAssetId GetAreaAssetId() const { return x84_mrea; }
+  const TAreaId& GetAreaId() const { return x4_selfIdx; }
   const Dock& GetDock(int idx) const { return xcc_docks[idx]; }
+  Dock& DockNC(int idx) { return xcc_docks[idx]; }
   int GetDockCount() const { return xcc_docks.size(); }
+  CAreaObjectList* ObjectList() const { return x12c_postConstructed->x10c0_areaObjectList.get(); }
   const CAreaFog* GetAreaFog() const { return x12c_postConstructed->x10c4_areaFog.get(); }
   CAreaFog* AreaFog() { return x12c_postConstructed->x10c4_areaFog.get(); }
   EOcclusionState GetOcclusionState() const {

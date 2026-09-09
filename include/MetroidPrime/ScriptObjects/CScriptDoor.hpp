@@ -5,10 +5,18 @@
 
 class CScriptDoor : public CPhysicsActor {
 public:
-  enum EDoorState {
-    kDS_Open,
-    kDS_Close,
-    kDS_Ready,
+  rstl::optional_object< CAABox > GetTouchBounds() const override;
+  CVector3f GetOrbitPosition(const CStateManager& mgr) const override;
+  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId other, CStateManager& mgr) override;
+  void Think(float dt, CStateManager& mgr) override;
+  void AddToRenderer(const CFrustumPlanes& frustum, const CStateManager& mgr) const override;
+  void Render(const CStateManager& mgr) const override;
+  void Accept(IVisitor& visitor) override;
+
+  enum EDoorAnimType {
+    kDAT_Open,
+    kDAT_Close,
+    kDAT_Ready,
   };
 
   enum EDoorOpenCondition {
@@ -23,18 +31,12 @@ public:
               const CAABox& bounds, const bool active, const bool open,
               const bool projectilesCollide, float animationLength, const bool ballDoor);
 
-  void SetDoorAnimation(EDoorState state);
-
-  rstl::optional_object< CAABox > GetTouchBounds() const override;
+  void SetDoorAnimation(EDoorAnimType state);
 
   rstl::optional_object< CAABox > GetProjectileBounds() const;
-  CVector3f GetOrbitPosition(const CStateManager& mgr) const override;
 
   EDoorOpenCondition GetDoorOpenCondition(CStateManager& mgr);
   void OpenDoor(TUniqueId uid, CStateManager& mgr);
-
-  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId other, CStateManager& mgr) override;
-  void Think(float dt, CStateManager& mgr) override;
 
   const TUniqueId GetConnectedDockID() const { return mDockId; }
   bool IsOpen() const { return mIsOpen; }
@@ -44,14 +46,10 @@ public:
   bool IsConnectedToArea(const CStateManager& mgr, TAreaId area) const;
   void ForceClosed(CStateManager& mgr);
 
-  void AddToRenderer(const CFrustumPlanes& /*frustum*/, const CStateManager& mgr) const override;
-  void Render(const CStateManager& mgr) const override;
-  void Accept(IVisitor& visitor) override;
-
 private:
   float mAnimLength;
   float mAnimTime;
-  EDoorState mDoorState;
+  EDoorAnimType mDoorState;
   CAABox x264_;
   TUniqueId mPartner1;
   TUniqueId mPartner2;
@@ -68,5 +66,6 @@ private:
   bool mBallDoor : 1;
   bool mDoClose : 1;
 };
+CHECK_SIZEOF(CScriptDoor, 0x2b0)
 
 #endif // _CSCRIPTDOOR

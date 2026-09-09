@@ -118,6 +118,9 @@ public:
   bool IsAreaValid(const TAreaId id) const {
     return x18_areas[id.Value()]->IsLoaded();
   }
+  bool DoesAreaExist(TAreaId id) const {
+    return id.Value() >= 0 && id.Value() < x18_areas.size();
+  }
   CAssetId GetWorldAssetId() const { return x8_mlvlId; }
   TAreaId GetCurrentAreaId() const { return x68_curAreaId; }
   TAreaId GetAreaIdForSaveId(int saveId) const;
@@ -136,6 +139,7 @@ public:
   }
   static CGameArea::CConstChainIterator GetAliveAreasEnd();
   static CGameArea::CChainIterator AliveAreasEnd();
+  static CGameArea::CConstChainIterator skGlobalEnd;
   void StopGlobalSound(ushort soundId);
 
   int GetNumAreas() const { return x18_areas.size(); }
@@ -147,7 +151,6 @@ public:
   
 
 private:
-  static CGameArea::CConstChainIterator skGlobalEnd;
   static CGameArea::CChainIterator skGlobalNonConstEnd;
 
   enum Phase {

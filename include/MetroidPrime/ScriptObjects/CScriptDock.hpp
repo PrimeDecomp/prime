@@ -17,7 +17,6 @@ public:
   void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&) override;
   rstl::optional_object< CAABox > GetTouchBounds() const override;
   void Touch(CActor&, CStateManager&) override;
-  void CleanUp() {}
   CPlane GetPlane(const CStateManager&) const;
   TAreaId GetAreaId() const { return x260_area; }
   int GetDockId() const { return x25c_dock; }
@@ -41,5 +40,6 @@ private:
   bool x268_25_loadConnected : 1;
   bool x268_26_areaPostConstructed : 1;
 };
+CHECK_SIZEOF(CScriptDock, 0x270)
 
 #endif // _CSCRIPTDOCK
