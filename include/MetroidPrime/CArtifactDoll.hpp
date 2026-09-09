@@ -24,7 +24,7 @@ public:
 
   void CompleteArtifactHeadScan(const CStateManager& mgr);
   void Draw(float alpha, const CStateManager& mgr, bool inArtifactCategory,
-            const CAssetId selectedArtifact);
+            const int selectedArtifact);
   void Update(float dt, const CStateManager& mgr);
   void Touch();
   bool CheckLoadComplete();
@@ -39,5 +39,6 @@ private:
   float mFader;
   bool mIsLoaded : 1;
 };
+CHECK_SIZEOF(CArtifactDoll, 0x2c)
 
 #endif // _CARTIFACTDOLL
