@@ -299,14 +299,23 @@ void CSortedListManager::BuildNearList(rstl::reserved_vector< TUniqueId, 1024 >&
   }
 }
 
+// TODO: check how material and filters are retrieve
+static inline void GetActorMaterialData(const CActor& actor, const CMaterialFilter*& filter,
+                                        const CMaterialList*& materials) {
+  filter = &actor.GetMaterialFilter();
+  materials = &actor.GetMaterialList();
+}
+
 void CSortedListManager::BuildNearList(rstl::reserved_vector< TUniqueId, 1024 >& nearListOut,
                                        const CActor& actor, const CAABox& box) const {
-  const CMaterialFilter& filter = actor.GetMaterialFilter();
-  const CMaterialList* const materials = &actor.GetMaterialList();
+  const CMaterialList* materials;
+  const CMaterialFilter* filter;
+  GetActorMaterialData(actor, filter, materials);
+
   for (short id = ConstructIntersectionArray(box); id != -1;) {
     const SNode& node = x0_nodes[id];
     const CActor* const candidate = node.x0_actor;
-    if (&actor != candidate && filter.Passes(candidate->GetMaterialList()) &&
+    if (&actor != candidate && filter->Passes(candidate->GetMaterialList()) &&
         candidate->GetMaterialFilter().Passes(*materials)) {
       nearListOut.push_back(candidate->GetUniqueId());
     }
