@@ -1635,7 +1635,7 @@ config.libs = [
             Object(NonMatching, "Kyoto/CResLoader.cpp"),
             Object(NonMatching, "Kyoto/rstl/rstl_map.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/rstl/rstl_strings.cpp"),
-            Object(NonMatching, "Kyoto/rstl/RstlExtras.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/rstl/RstlExtras.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
                 "Kyoto/Streams/CInputStream.cpp",

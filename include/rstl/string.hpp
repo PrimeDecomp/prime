@@ -362,7 +362,7 @@ string string_l(const char* data);
 string operator+(const string& a, const string& b);
 wstring operator+(const wstring& a, const wstring& b);
 
-static inline string operator+(const string& a, char c) {
+inline string operator+(const string& a, char c) {
   string result(a);
   result.append(1, c);
   return result;
