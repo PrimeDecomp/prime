@@ -56,7 +56,7 @@ bool CElementGen::sSubtractBlend;
 int CElementGen::mParticleAliveCount;
 int CElementGen::mParticleSystemAliveCount;
 
-double CElementGen::kKickTime = 1 / 60.0;
+double CElementGen::kTickTime = 1 / 60.0;
 ushort CElementGen::sSeed = 99;
 static bool sStaticListInitialized;
 
@@ -409,7 +409,7 @@ bool CElementGen::Update(double dt) {
   if (x28_loadedGenDesc->x4_PSWT && !x26d_25_warmedUp) {
     int pswt = 0;
     x28_loadedGenDesc->x4_PSWT->GetValue(x74_curFrame, pswt);
-    InternalUpdate(kKickTime * pswt);
+    InternalUpdate(kTickTime * pswt);
     x26d_25_warmedUp = true;
   }
 
@@ -421,8 +421,8 @@ bool CElementGen::InternalUpdate(double dt) {
   CGlobalRandom gr(x27c_randState);
 
   int frameUpdateCount = 0;
-  double t = x74_curFrame * kKickTime;
-  double dt1 = close_enough(dt, kKickTime) ? kKickTime : dt;
+  double t = x74_curFrame * kTickTime;
+  double dt1 = close_enough(dt, kTickTime) ? kTickTime : dt;
 
   CParticleGlobals::SetEmitterTime(x74_curFrame);
 
@@ -477,10 +477,10 @@ bool CElementGen::InternalUpdate(double dt) {
       UpdateLightParameters();
     }
 
-    UpdateChildParticleSystems(kKickTime);
+    UpdateChildParticleSystems(kTickTime);
 
     ++frameUpdateCount;
-    t += kKickTime;
+    t += kTickTime;
     ++x74_curFrame;
   }
 
@@ -488,8 +488,8 @@ bool CElementGen::InternalUpdate(double dt) {
     x78_curSeconds = t;
     x80_timeDeltaScale = 1.0f;
   } else {
-    UpdateChildParticleSystems(dt1 - (double)frameUpdateCount * kKickTime);
-    x80_timeDeltaScale = 1.0f - static_cast< float >((t - x78_curSeconds) / kKickTime);
+    UpdateChildParticleSystems(dt1 - (double)frameUpdateCount * kTickTime);
+    x80_timeDeltaScale = 1.0f - static_cast< float >((t - x78_curSeconds) / kTickTime);
   }
 
   BuildParticleSystemBounds();
@@ -789,7 +789,7 @@ CElementGen* CElementGen::ConstructChildParticleSystem(TToken< CGenDescription >
 }
 
 void CElementGen::UpdateChildParticleSystems(double dt) {
-  if (close_enough(dt, 0.0)) {
+  if (close_enough(dt, 0.0, 1e-7)) {
     return;
   }
 
@@ -803,7 +803,7 @@ void CElementGen::UpdateChildParticleSystems(double dt) {
     }
     x290_activePartChildren.reserve(ncsyVal + x290_activePartChildren.size());
     for (int i = 0; i < ncsyVal; ++i) {
-      TToken< CGenDescription > icsToken = x28_loadedGenDesc->x78_ICTS->GetToken();
+      TLockedToken< CGenDescription > icsToken = x28_loadedGenDesc->x78_ICTS->GetToken();
       bool descOPTS = icsToken->x32_25_OPTS;
       if (x26d_27_enableOPTS && descOPTS) {
         break;
@@ -816,7 +816,7 @@ void CElementGen::UpdateChildParticleSystems(double dt) {
   if (x28_loadedGenDesc->xa4_IITS && x84_prevFrame != x74_curFrame && x74_curFrame < x268_PSLT &&
       x88_particleEmission == true && x74_curFrame >= x2a4_SISY &&
       ((x74_curFrame - x2a4_SISY) % x2a8_PISY) == 0) {
-    TToken< CGenDescription > iitsToken = x28_loadedGenDesc->xa4_IITS->GetToken();
+    TLockedToken< CGenDescription > iitsToken = x28_loadedGenDesc->xa4_IITS->GetToken();
     bool iitsOPTS = iitsToken->x32_25_OPTS;
     if (!(x26d_27_enableOPTS && iitsOPTS)) {
       x290_activePartChildren.reserve(x290_activePartChildren.size() + 1);
@@ -827,18 +827,17 @@ void CElementGen::UpdateChildParticleSystems(double dt) {
   // KSSM - spawn system keyframe data
   if (x28_loadedGenDesc->xbc_KSSM.get() != nullptr && x84_prevFrame != x74_curFrame &&
       x74_curFrame < x268_PSLT) {
-    ushort backupSeed = sSeed;
+    const ushort backupSeed = sSeed;
     rstl::vector< CSpawnSystemKeyframeData::CSpawnSystemKeyframeInfo >& spawns =
         x28_loadedGenDesc->xbc_KSSM->GetSpawnedSystemsAtFrame(x74_curFrame);
     x290_activePartChildren.reserve(spawns.size() + x290_activePartChildren.size());
-    ushort incSeed = backupSeed;
-    for (int i = 0; i < spawns.size(); ++incSeed, ++i) {
-      TToken< CGenDescription > kssmToken = *spawns[i].GetToken();
+    for (int i = 0; i < spawns.size(); ++i) {
+      TLockedToken< CGenDescription > kssmToken = *spawns[i].GetToken();
       bool kssmOPTS = kssmToken->x32_25_OPTS;
       if (x26d_27_enableOPTS && kssmOPTS) {
         continue;
       }
-      sSeed = incSeed;
+      sSeed = backupSeed + i;
       x290_activePartChildren.push_back(ConstructChildParticleSystem(kssmToken));
     }
     sSeed = backupSeed;
@@ -852,7 +851,7 @@ void CElementGen::UpdateChildParticleSystems(double dt) {
     }
     x290_activePartChildren.reserve(ndsyVal + x290_activePartChildren.size());
     for (int i = 0; i < ndsyVal; ++i) {
-      TToken< CGenDescription > idtsToken = x28_loadedGenDesc->x90_IDTS->GetToken();
+      TLockedToken< CGenDescription > idtsToken = x28_loadedGenDesc->x90_IDTS->GetToken();
       bool idtsOPTS = idtsToken->x32_25_OPTS;
       if (x26d_27_enableOPTS && idtsOPTS) {
         break;
@@ -869,7 +868,8 @@ void CElementGen::UpdateChildParticleSystems(double dt) {
     swoosh->SetLocalScale(x16c_localScale);
     swoosh->SetTranslation(xdc_translation + x2b0_SSPO);
     swoosh->SetOrientation(x1d8_orientation);
-    swoosh->SetParticleEmission(x88_particleEmission);
+    const bool emission = x88_particleEmission;
+    swoosh->SetParticleEmission(emission);
     x290_activePartChildren.reserve(x290_activePartChildren.size() + 1);
     x290_activePartChildren.push_back(swoosh);
   }
@@ -1692,7 +1692,7 @@ void CElementGen::RenderParticlesFlameThrower(CElementGen* const* gens, int coun
   CGraphics::SetTevOp(kTS_Stage0, CGraphics::kEnvModulate);
   CGraphics::SetTevOp(kTS_Stage1, CGraphics::kEnvPassthru);
 
-  uchar moveRedToAlpha = sMoveRedToAlphaBuffer;
+  const bool moveRedToAlpha = sMoveRedToAlphaBuffer;
   SUVElementSet uvs;
 
   CElementGen* const* genPtr = gens;
@@ -1762,10 +1762,10 @@ void CElementGen::RenderParticlesFlameThrower(CElementGen* const* gens, int coun
 
   rstl::sort(sortItems, sortItems + activeCount, CTexturedParticleListItemViewPointComp());
 
+  CGenDescription* genDesc = nullptr;
   ushort lastMap = 0xFFFF;
   CElementGen* gen = nullptr;
   int emitterTime = 0;
-  CGenDescription* genDesc = nullptr;
 
   for (int i = 0; i < activeCount; ++i) {
     CTexturedParticleListItem* readPtr = &sortItems[i];
@@ -1774,10 +1774,11 @@ void CElementGen::RenderParticlesFlameThrower(CElementGen* const* gens, int coun
     if (lastMap != map) {
       gen = gens[map];
       emitterTime = gen->GetEmitterTime();
-      genDesc = gens[map]->x28_loadedGenDesc;
+      CGenDescription* desc = gens[map]->x28_loadedGenDesc;
+      genDesc = desc;
 
       if (!moveRedToAlpha) {
-        if (genDesc->x30_26_AAPH) {
+        if (desc->x30_26_AAPH) {
           CGraphics::SetBlendMode(kBM_Blend, kBF_SrcAlpha, kBF_One, kLO_Clear);
         } else {
           CGraphics::SetBlendMode(kBM_Blend, kBF_SrcAlpha, kBF_InvSrcAlpha, kLO_Clear);
@@ -1961,7 +1962,7 @@ void CElementGen::RenderParticlesIndirectTexture() {
   CParticleListItem* sortIt = sortItems;
   for (int i = 0; i < particleCount; ++i) {
     CParticle* particle = SORT ? &x30_particles[sortIt->x0_partIdx] : &x30_particles[i];
-    CVector3f viewPoint =
+    const CVector3f& viewPoint =
         systemCameraCopy *
         ((particle->x4_pos - particle->x10_prevPos) * x80_timeDeltaScale + particle->x10_prevPos);
 
@@ -1997,13 +1998,12 @@ void CElementGen::RenderParticlesIndirectTexture() {
     }
 
     float size = particle->x2c_lineLengthOrSize * 0.5f;
-    CVector3f p2(vpX + size, vpY, vpZ + size);
-    CVector3f p1(vpX - size, vpY, vpZ - size);
 
-    CGraphics::CClippedScreenRect clipRect = CGraphics::ClipScreenRectFromMS(p1, p2, kTF_RGB565);
+    CGraphics::CClippedScreenRect clipRect = CGraphics::ClipScreenRectFromMS(
+        CVector3f(vpX - size, vpY, vpZ - size), CVector3f(size + vpX, vpY, size + vpZ), kTF_RGB565);
 
-    // int width = clipRect.GetTexWidth();
-    // int height = clipRect.GetHeight();
+    int width = clipRect.GetTexWidth();
+    int height = clipRect.GetHeight();
     float minU = clipRect.GetMinU();
     float maxU = clipRect.GetMaxU();
     float minV = clipRect.GetMinV();
@@ -2012,14 +2012,12 @@ void CElementGen::RenderParticlesIndirectTexture() {
     if (clipRect.IsValid()) {
       void* dest = CGraphics::GetDolphinSpareBuffer();
       GXSetTexCopySrc(static_cast< u16 >(clipRect.GetX()), static_cast< u16 >(clipRect.GetY()),
-                      static_cast< u16 >(clipRect.GetWidth()),
-                      static_cast< u16 >(clipRect.GetHeight()));
-      GXSetTexCopyDst(static_cast< u16 >(clipRect.GetTexWidth()),
-                      static_cast< u16 >(clipRect.GetHeight()), GX_TF_RGB565, GX_FALSE);
+                      static_cast< u16 >(clipRect.GetWidth()), static_cast< u16 >(height));
+      GXSetTexCopyDst(static_cast< u16 >(width), static_cast< u16 >(height), GX_TF_RGB565,
+                      GX_FALSE);
 
       u32 bufSize = CGraphics::GetSpareBufferSize();
-      u32 texBufSize = GXGetTexBufferSize(clipRect.GetTexWidth(), clipRect.GetHeight(),
-                                          GX_TF_RGB565, GX_FALSE, 0);
+      u32 texBufSize = GXGetTexBufferSize(width, height, GX_TF_RGB565, GX_FALSE, 0);
       if (texBufSize <= bufSize) {
         const bool useVideoFilter = CGraphics::GetUseVideoFilter();
         CGraphics::SetUseVideoFilter(false);
@@ -2027,19 +2025,19 @@ void CElementGen::RenderParticlesIndirectTexture() {
         CGraphics::SetUseVideoFilter(useVideoFilter);
         GXPixModeSync();
 
-        CGraphics::LoadDolphinSpareTexture(clipRect.GetTexWidth(), clipRect.GetHeight(),
-                                           GX_TF_RGB565, NULL, CGraphics::kSpareBufferTexMapID);
+        CGraphics::LoadDolphinSpareTexture(width, height, GX_TF_RGB565, NULL,
+                                           CGraphics::kSpareBufferTexMapID);
 
         uint color = particle->x34_color.GetColor_u32();
         CGX::Begin(GX_QUADS, GX_VTXFMT0, 4);
 
-        GXPosition3f32(vpX + size, vpY, vpZ + size);
+        GXPosition3f32(size + vpX, vpY, size + vpZ);
         GXColor1u32(color);
         GXTexCoord2f32(uvs.xMax, uvs.yMax);
         GXTexCoord2f32(maxU, minV);
         GXTexCoord2f32(uvsInd.xMax, uvsInd.yMax);
 
-        GXPosition3f32(vpX - size, vpY, vpZ + size);
+        GXPosition3f32(vpX - size, vpY, size + vpZ);
         GXColor1u32(color);
         GXTexCoord2f32(uvs.xMin, uvs.yMax);
         GXTexCoord2f32(minU, minV);
@@ -2051,7 +2049,7 @@ void CElementGen::RenderParticlesIndirectTexture() {
         GXTexCoord2f32(minU, maxV);
         GXTexCoord2f32(uvsInd.xMin, uvsInd.yMin);
 
-        GXPosition3f32(vpX + size, vpY, vpZ - size);
+        GXPosition3f32(size + vpX, vpY, vpZ - size);
         GXColor1u32(color);
         GXTexCoord2f32(uvs.xMax, uvs.yMin);
         GXTexCoord2f32(maxU, maxV);
@@ -2091,16 +2089,14 @@ void CElementGen::RenderLines() {
   }
 
   bool constUVs = true;
-  bool widtConst = false;
   SUVElementSet uvs;
   uvs.xMin = 0.f;
   uvs.xMax = 1.f;
   uvs.yMin = 0.f;
   uvs.yMax = 1.f;
 
-  if (x28_loadedGenDesc->x18_WIDT != nullptr && x28_loadedGenDesc->x18_WIDT->IsConstant()) {
-    widtConst = true;
-  }
+  const bool widtConst =
+      x28_loadedGenDesc->x18_WIDT != nullptr && x28_loadedGenDesc->x18_WIDT->IsConstant();
 
   if (x28_loadedGenDesc->x40_TEXR != nullptr) {
     int partFrame = x74_curFrame - x30_particles[0].x28_startFrame;
@@ -2226,9 +2222,8 @@ void CElementGen::RenderModels() {
   }
 
   bool moveRedToAlphaBuffer = false;
-  CGlobalRandom gr(x27c_randState);
-
   SUVElementSet uvs;
+  CGlobalRandom gr(x27c_randState);
   uvs.xMin = 0.f;
   uvs.xMax = 1.f;
   uvs.yMin = 0.f;
@@ -2418,8 +2413,7 @@ void CElementGen::RenderModels() {
         if (sSubtractBlend) {
           model->Draw(CModelFlags::AlphaBlended(0.5f).DepthCompareUpdate(true, false));
         } else if (x28_loadedGenDesc->x31_25_PMAB) {
-          const CModelFlags& addFlags = CModelFlags::Additive(col);
-          model->Draw(addFlags.DepthCompareUpdate(true, false));
+          model->Draw(CModelFlags::Additive(col).DepthCompareUpdate(true, false));
         } else if (1.f == col.GetAlpha()) {
           model->Draw(CModelFlags::Normal());
         } else {

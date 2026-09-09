@@ -63,8 +63,8 @@ public:
 
     CParticle()
     : x4_pos(CVector3f::Zero())
-    , x10_prevPos(CVector3f::Zero())
-    , x1c_vel(CVector3f::Zero())
+    , x10_prevPos(x4_pos)
+    , x1c_vel(x10_prevPos)
     , x34_color(static_cast< u8 >(0xFF), 0x00, 0xFF, 0xFF) {}
   };
   struct CAdvancedValues {
@@ -101,7 +101,6 @@ public:
   virtual bool SystemHasLight() const override;
   virtual CLight GetLight() const override;
   virtual void DestroyParticles() override;
-  virtual void AddModifier(CWarp*) override {}
   virtual uint Get4CharId() const override;
   int GetMaxParticles() const { return x90_MAXP; }
   void SetZTest(bool enabled) { x26c_28_zTest = enabled; }
@@ -237,7 +236,7 @@ private:
   float x334_LSLA;
   CColor x338_moduColor;
 
-  static double kKickTime;
+  static double kTickTime;
   static ushort sSeed;
   static int mParticleAliveCount;
   static int mParticleSystemAliveCount;
