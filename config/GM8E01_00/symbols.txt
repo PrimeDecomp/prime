@@ -11896,7 +11896,7 @@ do_insert_before__Q24rstl70list<Q213CCubeRenderer18CFogVolumeListItem,Q24rstl17r
 create_node__Q24rstl70list<Q213CCubeRenderer18CFogVolumeListItem,Q24rstl17rmemory_allocator>FPQ34rstl70list<Q213CCubeRenderer18CFogVolumeListItem,Q24rstl17rmemory_allocator>4nodePQ34rstl70list<Q213CCubeRenderer18CFogVolumeListItem,Q24rstl17rmemory_allocator>4nodeRCQ213CCubeRenderer18CFogVolumeListItem = .text:0x802BA3C8; // type:function size:0xEC scope:global
 DoThermalBlendHot__13CCubeRendererFv = .text:0x802BA4B4; // type:function size:0x32C scope:global
 DoThermalBlendCold__13CCubeRendererFv = .text:0x802BA7E0; // type:function size:0x63C scope:global
-RenderFogVolumeModel__13CCubeRendererFRC6CAABoxPC6CModelRC12CTransform4f12CTransform4fPC13CSkinnedModel = .text:0x802BAE1C; // type:function size:0x40C scope:global
+draw_box_or_model__FRC6CAABoxPC6CModelRC12CTransform4fRC12CTransform4fPC13CSkinnedModel = .text:0x802BAE1C; // type:function size:0x40C scope:local
 DrawFogSlices__13CCubeRendererFPC6CPlaneiiRC9CVector3ff = .text:0x802BB228; // type:function size:0x44C scope:global
 DrawFogFans__13CCubeRendererFPC6CPlaneiPC9CVector3fiii = .text:0x802BB674; // type:function size:0x2E4 scope:global
 DrawFogFan__13CCubeRendererFPC9CVector3fi = .text:0x802BB958; // type:function size:0x18C scope:global
@@ -21020,7 +21020,7 @@ lbl_805A8684 = .sdata:0x805A8684; // type:object size:0x4
 lbl_805A8688 = .sdata:0x805A8688; // type:object size:0x4
 lbl_805A868C = .sdata:0x805A868C; // type:object size:0x4
 lbl_805A8690 = .sdata:0x805A8690; // type:object size:0x4
-lbl_805A8694 = .sdata:0x805A8694; // type:object size:0x2 data:string
+lbl_805A8694 = .sdata:0x805A8694; // type:object size:0x4 data:4byte
 lbl_805A8698 = .sdata:0x805A8698; // type:object size:0x4 data:4byte
 lbl_805A869C = .sdata:0x805A869C; // type:object size:0x4 data:4byte
 lbl_805A86A0 = .sdata:0x805A86A0; // type:object size:0x4
