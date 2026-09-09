@@ -4,6 +4,16 @@
 #include "Kyoto/Streams/CInputStream.hpp"
 #include "Kyoto/Streams/COutputStream.hpp"
 
+CAnimTreeTimeScale::CAnimTreeTimeScale(
+    const rstl::ncrc_ptr< CAnimTreeNode >& node,
+    const rstl::ownership_transfer< IVaryingAnimationTimeScale >& timeScale,
+    const CCharAnimTime& time, const rstl::string& name)
+: CAnimTreeSingleChild(node, name)
+, x18_timeScale(timeScale)
+, x20_curAccelTime(0.f)
+, x28_targetAccelTime(time)
+, x30_initialTime(node->GetSteadyStateAnimInfo().GetDuration() - node->GetTimeRemaining()) {}
+
 CMetaTransPhaseTrans::CMetaTransPhaseTrans(CInputStream& in)
 : x4_transDur(CCharAnimTime(in))
 , xc_(in.ReadBool())

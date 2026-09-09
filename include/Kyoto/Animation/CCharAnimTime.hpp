@@ -19,7 +19,6 @@ public:
   explicit CCharAnimTime(CInputStream& in);
   explicit CCharAnimTime(float time = 0.f);
   explicit CCharAnimTime(const EType& type, const float& time) : x0_time(time), x4_type(type) {}
-  CCharAnimTime(const CCharAnimTime& other) : x0_time(other.x0_time), x4_type(other.x4_type) {}
 
   bool operator>(const CCharAnimTime& other) const;
   bool operator==(const CCharAnimTime& other) const;
