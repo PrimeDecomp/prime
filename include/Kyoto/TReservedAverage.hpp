@@ -30,7 +30,7 @@ template < typename T, int N >
 }
 
 template < typename T, int N >
-rstl::optional_object< T > TReservedAverage< T, N >::GetAverage() const {
+inline rstl::optional_object< T > TReservedAverage< T, N >::GetAverage() const {
   if (this->empty()) {
     return rstl::optional_object_null();
   } else {
