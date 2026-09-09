@@ -23,7 +23,7 @@ public:
   }
 
   bool operator<(const pair& other) const {
-    return first < other.first || (!(other.first < first) && second < other.second);
+    return first < other.first || (first == other.first && second < other.second);
   }
 
   L first;
