@@ -14,7 +14,7 @@ public:
 
   const CMRay& GetRay() const { return x0_ray; }
   const CVector3f& GetStart() const { return x0_ray.GetStart(); }
-  const CVector3f& GetNormal() const { return x0_ray.GetNormal(); }
+  const CVector3f& GetNormal() const { return x0_ray.GetDirection(); }
   float GetMaxTime() const { return x38_maxTime; }
   const CTransform4f& GetTransform() const { return x3c_xf; }
   const CMaterialFilter& GetFilter() const { return x6c_filter; }
