@@ -1,16 +1,15 @@
 #ifndef _CWORLDLIGHT
 #define _CWORLDLIGHT
 
-
-#include "Kyoto/Math/CVector3f.hpp"
 #include "Kyoto/Graphics/CLight.hpp"
+#include "Kyoto/Math/CVector3f.hpp"
 
 class CInputStream;
 class CWorldLight {
   static const CVector3f kDefaultPosition;
   static const CVector3f kDefaultDirection;
-public:
 
+public:
   enum EWorldLightType {
     kWLT_LocalAmbient,
     kWLT_Directional,
@@ -21,7 +20,6 @@ public:
   };
 
   CWorldLight(CInputStream& in);
-
 
   CLight GetAsCGraphicsLight() const;
   bool DoesCastShadows() const { return x34_castShadows; }
@@ -40,6 +38,6 @@ public:
   EFalloffType x3c_falloff;
   float x40_;
 };
-
+CHECK_SIZEOF(CWorldLight, 0x44)
 
 #endif // _CWORLDLIGHT
