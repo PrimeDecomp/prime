@@ -14194,7 +14194,7 @@ Get<Q24rstl89vector<Q224CSpawnSystemKeyframeData24CSpawnSystemKeyframeInfo,Q24rs
 cinput_stream_helper<Q24rstl89vector<Q224CSpawnSystemKeyframeData24CSpawnSystemKeyframeInfo,Q24rstl17rmemory_allocator>>__FRC105TType<Q24rstl89vector<Q224CSpawnSystemKeyframeData24CSpawnSystemKeyframeInfo,Q24rstl17rmemory_allocator>>R12CInputStream = .text:0x80333AA0; // type:function size:0x28
 __ct__Q24rstl89vector<Q224CSpawnSystemKeyframeData24CSpawnSystemKeyframeInfo,Q24rstl17rmemory_allocator>FR12CInputStreamRCQ24rstl17rmemory_allocator = .text:0x80333AC8; // type:function size:0x154
 Get<Q224CSpawnSystemKeyframeData24CSpawnSystemKeyframeInfo>__12CInputStreamFRC61TType<Q224CSpawnSystemKeyframeData24CSpawnSystemKeyframeInfo> = .text:0x80333C1C; // type:function size:0x3C
-fn_80333C58 = .text:0x80333C58; // type:function size:0x6C
+cinput_stream_helper<Q224CSpawnSystemKeyframeData24CSpawnSystemKeyframeInfo>__FRC61TType<Q224CSpawnSystemKeyframeData24CSpawnSystemKeyframeInfo>R12CInputStream = .text:0x80333C58; // type:function size:0x6C
 reserve__Q24rstl89vector<Q224CSpawnSystemKeyframeData24CSpawnSystemKeyframeInfo,Q24rstl17rmemory_allocator>Fi = .text:0x80333CC4; // type:function size:0x160
 reserve__Q24rstl152vector<Q24rstl107pair<Ui,Q24rstl89vector<Q224CSpawnSystemKeyframeData24CSpawnSystemKeyframeInfo,Q24rstl17rmemory_allocator>>,Q24rstl17rmemory_allocator>Fi = .text:0x80333E24; // type:function size:0xD0
 destroy<PQ24rstl107pair<Ui,Q24rstl89vector<Q224CSpawnSystemKeyframeData24CSpawnSystemKeyframeInfo,Q24rstl17rmemory_allocator>>>__4rstlFPQ24rstl107pair<Ui,Q24rstl89vector<Q224CSpawnSystemKeyframeData24CSpawnSystemKeyframeInfo,Q24rstl17rmemory_allocator>>PQ24rstl107pair<Ui,Q24rstl89vector<Q224CSpawnSystemKeyframeData24CSpawnSystemKeyframeInfo,Q24rstl17rmemory_allocator>> = .text:0x80333EF4; // type:function size:0x4C
@@ -17514,7 +17514,7 @@ skDescList$929 = .rodata:0x803D7928; // type:object size:0x20 scope:local
 skDescList$967 = .rodata:0x803D7948; // type:object size:0x20 scope:local
 @stringBase0 = .rodata:0x803D7968; // type:object size:0x7 scope:local data:string_table
 @stringBase0 = .rodata:0x803D7970; // type:object size:0x7 scope:local data:string_table
-lbl_803D7978 = .rodata:0x803D7978; // type:object size:0x7 data:string
+@stringBase0 = .rodata:0x803D7978; // type:object size:0x7 scope:local data:string_table
 lbl_803D7980 = .rodata:0x803D7980; // type:object size:0x7 data:string
 sTypeTable = .rodata:0x803D7988; // type:object size:0x98 scope:local data:4byte
 @stringBase0 = .rodata:0x803D7A20; // type:object size:0x7 scope:local data:string_table

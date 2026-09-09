@@ -1564,7 +1564,7 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
                 "Kyoto/Particles/CRealElement.cpp",
             ),
-            Object(NonMatching, "Kyoto/Particles/CSpawnSystemKeyframeData.cpp"),
+            Object(MatchingFor("GM8E01_00"), "Kyoto/Particles/CSpawnSystemKeyframeData.cpp"),
             Object(NonMatching, "Kyoto/Particles/CUVElement.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
