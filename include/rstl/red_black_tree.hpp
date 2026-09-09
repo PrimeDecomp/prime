@@ -171,29 +171,36 @@ public:
     return noResult ? nullptr : needle;
   }
 
+  iterator lower_bound(const T& key) {
+    node* n = x8_header.get_root();
+    node* result = nullptr;
+    while (n != nullptr) {
+      if (!x1_cmp(x0_selector(*n->get_value()), key)) {
+        result = n;
+        n = n->get_left();
+      } else {
+        n = n->get_right();
+      }
+    }
+    return iterator(result, &x8_header);
+  }
+
+  iterator upper_bound(const T& key) {
+    node* n = x8_header.get_root();
+    node* result = nullptr;
+    while (n != nullptr) {
+      if (x1_cmp(key, x0_selector(*n->get_value()))) {
+        result = n;
+        n = n->get_left();
+      } else {
+        n = n->get_right();
+      }
+    }
+    return iterator(result, &x8_header);
+  }
+
   pair< iterator, iterator > equal_range(const T& key) {
-    node* ub = nullptr;
-    node* n1 = x8_header.get_root();
-    while (n1 != nullptr) {
-      if (x1_cmp(key, x0_selector(*n1->get_value()))) {
-        ub = n1;
-        n1 = n1->get_left();
-      } else {
-        n1 = n1->get_right();
-      }
-    }
-    node* lb = nullptr;
-    node* n2 = x8_header.get_root();
-    while (n2 != nullptr) {
-      if (x1_cmp(x0_selector(*n2->get_value()), key)) {
-        n2 = n2->get_right();
-      } else {
-        lb = n2;
-        n2 = n2->get_left();
-      }
-    }
-    return pair< iterator, iterator >(iterator(lb, &x8_header),
-                                      iterator(ub, &x8_header));
+    return pair< iterator, iterator >(lower_bound(key), upper_bound(key));
   }
 
   iterator erase(iterator it) {
@@ -204,7 +211,15 @@ public:
     return it;
   }
 
-  int erase(const T& key);
+  int erase(const T& key) {
+    pair< iterator, iterator > range = equal_range(key);
+    int count = rstl::distance(range.first, range.second);
+    iterator it = range.first;
+    while (it != range.second) {
+      erase(it++);
+    }
+    return count;
+  }
 
   void clear() {
     node* root = x8_header.get_root();

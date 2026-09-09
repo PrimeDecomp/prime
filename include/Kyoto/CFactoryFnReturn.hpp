@@ -5,13 +5,14 @@
 class CFactoryFnReturn {
 public:
   CFactoryFnReturn() {}
+
   template < typename T >
   CFactoryFnReturn(T* ptr) : obj(TToken< T >::GetIObjObjectFor(ptr).release()) {}
 
-  const rstl::auto_ptr< CObjOwnerDerivedFromIObjUntyped >& GetObjForTransfer() const { return obj; }
+  const rstl::auto_ptr< IObj >& GetObjForTransfer() const { return obj; }
 
 private:
-  rstl::auto_ptr< CObjOwnerDerivedFromIObjUntyped > obj;
+  rstl::auto_ptr< IObj > obj;
 };
 
 #endif // _CFACTORYFNRETURN

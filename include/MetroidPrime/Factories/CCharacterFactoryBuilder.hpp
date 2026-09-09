@@ -14,7 +14,7 @@ class CCharacterFactoryBuilder {
 public:
   class CDummyFactory : public IFactory {
   public:
-    CFactoryFnReturn Build(const SObjectTag& tag, const CVParamTransfer& params) override;
+    rstl::auto_ptr< IObj > Build(const SObjectTag& tag, const CVParamTransfer& params) override;
     void BuildAsync(const SObjectTag& tag, const CVParamTransfer& params, IObj** out) override;
     void CancelBuild(const SObjectTag& tag) override;
     bool CanBuild(const SObjectTag&) override { return true; }

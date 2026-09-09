@@ -22,6 +22,10 @@ public:
     return *this;
   }
 
+  bool operator<(const SObjectTag& other) const {
+    return mType == other.mType ? mId < other.mId : mType < other.mType;
+  }
+
   const CAssetId& GetId() const { return mId; }
   const FourCC GetType() const { return mType; }
   static const char* Type2Text(FourCC type);
