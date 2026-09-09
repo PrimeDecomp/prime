@@ -36,6 +36,24 @@ public:
 
   CAnimSourceReaderBase(const rstl::ownership_transfer< IAnimSourceInfo >& sourceInfo)
   : x4_sourceInfo(sourceInfo), xc_curTime(0.f) {}
+
+  CAnimSourceReaderBase(
+      const rstl::ownership_transfer< IAnimSourceInfo >& sourceInfo, const CCharAnimTime& time,
+      int passedBoolCount, int passedIntCount, int passedParticleCount, int passedSoundCount,
+      const rstl::vector< rstl::pair< rstl::string, bool > >& boolStates,
+      const rstl::vector< rstl::pair< rstl::string, int > >& intStates,
+      const rstl::vector< rstl::pair< rstl::string, CParticleData::EParentedMode > >&
+          particleStates)
+  : x4_sourceInfo(sourceInfo)
+  , xc_curTime(time)
+  , x14_passedBoolCount(passedBoolCount)
+  , x18_passedIntCount(passedIntCount)
+  , x1c_passedParticleCount(passedParticleCount)
+  , x20_passedSoundCount(passedSoundCount)
+  , x24_boolStates(boolStates)
+  , x34_int32States(intStates)
+  , x44_particleStates(particleStates) {}
+
   void PostConstruct(const CCharAnimTime& time);
   void UpdatePOIStates();
   const IAnimSourceInfo& AnimSource() const { return *x4_sourceInfo; }

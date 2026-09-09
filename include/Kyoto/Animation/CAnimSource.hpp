@@ -4,6 +4,7 @@
 #include "CAnimPOIData.hpp"
 #include "Kyoto/Animation/CCharAnimTime.hpp"
 #include "Kyoto/Animation/CSegId.hpp"
+#include "Kyoto/Animation/CSteadyStateAnimInfo.hpp"
 #include "Kyoto/Math/CQuaternion.hpp"
 #include "Kyoto/SObjectTag.hpp"
 #include "rstl/auto_ptr.hpp"
@@ -11,6 +12,8 @@
 #include <rstl/vector.hpp>
 class CInputStream;
 class IObjectStore;
+class CSegIdList;
+class CSegStatementSet;
 
 class RotationAndOffsetStorage {
 public:
@@ -44,8 +47,24 @@ public:
   CAnimSource(CInputStream& in, IObjectStore& store);
   ~CAnimSource();
 
-  int HasOffset(const CSegId& seg) const;
+  bool HasOffset(const CSegId& seg) const;
   CVector3f GetOffset(const CSegId& seg, const CCharAnimTime& animTime) const;
+  CQuaternion GetRotation(const CSegId& seg, const CCharAnimTime& animTime) const;
+  void GetSegStatementSet(const CSegIdList& list, CSegStatementSet& set,
+                         const CCharAnimTime& time) const;
+  const CCharAnimTime& GetAnimationDuration() const { return x0_duration; }
+  bool HasPOIData() const { return !x58_eventData.null(); }
+  const rstl::vector< CBoolPOINode >& GetBoolPOIStream() const;
+  const rstl::vector< CInt32POINode >& GetInt32POIStream() const;
+  const rstl::vector< CParticlePOINode >& GetParticlePOIStream() const;
+  const rstl::vector< CSoundPOINode >& GetSoundPOIStream() const;
+  CSegId GetPrimaryOffsetChannel() const { return x1c_root; }
+  CVector3f GetOverallOffset(const CCharAnimTime& time) const {
+    return GetOffset(GetPrimaryOffsetChannel(), time);
+  }
+  CSteadyStateAnimInfo GetSteadyStateAnimInfo(const CCharAnimTime& time) const {
+    return CSteadyStateAnimInfo(false, GetAnimationDuration(), GetOverallOffset(time));
+  }
   void CalcAverageVelocity();
 
 private:

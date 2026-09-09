@@ -6,15 +6,24 @@
 
 class CAnimSourceInfo : public IAnimSourceInfo {
 public:
-  bool HasPOIData() const override;
-  const rstl::vector< CBoolPOINode >& GetBoolPOIStream() const override;
-  const rstl::vector< CInt32POINode >& GetInt32POIStream() const override;
-  const rstl::vector< CParticlePOINode >& GetParticlePOIStream() const override;
-  const rstl::vector< CSoundPOINode >& GetSoundPOIStream() const override;
-  CCharAnimTime GetAnimationDuration() const override;
-  ~CAnimSourceInfo() override;
+  ~CAnimSourceInfo() override {}
 
-  CAnimSourceInfo(const TSubAnimTypeToken< CAnimSource >& source);
+  bool HasPOIData() const override { return x4_token->HasPOIData(); }
+  const rstl::vector< CBoolPOINode >& GetBoolPOIStream() const override {
+    return x4_token->GetBoolPOIStream();
+  }
+  const rstl::vector< CInt32POINode >& GetInt32POIStream() const override {
+    return x4_token->GetInt32POIStream();
+  }
+  const rstl::vector< CParticlePOINode >& GetParticlePOIStream() const override {
+    return x4_token->GetParticlePOIStream();
+  }
+  const rstl::vector< CSoundPOINode >& GetSoundPOIStream() const override {
+    return x4_token->GetSoundPOIStream();
+  }
+  CCharAnimTime GetAnimationDuration() const override { return x4_token->GetAnimationDuration(); }
+
+  CAnimSourceInfo(const TSubAnimTypeToken< CAnimSource >& source) : x4_token(source) {}
 
 private:
   TSubAnimTypeToken< CAnimSource > x4_token;
@@ -23,7 +32,7 @@ CHECK_SIZEOF(CAnimSourceInfo, 0x14)
 
 class CAnimSourceReader : public CAnimSourceReaderBase {
 public:
-  ~CAnimSourceReader() override;
+  ~CAnimSourceReader() override {}
   CAdvancementResults VAdvanceView(const CCharAnimTime& time) override;
   CCharAnimTime VGetTimeRemaining() const override;
   CSteadyStateAnimInfo VGetSteadyStateAnimInfo() const override;
@@ -42,9 +51,21 @@ public:
   virtual CAdvancementResults VReverseView(const CCharAnimTime& time);
 
   CAnimSourceReader(const TSubAnimTypeToken< CAnimSource >& source, const CCharAnimTime& time);
-  CAnimSourceReader(const CAnimSourceReader& other);
 
 private:
+  CAnimSourceReader(const TSubAnimTypeToken< CAnimSource >& source, const CCharAnimTime& time,
+                    const CSteadyStateAnimInfo& steadyStateInfo, int passedBoolCount,
+                    int passedIntCount, int passedParticleCount, int passedSoundCount,
+                    const rstl::vector< rstl::pair< rstl::string, bool > >& boolStates,
+                    const rstl::vector< rstl::pair< rstl::string, int > >& intStates,
+                    const rstl::vector< rstl::pair< rstl::string, CParticleData::EParentedMode > >&
+                        particleStates)
+  : CAnimSourceReaderBase(rs_new CAnimSourceInfo(source), time, passedBoolCount, passedIntCount,
+                          passedParticleCount, passedSoundCount, boolStates, intStates,
+                          particleStates)
+  , x54_source(source)
+  , x64_steadyStateInfo(steadyStateInfo) {}
+
   TSubAnimTypeToken< CAnimSource > x54_source;
   CSteadyStateAnimInfo x64_steadyStateInfo;
 };
