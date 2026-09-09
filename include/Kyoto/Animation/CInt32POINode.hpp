@@ -8,10 +8,10 @@ public:
   CInt32POINode(rstl::string name = rstl::string_l(""), ushort type = kPT_EmptyInt32,
                 const CCharAnimTime& time = CCharAnimTime(), int index = -1, bool unique = false,
                 float weight = 1.f, int charIdx = -1, int flags = 0, int value = 0,
-                const rstl::string& locatorName = rstl::string_l("root"));
-  /*: CPOINode(name, type, time, index, unique, weight, charIdx, flags)
+                const rstl::string& locatorName = rstl::string_l("root"))
+  : CPOINode(name, type, time, index, unique, weight, charIdx, flags)
   , x38_val(value)
-  , x3c_lctrName(locatorName) {} */
+  , x3c_lctrName(locatorName) {}
 
   explicit CInt32POINode(CInputStream& in);
 
