@@ -13,6 +13,20 @@ class COutputStream;
 namespace rstl {
 template < typename _CharTp >
 struct char_traits {
+  static void copy(_CharTp* out, const _CharTp* in, int count) {
+    for (int i = 0; i < count; ++i) {
+      out[i] = in[i];
+    }
+  }
+
+  static void assign(_CharTp& out, const _CharTp& value) { out = value; }
+
+  static void assign(_CharTp* out, int count, const _CharTp& value) {
+    for (int i = 0; i < count; ++i) {
+      out[i] = value;
+    }
+  }
+
   static bool eq(const _CharTp& lhs, const _CharTp& rhs) { return lhs == rhs; }
   static _CharTp eos() { return 0; }
   static int compare(const _CharTp& lhs, const _CharTp& rhs) {
@@ -22,6 +36,20 @@ struct char_traits {
 
 template <>
 struct char_traits< char > {
+  static void copy(char* out, const char* in, int count) {
+    for (int i = 0; i < count; ++i) {
+      out[i] = in[i];
+    }
+  }
+
+  static void assign(char& out, const char& value) { out = value; }
+
+  static void assign(char* out, int count, const char& value) {
+    for (int i = 0; i < count; ++i) {
+      out[i] = value;
+    }
+  }
+
   static bool eq(const char& lhs, const char& rhs) { return lhs == rhs; }
   static char eos() { return 0; }
   static int compare(const char& lhs, const char& rhs) {
@@ -32,6 +60,20 @@ struct char_traits< char > {
 
 template < typename _CharTp >
 struct case_insensitive_char_traits {
+  static void copy(_CharTp* out, const _CharTp* in, int count) {
+    for (int i = 0; i < count; ++i) {
+      out[i] = in[i];
+    }
+  }
+
+  static void assign(_CharTp& out, const _CharTp& value) { out = value; }
+
+  static void assign(_CharTp* out, int count, const _CharTp& value) {
+    for (int i = 0; i < count; ++i) {
+      out[i] = value;
+    }
+  }
+
   static _CharTp eos() { return 0; }
   static _CharTp toupper(const _CharTp ch) {
     return (ch >= 'a' && ch <= 'z')         ? ch - 32
@@ -48,30 +90,36 @@ struct case_insensitive_char_traits {
 template < typename _CharTp, typename Traits = char_traits< _CharTp >,
            typename Alloc = rmemory_allocator >
 class basic_string {
-  struct COWData {
-    uint x0_capacity;
-    uint x4_refCount;
-    _CharTp* x8_data;
+  struct control {
+    int x0_capacity;
+    int x4_refCount;
   };
 
   const _CharTp* x0_ptr;
-  COWData* x4_cow;
+  control* x4_cow;
   uint x8_size;
-  uint _pad; // Alloc?
+  Alloc xc_allocator;
 
   void internal_prepare_to_write(int len, bool);
   void internal_allocate(int size);
-  // {
-  //     x4_cow = reinterpret_cast<COWData*>(rs_new uchar[size * sizeof(_CharTp) +
-  //     8]); x0_ptr = x4_cow->x8_data; x4_cow->x0_capacity = uint(size);
-  //     x4_cow->x4_refCount = 1;
-  // }
 
   void internal_dereference();
-  // {
-  //     if (x4_cow && --x4_cow->x4_refCount == 0)
-  //         delete[] x4_cow;
-  // }
+  void internal_reference() {
+    if (x4_cow) {
+      ++x4_cow->x4_refCount;
+    }
+  }
+
+  template < typename It >
+  static pair< It, int > compute_length(It data, int count) {
+    It end = data;
+    int len = 0;
+    while ((count == -1 || len < count) && !Traits::eq(*end, Traits::eos())) {
+      ++end;
+      ++len;
+    }
+    return pair< It, int >(end, len);
+  }
 
   static const _CharTp mNull;
 
@@ -94,13 +142,6 @@ public:
   }
 
   basic_string(const basic_string& str);
-  // {
-  //     x0_ptr = str.x0_ptr;
-  //     x4_cow = str.x4_cow;
-  //     x8_size = str.x8_size;
-  //     if (x4_cow)
-  //         ++x4_cow->x4_refCount;
-  // }
 
   basic_string(CInputStream& in, const Alloc& = rmemory_allocator());
 
@@ -117,47 +158,23 @@ public:
   }
 
   basic_string(const _CharTp* data, int size = -1, const Alloc& = rmemory_allocator());
-  // {
-  //     if (size <= 0 && !data)
-  //     {
-  //         x0_ptr = &mNull;
-  //         x4_cow = nullptr;
-  //         x8_size = 0;
-  //         return;
-  //     }
-
-  //     const _CharTp* it = data;
-  //     uint len = 0;
-  //     while (*it)
-  //     {
-  //         if (size != -1 && len >= size)
-  //             break;
-  //         ++it;
-  //         ++len;
-  //     }
-
-  //     internal_allocate(len + 1);
-  //     x8_size = len;
-  //     for (int i = 0; i < len; ++i)
-  //         x4_cow->x8_data[i] = data[i];
-  //     x4_cow->x8_data[len] = 0;
-  // }
 
   ~basic_string() { internal_dereference(); }
 
   size_t size() const { return x8_size; }
+  int length() const { return x8_size; }
   int refcount() { return x4_cow != nullptr ? x4_cow->x4_refCount : -1; }
   void reserve(int len) { internal_prepare_to_write(len, true); }
 
-  void assign(const basic_string&);
-  void assign(const _CharTp*, int);
+  basic_string& assign(const basic_string&);
+  basic_string& assign(const _CharTp*, int);
   basic_string& operator=(const basic_string& other) {
     assign(other);
     return *this;
   }
-  void append(const basic_string& other);
-  void append(int, _CharTp);
-  void append(const _CharTp*, int);
+  basic_string& append(const basic_string& other);
+  basic_string& append(int, _CharTp);
+  basic_string& append(const _CharTp*, int);
 
   int compare(const _CharTp* rhs, int count = -1) const;
   const _CharTp& operator[](int idx) const { return x0_ptr[idx]; }
@@ -165,7 +182,8 @@ public:
   const_iterator end() const { return const_iterator(this, size()); }
 
   template < typename It >
-  static int internal_compare(const_iterator first, const_iterator last, It otherFirst, It otherLast);
+  static int internal_compare(const_iterator first, const_iterator last, It otherFirst,
+                              It otherLast);
   template < typename It, typename OtherIt >
   static int internal_search(It first, It last, OtherIt otherFirst, OtherIt otherLast);
   template < typename It, typename OtherIt >
@@ -177,6 +195,7 @@ public:
   int find(const basic_string& other, int pos = 0) const;
   int find(_CharTp ch, int pos = 0) const;
   int find_first_of(const basic_string& other, int pos = 0) const;
+  const_iterator position_iterator(int pos) const;
   pair< const_iterator, const_iterator > range_iterator(int pos, int count) const;
   basic_string substr(int pos = 0, int count = -1) const;
   int get_real_pos_for_begin(int pos) const {
@@ -193,8 +212,9 @@ public:
 
 template < typename _CharTp, typename Traits, typename Alloc >
 template < typename It, typename OtherIt >
-inline int basic_string< _CharTp, Traits, Alloc >::internal_search_of(
-    It first, It last, OtherIt otherFirst, OtherIt otherLast) {
+inline int basic_string< _CharTp, Traits, Alloc >::internal_search_of(It first, It last,
+                                                                      OtherIt otherFirst,
+                                                                      OtherIt otherLast) {
   int index = 0;
   for (It it = first; it != last; ++it, ++index) {
     for (OtherIt other = otherFirst; other != otherLast; ++other) {
@@ -208,7 +228,7 @@ inline int basic_string< _CharTp, Traits, Alloc >::internal_search_of(
 
 template < typename _CharTp, typename Traits, typename Alloc >
 inline int basic_string< _CharTp, Traits, Alloc >::find_first_of(const basic_string& other,
-                                                             int pos) const {
+                                                                 int pos) const {
   pos = get_real_pos_for_begin(pos);
   const int found = internal_search_of(begin() + pos, end(), other.begin(), other.end());
   int result = found + pos;
@@ -280,8 +300,9 @@ int basic_string< _CharTp, Traits, Alloc >::compare(const _CharTp* rhs, int coun
 
 template < typename _CharTp, typename Traits, typename Alloc >
 template < typename It >
-inline int basic_string< _CharTp, Traits, Alloc >::internal_compare(const_iterator first, const_iterator last,
-                                                          It otherFirst, It otherLast) {
+inline int basic_string< _CharTp, Traits, Alloc >::internal_compare(const_iterator first,
+                                                                    const_iterator last,
+                                                                    It otherFirst, It otherLast) {
   const_iterator it = first;
   It other = otherFirst;
   for (; it != last && other != otherLast; ++it, ++other) {
@@ -314,11 +335,6 @@ inline bool basic_string< _CharTp, Traits, Alloc >::operator!=(const basic_strin
   return compare(other) != 0;
 }
 
-// template <>
-// const char basic_string<char>::mNull = 0;
-// template <>
-// const wchar_t basic_string<wchar_t>::mNull = 0;
-
 typedef basic_string< wchar_t > wstring;
 typedef basic_string< char > string;
 typedef basic_string< char, case_insensitive_char_traits< char > > istring;
@@ -342,17 +358,9 @@ wstring wstring_l(const wchar_t* data) {
 }
 
 string string_l(const char* data);
-// {
-//     return string(string::literal_t(), data);
-// }
 
 string operator+(const string& a, const string& b);
 wstring operator+(const wstring& a, const wstring& b);
-// {
-//   string result(a);
-//   result.append(b);
-//   return result;
-// }
 
 static inline string operator+(const string& a, char c) {
   string result(a);
