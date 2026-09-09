@@ -9,7 +9,6 @@
 #include "rstl/vector.hpp"
 #include "types.h"
 
-#include <dolphin/thp.h>
 #include <dolphin/thp/THPFile.h>
 
 class CMoviePlayer {
@@ -21,40 +20,60 @@ public:
 
   class CTHPTextureSet {
   public:
-    CTHPTextureSet(void* y, void* u, void* v, void* audio);
-    void* Y();
-    void* U();
-    void* V();
-    void* Audio();
+    CTHPTextureSet(void* y, void* u, void* v, void* audio)
+    : x0_y(static_cast< uchar* >(y))
+    , x8_u(static_cast< uchar* >(u))
+    , x10_v(static_cast< uchar* >(v))
+    , x18_audio(static_cast< uchar* >(audio))
+    , x20_audioSamples(0)
+    , x24_audioSamplesConsumed(0) {}
 
-    uint GetAudioSamples() const;
-    void SetAudioSamples(uint);
-    uint GetAudioSamplesConsumed() const;
-    void SetAudioSamplesConsumed(uint);
+    void* Y() { return x0_y.get(); }
+
+    void* U() { return x8_u.get(); }
+
+    void* V() { return x10_v.get(); }
+
+    void* Audio() { return x18_audio.get(); }
+
+    uint GetAudioSamples() const { return x20_audioSamples; }
+
+    void SetAudioSamples(uint samples) { x20_audioSamples = samples; }
+    uint GetAudioSamplesConsumed() const { return x24_audioSamplesConsumed; }
+
+    void SetAudioSamplesConsumed(uint samples) { x24_audioSamplesConsumed = samples; }
 
   private:
-    uchar* x0_;
-    uchar* x4_;
-    uchar* x8_;
+    rstl::auto_ptr< uchar > x0_y;
+    rstl::auto_ptr< uchar > x8_u;
+    rstl::auto_ptr< uchar > x10_v;
+    rstl::auto_ptr< uchar > x18_audio;
+    uint x20_audioSamples;
+    uint x24_audioSamplesConsumed;
   };
-  static void SetSfxVolume(uchar);
 
-  CMoviePlayer(const char* path, const float fps, const bool loop, const bool deinterlace);
+  static void SetSfxVolume(uchar);
+  static void SetAudioEnabled(bool enabled);
+  static bool GetAudioEnabled();
+
+  CMoviePlayer(const char* path, const float preLoadSeconds, const bool loop,
+               const bool deinterlace);
   ~CMoviePlayer();
 
   void Update(float dt);
   void DecodeFromRead(const void* ptr);
 
   bool DrawVideo() const;
-  bool DrawFrame(const CVector3f&, const CVector3f&, const CVector3f&, const CVector3f&);
+  void DrawFrame(const CVector3f&, const CVector3f&, const CVector3f&, const CVector3f&);
+  void MixAudio(short* out, const short* in, unsigned long samples);
 
-  EPlayMode GetPlayMode() const { return xe0_playMode; };
+  EPlayMode GetPlayMode() const { return xe0_playMode; }
   void SetPlayMode(EPlayMode mode);
   float GetTotalSeconds() const;
   float GetPlayedSeconds() const;
   uint GetWidth() const;
   uint GetHeight() const;
-  bool CanDrawVideo() const { return xac_indexLoad == nullptr; }
+  bool CanDrawVideo() const { return xac_indexLoad.null(); }
   bool PumpIndexLoad();
   void Rewind();
   bool GetIsFullyCached() const;
@@ -65,6 +84,10 @@ public:
 private:
   struct SIndexLoad;
   static void VerifyCallbackStatus();
+  static void StaticMyAudioCallback();
+  void InitializeTextures();
+  void ReadCompleted();
+  void PostDVDReadRequestIfNeeded();
   CDvdFile x0_dvdFile;
   THPHeader x28_header;
   THPFrameCompInfo x58_thpComponents;
@@ -72,32 +95,32 @@ private:
   THPAudioInfoOld x74_audioInfo;
   rstl::vector< CTHPTextureSet > x80_textures;
   rstl::auto_ptr< uchar > x90_requestBuffer;
-  CDvdRequest* x98_request;
+  rstl::single_ptr< CDvdRequest > x98_request;
   rstl::vector< rstl::auto_ptr< uchar > > x9c_requestQueue;
-  SIndexLoad* xac_indexLoad;
+  rstl::single_ptr< SIndexLoad > xac_indexLoad;
   uint xb0_nextReadSize;
   uint xb4_nextReadOff;
   uint xb8_readSizeWrapped;
   uint xbc_readOffWrapped;
-  uint xc0_curLoadFrame;
-  uint xc4_requestFrameWrapped;
-  uint xc8_curFrame;
-  uint xcc_decdoedTexSlot;
-  uint xd0_drawTexSlot;
-  uint xd4_audioSlot;
+  int xc0_curLoadFrame;
+  int xc4_requestFrameWrapped;
+  int xc8_curFrame;
+  int xcc_decodedTexSlot;
+  int xd0_drawTexSlot;
+  int xd4_audioSlot;
   int xd8_decodedTexCount;
-  float xdc_;
+  float xdc_frameRem;
   EPlayMode xe0_playMode;
   float xe4_totalSeconds;
-  float xe8_;
-  float xec_fps;
-  uint xf0_preLoadFrames;
+  float xe8_curSeconds;
+  float xec_preLoadSeconds;
+  int xf0_preLoadFrames;
   bool xf4_24_loop : 1;
-  bool xf4_25_hasAudio : 1;
-  bool xf4_26_fieldFlip : 1;
-  bool xf4_27_deinterlace : 1;
-  uint xf8_;
-  uint xfc_fieldIndex;
+  bool xf4_25_deinterlace : 1;
+  bool xf4_26_hasAudio : 1;
+  bool xf4_27_fieldFlip : 1;
+  uint xf8_cachedBytes;
+  int xfc_fieldIndex;
 };
 CHECK_SIZEOF(CMoviePlayer, 0x100)
 
