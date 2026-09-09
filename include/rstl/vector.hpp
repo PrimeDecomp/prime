@@ -47,12 +47,15 @@ public:
     uninitialized_fill_n(xc_items, count, v);
   }
 
-  vector(const vector& other) : x4_count(other.x4_count), x8_capacity(other.x8_capacity) {
+  vector(const vector& other)
+  : x0_allocator(other.x0_allocator)
+  , x4_count(other.x4_count)
+  , x8_capacity(other.x8_capacity) {
     if (other.x4_count == 0 && other.x8_capacity == 0) {
       xc_items = nullptr;
     } else {
       x0_allocator.allocate(xc_items, x8_capacity);
-      uninitialized_copy_n(other.xc_items, size(), xc_items);
+      uninitialized_copy_n(other.xc_items, x4_count, xc_items);
     }
   }
   vector(CInputStream& in, const Alloc& alloc = Alloc());

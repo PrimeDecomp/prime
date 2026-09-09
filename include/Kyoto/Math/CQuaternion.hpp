@@ -62,7 +62,7 @@ public:
   CMatrix3f BuildTransform() const;
   CTransform4f BuildTransform4f() const;
   CTransform4f BuildTransform4f(const CVector3f&) const;
-  CQuaternion BuildInverted() const { return ScalarVector(w, -imaginary); }
+  CQuaternion BuildInverted() const { return ScalarVector(GetScalar(), -GetVector()); }
 
   static CQuaternion FromMatrixRows(const CVector3f&, const CVector3f&, const CVector3f&);
   static CQuaternion FromMatrix(const CMatrix3f&);
