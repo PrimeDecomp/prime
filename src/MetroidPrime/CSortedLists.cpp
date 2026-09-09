@@ -184,7 +184,7 @@ void CSortedListManager::Move(const CActor* actor, const CAABox& box) {
   MoveInList(kSL_MaxZ, node.x1c_selfIdxs[kSL_MaxZ]);
 }
 
-void CSortedListManager::AddToLinkedList(short nodeId, short& headId, short& tailId) const {
+void CSortedListManager::AddToLinkedList(const short nodeId, short& headId, short& tailId) const {
   if (headId == -1) {
     x0_nodes[nodeId].x28_next = headId;
     tailId = nodeId;
