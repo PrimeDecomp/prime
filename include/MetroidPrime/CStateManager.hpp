@@ -102,7 +102,7 @@ struct SScriptObjectStream {
 
 class CStateManager : public TOneStatic< CStateManager > {
 public:
-  typedef rstl::map< TEditorId, TUniqueId > TIdList;
+  typedef rstl::multimap< TEditorId, TUniqueId > TIdList;
   typedef rstl::pair< TIdList::const_iterator, TIdList::const_iterator > TIdListResult;
 
   enum EGameState { kGS_Running, kGS_SoftPaused, kGS_Paused };
@@ -140,7 +140,7 @@ public:
   void LoadScriptObjects(TAreaId, CInputStream&, rstl::vector< TEditorId >&);
   rstl::pair< TEditorId, TUniqueId >
   LoadScriptObject(TAreaId, EScriptObjectType, unsigned int, CInputStream&);
-  bool AddDrawableActor(const CActor& actor, const CVector3f& pos, const CAABox& bounds) const;
+  void AddDrawableActor(const CActor& actor, const CVector3f& pos, const CAABox& bounds) const;
   void AddDrawableActorPlane(const CActor& actor, const CPlane& plane,
                              const CAABox& bounds) const;
   void SetupParticleHook(const CActor& actor) const;
@@ -195,7 +195,7 @@ public:
   TUniqueId GetIdForScript(TEditorId eid) const;
   TIdListResult GetIdListForScript(TEditorId) const;
 
-  void SetActorAreaId(CActor& actor, TAreaId);
+  void SetActorAreaId(CActor& actor, const TAreaId);
   TAreaId GetNextAreaId() const { return x8cc_nextAreaId; }
   void SetCurrentAreaId(TAreaId);
   TAreaId GetVisAreaId() const;
@@ -223,10 +223,8 @@ public:
   const CWorld* GetWorld() const { return x850_world.get(); }
   CScriptMailbox* Mailbox() { return x8bc_mailbox.GetPtr(); }
   const CScriptMailbox* GetMailbox() const { return x8bc_mailbox.GetPtr(); }
-  CActorModelParticles* ActorModelParticles() { return x884_actorModelParticles.get(); }
-  const CActorModelParticles* GetActorModelParticles() const {
-    return x884_actorModelParticles.get();
-  }
+  CActorModelParticles* ActorModelParticles() { return x884_actorModelParticles; }
+  const CActorModelParticles* GetActorModelParticles() const { return x884_actorModelParticles; }
   CEnvFxManager* EnvFxManager() { return x880_envFxManager; }
   const CEnvFxManager* GetEnvFxManager() const { return x880_envFxManager; }
   CRumbleManager* GetRumbleManager() { return x88c_rumbleManager; }
@@ -400,22 +398,22 @@ private:
   CWeaponMgr* x878_weaponMgr;
   CFluidPlaneManager* x87c_fluidPlaneManager;
   CEnvFxManager* x880_envFxManager;
-  rstl::single_ptr< CActorModelParticles > x884_actorModelParticles;
+  CActorModelParticles* x884_actorModelParticles;
   uint x888_;
   CRumbleManager* x88c_rumbleManager;
   rstl::multimap< TEditorId, TUniqueId > x890_scriptIdMap;
   rstl::map< TEditorId, SScriptObjectStream > x8a4_loadedScriptObjects;
-  rstl::rc_ptr< CPlayerState > x8b8_playerState;
-  rstl::rc_ptr< CScriptMailbox > x8bc_mailbox;
-  rstl::rc_ptr< CMapWorldInfo > x8c0_mapWorldInfo;
-  rstl::rc_ptr< CWorldTransManager > x8c4_worldTransManager;
-  rstl::rc_ptr< CScriptLayerManager > x8c8_worldLayerState;
+  rstl::ncrc_ptr< CPlayerState > x8b8_playerState;
+  rstl::ncrc_ptr< CScriptMailbox > x8bc_mailbox;
+  rstl::ncrc_ptr< CMapWorldInfo > x8c0_mapWorldInfo;
+  rstl::ncrc_ptr< CWorldTransManager > x8c4_worldTransManager;
+  rstl::ncrc_ptr< CScriptLayerManager > x8c8_worldLayerState;
 
   TAreaId x8cc_nextAreaId;
   TAreaId x8d0_prevAreaId;
   uint x8d4_inputFrameIdx;
   uint x8d8_updateFrameIdx;
-  uint x8dc_objectDrawToken;
+  mutable uint x8dc_objectDrawToken;
 
   rstl::vector< CLight > x8e0_dynamicLights;
 
@@ -445,7 +443,7 @@ private:
   float xf28_thermColdScale2;
   mutable float xf2c_viewportScaleX;
   mutable float xf30_viewportScaleY;
-  EThermalDrawFlag xf34_thermalFlag;
+  mutable EThermalDrawFlag xf34_thermalFlag;
   TUniqueId xf38_skipCineSpecialFunc;
   rstl::list< TUniqueId > xf3c_activeFlickerBats;
   rstl::list< TUniqueId > xf54_activeParasites;
@@ -483,11 +481,11 @@ private:
   void ProcessRadiusDamage(const CActor&, CActor&, TUniqueId, const CDamageInfo&,
                            const CMaterialFilter&);
   void ApplyRadiusDamage(const CActor&, const CVector3f&, CActor&, const CDamageInfo&);
-  bool TestRayDamage(const CVector3f&, const CActor&, const TEntityList&) const;
-  bool MultiRayCollideWorld(const CMRay&, const CMaterialFilter&);
+  const bool TestRayDamage(const CVector3f&, const CActor&, const TEntityList&) const;
+  const bool MultiRayCollideWorld(const CMRay&, const CMaterialFilter&) const;
   void TestBombHittingWater(const CActor&, const CVector3f&, CActor&);
   rstl::optional_object< CAABox > CalculateObjectBounds(const CActor&);
-  bool RayCollideWorldInternal(const CVector3f& start, const CVector3f& end,
+  const bool RayCollideWorldInternal(const CVector3f& start, const CVector3f& end,
                                const CMaterialFilter& filter, const TEntityList& nearList,
                                const CActor* damagee) const;
   void UpdateEscapeSequenceTimer(float dt);

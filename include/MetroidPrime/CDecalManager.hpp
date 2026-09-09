@@ -7,6 +7,7 @@
 #include "rstl/reserved_vector.hpp"
 
 class CStateManager;
+class CFrustumPlanes;
 
 class CDecalManager {
 public:
@@ -24,6 +25,7 @@ public:
   static void ShutDown();
   static void Reinitialize();
   static void Update(float dt, CStateManager& mgr);
+  static void AddToRenderer(const CFrustumPlanes& frustum, const CStateManager& mgr);
   static void AddDecal(const TToken< CDecalDescription >& desc, const CTransform4f& xf, bool notIce,
                        CStateManager& mgr);
 
