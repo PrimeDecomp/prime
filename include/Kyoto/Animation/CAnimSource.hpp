@@ -1,7 +1,7 @@
 #ifndef _CANIMSOURCE
 #define _CANIMSOURCE
 
-#include "CAnimPOIData.hpp"
+#include "Kyoto/Animation/CAnimPOIData.hpp"
 #include "Kyoto/Animation/CCharAnimTime.hpp"
 #include "Kyoto/Animation/CSegId.hpp"
 #include "Kyoto/Animation/CSteadyStateAnimInfo.hpp"
@@ -10,6 +10,7 @@
 #include "rstl/auto_ptr.hpp"
 
 #include <rstl/vector.hpp>
+
 class CInputStream;
 class IObjectStore;
 class CSegIdList;
@@ -23,6 +24,7 @@ public:
     rstl::vector< CQuaternion > x0_rotations;
     rstl::vector< CVector3f > x10_offsets;
   };
+
   RotationAndOffsetStorage(const CRotationAndOffsetVectors&, uint numFrames);
 
   static uint DataSizeInBytes(uint, uint, uint);
@@ -35,12 +37,28 @@ public:
                                       const rstl::vector< CVector3f >&, uint numFrames, float* buf);
   uint GetFrameSizeInBytes() const;
 
+  const uint* StartForFrame(uint frame) const {
+    return x0_storage.get() + frame * (xc_rotationsPerFrame * 4 + x10_offsetsPerFrame * 3);
+  }
+
+  const CQuaternion& GetRotation(uint channel, uint frame) const {
+    const uint* start = StartForFrame(frame);
+    return *reinterpret_cast< const CQuaternion* >(start + channel * 4);
+  }
+
+  const CVector3f& GetOffset(uint channel, uint frame) const {
+    const uint* start = StartForFrame(frame);
+    const uint offset = xc_rotationsPerFrame * 4 + channel * 3;
+    return *reinterpret_cast< const CVector3f* >(start + offset);
+  }
+
 private:
   rstl::auto_ptr< uint > x0_storage;
   uint x8_numFrames;
   uint xc_rotationsPerFrame;
   uint x10_offsetsPerFrame;
 };
+CHECK_SIZEOF(RotationAndOffsetStorage, 0x14)
 
 class CAnimSource {
 public:
@@ -51,8 +69,9 @@ public:
   CVector3f GetOffset(const CSegId& seg, const CCharAnimTime& animTime) const;
   CQuaternion GetRotation(const CSegId& seg, const CCharAnimTime& animTime) const;
   void GetSegStatementSet(const CSegIdList& list, CSegStatementSet& set,
-                         const CCharAnimTime& time) const;
+                          const CCharAnimTime& time) const;
   const CCharAnimTime& GetAnimationDuration() const { return x0_duration; }
+  const CCharAnimTime& GetTimePerFrame() const { return x8_interval; }
   bool HasPOIData() const { return !x58_eventData.null(); }
   const rstl::vector< CBoolPOINode >& GetBoolPOIStream() const;
   const rstl::vector< CInt32POINode >& GetInt32POIStream() const;
@@ -81,5 +100,6 @@ private:
   rstl::auto_ptr< TLockedToken< CAnimPOIData > > x58_eventData;
   float x60_averageVelocity;
 };
+CHECK_SIZEOF(CAnimSource, 0x64)
 
 #endif // _CANIMSOURCE
