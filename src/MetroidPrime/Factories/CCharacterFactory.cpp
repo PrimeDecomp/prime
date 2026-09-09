@@ -16,31 +16,35 @@
 #include "Kyoto/Graphics/CModel.hpp"
 #include "rstl/algorithm.hpp"
 
-CFactoryFnReturn CCharacterFactory::CDummyFactory::Build(const SObjectTag& tag,
-                                                         const CVParamTransfer& params) {
+rstl::auto_ptr< IObj > CCharacterFactory::CDummyFactory::Build(const SObjectTag& tag,
+                                                               const CVParamTransfer& params) {
   const CVParamTransfer paramCopy(params);
   const CCharacterInfo& charInfo =
       **static_cast< const TObjOwnerParam< const CCharacterInfo* const >& >(*paramCopy);
   switch (tag.GetType()) {
   case 0:
-    return CFactoryFnReturn(CFactoryFnReturn(rs_new CSkinnedModel(
-        gpSimplePool->GetObj(SObjectTag('CMDL', charInfo.GetModelId())),
-        gpSimplePool->GetObj(SObjectTag('CSKR', charInfo.GetSkinRulesId())),
-        gpSimplePool->GetObj(SObjectTag('CINF', charInfo.GetCharLayoutInfoId())),
-        CSkinnedModel::kDO_Owned)));
+    return CFactoryFnReturn(
+               rs_new CSkinnedModel(
+                   gpSimplePool->GetObj(SObjectTag('CMDL', charInfo.GetModelId())),
+                   gpSimplePool->GetObj(SObjectTag('CSKR', charInfo.GetSkinRulesId())),
+                   gpSimplePool->GetObj(SObjectTag('CINF', charInfo.GetCharLayoutInfoId())),
+                   CSkinnedModel::kDO_Owned))
+        .GetObjForTransfer();
   case 1:
-    return CFactoryFnReturn(CFactoryFnReturn(rs_new CSkinnedModelWithAvgNormals(
-        CSkinnedModel(gpSimplePool->GetObj(SObjectTag('CMDL', charInfo.GetIceModelId())),
-                      gpSimplePool->GetObj(SObjectTag('CSKR', charInfo.GetIceSkinRulesId())),
-                      gpSimplePool->GetObj(SObjectTag('CINF', charInfo.GetCharLayoutInfoId())),
-                      CSkinnedModel::kDO_Owned))));
+    return CFactoryFnReturn(
+               rs_new CSkinnedModelWithAvgNormals(CSkinnedModel(
+                   gpSimplePool->GetObj(SObjectTag('CMDL', charInfo.GetIceModelId())),
+                   gpSimplePool->GetObj(SObjectTag('CSKR', charInfo.GetIceSkinRulesId())),
+                   gpSimplePool->GetObj(SObjectTag('CINF', charInfo.GetCharLayoutInfoId())),
+                   CSkinnedModel::kDO_Owned)))
+        .GetObjForTransfer();
   }
-  return CFactoryFnReturn();
+  return rstl::auto_ptr< IObj >();
 }
 
 void CCharacterFactory::CDummyFactory::BuildAsync(const SObjectTag& tag,
                                                   const CVParamTransfer& params, IObj** out) {
-  *out = Build(tag, params).GetObjForTransfer().release();
+  *out = Build(tag, params).release();
 }
 
 void CCharacterFactory::CDummyFactory::CancelBuild(const SObjectTag&) {}

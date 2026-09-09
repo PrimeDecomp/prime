@@ -7,17 +7,18 @@
 
 IObjFactory::~IObjFactory() {}
 
-CFactoryFnReturn CCharacterFactoryBuilder::CDummyFactory::Build(const SObjectTag& tag,
-                                                              const CVParamTransfer& params) {
+rstl::auto_ptr< IObj >
+CCharacterFactoryBuilder::CDummyFactory::Build(const SObjectTag& tag,
+                                               const CVParamTransfer& params) {
   CAssetId id = tag.GetId();
   TToken< CAnimCharacterSet > ancs = gpSimplePool->GetObj(SObjectTag('ANCS', id));
-  return CFactoryFnReturn(CFactoryFnReturn(rs_new CCharacterFactory(*gpSimplePool, **ancs, id)));
+  return CFactoryFnReturn(rs_new CCharacterFactory(*gpSimplePool, **ancs, id)).GetObjForTransfer();
 }
 
 void CCharacterFactoryBuilder::CDummyFactory::BuildAsync(const SObjectTag& tag,
                                                        const CVParamTransfer& params,
                                                        IObj** out) {
-  *out = Build(tag, params).GetObjForTransfer().release();
+  *out = Build(tag, params).release();
 }
 
 void CCharacterFactoryBuilder::CDummyFactory::CancelBuild(const SObjectTag&) {}

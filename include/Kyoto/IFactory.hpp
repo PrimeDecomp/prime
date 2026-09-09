@@ -11,7 +11,7 @@ class IObj;
 class IFactory {
 public:
   virtual ~IFactory() = 0;
-  virtual CFactoryFnReturn Build(const SObjectTag&, const CVParamTransfer&) = 0;
+  virtual rstl::auto_ptr< IObj > Build(const SObjectTag&, const CVParamTransfer&) = 0;
   virtual void BuildAsync(const SObjectTag&, const CVParamTransfer&, IObj**) = 0;
   virtual void CancelBuild(const SObjectTag&) = 0;
   virtual bool CanBuild(const SObjectTag&) = 0;

@@ -276,13 +276,13 @@ bool CMFGame::IsCameraActiveFlow() const {
   return ret;
 }
 
-extern int lbl_805A8908;
+extern int gResFactoryUnknown;
 
 CMFGameLoader::CMFGameLoader()
 : CIOWin(rstl::string_l("CMFGameLoader"))
 , x2c_24_initialized(false)
 , x2c_25_transitionFinished(false) {
-  lbl_805A8908 = 1;
+  gResFactoryUnknown = 1;
   CModel::DisableTextureTimeout();
   if (gpMain->GetRestartMode() == CMain::kRM_Default ||
       gpMain->GetRestartMode() == CMain::kRM_StateSetter) {
@@ -309,7 +309,7 @@ CMFGameLoader::CMFGameLoader()
 
 CMFGameLoader::~CMFGameLoader() {
   CGraphics::SetIsBeginSceneClearFb(true);
-  lbl_805A8908 = 2;
+  gResFactoryUnknown = 2;
 }
 
 void CMFGameLoader::MakeLoadDependancyList() {
