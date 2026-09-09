@@ -44,7 +44,7 @@ public:
   void InterpolateFOV(float start, float fov, float time, float delayTime);
   void UpdatePerspective(float dt);
   int GetControllerNumber() const { return x16c_controllerIdx; }
-  bool DisablesInput() const { return x170_25_disablesInput; }
+  const bool DisablesInput() const { return x170_25_disablesInput; }
   float GetAspectRatio() const { return x168_aspect; }
 
 protected:
