@@ -27,7 +27,7 @@ void CFluidUVMotion::CalculateFluidTextureOffset(float t, float offsets[kFM_NumL
   totalXOffset *= CMath::FastSinR(GetOrientation());
 
   for (int i = 0; i < GetFluidLayers().size(); ++i) {
-    const SFluidLayerMotion& layer = GetFluidLayerMotion(EFluidMotion(i));
+    const SFluidLayerMotion& layer = GetFluidLayerMotion(static_cast< EFluidLayer >(i));
 
     const float speedT = t * layer.x4_ooTimeToWrap;
     const float cycleT = speedT - floorf(speedT);
