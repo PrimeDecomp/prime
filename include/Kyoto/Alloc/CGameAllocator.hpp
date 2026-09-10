@@ -14,7 +14,7 @@ public:
     friend class CGameAllocator;
 
   public:
-    SGameMemInfo(SGameMemInfo* prev, SGameMemInfo* next, SGameMemInfo* nextFree, uint len,
+    SGameMemInfo(SGameMemInfo* prev, SGameMemInfo* next, SGameMemInfo* nextFree, size_t len,
                  const char* fileAndLine, const char* type)
     : x0_priorGuard(0xefefefef)
     , x4_len(len)
@@ -25,7 +25,7 @@ public:
     , x18_nextFree(nextFree)
     , x1c_postGuard(0xeaeaeaea) {}
 
-    SGameMemInfo* GetPrev() { return (SGameMemInfo*)((size_t)x10_prev & ~31); }
+    SGameMemInfo* GetPrev() const { return (SGameMemInfo*)((size_t)x10_prev & ~31); }
     void SetPrev(SGameMemInfo* prev) {
       void* ptr = x10_prev;
       x10_prev = prev;
@@ -37,9 +37,29 @@ public:
       x14_next = next;
       x14_next = (SGameMemInfo*)(((size_t)ptr & 31) | ((size_t)x14_next & ~31));
     }
-    uint GetPrevMaskedFlags();
+    uint GetPrevMaskedFlags() const { return reinterpret_cast< size_t >(x10_prev) & 31; }
+    void SetPrevMaskedFlags(uint flags) {
+      x10_prev =
+          reinterpret_cast< SGameMemInfo* >((reinterpret_cast< size_t >(x10_prev) & ~31) | flags);
+    }
+    void SetAllocated(bool allocated) {
+      if (allocated) {
+        SetPrevMaskedFlags((GetPrevMaskedFlags() & ~1) | 1);
+      } else {
+        x10_prev = reinterpret_cast< SGameMemInfo* >(reinterpret_cast< size_t >(x10_prev) & ~1);
+      }
+    }
     uint GetNextMaskedFlags();
-    void SetTopOfHeapAllocated(bool topOfHeap);
+    void SetTopOfHeapAllocated(bool topOfHeap) {
+      const uint flags = GetPrevMaskedFlags();
+      SGameMemInfo* prev = GetPrev();
+      uint topFlag = 0;
+      if (topOfHeap) {
+        topFlag = 2;
+      }
+      x10_prev = reinterpret_cast< SGameMemInfo* >(reinterpret_cast< size_t >(prev) |
+                                                   (topFlag | (flags & ~2)));
+    }
     size_t GetLength() const { return x4_len; }
     void SetLength(size_t len) { x4_len = len; }
     SGameMemInfo* GetNextFree() const { return (SGameMemInfo*)((size_t)x18_nextFree & ~31); }
@@ -78,7 +98,7 @@ public:
   void* Alloc(size_t size, EHint hint, EScope scope, EType type, const CCallStack& cs) override;
   SGameMemInfo* FindFreeBlock(uint);
   SGameMemInfo* FindFreeBlockFromTopOfHeap(uint);
-  uint FixupAllocPtrs(SGameMemInfo*, uint, uint, EHint, const CCallStack&);
+  uint FixupAllocPtrs(SGameMemInfo*, const uint, uint, EHint, const CCallStack&);
   void UpdateAllocDebugStats(unsigned int, unsigned int, unsigned int);
   bool Free(const void* ptr) override;
   bool FreeNormalAllocation(const void* ptr);

@@ -46,6 +46,9 @@ public:
   uint GetNumBlocksAvailable();
   uint GetNumAllocs();
 
+  static uint GetAllocMemoryRequired(uint numBlocks) { return numBlocks * 32; }
+  static uint GetBookKeepingMemoryRequired(uint numBlocks) { return numBlocks; }
+
   static CMediumAllocPool* gMediumAllocPtr;
 };
 
