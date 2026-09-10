@@ -46,8 +46,12 @@ public:
   void WriteLong(const uint t) { Put(&t, sizeof(uint)); }
 
   void WriteBool(const bool b) {
-    const uchar c = b ? 1 : 0;
-    WriteChar(c);
+    FlushShiftRegister();
+    if (mUnwrittenLen >= mBufLen) {
+      DoFlush();
+    }
+    ++mNumWrites;
+    *(static_cast< uchar* >(mBufPtr) + mUnwrittenLen++) = b ? 1 : 0;
   }
   void WriteChar(const uchar c) {
     FlushShiftRegister();
