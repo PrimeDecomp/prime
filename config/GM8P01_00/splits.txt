@@ -41,7 +41,7 @@ MetroidPrime/CAxisAngle.cpp:
 	.ctors      start:0x803B4F90 end:0x803B4F94
 
 MetroidPrime/CEulerAngles.cpp:
-	.text       start:0x8001C170 end:0x8001C32C
+	.text       start:0x8001BF34 end:0x8001C32C
 	.ctors      start:0x803B4F94 end:0x803B4F98
 
 MetroidPrime/CMatrix3f_Ext.cpp:
@@ -980,6 +980,9 @@ MetroidPrime/Enemies/CGrenadeLauncher.cpp:
 	.text       start:0x8021FE9C end:0x80221D1C
 	.ctors      start:0x803B5068 end:0x803B506C
 
+MetroidPrime/Weapons/CShockWave.cpp:
+	.text       start:0x80221D1C end:0x80222E08
+
 MetroidPrime/Enemies/CRipperControlledPlatform.cpp:
 	.text       start:0x80222E08 end:0x80222E68
 	.data       start:0x803D0C10 end:0x803D0CA0
@@ -1070,6 +1073,9 @@ MetroidPrime/Weapons/CNewFlameThrower.cpp:
 
 MetroidPrime/Cameras/CInterpolationCamera.cpp:
 	.text       start:0x80253D94 end:0x80254880
+
+MetroidPrime/Enemies/CSeedling.cpp:
+	.text       start:0x80254A80 end:0x80255B8C
 
 MetroidPrime/CGameHintInfo.cpp:
 	.text       start:0x80255B8C end:0x80257160
