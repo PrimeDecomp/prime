@@ -4,15 +4,15 @@
 #include "MetroidPrime/CActor.hpp"
 #include "MetroidPrime/CAnimPlaybackParms.hpp"
 
-#include "Kyoto/Math/CVector3f.hpp"
-#include "Kyoto/Math/CRelAngle.hpp"
-#include "Kyoto/Math/CAbsAngle.hpp"
 #include "Kyoto/Animation/CPASAnimParmData.hpp"
 #include "Kyoto/Animation/CPASDatabase.hpp"
+#include "Kyoto/Math/CAbsAngle.hpp"
+#include "Kyoto/Math/CRelAngle.hpp"
+#include "Kyoto/Math/CVector3f.hpp"
 
 #include "math.h"
 
-CBSSlide::CBSSlide() : x4_rotateSpeed(0.0f) {}
+CBSSlide::CBSSlide() : x4_rotateSpeed(0.f) {}
 
 void CBSSlide::Start(CBodyController& bc, CStateManager& mgr) {
   const CBCSlideCmd* cmd = static_cast< const CBCSlideCmd* >(bc.CommandMgr().GetCmd(kBSC_Slide));
@@ -21,9 +21,9 @@ void CBSSlide::Start(CBodyController& bc, CStateManager& mgr) {
   
   const CPASDatabase& pasDb = bc.GetPASDatabase();
   const CPASAnimParmData parms(pas::kAS_Slide, CPASAnimParm::FromEnum(cmd->GetSlideType()),
-                               CPASAnimParm::FromReal32(CMath::Rad2Deg(angle)));
-  const rstl::pair<float, int> best = pasDb.FindBestAnimation(parms, *mgr.Random(), -1);
-  
+                              CPASAnimParm::FromReal32(CMath::Rad2Deg(angle)));
+  const rstl::pair< float, int > best = pasDb.FindBestAnimation(parms, *mgr.Random(), -1);
+
   const CAnimPlaybackParms playParms(best.second, -1, 1.f, true);
   bc.SetCurrentAnimation(playParms, false, false);
   const float timeRem = bc.GetAnimTimeRemaining();
@@ -31,9 +31,12 @@ void CBSSlide::Start(CBodyController& bc, CStateManager& mgr) {
     const CPASAnimState* slideState = pasDb.GetAnimState(pas::kAS_Slide);
 
     CPASAnimParm slideParm = slideState->GetAnimParmData(best.second, 1);
-    const float animAngle = CMath::Deg2Rev(slideParm.GetReal32Value());
+    const float animAngle = CRelAngle::FromDegrees(slideParm.GetReal32Value()).AsRadians();
     const float delta1 = CAbsAngle::FromRadians(angle - animAngle).AsRadians();
-    const float flippedAngle = (delta1 > M_PIF) ? delta1 - M_2PIF : delta1;
+    float flippedAngle = delta1;
+    if (delta1 > M_PIF) {
+      flippedAngle = delta1 - M_2PIF;
+    }
     x4_rotateSpeed = flippedAngle / timeRem;
   } else {
     x4_rotateSpeed = 0.f;
@@ -69,6 +72,7 @@ pas::EAnimationState CBSSlide::GetBodyStateTransition(float dt, CBodyController&
 }
 
 bool CBSSlide::ApplyHeadTracking() const { return false; }
+
 bool CBSSlide::IsMoving() const { return true; }
 
 CBSSlide::~CBSSlide() {}

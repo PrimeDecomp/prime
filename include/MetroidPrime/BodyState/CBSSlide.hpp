@@ -4,12 +4,10 @@
 #include "MetroidPrime/BodyState/CBodyState.hpp"
 
 class CBSSlide : public CBodyState {
-  pas::EAnimationState GetBodyStateTransition(float dt, CBodyController& bc);
-
 public:
   CBSSlide();
-  ~CBSSlide();
-  
+  ~CBSSlide() override;
+
   bool ApplyHeadTracking() const override;
   bool IsMoving() const override;
   void Start(CBodyController& bc, CStateManager& mgr) override;
@@ -18,6 +16,9 @@ public:
 
 private:
   float x4_rotateSpeed;
+
+  pas::EAnimationState GetBodyStateTransition(float dt, CBodyController& bc);
 };
+CHECK_SIZEOF(CBSSlide, 0x8)
 
 #endif // _CBSSLIDE
