@@ -39,6 +39,23 @@ void CRumbleVoice::HardReset() {
   }
 }
 
+inline float CRumbleVoice::EnvelopeLerp(float t, float start, float end) {
+  return start * (1.f - t) + end * t;
+}
+
+inline void CRumbleVoice::UpdateStage(SAdsrDelta::EPhase& phase, float& intensity, float& time,
+                                     float start, float end, float duration,
+                                     SAdsrDelta::EPhase nextPhase, float dt) {
+  if (time < duration) {
+    const float t = time / duration;
+    intensity = EnvelopeLerp(t, start, end);
+    time += dt;
+  } else {
+    intensity = end;
+    phase = nextPhase;
+  }
+}
+
 bool CRumbleVoice::UpdateChannel(SAdsrDelta& delta, const SAdsrData& data, float dt) {
   switch (delta.x20_phase) {
   case SAdsrDelta::kP_PrePulse:
@@ -51,35 +68,17 @@ bool CRumbleVoice::UpdateChannel(SAdsrDelta& delta, const SAdsrData& data, float
     }
     break;
   case SAdsrDelta::kP_Attack:
-    if (delta.x4_attackTime < data.x8_attackDur) {
-      float t = delta.x4_attackTime / data.x8_attackDur;
-      delta.x0_curIntensity = ((1.f - t) * 0.f + delta.x14_attackIntensity) * t;
-      delta.x4_attackTime += dt;
-    } else {
-      delta.x0_curIntensity = delta.x14_attackIntensity;
-      delta.x20_phase = SAdsrDelta::kP_Decay;
-    }
+    UpdateStage(delta.x20_phase, delta.x0_curIntensity, delta.x4_attackTime, 0.f,
+                delta.x14_attackIntensity, data.x8_attackDur, SAdsrDelta::kP_Decay, dt);
     break;
   case SAdsrDelta::kP_Decay:
     if (data.x18_24_hasSustain) {
-      if (delta.x8_decayTime > data.xc_decayDur) {
-        delta.x0_curIntensity = delta.x18_sustainIntensity;
-        delta.x20_phase = SAdsrDelta::kP_Sustain;
-      } else {
-        float t = delta.x8_decayTime / data.xc_decayDur;
-        delta.x0_curIntensity =
-            (1.f - t) * delta.x14_attackIntensity + t * delta.x18_sustainIntensity;
-        delta.x8_decayTime += dt;
-      }
+      UpdateStage(delta.x20_phase, delta.x0_curIntensity, delta.x8_decayTime,
+                  delta.x14_attackIntensity, delta.x18_sustainIntensity, data.xc_decayDur,
+                  SAdsrDelta::kP_Sustain, dt);
     } else {
-      if (delta.x8_decayTime < data.xc_decayDur) {
-        float t = delta.x8_decayTime / data.xc_decayDur;
-        delta.x0_curIntensity = delta.x14_attackIntensity * (1.f - t) + t * 0.f;
-        delta.x8_decayTime += dt;
-      } else {
-        delta.x0_curIntensity = 0.f;
-        delta.x20_phase = SAdsrDelta::kP_Stop;
-      }
+      UpdateStage(delta.x20_phase, delta.x0_curIntensity, delta.x8_decayTime,
+                  delta.x14_attackIntensity, 0.f, data.xc_decayDur, SAdsrDelta::kP_Stop, dt);
       if (delta.x20_phase != SAdsrDelta::kP_Decay) {
         delta.x20_phase = SAdsrDelta::kP_Stop;
         return true;
@@ -88,14 +87,8 @@ bool CRumbleVoice::UpdateChannel(SAdsrDelta& delta, const SAdsrData& data, float
     break;
   case SAdsrDelta::kP_Release: {
     float a = data.x18_24_hasSustain ? delta.x18_sustainIntensity : 0.f;
-    if (delta.xc_releaseTime < data.x14_releaseDur) {
-      float t = delta.xc_releaseTime / data.x14_releaseDur;
-      delta.x0_curIntensity = a * (1.f - t) + t * 0.f;
-      delta.xc_releaseTime += dt;
-    } else {
-      delta.x0_curIntensity = 0.f;
-      delta.x20_phase = SAdsrDelta::kP_Stop;
-    }
+    UpdateStage(delta.x20_phase, delta.x0_curIntensity, delta.xc_releaseTime, a, 0.f,
+                data.x14_releaseDur, SAdsrDelta::kP_Stop, dt);
     if (delta.x20_phase != SAdsrDelta::kP_Release) {
       delta.x20_phase = SAdsrDelta::kP_Stop;
       return true;
@@ -114,6 +107,7 @@ bool CRumbleVoice::UpdateChannel(SAdsrDelta& delta, const SAdsrData& data, float
 
   return false;
 }
+
 bool CRumbleVoice::Update(float dt) {
   if (x2c_usedChannels != 0) {
     for (ushort i = 0; i < 4; ++i) {
