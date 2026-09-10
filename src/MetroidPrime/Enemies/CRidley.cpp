@@ -828,7 +828,7 @@ void CRidley::Render(const CStateManager& mgr) const {
   CPatterned::Render(mgr);
 }
 
-void CRidley::SetStage2Vulnerability(CStateManager& mgr) const {
+void CRidley::SetStage2Vulnerability(CStateManager& mgr) {
   for (uint i = 0; i < x980_tailCollision->GetNumCollisionActors(); ++i) {
     const CJointCollisionDescription& desc = x980_tailCollision->GetCollisionDescFromIndex(i);
     const TUniqueId id = desc.GetCollisionActorId();
@@ -1151,9 +1151,9 @@ void CRidley::Fly(const CVector3f& direction, float speed, float dt) {
   }
 }
 
-void CRidley::FacePlayer(CStateManager& mgr, float dt) const {
-  const CVector3f& playerPos = mgr.GetPlayer()->GetTranslation();
-  x450_bodyController->FaceDirection((playerPos - GetTranslation()).AsNormalized(), dt);
+void CRidley::FacePlayer(CStateManager& mgr, float dt) {
+  x450_bodyController->FaceDirection(
+      (mgr.GetPlayer()->GetTranslation() - GetTranslation()).AsNormalized(), dt);
 }
 
 void CRidley::PushPlayer(CStateManager& mgr) const {
@@ -1866,9 +1866,9 @@ void CRidley::Dodge(CStateManager& mgr, EStateMsg msg, float arg) {
     if (x32c_animState == kAS_Over) {
       const CVector3f delta = GetTranslation() - xa84_.GetTranslation();
       const CVector3f direction = CVector3f(delta.ToVec2f(), 0.f).AsNormalized();
-      const CVector3f center = xa84_.GetTranslation();
-      CVector3f dest = center + xabc_ * direction;
-      dest.SetZ(xac0_ + center.GetZ());
+      CVector3f dest = xabc_ * direction;
+      dest.SetZ(xac0_);
+      dest = xa84_.GetTranslation() + dest;
       CVector3f movement = dest - GetTranslation();
       if (movement.Magnitude() > 1.f) {
         movement.Normalize();
