@@ -3,6 +3,8 @@
 
 #include "types.h"
 
+#include <string.h>
+
 #include "Kyoto/Animation/CCharAnimTime.hpp"
 #include "Kyoto/Animation/CAnimPOIData.hpp"
 #include "Kyoto/Animation/CSteadyStateAnimInfo.hpp"
@@ -51,13 +53,39 @@ private:
 };
 CHECK_SIZEOF(CStandardMultiFormatHeader, 0x24)
 
+// Channel records have no padding; their scalar fields may start at any byte.
 template < typename T >
 class TLoadedVal {
 public:
-  const T& operator*() const { return x0_value; }
+  TLoadedVal() {}
+  TLoadedVal(T value) { Write(x0_value, value); }
+
+#ifdef __MWERKS__
+  const T& operator*() const { return *reinterpret_cast< const T* >(x0_value); }
+#else
+  T operator*() const { return Read(x0_value); }
+#endif
+
+  static T Read(const void* data) {
+#ifdef __MWERKS__
+    return *static_cast< const T* >(data);
+#else
+    T value;
+    memcpy(&value, data, sizeof(value));
+    return value;
+#endif
+  }
+
+  static void Write(void* data, T value) {
+#ifdef __MWERKS__
+    *static_cast< T* >(data) = value;
+#else
+    memcpy(data, &value, sizeof(value));
+#endif
+  }
 
 private:
-  T x0_value;
+  uchar x0_value[sizeof(T)];
 };
 
 // These headers are constructed directly in a buffer. Their variable-length
@@ -67,7 +95,7 @@ class CFBBitCompressedDataChannelHeader {
 public:
   CFBBitCompressedDataChannelHeader(CInputStream& in) {
     ushort width = in.Get< ushort >();
-    *reinterpret_cast< ushort* >(this) = width;
+    TLoadedVal< ushort >::Write(this, width);
     uchar* data = reinterpret_cast< uchar* >(this) + sizeof(ushort);
     if (width != 0) {
       for (uint i = 0; i < Components; ++i) {
@@ -80,7 +108,7 @@ public:
     }
   }
 
-  static void Write(uchar* out, short value) { *reinterpret_cast< short* >(out) = value; }
+  static void Write(uchar* out, short value) { TLoadedVal< short >::Write(out, value); }
   const TLoadedVal< ushort >& Width() const { return x0_width; }
   uint GetWidth() const { return *Width(); }
   static uint Height() { return Components; }
@@ -92,8 +120,8 @@ public:
     if (SignComponent < Components) {
       --index;
     }
-    return *reinterpret_cast< const short* >(reinterpret_cast< const uchar* >(this) +
-                                            sizeof(ushort) + index * 3);
+    return TLoadedVal< short >::Read(reinterpret_cast< const uchar* >(this) +
+                                    sizeof(ushort) + index * 3);
   }
   uint GetBitCount(uint component) const {
     uint index = component;
@@ -139,7 +167,7 @@ public:
     new (const_cast< RotationHeader* >(&GetRotationBitStorage())) RotationHeader(in);
     new (const_cast< OffsetHeader* >(&GetOffsetBitStorage())) OffsetHeader(in);
   }
-  CSegId GetSegId() const { return CSegId(x0_segId); }
+  CSegId GetSegId() const { return CSegId(*x0_segId); }
   const RotationHeader& GetRotationBitStorage() const {
     return *reinterpret_cast< const RotationHeader* >(this + 1);
   }
@@ -154,7 +182,7 @@ public:
   }
 
 private:
-  uint x0_segId;
+  TLoadedVal< uint > x0_segId;
 };
 CHECK_SIZEOF(CFBStreamedPerChannelHeader, 0x4)
 
