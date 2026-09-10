@@ -198,14 +198,11 @@ void SMediumAllocPuddle::Free(const void* ptr) {
   }
 
   if (block > bookKeepingStart && block[-1] & 0x80) {
-    ushort previousCount;
-    if (!(block[-1] & 0x60)) {
-      previousCount = (block[-2] + (block[-1] & 0x7f) * 256);
-    } else if ((block[-1] & 0x60) == 0x60ul) {
-      previousCount = 3;
-    } else {
-      previousCount = (block[-1] & 0x60) == 0x40 ? 2 : 1;
-    }
+    const ushort previousCount =
+        !(block[-1] & 0x60)
+            ? static_cast< ushort >(block[-2] + (block[-1] & 0x7f) * 256)
+            : static_cast< ushort >(
+                  (block[-1] & 0x60) == 0x60ul ? 3 : ((block[-1] & 0x60) == 0x40 ? 2 : 1));
 
     bookKeepingPtr -= previousCount;
     mergedCount = static_cast< ushort >(mergedCount + previousCount);
