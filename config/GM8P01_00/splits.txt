@@ -478,8 +478,11 @@ MetroidPrime/Cameras/CPathCamera.cpp:
 	.text       start:0x80124D8C end:0x80125CC0
 	.ctors      start:0x803B4FFC end:0x803B5000
 
+MetroidPrime/CFluidPlane.cpp:
+	.text       start:0x80125CC0 end:0x801263CC
+
 MetroidPrime/CFluidPlaneManager.cpp:
-	.text       start:0x80125CC4 end:0x80126ACC
+	.text       start:0x801263CC end:0x80126ACC
 
 MetroidPrime/ScriptObjects/CScriptGrapplePoint.cpp:
 	.text       start:0x80126ACC end:0x80126C40
