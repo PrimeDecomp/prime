@@ -75,11 +75,6 @@
 #include "rstl/math.hpp"
 #include "rstl/vector.hpp"
 
-#if NONMATCHING
-float CPlayer::skDefaultHudFadeOutSpeed = 0.5f;
-float CPlayer::skDefaultHudFadeInSpeed = 2.5f;
-#endif
-
 const bool gkAutoAim = false;
 const bool gkAutoAimAtOrbitedObject = false;
 const bool gkFreeLookPreventsOrbitMovement = true;
@@ -211,6 +206,9 @@ static const ushort skRightStepSounds[24] = {
 };
 
 static const char* const kGunLocator = "GUN_LCTR";
+
+const float CPlayer::skDefaultHudFadeOutSpeed = 0.5f;
+const float CPlayer::skDefaultHudFadeInSpeed = 2.5f;
 
 static bool gUseSurfaceHack;
 static CPlayer::ESurfaceRestraints gSR_Hack;

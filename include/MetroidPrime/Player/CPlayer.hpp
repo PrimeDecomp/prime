@@ -234,8 +234,8 @@ public:
   const CVector3f& GetLeaveMorphDirection() const { return x518_leaveMorphDir; }
   EPlayerMorphBallState GetMorphballTransitionState() const { return x2f8_morphBallState; }
 
-  static float skDefaultHudFadeOutSpeed;
-  static float skDefaultHudFadeInSpeed;
+  static const float skDefaultHudFadeOutSpeed;
+  static const float skDefaultHudFadeInSpeed;
   void SetHudDisable(float staticTimer, float outSpeed = skDefaultHudFadeOutSpeed,
                      float inSpeed = skDefaultHudFadeInSpeed);
 
