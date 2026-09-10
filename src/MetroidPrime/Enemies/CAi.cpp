@@ -1,12 +1,16 @@
 #include "MetroidPrime/Enemies/CAi.hpp"
 #include "Collision/CMaterialList.hpp"
+#include "Kyoto/Math/CMath.hpp"
 #include "MetroidPrime/CActorLights.hpp"
 #include "MetroidPrime/CDamageVulnerability.hpp"
 #include "MetroidPrime/CEntityInfo.hpp"
+#include "MetroidPrime/CFluidPlaneCPU.hpp"
 #include "MetroidPrime/CPhysicsActor.hpp"
 #include "MetroidPrime/CSimpleShadow.hpp"
+#include "MetroidPrime/CStateManager.hpp"
 #include "MetroidPrime/Enemies/CAiFuncMap.hpp"
 #include "MetroidPrime/Enemies/CStateMachine.hpp"
+#include "MetroidPrime/ScriptObjects/CScriptWater.hpp"
 
 #include <Kyoto/CSimplePool.hpp>
 #include <Kyoto/SObjectTag.hpp>
@@ -15,6 +19,8 @@
 #include <string.h>
 
 namespace {
+const float kMaxSplashEnergy = 30000.f;
+
 struct cstr_less {
   bool operator()(const char* a, const char* b) const { return strcmp(a, b) < 0; }
 };
@@ -226,7 +232,7 @@ CAiFuncMap::CAiFuncMap() {
   CAi::CreateFuncLookup(this);
 }
 
-const CAiStateFunc CAiFuncMap::GetStateFunc(const char* state) const {
+const CAiStateFunc CAiFuncMap::GetStateFunc(const char* const state) const {
   CAiStateFunc func = nullptr;
   rstl::vector< rstl::pair< const char*, CAiStateFunc > >::const_iterator it =
       rstl::find_by_key(x0_states, state, cstr_less());
@@ -285,7 +291,42 @@ void CAi::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId other, CStateManag
   }
 }
 
-void CAi::FluidFXThink(EFluidState state, CScriptWater& water, CStateManager& mgr) {}
+void CAi::FluidFXThink(EFluidState state, CScriptWater& water, CStateManager& mgr) {
+  switch (state) {
+  case kFS_EnteredFluid:
+  case kFS_LeftFluid: {
+    const float dt = mgr.FluidPlaneManager()->GetLastSplashDeltaTime(GetUniqueId());
+    if (dt >= 0.2f) {
+      const float energy = 0.5f * GetMass() * GetVelocityWR().MagSquared();
+      if (energy > 500.f) {
+        const float intensity =
+            0.1f + 0.4f * (CMath::Min(energy, kMaxSplashEnergy) - 500.f) / 29500.f;
+        const float surfaceZ = water.GetSurfaceZ();
+        const CVector3f& translation = GetTranslation();
+        CVector3f pos(translation.GetX(), translation.GetY(), surfaceZ);
+        mgr.FluidPlaneManager()->CreateSplash(GetUniqueId(), mgr, water, pos, intensity, true);
+      }
+    }
+  }
+  // Fall through: entering and leaving also create ripples.
+  case kFS_InFluid: {
+    const float dt = mgr.FluidPlaneManager()->GetLastRippleDeltaTime(GetUniqueId());
+    if (dt >= (HealthInfo(mgr)->GetHP() > 0.f ? 0.2f : 0.7f)) {
+      const float surfaceZ = water.GetSurfaceZ();
+      const CVector3f& translation = GetTranslation();
+      CVector3f center(translation.GetX(), translation.GetY(), surfaceZ);
+      const CPlane& surface = water.GetWRSurfacePlane();
+      const float mass = GetMass();
+      water.FluidPlane().AddRipple(mass, GetUniqueId(), center, GetVelocityWR(), water, mgr,
+                                   surface.GetNormal());
+    }
+    break;
+  }
+  default:
+    break;
+  }
+}
+
 void CAi::CreateFuncLookup(CAiFuncMap* map) { mFuncMap = map; }
 
 const CAiStateFunc CAi::GetStateFunc(const char* state) { return mFuncMap->GetStateFunc(state); }
