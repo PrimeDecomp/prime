@@ -16,7 +16,7 @@ public:
   void Rmv(int bit) { mBits[bit / 32] &= ~(1 << (bit & 31)); }
 
 private:
-  int mBits[16];
+  uint mBits[16];
 };
 CHECK_SIZEOF(CPFBitSet, 0x40)
 

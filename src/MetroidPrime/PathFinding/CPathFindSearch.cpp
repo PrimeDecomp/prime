@@ -22,7 +22,10 @@ CPathFindSearch::CPathFindSearch(CPFArea* area, uint flags, uint index, float ch
 
 CPathFindSearch::EResult CPathFindSearch::Search(const CVector3f& source,
                                                  const CVector3f& destination) {
+  int i;
+  int j;
   bool outsideSource = false;
+  bool includeDest;
   bool outsideDest = false;
   x4_waypoints.clear();
   xc8_curWaypoint = 0;
@@ -83,8 +86,8 @@ CPathFindSearch::EResult CPathFindSearch::Search(const CVector3f& source,
   rstl::reserved_vector< CPFRegion*, 4 > uniqueSources;
   rstl::reserved_vector< CPFRegion*, 4 > uniqueDests;
   bool noPath = true;
-  for (int i = 0; i < sourceRegions.size(); ++i) {
-    for (int j = 0; j < destRegions.size(); ++j) {
+  for (i = 0; i < sourceRegions.size(); ++i) {
+    for (j = 0; j < destRegions.size(); ++j) {
       if (sourceRegions[i] == destRegions[j]) {
         if (!(xdc_flags & 2) && !(xdc_flags & 4)) {
           destRegions[j]->DropToGround(localSource);
@@ -141,15 +144,16 @@ CPathFindSearch::EResult CPathFindSearch::Search(const CVector3f& source,
     ++numLinks;
   } while (region != sourceRegion);
 
-  bool includeDest = true;
-  int lastPoint = numLinks - 1;
+  includeDest = true;
   int firstPoint = (outsideSource ? 1 : 0) + 1;
+  int lastPoint = numLinks - 1;
   lastPoint += firstPoint;
   if (lastPoint >= points.capacity()) {
     lastPoint = points.capacity() - 1;
   }
   int outsidePoints = outsideDest ? 1 : 0;
-  int pointCount = lastPoint + outsidePoints;
+  int pointCount = lastPoint;
+  pointCount += outsidePoints;
   if (pointCount + 1 >= points.capacity()) {
     includeDest = false;
   }
@@ -161,14 +165,15 @@ CPathFindSearch::EResult CPathFindSearch::Search(const CVector3f& source,
   float halfHeight = 0.5f * xd0_chHeight;
   points.push_back(localSource);
   region = sourceRegion;
-  for (int i = firstPoint; i <= lastPoint; ++i) {
+  for (j = firstPoint; j <= lastPoint; ++j) {
     const CPFLink* link = region->GetPathLink();
     CPFRegion* linkRegion = &x0_area->GetRegion(link->GetRegion());
     CVector3f midpoint = region->GetLinkMidPoint(*link);
     if (xdc_flags & 2 || xdc_flags & 4) {
-      midpoint[kDZ] = CMath::Clamp(halfHeight + midpoint[kDZ], destination[kDZ],
-                                   CMath::Min(region->GetHeight(), linkRegion->GetHeight()) +
-                                       midpoint[kDZ] - halfHeight);
+      float height = CMath::Min(region->GetHeight(), linkRegion->GetHeight());
+      float lower = halfHeight + midpoint[kDZ];
+      float upper = height + midpoint[kDZ] - halfHeight;
+      midpoint[kDZ] = CMath::Clamp(lower, destination[kDZ], upper);
     }
     points.push_back(midpoint);
     region = linkRegion;
@@ -182,7 +187,7 @@ CPathFindSearch::EResult CPathFindSearch::Search(const CVector3f& source,
 
   for (int i = 0; i < 2; ++i) {
     region = sourceRegion;
-    for (int j = firstPoint; j <= (includeDest ? lastPoint : lastPoint - 1); ++j) {
+    for (j = firstPoint; j <= (includeDest ? lastPoint : lastPoint - 1); ++j) {
       const CPFLink* link = region->GetPathLink();
       CPFRegion* linkRegion = &x0_area->GetRegion(link->GetRegion());
       if (xdc_flags & 2 || xdc_flags & 4) {
@@ -230,15 +235,16 @@ bool CPathFindSearch::Search(rstl::reserved_vector< CPFRegion*, 4 >& sourceRegio
     openList.Push(region);
   }
 
+  int i;
   CPFRegion* region;
   while ((region = openList.Pop()) != nullptr) {
-    for (int i = 0; i < destRegions.size(); ++i) {
-      if (region == destRegions[i]) {
+    for (i = 0; i < destRegions.size(); ++i) {
+      if (destRegions[i] == region) {
         goto found;
       }
     }
     closedSet.Add(region->GetIndex());
-    for (int i = 0; i < region->GetNumLinks(); ++i) {
+    for (i = 0; i < region->GetNumLinks(); ++i) {
       CPFRegion* linkRegion = &x0_area->GetRegion(region->GetLink(i)->GetRegion());
       if (linkRegion != region->Data()->GetParent() &&
           (linkRegion->GetFlags() & 0xff & xdc_flags) &&
