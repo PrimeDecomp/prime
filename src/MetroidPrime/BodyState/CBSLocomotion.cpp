@@ -16,7 +16,6 @@
 static float skMaxPitchAngle = CRelAngle::FromDegrees(10.f).AsRadians();
 
 const float CBSBiPedLocomotion::skMinWalkPercent = 0.5f;
-static int sCBSLocomotion_DefaultAnimId = 0;
 static int skInvalidAnimId = -1;
 
 bool CBSFlyerLocomotion::IsPitchable() const { return x3cc_pitchable; }
@@ -200,8 +199,8 @@ pas::EAnimationState CBSLocomotion::GetBodyStateTransition(float dt, CBodyContro
 }
 
 CBSBiPedLocomotion::CBSBiPedLocomotion(CActor& actor)
-: x8_anims(rstl::reserved_vector< rstl::pair< int, float >, 8 >(
-      rstl::pair< int, float >(sCBSLocomotion_DefaultAnimId, 0.f)))
+: x8_anims(14, rstl::reserved_vector< rstl::pair< int, float >, 8 >(
+                   8, rstl::pair< int, float >(0, 0.f)))
 , x3c4_anim(pas::kLA_Invalid) {
   const CPASDatabase& pasDatabase = actor.GetAnimationData()->GetCharacterInfo().GetPASDatabase();
   for (int i = 0; i < 14; ++i) {
@@ -214,7 +213,8 @@ CBSBiPedLocomotion::CBSBiPedLocomotion(CActor& actor)
         avgVel = actor.GetAverageAnimVelocity(best.second);
         avgVel = j != 0 ? avgVel : 0.f;
       }
-      x8_anims[i][j] = rstl::pair< int, float >(best.second, avgVel);
+      x8_anims[static_cast< pas::ELocomotionType >(i)][static_cast< pas::ELocomotionAnim >(j)] =
+          rstl::pair< int, float >(best.second, avgVel);
     }
   }
 }
@@ -374,13 +374,14 @@ float CBSBiPedLocomotion::UpdateRun(float vel, CBodyController& bc, pas::ELocomo
 }
 
 CBSRestrictedLocomotion::CBSRestrictedLocomotion(CActor& actor)
-: x8_anims(skInvalidAnimId), x44_anim(pas::kLA_Invalid) {
+: x8_anims(14, skInvalidAnimId)
+, x44_anim(pas::kLA_Invalid) {
   const CPASDatabase& pasDatabase = actor.GetAnimationData()->GetCharacterInfo().GetPASDatabase();
   for (int i = 0; i < 14; ++i) {
     CPASAnimParmData parms(pas::kAS_Locomotion, CPASAnimParm::FromEnum(0),
                            CPASAnimParm::FromEnum(i));
     rstl::pair< float, int > best = pasDatabase.FindBestAnimation(parms, -1);
-    x8_anims[i] = best.second;
+    x8_anims[static_cast< pas::ELocomotionType >(i)] = best.second;
   }
 }
 
