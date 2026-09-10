@@ -902,7 +902,7 @@ void CGameCollision::MoveAndCollide(CStateManager& mgr, CPhysicsActor& actor, fl
         if (backfacedList.GetCount() > 0) {
           filter.Filter(backfacedList, filteredList);
           if (filteredList.GetCount() == 0 && actor.GetMaterialList().HasMaterial(kMT_Player)) {
-            const CMotionState& lastState = actor.GetLastNonCollidingState();
+            const CMotionState& lastState = CMotionState(actor.GetLastNonCollidingState());
             actor.SetMotionState(CMotionState(
                 lastState.GetTranslation(), lastState.GetOrientation(),
                 lastState.GetVelocity() * 0.5f, lastState.GetAngularMomentum() * 0.5f));
@@ -978,7 +978,7 @@ void CGameCollision::CollisionFailsafe(const CStateManager& mgr, CAreaCollisionC
     }
 
     const CMotionState& oldState = actor.GetMotionState();
-    const CMotionState& lastState = actor.GetLastNonCollidingState();
+    const CMotionState& lastState = CMotionState(actor.GetLastNonCollidingState());
     actor.SetMotionState(CMotionState(lastState));
 
     if (!DetectCollisionBoolean_Cached(mgr, cache, prim, actor.GetPrimitiveTransform(),

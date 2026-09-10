@@ -151,7 +151,7 @@ public:
   void SetAngularImpulseWR(const CAxisAngle& angularImpulse) {
     x180_angularImpulse = angularImpulse;
   }
-  CMotionState GetLastNonCollidingState() const { return x1f4_lastNonCollidingState; }
+  const CMotionState& GetLastNonCollidingState() const { return x1f4_lastNonCollidingState; }
   void SetLastNonCollidingState(const CMotionState& state) { x1f4_lastNonCollidingState = state; }
   const rstl::optional_object< CVector3f >& GetLastFloorPlaneNormal() const {
     return x228_lastFloorPlaneNormal;

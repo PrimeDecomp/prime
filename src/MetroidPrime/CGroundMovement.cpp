@@ -296,7 +296,7 @@ bool CGroundMovement::MoveGroundColliderXY(CAreaCollisionCache& cache, CStateMan
         CAABoxFilter::FilterBoxFloorCollisions(backfaceFilteredList, floorFilteredList);
         CGameCollision::MakeCollisionCallbacks(mgr, actor, otherId, floorFilteredList);
         if (floorFilteredList.GetCount() == 0 && isPlayer) {
-          const CMotionState& lastState = actor.GetLastNonCollidingState();
+          const CMotionState& lastState = CMotionState(actor.GetLastNonCollidingState());
           actor.SetMotionState(CMotionState(lastState.GetTranslation(), lastState.GetOrientation(),
                                             0.5f * lastState.GetVelocity(),
                                             lastState.GetAngularMomentum() * 0.5f));
