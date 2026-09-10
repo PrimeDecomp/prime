@@ -95,7 +95,7 @@ static const float skRadii[] = {0.45f, 0.52f, 0.35f, 0.1f,  0.15f, 0.35f, 0.1f, 
                                 0.15f, 0.15f, 0.15f, 0.15f, 0.15f, 0.15f, 0.35f};
 
 CFlyingPirateRagDoll::CFlyingPirateRagDoll(CStateManager& mgr, CFlyingPirate* actor,
-                                           ushort impactSfx, ushort spinSfx)
+                                         const ushort impactSfx, const ushort spinSfx)
 : CRagDoll(-actor->GetGravityConstant(), -actor->GetFloatingGravityConstant(), 8.f, 0)
 , x6c_actor(actor)
 , x70_(0.f)
@@ -208,7 +208,8 @@ void CFlyingPirateRagDoll::Update(CStateManager& mgr, float dt, float waterTop) 
       } else {
         x4_particles[14].Velocity() += 11.f * force;
       }
-      const CVector3f counterForce = -4.f * force;
+      CVector3f counterForce = force;
+      counterForce *= -4.f;
       x4_particles[4].Velocity() += -force;
       x4_particles[7].Velocity() += -force;
       x4_particles[10].Velocity() += counterForce;
@@ -257,7 +258,7 @@ void CFlyingPirateRagDoll::Update(CStateManager& mgr, float dt, float waterTop) 
     if (impactVel > 2.f && x8c_impactTimer < 0.f) {
       const CVector3f delta = x6c_actor->GetTranslation() - x90_lastImpactPos;
       if (xb0_24_firstImpact || delta.MagSquared() > 0.1f) {
-        const float volume = CMath::Min(10.f * impactVel, 127.f);
+        float volume = CMath::Min(10.f * impactVel, 127.f);
         CSfxManager::AddEmitter(x88_impactSfx, x6c_actor->GetTranslation(), CVector3f::Zero(),
                                 CCast::ToUint8(volume), true, false);
         x8c_impactTimer = 0.222f * mgr.Random()->Float() + 0.222f;
@@ -535,10 +536,12 @@ void CFlyingPirate::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CSt
         verticalVelocity += root;
         const float time = verticalVelocity / gravity;
         if (time > 0.f) {
-          const CVector2f& normal = CVector2f(delta.ToVec2f().AsNormalized());
+          const CVector2f normal(delta.ToVec2f().AsNormalized());
+          const float& normalX = normal[0];
+          const float& normalY = normal[1];
           const float speed = delta.ToVec2f().Magnitude() / time;
-          velocity.SetX(speed * normal[0]);
-          velocity.SetY(speed * normal[1]);
+          velocity.SetX(speed * normalX);
+          velocity.SetY(speed * normalY);
           SetVelocityWR(velocity);
           x870_ = CVector3f::Zero();
           x87c_ = CVector3f::Zero();
@@ -591,7 +594,7 @@ void CFlyingPirate::UpdateLandingSmoke(CStateManager& mgr, bool active) {
         particleLevel = cover->GetTranslation().GetZ() - 1.f;
       }
       const CRayCastResult result = mgr.RayStaticIntersection(
-          GetTranslation(), CVector3f::Down(), GetTranslation().GetZ() - particleLevel,
+          GetTranslation(), CVector3f::Down(), GetTranslation()[kDZ] - particleLevel,
           CMaterialFilter::MakeInclude(CMaterialList(kMT_Solid)));
       int index = 1;
       if (result.IsValid()) {
@@ -793,7 +796,7 @@ pas::EStepDirection CFlyingPirate::GetDodgeDirection(CStateManager& mgr, float a
   }
   if (canDodgeUp && canDodgeDown) {
     const float height = x568_data.x8c_flyingHeight;
-    if (GetTargetPos(mgr).GetZ() - (height + GetTranslation()[kDZ]) > 0.f) {
+    if (GetTargetPos(mgr).GetZ() - (GetTranslation()[kDZ] - -height) > 0.f) {
       canDodgeDown = false;
     } else {
       canDodgeUp = false;
@@ -1538,7 +1541,7 @@ bool CFlyingPirate::ShouldMove(CStateManager& mgr, float arg) {
   }
   CVector3f cross = CVector3f::Cross(delta, CVector3f::Up()).AsNormalized();
   CVector3f dest = GetTranslation() + random * cross;
-  dest.SetZ(x568_data.x8c_flyingHeight + mgr.GetPlayer()->GetTranslation().GetZ());
+  dest.SetZ(mgr.GetPlayer()->GetTranslation().GetZ() - -x568_data.x8c_flyingHeight);
   SetDestPos(dest);
   x6a1_29_isMoving = true;
   return true;
