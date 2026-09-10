@@ -129,19 +129,19 @@ static inline void draw_door_surface(const CColor& firstColor, const CColor& sec
 
   CGX::SetTevKColor(GX_KCOLOR0, firstColor.GetGXColor());
   CGX::Begin(GX_TRIANGLESTRIP, GX_VTXFMT0, 4);
-  RSPosition1x8(drawData.xc_idxA);
-  RSPosition1x8(drawData.xd_idxB);
-  RSPosition1x8(drawData.xe_idxC);
-  RSPosition1x8(drawData.xf_idxD);
+  GXPosition1x8(drawData.xc_idxA);
+  GXPosition1x8(drawData.xd_idxB);
+  GXPosition1x8(drawData.xe_idxC);
+  GXPosition1x8(drawData.xf_idxD);
   CGX::End();
 
   CGX::SetTevKColor(GX_KCOLOR0, secondColor.GetGXColor());
   CGX::Begin(GX_LINESTRIP, GX_VTXFMT0, 5);
-  RSPosition1x8(drawData.xc_idxA);
-  RSPosition1x8(drawData.xd_idxB);
-  RSPosition1x8(drawData.xf_idxD);
-  RSPosition1x8(drawData.xe_idxC);
-  RSPosition1x8(drawData.xc_idxA);
+  GXPosition1x8(drawData.xc_idxA);
+  GXPosition1x8(drawData.xd_idxB);
+  GXPosition1x8(drawData.xf_idxD);
+  GXPosition1x8(drawData.xe_idxC);
+  GXPosition1x8(drawData.xc_idxA);
   CGX::End();
 }
 

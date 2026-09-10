@@ -247,10 +247,10 @@ void CAuiImagePane::DoDrawImagePane(CColor color, const CTexture& texture, int f
     CGX::SetTexCoordGen(GX_TEXCOORD1, GX_TG_MTX2x4, GX_TG_TEX0, GX_IDENTITY, false, GX_PTIDENTITY);
     CGX::Begin(GX_TRIANGLESTRIP, GX_VTXFMT0, 4);
     for (int i = 0; i < 4; ++i) {
-      const CVector2f uv = uvs[i] + xd0_uvBias0;
+      CVector2f uv = uvs[i] + xd0_uvBias0;
       const CVector3f& pos = xe0_coords[i];
       GXPosition3f32(pos.GetX(), pos.GetY(), pos.GetZ());
-      RSTexCoord2f32(uv.GetX(), uv.GetY());
+      GXTexCoord2f32(uv[0], uv[1]);
     }
     CGX::End();
   }
