@@ -780,7 +780,13 @@ config.libs = [
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CModelData.cpp"
             ),
-            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CDecalManager.cpp"),
+            Object(
+                MatchingFor("GM8E01_00", "GM8E01_01"),
+                "MetroidPrime/CDecalManager.cpp",
+                extra_cflags=['-pragma "inline_max_size(125)"']
+                if version_num >= VERSIONS.index("GM8P01_00")
+                else [],
+            ),
             Object(
                 MatchingFor("GM8E01_00"), "MetroidPrime/ScriptObjects/CScriptSpiderBallWaypoint.cpp"
             ),

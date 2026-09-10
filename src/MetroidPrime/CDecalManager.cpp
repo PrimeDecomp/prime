@@ -79,13 +79,13 @@ void CDecalManager::AddDecal(const TToken< CDecalDescription >& desc, const CTra
 
 rstl::reserved_vector< int, 64 >::iterator
 CDecalManager::RemoveFromActiveList(rstl::reserved_vector< int, 64 >::iterator it, int idx) {
-  it = mActiveIndexList.erase(it);
+  AUTO(next, mActiveIndexList.erase(it));
   mDecalPool[idx].mNextFreeIndex = mFreeIndex;
   mFreeIndex = idx;
   if (mLastDecalCreatedIndex == mFreeIndex) {
     mLastDecalCreatedIndex = -1;
   }
-  return it;
+  return next;
 }
 
 void CDecalManager::Update(float dt, CStateManager& mgr) {
