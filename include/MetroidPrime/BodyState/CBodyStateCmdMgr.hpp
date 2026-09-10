@@ -343,17 +343,23 @@ private:
 class CBCCoverCmd : public CBodyStateCmd {
 public:
   CBCCoverCmd(pas::ECoverDirection dir, const CVector3f& v1, const CVector3f& v2)
-  : CBodyStateCmd(kBSC_Cover), x8_dir(dir), xc_targetPos(v1), x18_alignDir(v2) {}
+  : CBodyStateCmd(kBSC_Cover)
+  , x8_dir(dir)
+  , xc_targetPos(v1)
+  , x18_alignDir(v2) {}
 
   pas::ECoverDirection GetDirection() const { return x8_dir; }
   const CVector3f& GetTarget() const { return xc_targetPos; }
-  const CVector3f& GetAlignDirection() const { return x18_alignDir; }
+  const CUnitVector3f GetAlignDirection() const {
+    return CUnitVector3f(x18_alignDir, CUnitVector3f::kN_No);
+  }
 
 private:
   pas::ECoverDirection x8_dir;
   CVector3f xc_targetPos;
   CVector3f x18_alignDir;
 };
+CHECK_SIZEOF(CBCCoverCmd, 0x24)
 
 //
 
