@@ -2679,7 +2679,7 @@ void CMorphBall::AddSpiderBallElectricalEffect() {
 
     x19e4_spiderElectricGens[i].second = true;
     x1b68_activeSpiderElectricList.push_back(
-        CSpiderBallElectricityManager(i, x1b80_rand.Range(4, 8)));
+        CSpiderBallElectrictyManager(i, x1b80_rand.Range(4, 8)));
 
     CParticleSwoosh* swoosh = x19e4_spiderElectricGens[i].first.get();
     const float sign = (x1b80_rand.Next() & 0x100) < 0x80 ? -1.f : 1.f;
@@ -2718,13 +2718,13 @@ void CMorphBall::AddSpiderBallElectricalEffect() {
 }
 
 void CMorphBall::UpdateSpiderBallElectricalEffects() {
-  rstl::list< CSpiderBallElectricityManager >::iterator it = x1b68_activeSpiderElectricList.begin();
+  rstl::list< CSpiderBallElectrictyManager >::iterator it = x1b68_activeSpiderElectricList.begin();
   CTransform4f orientation = GetBallToWorld();
   const CVector3f translation = orientation.GetTranslation();
   orientation.SetTranslation(CVector3f::Zero());
 
   while (it != x1b68_activeSpiderElectricList.end()) {
-    CSpiderBallElectricityManager& effect = *it;
+    CSpiderBallElectrictyManager& effect = *it;
     if (effect.x8_curFrame >= effect.x4_lifetime) {
       x19e4_spiderElectricGens[effect.x0_effectIdx].second = false;
       it = x1b68_activeSpiderElectricList.erase(it);
@@ -2742,10 +2742,10 @@ void CMorphBall::UpdateSpiderBallElectricalEffects() {
 }
 
 void CMorphBall::RenderSpiderBallElectricalEffects() const {
-  for (rstl::list< CSpiderBallElectricityManager >::const_iterator it =
+  for (rstl::list< CSpiderBallElectrictyManager >::const_iterator it =
            x1b68_activeSpiderElectricList.begin();
        it != x1b68_activeSpiderElectricList.end(); ++it) {
-    const CSpiderBallElectricityManager& effect = *it;
+    const CSpiderBallElectrictyManager& effect = *it;
     x19e4_spiderElectricGens[effect.x0_effectIdx].first->Render();
   }
 }
