@@ -38,6 +38,12 @@ CSamusFaceReflection::CSamusFaceReflection(const CStateManager& mgr)
   x0_modelData.AnimationData()->SetAnimation(parms, false);
 }
 
+static inline float FaceLookBlend(float dt, float lookDot, float freeLookSpeed) {
+  const float lookAng = acosf(CMath::Limit(lookDot, 1.f));
+  const float f = lookAng > 0.f ? freeLookSpeed / lookAng : 0.f;
+  return CMath::Clamp(0.f, dt * 18.f * f, 1.f);
+}
+
 void CSamusFaceReflection::Update(float dt, const CStateManager& mgr, CRandom16& rand) {
   if (const CFirstPersonCamera* const fpCam =
           TCastToConstPtr< CFirstPersonCamera >(mgr.GetCameraManager()->GetCurrentCamera(mgr))) {
@@ -70,13 +76,9 @@ void CSamusFaceReflection::Update(float dt, const CStateManager& mgr, CRandom16&
 
     const CVector3f lookCenter = xfLook2.BuildTransform().GetColumn(1);
     const CVector3f lookRotCenter = x50_lookRot.BuildTransform().GetColumn(1);
-    const float freeLookSpeed = dt * gpTweakPlayer->GetFreeLookSpeed() * 0.5f;
-    float lookDot = CVector3f::Dot(lookRotCenter, lookCenter);
-    float lookAng = acosf(CMath::Limit(lookDot, 1.f));
-
-    float f = lookAng > 0.0f ? freeLookSpeed / lookAng : 0.0f;
-    xfLook2 =
-        CQuaternion::SlerpLocal(x50_lookRot, xfLook2, CMath::Clamp(0.0f, dt * 18.0f * f, 1.0f));
+    const float blend = FaceLookBlend(dt, CVector3f::Dot(lookRotCenter, lookCenter),
+                                     dt * gpTweakPlayer->GetFreeLookSpeed() * 0.5f);
+    xfLook2 = CQuaternion::SlerpLocal(x50_lookRot, xfLook2, blend);
     x50_lookRot = xfLook2;
     x60_lookDir = lookDir;
   }
