@@ -25,8 +25,6 @@
 #include "MetroidPrime/ScriptObjects/CScriptWaypoint.hpp"
 #include "MetroidPrime/TCastTo.hpp"
 
-#pragma inline_max_size(250)
-
 static const SSphereJointInfo skIceJoints[] = {{"Ice_LCTR", 0.4f}};
 float CParasite::skAttackTime = 2.f * CMath::SqrtF(2.5f / CPhysicsActor::GravityConstant());
 float CParasite::skAttackVelocity = 15.f / skAttackTime;

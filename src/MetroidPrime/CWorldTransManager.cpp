@@ -1,5 +1,3 @@
-#pragma inline_max_size(250)
-
 #include "MetroidPrime/Player/CWorldTransManager.hpp"
 
 #include "GuiSys/CGuiTextSupport.hpp"

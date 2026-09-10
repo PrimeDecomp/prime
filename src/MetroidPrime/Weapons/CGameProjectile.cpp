@@ -1,5 +1,3 @@
-#pragma inline_max_size(250)
-
 #include "MetroidPrime/Weapons/CGameProjectile.hpp"
 #include "Collision/CCollidableAABox.hpp"
 #include "Collision/CMaterialList.hpp"

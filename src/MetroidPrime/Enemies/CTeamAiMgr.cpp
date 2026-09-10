@@ -7,8 +7,6 @@
 #include "MetroidPrime/TCastTo.hpp"
 #include "rstl/algorithm.hpp"
 
-#pragma inline_max_size(250)
-
 const int CTeamAiMgr::CUnknown::kNumProperties = 8;
 
 struct CRoleSorter {

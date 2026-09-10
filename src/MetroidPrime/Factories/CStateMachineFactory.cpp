@@ -3,7 +3,6 @@
 
 #include <Kyoto/Streams/CInputStream.hpp>
 
-#pragma inline_max_size(250)
 const CFactoryFnReturn FAiFiniteStateMachineFactory(const SObjectTag& tag, CInputStream& in,
                                               const CVParamTransfer& xfer) {
   return rs_new CStateMachine(in);

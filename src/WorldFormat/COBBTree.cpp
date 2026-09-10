@@ -5,8 +5,6 @@
 #include "Kyoto/Streams/CInputStream.hpp"
 #include "rstl/algorithm.hpp"
 
-#pragma inline_max_size(250)
-
 COBBTree::CSimpleAllocator* COBBTree::CNode::spAllocator = nullptr;
 
 COBBTree::SIndexData::SIndexData(CInputStream& in)

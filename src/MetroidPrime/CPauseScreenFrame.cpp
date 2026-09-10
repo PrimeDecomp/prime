@@ -1,4 +1,3 @@
-#pragma inline_max_size(250)
 #include "MetroidPrime/COptionsScreen.hpp"
 #include "MetroidPrime/CQuitGameScreen.hpp"
 #include "MetroidPrime/SOptionsFrontEndFrame.hpp"

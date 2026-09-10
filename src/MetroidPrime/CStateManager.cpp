@@ -1,5 +1,3 @@
-#pragma inline_max_size(250)
-
 #define CSTATEMANAGER_OUT_OF_LINE_GETPLAYER
 #include "MetroidPrime/CStateManager.hpp"
 #undef CSTATEMANAGER_OUT_OF_LINE_GETPLAYER

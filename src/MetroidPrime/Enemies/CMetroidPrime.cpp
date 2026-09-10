@@ -1,5 +1,3 @@
-#pragma inline_max_size(250)
-
 #include "MetroidPrime/CWorld.hpp"
 #include "MetroidPrime/Enemies/CMetroidPrime.hpp"
 #include "Collision/CRayCastResult.hpp"

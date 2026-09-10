@@ -1,5 +1,3 @@
-#pragma inline_max_size(250)
-
 #include "MetroidPrime/CMemoryCard.hpp"
 
 #include "MetroidPrime/CGameHintInfo.hpp"

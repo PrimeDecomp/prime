@@ -40,8 +40,6 @@
 #include "dolphin/gx/GXStruct.h"
 #include "dolphin/types.h"
 
-#pragma inline_max_size(250)
-
 const float CPatterned::skDamageHitTime = 0.33f;
 const float CPatterned::skActorApproachDistance = 3.f;
 

@@ -12,7 +12,6 @@ float CDecalManager::mDeltaTimeSinceLastDecalCreation;
 int CDecalManager::mLastDecalCreatedIndex;
 CAssetId CDecalManager::mLastDecalCreatedAssetId;
 
-#pragma inline_max_size(250)
 void CDecalManager::Initialize() {
   if (mbPoolInitialized) {
     return;

@@ -7,8 +7,6 @@
 
 #include <string.h>
 
-#pragma inline_max_size(250)
-
 static inline CAssetId get_asset_id_from_name(const char* name) {
   CAssetId id = gpResourceFactory->GetResourceIdByName(name)->GetId();
   return id;

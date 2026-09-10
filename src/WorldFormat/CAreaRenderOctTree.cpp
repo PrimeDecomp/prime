@@ -1,7 +1,5 @@
 #include "WorldFormat/CAreaRenderOctTree.hpp"
 
-#pragma inline_max_size(250)
-
 static const int skChildCounts[] = {0, 2, 2, 4, 2, 4, 4, 8};
 // Retail indexes this table with flags * 3, including its unusual axis pairs.
 static const int skAxes[] = {-1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 1, 1, -1, -1, 0, 2, 1, 2, 0, 1};

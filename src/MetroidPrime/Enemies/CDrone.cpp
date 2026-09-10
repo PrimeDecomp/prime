@@ -33,8 +33,6 @@
 #include "MetroidPrime/Player/CPlayerState.hpp"
 #include "rstl/math.hpp"
 
-#pragma inline_max_size(250)
-
 static const char* sBeaconLocator = "Beacon_LCTR";
 static const char* sRightGunLocator = "R_GUN_TOP_LCTR";
 static const char* sLeftGunLocator = "L_GUN_TOP_LCTR";

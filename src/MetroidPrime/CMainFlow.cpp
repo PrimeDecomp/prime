@@ -64,7 +64,6 @@ static inline bool IsCreditsMode(CMain::ERestartMode m) {
   return m >= CMain::kRM_WinBad && m <= CMain::kRM_LoseGame;
 }
 
-#pragma inline_max_size(250)
 void CMainFlow::SetGameState(EClientFlowStates state, CArchitectureQueue& queue) {
   x14_gameState = state;
 

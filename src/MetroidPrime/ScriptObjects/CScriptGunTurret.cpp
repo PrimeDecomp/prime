@@ -98,7 +98,6 @@ const SBurst* CScriptGunTurret::skBursts[] = {
     nullptr,
 };
 
-#pragma inline_max_size(250)
 CScriptGunTurretData::CScriptGunTurretData(CInputStream& in, const int propCount)
 : x0_intoDeactivateDelay(in.Get< float >())
 , x4_intoActivateDelay(in.Get< float >())

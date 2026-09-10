@@ -29,8 +29,6 @@
 #include "MetroidPrime/Weapons/GunController/CGunController.hpp"
 #include "MetroidPrime/Weapons/WeaponCommon.hpp"
 
-#pragma inline_max_size(250)
-
 static const char* const kGrappleGear = "GrappleGear";
 static const char* const kGrappleNoz1 = "GrapNoz1";
 static const char* const kGrappleNoz2 = "GrapNoz2";

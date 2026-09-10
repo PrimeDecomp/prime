@@ -26,8 +26,6 @@
 #include "Kyoto/Animation/CPASAnimParmData.hpp"
 #include "Kyoto/Animation/CSegId.hpp"
 
-#pragma inline_max_size(250)
-
 static EMaterialTypes skSolidMaterial = kMT_Solid;
 
 const uint CMetroidData::skNumProperties = 20;

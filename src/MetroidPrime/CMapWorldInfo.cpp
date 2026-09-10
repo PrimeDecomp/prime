@@ -7,8 +7,6 @@
 #include "Kyoto/Streams/COutputStream.hpp"
 #include "rstl/algorithm.hpp"
 
-#pragma inline_max_size(250)
-
 CMapWorldInfo::CMapWorldInfo() : mMapStationUsed(false) {}
 
 CMapWorldInfo::CMapWorldInfo(CInputStream& in, const CWorldSaveGameInfo& saveInfo,

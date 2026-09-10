@@ -122,7 +122,6 @@ CMidiManager::CMidiData::CMidiData(CInputStream& in)
   in.Get(x8_data.get(), len);
 }
 
-#pragma inline_max_size(250)
 const CFactoryFnReturn FMidiDataFactory(const SObjectTag& tag, CInputStream& in, const CVParamTransfer&) {
   return rs_new CMidiManager::CMidiData(in);
 }

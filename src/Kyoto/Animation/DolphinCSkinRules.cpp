@@ -5,8 +5,6 @@
 #include "dolphin/os/OSCache.h"
 #include "rstl/math.hpp"
 
-#pragma inline_max_size(250)
-
 static int StreamFloatToShort(CInputStream& in) {
   const int result = in.Get< int >();
   if (result == -1) {

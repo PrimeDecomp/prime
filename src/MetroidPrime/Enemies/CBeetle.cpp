@@ -17,8 +17,6 @@
 
 #include "float.h"
 
-#pragma inline_max_size(250)
-
 static const char* const kBiteLctrName = "LCTR_GARMOUTH";
 static const char* const kDamageLctrName = "Target_Tail";
 static const char* const kBetaLctrName = "Target_Tail";

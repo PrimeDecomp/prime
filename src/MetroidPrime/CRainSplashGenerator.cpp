@@ -11,8 +11,6 @@
 
 #include "rstl/math.hpp"
 
-#pragma inline_max_size(250)
-
 const float CRainSplashGenerator::SSplashLine::skInitialSpeed = 4.f;
 const float CRainSplashGenerator::SSplashLine::skInitialHeight = 0.015625f;
 const uchar CRainSplashGenerator::SSplashLine::skInitialWidth = 3;

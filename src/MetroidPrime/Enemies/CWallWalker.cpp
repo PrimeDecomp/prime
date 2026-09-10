@@ -12,8 +12,6 @@
 #include "MetroidPrime/TCastTo.hpp"
 #include "WorldFormat/CMetroidAreaCollider.hpp"
 
-#pragma inline_max_size(250)
-
 static const char* const skBendingAnimation = "BendingAnimationHack";
 
 CWallWalker::CWallWalker(const EPatternedAI chr, const TUniqueId uid, const rstl::string& name,

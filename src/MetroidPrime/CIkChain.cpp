@@ -6,8 +6,6 @@
 #include "Kyoto/Math/CRelAngle.hpp"
 #include "Kyoto/Math/CUnitVector3f.hpp"
 
-#pragma inline_max_size(250)
-
 void CIkChain::Solve(CQuaternion& q1, CQuaternion& q2, const CVector3f& pos) {
   const float mag = pos.Magnitude();
   float secondCos =

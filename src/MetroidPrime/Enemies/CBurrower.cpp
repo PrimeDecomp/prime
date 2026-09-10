@@ -11,8 +11,6 @@
 #include "MetroidPrime/TCastTo.hpp"
 #include "Kyoto/Particles/CElementGen.hpp"
 
-#pragma inline_max_size(250)
-
 const CDamageVulnerability CBurrower::skBombVulnerability =
     CDamageVulnerability(kVN_Deflect, kVN_Deflect, kVN_Deflect, kVN_Deflect, kVN_Normal, kVN_Normal,
                         kVN_Deflect, kVN_Deflect, kVN_Deflect, kVN_Deflect, kVN_Deflect,

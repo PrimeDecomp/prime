@@ -38,8 +38,6 @@
 #include "Kyoto/CSimplePool.hpp"
 #include "Kyoto/Particles/CGenDescription.hpp"
 
-#pragma inline_max_size(250)
-
 const SBurst CFlyingPirate::skBurstsFlying[] = {
     {10, {3, 4, 11, 12, -1, 0, 0, 0}, 0.1f, 0.05f},
     {20, {2, 3, 4, 5, -1, 0, 0, 0}, 0.1f, 0.05f},

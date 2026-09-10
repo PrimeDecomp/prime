@@ -6,7 +6,6 @@
 
 #include "rstl/algorithm.hpp"
 
-#pragma inline_max_size(250)
 CScriptGenerator::CScriptGenerator(const TUniqueId uid, const rstl::string& name,
                                    const CEntityInfo& info, const int spawnCount,
                                    const bool noReuseFollowers, const CVector3f& vec1,

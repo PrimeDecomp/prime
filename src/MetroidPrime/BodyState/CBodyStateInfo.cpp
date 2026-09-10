@@ -34,8 +34,6 @@
 #include "Kyoto/Animation/CPASDatabase.hpp"
 #include "Kyoto/Math/CloseEnough.hpp"
 
-#pragma inline_max_size(250)
-
 CBodyStateInfo::CBodyStateInfo(CActor& actor, EBodyType type)
 : x14_state(pas::kAS_Invalid)
 , x18_bodyController(nullptr)

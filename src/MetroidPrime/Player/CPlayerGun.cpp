@@ -69,8 +69,6 @@
 
 #include "math.h"
 
-#pragma inline_max_size(250)
-
 static const char* const kGunLocator = "GBSE_SDK";
 const float CPlayerGun::kGunScale = 2.f;
 

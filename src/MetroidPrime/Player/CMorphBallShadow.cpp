@@ -13,8 +13,6 @@
 
 #include <float.h>
 
-#pragma inline_max_size(250)
-
 CMorphBallShadow::CMorphBallShadow(int width, int height, const TToken< CTexture >& ballFade)
 : x40_texture(kTF_I8, width, height, 1)
 , xa8_ballFade(ballFade)

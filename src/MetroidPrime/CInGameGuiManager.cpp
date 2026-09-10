@@ -1,7 +1,5 @@
 #include "MetroidPrime/CInGameGuiManager.hpp"
 
-#pragma inline_max_size(250)
-
 #include "Kyoto/Audio/CSfxManager.hpp"
 #include "Kyoto/CFrameDelayedKiller.hpp"
 #include "Kyoto/Graphics/CModel.hpp"

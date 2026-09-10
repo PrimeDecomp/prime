@@ -1,5 +1,3 @@
-#pragma inline_max_size(259) // TODO: adjusted from 250 for Skinning::AddSkinnedRef
-
 #include "Kyoto/Animation/CSkinnedModel.hpp"
 
 #include "Kyoto/Alloc/CCircularBuffer.hpp"

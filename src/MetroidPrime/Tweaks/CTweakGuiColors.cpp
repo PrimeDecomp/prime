@@ -2,7 +2,6 @@
 
 CTweakGuiColors::~CTweakGuiColors() {}
 
-#pragma inline_max_size(250)
 CTweakGuiColors::CTweakGuiColors(CInputStream& in)
 : x4_pauseBlurFilterColor(in)
 , x8_radarStuffColor(in)

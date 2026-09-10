@@ -8,10 +8,6 @@
 
 #include "float.h"
 
-#if VERSION >= 4
-#pragma inline_max_size(140)
-#endif
-
 CAABox CAABox::mskInvertedBox(FLT_MAX, FLT_MAX, FLT_MAX, -FLT_MAX, -FLT_MAX, -FLT_MAX);
 CAABox CAABox::mskNullBox(0.f, 0.f, 0.f, 0.f, 0.f, 0.f);
 

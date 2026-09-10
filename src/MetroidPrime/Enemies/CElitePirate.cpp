@@ -24,8 +24,6 @@
 #include "rstl/algorithm.hpp"
 #include "rstl/math.hpp"
 
-#pragma inline_max_size(250)
-
 const int CElitePirateData::skMinProperties = 41;
 
 const CElitePirate::SJointInfo CElitePirate::skLeftArmJointList[3] = {

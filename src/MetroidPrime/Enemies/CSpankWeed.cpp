@@ -7,8 +7,6 @@
 #include "MetroidPrime/CStateManager.hpp"
 #include "MetroidPrime/Player/CPlayer.hpp"
 
-#pragma inline_max_size(250)
-
 // These strings survive from the unused collision actor implementation.
 static const char* skJointNameList[] = {
     "Arm_2", "Arm_3",  "Arm_4",  "Arm_5",  "Arm_6",   "Arm_7",       "Arm_8",

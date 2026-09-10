@@ -1,5 +1,3 @@
-#pragma inline_max_size(250)
-
 #include "WorldFormat/CMetroidAreaCollider.hpp"
 
 #include "Collision/CMRay.hpp"

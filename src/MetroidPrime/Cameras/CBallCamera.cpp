@@ -29,8 +29,6 @@
 
 #include "math.h"
 
-#pragma inline_max_size(250)
-
 static CMaterialList kLineOfSightIncludeList = CMaterialList(kMT_Solid);
 static CMaterialList kLineOfSightExcludeList =
     CMaterialList(kMT_ProjectilePassthrough, kMT_Player, kMT_Character, kMT_CameraPassthrough);

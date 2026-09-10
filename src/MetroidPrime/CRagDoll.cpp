@@ -13,8 +13,6 @@
 
 #include <float.h>
 
-#pragma inline_max_size(250)
-
 CRagDoll::CRagDoll(float normalGravity, float floatingGravity, float overTime, uint flags)
 : x44_normalGravity(normalGravity)
 , x48_floatingGravity(floatingGravity)

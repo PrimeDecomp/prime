@@ -14,8 +14,6 @@
 #include "MetroidPrime/Weapons/CWaveBuster.hpp"
 #include "MetroidPrime/Weapons/CWeaponAssetInfo.hpp"
 
-#pragma inline_max_size(250)
-
 const ushort CAuxWeapon::skSoundId[5] = {SFXsam_a_co1fire_00, SFXsam_a_icecofir_00,
                                          SFXsam_a_wavcofir_lp_00, SFXsam_a_placofir_lp_00,
                                          SFXsam_a_co1fire_00};

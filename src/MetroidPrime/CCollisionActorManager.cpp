@@ -11,8 +11,6 @@
 #include "MetroidPrime/TCastTo.hpp"
 #include <float.h>
 
-#pragma inline_max_size(250)
-
 CJointCollisionDescription CJointCollisionDescription::SphereCollision(CSegId pivotId, float radius,
                                                                        const rstl::string& name,
                                                                        float mass) {

@@ -1,5 +1,3 @@
-#pragma inline_max_size(250)
-
 #include "MetroidPrime/Weapons/WeaponTypes.hpp"
 #include "Kyoto/SObjectTag.hpp"
 #include "MetroidPrime/Weapons/WeaponCommon.hpp"

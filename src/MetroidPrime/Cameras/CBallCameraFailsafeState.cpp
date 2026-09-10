@@ -10,8 +10,6 @@
 #include "MetroidPrime/Player/CPlayer.hpp"
 #include "WorldFormat/CMetroidAreaCollider.hpp"
 
-#pragma inline_max_size(250)
-
 bool CBallCamera::CheckTransitionLineOfSight(const CVector3f& eyePos, const CVector3f& behindPos,
                                              float& eyeToOccDist, float colRadius,
                                              const CStateManager& mgr) {

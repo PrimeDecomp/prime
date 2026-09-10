@@ -6,8 +6,6 @@
 #include "Kyoto/Audio/CSfxManager.hpp"
 #include "Kyoto/Streams/CInputStream.hpp"
 
-#pragma inline_max_size(250)
-
 CCameraShakeData LoadAndBuildPrimeCameraShakeData(CInputStream& in);
 
 CMetroidPrimeIceAttack::CMetroidPrimeIceAttack(CInputStream& in)

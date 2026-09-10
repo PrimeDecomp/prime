@@ -38,8 +38,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#pragma inline_max_size(250)
-
 static const char skCrosshairsReticleAssetName[] = "CMDL_Crosshairs";
 static const char skOrbitZoneReticleAssetName[] = "CMDL_OrbitZone";
 static const char skSeekerAssetName[] = "CMDL_Seeker";

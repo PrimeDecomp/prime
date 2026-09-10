@@ -9,8 +9,6 @@
 #include "WorldFormat/CCollidableOBBTree.hpp"
 #include "WorldFormat/COBBTree.hpp"
 
-#pragma inline_max_size(250)
-
 uint CCollidableOBBTreeGroup::sTableIndex = -1;
 
 const CFactoryFnReturn FCollidableOBBTreeGroupFactory(const SObjectTag& tag, CInputStream& in,

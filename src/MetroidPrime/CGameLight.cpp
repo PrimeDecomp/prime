@@ -2,8 +2,6 @@
 
 #include "MetroidPrime/CActorParameters.hpp"
 
-#pragma inline_max_size(250)
-
 CGameLight::CGameLight(TUniqueId uid, TAreaId aid, const bool active, const rstl::string& name,
                        const CTransform4f& xf, TUniqueId parentId, const CLight& light,
                        uint sourceId, uint priority, float lifeTime)

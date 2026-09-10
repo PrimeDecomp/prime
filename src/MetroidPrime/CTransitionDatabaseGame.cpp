@@ -1,5 +1,3 @@
-#pragma inline_max_size(250)
-
 #include "MetroidPrime/CTransitionDatabaseGame.hpp"
 
 #include "Kyoto/Animation/CHalfTransition.hpp"

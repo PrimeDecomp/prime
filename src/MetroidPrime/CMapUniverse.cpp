@@ -11,8 +11,6 @@
 #include "rstl/math.hpp"
 #include "rstl/rc_ptr.hpp"
 
-#pragma inline_max_size(250)
-
 class CMapObjectSortInfoGreaterThan {
 public:
   bool operator()(const CMapUniverse::CMapObjectSortInfo& a,

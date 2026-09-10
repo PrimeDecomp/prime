@@ -1,5 +1,3 @@
-#pragma inline_max_size(250)
-
 #include "MetroidPrime/Player/CGameState.hpp"
 
 #include "Kyoto/CSimplePool.hpp"

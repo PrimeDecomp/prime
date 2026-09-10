@@ -12,8 +12,6 @@
 #include "MetroidPrime/Weapons/CBomb.hpp"
 #include "MetroidPrime/Player/CPlayer.hpp"
 
-#pragma inline_max_size(250)
-
 const CVector3f CPuddleToadGamma::skBellyOffset(0.f, 0.1f, -0.3f);
 const char* CPuddleToadGamma::mMouthLocatorName = "MOUTH_LCTR_SDK";
 const char* CPuddleToadGamma::mBellyLocatorName = "SAMUS_POS_LCTR_SDK";

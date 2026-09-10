@@ -18,8 +18,6 @@
 #include "MetroidPrime/Enemies/CPatterned.hpp"
 #include "MetroidPrime/SFX/Misc.h"
 
-#pragma inline_max_size(250)
-
 static const char* const skParticleNames[] = {
     "Effect_OnFire",  "Effect_IceBreak", "Effect_Ash",
     "Effect_FirePop", "Effect_Electric", "Effect_IcePop",

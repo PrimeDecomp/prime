@@ -50,8 +50,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#pragma inline_max_size(250)
-
 static const char sBaseHudName[] = "FRME_BaseHud";
 static const char sHelmetName[] = "FRME_Helmet";
 static const char sCombatHudName[] = "FRME_CombatHud";

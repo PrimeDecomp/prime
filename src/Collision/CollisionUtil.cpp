@@ -16,8 +16,6 @@
 #include "Kyoto/Math/CloseEnough.hpp"
 #include "rstl/math.hpp"
 
-#pragma inline_max_size(250)
-
 static inline float float_min(float a, float b) { return a < b ? a : b; }
 
 static inline float float_max(float a, float b) { return a > b ? a : b; }

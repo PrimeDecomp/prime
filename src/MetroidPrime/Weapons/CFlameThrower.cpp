@@ -9,8 +9,6 @@
 #include "MetroidPrime/Player/CPlayer.hpp"
 #include "MetroidPrime/TCastTo.hpp"
 
-#pragma inline_max_size(250)
-
 const CVector3f CFlameThrower::kLightOffset = CVector3f(0.f, 3.f, 2.f);
 
 CFlameThrower::CFlameThrower(const TToken< CWeaponDescription >& wDesc, const rstl::string& name,

@@ -2,8 +2,6 @@
 
 #include "MetroidPrime/CActorLights.hpp"
 
-#pragma inline_max_size(250)
-
 CActorParameters::CActorParameters()
 : x0_lighting(CLightParameters::None())
 , x40_scannable(kInvalidAssetId)

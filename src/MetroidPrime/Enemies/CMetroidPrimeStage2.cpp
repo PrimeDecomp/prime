@@ -25,8 +25,6 @@
 #include "MetroidPrime/Weapons/CShockWave.hpp"
 #include "rstl/math.hpp"
 
-#pragma inline_max_size(250)
-
 static const int skVisorPhases[] = {0, 1, 0, 2};
 static const int skStepDirections[] = {1, 2, 3};
 static const char* const skLockOnTarget = "lockon_target_LCTR";

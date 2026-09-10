@@ -42,7 +42,6 @@ const wchar_t* CStringTable::GetString(int idx) const {
   return reinterpret_cast< const wchar_t* >(x4_data.get() + offset);
 }
 
-#pragma inline_max_size(250)
 const CFactoryFnReturn FStringTableFactory(const SObjectTag& tag, CInputStream& in,
                                      const CVParamTransfer& xfer) {
   return rs_new CStringTable(in);

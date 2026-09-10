@@ -144,8 +144,6 @@
 #include "Kyoto/Math/CVector2f.hpp"
 #include "Kyoto/Streams/CInputStream.hpp"
 
-#pragma inline_max_size(250)
-
 static CAABox GetCollisionBox(CStateManager& stateMgr, TAreaId id, const CVector3f& extent,
                               const CVector3f& offset) {
   const CAABox box(-extent.GetX() / 2.f + offset.GetX(), -extent.GetY() / 2.f + offset.GetY(),

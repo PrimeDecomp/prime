@@ -20,8 +20,6 @@
 #include <float.h>
 #include <math.h>
 
-#pragma inline_max_size(250)
-
 void CGroundMovement::CheckFalling(CPhysicsActor& actor, CStateManager& mgr, float dt) {
   bool outOfBounds = true;
   const CAABox bounds = *actor.GetTouchBounds();

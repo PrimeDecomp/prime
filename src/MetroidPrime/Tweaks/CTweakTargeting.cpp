@@ -3,8 +3,6 @@
 #include "Kyoto/Math/CMath.hpp"
 #include "Kyoto/Streams/CInputStream.hpp"
 
-#pragma inline_max_size(250)
-
 CTweakTargeting::CTweakTargeting(CInputStream& in)
 : x4_targetRadiusMode(in.ReadLong())
 , x8_currLockOnExitDuration(in.ReadFloat())

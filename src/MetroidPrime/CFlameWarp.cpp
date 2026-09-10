@@ -9,8 +9,6 @@
 #include "rstl/algorithm.hpp"
 #include "rstl/vector.hpp"
 
-#pragma inline_max_size(250)
-
 static EMaterialTypes ProjectilePassthroughMaterial = kMT_ProjectilePassthrough;
 
 // Particle fields are interleaved with a caller-supplied byte stride.

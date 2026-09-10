@@ -8,8 +8,6 @@
 #include "dolphin/types.h"
 #include "rstl/vector.hpp"
 
-#pragma inline_max_size(250)
-
 CAnimPOIData::CAnimPOIData(CInputStream& in)
 : mVersion(in.Get< uint >()), mBoolNodes(in), mInt32Nodes(in), mParticleNodes(in) {
   if (mVersion > 1) {

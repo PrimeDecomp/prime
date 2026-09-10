@@ -28,8 +28,6 @@
 #include "Kyoto/Particles/CElementGen.hpp"
 #include "MetaRender/CCubeRenderer.hpp"
 
-#pragma inline_max_size(250)
-
 const char* const CGunWeapon::skMuzzleNames[10] = {
     "PowerMuzzle", "PowerCharge",  "IceMuzzle",    "IceCharge",    "PowerMuzzle",
     "WaveCharge",  "PlasmaMuzzle", "PlasmaCharge", "PhazonMuzzle", "EmptyMuzzle",
