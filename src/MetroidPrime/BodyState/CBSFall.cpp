@@ -33,17 +33,12 @@ void CBSFall::Start(CBodyController& bc, CStateManager& mgr) {
   if (!knockdownParm2.GetBoolValue()) {
     CPASAnimParm knockdownParm0(knockdownState->GetAnimParmData(best.second, 0));
     float knockdownAngle = knockdownParm0.GetReal32Value();
-    float delta1 = CAbsAngle::FromRadians(angle.AsRadians() -
-                                          CRelAngle::FromDegrees(knockdownAngle).AsRadians())
-                       .AsRadians();
-    float delta2 = CAbsAngle::FromRadians(CRelAngle::FromDegrees(knockdownAngle).AsRadians() -
-                                          angle.AsRadians())
-                       .AsRadians();
+    const float angleDiff = angle.AsRadians() - CRelAngle::FromDegrees(knockdownAngle).AsRadians();
+    float delta1 = CMath::ClampRadians(angleDiff);
+    float delta2 =
+        CMath::ClampRadians(CRelAngle::FromDegrees(knockdownAngle).AsRadians() - angle.AsRadians());
     float minAngle = rstl::min_val(delta1, delta2);
-    // There's a missing `if (delta1 < 0) { delta1 += M_2PIF; }` here
-    // But it's not exactly delta1, but a temporary from inside the FromRadians call?!
-    // Same problem in CBSGroundHit and CBSKnockBack
-    const float flippedAngle = (delta1 > M_PIF) ? -minAngle : minAngle;
+    const float flippedAngle = CMath::ClampRadians(angleDiff) > M_PIF ? -minAngle : minAngle;
     x8_remTime = 0.15f * bc.GetAnimTimeRemaining();
     x4_rotateSpeed = (x8_remTime > FLT_EPSILON) ? flippedAngle / x8_remTime : flippedAngle;
   } else {
