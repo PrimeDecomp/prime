@@ -32,6 +32,7 @@ public:
     CProjectileInfo& GunProjectileInfo() { return xc_gunProjectileInfo; }
     CProjectileInfo& AltProjectileInfo1() { return x38_altProjectileInfo1; }
     CProjectileInfo& AltProjectileInfo2() { return x60_altProjectileInfo2; }
+    float GetFlyingHeight() const { return x8c_flyingHeight; }
     CAssetId GetParticleGen1() const { return xd8_particleGen1; }
     CAssetId GetParticleGen2() const { return xdc_particleGen2; }
     CAssetId GetParticleGen3() const { return xe0_particleGen3; }

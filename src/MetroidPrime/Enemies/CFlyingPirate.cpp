@@ -95,7 +95,7 @@ static const float skRadii[] = {0.45f, 0.52f, 0.35f, 0.1f,  0.15f, 0.35f, 0.1f, 
                                 0.15f, 0.15f, 0.15f, 0.15f, 0.15f, 0.15f, 0.35f};
 
 CFlyingPirateRagDoll::CFlyingPirateRagDoll(CStateManager& mgr, CFlyingPirate* actor,
-                                         const ushort impactSfx, const ushort spinSfx)
+                                           const ushort impactSfx, const ushort spinSfx)
 : CRagDoll(-actor->GetGravityConstant(), -actor->GetFloatingGravityConstant(), 8.f, 0)
 , x6c_actor(actor)
 , x70_(0.f)
@@ -912,8 +912,7 @@ void CFlyingPirate::MassiveDeath(CStateManager& mgr) {
     mgr.ApplyDamageToWorld(
         GetUniqueId(), *this, GetTranslation(), x568_data.x9c_dInfo,
         CMaterialFilter::MakeIncludeExclude(CMaterialList(kMT_Solid), CMaterialList()));
-    mgr.CameraManager()->AddCameraShaker(
-        CCameraShakeData::HardHorizShake(0.5f, 0.3f), true);
+    mgr.CameraManager()->AddCameraShaker(CCameraShakeData::HardHorizShake(0.5f, 0.3f), true);
   }
   CPatterned::MassiveDeath(mgr);
 }
@@ -1541,7 +1540,7 @@ bool CFlyingPirate::ShouldMove(CStateManager& mgr, float arg) {
   }
   CVector3f cross = CVector3f::Cross(delta, CVector3f::Up()).AsNormalized();
   CVector3f dest = GetTranslation() + random * cross;
-  dest.SetZ(mgr.GetPlayer()->GetTranslation().GetZ() - -x568_data.x8c_flyingHeight);
+  dest.SetZ(mgr.GetPlayer()->GetTranslation().GetZ() + x568_data.GetFlyingHeight());
   SetDestPos(dest);
   x6a1_29_isMoving = true;
   return true;
