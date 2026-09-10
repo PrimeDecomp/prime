@@ -93,7 +93,10 @@ public:
     ++x4_count;
   }
 
-  void pop_back() { --x4_count; }
+  void pop_back() {
+    destroy(xc_items + x4_count - 1);
+    --x4_count;
+  }
 
   inline vector& operator=(const vector& other);
 

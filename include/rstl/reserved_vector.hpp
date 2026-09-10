@@ -63,7 +63,7 @@ public:
   }
 
   void pop_back() {
-    destroy(&data()[x0_count]);
+    destroy(&data()[x0_count - 1]);
     --x0_count;
   }
 
