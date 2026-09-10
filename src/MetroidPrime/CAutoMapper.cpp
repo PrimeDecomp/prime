@@ -49,7 +49,7 @@
 static const char* const skFRME_MapScreen = "FRME_MapScreen";
 
 static inline const rstl::vector< CGameHintInfo::CGameHint >& GetGameHints() {
-  return (*reinterpret_cast< TLockedToken< CGameHintInfo >* >(gpMemoryCard))->GetHints();
+  return gpMemoryCard->GetHints();
 }
 
 CAutoMapper::SAutoMapperRenderState::SAutoMapperRenderState(
@@ -227,18 +227,18 @@ CAutoMapper::CAutoMapper(const CStateManager& stateMgr)
 
   for (int i = 0; i < 9; ++i) {
     x210_lstick.push_back(gpSimplePool->GetObj(
-        SObjectTag('TXTR', ((const CAssetId*)((const char*)gpTweakPlayerRes + 0x24))[i])));
+        SObjectTag('TXTR', gpTweakPlayerRes->x20_lStick[i])));
     x25c_cstick.push_back(gpSimplePool->GetObj(
-        SObjectTag('TXTR', ((const CAssetId*)((const char*)gpTweakPlayerRes + 0x4c))[i])));
+        SObjectTag('TXTR', gpTweakPlayerRes->x48_cStick[i])));
   }
 
   for (int i = 0; i < 2; ++i) {
     x2a8_ltrigger.push_back(gpSimplePool->GetObj(
-        SObjectTag('TXTR', ((const CAssetId*)((const char*)gpTweakPlayerRes + 0x74))[i])));
+        SObjectTag('TXTR', gpTweakPlayerRes->x70_lTrigger[i])));
     x2bc_rtrigger.push_back(gpSimplePool->GetObj(
-        SObjectTag('TXTR', ((const CAssetId*)((const char*)gpTweakPlayerRes + 0x80))[i])));
+        SObjectTag('TXTR', gpTweakPlayerRes->x7c_rTrigger[i])));
     x2d0_abutton.push_back(gpSimplePool->GetObj(
-        SObjectTag('TXTR', ((const CAssetId*)((const char*)gpTweakPlayerRes + 0x98))[i])));
+        SObjectTag('TXTR', gpTweakPlayerRes->x94_aButton[i])));
   }
 }
 

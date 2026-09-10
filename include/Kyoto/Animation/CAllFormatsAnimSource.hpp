@@ -34,7 +34,9 @@ public:
 
 private:
   uint mFormatType;
-  uchar mFormatData[0x64];
+  ALIGNAS(CAnimSource) ALIGNAS(CFBStreamedCompression)
+  uchar mFormatData[sizeof(CAnimSource) > sizeof(CFBStreamedCompression)
+                        ? sizeof(CAnimSource) : sizeof(CFBStreamedCompression)];
 };
 
 class CAllFormatsAnimSource {

@@ -152,10 +152,11 @@ void CPlasmaProjectile::UpdatePlayerEffects(float dt, CStateManager& mgr) {
       player.IncrementEnvironmentDamage();
     }
     switch (GetType()) {
-    case kWT_Ice:
+    case kWT_Ice: {
       const ushort freezeSfx = x544_freezeSfx;
       player.SetFrozenState(mgr, x524_freezeSteamTxtr, freezeSfx, x528_freezeIceTxtr);
       break;
+    }
     case kWT_Wave:
       if (x52c_visorElectric) {
         MakeBillboardEffect(rstl::optional_object_null(), x52c_visorElectric,

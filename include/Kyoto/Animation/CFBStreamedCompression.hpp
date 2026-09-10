@@ -197,9 +197,9 @@ public:
 
   template < typename Stream >
   TVectorOfVaryingLengthItems(Stream& in) {
-    LoadSize(x0_size, in);
-    int count = size();
-    const T* ptr = reinterpret_cast< const T* >(GetFirstAddress());
+    this->LoadSize(this->x0_size, in);
+    int count = this->size();
+    const T* ptr = reinterpret_cast< const T* >(this->GetFirstAddress());
     for (int i = 0; i < count; ++i) {
       new (const_cast< T* >(ptr)) T(in);
       ptr = ptr->AfterEnd();
@@ -207,13 +207,13 @@ public:
   }
   const uchar* AfterEnd() const {
     const_iterator it(begin());
-    for (int i = 0; i < size(); ++i) {
+    for (int i = 0; i < this->size(); ++i) {
       ++it;
     }
     return reinterpret_cast< const uchar* >(&*it);
   }
   const_iterator begin() const {
-    return const_iterator(reinterpret_cast< const T* >(GetFirstAddress()), size());
+    return const_iterator(reinterpret_cast< const T* >(this->GetFirstAddress()), this->size());
   }
   const_iterator end() const { return const_iterator(nullptr, 0); }
 };
@@ -240,7 +240,7 @@ public:
   typedef rstl::pair< const uint*, uint > FrameIterator;
 
   template < typename Stream >
-  CFBKeyFrameReductionPerChannel_HeaderForAll(Stream& in) : x0_bitCount(in.Get< uint >()) {
+  CFBKeyFrameReductionPerChannel_HeaderForAll(Stream& in) : x0_bitCount(in.template Get< uint >()) {
     uint words = Uint32sForBitCount(x0_bitCount);
     uint* data = &x0_bitCount + 1;
     for (uint i = 0; i < words; ++i) {

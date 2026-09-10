@@ -236,7 +236,7 @@ private:
   Alloc x0_allocator;
   node* x4_start;
   node* x8_end;
-  node* xc_empty_prev;
+  ALIGNAS(node) node* xc_empty_prev;
   node* x10_empty_next;
   int x14_count;
 };

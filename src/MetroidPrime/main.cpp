@@ -129,7 +129,7 @@ float sInfiniteLoopTime;
 
 #define GRAPHICS_FIFO_SIZE 0x60000
 static uchar sGraphicsFifo[GRAPHICS_FIFO_SIZE];
-static uchar sMainSpace[sizeof(CMain)];
+ALIGNAS(CMain) static uchar sMainSpace[sizeof(CMain)];
 
 // Generated includes
 #include "MetroidPrime/DefaultFontData.inc"

@@ -999,13 +999,13 @@ void ApplyRipples(const rstl::reserved_vector< CFluidPlaneCPURender::SRippleInfo
     ptr += 9;
   }
   count = CFluidPlaneCPURender::numTilesInHField;
-  ptr = &flags[0][count + 10];
+  ptr = &flags[1][count + 1];
   for (; count != 0; --count) {
     *ptr |= 4;
     ptr += 9;
   }
   count = CFluidPlaneCPURender::numTilesInHField;
-  ptr = &flags[0][0] + (count + 1) * 9 + 1;
+  ptr = &flags[count + 1][1];
   for (; count != 0; --count) {
     *ptr |= 2;
     ++ptr;
