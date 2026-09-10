@@ -176,42 +176,47 @@ void* SMediumAllocPuddle::FindFreeEntry(uint numBlocks) {
 }
 
 void SMediumAllocPuddle::Free(const void* ptr) {
-  uint blockOffset = ((uint)ptr - (uint)x0_mainData.get()) / 32;
+  uchar* bookKeepingStart;
+  uchar* bookKeepingPtr;
+  ushort mergedCount;
+  bool isCached;
+  uint blockOffset = (reinterpret_cast< uint >(ptr) -
+                      reinterpret_cast< uint >(x0_mainData.get())) / 32;
   uint blockCount = x8_bookKeeping[blockOffset];
-  bool isCached = false;
+  mergedCount = blockCount;
+  isCached = false;
   x14_numBlocks += blockCount;
   --x18_numAllocs;
 
-  uchar* bookKeepingStart = x8_bookKeeping;
-  uchar* cachedBookKeep = bookKeepingStart + blockOffset;
+  bookKeepingStart = x8_bookKeeping;
+  uchar* cachedBookKeep = xc_cachedBookKeepingAddr;
   uchar* block = bookKeepingStart + blockOffset;
-  uchar* bookKeepingPtr = block;
-  uchar* bookKeepingEndPtr = block + GetNumEntries();
+  bookKeepingPtr = block;
+  uchar* bookKeepingEndPtr = bookKeepingStart + GetNumEntries();
   if (cachedBookKeep == block) {
     isCached = true;
   }
 
   if (block > bookKeepingStart && block[-1] & 0x80) {
+    ushort previousCount;
     if (!(block[-1] & 0x60)) {
-      blockOffset = (block[-2] + (block[-1] & 0x7f) * 256);
+      previousCount = (block[-2] + (block[-1] & 0x7f) * 256);
     } else if ((block[-1] & 0x60) == 0x60ul) {
-      blockOffset = 3;
+      previousCount = 3;
     } else {
-      blockOffset = __cntlzw(0x40 - (block[-1] & 0x60));
-      blockOffset = (blockOffset >> 5);
-      blockOffset++;
+      previousCount = (block[-1] & 0x60) == 0x40 ? 2 : 1;
     }
 
-    bookKeepingPtr = block - (ushort)blockOffset;
-    blockOffset = blockCount + blockOffset;
+    bookKeepingPtr -= previousCount;
+    mergedCount = static_cast< ushort >(mergedCount + previousCount);
   }
 
   uchar* ptr1 = block + blockCount;
   if (ptr1 < bookKeepingEndPtr && (ptr1[0] & 0x80) > 0) {
-    blockOffset += GetBlockOffset(ptr1, bookKeepingEndPtr);
+    mergedCount = static_cast< ushort >(mergedCount + GetBlockOffset(ptr1, bookKeepingEndPtr));
   }
 
-  InitBookKeeping(bookKeepingPtr, blockOffset);
+  InitBookKeeping(bookKeepingPtr, mergedCount);
   if (!isCached) {
     return;
   }
