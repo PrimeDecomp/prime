@@ -537,11 +537,9 @@ void CFlyingPirate::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CSt
         const float time = verticalVelocity / gravity;
         if (time > 0.f) {
           const CVector2f normal(delta.ToVec2f().AsNormalized());
-          const float& normalX = normal[0];
-          const float& normalY = normal[1];
           const float speed = delta.ToVec2f().Magnitude() / time;
-          velocity.SetX(speed * normalX);
-          velocity.SetY(speed * normalY);
+          velocity.SetX(speed * normal[0]);
+          velocity.SetY(speed * normal[1]);
           SetVelocityWR(velocity);
           x870_ = CVector3f::Zero();
           x87c_ = CVector3f::Zero();
