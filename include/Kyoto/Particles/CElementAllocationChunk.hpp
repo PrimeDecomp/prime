@@ -19,7 +19,7 @@ private:
   uint x0_capacity;
   uint x4_allocatedWords;
   uint x8_allocationCount;
-  uint xc_data[256];
+  ALIGNAS(16) uint xc_data[256];
 };
 CHECK_SIZEOF(CElementAllocationChunk, 0x40c)
 

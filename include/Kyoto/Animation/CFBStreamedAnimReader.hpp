@@ -152,13 +152,14 @@ class CMemoryInputToBitLevelLoader {
 
 public:
 #if NONMATCHING
-  CMemoryInputToBitLevelLoader(const uint* data) : x0_data(data) {}
+  CMemoryInputToBitLevelLoader(const uint* data) : x0_data(reinterpret_cast< const uchar* >(data)) {}
 #else
-  CMemoryInputToBitLevelLoader(const uint* data) : x0_data(data - 1) {}
+  CMemoryInputToBitLevelLoader(const uint* data)
+  : x0_data(reinterpret_cast< const uchar* >(data) - sizeof(uint)) {}
 #endif
 
 private:
-  const uint* x0_data;
+  const uchar* x0_data;
 };
 CHECK_SIZEOF(CMemoryInputToBitLevelLoader, 0x4)
 
@@ -218,10 +219,12 @@ template <>
 inline uint
 CBitLevelLoader< CMemoryInputToBitLevelLoader >::Input(CMemoryInputToBitLevelLoader& input) {
 #if NONMATCHING
-  return *input.x0_data++;
+  uint value = TLoadedVal< uint >::Read(input.x0_data);
+  input.x0_data += sizeof(uint);
+  return value;
 #else
-  ++input.x0_data;
-  return *input.x0_data;
+  input.x0_data += sizeof(uint);
+  return TLoadedVal< uint >::Read(input.x0_data);
 #endif
 }
 

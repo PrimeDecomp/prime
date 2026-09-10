@@ -290,10 +290,23 @@ uint CModel::GetDataSize() const { return x4_dataLen; }
 rstl::auto_ptr< uchar > CModel::GetData() { return rstl::auto_ptr< uchar >(x0_data.get()); }
 
 namespace {
+#ifdef __MWERKS__
 inline void RemapPointer(const void*& pointer, uintptr_t offset) {
   if (pointer != nullptr) {
     pointer = reinterpret_cast< void* >(reinterpret_cast< uintptr_t >(pointer) + offset);
   }
+}
+#endif
+
+template < typename T >
+inline void RemapPointer(T*& pointer, uintptr_t offset) {
+#ifdef __MWERKS__
+  RemapPointer(reinterpret_cast< const void*& >(pointer), offset);
+#else
+  if (pointer != nullptr) {
+    pointer = reinterpret_cast< T* >(reinterpret_cast< uintptr_t >(pointer) + offset);
+  }
+#endif
 }
 } // namespace
 
@@ -302,7 +315,7 @@ void CModel::RemapData(uchar* data) {
       reinterpret_cast< uintptr_t >(data) - reinterpret_cast< uintptr_t >(x0_data.release());
   x0_data = data;
   for (int i = 0; i < x18_matSets.size(); ++i) {
-    RemapPointer(reinterpret_cast< const void*& >(x18_matSets[i].x10_data), offset);
+    RemapPointer(x18_matSets[i].x10_data, offset);
   }
 
   const CCubeModel::ModelInstance& instance = x28_modelInstance->GetModelInstance();
@@ -315,13 +328,13 @@ void CModel::RemapData(uchar* data) {
   uchar flags = x28_modelInstance->GetModelFlags();
   bool texturesLoaded = x28_modelInstance->AreTexturesLoaded();
   const int index = x28_modelInstance->GetModelIndex();
-  RemapPointer(reinterpret_cast< const void*& >(positions), offset);
-  RemapPointer(reinterpret_cast< const void*& >(normals), offset);
-  RemapPointer(reinterpret_cast< const void*& >(colors), offset);
-  RemapPointer(reinterpret_cast< const void*& >(uvs), offset);
-  RemapPointer(reinterpret_cast< const void*& >(packedUvs), offset);
+  RemapPointer(positions, offset);
+  RemapPointer(normals, offset);
+  RemapPointer(colors, offset);
+  RemapPointer(uvs, offset);
+  RemapPointer(packedUvs, offset);
   for (int i = 0; i < x8_surfaces.size(); ++i) {
-    RemapPointer(reinterpret_cast< const void*& >(x8_surfaces[i]), offset);
+    RemapPointer(x8_surfaces[i], offset);
   }
 
   x28_modelInstance = rs_new CCubeModel(&x8_surfaces, &x18_matSets.front().x0_textures,

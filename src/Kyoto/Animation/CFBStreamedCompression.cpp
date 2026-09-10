@@ -22,13 +22,14 @@ rstl::auto_ptr< uint > CFBStreamedCompression::GetRotationsAndOffsets(uint words
   new (channels) CFBStreamedPerChannelHeaderList(in);
   const CFBStreamedPerChannelHeader& first = *channels->begin();
   const uchar* bytes = channels->AfterEnd();
-  uint* bits = const_cast< uint* >(reinterpret_cast< const uint* >(bytes));
+  uchar* bits = const_cast< uchar* >(bytes);
   uint wordCount = static_cast< uint >(
       static_cast< float >(
           channels->GetSumOfBitCounts() * first.GetRotationBitStorage().GetWidth() + 31) /
       32.f);
   for (uint i = 0; i < wordCount; ++i) {
-    *bits++ = in.Get< uint >();
+    TLoadedVal< uint >::Write(bits, in.Get< uint >());
+    bits += sizeof(uint);
   }
   return data;
 }
