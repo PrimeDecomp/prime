@@ -1,4 +1,5 @@
 #include "MetaRender/CCubeRenderer.hpp"
+#include "Kyoto/Basics/CBasics.hpp"
 
 #include "Collision/CollisionUtil.hpp"
 #include "Kyoto/Animation/CSkinnedModel.hpp"
@@ -362,7 +363,7 @@ void CCubeRenderer::GenerateReflectionTex() {
           float scaledY = halfScale * fy + halfScale;
           int iy = static_cast< int >(CMath::Clamp(0.f, scaledY, 255.f));
 
-          base[texel] = static_cast< ushort >((iy & 0xFF) | ((ix & 0xFF) << 8));
+          base[texel] = CBasics::SwapBytes(static_cast< ushort >((iy & 0xFF) | ((ix & 0xFF) << 8)));
           ++texel;
         }
       }

@@ -88,18 +88,18 @@ void CMapArea::CMapAreaSurface::PostConstruct(const void* buf) {
   x1c_outlineOffset = reinterpret_cast< const int* >(
       static_cast< const uchar* >(buf) + reinterpret_cast< uintptr_t >(x1c_outlineOffset));
 
-  int numSurfaces = *x18_surfOffset;
+  int numSurfaces = CBasics::SwapBytes(*x18_surfOffset);
   const int* surfOffset = x18_surfOffset + 1;
   for (int i = 0; i < numSurfaces; ++i) {
-    int numVertices = *++surfOffset;
+    int numVertices = CBasics::SwapBytes(*++surfOffset);
     surfOffset++; // skip primitive type
     surfOffset += ((numVertices + 3) & ~3) / 4;
   }
 
-  int numOutlines = *x1c_outlineOffset;
+  int numOutlines = CBasics::SwapBytes(*x1c_outlineOffset);
   const int* outlineOffset = x1c_outlineOffset + 1;
   for (int i = 0; i < numOutlines; ++i) {
-    int numVertices = *outlineOffset++;
+    int numVertices = CBasics::SwapBytes(*outlineOffset++);
     outlineOffset += ((numVertices + 3) & ~3) / 4;
   }
 }
@@ -113,8 +113,8 @@ void CMapArea::CMapAreaSurface::Draw(const CVector3f* verts, const CColor& surfC
                                      const CColor& lineColor, float lineWidth) const {
   bool hasSurfAlpha = surfColor.GetAlpha() > 0.0f;
   bool hasLineAlpha = lineColor.GetAlpha() > 0.0f;
-  int numSurfaces = *x18_surfOffset;
-  int numOutlines = *x1c_outlineOffset;
+  int numSurfaces = CBasics::SwapBytes(*x18_surfOffset);
+  int numOutlines = CBasics::SwapBytes(*x1c_outlineOffset);
   if (verts) {
     CGX::SetArray(GX_VA_POS, verts, '\f');
   }
@@ -122,8 +122,11 @@ void CMapArea::CMapAreaSurface::Draw(const CVector3f* verts, const CColor& surfC
     CGX::SetTevKColor(GX_KCOLOR0, surfColor.GetGXColor());
     const int* surface = &x18_surfOffset[1];
     for (int i = 0; i < numSurfaces; ++i) {
-      GXPrimitive primType = static_cast< GXPrimitive >(*surface++);
+      uint primitive = *surface++;
+      primitive = CBasics::SwapBytes(primitive);
+      GXPrimitive primType = static_cast< GXPrimitive >(primitive);
       int numVertices = *surface++;
+      numVertices = CBasics::SwapBytes(numVertices);
       const uchar* data = reinterpret_cast< const uchar* >(surface);
       surface += ((numVertices + 3) & ~3) / 4;
 
@@ -146,7 +149,7 @@ void CMapArea::CMapAreaSurface::Draw(const CVector3f* verts, const CColor& surfC
                         lineColor.WithAlphaModulatedBy(thickLine ? 0.5f : 1.0f).GetGXColor());
 
       for (int i = 0; i < numOutlines; ++i) {
-        int numVertices = *outline++;
+        int numVertices = CBasics::SwapBytes(*outline++);
         const uchar* data = reinterpret_cast< const uchar* >(outline);
         outline += ((numVertices + 3) & ~3) / 4;
 

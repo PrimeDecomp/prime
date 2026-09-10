@@ -1,4 +1,5 @@
 #include "Kyoto/Graphics/CCubeMaterial.hpp"
+
 #include "Kyoto/Basics/CBasics.hpp"
 
 #include "Kyoto/Basics/CStopwatch.hpp"
@@ -16,6 +17,13 @@
 #include <dolphin/mtx.h>
 
 #include "Kyoto/MemoryCopy.hpp"
+
+// Material data is big-endian; keep direct loads on big-endian targets.
+#if TARGET_LITTLE_ENDIAN
+#define SBig(x) CBasics::SwapBytes(x)
+#else
+#define SBig(x) x
+#endif
 
 static const float gkEpsilon32 = FLT_EPSILON;
 

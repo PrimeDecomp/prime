@@ -1,4 +1,5 @@
 #include "Kyoto/Text/CRasterFont.hpp"
+#include "Kyoto/Basics/CBasics.hpp"
 
 #include "Kyoto/CFactoryFnReturn.hpp"
 #include "Kyoto/CSimplePool.hpp"
@@ -139,10 +140,10 @@ void CRasterFont::DrawString(const CDrawStringOptions& options, int x, int y, in
   if (buffer != nullptr) {
     CGraphicsPalette pal(kPF_RGB5A3, 4);
     ushort* data = reinterpret_cast< ushort* >(pal.Lock());
-    data[0] = CColor(0.f, 0.f, 0.f, 0.f).ToRGB5A3();
-    data[1] = CColor(options.GetPaletteEntry(0)).ToRGB5A3();
-    data[2] = CColor(options.GetPaletteEntry(1)).ToRGB5A3();
-    data[3] = CColor(0.f, 0.f, 0.f, 0.f).ToRGB5A3();
+    data[0] = CBasics::SwapBytes(CColor(0.f, 0.f, 0.f, 0.f).ToRGB5A3());
+    data[1] = CBasics::SwapBytes(CColor(options.GetPaletteEntry(0)).ToRGB5A3());
+    data[2] = CBasics::SwapBytes(CColor(options.GetPaletteEntry(1)).ToRGB5A3());
+    data[3] = CBasics::SwapBytes(CColor(0.f, 0.f, 0.f, 0.f).ToRGB5A3());
     pal.UnLock();
     buffer->AddPaletteChange(pal);
   }

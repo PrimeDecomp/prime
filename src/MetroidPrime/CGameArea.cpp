@@ -211,7 +211,11 @@ static rstl::pair< rstl::auto_ptr< char >, int > GetScriptingMemoryAlways(const 
     int version = CBasics::SwapBytes(header[1]);
     if (magic == 0xdeadbeef && version >= 12 && version <= 15) {
       int scriptSection = CBasics::SwapBytes(header[17]);
+#if TARGET_LITTLE_ENDIAN
+      int sectionCount = CBasics::SwapBytes(header[15]);
+#else
       int sectionCount = header[15];
+#endif
       int sizesLength = ROUND_UP_32(sectionCount * 4);
       rstl::single_ptr< CInputStream > sizesStream(
           gpResourceFactory->GetResLoader().LoadNewResourcePartSync(tag, 0x60, sizesLength,
@@ -293,7 +297,11 @@ void CGameArea::PostConstructArea() {
   ++section;
   x12c_postConstructed->x4c_insts.reserve(modelCount);
   for (int i = 0; i < modelCount; ++i) {
+#if TARGET_LITTLE_ENDIAN
+    int surfaces = CBasics::SwapBytes(*reinterpret_cast< const int* >((section + 6)->first.get()));
+#else
     int surfaces = *reinterpret_cast< const int* >((section + 6)->first.get());
+#endif
     section += 7;
     section += surfaces;
   }
@@ -686,6 +694,13 @@ bool CGameArea::StartStreamingMainArea() {
   case kP_ReserveSections: {
     CullDeadAreaRequests();
     if (xf8_loadTransactions.empty()) {
+#if TARGET_LITTLE_ENDIAN
+      // Decode the loaded size table once, before any section offsets are calculated.
+      int* sizes = reinterpret_cast< int* >(x110_mreaSecBufs[1].first.get());
+      for (int i = 0; i < GetNumPartSizes(); ++i) {
+        sizes[i] = CBasics::SwapBytes(sizes[i]);
+      }
+#endif
       x110_mreaSecBufs.reserve(GetNumPartSizes() + 2);
       int headerSize = x110_mreaSecBufs[0].second;
       int sizesSize = x110_mreaSecBufs[1].second;

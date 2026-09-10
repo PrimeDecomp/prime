@@ -1,4 +1,5 @@
 #include "Kyoto/CResFactory.hpp"
+#include "Kyoto/Basics/CBasics.hpp"
 
 #include "Kyoto/Alloc/CMemory.hpp"
 #include "Kyoto/Basics/CStopwatch.hpp"
@@ -162,7 +163,11 @@ bool CResFactory::SLoadingData::PumpDecompression(uint time) {
   CStopwatch timer;
   z_stream_s* zip = x24_zip.get();
   uint* buffer = reinterpret_cast< uint* >(x14_buffer.get());
+#if TARGET_LITTLE_ENDIAN
+  const uint length = CBasics::SwapBytes(*buffer);
+#else
   const uint length = *buffer;
+#endif
   if (zip == nullptr) {
     zip = rs_new z_stream_s;
     zip->zalloc = CZipSupport::Alloc;

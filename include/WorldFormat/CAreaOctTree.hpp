@@ -30,7 +30,13 @@ public:
   public:
     explicit TriListReference(const void* ptr) : m_ptr(reinterpret_cast< const ushort* >(ptr)) {}
     explicit TriListReference(const ushort* ptr) : m_ptr(ptr) {}
-    const ushort GetAt(int idx) const { return m_ptr[idx + kTriangleDataOffset]; }
+    const ushort GetAt(int idx) const {
+#if TARGET_LITTLE_ENDIAN
+      return CBasics::SwapBytes(m_ptr[idx + kTriangleDataOffset]);
+#else
+      return m_ptr[idx + kTriangleDataOffset];
+#endif
+    }
     const ushort GetSize() const { return CBasics::SwapBytes(m_ptr[kTriangleCountOffset]); }
 
   private:

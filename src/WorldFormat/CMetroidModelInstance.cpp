@@ -3,7 +3,7 @@
 #include "Kyoto/Basics/CBasics.hpp"
 #include <string.h>
 
-#ifdef __MWERKS__
+#if TARGET_BIG_ENDIAN
 static const CTransform4f& TransformFromData(const void* ptr) {
   return *static_cast< const CTransform4f* >(ptr);
 }

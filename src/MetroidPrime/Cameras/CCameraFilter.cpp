@@ -85,7 +85,7 @@ void CCameraFilterPass::SetFilter(const EFilterType type, const EFilterShape sha
 
     if (x20_nextTxtr != kInvalidAssetId) {
       x24_texObj =
-          rs_new TLockedToken< CTexture >(gpSimplePool->GetObj(SObjectTag(SBig('TXTR'), txtr)));
+          rs_new TLockedToken< CTexture >(gpSimplePool->GetObj(SObjectTag('TXTR', txtr)));
     }
   } else {
     x1c_nextColor = color;
@@ -95,7 +95,7 @@ void CCameraFilterPass::SetFilter(const EFilterType type, const EFilterShape sha
 
     if (x20_nextTxtr != kInvalidAssetId) {
       x24_texObj =
-          rs_new TLockedToken< CTexture >(gpSimplePool->GetObj(SObjectTag(SBig('TXTR'), txtr)));
+          rs_new TLockedToken< CTexture >(gpSimplePool->GetObj(SObjectTag('TXTR', txtr)));
     }
 
     x10_remTime = time;
