@@ -138,7 +138,7 @@ public:
 
 private:
   void SetupCollisionManagers(CStateManager& mgr);
-  void SetStage2Vulnerability(CStateManager& mgr) const;
+  void SetStage2Vulnerability(CStateManager& mgr);
   void SetStage3Immunity(CStateManager& mgr);
   void SetStage3BreastVulnerability(CStateManager& mgr);
   void SetStage3ThroatVulnerability(CStateManager& mgr);
@@ -153,7 +153,7 @@ private:
   void ConstrainToHenge(float dt);
   void UpdateFlight(float dt);
   void Fly(const CVector3f& direction, float speed, float dt);
-  void FacePlayer(CStateManager& mgr, float dt) const;
+  void FacePlayer(CStateManager& mgr, float dt);
   void PushPlayer(CStateManager& mgr) const;
   void ChooseStage2Attack(CStateManager& mgr);
   void ChooseStage3Attack(CStateManager& mgr);
