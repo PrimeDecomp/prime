@@ -41,6 +41,10 @@ public:
   , x18_captainPriority(0)
   , x1c_position(CVector3f::Zero()) {}
 
+  bool AllowsRole(ETeamAiRole role) const {
+    return x4_roleA == role || x8_roleB == role || xc_roleC == role;
+  }
+
   bool operator<(const CTeamAiRole& other) const {
     return x0_ownerId.Value() < other.x0_ownerId.Value();
   }
@@ -113,7 +117,7 @@ public:
   void UpdateTeamCaptain();
   void SpacingSort(CStateManager& mgr, const CVector3f& pos);
   void PositionTeam(CStateManager& mgr);
-  void AssignRoles(CTeamAiRole::ETeamAiRole role, int count);
+  void AssignRoles(CTeamAiRole::ETeamAiRole role, uint count);
   void ResetRoles(CStateManager& mgr);
   void UpdateRoles(CStateManager& mgr);
   bool ShouldUpdateRoles(float dt);
@@ -148,7 +152,9 @@ public:
   uint GetMaxProjectileAttackerCount() const { return x34_data.x14_maxProjectileAttackerCount; }
   bool HasMeleeAttackers() const { return x68_meleeAttackers.size() != 0u; }
   bool HasProjectileAttackers() const { return x78_projectileAttackers.size() != 0u; }
-  const rstl::vector< TUniqueId >& GetProjectileAttackers() const { return x78_projectileAttackers; }
+  const rstl::vector< TUniqueId >& GetProjectileAttackers() const {
+    return x78_projectileAttackers;
+  }
 
   rstl::vector< CTeamAiRole >& GetTeamAiRoles() { return x58_roles; }
   const rstl::vector< CTeamAiRole >& GetTeamAiRoles() const { return x58_roles; }

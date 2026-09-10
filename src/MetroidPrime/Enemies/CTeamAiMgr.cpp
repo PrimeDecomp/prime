@@ -11,30 +11,32 @@
 
 const int CTeamAiMgr::CUnknown::kNumProperties = 8;
 
-struct TeamAiRoleSorter {
+struct CRoleSorter {
   CVector3f x0_pos;
   int xc_type;
 
-  TeamAiRoleSorter(const CVector3f& pos, int type) : x0_pos(pos), xc_type(type) {}
+  CRoleSorter(const CVector3f& pos, int type) : x0_pos(pos), xc_type(type) {}
 
-  bool operator()(const CTeamAiRole& a, const CTeamAiRole& b) const {
-    const float aDist = (x0_pos - a.GetTeamPosition()).MagSquared();
-    const float bDist = (x0_pos - b.GetTeamPosition()).MagSquared();
-
-    switch (xc_type) {
-    case 0:
-      return a.GetOwnerId().Value() < b.GetOwnerId().Value();
-    case 1:
-      return aDist < bDist;
-    case 2:
-    default:
-      if (a.GetTeamAiRole() == b.GetTeamAiRole()) {
-        return aDist < bDist;
-      }
-      return a.GetTeamAiRole() < b.GetTeamAiRole();
-    }
-  }
+  bool operator()(const CTeamAiRole& a, const CTeamAiRole& b) const;
 };
+
+bool CRoleSorter::operator()(const CTeamAiRole& a, const CTeamAiRole& b) const {
+  const float aDist = (x0_pos - a.GetTeamPosition()).MagSquared();
+  const float bDist = (x0_pos - b.GetTeamPosition()).MagSquared();
+
+  switch (xc_type) {
+  case 0:
+    return a.GetOwnerId().Value() < b.GetOwnerId().Value();
+  case 1:
+    return aDist < bDist;
+  case 2:
+  default:
+    if (a.GetTeamAiRole() == b.GetTeamAiRole()) {
+      return aDist < bDist;
+    }
+    return a.GetTeamAiRole() < b.GetTeamAiRole();
+  }
+}
 
 CTeamAiMgr::CUnknown::CUnknown(CInputStream& in, int propCount)
 : x0_aiCount(in.ReadLong())
@@ -160,14 +162,13 @@ bool CTeamAiMgr::AssignTeamAiRole(const CAi& ai, int roleA, int roleB, int roleC
   CTeamAiRole searchRole(ai.GetUniqueId(), static_cast< CTeamAiRole::ETeamAiRole >(roleA),
                          static_cast< CTeamAiRole::ETeamAiRole >(roleB),
                          static_cast< CTeamAiRole::ETeamAiRole >(roleC));
-  rstl::vector< CTeamAiRole >::iterator search = rstl::binary_find< rstl::vector< CTeamAiRole > >(
-      x58_roles.begin(), x58_roles.end(), searchRole);
+  rstl::vector< CTeamAiRole >::iterator search =
+      rstl::binary_find(x58_roles.begin(), x58_roles.end(), searchRole);
 
   if (search == x58_roles.end()) {
     if (x58_roles.size() < x58_roles.capacity()) {
       rstl::vector< CTeamAiRole >::iterator insertPos =
-          rstl::lower_bound< rstl::vector< CTeamAiRole > >(x58_roles.begin(), x58_roles.end(),
-                                                           searchRole);
+          rstl::lower_bound(x58_roles.begin(), x58_roles.end(), searchRole);
       x58_roles.insert(insertPos, searchRole);
     } else {
       return false;
@@ -189,8 +190,8 @@ void CTeamAiMgr::RemoveTeamAiRole(TUniqueId id) {
   }
 
   CTeamAiRole searchRole(id);
-  rstl::vector< CTeamAiRole >::iterator search = rstl::binary_find< rstl::vector< CTeamAiRole > >(
-      x58_roles.begin(), x58_roles.end(), searchRole);
+  rstl::vector< CTeamAiRole >::iterator search =
+      rstl::binary_find(x58_roles.begin(), x58_roles.end(), searchRole);
   x58_roles.erase(search);
 
   UpdateTeamCaptain();
@@ -223,15 +224,14 @@ int CTeamAiMgr::GetNumAssignedOfRole(CTeamAiRole::ETeamAiRole role) const {
 const CTeamAiRole* CTeamAiMgr::GetTeamAiRole(TUniqueId id) const {
   CTeamAiRole searchRole(id);
   rstl::vector< CTeamAiRole >::const_iterator search =
-      rstl::binary_find_const< rstl::vector< CTeamAiRole > >(x58_roles.begin(), x58_roles.end(),
-                                                             searchRole);
+      rstl::binary_find(x58_roles.begin(), x58_roles.end(), searchRole);
   return search != x58_roles.end() ? search.operator->() : 0;
 }
 
 void CTeamAiMgr::ClearTeamAiRole(TUniqueId id) {
   CTeamAiRole searchRole(id);
-  rstl::vector< CTeamAiRole >::iterator search = rstl::binary_find< rstl::vector< CTeamAiRole > >(
-      x58_roles.begin(), x58_roles.end(), searchRole);
+  rstl::vector< CTeamAiRole >::iterator search =
+      rstl::binary_find(x58_roles.begin(), x58_roles.end(), searchRole);
   if (search != x58_roles.end()) {
     search->SetTeamAiRole(CTeamAiRole::kTAR_Initial);
   }
@@ -240,8 +240,7 @@ void CTeamAiMgr::ClearTeamAiRole(TUniqueId id) {
 bool CTeamAiMgr::HasTeamAiRole(TUniqueId id) const {
   CTeamAiRole searchRole(id);
   rstl::vector< CTeamAiRole >::const_iterator search =
-      rstl::binary_find_const< rstl::vector< CTeamAiRole > >(x58_roles.begin(), x58_roles.end(),
-                                                             searchRole);
+      rstl::binary_find(x58_roles.begin(), x58_roles.end(), searchRole);
   if (search != x58_roles.end()) {
     return search->HasTeamAiRole();
   }
@@ -251,15 +250,13 @@ bool CTeamAiMgr::HasTeamAiRole(TUniqueId id) const {
 bool CTeamAiMgr::IsPartOfTeam(TUniqueId id) const {
   CTeamAiRole searchRole(id);
   rstl::vector< CTeamAiRole >::const_iterator search =
-      rstl::binary_find_const< rstl::vector< CTeamAiRole > >(x58_roles.begin(), x58_roles.end(),
-                                                             searchRole);
+      rstl::binary_find(x58_roles.begin(), x58_roles.end(), searchRole);
   return search != x58_roles.end();
 }
 
 bool CTeamAiMgr::IsMeleeAttacker(TUniqueId id) const {
   rstl::vector< TUniqueId >::const_iterator search =
-      rstl::binary_find_const< rstl::vector< TUniqueId > >(x68_meleeAttackers.begin(),
-                                                           x68_meleeAttackers.end(), id);
+      rstl::binary_find(x68_meleeAttackers.begin(), x68_meleeAttackers.end(), id);
   return search != x68_meleeAttackers.end();
 }
 
@@ -269,8 +266,7 @@ bool CTeamAiMgr::CanAcceptMeleeAttacker(TUniqueId id) const {
     return true;
   }
   rstl::vector< TUniqueId >::const_iterator search =
-      rstl::binary_find_const< rstl::vector< TUniqueId > >(x68_meleeAttackers.begin(),
-                                                           x68_meleeAttackers.end(), id);
+      rstl::binary_find(x68_meleeAttackers.begin(), x68_meleeAttackers.end(), id);
   if (search != x68_meleeAttackers.end()) {
     return true;
   }
@@ -280,13 +276,12 @@ bool CTeamAiMgr::CanAcceptMeleeAttacker(TUniqueId id) const {
 bool CTeamAiMgr::AddMeleeAttacker(TUniqueId id) {
   if (x90_timeSinceMelee >= x34_data.x1c_meleeTimeInterval &&
       x68_meleeAttackers.size() < x34_data.x10_maxMeleeAttackerCount && HasTeamAiRole(id)) {
-    rstl::vector< TUniqueId >::iterator search = rstl::binary_find< rstl::vector< TUniqueId > >(
-        x68_meleeAttackers.begin(), x68_meleeAttackers.end(), id);
+    rstl::vector< TUniqueId >::iterator search =
+        rstl::binary_find(x68_meleeAttackers.begin(), x68_meleeAttackers.end(), id);
     if (search == x68_meleeAttackers.end()) {
       x68_meleeAttackers.reserve(x68_meleeAttackers.size() + 1);
       rstl::vector< TUniqueId >::iterator insertPos =
-          rstl::lower_bound< rstl::vector< TUniqueId > >(x68_meleeAttackers.begin(),
-                                                         x68_meleeAttackers.end(), id);
+          rstl::lower_bound(x68_meleeAttackers.begin(), x68_meleeAttackers.end(), id);
       x68_meleeAttackers.insert(insertPos, id);
       x90_timeSinceMelee = 0.f;
     }
@@ -296,8 +291,8 @@ bool CTeamAiMgr::AddMeleeAttacker(TUniqueId id) {
 }
 
 void CTeamAiMgr::RemoveMeleeAttacker(TUniqueId id) {
-  rstl::vector< TUniqueId >::iterator search = rstl::binary_find< rstl::vector< TUniqueId > >(
-      x68_meleeAttackers.begin(), x68_meleeAttackers.end(), id);
+  rstl::vector< TUniqueId >::iterator search =
+      rstl::binary_find(x68_meleeAttackers.begin(), x68_meleeAttackers.end(), id);
   if (search != x68_meleeAttackers.end()) {
     x68_meleeAttackers.erase(search);
   }
@@ -305,8 +300,7 @@ void CTeamAiMgr::RemoveMeleeAttacker(TUniqueId id) {
 
 bool CTeamAiMgr::IsProjectileAttacker(TUniqueId id) const {
   rstl::vector< TUniqueId >::const_iterator search =
-      rstl::binary_find_const< rstl::vector< TUniqueId > >(x78_projectileAttackers.begin(),
-                                                           x78_projectileAttackers.end(), id);
+      rstl::binary_find(x78_projectileAttackers.begin(), x78_projectileAttackers.end(), id);
   return search != x78_projectileAttackers.end();
 }
 
@@ -316,8 +310,7 @@ bool CTeamAiMgr::CanAcceptProjectileAttacker(TUniqueId id) const {
     return true;
   }
   rstl::vector< TUniqueId >::const_iterator search =
-      rstl::binary_find_const< rstl::vector< TUniqueId > >(x78_projectileAttackers.begin(),
-                                                           x78_projectileAttackers.end(), id);
+      rstl::binary_find(x78_projectileAttackers.begin(), x78_projectileAttackers.end(), id);
   if (search != x78_projectileAttackers.end()) {
     return true;
   }
@@ -328,13 +321,12 @@ bool CTeamAiMgr::AddProjectileAttacker(TUniqueId id) {
   if (x94_timeSinceProjectile >= x34_data.x20_projectileTimeInterval &&
       x78_projectileAttackers.size() < x34_data.x14_maxProjectileAttackerCount &&
       HasTeamAiRole(id)) {
-    rstl::vector< TUniqueId >::iterator search = rstl::binary_find< rstl::vector< TUniqueId > >(
-        x78_projectileAttackers.begin(), x78_projectileAttackers.end(), id);
+    rstl::vector< TUniqueId >::iterator search =
+        rstl::binary_find(x78_projectileAttackers.begin(), x78_projectileAttackers.end(), id);
     if (search == x78_projectileAttackers.end()) {
       x78_projectileAttackers.reserve(x78_projectileAttackers.size() + 1);
       rstl::vector< TUniqueId >::iterator insertPos =
-          rstl::lower_bound< rstl::vector< TUniqueId > >(x78_projectileAttackers.begin(),
-                                                         x78_projectileAttackers.end(), id);
+          rstl::lower_bound(x78_projectileAttackers.begin(), x78_projectileAttackers.end(), id);
       x78_projectileAttackers.insert(insertPos, id);
       x94_timeSinceProjectile = 0.f;
     }
@@ -344,8 +336,8 @@ bool CTeamAiMgr::AddProjectileAttacker(TUniqueId id) {
 }
 
 void CTeamAiMgr::RemoveProjectileAttacker(TUniqueId id) {
-  rstl::vector< TUniqueId >::iterator search = rstl::binary_find< rstl::vector< TUniqueId > >(
-      x78_projectileAttackers.begin(), x78_projectileAttackers.end(), id);
+  rstl::vector< TUniqueId >::iterator search =
+      rstl::binary_find(x78_projectileAttackers.begin(), x78_projectileAttackers.end(), id);
   if (search != x78_projectileAttackers.end()) {
     x78_projectileAttackers.erase(search);
   }
@@ -379,7 +371,7 @@ void CTeamAiMgr::UpdateRoles(CStateManager& mgr) {
   ResetRoles(mgr);
 
   CVector3f aimPos = mgr.GetPlayer()->GetAimPosition(mgr, 0.f);
-  rstl::sort(x58_roles.begin(), x58_roles.end(), TeamAiRoleSorter(aimPos, 1));
+  rstl::sort(x58_roles.begin(), x58_roles.end(), CRoleSorter(aimPos, 1));
 
   AssignRoles(CTeamAiRole::kTAR_Melee, x34_data.x4_meleeCount);
   AssignRoles(CTeamAiRole::kTAR_Projectile, x34_data.x8_projectileCount);
@@ -392,7 +384,7 @@ void CTeamAiMgr::UpdateRoles(CStateManager& mgr) {
     }
   }
 
-  rstl::sort(x58_roles.begin(), x58_roles.end(), TeamAiRoleSorter(aimPos, 0));
+  rstl::sort(x58_roles.begin(), x58_roles.end(), CRoleSorter(aimPos, 0));
   x88_timeDirty = 0.f;
 }
 
@@ -408,8 +400,8 @@ void CTeamAiMgr::ResetRoles(CStateManager& mgr) {
   }
 }
 
-void CTeamAiMgr::AssignRoles(CTeamAiRole::ETeamAiRole role, int count) {
-  if (static_cast< uint >(count) == 0) {
+void CTeamAiMgr::AssignRoles(CTeamAiRole::ETeamAiRole role, uint count) {
+  if (count == 0) {
     return;
   }
 
@@ -417,12 +409,11 @@ void CTeamAiMgr::AssignRoles(CTeamAiRole::ETeamAiRole role, int count) {
   for (rstl::vector< CTeamAiRole >::iterator cur = x58_roles.begin(); cur != x58_roles.end();
        ++cur) {
     if (cur->x10_curRole == CTeamAiRole::kTAR_Initial) {
-      bool matches = role == cur->x4_roleA || role == cur->x8_roleB || role == cur->xc_roleC;
-      if (matches) {
+      if (cur->AllowsRole(role)) {
         cur->x10_curRole = role;
         cur->x14_roleIndex = roleIndex;
         roleIndex += 1;
-        if (roleIndex == static_cast< uint >(count)) {
+        if (roleIndex == count) {
           return;
         }
       }
@@ -449,7 +440,7 @@ void CTeamAiMgr::PositionTeam(CStateManager& mgr) {
 }
 
 void CTeamAiMgr::SpacingSort(CStateManager& mgr, const CVector3f& pos) {
-  rstl::sort(x58_roles.begin(), x58_roles.end(), TeamAiRoleSorter(pos, 2));
+  rstl::sort(x58_roles.begin(), x58_roles.end(), CRoleSorter(pos, 2));
 
   float tierStagger = 4.5f;
   rstl::vector< CTeamAiRole >::iterator role = x58_roles.begin();
@@ -464,30 +455,20 @@ void CTeamAiMgr::SpacingSort(CStateManager& mgr, const CVector3f& pos) {
   }
 
   float curTierDist = tierStagger;
-  int maxTierTeamSize = 3;
   int tierTeamSize = 0;
+  int maxTierTeamSize = 3;
   role = x58_roles.begin();
   for (; role != x58_roles.end(); ++role) {
-    CPatterned* ai = TCastToPtr< CPatterned >(mgr.ObjectById(role->GetOwnerId()));
+    CPatterned* const ai = TCastToPtr< CPatterned >(mgr.ObjectById(role->GetOwnerId()));
     if (ai) {
       CVector3f delta = ai->GetTranslation() - pos;
       delta.SetZ(0.f);
-      const CVector3f* pNewPos;
-      if (delta.CanBeNormalized()) {
-        const CVector3f& dir = delta.AsNormalized();
-        const CVector3f& newDelta = curTierDist * dir;
-        const CVector3f& newPos = pos + newDelta;
-        pNewPos = &newPos;
-      } else {
-        const CVector3f& basis = ai->GetTransform().GetForward();
-        const CVector3f& newDelta = curTierDist * basis;
-        const CVector3f& newPos = pos + newDelta;
-        pNewPos = &newPos;
-      }
-      const CVector3f& trans = ai->GetTranslation();
-      role->x1c_position.SetX(pNewPos->GetX());
-      role->x1c_position.SetY(pNewPos->GetY());
-      role->x1c_position.SetZ(trans.GetZ());
+      const CVector3f& newPos = delta.CanBeNormalized()
+                                    ? pos + curTierDist * delta.AsNormalized()
+                                    : pos + curTierDist * ai->GetTransform().GetForward();
+      CVector3f finalPos = newPos;
+      finalPos.SetZ(ai->GetTranslation().GetZ());
+      role->SetTeamPosition(finalPos);
       tierTeamSize += 1;
       if (tierTeamSize > maxTierTeamSize) {
         curTierDist += tierStagger;
@@ -497,7 +478,7 @@ void CTeamAiMgr::SpacingSort(CStateManager& mgr, const CVector3f& pos) {
     }
   }
 
-  rstl::sort(x58_roles.begin(), x58_roles.end(), TeamAiRoleSorter(pos, 0));
+  rstl::sort(x58_roles.begin(), x58_roles.end(), CRoleSorter(pos, 0));
 }
 
 void CTeamAiMgr::UpdateTeamCaptain() {
