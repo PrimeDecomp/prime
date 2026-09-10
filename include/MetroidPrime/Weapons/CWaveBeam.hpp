@@ -12,8 +12,6 @@ class CElectricDescription;
 class CParticleElectric;
 
 class CWaveBeam : public CGunWeapon {
-  static const CRelAngle kAngleStep;
-
 public:
   CWaveBeam(CAssetId characterId, EWeaponType type, TUniqueId playerId,
             EMaterialTypes playerMaterial, const CVector3f& scale);
