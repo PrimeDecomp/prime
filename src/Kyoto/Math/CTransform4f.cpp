@@ -33,10 +33,11 @@ CTransform4f CTransform4f::LookAt(const CVector3f& pos, const CVector3f& lookPos
 
   vUp *= (1.f / vMag);
 
+  const CVector3f vRight = CVector3f::Cross(vLook, vUp);
   return CTransform4f(
-      vLook.GetY() * vUp.GetZ() - vUp.GetY() * vLook.GetZ(), vLook.GetX(), vUp.GetX(), pos.GetX(),
-      vLook.GetZ() * vUp.GetX() - vUp.GetZ() * vLook.GetX(), vLook.GetY(), vUp.GetY(), pos.GetY(),
-      vLook.GetX() * vUp.GetY() - vUp.GetX() * vLook.GetY(), vLook.GetZ(), vUp.GetZ(), pos.GetZ());
+      vRight.GetX(), vLook.GetX(), vUp.GetX(), pos.GetX(),
+      vRight.GetY(), vLook.GetY(), vUp.GetY(), pos.GetY(),
+      vRight.GetZ(), vLook.GetZ(), vUp.GetZ(), pos.GetZ());
 }
 
 CTransform4f CTransform4f::MakeRotationsBasedOnY(const CUnitVector3f& yRot) {
