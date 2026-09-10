@@ -660,6 +660,10 @@ MetroidPrime/BodyState/CBSCover.cpp:
 MetroidPrime/ScriptObjects/CScriptBallTrigger.cpp:
 	.text       start:0x8016C3A4 end:0x8016C604
 
+MetroidPrime/Weapons/CPlasmaProjectile.cpp:
+	.text       start:0x8016C604 end:0x8016EE54
+	.ctors      start:0x803B5024 end:0x803B5028
+
 MetroidPrime/Player/CPlayerOrbit.cpp:
 	.text       start:0x8016EE54 end:0x80175554
 	.ctors      start:0x803B5028 end:0x803B502C
