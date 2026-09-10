@@ -248,12 +248,12 @@ CVector3f CPhysicsActor::GetMoveToORImpulseWR(const CVector3f& trans, float d) c
 }
 
 CVector3f CPhysicsActor::GetRotateToORAngularMomentumWR(const CQuaternion& q, float d) const {
-  if (q.GetW() > 0.99999976f) {
+  if (q.GetScalar() > 0.99999976f) {
     return CVector3f::Zero();
   } else {
-    const CVector3f rotated = GetTransform().Rotate(q.GetImaginary());
+    const CVector3f rotated = GetTransform().Rotate(q.GetVector());
 
-    float ac = acos(q.GetW());
+    float ac = acos(q.GetScalar());
     return rotated.AsNormalized() * ((ac * 2.0f) * (1.0f / d)) * xf0_inertiaTensor;
   }
 }

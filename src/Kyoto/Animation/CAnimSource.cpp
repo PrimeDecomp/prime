@@ -69,10 +69,10 @@ void RotationAndOffsetStorage::CopyRotationsAndOffsets(const rstl::vector< CQuat
     int i = 0;
     for (int rotation = 0; i < rotationsPerFrame; rotation += numFrames, i++) {
       const CQuaternion& q = rotations[frame + rotation];
-      *(buf++) = q.GetW();
-      *(buf++) = q.GetX();
-      *(buf++) = q.GetY();
-      *(buf++) = q.GetZ();
+      *(buf++) = q.GetScalar();
+      *(buf++) = q.AxisX();
+      *(buf++) = q.AxisY();
+      *(buf++) = q.AxisZ();
     }
     i = 0;
     for (int offset = 0; offset < offsetsPerFrame; offset++, i += numFrames) {

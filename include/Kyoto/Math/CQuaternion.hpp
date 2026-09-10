@@ -65,15 +65,8 @@ public:
   static CQuaternion MadeLocalToFirst(const CQuaternion& first, const CQuaternion& second) {
     return second.LocalTo(first) ? second : second.BuildEquivalent();
   }
-
-  // TODO: fake
-  float GetW() const { return w; }
-  float GetX() const { return imaginary.GetX(); }
-  float GetY() const { return imaginary.GetY(); }
-  float GetZ() const { return imaginary.GetZ(); }
-  const CVector3f& GetImaginary() const { return imaginary; }
-
-  // Real
+  
+  
   float GetScalar() const { return w; }
   const CVector3f& GetVector() const { return imaginary; }
   float AxisX() const { return imaginary.GetX(); }
