@@ -41,6 +41,9 @@ CTexture::CTexture(ETexelFormat fmt, const short w, const short h, int mips)
 , mCanLoadObj(false)
 , mMemoryAllocated(0)
 , mFrameAllocated(sCurrentFrameCount)
+#if NONMATCHING
+, mTexObj()
+#endif
 , mNativeFormat(GX_TF_RGB565)
 , mNativeCIFormat(GX_TF_C8)
 , mClampMode(kCM_Repeat) {
@@ -62,6 +65,9 @@ CTexture::CTexture(CInputStream& in, EAutoMipmap automip, EBlackKey blackKey)
 , mCanLoadObj(false)
 , mMemoryAllocated(0)
 , mFrameAllocated(sCurrentFrameCount)
+#if NONMATCHING
+, mTexObj()
+#endif
 , mNativeFormat(GX_TF_RGB565)
 , mNativeCIFormat(GX_TF_C8)
 , mClampMode(kCM_Repeat) {

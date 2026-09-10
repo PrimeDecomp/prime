@@ -75,6 +75,11 @@
 #include "rstl/math.hpp"
 #include "rstl/vector.hpp"
 
+#if NONMATCHING
+float CPlayer::skDefaultHudFadeOutSpeed = 0.5f;
+float CPlayer::skDefaultHudFadeInSpeed = 2.5f;
+#endif
+
 const bool gkAutoAim = false;
 const bool gkAutoAimAtOrbitedObject = false;
 const bool gkFreeLookPreventsOrbitMovement = true;

@@ -5,6 +5,10 @@
 #include <dolphin/gx/GXManage.h>
 #include <rstl/list.hpp>
 
+#if NONMATCHING
+#include <stdint.h>
+#endif
+
 static uint sCurList = 0;
 static rstl::list< void* > sFrameDelayedList[2];
 
@@ -53,9 +57,14 @@ bool CElementAllocationChunk::CanAllocate(uint size) const {
 }
 
 bool CElementAllocationChunk::Contains(const void* ptr) const {
+#if NONMATCHING
+  return reinterpret_cast< uintptr_t >(ptr) - reinterpret_cast< uintptr_t >(xc_data) <
+         sizeof(xc_data);
+#else
   int offset = static_cast< const char* >(ptr) - reinterpret_cast< const char* >(xc_data);
   int index = offset / 4;
   return x0_capacity > index;
+#endif
 }
 
 void* CElementAllocationChunk::Allocate(uint size) {

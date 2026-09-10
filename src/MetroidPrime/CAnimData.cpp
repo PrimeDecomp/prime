@@ -20,6 +20,7 @@
 #include "Kyoto/Math/CVector3f.hpp"
 #include "MetroidPrime/Factories/CCharacterFactory.hpp"
 #include "MetroidPrime/CStateManager.hpp"
+#include "MetroidPrime/CAnimRes.hpp"
 
 #include <math.h>
 
@@ -27,6 +28,10 @@
 
 #include "rstl/algorithm.hpp"
 #include "rstl/math.hpp"
+
+#if NONMATCHING
+const int CAnimRes::kDefaultCharIdx = 0;
+#endif
 
 typedef rstl::vector< rstl::pair< rstl::string, CAABox > > TAabbList;
 typedef rstl::vector< rstl::pair< rstl::string, rstl::vector< CEffectComponent > > > TEffectList;
