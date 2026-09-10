@@ -16,9 +16,6 @@
 
 #include <string.h>
 
-#if VERSION == 4 // JP
-#pragma inline_max_size(100)
-#endif
 bool CGraphicsSys::mGraphicsInitialized;
 static CStopwatch sFPSTimer;
 static uchar sSpareFrameBuffer[640 * 448] ATTRIBUTE_ALIGN(32);

@@ -28,8 +28,6 @@
 #include "WorldFormat/CMetroidAreaCollider.hpp"
 #include "rstl/algorithm.hpp"
 
-#pragma inline_max_size(250)
-
 static const CMaterialFilter skExcludeProjectilePassthrough =
     CMaterialFilter::MakeExclude(CMaterialList(kMT_ProjectilePassthrough));
 

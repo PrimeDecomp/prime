@@ -20,8 +20,6 @@
 #include "MetroidPrime/TCastTo.hpp"
 
 #include "rstl/math.hpp"
-#pragma inline_max_size(250)
-
 uint CScriptEffect::mNumParticlesDrawing = 0;
 uint CScriptEffect::mNumParticlesUpdating = 0;
 

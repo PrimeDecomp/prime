@@ -13,7 +13,6 @@
 #include "MetroidPrime/TCastTo.hpp"
 #include "MetroidPrime/Weapons/CEnergyProjectile.hpp"
 
-#pragma inline_max_size(250)
 int CPuddleSpore::kEyeCount = 16;
 const char* CPuddleSpore::kEyeLocators[] = {
     "Glow_1_LCTR",  "Glow_2_LCTR",  "Glow_3_LCTR",  "Glow_4_LCTR",  "Glow_5_LCTR",  "Glow_6_LCTR",

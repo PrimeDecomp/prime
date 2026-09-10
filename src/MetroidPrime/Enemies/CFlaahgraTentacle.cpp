@@ -10,8 +10,6 @@
 #include "MetroidPrime/ScriptObjects/CScriptTrigger.hpp"
 #include "MetroidPrime/TCastTo.hpp"
 
-#pragma inline_max_size(250)
-
 const CFlaahgraTentacle::SSphereJointInfo CFlaahgraTentacle::skJointList[] = {
     {"Arm_8", 2.f},
     {"Arm_10", 1.2f},

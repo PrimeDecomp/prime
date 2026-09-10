@@ -4,7 +4,6 @@
 #include "Kyoto/Streams/CZipInputStream.hpp"
 #include "rstl/StringExtras.hpp"
 
-#pragma inline_max_size(240)
 static inline int align_size(const int size) { return (size + 31) & ~31; }
 
 CResLoader::CResLoader()

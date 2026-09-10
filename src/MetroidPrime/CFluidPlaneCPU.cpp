@@ -36,8 +36,6 @@
 
 #include <math.h>
 
-#pragma inline_max_size(250)
-
 float* InitializeSineWave();
 
 static int kMaxTilesInHField = 7;

@@ -29,8 +29,6 @@
 #include "MetroidPrime/ScriptObjects/CScriptSound.hpp"
 #include "MetroidPrime/Weapons/CGameProjectile.hpp"
 
-#pragma inline_max_size(250)
-
 const char* const COmegaPirate::skpGrenadeLauncher2LCTR = "grenadeLauncher2_LCTR";
 const SSphereJointInfo COmegaPirate::skSphereJointList[1] = {{"lockon_target_LCTR", 1.f}};
 const COmegaPirate::SOBBoxJointInfo COmegaPirate::skOBBJointList[11] = {

@@ -16,8 +16,6 @@
 #include <dolphin/gx.h>
 #include <float.h>
 
-#pragma inline_max_size(250)
-
 struct SShadowDrawContext {
   const CSkinnedModel& model;
   bool drawAll;

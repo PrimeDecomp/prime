@@ -34,8 +34,6 @@
 CGameArea::CConstChainIterator CWorld::skGlobalEnd;
 CGameArea::CChainIterator CWorld::skGlobalNonConstEnd;
 
-#pragma inline_max_size(250)
-
 void CWorldLayers::ReadWorldLayers(CInputStream& in, int version, CAssetId mlvlId) {
   if (static_cast< uint >(version) > 14) {
     rstl::vector< Area > areas(in);

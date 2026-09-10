@@ -15,8 +15,6 @@
 #include <Kyoto/Graphics/CGraphics.hpp>
 #include <Kyoto/IObjectStore.hpp>
 #include <Kyoto/TToken.hpp>
-#pragma inline_max_size(250)
-
 static bool sIsTextureTimeoutEnabled = true;
 uint CModel::sTotalMemory = 0;
 CModel* CModel::sThisFrameList = nullptr;

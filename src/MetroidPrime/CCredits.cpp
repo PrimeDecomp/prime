@@ -29,8 +29,6 @@
 #include "rstl/StringExtras.hpp"
 #include "rstl/math.hpp"
 
-#pragma inline_max_size(250)
-
 static const char* const skMovieNames[] = {"Video/wingame.thp",       "Video/wingame_best.thp",
                                            "Video/wingame_best.thp",  "Video/losegame.thp",
                                            "Video/05_tallonText.thp", "Video/AfterCredits.thp",

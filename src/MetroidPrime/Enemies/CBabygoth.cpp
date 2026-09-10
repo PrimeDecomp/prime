@@ -21,8 +21,6 @@
 #include "MetroidPrime/Weapons/CFlameThrower.hpp"
 #include "MetroidPrime/Weapons/CWeapon.hpp"
 
-#pragma inline_max_size(250)
-
 const int CBabygothData::skMinProperties = 33;
 
 const CVector3f CBabygoth::skAttackTouchBounds(0.2f, 0.2f, 0.2f);

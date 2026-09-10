@@ -28,8 +28,6 @@
 #include "MetroidPrime/BodyState/CBodyState.hpp"
 #include "rstl/math.hpp"
 
-#pragma inline_max_size(250)
-
 const int CIceSheegothData::skNumProperties = 37;
 
 const CVector3f CIceSheegoth::skChargingBounds(2.f, 2.f, 2.f);

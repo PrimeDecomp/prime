@@ -8,8 +8,6 @@
 #include "rstl/pair.hpp"
 #include "rstl/vector.hpp"
 
-#pragma inline_max_size(250)
-
 typedef rstl::pair< CVector3f, rstl::list< uint > > TPosToVertListPair;
 
 CSkinnedModelWithAvgNormals::CSkinnedModelWithAvgNormals(const CSkinnedModel& skinnedModel)

@@ -34,8 +34,6 @@
 
 #include <float.h>
 
-#pragma inline_max_size(250)
-
 static const float gkReal32Max = FLT_MAX;
 static float g_SnowForces[256][2];
 

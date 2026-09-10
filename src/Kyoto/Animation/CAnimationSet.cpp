@@ -1,7 +1,6 @@
 #include "Kyoto/Animation/CAnimationSet.hpp"
 #include "Kyoto/Animation/CMetaTransFactory.hpp"
 
-#pragma inline_max_size(240)
 CAnimationSet::CAnimationSet(CInputStream& in)
 : mTableCount(in.Get< short >())
 , mAnimations(in)

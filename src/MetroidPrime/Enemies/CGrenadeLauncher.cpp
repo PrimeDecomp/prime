@@ -14,8 +14,6 @@
 #include "rstl/math.hpp"
 #include <float.h>
 
-#pragma inline_max_size(250)
-
 static const CMaterialList skLauncherMaterial(kMT_Character, kMT_Solid);
 static const int skLauncherAnims[] = {0, 3};
 static const char* const skGrenadeLocator = "grenade_LCTR";

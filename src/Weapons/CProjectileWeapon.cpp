@@ -19,8 +19,6 @@
 #include <MetaRender/CCubeRenderer.hpp>
 #include <Weapons/CCollisionResponseData.hpp>
 
-#pragma inline_max_size(250)
-
 uint CProjectileWeapon::skGlobalSeed = 99;
 
 float CProjectileWeapon::GetTickPeriod() { return 1 / 60.f; }

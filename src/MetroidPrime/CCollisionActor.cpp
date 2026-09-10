@@ -14,8 +14,6 @@
 
 #include "rstl/math.hpp"
 
-#pragma inline_max_size(250)
-
 static const CMaterialList gkDefaultCollisionActorMaterials(kMT_Solid, kMT_CollisionActor,
                                                             kMT_ScanPassthrough,
                                                             kMT_CameraPassthrough);

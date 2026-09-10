@@ -22,8 +22,6 @@
 
 #include <rstl/math.hpp>
 
-#pragma inline_max_size(250)
-
 void CScanDisplay::SetScanMessageTypeEffect(CGuiTextPane* pane, bool type) {
   if (type) {
     pane->TextSupport().SetTypeWriteEffectOptions(true, 0.1f, 60.f);

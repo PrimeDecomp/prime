@@ -20,8 +20,6 @@
 #include <math.h>
 #include <stdlib.h>
 
-#pragma inline_max_size(250)
-
 struct CMapObjectSortInfoGreaterThan {
   CMapObjectSortInfoGreaterThan() {}
   bool operator()(const CMapWorld::CMapObjectSortInfo& a,

@@ -23,8 +23,6 @@
 
 #include "math.h"
 
-#pragma inline_max_size(250)
-
 CVisorFlare::CFlareDef::CFlareDef(const TToken< CTexture >& tex, float pos, float scale, uint color)
 : x0_tex(tex), x8_pos(pos), xc_scale(scale), x10_color(color) {
   x0_tex.Lock();

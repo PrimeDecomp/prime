@@ -18,8 +18,6 @@
 
 #include "float.h"
 
-#pragma inline_max_size(250)
-
 static const char* skMouthLocator = "LCTR_MAGMOUTH";
 static const char* skHeadLocator = "head";
 static const char* skHeadBone = "head";

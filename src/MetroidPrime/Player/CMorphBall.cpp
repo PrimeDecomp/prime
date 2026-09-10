@@ -50,8 +50,6 @@
 
 #include "rstl/math.hpp"
 
-#pragma inline_max_size(250)
-
 static inline CMaterialFilter MakeBallDamageFilter() {
   return CMaterialFilter::MakeIncludeExclude(CMaterialList(kMT_Solid), CMaterialList());
 }

@@ -6,8 +6,6 @@
 #include "math.h"
 #include "rstl/algorithm.hpp"
 
-#pragma inline_max_size(250)
-
 struct SSubdivision {
   int count;
   CVector3i axes;

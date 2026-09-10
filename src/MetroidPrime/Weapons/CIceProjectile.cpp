@@ -16,8 +16,6 @@
 #include "Kyoto/Math/CRelAngle.hpp"
 #include "Kyoto/Particles/CElementGen.hpp"
 
-#pragma inline_max_size(250)
-
 CIceAttackProjectile::CIceAttackProjectile(TToken< CGenDescription > trail,
                                            TToken< CGenDescription > explosion,
                                            TToken< CGenDescription > moving, TUniqueId uid,

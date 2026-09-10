@@ -23,8 +23,6 @@
 #include "stdlib.h"
 #include "string.h"
 
-#pragma inline_max_size(250)
-
 static const char* const skDebugFilterTypeNames[] = {
     "PassThru   ", "Multiply   ", "Invert     ", "Add        ", "Subtract   ",
     "Blend      ", "WideScreen ", "SceneAdd   ", "NoColor    ",

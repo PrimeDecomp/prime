@@ -7,8 +7,6 @@
 
 #include "rstl/algorithm.hpp"
 
-#pragma inline_max_size(250)
-
 CCameraOverrideInfo::CCameraOverrideInfo(
     uint overrideFlags, CBallCamera::EBallCameraBehaviour behaviour, float minDist, float maxDist,
     float backwardsDist, const CVector3f& lookAtOffset, const CVector3f& chaseLookAtOffset,

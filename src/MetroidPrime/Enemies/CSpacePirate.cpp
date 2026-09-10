@@ -37,8 +37,6 @@
 #include "rstl/algorithm.hpp"
 #include <float.h>
 
-#pragma inline_max_size(250)
-
 static const rstl::string skParts[] = {
     rstl::string_l("Collar"),  rstl::string_l("Neck_1"),  rstl::string_l("R_shoulder"),
     rstl::string_l("R_elbow"), rstl::string_l("R_wrist"), rstl::string_l("L_shoulder"),

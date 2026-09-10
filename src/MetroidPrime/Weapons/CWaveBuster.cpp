@@ -18,8 +18,6 @@
 #include "dolphin/gx.h"
 #include "dolphin/os/OSCache.h"
 
-#pragma inline_max_size(250)
-
 static const CVector3f kTargetNodePosition(0.f, -3.f, -1.5f);
 static const CVector3f kSourceNodePosition(0.f, 2.f, 1.5f);
 

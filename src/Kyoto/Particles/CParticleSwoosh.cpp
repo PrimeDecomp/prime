@@ -15,7 +15,6 @@
 #include "rstl/math.hpp"
 #include "rstl/reserved_vector.hpp"
 
-#pragma inline_max_size(250)
 uint CParticleSwoosh::mSwooshAliveCount = 0;
 static float kFrameTime = 1.f / 60.f;
 

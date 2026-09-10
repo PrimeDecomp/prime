@@ -25,8 +25,6 @@
 #include <alloca.h>
 #include <float.h>
 
-#pragma inline_max_size(250)
-
 const float CActorLights::kDefaultPositionUpdateThreshold = 0.1f;
 const int CActorLights::kInvalidShadowLightIndex = -1;
 int CActorLights::sFrameSchedulerCount = 0;

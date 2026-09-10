@@ -1,5 +1,3 @@
-#pragma inline_max_size(250)
-
 #include "MetroidPrime/CGameArea.hpp"
 
 #include "MetroidPrime/CMemoryDrawEnum.hpp"

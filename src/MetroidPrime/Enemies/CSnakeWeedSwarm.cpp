@@ -1,5 +1,3 @@
-#pragma inline_max_size(250)
-
 #include "MetroidPrime/ScriptObjects/CSnakeWeedSwarm.hpp"
 
 #include "Kyoto/Animation/CSkinnedModel.hpp"

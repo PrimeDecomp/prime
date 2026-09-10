@@ -109,8 +109,6 @@ const CFactoryFnReturn FDependencyGroupFactory(const SObjectTag&, CInputStream&,
 const CFactoryFnReturn FSaveWorldFactory(const SObjectTag&, CInputStream&, const CVParamTransfer&);
 const CFactoryFnReturn FHintFactory(const SObjectTag&, CInputStream&, const CVParamTransfer&);
 
-#pragma inline_max_size(250)
-
 CResFactory* gpResourceFactory;
 CSimplePool* gpSimplePool;
 CCubeRenderer* gpRender;

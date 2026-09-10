@@ -51,8 +51,6 @@
 #include <string.h>
 #include <type_traits>
 
-#pragma inline_max_size(250)
-
 CCubeRenderer* CCubeRenderer::sRenderer = nullptr;
 static CModelFlags skNormalFlag = CModelFlags::Normal();
 static CModelFlags skNormalFlagNoUpdate = CModelFlags::Normal().DepthCompareUpdate(true, false);

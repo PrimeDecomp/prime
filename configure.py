@@ -309,6 +309,10 @@ cflags_retro = [
     "-DMUSY_TARGET=MUSY_TARGET_DOLPHIN",
 ]
 
+# Most Retro code uses this inline limit. Objects that still need the compiler
+# default retain cflags_retro explicitly while their helper inlining is investigated.
+cflags_retro_inline = [*cflags_retro, '-pragma "inline_max_size(250)"']
+
 cflags_musyx = [
     "-proc gekko",
     "-nodefaults",
@@ -403,7 +407,7 @@ def RetroLib(lib_name, progress_category, objects):
     return {
         "lib": lib_name + "CW" + "D" if args.debug else "",
         "mw_version": "GC/1.3.2",
-        "cflags": cflags_retro,
+        "cflags": cflags_retro_inline,
         "progress_category": progress_category,
         "objects": objects,
         "shift_jis": False,
@@ -414,7 +418,7 @@ def KyotoLib(lib_name, progress_category, objects):
     return {
         "lib": lib_name + "CW" + "D" if args.debug else "",
         "mw_version": "GC/1.3.2",
-        "cflags": [*cflags_retro, "-pragma \"inline_max_size(250)\""],
+        "cflags": cflags_retro_inline,
         "host": False,
         "progress_category": progress_category,
         "objects": objects,
@@ -507,7 +511,11 @@ config.libs = [
                 "MetroidPrime/CArchMsgParmUserInput.cpp",
             ),
             Object(NonMatching, "MetroidPrime/CFrontEndUI.cpp"),
-            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CInputGenerator.cpp"),
+            Object(
+                MatchingFor("GM8E01_00", "GM8E01_01"),
+                "MetroidPrime/CInputGenerator.cpp",
+                cflags=cflags_retro,
+            ),
             Object(MatchingFor("GM8E01_00"), "MetroidPrime/CMainFlow.cpp"),
             Object(MatchingFor("GM8E01_00"), "MetroidPrime/CMFGame.cpp"),
             Object(NonMatching, "MetroidPrime/CCredits.cpp"),
@@ -577,7 +585,11 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/Tweaks/CTweakPlayerControl.cpp",
             ),
-            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Tweaks/CTweakPlayerGun.cpp"),
+            Object(
+                MatchingFor("GM8E01_00", "GM8E01_01"),
+                "MetroidPrime/Tweaks/CTweakPlayerGun.cpp",
+                cflags=cflags_retro,
+            ),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CPauseScreen.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Tweaks/CTweakGui.cpp"),
             Object(
@@ -603,7 +615,11 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/Tweaks/CTweakBall.cpp",
             ),
-            Object(NonMatching, "MetroidPrime/Player/CPlayerState.cpp"),
+            Object(
+                NonMatching,
+                "MetroidPrime/Player/CPlayerState.cpp",
+                cflags=cflags_retro,
+            ),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/ScriptObjects/CScriptTimer.cpp",
@@ -649,9 +665,17 @@ config.libs = [
                 "MetroidPrime/CParticleGenInfo.cpp",
             ),
             Object(NonMatching, "MetroidPrime/CParticleDatabase.cpp"),
-            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Tweaks/CTweakGunRes.cpp"),
+            Object(
+                MatchingFor("GM8E01_00", "GM8E01_01"),
+                "MetroidPrime/Tweaks/CTweakGunRes.cpp",
+                cflags=cflags_retro,
+            ),
             Object(NonMatching, "MetroidPrime/CTargetReticles.cpp"),
-            Object(NonMatching, "MetroidPrime/CWeaponMgr.cpp"),
+            Object(
+                NonMatching,
+                "MetroidPrime/CWeaponMgr.cpp",
+                cflags=cflags_retro,
+            ),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/ScriptObjects/CScriptPickup.cpp",
@@ -772,7 +796,12 @@ config.libs = [
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"), "MetroidPrime/CFluidUVMotion.cpp"
             ),
-            Object(MatchingFor("GM8E01_00"), "MetroidPrime/CRippleManager.cpp"),
+            Object(
+                MatchingFor("GM8E01_00"),
+                "MetroidPrime/CRippleManager.cpp",
+                # TODO: inline ripple fill at the common limit.
+                extra_cflags=['-pragma "inline_max_size(260)"'],
+            ),
             Object(NonMatching, "MetroidPrime/Player/CGrappleArm.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CSpacePirate.cpp"),
             Object(
@@ -821,7 +850,11 @@ config.libs = [
                 "MetroidPrime/BodyState/CBSStep.cpp",
             ),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/BodyState/CBSTurn.cpp"),
-            Object(MatchingFor("GM8E01_00"), "MetroidPrime/BodyState/CBodyController.cpp"),
+            Object(
+                MatchingFor("GM8E01_00"),
+                "MetroidPrime/BodyState/CBodyController.cpp",
+                cflags=cflags_retro,
+            ),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/BodyState/CBSLoopAttack.cpp",
@@ -908,6 +941,7 @@ config.libs = [
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/Factories/CScannableObjectInfo.cpp",
+                cflags=cflags_retro,
             ),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Enemies/CMetroid.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Player/CScanDisplay.cpp"),
@@ -930,7 +964,9 @@ config.libs = [
             Object(NonMatching, "MetroidPrime/Player/CPlayerOrbit.cpp"),
             Object(NonMatching, "MetroidPrime/CGameCollision.cpp"),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CBallFilter.cpp"
+                MatchingFor("GM8E01_00", "GM8E01_01"),
+                "MetroidPrime/CBallFilter.cpp",
+                cflags=cflags_retro,
             ),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CAABoxFilter.cpp"
@@ -958,7 +994,11 @@ config.libs = [
             Object(NonMatching, "MetroidPrime/Weapons/CFlameThrower.cpp"),
             Object(MatchingFor("GM8E01_00"), "MetroidPrime/Weapons/CBeamProjectile.cpp"),
             Object(NonMatching, "MetroidPrime/CFluidPlaneCPU.cpp"),
-            Object(NonMatching, "MetroidPrime/CFluidPlaneDoor.cpp"),
+            Object(
+                NonMatching,
+                "MetroidPrime/CFluidPlaneDoor.cpp",
+                cflags=cflags_retro,
+            ),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/ScriptObjects/CScriptRoomAcoustics.cpp",
@@ -1086,7 +1126,11 @@ config.libs = [
             ),
             Object(MatchingFor("GM8E01_00"), "MetroidPrime/CWorldTransManager.cpp"),
             Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptMidi.cpp"),
-            Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptStreamedMusic.cpp"),
+            Object(
+                NonMatching,
+                "MetroidPrime/ScriptObjects/CScriptStreamedMusic.cpp",
+                cflags=cflags_retro,
+            ),
             Object(NonMatching, "MetroidPrime/CRagDoll.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Player/CGameOptions.cpp"),
             Object(
@@ -1094,13 +1138,21 @@ config.libs = [
                 "MetroidPrime/ScriptObjects/CRepulsor.cpp",
             ),
             Object(NonMatching, "MetroidPrime/CEnvFxManager.cpp"),
-            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Weapons/CEnergyProjectile.cpp"),
+            Object(
+                MatchingFor("GM8E01_00", "GM8E01_01"),
+                "MetroidPrime/Weapons/CEnergyProjectile.cpp",
+                cflags=cflags_retro,
+            ),
             Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptGunTurret.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/Weapons/CProjectileInfo.cpp",
             ),
-            Object(NonMatching, "MetroidPrime/CInGameTweakManager.cpp"),
+            Object(
+                NonMatching,
+                "MetroidPrime/CInGameTweakManager.cpp",
+                cflags=cflags_retro,
+            ),
             Object(NonMatching, "MetroidPrime/Enemies/CBabygoth.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CEyeBall.cpp"),
             Object(
@@ -1188,6 +1240,7 @@ config.libs = [
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/CWorldSaveGameInfo.cpp",
+                cflags=cflags_retro,
             ),
             Object(NonMatching, "MetroidPrime/CFluidPlaneRender.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Enemies/CBurrower.cpp"),
@@ -1259,7 +1312,11 @@ config.libs = [
             Object(NonMatching, "WorldFormat/CMetroidAreaCollider.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "WorldFormat/CWorldLight.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "WorldFormat/COBBTree.cpp"),
-            Object(NonMatching, "WorldFormat/CCollidableOBBTree.cpp"),
+            Object(
+                NonMatching,
+                "WorldFormat/CCollidableOBBTree.cpp",
+                cflags=cflags_retro,
+            ),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"), "WorldFormat/CCollidableOBBTreeGroup.cpp"
             ),
@@ -1342,7 +1399,9 @@ config.libs = [
                 "Collision/CCollidableCollisionSurface.cpp",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"), "Collision/CCollisionInfo.cpp"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"),
+                "Collision/CCollisionInfo.cpp",
+                cflags=cflags_retro,
             ),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"), "Collision/InternalColliders.cpp"
@@ -1359,7 +1418,11 @@ config.libs = [
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Collision/CMaterialFilter.cpp"
             ),
-            Object(NonMatching, "Collision/COBBox.cpp"),
+            Object(
+                NonMatching,
+                "Collision/COBBox.cpp",
+                cflags=cflags_retro,
+            ),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"), "Collision/CMRay.cpp"),
         ],
     ),
@@ -1446,7 +1509,15 @@ config.libs = [
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Animation/CTreeUtils.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Animation/IMetaAnim.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Audio/CSfxHandle.cpp"),
-            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Audio/CSfxManager.cpp"),
+            Object(
+                MatchingFor("GM8E01_00", "GM8E01_01"),
+                "Kyoto/Audio/CSfxManager.cpp",
+                extra_cflags=(
+                    ['-pragma "inline_max_size(140)"']
+                    if version_num == 4
+                    else []
+                ),
+            ),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Animation/CAdvancementDeltas.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"), "Kyoto/Animation/CAnimMathUtils.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Animation/CAnimPerSegmentData.cpp"),
@@ -1561,7 +1632,15 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "Kyoto/Graphics/CTevCombiners.cpp",
             ),
-            Object(NonMatching, "Kyoto/Graphics/DolphinCGraphics.cpp"),
+            Object(
+                NonMatching,
+                "Kyoto/Graphics/DolphinCGraphics.cpp",
+                extra_cflags=(
+                    ['-pragma "inline_max_size(100)"']
+                    if version_num == 4
+                    else []
+                ),
+            ),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "Kyoto/Graphics/DolphinCPalette.cpp",
@@ -1630,7 +1709,15 @@ config.libs = [
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00"), "Kyoto/Particles/CWarp.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00"), "Kyoto/Math/CPlane.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00"), "Kyoto/Math/CSphere.cpp"),
-            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Kyoto/Math/CAABox.cpp"),
+            Object(
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                "Kyoto/Math/CAABox.cpp",
+                extra_cflags=(
+                    ['-pragma "inline_max_size(140)"']
+                    if version_num >= 4
+                    else []
+                ),
+            ),
             Object(NonMatching, "Kyoto/CFactoryMgr.cpp"),
             Object(NonMatching, "Kyoto/CResFactory.cpp"),
             Object(NonMatching, "Kyoto/CResLoader.cpp"),
@@ -1782,7 +1869,12 @@ config.libs = [
                 "Kyoto/Alloc/CSmallAllocPool.cpp",
             ),
             Object(NonMatching, "Kyoto/Alloc/CGameAllocator.cpp"),
-            Object(NonMatching, "Kyoto/Animation/DolphinCSkinnedModel.cpp"),
+            Object(
+                NonMatching,
+                "Kyoto/Animation/DolphinCSkinnedModel.cpp",
+                # TODO: inline optional assignment in AddSkinnedRef at the common limit.
+                extra_cflags=['-pragma "inline_max_size(259)"'],
+            ),
             Object(NonMatching, "Kyoto/Animation/DolphinCSkinRules.cpp"),
             Object(NonMatching, "Kyoto/Animation/DolphinCVirtualBone.cpp"),
             Object(NonMatching, "Kyoto/Graphics/DolphinCModel.cpp"),

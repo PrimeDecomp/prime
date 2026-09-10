@@ -4,7 +4,6 @@
 #include <Kyoto/Streams/CMemoryInStream.hpp>
 #include <WorldFormat/CPVSAreaSet.hpp>
 
-#pragma inline_max_size(250)
 CPVSAreaSet::CPVSAreaSet(int numFeatures, int numLights, int num2ndLights, int numActors,
                          int leafSize, int lightIndexCount, const char* w7, const char* w8,
                          const char* w9)

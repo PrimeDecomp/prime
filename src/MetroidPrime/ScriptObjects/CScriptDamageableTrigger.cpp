@@ -13,8 +13,6 @@
 #include "Kyoto/Math/CRelAngle.hpp"
 #include "Kyoto/Math/CloseEnough.hpp"
 
-#pragma inline_max_size(250)
-
 CScriptDamageableTrigger::CScriptDamageableTrigger(
     TUniqueId uid, const rstl::string& name, const CEntityInfo& info, const CVector3f& position,
     const CVector3f& extent, const CHealthInfo& hInfo, const CDamageVulnerability& dVuln,

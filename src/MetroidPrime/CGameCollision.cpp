@@ -27,8 +27,6 @@
 #include <Collision/CRayCastResult.hpp>
 #include <WorldFormat/CCollidableOBBTreeGroup.hpp>
 
-#pragma inline_max_size(250)
-
 static int gDebugPrintCount;
 
 void CGameCollision::InitCollision() {

@@ -1,7 +1,5 @@
 #include "MetroidPrime/Enemies/CNewIntroBoss.hpp"
 
-#pragma inline_max_size(250)
-
 #include "Kyoto/Animation/CPOINode.hpp"
 #include "MetroidPrime/CCollisionActorManager.hpp"
 #include "MetroidPrime/CGameCollision.hpp"

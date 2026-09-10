@@ -22,8 +22,6 @@
 #include "MetroidPrime/TCastTo.hpp"
 #include "MetroidPrime/Weapons/CGameProjectile.hpp"
 
-#pragma inline_max_size(250)
-
 const uint CMetroidBetaData::skNumProperties = 23;
 
 static const SSphereJointInfo skSphereJoints[] = {{"Pelvis", 1.5f}};
