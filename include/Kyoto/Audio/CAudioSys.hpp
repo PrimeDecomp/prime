@@ -117,7 +117,7 @@ public:
   static void TrkSetVolume(uchar, uchar);
   static void TrkSetRepeatMode(ETRKRepeatMode);
   static void TrkNextTrack();
-  static int TrkQueueTrack(const rstl::string&, void (*)(unsigned long), uint);
+  static int TrkQueueTrack(const rstl::string&, void (*)(u32), uint);
 
   static void SetStereoMode(const bool mode);
   static void SetSurroundMode(const ESurroundModes mode);

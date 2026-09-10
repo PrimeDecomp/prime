@@ -336,7 +336,7 @@ static CGrappleParameters LoadGrappleParameters(CInputStream& in) {
   return CGrappleParameters(a, b, c, d, e, f, g, h, i, j, k, l);
 }
 
-static uint LoadParameterFlags(CInputStream& in) {
+uint LoadParameterFlags(CInputStream& in) {
   int count = in.ReadLong();
   uint ret = 0;
   for (int i = 0; i < count; ++i)

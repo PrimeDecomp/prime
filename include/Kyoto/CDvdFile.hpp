@@ -42,8 +42,8 @@ public:
   bool IsARAMFile() const { return mARAMAllocated; }
 
   static bool FileExists(const char*);
-  static void DVDARAMXferCallback(long, DVDFileInfo*);
-  static void ARAMARAMXferCallback(u32 addr);
+  static void DVDARAMXferCallback(s32, DVDFileInfo*);
+  static void ARAMARAMXferCallback(uintptr_t addr);
   static void internalCallback(s32, DVDFileInfo*);
   const rstl::string& GetFilename() const { return mFilename; }
 

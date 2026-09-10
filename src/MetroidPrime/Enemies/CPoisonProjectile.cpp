@@ -19,11 +19,11 @@ CPoisonProjectile::CPoisonProjectile(
 void CPoisonProjectile::Accept(IVisitor& visitor) { visitor.Visit(*this); }
 
 // CEnergyProjectile
-bool CPoisonProjectile::Explode(const CVector3f& pos, const CVector3f& normal,
+const bool CPoisonProjectile::Explode(const CVector3f& pos, const CVector3f& normal,
                                 EWeaponCollisionResponseTypes type, CStateManager& mgr,
                                 const CDamageVulnerability& dVuln, TUniqueId hitActor) {
 
-  bool result = CEnergyProjectile::Explode(pos, normal, type, mgr, dVuln, hitActor);
+  const bool result = CEnergyProjectile::Explode(pos, normal, type, mgr, dVuln, hitActor);
   if (!x2e4_24_active) {
     TUniqueId newId(mgr.AllocateUniqueId());
 

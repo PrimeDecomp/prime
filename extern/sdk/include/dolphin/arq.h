@@ -20,7 +20,7 @@ extern "C" {
 #define ARQ_PRIORITY_LOW 0
 #define ARQ_PRIORITY_HIGH 1
 
-typedef void (*ARQCallback)(u32 pointerToARQRequest);
+typedef void (*ARQCallback)(uintptr_t pointerToARQRequest);
 
 typedef struct ARQRequest {
 

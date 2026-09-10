@@ -403,7 +403,7 @@ void CElementGen::SetGlobalOrientAndTrans(const CTransform4f& xf) {
   SetGlobalTranslation(xf.GetTranslation());
 }
 
-bool CElementGen::Update(double dt) {
+const bool CElementGen::Update(double dt) {
   CParticleGlobals::SParticleSystem thisSystem('PART', this);
 
   if (x28_loadedGenDesc->x4_PSWT && !x26d_25_warmedUp) {

@@ -82,7 +82,11 @@ void CDSPStream::DoAllocateStream() {
       static_cast< u8 >(0xFF), xd4_buffer, xdc_streamSamples, static_cast< u32 >(32000),
       static_cast< u8 >(0), static_cast< u8 >(0x40), static_cast< u8 >(0), static_cast< u8 >(0),
       static_cast< u8 >(0), static_cast< u8 >(0), static_cast< u32 >(0x30001), UpdateStream,
+#if UINTPTR_MAX > UINT32_MAX
+      static_cast< u32 >(this - g_Streams), static_cast< SND_ADPCMSTREAM_INFO* >(nullptr));
+#else
       reinterpret_cast< uintptr_t >(this), static_cast< SND_ADPCMSTREAM_INFO* >(nullptr));
+#endif
 }
 
 void CDSPStream::Initialize() {
@@ -360,7 +364,14 @@ void CDSPStream::BufferStream() {
 }
 
 u32 CDSPStream::UpdateStream(void*, u32 destOffset, void*, u32 len, u32 user) {
+#if UINTPTR_MAX > UINT32_MAX
+  if (user >= sizeof(g_Streams) / sizeof(g_Streams[0])) {
+    return 0;
+  }
+  CDSPStream* stream = &g_Streams[user];
+#else
   CDSPStream* stream = reinterpret_cast< CDSPStream* >(user);
+#endif
   if (stream->xe8_silenced != 0) {
     stream->StopStream();
     return 0;

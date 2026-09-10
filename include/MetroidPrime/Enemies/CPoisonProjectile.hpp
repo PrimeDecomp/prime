@@ -47,7 +47,7 @@ public:
   void Accept(IVisitor& visitor) override;
 
   // CEnergyProjectile
-  bool Explode(const CVector3f& pos, const CVector3f& normal, EWeaponCollisionResponseTypes type,
+  const bool Explode(const CVector3f& pos, const CVector3f& normal, EWeaponCollisionResponseTypes type,
                CStateManager& mgr, const CDamageVulnerability& dVuln, TUniqueId hitActor) override;
 };
 

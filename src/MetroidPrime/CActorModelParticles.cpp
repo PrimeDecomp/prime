@@ -417,7 +417,7 @@ void CActorModelParticles::CItem::DontUseType(ESystemTypes dep) {
   }
 }
 
-void CActorModelParticles::PointGenerator(uint context, const CVector3f* vertices,
+void CActorModelParticles::PointGenerator(void* context, const CVector3f* vertices,
                                           const CVector3f* normals, int count) {
   reinterpret_cast< CItem* >(context)->GeneratePoints(vertices, normals, count);
 }
@@ -425,10 +425,7 @@ void CActorModelParticles::PointGenerator(uint context, const CVector3f* vertice
 void CActorModelParticles::SetupHook(TUniqueId uid) const {
   AUTO(it, FindSystem(uid));
   if (it != x0_items.end()) {
-    CSkinnedModel::SetPointGeneratorFunc(
-        const_cast< CItem* >(&*it),
-        reinterpret_cast< void (*)(void*, const CVector3f*, const CVector3f*, int) >(
-            PointGenerator));
+    CSkinnedModel::SetPointGeneratorFunc(const_cast< CItem* >(&*it), PointGenerator);
   }
 }
 

@@ -127,7 +127,7 @@ CParticleSwoosh::~CParticleSwoosh() { --mSwooshAliveCount; }
 
 bool CParticleSwoosh::IsLargeEnough() const { return x1b4_LENG >= 2 && x1b8_SIDE >= 2; }
 
-bool CParticleSwoosh::Update(double dt) {
+const bool CParticleSwoosh::Update(double dt) {
   if (!IsLargeEnough()) {
     return false;
   }
