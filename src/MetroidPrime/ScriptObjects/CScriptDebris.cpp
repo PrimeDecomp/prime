@@ -9,8 +9,8 @@
 #include "Kyoto/Math/CUnitVector3f.hpp"
 #include "Kyoto/Particles/CElementGen.hpp"
 #include "MetaRender/CCubeRenderer.hpp"
-#include "MetroidPrime/CStateManager.hpp"
 #include "MetroidPrime/CActorLights.hpp"
+#include "MetroidPrime/CStateManager.hpp"
 #include "MetroidPrime/TCastTo.hpp"
 #include "MetroidPrime/Weapons/CGameProjectile.hpp"
 
@@ -96,7 +96,10 @@ CScriptDebris::CScriptDebris(TUniqueId uid, const rstl::string& name, const CEnt
     x2d4_particleGen0 = rs_new CElementGen(desc, CElementGen::kMOT_Normal, CElementGen::kOSF_One);
     x2d4_particleGen0->SetGlobalScale(particleScale);
   }
-  SetMomentumWR(CVector3f(0.f, 0.f, GetMass() * -GravityConstant()));
+
+  const float m = GetMass();
+  const float g = -GravityConstant();
+  SetMomentumWR(CVector3f(0.f, 0.f, g * m));
   if (HasActorLights()) {
     ActorLights()->SetAmbienceGenerated(true);
   }
