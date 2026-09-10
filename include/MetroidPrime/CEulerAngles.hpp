@@ -18,5 +18,6 @@ public:
 private:
   static CEulerAngles sIdentity;
 };
+CHECK_SIZEOF(CEulerAngles, 0xc)
 
 #endif // _CEULERANGLES
