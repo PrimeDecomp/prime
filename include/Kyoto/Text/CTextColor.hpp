@@ -22,7 +22,11 @@ public:
     return *this;
   }
   
+#ifdef __MWERKS__
   uint GetRGBA() const { return mRgba; }
+#else
+  uint GetRGBA() const { return (uint(mR) << 24) | (uint(mG) << 16) | (uint(mB) << 8) | mA; }
+#endif
   
   const uchar GetAlpha() const { return mA; }
   const uchar GetBlue() const { return mB; }
@@ -30,6 +34,7 @@ public:
   const uchar GetRed() const { return mR; }
 
 private:
+#ifdef __MWERKS__
   union {
     struct {
       uchar mR;
@@ -39,6 +44,12 @@ private:
     };
     uint mRgba;
   };
+#else
+  ALIGNAS(uint) uchar mR;
+  uchar mG;
+  uchar mB;
+  uchar mA;
+#endif
 };
 
 #ifdef __MWERKS__

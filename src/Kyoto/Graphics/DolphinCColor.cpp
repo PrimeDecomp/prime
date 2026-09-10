@@ -11,12 +11,21 @@ CColor::CColor(CInputStream& in) {
   Set(r, g, b, in.ReadFloat());
 }
 
+#ifdef __MWERKS__
 CColor::CColor(float r, float g, float b, float a) {
   mR = r * 255.f;
   mG = g * 255.f;
   mB = b * 255.f;
   mA = a * 255.f;
 }
+#else
+CColor::CColor(float r, float g, float b, float a) {
+  mR = static_cast< uchar >(CCast::FtoL(r * 255.f));
+  mG = static_cast< uchar >(CCast::FtoL(g * 255.f));
+  mB = static_cast< uchar >(CCast::FtoL(b * 255.f));
+  mA = static_cast< uchar >(CCast::FtoL(a * 255.f));
+}
+#endif
 
 void CColor::Set(float r, float g, float b, float a) {
   mR = CCast::ToUint8(r * 255.f);

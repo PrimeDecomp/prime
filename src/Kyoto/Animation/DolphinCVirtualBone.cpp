@@ -2,7 +2,11 @@
 #include "Kyoto/Animation/CVirtualBone.hpp"
 #include "dolphin/mtx.h"
 
+#include "Kyoto/Basics/CBasics.hpp"
+
 #include "rstl/math.hpp"
+
+#include <string.h>
 
 static rstl::reserved_vector< SSkinWeighting, 3 > StreamInSkinWeighting(CInputStream& in) {
   rstl::reserved_vector< SSkinWeighting, 3 > weights;
@@ -33,6 +37,7 @@ CVirtualBone::CVirtualBone(CInputStream& in)
 
 static ConstMtxPtr TransformToMtx(const CTransform4f& xf) { return xf.GetCStyleMatrix(); }
 
+#ifdef __MWERKS__
 void TransformFromMatrixDelta(register CTransform4f* xf, register const CMatrix3f* rot,
                               register const CVector3f* point) {
   asm volatile {
@@ -61,7 +66,13 @@ void TransformFromMatrixDelta(register CTransform4f* xf, register const CMatrix3
     psq_st f5, 40(xf), 0, 0;
   }
 }
+#else
+void TransformFromMatrixDelta(CTransform4f* xf, const CMatrix3f* rot, const CVector3f* point) {
+  *xf = CTransform4f(*rot, *point);
+}
+#endif
 
+#ifdef __MWERKS__
 void Transform2FromMatrixData(register CTransform4f* xf, register const CMatrix3f* rot,
                               register const CVector3f* point, register float weight0,
                               register const CMatrix3f* rotation1, register const CVector3f* point1,
@@ -111,6 +122,14 @@ void Transform2FromMatrixData(register CTransform4f* xf, register const CMatrix3
     psq_st f5, CTransform4f.m22(xf), 0, 0;
   }
 }
+#else
+void Transform2FromMatrixData(CTransform4f* xf, const CMatrix3f* rot, const CVector3f* point,
+                               float weight0, const CMatrix3f* rotation1,
+                               const CVector3f* point1, float weight1) {
+  const CMatrix3f rotation(*rot, weight0, *rotation1, weight1);
+  *xf = CTransform4f(rotation, *point * weight0 + *point1 * weight1);
+}
+#endif
 
 void CVirtualBone::BuildFinalPosMatrix(const CPoseAsTransforms& pose,
                                        const CVector3f* points) const {
@@ -163,6 +182,17 @@ void CVirtualBone::BuildAccumulatedTransform(const CPoseAsTransforms& pose,
 void PSMTXROMultS16VecArrayGathered(ROMtx mtx, const ushort* in, volatile void* out,
                                     size_t pointCount);
 
+#ifndef __MWERKS__
+// The gathered routine loads serialized float vertices despite its historical S16 name.
+static CVector3f ReadVertex(const ushort* in, size_t index) {
+  float values[3];
+  memcpy(values, reinterpret_cast< const uchar* >(in) + index * sizeof(values), sizeof(values));
+  return CVector3f(CBasics::SwapBytes(values[0]), CBasics::SwapBytes(values[1]),
+                   CBasics::SwapBytes(values[2]));
+}
+#endif
+
+#ifdef __MWERKS__
 void CVirtualBone::BuildPoints(const ushort* in, volatile void* out, int pointCount) const {
   if (pointCount < 3) {
     float* outF = const_cast< float* >(static_cast< volatile float* >(out));
@@ -179,7 +209,19 @@ void CVirtualBone::BuildPoints(const ushort* in, volatile void* out, int pointCo
     PSMTXROMultS16VecArrayGathered(mtx, in, out, pointCount);
   }
 }
+#else
+void CVirtualBone::BuildPoints(const ushort* in, volatile void* out, int pointCount) const {
+  volatile float* dest = static_cast< volatile float* >(out);
+  for (int i = 0; i < pointCount; ++i) {
+    const CVector3f value = x20_xf * ReadVertex(in, i);
+    *dest++ = value.GetX();
+    *dest++ = value.GetY();
+    *dest++ = value.GetZ();
+  }
+}
+#endif
 
+#ifdef __MWERKS__
 void CVirtualBone::BuildNormals(const ushort* in, volatile void* out, int normalCount) const {
   if (normalCount < 3) {
     float* outF = const_cast< float* >(static_cast< volatile float* >(out));
@@ -197,6 +239,17 @@ void CVirtualBone::BuildNormals(const ushort* in, volatile void* out, int normal
     PSMTXROMultS16VecArrayGathered(mtx, in, out, normalCount);
   }
 }
+#else
+void CVirtualBone::BuildNormals(const ushort* in, volatile void* out, int normalCount) const {
+  volatile float* dest = static_cast< volatile float* >(out);
+  for (int i = 0; i < normalCount; ++i) {
+    const CVector3f value = x50_rotation * ReadVertex(in, i);
+    *dest++ = value.GetX();
+    *dest++ = value.GetY();
+    *dest++ = value.GetZ();
+  }
+}
+#endif
 
 void CVirtualBone::BuildNormals(const CVector3f* in, CVector3f* out, int normalCount) const {
   for (int i = 0; i < normalCount; ++i) {
@@ -205,6 +258,7 @@ void CVirtualBone::BuildNormals(const CVector3f* in, CVector3f* out, int normalC
 }
 
 // clang-format off
+#ifdef __MWERKS__
 asm void PSMTXROMultS16VecArrayGathered(ROMtx mtx, const ushort* in, volatile void* out,
                                       size_t pointCount) {
   nofralloc
@@ -282,4 +336,17 @@ done:
   addi r1, r1, 0x40
   blr
 }
+#else
+void PSMTXROMultS16VecArrayGathered(ROMtx mtx, const ushort* in, volatile void* out,
+                                     size_t pointCount) {
+  volatile float* dest = static_cast< volatile float* >(out);
+  for (size_t i = 0; i < pointCount; ++i) {
+    const CVector3f value = ReadVertex(in, i);
+    for (int j = 0; j < 3; ++j) {
+      *dest++ = mtx[0][j] * value.GetX() + mtx[1][j] * value.GetY() +
+                mtx[2][j] * value.GetZ() + mtx[3][j];
+    }
+  }
+}
+#endif
 // clang-format on

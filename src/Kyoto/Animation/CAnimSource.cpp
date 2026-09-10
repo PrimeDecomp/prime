@@ -14,6 +14,7 @@ template class rstl::red_black_tree<
     rstl::identity< rstl::pair< rstl::string, int > >,
     rstl::less< rstl::pair< rstl::string, int > >, rstl::rmemory_allocator >;
 
+#ifdef __MWERKS__
 static float clamp_zero_to_one(register const float v) {
   register float zero = 0.f;
   register float one = 1.f;
@@ -28,6 +29,11 @@ static float clamp_zero_to_one(register const float v) {
 
   return res;
 }
+#else
+static float clamp_zero_to_one(const float v) {
+  return v >= 1.f ? 1.f : v >= 0.f ? v : 0.f;
+}
+#endif
 
 uint RotationAndOffsetStorage::DataSizeInBytes(uint rotationsCountPerFrame, uint offsetsPerFrame,
                                                uint frameCount) {
@@ -130,7 +136,11 @@ bool CAnimSource::HasOffset(const CSegId& seg) const {
 CVector3f CAnimSource::GetOffset(const CSegId& seg, const CCharAnimTime& animTime) const {
   const float frameTime = animTime.GetSeconds();
   float interval = x8_interval.GetSeconds();
+#ifdef __MWERKS__
   const float invTime = __fres(interval);
+#else
+  const float invTime = 1.f / interval;
+#endif
   const uint frame = static_cast< uint >(frameTime * invTime);
   float time = interval * frame;
   time = frameTime - time;
@@ -155,7 +165,11 @@ CVector3f CAnimSource::GetOffset(const CSegId& seg, const CCharAnimTime& animTim
 
 CQuaternion CAnimSource::GetRotation(const CSegId& seg, const CCharAnimTime& animTime) const {
   const float interval = GetTimePerFrame().GetSeconds();
+#ifdef __MWERKS__
   const float invTime = __fres(interval);
+#else
+  const float invTime = 1.f / interval;
+#endif
   const int channel = x20_rotationChannels[seg.val()];
   if (channel >= 0) {
     const float frameTime = animTime.GetSeconds();
@@ -214,7 +228,11 @@ void CAnimSource::GetSegStatementSet(const CSegIdList& list, CSegStatementSet& s
                                      const CCharAnimTime& animTime) const {
   const float frameTime = animTime.GetSeconds();
   const float interval = GetTimePerFrame().GetSeconds();
+#ifdef __MWERKS__
   const float invTime = __fres(interval);
+#else
+  const float invTime = 1.f / interval;
+#endif
   const uint frame = static_cast< uint >(frameTime * invTime);
   float time = interval * frame;
   time = frameTime - time;

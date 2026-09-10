@@ -64,16 +64,42 @@ inline float StoF(register const short& in) {
 }
 
 #else
-inline uchar ToUint8(float in) { return static_cast< uchar >(in); }
-inline char ToInt8(float in) { return static_cast< char >(in); }
+namespace detail {
+template < typename T >
+inline T Quantize(float value, int minimum, int maximum) {
+  if (!(value >= minimum)) {
+    return static_cast< T >(minimum);
+  }
+  if (value > maximum) {
+    return static_cast< T >(maximum);
+  }
+  return static_cast< T >(value);
+}
+} // namespace detail
+
+inline uchar ToUint8(float in) { return detail::Quantize< uchar >(in, 0, 255); }
+inline char ToInt8(float in) { return detail::Quantize< signed char >(in, -128, 127); }
 inline float ToReal32(uchar in) { return static_cast< float >(in); }
-inline short FtoS(float in) { return static_cast< short >(in); }
-inline ushort FtoUS(float in) { return static_cast< ushort >(in); }
+inline short FtoS(float in) { return detail::Quantize< short >(in, -32768, 32767); }
+inline ushort FtoUS(float in) { return detail::Quantize< ushort >(in, 0, 65535); }
 inline float StoF(const short& in) { return static_cast< float >(in); }
 #endif
 
 inline uchar ToUint8(int c) { return static_cast< uchar >(c); }
+#ifdef __MWERKS__
 inline int FtoL(float in) { return static_cast< int >(in); }
+#else
+inline int FtoL(float in) {
+  // Match fctiwz overflow and NaN results before converting to an integer.
+  if (!(in >= -2147483648.0)) {
+    return -2147483647 - 1;
+  }
+  if (in >= 2147483648.0) {
+    return 2147483647;
+  }
+  return static_cast< int >(in);
+}
+#endif
 inline uint ToUint32(float in) { return static_cast< uint >(in); }
 inline uint ToUint32(uint in) { return in; }
 inline float ToReal32(uint in) { return static_cast< float >(in); }
