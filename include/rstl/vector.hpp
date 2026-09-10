@@ -247,7 +247,7 @@ template < typename T, typename Alloc >
 inline typename vector< T, Alloc >::iterator vector< T, Alloc >::erase(iterator first, iterator last) {
   destroy(first, last);
 
-  const int tmp = first - begin();
+  const typename iterator::difference_type tmp = first - begin();
 
   int newCount = tmp;
 
