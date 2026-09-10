@@ -105,7 +105,7 @@ void CMetaree::InActive(CStateManager&, EStateMsg msg, float) {
 
 void CMetaree::Active(CStateManager& mgr, EStateMsg msg, float) {
   switch (msg) {
-  case kStateMsg_Activate:
+  case kStateMsg_Activate: {
     SetWasHit(false);
     const CVector3f translation = GetTranslation();
     const CVector3f dropVector(0.f, 0.f, x570_dropHeight);
@@ -113,6 +113,7 @@ void CMetaree::Active(CStateManager& mgr, EStateMsg msg, float) {
     BodyCtrl()->CommandMgr().DeliverCmd(CBCGenerateCmd(pas::kGType_Zero, x584_lookPos, true));
     SetMomentumWR(CVector3f(0.f, 0.f, -GetGravityConstant() * GetMass()));
     break;
+  }
   case kStateMsg_Update:
     BodyCtrl()->CommandMgr().DeliverTargetVector(
         (mgr.GetPlayer()->GetTranslation() - GetTranslation()).AsNormalized());

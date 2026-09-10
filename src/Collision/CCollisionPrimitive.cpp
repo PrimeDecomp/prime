@@ -56,9 +56,9 @@ void CCollisionPrimitive::InitBeginColliders() {
   sTableOfCollidables = rs_new ComparisonFunc[numColliders];
   sTableOfBooleanCollidables = rs_new BooleanComparisonFunc[numColliders];
   sTableOfMovingCollidables = rs_new MovingComparisonFunc[numColliders];
-  memset(sTableOfCollidables.get(), 0, numColliders * sizeof(uint));
-  memset(sTableOfBooleanCollidables.get(), 0, numColliders * sizeof(uint));
-  memset(sTableOfMovingCollidables.get(), 0, numColliders * sizeof(uint));
+  memset(sTableOfCollidables.get(), 0, numColliders * sizeof(ComparisonFunc));
+  memset(sTableOfBooleanCollidables.get(), 0, numColliders * sizeof(BooleanComparisonFunc));
+  memset(sTableOfMovingCollidables.get(), 0, numColliders * sizeof(MovingComparisonFunc));
   sCollidersAdding = true;
   InternalColliders::AddColliders();
 }

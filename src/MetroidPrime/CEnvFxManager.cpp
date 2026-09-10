@@ -594,11 +594,11 @@ void CEnvFxManager::SetupSnowTevs(CStateManager& mgr) {
   const CCameraManager* camMgr = mgr.GetCameraManager();
   camMgr->GetCurrentCamera(mgr);
 
-  uint colorVal = CColor::White().GetColor_u32();
+  CColor color = CColor::White();
   if (camMgr->GetFluidCounter() != 0) {
     gpRender->SetWorldFog(kRFM_PerspExp, 0.f, 35.f, CColor::Black());
     CColor modColor(1.f, 1.f, 1.f, 0.5f);
-    colorVal = modColor.GetColor_u32();
+    color = modColor;
   } else {
     gpRender->SetWorldFog(kRFM_PerspLin, 52.f, 57.f, CColor::Black());
   }
@@ -617,7 +617,7 @@ void CEnvFxManager::SetupSnowTevs(CStateManager& mgr) {
   CGX::SetTevColorIn(GX_TEVSTAGE0, GX_CC_ZERO, GX_CC_KONST, GX_CC_TEXC, GX_CC_ZERO);
   CGX::SetTevAlphaIn(GX_TEVSTAGE0, GX_CA_ZERO, GX_CA_KONST, GX_CA_TEXA, GX_CA_ZERO);
 
-  CGX::SetTevKColor(GX_KCOLOR0, *reinterpret_cast< const GXColor* >(&colorVal));
+  CGX::SetTevKColor(GX_KCOLOR0, color.GetGXColor());
   CGX::SetTevKColorSel(GX_TEVSTAGE0, GX_TEV_KCSEL_K0);
   CGX::SetTevKAlphaSel(GX_TEVSTAGE0, GX_TEV_KASEL_K0_A);
 
@@ -720,10 +720,8 @@ void CEnvFxManager::SetupRainTevs() {
   CGX::SetTevColorIn(GX_TEVSTAGE0, GX_CC_ZERO, GX_CC_ZERO, GX_CC_ZERO, GX_CC_TEXC);
   CGX::SetTevAlphaIn(GX_TEVSTAGE0, GX_CA_ZERO, GX_CA_RASA, GX_CA_KONST, GX_CA_ZERO);
   CGX::SetTevKAlphaSel(GX_TEVSTAGE0, GX_TEV_KASEL_K0_A);
-  uint colorVal;
-  CColor kColor(1.f, 1.f, 1.f, 0.15f);
-  colorVal = kColor.GetColor_u32();
-  CGX::SetTevKColor(GX_KCOLOR0, *reinterpret_cast< const GXColor* >(&colorVal));
+  CColor color = CColor(1.f, 1.f, 1.f, 0.15f);
+  CGX::SetTevKColor(GX_KCOLOR0, color.GetGXColor());
   (*x40_txtrEnvGradient)->Load(GX_TEXMAP0, CTexture::kCM_Clamp);
 }
 

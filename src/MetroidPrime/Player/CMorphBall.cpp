@@ -1139,7 +1139,9 @@ float CMorphBall::BallTurnInput(const CFinalInput& input) const {
   return turnLeftInput - turnRightInput;
 }
 
+#ifdef __MWERKS__
 template class TReservedAverage< CQuaternion, 5 >;
+#endif
 template class TReservedAverage< CVector3f, 5 >;
 
 void CMorphBall::UpdateBallDynamics(CStateManager& mgr, float dt) {

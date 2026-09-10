@@ -24,8 +24,12 @@ public:
   static void OffsetFakeStatics(int);
 };
 
+#ifdef __MWERKS__
 // placement new
 inline void* operator new(size_t n, void* ptr) { return ptr; };
+#else
+#include <new>
+#endif
 
 #ifdef __MWERKS__
 void* operator new(size_t sz, const char*, const char*);
