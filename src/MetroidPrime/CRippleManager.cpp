@@ -5,6 +5,8 @@
 
 #include "rstl/math.hpp"
 
+#pragma inline_max_size(260)
+
 CRippleManager::CRippleManager(int maxRipples, float alpha)
 : x0_maxTimeFalloff(0.f)
 , x14_alpha(alpha) {

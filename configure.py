@@ -772,7 +772,7 @@ config.libs = [
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"), "MetroidPrime/CFluidUVMotion.cpp"
             ),
-            Object(NonMatching, "MetroidPrime/CRippleManager.cpp"),
+            Object(MatchingFor("GM8E01_00"), "MetroidPrime/CRippleManager.cpp"),
             Object(NonMatching, "MetroidPrime/Player/CGrappleArm.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CSpacePirate.cpp"),
             Object(
