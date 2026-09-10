@@ -11,8 +11,10 @@ namespace {
 struct uint_comparer {
   bool operator()(uint a, uint b) const { return a < b; }
   bool operator()(const rstl::pair< uint, uint >& a, const rstl::pair< uint, uint >& b) const {
+    const uint& aTo = a.second;
+    const uint& bTo = b.second;
     if (a.first == b.first) {
-      return a.second < b.second;
+      return aTo < bTo;
     }
     return a.first < b.first;
   }
