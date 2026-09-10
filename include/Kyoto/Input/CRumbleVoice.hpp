@@ -74,6 +74,11 @@ struct SAdsrDelta {
 
 class CRumbleVoice {
 private:
+  static float EnvelopeLerp(float t, float start, float end);
+  static void UpdateStage(SAdsrDelta::EPhase& phase, float& intensity, float& time,
+                          float start, float end, float duration, SAdsrDelta::EPhase nextPhase,
+                          float dt);
+
   rstl::vector< SAdsrData > x0_datas;
   rstl::vector< SAdsrDelta > x10_deltas;
   rstl::reserved_vector< ushort, 4 > x20_handleIds;
