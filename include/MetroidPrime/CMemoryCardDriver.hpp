@@ -20,6 +20,7 @@ struct SSaveHeader {
   explicit SSaveHeader(int);
   explicit SSaveHeader(CMemoryInStream& in);
 
+  void SetSavePresent(int idx, const bool present) { x4_savePresent[idx] = present; }
   void PutTo(COutputStream& out) const;
 };
 
@@ -100,7 +101,7 @@ public:
     SFileInfo(EFileState state, int cardPort, const rstl::string& name)
     : first(state)
     , second(cardPort, name) {}
-    ~SFileInfo();
+    ~SFileInfo() {}
   };
 
 private:
@@ -124,7 +125,7 @@ private:
 
 public:
   static bool IsCardBusy(EState);
-  static bool IsCardWriting(EState);
+  static bool IsCardReading(EState);
   EState GetState() const { return x10_state; }
   EError GetError() const { return x14_error; }
   u64 GetCardSerial() const { return x28_cardSerial; }
@@ -175,5 +176,7 @@ public:
   const CGameState::GameFileStateInfo* GetGameFileStateInfo(int);
   bool GetCardFreeBytes();
 };
+
+CHECK_SIZEOF(CMemoryCardDriver, 0x1a0)
 
 #endif // _CMEMORYCARDDRIVER
