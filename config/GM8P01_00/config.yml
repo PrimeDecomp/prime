@@ -10,13 +10,13 @@ fill_gaps: true # Alignments known
 
 
 # Extract embedded assets
-#extract:
-#  - symbol: sDefaultFontData
-#    binary: MetroidPrime/DefaultFontData.bin
-#    header: MetroidPrime/DefaultFontData.inc
-#  - symbol: sDefaultFontTexture
-#    binary: MetroidPrime/DefaultFontTexture.bin
-#    header: MetroidPrime/DefaultFontTexture.inc
+extract:
+- symbol: sDefaultFontData
+  binary: MetroidPrime/DefaultFontData.bin
+  header: MetroidPrime/DefaultFontData.inc
+- symbol: sDefaultFontTexture
+  binary: MetroidPrime/DefaultFontTexture.bin
+  header: MetroidPrime/DefaultFontTexture.inc
 
 modules:
   #- object: files/NESPAL60emuP.rel

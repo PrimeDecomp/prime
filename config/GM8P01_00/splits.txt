@@ -16,6 +16,10 @@ Sections:
 MetroTRK/mslsupp.c:
 	.text       start:0x80003640 end:0x80003658
 
+MetroidPrime/main.cpp:
+	.text       start:0x80003658 end:0x800097CC
+	.ctors      start:0x803B4F84 end:0x803B4F88
+
 MetroidPrime/Cameras/CCameraManager.cpp:
 	.text       start:0x800097CC end:0x8000CD00
 
