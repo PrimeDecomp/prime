@@ -24,6 +24,7 @@ protected:
 
   bool FacingDest(CBodyController& bc) const;
 };
+CHECK_SIZEOF(CBSTurn, 0x14)
 
 class CBSFlyerTurn : public CBSTurn {
 public:
@@ -31,5 +32,6 @@ public:
   void Start(CBodyController& bc, CStateManager& mgr) override;
   pas::EAnimationState UpdateBody(float dt, CBodyController& bc, CStateManager& mgr) override;
 };
+CHECK_SIZEOF(CBSFlyerTurn, 0x14)
 
 #endif // _CBSTURN
