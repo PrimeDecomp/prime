@@ -7883,7 +7883,7 @@ __ct__8CMetroidF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24r
 __ct__14CPatternedInfoFRC14CPatternedInfo = .text:0x801722AC; // type:function size:0x274
 GetSpawnedGammaAnimParms__12CMetroidDataCFQ212CMetroidData12EGammaFlavor = .text:0x80172520; // type:function size:0x50
 GetNumValidGammaModels__12CMetroidDataCFv = .text:0x80172570; // type:function size:0x4C
-__ct__12CMetroidDataFR12CInputStream = .text:0x801725BC; // type:function size:0x254 scope:global
+__ct__12CMetroidDataFR12CInputStreami = .text:0x801725BC; // type:function size:0x254 scope:global
 Clamp<Uc>__5CMathFRCUcRCUcRCUc = .text:0x80172810; // type:function size:0x2C
 __sinit_CMetroid_cpp = .text:0x8017283C; // type:function size:0x260 scope:local
 GetDownloadFraction__12CScanDisplayCFif = .text:0x80172A9C; // type:function size:0x98 scope:global

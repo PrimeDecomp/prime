@@ -51,7 +51,7 @@ public:
 
   CAssetId GetDependencyGroup() const { return x158_; }
 
-  const CAnimationParameters& GetAnimationParameters() const { return x14c_animationParameters; }
+  CAnimationParameters GetAnimationParameters() const { return x14c_animationParameters; }
 
   static int GetNumProperties() { return skNumProperties; }
 

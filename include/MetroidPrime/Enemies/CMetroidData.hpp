@@ -21,7 +21,7 @@ public:
     kGF_Yellow,
   };
 
-  CMetroidData(CInputStream& in);
+  CMetroidData(CInputStream& in, int propCount);
 
   static uint GetNumProperties() { return skNumProperties; }
 
