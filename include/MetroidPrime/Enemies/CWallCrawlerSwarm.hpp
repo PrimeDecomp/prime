@@ -194,7 +194,7 @@ private:
   bool x560_25_useSoftwareLight : 1;
   bool x560_26_modelAssetDirty : 1;
 };
-extern int CWallCrawlerSwarm_CBoid_check[check_sizeof< CWallCrawlerSwarm::CBoid, 0x84 >::value];
+NESTED_CHECK_SIZEOF(CWallCrawlerSwarm, CBoid, 0x84)
 CHECK_SIZEOF(CWallCrawlerSwarm, 0x568)
 
 #endif // _CWALLCRAWLERSWARM

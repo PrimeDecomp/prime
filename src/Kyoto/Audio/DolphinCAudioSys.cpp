@@ -172,7 +172,7 @@ void* CAudioSys::mpSampleDataUploadBuffer = nullptr;
 
 const rstl::string CAudioSys::mpDefaultInvalidString(rstl::string_l("NULL"));
 
-void* DoMalloc(u32 len) { return rs_new char[len]; }
+void* DoMalloc(size_t len) { return rs_new char[len]; }
 
 void DoFree(void* ptr) {
   if (!ptr) {
@@ -389,7 +389,7 @@ void CAudioSys::SfxCtrl(const SND_VOICEID handle, uchar ctrl, uchar val) {
   sndFXCtrl(handle, ctrl, val);
 }
 
-int CAudioSys::TrkQueueTrack(const rstl::string& name, void (*callback)(unsigned long),
+int CAudioSys::TrkQueueTrack(const rstl::string& name, void (*callback)(u32),
                              const uint eventMask) {
   while (TrkGetState() == 3) {
   }

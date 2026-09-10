@@ -115,7 +115,7 @@ public:
   rstl::list< CItem >::const_iterator FindSystem(TUniqueId uid) const;
   rstl::list< CItem >::iterator FindOrCreateSystem(CActor& actor);
   void SetupHook(TUniqueId uid) const;
-  static void PointGenerator(uint context, const CVector3f* vertices, const CVector3f* normals,
+  static void PointGenerator(void* context, const CVector3f* vertices, const CVector3f* normals,
                              int count);
   void RemoveRainSplashGenerator(CActor& actor);
   void AddRainSplashGenerator(CActor& actor, CStateManager& mgr, int maxSplashes, int genRate,

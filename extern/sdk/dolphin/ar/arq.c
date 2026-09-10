@@ -77,13 +77,13 @@ void __ARQCallbackHack(void) { return; }
 void __ARQInterruptServiceRoutine(void) {
 
   if (__ARQCallbackHi) {
-    (*__ARQCallbackHi)((u32)__ARQRequestPendingHi);
+    (*__ARQCallbackHi)((uintptr_t)__ARQRequestPendingHi);
     __ARQRequestPendingHi = NULL;
     __ARQCallbackHi = NULL;
   }
 
   else if (__ARQCallbackLo) {
-    (*__ARQCallbackLo)((u32)__ARQRequestPendingLo);
+    (*__ARQCallbackLo)((uintptr_t)__ARQRequestPendingLo);
     __ARQRequestPendingLo = NULL;
     __ARQCallbackLo = NULL;
   }

@@ -76,7 +76,7 @@ public:
               EOptionalSystemFlags = kOSF_One);
   ~CElementGen() override;
 
-  virtual bool Update(double) override;
+  virtual const bool Update(double) override;
   virtual void Render() override;
   virtual void SetOrientation(const CTransform4f& orientation) override;
   virtual void SetTranslation(const CVector3f& translation) override;

@@ -26,7 +26,7 @@ public:
                                  CStateManager& mgr) override;
 
   // CEnergyProjectile
-  bool Explode(const CVector3f& pos, const CVector3f& normal,
+  const bool Explode(const CVector3f& pos, const CVector3f& normal,
                const EWeaponCollisionResponseTypes type, CStateManager& mgr,
                const CDamageVulnerability& dVuln, const TUniqueId hitActor) override;
 

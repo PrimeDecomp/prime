@@ -17,7 +17,7 @@ class CWarp;
 class CParticleGen {
 public:
   virtual ~CParticleGen() = 0;
-  virtual bool Update(double) = 0;
+  virtual const bool Update(double) = 0;
   virtual void Render() = 0;
   virtual void SetOrientation(const CTransform4f& orientation) = 0;
   virtual void SetTranslation(const CVector3f& translation) = 0;

@@ -38,7 +38,7 @@ public:
   EBlurType GetCurrType() const { return x10_curType; }
   bool GetNoPersistentCopy() const { return x2d_noPersistentCopy; }
 
-  void GetFbCopy(_GXTexFmt fmt, uchar* buf) const;
+  void GetFbCopy(GXTexFmt fmt, uchar* buf) const;
   void FreePersistentFbTexture();
   void AllocatePersistentFbTexture();
 

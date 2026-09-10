@@ -30,7 +30,7 @@ public:
   static void WaitForDMACompletion(uint handle);
   static void WaitForAllDMAsToComplete();
   static bool CancelDMA(uint);
-  static void AramManagerDMACallback(u32 result);
+  static void AramManagerDMACallback(uintptr_t result);
   static void RefreshActiveDMAList();
   static void CollectGarbage();
 

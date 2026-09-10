@@ -52,7 +52,7 @@ public:
   CParticleSwoosh(TToken< CSwooshDescription > desc, int i);
   ~CParticleSwoosh();
 
-  bool Update(double dt) override;
+  const bool Update(double dt) override;
   void Render() override;
   void Render2SidedNoSplineNoGaps();
   void Render2SidedNoSplineGaps();

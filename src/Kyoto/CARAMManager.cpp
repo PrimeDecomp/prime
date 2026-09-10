@@ -186,7 +186,7 @@ bool CARAMManager::CancelDMA(uint handle) {
   return true;
 }
 
-void CARAMManager::AramManagerDMACallback(u32 result) {
+void CARAMManager::AramManagerDMACallback(uintptr_t result) {
   SAramDMARequest* req = reinterpret_cast< SAramDMARequest* >(result);
   req->mComplete = true;
   if (req->mRequest.type == ARQ_TYPE_ARAM_TO_MRAM) {

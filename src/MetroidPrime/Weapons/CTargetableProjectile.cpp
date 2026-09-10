@@ -24,10 +24,10 @@ CTargetableProjectile::CTargetableProjectile(
 
 void CTargetableProjectile::Accept(IVisitor& visitor) { visitor.Visit(*this); }
 
-bool CTargetableProjectile::Explode(const CVector3f& pos, const CVector3f& normal,
+const bool CTargetableProjectile::Explode(const CVector3f& pos, const CVector3f& normal,
                                     const EWeaponCollisionResponseTypes type, CStateManager& mgr,
                                     const CDamageVulnerability& dVuln, const TUniqueId hitActor) {
-  bool ret = CEnergyProjectile::Explode(pos, normal, type, mgr, dVuln, hitActor);
+  const bool ret = CEnergyProjectile::Explode(pos, normal, type, mgr, dVuln, hitActor);
 
   if (!GetWeaponActive()) {
     const TUniqueId projOwner = GetHitProjectileOwner();

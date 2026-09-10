@@ -57,7 +57,7 @@ void CDvdFile::DVDARAMXferCallback(s32 result, DVDFileInfo* info) {
   ptr->mDvdFile->HandleDVDInterrupt();
 }
 
-void CDvdFile::ARAMARAMXferCallback(u32 addr) {
+void CDvdFile::ARAMARAMXferCallback(uintptr_t addr) {
   reinterpret_cast< CDvdFileARAM* >(addr)->mInfo.mDvdFile->HandleARAMInterrupt();
 }
 
