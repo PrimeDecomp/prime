@@ -183,7 +183,7 @@ CScriptWater::GetSplashEffect(float scale) const {
   return x264_splashEffects[GetSplashIndex(scale)];
 }
 
-int CScriptWater::GetSplashSound(float scale) const {
+const ushort CScriptWater::GetSplashSound(float scale) const {
   int idx = GetSplashIndex(scale);
   return x298_splashSounds[idx];
 }

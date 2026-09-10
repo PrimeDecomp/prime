@@ -86,7 +86,7 @@ public:
   int GetSplashIndex(float scale) const;
   const rstl::optional_object< TLockedToken< CGenDescription > >&
   GetSplashEffect(float scale) const;
-  int GetSplashSound(float scale) const;
+  const ushort GetSplashSound(float scale) const;
   float GetSplashEffectScale(float scale) const;
   const CColor& GetSplashColor() const { return x2a4_splashColor; }
 
