@@ -476,7 +476,7 @@ config.libs = [
         "TRK_MINNOW_DOLPHIN",
         [
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"), "MetroTRK/nubinit.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02"), "MetroTRK/nubinit.c"
             ),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00", "GM8J01_00"), "MetroTRK/mslsupp.c"
@@ -498,10 +498,10 @@ config.libs = [
             ),
             Object(NonMatching, "MetroidPrime/Player/CPlayer.cpp"),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CAxisAngle.cpp"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "MetroidPrime/CAxisAngle.cpp"
             ),
             Object(NonMatching, "MetroidPrime/CEulerAngles.cpp"),
-            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"), "MetroidPrime/CMatrix3f_Ext.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00"), "MetroidPrime/CMatrix3f_Ext.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/CArchMsgParmUserInput.cpp",
@@ -658,7 +658,7 @@ config.libs = [
             ),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CDamageInfo.cpp"),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
                 "MetroidPrime/CMemoryDrawEnum.cpp",
             ),
             Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptDock.cpp"),
@@ -1141,7 +1141,7 @@ config.libs = [
             Object(NonMatching, "MetroidPrime/Enemies/CMagdolite.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CTeamAiMgr.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Enemies/CSnakeWeedSwarm.cpp"),
-            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Cameras/CBallCameraFailsafeState.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"), "MetroidPrime/Cameras/CBallCameraFailsafeState.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Enemies/CScriptContraption.cpp"),
             Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptSpindleCamera.cpp"),
             Object(
@@ -1352,12 +1352,12 @@ config.libs = [
                 "Collision/CCollisionPrimitive.cpp",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"), "Collision/CMaterialList.cpp"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00"), "Collision/CMaterialList.cpp"
             ),
             Object(NonMatching, "Collision/CollisionUtil.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Collision/CCollidableSphere.cpp"),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01"), "Collision/CMaterialFilter.cpp"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Collision/CMaterialFilter.cpp"
             ),
             Object(NonMatching, "Collision/COBBox.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"), "Collision/CMRay.cpp"),
@@ -1581,14 +1581,14 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Math/CUnitVector3f.cpp"
             ),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"), "Kyoto/Math/CVector2f.cpp"),
-            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Math/CVector2i.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Kyoto/Math/CVector2i.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"), "Kyoto/Math/CVector3d.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Math/CVector3f.cpp"),
-            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"), "Kyoto/Math/CVector3i.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00"), "Kyoto/Math/CVector3i.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"), "Kyoto/Math/RMathUtils.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"), "Kyoto/CCrc32.cpp"),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"), "Kyoto/Alloc/CCircularBuffer.cpp"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00"), "Kyoto/Alloc/CCircularBuffer.cpp"
             ),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Alloc/CMemory.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"), "Kyoto/Alloc/IAllocator.cpp"),
@@ -1658,7 +1658,7 @@ config.libs = [
                 "Kyoto/Streams/CZipInputStream.cpp",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01"),
                 "Kyoto/Streams/CZipOutputStream.cpp",
             ),
             Object(
@@ -1695,7 +1695,7 @@ config.libs = [
                 "Kyoto/zlib/adler32.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01"),
                 "Kyoto/zlib/deflate.c",
             ),
             Object(
@@ -1723,7 +1723,7 @@ config.libs = [
                 "Kyoto/zlib/infutil.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Kyoto/zlib/trees.c"
+                MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/zlib/trees.c"
             ),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00"), "Kyoto/zlib/zutil.c"
@@ -2666,7 +2666,7 @@ config.libs = [
         "NESemuP",
         [
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02"),
                 "NESemu/modwrapper.cpp",
                 cflags=[*cflags_base, "-O0", "-sdata 0", "-sdata2 0", "-str noreuse"],
             ),
@@ -2676,7 +2676,7 @@ config.libs = [
                 cflags=[*cflags_base, "-sdata 0", "-sdata2 0", "-pool on"],
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02"),
                 "NESemu/ksNesAudio.cpp",
                 cflags=[
                     *cflags_base, "-O4,s", "-inline off", "-func_align 32",
