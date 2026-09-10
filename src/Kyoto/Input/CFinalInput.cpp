@@ -168,6 +168,10 @@ CFinalInput::CFinalInput(int channel, float dt, const COsContext& ctx)
 , x14_anaRightY(0.f)
 , x18_anaLeftTrigger(0.f)
 , x1c_anaRightTrigger(0.f)
+#if NONMATCHING
+, x20_enableAnaLeftXP(false)
+, x21_enableAnaLeftYP(false)
+#endif
 , x22_enableAnaRightXP(false)
 , x23_enableAnaRightYP(false)
 , x24_anaLeftTriggerP(0.f)
