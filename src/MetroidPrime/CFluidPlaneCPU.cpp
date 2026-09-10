@@ -219,7 +219,16 @@ void UpdatePatchWithNormals(CFluidPlaneCPURender::SHFieldSample (&heights)[45][4
           }
         }
       } else {
+#if NONMATCHING
+        // Border samples and partial patches can extend beyond the shoreline grid.
+        const int gridX = info.x28_tileX + j - 1;
+        const int gridY = info.x2e_tileY + i - 1;
+        if (!info.x30_gridFlags ||
+            (gridX >= 0 && gridX < info.x2a_gridDimX && gridY >= 0 && gridY < info.x2c_gridDimY &&
+             info.x30_gridFlags[curGridY + j])) {
+#else
         if (!info.x30_gridFlags || (info.x30_gridFlags && info.x30_gridFlags[curGridY + j])) {
+#endif
           if (i > 0 && i < CFluidPlaneCPURender::numTilesInHField + 1 && j > 0 &&
               j < CFluidPlaneCPURender::numTilesInHField + 1) {
             int halfRow = (CFluidPlaneCPURender::numSubdivisionsInTile * 45) / 2;
