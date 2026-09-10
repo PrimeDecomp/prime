@@ -1,5 +1,4 @@
 #include "Kyoto/Particles/CEmitterElement.hpp"
-#pragma sym on
 #include "Kyoto/CRandom16.hpp"
 #include "Kyoto/Math/CMath.hpp"
 #include "Kyoto/Math/CRelAngle.hpp"
