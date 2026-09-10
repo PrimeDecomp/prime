@@ -264,7 +264,7 @@ void CStreamAudioManager::Update(float dt) {
   default:
     break;
   }
-  Update(dt);
+  UpdateSoftwareChannels(dt);
 }
 
 void CStreamAudioManager::SetDefaultAudio(const rstl::string& fileName, float fadeIn, float fadeOut,
