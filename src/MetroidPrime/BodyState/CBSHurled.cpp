@@ -174,7 +174,7 @@ void CBSHurled::Shutdown(CBodyController&) {}
 
 bool CBSHurled::ShouldStartLand(float dt, CBodyController& bc) const {
   bool shouldStartLand = true;
-  CPatterned* actor = TCastToPtr< CPatterned >(&bc.GetOwner());
+  CPatterned* const actor = TCastToPtr< CPatterned >(&bc.GetOwner());
   if (actor != NULL) {
     shouldStartLand = false;
     if (actor->IsOnGround()) {
@@ -182,17 +182,12 @@ bool CBSHurled::ShouldStartLand(float dt, CBodyController& bc) const {
     } else {
       CVector3f translation = actor->GetTranslation();
       const bool notCloseEnough = !close_enough(translation, x1c_lastTranslation, 0.0001f);
-      if (notCloseEnough) {
-        goto resetLandedDur;
-      }
-
-      if (actor->GetVelocityWR().GetZ() < 0.f) {
+      if (!notCloseEnough && actor->GetVelocityWR().GetZ() < 0.f) {
         x28_landedDur += dt;
         if (x28_landedDur >= 0.25f) {
           shouldStartLand = true;
         }
       } else {
-      resetLandedDur:
         x28_landedDur = 0.f;
       }
 
@@ -219,12 +214,12 @@ void CBSHurled::PlayLandAnimation(CBodyController& bc, CStateManager& mgr) {
   const CPASAnimParmData parms(pas::kAS_Hurled, CPASAnimParm::FromInt32(xc_animSeries),
                                CPASAnimParm::FromReal32(x8_knockAngle),
                                CPASAnimParm::FromEnum(x4_state));
-  const rstl::pair< float, int > best = db.FindBestAnimation(parms, *mgr.Random(), -1);
-  const CAnimPlaybackParms playParms(best.second, -1, 1.f, true);
+  int animId = db.FindBestAnimation(parms, *mgr.Random(), -1).second;
+  const CAnimPlaybackParms playParms(animId, -1, 1.f, true);
   bc.SetCurrentAnimation(playParms, false, false);
 
   const CPASAnimState* hurledState = db.GetAnimState(pas::kAS_Hurled);
-  CPASAnimParm parm3(hurledState->GetAnimParmData(best.second, 3));
+  CPASAnimParm parm3(hurledState->GetAnimParmData(animId, 3));
   bc.SetFallState(static_cast< pas::EFallState >(parm3.GetEnumValue()));
 
   CPhysicsActor* actor = TCastToPtr< CPhysicsActor >(&bc.GetOwner());
