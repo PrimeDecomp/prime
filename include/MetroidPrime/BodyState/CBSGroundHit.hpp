@@ -5,8 +5,8 @@
 
 class CBSGroundHit : public CBodyState {
 public:
-CBSGroundHit();
-~CBSGroundHit();
+  CBSGroundHit();
+  ~CBSGroundHit();
 
   void Start(CBodyController& bc, CStateManager& mgr) override;
   pas::EAnimationState UpdateBody(float dt, CBodyController& bc, CStateManager& mgr) override;
@@ -19,5 +19,6 @@ private:
 
   pas::EAnimationState GetBodyStateTransition(float dt, CBodyController& bc);
 };
+CHECK_SIZEOF(CBSGroundHit, 0x10)
 
 #endif // _CBSGROUNDHIT
