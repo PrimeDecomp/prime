@@ -67,7 +67,7 @@ public:
   // , x4_color(other.x4_color) {}
   CModelFlags& operator=(const CModelFlags& other) {
     x0_blendMode = other.GetBlendMode();
-    x1_matSetIdx = other.GetShaderSet();
+    x1_matSetIdx = other.x1_matSetIdx;
     x2_flags = other.GetOtherFlags();
     x4_color = other.GetColor();
     return *this;
@@ -88,7 +88,7 @@ public:
 
   const uchar GetBlendMode() const { return x0_blendMode; }
   const ETrans GetTrans() const { return static_cast< ETrans >(x0_blendModeChar); }
-  const int GetShaderSet() const { return x1_matSetIdx; }
+  const int GetShaderSet() const { return x1_matSetIdxChar; }
   const int GetOtherFlags() const { return x2_flags; }
   const CColor GetColor() const { return x4_color; }
   const CColor& GetColorRef() const { return x4_color; }
@@ -126,7 +126,10 @@ private:
     uchar x0_blendMode;
     char x0_blendModeChar;
   };
-  uchar x1_matSetIdx;
+  union {
+    uchar x1_matSetIdx;
+    char x1_matSetIdxChar;
+  };
   ushort x2_flags;
   CColor x4_color;
 };

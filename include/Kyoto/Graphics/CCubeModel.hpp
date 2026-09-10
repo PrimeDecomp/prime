@@ -70,6 +70,9 @@ public:
                                    rstl::vector< TCachedToken< CTexture > >& textures,
                                    IObjectStore& store, bool cache);
 
+  const ModelInstance& GetModelInstance() const { return x0_instance; }
+  bool AreTexturesLoaded() const { return !x40_24_loadTextures; }
+
   const void* GetPositions() const { return x0_instance.GetVertexPointer(); }
   const void* GetNormals() const { return x0_instance.GetNormalPointer(); }
 

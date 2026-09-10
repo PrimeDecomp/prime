@@ -43,54 +43,60 @@ CModel::CModel(const rstl::auto_ptr< uchar >& data, int length, IObjectStore& st
 
   uint sectionSizeStart = 0x2c;
   uchar* dataPtr = data.get();
-  uint flags = *(uint*)(dataPtr + 8);
-  if (*(uint*)(dataPtr + 4) == 1) {
+  const uint flags = *reinterpret_cast< const uint* >(dataPtr + 8);
+  const uint version = *reinterpret_cast< const uint* >(dataPtr + 4);
+  const uint visorFlags = (flags >> 1) & 1;
+  const bool hasShortUvs = (flags >> 2) & 1;
+  if (version == 1) {
     sectionSizeStart = 0x28;
   }
 
-  int* secSizeCur = (int*)(dataPtr + sectionSizeStart);
-  uint numMatSets = 1;
-  if (*(uint*)(dataPtr + 4) > 1) {
-    numMatSets = *(uint*)(dataPtr + 0x28);
+  const int sectionCount = *reinterpret_cast< const int* >(dataPtr + 0x24);
+  uchar* dataCur;
+  int* sectionSizes = reinterpret_cast< int* >(dataPtr + sectionSizeStart);
+  int numMatSets = 1;
+  if (version >= 2) {
+    numMatSets = *reinterpret_cast< const int* >(dataPtr + 0x28);
   }
-  uchar* dataCur = dataPtr + (((sectionSizeStart + *(uint*)(dataPtr + 0x24) * 4) + 31) & ~31);
+  int* secSizeCur = sectionSizes;
+  dataCur = dataPtr + ((sectionSizeStart + sectionCount * 4 + 31) & ~31);
   x18_matSets.reserve(numMatSets);
-  for (uint i = 0; i < numMatSets; ++i) {
+  for (int i = 0; i < numMatSets; ++i) {
     x18_matSets.push_back(SShader(MemoryFromPartData(dataCur, secSizeCur)));
     SShader& shader = x18_matSets.back();
     CCubeModel::MakeTexturesFromMats(shader.x10_data, shader.x0_textures, store, true);
     x4_dataLen += shader.x0_textures.size() * 12;
   }
 
-  CVector3f* positions = reinterpret_cast< CVector3f* >(MemoryFromPartData(dataCur, secSizeCur));
-  CVector3f* normals = reinterpret_cast< CVector3f* >(MemoryFromPartData(dataCur, secSizeCur));
-  uint* vtxColors = reinterpret_cast< uint* >(MemoryFromPartData(dataCur, secSizeCur));
-  CVector2f* floatUvs = reinterpret_cast< CVector2f* >(MemoryFromPartData(dataCur, secSizeCur));
-  ushort* shortUvs = nullptr;
-  if ((flags >> 2) & 1) {
-    shortUvs = reinterpret_cast< ushort* >(MemoryFromPartData(dataCur, secSizeCur));
+  const void* positions = reinterpret_cast< const void* >(MemoryFromPartData(dataCur, secSizeCur));
+  const void* normals = reinterpret_cast< const void* >(MemoryFromPartData(dataCur, secSizeCur));
+  const void* vtxColors = reinterpret_cast< const void* >(MemoryFromPartData(dataCur, secSizeCur));
+  uint surfaceCount;
+  const void* floatUvs = reinterpret_cast< const void* >(MemoryFromPartData(dataCur, secSizeCur));
+  const void* shortUvs = nullptr;
+  if (hasShortUvs) {
+    shortUvs = reinterpret_cast< const void* >(MemoryFromPartData(dataCur, secSizeCur));
   }
 
   uint* surfaceInfo = reinterpret_cast< uint* >(MemoryFromPartData(dataCur, secSizeCur));
-  uint surfaceCount = *surfaceInfo;
+  surfaceCount = *surfaceInfo;
   x8_surfaces.reserve(surfaceCount);
 
-  for (int i = 0; i < surfaceCount; ++i) {
+  for (uint i = 0; i < surfaceCount; ++i) {
     x8_surfaces.push_back(MemoryFromPartData(dataCur, secSizeCur));
   }
 
-  SShader& shader = x18_matSets.front();
-  const CAABox* box = reinterpret_cast< const CAABox* >(dataPtr + 8);
-  x28_modelInstance =
-      rs_new CCubeModel(&x8_surfaces, &shader.x0_textures, shader.x10_data, positions, normals,
-                        vtxColors, floatUvs, shortUvs, *box, (flags >> 1) & 1, true, -1);
+  x28_modelInstance = rs_new CCubeModel(
+      &x8_surfaces, &x18_matSets.front().x0_textures, x18_matSets.front().x10_data, positions,
+      normals, vtxColors, floatUvs, shortUvs, *reinterpret_cast< const CAABox* >(dataPtr + 0xc),
+      visorFlags != 0, true, -1);
   sThisFrameList = this;
   if (x34_next != nullptr) {
     x34_next->x30_prev = this;
   }
   x4_dataLen += x8_surfaces.size() * 4;
   sTotalMemory += x4_dataLen;
-  DCFlushRange(x0_data.get(), x4_dataLen);
+  DCFlushRange(x0_data.get(), length);
 }
 
 CModel::~CModel() {
@@ -139,8 +145,41 @@ void CModel::DrawSortedParts(const CModelFlags& flags) const {
   x28_modelInstance->DrawAlpha(flags);
 }
 
-const CFactoryFnReturn FModelFactory(const SObjectTag& tag, const rstl::auto_ptr< uchar >& ptr, int len,
-                               const CVParamTransfer& xfer) {
+void CModel::Draw(const float* positions, const float* normals, const CModelFlags& flags) const {
+  if (flags.GetOtherFlags() & CModelFlags::kF_DrawNormal) {
+    x28_modelInstance->DrawNormal(positions, normals, kSS_All);
+  }
+  CCubeMaterial::ResetCachedMaterials();
+  MoveToThisFrameList();
+  VerifyCurrentShader(flags.GetShaderSet());
+  x28_modelInstance->Draw(positions, normals, flags);
+}
+
+void CModel::VerifyCurrentShader(int shader) const {
+  if (shader >= x18_matSets.size()) {
+    shader = 0;
+  }
+  if (shader == x2c_currentMatxIdx) {
+    if (x2e_lastMaterialFrame != 0 && x2e_lastMaterialFrame <= sFrameCounter) {
+      for (int i = 0; i < x18_matSets.size(); ++i) {
+        if (i != shader) {
+          x18_matSets[i].UnlockTextures();
+        }
+      }
+      x2e_lastMaterialFrame = 0;
+    }
+  } else {
+    x2c_currentMatxIdx = shader;
+    SShader& material = x18_matSets[shader];
+    x28_modelInstance->RemapMaterialData(material.x10_data, &material.x0_textures);
+    if (x18_matSets.size() > 1) {
+      x2e_lastMaterialFrame = sFrameCounter + 2;
+    }
+  }
+}
+
+const CFactoryFnReturn FModelFactory(const SObjectTag& tag, const rstl::auto_ptr< uchar >& ptr,
+                                     int len, const CVParamTransfer& xfer) {
   rstl::rc_ptr< IVParamObj > obj = xfer.x0_obj;
   CSimplePool* pool = static_cast< TObjOwnerParam< CSimplePool* >* >(obj.GetPtr())->GetData();
   GXInvalidateVtxCache();
@@ -230,9 +269,11 @@ void CModel::FrameDone() {
   for (CModel* model = sTwoFrameList; model != nullptr;) {
     CModel* next = model->x34_next;
     model->VerifyCurrentShader(0);
-    model->UnlockTextures();
-    model->x34_next = nullptr;
-    model->x30_prev = nullptr;
+    for (AUTO(it, model->x18_matSets.begin() + 1); it != model->x18_matSets.end(); ++it) {
+      it->UnlockTextures();
+    }
+    model->x28_modelInstance->UnlockTextures();
+    model->x30_prev = model->x34_next = nullptr;
     model = next;
   }
 
@@ -244,5 +285,49 @@ void CModel::FrameDone() {
 void CModel::DisableTextureTimeout() { sIsTextureTimeoutEnabled = false; }
 
 void CModel::EnableTextureTimeout() { sIsTextureTimeoutEnabled = true; }
+
+uint CModel::GetDataSize() const { return x4_dataLen; }
+
+rstl::auto_ptr< uchar > CModel::GetData() { return rstl::auto_ptr< uchar >(x0_data.get()); }
+
+namespace {
+inline void RemapPointer(const void*& pointer, uint offset) {
+  if (pointer != nullptr) {
+    pointer = reinterpret_cast< void* >(reinterpret_cast< uint >(pointer) + offset);
+  }
+}
+} // namespace
+
+void CModel::RemapData(uchar* data) {
+  uint offset = reinterpret_cast< uint >(data) - reinterpret_cast< uint >(x0_data.release());
+  x0_data = data;
+  for (int i = 0; i < x18_matSets.size(); ++i) {
+    RemapPointer(reinterpret_cast< const void*& >(x18_matSets[i].x10_data), offset);
+  }
+
+  const CCubeModel::ModelInstance& instance = x28_modelInstance->GetModelInstance();
+  const uchar* positions = static_cast< const uchar* >(instance.GetVertexPointer());
+  const uchar* normals = static_cast< const uchar* >(instance.GetNormalPointer());
+  const uchar* colors = static_cast< const uchar* >(instance.GetColorPointer());
+  const uchar* uvs = static_cast< const uchar* >(instance.GetTCPointer());
+  const uchar* packedUvs = static_cast< const uchar* >(instance.GetPackedTCPointer());
+  const CAABox bounds = x28_modelInstance->GetBoundingBox();
+  uchar flags = x28_modelInstance->GetModelFlags();
+  bool texturesLoaded = x28_modelInstance->AreTexturesLoaded();
+  const int index = x28_modelInstance->GetModelIndex();
+  RemapPointer(reinterpret_cast< const void*& >(positions), offset);
+  RemapPointer(reinterpret_cast< const void*& >(normals), offset);
+  RemapPointer(reinterpret_cast< const void*& >(colors), offset);
+  RemapPointer(reinterpret_cast< const void*& >(uvs), offset);
+  RemapPointer(reinterpret_cast< const void*& >(packedUvs), offset);
+  for (int i = 0; i < x8_surfaces.size(); ++i) {
+    RemapPointer(reinterpret_cast< const void*& >(x8_surfaces[i]), offset);
+  }
+
+  x28_modelInstance = rs_new CCubeModel(&x8_surfaces, &x18_matSets.front().x0_textures,
+                                        x18_matSets.front().x10_data, positions, normals, colors,
+                                        uvs, packedUvs, bounds, flags, texturesLoaded, index);
+  MoveToThisFrameList();
+}
 
 void CModel::UpdateLastFrame() const { x38_lastFrame = CGraphics::GetFrameCounter(); }
