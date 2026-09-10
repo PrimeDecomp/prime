@@ -40,7 +40,11 @@ CAreaOctTree::Node CAreaOctTree::Node::GetChild(int index) const {
 }
 
 CAreaOctTree::TriListReference CAreaOctTree::Node::GetTriangleArray() const {
+#if NONMATCHING
+  static const ushort skDeadArray[sizeof(CAABox) / sizeof(ushort) + 1] = {0};
+#else
   static const ushort skDeadArray[2] = {0, 0};
+#endif
   if (GetTreeType() != kTT_Leaf) {
     return TriListReference(skDeadArray);
   }

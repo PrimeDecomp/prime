@@ -2078,8 +2078,13 @@ void CFrontEndUI::Draw() const {
     if (xcc_curMoviePtr != nullptr && xcc_curMoviePtr->CanDrawVideo()) {
       uint vidWidth = xcc_curMoviePtr->GetWidth();
       uint vidHeight = xcc_curMoviePtr->GetHeight();
+#if NONMATCHING
+      int centerX = (static_cast< int >(vidWidth) - vpWidth) / 2;
+      int centerY = (static_cast< int >(vidHeight) - vpHeight) / 2;
+#else
       int centerX = (vidWidth - vpWidth) / 2;
       int centerY = (vidHeight - vpHeight) / 2;
+#endif
       int vl = vpLeft - centerX;
       int vr = vpLeft + vpWidth + centerX;
       int vb = vpTop + vpHeight + centerY;

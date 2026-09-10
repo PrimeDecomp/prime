@@ -76,6 +76,15 @@ void COutputStream::FlushShiftRegister() {
 
 void COutputStream::WriteBits(const uint val, const uint bitCount) {
 
+#if NONMATCHING
+  for (uint i = bitCount; i > 0; --i) {
+    if (mShiftRegisterOffset == 0) {
+      FlushShiftRegister();
+    }
+    mShiftRegisterOffset = mShiftRegisterOffset - 1;
+    mShiftRegister |= ((val >> (i - 1)) & 1u) << mShiftRegisterOffset;
+  }
+#else
   const uint registerOffset = mShiftRegisterOffset;
   if (registerOffset >= bitCount) {
     const uint off = registerOffset - bitCount;
@@ -92,4 +101,5 @@ void COutputStream::WriteBits(const uint val, const uint bitCount) {
     mShiftRegister = (val & (shiftAmt != 32 ? (1 << shiftAmt) - 1 : 0xffffffff)) << shift;
     mShiftRegisterOffset -= shiftAmt;
   }
+#endif
 }

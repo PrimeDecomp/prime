@@ -55,7 +55,11 @@ CREAdd::~CREAdd() {
 }
 
 bool CREAdd::GetValue(int frame, float& valOut) const {
+#if NONMATCHING
+  float a = 0.f, b = 0.f;
+#else
   float a, b;
+#endif
   x4_a->GetValue(frame, a);
   x8_b->GetValue(frame, b);
   valOut = a + b;
@@ -70,7 +74,11 @@ CREMultiply::~CREMultiply() {
 }
 
 bool CREMultiply::GetValue(int frame, float& valOut) const {
+#if NONMATCHING
+  float a = 0.f, b = 0.f;
+#else
   float a, b;
+#endif
   x4_a->GetValue(frame, a);
   x8_b->GetValue(frame, b);
   valOut = a * b;

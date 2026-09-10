@@ -84,6 +84,9 @@ size_t CInputStream::ReadBytes(void* dest, size_t len) {
       if (InternalReadNext()) {
         continue;
       } else {
+#if NONMATCHING
+        x18_readPosition += curReadLen;
+#endif
         return curReadLen;
       }
     }
@@ -100,6 +103,21 @@ size_t CInputStream::ReadBytes(void* dest, size_t len) {
 }
 
 uint CInputStream::ReadBits(uint bitCount) {
+#if NONMATCHING
+  uint result = 0;
+  for (uint i = 0; i < bitCount; ++i) {
+    if (x20_bitOffset == 0) {
+      uchar byte;
+      Get(&byte, 1);
+      x1c_bitWord = uint(byte) << 24;
+      x20_bitOffset = 8;
+    }
+    result = (result << 1) | (x1c_bitWord >> 31);
+    x1c_bitWord <<= 1;
+    --x20_bitOffset;
+  }
+  return result;
+#else
   if (x20_bitOffset >= bitCount) {
     uint mask = 0xffffffff;
     uint bwShift = 32 - bitCount;
@@ -142,6 +160,7 @@ uint CInputStream::ReadBits(uint bitCount) {
   x20_bitOffset -= shiftAmt;
   x1c_bitWord <<= shiftAmt;
   return ret;
+#endif
 }
 
 char CInputStream::ReadChar() {

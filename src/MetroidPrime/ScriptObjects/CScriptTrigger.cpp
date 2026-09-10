@@ -201,6 +201,9 @@ void CScriptTrigger::UpdateInhabitants(float dt, CStateManager& mgr) {
        it != xe8_inhabitants.end(); it = nextIt) {
     nextIt = it;
     ++nextIt;
+#if NONMATCHING
+    const TUniqueId objectId = it->GetObjectId();
+#endif
     if (CActor* act = TCastToPtr< CActor >(mgr.ObjectById(it->GetObjectId()))) {
       bool playerValid = true;
       if (it->GetObjectId() == mgr.GetPlayer()->GetUniqueId()) {
@@ -272,7 +275,11 @@ void CScriptTrigger::UpdateInhabitants(float dt, CStateManager& mgr) {
         } else {
           xe8_inhabitants.erase(it);
           sendExited = true;
+#if NONMATCHING
+          if (mgr.GetPlayer()->GetUniqueId() == objectId && x148_28_playerTriggerProc) {
+#else
           if (mgr.GetPlayer()->GetUniqueId() == it->GetObjectId() && x148_28_playerTriggerProc) {
+#endif
             x148_28_playerTriggerProc = false;
             CPlayer* player = mgr.Player();
             if (x148_29_didPhazonDamage) {
@@ -289,7 +296,11 @@ void CScriptTrigger::UpdateInhabitants(float dt, CStateManager& mgr) {
       }
     } else {
       xe8_inhabitants.erase(it);
+#if NONMATCHING
+      if (mgr.GetPlayer()->GetUniqueId() == objectId && x148_28_playerTriggerProc) {
+#else
       if (mgr.GetPlayer()->GetUniqueId() == it->GetObjectId() && x148_28_playerTriggerProc) {
+#endif
         x148_28_playerTriggerProc = false;
         CPlayer* player = mgr.Player();
         if (x148_29_didPhazonDamage) {

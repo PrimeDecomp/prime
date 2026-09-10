@@ -195,14 +195,22 @@ COBBTree::CNode::CNode(const CTransform4f& xf, const CVector3f& point, const CNo
 , x3c_isLeaf(leaf != nullptr)
 , x40_left(left)
 , x44_right(right)
-, x48_leaf(leaf) {}
+, x48_leaf(leaf)
+#if NONMATCHING
+, x4c_hit(false)
+#endif
+{}
 
 COBBTree::CNode::CNode(CInputStream& in)
 : x0_obb(in)
 , x3c_isLeaf(in.Get< bool >())
 , x40_left(x3c_isLeaf ? nullptr : rs_new CNode(in))
 , x44_right(x3c_isLeaf ? nullptr : rs_new CNode(in))
-, x48_leaf(x3c_isLeaf ? rs_new CLeafData(in) : nullptr) {}
+, x48_leaf(x3c_isLeaf ? rs_new CLeafData(in) : nullptr)
+#if NONMATCHING
+, x4c_hit(false)
+#endif
+{}
 
 COBBTree::CNode::~CNode() {
   delete x40_left;

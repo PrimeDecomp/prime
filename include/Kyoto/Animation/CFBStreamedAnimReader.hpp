@@ -151,7 +151,11 @@ class CMemoryInputToBitLevelLoader {
   friend class CBitLevelLoader< CMemoryInputToBitLevelLoader >;
 
 public:
+#if NONMATCHING
+  CMemoryInputToBitLevelLoader(const uint* data) : x0_data(data) {}
+#else
   CMemoryInputToBitLevelLoader(const uint* data) : x0_data(data - 1) {}
+#endif
 
 private:
   const uint* x0_data;
@@ -166,16 +170,24 @@ public:
     uint result = 0;
     uint shift = 0;
     while (bits != 0) {
+#if NONMATCHING
+      if (x8_bit == 32) {
+        x8_bit = 0;
+        x4_word = Input(*x0_input);
+      }
+#endif
       uint count = rstl::min_val(32 - x8_bit, bits);
       uint highShift = 32 - count;
       result |= ((x4_word >> x8_bit) << highShift) >> (highShift - shift);
       x8_bit += count;
       shift += count;
       bits -= count;
+#if !NONMATCHING
       if (x8_bit == 32) {
         x8_bit = 0;
         x4_word = Input(*x0_input);
       }
+#endif
     }
     return result;
   }
@@ -184,7 +196,11 @@ public:
       return 0;
     }
     uint value = LoadUnsigned(bits);
+#if NONMATCHING
+    if (bits < 32 && (value & (1u << (bits - 1)))) {
+#else
     if (value & (1 << (bits - 1))) {
+#endif
       value |= ~0u << bits;
     }
     return value;
@@ -201,8 +217,12 @@ private:
 template <>
 inline uint
 CBitLevelLoader< CMemoryInputToBitLevelLoader >::Input(CMemoryInputToBitLevelLoader& input) {
+#if NONMATCHING
+  return *input.x0_data++;
+#else
   ++input.x0_data;
   return *input.x0_data;
+#endif
 }
 
 class CSegIdToIndexConverter {

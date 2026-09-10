@@ -23,6 +23,9 @@
 #include "stdlib.h"
 #include "string.h"
 
+const float CCameraBlurPass::skXRayViewportScaleX = 0.9f;
+const float CCameraBlurPass::skXRayViewportScaleY = 0.9f;
+
 static const char* const skDebugFilterTypeNames[] = {
     "PassThru   ", "Multiply   ", "Invert     ", "Add        ", "Subtract   ",
     "Blend      ", "WideScreen ", "SceneAdd   ", "NoColor    ",

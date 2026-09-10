@@ -12,16 +12,28 @@ uint CGraphicsPalette::sCurrentFrameCount = 0;
 
 CGraphicsPalette::CGraphicsPalette(EPaletteFormat format, int numEntries)
 : x0_fmt(format)
+#if NONMATCHING
+, x4_frameLoaded(0)
+#endif
 , x8_entryCount(numEntries)
 , xc_entries((ushort*)CMemory::Alloc(numEntries * sizeof(ushort), IAllocator::kHI_RoundUpLen))
+#if NONMATCHING
+, x10_tlutObj()
+#endif
 , x1c_locked(false) {
   GXInitTlutObj(&x10_tlutObj, xc_entries.get(), format_to_format(x0_fmt), x8_entryCount);
 }
 
 CGraphicsPalette::CGraphicsPalette(CInputStream& in)
 : x0_fmt(EPaletteFormat(in.ReadLong()))
+#if NONMATCHING
+, x4_frameLoaded(0)
+#endif
 , x8_entryCount(in.Get< short >() * in.Get< short >())
 , xc_entries((ushort*)CMemory::Alloc(x8_entryCount * sizeof(ushort), IAllocator::kHI_RoundUpLen))
+#if NONMATCHING
+, x10_tlutObj()
+#endif
 , x1c_locked(false) {
   in.Get(reinterpret_cast< uchar* >(xc_entries.get()), x8_entryCount * sizeof(ushort));
   GXInitTlutObj(&x10_tlutObj, xc_entries.get(), format_to_format(x0_fmt), x8_entryCount);
