@@ -45,8 +45,9 @@ IGameArea::~IGameArea() {}
 int CGameArea::VerifyHeader() const {
   if (!x110_mreaSecBufs.empty()) {
     const int* header = reinterpret_cast< const int* >(x110_mreaSecBufs.front().first.get());
-    if (header[0] == 0xdeadbeef && header[1] >= 12 && header[1] <= 15) {
-      return header[1];
+    if (CBasics::SwapBytes(header[0]) == 0xdeadbeef && CBasics::SwapBytes(header[1]) >= 12 &&
+        CBasics::SwapBytes(header[1]) <= 15) {
+      return CBasics::SwapBytes(header[1]);
     }
   }
   return 0;
@@ -206,10 +207,10 @@ static rstl::pair< rstl::auto_ptr< char >, int > GetScriptingMemoryAlways(const 
   rstl::single_ptr< CInputStream > headerStream(
       gpResourceFactory->GetResLoader().LoadNewResourcePartSync(tag, 0, 0x60, headerBuffer.get()));
   if (headerStream.get()) {
-    int magic = header[0];
-    int version = header[1];
+    int magic = CBasics::SwapBytes(header[0]);
+    int version = CBasics::SwapBytes(header[1]);
     if (magic == 0xdeadbeef && version >= 12 && version <= 15) {
-      int scriptSection = header[17];
+      int scriptSection = CBasics::SwapBytes(header[17]);
       int sectionCount = header[15];
       int sizesLength = ROUND_UP_32(sectionCount * 4);
       rstl::single_ptr< CInputStream > sizesStream(
@@ -285,7 +286,7 @@ void CGameArea::PostConstructArea() {
   CVector3f translation = SwapVectorBytes(header->transform.GetTranslation());
   close_enough(xc_transform.GetTranslation(), translation, 0.001f);
 
-  const int modelCount = header->modelCount;
+  const int modelCount = CBasics::SwapBytes(header->modelCount);
   section += 2;
   int firstGeometry = section - x110_mreaSecBufs.begin();
   x12c_postConstructed->x10ec_firstMatSection = firstGeometry;
@@ -298,7 +299,7 @@ void CGameArea::PostConstructArea() {
   }
 
   int geometryEnd = section - x110_mreaSecBufs.begin();
-  if (version > 14 && header->renderOctreeSection != -1) {
+  if (version > 14 && CBasics::SwapBytes(header->renderOctreeSection) != -1) {
     rstl::auto_ptr< const u8 > buffer(reinterpret_cast< const u8* >(section->first.get()));
     buffer.release();
     x12c_postConstructed->xc_octTree = CAreaRenderOctTree(buffer);
@@ -622,7 +623,7 @@ char* CGameArea::AllocNewAreaData(int offset, int size) {
 }
 
 int CGameArea::GetNumPartSizes() const {
-  return reinterpret_cast< const int* >(x110_mreaSecBufs.front().first.get())[15];
+  return CBasics::SwapBytes(reinterpret_cast< const int* >(x110_mreaSecBufs.front().first.get())[15]);
 }
 
 bool CGameArea::ReloadAllUnloadedTextures() {

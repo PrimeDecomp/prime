@@ -2,6 +2,7 @@
 #define _COUTPUTSTREAM
 
 #include "types.h"
+#include "Kyoto/Basics/CBasics.hpp"
 
 #include "stddef.h"
 
@@ -42,8 +43,14 @@ public:
   void WriteUint32(const uint t) { Put(t); }
   void WriteInt32(const int t) { Put(t); }
 
-  void WriteShort(const short t) { Put(&t, sizeof(short)); }
-  void WriteLong(const uint t) { Put(&t, sizeof(uint)); }
+  void WriteShort(const short t) {
+    const short value = CBasics::SwapBytes(t);
+    Put(&value, sizeof(value));
+  }
+  void WriteLong(const uint t) {
+    const uint value = CBasics::SwapBytes(t);
+    Put(&value, sizeof(value));
+  }
 
   void WriteBool(const bool b) {
     FlushShiftRegister();

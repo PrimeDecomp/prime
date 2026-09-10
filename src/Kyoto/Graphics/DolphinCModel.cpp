@@ -1,4 +1,5 @@
 #include "Kyoto/Alloc/CMemory.hpp"
+#include "Kyoto/Basics/CBasics.hpp"
 #include "Kyoto/CFrameDelayedKiller.hpp"
 #include "Kyoto/Graphics/CCubeModel.hpp"
 #include "Kyoto/Graphics/CCubeSurface.hpp"
@@ -77,7 +78,7 @@ CModel::CModel(const rstl::auto_ptr< uchar >& data, int length, IObjectStore& st
   }
 
   uint* surfaceInfo = reinterpret_cast< uint* >(MemoryFromPartData(dataCur, secSizeCur));
-  surfaceCount = *surfaceInfo;
+  surfaceCount = CBasics::SwapBytes(*surfaceInfo);
   x8_surfaces.reserve(surfaceCount);
 
   for (uint i = 0; i < surfaceCount; ++i) {

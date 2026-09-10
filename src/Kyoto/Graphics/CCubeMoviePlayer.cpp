@@ -1,4 +1,5 @@
 #include "Kyoto/Math/CVector3f.hpp"
+#include "Kyoto/Basics/CBasics.hpp"
 
 #include <Kyoto/Graphics/CMoviePlayer.hpp>
 
@@ -203,6 +204,24 @@ bool CMoviePlayer::PumpIndexLoad() {
   case 0:
     if (xac_indexLoad->x0_headerRequest->IsComplete()) {
       memcpy(&x28_header, buffer, sizeof(THPHeader));
+      x28_header.mVersion = CBasics::SwapBytes(static_cast< uint >(x28_header.mVersion));
+      x28_header.mBufferSize = CBasics::SwapBytes(static_cast< uint >(x28_header.mBufferSize));
+      x28_header.mAudioMaxSamples =
+          CBasics::SwapBytes(static_cast< uint >(x28_header.mAudioMaxSamples));
+      x28_header.mFrameRate = CBasics::SwapBytes(x28_header.mFrameRate);
+      x28_header.mNumFrames = CBasics::SwapBytes(static_cast< uint >(x28_header.mNumFrames));
+      x28_header.mFirstFrameSize =
+          CBasics::SwapBytes(static_cast< uint >(x28_header.mFirstFrameSize));
+      x28_header.mMovieDataSize =
+          CBasics::SwapBytes(static_cast< uint >(x28_header.mMovieDataSize));
+      x28_header.mCompInfoDataOffsets =
+          CBasics::SwapBytes(static_cast< uint >(x28_header.mCompInfoDataOffsets));
+      x28_header.mOffsetDataOffsets =
+          CBasics::SwapBytes(static_cast< uint >(x28_header.mOffsetDataOffsets));
+      x28_header.mMovieDataOffsets =
+          CBasics::SwapBytes(static_cast< uint >(x28_header.mMovieDataOffsets));
+      x28_header.mFinalFrameDataOffsets =
+          CBasics::SwapBytes(static_cast< uint >(x28_header.mFinalFrameDataOffsets));
       xac_indexLoad->x0_headerRequest =
           x0_dvdFile.AsyncSeekRead(buffer, 32, kSO_Begin, x28_header.mCompInfoDataOffsets);
       ++xac_indexLoad->x10_state;
@@ -212,6 +231,8 @@ bool CMoviePlayer::PumpIndexLoad() {
   case 1: {
     if (xac_indexLoad->x0_headerRequest->IsComplete()) {
       memcpy(&x58_thpComponents, buffer, sizeof(THPFrameCompInfo));
+      x58_thpComponents.mNumComponents =
+          CBasics::SwapBytes(static_cast< uint >(x58_thpComponents.mNumComponents));
       xac_indexLoad->x0_headerRequest = nullptr;
       uchar* audioBuffer = buffer + 32;
       int offset = x28_header.mCompInfoDataOffsets + sizeof(THPFrameCompInfo);
@@ -249,9 +270,17 @@ bool CMoviePlayer::PumpIndexLoad() {
     }
     if (hasVideo) {
       memcpy(&x6c_videoInfo, buffer, sizeof(THPVideoInfoOld));
+      x6c_videoInfo.mXSize = CBasics::SwapBytes(static_cast< uint >(x6c_videoInfo.mXSize));
+      x6c_videoInfo.mYSize = CBasics::SwapBytes(static_cast< uint >(x6c_videoInfo.mYSize));
     }
     if (hasAudio) {
       memcpy(&x74_audioInfo, buffer + 32, sizeof(THPAudioInfoOld));
+      x74_audioInfo.mSndChannels =
+          CBasics::SwapBytes(static_cast< uint >(x74_audioInfo.mSndChannels));
+      x74_audioInfo.mSndFrequency =
+          CBasics::SwapBytes(static_cast< uint >(x74_audioInfo.mSndFrequency));
+      x74_audioInfo.mSndNumSamples =
+          CBasics::SwapBytes(static_cast< uint >(x74_audioInfo.mSndNumSamples));
     }
   }
   }
@@ -325,7 +354,7 @@ void CMoviePlayer::ReadCompleted() {
     xf8_cachedBytes += xb0_nextReadSize;
   }
   xb4_nextReadOff += xb0_nextReadSize;
-  xb0_nextReadSize = *reinterpret_cast< const uint* >(x90_requestBuffer.get());
+  xb0_nextReadSize = CBasics::SwapBytes(*reinterpret_cast< const uint* >(x90_requestBuffer.get()));
   ++xc0_curLoadFrame;
   if (xc0_curLoadFrame == xf0_preLoadFrames) {
     if (xc0_curLoadFrame == x28_header.mNumFrames) {
@@ -369,7 +398,7 @@ void CMoviePlayer::DecodeFromRead(const void* ptr) {
       texture.SetAudioSamplesConsumed(0);
       OSRestoreInterrupts(interrupts);
     }
-    offset += *sizes++;
+    offset += CBasics::SwapBytes(*sizes++);
   }
   if (++xcc_decodedTexSlot == x80_textures.size()) {
     xcc_decodedTexSlot = 0;

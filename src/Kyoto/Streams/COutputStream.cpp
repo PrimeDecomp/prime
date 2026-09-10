@@ -67,6 +67,7 @@ void COutputStream::DoFlush() {
 
 void COutputStream::FlushShiftRegister() {
   if (mShiftRegisterOffset < 32) {
+    mShiftRegister = CBasics::SwapBytes(mShiftRegister);
     DoPut(&mShiftRegister, min_containing_bytes(32 - mShiftRegisterOffset));
     mShiftRegister = 0;
     mShiftRegisterOffset = 32;

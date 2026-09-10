@@ -1,4 +1,5 @@
 #include "Kyoto/Graphics/CCubeMaterial.hpp"
+#include "Kyoto/Basics/CBasics.hpp"
 
 #include "Kyoto/Basics/CStopwatch.hpp"
 #include "Kyoto/Graphics/CCubeModel.hpp"
@@ -404,9 +405,9 @@ void CCubeMaterial::EnsureTevsDirect() {
 
 void CCubeMaterial::SetCurrentBlack() const {
   const uint* data = reinterpret_cast< const uint* >(x0_data);
-  const uint texCount = data[1];
-  const uint flags = data[0];
-  const uint vertexDesc = data[texCount + 2];
+  const uint texCount = CBasics::SwapBytes(data[1]);
+  const uint flags = CBasics::SwapBytes(data[0]);
+  const uint vertexDesc = CBasics::SwapBytes(data[texCount + 2]);
 
   if ((flags & (kStateFlag_DepthSorting | kStateFlag_AlphaTest)) != 0) {
     CGX::SetBlendMode(GX_BM_BLEND, GX_BL_ZERO, GX_BL_ONE, GX_LO_CLEAR);
@@ -872,11 +873,11 @@ void CCubeModel::DisableShadowMaps() { sbRenderModelShadow = false; }
 
 uint CCubeMaterial::GetCompressedBlend() const {
   const uint* ptr = reinterpret_cast< const uint* >(x0_data);
-  const uint flags = ptr[0];
-  const uint texCount = ptr[1];
+  const uint flags = CBasics::SwapBytes(ptr[0]);
+  const uint texCount = CBasics::SwapBytes(ptr[1]);
   const uint* blend = ptr + texCount + 4;
   if ((flags & kStateFlag_KonstValues) != 0) {
-    blend += *blend + 1;
+    blend += CBasics::SwapBytes(*blend) + 1;
   }
-  return *blend;
+  return CBasics::SwapBytes(*blend);
 }

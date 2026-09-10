@@ -20,7 +20,12 @@ CUnitVector3f CVector3f::sRightVector(1.f, 0.f, 0.f);
 CUnitVector3f CVector3f::sForwardVector(0.f, 1.f, 0.f);
 CUnitVector3f CVector3f::sBackVector(0.f, -1.f, 0.f);
 
-CVector3f::CVector3f(CInputStream& in) { in.Get(this, sizeof(CVector3f)); }
+CVector3f::CVector3f(CInputStream& in) {
+  in.Get(this, sizeof(CVector3f));
+  mX = CBasics::SwapBytes(mX);
+  mY = CBasics::SwapBytes(mY);
+  mZ = CBasics::SwapBytes(mZ);
+}
 
 void CVector3f::PutTo(COutputStream& out) const {
   out.WriteReal32(mX);

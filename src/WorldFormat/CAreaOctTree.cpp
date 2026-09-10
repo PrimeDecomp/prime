@@ -1,4 +1,5 @@
 #include "WorldFormat/CAreaOctTree.hpp"
+#include "Kyoto/Basics/CBasics.hpp"
 #include "Kyoto/Math/CAABox.hpp"
 #include "Kyoto/Streams/CMemoryInStream.hpp"
 
@@ -28,7 +29,7 @@ static CAABox BoxFromIndex(int index, const CVector3f& a, const CVector3f& b, co
 CAreaOctTree::Node CAreaOctTree::Node::GetChild(int index) const {
   ETreeType type = GetChildType(index);
   const uint* offsets = reinterpret_cast< const uint* >(x18_ptr + sizeof(uint));
-  const void* node = x18_ptr + 9 * sizeof(uint) + offsets[index];
+  const void* node = x18_ptr + 9 * sizeof(uint) + CBasics::SwapBytes(offsets[index]);
   if (type == kTT_Leaf) {
     CAABox bounds = *reinterpret_cast< const CAABox* >(node);
     return Node(node, bounds, GetOwner(), type);

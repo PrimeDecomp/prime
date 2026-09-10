@@ -1,4 +1,5 @@
 #include "Kyoto/Streams/CInputStream.hpp"
+#include "Kyoto/Basics/CBasics.hpp"
 
 #include "string.h"
 
@@ -154,23 +155,23 @@ bool CInputStream::ReadBool() { return static_cast< uchar >(ReadChar()) != 0; }
 ushort CInputStream::ReadShort() {
   static ushort s;
   Get(&s, sizeof(ushort));
-  return s;
+  return CBasics::SwapBytes(s);
 }
 
 uint CInputStream::ReadLong() {
   static uint l;
   Get(&l, sizeof(uint));
-  return l;
+  return CBasics::SwapBytes(l);
 }
 
 u64 CInputStream::ReadLongLong() {
   static u64 ll;
   Get(&ll, sizeof(u64));
-  return ll;
+  return CBasics::SwapBytes(ll);
 }
 
 float CInputStream::ReadFloat() {
   static float f;
   Get(&f, sizeof(float));
-  return f;
+  return CBasics::SwapBytes(f);
 }

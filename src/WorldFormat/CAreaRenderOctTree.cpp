@@ -1,4 +1,5 @@
 #include "WorldFormat/CAreaRenderOctTree.hpp"
+#include "Kyoto/Basics/CBasics.hpp"
 
 static const int skChildCounts[] = {0, 2, 2, 4, 2, 4, 4, 8};
 // Retail indexes this table with flags * 3, including its unusual axis pairs.
@@ -98,12 +99,12 @@ CAABox CAreaRenderOctTree::Node::GetNodeBounds(const CAABox& curAABB, int idx) c
 void CAreaRenderOctTree::FindOverlappingModels(rstl::vector< uint >& out,
                                                const CAABox& testAABB) const {
   out.resize(x14_bitmapWordCount, 0);
-  reinterpret_cast< const Node* >(x38_entries + x34_indirectionTable[0])
+  reinterpret_cast< const Node* >(x38_entries + CBasics::SwapBytes(x34_indirectionTable[0]))
       ->RecursiveBuildOverlaps(out.data(), *this, x18_aabb, testAABB);
 }
 
 void CAreaRenderOctTree::FindOverlappingModels(uint* out, const CAABox& testAABB) const {
-  reinterpret_cast< const Node* >(x38_entries + x34_indirectionTable[0])
+  reinterpret_cast< const Node* >(x38_entries + CBasics::SwapBytes(x34_indirectionTable[0]))
       ->RecursiveBuildOverlaps(out, *this, x18_aabb, testAABB);
 }
 
@@ -119,7 +120,7 @@ void CAreaRenderOctTree::Node::RecursiveBuildOverlaps(uint* out, const CAreaRend
     } else {
       int childCount = GetChildCount();
       for (int i = 0; i < childCount; ++i) {
-        const Node* child = parent.GetNode(x4_children[i]);
+        const Node* child = parent.GetNode(CBasics::SwapBytes(x4_children[i]));
         child->RecursiveBuildOverlaps(out, parent, GetNodeBounds(curAABB, i), testAABB);
       }
     }
