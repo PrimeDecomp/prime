@@ -14,6 +14,9 @@
 #include "Kyoto/Graphics/CGraphics.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
 #include "Kyoto/Streams/CInputStream.hpp"
+#if UINTPTR_MAX > UINT32_MAX
+#include "Kyoto/Streams/CMemoryInStream.hpp"
+#endif
 
 #include <dolphin/gx/GXEnum.h>
 #include <dolphin/os.h>
@@ -51,7 +54,9 @@ void CMapArea::PostConstruct() {
   moStart += x28_mappableObjCount * sizeof(CMappableObject);
   x3c_vertexStart = reinterpret_cast< CVector3f* >(moStart);
   moStart += x2c_vertexCount * sizeof(CVector3f);
+#if UINTPTR_MAX == UINT32_MAX
   x40_surfaceStart = reinterpret_cast< CMapAreaSurface* >(moStart);
+#endif
 
   for (int i = 0; i < x28_mappableObjCount; ++i) {
     x38_moStart[i].PostConstruct(x44_buf.get());
@@ -60,9 +65,20 @@ void CMapArea::PostConstruct() {
   for (int i = 0; i < x2c_vertexCount * 3; ++i) {
     floatStart[i] = CBasics::SwapBytes(floatStart[i]);
   }
+#if UINTPTR_MAX > UINT32_MAX
+  // Each serialized surface has six floats and two 32-bit offsets, regardless
+  // of the host pointer size. Keep the resolved pointers in native records.
+  CMemoryInStream surfaces(moStart, x30_surfaceCount * 32);
+  mNativeSurfaces.reserve(x30_surfaceCount);
+  for (int i = 0; i < x30_surfaceCount; ++i) {
+    mNativeSurfaces.push_back(CMapAreaSurface(surfaces, x44_buf.get()));
+  }
+  x40_surfaceStart = mNativeSurfaces.data();
+#else
   for (int i = 0; i < x30_surfaceCount; ++i) {
     x40_surfaceStart[i].PostConstruct(x44_buf.get());
   }
+#endif
 }
 
 bool CMapArea::GetIsVisibleToAutoMapper(bool worldVis, bool areaVis) const {
@@ -82,11 +98,32 @@ bool CMapArea::GetIsVisibleToAutoMapper(bool worldVis, bool areaVis) const {
 
 CVector3f CMapArea::GetAreaCenterPoint() const { return x10_box.GetCenterPoint(); }
 
+#if UINTPTR_MAX > UINT32_MAX
+CMapArea::CMapAreaSurface::CMapAreaSurface(CInputStream& in, const void* buf)
+: x0_normal(in)
+, xc_centroid(in)
+, x18_surfOffset(reinterpret_cast< const int* >(static_cast< const uchar* >(buf) + in.ReadLong()))
+, x1c_outlineOffset(reinterpret_cast< const int* >(static_cast< const uchar* >(buf) + in.ReadLong())) {}
+#else
 void CMapArea::CMapAreaSurface::PostConstruct(const void* buf) {
+#if TARGET_LITTLE_ENDIAN
+  x0_normal = CVector3f(CBasics::SwapBytes(x0_normal.GetX()), CBasics::SwapBytes(x0_normal.GetY()),
+                        CBasics::SwapBytes(x0_normal.GetZ()));
+  xc_centroid = CVector3f(CBasics::SwapBytes(xc_centroid.GetX()),
+                          CBasics::SwapBytes(xc_centroid.GetY()),
+                          CBasics::SwapBytes(xc_centroid.GetZ()));
+  x18_surfOffset = reinterpret_cast< const int* >(
+      static_cast< const uchar* >(buf) +
+      CBasics::SwapBytes(static_cast< uint >(reinterpret_cast< uintptr_t >(x18_surfOffset))));
+  x1c_outlineOffset = reinterpret_cast< const int* >(
+      static_cast< const uchar* >(buf) +
+      CBasics::SwapBytes(static_cast< uint >(reinterpret_cast< uintptr_t >(x1c_outlineOffset))));
+#else
   x18_surfOffset = reinterpret_cast< const int* >(static_cast< const uchar* >(buf) +
                                                   reinterpret_cast< uintptr_t >(x18_surfOffset));
   x1c_outlineOffset = reinterpret_cast< const int* >(
       static_cast< const uchar* >(buf) + reinterpret_cast< uintptr_t >(x1c_outlineOffset));
+#endif
 
   int numSurfaces = CBasics::SwapBytes(*x18_surfOffset);
   const int* surfOffset = x18_surfOffset + 1;
@@ -103,6 +140,7 @@ void CMapArea::CMapAreaSurface::PostConstruct(const void* buf) {
     outlineOffset += ((numVertices + 3) & ~3) / 4;
   }
 }
+#endif
 
 struct Surface {
   GXPrimitive primitive;

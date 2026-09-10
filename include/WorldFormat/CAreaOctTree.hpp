@@ -13,6 +13,10 @@
 
 #include "WorldFormat/CCollisionEdge.hpp"
 
+#if TARGET_LITTLE_ENDIAN
+#include "rstl/vector.hpp"
+#endif
+
 class CLine;
 class CMaterialFilter;
 
@@ -123,8 +127,20 @@ private:
   const ushort* x44_polyEdges;
   uint x48_vertCount;
   const CVector3f* x4c_verts;
+
+#if TARGET_LITTLE_ENDIAN
+  rstl::vector< uint > mNativeMaterials;
+  rstl::vector< uchar > mNativeVertexMaterials;
+  rstl::vector< uchar > mNativeEdgeMaterials;
+  rstl::vector< uchar > mNativeTriangleMaterials;
+  rstl::vector< CCollisionEdge > mNativeEdges;
+  rstl::vector< ushort > mNativeTriangleEdges;
+  rstl::vector< CVector3f > mNativeVertices;
+#endif
 };
+#if TARGET_BIG_ENDIAN
 CHECK_SIZEOF(CAreaOctTree, 0x50)
+#endif
 NESTED_CHECK_SIZEOF(CAreaOctTree, Node, 0x24)
 NESTED_CHECK_SIZEOF(CAreaOctTree, TriListReference, 0x4)
 NESTED_CHECK_SIZEOF(CAreaOctTree, SRayResult, 0x40)

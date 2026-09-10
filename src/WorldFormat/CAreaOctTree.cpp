@@ -2,6 +2,9 @@
 #include "Kyoto/Basics/CBasics.hpp"
 #include "Kyoto/Math/CAABox.hpp"
 #include "Kyoto/Streams/CMemoryInStream.hpp"
+#if TARGET_LITTLE_ENDIAN
+#include "rstl/auto_ptr.hpp"
+#endif
 
 static CAABox BoxFromIndex(int index, const CVector3f& a, const CVector3f& b, const CVector3f& c) {
   switch (index) {
@@ -31,7 +34,12 @@ CAreaOctTree::Node CAreaOctTree::Node::GetChild(int index) const {
   const uint* offsets = reinterpret_cast< const uint* >(x18_ptr + sizeof(uint));
   const void* node = x18_ptr + 9 * sizeof(uint) + CBasics::SwapBytes(offsets[index]);
   if (type == kTT_Leaf) {
+#if TARGET_LITTLE_ENDIAN
+    CMemoryInStream in(node, sizeof(CAABox));
+    CAABox bounds(in);
+#else
     CAABox bounds = *reinterpret_cast< const CAABox* >(node);
+#endif
     return Node(node, bounds, GetOwner(), type);
   }
   const CVector3f center = 0.5f * (x0_aabb.GetMinPoint() + x0_aabb.GetMaxPoint());
@@ -73,6 +81,17 @@ CAreaOctTree::CAreaOctTree(const CAABox& bounds, Node::ETreeType treeType, uchar
 , x48_vertCount(vertexCount)
 , x4c_verts(vertices) {}
 
+#if TARGET_LITTLE_ENDIAN
+template < typename T >
+static void ReadCollisionArray(rstl::vector< T >& out, CInputStream& in) {
+  const uint count = in.ReadLong();
+  out.reserve(count);
+  for (uint i = 0; i < count; ++i) {
+    out.push_back(in.Get< T >());
+  }
+}
+#endif
+
 void CAreaOctTree::MakeFromMemory(void* buf, const uint bufLen, CAreaOctTree** treeOut,
                                   bool* valid) {
   CMemoryInStream in(buf, bufLen, CMemoryInStream::kOS_NotOwned);
@@ -83,6 +102,34 @@ void CAreaOctTree::MakeFromMemory(void* buf, const uint bufLen, CAreaOctTree** t
   uint treeSize = in.ReadLong();
 
   uchar* treeBuf = static_cast< uchar* >(buf) + in.GetReadPosition();
+#if TARGET_LITTLE_ENDIAN
+  // The accessors expose native references and arrays. Decode these separately;
+  // the packed resource does not guarantee alignment for every array element.
+  CMemoryInStream data(treeBuf + treeSize, bufLen - in.GetReadPosition() - treeSize);
+  rstl::auto_ptr< CAreaOctTree > tree(rs_new CAreaOctTree(
+      bounds, treeType, static_cast< uchar* >(buf), treeBuf, 0, nullptr, nullptr, nullptr,
+      nullptr, 0, nullptr, 0, nullptr, 0, nullptr));
+  ReadCollisionArray(tree->mNativeMaterials, data);
+  ReadCollisionArray(tree->mNativeVertexMaterials, data);
+  ReadCollisionArray(tree->mNativeEdgeMaterials, data);
+  ReadCollisionArray(tree->mNativeTriangleMaterials, data);
+  ReadCollisionArray(tree->mNativeEdges, data);
+  ReadCollisionArray(tree->mNativeTriangleEdges, data);
+  ReadCollisionArray(tree->mNativeVertices, data);
+
+  tree->x24_matCount = tree->mNativeMaterials.size();
+  tree->x28_materials = tree->mNativeMaterials.data();
+  tree->x2c_vertMats = tree->mNativeVertexMaterials.data();
+  tree->x30_edgeMats = tree->mNativeEdgeMaterials.data();
+  tree->x34_polyMats = tree->mNativeTriangleMaterials.data();
+  tree->x38_edgeCount = tree->mNativeEdges.size();
+  tree->x3c_edges = tree->mNativeEdges.data();
+  tree->x40_polyCount = tree->mNativeTriangleEdges.size() / 3;
+  tree->x44_polyEdges = tree->mNativeTriangleEdges.data();
+  tree->x48_vertCount = tree->mNativeVertices.size();
+  tree->x4c_verts = tree->mNativeVertices.data();
+  *treeOut = tree.release();
+#else
   uint* materialHeader = reinterpret_cast< uint* >(treeBuf + treeSize);
   uint matCount = *materialHeader;
   uint* materials = materialHeader + 1;
@@ -107,6 +154,7 @@ void CAreaOctTree::MakeFromMemory(void* buf, const uint bufLen, CAreaOctTree** t
   *treeOut = rs_new CAreaOctTree(bounds, treeType, static_cast< uchar* >(buf), treeBuf, matCount,
                                  materials, vertexMaterials, edgeMaterials, polyMaterials,
                                  edgeCount, edges, polyCount, polyEdges, vertexCount, vertices);
+#endif
   *valid = true;
 }
 
