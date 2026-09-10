@@ -114,7 +114,7 @@ CAdvancementDeltas CActor::UpdateAnimation(float dt, CStateManager& mgr, bool ad
   UpdateSfxEmitters();
   if (HasAnimation()) {
     ushort maxVol = xd4_maxVol;
-    int aid = GetCurrentAreaId().Value();
+    const int aid = GetCurrentAreaId().Value();
 
     const CGameCamera& camera = mgr.GetCameraManager()->GetCurrentCamera(mgr);
     const CVector3f origin = GetTranslation();
@@ -212,7 +212,6 @@ void CActor::SetModelData(const CModelData& modelData) {
   x64_modelData = modelData.IsNull() ? nullptr : rs_new CModelData(modelData);
 }
 
-// TODO nonmatching
 void CActor::PreRender(CStateManager& mgr, const CFrustumPlanes& planes) {
   if (HasModelData()) {
     SetPreRenderClipped(!planes.BoxInFrustumPlanes(x9c_renderBounds));
@@ -239,11 +238,12 @@ void CActor::PreRender(CStateManager& mgr, const CFrustumPlanes& planes) {
         if (mgr.GetPlayerState()->GetActiveVisor(mgr) == CPlayerState::kPV_Thermal) {
           ActorLights()->BuildConstantAmbientLighting();
         } else {
-          if (lightsDirty == true && GetCurrentAreaId() != kInvalidAreaId &&
-              mgr.GetWorld()->IsAreaValid(GetCurrentAreaId()) &&
-              ActorLights()->BuildAreaLightList(mgr, *mgr.GetWorld()->GetArea(GetCurrentAreaId()),
-                                                bounds)) {
-            xe7_28_worldLightingDirty = false;
+          if (lightsDirty == true && GetCurrentAreaId() != kInvalidAreaId) {
+            const CWorld* world = mgr.GetWorld();
+            if (world->IsAreaValid(GetCurrentAreaId()) &&
+                ActorLights()->BuildAreaLightList(mgr, *world->GetArea(GetCurrentAreaId()), bounds)) {
+              xe7_28_worldLightingDirty = false;
+            }
           }
           ActorLights()->BuildDynamicLightList(mgr, bounds);
         }
@@ -353,35 +353,38 @@ void CActor::Render(const CStateManager& mgr) const {
   DrawTouchBounds();
 }
 
-// TODO nonmatching
 void CActor::RenderInternal(const CStateManager& mgr) const {
   CModelData::EWhichModel which = CModelData::GetRenderingModel(mgr);
   if (which == CModelData::kWM_ThermalHot) {
     if (GetModelData()->GetSortThermal()) {
+      const float alpha = xb4_drawFlags.GetColorRef().GetAlpha();
       uchar addMag;
-      uchar mulMag = 255;
+      float mulMag;
       if (xd0_damageMag <= 1.f) {
-        mulMag = CCast::ToUint8(xd0_damageMag * 255.f);
-        addMag = 0.f;
+        mulMag = xd0_damageMag;
+        addMag = 0;
       } else if (xd0_damageMag < 2.f) {
+        mulMag = 1.f;
         addMag = CCast::ToUint8((xd0_damageMag - 1.f) * 255.f);
       } else {
+        mulMag = 1.f;
         addMag = 255;
       }
 
-      const uchar rgb = mulMag * xb4_drawFlags.GetColor().GetAlphau8();
-      CColor mulColor(rgb, rgb, rgb, xb4_drawFlags.GetColor().GetAlphau8());
-      CColor addColor(addMag, addMag, addMag, xb4_drawFlags.GetColor().GetAlphau8() / 4);
+      const uchar rgb = CCast::ToUint8((255.f * mulMag) * alpha);
+      CColor mulColor(rgb, rgb, rgb, xb4_drawFlags.GetColorRef().GetAlphau8());
+      CColor addColor(addMag, addMag, addMag, xb4_drawFlags.GetColorRef().GetAlphau8() / 4);
       GetModelData()->RenderThermal(x34_transform, mulColor, addColor, xb4_drawFlags);
       return;
     } else if (mgr.GetThermalColdScale2() > 0.0001f && xb4_drawFlags.GetTrans() == 0) {
-      const float scale = rstl::min_val< float >(
+      const float scale = rstl::max_val< float >(
           (mgr.GetThermalColdScale2() + mgr.GetThermalColdScale1()) * mgr.GetThermalColdScale2(),
           mgr.GetThermalColdScale2());
-      const float rgbf = CMath::Clamp(0.f, scale * 255.f, 255.f);
-      const uchar rgb = CCast::ToUint8(rgbf);
+      const uchar rgb = CCast::ToUint8(CMath::Clamp(0.f, scale * 255.f, 255.f));
       CColor color(rgb, rgb, rgb, 255);
-      CModelFlags flags(xb4_drawFlags, CModelFlags::kT_Two, color);
+      CModelFlags flags = xb4_drawFlags;
+      flags.x0_blendMode = CModelFlags::kT_Two;
+      flags.x4_color = color;
       GetModelData()->Render(which, x34_transform, x90_actorLights.get(), flags);
       return;
     }
@@ -517,17 +520,14 @@ CVector3f CActor::GetHomingPosition(const CStateManager& mgr, float f) const {
   return GetAimPosition(mgr, f);
 }
 
-// TODO nonmatching
 CVector3f CActor::GetScanObjectIndicatorPosition(const CStateManager& mgr) const {
   const CGameCamera& cam = mgr.GetCameraManager()->GetCurrentCamera(mgr);
   CVector3f orbitPos = GetOrbitPosition(mgr);
-  float mag = (GetTranslation() - orbitPos).Magnitude();
-  CVector3f size = x9c_renderBounds.GetMaxPoint() - x9c_renderBounds.GetMinPoint();
-  float max = rstl::max_val(size.GetY(), rstl::max_val(size.GetX(), size.GetZ())) * 0.5f;
-  float clip = mag - cam.GetNearClipDistance() - 0.1f;
-  float v = rstl::max_val(clip, max);
-  CVector3f dist = (orbitPos - GetTranslation()).AsNormalized();
-  return orbitPos - v * dist;
+  float mag = (cam.GetTranslation() - orbitPos).Magnitude();
+  float max = rstl::max_val(rstl::max_val(x9c_renderBounds.GetDepth(), x9c_renderBounds.GetWidth()),
+                           x9c_renderBounds.GetHeight()) * 0.5f;
+  max = rstl::min_val(max, mag - cam.GetNearClipDistance() - 0.1f);
+  return orbitPos - (orbitPos - cam.GetTranslation()).AsNormalized() * max;
 }
 
 bool CActor::IsModelOpaque(const CStateManager& mgr) const {
@@ -669,7 +669,7 @@ void CActor::SetMuted(bool b) {
   RemoveEmitter();
 }
 
-void CActor::SetVolume(uchar volume) {
+void CActor::SetVolume(const uchar volume) {
   if (CSfxHandle handle = x8c_loopingSfxHandle) {
     CSfxManager::UpdateEmitter(handle, GetTranslation(), CVector3f::Zero(), volume);
   }
@@ -708,25 +708,26 @@ void CActor::ProcessSoundEvent(const int sfxId, const float weight, const int fl
     const TSfxId id =
         translateId ? CSfxManager::TranslateSFXID(sfxId) : static_cast< TSfxId >(sfxId);
 
+    const bool looping = (sfxId & 0x80000000) != 0;
+    const bool nonEmitter = (sfxId & 0x40000000) != 0;
+    const bool continuousUpdate = sfxId & 0x20000000;
+    const bool useAcoustics = (flags & 0x80) == 0;
+
     uint musyxFlags = 0x1; // Continuous parameter update
     if (flags & 0x8) {
       musyxFlags |= 0x8; // Doppler FX
     }
 
-    // TODO ctor?
     CAudioSys::C3DEmitterParmData parms(maxDist, fallOff, musyxFlags, maxVol, minVol);
     parms.x0_pos = position;
     parms.xc_dir = CVector3f::Zero();
     parms.x24_sfxId = id;
 
-    const bool useAcoustics = (flags & 0x80) == 0;
-    bool looping = (sfxId & 0x80000000) != 0;
-    bool nonEmitter = (sfxId & 0x40000000) != 0;
-
     if (mgr.Random()->Float() <= weight) {
       if (looping) {
+        const CSfxHandle curHandle = x8c_loopingSfxHandle;
         const TSfxId curId = x88_sfxId;
-        if (!x8c_loopingSfxHandle) {
+        if (!curHandle) {
           CSfxHandle handle;
           if (nonEmitter) {
             handle =
@@ -743,9 +744,9 @@ void CActor::ProcessSoundEvent(const int sfxId, const float weight, const int fl
             }
           }
         } else if (curId == id) {
-          CSfxManager::UpdateEmitter(x8c_loopingSfxHandle, parms.x0_pos, parms.xc_dir, maxVol);
+          CSfxManager::UpdateEmitter(curHandle, parms.x0_pos, parms.xc_dir, maxVol);
         } else if (flags & 0x4) {
-          CSfxManager::RemoveEmitter(x8c_loopingSfxHandle);
+          CSfxManager::RemoveEmitter(curHandle);
           CSfxHandle handle =
               CSfxManager::AddEmitter(parms, useAcoustics, CSfxManager::kMedPriority, true, aid);
           if (handle) {
@@ -765,7 +766,7 @@ void CActor::ProcessSoundEvent(const int sfxId, const float weight, const int fl
           handle =
               CSfxManager::AddEmitter(parms, useAcoustics, CSfxManager::kMedPriority, false, aid);
         }
-        if ((sfxId & 0x20000000) != 0 /* continuous update */) {
+        if (continuousUpdate) {
           xd8_nonLoopingSfxHandles[xe4_24_nextNonLoopingSfxHandle] = handle;
           xe4_24_nextNonLoopingSfxHandle =
               (xe4_24_nextNonLoopingSfxHandle + 1) % xd8_nonLoopingSfxHandles.size();

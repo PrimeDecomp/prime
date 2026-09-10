@@ -53,13 +53,6 @@ public:
   , x2_flags(flags.x2_flags)
   , x4_color(flags.x4_color) {}
 
-  // ?
-  CModelFlags(const CModelFlags& flags, const ETrans trans, const CColor color)
-  : x0_blendMode(trans)
-  , x1_matSetIdx(flags.x1_matSetIdx)
-  , x2_flags(flags.x2_flags)
-  , x4_color(color) {}
-
   // CModelFlags(const CModelFlags& other)
   // : x0_blendMode(other.x0_blendMode)
   // , x1_matSetIdx(other.x1_matSetIdx)
@@ -120,7 +113,7 @@ public:
   static CModelFlags AdditiveRGB(const CColor& color) { return CModelFlags(kT_Additive2, color); }
   static CModelFlags ColorModulate(const CColor& color) { return CModelFlags(kT_One, color); }
 
-private:
+public:
   // Dumb hack, need to figure this out
   union {
     uchar x0_blendMode;
