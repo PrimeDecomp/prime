@@ -138,6 +138,13 @@ void CCubeModel::DrawSurface(const CCubeSurface& surface, const CModelFlags& mod
   CGX::CallDisplayList(surface.GetDisplayList(), surface.GetDisplayListSize());
 }
 
+static inline const ushort ReadWireframeIndex(const uchar* data) {
+  uchar bytes[2];
+  bytes[0] = data[0];
+  bytes[1] = data[1];
+  return *reinterpret_cast< const ushort* >(bytes);
+}
+
 void CCubeModel::DrawSurfaceWireframe(const CCubeSurface& surface) const {
   const CCubeMaterial material = GetMaterialByIndex(surface.GetMaterialIndex());
 
@@ -154,8 +161,7 @@ void CCubeModel::DrawSurfaceWireframe(const CCubeSurface& surface) const {
     }
   }
 
-  uint attrCount = sAttrCount;
-  uint attrCountTimes2 = attrCount * 2;
+  const int attrCountTimes2 = sAttrCount * 2;
   static const GXVtxDescList sDesc[] = {
       {GX_VA_POS, GX_INDEX16},
       {GX_VA_NULL, GX_NONE},
@@ -169,70 +175,69 @@ void CCubeModel::DrawSurfaceWireframe(const CCubeSurface& surface) const {
   CGX::SetNumTexGens(1);
   CGX::SetBlendMode(GX_BM_BLEND, GX_BL_ONE, GX_BL_ZERO, GX_LO_CLEAR);
 
-  const ushort* dispList = static_cast< const ushort* >(surface.GetDisplayList());
-
-  for (int i = 0;
-       i < surface.GetDisplayListSize() && *reinterpret_cast< const uchar* >(dispList) & 0xf8;
-       ++i) {
-    const ushort* indices = dispList + 3;
-    const GXPrimitive pType = static_cast< GXPrimitive >(dispList[i] & 0xf8);
-    const ushort elementCount = *reinterpret_cast< ushort* >(pType + 1);
-    if (elementCount < 3) {
+  const int displayListSize = surface.GetDisplayListSize();
+  const uchar* dispList = static_cast< const uchar* >(surface.GetDisplayList());
+  for (int bytesRead = 0; bytesRead < displayListSize;) {
+    const uchar pType = *dispList & 0xf8;
+    if (!pType) {
+      break;
+    }
+    bytesRead += 3;
+    ushort elementCount = ReadWireframeIndex(dispList + 1);
+    dispList += 3;
+    if (elementCount < 3U) {
       break;
     }
 
     CGX::Begin(GX_LINESTRIP, GX_VTXFMT0, 4);
-    i += 3 + elementCount * attrCountTimes2;
-    GXPosition1x16(indices[i]);
-    GXPosition1x16(indices[i + 1]);
-    GXPosition1x16(indices[i + 2]);
-    dispList = indices + i * 3;
-    GXPosition1x16(indices[i]);
+    GXPosition1x16(ReadWireframeIndex(dispList));
+    GXPosition1x16(ReadWireframeIndex(dispList + attrCountTimes2));
+    GXPosition1x16(ReadWireframeIndex(dispList + attrCountTimes2 * 2));
+    GXPosition1x16(ReadWireframeIndex(dispList));
+    bytesRead += elementCount * attrCountTimes2;
+    dispList += attrCountTimes2 * 3;
     CGX::End();
-    switch (pType) {
-    case GX_TRIANGLESTRIP: {
-      uint uVar5 = 1;
-      for (int j = 0; j < elementCount - 3;) {
-        CGX::Begin(GX_LINESTRIP, GX_VTXFMT0, 3);
-        uint iVar2 = uVar5 + 1;
-        uint uVar3 = uVar5 ^ 1;
-        uVar5 ^= 1;
-        j++;
-        indices = dispList - attrCountTimes2 * (uVar3 + 1);
-        GXPosition1x16(indices[iVar2]);
-        GXPosition1x16(indices[iVar2 + 1]);
-        GXPosition1x16(indices[0]);
-        CGX::End();
-      }
-      break;
-    }
-    case GX_TRIANGLES: {
-      for (int j = 0; j < elementCount - 3;) {
+    if (pType == GX_TRIANGLES) {
+      elementCount -= 3;
+      for (int j = 0; j < elementCount; j += 3) {
         CGX::Begin(GX_LINESTRIP, GX_VTXFMT0, 4);
-        j += 3;
-        GXPosition1x16(dispList[0]);
-        GXPosition1x16(dispList[attrCount * 2]);
-        GXPosition1x16(dispList[attrCount * 3]);
-        dispList += attrCountTimes2;
+        GXPosition1x16(ReadWireframeIndex(dispList));
+        GXPosition1x16(ReadWireframeIndex(dispList + attrCountTimes2));
+        GXPosition1x16(ReadWireframeIndex(dispList + attrCountTimes2 * 2));
+        GXPosition1x16(ReadWireframeIndex(dispList));
+        dispList += attrCountTimes2 * 3;
         CGX::End();
       }
-      break;
-    }
-    case GX_TRIANGLEFAN: {
-      indices = dispList + attrCount * -3;
-
-      for (int j = 0; j < elementCount - 3;) {
+    } else if (pType == GX_TRIANGLESTRIP) {
+      elementCount -= 3;
+      uint winding = 1;
+      for (int j = 0; j < elementCount; ++j) {
         CGX::Begin(GX_LINESTRIP, GX_VTXFMT0, 3);
-        j += 3;
-        GXPosition1x16(dispList[-attrCount]);
-        GXPosition1x16(dispList[0]);
-        dispList += attrCount;
-        GXPosition1x16(indices[0]);
+        const uchar* last = dispList - attrCountTimes2 * ((winding ^ 1) + 1);
+        const uchar* first = dispList - attrCountTimes2 * (winding + 1);
+        winding ^= 1;
+        GXPosition1x16(ReadWireframeIndex(first));
+        GXPosition1x16(ReadWireframeIndex(dispList));
+        dispList += attrCountTimes2;
+        GXPosition1x16(ReadWireframeIndex(last));
+        CGX::End();
       }
-      break;
-    }
-    default:
-      break;
+    } else {
+      if (pType != GX_TRIANGLEFAN) {
+        return;
+      }
+      elementCount -= 3;
+      const uchar* indices = dispList - attrCountTimes2 * 3;
+
+      for (int j = 0; j < elementCount; ++j) {
+        const uchar* previous = dispList - attrCountTimes2;
+        CGX::Begin(GX_LINESTRIP, GX_VTXFMT0, 3);
+        GXPosition1x16(ReadWireframeIndex(previous));
+        GXPosition1x16(ReadWireframeIndex(dispList));
+        dispList += attrCountTimes2;
+        GXPosition1x16(ReadWireframeIndex(indices));
+        CGX::End();
+      }
     }
   }
 }
