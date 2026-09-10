@@ -2016,8 +2016,8 @@ void CElementGen::RenderParticlesIndirectTexture() {
       GXSetTexCopyDst(static_cast< u16 >(width), static_cast< u16 >(height), GX_TF_RGB565,
                       GX_FALSE);
 
-      u32 bufSize = CGraphics::GetSpareBufferSize();
-      u32 texBufSize = GXGetTexBufferSize(width, height, GX_TF_RGB565, GX_FALSE, 0);
+      size_t bufSize = CGraphics::GetSpareBufferSize();
+      size_t texBufSize = GXGetTexBufferSize(width, height, GX_TF_RGB565, GX_FALSE, 0);
       if (texBufSize <= bufSize) {
         const bool useVideoFilter = CGraphics::GetUseVideoFilter();
         CGraphics::SetUseVideoFilter(false);

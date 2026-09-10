@@ -180,8 +180,8 @@ void SMediumAllocPuddle::Free(const void* ptr) {
   uchar* bookKeepingPtr;
   ushort mergedCount;
   bool isCached;
-  uint blockOffset = (reinterpret_cast< uint >(ptr) -
-                      reinterpret_cast< uint >(x0_mainData.get())) / 32;
+  size_t blockOffset =
+      (reinterpret_cast< uintptr_t >(ptr) - reinterpret_cast< uintptr_t >(x0_mainData.get())) / 32;
   uint blockCount = x8_bookKeeping[blockOffset];
   mergedCount = blockCount;
   isCached = false;

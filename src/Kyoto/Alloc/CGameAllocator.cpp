@@ -68,7 +68,9 @@ CGameAllocator::~CGameAllocator() {
 bool CGameAllocator::Initialize(COsContext& ctx) {
   x8_heapSize = ctx.GetBaseFreeRam() - 2 * sizeof(SGameMemInfo);
   xc_first = static_cast< SGameMemInfo* >(OSAllocFromArenaLo(x8_heapSize, sizeof(SGameMemInfo)));
-  xb4_physicalAddr = (void*)((int)this->xc_first - ((uint)(xc_first) & 0xf0000000));
+  xb4_physicalAddr =
+      reinterpret_cast< void* >(reinterpret_cast< intptr_t >(xc_first) -
+                                (reinterpret_cast< uintptr_t >(xc_first) & 0xf0000000));
   OSGetArenaLo();
   x10_last =
       reinterpret_cast< SGameMemInfo* >(reinterpret_cast< char* >(xc_first - 1) + x8_heapSize);

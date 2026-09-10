@@ -127,7 +127,8 @@ void CStaticAudioPlayer::MixCallback() { sCurrentPlayer->DoMix(); }
 void CStaticAudioPlayer::DoMix() {
   u32 aiStart = OSCachedToPhysical(AIGetDMAStartAddr());
   x24_curBuf ^= 1;
-  u32 buf = (u32)(x24_curBuf != 0 ? x30_dmaRight.get() : x28_dmaLeft.get());
+  uintptr_t buf =
+      reinterpret_cast< uintptr_t >(x24_curBuf != 0 ? x30_dmaRight.get() : x28_dmaLeft.get());
 
   AIInitDMA(buf, 0x280);
   u32 cookie = OSEnableInterrupts();

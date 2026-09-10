@@ -82,7 +82,7 @@ void CDSPStream::DoAllocateStream() {
       static_cast< u8 >(0xFF), xd4_buffer, xdc_streamSamples, static_cast< u32 >(32000),
       static_cast< u8 >(0), static_cast< u8 >(0x40), static_cast< u8 >(0), static_cast< u8 >(0),
       static_cast< u8 >(0), static_cast< u8 >(0), static_cast< u32 >(0x30001), UpdateStream,
-      reinterpret_cast< u32 >(this), static_cast< SND_ADPCMSTREAM_INFO* >(nullptr));
+      reinterpret_cast< uintptr_t >(this), static_cast< SND_ADPCMSTREAM_INFO* >(nullptr));
 }
 
 void CDSPStream::Initialize() {

@@ -5,6 +5,7 @@
 extern "C" {
 #endif
 
+typedef signed long int intptr_t;
 typedef unsigned long int uintptr_t;
 
 #ifdef __cplusplus
