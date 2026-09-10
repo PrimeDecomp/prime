@@ -41,14 +41,13 @@ public:
   static inline double AbsD(double v) { return fabs(v); }
   static inline int AbsI(int v) { return abs(v); }
   static inline float WrapPi(float rad) {
-    float value = FastFmod(rad, M_2PIF);
-    if (value > M_PIF) {
-      return value - M_2PIF;
-    } else if (value < -M_PIF) {
-      return value + M_2PIF;
-    } else {
-      return value;
+    rad = FastFmod(rad, M_2PIF);
+    if (rad > M_PIF) {
+      rad -= M_2PIF;
+    } else if (rad < -M_PIF) {
+      rad = M_2PIF + rad;
     }
+    return rad;
   }
   // WrapTwoPi__5CMathFf weak
   template < typename T >

@@ -194,11 +194,11 @@ public:
   void SetDamageTimer(const float time);
 
 private:
-  struct CSpiderBallElectricityManager {
+  struct CSpiderBallElectrictyManager {
     uint x0_effectIdx;
     uint x4_lifetime;
     uint x8_curFrame;
-    CSpiderBallElectricityManager(uint effectIdx, uint lifetime)
+    CSpiderBallElectrictyManager(uint effectIdx, uint lifetime)
     : x0_effectIdx(effectIdx), x4_lifetime(lifetime), x8_curFrame(0) {}
   };
 
@@ -289,7 +289,7 @@ private:
   rstl::single_ptr< CElementGen > x19e0_effect_morphBallIceBreakGen;
   rstl::reserved_vector< rstl::pair< rstl::auto_ptr< CParticleSwoosh >, bool >, 32 >
       x19e4_spiderElectricGens;
-  rstl::list< CSpiderBallElectricityManager > x1b68_activeSpiderElectricList;
+  rstl::list< CSpiderBallElectrictyManager > x1b68_activeSpiderElectricList;
   CRandom16 x1b80_rand;
   rstl::reserved_vector< TToken< CGenDescription >, 8 > x1b84_wakeEffects;
   rstl::reserved_vector< rstl::auto_ptr< CElementGen >, 8 > x1bc8_wakeEffectGens;
