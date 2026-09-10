@@ -347,8 +347,8 @@ void CTransform4f::SetRotation(const CTransform4f& rotation){
   m22 = rotation.Get22();
 }
 
- CTransform4f::CTransform4f(register const CTransform4f& other){
 #ifdef __MWERKS__
+CTransform4f::CTransform4f(register const CTransform4f& other){
   // Hack to get around compiler error.
   register CTransform4f* thiz = this;
   __asm__ {
@@ -365,11 +365,26 @@ void CTransform4f::SetRotation(const CTransform4f& rotation){
     stfd f1, CTransform4f.m20(thiz);
     stfd f2, CTransform4f.m22(thiz);
   }
-#endif
 }
+#else
+CTransform4f::CTransform4f(const CTransform4f& other) {
+  m00 = other.m00;
+  m01 = other.m01;
+  m02 = other.m02;
+  m03 = other.m03;
+  m10 = other.m10;
+  m11 = other.m11;
+  m12 = other.m12;
+  m13 = other.m13;
+  m20 = other.m20;
+  m21 = other.m21;
+  m22 = other.m22;
+  m23 = other.m23;
+}
+#endif
 
-CTransform4f& CTransform4f::operator=(register const CTransform4f& other) {
 #ifdef __MWERKS__
+CTransform4f& CTransform4f::operator=(register const CTransform4f& other) {
   register CTransform4f& thiz = *this;
   __asm__ volatile {
     lfd f0, CTransform4f.m00(other);
@@ -385,13 +400,29 @@ CTransform4f& CTransform4f::operator=(register const CTransform4f& other) {
     stfd f1, CTransform4f.m20(thiz);
     stfd f2, CTransform4f.m22(thiz);
   }
-#endif
   
   return *this;
 }
+#else
+CTransform4f& CTransform4f::operator=(const CTransform4f& other) {
+  m00 = other.m00;
+  m01 = other.m01;
+  m02 = other.m02;
+  m03 = other.m03;
+  m10 = other.m10;
+  m11 = other.m11;
+  m12 = other.m12;
+  m13 = other.m13;
+  m20 = other.m20;
+  m21 = other.m21;
+  m22 = other.m22;
+  m23 = other.m23;
+  return *this;
+}
+#endif
 
+#ifdef __MWERKS__
 CVector3f CTransform4f::operator*(register const CVector3f& vec) const {
-#if __MWERKS__
   // Assume RVO for return value
   register const CVector3f* ret;
   // Hack to get around compiler error.
@@ -434,11 +465,17 @@ CVector3f CTransform4f::operator*(register const CVector3f& vec) const {
     stfs f2, CVector3f.mZ(ret);
   }
   return *ret;
-#endif  
 }
+#else
+CVector3f CTransform4f::operator*(const CVector3f& vec) const {
+  return CVector3f(m00 * vec.GetX() + m01 * vec.GetY() + m02 * vec.GetZ() + m03,
+                   m10 * vec.GetX() + m11 * vec.GetY() + m12 * vec.GetZ() + m13,
+                   m20 * vec.GetX() + m21 * vec.GetY() + m22 * vec.GetZ() + m23);
+}
+#endif
 
+#ifdef __MWERKS__
 CVector3f CTransform4f::Rotate(register const CVector3f& vec) const{
-#if __MWERKS__
   // Assume RVO for return value
   register const CVector3f* ret;
   // Hack to get around compiler error.
@@ -490,11 +527,17 @@ CVector3f CTransform4f::Rotate(register const CVector3f& vec) const{
     stfs f2, CVector3f.mZ(ret);
   }
   return *ret;
-#endif  
 }
+#else
+CVector3f CTransform4f::Rotate(const CVector3f& vec) const {
+  return CVector3f(m00 * vec.GetX() + m01 * vec.GetY() + m02 * vec.GetZ(),
+                   m10 * vec.GetX() + m11 * vec.GetY() + m12 * vec.GetZ(),
+                   m20 * vec.GetX() + m21 * vec.GetY() + m22 * vec.GetZ());
+}
+#endif
 
+#ifdef __MWERKS__
 CVector3f CTransform4f::TransposeRotate(register const CVector3f& in) const{
-#if __MWERKS__
   // Assume RVO for return value
   register const CVector3f* ret;
   // Hack to get around compiler error.
@@ -540,11 +583,17 @@ CVector3f CTransform4f::TransposeRotate(register const CVector3f& in) const{
     stfs f0, CVector3f.mZ(ret);
   }
   return *ret;
-#endif  
 }
+#else
+CVector3f CTransform4f::TransposeRotate(const CVector3f& in) const {
+  return CVector3f(m00 * in.GetX() + m10 * in.GetY() + m20 * in.GetZ(),
+                   m01 * in.GetX() + m11 * in.GetY() + m21 * in.GetZ(),
+                   m02 * in.GetX() + m12 * in.GetY() + m22 * in.GetZ());
+}
+#endif
 
+#ifdef __MWERKS__
 CTransform4f CTransform4f::operator*(register const CTransform4f& xf) const {
-#if __MWERKS__
   register CTransform4f* ret;
   // Assume RVO for return value
     // Hack to get around compiler error.
@@ -624,8 +673,23 @@ CTransform4f CTransform4f::operator*(register const CTransform4f& xf) const {
     psq_st f10, CTransform4f.m22(ret), 0, 0;
     // implicit return via RVO
   }
-#endif
 }
+#else
+CTransform4f CTransform4f::operator*(const CTransform4f& xf) const {
+  return CTransform4f(m00 * xf.m00 + m01 * xf.m10 + m02 * xf.m20,
+                      m00 * xf.m01 + m01 * xf.m11 + m02 * xf.m21,
+                      m00 * xf.m02 + m01 * xf.m12 + m02 * xf.m22,
+                      m00 * xf.m03 + m01 * xf.m13 + m02 * xf.m23 + m03,
+                      m10 * xf.m00 + m11 * xf.m10 + m12 * xf.m20,
+                      m10 * xf.m01 + m11 * xf.m11 + m12 * xf.m21,
+                      m10 * xf.m02 + m11 * xf.m12 + m12 * xf.m22,
+                      m10 * xf.m03 + m11 * xf.m13 + m12 * xf.m23 + m13,
+                      m20 * xf.m00 + m21 * xf.m10 + m22 * xf.m20,
+                      m20 * xf.m01 + m21 * xf.m11 + m22 * xf.m21,
+                      m20 * xf.m02 + m21 * xf.m12 + m22 * xf.m22,
+                      m20 * xf.m03 + m21 * xf.m13 + m22 * xf.m23 + m23);
+}
+#endif
 
 CTransform4f CTransform4f::GetInverse() const {
 #ifdef __MWERKS__

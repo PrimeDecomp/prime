@@ -26,10 +26,18 @@ public:
     mB = b;
     mA = a;
   }
+#ifdef __MWERKS__
   CColor(const CColor& other) : mRgba(other.mRgba) {}
+#else
+  CColor(const CColor& other) : mR(other.mR), mG(other.mG), mB(other.mB), mA(other.mA) {}
+#endif
 
   CColor& operator=(const CColor& other) {
+#ifdef __MWERKS__
     mRgba = other.mRgba;
+#else
+    Set(other.mR, other.mG, other.mB, other.mA);
+#endif
     return *this;
   }
 
@@ -40,7 +48,16 @@ public:
     mB = b;
     mA = a;
   }
+#ifdef __MWERKS__
   void Set(uint col) { mRgba = col; }
+#else
+  void Set(uint col) {
+    mR = static_cast< uchar >(col >> 24);
+    mG = static_cast< uchar >(col >> 16);
+    mB = static_cast< uchar >(col >> 8);
+    mA = static_cast< uchar >(col);
+  }
+#endif
   void Get(float& r, float& g, float& b, float& a) const;
   void Get(float& r, float& g, float& b) const;
   // TODO check. Maybe this calls SetAlpha(uchar)?
@@ -63,18 +80,51 @@ public:
   uchar GetBlueu8() const { return mB; }
   uchar GetAlphau8() const { return mA; }
   ushort ToRGB5A3() const;
+#ifdef __MWERKS__
   uint GetColor_u32() const { return mRgba; }
+#else
+  uint GetColor_u32() const {
+    return (uint(mR) << 24) | (uint(mG) << 16) | (uint(mB) << 8) | mA;
+  }
+#endif
+#ifdef __MWERKS__
   const GXColor& GetGXColor() const { return *reinterpret_cast< const GXColor* >(this); }
+#else
+  GXColor GetGXColor() const {
+    const GXColor color = {mR, mG, mB, mA};
+    return color;
+  }
+#endif
 
+#ifdef __MWERKS__
   CColor WithAlphaOf(float a) const { return CColor((mRgba & ~0xff) | CCast::ToUint8(a * 255.f)); }
+#else
+  CColor WithAlphaOf(float a) const { return CColor(mR, mG, mB, CCast::ToUint8(a * 255.f)); }
+#endif
   CColor WithAlphaModulatedBy(float a) const {
+#ifdef __MWERKS__
     return CColor((mRgba & ~0xff) | CCast::ToUint8(a * static_cast< float >(mA)));
+#else
+    return CColor(mR, mG, mB, CCast::ToUint8(a * static_cast< float >(mA)));
+#endif
   }
 
+#ifdef __MWERKS__
   bool operator==(const CColor& other) const { return mRgba == other.mRgba; }
+#else
+  bool operator==(const CColor& other) const { return GetColor_u32() == other.GetColor_u32(); }
+#endif
 
   // TODO check
+#ifdef __MWERKS__
   static GXColor ToGX(uint c) { return *reinterpret_cast< const GXColor* >(&c); }
+#else
+  static GXColor ToGX(uint c) {
+    const GXColor color = {static_cast< uchar >(c >> 24), static_cast< uchar >(c >> 16),
+                           static_cast< uchar >(c >> 8), static_cast< uchar >(c)};
+    return color;
+  }
+#endif
 
   // Fake?
   CVector3f ToVector3f() const { return CVector3f(GetRed(), GetGreen(), GetBlue()); }
@@ -90,6 +140,7 @@ public:
   static const CColor& Orange();
 
 private:
+#ifdef __MWERKS__
   union {
     struct {
       uchar mR;
@@ -99,6 +150,12 @@ private:
     };
     uint mRgba;
   };
+#else
+  ALIGNAS(uint) uchar mR;
+  uchar mG;
+  uchar mB;
+  uchar mA;
+#endif
 
   static const CColor sBlackColor;
   static const CColor sWhiteColor;
