@@ -805,12 +805,12 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/BodyState/CBSDie.cpp",
             ),
-            Object(NonMatching, "MetroidPrime/BodyState/CBSFall.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/BodyState/CBSFall.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/BodyState/CBSGetup.cpp",
             ),
-            Object(NonMatching, "MetroidPrime/BodyState/CBSKnockBack.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/BodyState/CBSKnockBack.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/BodyState/CBSLieOnGround.cpp",
@@ -832,7 +832,7 @@ config.libs = [
                 "MetroidPrime/BodyState/CBSLoopReaction.cpp",
             ),
             Object(NonMatching, "MetroidPrime/CSteeringBehaviors.cpp"),
-            Object(NonMatching, "MetroidPrime/BodyState/CBSGroundHit.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/BodyState/CBSGroundHit.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CChozoGhost.cpp"),
             Object(MatchingFor("GM8E01_00"), "MetroidPrime/Enemies/CFireFlea.cpp"),
             Object(NonMatching, "MetroidPrime/BodyState/CBSSlide.cpp"),

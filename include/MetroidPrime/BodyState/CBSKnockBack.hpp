@@ -20,5 +20,6 @@ private:
 
   pas::EAnimationState GetBodyStateTransition(float dt, CBodyController& bc);
 };
+CHECK_SIZEOF(CBSKnockBack, 0x10)
 
 #endif // _CBSKNOCKBACK

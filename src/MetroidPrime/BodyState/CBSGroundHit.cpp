@@ -37,15 +37,12 @@ void CBSGroundHit::Start(CBodyController& bc, CStateManager& mgr) {
   if (!parm2.GetBoolValue()) {
     CPASAnimParm parm1(animState->GetAnimParmData(best.second, 1));
     float knockdownAngle = parm1.GetReal32Value();
-    float delta1 = CAbsAngle::FromRadians(angle.AsRadians() -
-                                          CRelAngle::FromDegrees(knockdownAngle).AsRadians())
-                       .AsRadians();
-    float delta2 = CAbsAngle::FromRadians(CRelAngle::FromDegrees(knockdownAngle).AsRadians() -
-                                          angle.AsRadians())
-                       .AsRadians();
+    const float angleDiff = angle.AsRadians() - CRelAngle::FromDegrees(knockdownAngle).AsRadians();
+    float delta1 = CMath::ClampRadians(angleDiff);
+    float delta2 =
+        CMath::ClampRadians(CRelAngle::FromDegrees(knockdownAngle).AsRadians() - angle.AsRadians());
     float minAngle = rstl::min_val(delta1, delta2);
-    // There's missing code here. Same problem in CBSFall, see there for details
-    const float flippedAngle = (delta1 > M_PIF) ? -minAngle : minAngle;
+    const float flippedAngle = CMath::ClampRadians(angleDiff) > M_PIF ? -minAngle : minAngle;
     x8_remTime = 0.15f * bc.GetAnimTimeRemaining();
     x4_rotateSpeed = (x8_remTime > FLT_EPSILON) ? flippedAngle / x8_remTime : flippedAngle;
   } else {
