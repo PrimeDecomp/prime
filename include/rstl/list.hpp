@@ -95,7 +95,7 @@ public:
   struct node {
     node* x0_prev;
     node* x4_next;
-    uchar x8_item[sizeof(T)];
+    ALIGNAS(T) uchar x8_item[sizeof(T)];
 
     node(node* prev, node* next) : x0_prev(prev), x4_next(next) {}
 

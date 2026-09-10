@@ -27,7 +27,7 @@ private:
     node* mRight;
     node* mParent;
     node_color mColor;
-    uchar mValue[sizeof(P)];
+    ALIGNAS(P) uchar mValue[sizeof(P)];
 
     node(node* left, node* right, node* parent, node_color color, const P& value)
     : mLeft(left), mRight(right), mParent(parent), mColor(color) {
