@@ -43,7 +43,7 @@ CSaveGameScreen::EUIType CSaveGameScreen::SelectUIType() const {
   }
 
   if (CMemoryCardDriver::IsCardBusy(state)) {
-    if (CMemoryCardDriver::IsCardWriting(state)) {
+    if (CMemoryCardDriver::IsCardReading(state)) {
       return kUIT_BusyReading;
     }
     return kUIT_BusyWriting;

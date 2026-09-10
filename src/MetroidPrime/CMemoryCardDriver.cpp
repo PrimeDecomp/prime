@@ -12,20 +12,69 @@
 static bool lbl_805A9118;
 static const char* const skSaveFileNames[2] = {"MetroidPrime A", "MetroidPrime B"};
 
+// Diagnostic names remain in the retail string pool after their users were removed.
+static const char* const skStateNames[] = {
+    "NotLoaded",
+    "Loaded",
+    "NoCard",
+    "Saved",
+    "Formatted",
+    "Probed",
+    "Mounted",
+    "CheckedCard",
+    "CreatedInitial",
+    "CreatedCopy",
+    "WroteCopy",
+    "DeletedOriginal",
+    "FailedProbe",
+    "FailedMount",
+    "FailedCheck",
+    "FailedDeleteCorruptedFile",
+    "FailedDeleteDuplicateFile",
+    "FailedLoad",
+    "FailedCreateInitial",
+    "FailedWriteInitial",
+    "FailedCreateCopy",
+    "FailedWriteCopy",
+    "FailedDeleteOriginal",
+    "FailedRenameCopy",
+    "FailedFormat",
+    "Probing",
+    "Mounting",
+    "CheckingCard",
+    "DeletingCorruptedFile",
+    "Reading",
+    "DeletingDuplicateFile",
+    "CreatingInitial",
+    "WritingInitial",
+    "CreatingCopy",
+    "WritingCopy",
+    "DeletingOriginal",
+    "RenamingCopy",
+    "Formatting",
+};
+
+static const char* const skErrorNames[] = {
+    "NoError",
+    "CorruptedFile",
+    "EncodingMismatch",
+    "Damaged",
+    "WrongDevice",
+    "InsufficientSpace",
+    "InsufficientBackupSpace",
+    "BadSectorSize",
+    "NoFile",
+    "CorruptedFile",
+};
+
 bool CMemoryCardDriver::IsCardBusy(EState v) { return v >= kS_CardMount && v <= kS_CardFormat; }
 
-bool CMemoryCardDriver::IsCardWriting(EState v) {
-  if (v < kS_CardProbe)
-    return false;
-  if (v == kS_CardCheck)
-    return false;
-  if (v == kS_FileRead)
-    return false;
-  return true;
+bool CMemoryCardDriver::IsCardReading(EState v) {
+  return (v == kS_CardProbe || v == kS_CardMount) || v == kS_CardCheck || v == kS_FileRead;
 }
 
 CMemoryCardDriver::CMemoryCardDriver(CMemoryCardSys::EMemoryCardPort cardPort, CAssetId saveBanner,
-                                     CAssetId saveIcon0, CAssetId saveIcon1, bool importPersistent)
+                                   CAssetId saveIcon0, CAssetId saveIcon1, const bool importPersistent)
 : x0_cardPort(cardPort)
 , x4_saveBanner(saveBanner)
 , x8_saveIcon0(saveIcon0)
@@ -53,8 +102,6 @@ CMemoryCardDriver::CMemoryCardDriver(CMemoryCardSys::EMemoryCardPort cardPort, C
 }
 
 void CMemoryCardDriver::ClearFileInfo() { x198_fileInfo = nullptr; }
-
-CMemoryCardDriver::SFileInfo::~SFileInfo() {}
 
 CMemoryCardDriver::~CMemoryCardDriver() {
   CMemoryCardSys::UnmountCard(x0_cardPort);
@@ -654,15 +701,13 @@ void CMemoryCardDriver::InitializeFileInfo() {
   fileInfo.LockBannerToken(x4_saveBanner, *gpSimplePool);
   fileInfo.LockIconToken(x8_saveIcon0, 2, *gpSimplePool);
 
-  // CMemoryStreamOut w(fileInfo.BeginMemoryOut(3004));
-
-  rstl::vector< u8 >& saveBuffer = fileInfo.SaveBuffer();
-  saveBuffer.resize(3004);
+  rstl::vector< u8 >& saveBuffer = x198_fileInfo->SaveBuffer();
+  saveBuffer.assign(3004);
   CMemoryStreamOut w(saveBuffer.data(), 3004);
 
   SSaveHeader header(0);
   for (int i = 0; i < xe4_fileSlots.capacity(); ++i) {
-    header.x4_savePresent[i] = !xe4_fileSlots[i].null();
+    header.SetSavePresent(i, !xe4_fileSlots[i].null());
   }
   w.Put(header);
 
@@ -680,9 +725,7 @@ void CMemoryCardDriver::InitializeFileInfo() {
 void CMemoryCardDriver::ReadFinished() {
   SMemoryCardFileInfo& fileInfo = x100_mcFileInfos[x194_fileIdx].second;
   CardStat stat;
-  if (CMemoryCardSys::GetStatus(
-          static_cast< CMemoryCardSys::EMemoryCardPort >(fileInfo.x0_fileInfo.chan),
-          fileInfo.GetFileNo(), stat) != kCR_READY) {
+  if (CMemoryCardSys::GetStatus(x0_cardPort, fileInfo.GetFileNo(), stat) != kCR_READY) {
     NoCardFound();
     return;
   }
@@ -694,10 +737,11 @@ void CMemoryCardDriver::ReadFinished() {
   r.Get(x30_systemData.data(), x30_systemData.capacity());
 
   for (int i = 0; i < xe4_fileSlots.capacity(); ++i) {
+    rstl::auto_ptr< SGameFileSlot >& slot = xe4_fileSlots[i];
     if (header.x4_savePresent[i]) {
-      xe4_fileSlots[i] = rs_new SGameFileSlot(r);
+      slot = rs_new SGameFileSlot(r);
     } else {
-      xe4_fileSlots[i] = nullptr;
+      slot = nullptr;
     }
   }
 
@@ -769,7 +813,7 @@ SSaveHeader::SSaveHeader(CMemoryInStream& in) {
 void SSaveHeader::PutTo(COutputStream& out) const {
   out.WriteLong(x0_version);
   for (int i = 0; i < 3; ++i) {
-    out.Put(x4_savePresent[i]);
+    out.WriteBool(x4_savePresent[i]);
   }
 }
 
