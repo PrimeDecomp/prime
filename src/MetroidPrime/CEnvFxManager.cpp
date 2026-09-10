@@ -283,17 +283,19 @@ void CEnvFxManager::Update(float dt, CStateManager& mgr) {
     const CVector3f& pbtws = GetParticleBoundsToWorldScale();
     CVector3f oopbtws(1.f / pbtws.GetX(), 1.f / pbtws.GetY(), 1.f / pbtws.GetZ());
 
-    const CVector3f& forwardPoint = camXf.GetForward() * 23.8125f + camXf.GetTranslation();
-    CVector3f cellBase = forwardPoint - CVector3f(CMath::ModF(forwardPoint.GetX(), 7.9375f),
-                                                  CMath::ModF(forwardPoint.GetY(), 7.9375f), 0.f);
-    CVector3f delta = x18_focusCellPosition - cellBase;
+    const CVector3f forwardOffset = 23.8125f * camXf.GetForward();
+    const CVector3f& forwardPoint = camXf.GetTranslation() + forwardOffset;
+    CVector3f cellBase = forwardPoint - CVector3f(CMath::ModF(forwardPoint[0], 7.9375f),
+                                               CMath::ModF(forwardPoint[1], 7.9375f), 0.f);
+    const CVector3f& delta = x18_focusCellPosition - cellBase;
     x18_focusCellPosition = cellBase;
 
     MoveWrapCells(static_cast< int >(delta.GetX() / 7.9375f),
                   static_cast< int >(delta.GetY() / 7.9375f));
 
-    CVectorFixed8_8 zVec = CVectorFixed8_8::FromCVector3f(
-        CVector3f::ByElementMultiply(oopbtws, CVector3f(0.f, 0.f, delta.GetZ())));
+    const CVector3f zDelta = CVector3f::ByElementMultiply(oopbtws, CVector3f(0.f, 0.f, delta[2]));
+    CVectorFixed8_8 zVec(real_to_fixed8_8(zDelta.GetX()), real_to_fixed8_8(zDelta.GetY()),
+                       real_to_fixed8_8(zDelta.GetZ()));
     if (fxType == kEFX_UnderwaterFlake) {
       zVec.z += real_to_fixed8_8(0.5f * dt);
     }
