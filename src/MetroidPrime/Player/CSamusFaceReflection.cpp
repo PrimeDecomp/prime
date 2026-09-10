@@ -39,13 +39,13 @@ CSamusFaceReflection::CSamusFaceReflection(const CStateManager& mgr)
 }
 
 void CSamusFaceReflection::Update(float dt, const CStateManager& mgr, CRandom16& rand) {
-  if (const CFirstPersonCamera* fpCam =
+  if (const CFirstPersonCamera* const fpCam =
           TCastToConstPtr< CFirstPersonCamera >(mgr.GetCameraManager()->GetCurrentCamera(mgr))) {
     CVector3f camTrans = fpCam->GetTranslation();
     x0_modelData.AdvanceAnimationIgnoreParticles(dt, rand, true);
 
-    CActorLights* lights = x4c_lights.get();
-    lights->SetFindShadowLight(false);
+    CActorLights& lights = *x4c_lights;
+    lights.SetFindShadowLight(false);
 
     TAreaId areaId = mgr.GetPlayer()->GetCurrentAreaId();
     if (areaId == kInvalidAreaId)
@@ -55,24 +55,24 @@ void CSamusFaceReflection::Update(float dt, const CStateManager& mgr, CRandom16&
     CAABox aabb(camTrans - offset, camTrans + offset);
 
     const CGameArea& area = mgr.GetWorld()->GetAreaAlways(areaId);
-    lights->BuildFaceLightList(mgr, mgr.GetWorld()->GetAreaAlways(areaId), aabb);
+    lights.BuildFaceLightList(mgr, area, aabb);
 
-    CMatrix3f matrix = fpCam->GetTransform().BuildMatrix3f();
-    CUnitVector3f lookDir(matrix.GetColumn(1));
+    const CMatrix3f matrix = fpCam->GetTransform().BuildMatrix3f();
+    const CUnitVector3f lookDir(matrix.GetColumn(1));
 
     CQuaternion xfLook1 =
-        CQuaternion::LookAt(lookDir, CVector3f::Forward(), CRelAngle::FromRadians(M_2PIF));
-    CQuaternion xfLook2 = CQuaternion::LookAt(CVector3f::Forward(), xfLook1.Transform(x60_lookDir),
-                                              CRelAngle::FromRadians(M_2PIF));
-    xfLook2 = xfLook2 * xfLook2;
+        CQuaternion::LookAt(CUnitVector3f(lookDir), CUnitVector3f(CVector3f::Forward()),
+                            CRelAngle::FromRadians(M_2PIF));
+    CQuaternion xfLook2 =
+        CQuaternion::LookAt(CUnitVector3f(CVector3f::Forward()), xfLook1.Transform(x60_lookDir),
+                            CRelAngle::FromRadians(M_2PIF));
+    xfLook2 *= xfLook2;
 
-    CVector3f lookCenter = xfLook2.BuildTransform().GetColumn(1);
-    CVector3f lookRotCenter = x50_lookRot.BuildTransform().GetColumn(1);
-    float lookDot = CVector3f::Dot(lookCenter, lookRotCenter);
-
-    float freeLookSpeed = dt * gpTweakPlayer->GetFreeLookSpeed() * 0.5f;
-
-    float lookAng = acos(CMath::Limit(lookDot, 1.f));
+    const CVector3f lookCenter = xfLook2.BuildTransform().GetColumn(1);
+    const CVector3f lookRotCenter = x50_lookRot.BuildTransform().GetColumn(1);
+    const float freeLookSpeed = dt * gpTweakPlayer->GetFreeLookSpeed() * 0.5f;
+    float lookDot = CVector3f::Dot(lookRotCenter, lookCenter);
+    float lookAng = acosf(CMath::Limit(lookDot, 1.f));
 
     float f = lookAng > 0.0f ? freeLookSpeed / lookAng : 0.0f;
     xfLook2 =
@@ -99,9 +99,9 @@ void CSamusFaceReflection::Draw(const CStateManager& mgr) const {
   if (const CFirstPersonCamera* fpCam =
           TCastToConstPtr< CFirstPersonCamera >(mgr.GetCameraManager()->GetCurrentCamera(mgr))) {
 
-    CVector3f camTranslation = fpCam->GetTransform().GetTranslation();
-    CVector3f camYcol = fpCam->GetTransform().GetColumn(kDY);
-    CVector3f camZcol = fpCam->GetTransform().GetColumn(kDZ);
+    const CVector3f camTranslation = fpCam->GetTranslation();
+    const CVector3f camYcol = fpCam->GetTransform().GetColumn(kDY);
+    const CVector3f camZcol = fpCam->GetTransform().GetColumn(kDZ);
 
     CQuaternion camRot = CQuaternion::FromMatrix(fpCam->GetTransform());
 
@@ -117,7 +117,7 @@ void CSamusFaceReflection::Draw(const CStateManager& mgr) const {
         gpTweakGui->GetFaceReflectionOrthoHeight());
 
     CTransform4f modelXf = CTransform4f((camRot * x50_lookRot).BuildTransform(),
-                                        camTranslation + (camYcol * dist) + (camZcol * height)) *
+                                        camTranslation + (dist * camYcol) + (height * camZcol)) *
                            skFaceModelViewAdjust;
 
     CGraphics::SetViewPointMatrix(fpCam->GetTransform());
@@ -132,12 +132,10 @@ void CSamusFaceReflection::Draw(const CStateManager& mgr) const {
                               ? mgr.GetPlayerState()->GetVisorTransitionFactor()
                               : 0.f;
       if (transFactor > 0.f) {
-        const CModelFlags flags =
-            CModelFlags::Additive(CColor::Black()).DepthCompareUpdate(true, true);
-        x0_modelData.Render(mgr, modelXf, nullptr, flags);
-        const CModelFlags flags2 =
-            CModelFlags::Additive(transFactor).DepthCompareUpdate(true, false);
-        x0_modelData.Render(mgr, modelXf, lights, flags2);
+        x0_modelData.Render(mgr, modelXf, nullptr,
+                            CModelFlags::Additive(CColor::Black()).DepthCompareUpdate(true, true));
+        x0_modelData.Render(mgr, modelXf, lights,
+                            CModelFlags::Additive(transFactor).DepthCompareUpdate(true, false));
       }
     }
   }
