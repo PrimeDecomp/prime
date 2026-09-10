@@ -610,7 +610,7 @@ void CSamusHud::UpdateStaticInterference(float dt, const CStateManager& mgr) {
 }
 
 void CSamusHud::UpdateFreeLook(float dt, const CStateManager& mgr) {
-  const CFirstPersonCamera* fpCam =
+  const CFirstPersonCamera* const fpCam =
       TCastToConstPtr< CFirstPersonCamera >(mgr.GetCameraManager()->GetCurrentCamera(mgr));
   bool inFreeLook = mgr.GetPlayer()->IsInFreeLook() && fpCam != nullptr;
   bool lookHeld = mgr.GetPlayer()->GetFreeLookStickState();
@@ -838,7 +838,7 @@ void CSamusHud::UpdateBallMode(const CStateManager& mgr, bool init) {
 }
 
 void CSamusHud::UpdateHudDynamicLights(float dt, const CStateManager& mgr) {
-  const CFirstPersonCamera* camera =
+  const CFirstPersonCamera* const camera =
       TCastToConstPtr< CFirstPersonCamera >(mgr.GetCameraManager()->GetCurrentCamera(mgr));
   if (camera == nullptr) {
     return;
@@ -1077,13 +1077,11 @@ void CSamusHud::UpdateHudDamage(float dt, const CStateManager& mgr, uint helmetV
     const float rotateFraction = x460_decoShakeAmt / x45c_decoShakeAmtInit;
     const float rotate = rstl::min_val(rotateFraction * x464_decoShakeAmtGain,
                                        gpTweakGui->GetMaxDecoDamageShakeRotate());
-    const float xRandom = rand() / float(RAND_MAX);
-    const float xScaled = xRandom * rotate;
-    const float xAngle = (2.f * M_PIF / 10.f) * xScaled;
+    const int xRandom = rand();
+    const float xAngle = (2.f * M_PIF / 10.f) * ((xRandom / float(RAND_MAX)) * rotate);
     const CQuaternion xRotation = CQuaternion::XRotation(CRelAngle::FromRadians(xAngle));
-    const float zRandom = rand() / float(RAND_MAX);
-    const float zScaled = zRandom * rotate;
-    const float zAngle = (2.f * M_PIF / 10.f) * zScaled;
+    const int zRandom = rand();
+    const float zAngle = (2.f * M_PIF / 10.f) * ((zRandom / float(RAND_MAX)) * rotate);
     const CQuaternion zRotation = CQuaternion::ZRotation(CRelAngle::FromRadians(zAngle));
     x44c_hudLagShakeRot = xRotation * zRotation;
     CVector3f vectors[3] = {CVector3f::Right(), CVector3f::Forward(), CVector3f::Up()};
@@ -1242,15 +1240,15 @@ void CSamusHud::Update(float dt, const CStateManager& mgr, uint helmetVis, bool 
     }
     x2e0_26_latestFirstPerson = firstPerson;
   }
+  const bool notMorphed = mgr.GetPlayer()->GetMorphballTransitionState() != CPlayer::kMS_Morphed;
   const CPlayer::EPlayerMorphBallState ballState = mgr.GetPlayer()->GetMorphballTransitionState();
-  const bool notMorphed = ballState != CPlayer::kMS_Morphed;
   float morphFactor = 0.f;
   switch (ballState) {
-  case CPlayer::kMS_Unmorphed:
-    morphFactor = 0.f;
-    break;
   case CPlayer::kMS_Morphed:
     morphFactor = 1.f;
+    break;
+  case CPlayer::kMS_Unmorphed:
+    morphFactor = 0.f;
     break;
   default:
     break;
@@ -1397,10 +1395,8 @@ void CSamusHud::Update(float dt, const CStateManager& mgr, uint helmetVis, bool 
   }
   const float printed = x59c_base_textpane_message->TextSupport().GetNumCharactersPrinted();
   const float charsPerSfx = gpTweakGui->GetWorldTransManagerCharsPerSfx();
-  float nextSfxChars = x55c_lastSfxChars;
-  nextSfxChars += charsPerSfx;
-  if (printed >= nextSfxChars) {
-    x55c_lastSfxChars = nextSfxChars;
+  if (printed >= x55c_lastSfxChars + charsPerSfx) {
+    x55c_lastSfxChars += charsPerSfx;
     if (!x598_base_basewidget_message->GetIsVisible() || textScale == 1.f) {
       CSfxManager::SfxStart(SFXui_x_type_00, 127, 64, false, CSfxManager::kMedPriority, false,
                             CSfxManager::kAllAreas);
@@ -1416,8 +1412,8 @@ void CSamusHud::Update(float dt, const CStateManager& mgr, uint helmetVis, bool 
     x594_base_textpane_counter->SetIsVisible(true);
     const float counterAlpha =
         rstl::min_val(allTextAlpha, 1.f - rstl::min_val(1.f, x558_messageTextTime));
-    const float clampedAlpha = CMath::Clamp(0.f, counterAlpha, 1.f);
-    x594_base_textpane_counter->SetColor(CColor::White().WithAlphaOf(clampedAlpha));
+    x594_base_textpane_counter->SetColor(
+        CColor::White().WithAlphaOf(CMath::Clamp(0.f, counterAlpha, 1.f)));
   } else {
     x594_base_textpane_counter->SetIsVisible(false);
   }
@@ -1487,9 +1483,14 @@ void CSamusHud::DrawAttachedEnemyEffect(const CStateManager& mgr) const {
     if (gpTweakGui->GetEnergyDrainSinusoidalPulse()) {
       alpha = 0.5f * (1.f + CMath::FastSinR(phaseOffset + 2.f * M_PIF * drainTime / period));
     } else {
-      const float phase = CMath::AbsF(CMath::ModF(drainTime, period));
+      float phase = CMath::AbsF(CMath::ModF(drainTime, period));
       const float halfPeriod = 0.5f * period;
-      alpha = phase < halfPeriod ? phase / halfPeriod : (period - phase) / halfPeriod;
+      if (phase < halfPeriod) {
+        phase /= halfPeriod;
+      } else {
+        phase = (period - phase) / halfPeriod;
+      }
+      alpha = phase;
     }
     const CColor color = filterColor.WithAlphaModulatedBy(alpha);
     CCameraFilterPass::DrawFilter(gpTweakGui->GetEnergyDrainFilterAdditive()
@@ -1731,21 +1732,25 @@ int CSamusHud::GetRelativeDirection(const CVector3f& position, const CStateManag
 void CSamusHud::ShowDamage(CVector3f position, float damage, float previousDamage,
                            const CStateManager& mgr) {
   const int direction = GetRelativeDirection(position, mgr);
-  const CFirstPersonCamera* camera =
+  const CFirstPersonCamera* const camera =
       TCastToConstPtr< CFirstPersonCamera >(mgr.GetCameraManager()->GetCurrentCamera(mgr));
-  x404_hudDamagePracticalsGain = gpTweakGui->GetHudDamagePracticalsGainConstant() +
-                                 gpTweakGui->GetHudDamagePracticalsGainLinear() * damage;
-  x3fc_hudDamagePracticalsInit = rstl::max_val(
-      kDamagePracticalsEpsilon, gpTweakGui->GetHudDamagePracticalsInitConstant() +
-                                    gpTweakGui->GetHudDamagePracticalsInitLinear() * damage);
+  const float hudDamagePracticalsGainLinear = gpTweakGui->GetHudDamagePracticalsGainLinear();
+  x404_hudDamagePracticalsGain =
+      hudDamagePracticalsGainLinear * damage + gpTweakGui->GetHudDamagePracticalsGainConstant();
+  const float hudDamagePracticalsInitLinear = gpTweakGui->GetHudDamagePracticalsInitLinear();
+  x3fc_hudDamagePracticalsInit =
+      rstl::max_val(kDamagePracticalsEpsilon, hudDamagePracticalsInitLinear * damage +
+                                                  gpTweakGui->GetHudDamagePracticalsInitConstant());
   x400_hudDamagePracticals = x3fc_hudDamagePracticalsInit;
   if (x3d4_damageLight != nullptr) {
     x3d4_damageLight->SetO2PTransform(x3d8_lightTransforms[direction]);
   }
-  x3f8_damageFilterAmtGain = gpTweakGui->GetHudDamageFilterGainConstant() +
-                             gpTweakGui->GetHudDamageFilterGainLinear() * damage;
-  x3f0_damageFilterAmtInit = gpTweakGui->GetHudDamageFilterInitConstant() +
-                             gpTweakGui->GetHudDamageFilterInitLinear() * damage;
+  const float hudDamageFilterGainLinear = gpTweakGui->GetHudDamageFilterGainLinear();
+  x3f8_damageFilterAmtGain =
+      hudDamageFilterGainLinear * damage + gpTweakGui->GetHudDamageFilterGainConstant();
+  const float hudDamageFilterInitLinear = gpTweakGui->GetHudDamageFilterInitLinear();
+  x3f0_damageFilterAmtInit =
+      hudDamageFilterInitLinear * damage + gpTweakGui->GetHudDamageFilterInitConstant();
   x3f4_damageFilterAmt = x3f0_damageFilterAmtInit;
   if (!x3a4_damageSfx) {
     x3a4_damageSfx =
@@ -1760,10 +1765,12 @@ void CSamusHud::ShowDamage(CVector3f position, float damage, float previousDamag
         gpTweakGui->GetHudDecoShakeTranslateVelLinear() * previousDamage;
     x414_decoShakeTranslateAmt = x418_decoShakeTranslateAmtVel;
     x408_damagerToPlayerNorm = -1.f * cameraToDamage.AsNormalized();
-    x464_decoShakeAmtGain = gpTweakGui->GetDecoShakeGainConstant() +
-                            gpTweakGui->GetDecoShakeGainLinear() * previousDamage;
-    x45c_decoShakeAmtInit = gpTweakGui->GetDecoShakeInitConstant() +
-                            gpTweakGui->GetDecoShakeInitLinear() * previousDamage;
+    const float decoShakeGainLinear = gpTweakGui->GetDecoShakeGainLinear();
+    x464_decoShakeAmtGain =
+        decoShakeGainLinear * previousDamage + gpTweakGui->GetDecoShakeGainConstant();
+    const float decoShakeInitLinear = gpTweakGui->GetDecoShakeInitLinear();
+    x45c_decoShakeAmtInit =
+        decoShakeInitLinear * previousDamage + gpTweakGui->GetDecoShakeInitConstant();
     x460_decoShakeAmt = x45c_decoShakeAmtInit;
   }
 }
@@ -1837,8 +1844,8 @@ void CSamusHud::ApplyClassicLag(const CUnitVector3f& lookDir, CQuaternion& rotat
   targetRotation *= targetRotation;
   const CVector3f targetDirection = targetRotation.BuildTransform().GetColumn(1);
   const CVector3f currentDirection = rotation.BuildTransform().GetColumn(1);
-  float dot = CVector3f::Dot(currentDirection, targetDirection);
   float angularStep = 0.5f * (dt * gpTweakPlayer->GetFreeLookSpeed());
+  float dot = CVector3f::Dot(currentDirection, targetDirection);
   dot = CMath::Limit(dot, 1.f);
   const float angle = acosf(dot);
   const float step = angle > 0.f ? angularStep / angle : 0.f;
