@@ -16,6 +16,1547 @@ Sections:
 MetroTRK/mslsupp.c:
 	.text       start:0x80003640 end:0x80003658
 
+MetroidPrime/Cameras/CCameraManager.cpp:
+	.text       start:0x800091BC end:0x8000C7FC
+
+MetroidPrime/CControlMapper.cpp:
+	.text       start:0x8000C7FC end:0x8000E158
+	.ctors      start:0x803CB2C4 end:0x803CB2C8
+
+MetroidPrime/Cameras/CFirstPersonCamera.cpp:
+	.text       start:0x8000E158 end:0x8000FD40
+
+MetroidPrime/CObjectList.cpp:
+	.text       start:0x8000FD40 end:0x800101B8
+
+MetroidPrime/Player/CPlayer.cpp:
+	.text       start:0x800101B8 end:0x8001B498
+	.ctors      start:0x803CB2C8 end:0x803CB2CC
+
+MetroidPrime/CAxisAngle.cpp:
+	.text       start:0x8001B498 end:0x8001B638
+	.ctors      start:0x803CB2CC end:0x803CB2D0
+
+MetroidPrime/CEulerAngles.cpp:
+	.text       start:0x8001B638 end:0x8001BA30
+	.ctors      start:0x803CB2D0 end:0x803CB2D4
+
+MetroidPrime/CMatrix3f_Ext.cpp:
+	.text       start:0x8001BA30 end:0x8001BA58
+
+MetroidPrime/CArchMsgParmUserInput.cpp:
+	.text       start:0x8001BA58 end:0x8001BB60
+
+MetroidPrime/CFrontEndUI.cpp:
+	.text       start:0x8001BB60 end:0x8002304C
+	.ctors      start:0x803CB2D4 end:0x803CB2D8
+
+MetroidPrime/CInputGenerator.cpp:
+	.text       start:0x8002304C end:0x80023528
+
+MetroidPrime/CMainFlow.cpp:
+	.text       start:0x800235F8 end:0x800238C8
+
+MetroidPrime/CMFGame.cpp:
+	.text       start:0x80024710 end:0x80024DE8
+
+MetroidPrime/CCredits.cpp:
+	.text       start:0x80026A2C end:0x80027614
+
+MetroidPrime/CSplashScreen.cpp:
+	.text       start:0x80028278 end:0x800294F4
+
+MetroidPrime/CAnimData.cpp:
+	.text       start:0x8002B5EC end:0x8002C1D0
+
+MetroidPrime/Factories/CCharacterFactory.cpp:
+	.text       start:0x80031D20 end:0x800348C0
+
+MetroidPrime/Factories/CAssetFactory.cpp:
+	.text       start:0x800348D0 end:0x80034E78
+
+MetroidPrime/Tweaks/CTweakPlayer.cpp:
+	.text       start:0x80034E78 end:0x80035950
+
+MetroidPrime/Tweaks/CTweaks.cpp:
+	.text       start:0x80035CBC end:0x80036C24
+
+MetroidPrime/Tweaks/CTweakGame.cpp:
+	.text       start:0x80037258 end:0x800373BC
+
+MetroidPrime/Weapons/CGameProjectile.cpp:
+	.text       start:0x80038734 end:0x800390E8
+
+MetroidPrime/Player/CPlayerGun.cpp:
+	.text       start:0x800409A8 end:0x80041938
+
+MetroidPrime/CStateManager.cpp:
+	.text       start:0x8004E1A8 end:0x8004F354
+
+MetroidPrime/CEntity.cpp:
+	.text       start:0x80051398 end:0x800514F8
+
+MetroidPrime/Decode.cpp:
+	.text       start:0x80051830 end:0x800518FC
+
+MetroidPrime/CIOWinManager.cpp:
+	.text       start:0x80051EF4 end:0x800520EC
+
+MetroidPrime/CActor.cpp:
+	.text       start:0x80055894 end:0x80055D9C
+
+MetroidPrime/CWorld.cpp:
+	.text       start:0x80055DD4 end:0x80059F94
+	.ctors      start:0x803CB2E8 end:0x803CB2EC
+
+MetroidPrime/Tweaks/CTweakParticle.cpp:
+	.text       start:0x8005A010 end:0x8005A0AC
+
+MetroidPrime/CExplosion.cpp:
+	.text       start:0x8005A184 end:0x8005ADBC
+
+MetroidPrime/CEffect.cpp:
+	.text       start:0x8005ADC4 end:0x8005AEB0
+
+MetroidPrime/Cameras/CGameCamera.cpp:
+	.text       start:0x8005AEB0 end:0x8005DF58
+
+MetroidPrime/CGameArea.cpp:
+	.text       start:0x80061364 end:0x8006219C
+
+MetroidPrime/HUD/CSamusHud.cpp:
+	.text       start:0x8006A9C0 end:0x8006B728
+
+MetroidPrime/CAnimationDatabaseGame.cpp:
+	.text       start:0x8006DD90 end:0x8006DECC
+
+MetroidPrime/CTransitionDatabaseGame.cpp:
+	.text       start:0x8006E37C end:0x8006E664
+
+MetroidPrime/Tweaks/CTweakPlayerControl.cpp:
+	.text       start:0x8006FACC end:0x8006FBDC
+
+MetroidPrime/Tweaks/CTweakPlayerGun.cpp:
+	.text       start:0x8007000C end:0x800709C8
+
+MetroidPrime/CPauseScreen.cpp:
+	.text       start:0x800718DC end:0x80072588
+
+MetroidPrime/Tweaks/CTweakGui.cpp:
+	.text       start:0x800743D4 end:0x80074E30
+
+MetroidPrime/ScriptObjects/CScriptActor.cpp:
+	.text       start:0x80075920 end:0x80075CD4
+
+MetroidPrime/ScriptObjects/CScriptTrigger.cpp:
+	.text       start:0x80075DA0 end:0x80076540
+
+MetroidPrime/ScriptObjects/CScriptWaypoint.cpp:
+	.text       start:0x800771A8 end:0x800773AC
+
+MetroidPrime/Enemies/CPatterned.cpp:
+	.text       start:0x80079B8C end:0x8007A4C8
+
+MetroidPrime/ScriptObjects/CScriptDoor.cpp:
+	.text       start:0x8007E5C4 end:0x8007EA44
+
+MetroidPrime/Enemies/CStateMachine.cpp:
+	.text       start:0x8007F6E8 end:0x8007FC10
+
+MetroidPrime/CMapArea.cpp:
+	.text       start:0x800806E8 end:0x80080A6C
+
+MetroidPrime/Cameras/CBallCamera.cpp:
+	.text       start:0x8008591C end:0x80086D48
+
+MetroidPrime/ScriptObjects/CScriptEffect.cpp:
+	.text       start:0x8008E4C0 end:0x8008ED84
+
+MetroidPrime/Weapons/CBomb.cpp:
+	.text       start:0x8009006C end:0x800904C4
+
+MetroidPrime/Tweaks/CTweakBall.cpp:
+	.text       start:0x80090BC8 end:0x800911E8
+
+MetroidPrime/Player/CPlayerState.cpp:
+	.text       start:0x8009209C end:0x8009233C
+
+MetroidPrime/ScriptObjects/CScriptTimer.cpp:
+	.text       start:0x80092938 end:0x80092A6C
+
+MetroidPrime/Cameras/CCinematicCamera.cpp:
+	.text       start:0x80093BE0 end:0x8009435C
+
+MetroidPrime/CAutoMapper.cpp:
+	.text       start:0x80097CF4 end:0x80098F8C
+
+MetroidPrime/ScriptObjects/CScriptCounter.cpp:
+	.text       start:0x8009E494 end:0x8009E65C
+
+MetroidPrime/CMapWorld.cpp:
+	.text       start:0x8009FB7C end:0x800A08A0
+
+MetroidPrime/Enemies/CAi.cpp:
+	.text       start:0x800A433C end:0x800A53B0
+	.ctors      start:0x803CB2FC end:0x803CB300
+
+MetroidPrime/ScriptObjects/CScriptSound.cpp:
+	.text       start:0x800B05B8 end:0x800B0974
+
+MetroidPrime/ScriptObjects/CScriptPlatform.cpp:
+	.text       start:0x800B1154 end:0x800B1C6C
+
+MetroidPrime/ScriptObjects/CScriptGenerator.cpp:
+	.text       start:0x800B45B4 end:0x800B4F30
+
+MetroidPrime/ScriptObjects/CScriptCameraWaypoint.cpp:
+	.text       start:0x800B527C end:0x800B5434
+
+MetroidPrime/CGameLight.cpp:
+	.text       start:0x800B5898 end:0x800B5A3C
+
+MetroidPrime/Tweaks/CTweakTargeting.cpp:
+	.text       start:0x800B5A3C end:0x800B631C
+
+MetroidPrime/Tweaks/CTweakAutoMapper.cpp:
+	.text       start:0x800B6A30 end:0x800B6E58
+
+MetroidPrime/CParticleGenInfoGeneric.cpp:
+	.text       start:0x800B7400 end:0x800B7520
+
+MetroidPrime/CParticleGenInfo.cpp:
+	.text       start:0x800B77FC end:0x800B798C
+
+MetroidPrime/CParticleDatabase.cpp:
+	.text       start:0x800B9408 end:0x800B9CE8
+
+MetroidPrime/Tweaks/CTweakGunRes.cpp:
+	.text       start:0x800BBA5C end:0x800BC04C
+
+MetroidPrime/CTargetReticles.cpp:
+	.text       start:0x800BE2D0 end:0x800BF8C8
+
+MetroidPrime/CWeaponMgr.cpp:
+	.text       start:0x800C1F80 end:0x800C21E8
+
+MetroidPrime/ScriptObjects/CScriptPickup.cpp:
+	.text       start:0x800C2AF4 end:0x800C30D0
+
+MetroidPrime/CDamageInfo.cpp:
+	.text       start:0x800C35D4 end:0x800C36C0
+
+MetroidPrime/CMemoryDrawEnum.cpp:
+	.text       start:0x800C36C0 end:0x800C3774
+
+MetroidPrime/ScriptObjects/CScriptDock.cpp:
+	.text       start:0x800C3E08 end:0x800C4150
+
+MetroidPrime/ScriptObjects/CScriptCameraHint.cpp:
+	.text       start:0x800C4738 end:0x800C4A18
+
+MetroidPrime/ScriptLoader.cpp:
+	.text       start:0x800CD8E0 end:0x800CE4E0
+
+MetroidPrime/CSamusDoll.cpp:
+	.text       start:0x800DB6C8 end:0x800DC8D0
+
+MetroidPrime/Weapons/CPlasmaBeam.cpp:
+	.text       start:0x800DF14C end:0x800DF310
+
+MetroidPrime/Weapons/CPowerBeam.cpp:
+	.text       start:0x800DFB50 end:0x800DFD5C
+
+MetroidPrime/Weapons/CWaveBeam.cpp:
+	.text       start:0x800E04A8 end:0x800E07E8
+
+MetroidPrime/Weapons/CIceBeam.cpp:
+	.text       start:0x800E12F0 end:0x800E14F4
+
+MetroidPrime/CScriptMailbox.cpp:
+	.text       start:0x800E1F2C end:0x800E20A0
+
+MetroidPrime/ScriptObjects/CScriptRelay.cpp:
+	.text       start:0x800E21F0 end:0x800E22F8
+
+MetroidPrime/ScriptObjects/CScriptSpawnPoint.cpp:
+	.text       start:0x800E2424 end:0x800E263C
+
+MetroidPrime/ScriptObjects/CScriptRandomRelay.cpp:
+	.text       start:0x800E2830 end:0x800E2BF8
+
+MetroidPrime/Enemies/CBeetle.cpp:
+	.text       start:0x800E7184 end:0x800E787C
+
+MetroidPrime/ScriptObjects/CScriptHUDMemo.cpp:
+	.text       start:0x800E85D8 end:0x800E87E4
+
+MetroidPrime/CMappableObject.cpp:
+	.text       start:0x800E8E20 end:0x800E91FC
+
+MetroidPrime/Player/CPlayerCameraBob.cpp:
+	.text       start:0x800E95EC end:0x800E9890
+
+MetroidPrime/ScriptObjects/CScriptCameraFilterKeyframe.cpp:
+	.text       start:0x800EA590 end:0x800EA6A0
+
+MetroidPrime/ScriptObjects/CScriptCameraBlurKeyframe.cpp:
+	.text       start:0x800EA804 end:0x800EA8B4
+
+MetroidPrime/Cameras/CCameraFilter.cpp:
+	.text       start:0x800EAAFC end:0x800EB9E8
+
+MetroidPrime/Player/CMorphBall.cpp:
+	.text       start:0x800F95E8 end:0x800FA480
+
+MetroidPrime/ScriptObjects/CScriptDamageableTrigger.cpp:
+	.text       start:0x800FB2D0 end:0x800FB948
+
+MetroidPrime/ScriptObjects/CScriptDebris.cpp:
+	.text       start:0x800FC1F8 end:0x800FCBEC
+
+MetroidPrime/ScriptObjects/CScriptCameraShaker.cpp:
+	.text       start:0x800FDF34 end:0x800FE040
+
+MetroidPrime/ScriptObjects/CScriptActorKeyframe.cpp:
+	.text       start:0x800FE354 end:0x800FE61C
+
+MetroidPrime/CConsoleOutputWindow.cpp:
+	.text       start:0x800FEAF4 end:0x800FED08
+
+MetroidPrime/ScriptObjects/CScriptWater.cpp:
+	.text       start:0x80101160 end:0x80101E80
+
+MetroidPrime/Weapons/CWeapon.cpp:
+	.text       start:0x80102308 end:0x80102504
+
+MetroidPrime/CDamageVulnerability.cpp:
+	.text       start:0x80102D7C end:0x801030F8
+	.ctors      start:0x803CB320 end:0x803CB324
+
+MetroidPrime/CActorLights.cpp:
+	.text       start:0x80103E34 end:0x80104BE4
+
+MetroidPrime/Enemies/CPatternedInfo.cpp:
+	.text       start:0x801058EC end:0x80105B74
+
+MetroidPrime/CSimpleShadow.cpp:
+	.text       start:0x80105F3C end:0x801063B4
+
+MetroidPrime/CActorParameters.cpp:
+	.text       start:0x80106484 end:0x80106628
+
+MetroidPrime/CInGameGuiManager.cpp:
+	.text       start:0x801087C8 end:0x80109288
+
+MetroidPrime/Enemies/CWarWasp.cpp:
+	.text       start:0x8010C8C0 end:0x8010CE30
+
+MetroidPrime/CWorldShadow.cpp:
+	.text       start:0x80111244 end:0x80111BC8
+
+MetroidPrime/CAudioStateWin.cpp:
+	.text       start:0x80111DA0 end:0x80111E38
+
+MetroidPrime/Player/CPlayerVisor.cpp:
+	.text       start:0x80113118 end:0x80113B0C
+
+MetroidPrime/CModelData.cpp:
+	.text       start:0x80115064 end:0x801152C8
+
+MetroidPrime/CDecalManager.cpp:
+	.text       start:0x8011719C end:0x80117368
+
+MetroidPrime/ScriptObjects/CScriptSpiderBallWaypoint.cpp:
+	.text       start:0x80117D90 end:0x8011851C
+
+MetroidPrime/Enemies/CBloodFlower.cpp:
+	.text       start:0x8011A060 end:0x8011A4D4
+
+MetroidPrime/CPhysicsActor.cpp:
+	.text       start:0x8011C524 end:0x8011C8A4
+
+MetroidPrime/CPhysicsState.cpp:
+	.text       start:0x8011C8A4 end:0x8011C990
+
+MetroidPrime/CRipple.cpp:
+	.text       start:0x8011C990 end:0x8011CB58
+
+MetroidPrime/CFluidUVMotion.cpp:
+	.text       start:0x8011CB58 end:0x8011CD38
+
+MetroidPrime/CRippleManager.cpp:
+	.text       start:0x8011CFC0 end:0x8011D0F4
+
+MetroidPrime/Player/CGrappleArm.cpp:
+	.text       start:0x8011FDD4 end:0x8012058C
+
+MetroidPrime/Enemies/CSpacePirate.cpp:
+	.text       start:0x8012A3BC end:0x8012B010
+
+MetroidPrime/ScriptObjects/CScriptCoverPoint.cpp:
+	.text       start:0x8012D788 end:0x8012D990
+
+MetroidPrime/Cameras/CPathCamera.cpp:
+	.text       start:0x8012E27C end:0x8012E71C
+
+MetroidPrime/CFluidPlaneManager.cpp:
+	.text       start:0x8012EDA8 end:0x8012F10C
+
+MetroidPrime/ScriptObjects/CScriptGrapplePoint.cpp:
+	.text       start:0x8012F994 end:0x8012FB4C
+
+MetroidPrime/ScriptObjects/CHUDBillboardEffect.cpp:
+	.text       start:0x8012FB4C end:0x80130368
+
+MetroidPrime/Enemies/CFlickerBat.cpp:
+	.text       start:0x80130ADC end:0x80130D9C
+
+MetroidPrime/BodyState/CBodyStateCmdMgr.cpp:
+	.text       start:0x80131D20 end:0x8013239C
+
+MetroidPrime/BodyState/CBodyStateInfo.cpp:
+	.text       start:0x801343F8 end:0x80134A4C
+
+MetroidPrime/BodyState/CBSAttack.cpp:
+	.text       start:0x80135334 end:0x8013560C
+
+MetroidPrime/BodyState/CBSDie.cpp:
+	.text       start:0x80135790 end:0x80135980
+
+MetroidPrime/BodyState/CBSFall.cpp:
+	.text       start:0x80135AF0 end:0x80135ECC
+
+MetroidPrime/BodyState/CBSGetup.cpp:
+	.text       start:0x80136044 end:0x8013624C
+
+MetroidPrime/BodyState/CBSKnockBack.cpp:
+	.text       start:0x80136460 end:0x80136814
+
+MetroidPrime/BodyState/CBSLieOnGround.cpp:
+	.text       start:0x80136990 end:0x80136B50
+
+MetroidPrime/BodyState/CBSLocomotion.cpp:
+	.text       start:0x801381A0 end:0x801384A4
+
+MetroidPrime/BodyState/CBSStep.cpp:
+	.text       start:0x80138E84 end:0x80139034
+
+MetroidPrime/BodyState/CBSTurn.cpp:
+	.text       start:0x80139A90 end:0x80139D54
+
+MetroidPrime/BodyState/CBodyController.cpp:
+	.text       start:0x8013A4DC end:0x8013A718
+
+MetroidPrime/BodyState/CBSLoopAttack.cpp:
+	.text       start:0x8013B4E0 end:0x8013B8AC
+
+MetroidPrime/Weapons/CTargetableProjectile.cpp:
+	.text       start:0x8013BCB4 end:0x8013BF30
+
+MetroidPrime/BodyState/CBSLoopReaction.cpp:
+	.text       start:0x8013C7A0 end:0x8013CA94
+
+MetroidPrime/CSteeringBehaviors.cpp:
+	.text       start:0x8013D9F8 end:0x8013E068
+
+MetroidPrime/BodyState/CBSGroundHit.cpp:
+	.text       start:0x8013EF48 end:0x8013F334
+
+MetroidPrime/Enemies/CChozoGhost.cpp:
+	.text       start:0x80141EB8 end:0x801426FC
+
+MetroidPrime/Enemies/CFireFlea.cpp:
+	.text       start:0x801430A8 end:0x80143570
+
+MetroidPrime/BodyState/CBSSlide.cpp:
+	.text       start:0x801441B4 end:0x8014445C
+
+MetroidPrime/BodyState/CBSHurled.cpp:
+	.text       start:0x80144CA0 end:0x801451AC
+
+MetroidPrime/BodyState/CBSJump.cpp:
+	.text       start:0x80145B44 end:0x801460A4
+
+MetroidPrime/BodyState/CBSGenerate.cpp:
+	.text       start:0x801468E0 end:0x80146B04
+
+MetroidPrime/Enemies/CPuddleSpore.cpp:
+	.text       start:0x8014877C end:0x80148DF4
+
+MetroidPrime/BodyState/CBSTaunt.cpp:
+	.text       start:0x801494FC end:0x8014962C
+
+MetroidPrime/CSortedLists.cpp:
+	.text       start:0x8014A594 end:0x8014AA9C
+
+MetroidPrime/ScriptObjects/CScriptDebugCameraWaypoint.cpp:
+	.text       start:0x8014ACF0 end:0x8014ADE0
+
+MetroidPrime/ScriptObjects/CScriptSpiderBallAttractionSurface.cpp:
+	.text       start:0x8014AF90 end:0x8014B134
+
+MetroidPrime/BodyState/CBSScripted.cpp:
+	.text       start:0x8014B198 end:0x8014B2A4
+
+MetroidPrime/Enemies/CPuddleToadGamma.cpp:
+	.text       start:0x8014CCA4 end:0x8014D050
+
+MetroidPrime/ScriptObjects/CScriptDistanceFog.cpp:
+	.text       start:0x8014D070 end:0x8014D234
+
+MetroidPrime/BodyState/CBSProjectileAttack.cpp:
+	.text       start:0x8014D630 end:0x8014D9A0
+
+MetroidPrime/Weapons/CPowerBomb.cpp:
+	.text       start:0x8014DEC8 end:0x8014E16C
+
+MetroidPrime/Enemies/CMetaree.cpp:
+	.text       start:0x8014E884 end:0x8014EAA4
+
+MetroidPrime/ScriptObjects/CScriptDockAreaChange.cpp:
+	.text       start:0x8014F060 end:0x8014F1AC
+
+MetroidPrime/ScriptObjects/CScriptSpecialFunction.cpp:
+	.text       start:0x80151924 end:0x80152940
+
+MetroidPrime/ScriptObjects/CScriptActorRotate.cpp:
+	.text       start:0x80153C54 end:0x80153ED8
+
+MetroidPrime/Player/CFidget.cpp:
+	.text       start:0x801547DC end:0x80154BCC
+
+MetroidPrime/Enemies/CSpankWeed.cpp:
+	.text       start:0x80155C84 end:0x801562A4
+
+MetroidPrime/Enemies/CParasite.cpp:
+	.text       start:0x801570EC end:0x801579D8
+
+MetroidPrime/Player/CSamusFaceReflection.cpp:
+	.text       start:0x8015AE38 end:0x8015B24C
+
+MetroidPrime/ScriptObjects/CScriptPlayerHint.cpp:
+	.text       start:0x8015B9C0 end:0x8015BBB0
+
+MetroidPrime/Enemies/CRipper.cpp:
+	.text       start:0x8015BE94 end:0x8015C0A8
+
+MetroidPrime/Cameras/CCameraShakeData.cpp:
+	.text       start:0x8015CB30 end:0x8015CDC4
+
+MetroidPrime/ScriptObjects/CScriptPickupGenerator.cpp:
+	.text       start:0x8015DF34 end:0x8015E294
+
+MetroidPrime/ScriptObjects/CScriptPointOfInterest.cpp:
+	.text       start:0x8015EDA8 end:0x8015EEC4
+
+MetroidPrime/Enemies/CDrone.cpp:
+	.text       start:0x80164AD0 end:0x80165558
+
+MetroidPrime/CMapWorldInfo.cpp:
+	.text       start:0x80168FB8 end:0x801693F8
+
+MetroidPrime/Factories/CScannableObjectInfo.cpp:
+	.text       start:0x80169C98 end:0x80169E4C
+
+MetroidPrime/Enemies/CMetroid.cpp:
+	.text       start:0x8016AA84 end:0x8016B25C
+
+MetroidPrime/Player/CScanDisplay.cpp:
+	.text       start:0x801731C8 end:0x80173E0C
+
+MetroidPrime/ScriptObjects/CScriptSteam.cpp:
+	.text       start:0x80174E04 end:0x80174F88
+
+MetroidPrime/ScriptObjects/CScriptRipple.cpp:
+	.text       start:0x80174FC4 end:0x8017510C
+
+MetroidPrime/CBoneTracking.cpp:
+	.text       start:0x801752A8 end:0x80175984
+
+MetroidPrime/Player/CFaceplateDecoration.cpp:
+	.text       start:0x80175C24 end:0x80175D38
+
+MetroidPrime/BodyState/CBSCover.cpp:
+	.text       start:0x80175E70 end:0x801762A4
+
+MetroidPrime/ScriptObjects/CScriptBallTrigger.cpp:
+	.text       start:0x80176624 end:0x801768AC
+
+MetroidPrime/Weapons/CPlasmaProjectile.cpp:
+	.text       start:0x80178C9C end:0x801793F4
+
+MetroidPrime/Player/CPlayerOrbit.cpp:
+	.text       start:0x80179720 end:0x8017A3EC
+
+MetroidPrime/CGameCollision.cpp:
+	.text       start:0x80180F68 end:0x80181C50
+
+MetroidPrime/CBallFilter.cpp:
+	.text       start:0x801854B0 end:0x80185694
+
+MetroidPrime/CAABoxFilter.cpp:
+	.text       start:0x801858EC end:0x80185A84
+
+MetroidPrime/CGroundMovement.cpp:
+	.text       start:0x80186770 end:0x80187F08
+
+MetroidPrime/Enemies/CNewIntroBoss.cpp:
+	.text       start:0x8018A178 end:0x8018AD38
+
+MetroidPrime/Weapons/CPhazonBeam.cpp:
+	.text       start:0x8018C630 end:0x8018C908
+
+MetroidPrime/ScriptObjects/CScriptTargetingPoint.cpp:
+	.text       start:0x8018D424 end:0x8018D530
+
+MetroidPrime/BodyState/CBSWallHang.cpp:
+	.text       start:0x8018DADC end:0x8018E910
+
+MetroidPrime/ScriptObjects/CScriptEMPulse.cpp:
+	.text       start:0x8018F220 end:0x8018F3D8
+
+MetroidPrime/HUD/CHudEnergyInterface.cpp:
+	.text       start:0x8018FBA8 end:0x8018FEF0
+
+MetroidPrime/HUD/CHudFreeLookInterface.cpp:
+	.text       start:0x80190300 end:0x80190510
+
+MetroidPrime/HUD/CHudHelmetInterface.cpp:
+	.text       start:0x80190EB4 end:0x8019104C
+
+MetroidPrime/HUD/CHudMissileInterface.cpp:
+	.text       start:0x8019104C end:0x8019187C
+
+MetroidPrime/HUD/CHudRadarInterface.cpp:
+	.text       start:0x80192248 end:0x80192894
+
+MetroidPrime/HUD/CHudThreatInterface.cpp:
+	.text       start:0x80192BA8 end:0x80193364
+
+MetroidPrime/HUD/CHudVisorBeamMenu.cpp:
+	.text       start:0x80193AD4 end:0x8019434C
+
+MetroidPrime/HUD/CHudDecoInterface.cpp:
+	.text       start:0x80195F98 end:0x80196570
+
+MetroidPrime/Weapons/CFlameThrower.cpp:
+	.text       start:0x801976FC end:0x80197FEC
+
+MetroidPrime/Weapons/CBeamProjectile.cpp:
+	.text       start:0x80198E54 end:0x80199334
+
+MetroidPrime/CFluidPlaneCPU.cpp:
+	.text       start:0x8019A4A4 end:0x8019BA74
+
+MetroidPrime/CFluidPlaneDoor.cpp:
+	.text       start:0x8019D880 end:0x8019DC74
+
+MetroidPrime/ScriptObjects/CScriptRoomAcoustics.cpp:
+	.text       start:0x8019E080 end:0x8019E2A8
+
+MetroidPrime/Enemies/CIceSheegoth.cpp:
+	.text       start:0x801A5EB0 end:0x801A693C
+
+MetroidPrime/CCollisionActorManager.cpp:
+	.text       start:0x801A79A4 end:0x801A8508
+
+MetroidPrime/CCollisionActor.cpp:
+	.text       start:0x801A9948 end:0x801A9E1C
+
+MetroidPrime/ScriptObjects/CScriptPlayerActor.cpp:
+	.text       start:0x801AB6C8 end:0x801ABBAC
+
+MetroidPrime/Tweaks/CTweakPlayerRes.cpp:
+	.text       start:0x801AC2D4 end:0x801ACB4C
+
+MetroidPrime/Enemies/CBurstFire.cpp:
+	.text       start:0x801AD290 end:0x801AD3C8
+
+MetroidPrime/Enemies/CFlaahgra.cpp:
+	.text       start:0x801B22D8 end:0x801B2BC0
+
+MetroidPrime/Player/CPlayerEnergyDrain.cpp:
+	.text       start:0x801B4908 end:0x801B4A4C
+
+MetroidPrime/CFlameWarp.cpp:
+	.text       start:0x801B5038 end:0x801B56D0
+
+MetroidPrime/Weapons/CIceImpact.cpp:
+	.text       start:0x801B5C18 end:0x801B6274
+
+MetroidPrime/Weapons/CAuxWeapon.cpp:
+	.text       start:0x801B90E4 end:0x801B93E4
+
+MetroidPrime/Weapons/CGunWeapon.cpp:
+	.text       start:0x801B9CC0 end:0x801BA33C
+
+MetroidPrime/ScriptObjects/CScriptAreaAttributes.cpp:
+	.text       start:0x801BD554 end:0x801BD63C
+
+MetroidPrime/Weapons/CWaveBuster.cpp:
+	.text       start:0x801BEF9C end:0x801BF60C
+
+MetroidPrime/Player/CStaticInterference.cpp:
+	.text       start:0x801C081C end:0x801C0998
+
+MetroidPrime/Enemies/CMetroidBeta.cpp:
+	.text       start:0x801C6100 end:0x801C6854
+
+MetroidPrime/PathFinding/CPathFindSearch.cpp:
+	.text       start:0x801C7CE0 end:0x801C8E08
+
+MetroidPrime/PathFinding/CPathFindRegion.cpp:
+	.text       start:0x801C9620 end:0x801C9AD4
+
+MetroidPrime/PathFinding/CPathFindArea.cpp:
+	.text       start:0x801CAC30 end:0x801CB258
+
+MetroidPrime/PathFinding/CPathFindSpline.cpp:
+	.text       start:0x801CBE44 end:0x801CC0B8
+
+MetroidPrime/Weapons/GunController/CGunController.cpp:
+	.text       start:0x801CC8C0 end:0x801CCB74
+
+MetroidPrime/Weapons/GunController/CGSFreeLook.cpp:
+	.text       start:0x801CCD1C end:0x801CCF54
+
+MetroidPrime/Weapons/GunController/CGSComboFire.cpp:
+	.text       start:0x801CD114 end:0x801CD30C
+
+MetroidPrime/HUD/CHudBallInterface.cpp:
+	.text       start:0x801CD834 end:0x801CDAA0
+
+MetroidPrime/Tweaks/CTweakGuiColors.cpp:
+	.text       start:0x801CDAA0 end:0x801CE038
+
+MetroidPrime/ScriptObjects/CFishCloud.cpp:
+	.text       start:0x801D21C0 end:0x801D2EB8
+
+MetroidPrime/Player/CGameState.cpp:
+	.text       start:0x801D59DC end:0x801D5F7C
+
+MetroidPrime/ScriptObjects/CScriptVisorFlare.cpp:
+	.text       start:0x801D67A0 end:0x801D6910
+
+MetroidPrime/ScriptObjects/CScriptWorldTeleporter.cpp:
+	.text       start:0x801D6A1C end:0x801D6BA0
+
+MetroidPrime/ScriptObjects/CScriptVisorGoo.cpp:
+	.text       start:0x801D712C end:0x801D7618
+
+MetroidPrime/Enemies/CJellyZap.cpp:
+	.text       start:0x801D821C end:0x801D8534
+
+MetroidPrime/ScriptObjects/CScriptControllerAction.cpp:
+	.text       start:0x801D8DCC end:0x801D8F18
+
+MetroidPrime/Weapons/GunController/CGunMotion.cpp:
+	.text       start:0x801D922C end:0x801D964C
+
+MetroidPrime/ScriptObjects/CScriptSwitch.cpp:
+	.text       start:0x801D9804 end:0x801D98F8
+
+MetroidPrime/BodyState/CABSFlinch.cpp:
+	.text       start:0x801D9BE4 end:0x801D9D60
+
+MetroidPrime/BodyState/CABSAim.cpp:
+	.text       start:0x801D9F2C end:0x801DA2A0
+
+MetroidPrime/ScriptObjects/CScriptPlayerStateChange.cpp:
+	.text       start:0x801DA574 end:0x801DA694
+
+MetroidPrime/Enemies/CThardus.cpp:
+	.text       start:0x801E112C end:0x801E2260
+
+MetroidPrime/CActorModelParticles.cpp:
+	.text       start:0x801E4844 end:0x801E4DB8
+
+MetroidPrime/Enemies/CWallCrawlerSwarm.cpp:
+	.text       start:0x801EDBF8 end:0x801EED08
+
+MetroidPrime/ScriptObjects/CScriptAiJumpPoint.cpp:
+	.text       start:0x801EF4D0 end:0x801EF678
+
+MetroidPrime/CMessageScreen.cpp:
+	.text       start:0x801EF818 end:0x801EFF74
+
+MetroidPrime/Enemies/CFlaahgraTentacle.cpp:
+	.text       start:0x801F046C end:0x801F06C8
+
+MetroidPrime/Weapons/GunController/CGSFidget.cpp:
+	.text       start:0x801F1344 end:0x801F1530
+
+MetroidPrime/BodyState/CABSReaction.cpp:
+	.text       start:0x801F191C end:0x801F1AA4
+
+MetroidPrime/Weapons/CIceProjectile.cpp:
+	.text       start:0x801F2438 end:0x801F2C8C
+
+MetroidPrime/Enemies/CPatternedAiFunctions.cpp:
+	.text       start:0x801F4414 end:0x801F4948
+
+MetroidPrime/Enemies/CFlyingPirate.cpp:
+	.text       start:0x801F75E0 end:0x801F855C
+
+MetroidPrime/ScriptObjects/CScriptColorModulate.cpp:
+	.text       start:0x80201064 end:0x80201540
+
+MetroidPrime/CMapUniverse.cpp:
+	.text       start:0x802022E8 end:0x80202A28
+
+MetroidPrime/Enemies/CThardusRockProjectile.cpp:
+	.text       start:0x802052D4 end:0x80205B94
+
+MetroidPrime/CInventoryScreen.cpp:
+	.text       start:0x80206FA0 end:0x8020749C
+
+MetroidPrime/CVisorFlare.cpp:
+	.text       start:0x80207AF4 end:0x80207FCC
+
+MetroidPrime/Enemies/CFlaahgraPlants.cpp:
+	.text       start:0x80208B48 end:0x80208E8C
+
+MetroidPrime/CWorldTransManager.cpp:
+	.text       start:0x80209AF4 end:0x80209F9C
+
+MetroidPrime/ScriptObjects/CScriptMidi.cpp:
+	.text       start:0x8020BAC0 end:0x8020BC3C
+
+MetroidPrime/ScriptObjects/CScriptStreamedMusic.cpp:
+	.text       start:0x8020BE90 end:0x8020C8C8
+
+MetroidPrime/CRagDoll.cpp:
+	.text       start:0x8020D840 end:0x8020E08C
+
+MetroidPrime/Player/CGameOptions.cpp:
+	.text       start:0x8020F518 end:0x8020F844
+
+MetroidPrime/ScriptObjects/CRepulsor.cpp:
+	.text       start:0x8020FD80 end:0x8020FE88
+
+MetroidPrime/CEnvFxManager.cpp:
+	.text       start:0x8021143C end:0x80211B6C
+
+MetroidPrime/Weapons/CEnergyProjectile.cpp:
+	.text       start:0x80214C6C end:0x80215670
+
+MetroidPrime/ScriptObjects/CScriptGunTurret.cpp:
+	.text       start:0x8021ADA0 end:0x8021B804
+
+MetroidPrime/Weapons/CProjectileInfo.cpp:
+	.text       start:0x8021BD0C end:0x8021BF60
+
+MetroidPrime/CInGameTweakManager.cpp:
+	.text       start:0x8021C1D8 end:0x8021C698
+
+MetroidPrime/Enemies/CBabygoth.cpp:
+	.text       start:0x802237F4 end:0x8022424C
+
+MetroidPrime/Enemies/CEyeBall.cpp:
+	.text       start:0x80224DAC end:0x8022507C
+
+MetroidPrime/CIkChain.cpp:
+	.text       start:0x802259E8 end:0x80225E90
+
+MetroidPrime/ScriptObjects/CScriptCameraPitchVolume.cpp:
+	.text       start:0x8022685C end:0x80226A18
+
+MetroidPrime/RumbleFxTable.cpp:
+	.text       start:0x80226A30 end:0x8022740C
+	.ctors      start:0x803CB398 end:0x803CB39C
+
+MetroidPrime/Enemies/CElitePirate.cpp:
+	.text       start:0x8022CC40 end:0x8022D3F8
+
+MetroidPrime/CRumbleManager.cpp:
+	.text       start:0x8022E1BC end:0x8022E2B8
+
+MetroidPrime/Enemies/CBouncyGrenade.cpp:
+	.text       start:0x8022E498 end:0x8022E90C
+
+MetroidPrime/Enemies/CGrenadeLauncher.cpp:
+	.text       start:0x80230FFC end:0x802315B4
+
+MetroidPrime/Weapons/CShockWave.cpp:
+	.text       start:0x80231B0C end:0x80232100
+
+MetroidPrime/Enemies/CRipperControlledPlatform.cpp:
+	.text       start:0x80232894 end:0x80232C0C
+
+MetroidPrime/Enemies/CKnockBackMgr.cpp:
+	.text       start:0x80232D18 end:0x80233218
+
+MetroidPrime/CScriptLayerManager.cpp:
+	.text       start:0x80234494 end:0x80234648
+
+MetroidPrime/Enemies/CMagdolite.cpp:
+	.text       start:0x80237454 end:0x80237BBC
+
+MetroidPrime/Enemies/CTeamAiMgr.cpp:
+	.text       start:0x80237D60 end:0x80238098
+
+MetroidPrime/Enemies/CSnakeWeedSwarm.cpp:
+	.text       start:0x8023D804 end:0x8023E3D8
+
+MetroidPrime/Cameras/CBallCameraFailsafeState.cpp:
+	.text       start:0x8023EEDC end:0x8023F3A4
+
+MetroidPrime/Enemies/CScriptContraption.cpp:
+	.text       start:0x8023F7BC end:0x8023FA00
+
+MetroidPrime/ScriptObjects/CScriptSpindleCamera.cpp:
+	.text       start:0x8023FCE0 end:0x80241048
+
+MetroidPrime/ScriptObjects/CScriptMemoryRelay.cpp:
+	.text       start:0x8024199C end:0x80241A6C
+
+MetroidPrime/CPauseScreenFrame.cpp:
+	.text       start:0x802425F4 end:0x80242C2C
+
+MetroidPrime/Enemies/CAtomicAlpha.cpp:
+	.text       start:0x80245714 end:0x80245AA4
+
+MetroidPrime/CLogBookScreen.cpp:
+	.text       start:0x80246290 end:0x80246744
+
+MetroidPrime/CGBASupport.cpp:
+	.text       start:0x80248D60 end:0x80248DF8
+
+MetroidPrime/CMemoryCard.cpp:
+	.text       start:0x80249198 end:0x80249670
+
+MetroidPrime/ScriptObjects/CScriptCameraHintTrigger.cpp:
+	.text       start:0x8024B7F4 end:0x8024B948
+
+MetroidPrime/Enemies/CAmbientAI.cpp:
+	.text       start:0x8024BBA4 end:0x8024C028
+
+MetroidPrime/CMemoryCardDriver.cpp:
+	.text       start:0x8024CF2C end:0x8024D2BC
+
+MetroidPrime/CSaveGameScreen.cpp:
+	.text       start:0x80250498 end:0x80250930
+
+MetroidPrime/Enemies/CAtomicBeta.cpp:
+	.text       start:0x80250EB8 end:0x8025131C
+
+MetroidPrime/Weapons/CElectricBeamProjectile.cpp:
+	.text       start:0x80251F90 end:0x8025240C
+
+MetroidPrime/Enemies/CRidley.cpp:
+	.text       start:0x8025AB78 end:0x8025C0B0
+	.ctors      start:0x803CB3B0 end:0x803CB3B4
+
+MetroidPrime/Enemies/CPuffer.cpp:
+	.text       start:0x8025C0B0 end:0x8025C348
+
+MetroidPrime/ScriptObjects/CFire.cpp:
+	.text       start:0x8025D2E8 end:0x8025D6C0
+
+MetroidPrime/CPauseScreenBlur.cpp:
+	.text       start:0x8025D6D0 end:0x8025D838
+
+MetroidPrime/Enemies/CTryclops.cpp:
+	.text       start:0x8025DCDC end:0x8025E140
+
+MetroidPrime/Weapons/CNewFlameThrower.cpp:
+	.text       start:0x8026238C end:0x802634B0
+
+MetroidPrime/Cameras/CInterpolationCamera.cpp:
+	.text       start:0x802659CC end:0x80265F18
+
+MetroidPrime/Enemies/CSeedling.cpp:
+	.text       start:0x80266760 end:0x80266A38
+
+MetroidPrime/CGameHintInfo.cpp:
+	.text       start:0x80267A30 end:0x80267BB0
+
+MetroidPrime/Enemies/CWallWalker.cpp:
+	.text       start:0x80268B54 end:0x80268FC8
+
+MetroidPrime/CErrorOutputWindow.cpp:
+	.text       start:0x80269704 end:0x802699D4
+
+MetroidPrime/CRainSplashGenerator.cpp:
+	.text       start:0x8026A30C end:0x8026A4CC
+
+MetroidPrime/CWorldSaveGameInfo.cpp:
+	.text       start:0x8026B334 end:0x8026BC08
+
+MetroidPrime/CFluidPlaneRender.cpp:
+	.text       start:0x8026D5FC end:0x8026EE90
+
+MetroidPrime/Enemies/CBurrower.cpp:
+	.text       start:0x80270C10 end:0x8027126C
+
+MetroidPrime/Enemies/CMetroidPrime.cpp:
+	.text       start:0x80279A24 end:0x8027ADA8
+
+MetroidPrime/ScriptObjects/CScriptBeam.cpp:
+	.text       start:0x8027C820 end:0x8027CA8C
+
+MetroidPrime/Enemies/CMetroidPrimeStage2.cpp:
+	.text       start:0x8027E97C end:0x8027EF94
+
+MetroidPrime/Enemies/CMetroidPrimeRelay.cpp:
+	.text       start:0x8028189C end:0x80281DB4
+
+MetroidPrime/Player/CPlayerDynamics.cpp:
+	.text       start:0x80281E74 end:0x80282A94
+
+MetroidPrime/ScriptObjects/CScriptMazeNode.cpp:
+	.text       start:0x8028A03C end:0x8028A9A4
+
+MetroidPrime/Weapons/WeaponTypes.cpp:
+	.text       start:0x8028AC94 end:0x8028AFC8
+
+MetroidPrime/Enemies/COmegaPirate.cpp:
+	.text       start:0x8028FBD0 end:0x80290540
+
+MetroidPrime/Enemies/CScriptPhazonPool.cpp:
+	.text       start:0x8029371C end:0x80293C3C
+
+MetroidPrime/CNESEmulator.cpp:
+	.text       start:0x80293F68 end:0x8029428C
+
+MetroidPrime/Enemies/CPhazonHealingNodule.cpp:
+	.text       start:0x802957AC end:0x80295A48
+
+MetroidPrime/Player/CMorphBallShadow.cpp:
+	.text       start:0x8029639C end:0x80296BA0
+
+MetroidPrime/Player/CPlayerStuckTracker.cpp:
+	.text       start:0x802975F4 end:0x80297B08
+
+MetroidPrime/CSlideShow.cpp:
+	.text       start:0x8029A230 end:0x8029ACF0
+
+MetroidPrime/Tweaks/CTweakSlideShow.cpp:
+	.text       start:0x8029C734 end:0x8029C908
+
+MetroidPrime/CArtifactDoll.cpp:
+	.text       start:0x8029CAA4 end:0x8029CF38
+
+MetroidPrime/CProjectedShadow.cpp:
+	.text       start:0x8029D810 end:0x8029DDD4
+
+MetroidPrime/CPreFrontEnd.cpp:
+	.text       start:0x8029E664 end:0x8029E71C
+
+MetroidPrime/CGameCubeDoll.cpp:
+	.text       start:0x8029E9E8 end:0x8029EBC0
+
+MetroidPrime/ScriptObjects/CScriptProjectedShadow.cpp:
+	.text       start:0x8029F0A4 end:0x8029F2BC
+
+MetroidPrime/ScriptObjects/CEnergyBall.cpp:
+	.text       start:0x8029F5E4 end:0x8029F99C
+
+MetroidPrime/ScriptObjects/CSustainedPlayerDamage.cpp:
+	.text       start:0x802A02A0 end:0x802A03B8
+
+MetroidPrime/Enemies/CPoisonProjectile.cpp:
+	.text       start:0x802A060C end:0x802A07C8
+
+MetroidPrime/Enemies/SPositionHistory.cpp:
+	.text       start:0x802A092C end:0x802A0A6C
+
+WorldFormat/CAreaOctTree_Tests.cpp:
+	.text       start:0x802A0B48 end:0x802A1714
+
+WorldFormat/CCollisionSurface.cpp:
+	.text       start:0x802A27E0 end:0x802A2864
+
+WorldFormat/CMetroidModelInstance.cpp:
+	.text       start:0x802A28B4 end:0x802A2A04
+
+WorldFormat/CAreaOctTree.cpp:
+	.text       start:0x802A2FEC end:0x802A31D8
+
+WorldFormat/CMetroidAreaCollider.cpp:
+	.text       start:0x802A4D58 end:0x802A5DD0
+
+WorldFormat/CWorldLight.cpp:
+	.text       start:0x802A7738 end:0x802A79C8
+
+WorldFormat/COBBTree.cpp:
+	.text       start:0x802A814C end:0x802A87F0
+
+WorldFormat/CCollidableOBBTree.cpp:
+	.text       start:0x802AA32C end:0x802AB280
+
+WorldFormat/CCollidableOBBTreeGroup.cpp:
+	.text       start:0x802ACB84 end:0x802ACEE8
+
+WorldFormat/CPVSAreaSet.cpp:
+	.text       start:0x802AE5C8 end:0x802AE6E4
+
+WorldFormat/CAreaRenderOctTree.cpp:
+	.text       start:0x802AEACC end:0x802AED6C
+
+Weapons/CProjectileWeapon.cpp:
+	.text       start:0x802AFC3C end:0x802B0370
+
+Weapons/CProjectileWeaponDataFactory.cpp:
+	.text       start:0x802B1280 end:0x802B1F50
+
+Weapons/CCollisionResponseData.cpp:
+	.text       start:0x802B2A58 end:0x802B2C60
+
+Weapons/CDecalDataFactory.cpp:
+	.text       start:0x802B38BC end:0x802B4964
+
+Weapons/CDecal.cpp:
+	.text       start:0x802B4F8C end:0x802B556C
+
+Weapons/CWeaponDescription.cpp:
+	.text       start:0x802B59DC end:0x802B5D14
+
+MetaRender/CCubeRenderer.cpp:
+	.text       start:0x802B90EC end:0x802BA3D0
+
+GuiSys/CAuiMeter.cpp:
+	.text       start:0x802C0E10 end:0x802C103C
+
+GuiSys/CGuiCamera.cpp:
+	.text       start:0x802C193C end:0x802C1B2C
+
+GuiSys/CGuiFactories.cpp:
+	.text       start:0x802C1D08 end:0x802C1F30
+
+GuiSys/CGuiFeeHelper.cpp:
+	.text       start:0x802C2168 end:0x802C2280
+	.ctors      start:0x803CB3E4 end:0x803CB3E8
+
+GuiSys/CGuiFrame.cpp:
+	.text       start:0x802C2D74 end:0x802C3008
+
+GuiSys/CGuiGroup.cpp:
+	.text       start:0x802C35FC end:0x802C36F4
+
+GuiSys/CGuiHeadWidget.cpp:
+	.text       start:0x802C3730 end:0x802C3810
+
+GuiSys/CGuiLight.cpp:
+	.text       start:0x802C3888 end:0x802C3C90
+
+GuiSys/CGuiModel.cpp:
+	.text       start:0x802C4214 end:0x802C45A4
+
+GuiSys/CGuiObject.cpp:
+	.text       start:0x802C4924 end:0x802C4E54
+
+GuiSys/CGuiPane.cpp:
+	.text       start:0x802C5B88 end:0x802C5CD0
+
+GuiSys/CGuiSliderGroup.cpp:
+	.text       start:0x802C5EB0 end:0x802C6258
+
+GuiSys/CGuiSys.cpp:
+	.text       start:0x802C660C end:0x802C66DC
+
+GuiSys/CGuiTableGroup.cpp:
+	.text       start:0x802C758C end:0x802C7700
+
+GuiSys/CGuiTextPane.cpp:
+	.text       start:0x802C7848 end:0x802C7B30
+
+GuiSys/CGuiTextSupport.cpp:
+	.text       start:0x802C7E38 end:0x802CA718
+
+GuiSys/CGuiWidget.cpp:
+	.text       start:0x802CABC4 end:0x802CACF0
+
+GuiSys/CGuiWidgetIdDB.cpp:
+	.text       start:0x802CB208 end:0x802CB2EC
+
+GuiSys/CAuiEnergyBarT01.cpp:
+	.text       start:0x802CB334 end:0x802CB76C
+
+GuiSys/CAuiImagePane.cpp:
+	.text       start:0x802CC1C0 end:0x802CC970
+
+Collision/CCollidableAABox.cpp:
+	.text       start:0x802CD6F4 end:0x802CDA80
+
+Collision/CCollisionInfo.cpp:
+	.text       start:0x802CE584 end:0x802CE65C
+
+Collision/InternalColliders.cpp:
+	.text       start:0x802CE65C end:0x802CE774
+
+Collision/CCollisionPrimitive.cpp:
+	.text       start:0x802CE7C0 end:0x802CFD44
+	.ctors      start:0x803CB3F0 end:0x803CB3F4
+
+Collision/CMaterialList.cpp:
+	.text       start:0x802CFD44 end:0x802CFE30
+
+Collision/CollisionUtil.cpp:
+	.text       start:0x802CFE30 end:0x802D3FAC
+	.ctors      start:0x803CB3F4 end:0x803CB3F8
+
+Collision/CCollidableSphere.cpp:
+	.text       start:0x802D3FAC end:0x802D5488
+	.ctors      start:0x803CB3F8 end:0x803CB3FC
+
+Collision/CMaterialFilter.cpp:
+	.text       start:0x802D5488 end:0x802D55D0
+	.ctors      start:0x803CB3FC end:0x803CB400
+
+Collision/COBBox.cpp:
+	.text       start:0x802D55D0 end:0x802D6124
+
+Collision/CMRay.cpp:
+	.text       start:0x802D6124 end:0x802D62EC
+
+Kyoto/Basics/CBasics.cpp:
+	.text       start:0x802D62EC end:0x802D63A0
+
+Kyoto/Basics/CStopwatch.cpp:
+	.text       start:0x802D63A0 end:0x802D6490
+	.ctors      start:0x803CB400 end:0x803CB404
+
+Kyoto/Basics/CBasicsDolphin.cpp:
+	.text       start:0x802D6490 end:0x802D6500
+
+Kyoto/Alloc/CCallStackDolphin.cpp:
+	.text       start:0x802D6500 end:0x802D651C
+
+Kyoto/Basics/COsContextDolphin.cpp:
+	.text       start:0x802D651C end:0x802D6858
+
+Kyoto/Basics/CSWDataDolphin.cpp:
+	.text       start:0x802D6858 end:0x802D6968
+
+Kyoto/Basics/RAssertDolphin.cpp:
+	.text       start:0x802D6968 end:0x802D6EF4
+
+Kyoto/Animation/CAnimation.cpp:
+	.text       start:0x802D6EF4 end:0x802D6F60
+
+Kyoto/Animation/CAnimationManager.cpp:
+	.text       start:0x802D6F60 end:0x802D70A8
+
+Kyoto/Animation/CAnimationSet.cpp:
+	.text       start:0x802D7570 end:0x802D78CC
+
+Kyoto/Animation/CAnimTreeLoopIn.cpp:
+	.text       start:0x802D8C04 end:0x802D8E78
+
+Kyoto/Animation/CAnimTreeSequence.cpp:
+	.text       start:0x802DB4B8 end:0x802DBB64
+
+Kyoto/Animation/CCharacterInfo.cpp:
+	.text       start:0x802DEAB0 end:0x802DEDD4
+
+Kyoto/Animation/CCharacterSet.cpp:
+	.text       start:0x802DF644 end:0x802DF6F8
+
+Kyoto/Animation/CMetaAnimBlend.cpp:
+	.text       start:0x802DFC1C end:0x802E0090
+
+Kyoto/Animation/CMetaAnimFactory.cpp:
+	.text       start:0x802E014C end:0x802E03B0
+
+Kyoto/Animation/CMetaAnimPhaseBlend.cpp:
+	.text       start:0x802E0574 end:0x802E0998
+
+Kyoto/Animation/CMetaAnimPlay.cpp:
+	.text       start:0x802E0C58 end:0x802E0E40
+
+Kyoto/Animation/CMetaAnimRandom.cpp:
+	.text       start:0x802E11D0 end:0x802E13C8
+
+Kyoto/Animation/CMetaAnimSequence.cpp:
+	.text       start:0x802E1BB8 end:0x802E1E0C
+
+Kyoto/Animation/CMetaTransFactory.cpp:
+	.text       start:0x802E1F5C end:0x802E214C
+
+Kyoto/Animation/CMetaTransMetaAnim.cpp:
+	.text       start:0x802E21F8 end:0x802E2320
+
+Kyoto/Animation/CMetaTransPhaseTrans.cpp:
+	.text       start:0x802E24F4 end:0x802E2AE4
+
+Kyoto/Animation/CMetaTransTrans.cpp:
+	.text       start:0x802E2E68 end:0x802E2F3C
+
+Kyoto/Animation/CPASAnimInfo.cpp:
+	.text       start:0x802E2FD8 end:0x802E3078
+
+Kyoto/Animation/CPASAnimState.cpp:
+	.text       start:0x802E42C0 end:0x802E4664
+
+Kyoto/Animation/CPASDatabase.cpp:
+	.text       start:0x802E52DC end:0x802E53F0
+
+Kyoto/Animation/CPASParmInfo.cpp:
+	.text       start:0x802E58C0 end:0x802E5A18
+
+Kyoto/Animation/CPrimitive.cpp:
+	.text       start:0x802E5A18 end:0x802E5A98
+
+Kyoto/Animation/CSequenceHelper.cpp:
+	.text       start:0x802E5AF8 end:0x802E6654
+
+Kyoto/Animation/CTransition.cpp:
+	.text       start:0x802E6F94 end:0x802E701C
+
+Kyoto/Animation/CTreeUtils.cpp:
+	.text       start:0x802E705C end:0x802E721C
+
+Kyoto/Animation/IMetaAnim.cpp:
+	.text       start:0x802E7710 end:0x802E7988
+
+Kyoto/Audio/CSfxHandle.cpp:
+	.text       start:0x802E79DC end:0x802E79F8
+
+Kyoto/Audio/CSfxManager.cpp:
+	.text       start:0x802E9114 end:0x802E97D0
+
+Kyoto/Animation/CAdvancementDeltas.cpp:
+	.text       start:0x802EB734 end:0x802EB82C
+
+Kyoto/Animation/CAnimMathUtils.cpp:
+	.text       start:0x802EB908 end:0x802EBB68
+
+Kyoto/Animation/CAnimPOIData.cpp:
+	.text       start:0x802EC100 end:0x802EC20C
+
+Kyoto/Animation/CAnimSource.cpp:
+	.text       start:0x802EC874 end:0x802ECCF0
+
+Kyoto/Animation/CAnimSourceReader.cpp:
+	.text       start:0x802EF320 end:0x802EF700
+
+Kyoto/Animation/CAnimSourceReaderBase.cpp:
+	.text       start:0x802EFA20 end:0x802F003C
+
+Kyoto/Animation/CAnimTreeAnimReaderContainer.cpp:
+	.text       start:0x802F1C0C end:0x802F1CF0
+
+Kyoto/Animation/CAnimTreeBlend.cpp:
+	.text       start:0x802F234C end:0x802F25E4
+
+Kyoto/Animation/CAnimTreeContinuousPhaseBlend.cpp:
+	.text       start:0x802F2828 end:0x802F28F8
+
+Kyoto/Animation/CAnimTreeDoubleChild.cpp:
+	.text       start:0x802F2C80 end:0x802F33AC
+
+Kyoto/Animation/CAnimTreeNode.cpp:
+	.text       start:0x802F3D68 end:0x802F3E40
+
+Kyoto/Animation/CAnimTreeTimeScale.cpp:
+	.text       start:0x802F5640 end:0x802F5B18
+
+Kyoto/Animation/CAnimTreeTransition.cpp:
+	.text       start:0x802F5FD4 end:0x802F6400
+
+Kyoto/Animation/CAnimTreeTweenBase.cpp:
+	.text       start:0x802F6C18 end:0x802F716C
+
+Kyoto/Animation/CBoolPOINode.cpp:
+	.text       start:0x802F7C24 end:0x802F7CC4
+
+Kyoto/Animation/CCharAnimMemoryMetrics.cpp:
+	.text       start:0x802F7D18 end:0x802F7D38
+
+Kyoto/Animation/CCharLayoutInfo.cpp:
+	.text       start:0x802F7D38 end:0x802F8EBC
+
+Kyoto/Animation/CFBStreamedAnimReader.cpp:
+	.text       start:0x802FA8D0 end:0x802FAFAC
+
+Kyoto/Animation/CFBStreamedCompression.cpp:
+	.text       start:0x802FBB58 end:0x802FBF20
+
+Kyoto/Animation/CInt32POINode.cpp:
+	.text       start:0x802FD018 end:0x802FD0C0
+
+Kyoto/Animation/CParticlePOINode.cpp:
+	.text       start:0x802FD124 end:0x802FD1C4
+
+Kyoto/Animation/CPOINode.cpp:
+	.text       start:0x802FD2CC end:0x802FD380
+
+Kyoto/Animation/CSegStatementSet.cpp:
+	.text       start:0x802FD5A8 end:0x802FD754
+
+Kyoto/Animation/CTimeScaleFunctions.cpp:
+	.text       start:0x802FD854 end:0x802FD9D0
+
+Kyoto/Animation/CAllFormatsAnimSource.cpp:
+	.text       start:0x802FE0E0 end:0x802FE308
+
+Kyoto/CDvdRequest.cpp:
+	.text       start:0x802FE8F0 end:0x802FE9A4
+
+Kyoto/Text/CDrawStringOptions.cpp:
+	.text       start:0x802FEB44 end:0x802FEBF0
+
+Kyoto/Text/CFontInstruction.cpp:
+	.text       start:0x802FECA4 end:0x802FEDB0
+
+Kyoto/Text/CFontRenderState.cpp:
+	.text       start:0x802FEE34 end:0x802FF97C
+
+Kyoto/Text/CLineExtraSpaceInstruction.cpp:
+	.text       start:0x802FF97C end:0x802FFA10
+
+Kyoto/Text/CLineInstruction.cpp:
+	.text       start:0x802FFA10 end:0x802FFE1C
+
+Kyoto/Text/CLineSpacingInstruction.cpp:
+	.text       start:0x802FFE1C end:0x802FFEB0
+
+Kyoto/Text/CPopStateInstruction.cpp:
+	.text       start:0x802FFEB0 end:0x802FFF98
+
+Kyoto/Text/CPushStateInstruction.cpp:
+	.text       start:0x802FFF98 end:0x80300044
+
+Kyoto/Text/CRasterFont.cpp:
+	.text       start:0x80300044 end:0x803019AC
+
+Kyoto/Text/CRemoveColorOverrideInstruction.cpp:
+	.text       start:0x803019AC end:0x80301A68
+
+Kyoto/Text/CSaveableState.cpp:
+	.text       start:0x80301A68 end:0x80301CA0
+
+Kyoto/Text/CTextExecuteBuffer.cpp:
+	.text       start:0x80301CA0 end:0x803041D4
+
+Kyoto/Text/CTextInstruction.cpp:
+	.text       start:0x803041D4 end:0x8030446C
+
+Kyoto/Text/CTextParser.cpp:
+	.text       start:0x8030446C end:0x80305B10
+
+Kyoto/Text/CWordBreakTables.cpp:
+	.text       start:0x80305B10 end:0x80305D58
+
+Kyoto/Text/CWordInstruction.cpp:
+	.text       start:0x80305D58 end:0x80305F48
+
+Kyoto/Text/CBlockInstruction.cpp:
+	.text       start:0x80305F48 end:0x80306108
+
+Kyoto/Text/CFont.cpp:
+	.text       start:0x80306108 end:0x80306194
+
+Kyoto/Graphics/CLight.cpp:
+	.text       start:0x80306194 end:0x803067A0
+	.ctors      start:0x803CB408 end:0x803CB40C
+
+Kyoto/Graphics/CCubeModel.cpp:
+	.text       start:0x803067A0 end:0x80307D2C
+
+Kyoto/Graphics/CGX.cpp:
+	.text       start:0x80307D2C end:0x80309018
+	.ctors      start:0x803CB40C end:0x803CB410
+
+Kyoto/Graphics/CTevCombiners.cpp:
+	.text       start:0x80309018 end:0x80309468
+	.ctors      start:0x803CB410 end:0x803CB414
+
+Kyoto/Graphics/DolphinCGraphics.cpp:
+	.text       start:0x80309468 end:0x8030DFCC
+	.ctors      start:0x803CB414 end:0x803CB418
+
+Kyoto/Graphics/DolphinCPalette.cpp:
+	.text       start:0x8030DFCC end:0x8030E27C
+
+Kyoto/Graphics/DolphinCTexture.cpp:
+	.text       start:0x8030E27C end:0x80310094
+
+Kyoto/Math/CloseEnough.cpp:
+	.text       start:0x80310094 end:0x80310168
+	.ctors      start:0x803CB418 end:0x803CB41C
+
+Kyoto/Math/CMatrix3f.cpp:
+	.text       start:0x80310168 end:0x80310890
+	.ctors      start:0x803CB41C end:0x803CB420
+
+Kyoto/Math/CMatrix4f.cpp:
+	.text       start:0x80310890 end:0x80310B58
+	.ctors      start:0x803CB420 end:0x803CB424
+
+Kyoto/Math/CNUQuaternion.cpp:
+	.text       start:0x80310B58 end:0x80311190
+
+Kyoto/Math/CQuaternion.cpp:
+	.text       start:0x80311190 end:0x8031264C
+	.ctors      start:0x803CB424 end:0x803CB428
+
+Kyoto/CRandom16.cpp:
+	.text       start:0x8031264C end:0x80312850
+
+Kyoto/Math/CTransform4f.cpp:
+	.text       start:0x80312850 end:0x80313F40
+	.ctors      start:0x803CB428 end:0x803CB42C
+
+Kyoto/Math/CUnitVector3f.cpp:
+	.text       start:0x80313F40 end:0x80313FD4
+
+Kyoto/Math/CVector2f.cpp:
+	.text       start:0x80313FD4 end:0x803143BC
+	.ctors      start:0x803CB42C end:0x803CB430
+
+Kyoto/Math/CVector2i.cpp:
+	.text       start:0x803143BC end:0x803144C8
+
+Kyoto/Math/CVector3d.cpp:
+	.text       start:0x803144C8 end:0x80314720
+
+Kyoto/Math/CVector3f.cpp:
+	.text       start:0x80314720 end:0x80314DB8
+	.ctors      start:0x803CB430 end:0x803CB434
+
+Kyoto/Math/CVector3i.cpp:
+	.text       start:0x80314DB8 end:0x80314DC8
+
+Kyoto/Math/RMathUtils.cpp:
+	.text       start:0x80314DC8 end:0x80315700
+
+Kyoto/CCrc32.cpp:
+	.text       start:0x80315700 end:0x803157D0
+
+Kyoto/Alloc/CCircularBuffer.cpp:
+	.text       start:0x803157D0 end:0x80315988
+
+Kyoto/Alloc/CMemory.cpp:
+	.text       start:0x80315988 end:0x80315E08
+	.ctors      start:0x803CB434 end:0x803CB438
+
+Kyoto/Alloc/IAllocator.cpp:
+	.text       start:0x80315E08 end:0x80315EE8
+
+Kyoto/PVS/CPVSVisOctree.cpp:
+	.text       start:0x80315EE8 end:0x803160E8
+
+Kyoto/PVS/CPVSVisSet.cpp:
+	.text       start:0x803160E8 end:0x80316538
+
+Kyoto/Particles/CColorElement.cpp:
+	.text       start:0x80316538 end:0x8031779C
+
+Kyoto/Particles/CElementGen.cpp:
+	.text       start:0x8031779C end:0x80320DF8
+
+Kyoto/Particles/CIntElement.cpp:
+	.text       start:0x80320DF8 end:0x80322B64
+
+Kyoto/Particles/CModVectorElement.cpp:
+	.text       start:0x80322B64 end:0x80324A84
+
+Kyoto/Particles/CParticleDataFactory.cpp:
+	.text       start:0x80324A84 end:0x8032A740
+	.ctors      start:0x803CB438 end:0x803CB43C
+
 Kyoto/Particles/CParticleGen.cpp:
 	.text       start:0x8032A740 end:0x8032A7EC
 	.rodata     start:0x803D7A30 end:0x803D7A38
@@ -753,6 +2294,9 @@ dolphin/os/OSReset.c:
 dolphin/os/OSResetSW.c:
 	.text       start:0x8038360C end:0x80383998
 	.sbss       start:0x805A95E0 end:0x805A9600
+
+dolphin/os/OSRtc.c:
+	.text       start:0x80383CFC end:0x80384004
 
 dolphin/os/OSThread.c:
 	.text       start:0x8038456C end:0x803854AC
