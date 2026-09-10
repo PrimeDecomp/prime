@@ -1,6 +1,8 @@
 #ifndef _CMAPAREA
 #define _CMAPAREA
 
+#include <stdint.h>
+
 #include "MetroidPrime/CMappableObject.hpp"
 
 #include "Kyoto/CFactoryFnReturn.hpp"
@@ -23,7 +25,11 @@ public:
     const int* x1c_outlineOffset;
 
   public:
+#if UINTPTR_MAX > UINT32_MAX
+    CMapAreaSurface(CInputStream& in, const void* buf);
+#else
     void PostConstruct(const void* buf);
+#endif
     void Draw(const CVector3f* verts, const CColor& surfColor, const CColor& lineColor,
               float lineWidth) const;
 
@@ -64,6 +70,10 @@ private:
   CVector3f* x3c_vertexStart;
   CMapAreaSurface* x40_surfaceStart;
   rstl::single_ptr< uchar > x44_buf;
+
+#if UINTPTR_MAX > UINT32_MAX
+  rstl::vector< CMapAreaSurface > mNativeSurfaces;
+#endif
 
   static int gUsedMemory;
 };
