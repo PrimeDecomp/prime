@@ -47,8 +47,11 @@ void CBSJump::Start(CBodyController& bc, CStateManager& mgr) {
   x30_27_hasWallBounced = false;
 
   if (x30_25_wallJump) {
-    const CVector3f toWall = xc_waypoint1 - bc.GetOwner().GetTranslation();
-    const CVector3f toFinal = x24_waypoint2 - xc_waypoint1;
+    CVector3f toWall = xc_waypoint1;
+    toWall -= bc.GetOwner().GetTranslation();
+    const CVector3f toFinal(x24_waypoint2.GetX() - xc_waypoint1.GetX(),
+                           x24_waypoint2.GetY() - xc_waypoint1.GetY(),
+                           x24_waypoint2.GetZ() - xc_waypoint1.GetZ());
     const CVector3f cross = CVector3f::Cross(toWall, CVector3f::Up());
     x30_26_wallBounceRight = CVector3f::Dot(cross, toFinal) < 0.f;
   }
@@ -69,7 +72,7 @@ void CBSJump::PlayJumpLoop(CStateManager& mgr, CBodyController& bc) {
   rstl::pair< float, int > best =
       bc.GetPASDatabase().FindBestAnimation(ambushParms, *mgr.Random(), -1);
 
-  if (best.first > FLT_EPSILON) {
+  if (best.first > 99.f) {
     x4_state = pas::kJS_AmbushJump;
     const CAnimPlaybackParms playParms(best.second, -1, 1.f, true);
     bc.SetCurrentAnimation(playParms, false, false);
@@ -163,7 +166,7 @@ pas::EAnimationState CBSJump::UpdateBody(float dt, CBodyController& bc, CStateMa
 
         if (CPatterned* actor = TCastToPtr< CPatterned >(&bc.GetOwner())) {
           const CVector3f d = x24_waypoint2 - actor->GetTranslation();
-          const float factor = CMath::SqrtF(actor->GetGravityConstant() / (2.f * d.GetZ()));
+          const float factor = CMath::SqrtF(actor->GetGravityConstant() / (-2.f * d.GetZ()));
           actor->SetVelocityWR(CVector3f(factor * d.GetX(), factor * d.GetY(), 0.f));
         }
       }
