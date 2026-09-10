@@ -1,4 +1,5 @@
 #include "Kyoto/Audio/CAudioGroupSet.hpp"
+#include "Kyoto/Basics/CBasics.hpp"
 
 #include "Kyoto/Audio/CAudioSys.hpp"
 
@@ -29,16 +30,28 @@ CAudioGrpSetLoc::CAudioGrpSetLoc(const rstl::auto_ptr< uchar >& data, int length
   CAudioSys::GetVerbose();
 
   const uint projectOffset = readPosition + poolSize;
+#if TARGET_LITTLE_ENDIAN
+  const uint projectSize = CBasics::SwapBytes(*reinterpret_cast< uint* >(data.get() + projectOffset));
+#else
   const uint projectSize = *reinterpret_cast< uint* >(data.get() + projectOffset);
+#endif
   CAudioSys::GetVerbose();
 
   const uint sampOffset = 4 + projectSize + projectOffset;
+#if TARGET_LITTLE_ENDIAN
+  const uint sampSize = CBasics::SwapBytes(*reinterpret_cast< uint* >(data.get() + sampOffset));
+#else
   const uint sampSize = *reinterpret_cast< uint* >(data.get() + sampOffset);
+#endif
   CAudioSys::GetVerbose();
   x30_aramSize = sampSize;
 
   const uint sdirOffset = 4 + sampOffset + sampSize;
+#if TARGET_LITTLE_ENDIAN
+  const uint sdirSize = CBasics::SwapBytes(*reinterpret_cast< uint* >(data.get() + sdirOffset));
+#else
   const uint sdirSize = *reinterpret_cast< uint* >(data.get() + sdirOffset);
+#endif
   CAudioSys::GetVerbose();
 
   x8_groupData = rstl::auto_ptr< uchar >(static_cast< uchar* >(

@@ -2,6 +2,7 @@
 #define _CAREARENDEROCTTREE
 
 #include "types.h"
+#include "Kyoto/Basics/CBasics.hpp"
 
 #include "Kyoto/Math/CAABox.hpp"
 #include "rstl/auto_ptr.hpp"
@@ -33,7 +34,7 @@ struct CAreaRenderOctTree {
   explicit CAreaRenderOctTree(const rstl::auto_ptr< const uchar >& buf);
 
   const Node* GetNode(int idx) const {
-    return reinterpret_cast< const Node* >(x38_entries + x34_indirectionTable[idx]);
+    return reinterpret_cast< const Node* >(x38_entries + CBasics::SwapBytes(x34_indirectionTable[idx]));
   }
 
   void FindOverlappingModels(rstl::vector< uint >& out, const CAABox& testAABB) const;

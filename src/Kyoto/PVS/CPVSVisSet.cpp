@@ -1,7 +1,9 @@
 #include "Kyoto/PVS/CPVSVisSet.hpp"
+#include "Kyoto/Basics/CBasics.hpp"
 #include "Kyoto/Basics/CCast.hpp"
 #include "Kyoto/PVS/CPVSVisOctree.hpp"
 #include "Kyoto/Streams/CMemoryInStream.hpp"
+#include <string.h>
 
 CPVSVisSet::CPVSVisSet(int numBits, int numLights, const rstl::auto_ptr< const char >& leafPtr)
 : x0_state(kVSS_NodeFound), x4_numBits(numBits), x8_numLights(numLights), xc_ptr(leafPtr) {}
@@ -65,7 +67,13 @@ CPVSVisSet CPVSVisOctree::GetVisSet(const CVector3f& point) {
     if (child != 0) {
       if ((nodeData & 0x60) == 0) {
         const int index = child - 1;
-        data += reinterpret_cast< const ushort* >(data)[index];
+#ifdef __MWERKS__
+        data += CBasics::SwapBytes(reinterpret_cast< const ushort* >(data)[index]);
+#else
+        ushort offset;
+        memcpy(&offset, data + index * sizeof(offset), sizeof(offset));
+        data += CBasics::SwapBytes(offset);
+#endif
       } else if (nodeData & 0x20) {
         data += CCast::ToUint8(data[child - 1]);
       } else {

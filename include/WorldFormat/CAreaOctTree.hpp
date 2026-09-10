@@ -2,6 +2,7 @@
 #define _CAREAOCTTREE
 
 #include "types.h"
+#include "Kyoto/Basics/CBasics.hpp"
 
 #include "WorldFormat/CCollisionSurface.hpp"
 
@@ -29,8 +30,14 @@ public:
   public:
     explicit TriListReference(const void* ptr) : m_ptr(reinterpret_cast< const ushort* >(ptr)) {}
     explicit TriListReference(const ushort* ptr) : m_ptr(ptr) {}
-    const ushort GetAt(int idx) const { return m_ptr[idx + kTriangleDataOffset]; }
-    const ushort GetSize() const { return m_ptr[kTriangleCountOffset]; }
+    const ushort GetAt(int idx) const {
+#if TARGET_LITTLE_ENDIAN
+      return CBasics::SwapBytes(m_ptr[idx + kTriangleDataOffset]);
+#else
+      return m_ptr[idx + kTriangleDataOffset];
+#endif
+    }
+    const ushort GetSize() const { return CBasics::SwapBytes(m_ptr[kTriangleCountOffset]); }
 
   private:
     // Leaf records store bounds, then a ushort count followed by the triangle indices.
@@ -58,11 +65,13 @@ public:
 
     const CAreaOctTree& GetOwner() const { return x1c_owner; }
     const CAABox& GetBoundingBox() const { return x0_aabb; }
-    ushort GetChildFlags() const { return *reinterpret_cast< const ushort* >(x18_ptr); }
+    ushort GetChildFlags() const {
+      return CBasics::SwapBytes(*reinterpret_cast< const ushort* >(x18_ptr));
+    }
     Node GetChild(int idx) const;
     TriListReference GetTriangleArray() const;
     ETreeType GetChildType(int idx) const {
-      ushort flags = *reinterpret_cast< const ushort* >(x18_ptr);
+      ushort flags = CBasics::SwapBytes(*reinterpret_cast< const ushort* >(x18_ptr));
       return ETreeType((flags >> (2 * idx)) & 0x3);
     }
     ETreeType GetTreeType() const { return x20_nodeType; }

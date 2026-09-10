@@ -2,6 +2,7 @@
 #define _CCUBEMATERIAL
 
 #include "types.h"
+#include "Kyoto/Basics/CBasics.hpp"
 
 #include "Kyoto/Graphics/CModelFlags.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
@@ -31,19 +32,22 @@ public:
   static void KillCachedViewDepState();
 
   inline const uchar* GetData() const { return static_cast< const uchar* >(x0_data); }
-  uint GetFlags() const { return *reinterpret_cast< const uint* >(GetData()); }
+  uint GetFlags() const { return CBasics::SwapBytes(*reinterpret_cast< const uint* >(GetData())); }
   bool IsFlagSet(const EStateFlags flag) const { return (GetFlags() & flag) != 0; }
   void SetCurrent(const CModelFlags& flags, const CCubeSurface& surface,
                   const CCubeModel& mode) const;
   void SetCurrentBlack() const;
-  uint GetTextureCount() const { return *reinterpret_cast< const u32* >(GetData() + 4); }
+  uint GetTextureCount() const {
+    return CBasics::SwapBytes(*reinterpret_cast< const uint* >(GetData() + 4));
+  }
   uint GetVertexDesc() const {
-    return *reinterpret_cast< const uint* >(GetData() + (GetTextureCount() * sizeof(uint) + sizeof(uint) * 2));
+    return CBasics::SwapBytes(*reinterpret_cast< const uint* >(
+        GetData() + (GetTextureCount() * sizeof(uint) + sizeof(uint) * 2)));
   }
   
   // TODO: Figure out wtf is going on here
   uint GetVertexDescLwzx() const {
-    return static_cast< const uint* >(x0_data)[GetTextureCount() + 2];
+    return CBasics::SwapBytes(static_cast< const uint* >(x0_data)[GetTextureCount() + 2]);
   }
 
   uint GetCompressedBlend() const;

@@ -1,4 +1,5 @@
 #include "Kyoto/Graphics/CCubeModel.hpp"
+#include "Kyoto/Basics/CBasics.hpp"
 
 #include "Kyoto/Graphics/CCubeSurface.hpp"
 #include "Kyoto/Graphics/CGX.hpp"
@@ -12,7 +13,7 @@ bool CCubeModel::sUsingPackedLightmaps = false;
 
 inline uint GetMaterialOffset(const uchar* materialData, const int idx) {
   materialData += (idx * 4);
-  return *reinterpret_cast< const uint* >(materialData - 4);
+  return CBasics::SwapBytes(*reinterpret_cast< const uint* >(materialData - 4));
 }
 
 CCubeModel::CCubeModel(rstl::vector< void* >* surfaces,
@@ -52,12 +53,12 @@ void CCubeModel::MakeTexturesFromMats(const void* data,
                                       rstl::vector< TCachedToken< CTexture > >& textures,
                                       IObjectStore& store, const bool cache) {
   const uint* textureIds = static_cast< const uint* >(data);
-  const uint textureCount = *static_cast< const int* >(data);
+  const uint textureCount = CBasics::SwapBytes(*static_cast< const int* >(data));
   textureIds++;
   textures.reserve(textureCount);
 
   for (int i = 0; i < textureCount; i++) {
-    textures.push_back(store.GetObj(SObjectTag('TXTR', *textureIds)));
+    textures.push_back(store.GetObj(SObjectTag('TXTR', CBasics::SwapBytes(*textureIds))));
     if (!cache) {
       textures.back().ForceCache();
     }
@@ -116,6 +117,7 @@ CCubeMaterial CCubeModel::GetMaterialByIndex(const int idx) const {
   const uchar* materialData = static_cast< const uchar* >(x0_instance.GetMaterialPointer()) +
                               (x1c_textures->size() + 1) * 4;
   materialCount = *reinterpret_cast< const uint* >(materialData++);
+  materialCount = CBasics::SwapBytes(materialCount);
   materialData++;
   materialData++;
   materialData++;
@@ -142,7 +144,13 @@ static inline const ushort ReadWireframeIndex(const uchar* data) {
   uchar bytes[2];
   bytes[0] = data[0];
   bytes[1] = data[1];
-  return *reinterpret_cast< const ushort* >(bytes);
+#ifdef __MWERKS__
+  return CBasics::SwapBytes(*reinterpret_cast< const ushort* >(bytes));
+#else
+  ushort value;
+  memcpy(&value, bytes, sizeof(value));
+  return CBasics::SwapBytes(value);
+#endif
 }
 
 void CCubeModel::DrawSurfaceWireframe(const CCubeSurface& surface) const {

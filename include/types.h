@@ -1,6 +1,8 @@
 #ifndef _TYPES
 #define _TYPES
 
+#include "ByteOrder.hpp"
+
 #ifdef __cplusplus
 #include "static_assert.hpp"
 
@@ -26,8 +28,6 @@ typedef unsigned char uchar;
 
 // Pointer to unknown, to be determined at a later date.
 typedef void* unkptr;
-
-#define SBig(x) x
 
 #define ARRAY_SIZE(arr) static_cast< int >(sizeof(arr) / sizeof(arr[0]))
 

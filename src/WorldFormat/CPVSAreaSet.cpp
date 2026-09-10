@@ -1,4 +1,5 @@
 #include "Kyoto/PVS/CPVSVisOctree.hpp"
+#include "Kyoto/Basics/CBasics.hpp"
 #include "rstl/auto_ptr.hpp"
 #include <Kyoto/PVS/CPVSVisSet.hpp>
 #include <Kyoto/Streams/CMemoryInStream.hpp>
@@ -44,5 +45,5 @@ CPVSVisSet CPVSAreaSet::GetLightSet(int lightIdx) const {
 }
 
 int CPVSAreaSet::GetEntityIdByIndex(uint idx) const {
-  return reinterpret_cast< const int* >(x18_)[idx];
+  return CBasics::SwapBytes(reinterpret_cast< const int* >(x18_)[idx]);
 }
