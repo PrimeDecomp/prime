@@ -223,9 +223,11 @@ void CPlayer::ComputeDash(const CFinalInput& input, float dt, CStateManager& mgr
       strafeVelocity *= strafeInput;
       CSfxManager::RemoveEmitter(x778_dashSfx);
     } else {
+      const int outOfWaterTicks = x2b0_outOfWaterTicks;
       if (x39c_noStrafeDashBlend) {
-        strafeVelocity =
-            dt * (x398_dashSpeedMultiplier * skDashStrafeDistances[GetSurfaceRestraint()]);
+        const ESurfaceRestraints restraint =
+            outOfWaterTicks == 2 ? GetCurrentSurfaceRestraint() : kSR_Water;
+        strafeVelocity = dt * (x398_dashSpeedMultiplier * skDashStrafeDistances[restraint]);
       } else {
         float blend = CMath::Limit(x384_dashTimer / x3a4_strafeDashBlendDuration, 1.f);
         blend = 1.f - blend;
@@ -257,9 +259,10 @@ void CPlayer::ComputeDash(const CFinalInput& input, float dt, CStateManager& mgr
   strafeVelocity = dt * (forwardInput * skOrbitForwardDistances[GetSurfaceRestraint()]);
   orbitPoint += strafeVelocity * -useOrbitToPlayer.AsNormalized();
   const CVector2f flatVelocity(GetVelocityWR().GetX(), GetVelocityWR().GetY());
+  const float flatVelocityY = flatVelocity.GetY();
   CVector3f newVelocity = (orbitPoint - GetTranslation()) / dt;
   newVelocity.SetZ(GetVelocityWR().GetZ());
-  CVector3f velocityDelta = newVelocity - CVector3f(flatVelocity.GetX(), flatVelocity.GetY(), 0.f);
+  CVector3f velocityDelta = newVelocity - CVector3f(flatVelocity.GetX(), flatVelocityY, 0.f);
   velocityDelta.SetZ(0.f);
   const float deltaMagnitude = velocityDelta.Magnitude();
   if (deltaMagnitude > FLT_EPSILON) {
@@ -343,7 +346,7 @@ void CPlayer::ComputeMovement(const CFinalInput& input, CStateManager& mgr, floa
     forwardForce = 0.f;
   }
   if (x304_orbitState == kOS_NoOrbit || x3dd_lookButtonHeld) {
-    const CVector3f force = CVector3f(0.f, 0.f, 0.f) + CVector3f(0.f, forwardForce, jumpInput);
+    const CVector3f force = CVector3f(0.f, forwardForce, 0.f) + CVector3f(0.f, 0.f, jumpInput);
     ApplyForceOR(force, CAxisAngle::Identity());
     if (turnInput != 0.f) {
       ApplyForceOR(CVector3f::Zero(),
@@ -884,12 +887,12 @@ CTransform4f CPlayer::CreateTransformFromMovementDirection() const {
 void CPlayer::BombJump(const CVector3f& position, CStateManager& mgr) {
   if (x2f8_morphBallState == kMS_Morphed &&
       x768_morphball->GetBombJumpState() != CMorphBall::kBJS_BombJumpDisabled) {
-    const float maxDistance = gpTweakPlayer->GetBombJumpHeight();
+    const float extent = gpTweakPlayer->GetPlayerBallHalfExtent();
     const CVector3f toBall =
-        GetTranslation() + CVector3f(0.f, 0.f, gpTweakPlayer->GetPlayerBallHalfExtent()) - position;
+        GetTranslation() + CVector3f(0.f, 0.f, extent) - position;
+    const float maxDistance = gpTweakPlayer->GetBombJumpHeight();
     if (toBall.MagSquared() < maxDistance * maxDistance &&
-        CVector3f::Dot(CVector3f(0.f, 0.f, 1.f), toBall) >=
-            -gpTweakPlayer->GetPlayerBallHalfExtent()) {
+        CVector3f::Dot(CVector3f(0.f, 0.f, 1.f), toBall) >= -extent) {
       float velocity = sqrt(2.0 * fabs(gpTweakPlayer->GetNormalGravAccel()) *
                             gpTweakPlayer->GetBombJumpRadius());
       mgr.GetRumbleManager()->Rumble(mgr, kRFX_PlayerBump, 0.3f, kRP_One);
@@ -1123,7 +1126,7 @@ void CPlayer::UpdatePlayerHints(CStateManager& mgr) {
   if (!x980_playerHintsToAdd.empty()) {
     for (AUTO(id, x980_playerHintsToAdd.begin()); id != x980_playerHintsToAdd.end(); ++id) {
       TUniqueId uid = *id;
-      const CScriptPlayerHint* hint = TCastToConstPtr< CScriptPlayerHint >(mgr.GetObjectById(uid));
+      const CScriptPlayerHint* const hint = TCastToConstPtr< CScriptPlayerHint >(mgr.GetObjectById(uid));
       if (hint) {
         bool exists = false;
         for (rstl::reserved_vector< rstl::pair< int, TUniqueId >, 32 >::const_iterator it =
