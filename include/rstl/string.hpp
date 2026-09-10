@@ -360,7 +360,11 @@ wstring wstring_l(const wchar_t* data) {
 string string_l(const char* data);
 
 string operator+(const string& a, const string& b);
-wstring operator+(const wstring& a, const wstring& b);
+inline wstring operator+(const wstring& a, const wstring& b) {
+  wstring result(a);
+  result.append(b);
+  return result;
+}
 
 inline string operator+(const string& a, char c) {
   string result(a);
