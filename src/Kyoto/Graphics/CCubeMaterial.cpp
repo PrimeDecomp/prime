@@ -9,15 +9,12 @@
 #include "Kyoto/Graphics/CTexture.hpp"
 #include "Kyoto/Math/CMath.hpp"
 #include "Kyoto/Math/CPlane.hpp"
+#include "Kyoto/Math/CTransform4f.hpp"
 
 #include "MetaRender/CCubeRenderer.hpp"
 #include <dolphin/mtx.h>
 
-#ifndef __MWERKS__
-void __memcpy(void*, const void*, int);
-#endif
-
-#include "Kyoto/Math/CTransform4f.hpp"
+#include "Kyoto/MemoryCopy.hpp"
 
 static const float gkEpsilon32 = FLT_EPSILON;
 
@@ -175,7 +172,7 @@ static uint HandleAnimatedUV(const uint* uvAnim, GXTexMtx texMtx, GXPTTexMtx ptT
     const CVector3f& rowY = mm.GetRow(kDY);
     const CVector3f& rowZ = mm.GetRow(kDZ);
     Mtx tmpTexMtx;
-    __memcpy(&tmpTexMtx, &sTexMtx, sizeof(Mtx));
+    memcpy(&tmpTexMtx, &sTexMtx, sizeof(Mtx));
     tmpTexMtx[0][0] = rowX[kDX];
     tmpTexMtx[0][1] = rowX[kDY];
     tmpTexMtx[0][2] = rowX[kDZ];
@@ -186,7 +183,7 @@ static uint HandleAnimatedUV(const uint* uvAnim, GXTexMtx texMtx, GXPTTexMtx ptT
     tmpTexMtx[2][1] = rowZ[kDY];
     tmpTexMtx[2][2] = rowZ[kDZ];
     Mtx tmpPtMtx;
-    __memcpy(&tmpPtMtx, &sPtMtx, sizeof(Mtx));
+    memcpy(&tmpPtMtx, &sPtMtx, sizeof(Mtx));
     tmpPtMtx[0][3] = mm.Get03() * 0.05f;
     tmpPtMtx[1][3] = mm.Get13() * 0.05f;
     CGX::LoadTexMtxImm(tmpTexMtx, texMtx, GX_MTX3x4);
@@ -204,7 +201,7 @@ static uint HandleAnimatedUV(const uint* uvAnim, GXTexMtx texMtx, GXPTTexMtx ptT
         CGraphics::GetModelMatrix());
     xf.SetTranslation(CVector3f::Zero());
     Mtx tmpPtMtx;
-    __memcpy(&tmpPtMtx, &sPtMtx, sizeof(Mtx));
+    memcpy(&tmpPtMtx, &sPtMtx, sizeof(Mtx));
     float scale = SBig(params[0]);
     scale = 0.5f * scale;
     tmpPtMtx[0][0] = scale;
@@ -306,7 +303,7 @@ static void DoModelShadow(uint texCount, uint tcgCount) {
   spShadowTexture->Load(static_cast< GXTexMapID >(texCount), CTexture::kCM_Repeat);
 
   Mtx mtx;
-  __memcpy(&mtx, &identity2D, sizeof(Mtx));
+  memcpy(&mtx, &identity2D, sizeof(Mtx));
   mtx[0][0] = sTextureProjectionTransform.Get00();
   mtx[0][1] = sTextureProjectionTransform.Get01();
   mtx[0][2] = sTextureProjectionTransform.Get02();
@@ -816,7 +813,7 @@ void CCubeMaterial::EnsureViewDepStateCached(const CCubeSurface* surface) {
   yScale *= scale * sThrobY;
 
   Mtx texMtx;
-  __memcpy(&texMtx, &texMtx2, sizeof(Mtx));
+  memcpy(&texMtx, &texMtx2, sizeof(Mtx));
   texMtx[0][0] = xScale * right.GetX();
   texMtx[0][1] = xScale * right.GetY();
   texMtx[0][3] = -CVector3f::Dot(modelPoint, right) * xScale + 0.5f;

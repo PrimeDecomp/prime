@@ -4,7 +4,7 @@
 #include "Kyoto/Graphics/CTexture.hpp"
 #include "dolphin/os/OSCache.h"
 
-void __memcpy(void*, const void*, int);
+#include "Kyoto/MemoryCopy.hpp"
 
 bool CMemoryCardSys::mIsInitialized;
 bool CMemoryCardSys::mIsCardSysExists;
@@ -26,7 +26,7 @@ ECardResult SMemoryCardFileInfo::FileRead() {
     }
     const uint saveSize = size - offset;
     saveData.assign(saveSize);
-    memcpy(saveData.data(), static_cast< const uchar* >(data) + offset, saveSize);
+    (memcpy)(saveData.data(), static_cast< const uchar* >(data) + offset, saveSize);
     x24_saveFileData = rstl::vector< uchar, rstl::aligned_allocator >();
     return kCR_READY;
   } else {
@@ -131,7 +131,7 @@ void CMemoryCardSys::CCardFileInfo::BuildCardBuffer() {
     WriteBannerData(out);
     WriteIconData(out);
   }
-  memcpy(x104_cardBuffer.data() + bannerSize, xf4_saveBuffer.data(), xf4_saveBuffer.size());
+  (memcpy)(x104_cardBuffer.data() + bannerSize, xf4_saveBuffer.data(), xf4_saveBuffer.size());
   *static_cast< uint* >(data) =
       CCRC32::Calculate(static_cast< const uchar* >(data) + 4, totalSize - 4);
   xf4_saveBuffer = rstl::vector< uchar >();
@@ -413,7 +413,7 @@ ECardResult CMemoryCardSys::GetSerialNo(EMemoryCardPort port, long long& serialO
 ECardResult CMemoryCardSys::GetStatus(EMemoryCardPort port, int fileNo, CardStat& statOut) {
   CARDStat stat;
   ECardResult result = static_cast< ECardResult >(CARDGetStatus(port, fileNo, &stat));
-  __memcpy(&statOut.x0_stat, &stat, sizeof(stat));
+  memcpy(&statOut.x0_stat, &stat, sizeof(stat));
   return result;
 }
 
