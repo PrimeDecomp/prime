@@ -197,7 +197,7 @@ void CFluidPlaneDoor::Render(const CStateManager& mgr, float alpha, const CAABox
                                               0, 0, 0, 0, 0, 0, 0, NULL);
 
         CFluidPlaneCPURender::SPatchInfo& lcInfo =
-            *reinterpret_cast< CFluidPlaneCPURender::SPatchInfo* >(0xe0000000);
+            *reinterpret_cast< CFluidPlaneCPURender::SPatchInfo* >(LCGetBase());
         lcInfo = info;
 
         RenderPatch(lcInfo, true, true);

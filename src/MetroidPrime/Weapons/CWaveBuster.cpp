@@ -362,7 +362,7 @@ void CWaveBuster::RenderElectricSpiral() const {
   const CVector3f c = inverse * x324_bezierC;
   const CVector3f d = inverse * GetTranslation();
   float radius = 0.f;
-  CVector3f* vertices = reinterpret_cast< CVector3f* >(LC_BASE);
+  CVector3f* vertices = reinterpret_cast< CVector3f* >(LCGetBase());
   CVector3f previous = a;
   for (float t = 0.16f; t <= 1.f; t += 0.16f) {
     const CVector3f point = CMath::GetBezierPoint(a, b, c, d, t);
@@ -391,8 +391,8 @@ void CWaveBuster::RenderElectricSpiral() const {
   CGraphics::SetTevOp(kTS_Stage0, CGraphics::kEnvPassthru);
   CGraphics::SetTevOp(kTS_Stage1, CGraphics::kEnvPassthru);
   gpRender->SetModelMatrix(x2e8_originalXf);
-  DrawLineList(reinterpret_cast< CVector3f* >(LC_BASE), CColor::White(), 216, 12);
-  DrawLineList(reinterpret_cast< CVector3f* >(LC_BASE), CColor(1.f, 0.f, 1.f, 0.5f), 216, 48);
+  DrawLineList(reinterpret_cast< CVector3f* >(LCGetBase()), CColor::White(), 216, 12);
+  DrawLineList(reinterpret_cast< CVector3f* >(LCGetBase()), CColor(1.f, 0.f, 1.f, 0.5f), 216, 48);
   CGX::SetLineWidth(6, GX_TO_ZERO);
 }
 

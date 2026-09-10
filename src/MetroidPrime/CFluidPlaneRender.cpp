@@ -1256,8 +1256,8 @@ void RenderPatch(const CFluidPlaneCPURender::SPatchInfo& info, bool noRipples,
     for (; startYDiv < static_cast< int >(static_cast< signed char >(info.x1_ySubdivs)) - 2;
          startYDiv += CFluidPlaneCPURender::numSubdivisionsInTile) {
       RenderStripWithRipples(
-          *reinterpret_cast< CFluidPlaneCPURender::SHFieldSample(*)[45][45] >(0xe00000a0),
-          *reinterpret_cast< const unsigned char (*)[9][9] >(0xe0000040), startYDiv, curY, info);
+          *reinterpret_cast< CFluidPlaneCPURender::SHFieldSample(*)[45][45] >(static_cast< uchar* >(LCGetBase()) + 0xa0),
+          *reinterpret_cast< const unsigned char (*)[9][9] >(static_cast< uchar* >(LCGetBase()) + 0x40), startYDiv, curY, info);
       curY += info.x14_tileSize;
     }
   }

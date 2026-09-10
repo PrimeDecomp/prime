@@ -894,7 +894,7 @@ void CGraphics::DrawPrimitive(ERglPrimitive primitive, const float* pos, const C
 
 #define STREAM_PRIM_BUFFER_SIZE 240
 
-#define VTX_BUFFER_ADDR LC_BASE
+#define VTX_BUFFER_ADDR static_cast< uchar* >(LCGetBase())
 #if NONMATCHING
 // Bug fix: these should be 3 times larger to avoid overflow
 // Likely the result of bad pointer arithmetic

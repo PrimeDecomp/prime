@@ -356,7 +356,7 @@ const bool UpdatePatch(float time, CFluidPlaneCPURender::SPatchInfo& info,
 
   const float (&sineTable)[256] = GetGlobalSineWave();
 
-  DCZeroRange(reinterpret_cast< void* >(0xe0000040), 0x51);
+  DCZeroRange(static_cast< uchar* >(LCGetBase()) + 0x40, 0x51);
 
   rstl::reserved_vector< SRippleInfo, 32 > rippleInfos;
   bool noRipples = true;
@@ -380,19 +380,19 @@ const bool UpdatePatch(float time, CFluidPlaneCPURender::SPatchInfo& info,
     return noRipples;
   }
 
-  SHFieldSample(&heights)[45][45] = *reinterpret_cast< SHFieldSample(*)[45][45] >(0xe00000a0);
+  SHFieldSample(&heights)[45][45] = *reinterpret_cast< SHFieldSample(*)[45][45] >(static_cast< uchar* >(LCGetBase()) + 0xa0);
 
-  ApplyTurbulence(time, heights, reinterpret_cast< unsigned char* >(0xe0000040), sineTable, info,
+  ApplyTurbulence(time, heights, reinterpret_cast< unsigned char* >(static_cast< uchar* >(LCGetBase()) + 0x40), sineTable, info,
                   fluidPlane, areaCenter);
-  ApplyRipples(rippleInfos, heights, *reinterpret_cast< unsigned char (*)[9][9] >(0xe0000040),
+  ApplyRipples(rippleInfos, heights, *reinterpret_cast< unsigned char (*)[9][9] >(static_cast< uchar* >(LCGetBase()) + 0x40),
                sineTable, info);
 
   if (static_cast< int >(info.x37_normalMode) ==
       static_cast< int >(CFluidPlaneCPURender::kNM_NoNormals)) {
-    UpdatePatchNoNormals(heights, *reinterpret_cast< const unsigned char (*)[9][9] >(0xe0000040),
+    UpdatePatchNoNormals(heights, *reinterpret_cast< const unsigned char (*)[9][9] >(static_cast< uchar* >(LCGetBase()) + 0x40),
                          info);
   } else {
-    UpdatePatchWithNormals(heights, *reinterpret_cast< const unsigned char (*)[9][9] >(0xe0000040),
+    UpdatePatchWithNormals(heights, *reinterpret_cast< const unsigned char (*)[9][9] >(static_cast< uchar* >(LCGetBase()) + 0x40),
                            info);
   }
 
@@ -1086,7 +1086,7 @@ void CFluidPlaneCPU::Render(const CStateManager& mgr, float alpha, const CAABox&
               blueShiftU, tileX, gridDimX, gridDimY, tileY, gridFlags);
 
           CFluidPlaneCPURender::SPatchInfo& lcInfo =
-              *reinterpret_cast< CFluidPlaneCPURender::SPatchInfo* >(0xe0000000);
+              *reinterpret_cast< CFluidPlaneCPURender::SPatchInfo* >(LCGetBase());
           lcInfo = info;
 
           int fromX = tileX != 0 ? 2 - CFluidPlaneCPURender::numSubdivisionsInTile : 0;
