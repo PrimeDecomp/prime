@@ -24,10 +24,10 @@ public:
   int GetLogScanCount() const;
   void SetFusionBeat(bool v);
   void SetHasFusion(bool v);
-  bool GetFusionLinked() const { return xd0_24_fusionLinked; }
+  const bool GetFusionLinked() const { return xd0_24_fusionLinked; }
   bool GetNormalModeBeat() const { return xd0_25_normalModeBeat; }
   bool GetHardModeBeat() const { return xd0_26_hardModeBeat; }
-  bool GetFusionBeat() const { return xd0_27_fusionBeat; }
+  const bool GetFusionBeat() const { return xd0_27_fusionBeat; }
   bool GetHasFusion() const { return xd0_28_fusionSuitActive; }
 
   bool GetCinematicState(rstl::pair< CAssetId, TEditorId > cineId) const;

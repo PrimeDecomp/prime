@@ -75,6 +75,10 @@ public:
     kMM_GBAFileSelectB
   };
 
+  struct SMenuMovieData {
+    rstl::auto_ptr< CMoviePlayer > x0_movie;
+  };
+
   struct SGuiTextPair {
     CGuiTextPane* x0_textPane;
     CGuiTextPane* x4_textPaneB;
@@ -149,7 +153,7 @@ public:
     void DoPopupAdvance(CGuiTableGroup* caller);
     void DoPopupCancel(CGuiTableGroup* caller);
 
-    static void StartTextAnimating(CGuiTextPane* text, rstl::wstring str, float chRate);
+    static void StartTextAnimating(CGuiTextPane* text, const rstl::wstring& str, float chRate);
   };
 
   struct SFusionBonusFrame {
@@ -311,7 +315,7 @@ private:
   float x60_pressStartTime;
   float x64_pressStartAlpha;
   float x68_musicVol;
-  rstl::reserved_vector< rstl::auto_ptr< CMoviePlayer >, 9 > x6c_menuMovies;
+  rstl::reserved_vector< SMenuMovieData, 9 > x6c_menuMovies;
   EMenuMovie xb8_curMovie;
   int xbc_nextAttract;
   int xc0_attractCount;
@@ -331,6 +335,7 @@ private:
   CStaticAudioPlayer* xf4_curAudio;
 };
 
+NESTED_CHECK_SIZEOF(CFrontEndUI, SMenuMovieData, 0x8)
 NESTED_CHECK_SIZEOF(CFrontEndUI, SGuiTextPair, 0x8)
 NESTED_CHECK_SIZEOF(CFrontEndUI, SFileSelectOption, 0x30)
 NESTED_CHECK_SIZEOF(CFrontEndUI, SNewFileSelectFrame, 0x110)

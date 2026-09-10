@@ -74,7 +74,13 @@ static const FEMovie FEMovies[] = {
     {"Video/08_GBA_fileselect.thp", false},
 };
 
+#if VERSION == 0
+const char MetroidBuildInfo[] = BUILD_INFO_TAG "Build v1.088 10/29/2002 2:21:25\0PAD";
+#elif VERSION == 1
+const char MetroidBuildInfo[] = BUILD_INFO_TAG "Build v1.093 11/5/2002 19:50:01\0PAD";
+#else
 const char MetroidBuildInfo[] = BUILD_INFO;
+#endif
 const char* const BuildTime = MetroidBuildInfo + BUILD_INFO_TAG_SIZE;
 
 static const s16 FETransitionBackSFX[3][2] = {
@@ -715,8 +721,8 @@ float CFrontEndUI::SFileSelectOption::ComputeRandom() {
   return rand() / static_cast< float >(RAND_MAX) * 30.f + 30.f;
 }
 
-void CFrontEndUI::SNewFileSelectFrame::StartTextAnimating(CGuiTextPane* text, rstl::wstring str,
-                                                          float chRate) {
+void CFrontEndUI::SNewFileSelectFrame::StartTextAnimating(CGuiTextPane* text,
+                                                          const rstl::wstring& str, float chRate) {
   text->TextSupport().SetText(rstl::wstring_l(L""));
   text->TextSupport().SetText(str);
   text->TextSupport().SetTypeWriteEffectOptions(true, 0.1f, chRate);
@@ -885,7 +891,8 @@ CFrontEndUI::SNewFileSelectFrame::ProcessUserInput(const CFinalInput& input) {
   }
 
   if (IsTextDoneAnimating()) {
-    x108_curTime = rstl::min_val(0.5f, x108_curTime + input.Time());
+    const float maxTime = 0.5f;
+    x108_curTime = rstl::min_val(maxTime, x108_curTime + input.Time());
   }
 
   if (x108_curTime < 0.5f) {
@@ -1001,6 +1008,7 @@ void CFrontEndUI::SNewFileSelectFrame::SetupFrameContents() {
     CGuiTextPane* pane1 = populatePair.x4_textPaneB;
     rstl::wstring str;
 
+    char timeBuf[32];
     switch (option.x28_curField) {
     case 0:
       if (data != nullptr) {
@@ -1019,19 +1027,16 @@ void CFrontEndUI::SNewFileSelectFrame::SetupFrameContents() {
         if (gpMemoryCard->HasSaveWorldMemory(data->x8_mlvlId)) {
           worldName = gpMemoryCard->GetSaveWorldMemory(data->x8_mlvlId).GetFrontEndName();
         }
-        str = rstl::wstring_l(worldName != nullptr ? worldName : L"");
+        str = rstl::wstring_l(worldName != nullptr ? worldName : L"??????");
       } else {
         str = rstl::wstring_l(gpStringTable->GetString(0x33));
       }
       break;
     case 2:
       if (data != nullptr) {
-        int seconds = static_cast< int >(data->x0_playTime);
-        int hours = seconds / 3600;
-        int minutes = (seconds % 3600) / 60;
-        char buf[32];
-        sprintf(buf, "%02d:%02d", hours, minutes);
-        str = CStringExtras::ConvertToUNICODE(rstl::string_l(buf));
+        sprintf(timeBuf, "%02d:%02d", static_cast< int >(data->x0_playTime) / 3600,
+                (static_cast< int >(data->x0_playTime) % 3600) / 60);
+        str = CStringExtras::ConvertToUNICODE(rstl::string_l(timeBuf));
       } else {
         str = rstl::wstring_l(gpStringTable->GetString(0x34));
       }
@@ -1290,7 +1295,7 @@ void CFrontEndUI::SNewFileSelectFrame::DoPopupAdvance(CGuiTableGroup* caller) {
         return;
       }
       int fileSelection = GetUserFileSelection();
-      gpGameState->SetHardMode(!x40_tablegroup_popup->GetUserSelection());
+      gpGameState->SetHardMode(x40_tablegroup_popup->GetUserSelection() == 0);
       x4_saveUI->StartGame(fileSelection);
     } else {
       if (x40_tablegroup_popup->GetUserSelection() == 1) {
@@ -1384,19 +1389,14 @@ void CFrontEndUI::SFusionBonusFrame::Update(float dt, CSaveGameScreen* saveUI) {
   const wchar_t* text1;
   if (x3a_mpNotComplete) {
     text1 = gpStringTable->GetString(0x50);
-  } else if (showFusionSuit) {
-    text1 = L"";
   } else {
-    text1 = gpStringTable->GetString(0x4e);
+    text1 = showFusionSuit ? L"" : gpStringTable->GetString(0x4e);
   }
-
   const wchar_t* text0;
   if (x39_fusionNotComplete) {
     text0 = gpStringTable->GetString(0x4f);
-  } else if (fusionBeat) {
-    text0 = L"";
   } else {
-    text0 = gpStringTable->GetString(0x4d);
+    text0 = fusionBeat ? L"" : gpStringTable->GetString(0x4d);
   }
 
   x30_textpane_instructions.SetPairText(sel == 1 ? text1 : text0);
@@ -1597,7 +1597,7 @@ CFrontEndUI::CFrontEndUI()
 , x60_pressStartTime(0.f)
 , x64_pressStartAlpha(0.f)
 , x68_musicVol(1.f)
-, x6c_menuMovies(rstl::auto_ptr< CMoviePlayer >())
+, x6c_menuMovies(SMenuMovieData())
 , xb8_curMovie(kMM_Stopped)
 , xbc_nextAttract(0)
 , xc0_attractCount(0)
@@ -1766,7 +1766,7 @@ CIOWin::EMessageReturn CFrontEndUI::Update(float dt, CArchitectureQueue& queue) 
     } else {
       UpdateMovies(dt);
       for (int i = 0; i < 9; ++i) {
-        if (!x6c_menuMovies[i]->GetIsFullyCached()) {
+        if (!x6c_menuMovies[i].x0_movie->GetIsFullyCached()) {
           moviesReady = false;
           break;
         }
@@ -1809,8 +1809,11 @@ CIOWin::EMessageReturn CFrontEndUI::Update(float dt, CArchitectureQueue& queue) 
         } else {
           CSaveGameScreen* saveUI = xdc_saveUI.get();
           bool optionsActive = true;
-          if (saveUI != nullptr && saveUI->GetUIType() != CSaveGameScreen::kUIT_SaveReady) {
-            optionsActive = false;
+          if (saveUI != nullptr) {
+            CSaveGameScreen::EUIType type = saveUI->GetUIType();
+            if (type != CSaveGameScreen::kUIT_SaveReady) {
+              optionsActive = false;
+            }
           }
           if (optionsActive) {
             xf0_optionsFrme->Update(dt, xdc_saveUI.get());
@@ -1850,18 +1853,17 @@ CIOWin::EMessageReturn CFrontEndUI::Update(float dt, CArchitectureQueue& queue) 
       UpdateMovies(dt);
 
       // Press start pulsing
-      if (x50_curScreen == kS_Title && x54_nextScreen == kS_Title) {
-        if (x58_fadeBlackTimer < 30.f - gpTweakGame->GetPressStartDelay()) {
-          x60_pressStartTime = static_cast< float >(fmod(x60_pressStartTime + dt, 1.0));
-          float halfTime = 0.5f;
-          float alpha;
-          if (x60_pressStartTime < halfTime) {
-            alpha = x60_pressStartTime / halfTime;
-          } else {
-            alpha = (1.f - x60_pressStartTime) / halfTime;
-          }
-          x64_pressStartAlpha = alpha;
+      if (x50_curScreen == kS_Title && x54_nextScreen == kS_Title &&
+          x58_fadeBlackTimer < 30.f - gpTweakGame->GetPressStartDelay()) {
+        x60_pressStartTime = static_cast< float >(fmod(x60_pressStartTime + dt, 1.0));
+        float halfTime = 0.5f;
+        float alpha;
+        if (x60_pressStartTime < halfTime) {
+          alpha = x60_pressStartTime / halfTime;
+        } else {
+          alpha = (1.f - x60_pressStartTime) / halfTime;
         }
+        x64_pressStartAlpha = alpha;
       } else {
         x60_pressStartTime = 0.f;
         x64_pressStartAlpha = 0.f;
@@ -1872,16 +1874,15 @@ CIOWin::EMessageReturn CFrontEndUI::Update(float dt, CArchitectureQueue& queue) 
     if (x50_curScreen == kS_Title && x54_nextScreen == kS_FileSelect) {
       if (xcc_curMoviePtr->CanDrawVideo()) {
         float delay = AudioFadeTimeA[x18_rndA];
-        float t = (xcc_curMoviePtr->GetPlayedSeconds() - delay) / 2.5f;
-        x68_musicVol = 1.f - CMath::Clamp(0.f, t, 1.f);
+        x68_musicVol =
+            1.f - CMath::Clamp(0.f, (xcc_curMoviePtr->GetPlayedSeconds() - delay) / 2.5f, 1.f);
       }
     } else if (x54_nextScreen == kS_ToPlayGame) {
       if (xcc_curMoviePtr->CanDrawVideo()) {
         float delay = AudioFadeTimeB[x1c_rndB];
         float played = xcc_curMoviePtr->GetPlayedSeconds();
         float total = xcc_curMoviePtr->GetTotalSeconds();
-        float t = (played - delay) / (total - delay);
-        x68_musicVol = 1.f - CMath::Clamp(0.f, t, 1.f);
+        x68_musicVol = 1.f - CMath::Clamp(0.f, (played - delay) / (total - delay), 1.f);
       }
     } else {
       x68_musicVol = 1.f;
@@ -1905,8 +1906,8 @@ bool CFrontEndUI::PumpMovieLoad() {
   }
 
   for (int i = 0; i < 9; ++i) {
-    if (x6c_menuMovies[i].null()) {
-      const FEMovie* movie = &FEMovies[i];
+    if (x6c_menuMovies[i].x0_movie.null()) {
+      const FEMovie* movie = &FEMovies[static_cast< EMenuMovie >(i)];
       char path[256];
       strcpy(path, movie->path);
 
@@ -1916,12 +1917,12 @@ bool CFrontEndUI::PumpMovieLoad() {
         path[strlen(path) - 5] = static_cast< char >(x1c_rndB + 'A');
       }
 
-      x6c_menuMovies[i] = rs_new CMoviePlayer(path, 0.05f, movie->loop, true);
-      x6c_menuMovies[i]->SetPlayMode(CMoviePlayer::kPM_Stopped);
+      x6c_menuMovies[i].x0_movie = rs_new CMoviePlayer(path, 0.05f, movie->loop, true);
+      x6c_menuMovies[i].x0_movie->SetPlayMode(CMoviePlayer::kPM_Stopped);
       return false;
     }
 
-    if (x6c_menuMovies[i]->PumpIndexLoad()) {
+    if (x6c_menuMovies[i].x0_movie->PumpIndexLoad()) {
       return false;
     }
   }
@@ -1941,8 +1942,8 @@ void CFrontEndUI::UpdateMovies(float dt) {
   }
 
   for (int i = 0; i < 9; ++i) {
-    if (!x6c_menuMovies[i].null()) {
-      x6c_menuMovies[i]->Update(dt);
+    if (!x6c_menuMovies[i].x0_movie.null()) {
+      x6c_menuMovies[i].x0_movie->Update(dt);
     }
   }
 
@@ -1973,7 +1974,8 @@ void CFrontEndUI::ProcessUserInput(const CFinalInput& input, CArchitectureQueue&
   if (x50_curScreen != x54_nextScreen) {
     if (x54_nextScreen == kS_AttractMovie) {
       if (input.PStart() || input.PA()) {
-        SetFadeBlackTimer(rstl::min_val(x58_fadeBlackTimer, 1.f));
+        const float maxFade = 1.f;
+        SetFadeBlackTimer(rstl::min_val(x58_fadeBlackTimer, maxFade));
         PlayAdvanceSfx();
         return;
       }
@@ -2106,20 +2108,20 @@ void CFrontEndUI::Draw() const {
   }
   if (x64_pressStartAlpha > 0.f && x38_pressStart.GetObject() != nullptr) {
     CTexture* tex = x38_pressStart.GetObject();
-    int width = tex->GetWidth();
-    int height = tex->GetHeight();
+    short width = tex->GetWidth();
+    short height = tex->GetHeight();
     CGraphics::SetTevOp(kTS_Stage0, CGraphics::kEnvModulate);
     CGraphics::SetTevOp(kTS_Stage1, CGraphics::kEnvPassthru);
     gpRender->SetBlendMode_AdditiveAlpha();
     gpRender->SetDepthReadWrite(false, false);
-    CColor color = CColor::White().WithAlphaOf(x64_pressStartAlpha);
+    const CColor& color = CColor::White().WithAlphaOf(x64_pressStartAlpha);
     CGraphics::Render2D(*tex, 320 - width / 2, 72 - height / 2, width, height, color);
   }
 
   if (GetHasAttractMovies()) {
     if (IsInScreenNotTransitioning(kS_Title) || x54_nextScreen == kS_AttractMovie) {
       if (x58_fadeBlackTimer < 1.f) {
-        CColor color = CColor::Black().WithAlphaOf(1.f - x58_fadeBlackTimer);
+        const CColor& color = CColor::Black().WithAlphaOf(1.f - x58_fadeBlackTimer);
         CCameraFilterPass::DrawFilter(CCameraFilterPass::kFT_Blend,
                                       CCameraFilterPass::kFS_Fullscreen, color, nullptr, 1.f);
       }
@@ -2129,12 +2131,12 @@ void CFrontEndUI::Draw() const {
   if (xd0_playerSkipToTitle) {
     if (x54_nextScreen == kS_Title && x50_curScreen == kS_OpenCredits) {
       float t = CMath::Clamp(0.f, x58_fadeBlackTimer, 1.f);
-      CColor color = CColor::Black().WithAlphaOf(1.f - t);
+      const CColor& color = CColor::Black().WithAlphaOf(1.f - t);
       CCameraFilterPass::DrawFilter(CCameraFilterPass::kFT_Blend, CCameraFilterPass::kFS_Fullscreen,
                                     color, nullptr, 1.f);
     } else if (x54_nextScreen == kS_Title && x50_curScreen == kS_Title) {
       float t = CMath::Clamp(0.f, 30.f - x58_fadeBlackTimer, 1.f);
-      CColor color = CColor::Black().WithAlphaOf(1.f - t);
+      const CColor& color = CColor::Black().WithAlphaOf(1.f - t);
       CCameraFilterPass::DrawFilter(CCameraFilterPass::kFT_Blend, CCameraFilterPass::kFS_Fullscreen,
                                     color, nullptr, 1.f);
     }
@@ -2281,7 +2283,7 @@ void CFrontEndUI::SetCurrentMovie(EMenuMovie movie) {
   }
   xb8_curMovie = movie;
   if (xb8_curMovie != kMM_Stopped) {
-    xcc_curMoviePtr = x6c_menuMovies[movie].get();
+    xcc_curMoviePtr = x6c_menuMovies[movie].x0_movie.get();
     xcc_curMoviePtr->SetPlayMode(CMoviePlayer::kPM_Playing);
   } else {
     xcc_curMoviePtr = nullptr;
