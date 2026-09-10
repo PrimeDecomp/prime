@@ -1,27 +1,59 @@
 #include "rstl/red_black_tree.hpp"
 
+namespace {
+
+struct fake_node {
+  fake_node* mLeft;
+  fake_node* mRight;
+  fake_node* mParent;
+  rstl::node_color mColor;
+
+  fake_node* get_left() const { return mLeft; }
+
+  void set_left(fake_node* value) { mLeft = value; }
+
+  fake_node* get_right() const { return mRight; }
+
+  void set_right(fake_node* value) { mRight = value; }
+
+  fake_node* get_parent() const { return mParent; }
+
+  void set_parent(fake_node* value) { mParent = value; }
+
+  rstl::node_color get_color() const { return mColor; }
+
+  void set_color(rstl::node_color value) { mColor = value; }
+};
+
+struct fake_header {
+  fake_node* mLeftmost;
+  fake_node* mRightmost;
+  fake_node* mRootNode;
+
+  fake_node* get_leftmost() const { return mLeftmost; }
+
+  void set_leftmost(fake_node* value) { mLeftmost = value; }
+
+  fake_node* get_rightmost() const { return mRightmost; }
+
+  void set_rightmost(fake_node* value) { mRightmost = value; }
+
+  fake_node* get_root() const { return mRootNode; }
+
+  void set_root(fake_node* value) { mRootNode = value; }
+};
+
+} // namespace
+
 namespace rstl {
 
-struct _node {
-  _node* mLeft;
-  _node* mRight;
-  _node* mParent;
-  node_color mColor;
-};
-
-struct _header {
-  _node* mLeftmost;
-  _node* mRightmost;
-  _node* mRootNode;
-};
-
 void rbtree_rotate_left(void* header_void, void* node_void) {
-  _header* header = static_cast< _header* >(header_void);
-  _node* node = static_cast< _node* >(node_void);
+  fake_header* header = static_cast< fake_header* >(header_void);
+  fake_node* node = static_cast< fake_node* >(node_void);
 
-  _node* parent = node->mParent;
-  _node* right = node->mRight;
-  _node* l = right->mLeft;
+  fake_node* parent = node->mParent;
+  fake_node* right = node->mRight;
+  fake_node* l = right->mLeft;
 
   if (parent == nullptr) {
     header->mRootNode = right;
@@ -43,12 +75,12 @@ void rbtree_rotate_left(void* header_void, void* node_void) {
 }
 
 void rbtree_rotate_right(void* header_void, void* node_void) {
-  _header* header = static_cast< _header* >(header_void);
-  _node* node = static_cast< _node* >(node_void);
+  fake_header* header = static_cast< fake_header* >(header_void);
+  fake_node* node = static_cast< fake_node* >(node_void);
 
-  _node* parent = node->mParent;
-  _node* left = node->mLeft;
-  _node* r = left->mRight;
+  fake_node* parent = node->mParent;
+  fake_node* left = node->mLeft;
+  fake_node* r = left->mRight;
 
   if (parent == nullptr) {
     header->mRootNode = left;
@@ -70,11 +102,11 @@ void rbtree_rotate_right(void* header_void, void* node_void) {
 }
 
 void rbtree_rebalance(void* header_void, void* node_void) {
-  _node* node = static_cast< _node* >(node_void);
-  _header* header = static_cast< _header* >(header_void);
+  fake_node* node = static_cast< fake_node* >(node_void);
+  fake_header* header = static_cast< fake_header* >(header_void);
 
   while (node->mParent != nullptr && node->mParent->mColor == kNC_Red) {
-    _node* p = node->mParent->mParent->mLeft;
+    fake_node* p = node->mParent->mParent->mLeft;
     if (node->mParent == p) {
       p = node->mParent->mParent->mRight;
       if ((p != nullptr && p->mColor == kNC_Red)) {
@@ -112,188 +144,181 @@ void rbtree_rebalance(void* header_void, void* node_void) {
 }
 
 void* rbtree_rebalance_for_erase(void* header_void, void* node_void) {
-  _header* header = static_cast< _header* >(header_void);
-  _node* node = static_cast< _node* >(node_void);
+  fake_node* node = static_cast< fake_node* >(node_void);
+  fake_node* successor = node;
+  fake_node* replacement;
+  fake_node* parent;
+  fake_header* header = static_cast< fake_header* >(header_void);
 
-  _node* replacement;
-  _node* successor = node;
-  _node* parent;
-
-  if (node->mLeft == nullptr) {
-    replacement = node->mRight;
+  if (node->get_left() == nullptr) {
+    replacement = node->get_right();
   } else {
-    _node* tmp = node->mRight;
+    fake_node* tmp = node->get_right();
     if (tmp == nullptr) {
-      replacement = tmp;
+      replacement = node->get_left();
     } else {
-      do {
-        successor = tmp;
-        tmp = successor->mLeft;
-      } while (successor->mLeft != nullptr);
-      replacement = successor->mRight;
+      successor = tmp;
+      while (successor->get_left() != nullptr) {
+        successor = successor->get_left();
+      }
+      replacement = successor->get_right();
     }
   }
 
   if (successor != node) {
-    node->mLeft->mParent = successor;
-    successor->mLeft = node->mLeft;
+    node->get_left()->set_parent(successor);
+    successor->set_left(node->get_left());
 
-    parent = successor;
-    if (successor != node->mRight) {
-      parent = successor->mParent;
+    if (successor != node->get_right()) {
+      parent = successor->get_parent();
       if (replacement != nullptr) {
-        replacement->mParent = successor->mParent;
+        replacement->set_parent(successor->get_parent());
       }
-      successor->mParent->mLeft = replacement;
-      successor->mRight = node->mRight;
-      node->mRight->mParent = successor;
-    }
-
-    if (header->mRootNode == node) {
-      header->mRootNode = successor;
+      successor->get_parent()->set_left(replacement);
+      successor->set_right(node->get_right());
+      node->get_right()->set_parent(successor);
     } else {
-      if (node->mParent->mLeft == node) {
-        node->mParent->mLeft = successor;
+      parent = successor;
+    }
+
+    if (header->get_root() == node) {
+      header->set_root(successor);
+    } else {
+      if (node->get_parent()->get_left() == node) {
+        node->get_parent()->set_left(successor);
       } else {
-        node->mParent->mRight = successor;
+        node->get_parent()->set_right(successor);
       }
     }
 
-    successor->mParent = node->mParent;
-    node_color c = successor->mColor;
-    successor->mColor = node->mColor;
-    node->mColor = c;
+    successor->set_parent(node->get_parent());
+    node_color c = successor->get_color();
+    successor->set_color(node->get_color());
+    node->set_color(c);
     successor = node;
 
   } else {
-    parent = successor->mParent;
+    parent = successor->get_parent();
     if (replacement != nullptr) {
-      replacement->mParent = parent;
+      replacement->set_parent(parent);
     }
-    if (header->mRootNode == node) {
-      header->mRootNode = replacement;
+    if (header->get_root() == node) {
+      header->set_root(replacement);
     } else {
-      if (node->mParent->mLeft == node) {
-        node->mParent->mLeft = replacement;
+      if (node->get_parent()->get_left() == node) {
+        node->get_parent()->set_left(replacement);
       } else {
-        node->mParent->mRight = replacement;
+        node->get_parent()->set_right(replacement);
       }
     }
 
-    if (header->mLeftmost == node) {
-      if (node->mRight == nullptr) {
-        header->mLeftmost = node->mParent;
+    if (header->get_leftmost() == node) {
+      if (node->get_right() == nullptr) {
+        header->set_leftmost(node->get_parent());
       } else {
-        _node* iter = replacement;
         if (replacement == nullptr) {
-          header->mLeftmost = nullptr;
+          header->set_leftmost(replacement);
         } else {
-          _node* newLeftmost;
-          do {
-            newLeftmost = iter;
-            iter = newLeftmost->mLeft;
-          } while (newLeftmost->mLeft != nullptr);
-          header->mLeftmost = newLeftmost;
+          fake_node* newLeftmost = replacement;
+          while (newLeftmost->get_left() != nullptr) {
+            newLeftmost = newLeftmost->get_left();
+          }
+          header->set_leftmost(newLeftmost);
         }
       }
     }
 
-    if (header->mRightmost == node) {
-      if (node->mLeft == nullptr) {
-        header->mRightmost = node->mParent;
+    if (header->get_rightmost() == node) {
+      if (node->get_left() == nullptr) {
+        header->set_rightmost(node->get_parent());
       } else {
-        _node* iter = replacement;
         if (replacement == nullptr) {
-          header->mRightmost = nullptr;
+          header->set_rightmost(replacement);
         } else {
-          _node* newRightmost;
-          do {
-            newRightmost = iter;
-            iter = newRightmost->mRight;
-          } while (newRightmost->mRight != nullptr);
-          header->mRightmost = newRightmost;
+          fake_node* newRightmost = replacement;
+          while (newRightmost->get_right() != nullptr) {
+            newRightmost = newRightmost->get_right();
+          }
+          header->set_rightmost(newRightmost);
         }
       }
     }
   }
 
-  if (successor->mColor != kNC_Red) {
-    _node* currentParent;
-    _node* siblingChild;
-    _node* sibling;
+  if (successor->get_color() != kNC_Red) {
+    fake_node* siblingChild;
+    fake_node* sibling;
 
-    while (true) {
-      currentParent = parent;
-      if (replacement == header->mRootNode || (replacement && replacement->mColor != kNC_Black)) {
-        break;
-      }
-      sibling = currentParent->mLeft;
+    while (replacement != header->get_root() &&
+           (!replacement || replacement->get_color() == kNC_Black)) {
+      sibling = parent->get_left();
       if (replacement == sibling) {
         // Replacement is left child, sibling is on the right
-        sibling = currentParent->mRight;
-        if (sibling->mColor == kNC_Red) {
-          sibling->mColor = kNC_Black;
-          currentParent->mColor = kNC_Red;
-          rbtree_rotate_left(header, currentParent);
-          sibling = currentParent->mRight;
+        sibling = parent->get_right();
+        if (sibling->get_color() == kNC_Red) {
+          sibling->set_color(kNC_Black);
+          parent->set_color(kNC_Red);
+          rbtree_rotate_left(header, parent);
+          sibling = parent->get_right();
         }
-        siblingChild = sibling->mLeft;
-        if (((siblingChild != nullptr) && (siblingChild->mColor != kNC_Black)) ||
-            ((sibling->mRight != nullptr && (sibling->mRight->mColor != kNC_Black)))) {
-          if ((sibling->mRight == nullptr) || (sibling->mRight->mColor == kNC_Black)) {
+        siblingChild = sibling->get_left();
+        if ((!siblingChild || siblingChild->get_color() == kNC_Black) &&
+            (!sibling->get_right() || sibling->get_right()->get_color() == kNC_Black)) {
+          sibling->set_color(kNC_Red);
+          replacement = parent;
+          parent = parent->get_parent();
+        } else {
+          if ((sibling->get_right() == nullptr) || (sibling->get_right()->get_color() == kNC_Black)) {
             if (siblingChild != nullptr) {
-              siblingChild->mColor = kNC_Black;
+              siblingChild->set_color(kNC_Black);
             }
-            sibling->mColor = kNC_Red;
+            sibling->set_color(kNC_Red);
             rbtree_rotate_right(header, sibling);
-            sibling = currentParent->mRight;
+            sibling = parent->get_right();
           }
-          sibling->mColor = currentParent->mColor;
-          currentParent->mColor = kNC_Black;
-          if (sibling->mRight != nullptr) {
-            sibling->mRight->mColor = kNC_Black;
+          sibling->set_color(parent->get_color());
+          parent->set_color(kNC_Black);
+          if (sibling->get_right() != nullptr) {
+            sibling->get_right()->set_color(kNC_Black);
           }
-          rbtree_rotate_left(header, currentParent);
+          rbtree_rotate_left(header, parent);
           break;
         }
-        sibling->mColor = kNC_Red;
-        parent = currentParent->mParent;
-        replacement = currentParent;
       } else {
         // Replacement is right child, sibling is on the left
-        if (sibling->mColor == kNC_Red) {
-          sibling->mColor = kNC_Black;
-          currentParent->mColor = kNC_Red;
-          rbtree_rotate_right(header, currentParent);
-          sibling = currentParent->mLeft;
+        if (sibling->get_color() == kNC_Red) {
+          sibling->set_color(kNC_Black);
+          parent->set_color(kNC_Red);
+          rbtree_rotate_right(header, parent);
+          sibling = parent->get_left();
         }
-        siblingChild = sibling->mRight;
-        if ((siblingChild && siblingChild->mColor != kNC_Black) ||
-            (sibling->mLeft && sibling->mLeft->mColor != kNC_Black)) {
-            
-          if (!sibling->mLeft || sibling->mLeft->mColor == kNC_Black) {
+        siblingChild = sibling->get_right();
+        if ((!siblingChild || siblingChild->get_color() == kNC_Black) &&
+            (!sibling->get_left() || sibling->get_left()->get_color() == kNC_Black)) {
+          sibling->set_color(kNC_Red);
+          replacement = parent;
+          parent = parent->get_parent();
+        } else {
+          if (!sibling->get_left() || sibling->get_left()->get_color() == kNC_Black) {
             if (siblingChild) {
-              siblingChild->mColor = kNC_Black;
+              siblingChild->set_color(kNC_Black);
             }
-            sibling->mColor = kNC_Red;
+            sibling->set_color(kNC_Red);
             rbtree_rotate_left(header, sibling);
-            sibling = currentParent->mLeft;
+            sibling = parent->get_left();
           }
-          sibling->mColor = currentParent->mColor;
-          currentParent->mColor = kNC_Black;
-          if (sibling->mLeft != nullptr) {
-            sibling->mLeft->mColor = kNC_Black;
+          sibling->set_color(parent->get_color());
+          parent->set_color(kNC_Black);
+          if (sibling->get_left() != nullptr) {
+            sibling->get_left()->set_color(kNC_Black);
           }
-          rbtree_rotate_right(header, currentParent);
+          rbtree_rotate_right(header, parent);
           break;
         }
-        sibling->mColor = kNC_Red;
-        parent = currentParent->mParent;
-        replacement = currentParent;
       }
     }
     if (replacement != nullptr) {
-      replacement->mColor = kNC_Black;
+      replacement->set_color(kNC_Black);
     }
   }
 
@@ -301,13 +326,13 @@ void* rbtree_rebalance_for_erase(void* header_void, void* node_void) {
 }
 
 void* rbtree_traverse_forward(const void* header_void, void* node_void) {
-  const _header* header = static_cast< const _header* >(header_void);
-  _node* node = static_cast< _node* >(node_void);
+  const fake_header* header = static_cast< const fake_header* >(header_void);
+  fake_node* node = static_cast< fake_node* >(node_void);
 
   if (node == nullptr) {
     return header->mLeftmost;
   }
-  _node* right = node->mRight;
+  fake_node* right = node->mRight;
   if ((right == nullptr) && (node->mParent == nullptr)) {
     return nullptr;
   }
@@ -316,7 +341,7 @@ void* rbtree_traverse_forward(const void* header_void, void* node_void) {
   }
 
   if (right != nullptr) {
-    _node* result = right;
+    fake_node* result = right;
     goto enter_middle;
     do {
       result = right;
@@ -326,7 +351,7 @@ void* rbtree_traverse_forward(const void* header_void, void* node_void) {
     return result;
   }
 
-  _node* parent = nullptr;
+  fake_node* parent = nullptr;
   goto enter_final;
   do {
     node = parent;
