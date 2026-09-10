@@ -8,13 +8,14 @@
 
 #include "Kyoto/Audio/CSfxHandle.hpp"
 #include "Kyoto/Audio/CSfxManager.hpp"
+#include "Kyoto/Basics/CCast.hpp"
 #include "Kyoto/Math/CMath.hpp"
 #include "Kyoto/Math/CRelAngle.hpp"
 #include "Kyoto/Particles/CElectricDescription.hpp"
 #include "Kyoto/Particles/CElementGen.hpp"
 #include "Kyoto/Particles/CParticleElectric.hpp"
 
-const CRelAngle CWaveBeam::kAngleStep(120.f);
+static const float skShotAnglePitch = CCast::ToReal32(120);
 
 static const ushort kSoundId[2] = {
     SFXsam_a_wavfire_00,
@@ -89,17 +90,18 @@ void CWaveBeam::Update(float dt, CStateManager& mgr) {
   }
 }
 
-void CWaveBeam::Fire(const bool underwater, const float dt, const CPlayerState::EChargeStage chargeState,
-                     const CTransform4f& xf, CStateManager& mgr, const TUniqueId homingTarget,
-                     const float chargeFactor1, const float chargeFactor2) {
+void CWaveBeam::Fire(const bool underwater, const float dt,
+                     const CPlayerState::EChargeStage chargeState, const CTransform4f& xf,
+                     CStateManager& mgr, const TUniqueId homingTarget, const float chargeFactor1,
+                     const float chargeFactor2) {
   if (chargeState != CPlayerState::kCS_Normal) {
     CGunWeapon::Fire(underwater, dt, chargeState, xf, mgr, homingTarget, chargeFactor1,
                      chargeFactor2);
   } else {
-    float randAng = mgr.Random()->Float();
+    float randAng = mgr.Random()->Float() * 360.f;
     for (int i = 0; i < 3; ++i) {
       CTransform4f shotXf = xf * CTransform4f::RotateY(CRelAngle::FromDegrees(
-                                     kAngleStep.AsRadians() * (randAng * 360.f + i)));
+                                     skShotAnglePitch * (randAng + CCast::ToReal32(i))));
       CEnergyProjectile* proj = rs_new CEnergyProjectile(
           true, x144_weapons[chargeState], GetType(), shotXf, GetPlayerMaterial(),
           GetDamageInfo(mgr, chargeState, chargeFactor1), mgr.AllocateUniqueId(), kInvalidAreaId,
@@ -114,9 +116,9 @@ void CWaveBeam::Fire(const bool underwater, const float dt, const CPlayerState::
     x218_25_enableCharge = true;
 
   NWeaponTypes::play_sfx(kSoundId[size_t(chargeState)], underwater, false, 0x4a);
-  x10_solidModelData->AnimationData()->EnableLooping(false);
-  const CAnimPlaybackParms parms(skShootAnim[chargeState], -1, 1.f, true);
-  x10_solidModelData->AnimationData()->SetAnimation(parms, false);
+  CAnimData& animData = *x10_solidModelData->AnimationData();
+  animData.EnableLooping(false);
+  animData.SetAnimation(CAnimPlaybackParms(skShootAnim[chargeState], -1, 1.f, true), false);
 }
 
 void CWaveBeam::Load(CStateManager& mgr, const bool subtypeBasePose) {
@@ -149,7 +151,8 @@ void CWaveBeam::EnableSecondaryFx(const ESecondaryFxType type) {
     // [[fallthrough]];
   default:
     if (x1cc_enabledSecondaryEffect != kSFT_ToCombo) {
-      TToken< CElectricDescription > fx = type == kSFT_Charge ? x228_wave2nd1 : x234_wave2nd2;
+      const TToken< CElectricDescription >& fx =
+          type == kSFT_Charge ? x228_wave2nd1.GetToken() : x234_wave2nd2.GetToken();
       x250_chargeElec = rs_new CParticleElectric(fx);
       x250_chargeElec->SetGlobalScale(x4_scale);
     }
