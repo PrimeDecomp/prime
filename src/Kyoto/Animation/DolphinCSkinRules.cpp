@@ -117,7 +117,7 @@ void CSkinRules::InitLockedCacheState(const CModel& model) {
 }
 
 void CSkinRules::StartNextTransaction() {
-  uchar* destination = reinterpret_cast< uchar* >(LC_BASE);
+  uchar* destination = reinterpret_cast< uchar* >(LCGetBase());
   if (!sTransferringFirstPage) {
     destination += 0x1000;
   }
@@ -154,9 +154,9 @@ int CSkinRules::ProcessingPoints(int count, ushort** buf) {
     if (sCurrentPoint == sNextPointStart) {
       WaitForQueue();
       sCurrentFirst = sNextPointStart;
-      sCurrentBase = reinterpret_cast< CVector3f* >(LC_BASE);
+      sCurrentBase = reinterpret_cast< CVector3f* >(LCGetBase());
       if (sTransferringFirstPage) {
-        sCurrentBase = reinterpret_cast< CVector3f* >(LC_BASE + 0x1000);
+        sCurrentBase = reinterpret_cast< CVector3f* >(static_cast< uchar* >(LCGetBase()) + 0x1000);
       }
 
       sNextPointStart += sCurrentPointCount;
@@ -181,9 +181,9 @@ int CSkinRules::ProcessingNormals(int count, ushort** buf) {
     if (sCurrentNormal == sNextNormalStart) {
       WaitForQueue();
       sCurrentFirst = sNextNormalStart;
-      sCurrentBase = reinterpret_cast< CVector3f* >(LC_BASE);
+      sCurrentBase = reinterpret_cast< CVector3f* >(LCGetBase());
       if (sTransferringFirstPage) {
-        sCurrentBase = reinterpret_cast< CVector3f* >(LC_BASE + 0x1000);
+        sCurrentBase = reinterpret_cast< CVector3f* >(static_cast< uchar* >(LCGetBase()) + 0x1000);
       }
 
       sNextNormalStart += sCurrentPointCount;
