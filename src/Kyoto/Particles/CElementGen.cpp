@@ -1419,7 +1419,13 @@ void CElementGen::RenderParticles() {
           GXTexCoord1s16(0x0200);
         }
 
+#if NONMATCHING
+        if (SORT) {
+          ++sortIt;
+        }
+#else
         sortIt++;
+#endif
       }
     } else {
       // ORNT
@@ -1522,7 +1528,13 @@ void CElementGen::RenderParticles() {
           GXTexCoord1s16(0x0200);
         }
 
+#if NONMATCHING
+        if (SORT) {
+          ++sortIt;
+        }
+#else
         sortIt++;
+#endif
       }
     }
   } else {
@@ -2059,7 +2071,13 @@ void CElementGen::RenderParticlesIndirectTexture() {
       }
     }
 
+#if NONMATCHING
+    if (SORT) {
+      ++sortIt;
+    }
+#else
     sortIt++;
+#endif
   }
 
   CGX::SetNumIndStages(0);
