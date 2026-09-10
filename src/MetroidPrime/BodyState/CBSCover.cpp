@@ -14,26 +14,33 @@
 bool CBSCover::CanShoot() const { return x4_state == pas::kCS_Lean; }
 
 CBSCover::CBSCover()
-: x4_state(pas::kCS_Invalid), x8_coverDirection(pas::kCD_Invalid), xc_needsExit(false) {}
+: x4_state(pas::kCS_Invalid)
+, x8_coverDirection(pas::kCD_Invalid)
+, xc_needsExit(false) {}
 
 void CBSCover::Start(CBodyController& bc, CStateManager& mgr) {
   const CBCCoverCmd* cmd = static_cast< const CBCCoverCmd* >(bc.CommandMgr().GetCmd(kBSC_Cover));
   x8_coverDirection = cmd->GetDirection();
   x4_state = pas::kCS_IntoCover;
   const CPASAnimParmData parms(pas::kAS_Cover, CPASAnimParm::FromEnum(x4_state),
-                               CPASAnimParm::FromEnum(GetCoverDirection()));
+                              CPASAnimParm::FromEnum(GetCoverDirection()));
 
   const rstl::pair< float, int > best =
       bc.GetPASDatabase().FindBestAnimation(parms, *mgr.Random(), -1);
 
-  CVector3f scale = bc.GetOwner().GetModelData()->GetScale();
+  const CVector3f& modelScale = bc.GetOwner().GetModelData()->GetScale();
+  const float x = modelScale.GetX();
+  const float y = modelScale.GetY();
+  const float z = modelScale.GetZ();
+  CVector3f scale(x, y, z);
+
   CRelAngle lookAtMaxAngle = CRelAngle::FromRadians(M_2PIF);
   const CQuaternion orientDelta = CQuaternion::LookAt(
-      CVector3f::Forward(), CUnitVector3f(cmd->GetAlignDirection(), CUnitVector3f::kN_No),
+      CUnitVector3f(CVector3f::Forward(), CUnitVector3f::kN_No), cmd->GetAlignDirection(),
       lookAtMaxAngle);
 
   const CAnimPlaybackParms playParms(best.second, &orientDelta, &cmd->GetTarget(),
-                                     &bc.GetOwner().GetTransform(), &scale, false);
+                                    &bc.GetOwner().GetTransform(), &scale, false);
   bc.SetCurrentAnimation(playParms, false, false);
   xc_needsExit = false;
   if (bc.CommandMgr().GetCmd(kBSC_ExitState)) {
