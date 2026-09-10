@@ -76,7 +76,7 @@ static const char* const skPirateRootJoint = "Skeleton_Root";
 
 static const float skGammaGrowthEnergy[] = {90.f, 190.f, 150.f, 90.f, 100.f};
 
-CMetroidData::CMetroidData(CInputStream& in)
+CMetroidData::CMetroidData(CInputStream& in, int propCount)
 : mFrozenVulnerability(in)
 , mEnergyDrainVulnerability(in)
 , mEnergyDrainPerSecond(in.Get< float >())

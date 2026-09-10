@@ -144,7 +144,7 @@
 #include "Kyoto/Math/CVector2f.hpp"
 #include "Kyoto/Streams/CInputStream.hpp"
 
-#pragma inline_max_size(242)
+#pragma inline_max_size(250)
 
 static CAABox GetCollisionBox(CStateManager& stateMgr, TAreaId id, const CVector3f& extent,
                               const CVector3f& offset) {
@@ -990,15 +990,14 @@ CEntity* ScriptLoader::LoadWarWasp(CStateManager& mgr, CInputStream& in, int pro
   CAssetId projectileVisorParticle = in.ReadLong();
   uint projectileVisorSfx = in.ReadLong();
 
-  FourCC animType =
-      gpResourceFactory->GetResourceTypeById(pInfo.GetAnimationParameters().GetACSFile());
+  const CAnimationParameters& anim = pInfo.GetAnimationParameters();
+  FourCC animType = gpResourceFactory->GetResourceTypeById(anim.GetACSFile());
   if (animType != 'ANCS')
     return nullptr;
 
   return rs_new CWarWasp(
       mgr.AllocateUniqueId(), name, info, xf,
-      CModelData(CAnimRes(pInfo.GetAnimationParameters().GetACSFile(),
-                          pInfo.GetAnimationParameters().GetCharacter(), scale,
+      CModelData(CAnimRes(anim.GetACSFile(), pInfo.GetAnimationParameters().GetCharacter(), scale,
                           pInfo.GetAnimationParameters().GetInitialAnimation(), true)),
       pInfo, flavor, collider ? CPatterned::kCT_One : CPatterned::kCT_Zero, damageInfo, actParms,
       projectileWeapon, projectileDamage, projectileVisorParticle, projectileVisorSfx);
@@ -1201,19 +1200,19 @@ CEntity* ScriptLoader::LoadPlatform(CStateManager& mgr, CInputStream& in, int pr
   SScaledActorHead head(in, mgr);
   CVector3f extent(in);
   CVector3f centroid(in);
-  CAssetId staticId = in.ReadLong();
+  CAssetId staticId = in.Get< uint >();
   CAnimationParameters aParms = LoadAnimationParameters(in);
   CActorParameters actParms = LoadActorParameters(in);
   float speed = in.ReadFloat();
   bool active = in.ReadBool();
-  CAssetId dclnId = in.ReadLong();
+  CAssetId dclnId = in.Get< uint >();
   CHealthInfo hInfo(in);
   CDamageVulnerability dVuln(in);
   bool detectCollision = in.ReadBool();
   float xrayAlpha = in.ReadFloat();
   bool rainSplashes = in.ReadBool();
-  uint maxRainSplashes = in.ReadLong();
-  uint rainGenRate = in.ReadLong();
+  uint maxRainSplashes = in.Get< uint >();
+  uint rainGenRate = in.Get< uint >();
 
   FourCC staticType = gpResourceFactory->GetResourceTypeById(staticId);
   FourCC animType = gpResourceFactory->GetResourceTypeById(aParms.GetACSFile());
@@ -1845,16 +1844,16 @@ CEntity* ScriptLoader::LoadBloodFlower(CStateManager& mgr, CInputStream& in, int
   CAssetId partId5 = in.Get< CAssetId >();
   uint soundId = in.ReadLong();
 
-  FourCC animType =
-      gpResourceFactory->GetResourceTypeById(pInfo.GetAnimationParameters().GetACSFile());
+  const CAnimationParameters& anim = pInfo.GetAnimationParameters();
+  FourCC animType = gpResourceFactory->GetResourceTypeById(anim.GetACSFile());
   if (animType != 'ANCS')
     return nullptr;
 
   return rs_new CBloodFlower(
       mgr.AllocateUniqueId(), head.x0_actorHead.x0_name, info, head.x0_actorHead.x10_transform,
-      CModelData(CAnimRes(pInfo.GetAnimationParameters().GetACSFile(),
-                          pInfo.GetAnimationParameters().GetCharacter(), head.x40_scale,
-                          pInfo.GetAnimationParameters().GetInitialAnimation(), true)),
+      CModelData(CAnimRes(anim.GetACSFile(), pInfo.GetAnimationParameters().GetCharacter(),
+                          head.x40_scale, pInfo.GetAnimationParameters().GetInitialAnimation(),
+                          true)),
       pInfo, partId1, wpsc1, actParms, wpsc2, dInfo1, dInfo2, dInfo3, partId2, partId3, partId4, f1,
       partId5, soundId);
 }
@@ -1898,15 +1897,14 @@ CEntity* ScriptLoader::LoadFlickerBat(CStateManager& mgr, CInputStream& in, int 
   bool excludePlayer = in.ReadBool();
   bool enableLineOfSight = in.ReadBool();
 
-  FourCC animType =
-      gpResourceFactory->GetResourceTypeById(pInfo.GetAnimationParameters().GetACSFile());
+  const CAnimationParameters& anim = pInfo.GetAnimationParameters();
+  FourCC animType = gpResourceFactory->GetResourceTypeById(anim.GetACSFile());
   if (animType != 'ANCS')
     return nullptr;
 
   return rs_new CFlickerBat(
       mgr.AllocateUniqueId(), name, CPatterned::EFlavorType(flavor), info, xf,
-      CModelData(CAnimRes(pInfo.GetAnimationParameters().GetACSFile(),
-                          pInfo.GetAnimationParameters().GetCharacter(), scale,
+      CModelData(CAnimRes(anim.GetACSFile(), pInfo.GetAnimationParameters().GetCharacter(), scale,
                           pInfo.GetAnimationParameters().GetInitialAnimation(), true)),
       pInfo, collider ? CPatterned::kCT_One : CPatterned::kCT_Zero, excludePlayer, actParms,
       enableLineOfSight);
@@ -1929,38 +1927,37 @@ CEntity* ScriptLoader::LoadChozoGhost(CStateManager& mgr, CInputStream& in, int 
   float fadeOutDelay = in.ReadFloat();
   float attackDelay = in.ReadFloat();
   float freezeTime = in.ReadFloat();
-  CAssetId wpsc1 = in.ReadLong();
+  CAssetId wpsc1 = in.Get< uint >();
   CDamageInfo dInfo1(in);
-  CAssetId wpsc2 = in.ReadLong();
+  CAssetId wpsc2 = in.Get< uint >();
   CDamageInfo dInfo2(in);
   CChozoGhost::CBehaveChance behaveChance1(in);
   CChozoGhost::CBehaveChance behaveChance2(in);
   CChozoGhost::CBehaveChance behaveChance3(in);
-  ushort soundImpact = CSfxManager::TranslateSFXID(in.ReadLong());
+  ushort soundImpact = CSfxManager::TranslateSFXID(in.Get< uint >());
   float f5 = in.ReadFloat();
-  ushort sfxFadeIn = CSfxManager::TranslateSFXID(in.ReadLong());
-  ushort sfxFadeOut = CSfxManager::TranslateSFXID(in.ReadLong());
-  uint w1 = in.ReadLong();
+  ushort sfxFadeIn = CSfxManager::TranslateSFXID(in.Get< uint >());
+  ushort sfxFadeOut = CSfxManager::TranslateSFXID(in.Get< uint >());
+  uint w1 = in.Get< uint >();
   float f6 = in.ReadFloat();
-  uint w2 = in.ReadLong();
+  uint w2 = in.Get< uint >();
   float hurlRecoverTime = in.ReadFloat();
-  CAssetId projectileVisor = in.ReadLong();
-  ushort soundProjectileVisor = CSfxManager::TranslateSFXID(in.ReadLong());
+  CAssetId projectileVisor = in.Get< uint >();
+  ushort soundProjectileVisor = CSfxManager::TranslateSFXID(in.Get< uint >());
   float f8 = in.ReadFloat();
   float f9 = in.ReadFloat();
-  uint nearChance = in.ReadLong();
-  uint midChance = in.ReadLong();
+  uint nearChance = in.Get< uint >();
+  uint midChance = in.Get< uint >();
 
-  FourCC animType =
-      gpResourceFactory->GetResourceTypeById(pInfo.GetAnimationParameters().GetACSFile());
+  const CAnimationParameters& anim = pInfo.GetAnimationParameters();
+  FourCC animType = gpResourceFactory->GetResourceTypeById(anim.GetACSFile());
   if (animType != 'ANCS')
     return nullptr;
 
   return rs_new CChozoGhost(
       mgr.AllocateUniqueId(), head.x0_actorHead.x0_name, info, head.x0_actorHead.x10_transform,
-      CModelData(CAnimRes(pInfo.GetAnimationParameters().GetACSFile(), CAnimRes::kDefaultCharIdx,
-                          head.x40_scale, pInfo.GetAnimationParameters().GetInitialAnimation(),
-                          true)),
+      CModelData(CAnimRes(anim.GetACSFile(), CAnimRes::kDefaultCharIdx, head.x40_scale,
+                          pInfo.GetAnimationParameters().GetInitialAnimation(), true)),
       actParms, pInfo, hearingRadius, fadeOutDelay, attackDelay, freezeTime, wpsc1, dInfo1, wpsc2,
       dInfo2, behaveChance3, behaveChance2, behaveChance1, soundImpact, f5, sfxFadeIn, sfxFadeOut,
       w1, f6, w2, hurlRecoverTime, projectileVisor, soundProjectileVisor, f8, f9, nearChance,
@@ -2285,14 +2282,15 @@ CEntity* ScriptLoader::LoadFlaahgra(CStateManager& mgr, CInputStream& in, int pr
   CActorParameters actParms = LoadActorParameters(in);
   CFlaahgraData flaahgraData(in, propCount);
 
+  const CVector3f& scale = head.x40_scale;
   CAnimRes animRes(pInfo.GetAnimationParameters().GetACSFile(),
-                   pInfo.GetAnimationParameters().GetCharacter(), head.x40_scale,
+                   pInfo.GetAnimationParameters().GetCharacter(), scale,
                    pInfo.GetAnimationParameters().GetInitialAnimation(), true);
 
   if (pInfo.GetAnimationParameters().GetACSFile() == kInvalidAssetId) {
-    animRes = CAnimRes(flaahgraData.GetAnimationParameters().GetACSFile(),
-                       flaahgraData.GetAnimationParameters().GetCharacter(), head.x40_scale,
-                       flaahgraData.GetAnimationParameters().GetInitialAnimation(), true);
+    const CAnimationParameters& anim = flaahgraData.GetAnimationParameters();
+    animRes =
+        CAnimRes(anim.GetACSFile(), anim.GetCharacter(), scale, anim.GetInitialAnimation(), true);
   }
 
   if (animRes.GetId() == kInvalidAssetId)
@@ -2416,7 +2414,7 @@ CEntity* ScriptLoader::LoadMetroid(CStateManager& mgr, CInputStream& in, int pro
 
   CPatternedInfo pInfo(in, pcount.second);
   CActorParameters actParms = LoadActorParameters(in);
-  CMetroidData metData(in);
+  CMetroidData metData(in, propCount);
 
   if (pInfo.GetAnimationParameters().GetACSFile() == kInvalidAssetId)
     return nullptr;
@@ -2551,7 +2549,7 @@ CEntity* ScriptLoader::LoadPlayerActor(CStateManager& mgr, CInputStream& in, int
   CAnimationParameters aParms = LoadAnimationParameters(in);
   CActorParameters actParms = LoadActorParameters(in);
   bool loop = in.Get< bool >();
-  bool snow = in.Get< bool >();
+  bool immovable = in.Get< bool >();
   bool solid = in.Get< bool >();
   bool active = in.Get< bool >();
   uint flags = LoadParameterFlags(in);
@@ -2564,8 +2562,8 @@ CEntity* ScriptLoader::LoadPlayerActor(CStateManager& mgr, CInputStream& in, int
   CAABox aabb = GetCollisionBox(mgr, info.GetAreaId(), extents, offset);
 
   CMaterialList list;
-  if (snow)
-    list.Add(kMT_Snow);
+  if (immovable)
+    list.Add(kMT_Immovable);
   if (solid)
     list.Add(kMT_Solid);
 
@@ -2582,7 +2580,8 @@ CEntity* ScriptLoader::LoadPlayerActor(CStateManager& mgr, CInputStream& in, int
   if (animType == 'ANCS') {
     CAnimRes animRes(aParms.GetACSFile(), 4, head.x40_scale, aParms.GetInitialAnimation(), loop);
 
-    if (extents == CVector3f::Zero() || hasNegativeExtent)
+    const bool useDefaultBox = extents == CVector3f::Zero() || hasNegativeExtent;
+    if (useDefaultBox)
       aabb = CAABox(CVector3f(-0.5f, -0.5f, -0.5f), CVector3f(0.5f, 0.5f, 0.5f));
 
     return rs_new CScriptPlayerActor(mgr.AllocateUniqueId(), head.x0_actorHead.x0_name, info,
@@ -2821,12 +2820,12 @@ CEntity* ScriptLoader::LoadVisorFlare(CStateManager& mgr, CInputStream& in, int 
   rstl::string name = mgr.HashInstanceName(in);
   CVector3f pos(in);
   bool active = in.Get< bool >();
-  CVisorFlare::EBlendMode blendMode = CVisorFlare::EBlendMode(in.ReadLong());
+  CVisorFlare::EBlendMode blendMode = CVisorFlare::EBlendMode(in.Get< uint >());
   bool b1 = in.Get< bool >();
   float f1 = in.ReadFloat();
   float f2 = in.ReadFloat();
   float f3 = in.ReadFloat();
-  uint w1 = in.ReadLong();
+  uint w1 = in.Get< uint >();
 
   rstl::optional_object< CVisorFlare::CFlareDef > def1 = LoadFlareDef(in);
   rstl::optional_object< CVisorFlare::CFlareDef > def2 = LoadFlareDef(in);
@@ -3015,18 +3014,18 @@ CEntity* ScriptLoader::LoadJellyZap(CStateManager& mgr, CInputStream& in, int pr
   float repulseRadius = in.ReadFloat();
   float attractRadius = in.ReadFloat();
   float f12 = in.ReadFloat();
-  bool b1 = in.ReadBool();
+  bool b1 = in.Get< bool >();
 
-  FourCC animType =
-      gpResourceFactory->GetResourceTypeById(pInfo.GetAnimationParameters().GetACSFile());
+  const CAnimationParameters& anim = pInfo.GetAnimationParameters();
+  FourCC animType = gpResourceFactory->GetResourceTypeById(anim.GetACSFile());
   if (animType != 'ANCS')
     return nullptr;
 
   return rs_new CJellyZap(
       mgr.AllocateUniqueId(), head.x0_actorHead.x0_name, info, head.x0_actorHead.x10_transform,
-      CModelData(CAnimRes(pInfo.GetAnimationParameters().GetACSFile(),
-                          pInfo.GetAnimationParameters().GetCharacter(), head.x40_scale,
-                          pInfo.GetAnimationParameters().GetInitialAnimation(), true)),
+      CModelData(CAnimRes(anim.GetACSFile(), pInfo.GetAnimationParameters().GetCharacter(),
+                          head.x40_scale, pInfo.GetAnimationParameters().GetInitialAnimation(),
+                          true)),
       dInfo, b1, attackRadius, f2, f3, f4, attackDelay, f6, f7, f8, priority, repulseRadius,
       attractRadius, f12, pInfo, actParms);
 }
@@ -3086,7 +3085,7 @@ CEntity* ScriptLoader::LoadThardus(CStateManager& mgr, CInputStream& in, int pro
 
   CAssetId texture = in.ReadLong();
   uint sfxID1 = in.ReadLong();
-  CAssetId particle10 = (propCount > 0x2b) ? CAssetId(in.ReadLong()) : kInvalidAssetId;
+  CAssetId particle10 = (propCount > 0x2b) ? in.Get< CAssetId >() : kInvalidAssetId;
   uint sfxID2 = in.ReadLong();
   uint sfxID3 = in.ReadLong();
   uint sfxID4 = in.ReadLong();
@@ -3559,33 +3558,36 @@ CEntity* ScriptLoader::LoadSnakeWeedSwarm(CStateManager& mgr, CInputStream& in, 
   CVector3f pos(in);
   CVector3f scale(in);
   bool active = in.Get< bool >();
-  CAssetId ancsId = in.ReadLong();
-  int charIdx = in.ReadLong();
-  int defaultAnim = in.ReadLong();
+  CAssetId ancsId = in.Get< uint >();
+  int charIdx = in.Get< uint >();
+  int defaultAnim = in.Get< uint >();
   CActorParameters actParms = LoadActorParameters(in);
-  float f1 = in.ReadFloat();
-  float f2 = in.ReadFloat();
-  float f3 = in.ReadFloat();
-  float f4 = in.ReadFloat();
-  float f5 = in.ReadFloat();
-  float f6 = in.ReadFloat();
-  float f7 = in.ReadFloat();
-  float f8 = in.ReadFloat();
-  float f9 = in.ReadFloat();
-  float f10 = in.ReadFloat();
-  float f11 = in.ReadFloat();
-  float f12 = in.ReadFloat();
-  float f13 = in.ReadFloat();
-  float f14 = in.ReadFloat();
+
+  float f1 = in.Get< float >();
+  float f2 = in.Get< float >();
+  float f3 = in.Get< float >();
+  float f4 = in.Get< float >();
+  float f5 = in.Get< float >();
+  float f6 = in.Get< float >();
+  float f7 = in.Get< float >();
+  float f8 = in.Get< float >();
+  float f9 = in.Get< float >();
+  float f10 = in.Get< float >();
+  float f11 = in.Get< float >();
+  float f12 = in.Get< float >();
+  float f13 = in.Get< float >();
+  float f14 = in.Get< float >();
+
   CDamageInfo dInfo(in);
-  float f15 = in.ReadFloat();
-  uint sfxId1 = in.ReadLong();
-  uint sfxId2 = in.ReadLong();
-  uint sfxId3 = in.ReadLong();
-  uint w4 = propCount >= 29 ? in.ReadLong() : kInvalidAssetId;
-  uint w5 = propCount >= 29 ? in.ReadLong() : 0;
-  uint w6 = propCount >= 29 ? in.ReadLong() : kInvalidAssetId;
-  float f16 = propCount >= 29 ? in.ReadFloat() : 0.f;
+  float f15 = in.Get< float >();
+  uint sfxId1 = in.Get< uint >();
+  uint sfxId2 = in.Get< uint >();
+  uint sfxId3 = in.Get< uint >();
+
+  uint w4 = propCount >= 29 ? in.Get< uint >() : kInvalidAssetId;
+  uint w5 = propCount >= 29 ? in.Get< uint >() : 0;
+  uint w6 = propCount >= 29 ? in.Get< uint >() : kInvalidAssetId;
+  float f16 = propCount >= 29 ? in.Get< float >() : 0.f;
 
   return rs_new CSnakeWeedSwarm(
       mgr.AllocateUniqueId(), active, name, info, pos, scale,
