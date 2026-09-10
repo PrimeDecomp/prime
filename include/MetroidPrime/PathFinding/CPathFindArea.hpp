@@ -144,11 +144,12 @@ inline void CPFAreaOctree::Fixup(CPFArea& area) {
   x0_isLeaf = *reinterpret_cast< const int* >(this) != 0;
   if (x0_isLeaf) {
     if (x48_regions.size() != 0) {
-      x48_regions.set_data(&area.GetOctreeRegionPtrs(reinterpret_cast< int >(&x48_regions[0])));
+      x48_regions.set_data(
+          &area.GetOctreeRegionPtrs(reinterpret_cast< intptr_t >(&x48_regions[0])));
     }
   } else {
     for (int i = 0; i < 8; ++i) {
-      int index = reinterpret_cast< int >(x28_children[i]);
+      intptr_t index = reinterpret_cast< intptr_t >(x28_children[i]);
       x28_children[i] = index >= 0 ? &area.GetOctree(index) : nullptr;
     }
   }

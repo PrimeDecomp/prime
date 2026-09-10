@@ -314,7 +314,7 @@ void CGameArea::PostConstructArea() {
 
   char* collisionData = section->first.get();
   ++collisionData;
-  while (reinterpret_cast< uint >(collisionData) & 3) {
+  while (reinterpret_cast< uintptr_t >(collisionData) & 3) {
     ++collisionData;
   }
   uint collisionSize = CBasics::SwapBytes(*reinterpret_cast< const uint* >(collisionData));

@@ -331,7 +331,7 @@ bool CAudioSys::SysPushGroupIntoARAM(const rstl::string& name, const uchar group
     void* pool = group->GetPoolBuffer();
     uchar buffer[0x1020];
     mpSampleDataUploadBuffer =
-        reinterpret_cast< void* >((reinterpret_cast< uint >(buffer) + 31) & ~31);
+        reinterpret_cast< void* >((reinterpret_cast< uintptr_t >(buffer) + 31) & ~31);
     sndSetSampleDataUploadCallback(SampleDataUploadCallback, 0x1000);
     const bool result = sndPushGroup(project, groupId, samples, sampleDir, pool);
     sndSetSampleDataUploadCallback(nullptr, 0);

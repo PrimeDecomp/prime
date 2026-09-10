@@ -793,11 +793,11 @@ int ksNesReset(ksNesCommonWorkObj* wp, ksNesStateObj* sp, u32 flags, u8* chrramp
   };
   static const u8 table[] = {0, 0, 0, 0, 4, 4, 4, 4, 0, 4, 0, 4, 0, 0, 4, 4};
 
-  if ((reinterpret_cast< u32 >(wp) & 0x1f) || (reinterpret_cast< u32 >(sp) & 0x1f) ||
-      (reinterpret_cast< u32 >(&wp->draw_ctx) & 0x1f) ||
-      (reinterpret_cast< u32 >(&wp->draw_ctx.ppu_scanline_regs) & 0x1f) ||
-      (reinterpret_cast< u32 >(sp->ppu_chr_banks) & 3) ||
-      (reinterpret_cast< u32 >(&wp->draw_ctx.post_process_lut) & 0x1f)) {
+  if ((reinterpret_cast< uintptr_t >(wp) & 0x1f) || (reinterpret_cast< uintptr_t >(sp) & 0x1f) ||
+      (reinterpret_cast< uintptr_t >(&wp->draw_ctx) & 0x1f) ||
+      (reinterpret_cast< uintptr_t >(&wp->draw_ctx.ppu_scanline_regs) & 0x1f) ||
+      (reinterpret_cast< uintptr_t >(sp->ppu_chr_banks) & 3) ||
+      (reinterpret_cast< uintptr_t >(&wp->draw_ctx.post_process_lut) & 0x1f)) {
     return 0x52d;
   }
 
@@ -3448,8 +3448,8 @@ void ksNesDrawMakeBGIndTex(ksNesCommonWorkObj* wp, u32 mmc3) {
       }
       nametable = wp->draw_ctx.ppu_scanline_regs[row].nametable_ptrs[(ctrl1 >> 8) & 1];
       if (reinterpret_cast< s32 >(nametable) >= 0) {
-        palette = (reinterpret_cast< u32 >(nametable) & 3) | (palette << 4);
-        tile = (reinterpret_cast< u32 >(nametable) >> 8) & 0xff;
+        palette = (reinterpret_cast< uintptr_t >(nametable) & 3) | (palette << 4);
+        tile = (reinterpret_cast< uintptr_t >(nametable) >> 8) & 0xff;
       } else {
         palette = ((nametable[0x3c0 + ((ctrl0 & 0xe0) >> 2) + ((ctrl1 & 0xe0) >> 5)] >>
                     (((ctrl1 >> 3) & 2) | ((ctrl0 & 0x10) >> 2))) &

@@ -291,15 +291,16 @@ uint CModel::GetDataSize() const { return x4_dataLen; }
 rstl::auto_ptr< uchar > CModel::GetData() { return rstl::auto_ptr< uchar >(x0_data.get()); }
 
 namespace {
-inline void RemapPointer(const void*& pointer, uint offset) {
+inline void RemapPointer(const void*& pointer, uintptr_t offset) {
   if (pointer != nullptr) {
-    pointer = reinterpret_cast< void* >(reinterpret_cast< uint >(pointer) + offset);
+    pointer = reinterpret_cast< void* >(reinterpret_cast< uintptr_t >(pointer) + offset);
   }
 }
 } // namespace
 
 void CModel::RemapData(uchar* data) {
-  uint offset = reinterpret_cast< uint >(data) - reinterpret_cast< uint >(x0_data.release());
+  uintptr_t offset =
+      reinterpret_cast< uintptr_t >(data) - reinterpret_cast< uintptr_t >(x0_data.release());
   x0_data = data;
   for (int i = 0; i < x18_matSets.size(); ++i) {
     RemapPointer(reinterpret_cast< const void*& >(x18_matSets[i].x10_data), offset);

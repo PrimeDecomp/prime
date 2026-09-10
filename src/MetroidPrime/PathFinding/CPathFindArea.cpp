@@ -114,7 +114,7 @@ CPFArea::CPFArea(const rstl::auto_ptr< uchar >& data, int size)
       static_cast< CPFRegion** >(stream.GetBlock(numRegionPtrs, sizeof(CPFRegion*))));
   for (i = 0; i < numRegionPtrs; ++i) {
     CPFRegion* const& region = x160_octreeRegions[i];
-    x160_octreeRegions[i] = &x150_regions[reinterpret_cast< int >(region)];
+    x160_octreeRegions[i] = &x150_regions[reinterpret_cast< intptr_t >(region)];
   }
   int numOctreeNodes = stream.ReadInt32();
   x158_octree.set_size(numOctreeNodes);

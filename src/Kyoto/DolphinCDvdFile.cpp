@@ -97,8 +97,8 @@ void CDvdFile::PingARAMTransfer() {
 
   int length = rstl::min_val(65536, aramFile->mBufferLen);
   ARQPostRequest(&aramFile->mARQRequest, 0, ARQ_TYPE_MRAM_TO_ARAM, ARQ_PRIORITY_HIGH,
-                 reinterpret_cast< u32 >(aramFile->mBuffers[aramFile->mBufferIndex].get()),
-                 reinterpret_cast< u32 >(mARAMBuffer + aramFile->mAramOffset), length,
+                 reinterpret_cast< uintptr_t >(aramFile->mBuffers[aramFile->mBufferIndex].get()),
+                 reinterpret_cast< uintptr_t >(mARAMBuffer + aramFile->mAramOffset), length,
                  ARAMARAMXferCallback);
 
   aramFile->mBufferLen -= length;

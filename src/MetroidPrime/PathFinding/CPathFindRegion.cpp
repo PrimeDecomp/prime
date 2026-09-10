@@ -20,8 +20,8 @@ CPFRegionData::CPFRegionData()
 , x2c_parentLink(0) {}
 
 void CPFRegion::Fixup(CPFArea& area, int& numNodes) {
-  x4_startNode = x0_numNodes ? &area.GetNode(reinterpret_cast< int >(x4_startNode)) : nullptr;
-  xc_startLink = x8_numLinks ? &area.GetLink(reinterpret_cast< int >(xc_startLink)) : nullptr;
+  x4_startNode = x0_numNodes ? &area.GetNode(reinterpret_cast< intptr_t >(x4_startNode)) : nullptr;
+  xc_startLink = x8_numLinks ? &area.GetLink(reinterpret_cast< intptr_t >(xc_startLink)) : nullptr;
   x4c_data = &area.GetRegionData(x24_regionIdx);
   if (x0_numNodes > numNodes) {
     numNodes = x0_numNodes;

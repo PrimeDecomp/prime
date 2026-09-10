@@ -183,7 +183,7 @@ public:
     rstl::single_ptr< CAreaObjectList > x10c0_areaObjectList;
     rstl::single_ptr< CAreaFog > x10c4_areaFog;
     rstl::auto_ptr< char > x10c8_sclyBuf;
-    u32 x10d0_sclySize;
+    size_t x10d0_sclySize;
     const u8* x10d4_firstMatPtr;
     const CScriptAreaAttributes* x10d8_areaAttributes;
     EOcclusionState x10dc_occlusionState;

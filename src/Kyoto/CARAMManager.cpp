@@ -98,7 +98,7 @@ bool CARAMManager::Free(const void* ptr) {
     return false;
   }
 
-  uint blockStart = ((u32)ptr - mpARAMStart) / mChunkSize;
+  uint blockStart = (reinterpret_cast< uintptr_t >(ptr) - mpARAMStart) / mChunkSize;
   uint blockCount = mpBookKeepingMemory[blockStart];
   mChunksAllocated -= blockCount;
   while (blockCount--) {
@@ -114,8 +114,9 @@ uint CARAMManager::DMAToARAM(void* src, void* dest, uint len, EDMAPriority prior
   req->mUniqueID = mDMAUniqueID;
   mActiveDMAs.push_back(req);
   ARQPostRequest(&req->mRequest, req->mUniqueID, ARQ_TYPE_MRAM_TO_ARAM,
-                 (priority == kDMAPrio_One) ? ARQ_PRIORITY_HIGH : ARQ_PRIORITY_LOW, (u32)src,
-                 (u32)dest, len, AramManagerDMACallback);
+                 (priority == kDMAPrio_One) ? ARQ_PRIORITY_HIGH : ARQ_PRIORITY_LOW,
+                 reinterpret_cast< uintptr_t >(src), reinterpret_cast< uintptr_t >(dest), len,
+                 AramManagerDMACallback);
 
   GetAndIncrementUniqueID();
   return req->mUniqueID;
@@ -128,8 +129,9 @@ int CARAMManager::DMAToMRAM(void* src, void* dest, uint len, EDMAPriority priori
   req->mUniqueID = mDMAUniqueID;
   mActiveDMAs.push_back(req);
   ARQPostRequest(&req->mRequest, req->mUniqueID, ARQ_TYPE_ARAM_TO_MRAM,
-                 (priority == kDMAPrio_One) ? ARQ_PRIORITY_HIGH : ARQ_PRIORITY_LOW, (u32)src,
-                 (u32)dest, len, AramManagerDMACallback);
+                 (priority == kDMAPrio_One) ? ARQ_PRIORITY_HIGH : ARQ_PRIORITY_LOW,
+                 reinterpret_cast< uintptr_t >(src), reinterpret_cast< uintptr_t >(dest), len,
+                 AramManagerDMACallback);
 
   GetAndIncrementUniqueID();
   return req->mUniqueID;

@@ -345,7 +345,7 @@ void CMoviePlayer::ReadCompleted() {
 
 void CMoviePlayer::DecodeFromRead(const void* ptr) {
   uchar work[4096 + 32];
-  void* alignedWork = reinterpret_cast< void* >(OSRoundUp32B(reinterpret_cast< uint >(work)));
+  void* alignedWork = reinterpret_cast< void* >((reinterpret_cast< uintptr_t >(work) + 31) & ~31);
   if (x80_textures.empty()) {
     InitializeTextures();
   }
@@ -526,7 +526,7 @@ void CMoviePlayer::StaticMyAudioCallback() {
     curAudioBuffer = static_cast< const short* >(OSPhysicalToCached(AIGetDMAStartAddr()));
     soundBufferIndex ^= 1;
     short* buffer = soundBuffer[soundBufferIndex];
-    AIInitDMA(reinterpret_cast< u32 >(buffer), sizeof(soundBuffer[0]));
+    AIInitDMA(reinterpret_cast< uintptr_t >(buffer), sizeof(soundBuffer[0]));
     const BOOL interrupts = OSEnableInterrupts();
     if (curAudioBuffer != nullptr) {
       DCInvalidateRange(const_cast< short* >(curAudioBuffer), sizeof(soundBuffer[0]));
