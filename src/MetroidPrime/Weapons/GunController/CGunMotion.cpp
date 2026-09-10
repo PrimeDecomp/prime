@@ -89,14 +89,19 @@ void CGunMotion::ReturnToDefault(CStateManager& mgr, bool b) {
 
 int CGunMotion::GetFreeLookSetId() const { return x4c_gunController.GetFreeLookSetId(); }
 
-void CGunMotion::BasePosition(bool bigStrikeReset) {
-  CAnimData& animData = *x0_modelData.AnimationData();
-  animData.EnableLooping(false);
+static inline int GetBasePositionAnimation(bool bigStrikeReset) {
   int animation = 0;
   if (bigStrikeReset) {
     animation = 6;
   }
-  animData.SetAnimation(CAnimPlaybackParms(animation, -1, 1.f, true), false);
+  return animation;
+}
+
+void CGunMotion::BasePosition(bool bigStrikeReset) {
+  CAnimData& animData = *x0_modelData.AnimationData();
+  animData.EnableLooping(false);
+  animData.SetAnimation(CAnimPlaybackParms(GetBasePositionAnimation(bigStrikeReset), -1, 1.f, true),
+                        false);
 }
 
 void CGunMotion::EnterFidget(CStateManager& mgr, SamusGun::EFidgetType type, int parm2) {
