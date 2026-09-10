@@ -143,14 +143,8 @@ void CScriptWorldTeleporter::StartTransition(CStateManager& mgr) {
 
   if (x3c_type == kTT_Elevator && x50_playerAnim.GetACSFile() != kInvalidAssetId &&
       x50_playerAnim.GetCharacter() != u32(-1)) {
-#if NONMATCHING
-    CAnimRes animRes(x50_playerAnim.GetACSFile(), x50_playerAnim.GetCharacter(), x5c_playerScale,
-                     x50_playerAnim.GetInitialAnimation(), true);
-#else
-    // Original uses reversed defaultAnim / charIdx. Bug or are our names wrong?
     CAnimRes animRes(x50_playerAnim.GetACSFile(), x50_playerAnim.GetInitialAnimation(),
                      x5c_playerScale, x50_playerAnim.GetCharacter(), true);
-#endif
     transMgr->EnableTransition(animRes, x68_platformModel, x6c_platformScale, x78_backgroundModel,
                                x7c_backgroundScale, x40_24_upElevator);
     x40_25_inTransition = true;
