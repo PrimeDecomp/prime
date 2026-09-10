@@ -35,11 +35,8 @@ struct aligned_allocator {
   template < typename T >
   static void allocate(T*& out, int count) {
     const int size = count * sizeof(T);
-    if (size == 0) {
-      out = nullptr;
-    } else {
-      out = static_cast< T* >(CMemory::Alloc(size, IAllocator::kHI_RoundUpLen));
-    }
+    out = size == 0 ? nullptr
+                    : static_cast< T* >(CMemory::Alloc(size, IAllocator::kHI_RoundUpLen));
   }
 
   template < typename T >

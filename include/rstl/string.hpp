@@ -368,7 +368,7 @@ inline string operator+(const string& a, char c) {
   return result;
 }
 
-static inline string operator+(const string& a, const char* c) {
+inline string operator+(const string& a, const char* c) {
   string result(a);
   result.append(c, -1);
   return result;

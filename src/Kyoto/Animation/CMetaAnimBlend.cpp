@@ -33,5 +33,5 @@ void CMetaAnimBlend::WriteAnimData(COutputStream& out) const {
   x4_animA->PutTo(out);
   x8_animB->PutTo(out);
   out.WriteReal32(xc_blend);
-  out.WriteBool(x10_characterSpaceBlend);
+  out.WriteChar(x10_characterSpaceBlend ? 1 : 0);
 }
