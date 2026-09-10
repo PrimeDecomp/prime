@@ -81,8 +81,6 @@ extern void GXEnd(void);
 
 #else
 
-// TODO: should these params be const? It helps CFluidPlaneCPURender
-
 #define FUNC_1PARAM(name, T)                                                                       \
   static inline void name##1##T(T x) { GXWGFifo.T = x; }
 

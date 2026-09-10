@@ -86,10 +86,10 @@ void CEnvFxManagerGrid::RenderRainParticles(const CTransform4f& camXf) {
   short zOffset = static_cast< short >(512.f * (1.f - absDot) + 256.f);
   for (int i = 0; i < particleCount; ++i) {
     CVectorFixed8_8 p = x1c_particles[i];
-    RSPosition3s16(p.x, p.y, p.z);
-    RSTexCoord1s16(10);
-    RSPosition3s16(p.x, p.y, p.z + zOffset);
-    RSTexCoord1s16(0);
+    GXPosition3s16(p.x, p.y, p.z);
+    GXTexCoord1s16(10);
+    GXPosition3s16(p.x, p.y, p.z + zOffset);
+    GXTexCoord1s16(0);
   }
   CGX::End();
 }
@@ -105,23 +105,23 @@ void CEnvFxManagerGrid::RenderSnowParticles(const CTransform4f& camXf) {
   CGX::Begin(GX_QUADS, GX_VTXFMT6, particleCount * 4);
   for (int i = particleCount - 1; i >= 0; --i) {
     CVectorFixed8_8 p = x1c_particles[i];
-    RSPosition3s16(p.x, p.y, p.z);
-    RSTexCoord2u8(0, 0);
+    GXPosition3s16(p.x, p.y, p.z);
+    GXTexCoord2u8(0, 0);
     p.x += zx;
     p.y += zy;
     p.z += zz;
-    RSPosition3s16(p.x, p.y, p.z);
-    RSTexCoord2u8(0, 2);
+    GXPosition3s16(p.x, p.y, p.z);
+    GXTexCoord2u8(0, 2);
     p.x += xx;
     p.y += xy;
     p.z += xz;
-    RSPosition3s16(p.x, p.y, p.z);
-    RSTexCoord2u8(2, 2);
+    GXPosition3s16(p.x, p.y, p.z);
+    GXTexCoord2u8(2, 2);
     p.x -= zx;
     p.y -= zy;
     p.z -= zz;
-    RSPosition3s16(p.x, p.y, p.z);
-    RSTexCoord2u8(2, 0);
+    GXPosition3s16(p.x, p.y, p.z);
+    GXTexCoord2u8(2, 0);
   }
   CGX::End();
 }
@@ -137,23 +137,23 @@ void CEnvFxManagerGrid::RenderUnderwaterParticles(const CTransform4f& camXf) {
   CGX::Begin(GX_QUADS, GX_VTXFMT6, particleCount * 4);
   for (int i = particleCount - 1; i >= 0; --i) {
     CVectorFixed8_8 p = x1c_particles[i];
-    RSPosition3s16(p.x, p.y, p.z);
-    RSTexCoord2u8(0, 0);
+    GXPosition3s16(p.x, p.y, p.z);
+    GXTexCoord2u8(0, 0);
     p.x += zx;
     p.y += zy;
     p.z += zz;
-    RSPosition3s16(p.x, p.y, p.z);
-    RSTexCoord2u8(0, 2);
+    GXPosition3s16(p.x, p.y, p.z);
+    GXTexCoord2u8(0, 2);
     p.x += xx;
     p.y += xy;
     p.z += xz;
-    RSPosition3s16(p.x, p.y, p.z);
-    RSTexCoord2u8(2, 2);
+    GXPosition3s16(p.x, p.y, p.z);
+    GXTexCoord2u8(2, 2);
     p.x -= zx;
     p.y -= zy;
     p.z -= zz;
-    RSPosition3s16(p.x, p.y, p.z);
-    RSTexCoord2u8(2, 0);
+    GXPosition3s16(p.x, p.y, p.z);
+    GXTexCoord2u8(2, 0);
   }
   CGX::End();
 }

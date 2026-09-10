@@ -441,13 +441,13 @@ void DrawScreenTex(float z) {
   const float& screenRight = screenWidth;
   CGX::Begin(GX_TRIANGLESTRIP, GX_VTXFMT0, 4);
   RSPosition3f32(screenWidth / 2.f, z, 0.f);
-  RSTexCoord2f32(0.f, 1.f);
+  GXTexCoord2f32(0.f, 1.f);
   RSPosition3f32(screenRight, z, 0.f);
-  RSTexCoord2f32(1.f, 1.f);
+  GXTexCoord2f32(1.f, 1.f);
   RSPosition3f32(screenWidth / 2.f, z, 224.f);
-  RSTexCoord2f32(0.f, 0.f);
+  GXTexCoord2f32(0.f, 0.f);
   RSPosition3f32(screenRight, z, 224.f);
-  RSTexCoord2f32(1.f, 0.f);
+  GXTexCoord2f32(1.f, 0.f);
   CGX::End();
 
   CGraphics::SetDepthWriteMode(true, kE_LEqual, true);

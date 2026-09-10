@@ -195,14 +195,14 @@ void CVisorFlare::DrawDirect(const CColor& color, float f1, float f2) const {
   kcolor.SetAlpha(kcolor.GetRed() * x24_intensity);
   CGX::SetTevKColor(GX_KCOLOR0, kcolor.GetGXColor());
   CGX::Begin(GX_TRIANGLESTRIP, GX_VTXFMT0, 4);
-  RSPosition3f32(f1 - f2, 0.f, f2 + f1);
-  RSTexCoord2f32(0.f, 1.f);
-  RSPosition3f32(f1 + f2, 0.f, f2 - f1);
-  RSTexCoord2f32(1.f, 1.f);
-  RSPosition3f32(-(f1 + f2), 0.f, -(f2 - f1));
-  RSTexCoord2f32(0.f, 0.f);
-  RSPosition3f32(-f1 + f2, 0.f, -f2 - f1);
-  RSTexCoord2f32(1.f, 0.f);
+  GXPosition3f32(f1 - f2, 0.f, f2 + f1);
+  GXTexCoord2f32(0.f, 1.f);
+  GXPosition3f32(f1 + f2, 0.f, f2 - f1);
+  GXTexCoord2f32(1.f, 1.f);
+  GXPosition3f32(-(f1 + f2), 0.f, -(f2 - f1));
+  GXTexCoord2f32(0.f, 0.f);
+  GXPosition3f32(-f1 + f2, 0.f, -f2 - f1);
+  GXTexCoord2f32(1.f, 0.f);
   CGX::End();
 }
 
