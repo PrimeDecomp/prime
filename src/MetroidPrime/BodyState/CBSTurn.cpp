@@ -57,9 +57,7 @@ void CBSTurn::Shutdown(CBodyController&) {}
 bool CBSTurn::FacingDest(CBodyController& bc) const {
   const CVector3f forward = bc.GetOwner().GetTransform().GetForward();
   const CVector2f lookDir2d = forward.DropZ();
-  const float& x = lookDir2d[0];
-  const float& y = lookDir2d[1];
-  const CVector2f leftDir = CVector2f(y, -x);
+  const CVector2f leftDir = CVector2f(lookDir2d[1], -lookDir2d[0]);
 
   if (x10_turnDir == pas::kTD_Left) {
     if (CVector2f::Dot(leftDir, x8_dest) < 0.f) {
@@ -132,9 +130,7 @@ void CBSFlyerTurn::Start(CBodyController& bc, CStateManager& mgr) {
 
     const CVector3f forward = bc.GetOwner().GetTransform().GetForward();
     const CVector2f lookDir2d = forward.DropZ();
-    const float& x = lookDir2d[0];
-    const float& y = lookDir2d[1];
-    const CVector2f lookDir2dInv = CVector2f(y, -x);
+    const CVector2f lookDir2dInv = CVector2f(lookDir2d[1], -lookDir2d[0]);
 
     float dot = CVector2f::Dot(lookDir2dInv, x8_dest);
     x10_turnDir = dot > 0.f ? pas::kTD_Left : pas::kTD_Right;
@@ -164,9 +160,7 @@ pas::EAnimationState CBSFlyerTurn::UpdateBody(float dt, CBodyController& bc, CSt
 
         const CVector3f forward = bc.GetOwner().GetTransform().GetForward();
         const CVector2f lookDir2d = forward.DropZ();
-        const float& x = lookDir2d[0];
-        const float& y = lookDir2d[1];
-        const CVector2f lookDir2dInv = CVector2f(y, -x);
+        const CVector2f lookDir2dInv = CVector2f(lookDir2d[1], -lookDir2d[0]);
 
         float dot = CVector2f::Dot(lookDir2dInv, x8_dest);
         x10_turnDir = dot > 0.f ? pas::kTD_Left : pas::kTD_Right;
