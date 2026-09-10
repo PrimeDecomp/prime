@@ -322,7 +322,7 @@ CGX_INLINE void CGX::Begin(GXPrimitive prim, GXVtxFmt fmt, ushort numVtx) {
   GXBegin(prim, fmt, numVtx);
 }
 
-CGX_INLINE void CGX::End() {}
+CGX_INLINE void CGX::End() { GXEnd(); }
 
 CGX_INLINE void CGX::SetFog(GXFogType type, float startZ, float endZ, float nearZ, float farZ,
                             const GXColor& color) {
