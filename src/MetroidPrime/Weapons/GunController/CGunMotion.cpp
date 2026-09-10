@@ -20,30 +20,32 @@ CGunMotion::CGunMotion(CAssetId ancsId, const CVector3f& scale)
 
 CGunMotion::~CGunMotion() {}
 
-bool CGunMotion::PlayPasAnim(SamusGun::EAnimationState state, CStateManager& mgr, float angle,
-                             bool bigStrike) {
+uchar CGunMotion::PlayPasAnim(SamusGun::EAnimationState state, CStateManager& mgr, float angle,
+                              bool bigStrike) {
   const CPASDatabase& pas = x0_modelData.GetAnimationData()->GetCharacterInfo().GetPASDatabase();
 
-  int animId = -1;
   bool loop = true;
+  int animId = -1;
   switch (state) {
   case SamusGun::kAS_Wander: {
-    CPASAnimParmData parms((pas::EAnimationState(state)));
-    rstl::pair< float, int > anim = pas.FindBestAnimation(parms, *mgr.Random(), -1);
+    const rstl::pair< float, int > anim =
+        pas.FindBestAnimation(CPASAnimParmData(pas::EAnimationState(state)), *mgr.Random(), -1);
     animId = anim.second;
     break;
   }
   case SamusGun::kAS_Idle: {
-    CPASAnimParmData parms(pas::EAnimationState(state), CPASAnimParm::FromEnum(0));
-    rstl::pair< float, int > anim = pas.FindBestAnimation(parms, *mgr.Random(), -1);
+    const rstl::pair< float, int > anim = pas.FindBestAnimation(
+        CPASAnimParmData(pas::EAnimationState(state), CPASAnimParm::FromEnum(0)), *mgr.Random(),
+        -1);
     animId = anim.second;
     break;
   }
   case SamusGun::kAS_Struck: {
-    CPASAnimParmData parms(pas::EAnimationState(state), CPASAnimParm::FromInt32(0),
-                           CPASAnimParm::FromReal32(angle), CPASAnimParm::FromBool(bigStrike),
-                           CPASAnimParm::FromBool(false));
-    rstl::pair< float, int > anim = pas.FindBestAnimation(parms, *mgr.Random(), -1);
+    const rstl::pair< float, int > anim = pas.FindBestAnimation(
+        CPASAnimParmData(pas::EAnimationState(state), CPASAnimParm::FromInt32(0),
+                         CPASAnimParm::FromReal32(angle), CPASAnimParm::FromBool(bigStrike),
+                         CPASAnimParm::FromBool(false)),
+        *mgr.Random(), -1);
     animId = anim.second;
     loop = false;
     break;
@@ -59,9 +61,11 @@ bool CGunMotion::PlayPasAnim(SamusGun::EAnimationState state, CStateManager& mgr
   }
 
   if (animId != -1) {
-    x0_modelData.AnimationData()->EnableLooping(loop);
+    xb8_24_animPlaying = true;
+    CAnimData& animData = *x0_modelData.AnimationData();
+    animData.EnableLooping(loop);
     CAnimPlaybackParms aparms(animId, -1, 1.f, true);
-    x0_modelData.AnimationData()->SetAnimation(aparms, false);
+    animData.SetAnimation(aparms, false);
   }
 
   return loop;
