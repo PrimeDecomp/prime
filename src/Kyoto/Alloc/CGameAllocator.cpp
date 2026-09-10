@@ -190,10 +190,11 @@ void* CGameAllocator::Alloc(size_t size, const EHint hint, const EScope scope, c
     x7c_ = true;
   }
 
-  size_t roundedSize = T_round_up< size_t, size_t >(size, 32);
+  const bool topOfHeap = (hint & kHI_TopOfHeap) != 0;
+  uint roundedSize = T_round_up< uint, size_t >(size, 32);
   SGameMemInfo* info = nullptr;
 
-  if (hint & kHI_TopOfHeap) {
+  if (topOfHeap) {
     info = FindFreeBlockFromTopOfHeap(roundedSize);
   } else {
     info = FindFreeBlock(roundedSize);
@@ -223,7 +224,7 @@ void* CGameAllocator::Alloc(size_t size, const EHint hint, const EScope scope, c
   }
 
   uint tmp = FixupAllocPtrs(info, size, roundedSize, hint, callstack);
-  if ((hint & kHI_TopOfHeap) != 0u && !info->IsAllocated()) {
+  if (topOfHeap && !info->IsAllocated()) {
     info = info->GetNext();
   }
 
@@ -417,8 +418,10 @@ bool CGameAllocator::FreeNormalAllocation(const void* ptr) {
     }
     newLen += sizeof(SGameMemInfo);
     info->x4_len += next->x4_len + sizeof(SGameMemInfo);
+    info->SetAllocated(false);
+  } else {
+    info->SetAllocated(false);
   }
-  info->SetAllocated(false);
   AddFreeEntryToFreeList(info);
 
   x84_ -= 1;
