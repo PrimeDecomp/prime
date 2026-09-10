@@ -810,7 +810,7 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/BodyState/CBSGetup.cpp",
             ),
-            Object(NonMatching, "MetroidPrime/BodyState/CBSKnockBack.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/BodyState/CBSKnockBack.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/BodyState/CBSLieOnGround.cpp",

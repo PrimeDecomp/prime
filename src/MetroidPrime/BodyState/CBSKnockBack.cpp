@@ -16,7 +16,8 @@
 CBSKnockBack::CBSKnockBack() : x4_curTime(0.f), x8_rotateSpeed(0.f), xc_remTime(0.f) {}
 
 void CBSKnockBack::Start(CBodyController& bc, CStateManager& mgr) {
-  const CBCKnockBackCmd* cmd = static_cast<const CBCKnockBackCmd*>(bc.CommandMgr().GetCmd(kBSC_KnockBack));
+  const CBCKnockBackCmd* cmd =
+      static_cast< const CBCKnockBackCmd* >(bc.CommandMgr().GetCmd(kBSC_KnockBack));
 
   CVector3f localDir = bc.GetOwner().GetTransform().TransposeRotate(cmd->GetHitDirection());
   CAbsAngle angle = CAbsAngle::FromRadians(atan2(localDir.GetY(), localDir.GetX()));
@@ -25,21 +26,22 @@ void CBSKnockBack::Start(CBodyController& bc, CStateManager& mgr) {
 
   const CPASAnimParmData parms(pas::kAS_KnockBack, CPASAnimParm::FromReal32(angle.AsDegrees()),
                                CPASAnimParm::FromEnum(cmd->GetHitSeverity()));
-  const rstl::pair<float, int> best = db.FindBestAnimation(parms, *mgr.Random(), -1);
+  const rstl::pair< float, int > best = db.FindBestAnimation(parms, *mgr.Random(), -1);
 
   const CAnimPlaybackParms playParms(best.second, -1, 1.f, true);
   bc.SetCurrentAnimation(playParms, false, false);
   const CPASAnimState* animState = db.GetAnimState(pas::kAS_KnockBack);
-  
+
   CPASAnimParm parm2(animState->GetAnimParmData(best.second, 2));
   if (!parm2.GetBoolValue()) {
     CPASAnimParm parm0(animState->GetAnimParmData(best.second, 0));
     float knockdownAngle = parm0.GetReal32Value();
-    float delta1 = CAbsAngle::FromRadians(angle.AsRadians() - CRelAngle::FromDegrees(knockdownAngle).AsRadians()).AsRadians();
-    float delta2 = CAbsAngle::FromRadians(CRelAngle::FromDegrees(knockdownAngle).AsRadians() - angle.AsRadians()).AsRadians();
+    const float angleDiff = angle.AsRadians() - CRelAngle::FromDegrees(knockdownAngle).AsRadians();
+    float delta1 = CMath::ClampRadians(angleDiff);
+    float delta2 =
+        CMath::ClampRadians(CRelAngle::FromDegrees(knockdownAngle).AsRadians() - angle.AsRadians());
     float minAngle = rstl::min_val(delta1, delta2);
-    // There's missing code here. Same problem in CBSFall, see there for details
-    const float flippedAngle = (delta1 > M_PIF) ? -minAngle : minAngle;
+    const float flippedAngle = CMath::ClampRadians(angleDiff) > M_PIF ? -minAngle : minAngle;
     xc_remTime = 0.15f * bc.GetAnimTimeRemaining();
     x8_rotateSpeed = (xc_remTime > FLT_EPSILON) ? flippedAngle / xc_remTime : flippedAngle;
   } else {
@@ -49,8 +51,7 @@ void CBSKnockBack::Start(CBodyController& bc, CStateManager& mgr) {
   x4_curTime = 0.f;
 }
 
-pas::EAnimationState CBSKnockBack::UpdateBody(float dt, CBodyController& bc,
-                                              CStateManager& mgr) {
+pas::EAnimationState CBSKnockBack::UpdateBody(float dt, CBodyController& bc, CStateManager& mgr) {
   const pas::EAnimationState st = GetBodyStateTransition(dt, bc);
   if (st == pas::kAS_Invalid) {
     x4_curTime += dt;
