@@ -1856,7 +1856,7 @@ config.libs = [
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), "Kyoto/Particles/CGenDescription.cpp"),
             Object(NonMatching, "Kyoto/CPakFile.cpp"),
             Object(NonMatching, "Kyoto/Animation/CPoseAsTransformsVariableSize.cpp"),
-            Object(Matching, "Kyoto/Input/CRumbleVoice.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Input/CRumbleVoice.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00"),
                 "Kyoto/Input/RumbleAdsr.cpp",
