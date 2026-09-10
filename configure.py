@@ -309,9 +309,10 @@ cflags_retro = [
     "-DMUSY_TARGET=MUSY_TARGET_DOLPHIN",
 ]
 
-# Most Retro code uses this inline limit. Objects that still need the compiler
-# default retain cflags_retro explicitly while their helper inlining is investigated.
-cflags_retro_inline = [*cflags_retro, '-pragma "inline_max_size(250)"']
+# Most Retro code uses 250 for the first two USA versions and 125 from GM8E01_48
+# onward. Objects that need the compiler default retain cflags_retro explicitly.
+retro_inline_max_size = 250 if version_num < VERSIONS.index("GM8E01_48") else 125
+cflags_retro_inline = [*cflags_retro, f'-pragma "inline_max_size({retro_inline_max_size})"']
 
 cflags_musyx = [
     "-proc gekko",
@@ -794,7 +795,9 @@ config.libs = [
             ),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CRipple.cpp"),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"), "MetroidPrime/CFluidUVMotion.cpp"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"),
+                "MetroidPrime/CFluidUVMotion.cpp",
+                extra_cflags=['-pragma "inline_max_size(250)"'] if config.version == "GM8P01_00" else [],
             ),
             Object(
                 MatchingFor("GM8E01_00"),
@@ -1689,6 +1692,7 @@ config.libs = [
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
                 "Kyoto/Particles/CParticleGen.cpp",
+                extra_cflags=['-pragma "inline_max_size(250)"'] if config.version == "GM8E01_48" else [],
             ),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00"),
@@ -1699,15 +1703,21 @@ config.libs = [
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
                 "Kyoto/Particles/CRealElement.cpp",
+                extra_cflags=['-pragma "inline_max_size(250)"'] if config.version == "GM8E01_48" else [],
             ),
             Object(MatchingFor("GM8E01_00"), "Kyoto/Particles/CSpawnSystemKeyframeData.cpp"),
             Object(NonMatching, "Kyoto/Particles/CUVElement.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
                 "Kyoto/Particles/CVectorElement.cpp",
+                extra_cflags=['-pragma "inline_max_size(250)"'] if config.version == "GM8E01_48" else [],
             ),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00"), "Kyoto/Particles/CWarp.cpp"),
-            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00"), "Kyoto/Math/CPlane.cpp"),
+            Object(
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00"),
+                "Kyoto/Math/CPlane.cpp",
+                extra_cflags=['-pragma "inline_max_size(250)"'] if config.version == "GM8E01_48" else [],
+            ),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00"), "Kyoto/Math/CSphere.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
@@ -1715,6 +1725,8 @@ config.libs = [
                 extra_cflags=(
                     ['-pragma "inline_max_size(140)"']
                     if version_num >= 4
+                    else ['-pragma "inline_max_size(250)"']
+                    if config.version == "GM8E01_48"
                     else []
                 ),
             ),
@@ -1825,6 +1837,7 @@ config.libs = [
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
                 "Kyoto/CARAMManager.cpp",
+                extra_cflags=['-pragma "inline_max_size(250)"'] if config.version == "GM8E01_48" else [],
             ),
             Object(MatchingFor("GM8E01_00"), "Kyoto/Math/CFrustumPlanes.cpp"),
             Object(NonMatching, "Kyoto/Graphics/CCubeMaterial.cpp"),
@@ -1835,6 +1848,7 @@ config.libs = [
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
                 "Kyoto/Animation/CCharAnimTime.cpp",
+                extra_cflags=['-pragma "inline_max_size(250)"'] if config.version == "GM8E01_48" else [],
             ),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00"),
@@ -1843,6 +1857,7 @@ config.libs = [
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
                 "Kyoto/Input/CFinalInput.cpp",
+                extra_cflags=['-pragma "inline_max_size(250)"'] if config.version == "GM8E01_48" else [],
             ),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
@@ -1862,6 +1877,7 @@ config.libs = [
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
                 "Kyoto/DolphinCDvdFile.cpp",
+                extra_cflags=['-pragma "inline_max_size(250)"'] if config.version == "GM8E01_48" else [],
             ),
             Object(NonMatching, "Kyoto/Alloc/CMediumAllocPool.cpp"),
             Object(
@@ -1881,6 +1897,7 @@ config.libs = [
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00"),
                 "Kyoto/Text/CStringTable.cpp",
+                extra_cflags=['-pragma "inline_max_size(250)"'] if config.version == "GM8E01_48" else [],
             ),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
@@ -1908,6 +1925,7 @@ config.libs = [
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00"),
                 "Kyoto/Text/CFontImageDef.cpp",
+                extra_cflags=['-pragma "inline_max_size(250)"'] if config.version == "GM8E01_48" else [],
             ),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
@@ -1932,6 +1950,7 @@ config.libs = [
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
                 "Kyoto/CDependencyGroup.cpp",
+                extra_cflags=['-pragma "inline_max_size(250)"'] if config.version == "GM8E01_48" else [],
             ),
             Object(NonMatching, "Kyoto/Audio/CStreamAudioManager.cpp"),
             Object(
@@ -1957,6 +1976,7 @@ config.libs = [
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
                 "Kyoto/Input/CRumbleGenerator.cpp",
+                extra_cflags=['-pragma "inline_max_size(250)"'] if config.version == "GM8E01_48" else [],
             ),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Audio/CDSPStream.cpp"),
             Object(
