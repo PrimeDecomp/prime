@@ -20,8 +20,8 @@ CGunMotion::CGunMotion(CAssetId ancsId, const CVector3f& scale)
 
 CGunMotion::~CGunMotion() {}
 
-uchar CGunMotion::PlayPasAnim(SamusGun::EAnimationState state, CStateManager& mgr, float angle,
-                              bool bigStrike) {
+const bool CGunMotion::PlayPasAnim(SamusGun::EAnimationState state, CStateManager& mgr, float angle,
+                             bool bigStrike) {
   const CPASDatabase& pas = x0_modelData.GetAnimationData()->GetCharacterInfo().GetPASDatabase();
 
   bool loop = true;

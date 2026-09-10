@@ -36,7 +36,7 @@ public:
   CGunMotion(CAssetId ancsId, const CVector3f& scale);
   ~CGunMotion();
 
-  uchar PlayPasAnim(SamusGun::EAnimationState state, CStateManager& mgr, float angle,
+  const bool PlayPasAnim(SamusGun::EAnimationState state, CStateManager& mgr, float angle,
                     bool bigStrike);
   void Update(float, CStateManager&);
   void Draw(const CStateManager&, const CTransform4f&) const;
