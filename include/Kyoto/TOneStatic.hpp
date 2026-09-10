@@ -28,7 +28,7 @@ uint& TOneStatic< T >::ReferenceCount() {
 
 template < typename T >
 void* TOneStatic< T >::GetAllocSpace() {
-  static char sAllocSpace[sizeof(T)];
+  ALIGNAS(T) static char sAllocSpace[sizeof(T)];
   return &sAllocSpace;
 }
 

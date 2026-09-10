@@ -33,7 +33,7 @@ public:
   T& operator*() { return data(); }
 
 private:
-  uchar x0_data[sizeof(T)];
+  ALIGNAS(T) uchar x0_data[sizeof(T)];
   bool m_valid __attribute__((aligned(4)));
 
   void makeValid() { m_valid = true; }

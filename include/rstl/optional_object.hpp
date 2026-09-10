@@ -57,7 +57,7 @@ public:
   const T* operator->() const { return &data(); }
 
 private:
-  uchar m_data[sizeof(T)];
+  ALIGNAS(T) uchar m_data[sizeof(T)];
   bool m_valid ATTRIBUTE_ALIGN(4);
 
   void assign(const T& item) {
