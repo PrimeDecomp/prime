@@ -2413,7 +2413,7 @@ Kyoto/Particles/CParticleSwoosh.cpp:
 	.sdata2     start:0x804709F0 end:0x80470A78
 
 Kyoto/Particles/CParticleSwooshDataFactory.cpp:
-	.text       start:0x80318340 end:0x803188A8
+	.text       start:0x80318340 end:0x80318B64
 	.rodata     start:0x803C2DF8 end:0x803C2E00
 
 Kyoto/Particles/CRealElement.cpp:
