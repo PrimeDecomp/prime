@@ -472,6 +472,9 @@ Equivalent = config.non_matching  # Object should be linked when configured with
 def MatchingFor(*versions):
     return config.version in versions
 
+def EquivalentFor(*versions):
+    return config.version in versions and config.non_matching
+
 
 config.warn_missing_config = True
 config.warn_missing_source = False
@@ -724,7 +727,17 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/ScriptObjects/CScriptHUDMemo.cpp",
             ),
-            Object(Equivalent, "MetroidPrime/CMappableObject.cpp"),
+            
+            Object(
+                Equivalent, 
+                "MetroidPrime/CMappableObject.cpp",
+                extra_cflags=(
+                    # TODO: PAL inlining
+                    ['-pragma "inline_max_size(125)"']
+                    if version_num >= VERSIONS.index("GM8P01_00")
+                    else []
+                ),
+            ),
             Object(NonMatching, "MetroidPrime/Player/CPlayerCameraBob.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
@@ -1340,7 +1353,10 @@ config.libs = [
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"), "Weapons/IWeaponRenderer.cpp"
             ),
-            Object(Equivalent, "Weapons/CDecalDataFactory.cpp"),
+            Object(
+                EquivalentFor("GM8E01_00", "GM8E01_01"), 
+                "Weapons/CDecalDataFactory.cpp"
+            ),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Weapons/CDecal.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"), "Weapons/CWeaponDescription.cpp"
@@ -1701,7 +1717,11 @@ config.libs = [
                 "Kyoto/Particles/CParticleGlobals.cpp",
             ),
             Object(NonMatching, "Kyoto/Particles/CParticleSwoosh.cpp"),
-            Object(Equivalent, "Kyoto/Particles/CParticleSwooshDataFactory.cpp"),
+            Object(
+                EquivalentFor("GM8E01_00", "GM8E01_01"), 
+                "Kyoto/Particles/CParticleSwooshDataFactory.cpp"
+                ,
+            ),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
                 "Kyoto/Particles/CRealElement.cpp",
