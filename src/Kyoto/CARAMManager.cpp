@@ -1,7 +1,5 @@
 #include "Kyoto/CARAMManager.hpp"
 
-#include "Kyoto/CFrameDelayedKiller.hpp"
-
 #include <dolphin/ar.h>
 #include <dolphin/os.h>
 

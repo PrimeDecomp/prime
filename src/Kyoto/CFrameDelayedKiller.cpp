@@ -51,11 +51,7 @@ void CFrameDelayedKiller::FlushAllocationsForFrame() {
   while (it != last) {
     it = list.do_erase(it);
   }
-  
-  Stats();
 }
-
-
 
 CElementAllocationChunk::CElementAllocationChunk()
 : x0_capacity(256)
