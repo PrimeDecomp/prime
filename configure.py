@@ -311,7 +311,8 @@ cflags_retro = [
 
 # Most Retro code uses this inline limit. Objects that still need the compiler
 # default retain cflags_retro explicitly while their helper inlining is investigated.
-cflags_retro_inline = [*cflags_retro, '-pragma "inline_max_size(250)"']
+retro_inline_max_size = 250 if version_num < VERSIONS.index("GM8P01_00") else 125
+cflags_retro_inline = [*cflags_retro, f'-pragma "inline_max_size({retro_inline_max_size})"']
 
 cflags_musyx = [
     "-proc gekko",
@@ -731,12 +732,6 @@ config.libs = [
             Object(
                 Equivalent, 
                 "MetroidPrime/CMappableObject.cpp",
-                extra_cflags=(
-                    # TODO: PAL inlining
-                    ['-pragma "inline_max_size(125)"']
-                    if version_num >= VERSIONS.index("GM8P01_00")
-                    else []
-                ),
             ),
             Object(NonMatching, "MetroidPrime/Player/CPlayerCameraBob.cpp"),
             Object(
@@ -796,9 +791,6 @@ config.libs = [
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/CDecalManager.cpp",
-                extra_cflags=['-pragma "inline_max_size(125)"']
-                if version_num >= VERSIONS.index("GM8P01_00")
-                else [],
             ),
             Object(
                 MatchingFor("GM8E01_00"), "MetroidPrime/ScriptObjects/CScriptSpiderBallWaypoint.cpp"
@@ -813,7 +805,9 @@ config.libs = [
             ),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CRipple.cpp"),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"), "MetroidPrime/CFluidUVMotion.cpp"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"), 
+                "MetroidPrime/CFluidUVMotion.cpp",
+                extra_cflags=['-pragma "inline_max_size(250)"'],
             ),
             Object(
                 MatchingFor("GM8E01_00"),
@@ -1896,12 +1890,6 @@ config.libs = [
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"), 
                 "Kyoto/Alloc/CMediumAllocPool.cpp",
-                extra_cflags=(
-                    # TODO: PAL inlining
-                    ['-pragma "inline_max_size(125)"']
-                    if version_num >= VERSIONS.index("GM8P01_00")
-                    else []
-                ),
             ),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00"),
@@ -1910,12 +1898,6 @@ config.libs = [
             Object(
                 NonMatching,
                 "Kyoto/Alloc/CGameAllocator.cpp",
-                extra_cflags=(
-                    # TODO: PAL inlining
-                    ['-pragma "inline_max_size(125)"']
-                    if version_num >= VERSIONS.index("GM8P01_00")
-                    else []
-                ),
             ),
             Object(
                 NonMatching,
