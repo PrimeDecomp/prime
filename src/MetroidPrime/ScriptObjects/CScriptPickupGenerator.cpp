@@ -50,7 +50,8 @@ float CScriptPickupGenerator::GetSpawnablePickups(
     if (iter->x0_state == kSS_Zero && iter->x4_msg == kSM_Activate) {
       const TUniqueId id = mgr.GetIdForScript(iter->x8_objId);
       if (id != kInvalidUniqueId) {
-        if (const CScriptPickup* pickup = TCastToConstPtr< CScriptPickup >(mgr.GetObjectById(id))) {
+        if (const CScriptPickup* const pickup =
+                TCastToConstPtr< CScriptPickup >(mgr.GetObjectById(id))) {
           const CPlayerState::EItemType item = pickup->GetItem();
           float possibility = pickup->GetPossibility();
           float multiplier = 1.f;
@@ -107,8 +108,8 @@ float CScriptPickupGenerator::GetSpawnablePickups(
 
 void CScriptPickupGenerator::SpawnPickup(CStateManager& mgr, TEditorId templateId,
                                          TUniqueId generatorId) const {
-  TUniqueId templateUnideId = mgr.GetIdForScript(templateId);
-  CEntity* pickupTempl = mgr.ObjectById(templateUnideId);
+  TUniqueId templateUniqueId = mgr.GetIdForScript(templateId);
+  CEntity* pickupTempl = mgr.ObjectById(templateUniqueId);
   CEntity* generator = mgr.ObjectById(generatorId);
 
   if (pickupTempl && generator) {
@@ -122,9 +123,9 @@ void CScriptPickupGenerator::SpawnPickup(CStateManager& mgr, TEditorId templateI
     }
 
     CEntity* newObj = mgr.ObjectById(p);
-    CActor* newAct = TCastToPtr< CActor >(newObj);
+    CActor* const newAct = TCastToPtr< CActor >(newObj);
     CScriptPickup* newPickup = TCastToPtr< CScriptPickup >(newObj);
-    const CActor* generatorAct = TCastToConstPtr< CActor >(generator);
+    const CActor* const generatorAct = TCastToConstPtr< CActor >(generator);
     const CWallCrawlerSwarm* swarmAct = TCastToConstPtr< CWallCrawlerSwarm >(generator);
 
     if (newAct && swarmAct) {
@@ -155,7 +156,7 @@ void CScriptPickupGenerator::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId
   case kSM_SetToZero:
     if (GetActive() && x40_frequency != 100.f) {
       x44_delayTimer -= 1.f;
-      if (x44_delayTimer < 0.000009f) {
+      if (x44_delayTimer < 0.00001f) {
         ResetSpawnNothingCounter();
       } else {
         rstl::vector< TUniqueId > generatorIds;
@@ -169,18 +170,18 @@ void CScriptPickupGenerator::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId
           const float r = stateMgr.Random()->Range(0.f, totalProb);
           float f2 = 0.f;
 
-          for (int i = 0; i < pickupTemplates.size(); ++i) {
-            if (r >= f2 && r <= f2 + pickupTemplates[i].first) {
+          for (; count < pickupTemplates.size(); ++count) {
+            const float probability = pickupTemplates[count].first;
+            if (r >= f2 && r <= f2 + probability) {
               break;
             }
-            f2 += pickupTemplates[i].first;
-            ++count;
+            f2 += probability;
           }
           if (count == pickupTemplates.size()) {
             break;
           } else {
-            const TEditorId templateId = pickupTemplates[count].second;
-            SpawnPickup(stateMgr, templateId,
+            const rstl::pair< float, TEditorId > pickup = pickupTemplates[count];
+            SpawnPickup(stateMgr, pickup.second,
                         generatorIds[stateMgr.Random()->Float() * generatorIds.size() * 0.99f]);
           }
         }
