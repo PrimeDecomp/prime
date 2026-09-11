@@ -1883,7 +1883,16 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00"),
                 "Kyoto/Alloc/CSmallAllocPool.cpp",
             ),
-            Object(NonMatching, "Kyoto/Alloc/CGameAllocator.cpp"),
+            Object(
+                NonMatching,
+                "Kyoto/Alloc/CGameAllocator.cpp",
+                extra_cflags=(
+                    # TODO: PAL inlining
+                    ['-pragma "inline_max_size(125)"']
+                    if version_num >= VERSIONS.index("GM8P01_00")
+                    else []
+                ),
+            ),
             Object(
                 NonMatching,
                 "Kyoto/Animation/DolphinCSkinnedModel.cpp",
