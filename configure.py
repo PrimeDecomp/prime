@@ -1479,7 +1479,11 @@ config.libs = [
             Object(MatchingFor("GM8E01_00"), "Kyoto/Animation/CAnimationManager.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Animation/CAnimationSet.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Animation/CAnimCharacterSet.cpp"),
-            Object(MatchingFor("GM8E01_00"), "Kyoto/Animation/CAnimTreeLoopIn.cpp"),
+            Object(
+                MatchingFor("GM8E01_00"), 
+                "Kyoto/Animation/CAnimTreeLoopIn.cpp",
+                extra_cflags = ['-pragma "inline_max_size(260)"'] if version_num == 0 else [],
+            ),
             Object(NonMatching, "Kyoto/Animation/CAnimTreeSequence.cpp"),
             Object(NonMatching, "Kyoto/Animation/CCharacterInfo.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Animation/CCharacterSet.cpp"),
