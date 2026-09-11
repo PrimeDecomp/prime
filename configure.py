@@ -519,7 +519,7 @@ config.libs = [
                 "MetroidPrime/CInputGenerator.cpp",
                 cflags=cflags_retro,
             ),
-            Object(MatchingFor("GM8E01_00"), "MetroidPrime/CMainFlow.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CMainFlow.cpp"),
             Object(MatchingFor("GM8E01_00"), "MetroidPrime/CMFGame.cpp"),
             Object(NonMatching, "MetroidPrime/CCredits.cpp"),
             Object(MatchingFor("GM8E01_00"), "MetroidPrime/CSplashScreen.cpp"),
@@ -1048,7 +1048,7 @@ config.libs = [
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Weapons/CGunWeapon.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/ScriptObjects/CScriptAreaAttributes.cpp"),
             Object(NonMatching, "MetroidPrime/Weapons/CWaveBuster.cpp"),
-            Object(NonMatching, "MetroidPrime/Player/CStaticInterference.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Player/CStaticInterference.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CMetroidBeta.cpp"),
             Object(NonMatching, "MetroidPrime/PathFinding/CPathFindSearch.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/PathFinding/CPathFindRegion.cpp"),
@@ -1349,7 +1349,7 @@ config.libs = [
         [
             Object(NonMatching, "Weapons/CProjectileWeapon.cpp"),
             Object(NonMatching, "Weapons/CProjectileWeaponDataFactory.cpp"),
-            Object(NonMatching, "Weapons/CCollisionResponseData.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Weapons/CCollisionResponseData.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"), "Weapons/IWeaponRenderer.cpp"
             ),
