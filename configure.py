@@ -1551,7 +1551,7 @@ config.libs = [
                 "Kyoto/Animation/CAnimSourceReaderBase.cpp",
             ),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Animation/CAnimTreeAnimReaderContainer.cpp"),
-            Object(NonMatching, "Kyoto/Animation/CAnimTreeBlend.cpp"),
+            Object(MatchingFor("GM8E01_00"), "Kyoto/Animation/CAnimTreeBlend.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Animation/CAnimTreeContinuousPhaseBlend.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Animation/CAnimTreeDoubleChild.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Animation/CAnimTreeNode.cpp"),
@@ -1587,7 +1587,7 @@ config.libs = [
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Animation/IAnimReader.cpp"
             ),
-            Object(NonMatching, "Kyoto/Animation/CAllFormatsAnimSource.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Animation/CAllFormatsAnimSource.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/CDvdRequestManager.cpp"
             ),
@@ -2008,7 +2008,7 @@ config.libs = [
                 "Kyoto/Audio/g721.cpp",
             ),
             Object(NonMatching, "Kyoto/Audio/CStaticAudioPlayer.cpp"),
-            Object(NonMatching, "Kyoto/CFrameDelayedKiller.cpp"),
+            Object(MatchingFor("GM8E01_00"), "Kyoto/CFrameDelayedKiller.cpp"),
         ],
     ),
     DolphinLib(

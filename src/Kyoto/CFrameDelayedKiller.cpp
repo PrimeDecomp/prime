@@ -12,6 +12,12 @@
 static uint sCurList = 0;
 static rstl::list< void* > sFrameDelayedList[2];
 
+#ifdef __MWERKS__
+#pragma force_active on
+CFrameDelayedKiller::Stats CFrameDelayedKiller::mUnusedStats  = {0, 0, 0, 0, 0, 0};
+#pragma force_active reset
+#endif
+
 void CFrameDelayedKiller::Initialize() { StallAndFlushAllAllocations(); }
 
 void CFrameDelayedKiller::ShutDown() { StallAndFlushAllAllocations(); }
@@ -45,7 +51,11 @@ void CFrameDelayedKiller::FlushAllocationsForFrame() {
   while (it != last) {
     it = list.do_erase(it);
   }
+  
+  Stats();
 }
+
+
 
 CElementAllocationChunk::CElementAllocationChunk()
 : x0_capacity(256)
