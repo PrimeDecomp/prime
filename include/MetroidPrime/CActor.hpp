@@ -122,6 +122,7 @@ public:
   CQuaternion GetRotation() const { return CQuaternion::FromMatrix(GetTransform()); }
   CVector3f GetTranslation() const { return x34_transform.GetTranslation(); }
   void SetTranslation(const CVector3f& vec);
+  void GlobalMove(const CVector3f& delta) { SetTranslation(GetTranslation() + delta); }
   CTransform4f GetLocatorTransform(const rstl::string& segName) const;
   CTransform4f GetScaledLocatorTransform(const rstl::string& segName) const;
   float GetYaw() const;

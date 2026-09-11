@@ -13,6 +13,7 @@
 #include "rstl/algorithm.hpp"
 #include "rstl/math.hpp"
 
+#include <float.h>
 #include <math.h>
 
 static const int kPowerUpMax[] = {
@@ -336,13 +337,14 @@ void CPlayerState::UpdateVisorTransition(float dt) {
     return;
 
   if (x14_currentVisor == x18_transitioningVisor) {
-    x1c_visorTransitionFactor = rstl::min_val(0.2f, x1c_visorTransitionFactor + dt);
+    x1c_visorTransitionFactor = rstl::min_val(kMaxVisorTransitionFactor, x1c_visorTransitionFactor + dt);
   } else {
     x1c_visorTransitionFactor -= dt;
     if (x1c_visorTransitionFactor < 0.f) {
       x14_currentVisor = x18_transitioningVisor;
       x1c_visorTransitionFactor = fabs(x1c_visorTransitionFactor);
-      x1c_visorTransitionFactor = rstl::min_val(x1c_visorTransitionFactor, 0.19999f);
+      x1c_visorTransitionFactor =
+          rstl::min_val(x1c_visorTransitionFactor, kMaxVisorTransitionFactor - FLT_EPSILON);
     }
   }
 }

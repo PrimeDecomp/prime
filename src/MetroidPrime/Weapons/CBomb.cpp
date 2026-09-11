@@ -16,6 +16,8 @@
 #include <Kyoto/Math/CFrustumPlanes.hpp>
 #include <Kyoto/Particles/CElementGen.hpp>
 
+static float kBombBoxAllowance = 0.2f;
+
 CBomb::CBomb(TToken< CGenDescription > particle1, TToken< CGenDescription > particle2,
              TUniqueId uid, TAreaId aid, TUniqueId playerId, float f1, const CTransform4f& xf,
              const CDamageInfo& dInfo)
@@ -48,6 +50,7 @@ void CBomb::Explode(const CVector3f& pos, CStateManager& mgr) {
   mgr.RemoveWeaponId(GetOwnerId(), GetType());
   mIsNotDetonated = false;
 }
+
 void CBomb::Touch(CActor& actor, CStateManager& mgr) {
   if (!mIsNotDetonated) {
     return;
@@ -76,7 +79,6 @@ void CBomb::AddToRenderer(const CFrustumPlanes& frustum, const CStateManager& mg
 
 void CBomb::Render(const CStateManager& mgr) const {}
 
-// Equivelant, https://decomp.me/scratch/cr4FM
 void CBomb::Think(float dt, CStateManager& mgr) {
   CWeapon::Think(dt, mgr);
   if (mIsNotDetonated) {
@@ -111,8 +113,7 @@ void CBomb::Think(float dt, CStateManager& mgr) {
 
     if (mVelocity.MagSquared() > 0.f) {
       mPrevLocation = GetTranslation();
-      CVector3f nextPos = (dt * mVelocity);
-      SetTranslation(nextPos + GetTranslation());
+      GlobalMove(dt * mVelocity);
       CVector3f diffVec = GetTranslation() - mPrevLocation;
       float diffMag = diffVec.Magnitude();
       if (diffMag == 0.f) {
@@ -121,9 +122,8 @@ void CBomb::Think(float dt, CStateManager& mgr) {
         static const CMaterialFilter kSolidFilter = CMaterialFilter::MakeIncludeExclude(
             CMaterialList(kMT_Solid),
             CMaterialList(kMT_Character, kMT_Player, kMT_ProjectilePassthrough));
-        CVector3f direction = (1.f / diffMag) * diffVec;
         CRayCastResult res =
-            mgr.RayStaticIntersection(mPrevLocation, direction, diffMag, kSolidFilter);
+            mgr.RayStaticIntersection(mPrevLocation, diffVec / diffMag, diffMag, kSolidFilter);
 
         if (res.IsValid()) {
           Explode(GetTranslation(), mgr);
@@ -145,7 +145,7 @@ void CBomb::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId sender, CStateMa
       mLightId = mgr.AllocateUniqueId();
       const int sourceId = mParticle2Ptr;
       mgr.AddObject(rs_new CGameLight(
-          mLightId, GetCurrentAreaId(), false, rstl::string_l("Bomb_PLight") + GetDebugName(),
+          mLightId, GetCurrentAreaId(), false, rstl::string_l("BombPLight_") + GetDebugName(),
           GetTransform(), GetUniqueId(), mParticle2->GetLight(), sourceId, 1, 0.f));
     }
     mgr.AddWeaponId(GetOwnerId(), GetType());
@@ -169,7 +169,7 @@ void CBomb::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId sender, CStateMa
 }
 
 rstl::optional_object< CAABox > CBomb::GetTouchBounds() const {
-  float radius = mIsNotDetonated ? 0.2f : x12c_curDamageInfo.GetRadius();
+  float radius = mIsNotDetonated ? kBombBoxAllowance : x12c_curDamageInfo.GetRadius();
   return CAABox(rstl::min_val(mPrevLocation.GetX(), GetTranslation().GetX()) - radius,
                 rstl::min_val(mPrevLocation.GetY(), GetTranslation().GetY()) - radius,
                 rstl::min_val(mPrevLocation.GetZ(), GetTranslation().GetZ()) - radius,

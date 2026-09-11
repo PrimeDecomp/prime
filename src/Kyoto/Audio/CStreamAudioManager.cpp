@@ -276,7 +276,7 @@ void CStreamAudioManager::SetDefaultAudio(const rstl::string& fileName, float fa
 void CStreamAudioManager::SetCurrentAudio(const rstl::string& fileName, float fadeIn, float fadeOut,
                                           unsigned char volume) {
   mTargetVolume = static_cast< float >(volume);
-  if (fileName != mCurrentAudioFile) {
+  if (fileName == mCurrentAudioFile) {
     float fVol = static_cast< float >(volume);
     mCurrentVolume = fVol;
     InternalSetVolume(static_cast< float >(volume));

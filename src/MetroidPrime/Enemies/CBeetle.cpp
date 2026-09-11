@@ -1266,7 +1266,7 @@ void CBeetle::RefinePathFindDest(CStateManager& mgr, CVector3f& dest) {
   }
 }
 
-float CBeetle::GetGravityConstant() const { return 50.f * GravityConstant(); }
+float CBeetle::GetGravityConstant() const { return 4.f * GravityConstant(); }
 
 bool CBeetle::IsListening() const { return true; }
 

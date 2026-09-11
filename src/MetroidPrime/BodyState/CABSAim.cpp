@@ -32,7 +32,7 @@ void CABSAim::Start(CBodyController& bc, CStateManager& mgr) {
     x8_anims[i] = best.second;
 
     CPASAnimParm animParm(aimState->GetAnimParmData(x8_anims[i], 1));
-    x18_angles[i] = CMath::Deg2Rev(animParm.GetReal32Value());
+    x18_angles[i] = (M_PIF / 180.f) * animParm.GetReal32Value();
   }
 
   CAnimData& animData = *bc.GetOwner().AnimationData();
@@ -52,22 +52,28 @@ inline float GetVecAngle(const CVector3f& target) {
 }
 
 pas::EAnimationState CABSAim::UpdateBody(float dt, CBodyController& bc, CStateManager& mgr) {
+  static const float maximumVelocity = 3.f;
+  static const float maximumAcceleration = 10.f;
+
   const pas::EAnimationState st = GetBodyStateTransition(dt, bc);
   if (st == pas::kAS_Invalid) {
     CVector3f target = bc.CommandMgr().GetAdditiveTargetVector();
     if (target.CanBeNormalized()) {
-      float hAngle =
-          CMath::Clamp(-x18_angles[0], atan2f(target.GetX(), target.GetY()), x18_angles[1]);
+      float hAngle = atan2f(target.GetX(), target.GetY());
+      hAngle = CMath::Clamp(-x18_angles[0], hAngle, x18_angles[1]);
       hAngle = hAngle * 0.63661975f;
-      hAngle = (hAngle - x28_hWeight) * 0.25f / dt;
-      hAngle = CMath::Clamp(-3.f, hAngle, 3.f);
-      x2c_hWeightVel += dt * CMath::Clamp(-10.f, (hAngle - x2c_hWeightVel) / dt, 10.f);
+      float velocity = (hAngle - x28_hWeight) * 0.25f / dt;
+      velocity = CMath::Clamp(-maximumVelocity, velocity, maximumVelocity);
+      float acceleration = (velocity - x2c_hWeightVel) / dt;
+      x2c_hWeightVel += dt * CMath::Clamp(-maximumAcceleration, acceleration, maximumAcceleration);
 
-      float vAngle = CMath::Clamp(-x18_angles[3], GetVecAngle(target), x18_angles[2]);
+      float vAngle = GetVecAngle(target);
+      vAngle = CMath::Clamp(-x18_angles[3], vAngle, x18_angles[2]);
       vAngle = vAngle * 0.63661975f;
-      vAngle = (vAngle - x30_vWeight) * 0.25f / dt;
-      vAngle = CMath::Clamp(-3.f, vAngle, 3.f);
-      x34_vWeightVel += dt * CMath::Clamp(-10.f, (vAngle - x34_vWeightVel) / dt, 10.f);
+      velocity = (vAngle - x30_vWeight) * 0.25f / dt;
+      velocity = CMath::Clamp(-maximumVelocity, velocity, maximumVelocity);
+      acceleration = (velocity - x34_vWeightVel) / dt;
+      x34_vWeightVel += dt * CMath::Clamp(-maximumAcceleration, acceleration, maximumAcceleration);
 
       float newHWeight = dt * x2c_hWeightVel + x28_hWeight;
       float newVWeight = dt * x34_vWeightVel + x30_vWeight;
