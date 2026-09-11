@@ -2125,6 +2125,9 @@ Kyoto/Animation/CCharLayoutInfo.cpp:
 	.data       start:0x803D5270 end:0x803D5280
 	.sbss       start:0x8046B448 end:0x8046B450
 
+Kyoto/CDvdRequestManager.cpp:
+	.sbss       start:0x8046B458 end:0x8046B460
+
 Kyoto/Animation/CFBStreamedAnimReader.cpp:
 	.text       start:0x802E1D1C end:0x802E43E4
 	.rodata     start:0x803C22F0 end:0x803C22F8
@@ -3146,6 +3149,9 @@ runtime/alloc.c:
 	.bss        start:0x80404338 end:0x80404370
 	.sbss       start:0x8046BB08 end:0x8046BB10
 
+runtime/errno.c:
+	.sbss       start:0x8046BB10 end:0x8046BB18
+
 runtime/ansi_files.c:
 	.text       start:0x803750C0 end:0x803751C8
 	.data       start:0x803DA610 end:0x803DA750
@@ -3162,6 +3168,9 @@ runtime/buffer_io.c:
 runtime/ctype.c:
 	.text       start:0x80376F3C end:0x80376F60
 	.data       start:0x803DA8B8 end:0x803DABB8
+
+runtime/locale.c:
+	.data       start:0x803DABB8 end:0x803DABF0
 
 runtime/direct_io.c:
 	.text       start:0x80376F60 end:0x8037728C
@@ -3437,6 +3446,10 @@ musyx/runtime/hardware.c:
 	.sdata      start:0x8046ACC8 end:0x8046ACD8
 	.sbss       start:0x8046BC80 end:0x8046BC90
 	.sdata2     start:0x80471608 end:0x80471620
+
+musyx/runtime/dsp_import.c:
+	.data       start:0x803DC920 end:0x803DE300
+	.sdata      start:0x8046ACD8 end:0x8046ACE0
 
 musyx/runtime/hw_aramdma.c:
 	.text       start:0x8039DF88 end:0x8039EC54
