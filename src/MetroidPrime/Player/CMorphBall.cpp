@@ -1446,12 +1446,9 @@ void CMorphBall::UpdateEffects(float dt, CStateManager& mgr) {
   } else {
     x19d8_boostBallGlowGen->SetGlobalTranslation(swooshToWorld.GetTranslation());
 
-    float t;
-    if (x1df4_boostDrainTime == 0.f) {
-      t = x1de8_boostChargeTime / gpTweakBall->GetBoostBallMaxChargeTime();
-    } else {
-      t = 1.f - x1df4_boostDrainTime / gpTweakBall->GetBoostBallDrainTime();
-    }
+    const float t = x1df4_boostDrainTime == 0.f
+                        ? x1de8_boostChargeTime / gpTweakBall->GetBoostBallMaxChargeTime()
+                        : 1.f - x1df4_boostDrainTime / gpTweakBall->GetBoostBallDrainTime();
 
     CElementGen* boostBallGlowGen = x19d8_boostBallGlowGen.get();
     boostBallGlowGen->SetModulationColor(
@@ -2230,23 +2227,17 @@ static inline CMaterialList GetCollisionMaterials(const CCollisionInfoList& list
 }
 
 static inline int GetWakeMaterial(const CCollisionInfo& info, int currentMaterial) {
-  int tmpMaterial = info.GetMaterialLeft().HasMaterial(kMT_Dirt) ? kMT_Dirt : currentMaterial;
-  if (info.GetMaterialLeft().HasMaterial(kMT_Sand)) {
-    tmpMaterial = kMT_Sand;
-  }
-  if (info.GetMaterialLeft().HasMaterial(kMT_Lava)) {
-    tmpMaterial = kMT_Lava;
-  }
-  if (info.GetMaterialLeft().HasMaterial(kMT_MudSlow)) {
-    tmpMaterial = kMT_MudSlow;
-  }
-  if (info.GetMaterialLeft().HasMaterial(kMT_Snow)) {
-    tmpMaterial = kMT_Snow;
-  }
-  if (info.GetMaterialLeft().HasMaterial(kMT_Phazon)) {
-    tmpMaterial = kMT_Phazon;
-  }
-  return tmpMaterial;
+  const CMaterialList& materials = info.GetMaterialLeft();
+  const int dirt = materials.HasMaterial(kMT_Dirt) ? kMT_Dirt : currentMaterial;
+  const int sand = materials.HasMaterial(kMT_Sand) ? kMT_Sand : dirt;
+  const int lava = materials.HasMaterial(kMT_Lava) ? kMT_Lava : sand;
+  const int mud = materials.HasMaterial(kMT_MudSlow) ? kMT_MudSlow : lava;
+  const int snow = materials.HasMaterial(kMT_Snow) ? kMT_Snow : mud;
+  return materials.HasMaterial(kMT_Phazon) ? kMT_Phazon : snow;
+}
+
+static inline float ClampClimbSpeedMin(float speed, float minimum) {
+  return CMath::FastFSel(speed - minimum, speed, minimum);
 }
 
 void CMorphBall::CollidedWith(const TUniqueId& id, const CCollisionInfoList& list,
@@ -2263,8 +2254,9 @@ void CMorphBall::CollidedWith(const TUniqueId& id, const CCollisionInfoList& lis
   CVector3f cforce;
   CVector3f newVel;
   if (velMag > 7.f && !x0_player.IsInFluid()) {
+    const CCollisionInfo* info = list.Begin();
     bool hitWall = false;
-    for (const CCollisionInfo* info = list.Begin(); info != list.End(); ++info) {
+    for (; info != list.End(); ++info) {
       if (!hitWall) {
         if (info->GetMaterialLeft().HasMaterial(kMT_Wall)) {
           hitWall = true;
@@ -2328,11 +2320,10 @@ void CMorphBall::CollidedWith(const TUniqueId& id, const CCollisionInfoList& lis
   if (allMats.HasMaterial(kMT_HalfPipe)) {
     x1dfc_touchHalfPipeCooldown = 4.f;
     x1e04_touchHalfPipeRecentCooldown = 0.05f;
-    int i = 0;
-    const CCollisionInfo* info = list.Begin();
-    for (; i < list.GetCount(); ++info, ++i) {
-      if (info->GetMaterialLeft().HasMaterial(kMT_HalfPipe)) {
-        const CVector3f normal = info->GetNormalLeft();
+    for (int i = 0; i < list.GetCount(); ++i) {
+      const CCollisionInfo& info = list[i];
+      if (info.GetMaterialLeft().HasMaterial(kMT_HalfPipe)) {
+        const CVector3f normal = info.GetNormalLeft();
         const float dot = CVector3f::Dot(normal, x1e14_halfPipeNormal);
         if (dot < 0.99f) {
           x1e08_prevHalfPipeNormal = x1e14_halfPipeNormal;
@@ -2376,9 +2367,8 @@ void CMorphBall::CollidedWith(const TUniqueId& id, const CCollisionInfoList& lis
           const float cvelDot = CVector3f::Dot(cvelNorm, normal);
           if (cforceDot < -0.4f && cvelDot < -0.6f) {
             const float boostZ = 0.75f * cvelMag;
-            const float minZ =
-                0.15f * gpTweakBall->GetBallTranslationMaxSpeed(x0_player.GetSurfaceRestraint());
-            const float clampedZ = CMath::FastFSel(boostZ - minZ, boostZ, minZ);
+            const float clampedZ = ClampClimbSpeedMin(boostZ,
+                0.15f * gpTweakBall->GetBallTranslationMaxSpeed(x0_player.GetSurfaceRestraint()));
             const float maxZ =
                 0.25f * gpTweakBall->GetBallTranslationMaxSpeed(x0_player.GetSurfaceRestraint());
             const float zVel = CMath::FastFSel(clampedZ - maxZ, maxZ, clampedZ);
