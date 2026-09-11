@@ -7,7 +7,7 @@
 
 class CAnimTreeLoopIn : public CAnimTreeSingleChild {
 public:
-  ~CAnimTreeLoopIn() override;
+  ~CAnimTreeLoopIn() override {}
   CAdvancementResults VAdvanceView(const CCharAnimTime& time) override;
   CCharAnimTime VGetTimeRemaining() const override;
   CSteadyStateAnimInfo VGetSteadyStateAnimInfo() const override;

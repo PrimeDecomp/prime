@@ -1479,7 +1479,7 @@ config.libs = [
             Object(MatchingFor("GM8E01_00"), "Kyoto/Animation/CAnimationManager.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Animation/CAnimationSet.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Animation/CAnimCharacterSet.cpp"),
-            Object(NonMatching, "Kyoto/Animation/CAnimTreeLoopIn.cpp"),
+            Object(MatchingFor("GM8E01_00"), "Kyoto/Animation/CAnimTreeLoopIn.cpp"),
             Object(NonMatching, "Kyoto/Animation/CAnimTreeSequence.cpp"),
             Object(NonMatching, "Kyoto/Animation/CCharacterInfo.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Animation/CCharacterSet.cpp"),

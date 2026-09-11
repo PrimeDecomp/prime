@@ -4,6 +4,7 @@
 #include "Kyoto/Animation/CTreeUtils.hpp"
 #include "Kyoto/Math/CloseEnough.hpp"
 
+#pragma inline_max_size(260)
 template < class T >
 uint _getPOIList(const CCharAnimTime& time, T* listOut, uint capacity, uint iterator, int additive,
                  const rstl::vector< T >& stream, const CCharAnimTime& curTime) {
@@ -138,5 +139,3 @@ rstl::string CAnimTreeLoopIn::CreatePrimitiveName(const rstl::ncrc_ptr< CAnimTre
                                                   const rstl::ncrc_ptr< CAnimTreeNode >& c) {
   return rstl::string_l("");
 }
-
-CAnimTreeLoopIn::~CAnimTreeLoopIn() {}
