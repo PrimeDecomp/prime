@@ -18,6 +18,7 @@ public:
   rstl::rc_ptr< IMetaAnim > GetMetaAnimation(uint animIdx) const;
 
 private:
+  void ForceOrdering();
   TToken< CAnimationDatabase > x0_animDB;
   CAnimSysContext x8_sysCtx;
 };

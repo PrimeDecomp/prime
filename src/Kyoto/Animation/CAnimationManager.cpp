@@ -11,3 +11,8 @@ CAnimationManager::GetAnimationTree(uint animIdx, const CMetaAnimTreeBuildOrders
 rstl::rc_ptr< IMetaAnim > CAnimationManager::GetMetaAnimation(uint animIdx) const {
   return x0_animDB.NonConstCopy()->GetMetaAnim(animIdx);
 }
+
+
+void CAnimationManager::ForceOrdering() {
+  x0_animDB.NonConstCopy();
+}
