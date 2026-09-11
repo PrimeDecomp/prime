@@ -1446,12 +1446,9 @@ void CMorphBall::UpdateEffects(float dt, CStateManager& mgr) {
   } else {
     x19d8_boostBallGlowGen->SetGlobalTranslation(swooshToWorld.GetTranslation());
 
-    float t;
-    if (x1df4_boostDrainTime == 0.f) {
-      t = x1de8_boostChargeTime / gpTweakBall->GetBoostBallMaxChargeTime();
-    } else {
-      t = 1.f - x1df4_boostDrainTime / gpTweakBall->GetBoostBallDrainTime();
-    }
+    const float t = x1df4_boostDrainTime == 0.f
+                        ? x1de8_boostChargeTime / gpTweakBall->GetBoostBallMaxChargeTime()
+                        : 1.f - x1df4_boostDrainTime / gpTweakBall->GetBoostBallDrainTime();
 
     CElementGen* boostBallGlowGen = x19d8_boostBallGlowGen.get();
     boostBallGlowGen->SetModulationColor(
