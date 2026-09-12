@@ -2658,33 +2658,13 @@ CModelData* CMorphBall::GetMorphBallModel(const rstl::string& name, float radius
   return ret;
 }
 
-static inline void WarmUpElectricalSwoosh(CParticleSwoosh* swoosh, const CVector3f& position,
-                                        const CVector3f& transInc) {
-  CVector3f translation(position);
-  swoosh->SetOrientation(CTransform4f::LookAt(CVector3f::Zero(), transInc, CVector3f::Up()));
-
-  // AddSpiderBallElectricalEffect +0x258: retail loop counter r26; rebuilt r30.
-  for (uint j = 0; j < 6; ++j) {
-    swoosh->SetTranslation(translation);
-    // Retail uses zero dt; SetWarmUp forces each of these six updates.
-    swoosh->SetWarmUp();
-    swoosh->Update(0.0);
-    translation += transInc;
-  }
-}
-
-static inline void ActivateElectricalGenerator(
-    rstl::pair< rstl::auto_ptr< CParticleSwoosh >, bool >& slot) {
-  slot.second = true;
-}
-
 void CMorphBall::AddSpiderBallElectricalEffect() {
   for (int i = 0; i < x19e4_spiderElectricGens.size(); ++i) {
     if (x19e4_spiderElectricGens[i].second) {
       continue;
     }
 
-    ActivateElectricalGenerator(x19e4_spiderElectricGens[i]);
+    x19e4_spiderElectricGens[i].SetSecond(true);
     x1b68_activeSpiderElectricList.push_back(
         CSpiderBallElectrictyManager(i, x1b80_rand.Range(4, 8)));
 
@@ -2706,12 +2686,20 @@ void CMorphBall::AddSpiderBallElectricalEffect() {
     const float cosAng0 = CMath::FastCosR(ang0);
     const float sinAng1 = CMath::FastSinR(ang1);
     CVector3f transInc;
-    CVector3f translation =
+    const CVector3f startPosition =
         CVector3f(translationX, 0.f, 0.f) +
         0.6f * CVector3f(sign * ((-sinAng1) * cosAng0), sign * sinAng0, sign * cosAng0CosAng1);
-    transInc = (1.f / 6.f) * (CVector3f(randDir, 0.f, 0.f) - translation);
+    transInc = (1.f / 6.f) * (CVector3f(randDir, 0.f, 0.f) - startPosition);
 
-    WarmUpElectricalSwoosh(swoosh, translation, transInc);
+    CVector3f translation(startPosition);
+    swoosh->SetOrientation(CTransform4f::LookAt(CVector3f::Zero(), transInc, CVector3f::Up()));
+
+    for (i = 0; i < 6u; ++i) {
+      swoosh->SetTranslation(translation);
+      swoosh->SetWarmUp();
+      swoosh->Update(0.0);
+      translation += transInc;
+    }
     return;
   }
 }
