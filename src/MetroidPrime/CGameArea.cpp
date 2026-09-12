@@ -66,13 +66,12 @@ int CGameArea::GetPostConstructedSize() const {
        it != x12c_postConstructed->x4c_insts.end(); ++it) {
     surfaceSize += it->GetSurfaces().size() * sizeof(void*);
   }
-  int size = x120_unk - x12c_postConstructed->x1104_;
-  size += x12c_postConstructed->x4c_insts.size() * sizeof(CMetroidModelInstance);
-  size += x12c_postConstructed->x60_lightsA.size() * sizeof(CWorldLight);
-  size += x12c_postConstructed->x80_lightsB.size() * sizeof(CWorldLight);
-  size += x12c_postConstructed->x110c_layerOffsets.size() * sizeof(rstl::pair< int, int >);
-  size += sizeof(CAreaObjectList);
-  return surfaceSize + size;
+  return surfaceSize + (x120_unk - x12c_postConstructed->x1104_) +
+         (x12c_postConstructed->x4c_insts.size() * sizeof(CMetroidModelInstance)) +
+         (x12c_postConstructed->x60_lightsA.size() * sizeof(CWorldLight)) +
+         (x12c_postConstructed->x80_lightsB.size() * sizeof(CWorldLight)) +
+         (x12c_postConstructed->x110c_layerOffsets.size() * sizeof(rstl::pair< int, int >)) +
+         (sizeof(CAreaObjectList));
 }
 
 CGameArea::CPostConstructed::CPostConstructed()
@@ -501,14 +500,14 @@ void CGameArea::Validate(CStateManager& mgr) {
     if (x12c_postConstructed->xa0_pvs.get() != nullptr &&
         x12c_postConstructed->x1108_29_pvsHasActors) {
       for (int i = 0; i < x12c_postConstructed->xa0_pvs->GetNumActors(); ++i) {
+        const CPostConstructed* post = x12c_postConstructed.get();
         uint editorId =
-            x12c_postConstructed->xa0_pvs->GetEntityIdByIndex(i) | (x4_selfIdx.Value() << 16);
+            post->xa0_pvs->GetEntityIdByIndex(i) | (x4_selfIdx.Value() << 16);
         TUniqueId id = mgr.GetIdForScript(editorId);
         if (id != kInvalidUniqueId) {
+          const CPVSAreaSet* pvs = x12c_postConstructed->xa0_pvs.get();
           x12c_postConstructed->xa4_pvsEntityMap[id.Value()] =
-              SPVSActorInfo(i + (x12c_postConstructed->xa0_pvs->GetNumFeatures() -
-                                 x12c_postConstructed->xa0_pvs->GetNumActors()),
-                            id);
+              SPVSActorInfo(i + (pvs->GetNumFeatures() - pvs->GetNumActors()), id);
         }
       }
     }
@@ -586,7 +585,8 @@ bool CGameArea::Invalidate(CStateManager* mgr) {
   if (!xf0_24_postConstructed) {
     ClearTokenList();
     for (AUTO(it, xf8_loadTransactions.begin()); it != xf8_loadTransactions.end();) {
-      AUTO(cur, it++);
+      AUTO(cur, it);
+      ++it;
       if (!(*cur)->IsComplete()) {
         (*cur)->PostCancelRequest();
       } else {
@@ -667,8 +667,6 @@ bool CGameArea::UnloadAllloadedTextures() {
   return finished;
 }
 
-CGameArea::CPostConstructed::~CPostConstructed() {}
-
 bool CGameArea::StartStreamingMainArea() {
   if (xf0_24_postConstructed) {
     return false;
@@ -713,8 +711,8 @@ bool CGameArea::StartStreamingMainArea() {
   }
   case kP_LoadDataSections: {
     CullDeadAreaRequests();
-    int totalSize = 0;
     int secCount = x124_secCount;
+    int totalSize = 0;
     int partSizes = GetNumPartSizes();
     const int* sizes = reinterpret_cast< const int* >(x110_mreaSecBufs[1].first.get());
     SObjectTag tag('MREA', x84_mrea);
@@ -732,8 +730,9 @@ bool CGameArea::StartStreamingMainArea() {
         rstl::auto_ptr< CDvdRequest >(gpResourceFactory->GetResLoader().LoadResourcePartAsync(
             tag, x128_mreaDataOffset, totalSize, buffer.get())));
     x128_mreaDataOffset += totalSize;
-    int offset = sizes[secCount];
-    x110_mreaSecBufs.push_back(rstl::pair< rstl::auto_ptr< char >, int >(buffer, sizes[secCount]));
+    const int firstSize = sizes[secCount];
+    int offset = firstSize;
+    x110_mreaSecBufs.push_back(rstl::pair< rstl::auto_ptr< char >, int >(buffer, firstSize));
     for (int i = secCount + 1; i < targetSecCount; ++i) {
       rstl::auto_ptr< char > section(buffer.get() + offset);
       section.release();
@@ -841,10 +840,9 @@ void CGameArea::AddStaticGeometry() {
     if (!x12c_postConstructed->x1108_25_modelsConstructed) {
       FillInStaticGeometry();
     }
+    const CPostConstructed* post = x12c_postConstructed.get();
     int areaIdx = x4_selfIdx.Value();
-    const CAreaRenderOctTree* tree = x12c_postConstructed->xc_octTree.valid()
-                                         ? x12c_postConstructed->xc_octTree.get_ptr()
-                                         : nullptr;
+    const CAreaRenderOctTree* tree = post->xc_octTree.valid() ? post->xc_octTree.get_ptr() : nullptr;
     gpRender->AddStaticGeometry(&x12c_postConstructed->x4c_insts, tree, areaIdx);
   }
 }
