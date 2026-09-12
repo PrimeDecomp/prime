@@ -30,7 +30,7 @@ public:
   static CQuaternion LookAt(const CUnitVector3f&, const CUnitVector3f&, const CRelAngle&);
   static CQuaternion ClampedRotateTo(const CVector3f&, const CVector3f&, const CRelAngle&);
 
-  // IsValidQuaternion__11CQuaternionCFf
+  bool IsValidQuaternion(float epsilon) const;
   static CQuaternion Slerp(const CQuaternion& a, const CQuaternion& b, float t);
   static CQuaternion SlerpLocal(const CQuaternion& from, const CQuaternion& to, float t);
   CRelAngle AngleFrom(const CQuaternion& other) const;
