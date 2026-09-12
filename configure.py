@@ -2822,6 +2822,30 @@ config.libs = [
 ]
 
 
+# PAL ships separate 50 Hz and 60 Hz modules. Give each its own object paths and
+# generated ROM include directory while compiling the shared emulator sources.
+if config.version == "GM8P01_00":
+    nes_lib = next(lib for lib in config.libs if lib["lib"] == "NESemuP")
+    config.libs.remove(nes_lib)
+    for module in ("NESPALemuP", "NESPAL60emuP"):
+        objects = []
+        for obj in nes_lib["objects"]:
+            options = dict(obj.options)
+            options["source"] = obj.name
+            options["cflags"] = [
+                f"-i {(config.out_path() / 'include' / module).as_posix()}",
+                *options["cflags"],
+            ]
+            objects.append(
+                Object(
+                    obj.name in ("NESemu/modwrapper.cpp", "NESemu/ksNesAudio.cpp"),
+                    obj.name.replace("NESemu/", f"{module}/", 1),
+                    **options,
+                )
+            )
+        config.libs.append(Rel(module, objects))
+
+
 # Optional callback to adjust link order. This can be used to add, remove, or reorder objects.
 # This is called once per module, with the module ID and the current link order.
 #

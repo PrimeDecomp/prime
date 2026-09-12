@@ -6,23 +6,23 @@ Sections:
 	.data       type:data align:8
 	.bss        type:bss align:32
 
-NESPALemuP/modwrapper.cpp:
+NESPAL60emuP/modwrapper.cpp:
 	.text       start:0x00000000 end:0x000000D4
 	.data       start:0x00000000 end:0x00000030
 
-NESPALemuP/emusound.cpp:
+NESPAL60emuP/emusound.cpp:
 	.text       start:0x000000E0 end:0x0000419C align:32
 	.rodata     start:0x00000000 end:0x00000140
 	.data       start:0x00000030 end:0x00000548
 	.bss        start:0x00000000 end:0x000084E0
 
-NESPALemuP/emu.cpp:
-	.text       start:0x0000419C end:0x0000A078
-	.rodata     start:0x00000140 end:0x000001B4
-	.data       start:0x00000548 end:0x0001F260
-	.bss        start:0x000084E0 end:0x000084EC
+NESPAL60emuP/ksNesAudio.cpp:
+	.text       start:0x000041A0 end:0x00004450 align:32
+	.data       start:0x00000548 end:0x00000550
+	.bss        start:0x000084E0 end:0x00009E00 align:32
 
-NESPALemuP/ksNesAudio.cpp:
-	.text       start:0x0000A080 end:0x0000A330 align:32
-	.data       start:0x0001F260 end:0x0001F264
-	.bss        start:0x00008500 end:0x00009E20 align:32
+NESPAL60emuP/emu.cpp:
+	.text       start:0x00004450 end:0x0000A32C
+	.rodata     start:0x00000140 end:0x000001B4
+	.data       start:0x00000550 end:0x0001F110
+	.bss        start:0x00009E00 end:0x00009E0C
