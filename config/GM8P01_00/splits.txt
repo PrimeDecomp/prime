@@ -3305,7 +3305,7 @@ dolphin/os/OSInterrupt.c:
 	.sbss       start:0x8046BA10 end:0x8046BA28
 
 dolphin/os/OSLink.c:
-	.text       start:0x8036BD34 end:0x8036C71C
+	.text       start:0x8036BD30 end:0x8036C71C
 	.data       start:0x803DA128 end:0x803DA178
 
 dolphin/os/OSMessage.c:

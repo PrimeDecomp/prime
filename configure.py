@@ -2043,7 +2043,7 @@ config.libs = [
                 "dolphin/dsp/dsp_debug.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00", "GM8E01_02"),
                 "dolphin/dsp/dsp_task.c",
             ),
         ],
@@ -2056,7 +2056,7 @@ config.libs = [
                 "dolphin/dvd/dvdlow.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00", "GM8E01_02"),
                 "dolphin/dvd/dvdfs.c",
             ),
             Object(
@@ -2223,7 +2223,7 @@ config.libs = [
                 "dolphin/os/OSInterrupt.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00", "GM8E01_02"),
                 "dolphin/os/OSLink.c",
             ),
             Object(
