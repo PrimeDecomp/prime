@@ -1,6 +1,7 @@
 #include "MetroidPrime/ScriptLoader.hpp"
 
 #include "Kyoto/Audio/CSfxManager.hpp"
+#include "Kyoto/Basics/CCast.hpp"
 #include "Kyoto/Math/CMath.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
 #include "MetroidPrime/CActorParameters.hpp"
@@ -1659,8 +1660,7 @@ CEntity* ScriptLoader::LoadSpecialFunction(CStateManager& mgr, CInputStream& in,
     return nullptr;
 
   SActorHead head(in, mgr);
-  CScriptSpecialFunction::ESpecialFunction specialFunction =
-      CScriptSpecialFunction::ESpecialFunction(in.ReadLong());
+  const uint functionValue = in.Get< uint >();
   rstl::string str(in);
   float f1 = in.ReadFloat();
   float f2 = in.ReadFloat();
@@ -1673,6 +1673,9 @@ CEntity* ScriptLoader::LoadSpecialFunction(CStateManager& mgr, CInputStream& in,
   int w5 = in.ReadLong() & 0xFFFF;
   int w6 = in.ReadLong() & 0xFFFF;
   int w7 = in.ReadLong() & 0xFFFF;
+
+  const CScriptSpecialFunction::ESpecialFunction specialFunction =
+      static_cast< CScriptSpecialFunction::ESpecialFunction >(functionValue);
 
   if (specialFunction == CScriptSpecialFunction::kSF_FogVolume)
     return nullptr;
@@ -1968,7 +1971,7 @@ CEntity* ScriptLoader::LoadPuddleSpore(CStateManager& mgr, CInputStream& in, int
     return nullptr;
 
   rstl::string name = mgr.HashInstanceName(in);
-  CPatterned::EFlavorType flavor = CPatterned::EFlavorType(in.ReadLong());
+  const uint flavor = in.Get< uint >();
   CTransform4f xf = LoadEditorTransform(in);
   CVector3f scale(in);
 
@@ -1994,7 +1997,7 @@ CEntity* ScriptLoader::LoadPuddleSpore(CStateManager& mgr, CInputStream& in, int
     return nullptr;
 
   return rs_new CPuddleSpore(
-      mgr.AllocateUniqueId(), name, flavor, info, xf,
+      mgr.AllocateUniqueId(), name, static_cast< CPatterned::EFlavorType >(flavor), info, xf,
       CModelData(CAnimRes(pInfo.GetAnimationParameters().GetACSFile(),
                           pInfo.GetAnimationParameters().GetCharacter(), scale,
                           pInfo.GetAnimationParameters().GetInitialAnimation(), true)),
@@ -2031,7 +2034,7 @@ CEntity* ScriptLoader::LoadPuddleToadGamma(CStateManager& mgr, CInputStream& in,
     return nullptr;
 
   rstl::string name = mgr.HashInstanceName(in);
-  CPatterned::EFlavorType flavor = CPatterned::EFlavorType(in.ReadLong());
+  const uint flavor = in.Get< uint >();
   CTransform4f xf = LoadEditorTransform(in);
   CVector3f scale(in);
 
@@ -2054,7 +2057,7 @@ CEntity* ScriptLoader::LoadPuddleToadGamma(CStateManager& mgr, CInputStream& in,
   uint dcln = in.ReadLong();
 
   return rs_new CPuddleToadGamma(
-      mgr.AllocateUniqueId(), name, flavor, info, xf,
+      mgr.AllocateUniqueId(), name, static_cast< CPatterned::EFlavorType >(flavor), info, xf,
       CModelData(CAnimRes(pInfo.GetAnimationParameters().GetACSFile(),
                           pInfo.GetAnimationParameters().GetCharacter(), scale,
                           pInfo.GetAnimationParameters().GetInitialAnimation(), true)),
@@ -2304,7 +2307,7 @@ CEntity* ScriptLoader::LoadParasite(CStateManager& mgr, CInputStream& in, int pr
     return nullptr;
 
   rstl::string name = mgr.HashInstanceName(in);
-  CPatterned::EFlavorType flavor = CPatterned::EFlavorType(in.ReadLong());
+  const uint flavor = in.Get< uint >();
   CTransform4f xf = LoadEditorTransform(in);
   CVector3f scale(in);
 
@@ -2334,15 +2337,14 @@ CEntity* ScriptLoader::LoadParasite(CStateManager& mgr, CInputStream& in, int pr
   float playerObstructionMinDist = in.ReadFloat();
   bool disableMove = in.ReadBool();
 
-  if (gpResourceFactory->GetResourceTypeById(pInfo.GetAnimationParameters().GetACSFile()) !=
-      'ANCS') {
+  const CAnimationParameters& anim = pInfo.GetAnimationParameters();
+  if (gpResourceFactory->GetResourceTypeById(anim.GetACSFile()) != 'ANCS') {
     return nullptr;
   }
 
   return rs_new CParasite(
-      mgr.AllocateUniqueId(), name, flavor, info, xf,
-      CModelData(CAnimRes(pInfo.GetAnimationParameters().GetACSFile(),
-                          pInfo.GetAnimationParameters().GetCharacter(), scale,
+      mgr.AllocateUniqueId(), name, static_cast< CPatterned::EFlavorType >(flavor), info, xf,
+      CModelData(CAnimRes(anim.GetACSFile(), pInfo.GetAnimationParameters().GetCharacter(), scale,
                           pInfo.GetAnimationParameters().GetInitialAnimation(), true)),
       pInfo, kBT_WallWalker, maxTelegraphReactDist, advanceWpRadius, f3, alignAngVel, f5,
       stuckTimeThreshold, collisionCloseMargin, parasiteSearchRadius, parasiteSeparationDist,
@@ -2648,7 +2650,7 @@ CEntity* ScriptLoader::LoadFishCloud(CStateManager& mgr, CInputStream& in, int p
   CAssetId ancsFile = in.Get< CAssetId >();
   int charIdx = in.Get< int >();
   int defaultAnim = in.Get< int >();
-  int numBoids = static_cast< int >(in.ReadFloat());
+  int numBoids = CCast::ToInt32(in.ReadFloat());
   float speed = in.ReadFloat();
   float separationRadius = in.ReadFloat();
   float cohesionMagnitude = in.ReadFloat();
@@ -3683,9 +3685,10 @@ CEntity* ScriptLoader::LoadOcculus(CStateManager& mgr, CInputStream& in, int pro
                           pInfo.GetAnimationParameters().GetInitialAnimation(), true)),
       pInfo, kBT_WallWalker, 0.f, advanceWpRadius, f2, alignAngVel, f4, 0.2f, 0.4f, 0.f, 0.f, 0.f,
       0.f, 0.f, 1.f, forwardMoveWeight, 0.f, 0.f, playerObstructionMinDist, haltDelay, false,
-      CWallWalker::kWT_Oculus, dVuln, dInfo, CSfxManager::kInternalInvalidSfxId,
-      CSfxManager::kInternalInvalidSfxId, CSfxManager::kInternalInvalidSfxId, kInvalidAssetId,
-      kInvalidAssetId, 0.f, actParms);
+      CWallWalker::kWT_Oculus, dVuln, dInfo, static_cast< uint >(CSfxManager::kInternalInvalidSfxId),
+      static_cast< uint >(CSfxManager::kInternalInvalidSfxId),
+      static_cast< uint >(CSfxManager::kInternalInvalidSfxId), kInvalidAssetId, kInvalidAssetId, 0.f,
+      actParms);
 }
 
 CEntity* ScriptLoader::LoadGeemer(CStateManager& mgr, CInputStream& in, int propCount,
