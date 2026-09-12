@@ -323,19 +323,13 @@ const rstl::vector< CAssetId >* CResLoader::GetTagListForFile(const rstl::string
 rstl::vector< rstl::pair< rstl::string, SObjectTag > > CResLoader::GetResourceIdToNameList() const {
   const rstl::list< rstl::auto_ptr< CPakFile > >* lists[] = {&x0_aramList, &x18_pakLoadedList};
   int nameCount = 0;
-  for (rstl::list< rstl::auto_ptr< CPakFile > >::const_iterator it = x0_aramList.begin();
-       it != x0_aramList.end(); ++it) {
-    const CPakFile* pak = it->get();
-    if (!pak->IsStashedInARAM()) {
-      nameCount += pak->GetStringToObjectList().size();
-    }
-  }
-
-  for (rstl::list< rstl::auto_ptr< CPakFile > >::const_iterator it = x18_pakLoadedList.begin();
-       it != x18_pakLoadedList.end(); ++it) {
-    const CPakFile* pak = it->get();
-    if (!pak->IsStashedInARAM()) {
-      nameCount += pak->GetStringToObjectList().size();
+  for (int i = 0; i < ARRAY_SIZE(lists); ++i) {
+    const rstl::list< rstl::auto_ptr< CPakFile > >& list = *lists[i];
+    for (AUTO(it, list.begin()); it != list.end(); ++it) {
+      const CPakFile* pak = it->get();
+      if (!pak->IsStashedInARAM()) {
+        nameCount += pak->GetStringToObjectList().size();
+      }
     }
   }
 

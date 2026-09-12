@@ -77,7 +77,7 @@ public:
   inline iterator insert(iterator it, const T& value);
 
   template < typename from_iterator >
-  void insert(iterator it, from_iterator begin, from_iterator end);
+  inline void insert(iterator it, from_iterator begin, from_iterator end);
 
   // iterator erase(iterator it);
   // iterator erase(iterator first, iterator last);
