@@ -305,8 +305,8 @@ void CGameArea::PostConstructArea() {
     section += surfaces;
   }
 
-  int geometryEnd = section - x110_mreaSecBufs.begin();
-  if (version > 14 && CBasics::SwapBytes(header->renderOctreeSection) != -1) {
+  long geometryEnd = section - x110_mreaSecBufs.begin();
+  if (version >= 15 && CBasics::SwapBytes(header->renderOctreeSection) != -1) {
     rstl::auto_ptr< const u8 > buffer(reinterpret_cast< const u8* >(section->first.get()));
     buffer.release();
     x12c_postConstructed->xc_octTree = CAreaRenderOctTree(buffer);
@@ -351,16 +351,21 @@ void CGameArea::PostConstructArea() {
       x12c_postConstructed->x70_gfxLightsA.push_back(
           x12c_postConstructed->x60_lightsA[i].GetAsCGraphicsLight());
     }
-    if (twoLayers && (count = stream.ReadLong()) != 0) {
-      x12c_postConstructed->x80_lightsB.reserve(count);
-      x12c_postConstructed->x90_gfxLightsB.reserve(count);
-      for (int i = 0; i < count; ++i) {
-        x12c_postConstructed->x80_lightsB.push_back(CWorldLight(stream));
-        x12c_postConstructed->x90_gfxLightsB.push_back(
-            x12c_postConstructed->x80_lightsB[i].GetAsCGraphicsLight());
+    if (twoLayers) {
+      const int countB = stream.Get< int >();
+      if (countB != 0) {
+        x12c_postConstructed->x80_lightsB.reserve(countB);
+        x12c_postConstructed->x90_gfxLightsB.reserve(countB);
+        for (int i = 0; i < countB; ++i) {
+          x12c_postConstructed->x80_lightsB.push_back(CWorldLight(stream));
+          x12c_postConstructed->x90_gfxLightsB.push_back(
+              x12c_postConstructed->x80_lightsB[i].GetAsCGraphicsLight());
+        }
       }
     }
-    if (x12c_postConstructed->x80_lightsB.size() == 0) {
+
+    const CPostConstructed* post = x12c_postConstructed.get();
+    if (post->x80_lightsB.size() == 0) {
       x12c_postConstructed->x80_lightsB = x12c_postConstructed->x60_lightsA;
       x12c_postConstructed->x90_gfxLightsB = x12c_postConstructed->x70_gfxLightsA;
     }
@@ -370,7 +375,7 @@ void CGameArea::PostConstructArea() {
     ++section;
     int size = section->second;
     if (size > 64) {
-      const char* buffer = section->first.get();
+      const char* const buffer = section->first.get();
       CMemoryInStream stream(buffer, size);
       if (stream.ReadLong() == 'VISI') {
         int pvsVersion = stream.ReadLong();
