@@ -1322,7 +1322,7 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"), "WorldFormat/CAreaBspTree.cpp"
             ),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "WorldFormat/CAreaOctTree.cpp"),
-            Object(NonMatching, "WorldFormat/CMetroidAreaCollider.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "WorldFormat/CMetroidAreaCollider.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "WorldFormat/CWorldLight.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "WorldFormat/COBBTree.cpp"),
             Object(

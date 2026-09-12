@@ -82,17 +82,6 @@ void CMetroidAreaCollider::ResetInternalCounters() {
   ++sDupPrimitiveCheckCount;
 }
 
-CAABoxAreaCache::CAABoxAreaCache(const CAABox& aabb, const CPlane* pl,
-                                 const CMaterialFilter& filter, const CMaterialList& material,
-                                 CCollisionInfoList& collisionList)
-: x0_aabb(aabb)
-, x4_planes(pl)
-, x8_filter(filter)
-, xc_material(material)
-, x10_collisionList(collisionList)
-, x14_center(aabb.GetCenterPoint())
-, x20_halfExtent(aabb.GetHalfExtent()) {}
-
 bool CMetroidAreaCollider::AABoxCollisionCheck_Internal(const CAreaOctTree::Node& node,
                                                         CAABoxAreaCache& cache) {
   bool ret = false;
@@ -205,6 +194,17 @@ bool CMetroidAreaCollider::AABoxCollisionCheck_Cached(const COctreeLeafCache& le
 
   return ret;
 }
+
+CAABoxAreaCache::CAABoxAreaCache(const CAABox& aabb, const CPlane* pl,
+                                 const CMaterialFilter& filter, const CMaterialList& material,
+                                 CCollisionInfoList& collisionList)
+: x0_aabb(aabb)
+, x4_planes(pl)
+, x8_filter(filter)
+, xc_material(material)
+, x10_collisionList(collisionList)
+, x14_center(aabb.GetCenterPoint())
+, x20_halfExtent(aabb.GetHalfExtent()) {}
 
 bool CMetroidAreaCollider::AABoxCollisionCheck(const CAreaOctTree& octTree, const CAABox& aabb,
                                                const CMaterialFilter& filter,
@@ -467,6 +467,17 @@ bool CMetroidAreaCollider::SphereCollisionCheckBoolean(const CAreaOctTree& octTr
   return SphereCollisionCheckBoolean_Internal(node, cache);
 }
 
+static inline CVector3f TriangleEdgeNormal(const CVector3f& lhs, const CVector3f& rhs) {
+  const float lX = lhs.GetX();
+  const float lY = lhs.GetY();
+  const float lZ = lhs.GetZ();
+  const float rX = rhs.GetX();
+  const float rY = rhs.GetY();
+  const float rZ = rhs.GetZ();
+
+  return CVector3f(lY * rZ - rY * lZ, lZ * rX - rZ * lX, lX * rY - rX * lY);
+}
+
 bool CMetroidAreaCollider::MovingSphereCollisionCheck_Cached(
     const COctreeLeafCache& leafCache, const CAABox& aabb, const CSphere& sphere,
     const CMaterialFilter& filter, const CMaterialList& matList, CVector3f dir, float mag,
@@ -511,25 +522,24 @@ bool CMetroidAreaCollider::MovingSphereCollisionCheck_Cached(
                 bool triRet = false;
 
                 double triMagD =
-                    static_cast< double >(
-                        sphere.GetRadius() -
-                        CVector3f::Dot(sphere.GetCenter() - surf.GetVert(0), surfNormal)) /
-                    static_cast< double >(CVector3f::Dot(dir, surfNormal));
+                    sphere.GetRadius() -
+                    CVector3f::Dot(sphere.GetCenter() - surf.GetVert(0), surfNormal);
+                triMagD /= CVector3f::Dot(dir, surfNormal);
                 CVector3f intersectPoint = sphere.GetCenter() + static_cast< float >(triMagD) * dir;
 
                 bool outsideEdges[3];
                 outsideEdges[0] =
                     CVector3f::Dot(
                         intersectPoint - surf.GetVert(0),
-                        CVector3f::Cross(surfNormal, surf.GetVert(1) - surf.GetVert(0))) < 0.f;
+                        TriangleEdgeNormal(surfNormal, surf.GetVert(1) - surf.GetVert(0))) < 0.f;
                 outsideEdges[1] =
                     CVector3f::Dot(
                         intersectPoint - surf.GetVert(1),
-                        CVector3f::Cross(surfNormal, surf.GetVert(2) - surf.GetVert(1))) < 0.f;
+                        TriangleEdgeNormal(surfNormal, surf.GetVert(2) - surf.GetVert(1))) < 0.f;
                 outsideEdges[2] =
                     CVector3f::Dot(
                         intersectPoint - surf.GetVert(2),
-                        CVector3f::Cross(surfNormal, surf.GetVert(0) - surf.GetVert(2))) < 0.f;
+                        TriangleEdgeNormal(surfNormal, surf.GetVert(0) - surf.GetVert(2))) < 0.f;
 
                 if (triMagD >= 0.0 && !outsideEdges[0] && !outsideEdges[1] && !outsideEdges[2] &&
                     triMagD < dOut) {
@@ -555,12 +565,14 @@ bool CMetroidAreaCollider::MovingSphereCollisionCheck_Cached(
                         CVector3f edgeVec = surf.GetVert(mod3[k + 1]) - surf.GetVert(k);
                         float edgeVecMag = edgeVec.Magnitude();
                         edgeVec *= 1.f / edgeVecMag;
-                        float dirDotEdge = CVector3f::Dot(dir, edgeVec);
-                        CVector3f edgeRej = dir - dirDotEdge * edgeVec;
-                        float edgeRejMagSq = edgeRej.MagSquared();
+
                         CVector3f vertToSphere = sphere.GetCenter() - surf.GetVert(k);
                         float vtsDotEdge = CVector3f::Dot(vertToSphere, edgeVec);
                         CVector3f vtsRej = vertToSphere - vtsDotEdge * edgeVec;
+                        float dirDotEdge = CVector3f::Dot(dir, edgeVec);
+                        CVector3f edgeRej = dir - dirDotEdge * edgeVec;
+                        float edgeRejMagSq = edgeRej.MagSquared();
+
                         if (edgeRejMagSq > 0.f) {
                           float tmp = 2.f * CVector3f::Dot(vtsRej, edgeRej);
                           float tmp2 =
