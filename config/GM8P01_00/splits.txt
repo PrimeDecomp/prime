@@ -3552,6 +3552,9 @@ musyx/runtime/seq.c:
 
 musyx/runtime/synth.c:
 	.text       start:0x80382CB8 end:0x80386014
+	.bss        start:0x80411EB0 end:0x80413498
+	.sbss       start:0x8046BB48 end:0x8046BB90
+	.sdata2     start:0x804714A0 end:0x804714E0
 
 musyx/runtime/seq_api.c:
 	.text       start:0x80386014 end:0x803861A8
