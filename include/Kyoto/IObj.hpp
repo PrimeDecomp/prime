@@ -11,12 +11,14 @@ extern const SObjectTag gkInvalidObjectTag;
 
 class IObj {
 public:
-  virtual ~IObj() {}
+  virtual ~IObj() = 0;
 };
+
+inline IObj::~IObj() {}
 
 class CObjOwnerDerivedFromIObjUntyped : public IObj {
 public:
-  ~CObjOwnerDerivedFromIObjUntyped() {}
+  ~CObjOwnerDerivedFromIObjUntyped() = 0;
   template < typename T >
   CObjOwnerDerivedFromIObjUntyped(T* obj) : m_objPtr(obj) {}
   template < typename T >
@@ -27,6 +29,8 @@ public:
 protected:
   void* m_objPtr;
 };
+
+inline CObjOwnerDerivedFromIObjUntyped::~CObjOwnerDerivedFromIObjUntyped() {}
 
 template < typename T >
 class TObjOwnerDerivedFromIObj : public CObjOwnerDerivedFromIObjUntyped {
