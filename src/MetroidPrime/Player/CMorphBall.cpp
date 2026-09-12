@@ -1920,12 +1920,11 @@ void CMorphBall::Render(const CStateManager& mgr, const CActorLights* lights) co
     CSkinnedModel::SetPointGeneratorFunc(x1c1c_rainSplashGen.get(), &CMorphBall::PointGenerator);
   }
 
-  const CModelFlags::EFlags otherFlags =
-      static_cast< CModelFlags::EFlags >(ballFlags.GetOtherFlags());
-  ballFlags = CModelFlags(static_cast< CModelFlags::ETrans >(ballFlags.GetBlendMode()),
-                          GetMorphballModelShader(),
-                          otherFlags,
+  const CModelFlags::ETrans blendMode =
+      static_cast< CModelFlags::ETrans >(ballFlags.GetBlendMode());
+  ballFlags = CModelFlags(blendMode, GetMorphballModelShader(), ballFlags.GetOtherFlags(),
                           ballFlags.GetColorRef());
+
   if (1.f != x1c34_boostLightFactor) {
     if (lights->HasShadowLight()) {
       x1c14_worldShadow->EnableModelProjectedShadow(ballToWorld, lights->GetShadowLightArrIndex(),
@@ -1954,6 +1953,7 @@ void CMorphBall::Render(const CStateManager& mgr, const CActorLights* lights) co
                               x1c3c_ballOrientAvg.GetEntry(i)->BuildTransform4f();
       const float alpha = (1.f - t) * x1c30_boostOverLightFactor * 0.2f;
       if (x68_lowPolyBallModel.get() != nullptr) {
+        // Remaining mismatch: flag-copy registers and Render argument scheduling.
         const CModelFlags& lowPolyFlags = CModelFlags::Additive(alpha)
                                               .DepthCompareUpdate(true, false)
                                               .UseShaderSet(x6c_lowPolyBallModelShader);
@@ -1962,38 +1962,36 @@ void CMorphBall::Render(const CStateManager& mgr, const CActorLights* lights) co
     }
   }
 
-  {
-    const float swooshAlpha = x1c20_tireFactor / x1c24_maxTireFactor;
-    const SColorRgb& swooshColor0 = skBallTailSwooshColors[x8_ballGlowColorIdx];
-    CColor color0 = CColor(swooshColor0.x0_r, swooshColor0.x1_g, swooshColor0.x2_b, 0xff);
-    color0.SetAlpha(swooshAlpha);
-    const SColorRgb& swooshColor1 = skBallBoostedTailSwooshColors[x8_ballGlowColorIdx];
-    CColor color1 = CColor(swooshColor1.x0_r, swooshColor1.x1_g, swooshColor1.x2_b, 0xff);
-    color1.SetAlpha(swooshAlpha);
+  const float swooshAlpha = x1c20_tireFactor / x1c24_maxTireFactor;
+  const SColorRgb& swooshColor0 = skBallTailSwooshColors[x8_ballGlowColorIdx];
+  CColor color0 = CColor(swooshColor0.x0_r, swooshColor0.x1_g, swooshColor0.x2_b, 0xff);
+  color0.SetAlpha(swooshAlpha);
+  const SColorRgb& swooshColor1 = skBallBoostedTailSwooshColors[x8_ballGlowColorIdx];
+  CColor color1 = CColor(swooshColor1.x0_r, swooshColor1.x1_g, swooshColor1.x2_b, 0xff);
+  color1.SetAlpha(swooshAlpha);
 
-    float t = 0.f;
-    if (x1df4_boostDrainTime > 0.f) {
-      t = CMath::Clamp(0.f, (speed - 25.f) / 15.f, 1.f);
-    }
+  float t = 0.f;
+  if (x1df4_boostDrainTime > 0.f) {
+    t = CMath::Clamp(0.f, (speed - 25.f) / 15.f, 1.f);
+  }
 
-    const CColor tailColor = CColor::Lerp(color0, color1, t);
-    x19b8_slowBlueTailSwooshGen->SetModulationColor(tailColor);
-    x19b8_slowBlueTailSwooshGen->Render();
-    x19bc_slowBlueTailSwooshGen2->SetModulationColor(tailColor);
-    x19bc_slowBlueTailSwooshGen2->Render();
-    x19c0_slowBlueTailSwoosh2Gen->SetModulationColor(tailColor);
-    x19c0_slowBlueTailSwoosh2Gen->Render();
-    x19c4_slowBlueTailSwoosh2Gen2->SetModulationColor(tailColor);
-    x19c4_slowBlueTailSwoosh2Gen2->Render();
+  const CColor tailColor = CColor::Lerp(color0, color1, t);
+  x19b8_slowBlueTailSwooshGen->SetModulationColor(tailColor);
+  x19b8_slowBlueTailSwooshGen->Render();
+  x19bc_slowBlueTailSwooshGen2->SetModulationColor(tailColor);
+  x19bc_slowBlueTailSwooshGen2->Render();
+  x19c0_slowBlueTailSwoosh2Gen->SetModulationColor(tailColor);
+  x19c0_slowBlueTailSwoosh2Gen->Render();
+  x19c4_slowBlueTailSwoosh2Gen2->SetModulationColor(tailColor);
+  x19c4_slowBlueTailSwoosh2Gen2->Render();
 
-    if (x1df4_boostDrainTime > 0.f && speed > 23.f && static_cast< double >(swooshAlpha) > 0.5) {
-      const float jaggyAlpha = CMath::Clamp(0.f, (speed - 23.f) / 17.f, t);
-      const SColorRgb& jaggyColorData = skBallJaggyTrailColors[x8_ballGlowColorIdx];
-      CColor jaggyColor = CColor(jaggyColorData.x0_r, jaggyColorData.x1_g, jaggyColorData.x2_b, 0xff);
-      jaggyColor.SetAlpha(jaggyAlpha);
-      x19c8_jaggyTrailGen->SetModulationColor(jaggyColor);
-      x19c8_jaggyTrailGen->Render();
-    }
+  if (x1df4_boostDrainTime > 0.f && speed > 23.f && static_cast< double >(swooshAlpha) > 0.5) {
+    const float jaggyAlpha = CMath::Clamp(0.f, (speed - 23.f) / 17.f, t);
+    const SColorRgb& jaggyColorData = skBallJaggyTrailColors[x8_ballGlowColorIdx];
+    CColor jaggyColor = CColor(jaggyColorData.x0_r, jaggyColorData.x1_g, jaggyColorData.x2_b, 0xff);
+    jaggyColor.SetAlpha(jaggyAlpha);
+    x19c8_jaggyTrailGen->SetModulationColor(jaggyColor);
+    x19c8_jaggyTrailGen->Render();
   }
 
   RenderSpiderBallElectricalEffects();
