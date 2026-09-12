@@ -1953,7 +1953,6 @@ void CMorphBall::Render(const CStateManager& mgr, const CActorLights* lights) co
                               x1c3c_ballOrientAvg.GetEntry(i)->BuildTransform4f();
       const float alpha = (1.f - t) * x1c30_boostOverLightFactor * 0.2f;
       if (x68_lowPolyBallModel.get() != nullptr) {
-        // Remaining mismatch: flag-copy registers and Render argument scheduling.
         const CModelFlags& lowPolyFlags = CModelFlags::Additive(alpha)
                                               .DepthCompareUpdate(true, false)
                                               .UseShaderSet(x6c_lowPolyBallModelShader);
