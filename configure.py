@@ -1328,7 +1328,7 @@ config.libs = [
             Object(
                 NonMatching,
                 "WorldFormat/CCollidableOBBTree.cpp",
-                cflags=cflags_retro,
+                cflags=cflags_retro if version_num < VERSIONS.index("GM8P01_00") else None,
             ),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"), "WorldFormat/CCollidableOBBTreeGroup.cpp"
