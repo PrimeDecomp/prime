@@ -2591,7 +2591,7 @@ config.libs = [
                 "musyx/runtime/hardware.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00", "GM8E01_02"),
                 "musyx/runtime/hw_aramdma.c",
             ),
             Object(
@@ -2599,7 +2599,7 @@ config.libs = [
                 "musyx/runtime/dsp_import.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00", "GM8E01_02"),
                 "musyx/runtime/hw_dolphin.c",
             ),
             Object(
