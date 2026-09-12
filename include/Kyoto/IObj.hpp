@@ -24,7 +24,7 @@ public:
   template < typename T >
   CObjOwnerDerivedFromIObjUntyped(const rstl::auto_ptr< T >& obj) : m_objPtr(obj.release()) {}
 
-  void* GetContents() { return m_objPtr; }
+  void* GetContents() const { return m_objPtr; }
 
 protected:
   void* m_objPtr;
