@@ -66,6 +66,19 @@ CPASAnimParm CPASAnimState::GetAnimParmData(int animId, uint parmIdx) const {
   return CPASAnimParm::NoParameter();
 }
 
+// The linker strips this entry point and retains its vector insertion helpers.
+void CPASAnimState::AddAnimParmData(
+    int animId, const rstl::reserved_vector< CPASAnimParm, 8 >& parms) {
+  rstl::reserved_vector< CPASAnimParm::UParmValue, 8 > values;
+  for (int i = 0; i < parms.size(); ++i) {
+    values.push_back(parms[i].GetParameterValue());
+  }
+
+  CPASAnimInfo animInfo(animId, values);
+  AUTO(it, rstl::lower_bound(x14_anims.begin(), x14_anims.end(), animInfo));
+  x14_anims.insert(it, animInfo);
+}
+
 rstl::pair< float, int >
 CPASAnimState::FindBestAnimation(const rstl::reserved_vector< CPASAnimParm, 8 >& parms,
                                  CRandom16& random, int ignoreAnim) const {

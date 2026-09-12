@@ -6,8 +6,8 @@ CPASParmInfo::CPASParmInfo(CInputStream& in)
 : x0_type(CPASAnimParm::kPT_None)
 , x4_weightFunction(kWF_Invalid)
 , x8_weight(0.f)
-, xc_min(CPASAnimParm::FromInt32(0).GetParameter())
-, x10_max(CPASAnimParm::FromInt32(0).GetParameter()) {
+, xc_min(CPASAnimParm::FromInt32(0).GetParameterValue())
+, x10_max(CPASAnimParm::FromInt32(0).GetParameterValue()) {
 
   CPASAnimParm::EParmType type = CPASAnimParm::EParmType(in.ReadInt32());
   x0_type = type;

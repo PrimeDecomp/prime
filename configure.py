@@ -1219,7 +1219,7 @@ config.libs = [
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CGBASupport.cpp"
             ),
-            Object(NonMatching, "MetroidPrime/CMemoryCard.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CMemoryCard.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/ScriptObjects/CScriptCameraHintTrigger.cpp",
@@ -1512,8 +1512,8 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"),
                 "Kyoto/Animation/CPASAnimParm.cpp",
             ),
-            Object(NonMatching, "Kyoto/Animation/CPASAnimState.cpp"),
-            Object(NonMatching, "Kyoto/Animation/CPASDatabase.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Animation/CPASAnimState.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Animation/CPASDatabase.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "Kyoto/Animation/CPASParmInfo.cpp",
@@ -1626,7 +1626,7 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "Kyoto/Text/CPushStateInstruction.cpp",
             ),
-            Object(NonMatching, "Kyoto/Text/CRasterFont.cpp"),  # Iterator helper order differs.
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Text/CRasterFont.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "Kyoto/Text/CRemoveColorOverrideInstruction.cpp",
