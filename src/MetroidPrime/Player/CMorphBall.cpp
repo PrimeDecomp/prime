@@ -2457,10 +2457,9 @@ void CMorphBall::ComputeLiftForces(const CVector3f& controlForce, const CVector3
       if (CGameCollision::DetectStaticCollisionBoolean(
               mgr, CCollidableAABox(liftBounds, CMaterialList(kMT_Solid)),
               CTransform4f::Identity(), CMaterialFilter::skPassEverything)) {
-        const float ballRadius = GetBallRadius();
-        const float zLift = 1.75f * ballRadius;
-        const CVector3f liftPos = primitiveXf.GetTranslation() + CVector3f(0.f, 0.f, zLift);
-        const CVector3f liftDir = avgControlForce / avgControlForceMag;
+        const CVector3f liftPos =
+            primitiveXf.GetTranslation() + CVector3f(0.f, 0.f, 1.75f * GetBallRadius());
+        const CVector3f liftDir = avgControlForce * (1.f / avgControlForceMag);
         const CMaterialFilter rayFilter =
             CMaterialFilter::MakeInclude(CMaterialList(kMT_Solid));
         const CRayCastResult result = mgr.RayStaticIntersection(liftPos, liftDir, 1.4f, rayFilter);
@@ -2660,12 +2659,14 @@ CModelData* CMorphBall::GetMorphBallModel(const rstl::string& name, float radius
 }
 
 void CMorphBall::AddSpiderBallElectricalEffect() {
+  // Desync +0x4c: retail keeps the generator-array base in r6; rebuilt uses r5.
   for (int i = 0; i < x19e4_spiderElectricGens.size(); ++i) {
     if (x19e4_spiderElectricGens[i].second) {
       continue;
     }
 
     x19e4_spiderElectricGens[i].second = true;
+    // Desync +0xb0 in list insertion: retail node/payload use r5/r3; rebuilt uses r3/r4.
     x1b68_activeSpiderElectricList.push_back(
         CSpiderBallElectrictyManager(i, x1b80_rand.Range(4, 8)));
 
@@ -2687,6 +2688,7 @@ void CMorphBall::AddSpiderBallElectricalEffect() {
     const float cosAng0 = CMath::FastCosR(ang0);
     const float sinAng1 = CMath::FastSinR(ang1);
     CVector3f transInc;
+    // Desync +0x1d0: vector math swaps FPRs and addition operands before LookAt.
     CVector3f translation =
         0.6f * CVector3f(sign * ((-sinAng1) * cosAng0), sign * sinAng0, sign * cosAng0CosAng1) +
         CVector3f(translationX, 0.f, 0.f);
