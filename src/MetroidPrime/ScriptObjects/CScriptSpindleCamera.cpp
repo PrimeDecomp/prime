@@ -312,7 +312,7 @@ void CScriptSpindleCamera::Think(float dt, CStateManager& mgr) {
     camToBall[kDZ] = 0.f;
 
     float targetHintToCamDeltaAngle =
-        targetHintToCamDeltaAngleVel * dt * hintToCamDeltaAngleSpeedFactor;
+        targetHintToCamDeltaAngleVel * (dt * hintToCamDeltaAngleSpeedFactor);
     float camToBallDist = 0.f;
     if (camToBall.CanBeNormalized()) {
       camToBallDist = camToBall.Magnitude();
@@ -331,12 +331,11 @@ void CScriptSpindleCamera::Think(float dt, CStateManager& mgr) {
 
     float hintBallToCamDot = CMath::Limit(CVector3f::Dot(hintToBallDir, newHintToCamDir), 1.f);
     const float hintBallToCamAzimuth = acosf(hintBallToCamDot);
-    if ((x188_flags & 0x10) != 0) {
-      if (CMath::AbsF(hintBallToCamAzimuth) <
-              x220_hintBallToCamAzimuth.InterpolateValue(GetInterpolant(x220_hintBallToCamAzimuth)) ||
-          (x188_flags & 0x8) != 0 || x33c_24_inResetThink) {
-        newHintToCamDir = targetHintToCam;
-      }
+    if (((x188_flags & 0x10) != 0 &&
+         CMath::AbsF(hintBallToCamAzimuth) <
+             x220_hintBallToCamAzimuth.InterpolateValue(GetInterpolant(x220_hintBallToCamAzimuth))) ||
+        (x188_flags & 0x8) != 0 || x33c_24_inResetThink) {
+      newHintToCamDir = targetHintToCam;
     }
 
     const float maxHintBallToCamAzimuth =
@@ -374,8 +373,9 @@ void CScriptSpindleCamera::Think(float dt, CStateManager& mgr) {
         hintDir2.Normalize();
 
         float hintCamDot = CMath::Limit(CVector3f::Dot(hintDir2, newHintToCamDir), 1.f);
-        float hintCamAzimuth = CMath::Limit(
-            CMath::AbsF(acosf(hintCamDot)),
+        float hintCamAzimuth = CMath::AbsF(acosf(hintCamDot));
+        hintCamAzimuth = CMath::Limit(
+            hintCamAzimuth,
             x2b0_clampedAzimuthFromHintDir.InterpolateValue(GetInterpolant(x2b0_clampedAzimuthFromHintDir)));
 
         const float hintDirCamCross = CVector3f::Cross(hintDir2, newHintToCamDir).GetZ();
@@ -443,21 +443,20 @@ void CScriptSpindleCamera::Think(float dt, CStateManager& mgr) {
       const float azimuthCos = cosf(camLookRelAzimuth);
       float dx = azimuthCos * azimuthVec.GetX();
       float dy = azimuthCos * azimuthVec.GetY();
-      dx *= newLookDistFlat;
-      dy *= newLookDistFlat;
+      dx = newLookDistFlat * dx;
+      dy = newLookDistFlat * dy;
       lookAheadPos.SetX(newCamPos.GetX() + dx);
       lookAheadPos.SetY(newCamPos.GetY() + dy);
     }
 
     newLookDelta = lookAheadPos - newCamPos;
-
     if ((x188_flags & 0x1) != 0) {
-      newLookDelta = CVector3f(hintPos.GetX() - newCamPos.GetX(), hintPos.GetY() - newCamPos.GetY(),
-                               newLookDelta.GetZ());
+      lookAheadPos.SetX(hintPos.GetX());
+      lookAheadPos.SetY(hintPos.GetY());
+      newLookDelta = lookAheadPos - newCamPos;
     }
-
     if ((x188_flags & 0x2) != 0) {
-      newLookDelta = lookAheadPos - hintPos;
+      newLookDelta = lookAheadPos - CVector3f(hintPos.GetX(), hintPos.GetY(), lookAheadPos.GetZ());
     }
 
     if (newLookDelta.CanBeNormalized()) {
