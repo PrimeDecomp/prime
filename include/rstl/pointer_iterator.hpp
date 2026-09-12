@@ -20,8 +20,7 @@ public:
   const_pointer_iterator(const T* begin) : current(const_cast< T* >(begin)) {}
   const_pointer_iterator(const Vec* owner, const T* begin) : current(const_cast< T* >(begin)) {}
   const_pointer_iterator& operator++() {
-    ++this->current;
-    return *this;
+    return *this += 1;
   }
   const_pointer_iterator operator++(int) { return const_pointer_iterator(this->current++); }
   const_pointer_iterator& operator--() {
