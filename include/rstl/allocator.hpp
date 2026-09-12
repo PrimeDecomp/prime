@@ -10,6 +10,10 @@ struct rmemory_allocator {
   rmemory_allocator() {}
   rmemory_allocator(const rmemory_allocator&) {}
 
+#if defined(__MWERKS__) && (VERSION == 3 || VERSION == 4)
+  static void* allocate(int size);
+#endif
+
   template < typename T >
   static void allocate(T*& out, int count) {
 #ifdef __MWERKS__
@@ -27,11 +31,15 @@ struct rmemory_allocator {
     }
 #endif
 #endif
+#if defined(__MWERKS__) && (VERSION == 3 || VERSION == 4)
+    out = reinterpret_cast< T* >(allocate(size));
+#else
     if (size == 0) {
       out = nullptr;
     } else {
       out = reinterpret_cast< T* >(rs_new uchar[size]);
     }
+#endif
   }
 
   template < typename T >

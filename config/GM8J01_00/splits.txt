@@ -194,6 +194,10 @@ Kyoto/Math/CAABox.cpp:
 	.sdata2     start:0x80597BC0 end:0x80597BD8
 	.sbss2      start:0x80598818 end:0x80598820
 
+Kyoto/rstl/rstl_allocator.cpp:
+	.text       start:0x80327354 end:0x80327390
+	.rodata     start:0x803C3E68 end:0x803C3E70
+
 Kyoto/CARAMManager.cpp:
 	.text       start:0x8032EC60 end:0x8032F674
 	.ctors      start:0x803B6E90 end:0x803B6E94
