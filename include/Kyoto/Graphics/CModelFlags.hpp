@@ -48,7 +48,7 @@ public:
   , x2_flags(otherFlags)
   , x4_color(flags.x4_color) {}
   CModelFlags(const CModelFlags& flags, const bool b /* TODO what's this? */, const int shaderSet)
-  : x0_blendMode(flags.x0_blendMode)
+  : x0_blendMode(flags.GetBlendMode())
   , x1_matSetIdx(shaderSet)
   , x2_flags(flags.x2_flags)
   , x4_color(flags.x4_color) {}
@@ -66,6 +66,7 @@ public:
     return *this;
   }
 
+  void SetShaderSet(int matSet) { x1_matSetIdx = matSet; }
   CModelFlags UseShaderSet(int matSet) const { return CModelFlags(*this, false, matSet); }
   CModelFlags DontLoadTextures() const {
     return CModelFlags(*this, GetOtherFlags() | kF_NoTextureLock);
@@ -82,6 +83,7 @@ public:
   const uchar GetBlendMode() const { return x0_blendMode; }
   const ETrans GetTrans() const { return static_cast< ETrans >(x0_blendModeChar); }
   const int GetShaderSet() const { return x1_matSetIdxChar; }
+  const EFlags GetOtherFlags() { return static_cast< EFlags >(x2_flags); }
   const int GetOtherFlags() const { return x2_flags; }
   const CColor GetColor() const { return x4_color; }
   const CColor& GetColorRef() const { return x4_color; }

@@ -98,7 +98,7 @@ public:
   static double SqrtD(double x);
   // IsEpsilon__5CMathFfff global
   static float FastMin(float a, float b) { return FastFSel(a - b, b, a); }
-  // FastMax__5CMathFff weak
+  static float FastMax(float a, float b) { return FastFSel(a - b, a, b); }
   // PowF__5CMathFff global
   // Rev2Deg__5CMathFf weak
   // GetCatmullRomSplinePoint__5CMathFfffff global
