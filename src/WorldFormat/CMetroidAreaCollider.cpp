@@ -861,9 +861,15 @@ bool CMetroidAreaCollider::MovingAABoxCollisionCheck_Edge(
       ci1 = 1;
     }
 
+    const float& dir0 = dir[ci0];
+    const float& dir1 = dir[ci1];
+    const double& edgeDelta0 = edge.x58_delta[ci0];
+    const double& edgeDelta1 = edge.x58_delta[ci1];
+    const double denominator = edgeDelta0 * dir1 - edgeDelta1 * dir0;
     double eMag = (edge.x58_delta[ci0] * (clipped[ci1] - edge.x28_start[ci1]) -
                    edge.x58_delta[ci1] * (clipped[ci0] - edge.x28_start[ci0])) /
-                  (edge.x58_delta[ci0] * dir[ci1] - edge.x58_delta[ci1] * dir[ci0]);
+                  denominator;
+
     if (!(eMag < 0.0) && !(eMag >= d)) {
       CVector3d clippedMag = clipped - eMag * CVector3d(dir);
       double dotCheck =
