@@ -30,7 +30,7 @@ public:
     return TObjOwnerDerivedFromIObj< T >::GetNewDerivedObject(obj);
   }
 
-  TToken< T > NonConstCopy() const { return *const_cast< TToken< T >* >(this); }
+  TToken< T > NonConstCopy() const { return *this; }
 };
 
 template < typename T >
