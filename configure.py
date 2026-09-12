@@ -2836,6 +2836,8 @@ if config.version == "GM8P01_00":
                 f"-i {(config.out_path() / 'include' / module).as_posix()}",
                 *options["cflags"],
             ]
+            if obj.name == "NESemu/emusound.cpp":
+                options["cflags"].append("-rostr")
             objects.append(
                 Object(
                     obj.name in ("NESemu/modwrapper.cpp", "NESemu/ksNesAudio.cpp"),

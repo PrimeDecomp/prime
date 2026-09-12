@@ -58,6 +58,31 @@ and aligned sample buffer. `EmuSound_Start` identifies the PAL `Sound_Reset`
 entry at `.text:0x3BA0`. Compiling and linking the startup wrapper and audio
 interface preserves both complete REL files, including data and relocations.
 
+## PAL sound changes
+
+Both PAL modules contain identical `emusound` instructions and initialized data.
+Their shared `Sound_Reset` calls `VIGetTvFormat`: NTSC, MPAL, and EURGB60 select
+a 1,789,882.75 Hz clock and 60 Hz frame timing; PAL and unknown formats select
+1,662,500 Hz and 50 Hz. The PAL path also resets the disk/frame sample counts
+to 640 and the phase sample count to 160.
+
+Pitch conversion uses the runtime clock, and sample generation uses a runtime
+base rate of 2 rather than NTSC's fixed `2.038168f`. The four-step APU frame
+sequence derives its sample count from `32028 / NES_FRAME_RATE`. PAL also changes
+the status-read expression and logs unsupported sound reads. Its diagnostic
+strings belong in `.rodata`, requiring `-rostr` for this translation unit.
+
+The sound symbols cover all 51 functions, the channel state, tables, timing
+globals, and individual constants. Shared data layouts were checked against
+the original bytes and relocations; the three added timing globals occupy
+`.data:0x3E4` through `.data:0x3EC` in both PAL modules. Their names describe
+their recovered uses rather than names from an original PAL symbol map.
+
+Both PAL sound units now have 99.96% similarity, 49/51 exact functions,
+94.45% exactly matched code, and 100% matched data. `Sound_Read` retains register
+allocation differences; `Sound_Make_HVC` retains the mixer mismatch also present
+in NTSC. These prevent source linkage of the complete sound unit.
+
 ## Verification
 
 With both original PAL RELs under `orig/GM8P01_00/files`:
