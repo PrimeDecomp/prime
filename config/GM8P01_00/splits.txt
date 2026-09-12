@@ -3089,8 +3089,9 @@ Kyoto/CFrameDelayedKiller.cpp:
 
 dolphin/ai.c:
 	.text       start:0x80357064 end:0x803579CC
+	.data       start:0x803D7778 end:0x803D77C0
 	.sdata      start:0x8046AB58 end:0x8046AB60
-	.sbss       start:0x8046B800 end:0x8046B83C
+	.sbss       start:0x8046B800 end:0x8046B840
 
 dolphin/ar/ar.c:
 	.text       start:0x803579CC end:0x80359558
