@@ -245,6 +245,11 @@ CQuaternion CQuaternion::AxisAngle(const CUnitVector3f& axis, const CRelAngle& a
   return CQuaternion(w, vec);
 }
 
+bool CQuaternion::IsValidQuaternion(float epsilon) const {
+  const float error = GetVector().MagSquared() + GetScalar() * GetScalar() - 1.f;
+  return (error >= 0.f ? error : -error) < epsilon;
+}
+
 CVector3f CQuaternion::Transform(const CVector3f& vector) const {
   const float scalar = -CVector3f::Dot(imaginary, vector);
   const CVector3f rotated(w * vector.GetX() + AxisY() * vector.GetZ() - vector.GetY() * AxisZ(),
