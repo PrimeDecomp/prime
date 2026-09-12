@@ -463,6 +463,17 @@ CActorModelParticles::FindSystem(TUniqueId uid) {
   return x0_items.end();
 }
 
+CActorModelParticles::CActorModelParticles()
+: x18_onFire(gpSimplePool->GetObj(*gpResourceFactory->GetResourceIdByName(skParticleNames[0])))
+, x20_ash(gpSimplePool->GetObj(*gpResourceFactory->GetResourceIdByName(skParticleNames[2])))
+, x28_iceBreak(gpSimplePool->GetObj(*gpResourceFactory->GetResourceIdByName(skParticleNames[1])))
+, x30_firePop(gpSimplePool->GetObj(*gpResourceFactory->GetResourceIdByName(skParticleNames[3])))
+, x38_icePop(gpSimplePool->GetObj(*gpResourceFactory->GetResourceIdByName(skParticleNames[5])))
+, x40_electric(gpSimplePool->GetObj(*gpResourceFactory->GetResourceIdByName(skParticleNames[4])))
+, x48_ashy(gpSimplePool->GetObj(*gpResourceFactory->GetResourceIdByName("TXTR_Ashy"))) {
+  InitializeSystemTypes();
+}
+
 CElementGen* CActorModelParticles::MakeAshGen() { return rs_new CElementGen(x20_ash); }
 
 CElementGen* CActorModelParticles::MakeFirePopGen() { return rs_new CElementGen(x30_firePop); }
@@ -555,17 +566,6 @@ void CActorModelParticles::RemoveRainSplashGenerator(CActor& actor) {
 }
 
 CElementGen* CActorModelParticles::MakeIceGen() { return rs_new CElementGen(x28_iceBreak); }
-
-CActorModelParticles::CActorModelParticles()
-: x18_onFire(gpSimplePool->GetObj(*gpResourceFactory->GetResourceIdByName(skParticleNames[0])))
-, x20_ash(gpSimplePool->GetObj(*gpResourceFactory->GetResourceIdByName(skParticleNames[2])))
-, x28_iceBreak(gpSimplePool->GetObj(*gpResourceFactory->GetResourceIdByName(skParticleNames[1])))
-, x30_firePop(gpSimplePool->GetObj(*gpResourceFactory->GetResourceIdByName(skParticleNames[3])))
-, x38_icePop(gpSimplePool->GetObj(*gpResourceFactory->GetResourceIdByName(skParticleNames[5])))
-, x40_electric(gpSimplePool->GetObj(*gpResourceFactory->GetResourceIdByName(skParticleNames[4])))
-, x48_ashy(gpSimplePool->GetObj(*gpResourceFactory->GetResourceIdByName("TXTR_Ashy"))) {
-  InitializeSystemTypes();
-}
 
 void CActorModelParticles::InitializeSystemTypes() {
   for (int i = 0; i < 6; ++i) {
