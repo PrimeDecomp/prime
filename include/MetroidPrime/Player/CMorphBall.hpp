@@ -194,6 +194,13 @@ public:
   void SetDamageTimer(const float time);
 
 private:
+  static CVector3f ScaleSpiderForce(const CVector3f& force, const float& scale) {
+    float gain = scale;
+    return force * gain;
+  }
+
+  static float ScaleSpiderForce(float force, const float& scale) { return scale * force; }
+
   struct CSpiderBallElectrictyManager {
     uint x0_effectIdx;
     uint x4_lifetime;
