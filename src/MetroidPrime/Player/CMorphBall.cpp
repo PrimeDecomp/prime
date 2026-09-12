@@ -524,6 +524,8 @@ void CMorphBall::ResetSpiderBallForces() {
   x1920_spiderForcesReset = true;
 }
 
+static const float kSpiderSurfaceForce = 45000.f;
+
 void CMorphBall::ApplySpiderBallRollForces(const CFinalInput& input, CStateManager& mgr, float dt) {
   CVector2f surfaceForces = CalculateSpiderBallAttractionSurfaceForces(input);
   CVector3f viewSurfaceForces = TransformSpiderBallForcesXZ(surfaceForces, mgr);
@@ -660,13 +662,12 @@ void CMorphBall::ApplySpiderBallRollForces(const CFinalInput& input, CStateManag
               CVector3f::Dot(x18c4_spiderSurfaceTransform.GetColumn(kDX), viewSurfaceForces);
           const float surfaceZForce =
               CVector3f::Dot(x18c4_spiderSurfaceTransform.GetColumn(kDZ), viewSurfaceForces);
-          const CVector3f forceVec = (x18c4_spiderSurfaceTransform.GetColumn(kDX) * surfaceXForce +
-                                      x18c4_spiderSurfaceTransform.GetColumn(kDZ) * surfaceZForce) *
-                                     45000.f;
+          const CVector3f forceVec = ScaleSpiderForce((x18c4_spiderSurfaceTransform.GetColumn(kDX) * surfaceXForce +
+                                      x18c4_spiderSurfaceTransform.GetColumn(kDZ) * surfaceZForce), kSpiderSurfaceForce);
           x0_player.ApplyForceWR(forceVec, CAxisAngle::Identity());
 
-          const float pivotSurfaceX = surfaceXForce * 45000.f;
-          const float pivotSurfaceZ = surfaceZForce * 45000.f;
+          const float pivotSurfaceX = ScaleSpiderForce(surfaceXForce, kSpiderSurfaceForce);
+          const float pivotSurfaceZ = ScaleSpiderForce(surfaceZForce, kSpiderSurfaceForce);
           float angle = x18f8_spiderSurfacePivotTargetAngle;
           if (forceVec.MagSquared() > 0.f) {
             angle = atan2f(pivotSurfaceX, pivotSurfaceZ);
