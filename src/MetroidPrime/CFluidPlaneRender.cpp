@@ -201,6 +201,22 @@ void RenderTileWithRipplesNBT(float startX, CFluidPlaneCPURender::SHFieldSample*
   }
 }
 
+static inline void RenderStripEnd(const CFluidPlaneCPURender::SHFieldSample* samples,
+                                  const CFluidPlaneCPURender::SPatchInfo& info, bool last,
+                                  float curX, float curY) {
+  if (last) {
+    for (int i = CFluidPlaneCPURender::numSubdivisionsInTile; i >= 0; --i) {
+      GXPosition3f32(curX, curY, samples->height);
+      samples += 45;
+      curY += info.x18_rippleResolution;
+    }
+    return;
+  }
+  GXPosition3f32(curX, curY, samples->height);
+  samples += CFluidPlaneCPURender::numSubdivisionsInTile * 45;
+  GXPosition3f32(curX, curY + info.x14_tileSize, samples->height);
+}
+
 static void RenderStripEndNoNormals(const CFluidPlaneCPURender::SHFieldSample* samples,
                                     const CFluidPlaneCPURender::SPatchInfo& info, bool last,
                                     float curX, float curY) {
@@ -292,14 +308,14 @@ void RenderStripWithRipples(CFluidPlaneCPURender::SHFieldSample (&heights)[45][4
                             const unsigned char (&flags)[9][9], int startYDiv, float curY,
                             const CFluidPlaneCPURender::SPatchInfo& info) {
   int numSubdivisions = CFluidPlaneCPURender::numSubdivisionsInTile;
-  float curX = info.x4_localMinX;
+  CVector3f curPos(info.x4_localMinX, curY, 0.f);
   int iDiv = (startYDiv + numSubdivisions - 1) / numSubdivisions;
-  CFluidPlaneCPURender::SHFieldSample* heights_00 = &heights[startYDiv][1];
+  CFluidPlaneCPURender::SHFieldSample* curSamples = &heights[startYDiv][1];
   float halfRes = info.x18_rippleResolution * static_cast< float >(numSubdivisions / 2);
-  float centerY = halfRes + curY;
+  float centerY = halfRes + curPos.GetY();
   int numSubTimesStride = numSubdivisions * 45;
   int centerOffset = numSubdivisions / 2 + numSubTimesStride / 2;
-  int xSubdivs = static_cast< int >(static_cast< signed char >(info.x0_xSubdivs));
+  int xSubdivs = info.x0_xSubdivs;
   int numTilesX = (xSubdivs + numSubdivisions - 4) / numSubdivisions;
   int gridOffset =
       static_cast< int >(info.x28_tileX) +
@@ -310,10 +326,11 @@ void RenderStripWithRipples(CFluidPlaneCPURender::SHFieldSample (&heights)[45][4
   int xPos = 1;
 
   for (; xPos < static_cast< signed char >(info.x0_xSubdivs) - 2;) {
-    const char* gridFlags = info.x30_gridFlags;
+
     int numCombined = 1;
 
-    if (gridFlags == NULL || (gridFlags != NULL && gridFlags[gridOffset] != 0)) {
+    if (info.x30_gridFlags == NULL ||
+        (info.x30_gridFlags != NULL && info.x30_gridFlags[gridOffset] != 0)) {
       const unsigned char* flagByte = flagsPtr + tileIdx;
       if ((*flagByte & 0x1f) == 0x1f) {
         // Fully rippled tile - check for consecutive fully-rippled tiles
@@ -322,8 +339,8 @@ void RenderStripWithRipples(CFluidPlaneCPURender::SHFieldSample (&heights)[45][4
           if ((*nextFlag & 0x1f) != 0x1f) {
             break;
           }
-          if (gridFlags != NULL) {
-            if (gridFlags[gridOffset + numCombined] == 0) {
+          if (info.x30_gridFlags != NULL) {
+            if (info.x30_gridFlags[gridOffset + numCombined] == 0) {
               break;
             }
           }
@@ -336,22 +353,23 @@ void RenderStripWithRipples(CFluidPlaneCPURender::SHFieldSample (&heights)[45][4
 
         switch (normalMode) {
         case CFluidPlaneCPURender::kNM_None:
-          RenderTileWithRipples(curX, heights_00, curY, numVerts, info);
+          RenderTileWithRipples(curPos.GetX(), curSamples, curPos.GetY(), numVerts, info);
           break;
         case CFluidPlaneCPURender::kNM_NoNormals:
-          RenderTileWithRipplesNoNormals(curX, heights_00, curY, numVerts, info);
+          RenderTileWithRipplesNoNormals(curPos.GetX(), curSamples, curPos.GetY(), numVerts, info);
           break;
         case CFluidPlaneCPURender::kNM_Normals:
-          RenderTileWithRipplesNormals(curX, heights_00, curY, numVerts, info);
+          RenderTileWithRipplesNormals(curPos.GetX(), curSamples, curPos.GetY(), numVerts, info);
           break;
         case CFluidPlaneCPURender::kNM_NBT:
-          RenderTileWithRipplesNBT(curX, heights_00, curY, numVerts, info);
+          RenderTileWithRipplesNBT(curPos.GetX(), curSamples, curPos.GetY(), numVerts, info);
           break;
         default:
           break;
         }
       } else {
         // Partial ripple - extract edge flags
+        const unsigned char* nextFlag = flagByte + 1;
         unsigned char below = flagByte[9];
         unsigned char left = flagByte[-1];
         unsigned char right = flagByte[1];
@@ -362,35 +380,21 @@ void RenderStripWithRipples(CFluidPlaneCPURender::SHFieldSample (&heights)[45][4
         bool hasRight = (right >> 2) & 1;
         bool hasAbove = above & 1;
 
-        int bottomCount = 1;
-        if (hasBelow) {
-          bottomCount = CFluidPlaneCPURender::numSubdivisionsInTile;
-        }
-        int rightCount = 1;
-        if (hasRight) {
-          rightCount = CFluidPlaneCPURender::numSubdivisionsInTile;
-        }
-        int aboveCount = 1;
-        if (hasAbove) {
-          aboveCount = CFluidPlaneCPURender::numSubdivisionsInTile;
-        }
-        int leftCount = 1;
-        if (isLeftEdge) {
-          leftCount = CFluidPlaneCPURender::numSubdivisionsInTile;
-        }
+        int totalVerts = (hasBelow ? CFluidPlaneCPURender::numSubdivisionsInTile : 1) + 2;
+        totalVerts += (hasRight ? CFluidPlaneCPURender::numSubdivisionsInTile : 1);
+        totalVerts += (hasAbove ? CFluidPlaneCPURender::numSubdivisionsInTile : 1);
+        totalVerts += (isLeftEdge ? CFluidPlaneCPURender::numSubdivisionsInTile : 1);
 
-        int totalVerts = bottomCount + 2 + rightCount + aboveCount + leftCount;
-
-        if (totalVerts == 6 && (info.x37_normalMode == CFluidPlaneCPURender::kNM_Normals ||
-                                info.x37_normalMode == CFluidPlaneCPURender::kNM_NBT)) {
+        if (totalVerts == 6 &&
+            (static_cast< signed char >(info.x37_normalMode) == CFluidPlaneCPURender::kNM_Normals ||
+             static_cast< signed char >(info.x37_normalMode) == CFluidPlaneCPURender::kNM_NBT)) {
           // Special strip mode - combine consecutive non-rippled non-edge tiles
-          const unsigned char* nextFlag = flagByte + 1;
           while (tileIdx + numCombined <= numTilesX) {
             if ((*nextFlag & 0x1f) == 0x1f) {
               break;
             }
-            if (gridFlags != NULL) {
-              if (gridFlags[gridOffset + numCombined] == 0) {
+            if (info.x30_gridFlags != NULL) {
+              if (info.x30_gridFlags[gridOffset + numCombined] == 0) {
                 break;
               }
             }
@@ -411,16 +415,43 @@ void RenderStripWithRipples(CFluidPlaneCPURender::SHFieldSample (&heights)[45][4
           CGX::Begin(GX_TRIANGLESTRIP, GX_VTXFMT0, static_cast< ushort >(stripCount * 2));
 
           int normalMode = static_cast< int >(static_cast< signed char >(info.x37_normalMode));
-          if (normalMode == CFluidPlaneCPURender::kNM_NBT) {
+          switch (normalMode) {
+          case CFluidPlaneCPURender::kNM_Normals: {
 
-            CFluidPlaneCPURender::SHFieldSample* topSamples = heights_00;
+            CFluidPlaneCPURender::SHFieldSample* topSamples = curSamples;
 
             CFluidPlaneCPURender::SHFieldSample* bottomSamples =
-                heights_00 + CFluidPlaneCPURender::numSubdivisionsInTile * 45;
-            float stripX = curX;
+                curSamples + CFluidPlaneCPURender::numSubdivisionsInTile * 45;
+            float stripX = curPos.GetX();
+            for (int n = stripCount; n > 0; --n) {
+              GXPosition3f32(stripX, curPos.GetY(), topSamples->height);
+              GXNormal3s8(topSamples->nx, topSamples->ny, topSamples->nz);
+              int wavecap = topSamples->wavecapIntensity;
+              topSamples = topSamples + CFluidPlaneCPURender::numSubdivisionsInTile;
+              GXColor4u8(static_cast< u8 >(wavecap >> info.x34_redShift),
+                         static_cast< u8 >(wavecap >> info.x35_greenShift),
+                         static_cast< u8 >(wavecap >> info.x36_blueShift), 0xff);
+              GXPosition3f32(stripX, info.x14_tileSize + curPos.GetY(), bottomSamples->height);
+              GXNormal3s8(bottomSamples->nx, bottomSamples->ny, bottomSamples->nz);
+              wavecap = bottomSamples->wavecapIntensity;
+              bottomSamples = bottomSamples + CFluidPlaneCPURender::numSubdivisionsInTile;
+              GXColor4u8(static_cast< u8 >(wavecap >> info.x34_redShift),
+                         static_cast< u8 >(wavecap >> info.x35_greenShift),
+                         static_cast< u8 >(wavecap >> info.x36_blueShift), 0xff);
+              stripX += info.x14_tileSize;
+            }
+            break;
+          }
+          case CFluidPlaneCPURender::kNM_NBT: {
+
+            CFluidPlaneCPURender::SHFieldSample* topSamples = curSamples;
+
+            CFluidPlaneCPURender::SHFieldSample* bottomSamples =
+                curSamples + CFluidPlaneCPURender::numSubdivisionsInTile * 45;
+            float stripX = curPos.GetX();
             for (int n = stripCount; n > 0; --n) {
               // Top vertex
-              GXPosition3f32(stripX, curY, topSamples->height);
+              GXPosition3f32(stripX, curPos.GetY(), topSamples->height);
               GXNormal3s8(topSamples->nx, topSamples->ny, topSamples->nz);
               GXNormal3s8(topSamples->nx, topSamples->nz, -topSamples->ny);
               GXNormal3s8(topSamples->nz, topSamples->ny, -topSamples->nx);
@@ -430,7 +461,7 @@ void RenderStripWithRipples(CFluidPlaneCPURender::SHFieldSample (&heights)[45][4
                          static_cast< u8 >(wavecap >> info.x35_greenShift),
                          static_cast< u8 >(wavecap >> info.x36_blueShift), 0xff);
               // Bottom vertex
-              GXPosition3f32(stripX, info.x14_tileSize + curY, bottomSamples->height);
+              GXPosition3f32(stripX, info.x14_tileSize + curPos.GetY(), bottomSamples->height);
               GXNormal3s8(bottomSamples->nx, bottomSamples->ny, bottomSamples->nz);
               GXNormal3s8(bottomSamples->nx, bottomSamples->nz, -bottomSamples->ny);
               GXNormal3s8(bottomSamples->nz, bottomSamples->ny, -bottomSamples->nx);
@@ -441,30 +472,10 @@ void RenderStripWithRipples(CFluidPlaneCPURender::SHFieldSample (&heights)[45][4
                          static_cast< u8 >(wavecap >> info.x36_blueShift), 0xff);
               stripX += info.x14_tileSize;
             }
-          } else if (normalMode == CFluidPlaneCPURender::kNM_Normals) {
-
-            CFluidPlaneCPURender::SHFieldSample* topSamples = heights_00;
-
-            CFluidPlaneCPURender::SHFieldSample* bottomSamples =
-                heights_00 + CFluidPlaneCPURender::numSubdivisionsInTile * 45;
-            float stripX = curX;
-            for (int n = stripCount; n > 0; --n) {
-              GXPosition3f32(stripX, curY, topSamples->height);
-              GXNormal3s8(topSamples->nx, topSamples->ny, topSamples->nz);
-              int wavecap = topSamples->wavecapIntensity;
-              topSamples = topSamples + CFluidPlaneCPURender::numSubdivisionsInTile;
-              GXColor4u8(static_cast< u8 >(wavecap >> info.x34_redShift),
-                         static_cast< u8 >(wavecap >> info.x35_greenShift),
-                         static_cast< u8 >(wavecap >> info.x36_blueShift), 0xff);
-              GXPosition3f32(stripX, info.x14_tileSize + curY, bottomSamples->height);
-              GXNormal3s8(bottomSamples->nx, bottomSamples->ny, bottomSamples->nz);
-              wavecap = bottomSamples->wavecapIntensity;
-              bottomSamples = bottomSamples + CFluidPlaneCPURender::numSubdivisionsInTile;
-              GXColor4u8(static_cast< u8 >(wavecap >> info.x34_redShift),
-                         static_cast< u8 >(wavecap >> info.x35_greenShift),
-                         static_cast< u8 >(wavecap >> info.x36_blueShift), 0xff);
-              stripX += info.x14_tileSize;
-            }
+            break;
+          }
+          default:
+            break;
           }
           CGX::End();
         } else {
@@ -475,12 +486,12 @@ void RenderStripWithRipples(CFluidPlaneCPURender::SHFieldSample (&heights)[45][4
 
           switch (normalMode) {
           case CFluidPlaneCPURender::kNM_None: {
-            GXPosition3f32(halfRes + curX, centerY, heights_00[centerOffset].height);
+            GXPosition3f32(halfRes + curPos.GetX(), centerY, curSamples[centerOffset].height);
 
             {
-              CFluidPlaneCPURender::SHFieldSample* samples = heights_00 + numSubTimesStride;
-              float edgeX = curX;
-              float edgeY = info.x14_tileSize + curY;
+              CFluidPlaneCPURender::SHFieldSample* samples = curSamples + numSubTimesStride;
+              float edgeX = curPos.GetX();
+              float edgeY = info.x14_tileSize + curPos.GetY();
               int count = hasBelow ? CFluidPlaneCPURender::numSubdivisionsInTile : 1;
               for (; count > 0; --count) {
                 GXPosition3f32(edgeX, edgeY, samples->height);
@@ -491,9 +502,9 @@ void RenderStripWithRipples(CFluidPlaneCPURender::SHFieldSample (&heights)[45][4
 
             {
               CFluidPlaneCPURender::SHFieldSample* samples =
-                  heights_00 + (numSubdivisions + numSubTimesStride);
-              float edgeX = info.x14_tileSize + curX;
-              float edgeY = info.x14_tileSize + curY;
+                  curSamples + (numSubdivisions + numSubTimesStride);
+              float edgeX = info.x14_tileSize + curPos.GetX();
+              float edgeY = info.x14_tileSize + curPos.GetY();
               int count = hasRight ? CFluidPlaneCPURender::numSubdivisionsInTile : 1;
               for (; count > 0; --count) {
                 GXPosition3f32(edgeX, edgeY, samples->height);
@@ -503,41 +514,23 @@ void RenderStripWithRipples(CFluidPlaneCPURender::SHFieldSample (&heights)[45][4
             }
 
             {
-              CFluidPlaneCPURender::SHFieldSample* samples = heights_00 + numSubdivisions;
-              float edgeX = info.x14_tileSize + curX;
+              CFluidPlaneCPURender::SHFieldSample* samples = curSamples + numSubdivisions;
+              float edgeX = info.x14_tileSize + curPos.GetX();
               int count = hasAbove ? CFluidPlaneCPURender::numSubdivisionsInTile : 1;
               for (; count > 0; --count) {
-                GXPosition3f32(edgeX, curY, samples->height);
+                GXPosition3f32(edgeX, curPos.GetY(), samples->height);
                 edgeX -= info.x18_rippleResolution;
                 --samples;
               }
             }
 
-            // Left edge check
-            if (!isLeftEdge) {
-              // Just two vertices
-              GXPosition3f32(curX, curY, heights_00->height);
-              GXPosition3f32(curX, curY + info.x14_tileSize,
-                             heights_00[CFluidPlaneCPURender::numSubdivisionsInTile * 45].height);
-            } else {
-              // Left edge (top to bottom)
-              int count = CFluidPlaneCPURender::numSubdivisionsInTile + 1;
-              if (CFluidPlaneCPURender::numSubdivisionsInTile >= 0) {
-                CFluidPlaneCPURender::SHFieldSample* s = heights_00;
-                float y = curY;
-                for (; count > 0; --count) {
-                  GXPosition3f32(curX, y, s->height);
-                  s += 45;
-                  y += info.x18_rippleResolution;
-                }
-              }
-            }
+            RenderStripEnd(curSamples, info, isLeftEdge, curPos.GetX(), curPos.GetY());
             break;
           }
           case CFluidPlaneCPURender::kNM_NoNormals: {
             // Center vertex with color
-            CFluidPlaneCPURender::SHFieldSample* centerSample = heights_00 + centerOffset;
-            float centerX = halfRes + curX;
+            CFluidPlaneCPURender::SHFieldSample* centerSample = curSamples + centerOffset;
+            float centerX = halfRes + curPos.GetX();
             GXPosition3f32(centerX, centerY, centerSample->height);
             GXColor4u8(static_cast< u8 >(centerSample->wavecapIntensity >> info.x34_redShift),
                        static_cast< u8 >(centerSample->wavecapIntensity >> info.x35_greenShift),
@@ -546,75 +539,69 @@ void RenderStripWithRipples(CFluidPlaneCPURender::SHFieldSample (&heights)[45][4
 
             // Bottom edge
             {
-              float endY = info.x14_tileSize + curY;
-              CFluidPlaneCPURender::SHFieldSample* s = heights_00 + numSubTimesStride;
-              float stripX = curX;
+              float endY = info.x14_tileSize + curPos.GetY();
+              CFluidPlaneCPURender::SHFieldSample* s = curSamples + numSubTimesStride;
+              float stripX = curPos.GetX();
               int count = 1;
               if (hasBelow) {
                 count = CFluidPlaneCPURender::numSubdivisionsInTile;
               }
-              if (count > 0) {
-                for (; count > 0; --count) {
-                  GXPosition3f32(stripX, endY, s->height);
-                  GXColor4u8(static_cast< u8 >(s->wavecapIntensity >> info.x34_redShift),
-                             static_cast< u8 >(s->wavecapIntensity >> info.x35_greenShift),
-                             static_cast< u8 >(s->wavecapIntensity >> info.x36_blueShift), 0xff);
-                  stripX += info.x18_rippleResolution;
-                  ++s;
-                }
+              for (; count > 0; --count) {
+                GXPosition3f32(stripX, endY, s->height);
+                GXColor4u8(static_cast< u8 >(s->wavecapIntensity >> info.x34_redShift),
+                           static_cast< u8 >(s->wavecapIntensity >> info.x35_greenShift),
+                           static_cast< u8 >(s->wavecapIntensity >> info.x36_blueShift), 0xff);
+                stripX += info.x18_rippleResolution;
+                ++s;
               }
             }
 
             // Right edge
             {
-              float endY = info.x14_tileSize + curY;
-              float endX = info.x14_tileSize + curX;
+              float endY = info.x14_tileSize + curPos.GetY();
+              float endX = info.x14_tileSize + curPos.GetX();
               CFluidPlaneCPURender::SHFieldSample* s =
-                  heights_00 + (numSubdivisions + numSubTimesStride);
+                  curSamples + (numSubdivisions + numSubTimesStride);
               int count = 1;
               if (hasRight) {
                 count = CFluidPlaneCPURender::numSubdivisionsInTile;
               }
-              if (count > 0) {
-                for (; count > 0; --count) {
-                  GXPosition3f32(endX, endY, s->height);
-                  GXColor4u8(static_cast< u8 >(s->wavecapIntensity >> info.x34_redShift),
-                             static_cast< u8 >(s->wavecapIntensity >> info.x35_greenShift),
-                             static_cast< u8 >(s->wavecapIntensity >> info.x36_blueShift), 0xff);
-                  endY -= info.x18_rippleResolution;
-                  s -= 45;
-                }
+              for (; count > 0; --count) {
+                GXPosition3f32(endX, endY, s->height);
+                GXColor4u8(static_cast< u8 >(s->wavecapIntensity >> info.x34_redShift),
+                           static_cast< u8 >(s->wavecapIntensity >> info.x35_greenShift),
+                           static_cast< u8 >(s->wavecapIntensity >> info.x36_blueShift), 0xff);
+                endY -= info.x18_rippleResolution;
+                s -= 45;
               }
             }
 
             // Top edge
             {
-              float endX = info.x14_tileSize + curX;
-              CFluidPlaneCPURender::SHFieldSample* s = heights_00 + numSubdivisions;
+              float endX = info.x14_tileSize + curPos.GetX();
+              CFluidPlaneCPURender::SHFieldSample* s = curSamples + numSubdivisions;
               int count = 1;
               if (hasAbove) {
                 count = CFluidPlaneCPURender::numSubdivisionsInTile;
               }
-              if (count > 0) {
-                for (; count > 0; --count) {
-                  GXPosition3f32(endX, curY, s->height);
-                  GXColor4u8(static_cast< u8 >(s->wavecapIntensity >> info.x34_redShift),
-                             static_cast< u8 >(s->wavecapIntensity >> info.x35_greenShift),
-                             static_cast< u8 >(s->wavecapIntensity >> info.x36_blueShift), 0xff);
-                  endX -= info.x18_rippleResolution;
-                  --s;
-                }
+              for (; count > 0; --count) {
+                GXPosition3f32(endX, curPos.GetY(), s->height);
+                GXColor4u8(static_cast< u8 >(s->wavecapIntensity >> info.x34_redShift),
+                           static_cast< u8 >(s->wavecapIntensity >> info.x35_greenShift),
+                           static_cast< u8 >(s->wavecapIntensity >> info.x36_blueShift), 0xff);
+                endX -= info.x18_rippleResolution;
+                --s;
               }
             }
 
             // Left edge
-            RenderStripEndNoNormals(heights_00, info, isLeftEdge, curX, curY);
+            RenderStripEndNoNormals(curSamples, info, isLeftEdge, curPos.GetX(), curPos.GetY());
             break;
           }
           case CFluidPlaneCPURender::kNM_Normals: {
             // Center vertex with normals and color
-            CFluidPlaneCPURender::SHFieldSample* centerSample = heights_00 + centerOffset;
-            float centerX = halfRes + curX;
+            CFluidPlaneCPURender::SHFieldSample* centerSample = curSamples + centerOffset;
+            float centerX = halfRes + curPos.GetX();
             GXPosition3f32(centerX, centerY, centerSample->height);
             GXNormal3s8(centerSample->nx, centerSample->ny, centerSample->nz);
             GXColor4u8(static_cast< u8 >(centerSample->wavecapIntensity >> info.x34_redShift),
@@ -624,78 +611,72 @@ void RenderStripWithRipples(CFluidPlaneCPURender::SHFieldSample (&heights)[45][4
 
             // Bottom edge
             {
-              float endY = info.x14_tileSize + curY;
-              CFluidPlaneCPURender::SHFieldSample* s = heights_00 + numSubTimesStride;
-              float stripX = curX;
+              float endY = info.x14_tileSize + curPos.GetY();
+              CFluidPlaneCPURender::SHFieldSample* s = curSamples + numSubTimesStride;
+              float stripX = curPos.GetX();
               int count = 1;
               if (hasBelow) {
                 count = CFluidPlaneCPURender::numSubdivisionsInTile;
               }
-              if (count > 0) {
-                for (; count > 0; --count) {
-                  GXPosition3f32(stripX, endY, s->height);
-                  GXNormal3s8(s->nx, s->ny, s->nz);
-                  GXColor4u8(static_cast< u8 >(s->wavecapIntensity >> info.x34_redShift),
-                             static_cast< u8 >(s->wavecapIntensity >> info.x35_greenShift),
-                             static_cast< u8 >(s->wavecapIntensity >> info.x36_blueShift), 0xff);
-                  stripX += info.x18_rippleResolution;
-                  ++s;
-                }
+              for (; count > 0; --count) {
+                GXPosition3f32(stripX, endY, s->height);
+                GXNormal3s8(s->nx, s->ny, s->nz);
+                GXColor4u8(static_cast< u8 >(s->wavecapIntensity >> info.x34_redShift),
+                           static_cast< u8 >(s->wavecapIntensity >> info.x35_greenShift),
+                           static_cast< u8 >(s->wavecapIntensity >> info.x36_blueShift), 0xff);
+                stripX += info.x18_rippleResolution;
+                ++s;
               }
             }
 
             // Right edge
             {
-              float endY = info.x14_tileSize + curY;
-              float endX = info.x14_tileSize + curX;
+              float endY = info.x14_tileSize + curPos.GetY();
+              float endX = info.x14_tileSize + curPos.GetX();
               CFluidPlaneCPURender::SHFieldSample* s =
-                  heights_00 + (numSubdivisions + numSubTimesStride);
+                  curSamples + (numSubdivisions + numSubTimesStride);
               int count = 1;
               if (hasRight) {
                 count = CFluidPlaneCPURender::numSubdivisionsInTile;
               }
-              if (count > 0) {
-                for (; count > 0; --count) {
-                  GXPosition3f32(endX, endY, s->height);
-                  GXNormal3s8(s->nx, s->ny, s->nz);
-                  GXColor4u8(static_cast< u8 >(s->wavecapIntensity >> info.x34_redShift),
-                             static_cast< u8 >(s->wavecapIntensity >> info.x35_greenShift),
-                             static_cast< u8 >(s->wavecapIntensity >> info.x36_blueShift), 0xff);
-                  endY -= info.x18_rippleResolution;
-                  s -= 45;
-                }
+              for (; count > 0; --count) {
+                GXPosition3f32(endX, endY, s->height);
+                GXNormal3s8(s->nx, s->ny, s->nz);
+                GXColor4u8(static_cast< u8 >(s->wavecapIntensity >> info.x34_redShift),
+                           static_cast< u8 >(s->wavecapIntensity >> info.x35_greenShift),
+                           static_cast< u8 >(s->wavecapIntensity >> info.x36_blueShift), 0xff);
+                endY -= info.x18_rippleResolution;
+                s -= 45;
               }
             }
 
             // Top edge
             {
-              float endX = info.x14_tileSize + curX;
-              CFluidPlaneCPURender::SHFieldSample* s = heights_00 + numSubdivisions;
+              float endX = info.x14_tileSize + curPos.GetX();
+              CFluidPlaneCPURender::SHFieldSample* s = curSamples + numSubdivisions;
               int count = 1;
               if (hasAbove) {
                 count = CFluidPlaneCPURender::numSubdivisionsInTile;
               }
-              if (count > 0) {
-                for (; count > 0; --count) {
-                  GXPosition3f32(endX, curY, s->height);
-                  GXNormal3s8(s->nx, s->ny, s->nz);
-                  GXColor4u8(static_cast< u8 >(s->wavecapIntensity >> info.x34_redShift),
-                             static_cast< u8 >(s->wavecapIntensity >> info.x35_greenShift),
-                             static_cast< u8 >(s->wavecapIntensity >> info.x36_blueShift), 0xff);
-                  endX -= info.x18_rippleResolution;
-                  --s;
-                }
+              for (; count > 0; --count) {
+                GXPosition3f32(endX, curPos.GetY(), s->height);
+                GXNormal3s8(s->nx, s->ny, s->nz);
+                GXColor4u8(static_cast< u8 >(s->wavecapIntensity >> info.x34_redShift),
+                           static_cast< u8 >(s->wavecapIntensity >> info.x35_greenShift),
+                           static_cast< u8 >(s->wavecapIntensity >> info.x36_blueShift), 0xff);
+                endX -= info.x18_rippleResolution;
+                --s;
               }
             }
 
             // Left edge
-            RenderStripEndNormals(heights_00, info, isLeftEdge, curX, curY);
+            RenderStripEndNormals(curSamples, info, isLeftEdge, curPos.GetX(), curPos.GetY());
             break;
           }
           case CFluidPlaneCPURender::kNM_NBT: {
             // Center vertex with NBT and color
-            CFluidPlaneCPURender::SHFieldSample* centerSample = heights_00 + centerOffset;
-            float centerX = halfRes + curX;
+            CFluidPlaneCPURender::SHFieldSample* centerSample = curSamples + centerOffset;
+            float centerX = halfRes + curPos.GetX();
             GXPosition3f32(centerX, centerY, centerSample->height);
             {
               GXNormal3s8(centerSample->nx, centerSample->ny, centerSample->nz);
@@ -711,78 +692,72 @@ void RenderStripWithRipples(CFluidPlaneCPURender::SHFieldSample (&heights)[45][4
 
             // Bottom edge
             {
-              float endY = info.x14_tileSize + curY;
-              CFluidPlaneCPURender::SHFieldSample* s = heights_00 + numSubTimesStride;
-              float stripX = curX;
+              float endY = info.x14_tileSize + curPos.GetY();
+              CFluidPlaneCPURender::SHFieldSample* s = curSamples + numSubTimesStride;
+              float stripX = curPos.GetX();
               int count = 1;
               if (hasBelow) {
                 count = CFluidPlaneCPURender::numSubdivisionsInTile;
               }
-              if (count > 0) {
-                for (; count > 0; --count) {
-                  GXPosition3f32(stripX, endY, s->height);
-                  GXNormal3s8(s->nx, s->ny, s->nz);
-                  GXNormal3s8(s->nx, s->nz, -s->ny);
-                  GXNormal3s8(s->nz, s->ny, -s->nx);
-                  GXColor4u8(static_cast< u8 >(s->wavecapIntensity >> info.x34_redShift),
-                             static_cast< u8 >(s->wavecapIntensity >> info.x35_greenShift),
-                             static_cast< u8 >(s->wavecapIntensity >> info.x36_blueShift), 0xff);
-                  stripX += info.x18_rippleResolution;
-                  ++s;
-                }
+              for (; count > 0; --count) {
+                GXPosition3f32(stripX, endY, s->height);
+                GXNormal3s8(s->nx, s->ny, s->nz);
+                GXNormal3s8(s->nx, s->nz, -s->ny);
+                GXNormal3s8(s->nz, s->ny, -s->nx);
+                GXColor4u8(static_cast< u8 >(s->wavecapIntensity >> info.x34_redShift),
+                           static_cast< u8 >(s->wavecapIntensity >> info.x35_greenShift),
+                           static_cast< u8 >(s->wavecapIntensity >> info.x36_blueShift), 0xff);
+                stripX += info.x18_rippleResolution;
+                ++s;
               }
             }
 
             // Right edge
             {
-              float endY = info.x14_tileSize + curY;
-              float endX = info.x14_tileSize + curX;
+              float endY = info.x14_tileSize + curPos.GetY();
+              float endX = info.x14_tileSize + curPos.GetX();
               CFluidPlaneCPURender::SHFieldSample* s =
-                  heights_00 + (numSubdivisions + numSubTimesStride);
+                  curSamples + (numSubdivisions + numSubTimesStride);
               int count = 1;
               if (hasRight) {
                 count = CFluidPlaneCPURender::numSubdivisionsInTile;
               }
-              if (count > 0) {
-                for (; count > 0; --count) {
-                  GXPosition3f32(endX, endY, s->height);
-                  GXNormal3s8(s->nx, s->ny, s->nz);
-                  GXNormal3s8(s->nx, s->nz, -s->ny);
-                  GXNormal3s8(s->nz, s->ny, -s->nx);
-                  GXColor4u8(static_cast< u8 >(s->wavecapIntensity >> info.x34_redShift),
-                             static_cast< u8 >(s->wavecapIntensity >> info.x35_greenShift),
-                             static_cast< u8 >(s->wavecapIntensity >> info.x36_blueShift), 0xff);
-                  endY -= info.x18_rippleResolution;
-                  s -= 45;
-                }
+              for (; count > 0; --count) {
+                GXPosition3f32(endX, endY, s->height);
+                GXNormal3s8(s->nx, s->ny, s->nz);
+                GXNormal3s8(s->nx, s->nz, -s->ny);
+                GXNormal3s8(s->nz, s->ny, -s->nx);
+                GXColor4u8(static_cast< u8 >(s->wavecapIntensity >> info.x34_redShift),
+                           static_cast< u8 >(s->wavecapIntensity >> info.x35_greenShift),
+                           static_cast< u8 >(s->wavecapIntensity >> info.x36_blueShift), 0xff);
+                endY -= info.x18_rippleResolution;
+                s -= 45;
               }
             }
 
             // Top edge
             {
-              float endX = info.x14_tileSize + curX;
-              CFluidPlaneCPURender::SHFieldSample* s = heights_00 + numSubdivisions;
+              float endX = info.x14_tileSize + curPos.GetX();
+              CFluidPlaneCPURender::SHFieldSample* s = curSamples + numSubdivisions;
               int count = 1;
               if (hasAbove) {
                 count = CFluidPlaneCPURender::numSubdivisionsInTile;
               }
-              if (count > 0) {
-                for (; count > 0; --count) {
-                  GXPosition3f32(endX, curY, s->height);
-                  GXNormal3s8(s->nx, s->ny, s->nz);
-                  GXNormal3s8(s->nx, s->nz, -s->ny);
-                  GXNormal3s8(s->nz, s->ny, -s->nx);
-                  GXColor4u8(static_cast< u8 >(s->wavecapIntensity >> info.x34_redShift),
-                             static_cast< u8 >(s->wavecapIntensity >> info.x35_greenShift),
-                             static_cast< u8 >(s->wavecapIntensity >> info.x36_blueShift), 0xff);
-                  endX -= info.x18_rippleResolution;
-                  --s;
-                }
+              for (; count > 0; --count) {
+                GXPosition3f32(endX, curPos.GetY(), s->height);
+                GXNormal3s8(s->nx, s->ny, s->nz);
+                GXNormal3s8(s->nx, s->nz, -s->ny);
+                GXNormal3s8(s->nz, s->ny, -s->nx);
+                GXColor4u8(static_cast< u8 >(s->wavecapIntensity >> info.x34_redShift),
+                           static_cast< u8 >(s->wavecapIntensity >> info.x35_greenShift),
+                           static_cast< u8 >(s->wavecapIntensity >> info.x36_blueShift), 0xff);
+                endX -= info.x18_rippleResolution;
+                --s;
               }
             }
 
             // Left edge
-            RenderStripEndNBT(heights_00, info, isLeftEdge, curX, curY);
+            RenderStripEndNBT(curSamples, info, isLeftEdge, curPos.GetX(), curPos.GetY());
             break;
           }
           default:
@@ -796,8 +771,8 @@ void RenderStripWithRipples(CFluidPlaneCPURender::SHFieldSample (&heights)[45][4
     tileIdx += numCombined;
     gridOffset += numCombined;
     xPos += CFluidPlaneCPURender::numSubdivisionsInTile * numCombined;
-    heights_00 += CFluidPlaneCPURender::numSubdivisionsInTile * numCombined;
-    curX += info.x14_tileSize * static_cast< float >(numCombined);
+    curSamples += CFluidPlaneCPURender::numSubdivisionsInTile * numCombined;
+    curPos.SetX(curPos.GetX() + info.x14_tileSize * static_cast< float >(numCombined));
   }
 }
 
@@ -1015,55 +990,54 @@ void ApplyRipples(const rstl::reserved_vector< CFluidPlaneCPURender::SRippleInfo
 void RenderPatch(const CFluidPlaneCPURender::SPatchInfo& info, bool noRipples,
                  bool flaggedGridGen) {
   if (noRipples) {
-    int ySubdivs = info.x1_ySubdivs;
+    const char ySubdivs = info.x1_ySubdivs;
     int xSubdivs = info.x0_xSubdivs;
     int normalMode = static_cast< int >(static_cast< signed char >(info.x37_normalMode));
-    float localMinX = info.x4_localMinX;
-    float localMinY = info.x8_localMinY;
-    const float endY =
-        info.x18_rippleResolution * static_cast< float >(ySubdivs - 2) + info.x8_localMinY;
-    const float endX =
-        info.x18_rippleResolution * static_cast< float >(xSubdivs - 2) + info.x4_localMinX;
+    const CVector3f localMin(info.x4_localMinX, info.x8_localMinY, 0.f);
+    const CVector3f localMax(
+        info.x18_rippleResolution * static_cast< float >(xSubdivs - 2) + info.x4_localMinX,
+        info.x18_rippleResolution * static_cast< float >(ySubdivs - 2) + info.x8_localMinY, 0.f);
 
     switch (normalMode) {
     case 0:
       CGX::Begin(GX_TRIANGLESTRIP, GX_VTXFMT0, 4);
-      GXPosition3f32(localMinX, localMinY, 0.f);
-      GXPosition3f32(localMinX, endY, 0.f);
-      GXPosition3f32(endX, localMinY, 0.f);
-      GXPosition3f32(endX, endY, 0.f);
+      GXPosition3f32(localMin.GetX(), localMin.GetY(), 0.f);
+      GXPosition3f32(localMin.GetX(), localMax.GetY(), 0.f);
+      GXPosition3f32(localMax.GetX(), localMin.GetY(), 0.f);
+      GXPosition3f32(localMax.GetX(), localMax.GetY(), 0.f);
       CGX::End();
       break;
     case 1:
       CGX::Begin(GX_TRIANGLESTRIP, GX_VTXFMT0, 4);
-      GXPosition3f32(localMinX, localMinY, 0.f);
+      GXPosition3f32(localMin.GetX(), localMin.GetY(), 0.f);
       GXColor4u8(0, 0, 0, 0xff);
-      GXPosition3f32(localMinX, endY, 0.f);
+      GXPosition3f32(localMin.GetX(), localMax.GetY(), 0.f);
       GXColor4u8(0, 0, 0, 0xff);
-      GXPosition3f32(endX, localMinY, 0.f);
+      GXPosition3f32(localMax.GetX(), localMin.GetY(), 0.f);
       GXColor4u8(0, 0, 0, 0xff);
-      GXPosition3f32(endX, endY, 0.f);
+      GXPosition3f32(localMax.GetX(), localMax.GetY(), 0.f);
       GXColor4u8(0, 0, 0, 0xff);
       CGX::End();
       break;
     case 2: {
-      xSubdivs = (xSubdivs - 3) / CFluidPlaneCPURender::numSubdivisionsInTile;
-      int numTilesXP1 = xSubdivs + 1;
+      int nextX;
+      int numTilesY = (ySubdivs - 3) / CFluidPlaneCPURender::numSubdivisionsInTile + 1;
+      int numTilesXM1 = (xSubdivs - 3) / CFluidPlaneCPURender::numSubdivisionsInTile;
+      int numTilesXP1 = numTilesXM1 + 1;
       int gridOffset = static_cast< int >(info.x2e_tileY) * static_cast< int >(info.x2a_gridDimX) +
                        static_cast< int >(info.x28_tileX);
-      ySubdivs = (ySubdivs - 3) / CFluidPlaneCPURender::numSubdivisionsInTile + 1;
-      float curY = localMinY;
+      float curY = localMin.GetY();
 
-      for (int iY = ySubdivs; iY > 0; --iY) {
-        bool isFirstRow = (ySubdivs - iY) == 0;
+      for (int iY = numTilesY; iY > 0; --iY) {
+        bool isFirstRow = (numTilesY - iY) == 0;
         bool isLastRow = (1 - iY) == 0;
-        float curX = localMinX;
+        float curX = localMin.GetX();
         int iX = 0;
 
         while (iX < numTilesXP1) {
-          const char* gridFlags = info.x30_gridFlags;
-          int nextX;
-          if (gridFlags == NULL || (gridFlags != NULL && gridFlags[gridOffset + iX] != 0)) {
+
+          if (info.x30_gridFlags == NULL ||
+              (info.x30_gridFlags != NULL && info.x30_gridFlags[gridOffset + iX] != 0)) {
             bool isLeftEdge = iX == 0;
             bool isRightEdge = (numTilesXP1 - 1 - iX) == 0;
 
@@ -1075,8 +1049,7 @@ void RenderPatch(const CFluidPlaneCPURender::SPatchInfo& info, bool noRipples,
 
               CGX::Begin(GX_TRIANGLEFAN, GX_VTXFMT0, static_cast< ushort >(totalVerts));
 
-              float halfTile = 0.5f * info.x14_tileSize;
-              GXPosition3f32(curX + halfTile, curY + halfTile, 0.f);
+              GXPosition3f32(curX + 0.5f * info.x14_tileSize, curY + 0.5f * info.x14_tileSize, 0.f);
               GXNormal3s8(0, 0, 0x3f);
               GXColor4u8(0, 0, 0, 0xff);
 
@@ -1133,7 +1106,8 @@ void RenderPatch(const CFluidPlaneCPURender::SPatchInfo& info, bool noRipples,
             } else {
               for (nextX = iX + 1;
                    nextX < numTilesXP1 - 1 &&
-                   (gridFlags == NULL || (gridFlags != NULL && gridFlags[gridOffset + nextX] != 0));
+                   (info.x30_gridFlags == NULL ||
+                    (info.x30_gridFlags != NULL && info.x30_gridFlags[gridOffset + nextX] != 0));
                    ++nextX) {
               }
               int runLen = (nextX - iX) + 1;
@@ -1156,7 +1130,7 @@ void RenderPatch(const CFluidPlaneCPURender::SPatchInfo& info, bool noRipples,
             }
           } else {
             curX += info.x14_tileSize;
-            for (nextX = iX + 1; nextX < numTilesXP1 && gridFlags[gridOffset + nextX] == 0;
+            for (nextX = iX + 1; nextX < numTilesXP1 && info.x30_gridFlags[gridOffset + nextX] == 0;
                  ++nextX) {
               curX += info.x14_tileSize;
             }
@@ -1171,46 +1145,42 @@ void RenderPatch(const CFluidPlaneCPURender::SPatchInfo& info, bool noRipples,
     case 3: {
       if (flaggedGridGen || info.x30_gridFlags == NULL) {
         CGX::Begin(GX_TRIANGLESTRIP, GX_VTXFMT0, 4);
-        GXPosition3f32(localMinX, localMinY, 0.f);
+        GXPosition3f32(localMin.GetX(), localMin.GetY(), 0.f);
         GXNormal3s8(0, 0, 0x3f); // Normal
         GXNormal3s8(0, 0x3f, 0); // Binormal
         GXNormal3s8(0x3f, 0, 0); // Tangent
         GXColor4u8(0, 0, 0, 0xff);
-        GXPosition3f32(localMinX, endY, 0.f);
+        GXPosition3f32(localMin.GetX(), localMax.GetY(), 0.f);
         GXNormal3s8(0, 0, 0x3f);
         GXNormal3s8(0, 0x3f, 0);
         GXNormal3s8(0x3f, 0, 0);
         GXColor4u8(0, 0, 0, 0xff);
-        GXPosition3f32(endX, localMinY, 0.f);
+        GXPosition3f32(localMax.GetX(), localMin.GetY(), 0.f);
         GXNormal3s8(0, 0, 0x3f);
         GXNormal3s8(0, 0x3f, 0);
         GXNormal3s8(0x3f, 0, 0);
         GXColor4u8(0, 0, 0, 0xff);
-        GXPosition3f32(endX, endY, 0.f);
+        GXPosition3f32(localMax.GetX(), localMax.GetY(), 0.f);
         GXNormal3s8(0, 0, 0x3f);
         GXNormal3s8(0, 0x3f, 0);
         GXNormal3s8(0x3f, 0, 0);
         GXColor4u8(0, 0, 0, 0xff);
         CGX::End();
       } else {
-        int xSub = static_cast< int >(static_cast< signed char >(info.x0_xSubdivs));
-        int ySub = static_cast< int >(static_cast< signed char >(info.x1_ySubdivs));
-        int numTilesX = (xSub - 3) / CFluidPlaneCPURender::numSubdivisionsInTile + 1;
+        int numTilesX = (xSubdivs - 3) / CFluidPlaneCPURender::numSubdivisionsInTile + 1;
         int gridOffset = static_cast< int >(info.x28_tileX) +
                          static_cast< int >(info.x2e_tileY) * static_cast< int >(info.x2a_gridDimX);
-        float curY = localMinY;
-        for (int iY = (ySub - 3) / CFluidPlaneCPURender::numSubdivisionsInTile + 1; iY > 0; --iY) {
-          float curX = localMinX;
+        float curY = localMin.GetY();
+        for (int iY = (ySubdivs - 3) / CFluidPlaneCPURender::numSubdivisionsInTile + 1; iY > 0;
+             --iY) {
+          float curX = localMin.GetX();
           int iX = 0;
           while (iX < numTilesX) {
-            const char* gridFlags = info.x30_gridFlags;
             int endIX;
-            if (gridFlags[gridOffset + iX] != 0) {
+            if (info.x30_gridFlags[gridOffset + iX] != 0) {
               endIX = iX + 1;
-              const char* ptr = gridFlags + gridOffset + endIX;
-              while (endIX < numTilesX && *ptr != 0) {
+              while (endIX < numTilesX && info.x30_gridFlags[gridOffset + endIX] != 0) {
                 ++endIX;
-                ++ptr;
               }
               int runLen = (endIX - iX) + 1;
               CGX::Begin(GX_TRIANGLESTRIP, GX_VTXFMT0, static_cast< ushort >(runLen * 2));
@@ -1232,11 +1202,9 @@ void RenderPatch(const CFluidPlaneCPURender::SPatchInfo& info, bool noRipples,
             } else {
               curX += info.x14_tileSize;
               endIX = iX + 1;
-              const char* ptr = gridFlags + gridOffset + endIX;
-              while (endIX < numTilesX && *ptr == 0) {
+              while (endIX < numTilesX && info.x30_gridFlags[gridOffset + endIX] == 0) {
                 curX += info.x14_tileSize;
                 ++endIX;
-                ++ptr;
               }
             }
             iX = endIX;
@@ -1255,9 +1223,11 @@ void RenderPatch(const CFluidPlaneCPURender::SPatchInfo& info, bool noRipples,
     int startYDiv = 1;
     for (; startYDiv < static_cast< int >(static_cast< signed char >(info.x1_ySubdivs)) - 2;
          startYDiv += CFluidPlaneCPURender::numSubdivisionsInTile) {
-      RenderStripWithRipples(
-          *reinterpret_cast< CFluidPlaneCPURender::SHFieldSample(*)[45][45] >(static_cast< uchar* >(LCGetBase()) + 0xa0),
-          *reinterpret_cast< const unsigned char (*)[9][9] >(static_cast< uchar* >(LCGetBase()) + 0x40), startYDiv, curY, info);
+      RenderStripWithRipples(*reinterpret_cast< CFluidPlaneCPURender::SHFieldSample(*)[45][45] >(
+                                 static_cast< uchar* >(LCGetBase()) + 0xa0),
+                             *reinterpret_cast< const unsigned char (*)[9][9] >(
+                                 static_cast< uchar* >(LCGetBase()) + 0x40),
+                             startYDiv, curY, info);
       curY += info.x14_tileSize;
     }
   }
