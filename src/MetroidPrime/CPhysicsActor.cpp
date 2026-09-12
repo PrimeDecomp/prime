@@ -94,9 +94,7 @@ CPhysicsState CPhysicsActor::GetPhysicsState() const {
 
 void CPhysicsActor::SetPhysicsState(const CPhysicsState& state) {
   SetTranslation(state.GetTranslation());
-  CQuaternion quat = state.GetOrientation();
-  CVector3f translation = GetTranslation();
-  SetTransform(quat.BuildTransform4f(translation));
+  SetRotation(state.GetOrientation());
   SetConstantForceWR(state.GetConstantForceWR());
   SetAngularMomentumWR(state.GetAngularMomentumWR());
   SetMomentumWR(state.GetMomentumWR());
@@ -137,11 +135,11 @@ CMotionState CPhysicsActor::PredictAngularMotion(float dt) const {
 }
 
 CMotionState CPhysicsActor::PredictLinearMotion(float dt) const {
-  CVector3f velocity = CalculateNewVelocityWR_UsingImpulses();
-  CVector3f sum = GetConstantTotalForceWR();
+  CVector3f velocity = CVector3f(CalculateNewVelocityWR_UsingImpulses());
+  CVector3f sum = x15c_force + x150_momentum;
 
-  return CMotionState(dt * velocity, CNUQuaternion(0.0f, CVector3f::Zero()),
-                      dt * sum + x168_impulse, CAxisAngle::Identity());
+  return CMotionState(dt * velocity, CNUQuaternion(0.f, CVector3f::Zero()), dt * sum + x168_impulse,
+                      CAxisAngle::Identity());
 }
 
 CMotionState CPhysicsActor::PredictMotion_Internal(float dt) const {
@@ -162,8 +160,7 @@ CMotionState CPhysicsActor::PredictMotion_Internal(float dt) const {
 }
 
 void CPhysicsActor::SetMotionState(const CMotionState& state) {
-  const CQuaternion& q = CQuaternion::FromNUQuaternion(state.GetOrientation());
-  SetTransform(q.BuildTransform4f(GetTransform().GetTranslation()));
+  SetRotation(CQuaternion::FromNUQuaternion(state.GetOrientation()));
   SetTranslation(state.GetTranslation());
 
   xfc_constantForce = state.GetVelocity();
@@ -177,19 +174,14 @@ CMotionState CPhysicsActor::GetMotionState() const {
 }
 
 void CPhysicsActor::AddMotionState(const CMotionState& state) {
-  CNUQuaternion q(CNUQuaternion::BuildFromMatrix3f(GetTransform().BuildMatrix3f()));
+  CNUQuaternion q(CNUQuaternion::BuildFromQuaternion(GetRotation()));
   q += state.GetOrientation();
-  const CQuaternion& quat = CQuaternion::FromNUQuaternion(q);
+  SetRotation(CQuaternion::FromNUQuaternion(q));
 
-  CVector3f transPos = GetTransform().GetTranslation();
-  SetTransform(quat.BuildTransform4f(transPos));
-
-  transPos += state.GetTranslation();
-  SetTranslation(transPos);
-
+  const CVector3f pos = GetTranslation();
+  SetTranslation(pos + state.GetTranslation());
   xfc_constantForce += state.GetVelocity();
   x108_angularMomentum += state.GetAngularMomentum();
-
   ComputeDerivedQuantities();
 }
 
@@ -244,17 +236,18 @@ void CPhysicsActor::MoveToInOneFrameWR(const CVector3f& trans, float d) {
 
 CVector3f CPhysicsActor::GetMoveToORImpulseWR(const CVector3f& trans, float d) const {
   CVector3f impulse = GetTransform().Rotate(trans);
-  return (GetMass() * impulse) / d;
+  return (1.f / d) * (GetMass() * impulse);
 }
 
 CVector3f CPhysicsActor::GetRotateToORAngularMomentumWR(const CQuaternion& q, float d) const {
   if (q.GetScalar() > 0.99999976f) {
     return CVector3f::Zero();
   } else {
-    const CVector3f rotated = GetTransform().Rotate(q.GetVector());
+    const CQuaternion rotated(q.GetScalar(), GetTransform().Rotate(q.GetVector()));
 
-    float ac = acos(q.GetScalar());
-    return rotated.AsNormalized() * ((ac * 2.0f) * (1.0f / d)) * xf0_inertiaTensor;
+    const double ac = acos(rotated.GetScalar());
+    return rotated.GetVector().AsNormalized() * ((static_cast< float >(ac) * 2.0f) * (1.0f / d)) *
+           xf0_inertiaTensor;
   }
 }
 
@@ -357,7 +350,7 @@ void CPhysicsActor::SetBoundingBox(const CAABox& box) {
   MoveCollisionPrimitive(CVector3f::Zero());
 }
 
-float CPhysicsActor::GetWeight() const { return CPhysicsActor::GravityConstant() * GetMass(); }
+float CPhysicsActor::GetWeight() const { return kGravityAccel * GetMass(); }
 
 CVector3f CPhysicsActor::GetPrimitiveOffset() const { return x1e8_primitiveOffset; }
 
@@ -388,14 +381,14 @@ float CPhysicsActor::GetCoefficientOfRestitutionModifier() const {
   return x244_restitutionCoefModifier;
 }
 
-float CPhysicsActor::GetCollisionAccuracyModifier() const { return x248_collisionAccuracyModifier; }
-
 void CPhysicsActor::SetCollisionAccuracyModifier(float modifier) {
   x248_collisionAccuracyModifier = modifier;
 }
 
-float CPhysicsActor::GetMaximumCollisionVelocity() const { return x238_maximumCollisionVelocity; }
+float CPhysicsActor::GetCollisionAccuracyModifier() const { return x248_collisionAccuracyModifier; }
 
 void CPhysicsActor::SetMaxVelocityAfterCollision(float velocity) {
   x238_maximumCollisionVelocity = velocity;
 }
+
+float CPhysicsActor::GetMaximumCollisionVelocity() const { return x238_maximumCollisionVelocity; }
