@@ -2673,14 +2673,18 @@ static inline void WarmUpElectricalSwoosh(CParticleSwoosh* swoosh, const CVector
   }
 }
 
+static inline void ActivateElectricalGenerator(
+    rstl::pair< rstl::auto_ptr< CParticleSwoosh >, bool >& slot) {
+  slot.second = true;
+}
+
 void CMorphBall::AddSpiderBallElectricalEffect() {
-  // Desync +0x4c: retail keeps the generator-array base in r6; rebuilt uses r5.
   for (int i = 0; i < x19e4_spiderElectricGens.size(); ++i) {
     if (x19e4_spiderElectricGens[i].second) {
       continue;
     }
 
-    x19e4_spiderElectricGens[i].second = true;
+    ActivateElectricalGenerator(x19e4_spiderElectricGens[i]);
     x1b68_activeSpiderElectricList.push_back(
         CSpiderBallElectrictyManager(i, x1b80_rand.Range(4, 8)));
 
