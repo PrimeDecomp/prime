@@ -82,6 +82,7 @@ public:
   const uchar GetBlendMode() const { return x0_blendMode; }
   const ETrans GetTrans() const { return static_cast< ETrans >(x0_blendModeChar); }
   const int GetShaderSet() const { return x1_matSetIdxChar; }
+  const EFlags GetOtherFlags() { return static_cast< EFlags >(x2_flags); }
   const int GetOtherFlags() const { return x2_flags; }
   const CColor GetColor() const { return x4_color; }
   const CColor& GetColorRef() const { return x4_color; }
