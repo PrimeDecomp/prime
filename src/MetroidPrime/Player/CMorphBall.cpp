@@ -1195,7 +1195,7 @@ void CMorphBall::UpdateBallDynamics(CStateManager& mgr, float dt) {
               x0_player.GetTransform().TransposeRotate(x0_player.GetForceWR()).GetX();
           const float accelRatio = accel / maxAccel;
           const float maxLeanAngle = gpTweakBall->GetMaxLeanAngle();
-          x2c_tireLeanAngle = maxLeanAngle * accelRatio *
+          x2c_tireLeanAngle = accelRatio * maxLeanAngle *
                               gpTweakBall->GetForceToLeanGain();
           x2c_tireLeanAngle = CMath::Limit(x2c_tireLeanAngle, gpTweakBall->GetMaxLeanAngle());
 
