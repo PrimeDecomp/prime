@@ -2658,6 +2658,10 @@ Kyoto/CResLoader.cpp:
 Kyoto/rstl/rstl_map.cpp:
 	.text       start:0x80324D94 end:0x80325480
 
+Kyoto/rstl/rstl_allocator.cpp:
+	.text       start:0x80325480 end:0x803254BC
+	.rodata     start:0x803C2EC0 end:0x803C2EC8
+
 Kyoto/rstl/rstl_strings.cpp:
 	.text       start:0x803254BC end:0x80326CF4
 	.ctors      start:0x803B5108 end:0x803B510C

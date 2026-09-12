@@ -1749,6 +1749,7 @@ config.libs = [
             Object(NonMatching, "Kyoto/CResFactory.cpp"),
             Object(NonMatching, "Kyoto/CResLoader.cpp"),
             Object(NonMatching, "Kyoto/rstl/rstl_map.cpp"),
+            Object(MatchingFor("GM8P01_00", "GM8J01_00"), "Kyoto/rstl/rstl_allocator.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/rstl/rstl_strings.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/rstl/RstlExtras.cpp"),
             Object(
