@@ -208,7 +208,7 @@ if args.map:
     # config.ldflags.append("-listclosure") # For Wii linkers
 
 # Build the NES emulator module alongside the main executable.
-config.build_rels = config.version in ("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8E01_48")
+config.build_rels = config.version in ("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8E01_48", "GM8P01_00")
 
 # Use for any additional files that should cause a re-configure when modified
 config.reconfig_deps = []
