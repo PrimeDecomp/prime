@@ -36,7 +36,7 @@ public:
   bool GetBoolValue() const;
   int GetEnumValue() const;
 
-  UParmValue GetParameter() { return x0_value; }
+  const UParmValue& GetParameterValue() const { return x0_value; }
   EParmType GetParameterType() const { return x4_type; }
 
 private:

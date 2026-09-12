@@ -20,6 +20,7 @@ public:
   CPASAnimState(CInputStream& in);
 
   CPASAnimParm GetAnimParmData(int, unsigned int) const;
+  void AddAnimParmData(int animId, const rstl::reserved_vector< CPASAnimParm, 8 >& parms);
   rstl::pair< float, int > FindBestAnimation(const rstl::reserved_vector< CPASAnimParm, 8 >& parms,
                                              CRandom16& random, int ignoreAnim) const;
 

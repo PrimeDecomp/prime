@@ -1509,7 +1509,7 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"),
                 "Kyoto/Animation/CPASAnimParm.cpp",
             ),
-            Object(NonMatching, "Kyoto/Animation/CPASAnimState.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Animation/CPASAnimState.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Animation/CPASDatabase.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
