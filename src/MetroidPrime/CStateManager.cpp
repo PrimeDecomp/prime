@@ -784,10 +784,10 @@ void CStateManager::RemoveObject(TUniqueId id) {
 }
 
 void CStateManager::CreateStandardGameObjects() {
-  const float xyHalfExtent = gpTweakPlayer->GetPlayerXYHalfExtent();
   const float stepUp = gpTweakPlayer->GetStepUpHeight();
   const float stepDown = gpTweakPlayer->GetStepDownHeight();
   const float playerHeight = gpTweakPlayer->GetPlayerHeight();
+  const float xyHalfExtent = gpTweakPlayer->GetPlayerXYHalfExtent();
   const float ballRadius = gpTweakPlayer->GetPlayerBallHalfExtent();
   const CAABox playerBounds(CVector3f(-xyHalfExtent, -xyHalfExtent, 0.f),
                             CVector3f(xyHalfExtent, xyHalfExtent, playerHeight));
@@ -801,7 +801,7 @@ void CStateManager::CreateStandardGameObjects() {
   CTransform4f xf =
       CTransform4f::FromColumns(mtx.GetColumn(kDX), mtx.GetColumn(kDY), mtx.GetColumn(kDZ), pos);
 
-  x84c_player = rs_new CPlayer(uid, xf, playerBounds, gpTweakPlayerRes->xc4_ballTransitionsANCS,
+  x84c_player = rs_new CPlayer(uid, xf, playerBounds, gpTweakPlayerRes->GetBallTransitionANCSId(),
                                CVector3f(1.65f, 1.65f, 1.65f), 200.f, stepUp, stepDown, ballRadius,
                                CMaterialList(kMT_Player, kMT_Solid, kMT_GroundCollider));
   AddObject(*x84c_player);
