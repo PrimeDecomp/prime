@@ -1,3 +1,5 @@
+#include "GameVersions.h"
+
 #include "rstl/allocator.hpp"
 
 #if defined(__MWERKS__) && (VERSION >= GAME_VERSION_GM8P01_00)

@@ -1,3 +1,4 @@
+#include "GameVersions.h"
 #include "MetroidPrime/CGBASupport.hpp"
 #include "Kyoto/Alloc/CCallStack.hpp"
 #include "Kyoto/Alloc/CMemory.hpp"

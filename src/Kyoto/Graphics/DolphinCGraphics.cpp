@@ -9,6 +9,7 @@
 #include "Kyoto/Graphics/CTexture.hpp"
 #include "Kyoto/Math/CRelAngle.hpp"
 
+#include "GameVersions.h"
 #include "dolphin/types.h"
 #include "rstl/math.hpp"
 

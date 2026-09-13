@@ -1,6 +1,7 @@
 #ifndef _CGRAPHICS
 #define _CGRAPHICS
 
+#include "GameVersions.h"
 #include "types.h"
 
 #include "Kyoto/CTimeProvider.hpp"

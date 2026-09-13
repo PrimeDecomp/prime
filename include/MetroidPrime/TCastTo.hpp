@@ -1,6 +1,7 @@
 #ifndef _TCASTTO
 #define _TCASTTO
 
+#include "GameVersions.h"
 #include "types.h"
 
 class CEntity;

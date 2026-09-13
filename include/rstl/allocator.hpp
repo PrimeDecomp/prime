@@ -1,6 +1,7 @@
 #ifndef _RSTL_RMEMORY_ALLOCATOR
 #define _RSTL_RMEMORY_ALLOCATOR
 
+#include "GameVersions.h"
 #include "types.h"
 
 #include "Kyoto/Alloc/CMemory.hpp"

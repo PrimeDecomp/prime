@@ -1,5 +1,7 @@
 #include "MetroidPrime/CFrontEndUI.hpp"
 
+#include "GameVersions.h"
+
 #include "Kyoto/Audio/CAudioGroupSet.hpp"
 #include "Kyoto/Audio/CAudioSys.hpp"
 #include "Kyoto/Audio/CSfxManager.hpp"
