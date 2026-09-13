@@ -83,7 +83,7 @@ void CVisorFlare::Update(float dt, const CVector3f& pos, const CActor* act, CSta
       CRayCastResult result =
           mgr.RayWorldIntersection(id, camPos, camDiff, mag, rayMaterialList, nearVec);
 
-      blocked = result.GetValid();
+      blocked = result.IsValid();
     }
 
     if (blocked) {
