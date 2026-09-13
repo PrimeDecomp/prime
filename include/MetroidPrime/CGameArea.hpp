@@ -213,7 +213,6 @@ public:
     int x113c_playerActorsLoading;
 
     CPostConstructed();
-    ~CPostConstructed();
   };
 
   CGameArea(CInputStream& in, int idx, const int mlvlVersion);
