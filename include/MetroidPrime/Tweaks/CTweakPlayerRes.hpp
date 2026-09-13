@@ -38,6 +38,8 @@ public:
     return xf0_cinematicMoveOutofIntoPlayerDistance;
   }
 
+  CAssetId GetBallTransitionANCSId() const { return xc4_ballTransitionsANCS; }
+
   CAssetId GetBallTransitionBeamResId(CPlayerState::EBeamId id) const;
   CAssetId GetCinematicBeamResId(CPlayerState::EBeamId id) const;
 };

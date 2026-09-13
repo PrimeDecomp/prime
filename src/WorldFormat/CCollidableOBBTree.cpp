@@ -368,9 +368,13 @@ bool CCollidableOBBTree::SphereCollisionMoving(const COBBTree::CNode& node, cons
 }
 
 static inline CVector3f TriangleEdgeNormal(const CVector3f& normal, const CVector3f& edge) {
-  return CVector3f(normal.GetY() * edge.GetZ() - edge.GetY() * normal.GetZ(),
-                   normal.GetZ() * edge.GetX() - edge.GetZ() * normal.GetX(),
-                   normal.GetX() * edge.GetY() - edge.GetX() * normal.GetY());
+  const float nX = normal.GetX();
+  const float nY = normal.GetY();
+  const float nZ = normal.GetZ();
+  const float eX = edge.GetX();
+  const float eY = edge.GetY();
+  const float eZ = edge.GetZ();
+  return CVector3f(nY * eZ - eY * nZ, nZ * eX - eZ * nX, nX * eY - eX * nY);
 }
 
 bool CCollidableOBBTree::SphereCollideWithLeafMoving(const COBBTree::CLeafData& leaf,
@@ -408,13 +412,11 @@ bool CCollidableOBBTree::SphereCollideWithLeafMoving(const COBBTree::CLeafData& 
         CVector3f surfNormal = surf.GetNormal();
         CVector3f toMovedSphere = sphere.GetCenter() + moveVec - surf.GetVert(0);
         if (!(CVector3f::Dot(toMovedSphere, surfNormal) > sphere.GetRadius())) {
-          double mag = static_cast< double >(
-                           sphere.GetRadius() -
-                           CVector3f::Dot(sphere.GetCenter() - surf.GetVert(0), surfNormal)) /
-                       CVector3f::Dot(dir, surfNormal);
-          float magF = CCast::ToReal32(mag);
+          double mag =
+              sphere.GetRadius() - CVector3f::Dot(sphere.GetCenter() - surf.GetVert(0), surfNormal);
+          mag /= CVector3f::Dot(dir, surfNormal);
 
-          CVector3f intersectPoint = sphere.GetCenter() + magF * dir;
+          CVector3f intersectPoint = sphere.GetCenter() + static_cast< float >(mag) * dir;
           bool outsideEdges[3];
           outsideEdges[0] =
               CVector3f::Dot(intersectPoint - surf.GetVert(0),
@@ -472,9 +474,9 @@ bool CCollidableOBBTree::SphereCollideWithLeafMoving(const COBBTree::CLeafData& 
                       if (mag2 >= 0.0) {
                         double t = mag2 * dirDotEdge + vtsDotEdge;
                         if (t >= 0.0 && t <= edgeVecMag && mag2 < dOut) {
-                          CVector3f point = surf.GetVert(k) + CCast::ToReal32(t) * edgeVec;
+                          CVector3f point = surf.GetVert(k) + static_cast< float >(t) * edgeVec;
                           CVector3f normal =
-                              (sphere.GetCenter() + CCast::ToReal32(mag2) * dir - point)
+                              (sphere.GetCenter() + static_cast< float >(mag2) * dir - point)
                                   .AsNormalized();
                           info = CCollisionInfo(point, material, CMaterialList(edgeMatVal), normal);
                           dOut = mag2;

@@ -373,13 +373,13 @@ TUniqueId CWallCrawlerSwarm::GetWaypointForState(EScriptObjectState state, CStat
 CAABox CWallCrawlerSwarm::BoxForPosition(int x, int y, int z, float margin) const {
   const CAABox bounds = GetBoundingBox();
   const CVector3f extent = bounds.GetMaxPoint() - bounds.GetMinPoint();
-  const CVector3f size(extent.GetX() / 5.f, extent.GetY() / 5.f, extent.GetZ() / 5.f);
-  return CAABox(CVector3f(x * size.GetX() + bounds.GetMinPoint().GetX() - margin,
-                          y * size.GetY() + bounds.GetMinPoint().GetY() - margin,
-                          z * size.GetZ() + bounds.GetMinPoint().GetZ() - margin),
-                CVector3f((x + 1) * size.GetX() + bounds.GetMinPoint().GetX() + margin,
-                          (y + 1) * size.GetY() + bounds.GetMinPoint().GetY() + margin,
-                          (z + 1) * size.GetZ() + bounds.GetMinPoint().GetZ() + margin));
+  const CVector3f size(extent[0] / 5.f, extent[1] / 5.f, extent[2] / 5.f);
+  return CAABox(CVector3f(x * size[0] + bounds.GetMinPoint()[0] - margin,
+                          y * size[1] + bounds.GetMinPoint()[1] - margin,
+                          z * size[2] + bounds.GetMinPoint()[2] - margin),
+                CVector3f((x + 1) * size[0] + bounds.GetMinPoint()[0] + margin,
+                          (y + 1) * size[1] + bounds.GetMinPoint()[1] + margin,
+                          (z + 1) * size[2] + bounds.GetMinPoint()[2] + margin));
 }
 
 void CWallCrawlerSwarm::UpdatePartition() {
@@ -559,11 +559,12 @@ CColor CWallCrawlerSwarm::SoftwareLight(const CStateManager& mgr, const CAABox& 
   for (uint i = 0; i < lights.GetActiveLightCount(); ++i) {
     const CLight& light = lights.GetLight(i);
     const float distance = (light.GetPosition() - center).Magnitude();
-    float attenuation =
-        1.f / (distance * (distance * light.GetAttenuationQuadratic()) +
-               (distance * light.GetAttenuationLinear() + light.GetAttenuationConstant()));
-    result = CColor::Add(result, CColor::Lerp(CColor::Black(), light.GetColor(),
-                                              0.8f * rstl::min_val(1.f, attenuation)));
+    const float attenuation =
+        rstl::min_val(1.f, 1.f / (distance * (distance * light.GetAttenuationQuadratic()) +
+                                 (distance * light.GetAttenuationLinear() +
+                                  light.GetAttenuationConstant())));
+    result = CColor::Add(result,
+                         CColor::Lerp(CColor::Black(), light.GetColor(), 0.8f * attenuation));
   }
   return result;
 }
@@ -797,13 +798,14 @@ void CWallCrawlerSwarm::Think(float dt, CStateManager& mgr) {
   x4b0_modelDatas[8]->AdvanceAnimation(dt, mgr, GetCurrentAreaId(), true);
   CAdvancementDeltas normalDelta;
   CAdvancementDeltas attractDelta;
-  int index = 0;
-  int attractCount = 0;
   int normalCount = 0;
-  bool attractModels[4] = {false, false, false, false};
+  int attractCount = 0;
+  int index = 0;
   bool normalModels[4] = {false, false, false, false};
+  bool attractModels[4] = {false, false, false, false};
+  AUTO(it, x108_boids.begin());
   const rstl::vector< CBoid >::const_iterator end = x108_boids.end();
-  for (AUTO(it, x108_boids.begin()); it != end; ++it, ++index) {
+  for (; it != end; ++it, ++index) {
     if (it->x80_24_active && !it->x80_26_launched) {
       if (it->x80_27_scarabExplodeTimerEnabled || it->x80_28_nearPlayer) {
         attractModels[index & 3] = true;

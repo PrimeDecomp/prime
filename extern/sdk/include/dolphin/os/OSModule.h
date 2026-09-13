@@ -6,7 +6,7 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-#if VERSION >= 4
+#if VERSION >= 3
 #define OS_MODULE_VERSION 3
 #else
 #define OS_MODULE_VERSION 2

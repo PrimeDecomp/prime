@@ -66,13 +66,12 @@ int CGameArea::GetPostConstructedSize() const {
        it != x12c_postConstructed->x4c_insts.end(); ++it) {
     surfaceSize += it->GetSurfaces().size() * sizeof(void*);
   }
-  int size = x120_unk - x12c_postConstructed->x1104_;
-  size += x12c_postConstructed->x4c_insts.size() * sizeof(CMetroidModelInstance);
-  size += x12c_postConstructed->x60_lightsA.size() * sizeof(CWorldLight);
-  size += x12c_postConstructed->x80_lightsB.size() * sizeof(CWorldLight);
-  size += x12c_postConstructed->x110c_layerOffsets.size() * sizeof(rstl::pair< int, int >);
-  size += sizeof(CAreaObjectList);
-  return surfaceSize + size;
+  return surfaceSize + (x120_unk - x12c_postConstructed->x1104_) +
+         (x12c_postConstructed->x4c_insts.size() * sizeof(CMetroidModelInstance)) +
+         (x12c_postConstructed->x60_lightsA.size() * sizeof(CWorldLight)) +
+         (x12c_postConstructed->x80_lightsB.size() * sizeof(CWorldLight)) +
+         (x12c_postConstructed->x110c_layerOffsets.size() * sizeof(rstl::pair< int, int >)) +
+         (sizeof(CAreaObjectList));
 }
 
 CGameArea::CPostConstructed::CPostConstructed()
@@ -306,8 +305,8 @@ void CGameArea::PostConstructArea() {
     section += surfaces;
   }
 
-  int geometryEnd = section - x110_mreaSecBufs.begin();
-  if (version > 14 && CBasics::SwapBytes(header->renderOctreeSection) != -1) {
+  long geometryEnd = section - x110_mreaSecBufs.begin();
+  if (version >= 15 && CBasics::SwapBytes(header->renderOctreeSection) != -1) {
     rstl::auto_ptr< const u8 > buffer(reinterpret_cast< const u8* >(section->first.get()));
     buffer.release();
     x12c_postConstructed->xc_octTree = CAreaRenderOctTree(buffer);
@@ -352,16 +351,21 @@ void CGameArea::PostConstructArea() {
       x12c_postConstructed->x70_gfxLightsA.push_back(
           x12c_postConstructed->x60_lightsA[i].GetAsCGraphicsLight());
     }
-    if (twoLayers && (count = stream.ReadLong()) != 0) {
-      x12c_postConstructed->x80_lightsB.reserve(count);
-      x12c_postConstructed->x90_gfxLightsB.reserve(count);
-      for (int i = 0; i < count; ++i) {
-        x12c_postConstructed->x80_lightsB.push_back(CWorldLight(stream));
-        x12c_postConstructed->x90_gfxLightsB.push_back(
-            x12c_postConstructed->x80_lightsB[i].GetAsCGraphicsLight());
+    if (twoLayers) {
+      const int countB = stream.Get< int >();
+      if (countB != 0) {
+        x12c_postConstructed->x80_lightsB.reserve(countB);
+        x12c_postConstructed->x90_gfxLightsB.reserve(countB);
+        for (int i = 0; i < countB; ++i) {
+          x12c_postConstructed->x80_lightsB.push_back(CWorldLight(stream));
+          x12c_postConstructed->x90_gfxLightsB.push_back(
+              x12c_postConstructed->x80_lightsB[i].GetAsCGraphicsLight());
+        }
       }
     }
-    if (x12c_postConstructed->x80_lightsB.size() == 0) {
+
+    const CPostConstructed* post = x12c_postConstructed.get();
+    if (post->x80_lightsB.size() == 0) {
       x12c_postConstructed->x80_lightsB = x12c_postConstructed->x60_lightsA;
       x12c_postConstructed->x90_gfxLightsB = x12c_postConstructed->x70_gfxLightsA;
     }
@@ -371,7 +375,7 @@ void CGameArea::PostConstructArea() {
     ++section;
     int size = section->second;
     if (size > 64) {
-      const char* buffer = section->first.get();
+      const char* const buffer = section->first.get();
       CMemoryInStream stream(buffer, size);
       if (stream.ReadLong() == 'VISI') {
         int pvsVersion = stream.ReadLong();
@@ -501,14 +505,14 @@ void CGameArea::Validate(CStateManager& mgr) {
     if (x12c_postConstructed->xa0_pvs.get() != nullptr &&
         x12c_postConstructed->x1108_29_pvsHasActors) {
       for (int i = 0; i < x12c_postConstructed->xa0_pvs->GetNumActors(); ++i) {
+        const CPostConstructed* post = x12c_postConstructed.get();
         uint editorId =
-            x12c_postConstructed->xa0_pvs->GetEntityIdByIndex(i) | (x4_selfIdx.Value() << 16);
+            post->xa0_pvs->GetEntityIdByIndex(i) | (x4_selfIdx.Value() << 16);
         TUniqueId id = mgr.GetIdForScript(editorId);
         if (id != kInvalidUniqueId) {
+          const CPVSAreaSet* pvs = x12c_postConstructed->xa0_pvs.get();
           x12c_postConstructed->xa4_pvsEntityMap[id.Value()] =
-              SPVSActorInfo(i + (x12c_postConstructed->xa0_pvs->GetNumFeatures() -
-                                 x12c_postConstructed->xa0_pvs->GetNumActors()),
-                            id);
+              SPVSActorInfo(i + (pvs->GetNumFeatures() - pvs->GetNumActors()), id);
         }
       }
     }
@@ -586,7 +590,8 @@ bool CGameArea::Invalidate(CStateManager* mgr) {
   if (!xf0_24_postConstructed) {
     ClearTokenList();
     for (AUTO(it, xf8_loadTransactions.begin()); it != xf8_loadTransactions.end();) {
-      AUTO(cur, it++);
+      AUTO(cur, it);
+      ++it;
       if (!(*cur)->IsComplete()) {
         (*cur)->PostCancelRequest();
       } else {
@@ -667,8 +672,6 @@ bool CGameArea::UnloadAllloadedTextures() {
   return finished;
 }
 
-CGameArea::CPostConstructed::~CPostConstructed() {}
-
 bool CGameArea::StartStreamingMainArea() {
   if (xf0_24_postConstructed) {
     return false;
@@ -713,8 +716,8 @@ bool CGameArea::StartStreamingMainArea() {
   }
   case kP_LoadDataSections: {
     CullDeadAreaRequests();
-    int totalSize = 0;
     int secCount = x124_secCount;
+    int totalSize = 0;
     int partSizes = GetNumPartSizes();
     const int* sizes = reinterpret_cast< const int* >(x110_mreaSecBufs[1].first.get());
     SObjectTag tag('MREA', x84_mrea);
@@ -732,8 +735,9 @@ bool CGameArea::StartStreamingMainArea() {
         rstl::auto_ptr< CDvdRequest >(gpResourceFactory->GetResLoader().LoadResourcePartAsync(
             tag, x128_mreaDataOffset, totalSize, buffer.get())));
     x128_mreaDataOffset += totalSize;
-    int offset = sizes[secCount];
-    x110_mreaSecBufs.push_back(rstl::pair< rstl::auto_ptr< char >, int >(buffer, sizes[secCount]));
+    const int firstSize = sizes[secCount];
+    int offset = firstSize;
+    x110_mreaSecBufs.push_back(rstl::pair< rstl::auto_ptr< char >, int >(buffer, firstSize));
     for (int i = secCount + 1; i < targetSecCount; ++i) {
       rstl::auto_ptr< char > section(buffer.get() + offset);
       section.release();
@@ -841,10 +845,9 @@ void CGameArea::AddStaticGeometry() {
     if (!x12c_postConstructed->x1108_25_modelsConstructed) {
       FillInStaticGeometry();
     }
+    const CPostConstructed* post = x12c_postConstructed.get();
     int areaIdx = x4_selfIdx.Value();
-    const CAreaRenderOctTree* tree = x12c_postConstructed->xc_octTree.valid()
-                                         ? x12c_postConstructed->xc_octTree.get_ptr()
-                                         : nullptr;
+    const CAreaRenderOctTree* tree = post->xc_octTree.valid() ? post->xc_octTree.get_ptr() : nullptr;
     gpRender->AddStaticGeometry(&x12c_postConstructed->x4c_insts, tree, areaIdx);
   }
 }

@@ -784,10 +784,10 @@ void CStateManager::RemoveObject(TUniqueId id) {
 }
 
 void CStateManager::CreateStandardGameObjects() {
-  const float xyHalfExtent = gpTweakPlayer->GetPlayerXYHalfExtent();
   const float stepUp = gpTweakPlayer->GetStepUpHeight();
   const float stepDown = gpTweakPlayer->GetStepDownHeight();
   const float playerHeight = gpTweakPlayer->GetPlayerHeight();
+  const float xyHalfExtent = gpTweakPlayer->GetPlayerXYHalfExtent();
   const float ballRadius = gpTweakPlayer->GetPlayerBallHalfExtent();
   const CAABox playerBounds(CVector3f(-xyHalfExtent, -xyHalfExtent, 0.f),
                             CVector3f(xyHalfExtent, xyHalfExtent, playerHeight));
@@ -801,7 +801,7 @@ void CStateManager::CreateStandardGameObjects() {
   CTransform4f xf =
       CTransform4f::FromColumns(mtx.GetColumn(kDX), mtx.GetColumn(kDY), mtx.GetColumn(kDZ), pos);
 
-  x84c_player = rs_new CPlayer(uid, xf, playerBounds, gpTweakPlayerRes->xc4_ballTransitionsANCS,
+  x84c_player = rs_new CPlayer(uid, xf, playerBounds, gpTweakPlayerRes->GetBallTransitionANCSId(),
                                CVector3f(1.65f, 1.65f, 1.65f), 200.f, stepUp, stepDown, ballRadius,
                                CMaterialList(kMT_Player, kMT_Solid, kMT_GroundCollider));
   AddObject(*x84c_player);
@@ -865,19 +865,16 @@ void CStateManager::InitializeState(unsigned int mlvlId, TAreaId aid, unsigned i
         gpGameState->SetDeferPowerupInit(false);
 
         for (int i = CPlayerState::kIT_PowerBeam; i < CPlayerState::kIT_Max; ++i) {
-          CPlayerState& state = *x8b8_playerState;
           const CPlayerState::EItemType itemType = static_cast< CPlayerState::EItemType >(i);
-          if (static_cast< int >(state.GetPowerUp(itemType)) < spawnPoint->GetPowerup(itemType)) {
-            CPlayerState& state = *x8b8_playerState;
-            state.InitializePowerUp(itemType,
-                                    spawnPoint->GetPowerup(itemType) - state.GetPowerUp(itemType));
+          if (static_cast< int >(GetPlayerState()->GetPowerUp(itemType)) <
+              spawnPoint->GetPowerup(itemType)) {
+            GetPlayerState()->InitializePowerUp(
+                itemType, spawnPoint->GetPowerup(itemType) - GetPlayerState()->GetPowerUp(itemType));
           }
 
-          CPlayerState& amountState = *x8b8_playerState;
-          if (amountState.GetItemAmount(itemType) < spawnPoint->GetPowerup(itemType)) {
-            CPlayerState& state = *x8b8_playerState;
-            state.IncrPickUp(itemType,
-                             spawnPoint->GetPowerup(itemType) - state.GetItemAmount(itemType));
+          if (GetPlayerState()->GetItemAmount(itemType) < spawnPoint->GetPowerup(itemType)) {
+            GetPlayerState()->IncrPickUp(
+                itemType, spawnPoint->GetPowerup(itemType) - GetPlayerState()->GetItemAmount(itemType));
           }
         }
       }
