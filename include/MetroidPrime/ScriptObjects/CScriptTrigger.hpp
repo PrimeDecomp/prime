@@ -86,6 +86,10 @@ public:
   virtual void InhabitantIdle(CActor&, CStateManager&);
   virtual void InhabitantExited(CActor&, CStateManager&);
   virtual void InhabitantRejected(CActor&, CStateManager&);
+
+private:
+  void ActivatePlayer(CStateManager&);
+  void DeactivatePlayer(CStateManager&);
 };
 
 #endif // _CSCRIPTTRIGGER

@@ -8,6 +8,44 @@
 #include "MetroidPrime/Player/CPlayer.hpp"
 #include "MetroidPrime/Weapons/CWeapon.hpp"
 
+inline void CScriptTrigger::ActivatePlayer(CStateManager& mgr) {
+  if (x148_28_playerTriggerProc != true) {
+    x148_28_playerTriggerProc = true;
+
+    CPlayer* pl = mgr.Player();
+    if (x148_29_didPhazonDamage) {
+      pl->DecrementEnvironmentDamage();
+      x148_29_didPhazonDamage = false;
+    }
+    if (!x100_damageInfo.HasNoDamage()) {
+      const CDamageVulnerability* dVuln = pl->GetDamageVulnerability();
+      bool phazonHurt =
+          dVuln->WeaponHurts(x100_damageInfo.GetWeaponMode(), CDamageVulnerability::kRD_No);
+      if (x100_damageInfo.GetWeaponMode().GetType() == kWT_Phazon) {
+        if (mgr.GetPlayerState()->HasPowerUp(CPlayerState::kIT_PhazonSuit)) {
+          phazonHurt = false;
+        }
+      }
+      if (phazonHurt) {
+        pl->IncrementEnvironmentDamage();
+        x148_29_didPhazonDamage = true;
+      }
+    }
+  }
+}
+
+inline void CScriptTrigger::DeactivatePlayer(CStateManager& mgr) {
+  x148_28_playerTriggerProc = false;
+  CPlayer* player = mgr.Player();
+  if (x148_29_didPhazonDamage) {
+    player->DecrementEnvironmentDamage();
+    x148_29_didPhazonDamage = false;
+  }
+  if (mgr.GetLastTriggerId() == GetUniqueId()) {
+    mgr.SetLastTriggerId(kInvalidUniqueId);
+  }
+}
+
 CScriptTrigger::CScriptTrigger(const TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
                                const CVector3f& pos, const CAABox& bounds, const CDamageInfo& dInfo,
                                const CVector3f& forceField, const uint triggerFlags, const bool active,
@@ -29,7 +67,14 @@ CScriptTrigger::CScriptTrigger(const TUniqueId uid, const rstl::string& name, co
 }
 
 CScriptTrigger::~CScriptTrigger() {
-  xe8_inhabitants.erase(xe8_inhabitants.begin(), xe8_inhabitants.end());
+  AUTO(it, xe8_inhabitants.begin());
+  AUTO(end, xe8_inhabitants.end());
+  AUTO(old, it);
+  while (it != end) {
+    ++it;
+    xe8_inhabitants.erase(old);
+    old = it;
+  }
   if (x12c_flags & 0x11000) {
     x12c_flags = x12c_flags & 0xfffeefff;
     x12c_flags = x12c_flags | 1;
@@ -37,10 +82,10 @@ CScriptTrigger::~CScriptTrigger() {
 }
 
 void CScriptTrigger::Touch(CActor& act, CStateManager& mgr) {
-  if (act.GetActive() && !act.GetMaterialList().HasMaterial(kMT_Trigger)) {
+  if (GetActive() && !act.GetMaterialList().HasMaterial(kMT_Trigger)) {
     if (FindObject(act.GetUniqueId()) == nullptr) {
       uint testFlags = kTFL_None;
-      CPlayer* pl = TCastToPtr< CPlayer >(act);
+      CPlayer* const pl = TCastToPtr< CPlayer >(act);
       if (pl) {
         if (x128_forceMagnitude > 0.f && ((x12c_flags & kTFL_DetectPlayer) != 0)) {
           if (mgr.GetLastTriggerId() != kInvalidUniqueId) {
@@ -64,10 +109,11 @@ void CScriptTrigger::Touch(CActor& act, CStateManager& mgr) {
         testFlags |= kTFL_DetectProjectiles1 | kTFL_DetectProjectiles2 | kTFL_DetectProjectiles3 |
                      kTFL_DetectProjectiles4 | kTFL_DetectProjectiles5 | kTFL_DetectProjectiles6 |
                      kTFL_DetectProjectiles7;
-      } else if (const CWeapon* weap = TCastToConstPtr< CWeapon >(act)) {
-        if ((weap->GetAttribField() & CWeapon::kPA_Bombs) == CWeapon::kPA_Bombs) {
+      } else if (TCastToConstPtr< CWeapon >(act)) {
+        const CWeapon& weap = static_cast< const CWeapon& >(act);
+        if ((weap.GetAttribField() & CWeapon::kPA_Bombs) == CWeapon::kPA_Bombs) {
           testFlags |= kTFL_DetectBombs;
-        } else if ((weap->GetAttribField() & CWeapon::kPA_PowerBombs) == CWeapon::kPA_PowerBombs) {
+        } else if ((weap.GetAttribField() & CWeapon::kPA_PowerBombs) == CWeapon::kPA_PowerBombs) {
           testFlags |= kTFL_DetectPowerBombs;
         }
       }
@@ -77,29 +123,7 @@ void CScriptTrigger::Touch(CActor& act, CStateManager& mgr) {
         InhabitantAdded(act, mgr);
 
         if ((testFlags & kTFL_DetectPlayer) && pl) {
-          if (x148_28_playerTriggerProc != true) {
-            x148_28_playerTriggerProc = true;
-
-            pl = mgr.Player();
-            if (x148_29_didPhazonDamage) {
-              pl->DecrementEnvironmentDamage();
-              x148_29_didPhazonDamage = false;
-            }
-            if (!x100_damageInfo.HasNoDamage()) {
-              const CDamageVulnerability* dVuln = pl->GetDamageVulnerability();
-              bool phazonHurt =
-                  dVuln->WeaponHurts(x100_damageInfo.GetWeaponMode(), CDamageVulnerability::kRD_No);
-              if (x100_damageInfo.GetWeaponMode().GetType() == kWT_Phazon) {
-                if (mgr.GetPlayerState()->HasPowerUp(CPlayerState::kIT_PhazonSuit)) {
-                  phazonHurt = false;
-                }
-              }
-              if (phazonHurt) {
-                pl->IncrementEnvironmentDamage();
-                x148_29_didPhazonDamage = true;
-              }
-            }
-          }
+          ActivatePlayer(mgr);
         }
 
         SendScriptMsgs(kSS_Entered, mgr, kSM_None);
@@ -153,32 +177,12 @@ void CScriptTrigger::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CS
       x148_25_camSubmerged = false;
 
       if (x148_28_playerTriggerProc) {
-        x148_28_playerTriggerProc = false;
-
-        CPlayer* player = mgr.Player();
-        if (x148_29_didPhazonDamage) {
-          player->DecrementEnvironmentDamage();
-          x148_29_didPhazonDamage = false;
-        }
-
-        if (mgr.GetLastTriggerId() == GetUniqueId()) {
-          mgr.SetLastTriggerId(kInvalidUniqueId);
-        }
+        DeactivatePlayer(mgr);
       }
 
     } else if (msg == kSM_Deleted) {
       if (x148_28_playerTriggerProc) {
-        x148_28_playerTriggerProc = false;
-
-        CPlayer* player = mgr.Player();
-        if (x148_29_didPhazonDamage) {
-          player->DecrementEnvironmentDamage();
-          x148_29_didPhazonDamage = false;
-        }
-
-        if (mgr.GetLastTriggerId() == GetUniqueId()) {
-          mgr.SetLastTriggerId(kInvalidUniqueId);
-        }
+        DeactivatePlayer(mgr);
       }
     }
   }
@@ -196,10 +200,9 @@ void CScriptTrigger::UpdateInhabitants(float dt, CStateManager& mgr) {
   bool sendInside = false;
   bool sendExited = false;
   rstl::optional_object< CDamageInfo > timedDamage;
-  rstl::list< CObjectTracker >::iterator nextIt;
   for (rstl::list< CObjectTracker >::iterator it = xe8_inhabitants.begin();
-       it != xe8_inhabitants.end(); it = nextIt) {
-    nextIt = it;
+       it != xe8_inhabitants.end();) {
+    AUTO(nextIt, it);
     ++nextIt;
 #if NONMATCHING
     const TUniqueId objectId = it->GetObjectId();
@@ -219,24 +222,15 @@ void CScriptTrigger::UpdateInhabitants(float dt, CStateManager& mgr) {
             }
           }
         }
-      }
-      if (!playerValid) {
-        xe8_inhabitants.erase(it);
-        sendExited = true;
-        if (x148_28_playerTriggerProc) {
-          x148_28_playerTriggerProc = false;
-          CPlayer* player = mgr.Player();
-          if (x148_29_didPhazonDamage) {
-            player->DecrementEnvironmentDamage();
-            x148_29_didPhazonDamage = false;
+        if (!playerValid) {
+          xe8_inhabitants.erase(it);
+          sendExited = true;
+          if (x148_28_playerTriggerProc) {
+            DeactivatePlayer(mgr);
           }
 
-          if (mgr.GetLastTriggerId() == GetUniqueId()) {
-            mgr.SetLastTriggerId(kInvalidUniqueId);
-          }
+          InhabitantExited(*act, mgr);
         }
-
-        InhabitantExited(*act, mgr);
       }
       if (playerValid) {
         rstl::optional_object< CAABox > touchBounds = GetTouchBounds();
@@ -276,19 +270,11 @@ void CScriptTrigger::UpdateInhabitants(float dt, CStateManager& mgr) {
           xe8_inhabitants.erase(it);
           sendExited = true;
 #if NONMATCHING
-          if (mgr.GetPlayer()->GetUniqueId() == objectId && x148_28_playerTriggerProc) {
+          if (objectId == mgr.GetPlayer()->GetUniqueId() && x148_28_playerTriggerProc) {
 #else
-          if (mgr.GetPlayer()->GetUniqueId() == it->GetObjectId() && x148_28_playerTriggerProc) {
+          if (it->GetObjectId() == mgr.GetPlayer()->GetUniqueId() && x148_28_playerTriggerProc) {
 #endif
-            x148_28_playerTriggerProc = false;
-            CPlayer* player = mgr.Player();
-            if (x148_29_didPhazonDamage) {
-              player->DecrementEnvironmentDamage();
-              x148_29_didPhazonDamage = false;
-            }
-
-            if (mgr.GetLastTriggerId() == GetUniqueId())
-              mgr.SetLastTriggerId(kInvalidUniqueId);
+            DeactivatePlayer(mgr);
           }
 
           InhabitantExited(*act, mgr);
@@ -297,22 +283,14 @@ void CScriptTrigger::UpdateInhabitants(float dt, CStateManager& mgr) {
     } else {
       xe8_inhabitants.erase(it);
 #if NONMATCHING
-      if (mgr.GetPlayer()->GetUniqueId() == objectId && x148_28_playerTriggerProc) {
+      if (objectId == mgr.GetPlayer()->GetUniqueId() && x148_28_playerTriggerProc) {
 #else
-      if (mgr.GetPlayer()->GetUniqueId() == it->GetObjectId() && x148_28_playerTriggerProc) {
+      if (it->GetObjectId() == mgr.GetPlayer()->GetUniqueId() && x148_28_playerTriggerProc) {
 #endif
-        x148_28_playerTriggerProc = false;
-        CPlayer* player = mgr.Player();
-        if (x148_29_didPhazonDamage) {
-          player->DecrementEnvironmentDamage();
-          x148_29_didPhazonDamage = false;
-        }
-
-        if (mgr.GetLastTriggerId() == GetUniqueId()) {
-          mgr.SetLastTriggerId(kInvalidUniqueId);
-        }
+        DeactivatePlayer(mgr);
       }
     }
+    it = nextIt;
   }
 
   if ((x12c_flags & kTFL_DetectCamera) || x148_24_detectCamera) {
