@@ -106,7 +106,7 @@ static inline const T* TCastToConstPtr(const CEntity& p) {
   return TCastToPtr< T >(const_cast< CEntity& >(p));
 }
 
-#if VERSION < 3 || VERSION == 7
+#if VERSION < 3 || VERSION == 5
 // NTSC 0-02 still uses the visitor API
 
 #define DECLARE_TYPES_MATCH
