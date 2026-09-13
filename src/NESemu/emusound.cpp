@@ -1,8 +1,13 @@
 #include "NESemu/emusound.h"
 #include "dolphin/os.h"
+#include "dolphin/vi.h"
 #include "types.h"
 
+#if VERSION != 3
 #define NES_CLOCK_SPEED 1789773
+#define NES_CLOCK_RATE (NES_CLOCK_SPEED - 0.25f)
+#define SOUND_SAMPLE_RATE 2.038168f
+#endif
 
 typedef struct _NESSoundStruct2 {
   u8 _00;
@@ -418,6 +423,12 @@ u32 DISK_FRAME_SAMPLE = 0x215;
 u32 FRAME_SAMPLE = 0x215;
 u32 PHASE_SAMPLE = 0x85;
 
+#if VERSION == 3
+u32 SOUND_SAMPLE_RATE = 2;
+f32 NES_CLOCK_RATE = 1789882.75f;
+u32 NES_FRAME_RATE = 60;
+#endif
+
 f32 VOLTABLE_HVCPULSE[] = {0.0f,      0.080128,  0.157051f, 0.224359f, 0.294872f, 0.365385f,
                            0.435897f, 0.50641f,  0.592949f, 0.657051f, 0.730769f, 0.801282f,
                            0.865385f, 0.929487f, 0.99359f,  1.064103f, 1.064103f};
@@ -485,20 +496,17 @@ s32 __GetWave_Pulse(s32 a, s32 b) {
 
 u32 __PitchTo32_VRC_C(u16 pitch) {
   f32 scalefactor = 2.f;
-  return static_cast< u32 >((NES_CLOCK_SPEED - 0.25f) / scalefactor / (pitch + 1) / 1000.875f *
-                            32768.f);
+  return static_cast< u32 >(NES_CLOCK_RATE / scalefactor / (pitch + 1) / 1000.875f * 32768.f);
 }
 
 u32 __PitchTo32_VRC_PULSE(u16 pitch) {
   f32 scalefactor = 16.f;
-  return static_cast< u32 >((NES_CLOCK_SPEED - 0.25f) / scalefactor / (pitch + 1) / 1000.875f *
-                            32768.f);
+  return static_cast< u32 >(NES_CLOCK_RATE / scalefactor / (pitch + 1) / 1000.875f * 32768.f);
 }
 
 u32 __PitchTo32_HVC(u16 pitch) {
   f32 scalefactor = 8.f;
-  return static_cast< u32 >((NES_CLOCK_SPEED - 0.25f) / scalefactor / (pitch + 1) / 1000.875f *
-                            32768.f);
+  return static_cast< u32 >(NES_CLOCK_RATE / scalefactor / (pitch + 1) / 1000.875f * 32768.f);
 }
 
 void __Sound_Write_VRC(u16 a, u8 b) {
@@ -1448,8 +1456,7 @@ u32 __PitchTo32_HVC_C(u16 a) {
     return 0;
   } else {
     f32 scalefactor = 16.f;
-    return static_cast< u32 >((NES_CLOCK_SPEED - 0.25f) / scalefactor / (a + 1) / 1000.875f *
-                              32768.f);
+    return static_cast< u32 >(NES_CLOCK_RATE / scalefactor / (a + 1) / 1000.875f * 32768.f);
   }
 }
 u32 sample_timer = 0;
@@ -1609,7 +1616,11 @@ void __CreateDiskSubWave() {
 }
 
 u32 __PitchTo32_DISKFM(u16 v) {
+#if VERSION == 3
+  return (NES_CLOCK_RATE / 8.f / 262144.f * static_cast< int >(v)) / 500.4375f * 32768.f;
+#else
   return (0.85343015f * static_cast< int >(v)) / 500.4375f * 32768.f;
+#endif
 }
 
 void __Sound_Write_Disk(u16 a, u8 b) {
@@ -2041,14 +2052,18 @@ void Sound_Write(u16 event, u8 value, u16 frames) {
     static f32 sampleRate;
     BOOL interrupts = OSDisableInterrupts();
     if (buffer_remain < 0x460) {
-      sampleRate = 2.038168f * ((5.f * (0x460 - buffer_remain) + 1680.f) / 1680.f);
+#if VERSION == 3
+      sampleRate = ((5.f * (0x460 - buffer_remain) + 1680.f) / 1680.f) * SOUND_SAMPLE_RATE;
+#else
+      sampleRate = SOUND_SAMPLE_RATE * ((5.f * (0x460 - buffer_remain) + 1680.f) / 1680.f);
+#endif
       if (sampleRate > 2.5) {
         sampleRate = 2.5f;
       }
     } else if (buffer_remain > 0x690) {
-      sampleRate = 2.038168f * (1680.f / ((buffer_remain - 0x690) * 5 + 0x690));
+      sampleRate = SOUND_SAMPLE_RATE * (1680.f / ((buffer_remain - 0x690) * 5 + 0x690));
     } else {
-      sampleRate = 2.038168f;
+      sampleRate = SOUND_SAMPLE_RATE;
     }
     sampleCarry += sampleRate;
     int count = sampleCarry;
@@ -2114,6 +2129,31 @@ void Sound_Reset() {
   SoundP._0D = 0;
   WriteBias(0);
   Buffer_Reset();
+#if VERSION == 3
+  OSReport("*******-------- HVC Sound Emulator \n");
+  switch (VIGetTvFormat()) {
+  case VI_NTSC:
+  case VI_MPAL:
+  case VI_EURGB60:
+    OSReport("*******-------- NTSC/MPAL/EU60 \n");
+    SOUND_SAMPLE_RATE = 2;
+    NES_CLOCK_RATE = 1789882.75f;
+    NES_FRAME_RATE = 60;
+    break;
+  default:
+    OSReport("*******-------- Unknown TV format... \n");
+    // Fall through to PAL timing for unknown formats.
+  case VI_PAL:
+    OSReport("*******-------- PAL50 \n");
+    SOUND_SAMPLE_RATE = 2;
+    NES_CLOCK_RATE = 1662500.f;
+    DISK_FRAME_SAMPLE = 640;
+    FRAME_SAMPLE = 640;
+    PHASE_SAMPLE = 160;
+    NES_FRAME_RATE = 50;
+    break;
+  }
+#endif
 }
 
 u8 Sound_Read(u16 reg_addr) {
@@ -2130,6 +2170,28 @@ u8 Sound_Read(u16 reg_addr) {
     }
     return z << 2 | y << 1 | (x);
   } else if (reg_addr == 0x4015) {
+#if VERSION == 3
+    u8 a = SoundA._00;
+    if (DUMMY_ACTIVE[0]) {
+      a = DUMMY_ACTIVE[0] - 1;
+    }
+    u8 b = SoundB._00;
+    if (DUMMY_ACTIVE[1]) {
+      b = DUMMY_ACTIVE[1] - 1;
+    }
+    u8 c = SoundC._00;
+    if (DUMMY_ACTIVE[2]) {
+      c = DUMMY_ACTIVE[2] - 1;
+    }
+    u8 d = SoundD._00;
+    if (DUMMY_ACTIVE[3]) {
+      d = DUMMY_ACTIVE[3] - 1;
+    }
+    u8 e = SoundE._00;
+    if (DUMMY_ACTIVE[4]) {
+      e = DUMMY_ACTIVE[4] - 1;
+    }
+#else
     u8 a, b, c, d, e;
     if (DUMMY_ACTIVE[0]) {
       a = DUMMY_ACTIVE[0] - 1;
@@ -2160,6 +2222,7 @@ u8 Sound_Read(u16 reg_addr) {
     } else {
       e = SoundE._00;
     }
+#endif
     return SoundE._20 << 7 | e << 4 | d << 3 | c << 2 | b << 1 | a;
   } else {
     switch (reg_addr & 0xff) {
@@ -2168,6 +2231,9 @@ u8 Sound_Read(u16 reg_addr) {
     case 0x92:
       return SoundF._39;
     default:
+#if VERSION == 3
+      OSReport("Unsupported SoundRead %x\n", reg_addr);
+#endif
       return 0;
     }
   }
@@ -2222,8 +2288,13 @@ void __Sound_Write_HVC(u16 index, u8 v) {
           PHASE_SAMPLE = 0xa0;
           beforemode = 0;
         } else {
+#if VERSION == 3
+          FRAME_SAMPLE = 32028 / NES_FRAME_RATE;
+          PHASE_SAMPLE = FRAME_SAMPLE / 4;
+#else
           FRAME_SAMPLE = 0x215;
           PHASE_SAMPLE = 0x85;
+#endif
           beforemode = 1;
         }
         ForceProcessPhaseCounter();
