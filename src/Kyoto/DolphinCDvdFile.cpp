@@ -1,3 +1,5 @@
+#include "GameVersions.h"
+
 #include "Kyoto/CARAMToken.hpp"
 #include "Kyoto/CDvdFile.hpp"
 #include "Kyoto/CDvdRequest.hpp"
@@ -282,7 +284,7 @@ bool CDvdFile::FileExists(const char* filename) {
 }
 
 void CDvdFile::internalCallback(s32 res, DVDFileInfo* info) {
-#if VERSION >= 1
+#if VERSION >= GAME_VERSION_GM8E01_01
   DCInvalidateRange((void*)info->cb.addr, info->cb.length);
 #endif
 }

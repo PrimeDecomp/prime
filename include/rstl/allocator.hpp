@@ -10,7 +10,7 @@ struct rmemory_allocator {
   rmemory_allocator() {}
   rmemory_allocator(const rmemory_allocator&) {}
 
-#if defined(__MWERKS__) && (VERSION == 3 || VERSION == 4)
+#if defined(__MWERKS__) && (VERSION >= GAME_VERSION_GM8P01_00)
   static void* allocate(int size);
 #endif
 
@@ -31,7 +31,7 @@ struct rmemory_allocator {
     }
 #endif
 #endif
-#if defined(__MWERKS__) && (VERSION == 3 || VERSION == 4)
+#if defined(__MWERKS__) && (VERSION >= GAME_VERSION_GM8P01_00)
     out = reinterpret_cast< T* >(allocate(size));
 #else
     if (size == 0) {

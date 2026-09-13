@@ -301,7 +301,7 @@ void COmegaPirate::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CSta
     break;
   case kSM_Reset:
     xb78_codeTrigger = true;
-#if VERSION == 1
+#if VERSION >= GAME_VERSION_GM8E01_01
     x450_bodyController->CommandMgr().DeliverCmd(CBodyStateCmd(kBSC_NextState));
 #endif
     break;
