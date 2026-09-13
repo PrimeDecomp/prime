@@ -1803,7 +1803,7 @@ CQuaternion CAutoMapper::GetMiniMapCameraOrientation(const CStateManager& stateM
 
 CVector3f CAutoMapper::GetAreaPointOfInterest(const CStateManager& mgr, int aid) const {
   const IWorld& world = *mWorld;
-  CMapArea* mapa = world.IGetMapWorld()->GetMapArea(aid);
+  CMapArea* const& mapa = world.IGetMapWorld()->GetMapArea(aid);
   return mapa->GetAreaPostTransform(world, aid) * mapa->GetAreaCenterPoint();
 }
 
@@ -1819,7 +1819,7 @@ int CAutoMapper::FindClosestVisibleArea(const CVector3f& point, const CUnitVecto
   }
   for (int i = 0; i < areas.size(); ++i) {
     int areaId = areas[i];
-    CMapArea* mapa = mw->GetMapArea(areaId);
+    CMapArea* const& mapa = mw->GetMapArea(areaId);
     CTransform4f xf = mapa->GetAreaPostTransform(wld, areaId);
     CVector3f xfPoint = xf * mapa->GetAreaCenterPoint();
     CVector3f pointToArea = xfPoint - point;
