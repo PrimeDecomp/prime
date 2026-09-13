@@ -14,7 +14,7 @@ static GXFifoObj FifoObj;
 
 GXData *const __GXData = &gxData;
 
-#if VERSION < GAME_VERSION_GM8P01_00
+#if VERSION < VERSION_GM8P_00
 char *__GXVersion = "<< Dolphin SDK - GX\trelease build: Sep  5 2002 05:33:28 (0x2301) >>";
 #else
 char *__GXVersion = "<< Dolphin SDK - GX	release build: Nov  7 2002 05:47:57 (0x2301) >>";

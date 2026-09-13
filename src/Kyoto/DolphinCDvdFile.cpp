@@ -284,7 +284,7 @@ bool CDvdFile::FileExists(const char* filename) {
 }
 
 void CDvdFile::internalCallback(s32 res, DVDFileInfo* info) {
-#if VERSION >= GAME_VERSION_GM8E01_01
+#if VERSION >= VERSION_GM8E_01
   DCInvalidateRange((void*)info->cb.addr, info->cb.length);
 #endif
 }

@@ -8,7 +8,7 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-#if VERSION >= GAME_VERSION_GM8P01_00
+#if VERSION >= VERSION_GM8P_00
 #define OS_MODULE_VERSION 3
 #else
 #define OS_MODULE_VERSION 2
