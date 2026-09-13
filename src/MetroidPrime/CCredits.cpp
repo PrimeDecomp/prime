@@ -40,7 +40,7 @@ static const char* const skCreditsAudio = "Audio/ending3.rsf";
 static const char* const skCompletionAudio = "Audio/samusjak.rsf";
 
 bool CPlayMovie::GetIsContinueDraw() const { return false; }
-
+bool CCredits::GetIsContinueDraw() const { return false; }
 bool CMoviePlayer::DrawVideo() const {
   if (!CanDrawVideo()) {
     return false;
@@ -449,8 +449,6 @@ void CPlayMovie::SetMovieIndex(int index) {
     x38_moviePlayer = nullptr;
   }
 }
-
-bool CCredits::GetIsContinueDraw() const { return false; }
 
 CCredits::CCredits()
 : CIOWin(rstl::string_l("Credits"))
