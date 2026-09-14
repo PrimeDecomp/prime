@@ -98,8 +98,6 @@
 #include "MetroidPrime/Enemies/CTryclops.hpp"
 #include "MetroidPrime/Enemies/CWarWasp.hpp"
 
-
-
 CEntity* TryCast(CEntity* entity, int type) {
   if (entity != nullptr) {
     return entity->TypesMatch(type);
