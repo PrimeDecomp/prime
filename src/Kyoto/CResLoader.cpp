@@ -173,6 +173,9 @@ const SObjectTag* CResLoader::GetResourceIdByName(const char* name) const {
 
 FourCC CResLoader::GetResourceTypeById(const CAssetId asset) const {
   if (const_cast< CResLoader& >(*this).ResourceExists(asset)) {
+#if VERSION >= VERSION_GM8P_00
+    const_cast< CResLoader& >(*this).FindResourceForLoad(asset);
+#endif
     return x50_cachedResInfo->GetType();
   }
 
@@ -185,6 +188,9 @@ bool CResLoader::ResourceExists(const SObjectTag& tag) const {
 
 uint CResLoader::ResourceSize(const SObjectTag& tag) const {
   if (const_cast< CResLoader& >(*this).ResourceExists(tag.GetId())) {
+#if VERSION >= VERSION_GM8P_00
+    const_cast< CResLoader& >(*this).FindResourceForLoad(tag.GetId());
+#endif
     return x50_cachedResInfo->GetSize();
   }
 
@@ -193,6 +199,9 @@ uint CResLoader::ResourceSize(const SObjectTag& tag) const {
 
 CResLoader::ECompressionType CResLoader::GetResourceCompression(const SObjectTag& tag) const {
   if (const_cast< CResLoader& >(*this).ResourceExists(tag.GetId())) {
+#if VERSION >= VERSION_GM8P_00
+    const_cast< CResLoader& >(*this).FindResourceForLoad(tag.GetId());
+#endif
     return x50_cachedResInfo->IsCompressed() ? kCompressionType_Compressed
                                              : kCompressionType_Uncompressed;
   }
