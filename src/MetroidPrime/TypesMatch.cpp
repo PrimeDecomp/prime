@@ -100,6 +100,13 @@
 
 
 
+CEntity* TryCast(CEntity* entity, int type) {
+  if (entity != nullptr) {
+    return entity->TypesMatch(type);
+  }
+  return nullptr;
+}
+
 #define TYPES_MATCH_IMPL(CLS, PARENT, ID) \
 CEntity* CLS::TypesMatch(int type) { \
   if (type == ID) return this; \
@@ -210,3 +217,98 @@ TYPES_MATCH_IMPL(CThardus, CPatterned, 93)
 TYPES_MATCH_IMPL(CThardusRockProjectile, CPatterned, 94)
 TYPES_MATCH_IMPL(CTryclops, CPatterned, 95)
 TYPES_MATCH_IMPL(CWarWasp, CPatterned, 96)
+
+#define CAST_TO_PTR_IMPL(CLS, ID) \
+template <> \
+CLS* TCastToPtr< CLS >(CEntity* entity) { \
+  return static_cast< CLS* >(TryCast(entity, ID)); \
+}
+
+#define CAST_TO_REF_IMPL(CLS, ID) \
+template <> \
+CLS* TCastToPtr< CLS >(CEntity& entity) { \
+  return static_cast< CLS* >(entity.TypesMatch(ID)); \
+}
+
+CAST_TO_PTR_IMPL(CEntity, 0)
+CAST_TO_REF_IMPL(CActor, 1)
+CAST_TO_PTR_IMPL(CActor, 1)
+CAST_TO_REF_IMPL(CGameCamera, 2)
+CAST_TO_PTR_IMPL(CGameCamera, 2)
+CAST_TO_REF_IMPL(CPhysicsActor, 3)
+CAST_TO_PTR_IMPL(CPhysicsActor, 3)
+CAST_TO_REF_IMPL(CWeapon, 4)
+CAST_TO_PTR_IMPL(CWeapon, 4)
+CAST_TO_REF_IMPL(CPatterned, 7)
+CAST_TO_PTR_IMPL(CPatterned, 7)
+CAST_TO_REF_IMPL(CGameProjectile, 8)
+CAST_TO_PTR_IMPL(CGameProjectile, 8)
+CAST_TO_PTR_IMPL(CBomb, 10)
+CAST_TO_REF_IMPL(CCinematicCamera, 11)
+CAST_TO_PTR_IMPL(CCinematicCamera, 11)
+CAST_TO_REF_IMPL(CCollisionActor, 12)
+CAST_TO_PTR_IMPL(CCollisionActor, 12)
+CAST_TO_REF_IMPL(CDestroyableRock, 13)
+CAST_TO_REF_IMPL(CEnergyProjectile, 14)
+CAST_TO_PTR_IMPL(CEnergyProjectile, 14)
+CAST_TO_PTR_IMPL(CExplosion, 15)
+CAST_TO_REF_IMPL(CFirstPersonCamera, 16)
+CAST_TO_PTR_IMPL(CFishCloud, 17)
+CAST_TO_REF_IMPL(CGameLight, 18)
+CAST_TO_PTR_IMPL(CGameLight, 18)
+CAST_TO_PTR_IMPL(CHUDBillboardEffect, 19)
+CAST_TO_PTR_IMPL(CMetroidPrimeRelay, 20)
+CAST_TO_PTR_IMPL(CPathCamera, 21)
+CAST_TO_REF_IMPL(CPlayer, 22)
+CAST_TO_PTR_IMPL(CPlayer, 22)
+CAST_TO_PTR_IMPL(CRepulsor, 23)
+CAST_TO_PTR_IMPL(CScriptActor, 24)
+CAST_TO_PTR_IMPL(CScriptActorKeyframe, 25)
+CAST_TO_REF_IMPL(CScriptAiJumpPoint, 26)
+CAST_TO_PTR_IMPL(CScriptAiJumpPoint, 26)
+CAST_TO_PTR_IMPL(CScriptCameraHint, 27)
+CAST_TO_PTR_IMPL(CScriptCameraPitchVolume, 28)
+CAST_TO_PTR_IMPL(CScriptCameraWaypoint, 29)
+CAST_TO_REF_IMPL(CScriptCoverPoint, 30)
+CAST_TO_PTR_IMPL(CScriptCoverPoint, 30)
+CAST_TO_PTR_IMPL(CScriptDistanceFog, 32)
+CAST_TO_PTR_IMPL(CScriptDock, 33)
+CAST_TO_PTR_IMPL(CScriptDoor, 34)
+CAST_TO_PTR_IMPL(CScriptEffect, 35)
+CAST_TO_PTR_IMPL(CScriptGrapplePoint, 36)
+CAST_TO_PTR_IMPL(CScriptGunTurret, 37)
+CAST_TO_PTR_IMPL(CScriptMazeNode, 38)
+CAST_TO_PTR_IMPL(CScriptPickup, 39)
+CAST_TO_REF_IMPL(CScriptPlatform, 40)
+CAST_TO_PTR_IMPL(CScriptPlatform, 40)
+CAST_TO_PTR_IMPL(CScriptPlayerHint, 41)
+CAST_TO_PTR_IMPL(CScriptRoomAcoustics, 43)
+CAST_TO_PTR_IMPL(CScriptSound, 44)
+CAST_TO_PTR_IMPL(CScriptSpawnPoint, 45)
+CAST_TO_PTR_IMPL(CScriptSpiderBallAttractionSurface, 47)
+CAST_TO_PTR_IMPL(CScriptSpiderBallWaypoint, 48)
+CAST_TO_PTR_IMPL(CScriptTargetingPoint, 49)
+CAST_TO_PTR_IMPL(CTeamAiMgr, 50)
+CAST_TO_PTR_IMPL(CScriptTimer, 51)
+CAST_TO_REF_IMPL(CScriptTrigger, 52)
+CAST_TO_PTR_IMPL(CScriptTrigger, 52)
+CAST_TO_PTR_IMPL(CScriptVisorFlare, 53)
+CAST_TO_REF_IMPL(CScriptWater, 54)
+CAST_TO_PTR_IMPL(CScriptWater, 54)
+CAST_TO_PTR_IMPL(CScriptWaypoint, 55)
+CAST_TO_PTR_IMPL(CSnakeWeedSwarm, 56)
+CAST_TO_PTR_IMPL(CScriptSpindleCamera, 57)
+CAST_TO_PTR_IMPL(CWallCrawlerSwarm, 58)
+CAST_TO_PTR_IMPL(CEnergyBall, 69)
+CAST_TO_PTR_IMPL(CFlickerBat, 74)
+CAST_TO_PTR_IMPL(CIceSheegoth, 76)
+CAST_TO_PTR_IMPL(CJellyZap, 77)
+CAST_TO_REF_IMPL(CMetroid, 80)
+CAST_TO_PTR_IMPL(CMetroid, 80)
+CAST_TO_PTR_IMPL(CMetroidBeta, 81)
+CAST_TO_PTR_IMPL(CMetroidPrime, 82)
+CAST_TO_PTR_IMPL(CParasite, 84)
+CAST_TO_REF_IMPL(CPuddleToadGamma, 86)
+CAST_TO_PTR_IMPL(CSpacePirate, 91)
+CAST_TO_PTR_IMPL(CThardusRockProjectile, 94)
+CAST_TO_PTR_IMPL(CWarWasp, 96)

@@ -78,6 +78,16 @@ public:
 #undef VISIT
 };
 
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+
+template < class T >
+T* TCastToPtr(CEntity* p);
+
+template < class T >
+T* TCastToPtr(CEntity& p);
+
+#else
+
 template < class T >
 class TCastToPtr : public IVisitor {
 public:
@@ -98,6 +108,8 @@ private:
   T* ptr;
 };
 
+#endif
+
 template < typename T >
 static inline const T* TCastToConstPtr(const CEntity* p) {
   return TCastToPtr< T >(const_cast< CEntity* >(p));
@@ -107,19 +119,19 @@ static inline const T* TCastToConstPtr(const CEntity& p) {
   return TCastToPtr< T >(const_cast< CEntity& >(p));
 }
 
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
-// NTSC 0-02 still uses the visitor API
-
-#define DECLARE_TYPES_MATCH
-#define DECLARE_TYPES_MATCH_OR_ACCEPT void Accept(IVisitor& visitor) override
-#define ENTITY_ACCEPT_IMPL(CLS) void CLS::Accept(IVisitor& visitor) { visitor.Visit(*this); }
-
-#else
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
 
 #define DECLARE_TYPES_MATCH virtual CEntity* TypesMatch(int type) override
 #define DECLARE_TYPES_MATCH_OR_ACCEPT DECLARE_TYPES_MATCH
 #define ENTITY_ACCEPT_IMPL(CLS)
 #define HAS_TYPES_MATCH 1
+
+#else
+// NTSC 0-02 still uses the visitor API
+
+#define DECLARE_TYPES_MATCH
+#define DECLARE_TYPES_MATCH_OR_ACCEPT void Accept(IVisitor& visitor) override
+#define ENTITY_ACCEPT_IMPL(CLS) void CLS::Accept(IVisitor& visitor) { visitor.Visit(*this); }
 
 #endif
 
