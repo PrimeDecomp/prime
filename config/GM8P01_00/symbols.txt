@@ -9821,7 +9821,7 @@ sort<Q24rstl116pointer_iterator<P10CGuiWidget,Q24rstl48vector<P10CGuiWidget,Q24r
 reserve__Q24rstl48vector<P10CGuiWidget,Q24rstl17rmemory_allocator>Fi = .text:0x802AF2B0; // type:function size:0xD4
 __sort3<P10CGuiWidget,Q24rstl24CWidgetFartherFromCamera>__4rstlFRP10CGuiWidgetRP10CGuiWidgetRP10CGuiWidgetQ24rstl24CWidgetFartherFromCamera = .text:0x802AF384; // type:function size:0xF4
 __insertion_sort<Q24rstl116pointer_iterator<P10CGuiWidget,Q24rstl48vector<P10CGuiWidget,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,Q24rstl24CWidgetFartherFromCamera>__4rstlFQ24rstl116pointer_iterator<P10CGuiWidget,Q24rstl48vector<P10CGuiWidget,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl116pointer_iterator<P10CGuiWidget,Q24rstl48vector<P10CGuiWidget,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl24CWidgetFartherFromCamera = .text:0x802AF478; // type:function size:0xD0
-fn_802AF548 = .text:0x802AF548; // type:function size:0xC
+GetWidgetTypeID__9CGuiGroupCFv = .text:0x802AF548; // type:function size:0xC scope:weak
 GetSelectedWidget__9CGuiGroupFv = .text:0x802AF554; // type:function size:0x30
 AddWorkerWidget__9CGuiGroupFP10CGuiWidget = .text:0x802AF584; // type:function size:0x14
 OnActivate__9CGuiGroupFv = .text:0x802AF598; // type:function size:0x5C

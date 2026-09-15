@@ -2003,7 +2003,7 @@ GuiSys/CGuiFrame.cpp:
 	.rodata     start:0x803C1D90 end:0x803C1D98
 
 GuiSys/CGuiGroup.cpp:
-	.text       start:0x802AF554 end:0x802AF704
+	.text       start:0x802AF548 end:0x802AF704
 	.rodata     start:0x803C1D98 end:0x803C1DA0
 	.data       start:0x803D4618 end:0x803D4658
 
