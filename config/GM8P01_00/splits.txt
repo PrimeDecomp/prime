@@ -1196,7 +1196,9 @@ MetroidPrime/CFluidPlaneDoor.cpp:
 	.sdata2     start:0x8046E5F8 end:0x8046E610
 
 MetroidPrime/ScriptObjects/CScriptRoomAcoustics.cpp:
-	.text       start:0x80192804 end:0x80192C9C
+	.text       start:0x80192804 end:0x80192CA8
+	.ctors      start:0x803B5030 end:0x803B5034
+	.sbss       start:0x8046B160 end:0x8046B168
 
 MetroidPrime/Enemies/CIceSheegoth.cpp:
 	.text       start:0x80192CCC end:0x8019B380
