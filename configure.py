@@ -1419,7 +1419,10 @@ config.libs = [
         [
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "GuiSys/CAuiMain.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "GuiSys/CAuiMeter.cpp"),
-            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "GuiSys/CGuiCamera.cpp"),
+            Object(
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"),
+                "GuiSys/CGuiCamera.cpp",
+            ),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"), "GuiSys/CGuiCompoundWidget.cpp"
             ),
