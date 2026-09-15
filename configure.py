@@ -1434,7 +1434,10 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"),
                 "GuiSys/CGuiGroup.cpp",
             ),
-            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "GuiSys/CGuiHeadWidget.cpp"),
+            Object(
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"),
+                "GuiSys/CGuiHeadWidget.cpp",
+            ),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "GuiSys/CGuiLight.cpp"),
             Object(NonMatching, "GuiSys/CGuiModel.cpp"),
             Object(NonMatching, "GuiSys/CGuiObject.cpp", cflags=[*cflags_retro, "-inline auto"]),

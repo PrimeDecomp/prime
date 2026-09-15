@@ -2008,7 +2008,7 @@ GuiSys/CGuiGroup.cpp:
 	.data       start:0x803D4618 end:0x803D4658
 
 GuiSys/CGuiHeadWidget.cpp:
-	.text       start:0x802AF704 end:0x802AF844
+	.text       start:0x802AF704 end:0x802AF850
 	.rodata     start:0x803C1DA0 end:0x803C1DA8
 	.data       start:0x803D4658 end:0x803D4698
 
