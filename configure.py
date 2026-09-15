@@ -1760,9 +1760,9 @@ config.libs = [
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"), "Kyoto/Text/CFont.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"), "Kyoto/Graphics/CLight.cpp"),
             Object(NonMatching, "Kyoto/Graphics/CCubeModel.cpp"),
-            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Graphics/CGX.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"), "Kyoto/Graphics/CGX.cpp"),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"),
                 "Kyoto/Graphics/CTevCombiners.cpp",
             ),
             Object(
@@ -1779,7 +1779,7 @@ config.libs = [
                 "Kyoto/Graphics/DolphinCPalette.cpp",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"),
                 "Kyoto/Graphics/DolphinCTexture.cpp",
             ),
             Object(
