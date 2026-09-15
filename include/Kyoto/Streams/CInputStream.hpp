@@ -24,9 +24,7 @@ public:
   virtual size_t Read(void* dest, size_t len) = 0;
 
   float ReadFloat();
-#if VERSION >= VERSION_R3IJ_00
   double ReadDouble();
-#endif
   u64 ReadLongLong();
   uint ReadLong();
   ushort ReadShort();

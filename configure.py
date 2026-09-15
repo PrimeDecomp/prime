@@ -302,12 +302,18 @@ cflags_retro = [
     "-use_lmw_stmw on",
     "-str reuse,pool,readonly",
     "-gccinc",
-    "-inline deferred",
+    "-inline deferred" if version_num < VERSIONS.index("R3IJ01_00") else "-inline noauto,nobottomup,level=8",
     "-common on",
     "-i extern/musyx/include",
     # "-sym on",
     "-DMUSY_TARGET=MUSY_TARGET_DOLPHIN",
 ]
+
+if version_num >= VERSIONS.index("R3IJ01_00"):
+    cflags_retro.extend([
+        "-sdata 4",
+        "-func_align 4"
+    ])
 
 # Most Retro code uses this inline limit. Objects that still need the compiler
 # default retain cflags_retro explicitly while their helper inlining is investigated.
@@ -407,7 +413,7 @@ def TrkLib(lib_name, objects):
 def RetroLib(lib_name, progress_category, objects):
     return {
         "lib": lib_name + "CW" + "D" if args.debug else "",
-        "mw_version": "GC/1.3.2",
+        "mw_version": "GC/1.3.2" if version_num < VERSIONS.index("R3IJ01_00") else "Wii/1.3",
         "cflags": cflags_retro_inline,
         "progress_category": progress_category,
         "objects": objects,
@@ -418,7 +424,7 @@ def RetroLib(lib_name, progress_category, objects):
 def KyotoLib(lib_name, progress_category, objects):
     return {
         "lib": lib_name + "CW" + "D" if args.debug else "",
-        "mw_version": "GC/1.3.2",
+        "mw_version": "GC/1.3.2" if version_num < VERSIONS.index("R3IJ01_00") else "Wii/1.3",
         "cflags": cflags_retro_inline,
         "host": False,
         "progress_category": progress_category,
@@ -1896,13 +1902,6 @@ config.libs = [
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00", "R3ME01_00"),
                 "Kyoto/Streams/CInputStream.cpp",
-                mw_version="Wii/1.3" if config.version == "R3ME01_00" else "GC/1.3.2",
-                cflags=(
-                    [flag for flag in cflags_retro if flag != "-inline deferred"]
-                    + ["-inline noauto", "-sdata 4", "-func_align 4"]
-                    if config.version == "R3ME01_00"
-                    else cflags_retro_inline
-                ),
             ),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00"),
