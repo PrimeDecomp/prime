@@ -24,6 +24,7 @@ public:
   virtual size_t Read(void* dest, size_t len) = 0;
 
   float ReadFloat();
+  double ReadDouble();
   u64 ReadLongLong();
   uint ReadLong();
   ushort ReadShort();
