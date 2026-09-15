@@ -324,7 +324,6 @@ CGX_INLINE void CGX::Begin(GXPrimitive prim, GXVtxFmt fmt, ushort numVtx) {
 
 CGX_INLINE void CGX::End() { GXEnd(); }
 
-#if VERSION >= VERSION_GM8P_00
 CGX_INLINE void CGX::apply_fog() {
   static const GXColor black = {0, 0, 0, 0};
   GXSetFog(static_cast< GXFogType >(sGXState.x53_fogType), sGXState.x24c_fogParams.x0_fogStartZ,
@@ -334,7 +333,6 @@ CGX_INLINE void CGX::apply_fog() {
                ? black
                : sGXState.x24c_fogParams.x10_fogColor);
 }
-#endif
 
 CGX_INLINE void CGX::SetFog(GXFogType type, float startZ, float endZ, float nearZ, float farZ,
                             const GXColor& color) {
