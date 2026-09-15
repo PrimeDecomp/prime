@@ -1013,8 +1013,10 @@ MetroidPrime/ScriptObjects/CScriptPickupGenerator.cpp:
 	.sdata2     start:0x8046DDF8 end:0x8046DDFC
 
 MetroidPrime/ScriptObjects/CScriptPointOfInterest.cpp:
-	.text       start:0x8015523C end:0x80155364
+	.text       start:0x80155138 end:0x80155480
 	.data       start:0x803CD290 end:0x803CD300
+	.sdata      start:0x80469968 end:0x80469970
+	.sdata2     start:0x8046DE20 end:0x8046DE28
 
 MetroidPrime/Enemies/CDrone.cpp:
 	.text       start:0x801557C4 end:0x8015D340
