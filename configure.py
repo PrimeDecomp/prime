@@ -1151,7 +1151,7 @@ config.libs = [
             ),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/BodyState/CABSAim.cpp"),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"),
                 "MetroidPrime/ScriptObjects/CScriptPlayerStateChange.cpp",
             ),
             Object(NonMatching, "MetroidPrime/Enemies/CThardus.cpp"),
