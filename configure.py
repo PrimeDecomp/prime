@@ -1472,7 +1472,8 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"), "GuiSys/CGuiWidgetDrawParms.cpp"
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01"), "GuiSys/CAuiEnergyBarT01.cpp"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"),
+                "GuiSys/CAuiEnergyBarT01.cpp",
             ),
             Object(NonMatching, "GuiSys/CAuiImagePane.cpp"),
             Object(
