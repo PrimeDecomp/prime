@@ -48,7 +48,7 @@ public:
   void Clear();
 
   void AddVelocity(const CVector3f& vel) { x0_vel.push_back(vel); }
-#if VERSION == VERSION_GM8P_00
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
   void AddTargetHoming(const bool homing) { x1c_targetHoming.push_back(homing); }
 #else
   void AddTargetHoming(const bool& homing) { x1c_targetHoming.push_back(homing); }

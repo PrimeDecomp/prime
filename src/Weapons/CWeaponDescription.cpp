@@ -13,31 +13,33 @@ CWeaponDescription::CWeaponDescription()
 , x20_POFS(nullptr)
 , x24_OFST(nullptr)
 , x28_APSO(false)
-#if VERSION == VERSION_GM8P_00
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
 , x28_25_F60H(false)
 , x28_26_SVBD(false)
 , x28_27_NDTT(false)
 #endif
 , x2a_AP11(false)
-#if VERSION == VERSION_GM8P_00
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
 , x28_30_SPS1(false)
 #endif
 , x2b_AP21(false)
-#if VERSION == VERSION_GM8P_00
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
 , x29_24_SPS2(false)
 #endif
 , x2c_AS11(false)
 , x2d_AS12(false)
 , x2e_AS13(false)
-#if VERSION != VERSION_GM8P_00
-, x30_TRAT(nullptr)
-#endif
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
 , xa4_EWTR(true)
 , xa5_LWTR(true)
 , xa6_SWTR(true)
-#if VERSION == VERSION_GM8P_00
 , x29_31_FC60(false)
 , x30_TRAT(nullptr)
+#else
+, x30_TRAT(nullptr)
+, xa4_EWTR(true)
+, xa5_LWTR(true)
+, xa6_SWTR(true)
 #endif
 , xa8_PJFX(-1)
 , xac_RNGE(nullptr)

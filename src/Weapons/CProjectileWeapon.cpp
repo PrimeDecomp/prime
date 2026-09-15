@@ -31,11 +31,11 @@ CProjectileWeapon::CProjectileWeapon(const TToken< CWeaponDescription >& descrip
 , x14_localToWorldXf(localToWorld)
 , x44_localXf(CTransform4f::Identity())
 , x74_worldOffset(worldOffset)
-#if VERSION == VERSION_GM8P_00
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
 , x80_previousLocalOffset(CVector3f::Zero())
 #endif
 , x80_localOffset(CVector3f::Zero())
-#if VERSION == VERSION_GM8P_00
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
 , x98_interpolationOffset(CVector3f::Zero())
 #endif
 , x8c_projOffset(CVector3f::Zero())
@@ -171,7 +171,7 @@ bool CProjectileWeapon::Update(float dt) {
   }
 
   xd8_remainderTime = (float)((actualTime - xd0_curTime) / (1.f / 60.0));
-#if VERSION == VERSION_GM8P_00
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
   x98_interpolationOffset =
       static_cast< float >(xd8_remainderTime) * (x80_previousLocalOffset - x80_localOffset);
 #endif
@@ -187,7 +187,7 @@ bool CProjectileWeapon::Update(float dt) {
 }
 
 void CProjectileWeapon::UpdateParticleFX() {
-#if VERSION == VERSION_GM8P_00
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
   if (xfc_APSMGen && x4_weaponDesc->x28_30_SPS1) {
     xfc_APSMGen->Update(1.f / 60.f);
   }
@@ -207,7 +207,7 @@ const CTransform4f CProjectileWeapon::GetTransform() const {
 CTransform4f CProjectileWeapon::GetTransform() { return x14_localToWorldXf * x44_localXf; }
 
 const CVector3f CProjectileWeapon::GetTranslation() const {
-#if VERSION == VERSION_GM8P_00
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
   return x14_localToWorldXf *
              (x80_localOffset + x98_interpolationOffset + x44_localXf * x8c_projOffset) +
          x74_worldOffset;
@@ -224,7 +224,7 @@ void CProjectileWeapon::SetWorldSpaceOrientation(const CTransform4f& orient) {
 
 void CProjectileWeapon::UpdatePSTranslationAndOrientation() {
   if (xe8_lifetime >= xf4_curFrame && x124_24_active) {
-#if VERSION == VERSION_GM8P_00
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
     x80_previousLocalOffset = x80_localOffset;
 #endif
     if (CModVectorElement* psvm = x4_weaponDesc->xc_PSVM) {
@@ -232,7 +232,7 @@ void CProjectileWeapon::UpdatePSTranslationAndOrientation() {
     }
 
     if (x124_31_VMD2) {
-#if VERSION == VERSION_GM8P_00
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
       CVector3f velocity = x44_localXf * xb0_velocity;
       x80_localOffset += velocity;
 #else
@@ -293,7 +293,7 @@ void CProjectileWeapon::UpdateChildParticleSystems(float dt) {
         }
       }
     }
-#if VERSION == VERSION_GM8P_00
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
     if (!x4_weaponDesc->x28_30_SPS1)
 #endif
       xfc_APSMGen->Update(useDt);
@@ -321,7 +321,7 @@ void CProjectileWeapon::UpdateChildParticleSystems(float dt) {
       }
     }
 
-#if VERSION == VERSION_GM8P_00
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
     if (!x4_weaponDesc->x29_24_SPS2)
 #endif
       x100_APS2Gen->Update(useDt);
@@ -428,7 +428,7 @@ const bool CProjectileWeapon::IsSystemDeletable() const {
 void CProjectileWeapon::Render() const {
   if (xf4_curFrame <= xe8_lifetime && x124_24_active && x108_model) {
     CTransform4f localXf = CTransform4f::Translate(
-#if VERSION == VERSION_GM8P_00
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
         x80_localOffset + x98_interpolationOffset + (x44_localXf * x8c_projOffset) +
         xa4_localOffset2);
 #else
@@ -483,7 +483,7 @@ rstl::optional_object< TLockedToken< CGenDescription > > CProjectileWeapon::Coll
     const EWeaponCollisionResponseTypes colType, const bool deflected, const bool useTarget,
     const CVector3f& pos, const CVector3f& normal, const CVector3f& target) {
   x80_localOffset = x14_localToWorldXf.TransposeRotate(pos - x74_worldOffset) - x8c_projOffset;
-#if VERSION == VERSION_GM8P_00
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
   x98_interpolationOffset = CVector3f::Zero();
 #endif
 
