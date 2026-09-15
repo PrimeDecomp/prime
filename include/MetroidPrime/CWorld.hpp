@@ -147,7 +147,11 @@ public:
   static CGameArea::CConstChainIterator skGlobalEnd;
   void StopGlobalSound(ushort soundId);
   void AddGlobalSound(ushort soundId, CSfxHandle handle);
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+  bool IsPlayingSound(uint soundId) const;
+#else
   bool HasGlobalSound(ushort soundId) const;
+#endif
 
   int GetNumAreas() const { return x18_areas.size(); }
   bool AreSkyNeedsMet() const;
