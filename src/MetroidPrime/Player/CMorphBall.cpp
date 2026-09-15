@@ -1,6 +1,6 @@
 #include "MetroidPrime/Player/CMorphBall.hpp"
 
-#include "../../../include/rstl/pair.hpp"
+#include "rstl/pair.hpp"
 #include "Collision/CMaterialList.hpp"
 #include "Collision/CollisionUtil.hpp"
 #include "Kyoto/Audio/CSfxManager.hpp"
