@@ -85,6 +85,12 @@ void CTextExecuteBuffer::AddFont(const TToken< CRasterFont >& font) {
   }
 }
 
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+int CFontImageDef::GetWidth() const { return GetMonoWidth(); }
+
+int CFontImageDef::GetHeight() const { return GetMonoHeight(); }
+#endif
+
 void CTextExecuteBuffer::AddImage(const CFontImageDef& image) {
   if (!xa4_curLine) {
     StartNewLine();
