@@ -2013,9 +2013,10 @@ GuiSys/CGuiHeadWidget.cpp:
 	.data       start:0x803D4658 end:0x803D4698
 
 GuiSys/CGuiLight.cpp:
-	.text       start:0x802AFA14 end:0x802AFDDC
+	.text       start:0x802AF850 end:0x802AFDDC
 	.rodata     start:0x803C1DA8 end:0x803C1DB0
 	.data       start:0x803D4698 end:0x803D46D8
+	.sdata2     start:0x804702D0 end:0x804702D8
 
 GuiSys/CGuiModel.cpp:
 	.text       start:0x802AFE98 end:0x802B058C
