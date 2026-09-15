@@ -47,7 +47,7 @@ DISABLED_VERSIONS = [
     # 4,
     # 5,
     6,
-    7,
+    # 7,
     8,
 ]
 
@@ -1894,8 +1894,15 @@ config.libs = [
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/rstl/rstl_strings.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/rstl/RstlExtras.cpp"),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00", "R3ME01_00"),
                 "Kyoto/Streams/CInputStream.cpp",
+                mw_version="Wii/1.3" if config.version == "R3ME01_00" else "GC/1.3.2",
+                cflags=(
+                    [flag for flag in cflags_retro if flag != "-inline deferred"]
+                    + ["-inline noauto", "-sdata 4", "-func_align 4"]
+                    if config.version == "R3ME01_00"
+                    else cflags_retro_inline
+                ),
             ),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00"),
