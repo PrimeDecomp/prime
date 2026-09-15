@@ -138,12 +138,8 @@ void CGuiTextPane::Draw(const CGuiWidgetDrawParms& parms) const {
     text.Render();
     uchar alpha = geomCol.GetAlphau8();
     const CColor alphaColor(alpha, alpha, alpha, static_cast< uchar >(255));
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
     const CColor additiveColor = CColor::Modulate(geomCol, alphaColor);
     text.SetGeometryColor(additiveColor);
-#else
-    text.SetGeometryColor(CColor(CColor::Modulate(geomCol, alphaColor)));
-#endif
     CGraphics::SetBlendMode(kBM_Blend, kBF_One, kBF_One, kLO_Clear);
     text.Render();
     break;
