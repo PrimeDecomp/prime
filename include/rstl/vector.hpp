@@ -27,7 +27,13 @@ public:
   typedef int size_type;
   typedef T value_type;
 
-  iterator begin() { return iterator(this, data()); }
+  iterator begin() {
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+    return iterator(this, xc_items);
+#else
+    return iterator(this, data());
+#endif
+  }
   const_iterator begin() const { return const_iterator(this, data()); }
   iterator end() {
     T* const end = data() + x4_count;
