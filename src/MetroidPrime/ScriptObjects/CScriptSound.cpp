@@ -189,11 +189,7 @@ void CScriptSound::PlaySound(CStateManager& mgr) {
   x11d_25_processedThisFrame = true;
   if (x11c_26_nonEmitter) {
     CWorld* world = mgr.World();
-#if VERSION >= VERSION_GM8P_00
-    if (!x11c_30_worldSfx || !world->IsPlayingSound(x100_soundId)) {
-#else
     if (!x11c_30_worldSfx || !world->HasGlobalSound(x100_soundId)) {
-#endif
       const bool looped = x11c_25_looped;
       const bool acoustics = x11c_29_acoustics;
       xec_sfxHandle =
