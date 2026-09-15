@@ -2063,6 +2063,9 @@ GuiSys/CGuiTextSupport.cpp:
 
 GuiSys/CGuiWidget.cpp:
 	.text       start:0x802B6600 end:0x802B6F5C
+	.rodata     start:0x803C1DF0 end:0x803C1E40
+	.data       start:0x803D4860 end:0x803D48A0
+	.sdata2     start:0x80470378 end:0x80470380
 
 GuiSys/CGuiWidgetIdDB.cpp:
 	.text       start:0x802B6F5C end:0x802B7198
