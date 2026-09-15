@@ -157,11 +157,7 @@ void CGuiTextPane::SetDimensions(const CVector2f& dim, bool initVBO) {
 }
 
 rstl::vector< CAssetId > CGuiTextPane::GetFontAssets() const {
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
   return rstl::vector< CAssetId >(1, GetTextSupport().GetFontID(), rstl::rmemory_allocator());
-#else
-  return rstl::vector< CAssetId >(1, GetTextSupport().GetFontID());
-#endif
 }
 
 bool CGuiTextPane::GetIsFinishedLoadingWidgetSpecific() const {
