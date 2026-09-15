@@ -1,5 +1,6 @@
 #include "MetroidPrime/Player/CMorphBall.hpp"
 
+#include "../../../include/rstl/pair.hpp"
 #include "Collision/CMaterialList.hpp"
 #include "Collision/CollisionUtil.hpp"
 #include "Kyoto/Audio/CSfxManager.hpp"
@@ -504,6 +505,24 @@ void CMorphBall::ResetSpiderBallForces() {
   x1920_spiderForcesReset = true;
 }
 
+static inline CVector3f CalculateSpiderBallSurfaceForce(const CVector3f& xAxis,
+                                                      const CVector3f& zAxis, float xForce,
+                                                      float zForce, const float& scale) {
+  float xx = xAxis.GetX() * xForce;
+  float xy = xAxis.GetY() * xForce;
+  float xz = xAxis.GetZ() * xForce;
+  float zx = zAxis.GetX() * zForce;
+  float zy = zAxis.GetY() * zForce;
+  float zz = zAxis.GetZ() * zForce;
+  float gain = scale;
+  return CVector3f((xx + zx) * gain, (xy + zy) * gain, (xz + zz) * gain);
+}
+
+static inline rstl::pair< float, float > CalculateSpiderBallSurfacePivotForces(
+    float xForce, float zForce, const float& scale) {
+  return rstl::pair< float, float >(scale * xForce, scale * zForce);
+}
+
 void CMorphBall::ApplySpiderBallRollForces(const CFinalInput& input, CStateManager& mgr, float dt) {
   CVector2f surfaceForces = CalculateSpiderBallAttractionSurfaceForces(input);
   CVector3f viewSurfaceForces = TransformSpiderBallForcesXZ(surfaceForces, mgr);
@@ -641,16 +660,17 @@ void CMorphBall::ApplySpiderBallRollForces(const CFinalInput& input, CStateManag
           const float surfaceZForce =
               CVector3f::Dot(x18c4_spiderSurfaceTransform.GetColumn(kDZ), viewSurfaceForces);
           const float surfaceForceScale = 45000.f;
-          const CVector3f forceVec =
-              (x18c4_spiderSurfaceTransform.GetColumn(kDX) * surfaceXForce +
-               x18c4_spiderSurfaceTransform.GetColumn(kDZ) * surfaceZForce) * surfaceForceScale;
+          const CVector3f forceVec = CalculateSpiderBallSurfaceForce(
+              x18c4_spiderSurfaceTransform.GetColumn(kDX),
+              x18c4_spiderSurfaceTransform.GetColumn(kDZ), surfaceXForce, surfaceZForce,
+              surfaceForceScale);
           x0_player.ApplyForceWR(forceVec, CAxisAngle::Identity());
 
-          const float pivotSurfaceX = surfaceForceScale * surfaceXForce;
-          const float pivotSurfaceZ = surfaceForceScale * surfaceZForce;
+          const rstl::pair< float, float > pivotForces =
+              CalculateSpiderBallSurfacePivotForces(surfaceXForce, surfaceZForce, surfaceForceScale);
           float angle = x18f8_spiderSurfacePivotTargetAngle;
           if (forceVec.MagSquared() > 0.f) {
-            angle = atan2f(pivotSurfaceX, pivotSurfaceZ);
+            angle = atan2f(pivotForces.first, pivotForces.second);
             if (angle - x18f4_spiderSurfacePivotAngle > M_PIF / 2.f) {
               angle -= M_PIF;
             } else if (x18f4_spiderSurfacePivotAngle - angle > M_PIF / 2.f) {
@@ -2634,13 +2654,17 @@ CModelData* CMorphBall::GetMorphBallModel(const rstl::string& name, float radius
   return ret;
 }
 
+static inline void SetSecond(rstl::pair< rstl::auto_ptr< CParticleSwoosh >, bool >& pair, bool value) {
+  pair.second = value;
+}
+
 void CMorphBall::AddSpiderBallElectricalEffect() {
   for (int i = 0; i < x19e4_spiderElectricGens.size(); ++i) {
     if (x19e4_spiderElectricGens[i].second) {
       continue;
     }
 
-    x19e4_spiderElectricGens[i].SetSecond(true);
+    SetSecond(x19e4_spiderElectricGens[i], true);
     x1b68_activeSpiderElectricList.push_back(
         CSpiderBallElectrictyManager(i, x1b80_rand.Range(4, 8)));
 
