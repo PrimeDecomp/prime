@@ -34,15 +34,6 @@ rstl::auto_ptr< uint > CFBStreamedCompression::GetRotationsAndOffsets(uint words
   return data;
 }
 
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
-uint CFBStreamedCompression::GetNumKeyframes() const {
-  return GetPerChannelHeaderList(TimeHeader(MainHeader()))
-      .begin()
-      ->GetRotationBitStorage()
-      .GetWidth();
-}
-#endif
-
 CFBStreamedCompression::CFBStreamedCompression(CInputStream& in, IObjectStore& store)
 : x0_scratchSize(in.Get< uint >())
 , x4_evnt(in.Get< uint >())

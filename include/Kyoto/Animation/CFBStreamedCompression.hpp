@@ -400,16 +400,12 @@ public:
     return reinterpret_cast< const uint* >(header.AfterEnd());
   }
 
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
-  uint GetNumKeyframes() const;
-#else
   uint GetNumKeyframes() const {
     return GetPerChannelHeaderList(TimeHeader(MainHeader()))
         .begin()
         ->GetRotationBitStorage()
         .GetWidth();
   }
-#endif
 
 private:
   static rstl::auto_ptr< uint > GetRotationsAndOffsets(uint words, CInputStream& in);
