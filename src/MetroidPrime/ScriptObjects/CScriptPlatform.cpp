@@ -209,12 +209,10 @@ void CScriptPlatform::MoveRiders(CStateManager& mgr, float dt, bool active,
         ++it;
         continue;
       }
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
       // Retail retains the implicit copy helper for this unused physics state.
       if (false) {
         CPhysicsState state = act->GetPhysicsState();
       }
-#endif
 
       const CTransform4f& xf = it->x8_transform;
       CVector3f diff = newXf.Rotate(xf.GetTranslation()) - oldXf.Rotate(xf.GetTranslation());
@@ -492,13 +490,11 @@ void CScriptPlatform::AddSlave(TUniqueId id, CStateManager& mgr) {
 }
 
 bool CScriptPlatform::IsRider(TUniqueId id) const {
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
   // Retain both vector erase instantiations in retail order.
   if (false) {
     rstl::vector< SRiders >& riders = const_cast< rstl::vector< SRiders >& >(x318_riders);
     riders.erase(riders.begin());
   }
-#endif
 
   return rstl::find(x318_riders.begin(), x318_riders.end(), SRiders(id)) != x318_riders.end();
 }

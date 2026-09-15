@@ -184,7 +184,7 @@ public:
 private:
   static void update_fog(uint flags);
 #if VERSION >= VERSION_GM8P_00
-  static void apply_fog();
+  static inline void apply_fog();
 #else
   static void apply_fog() {
     static const GXColor black = {0, 0, 0, 0};
