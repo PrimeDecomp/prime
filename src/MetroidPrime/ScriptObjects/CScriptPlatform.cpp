@@ -12,11 +12,7 @@
 #include "MetroidPrime/ScriptObjects/CScriptTrigger.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptWaypoint.hpp"
 
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
 #include "Kyoto/Graphics/CGX_Impl.hpp"
-#else
-#include "Kyoto/Graphics/CGX.hpp"
-#endif
 #include "Kyoto/Math/CloseEnough.hpp"
 
 #include "WorldFormat/CCollidableOBBTreeGroup.hpp"
