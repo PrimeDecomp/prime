@@ -183,6 +183,9 @@ public:
 
 private:
   static void update_fog(uint flags);
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+  static void apply_fog();
+#else
   static void apply_fog() {
     static const GXColor black = {0, 0, 0, 0};
     GXSetFog(static_cast< GXFogType >(sGXState.x53_fogType), sGXState.x24c_fogParams.x0_fogStartZ,
@@ -190,8 +193,9 @@ private:
              sGXState.x24c_fogParams.xc_fogFarZ,
              (sGXState.x56_blendMode & (7 << 5)) == (GX_BL_ONE << 5)
                  ? black
-                 : sGXState.x24c_fogParams.x10_fogColor);
+                   : sGXState.x24c_fogParams.x10_fogColor);
   }
+#endif
 
   static SGXState sGXState;
 };
