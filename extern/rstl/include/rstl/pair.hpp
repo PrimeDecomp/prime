@@ -26,8 +26,6 @@ public:
     return first < other.first || (first == other.first && second < other.second);
   }
 
-  void SetSecond(R value) { second = value; }
-
   L first;
   R second;
 };
