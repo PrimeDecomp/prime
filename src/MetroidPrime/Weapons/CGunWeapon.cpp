@@ -158,7 +158,12 @@ void CGunWeapon::LoadProjectileData(CStateManager& mgr) {
     }
     x1d0_velInfo.AddTrat(tratVal);
 
+#if VERSION == VERSION_GM8P_00
+    const bool homing = weapon.x29_HOMG;
+    x1d0_velInfo.AddTargetHoming(homing);
+#else
     x1d0_velInfo.AddTargetHoming(weapon.x29_HOMG);
+#endif
 
     if (weaponVel.GetY() > 0.f) {
       x1d0_velInfo.Velocity(i) *= 60.f;
