@@ -190,10 +190,8 @@ float CInputStream::ReadFloat() {
   return CBasics::SwapBytes(f);
 }
 
-#if VERSION >= VERSION_R3IJ_00
 double CInputStream::ReadDouble() {
   static double d;
   Get(&d, sizeof(double));
   return d;
 }
-#endif
