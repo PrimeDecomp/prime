@@ -189,7 +189,7 @@ void CScriptSound::PlaySound(CStateManager& mgr) {
   x11d_25_processedThisFrame = true;
   if (x11c_26_nonEmitter) {
     CWorld* world = mgr.World();
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     if (!x11c_30_worldSfx || !world->IsPlayingSound(x100_soundId)) {
 #else
     if (!x11c_30_worldSfx || !world->HasGlobalSound(x100_soundId)) {
@@ -238,7 +238,7 @@ float CScriptSound::GetOccludedVolumeAmount(const CVector3f& pos, const CStateMa
   const CTransform4f camXf = mgr.GetCameraManager()->GetCurrentCameraTransform(mgr);
   const CVector3f soundToCam = camXf.GetTranslation() - pos;
   const float soundToCamMag = soundToCam.Magnitude();
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   const CVector3f soundToCamNorm = soundToCam / soundToCamMag;
 #else
   const CVector3f soundToCamNorm = soundToCam * (1.f / soundToCamMag);
@@ -257,7 +257,7 @@ float CScriptSound::GetOccludedVolumeAmount(const CVector3f& pos, const CStateMa
       ++totalCount;
 
       const CVector3f rayDir = (soundToCamNorm + i * thirdEdge) + j * cross;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
       const CRayCastResult result =
           mgr.RayStaticIntersection(pos, rayDir.AsNormalized(), soundToCamMag, kSolidFilter);
       if (result.IsInvalid()) {

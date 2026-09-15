@@ -731,13 +731,13 @@ void CWorld::SetLoadPauseState(bool paused) {
 
 void CWorld::MoveAreaToChain3(TAreaId aid) { MoveToChain(Area(aid), kC_Alive); }
 
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 bool CWorld::IsPlayingSound(uint soundId) const {
 #else
 bool CWorld::HasGlobalSound(ushort soundId) const {
 #endif
   for (AUTO(it, xc8_globalSfxHandles.begin()); it != xc8_globalSfxHandles.end(); ++it) {
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     if (it->first == static_cast< ushort >(soundId)) {
 #else
     if (it->first == soundId) {

@@ -663,6 +663,7 @@ config.libs = [
             Object(
                 MatchingFor("GM8E01_00", "GM8P01_00"),
                 "MetroidPrime/ScriptObjects/CScriptSound.cpp",
+                extra_cflags=['-pragma "inline_max_size(250)"'] if config.version == "GM8E01_02" else [],
             ),
             Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptPlatform.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00", "GM8E01_02"), "MetroidPrime/UserNames.cpp"),
