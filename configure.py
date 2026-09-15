@@ -1448,7 +1448,10 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"),
                 "GuiSys/CGuiPane.cpp",
             ),
-            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "GuiSys/CGuiSliderGroup.cpp"),
+            Object(
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"),
+                "GuiSys/CGuiSliderGroup.cpp",
+            ),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "GuiSys/CGuiSys.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "GuiSys/CGuiTableGroup.cpp"),
             Object(
