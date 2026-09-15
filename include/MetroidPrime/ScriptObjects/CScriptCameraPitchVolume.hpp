@@ -11,7 +11,11 @@ public:
   CScriptCameraPitchVolume(TUniqueId, bool, const rstl::string&, const CEntityInfo&,
                            const CVector3f&, const CTransform4f&, const CRelAngle&,
                            const CRelAngle&, float);
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+  ~CScriptCameraPitchVolume() {}
+#else
   ~CScriptCameraPitchVolume();
+#endif
 
   DECLARE_TYPES_MATCH_OR_ACCEPT;
   void Think(float, CStateManager&) override;

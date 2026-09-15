@@ -65,4 +65,6 @@ void CScriptCameraPitchVolume::Exited(CStateManager& mgr) {
   mgr.CameraManager()->FirstPersonCamera()->SetScriptPitchId(kInvalidUniqueId);
 }
 
+#if !(VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02)
 CScriptCameraPitchVolume::~CScriptCameraPitchVolume() {}
+#endif
