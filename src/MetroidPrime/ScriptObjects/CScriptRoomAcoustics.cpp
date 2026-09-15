@@ -120,7 +120,3 @@ void CScriptRoomAcoustics::DisableAuxCallbacks() {
   s_ActiveAcousticsAreaId = kInvalidAreaId;
   CAudioSys::SetVolumeScale(CAudioSys::GetDefaultVolumeScale());
 }
-
-#if !(VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02)
-CScriptRoomAcoustics::~CScriptRoomAcoustics() {}
-#endif

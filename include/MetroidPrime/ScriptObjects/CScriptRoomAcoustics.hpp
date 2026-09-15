@@ -77,18 +77,10 @@ public:
                        float revStdMix, float revStdTime, float revStdDamping, float revStdPreDelay,
                        bool delay, int delayL, int delayR, int delayS, int feedbackL, int feedbackR,
                        int feedbackS, int outputL, int outputR, int outputS);
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
-  virtual ~CScriptRoomAcoustics() {}
   DECLARE_TYPES_MATCH_OR_ACCEPT;
-#else
-  virtual ~CScriptRoomAcoustics();
-#endif
 
   void Think(float dt, CStateManager& stateMgr) override;
   void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objId, CStateManager& stateMgr) override;
-#if !(VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02)
-  DECLARE_TYPES_MATCH_OR_ACCEPT;
-#endif
   void EnableAuxCallbacks();
 
   static void DisableAuxCallbacks();
