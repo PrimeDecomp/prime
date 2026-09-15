@@ -490,7 +490,3 @@ void CTeamAiMgr::UpdateTeamCaptain() {
     }
   }
 }
-
-#if VERSION >= VERSION_GM8P_00
-CTeamAiMgr::~CTeamAiMgr() {}
-#endif
