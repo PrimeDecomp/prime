@@ -1989,7 +1989,7 @@ GuiSys/CGuiCamera.cpp:
 	.sdata2     start:0x804702C0 end:0x804702D0
 
 GuiSys/CGuiCompoundWidget.cpp:
-	.text       start:0x802ADB04 end:0x802ADCD8
+	.text       start:0x802ADAFC end:0x802ADCD8
 	.data       start:0x803D45C8 end:0x803D4608
 
 GuiSys/CGuiFeeHelper.cpp:

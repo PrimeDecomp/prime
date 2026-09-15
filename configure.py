@@ -1424,7 +1424,8 @@ config.libs = [
                 "GuiSys/CGuiCamera.cpp",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01"), "GuiSys/CGuiCompoundWidget.cpp"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"),
+                "GuiSys/CGuiCompoundWidget.cpp",
             ),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "GuiSys/CGuiFactories.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"), "GuiSys/CGuiFeeHelper.cpp"),
