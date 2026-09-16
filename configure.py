@@ -1778,7 +1778,9 @@ config.libs = [
                 extra_cflags=['-pragma "inline_max_size(250)"'] if config.version == "GM8E01_02" else [],
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Text/CTextExecuteBuffer.cpp"
+                MatchingFor("GM8E01_00", "GM8E01_01"),
+                "Kyoto/Text/CTextExecuteBuffer.cpp",
+                extra_cflags=["-inline", "level=4"] if config.version == "GM8P01_00" else [],
             ),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Text/CTextInstruction.cpp"
@@ -2100,10 +2102,12 @@ config.libs = [
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00"),
                 "Kyoto/Text/CFontImageDef.cpp",
+                extra_cflags=["-inline", "level=4"] if config.version == "GM8P01_00" else [],
             ),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00", "GM8J01_00"),
                 "Kyoto/Text/CImageInstruction.cpp",
+                extra_cflags=["-inline", "level=4"] if config.version == "GM8P01_00" else [],
             ),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),

@@ -26,13 +26,8 @@ public:
     TToken< CTexture > tex = mTextures[0];
     return tex->GetHeight() * mCropFactor.GetY();
   }
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
-  int GetWidth() const;
-  int GetHeight() const;
-#else
   int GetWidth() const { return GetMonoWidth(); }
   int GetHeight() const { return GetMonoHeight(); }
-#endif
   int CalculateBaseline() const;
   int CalculateHeight() const;
 
