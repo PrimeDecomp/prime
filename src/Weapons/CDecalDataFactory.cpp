@@ -90,7 +90,11 @@ bool CDecalDataFactory::CreateDPSM(CDecalDescription* desc, CInputStream& in, CS
       if (model.valid()) {
         desc->x38_DMDL = TLockedToken< CModel >(*model);
       } else {
+#if VERSION >= VERSION_R3IJ_00
+        desc->x38_DMDL.clear();
+#else
         desc->x38_DMDL = rstl::optional_object_null();
+#endif
       }
     } break;
     case 'DLFT':

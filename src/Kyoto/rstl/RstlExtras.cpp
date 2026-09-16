@@ -12,7 +12,11 @@
 static const char* const skStringLiterals[] = {"??(??)", "%%.%df"};
 
 namespace rstl {
+#if VERSION >= VERSION_R3IJ_00
+int CRefData::sNull = 0x1000000 - 1;
+#else
 CRefData CRefData::sNull(nullptr, 0x1000000 - 1);
+#endif
 }
 
 int CStringExtras::IndexOfSubstring(const rstl::string& left, const rstl::string& right) {

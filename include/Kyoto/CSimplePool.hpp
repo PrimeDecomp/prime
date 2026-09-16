@@ -39,7 +39,7 @@ private:
   IFactory& x18_factory;
   CVParamTransfer x1c_paramXfr;
 };
-CHECK_SIZEOF(CSimplePool, 0x20)
+CHECK_SIZEOF(CSimplePool, (VERSION >= VERSION_R3IJ_00 ? 0x24 : 0x20))
 
 extern CSimplePool* gpSimplePool;
 

@@ -21,6 +21,16 @@ public:
   auto_ptr(const auto_ptr& other) : x0_has(other.x0_has), x4_item(other.x4_item) {
     other.x0_has = false;
   }
+#if VERSION >= VERSION_R3IJ_00
+  template < typename U >
+  friend class auto_ptr;
+
+  template < typename U >
+  auto_ptr(const auto_ptr< U >& other) : x0_has(other.x0_has), x4_item(other.x4_item) {
+    other.x0_has = false;
+  }
+#endif
+
   auto_ptr& operator=(const auto_ptr& other) {
     if (&other != this) {
       if (x0_has) {
@@ -38,8 +48,16 @@ public:
   T* operator->() const { return x4_item; }
   T& operator*() const { return *x4_item; }
   T* release() const {
+#if VERSION >= VERSION_R3IJ_00
+    if (x0_has) {
+      x0_has = false;
+      return x4_item;
+    }
+    return nullptr;
+#else
     x0_has = false;
     return x4_item;
+#endif
   }
   bool null() const { return x4_item == nullptr; }
   void reset() {
