@@ -13,9 +13,15 @@ class COutputStream;
 namespace rstl {
 
 template < typename T, typename Alloc = rmemory_allocator >
-class vector {
+class vector
+#if VERSION >= VERSION_R3IJ_00
+: private Alloc
+#endif
+{
 public:
+#if VERSION < VERSION_R3IJ_00
   Alloc x0_allocator;
+#endif
   int x4_count;
   int x8_capacity;
   T* xc_items;
@@ -35,40 +41,63 @@ public:
   }
   const_iterator end() const { return const_iterator(this, data() + size()); }
   vector(const Alloc& alloc = Alloc())
-  : x0_allocator(alloc), x4_count(0), x8_capacity(0), xc_items(nullptr) {}
+  :
+#if VERSION >= VERSION_R3IJ_00
+    Alloc(alloc),
+#else
+    x0_allocator(alloc),
+#endif
+    x4_count(0), x8_capacity(0), xc_items(nullptr) {}
   vector(int count) : x4_count(0), x8_capacity(0), xc_items(0) { reserve(count); }
   vector(int count, const T& v) : x4_count(count), x8_capacity(count) {
-    x0_allocator.allocate(xc_items, x4_count);
+    Alloc::allocate(xc_items, x4_count);
     uninitialized_fill_n(xc_items, count, v);
   }
   vector(int count, const T& v, const Alloc& alloc)
-  : x0_allocator(alloc), x4_count(count), x8_capacity(count) {
-    x0_allocator.allocate(xc_items, x4_count);
+  :
+#if VERSION >= VERSION_R3IJ_00
+    Alloc(alloc),
+#else
+    x0_allocator(alloc),
+#endif
+    x4_count(count), x8_capacity(count) {
+    Alloc::allocate(xc_items, x4_count);
     uninitialized_fill_n(xc_items, count, v);
   }
 
   vector(const vector& other)
-  : x0_allocator(other.x0_allocator)
-  , x4_count(other.x4_count)
+  :
+#if VERSION >= VERSION_R3IJ_00
+    Alloc(other),
+#else
+    x0_allocator(other.x0_allocator),
+#endif
+    x4_count(other.x4_count)
   , x8_capacity(other.x8_capacity) {
     if (other.x4_count == 0 && other.x8_capacity == 0) {
       xc_items = nullptr;
     } else {
-      x0_allocator.allocate(xc_items, x8_capacity);
+      Alloc::allocate(xc_items, x8_capacity);
       uninitialized_copy_n(other.xc_items, x4_count, xc_items);
     }
   }
   vector(CInputStream& in, const Alloc& alloc = Alloc());
   template < typename It >
   vector(It first, It last, const Alloc& alloc = Alloc())
-  : x0_allocator(alloc), x4_count(0), x8_capacity(0) {
+  :
+#if VERSION >= VERSION_R3IJ_00
+    Alloc(alloc),
+#else
+    x0_allocator(alloc),
+#endif
+    x4_count(0), x8_capacity(0) {
     x4_count = x8_capacity = rstl::distance(first, last);
-    x0_allocator.allocate(xc_items, x4_count);
+    Alloc::allocate(xc_items, x4_count);
     rstl::uninitialized_copy(first, last, xc_items);
   }
   ~vector() {
     destroy(begin(), end());
-    x0_allocator.deallocate(xc_items);
+    Alloc::deallocate(xc_items);
   }
 
   inline void resize(int size, const T& in = T());
@@ -155,10 +184,10 @@ void vector< T, Alloc >::reserve(int newSize) {
   }
 
   T* newData;
-  x0_allocator.allocate(newData, newSize);
+  Alloc::allocate(newData, newSize);
   uninitialized_copy(begin(), end(), newData);
   destroy(xc_items, xc_items + x4_count);
-  x0_allocator.deallocate(xc_items);
+  Alloc::deallocate(xc_items);
   xc_items = newData;
   x8_capacity = newSize;
 }
@@ -207,7 +236,7 @@ void vector< T, Alloc >::insert_into(iterator at, int n, In in) {
     }
 
     T* newData;
-    x0_allocator.allocate(newData, newCapacity);
+    Alloc::allocate(newData, newCapacity);
     long atIdx = at - begin();
     // The const alias makes MWCC retain a separate allocation-base register on PAL.
 #if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
@@ -227,7 +256,7 @@ void vector< T, Alloc >::insert_into(iterator at, int n, In in) {
     }
 
     destroy(oldData, oldData + size());
-    x0_allocator.deallocate(xc_items);
+    Alloc::deallocate(xc_items);
     xc_items = newData;
     x8_capacity = newCapacity;
     x4_count += n;
@@ -240,7 +269,7 @@ inline vector< T, Alloc >& vector< T, Alloc >::operator=(const vector< T, Alloc 
     return *this;
   clear();
   if (other.size() == 0) {
-    x0_allocator.deallocate(xc_items);
+    Alloc::deallocate(xc_items);
     x4_count = 0;
     x8_capacity = 0;
     xc_items = nullptr;

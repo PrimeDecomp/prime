@@ -89,7 +89,11 @@ struct case_insensitive_char_traits {
 
 template < typename _CharTp, typename Traits = char_traits< _CharTp >,
            typename Alloc = rmemory_allocator >
-class basic_string {
+class basic_string
+#if VERSION >= VERSION_R3IJ_00
+: private Alloc
+#endif
+{
   struct control {
     int x0_capacity;
     int x4_refCount;
@@ -98,7 +102,9 @@ class basic_string {
   const _CharTp* x0_ptr;
   control* x4_cow;
   uint x8_size;
+#if VERSION < VERSION_R3IJ_00
   Alloc xc_allocator;
+#endif
 
   void internal_prepare_to_write(int len, bool);
   void internal_allocate(int size);
@@ -384,7 +390,7 @@ static inline wstring operator+(const wstring& a, const wchar_t* c) {
   return result;
 }
 
-CHECK_SIZEOF(string, 0x10)
+CHECK_SIZEOF(string, (VERSION >= VERSION_R3IJ_00 ? 0xc : 0x10))
 } // namespace rstl
 
 #endif // _RSTL_STRING

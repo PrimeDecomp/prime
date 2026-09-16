@@ -248,6 +248,8 @@ class CEntityInfo {
 public:
   CEntityInfo(TAreaId aid, const rstl::vector< SConnection >& conns,
               TEditorId eid = kInvalidEditorId);
+  static u64 GetGloballyUniqueIdForScriptObject(uint worldId, TEditorId editorId);
+  u64 GetGloballyUniqueIdForScriptObject(uint worldId) const;
   TAreaId GetAreaId() const { return x0_areaId; }
   const rstl::vector< SConnection >& GetConnectionList() const { return x4_conns; }
   TEditorId GetEditorId() const { return x14_editorId; }

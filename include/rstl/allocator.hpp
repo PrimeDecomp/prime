@@ -51,9 +51,13 @@ struct rmemory_allocator {
       return;
     }
 #endif
+#if VERSION >= VERSION_R3IJ_00
+    delete[] reinterpret_cast< uchar* >(ptr);
+#else
     if (ptr != nullptr) {
       delete[] reinterpret_cast< uchar* >(ptr);
     }
+#endif
   }
 };
 
