@@ -101,13 +101,9 @@ void CTextExecuteBuffer::AddImage(const CFontImageDef& image) {
     if (wrap) {
       StartNewLine();
     }
-#if VERSION == VERSION_GM8P_00
-    xa4_curLine->TestLargestImage(image.GetMonoWidth(), image.GetHeight(),
-                                  image.CalculateBaseline());
-#else
+    // For PAL only, using GetHeight instead of GetMonoHeight improves the match, but not fully
     xa4_curLine->TestLargestImage(image.GetMonoWidth(), image.GetMonoHeight(),
                                   image.CalculateBaseline());
-#endif
     if (xa0_curBlock->GetTextDirection() == kTD_Horizontal) {
       xa4_curLine->AddWidth(image.GetWidth());
       if (xa4_curLine->GetWidth() > image.GetWidth()) {
