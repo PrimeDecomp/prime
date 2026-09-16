@@ -21,7 +21,11 @@ const wchar_t basic_string< wchar_t, case_insensitive_char_traits< wchar_t > >::
 
 template <>
 basic_string< char >::basic_string(CInputStream& in, const rmemory_allocator& alloc)
+#if RSTL_VERSION >= RSTL_R3IJ
+: rmemory_allocator(alloc), mPtr(&mNull), mCow(nullptr), mSize(0) {
+#else
 : mPtr(&mNull), mCow(nullptr), mSize(0), mAllocator(alloc) {
+#endif
   char buffer[1025];
   int count = 0;
   char ch = in.Get< schar >();
@@ -42,7 +46,11 @@ basic_string< char >::basic_string(CInputStream& in, const rmemory_allocator& al
 
 template <>
 basic_string< char >::basic_string(const char* data, int count, const rmemory_allocator& alloc)
+#if RSTL_VERSION >= RSTL_R3IJ
+: rmemory_allocator(alloc) {
+#else
 : mAllocator(alloc) {
+#endif
   if (count <= 0 && !*data) {
     mPtr = &mNull;
     mSize = 0;
@@ -60,10 +68,18 @@ basic_string< char >::basic_string(const char* data, int count, const rmemory_al
 
 template <>
 basic_string< char >::basic_string(const basic_string& other)
+#if RSTL_VERSION >= RSTL_R3IJ
+: rmemory_allocator(other)
+, mPtr(other.mPtr)
+#else
 : mPtr(other.mPtr)
+#endif
 , mCow(other.mCow)
 , mSize(other.mSize)
-, mAllocator(other.mAllocator) {
+#if RSTL_VERSION < RSTL_R3IJ
+, mAllocator(other.mAllocator)
+#endif
+{
   internal_reference();
 }
 
@@ -183,7 +199,11 @@ void basic_string< char >::internal_prepare_to_write(int len, bool preserve) {
 template <>
 basic_string< wchar_t >::basic_string(const wchar_t* data, int count,
                                       const rmemory_allocator& alloc)
+#if RSTL_VERSION >= RSTL_R3IJ
+: rmemory_allocator(alloc) {
+#else
 : mAllocator(alloc) {
+#endif
   if (count <= 0 && !*data) {
     mPtr = &mNull;
     mSize = 0;
@@ -202,10 +222,18 @@ basic_string< wchar_t >::basic_string(const wchar_t* data, int count,
 
 template <>
 basic_string< wchar_t >::basic_string(const basic_string& other)
+#if RSTL_VERSION >= RSTL_R3IJ
+: rmemory_allocator(other)
+, mPtr(other.mPtr)
+#else
 : mPtr(other.mPtr)
+#endif
 , mCow(other.mCow)
 , mSize(other.mSize)
-, mAllocator(other.mAllocator) {
+#if RSTL_VERSION < RSTL_R3IJ
+, mAllocator(other.mAllocator)
+#endif
+{
   internal_reference();
 }
 
@@ -317,7 +345,11 @@ void basic_string< wchar_t >::internal_prepare_to_write(int len, bool preserve) 
 template <>
 basic_string< char, case_insensitive_char_traits< char > >::basic_string(
     const char* data, int count, const rmemory_allocator& alloc)
+#if RSTL_VERSION >= RSTL_R3IJ
+: rmemory_allocator(alloc) {
+#else
 : mAllocator(alloc) {
+#endif
   if (count <= 0 && !*data) {
     mPtr = &mNull;
     mSize = 0;

@@ -317,7 +317,7 @@ cflags_retro = [
     "-str reuse,pool,readonly",
     "-gccinc",
     "-inline deferred" if version_num < VERSIONS.index("R3IJ01_00") else "-inline noauto,nobottomup,level=8",
-    "-common on",
+    "-common on" if version_num < VERSIONS.index("R3IJ01_00") else "-common off",
     "-i extern/musyx/include",
     "-i extern/rstl/include",
     # "-sym on",
@@ -593,7 +593,7 @@ config.libs = [
             ),
             Object(NonMatching, "MetroidPrime/CStateManager.cpp"),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00", "R3ME01_00"),
                 "MetroidPrime/CEntity.cpp",
             ),
             Object(

@@ -500,6 +500,9 @@ private:
   static void RendererDrawCallback(const void*, const void*, int);
   static const bool MemoryAllocatorAllocationFailedCallback(const void*, unsigned int);
 };
+// The Trilogy field layout is not yet reconstructed.
+#if VERSION < VERSION_R3IJ_00
 CHECK_SIZEOF(CStateManager, 0xf98)
+#endif
 
 #endif // _CSTATEMANAGER
