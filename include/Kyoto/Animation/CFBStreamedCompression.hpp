@@ -109,10 +109,7 @@ private:
 };
 
 template < uint Components, uint ConstantComponent, uint SignComponent >
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
-inline
-#endif
-    CFBBitCompressedDataChannelHeader< Components, ConstantComponent, SignComponent >::
+NTSC_INLINE CFBBitCompressedDataChannelHeader< Components, ConstantComponent, SignComponent >::
         CFBBitCompressedDataChannelHeader(CInputStream& in) {
   ushort width = in.Get< ushort >();
   TLoadedVal< ushort >::Write(this, width);
@@ -129,11 +126,7 @@ inline
 }
 
 template < uint Components, uint ConstantComponent, uint SignComponent >
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
-inline
-#endif
-    short
-    CFBBitCompressedDataChannelHeader< Components, ConstantComponent,
+NTSC_INLINE short CFBBitCompressedDataChannelHeader< Components, ConstantComponent,
                                        SignComponent >::GetInitialValue(uint component) const {
   if (component == SignComponent) {
     return 0;
@@ -147,12 +140,7 @@ inline
 }
 
 template < uint Components, uint ConstantComponent, uint SignComponent >
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
-inline
-#endif
-    uint
-    CFBBitCompressedDataChannelHeader< Components, ConstantComponent, SignComponent >::GetBitCount(
-        uint component) const {
+NTSC_INLINE uint CFBBitCompressedDataChannelHeader< Components, ConstantComponent, SignComponent >::GetBitCount(uint component) const {
   if (SignComponent < Components && component == SignComponent) {
     return 1;
   }
@@ -161,12 +149,7 @@ inline
 }
 
 template < uint Components, uint ConstantComponent, uint SignComponent >
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
-inline
-#endif
-    const uchar*
-    CFBBitCompressedDataChannelHeader< Components, ConstantComponent, SignComponent >::AfterEnd()
-        const {
+NTSC_INLINE const uchar* CFBBitCompressedDataChannelHeader< Components, ConstantComponent, SignComponent >::AfterEnd() const {
   if (*Width() == 0) {
     return reinterpret_cast< const uchar* >(this) + sizeof(ushort);
   }
@@ -175,11 +158,7 @@ inline
 }
 
 template < uint Components, uint ConstantComponent, uint SignComponent >
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
-inline
-#endif
-    uint CFBBitCompressedDataChannelHeader< Components, ConstantComponent,
-                                            SignComponent >::GetSumOfBitCounts() const {
+NTSC_INLINE uint CFBBitCompressedDataChannelHeader< Components, ConstantComponent, SignComponent >::GetSumOfBitCounts() const {
   if (*Width() == 0) {
     return 0;
   }
@@ -285,10 +264,7 @@ public:
 };
 
 template < typename Size, typename T >
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
-inline
-#endif
-    const uchar* TVectorOfVaryingLengthItems< Size, T >::AfterEnd() const {
+NTSC_INLINE const uchar* TVectorOfVaryingLengthItems< Size, T >::AfterEnd() const {
   const_iterator it(begin());
   for (int remaining = this->size(); remaining > 0; --remaining) {
     ++it;

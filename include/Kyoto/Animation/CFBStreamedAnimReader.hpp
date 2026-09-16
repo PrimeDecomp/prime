@@ -149,10 +149,7 @@ private:
 };
 
 template < typename T >
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
-inline
-#endif
-    uint CBitLevelLoader< T >::LoadUnsigned(uint bits) {
+NTSC_INLINE uint CBitLevelLoader< T >::LoadUnsigned(uint bits) {
   uint remaining = bits;
   uint result = 0;
   uint shift = 0;
@@ -180,10 +177,7 @@ inline
 }
 
 template < typename T >
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
-inline
-#endif
-    int CBitLevelLoader< T >::LoadSigned(uint bits) {
+NTSC_INLINE int CBitLevelLoader< T >::LoadSigned(uint bits) {
   if (bits == 0) {
     return 0;
   }
