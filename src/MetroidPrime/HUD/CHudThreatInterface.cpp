@@ -263,6 +263,9 @@ void CHudThreatInterface::Update(float dt) {
   }
 }
 
+
+#if VERSION >= VERSION_GM8P_00
+
 void CHudThreatInterface::ReinitializeStrings() {
   x68_textpane_threatwarning->TextSupport().SetText(BuildWarningString(x4c_threatStatus));
 }
@@ -273,3 +276,5 @@ const rstl::wstring CHudThreatInterface::BuildWarningString(CHudThreatInterface:
                                  : rstl::wstring_l(L"");
 
 }
+
+#endif
