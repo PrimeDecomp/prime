@@ -13,6 +13,13 @@ Sections:
 	.sdata2     type:rodata align:4
 	.sbss2      type:bss align:32
 
+Kyoto/Streams/CInputStream.cpp:
+	.text       start:0x803025EC end:0x80302BA4
+	.rodata     start:0x8047B9A8 end:0x8047B9B0
+	.data       start:0x80492AB8 end:0x80492AC8
+	.bss        start:0x804E4438 end:0x804E4448
+	.sbss       start:0x805C29E0 end:0x805C29EC
+
 musyx/runtime/dsp_import.c:
 	.data       start:0x804B46A0 end:0x804B63E0
 	.sdata      start:0x805C22C8 end:0x805C22D0

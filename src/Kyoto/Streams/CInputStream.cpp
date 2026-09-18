@@ -102,6 +102,10 @@ size_t CInputStream::ReadBytes(void* dest, size_t len) {
   return curReadLen;
 }
 
+static inline uint GetBitMask(const uint& bits) {
+  return bits != 32 ? (1 << bits) - 1 : 0xffffffff;
+}
+
 uint CInputStream::ReadBits(uint bitCount) {
 #if NONMATCHING
   uint result = 0;
@@ -119,11 +123,8 @@ uint CInputStream::ReadBits(uint bitCount) {
   return result;
 #else
   if (x20_bitOffset >= bitCount) {
-    uint mask = 0xffffffff;
     uint bwShift = 32 - bitCount;
-    if (bitCount != 0x20) {
-      mask = (1 << bitCount) - 1;
-    }
+    uint mask = GetBitMask(bitCount);
     uint ret = mask & (x1c_bitWord >> bwShift);
 
     x20_bitOffset -= bitCount;
@@ -135,11 +136,8 @@ uint CInputStream::ReadBits(uint bitCount) {
 
   uint ret = 0;
   {
-    uint mask = 0xffffffff;
     uint bwShift = 32 - x20_bitOffset;
-    if (x20_bitOffset != 0x20) {
-      mask = (1 << x20_bitOffset) - 1;
-    }
+    uint mask = GetBitMask(x20_bitOffset);
     ret = (mask & (x1c_bitWord >> bwShift)) << shiftAmt;
   }
 
@@ -148,11 +146,8 @@ uint CInputStream::ReadBits(uint bitCount) {
   Get(&x1c_bitWord, len);
 
   {
-    uint mask = 0xffffffff;
     uint bwShift = 32 - shiftAmt;
-    if (shiftAmt != 0x20) {
-      mask = (1 << shiftAmt) - 1;
-    }
+    uint mask = GetBitMask(shiftAmt);
     ret |= ((mask & (x1c_bitWord >> bwShift)) << x20_bitOffset);
   }
 
@@ -193,4 +188,10 @@ float CInputStream::ReadFloat() {
   static float f;
   Get(&f, sizeof(float));
   return CBasics::SwapBytes(f);
+}
+
+double CInputStream::ReadDouble() {
+  static double d;
+  Get(&d, sizeof(double));
+  return d;
 }
