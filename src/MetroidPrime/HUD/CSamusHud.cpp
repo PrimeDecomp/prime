@@ -204,7 +204,14 @@ void CSamusHud::InitializeFrameGlueMutable(const CStateManager& mgr) {
         rs_new CHudEnergyInterface(*x288_loadedSelectedHud, lastTankEnergy, x2d4_totalEnergyTanks,
                                    tanksFilled, x2e0_27_energyLow, kHT_Combat);
     if (x290_threatIntf.null()) {
-      x290_threatIntf = rs_new CHudThreatInterface(*x288_loadedSelectedHud, kHT_Combat, 9999.f);
+      x290_threatIntf = rs_new CHudThreatInterface(
+        *x288_loadedSelectedHud,
+#if VERSION >= VERSION_GM8P_00
+        nullptr, // TODO
+#endif
+        kHT_Combat,
+        9999.f
+      );
     } else {
       x290_threatIntf->SetIsVisibleGame(true);
     }
@@ -279,7 +286,14 @@ void CSamusHud::InitializeFrameGlueMutable(const CStateManager& mgr) {
     x28c_energyIntf =
         rs_new CHudEnergyInterface(*x288_loadedSelectedHud, lastTankEnergy, x2d4_totalEnergyTanks,
                                    tanksFilled, x2e0_27_energyLow, kHT_XRay);
-    x290_threatIntf = rs_new CHudThreatInterface(*x288_loadedSelectedHud, kHT_XRay, 9999.f);
+    x290_threatIntf = rs_new CHudThreatInterface(
+      *x288_loadedSelectedHud,
+#if VERSION >= VERSION_GM8P_00
+      nullptr, // TODO
+#endif
+      kHT_XRay,
+      9999.f
+    );
     x294_missileIntf =
         rs_new CHudMissileInterface(*x288_loadedSelectedHud, x2dc_missileCapacity,
                                     x2d8_missileAmount, charge, missilesActive, kHT_XRay, mgr);
@@ -297,7 +311,14 @@ void CSamusHud::InitializeFrameGlueMutable(const CStateManager& mgr) {
     x28c_energyIntf =
         rs_new CHudEnergyInterface(*x288_loadedSelectedHud, lastTankEnergy, x2d4_totalEnergyTanks,
                                    tanksFilled, x2e0_27_energyLow, kHT_Thermal);
-    x290_threatIntf = rs_new CHudThreatInterface(*x288_loadedSelectedHud, kHT_Thermal, 9999.f);
+    x290_threatIntf = rs_new CHudThreatInterface(
+      *x288_loadedSelectedHud,
+#if VERSION >= VERSION_GM8P_00
+      nullptr, // TODO
+#endif
+      kHT_Thermal,
+      9999.f
+    );
     x294_missileIntf =
         rs_new CHudMissileInterface(*x288_loadedSelectedHud, x2dc_missileCapacity,
                                     x2d8_missileAmount, charge, missilesActive, kHT_Thermal, mgr);

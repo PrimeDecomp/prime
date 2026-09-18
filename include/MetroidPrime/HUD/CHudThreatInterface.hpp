@@ -3,8 +3,10 @@
 
 #include "Kyoto/Math/CTransform4f.hpp"
 #include "MetroidPrime/HUD/CHudInterface.hpp"
+#include "rstl/rc_ptr.hpp"
 #include "types.h"
 #include "rstl/pair.hpp"
+#include "rstl/string.hpp"
 
 class CGuiFrame;
 class CGuiWidget;
@@ -14,6 +16,7 @@ class CGuiCamera;
 class CAuiEnergyBarT01;
 class CAuiMeter;
 class CStateManager;
+class CStringTable;
 
 class IHudThreatInterface {
 public:
@@ -24,21 +27,49 @@ public:
   virtual ~IHudThreatInterface() {}
 };
 
-class CHudThreatInterface : public IHudThreatInterface {
+class CHudThreatInterface
+#if VERSION < VERSION_GM8P_00
+: public IHudThreatInterface 
+#endif
+{
 public:
-  void SetThreatDistance(float distance) override;
-  void Update(float dt) override;
-  void SetIsVisibleDebug(bool visible) override;
-  void SetIsVisibleGame(bool visible) override;
-  ~CHudThreatInterface() override;
-  CHudThreatInterface(CGuiFrame& hud, EHudType type, float distance);
+  struct StringTableHolder {
+    public:
+      int x0_pad;
+      int x4_pad;
+      CStringTable* x8_table;
+  };
+
+  void SetThreatDistance(float distance);
+  void Update(float dt);
+  void SetIsVisibleDebug(bool visible);
+  void SetIsVisibleGame(bool visible);
+#if VERSION >= VERSION_GM8P_00
+  ~CHudThreatInterface();
+#endif
+  CHudThreatInterface(
+    CGuiFrame& hud,
+#if VERSION >= VERSION_GM8P_00
+    StringTableHolder* stringTable,
+#endif
+    EHudType type, 
+    float distance
+  );
   static rstl::pair< CVector3f, CVector3f > CombatThreatBarCoordFunc(float t);
   static rstl::pair< CVector3f, CVector3f > ThermalThreatBarCoordFunc(float t);
   static rstl::pair< CVector3f, CVector3f > XRayThreatBarCoordFunc(float t);
 
 private:
+  void ReinitializeStrings();
   void UpdateVisibility();
   enum EThreatStatus { kTS_Normal, kTS_Warning, kTS_Damage };
+
+  const rstl::wstring BuildWarningString(EThreatStatus status);
+
+#if VERSION >= VERSION_GM8P_00
+  StringTableHolder* x0_stringTable;
+#endif
+
   EHudType x4_hudType;
   float x8_damagePulseTimer;
   float xc_damagePulse;
