@@ -13,6 +13,12 @@ Sections:
 	.sdata2     type:rodata align:4
 	.sbss2      type:bss align:32
 
+MetroidPrime/CEntity.cpp:
+	.text       start:0x8008E814 end:0x8008EE9C
+	.ctors      start:0x8046D3A4 end:0x8046D3A8
+	.data       start:0x804865F8 end:0x80486618
+	.bss        start:0x804BD768 end:0x804BD780
+
 Kyoto/Streams/CInputStream.cpp:
 	.text       start:0x803025EC end:0x80302BA4
 	.rodata     start:0x8047B9A8 end:0x8047B9B0

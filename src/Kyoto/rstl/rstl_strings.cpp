@@ -21,7 +21,11 @@ const wchar_t basic_string< wchar_t, case_insensitive_char_traits< wchar_t > >::
 
 template <>
 basic_string< char >::basic_string(CInputStream& in, const rmemory_allocator& alloc)
+#if VERSION >= VERSION_R3IJ_00
+: rmemory_allocator(alloc), x0_ptr(&mNull), x4_cow(nullptr), x8_size(0) {
+#else
 : x0_ptr(&mNull), x4_cow(nullptr), x8_size(0), xc_allocator(alloc) {
+#endif
   char buffer[1025];
   int count = 0;
   char ch = in.Get< schar >();
@@ -42,7 +46,11 @@ basic_string< char >::basic_string(CInputStream& in, const rmemory_allocator& al
 
 template <>
 basic_string< char >::basic_string(const char* data, int count, const rmemory_allocator& alloc)
+#if VERSION >= VERSION_R3IJ_00
+: rmemory_allocator(alloc) {
+#else
 : xc_allocator(alloc) {
+#endif
   if (count <= 0 && !*data) {
     x0_ptr = &mNull;
     x8_size = 0;
@@ -60,10 +68,18 @@ basic_string< char >::basic_string(const char* data, int count, const rmemory_al
 
 template <>
 basic_string< char >::basic_string(const basic_string& other)
+#if VERSION >= VERSION_R3IJ_00
+: rmemory_allocator(other)
+, x0_ptr(other.x0_ptr)
+#else
 : x0_ptr(other.x0_ptr)
+#endif
 , x4_cow(other.x4_cow)
 , x8_size(other.x8_size)
-, xc_allocator(other.xc_allocator) {
+#if VERSION < VERSION_R3IJ_00
+, xc_allocator(other.xc_allocator)
+#endif
+{
   internal_reference();
 }
 
@@ -183,7 +199,11 @@ void basic_string< char >::internal_prepare_to_write(int len, bool preserve) {
 template <>
 basic_string< wchar_t >::basic_string(const wchar_t* data, int count,
                                       const rmemory_allocator& alloc)
+#if VERSION >= VERSION_R3IJ_00
+: rmemory_allocator(alloc) {
+#else
 : xc_allocator(alloc) {
+#endif
   if (count <= 0 && !*data) {
     x0_ptr = &mNull;
     x8_size = 0;
@@ -202,10 +222,18 @@ basic_string< wchar_t >::basic_string(const wchar_t* data, int count,
 
 template <>
 basic_string< wchar_t >::basic_string(const basic_string& other)
+#if VERSION >= VERSION_R3IJ_00
+: rmemory_allocator(other)
+, x0_ptr(other.x0_ptr)
+#else
 : x0_ptr(other.x0_ptr)
+#endif
 , x4_cow(other.x4_cow)
 , x8_size(other.x8_size)
-, xc_allocator(other.xc_allocator) {
+#if VERSION < VERSION_R3IJ_00
+, xc_allocator(other.xc_allocator)
+#endif
+{
   internal_reference();
 }
 
@@ -317,7 +345,11 @@ void basic_string< wchar_t >::internal_prepare_to_write(int len, bool preserve) 
 template <>
 basic_string< char, case_insensitive_char_traits< char > >::basic_string(
     const char* data, int count, const rmemory_allocator& alloc)
+#if VERSION >= VERSION_R3IJ_00
+: rmemory_allocator(alloc) {
+#else
 : xc_allocator(alloc) {
+#endif
   if (count <= 0 && !*data) {
     x0_ptr = &mNull;
     x8_size = 0;

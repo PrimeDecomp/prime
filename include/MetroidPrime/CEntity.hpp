@@ -11,6 +11,8 @@
 #include "rstl/string.hpp"
 #include "rstl/vector.hpp"
 
+class CValidEntityPredicate;
+
 class CEntity {
 public:
   virtual ~CEntity();
@@ -32,6 +34,9 @@ public:
   const TEditorId GetEditorId() const { return xc_editorId; }
   const rstl::string& GetDebugName() const { return x10_name; }
   const TAreaId GetAreaId() const;
+  TUniqueId CheckConnectedObject_if(const CStateManager& mgr, EScriptObjectState state,
+                                   EScriptObjectMessage msg,
+                                   const CValidEntityPredicate& predicate) const;
   const TAreaId GetCurrentAreaId() const { return x4_areaId; }
   const bool GetActive() const { return x30_24_active; }
   bool IsInGraveyard() const { return x30_25_inGraveyard; }
@@ -60,6 +65,6 @@ private:
   bool x30_27_notInArea : 1;
 };
 
-CHECK_SIZEOF(CEntity, 0x34)
+CHECK_SIZEOF(CEntity, (VERSION >= VERSION_R3IJ_00 ? 0x2c : 0x34))
 
 #endif // _CENTITY

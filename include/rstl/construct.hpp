@@ -21,6 +21,25 @@ static inline void destroy(T* in) {
   in->~T();
 }
 
+#if VERSION >= VERSION_R3IJ_00
+template < typename T >
+static inline void destroy(T* begin, T* end) {
+  for (; begin != end; ++begin) {
+    destroy(begin);
+  }
+}
+
+template < typename It >
+static inline void destroy(It begin, It end) {
+  It cur = begin;
+  if (begin != end) {
+    for (; cur != end; ++cur) {
+      destroy(&*cur);
+    }
+  }
+}
+
+#else
 template < typename It >
 static inline void destroy(It begin, It end) {
   It cur = begin;
@@ -29,11 +48,17 @@ static inline void destroy(It begin, It end) {
   }
 }
 
+#endif
+
 template < typename It, typename T >
 static inline T uninitialized_copy(It begin, It end, T out) {
   T tmp = out;
   It cur = begin;
+#if VERSION >= VERSION_R3IJ_00
+  for (; cur != end; ++cur, ++tmp) {
+#else
   for (; cur != end; ++tmp, ++cur) {
+#endif
     construct(tmp, *cur);
   }
 
@@ -44,7 +69,11 @@ template < typename S, typename D >
 static inline D uninitialized_copy_n(S src, int n, D dest) {
   S it = src;
   D cur = dest;
+#if VERSION >= VERSION_R3IJ_00
+  for (int i = 0; i != n; ++it, ++i, ++cur) {
+#else
   for (int i = 0; i < n; ++cur, ++i, ++it) {
+#endif
     construct(&*cur, *it);
   }
 
