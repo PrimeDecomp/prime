@@ -40,14 +40,31 @@ public:
       delete Owned();
     }
   }
+
   T* Owned() { return static_cast< T* >(m_objPtr); }
 
-  static rstl::auto_ptr< TObjOwnerDerivedFromIObj< T > > GetNewDerivedObject(T* obj) {
+#if VERSION >= VERSION_R3IJ_00
+  typedef rstl::auto_ptr< IObj > TOwnerPtr;
+#else
+  typedef rstl::auto_ptr< TObjOwnerDerivedFromIObj< T > > TOwnerPtr;
+#endif
+
+  static TOwnerPtr GetNewDerivedObject(T* obj) {
+#if VERSION >= VERSION_R3IJ_00
+    return rstl::auto_ptr< TObjOwnerDerivedFromIObj< T > >(
+        rs_new TObjOwnerDerivedFromIObj< T >(obj));
+#else
     return rs_new TObjOwnerDerivedFromIObj< T >(obj);
+#endif
   }
-  static rstl::auto_ptr< TObjOwnerDerivedFromIObj< T > >
-  GetNewDerivedObject(const rstl::auto_ptr< T >& obj) {
+
+  static TOwnerPtr GetNewDerivedObject(const rstl::auto_ptr< T >& obj) {
+#if VERSION >= VERSION_R3IJ_00
+    return rstl::auto_ptr< TObjOwnerDerivedFromIObj< T > >(
+        rs_new TObjOwnerDerivedFromIObj< T >(obj));
+#else
     return rs_new TObjOwnerDerivedFromIObj< T >(obj);
+#endif
   }
 
 private:
