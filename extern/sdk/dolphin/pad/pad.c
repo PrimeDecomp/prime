@@ -1,4 +1,5 @@
 #include <dolphin/pad.h>
+#include <dolphin/si.h>
 #include <dolphin/sipriv.h>
 
 const char* __PADVersion = "<< Dolphin SDK - PAD\trelease build: Sep  5 2002 05:34:02 (0x2301) >>";

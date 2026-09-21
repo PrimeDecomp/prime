@@ -3,7 +3,7 @@
 
 #include <zlib.h>
 
-static char* hack() {
+static const char* hack() {
   return ZLIB_VERSION;
 }
 

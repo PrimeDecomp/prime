@@ -6,9 +6,9 @@
 #include "rstl/optional_object.hpp"
 #include "rstl/single_ptr.hpp"
 
+#include "Kyoto/Alloc/CMemorySys.hpp"
 #include "Kyoto/Basics/COsContext.hpp"
 #include "Kyoto/CMemoryCardSys.hpp"
-#include "Kyoto/Alloc/CMemorySys.hpp"
 #include "Kyoto/CResFactory.hpp"
 #include "Kyoto/CSimplePool.hpp"
 #include "Kyoto/CToken.hpp"

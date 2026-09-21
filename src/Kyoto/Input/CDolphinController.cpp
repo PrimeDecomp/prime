@@ -3,7 +3,7 @@
 #include <Kyoto/Alloc/CMemory.hpp>
 
 #include <dolphin/gba.h>
-#include <dolphin/os/OSSerial.h>
+#include <dolphin/si.h>
 
 #include <string.h>
 
