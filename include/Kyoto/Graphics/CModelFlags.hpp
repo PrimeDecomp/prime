@@ -66,7 +66,6 @@ public:
     return *this;
   }
 
-  void SetShaderSet(int matSet) { x1_matSetIdx = matSet; }
   CModelFlags UseShaderSet(int matSet) const { return CModelFlags(*this, false, matSet); }
   CModelFlags DontLoadTextures() const {
     return CModelFlags(*this, GetOtherFlags() | kF_NoTextureLock);
