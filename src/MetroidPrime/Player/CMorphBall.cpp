@@ -1921,10 +1921,7 @@ void CMorphBall::Render(const CStateManager& mgr, const CActorLights* lights) co
     CSkinnedModel::SetPointGeneratorFunc(x1c1c_rainSplashGen.get(), &CMorphBall::PointGenerator);
   }
 
-  const CModelFlags::ETrans blendMode =
-      static_cast< CModelFlags::ETrans >(ballFlags.GetBlendMode());
-  ballFlags = CModelFlags(blendMode, GetMorphballModelShader(), ballFlags.GetOtherFlags(),
-                          ballFlags.GetColorRef());
+  ballFlags = ballFlags.UseShaderSet(GetMorphballModelShader());
 
   if (1.f != x1c34_boostLightFactor) {
     if (lights->HasShadowLight()) {
