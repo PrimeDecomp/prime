@@ -13,6 +13,7 @@
 #include "dolphin/types.h"
 #include "rstl/math.hpp"
 
+#include "dolphin/gx.h"
 #include "dolphin/vi.h"
 
 #include <string.h>

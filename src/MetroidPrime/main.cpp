@@ -4,7 +4,7 @@
 #include "stdio.h"
 #include "stdlib.h"
 
-#include "dolphin/PPCArch.h"
+#include "dolphin/base/PPCArch.h"
 #include "dolphin/ai.h"
 #include "dolphin/ar.h"
 #include "dolphin/arq.h"

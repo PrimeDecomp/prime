@@ -7,7 +7,7 @@
 #include "Kyoto/Audio/CStaticAudioPlayer.hpp"
 #include "Kyoto/Graphics/CGraphics.hpp"
 #include "Kyoto/Math/CMath.hpp"
-#include "dolphin/PPCArch.h"
+#include "dolphin/base/PPCArch.h"
 #include "dolphin/ai.h"
 #include "dolphin/gx/GXVert.h"
 #include "dolphin/os.h"
