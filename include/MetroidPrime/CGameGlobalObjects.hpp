@@ -17,7 +17,7 @@
 #include "Kyoto/Text/CRasterFont.hpp"
 #include "MetroidPrime/CInGameTweakManager.hpp"
 #include "MetroidPrime/CMemoryCard.hpp"
-#include "MetroidPrime/Enemies/CAiFuncMap.hpp"
+#include "MetroidPrime/Enemies/CAi.hpp"
 #include "MetroidPrime/Factories/CCharacterFactoryBuilder.hpp"
 #include "MetroidPrime/Player/CGameState.hpp"
 

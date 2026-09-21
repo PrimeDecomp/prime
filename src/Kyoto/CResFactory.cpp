@@ -174,7 +174,11 @@ bool CResFactory::SLoadingData::PumpDecompression(uint time) {
     zip->zalloc = CZipSupport::Alloc;
     zip->zfree = CZipSupport::Free;
     zip->opaque = nullptr;
+#if NONMATCHING
+    inflateInit(zip);
+#else
     inflateInit2(zip);
+#endif
     zip->total_in = 0;
     zip->total_out = 0;
     zip->avail_in = 0;

@@ -14,7 +14,11 @@ CMemoryStreamOut::~CMemoryStreamOut() {
   COutputStream::Flush();
 
   if (mBufferOwned) {
+#if NONMATCHING
+    delete[] static_cast< uchar* >(mOutPtr);
+#else
     delete[] mOutPtr;
+#endif
   }
 }
 
