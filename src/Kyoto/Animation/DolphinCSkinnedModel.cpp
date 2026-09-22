@@ -35,7 +35,7 @@ static ushort skCurrentToken = 0;
 static int sNumSkinnedObjects = 0;
 static bool sSkinningInitialized = false;
 #if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
-static char sStaticSkinningData[0x80000] ATTRIBUTE_ALIGN(32);
+ATTRIBUTE_ALIGN_DECL(32, static char sStaticSkinningData[0x80000]);
 #endif
 static rstl::optional_object< CCircularBuffer > sSkinningBuffer;
 static rstl::list< SSkinnedAllocation > sAllocations;

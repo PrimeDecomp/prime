@@ -27,7 +27,7 @@ static int sNumReferences = 0;
 static CMoviePlayer* sAudioPlayer;
 static const short* curAudioBuffer;
 static int soundBufferIndex;
-static short soundBuffer[2][320] ATTRIBUTE_ALIGN(32);
+ATTRIBUTE_ALIGN_DECL(32, static short soundBuffer[2][320]);
 static bool sAudioEnabled = true;
 static uchar sSfxVolume = 127;
 

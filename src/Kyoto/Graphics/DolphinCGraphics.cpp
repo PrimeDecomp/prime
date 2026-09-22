@@ -20,7 +20,7 @@
 
 bool CGraphicsSys::mGraphicsInitialized;
 static CStopwatch sFPSTimer;
-static uchar sSpareFrameBuffer[640 * 448] ATTRIBUTE_ALIGN(32);
+ATTRIBUTE_ALIGN_DECL(32, static uchar sSpareFrameBuffer[640 * 448]);
 
 // clang-format off
 CTevCombiners::CTevPass CGraphics::kEnvModulateConstColor(
