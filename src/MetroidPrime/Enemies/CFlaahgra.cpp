@@ -30,6 +30,12 @@
 
 #include <float.h>
 
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#define FLAAHGRA_STAGE_DAMAGE_MULTIPLIER 1.f
+#else
+#define FLAAHGRA_STAGE_DAMAGE_MULTIPLIER 1.33f
+#endif
+
 static const CVector3f skExtendedBounds(12.f, 12.f, 12.f);
 static const CVector3f skProjectileOffset(0.5f, 7.f, 0.f);
 static const CColor skFlaahgraDamageColor(0.5f, 0.5f, 0.f, 1.f);
@@ -282,11 +288,7 @@ void CFlaahgra::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateM
             damage.SetDamage(0.5f * damage.GetDamage());
           }
           if (x788_stage >= 2) {
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
-            damage.SetDamage(1.f * damage.GetDamage());
-#else
-            damage.SetDamage(1.33f * damage.GetDamage());
-#endif
+            damage.SetDamage(FLAAHGRA_STAGE_DAMAGE_MULTIPLIER * damage.GetDamage());
           }
           mgr.ApplyDamage(
               GetUniqueId(), mgr.GetPlayer()->GetUniqueId(), GetUniqueId(), damage,
@@ -1542,11 +1544,7 @@ CFlaahgraProjectile* CFlaahgra::CreateProjectile(const CTransform4f& xf, CStateM
   if (ProjectileInfo()->Token().TryCache() && mgr.CanCreateProjectile(GetUniqueId(), kWT_AI, 6)) {
     CDamageInfo damage = ProjectileInfo()->GetDamage();
     if (x788_stage >= 2) {
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
-      damage.SetDamage(1.f * damage.GetDamage());
-#else
-      damage.SetDamage(1.33f * damage.GetDamage());
-#endif
+      damage.SetDamage(FLAAHGRA_STAGE_DAMAGE_MULTIPLIER * damage.GetDamage());
     }
     projectile =
         rs_new CFlaahgraProjectile(x8e4_30_bigStrike, ProjectileInfo()->Token(), xf, damage,
