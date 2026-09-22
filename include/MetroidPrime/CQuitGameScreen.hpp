@@ -1,10 +1,12 @@
 #ifndef _CQUITGAMESCREEN
 #define _CQUITGAMESCREEN
 
+#include "GameVersions.h"
 #include "Kyoto/TToken.hpp"
 
 class CGuiFrame;
 class CGuiTableGroup;
+class CGuiTextPane;
 class CFinalInput;
 
 enum EQuitType {
@@ -29,7 +31,7 @@ public:
   void DoSelectionChange(CGuiTableGroup* caller, int oldSel);
   void DoAdvance(CGuiTableGroup* caller);
   EQuitAction Update(float dt);
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION == VERSION_GM8J_00
   void Draw();
 #else
   void Draw() const;
@@ -43,9 +45,9 @@ private:
   CGuiTableGroup* x14_tablegroup_quitgame;
   EQuitAction x18_action;
 #if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
-  int x1c_;
-  int x20_;
-  int x24_;
+  CGuiTextPane* x1c_textpane_title;
+  CGuiTextPane* x20_textpane_yes;
+  CGuiTextPane* x24_textpane_no;
 #endif
 };
 #if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02

@@ -76,11 +76,13 @@ MetroidPrime/CArchMsgParmUserInput.cpp:
 	.data       start:0x803C4CB0 end:0x803C4CC0
 
 MetroidPrime/CFrontEndUI.cpp:
-	.text       start:0x8001C4B0 end:0x80024898
-	.rodata     start:0x803B696C end:0x803B69E0
-	.data       start:0x803C4DB8 end:0x803C4DE0
-	.sdata      start:0x80468DBC end:0x80468DD0
-	.sdata2     start:0x8046C0F8 end:0x8046C14C
+	.text       start:0x8001C45C end:0x800248C8
+	.ctors      start:0x803B4F98 end:0x803B4F9C
+	.rodata     start:0x803B68C0 end:0x803B6F00
+	.data       start:0x803C4CC0 end:0x803C4DD4
+	.sdata      start:0x80468D88 end:0x80468DD0
+	.sbss       start:0x8046ADB8 end:0x8046ADC4
+	.sdata2     start:0x8046C0E8 end:0x8046C168
 
 MetroidPrime/CInputGenerator.cpp:
 	.text       start:0x800248C8 end:0x80024DE4

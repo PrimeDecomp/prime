@@ -29,11 +29,15 @@ public:
     kUIT_NeedsFormatEncoding,
     kUIT_CardDamaged,
     kUIT_WrongDevice,
+#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
     kUIT_InsufficientSpaceBadCheck,
+#endif
     kUIT_InsufficientSpaceOKCheck,
     kUIT_IncompatibleCard,
     kUIT_SaveCorrupt,
+#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
     kUIT_StillInsufficientSpace,
+#endif
     kUIT_ProgressWillBeLost,
     kUIT_NotOriginalCard,
     kUIT_AllDataWillBeLost,
@@ -52,7 +56,7 @@ public:
   void StartGame(int idx);
   void ResetCardDriver();
   void ProcessUserInput(const CFinalInput& input);
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION == VERSION_GM8J_00
   void Draw();
 #else
   void Draw() const;

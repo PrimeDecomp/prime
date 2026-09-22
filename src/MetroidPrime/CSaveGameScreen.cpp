@@ -50,9 +50,11 @@ CSaveGameScreen::EUIType CSaveGameScreen::SelectUIType() const {
   }
 
   if (state == kS_Ready) {
+#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
     if (error == CMemoryCardDriver::kE_CardStillFull) {
       return kUIT_StillInsufficientSpace;
     }
+#endif
     return kUIT_SaveReady;
   }
 
@@ -69,9 +71,11 @@ CSaveGameScreen::EUIType CSaveGameScreen::SelectUIType() const {
   }
 
   if (error == CMemoryCardDriver::kE_CardFull) {
+#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
     if (state == kS_FileCreateTransactionalFailed) {
       return kUIT_InsufficientSpaceBadCheck;
     }
+#endif
     return kUIT_InsufficientSpaceOKCheck;
   }
 
@@ -102,9 +106,11 @@ void CSaveGameScreen::SetUIText() {
   int opt3 = -1;
 
   switch (x10_uiType) {
+#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
   case kUIT_BusyReading:
     msgB = 24;
     break;
+#endif
   case kUIT_BusyWriting:
     msgB = 25;
     break;
@@ -141,12 +147,14 @@ void CSaveGameScreen::SetUIText() {
     opt1 = 18;
     opt2 = 19;
     break;
+#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
   case kUIT_InsufficientSpaceBadCheck:
     msgB = x0_saveCtx == kSC_InGame ? 10 : 9;
     opt0 = 17;
     opt1 = 18;
     opt2 = 19;
     break;
+#endif
   case kUIT_IncompatibleCard:
     msgB = 7;
     opt0 = 17;
@@ -158,6 +166,7 @@ void CSaveGameScreen::SetUIText() {
     opt1 = 17;
     opt2 = 18;
     break;
+#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
   case kUIT_StillInsufficientSpace:
     if (x0_saveCtx == kSC_InGame) {
       msgB = 10;
@@ -171,6 +180,7 @@ void CSaveGameScreen::SetUIText() {
       opt2 = 19;
     }
     break;
+#endif
   case kUIT_ProgressWillBeLost:
     msgA = 28;
     msgB = 11;
@@ -395,7 +405,7 @@ void CSaveGameScreen::ContinueWithoutSaving() {
 }
 
 void CSaveGameScreen::Draw()
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION != VERSION_GM8J_00
     const
 #endif
 {
@@ -478,7 +488,9 @@ void CSaveGameScreen::DoAdvance(CGuiTableGroup* caller) {
     }
     break;
 
+#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
   case kUIT_InsufficientSpaceBadCheck:
+#endif
   case kUIT_InsufficientSpaceOKCheck:
     if (userSel == 0) {
       if (x0_saveCtx == kSC_InGame) {
@@ -518,6 +530,7 @@ void CSaveGameScreen::DoAdvance(CGuiTableGroup* caller) {
     }
     break;
 
+#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
   case kUIT_StillInsufficientSpace:
     if (x0_saveCtx == kSC_InGame) {
       if (userSel == 0) {
@@ -550,6 +563,7 @@ void CSaveGameScreen::DoAdvance(CGuiTableGroup* caller) {
     }
     break;
 
+#endif
   case kUIT_ProgressWillBeLost:
     if (userSel == 1) {
       gpMain->SetManageCard(true);

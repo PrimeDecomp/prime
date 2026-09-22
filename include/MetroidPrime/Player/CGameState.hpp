@@ -84,7 +84,7 @@ private:
   CGameOptions x17c_gameOptions;
   CHintOptions x1f8_hintOptions;
 #if VERSION == VERSION_GM8J_00
-  uchar x20c_japaneseUnknown[0x18];
+  rstl::vector< rstl::pair< CAssetId, TEditorId > > x7a8_cinematicStates;
 #endif
   uint x20c_saveIdx;
   u64 x210_cardSerial;

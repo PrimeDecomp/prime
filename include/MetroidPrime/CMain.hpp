@@ -53,7 +53,7 @@ public:
   void UpdateStreamedAudio();
   void RegisterResourceTweaks();
   void ResetGameState();
-  void ReloadStringTables();
+  static void ReloadStringTables();
   void StreamNewGameState(CInputStream& in, int saveIdx);
   void RefreshGameState();
   void AddWorldPaks();
