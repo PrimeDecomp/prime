@@ -11,6 +11,9 @@
 
 struct CTweakPlayerRes : public ITweakObject, public TOneStatic< CTweakPlayerRes > {
 public:
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+  rstl::reserved_vector< CAssetId, 9 > x4_mapIcons;
+#else
   CAssetId x4_saveStationIcon;
   CAssetId x8_missileStationIcon;
   CAssetId xc_elevatorIcon;
@@ -18,6 +21,7 @@ public:
   CAssetId x14_minesBreakFirstBottomIcon;
   CAssetId x18_minesBreakSecondTopIcon;
   CAssetId x1c_minesBreakSecondBottomIcon;
+#endif
   rstl::reserved_vector< CAssetId, 9 > x20_lStick;
   rstl::reserved_vector< CAssetId, 9 > x48_cStick;
   rstl::reserved_vector< CAssetId, 2 > x70_lTrigger;
@@ -34,6 +38,46 @@ public:
 
   CTweakPlayerRes(CInputStream& in);
 
+  CAssetId GetSaveStationIcon() const {
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+    return x4_mapIcons[0];
+#else
+    return x4_saveStationIcon;
+#endif
+  }
+
+  CAssetId GetMissileStationIcon() const {
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+    return x4_mapIcons[1];
+#else
+    return x8_missileStationIcon;
+#endif
+  }
+
+  CAssetId GetElevatorIcon() const {
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+    return x4_mapIcons[2];
+#else
+    return xc_elevatorIcon;
+#endif
+  }
+
+  CAssetId GetMinesBreakFirstTopIcon() const {
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+    return x4_mapIcons[3];
+#else
+    return x10_minesBreakFirstTopIcon;
+#endif
+  }
+
+  CAssetId GetMinesBreakFirstBottomIcon() const {
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+    return x4_mapIcons[4];
+#else
+    return x14_minesBreakFirstBottomIcon;
+#endif
+  }
+
   float GetCinematicMoveOutofIntoPlayerDistance() const {
     return xf0_cinematicMoveOutofIntoPlayerDistance;
   }
@@ -43,7 +87,7 @@ public:
   CAssetId GetBallTransitionBeamResId(CPlayerState::EBeamId id) const;
   CAssetId GetCinematicBeamResId(CPlayerState::EBeamId id) const;
 };
-CHECK_SIZEOF(CTweakPlayerRes, 0xf4);
+CHECK_SIZEOF(CTweakPlayerRes, (VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02 ? 0x100 : 0xf4));
 
 extern CTweakPlayerRes* gpTweakPlayerRes;
 

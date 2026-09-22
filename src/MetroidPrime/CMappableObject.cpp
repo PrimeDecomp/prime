@@ -160,36 +160,36 @@ void CMappableObject::Draw(int curArea, const CMapWorldInfo& mwInfo, float alpha
   switch (x0_type) {
   case kMOT_DownArrowYellow:
     iconColor = CColor((uchar)0xff, 0xff, 0x96, 0xff);
-    iconRes = gpTweakPlayerRes->x10_minesBreakFirstTopIcon;
+    iconRes = gpTweakPlayerRes->GetMinesBreakFirstTopIcon();
     break;
   case kMOT_UpArrowYellow:
     iconColor = CColor((uchar)0xff, 0xff, 0x96, 0xff);
-    iconRes = gpTweakPlayerRes->x14_minesBreakFirstBottomIcon;
+    iconRes = gpTweakPlayerRes->GetMinesBreakFirstBottomIcon();
     break;
   case kMOT_DownArrowGreen:
     iconColor = CColor((uchar)0x64, 0xff, 0x96, 0xff);
-    iconRes = gpTweakPlayerRes->x10_minesBreakFirstTopIcon;
+    iconRes = gpTweakPlayerRes->GetMinesBreakFirstTopIcon();
     break;
   case kMOT_UpArrowGreen:
     iconColor = CColor((uchar)0x64, 0xff, 0x96, 0xff);
-    iconRes = gpTweakPlayerRes->x14_minesBreakFirstBottomIcon;
+    iconRes = gpTweakPlayerRes->GetMinesBreakFirstBottomIcon();
     break;
   case kMOT_DownArrowRed:
     iconColor = CColor((uchar)0xff, 0x64, 0x96, 0xff);
-    iconRes = gpTweakPlayerRes->x10_minesBreakFirstTopIcon;
+    iconRes = gpTweakPlayerRes->GetMinesBreakFirstTopIcon();
     break;
   case kMOT_UpArrowRed:
     iconColor = CColor((uchar)0xff, 0x64, 0x96, 0xff);
-    iconRes = gpTweakPlayerRes->x14_minesBreakFirstBottomIcon;
+    iconRes = gpTweakPlayerRes->GetMinesBreakFirstBottomIcon();
     break;
   case kMOT_SaveStation:
-    iconRes = gpTweakPlayerRes->x4_saveStationIcon;
+    iconRes = gpTweakPlayerRes->GetSaveStationIcon();
     break;
   case kMOT_MissileStation:
-    iconRes = gpTweakPlayerRes->x8_missileStationIcon;
+    iconRes = gpTweakPlayerRes->GetMissileStationIcon();
     break;
   default:
-    iconRes = gpTweakPlayerRes->xc_elevatorIcon;
+    iconRes = gpTweakPlayerRes->GetElevatorIcon();
     break;
   }
 

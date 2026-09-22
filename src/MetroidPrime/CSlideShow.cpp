@@ -127,8 +127,14 @@ CSlideShow::CSlideShow()
 , x54_idleTimer(0.f)
 , x58_slideNumberTimer(0.f)
 , xc4_controlsText(nullptr)
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+, xf0_galleryNameText(nullptr)
+#endif
 , xc8_slideNumberText(nullptr)
 , xcc_audio(nullptr)
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+, xfc_galleryNames(gpSimplePool->GetObj(gpTweakSlideShow->GetGalleryNames().data()))
+#endif
 , xe8_lStick(0)
 , xec_cStick(0)
 , xf0_lTrigger(0)
@@ -153,6 +159,20 @@ CSlideShow::CSlideShow()
   const CColor& outlineColor = gpTweakSlideShow->GetOutlineColor();
   const SObjectTag* font =
       gpResourceFactory->GetResourceIdByName(gpTweakSlideShow->GetFont().data());
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+  xc4_controlsText = rs_new CGuiTextSupport(
+      font->GetId(), width, height,
+      CGuiTextProperties(false, true, kJustification_Center, kVerticalJustification_Bottom),
+      fontColor, outlineColor, CColor::White(), gpSimplePool);
+  xf0_galleryNameText = rs_new CGuiTextSupport(
+      font->GetId(), width, height,
+      CGuiTextProperties(false, true, kJustification_Left, kVerticalJustification_Bottom),
+      fontColor, outlineColor, CColor::White(), gpSimplePool);
+  xc8_slideNumberText = rs_new CGuiTextSupport(
+      font->GetId(), width, height,
+      CGuiTextProperties(false, true, kJustification_Right, kVerticalJustification_Bottom),
+      fontColor, outlineColor, CColor::White(), gpSimplePool);
+#else
   xc4_controlsText = rs_new CGuiTextSupport(
       font->GetId(),
       CGuiTextProperties(false, true, kJustification_Center, kVerticalJustification_Bottom),
@@ -161,6 +181,7 @@ CSlideShow::CSlideShow()
       font->GetId(),
       CGuiTextProperties(false, true, kJustification_Right, kVerticalJustification_Bottom),
       fontColor, outlineColor, CColor::White(), width, height, gpSimplePool);
+#endif
   const rstl::reserved_vector< CAssetId, 9 >* sticks[] = {&gpTweakPlayerRes->x20_lStick,
                                                           &gpTweakPlayerRes->x48_cStick};
   xf8_stickTextures.reserve(18);
@@ -180,6 +201,9 @@ CSlideShow::CSlideShow()
     }
   }
   SetTexturesLocked(x108_buttonTextures, true);
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+  xfc_galleryNames.Lock();
+#endif
 }
 
 CSlideShow::~CSlideShow() {
@@ -207,6 +231,70 @@ uint CSlideShow::SlideShowGalleryFlags() {
 }
 
 void CSlideShow::BuildGalleryLists(uint flags) {
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+  const int count = x18_galleryTXTRDeps.size() - 1;
+  x28_galleries.reserve(count);
+  AUTO(it, x18_galleryTXTRDeps.begin());
+  AUTO(label, x104_galleryLabels.begin());
+  for (int i = 0; it != x18_galleryTXTRDeps.end() && i < count; ++i) {
+    if ((flags & (1 << i)) == 0) {
+      it = x18_galleryTXTRDeps.erase(it);
+      label = x104_galleryLabels.erase(label);
+    } else {
+      const int textureCount = it->GetT()->GetObjectTagVector().size();
+      x28_galleries.push_back(SGalleryData(i));
+      SGalleryData& gallery = x28_galleries.back();
+      gallery.x4_textures.reserve(textureCount);
+      gallery.x14_slides.reserve(textureCount);
+      int slide = 0;
+      int row = 0;
+      int column = 0;
+      int tiles = 0;
+      int columns = 0;
+      int missingRows = 0;
+      while (slide < textureCount) {
+        rstl::string name = CBasics::Stringize("%s_%02d_%03d", "slideshow", i, slide);
+        const SObjectTag* tag = gpResourceFactory->GetResourceIdByName(name.data());
+        if (tag != nullptr) {
+          gallery.x4_textures.push_back(tag);
+          column = 1;
+          ++tiles;
+          columns = 1;
+          ++missingRows;
+          tag = nullptr;
+        } else {
+          name.append(CBasics::Stringize("_%02d%02d", column, row), -1);
+          tag = gpResourceFactory->GetResourceIdByName(name.data());
+          if (tag != nullptr) {
+            gallery.x4_textures.push_back(tag);
+            ++column;
+            ++tiles;
+            columns = column;
+            missingRows = 0;
+          }
+        }
+        if (tag == nullptr) {
+          if (missingRows == 1 && tiles > 0) {
+            gallery.x14_slides.push_back(rstl::pair< int, int >(gallery.x4_textures.size(), columns));
+            ++slide;
+            row = 0;
+            missingRows = 0;
+            tiles = 0;
+          } else {
+            if (missingRows > 1) {
+              break;
+            }
+            ++missingRows;
+            ++row;
+          }
+          column = 0;
+        }
+      }
+      ++it;
+      ++label;
+    }
+  }
+#else
   const int count = x18_galleryTXTRDeps.size() - 1;
   x28_galleries.reserve(count);
   AUTO(it, x18_galleryTXTRDeps.begin());
@@ -226,6 +314,7 @@ void CSlideShow::BuildGalleryLists(uint flags) {
       ++it;
     }
   }
+#endif
 }
 
 bool CSlideShow::LoadTXTRDep(const char* name) {
@@ -271,6 +360,33 @@ CIOWin::EMessageReturn CSlideShow::OnMessage(const CArchitectureMessage& msg,
       if (!AreAllDepsLoaded(x18_galleryTXTRDeps)) {
         break;
       }
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+      x14_phase = 2;
+    case 2: {
+      if (x38_galleryBorder.null()) {
+        const SObjectTag* tag = gpResourceFactory->GetResourceIdByName(skGalleryBorder);
+        x38_galleryBorder = rs_new TToken< CModel >(gpSimplePool->GetObj(*tag));
+        x38_galleryBorder->Lock();
+      }
+      if (!xfc_galleryNames.IsLoaded() || !x38_galleryBorder->IsLoaded()) {
+        break;
+      }
+      const CStringTable& strings = **xfc_galleryNames;
+      const int count = x18_galleryTXTRDeps.size() - 1;
+      x104_galleryLabels.reserve(count);
+      for (int i = 0; i < count; ++i) {
+        x104_galleryLabels.push_back(rstl::wstring(xfc_galleryNames->GetString(i)));
+      }
+      x14_phase = 4;
+    }
+    case 3:
+      BuildGalleryLists(SlideShowGalleryFlags());
+      for (int i = 0; i < x28_galleries.size(); ++i) {
+        x40_totalSlides += x28_galleries[i].x14_slides.size();
+      }
+      AdvanceSlide(true);
+      x14_phase = 4;
+#else
       x14_phase = 3;
     case 3:
       BuildGalleryLists(SlideShowGalleryFlags());
@@ -307,6 +423,7 @@ CIOWin::EMessageReturn CSlideShow::OnMessage(const CArchitectureMessage& msg,
         }
       }
       x14_phase = 4;
+#endif
     case 4:
       if (xcc_audio.null()) {
         xcc_audio = rs_new CStaticAudioPlayer(rstl::string_l(skAudioFile), 0x65af0, 0x1e1db0);
@@ -552,6 +669,7 @@ CIOWin::EMessageReturn CSlideShow::ProcessUserInput(const CFinalInput& input) {
   }
   return kMR_Exit;
 }
+
 CIOWin::EMessageReturn CSlideShow::AdvanceSlide(bool forward) {
   if (!x28_galleries.empty()) {
     CSfxManager::SfxStart(0x445, 127, 64, false, CSfxManager::kMedPriority, false,
@@ -565,25 +683,62 @@ CIOWin::EMessageReturn CSlideShow::AdvanceSlide(bool forward) {
     if (x48_slide < 0) {
       --x44_gallery;
       x135_24_galleryChanged = true;
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+    } else if (x48_slide >= x28_galleries[x44_gallery].x14_slides.size()) {
+#else
     } else if (x48_slide >= x28_galleries[x44_gallery].second.size()) {
+#endif
       ++x44_gallery;
       x135_24_galleryChanged = true;
     }
     if (x44_gallery < 0) {
       x44_gallery = x28_galleries.size() - 1;
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+      x48_slide = x28_galleries[x44_gallery].x14_slides.size() - 1;
+#else
       x48_slide = x28_galleries[x44_gallery].second.size() - 1;
+#endif
     } else if (x44_gallery >= x28_galleries.size()) {
       x48_slide = 0;
       x44_gallery = 0;
     } else if (x44_gallery > gallery) {
       x48_slide = 0;
     } else if (x44_gallery < gallery) {
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+      x48_slide = x28_galleries[x44_gallery].x14_slides.size() - 1;
+#else
       x48_slide = x28_galleries[x44_gallery].second.size() - 1;
+#endif
     }
   }
   return kMR_Exit;
 }
+
 void CSlideShow::LoadSlide() {
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+  if (x90_slideB.xc_textures.empty() &&
+      (x5c_slideA.x4_gallery != x44_gallery || x5c_slideA.x8_slide != x48_slide)) {
+    const SGalleryData& gallery = x28_galleries[x44_gallery];
+    x5c_slideA.x29_stopLoading = true;
+    const int first = x48_slide == 0 ? 0 : gallery.x14_slides[x48_slide - 1].first;
+    const int end = gallery.x14_slides[x48_slide].first;
+    x90_slideB.xc_textures.reserve(end - first);
+    for (int i = first; i < end; ++i) {
+      const SObjectTag* tag = gallery.x4_textures[i];
+      if (tag != nullptr && gpResourceFactory->GetResourceTypeById(tag->GetId()) == 'TXTR') {
+        x90_slideB.xc_textures.push_back(STexture());
+        x90_slideB.xc_textures.back().x0_token = rs_new TToken< CTexture >(gpSimplePool->GetObj(*tag));
+      }
+    }
+    x90_slideB.x4_gallery = x44_gallery;
+    x90_slideB.x8_slide = x48_slide;
+    x90_slideB.x1c_columns = gallery.x14_slides[x48_slide].second;
+    x90_slideB.InitializeViewport();
+  }
+  if (x90_slideB.IsLoaded() && !x90_slideB.x14_ready) {
+    x90_slideB.InitializeViewport();
+  }
+#else
   if (x90_slideB.xc_texture.null() &&
       (x5c_slideA.x4_gallery != x44_gallery || x5c_slideA.x8_slide != x48_slide)) {
     const SObjectTag* tag = x28_galleries[x44_gallery].second[x48_slide];
@@ -598,6 +753,7 @@ void CSlideShow::LoadSlide() {
   if (x90_slideB.IsLoaded() && !x90_slideB.x14_ready) {
     x90_slideB.InitializeViewport();
   }
+#endif
 }
 
 void CSlideShow::SetShowControls(const bool show) {
@@ -654,6 +810,7 @@ void CSlideShow::UpdateControls(float dt) {
     xc4_controlsText->Update(dt);
   }
 }
+
 void CSlideShow::UpdateControlsText(const CFinalInput& input) {
   if (!xc4_controlsText.null()) {
     xec_cStick =
@@ -670,18 +827,26 @@ void CSlideShow::UpdateControlsText(const CFinalInput& input) {
     const float zoomOut = ControlMapper::GetAnalogInput(ControlMapper::kC_MapZoomOut, input);
     xf4_rTrigger = zoomIn > 0.f ? 1 : 0;
     xf0_lTrigger = zoomOut > 0.f ? 1 : 0;
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+    enum { kFirstControlString = 4 };
+#else
+    enum { kFirstControlString = 0x37 };
     const CStringTable& strings = *gpStringTable;
+#endif
     rstl::wstring text;
     text.reserve(256);
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+    const CStringTable& strings = **xfc_galleryNames;
+#endif
     text.append(CStringExtras::ConvertToUNICODE(
         CBasics::Stringize("%sSI,0.6,1.0,%8.8X%s", skImagePrefix,
                            gpTweakPlayerRes->x20_lStick[xe8_lStick], skImageSuffix)));
-    text.append(strings.GetString(0x38), -1);
+    text.append(strings.GetString(kFirstControlString + 1), -1);
     text.append(CStringExtras::ConvertToUNICODE(rstl::string_l("   ")));
     text.append(CStringExtras::ConvertToUNICODE(CBasics::Stringize(
         "%s%8.8X%s", skImagePrefix, gpTweakPlayerRes->x70_lTrigger[xf0_lTrigger], skImageSuffix)));
     text.append(CStringExtras::ConvertToUNICODE(rstl::string_l(" ")));
-    text.append(strings.GetString(0x3a), -1);
+    text.append(strings.GetString(kFirstControlString + 3), -1);
     text.append(CStringExtras::ConvertToUNICODE(rstl::string_l(" ")));
     text.append(CStringExtras::ConvertToUNICODE(CBasics::Stringize(
         "%s%8.8X%s", skImagePrefix, gpTweakPlayerRes->x7c_rTrigger[xf4_rTrigger], skImageSuffix)));
@@ -689,17 +854,17 @@ void CSlideShow::UpdateControlsText(const CFinalInput& input) {
     text.append(CStringExtras::ConvertToUNICODE(
         CBasics::Stringize("%sSI,0.6,1.0,%8.8X%s", skImagePrefix,
                            gpTweakPlayerRes->x48_cStick[xec_cStick], skImageSuffix)));
-    text.append(strings.GetString(0x39), -1);
+    text.append(strings.GetString(kFirstControlString + 2), -1);
     text.append(CStringExtras::ConvertToUNICODE(rstl::string_l("   ")));
     text.append(CStringExtras::ConvertToUNICODE(CBasics::Stringize(
         "%sSI,1.0,1.0,%8.8X%s", skImagePrefix, gpTweakPlayerRes->xb8_yButton[0], skImageSuffix)));
     text.append(CStringExtras::ConvertToUNICODE(rstl::string_l(" ")));
-    text.append(strings.GetString(0x37), -1);
+    text.append(strings.GetString(kFirstControlString), -1);
     text.append(CStringExtras::ConvertToUNICODE(rstl::string_l("   ")));
     text.append(CStringExtras::ConvertToUNICODE(CBasics::Stringize(
         "%sSI,0.6,1.0,%8.8X%s", skImagePrefix, gpTweakPlayerRes->xa0_bButton[0], skImageSuffix)));
     text.append(CStringExtras::ConvertToUNICODE(rstl::string_l(" ")));
-    text.append(strings.GetString(0x3d), -1);
+    text.append(strings.GetString(kFirstControlString + 6), -1);
     xc4_controlsText->SetText(text);
   }
 }
@@ -767,6 +932,26 @@ bool CSlideShow::AreAllDepsLoaded(const rstl::vector< TToken< CDependencyGroup >
 }
 
 void CSlideShow::DrawSlideNumber() const {
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+  if (!xc8_slideNumberText.null()) {
+    const int height = CGraphics::GetViewportHeight();
+    const float fadeTime = gpTweakSlideShow->GetSlideNumberFadeTime();
+    const float alpha = CMath::Clamp(0.f, (fadeTime - x58_slideNumberTimer) / fadeTime, 1.f);
+    const float y = height + x12c_slideNumberOffset;
+    CGraphics::SetCullMode(kCM_None);
+    gpRender->SetViewportOrtho(false, -4096.f, 4096.f);
+    gpRender->SetDepthReadWrite(false, false);
+    gpRender->SetModelMatrix(CTransform4f::Translate(-32.f, 0.f, y));
+    xc8_slideNumberText->SetGeometryColor(CColor::White().WithAlphaModulatedBy(alpha));
+    xc8_slideNumberText->Render();
+    if (!xf0_galleryNameText.null() && x135_24_galleryChanged) {
+      gpRender->SetModelMatrix(CTransform4f::Translate(32.f, 0.f, y));
+      xf0_galleryNameText->SetGeometryColor(CColor::White().WithAlphaModulatedBy(alpha));
+      xf0_galleryNameText->SetText(x104_galleryLabels[x44_gallery]);
+      xf0_galleryNameText->Render();
+    }
+  }
+#else
   if (!xc8_slideNumberText.null()) {
     const int height = CGraphics::GetViewportHeight();
     const float fadeTime = gpTweakSlideShow->GetSlideNumberFadeTime();
@@ -783,12 +968,18 @@ void CSlideShow::DrawSlideNumber() const {
                   gpTweakSlideShow->GetFontColor().WithAlphaModulatedBy(alpha));
     }
   }
+#endif
 }
+
 void CSlideShow::UpdateSlideNumber(float dt) {
   if (!xc8_slideNumberText.null() && !x28_galleries.empty()) {
     int slide = x48_slide;
     for (int i = 0; i < x44_gallery; ++i) {
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+      slide += x28_galleries[i].x14_slides.size();
+#else
       slide += x28_galleries[i].second.size();
+#endif
     }
     const rstl::string text = CBasics::Stringize("%d/%d", slide + 1, x40_totalSlides);
     xc8_slideNumberText->SetText(text);
@@ -798,6 +989,7 @@ void CSlideShow::UpdateSlideNumber(float dt) {
     x135_24_galleryChanged = false;
   }
 }
+
 void CSlideShow::DrawControls() const {
   if (!xc4_controlsText.null()) {
     const int height = CGraphics::GetViewportHeight();
@@ -809,6 +1001,7 @@ void CSlideShow::DrawControls() const {
     DrawControlsBorder();
   }
 }
+
 void CSlideShow::DrawControlsBorder() const {
   if (!x38_galleryBorder.null()) {
     const int width = CGraphics::GetViewportWidth();
@@ -834,18 +1027,39 @@ void CSlideShow::DrawControlsBorder() const {
 
 CIOWin::EMessageReturn CSlideShow::SSlideData::ProcessUserInput(const CFinalInput& input) {
   if (IsReady()) {
+#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
     const CTexture* texture = **xc_texture;
+#endif
     const int width = CGraphics::GetViewportWidth();
     const int height = CGraphics::GetViewportHeight();
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+    const float texWidth = x20_textureWidth;
+    const float texHeight = x24_textureHeight;
+#else
     const float texWidth = texture->GetWidth();
     const float texHeight = texture->GetHeight();
+#endif
     const float aspect = float(width) / height;
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+    const float& textureSize = rstl::max_val(x20_textureWidth, x24_textureHeight);
+#endif
     const float zoomIn = ControlMapper::GetAnalogInput(ControlMapper::kC_MapZoomIn, input);
     const float zoomOut = ControlMapper::GetAnalogInput(ControlMapper::kC_MapZoomOut, input);
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+    const float zoom = textureSize * (zoomOut - zoomIn) / 1024.f;
+#endif
     const CVector2f oldSize = x20_vpSize;
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+    if (zoom != 0.f) {
+#else
     if (zoomOut - zoomIn != 0.f) {
+#endif
       CVector2f offset = x20_vpSize;
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+      const float delta = gpTweakSlideShow->GetZoomSpeed() * zoom;
+#else
       const float delta = gpTweakSlideShow->GetZoomSpeed() * (zoomOut - zoomIn);
+#endif
       x20_vpSize[0] += aspect * delta;
       x20_vpSize[1] += delta;
       x20_vpSize[0] = CMath::Clamp(float(width), x20_vpSize.GetX(), x28_canvasSize.GetX());
@@ -860,7 +1074,12 @@ CIOWin::EMessageReturn CSlideShow::SSlideData::ProcessUserInput(const CFinalInpu
     const float back = ControlMapper::GetAnalogInput(ControlMapper::kC_MapMoveBack, input);
     const float left = ControlMapper::GetAnalogInput(ControlMapper::kC_MapMoveLeft, input);
     const float right = ControlMapper::GetAnalogInput(ControlMapper::kC_MapMoveRight, input);
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+    const float speed = gpTweakSlideShow->GetPanSpeed() *
+                        rstl::max_val(x20_textureWidth, x24_textureHeight) / 1024.f;
+#else
     const float speed = gpTweakSlideShow->GetPanSpeed();
+#endif
     x18_vpOffset[0] -= speed * left;
     x18_vpOffset[0] += speed * right;
     x18_vpOffset[1] += speed * forward;
@@ -894,25 +1113,103 @@ CIOWin::EMessageReturn CSlideShow::SSlideData::ProcessUserInput(const CFinalInpu
 
 void CSlideShow::SSlideData::InitializeViewport() {
   if (IsLoaded()) {
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+    const float width = (**xc_textures.front().x0_token)->GetWidth();
+    const float height = (**xc_textures.front().x0_token)->GetHeight();
+    x20_textureWidth = width * x1c_columns;
+    x24_textureHeight = height * (xc_textures.size() / x1c_columns);
+    const float texAspect = x20_textureWidth / x24_textureHeight;
+#else
     const CTexture* texture = **xc_texture;
     const float width = texture->GetWidth();
     const float height = texture->GetHeight();
     const float texAspect = width / height;
+#endif
     const float aspect = float(CGraphics::GetViewportWidth()) / CGraphics::GetViewportHeight();
     x18_vpOffset = sZeroVector;
     if (texAspect != aspect) {
       if (texAspect > aspect) {
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+        x20_vpSize = CVector2f(x20_textureWidth, x20_textureWidth / aspect);
+#else
         x20_vpSize = CVector2f(width, width / aspect);
+#endif
       } else {
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+        x20_vpSize = CVector2f(x24_textureHeight * aspect, x24_textureHeight);
+#else
         x20_vpSize = CVector2f(height * aspect, height);
+#endif
       }
     }
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+    for (int i = 0; i < xc_textures.size(); ++i) {
+      const float x = width * (i % x1c_columns);
+      const float y = height * (i / x1c_columns);
+      xc_textures[i].x10_rightTop = CVector2f(x + width, y);
+      xc_textures[i].x8_leftBottom = CVector2f(x, y + height);
+    }
+#endif
     x28_canvasSize = x20_vpSize;
     x14_ready = true;
   }
 }
 
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+const bool CSlideShow::SSlideData::IsLoaded() const {
+  if (xc_textures.empty()) {
+    return false;
+  }
+
+  bool loaded = true;
+  if (xc_textures.front().x0_token.null() || !xc_textures.front().x0_token->IsLoaded()) {
+    loaded = false;
+  }
+
+  if (!x29_stopLoading) {
+    for (int i = 0; i < xc_textures.size(); ++i) {
+      if (!xc_textures[i].x0_token.null()) {
+        xc_textures[i].x0_token->Lock();
+        if (!xc_textures[i].x0_token->IsLoaded()) {
+          break;
+        }
+        xc_textures[i].x18_alpha = rstl::min_val(xc_textures[i].x18_alpha + 0.01f, 1.f);
+      }
+    }
+  } else {
+    for (int i = 0; i < xc_textures.size(); ++i) {
+      if (!xc_textures[i].x0_token.null() && xc_textures[i].x0_token->IsLocked() &&
+          !xc_textures[i].x0_token->IsLoaded()) {
+        xc_textures[i].x0_token->Unlock();
+        break;
+      }
+    }
+  }
+
+  return loaded;
+}
+#endif
+
 void CSlideShow::SSlideData::Draw() const {
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+  if (IsReady()) {
+    const CVector2f leftBottom(x18_vpOffset.GetX(), x18_vpOffset.GetY() + x20_vpSize.GetY());
+    const CVector2f rightTop(x18_vpOffset.GetX() + x20_vpSize.GetX(), x18_vpOffset.GetY());
+    const float x = (x28_canvasSize.GetX() - x20_textureWidth) / 2.f;
+    const float y = (x28_canvasSize.GetY() - x24_textureHeight) / 2.f;
+    for (int i = 0; i < xc_textures.size(); ++i) {
+      const STexture& texture = xc_textures[i];
+      if (texture.x18_alpha > 0.f && !(leftBottom.GetX() > x + texture.x10_rightTop.GetX()) &&
+          !(leftBottom.GetY() < y + texture.x10_rightTop.GetY()) &&
+          !(rightTop.GetX() < x + texture.x8_leftBottom.GetX()) &&
+          !(rightTop.GetY() > y + texture.x8_leftBottom.GetY())) {
+        DrawTexture(texture.x0_token, CVector3f(x + texture.x8_leftBottom.GetX(), 0.f,
+                                               y + texture.x10_rightTop.GetY()),
+                    x30_mulColor.WithAlphaModulatedBy(texture.x18_alpha), &x18_vpOffset, &x20_vpSize);
+      }
+    }
+  }
+#else
   if (IsReady()) {
     const int width = (**xc_texture)->GetWidth();
     const int height = (**xc_texture)->GetHeight();
@@ -920,12 +1217,18 @@ void CSlideShow::SSlideData::Draw() const {
                            (x28_canvasSize.GetY() - height) / 2.f);
     DrawTexture(xc_texture, offset, x30_mulColor, &x18_vpOffset, &x20_vpSize);
   }
+#endif
 }
 
 void CSlideShow::SSlideData::Reset() {
   x4_gallery = -1;
   x8_slide = -1;
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+  xc_textures = rstl::vector< STexture >();
+  x1c_columns = 0;
+#else
   xc_texture = rstl::auto_ptr< TToken< CTexture > >();
+#endif
   x14_ready = false;
   x18_vpOffset = sZeroVector;
   x20_vpSize = sZeroVector;
