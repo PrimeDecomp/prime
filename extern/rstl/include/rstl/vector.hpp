@@ -107,7 +107,10 @@ public:
     mCount = 0;
   }
 
-  T* data() { return mItems; }
+  T* data() {
+    RS_ASSERT(x4_count >= 0 && x4_count <= x8_capacity, "rstl precondition");
+    return mItems;
+  }
   const T* data() const { return mItems; }
   int size() const { return mCount; }
   bool empty() const { return mCount == 0; }

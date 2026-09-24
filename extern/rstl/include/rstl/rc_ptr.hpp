@@ -74,6 +74,10 @@ template < typename T >
 class ncrc_ptr : public rc_ptr< T > {
 public:
   ncrc_ptr() {}
+  T* operator->() const {
+    RS_ASSERT(!this->IsNull(), "rstl precondition");
+    return this->GetPtr();
+  }
   ncrc_ptr(T* ptr) : rc_ptr< T >(ptr) {}
   ncrc_ptr(const rc_ptr< T >& other) : rc_ptr< T >(other) {}
   ncrc_ptr& operator=(const rc_ptr< T >& other) {

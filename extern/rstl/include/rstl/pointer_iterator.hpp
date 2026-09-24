@@ -18,7 +18,10 @@ public:
 
   const_pointer_iterator() : current(nullptr) {}
   const_pointer_iterator(const T* begin) : current(const_cast< T* >(begin)) {}
-  const_pointer_iterator(const Vec* owner, const T* begin) : current(const_cast< T* >(begin)) {}
+  const_pointer_iterator(const Vec* owner, const T* begin) : current(const_cast< T* >(begin)) {
+    RS_ASSERT(owner != nullptr && begin >= owner->data() && begin <= owner->data() + owner->size(),
+              "rstl precondition");
+  }
   const_pointer_iterator& operator++() {
     return *this += 1;
   }
@@ -45,8 +48,9 @@ public:
   difference_type operator-(const const_pointer_iterator& other) const {
     return this->current - other.current;
   }
+  void CheckValid() const { RS_ASSERT(current != nullptr, "rstl precondition"); }
   const T* get_pointer() const { return current; }
-  const T& operator*() const { return *current; }
+  const T& operator*() const { CheckValid(); return *current; }
   const T* operator->() const { return current; }
   bool operator==(const const_pointer_iterator& other) const { return current == other.current; }
   bool operator!=(const const_pointer_iterator& other) const { return current != other.current; }
@@ -72,7 +76,7 @@ public:
   pointer_iterator(T* begin) : base(begin) {}
   pointer_iterator(Vec* owner, T* begin) : base(owner, begin) {}
   T* get_pointer() const { return this->current; }
-  T& operator*() const { return *get_pointer(); }
+  T& operator*() const { this->CheckValid(); return *get_pointer(); }
   // TODO map says const, but breaks CScriptMazeNode::GenerateObjects
   T* operator->() { return this->current; }
   pointer_iterator& operator++() {

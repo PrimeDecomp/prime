@@ -33,6 +33,7 @@ static inline void destroy(It begin, It end) {
 
 template < typename It, typename T >
 static inline T uninitialized_copy(It begin, It end, T out) {
+  RS_ASSERT(begin == end || out != nullptr, "rstl precondition");
   T tmp = out;
   It cur = begin;
   for (; cur != end; ++tmp, ++cur) {
