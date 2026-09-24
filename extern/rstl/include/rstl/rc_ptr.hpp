@@ -84,7 +84,10 @@ public:
     mRefData->AddRef();
 #endif
   }
-  T* operator->() const { return GetPtr(); }
+  T* operator->() const {
+    RS_ASSERT(!IsNull(), "rstl precondition");
+    return GetPtr();
+  }
   T& operator*() const { return *GetPtr(); }
   operator bool() const { return GetPtr() != nullptr; }
 

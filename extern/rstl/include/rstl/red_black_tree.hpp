@@ -206,7 +206,8 @@ public:
   iterator erase(iterator it) {
     node* n = it.get_node();
     ++it;
-    free_node(rebalance_for_erase(n));
+    node* erased = rebalance_for_erase(n);
+    free_node(erased);
     mCount--;
     return it;
   }

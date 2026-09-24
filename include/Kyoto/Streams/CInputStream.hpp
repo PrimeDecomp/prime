@@ -119,8 +119,15 @@ inline rstl::pair< L, R >::pair(CInputStream& in)
 #include "rstl/vector.hpp"
 template < typename T, typename Alloc >
 inline rstl::vector< T, Alloc >::vector(CInputStream& in, const Alloc& allocator)
-: mCount(0), mCapacity(0), mItems(nullptr) {
+:
+#if RSTL_VERSION >= RSTL_R3IJ
+  Alloc(allocator),
+#else
+  mAllocator(allocator),
+#endif
+  mCount(0), mCapacity(0), mItems(nullptr) {
   int count = in.Get(TGetType(0));
+  RS_ASSERT(count >= 0, "rstl precondition");
   reserve(count);
   for (int i = 0; i < count; i++) {
     push_back(in.Get< T >());

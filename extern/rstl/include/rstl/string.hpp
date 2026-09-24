@@ -165,7 +165,9 @@ public:
 
   basic_string(const _CharTp* data, int size = -1, const Alloc& = rmemory_allocator());
 
-  ~basic_string() { internal_dereference(); }
+  ~basic_string() {
+    internal_dereference();
+  }
 
   size_t size() const { return mSize; }
   int length() const { return mSize; }
