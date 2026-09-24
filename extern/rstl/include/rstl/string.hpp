@@ -159,7 +159,10 @@ public:
 
   basic_string(const _CharTp* data, int size = -1, const Alloc& = rmemory_allocator());
 
-  ~basic_string() { internal_dereference(); }
+  ~basic_string() {
+    RS_ASSERT(x4_cow == nullptr || x4_cow->x4_refCount > 0, "rstl precondition");
+    internal_dereference();
+  }
 
   size_t size() const { return mSize; }
   int length() const { return mSize; }

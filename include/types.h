@@ -1,6 +1,8 @@
 #ifndef _TYPES
 #define _TYPES
 
+#define RS_ASSERT(cond, msg) ((void)(0))
+
 #include "GameVersions.h"
 #include "ByteOrder.hpp"
 

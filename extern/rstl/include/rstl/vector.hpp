@@ -112,14 +112,26 @@ public:
   int size() const { return mCount; }
   bool empty() const { return mCount == 0; }
   int capacity() const { return mCapacity; }
-  T& at(int idx) { return mItems[idx]; }
-  const T& at(int idx) const { return mItems[idx]; }
+  T& at(int idx) {
+    RS_ASSERT(idx >= 0 && idx < size(), "rstl precondition");
+    return mItems[idx];
+  }
+  const T& at(int idx) const {
+    RS_ASSERT(idx >= 0 && idx < size(), "rstl precondition");
+    return mItems[idx];
+  }
   T& front() { return at(0); }
   const T& front() const { return at(0); }
   T& back() { return at(mCount - 1); }
   const T& back() const { return at(mCount - 1); }
-  T& operator[](int idx) { return mItems[idx]; }
-  const T& operator[](int idx) const { return mItems[idx]; }
+  T& operator[](int idx) {
+    RS_ASSERT(idx >= 0 && idx < size(), "rstl precondition");
+    return mItems[idx];
+  }
+  const T& operator[](int idx) const {
+    RS_ASSERT(idx >= 0 && idx < size(), "rstl precondition");
+    return mItems[idx];
+  }
 
   void PutTo(COutputStream& out) const;
 

@@ -9,6 +9,7 @@
 namespace rstl {
 template < typename T >
 static inline void construct(void* dest, const T& src) {
+  RS_ASSERT(dest != nullptr, "rstl precondition");
   new (dest) T(src);
 }
 
