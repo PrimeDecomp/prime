@@ -2028,7 +2028,7 @@ config.libs = [
             Object(NonMatching, "Kyoto/CResFactory.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/CResLoader.cpp"),
             Object(
-                EquivalentFor("GM8E01_00"),
+                MatchingFor( "GM8E01_00"),
                 "rstl/rstl_map.cpp",
                 src_dir="extern/rstl/src",
             ),
