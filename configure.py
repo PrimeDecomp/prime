@@ -3227,6 +3227,37 @@ config.progress_data_fancy_frac = 250
 config.progress_data_fancy_item = "Missiles"
 config.extra_clang_flags = ["-DCLANGD"]
 
+# Experimental global policy; see docs/inline-experiments.md.
+def without_inline_overrides(flags):
+    result = []
+    skip = False
+    for flag in flags:
+        if skip:
+            skip = False
+        elif flag == "-inline":
+            skip = True
+        elif flag.startswith("-inline ") or ("-pragma" in flag and "inline_max_" in flag):
+            continue
+        else:
+            result.append(flag)
+    return result
+
+
+for lib in config.libs:
+    if lib.get("progress_category") not in ("game", "core"):
+        continue
+    for obj in lib["objects"]:
+        flags = without_inline_overrides(obj.options.get("cflags") or lib["cflags"])
+        obj.options["cflags"] = flags + [
+            "-inline auto,deferred",
+            f'-pragma "inline_max_size({retro_inline_max_size})"',
+        ]
+        obj.options["extra_cflags"] = without_inline_overrides(
+            obj.options.get("extra_cflags") or []
+        )
+
+config.progress_report_args = ["--config", "functionRelocDiffs=data_value"]
+
 if args.mode == "configure":
     # Write build.ninja and objdiff.json
     generate_build(config)
