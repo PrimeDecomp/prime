@@ -54,8 +54,20 @@ rstl::pair< CVector3f, CVector3f > CHudThreatInterface::XRayThreatBarCoordFunc(f
   return rstl::pair< CVector3f, CVector3f >(CVector3f(0.4f + x, 0.f, z), CVector3f(x, 0.f, z));
 }
 
-CHudThreatInterface::CHudThreatInterface(CGuiFrame& hud, EHudType type, float distance)
-: x4_hudType(type)
+CHudThreatInterface::CHudThreatInterface(
+  CGuiFrame& hud,
+#if VERSION >= VERSION_GM8P_00
+  StringTableHolder* stringTable,
+#endif
+  EHudType type,
+  float distance
+)
+#if VERSION >= VERSION_GM8P_00
+: x0_stringTable(stringTable),
+#else
+:
+#endif
+  x4_hudType(type)
 , x8_damagePulseTimer(0.f)
 , xc_damagePulse(0.f)
 , x10_threatDist(distance)
@@ -103,6 +115,10 @@ CHudThreatInterface::CHudThreatInterface(CGuiFrame& hud, EHudType type, float di
         gpTweakGuiColors->GetThreatWarningOutline());
   }
 }
+
+#if VERSION >= VERSION_GM8P_00
+CHudThreatInterface::~CHudThreatInterface() {}
+#endif
 
 void CHudThreatInterface::SetThreatDistance(float distance) { x10_threatDist = distance; }
 
@@ -200,10 +216,14 @@ void CHudThreatInterface::Update(float dt) {
       status = fraction > gpTweakGui->GetThreatWarningFraction() ? kTS_Warning : kTS_Normal;
     }
     if (status != x4c_threatStatus) {
+#if VERSION < VERSION_GM8P_00
       const rstl::wstring text =
           status == kTS_Warning  ? rstl::wstring_l(gpStringTable->GetString(10))
           : status == kTS_Damage ? rstl::wstring_l(gpStringTable->GetString(11))
                                  : rstl::wstring_l(L"");
+#else
+      const rstl::wstring text = BuildWarningString(status);
+#endif
       x68_textpane_threatwarning->TextSupport().SetText(text);
       if (x4c_threatStatus == kTS_Normal && status == kTS_Warning) {
         CSfxManager::SfxStart(0x574);
@@ -243,4 +263,18 @@ void CHudThreatInterface::Update(float dt) {
   }
 }
 
-CHudThreatInterface::~CHudThreatInterface() {}
+
+#if VERSION >= VERSION_GM8P_00
+
+void CHudThreatInterface::ReinitializeStrings() {
+  x68_textpane_threatwarning->TextSupport().SetText(BuildWarningString(x4c_threatStatus));
+}
+
+const rstl::wstring CHudThreatInterface::BuildWarningString(CHudThreatInterface::EThreatStatus status) {
+  return status == kTS_Warning  ? rstl::wstring_l(x0_stringTable->x8_table->GetString(9))
+          : status == kTS_Damage ? rstl::wstring_l(x0_stringTable->x8_table->GetString(10))
+                                 : rstl::wstring_l(L"");
+
+}
+
+#endif

@@ -34,10 +34,17 @@ class CHudRadarInterface;
 class CHudVisorBeamMenu;
 class IHudDecoInterface;
 class IHudFreeLookInterface;
-class IHudThreatInterface;
 class CLight;
 class CStringTable;
 class CUnitVector3f;
+
+#if VERSION < VERSION_GM8P_00
+#define ACTUAL_IHudThreatInterface IHudThreatInterface
+class IHudThreatInterface;
+#else
+#define ACTUAL_IHudThreatInterface CHudThreatInterface
+class CHudThreatInterface;
+#endif
 
 enum EHudState {
   kHS_Combat,
@@ -125,7 +132,7 @@ private:
   rstl::optional_object< TCachedToken< CGuiFrame > > x278_selectedHud;
   CGuiFrame* x288_loadedSelectedHud;
   rstl::single_ptr< CHudEnergyInterface > x28c_energyIntf;
-  rstl::single_ptr< IHudThreatInterface > x290_threatIntf;
+  rstl::single_ptr< ACTUAL_IHudThreatInterface > x290_threatIntf;
   rstl::single_ptr< CHudMissileInterface > x294_missileIntf;
   rstl::single_ptr< IHudFreeLookInterface > x298_freeLookIntf;
   rstl::single_ptr< IHudDecoInterface > x29c_decoIntf;

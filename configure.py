@@ -1134,7 +1134,10 @@ config.libs = [
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/HUD/CHudHelmetInterface.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/HUD/CHudMissileInterface.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/HUD/CHudRadarInterface.cpp"),
-            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/HUD/CHudThreatInterface.cpp"),
+            Object(
+                MatchingFor("GM8E01_00", "GM8E01_01"), 
+                "MetroidPrime/HUD/CHudThreatInterface.cpp",
+            ),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/HUD/CHudVisorBeamMenu.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/HUD/CHudDecoInterface.cpp"),
             Object(

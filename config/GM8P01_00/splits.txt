@@ -1169,7 +1169,7 @@ MetroidPrime/HUD/CHudRadarInterface.cpp:
 	.sdata2     start:0x8046E450 end:0x8046E480
 
 MetroidPrime/HUD/CHudThreatInterface.cpp:
-	.text       start:0x8018769C end:0x8018828C
+	.text       start:0x80187550 end:0x8018828C
 	.rodata     start:0x803BB864 end:0x803BB88C
 	.sdata2     start:0x8046E480 end:0x8046E4D0
 
